@@ -18,7 +18,7 @@ final class StateProperty<V> {
 	//method
 	public AssignmentType getAssignmentType() {
 		
-		if (!isDefined()) {
+		if (!hasValueOrIsEmpty()) {
 			return AssignmentType.UNDEFINED;
 		}
 		
@@ -46,7 +46,7 @@ final class StateProperty<V> {
 	}
 	
 	//method
-	public boolean isDefined() {
+	public boolean hasValueOrIsEmpty() {
 		return defined;
 	}
 	

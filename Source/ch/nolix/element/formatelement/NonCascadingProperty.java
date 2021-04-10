@@ -91,12 +91,12 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends Property<S
 	protected V getValueWhenHasState(final State<S> state) {
 		
 		final var stateProperty = stateProperties[state.getIndex()];
-		if (stateProperty.isDefined()) {
+		if (stateProperty.hasValueOrIsEmpty()) {
 			return stateProperty.getValue();
 		}
 		
 		final var baseStateProperty = getRefBaseStateProperty();
-		if (baseStateProperty.isDefined()) {
+		if (baseStateProperty.hasValueOrIsEmpty()) {
 			return baseStateProperty.getValue();
 		}
 		
@@ -112,12 +112,12 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends Property<S
 	protected boolean hasValueWhenHasState(final State<S> state) {
 		
 		final var stateProperty = stateProperties[state.getIndex()];
-		if (stateProperty.isDefined()) {
+		if (stateProperty.hasValueOrIsEmpty()) {
 			return stateProperty.hasValue();
 		}
 		
 		final var baseStateProperty = getRefBaseStateProperty();
-		if (baseStateProperty.isDefined()) {
+		if (baseStateProperty.hasValueOrIsEmpty()) {
 			return baseStateProperty.hasValue();
 		}
 		
