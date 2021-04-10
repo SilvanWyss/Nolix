@@ -109,6 +109,11 @@ public abstract class Property<S extends Enum<S>, V> implements Named {
 	}
 	
 	//method
+	public final boolean hasValueOrIsEmptyForState(final S state) {
+		return stateProperties[getStateOf(state).getIndex()].hasValueOrIsEmpty();
+	}
+	
+	//method
 	public void setUndefined() {
 		for (final var sp : stateProperties) {
 			sp.setUndefined();
