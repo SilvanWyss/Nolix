@@ -12,6 +12,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullExcep
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.element.base.MultiValue;
 import ch.nolix.element.base.MutableValue;
+import ch.nolix.element.base.SubElement;
 import ch.nolix.element.elementenum.RotationDirection;
 import ch.nolix.element.gui.base.Widget;
 import ch.nolix.element.gui.color.Color;
@@ -22,13 +23,16 @@ import ch.nolix.element.gui.painterapi.IPainter;
 /**
  * @author Silvan Wyss
  * @date 2018-08-13
- * @lines 440
+ * @lines 470
  */
 public final class Accordion extends ContainerWidget<Accordion, OldAccordionLook> {
 	
 	//constants
 	public static final AccordionExpansionBehavior DEFAULT_EXPANSION_BEHAVIOR = AccordionExpansionBehavior.SINGLE;
 	public static final Color DEFAULT_TAB_HEADER_BACKGROUND_COLOR =	Color.LIGHT_GREY;
+	
+	//constant
+	private static final String TAB_HEADER_LOOK_HEADER = "TabHeaderLook";
 	
 	//attribute
 	private final MutableValue<AccordionExpansionBehavior> expansionBehavior =
@@ -51,6 +55,9 @@ public final class Accordion extends ContainerWidget<Accordion, OldAccordionLook
 	
 	//attribute
 	private final VerticalStack accordionVerticalStack = new VerticalStack();
+	
+	//attribute
+	private final SubElement<StackLook> tabHeaderLook = new SubElement<>(TAB_HEADER_LOOK_HEADER, new StackLook());
 	
 	//constructor
 	/**
@@ -219,6 +226,14 @@ public final class Accordion extends ContainerWidget<Accordion, OldAccordionLook
 		
 		//For a better performance, this implementation does not use all comfortable methods.
 		return tabs.getElementCount();
+	}
+	
+	//method
+	/**
+	 * @return the look of the tab headers of the current {@link Accordion}.
+	 */
+	public StackLook onTabHeader() {
+		return tabHeaderLook.getSubElement();
 	}
 	
 	//method
