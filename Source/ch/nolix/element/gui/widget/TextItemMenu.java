@@ -14,6 +14,7 @@ import ch.nolix.common.functionapi.IAction;
 import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.common.skillapi.Clearable;
 import ch.nolix.element.base.MultiValue;
+import ch.nolix.element.base.SubElement;
 import ch.nolix.element.elementenum.RotationDirection;
 import ch.nolix.element.gui.input.Key;
 
@@ -24,6 +25,9 @@ implements Clearable {
 	//constant
 	private static final int MIN_ITEM_LABEL_WIDTH = 10;
 	
+	//constant
+	private static final String ITEM_HEADER = "Item";
+	
 	//attribute
 	private final MultiValue<TextItemMenuItem> items =
 	new MultiValue<>(
@@ -32,6 +36,9 @@ implements Clearable {
 		TextItemMenuItem::fromSpecification,
 		TextItemMenuItem::getSpecification
 	);
+	
+	//attribute
+	private final SubElement<LabelLook> itemLook = new SubElement<>(ITEM_HEADER, new LabelLook());
 	
 	//optional attribute
 	private IElementTaker<TextItemMenuItem> selectAction;
@@ -151,6 +158,11 @@ implements Clearable {
 	@Override
 	public final boolean isEmpty() {
 		return items.isEmpty();
+	}
+	
+	//method
+	public final LabelLook onItems() {
+		return itemLook.getSubElement();
 	}
 	
 	//method
