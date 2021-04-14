@@ -334,7 +334,7 @@ public final class TabContainer extends ContainerWidget<TabContainer, OldTabCont
 		
 		var height = menu.getHeight();
 		
-		height += getRefLook().getRecursiveOrDefaultMenuMargin();
+		height += getRefOldLook().getRecursiveOrDefaultMenuMargin();
 		
 		//Handles the case that the current tab container contains tabs.
 		if (containsAny()) {
@@ -558,7 +558,7 @@ public final class TabContainer extends ContainerWidget<TabContainer, OldTabCont
 			getRefSelectedWidget().setPositionOnParent(
 				0,				
 				menu.getHeight()
-				+ getRefLook().getRecursiveOrDefaultMenuMargin()
+				+ getRefOldLook().getRecursiveOrDefaultMenuMargin()
 			);
 		}
 	}

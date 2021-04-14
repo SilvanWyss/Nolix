@@ -54,7 +54,7 @@ public final class TextBox extends TextLineWidget<TextBox, OldTextBoxLook> {
 	 * @return the width of the text cursor of the current {@link TextBox}.
 	 */
 	public int getTextCursorWidth() {
-		return Calculator.getMax(1, (int)(0.08 * getRefLook().getRecursiveOrDefaultTextSize()));
+		return Calculator.getMax(1, (int)(0.08 * getRefOldLook().getRecursiveOrDefaultTextSize()));
 	}
 	
 	//method

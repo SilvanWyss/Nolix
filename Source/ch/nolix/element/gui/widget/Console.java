@@ -604,7 +604,7 @@ public final class Console extends BorderWidget<Console, OldConsoleLook> impleme
 	@Override
 	protected int getNaturalContentAreaHeight() {
 		
-		final var look = getRefLook();
+		final var look = getRefOldLook();
 		
 		var contentAreaHeight =
 		getLines().getElementCount() * look.getRecursiveOrDefaultTextSize();
@@ -835,7 +835,7 @@ public final class Console extends BorderWidget<Console, OldConsoleLook> impleme
 	//method
 	private TextFormat getFont() {
 		
-		final var look = getRefLook();
+		final var look = getRefOldLook();
 		
 		return
 		new TextFormat(

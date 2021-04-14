@@ -491,7 +491,7 @@ TopLeftPositionedRecangular {
 	 * 
 	 * @return the current look of the current {@link Widget}.
 	 */
-	public final WL getRefLook() {
+	public final WL getRefOldLook() {
 		
 		if (isHovered()) {
 			return getRefHoverLook();
@@ -2083,7 +2083,7 @@ TopLeftPositionedRecangular {
 	 */
 	private void paintRecursivelyUsingPositionedPainterWhenNotDisabled(final IPainter painter) {
 		
-		paint(painter, getRefLook());
+		paint(painter, getRefOldLook());
 		
 		if (paintsPaintableWidgetAPriori()) {
 			getRefPaintableWidgets().forEach(w -> w.paintRecursively(painter));

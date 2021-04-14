@@ -433,7 +433,7 @@ public final class Accordion extends ContainerWidget<Accordion, OldAccordionLook
 	 */
 	@Override
 	protected void recalculateBorderWidget() {
-		getRefTabs().forEach(t -> t.preparePaint(getRefLook()));
+		getRefTabs().forEach(t -> t.preparePaint(getRefOldLook()));
 	}
 	
 	//method

@@ -110,7 +110,7 @@ public final class BorderWidgetMainArea<BWL extends OldBorderWidgetLook<BWL>> im
 	 */
 	public int getNaturalHeight() {
 		
-		final var look = parentBorderWidget.getRefLook();
+		final var look = parentBorderWidget.getRefOldLook();
 		
 		return
 		parentBorderWidget.getBorderedArea().getNaturalHeight()
@@ -124,7 +124,7 @@ public final class BorderWidgetMainArea<BWL extends OldBorderWidgetLook<BWL>> im
 	 */
 	public int getNaturalWidth() {
 		
-		final var look = parentBorderWidget.getRefLook();
+		final var look = parentBorderWidget.getRefOldLook();
 		
 		return
 		parentBorderWidget.getBorderedArea().getNaturalWidth()

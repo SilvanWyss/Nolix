@@ -321,7 +321,7 @@ implements Clearable {
 		
 		recalculateTextItemMenuSelf();
 		
-		final var look = getRefLook();
+		final var look = getRefOldLook();
 		final var baseItemLook = look.getRefRecursiveOrDefaultBaseItemLook();
 		final var hoverItemLook = look.getRefRecursiveOrDefaultHoverItemLook();
 		final var selectedItemLook = look.getRefRecursiveOrDefaultSelectionItemLook();

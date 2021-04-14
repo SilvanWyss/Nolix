@@ -112,7 +112,7 @@ public final class FloatContainer extends ContainerWidget<FloatContainer, OldFlo
 		
 		return
 		widgets.getRefLast().getYPosition()
-		+ getRefLook().getRecursiveOrDefaultWidgetMargin()
+		+ getRefOldLook().getRecursiveOrDefaultWidgetMargin()
 		+ widgets.getRefLast().getHeight();
 	}
 	
@@ -193,7 +193,7 @@ public final class FloatContainer extends ContainerWidget<FloatContainer, OldFlo
 	protected void recalculateBorderWidget() {
 		
 		final var contentAreaWidth = getNaturalContentAreaWidth();
-		final var widgetMargin = getRefLook().getRecursiveOrDefaultWidgetMargin();
+		final var widgetMargin = getRefOldLook().getRecursiveOrDefaultWidgetMargin();
 		
 		var y = 0;
 		var x = 0;

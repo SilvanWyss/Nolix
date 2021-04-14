@@ -136,7 +136,7 @@ public final class DropdownMenu extends TextItemMenu<DropdownMenu> {
 	//method
 	private void applyColors() {
 		
-		final var textItemMenuLook = getRefLook();
+		final var textItemMenuLook = getRefOldLook();
 		
 		originLabel
 		.getRefBaseLook()

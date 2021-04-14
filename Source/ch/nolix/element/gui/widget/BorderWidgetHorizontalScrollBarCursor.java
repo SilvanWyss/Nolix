@@ -174,13 +174,13 @@ implements HoverableByCursor {
 	
 	//method
 	private Color getColorWhenIsMoved() {
-		return parentBorderWidget.getRefLook().getRecursiveOrDefaultSelectionScrollBarLook().getScrollCursorColor();
+		return parentBorderWidget.getRefOldLook().getRecursiveOrDefaultSelectionScrollBarLook().getScrollCursorColor();
 	}
 	
 	//method
 	private Color getColorWhenIsNotMoved() {
 		
-		final var look = parentBorderWidget.getRefLook();
+		final var look = parentBorderWidget.getRefOldLook();
 		
 		if (!isUnderCursor()) {
 			return look.getRecursiveOrDefaultBaseScrollBarLook().getScrollCursorColor();

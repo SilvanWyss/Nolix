@@ -84,7 +84,7 @@ public final class BorderWidgetContentArea<BWL extends OldBorderWidgetLook<BWL>>
 	 */
 	public int getTargetHeight() {
 		
-		final var look = parentBorderWidget.getRefLook();
+		final var look = parentBorderWidget.getRefOldLook();
 		
 		return
 		parentBorderWidget.getExtendedContentArea().getTargetHeight()
@@ -100,7 +100,7 @@ public final class BorderWidgetContentArea<BWL extends OldBorderWidgetLook<BWL>>
 	 */
 	public int getTargetWidth() {
 		
-		final var look = parentBorderWidget.getRefLook();
+		final var look = parentBorderWidget.getRefOldLook();
 		
 		return
 		parentBorderWidget.getExtendedContentArea().getTargetWidth()
@@ -155,7 +155,7 @@ public final class BorderWidgetContentArea<BWL extends OldBorderWidgetLook<BWL>>
 	 * on the {@link BorderWidgetExtendedContentArea} of the {@link BorderWidget} it belongs to.
 	 */
 	public int getXPositionOnExtendedContentArea() {
-		return parentBorderWidget.getRefLook().getRecursiveOrDefaultLeftPadding();
+		return parentBorderWidget.getRefOldLook().getRecursiveOrDefaultLeftPadding();
 	}
 	
 	//method
@@ -166,7 +166,7 @@ public final class BorderWidgetContentArea<BWL extends OldBorderWidgetLook<BWL>>
 	public int getXPositionOnScrolledArea() {
 		return
 		parentBorderWidget.getExtendedContentArea().getXPositionOnScrolledArea()
-		+ parentBorderWidget.getRefLook().getRecursiveOrDefaultLeftPadding();
+		+ parentBorderWidget.getRefOldLook().getRecursiveOrDefaultLeftPadding();
 	}
 	
 	//method
@@ -175,7 +175,7 @@ public final class BorderWidgetContentArea<BWL extends OldBorderWidgetLook<BWL>>
 	 * on the {@link BorderWidgetExtendedContentArea} of the {@link BorderWidget} it belongs to.
 	 */
 	public int getYPositionOnExtendedContentArea() {
-		return parentBorderWidget.getRefLook().getRecursiveOrDefaultTopPadding();
+		return parentBorderWidget.getRefOldLook().getRecursiveOrDefaultTopPadding();
 	}
 	
 	//method
@@ -186,7 +186,7 @@ public final class BorderWidgetContentArea<BWL extends OldBorderWidgetLook<BWL>>
 	public int getYPositionOnScrolledArea() {
 		return
 		parentBorderWidget.getExtendedContentArea().getYPositionOnScrolledArea()
-		+ parentBorderWidget.getRefLook().getRecursiveOrDefaultTopPadding();
+		+ parentBorderWidget.getRefOldLook().getRecursiveOrDefaultTopPadding();
 	}
 	
 	//method
