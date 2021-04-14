@@ -13,12 +13,12 @@ import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.exception.WrapperException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.element.elementapi.IMutableElement;
+import ch.nolix.element.elementapi.IRespondingMutableElement;
 import ch.nolix.element.layerelement.LayerProperty;
 
 //class
 public abstract class FormatElement<FE extends FormatElement<FE, S>, S extends Enum<S>>
-implements IMutableElement<FE> {
+implements IRespondingMutableElement<FE> {
 	
 	//static method
 	private static boolean fieldStoresProperty(final Field field) {
@@ -45,16 +45,16 @@ implements IMutableElement<FE> {
 	
 	//method
 	@Override
-	public final void addOrChangeAttribute(final BaseNode attribute) {
+	public final boolean addedOrChangedAttribute(final BaseNode attribute) {
 		
 		for (final var p : getRefProperties()) {
 			if (attribute.getHeader().endsWith(p.getName())) {
 				p.setValueFromSpecification(attribute);
-				return;
+				return true;
 			}
 		}
 		
-		throw new InvalidArgumentException(LowerCaseCatalogue.ATTRIBUTE, attribute, "is not valid");
+		return false;
 	}
 	
 	//method
