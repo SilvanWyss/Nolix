@@ -113,6 +113,15 @@ public final class TextBox extends TextLineWidget<TextBox, OldTextBoxLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
+	protected TextBoxLook createLook() {
+		return new TextBoxLook();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	protected OldTextBoxLook createOldLook() {
 		return new OldTextBoxLook();
 	}

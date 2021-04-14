@@ -222,7 +222,16 @@ public final class Area extends Widget<Area, OldAreaLook> {
 	public boolean showAreaIsUnderCursor() {
 		return isUnderCursor();
 	}
-		
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected AreaLook createLook() {
+		return new AreaLook();
+	}
+	
 	//method
 	/**
 	 * {@inheritDoc}

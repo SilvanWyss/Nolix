@@ -567,6 +567,15 @@ public final class Console extends BorderWidget<Console, OldConsoleLook> impleme
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected ConsoleLook createLook() {
+		return new ConsoleLook();
+	}
+	
+	//method
+	/**
 	 * @return a new widget look for the current {@link Console}.
 	 */
 	@Override

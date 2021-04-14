@@ -229,6 +229,12 @@ implements Clearable {
 	
 	//method
 	@Override
+	protected final TextItemMenuLook createLook() {
+		return new TextItemMenuLook();
+	}
+	
+	//method
+	@Override
 	protected final OldTextItemMenuLook createOldLook() {
 		return new OldTextItemMenuLook();
 	}

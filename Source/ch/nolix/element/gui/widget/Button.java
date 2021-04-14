@@ -149,6 +149,15 @@ public final class Button extends TextLineWidget<Button, OldButtonLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
+	protected ButtonLook createLook() {
+		return new ButtonLook();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	protected OldButtonLook createOldLook() {
 		return new OldButtonLook();
 	}

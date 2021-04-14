@@ -58,6 +58,15 @@ public final class Uploader extends TextLineWidget<Uploader,OldUploaderLook> {
 	}
 	
 	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected UploaderLook createLook() {
+		return new UploaderLook();
+	}
+	
+	//method
 	@Override
 	protected OldUploaderLook createOldLook() {
 		return new OldUploaderLook();

@@ -1499,6 +1499,12 @@ TopLeftPositionedRecangular {
 	
 	//method declaration
 	/**
+	 * @return a new {@link WidgetLook} for the current {@link Widget}.
+	 */
+	protected abstract WidgetLook<?> createLook();
+	
+	//method declaration
+	/**
 	 * @return a new look for the current {@link Widget}.
 	 */
 	protected abstract WL createOldLook();

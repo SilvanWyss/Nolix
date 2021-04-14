@@ -177,6 +177,15 @@ public abstract class Line<L extends Line<L>> extends Widget<L, OldLineLook> {
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final LineLook createLook() {
+		return new LineLook();
+	}
+	
+	//method
+	/**
 	 * @return a new widget look for this line.
 	 */
 	@Override

@@ -224,6 +224,15 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, OldSt
 	 * {@inheritDoc}
 	 */
 	@Override
+	protected final StackLook createLook() {
+		return new StackLook();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	protected final OldStackLook createOldLook() {
 		return new OldStackLook();
 	}
