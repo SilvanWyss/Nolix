@@ -180,7 +180,7 @@ public abstract class Line<L extends Line<L>> extends Widget<L, OldLineLook> {
 	 * @return a new widget look for this line.
 	 */
 	@Override
-	protected final OldLineLook createLook() {
+	protected final OldLineLook createOldLook() {
 		return new OldLineLook();
 	}
 	

@@ -134,7 +134,7 @@ public final class Label extends TextLineWidget<Label, OldLabelLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected OldLabelLook createLook() {
+	protected OldLabelLook createOldLook() {
 		return new OldLabelLook();
 	}
 	

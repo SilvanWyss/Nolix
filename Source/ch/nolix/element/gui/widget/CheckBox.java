@@ -141,7 +141,7 @@ public final class CheckBox extends BorderWidget<CheckBox, OldCheckBoxLook> {
 	 * @return a new widget look for the current {@link CheckBox}.
 	 */
 	@Override
-	protected OldCheckBoxLook createLook() {
+	protected OldCheckBoxLook createOldLook() {
 		return new OldCheckBoxLook();
 	}
 	

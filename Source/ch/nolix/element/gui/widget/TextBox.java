@@ -113,7 +113,7 @@ public final class TextBox extends TextLineWidget<TextBox, OldTextBoxLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected OldTextBoxLook createLook() {
+	protected OldTextBoxLook createOldLook() {
 		return new OldTextBoxLook();
 	}
 	

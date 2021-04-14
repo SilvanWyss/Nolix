@@ -215,7 +215,7 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 	
 	//method
 	@Override
-	protected OldAligningContainerLook createLook() {
+	protected OldAligningContainerLook createOldLook() {
 		return new OldAligningContainerLook();
 	}
 	

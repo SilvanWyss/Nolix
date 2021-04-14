@@ -62,7 +62,7 @@ public final class ImageWidget extends BorderWidget<ImageWidget, OldImageWidgetL
 	
 	//method
 	@Override
-	protected OldImageWidgetLook createLook() {
+	protected OldImageWidgetLook createOldLook() {
 		return new OldImageWidgetLook();
 	}
 	

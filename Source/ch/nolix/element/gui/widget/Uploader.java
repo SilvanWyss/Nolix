@@ -59,7 +59,7 @@ public final class Uploader extends TextLineWidget<Uploader,OldUploaderLook> {
 	
 	//method
 	@Override
-	protected OldUploaderLook createLook() {
+	protected OldUploaderLook createOldLook() {
 		return new OldUploaderLook();
 	}
 	

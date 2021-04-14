@@ -84,15 +84,15 @@ TopLeftPositionedRecangular {
 	
 	//attribute
 	private final ExchangableSubElement<WL> baseLook =
-	new ExchangableSubElement<>(BASE_PREFIX, createLook());
+	new ExchangableSubElement<>(BASE_PREFIX, createOldLook());
 	
 	//attribute
 	private final ExchangableSubElement<WL> hoverLook =
-	new ExchangableSubElement<>(HOVER_PREFIX, createLook());
+	new ExchangableSubElement<>(HOVER_PREFIX, createOldLook());
 	
 	//attribute
 	private final ExchangableSubElement<WL> focusLook =
-	new ExchangableSubElement<>(FOCUS_PREFIX, createLook());
+	new ExchangableSubElement<>(FOCUS_PREFIX, createOldLook());
 	
 	//attributes
 	private int xPositionOnContentAreaOfParent;
@@ -1501,7 +1501,7 @@ TopLeftPositionedRecangular {
 	/**
 	 * @return a new look for the current {@link Widget}.
 	 */
-	protected abstract WL createLook();
+	protected abstract WL createOldLook();
 	
 	//method declaration
 	/**
@@ -1840,9 +1840,9 @@ TopLeftPositionedRecangular {
 	 * Connects the {@link OldWidgetLook}s of the current {@link Widget}.
 	 */
 	private void createLooks() {
-		baseLook.setSubElement(createLook());
-		hoverLook.setSubElement(createLook());
-		focusLook.setSubElement(createLook());
+		baseLook.setSubElement(createOldLook());
+		hoverLook.setSubElement(createOldLook());
+		focusLook.setSubElement(createOldLook());
 	}
 	
 	//method

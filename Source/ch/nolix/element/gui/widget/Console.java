@@ -570,7 +570,7 @@ public final class Console extends BorderWidget<Console, OldConsoleLook> impleme
 	 * @return a new widget look for the current {@link Console}.
 	 */
 	@Override
-	protected OldConsoleLook createLook() {
+	protected OldConsoleLook createOldLook() {
 		return new OldConsoleLook();
 	}
 	

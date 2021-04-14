@@ -187,7 +187,7 @@ public final class Grid extends ContainerWidget<Grid, OldGridLook> {
 		
 	//method
 	@Override
-	protected OldGridLook createLook() {
+	protected OldGridLook createOldLook() {
 		return new OldGridLook();
 	}
 	

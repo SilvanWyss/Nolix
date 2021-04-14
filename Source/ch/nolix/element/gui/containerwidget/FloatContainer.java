@@ -80,7 +80,7 @@ public final class FloatContainer extends ContainerWidget<FloatContainer, OldFlo
 		
 	//method
 	@Override
-	protected OldFloatContainerLook createLook() {
+	protected OldFloatContainerLook createOldLook() {
 		return new OldFloatContainerLook();
 	}
 	

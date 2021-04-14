@@ -190,7 +190,7 @@ public final class InnerGUI extends BorderWidget<InnerGUI, OldInnerGUILook> impl
 	
 	//method
 	@Override
-	protected OldInnerGUILook createLook() {
+	protected OldInnerGUILook createOldLook() {
 		return new OldInnerGUILook();
 	}
 	

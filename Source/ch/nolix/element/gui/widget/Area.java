@@ -228,7 +228,7 @@ public final class Area extends Widget<Area, OldAreaLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected OldAreaLook createLook() {
+	protected OldAreaLook createOldLook() {
 		return new OldAreaLook();
 	}
 	

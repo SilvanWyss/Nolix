@@ -265,7 +265,7 @@ public final class Accordion extends ContainerWidget<Accordion, OldAccordionLook
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected OldAccordionLook createLook() {
+	protected OldAccordionLook createOldLook() {
 		return new OldAccordionLook();
 	}
 	

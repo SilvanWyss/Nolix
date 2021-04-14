@@ -116,7 +116,7 @@ public final class Downloader extends TextLineWidget<Downloader, OldDownloaderLo
 	
 	//method
 	@Override
-	protected OldDownloaderLook createLook() {
+	protected OldDownloaderLook createOldLook() {
 		return new OldDownloaderLook();
 	}
 	

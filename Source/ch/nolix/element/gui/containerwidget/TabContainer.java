@@ -280,7 +280,7 @@ public final class TabContainer extends ContainerWidget<TabContainer, OldTabCont
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected OldTabContainerLook createLook() {
+	protected OldTabContainerLook createOldLook() {
 		return new OldTabContainerLook();
 	}
 	

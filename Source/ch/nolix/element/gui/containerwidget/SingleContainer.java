@@ -117,7 +117,7 @@ public final class SingleContainer extends ContainerWidget<SingleContainer, OldS
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected OldSingleContainerLook createLook() {
+	protected OldSingleContainerLook createOldLook() {
 		return new OldSingleContainerLook();
 	}
 	
