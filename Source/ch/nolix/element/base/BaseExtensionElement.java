@@ -21,6 +21,11 @@ public abstract class BaseExtensionElement<E extends IRespondingMutableElement<E
 	}
 	
 	//method
+	public final E getExtensionElement() {
+		return internalExtensionElement;
+	}
+	
+	//method
 	public abstract boolean isExchangable();
 	
 	//method
