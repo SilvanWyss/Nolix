@@ -14,6 +14,7 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.skillapi.Clearable;
 import ch.nolix.element.gui.base.Widget;
 import ch.nolix.element.gui.widget.BorderWidget;
+import ch.nolix.element.gui.widget.BorderWidgetLook;
 import ch.nolix.element.gui.widget.OldBorderWidgetLook;
 
 //class
@@ -26,7 +27,7 @@ import ch.nolix.element.gui.widget.OldBorderWidgetLook;
  * @param <CW> is the type of a {@link ContainerWidget}.
  * @param <BWS> is the type of the {@link OldBorderWidgetLook} of a {@link ContainerWidget}.
  */
-public abstract class ContainerWidget<CW extends ContainerWidget<CW, BWS>,	BWS extends OldBorderWidgetLook<BWS>>
+public abstract class ContainerWidget<CW extends ContainerWidget<CW, BWS>, BWS extends BorderWidgetLook<BWS>>
 extends BorderWidget<CW, BWS> implements Clearable {
 	
 	//optional attribute

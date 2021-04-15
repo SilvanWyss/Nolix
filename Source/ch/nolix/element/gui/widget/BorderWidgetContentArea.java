@@ -17,7 +17,7 @@ import ch.nolix.element.gui.painterapi.IPainter;
  * @param <BWL>
  * is the type of the {@link OldBorderWidgetLook} of the {@link BorderWidget} of a {@link BorderWidgetContentArea}.
  */
-public final class BorderWidgetContentArea<BWL extends OldBorderWidgetLook<BWL>> implements Recalculable, Rectangular {
+public final class BorderWidgetContentArea<BWL extends BorderWidgetLook<BWL>> implements Recalculable, Rectangular {
 	
 	//attribute
 	/**
@@ -84,12 +84,12 @@ public final class BorderWidgetContentArea<BWL extends OldBorderWidgetLook<BWL>>
 	 */
 	public int getTargetHeight() {
 		
-		final var look = parentBorderWidget.getRefOldLook();
+		final var look = parentBorderWidget.getRefLook();
 		
 		return
 		parentBorderWidget.getExtendedContentArea().getTargetHeight()
-		- look.getRecursiveOrDefaultTopPadding()
-		- look.getRecursiveOrDefaultBottomPadding();
+		- look.getTopPadding()
+		- look.getBottomPadding();
 	}
 	
 	//method
@@ -100,12 +100,12 @@ public final class BorderWidgetContentArea<BWL extends OldBorderWidgetLook<BWL>>
 	 */
 	public int getTargetWidth() {
 		
-		final var look = parentBorderWidget.getRefOldLook();
+		final var look = parentBorderWidget.getRefLook();
 		
 		return
 		parentBorderWidget.getExtendedContentArea().getTargetWidth()
-		- look.getRecursiveOrDefaultLeftPadding()
-		- look.getRecursiveOrDefaultRightPadding();
+		- look.getLeftPadding()
+		- look.getRightPadding();
 	}
 	
 	//method
@@ -155,7 +155,7 @@ public final class BorderWidgetContentArea<BWL extends OldBorderWidgetLook<BWL>>
 	 * on the {@link BorderWidgetExtendedContentArea} of the {@link BorderWidget} it belongs to.
 	 */
 	public int getXPositionOnExtendedContentArea() {
-		return parentBorderWidget.getRefOldLook().getRecursiveOrDefaultLeftPadding();
+		return parentBorderWidget.getRefLook().getLeftPadding();
 	}
 	
 	//method
@@ -166,7 +166,7 @@ public final class BorderWidgetContentArea<BWL extends OldBorderWidgetLook<BWL>>
 	public int getXPositionOnScrolledArea() {
 		return
 		parentBorderWidget.getExtendedContentArea().getXPositionOnScrolledArea()
-		+ parentBorderWidget.getRefOldLook().getRecursiveOrDefaultLeftPadding();
+		+ parentBorderWidget.getRefLook().getLeftPadding();
 	}
 	
 	//method
@@ -175,7 +175,7 @@ public final class BorderWidgetContentArea<BWL extends OldBorderWidgetLook<BWL>>
 	 * on the {@link BorderWidgetExtendedContentArea} of the {@link BorderWidget} it belongs to.
 	 */
 	public int getYPositionOnExtendedContentArea() {
-		return parentBorderWidget.getRefOldLook().getRecursiveOrDefaultTopPadding();
+		return parentBorderWidget.getRefLook().getTopPadding();
 	}
 	
 	//method
@@ -186,7 +186,7 @@ public final class BorderWidgetContentArea<BWL extends OldBorderWidgetLook<BWL>>
 	public int getYPositionOnScrolledArea() {
 		return
 		parentBorderWidget.getExtendedContentArea().getYPositionOnScrolledArea()
-		+ parentBorderWidget.getRefOldLook().getRecursiveOrDefaultTopPadding();
+		+ parentBorderWidget.getRefLook().getTopPadding();
 	}
 	
 	//method

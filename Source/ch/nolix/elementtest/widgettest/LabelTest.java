@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.elementtest.widgettest;
 
+//own imports
 import ch.nolix.common.testing.basetest.TestCase;
-import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.widget.Label;
 
 //class
@@ -15,6 +15,8 @@ import ch.nolix.element.gui.widget.Label;
  */
 public final class LabelTest extends BorderWidgetTest<Label> {
 	
+	//TODO
+	/*
 	//method
 	@TestCase
 	public void testCase_getRefBaseLook_setTextColor() {
@@ -42,6 +44,7 @@ public final class LabelTest extends BorderWidgetTest<Label> {
 		//verification
 		expect(testUnit.getRefBaseLook().getRecursiveOrDefaultTextSize()).isEqualTo(25);
 	}
+	*/
 	
 	//method
 	@TestCase

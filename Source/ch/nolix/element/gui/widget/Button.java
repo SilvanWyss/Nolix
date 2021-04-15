@@ -12,6 +12,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHave
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.element.elementenum.ContentPosition;
+import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.input.Key;
 import ch.nolix.element.gui.painterapi.IPainter;
@@ -22,7 +23,7 @@ import ch.nolix.element.gui.painterapi.IPainter;
  * @date 2016-01-01
  * @lines 210
  */
-public final class Button extends TextLineWidget<Button, OldButtonLook> {
+public final class Button extends TextLineWidget<Button, ButtonLook> {
 	
 	//constants
 	public static final String TYPE_NAME = "Button";
@@ -40,13 +41,11 @@ public final class Button extends TextLineWidget<Button, OldButtonLook> {
 		setMinWidth(100);
 		setContentPosition(ContentPosition.CENTER);
 		
-		getRefBaseLook()
-		.setBorderThicknesses(1)
-		.setLeftPadding(10)
-		.setRightPadding(10);
-		
-		getRefHoverLook()
-		.setBackgroundColor(Color.GREY);
+		getRefLook()
+		.setBorderThicknessesForState(WidgetLookState.NORMAL, 1)
+		.setBackgroundColorForState(WidgetLookState.NORMAL, Color.GREY)
+		.setLeftPaddingForState(WidgetLookState.NORMAL,10)
+		.setRightPaddingForState(WidgetLookState.NORMAL, 10);
 	}
 	
 	//method
@@ -158,15 +157,6 @@ public final class Button extends TextLineWidget<Button, OldButtonLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected OldButtonLook createOldLook() {
-		return new OldButtonLook();
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	protected void noteKeyPressOnSelfWhenFocused(final Key key) {}
 	
 	//method
@@ -188,7 +178,7 @@ public final class Button extends TextLineWidget<Button, OldButtonLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void paintTextLineWidgetContentArea(final IPainter painter, final OldButtonLook buttonLook) {}
+	protected void paintTextLineWidgetContentArea(final IPainter painter, final ButtonLook buttonLook) {}
 	
 	//method
 	/**

@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.elementtest.widgettest;
 
+//own imports
 import ch.nolix.common.testing.basetest.TestCase;
-import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.widget.TextBox;
 
 //class
@@ -25,28 +25,7 @@ public class TextBoxTest extends BorderWidgetTest<TextBox> {
 		//verification
 		expect(textBox.getText()).isEmpty();
 	}
-	
-	//method
-	@TestCase
-	public final void testCase_setNormalTextColor() {
-		
-		//setup
-		final var textBox = new TextBox();
-		
-		//execution
-		textBox.getRefBaseLook().setTextColor(Color.BLUE);
-		
-		//verification
-			expect(textBox.getRefBaseLook().getRecursiveOrDefaultTextColor())
-			.isEqualTo(Color.BLUE);
 			
-			expect(textBox.getRefHoverLook().getRecursiveOrDefaultTextColor())
-			.isEqualTo(Color.BLUE);
-			
-			expect(textBox.getRefFocusLook().getRecursiveOrDefaultTextColor())
-			.isEqualTo(Color.BLUE);
-	}
-	
 	//method
 	@TestCase
 	public final void testCase_setText() {

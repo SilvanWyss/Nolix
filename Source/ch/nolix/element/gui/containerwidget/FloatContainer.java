@@ -12,7 +12,7 @@ import ch.nolix.element.gui.input.Key;
 import ch.nolix.element.gui.painterapi.IPainter;
 
 //class
-public final class FloatContainer extends ContainerWidget<FloatContainer, OldFloatContainerLook> {
+public final class FloatContainer extends ContainerWidget<FloatContainer, FloatContainerLook> {
 	
 	//multi-attribute
 	private final LinkedList<Widget<?, ?>> widgets = new LinkedList<>();
@@ -86,12 +86,6 @@ public final class FloatContainer extends ContainerWidget<FloatContainer, OldFlo
 	
 	//method
 	@Override
-	protected OldFloatContainerLook createOldLook() {
-		return new OldFloatContainerLook();
-	}
-	
-	//method
-	@Override
 	protected void fillUpChildWidgets(final LinkedList<Widget<?, ?>> list) {
 		list.addAtEnd(widgets);
 	}
@@ -112,7 +106,7 @@ public final class FloatContainer extends ContainerWidget<FloatContainer, OldFlo
 		
 		return
 		widgets.getRefLast().getYPosition()
-		+ getRefOldLook().getRecursiveOrDefaultWidgetMargin()
+		+ getRefLook().getElementMargin()
 		+ widgets.getRefLast().getHeight();
 	}
 	
@@ -186,14 +180,14 @@ public final class FloatContainer extends ContainerWidget<FloatContainer, OldFlo
 	
 	//method
 	@Override
-	protected void paintContentArea(final OldFloatContainerLook floatContainerLook, final IPainter painter) {}
+	protected void paintContentArea(final FloatContainerLook floatContainerLook, final IPainter painter) {}
 	
 	//method
 	@Override
 	protected void recalculateBorderWidget() {
 		
 		final var contentAreaWidth = getNaturalContentAreaWidth();
-		final var widgetMargin = getRefOldLook().getRecursiveOrDefaultWidgetMargin();
+		final var widgetMargin = getRefLook().getElementMargin();
 		
 		var y = 0;
 		var x = 0;

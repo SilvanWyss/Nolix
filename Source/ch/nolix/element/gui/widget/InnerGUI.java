@@ -19,7 +19,7 @@ import ch.nolix.element.gui.input.Key;
 import ch.nolix.element.gui.painterapi.IPainter;
 
 //class
-public final class InnerGUI extends BorderWidget<InnerGUI, OldInnerGUILook> implements IWidgetGUI<InnerGUI> {
+public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> implements IWidgetGUI<InnerGUI> {
 	
 	//constant
 	public static final String DEFAULT_TITLE = GUI.DEFAULT_TITLE;
@@ -196,12 +196,6 @@ public final class InnerGUI extends BorderWidget<InnerGUI, OldInnerGUILook> impl
 	
 	//method
 	@Override
-	protected OldInnerGUILook createOldLook() {
-		return new OldInnerGUILook();
-	}
-	
-	//method
-	@Override
 	protected void fillUpChildWidgets(final LinkedList<Widget<?, ?>> list) {
 		list.addAtEnd(titleLabel);
 	}
@@ -304,7 +298,7 @@ public final class InnerGUI extends BorderWidget<InnerGUI, OldInnerGUILook> impl
 	
 	//method
 	@Override
-	protected void paintContentArea(final OldInnerGUILook borderWidgetLook, final IPainter painter) {
+	protected void paintContentArea(final InnerGUILook borderWidgetLook, final IPainter painter) {
 		painter.translateVertically(titleLabel.getHeight());		
 		internalGUI.paint(painter);
 	}

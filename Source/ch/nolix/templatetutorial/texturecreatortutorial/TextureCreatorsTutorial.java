@@ -1,7 +1,6 @@
 package ch.nolix.templatetutorial.texturecreatortutorial;
 
 import ch.nolix.element.gui.base.Frame;
-import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.containerwidget.Accordion;
 import ch.nolix.element.gui.widget.ImageWidget;
 import ch.nolix.system.texture.TextureCreator;
@@ -37,12 +36,12 @@ public final class TextureCreatorsTutorial {
 			.addTab(
 				"Concrete",
 				new ImageWidget().setImage(concreteTexture)
-				.applyOnBaseLook(bl -> bl.setBackgroundColor(Color.LAVENDER).setPaddings(10))
+				//TODO: .applyOnBaseLook(bl -> bl.setBackgroundColor(Color.LAVENDER).setPaddings(10))
 			)
 			.addTab(
 				"Jute",
 				new ImageWidget().setImage(juteTexture)
-				.applyOnBaseLook(bl -> bl.setBackgroundColor(Color.LAVENDER).setPaddings(10))
+				//TODO: .applyOnBaseLook(bl -> bl.setBackgroundColor(Color.LAVENDER).setPaddings(10))
 			)
 		);
 	}

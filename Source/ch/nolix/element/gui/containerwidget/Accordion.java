@@ -25,7 +25,7 @@ import ch.nolix.element.gui.painterapi.IPainter;
  * @date 2018-08-13
  * @lines 470
  */
-public final class Accordion extends ContainerWidget<Accordion, OldAccordionLook> {
+public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	
 	//constants
 	public static final AccordionExpansionBehavior DEFAULT_EXPANSION_BEHAVIOR = AccordionExpansionBehavior.SINGLE;
@@ -68,7 +68,7 @@ public final class Accordion extends ContainerWidget<Accordion, OldAccordionLook
 		accordionVerticalStack.reset();
 		
 		setExpansionBehavior(DEFAULT_EXPANSION_BEHAVIOR);
-		getRefBaseLook().setTabHeaderBackgroundColor(DEFAULT_TAB_HEADER_BACKGROUND_COLOR);
+		//TODO: getRefBaseLook().setTabHeaderBackgroundColor(DEFAULT_TAB_HEADER_BACKGROUND_COLOR);
 	}
 	
 	//method
@@ -274,15 +274,6 @@ public final class Accordion extends ContainerWidget<Accordion, OldAccordionLook
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected OldAccordionLook createOldLook() {
-		return new OldAccordionLook();
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	protected void fillUpChildWidgets(final LinkedList<Widget<?, ?>> list) {
 		
 		//Iterates the tabs of the current Accordion.
@@ -425,7 +416,7 @@ public final class Accordion extends ContainerWidget<Accordion, OldAccordionLook
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void paintContentArea(final OldAccordionLook accordionLook, final IPainter painter) {}
+	protected void paintContentArea(final AccordionLook accordionLook, final IPainter painter) {}
 	
 	//method
 	/**
@@ -433,7 +424,7 @@ public final class Accordion extends ContainerWidget<Accordion, OldAccordionLook
 	 */
 	@Override
 	protected void recalculateBorderWidget() {
-		getRefTabs().forEach(t -> t.preparePaint(getRefOldLook()));
+		getRefTabs().forEach(t -> t.preparePaint(getRefLook()));
 	}
 	
 	//method

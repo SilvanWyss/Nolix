@@ -17,7 +17,7 @@ import ch.nolix.element.gui.painterapi.IPainter;
  * @param <BWL>
  * is the type of the {@link OldBorderWidgetLook} of the {@link BorderWidget} of a {@link BorderWidgetBorderedArea}.
  */
-public final class BorderWidgetBorderedArea<BWL extends OldBorderWidgetLook<BWL>> implements HoverableByCursor {
+public final class BorderWidgetBorderedArea<BWL extends BorderWidgetLook<BWL>> implements HoverableByCursor {
 	
 	//attribute
 	/**
@@ -66,12 +66,12 @@ public final class BorderWidgetBorderedArea<BWL extends OldBorderWidgetLook<BWL>
 	@Override
 	public int getHeight() {
 		
-		final var look = parentBorderWidget.getRefOldLook();
+		final var look = parentBorderWidget.getRefLook();
 		
 		return
 		parentBorderWidget.getMainArea().getHeight()
-		- look.getRecursiveOrDefaultTopBorderThickness()
-		- look.getRecursiveOrDefaultBottomBorderThickness();
+		- look.getTopBorderThickenss()
+		- look.getBottomBorderThickenss();
 	}
 	
 	//method
@@ -82,12 +82,12 @@ public final class BorderWidgetBorderedArea<BWL extends OldBorderWidgetLook<BWL>
 	 */
 	public int getMaxHeight() {
 		
-		final var look = parentBorderWidget.getRefOldLook();
+		final var look = parentBorderWidget.getRefLook();
 		
 		return
 		parentBorderWidget.getMainArea().getMaxHeight()
-		- look.getRecursiveOrDefaultTopBorderThickness()
-		- look.getRecursiveOrDefaultBottomBorderThickness();
+		- look.getTopBorderThickenss()
+		- look.getBottomBorderThickenss();
 	}
 	
 	//method
@@ -98,12 +98,12 @@ public final class BorderWidgetBorderedArea<BWL extends OldBorderWidgetLook<BWL>
 	 */
 	public int getMaxWidth() {
 		
-		final var look = parentBorderWidget.getRefOldLook();
+		final var look = parentBorderWidget.getRefLook();
 		
 		return
 		parentBorderWidget.getMainArea().getMaxWidth()
-		- look.getRecursiveOrDefaultLeftBorderThickness()
-		- look.getRecursiveOrDefaultRightBorderThickness();
+		- look.getLeftBorderThickenss()
+		- look.getRightBorderThickenss();
 	}
 	
 	//method
@@ -114,12 +114,12 @@ public final class BorderWidgetBorderedArea<BWL extends OldBorderWidgetLook<BWL>
 	 */
 	public int getMinHeight() {
 		
-		final var look = parentBorderWidget.getRefOldLook();
+		final var look = parentBorderWidget.getRefLook();
 		
 		return
 		parentBorderWidget.getMainArea().getMinHeight()
-		- look.getRecursiveOrDefaultTopBorderThickness()
-		- look.getRecursiveOrDefaultBottomBorderThickness();
+		- look.getTopBorderThickenss()
+		- look.getBottomBorderThickenss();
 	}
 	
 	//method
@@ -130,12 +130,12 @@ public final class BorderWidgetBorderedArea<BWL extends OldBorderWidgetLook<BWL>
 	 */
 	public int getMinWidth() {
 		
-		final var look = parentBorderWidget.getRefOldLook();
+		final var look = parentBorderWidget.getRefLook();
 		
 		return
 		parentBorderWidget.getMainArea().getMinWidth()
-		- look.getRecursiveOrDefaultLeftBorderThickness()
-		- look.getRecursiveOrDefaultRightBorderThickness();
+		- look.getLeftBorderThickenss()
+		- look.getRightBorderThickenss();
 	}
 	
 	//method
@@ -166,12 +166,12 @@ public final class BorderWidgetBorderedArea<BWL extends OldBorderWidgetLook<BWL>
 	 */
 	public int getProposalHeight() {
 		
-		final var look = parentBorderWidget.getRefOldLook();
+		final var look = parentBorderWidget.getRefLook();
 		
 		return
 		parentBorderWidget.getMainArea().getProposalHeight()
-		- look.getRecursiveOrDefaultTopBorderThickness()
-		- look.getRecursiveOrDefaultBottomBorderThickness();
+		- look.getTopBorderThickenss()
+		- look.getBottomBorderThickenss();
 	}
 	
 	//method
@@ -182,12 +182,12 @@ public final class BorderWidgetBorderedArea<BWL extends OldBorderWidgetLook<BWL>
 	 */
 	public int getProposalWidth() {
 		
-		final var look = parentBorderWidget.getRefOldLook();
+		final var look = parentBorderWidget.getRefLook();
 		
 		return
 		parentBorderWidget.getMainArea().getProposalWidth()
-		- look.getRecursiveOrDefaultLeftBorderThickness()
-		- look.getRecursiveOrDefaultRightBorderThickness();
+		- look.getLeftBorderThickenss()
+		- look.getRightBorderThickenss();
 	}
 	
 	//method
@@ -198,12 +198,12 @@ public final class BorderWidgetBorderedArea<BWL extends OldBorderWidgetLook<BWL>
 	 */
 	public int getTargetHeight() {
 		
-		final var look = parentBorderWidget.getRefOldLook();
+		final var look = parentBorderWidget.getRefLook();
 		
 		return
 		parentBorderWidget.getMainArea().getTargetHeight()
-		- look.getRecursiveOrDefaultTopBorderThickness()
-		- look.getRecursiveOrDefaultBottomBorderThickness();
+		- look.getTopBorderThickenss()
+		- look.getBottomBorderThickenss();
 	}
 	
 	//method
@@ -214,12 +214,12 @@ public final class BorderWidgetBorderedArea<BWL extends OldBorderWidgetLook<BWL>
 	 */
 	public int getTargetWidth() {
 		
-		final var look = parentBorderWidget.getRefOldLook();
+		final var look = parentBorderWidget.getRefLook();
 		
 		return
 		parentBorderWidget.getMainArea().getTargetWidth()
-		- look.getRecursiveOrDefaultLeftBorderThickness()
-		- look.getRecursiveOrDefaultRightBorderThickness();
+		- look.getLeftBorderThickenss()
+		- look.getRightBorderThickenss();
 	}
 	
 	//method
@@ -229,12 +229,12 @@ public final class BorderWidgetBorderedArea<BWL extends OldBorderWidgetLook<BWL>
 	@Override
 	public int getWidth() {
 		
-		final var look = parentBorderWidget.getRefOldLook();
+		final var look = parentBorderWidget.getRefLook();
 		
 		return
 		parentBorderWidget.getMainArea().getWidth()
-		- look.getRecursiveOrDefaultLeftBorderThickness()
-		- look.getRecursiveOrDefaultRightBorderThickness();
+		- look.getLeftBorderThickenss()
+		- look.getRightBorderThickenss();
 	}
 	
 	//method
@@ -244,9 +244,9 @@ public final class BorderWidgetBorderedArea<BWL extends OldBorderWidgetLook<BWL>
 	 */
 	public int getXPosition() {
 		
-		final var look = parentBorderWidget.getRefOldLook();
+		final var look = parentBorderWidget.getRefLook();
 		
-		return parentBorderWidget.getMainArea().getXPosition() + look.getRecursiveOrDefaultLeftBorderThickness();
+		return parentBorderWidget.getMainArea().getXPosition() + look.getLeftBorderThickenss();
 	}
 	
 	//method
@@ -256,9 +256,9 @@ public final class BorderWidgetBorderedArea<BWL extends OldBorderWidgetLook<BWL>
 	 */
 	public int getYPosition() {
 		
-		final var look = parentBorderWidget.getRefOldLook();
+		final var look = parentBorderWidget.getRefLook();
 		
-		return parentBorderWidget.getMainArea().getYPosition() +  look.getRecursiveOrDefaultTopBorderThickness();
+		return parentBorderWidget.getMainArea().getYPosition() +  look.getTopBorderThickenss();
 	}
 	
 	//method

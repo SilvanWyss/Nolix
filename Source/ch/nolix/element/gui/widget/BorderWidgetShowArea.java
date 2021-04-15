@@ -17,7 +17,7 @@ import ch.nolix.element.gui.painterapi.IPainter;
  * @param <BWL>
  * is the type of the {@link OldBorderWidgetLook} of the {@link BorderWidget} of a {@link BorderWidgetShowArea}.
  */
-public final class BorderWidgetShowArea<BWL extends OldBorderWidgetLook<BWL>> implements HoverableByCursor {
+public final class BorderWidgetShowArea<BWL extends BorderWidgetLook<BWL>> implements HoverableByCursor {
 	
 	//attribute
 	/**

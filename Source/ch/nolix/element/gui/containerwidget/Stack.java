@@ -26,7 +26,7 @@ import ch.nolix.element.gui.painterapi.IPainter;
  * @lines 350
  * @param <S> is the type of a {@link Stack}.
  */
-public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, OldStackLook> {
+public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, StackLook> {
 	
 	//constant
 	private static final String ELEMENT_MARGIN_HEADER = "ElementMargin";
@@ -233,15 +233,6 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, OldSt
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final OldStackLook createOldLook() {
-		return new OldStackLook();
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	protected final void fillUpChildWidgets(final LinkedList<Widget<?, ?>> list) {
 		for (final var w : widgets) {
 			if (w.isEnabled()) {
@@ -366,7 +357,7 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, OldSt
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void paintContentArea(final OldStackLook stackLook, final IPainter painter) {}
+	protected final void paintContentArea(final StackLook stackLook, final IPainter painter) {}
 	
 	//method
 	/**

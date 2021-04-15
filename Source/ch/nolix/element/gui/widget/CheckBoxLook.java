@@ -7,11 +7,10 @@ import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.element.formatelement.NonCascadingProperty;
-import ch.nolix.element.gui.base.WidgetLook;
 import ch.nolix.element.gui.base.WidgetLookState;
 
 //class
-public final class CheckBoxLook extends WidgetLook<CheckBoxLook> {
+public final class CheckBoxLook extends BorderWidgetLook<CheckBoxLook> {
 	
 	//constant
 	public static final int DEFAULT_LINE_THICKNESS = 1;

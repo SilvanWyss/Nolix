@@ -17,6 +17,7 @@ import ch.nolix.common.skillapi.Clearable;
 import ch.nolix.element.elementenum.RotationDirection;
 import ch.nolix.element.gui.base.CursorIcon;
 import ch.nolix.element.gui.base.Widget;
+import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.input.Key;
 import ch.nolix.element.gui.painterapi.IPainter;
@@ -29,7 +30,7 @@ import ch.nolix.element.gui.textformat.TextFormat;
  * @date 2017-03-06
  * @lines 870
  */
-public final class Console extends BorderWidget<Console, OldConsoleLook> implements Clearable {
+public final class Console extends BorderWidget<Console, ConsoleLook> implements Clearable {
 	
 	//constants
 	public static final String TYPE_NAME = "Console";
@@ -82,7 +83,7 @@ public final class Console extends BorderWidget<Console, OldConsoleLook> impleme
 	 */
 	public Console() {
 		setProposalSize(200, 100);
-		getRefBaseLook().setPaddings(10);
+		getRefLook().setPaddingForState(WidgetLookState.NORMAL, 10);
 	}
 	
 	//method
@@ -576,15 +577,6 @@ public final class Console extends BorderWidget<Console, OldConsoleLook> impleme
 	
 	//method
 	/**
-	 * @return a new widget look for the current {@link Console}.
-	 */
-	@Override
-	protected OldConsoleLook createOldLook() {
-		return new OldConsoleLook();
-	}
-	
-	//method
-	/**
 	 * {@inheritDoc}
 	 */
 	@Override
@@ -604,16 +596,16 @@ public final class Console extends BorderWidget<Console, OldConsoleLook> impleme
 	@Override
 	protected int getNaturalContentAreaHeight() {
 		
-		final var look = getRefOldLook();
+		final var look = getRefLook();
 		
 		var contentAreaHeight =
-		getLines().getElementCount() * look.getRecursiveOrDefaultTextSize();
+		getLines().getElementCount() * look.getTextSize();
 		
 		if (isEditable()) {
-			contentAreaHeight += look.getRecursiveOrDefaultTextSize();
+			contentAreaHeight += look.getTextSize();
 		}
 		
-		contentAreaHeight += 0.5 * look.getRecursiveOrDefaultTextSize();
+		contentAreaHeight += 0.5 * look.getTextSize();
 		
 		return contentAreaHeight;
 	}
@@ -643,11 +635,11 @@ public final class Console extends BorderWidget<Console, OldConsoleLook> impleme
 	 */
 	@Override
 	protected void paintContentArea(
-		final OldConsoleLook widgetStructure,
+		final ConsoleLook widgetStructure,
 		final IPainter painter
 	) {
 		
-		final var textSize = widgetStructure.getRecursiveOrDefaultTextSize();
+		final var textSize = widgetStructure.getTextSize();
 		final var font = getFont();
 		
 		//Iterates the lines of the current Console.
@@ -665,7 +657,7 @@ public final class Console extends BorderWidget<Console, OldConsoleLook> impleme
 				final var textCursorXPosition =
 				font.getSwingTextWidth(LINE_PREFIX + getEditLineBeforeTextCursor()) - 1;
 				
-				painter.setColor(widgetStructure.getRecursiveOrDefaultTextColor());
+				//TODO: painter.setColor(widgetStructure.getTextColor());
 				painter.paintFilledRectangle(
 					textCursorXPosition,
 					0,
@@ -822,7 +814,7 @@ public final class Console extends BorderWidget<Console, OldConsoleLook> impleme
 	@Override
 	protected void resetBorderWidgetConfigurationOnSelf() {
 		setCustomCursorIcon(CursorIcon.EDIT);
-		getRefBaseLook().setTextFont(Font.LUCIDA_CONSOLE);
+		getRefLook().setFontForState(WidgetLookState.NORMAL, Font.LUCIDA_CONSOLE);
 	}
 	
 	//method
@@ -835,13 +827,13 @@ public final class Console extends BorderWidget<Console, OldConsoleLook> impleme
 	//method
 	private TextFormat getFont() {
 		
-		final var look = getRefOldLook();
+		final var look = getRefLook();
 		
 		return
 		new TextFormat(
-			look.getRecursiveOrDefaultTextFont(),
-			look.getRecursiveOrDefaultTextSize(),
-			look.getRecursiveOrDefaultTextColor()
+			look.getFont(),
+			look.getTextSize(),
+			Color.BLACK //TODO: look.gettTextColor()
 		);
 	}
 	

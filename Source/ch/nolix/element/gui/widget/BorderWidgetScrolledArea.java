@@ -18,7 +18,7 @@ import ch.nolix.element.gui.painterapi.IPainter;
  * @param <BWL>
  * is the type of the {@link OldBorderWidgetLook} of the {@link BorderWidget} of a {@link BorderWidgetScrolledArea}.
  */
-public final class BorderWidgetScrolledArea<BWL extends OldBorderWidgetLook<BWL>> implements Rectangular {
+public final class BorderWidgetScrolledArea<BWL extends BorderWidgetLook<BWL>> implements Rectangular {
 	
 	//attribute
 	/**
@@ -233,22 +233,22 @@ public final class BorderWidgetScrolledArea<BWL extends OldBorderWidgetLook<BWL>
 	private void paintBackground(final IPainter painter, final BWL borderWidgetLook) {
 		
 		//Handles the case that the given borderWidgetLook has a recursive background color.
-		if (borderWidgetLook.hasRecursiveBackgroundColor()) {
+		if (borderWidgetLook.hasBackgroundColor()) {
 			
-			painter.setColor(borderWidgetLook.getRecursiveOrDefaultBackgroundColor());
+			painter.setColor(borderWidgetLook.getBackgroundColor());
 			
 			painter.paintFilledRectangle(getWidth(), getHeight());
 			
 		//Handles the case that the given borderWidgetLook has a recursive background color gradient.
-		} else if (borderWidgetLook.hasRecursiveBackgroundColorGradient()) {
+		} else if (borderWidgetLook.hasBackgroundColorGradient()) {
 			
-			painter.setColorGradient(borderWidgetLook.getRecursiveOrDefaultBackgroundColorGradient());
+			painter.setColorGradient(borderWidgetLook.getBackgroundColorGradient());
 			
 			painter.paintFilledRectangle(getWidth(), getHeight());
 			
 		//Handles the case that the given borderWidgetLook has a recursive background image.
-		} else if (borderWidgetLook.hasRecursiveBackgroundImage()) {
-			painter.paintImage(borderWidgetLook.getRecursiveOrDefaultBackgroundImage(),	getWidth(),	getHeight());
+		} else if (borderWidgetLook.hasBackgroundImage()) {
+			painter.paintImage(borderWidgetLook.getBackgroundImage(), getWidth(), getHeight());
 		}
 	}
 }

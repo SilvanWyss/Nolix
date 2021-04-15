@@ -13,6 +13,7 @@ import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.elementenum.RotationDirection;
 import ch.nolix.element.gui.base.Widget;
+import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.input.Key;
 import ch.nolix.element.gui.painterapi.IPainter;
 import ch.nolix.element.gui.textformat.TextFormat;
@@ -27,7 +28,7 @@ import ch.nolix.element.gui.textformat.TextFormat;
  * @param <TLW> is the type of a {@link TextLineWidget}.
  * @param <TLWL> is the type of the {@link OldTextLineWidgetLook} of a {@link TextLineWidget}.
  */
-public abstract class TextLineWidget<TLW extends TextLineWidget<TLW, TLWL>, TLWL extends OldTextLineWidgetLook<TLWL>>
+public abstract class TextLineWidget<TLW extends TextLineWidget<TLW, TLWL>, TLWL extends BorderWidgetLook<TLWL>>
 extends BorderWidget<TLW, TLWL> {
 	
 	//constant
@@ -177,7 +178,7 @@ extends BorderWidget<TLW, TLWL> {
 	 */
 	@Override
 	protected final int getNaturalContentAreaHeight() {
-		return new TextFormat(getRefOldLook().getRecursiveOrDefaultTextSize()).getTextHeight();
+		return new TextFormat(getRefLook().getTextSize()).getTextHeight();
 	}
 	
 	//method
@@ -196,13 +197,13 @@ extends BorderWidget<TLW, TLWL> {
 	protected final TextFormat getTextFormat() {
 		
 		//Extracts the of the current TextLineWidget.
-		final var look = getRefOldLook();
+		final var look = getRefLook();
 		
 		return
 		new TextFormat(
-			look.getRecursiveOrDefaultTextFont(),
-			look.getRecursiveOrDefaultTextSize(),
-			look.getRecursiveOrDefaultTextColor()
+			look.getFont(),
+			look.getTextSize(),
+			Color.BLACK //TODO: look.getTextColor()
 		);
 	}
 	

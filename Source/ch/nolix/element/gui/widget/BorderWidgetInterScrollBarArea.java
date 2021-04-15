@@ -6,7 +6,7 @@ import ch.nolix.element.gui.baseapi.HoverableByCursor;
 import ch.nolix.element.gui.painterapi.IPainter;
 
 //class
-public final class BorderWidgetInterScrollBarArea<BWL extends OldBorderWidgetLook<BWL>> implements HoverableByCursor {
+public final class BorderWidgetInterScrollBarArea<BWL extends BorderWidgetLook<BWL>> implements HoverableByCursor {
 	
 	//constants
 	public static final int WIDTH_WHEN_VERTICAL_SCROLLBAR_NOT_VISIBLE = 0;
@@ -99,11 +99,11 @@ public final class BorderWidgetInterScrollBarArea<BWL extends OldBorderWidgetLoo
 	
 	//method
 	private void paintWhenVisible(final IPainter painter, final BWL borderWidgetLook) {
-		if (borderWidgetLook.hasRecursiveBackgroundColor()) {
+		if (borderWidgetLook.hasBackgroundColor()) {
 			paintWhenVisibleAndHasBackgroundColor(painter, borderWidgetLook);
-		} else if (borderWidgetLook.hasRecursiveBackgroundColorGradient()) {
+		} else if (borderWidgetLook.hasBackgroundColorGradient()) {
 			paintWhenVisibleAndHasBackgroundColorGradient(painter, borderWidgetLook);
-		} else if (borderWidgetLook.hasRecursiveBackgroundImage()) {
+		} else if (borderWidgetLook.hasBackgroundImage()) {
 			paintWhenVisibleAndHasBackgroundImage(painter, borderWidgetLook);
 		}
 	}
@@ -111,7 +111,7 @@ public final class BorderWidgetInterScrollBarArea<BWL extends OldBorderWidgetLoo
 	//method
 	private void paintWhenVisibleAndHasBackgroundColor(final IPainter painter, final BWL borderWidgetLook) {
 		
-		painter.setColor(borderWidgetLook.getRecursiveOrDefaultBackgroundColor());
+		painter.setColor(borderWidgetLook.getBackgroundColor());
 		
 		painter.paintFilledRectangle(getWidth(), getHeight());
 	}
@@ -119,7 +119,7 @@ public final class BorderWidgetInterScrollBarArea<BWL extends OldBorderWidgetLoo
 	//method
 	private void paintWhenVisibleAndHasBackgroundColorGradient(final IPainter painter, final BWL borderWidgetLook) {
 		
-		painter.setColor(borderWidgetLook.getRecursiveOrDefaultBackgroundColorGradient().getColor2());
+		painter.setColor(borderWidgetLook.getBackgroundColorGradient().getColor2());
 		
 		painter.paintFilledRectangle(getWidth(), getHeight());
 	}
@@ -127,7 +127,7 @@ public final class BorderWidgetInterScrollBarArea<BWL extends OldBorderWidgetLoo
 	//method
 	private void paintWhenVisibleAndHasBackgroundImage(final IPainter painter, final BWL borderWidgetLook) {
 		
-		painter.setColor(borderWidgetLook.getRecursiveOrDefaultBackgroundImage().getBottomRightPixel());
+		painter.setColor(borderWidgetLook.getBackgroundImage().getBottomRightPixel());
 		
 		painter.paintFilledRectangle(getWidth(), getHeight());
 	}

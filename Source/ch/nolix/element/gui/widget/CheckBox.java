@@ -17,7 +17,7 @@ import ch.nolix.element.gui.painterapi.IPainter;
  * @date 2016-06-01
  * @lines 340
  */
-public final class CheckBox extends BorderWidget<CheckBox, OldCheckBoxLook> {
+public final class CheckBox extends BorderWidget<CheckBox, CheckBoxLook> {
 	
 	//constant
 	public static final String TYPE_NAME = "Checkbox";
@@ -144,15 +144,6 @@ public final class CheckBox extends BorderWidget<CheckBox, OldCheckBoxLook> {
 	protected CheckBoxLook createLook() {
 		return new CheckBoxLook();
 	}
-		
-	//method
-	/**
-	 * @return a new widget look for the current {@link CheckBox}.
-	 */
-	@Override
-	protected OldCheckBoxLook createOldLook() {
-		return new OldCheckBoxLook();
-	}
 	
 	//method
 	/**
@@ -174,7 +165,7 @@ public final class CheckBox extends BorderWidget<CheckBox, OldCheckBoxLook> {
 	 */
 	@Override
 	protected int getNaturalContentAreaHeight() {
-		return getRefOldLook().getRecursiveOrDefaultTextSize();
+		return getRefLook().getTextSize();
 	}
 	
 	//method
@@ -183,7 +174,7 @@ public final class CheckBox extends BorderWidget<CheckBox, OldCheckBoxLook> {
 	 */
 	@Override
 	protected int getNaturalContentAreaWidth() {
-		return getRefOldLook().getRecursiveOrDefaultTextSize();
+		return getRefLook().getTextSize();
 	}
 	
 	//method
@@ -291,12 +282,12 @@ public final class CheckBox extends BorderWidget<CheckBox, OldCheckBoxLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void paintContentArea(final OldCheckBoxLook checkBoxLook, final IPainter painter) {
+	protected void paintContentArea(final CheckBoxLook checkBoxLook, final IPainter painter) {
 				
-		final var s = checkBoxLook.getRecursiveOrDefaultTextSize();
-		final var t = checkBoxLook.getRecursiveOrDefaultLineThickness();
+		final var s = checkBoxLook.getTextSize();
+		final var t = checkBoxLook.getLineThickness();
 		
-		painter.setColor(checkBoxLook.getRecursiveOrDefaultTextColor());
+		//TODO: painter.setColor(checkBoxLook.getTextColor());
 		
 		//Paints the left border of the current check box.
 		painter.paintFilledRectangle(0, 0, t, s);

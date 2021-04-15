@@ -1,10 +1,10 @@
 //package declaration
 package ch.nolix.elementtest.widgettest;
 
-import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+//own imports
 import ch.nolix.common.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.common.testing.basetest.TestCase;
-import ch.nolix.element.gui.color.Color;
+import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.widget.BorderWidget;
 
 //class
@@ -87,8 +87,8 @@ public abstract class BorderWidgetTest<BW extends BorderWidget<BW, ?>> extends W
 		
 		//setup
 		final var testUnit = createTestUnit();
-		testUnit.getRefBaseLook().setTopBorderThickness(topBorderThickness);
-		testUnit.getRefBaseLook().removeBottomBorderThickness();
+		testUnit.getRefLook().setTopBorderThicknessForState(WidgetLookState.NORMAL, topBorderThickness);
+		testUnit.getRefLook().removeBottomBorderThicknesses();
 		testUnit.recalculate();
 		
 		//execution
@@ -147,8 +147,8 @@ public abstract class BorderWidgetTest<BW extends BorderWidget<BW, ?>> extends W
 		
 		//setup
 		final var testUnit = createTestUnit();
-		testUnit.getRefBaseLook().setLeftBorderThickness(leftBorderThickenss);
-		testUnit.getRefBaseLook().removeRightBorderThickness();
+		testUnit.getRefLook().setLeftBorderThicknessForState(WidgetLookState.NORMAL, leftBorderThickenss);
+		testUnit.getRefLook().removeRightBorderThicknesses();
 		testUnit.recalculate();
 		
 		//execution
@@ -283,37 +283,6 @@ public abstract class BorderWidgetTest<BW extends BorderWidget<BW, ?>> extends W
 		expectNot(testUnit.hasMaxHeight());
 		expectNot(testUnit.hasProposalWidth());
 		expectNot(testUnit.hasProposalHeight());
-	}
-	
-	//method
-	@TestCase
-	public final void testCase_setBorderColorsOfBaseLook() {
-		
-		//setup
-		final var testUnit = createTestUnit();
-				
-		//execution
-		testUnit.getRefBaseLook().setBorderColors(Color.RED);
-		
-		//verification
-		expect(testUnit.getRefBaseLook().getRecursiveOrDefaultLeftBorderColor()).isEqualTo(Color.RED);
-		expect(testUnit.getRefBaseLook().getRecursiveOrDefaultRightBorderColor()).isEqualTo(Color.RED);
-		expect(testUnit.getRefBaseLook().getRecursiveOrDefaultTopBorderColor()).isEqualTo(Color.RED);
-		expect(testUnit.getRefBaseLook().getRecursiveOrDefaultBottomBorderColor()).isEqualTo(Color.RED);
-	}
-	
-	//method
-	@TestCase
-	public final void testCase_setBorderColorsOfBaseLook_whenTheGivenBorderColorIsNull() {
-		
-		//setup
-		final var testUnit = createTestUnit();
-		
-		//execution & verification
-		expectRunning(() -> testUnit.getRefBaseLook().setBorderColors(null))
-		.throwsException()
-		.ofType(ArgumentIsNullException.class)
-		.withMessage("The given border color is null.");
 	}
 	
 	//method

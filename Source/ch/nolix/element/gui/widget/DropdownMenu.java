@@ -7,7 +7,7 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.element.gui.base.CursorIcon;
 import ch.nolix.element.gui.base.Layer;
 import ch.nolix.element.gui.base.Widget;
-import ch.nolix.element.gui.color.Color;
+import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.containerwidget.HorizontalStack;
 import ch.nolix.element.gui.input.Key;
 import ch.nolix.element.gui.painterapi.IPainter;
@@ -35,10 +35,13 @@ public final class DropdownMenu extends TextItemMenu<DropdownMenu> {
 		
 		expandButton.reset();
 		expandButton.setText(" v ").setLeftMouseButtonReleaseAction(this::expand);
-				
-		getRefBaseLook()
+		
+		//TODO
+		/*
+		getRefLook()
 		.setHoverItemLook(new OldTextItemMenuItemLook().setBackgroundColor(Color.LIGHT_GREY))
 		.setSelectionItemLook(new OldTextItemMenuItemLook().setBackgroundColor(Color.GREY));
+		*/
 	}
 	
 	//method
@@ -124,7 +127,7 @@ public final class DropdownMenu extends TextItemMenu<DropdownMenu> {
 	
 	//method
 	@Override
-	protected void paintContentArea(final OldTextItemMenuLook itemMenuLook, final IPainter painter) {}
+	protected void paintContentArea(final TextItemMenuLook itemMenuLook, final IPainter painter) {}
 	
 	//method
 	@Override
@@ -135,8 +138,8 @@ public final class DropdownMenu extends TextItemMenu<DropdownMenu> {
 	
 	//method
 	private void applyColors() {
-		
-		final var textItemMenuLook = getRefOldLook();
+		/*
+		final var textItemMenuLook = getRefLook();
 		
 		originLabel
 		.getRefBaseLook()
@@ -157,6 +160,7 @@ public final class DropdownMenu extends TextItemMenu<DropdownMenu> {
 			.setTextSize(textItemMenuLook.getRecursiveOrDefaultTextSize())
 			.setTextColor(textItemMenuLook.getRecursiveOrDefaultTextColor());
 		}
+		*/
 	}
 	
 	//method
@@ -178,8 +182,9 @@ public final class DropdownMenu extends TextItemMenu<DropdownMenu> {
 		new SelectionMenu()
 		.setCustomCursorIcon(CursorIcon.EDIT)
 		.setMaxHeight(getParentGUI().getViewAreaHeight() - getYPositionOnGUI() - getHeight())
-		.applyOnBaseLook(bl -> bl.setBorderThicknesses(1))
 		.addItems(getRefItems().to(TextItemMenuItem::getText));
+		
+		expandedDropdownMenu.getRefLook().setBorderThicknessesForState(WidgetLookState.NORMAL, 1);
 						
 		//TODO: Analyze recalculate method.
 		/*

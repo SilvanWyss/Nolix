@@ -15,7 +15,6 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.math.Calculator;
 import ch.nolix.element.elementenum.RotationDirection;
 import ch.nolix.element.gui.base.Widget;
-import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.input.Key;
 import ch.nolix.element.gui.painterapi.IPainter;
 import ch.nolix.element.gui.widget.Label;
@@ -26,7 +25,7 @@ import ch.nolix.element.gui.widget.Label;
  * @date 2016-05-01
  * @lines 550
  */
-public final class TabContainer extends ContainerWidget<TabContainer, OldTabContainerLook> {
+public final class TabContainer extends ContainerWidget<TabContainer, TabContainerLook> {
 	
 	//constant
 	public static final String TYPE_NAME = "TabContainer";
@@ -46,7 +45,10 @@ public final class TabContainer extends ContainerWidget<TabContainer, OldTabCont
 	 * Creates a new {@link TabContainer}.
 	 */
 	public TabContainer() {
-		getRefBaseLook()
+		
+		//TODO
+		/*
+		getRefLook()
 		.setBaseMenuItemLook(
 			new OldTabContainerMenuItemLook()
 			.setMinWidth(100)
@@ -62,6 +64,7 @@ public final class TabContainer extends ContainerWidget<TabContainer, OldTabCont
 			.setBackgroundColor(Color.DARK_GREY)
 			.setPadding(5)
 		);
+		*/
 	}
 	
 	//method
@@ -289,15 +292,6 @@ public final class TabContainer extends ContainerWidget<TabContainer, OldTabCont
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected OldTabContainerLook createOldLook() {
-		return new OldTabContainerLook();
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	protected void fillUpChildWidgets(final LinkedList<Widget<?, ?>> list) {
 		
 		//For a better performance, this implementation does not use all comfortable methods.
@@ -334,7 +328,7 @@ public final class TabContainer extends ContainerWidget<TabContainer, OldTabCont
 		
 		var height = menu.getHeight();
 		
-		height += getRefOldLook().getRecursiveOrDefaultMenuMargin();
+		//TODO: height += getRefLook().getMenuMargin();
 		
 		//Handles the case that the current tab container contains tabs.
 		if (containsAny()) {
@@ -483,12 +477,14 @@ public final class TabContainer extends ContainerWidget<TabContainer, OldTabCont
 	 */
 	@Override
 	protected void paintContentArea(
-		final OldTabContainerLook tabContainerLook,
+		final TabContainerLook tabContainerLook,
 		final IPainter painter
 	) {
 		
-		menu.setElementMargin(tabContainerLook.getRecursiveOrDefaultMenuItemMargin());
-				
+		//TODO: menu.setElementMargin(tabContainerLook.getRecursiveOrDefaultMenuItemMargin());
+		
+		//TODO
+		/*
 		final var baseMenuItemLook = tabContainerLook.getRefRecursiveOrDefaultBaseMenuItemLook();
 		final var hoverMenuItemLook = tabContainerLook.getRefRecursiveOrDefaultHoverMenuItemLook();
 		final var selectedMenuItemLook = tabContainerLook.getRefRecursiveOrDefaultSelectionMenuItemLook();
@@ -544,6 +540,7 @@ public final class TabContainer extends ContainerWidget<TabContainer, OldTabCont
 				.setBackgroundColor(selectedMenuItemLook.getOwnOrDefaultBackgroundColor());
 			}
 		}
+		*/
 	}
 	
 	//method
@@ -558,7 +555,7 @@ public final class TabContainer extends ContainerWidget<TabContainer, OldTabCont
 			getRefSelectedWidget().setPositionOnParent(
 				0,				
 				menu.getHeight()
-				+ getRefOldLook().getRecursiveOrDefaultMenuMargin()
+				//TODO + getRefLook().getRecursiveOrDefaultMenuMargin()
 			);
 		}
 	}

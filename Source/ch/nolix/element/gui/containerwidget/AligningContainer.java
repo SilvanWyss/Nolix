@@ -9,11 +9,12 @@ import ch.nolix.common.math.Calculator;
 import ch.nolix.element.elementenum.RotationDirection;
 import ch.nolix.element.gui.base.Widget;
 import ch.nolix.element.gui.base.WidgetGUI;
+import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.input.Key;
 import ch.nolix.element.gui.painterapi.IPainter;
 
 //class
-public final class AligningContainer extends ContainerWidget<AligningContainer, OldAligningContainerLook> {
+public final class AligningContainer extends ContainerWidget<AligningContainer, AligningContainerLook> {
 	
 	//constants
 	private static final String TOP_LEFT_HEADER = "TopLeft";
@@ -39,7 +40,7 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 	
 	//constructor
 	public AligningContainer() {
-		getRefBaseLook().setPaddings(10);
+		getRefLook().setPaddingForState(WidgetLookState.NORMAL, 10);
 	}
 	
 	//method
@@ -221,12 +222,6 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 	
 	//method
 	@Override
-	protected OldAligningContainerLook createOldLook() {
-		return new OldAligningContainerLook();
-	}
-	
-	//method
-	@Override
 	protected void fillUpChildWidgets(final LinkedList<Widget<?, ?>> list) {
 		topLeftSlot.fillUpWidgetInto(list);
 		topSlot.fillUpWidgetInto(list);
@@ -323,7 +318,7 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 	
 	//method
 	@Override
-	protected void paintContentArea(final OldAligningContainerLook borderWidgetLook, final IPainter painter) {}
+	protected void paintContentArea(final AligningContainerLook borderWidgetLook, final IPainter painter) {}
 	
 	//method
 	@Override

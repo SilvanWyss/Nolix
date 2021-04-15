@@ -17,7 +17,7 @@ import ch.nolix.element.gui.painterapi.IPainter;
  * @param <BWL>
  * is the type of the {@link OldBorderWidgetLook} of the {@link BorderWidget} of a {@link BorderWidgetMainArea}.
  */
-public final class BorderWidgetMainArea<BWL extends OldBorderWidgetLook<BWL>> implements HoverableByCursor {
+public final class BorderWidgetMainArea<BWL extends BorderWidgetLook<BWL>> implements HoverableByCursor {
 	
 	//attribute
 	/**
@@ -110,12 +110,12 @@ public final class BorderWidgetMainArea<BWL extends OldBorderWidgetLook<BWL>> im
 	 */
 	public int getNaturalHeight() {
 		
-		final var look = parentBorderWidget.getRefOldLook();
+		final var look = parentBorderWidget.getRefLook();
 		
 		return
 		parentBorderWidget.getBorderedArea().getNaturalHeight()
-		+ look.getRecursiveOrDefaultTopBorderThickness()
-		+ look.getRecursiveOrDefaultBottomBorderThickness();
+		+ look.getTopBorderThickenss()
+		+ look.getBottomBorderThickenss();
 	}
 	
 	//method
@@ -124,12 +124,12 @@ public final class BorderWidgetMainArea<BWL extends OldBorderWidgetLook<BWL>> im
 	 */
 	public int getNaturalWidth() {
 		
-		final var look = parentBorderWidget.getRefOldLook();
+		final var look = parentBorderWidget.getRefLook();
 		
 		return
 		parentBorderWidget.getBorderedArea().getNaturalWidth()
-		+ look.getRecursiveOrDefaultLeftBorderThickness()
-		+ look.getRecursiveOrDefaultRightBorderThickness();
+		+ look.getLeftBorderThickenss()
+		+ look.getRightBorderThickenss();
 	}
 	
 	//method
@@ -210,53 +210,53 @@ public final class BorderWidgetMainArea<BWL extends OldBorderWidgetLook<BWL>> im
 		
 		//Paints the left border of the BorderWidget of the current BorderWidgetMainArea if
 		//the BorderWidget of the current BorderWidgetMainArea has a left border.
-		if (borderWidgetLook.getRecursiveOrDefaultLeftBorderThickness() > 0) {
+		if (borderWidgetLook.getLeftBorderThickenss() > 0) {
 			
-			painter.setColor(borderWidgetLook.getRecursiveOrDefaultLeftBorderColor());
+			painter.setColor(borderWidgetLook.getLeftBorderColor());
 			
 			painter.paintFilledRectangle(
-				borderWidgetLook.getRecursiveOrDefaultLeftBorderThickness(),
+				borderWidgetLook.getLeftBorderThickenss(),
 				parentBorderWidget.getHeightWhenExpanded()
 			);
 		}
 		
 		//Paints the right border of the BorderWidget of the current BorderWidgetMainArea if
 		//the BorderWidget of the current BorderWidgetMainArea has a left border.
-		if (borderWidgetLook.getRecursiveOrDefaultRightBorderThickness() > 0) {
+		if (borderWidgetLook.getRightBorderThickenss() > 0) {
 			
-			painter.setColor(borderWidgetLook.getRecursiveOrDefaultRightBorderColor());
+			painter.setColor(borderWidgetLook.getRightBorderColor());
 			
 			painter.paintFilledRectangle(
-				getWidth() - borderWidgetLook.getRecursiveOrDefaultRightBorderThickness(),
+				getWidth() - borderWidgetLook.getRightBorderThickenss(),
 				0,
-				borderWidgetLook.getRecursiveOrDefaultLeftBorderThickness(),
+				borderWidgetLook.getLeftBorderThickenss(),
 				parentBorderWidget.getHeightWhenExpanded()
 			);
 		}
 		
 		//Paints the top border of the BorderWidget of the current BorderWidgetMainArea if
 		//the BorderWidget of the current BorderWidgetMainArea has a left border.
-		if (borderWidgetLook.getRecursiveOrDefaultTopBorderThickness() > 0) {
+		if (borderWidgetLook.getTopBorderThickenss() > 0) {
 			
-			painter.setColor(borderWidgetLook.getRecursiveOrDefaultTopBorderColor());
+			painter.setColor(borderWidgetLook.getTopBorderColor());
 			
 			painter.paintFilledRectangle(
 				getWidth(),
-				borderWidgetLook.getRecursiveOrDefaultTopBorderThickness()
+				borderWidgetLook.getTopBorderThickenss()
 			);
 		}
 		
 		//Paints the bottom border of the BorderWidget of the current BorderWidgetMainArea if
 		//the BorderWidget of the current BorderWidgetMainArea has a left border.
-		if (borderWidgetLook.getRecursiveOrDefaultBottomBorderThickness() > 0) {
+		if (borderWidgetLook.getBottomBorderThickenss() > 0) {
 			
-			painter.setColor(borderWidgetLook.getRecursiveOrDefaultBottomBorderColor());
+			painter.setColor(borderWidgetLook.getBottomBorderColor());
 			
 			painter.paintFilledRectangle(
 				0,
-				parentBorderWidget.getHeightWhenExpanded() - borderWidgetLook.getRecursiveOrDefaultBottomBorderThickness(),
+				parentBorderWidget.getHeightWhenExpanded() - borderWidgetLook.getBottomBorderThickenss(),
 				getWidth(),
-				borderWidgetLook.getRecursiveOrDefaultBottomBorderThickness()
+				borderWidgetLook.getBottomBorderThickenss()
 			);
 		}
 		

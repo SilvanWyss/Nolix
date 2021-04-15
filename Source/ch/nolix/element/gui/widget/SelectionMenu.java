@@ -4,7 +4,6 @@ package ch.nolix.element.gui.widget;
 //own imports
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.element.gui.base.Widget;
-import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.containerwidget.VerticalStack;
 import ch.nolix.element.gui.painterapi.IPainter;
 
@@ -19,6 +18,8 @@ public final class SelectionMenu extends TextItemMenu<SelectionMenu> {
 		
 		menu.setElementMargin(0);
 		
+		//TODO
+		/*
 		getRefBaseLook()
 		.setBackgroundColor(Color.WHITE_SMOKE)
 		.setHoverItemLook(
@@ -29,6 +30,7 @@ public final class SelectionMenu extends TextItemMenu<SelectionMenu> {
 			new OldTextItemMenuItemLook()
 			.setBackgroundColor(Color.GREY)
 		);
+		*/
 	}
 		
 	//method
@@ -103,7 +105,7 @@ public final class SelectionMenu extends TextItemMenu<SelectionMenu> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void paintContentArea(final OldTextItemMenuLook itemMenuLook, final IPainter painter) {}
+	protected void paintContentArea(final TextItemMenuLook itemMenuLook, final IPainter painter) {}
 	
 	//method
 	@Override

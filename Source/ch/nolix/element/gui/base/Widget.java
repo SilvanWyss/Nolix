@@ -19,7 +19,7 @@ import ch.nolix.common.rasterapi.TopLeftPositionedRecangular;
 import ch.nolix.common.requestapi.EnablingRequestable;
 import ch.nolix.common.requestapi.ExpansionRequestable;
 import ch.nolix.common.skillapi.Recalculable;
-import ch.nolix.element.base.ExchangableSubElement;
+import ch.nolix.element.base.ExtensionElement;
 import ch.nolix.element.configuration.ConfigurableElement;
 import ch.nolix.element.elementapi.IConfigurableElement;
 import ch.nolix.element.elementenum.RotationDirection;
@@ -49,7 +49,7 @@ import ch.nolix.element.gui.painterapi.IPainter;
  * @param <W> is the type of a {@link Widget}.
  * @param <WL> is the type of the {@link OldWidgetLook} of a {@link Widget}.
  */
-public abstract class Widget<W extends Widget<W, WL>, WL extends OldWidgetLook<WL>> extends ConfigurableElement<W>
+public abstract class Widget<W extends Widget<W, WL>, WL extends WidgetLook<WL>> extends ConfigurableElement<W>
 implements
 EnablingRequestable,
 ExpansionRequestable,
@@ -67,11 +67,6 @@ TopLeftPositionedRecangular {
 	private static final String FOCUSED_HEADER = "Focused";
 	private static final String HOVERED_HEADER = "Hovered";
 	
-	//constants
-	private static final String BASE_PREFIX = "Base";
-	private static final String HOVER_PREFIX = "Hover";
-	private static final String FOCUS_PREFIX = "Focus";
-	
 	//attributes	
 	private CursorIcon customCursorIcon = DEFAULT_CURSOR_ICON;
 	private boolean greysOutWhenDisabled;
@@ -81,19 +76,7 @@ TopLeftPositionedRecangular {
 	private boolean expanded = true;
 	private boolean focused;
 	private boolean hovered;
-	
-	//attribute
-	private final ExchangableSubElement<WL> baseLook =
-	new ExchangableSubElement<>(BASE_PREFIX, createOldLook());
-	
-	//attribute
-	private final ExchangableSubElement<WL> hoverLook =
-	new ExchangableSubElement<>(HOVER_PREFIX, createOldLook());
-	
-	//attribute
-	private final ExchangableSubElement<WL> focusLook =
-	new ExchangableSubElement<>(FOCUS_PREFIX, createOldLook());
-	
+			
 	//attributes
 	private int xPositionOnContentAreaOfParent;
 	private int yPositionOnContentAreaOfParent;
@@ -105,6 +88,9 @@ TopLeftPositionedRecangular {
 	//attributes
 	private int cursorXPosition;
 	private int cursorYPosition;
+	
+	//attribute
+	private final ExtensionElement<WL> look = new ExtensionElement<WL>(createLook());
 	
 	//optional attribute
 	private WidgetParent parent;
@@ -121,14 +107,6 @@ TopLeftPositionedRecangular {
 	private IElementTaker<W> mouseWheelClickAction;
 	private IElementTaker<W> mouseWheelPressAction;
 	private IElementTaker<W> mouseWheelReleaseAction;
-	
-	//constructor
-	/**
-	 * Creates a new {@link Widget}.
-	 */
-	public Widget() {
-		createAndConnectLooks();
-	}
 	
 	//method
 	/**
@@ -165,48 +143,6 @@ TopLeftPositionedRecangular {
 				//Calls method of the base class.
 				super.addOrChangeAttribute(attribute);
 		}
-	}
-	
-	//method
-	/**
-	 * Applies the given base look mutator to the base look of the current {@link Widget}.
-	 * 
-	 * @param baseLookMutator
-	 * @return the current {@link Widget}.
-	 */
-	public final W applyOnBaseLook(final IElementTaker<WL> baseLookMutator) {
-		
-		baseLookMutator.run(getRefBaseLook());
-		
-		return asConcrete();
-	}
-	
-	//method
-	/**
-	 * Applies the given focus look mutator to the focus look of the current {@link Widget}.
-	 * 
-	 * @param focusLookMutator
-	 * @return the current {@link Widget}.
-	 */
-	public final W applyOnFocusLook(final IElementTaker<WL> focusLookMutator) {
-		
-		focusLookMutator.run(getRefFocusLook());
-		
-		return asConcrete();
-	}
-	
-	//method
-	/**
-	 * Applies the given hover look mutator to the hover look of the current {@link Widget}.
-	 * 
-	 * @param hoverLookMutator
-	 * @return the current {@link Widget}.
-	 */
-	public final W applyOnHoverLook(final IElementTaker<WL> hoverLookMutator) {
-		
-		hoverLookMutator.run(getRefHoverLook());
-		
-		return asConcrete();
 	}
 	
 	//method
@@ -450,30 +386,6 @@ TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * @return the base look of the current {@link Widget}.
-	 */
-	public final WL getRefBaseLook() {
-		return baseLook.getSubElement();
-	}
-	
-	//method
-	/**
-	 * @return the focus look of the current {@link Widget}.
-	 */
-	public final WL getRefFocusLook() {
-		return focusLook.getSubElement();
-	}
-	
-	//method
-	/**
-	 * @return the hover look of the current {@link Widget}.
-	 */
-	public final WL getRefHoverLook() {
-		return hoverLook.getSubElement();
-	}
-	
-	//method
-	/**
 	 * @return the {@link IKeyBoard} of the {@link GUI} the current {@link Widget} belongs to.
 	 * @throws ArgumentDoesNotBelongToParentException if the current {@link Widget} does not belong to a {@link GUI}.
 	 */
@@ -483,25 +395,10 @@ TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * The current look of a {@link Widget} depends on its state.
-	 * -not hovered, not focused -> base look
-	 * -hovered, not focused -> hover look
-	 * -hovered, focused -> hover look
-	 * -focused, not hovered -> focus look
-	 * 
-	 * @return the current look of the current {@link Widget}.
+	 * @return the {@link WidgetLook} of the current {@link Widget}.
 	 */
-	public final WL getRefOldLook() {
-		
-		if (isHovered()) {
-			return getRefHoverLook();
-		}
-		
-		if (isFocused()) {
-			return getRefFocusLook();
-		}
-		
-		return getRefBaseLook();
+	public final WL getRefLook() {
+		return look.getExtensionElement();
 	}
 	
 	//method
@@ -1125,12 +1022,6 @@ TopLeftPositionedRecangular {
 		setCustomCursorIcon(DEFAULT_CURSOR_ICON);
 		setGreyOutWhenDisabled();
 		
-		createAndConnectLooks();
-		
-		getRefBaseLook()
-		.setTextSize(ValueCatalogue.MEDIUM_TEXT_SIZE)
-		.setTextColor(Color.BLACK);
-				
 		resetWidgetConfigurationOnSelf();
 	}
 	
@@ -1232,7 +1123,7 @@ TopLeftPositionedRecangular {
 	public final W setFocused() {
 		
 		focused = true;
-		
+				
 		return asConcrete();
 	}
 	
@@ -1501,13 +1392,7 @@ TopLeftPositionedRecangular {
 	/**
 	 * @return a new {@link WidgetLook} for the current {@link Widget}.
 	 */
-	protected abstract WidgetLook<?> createLook();
-	
-	//method declaration
-	/**
-	 * @return a new look for the current {@link Widget}.
-	 */
-	protected abstract WL createOldLook();
+	protected abstract WL createLook();
 	
 	//method declaration
 	/**
@@ -1834,34 +1719,6 @@ TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * Connects the {@link OldWidgetLook}s of the current {@link Widget}.
-	 */
-	private void connectLooks() {
-		getRefHoverLook().setBaseLook(getRefBaseLook());
-		getRefFocusLook().setBaseLook(getRefBaseLook());
-	}
-	
-	//method
-	/**
-	 * Connects the {@link OldWidgetLook}s of the current {@link Widget}.
-	 */
-	private void createLooks() {
-		baseLook.setSubElement(createOldLook());
-		hoverLook.setSubElement(createOldLook());
-		focusLook.setSubElement(createOldLook());
-	}
-	
-	//method
-	/**
-	 * Creates and connects the {@link OldWidgetLook}s of the current {@link Widget}.
-	 */
-	private final void createAndConnectLooks() {
-		createLooks();
-		connectLooks();
-	}
-	
-	//method
-	/**
 	 * Fills up recursively the child {@link Widget}s of the current {@link Widget} into the given list.
 	 * 
 	 * @param list
@@ -2083,7 +1940,7 @@ TopLeftPositionedRecangular {
 	 */
 	private void paintRecursivelyUsingPositionedPainterWhenNotDisabled(final IPainter painter) {
 		
-		paint(painter, getRefOldLook());
+		paint(painter, getRefLook());
 		
 		if (paintsPaintableWidgetAPriori()) {
 			getRefPaintableWidgets().forEach(w -> w.paintRecursively(painter));

@@ -20,7 +20,6 @@ import ch.nolix.element.elementapi.IMutableElement;
 import ch.nolix.element.gui.base.CursorIcon;
 import ch.nolix.element.gui.base.Widget;
 import ch.nolix.element.gui.base.WidgetGUI;
-import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.widget.Label;
 
 //class
@@ -263,8 +262,10 @@ implements Clearable, Headerable<AccordionTab>, IMutableElement<AccordionTab> {
 	}
 	
 	//method
-	void preparePaint(final OldAccordionLook accordionLook) {
+	void preparePaint(final AccordionLook accordionLook) {
 		
+		//TODO
+		/*
 		headerLabel.setText(getHeader());
 		
 		headerHorizontalStack.resetConfiguration();
@@ -317,6 +318,7 @@ implements Clearable, Headerable<AccordionTab>, IMutableElement<AccordionTab> {
 		}
 		
 		tabVerticalStack.recalculate();
+		*/
 	}
 	
 	//method

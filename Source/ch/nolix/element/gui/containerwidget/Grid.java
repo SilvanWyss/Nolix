@@ -13,12 +13,13 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.element.elementenum.RotationDirection;
 import ch.nolix.element.gui.base.Widget;
 import ch.nolix.element.gui.base.WidgetGUI;
+import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.input.Key;
 import ch.nolix.element.gui.painterapi.IPainter;
 import ch.nolix.element.gui.widget.Label;
 
 //class
-public final class Grid extends ContainerWidget<Grid, OldGridLook> {
+public final class Grid extends ContainerWidget<Grid, GridLook> {
 		
 	//multi-attribute
 	private Matrix<GridCell> cells = new Matrix<>();
@@ -29,9 +30,9 @@ public final class Grid extends ContainerWidget<Grid, OldGridLook> {
 		setMaxWidth(1000);
 		setMaxHeight(500);
 		
-		getRefBaseLook()
-		.setLineType(GridType.INNER_LINES)
-		.setElementMargin(10);
+		getRefLook()
+		.setGridTypeForState(WidgetLookState.NORMAL, GridType.INNER_LINES)
+		.setElementMarginForState(WidgetLookState.NORMAL, 10);
 	}
 	
 	//method
@@ -84,8 +85,7 @@ public final class Grid extends ContainerWidget<Grid, OldGridLook> {
 		
 		var contentHeight = cells.getRows().getSumByInt(r -> r.getMaxInt(GridCell::getHeight));
 
-		if (hasLines()) {
-			switch (getRefOldLook().getRecursiveLineTypeOrDefault()) {
+			switch (getRefLook().getGridType()) {
 				case INNER_LINES:
 					contentHeight += (getRowCount() - 1) * getLineThickness();
 					break;
@@ -93,7 +93,6 @@ public final class Grid extends ContainerWidget<Grid, OldGridLook> {
 					contentHeight += (getRowCount() + 1) * getLineThickness();
 					break;
 			}
-		}
 		
 		contentHeight += getRowCount() * 2 * getElementMargin();
 		
@@ -106,8 +105,8 @@ public final class Grid extends ContainerWidget<Grid, OldGridLook> {
 		
 		var contentWidth = cells.getColumns().getSumByInt(c -> c.getMaxInt(GridCell::getWidth));
 		
-		if (hasLines()) {
-			switch (getRefOldLook().getRecursiveLineTypeOrDefault()) {
+	
+			switch (getRefLook().getGridType()) {
 				case INNER_LINES:
 					contentWidth += (getColumnCount() - 1) * getLineThickness();
 					break;
@@ -115,7 +114,7 @@ public final class Grid extends ContainerWidget<Grid, OldGridLook> {
 					contentWidth += (getColumnCount() + 1) * getLineThickness();
 					break;
 			}
-		}
+		
 		
 		contentWidth += getColumnCount() * 2 * getElementMargin();
 		
@@ -125,22 +124,13 @@ public final class Grid extends ContainerWidget<Grid, OldGridLook> {
 	//method
 	public int getElementMargin() {
 		
-		final var currentStructure = getRefOldLook();
+		final var currentStructure = getRefLook();
 		
-		if (!currentStructure.hasRecursiveElementMargin()) {
-			return 0;
-		}
-		
-		return currentStructure.getRecursiveElementMarginOrDefault();
+		return currentStructure.getElementMargin();
 	}
 	
 	//method
 	public int getLineThickness() {
-		
-		if (!hasLines()) {
-			return 0;
-		}
-		
 		return getLineThicknessWhenHasLines();
 	}
 	
@@ -152,17 +142,9 @@ public final class Grid extends ContainerWidget<Grid, OldGridLook> {
 	//method
 	public boolean hasInnerAndOuterLines() {
 		
-		final var currentStructure = getRefOldLook();
+		final var currentStructure = getRefLook();
 		
-		return (
-			currentStructure.hasRecursiveLineType()
-			&& currentStructure.getRecursiveLineTypeOrDefault() == GridType.INNER_AND_OUTER_LINES
-		);
-	}
-	
-	//method
-	public boolean hasLines() {
-		return getRefOldLook().hasRecursiveLineType();
+		return (currentStructure.getGridType() == GridType.INNER_AND_OUTER_LINES);
 	}
 	
 	//method
@@ -189,12 +171,6 @@ public final class Grid extends ContainerWidget<Grid, OldGridLook> {
 	@Override
 	protected GridLook createLook() {
 		return new GridLook();
-	}
-	
-	//method
-	@Override
-	protected OldGridLook createOldLook() {
-		return new OldGridLook();
 	}
 	
 	//method
@@ -318,16 +294,14 @@ public final class Grid extends ContainerWidget<Grid, OldGridLook> {
 	//method
 	@Override
 	protected void paintContentArea(
-		final OldGridLook gridStructure,
+		final GridLook gridStructure,
 		final IPainter painter
 	) {
-		//Paints the lines of the current grid.
-		if (gridStructure.hasRecursiveLineType()) {
+		
 			
-			painter.setColor(gridStructure.getRecursiveLineColorOrDefault());
+			painter.setColor(gridStructure.getGridColor());
 			
-			final var outerLinesDefined =
-			gridStructure.getRecursiveLineTypeOrDefault() == GridType.INNER_AND_OUTER_LINES;
+			final var outerLinesDefined = gridStructure.getGridType() == GridType.INNER_AND_OUTER_LINES;
 			
 			final var contentAreaWidth = getNaturalContentAreaWidth();
 			final var contentAreaHeight = getNaturalContentAreaHeight();
@@ -355,7 +329,7 @@ public final class Grid extends ContainerWidget<Grid, OldGridLook> {
 			//Paints the vertical lines of the current grid.
 				var x = 0;
 				
-				if (gridStructure.getRecursiveLineTypeOrDefault() == GridType.INNER_AND_OUTER_LINES) {
+				if (gridStructure.getGridType() == GridType.INNER_AND_OUTER_LINES) {
 					painter.paintFilledRectangle(lineThickness, contentAreaHeight);
 					x += lineThickness;
 				}
@@ -369,7 +343,7 @@ public final class Grid extends ContainerWidget<Grid, OldGridLook> {
 						x += lineThickness;
 					}
 				}
-		}
+		
 		
 		//Paints the widgets of the current grid.
 		getChildWidgets().forEach(w -> w.paintRecursively(painter));
@@ -486,6 +460,6 @@ public final class Grid extends ContainerWidget<Grid, OldGridLook> {
 	
 	//method
 	private int getLineThicknessWhenHasLines() {
-		return getRefOldLook().getRecursiveLineThicknessOrDefault();
+		return getRefLook().getGridThickness();
 	}
 }

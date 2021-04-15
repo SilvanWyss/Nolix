@@ -27,7 +27,7 @@ import ch.nolix.element.gui.painterapi.IPainter;
  * @date 2016-01-01
  * @lines 410
  */
-public final class Area extends Widget<Area, OldAreaLook> {
+public final class Area extends Widget<Area, AreaLook> {
 	
 	//constant
 	public static final String TYPE_NAME = "Area";
@@ -237,15 +237,6 @@ public final class Area extends Widget<Area, OldAreaLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected OldAreaLook createOldLook() {
-		return new OldAreaLook();
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	protected void fillUpChildWidgets(final LinkedList<Widget<?, ?>> list) {}
 	
 	//method
@@ -376,7 +367,7 @@ public final class Area extends Widget<Area, OldAreaLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void paint(final IPainter painter, final OldAreaLook areaLook) {
+	protected void paint(final IPainter painter, final AreaLook areaLook) {
 		
 		//Handles the case that the current Area has a background color.
 		if (hasBackgroundColor()) {

@@ -18,7 +18,7 @@ import ch.nolix.element.gui.painterapi.IPainter;
  * @param <BWL> is the type
  * of the {@link OldBorderWidgetLook} of the {@link BorderWidget} of a {@link BorderWidgetExtendedContentArea}.
  */
-public final class BorderWidgetExtendedContentArea<BWL extends OldBorderWidgetLook<BWL>> implements Rectangular {
+public final class BorderWidgetExtendedContentArea<BWL extends BorderWidgetLook<BWL>> implements Rectangular {
 	
 	//attribute
 	/**
@@ -65,12 +65,12 @@ public final class BorderWidgetExtendedContentArea<BWL extends OldBorderWidgetLo
 	@Override
 	public int getHeight() {
 		
-		final var look = parentBorderWidget.getRefOldLook();
+		final var look = parentBorderWidget.getRefLook();
 		
 		return
 		parentBorderWidget.getContentArea().getHeight()
-		+ look.getRecursiveOrDefaultTopPadding()
-		+ look.getRecursiveOrDefaultBottomPadding();
+		+ look.getTopPadding()
+		+ look.getBottomPadding();
 	}
 	
 	//method
@@ -79,12 +79,12 @@ public final class BorderWidgetExtendedContentArea<BWL extends OldBorderWidgetLo
 	 */
 	public int getNaturalHeight() {
 		
-		final var look = parentBorderWidget.getRefOldLook();
+		final var look = parentBorderWidget.getRefLook();
 		
 		return
 		parentBorderWidget.getContentArea().getNaturalHeight()
-		+ look.getRecursiveOrDefaultTopPadding()
-		+ look.getRecursiveOrDefaultBottomPadding();
+		+ look.getTopPadding()
+		+ look.getBottomPadding();
 	}
 	
 	//method
@@ -93,12 +93,12 @@ public final class BorderWidgetExtendedContentArea<BWL extends OldBorderWidgetLo
 	 */
 	public int getNaturalWidth() {
 		
-		final var look = parentBorderWidget.getRefOldLook();
+		final var look = parentBorderWidget.getRefLook();
 		
 		return
 		parentBorderWidget.getContentArea().getNaturalWidth()
-		+ look.getRecursiveOrDefaultLeftPadding()
-		+ look.getRecursiveOrDefaultRightPadding();
+		+ look.getLeftPadding()
+		+ look.getRightPadding();
 	}
 	
 	//method
@@ -128,12 +128,12 @@ public final class BorderWidgetExtendedContentArea<BWL extends OldBorderWidgetLo
 	@Override
 	public int getWidth() {
 		
-		final var look = parentBorderWidget.getRefOldLook();
+		final var look = parentBorderWidget.getRefLook();
 		
 		return
 		parentBorderWidget.getContentArea().getWidth()
-		+ look.getRecursiveOrDefaultLeftPadding()
-		+ look.getRecursiveOrDefaultRightPadding();
+		+ look.getLeftPadding()
+		+ look.getRightPadding();
 	}
 	
 	//method

@@ -17,7 +17,7 @@ import ch.nolix.element.gui.painterapi.IPainter;
 * @param <BWL> is the type of the {@link OldBorderWidgetLook}
 * of the {@link BorderWidget} a {@link BorderWidgetHorizontalScrollBar} belongs to.
 */
-public class BorderWidgetHorizontalScrollBar<BWL extends OldBorderWidgetLook<BWL>> implements HoverableByCursor {
+public class BorderWidgetHorizontalScrollBar<BWL extends BorderWidgetLook<BWL>> implements HoverableByCursor {
 	
 	//constant
 	public static final int THICKNESS = 20;
@@ -184,19 +184,19 @@ public class BorderWidgetHorizontalScrollBar<BWL extends OldBorderWidgetLook<BWL
 	
 	//method
 	private Color getColorWhenHorizontalScrollBarCursorIsMoved() {
-		return parentBorderWidget.getRefOldLook().getRecursiveOrDefaultSelectionScrollBarLook().getScrollBarColor();
+		return parentBorderWidget.getRefLook().getScrollBarMoveColor();
 	}
 	
 	//method
 	private Color getColorWhenHorizontalScrollBarCursorIsNotMoved() {
 		
-		final var look = parentBorderWidget.getRefOldLook();
+		final var look = parentBorderWidget.getRefLook();
 		
 		if (!parentBorderWidget.getHorizontalScrollBarCursor().isUnderCursor()) {
-			return look.getRecursiveOrDefaultBaseScrollBarLook().getScrollBarColor();
+			return look.getScrollBarColor();
 		}
 		
-		return look.getRecursiveOrDefaultHoverScrollBarLook().getScrollBarColor();
+		return look.getScrollBarMoveColor();
 	}
 	
 	//method

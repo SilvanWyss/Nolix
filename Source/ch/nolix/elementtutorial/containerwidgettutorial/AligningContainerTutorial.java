@@ -2,6 +2,7 @@ package ch.nolix.elementtutorial.containerwidgettutorial;
 
 import ch.nolix.common.math.Calculator;
 import ch.nolix.element.gui.base.Frame;
+import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.containerwidget.AligningContainer;
 import ch.nolix.element.gui.widget.Button;
@@ -11,7 +12,9 @@ public final class AligningContainerTutorial {
 	
 	public static void main(String[] args) {
 		
-		final var label = new Label().setText("X").applyOnBaseLook(bl -> bl.setTextSize(100));
+		final var label = new Label().setText("X");
+		
+		label.getRefLook().setTextSizeForState(WidgetLookState.NORMAL, 100);
 		
 		new Frame()
 		.setTitle("AligningContainer Tutorial")
@@ -23,8 +26,9 @@ public final class AligningContainerTutorial {
 				.setText("Make smaller")
 				.setLeftMouseButtonPressAction(
 					() ->
-					label.getRefBaseLook().setTextSize(
-						Calculator.getMax(20, label.getRefBaseLook().getRecursiveOrDefaultTextSize() - 20)
+					label.getRefLook().setTextSizeForState(
+						WidgetLookState.NORMAL,
+						Calculator.getMax(20, label.getRefLook().getTextSize() - 20)
 					)
 				)
 			)
@@ -33,8 +37,9 @@ public final class AligningContainerTutorial {
 				.setText("Make bigger")
 				.setLeftMouseButtonPressAction(
 					() ->
-					label.getRefBaseLook().setTextSize(
-						Calculator.getMin(200, label.getRefBaseLook().getRecursiveOrDefaultTextSize() + 20)
+					label.getRefLook().setTextSizeForState(
+						WidgetLookState.NORMAL,
+						Calculator.getMin(200, label.getRefLook().getTextSize() + 20)
 					)
 				)
 			)

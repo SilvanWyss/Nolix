@@ -21,7 +21,7 @@ import ch.nolix.element.gui.painterapi.IPainter;
  * @date 2016-01-01
  * @lines 190
  */
-public final class Label extends TextLineWidget<Label, OldLabelLook> {
+public final class Label extends TextLineWidget<Label, LabelLook> {
 	
 	//constants
 	public static final String TYPE_NAME = "Label";
@@ -143,15 +143,6 @@ public final class Label extends TextLineWidget<Label, OldLabelLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected OldLabelLook createOldLook() {
-		return new OldLabelLook();
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	protected void noteKeyPressOnSelfWhenFocused(final Key key) {}
 	
 	//method
@@ -173,7 +164,7 @@ public final class Label extends TextLineWidget<Label, OldLabelLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void paintTextLineWidgetContentArea(final IPainter painter, final OldLabelLook textLineWidgetLook) {}
+	protected void paintTextLineWidgetContentArea(final IPainter painter, final LabelLook textLineWidgetLook) {}
 	
 	//method
 	/**

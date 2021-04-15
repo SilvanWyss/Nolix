@@ -10,12 +10,11 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHave
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.functionapi.IElementGetter;
 import ch.nolix.element.gui.base.CursorIcon;
-import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.input.Key;
 import ch.nolix.element.gui.painterapi.IPainter;
 
 //class
-public final class Downloader extends TextLineWidget<Downloader, OldDownloaderLook> {
+public final class Downloader extends TextLineWidget<Downloader, DownloaderLook> {
 	
 	//constants
 	public static final String DEFAULT_TEXT = "Download";
@@ -32,9 +31,9 @@ public final class Downloader extends TextLineWidget<Downloader, OldDownloaderLo
 	
 	//constructor
 	public Downloader() {
-		setCustomCursorIcon(DEFAULT_CURSOR_ICON);	
-		getRefBaseLook().setTextColor(Color.DARK_BLUE);	
-		getRefHoverLook().setTextColor(Color.BLUE);
+		setCustomCursorIcon(DEFAULT_CURSOR_ICON);
+		//TODO: getRefLook().setTextColorForState(WidgetLookState.NORMAL, Color.DARK_BLUE)
+		//TODO: getRefLook().setTextColorForState(WidgetLookState.HOVERED, Color.BLUE);
 	}
 	
 	//method
@@ -125,12 +124,6 @@ public final class Downloader extends TextLineWidget<Downloader, OldDownloaderLo
 	
 	//method
 	@Override
-	protected OldDownloaderLook createOldLook() {
-		return new OldDownloaderLook();
-	}
-	
-	//method
-	@Override
 	protected void noteKeyPressOnSelfWhenFocused(final Key key) {}
 	
 	//method
@@ -147,7 +140,7 @@ public final class Downloader extends TextLineWidget<Downloader, OldDownloaderLo
 	
 	//method
 	@Override
-	protected void paintTextLineWidgetContentArea(final IPainter painter, final OldDownloaderLook downloaderLook) {}
+	protected void paintTextLineWidgetContentArea(final IPainter painter, final DownloaderLook downloaderLook) {}
 	
 	//method
 	@Override

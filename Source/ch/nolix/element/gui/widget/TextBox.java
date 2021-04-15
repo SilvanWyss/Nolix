@@ -10,6 +10,7 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.math.Calculator;
 import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.gui.base.CursorIcon;
+import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.input.Key;
 import ch.nolix.element.gui.painterapi.IPainter;
 
@@ -19,7 +20,7 @@ import ch.nolix.element.gui.painterapi.IPainter;
  * @date 2017-01-01
  * @lines 300
  */
-public final class TextBox extends TextLineWidget<TextBox, OldTextBoxLook> {
+public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	
 	//constant
 	public static final String TYPE_NAME = "TextBox";
@@ -46,7 +47,7 @@ public final class TextBox extends TextLineWidget<TextBox, OldTextBoxLook> {
 	public TextBox() {
 		setProposalWidth(200);
 		setCustomCursorIcon(CursorIcon.EDIT);
-		getRefBaseLook().setBorderThicknesses(1);
+		getRefLook().setBorderThicknessesForState(WidgetLookState.NORMAL, 1);
 	}
 	
 	//method
@@ -54,7 +55,7 @@ public final class TextBox extends TextLineWidget<TextBox, OldTextBoxLook> {
 	 * @return the width of the text cursor of the current {@link TextBox}.
 	 */
 	public int getTextCursorWidth() {
-		return Calculator.getMax(1, (int)(0.08 * getRefOldLook().getRecursiveOrDefaultTextSize()));
+		return Calculator.getMax(1, (int)(0.08 * getRefLook().getTextSize()));
 	}
 	
 	//method
@@ -122,15 +123,6 @@ public final class TextBox extends TextLineWidget<TextBox, OldTextBoxLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected OldTextBoxLook createOldLook() {
-		return new OldTextBoxLook();
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	protected void noteKeyPressOnSelfWhenFocused(final Key key) {
 		
 		//Enumerates the given key.
@@ -178,7 +170,7 @@ public final class TextBox extends TextLineWidget<TextBox, OldTextBoxLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void paintTextLineWidgetContentArea(final IPainter painter, final OldTextBoxLook textBoxLook) {
+	protected void paintTextLineWidgetContentArea(final IPainter painter, final TextBoxLook textBoxLook) {
 		if (isFocused()) {
 			paintTextCursor(painter, textBoxLook);
 		}
@@ -286,15 +278,15 @@ public final class TextBox extends TextLineWidget<TextBox, OldTextBoxLook> {
 	 * @param painter
 	 * @param textBoxLook
 	 */
-	private void paintTextCursor(IPainter painter, final OldTextBoxLook textBoxLook) {
+	private void paintTextCursor(IPainter painter, final TextBoxLook textBoxLook) {
 		
-		painter.setColor(textBoxLook.getRecursiveOrDefaultTextColor());
+		//TODO: painter.setColor(textBoxLook.getTextColor());
 		
 		painter.paintFilledRectangle(
 			getTextCursorXPositionOnContentArea(),
 			0,
 			getTextCursorWidth(),
-			(int)(1.2 * textBoxLook.getRecursiveOrDefaultTextSize())
+			(int)(1.2 * textBoxLook.getTextSize())
 		);
 	}
 	

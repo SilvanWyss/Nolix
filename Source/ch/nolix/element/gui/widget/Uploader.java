@@ -6,12 +6,13 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.element.elementenum.ContentPosition;
 import ch.nolix.element.gui.base.CursorIcon;
+import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.input.Key;
 import ch.nolix.element.gui.painterapi.IPainter;
 
 //class
-public final class Uploader extends TextLineWidget<Uploader,OldUploaderLook> {
+public final class Uploader extends TextLineWidget<Uploader, UploaderLook> {
 	
 	//constant
 	public static final Color DEFAULT_BACKGROUND_COLOR = Color.GAINSBORO;
@@ -31,9 +32,9 @@ public final class Uploader extends TextLineWidget<Uploader,OldUploaderLook> {
 		setContentPosition(ContentPosition.CENTER);
 		setCustomCursorIcon(CursorIcon.HAND);
 		
-		getRefBaseLook()
-		.setBackgroundColor(DEFAULT_BACKGROUND_COLOR)
-		.setPaddings(DEFAULT_PADDING);
+		getRefLook()
+		.setBackgroundColorForState(WidgetLookState.NORMAL, DEFAULT_BACKGROUND_COLOR)
+		.setPaddingForState(WidgetLookState.NORMAL, DEFAULT_PADDING);
 	}
 	
 	//method
@@ -68,12 +69,6 @@ public final class Uploader extends TextLineWidget<Uploader,OldUploaderLook> {
 	
 	//method
 	@Override
-	protected OldUploaderLook createOldLook() {
-		return new OldUploaderLook();
-	}
-	
-	//method
-	@Override
 	protected void noteKeyPressOnSelfWhenFocused(final Key key) {}
 	
 	//method
@@ -99,7 +94,7 @@ public final class Uploader extends TextLineWidget<Uploader,OldUploaderLook> {
 	
 	//method
 	@Override
-	protected void paintTextLineWidgetContentArea(final IPainter painter, final OldUploaderLook uploaderLook) {}
+	protected void paintTextLineWidgetContentArea(final IPainter painter, final UploaderLook uploaderLook) {}
 	
 	//method
 	@Override

@@ -19,7 +19,7 @@ import ch.nolix.element.elementenum.RotationDirection;
 import ch.nolix.element.gui.input.Key;
 
 //class
-public abstract class TextItemMenu<TIM extends TextItemMenu<TIM>> extends BorderWidget<TIM, OldTextItemMenuLook>
+public abstract class TextItemMenu<TIM extends TextItemMenu<TIM>> extends BorderWidget<TIM, TextItemMenuLook>
 implements Clearable {
 	
 	//constant
@@ -246,12 +246,6 @@ implements Clearable {
 	}
 	
 	//method
-	@Override
-	protected final OldTextItemMenuLook createOldLook() {
-		return new OldTextItemMenuLook();
-	}
-	
-	//method
 	protected final IContainer<Label> getRefItemLables() {
 		return getRefItems().to(TextItemMenuItem::getRefLabel);
 	}
@@ -318,10 +312,12 @@ implements Clearable {
 	//method
 	@Override
 	protected final void recalculateBorderWidget() {
-		
+				
 		recalculateTextItemMenuSelf();
 		
-		final var look = getRefOldLook();
+		//TODO
+		/*
+		final var look = getRefLook();
 		final var baseItemLook = look.getRefRecursiveOrDefaultBaseItemLook();
 		final var hoverItemLook = look.getRefRecursiveOrDefaultHoverItemLook();
 		final var selectedItemLook = look.getRefRecursiveOrDefaultSelectionItemLook();
@@ -357,6 +353,7 @@ implements Clearable {
 			
 			l.recalculate();
 		}
+		*/
 	}
 	
 	//method declaration

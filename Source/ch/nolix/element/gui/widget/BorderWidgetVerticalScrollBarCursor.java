@@ -18,7 +18,7 @@ import ch.nolix.element.gui.painterapi.IPainter;
  * @param <BWL> is the type of the {@link OldBorderWidgetLook}
  * of the {@link BorderWidget} a {@link BorderWidgetVerticalScrollBarCursor} belongs to.
  */
-public final class BorderWidgetVerticalScrollBarCursor<BWL extends OldBorderWidgetLook<BWL>>
+public final class BorderWidgetVerticalScrollBarCursor<BWL extends BorderWidgetLook<BWL>>
 implements HoverableByCursor {
 	
 	//constant
@@ -174,19 +174,19 @@ implements HoverableByCursor {
 	
 	//method
 	private Color getColorWhenIsMoved() {
-		return parentBorderWidget.getRefOldLook().getRecursiveOrDefaultSelectionScrollBarLook().getScrollCursorColor();
+		return parentBorderWidget.getRefLook().getScrollCursorMoveColor();
 	}
 	
 	//method
 	private Color getColorWhenIsNotMoved() {
 		
-		final var look = parentBorderWidget.getRefOldLook();
+		final var look = parentBorderWidget.getRefLook();
 		
 		if (!isUnderCursor()) {
-			return look.getRecursiveOrDefaultBaseScrollBarLook().getScrollCursorColor();
+			return look.getScrollCursorColor();
 		}
 		
-		return look.getRecursiveOrDefaultHoverScrollBarLook().getScrollCursorColor();
+		return look.getScrollCursorHoverColor();
 	}
 	
 	//method
