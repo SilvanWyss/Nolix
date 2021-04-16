@@ -1037,6 +1037,7 @@ TopLeftPositionedRecangular {
 		
 		setCustomCursorIcon(DEFAULT_CURSOR_ICON);
 		setGreyOutWhenDisabled();
+		getRefLook().reset();
 		
 		resetWidgetConfigurationOnSelf();
 	}
