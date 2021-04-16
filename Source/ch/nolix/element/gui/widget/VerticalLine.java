@@ -31,7 +31,7 @@ public final class VerticalLine extends Line<VerticalLine> {
 		isAskedForLength = true;
 		
 		final var length =
-		getParentWidget().getRefPaintableWidgets().getMaxIntOrDefaultValue(Widget::getHeight, DEFAULT_LENGTH);
+		getParentWidget().getRefWidgetsForPainting().getMaxIntOrDefaultValue(Widget::getHeight, DEFAULT_LENGTH);
 		
 		isAskedForLength = false;
 		

@@ -81,7 +81,7 @@ public final class DropdownMenu extends TextItemMenu<DropdownMenu> {
 	
 	//method
 	@Override
-	protected void fillUpShownWidgets(final LinkedList<Widget<?, ?>> list) {
+	protected void fillUpWidgetsForPainting(final LinkedList<Widget<?, ?>> list) {
 		list.addAtEnd(originHorizontalStack);
 	}
 		

@@ -244,7 +244,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void fillUpShownWidgets(final LinkedList<Widget<?, ?>> list) {}
+	protected void fillUpWidgetsForPainting(final LinkedList<Widget<?, ?>> list) {}
 	
 	//method
 	/**

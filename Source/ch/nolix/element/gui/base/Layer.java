@@ -353,7 +353,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 		}
 		
 		//Handles the case that the current Layer has a root Widget.
-		final var widgetsForPainting = rootWidget.getRefPaintableWidgets();
+		final var widgetsForPainting = rootWidget.getRefWidgetsForPainting();
 		widgetsForPainting.addAtBegin(rootWidget);
 		return widgetsForPainting;
 	}

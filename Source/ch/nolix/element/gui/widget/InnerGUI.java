@@ -202,7 +202,7 @@ public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> impleme
 
 	//method
 	@Override
-	protected void fillUpShownWidgets(final LinkedList<Widget<?, ?>> list) {
+	protected void fillUpWidgetsForPainting(final LinkedList<Widget<?, ?>> list) {
 		list.addAtEnd(titleLabel);
 	}
 	

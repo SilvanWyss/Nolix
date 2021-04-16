@@ -31,7 +31,7 @@ public final class HorizontalLine extends Line<HorizontalLine> {
 		isAskedForLength = true;
 		
 		final var length =
-		getParentWidget().getRefPaintableWidgets().getMaxIntOrDefaultValue(Widget::getWidth, DEFAULT_LENGTH);
+		getParentWidget().getRefWidgetsForPainting().getMaxIntOrDefaultValue(Widget::getWidth, DEFAULT_LENGTH);
 		
 		isAskedForLength = false;
 		

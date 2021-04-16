@@ -72,7 +72,7 @@ public final class ImageWidget extends BorderWidget<ImageWidget, ImageWidgetLook
 	
 	//method
 	@Override
-	protected void fillUpShownWidgets(final LinkedList<Widget<?, ?>> list) {}
+	protected void fillUpWidgetsForPainting(final LinkedList<Widget<?, ?>> list) {}
 	
 	//method
 	@Override

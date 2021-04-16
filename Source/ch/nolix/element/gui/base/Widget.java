@@ -244,7 +244,7 @@ TopLeftPositionedRecangular {
 	 * @return true if the free view area of the curent {@link Widget} is under the cursor.
 	 */
 	public final boolean freeViewAreaIsUnderCursor() {
-		return (isUnderCursor() && getRefPaintableWidgets().contains(Widget::isUnderCursor));
+		return (isUnderCursor() && getRefWidgetsForPainting().contains(Widget::isUnderCursor));
 	}
 	
 	//method
@@ -410,10 +410,10 @@ TopLeftPositionedRecangular {
 	/** 
 	 * @return the paintable {@link Widget}s of the current {@link Widget}.
 	 */
-	public final LinkedList<Widget<?, ?>> getRefPaintableWidgets() {
+	public final LinkedList<Widget<?, ?>> getRefWidgetsForPainting() {
 		
 		final var widgetsForPainting = new LinkedList<Widget<?, ?>>();
-		fillUpShownWidgets(widgetsForPainting);
+		fillUpWidgetsForPainting(widgetsForPainting);
 		
 		return widgetsForPainting;
 	}
@@ -669,7 +669,7 @@ TopLeftPositionedRecangular {
 			}	
 			
 			if (redirectsInputsToShownWidgets()) {
-				getRefPaintableWidgets().forEach(w -> w.noteKeyPress(key));
+				getRefWidgetsForPainting().forEach(w -> w.noteKeyPress(key));
 			}
 		}
 	}
@@ -687,7 +687,7 @@ TopLeftPositionedRecangular {
 			}
 			
 			if (redirectsInputsToShownWidgets()) {
-				getRefPaintableWidgets().forEach(w -> w.noteKeyRelease(key));
+				getRefWidgetsForPainting().forEach(w -> w.noteKeyRelease(key));
 			}
 		}
 	}
@@ -705,7 +705,7 @@ TopLeftPositionedRecangular {
 			}
 			
 			if (redirectsInputsToShownWidgets()) {
-				getRefPaintableWidgets().forEach(w -> w.noteKeyTyping(key));
+				getRefWidgetsForPainting().forEach(w -> w.noteKeyTyping(key));
 			}
 		}
 	}
@@ -722,7 +722,7 @@ TopLeftPositionedRecangular {
 			noteLeftMouseButtonClickOnSelfWhenEnabled();
 									
 			if (redirectsInputsToShownWidgets()) {
-				getRefPaintableWidgets().forEach(Widget::noteLeftMouseButtonClick);
+				getRefWidgetsForPainting().forEach(Widget::noteLeftMouseButtonClick);
 			}
 		}
 	}
@@ -739,7 +739,7 @@ TopLeftPositionedRecangular {
 			noteLeftMouseButtonPressOnSelfWhenEnabled();
 			
 			if (redirectsInputsToShownWidgets()) {
-				getRefPaintableWidgets().forEach(Widget::noteLeftMouseButtonPress);
+				getRefWidgetsForPainting().forEach(Widget::noteLeftMouseButtonPress);
 			}
 		}
 	}
@@ -756,7 +756,7 @@ TopLeftPositionedRecangular {
 			noteLeftMouseButtonReleaseOnSelfWhenEnabled();
 			
 			if (redirectsInputsToShownWidgets()) {
-				getRefPaintableWidgets().forEach(Widget::noteLeftMouseButtonRelease);
+				getRefWidgetsForPainting().forEach(Widget::noteLeftMouseButtonRelease);
 			}
 		}
 	}
@@ -782,7 +782,7 @@ TopLeftPositionedRecangular {
 			noteMouseWheelClickOnSelfWhenEnabled();
 			
 			if (redirectsInputsToShownWidgets()) {
-				getRefPaintableWidgets().forEach(Widget::noteMouseWheelClick);
+				getRefWidgetsForPainting().forEach(Widget::noteMouseWheelClick);
 			}
 		}
 	}
@@ -798,7 +798,7 @@ TopLeftPositionedRecangular {
 			noteMouseWheelPressOnSelfWhenEnabled();
 			
 			if (redirectsInputsToShownWidgets()) {
-				getRefPaintableWidgets().forEach(Widget::noteMouseWheelPress);
+				getRefWidgetsForPainting().forEach(Widget::noteMouseWheelPress);
 			}
 		}
 	}
@@ -814,7 +814,7 @@ TopLeftPositionedRecangular {
 			noteMouseWheelReleaseOnSelfWhenEnabled();
 			
 			if (redirectsInputsToShownWidgets()) {
-				getRefPaintableWidgets().forEach(Widget::noteMouseWheelRelease);
+				getRefWidgetsForPainting().forEach(Widget::noteMouseWheelRelease);
 			}
 		}
 	}
@@ -832,7 +832,7 @@ TopLeftPositionedRecangular {
 			}
 			
 			if (redirectsInputsToShownWidgets()) {
-				getRefPaintableWidgets().forEach(w -> w.noteMouseWheelRotationStep(rotationDirection));
+				getRefWidgetsForPainting().forEach(w -> w.noteMouseWheelRotationStep(rotationDirection));
 			}
 		}
 	}
@@ -849,7 +849,7 @@ TopLeftPositionedRecangular {
 			noteRightMouseButtonClickOnSelfWhenEnabled();
 		
 			if (redirectsInputsToShownWidgets()) {
-				getRefPaintableWidgets().forEach(Widget::noteRightMouseButtonClick);
+				getRefWidgetsForPainting().forEach(Widget::noteRightMouseButtonClick);
 			}
 		}
 	}
@@ -866,7 +866,7 @@ TopLeftPositionedRecangular {
 			noteRightMouseButtonPressOnSelfWhenEnabled();
 			
 			if (redirectsInputsToShownWidgets()) {
-				getRefPaintableWidgets().forEach(Widget::noteRightMouseButtonPress);
+				getRefWidgetsForPainting().forEach(Widget::noteRightMouseButtonPress);
 			}
 		}
 	}
@@ -883,7 +883,7 @@ TopLeftPositionedRecangular {
 			noteRightMouseButtonReleaseOnSelfWhenEnabled();
 			
 			if (redirectsInputsToShownWidgets()) {
-				getRefPaintableWidgets().forEach(Widget::noteRightMouseButtonRelease);
+				getRefWidgetsForPainting().forEach(Widget::noteRightMouseButtonRelease);
 			}
 		}
 	}
@@ -929,7 +929,7 @@ TopLeftPositionedRecangular {
 	@Override
 	public final void recalculate() {
 		
-		final var paintableWidgets = getRefPaintableWidgets();
+		final var paintableWidgets = getRefWidgetsForPainting();
 		
 		if (!paintableWidgets.containsOnly(Widget::belongsToParent)) {
 			addChildWidgets(paintableWidgets);
@@ -1441,7 +1441,7 @@ TopLeftPositionedRecangular {
 	 * 
 	 * @param list
 	 */
-	protected abstract void fillUpShownWidgets(LinkedList<Widget<?, ?>> list);
+	protected abstract void fillUpWidgetsForPainting(LinkedList<Widget<?, ?>> list);
 	
 	//method
 	/**
@@ -1763,13 +1763,13 @@ TopLeftPositionedRecangular {
 	 * @param list
 	 */
 	private void fillUpWidgetsForPaintingRecursively(final LinkedList<Widget<?, ?>> list) {
-		fillUpShownWidgets(list);
-		getRefPaintableWidgets().forEach(w -> w.fillUpWidgetsForPaintingRecursively(list));
+		fillUpWidgetsForPainting(list);
+		getRefWidgetsForPainting().forEach(w -> w.fillUpWidgetsForPaintingRecursively(list));
 	}
 	
 	//method
 	private SingleContainer<Widget<?, ?>> getRefWidgetUnderCursor() {
-		return getRefPaintableWidgets().getRefFirstOptionally(Widget::isUnderCursor);
+		return getRefWidgetsForPainting().getRefFirstOptionally(Widget::isUnderCursor);
 	}
 	
 	//method
@@ -1865,7 +1865,7 @@ TopLeftPositionedRecangular {
 			noteMouseMoveOnSelfWhenEnabled();
 			
 			if (redirectsInputsToShownWidgets()) {
-				getRefPaintableWidgets().forEach(Widget::noteMouseMove);
+				getRefWidgetsForPainting().forEach(Widget::noteMouseMove);
 			}
 		}
 	}
@@ -1970,7 +1970,7 @@ TopLeftPositionedRecangular {
 		paint(painter, getRefLook());
 		
 		if (paintsPaintableWidgetAPriori()) {
-			getRefPaintableWidgets().forEach(w -> w.paintRecursively(painter));
+			getRefWidgetsForPainting().forEach(w -> w.paintRecursively(painter));
 		}
 	}
 	
@@ -1989,7 +1989,7 @@ TopLeftPositionedRecangular {
 		final var cursorXPositionOnScrolledArea = getCursorXPositionOnContentArea();
 		final var cursorYPositionOnScrolledArea = getCursorYPositionOnContentArea();
 		
-		for (final var w : getRefPaintableWidgets()) {
+		for (final var w : getRefWidgetsForPainting()) {
 			w.setCursorPosition(
 				cursorXPositionOnScrolledArea - w.getXPosition(),
 				cursorYPositionOnScrolledArea - w.getYPosition()

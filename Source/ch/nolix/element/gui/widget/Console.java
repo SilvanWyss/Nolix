@@ -587,7 +587,7 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void fillUpShownWidgets(final LinkedList<Widget<?, ?>> list) {}
+	protected void fillUpWidgetsForPainting(final LinkedList<Widget<?, ?>> list) {}
 	
 	//method
 	/**
