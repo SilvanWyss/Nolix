@@ -3,6 +3,7 @@ package ch.nolix.element.formatelement;
 
 //own imports
 import ch.nolix.common.attributeapi.mandatoryattributeapi.Named;
+import ch.nolix.common.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.SingleContainer;
@@ -244,7 +245,7 @@ public abstract class Property<S extends Enum<S>, V> implements Named {
 	final void setValueFromSpecification(final BaseNode specification) {
 		
 		for (final var s : parent.getAvailableStates()) {
-			if (specification.getHeader().startsWith(s.getPrefix())) {
+			if (GlobalStringHelper.startsWithIgnoringCase(specification.getHeader(), s.getPrefix())) {
 				setValueFromSpecificationToState(s, specification);
 				return;
 			}
