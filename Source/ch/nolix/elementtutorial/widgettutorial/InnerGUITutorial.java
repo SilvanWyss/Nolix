@@ -32,7 +32,7 @@ public final class InnerGUITutorial {
 				.onLook(
 					l ->
 					l
-					.setBorderThicknessesForState(WidgetLookState.NORMAL, 5)
+					.setBorderThicknessForState(WidgetLookState.NORMAL, 5)
 					.setBackgroundColorForState(WidgetLookState.NORMAL, Color.LAVENDER)
 				)
 				.setTitle("Inner GUI 1")
@@ -41,7 +41,7 @@ public final class InnerGUITutorial {
 				.onLook(
 					l ->
 					l
-					.setBorderThicknessesForState(WidgetLookState.NORMAL, 5)
+					.setBorderThicknessForState(WidgetLookState.NORMAL, 5)
 					.setBackgroundColorForState(WidgetLookState.NORMAL, Color.LAVENDER)
 				)
 				.setTitle("Inner GUI 2")

@@ -42,7 +42,7 @@ public final class DownloaderTutorial {
 		downloader.onLook(
 			l ->
 			l
-			.setBorderThicknessesForState(WidgetLookState.NORMAL, 5)
+			.setBorderThicknessForState(WidgetLookState.NORMAL, 5)
 			.setBackgroundColorForState(WidgetLookState.NORMAL, Color.LAVENDER)
 			.setPaddingForState(WidgetLookState.NORMAL, 5)
 			.setTextSizeForState(WidgetLookState.NORMAL, 50)

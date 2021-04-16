@@ -48,7 +48,7 @@ public final class ButtonTutorial {
 		.onLook(
 			l ->
 			l
-			.setBorderThicknessesForState(WidgetLookState.NORMAL, 5)
+			.setBorderThicknessForState(WidgetLookState.NORMAL, 5)
 			.setBackgroundColorForState(WidgetLookState.NORMAL, Color.LAVENDER)
 			.setBackgroundColorForState(WidgetLookState.HOVERED, Color.SKY_BLUE)
 			.setPaddingForState(WidgetLookState.NORMAL, 5)

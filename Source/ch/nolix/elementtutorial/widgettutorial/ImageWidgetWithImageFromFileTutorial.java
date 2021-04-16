@@ -38,7 +38,7 @@ public final class ImageWidgetWithImageFromFileTutorial {
 		imageWidget.onLook(
 			l ->
 			l
-			.setBorderThicknessesForState(WidgetLookState.NORMAL, 5)
+			.setBorderThicknessForState(WidgetLookState.NORMAL, 5)
 			//TODO .setBorderColorsForState(WidgetLookState.NORMAL, Color.DARK_BLUE)
 			.setBackgroundColorForState(WidgetLookState.NORMAL, Color.WHITE_SMOKE)
 			.setPaddingForState(WidgetLookState.NORMAL, 5)

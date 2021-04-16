@@ -38,7 +38,7 @@ public final class ScrollTutorial {
 		.onLook(
 			l ->
 			l
-			.setBorderThicknessesForState(WidgetLookState.NORMAL, 5)
+			.setBorderThicknessForState(WidgetLookState.NORMAL, 5)
 			.setBackgroundColorForState(WidgetLookState.NORMAL, Color.LAVENDER)
 			.setTextSizeForState(WidgetLookState.NORMAL, 500)
 		);

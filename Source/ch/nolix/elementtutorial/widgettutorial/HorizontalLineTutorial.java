@@ -49,7 +49,7 @@ public final class HorizontalLineTutorial {
 		.onLook(
 			l ->
 			l
-			.setBorderThicknessesForState(WidgetLookState.NORMAL, 5)
+			.setBorderThicknessForState(WidgetLookState.NORMAL, 5)
 			.setPaddingForState(WidgetLookState.NORMAL, 50)
 			.setBackgroundColorForState(WidgetLookState.NORMAL, Color.LAVENDER)
 		);

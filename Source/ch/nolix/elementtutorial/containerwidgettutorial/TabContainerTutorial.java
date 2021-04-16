@@ -43,7 +43,7 @@ public final class TabContainerTutorial {
 		tabContainer.onLook(
 			l ->
 			l
-			.setBorderThicknessesForState(WidgetLookState.NORMAL, 5)
+			.setBorderThicknessForState(WidgetLookState.NORMAL, 5)
 			.setBackgroundColorForState(WidgetLookState.NORMAL, Color.LAVENDER)
 			.setPaddingForState(WidgetLookState.NORMAL, 20)
 		);

@@ -44,7 +44,7 @@ public final class ImageWidgetTutorial {
 		imageWidget.onLook(
 			l ->
 			l
-			.setBorderThicknessesForState(WidgetLookState.NORMAL, 5)
+			.setBorderThicknessForState(WidgetLookState.NORMAL, 5)
 			.setBackgroundColorForState(WidgetLookState.NORMAL, Color.LAVENDER)
 			.setPaddingForState(WidgetLookState.NORMAL, 5)
 		);

@@ -184,7 +184,7 @@ public final class DropdownMenu extends TextItemMenu<DropdownMenu> {
 		.setMaxHeight(getParentGUI().getViewAreaHeight() - getYPositionOnGUI() - getHeight())
 		.addItems(getRefItems().to(TextItemMenuItem::getText));
 		
-		expandedDropdownMenu.getRefLook().setBorderThicknessesForState(WidgetLookState.NORMAL, 1);
+		expandedDropdownMenu.getRefLook().setBorderThicknessForState(WidgetLookState.NORMAL, 1);
 						
 		//TODO: Analyze recalculate method.
 		/*
