@@ -18,7 +18,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends FormatElemen
 	//constants
 	public static final Font DEFAULT_FONT = Font.ARIAL;
 	public static final boolean DEFAULT_BOLD_TEXT_FLAG = false;
-	public static final int DEAULT_TEXT_SIZE = 10;
+	public static final int DEAULT_TEXT_SIZE = 20;
 	public static final Color DEFAULT_TEXT_COLOR = Color.BLACK;
 	
 	//constants
