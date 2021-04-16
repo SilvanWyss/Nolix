@@ -28,7 +28,7 @@ import ch.nolix.element.gui.textformat.TextFormat;
 /**
  * @author Silvan Wyss
  * @date 2017-03-06
- * @lines 870
+ * @lines 900
  */
 public final class Console extends BorderWidget<Console, ConsoleLook> implements Clearable {
 	
@@ -833,7 +833,7 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 		new TextFormat(
 			look.getFont(),
 			look.getTextSize(),
-			Color.BLACK //TODO: look.gettTextColor()
+			look.getTextColor()
 		);
 	}
 	
