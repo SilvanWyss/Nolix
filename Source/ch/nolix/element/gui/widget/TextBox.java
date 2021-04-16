@@ -280,7 +280,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	 */
 	private void paintTextCursor(IPainter painter, final TextBoxLook textBoxLook) {
 		
-		//TODO: painter.setColor(textBoxLook.getTextColor());
+		painter.setColor(textBoxLook.getTextColor());
 		
 		painter.paintFilledRectangle(
 			getTextCursorXPositionOnContentArea(),
