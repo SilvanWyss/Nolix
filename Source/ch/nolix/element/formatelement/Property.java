@@ -5,6 +5,7 @@ package ch.nolix.element.formatelement;
 import ch.nolix.common.attributeapi.mandatoryattributeapi.Named;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.container.SingleContainer;
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -99,8 +100,35 @@ public abstract class Property<S extends Enum<S>, V> implements Named {
 	}
 	
 	//method
+	public final SingleContainer<V> getValueOfStateOptionally(final S state) {
+		
+		final var stateProperty = stateProperties[getStateOf(state).getIndex()];
+		
+		if (!stateProperty.hasValue()) {
+			return new SingleContainer<>();
+		}
+		
+		return new SingleContainer<>(stateProperty.getValue());
+	}
+	
+	//method
+	public final SingleContainer<V> getValueOptionally() {
+		
+		if (!hasValue()) {
+			return new SingleContainer<>();
+		}
+		
+		return new SingleContainer<>(getValue());
+	}
+	
+	//method
 	public final boolean hasValue() {
 		return hasValueWhenHasState(parent.getCurrentStateObject());
+	}
+	
+	//method
+	public final boolean hasValueForState(final S state) {
+		return stateProperties[getStateOf(state).getIndex()].hasValue();
 	}
 	
 	//method
