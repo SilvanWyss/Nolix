@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.gui.widget;
 
+import ch.nolix.common.container.SingleContainer;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.element.gui.baseapi.HoverableByCursor;
@@ -51,13 +52,13 @@ public class BorderWidgetHorizontalScrollBar<BWL extends BorderWidgetLook<BWL>> 
 	/**
 	 * @return the color of the current {@link BorderWidgetHorizontalScrollBarCursor}.
 	 */
-	public Color getColor() {
+	public SingleContainer<Color> getColorOptionally() {
 		
 		if (!parentBorderWidget.isMovingHorizontalScrollBarCursor()) {
-			return getColorWhenHorizontalScrollBarCursorIsNotMoved();
+			return getColorWhenHorizontalScrollBarCursorIsNotMovedOptionally();
 		}
 		
-		return getColorWhenHorizontalScrollBarCursorIsMoved();
+		return getColorWhenHorizontalScrollBarCursorIsMovedOptionally();
 	}
 	
 	//method
@@ -183,20 +184,20 @@ public class BorderWidgetHorizontalScrollBar<BWL extends BorderWidgetLook<BWL>> 
 	}
 	
 	//method
-	private Color getColorWhenHorizontalScrollBarCursorIsMoved() {
-		return parentBorderWidget.getRefLook().getScrollBarMoveColor();
+	private SingleContainer<Color> getColorWhenHorizontalScrollBarCursorIsMovedOptionally() {
+		return parentBorderWidget.getRefLook().getScrollBarMoveColorOptionally();
 	}
 	
 	//method
-	private Color getColorWhenHorizontalScrollBarCursorIsNotMoved() {
+	private SingleContainer<Color> getColorWhenHorizontalScrollBarCursorIsNotMovedOptionally() {
 		
 		final var look = parentBorderWidget.getRefLook();
 		
 		if (!parentBorderWidget.getHorizontalScrollBarCursor().isUnderCursor()) {
-			return look.getScrollBarColor();
+			return look.getScrollBarColorOptionally();
 		}
 		
-		return look.getScrollBarMoveColor();
+		return look.getScrollBarMoveColorOptionally();
 	}
 	
 	//method
@@ -215,8 +216,11 @@ public class BorderWidgetHorizontalScrollBar<BWL extends BorderWidgetLook<BWL>> 
 	//method
 	private void paintWhenVisible(final IPainter painter) {
 		
-		painter.setColor(getColor());
-		painter.paintFilledRectangle(getWidth(), getHeight());
+		final var color = getColorOptionally();
+		if (color.containsAny()) {
+			painter.setColor(color.getRefElement());
+			painter.paintFilledRectangle(getWidth(), getHeight());
+		}
 		
 		paintHorizontalScrollBarCursor(painter);
 	}

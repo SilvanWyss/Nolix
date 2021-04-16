@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.gui.widget;
 
+import ch.nolix.common.container.SingleContainer;
 //own imports
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
@@ -312,18 +313,18 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	}
 	
 	//method
-	public final Color getScrollBarColor() {
-		return scrollBarColor.getValue();
+	public final SingleContainer<Color> getScrollBarColorOptionally() {
+		return scrollBarColor.getValueOptionally();
 	}
 	
 	//method
-	public final Color getScrollBarHoverColor() {
-		return scrollBarHoverColor.getValue();
+	public final SingleContainer<Color> getScrollBarHoverColorOptionally() {
+		return scrollBarHoverColor.getValueOptionally();
 	}
 	
 	//method
-	public final Color getScrollBarMoveColor() {
-		return scrollBarMoveColor.getValue();
+	public final SingleContainer<Color> getScrollBarMoveColorOptionally() {
+		return scrollBarMoveColor.getValueOptionally();
 	}
 	
 	//method

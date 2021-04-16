@@ -186,7 +186,7 @@ implements HoverableByCursor {
 			return look.getScrollCursorColor();
 		}
 		
-		return look.getScrollCursorColor();
+		return look.getScrollCursorHoverColor();
 	}
 
 	//method

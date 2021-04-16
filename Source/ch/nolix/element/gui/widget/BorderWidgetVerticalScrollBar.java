@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.gui.widget;
 
+import ch.nolix.common.container.SingleContainer;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.element.gui.baseapi.HoverableByCursor;
@@ -51,13 +52,13 @@ public final class BorderWidgetVerticalScrollBar<BWL extends BorderWidgetLook<BW
 	/**
 	 * @return the color of the current {@link BorderWidgetVerticalScrollBar}.
 	 */
-	public Color getColor() {
+	public SingleContainer<Color> getColorOptionally() {
 		
 		if (!parentBorderWidget.isMovingVerticalScrollBarCursor()) {
-			return getColorWhenVerticalScrollBarCursorIsNotMoved();
+			return getColorWhenVerticalScrollBarCursorIsNotMovedOptionally();
 		}
 		
-		return getColorWhenVerticalScrollBarCursorIsMoved();
+		return getColorWhenVerticalScrollBarCursorIsMovedOptionally();
 	}
 	
 	//method
@@ -184,20 +185,20 @@ public final class BorderWidgetVerticalScrollBar<BWL extends BorderWidgetLook<BW
 	}
 	
 	//method
-	private Color getColorWhenVerticalScrollBarCursorIsMoved() {
-		return parentBorderWidget.getRefLook().getScrollBarMoveColor();
+	private SingleContainer<Color> getColorWhenVerticalScrollBarCursorIsMovedOptionally() {
+		return parentBorderWidget.getRefLook().getScrollBarMoveColorOptionally();
 	}
 	
 	//method
-	private Color getColorWhenVerticalScrollBarCursorIsNotMoved() {
+	private SingleContainer<Color> getColorWhenVerticalScrollBarCursorIsNotMovedOptionally() {
 		
 		final var look = parentBorderWidget.getRefLook();
 		
 		if (!parentBorderWidget.getVerticalScrollBarCursor().isUnderCursor()) {
-			return look.getScrollBarColor();
+			return look.getScrollBarColorOptionally();
 		}
 		
-		return look.getScrollBarHoverColor();
+		return look.getScrollBarHoverColorOptionally();
 	}
 	
 	//method
@@ -216,8 +217,11 @@ public final class BorderWidgetVerticalScrollBar<BWL extends BorderWidgetLook<BW
 	//method
 	private void paintWhenVisible(IPainter painter) {
 		
-		painter.setColor(getColor());
-		painter.paintFilledRectangle(getWidth(), getHeight());
+		final var color = getColorOptionally();
+		if (color.containsAny()) {
+			painter.setColor(color.getRefElement());
+			painter.paintFilledRectangle(getWidth(), getHeight());
+		}
 		
 		paintVerticalScrollBarCursor(painter);
 	}
