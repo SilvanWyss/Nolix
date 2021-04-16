@@ -43,8 +43,8 @@ public final class AccordionTutorial {
 		accordion.onLook(
 			l ->
 			l
-			.setBorderThicknessForState(WidgetLookState.NORMAL, 5)
-			.setBackgroundColorForState(WidgetLookState.NORMAL, Color.LAVENDER)
+			.setBorderThicknessForState(WidgetLookState.BASE, 5)
+			.setBackgroundColorForState(WidgetLookState.BASE, Color.LAVENDER)
 		);
 		
 		//Adds the Accordion to the Frame.

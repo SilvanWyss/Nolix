@@ -54,8 +54,8 @@ public final class DropdownMenuTutorial {
 			dropdownMenu.onLook(
 				l ->
 				l
-				.setBorderThicknessForState(WidgetLookState.NORMAL, 5)
-				.setBackgroundColorForState(WidgetLookState.NORMAL, Color.LAVENDER)
+				.setBorderThicknessForState(WidgetLookState.BASE, 5)
+				.setBackgroundColorForState(WidgetLookState.BASE, Color.LAVENDER)
 				//TODO: .setItemPaddingForState(WidgetLookState.NORMAL, 5)
 			);
 			

@@ -42,10 +42,10 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 		setContentPosition(ContentPosition.CENTER);
 		
 		getRefLook()
-		.setBorderThicknessForState(WidgetLookState.NORMAL, 1)
-		.setBackgroundColorForState(WidgetLookState.NORMAL, Color.GREY)
-		.setLeftPaddingForState(WidgetLookState.NORMAL,10)
-		.setRightPaddingForState(WidgetLookState.NORMAL, 10);
+		.setBorderThicknessForState(WidgetLookState.BASE, 1)
+		.setBackgroundColorForState(WidgetLookState.BASE, Color.GREY)
+		.setLeftPaddingForState(WidgetLookState.BASE,10)
+		.setRightPaddingForState(WidgetLookState.BASE, 10);
 	}
 	
 	//method

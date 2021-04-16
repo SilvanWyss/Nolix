@@ -48,11 +48,11 @@ public final class ButtonTutorial {
 		.onLook(
 			l ->
 			l
-			.setBorderThicknessForState(WidgetLookState.NORMAL, 5)
-			.setBackgroundColorForState(WidgetLookState.NORMAL, Color.LAVENDER)
-			.setBackgroundColorForState(WidgetLookState.HOVERED, Color.SKY_BLUE)
-			.setPaddingForState(WidgetLookState.NORMAL, 5)
-			.setTextSizeForState(WidgetLookState.NORMAL, 50)
+			.setBorderThicknessForState(WidgetLookState.BASE, 5)
+			.setBackgroundColorForState(WidgetLookState.BASE, Color.LAVENDER)
+			.setBackgroundColorForState(WidgetLookState.HOVER, Color.SKY_BLUE)
+			.setPaddingForState(WidgetLookState.BASE, 5)
+			.setTextSizeForState(WidgetLookState.BASE, 50)
 		);
 		
 		//Adds the Button to the Frame.

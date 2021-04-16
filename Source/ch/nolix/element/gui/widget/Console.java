@@ -83,7 +83,7 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	 */
 	public Console() {
 		setProposalSize(200, 100);
-		getRefLook().setPaddingForState(WidgetLookState.NORMAL, 10);
+		getRefLook().setPaddingForState(WidgetLookState.BASE, 10);
 	}
 	
 	//method
@@ -814,7 +814,7 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	@Override
 	protected void resetBorderWidgetConfigurationOnSelf() {
 		setCustomCursorIcon(CursorIcon.EDIT);
-		getRefLook().setFontForState(WidgetLookState.NORMAL, Font.LUCIDA_CONSOLE);
+		getRefLook().setFontForState(WidgetLookState.BASE, Font.LUCIDA_CONSOLE);
 	}
 	
 	//method

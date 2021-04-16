@@ -32,7 +32,7 @@ public final class LabelShorteningTextTutorial {
 		//Configures the look of the label.
 		label
 		.setMaxWidth(500)
-		.onLook(l -> l.setTextSizeForState(WidgetLookState.NORMAL, 50));	
+		.onLook(l -> l.setTextSizeForState(WidgetLookState.BASE, 50));	
 			
 		//Adds the label to the frame.
 		frame.addLayerOnTop(label);

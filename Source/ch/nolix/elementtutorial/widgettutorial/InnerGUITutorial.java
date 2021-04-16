@@ -32,20 +32,20 @@ public final class InnerGUITutorial {
 				.onLook(
 					l ->
 					l
-					.setBorderThicknessForState(WidgetLookState.NORMAL, 5)
-					.setBackgroundColorForState(WidgetLookState.NORMAL, Color.LAVENDER)
+					.setBorderThicknessForState(WidgetLookState.BASE, 5)
+					.setBackgroundColorForState(WidgetLookState.BASE, Color.LAVENDER)
 				)
 				.setTitle("Inner GUI 1")
-				.addLayerOnTop(new Label().setText("A").onLook(l -> l.setTextSizeForState(WidgetLookState.NORMAL, 100))),
+				.addLayerOnTop(new Label().setText("A").onLook(l -> l.setTextSizeForState(WidgetLookState.BASE, 100))),
 				new InnerGUI()
 				.onLook(
 					l ->
 					l
-					.setBorderThicknessForState(WidgetLookState.NORMAL, 5)
-					.setBackgroundColorForState(WidgetLookState.NORMAL, Color.LAVENDER)
+					.setBorderThicknessForState(WidgetLookState.BASE, 5)
+					.setBackgroundColorForState(WidgetLookState.BASE, Color.LAVENDER)
 				)
 				.setTitle("Inner GUI 2")
-				.addLayerOnTop(new Label().setText("B").onLook(l -> l.setTextSizeForState(WidgetLookState.NORMAL, 100)))
+				.addLayerOnTop(new Label().setText("B").onLook(l -> l.setTextSizeForState(WidgetLookState.BASE, 100)))
 			)
 		);
 	}

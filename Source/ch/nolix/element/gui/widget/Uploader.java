@@ -33,8 +33,8 @@ public final class Uploader extends TextLineWidget<Uploader, UploaderLook> {
 		setCustomCursorIcon(CursorIcon.HAND);
 		
 		getRefLook()
-		.setBackgroundColorForState(WidgetLookState.NORMAL, DEFAULT_BACKGROUND_COLOR)
-		.setPaddingForState(WidgetLookState.NORMAL, DEFAULT_PADDING);
+		.setBackgroundColorForState(WidgetLookState.BASE, DEFAULT_BACKGROUND_COLOR)
+		.setPaddingForState(WidgetLookState.BASE, DEFAULT_PADDING);
 	}
 	
 	//method

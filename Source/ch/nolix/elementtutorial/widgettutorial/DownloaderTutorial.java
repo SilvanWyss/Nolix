@@ -42,10 +42,10 @@ public final class DownloaderTutorial {
 		downloader.onLook(
 			l ->
 			l
-			.setBorderThicknessForState(WidgetLookState.NORMAL, 5)
-			.setBackgroundColorForState(WidgetLookState.NORMAL, Color.LAVENDER)
-			.setPaddingForState(WidgetLookState.NORMAL, 5)
-			.setTextSizeForState(WidgetLookState.NORMAL, 50)
+			.setBorderThicknessForState(WidgetLookState.BASE, 5)
+			.setBackgroundColorForState(WidgetLookState.BASE, Color.LAVENDER)
+			.setPaddingForState(WidgetLookState.BASE, 5)
+			.setTextSizeForState(WidgetLookState.BASE, 50)
 		);
 		
 		//Adds the downloader to the frame.

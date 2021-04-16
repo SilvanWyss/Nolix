@@ -38,7 +38,7 @@ public final class CursorPositionTutorial {
 		protected void initializeBaseBackGUIClientSession() {
 									
 			//Configures the look of the cursorPositionLabel.
-			cursorPositionLabel.onLook(l -> l.setPaddingForState(WidgetLookState.NORMAL, 5));
+			cursorPositionLabel.onLook(l -> l.setPaddingForState(WidgetLookState.BASE, 5));
 			
 			//Creates Layer.
 			final var layer = new Layer()

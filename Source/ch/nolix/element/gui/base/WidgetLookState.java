@@ -3,7 +3,7 @@ package ch.nolix.element.gui.base;
 
 //enum
 public enum WidgetLookState {
-	NORMAL,
-	HOVERED,
-	FOCUSED
+	BASE,
+	HOVER,
+	FOCUS
 }

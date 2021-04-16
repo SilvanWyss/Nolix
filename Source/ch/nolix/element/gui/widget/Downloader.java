@@ -37,8 +37,8 @@ public final class Downloader extends TextLineWidget<Downloader, DownloaderLook>
 		setCustomCursorIcon(DEFAULT_CURSOR_ICON);
 		
 		getRefLook()
-		.setTextColorForState(WidgetLookState.NORMAL, Color.DARK_BLUE)
-		.setTextColorForState(WidgetLookState.HOVERED, Color.BLUE);
+		.setTextColorForState(WidgetLookState.BASE, Color.DARK_BLUE)
+		.setTextColorForState(WidgetLookState.HOVER, Color.BLUE);
 	}
 	
 	//method

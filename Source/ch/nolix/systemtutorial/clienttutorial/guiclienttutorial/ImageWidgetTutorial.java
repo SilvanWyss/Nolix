@@ -43,9 +43,9 @@ public final class ImageWidgetTutorial {
 			
 			//Configures the look of the ImageWidget.
 			imageWidget.getRefLook()
-			.setBorderThicknessForState(WidgetLookState.NORMAL, 5)
-			.setBackgroundColorForState(WidgetLookState.NORMAL, Color.LAVENDER)
-			.setPaddingForState(WidgetLookState.NORMAL, 5);
+			.setBorderThicknessForState(WidgetLookState.BASE, 5)
+			.setBackgroundColorForState(WidgetLookState.BASE, Color.LAVENDER)
+			.setPaddingForState(WidgetLookState.BASE, 5);
 			
 			//Adds the ImageWidget to the GUI of the current MainSession.
 			getRefGUI().addLayerOnTop(imageWidget);

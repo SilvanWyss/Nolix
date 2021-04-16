@@ -2089,7 +2089,7 @@ TopLeftPositionedRecangular {
 	 * for the case that the current {@link Widget} is focused.
 	 */
 	private void updateLookStateWhenFocused() {
-		getRefLook().setState(WidgetLookState.FOCUSED);
+		getRefLook().setState(WidgetLookState.FOCUS);
 	}
 	
 	//method
@@ -2099,9 +2099,9 @@ TopLeftPositionedRecangular {
 	 */
 	private void updateLookStateWhenNotFocused() {
 		if (!isHovered()) {
-			getRefLook().setState(WidgetLookState.NORMAL);
+			getRefLook().setState(WidgetLookState.BASE);
 		} else {
-			getRefLook().setState(WidgetLookState.HOVERED);
+			getRefLook().setState(WidgetLookState.HOVER);
 		}
 	}
 }

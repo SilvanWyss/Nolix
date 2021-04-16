@@ -31,8 +31,8 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 		setMaxHeight(500);
 		
 		getRefLook()
-		.setGridTypeForState(WidgetLookState.NORMAL, GridType.INNER_LINES)
-		.setElementMarginForState(WidgetLookState.NORMAL, 10);
+		.setGridTypeForState(WidgetLookState.BASE, GridType.INNER_LINES)
+		.setElementMarginForState(WidgetLookState.BASE, 10);
 	}
 	
 	//method

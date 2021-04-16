@@ -14,7 +14,7 @@ public final class AligningContainerWithAutomaticSizeTutorial {
 		
 		final var label = new Label().setText("X");
 		
-		label.getRefLook().setTextSizeForState(WidgetLookState.NORMAL, 100);
+		label.getRefLook().setTextSizeForState(WidgetLookState.BASE, 100);
 		
 		new Frame()
 		.setTitle("AligningContainer with automatic size Tutorial")
@@ -27,7 +27,7 @@ public final class AligningContainerWithAutomaticSizeTutorial {
 				.setLeftMouseButtonPressAction(
 					() ->
 					label.getRefLook().setTextSizeForState(
-						WidgetLookState.NORMAL,
+						WidgetLookState.BASE,
 						Calculator.getMax(20, label.getRefLook().getTextSize() - 20)
 					)
 				)
@@ -38,13 +38,13 @@ public final class AligningContainerWithAutomaticSizeTutorial {
 				.setLeftMouseButtonPressAction(
 					() ->
 					label.getRefLook().setTextSizeForState(
-							WidgetLookState.NORMAL,
+							WidgetLookState.BASE,
 						Calculator.getMin(200, label.getRefLook().getTextSize() + 20)
 					)
 				)
 			)
 			.activateAutomaticSize()
-			.onLook(l -> l.setBackgroundColorForState(WidgetLookState.NORMAL, Color.LAVENDER))
+			.onLook(l -> l.setBackgroundColorForState(WidgetLookState.BASE, Color.LAVENDER))
 		);
 	}
 	

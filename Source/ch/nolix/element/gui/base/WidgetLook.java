@@ -70,7 +70,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends FormatElemen
 	
 	//constructor
 	public WidgetLook() {
-		super(WidgetLookState.NORMAL);
+		super(WidgetLookState.BASE);
 	}
 	
 	//method

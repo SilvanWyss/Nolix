@@ -34,9 +34,9 @@ public final class CheckBoxTutorial {
 		checkBox.onLook(
 			l -> 
 			l
-			.setTextSizeForState(WidgetLookState.NORMAL, 50)
-			.setLineThicknessForState(WidgetLookState.NORMAL, 5)
-			.setBackgroundColorForState(WidgetLookState.NORMAL, Color.LAVENDER)
+			.setTextSizeForState(WidgetLookState.BASE, 50)
+			.setLineThicknessForState(WidgetLookState.BASE, 5)
+			.setBackgroundColorForState(WidgetLookState.BASE, Color.LAVENDER)
 		);
 		
 		//Adds the checkbox to the frame.

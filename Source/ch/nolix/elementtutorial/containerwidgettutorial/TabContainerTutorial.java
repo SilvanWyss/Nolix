@@ -43,9 +43,9 @@ public final class TabContainerTutorial {
 		tabContainer.onLook(
 			l ->
 			l
-			.setBorderThicknessForState(WidgetLookState.NORMAL, 5)
-			.setBackgroundColorForState(WidgetLookState.NORMAL, Color.LAVENDER)
-			.setPaddingForState(WidgetLookState.NORMAL, 20)
+			.setBorderThicknessForState(WidgetLookState.BASE, 5)
+			.setBackgroundColorForState(WidgetLookState.BASE, Color.LAVENDER)
+			.setPaddingForState(WidgetLookState.BASE, 20)
 		);
 		
 		//Adds the TabContainer to the Frame.

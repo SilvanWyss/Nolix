@@ -48,11 +48,11 @@ public final class GridTutorial {
 		grid.onLook(
 			l ->
 			l
-			.setBorderThicknessForState(WidgetLookState.NORMAL, 5)
-			.setBackgroundColorForState(WidgetLookState.NORMAL, Color.LAVENDER)
-			.setPaddingForState(WidgetLookState.NORMAL, 20)
-			.setGridTypeForState(WidgetLookState.NORMAL, GridType.INNER_LINES)
-			.setElementMarginForState(WidgetLookState.NORMAL, 10)
+			.setBorderThicknessForState(WidgetLookState.BASE, 5)
+			.setBackgroundColorForState(WidgetLookState.BASE, Color.LAVENDER)
+			.setPaddingForState(WidgetLookState.BASE, 20)
+			.setGridTypeForState(WidgetLookState.BASE, GridType.INNER_LINES)
+			.setElementMarginForState(WidgetLookState.BASE, 10)
 		);
 		
 		//Adds the Grid to the Frame.

@@ -49,9 +49,9 @@ public final class HorizontalLineTutorial {
 		.onLook(
 			l ->
 			l
-			.setBorderThicknessForState(WidgetLookState.NORMAL, 5)
-			.setPaddingForState(WidgetLookState.NORMAL, 50)
-			.setBackgroundColorForState(WidgetLookState.NORMAL, Color.LAVENDER)
+			.setBorderThicknessForState(WidgetLookState.BASE, 5)
+			.setPaddingForState(WidgetLookState.BASE, 50)
+			.setBackgroundColorForState(WidgetLookState.BASE, Color.LAVENDER)
 		);
 		
 		//Adds the VerticalStack to the Frame.

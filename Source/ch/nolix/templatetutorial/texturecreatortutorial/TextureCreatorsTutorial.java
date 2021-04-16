@@ -42,8 +42,8 @@ public final class TextureCreatorsTutorial {
 				.onLook(
 					l ->
 					l
-					.setBackgroundColorForState(WidgetLookState.NORMAL, Color.LAVENDER)
-					.setPaddingForState(WidgetLookState.NORMAL, 10)
+					.setBackgroundColorForState(WidgetLookState.BASE, Color.LAVENDER)
+					.setPaddingForState(WidgetLookState.BASE, 10)
 				)
 			)
 			.addTab(
@@ -53,8 +53,8 @@ public final class TextureCreatorsTutorial {
 				.onLook(
 					l ->
 					l
-					.setBackgroundColorForState(WidgetLookState.NORMAL, Color.LAVENDER)
-					.setPaddingForState(WidgetLookState.NORMAL, 10)
+					.setBackgroundColorForState(WidgetLookState.BASE, Color.LAVENDER)
+					.setPaddingForState(WidgetLookState.BASE, 10)
 				)
 			)
 		);

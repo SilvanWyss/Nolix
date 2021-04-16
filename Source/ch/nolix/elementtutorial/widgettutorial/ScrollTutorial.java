@@ -38,9 +38,9 @@ public final class ScrollTutorial {
 		.onLook(
 			l ->
 			l
-			.setBorderThicknessForState(WidgetLookState.NORMAL, 5)
-			.setBackgroundColorForState(WidgetLookState.NORMAL, Color.LAVENDER)
-			.setTextSizeForState(WidgetLookState.NORMAL, 500)
+			.setBorderThicknessForState(WidgetLookState.BASE, 5)
+			.setBackgroundColorForState(WidgetLookState.BASE, Color.LAVENDER)
+			.setTextSizeForState(WidgetLookState.BASE, 500)
 		);
 		
 		//Adds the Label to the frame.

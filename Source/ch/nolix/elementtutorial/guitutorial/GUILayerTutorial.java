@@ -46,12 +46,12 @@ public final class GUILayerTutorial {
 			.onLook(
 				l ->
 				l
-				.setBorderThicknessForState(WidgetLookState.NORMAL, 5)
-				.setBackgroundColorForState(WidgetLookState.NORMAL,Color.WHITE)
-				.setLeftPaddingForState(WidgetLookState.NORMAL,200)
-				.setRightPaddingForState(WidgetLookState.NORMAL,200)
-				.setTopPaddingForState(WidgetLookState.NORMAL,200)
-				.setBottomPaddingForState(WidgetLookState.NORMAL,5)
+				.setBorderThicknessForState(WidgetLookState.BASE, 5)
+				.setBackgroundColorForState(WidgetLookState.BASE,Color.WHITE)
+				.setLeftPaddingForState(WidgetLookState.BASE,200)
+				.setRightPaddingForState(WidgetLookState.BASE,200)
+				.setTopPaddingForState(WidgetLookState.BASE,200)
+				.setBottomPaddingForState(WidgetLookState.BASE,5)
 			)
 		);
 		

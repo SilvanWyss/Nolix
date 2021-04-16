@@ -38,10 +38,10 @@ public final class ImageWidgetWithImageFromFileTutorial {
 		imageWidget.onLook(
 			l ->
 			l
-			.setBorderThicknessForState(WidgetLookState.NORMAL, 5)
+			.setBorderThicknessForState(WidgetLookState.BASE, 5)
 			//TODO .setBorderColorsForState(WidgetLookState.NORMAL, Color.DARK_BLUE)
-			.setBackgroundColorForState(WidgetLookState.NORMAL, Color.WHITE_SMOKE)
-			.setPaddingForState(WidgetLookState.NORMAL, 5)
+			.setBackgroundColorForState(WidgetLookState.BASE, Color.WHITE_SMOKE)
+			.setPaddingForState(WidgetLookState.BASE, 5)
 		);
 		
 		//Adds the ImageWidget to the Frame.

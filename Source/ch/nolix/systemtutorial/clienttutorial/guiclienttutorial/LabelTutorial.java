@@ -40,7 +40,7 @@ public final class LabelTutorial {
 			final var clockCaptionLabel = new Label().setText("Time:");
 			
 			//Configures the look of the clockCaptionLabel.
-			clockCaptionLabel.getRefLook().setTextSizeForState(WidgetLookState.NORMAL, 50);
+			clockCaptionLabel.getRefLook().setTextSizeForState(WidgetLookState.BASE, 50);
 			
 			//Creates clockLabel.
 			final var clockLabel = new Label();
@@ -48,8 +48,8 @@ public final class LabelTutorial {
 			//Configures the look of the clockLabel.
 			clockLabel
 			.getRefLook()
-			.setBackgroundColorForState(WidgetLookState.NORMAL, Color.YELLOW)
-			.setTextSizeForState(WidgetLookState.NORMAL, 50);
+			.setBackgroundColorForState(WidgetLookState.BASE, Color.YELLOW)
+			.setTextSizeForState(WidgetLookState.BASE, 50);
 			
 			//Adds the clockCaptionLabel and clockLabel to the GUI of the current MainSession.
 			getRefGUI().addLayerOnTop(
