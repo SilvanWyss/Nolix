@@ -146,4 +146,9 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends FormatElemen
 		
 		return asConcrete();
 	}
+	
+	//method
+	final void setState(final WidgetLookState state) {
+		internalSwitchToState(state);
+	}
 }
