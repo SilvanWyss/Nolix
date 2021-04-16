@@ -3,6 +3,8 @@ package ch.nolix.elementtest.widgettest;
 
 //own imports
 import ch.nolix.common.testing.basetest.TestCase;
+import ch.nolix.element.gui.base.WidgetLookState;
+import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.widget.Label;
 
 //class
@@ -15,36 +17,33 @@ import ch.nolix.element.gui.widget.Label;
  */
 public final class LabelTest extends BorderWidgetTest<Label> {
 	
-	//TODO
-	/*
 	//method
 	@TestCase
-	public void testCase_getRefBaseLook_setTextColor() {
+	public void testCase_getRefLook_setTextColorForState() {
 		
 		//setup
 		final var testUnit = new Label();
 		
 		//execution
-		testUnit.getRefBaseLook().setTextColor(Color.BLUE);
+		testUnit.getRefLook().setTextColorForState(WidgetLookState.NORMAL, Color.BLUE);
 		
 		//verification
-		expect(testUnit.getRefBaseLook().getRecursiveOrDefaultTextColor()).isEqualTo(Color.BLUE);
+		expect(testUnit.getRefLook().getTextColor()).isEqualTo(Color.BLUE);
 	}
 		
 	//method
 	@TestCase
-	public void testCase_getRefBaseLook_setTextSize() {
+	public void testCase_getRefBaseLook_setTextSizeForState() {
 		
 		//setup
 		final var testUnit = new Label();
 		
 		//execution
-		testUnit.getRefBaseLook().setTextSize(25);
+		testUnit.getRefLook().setTextSizeForState(WidgetLookState.NORMAL, 25);
 		
 		//verification
-		expect(testUnit.getRefBaseLook().getRecursiveOrDefaultTextSize()).isEqualTo(25);
+		expect(testUnit.getRefLook().getTextSize()).isEqualTo(25);
 	}
-	*/
 	
 	//method
 	@TestCase
