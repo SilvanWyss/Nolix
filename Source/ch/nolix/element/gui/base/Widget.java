@@ -929,14 +929,11 @@ TopLeftPositionedRecangular {
 	@Override
 	public final void recalculate() {
 		
-		final var paintableWidgets = getRefWidgetsForPainting();
+		final var widgetsForPainting = getRefWidgetsForPainting();
 		
-		if (!paintableWidgets.containsOnly(Widget::belongsToParent)) {
-			addChildWidgets(paintableWidgets);
-		}
+		addChildWidgets(widgetsForPainting);
 		
-		paintableWidgets.forEach(Widget::recalculate);
-		
+		widgetsForPainting.forEach(Widget::recalculate);
 		recalculateSelf();
 	}
 	
@@ -1688,9 +1685,7 @@ TopLeftPositionedRecangular {
 	 * @param widget
 	 */
 	private void addChildWidget(final Widget<?, ?> widget) {
-		if (!widget.belongsToWidget()) {
-			widget.setParent(this);
-		}
+		widget.setParent(this);
 	}
 	
 	//method
@@ -2066,9 +2061,13 @@ TopLeftPositionedRecangular {
 		
 		//Asserts that the given parent is not null.
 		Validator.assertThat(parent).thatIsNamed(LowerCaseCatalogue.PARENT).isNotNull();
-				
+			
 		//Sets the parent of the current Widget.
 		this.parent = parent;
+		
+		if (parent.isWidget()) {
+			parent.getRefWidget().getRefLook().addChild(getRefLook());
+		}
 	}
 	
 	//method
