@@ -1,6 +1,7 @@
 package ch.nolix.elementtutorial.widgettutorial;
 
 import ch.nolix.element.gui.base.Frame;
+import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.widget.TextBox;
 
@@ -32,12 +33,12 @@ public final class TextBoxTutorial {
 		//Configures the look of the textBox.
 		textBox
 		.setProposalWidth(200)
-		.applyOnBaseLook(
-			bl ->
-			bl
-			.setBorderThicknesses(5)
-			.setBackgroundColor(Color.LAVENDER)
-			.setPaddings(5)
+		.onLook(
+			l ->
+			l
+			.setBorderThicknessesForState(WidgetLookState.NORMAL, 5)
+			.setBackgroundColorForState(WidgetLookState.NORMAL, Color.LAVENDER)
+			.setPaddingForState(WidgetLookState.NORMAL, 5)
 		);
 		
 		//Adds the textBox to the frame.

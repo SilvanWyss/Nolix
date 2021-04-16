@@ -1,6 +1,7 @@
 package ch.nolix.elementtutorial.widgettutorial;
 
 import ch.nolix.element.gui.base.Frame;
+import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.widget.DropdownMenu;
 
@@ -43,12 +44,12 @@ public final class DropdownMenuTutorial {
 		);
 		
 		//Configures the look of the dropdownMenu.
-		dropdownMenu.applyOnBaseLook(
-			bl ->
-			bl			
-			.setBorderThicknesses(5)
-			.setBackgroundColor(Color.LAVENDER)
-			.setItemPadding(5)
+		dropdownMenu.onLook(
+			l ->
+			l			
+			.setBorderThicknessesForState(WidgetLookState.NORMAL, 5)
+			.setBackgroundColorForState(WidgetLookState.NORMAL, Color.LAVENDER)
+			//TODO: .setItemPaddingForState(WidgetLookState.NORMAL, 5)
 		);
 		
 		//Adds the dropdownMenu to the frame.

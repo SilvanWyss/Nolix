@@ -1,6 +1,7 @@
 package ch.nolix.elementtutorial.containerwidgettutorial;
 
 import ch.nolix.element.gui.base.Frame;
+import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.containerwidget.Accordion;
 import ch.nolix.element.gui.containerwidget.AccordionTab;
@@ -39,11 +40,11 @@ public final class AccordionTutorial {
 		);
 		
 		//Configures the look of the Accordion.
-		accordion.applyOnBaseLook(
-			bl ->
-			bl
-			.setBorderThicknesses(5)
-			.setBackgroundColor(Color.LAVENDER)
+		accordion.onLook(
+			l ->
+			l
+			.setBorderThicknessesForState(WidgetLookState.NORMAL, 5)
+			.setBackgroundColorForState(WidgetLookState.NORMAL, Color.LAVENDER)
 		);
 		
 		//Adds the Accordion to the Frame.

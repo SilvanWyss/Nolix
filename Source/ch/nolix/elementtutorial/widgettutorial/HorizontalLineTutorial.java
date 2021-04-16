@@ -2,6 +2,7 @@ package ch.nolix.elementtutorial.widgettutorial;
 
 import ch.nolix.element.elementenum.ContentPosition;
 import ch.nolix.element.gui.base.Frame;
+import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.containerwidget.HorizontalStack;
 import ch.nolix.element.gui.containerwidget.VerticalStack;
@@ -45,12 +46,12 @@ public final class HorizontalLineTutorial {
 		verticalStack
 		.setContentPosition(ContentPosition.TOP)
 		.setElementMargin(50)
-		.applyOnBaseLook(
-			bl ->
-			bl
-			.setBorderThicknesses(5)
-			.setPaddings(50)
-			.setBackgroundColor(Color.LAVENDER)
+		.onLook(
+			l ->
+			l
+			.setBorderThicknessesForState(WidgetLookState.NORMAL, 5)
+			.setPaddingForState(WidgetLookState.NORMAL, 50)
+			.setBackgroundColorForState(WidgetLookState.NORMAL, Color.LAVENDER)
 		);
 		
 		//Adds the VerticalStack to the Frame.

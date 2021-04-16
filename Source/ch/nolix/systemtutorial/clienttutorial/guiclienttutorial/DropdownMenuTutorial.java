@@ -2,6 +2,7 @@ package ch.nolix.systemtutorial.clienttutorial.guiclienttutorial;
 
 import ch.nolix.common.environment.localcomputer.ShellProvider;
 import ch.nolix.common.programcontrol.sequencer.Sequencer;
+import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.widget.DropdownMenu;
 import ch.nolix.system.client.base.NetServer;
@@ -50,12 +51,12 @@ public final class DropdownMenuTutorial {
 			);
 			
 			//Configures the look of the DropdownMenu.
-			dropdownMenu.applyOnBaseLook(
-				bl ->
-				bl
-				.setBorderThicknesses(5)
-				.setBackgroundColor(Color.LAVENDER)
-				.setItemPadding(5)
+			dropdownMenu.onLook(
+				l ->
+				l
+				.setBorderThicknessesForState(WidgetLookState.NORMAL, 5)
+				.setBackgroundColorForState(WidgetLookState.NORMAL, Color.LAVENDER)
+				//TODO: .setItemPaddingForState(WidgetLookState.NORMAL, 5)
 			);
 			
 			//Adds the DropdownMenu to the GUI of the current MainSession.

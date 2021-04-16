@@ -1,6 +1,7 @@
 package ch.nolix.elementtutorial.widgettutorial;
 
 import ch.nolix.element.gui.base.Frame;
+import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.containerwidget.HorizontalStack;
 import ch.nolix.element.gui.widget.InnerGUI;
@@ -28,13 +29,23 @@ public final class InnerGUITutorial {
 			new HorizontalStack()
 			.addWidget(
 				new InnerGUI()
-				.applyOnBaseLook(bl ->	bl.setBorderThicknesses(5).setBackgroundColor(Color.LAVENDER))
+				.onLook(
+					l ->
+					l
+					.setBorderThicknessesForState(WidgetLookState.NORMAL, 5)
+					.setBackgroundColorForState(WidgetLookState.NORMAL, Color.LAVENDER)
+				)
 				.setTitle("Inner GUI 1")
-				.addLayerOnTop(new Label().setText("A").applyOnBaseLook(bl -> bl.setTextSize(100))),
+				.addLayerOnTop(new Label().setText("A").onLook(l -> l.setTextSizeForState(WidgetLookState.NORMAL, 100))),
 				new InnerGUI()
-				.applyOnBaseLook(bl ->	bl.setBorderThicknesses(5).setBackgroundColor(Color.LAVENDER))
+				.onLook(
+					l ->
+					l
+					.setBorderThicknessesForState(WidgetLookState.NORMAL, 5)
+					.setBackgroundColorForState(WidgetLookState.NORMAL, Color.LAVENDER)
+				)
 				.setTitle("Inner GUI 2")
-				.addLayerOnTop(new Label().setText("B").applyOnBaseLook(bl -> bl.setTextSize(100)))
+				.addLayerOnTop(new Label().setText("B").onLook(l -> l.setTextSizeForState(WidgetLookState.NORMAL, 100)))
 			)
 		);
 	}

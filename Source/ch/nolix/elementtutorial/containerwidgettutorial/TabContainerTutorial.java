@@ -1,6 +1,7 @@
 package ch.nolix.elementtutorial.containerwidgettutorial;
 
 import ch.nolix.element.gui.base.Frame;
+import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.containerwidget.TabContainer;
 import ch.nolix.element.gui.containerwidget.TabContainerTab;
@@ -39,12 +40,12 @@ public final class TabContainerTutorial {
 		);
 		
 		//Configures the look of the TabContainer.
-		tabContainer.applyOnBaseLook(
-			bl ->
-			bl
-			.setBorderThicknesses(5)
-			.setBackgroundColor(Color.LAVENDER)
-			.setPaddings(20)
+		tabContainer.onLook(
+			l ->
+			l
+			.setBorderThicknessesForState(WidgetLookState.NORMAL, 5)
+			.setBackgroundColorForState(WidgetLookState.NORMAL, Color.LAVENDER)
+			.setPaddingForState(WidgetLookState.NORMAL, 20)
 		);
 		
 		//Adds the TabContainer to the Frame.

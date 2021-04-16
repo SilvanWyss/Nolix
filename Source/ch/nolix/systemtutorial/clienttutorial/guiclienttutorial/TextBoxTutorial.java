@@ -2,6 +2,7 @@ package ch.nolix.systemtutorial.clienttutorial.guiclienttutorial;
 
 import ch.nolix.common.environment.localcomputer.ShellProvider;
 import ch.nolix.common.programcontrol.sequencer.Sequencer;
+import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.widget.TextBox;
 import ch.nolix.system.client.base.NetServer;
@@ -39,12 +40,12 @@ public final class TextBoxTutorial {
 			//Configures the look of the TextBox.
 			textBox
 			.setProposalWidth(200)
-			.applyOnBaseLook(
-				bl ->
-				bl
-				.setBorderThicknesses(5)
-				.setBackgroundColor(Color.LAVENDER)
-				.setPaddings(5)
+			.onLook(
+				l ->
+				l
+				.setBorderThicknessesForState(WidgetLookState.NORMAL, 5)
+				.setBackgroundColorForState(WidgetLookState.NORMAL, Color.LAVENDER)
+				.setPaddingForState(WidgetLookState.NORMAL, 5)
 			);
 			
 			//Adds the TextBox to the GUI of the current MainSession.

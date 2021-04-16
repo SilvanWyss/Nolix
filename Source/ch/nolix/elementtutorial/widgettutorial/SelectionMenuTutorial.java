@@ -1,6 +1,7 @@
 package ch.nolix.elementtutorial.widgettutorial;
 
 import ch.nolix.element.gui.base.Frame;
+import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.widget.SelectionMenu;
 
@@ -47,12 +48,12 @@ public final class SelectionMenuTutorial {
 		//Configures the look of the SelectionMenu.
 		selectionMenu
 		.setProposalHeight(200)
-		.applyOnBaseLook(
-			bl ->
-			bl
-			.setBorderThicknesses(5)
-			.setBackgroundColor(Color.LAVENDER)
-			.setItemPadding(5)
+		.onLook(
+			l ->
+			l
+			.setBorderThicknessesForState(WidgetLookState.NORMAL, 5)
+			.setBackgroundColorForState(WidgetLookState.NORMAL, Color.LAVENDER)
+			//TODO: .setItemPaddingForState(WidgetLookState.NORMAL, 5)
 		);
 		
 		//Adds the SelectionMenu to the Frame.

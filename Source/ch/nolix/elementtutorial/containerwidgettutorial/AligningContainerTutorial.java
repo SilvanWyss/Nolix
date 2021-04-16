@@ -45,7 +45,7 @@ public final class AligningContainerTutorial {
 			)
 			.setProposalHeight(500)
 			.setProposalWidth(500)
-			.applyOnBaseLook(bl -> bl.setBackgroundColor(Color.LAVENDER))
+			.onLook(l -> l.setBackgroundColorForState(WidgetLookState.NORMAL, Color.LAVENDER))
 		);
 	}
 	

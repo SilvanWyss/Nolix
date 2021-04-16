@@ -1,6 +1,7 @@
 package ch.nolix.elementtutorial.widgettutorial;
 
 import ch.nolix.element.gui.base.Frame;
+import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.widget.Label;
 
 /**
@@ -31,7 +32,7 @@ public final class LabelShorteningTextTutorial {
 		//Configures the look of the label.
 		label
 		.setMaxWidth(500)
-		.applyOnBaseLook(bl -> bl.setTextSize(50));	
+		.onLook(l -> l.setTextSizeForState(WidgetLookState.NORMAL, 50));	
 			
 		//Adds the label to the frame.
 		frame.addLayerOnTop(label);

@@ -3,6 +3,7 @@ package ch.nolix.systemtutorial.clienttutorial.guiclienttutorial;
 import ch.nolix.common.environment.localcomputer.ShellProvider;
 import ch.nolix.common.programcontrol.sequencer.Sequencer;
 import ch.nolix.element.gui.base.CursorIcon;
+import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.widget.Button;
 import ch.nolix.system.client.base.NetServer;
@@ -45,16 +46,16 @@ public final class ButtonTutorial {
 			//Configures the look of the Button.
 			button
 			.setCustomCursorIcon(CursorIcon.HAND)
-			.applyOnBaseLook(
-				bl ->
-				bl
-				.setBorderThicknesses(5)
-				.setBackgroundColor(Color.LAVENDER)
-				.setPaddings(5)
-				.setTextSize(50)
-			)
-			.applyOnHoverLook(hl -> hl.setBackgroundColor(Color.LAVENDER))
-			.applyOnFocusLook(fl -> fl.setBackgroundColor(Color.LAVENDER));
+			.onLook(
+				l ->
+				l
+				.setBorderThicknessesForState(WidgetLookState.NORMAL, 5)
+				.setBackgroundColorForState(WidgetLookState.NORMAL, Color.LAVENDER)
+				.setBackgroundColorForState(WidgetLookState.HOVERED, Color.LAVENDER)
+				.setBackgroundColorForState(WidgetLookState.FOCUSED, Color.LAVENDER)
+				.setPaddingForState(WidgetLookState.NORMAL, 5)
+				.setTextSizeForState(WidgetLookState.NORMAL, 50)
+			);
 			
 			//Adds the Button to the GUI of the current MainSession.
 			getRefGUI().addLayerOnTop(button);

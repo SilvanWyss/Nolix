@@ -2,6 +2,7 @@ package ch.nolix.elementtutorial.containerwidgettutorial;
 
 import ch.nolix.element.elementenum.ContentPosition;
 import ch.nolix.element.gui.base.Frame;
+import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.containerwidget.FloatContainer;
 import ch.nolix.element.gui.widget.Label;
@@ -41,13 +42,12 @@ public final class FloatContainerTutorial {
 		);
 		
 		//Configures the look of the FloatContainer.
-		floatContainer.applyOnBaseLook(
-			bl ->
-			bl
-			.setBorderThicknesses(5)
-			.setBackgroundColor(Color.LAVENDER)
-			.setPaddings(20)
-			.setProposeContentWidth(1000)
+		floatContainer.onLook(
+			l ->
+			l
+			.setBorderThicknessesForState(WidgetLookState.NORMAL, 5)
+			.setBackgroundColorForState(WidgetLookState.NORMAL, Color.LAVENDER)
+			.setPaddingForState(WidgetLookState.NORMAL, 20)
 		);
 		
 		//Configures the look of the child Widgets of the FloatContainer.
@@ -56,10 +56,11 @@ public final class FloatContainerTutorial {
 			.as(Label.class)
 			.setProposalSize(220, 100)
 			.setContentPosition(ContentPosition.CENTER)
-			.applyOnBaseLook(
-				bl ->
-				bl.setBackgroundColor(Color.BLUE)
-				.setTextSize(50)
+			.onLook(
+				l ->
+				l
+				.setBackgroundColorForState(WidgetLookState.NORMAL, Color.BLUE)
+				.setTextSizeForState(WidgetLookState.NORMAL, 50)
 			);
 		}
 		

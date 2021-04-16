@@ -3,6 +3,7 @@ package ch.nolix.elementtutorial.guitutorial;
 import ch.nolix.element.elementenum.ExtendedContentPosition;
 import ch.nolix.element.gui.base.Frame;
 import ch.nolix.element.gui.base.Layer;
+import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.containerwidget.VerticalStack;
 import ch.nolix.element.gui.widget.Button;
@@ -13,7 +14,7 @@ import ch.nolix.element.gui.widget.Button;
  * 
  * @author Silvan Wyss
  * @date 2019-05-22
- * @lines 60
+ * @lines 70
  */
 public final class GUILayerTutorial {
 	
@@ -42,15 +43,15 @@ public final class GUILayerTutorial {
 				.setText("Close")
 				.setLeftMouseButtonReleaseAction(frame::removeTopLayer)
 			)
-			.applyOnBaseLook(
-				bl ->
-				bl
-				.setBorderThicknesses(5)
-				.setBackgroundColor(Color.WHITE)
-				.setLeftPadding(200)
-				.setRightPadding(200)
-				.setTopPadding(200)
-				.setBottomPadding(5)
+			.onLook(
+				l ->
+				l
+				.setBorderThicknessesForState(WidgetLookState.NORMAL, 5)
+				.setBackgroundColorForState(WidgetLookState.NORMAL,Color.WHITE)
+				.setLeftPaddingForState(WidgetLookState.NORMAL,200)
+				.setRightPaddingForState(WidgetLookState.NORMAL,200)
+				.setTopPaddingForState(WidgetLookState.NORMAL,200)
+				.setBottomPaddingForState(WidgetLookState.NORMAL,5)
 			)
 		);
 		

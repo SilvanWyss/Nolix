@@ -1,6 +1,7 @@
 package ch.nolix.elementtutorial.containerwidgettutorial;
 
 import ch.nolix.element.gui.base.Frame;
+import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.containerwidget.Grid;
 import ch.nolix.element.gui.containerwidget.GridType;
@@ -44,14 +45,14 @@ public final class GridTutorial {
 		.setWidget(4, 3, new Area().setSize(200, 100).setBackgroundColor(Color.BLUE));
 		
 		//Configures the look of the Grid.
-		grid.applyOnBaseLook(
-			bl ->
-			bl
-			.setBorderThicknesses(5)
-			.setBackgroundColor(Color.LAVENDER)
-			.setPaddings(20)
-			.setLineType(GridType.INNER_LINES)
-			.setElementMargin(10)
+		grid.onLook(
+			l ->
+			l
+			.setBorderThicknessesForState(WidgetLookState.NORMAL, 5)
+			.setBackgroundColorForState(WidgetLookState.NORMAL, Color.LAVENDER)
+			.setPaddingForState(WidgetLookState.NORMAL, 20)
+			.setGridTypeForState(WidgetLookState.NORMAL, GridType.INNER_LINES)
+			.setElementMarginForState(WidgetLookState.NORMAL, 10)
 		);
 		
 		//Adds the Grid to the Frame.

@@ -1,6 +1,7 @@
 package ch.nolix.elementtutorial.widgettutorial;
 
 import ch.nolix.element.gui.base.Frame;
+import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.widget.Console;
 
@@ -34,12 +35,12 @@ public final class ConsoleTutorial {
 		console
 		.setProposalWidth(500)
 		.setProposalHeight(200)
-		.applyOnBaseLook(
-			bl ->
-			bl
-			.setBorderThicknesses(5)
-			.setBackgroundColor(Color.LAVENDER)
-			.setPaddings(5)
+		.onLook(
+			l ->
+			l
+			.setBorderThicknessesForState(WidgetLookState.NORMAL, 5)
+			.setBackgroundColorForState(WidgetLookState.NORMAL, Color.LAVENDER)
+			.setPaddingForState(WidgetLookState.NORMAL, 5)
 		);
 		
 		//Adds the console to the frame.

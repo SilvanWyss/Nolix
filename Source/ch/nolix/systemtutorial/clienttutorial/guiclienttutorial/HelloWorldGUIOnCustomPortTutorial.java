@@ -2,6 +2,7 @@ package ch.nolix.systemtutorial.clienttutorial.guiclienttutorial;
 
 import ch.nolix.common.environment.localcomputer.ShellProvider;
 import ch.nolix.common.programcontrol.sequencer.Sequencer;
+import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.widget.Label;
 import ch.nolix.system.client.base.NetServer;
 import ch.nolix.system.client.guiclient.BackGUIClientSession;
@@ -39,7 +40,7 @@ public final class HelloWorldGUIOnCustomPortTutorial {
 			final var label = new Label().setText("Hello World");
 			
 			//Configures the look of the Label.
-			label.applyOnBaseLook(bl -> bl.setTextSize(50));
+			label.getRefLook().setTextSizeForState(WidgetLookState.NORMAL, 50);
 			
 			//Adds the Label to the GUI of the current MainSession.
 			getRefGUI().addLayerOnTop(label);

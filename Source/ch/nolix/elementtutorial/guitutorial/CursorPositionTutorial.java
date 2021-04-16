@@ -4,6 +4,7 @@ package ch.nolix.elementtutorial.guitutorial;
 import ch.nolix.element.elementenum.ExtendedContentPosition;
 import ch.nolix.element.gui.base.Frame;
 import ch.nolix.element.gui.base.Layer;
+import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.widget.Label;
 
 /**
@@ -31,7 +32,7 @@ public final class CursorPositionTutorial {
 		final var cursorPositionLabel = new Label();
 		
 		//Configures the look of the cursorPositionLabel.
-		cursorPositionLabel.applyOnBaseLook(bl -> bl.setPaddings(5));
+		cursorPositionLabel.onLook(l -> l.setPaddingForState(WidgetLookState.NORMAL, 5));
 		
 		//Creates Layer.
 		final var layer =

@@ -1,6 +1,7 @@
 package ch.nolix.elementtutorial.widgettutorial;
 
 import ch.nolix.element.gui.base.Frame;
+import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.widget.BorderWidget;
 import ch.nolix.element.gui.widget.Label;
@@ -34,12 +35,12 @@ public final class ScrollTutorial {
 		label
 		.setMaxWidth(1000)
 		.setMaxHeight(500)
-		.applyOnBaseLook(
-			bl ->
-			bl
-			.setBorderThicknesses(5)
-			.setBackgroundColor(Color.LAVENDER)
-			.setTextSize(500)
+		.onLook(
+			l ->
+			l
+			.setBorderThicknessesForState(WidgetLookState.NORMAL, 5)
+			.setBackgroundColorForState(WidgetLookState.NORMAL, Color.LAVENDER)
+			.setTextSizeForState(WidgetLookState.NORMAL, 500)
 		);
 		
 		//Adds the Label to the frame.

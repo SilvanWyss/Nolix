@@ -1,6 +1,7 @@
 package ch.nolix.elementtutorial.widgettutorial;
 
 import ch.nolix.element.gui.base.Frame;
+import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.widget.CheckBox;
 
@@ -30,12 +31,12 @@ public final class CheckBoxTutorial {
 		final var checkBox = new CheckBox();
 		
 		//Configures the look of the checkbox.
-		checkBox.applyOnBaseLook(
-			bl -> 
-			bl
-			.setTextSize(50)
-			.setLineThickness(5)
-			.setBackgroundColor(Color.LAVENDER)
+		checkBox.onLook(
+			l -> 
+			l
+			.setTextSizeForState(WidgetLookState.NORMAL, 50)
+			.setLineThicknessForState(WidgetLookState.NORMAL, 5)
+			.setBackgroundColorForState(WidgetLookState.NORMAL, Color.LAVENDER)
 		);
 		
 		//Adds the checkbox to the frame.

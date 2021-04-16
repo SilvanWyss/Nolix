@@ -2,6 +2,7 @@ package ch.nolix.systemtutorial.clienttutorial.guiclienttutorial;
 
 import ch.nolix.common.environment.localcomputer.ShellProvider;
 import ch.nolix.common.programcontrol.sequencer.Sequencer;
+import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.containerwidget.HorizontalStack;
 import ch.nolix.element.gui.widget.Label;
@@ -39,13 +40,16 @@ public final class LabelTutorial {
 			final var clockCaptionLabel = new Label().setText("Time:");
 			
 			//Configures the look of the clockCaptionLabel.
-			clockCaptionLabel.applyOnBaseLook(bl -> bl.setTextSize(50));
+			clockCaptionLabel.getRefLook().setTextSizeForState(WidgetLookState.NORMAL, 50);
 			
 			//Creates clockLabel.
 			final var clockLabel = new Label();
 			
 			//Configures the look of the clockLabel.
-			clockLabel.applyOnBaseLook(bl -> bl.setBackgroundColor(Color.YELLOW).setTextSize(50));
+			clockLabel
+			.getRefLook()
+			.setBackgroundColorForState(WidgetLookState.NORMAL, Color.YELLOW)
+			.setTextSizeForState(WidgetLookState.NORMAL, 50);
 			
 			//Adds the clockCaptionLabel and clockLabel to the GUI of the current MainSession.
 			getRefGUI().addLayerOnTop(

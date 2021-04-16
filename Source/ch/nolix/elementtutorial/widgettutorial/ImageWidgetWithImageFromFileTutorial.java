@@ -1,6 +1,7 @@
 package ch.nolix.elementtutorial.widgettutorial;
 
 import ch.nolix.element.gui.base.Frame;
+import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.image.Image;
 import ch.nolix.element.gui.widget.ImageWidget;
@@ -34,13 +35,13 @@ public final class ImageWidgetWithImageFromFileTutorial {
 		final var imageWidget = new ImageWidget().setImage(image);
 		
 		//Configures the look of the ImageWidget.
-		imageWidget.applyOnBaseLook(
-			bl ->
-			bl
-			.setBorderThicknesses(5)
-			.setBorderColors(Color.DARK_BLUE)
-			.setBackgroundColor(Color.WHITE_SMOKE)
-			.setPaddings(5)
+		imageWidget.onLook(
+			l ->
+			l
+			.setBorderThicknessesForState(WidgetLookState.NORMAL, 5)
+			//TODO .setBorderColorsForState(WidgetLookState.NORMAL, Color.DARK_BLUE)
+			.setBackgroundColorForState(WidgetLookState.NORMAL, Color.WHITE_SMOKE)
+			.setPaddingForState(WidgetLookState.NORMAL, 5)
 		);
 		
 		//Adds the ImageWidget to the Frame.

@@ -3,6 +3,7 @@ package ch.nolix.elementtutorial.widgettutorial;
 import ch.nolix.common.environment.filesystem.FileAccessor;
 import ch.nolix.common.environment.filesystem.FileSystemAccessor;
 import ch.nolix.element.gui.base.Frame;
+import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.widget.Downloader;
 
@@ -38,14 +39,13 @@ public final class DownloaderTutorial {
 		.setFileProvider(new FileAccessor("tutorial.txt")) ;
 		
 		//Configures the look of the downloader.
-		downloader
-		.applyOnBaseLook(
-			bl ->
-			bl
-			.setBorderThicknesses(5)
-			.setBackgroundColor(Color.LAVENDER)
-			.setPaddings(5)
-			.setTextSize(50)
+		downloader.onLook(
+			l ->
+			l
+			.setBorderThicknessesForState(WidgetLookState.NORMAL, 5)
+			.setBackgroundColorForState(WidgetLookState.NORMAL, Color.LAVENDER)
+			.setPaddingForState(WidgetLookState.NORMAL, 5)
+			.setTextSizeForState(WidgetLookState.NORMAL, 50)
 		);
 		
 		//Adds the downloader to the frame.

@@ -4,6 +4,7 @@ import ch.nolix.common.environment.localcomputer.ShellProvider;
 import ch.nolix.common.programcontrol.sequencer.Sequencer;
 import ch.nolix.element.elementenum.ExtendedContentPosition;
 import ch.nolix.element.gui.base.Layer;
+import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.widget.Label;
 import ch.nolix.system.client.base.NetServer;
 import ch.nolix.system.client.guiclient.BackGUIClientSession;
@@ -37,7 +38,7 @@ public final class CursorPositionTutorial {
 		protected void initializeBaseBackGUIClientSession() {
 									
 			//Configures the look of the cursorPositionLabel.
-			cursorPositionLabel.applyOnBaseLook(bl -> bl.setPaddings(5));
+			cursorPositionLabel.onLook(l -> l.setPaddingForState(WidgetLookState.NORMAL, 5));
 			
 			//Creates Layer.
 			final var layer = new Layer()
