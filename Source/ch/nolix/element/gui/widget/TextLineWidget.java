@@ -13,7 +13,6 @@ import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.elementenum.RotationDirection;
 import ch.nolix.element.gui.base.Widget;
-import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.input.Key;
 import ch.nolix.element.gui.painterapi.IPainter;
 import ch.nolix.element.gui.textformat.TextFormat;
@@ -24,7 +23,7 @@ import ch.nolix.element.gui.textformat.TextFormat;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 300
+ * @lines 320
  * @param <TLW> is the type of a {@link TextLineWidget}.
  * @param <TLWL> is the type of the {@link OldTextLineWidgetLook} of a {@link TextLineWidget}.
  */
@@ -203,7 +202,7 @@ extends BorderWidget<TLW, TLWL> {
 		new TextFormat(
 			look.getFont(),
 			look.getTextSize(),
-			Color.BLACK //TODO: look.getTextColor()
+			look.getTextColor()
 		);
 	}
 	
