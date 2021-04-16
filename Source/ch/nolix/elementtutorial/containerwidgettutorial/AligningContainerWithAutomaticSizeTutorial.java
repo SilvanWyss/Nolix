@@ -3,6 +3,7 @@ package ch.nolix.elementtutorial.containerwidgettutorial;
 import ch.nolix.common.math.Calculator;
 import ch.nolix.element.gui.base.Frame;
 import ch.nolix.element.gui.base.WidgetLookState;
+import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.containerwidget.AligningContainer;
 import ch.nolix.element.gui.widget.Button;
 import ch.nolix.element.gui.widget.Label;
@@ -43,7 +44,7 @@ public final class AligningContainerWithAutomaticSizeTutorial {
 				)
 			)
 			.activateAutomaticSize()
-			//TODO: .applyOnBaseLook(bl -> bl.setBackgroundColor(Color.LAVENDER))
+			.onLook(l -> l.setBackgroundColorForState(WidgetLookState.NORMAL, Color.LAVENDER))
 		);
 	}
 	
