@@ -272,7 +272,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	}
 	
 	//method
-	public final int getBottomBorderThickenss() {
+	public final int getBottomBorderThickness() {
 		return bottomBorderThickness.getValue();
 	}
 	
@@ -287,7 +287,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	}
 	
 	//method
-	public final int getLeftBorderThickenss() {
+	public final int getLeftBorderThickness() {
 		return leftBorderThickness.getValue();
 	}
 	
@@ -302,7 +302,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	}
 	
 	//method
-	public final int getRightBorderThickenss() {
+	public final int getRightBorderThickness() {
 		return rightBorderThickness.getValue();
 	}
 	
@@ -347,7 +347,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	}
 	
 	//method
-	public final int getTopBorderThickenss() {
+	public final int getTopBorderThickness() {
 		return topBorderThickness.getValue();
 	}
 	

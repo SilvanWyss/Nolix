@@ -70,8 +70,8 @@ public final class BorderWidgetBorderedArea<BWL extends BorderWidgetLook<BWL>> i
 		
 		return
 		parentBorderWidget.getMainArea().getHeight()
-		- look.getTopBorderThickenss()
-		- look.getBottomBorderThickenss();
+		- look.getTopBorderThickness()
+		- look.getBottomBorderThickness();
 	}
 	
 	//method
@@ -86,8 +86,8 @@ public final class BorderWidgetBorderedArea<BWL extends BorderWidgetLook<BWL>> i
 		
 		return
 		parentBorderWidget.getMainArea().getMaxHeight()
-		- look.getTopBorderThickenss()
-		- look.getBottomBorderThickenss();
+		- look.getTopBorderThickness()
+		- look.getBottomBorderThickness();
 	}
 	
 	//method
@@ -102,8 +102,8 @@ public final class BorderWidgetBorderedArea<BWL extends BorderWidgetLook<BWL>> i
 		
 		return
 		parentBorderWidget.getMainArea().getMaxWidth()
-		- look.getLeftBorderThickenss()
-		- look.getRightBorderThickenss();
+		- look.getLeftBorderThickness()
+		- look.getRightBorderThickness();
 	}
 	
 	//method
@@ -118,8 +118,8 @@ public final class BorderWidgetBorderedArea<BWL extends BorderWidgetLook<BWL>> i
 		
 		return
 		parentBorderWidget.getMainArea().getMinHeight()
-		- look.getTopBorderThickenss()
-		- look.getBottomBorderThickenss();
+		- look.getTopBorderThickness()
+		- look.getBottomBorderThickness();
 	}
 	
 	//method
@@ -134,8 +134,8 @@ public final class BorderWidgetBorderedArea<BWL extends BorderWidgetLook<BWL>> i
 		
 		return
 		parentBorderWidget.getMainArea().getMinWidth()
-		- look.getLeftBorderThickenss()
-		- look.getRightBorderThickenss();
+		- look.getLeftBorderThickness()
+		- look.getRightBorderThickness();
 	}
 	
 	//method
@@ -170,8 +170,8 @@ public final class BorderWidgetBorderedArea<BWL extends BorderWidgetLook<BWL>> i
 		
 		return
 		parentBorderWidget.getMainArea().getProposalHeight()
-		- look.getTopBorderThickenss()
-		- look.getBottomBorderThickenss();
+		- look.getTopBorderThickness()
+		- look.getBottomBorderThickness();
 	}
 	
 	//method
@@ -186,8 +186,8 @@ public final class BorderWidgetBorderedArea<BWL extends BorderWidgetLook<BWL>> i
 		
 		return
 		parentBorderWidget.getMainArea().getProposalWidth()
-		- look.getLeftBorderThickenss()
-		- look.getRightBorderThickenss();
+		- look.getLeftBorderThickness()
+		- look.getRightBorderThickness();
 	}
 	
 	//method
@@ -202,8 +202,8 @@ public final class BorderWidgetBorderedArea<BWL extends BorderWidgetLook<BWL>> i
 		
 		return
 		parentBorderWidget.getMainArea().getTargetHeight()
-		- look.getTopBorderThickenss()
-		- look.getBottomBorderThickenss();
+		- look.getTopBorderThickness()
+		- look.getBottomBorderThickness();
 	}
 	
 	//method
@@ -218,8 +218,8 @@ public final class BorderWidgetBorderedArea<BWL extends BorderWidgetLook<BWL>> i
 		
 		return
 		parentBorderWidget.getMainArea().getTargetWidth()
-		- look.getLeftBorderThickenss()
-		- look.getRightBorderThickenss();
+		- look.getLeftBorderThickness()
+		- look.getRightBorderThickness();
 	}
 	
 	//method
@@ -233,8 +233,8 @@ public final class BorderWidgetBorderedArea<BWL extends BorderWidgetLook<BWL>> i
 		
 		return
 		parentBorderWidget.getMainArea().getWidth()
-		- look.getLeftBorderThickenss()
-		- look.getRightBorderThickenss();
+		- look.getLeftBorderThickness()
+		- look.getRightBorderThickness();
 	}
 	
 	//method
@@ -246,7 +246,7 @@ public final class BorderWidgetBorderedArea<BWL extends BorderWidgetLook<BWL>> i
 		
 		final var look = parentBorderWidget.getRefLook();
 		
-		return parentBorderWidget.getMainArea().getXPosition() + look.getLeftBorderThickenss();
+		return parentBorderWidget.getMainArea().getXPosition() + look.getLeftBorderThickness();
 	}
 	
 	//method
@@ -258,7 +258,7 @@ public final class BorderWidgetBorderedArea<BWL extends BorderWidgetLook<BWL>> i
 		
 		final var look = parentBorderWidget.getRefLook();
 		
-		return parentBorderWidget.getMainArea().getYPosition() +  look.getTopBorderThickenss();
+		return parentBorderWidget.getMainArea().getYPosition() +  look.getTopBorderThickness();
 	}
 	
 	//method

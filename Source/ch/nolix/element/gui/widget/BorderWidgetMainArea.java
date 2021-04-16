@@ -114,8 +114,8 @@ public final class BorderWidgetMainArea<BWL extends BorderWidgetLook<BWL>> imple
 		
 		return
 		parentBorderWidget.getBorderedArea().getNaturalHeight()
-		+ look.getTopBorderThickenss()
-		+ look.getBottomBorderThickenss();
+		+ look.getTopBorderThickness()
+		+ look.getBottomBorderThickness();
 	}
 	
 	//method
@@ -128,8 +128,8 @@ public final class BorderWidgetMainArea<BWL extends BorderWidgetLook<BWL>> imple
 		
 		return
 		parentBorderWidget.getBorderedArea().getNaturalWidth()
-		+ look.getLeftBorderThickenss()
-		+ look.getRightBorderThickenss();
+		+ look.getLeftBorderThickness()
+		+ look.getRightBorderThickness();
 	}
 	
 	//method
@@ -210,53 +210,53 @@ public final class BorderWidgetMainArea<BWL extends BorderWidgetLook<BWL>> imple
 		
 		//Paints the left border of the BorderWidget of the current BorderWidgetMainArea if
 		//the BorderWidget of the current BorderWidgetMainArea has a left border.
-		if (borderWidgetLook.getLeftBorderThickenss() > 0) {
+		if (borderWidgetLook.getLeftBorderThickness() > 0) {
 			
 			painter.setColor(borderWidgetLook.getLeftBorderColor());
 			
 			painter.paintFilledRectangle(
-				borderWidgetLook.getLeftBorderThickenss(),
+				borderWidgetLook.getLeftBorderThickness(),
 				parentBorderWidget.getHeightWhenExpanded()
 			);
 		}
 		
 		//Paints the right border of the BorderWidget of the current BorderWidgetMainArea if
 		//the BorderWidget of the current BorderWidgetMainArea has a left border.
-		if (borderWidgetLook.getRightBorderThickenss() > 0) {
+		if (borderWidgetLook.getRightBorderThickness() > 0) {
 			
 			painter.setColor(borderWidgetLook.getRightBorderColor());
 			
 			painter.paintFilledRectangle(
-				getWidth() - borderWidgetLook.getRightBorderThickenss(),
+				getWidth() - borderWidgetLook.getRightBorderThickness(),
 				0,
-				borderWidgetLook.getLeftBorderThickenss(),
+				borderWidgetLook.getLeftBorderThickness(),
 				parentBorderWidget.getHeightWhenExpanded()
 			);
 		}
 		
 		//Paints the top border of the BorderWidget of the current BorderWidgetMainArea if
 		//the BorderWidget of the current BorderWidgetMainArea has a left border.
-		if (borderWidgetLook.getTopBorderThickenss() > 0) {
+		if (borderWidgetLook.getTopBorderThickness() > 0) {
 			
 			painter.setColor(borderWidgetLook.getTopBorderColor());
 			
 			painter.paintFilledRectangle(
 				getWidth(),
-				borderWidgetLook.getTopBorderThickenss()
+				borderWidgetLook.getTopBorderThickness()
 			);
 		}
 		
 		//Paints the bottom border of the BorderWidget of the current BorderWidgetMainArea if
 		//the BorderWidget of the current BorderWidgetMainArea has a left border.
-		if (borderWidgetLook.getBottomBorderThickenss() > 0) {
+		if (borderWidgetLook.getBottomBorderThickness() > 0) {
 			
 			painter.setColor(borderWidgetLook.getBottomBorderColor());
 			
 			painter.paintFilledRectangle(
 				0,
-				parentBorderWidget.getHeightWhenExpanded() - borderWidgetLook.getBottomBorderThickenss(),
+				parentBorderWidget.getHeightWhenExpanded() - borderWidgetLook.getBottomBorderThickness(),
 				getWidth(),
-				borderWidgetLook.getBottomBorderThickenss()
+				borderWidgetLook.getBottomBorderThickness()
 			);
 		}
 		
