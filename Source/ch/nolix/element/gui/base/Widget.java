@@ -45,7 +45,7 @@ import ch.nolix.element.gui.painterapi.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 2180
+ * @lines 2060
  * @param <W> is the type of a {@link Widget}.
  * @param <WL> is the type of the {@link OldWidgetLook} of a {@link Widget}.
  */
@@ -890,6 +890,20 @@ TopLeftPositionedRecangular {
 	 */
 	public IFrontEndWriter onFrontEnd() {
 		return getParentGUI().onFrontEnd();
+	}
+	
+	//method
+	/**
+	 * Lets the given lookMutator access the look of the current {@link Widget}.
+	 * 
+	 * @param lookMutator
+	 * @return the current {@link Widget}.
+	 */
+	public W onLook(final IElementTaker<WL> lookMutator) {
+		
+		lookMutator.run(getRefLook());
+		
+		return asConcrete();
 	}
 	
 	//method
