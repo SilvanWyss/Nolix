@@ -1,6 +1,8 @@
 package ch.nolix.templatetutorial.texturecreatortutorial;
 
 import ch.nolix.element.gui.base.Frame;
+import ch.nolix.element.gui.base.WidgetLookState;
+import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.containerwidget.Accordion;
 import ch.nolix.element.gui.widget.ImageWidget;
 import ch.nolix.system.texture.TextureCreator;
@@ -13,7 +15,7 @@ import ch.nolix.template.texturecreator.JuteTextureCreator;
  * 
  * @author Silvan Wyss
  * @month 2018-08
- * @lines 50
+ * @lines 60
  */
 public final class TextureCreatorsTutorial {
 	
@@ -35,13 +37,25 @@ public final class TextureCreatorsTutorial {
 			new Accordion()
 			.addTab(
 				"Concrete",
-				new ImageWidget().setImage(concreteTexture)
-				//TODO: .applyOnBaseLook(bl -> bl.setBackgroundColor(Color.LAVENDER).setPaddings(10))
+				new ImageWidget()
+				.setImage(concreteTexture)
+				.onLook(
+					l ->
+					l
+					.setBackgroundColorForState(WidgetLookState.NORMAL, Color.LAVENDER)
+					.setPaddingForState(WidgetLookState.NORMAL, 10)
+				)
 			)
 			.addTab(
 				"Jute",
-				new ImageWidget().setImage(juteTexture)
-				//TODO: .applyOnBaseLook(bl -> bl.setBackgroundColor(Color.LAVENDER).setPaddings(10))
+				new ImageWidget()
+				.setImage(juteTexture)
+				.onLook(
+					l ->
+					l
+					.setBackgroundColorForState(WidgetLookState.NORMAL, Color.LAVENDER)
+					.setPaddingForState(WidgetLookState.NORMAL, 10)
+				)
 			)
 		);
 	}
