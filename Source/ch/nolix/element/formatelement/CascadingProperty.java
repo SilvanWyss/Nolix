@@ -15,6 +15,9 @@ public final class CascadingProperty<S extends Enum<S>, V> extends Property<S, V
 	//attribute
 	private final V defaultValue;
 	
+	//optional attribute
+	private CascadingProperty<S, V> parentProperty;
+	
 	//constructor
 	public CascadingProperty(
 		final String name,
@@ -84,5 +87,19 @@ public final class CascadingProperty<S extends Enum<S>, V> extends Property<S, V
 		}
 		
 		return hasParentProperty() && parentProperty.hasValueWhenHasState(state);
+	}
+		
+	//method
+	@SuppressWarnings("unchecked")
+	void setParentProperty(final CascadingProperty<S, ?> parentProperty) {
+		
+		Validator.assertThat(parentProperty).thatIsNamed("parent property").isNotNull();
+		
+		this.parentProperty = (CascadingProperty<S, V>)parentProperty;
+	}
+	
+	//method
+	private boolean hasParentProperty() {
+		return (parentProperty != null);
 	}
 }

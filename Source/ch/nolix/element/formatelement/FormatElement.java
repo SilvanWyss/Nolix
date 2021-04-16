@@ -90,7 +90,7 @@ implements IRespondingMutableElement<FE> {
 	}
 	
 	//method
-	protected final <FE2 extends FE> void internalAddChild(final FE2 child) {
+	protected final <FE2 extends FormatElement<FE2, S>> void internalAddChild(final FE2 child) {
 		
 		Validator.assertThat(child).thatIsNamed(LowerCaseCatalogue.CHILD).isNotNull();
 		
@@ -143,15 +143,15 @@ implements IRespondingMutableElement<FE> {
 	//method
 	final void setParent(final FormatElement<?, S> parentElement) {
 		
-		final var parentProperties = LinkedList.fromIterable(parentElement.getRefProperties());
+		final var parentCascadingProperties = LinkedList.fromIterable(parentElement.getRefCascadingProperties());
 		
-		for (final var p: getRefProperties()) {
-			p.setParentProperty(parentProperties.removeAndGetRefFirst(pp -> pp.hasSameNameAs(p)));
+		for (final var cp: getRefCascadingProperties()) {
+			cp.setParentProperty(parentCascadingProperties.removeAndGetRefFirst(pp -> pp.hasSameNameAs(cp)));
 		}
 		
-		Validator.assertThat(parentProperties).thatIsNamed("remaining parent properties").isEmpty();
+		Validator.assertThat(parentCascadingProperties).thatIsNamed("remaining parent cascading properties").isEmpty();
 	}
-
+	
 	//method
 	private void extractPropertiesIfNotExtracted() {
 		if (!propertiesAreExtracted()) {
@@ -207,6 +207,12 @@ implements IRespondingMutableElement<FE> {
 		} catch (final IllegalAccessException illegalAccessException) {
 			throw new WrapperException(illegalAccessException);
 		}
+	}
+	
+	//method
+	@SuppressWarnings("unchecked")
+	private IContainer<CascadingProperty<S, ?>> getRefCascadingProperties() {
+		return getRefProperties().getRefOfType(CascadingProperty.class);
 	}
 	
 	//method

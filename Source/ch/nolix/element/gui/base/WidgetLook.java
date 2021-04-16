@@ -148,7 +148,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends FormatElemen
 	}
 	
 	//method
-	final <WL2 extends WL> void addChild(final WL2 widgetLook) {
+	final <WL2 extends WidgetLook<WL2>> void addChild(final WL2 widgetLook) {
 		internalAddChild(widgetLook);
 	}
 	

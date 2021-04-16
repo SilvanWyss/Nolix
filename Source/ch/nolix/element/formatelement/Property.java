@@ -26,8 +26,7 @@ public abstract class Property<S extends Enum<S>, V> implements Named {
 	private final IElementTakerElementGetter<BaseNode, V> valueCreator;
 	private final IElementTakerElementGetter<V, Node> specificationCreator;
 	
-	//optional attributes
-	protected CascadingProperty<S, V> parentProperty;
+	//optional attribute
 	private final I2ElementTaker<S, V> setterMethod;
 	
 	//multi-attribute
@@ -171,12 +170,7 @@ public abstract class Property<S extends Enum<S>, V> implements Named {
 
 	//method declaration
 	protected abstract V getValueWhenHasState(State<S> state);
-
-	//method
-	protected final boolean hasParentProperty() {
-		return (parentProperty != null);
-	}
-
+	
 	//mehod declaration
 	protected abstract boolean hasValueWhenHasState(State<S> currentStateObject);
 
@@ -230,15 +224,6 @@ public abstract class Property<S extends Enum<S>, V> implements Named {
 		Validator.assertThat(parent).thatIsNamed(LowerCaseCatalogue.PARENT).isNotNull();
 		
 		this.parent = parent;
-	}
-	
-	//method
-	@SuppressWarnings("unchecked")
-	final void setParentProperty(final Property<S, ?> parentProperty) {
-		
-		Validator.assertThat(parentProperty).thatIsNamed("parent property").isNotNull();
-		
-		this.parentProperty = (CascadingProperty<S, V>)parentProperty;
 	}
 	
 	//method
