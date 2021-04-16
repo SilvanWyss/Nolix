@@ -2,7 +2,6 @@
 package ch.nolix.element.gui.image;
 
 //own imports
-import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.container.pair.Pair;
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
@@ -16,11 +15,12 @@ import ch.nolix.element.gui.color.ColorGradient;
 public final class Background extends Element<Background> implements IMutableElement<Background> {
 	
 	//constant
-	private static final Color DEFAULT_BACKGROUND_COLOR = Color.WHITE;
+	public static final Color DEFAULT_COLOR = Color.WHITE;
 	
 	//constants
-	private static final String BACKGROUND_COLOR_GRADIENT_HEADER = "BackgroundColorGradient";
-	private static final String BACKGROUND_IMAGE_HEADER = "BackgroundImage";
+	private static final String COLOR_HEADER = "Color";
+	private static final String COLOR_GRADIENT_HEADER = "ColorGradient";
+	private static final String IMAGE_HEADER = "Image";
 	
 	//static method
 	public static Background fromSpecification(final BaseNode specification) {
@@ -32,28 +32,28 @@ public final class Background extends Element<Background> implements IMutableEle
 	}
 	
 	//attribute
-	private final MutableOptionalValue<Color> backgroundColor =
+	private final MutableOptionalValue<Color> color =
 	new MutableOptionalValue<>(
-		PascalCaseCatalogue.BACKGROUND_COLOR,
-		this::setBackgroundColor,
+		COLOR_HEADER,
+		this::setColor,
 		Color::fromSpecification,
 		Color::getSpecification
 	);
 	
 	//attribute
-	private final MutableOptionalValue<ColorGradient> backgroundColorGradient =
+	private final MutableOptionalValue<ColorGradient> colorGradient =
 	new MutableOptionalValue<>(
-		BACKGROUND_COLOR_GRADIENT_HEADER,
-		this::setBackgroundColorGradient,
+		COLOR_GRADIENT_HEADER,
+		this::setColorGradient,
 		ColorGradient::fromSpecification,
 		ColorGradient::getSpecification
 	);
 	
 	//attribute
-	private final MutableOptionalValue<Pair<Image, ImageApplication>> backgroundImage =
+	private final MutableOptionalValue<Pair<Image, ImageApplication>> image =
 	new MutableOptionalValue<>(
-		BACKGROUND_IMAGE_HEADER,
-		this::setBackgroundImage,
+		IMAGE_HEADER,
+		this::setImage,
 		s ->
 		new Pair<>(
 			Image.fromSpecification(s.getRefAttributeAt(1)),
@@ -74,79 +74,79 @@ public final class Background extends Element<Background> implements IMutableEle
 	}
 	
 	//method
-	public Color getBackgroundColor() {
-		return backgroundColor.getValue();
+	public Color getColor() {
+		return color.getValue();
 	}
 	
 	//method
-	public ColorGradient getBackgroundColorGradient() {
-		return backgroundColorGradient.getValue();
+	public ColorGradient getColorGradient() {
+		return colorGradient.getValue();
 	}
 	
 	//method
-	public Image getBackgroundImage() {
-		return backgroundImage.getValue().getRefElement1();
+	public Image getImage() {
+		return image.getValue().getRefElement1();
 	}
 	
 	//method
-	public ImageApplication getBackgroundImageApplication() {
-		return backgroundImage.getValue().getRefElement2();
+	public ImageApplication getImageApplication() {
+		return image.getValue().getRefElement2();
 	}
 	
 	//method
-	public boolean hasBackgroundColor() {
-		return backgroundColor.hasValue();
+	public boolean isColor() {
+		return color.hasValue();
 	}
 	
 	//method
-	public boolean hasBackgroundColorGradient() {
-		return backgroundColorGradient.hasValue();
+	public boolean isColorGradient() {
+		return colorGradient.hasValue();
 	}
 	
 	//method
-	public boolean hasBackgroundImage() {
-		return backgroundImage.hasValue();
+	public boolean isImage() {
+		return image.hasValue();
 	}
 		
 	//method
 	@Override
 	public void reset() {
-		setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
+		setColor(DEFAULT_COLOR);
 	}
 	
 	//method
-	public void setBackgroundColor(final Color backgroundColor) {
+	public void setColor(final Color color) {
 		
 		clear();
 		
-		this.backgroundColor.setValue(backgroundColor);
+		this.color.setValue(color);
 	}
 	
 	//method
-	public void setBackgroundColorGradient(final ColorGradient backgroundColorGradient) {
+	public void setColorGradient(final ColorGradient backgroundColorGradient) {
 		
 		clear();
 		
-		this.backgroundColorGradient.setValue(backgroundColorGradient);
+		this.colorGradient.setValue(backgroundColorGradient);
 	}
 	
 	//method
-	public void setBackgroundImage(final Image image, final ImageApplication imageApplication) {
-		setBackgroundImage(new Pair<>(image, imageApplication));
+	public void setImage(final Image image, final ImageApplication imageApplication) {
+		setImage(new Pair<>(image, imageApplication));
 	}
 	
 	//method
 	private void clear() {
-		backgroundColor.clear();
-		backgroundColorGradient.clear();
-		backgroundImage.clear();
+		color.clear();
+		colorGradient.clear();
+		image.clear();
 	}
 	
 	//method
-	private void setBackgroundImage(final Pair<Image, ImageApplication> backgroundImage) {
+	private void setImage(final Pair<Image, ImageApplication> backgroundImage) {
 		
 		clear();
 		
-		this.backgroundImage.setValue(backgroundImage);
+		this.image.setValue(backgroundImage);
 	}
 }
