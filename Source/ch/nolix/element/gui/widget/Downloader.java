@@ -10,6 +10,8 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHave
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.functionapi.IElementGetter;
 import ch.nolix.element.gui.base.CursorIcon;
+import ch.nolix.element.gui.base.WidgetLookState;
+import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.input.Key;
 import ch.nolix.element.gui.painterapi.IPainter;
 
@@ -31,9 +33,12 @@ public final class Downloader extends TextLineWidget<Downloader, DownloaderLook>
 	
 	//constructor
 	public Downloader() {
+		
 		setCustomCursorIcon(DEFAULT_CURSOR_ICON);
-		//TODO: getRefLook().setTextColorForState(WidgetLookState.NORMAL, Color.DARK_BLUE)
-		//TODO: getRefLook().setTextColorForState(WidgetLookState.HOVERED, Color.BLUE);
+		
+		getRefLook()
+		.setTextColorForState(WidgetLookState.NORMAL, Color.DARK_BLUE)
+		.setTextColorForState(WidgetLookState.HOVERED, Color.BLUE);
 	}
 	
 	//method
