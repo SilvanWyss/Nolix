@@ -19,7 +19,7 @@ import ch.nolix.common.programcontrol.sequencer.Sequencer;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 380
+ * @lines 390
  */
 public final class GlobalStringHelper {
 		
@@ -118,6 +118,16 @@ public final class GlobalStringHelper {
 		
 		//Handles the case that the given string is not null.
 		return isPascalCaseWhenNotNull(string);
+	}
+	
+	//static method
+	/**
+	 * @param string
+	 * @param prefix
+	 * @return true if the given string starts with the given prefix ignoring case.
+	 */
+	public static boolean startsWithIgnoringCase(final String string, final String prefix) {
+		return string.regionMatches(true, 0, prefix, 0, prefix.length());
 	}
 	
 	//static method
