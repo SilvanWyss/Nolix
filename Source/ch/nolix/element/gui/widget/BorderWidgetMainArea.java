@@ -229,7 +229,7 @@ public final class BorderWidgetMainArea<BWL extends BorderWidgetLook<BWL>> imple
 			painter.paintFilledRectangle(
 				getWidth() - borderWidgetLook.getRightBorderThickness(),
 				0,
-				borderWidgetLook.getLeftBorderThickness(),
+				borderWidgetLook.getRightBorderThickness(),
 				parentBorderWidget.getHeightWhenExpanded()
 			);
 		}
