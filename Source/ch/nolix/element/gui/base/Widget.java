@@ -45,7 +45,7 @@ import ch.nolix.element.gui.painterapi.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 2060
+ * @lines 2100
  * @param <W> is the type of a {@link Widget}.
  * @param <WL> is the type of the {@link OldWidgetLook} of a {@link Widget}.
  */
@@ -90,7 +90,7 @@ TopLeftPositionedRecangular {
 	private int cursorYPosition;
 	
 	//attribute
-	private final ExtensionElement<WL> look = new ExtensionElement<WL>(createLook());
+	private final ExtensionElement<WL> look = new ExtensionElement<>(createLook());
 	
 	//optional attribute
 	private WidgetParent parent;
@@ -107,6 +107,11 @@ TopLeftPositionedRecangular {
 	private IElementTaker<W> mouseWheelClickAction;
 	private IElementTaker<W> mouseWheelPressAction;
 	private IElementTaker<W> mouseWheelReleaseAction;
+	
+	//constructor
+	public Widget() {
+		look.getExtensionElement().reset();
+	}
 	
 	//method
 	/**
@@ -1048,6 +1053,7 @@ TopLeftPositionedRecangular {
 	public final W setCollapsed() {
 		
 		expanded = false;
+		updateLookState();
 		
 		return asConcrete();
 	}
@@ -1098,6 +1104,7 @@ TopLeftPositionedRecangular {
 	public final W setDisabled() {
 		
 		enabled = false;
+		updateLookState();
 		
 		return asConcrete();
 	}
@@ -1111,6 +1118,7 @@ TopLeftPositionedRecangular {
 	public final W setEnabled() {
 		
 		enabled = true;
+		updateLookState();
 		
 		return asConcrete();
 	}
@@ -1124,6 +1132,7 @@ TopLeftPositionedRecangular {
 	public final W setExpanded() {
 		
 		expanded = true;
+		updateLookState();
 		
 		return asConcrete();
 	}
@@ -1137,7 +1146,8 @@ TopLeftPositionedRecangular {
 	public final W setFocused() {
 		
 		focused = true;
-				
+		updateLookState();
+		
 		return asConcrete();
 	}
 	
@@ -1163,6 +1173,7 @@ TopLeftPositionedRecangular {
 	public final W setHovered() {
 		
 		hovered = true;
+		updateLookState();
 		
 		return asConcrete();
 	}
@@ -1379,6 +1390,7 @@ TopLeftPositionedRecangular {
 	public final W setUnhovered() {
 		
 		hovered = false;
+		updateLookState();
 		
 		return asConcrete();
 	}
@@ -1392,6 +1404,7 @@ TopLeftPositionedRecangular {
 	public final W setUnfocused() {
 		
 		focused = false;
+		updateLookState();
 		
 		return asConcrete();
 	}
@@ -2056,5 +2069,39 @@ TopLeftPositionedRecangular {
 				
 		//Sets the parent of the current Widget.
 		this.parent = parent;
+	}
+	
+	//method
+	/**
+	 * Updates the state of the look of the current {@link Widget}.
+	 */
+	private void updateLookState() {
+		if (!isFocused()) {
+			updateLookStateWhenNotFocused();
+		} else {
+			updateLookStateWhenFocused();
+		}
+	}
+	
+	//method
+	/**
+	 * Updates the state of the look of the current {@link Widget}
+	 * for the case that the current {@link Widget} is focused.
+	 */
+	private void updateLookStateWhenFocused() {
+		getRefLook().setState(WidgetLookState.FOCUSED);
+	}
+	
+	//method
+	/**
+	 * Updates the state of the look of the current {@link Widget}
+	 * for the case that the current {@link Widget} is not focused.
+	 */
+	private void updateLookStateWhenNotFocused() {
+		if (!isHovered()) {
+			getRefLook().setState(WidgetLookState.NORMAL);
+		} else {
+			getRefLook().setState(WidgetLookState.HOVERED);
+		}
 	}
 }
