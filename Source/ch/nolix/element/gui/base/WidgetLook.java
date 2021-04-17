@@ -60,7 +60,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends FormatElemen
 	
 	//attribute
 	private final CascadingProperty<WidgetLookState, Color> textColor =
-	new CascadingProperty<WidgetLookState, Color>(
+	new CascadingProperty<>(
 		TEXT_COLOR_HEADER,
 		WidgetLookState.class,
 		Color::fromSpecification,
@@ -71,6 +71,11 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends FormatElemen
 	//constructor
 	public WidgetLook() {
 		super(WidgetLookState.BASE);
+	}
+	
+	//method
+	public final <WL2 extends WidgetLook<WL2>> void addChild(final WL2 widgetLook) {
+		internalAddChild(widgetLook);
 	}
 	
 	//method
@@ -145,11 +150,6 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends FormatElemen
 		this.textSize.setValueForState(state, textSize);
 		
 		return asConcrete();
-	}
-	
-	//method
-	final <WL2 extends WidgetLook<WL2>> void addChild(final WL2 widgetLook) {
-		internalAddChild(widgetLook);
 	}
 	
 	//method
