@@ -654,16 +654,15 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 			painter.paintText(LINE_PREFIX + getEditLine(), font);
 			
 			//Paints the text cursor of the current Console.
-				final var textCursorXPosition =
-				font.getSwingTextWidth(LINE_PREFIX + getEditLineBeforeTextCursor()) - 1;
-				
-				//TODO: painter.setColor(widgetStructure.getTextColor());
-				painter.paintFilledRectangle(
-					textCursorXPosition,
-					0,
-					2,
-					font.getTextSize()
-				);
+			final var textCursorXPosition =
+			font.getSwingTextWidth(LINE_PREFIX + getEditLineBeforeTextCursor()) - 1;
+			painter.setColor(widgetStructure.getTextColor());
+			painter.paintFilledRectangle(
+				textCursorXPosition,
+				0,
+				2,
+				font.getTextSize()
+			);
 		}
 	}
 	
