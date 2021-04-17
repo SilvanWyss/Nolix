@@ -262,7 +262,7 @@ implements Clearable, Headerable<AccordionTab>, IMutableElement<AccordionTab> {
 	}
 	
 	//method
-	void preparePaint(final AccordionLook accordionLook) {
+	void recalculate() {
 		
 		//TODO
 		/*
@@ -350,7 +350,7 @@ implements Clearable, Headerable<AccordionTab>, IMutableElement<AccordionTab> {
 			
 		//Handles the case that the curent accordion tab is expanded.
 		} else {
-			getParentAccordion().collapse(this);
+			getParentAccordion().collapseIfPossible(this);
 		}
 	}
 	

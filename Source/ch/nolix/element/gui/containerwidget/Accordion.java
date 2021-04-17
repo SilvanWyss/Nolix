@@ -9,13 +9,13 @@ import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.element.base.MultiValue;
 import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.base.SubElement;
 import ch.nolix.element.elementenum.RotationDirection;
 import ch.nolix.element.gui.base.Widget;
-import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.input.Key;
 import ch.nolix.element.gui.painterapi.IPainter;
 
@@ -23,13 +23,12 @@ import ch.nolix.element.gui.painterapi.IPainter;
 /**
  * @author Silvan Wyss
  * @date 2018-08-13
- * @lines 470
+ * @lines 510
  */
 public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	
-	//constants
+	//constant
 	public static final AccordionExpansionBehavior DEFAULT_EXPANSION_BEHAVIOR = AccordionExpansionBehavior.SINGLE;
-	public static final Color DEFAULT_TAB_HEADER_BACKGROUND_COLOR =	Color.LIGHT_GREY;
 	
 	//constant
 	private static final String TAB_HEADER_LOOK_HEADER = "TabHeaderLook";
@@ -53,10 +52,8 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 		AccordionTab::getSpecification
 	);
 	
-	//attribute
+	//attributes
 	private final VerticalStack accordionVerticalStack = new VerticalStack();
-	
-	//attribute
 	private final SubElement<StackLook> tabHeaderLook = new SubElement<>(TAB_HEADER_LOOK_HEADER, new StackLook());
 	
 	//constructor
@@ -64,11 +61,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	 * Creates a new {@link Accordion}.
 	 */
 	public Accordion() {
-		
-		accordionVerticalStack.reset();
-		
-		setExpansionBehavior(DEFAULT_EXPANSION_BEHAVIOR);
-		//TODO: getRefBaseLook().setTabHeaderBackgroundColor(DEFAULT_TAB_HEADER_BACKGROUND_COLOR);
+		reset();
 	}
 	
 	//method
@@ -81,17 +74,13 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	 */
 	public Accordion addTab(final AccordionTab tab) {
 		
-		//Asserts that the given tab is not null.
-		Validator
-		.assertThat(tab)
-		.thatIsNamed(LowerCaseCatalogue.TAB)
-		.isNotNull();
+		Validator.assertThat(tab).thatIsNamed(LowerCaseCatalogue.TAB).isNotNull();
 		
 		tab.setParentAccordion(this);
 		tabs.add(tab);
 		accordionVerticalStack.addWidget(tab.getRefTabVerticalStack());
 		
-		if (expandsAtLeastOneTabWhenNotEmpty() && getTabCount() < 2) {
+		if (mustExpandAtLeastOneTabWhenNotEmpty() && getTabCount() < 2) {
 			tab.expand();
 		}
 		
@@ -109,7 +98,6 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	 */
 	public Accordion addTab(final AccordionTab... tabs) {
 		
-		//Asserts that the given tabs is not null.
 		Validator.assertThat(tabs).thatIsNamed(PluralLowerCaseCatalogue.TABS).isNotNull();
 		
 		return addTabs(ReadContainer.forArray(tabs));
@@ -138,7 +126,6 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	 */
 	public Accordion addTabs(final Iterable<AccordionTab> tabs) {
 		
-		//Asserts that the given tabs is not null.
 		Validator.assertThat(tabs).thatIsNamed(PluralLowerCaseCatalogue.TABS).isNotNull();
 		
 		tabs.forEach(this::addTab);
@@ -158,11 +145,13 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	
 	//method
 	/**
-	 * Collapses the tabs of the current {@link Accordion}.
+	 * Collapses all tabs of the current {@link Accordion}.
 	 * 
 	 * @return the current {@link Accordion}.
 	 */
-	public Accordion collapse() {
+	public Accordion collapseAllTabs() {
+		
+		assertCanCollapseAllTabs();
 		
 		getRefTabs().forEach(AccordionTab::collapse);
 		
@@ -171,31 +160,17 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	
 	//method
 	/**
-	 * Expands the tabs of the current {@link Accordion}.
+	 * Expands all tabs of the current {@link Accordion}.
 	 * 
 	 * @return the current {@link Accordion}.
 	 */
-	public Accordion expand() {
+	public Accordion expandAllTabs() {
 		
+		assertCanExpandAllTabs();
+				
 		getRefTabs().forEach(AccordionTab::expand);
 		
 		return this;
-	}
-	
-	//method
-	/**
-	 * @return true if the current {@link Accordion} expands at least one tab when it is not empty.
-	 */
-	public boolean expandsAtLeastOneTabWhenNotEmpty() {
-		
-		//Enumerates the expansion behavior of the current accordion.
-		switch (getExpansionBehavior()) {
-			case SINGLE:
-			case MULTI:
-				return true;
-			default:
-				return false;
-		}
 	}
 	
 	//method
@@ -208,6 +183,14 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 		
 	//method
 	/**
+	 * @return the look of the headers of the tabs of the current {@link Accordion}.
+	 */
+	public StackLook getRefTabHeaderLook() {
+		return tabHeaderLook.getSubElement();
+	}
+	
+	//method
+	/**
 	 * @return the tabs of the current {@link Accordion}.
 	 */
 	public IContainer<AccordionTab> getRefTabs() {
@@ -216,24 +199,46 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	
 	//method
 	/**
-	 * The number of tabs of an {@link Accordion}
-	 * does not need to equal the number of widgets of a {@link Accordion},
-	 * because an {@link Accordion} can contain tabs that are empty.
+	 * The number of tabs of a {@link Accordion} does not need to equal
+	 * the number of widgets of a {@link Accordion} because the tabs of a {@link Accordion} can be empty.
 	 * 
 	 * @return the number of tabs of the current {@link Accordion}.
 	 */
 	public int getTabCount() {
-		
-		//For a better performance, this implementation does not use all comfortable methods.
 		return tabs.getElementCount();
 	}
 	
 	//method
 	/**
-	 * @return the look of the tab headers of the current {@link Accordion}.
+	 * @return true if the current {@link Accordion} must expand at least one tab for the case
+	 * when the current {@link Accordion} is not empty.
 	 */
-	public StackLook onTabHeader() {
-		return tabHeaderLook.getSubElement();
+	public boolean mustExpandAtLeastOneTabWhenNotEmpty() {
+		
+		//Enumerates the expansion behavior of the current Accordion.
+		switch (getExpansionBehavior()) {
+			case SINGLE:
+			case MULTI:
+				return true;
+			default:
+				return false;
+		}
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link Accordion} must expand at most one tab.
+	 */
+	public boolean mustExpandAtMostOneTab() {
+		
+		//Enumerates the expansion behavior of the current Accordion.
+		switch (getExpansionBehavior()) {
+			case SINGLE_OR_NONE:
+			case SINGLE:
+				return true;
+			default:
+				return false;
+		}
 	}
 	
 	//method
@@ -242,7 +247,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	 * 
 	 * @param expansionBehavior
 	 * @return the current {@link Accordion}.
-	 * @throws ArgumentIsNullException if the given expansion behavior is null.
+	 * @throws ArgumentIsNullException if the given expansionBehavior is null.
 	 */
 	public Accordion setExpansionBehavior(final AccordionExpansionBehavior expansionBehavior) {
 		
@@ -424,7 +429,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	 */
 	@Override
 	protected void recalculateBorderWidget() {
-		getRefTabs().forEach(t -> t.preparePaint(getRefLook()));
+		getRefTabs().forEach(AccordionTab::recalculate);
 	}
 	
 	//method
@@ -432,7 +437,9 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void resetBorderWidgetConfigurationOnSelf() {}
+	protected void resetBorderWidgetConfigurationOnSelf() {
+		getRefTabHeaderLook().reset();
+	}
 	
 	//method
 	/**
@@ -441,20 +448,20 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	@Override
 	protected void resetContainerWidget() {
 		setExpansionBehavior(DEFAULT_EXPANSION_BEHAVIOR);
-		clear();
 	}
 	
 	//method
 	/**
-	 * Lets the current {@link Accordion} collapse the given tab.
+	 * Lets the current {@link Accordion} collapse the given tab if
+	 * the current {@link Accordion} can collapse at least 1 tab.
 	 * 
 	 * @param tab
 	 */
-	void collapse(final AccordionTab tab) {
-		if (!expandsAtLeastOneTabWhenNotEmpty()	|| getRefTabs().getCount(AccordionTab::isExpanded) > 1) {
+	void collapseIfPossible(final AccordionTab tab) {
+		if (canCollapseAnExpandedTab()) {
 			tab.collapse();
 		}
- 	}
+	}
 	
 	//method
 	/**
@@ -463,16 +470,47 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	 * @param tab
 	 */
 	void expand(final AccordionTab tab) {
-		
-		//Enumerates the expansion behavior of the current accordion.
-		switch (getExpansionBehavior()) {
-			case SINGLE_OR_NONE:
-			case SINGLE:
-				getRefTabs().forEach(AccordionTab::collapse);
-				break;
-			default:
+		if (!tab.isExpanded()) {
+			expandWhenNotExpanded(tab);
 		}
+	}
+	
+	//method
+	private void assertCanCollapseAllTabs() {
+		if (!canCollapseAllTabs()) {
+			throw new InvalidArgumentException(this, "cannot collapse all tabs");
+		}
+	}
+	
+	//method
+	private void assertCanExpandAllTabs() {
+		if (!canExpandAllTabs()) {
+			throw new InvalidArgumentException(this, "cannot expand all tabs");
+		}
+	}
+	
+	//method
+	private boolean canCollapseAllTabs() {
+		return (isEmpty() || !mustExpandAtMostOneTab());
+	}
+	
+	//method
+	private boolean canCollapseAnExpandedTab() {
+		return !mustExpandAtLeastOneTabWhenNotEmpty() || getRefTabs().getCount(AccordionTab::isExpanded) > 1;
+	}
+	
+	//method
+	private boolean canExpandAllTabs() {
+		return (getTabCount() < 2 || !mustExpandAtMostOneTab());
+	}
+	
+	//method
+	private void expandWhenNotExpanded(final AccordionTab tab) {
 		
+		if (mustExpandAtMostOneTab()) {
+			collapseAllTabs();
+		}
+						
 		tab.expand();
 	}
 }
