@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.element.gui.widget;
 
-import ch.nolix.common.container.SingleContainer;
 //own imports
+import ch.nolix.common.container.SingleContainer;
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.validator.Validator;
