@@ -38,15 +38,15 @@ public final class YesNoDialogCreatorTutorial {
 					"MinWidth(200)",
 					"CursorIcon(Hand)",
 					"ContentPosition(Center)",
-					"BaseBackgroundColor(SkyBlue)",
-					"HoverBackgroundColor(Blue)",
+					"BaseBackground(Color(SkyBlue))",
+					"HoverBackground(Color(Blue))",
 					"BaseTextSize(30)"
 				),
 				new DeepConfiguration()
 				.addSelectorRole(ContainerRole.DIALOG_CONTAINER)
 				.addAttachingAttribute(
 					"ProposalHeight(200)",
-					"BaseBackgroundColor(Lavender)",
+					"BaseBackground(Color(Lavender))",
 					"ContentPosition(Center)"
 				)
 				.addConfiguration(
@@ -54,13 +54,13 @@ public final class YesNoDialogCreatorTutorial {
 					.addSelectorRole(LabelRole.MAIN_TEXT),
 					new DeepConfiguration()
 					.addSelectorRole(ButtonRole.CONFIRM_BUTTON)
-					.addAttachingAttribute("BaseBackgroundColor(LightGreen)", "HoverBackgroundColor(Green)"),
+					.addAttachingAttribute("BaseBackground(Color(LightGreen))", "HoverBackground(Color(Green))"),
 					new DeepConfiguration()
 					.addSelectorRole(ButtonRole.CANCEL_BUTTON)
 					.addAttachingAttribute(
 						"CursorIcon(Hand)",
-						"BaseBackgroundColor(Salmon)",
-						"HoverBackgroundColor(Red)"
+						"BaseBackground(Color(Salmon))",
+						"HoverBackground(Color(Red))"
 					)
 				)
 			)
