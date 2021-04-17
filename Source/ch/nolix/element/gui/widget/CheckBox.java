@@ -15,7 +15,7 @@ import ch.nolix.element.gui.painterapi.IPainter;
 /**
  * @author Silvan Wyss
  * @date 2016-06-01
- * @lines 340
+ * @lines 360
  */
 public final class CheckBox extends BorderWidget<CheckBox, CheckBoxLook> {
 	
@@ -287,7 +287,7 @@ public final class CheckBox extends BorderWidget<CheckBox, CheckBoxLook> {
 		final var s = checkBoxLook.getTextSize();
 		final var t = checkBoxLook.getLineThickness();
 		
-		//TODO: painter.setColor(checkBoxLook.getTextColor());
+		painter.setColor(checkBoxLook.getTextColor());
 		
 		//Paints the left border of the current check box.
 		painter.paintFilledRectangle(0, 0, t, s);
