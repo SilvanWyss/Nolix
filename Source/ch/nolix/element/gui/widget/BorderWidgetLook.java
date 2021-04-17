@@ -539,6 +539,17 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	}
 	
 	//method
+	public final BWL setBorderColorForState(final WidgetLookState state, final Color borderColor) {
+		
+		setLeftBorderColorForState(state, borderColor);
+		setRightBorderColorForState(state, borderColor);
+		setTopBorderColorForState(state, borderColor);
+		setBottomBorderColorForState(state, borderColor);
+		
+		return asConcrete();
+	}
+	
+	//method
 	public final BWL setBorderThicknessForState(final WidgetLookState state, final int borderThickness) {
 		
 		setLeftBorderThicknessForState(state, borderThickness);
