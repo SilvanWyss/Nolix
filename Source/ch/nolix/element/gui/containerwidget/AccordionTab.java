@@ -20,6 +20,7 @@ import ch.nolix.element.elementapi.IMutableElement;
 import ch.nolix.element.gui.base.CursorIcon;
 import ch.nolix.element.gui.base.Widget;
 import ch.nolix.element.gui.base.WidgetGUI;
+import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.widget.Label;
 
 //class
@@ -264,50 +265,18 @@ implements Clearable, Headerable<AccordionTab>, IMutableElement<AccordionTab> {
 	//method
 	void recalculate() {
 		
-		//TODO
-		/*
 		headerLabel.setText(getHeader());
 		
 		headerHorizontalStack.resetConfiguration();
-		headerHorizontalStack.applyOnBaseLook(bl -> bl.setLeftPadding(10));
-		
-		final var contentAreaWidth = getParentAccordion().getNaturalContentAreaWidth();
-		if (contentAreaWidth > 0) {
-			headerHorizontalStack.setProposalWidth(contentAreaWidth);
-		}
-		
-		if (accordionLook.hasRecursiveTabHeaderBackgroundColor()) {
-			headerHorizontalStack
-			.getRefBaseLook()
-			.setBackgroundColor(accordionLook.getRecursiveOrDefaultTabHeaderBackgroundColor());
-		}
-		
-		if (accordionLook.hasRecursiveTabHeaderTextSize()) {
-			for (final var w : headerHorizontalStack.getChildWidgets()) {
-				w
-				.getRefBaseLook()
-				.setTextSize(accordionLook.getRecursiveOrDefaultTabHeaderTextSize());
-			}
-		}
-		
-		if (accordionLook.hasRecursiveTabHeaderTextColor()) {
-			for (final var w : headerHorizontalStack.getChildWidgets()) {
-				w
-				.getRefBaseLook()
-				.setTextColor(accordionLook.getRecursiveOrDefaultTabHeaderTextColor());
-			}
-		}
+		headerHorizontalStack.getRefLook().setFrom(parentAccordion.getRefTabHeaderLook());
+		headerHorizontalStack.getRefLook().setPaddingForState(WidgetLookState.BASE, 10);
 				
-		if (accordionLook.hasRecursiveTabBackgroundColor()) {
-			headerHorizontalStack
-			.getRefBaseLook()
-			.setBackgroundColor(accordionLook.getRecursiveOrDefaultTabBackgroundColor());
+		final var naturalContentAreaWidth = getParentAccordion().getNaturalContentAreaWidth();
+		if (naturalContentAreaWidth > 0) {
+			headerHorizontalStack.setMinWidth(naturalContentAreaWidth);
 		}
 		
 		headerLabel.setCustomCursorIcon(CursorIcon.HAND);
-		headerLabel.getRefBaseLook().setTextColor(Color.GREY);
-		headerLabel.getRefHoverLook().setTextColor(Color.BLACK);
-		headerLabel.getRefFocusLook().setTextColor(Color.BLACK);
 		
 		if (containsAny()) {
 			if (isCollapsed()) {
@@ -318,7 +287,6 @@ implements Clearable, Headerable<AccordionTab>, IMutableElement<AccordionTab> {
 		}
 		
 		tabVerticalStack.recalculate();
-		*/
 	}
 	
 	//method
@@ -344,11 +312,11 @@ implements Clearable, Headerable<AccordionTab>, IMutableElement<AccordionTab> {
 	//method
 	private void noteExpandButtonPress() {
 		
-		//Handles the case that the current accordion tab is collapsed.
+		//Handles the case that the current AccordionTab is collapsed.
 		if (isCollapsed()) {
 			getParentAccordion().expand(this);
 			
-		//Handles the case that the curent accordion tab is expanded.
+		//Handles the case that the current AccordionTab is expanded.
 		} else {
 			getParentAccordion().collapseIfPossible(this);
 		}

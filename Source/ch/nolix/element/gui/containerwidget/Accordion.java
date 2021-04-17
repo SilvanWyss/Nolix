@@ -16,6 +16,8 @@ import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.base.SubElement;
 import ch.nolix.element.elementenum.RotationDirection;
 import ch.nolix.element.gui.base.Widget;
+import ch.nolix.element.gui.base.WidgetLookState;
+import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.input.Key;
 import ch.nolix.element.gui.painterapi.IPainter;
 
@@ -23,7 +25,7 @@ import ch.nolix.element.gui.painterapi.IPainter;
 /**
  * @author Silvan Wyss
  * @date 2018-08-13
- * @lines 510
+ * @lines 520
  */
 public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	
@@ -62,7 +64,14 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	 * Creates a new {@link Accordion}.
 	 */
 	public Accordion() {
+		
 		reset();
+		getRefLook().addChild(getRefTabHeaderLook());
+		accordionVerticalStack.reset();
+		
+		getRefTabHeaderLook()
+		.setTextColorForState(WidgetLookState.BASE, Color.GREY)
+		.setTextColorForState(WidgetLookState.HOVER, Color.BLACK);
 	}
 	
 	//method
@@ -508,9 +517,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	//method
 	private void expandWhenNotExpanded(final AccordionTab tab) {
 		
-		if (mustExpandAtMostOneTab()) {
-			collapseAllTabs();
-		}
+		getRefTabs().forEach(AccordionTab::collapse);
 						
 		tab.expand();
 	}
