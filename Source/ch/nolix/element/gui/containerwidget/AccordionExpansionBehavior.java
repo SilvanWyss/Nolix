@@ -18,14 +18,11 @@ import ch.nolix.element.elementapi.IElement;
  * @lines 40
  */
 public enum AccordionExpansionBehavior implements IElement<AccordionExpansionBehavior> {
-	SINGLE_OR_NONE,
-	SINGLE,
-	MULTI_OR_NONE,
-	MULTI;
+	OPEN_ONE_TAB_OR_NONE,
+	OPEN_ONE_TAB,
+	OPEN_SEVERAL_TABS_OR_NONE,
+	OPEN_SEVERAL_TABS;
 	
-	//constant
-	public static final String TYPE_NAME = "ExpansionBehavior";
-
 	//static method
 	/**
 	 * @param specification

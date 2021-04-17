@@ -24,7 +24,7 @@ public final class AccordionTest extends ContainerWidgetTest<Accordion> {
 		//setup
 			final var accordion =
 			new Accordion()
-			.setExpansionBehavior(AccordionExpansionBehavior.SINGLE);
+			.setExpansionBehavior(AccordionExpansionBehavior.OPEN_ONE_TAB);
 			
 			final var tab1 = new AccordionTab();
 		
@@ -63,7 +63,7 @@ public final class AccordionTest extends ContainerWidgetTest<Accordion> {
 		//setup
 			final var accordion =
 			new Accordion()
-			.setExpansionBehavior(AccordionExpansionBehavior.SINGLE_OR_NONE);
+			.setExpansionBehavior(AccordionExpansionBehavior.OPEN_ONE_TAB_OR_NONE);
 			
 			final var tab1 = new AccordionTab();
 			final var tab2 = new AccordionTab();

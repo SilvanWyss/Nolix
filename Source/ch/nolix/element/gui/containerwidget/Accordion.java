@@ -28,15 +28,16 @@ import ch.nolix.element.gui.painterapi.IPainter;
 public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	
 	//constant
-	public static final AccordionExpansionBehavior DEFAULT_EXPANSION_BEHAVIOR = AccordionExpansionBehavior.SINGLE;
+	public static final AccordionExpansionBehavior DEFAULT_EXPANSION_BEHAVIOR = AccordionExpansionBehavior.OPEN_ONE_TAB;
 	
-	//constant
+	//constants
+	private static final String EXPANSION_BEHAVIOUR_HEADER = "ExpansionBehavior";
 	private static final String TAB_HEADER_LOOK_HEADER = "TabHeaderLook";
 	
 	//attribute
 	private final MutableValue<AccordionExpansionBehavior> expansionBehavior =
 	new MutableValue<>(
-		AccordionExpansionBehavior.TYPE_NAME,
+		EXPANSION_BEHAVIOUR_HEADER,
 		DEFAULT_EXPANSION_BEHAVIOR,
 		this::setExpansionBehavior,
 		AccordionExpansionBehavior::fromSpecification,
@@ -217,8 +218,8 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 		
 		//Enumerates the expansion behavior of the current Accordion.
 		switch (getExpansionBehavior()) {
-			case SINGLE:
-			case MULTI:
+			case OPEN_ONE_TAB:
+			case OPEN_SEVERAL_TABS:
 				return true;
 			default:
 				return false;
@@ -233,8 +234,8 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 		
 		//Enumerates the expansion behavior of the current Accordion.
 		switch (getExpansionBehavior()) {
-			case SINGLE_OR_NONE:
-			case SINGLE:
+			case OPEN_ONE_TAB_OR_NONE:
+			case OPEN_ONE_TAB:
 				return true;
 			default:
 				return false;
