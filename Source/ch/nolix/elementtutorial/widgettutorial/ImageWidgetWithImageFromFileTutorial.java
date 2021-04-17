@@ -11,22 +11,15 @@ import ch.nolix.element.gui.widget.ImageWidget;
  * Of the {@link ImageWidgetWithImageFromFileTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 2018-08
+ * @date 2018-09-01
  * @lines 50
  */
 public final class ImageWidgetWithImageFromFileTutorial {
 	
-	/**
-	 * Creates a {@link Frame} with a {@link ImageWidget}.
-	 * 
-	 * @param args
-	 */
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
-		final var frame =
-		new Frame()
-		.setTitle("ImageWidget Tutorial");
+		final var frame = new Frame().setTitle("ImageWidget Tutorial");
 		
 		//Creates an Image.
 		final var image = Image.fromResource("ch/nolix/elementTutorial/widgetTutorial/resource/Singer_Building.jpg");
@@ -35,21 +28,16 @@ public final class ImageWidgetWithImageFromFileTutorial {
 		final var imageWidget = new ImageWidget().setImage(image);
 		
 		//Configures the look of the ImageWidget.
-		imageWidget.onLook(
-			l ->
-			l
-			.setBorderThicknessForState(WidgetLookState.BASE, 5)
-			//TODO .setBorderColorsForState(WidgetLookState.NORMAL, Color.DARK_BLUE)
-			.setBackgroundColorForState(WidgetLookState.BASE, Color.WHITE_SMOKE)
-			.setPaddingForState(WidgetLookState.BASE, 5)
-		);
+		imageWidget
+		.getRefLook()	
+		.setBorderThicknessForState(WidgetLookState.BASE, 5)
+		.setBorderColorForState(WidgetLookState.BASE, Color.DARK_BLUE)
+		.setBackgroundColorForState(WidgetLookState.BASE, Color.WHITE_SMOKE)
+		.setPaddingForState(WidgetLookState.BASE, 5);
 		
 		//Adds the ImageWidget to the Frame.
 		frame.addLayerOnTop(imageWidget);
 	}
-		
-	/**
-	 * Avoids that an instance of the {@link ImageWidgetWithImageFromFileTutorial} can be created.
-	 */
+	
 	private ImageWidgetWithImageFromFileTutorial() {}
 }
