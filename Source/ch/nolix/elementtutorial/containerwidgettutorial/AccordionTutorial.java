@@ -13,10 +13,15 @@ import ch.nolix.element.gui.widget.Area;
  * 
  * @author Silvan Wyss
  * @date 2018-08-13
- * @lines 40
+ * @lines 50
  */
 public final class AccordionTutorial {
 	
+	/**
+	 * Creates a {@link Frame} with a {@link Accordion}.
+	 * 
+	 * @param args
+	 */
 	public static void main(String[] args) {
 				
 		//Creates a Frame.
@@ -26,10 +31,10 @@ public final class AccordionTutorial {
 		final var accordion =
 		new Accordion()
 		.addTab(
-			new AccordionTab("A", new Area().setSize(500,  200).setBackgroundColor(Color.ORANGE)),
-			new AccordionTab("B", new Area().setSize(450,  200).setBackgroundColor(Color.VIOLET)),
-			new AccordionTab("C", new Area().setSize(400,  200).setBackgroundColor(Color.GREEN)),
-			new AccordionTab("D", new Area().setSize(350,  200).setBackgroundColor(Color.BROWN))
+			new AccordionTab("A", new Area().setSize(500,  200).setBackgroundColor(Color.PINK)),
+			new AccordionTab("B", new Area().setSize(450,  200).setBackgroundColor(Color.ORANGE)),
+			new AccordionTab("C", new Area().setSize(400,  200).setBackgroundColor(Color.PINK)),
+			new AccordionTab("D", new Area().setSize(350,  200).setBackgroundColor(Color.ORANGE))
 		);
 		
 		//Configures the look of the Accordion.
@@ -42,5 +47,8 @@ public final class AccordionTutorial {
 		frame.addLayerOnTop(accordion);
 	}
 	
+	/**
+	 * Prevents that an instance of the {@link AccordionTutorial} can be created.
+	 */
 	private AccordionTutorial() {}
 }
