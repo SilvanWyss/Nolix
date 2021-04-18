@@ -45,7 +45,7 @@ import ch.nolix.element.gui.painterapi.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 2100
+ * @lines 2110
  * @param <W> is the type of a {@link Widget}.
  * @param <WL> is the type of the {@link OldWidgetLook} of a {@link Widget}.
  */
@@ -1052,6 +1052,12 @@ TopLeftPositionedRecangular {
 		
 		expanded = false;
 		updateLookState();
+		
+		/*
+		 * Recalculates the current Widget because the recalculate method of a Widget
+		 * is not called when the Widget is collapsed.
+		 */
+		recalculate();
 		
 		return asConcrete();
 	}
