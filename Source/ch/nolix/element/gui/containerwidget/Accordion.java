@@ -11,6 +11,7 @@ import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
+import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.element.base.MultiValue;
 import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.base.SubElement;
@@ -25,7 +26,7 @@ import ch.nolix.element.gui.painterapi.IPainter;
 /**
  * @author Silvan Wyss
  * @date 2018-08-13
- * @lines 520
+ * @lines 540
  */
 public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	
@@ -252,6 +253,20 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 			default:
 				return false;
 		}
+	}
+	
+	//method
+	/**
+	 * Lets the given lookMutator access the look of the tab header of the current {@link Widget}.
+	 * 
+	 * @param lookMutator
+	 * @return the current {@link Accordion}.
+	 */
+	public Accordion onTabHeaderLook(final IElementTaker<StackLook> lookMutator) {
+		
+		lookMutator.run(getRefTabHeaderLook());
+		
+		return asConcrete();
 	}
 	
 	//method
