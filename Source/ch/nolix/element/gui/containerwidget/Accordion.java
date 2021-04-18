@@ -34,7 +34,11 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	
 	//constants
 	private static final String EXPANSION_BEHAVIOUR_HEADER = "ExpansionBehavior";
+	private static final String TAB_HEADER = PascalCaseCatalogue.TAB;
 	private static final String TAB_HEADER_LOOK_HEADER = "TabHeaderLook";
+	
+	//attribute
+	private final VerticalStack mainVerticalStack = new VerticalStack();
 	
 	//attribute
 	private final MutableValue<AccordionExpansionBehavior> expansionBehavior =
@@ -49,14 +53,13 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	//attribute
 	private final MultiValue<AccordionTab> tabs =
 	new MultiValue<>(
-		PascalCaseCatalogue.TAB,
+		TAB_HEADER,
 		this::addTab,
 		AccordionTab::fromSpecification,
 		AccordionTab::getSpecification
 	);
 	
-	//attributes
-	private final VerticalStack accordionVerticalStack = new VerticalStack();
+	//attribute
 	private final SubElement<StackLook> tabHeaderLook = new SubElement<>(TAB_HEADER_LOOK_HEADER, new StackLook());
 	
 	//constructor
@@ -67,7 +70,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 		
 		reset();
 		getRefLook().addChild(getRefTabHeaderLook());
-		accordionVerticalStack.reset();
+		mainVerticalStack.reset();
 		
 		getRefTabHeaderLook()
 		.setTextColorForState(WidgetLookState.BASE, Color.GREY)
@@ -88,7 +91,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 		
 		tab.setParentAccordion(this);
 		tabs.add(tab);
-		accordionVerticalStack.addWidget(tab.getRefTabVerticalStack());
+		mainVerticalStack.addWidget(tab.getRefTabVerticalStack());
 		
 		if (mustExpandAtLeastOneTabWhenNotEmpty() && getTabCount() < 2) {
 			tab.expand();
@@ -150,7 +153,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	@Override
 	public void clear() {
 		tabs.clear();
-		accordionVerticalStack.clear();
+		mainVerticalStack.clear();
 	}
 	
 	//method
@@ -307,7 +310,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	 */
 	@Override
 	protected void fillUpWidgetsForPainting(final LinkedList<Widget<?, ?>> list) {
-		list.addAtEnd(accordionVerticalStack);
+		list.addAtEnd(mainVerticalStack);
 	}
 	
 	//method
@@ -316,7 +319,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	 */
 	@Override
 	protected int getNaturalContentAreaHeight() {
-		return accordionVerticalStack.getHeight();
+		return mainVerticalStack.getHeight();
 	}
 	
 	//method
@@ -325,7 +328,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	 */
 	@Override
 	protected int getNaturalContentAreaWidth() {
-		return accordionVerticalStack.getWidth();
+		return mainVerticalStack.getWidth();
 	}
 	
 	//method
