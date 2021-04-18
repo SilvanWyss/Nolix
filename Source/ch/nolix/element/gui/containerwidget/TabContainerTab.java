@@ -35,16 +35,6 @@ implements Clearable, Headerable<TabContainerTab>, IMutableElement<TabContainerT
 	//constant
 	public static final String DEFAULT_HEADER = PascalCaseCatalogue.DEFAULT;
 	
-	//attribute
-	private final MutableValue<String> header =
-	new MutableValue<>(
-		PascalCaseCatalogue.HEADER,
-		DEFAULT_HEADER,
-		this::setHeader,
-		BaseNode::getOneAttributeHeader,
-		Node::withAttribute
-	);
-	
 	//method
 	/**
 	 * @param specification
@@ -59,16 +49,22 @@ implements Clearable, Headerable<TabContainerTab>, IMutableElement<TabContainerT
 	}
 	
 	//attribute
+	private final MutableValue<String> header =
+	new MutableValue<>(
+		PascalCaseCatalogue.HEADER,
+		DEFAULT_HEADER,
+		this::setHeader,
+		BaseNode::getOneAttributeHeader,
+		Node::withAttribute
+	);
+		
+	//attribute
 	private boolean selected;
 	
 	//attribute
-	private final Label menuItem =
-	new Label()
-	.setContentPosition(ContentPosition.CENTER)
-	.setCustomCursorIcon(CursorIcon.HAND);
+	private final Label menuItem = new Label().setContentPosition(ContentPosition.CENTER).setCustomCursorIcon(CursorIcon.HAND);
 	
-	//optional attributes
-	private TabContainer parentTabContainer;
+	//optional attribute
 	private Widget<?, ?> widget;
 	
 	//constructor
@@ -132,14 +128,6 @@ implements Clearable, Headerable<TabContainerTab>, IMutableElement<TabContainerT
 			//Calls method of the base class.
 			super.addOrChangeAttribute(attribute);
 		}
-	}
-	
-	//method
-	/**
-	 * @return true if the current {@link TabContainerTab} belongs to a {@link TabContainer}.
-	 */
-	public boolean belongsToTabContainer() {
-		return (parentTabContainer != null);
 	}
 	
 	//method
@@ -275,11 +263,12 @@ implements Clearable, Headerable<TabContainerTab>, IMutableElement<TabContainerT
 	@Override
 	public TabContainerTab setHeader(final String header) {
 		
-		//Asserts that the given header is not null or empty.
+		//Asserts that the given header is not null or blank.
 		Validator.assertThat(header).thatIsNamed(LowerCaseCatalogue.HEADER).isNotBlank();
 		
 		//Sets the header of the current TabContainerTab.
 		this.header.setValue(header);
+		menuItem.setText(header);
 		
 		return this;
 	}
@@ -328,25 +317,6 @@ implements Clearable, Headerable<TabContainerTab>, IMutableElement<TabContainerT
 	 */
 	Label getRefMenuItem() {
 		return menuItem;
-	}
-	
-	//method
-	/**
-	 * Sets the tab container the current {@link TabContainerTab} will belong to.
-	 * 
-	 * @param parentTabContainer
-	 * @throws ArgumentIsNullException if the given parent tab container is null.
-	 */
-	void setParentTabContainer(final TabContainer parentTabContainer) {
-		
-		//Asserts that the given parent tab container is not null.
-		Validator
-		.assertThat(parentTabContainer)
-		.thatIsNamed("parent tab container")
-		.isNotNull();
-		
-		//Sets the parent tab container of this tab container tab.
-		this.parentTabContainer = parentTabContainer;
 	}
 	
 	//method
