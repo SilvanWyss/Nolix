@@ -173,7 +173,7 @@ implements Clearable, Headerable<AccordionTab>, IMutableElement<AccordionTab> {
 	public AccordionTab setWidget(final Widget<?, ?> widget) {
 		
 		this.widget.setWidget(widget);
-		mainVerticalStack.addWidget(widget);
+		widgetContainer.setWidget(widget);
 		
 		return this;
 	}
