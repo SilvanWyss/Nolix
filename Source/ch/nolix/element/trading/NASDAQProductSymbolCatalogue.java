@@ -51,7 +51,7 @@ public final class NASDAQProductSymbolCatalogue {
 	
 	//constructor
 	/**
-	 * Avoids that an instance of the {@link NASDAQProductSymbolCatalogue} can be created.
+	 * Prevents that an instance of the {@link NASDAQProductSymbolCatalogue} can be created.
 	 */
 	private NASDAQProductSymbolCatalogue() {}
 }

@@ -35,7 +35,7 @@ public final class ResultFutureTutorial {
 	}
 	
 	/**
-	 * Avoids that an instance of the {@link ResultFutureTutorial} can be created.
+	 * Prevents that an instance of the {@link ResultFutureTutorial} can be created.
 	 */
 	private ResultFutureTutorial() {}
 }

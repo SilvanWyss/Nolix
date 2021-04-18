@@ -29,7 +29,7 @@ public final class DataProviderTutorial {
 	}
 	
 	/**
-	 * Avoids that an instance of the {@link QuandlDataProvider} can be created.
+	 * Prevents that an instance of the {@link QuandlDataProvider} can be created.
 	 */
 	private DataProviderTutorial() {}
 }

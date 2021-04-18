@@ -49,7 +49,7 @@ public final class GUI3DTutorial2 {
 	}
 	
 	/**
-	 * Avoids that an instance of the {@link GUI3DTutorial2} can be created.
+	 * Prevents that an instance of the {@link GUI3DTutorial2} can be created.
 	 */
 	private GUI3DTutorial2() {}
 }

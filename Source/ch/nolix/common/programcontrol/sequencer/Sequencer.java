@@ -222,7 +222,7 @@ public final class Sequencer {
 
 	//constructor
 	/**
-	 * Avoids that an instance of the {@link Sequencer} can be created.
+	 * Prevents that an instance of the {@link Sequencer} can be created.
 	 */
 	private Sequencer() {}
 }

@@ -60,7 +60,7 @@ public final class GridTutorial {
 	}
 	
 	/**
-	 * Avoids that an instance of the {@link GridTutorial} can be created.
+	 * Prevents that an instance of the {@link GridTutorial} can be created.
 	 */
 	private GridTutorial() {}
 }

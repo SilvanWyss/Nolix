@@ -57,7 +57,7 @@ public final class DropdownMenuTutorial {
 	}
 	
 	/**
-	 * Avoids that an instance of the {@link DropdownMenuTutorial} can be created.
+	 * Prevents that an instance of the {@link DropdownMenuTutorial} can be created.
 	 */
 	private DropdownMenuTutorial() {}
 }

@@ -106,7 +106,7 @@ public final class CanvasFrameTutorial {
 	}
 	
 	/**
-	 * Avoids that an instance of the {@link CanvasFrameTutorial} can be created.
+	 * Prevents that an instance of the {@link CanvasFrameTutorial} can be created.
 	 */
 	private CanvasFrameTutorial() {}
 }

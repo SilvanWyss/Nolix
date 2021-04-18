@@ -65,7 +65,7 @@ public final class GUILayerTutorial {
 	}
 	
 	/**
-	 * Avoids that an instance of the {@link GUILayerTutorial} can be created.
+	 * Prevents that an instance of the {@link GUILayerTutorial} can be created.
 	 */
 	private GUILayerTutorial() {}
 }

@@ -63,7 +63,7 @@ public final class CursorPositionTutorial {
 	}
 	
 	/**
-	 * Avoids that an instance of the {@link CursorPositionTutorial} can be created.
+	 * Prevents that an instance of the {@link CursorPositionTutorial} can be created.
 	 */
 	private CursorPositionTutorial() {}
 }

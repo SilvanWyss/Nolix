@@ -43,7 +43,7 @@ public final class ValueCatalogue {
 	
 	//constructor
 	/**
-	 * Avoids that an instance of the {@link ValueCatalogue} can be created.
+	 * Prevents that an instance of the {@link ValueCatalogue} can be created.
 	 */
 	private ValueCatalogue() {}
 }

@@ -119,7 +119,7 @@ public final class FunctionCatalogue {
 	
 	//constructor
 	/**
-	 * Avoids that an instance of the {@link FunctionCatalogue} can be created.
+	 * Prevents that an instance of the {@link FunctionCatalogue} can be created.
 	 */
 	private FunctionCatalogue() {}
 }

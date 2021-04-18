@@ -73,7 +73,7 @@ public final class ConsoleClientTutorial {
 	}
 	
 	/**
-	 * Avoids that an instance of the {@link ConsoleClientTutorial} can be created.
+	 * Prevents that an instance of the {@link ConsoleClientTutorial} can be created.
 	 */
 	private ConsoleClientTutorial() {}
 }

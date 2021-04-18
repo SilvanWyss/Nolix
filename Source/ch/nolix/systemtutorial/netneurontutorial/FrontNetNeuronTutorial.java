@@ -53,7 +53,7 @@ public final class FrontNetNeuronTutorial {
 	}
 	
 	/**
-	 * Avoids that an instance of the {@link FrontNetNeuronTutorial} can be created.
+	 * Prevents that an instance of the {@link FrontNetNeuronTutorial} can be created.
 	 */
 	private FrontNetNeuronTutorial() {}
 }

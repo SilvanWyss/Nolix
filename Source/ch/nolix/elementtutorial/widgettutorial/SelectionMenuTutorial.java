@@ -61,7 +61,7 @@ public final class SelectionMenuTutorial {
 	}
 	
 	/**
-	 * Avoids that an instance of the {@link SelectionMenuTutorial} can be created.
+	 * Prevents that an instance of the {@link SelectionMenuTutorial} can be created.
 	 */
 	private SelectionMenuTutorial() {}
 }

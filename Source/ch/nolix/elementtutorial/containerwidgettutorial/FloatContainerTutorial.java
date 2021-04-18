@@ -69,7 +69,7 @@ public final class FloatContainerTutorial {
 	}
 	
 	/**
-	 * Avoids that an instance of the {@link FloatContainerTutorial} can be created.
+	 * Prevents that an instance of the {@link FloatContainerTutorial} can be created.
 	 */
 	private FloatContainerTutorial() {}
 }

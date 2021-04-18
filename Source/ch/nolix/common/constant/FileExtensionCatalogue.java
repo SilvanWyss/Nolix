@@ -45,7 +45,7 @@ public final class FileExtensionCatalogue {
 	
 	//constructor
 	/**
-	 * Avoids that an instance of the {@link FileExtensionCatalogue} can be created.
+	 * Prevents that an instance of the {@link FileExtensionCatalogue} can be created.
 	 */
 	private FileExtensionCatalogue() {}
 }

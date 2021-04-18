@@ -42,7 +42,7 @@ public final class ValidatorTutorial {
 	}
 	
 	/**
-	 * Avoids that an instance of the {@link ValidatorTutorial} can be created.
+	 * Prevents that an instance of the {@link ValidatorTutorial} can be created.
 	 */
 	private ValidatorTutorial() {}
 }

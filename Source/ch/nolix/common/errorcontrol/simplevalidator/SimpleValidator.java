@@ -348,7 +348,7 @@ public final class SimpleValidator {
 	
 	//constructor
 	/**
-	 * Avoids that an instance of the {@link SimpleValidator} can be created.
+	 * Prevents that an instance of the {@link SimpleValidator} can be created.
 	 */
 	private SimpleValidator() {}
 }

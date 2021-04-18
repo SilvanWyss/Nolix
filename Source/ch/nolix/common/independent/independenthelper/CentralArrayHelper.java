@@ -253,7 +253,7 @@ public final class CentralArrayHelper {
 	
 	//constructor
 	/**
-	 * Avoids that an instance of the {@link CentralArrayHelper} can be created.
+	 * Prevents that an instance of the {@link CentralArrayHelper} can be created.
 	 */
 	private CentralArrayHelper() {}
 }

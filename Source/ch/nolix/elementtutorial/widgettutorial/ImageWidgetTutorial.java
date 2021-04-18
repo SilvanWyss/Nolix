@@ -54,7 +54,7 @@ public final class ImageWidgetTutorial {
 	}
 	
 	/**
-	 * Avoids that an instance of the {@link ImageWidgetTutorial} can be created.
+	 * Prevents that an instance of the {@link ImageWidgetTutorial} can be created.
 	 */
 	private ImageWidgetTutorial() {}
 }

@@ -23,7 +23,7 @@ public final class FontCodeCatalogue {
 	
 	//constructor
 	/**
-	 * Avoids that an instance of the {@link FontCodeCatalogue} can be created.
+	 * Prevents that an instance of the {@link FontCodeCatalogue} can be created.
 	 */
 	private FontCodeCatalogue() {}
 }

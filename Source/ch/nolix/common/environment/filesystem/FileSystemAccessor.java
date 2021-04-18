@@ -398,7 +398,7 @@ public final class FileSystemAccessor {
 	
 	//constructor
 	/**
-	 * Avoids that an instance of the {@link FileSystemAccessor} can be created.
+	 * Prevents that an instance of the {@link FileSystemAccessor} can be created.
 	 */
 	private FileSystemAccessor() {}
 }

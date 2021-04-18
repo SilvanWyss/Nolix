@@ -51,7 +51,7 @@ public final class InnerGUITutorial {
 	}
 	
 	/**
-	 * Avoids that an instance of the {@link InnerGUITutorial} can be created.
+	 * Prevents that an instance of the {@link InnerGUITutorial} can be created.
 	 */
 	private InnerGUITutorial() {}
 }

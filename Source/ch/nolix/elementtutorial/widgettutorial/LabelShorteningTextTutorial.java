@@ -39,7 +39,7 @@ public final class LabelShorteningTextTutorial {
 	}
 	
 	/**
-	 * Avoids that an instance of the {@link LabelShorteningTextTutorial} can be created.
+	 * Prevents that an instance of the {@link LabelShorteningTextTutorial} can be created.
 	 */
 	private LabelShorteningTextTutorial() {}
 }

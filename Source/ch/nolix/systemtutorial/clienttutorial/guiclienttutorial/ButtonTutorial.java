@@ -74,7 +74,7 @@ public final class ButtonTutorial {
 	}
 	
 	/**
-	 * Avoids that an instance of the {@link ButtonTutorial} can be created.
+	 * Prevents that an instance of the {@link ButtonTutorial} can be created.
 	 */
 	private ButtonTutorial() {}
 }

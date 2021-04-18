@@ -21,7 +21,7 @@ public final class Launcher {
 	
 	//constructor
 	/**
-	 * Avoids that an instance of the {@link Launcher} can be created.
+	 * Prevents that an instance of the {@link Launcher} can be created.
 	 */
 	private Launcher() {}
 }

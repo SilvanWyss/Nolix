@@ -79,7 +79,7 @@ public final class LabelTutorial {
 	}
 	
 	/**
-	 * Avoids that an instance of the {@link LabelTutorial} can be created.
+	 * Prevents that an instance of the {@link LabelTutorial} can be created.
 	 */
 	private LabelTutorial() {}
 }

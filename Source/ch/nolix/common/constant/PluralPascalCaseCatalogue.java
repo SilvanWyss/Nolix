@@ -190,7 +190,7 @@ public final class PluralPascalCaseCatalogue {
 	
 	//constructor
 	/**
-	 * Avoids that an instance of the {@link PluralPascalCaseCatalogue} can be created.
+	 * Prevents that an instance of the {@link PluralPascalCaseCatalogue} can be created.
 	 */
 	private PluralPascalCaseCatalogue() {}
 }

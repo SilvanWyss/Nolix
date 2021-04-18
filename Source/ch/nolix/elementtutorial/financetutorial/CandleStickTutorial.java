@@ -52,7 +52,7 @@ public final class CandleStickTutorial {
 	}
 	
 	/**
-	 * Avoids that an instance of the {@link CandleStickTutorial} can be created.
+	 * Prevents that an instance of the {@link CandleStickTutorial} can be created.
 	 */
 	private CandleStickTutorial() {}
 }

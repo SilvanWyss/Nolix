@@ -27,7 +27,7 @@ public final class StringValidationTutorial {
 	}
 	
 	/**
-	 * Avoids that an instance of the {@link Validator} can be created.
+	 * Prevents that an instance of the {@link Validator} can be created.
 	 */
 	private StringValidationTutorial() {}
 }

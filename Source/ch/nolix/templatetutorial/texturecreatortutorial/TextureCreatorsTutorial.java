@@ -61,7 +61,7 @@ public final class TextureCreatorsTutorial {
 	}
 	
 	/**
-	 * Avoids that an instance of the {@link TextureCreatorsTutorial} can be created.
+	 * Prevents that an instance of the {@link TextureCreatorsTutorial} can be created.
 	 */
 	private TextureCreatorsTutorial() {}
 }

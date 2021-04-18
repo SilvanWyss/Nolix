@@ -20,7 +20,7 @@ final class Protocol {
 	
 	//constructor
 	/**
-	 * Avoids that an instance of the {@link Protocol} can be created.
+	 * Prevents that an instance of the {@link Protocol} can be created.
 	 */
 	private Protocol() {}
 }

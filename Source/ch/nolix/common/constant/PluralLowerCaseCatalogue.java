@@ -190,7 +190,7 @@ public final class PluralLowerCaseCatalogue {
 	
 	//constructor
 	/**
-	 * Avoids that an instance of the {@link PluralLowerCaseCatalogue} can be created.
+	 * Prevents that an instance of the {@link PluralLowerCaseCatalogue} can be created.
 	 */
 	private PluralLowerCaseCatalogue() {}
 }

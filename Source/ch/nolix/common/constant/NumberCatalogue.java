@@ -21,7 +21,7 @@ public final class NumberCatalogue {
 	
 	//constructor
 	/**
-	 * Avoids that an instance of the {@link NumberCatalogue} can be created.
+	 * Prevents that an instance of the {@link NumberCatalogue} can be created.
 	 */
 	private NumberCatalogue() {}
 }

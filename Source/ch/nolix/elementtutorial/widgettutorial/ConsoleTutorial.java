@@ -48,7 +48,7 @@ public final class ConsoleTutorial {
 	}
 	
 	/**
-	 * Avoids that an instance of the {@link ConsoleTutorial} can be created.
+	 * Prevents that an instance of the {@link ConsoleTutorial} can be created.
 	 */
 	private ConsoleTutorial() {}
 }

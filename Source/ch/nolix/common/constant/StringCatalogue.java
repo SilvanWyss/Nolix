@@ -26,7 +26,7 @@ public final class StringCatalogue {
 	
 	//constructor
 	/**
-	 * Avoids that an instance of the {@link StringCatalogue} can be created.
+	 * Prevents that an instance of the {@link StringCatalogue} can be created.
 	 */
 	private StringCatalogue() {}
 }

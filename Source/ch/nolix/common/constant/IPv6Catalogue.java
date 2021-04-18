@@ -16,7 +16,7 @@ public final class IPv6Catalogue {
 	
 	//constructor
 	/**
-	 * Avoids that an instance of the {@link IPv6Catalogue} can be created.
+	 * Prevents that an instance of the {@link IPv6Catalogue} can be created.
 	 */
 	private IPv6Catalogue() {}
 }

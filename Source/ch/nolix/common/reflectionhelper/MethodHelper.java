@@ -50,7 +50,7 @@ public final class MethodHelper {
 	
 	//constructor
 	/**
-	 * Avoids that an instance of the {@link MethodHelper} can be created.
+	 * Prevents that an instance of the {@link MethodHelper} can be created.
 	 */
 	private MethodHelper() {}
 }

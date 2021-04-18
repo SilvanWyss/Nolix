@@ -53,7 +53,7 @@ public final class ForwardMultiLayerNetCreatorTutorial {
 	}
 	
 	/**
-	 * Avoids that an instance of the {@link ForwardMultiLayerNetCreatorTutorial} can be created.
+	 * Prevents that an instance of the {@link ForwardMultiLayerNetCreatorTutorial} can be created.
 	 */
 	private ForwardMultiLayerNetCreatorTutorial() {}
 }

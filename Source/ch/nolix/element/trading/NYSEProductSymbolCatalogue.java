@@ -106,7 +106,7 @@ public final class NYSEProductSymbolCatalogue {
 	
 	//constructor
 	/**
-	 * Avoids that an instance of the {@link NYSEProductSymbolCatalogue} can be created.
+	 * Prevents that an instance of the {@link NYSEProductSymbolCatalogue} can be created.
 	 */
 	private NYSEProductSymbolCatalogue() {}
 }

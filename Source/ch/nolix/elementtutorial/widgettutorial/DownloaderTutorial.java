@@ -53,7 +53,7 @@ public final class DownloaderTutorial {
 	}
 	
 	/**
-	 * Avoids that an instance of the {@link DownloaderTutorial} can be created.
+	 * Prevents that an instance of the {@link DownloaderTutorial} can be created.
 	 */
 	private DownloaderTutorial() {}
 }

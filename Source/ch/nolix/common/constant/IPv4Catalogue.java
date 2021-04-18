@@ -16,7 +16,7 @@ public final class IPv4Catalogue {
 	
 	//constructor
 	/**
-	 * Avoids that an instance of the {@link IPv4Catalogue} can be created.
+	 * Prevents that an instance of the {@link IPv4Catalogue} can be created.
 	 */
 	private IPv4Catalogue() {}
 }

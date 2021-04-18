@@ -84,7 +84,7 @@ public final class GlobalLicenseManager {
 	
 	//constructor
 	/**
-	 * Avoids that an instance of the {@link GlobalLicenseManager} can be created.
+	 * Prevents that an instance of the {@link GlobalLicenseManager} can be created.
 	 */
 	private GlobalLicenseManager() {}
 }

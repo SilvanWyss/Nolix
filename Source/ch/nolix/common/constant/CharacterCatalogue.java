@@ -40,7 +40,7 @@ public final class CharacterCatalogue {
 	
 	//constructor
 	/**
-	 * Avoids that an instance of the {@link CharacterCatalogue} can be created.
+	 * Prevents that an instance of the {@link CharacterCatalogue} can be created.
 	 */
 	private CharacterCatalogue() {}
 }

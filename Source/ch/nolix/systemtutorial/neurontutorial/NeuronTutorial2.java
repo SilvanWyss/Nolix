@@ -53,7 +53,7 @@ public final class NeuronTutorial2 {
 	}
 	
 	/**
-	 * Avoids that an instance of the {@link NeuronTutorial2} can be created.
+	 * Prevents that an instance of the {@link NeuronTutorial2} can be created.
 	 */
 	private NeuronTutorial2() {}
 }

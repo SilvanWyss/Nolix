@@ -48,7 +48,7 @@ public final class ScrollTutorial {
 	}
 	
 	/**
-	 * Avoids that an instance of the {@link ScrollTutorial} can be created.
+	 * Prevents that an instance of the {@link ScrollTutorial} can be created.
 	 */
 	private ScrollTutorial() {}
 }

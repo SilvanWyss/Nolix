@@ -44,7 +44,7 @@ public final class CheckBoxTutorial {
 	}
 	
 	/**
-	 * Avoids that an instance of the {@link CheckBoxTutorial} can be created.
+	 * Prevents that an instance of the {@link CheckBoxTutorial} can be created.
 	 */
 	private CheckBoxTutorial() {}
 }

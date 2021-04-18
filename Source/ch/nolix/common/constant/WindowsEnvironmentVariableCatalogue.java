@@ -19,7 +19,7 @@ public final class WindowsEnvironmentVariableCatalogue {
 	
 	//constructor
 	/**
-	 * Avoids that an instance of the {@link WindowsEnvironmentVariableCatalogue} can be created.
+	 * Prevents that an instance of the {@link WindowsEnvironmentVariableCatalogue} can be created.
 	 */
 	private WindowsEnvironmentVariableCatalogue() {}
 }

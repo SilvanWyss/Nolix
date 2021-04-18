@@ -59,7 +59,7 @@ public final class HorizontalLineTutorial {
 	}
 	
 	/**
-	 * Avoids that an instance of the {@link HorizontalLineTutorial} can be created.
+	 * Prevents that an instance of the {@link HorizontalLineTutorial} can be created.
 	 */
 	private HorizontalLineTutorial() {}
 }

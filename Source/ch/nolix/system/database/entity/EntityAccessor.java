@@ -78,7 +78,7 @@ public final class EntityAccessor {
 	
 	//constructor
 	/**
-	 * Avoids that an instance of the {@link EntityAccessor} can be created.
+	 * Prevents that an instance of the {@link EntityAccessor} can be created.
 	 */
 	private EntityAccessor() {}
 }

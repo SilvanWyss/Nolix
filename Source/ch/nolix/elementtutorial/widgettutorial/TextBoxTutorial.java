@@ -46,7 +46,7 @@ public final class TextBoxTutorial {
 	}
 	
 	/**
-	 * Avoids that an instance of the {@link TextBoxTutorial} can be created.
+	 * Prevents that an instance of the {@link TextBoxTutorial} can be created.
 	 */
 	private TextBoxTutorial() {}
 }

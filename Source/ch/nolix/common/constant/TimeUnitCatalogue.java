@@ -46,7 +46,7 @@ public final class TimeUnitCatalogue {
 	
 	//constructor
 	/**
-	 * Avoids that an instance of the {@link TimeUnitCatalogue} can be created.
+	 * Prevents that an instance of the {@link TimeUnitCatalogue} can be created.
 	 */
 	private TimeUnitCatalogue() {}
 }

@@ -21,7 +21,7 @@ public final class PortCatalogue {
 	
 	//constructor
 	/**
-	 * Avoids that an instance of the {@link PortCatalogue} can be created.
+	 * Prevents that an instance of the {@link PortCatalogue} can be created.
 	 */
 	private PortCatalogue() {}
 }

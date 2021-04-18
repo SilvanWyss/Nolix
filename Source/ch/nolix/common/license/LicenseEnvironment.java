@@ -28,7 +28,7 @@ public final class LicenseEnvironment {
 	
 	//constructor
 	/**
-	 * Avoids that an instance of the {@link LicenseEnvironment} can be created.
+	 * Prevents that an instance of the {@link LicenseEnvironment} can be created.
 	 */
 	private LicenseEnvironment() {}
 }

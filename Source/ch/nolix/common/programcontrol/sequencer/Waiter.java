@@ -55,7 +55,7 @@ final class Waiter {
 	
 	//constructor
 	/**
-	 * Avoids that an instance of the {@link Waiter} can be created.
+	 * Prevents that an instance of the {@link Waiter} can be created.
 	 */
 	private Waiter() {}
 }

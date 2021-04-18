@@ -24,7 +24,7 @@ public final class EmptyFrameTutorial {
 	}
 	
 	/**
-	 * Avoids that an instance of the {@link EmptyFrameTutorial} can be created.
+	 * Prevents that an instance of the {@link EmptyFrameTutorial} can be created.
 	 */
 	private EmptyFrameTutorial() {}
 }
