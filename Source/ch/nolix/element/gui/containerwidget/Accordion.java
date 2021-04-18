@@ -266,7 +266,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 		
 		lookMutator.run(getRefTabHeaderLook());
 		
-		return asConcrete();
+		return this;
 	}
 	
 	//method
