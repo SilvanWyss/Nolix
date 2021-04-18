@@ -4,7 +4,6 @@ import ch.nolix.element.gui.base.Frame;
 import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.containerwidget.Accordion;
-import ch.nolix.element.gui.containerwidget.AccordionTab;
 import ch.nolix.element.gui.widget.Area;
 
 /**
