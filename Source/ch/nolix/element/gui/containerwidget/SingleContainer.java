@@ -133,14 +133,14 @@ public final class SingleContainer extends ContainerWidget<SingleContainer, Sing
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	protected void fillUpWidgetsForPainting(final LinkedList<Widget<?, ?>> list) {
 		
-		//For a better performance, this implementation does not use all comfortable methods.
-		//Handles the case that the current single container has a widget.	
+		//Handles the case that the current single container contains a Widget.
 		if (widget != null) {
 			list.addAtEnd(widget);
 		}
