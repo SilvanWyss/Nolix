@@ -628,18 +628,12 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	
 	//method
 	/**
-	 * Paints the content of the current {@link Console} using the given widget structure and graphics.
-	 * 
-	 * @param widgetStructure
-	 * @param painter
+	 * {@inheritDoc}
 	 */
 	@Override
-	protected void paintContentArea(
-		final ConsoleLook widgetStructure,
-		final IPainter painter
-	) {
+	protected void paintContentArea(final IPainter painter, final ConsoleLook consoleLook) {
 		
-		final var textSize = widgetStructure.getTextSize();
+		final var textSize = consoleLook.getTextSize();
 		final var font = getFont();
 		
 		//Iterates the lines of the current Console.
@@ -656,7 +650,7 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 			//Paints the text cursor of the current Console.
 			final var textCursorXPosition =
 			font.getSwingTextWidth(LINE_PREFIX + getEditLineBeforeTextCursor()) - 1;
-			painter.setColor(widgetStructure.getTextColor());
+			painter.setColor(consoleLook.getTextColor());
 			painter.paintFilledRectangle(
 				textCursorXPosition,
 				0,

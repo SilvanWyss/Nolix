@@ -290,7 +290,7 @@ extends BorderWidget<TLW, TLWL> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void paintContentArea(final TLWL textLineWidgetLook, final IPainter painter) {
+	protected final void paintContentArea(final IPainter painter, final TLWL textLineWidgetLook) {
 		
 		painter.paintText(getText(), getTextFormat());
 		

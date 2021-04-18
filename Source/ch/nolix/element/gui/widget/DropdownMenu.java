@@ -127,7 +127,7 @@ public final class DropdownMenu extends TextItemMenu<DropdownMenu> {
 	
 	//method
 	@Override
-	protected void paintContentArea(final TextItemMenuLook itemMenuLook, final IPainter painter) {}
+	protected void paintContentArea(final IPainter painter, final TextItemMenuLook textItemMenuLook) {}
 	
 	//method
 	@Override

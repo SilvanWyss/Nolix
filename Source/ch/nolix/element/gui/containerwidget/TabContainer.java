@@ -476,10 +476,7 @@ public final class TabContainer extends ContainerWidget<TabContainer, TabContain
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void paintContentArea(
-		final TabContainerLook tabContainerLook,
-		final IPainter painter
-	) {
+	protected void paintContentArea(final IPainter painter, final TabContainerLook tabContainerLook) {
 		
 		//TODO: menu.setElementMargin(tabContainerLook.getRecursiveOrDefaultMenuItemMargin());
 		

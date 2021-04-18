@@ -357,7 +357,7 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void paintContentArea(final StackLook stackLook, final IPainter painter) {}
+	protected final void paintContentArea(final IPainter painter, final StackLook stackLook) {}
 	
 	//method
 	/**

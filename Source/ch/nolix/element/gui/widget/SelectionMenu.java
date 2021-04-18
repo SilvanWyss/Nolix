@@ -105,7 +105,7 @@ public final class SelectionMenu extends TextItemMenu<SelectionMenu> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void paintContentArea(final TextItemMenuLook itemMenuLook, final IPainter painter) {}
+	protected void paintContentArea(final IPainter painter, final TextItemMenuLook textItemMenuLook) {}
 	
 	//method
 	@Override

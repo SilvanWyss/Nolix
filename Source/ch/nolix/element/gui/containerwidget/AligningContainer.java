@@ -318,7 +318,7 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 	
 	//method
 	@Override
-	protected void paintContentArea(final AligningContainerLook borderWidgetLook, final IPainter painter) {}
+	protected void paintContentArea(final IPainter painter, final AligningContainerLook aligningContainerLook) {}
 	
 	//method
 	@Override

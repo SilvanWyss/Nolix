@@ -431,7 +431,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void paintContentArea(final AccordionLook accordionLook, final IPainter painter) {}
+	protected void paintContentArea(final IPainter painter, final AccordionLook accordionLook) {}
 	
 	//method
 	/**

@@ -298,7 +298,7 @@ public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> impleme
 	
 	//method
 	@Override
-	protected void paintContentArea(final InnerGUILook borderWidgetLook, final IPainter painter) {
+	protected final void paintContentArea(final IPainter painter, final InnerGUILook innerGUILook) {
 		painter.translateVertically(titleLabel.getHeight());		
 		internalGUI.paint(painter);
 	}

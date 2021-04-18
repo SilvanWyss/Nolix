@@ -293,15 +293,11 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 	
 	//method
 	@Override
-	protected void paintContentArea(
-		final GridLook gridStructure,
-		final IPainter painter
-	) {
-		
+	protected final void paintContentArea(final IPainter painter, final GridLook gridLook) {
 			
-			painter.setColor(gridStructure.getGridColor());
+			painter.setColor(gridLook.getGridColor());
 			
-			final var outerLinesDefined = gridStructure.getGridType() == GridType.INNER_AND_OUTER_LINES;
+			final var outerLinesDefined = gridLook.getGridType() == GridType.INNER_AND_OUTER_LINES;
 			
 			final var contentAreaWidth = getNaturalContentAreaWidth();
 			final var contentAreaHeight = getNaturalContentAreaHeight();
@@ -329,7 +325,7 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 			//Paints the vertical lines of the current grid.
 				var x = 0;
 				
-				if (gridStructure.getGridType() == GridType.INNER_AND_OUTER_LINES) {
+				if (gridLook.getGridType() == GridType.INNER_AND_OUTER_LINES) {
 					painter.paintFilledRectangle(lineThickness, contentAreaHeight);
 					x += lineThickness;
 				}

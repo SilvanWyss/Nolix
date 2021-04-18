@@ -154,10 +154,7 @@ public final class ImageWidget extends BorderWidget<ImageWidget, ImageWidgetLook
 	
 	//method
 	@Override
-	protected void paintContentArea(
-		final ImageWidgetLook borderWidgetLook,
-		final IPainter painter
-	) {
+	protected void paintContentArea(final IPainter painter, final ImageWidgetLook imageWidgetLook) {
 		if (containsAny()) {
 			painter.paintImage(getRefImage());
 		}

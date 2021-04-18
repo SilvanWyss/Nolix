@@ -282,7 +282,7 @@ public final class SingleContainer extends ContainerWidget<SingleContainer, Sing
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void paintContentArea(final SingleContainerLook singleContainerLook, final IPainter painter) {}
+	protected void paintContentArea(final IPainter painter, final SingleContainerLook singleContainerLook) {}
 	
 	//method
 	/**

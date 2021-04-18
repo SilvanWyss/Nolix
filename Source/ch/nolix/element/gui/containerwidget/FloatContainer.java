@@ -180,7 +180,7 @@ public final class FloatContainer extends ContainerWidget<FloatContainer, FloatC
 	
 	//method
 	@Override
-	protected void paintContentArea(final FloatContainerLook floatContainerLook, final IPainter painter) {}
+	protected final void paintContentArea(final IPainter painter, final FloatContainerLook floatContainerLook) {}
 	
 	//method
 	@Override

@@ -282,7 +282,7 @@ public final class CheckBox extends BorderWidget<CheckBox, CheckBoxLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void paintContentArea(final CheckBoxLook checkBoxLook, final IPainter painter) {
+	protected void paintContentArea(final IPainter painter, final CheckBoxLook checkBoxLook) {
 				
 		final var s = checkBoxLook.getTextSize();
 		final var t = checkBoxLook.getLineThickness();
