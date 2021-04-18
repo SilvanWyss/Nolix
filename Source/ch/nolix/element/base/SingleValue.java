@@ -54,10 +54,7 @@ abstract class SingleValue<V> extends BaseValue<V> implements OptionalityRequest
 		super(name, valueCreator, specificationCreator);
 		
 		//Asserts that the given setterMethod is not null.
-		Validator
-		.assertThat(setterMethod)
-		.thatIsNamed("setter method")
-		.isNotNull();
+		Validator.assertThat(setterMethod).thatIsNamed("setter method").isNotNull();
 		
 		//Sets the setterMethod of the current SingleProperty.
 		this.setterMethod = setterMethod;
