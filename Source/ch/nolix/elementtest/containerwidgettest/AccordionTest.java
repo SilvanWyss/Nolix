@@ -72,7 +72,7 @@ public final class AccordionTest extends ContainerWidgetTest<Accordion> {
 			accordion.addTab(tab1, tab2, tab3, tab4);
 		
 		//execution
-		tab2.expand();
+		accordion.expandTab(tab2);
 		
 		//verification
 		expectNot(tab1.isExpanded());

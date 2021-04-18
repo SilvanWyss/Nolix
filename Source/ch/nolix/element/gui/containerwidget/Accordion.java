@@ -92,7 +92,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 		
 		tab.setParentAccordion(this);
 		tabs.add(tab);
-		mainVerticalStack.addWidget(tab.getRefTabVerticalStack());
+		mainVerticalStack.addWidget(tab.getRefMainVerticalStack());
 		
 		if (mustExpandAtLeastOneTabWhenNotEmpty() && getTabCount() < 2) {
 			tab.expand();
@@ -174,6 +174,19 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	
 	//method
 	/**
+	 * Lets the current {@link Accordion} collapse the given tab if
+	 * the current {@link Accordion} can collapse at least 1 tab.
+	 * 
+	 * @param tab
+	 */
+	public void collapseTab(final AccordionTab tab) {
+		if (canCollapseAnExpandedTab()) {
+			tab.collapse();
+		}
+	}
+
+	//method
+	/**
 	 * Expands all tabs of the current {@link Accordion}.
 	 * 
 	 * @return the current {@link Accordion}.
@@ -187,6 +200,18 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 		return this;
 	}
 	
+	//method
+	/**
+	 * Lets the current {@link Accordion} expand the given tab.
+	 * 
+	 * @param tab
+	 */
+	public void expandTab(final AccordionTab tab) {
+		if (!tab.isExpanded()) {
+			expandWhenNotExpanded(tab);
+		}
+	}
+
 	//method
 	/**
 	 * @return the expansion behavior of the current {@link Accordion}.
@@ -476,31 +501,6 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	@Override
 	protected void resetContainerWidget() {
 		setExpansionBehavior(DEFAULT_EXPANSION_BEHAVIOR);
-	}
-	
-	//method
-	/**
-	 * Lets the current {@link Accordion} collapse the given tab if
-	 * the current {@link Accordion} can collapse at least 1 tab.
-	 * 
-	 * @param tab
-	 */
-	void collapseIfPossible(final AccordionTab tab) {
-		if (canCollapseAnExpandedTab()) {
-			tab.collapse();
-		}
-	}
-	
-	//method
-	/**
-	 * Lets the current {@link Accordion} expand the given tab.
-	 * 
-	 * @param tab
-	 */
-	void expand(final AccordionTab tab) {
-		if (!tab.isExpanded()) {
-			expandWhenNotExpanded(tab);
-		}
 	}
 	
 	//method

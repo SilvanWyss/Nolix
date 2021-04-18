@@ -6,32 +6,29 @@ import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.attributeapi.mutablemandatoryattributeapi.Headerable;
 import ch.nolix.common.constant.LowerCaseCatalogue;
-import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
-import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentException;
-import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.math.Calculator;
 import ch.nolix.common.skillapi.Clearable;
 import ch.nolix.element.base.Element;
 import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.elementapi.IMutableElement;
 import ch.nolix.element.gui.base.CursorIcon;
+import ch.nolix.element.gui.base.OptionalWidgetProperty;
 import ch.nolix.element.gui.base.Widget;
-import ch.nolix.element.gui.base.WidgetGUI;
-import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.widget.Label;
 
 //class
 public final class AccordionTab extends Element<AccordionTab>
 implements Clearable, Headerable<AccordionTab>, IMutableElement<AccordionTab> {
 	
-	//constant
+	//constants
 	public static final String DEFAULT_HEADER = StringCatalogue.DEFAULT_STRING;
-	public static final boolean DEFAULT_EXPANSION_STATE = true;
+	public static final boolean DEFAULT_EXPANSION_FLAG = true;
 	
-	//constant
+	//constants
+	private static final String HEADER_HEADER = PascalCaseCatalogue.HEADER;
 	private static final String EXPANDED_FLAG_HEADER = "Expanded";
 	
 	//static method
@@ -46,7 +43,7 @@ implements Clearable, Headerable<AccordionTab>, IMutableElement<AccordionTab> {
 	//attribute
 	private final MutableValue<String> header =
 	new MutableValue<>(
-		PascalCaseCatalogue.HEADER,
+		HEADER_HEADER,
 		DEFAULT_HEADER,
 		this::setHeader,
 		BaseNode::getOneAttributeHeader,
@@ -54,12 +51,12 @@ implements Clearable, Headerable<AccordionTab>, IMutableElement<AccordionTab> {
 	);
 	
 	//attribute
-	private final MutableValue<Boolean> expanded =
+	private final MutableValue<Boolean> expansionFlag =
 	new MutableValue<>(
 		EXPANDED_FLAG_HEADER,
-		DEFAULT_EXPANSION_STATE,
-		e -> {
-			if (e.booleanValue()) {
+		DEFAULT_EXPANSION_FLAG,
+		ef -> {
+			if (ef.booleanValue()) {
 				expand();
 			} else {
 				collapse();
@@ -69,51 +66,53 @@ implements Clearable, Headerable<AccordionTab>, IMutableElement<AccordionTab> {
 		Node::withAttribute
 	);
 	
-	//attributes
-	private VerticalStack tabVerticalStack = new VerticalStack();
-	private final HorizontalStack headerHorizontalStack = new HorizontalStack();
-	private final Label headerLabel = new Label().setLeftMouseButtonPressAction(this::noteExpandButtonPress);
+	//attribute
+	private final OptionalWidgetProperty widget = new OptionalWidgetProperty(this::setWidget);
 	
-	//optional attributes
+	//attributes
+	private VerticalStack mainVerticalStack = new VerticalStack();
+	private final HorizontalStack headerHorizontalStack = new HorizontalStack();
+	private final Label headerLabel = new Label();
+	private final SingleContainer widgetContainer = new SingleContainer();
+	
+	//optional attribute
 	private Accordion parentAccordion;
-	private Widget<?, ?> widget;
 	
 	//constructor
 	public AccordionTab() {
-		this(DEFAULT_HEADER);
+		
+		reset();
+		
+		mainVerticalStack.reset();
+		mainVerticalStack.addWidget(headerHorizontalStack, widgetContainer);
+		headerHorizontalStack.addWidget(headerLabel);
+		
+		headerLabel
+		.setCustomCursorIcon(CursorIcon.HAND)
+		.setLeftMouseButtonPressAction(this::noteHeaderLabelLeftMouseButtonPress);
 	}
 	
 	//constructor
 	public AccordionTab(final String header) {
 		
-		tabVerticalStack.reset();
+		this();
 		
-		tabVerticalStack.addWidget(
-			headerHorizontalStack.addWidget(
-				headerLabel
-			)
-		);
-		
-		reset();
 		setHeader(header);
 	}
 	
 	//constructor
 	public AccordionTab(final String header, final Widget<?, ?> widget) {
 		
-		this(header);
+		this();
 		
+		setHeader(header);
 		setWidget(widget);
 	}
 	
 	//method
 	@Override
 	public void addOrChangeAttribute(final BaseNode attribute) {
-		if (WidgetGUI.canCreateWidgetFrom(attribute)) {
-			setWidget(WidgetGUI.createWidgetFrom(attribute));
-		} else {
-			super.addOrChangeAttribute(attribute);
-		}
+		super.addOrChangeAttribute(attribute);
 	}
 	
 	//method
@@ -125,41 +124,8 @@ implements Clearable, Headerable<AccordionTab>, IMutableElement<AccordionTab> {
 	@Override
 	public void clear() {
 		if (containsAny()) {
-			tabVerticalStack.removeWidget(widget);
-			widget = null;
+			clearWhenNotEmpty();
 		}
-	}
-	
-	//method
-	public AccordionTab collapse() {
-		
-		expanded.setValue(Boolean.FALSE);
-		
-		return this;
-	}
-	
-	//method
-	public AccordionTab expand() {
-		
-		expanded.setValue(Boolean.TRUE);
-		
-		return this;
-	}
-	
-	//method
-	@Override
-	public void fillUpAttributesInto(final LinkedList<Node> list) {
-		
-		super.fillUpAttributesInto(list);
-		
-		if (containsAny()) {
-			list.addAtEnd(getRefWidget().getSpecification());
-		}
-	}
-	
-	//method
-	public CursorIcon getActiveCursorIcon() {
-		return tabVerticalStack.getCursorIcon();
 	}
 	
 	//method
@@ -176,17 +142,14 @@ implements Clearable, Headerable<AccordionTab>, IMutableElement<AccordionTab> {
 	//method
 	public Accordion getParentAccordion() {
 		
-		supposeBelongsToAccordion();
+		assertBelongsToAccordion();
 		
 		return parentAccordion;
 	}
 	
 	//method
 	public Widget<?, ?> getRefWidget() {
-		
-		supposeIsNotEmpty();
-		
-		return widget;
+		return widget.getRefWidget();
 	}
 	
 	//method
@@ -202,12 +165,7 @@ implements Clearable, Headerable<AccordionTab>, IMutableElement<AccordionTab> {
 	
 	//method
 	public boolean isExpanded() {
-		return expanded.getValue();
-	}
-	
-	//method
-	public boolean isUnderCursor() {
-		return tabVerticalStack.isUnderCursor();
+		return expansionFlag.getValue();
 	}
 	
 	//method
@@ -225,6 +183,7 @@ implements Clearable, Headerable<AccordionTab>, IMutableElement<AccordionTab> {
 		Validator.assertThat(header).thatIsNamed(LowerCaseCatalogue.HEADER).isNotBlank();
 		
 		this.header.setValue(header);
+		headerLabel.setText(header);
 		
 		return asConcrete();
 	}
@@ -232,111 +191,74 @@ implements Clearable, Headerable<AccordionTab>, IMutableElement<AccordionTab> {
 	//method
 	public AccordionTab setWidget(final Widget<?, ?> widget) {
 		
-		Validator.assertThat(widget).isOfType(Widget.class);
-		
-		this.widget = widget;
-		tabVerticalStack.addWidget(widget);
+		this.widget.setWidget(widget);
+		mainVerticalStack.addWidget(widget);
 		
 		return this;
 	}
 	
 	//method
-	HorizontalStack getRefHeaderHorizontalStack() {
-		return headerHorizontalStack;
+	void collapse() {
+		expansionFlag.setValue(Boolean.FALSE);
+		widgetContainer.setCollapsed();
+	}
+
+	//method
+	void expand() {
+		expansionFlag.setValue(Boolean.TRUE);
+		widgetContainer.setExpanded();
 	}
 	
 	//method
-	VerticalStack getRefTabVerticalStack() {
-		return tabVerticalStack;
+	VerticalStack getRefMainVerticalStack() {
+		return mainVerticalStack;
 	}
-	
-	//method
-	int getRequiredMinWidth() {
 		
-		int requiredMinWidth = headerLabel.getWidth();
-		
-		if (containsAny()) {
-			requiredMinWidth = Calculator.getMax(requiredMinWidth, getRefWidget().getWidth());
-		}
-		
-		return requiredMinWidth;
-	}
-	
 	//method
 	void recalculate() {
 		
-		headerLabel.setText(getHeader());
-		
 		headerHorizontalStack.resetConfiguration();
 		headerHorizontalStack.getRefLook().setFrom(parentAccordion.getRefTabHeaderLook());
-		headerHorizontalStack.getRefLook().setPaddingForState(WidgetLookState.BASE, 10);
-				
+		
 		final var naturalContentAreaWidth = getParentAccordion().getNaturalContentAreaWidth();
 		if (naturalContentAreaWidth > 0) {
 			headerHorizontalStack.setMinWidth(naturalContentAreaWidth);
 		}
-		
-		headerLabel.setCustomCursorIcon(CursorIcon.HAND);
-		
-		if (containsAny()) {
-			if (isCollapsed()) {
-				getRefWidget().setCollapsed();
-			} else {
-				getRefWidget().setExpanded();
-			}
-		}
-		
-		tabVerticalStack.recalculate();
+				
+		mainVerticalStack.recalculate();
 	}
 	
 	//method
 	void setParentAccordion(final Accordion parentAccordion) {
 		
-		Validator
-		.assertThat(parentAccordion)
-		.thatIsNamed("parent accordion")
-		.isNotNull();
+		Validator.assertThat(parentAccordion).thatIsNamed("parent accordion").isNotNull();
 		
 		this.parentAccordion = parentAccordion;
 	}
 	
 	//method
-	void setPositionOnParent(
-		final int yPositionOnParent
-	) {
-		tabVerticalStack.setPositionOnParent(0, yPositionOnParent);
-		
-		
+	private void assertBelongsToAccordion() {
+		if (!belongsToAccordion()) {
+			throw new ArgumentDoesNotBelongToParentException(this, Accordion.class);
+		}
 	}
 	
 	//method
-	private void noteExpandButtonPress() {
+	private void clearWhenNotEmpty() {
+		mainVerticalStack.removeWidget(getRefWidget());
+		widget.clear();
+	}
+	
+	//method
+	private void noteHeaderLabelLeftMouseButtonPress() {
 		
 		//Handles the case that the current AccordionTab is collapsed.
 		if (isCollapsed()) {
-			getParentAccordion().expand(this);
+			getParentAccordion().expandTab(this);
 			
 		//Handles the case that the current AccordionTab is expanded.
 		} else {
-			getParentAccordion().collapseIfPossible(this);
-		}
-	}
-	
-	//method
-	private void supposeBelongsToAccordion() {
-		if (!belongsToAccordion()) {
-			throw
-			new InvalidArgumentException(
-				this,
-				"does not belong to an accordion"
-			);
-		}
-	}
-	
-	//method
-	private void supposeIsNotEmpty() {
-		if (isEmpty()) {
-			throw new EmptyArgumentException(this);
+			getParentAccordion().collapseTab(this);
 		}
 	}
 }
