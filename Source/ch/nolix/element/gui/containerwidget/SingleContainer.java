@@ -19,12 +19,9 @@ import ch.nolix.element.gui.painterapi.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 280
+ * @lines 300
  */
 public final class SingleContainer extends ContainerWidget<SingleContainer, SingleContainerLook> {
-	
-	//constant
-	public static final String TYPE_NAME = "SingleContainer";
 	
 	//optional attribute
 	private Widget<?, ?> widget;
@@ -161,7 +158,7 @@ public final class SingleContainer extends ContainerWidget<SingleContainer, Sing
 			return 0;
 		}
 		
-		return widget.getWidth();
+		return widget.getHeight();
 	}
 	
 	//method
@@ -176,7 +173,7 @@ public final class SingleContainer extends ContainerWidget<SingleContainer, Sing
 			return 0;
 		}
 		
-		return widget.getHeight();
+		return widget.getWidth();
 	}
 	
 	//method
