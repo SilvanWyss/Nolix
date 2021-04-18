@@ -66,10 +66,8 @@ implements Clearable, Headerable<AccordionTab>, IMutableElement<AccordionTab> {
 		Node::withAttribute
 	);
 	
-	//attribute
-	private final OptionalWidgetProperty widget = new OptionalWidgetProperty(this::setWidget);
-	
 	//attributes
+	private final OptionalWidgetProperty widget = new OptionalWidgetProperty(this::setWidget);
 	private VerticalStack mainVerticalStack = new VerticalStack();
 	private final HorizontalStack headerHorizontalStack = new HorizontalStack();
 	private final Label headerLabel = new Label();
@@ -91,24 +89,7 @@ implements Clearable, Headerable<AccordionTab>, IMutableElement<AccordionTab> {
 		.setCustomCursorIcon(CursorIcon.HAND)
 		.setLeftMouseButtonPressAction(this::noteHeaderLabelLeftMouseButtonPress);
 	}
-	
-	//constructor
-	public AccordionTab(final String header) {
-		
-		this();
-		
-		setHeader(header);
-	}
-	
-	//constructor
-	public AccordionTab(final String header, final Widget<?, ?> widget) {
-		
-		this();
-		
-		setHeader(header);
-		setWidget(widget);
-	}
-	
+			
 	//method
 	@Override
 	public void addOrChangeAttribute(final BaseNode attribute) {

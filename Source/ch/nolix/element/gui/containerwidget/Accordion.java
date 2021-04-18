@@ -126,7 +126,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	 * @return the current {@link Accordion}.
 	 */
 	public Accordion addTab(final String header, final Widget<?, ?> widget) {
-		return addTab(new AccordionTab(header, widget));
+		return addTab(new AccordionTab().setHeader(header).setWidget(widget));
 	}
 	
 	//method
