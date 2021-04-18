@@ -12,7 +12,7 @@ import ch.nolix.element.gui.widget.Area;
  * Of the {@link TabContainerTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 2018-05
+ * @date 2018-05-10
  * @lines 50
  */
 public final class TabContainerTutorial {
@@ -25,35 +25,30 @@ public final class TabContainerTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
-		final var frame =
-		new Frame()
-		.setTitle("Tab Container Tutorial");
+		final var frame = new Frame().setTitle("TabContainer Tutorial");
 		
 		//Creates a TabContainer.
 		final var tabContainer =
 		new TabContainer()
 		.addTab(
-			new TabContainerTab("A", new Area().setSize(500, 200).setBackgroundColor(Color.BLUE)),
-			new TabContainerTab("B", new Area().setSize(500, 200).setBackgroundColor(Color.GREEN)),
-			new TabContainerTab("C", new Area().setSize(500, 200).setBackgroundColor(Color.BLUE)),
-			new TabContainerTab("D", new Area().setSize(500, 200).setBackgroundColor(Color.GREEN))
+			new TabContainerTab("A", new Area().setSize(500, 200).setBackgroundColor(Color.PINK)),
+			new TabContainerTab("B", new Area().setSize(450, 200).setBackgroundColor(Color.ORANGE)),
+			new TabContainerTab("C", new Area().setSize(400, 200).setBackgroundColor(Color.PINK)),
+			new TabContainerTab("D", new Area().setSize(350, 200).setBackgroundColor(Color.ORANGE))
 		);
 		
 		//Configures the look of the TabContainer.
-		tabContainer.onLook(
-			l ->
-			l
-			.setBorderThicknessForState(WidgetLookState.BASE, 5)
-			.setBackgroundColorForState(WidgetLookState.BASE, Color.LAVENDER)
-			.setPaddingForState(WidgetLookState.BASE, 20)
-		);
+		tabContainer
+		.getRefLook()
+		.setBorderThicknessForState(WidgetLookState.BASE, 5)
+		.setBackgroundColorForState(WidgetLookState.BASE, Color.LAVENDER);
 		
 		//Adds the TabContainer to the Frame.
 		frame.addLayerOnTop(tabContainer);
 	}
 	
 	/**
-	 * Avoids that an instance of the {@link TabContainerTutorial} can be created.
+	 * Prevents that an instance of the {@link TabContainerTutorial} can be created.
 	 */
 	private TabContainerTutorial() {}
 }
