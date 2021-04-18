@@ -141,7 +141,7 @@ implements Clearable, Headerable<AccordionTab>, IMutableElement<AccordionTab> {
 	//method
 	@Override
 	public boolean isEmpty() {
-		return (widget == null);
+		return widget.isEmpty();
 	}
 	
 	//method
