@@ -60,7 +60,7 @@ public final class TabContainerTest extends ContainerWidgetTest<TabContainer> {
 	//method
 	@Override
 	protected void addWidgetToContainerWidget(final TabContainer tabContainer, final Widget<?, ?> widget) {
-		tabContainer.addTab(new TabContainerTab("Tab", widget));
+		tabContainer.addTab("Tab", widget);
 	}
 	
 	//method

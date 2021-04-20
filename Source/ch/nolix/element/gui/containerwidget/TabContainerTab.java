@@ -5,12 +5,10 @@ package ch.nolix.element.gui.containerwidget;
 import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.attributeapi.mutablemandatoryattributeapi.Headerable;
 import ch.nolix.common.constant.LowerCaseCatalogue;
-import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.skillapi.Clearable;
@@ -19,8 +17,8 @@ import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.elementapi.IMutableElement;
 import ch.nolix.element.elementenum.ContentPosition;
 import ch.nolix.element.gui.base.CursorIcon;
+import ch.nolix.element.gui.base.OptionalWidgetProperty;
 import ch.nolix.element.gui.base.Widget;
-import ch.nolix.element.gui.base.WidgetGUI;
 import ch.nolix.element.gui.widget.Label;
 
 //class
@@ -32,10 +30,15 @@ import ch.nolix.element.gui.widget.Label;
 public final class TabContainerTab extends Element<TabContainerTab>
 implements Clearable, Headerable<TabContainerTab>, IMutableElement<TabContainerTab> {
 	
-	//constant
+	//constants
 	public static final String DEFAULT_HEADER = PascalCaseCatalogue.DEFAULT;
+	public static final boolean DEFAULT_SELECTION_FLAG = false;
 	
-	//method
+	//constants
+	private static final String HEADER_HEADER = PascalCaseCatalogue.HEADER;
+	private static final String SELECTION_FLAG_HEADER = "Selection";
+	
+	//static method
 	/**
 	 * @param specification
 	 * @return a new {@link TabContainerTab} from the given specification.
@@ -51,64 +54,46 @@ implements Clearable, Headerable<TabContainerTab>, IMutableElement<TabContainerT
 	//attribute
 	private final MutableValue<String> header =
 	new MutableValue<>(
-		PascalCaseCatalogue.HEADER,
+		HEADER_HEADER,
 		DEFAULT_HEADER,
 		this::setHeader,
 		BaseNode::getOneAttributeHeader,
 		Node::withAttribute
 	);
-		
-	//attribute
-	private boolean selected;
 	
 	//attribute
-	private final Label menuItem = new Label().setContentPosition(ContentPosition.CENTER).setCustomCursorIcon(CursorIcon.HAND);
+	private final MutableValue<Boolean> selectionFlag =
+	new MutableValue<>(
+		SELECTION_FLAG_HEADER,
+		DEFAULT_SELECTION_FLAG,
+		ef -> {
+			if (ef.booleanValue()) {
+				select();
+			} else {
+				unselect();
+			}
+		},
+		BaseNode::getOneAttributeAsBoolean,
+		Node::withAttribute
+	);
 	
-	//optional attribute
-	private Widget<?, ?> widget;
+	//attribute
+	private final Label menuItemLabel = new Label();
+	
+	//attribute
+	private final OptionalWidgetProperty widget = new OptionalWidgetProperty(this::setWidget);
 	
 	//constructor
 	/**
 	 * Creates a new {@link TabContainerTab}.
 	 */
 	public TabContainerTab() {
+		
 		reset();
-	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link TabContainerTab} with the given header.
-	 * 
-	 * @param header
-	 * @throws ArgumentIsNullException if the given header is null.
-	 * @throws EmptyArgumentException if the given header is empty.
-	 */
-	public TabContainerTab(final String header) {
 		
-		//Calls other constructor.
-		this();
-		
-		//Sets the header of the current tab container tab.
-		setHeader(header);
-	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link TabContainerTab} with the given header and widget.
-	 * 
-	 * @param header
-	 * @param widget
-	 * @throws ArgumentIsNullException if the given header is null.
-	 * @throws EmptyArgumentException if the given header is empty.
-	 * @throws ArgumentIsNullException if the given widget is null.
-	 */
-	public TabContainerTab(final String header, final Widget<?,? > widget) {
-		
-		//Calls other constructor.
-		this(header);
-		
-		//Sets the widget of the current tab container tab.
-		setWidget(widget);
+		menuItemLabel
+		.setContentPosition(ContentPosition.CENTER)
+		.setCustomCursorIcon(CursorIcon.HAND);
 	}
 	
 	//method
@@ -117,48 +102,21 @@ implements Clearable, Headerable<TabContainerTab>, IMutableElement<TabContainerT
 	 */
 	@Override
 	public void addOrChangeAttribute(final BaseNode attribute) {
-		
-		//Handles the case that the given attribute specifies a widget.
-		if (WidgetGUI.canCreateWidgetFrom(attribute)) {
-			setWidget(WidgetGUI.createWidgetFrom(attribute));
-			
-		//Handles the case that the given attribute does not specify a widget.
-		} else {
-			
-			//Calls method of the base class.
-			super.addOrChangeAttribute(attribute);
-		}
+		super.addOrChangeAttribute(attribute);
 	}
-	
+		
 	//method
 	/**
-	 * Removes the widget of the current {@link TabContainerTab}.
+	 * Removes the {@link Widget} of the current {@link TabContainerTab}.
 	 */
 	@Override
 	public void clear() {
-		widget = null;
+		widget.clear();
 	}
 	
 	//method
 	/**
 	 * {@inheritDoc}
-	 */
-	@Override
-	public void fillUpAttributesInto(final LinkedList<Node> list) {
-		
-		//Calls method of the base class.
-		super.fillUpAttributesInto(list);
-		
-		//Handles the case that the current TabContainerTab contains a Widget.
-		if (containsAny()) {
-			list.addAtEnd(getRefWidget().getSpecification());
-		}
-	}
-	
-	//method
-	/**
-	 * @return the header of the current {@link TabContainerTab}.
-	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link TabContainerTab} does not have a header.
 	 */
 	@Override
 	public String getHeader() {
@@ -171,27 +129,22 @@ implements Clearable, Headerable<TabContainerTab>, IMutableElement<TabContainerT
 	 */
 	public int getHeight() {
 		
-		//Handles the case that the current tab container tab does not contain a widget.
+		//Handles the case that the current TabContainerTab is empty.
 		if (isEmpty()) {
 			return 0;
 		}
 		
-		//Handles the case that the current tab container tab contains a widget.
+		//Handles the case that the current TabContainerTab contains a Widget.
 		return getRefWidget().getHeight();
 	}
 	
 	//method
 	/**
-	 * @return the widget of the current {@link TabContainerTab}
-	 * @throws InvalidArgumentException
-	 * if the current {@link TabContainerTab} is empty.
+	 * @return the {@link Widget} of the current {@link TabContainerTab}
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link TabContainerTab} is empty.
 	 */
 	public Widget<?, ?> getRefWidget() {
-		
-		//Asserts that the current tab container tab contains a widget.
-		supposeIsNotEmpty();
-		
-		return widget;
+		return widget.getRefWidget();
 	}
 	
 	//method
@@ -200,12 +153,12 @@ implements Clearable, Headerable<TabContainerTab>, IMutableElement<TabContainerT
 	 */
 	public int getWidth() {
 		
-		//Handles the case that the current tab container tab does not contain a widget.
+		//Handles the case that the current TabContainerTab is empty
 		if (isEmpty()) {
 			return 0;
 		}
 		
-		//Handles the case that the current tab container tab contains a widget.
+		//Handles the case that the current TabContainerTab contains a Widget.
 		return getRefWidget().getWidth();
 	}
 	
@@ -215,7 +168,7 @@ implements Clearable, Headerable<TabContainerTab>, IMutableElement<TabContainerT
 	 */
 	@Override
 	public boolean isEmpty() {
-		return (widget == null);
+		return widget.isEmpty();
 	}
 	
 	//method
@@ -223,7 +176,7 @@ implements Clearable, Headerable<TabContainerTab>, IMutableElement<TabContainerT
 	 * @return true if the current {@link TabContainerTab} is selected.
 	 */
 	public boolean isSelected() {
-		return selected;
+		return selectionFlag.getValue();
 	}
 	
 	//method
@@ -232,25 +185,16 @@ implements Clearable, Headerable<TabContainerTab>, IMutableElement<TabContainerT
 	 */
 	@Override
 	public void reset() {
-		
 		setHeader(DEFAULT_HEADER);
-		
 		clear();
 	}
 	
 	//method
 	/**
 	 * Selects the current {@link TabContainerTab}.
-	 * 
-	 * @return the current {@link TabContainerTab}.
 	 */
-	public TabContainerTab select() {
-		
-		selected = true;
-		
-		getRefMenuItem().setFocused();
-		
-		return this;
+	public void select() {
+		selectionFlag.setValue(Boolean.TRUE);
 	}
 	
 	//method
@@ -268,20 +212,18 @@ implements Clearable, Headerable<TabContainerTab>, IMutableElement<TabContainerT
 		
 		//Sets the header of the current TabContainerTab.
 		this.header.setValue(header);
-		menuItem.setText(header);
+		menuItemLabel.setText(header);
 		
 		return this;
 	}
-		
+	
 	//method
 	/**
-	 * Sets the widget of the current {@link TabContainerTab}.
+	 * Sets the {@link Widget} of the current {@link TabContainerTab}.
 	 * 
 	 * @param widget
 	 * @return the current {@link TabContainerTab}.
 	 * @throws ArgumentIsNullException if the given widget is null.
-	 * @throws InvalidArgumentException
-	 * if the given widget belongs to another {@link WidgetGUI} than the current {@link TabContainerTab}.
 	 */
 	public TabContainerTab setWidget(final Widget<?, ?> widget) {
 		
@@ -289,7 +231,7 @@ implements Clearable, Headerable<TabContainerTab>, IMutableElement<TabContainerT
 		Validator.assertThat(widget).isOfType(Widget.class);
 		
 		//Sets the widget of the current tab container tab.
-		this.widget = widget;
+		this.widget.setWidget(widget);
 		
 		return this;
 	}
@@ -297,18 +239,9 @@ implements Clearable, Headerable<TabContainerTab>, IMutableElement<TabContainerT
 	//method
 	/**
 	 * Unselects the current {@link TabContainerTab}.
-	 * 
-	 * @return the current {@link TabContainerTab}.
 	 */
-	public TabContainerTab unselect() {
-		
-		selected = false;
-		
-		getRefMenuItem()
-		.setUnfocused()
-		.setUnhovered();
-		
-		return this;
+	void unselect() {
+		selectionFlag.setValue(Boolean.FALSE);
 	}
 	
 	//method
@@ -316,18 +249,6 @@ implements Clearable, Headerable<TabContainerTab>, IMutableElement<TabContainerT
 	 * @return the menu item of the current {@link TabContainerTab}.
 	 */
 	Label getRefMenuItem() {
-		return menuItem;
-	}
-	
-	//method
-	/**
-	 * @throws EmptyArgumentException if the current {@link TabContainerTab} is empty.
-	 */
-	private void supposeIsNotEmpty() {
-		
-		//Asserts that the current tab container tab is not empty.
-		if (isEmpty()) {
-			throw new EmptyArgumentException(this);
-		}
+		return menuItemLabel;
 	}
 }

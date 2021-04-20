@@ -27,7 +27,7 @@ import ch.nolix.element.gui.widget.LabelLook;
 /**
  * @author Silvan Wyss
  * @date 2016-05-01
- * @lines 490
+ * @lines 510
  */
 public final class TabContainer extends ContainerWidget<TabContainer, TabContainerLook> {
 	
@@ -62,8 +62,23 @@ public final class TabContainer extends ContainerWidget<TabContainer, TabContain
 		mainVerticalStack.addWidget(menu, currentTabContainer);
 		getRefLook().addChild(getRefMenuItemLook());
 		
-		getRefMenuItemLook()
-		.setBackgroundColorForState(WidgetLookState.HOVER, Color.LIGHT_GREY);
+		getRefMenuItemLook().setBackgroundColorForState(WidgetLookState.HOVER, Color.LIGHT_GREY);
+	}
+	
+	//method
+	/**
+	 * Adds a new tab to the current {@link TabContainer} that has the given header and widget.
+	 * 
+	 * @param header
+	 * @param widget
+	 * @return the current {@link TabContainer}.
+	 * @throws ArgumentIsNullException if the given header is null.
+	 * @throws InvalidArgumentException if the given header is blank.
+	 * @throws ArgumentIsNullException if the given widget is null.
+	 * @throws InvalidArgumentException if the given tab belongs already to a {@link TabContainer}.
+	 */
+	public TabContainer addTab(final String header, final Widget<?, ?> widget) {
+		return addTab(new TabContainerTab().setHeader(header).setWidget(widget));
 	}
 	
 	//method
@@ -454,7 +469,12 @@ public final class TabContainer extends ContainerWidget<TabContainer, TabContain
 	@Override
 	protected void recalculateBorderWidget() {
 		for (final var t : getRefTabs()) {
+			
 			t.getRefMenuItem().getRefLook().setFrom(getRefMenuItemLook());
+			
+			if (t.isSelected() && t.containsAny()) {
+				currentTabContainer.setWidget(t.getRefWidget());
+			}
 		}
 	}
 	
@@ -490,6 +510,9 @@ public final class TabContainer extends ContainerWidget<TabContainer, TabContain
 		
 		//Selects the given tab.
 		tab.select();
-		currentTabContainer.setWidget(tab.getRefWidget());
+		
+		if (tab.containsAny()) {
+			currentTabContainer.setWidget(tab.getRefWidget());
+		}
 	}
 }

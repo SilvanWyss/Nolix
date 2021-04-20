@@ -4,7 +4,6 @@ import ch.nolix.element.gui.base.Frame;
 import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.containerwidget.TabContainer;
-import ch.nolix.element.gui.containerwidget.TabContainerTab;
 import ch.nolix.element.gui.widget.Area;
 
 /**
@@ -30,12 +29,10 @@ public final class TabContainerTutorial {
 		//Creates a TabContainer.
 		final var tabContainer =
 		new TabContainer()
-		.addTab(
-			new TabContainerTab("A", new Area().setSize(500, 200).setBackgroundColor(Color.PINK)),
-			new TabContainerTab("B", new Area().setSize(450, 200).setBackgroundColor(Color.ORANGE)),
-			new TabContainerTab("C", new Area().setSize(400, 200).setBackgroundColor(Color.PINK)),
-			new TabContainerTab("D", new Area().setSize(350, 200).setBackgroundColor(Color.ORANGE))
-		);
+		.addTab("A", new Area().setSize(500,  200).setBackgroundColor(Color.PINK))
+		.addTab("B", new Area().setSize(450,  200).setBackgroundColor(Color.ORANGE))
+		.addTab("C", new Area().setSize(400,  200).setBackgroundColor(Color.PINK))
+		.addTab("D", new Area().setSize(350,  200).setBackgroundColor(Color.ORANGE));
 		
 		//Configures the look of the TabContainer.
 		tabContainer

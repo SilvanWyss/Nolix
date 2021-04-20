@@ -7,7 +7,6 @@ import ch.nolix.element.gui.containerwidget.ContainerRole;
 import ch.nolix.element.gui.containerwidget.Grid;
 import ch.nolix.element.gui.containerwidget.HorizontalStack;
 import ch.nolix.element.gui.containerwidget.TabContainer;
-import ch.nolix.element.gui.containerwidget.TabContainerTab;
 import ch.nolix.element.gui.containerwidget.VerticalStack;
 import ch.nolix.element.gui.dialog.ErrorDialogCreator;
 import ch.nolix.element.gui.widget.Button;
@@ -132,9 +131,8 @@ public final class EntitySession extends HeaderedSession {
 					.setLeftMouseButtonPressAction(() -> push(new EntitySession(lEntitySetName, lEntityId)))
 				);
 			}
-			final var tab = new TabContainerTab(mr.getHeader(), multiReferenceHorizontalStack);
 			
-			referenceDataTabContainer.addTab(tab);
+			referenceDataTabContainer.addTab(mr.getHeader(), multiReferenceHorizontalStack);
 		}
 		
 		return referenceDataTabContainer;
