@@ -23,9 +23,6 @@ public abstract class TextItemMenu<TIM extends TextItemMenu<TIM>> extends Border
 implements Clearable {
 	
 	//constant
-	private static final int MIN_ITEM_LABEL_WIDTH = 10;
-	
-	//constant
 	private static final String ITEM_HEADER = "Item";
 	
 	//attribute
@@ -78,7 +75,7 @@ implements Clearable {
 		
 		Validator.assertThat(item).thatIsNamed(LowerCaseCatalogue.ITEM).isNotNull();
 		
-		assertDoesNotContainItem(item.getText());
+		assertDoesNotContainItemWithText(item.getText());
 		
 		if (item.hasId()) {
 			assertDoesNotContainItemWithId(item.getId());
@@ -138,10 +135,16 @@ implements Clearable {
 	}
 	
 	//method
+	public final LabelLook getRefItemLook() {
+		return itemLook.getSubElement();
+	}
+	
+	//method
 	public final IContainer<TextItemMenuItem> getRefItems() {
 		return items;
 	}
 	
+	//method
 	public final TextItemMenuItem getRefSelectedItem() {
 		
 		assertContainsSelectedItem();
@@ -161,16 +164,8 @@ implements Clearable {
 	}
 	
 	//method
-	public final LabelLook onItems() {
-		return itemLook.getSubElement();
-	}
-	
-	//method
-	public final TIM removeSelectAction() {
-		
+	public final void removeSelectAction() {
 		selectAction = null;
-		
-		return asConcrete();
 	}
 	
 	//method
@@ -179,27 +174,18 @@ implements Clearable {
 	}
 	
 	//method
-	public final TIM selectFirstItem() {
-		
+	public final void selectFirstItem() {
 		selectItem(getRefFirstItem());
-		
-		return asConcrete();
 	}
 	
 	//method
-	public final TIM selectItem(final String item) {
-		
+	public final void selectItem(final String item) {
 		selectItem(getRefItems().getRefFirst(i -> i.hasText(item)));
-		
-		return asConcrete();
 	}
 		
 	//method
-	public final TIM selectItemById(final String id) {
-		
+	public final void selectItemById(final String id) {
 		selectItem(getRefItems().getRefFirst(i -> i.hasId(id)));
-		
-		return asConcrete();
 	}
 	
 	//method
@@ -221,9 +207,9 @@ implements Clearable {
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	public final TIM unselectItems() {
 		
-		//For better performance, this implementation does not use all comfortable methods.
 		final var selectedItem = items.getRefFirstOrNull(TextItemMenuItem::isSelected);
 		
 		if (selectedItem != null) {
@@ -312,52 +298,16 @@ implements Clearable {
 	//method
 	@Override
 	protected final void recalculateBorderWidget() {
-				
-		recalculateTextItemMenuSelf();
 		
-		//TODO
-		/*
-		final var look = getRefLook();
-		final var baseItemLook = look.getRefRecursiveOrDefaultBaseItemLook();
-		final var hoverItemLook = look.getRefRecursiveOrDefaultHoverItemLook();
-		final var selectedItemLook = look.getRefRecursiveOrDefaultSelectionItemLook();
-		final var itemLables = getRefItemLables();
-		final var labelWidth = itemLables.getMaxIntOrDefaultValue(Label::getWidth, MIN_ITEM_LABEL_WIDTH);
+		recalculateTextItemMenu();
 		
-		for (final var l : itemLables) {
-						
-			l.setMinWidth(labelWidth);
-			
-			l.getRefBaseLook().reset();
-			
-			l
-			.getRefBaseLook()
-			.setBackgroundColor(baseItemLook.getRecursiveOrDefaultBackgroundColor())
-			.setPaddings(look.getRecursiveOrDefaultItemPadding())
-			.setTextSize(look.getRecursiveOrDefaultTextSize())
-			.setTextColor(baseItemLook.getRecursiveOrDefaultTextColor());
-			
-			l.getRefHoverLook().reset();
-			
-			l
-			.getRefHoverLook()
-			.setBackgroundColor(hoverItemLook.getRecursiveOrDefaultBackgroundColor())
-			.setTextColor(hoverItemLook.getRecursiveOrDefaultTextColor());
-			
-			l.getRefFocusLook().reset();
-			
-			l
-			.getRefFocusLook()
-			.setBackgroundColor(selectedItemLook.getRecursiveOrDefaultBackgroundColor())
-			.setTextColor(selectedItemLook.getRecursiveOrDefaultTextColor());
-			
-			l.recalculate();
+		for (final var il : getRefItemLables()) {
+			il.getRefLook().setFrom(getRefItemLook());
 		}
-		*/
 	}
 	
 	//method declaration
-	protected abstract void recalculateTextItemMenuSelf();
+	protected abstract void recalculateTextItemMenu();
 	
 	//method
 	@Override
@@ -388,7 +338,7 @@ implements Clearable {
 	}
 	
 	//method
-	private void assertDoesNotContainItem(final String text) {
+	private void assertDoesNotContainItemWithText(final String text) {
 		if (containsItem(text)) {
 			throw new InvalidArgumentException(this, "contains already an item with the text '" + text + "'");
 		}
@@ -402,6 +352,7 @@ implements Clearable {
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	private void runProbableSelectActionFor(final TextItemMenuItem item) {
 		if (selectAction != null) {
 			selectAction.run(item);

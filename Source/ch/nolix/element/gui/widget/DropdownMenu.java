@@ -131,7 +131,7 @@ public final class DropdownMenu extends TextItemMenu<DropdownMenu> {
 	
 	//method
 	@Override
-	protected void recalculateTextItemMenuSelf() {
+	protected void recalculateTextItemMenu() {
 		applySizes();
 		applyColors();
 	}
