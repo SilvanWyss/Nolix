@@ -55,13 +55,7 @@ implements Clearable, Headerable<AccordionTab>, IMutableElement<AccordionTab> {
 	new MutableValue<>(
 		EXPANDED_FLAG_HEADER,
 		DEFAULT_EXPANSION_FLAG,
-		ef -> {
-			if (ef.booleanValue()) {
-				expand();
-			} else {
-				collapse();
-			}
-		},
+		this::setExpansionFlag,
 		BaseNode::getOneAttributeAsBoolean,
 		Node::withAttribute
 	);
@@ -240,6 +234,15 @@ implements Clearable, Headerable<AccordionTab>, IMutableElement<AccordionTab> {
 		//Handles the case that the current AccordionTab is expanded.
 		} else {
 			getParentAccordion().collapseTab(this);
+		}
+	}
+	
+	//method
+	private void setExpansionFlag(final boolean expanded) {
+		if (!expanded) {
+			collapse();
+		} else {
+			expand();
 		}
 	}
 }
