@@ -9,7 +9,7 @@ import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
-import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentBelongsToUnexchangeableParentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
@@ -474,7 +474,7 @@ public abstract class Entity implements IElement<Entity>, Identified, ShortDescr
 	//method
 	private void supposeDoesNotBelongToEntitySet() {
 		if (belongsToEntitySet()) {
-			throw new ArgumentBelongsToUnexchangeableParentException(this, getParentEntitySet());
+			throw new ArgumentBelongsToParentException(this, getParentEntitySet());
 		}
 	}
 	

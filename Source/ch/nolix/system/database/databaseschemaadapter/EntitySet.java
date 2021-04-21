@@ -5,7 +5,7 @@ import ch.nolix.common.attributeapi.mandatoryattributeapi.Named;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentBelongsToUnexchangeableParentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.UnsupportedArgumentException;
@@ -262,7 +262,7 @@ public final class EntitySet implements IEntitySet, Named {
 	//method
 	private void assertDoesNotBelongToDatabaseSchemaAdapter() {
 		if (belongsToDatabaseSchemaAdapter()) {
-			throw new ArgumentBelongsToUnexchangeableParentException(this, getParentDatabaseSchemaAdapter());
+			throw new ArgumentBelongsToParentException(this, getParentDatabaseSchemaAdapter());
 		}
 	}
 	

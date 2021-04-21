@@ -10,7 +10,7 @@ import ch.nolix.common.attributeapi.mandatoryattributeapi.Headered;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.node.Node;
-import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentBelongsToUnexchangeableParentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.reflectionhelper.ReflectionHelper;
@@ -160,7 +160,7 @@ public abstract class Property<V> implements Headered, IElement<Property<V>> {
 	//method
 	private void assertDoesNotBelongToNoEntity() {
 		if (belongsToEntity()) {
-			throw new ArgumentBelongsToUnexchangeableParentException(this, getParentEntity());
+			throw new ArgumentBelongsToParentException(this, getParentEntity());
 		}
 	}
 }

@@ -3,15 +3,15 @@ package ch.nolix.common.errorcontrol.invalidargumentexception;
 
 //class
 /**
- * A {@link ArgumentBelongsToUnexchangeableParentException} is a {@link InvalidArgumentException}
- * that is supposed to be thrown when a given argument belongs undesirably to an unexchangeable parent.
+ * A {@link ArgumentBelongsToParentException} is a {@link InvalidArgumentException}
+ * that is supposed to be thrown when a given argument belongs undesirably to a parent.
  * 
  * @author Silvan Wyss
- * @month 2019-09
+ * @date 2019-10-01
  * @lines 40
  */
 @SuppressWarnings("serial")
-public class ArgumentBelongsToUnexchangeableParentException extends InvalidArgumentException {
+public class ArgumentBelongsToParentException extends InvalidArgumentException {
 	
 	//static method
 	/**
@@ -31,14 +31,13 @@ public class ArgumentBelongsToUnexchangeableParentException extends InvalidArgum
 	
 	//constructor
 	/**
-	 * Creates a new {@link ArgumentBelongsToUnexchangeableParentException} for the given argument,
-	 * that belongs to the given unexchangeable parent.
+	 * Creates a new {@link ArgumentBelongsToParentException} for the given argument that belongs to the given parent.
 	 * 
 	 * @param argument
 	 * @param parent
 	 * @throws IllegalArgumentException if the given parent is null.
 	 */
-	public ArgumentBelongsToUnexchangeableParentException(final Object argument, final Object parent) {
+	public ArgumentBelongsToParentException(final Object argument, final Object parent) {
 		
 		//Calls constructor of the base class.
 		super(argument, "belongs to a " + createSafeTypeName(parent));

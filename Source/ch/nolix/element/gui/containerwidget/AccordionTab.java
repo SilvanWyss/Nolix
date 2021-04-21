@@ -8,7 +8,7 @@ import ch.nolix.common.attributeapi.mutablemandatoryattributeapi.Headerable;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
-import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentBelongsToUnexchangeableParentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.skillapi.Clearable;
@@ -226,7 +226,7 @@ implements Clearable, Headerable<AccordionTab>, IMutableElement<AccordionTab> {
 	//method
 	private void assertDoesNotBelongToAccordion() {
 		if (belongsToAccordion()) {
-			throw new ArgumentBelongsToUnexchangeableParentException(this, getParentAccordion());
+			throw new ArgumentBelongsToParentException(this, getParentAccordion());
 		}
 	}
 	

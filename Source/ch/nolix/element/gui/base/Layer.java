@@ -8,7 +8,7 @@ import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
-import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentBelongsToUnexchangeableParentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -1150,7 +1150,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 		
 		//Asserts that the current Layer does not belong to another GUI.
 		if (this.parentGUI != null && this.parentGUI != parentGUI) {
-			throw new ArgumentBelongsToUnexchangeableParentException(this, this.parentGUI);
+			throw new ArgumentBelongsToParentException(this, this.parentGUI);
 		}
 		
 		//Handles the case that the current Layer has a root Widget.
