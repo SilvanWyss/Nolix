@@ -1034,7 +1034,7 @@ TopLeftPositionedRecangular {
 		setCustomCursorIcon(DEFAULT_CURSOR_ICON);
 		getRefLook().reset();
 		
-		resetWidgetConfigurationOnSelf();
+		resetWidgetConfiguration();
 	}
 	
 	//method
@@ -1640,7 +1640,7 @@ TopLeftPositionedRecangular {
 	/**
 	 * Resets the configuration of the current {@link Widget} on itself.
 	 */
-	protected abstract void resetWidgetConfigurationOnSelf();
+	protected abstract void resetWidgetConfiguration();
 	
 	//method
 	/**

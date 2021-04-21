@@ -1356,7 +1356,7 @@ extends Widget<BW, BWL> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void resetWidgetConfigurationOnSelf() {
+	protected final void resetWidgetConfiguration() {
 		
 		deactivateAutomaticSize();
 		removeMinWidth();
