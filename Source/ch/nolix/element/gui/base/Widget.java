@@ -109,11 +109,6 @@ TopLeftPositionedRecangular {
 	private IElementTaker<W> mouseWheelPressAction;
 	private IElementTaker<W> mouseWheelReleaseAction;
 	
-	//constructor
-	public Widget() {
-		look.getExtensionElement().reset();
-	}
-	
 	//method
 	/**
 	 * Adds or changes the given attribute to the current {@link Widget}.
@@ -1037,7 +1032,6 @@ TopLeftPositionedRecangular {
 	public final void resetConfigurationOnSelf() {
 		
 		setCustomCursorIcon(DEFAULT_CURSOR_ICON);
-		setGreyOutWhenDisabled();
 		getRefLook().reset();
 		
 		resetWidgetConfigurationOnSelf();
