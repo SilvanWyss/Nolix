@@ -8,6 +8,7 @@ import ch.nolix.common.attributeapi.mutablemandatoryattributeapi.Headerable;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentBelongsToUnexchangeableParentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.skillapi.Clearable;
@@ -25,7 +26,7 @@ implements Clearable, Headerable<AccordionTab>, IMutableElement<AccordionTab> {
 	
 	//constants
 	public static final String DEFAULT_HEADER = StringCatalogue.DEFAULT_STRING;
-	public static final boolean DEFAULT_EXPANSION_FLAG = true;
+	public static final boolean DEFAULT_EXPANSION_FLAG = false;
 	
 	//constants
 	private static final String HEADER_HEADER = PascalCaseCatalogue.HEADER;
@@ -61,10 +62,10 @@ implements Clearable, Headerable<AccordionTab>, IMutableElement<AccordionTab> {
 	);
 	
 	//attributes
-	private final OptionalWidgetProperty widget = new OptionalWidgetProperty(this::setWidget);
 	private VerticalStack mainVerticalStack = new VerticalStack();
 	private final HorizontalStack headerHorizontalStack = new HorizontalStack();
 	private final Label headerLabel = new Label();
+	private final OptionalWidgetProperty widget = new OptionalWidgetProperty(this::setWidget);
 	private final SingleContainer widgetContainer = new SingleContainer();
 	
 	//optional attribute
@@ -72,18 +73,9 @@ implements Clearable, Headerable<AccordionTab>, IMutableElement<AccordionTab> {
 	
 	//constructor
 	public AccordionTab() {
-		
 		reset();
-		
-		mainVerticalStack.reset();
-		mainVerticalStack.addWidget(headerHorizontalStack, widgetContainer);
-		headerHorizontalStack.addWidget(headerLabel);
-		
-		headerLabel
-		.setCustomCursorIcon(CursorIcon.HAND)
-		.setLeftMouseButtonPressAction(this::noteHeaderLabelLeftMouseButtonPress);
 	}
-			
+	
 	//method
 	@Override
 	public void addOrChangeAttribute(final BaseNode attribute) {
@@ -98,6 +90,9 @@ implements Clearable, Headerable<AccordionTab>, IMutableElement<AccordionTab> {
 	//method
 	@Override
 	public void clear() {
+		
+		assertDoesNotBelongToAccordion();
+		
 		if (containsAny()) {
 			clearWhenNotEmpty();
 		}
@@ -107,11 +102,6 @@ implements Clearable, Headerable<AccordionTab>, IMutableElement<AccordionTab> {
 	@Override
 	public String getHeader() {
 		return header.getValue();
-	}
-	
-	//method
-	public int getHeaderHeight() {
-		return headerHorizontalStack.getHeight();
 	}
 	
 	//method
@@ -146,9 +136,22 @@ implements Clearable, Headerable<AccordionTab>, IMutableElement<AccordionTab> {
 	//method
 	@Override
 	public void reset() {
+		
+		mainVerticalStack.reset();
+		headerHorizontalStack.reset();
+		headerLabel.reset();
+		widgetContainer.reset();
+		
+		mainVerticalStack.addWidget(headerHorizontalStack, widgetContainer);
+		headerHorizontalStack.addWidget(headerLabel);
+		
+		headerLabel
+		.setCustomCursorIcon(CursorIcon.HAND)
+		.setLeftMouseButtonPressAction(this::noteHeaderLabelLeftMouseButtonPress);
+		
 		setHeader(DEFAULT_HEADER);
-		collapse();
 		clear();
+		collapse();
 	}
 	
 	//method
@@ -156,6 +159,7 @@ implements Clearable, Headerable<AccordionTab>, IMutableElement<AccordionTab> {
 	public AccordionTab setHeader(final String header) {
 		
 		Validator.assertThat(header).thatIsNamed(LowerCaseCatalogue.HEADER).isNotBlank();
+		assertDoesNotBelongToAccordion();
 		
 		this.header.setValue(header);
 		headerLabel.setText(header);
@@ -165,6 +169,8 @@ implements Clearable, Headerable<AccordionTab>, IMutableElement<AccordionTab> {
 	
 	//method
 	public AccordionTab setWidget(final Widget<?, ?> widget) {
+		
+		assertDoesNotBelongToAccordion();
 		
 		this.widget.setWidget(widget);
 		widgetContainer.setWidget(widget);
@@ -192,14 +198,13 @@ implements Clearable, Headerable<AccordionTab>, IMutableElement<AccordionTab> {
 	//method
 	void recalculate() {
 		
-		headerHorizontalStack.resetConfiguration();
 		headerHorizontalStack.getRefLook().setFrom(parentAccordion.getRefTabHeaderLook());
 		
 		final var naturalContentAreaWidth = getParentAccordion().getNaturalContentAreaWidth();
 		if (naturalContentAreaWidth > 0) {
 			headerHorizontalStack.setMinWidth(naturalContentAreaWidth);
 		}
-				
+			
 		mainVerticalStack.recalculate();
 	}
 	
@@ -215,6 +220,13 @@ implements Clearable, Headerable<AccordionTab>, IMutableElement<AccordionTab> {
 	private void assertBelongsToAccordion() {
 		if (!belongsToAccordion()) {
 			throw new ArgumentDoesNotBelongToParentException(this, Accordion.class);
+		}
+	}
+	
+	//method
+	private void assertDoesNotBelongToAccordion() {
+		if (belongsToAccordion()) {
+			throw new ArgumentBelongsToUnexchangeableParentException(this, getParentAccordion());
 		}
 	}
 	

@@ -68,14 +68,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	 * Creates a new {@link Accordion}.
 	 */
 	public Accordion() {
-		
 		reset();
-		getRefLook().addChild(getRefTabHeaderLook());
-		mainVerticalStack.reset();
-		
-		getRefTabHeaderLook()
-		.setTextColorForState(WidgetLookState.BASE, Color.GREY)
-		.setTextColorForState(WidgetLookState.HOVER, Color.BLACK);
 	}
 	
 	//method
@@ -167,7 +160,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 		
 		assertCanCollapseAllTabs();
 		
-		getRefTabs().forEach(AccordionTab::collapse);
+		getRefTabs().forEach(this::collapseTab);
 		
 		return this;
 	}
@@ -195,7 +188,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 		
 		assertCanExpandAllTabs();
 				
-		getRefTabs().forEach(AccordionTab::expand);
+		getRefTabs().forEach(this::expandTab);
 		
 		return this;
 	}
@@ -500,6 +493,13 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	 */
 	@Override
 	protected void resetContainerWidget() {
+		
+		mainVerticalStack.reset();
+		getRefLook().addChild(getRefTabHeaderLook());		
+		getRefTabHeaderLook()
+		.setTextColorForState(WidgetLookState.BASE, Color.GREY)
+		.setTextColorForState(WidgetLookState.HOVER, Color.BLACK);
+		
 		setExpansionBehavior(DEFAULT_EXPANSION_BEHAVIOR);
 	}
 	
@@ -524,7 +524,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	
 	//method
 	private boolean canCollapseAnExpandedTab() {
-		return !mustExpandAtLeastOneTabWhenNotEmpty() || getRefTabs().getCount(AccordionTab::isExpanded) > 1;
+		return (!mustExpandAtLeastOneTabWhenNotEmpty() || getRefTabs().getCount(AccordionTab::isExpanded) > 1);
 	}
 	
 	//method
@@ -535,7 +535,9 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	//method
 	private void expandWhenNotExpanded(final AccordionTab tab) {
 		
-		getRefTabs().forEach(AccordionTab::collapse);
+		if (mustExpandAtMostOneTab()) {
+			getRefTabs().forEach(AccordionTab::collapse);
+		}
 						
 		tab.expand();
 	}
