@@ -1655,6 +1655,8 @@ TopLeftPositionedRecangular {
 	@Override
 	protected final void resetConfigurableElement() {
 		
+		removeGreyOutWhenDisabled();
+		
 		setEnabled();
 		setExpanded();
 		setUnfocused();
