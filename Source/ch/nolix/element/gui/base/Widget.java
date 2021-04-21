@@ -1029,7 +1029,7 @@ TopLeftPositionedRecangular {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void resetConfigurationOnSelf() {
+	public final void resetElementConfiguration() {
 		
 		setCustomCursorIcon(DEFAULT_CURSOR_ICON);
 		getRefLook().reset();

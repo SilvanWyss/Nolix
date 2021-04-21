@@ -798,7 +798,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void resetConfigurationOnSelf() {
+	public void resetElementConfiguration() {
 		setContentPosition(DEFAULT_CONTENT_POSITION);
 	}
 	

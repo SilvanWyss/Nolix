@@ -67,14 +67,14 @@ TypeRequestable {
 	 */
 	default void resetConfiguration() {
 		
-		resetConfigurationOnSelf();
+		resetElementConfiguration();
 		
 		getSubConfigurables().forEach(IConfigurableElement::resetConfiguration);
 	}
 	
 	//method declaration
 	/**
-	 * Resets the configuration of the current {@link IConfigurableElement} on itself, and on itself only.
+	 * Resets the configuration of the current {@link IConfigurableElement}.
 	 */
-	void resetConfigurationOnSelf();
+	void resetElementConfiguration();
 }

@@ -69,7 +69,7 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 	
 	//method
 	@Override
-	public void resetConfigurationOnSelf() {
+	public void resetElementConfiguration() {
 		setCursorIcon(DEFAULT_CURSOR_ICON);
 	}
 	
