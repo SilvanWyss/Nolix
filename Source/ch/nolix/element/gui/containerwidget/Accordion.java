@@ -483,7 +483,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void resetBorderWidgetConfigurationOnSelf() {
+	protected void resetBorderWidgetConfiguration() {
 		getRefTabHeaderLook().reset();
 	}
 	

@@ -364,7 +364,7 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void resetBorderWidgetConfigurationOnSelf() {
+	protected final void resetBorderWidgetConfiguration() {
 		removeElementMargin();
 	}
 	

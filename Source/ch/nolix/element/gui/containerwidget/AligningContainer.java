@@ -378,7 +378,7 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 	
 	//method
 	@Override
-	protected void resetBorderWidgetConfigurationOnSelf() {}
+	protected void resetBorderWidgetConfiguration() {}
 	
 	//method
 	@Override

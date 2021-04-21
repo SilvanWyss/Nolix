@@ -392,7 +392,7 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void resetBorderWidgetConfigurationOnSelf() {}
+	protected void resetBorderWidgetConfiguration() {}
 	
 	//method
 	@Override

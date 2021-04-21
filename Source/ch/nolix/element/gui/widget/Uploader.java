@@ -98,7 +98,7 @@ public final class Uploader extends TextLineWidget<Uploader, UploaderLook> {
 	
 	//method
 	@Override
-	protected void resetBorderWidgetConfigurationOnSelf() {}
+	protected void resetBorderWidgetConfiguration() {}
 	
 	//method
 	@Override

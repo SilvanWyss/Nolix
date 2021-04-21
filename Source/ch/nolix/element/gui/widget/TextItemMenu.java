@@ -311,7 +311,7 @@ implements Clearable {
 	
 	//method
 	@Override
-	protected final void resetBorderWidgetConfigurationOnSelf() {}
+	protected final void resetBorderWidgetConfiguration() {}
 	
 	//method
 	@Override

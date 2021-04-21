@@ -185,7 +185,7 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void resetBorderWidgetConfigurationOnSelf() {}
+	protected void resetBorderWidgetConfiguration() {}
 	
 	//method
 	/**
