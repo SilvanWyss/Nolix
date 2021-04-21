@@ -54,7 +54,8 @@ implements
 EnablingRequestable,
 ExpansionRequestable,
 IInputActionManager<W>,
-IInputTaker, Recalculable,
+IInputTaker,
+Recalculable,
 TopLeftPositionedRecangular {
 	
 	//constant
