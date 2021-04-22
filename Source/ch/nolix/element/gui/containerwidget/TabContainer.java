@@ -2,14 +2,12 @@
 package ch.nolix.element.gui.containerwidget;
 
 //own imports
-import ch.nolix.common.constant.PluralLowerCaseCatalogue;
 import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.common.math.Calculator;
 import ch.nolix.element.base.MultiValue;
@@ -27,7 +25,7 @@ import ch.nolix.element.gui.widget.LabelLook;
 /**
  * @author Silvan Wyss
  * @date 2016-05-01
- * @lines 510
+ * @lines 500
  */
 public final class TabContainer extends ContainerWidget<TabContainer, TabContainerLook> {
 	
@@ -58,11 +56,7 @@ public final class TabContainer extends ContainerWidget<TabContainer, TabContain
 	 * Creates a new {@link TabContainer}.
 	 */
 	public TabContainer() {
-		
-		mainVerticalStack.addWidget(menu, currentTabContainer);
-		getRefLook().addChild(getRefMenuItemLook());
-		
-		getRefMenuItemLook().setBackgroundColorForState(WidgetLookState.HOVER, Color.LIGHT_GREY);
+		reset();
 	}
 	
 	//method
@@ -92,14 +86,11 @@ public final class TabContainer extends ContainerWidget<TabContainer, TabContain
 	 */
 	public TabContainer addTab(final TabContainerTab tab) {
 		
-		//Asserts that the given tab is not null.
-		Validator.assertThat(tab).thatIsNamed(PascalCaseCatalogue.TAB).isNotNull();
-		
-		//Adds the given tab to the current tab container.
+		//Adds the given tab to the current TabContainer.
 		tabs.add(tab);
 		menu.addWidget(tab.getRefMenuItem());
 		
-		//Selects the tab of the current TabContainer if the current TabContainer contains 1 tab.
+		//Selects the given tab if its the first tab of the current TabContainer.
 		if (getRefTabs().containsOne()) {
 			selectTab(tab);
 		}
@@ -113,13 +104,9 @@ public final class TabContainer extends ContainerWidget<TabContainer, TabContain
 	 * 
 	 * @param tabs
 	 * @return the current {@link TabContainer}.
-	 * @throws ArgumentIsNullException if the given tabs is null.
 	 * @throws ArgumentIsNullException if one of the given tabs is null.
 	 */
 	public TabContainer addTab(final TabContainerTab... tabs) {
-		
-		//Asserts that the given tabs is not null.
-		Validator.assertThat(tabs).thatIsNamed(PluralLowerCaseCatalogue.TABS).isNotNull();
 		
 		//Calls other method
 		return addTabs(ReadContainer.forArray(tabs));
@@ -131,13 +118,9 @@ public final class TabContainer extends ContainerWidget<TabContainer, TabContain
 	 * 
 	 * @param tabs
 	 * @return the current {@link TabContainer}.
-	 * @throws ArgumentIsNullException if the given tabs is null.
 	 * @throws ArgumentIsNullException if one of the given tabs is null.
 	 */
 	public TabContainer addTabs(final Iterable<TabContainerTab> tabs) {
-		
-		//Asserts that the given tabs is not null.
-		Validator.assertThat(tabs).thatIsNamed(PluralLowerCaseCatalogue.TABS).isNotNull();
 		
 		tabs.forEach(this::addTab);
 		
@@ -150,9 +133,6 @@ public final class TabContainer extends ContainerWidget<TabContainer, TabContain
 	 */
 	@Override
 	public void clear() {
-		
-		getRefTabs().forEach(TabContainerTab::unselect);
-		
 		tabs.clear();
 		menu.clear();
 		currentTabContainer.clear();
@@ -168,8 +148,7 @@ public final class TabContainer extends ContainerWidget<TabContainer, TabContain
 	
 	//method
 	/**
-	 * @return true if the current {@link TabContainer}
-	 * contains a selected tab with a widget.
+	 * @return true if the current {@link TabContainer} contains a selected tab with a {@link Widget}.
 	 */
 	public boolean containsSelectedTabWithWidget() {
 		return (containsSelectedTab() && getRefSelectedTab().containsAny());
@@ -241,15 +220,11 @@ public final class TabContainer extends ContainerWidget<TabContainer, TabContain
 	 * Selects the tab of the current {@link TabContainer} that has the given header.
 	 * 
 	 * @param header
-	 * @return the current {@link TabContainer}.
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link TabContainer} does not contain
 	 * a tab with the given header.
 	 */
-	public TabContainer selectTab(final String header) {
-		
+	public void selectTab(final String header) {
 		selectTab(getRefTabByHeader(header));
-		
-		return this;
 	}
 	
 	//method
@@ -257,18 +232,15 @@ public final class TabContainer extends ContainerWidget<TabContainer, TabContain
 	 * Lets the current {@link TabContainer} select the given tab.
 	 * 
 	 * @param tab
-	 * @return the {@link TabContainer}.
 	 */
-	public TabContainer selectTab(final TabContainerTab tab) {
+	public void selectTab(final TabContainerTab tab) {
 		
 		//Handles the case that the given tab is not already selected.
 		if (!tab.isSelected()) {
 			selectTabWhenNotSelected(tab);
 		}
-		
-		return this;
 	}
-		
+	
 	//method
 	/**
 	 * {@inheritDoc}
@@ -483,7 +455,12 @@ public final class TabContainer extends ContainerWidget<TabContainer, TabContain
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void resetBorderWidgetConfiguration() {}
+	protected void resetBorderWidgetConfiguration() {
+		
+		getRefMenuItemLook().reset();
+		
+		getRefMenuItemLook().setBackgroundColorForState(WidgetLookState.HOVER, Color.LIGHT_GREY);
+	}
 	
 	//method
 	/**
@@ -491,7 +468,14 @@ public final class TabContainer extends ContainerWidget<TabContainer, TabContain
 	 */
 	@Override
 	protected void resetContainerWidget() {
-		clear();
+		
+		mainVerticalStack.reset();
+		menu.reset();
+		
+		currentTabContainer.reset();
+		
+		mainVerticalStack.addWidget(menu, currentTabContainer);
+		getRefLook().addChild(getRefMenuItemLook());
 	}
 	
 	//method
