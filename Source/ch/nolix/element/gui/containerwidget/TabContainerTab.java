@@ -71,10 +71,8 @@ implements Clearable, Headerable<TabContainerTab>, IMutableElement<TabContainerT
 		Node::withAttribute
 	);
 	
-	//attribute
+	//attributes
 	private final Label menuItemLabel = new Label();
-	
-	//attribute
 	private final OptionalWidgetProperty widget = new OptionalWidgetProperty(this::setWidget);
 	
 	//constructor
@@ -82,12 +80,7 @@ implements Clearable, Headerable<TabContainerTab>, IMutableElement<TabContainerT
 	 * Creates a new {@link TabContainerTab}.
 	 */
 	public TabContainerTab() {
-		
 		reset();
-		
-		menuItemLabel
-		.setContentPosition(ContentPosition.CENTER)
-		.setCustomCursorIcon(CursorIcon.HAND);
 	}
 	
 	//method
@@ -179,16 +172,15 @@ implements Clearable, Headerable<TabContainerTab>, IMutableElement<TabContainerT
 	 */
 	@Override
 	public void reset() {
+		
+		menuItemLabel.reset();
+		
+		menuItemLabel
+		.setContentPosition(ContentPosition.CENTER)
+		.setCustomCursorIcon(CursorIcon.HAND);
+		
 		setHeader(DEFAULT_HEADER);
 		clear();
-	}
-	
-	//method
-	/**
-	 * Selects the current {@link TabContainerTab}.
-	 */
-	public void select() {
-		selectionFlag.setValue(Boolean.TRUE);
 	}
 	
 	//method
@@ -230,6 +222,14 @@ implements Clearable, Headerable<TabContainerTab>, IMutableElement<TabContainerT
 		return this;
 	}
 	
+	//method
+	/**
+	 * Selects the current {@link TabContainerTab}.
+	 */
+	void select() {
+		selectionFlag.setValue(Boolean.TRUE);
+	}
+
 	//method
 	/**
 	 * Unselects the current {@link TabContainerTab}.
