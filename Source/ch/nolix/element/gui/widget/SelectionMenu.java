@@ -8,7 +8,7 @@ import ch.nolix.element.gui.containerwidget.VerticalStack;
 import ch.nolix.element.gui.painterapi.IPainter;
 
 //class
-public final class SelectionMenu extends TextItemMenu<SelectionMenu> {
+public final class SelectionMenu extends ItemMenu<SelectionMenu> {
 	
 	//attribute
 	private final VerticalStack menu = new VerticalStack();
@@ -68,18 +68,18 @@ public final class SelectionMenu extends TextItemMenu<SelectionMenu> {
 	//method
 	@Override
 	protected int getNaturalContentAreaHeight() {
-		return getRefItems().getSumByInt(TextItemMenuItem::getHeight);
+		return getRefItems().getSumByInt(ItemMenuItem::getHeight);
 	}
 	
 	//method
 	@Override
 	protected int getNaturalContentAreaWidth() {
-		return getRefItems().getMaxIntOrZero(TextItemMenuItem::getWidth);
+		return getRefItems().getMaxIntOrZero(ItemMenuItem::getWidth);
 	}
 	
 	//method
 	@Override
-	protected void noteAddItem(final TextItemMenuItem itemMenuItem) {
+	protected void noteAddItem(final ItemMenuItem itemMenuItem) {
 		menu.addWidget(itemMenuItem.getRefLabel());
 	}
 
@@ -98,14 +98,14 @@ public final class SelectionMenu extends TextItemMenu<SelectionMenu> {
 	
 	//method
 	@Override
-	protected void noteSelectItem(TextItemMenuItem item) {}
+	protected void noteSelectItem(ItemMenuItem item) {}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void paintContentArea(final IPainter painter, final TextItemMenuLook textItemMenuLook) {}
+	protected void paintContentArea(final IPainter painter, final ItemMenuLook itemMenuLook) {}
 	
 	//method
 	@Override

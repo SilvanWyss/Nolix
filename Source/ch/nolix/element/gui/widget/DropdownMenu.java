@@ -13,7 +13,7 @@ import ch.nolix.element.gui.input.Key;
 import ch.nolix.element.gui.painterapi.IPainter;
 
 //class
-public final class DropdownMenu extends TextItemMenu<DropdownMenu> {
+public final class DropdownMenu extends ItemMenu<DropdownMenu> {
 	
 	//constant
 	private static final int MIN_LABEL_WIDTH = 10;
@@ -99,7 +99,7 @@ public final class DropdownMenu extends TextItemMenu<DropdownMenu> {
 	
 	//method
 	@Override
-	protected void noteAddItem(TextItemMenuItem item) {
+	protected void noteAddItem(ItemMenuItem item) {
 		if (hasMenuExpanded()) {
 			expandedDropdownMenu.addItem(item.getText());
 		}
@@ -121,13 +121,13 @@ public final class DropdownMenu extends TextItemMenu<DropdownMenu> {
 	
 	//method
 	@Override
-	protected void noteSelectItem(final TextItemMenuItem item) {
+	protected void noteSelectItem(final ItemMenuItem item) {
 		originLabel.setText(item.getText());
 	}
 	
 	//method
 	@Override
-	protected void paintContentArea(final IPainter painter, final TextItemMenuLook textItemMenuLook) {}
+	protected void paintContentArea(final IPainter painter, final ItemMenuLook itemMenuLook) {}
 	
 	//method
 	@Override
@@ -182,7 +182,7 @@ public final class DropdownMenu extends TextItemMenu<DropdownMenu> {
 		new SelectionMenu()
 		.setCustomCursorIcon(CursorIcon.EDIT)
 		.setMaxHeight(getParentGUI().getViewAreaHeight() - getYPositionOnGUI() - getHeight())
-		.addItems(getRefItems().to(TextItemMenuItem::getText));
+		.addItems(getRefItems().to(ItemMenuItem::getText));
 		
 		expandedDropdownMenu.getRefLook().setBorderThicknessForState(WidgetLookState.BASE, 1);
 						
@@ -229,7 +229,7 @@ public final class DropdownMenu extends TextItemMenu<DropdownMenu> {
 	}
 	
 	//method
-	private void selectAndCollapse(final TextItemMenuItem item) {
+	private void selectAndCollapse(final ItemMenuItem item) {
 		selectItem(this.getRefItems().getRefFirst(i -> i.hasText(item.getText())));
 		collapse();
 	}

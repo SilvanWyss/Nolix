@@ -19,26 +19,26 @@ import ch.nolix.element.elementenum.RotationDirection;
 import ch.nolix.element.gui.input.Key;
 
 //class
-public abstract class TextItemMenu<TIM extends TextItemMenu<TIM>> extends BorderWidget<TIM, TextItemMenuLook>
+public abstract class ItemMenu<TIM extends ItemMenu<TIM>> extends BorderWidget<TIM, ItemMenuLook>
 implements Clearable {
 	
 	//constant
 	private static final String ITEM_HEADER = "Item";
 	
 	//attribute
-	private final MultiValue<TextItemMenuItem> items =
+	private final MultiValue<ItemMenuItem> items =
 	new MultiValue<>(
 		PascalCaseCatalogue.ITEM,
 		this::addItem,
-		TextItemMenuItem::fromSpecification,
-		TextItemMenuItem::getSpecification
+		ItemMenuItem::fromSpecification,
+		ItemMenuItem::getSpecification
 	);
 	
 	//attribute
 	private final SubElement<LabelLook> itemLook = new SubElement<>(ITEM_HEADER, new LabelLook());
 	
 	//optional attribute
-	private IElementTaker<TextItemMenuItem> selectAction;
+	private IElementTaker<ItemMenuItem> selectAction;
 	
 	//method
 	public final TIM addEmtyItem() {
@@ -47,7 +47,7 @@ implements Clearable {
 	
 	//method
 	public final TIM addItem(final String item) {
-		return addItem(new TextItemMenuItem(item));
+		return addItem(new ItemMenuItem(item));
 	}
 	
 	//method
@@ -56,22 +56,22 @@ implements Clearable {
 	}
 	
 	//method
-	public final TIM addItem(final String item, final IElementTaker<TextItemMenu<?>> selectAction) {
-		return addItem(new TextItemMenuItem(item, selectAction));
+	public final TIM addItem(final String item, final IElementTaker<ItemMenu<?>> selectAction) {
+		return addItem(new ItemMenuItem(item, selectAction));
 	}
 	
 	//method
 	public final TIM addItem(final String id, final String item) {
-		return addItem(new TextItemMenuItem(id, item));
+		return addItem(new ItemMenuItem(id, item));
 	}
 	
 	//method
-	public final TIM addItem(final String id, final String item, final IElementTaker<TextItemMenu<?>> selectAction) {
-		return addItem(new TextItemMenuItem(id, item, selectAction));
+	public final TIM addItem(final String id, final String item, final IElementTaker<ItemMenu<?>> selectAction) {
+		return addItem(new ItemMenuItem(id, item, selectAction));
 	}
 	
 	//method
-	public final TIM addItem(final TextItemMenuItem item) {
+	public final TIM addItem(final ItemMenuItem item) {
 		
 		Validator.assertThat(item).thatIsNamed(LowerCaseCatalogue.ITEM).isNotNull();
 		
@@ -116,7 +116,7 @@ implements Clearable {
 	
 	//method
 	public final boolean containsSelectedItem() {
-		return getRefItems().contains(TextItemMenuItem::isSelected);
+		return getRefItems().contains(ItemMenuItem::isSelected);
 	}
 	
 	//method
@@ -130,7 +130,7 @@ implements Clearable {
 	}
 	
 	//method
-	public final TextItemMenuItem getRefFirstItem() {
+	public final ItemMenuItem getRefFirstItem() {
 		return getRefItems().getRefFirst();
 	}
 	
@@ -140,16 +140,16 @@ implements Clearable {
 	}
 	
 	//method
-	public final IContainer<TextItemMenuItem> getRefItems() {
+	public final IContainer<ItemMenuItem> getRefItems() {
 		return items;
 	}
 	
 	//method
-	public final TextItemMenuItem getRefSelectedItem() {
+	public final ItemMenuItem getRefSelectedItem() {
 		
 		assertContainsSelectedItem();
 		
-		return getRefItems().getRefFirst(TextItemMenuItem::isSelected);
+		return getRefItems().getRefFirst(ItemMenuItem::isSelected);
 	}
 	
 	//method
@@ -197,7 +197,7 @@ implements Clearable {
 	}
 	
 	//method
-	public final TIM setSelectAction(final IElementTaker<TextItemMenuItem> selectAction) {
+	public final TIM setSelectAction(final IElementTaker<ItemMenuItem> selectAction) {
 		
 		Validator.assertThat(selectAction).thatIsNamed("select action").isNotNull();
 		
@@ -210,7 +210,7 @@ implements Clearable {
 	//For a better performance, this implementation does not use all comfortable methods.
 	public final TIM unselectItems() {
 		
-		final var selectedItem = items.getRefFirstOrNull(TextItemMenuItem::isSelected);
+		final var selectedItem = items.getRefFirstOrNull(ItemMenuItem::isSelected);
 		
 		if (selectedItem != null) {
 			selectedItem.unselect();
@@ -227,17 +227,17 @@ implements Clearable {
 	
 	//method
 	@Override
-	protected final TextItemMenuLook createLook() {
-		return new TextItemMenuLook();
+	protected final ItemMenuLook createLook() {
+		return new ItemMenuLook();
 	}
 	
 	//method
 	protected final IContainer<Label> getRefItemLables() {
-		return getRefItems().to(TextItemMenuItem::getRefLabel);
+		return getRefItems().to(ItemMenuItem::getRefLabel);
 	}
 	
 	//method declaration
-	protected abstract void noteAddItem(final TextItemMenuItem item);
+	protected abstract void noteAddItem(final ItemMenuItem item);
 	
 	//method declaration
 	protected abstract void noteClear();
@@ -293,7 +293,7 @@ implements Clearable {
 	protected final void noteRightMouseButtonReleaseOnContentAreaWhenEnabled() {}
 	
 	//method declaration
-	protected abstract void noteSelectItem(TextItemMenuItem item);
+	protected abstract void noteSelectItem(ItemMenuItem item);
 	
 	//method
 	@Override
@@ -321,7 +321,7 @@ implements Clearable {
 	}
 	
 	//method
-	protected final void selectItem(final TextItemMenuItem item) {
+	protected final void selectItem(final ItemMenuItem item) {
 				
 		unselectItems();
 		
@@ -353,7 +353,7 @@ implements Clearable {
 	
 	//method
 	//For a better performance, this implementation does not use all comfortable methods.
-	private void runProbableSelectActionFor(final TextItemMenuItem item) {
+	private void runProbableSelectActionFor(final ItemMenuItem item) {
 		if (selectAction != null) {
 			selectAction.run(item);
 		}

@@ -14,7 +14,7 @@ import ch.nolix.element.gui.widget.CheckBox;
 import ch.nolix.element.gui.widget.Console;
 import ch.nolix.element.gui.widget.Downloader;
 import ch.nolix.element.gui.widget.LabelRole;
-import ch.nolix.element.gui.widget.TextItemMenu;
+import ch.nolix.element.gui.widget.ItemMenu;
 import ch.nolix.element.configuration.Configuration;
 
 //class
@@ -189,7 +189,7 @@ public final class AnthrazitGUILookCreator {
 	private DeepConfiguration createTextItemMenuLook() {
 		return
 		new DeepConfiguration()
-		.setSelectorType(TextItemMenu.class)
+		.setSelectorType(ItemMenu.class)
 		.addAttachingAttribute(
 			"MinWidth(200)",
 			"MaxHeight(200)",
