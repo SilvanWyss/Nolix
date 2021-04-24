@@ -45,7 +45,7 @@ import ch.nolix.element.gui.painterapi.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 2110
+ * @lines 2080
  * @param <W> is the type of a {@link Widget}.
  * @param <WL> is the type of the {@link OldWidgetLook} of a {@link Widget}.
  */
@@ -404,24 +404,12 @@ TopLeftPositionedRecangular {
 	
 	//method
 	/** 
-	 * @return the paintable {@link Widget}s of the current {@link Widget}.
+	 * @return the {@link Widget}s of the current {@link Widget} that have to be painted.
 	 */
 	public final LinkedList<Widget<?, ?>> getRefWidgetsForPainting() {
 		
 		final var widgetsForPainting = new LinkedList<Widget<?, ?>>();
 		fillUpWidgetsForPainting(widgetsForPainting);
-		
-		return widgetsForPainting;
-	}
-	
-	//method
-	/** 
-	 * @return the paintable {@link Widget}s of the current {@link Widget} recursively.
-	 */
-	public final LinkedList<Widget<?, ?>> getRefPaintableWidgetsRecursively() {
-		
-		final var widgetsForPainting = new LinkedList<Widget<?, ?>>();
-		fillUpWidgetsForPaintingRecursively(widgetsForPainting);
 		
 		return widgetsForPainting;
 	}
@@ -1604,9 +1592,9 @@ TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * @return true if the current {@link Widget} paints its paintable {@link Widget}s a priori.
+	 * @return true if the current {@link Widget} paints its {@link Widget}s, that have to be painted, a priori.
 	 */
-	protected boolean paintsPaintableWidgetAPriori() {
+	protected boolean paintsWidgetsForPaintingAPriori() {
 		return true;
 	}
 	
@@ -1752,18 +1740,6 @@ TopLeftPositionedRecangular {
 	private void fillUpChildWidgetsRecursively(final LinkedList<Widget<?, ?>> list) {
 		fillUpChildWidgets(list);
 		getChildWidgets().forEach(w -> w.fillUpChildWidgetsRecursively(list));
-	}
-	
-	//method
-	/**
-	 * Fills up recursively the {@link Widget}s of the current {@link Widget},
-	 * that are for painting, into the given list.
-	 * 
-	 * @param list
-	 */
-	private void fillUpWidgetsForPaintingRecursively(final LinkedList<Widget<?, ?>> list) {
-		fillUpWidgetsForPainting(list);
-		getRefWidgetsForPainting().forEach(w -> w.fillUpWidgetsForPaintingRecursively(list));
 	}
 	
 	//method
@@ -1968,7 +1944,7 @@ TopLeftPositionedRecangular {
 		
 		paint(painter, getRefLook());
 		
-		if (paintsPaintableWidgetAPriori()) {
+		if (paintsWidgetsForPaintingAPriori()) {
 			getRefWidgetsForPainting().forEach(w -> w.paintRecursively(painter));
 		}
 	}

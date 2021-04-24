@@ -1297,7 +1297,7 @@ extends Widget<BW, BWL> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected boolean paintsPaintableWidgetAPriori() {
+	protected boolean paintsWidgetsForPaintingAPriori() {
 		return false;
 	}
 	
