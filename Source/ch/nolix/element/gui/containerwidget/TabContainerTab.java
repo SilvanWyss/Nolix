@@ -25,7 +25,7 @@ import ch.nolix.element.gui.widget.Label;
 /**
  * @author Silvan Wyss
  * @date 2016-05-01
- * @lines 360
+ * @lines 250
  */
 public final class TabContainerTab extends Element<TabContainerTab>
 implements Clearable, Headerable<TabContainerTab>, IMutableElement<TabContainerTab> {
@@ -66,13 +66,7 @@ implements Clearable, Headerable<TabContainerTab>, IMutableElement<TabContainerT
 	new MutableValue<>(
 		SELECTION_FLAG_HEADER,
 		DEFAULT_SELECTION_FLAG,
-		ef -> {
-			if (ef.booleanValue()) {
-				select();
-			} else {
-				unselect();
-			}
-		},
+		this::setSelectionFlag,
 		BaseNode::getOneAttributeAsBoolean,
 		Node::withAttribute
 	);
@@ -250,5 +244,14 @@ implements Clearable, Headerable<TabContainerTab>, IMutableElement<TabContainerT
 	 */
 	Label getRefMenuItem() {
 		return menuItemLabel;
+	}
+	
+	//method
+	private void setSelectionFlag(final boolean selected) {
+		if (!selected) {
+			unselect();
+		} else {
+			select();
+		}
 	}
 }
