@@ -353,11 +353,8 @@ public abstract class ItemMenu<IM extends ItemMenu<IM>> extends BorderWidget<IM,
 	//method
 	@Override
 	protected final void recalculateBorderWidget() {
-		
 		getRefItems().forEach(ItemMenuItem::recalculate);
-		
 		recalculateSizes();
-		
 		recalculateItemMenu();
 	}
 	
@@ -369,6 +366,7 @@ public abstract class ItemMenu<IM extends ItemMenu<IM>> extends BorderWidget<IM,
 	protected final void resetBorderWidget() {
 		clear();
 		removeSelectAction();
+		resetItemMenu();
 	}
 	
 	//method
@@ -377,6 +375,9 @@ public abstract class ItemMenu<IM extends ItemMenu<IM>> extends BorderWidget<IM,
 		getRefItemLook().reset();
 		getRefSelectedItemLook().reset();
 	}
+	
+	//method declaration
+	protected abstract void resetItemMenu();
 	
 	//method
 	final void noteSelectItem(final ItemMenuItem item) {
@@ -423,7 +424,7 @@ public abstract class ItemMenu<IM extends ItemMenu<IM>> extends BorderWidget<IM,
 		final var itemLabels = getRefItemLabels();
 		final var itemWidth = Calculator.getMax(10, itemLabels.getMaxIntOrDefaultValue(Label::getNaturalWidth, 10));
 		for (final var il : itemLabels) {
-			il.setProposalWidth(itemWidth);
+			il.setMinWidth(itemWidth);
 		}
 	}
 	

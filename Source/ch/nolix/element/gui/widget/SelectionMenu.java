@@ -79,4 +79,10 @@ public final class SelectionMenu extends ItemMenu<SelectionMenu> {
 	//method
 	@Override
 	protected void recalculateItemMenu() {}
+	
+	//method
+	@Override
+	protected void resetItemMenu() {
+		mainVerticalStack.reset();
+	}
 }
