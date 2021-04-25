@@ -14,7 +14,6 @@ import ch.nolix.common.errorcontrol.exception.WrapperException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.element.elementapi.IRespondingMutableElement;
-import ch.nolix.element.layerelement.LayerProperty;
 
 //class
 public abstract class FormatElement<FE extends FormatElement<FE, S>, S extends Enum<S>>
@@ -201,7 +200,7 @@ implements IRespondingMutableElement<FE> {
 			@SuppressWarnings("unchecked")
 			final var property = (Property<S, ?>)(field.get(this));
 			
-			Validator.assertThat(property).isOfType(LayerProperty.class);
+			Validator.assertThat(property).isOfType(Property.class);
 			
 			return property;
 		} catch (final IllegalAccessException illegalAccessException) {
