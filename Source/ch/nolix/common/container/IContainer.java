@@ -36,7 +36,7 @@ import ch.nolix.common.functionapi.IElementTakerLongGetter;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 2110
+ * @lines 2130
  * @param <E> is the type of the elements a {@link IContainer} can store.
  */
 public interface IContainer<E> extends Iterable<E> {
@@ -2043,6 +2043,27 @@ public interface IContainer<E> extends Iterable<E> {
 		}
 		
 		return withoutFirst(1);
+	}
+	
+	//method
+	/**
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
+	 * @param element
+	 * @return a new sub {@link IContainer} from the current {@link IContainer} without
+	 * the first occurrence of the given element.
+	 */
+	@SuppressWarnings("unchecked")
+	default IContainer<E> withoutFirst(final E element) {
+		
+		final var indexContainer = getOptionalIndexOfFirst(element);
+		
+		if (indexContainer.isEmpty()) {
+			return this;
+		}
+		
+		final var index = indexContainer.getRefElement();
+		return ReadContainer.forIterables(withoutLast(index + 1), withoutFirst(index - 1));
 	}
 	
 	//method
