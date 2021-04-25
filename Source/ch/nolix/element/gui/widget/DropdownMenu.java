@@ -147,6 +147,8 @@ public final class DropdownMenu extends ItemMenu<DropdownMenu> {
 		
 		//Configures the look of the expandedDropdownMenu.
 		expandedDropdownMenu.getRefLook().setFrom(getRefLook());
+		expandedDropdownMenu.getRefItemLook().setFrom(getRefItemLook());
+		expandedDropdownMenu.getRefSelectedItemLook().setFrom(getRefSelectedItemLook());
 		expandedDropdownMenu.getRefLook().setBorderThicknessForState(WidgetLookState.BASE, 1);
 		
 		//Recalculates the expandedDropdownMenu again twice.
