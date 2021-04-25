@@ -38,6 +38,8 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 	 */
 	public Button() {
 		
+		reset();
+		
 		setMinWidth(100);
 		setContentPosition(ContentPosition.CENTER);
 		
