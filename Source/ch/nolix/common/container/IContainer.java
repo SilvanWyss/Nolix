@@ -36,7 +36,7 @@ import ch.nolix.common.functionapi.IElementTakerLongGetter;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 2080
+ * @lines 2110
  * @param <E> is the type of the elements a {@link IContainer} can store.
  */
 public interface IContainer<E> extends Iterable<E> {
@@ -752,6 +752,33 @@ public interface IContainer<E> extends Iterable<E> {
 	 */
 	default long getMinLong(IElementTakerLongGetter<E> longNorm) {
 		return longNorm.getOutput(getRefByMinLong(longNorm));
+	}
+	
+	//method
+	/**
+	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * 
+	 * @param element
+	 * @return a new {@link SingleContainer} with the index of the first occurrence of the given element
+	 * in the current {@link IContainer} if the current {@link IContainer} contains the given element.
+	 * Otherwise a new empty {@link SingleContainer}.
+	 */
+	default SingleContainer<Integer> getOptionalIndexOfFirst(final E element) {
+		
+		//Iterates the current IContainer.
+		var i = 1;
+		for (final var e : this) {
+			
+			//Handles the case that the current element is the given element.
+			if (e == element) {
+				return new SingleContainer<>(i);
+			}
+			
+			//Handles the case that the current element is not the given element.
+			i++;
+		}
+		
+		return new SingleContainer<>();
 	}
 	
 	//method
