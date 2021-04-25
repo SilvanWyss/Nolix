@@ -16,7 +16,7 @@ import ch.nolix.element.gui.painterapi.IPainter;
  * @date 2020-12-19
  * @lines 240
  * @param <BWL> is the type
- * of the {@link OldBorderWidgetLook} of the {@link BorderWidget} of a {@link BorderWidgetExtendedContentArea}.
+ * of the {@link BorderWidgetLook} of the {@link BorderWidget} of a {@link BorderWidgetExtendedContentArea}.
  */
 public final class BorderWidgetExtendedContentArea<BWL extends BorderWidgetLook<BWL>> implements Rectangular {
 	

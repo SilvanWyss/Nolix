@@ -15,7 +15,7 @@ import ch.nolix.element.gui.painterapi.IPainter;
 * @author Silvan Wyss
 * @date 2020-02-03
 * @lines 200
-* @param <BWL> is the type of the {@link OldBorderWidgetLook}
+* @param <BWL> is the type of the {@link BorderWidgetLook}
 * of the {@link BorderWidget} a {@link BorderWidgetHorizontalScrollBarCursor} belongs to.
 */
 public final class BorderWidgetHorizontalScrollBarCursor<BWL extends BorderWidgetLook<BWL>>

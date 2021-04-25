@@ -15,7 +15,6 @@ import ch.nolix.common.skillapi.Clearable;
 import ch.nolix.element.gui.base.Widget;
 import ch.nolix.element.gui.widget.BorderWidget;
 import ch.nolix.element.gui.widget.BorderWidgetLook;
-import ch.nolix.element.gui.widget.OldBorderWidgetLook;
 
 //class
 /**
@@ -25,7 +24,7 @@ import ch.nolix.element.gui.widget.OldBorderWidgetLook;
  * @date 2016-01-01
  * @lines 170
  * @param <CW> is the type of a {@link ContainerWidget}.
- * @param <BWS> is the type of the {@link OldBorderWidgetLook} of a {@link ContainerWidget}.
+ * @param <BWS> is the type of the {@link BorderWidgetLook} of a {@link ContainerWidget}.
  */
 public abstract class ContainerWidget<CW extends ContainerWidget<CW, BWS>, BWS extends BorderWidgetLook<BWS>>
 extends BorderWidget<CW, BWS> implements Clearable {

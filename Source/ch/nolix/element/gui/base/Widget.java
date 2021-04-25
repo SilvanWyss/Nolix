@@ -47,7 +47,7 @@ import ch.nolix.element.gui.painterapi.IPainter;
  * @date 2016-01-01
  * @lines 2080
  * @param <W> is the type of a {@link Widget}.
- * @param <WL> is the type of the {@link OldWidgetLook} of a {@link Widget}.
+ * @param <WL> is the type of the {@link WidgetLook} of a {@link Widget}.
  */
 public abstract class Widget<W extends Widget<W, WL>, WL extends WidgetLook<WL>> extends ConfigurableElement<W>
 implements
