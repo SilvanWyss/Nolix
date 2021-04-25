@@ -23,7 +23,7 @@ import ch.nolix.element.gui.painterapi.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 350
+ * @lines 370
  * @param <S> is the type of a {@link Stack}.
  */
 public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, StackLook> {
@@ -42,14 +42,6 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	
 	//multi-attribute
 	private final LinkedList<Widget<?, ?>> widgets = new LinkedList<>();
-	
-	//constructor
-	/**
-	 * Creates a new {@link Stack}.
-	 */
-	public Stack() {
-		setElementMargin(10);
-	}
 	
 	//method
 	/**
