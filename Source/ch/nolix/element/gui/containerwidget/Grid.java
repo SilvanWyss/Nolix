@@ -293,7 +293,7 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 	
 	//method
 	@Override
-	protected final void paintContentArea(final IPainter painter, final GridLook gridLook) {
+	protected void paintContentArea(final IPainter painter, final GridLook gridLook) {
 			
 			painter.setColor(gridLook.getGridColor());
 			
