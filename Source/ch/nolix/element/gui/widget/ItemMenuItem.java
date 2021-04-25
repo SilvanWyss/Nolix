@@ -5,22 +5,27 @@ package ch.nolix.element.gui.widget;
 import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.errorcontrol.validator.Validator;
+import ch.nolix.common.attributeapi.optionalattributeapi.OptionalIdentifiedByString;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.element.base.Element;
 import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.base.OptionalValue;
 import ch.nolix.element.base.Value;
+import ch.nolix.element.gui.base.IWidgetGUI;
 
 //class
-public final class ItemMenuItem extends Element<ItemMenuItem> {
+public final class ItemMenuItem extends Element<ItemMenuItem> implements OptionalIdentifiedByString {
 	
-	//constant
+	//constants
 	public static final boolean DEFAULT_SELECTION_FLAG = false;
+	public static final String EMPTY_ITEM_TEXT = "";
 	
-	//constant
+	//constants
+	private static final String ROLE_HEADER = PascalCaseCatalogue.ROLE;
 	private static final String SELECTION_FLAG_HEADER = "Selected";
 	
 	//static method
@@ -29,7 +34,13 @@ public final class ItemMenuItem extends Element<ItemMenuItem> {
 	}
 	
 	//attribute
-	private ItemMenu<?> parentItemMenu;
+	private final Value<ItemMenuItemRole> role =
+	new Value<>(
+		ROLE_HEADER,
+		this::setRole,
+		ItemMenuItemRole::fromSpecification,
+		ItemMenuItemRole::getSpecification
+	);
 	
 	//attribute
 	private final Value<String> text =
@@ -62,16 +73,24 @@ public final class ItemMenuItem extends Element<ItemMenuItem> {
 	//attribute
 	private final Label label = new Label();
 	
-	//optional attribute
-	private IElementTaker<ItemMenu<?>> selectCommand;
+	//optional attributes
+	private ItemMenu<?> parentMenu;
+	private IElementTaker<ItemMenuItem> selectCommand;
+	
+	//constructor
+	public ItemMenuItem() {
+		setRole(ItemMenuItemRole.EMPTY_ITEM);
+		setText(EMPTY_ITEM_TEXT);
+	}
 	
 	//constructor
 	public ItemMenuItem(final String text) {
+		setRole(ItemMenuItemRole.NORMAL_ITEM);
 		setText(text);
 	}
 	
 	//constructor
-	public ItemMenuItem(final String text, final IElementTaker<ItemMenu<?>> selectCommand) {
+	public ItemMenuItem(final String text, final IElementTaker<ItemMenuItem> selectCommand) {
 		
 		this(text);
 		
@@ -89,7 +108,7 @@ public final class ItemMenuItem extends Element<ItemMenuItem> {
 	}
 	
 	//constructor
-	public ItemMenuItem(final String id, final String text, final IElementTaker<ItemMenu<?>> selectCommand) {
+	public ItemMenuItem(final String id, final String text, final IElementTaker<ItemMenuItem> selectCommand) {
 		
 		this(text, selectCommand);
 		
@@ -103,8 +122,24 @@ public final class ItemMenuItem extends Element<ItemMenuItem> {
 	}
 	
 	//method
+	public boolean belongsToMenu() {
+		return (parentMenu != null);
+	}
+	
+	//method
+	@Override
 	public String getId() {
 		return id.getValue();
+	}
+	
+	//mehtod
+	public IWidgetGUI<?> getParentGUI() {
+		return getParentMenu().getParentGUI();
+	}
+	
+	//method
+	public ItemMenuItemRole getRole() {
+		return role.getValue();
 	}
 	
 	//method
@@ -113,13 +148,9 @@ public final class ItemMenuItem extends Element<ItemMenuItem> {
 	}
 	
 	//method
+	@Override
 	public boolean hasId() {
 		return id.hasValue();
-	}
-	
-	//method
-	public boolean hasId(final String id) {
-		return (this.id.hasValue() && this.id.getValue().equals(id));
 	}
 	
 	//method
@@ -133,39 +164,38 @@ public final class ItemMenuItem extends Element<ItemMenuItem> {
 	}
 	
 	//method
+	public boolean isEmptyItem() {
+		return (getRole() == ItemMenuItemRole.EMPTY_ITEM);
+	}
+	
+	//method
+	public boolean isNormalItem() {
+		return (getRole() == ItemMenuItemRole.NORMAL_ITEM);
+	}
+	
+	//method
 	public boolean isSelected() {
 		return selectionFlag.getValue();
 	}
 	
 	//method
-	public void setParentMenu(final ItemMenu<?> parentItemMenu) {
+	//For a better performance, this implementation does not use all comfortable methods.
+	public void select() {
 		
-		Validator.assertThat(parentItemMenu).thatIsNamed("parent item menu").isNotNull();
-		
-		this.parentItemMenu = parentItemMenu;
-	}
-	
-	//method
-	void select() {
-				
 		selectionFlag.setValue(true);
-		label.setFocused();
 		
-		if (hasSelectCommand()) {
-			selectCommand.run(getParentItemMenu());
+		if (parentMenu != null) {
+			parentMenu.noteSelectItem(this);
 		}
+		
+		runOptionalSelectCommand();
 	}
 	
 	//method
-	void unselect() {
-		
+	public void unselect() {
 		selectionFlag.setValue(false);
-		
-		label
-		.setUnfocused()
-		.setUnhovered();
 	}
-	
+
 	//method
 	int getHeight() {
 		return label.getHeight();
@@ -180,15 +210,59 @@ public final class ItemMenuItem extends Element<ItemMenuItem> {
 	int getWidth() {
 		return label.getWidth();
 	}
+		
+	//method
+	void recalculate() {
+		label.getRefLook().setFrom(getRefItemLook());
+	}
+
+	//method
+	void setParentMenu(final ItemMenu<?> parentMenu) {
+		
+		Validator.assertThat(parentMenu).thatIsNamed("parent menu").isNotNull();
+		assertDoesNotBelonToMenu();
+		
+		this.parentMenu = parentMenu;
+	}
 	
 	//method
-	private ItemMenu<?> getParentItemMenu() {
-		
-		if (parentItemMenu == null) {
+	private void assertBelongsToMenu() {
+		if (!belongsToMenu()) {
 			throw new ArgumentDoesNotHaveAttributeException(this, "parent item menu");
 		}
+	}
+
+	//method
+	private void assertDoesNotBelonToMenu() {
+		if (belongsToMenu()) {
+			throw new ArgumentBelongsToParentException(this, ItemMenu.class);
+		}
+	}
+
+	//method
+	//For a better performance, this implementation does not use all comfortable methods.
+	private ItemMenu<?> getParentMenu() {
 		
-		return parentItemMenu;
+		assertBelongsToMenu();
+		
+		return parentMenu;
+	}
+	
+	//method
+	private LabelLook getRefItemLook() {
+		
+		if (!isSelected()) {
+			return getParentMenu().getRefItemLook();
+		}
+		
+		return getParentMenu().getRefSelectedItemLook();
+	}
+	
+	//method
+	private void runOptionalSelectCommand() {
+		if (selectCommand != null) {
+			selectCommand.run(this);
+		}
 	}
 	
 	//method
@@ -197,6 +271,11 @@ public final class ItemMenuItem extends Element<ItemMenuItem> {
 		Validator.assertThat(id).thatIsNamed(LowerCaseCatalogue.ID).isNotBlank();
 		
 		this.id.setValue(id);
+	}
+	
+	//method
+	private void setRole(final ItemMenuItemRole role) {
+		this.role.setValue(role);
 	}
 	
 	//method

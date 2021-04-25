@@ -15,7 +15,7 @@ public final class SelectionMenu extends ItemMenu<SelectionMenu> {
 	
 	//constructor
 	public SelectionMenu() {
-		
+		reset();
 		menu.setElementMargin(0);
 		
 		//TODO
@@ -48,10 +48,10 @@ public final class SelectionMenu extends ItemMenu<SelectionMenu> {
 	@Override
 	public void noteLeftMouseButtonPressOnContentAreaWhenEnabled() {
 				
-		var selectedItem = getRefItems().getRefFirstOrNull(i -> i.getRefLabel().isUnderCursor());
+		var itemUnderCursor = getRefItems().getRefFirstOrNull(i -> i.getRefLabel().isUnderCursor());
 		
-		if (selectedItem != null) {
-			selectItem(selectedItem);
+		if (itemUnderCursor != null) {
+			itemUnderCursor.select();
 		}
 	}
 	
@@ -98,7 +98,7 @@ public final class SelectionMenu extends ItemMenu<SelectionMenu> {
 	
 	//method
 	@Override
-	protected void noteSelectItem(ItemMenuItem item) {}
+	protected void noteSelectItem2(final ItemMenuItem item) {}
 	
 	//method
 	/**
@@ -109,5 +109,5 @@ public final class SelectionMenu extends ItemMenu<SelectionMenu> {
 	
 	//method
 	@Override
-	protected void recalculateTextItemMenu() {}
+	protected void recalculateItemMenu() {}
 }

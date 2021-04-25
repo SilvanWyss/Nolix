@@ -3,11 +3,9 @@ package ch.nolix.element.gui.widget;
 
 //own imports
 import ch.nolix.common.constant.PascalCaseCatalogue;
-import ch.nolix.common.constant.StringCatalogue;
-import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.ReadContainer;
-import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.functionapi.IAction;
@@ -19,61 +17,68 @@ import ch.nolix.element.elementenum.RotationDirection;
 import ch.nolix.element.gui.input.Key;
 
 //class
-public abstract class ItemMenu<TIM extends ItemMenu<TIM>> extends BorderWidget<TIM, ItemMenuLook>
-implements Clearable {
+public abstract class ItemMenu<IM extends ItemMenu<IM>> extends BorderWidget<IM, ItemMenuLook> implements Clearable {
 	
-	//constant
-	private static final String ITEM_HEADER = "Item";
+	//constants
+	private static final String ITEM_HEADER = PascalCaseCatalogue.ITEM;
+	private static final String ITEM_LOOK_HEADER = "ItemLook";
+	private static final String SELECTED_ITEM_LOOK_HEADER = "SelectedItemLook";
 	
 	//attribute
 	private final MultiValue<ItemMenuItem> items =
 	new MultiValue<>(
-		PascalCaseCatalogue.ITEM,
+			ITEM_HEADER,
 		this::addItem,
 		ItemMenuItem::fromSpecification,
 		ItemMenuItem::getSpecification
 	);
 	
 	//attribute
-	private final SubElement<LabelLook> itemLook = new SubElement<>(ITEM_HEADER, new LabelLook());
+	private final SubElement<LabelLook> itemLook = new SubElement<>(ITEM_LOOK_HEADER, new LabelLook());
+	
+	//attribute
+	private final SubElement<LabelLook> selectedItemLook =
+	new SubElement<>(SELECTED_ITEM_LOOK_HEADER, new LabelLook());
 	
 	//optional attribute
 	private IElementTaker<ItemMenuItem> selectAction;
 	
 	//method
-	public final TIM addEmtyItem() {
-		return addItem(StringCatalogue.EMPTY_STRING);
+	public final IM addEmtyItem() {
+		return addItem(new ItemMenuItem());
 	}
 	
 	//method
-	public final TIM addItem(final String item) {
+	public final IM addItem(final String item) {
 		return addItem(new ItemMenuItem(item));
 	}
 	
 	//method
-	public final TIM addItem(final String... items) {
+	public final IM addItem(final String... items) {
 		return addItems(ReadContainer.forArray(items));
 	}
 	
 	//method
-	public final TIM addItem(final String item, final IElementTaker<ItemMenu<?>> selectAction) {
+	public final IM addItem(final String item, final IElementTaker<ItemMenuItem> selectAction) {
 		return addItem(new ItemMenuItem(item, selectAction));
 	}
 	
 	//method
-	public final TIM addItem(final String id, final String item) {
+	public final IM addItem(final String id, final String item) {
 		return addItem(new ItemMenuItem(id, item));
 	}
 	
 	//method
-	public final TIM addItem(final String id, final String item, final IElementTaker<ItemMenu<?>> selectAction) {
+	public final IM addItem(final String id, final String item, final IElementTaker<ItemMenuItem> selectAction) {
 		return addItem(new ItemMenuItem(id, item, selectAction));
 	}
 	
 	//method
-	public final TIM addItem(final ItemMenuItem item) {
+	public final IM addItem(final ItemMenuItem item) {
 		
-		Validator.assertThat(item).thatIsNamed(LowerCaseCatalogue.ITEM).isNotNull();
+		if (item.isEmptyItem()) {
+			assertDoesNotContainEmptyItem();
+		}
 		
 		assertDoesNotContainItemWithText(item.getText());
 		
@@ -89,7 +94,7 @@ implements Clearable {
 	}
 	
 	//method
-	public final TIM addItems(final Iterable<String> items) {
+	public final IM addItems(final Iterable<String> items) {
 		
 		items.forEach(this::addItem);
 		
@@ -99,9 +104,13 @@ implements Clearable {
 	//method
 	@Override
 	public final void clear() {
-		unselectItems();
 		items.clear();
 		noteClear();
+	}
+	
+	//method
+	public final boolean containsEmptyItem() {
+		return getRefItems().contains(ItemMenuItem::isEmptyItem);
 	}
 	
 	//method
@@ -122,6 +131,11 @@ implements Clearable {
 	//method
 	public final boolean emptyItemIsSelected() {
 		return (containsSelectedItem() && getRefSelectedItem().getText().isEmpty());
+	}
+	
+	//method
+	public final int getIndexOfEmptyItem() {
+		return getRefItems().getIndexOf(getRefEmptyItem());
 	}
 	
 	//method
@@ -146,10 +160,12 @@ implements Clearable {
 	
 	//method
 	public final ItemMenuItem getRefSelectedItem() {
-		
-		assertContainsSelectedItem();
-		
 		return getRefItems().getRefFirst(ItemMenuItem::isSelected);
+	}
+	
+	//method
+	public final LabelLook getRefSelectedItemLook() {
+		return selectedItemLook.getSubElement();
 	}
 	
 	//method
@@ -164,32 +180,48 @@ implements Clearable {
 	}
 	
 	//method
+	public final IM onItemLook(final IElementTaker<LabelLook> itemLookMutator) {
+		
+		itemLookMutator.run(getRefItemLook());
+		
+		return asConcrete();
+	}
+	
+	//method
+	public final IM onSelectedItemLook(final IElementTaker<LabelLook> selectedItemLookMutator) {
+		
+		selectedItemLookMutator.run(getRefSelectedItemLook());
+		
+		return asConcrete();
+	}
+	
+	//method
 	public final void removeSelectAction() {
 		selectAction = null;
 	}
 	
 	//method
 	public final void selectEmptyItem() {
-		selectItem(StringCatalogue.EMPTY_STRING);
+		getRefEmptyItem().select();
 	}
 	
 	//method
 	public final void selectFirstItem() {
-		selectItem(getRefFirstItem());
+		getRefFirstItem().select();
 	}
 	
 	//method
 	public final void selectItem(final String item) {
-		selectItem(getRefItems().getRefFirst(i -> i.hasText(item)));
+		getRefItems().getRefFirst(i -> i.hasText(item)).select();
 	}
 		
 	//method
 	public final void selectItemById(final String id) {
-		selectItem(getRefItems().getRefFirst(i -> i.hasId(id)));
+		getRefItems().getRefFirst(i -> i.hasId(id)).select();
 	}
 	
 	//method
-	public final TIM setSelectAction(final IAction selectAction) {
+	public final IM setSelectAction(final IAction selectAction) {
 		
 		Validator.assertThat(selectAction).thatIsNamed("select action").isNotNull();
 		
@@ -197,7 +229,7 @@ implements Clearable {
 	}
 	
 	//method
-	public final TIM setSelectAction(final IElementTaker<ItemMenuItem> selectAction) {
+	public final IM setSelectAction(final IElementTaker<ItemMenuItem> selectAction) {
 		
 		Validator.assertThat(selectAction).thatIsNamed("select action").isNotNull();
 		
@@ -208,13 +240,9 @@ implements Clearable {
 	
 	//method
 	//For a better performance, this implementation does not use all comfortable methods.
-	public final TIM unselectItems() {
+	public final IM unselectAllItems() {
 		
-		final var selectedItem = items.getRefFirstOrNull(ItemMenuItem::isSelected);
-		
-		if (selectedItem != null) {
-			selectedItem.unselect();
-		}
+		getRefItems().forEach(ItemMenuItem::unselect);
 		
 		return asConcrete();
 	}
@@ -293,25 +321,19 @@ implements Clearable {
 	protected final void noteRightMouseButtonReleaseOnContentAreaWhenEnabled() {}
 	
 	//method declaration
-	protected abstract void noteSelectItem(ItemMenuItem item);
+	protected abstract void noteSelectItem2(ItemMenuItem item);
 	
 	//method
 	@Override
 	protected final void recalculateBorderWidget() {
+				
+		getRefItems().forEach(ItemMenuItem::recalculate);
 		
-		recalculateTextItemMenu();
-		
-		for (final var il : getRefItemLables()) {
-			il.getRefLook().setFrom(getRefItemLook());
-		}
+		recalculateItemMenu();
 	}
 	
 	//method declaration
-	protected abstract void recalculateTextItemMenu();
-	
-	//method
-	@Override
-	protected final void resetBorderWidgetConfiguration() {}
+	protected abstract void recalculateItemMenu();
 	
 	//method
 	@Override
@@ -321,22 +343,33 @@ implements Clearable {
 	}
 	
 	//method
-	protected final void selectItem(final ItemMenuItem item) {
-				
-		unselectItems();
-		
-		item.select();
-		runProbableSelectActionFor(item);
-		noteSelectItem(item);
-	}
-			
-	//method
-	private void assertContainsSelectedItem() {
-		if (!containsSelectedItem()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, "selected item");
-		}
+	@Override
+	protected final void resetBorderWidgetConfiguration() {
+		getRefItemLook().reset();
+		getRefSelectedItemLook().reset();
 	}
 	
+	//method
+	final void noteSelectItem(final ItemMenuItem item) {
+		
+		for (final var i : getRefItems()) {
+			if (i != item && i.isSelected()) {
+				i.unselect();
+			}
+		}
+		
+		runOptionalSelectActionFor(item);
+		
+		noteSelectItem2(item);
+	}
+	
+	//method
+	private void assertDoesNotContainEmptyItem() {
+		if (containsEmptyItem()) {
+			throw new ArgumentHasAttributeException(this, "empty item");
+		}
+	}
+		
 	//method
 	private void assertDoesNotContainItemWithText(final String text) {
 		if (containsItem(text)) {
@@ -352,8 +385,13 @@ implements Clearable {
 	}
 	
 	//method
+	private ItemMenuItem getRefEmptyItem() {
+		return getRefItems().getRefFirst(ItemMenuItem::isEmptyItem);
+	}
+	
+	//method
 	//For a better performance, this implementation does not use all comfortable methods.
-	private void runProbableSelectActionFor(final ItemMenuItem item) {
+	private void runOptionalSelectActionFor(final ItemMenuItem item) {
 		if (selectAction != null) {
 			selectAction.run(item);
 		}

@@ -29,6 +29,8 @@ public final class DropdownMenu extends ItemMenu<DropdownMenu> {
 	//constructor
 	public DropdownMenu() {
 		
+		reset();
+		
 		originHorizontalStack.reset();
 		originHorizontalStack
 		.addWidget(originLabel, expandButton);
@@ -121,7 +123,7 @@ public final class DropdownMenu extends ItemMenu<DropdownMenu> {
 	
 	//method
 	@Override
-	protected void noteSelectItem(final ItemMenuItem item) {
+	protected void noteSelectItem2(final ItemMenuItem item) {
 		originLabel.setText(item.getText());
 	}
 	
@@ -131,7 +133,7 @@ public final class DropdownMenu extends ItemMenu<DropdownMenu> {
 	
 	//method
 	@Override
-	protected void recalculateTextItemMenu() {
+	protected void recalculateItemMenu() {
 		applySizes();
 		applyColors();
 	}
@@ -205,7 +207,7 @@ public final class DropdownMenu extends ItemMenu<DropdownMenu> {
 		}
 		
 		//Sets the select-action to the expandedDropdownMenu after selecting the current item.
-		expandedDropdownMenu.setSelectAction(this::selectAndCollapse);
+		expandedDropdownMenu.setSelectAction(this::collapse);
 		
 		//Adds the expandedDropdownMenu on the top of the GUI of the current DropdownMenu.
 		getParentGUI().addLayerOnTop(
@@ -226,11 +228,5 @@ public final class DropdownMenu extends ItemMenu<DropdownMenu> {
 		if (key == Key.ESCAPE) {
 			collapse();
 		}
-	}
-	
-	//method
-	private void selectAndCollapse(final ItemMenuItem item) {
-		selectItem(this.getRefItems().getRefFirst(i -> i.hasText(item.getText())));
-		collapse();
 	}
 }
