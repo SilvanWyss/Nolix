@@ -49,8 +49,9 @@ public final class DropdownMenuTutorial {
 			l			
 			.setBorderThicknessForState(WidgetLookState.BASE, 5)
 			.setBackgroundColorForState(WidgetLookState.BASE, Color.LAVENDER)
-			//TODO: .setItemPaddingForState(WidgetLookState.NORMAL, 5)
-		);
+		)
+		.onItemLook(il -> il.setPaddingForState(WidgetLookState.BASE, 5))
+		.onSelectedItemLook(il -> il.setPaddingForState(WidgetLookState.BASE, 5));
 		
 		//Adds the dropdownMenu to the frame.
 		frame.addLayerOnTop(dropdownMenu);
