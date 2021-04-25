@@ -4,16 +4,19 @@ package ch.nolix.element.gui.widget;
 //own imports
 import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.container.IContainer;
+import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.functionapi.IAction;
 import ch.nolix.common.functionapi.IElementTaker;
+import ch.nolix.common.math.Calculator;
 import ch.nolix.common.skillapi.Clearable;
 import ch.nolix.element.base.MultiValue;
 import ch.nolix.element.base.SubElement;
 import ch.nolix.element.elementenum.RotationDirection;
+import ch.nolix.element.gui.base.Widget;
 import ch.nolix.element.gui.input.Key;
 
 //class
@@ -169,8 +172,24 @@ public abstract class ItemMenu<IM extends ItemMenu<IM>> extends BorderWidget<IM,
 	}
 	
 	//method
+	@Override
+	public final boolean hasRole(final String role) {
+		return false;
+	}
+	
+	//method
 	public final boolean hasSelectAction() {
 		return (selectAction != null);
+	}
+	
+	//method
+	public String getSelectedItemId() {
+		return getRefSelectedItem().getId();
+	}
+	
+	//method
+	public String getSelectedItemText() {
+		return getRefSelectedItem().getText();
 	}
 	
 	//method
@@ -260,7 +279,11 @@ public abstract class ItemMenu<IM extends ItemMenu<IM>> extends BorderWidget<IM,
 	}
 	
 	//method
-	protected final IContainer<Label> getRefItemLables() {
+	@Override
+	protected final void fillUpChildWidgets(final LinkedList<Widget<?, ?>> list) {}
+	
+	//method
+	protected final IContainer<Label> getRefItemLabels() {
 		return getRefItems().to(ItemMenuItem::getRefLabel);
 	}
 	
@@ -281,7 +304,11 @@ public abstract class ItemMenu<IM extends ItemMenu<IM>> extends BorderWidget<IM,
 	//method
 	@Override
 	protected void noteKeyTypingOnSelfWhenFocused(final Key key) {}
-		
+	
+	//method
+	@Override
+	protected final void noteLeftMouseButtonClickOnContentAreaWhenEnabled() {}
+	
 	//method
 	@Override
 	protected final void noteLeftMouseButtonReleaseOnContentAreaWhenEnabled() {}
@@ -326,8 +353,10 @@ public abstract class ItemMenu<IM extends ItemMenu<IM>> extends BorderWidget<IM,
 	//method
 	@Override
 	protected final void recalculateBorderWidget() {
-				
+		
 		getRefItems().forEach(ItemMenuItem::recalculate);
+		
+		recalculateSizes();
 		
 		recalculateItemMenu();
 	}
@@ -387,6 +416,15 @@ public abstract class ItemMenu<IM extends ItemMenu<IM>> extends BorderWidget<IM,
 	//method
 	private ItemMenuItem getRefEmptyItem() {
 		return getRefItems().getRefFirst(ItemMenuItem::isEmptyItem);
+	}
+	
+	//method
+	private void recalculateSizes() {
+		final var itemLabels = getRefItemLabels();
+		final var itemWidth = Calculator.getMax(10, itemLabels.getMaxIntOrDefaultValue(Label::getNaturalWidth, 10));
+		for (final var il : itemLabels) {
+			il.setProposalWidth(itemWidth);
+		}
 	}
 	
 	//method

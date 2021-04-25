@@ -73,16 +73,6 @@ public final class DropdownMenu extends ItemMenu<DropdownMenu> {
 	
 	//method
 	@Override
-	public boolean hasRole(final String role) {
-		return false;
-	}
-		
-	//method
-	@Override
-	protected void fillUpChildWidgets(final LinkedList<Widget<?, ?>> list) {}
-	
-	//method
-	@Override
 	protected void fillUpWidgetsForPainting(final LinkedList<Widget<?, ?>> list) {
 		list.addAtEnd(originHorizontalStack);
 	}
@@ -112,10 +102,6 @@ public final class DropdownMenu extends ItemMenu<DropdownMenu> {
 	protected void noteClear() {
 		originLabel.setText(StringCatalogue.EMPTY_STRING);
 	}
-	
-	//method
-	@Override
-	protected void noteLeftMouseButtonClickOnContentAreaWhenEnabled() {}
 	
 	//method
 	@Override
@@ -167,7 +153,7 @@ public final class DropdownMenu extends ItemMenu<DropdownMenu> {
 	
 	//method
 	private void applySizes() {
-		originLabel.setMinWidth(getRefItemLables().getMaxIntOrDefaultValue(Label::getWidth, MIN_LABEL_WIDTH));
+		originLabel.setMinWidth(getRefItemLabels().getMaxIntOrDefaultValue(Label::getWidth, MIN_LABEL_WIDTH));
 	}
 	
 	//method
