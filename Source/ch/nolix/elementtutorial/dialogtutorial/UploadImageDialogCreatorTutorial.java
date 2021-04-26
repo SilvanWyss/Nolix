@@ -50,7 +50,7 @@ public final class UploadImageDialogCreatorTutorial {
 					"ProposalWidth(500)",
 					"CursorIcon(Hand)",
 					"ContentPosition(Center)",
-					"BaseBackgroundColor(SkyBlue)",
+					"BaseBackground(Color(SkyBlue))",
 					"HoverBackgroundColor(Blue)",
 					"BaseTextSize(30)"
 				),
@@ -59,7 +59,7 @@ public final class UploadImageDialogCreatorTutorial {
 				.addAttachingAttribute(
 					"ProposalWidth(500)",
 					"ProposalHeight(400)",
-					"BaseBackgroundColor(WhiteSmoke)",
+					"BaseBackground(Color(WhiteSmoke))",
 					"BasePadding(10)",
 					"ContentPosition(Center)"
 				),
@@ -72,19 +72,19 @@ public final class UploadImageDialogCreatorTutorial {
 					"ProposalWidth(500)",
 					"ProposalHeight(100)",
 					"CursorIcon(Hand)",
-					"BaseBackgroundColor(Gainsboro)",
+					"BaseBackground(Color(Gainsboro))",
 					"ContentPosition(Center)"
 				),
 				new DeepConfiguration()
 				.addSelectorRole(ButtonRole.CONFIRM_BUTTON)
 				.addAttachingAttribute(
 					"ProposalWidth(250)",
-					"BaseBackgroundColor(LightGreen)",
-					"HoverBackgroundColor(Green)"
+					"BaseBackground(Color(LightGreen))",
+					"HoverBackground(Color(Green))"
 				),
 				new DeepConfiguration()
 				.addSelectorRole(ButtonRole.CANCEL_BUTTON)
-				.addAttachingAttribute("ProposalWidth(250)", "BaseBackgroundColor(Salmon)", "HoverBackgroundColor(Red)")
+				.addAttachingAttribute("ProposalWidth(250)", "BaseBackground(Color(Salmon))", "HoverBackground(Color(Red))")
 				
 			)
 		);

@@ -39,13 +39,13 @@ public final class ErrorDialogCreatorTutorial {
 					"MinWidth(500)",
 					"CursorIcon(Hand)",
 					"ContentPosition(Center)",
-					"BaseBackgroundColor(SkyBlue)",
-					"HoverBackgroundColor(Blue)",
+					"BaseBackground(Color(SkyBlue))",
+					"HoverBackground(Color(Blue))",
 					"BaseTextSize(30)"
 				),
 				new DeepConfiguration()
 				.addSelectorRole(ContainerRole.DIALOG_CONTAINER)
-				.addAttachingAttribute("ProposalHeight(200)", "BaseBackgroundColor(Salmon)", "ContentPosition(Center)")
+				.addAttachingAttribute("ProposalHeight(200)", "BaseBackground(Color(Salmon))", "ContentPosition(Center)")
 			)
 		);
 	}

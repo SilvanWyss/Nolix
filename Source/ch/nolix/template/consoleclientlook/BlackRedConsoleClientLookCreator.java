@@ -34,7 +34,7 @@ public final class BlackRedConsoleClientLookCreator {
 			.addAttachingAttribute(
 				"ProposalWidth(1000)",
 				"ProposalHeight(300)",
-				"BaseBackgroundColor(0x202020)",
+				"BaseBackground(Color(0x202020))",
 				"BasePadding(10)",
 				"BaseTextColor(OrangeRed)"
 			),
@@ -43,7 +43,7 @@ public final class BlackRedConsoleClientLookCreator {
 			.addAttachingAttribute(
 				"ProposalWidth(1000)",
 				"ProposalHeight(400)",
-				"BaseBackgroundColor(0x101010)",
+				"BaseBackground(Color(0x101010))",
 				"BasePadding(10)",
 				"BaseTextColor(Red)"
 			)

@@ -27,7 +27,7 @@ public final class GreyBlueConsoleClientLookCreator {
 			new DeepConfiguration()
 			.addSelectorRole(ContainerRole.MAINT_CONTAINER)
 			.addAttachingAttribute(
-				"BaseBackgroundColor(White)",
+				"BaseBackground(Color(White))",
 				"BaseLeftPadding(20)",
 				"BaseRightPadding(20)",
 				"BaseBottomPadding(20)",
@@ -38,7 +38,7 @@ public final class GreyBlueConsoleClientLookCreator {
 			.addAttachingAttribute(
 				"ProposalWidth(1000)",
 				"ProposalHeight(200)",
-				"BaseBackgroundColor(Lavender)",
+				"BaseBackground(Color(Lavender))",
 				"BasePadding(10)",
 				"BaseTextColor(DarkBlue)"
 			),
@@ -47,7 +47,7 @@ public final class GreyBlueConsoleClientLookCreator {
 			.addAttachingAttribute(
 				"ProposalWidth(1000)",
 				"ProposalHeight(300)",
-				"BaseBackgroundColor(WhiteSmoke)",
+				"BaseBackground(Color(WhiteSmoke))",
 				"BasePadding(10)",
 				"BaseTextColor(DarkBlue)"		
 			)

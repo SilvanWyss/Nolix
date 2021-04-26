@@ -67,8 +67,8 @@ public final class AnthrazitGUILookCreator {
 			"ContentPosition(Center)",
 			"BaseLeftPadding(5)",
 			"BaseRightPadding(5)",
-			"BaseBackgroundColor(0x101010)",
-			"HoverBackgroundColor(0xE0E000)",
+			"BaseBackground(Color(0x101010))",
+			"HoverBackground(Color(0xE0E000))",
 			"HoverTextColor(0x000000)"
 		);
 	}
@@ -80,8 +80,8 @@ public final class AnthrazitGUILookCreator {
 		.setSelectorType(CheckBox.class)
 		.addAttachingAttribute(
 			"CursorIcon(Hand)",
-			"BaseBackgroundColor(0x101010)",
-			"HoverBackgroundColor(0xE0E000)"
+			"BaseBackground(Color(0x101010))",
+			"HoverBackground(Color(0xE0E000))"
 		);
 	}
 	
@@ -90,7 +90,7 @@ public final class AnthrazitGUILookCreator {
 		return
 		new DeepConfiguration()
 		.setSelectorType(Console.class)
-		.addAttachingAttribute("BaseBackgroundColor(0x101010)");
+		.addAttachingAttribute("BaseBackground(Color(0x101010))");
 	}
 	
 	//method
@@ -98,7 +98,7 @@ public final class AnthrazitGUILookCreator {
 		return
 		new DeepConfiguration()
 		.addSelectorRole(LayerRole.DIALOG_LAYER)
-		.addAttachingAttribute("BackgroundColor(" + new Color("0x101010F0").getHexadecimalValue() + ")");
+		.addAttachingAttribute("Background(Color(" + new Color("0x101010F0").getHexadecimalValue() + "))");
 	}
 	
 	//method
@@ -107,7 +107,7 @@ public final class AnthrazitGUILookCreator {
 		new DeepConfiguration()
 		.addSelectorRole(ContainerRole.DIALOG_CONTAINER)
 		.addAttachingAttribute(
-			"BaseBackgroundColor(0x202020)",
+			"BaseBackground(Color(0x202020))",
 			"BasePadding(50)",
 			"ContentPosition(Top)",
 			"ElementMargin(100)"
@@ -125,8 +125,8 @@ public final class AnthrazitGUILookCreator {
 			"ContentPosition(Center)",
 			"BaseLeftPadding(5)",
 			"BaseRightPadding(5)",
-			"BaseBackgroundColor(0x101010)",
-			"HoverBackgroundColor(0xE0E000)",
+			"BaseBackground(Color(0x101010))",
+			"HoverBackground(Color(0xE0E000))",
 			"HoverTextColor(0x000000)"
 		);
 	}
@@ -169,7 +169,7 @@ public final class AnthrazitGUILookCreator {
 		.addAttachingAttribute(
 			"ProposalWidth(1000)",
 			"ProposalHeight(600)",
-			"BaseBackgroundColor(0x202020)",
+			"BaseBackground(Color(0x202020))",
 			"BasePadding(10)"
 		);
 	}
@@ -180,7 +180,7 @@ public final class AnthrazitGUILookCreator {
 		new DeepConfiguration()
 		.setSelectorType("TextBox")
 		.addAttachingAttribute(
-			"BaseBackgroundColor(0x101010)",
+			"BaseBackground(Color(0x101010))",
 			"BasePadding(5)"
 		);
 	}
@@ -193,7 +193,7 @@ public final class AnthrazitGUILookCreator {
 		.addAttachingAttribute(
 			"MinWidth(200)",
 			"MaxHeight(200)",
-			"BaseBackgroundColor(0x101010)"
+			"BaseBackground(Color(0x101010))"
 		);
 	}
 	

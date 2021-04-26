@@ -27,7 +27,7 @@ public final class BlackGreenConsoleClientLookCreator {
 			new DeepConfiguration()
 			.addSelectorRole(ContainerRole.MAINT_CONTAINER)
 			.addAttachingAttribute(
-				"BaseBackgroundColorGradient(Vertical,0x40C040,0x102010)",	
+				"BaseBackground(ColorGradient(Vertical,0x40C040,0x102010))",	
 				"BaseLeftPadding(30)",
 				"BaseRightPadding(30)",
 				"BaseTopPadding(15)",
@@ -39,7 +39,7 @@ public final class BlackGreenConsoleClientLookCreator {
 			.addAttachingAttribute(
 				"ProposalWidth(1000)",
 				"ProposalHeight(300)",
-				"BaseBackgroundColorGradient(Vertical,0x001000,0x002000)",	
+				"BaseBackground(ColorGradient(Vertical,0x001000,0x002000))",	
 				"BasePadding(5)",
 				"BaseTextColor(Lime)"
 			),
@@ -48,7 +48,7 @@ public final class BlackGreenConsoleClientLookCreator {
 			.addAttachingAttribute(
 				"ProposalWidth(1000)",
 				"ProposalHeight(400)",				
-				"BaseBackgroundColorGradient(Vertical,0x204020,0x406040)",
+				"BaseBackground(ColorGradient(Vertical,0x204020,0x406040))",
 				"BasePadding(5)",
 				"BaseTextColor(Lime)"		
 			)
