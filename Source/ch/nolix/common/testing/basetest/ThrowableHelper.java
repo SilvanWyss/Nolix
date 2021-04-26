@@ -7,8 +7,8 @@ final class ThrowableHelper {
 	//constant
 	public static final String DEFAULT_ERROR_MESSAGE = "An error occured.";
 	
-	//static method
-	public static String getMessageFromThrowableOrDefaultErrorMessage(final Throwable throwable) {
+	//method
+	public String getMessageFromThrowableOrDefaultErrorMessage(final Throwable throwable) {
 		
 		if (throwable == null) {
 			return DEFAULT_ERROR_MESSAGE;
@@ -22,7 +22,4 @@ final class ThrowableHelper {
 		
 		return message;
 	}
-	
-	//constructor
-	private ThrowableHelper() {}
 }
