@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.elementtest.containerwidgettest;
 
+//own imports
 import ch.nolix.common.testing.basetest.TestCase;
 import ch.nolix.element.gui.base.Widget;
 import ch.nolix.element.gui.containerwidget.VerticalStack;
@@ -13,7 +14,7 @@ import ch.nolix.element.gui.widget.TextBox;
  * A {@link VerticalStackTest} is a test for {@link VerticalStack}.
  * 
  * @author Silvan Wyss
- * @month 2016-06
+ * @date 2016-07-01
  * @lines 60
  */
 public final class VerticalStackTest extends ContainerWidgetTest<VerticalStack> {

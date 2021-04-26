@@ -19,7 +19,7 @@ import ch.nolix.element.gui.painterapi.IPainter;
 /**
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 190
+ * @lines 200
  */
 public final class Label extends TextLineWidget<Label, LabelLook> {
 	
@@ -29,6 +29,14 @@ public final class Label extends TextLineWidget<Label, LabelLook> {
 	
 	//optional attribute
 	private LabelRole role;
+	
+	//constructor
+	/**
+	 * Creates a new {@link Label}.
+	 */
+	public Label() {
+		reset();
+	}
 	
 	//method
 	/**

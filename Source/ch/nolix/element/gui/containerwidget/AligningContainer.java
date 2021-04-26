@@ -40,6 +40,9 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 	
 	//constructor
 	public AligningContainer() {
+		
+		reset();
+		
 		getRefLook().setPaddingForState(WidgetLookState.BASE, 10);
 	}
 	

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.gui.containerwidget;
 
+//own import
 import ch.nolix.element.gui.base.Widget;
 
 //class
@@ -13,6 +14,14 @@ public final class VerticalStack extends Stack<VerticalStack> {
 	
 	//constant
 	public static final String TYPE_NAME = "VerticalStack";
+	
+	//constructor
+	/**
+	 * Creates a new {@link VerticalStack}.
+	 */
+	public VerticalStack() {
+		reset();
+	}
 	
 	//method
 	/**

@@ -18,7 +18,7 @@ import ch.nolix.element.gui.painterapi.IPainter;
 /**
  * @author Silvan Wyss
  * @date 2017-01-01
- * @lines 300
+ * @lines 310
  */
 public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	
@@ -45,6 +45,9 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	 * Creates a new {@link TextBox}.
 	 */
 	public TextBox() {
+		
+		reset();
+		
 		setProposalWidth(200);
 		setCustomCursorIcon(CursorIcon.EDIT);
 		getRefLook().setBorderThicknessForState(WidgetLookState.BASE, 1);

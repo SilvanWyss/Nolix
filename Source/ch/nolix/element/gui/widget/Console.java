@@ -28,7 +28,7 @@ import ch.nolix.element.gui.textformat.TextFormat;
 /**
  * @author Silvan Wyss
  * @date 2017-03-06
- * @lines 900
+ * @lines 890
  */
 public final class Console extends BorderWidget<Console, ConsoleLook> implements Clearable {
 	
@@ -82,6 +82,9 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	 * Creates a new console.
 	 */
 	public Console() {
+		
+		reset();
+		
 		setProposalSize(200, 100);
 		getRefLook().setPaddingForState(WidgetLookState.BASE, 10);
 	}

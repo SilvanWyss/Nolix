@@ -19,12 +19,20 @@ import ch.nolix.element.gui.painterapi.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 300
+ * @lines 310
  */
 public final class SingleContainer extends ContainerWidget<SingleContainer, SingleContainerLook> {
 	
 	//optional attribute
 	private Widget<?, ?> widget;
+	
+	//method
+	/**
+	 * Creates a new {@link SingleContainer}.
+	 */
+	public SingleContainer() {
+		reset();
+	}
 	
 	//method
 	/**
