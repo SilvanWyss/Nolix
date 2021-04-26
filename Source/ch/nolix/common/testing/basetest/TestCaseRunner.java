@@ -13,6 +13,9 @@ import ch.nolix.common.programcontrol.processproperty.Result;
 //class
 public final class TestCaseRunner extends Thread {
 	
+	//static attribute
+	private static final ErrorCreator errorCreator = new ErrorCreator();
+	
 	//attributes
 	private final TestCaseWrapper testCaseWrapper;
 	private final BaseTest testInstance;
@@ -231,27 +234,9 @@ public final class TestCaseRunner extends Thread {
 			return true;
 		} catch (final InvocationTargetException invocationTargetException) {
 			
-			String className = null;
-			int lineNumber = 0;
-			for (final var ste : invocationTargetException.getCause().getStackTrace()) {
-				if (ste.getClassName().equals(testInstance.getClass().getName())) {
-					className = ste.getClassName();
-					lineNumber = ste.getLineNumber();
-					break;
-				}
-			}
-			
-			final var cause = invocationTargetException.getCause();
-			
-			final String errorMessage;
-			if (cause.getMessage() == null) {
-				errorMessage = "An error occured.";
-			} else {
-				errorMessage = cause.getMessage();
-			}
-			
-			exceptionError = new Error(errorMessage, className, lineNumber);
-			
+			exceptionError =
+			errorCreator.createErrorFromInvocationTargetExceptionInTest(invocationTargetException, testInstance);
+				
 			return false;
 		} catch (final IllegalAccessException | IllegalArgumentException exception) {
 			exceptionError = new Error("An error occured.", testInstance.getClass().getName(), 0);
