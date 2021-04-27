@@ -10,7 +10,7 @@ import ch.nolix.common.functionapi.I2ElementTaker;
 import ch.nolix.common.functionapi.IElementTakerElementGetter;
 
 //class
-public final class CascadingProperty<S extends Enum<S>, V> extends Property<S, V> {
+public final class CascadingProperty<S extends Enum<S>, V> extends MaterializedProperty<S, V> {
 	
 	//attribute
 	private final V defaultValue;

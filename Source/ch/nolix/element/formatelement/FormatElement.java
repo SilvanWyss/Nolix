@@ -30,7 +30,7 @@ implements IRespondingMutableElement<FE> {
 	
 	//multi-attributes
 	private final IContainer<State<S>> availableStates;
-	private IContainer<Property<S, ?>> properties;
+	private IContainer<Property<S>> properties;
 	
 	//constructor
 	public FormatElement(final S baseState) {
@@ -120,7 +120,7 @@ implements IRespondingMutableElement<FE> {
 	}
 	
 	//method
-	final IContainer<Property<S, ?>> getRefProperties() {
+	final IContainer<Property<S>> getRefProperties() {
 		
 		extractPropertiesIfNotExtracted();
 		
@@ -161,7 +161,7 @@ implements IRespondingMutableElement<FE> {
 	//method
 	private void extractPropertiesWhenNotExtracted() {
 		
-		final var lProperties = new LinkedList<Property<S, ?>>();
+		final var lProperties = new LinkedList<Property<S>>();
 		fillUpPropertiesIntoList(lProperties);
 		
 		properties = lProperties;
@@ -170,14 +170,14 @@ implements IRespondingMutableElement<FE> {
 	}
 	
 	//method
-	private void fillUpPotentialPropertyFromFieldIntoList(final Field field, final LinkedList<Property<S, ?>> list) {
+	private void fillUpPotentialPropertyFromFieldIntoList(final Field field, final LinkedList<Property<S>> list) {
 		if (fieldStoresProperty(field)) {
 			list.addAtEnd(getPropertyFromField(field));
 		}
 	}
 	
 	//method
-	private void fillUpPropertiesIntoList(final LinkedList<Property<S, ?>> list) {
+	private void fillUpPropertiesIntoList(final LinkedList<Property<S>> list) {
 		Class<?> lClass = getClass();
 		while (lClass != null) {
 			fillUpPropertiesFromClassIntoList(lClass, list);
@@ -186,19 +186,19 @@ implements IRespondingMutableElement<FE> {
 	}
 	
 	//method
-	private void fillUpPropertiesFromClassIntoList(final Class<?> pClass, final LinkedList<Property<S, ?>> list) {
+	private void fillUpPropertiesFromClassIntoList(final Class<?> pClass, final LinkedList<Property<S>> list) {
 		for (final var f : pClass.getDeclaredFields()) {
 			fillUpPotentialPropertyFromFieldIntoList(f, list);
 		}
 	}
 	
 	//method
-	private Property<S, ?> getPropertyFromField(final Field field) {
+	private Property<S> getPropertyFromField(final Field field) {
 		try {
 			field.setAccessible(true);
 			
 			@SuppressWarnings("unchecked")
-			final var property = (Property<S, ?>)(field.get(this));
+			final var property = (Property<S>)(field.get(this));
 			
 			Validator.assertThat(property).isOfType(Property.class);
 			
