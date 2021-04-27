@@ -14,7 +14,7 @@ public final class FilterProperty<S extends Enum<S>, V> extends Property<S>{
 	private final IContainer<MaterializedProperty<S, V>> materializedProperties;
 	
 	//constructor
-	@SuppressWarnings("unchecked")
+	@SafeVarargs
 	public FilterProperty(final String name, final MaterializedProperty<S, V>... materializedProperties) {
 		
 		super(name);
