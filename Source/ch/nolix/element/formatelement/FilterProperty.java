@@ -31,6 +31,13 @@ public final class FilterProperty<S extends Enum<S>, V> extends Property<S>{
 	}
 	
 	//method
+	public void setValueForState(final S state, final V value) {
+		for (final var mp : materializedProperties) {
+			mp.setValueForState(state, value);
+		}
+	}
+	
+	//method
 	@Override
 	protected void fillUpValuesSpecificationInto(LinkedList<Node> list) {}
 	
