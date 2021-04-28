@@ -6,6 +6,7 @@ import ch.nolix.common.container.SingleContainer;
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.validator.Validator;
+import ch.nolix.element.formatelement.FilterProperty;
 import ch.nolix.element.formatelement.NonCascadingProperty;
 import ch.nolix.element.gui.base.WidgetLook;
 import ch.nolix.element.gui.base.WidgetLookState;
@@ -46,6 +47,9 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	private static final String SCROLL_CURSOR_COLOR_HEADER = "ScrollCursorColor";
 	private static final String SCROLL_CURSOR_HOVER_COLOR_HEADER = "ScrollCursorHoverColor";
 	private static final String SCROLL_CURSOR_MOVE_COLOR_HEADER = "ScrollCursorMoveColor";
+	private static final String BORDER_COLOR_HEADER = "BorderColor";
+	private static final String BORDER_THICKNESS_HEADER = "BorderThickness";
+	private static final String PADDING_HEADER = "Padding";
 	
 	//attribute
 	private final NonCascadingProperty<WidgetLookState, Integer> leftBorderThickness =
@@ -246,6 +250,30 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		this::setScrollCursorMoveColorForState,
 		DEFAULT_SCROLL_CURSOR_MOVE_COLOR
 	);
+	
+	//attribute
+	private final FilterProperty<WidgetLookState, Integer> borderThickness =
+	new FilterProperty<>(
+		BORDER_THICKNESS_HEADER,
+		leftBorderThickness,
+		rightBorderThickness,
+		topBorderThickness,
+		bottomBorderThickness
+	);
+	
+	//attribute
+	private final FilterProperty<WidgetLookState, Color> borderColor =
+	new FilterProperty<>(
+		BORDER_COLOR_HEADER,
+		leftBorderColor,
+		rightBorderColor,
+		topBorderColor,
+		bottomBorderColor
+	);
+	
+	//attribute
+	private final FilterProperty<WidgetLookState, Integer> padding =
+	new FilterProperty<>(PADDING_HEADER, leftPadding, rightPadding, topPadding, bottomPadding);
 	
 	//method
 	public final Color getBackgroundColor() {
@@ -541,10 +569,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	//method
 	public final BWL setBorderColorForState(final WidgetLookState state, final Color borderColor) {
 		
-		setLeftBorderColorForState(state, borderColor);
-		setRightBorderColorForState(state, borderColor);
-		setTopBorderColorForState(state, borderColor);
-		setBottomBorderColorForState(state, borderColor);
+		this.borderColor.setValueForState(state, borderColor);
 		
 		return asConcrete();
 	}
@@ -552,10 +577,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	//method
 	public final BWL setBorderThicknessForState(final WidgetLookState state, final int borderThickness) {
 		
-		setLeftBorderThicknessForState(state, borderThickness);
-		setRightBorderThicknessForState(state, borderThickness);
-		setTopBorderThicknessForState(state, borderThickness);
-		setBottomBorderThicknessForState(state, borderThickness);
+		this.borderThickness.setValueForState(state, borderThickness);
 		
 		return asConcrete();
 	}
@@ -619,10 +641,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	//method
 	public final BWL setPaddingForState(final WidgetLookState state, final int padding) {
 		
-		setLeftPaddingForState(state, padding);
-		setRightPaddingForState(state, padding);
-		setTopPaddingForState(state, padding);
-		setBottomPaddingForState(state, padding);
+		this.padding.setValueForState(state, padding);
 		
 		return asConcrete();
 	}
