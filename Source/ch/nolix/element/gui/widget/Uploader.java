@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.element.gui.widget;
 
-import ch.nolix.common.errorcontrol.validator.Validator;
 //own imports
+import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.element.elementenum.ContentPosition;
 import ch.nolix.element.gui.base.CursorIcon;
@@ -29,9 +29,10 @@ public final class Uploader extends TextLineWidget<Uploader, UploaderLook> {
 	//constructor
 	public Uploader() {
 		
-		setContentPosition(ContentPosition.CENTER);
-		setCustomCursorIcon(CursorIcon.HAND);
+		reset();
 		
+		setContentPosition(ContentPosition.CENTER);
+				
 		getRefLook()
 		.setBackgroundColorForState(WidgetLookState.BASE, DEFAULT_BACKGROUND_COLOR)
 		.setPaddingForState(WidgetLookState.BASE, DEFAULT_PADDING);
@@ -104,5 +105,6 @@ public final class Uploader extends TextLineWidget<Uploader, UploaderLook> {
 	@Override
 	protected void resetBorderWidget() {
 		setText(DEFAULT_TEXT);
+		setCustomCursorIcon(CursorIcon.HAND);
 	}
 }
