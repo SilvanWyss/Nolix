@@ -34,8 +34,8 @@ public final class Downloader extends TextLineWidget<Downloader, DownloaderLook>
 	//constructor
 	public Downloader() {
 		
-		setCustomCursorIcon(DEFAULT_CURSOR_ICON);
-		
+		reset();
+				
 		getRefLook()
 		.setTextColorForState(WidgetLookState.BASE, Color.DARK_BLUE)
 		.setTextColorForState(WidgetLookState.HOVER, Color.BLUE);
@@ -155,6 +155,7 @@ public final class Downloader extends TextLineWidget<Downloader, DownloaderLook>
 	@Override
 	protected void resetBorderWidget() {
 		setText(DEFAULT_TEXT);
+		setCustomCursorIcon(DEFAULT_CURSOR_ICON);
 		removeFileProvider();
 	}
 	
