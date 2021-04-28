@@ -88,14 +88,14 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	//constructor
 	/**
 	 * Creates a new {@link LinkedList} that is empty.
-	 * The complexity of this method is O(1).
+	 * The complexity of this implementation is O(1).
 	 */
 	public LinkedList() {}
 	
 	//method
 	/**
 	 * Adds the given element at the begin of the current {@link LinkedList}.
-	 * The complexity of this method is O(1).
+	 * The complexity of this implementation is O(1).
 	 * 
 	 * @param element
 	 * @throws ArgumentIsNullException if the given element is null.
@@ -118,7 +118,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	//method
 	/**
 	 * Adds the given elements at the begin of the current {@link LinkedList}.
-	 * The complexity of this method is O(n) if n elements are given.
+	 * The complexity of this implementation is O(n) if n elements are given.
 	 * 
 	 * @param elements
 	 * @throws ArgumentIsNullException if the given elements is null.
@@ -139,7 +139,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	//method
 	/**
 	 * Adds the given elements at the begin of the current {@link LinkedList}.
-	 * The complexity of this method is O(n) if n elements are given.
+	 * The complexity of this implementation is O(n) if n elements are given.
 	 * 
 	 * @param elements
 	 * @param <E2> is the type of the given elements.
@@ -177,7 +177,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	 * Adds the given element at the begin of the current {@link LinkedList}
 	 * if the current {@link LinkedList} does not contain it.
 	 * 
-	 * The complexity of this method is O(n) if the current {@link LinkedList} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link LinkedList} contains n elements.
 	 * 
 	 * @param element
 	 * @throws ArgumentIsNullException if the given element is null.
@@ -195,7 +195,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	 * Adds all of the given elements, the current {@link LinkedList} does not contain,
 	 * at the begin of the current {@link LinkedList}.
 	 * 
-	 * The complexity of this method is O(m*n) if:
+	 * The complexity of this implementation is O(m*n) if:
 	 * -The current {@link LinkedList} contains m elements.
 	 * -n elements are given.
 	 * 
@@ -214,7 +214,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	//method
 	/**
 	 * Adds the given element at the begin of the current {@link LinkedList} with regarding singularity.
-	 * The complexity of this method is O(n) if the current {@link LinkedList} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link LinkedList} contains n elements.
 	 * 
 	 * @param element
 	 * @throws ArgumentIsNullException if the given element is null.
@@ -237,7 +237,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	//method
 	/**
 	 * Adds the given element at the end of the current {@link LinkedList}.
-	 * The complexity of this method is O(1).
+	 * The complexity of this implementation is O(1).
 	 * 
 	 * @param element
 	 * @throws ArgumentIsNullException if the given element is null.
@@ -260,7 +260,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	//method
 	/**
 	 * Adds the given elements at the end of the current {@link LinkedList}.
-	 * The complexity of this method is O(n) if n elements are given.
+	 * The complexity of this implementation is O(n) if n elements are given.
 	 * 
 	 * @param elements
 	 * @throws ArgumentIsNullException if the given element container is null.
@@ -281,7 +281,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	//method
 	/**
 	 * Adds the given elements at the end of the current {@link LinkedList}.
-	 * The complexity of this method is O(n) if n elements are given.
+	 * The complexity of this implementation is O(n) if n elements are given.
 	 * 
 	 * @param elements
 	 * @param <E2> is the type of the given elements.
@@ -295,7 +295,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	/**
 	 * Adds the elements the given extractor extracts from the given elements
 	 * at the end of the current {@link LinkedList}.
-	 * The complexity of this method is O(n) if n elements are given.
+	 * The complexity of this implementation is O(n) if n elements are given.
 	 * 
 	 * @param elements
 	 * @param <E2> is the type of the given elements.
@@ -310,7 +310,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	 * Adds the given element at the end of the current {@link LinkedList}
 	 * if the current {@link LinkedList} does not contain it.
 	 * 
-	 * The complexity of this method is O(n) if the current {@link LinkedList} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link LinkedList} contains n elements.
 	 * 
 	 * @param element
 	 * @throws ArgumentIsNullException if the given element is null.
@@ -328,7 +328,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	 * Adds all of the given elements, the current {@link LinkedList} does not contain,
 	 * at the end of the current {@link LinkedList}.
 	 * 
-	 * The complexity of this method is O(m*n) if:
+	 * The complexity of this implementation is O(m*n) if:
 	 * -The current {@link LinkedList} contains m elements.
 	 * -n elements are given.
 	 * 
@@ -347,7 +347,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	//method
 	/**
 	 * Adds the given element at the begin of the current {@link LinkedList} with regarding singularity.
-	 * The complexity of this method is O(n) if the current {@link LinkedList} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link LinkedList} contains n elements.
 	 * 
 	 * @param element
 	 * @throws ArgumentIsNullException if the given element is null.
@@ -380,7 +380,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	//method
 	/**
 	 * Removes all elements of the current {@link LinkedList}.
-	 * The complexity of this method is O(n) when the current {@link LinkedList} contains n elements.
+	 * The complexity of this implementation is O(n) when the current {@link LinkedList} contains n elements.
 	 */
 	@Override
 	public void clear() {
@@ -440,7 +440,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	//method
 	/**
 	 * Runs the given runner on each element of the current {@link LinkedList}.
-	 * The complexity of this method is O(n) when the current {@link LinkedList} contains n elements.
+	 * The complexity of this implementation is O(n) when the current {@link LinkedList} contains n elements.
 	 * 
 	 * @param runner
 	 */
@@ -454,7 +454,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 		
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link LinkedList} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link LinkedList} contains n elements.
 	 * 
 	 * @return a new list with the elements of the current {@link LinkedList}.
 	 */
@@ -464,7 +464,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n^2) if the current {@link LinkedList} contains n elements.
+	 * The complexity of this implementation is O(n^2) if the current {@link LinkedList} contains n elements.
 	 * 
 	 * @param norm
 	 * @param <E2> is the type of the elements the given norm returns.
@@ -498,7 +498,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 
 	//method
 	/**
-	 * The complexity of this method is O((n-m)*m) if:
+	 * The complexity of this implementation is O((n-m)*m) if:
 	 * -This list contains n elements.
 	 * -The sequences that matches the given sequence pattern contain m elements.
 	 * 
@@ -518,7 +518,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param index
 	 * @return the element at the given index.
@@ -549,7 +549,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 		
 	//method
 	/**
-	 * The complexity of this method is O(1).
+	 * The complexity of this implementation is O(1).
 	 * 
 	 * @return the last element of the current {@link LinkedList}.
 	 * @throws EmptyArgumentException if the current {@link LinkedList} is empty.
@@ -566,7 +566,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(1).
+	 * The complexity of this implementation is O(1).
 	 * 
 	 * @return the last element of the current {@link LinkedList} or null.
 	 */
@@ -583,7 +583,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link LinkedList} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link LinkedList} contains n elements.
 	 * 
 	 * @return the second last element of the current {@link LinkedList}.
 	 * @throws InvalidArgumentException if the current {@link LinkedList} contains less than 2 elements.
@@ -600,7 +600,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O((n-m)*m) if:
+	 * The complexity of this implementation is O((n-m)*m) if:
 	 * -This list contains n elements.
 	 * -The sequences that matches the given sequence pattern contain m elements.
 	 * 
@@ -613,7 +613,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O((n-m)*m) if:
+	 * The complexity of this implementation is O((n-m)*m) if:
 	 * -This list contains n elements.
 	 * -The sequences that matches the given sequence pattern contain m elements.
 	 * 
@@ -626,7 +626,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(1).
+	 * The complexity of this implementation is O(1).
 	 * 
 	 * @return the number of elements of the current {@link LinkedList}.
 	 */
@@ -654,7 +654,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(1).
+	 * The complexity of this implementation is O(1).
 	 * 
 	 * @return a new iterator of the current {@link LinkedList}.
 	 */
@@ -665,7 +665,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link LinkedList} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link LinkedList} contains n elements.
 	 * 
 	 * @param sequencePattern
 	 * @return true if the current {@link LinkedList} matches the given sequence pattern.
@@ -679,7 +679,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	 * Removes all elements from the current {@link LinkedList}
 	 * and adds the given elements at the end of the current {@link LinkedList}.
 	 * 
-	 * The complexity of this method is O(m + n) if:
+	 * The complexity of this implementation is O(m + n) if:
 	 * -The current {@link LinkedList} contains m elements.
 	 * -There are given n elements.
 	 * 
@@ -695,7 +695,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	//method
 	/**
 	 * Removes all elements the given selector selects from the current {@link LinkedList}.
-	 * The complexity of this method is O(n) if the current {@link LinkedList} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link LinkedList} contains n elements.
 	 * 
 	 * @param selector
 	 */
@@ -708,7 +708,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	//method
 	/**
 	 * Removes and returns the first element of the current {@link LinkedList}.
-	 * The complexity of this method is O(1).
+	 * The complexity of this implementation is O(1).
 	 * 
 	 * @return the first element of the current {@link LinkedList}.
 	 * @throws EmptyArgumentException if the current {@link LinkedList} is empty.
@@ -722,7 +722,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	//method
 	/**
 	 * Removes and returns the first element the given selector selects from the current {@link LinkedList}.
-	 * The complexity of this method is O(n) if the current {@link LinkedList} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link LinkedList} contains n elements.
 	 * 
 	 * @param selector
 	 * @return the first element the given selector selects from the current {@link LinkedList}.
@@ -737,7 +737,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	//method
 	/**
 	 * Removes and returns the last element of the current {@link LinkedList}.
-	 * The complexity of this method is O(1).
+	 * The complexity of this implementation is O(1).
 	 * 
 	 * @return the last element of the current {@link LinkedList}.
 	 * @throws EmptyArgumentException if the current {@link LinkedList} is empty.
@@ -751,7 +751,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	//method
 	/**
 	 * Removes the first element of the current {@link LinkedList}.
-	 * The complexity of this method is O(1).
+	 * The complexity of this implementation is O(1).
 	 * 
 	 * @throws EmptyArgumentException if the current {@link LinkedList} is empty.
 	 */
@@ -776,7 +776,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	//method
 	/**
 	 * Removes the first element the given selector selects from {@link LinkedList}.
-	 * The complexity of this method is O(n) if the current {@link LinkedList} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link LinkedList} contains n elements.
 	 * 
 	 * @param selector
 	 * @throws InvalidArgumentException if the current {@link LinkedList} does not contain an element the given selector selects.
@@ -817,7 +817,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	/**
 	 * Removes the first appearance of all of the given elements from the current {@link LinkedList}.
 	 * 
-	 * The complexity of this method is O(m * n) if:
+	 * The complexity of this implementation is O(m * n) if:
 	 * -There are given m elements.
 	 * -This list contains n elements.
 	 * 
@@ -832,7 +832,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	//method
 	/**
 	 * Removes the first appearance of the given element from the current {@link LinkedList}.
-	 * The complexity of this method is O(n) if the current {@link LinkedList} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link LinkedList} contains n elements.
 	 * 
 	 * @param element
 	 * @throws InvalidArgumentException if the current {@link LinkedList} does not contain the given element.
@@ -868,7 +868,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	//method
 	/**
 	 * Removes the last element of the current {@link LinkedList}.
-	 * The complexity of this method is O(1).
+	 * The complexity of this implementation is O(1).
 	 * 
 	 * @throws EmptyArgumentException if the current {@link LinkedList} is empty.
 	 */
@@ -922,7 +922,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	//method
 	/**
 	 * Replaces the first element the given selector selects from the current {@link LinkedList} with the given element.
-	 * The complexity of this method is O(n) if the current {@link LinkedList} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link LinkedList} contains n elements.
 	 * 
 	 * @param selector
 	 * @param element
@@ -960,7 +960,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	//method
 	/**
 	 * Reverses the elements of the current {@link LinkedList}.
-	 * The complexity of this method is O(n) if the current {@link LinkedList} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link LinkedList} contains n elements.
 	 */
 	public void reverse() {
 		
@@ -990,7 +990,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link LinkedList} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link LinkedList} contains n elements.
 	 * 
 	 * @return a string representation of the current {@link LinkedList}.
 	 */

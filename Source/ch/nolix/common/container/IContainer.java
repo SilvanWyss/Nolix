@@ -43,7 +43,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(1).
+	 * The complexity of this implementation is O(1).
 	 * 
 	 * @param <E2> is the type of the elements of the returned {@link IContainer}.
 	 * @return the current {@link IContainer} as a {@link IContainer} with elements of the evaluated type.
@@ -55,7 +55,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param selector
 	 * @return true if the current {@link IContainer} contains an element the given selector selects.
@@ -76,7 +76,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n^2) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n^2) if the current {@link IContainer} contains n elements.
 	 *
 	 * @param selector
 	 * @return true if the current {@link IContainer}
@@ -102,7 +102,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param element
 	 * @return true if the current {@link IContainer} contains the given element.
@@ -123,7 +123,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(m*n) if:
+	 * The complexity of this implementation is O(m*n) if:
 	 * -The current {@link IContainer} contains m elements.
 	 * -n elements are given.
 	 * 
@@ -146,7 +146,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(m*n) if:
+	 * The complexity of this implementation is O(m*n) if:
 	 * -The current {@link IContainer} contains m elements.
 	 * -n elements are given.
 	 * 
@@ -169,7 +169,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(1).
+	 * The complexity of this implementation is O(1).
 	 * 
 	 * @return true if the current {@link IContainer} contains any element.
 	 */
@@ -179,7 +179,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(m*n) if:
+	 * The complexity of this implementation is O(m*n) if:
 	 * -The current {@link IContainer} contains m elements.
 	 * -n elements are given.
 	 * 
@@ -202,7 +202,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(m*n) if:
+	 * The complexity of this implementation is O(m*n) if:
 	 * -The current {@link IContainer} contains m elements.
 	 * -n elements are given.
 	 * 
@@ -225,7 +225,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(1).
+	 * The complexity of this implementation is O(1).
 	 * 
 	 * @param container
 	 * @return true if the current {@link IContainer} contains as many elements as the given container.
@@ -236,7 +236,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param element
 	 * @return true if the current {@link IContainer}
@@ -248,7 +248,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(1).
+	 * The complexity of this implementation is O(1).
 	 * 
 	 * @param container
 	 * @return true if the current {@link IContainer} contains less elements than the given container.
@@ -259,7 +259,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(1).
+	 * The complexity of this implementation is O(1).
 	 * 
 	 * @param container
 	 * @return true if the current {@link IContainer} contains less elements than the given container.
@@ -270,7 +270,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(1).
+	 * The complexity of this implementation is O(1).
 	 * 
 	 * @param container
 	 * @return true if the current {@link IContainer} contains more elements than the given container.
@@ -281,7 +281,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(1).
+	 * The complexity of this implementation is O(1).
 	 * 
 	 * @param container
 	 * @return true if the current {@link IContainer} contains more elements than the given container.
@@ -292,7 +292,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param selector
 	 * @return true if the current {@link IContainer} does not contain an element the given selector selects.
@@ -303,7 +303,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(m*n) if:
+	 * The complexity of this implementation is O(m*n) if:
 	 * -The current {@link IContainer} contains m elements.
 	 * -n elements are given.
 	 * 
@@ -326,7 +326,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param element
 	 * @return true if the current {@link IContainer} contains the given element exactly 1 time.
@@ -355,7 +355,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(1).
+	 * The complexity of this implementation is O(1).
 	 * 
 	 * @return true if the current {@link IContainer} contains exactly 1 element.
 	 */
@@ -375,7 +375,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param selector
 	 * @return true if the current {@link IContainer}
@@ -405,7 +405,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param element
 	 * @return true if the current {@link IContainer}
@@ -417,7 +417,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(m*n) if:
+	 * The complexity of this implementation is O(m*n) if:
 	 * -The current {@link IContainer} contains m elements.
 	 * -n elements are given.
 	 * 
@@ -430,7 +430,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * Lets the elements of the current {@link IContainer} run the given action.
 	 * Continues always when an error occurs at an element.
@@ -451,7 +451,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(1).
+	 * The complexity of this implementation is O(1).
 	 * 
 	 * @param startIndex
 	 * @return a new sub container of the current {@link IContainer} from the given start index.
@@ -465,7 +465,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(1).
+	 * The complexity of this implementation is O(1).
 	 * 
 	 * @param startIndex
 	 * @param endIndex
@@ -484,7 +484,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param doubleNorm
 	 * @return the average of the values
@@ -503,7 +503,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param intNorm
 	 * @return the average of the values
@@ -522,7 +522,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param longNorm
 	 * @return the average of the values
@@ -541,7 +541,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param selector
 	 * @return the number of elements the given selector selects from the current {@link IContainer}.
@@ -564,7 +564,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param element
 	 * @return the number how many times the current {@link IContainer} contains the given element.
@@ -593,7 +593,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param element
 	 * @return the index of the given element in the current {@link IContainer}.
@@ -618,7 +618,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param norm
 	 * @param <E2> is the type of the elements of the {@link Comparable} the given norm returns.
@@ -632,7 +632,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param doubleNorm
 	 * @return the biggest value
@@ -645,7 +645,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param intNorm
 	 * @return the biggest value
@@ -658,7 +658,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param intNorm
 	 * @param defaultValue
@@ -678,7 +678,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param intNorm
 	 * @return the biggest value the given intNorm returns from the elements of the current {@link IContainer}
@@ -690,7 +690,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param longNorm
 	 * @return the biggest value
@@ -703,7 +703,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param norm
 	 * @param <E2> is the type of the elements of the {@link Comparable} the given norm returns.
@@ -717,7 +717,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param doubleNorm
 	 * @return the smallest value
@@ -730,7 +730,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param intNorm
 	 * @return the smallest value
@@ -743,7 +743,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param longNorm
 	 * @return the smallest value
@@ -756,7 +756,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param element
 	 * @return a new {@link SingleContainer} with the index of the first occurrence of the given element
@@ -783,7 +783,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param selector
 	 * @return the percentage of the number of elements
@@ -797,7 +797,7 @@ public interface IContainer<E> extends Iterable<E> {
 	//method
 	/**
 	 * The range of some values is the difference between the maximum and the minimum of the values.
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param doubleNorm
 	 * @return the range of the values the given double norm returns from the current {@link IContainer}.
@@ -835,7 +835,7 @@ public interface IContainer<E> extends Iterable<E> {
 	//method
 	/**
 	 * The range of some values is the difference between the maximum and the minimum of the values.
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param intNorm
 	 * @return the range of the values the given int norm returns from the current {@link IContainer}.
@@ -873,7 +873,7 @@ public interface IContainer<E> extends Iterable<E> {
 	//method
 	/**
 	 * The range of some values is the difference between the maximum and the minimum of the values.
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param longNorm
 	 * @return the range of the values the given long norm returns from the current {@link IContainer}.
@@ -910,7 +910,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param selector
 	 * @return the ratio of the number of elements
@@ -929,7 +929,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(1).
+	 * The complexity of this implementation is O(1).
 	 * 
 	 * @return a randomly selected element of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
@@ -953,7 +953,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param norm
 	 * @param <E2> is the type of the elements of the {@link Comparable} the given norm returns.
@@ -983,7 +983,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param doubleNorm
 	 * @return the element with the biggest value
@@ -1011,7 +1011,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param intNorm
 	 * @return the element with the biggest value
@@ -1039,7 +1039,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param longNorm
 	 * @return the element with the biggest value
@@ -1067,7 +1067,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param norm
 	 * @param <E2> is the type of the elements of the {@link Comparable} the given norm returns.
@@ -1097,7 +1097,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param doubleNorm
 	 * @return the element with the biggest value
@@ -1125,7 +1125,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param intNorm
 	 * @return the element with the biggest value
@@ -1153,7 +1153,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param longNorm
 	 * @return the element with the smallest value
@@ -1181,7 +1181,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(1).
+	 * The complexity of this implementation is O(1).
 	 * 
 	 * @return the first element of the current {@link IContainer}.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
@@ -1198,7 +1198,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param selector
 	 * @return the first element the given selector selects from the current {@link IContainer}.
@@ -1221,7 +1221,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n^2) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n^2) if the current {@link IContainer} contains n elements.
 	 *
 	 * @param selector
 	 * @return the first 2 elements of the current {@link IContainer} the given selector selects together.
@@ -1249,7 +1249,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n).
+	 * The complexity of this implementation is O(n).
 	 * 
 	 * @param selector
 	 * @return either the first element the given selector selects from the current {@link IContainer}
@@ -1272,7 +1272,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(1).
+	 * The complexity of this implementation is O(1).
 	 * 
 	 * @return the first element of the current {@link IContainer} or null.
 	 */
@@ -1289,7 +1289,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(1).
+	 * The complexity of this implementation is O(1).
 	 * 
 	 * @param selector
 	 * @return the first element the given selector selects from the current {@link IContainer} or null.
@@ -1310,7 +1310,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n^2) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n^2) if the current {@link IContainer} contains n elements.
 	 *
 	 * @param selector
 	 * @return the first 2 elements of the current {@link IContainer}
@@ -1333,7 +1333,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param type
 	 * @param <E2> is the type of the elements of the returned {@link LinkedList}.
@@ -1366,7 +1366,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param selector
 	 * @return the one element the given selector selects from the current {@link IContainer}.
@@ -1405,7 +1405,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param selector
 	 * @return a new {@link LinkedList} with the elements
@@ -1430,7 +1430,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(m*n) if:
+	 * The complexity of this implementation is O(m*n) if:
 	 * -The current {@link IContainer} contains m elements.
 	 * -n selectors are given.
 	 * 
@@ -1469,7 +1469,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param selector
 	 * @return a new {@link LinkedList} with the elements
@@ -1481,7 +1481,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(m*n) if:
+	 * The complexity of this implementation is O(m*n) if:
 	 * -This contains contains m elements.
 	 * -n selectors are given.
 	 * 
@@ -1521,7 +1521,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param doubleNorm
 	 * @return the standard deviation of the values
@@ -1534,7 +1534,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param intNorm
 	 * @return the standard deviation of the values
@@ -1547,7 +1547,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param longNorm
 	 * @return the standard deviation of the values
@@ -1560,7 +1560,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param doubleNorm
 	 * @return the sum of the values
@@ -1580,7 +1580,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param intNorm
 	 * @return the sum of the values
@@ -1600,7 +1600,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param longNorm
 	 * @return the sum of the values
@@ -1620,7 +1620,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param doubleNorm
 	 * @return the variance of the values
@@ -1642,7 +1642,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param intNorm
 	 * @return the variance of the values
@@ -1664,7 +1664,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param longNorm
 	 * @return the variance of the values
@@ -1686,7 +1686,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(1).
+	 * The complexity of this implementation is O(1).
 	 * 
 	 * @return true if the current {@link IContainer} does not contain an element.
 	 */
@@ -1696,7 +1696,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param norm
 	 * @param <E2> is the type of the elements of the {@link Comparable} the given norm returns.
@@ -1726,7 +1726,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param extractor
 	 * @param <E2> is the type of the elements the given extractor returns.
@@ -1741,7 +1741,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @return a new array with the elements of the current {@link IContainer}.
 	 */
@@ -1762,7 +1762,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param extractor
 	 * @param <E2> is the type of the elements the given extractor returns.
@@ -1787,7 +1787,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param byteNorm
 	 * @return a new array with the values
@@ -1810,7 +1810,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param charNorm
 	 * @return a new array with the values
@@ -1833,7 +1833,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param doubleNorm
 	 * @return a new array with the values
@@ -1856,7 +1856,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param extractor
 	 * @param <E2> is the type of the elements the given extractor returns.
@@ -1871,7 +1871,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param intNorm
 	 * @return a new array with the values
@@ -1894,7 +1894,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @return a new {@link LinkedList} with the elements from the current {@link IContainer}.
 	 */
@@ -1904,7 +1904,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param longNorm
 	 * @return a new array with the values
@@ -1928,7 +1928,7 @@ public interface IContainer<E> extends Iterable<E> {
 	//method
 	/**
 	 * This method uses the merge sort algorithm.
-	 * The complexity of this method is O(n*log(n)) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n*log(n)) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param norm
 	 * @param <E2> is the type of the elements of the {@link Comparable} the given norm returns.
@@ -1941,7 +1941,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param separator
 	 * @return a String representation the current {@link IContainer} using the given separator.
@@ -1952,7 +1952,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param separator
 	 * @return a String representation of the current {@link IContainer} using the given separator.
@@ -1987,7 +1987,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @return a new array with the Strings that represent the elements of the current {@link IContainer}.
 	 */
@@ -2007,7 +2007,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @return a new {@link LinkedList}
 	 * with the Strings that represent the elements of the current {@link IContainer}.
@@ -2018,7 +2018,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(1).
+	 * The complexity of this implementation is O(1).
 	 * 
 	 * @param endIndex
 	 * @return a new sub container of the current {@link IContainer}
@@ -2031,7 +2031,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(1).
+	 * The complexity of this implementation is O(1).
 	 * 
 	 * @return a new sub container of the current {@link IContainer} without the first element.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
@@ -2047,7 +2047,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param element
 	 * @return a new sub {@link IContainer} from the current {@link IContainer} without
@@ -2068,7 +2068,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(1).
+	 * The complexity of this implementation is O(1).
 	 * 
 	 * @param n
 	 * @return a new sub container of the current {@link IContainer} without the first n elements.
@@ -2092,7 +2092,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(1).
+	 * The complexity of this implementation is O(1).
 	 * 
 	 * @return a new sub container of the current {@link IContainer} without the last element.
 	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
@@ -2109,7 +2109,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * The complexity of this method is O(1).
+	 * The complexity of this implementation is O(1).
 	 * 
 	 * @param n
 	 * @return a new sub container of the current {@link IContainer}

@@ -33,7 +33,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable {
 	//method
 	/**
 	 * Adds a new column to the current {@link Matrix} with the given elements.
-	 * The complexity of this method is O(m + n) if:
+	 * The complexity of this implementation is O(m + n) if:
 	 * -The current {@link Matrix} contains m elements.
 	 * -n elements are given.
 	 * 
@@ -55,7 +55,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable {
 	//method
 	/**
 	 * Adds a new column to the current {@link Matrix} with the given elements.
-	 * The complexity of this method is O(m + n) if:
+	 * The complexity of this implementation is O(m + n) if:
 	 * -The current {@link Matrix} contains m elements.
 	 * -n elements are given.
 	 * 
@@ -125,7 +125,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable {
 	//method
 	/**
 	 * Adds a new row to the current {@link Matrix} with the given elements.
-	 * The complexity of this method is O(m + n) if:
+	 * The complexity of this implementation is O(m + n) if:
 	 * -The current {@link Matrix} contains m rows.
 	 * -n elements are given.
 	 * 
@@ -147,7 +147,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable {
 	//method
 	/**
 	 * Adds a new row to the current {@link Matrix} with the given elements.
-	 * The complexity of this method is O(m + n) if:
+	 * The complexity of this implementation is O(m + n) if:
 	 * -The current {@link Matrix} contains m rows.
 	 * -n elements are given.
 	 * 
@@ -218,7 +218,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable {
 	//method
 	/**
 	 * Removes all elements of the current {@link Matrix}.
-	 * The complexity of this method is O(1).
+	 * The complexity of this implementation is O(1).
 	 */
 	@Override
 	public void clear() {
@@ -227,7 +227,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable {
 	
 	//method
 	/**
-	 * The complexity of this method is O(1).
+	 * The complexity of this implementation is O(1).
 	 * 
 	 * @return true if the current {@link Matrix} contains any element.
 	 */
@@ -252,7 +252,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable {
 	
 	//method
 	/**
-	 * The complexity of this method is O(1).
+	 * The complexity of this implementation is O(1).
 	 * 
 	 * @return the number of columns of the current {@link Matrix}.
 	 */
@@ -302,7 +302,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable {
 	
 	//method
 	/**
-	 * The complexity of this method is O(m * n) if:
+	 * The complexity of this implementation is O(m * n) if:
 	 * -This matrix contains m rows.
 	 * -This matrix contains n columns.
 	 * 
@@ -322,7 +322,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable {
 	
 	//method
 	/**
-	 * The complexity of this method is O(1).
+	 * The complexity of this implementation is O(1).
 	 * 
 	 * @return the number of elements of the current {@link Matrix}.
 	 */
@@ -367,7 +367,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable {
 	
 	//method
 	/**
-	 * The complexity of this method is O(1).
+	 * The complexity of this implementation is O(1).
 	 * 
 	 * @param rowIndex
 	 * @param columnIndex
@@ -435,7 +435,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable {
 	
 	//method
 	/**
-	 * The complexity of this method is O(1).
+	 * The complexity of this implementation is O(1).
 	 * 
 	 * @return the number of rows of the current {@link Matrix}.
 	 */
@@ -452,7 +452,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable {
 		
 	//method
 	/**
-	 * The complexity of this method is O(1).
+	 * The complexity of this implementation is O(1).
 	 * 
 	 * @return true if the current {@link Matrix} is empty.
 	 */
@@ -463,7 +463,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable {
 	
 	//method
 	/**
-	 * The complexity of this method is O(1).
+	 * The complexity of this implementation is O(1).
 	 * 
 	 * @return a new iterator for the current {@link Matrix}.
 	 */
@@ -475,7 +475,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable {
 	//method
 	/**
 	 * Sets the given element to the current {@link Matrix} at the given index.
-	 * The complexity of this method is O(1).
+	 * The complexity of this implementation is O(1).
 	 * 
 	 * @param index
 	 * @param element
@@ -504,7 +504,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable {
 	 * Sets the given element to the current {@link Matrix}
 	 * to the row with the given row index and the column with the given column index.
 	 * 
-	 * The complexity of this method is O(1).
+	 * The complexity of this implementation is O(1).
 	 * 
 	 * @param rowIndex
 	 * @param columnIndex
@@ -540,7 +540,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if:
+	 * The complexity of this implementation is O(n) if:
 	 * -This matrix contains n elements.
 	 * -The given transformer has a complexity of O(1).
 	 * 
@@ -573,7 +573,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n)
+	 * The complexity of this implementation is O(n)
 	 * if the current {@link Matrix} contains n elements. 
 	 * 
 	 * @return a new left rotated {@link Matrix} of the current {@link Matrix}.
@@ -605,7 +605,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n)
+	 * The complexity of this implementation is O(n)
 	 * if the current {@link Matrix} contains n elements. 
 	 * 
 	 * @return a new right rotated {@link Matrix} of the current {@link Matrix}.
@@ -637,7 +637,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable {
 	
 	//method
 	/**
-	 * The complexity of this method is O(n) if:
+	 * The complexity of this implementation is O(n) if:
 	 * -The current {@link Matrix} contains n elements.
 	 * -The toString method of the elements of the current {@link Matrix} has a complexity of O(1).
 	 * 
