@@ -178,7 +178,7 @@ public final class Polynom {
 	
 	//method
 	/**
-	 * This method uses the Horner scheme to calculate the value.
+	 * This method implements the Horner scheme to calculate the value.
 	 * 
 	 * @param x
 	 * @return the value of the current {@link Polynom} at the given x.

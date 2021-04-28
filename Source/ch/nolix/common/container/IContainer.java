@@ -1927,7 +1927,7 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
-	 * This method uses the merge sort algorithm.
+	 * This implementation uses the merge sort algorithm.
 	 * The complexity of this implementation is O(n*log(n)) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param norm
