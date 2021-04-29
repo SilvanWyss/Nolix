@@ -5,6 +5,7 @@ package ch.nolix.common.testing.basetest;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
+//own imports
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -165,7 +166,7 @@ public final class TestCaseRunner extends Thread {
 	}
 	
 	//method
-	private boolean runCleanup() {		
+	private boolean runCleanup() {
 		try {
 			testCaseWrapper.getRefCleanup().invoke(testInstance);
 			return true;
@@ -236,7 +237,7 @@ public final class TestCaseRunner extends Thread {
 			
 			exceptionError =
 			errorCreator.createErrorFromInvocationTargetExceptionInTest(invocationTargetException, testInstance);
-				
+			
 			return false;
 		} catch (final IllegalAccessException | IllegalArgumentException exception) {
 			exceptionError = new Error("An error occured.", testInstance.getClass().getName(), 0);
