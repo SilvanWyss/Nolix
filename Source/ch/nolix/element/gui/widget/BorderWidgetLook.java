@@ -326,6 +326,21 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	}
 	
 	//method
+	public final SingleContainer<Color> getOptionalScrollBarColor() {
+		return scrollBarColor.getOptionalValue();
+	}
+	
+	//method
+	public final SingleContainer<Color> getOptionalScrollBarHoverColor() {
+		return scrollBarHoverColor.getOptionalValue();
+	}
+	
+	//method
+	public final SingleContainer<Color> getOptionalScrollBarMoveColor() {
+		return scrollBarMoveColor.getOptionalValue();
+	}
+	
+	//method
 	public final Color getRightBorderColor() {
 		return rightBorderColor.getValue();
 	}
@@ -338,21 +353,6 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	//method
 	public final int getRightPadding() {
 		return rightPadding.getValue();
-	}
-	
-	//method
-	public final SingleContainer<Color> getScrollBarColorOptionally() {
-		return scrollBarColor.getOptionalValue();
-	}
-	
-	//method
-	public final SingleContainer<Color> getScrollBarHoverColorOptionally() {
-		return scrollBarHoverColor.getOptionalValue();
-	}
-	
-	//method
-	public final SingleContainer<Color> getScrollBarMoveColorOptionally() {
-		return scrollBarMoveColor.getOptionalValue();
 	}
 	
 	//method
