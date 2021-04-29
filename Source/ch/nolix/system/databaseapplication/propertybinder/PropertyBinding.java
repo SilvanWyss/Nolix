@@ -33,7 +33,7 @@ public final class PropertyBinding {
 	}
 	
 	//method
-	public SingleContainer<Throwable> getCurrentErrorOptionally() {
+	public SingleContainer<Throwable> getOptionalCurrentError() {
 		
 		if (!hasCurrentError()) {
 			return new SingleContainer<>();
