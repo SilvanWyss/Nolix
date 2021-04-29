@@ -292,7 +292,7 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 	//method
 	private String registerImageIfNotRegisteredAndGetId(final Image image) {
 		
-		final var idContainer = imageCachingContainer.getOptionallyIdOf(image);
+		final var idContainer = imageCachingContainer.getOptionalIdOf(image);
 		
 		if (idContainer.isEmpty()) {
 			
