@@ -81,6 +81,16 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
 	}
 	
 	//method
+	public final SingleContainer<V> getOptionalValue() {
+		
+		if (!hasValue()) {
+			return new SingleContainer<>();
+		}
+		
+		return new SingleContainer<>(getValue());
+	}
+	
+	//method
 	public final SingleContainer<V> getOptionalValueOfState(final S state) {
 		
 		final var stateProperty = stateProperties[getStateOf(state).getIndex()];
@@ -100,16 +110,6 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
 	//method
 	public final V getValueOfState(final S state) {
 		return stateProperties[getStateOf(state).getIndex()].getValue();
-	}
-	
-	//method
-	public final SingleContainer<V> getValueOptionally() {
-		
-		if (!hasValue()) {
-			return new SingleContainer<>();
-		}
-		
-		return new SingleContainer<>(getValue());
 	}
 	
 	//method

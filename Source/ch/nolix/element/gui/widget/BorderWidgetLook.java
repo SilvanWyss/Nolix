@@ -342,17 +342,17 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	public final SingleContainer<Color> getScrollBarColorOptionally() {
-		return scrollBarColor.getValueOptionally();
+		return scrollBarColor.getOptionalValue();
 	}
 	
 	//method
 	public final SingleContainer<Color> getScrollBarHoverColorOptionally() {
-		return scrollBarHoverColor.getValueOptionally();
+		return scrollBarHoverColor.getOptionalValue();
 	}
 	
 	//method
 	public final SingleContainer<Color> getScrollBarMoveColorOptionally() {
-		return scrollBarMoveColor.getValueOptionally();
+		return scrollBarMoveColor.getOptionalValue();
 	}
 	
 	//method
