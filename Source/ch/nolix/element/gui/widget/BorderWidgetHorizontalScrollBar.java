@@ -50,19 +50,6 @@ public class BorderWidgetHorizontalScrollBar<BWL extends BorderWidgetLook<BWL>> 
 	
 	//method
 	/**
-	 * @return the color of the current {@link BorderWidgetHorizontalScrollBarCursor}.
-	 */
-	public SingleContainer<Color> getColorOptionally() {
-		
-		if (!parentBorderWidget.isMovingHorizontalScrollBarCursor()) {
-			return getColorWhenHorizontalScrollBarCursorIsNotMovedOptionally();
-		}
-		
-		return getColorWhenHorizontalScrollBarCursorIsMovedOptionally();
-	}
-	
-	//method
-	/**
 	 * {@inheritDoc}
 	 */
 	@Override
@@ -91,6 +78,19 @@ public class BorderWidgetHorizontalScrollBar<BWL extends BorderWidgetLook<BWL>> 
 		}
 		
 		return THICKNESS;
+	}
+	
+	//method
+	/**
+	 * @return the color of the current {@link BorderWidgetHorizontalScrollBarCursor}.
+	 */
+	public SingleContainer<Color> getOptionalColor() {
+		
+		if (!parentBorderWidget.isMovingHorizontalScrollBarCursor()) {
+			return getColorWhenHorizontalScrollBarCursorIsNotMovedOptionally();
+		}
+		
+		return getColorWhenHorizontalScrollBarCursorIsMovedOptionally();
 	}
 	
 	//method
@@ -216,7 +216,7 @@ public class BorderWidgetHorizontalScrollBar<BWL extends BorderWidgetLook<BWL>> 
 	//method
 	private void paintWhenVisible(final IPainter painter) {
 		
-		final var color = getColorOptionally();
+		final var color = getOptionalColor();
 		if (color.containsAny()) {
 			painter.setColor(color.getRefElement());
 			painter.paintFilledRectangle(getWidth(), getHeight());
