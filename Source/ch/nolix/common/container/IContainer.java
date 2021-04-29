@@ -599,7 +599,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return the index of the given element in the current {@link IContainer}.
 	 * @throws InvalidArgumentException if the current {@link IContainer} does not contain the given element.
 	 */
-	default int getIndexOf(final E element) {
+	default int getIndexOfFirstOccurrenceOf(final E element) {
 		
 		//Iterates the current IContainer.
 		var index = 1;

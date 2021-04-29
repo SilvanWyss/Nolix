@@ -141,7 +141,7 @@ final class ClientSessionManager<C extends Client<C>> {
 	
 	//method
 	private int getCurrentSessionIndex() {
-		return sessionStack.getIndexOf(getRefCurrentSession());
+		return sessionStack.getIndexOfFirstOccurrenceOf(getRefCurrentSession());
 	}
 	
 	//method

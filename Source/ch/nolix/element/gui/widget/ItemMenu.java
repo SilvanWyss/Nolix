@@ -138,12 +138,12 @@ public abstract class ItemMenu<IM extends ItemMenu<IM>> extends BorderWidget<IM,
 	
 	//method
 	public final int getIndexOfEmptyItem() {
-		return getRefItems().getIndexOf(getRefEmptyItem());
+		return getRefItems().getIndexOfFirstOccurrenceOf(getRefEmptyItem());
 	}
 	
 	//method
 	public final int getIndexOfSelectedItem() {
-		return getRefItems().getIndexOf(getRefSelectedItem());
+		return getRefItems().getIndexOfFirstOccurrenceOf(getRefSelectedItem());
 	}
 	
 	//method

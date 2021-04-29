@@ -329,7 +329,7 @@ TopLeftPositionedRecangular {
 	 * @throws InvalidArgumentException if the current {@link Widget} does not belong to a {@link WidgetGUI}.
 	 */
 	public final int getIndexOnGUI() {
-		return getParentGUI().getRefWidgets().getIndexOf(this);
+		return getParentGUI().getRefWidgets().getIndexOfFirstOccurrenceOf(this);
 	}
 	
 	//method
