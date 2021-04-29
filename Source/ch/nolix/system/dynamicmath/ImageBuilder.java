@@ -53,7 +53,7 @@ public final class ImageBuilder implements IImageBuilder {
 	@Override
 	public Throwable getError() {
 		
-		final var futureWithError = futures.getRefFirstOptionally(IFuture::caughtError);
+		final var futureWithError = futures.getOptionalRefFirst(IFuture::caughtError);
 		
 		if (futureWithError.isEmpty()) {
 			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.ERROR);

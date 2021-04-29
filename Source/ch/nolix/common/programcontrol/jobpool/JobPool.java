@@ -61,7 +61,7 @@ public final class JobPool {
 	
 	//method
 	synchronized SingleContainer<JobWrapper> getRefNextFreshJobWrapperOptionally() {
-		return jobWrappers.getRefFirstOptionally(JobWrapper::isFresh);
+		return jobWrappers.getOptionalRefFirst(JobWrapper::isFresh);
 	}
 		
 	//method

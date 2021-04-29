@@ -1744,7 +1744,7 @@ TopLeftPositionedRecangular {
 	
 	//method
 	private SingleContainer<Widget<?, ?>> getRefWidgetUnderCursor() {
-		return getRefWidgetsForPainting().getRefFirstOptionally(Widget::isUnderCursor);
+		return getRefWidgetsForPainting().getOptionalRefFirst(Widget::isUnderCursor);
 	}
 	
 	//method
