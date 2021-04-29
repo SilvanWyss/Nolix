@@ -87,10 +87,10 @@ public class BorderWidgetHorizontalScrollBar<BWL extends BorderWidgetLook<BWL>> 
 	public SingleContainer<Color> getOptionalColor() {
 		
 		if (!parentBorderWidget.isMovingHorizontalScrollBarCursor()) {
-			return getColorWhenHorizontalScrollBarCursorIsNotMovedOptionally();
+			return getOptionalColorWhenHorizontalScrollBarCursorIsNotMoved();
 		}
 		
-		return getColorWhenHorizontalScrollBarCursorIsMovedOptionally();
+		return getOptionalColorWhenHorizontalScrollBarCursorIsMoved();
 	}
 	
 	//method
@@ -184,12 +184,12 @@ public class BorderWidgetHorizontalScrollBar<BWL extends BorderWidgetLook<BWL>> 
 	}
 	
 	//method
-	private SingleContainer<Color> getColorWhenHorizontalScrollBarCursorIsMovedOptionally() {
+	private SingleContainer<Color> getOptionalColorWhenHorizontalScrollBarCursorIsMoved() {
 		return parentBorderWidget.getRefLook().getScrollBarMoveColorOptionally();
 	}
 	
 	//method
-	private SingleContainer<Color> getColorWhenHorizontalScrollBarCursorIsNotMovedOptionally() {
+	private SingleContainer<Color> getOptionalColorWhenHorizontalScrollBarCursorIsNotMoved() {
 		
 		final var look = parentBorderWidget.getRefLook();
 		
