@@ -45,7 +45,7 @@ import ch.nolix.element.gui.painterapi.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 2080
+ * @lines 2070
  * @param <W> is the type of a {@link Widget}.
  * @param <WL> is the type of the {@link WidgetLook} of a {@link Widget}.
  */
@@ -67,6 +67,9 @@ TopLeftPositionedRecangular {
 	private static final String EXPANDED_HEADER = "Expanded";
 	private static final String FOCUSED_HEADER = "Focused";
 	private static final String HOVERED_HEADER = "Hovered";
+	
+	//static attribute
+	private static final WidgetLookStateCalculator widgetLookStateCalculator = new WidgetLookStateCalculator();
 	
 	//attributes	
 	private CursorIcon customCursorIcon = DEFAULT_CURSOR_ICON;
@@ -1703,6 +1706,14 @@ TopLeftPositionedRecangular {
 	
 	//method
 	/**
+	 * @return the newly calculated {@link WidgetLookState} of the {@link WidgetLook} of the current {@link Widget}.
+	 */
+	private WidgetLookState calculateLookState() {
+		return widgetLookStateCalculator.calculateLookStateFor(this);
+	}
+	
+	//method
+	/**
 	 * @return the newly calculated height of the current {@link Widget}.
 	 */
 	private int calculatedHeight() {
@@ -2052,35 +2063,9 @@ TopLeftPositionedRecangular {
 	
 	//method
 	/**
-	 * Updates the state of the look of the current {@link Widget}.
+	 * Updates the {@link WidgetLookState} of the {@link WidgetLook} of the current {@link Widget}.
 	 */
 	private void updateLookState() {
-		if (!isFocused()) {
-			updateLookStateWhenNotFocused();
-		} else {
-			updateLookStateWhenFocused();
-		}
-	}
-	
-	//method
-	/**
-	 * Updates the state of the look of the current {@link Widget}
-	 * for the case that the current {@link Widget} is focused.
-	 */
-	private void updateLookStateWhenFocused() {
-		getRefLook().setState(WidgetLookState.FOCUS);
-	}
-	
-	//method
-	/**
-	 * Updates the state of the look of the current {@link Widget}
-	 * for the case that the current {@link Widget} is not focused.
-	 */
-	private void updateLookStateWhenNotFocused() {
-		if (!isHovered()) {
-			getRefLook().setState(WidgetLookState.BASE);
-		} else {
-			getRefLook().setState(WidgetLookState.HOVER);
-		}
+		getRefLook().setState(calculateLookState());
 	}
 }
