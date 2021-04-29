@@ -4,11 +4,15 @@ package ch.nolix.common.testing.basetest;
 //Java import
 import java.lang.reflect.Method;
 
+//own imports
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 
 //class
-public final class TestCaseRun {
+final class TestCaseRun {
+	
+	//static attribute
+	private static final StackTraceElementFinder stackTraceElementFinder = new StackTraceElementFinder();
 	
 	//constant
 	public static final long MAX_DURATION_IN_MILLISECONDS = 5000;
@@ -81,15 +85,14 @@ public final class TestCaseRun {
 			System.err.flush();
 			
 			if (testCaseRunner.getRuntimeInMilliseconds() > MAX_DURATION_IN_MILLISECONDS) {
-				
-				//TODO: Evaluate lineNumber.
-				final var lineNumber = 1;
-				
 				testCaseRunner.stop(
 					new Error(
 						"Reached timeout.",
 						testCaseWrapper.getRefTestCase().getName(),
-						lineNumber
+						stackTraceElementFinder
+						.getStackTraceElementsOfRunningMethod(testCaseWrapper.getRefTestCase())
+						.getRefFirst()
+						.getLineNumber()
 					)
 				);
 			}
@@ -99,15 +102,15 @@ public final class TestCaseRun {
 	}
 	
 	//method
-	private void setStarted() {
-		supposeHasNotStarted();
-		started = true;
-	}
-	
-	//method
-	private void supposeHasNotStarted() {
+	private void assertHasNotStarted() {
 		if (hasStarted()) {
 			throw new InvalidArgumentException(this, "has started already");
 		}
+	}
+	
+	//method
+	private void setStarted() {
+		assertHasNotStarted();
+		started = true;
 	}
 }
