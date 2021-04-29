@@ -328,7 +328,7 @@ public class NetEndPoint extends EndPoint {
 				return null;
 			}
 			
-			//This statement, which is actually unnecessary, makes that the current loop is not optimized away.
+			//This statement, which is theoretically unnecessary, makes that the current loop is not optimized away.
 			System.err.flush();
 		}
 		

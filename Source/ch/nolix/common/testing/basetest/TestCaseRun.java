@@ -65,7 +65,7 @@ final class TestCaseRun {
 		//This loop suffers from being optimized away by the compiler or the JVM.
 		while (!testCaseRunner.isFinished()) {
 			
-			//This statement, which is actually unnecessary, makes that the current loop is not optimized away.
+			//This statement, which is theoretically unnecessary, makes that the current loop is not optimized away.
 			System.err.flush();
 		}
 		
@@ -81,7 +81,7 @@ final class TestCaseRun {
 		//This loop suffers from being optimized away by the compiler or the JVM.
 		while (!testCaseRunner.isFinished()) {
 			
-			//This statement, which is actually unnecessary, makes that the current loop is not optimized away.
+			//This statement, which is theoretically unnecessary, makes that the current loop is not optimized away.
 			System.err.flush();
 			
 			if (testCaseRunner.getRuntimeInMilliseconds() > MAX_DURATION_IN_MILLISECONDS) {
