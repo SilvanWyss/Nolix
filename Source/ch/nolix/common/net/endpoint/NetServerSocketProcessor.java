@@ -51,7 +51,7 @@ final class NetServerSocketProcessor extends Worker {
 	protected void run() {
 		try {
 			
-			final var netEndPoint = createNetEndPointOptionally();
+			final var netEndPoint = createOptionalNetEndPoint();
 			
 			if (netEndPoint.isEmpty()) {
 				closeSocket();
@@ -76,7 +76,7 @@ final class NetServerSocketProcessor extends Worker {
 	}
 	
 	//method
-	private SingleContainer<BaseNetEndPoint> createNetEndPointOptionally() {
+	private SingleContainer<BaseNetEndPoint> createOptionalNetEndPoint() {
 		
 		final var firstReveivedLine = GlobalInputStreamHelper.readLineFrom(socketInputStream);
 		
