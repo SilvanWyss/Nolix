@@ -6,19 +6,20 @@ import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
-import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.skillapi.Clearable;
 import ch.nolix.element.base.Element;
 import ch.nolix.element.elementapi.IMutableElement;
+import ch.nolix.element.gui.base.OptionalWidgetProperty;
 import ch.nolix.element.gui.base.Widget;
-import ch.nolix.element.gui.base.WidgetGUI;
 
 //class
 final class GridCell extends Element<GridCell> implements Clearable, IMutableElement<GridCell> {
-
+	
+	//attribute
+	private final OptionalWidgetProperty widget = new OptionalWidgetProperty(this::setWidget);
+	
 	//optional attribute
-	private Widget<?, ?> widget;
 	private final int rowIndex;
 	private final int columnIndex;
 	
@@ -56,19 +57,13 @@ final class GridCell extends Element<GridCell> implements Clearable, IMutableEle
 	//method
 	@Override
 	public void addOrChangeAttribute(final BaseNode attribute) {
-		
-		if (WidgetGUI.canCreateWidgetFrom(attribute)) {
-			setWidget(WidgetGUI.createWidgetFrom(attribute));
-			return;
-		}
-		
 		internalAddOrChangeAttribute(attribute);
 	}
 	
 	//method
 	@Override
 	public void clear() {
-		widget = null;
+		widget.clear();
 	}
 	
 	//method
@@ -78,10 +73,6 @@ final class GridCell extends Element<GridCell> implements Clearable, IMutableEle
 		super.fillUpAttributesInto(list);
 		
 		list.addAtEnd(Node.withHeader(getRowIndex()), Node.withHeader(getColumnIndex()));
-		
-		if (containsAny()) {
-			list.addAtEnd(getRefWidget().getSpecification());
-		}
 	}
 	
 	//method
@@ -106,12 +97,7 @@ final class GridCell extends Element<GridCell> implements Clearable, IMutableEle
 	
 	//method
 	public Widget<?, ?> getRefWidget() {
-		
-		if (isEmpty()) {
-			throw new EmptyArgumentException(this);
-		}
-		
-		return widget;
+		return widget.getRefWidget();
 	}
 	
 	//method
@@ -139,9 +125,7 @@ final class GridCell extends Element<GridCell> implements Clearable, IMutableEle
 	//method
 	public GridCell setWidget(final Widget<?, ?> widget) {
 		
-		Validator.assertThat(widget).isOfType(Widget.class);
-		
-		this.widget = widget;
+		this.widget.setWidget(widget);
 		
 		return this;
 	}
