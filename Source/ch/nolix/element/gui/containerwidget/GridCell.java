@@ -62,7 +62,7 @@ final class GridCell extends Element<GridCell> implements Clearable, IMutableEle
 			return;
 		}
 		
-		super.addOrChangeAttribute(attribute);
+		internalAddOrChangeAttribute(attribute);
 	}
 	
 	//method

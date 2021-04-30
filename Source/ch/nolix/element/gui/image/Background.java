@@ -70,7 +70,7 @@ public final class Background extends Element<Background> implements IMutableEle
 	//method
 	@Override
 	public void addOrChangeAttribute(final BaseNode attribute) {
-		super.addOrChangeAttribute(attribute);
+		internalAddOrChangeAttribute(attribute);
 	}
 	
 	//method

@@ -118,7 +118,7 @@ public final class ItemMenuItem extends Element<ItemMenuItem> implements Optiona
 	//constructor
 	private ItemMenuItem(final BaseNode specification) {
 		unselect();
-		specification.getRefAttributes().forEach(this::addOrChangeAttribute);
+		specification.getRefAttributes().forEach(this::internalAddOrChangeAttribute);
 	}
 	
 	//method

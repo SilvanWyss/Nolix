@@ -89,7 +89,7 @@ implements Clearable, Headerable<TabContainerTab>, IMutableElement<TabContainerT
 	 */
 	@Override
 	public void addOrChangeAttribute(final BaseNode attribute) {
-		super.addOrChangeAttribute(attribute);
+		internalAddOrChangeAttribute(attribute);
 	}
 		
 	//method

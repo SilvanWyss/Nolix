@@ -57,7 +57,7 @@ implements IMutableElement<BorderWidgetScrollBarLook> {
 	//method
 	@Override
 	public void addOrChangeAttribute(final BaseNode attribute) {
-		super.addOrChangeAttribute(attribute);
+		internalAddOrChangeAttribute(attribute);
 	}
 	
 	//method

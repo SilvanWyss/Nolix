@@ -47,9 +47,7 @@ implements IConfigurableElement<CE> {
 				setToken(attribute.getOneAttributeHeader());
 				break;
 			default:
-				
-				//Calls method of the base class.
-				super.addOrChangeAttribute(attribute);
+				internalAddOrChangeAttribute(attribute);
 		}
 	}
 	

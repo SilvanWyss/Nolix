@@ -157,7 +157,7 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 				setPixelArray(attribute);
 				break;
 			default:
-				super.addOrChangeAttribute(attribute);
+				internalAddOrChangeAttribute(attribute);
 		}
 	}
 	

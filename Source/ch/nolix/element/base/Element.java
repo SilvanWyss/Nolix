@@ -17,7 +17,7 @@ import ch.nolix.element.elementapi.IElement;
 /**
  * @author Silvan Wyss
  * @date 2017-10-29
- * @lines 200
+ * @lines 180
  * @param <E> is the type of a {@link Element}.
  */
 public abstract class Element<E extends Element<E>> implements IElement<E> {
@@ -84,7 +84,7 @@ public abstract class Element<E extends Element<E>> implements IElement<E> {
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
-	protected void addOrChangeAttribute(final BaseNode attribute) {
+	protected final void internalAddOrChangeAttribute(final BaseNode attribute) {
 		
 		for (final var p : getRefProperties()) {
 			if (p.addedOrChangedAttribute(attribute)) {
@@ -93,24 +93,6 @@ public abstract class Element<E extends Element<E>> implements IElement<E> {
 		}
 		
 		throw new InvalidArgumentException(this, "cannot not have a " + attribute.getHeaderInQuotes());
-	}
-	
-	//method
-	/**
-	 * Adds or changes the given attribute to the current {@link Element} if the given attributes matches.
-	 * 
-	 * @param attribute
-	 * @return true if the given attribtue was added or changed to the current {@link Element}.
-	 */
-	final boolean addedOrChangedAttribute(final BaseNode attribute) {
-		
-		for (final var p : getRefProperties()) {
-			if (p.addedOrChangedAttribute(attribute)) {
-				return true;
-			}
-		}
-		
-		return false;
 	}
 	
 	//method
