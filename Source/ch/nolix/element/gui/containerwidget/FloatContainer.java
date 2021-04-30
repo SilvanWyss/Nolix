@@ -17,6 +17,11 @@ public final class FloatContainer extends ContainerWidget<FloatContainer, FloatC
 	//multi-attribute
 	private final LinkedList<Widget<?, ?>> widgets = new LinkedList<>();
 	
+	//constructor
+	public FloatContainer() {
+		reset();
+	}
+	
 	//own imports
 	@Override
 	public void addOrChangeAttribute(final BaseNode attribute) {
@@ -104,10 +109,7 @@ public final class FloatContainer extends ContainerWidget<FloatContainer, FloatC
 			return 0;
 		}
 		
-		return
-		widgets.getRefLast().getYPosition()
-		+ getRefLook().getElementMargin()
-		+ widgets.getRefLast().getHeight();
+		return (widgets.getRefLast().getYPosition() + widgets.getRefLast().getHeight());
 	}
 	
 	//method
@@ -118,8 +120,7 @@ public final class FloatContainer extends ContainerWidget<FloatContainer, FloatC
 			return 0;
 		}
 		
-		//TODO: Refactor FloatContainer.
-		return 500;
+		return (widgets.getRefLast().getXPosition()	+ widgets.getRefLast().getWidth());
 	}
 	
 	//method
