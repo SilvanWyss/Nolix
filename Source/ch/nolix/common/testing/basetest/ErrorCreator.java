@@ -12,19 +12,19 @@ final class ErrorCreator {
 	private static final ThrowableHelper throwableHelper = new ThrowableHelper();
 	
 	//method
-	public Error createErrorFromInvocationTargetExceptionInTest(
+	public Error createErrorFromInvocationTargetExceptionInInstance(
 		final InvocationTargetException invocationTargetException,
-		final BaseTest test
+		final Object instance
 	) {
-		return createErrorFromThrowableInTest(invocationTargetException.getCause(), test);
+		return createErrorFromThrowableInInstance(invocationTargetException.getCause(), instance);
 	}
 	
 	//method
-	public Error createErrorFromThrowableInTest(final Throwable throwable, final BaseTest test) {
+	public Error createErrorFromThrowableInInstance(final Throwable throwable, final Object instance) {
 		return
 		new Error(
 			throwableHelper.getMessageFromThrowableOrDefaultErrorMessage(throwable),
-			occurancePlaceFinder.findOccurancePlaceOfThrowableInTest(throwable, test)
+			occurancePlaceFinder.findOccurancePlaceOfThrowableInInstance(throwable, instance)
 		);
 	}
 }

@@ -6,10 +6,10 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 //own imports
+import ch.nolix.common.errorcontrol.exception.WrapperException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.common.programcontrol.processproperty.Result;
 
 //class
 public final class TestCaseRunner extends Thread {
@@ -58,7 +58,7 @@ public final class TestCaseRunner extends Thread {
 	//method
 	public TestCaseResult getResult() {
 		
-		supposeIsFinished();
+		assertIsFinished();
 		
 		return result;
 	}
@@ -94,16 +94,16 @@ public final class TestCaseRunner extends Thread {
 		
 		//setup phase
 		setStarted();
-		final var setupResult = runProbableSetupAndGetResult();
+		runOptionalSetup();
 		
 		//main phase
-		if (setupResult == Result.SUCCESS) {
-			runTestCase();
-		}
+		runTestCase();
+		
+		//cleanup phase
+		runOptionalCleanup();
+		closeCloseableElements();
 		
 		//result phase
-		runProbableCleanup();
-		closeClosableElements();
 		result = createResult();
 	}
 	
@@ -114,7 +114,7 @@ public final class TestCaseRunner extends Thread {
 			throw new ArgumentIsNullException("stop reason");
 		}
 		
-		supposeIsNotFinished();
+		assertIsNotFinished();
 				
 		exceptionError = stopReason;
 		interrupt();
@@ -122,23 +122,44 @@ public final class TestCaseRunner extends Thread {
 	}
 	
 	//method
-	private void closeClosableElements() {
-		for (final var ce : testInstance.getRefClosableElements()) {
-			try {
-				ce.close();
-			} catch (final Exception exception) {
-				
-				//TODO: Evaluate lineNumber.
-				final var lineNumber = 1;
-				
-				if (!hasExceptionError()) {
-					exceptionError =
-					new Error("An error occured at the try to close an element.", testInstance.getName(), lineNumber);
-				}
-			}
+	private void assertHasNotStarted() {
+		if (hasStarted()) {
+			throw new InvalidArgumentException(this, "has started already");
 		}
 	}
 	
+	//method
+	private void assertIsFinished() {
+		if (!isFinished()) {
+			throw new InvalidArgumentException(this, "is not finished");
+		}
+	}
+	
+	//method
+	private void assertIsNotFinished() {
+		if (isFinished()) {
+			throw new InvalidArgumentException(this, "is finished already");
+		}
+	}
+	
+	//method
+	private void closeCloseableElements() {
+		for (final var ce : testInstance.getRefClosableElements()) {
+			closeCloseableElement(ce);
+		}
+	}
+	
+	//method
+	private void closeCloseableElement(final AutoCloseable closeableElement) {
+		try {
+			closeableElement.close();
+		} catch (final Exception exception) {
+			if (!hasExceptionError()) {
+				exceptionError = errorCreator.createErrorFromThrowableInInstance(exception, closeableElement);
+			}
+		}
+	}
+
 	//method
 	private TestCaseResult createResult() {
 				
@@ -166,109 +187,64 @@ public final class TestCaseRunner extends Thread {
 	}
 	
 	//method
-	private boolean runCleanup() {
+	private void runCleanup() {
 		try {
 			testCaseWrapper.getRefCleanup().invoke(testInstance);
-			return true;
-		} catch (final
-			IllegalAccessException
-			| IllegalArgumentException
-			| InvocationTargetException
-			exception
-		) {
-			
-			//TODO: Evaluate lineNumber.
-			final var lineNumber = 1;
-			
-			exceptionError = new Error("Cleanup failed", testCaseWrapper.getRefCleanup().getName(), lineNumber);
-			
-			return false;
+		} catch (final InvocationTargetException invocationTargetException) {
+			if (!hasExceptionError()) {
+				exceptionError =
+				errorCreator.createErrorFromInvocationTargetExceptionInInstance(invocationTargetException, testInstance);
+			}
+		} catch (final IllegalAccessException illegalAccessException) {
+			throw new WrapperException(illegalAccessException);
 		}
 	}
 	
 	//method
-	private boolean runProbableCleanup() {
-		
+	private void runOptionalCleanup() {
 		if (testCaseWrapper.hasCleanup()) {
-			return runCleanup();
+			runCleanup();
 		}
-		
-		return true;
 	}
 	
 	//method
-	private Result runProbableSetupAndGetResult()  {
-		
+	private void runOptionalSetup()  {
 		if (testCaseWrapper.hasSetup()) {
-			return runSetupAndGetResult();
+			runSetup();
 		}
-		
-		return Result.SUCCESS;
 	}
 	
 	//method
-	private Result runSetupAndGetResult() {
+	private void runSetup() {
 		try {
 			testCaseWrapper.getRefSetup().invoke(testInstance);
-			return Result.SUCCESS;
-		} catch (
-			final
-			IllegalAccessException
-			| IllegalArgumentException
-			| InvocationTargetException
-			exception
-		) {
-			
-			//TODO: Evaluate lineNumber.
-			final var lineNumber = 1;
-			
-			exceptionError = new Error("Setup failed", testCaseWrapper.getRefSetup().getName(), lineNumber);
-			
-			return Result.FAILURE;
+		} catch (final InvocationTargetException invocationTargetException) {
+			if (!hasExceptionError()) {
+				exceptionError =
+				errorCreator.createErrorFromInvocationTargetExceptionInInstance(invocationTargetException, testInstance);
+			}
+		} catch (final IllegalAccessException illegalAccessException) {
+			throw new WrapperException(illegalAccessException);
 		}
 	}
 	
 	//method
-	private boolean runTestCase() {
+	private void runTestCase() {
 		try {
 			testCaseWrapper.getRefTestCase().invoke(testInstance, (Object[])new Class[0]);
-			return true;
 		} catch (final InvocationTargetException invocationTargetException) {
-			
-			exceptionError =
-			errorCreator.createErrorFromInvocationTargetExceptionInTest(invocationTargetException, testInstance);
-			
-			return false;
-		} catch (final IllegalAccessException | IllegalArgumentException exception) {
-			exceptionError = new Error("An error occured.", testInstance.getClass().getName(), 0);
-			return false;
+			if (!hasExceptionError()) {
+				exceptionError =
+				errorCreator.createErrorFromInvocationTargetExceptionInInstance(invocationTargetException, testInstance);
+			}
+		} catch (final IllegalAccessException illegalAccessException) {
+			throw new WrapperException(illegalAccessException);
 		}
 	}
 	
 	//method
 	private void setStarted() {
-		supposeHasNotStarted();
+		assertHasNotStarted();
 		startTime = System.currentTimeMillis();
-	}
-	
-	//method
-	private void supposeHasNotStarted() {
-		if (hasStarted()) {
-			throw new InvalidArgumentException(this, "has started already");
-		}
-	}
-	
-	//method
-	private void supposeIsFinished() {
-		if (!isFinished()) {
-			throw new InvalidArgumentException(this, "is not finished");
-		}
-	}
-	
-	//method
-	private void supposeIsNotFinished() {
-		if (isFinished()) {
-			throw new InvalidArgumentException(this, "is finished already");
-		}
 	}
 }

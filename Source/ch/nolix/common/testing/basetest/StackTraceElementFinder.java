@@ -4,7 +4,8 @@ package ch.nolix.common.testing.basetest;
 //Java import
 import java.lang.reflect.Method;
 
-//own import
+//own imports
+import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.independent.independentcontainer.List;
 
 //class
@@ -24,5 +25,25 @@ final class StackTraceElementFinder {
 		}
 		
 		return stackTraceElements;
+	}
+	
+	//method
+	public StackTraceElement getStackTraceElementOfMethodInThrowable(final Method method, final Throwable throwable) {
+		return getStackTraceElementOfMethodInStackTrace(method, throwable.getStackTrace());
+	}
+	
+	//method
+	private StackTraceElement getStackTraceElementOfMethodInStackTrace(
+		final Method method,
+		final StackTraceElement[] stackTrace
+	) {
+		
+		for (final var ste : stackTrace) {
+			if (ste.getMethodName().equals(method.getName())) {
+				return ste;
+			}
+		}
+		
+		throw new InvalidArgumentException(method, "is not called the given stackTrace '" + stackTrace + "'");
 	}
 }
