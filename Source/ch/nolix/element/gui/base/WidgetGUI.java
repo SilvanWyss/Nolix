@@ -329,9 +329,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 					background.setBackgroundColorGradient(ColorGradient.fromSpecification(attribute));
 					break;
 				default:
-					
-					//Calls method of the base class.
-					super.addOrChangeAttribute(attribute);
+					internalAddOrChangeAttribute(attribute);
 			}
 		}
 	}

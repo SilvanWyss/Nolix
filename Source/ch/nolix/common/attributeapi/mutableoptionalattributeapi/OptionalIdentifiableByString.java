@@ -19,10 +19,8 @@ extends OptionalIdentifiedByString {
 	//method declaration
 	/**
 	 * Removes the id of the current {@link OptionalIdentifiableByString}.
-	 * 
-	 * @return the current {@link OptionalIdentifiableByString}.
 	 */
-	OIBS removeId();
+	void removeId();
 	
 	//method declaration
 	/**

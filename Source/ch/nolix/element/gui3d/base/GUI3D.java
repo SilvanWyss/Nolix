@@ -90,7 +90,7 @@ public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G> 
 		}
 		
 		//Handles the case that the given attribute does not specify a shape.
-		super.addOrChangeAttribute(attribute);
+		internalAddOrChangeAttribute(attribute);
 	}
 	
 	//method

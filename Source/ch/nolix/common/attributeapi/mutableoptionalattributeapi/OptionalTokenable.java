@@ -17,10 +17,8 @@ public interface OptionalTokenable<OT extends OptionalTokenable<OT>> extends Opt
 	//method declaration
 	/**
 	 * Removes the token of the current {@link OptionalTokenable}.
-	 * 
-	 * @return the current {@link OptionalTokenable}.
 	 */
-	OT removeToken();
+	void removeToken();
 	
 	//method declaration
 	/**

@@ -2,13 +2,9 @@
 package ch.nolix.element.configuration;
 
 //own imports
-import ch.nolix.common.constant.LowerCaseCatalogue;
-import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.document.node.BaseNode;
-import ch.nolix.common.document.node.Node;
+import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.common.errorcontrol.validator.Validator;
+import ch.nolix.element.base.MutableOptionalValue;
 
 //class
 /**
@@ -16,72 +12,38 @@ import ch.nolix.common.errorcontrol.validator.Validator;
  * 
  * @author Silvan Wyss
  * @date 2016-05-01
- * @lines 130
+ * @lines 100
  * @param <CE> is the type of a {@link ConfigurationElement}.
  */
 public abstract class ConfigurationElement<CE extends ConfigurationElement<CE>> extends ConfigurableElement<CE> {
 	
-	//optional attribute
-	private Configuration configuration;
+	//constant
+	private static final String CONFIGURATION_HEADER = PascalCaseCatalogue.CONFIGURATION;
 	
-	//method
-	/**
-	 * Adds or changes the given attribute to the current {@link ConfigurationElement}.
-	 * 
-	 * @param attribute
-	 * @throws InvalidArgumentException if the given attribute is not valid.
-	 */
-	@Override
-	public void addOrChangeAttribute(final BaseNode attribute) {
-		
-		//Enumerates the header of the given attribute.
-		switch (attribute.getHeader()) {
-			case LowerCaseCatalogue.CONFIGURATION:
-				setConfiguration(Configuration.fromSpecification(attribute));
-				break;
-			default:
-				
-				//Calls method of the base class.
-				super.addOrChangeAttribute(attribute);
-		}
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void fillUpAttributesInto(final LinkedList<Node> list) {
-		
-		//Calls method of the base class.
-		super.fillUpAttributesInto(list);
-		
-		//Handles the case that the current ConfigurationElement has a configuration.
-		if (hasConfiguration()) {
-			list.addAtEnd(configuration.getSpecificationAs(LowerCaseCatalogue.CONFIGURATION));
-		}
-	}
+	//attribute
+	private final MutableOptionalValue<Configuration> configuration =
+	new MutableOptionalValue<>(
+		CONFIGURATION_HEADER,
+		this::setConfiguration,
+		Configuration::fromSpecification,
+		Configuration::getSpecification
+	);
 	
 	//method
 	/**
 	 * @return true if the current {@link ConfigurationElement} has a {@link Configuration}.
 	 */
 	public final boolean hasConfiguration() {
-		return (configuration != null);
+		return configuration.hasValue();
 	}
 	
 	//method
 	/**
 	 * Removes the {@link Configuration} of the current {@link ConfigurationElement}.
-	 * 
-	 * @return the current {@link ConfigurationElement}.
 	 */
-	public CE removeConfiguration() {
-		
-		configuration = null;
+	public void removeConfiguration() {
+		configuration.clear();
 		resetConfiguration();
-		
-		return asConcrete();
 	}
 	
 	//method
@@ -94,10 +56,7 @@ public abstract class ConfigurationElement<CE extends ConfigurationElement<CE>> 
 	 */
 	public CE setConfiguration(Configuration configuration) {
 		
-		//Asserts that the given configuration is not null.
-		Validator.assertThat(configuration).thatIsNamed(LowerCaseCatalogue.CONFIGURATION).isNotNull();
-		
-		this.configuration = configuration;
+		this.configuration.setValue(configuration);
 		updateFromConfiguration();
 		
 		return asConcrete();
@@ -112,7 +71,7 @@ public abstract class ConfigurationElement<CE extends ConfigurationElement<CE>> 
 		//Handles the case that the current ConfigurationElement has a Configuration.
 		if (hasConfiguration()) {
 			resetConfiguration();
-			configuration.configure(this);
+			getRefConfiguration().configure(this);
 		}
 	}
 	
@@ -134,4 +93,12 @@ public abstract class ConfigurationElement<CE extends ConfigurationElement<CE>> 
 	 * Resets the current {@link ConfigurationElement}.
 	 */
 	protected abstract void resetConfigurationElement();
+	
+	//method
+	/**
+	 * @return the {@link Configuration} of the current {@link ConfigurationElement}.
+	 */
+	private Configuration getRefConfiguration() {
+		return configuration.getValue();
+	}
 }

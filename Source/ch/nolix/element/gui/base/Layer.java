@@ -180,9 +180,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 		if (WidgetGUI.canCreateWidgetFrom(attribute)) {
 			setRootWidget(WidgetGUI.createWidgetFrom(attribute));
 		} else {
-			
-			//Calls method of the base class.
-			super.addOrChangeAttribute(attribute);
+			internalAddOrChangeAttribute(attribute);
 		}
 	}
 	

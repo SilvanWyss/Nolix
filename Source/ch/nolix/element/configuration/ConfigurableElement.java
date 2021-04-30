@@ -3,16 +3,14 @@ package ch.nolix.element.configuration;
 
 //own imports
 import ch.nolix.common.constant.PascalCaseCatalogue;
-import ch.nolix.common.constant.LowerCaseCatalogue;
-import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.node.BaseNode;
-import ch.nolix.common.document.node.Node;
-import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.element.base.Element;
+import ch.nolix.element.base.MutableOptionalValue;
 import ch.nolix.element.elementapi.IConfigurableElement;
 
 //class
@@ -21,15 +19,19 @@ import ch.nolix.element.elementapi.IConfigurableElement;
  * 
  * @author Silvan Wyss
  * @month 2016-01-01
- * @lines 220
+ * @lines 150
  * @param <CE> is the type of a {@link ConfigurableElement}.
  */
 public abstract class ConfigurableElement<CE extends ConfigurableElement<CE>> extends Element<CE>
 implements IConfigurableElement<CE> {
 	
-	//optional attributes
-	private String id;
-	private String token;
+	//constants
+	private static final String ID_HEADER = PascalCaseCatalogue.ID;
+	private static final String TOKEN_HEADER = PascalCaseCatalogue.TOKEN;
+	
+	//attributes
+	private final MutableOptionalValue<String> id = MutableOptionalValue.forString(ID_HEADER, this::setId);
+	private final MutableOptionalValue<String> token = MutableOptionalValue.forString(TOKEN_HEADER, this::setToken);
 	
 	//method
 	/**
@@ -37,39 +39,7 @@ implements IConfigurableElement<CE> {
 	 */
 	@Override
 	public void addOrChangeAttribute(final BaseNode attribute) {
-		
-		//Enumerates the header of the given attribute.
-		switch (attribute.getHeader()) {
-			case PascalCaseCatalogue.ID:
-				setId(attribute.getOneAttributeHeader());
-				break;
-			case PascalCaseCatalogue.TOKEN:
-				setToken(attribute.getOneAttributeHeader());
-				break;
-			default:
-				internalAddOrChangeAttribute(attribute);
-		}
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void fillUpAttributesInto(final LinkedList<Node> list) {
-		
-		//Calls method of the base class.
-		super.fillUpAttributesInto(list);
-		
-		//Handles the case that the current ConfigurableElement has a id.
-		if (hasId()) {
-			list.addAtEnd(Node.withHeaderAndAttribute(PascalCaseCatalogue.ID, id));
-		}
-		
-		//Handles the case that the current ConfigurableElement has a token.
-		if (hasToken()) {
-			list.addAtEnd(Node.withHeaderAndAttribute(PascalCaseCatalogue.TOKEN, token));
-		}
+		internalAddOrChangeAttribute(attribute);
 	}
 	
 	//method
@@ -78,10 +48,7 @@ implements IConfigurableElement<CE> {
 	 */
 	@Override
 	public final String getId() {
-		
-		supposeHasId();
-		
-		return id;
+		return id.getValue();
 	}
 	
 	//method
@@ -90,11 +57,7 @@ implements IConfigurableElement<CE> {
 	 */
 	@Override
 	public final String getToken() {
-		
-		//Asserts that the current configurable element has a token.
-		supposeHasToken();
-		
-		return token;
+		return token.getValue();
 	}
 	
 	//method
@@ -103,7 +66,7 @@ implements IConfigurableElement<CE> {
 	 */
 	@Override
 	public final boolean hasId() {
-		return (id != null);
+		return id.hasValue();
 	}
 	
 	//method
@@ -112,7 +75,7 @@ implements IConfigurableElement<CE> {
 	 */
 	@Override
 	public final boolean hasToken() {
-		return (token != null);
+		return token.hasValue();
 	}
 	
 	//method
@@ -120,11 +83,8 @@ implements IConfigurableElement<CE> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final CE removeId() {
-		
-		id = null;
-		
-		return asConcrete();
+	public final void removeId() {
+		id.clear();
 	}
 	
 	//method
@@ -132,11 +92,8 @@ implements IConfigurableElement<CE> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final CE removeToken() {
-		
-		token = null;
-		
-		return asConcrete();
+	public final void removeToken() {
+		token.clear();
 	}
 	
 	//method
@@ -165,7 +122,7 @@ implements IConfigurableElement<CE> {
 		
 		Validator.assertThat(id).thatIsNamed(LowerCaseCatalogue.ID).isNotBlank();
 		
-		this.id = id;
+		this.id.setValue(id);
 		
 		return asConcrete();
 	}
@@ -176,19 +133,14 @@ implements IConfigurableElement<CE> {
 	 * 
 	 * @param token
 	 * @throws ArgumentIsNullException if the given token is null.
-	 * @throws EmptyArgumentException if the given token is empty.
+	 * @throws EmptyArgumentException if the given token is blank.
 	 */
 	@Override
 	public final CE setToken(final String token) {
 		
-		//Asserts that the given token is not null and not empty.
-		Validator
-		.assertThat(token)
-		.thatIsNamed(LowerCaseCatalogue.TOKEN)
-		.isNotEmpty();
+		Validator.assertThat(token).thatIsNamed(LowerCaseCatalogue.TOKEN).isNotBlank();
 		
-		//Sets the token of the current configurable element.
-		this.token = token;
+		this.token.setValue(token);
 		
 		return asConcrete();
 	}
@@ -198,30 +150,4 @@ implements IConfigurableElement<CE> {
 	 * Resets the current {@link ConfigurableElement}.
 	 */
 	protected abstract void resetConfigurableElement();
-	
-	//method
-	/**
-	 * @throws ArgumentDoesNotHaveAttributeException
-	 * if the current {@link ConfigurableElement} does not have an id.
-	 */
-	private void supposeHasId() {
-		
-		//Asserts that the current configurable element has a token.
-		if (!hasId()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.ID);
-		}
-	}
-	
-	//method
-	/**
-	 * @throws ArgumentDoesNotHaveAttributeException
-	 * if the current {@link ConfigurableElement} does not have a token.
-	 */
-	private void supposeHasToken() {
-		
-		//Asserts that the current configurable element has a token.
-		if (!hasToken()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.TOKEN);
-		}
-	}
 }
