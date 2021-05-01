@@ -2,18 +2,20 @@
 package ch.nolix.element.gui.widget;
 
 //own imports
+import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.chainednode.ChainedNode;
+import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
 import ch.nolix.common.programcontrol.closeableelement.CloseController;
 import ch.nolix.element.configuration.Configuration;
 import ch.nolix.element.elementenum.RotationDirection;
-import ch.nolix.element.gui.base.GUI;
 import ch.nolix.element.gui.base.IWidgetGUI;
 import ch.nolix.element.gui.base.InvisibleGUI;
 import ch.nolix.element.gui.base.Layer;
 import ch.nolix.element.gui.base.Widget;
+import ch.nolix.element.gui.base.WidgetGUI;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.input.Key;
 import ch.nolix.element.gui.painterapi.IPainter;
@@ -22,17 +24,18 @@ import ch.nolix.element.gui.painterapi.IPainter;
 public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> implements IWidgetGUI<InnerGUI> {
 	
 	//constant
-	public static final String DEFAULT_TITLE = GUI.DEFAULT_TITLE;
+	private static final String GUI_HEADER = PascalCaseCatalogue.GUI;
 	
 	//attributes
-	private final InvisibleGUI internalGUI = new InvisibleGUI();
+	private final WidgetGUI<?> internalGUI = new InvisibleGUI();
 	private final Label titleLabel = new Label();
 	
 	//constructor
 	public InnerGUI() {
 		
-		createCloseDependencyTo(internalGUI);
+		reset();
 		
+		createCloseDependencyTo(internalGUI);
 		setProposalSize(200, 200);
 	}
 	
@@ -56,6 +59,18 @@ public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> impleme
 	
 	//method
 	@Override
+	public void addOrChangeAttribute(final BaseNode attribute) {
+		switch (attribute.getHeader()) {
+			case GUI_HEADER:
+				internalGUI.resetFrom(attribute);
+				break;
+			default:
+				super.addOrChangeAttribute(attribute);
+		}
+	}
+	
+	//method
+	@Override
 	public void clear() {
 		internalGUI.clear();
 	}
@@ -66,7 +81,7 @@ public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> impleme
 		
 		super.fillUpAttributesInto(list);
 		
-		list.addAtEnd(internalGUI.getSpecification());
+		list.addAtEnd(internalGUI.getSpecificationAs(GUI_HEADER));
 	}
 	
 	//method
