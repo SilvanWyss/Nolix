@@ -41,7 +41,7 @@ public final class Column<C> implements Headered {
 	//method
 	public <E extends Entity> boolean canReferenceEntityOfType(final Class<E> type) {
 		return
-		getDataType().getBaseDataType() == BasePropertyType.BASE_REFERENCE
+		getDataType().getBaseType() == BasePropertyType.BASE_REFERENCE
 		&& parametrizedDataType.getRefContentClass() == type;
 	}
 	
