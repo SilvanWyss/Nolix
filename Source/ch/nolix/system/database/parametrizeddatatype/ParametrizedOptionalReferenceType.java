@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.database.parametrizeddatatype;
 
-//own imports
-import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
+import ch.nolix.businessapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.system.database.entity.Entity;
 import ch.nolix.system.database.parametrizedschemadatatype.ParametrizedSchemaOptionalReferenceType;
@@ -17,8 +16,8 @@ public final class ParametrizedOptionalReferenceType<E extends Entity> extends B
 	
 	//method
 	@Override
-	public DataType getPropertyKind() {
-		return DataType.OPTIONAL_REFERENCE;
+	public PropertyType getPropertyKind() {
+		return PropertyType.OPTIONAL_REFERENCE;
 	}
 	
 	//method

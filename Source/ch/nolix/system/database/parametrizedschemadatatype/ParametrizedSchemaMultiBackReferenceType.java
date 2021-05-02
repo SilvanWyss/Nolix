@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.database.parametrizedschemadatatype;
 
-import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
+import ch.nolix.businessapi.databaseapi.propertytypeapi.PropertyType;
 
 //class
 public final class ParametrizedSchemaMultiBackReferenceType extends BaseParametrizedSchemaBackReferenceType {
@@ -13,7 +13,7 @@ public final class ParametrizedSchemaMultiBackReferenceType extends BaseParametr
 	
 	//method
 	@Override
-	public DataType getPropertyKind() {
-		return DataType.MULTI_BACK_REFERENCE;
+	public PropertyType getPropertyKind() {
+		return PropertyType.MULTI_BACK_REFERENCE;
 	}
 }

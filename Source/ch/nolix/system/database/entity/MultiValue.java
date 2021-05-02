@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.database.entity;
 
-import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
+import ch.nolix.businessapi.databaseapi.propertytypeapi.PropertyType;
 //own imports
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
@@ -58,8 +58,8 @@ public final class MultiValue<V> extends BaseValueProperty<V> implements Clearab
 	
 	//method
 	@Override
-	public DataType getPropertyKind() {
-		return DataType.MULTI_VALUE;
+	public PropertyType getPropertyKind() {
+		return PropertyType.MULTI_VALUE;
 	}
 	
 	//method

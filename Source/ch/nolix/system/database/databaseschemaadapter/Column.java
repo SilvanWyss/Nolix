@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.database.databaseschemaadapter;
 
-//own imports
-import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
+import ch.nolix.businessapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.common.attributeapi.mandatoryattributeapi.Headered;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.errorcontrol.invalidargumentexception.UnsupportedArgumentException;
@@ -39,7 +38,7 @@ public final class Column implements Headered {
 	}
 	
 	//method
-	public DataType getPropertyKind() {
+	public PropertyType getPropertyKind() {
 		return dataType.getPropertyKind();
 	}
 	

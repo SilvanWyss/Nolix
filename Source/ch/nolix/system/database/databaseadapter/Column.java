@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.system.database.databaseadapter;
 
-//own imports
-import ch.nolix.businessapi.databaseapi.datatypeapi.BaseDataType;
-import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
+import ch.nolix.businessapi.databaseapi.propertytypeapi.BasePropertyType;
+import ch.nolix.businessapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.common.attributeapi.mandatoryattributeapi.Headered;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
@@ -42,12 +41,12 @@ public final class Column<C> implements Headered {
 	//method
 	public <E extends Entity> boolean canReferenceEntityOfType(final Class<E> type) {
 		return
-		getDataType().getBaseDataType() == BaseDataType.BASE_REFERENCE
+		getDataType().getBaseDataType() == BasePropertyType.BASE_REFERENCE
 		&& parametrizedDataType.getRefContentClass() == type;
 	}
 	
 	//method
-	public DataType getDataType() {
+	public PropertyType getDataType() {
 		return parametrizedDataType.getPropertyKind();
 	}
 	

@@ -1,11 +1,11 @@
 //package declaration
-package ch.nolix.businessapi.databaseapi.datatypeapi;
+package ch.nolix.businessapi.databaseapi.propertytypeapi;
 
 //own import
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 
 //enum
-public enum DataType {
+public enum PropertyType {
 	ID,
 	VALUE,
 	OPTIONAL_VALUE,
@@ -18,22 +18,22 @@ public enum DataType {
 	MULTI_BACK_REFERENCE;
 	
 	//method
-	public final BaseDataType getBaseDataType() {
+	public final BasePropertyType getBaseDataType() {
 		switch (this) {
 			case ID:
-				return BaseDataType.BASE_CONTROL_TYPE;
+				return BasePropertyType.BASE_CONTROL_TYPE;
 			case VALUE:
 			case OPTIONAL_VALUE:
 			case MULTI_VALUE:
-				return BaseDataType.BASE_VALUE;
+				return BasePropertyType.BASE_VALUE;
 			case REFERENCE:
 			case OPTIONAL_REFERENCE:
 			case MULTI_REFERENCE:
-				return BaseDataType.BASE_REFERENCE;
+				return BasePropertyType.BASE_REFERENCE;
 			case BACK_REFERENCE:
 			case OPTIONAL_BACK_REFERENCE:
 			case MULTI_BACK_REFERENCE:
-				return BaseDataType.BASE_BACK_REFERENCE;
+				return BasePropertyType.BASE_BACK_REFERENCE;
 			default:
 				throw new InvalidArgumentException(this);
 		}

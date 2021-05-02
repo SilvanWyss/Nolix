@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.database.parametrizedschemadatatype;
 
-import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
+import ch.nolix.businessapi.databaseapi.propertytypeapi.PropertyType;
 
 //class
 public final class ParametrizedSchemaValueType<V> extends BaseParametrizedSchemaValueType<V> {
@@ -13,7 +13,7 @@ public final class ParametrizedSchemaValueType<V> extends BaseParametrizedSchema
 	
 	//method
 	@Override
-	public DataType getPropertyKind() {
-		return DataType.VALUE;
+	public PropertyType getPropertyKind() {
+		return PropertyType.VALUE;
 	}
 }

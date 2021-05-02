@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.database.parametrizeddatatype;
 
-import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
+import ch.nolix.businessapi.databaseapi.propertytypeapi.PropertyType;
 //own imports
 import ch.nolix.common.container.IContainer;
 import ch.nolix.system.database.entity.Entity;
@@ -17,8 +17,8 @@ public final class ParametrizedBackReferenceType<E extends Entity> extends BaseP
 	
 	//method
 	@Override
-	public DataType getPropertyKind() {
-		return DataType.BACK_REFERENCE;
+	public PropertyType getPropertyKind() {
+		return PropertyType.BACK_REFERENCE;
 	}
 	
 	//method

@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.databaseapplication.main;
 
-import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
+import ch.nolix.businessapi.databaseapi.propertytypeapi.PropertyType;
 //own imports
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.element.gui.base.Widget;
@@ -69,7 +69,7 @@ public final class EntitySetSession extends HeaderedSession {
 		//Sets the header of the entities grid.
 		int columnIndex = 2;
 		for (final var c : getRefEntitySet().getColumns()) {
-			if (c.getParametrizedDataType().getPropertyKind() == DataType.VALUE) {
+			if (c.getParametrizedDataType().getPropertyKind() == PropertyType.VALUE) {
 				
 				entitiesGrid.setWidget(
 					1,
@@ -82,7 +82,7 @@ public final class EntitySetSession extends HeaderedSession {
 				columnIndex++;
 			}
 			
-			if (c.getParametrizedDataType().getPropertyKind() == DataType.REFERENCE) {
+			if (c.getParametrizedDataType().getPropertyKind() == PropertyType.REFERENCE) {
 				
 				entitiesGrid.setWidget(
 					1,

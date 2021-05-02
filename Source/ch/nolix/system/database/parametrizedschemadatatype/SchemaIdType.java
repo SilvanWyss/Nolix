@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.database.parametrizedschemadatatype;
 
-import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
+import ch.nolix.businessapi.databaseapi.propertytypeapi.PropertyType;
 
 //class
 public final class SchemaIdType extends BaseParametrizedSchemaControlType<Long> {
@@ -13,7 +13,7 @@ public final class SchemaIdType extends BaseParametrizedSchemaControlType<Long> 
 	
 	//method
 	@Override
-	public DataType getPropertyKind() {
-		return DataType.ID;
+	public PropertyType getPropertyKind() {
+		return PropertyType.ID;
 	}
 }

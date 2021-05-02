@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.database.parametrizedschemadatatype;
 
-import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
+import ch.nolix.businessapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.common.errorcontrol.validator.Validator;
 
 //class
@@ -19,7 +19,7 @@ public abstract class ParametrizedSchemaDataType<C> {
 	}
 	
 	//method declaration
-	public abstract DataType getPropertyKind();
+	public abstract PropertyType getPropertyKind();
 	
 	//method
 	public final Class<C> getRefContentClass() {

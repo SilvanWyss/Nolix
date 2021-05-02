@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.database.parametrizedschemadatatype;
 
-import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
+import ch.nolix.businessapi.databaseapi.propertytypeapi.PropertyType;
 
 //class
 public final class ParametrizedSchemaOptionalReferenceType extends BaseParametrizedSchemaReferenceType {
@@ -13,7 +13,7 @@ public final class ParametrizedSchemaOptionalReferenceType extends BaseParametri
 	
 	//method
 	@Override
-	public DataType getPropertyKind() {
-		return DataType.OPTIONAL_REFERENCE;
+	public PropertyType getPropertyKind() {
+		return PropertyType.OPTIONAL_REFERENCE;
 	}
 }

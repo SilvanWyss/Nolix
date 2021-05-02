@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.database.parametrizeddatatype;
 
-//own imports
-import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
+import ch.nolix.businessapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.system.database.entity.Entity;
 import ch.nolix.system.database.parametrizedschemadatatype.ParametrizedSchemaMultiReferenceType;
@@ -17,8 +16,8 @@ public final class ParametrizedMultiReferenceType<E extends Entity> extends Base
 	
 	//method
 	@Override
-	public DataType getPropertyKind() {
-		return DataType.MULTI_REFERENCE;
+	public PropertyType getPropertyKind() {
+		return PropertyType.MULTI_REFERENCE;
 	}
 	
 	//method

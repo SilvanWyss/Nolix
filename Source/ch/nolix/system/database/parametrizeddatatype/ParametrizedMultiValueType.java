@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.database.parametrizeddatatype;
 
-import ch.nolix.businessapi.databaseapi.datatypeapi.DataType;
+import ch.nolix.businessapi.databaseapi.propertytypeapi.PropertyType;
 //own imports
 import ch.nolix.common.container.IContainer;
 import ch.nolix.system.database.parametrizedschemadatatype.ParametrizedSchemaMultiValueType;
@@ -16,8 +16,8 @@ public final class ParametrizedMultiValueType<C> extends BaseParametrizedValueTy
 	
 	//method
 	@Override
-	public DataType getPropertyKind() {
-		return DataType.MULTI_VALUE;
+	public PropertyType getPropertyKind() {
+		return PropertyType.MULTI_VALUE;
 	}
 	
 	//method
