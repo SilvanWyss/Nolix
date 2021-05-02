@@ -12,6 +12,8 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentExcept
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.element.base.Element;
+import ch.nolix.element.base.MultiValue;
+import ch.nolix.element.base.MutableOptionalValue;
 import ch.nolix.element.elementapi.IConfigurableElement;
 import ch.nolix.element.elementapi.IMutableElement;
 import ch.nolix.element.gui.base.Widget;
@@ -20,28 +22,38 @@ import ch.nolix.element.gui.base.Widget;
 /**
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 620
+ * @lines 550
  * @param <C> is the type of a {@link BaseConfiguration}.
  */
 public abstract class BaseConfiguration<C extends BaseConfiguration<C>> extends Element<C>
 implements IMutableElement<C> {
 	
-	//attribute headers
+	//constants
 	private static final String SELECTOR_TYPE_HEADER = "SelectorType";
+	private static final String SELECTOR_ID_HEADER = "SelectorId";
 	private static final String SELECTOR_ROLE_HEADER = "SelectorRole";
 	private static final String SELECTOR_TOKEN_HEADER = "SelectorToken";
-	private static final String SELECTOR_ID_HEADER = "SelectorId";
 		
-	//optional attributes
-	private String selectorType;
-	private String selectorToken;
-	private String selectorId;
+	//attribute
+	private final MutableOptionalValue<String> selectorType =
+	MutableOptionalValue.forString(SELECTOR_TYPE_HEADER, this::setSelectorType);
+	
+	//attribute
+	private final MutableOptionalValue<String> selectorId =
+	MutableOptionalValue.forString(SELECTOR_ID_HEADER, this::setSelectorId);
+	
+	//attribute
+	private final MultiValue<String> selectorRoles =
+	MultiValue.forStrings(SELECTOR_ROLE_HEADER, this::addSelectorRole);
+	
+	//attribute
+	private final MultiValue<String> selectorTokens =
+	MultiValue.forStrings(SELECTOR_TOKEN_HEADER, this::addSelectorToken);
 	
 	//multi-attributes
-	private final LinkedList<String> selectorRoles = new LinkedList<>();
 	private final LinkedList<Node> attachingAttributes = new LinkedList<>();
 	protected final LinkedList<BaseConfiguration<?>> configurations = new LinkedList<>();
-		
+	
 	//method
 	/**
 	 * Adds the given attachingAttribute to the current {@link BaseConfiguration}.
@@ -131,18 +143,6 @@ implements IMutableElement<C> {
 		
 		//Enumerates the header of the given attribute.
 		switch (attribute.getHeader()) {
-			case SELECTOR_TYPE_HEADER:
-				setSelectorType(attribute.getOneAttributeHeader());
-				break;
-			case SELECTOR_ROLE_HEADER:
-				addSelectorRolesFromStrings(attribute.getAttributesAsStrings());
-				break;
-			case SELECTOR_TOKEN_HEADER:
-				setSelectorToken(attribute.getOneAttributeHeader());
-				break;
-			case SELECTOR_ID_HEADER:
-				setSelectorId(attribute.getOneAttributeHeader());
-				break;
 			case Configuration.TYPE_NAME:
 				addConfiguration(Configuration.fromSpecification(attribute));
 				break;
@@ -204,8 +204,43 @@ implements IMutableElement<C> {
 	
 	//method
 	/**
+	 * Adds the given selectorToken to the current {@link BaseConfiguration}.
+	 * 
+	 * @param selectorToken
+	 * @return the current {@link BaseConfiguration}.
+	 * @throws ArgumentIsNullException if the given selectorToken is null.
+	 * @throws InvalidArgumentException if the given selectorToken is blank.
+	 */
+	public final C addSelectorToken(final String selectorToken) {
+		
+		//Asserts that the given selectorToken is not null or blank.
+		Validator.assertThat(selectorToken).thatIsNamed("selectorToken").isNotBlank();
+				
+		selectorTokens.add(selectorToken);
+		
+		return asConcrete();
+	}
+	
+	//method
+	/**
+	 * Removes the selector roles from the current {@link BaseConfiguration}.
+	 */
+	public final void clearSelectorRoles() {
+		selectorRoles.clear();
+	}
+
+	//method
+	/**
+	 * Removes the selector tokens from the current {@link BaseConfiguration}.
+	 */
+	public final void clearSelectorTokens() {
+		selectorTokens.clear();
+	}
+
+	//method
+	/**
 	 * @param selectorRole
-	 * @return true if the current {@link BaseConfiguration} contains the given selector role.
+	 * @return true if the current {@link BaseConfiguration} contains the given selectorRole.
 	 */
 	public final boolean containsSelectorRole(final String selectorRole) {
 		return selectorRoles.containsEqualing(selectorRole);
@@ -217,6 +252,23 @@ implements IMutableElement<C> {
 	 */
 	public final boolean containsSelectorRoles() {
 		return selectorRoles.containsAny();
+	}
+	
+	//method
+	/**
+	 * @param selectorToken
+	 * @return true if the current {@link BaseConfiguration} contains the given selectorToken.
+	 */
+	public final boolean containsSelectorToken(final String selectorToken) {
+		return selectorTokens.containsEqualing(selectorToken);
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link BaseConfiguration} contains selector tokens.
+	 */
+	public final boolean containsSelectorTokens() {
+		return selectorTokens.containsAny();
 	}
 	
 	//method declaration
@@ -237,30 +289,6 @@ implements IMutableElement<C> {
 		//Calls method of the base class.
 		super.fillUpAttributesInto(list);
 		
-		//Handles the case that the current BaseConfiguration has a selector type.
-		if (hasSelectorType()) {
-			list.addAtEnd(Node.withHeaderAndAttribute(SELECTOR_TYPE_HEADER, selectorType));
-		}
-		
-		//Handles the case that the current BaseConfiguration contains selector roles.		
-		if (containsSelectorRoles()) {
-			
-			final var specification = Node.fromString(SELECTOR_ROLE_HEADER);
-			getSelectorRoles().forEach(specification::addAttribute);
-			
-			list.addAtEnd(specification);
-		}
-		
-		//Handles the case that the current BaseConfiguration has a selector token.
-		if (hasSelectorToken()) {
-			list.addAtEnd(Node.withHeaderAndAttribute(SELECTOR_TOKEN_HEADER, selectorToken));
-		}
-		
-		//Handles the case that the current BaseConfiguration has a selector id.
-		if (hasSelectorId()) {
-			list.addAtEnd(Node.withHeaderAndAttribute(SELECTOR_ID_HEADER, selectorId));
-		}
-		
 		list.addAtEnd(attachingAttributes);
 		list.addAtEnd(configurations, BaseConfiguration::getSpecification);
 	}
@@ -268,16 +296,11 @@ implements IMutableElement<C> {
 	//method
 	/**
 	 * @return the selector id of the current {@link BaseConfiguration}.
-	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BaseConfiguration} does not have a selector id.
+	 * @throws ArgumentDoesNotHaveAttributeException if
+	 * the current {@link BaseConfiguration} does not have a selector id.
 	 */
 	public final String getSelectorId() {
-		
-		//Asserts that the current BaseConfiguration has a selector id.
-		if (!hasSelectorId()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, "selector id");
-		}
-		
-		return selectorId;
+		return selectorId.getValue();
 	}
 	
 	//method
@@ -290,32 +313,20 @@ implements IMutableElement<C> {
 	
 	//method
 	/**
-	 * @return the selector token of the current {@link BaseConfiguration}.
-	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BaseConfiguration} does not have a selector token.
+	 * @return the selector tokens of the current {@link BaseConfiguration}.
 	 */
-	public final String getSelectorToken() {
-		
-		//Asserts that the current BaseConfiguration has a selector token.
-		if (!hasSelectorToken()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, "selector token");
-		}
-		
-		return selectorToken;
+	public final IContainer<String> getSelectorTokens() {
+		return selectorTokens;
 	}
 	
 	//method
 	/**
 	 * @return the selector type of the current {@link BaseConfiguration}.
-	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BaseConfiguration} does not have a selector type.
+	 * @throws ArgumentDoesNotHaveAttributeException if
+	 * the current {@link BaseConfiguration} does not have a selector type.
 	 */
 	public final String getSelectorType() {
-		
-		//Asserts that the current BaseConfiguration has a selector type.
-		if (!hasSelectorType()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, "selector type");
-		}
-		
-		return selectorType;
+		return selectorType.getValue();
 	}
 	
 	//method
@@ -331,7 +342,7 @@ implements IMutableElement<C> {
 	 * @return true if the current {@link BaseConfiguration} has a selector id.
 	 */
 	public final boolean hasSelectorId() {
-		return (selectorId != null);
+		return selectorId.hasValue();
 	}
 	
 	//method
@@ -352,34 +363,10 @@ implements IMutableElement<C> {
 	
 	//method
 	/**
-	 * @return true if the current {@link BaseConfiguration} has a selector token.
-	 */
-	public final boolean hasSelectorToken() {
-		return (selectorToken != null);
-	}
-	
-	//method
-	/**
-	 * @param selectorToken
-	 * @return true if the current {@link BaseConfiguration} has the given selector token.
-	 */
-	public final boolean hasSelectorToken(final String selectorToken) {
-		
-		//Handles the case that the current BaseConfiguration does not have a selector token.
-		if (!hasSelectorToken()) {
-			return false;
-		}
-		
-		//Handles the case that the current BaseConfiguration as a selector token.
-		return getSelectorToken().equals(selectorToken);
-	}
-	
-	//method
-	/**
 	 * @return true if the current {@link BaseConfiguration} has a selector type.
 	 */
 	public final boolean hasSelectorType() {
-		return (selectorType != null);
+		return selectorType.hasValue();
 	}
 	
 	//method
@@ -400,38 +387,18 @@ implements IMutableElement<C> {
 	
 	//method
 	/**
-	 * Removes the selector id of the current {@link BaseConfiguration}.
+	 * Removes the selector id from the current {@link BaseConfiguration}.
 	 */
-	public final void removeSelectorName() {
-		
-		selectorId = null;
+	public final void removeSelectorId() {
+		selectorId.clear();
 	}
 	
 	//method
 	/**
-	 * Removes the selector roles of the current {@link BaseConfiguration}.
-	 */
-	public final void removeSelectorRoles() {
-		
-		selectorRoles.clear();
-	}
-	
-	//method
-	/**
-	 * Removes the selector token of the current {@link BaseConfiguration}.
-	 */
-	public final void removeSelectorToken() {
-		
-		selectorToken = null;
-	}
-	
-	//method
-	/**
-	 * Removes the selector type of the current {@link BaseConfiguration}.
+	 * Removes the selector type from the current {@link BaseConfiguration}.
 	 */
 	public final void removeSelectorType() {
-		
-		selectorType = null;
+		selectorType.clear();
 	}
 	
 	//method
@@ -442,9 +409,9 @@ implements IMutableElement<C> {
 	public final void reset() {
 		
 		removeSelectorType();
-		removeSelectorRoles();
-		removeSelectorToken();
-		removeSelectorName();
+		removeSelectorId();
+		clearSelectorRoles();
+		clearSelectorTokens();
 		
 		attachingAttributes.clear();
 		configurations.clear();
@@ -459,6 +426,11 @@ implements IMutableElement<C> {
 	 */
 	public final boolean selects(IConfigurableElement<?> element) {
 		
+		//Handles the case that the current BaseConfiguration has a selector id.
+		if (hasSelectorId() && !element.hasId(getSelectorId())) {
+			return false;
+		}
+		
 		//Handles the case that the current BaseConfiguration has a selector type.
 		if (hasSelectorType() && !element.isOfType(getSelectorType())) {
 			return false;
@@ -469,13 +441,8 @@ implements IMutableElement<C> {
 			return false;
 		}
 		
-		//Handles the case that the current BaseConfiguration has a selector token.
-		if (hasSelectorToken() && !element.hasToken(getSelectorToken())) {
-			return false;
-		}
-		
-		//Handles the case that the current BaseConfiguration has a selector type.
-		return !(hasSelectorId() && !element.hasId(getSelectorId()));
+		//Handles the case that the current BaseConfiguration contains selector tokens.
+		return !(containsSelectorTokens() && !getSelectorTokens().containsNone(element::hasToken));
 	}
 	
 	//method
@@ -489,31 +456,8 @@ implements IMutableElement<C> {
 	 */
 	public final C setSelectorId(final String selectorId) {
 		
-		//Asserts that the given selectorId is not null or blank.
-		Validator.assertThat(selectorId).thatIsNamed("selectorId").isNotBlank();
-		
 		//Sets the selectorId of the current Configuration.
-		this.selectorId = selectorId;
-		
-		return asConcrete();
-	}
-	
-	//method
-	/**
-	 * Sets the selector token of the current {@link BaseConfiguration}.
-	 * 
-	 * @param selectorToken
-	 * @return the current {@link BaseConfiguration}.
-	 * @throws ArgumentIsNullException if the given selector token is null.
-	 * @throws InvalidArgumentException if the given selector token is blank.
-	 */
-	public final C setSelectorToken(final String selectorToken) {
-		
-		//Asserts that the given selectorToken is not null or blank.
-		Validator.assertThat(selectorToken).thatIsNamed("selectorToken").isNotBlank();
-		
-		//Sets the selectorToken of the current Configuration.
-		this.selectorToken = selectorToken;
+		this.selectorId.setValue(selectorId);
 		
 		return asConcrete();
 	}
@@ -536,20 +480,20 @@ implements IMutableElement<C> {
 	
 	//method
 	/**
-	 * Sets the selector type of the current {@link BaseConfiguration}.
+	 * Sets the selectorType of the current {@link BaseConfiguration}.
 	 * 
 	 * @param selectorType
 	 * @return the current {@link BaseConfiguration}.
-	 * @throws ArgumentIsNullException if the given type selector type is null.
-	 * @throws InvalidArgumentException if the given selector type is blank.
+	 * @throws ArgumentIsNullException if the given type selectorType is null.
+	 * @throws InvalidArgumentException if the given selectorType is blank.
 	 */
 	public final C setSelectorType(final String selectorType) {
 		
 		//Asserts that the given selectorType is not null or blank.
 		Validator.assertThat(selectorType).thatIsNamed("selectorType").isNotBlank();
 		
-		//Sets the selectorType of the current Configuration.
-		this.selectorType = selectorType;
+		//Sets the selectorType of the current BaseConfiguration.
+		this.selectorType.setValue(selectorType);
 		
 		return asConcrete();
 	}
@@ -582,39 +526,34 @@ implements IMutableElement<C> {
 			}
 		}
 	}
-		
+	
 	//method
 	/**
 	 * Adds the given selector role to the current {@link BaseConfiguration}.
 	 * 
 	 * @param selectorRole
-	 * @throws ArgumentIsNullException if the given selector role is null.
-	 * @throws EmptyArgumentException if the given selector role is empty.
-	 * @throws InvalidArgumentException if the current {@link BaseConfiguration} contains already the given selector role.
+	 * @throws EmptyArgumentException if the given selectorRole is blank.
+	 * @throws InvalidArgumentException if
+	 * the current {@link BaseConfiguration} contains already the given selectorRole.
 	 */
 	private void addSelectorRole(final String selectorRole) {
 		
-		//Asserts that the current BaseConfiguration contains the given selector role.
-		if (containsSelectorRole(selectorRole)) {
-			throw
-			new InvalidArgumentException(
-				this,
-				"contains the given selector role '" + selectorRole + "'"
-			);
-		}
+		//Asserts that the current BaseConfiguration does not contain already the given selectorRole.
+		assertDoesNotContainerSelectorRole(selectorRole);
 		
-		selectorRoles.addAtEnd(selectorRole);
+		selectorRoles.add(selectorRole);
 	}
 	
 	//method
 	/**
-	 * Adds the given selectorRoles to the current {@link BaseConfiguration}.
-	 * 
-	 * @param selectorRoles
-	 * @throws EmptyArgumentException if one of the given selector roles is empty.
-	 * @throws InvalidArgumentException if the current {@link BaseConfiguration} contains already one of the given selector roles.
+	 * @param selectorRole
+	 * @throws InvalidArgumentException if
+	 * the current {@link BaseConfiguration} contains already the given selectorRole.
 	 */
-	private void addSelectorRolesFromStrings(final Iterable<String> selectorRoles) {
-		selectorRoles.forEach(this::addSelectorRole);
+	private void assertDoesNotContainerSelectorRole(String selectorRole) {
+		if (containsSelectorRole(selectorRole)) {
+			throw
+			new InvalidArgumentException(this, "contains already the given selector role '" + selectorRole + "'");
+		}
 	}
 }
