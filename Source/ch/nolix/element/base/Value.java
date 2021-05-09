@@ -13,10 +13,23 @@ import ch.nolix.common.functionapi.IElementTakerElementGetter;
 /**
  * @author Silvan Wyss
  * @date 2018-03-01
- * @lines 80
+ * @lines 100
  * @param <V> is the type of the value of a {@link Value}.
  */
 public final class Value<V> extends SingleValue<V> {
+	
+	//static method
+	/**
+	 * @param name
+	 * @param setterMethod
+	 * @return a new {@link Value} that will store a {@link Boolean} and have the given name and setterMethod.
+	 * @throws ArgumentIsNullException if the given name is null.
+	 * @throws InvalidArgumentException if the given name is blank.
+	 * @throws ArgumentIsNullException if the given setterMethod is null.
+	 */
+	public static Value<Boolean> forBoolean(final String name, final IElementTaker<Boolean> setterMethod) {
+		return new Value<>(name, setterMethod, BaseNode::getOneAttributeAsBoolean, Node::withAttribute);
+	}
 	
 	//static method
 	/**
