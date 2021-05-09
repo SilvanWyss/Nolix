@@ -1,11 +1,11 @@
 //package declaration
 package ch.nolix.element.base;
 
+//own imports
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
-//own imports
 import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.common.functionapi.IElementTakerElementGetter;
 
@@ -17,6 +17,19 @@ import ch.nolix.common.functionapi.IElementTakerElementGetter;
  * @param <V> is the type of the value of a {@link OptionalValue}.
  */
 public final class OptionalValue<V> extends SingleValue<V> {
+	
+	//static method
+	/**
+	 * @param name
+	 * @param setterMethod
+	 * @return a new {@link OptionalValue} that will store a {@link Boolean} and have the given name and setterMethod.
+	 * @throws ArgumentIsNullException if the given name is null.
+	 * @throws InvalidArgumentException if the given name is blank.
+	 * @throws ArgumentIsNullException if the given setterMethod is null.
+	 */
+	public static OptionalValue<Boolean> forBoolean(final String name, final IElementTaker<Boolean> setterMethod) {
+		return new OptionalValue<>(name, setterMethod, BaseNode::getOneAttributeAsBoolean, Node::withAttribute);
+	}
 	
 	//static method
 	/**
