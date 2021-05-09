@@ -13,7 +13,7 @@ import ch.nolix.common.functionapi.IElementTakerElementGetter;
 /**
  * @author Silvan Wyss
  * @date 2017-11-01
- * @lines 100
+ * @lines 110
  * @param <V> is the type of the value of a {@link MutableOptionalValue}.
  */
 public final class MutableOptionalValue<V> extends SingleValue<V> {
@@ -22,8 +22,22 @@ public final class MutableOptionalValue<V> extends SingleValue<V> {
 	/**
 	 * @param name
 	 * @param setterMethod
-	 * @return
-	 * a new {@link MutableOptionalValue} that will store a {@link Integer} and have the given name and setterMethod.
+	 * @return a new {@link MutableOptionalValue}
+	 * that will store a {@link Boolean} and have the given name and setterMethod.
+	 * @throws ArgumentIsNullException if the given name is null.
+	 * @throws InvalidArgumentException if the given name is blank.
+	 * @throws ArgumentIsNullException if the given setterMethod is null.
+	 */
+	public static MutableOptionalValue<Boolean> forBoolean(final String name, final IElementTaker<Boolean> setterMethod) {
+		return new MutableOptionalValue<>(name, setterMethod, BaseNode::getOneAttributeAsBoolean, Node::withAttribute);
+	}
+	
+	//static method
+	/**
+	 * @param name
+	 * @param setterMethod
+	 * @return a new {@link MutableOptionalValue}
+	 * that will store a {@link Integer} and have the given name and setterMethod.
 	 * @throws ArgumentIsNullException if the given name is null.
 	 * @throws InvalidArgumentException if the given name is blank.
 	 * @throws ArgumentIsNullException if the given setterMethod is null.
@@ -36,8 +50,8 @@ public final class MutableOptionalValue<V> extends SingleValue<V> {
 	/**
 	 * @param name
 	 * @param setterMethod
-	 * @return
-	 * a new {@link MutableOptionalValue} that will store a {@link String} and have the given name and setterMethod.
+	 * @return a new {@link MutableOptionalValue}
+	 * that will store a {@link String} and have the given name and setterMethod.
 	 * @throws ArgumentIsNullException if the given name is null.
 	 * @throws InvalidArgumentException if the given name is blank.
 	 * @throws ArgumentIsNullException if the given setterMethod is null.
