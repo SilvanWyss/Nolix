@@ -13,10 +13,30 @@ import ch.nolix.common.functionapi.IElementTakerElementGetter;
 /**
  * @author Silvan Wyss
  * @date 2018-03-01
- * @lines 100
+ * @lines 120
  * @param <V> is the type of the value of a {@link MutableValue}.
  */
 public final class MutableValue<V> extends SingleValue<V> {
+	
+	//static method
+	/**
+	 * @param name
+	 * @param defaultValue
+	 * @param setterMethod
+	 * @return a new {@link MutableValue}
+	 * that will store a {@link Boolean} and have the given name, defaultValue and setterMethod.
+	 * @throws ArgumentIsNullException if the given name is null.
+	 * @throws InvalidArgumentException if the given name is blank.
+	 * @throws ArgumentIsNullException if the given setterMethod is null.
+	 */
+	public static MutableValue<Boolean> forBoolean(
+		final String name,
+		final boolean defaultValue,
+		final IElementTaker<Boolean> setterMethod
+	) {
+		return
+		new MutableValue<>(name, defaultValue, setterMethod, BaseNode::getOneAttributeAsBoolean, Node::withAttribute);
+	}
 	
 	//static method
 	/**
