@@ -31,6 +31,7 @@ import ch.nolix.element.elementenum.RotationDirection;
 import ch.nolix.element.gui.baseapi.IOccupiableCanvasInputActionManager;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.color.ColorGradient;
+import ch.nolix.element.gui.image.Background;
 import ch.nolix.element.gui.input.IInputTaker;
 import ch.nolix.element.gui.input.IResizableInputTaker;
 import ch.nolix.element.gui.input.Key;
@@ -47,22 +48,20 @@ import ch.nolix.element.gui.widget.BorderWidget;
  * 
  * @author Silvan Wyss
  * @date 2019-05-18
- * @lines 1370
+ * @lines 1380
  */
 public final class Layer extends ConfigurableElement<Layer>
 implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInputTaker, Recalculable {
 	
 	//constants
 	public static final CursorIcon DEFAULT_CURSOR_ICON = CursorIcon.ARROW;
-	public static final Color DEFAULT_BACKGROUND_COLOR = Color.WHITE;
 	public static final ExtendedContentPosition DEFAULT_CONTENT_POSITION = ExtendedContentPosition.TOP;
-	public static final Discrete2DPoint DEFAULT_FREE_CONTENT_POSITION = new Discrete2DPoint(1, 1);
 	public static final boolean DEFAULT_CONFIGURATION_ALLOW_STATE = true;
 	
 	//constants
-	private static final String BACKGROUND_COLOR_GRADIENT_HEADER = "BackgroundColorGradient";
+	private static final String BACKGROUND_HEADER = "Background";
 	private static final String FREE_CONTENT_POSITION_HEADER = "FreeContentPosition";
-	private static final String CONFIGURATION_ALLOWED_HEADER = "ConfigurationAllowed";
+	private static final String CONFIGURATION_ALLOWED_FLAG_HEADER = "ConfigurationAllowed";
 	
 	//static method
 	/**
@@ -88,37 +87,12 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	);
 	
 	//attribute
-	private final MutableValue<Boolean> configurationAllowed =
-	new MutableValue<>(
-		CONFIGURATION_ALLOWED_HEADER,
-		DEFAULT_CONFIGURATION_ALLOW_STATE,
-		ca -> {
-			if (ca.booleanValue()) {
-				setConfigurationAllowed();
-			} else {
-				setConfigurationNotAllowed();
-			}
-		},
-		BaseNode::getOneAttributeAsBoolean,
-		Node::withAttribute
-	);
-	
-	//attribute
-	private final MutableOptionalValue<Color> backgroundColor =
+	private final MutableOptionalValue<Background> background =
 	new MutableOptionalValue<>(
-		PascalCaseCatalogue.BACKGROUND_COLOR,
-		this::setBackgroundColor,
-		Color::fromSpecification,
-		Color::getSpecification
-	);
-	
-	//attribute
-	private final MutableOptionalValue<ColorGradient> backgroundColorGradient =
-	new MutableOptionalValue<>(
-		BACKGROUND_COLOR_GRADIENT_HEADER, 
-		this::setBackgroundColorGradient,
-		ColorGradient::fromSpecification,
-		ColorGradient::getSpecification
+		BACKGROUND_HEADER,
+		this::setBackground,
+		Background::fromSpecification,
+		Background::getSpecification
 	);
 	
 	//attribute
@@ -132,15 +106,21 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	);
 	
 	//attribute
-	private final MutableValue<Discrete2DPoint> freeContentPosition =
-	new MutableValue<>(
+	private final MutableOptionalValue<Discrete2DPoint> optionalFreeContentPosition =
+	new MutableOptionalValue<>(
 		FREE_CONTENT_POSITION_HEADER,
-		DEFAULT_FREE_CONTENT_POSITION,
 		fcp -> setFreeContentPosition_(fcp.getX(), fcp.getY()),
 		Discrete2DPoint::fromSpecification,
 		Discrete2DPoint::getSpecification
 	);
 	
+	//attribute
+	private final MutableValue<Boolean> configurationAllowedFlag =
+	MutableValue.forBoolean(
+		CONFIGURATION_ALLOWED_FLAG_HEADER,
+		DEFAULT_CONFIGURATION_ALLOW_STATE,
+		this::setConfigurationAllowedFlag
+	);
 	//attributes
 	private int cursorXPosition;
 	private int cursorYPosition;
@@ -189,7 +169,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * @return true if the current {@link Layer} allows to be configured.
 	 */
 	public boolean allowesConfiguration() {
-		return configurationAllowed.getValue();
+		return configurationAllowedFlag.getValue();
 	}
 	
 	//method
@@ -238,17 +218,19 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	//method
 	/**
 	 * @return the background {@link Color} of the current {@link Layer}.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@Layer} does not have a background color.
 	 */
 	public Color getBackgroundColor() {
-		return backgroundColor.getValue();
+		return background.getValue().getColor();
 	}
 	
 	//method
 	/**
 	 * @return the background {@link ColorGradient} of the current {@link Layer}.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@Layer} does not have a background color gradient.
 	 */
 	public ColorGradient getBackgroundColorGradient() {
-		return backgroundColorGradient.getValue();
+		return background.getValue().getColorGradient();
 	}
 	
 	//method
@@ -263,16 +245,16 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	/**
 	 * @return the x-free-position of the current {@link Layer}.
 	 */
-	public int getContentXFreePosition() {
-		return freeContentPosition.getValue().getX();
+	public int getOptionalContentFreeXPosition() {
+		return optionalFreeContentPosition.getValue().getX();
 	}
 	
 	//method
 	/**
 	 * @return the y-free-position of the current {@link Layer}.
 	 */
-	public int getContentYFreePosition() {
-		return freeContentPosition.getValue().getY();
+	public int getOptionalContentFreeYPosition() {
+		return optionalFreeContentPosition.getValue().getY();
 	}
 	
 	//method
@@ -410,10 +392,18 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	
 	//method
 	/**
+	 * @return true if the current {@link Layer} has a background.
+	 */
+	public boolean hasBackground() {
+		return background.hasValue();
+	}
+	
+	//method
+	/**
 	 * @return true if the current {@link Layer} has a background {@link Color}.
 	 */
 	public boolean hasBackgroundColor() {
-		return backgroundColor.hasValue();
+		return (hasBackground() && background.getValue().isColor());
 	}
 	
 	//method
@@ -421,7 +411,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * @return true if the current {@link Layer} has a background {@link ColorGradient}.
 	 */
 	public boolean hasBackgroundColorGradient() {
-		return backgroundColorGradient.hasValue();
+		return (hasBackground() && background.getValue().isColorGradient());
 	}
 	
 	//method
@@ -775,8 +765,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * Removes any background of the current {@link Layer}.
 	 */
 	public void removeBackground() {
-		backgroundColor.clear();
-		backgroundColorGradient.clear();
+		background.clear();
 	}
 	
 	//method
@@ -811,9 +800,10 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 */
 	public Layer setBackgroundColor(final Color backgroundColor) {
 		
-		removeBackground();
+		final var lBackground = new Background();
+		lBackground.setColor(backgroundColor);
 		
-		this.backgroundColor.setValue(backgroundColor);
+		setBackground(lBackground);
 		
 		return this;
 	}
@@ -829,9 +819,10 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 */
 	public Layer setBackgroundColorGradient(final ColorGradient backgroundColorGradient) {
 		
-		removeBackground();
+		final var lBackground = new Background();
+		lBackground.setColorGradient(backgroundColorGradient);
 		
-		this.backgroundColorGradient.setValue(backgroundColorGradient);
+		setBackground(lBackground);
 		
 		return this;
 	}
@@ -844,7 +835,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 */
 	public Layer setConfigurationAllowed() {
 		
-		configurationAllowed.setValue(true);
+		configurationAllowedFlag.setValue(true);
 		
 		return this;
 	}
@@ -857,7 +848,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 */
 	public Layer setConfigurationNotAllowed() {
 		
-		configurationAllowed.setValue(false);
+		configurationAllowedFlag.setValue(false);
 		
 		return this;
 	}
@@ -871,6 +862,10 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * @throws ArgumentIsNullException if the given contentPosition is null.
 	 */
 	public Layer setContentPosition(final ExtendedContentPosition contentPosition) {
+		
+		if (contentPosition == ExtendedContentPosition.FREE) {
+			optionalFreeContentPosition.clear();
+		}
 		
 		this.contentPosition.setValue(contentPosition);
 		
@@ -1278,8 +1273,22 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	}
 	
 	//method
+	private void setBackground(final Background background) {
+		this.background.setValue(background);
+	}
+	
+	//method
+	private void setConfigurationAllowedFlag(final boolean configurationAllowedFlag) {
+		if (!configurationAllowedFlag) {
+			setConfigurationNotAllowed();
+		} else {
+			setConfigurationAllowed();
+		}
+	}
+	
+	//method
 	private void setFreeContentPosition_(final int xFreeContentPosition, final int yFreeContentPosition) {
-		freeContentPosition.setValue(new Discrete2DPoint(xFreeContentPosition, yFreeContentPosition));
+		optionalFreeContentPosition.setValue(new Discrete2DPoint(xFreeContentPosition, yFreeContentPosition));
 	}
 	
 	//method
@@ -1359,7 +1368,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 				break;
 			case FREE:
 				
-				final var freeContentPositionValue = this.freeContentPosition.getValue();	
+				final var freeContentPositionValue = this.optionalFreeContentPosition.getValue();	
 				
 				getRefRootWidget().setPositionOnParent(
 					freeContentPositionValue.getX(),
