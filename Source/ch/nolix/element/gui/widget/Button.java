@@ -2,15 +2,10 @@
 package ch.nolix.element.gui.widget;
 
 //own imports
-import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.constant.StringCatalogue;
-import ch.nolix.common.constant.LowerCaseCatalogue;
-import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.document.node.BaseNode;
-import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.common.errorcontrol.validator.Validator;
+import ch.nolix.element.base.MutableOptionalValue;
 import ch.nolix.element.elementenum.ContentPosition;
 import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.color.Color;
@@ -21,16 +16,24 @@ import ch.nolix.element.gui.painterapi.IPainter;
 /**
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 210
+ * @lines 150
  */
 public final class Button extends TextLineWidget<Button, ButtonLook> {
 	
 	//constants
-	public static final String TYPE_NAME = "Button";
 	public static final String DEFAULT_TEXT = StringCatalogue.MINUS;
 	
-	//optional attribute
-	private ButtonRole role;
+	//constant
+	private static final String ROLE_HEADER = "Role";
+	
+	//attribute
+	private final MutableOptionalValue<ButtonRole> role =
+	new MutableOptionalValue<>(
+		ROLE_HEADER,
+		this::setRole,
+		ButtonRole::fromSpecification,
+		ButtonRole::getSpecification
+	);
 	
 	//constructor
 	/**
@@ -45,45 +48,10 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 		
 		getRefLook()
 		.setBorderThicknessForState(WidgetLookState.BASE, 1)
-		.setBackgroundColorForState(WidgetLookState.BASE, Color.GREY)
+		.setBackgroundColorForState(WidgetLookState.BASE, Color.LIGHT_GREY)
+		.setBackgroundColorForState(WidgetLookState.HOVER, Color.GREY)
 		.setLeftPaddingForState(WidgetLookState.BASE,10)
 		.setRightPaddingForState(WidgetLookState.BASE, 10);
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void addOrChangeAttribute(final BaseNode attribute) {
-		
-		//Enumerates the header of the given attribute.
-		switch (attribute.getHeader()) {
-			case PascalCaseCatalogue.ROLE:
-				setRole(ButtonRole.fromSpecification(attribute));
-				break;
-			default:
-				
-				//Calls method of the base class.
-				super.addOrChangeAttribute(attribute);
-		}
-	}
-		
-	//method
-	//For a better performance, this implementation does not use all comfortable methods.
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void fillUpAttributesInto(final LinkedList<Node> list) {
-		
-		//Calls method of the base class.
-		super.fillUpAttributesInto(list);
-		
-		//Handles the case that the current Button has a role.
-		if (role != null) {
-			list.addAtEnd(role.getSpecificationAs(PascalCaseCatalogue.ROLE));
-		}
 	}
 	
 	//method
@@ -92,11 +60,7 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link Button} does not have a role.
 	 */
 	public ButtonRole getRole() {
-		
-		//Asserts that the current Button has a role.
-		assertHasRole();
-		
-		return role;
+		return role.getValue();
 	}
 	
 	//method
@@ -108,13 +72,12 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 	}
 	
 	//method
-	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public boolean hasRole(final String role) {	
-		return (this.role != null && this.role.toString().equals(role));
+		return (hasRole() && getRole().toString().equals(role));
 	}
 	
 	//method
@@ -122,7 +85,7 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 	 * Removes the role of the current {@link Button}.
 	 */
 	public void removeRole() {
-		role = null;
+		role.clear();
 	}
 	
 	//method
@@ -135,11 +98,7 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 	 */
 	public Button setRole(final ButtonRole role) {
 		
-		//Asserts that the given role is not null.
-		Validator.assertThat(role).thatIsNamed(LowerCaseCatalogue.ROLE).isNotNull();
-		
-		//Sets the role of the current Button.
-		this.role = role;
+		this.role.setValue(role);
 		
 		//Returns the current Button.
 		return this;
@@ -196,16 +155,5 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 	@Override
 	protected void resetBorderWidget() {
 		setText(DEFAULT_TEXT);
-	}
-	
-	//method
-	//For a better performance, this implementation does not use all comfortable methods.
-	/**
-	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link Button} does not have a role.
-	 */
-	private void assertHasRole() {
-		if (role == null) {
-			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.ROLE);
-		}
 	}
 }
