@@ -6,10 +6,9 @@ import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.node.BaseNode;
-import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.common.errorcontrol.validator.Validator;
+import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.elementenum.RotationDirection;
 import ch.nolix.element.gui.base.Widget;
 import ch.nolix.element.gui.color.Color;
@@ -20,7 +19,7 @@ import ch.nolix.element.gui.painterapi.IPainter;
 /**
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 330
+ * @lines 320
  * @param <L> is the type of a line.
  */
 public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
@@ -36,9 +35,17 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 	public static final int DEFAULT_THICKNESS = 1;
 	public static final Color DEFAULT_COLOR = Color.BLACK;
 	
-	//attributes
-	private int thickness;
-	private Color color;
+	//constants
+	private static final String THICKNESS_HEADER = PascalCaseCatalogue.THICKNESS;
+	private static final String COLOR_HEADER = PascalCaseCatalogue.COLOR;
+	
+	//attribute
+	private final MutableValue<Integer> thickness =
+	MutableValue.forInt(THICKNESS_HEADER, DEFAULT_THICKNESS, this::setThickness);
+	
+	//attribute
+	private final MutableValue<Color> color =
+	new MutableValue<>(COLOR_HEADER, DEFAULT_COLOR, this::setColor, Color::fromSpecification, Color::getSpecification);
 	
 	//constructor
 	/**
@@ -75,26 +82,10 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 	
 	//method
 	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void fillUpAttributesInto(final LinkedList<Node> list) {
-		
-		//Calls method of base class.
-		super.fillUpAttributesInto(list);
-		
-		list.addAtEnd(
-			Node.withHeaderAndAttribute(PascalCaseCatalogue.THICKNESS, thickness),
-			color.getSpecification()
-		);
-	}
-	
-	//method
-	/**
 	 * @return the color of this line.
 	 */
 	public final Color getColor() {
-		return color;
+		return color.getValue();
 	}
 	
 	//method declaration
@@ -108,7 +99,7 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 	 * @return the thickness of this line.
 	 */
 	public final int getThickness() {
-		return thickness;
+		return thickness.getValue();
 	}
 	
 	//method
@@ -131,11 +122,7 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 	 */
 	public final L setColor(final Color color) {
 		
-		//Asserts that the given color is not null.
-		Validator.assertThat(color).isOfType(Color.class);
-		
-		//Sets the color of this line.
-		this.color = color;
+		this.color.setValue(color);
 		
 		return asConcrete();
 	}
@@ -161,7 +148,7 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 			);
 		}
 		
-		this.thickness = thickness;
+		this.thickness.setValue(thickness);
 		
 		return asConcrete();
 	}
@@ -305,7 +292,7 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 	 */
 	@Override
 	protected final void paint(final IPainter painter, final LineLook lineLook) {
-		painter.setColor(color);
+		painter.setColor(getColor());
 		painter.paintFilledRectangle(
 			getWidth(),
 			getHeight()
