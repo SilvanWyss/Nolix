@@ -1,8 +1,6 @@
 package ch.nolix.elementtutorial.widgettutorial;
 
-import ch.nolix.element.gui.base.CursorIcon;
 import ch.nolix.element.gui.base.Frame;
-import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.widget.Button;
 
@@ -12,7 +10,7 @@ import ch.nolix.element.gui.widget.Button;
  * 
  * @author Silvan Wyss
  * @date 2018-05-19
- * @lines 60
+ * @lines 40
  */
 public final class ButtonTutorial {
 	
@@ -24,35 +22,20 @@ public final class ButtonTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
-		final var frame =
-		new Frame()
-		.setTitle("Button Tutorial");
+		final var frame = new Frame().setTitle("Button Tutorial");
 		
 		//Creates a Button.
 		final var button = new Button().setText("Change background color");
 		
-		//Defines a left mouse button release action for the Button.
-		button.setLeftMouseButtonReleaseAction(
+		//Defines a left mouse button press action for the Button.
+		button.setLeftMouseButtonPressAction(
 			() -> {
 				if (frame.getBackgroundColor().equals(Color.WHITE)) {
-					frame.setBackgroundColor(Color.YELLOW);
+					frame.setBackgroundColor(Color.SKY_BLUE);
 				} else {
 					frame.setBackgroundColor(Color.WHITE);
 				}
 			}
-		);
-		
-		//Configures the look of the Button.
-		button
-		.setCustomCursorIcon(CursorIcon.HAND)
-		.onLook(
-			l ->
-			l
-			.setBorderThicknessForState(WidgetLookState.BASE, 5)
-			.setBackgroundColorForState(WidgetLookState.BASE, Color.LAVENDER)
-			.setBackgroundColorForState(WidgetLookState.HOVER, Color.SKY_BLUE)
-			.setPaddingForState(WidgetLookState.BASE, 5)
-			.setTextSizeForState(WidgetLookState.BASE, 50)
 		);
 		
 		//Adds the Button to the Frame.
