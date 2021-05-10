@@ -1,6 +1,8 @@
 package ch.nolix.elementtutorial.widgettutorial;
 
+import ch.nolix.element.gui.base.CursorIcon;
 import ch.nolix.element.gui.base.Frame;
+import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.widget.Button;
 
@@ -9,10 +11,10 @@ import ch.nolix.element.gui.widget.Button;
  * Of the {@link ButtonTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @date 2018-05-19
- * @lines 40
+ * @date 2021-05-21
+ * @lines 60
  */
-public final class ButtonTutorial {
+public final class ButtonWithCustomLookTutorial {
 	
 	/**
 	 * Creates a {@link Frame} with a {@link Button}.
@@ -38,6 +40,17 @@ public final class ButtonTutorial {
 			}
 		);
 		
+		//Configures the look of the Button.
+		button
+		.setCustomCursorIcon(CursorIcon.HAND)
+		.onLook(
+			l ->
+			l
+			.setBackgroundColorForState(WidgetLookState.BASE, Color.LAVENDER)
+			.setBackgroundColorForState(WidgetLookState.HOVER, Color.SKY_BLUE)
+			.setPaddingForState(WidgetLookState.BASE, 20)
+		);
+		
 		//Adds the Button to the Frame.
 		frame.addLayerOnTop(button);
 	}
@@ -45,5 +58,5 @@ public final class ButtonTutorial {
 	/**
 	 * Prevents that an instance of the {@link ButtonTutorial} can be created.
 	 */
-	private ButtonTutorial() {}
+	private ButtonWithCustomLookTutorial() {}
 }
