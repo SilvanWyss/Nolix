@@ -22,7 +22,12 @@ public final class ImageWidget extends BorderWidget<ImageWidget, ImageWidgetLook
 		Image::fromSpecification,
 		Image::getSpecification
 	);
-		
+	
+	//constructor
+	public ImageWidget() {
+		reset();
+	}
+	
 	//method
 	@Override
 	public void clear() {
