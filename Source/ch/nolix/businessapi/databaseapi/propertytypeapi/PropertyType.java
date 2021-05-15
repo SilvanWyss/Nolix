@@ -2,6 +2,7 @@
 package ch.nolix.businessapi.databaseapi.propertytypeapi;
 
 //own imports
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.errorcontrol.validator.Validator;
 
 //enum
@@ -23,7 +24,7 @@ public enum PropertyType {
 	//constructor
 	PropertyType(final BasePropertyType baseType) {
 		
-		Validator.assertThat(baseType).thatIsNamed("base type").isNotNull();
+		Validator.assertThat(baseType).thatIsNamed(LowerCaseCatalogue.BASE_TYPE).isNotNull();
 		
 		this.baseType = baseType;
 	}
