@@ -17,6 +17,7 @@ public final class PluralPascalCaseCatalogue {
 	public static final String ARRAYS = "Arrays";
 	public static final String ATTRIBUTES = "Attributes";
 	public static final String BACKGROUND_COLORS = "BackgroundColors";
+	public static final String BASE_TYPES = "BaseTypes";
 	public static final String BITS = "Bits";
 	public static final String BOOLEANS = "Booleans";
 	public static final String BORDER_COLORS = "BorderColors";

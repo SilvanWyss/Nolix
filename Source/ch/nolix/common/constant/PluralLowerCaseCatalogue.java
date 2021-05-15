@@ -17,6 +17,7 @@ public final class PluralLowerCaseCatalogue {
 	public static final String ARRAYS = "arrays";
 	public static final String ATTRIBUTES = "attributes";
 	public static final String BACKGROUND_COLORS = "background colors";
+	public static final String BASE_TYPES = "base types";
 	public static final String BITS = "bits";
 	public static final String BOOLEANS = "booleans";
 	public static final String BORDER_COLORS = "border colors";

@@ -17,6 +17,7 @@ public final class PascalCaseCatalogue {
 	public static final String ARRAY = "Array";
 	public static final String ATTRIBUTE = "Attribute";
 	public static final String BACKGROUND_COLOR = "BackgroundColor";
+	public static final String BASE_TYPE = "BaseType";
 	public static final String BIT = "Bit";
 	public static final String BOOLEAN = "Boolean";
 	public static final String BORDER_COLOR = "BorderColor";
