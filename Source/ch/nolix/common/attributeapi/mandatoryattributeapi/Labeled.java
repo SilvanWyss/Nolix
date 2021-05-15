@@ -6,7 +6,7 @@ package ch.nolix.common.attributeapi.mandatoryattributeapi;
  * A {@link Labeled} has an info string.
  * 
  * @author Silvan Wyss
- * @month 2016-12
+ * @date 2016-12-01
  * @lines 20
  */
 public interface Labeled {

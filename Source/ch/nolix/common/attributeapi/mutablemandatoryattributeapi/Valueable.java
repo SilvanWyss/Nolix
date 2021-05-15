@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.attributeapi.mutablemandatoryattributeapi;
 
+//own import
 import ch.nolix.common.attributeapi.mandatoryattributeapi.Valued;
 
 //interface
@@ -8,7 +9,7 @@ import ch.nolix.common.attributeapi.mandatoryattributeapi.Valued;
  * A {@link Valueable} is a {@link Valued} whose value can be set programmatically.
  * 
  * @author Silvan Wyss
- * @month 2018-09
+ * @date 2018-09-06
  * @lines 20
  * @param <VA> is the type of a {@link Valueable}.
  * @param <V> is the type of the value of a {@link Valueable}.

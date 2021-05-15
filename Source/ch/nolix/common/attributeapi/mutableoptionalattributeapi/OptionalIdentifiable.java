@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.attributeapi.mutableoptionalattributeapi;
 
+//own import
 import ch.nolix.common.attributeapi.optionalattributeapi.OptionalIdentified;
 
 //interface
@@ -8,7 +9,7 @@ import ch.nolix.common.attributeapi.optionalattributeapi.OptionalIdentified;
  * A {@link OptionalIdentified} is a {@link OptionalIdentified} whose id can be set and removed programmatically.
  * 
  * @author Silvan Wyss
- * @month 2020-03
+ * @date 2020-03-29
  * @lines 30
  * @param <OI> is the type of a {@link OptionalIdentified}.
  */

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.attributeapi.mutablemandatoryattributeapi;
 
+//own import
 import ch.nolix.common.attributeapi.mandatoryattributeapi.Headered;
 
 //interface
@@ -8,7 +9,7 @@ import ch.nolix.common.attributeapi.mandatoryattributeapi.Headered;
  * A {@link Headerable} is a {@link Headered} whose header can be set programmatically.
  * 
  * @author Silvan Wyss
- * @month 2018-04
+ * @date 2018-04-15
  * @lines 20
  * @param <H> is the type of a {@link Headerable}.
  */

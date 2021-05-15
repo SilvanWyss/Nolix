@@ -6,7 +6,7 @@ package ch.nolix.common.attributeapi.mandatoryattributeapi;
  * A {@link Identified} has an id.
  * 
  * @author Silvan Wyss
- * @month 2018-04
+ * @date 2018-04-04
  * @lines 50
  */
 public interface Identified {

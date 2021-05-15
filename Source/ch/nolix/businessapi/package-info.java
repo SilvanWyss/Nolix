@@ -4,7 +4,7 @@
  * Such types are the most relevant types for business applications.
  * 
  * @author Silvan Wyss
- * @month 2020-11
+ * @date 2020-12-01
  * @lines 10
  */
 package ch.nolix.businessapi;

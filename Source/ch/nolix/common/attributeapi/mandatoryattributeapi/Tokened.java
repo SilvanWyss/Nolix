@@ -6,7 +6,7 @@ package ch.nolix.common.attributeapi.mandatoryattributeapi;
  * A {@link Tokened} has a token.
  * 
  * @author Silvan Wyss
- * @month 2016-12
+ * @date 2017-01-01
  * @lines 50
  */
 public interface Tokened {

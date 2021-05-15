@@ -19,7 +19,7 @@ package ch.nolix.common.attributeapi.mandatoryattributeapi;
  * -short description: "25000"
  * 
  * @author Silvan Wyss
- * @month 2018-11
+ * @date 2018-12-01
  * @lines 40
  */
 public interface ShortDescripted {

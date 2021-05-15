@@ -6,7 +6,7 @@ package ch.nolix.common.attributeapi.mandatoryattributeapi;
  * A {@link Valued} has a value.
  * 
  * @author Silvan Wyss
- * @month 2018-09
+ * @date 2018-09-09
  * @lines 50
  * @param <VA> is the type of a {@link Valued}.
  * @param <V> is the type of the value of a {@link Valued}.

@@ -12,7 +12,7 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 * A {@link SemanticVersionable} is a {@link SemanticVersioned} whose semantic version can be set programmatically.
 * 
 * @author Silvan Wyss
-* @month 2020-03
+* @date 2020-03-30
 * @lines 50
 * @param <SV> is the type of a {@link SemanticVersionable}.
 */

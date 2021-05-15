@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.attributeapi.mutableoptionalattributeapi;
 
+//own import
 import ch.nolix.common.attributeapi.optionalattributeapi.OptionalHeadered;
 
 //interface
@@ -8,7 +9,7 @@ import ch.nolix.common.attributeapi.optionalattributeapi.OptionalHeadered;
  * A {@link OptionalHeaderable} is a {@link OptionalHeadered} whose header can be set and removed programmatically.
  * 
  * @author Silvan Wyss
- * @month 2019-02
+ * @date 2019-02-24
  * @lines 30
  * @param <OH> is the type of a {@link OptionalHeaderable}.
  */

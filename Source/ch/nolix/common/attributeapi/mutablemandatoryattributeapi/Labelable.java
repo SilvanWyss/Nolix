@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.attributeapi.mutablemandatoryattributeapi;
 
+//own import
 import ch.nolix.common.attributeapi.mandatoryattributeapi.Labeled;
 
 //interface

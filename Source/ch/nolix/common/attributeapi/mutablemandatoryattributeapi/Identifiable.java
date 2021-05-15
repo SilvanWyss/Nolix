@@ -8,7 +8,7 @@ import ch.nolix.common.attributeapi.mandatoryattributeapi.Identified;
  * A {@link Identifiable} is a {@link Identified} whose id can be set programmatically.
  * 
  * @author Silvan Wyss
- * @month 2020-03
+ * @date 2020-03-29
  * @lines 20
  * @param <I> is the type of a {@link Identifiable}.
  */

@@ -6,7 +6,7 @@ package ch.nolix.common.attributeapi.mandatoryattributeapi;
  * A {@link Headered} has a header.
  * 
  * @author Silvan Wyss
- * @month 2018-04
+ * @date 2018-04-07
  * @lines 50
  */
 public interface Headered {

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.attributeapi.mutableoptionalattributeapi;
 
+//own import
 import ch.nolix.common.attributeapi.optionalattributeapi.OptionalIdentifiedByString;
 
 //interface
@@ -9,7 +10,7 @@ import ch.nolix.common.attributeapi.optionalattributeapi.OptionalIdentifiedByStr
  * whose id can be set and removed programmatically.
  * 
  * @author Silvan Wyss
- * @month 2020-01
+ * @date 2020-02-01
  * @lines 30
  * @param <OIBS> is the type of a {@link OptionalIdentifiableByString}.
  */

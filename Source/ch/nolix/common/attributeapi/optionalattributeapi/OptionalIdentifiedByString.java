@@ -6,7 +6,7 @@ package ch.nolix.common.attributeapi.optionalattributeapi;
  * A {@link OptionalIdentifiedByString} can have an id that is a {@link String}.
  * 
  * @author Silvan Wyss
- * @month 2020-01
+ * @date 2020-01-05
  * @lines 40
  */
 public interface OptionalIdentifiedByString {

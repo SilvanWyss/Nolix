@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.businessapi.resourceapi;
 
+//own imports
 import ch.nolix.common.attributeapi.mandatoryattributeapi.Named;
 import ch.nolix.common.container.IContainer;
 
@@ -13,7 +14,7 @@ import ch.nolix.common.container.IContainer;
  * A {@link IResource} is not mutable. 
  * 
  * @author Silvan Wyss
- * @month 2018-08
+ * @date 2018-08-25
  * @lines 60
  */
 public interface IResource extends Named {

@@ -6,7 +6,7 @@ package ch.nolix.common.attributeapi.optionalattributeapi;
  * A {@link OptionalIdentified} can have an id.
  * 
  * @author Silvan Wyss
- * @month 2019-09
+ * @date 2019-09-29
  * @lines 60
  */
 public interface OptionalIdentified {

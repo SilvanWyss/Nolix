@@ -8,7 +8,7 @@ import ch.nolix.common.attributeapi.mandatoryattributeapi.IdentifiedByString;
  * A {@link IdentifiableByString} is a {@link IdentifiedByString} whose id can be set programmatically.
  * 
  * @author Silvan Wyss
- * @month 2020-03
+ * @date 2020-03-29
  * @lines 20
  * @param <IBS> is the type of a {@link IdentifiableByString}.
  */

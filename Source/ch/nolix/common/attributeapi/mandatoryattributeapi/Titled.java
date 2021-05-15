@@ -6,7 +6,7 @@ package ch.nolix.common.attributeapi.mandatoryattributeapi;
 * A {@link Titled} has a title.
 * 
 * @author Silvan Wyss
-* @month 2019-07
+* @date 2019-07-26
 * @lines 10
 */
 public interface Titled {

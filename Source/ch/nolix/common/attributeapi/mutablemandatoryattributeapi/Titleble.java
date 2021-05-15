@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.attributeapi.mutablemandatoryattributeapi;
 
+//own import
 import ch.nolix.common.attributeapi.mandatoryattributeapi.Titled;
 
 //interface
@@ -8,7 +9,7 @@ import ch.nolix.common.attributeapi.mandatoryattributeapi.Titled;
 * A {@link Titleble} is a {@link Titled} whose title can be set programmatically.
 * 
 * @author Silvan Wyss
-* @month 2019-07
+* @date 2019-07-26
 * @lines 20
 * @param <T> is the type of a {@link Titleble}.
 */

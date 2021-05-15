@@ -6,7 +6,7 @@ package ch.nolix.common.attributeapi.optionalattributeapi;
  * A {@link OptionalValued} can have a value.
  * 
  * @author Silvan Wyss
- * @month 2020-03
+ * @date 2020-03-29
  * @lines 100
  * @param <V> is the type of the value of a {@link OptionalValued}.
  */

@@ -8,7 +8,7 @@ import ch.nolix.common.attributeapi.mandatoryattributeapi.Indexed;
  * A {@link Indexable} is a {@link Indexed} whose index can be set programmatically.
  * 
  * @author Silvan Wyss
- * @month 2020-03
+ * @date 2020-03-29
  * @lines 20
  * @param <I> is the type of a {@link Indexable}.
  */

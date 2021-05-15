@@ -6,7 +6,7 @@ package ch.nolix.common.attributeapi.mandatoryattributeapi;
  * A {@link IdentifiedByString} has an id that is a {@link String}.
  * 
  * @author Silvan Wyss
- * @month 2019-06
+ * @date 2019-06-10
  * @lines 30
  */
 public interface IdentifiedByString {

@@ -6,7 +6,7 @@ package ch.nolix.common.attributeapi.optionalattributeapi;
  * A {@link OptionalTokened} can have a token
  * 
  * @author Silvan Wyss
- * @month 2020-03
+ * @date 2020-03-29
  * @lines 60
  */
 public interface OptionalTokened {

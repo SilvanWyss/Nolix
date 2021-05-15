@@ -9,7 +9,7 @@ import ch.nolix.common.constant.StringCatalogue;
  * A {@link OptionalHeadered} can have a header.
  * 
  * @author Silvan Wyss
- * @month 2020-03
+ * @date 2020-03-28
  * @lines 90
  */
 public interface OptionalHeadered {

@@ -6,7 +6,7 @@ package ch.nolix.common.attributeapi.optionalattributeapi;
  * A {@link OptionalNamed} can have a name
  * 
  * @author Silvan Wyss
- * @month 2020-03
+ * @date 2020-03-29
  * @lines 70
  */
 public interface OptionalNamed {

@@ -11,7 +11,7 @@ package ch.nolix.common.attributeapi.mandatoryattributeapi;
  * -patch version number
  * 
  * @author Silvan Wyss
- * @month 2019-02
+ * @date 2019-03-01
  * @lines 40
  */
 public interface SemanticVersioned {
