@@ -12,7 +12,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullExcep
  * because it should be accessed only by an abstract base class of a test.
  * 
  * @author Silvan Wyss
- * @month 2016-08
+ * @date 2016-09-01
  * @lines 50
  */
 public final class TestAccessor {

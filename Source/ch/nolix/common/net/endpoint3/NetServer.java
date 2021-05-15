@@ -11,7 +11,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentExcept
  * that listens to {@link NetEndPoint} on a specific port.
  * 
  * @author Silvan Wyss
- * @month 2016-10
+ * @date 2016-11-01
  * @lines 60
  */
 public final class NetServer extends Server {

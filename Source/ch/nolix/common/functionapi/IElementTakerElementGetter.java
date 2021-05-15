@@ -6,7 +6,7 @@ package ch.nolix.common.functionapi;
  * A {@link IElementTakerElementGetter} has a method that takes an element and returns an element.
  * 
  * @author Silvan Wyss
- * @month 2016-03
+ * @date 2016-04-01
  * @lines 20
  * @param <E> is the type of the elements a {@link IElementTakerElementGetter} takes.
  * @param <E2> is the type of the elements a {@link IElementTakerElementGetter} returns.

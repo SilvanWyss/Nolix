@@ -21,7 +21,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.UnequalArgumentExce
  * A double mediator is not mutable.
  * 
  * @author Silvan Wyss
- * @month 2016-12
+ * @date 2017-01-01
  * @lines 230
  */
 public class DoubleMediator extends Mediator {

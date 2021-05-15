@@ -13,7 +13,7 @@ import ch.nolix.common.independent.independenthelper.CentralArrayHelper;
  * A multi long mediator is not mutable.
  * 
  * @author Silvan Wyss
- * @month 2016-11
+ * @date 2016-12-01
  * @lines 420
  */
 public final class MultiLongMediator extends Mediator {

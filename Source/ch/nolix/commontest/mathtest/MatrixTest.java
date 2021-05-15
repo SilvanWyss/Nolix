@@ -10,7 +10,7 @@ import ch.nolix.common.testing.test.Test;
 * A {@link MatrixTest} is a test for {@link Matrix}es.
 * 
 * @author Silvan Wyss
-* @month 2016-06
+* @date 2016-07-01
 * @lines 270
 */
 public final class MatrixTest extends Test {

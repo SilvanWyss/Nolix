@@ -17,7 +17,7 @@ import ch.nolix.common.errorcontrol.validator.Validator;
  * The {@link Calculator} provides mathematical functions.
  * 
  * @author Silvan Wyss
- * @month 2016-04
+ * @date 2016-05-01
  * @lines 450
  */
 public final class Calculator {

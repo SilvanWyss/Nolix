@@ -6,7 +6,7 @@ import ch.nolix.common.errorcontrol.validator.Validator;
  * This class provides a tutorial how the zeta validator validates an integer.
  * 
  * @author Silvan Wyss
- * @month 2016-11
+ * @date 2016-12-01
  * @lines 30
  */
 public final class IntegerValidationTutorial2 {

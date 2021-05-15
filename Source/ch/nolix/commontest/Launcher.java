@@ -4,7 +4,7 @@ package ch.nolix.commontest;
 //class
 /**
  * @author Silvan Wyss
- * @month 2016-01
+ * @date 2016-02-01
  * @lines 20
  */
 public final class Launcher {

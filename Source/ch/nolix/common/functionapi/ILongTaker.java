@@ -6,7 +6,7 @@ package ch.nolix.common.functionapi;
  * A {@link ILongTaker} has a method that takes a long.
  * 
  * @author Silvan Wyss
- * @month 2016-09
+ * @date 2016-10-01
  * @lines 20
  */
 @FunctionalInterface

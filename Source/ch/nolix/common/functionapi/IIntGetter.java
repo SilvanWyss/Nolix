@@ -6,7 +6,7 @@ package ch.nolix.common.functionapi;
  * A {@link IIntGetter} has a method that returns an int.
  * 
  * @author Silvan Wyss
- * @month 2016-09
+ * @date 2016-10-01
  * @lines 10
  */
 @FunctionalInterface

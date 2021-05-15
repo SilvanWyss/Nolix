@@ -11,7 +11,7 @@ import ch.nolix.common.requestapi.ApproximativeEqualing;
  * An approximative equaling mediator is not mutable.
  * 
  * @author Silvan Wyss
- * @month 2016-12
+ * @date 2017-01-01
  * @lines 60
  */
 public final class ApproximativeEqualingMediator extends ValueMediator<ApproximativeEqualing> {

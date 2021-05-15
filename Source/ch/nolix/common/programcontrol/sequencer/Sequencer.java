@@ -18,7 +18,7 @@ import ch.nolix.common.programcontrol.jobpool.JobPool;
  * Of the {@link Sequencer} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 2016-05
+ * @date 2016-06-01
  * @lines 220
  */
 public final class Sequencer {

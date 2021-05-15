@@ -8,7 +8,7 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 //class
 /**
  * @author Silvan Wyss
- * @month 2016-10
+ * @date 2016-11-01
  * @lines 60
  */
 final class NetServerListener implements ch.nolix.common.net.endpoint2.IEndPointTaker {

@@ -9,7 +9,7 @@ import ch.nolix.common.net.endpoint3.IEndPointTaker;
 //class
 /**
  * @author Silvan Wyss
- * @month 2016-10
+ * @date 2016-11-01
  * @lines 50
  */
 final class NetServerSubDuplexControllerTaker implements IEndPointTaker {

@@ -11,7 +11,7 @@ import ch.nolix.common.errorcontrol.validator.Validator;
  * A {@link IBooleanGetter} has a method that returns a boolean.
  * 
  * @author Silvan Wyss
- * @month 2016-06
+ * @date 2016-07-01
  * @lines 30
  */
 @FunctionalInterface

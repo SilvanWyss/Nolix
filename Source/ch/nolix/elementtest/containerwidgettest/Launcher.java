@@ -6,7 +6,7 @@ package ch.nolix.elementtest.containerwidgettest;
  * Of the {@link Launcher} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 2016-08
+ * @date 2016-09-01
  * @lines 20
  */
 public final class Launcher {

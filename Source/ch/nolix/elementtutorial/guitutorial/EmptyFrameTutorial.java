@@ -8,7 +8,7 @@ import ch.nolix.element.gui.color.Color;
  * Of the {@link EmptyFrameTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 2016-11
+ * @date 2016-12-01
  */
 public final class EmptyFrameTutorial {
 	

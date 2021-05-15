@@ -10,7 +10,7 @@ import ch.nolix.common.errorcontrol.validator.Validator;
  * A {@link QuadraticFunction} is not mutable.
  * 
  * @author Silvan Wyss
- * @month 2016-05
+ * @date 2016-06-01
  * @lines 210
  */
 public final class QuadraticFunction {

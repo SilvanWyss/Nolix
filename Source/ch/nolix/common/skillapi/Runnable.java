@@ -6,7 +6,7 @@ package ch.nolix.common.skillapi;
  * A runnable object can run something.
  * 
  * @author Silvan Wyss
- * @month 2016-08
+ * @date 2016-09-01
  * @lines 10
  */
 public interface Runnable {

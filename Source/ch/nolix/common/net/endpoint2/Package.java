@@ -9,7 +9,7 @@ import ch.nolix.common.errorcontrol.validator.Validator;
  * A package in end point 3 is a package with a message role.
  * 
  * @author Silvan Wyss
- * @month 2016-09
+ * @date 2016-10-01
  * @lines 70
  */
 final class Package extends ch.nolix.common.net.messaging.IndexedPackage<String> {

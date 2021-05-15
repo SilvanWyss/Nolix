@@ -10,7 +10,7 @@ import ch.nolix.element.gui.widget.TextBox;
  * A {@link TextBoxTest} is a test for {@link TextBox}.
  * 
  * @author Silvan Wyss
- * @month 2016-08
+ * @date 2016-09-01
  * @lines 60
  */
 public class TextBoxTest extends BorderWidgetTest<TextBox> {

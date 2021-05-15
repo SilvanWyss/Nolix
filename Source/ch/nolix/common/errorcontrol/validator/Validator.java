@@ -17,7 +17,7 @@ import ch.nolix.common.independent.independenthelper.CentralArrayHelper;
  * Of this class an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 2016-11
+ * @date 2016-12-01
  * @lines 280
  */
 public final class Validator {

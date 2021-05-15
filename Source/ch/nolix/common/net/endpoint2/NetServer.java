@@ -10,7 +10,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentExcept
  * A {@link NetServer} is a {@link Server} that listens to {@link NetEndPoint} on a specific port.
  * 
  * @author Silvan Wyss
- * @month 2016-05
+ * @date 2016-06-01
  * @lines 70
  */
 public final class NetServer extends Server {

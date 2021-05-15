@@ -16,7 +16,7 @@ import ch.nolix.system.client.baseguiclient.BaseFrontGUIClientGUIType;
  * A {@link FrontGUIClient} provides a {@link GUI} and is controlled by a {@link BackGUIClient}.
  * 
  * @author Silvan Wyss
- * @month 2016-11
+ * @date 2016-12-01
  * @lines 140
  */
 public final class FrontGUIClient extends BaseFrontGUIClient<FrontGUIClient> {

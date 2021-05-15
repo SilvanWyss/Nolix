@@ -18,7 +18,7 @@ import ch.nolix.element.elementapi.IConfigurableElement;
  * A {@link ConfigurableElement} is configurable.
  * 
  * @author Silvan Wyss
- * @month 2016-01-01
+ * @date 2016-02-01-01
  * @lines 150
  * @param <CE> is the type of a {@link ConfigurableElement}.
  */

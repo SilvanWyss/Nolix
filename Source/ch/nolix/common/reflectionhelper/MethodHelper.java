@@ -11,7 +11,7 @@ import java.lang.reflect.Method;
  * Of the {@link MethodHelper} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 2016-02
+ * @date 2016-03-01
  * @lines 50
  */
 public final class MethodHelper {

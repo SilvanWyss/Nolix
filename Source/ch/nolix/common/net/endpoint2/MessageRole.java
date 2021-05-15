@@ -7,7 +7,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.UnrepresentingArgum
 //enum
 /**
  * @author Silvan Wyss
- * @month 2016-09
+ * @date 2016-10-01
  * @lines 70
  */
 public enum MessageRole {

@@ -10,7 +10,7 @@ import ch.nolix.common.testing.test.Test;
  * A {@link PolynomTest} is a test for {@link Polynom}s.
  * 
  * @author Silvan Wyss
- * @month 2016-05
+ * @date 2016-06-01
  * @lines 140
  */
 public final class PolynomTest extends Test {

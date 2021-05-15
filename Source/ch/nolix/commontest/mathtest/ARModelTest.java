@@ -10,7 +10,7 @@ import ch.nolix.common.testing.test.Test;
  * A {@link ARModelTest} is a test for {@link ARModel}s.
  * 
  * @author Silvan Wyss
- * @month 2016-07
+ * @date 2016-08-01
  * @lines 100
  */
 public final class ARModelTest extends Test {

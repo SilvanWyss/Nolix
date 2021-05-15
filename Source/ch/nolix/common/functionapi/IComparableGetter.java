@@ -6,7 +6,7 @@ package ch.nolix.common.functionapi;
  * A {@link IComparableGetter} has a method that returns a {@link Comparable}.
  * 
  * @author Silvan Wyss
- * @month 2016-09
+ * @date 2016-10-01
  * @lines 20
  * @param <E> is the type of the elements
  * the {@link Comparable}, a {@link IComparableGetter} returns, compares.

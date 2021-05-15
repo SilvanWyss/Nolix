@@ -6,7 +6,7 @@ package ch.nolix.common.functionapi;
  * A {@link IAction} has a method that does something.
  * 
  * @author Silvan Wyss
- * @month 2016-05
+ * @date 2016-06-01
  * @lines 10
  */
 @FunctionalInterface

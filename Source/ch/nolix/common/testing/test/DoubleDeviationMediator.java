@@ -10,7 +10,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.NegativeArgumentExc
  * A double deviation mediator is not mutable.
  * 
  * @author Silvan Wyss
- * @month 2016-08
+ * @date 2016-09-01
  * @lines 110
  */
 public final class DoubleDeviationMediator extends Mediator {

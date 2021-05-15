@@ -8,7 +8,7 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 //class
 /**
  * @author Silvan Wyss
- * @month 2016-07
+ * @date 2016-08-01
  * @lines 90
  */
 public final class ARModel extends StatisticalModel {

@@ -13,7 +13,7 @@ import ch.nolix.common.independent.independenthelper.CentralArrayHelper;
  * A multi double mediator is not mutable.
  * 
  * @author Silvan Wyss
- * @month 2016-12
+ * @date 2017-01-01
  * @lines 150
  */
 public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {

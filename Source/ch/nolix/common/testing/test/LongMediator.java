@@ -13,7 +13,7 @@ import ch.nolix.common.functionapi.IElementTakerBooleanGetter;
  * A long mediator is not mutable.
  * 
  * @author Silvan Wyss
- * @month 2016-08
+ * @date 2016-09-01
  * @lines 260
  */
 public final class LongMediator extends Mediator {

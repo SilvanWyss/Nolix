@@ -9,7 +9,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentExce
  * A {@link Mediator} is not mutable.
  * 
  * @author Silvan Wyss
- * @month 2016-11
+ * @date 2016-12-01
  * @lines 60
  */
 abstract class Mediator {

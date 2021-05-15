@@ -11,7 +11,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.NegativeArgumentExc
  * A string mediator is not mutable.
  * 
  * @author Silvan Wyss
- * @month 2016-08
+ * @date 2016-09-01
  * @lines 150
  */
 public class StringMediator extends ValueMediator<String> {

@@ -10,7 +10,7 @@ import ch.nolix.element.gui.widget.Area;
  * A {@link AreaTest} is a test for {@link Area}.
  * 
  * @author Silvan Wyss
- * @month 2016-06
+ * @date 2016-07-01
  * @lines 80
  */
 public final class AreaTest extends WidgetTest<Area> {

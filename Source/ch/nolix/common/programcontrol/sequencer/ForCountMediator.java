@@ -12,7 +12,7 @@ import ch.nolix.common.functionapi.IIntTaker;
  * A for count mediator is not mutable.
  * 
  * @author Silvan Wyss
- * @month 2016-05
+ * @date 2016-06-01
  * @lines 70
  */
 public final class ForCountMediator {

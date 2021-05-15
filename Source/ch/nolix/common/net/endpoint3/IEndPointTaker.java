@@ -8,7 +8,7 @@ import ch.nolix.common.attributeapi.mandatoryattributeapi.Named;
  * A duplex controller taker can take duplex controllers.
  * 
  * @author Silvan Wyss
- * @month 2016-10
+ * @date 2016-11-01
  * @lines 20
  */
 public interface IEndPointTaker extends Named {

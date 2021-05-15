@@ -10,7 +10,7 @@ import ch.nolix.common.testing.test.Test;
  * A {@link CalculatorTest} is a {@link Test} for the {@link Calculator}.
  * 
  * @author Silvan Wyss
- * @month 2016-08
+ * @date 2016-09-01
  * @lines 30
  */
 public final class CalculatorTest extends Test {
