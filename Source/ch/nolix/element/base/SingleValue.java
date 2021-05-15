@@ -69,7 +69,7 @@ abstract class SingleValue<V> extends BaseValue<V> implements OptionalityRequest
 		
 		//Asserts that the current SingleProperty has a value.
 		if (value == null) {
-			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.VALUE);
+			throw new ArgumentDoesNotHaveAttributeException(getName(), this, LowerCaseCatalogue.VALUE);
 		}
 		
 		return value;
