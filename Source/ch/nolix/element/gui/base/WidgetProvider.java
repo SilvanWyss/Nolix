@@ -16,7 +16,7 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 //class
 /**
  * @author Silvan Wyss
- * @month 2018-03
+ * @date 2018-03-31
  * @lines 170
  */
 final class WidgetProvider {

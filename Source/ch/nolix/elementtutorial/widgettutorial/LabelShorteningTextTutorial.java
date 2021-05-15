@@ -9,7 +9,7 @@ import ch.nolix.element.gui.widget.Label;
  * Of the {@link LabelTutorial} an instance cannot be created.
  *
  * @author Silvan Wyss
- * @month 2019-05
+ * @date 2019-05-19
  * @lines 40
  */
 public final class LabelShorteningTextTutorial {

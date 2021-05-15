@@ -12,7 +12,7 @@ import ch.nolix.element.gui.widget.Downloader;
  * Of the {@link DownloaderTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 2018-07
+ * @date 2018-07-07
  * @lines 50
  */
 public final class DownloaderTutorial {

@@ -1,12 +1,13 @@
 //package declaration
 package ch.nolix.elementtest.widgettest;
 
+//own imports
 import ch.nolix.common.testing.basetest.TestPool;
 
 //class
 /**
  * @author Silvan Wyss
- * @month 2019-05
+ * @date 2019-05-19
  * @lines 30
  */
 public final class WidgetTestPool extends TestPool {

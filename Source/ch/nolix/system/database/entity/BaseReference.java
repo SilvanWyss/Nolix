@@ -13,7 +13,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentExce
  *  it can reference the {@link Entity} and if it actually references it.
  * 
  * @author Silvan Wyss
- * @month 2018-04
+ * @date 2018-04-21
  * @lines 50
  * @param <E> is the type of the {@link Entity}s a {@link BaseReference} can reference.
  */

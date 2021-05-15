@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.elementtest.containerwidgettest;
 
+//own imports
 import ch.nolix.common.testing.basetest.TestCase;
 import ch.nolix.element.gui.base.Widget;
 import ch.nolix.element.gui.containerwidget.Accordion;
@@ -12,7 +13,7 @@ import ch.nolix.element.gui.containerwidget.AccordionTab;
  * A {@link AccordionTest} is a test for {@link Accordion}.
  * 
  * @author Silvan Wyss
- * @month 2018-08
+ * @date 2018-09-11
  * @lines 90
  */
 public final class AccordionTest extends ContainerWidgetTest<Accordion> {

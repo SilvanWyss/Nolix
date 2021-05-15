@@ -12,7 +12,7 @@ import ch.nolix.element.elementapi.IElement;
 //enum
 /**
  * @author Silvan Wyss
- * @month 2018-09
+ * @date 2018-09-16
  * @lines 30
  */
 public enum BaseFrontGUIClientGUIType implements IElement<BaseFrontGUIClientGUIType> {

@@ -13,7 +13,7 @@ import ch.nolix.templatetest.TemplatesTestPool;
  * A {@link NolixTestPool} is not mutable.
  * 
  * @author Silvan Wyss
- * @month 2017-11
+ * @date 2017-11-17
  * @lines 30
  */
 public final class NolixTestPool extends TestPool {

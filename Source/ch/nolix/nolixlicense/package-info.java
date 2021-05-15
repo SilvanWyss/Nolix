@@ -4,7 +4,7 @@
  * for the Nolix library.
  * 
  * @author Silvan Wyss
- * @month 2019-11
+ * @date 2019-12-01
  * @lines 10
  */
 package ch.nolix.nolixlicense;

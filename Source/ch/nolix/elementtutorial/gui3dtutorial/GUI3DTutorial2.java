@@ -11,7 +11,7 @@ import ch.nolix.element.gui3d.shape.Sphere;
  * The {@link GUI3DTutorial2} is a tutorial for a {@link JMonkeyMainFrame}.
  * 
  * @author Silvan Wyss
- * @month 2017-10
+ * @date 2017-11-11
  * @lines 60
  */
 public final class GUI3DTutorial2 {

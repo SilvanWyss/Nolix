@@ -8,7 +8,7 @@ import ch.nolix.element.gui3d.shape.Sphere;
  * The 3D GUI tutorial is a tutorial for the 3D GUI class.
  * 
  * @author Silvan Wyss
- * @month 2017-11
+ * @date 2017-11-11
  * @lines 30
  */
 public final class GUI3DTutorial {

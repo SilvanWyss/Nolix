@@ -6,7 +6,7 @@ package ch.nolix.elementtest.colortest;
  * Of the {@link Launcher} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 2017-11
+ * @date 2017-11-14
  * @lines 20
  */
 public final class Launcher {

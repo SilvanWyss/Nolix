@@ -11,7 +11,7 @@ import ch.nolix.element.gui.widget.Label;
  * Of the {@link ScrollTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 2018-05
+ * @date 2018-04-02
  * @lines 50
  */
 public final class ScrollTutorial {

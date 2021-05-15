@@ -17,7 +17,7 @@ import ch.nolix.system.client.guiclient.FrontGUIClient;
 //class
 /**
  * @author Silvan Wyss
- * @month 2018-09
+ * @date 2018-09-16
  * @lines 150
  * @param <FGC> is the type of a {@link BaseFrontGUIClient}.
  */

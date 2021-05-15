@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.elementtest.containerwidgettest;
 
+//own imports
 import ch.nolix.common.testing.basetest.TestCase;
 import ch.nolix.element.gui.base.Widget;
 import ch.nolix.element.gui.containerwidget.SingleContainer;
@@ -11,7 +12,7 @@ import ch.nolix.element.gui.widget.Label;
  * The {@link SingleContainerTest} is a test for {@link SingleContainer}.
  * 
  * @author Silvan Wyss
- * @month 2018-12
+ * @date 2019-01-01
  * @lines 60
  */
 public class SingleContainerTest extends ContainerWidgetTest<SingleContainer> {

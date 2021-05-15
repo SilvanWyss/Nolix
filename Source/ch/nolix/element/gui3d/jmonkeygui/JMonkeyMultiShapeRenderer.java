@@ -5,6 +5,7 @@ package ch.nolix.element.gui3d.jmonkeygui;
 import com.jme3.scene.Node;
 import com.jme3.scene.Spatial;
 
+//own imports
 import ch.nolix.element.gui3d.shape.MultiShape;
 
 //class
@@ -12,11 +13,10 @@ import ch.nolix.element.gui3d.shape.MultiShape;
  * A Jmonkey multi shape renderer is a multi shape renderer for JMonkey.
  * 
  * @author Silvan Wyss
- * @month 2017-11
- * @lines 10
+ * @date 2017-11-11
+ * @lines 60
  */
-public final class JMonkeyMultiShapeRenderer
-implements IJMonkeyShapeRenderer<MultiShape, Node> {
+public final class JMonkeyMultiShapeRenderer implements IJMonkeyShapeRenderer<MultiShape, Node> {
 	
 	//method
 	/**

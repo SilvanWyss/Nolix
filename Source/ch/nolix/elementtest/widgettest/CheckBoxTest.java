@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.elementtest.widgettest;
 
+//own imports
 import ch.nolix.common.testing.basetest.TestCase;
 import ch.nolix.element.gui.widget.CheckBox;
 
@@ -9,7 +10,7 @@ import ch.nolix.element.gui.widget.CheckBox;
  * A {@link CheckBoxTest} is a test for {@link CheckBox}.
  * 
  * @author Silvan Wyss
- * @month 2017-03
+ * @date 2017-03-12
  * @lines 60
  */
 public final class CheckBoxTest extends WidgetTest<CheckBox> {

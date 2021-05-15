@@ -11,7 +11,7 @@ import ch.nolix.element.gui.widget.ImageWidget;
  * Of the {@link ImageWidgetTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 2018-08
+ * @date 2018-08-23
  * @lines 50
  */
 public final class ImageWidgetTutorial {

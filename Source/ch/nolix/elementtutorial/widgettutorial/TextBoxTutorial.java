@@ -10,7 +10,7 @@ import ch.nolix.element.gui.widget.TextBox;
  * Of the {@link TextBoxTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 2018-05
+ * @date 2018-05-13
  * @lines 40
  */
 public final class TextBoxTutorial {

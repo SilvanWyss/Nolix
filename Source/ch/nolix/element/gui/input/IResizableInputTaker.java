@@ -4,7 +4,7 @@ package ch.nolix.element.gui.input;
 //interface
 /**
  * @author Silvan Wyss
- * @month 2020-06
+ * @date 2020-06-06
  * @lines 40
  */
 public interface IResizableInputTaker extends IInputTaker {

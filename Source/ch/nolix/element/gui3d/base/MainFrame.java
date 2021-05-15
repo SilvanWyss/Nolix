@@ -4,7 +4,7 @@ package ch.nolix.element.gui3d.base;
 //class
 /**
  * @author Silvan Wyss
- * @month 2017-11
+ * @date 2017-11-11
  * @lines 10
  * @param <MF> is the type of a main frame.
  */

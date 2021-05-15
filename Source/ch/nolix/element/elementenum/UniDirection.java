@@ -11,11 +11,10 @@ import ch.nolix.element.elementapi.IElement;
 //enum
 /**
  * A {@link UniDirection} defines the way between two points of a square.
- * 
  * A {@link UniDirection} does not (!) depend on the order of the start point and end point.
  * 
  * @author Silvan Wyss
- * @month 2017-09
+ * @date 2017-09-16
  * @lines 40
  */
 public enum UniDirection implements IElement<UniDirection> {

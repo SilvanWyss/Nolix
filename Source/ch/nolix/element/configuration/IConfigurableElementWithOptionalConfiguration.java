@@ -10,7 +10,7 @@ import ch.nolix.element.elementapi.IConfigurableElement;
  * that can have a configuration and configure itself.
  * 
  * @author Silvan Wyss
- * @month 2019-09
+ * @date 2019-07-26
  * @lines 60
  * @param <CEWOC> is the type of a {@link IConfigurableElementWithOptionalConfiguration}.
  */

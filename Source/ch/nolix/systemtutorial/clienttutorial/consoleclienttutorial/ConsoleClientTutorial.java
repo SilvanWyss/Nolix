@@ -11,7 +11,7 @@ import ch.nolix.template.consoleclientlook.BlackRedConsoleClientLookCreator;
  * Of the {@link ConsoleClientTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 2017-08
+ * @date 2017-08-20
  * @lines 70
  */
 public final class ConsoleClientTutorial {

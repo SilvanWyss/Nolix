@@ -4,6 +4,7 @@ package ch.nolix.element.gui3d.jmonkeygui;
 //JMonkey imports
 import com.jme3.math.ColorRGBA;
 
+//own imports
 import ch.nolix.element.gui.color.Color;
 
 //class
@@ -12,7 +13,7 @@ import ch.nolix.element.gui.color.Color;
  * Of this class an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 2017-11
+ * @date 2017-11-11
  * @lines 40
  */
 public final class JMonkeyColorHelper {

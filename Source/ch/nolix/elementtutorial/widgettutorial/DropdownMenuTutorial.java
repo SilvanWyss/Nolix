@@ -10,7 +10,7 @@ import ch.nolix.element.gui.widget.DropdownMenu;
  * Of the {@link DropdownMenuTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 2018-05
+ * @date 2019-05-24
  * @lines 50
  */
 public final class DropdownMenuTutorial {

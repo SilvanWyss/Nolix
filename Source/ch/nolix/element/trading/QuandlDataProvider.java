@@ -17,7 +17,7 @@ import ch.nolix.element.time.Time;
  * A {@link QuandlDataProvider} is not mutable.
  * 
  * @author Silvan Wyss
- * @month 2017-08
+ * @date 2017-08-26
  * @lines 70
  */
 public final class QuandlDataProvider {

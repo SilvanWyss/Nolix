@@ -1,12 +1,13 @@
 //package declaration
 package ch.nolix.elementtest.elementenumtest;
 
+//own imports
 import ch.nolix.common.testing.basetest.TestPool;
 
 //class
 /**
  * @author Silvan Wyss
- * @month 2017-09
+ * @date 2017-09-16
  * @lines 20
  */
 public final class ElementEnumTestPool extends TestPool {

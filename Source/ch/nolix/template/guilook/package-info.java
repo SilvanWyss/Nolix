@@ -3,7 +3,7 @@
  * The {@link ch.nolix.template.guilook} package defines looks for {@link ch.nolix.element.gui.base.WidgetGUI}s.
  * 
  * @author Silvan Wyss
- * @month 2019-07
+ * @date 2019-08-01
  * @lines 10
  */
 package ch.nolix.template.guilook;

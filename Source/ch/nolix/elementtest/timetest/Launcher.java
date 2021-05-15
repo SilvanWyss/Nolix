@@ -6,7 +6,7 @@ package ch.nolix.elementtest.timetest;
  * The launcher provides a main method to create and run a core test pool.
  * 
  * @author Silvan Wyss
- * @month 2017-11
+ * @date 2017-11-14
  * @lines 20
  */
 public final class Launcher {

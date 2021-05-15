@@ -14,7 +14,7 @@ import ch.nolix.element.gui.widget.Label;
  * Of the {@link HorizontalLineTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 2020-06
+ * @date 2020-06-13
  * @lines 60
  */
 public final class HorizontalLineTutorial {

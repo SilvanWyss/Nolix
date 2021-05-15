@@ -13,7 +13,7 @@ import ch.nolix.system.client.baseguiclient.BaseFrontGUIClientGUIType;
 //class
 /**
  * @author Silvan Wyss
- * @month 2017-03
+ * @date 2017-03-02
  * @lines 90
  */
 public final class FrontConsoleClient extends BaseFrontGUIClient<FrontConsoleClient> {

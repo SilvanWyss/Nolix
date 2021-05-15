@@ -4,7 +4,7 @@
  * An element is reproducible. That means that an element can be represented as a {@link java.lang.String}.
  * 
  * @author Silvan Wyss
- * @month 2019-07
+ * @date 2019-07-21
  * @lines 10
  */
 package ch.nolix.element;

@@ -10,7 +10,7 @@ import ch.nolix.common.document.node.BaseNode;
  * that can be requested if it can have an attribute of a given type.
  * 
  * @author Silvan Wyss
- * @month 2019-07
+ * @date 2019-08-01
  * @lines 30
  */
 public interface IRequestableElement extends IElement<IRequestableElement> {

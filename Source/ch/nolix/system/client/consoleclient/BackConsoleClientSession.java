@@ -13,7 +13,7 @@ import ch.nolix.template.consoleclientlook.GreyBlueConsoleClientLookCreator;
 //class
 /**
  * @author Silvan Wyss
- * @month 2017-08
+ * @date 2017-04-02
  * @lines 200
  */
 public abstract class BackConsoleClientSession extends BaseBackGUIClientSession<BackConsoleClient> {

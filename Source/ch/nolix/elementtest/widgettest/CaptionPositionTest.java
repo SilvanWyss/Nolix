@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.elementtest.widgettest;
 
+//own imports
 import ch.nolix.common.testing.basetest.TestCase;
 import ch.nolix.common.testing.test.Test;
 import ch.nolix.element.gui.widget.CaptionPosition;
@@ -10,7 +11,7 @@ import ch.nolix.element.gui.widget.CaptionPosition;
  * A {@link CaptionPositionTest} is a test for {@link CaptionPosition}.
  * 
  * @author Silvan Wyss
- * @month 2018-12
+ * @date 2019-01-01
  * @lines 70
  */
 public final class CaptionPositionTest extends Test {

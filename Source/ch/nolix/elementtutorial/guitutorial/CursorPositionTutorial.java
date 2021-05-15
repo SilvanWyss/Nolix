@@ -1,6 +1,5 @@
 package ch.nolix.elementtutorial.guitutorial;
 
-//own imports
 import ch.nolix.element.elementenum.ExtendedContentPosition;
 import ch.nolix.element.gui.base.Frame;
 import ch.nolix.element.gui.base.Layer;
@@ -12,7 +11,7 @@ import ch.nolix.element.gui.widget.Label;
  * Of the {@link CursorPositionTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 2020-01
+ * @date 2020-02-01
  */
 public final class CursorPositionTutorial {
 	

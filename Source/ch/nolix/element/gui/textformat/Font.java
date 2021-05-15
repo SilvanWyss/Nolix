@@ -15,7 +15,7 @@ import ch.nolix.element.elementapi.IElement;
  * A {@link Font} is not mutable.
  * 
  * @author Silvan Wyss
- * @month 2017-08
+ * @date 2017-08-19
  * @lines 80
  */
 public enum Font implements IElement<Font> {

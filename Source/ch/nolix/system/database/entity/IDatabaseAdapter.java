@@ -90,7 +90,7 @@ import ch.nolix.common.skillapi.IChangesSaver;
  * --2. The {@link BaseBackReference} notifies its parent {@link Entity} that it may be edited.
  * 
  * @author Silvan Wyss
- * @month 2019-11
+ * @date 2019-11-23
  * @lines 120
  */
 public interface IDatabaseAdapter extends IChangesSaver<IDatabaseAdapter>  {

@@ -6,7 +6,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotSupp
 //interface
 /**
  * @author Silvan Wyss
- * @month 2017-11
+ * @date 2017-11-11
  * @lines 60
  * @param <S> is the type of the shape a shape renderer can render.
  * @param <RO> is the type of the render objects a {@link IShapeRenderer} provides.

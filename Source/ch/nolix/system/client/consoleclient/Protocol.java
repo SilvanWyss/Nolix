@@ -6,7 +6,7 @@ package ch.nolix.system.client.consoleclient;
  * Of this class an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 2017-08
+ * @date 2017-08-20
  * @lines 40
  */
 final class Protocol {

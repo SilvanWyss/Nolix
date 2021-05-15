@@ -10,7 +10,7 @@ import ch.nolix.element.gui.widget.CheckBox;
  * Of the {@link CheckBoxTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 2018-05
+ * @date 2018-05-26
  * @lines 40
  */
 public final class CheckBoxTutorial {

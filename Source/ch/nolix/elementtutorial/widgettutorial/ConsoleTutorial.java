@@ -10,7 +10,7 @@ import ch.nolix.element.gui.widget.Console;
  * Of the {@link ConsoleTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 2018-06
+ * @date 2018-06-29
  * @lines 50
  */
 public final class ConsoleTutorial {

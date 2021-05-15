@@ -12,7 +12,7 @@ import ch.nolix.element.elementapi.IElement;
 //enum
 /**
  * @author Silvan Wyss
- * @month 2019-07
+ * @date 2019-07-28
  * @lines 60
  */
 public enum RotationDirection implements IElement<RotationDirection> {

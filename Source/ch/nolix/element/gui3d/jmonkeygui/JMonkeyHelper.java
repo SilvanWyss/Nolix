@@ -11,8 +11,8 @@ import com.jme3.system.JmeSystem;
  * Of the {@link JMonkeyHelper} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 2017-11
- * @lines 10
+ * @date 2017-11-11
+ * @lines 30
  */
 public final class JMonkeyHelper {
 	

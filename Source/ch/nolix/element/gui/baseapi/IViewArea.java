@@ -12,7 +12,7 @@ import ch.nolix.element.gui.input.IInputTaker;
  * A {@link IViewArea} returns data only and does not have a mutation method.
  * 
  * @author Silvan Wyss
- * @month 2019-07
+ * @date 2019-08-01
  * @lines 30
  */
 interface IViewArea extends IInputTaker, TopLeftPositionedRecangular {

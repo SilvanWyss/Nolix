@@ -10,7 +10,7 @@ import ch.nolix.element.gui.widget.SelectionMenu;
  * Of the {@link SelectionMenuTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 2018-05
+ * @date 2018-05-05
  * @lines 60
  */
 public final class SelectionMenuTutorial {

@@ -7,7 +7,7 @@ import ch.nolix.element.elementenum.RotationDirection;
 //interface
 /**
  * @author Silvan
- * @month 2019-08
+ * @date 2019-08-01
  * @lines 330
  */
 public interface IInputTaker {

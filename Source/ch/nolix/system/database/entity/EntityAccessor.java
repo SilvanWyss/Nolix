@@ -15,7 +15,7 @@ import ch.nolix.common.valuecreator.ValueCreator;
  * Of the {@link EntityAccessor} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 2019-12
+ * @date 2019-12-30
  * @lines 80
  */
 public final class EntityAccessor {

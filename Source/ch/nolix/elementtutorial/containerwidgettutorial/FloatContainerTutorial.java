@@ -12,7 +12,7 @@ import ch.nolix.element.gui.widget.Label;
  * Of the {@link FloatContainerTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 2018-05
+ * @date 2018-06-01
  * @lines 70
  */
 public final class FloatContainerTutorial {

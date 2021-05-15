@@ -5,6 +5,7 @@ package ch.nolix.element.gui3d.jmonkeygui;
 import com.jme3.material.Material;
 import com.jme3.scene.Geometry;
 
+//own imports
 import ch.nolix.element.gui3d.shape.Sphere;
 
 //class
@@ -13,7 +14,7 @@ import ch.nolix.element.gui3d.shape.Sphere;
  * A JMonkey sphere renderer is not mutable.
  * 
  * @author Silvan Wyss
- * @month 2017-11
+ * @date 2017-11-11
  * @lines 70
  */
 public final class JMonkeySphereRenderer

@@ -13,7 +13,7 @@ import ch.nolix.element.gui.widget.Label;
  * Of the {@link GridTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 2018-05
+ * @date 2018-05-01
  * @lines 60
  */
 public final class GridTutorial {

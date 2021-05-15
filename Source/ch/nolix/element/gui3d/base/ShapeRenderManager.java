@@ -1,12 +1,13 @@
 //class
 package ch.nolix.element.gui3d.base;
 
+//own imports
 import ch.nolix.common.errorcontrol.validator.Validator;
 
 //class
 /**
  * @author Silvan Wyss
- * @month 2017-11
+ * @date 2017-11-11
  * @lines 50
  * @param <S> is the type of the shape of a shape renderer.
  * @param <RO> is the type of the render object of a shape renderer.

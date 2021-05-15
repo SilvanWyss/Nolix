@@ -14,7 +14,7 @@ import ch.nolix.template.texturecreator.JuteTextureCreator;
  * Of the {@link TextureCreatorsTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 2018-08
+ * @date 2018-08-25
  * @lines 60
  */
 public final class TextureCreatorsTutorial {

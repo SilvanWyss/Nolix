@@ -11,7 +11,7 @@ import ch.nolix.element.gui.input.IResizableInputTaker;
 //interface
 /**
  * @author Silvan Wyss
- * @month 2019-07
+ * @date 2019-08-01
  * @lines 80
  * @param <G> is the type of a {@link IBaseGUI}.
  */

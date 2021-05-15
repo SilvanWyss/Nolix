@@ -6,7 +6,7 @@ package ch.nolix.elementtest.elementenumtest;
  * Of this class an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 2017-09
+ * @date 2017-09-16
  * @lines 20
  */
 public final class Launcher {

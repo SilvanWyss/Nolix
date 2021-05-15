@@ -6,7 +6,7 @@ package ch.nolix.nolixtest;
  * Of the {@link Launcher} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 2017-11
+ * @date 2017-11-17
  * @lines 20
  */
 public final class Launcher {
