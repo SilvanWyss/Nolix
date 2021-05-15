@@ -10,7 +10,7 @@ package ch.nolix.common.errorcontrol.invalidargumentexception;
  * 
  * @author Silvan Wyss
  * @date 2019-01-31
- * @lines 90
+ * @lines 110
  */
 @SuppressWarnings("serial")
 public final class ArgumentDoesNotHaveAttributeException extends InvalidArgumentException {
@@ -89,5 +89,28 @@ public final class ArgumentDoesNotHaveAttributeException extends InvalidArgument
 		
 		//Calls constructor of the base class.
 		super(argument, "does not have a " + createSafeAttributeName(attributeName));
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link ArgumentDoesNotHaveAttributeException}
+	 * for the given argument that
+	 * has the given argumentName and does not have the desired attribute that has the given attribute name.
+	 * 
+	 * @param argumentName
+	 * @param argument
+	 * @param attributeName
+	 * @throws IllegalArgumentException if the given object is null.
+	 * @throws IllegalArgumentException if the given attribute name is empty.
+	 * @throws IllegalArgumentException if the given attribute name is blank.
+	 */
+	public ArgumentDoesNotHaveAttributeException(
+		final String argumentName,
+		final Object argument,
+		final String attributeName
+	) {
+		
+		//Calls constructor of the base class.
+		super(argumentName, argument, "does not have a " + createSafeAttributeName(attributeName));
 	}
 }
