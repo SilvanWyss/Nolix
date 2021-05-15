@@ -68,7 +68,7 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 	 * @return true if the current {@link Button} has a role.
 	 */
 	public boolean hasRole() {
-		return (role != null);
+		return role.hasValue();
 	}
 	
 	//method
