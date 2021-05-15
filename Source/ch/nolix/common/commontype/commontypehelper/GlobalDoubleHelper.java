@@ -12,7 +12,7 @@ import java.util.Locale;
  * Of this class an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 2016-07
+ * @date 2016-08-01
  * @lines 40
  */
 public final class GlobalDoubleHelper {

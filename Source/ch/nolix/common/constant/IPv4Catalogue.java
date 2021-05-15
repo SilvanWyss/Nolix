@@ -6,7 +6,7 @@ package ch.nolix.common.constant;
  * Of the {@link IPv4Catalogue} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 2018-12
+ * @date 2018-12-02
  * @lines 20
  */
 public final class IPv4Catalogue {

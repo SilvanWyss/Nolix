@@ -7,7 +7,7 @@ package ch.nolix.common.errorcontrol.invalidargumentexception;
 * that is supposed to be thrown when an argument is undesirably bigger than a given limit.
 * 
 * @author Silvan Wyss
-* @month 2016-02
+* @date 2016-03-01
 * @lines 80
 */
 @SuppressWarnings("serial")

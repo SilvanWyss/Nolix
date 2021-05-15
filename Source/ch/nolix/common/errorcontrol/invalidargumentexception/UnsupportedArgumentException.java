@@ -11,7 +11,7 @@ package ch.nolix.common.errorcontrol.invalidargumentexception;
  * -An image viewer does not support a given image format.
  * 
  * @author Silvan Wyss
- * @month 2019-12
+ * @date 2019-12-25
  * @lines 30
  */
 @SuppressWarnings("serial")

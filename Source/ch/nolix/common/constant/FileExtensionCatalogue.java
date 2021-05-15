@@ -6,7 +6,7 @@ package ch.nolix.common.constant;
  * Of the {@link FileExtensionCatalogue} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 2018-12
+ * @date 2018-12-16
  * @lines 50
  */
 public final class FileExtensionCatalogue {

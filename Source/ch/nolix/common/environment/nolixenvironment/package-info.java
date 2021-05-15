@@ -4,7 +4,7 @@
  * provides information about the Nolix environment on the local computer.
  * 
  * @author Silvan Wyss
- * @month 2019-11
+ * @date 2019-12-01
  * @lines 10
  */
 package ch.nolix.common.environment.nolixenvironment;

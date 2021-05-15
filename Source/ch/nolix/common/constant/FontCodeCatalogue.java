@@ -6,7 +6,7 @@ package ch.nolix.common.constant;
  * Of the {@link FontCodeCatalogue} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 2020-08
+ * @date 2020-08-02
  * @lines 20
  */
 public final class FontCodeCatalogue {

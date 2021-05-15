@@ -9,7 +9,7 @@ package ch.nolix.common.errorcontrol.invalidargumentexception;
  * An in range argument exception is not mutable.
  * 
  * @author Silvan Wyss
- * @month 2017-10
+ * @date 2017-10-14
  * @lines 110
  */
 @SuppressWarnings("serial")

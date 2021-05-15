@@ -3,7 +3,7 @@
  * The {@link ch.nolix.common.errorcontrol.invalidargumentexception} package defines exceptions for invalid arguments.
  * 
  * @author Silvan Wyss
- * @month 2019-07
+ * @date 2019-08-01
  * @lines 10
  */
 package ch.nolix.common.errorcontrol.invalidargumentexception;

@@ -3,7 +3,7 @@
  * The {@link ch.nolix.common.commontype.commontypewrapper} package defines wrappers for common types.
  * 
  * @author Silvan Wyss
- * @month 2019-09
+ * @date 2019-10-01
  * @lines 10
  */
 package ch.nolix.common.commontype.commontypewrapper;

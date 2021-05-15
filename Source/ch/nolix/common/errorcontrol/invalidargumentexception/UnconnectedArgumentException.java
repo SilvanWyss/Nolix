@@ -7,7 +7,7 @@ package ch.nolix.common.errorcontrol.invalidargumentexception;
 * that is supposed to be thrown when a given argument is undesirable not connected.
 * 
 * @author Silvan Wyss
-* @month 2020-07
+* @date 2020-07-24
 * @lines 30
 */
 @SuppressWarnings("serial")

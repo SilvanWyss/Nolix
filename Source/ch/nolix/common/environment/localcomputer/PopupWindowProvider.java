@@ -13,7 +13,7 @@ import ch.nolix.common.constant.CharacterCatalogue;
  * Of the {@link PopupWindowProvider} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 2017-08
+ * @date 2017-08-15
  * @lines 130
  */
 public final class PopupWindowProvider {

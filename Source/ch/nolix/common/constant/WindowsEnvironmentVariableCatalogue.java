@@ -9,7 +9,7 @@ package ch.nolix.common.constant;
  * Of the {@link WindowsEnvironmentVariableCatalogue} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 2016-09
+ * @date 2016-10-01
  * @lines 30
  */
 public final class WindowsEnvironmentVariableCatalogue {

@@ -7,7 +7,7 @@ package ch.nolix.common.errorcontrol.invalidargumentexception;
  * that is supposed to be thrown when an argument cannot remove a specific attribute.
  * 
  * @author Silvan Wyss
- * @month 2019-02
+ * @date 2019-02-01
  * @lines 50
  */
 @SuppressWarnings("serial")

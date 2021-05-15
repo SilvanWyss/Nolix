@@ -7,7 +7,7 @@ package ch.nolix.common.errorcontrol.invalidargumentexception;
  * that is supposed to be thrown when an argument is undesirably closed.
  * 
  * @author Silvan Wyss
- * @month 2019-01
+ * @date 2019-01-26
  * @lines 30
  */
 @SuppressWarnings("serial")

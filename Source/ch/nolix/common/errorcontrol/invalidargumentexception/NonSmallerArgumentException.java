@@ -7,7 +7,7 @@ package ch.nolix.common.errorcontrol.invalidargumentexception;
  * that is intended to be thrown when an argument is undesired not smaller than a given limit.
  * 
  * @author Silvan Wyss
- * @month 2016-12
+ * @date 2017-01-01
  * @lines 60
  */
 public final class NonSmallerArgumentException extends InvalidArgumentException {

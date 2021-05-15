@@ -6,7 +6,7 @@ package ch.nolix.common.constant;
  * Of the {@link TimeUnitCatalogue} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 2017-02
+ * @date 2017-02-05
  * @lines 50
  */
 public final class TimeUnitCatalogue {

@@ -13,7 +13,7 @@ import java.math.BigInteger;
  * A {@link NonPositiveArgumentException} is not mutable.
  * 
  * @author Silvan Wyss
- * @month 2016-02
+ * @date 2016-03-01
  * @lines 140
  */
 @SuppressWarnings("serial")

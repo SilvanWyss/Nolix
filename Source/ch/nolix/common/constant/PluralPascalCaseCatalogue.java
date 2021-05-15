@@ -6,7 +6,7 @@ package ch.nolix.common.constant;
  * Of the {@link PluralPascalCaseCatalogue} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 2018-04-26
+ * @date 2018-04-26
  * @lines 190
  */
 public final class PluralPascalCaseCatalogue {

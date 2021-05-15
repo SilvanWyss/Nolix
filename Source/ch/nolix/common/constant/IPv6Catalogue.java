@@ -6,7 +6,7 @@ package ch.nolix.common.constant;
  * Of the {@link IPv6Catalogue} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 2017-02
+ * @date 2017-03-05
  * @lines 20
  */
 public final class IPv6Catalogue {

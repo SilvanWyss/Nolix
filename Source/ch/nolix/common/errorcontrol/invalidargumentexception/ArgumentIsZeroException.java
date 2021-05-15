@@ -6,7 +6,7 @@ package ch.nolix.common.errorcontrol.invalidargumentexception;
  * A zero argument exception is an exception that is intended to be thrown when an argument is undesired zero.
  * 
  * @author Silvan Wyss
- * @month 2016-02
+ * @date 2016-03-01
  * @lines 40
  */
 @SuppressWarnings("serial")

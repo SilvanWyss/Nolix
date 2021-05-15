@@ -14,7 +14,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentExce
  * A file system item is a file or a folder.
  * 
  * @author Silvan Wyss
- * @month 2017-07
+ * @date 2017-07-10
  * @lines 130
  */
 public class FileSystemItemAccessor {

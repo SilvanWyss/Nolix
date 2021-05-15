@@ -7,7 +7,7 @@ package ch.nolix.common.errorcontrol.invalidargumentexception;
  * that is intended to be thrown when an argument is undesirably not null.
  * 
  * @author Silvan Wyss
- * @month 2017-01
+ * @date 2017-01-08
  * @lines 40
  */
 @SuppressWarnings("serial")

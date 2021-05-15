@@ -4,7 +4,7 @@
  * that is a {@link ch.nolix.common.document.node.BaseNode} that is persisted in a file.
  * 
  * @author Silvan Wyss
- * @month 2019-08
+ * @date 2019-09-01
  * @lines 10
  */
 package ch.nolix.common.document.filenode;

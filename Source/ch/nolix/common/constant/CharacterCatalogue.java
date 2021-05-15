@@ -6,7 +6,7 @@ package ch.nolix.common.constant;
 * Of the {@link CharacterCatalogue} an instance cannot be created.
 * 
 * @author Silvan Wyss
-* @month 2017-06
+* @date 2017-06-24
 * @lines 50
 */
 public final class CharacterCatalogue {

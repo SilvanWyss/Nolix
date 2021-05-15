@@ -6,7 +6,7 @@ package ch.nolix.common.constant;
  * Of the {@link NumberCatalogue} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 2017-12
+ * @date 2017-12-08
  * @lines 30
  */
 public final class NumberCatalogue {

@@ -11,7 +11,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentExce
  * A {@link FolderAccessor} can access a folder.
  * 
  * @author Silvan Wyss
- * @month 2017-07
+ * @date 2017-07-10
  * @lines 170
  */
 public final class FolderAccessor extends FileSystemItemAccessor {

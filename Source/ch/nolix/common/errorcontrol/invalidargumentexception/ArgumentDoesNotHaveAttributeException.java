@@ -9,7 +9,7 @@ package ch.nolix.common.errorcontrol.invalidargumentexception;
  * A {@link ArgumentDoesNotHaveAttributeException} is not mutable.
  * 
  * @author Silvan Wyss
- * @month 2016-02
+ * @date 2019-01-31
  * @lines 90
  */
 @SuppressWarnings("serial")

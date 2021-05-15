@@ -7,7 +7,7 @@ package ch.nolix.common.errorcontrol.invalidargumentexception;
  * that is supposed to be thrown when an argument is undesirably frozen.
  * 
  * @author Silvan Wyss
- * @month 2019-05
+ * @date 2019-05-05
  * @lines 30
  */
 @SuppressWarnings("serial")

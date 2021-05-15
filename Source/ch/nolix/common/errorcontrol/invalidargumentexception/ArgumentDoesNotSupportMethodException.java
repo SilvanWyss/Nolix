@@ -9,7 +9,7 @@ package ch.nolix.common.errorcontrol.invalidargumentexception;
 * A {@link ArgumentDoesNotSupportMethodException} is not mutable.
 * 
 * @author Silvan Wyss
-* @month 2019-02
+* @date 2019-02-03
 * @lines 50
 */
 @SuppressWarnings("serial")

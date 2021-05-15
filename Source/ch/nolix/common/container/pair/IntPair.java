@@ -7,7 +7,7 @@ package ch.nolix.common.container.pair;
  * A {@link IntPair} is not mutable.
  * 
  * @author Silvan Wyss
- * @month 2020-05
+ * @date 2020-05-30
  * @lines 90
  */
 public final class IntPair {

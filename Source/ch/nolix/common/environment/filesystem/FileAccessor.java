@@ -21,7 +21,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentExce
  * A file accessor can access a given file.
  * 
  * @author Silvan Wyss
- * @month 2017-07
+ * @date 2017-07-10
  * @lines 110
  */
 public final class FileAccessor extends FileSystemItemAccessor {

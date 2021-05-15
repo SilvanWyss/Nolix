@@ -9,7 +9,7 @@ import ch.nolix.common.attributeapi.optionalattributeapi.OptionalValued;
  * A {@link OptionalValueable} is a {@link OptionalValued} whose value can be set and removed programmatically.
  * 
  * @author Silvan Wyss
- * @month 2018-09
+ * @date 2018-10-01
  * @lines 30
  * @param <OV> is the type of a {@link OptionalValueable}.
  * @param <V> is the type of the value of a {@link OptionalValueable}.

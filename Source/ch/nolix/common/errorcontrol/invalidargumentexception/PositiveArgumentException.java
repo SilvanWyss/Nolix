@@ -9,7 +9,7 @@ package ch.nolix.common.errorcontrol.invalidargumentexception;
  * A positive argument exception is not mutable.
  * 
  * @author Silvan Wyss
- * @month 2016-12
+ * @date 2017-01-01
  * @lines 80
  */
 @SuppressWarnings("serial")

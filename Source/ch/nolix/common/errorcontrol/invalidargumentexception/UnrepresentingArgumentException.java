@@ -7,7 +7,7 @@ package ch.nolix.common.errorcontrol.invalidargumentexception;
  * that is supposed to be thrown when a given argument does undesirable not represent an object of a given type.
  * 
  * @author Silvan Wyss
- * @month 2017-03
+ * @date 2017-03-05
  * @lines 110
  */
 @SuppressWarnings("serial")

@@ -11,7 +11,7 @@ import java.math.BigInteger;
  * that is supposed to be thrown when a given argument is undesirably smaller than a given limit.
  * 
  * @author Silvan Wyss
- * @month 2016-02
+ * @date 2016-03-01
  * @lines 200
  */
 @SuppressWarnings("serial")
