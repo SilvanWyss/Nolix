@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.common.environment.filesystem;
 
-//Java import
+//Java imports
 import java.io.File;
 
 //own imports

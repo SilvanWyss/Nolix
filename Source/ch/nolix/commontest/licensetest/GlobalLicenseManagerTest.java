@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.commontest.licensetest;
 
-//Java import
+//Java imports
 import java.util.Objects;
 
 import ch.nolix.common.container.IContainer;

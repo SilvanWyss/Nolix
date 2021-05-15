@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.common.provider.serviceprovider;
 
-//Java import
+//Java imports
 import java.util.HashMap;
 
 //own imports

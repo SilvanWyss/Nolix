@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.database.databaseadapter;
 
-//Java import
+//Java imports
 import java.lang.reflect.InvocationTargetException;
 
 import ch.nolix.common.attributeapi.mandatoryattributeapi.Named;

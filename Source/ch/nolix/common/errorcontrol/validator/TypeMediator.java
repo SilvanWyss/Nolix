@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.common.errorcontrol.validator;
 
-//Java import
+//Java imports
 import java.lang.reflect.Modifier;
 
 //own imports

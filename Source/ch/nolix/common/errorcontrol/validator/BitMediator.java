@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.common.errorcontrol.validator;
 
-//own import
+//own imports
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 
 //class

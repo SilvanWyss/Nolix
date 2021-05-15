@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.common.reflectionhelper;
 
-//Java import
+//Java imports
 import java.lang.reflect.Field;
 
 import ch.nolix.common.errorcontrol.exception.WrapperException;

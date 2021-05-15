@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.common.generalskillapi;
 
-//Java import
+//Java imports
 import java.lang.reflect.InvocationTargetException;
 
 //own imports

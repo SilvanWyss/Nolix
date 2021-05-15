@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.businessapi.databaseapi.propertytypeapi;
 
-//own import
+//own imports
 import ch.nolix.common.errorcontrol.validator.Validator;
 
 //enum

@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.client.baseguiclient;
 
-//Java import
+//Java imports
 import java.nio.charset.StandardCharsets;
 
 //own imports

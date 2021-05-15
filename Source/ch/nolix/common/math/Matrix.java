@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.common.math;
 
-//Java import
+//Java imports
 import java.util.Random;
 
 import ch.nolix.common.commontype.commontypehelper.GlobalDoubleHelper;

@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.businessapi.dynamicmathapi;
 
-//own import
+//own imports
 import java.math.BigDecimal;
 
 //interface

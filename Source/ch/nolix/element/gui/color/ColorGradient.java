@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.element.gui.color;
 
-//Java import
+//Java imports
 import java.awt.GradientPaint;
 
 //own imports

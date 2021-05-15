@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.element.gui3d.jmonkeygui;
 
-//JMonkey import
+//JMonkey imports
 import com.jme3.math.ColorRGBA;
 
 import ch.nolix.element.gui.color.Color;

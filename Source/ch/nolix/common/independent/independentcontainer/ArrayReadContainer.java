@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.common.independent.independentcontainer;
 
-//Java import
+//Java imports
 import java.util.Iterator;
 
 //own imports

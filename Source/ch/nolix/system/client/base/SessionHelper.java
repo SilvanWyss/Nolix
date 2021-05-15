@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.client.base;
 
-//Java import
+//Java imports
 import java.lang.reflect.Method;
 
 import ch.nolix.common.document.node.Node;

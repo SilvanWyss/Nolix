@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.common.template;
 
-//Java import
+//Java imports
 import java.math.BigDecimal;
 
 import ch.nolix.common.document.data.BinaryObject;

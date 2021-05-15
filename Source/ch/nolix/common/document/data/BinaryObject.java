@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.common.document.data;
 
-//Java import
+//Java imports
 import java.nio.charset.StandardCharsets;
 
 import ch.nolix.common.errorcontrol.validator.Validator;

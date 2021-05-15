@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.elementtest.formatelementtest;
 
-//own import
+//own imports
 import ch.nolix.common.testing.basetest.TestPool;
 
 //class

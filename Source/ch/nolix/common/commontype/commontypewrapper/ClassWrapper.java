@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.common.commontype.commontypewrapper;
 
-//Java import
+//Java imports
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 

@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.common.environment.localcomputer;
 
-//Java import
+//Java imports
 import javax.swing.JOptionPane;
 
 //own imports

@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.common.net.websocket;
 
-//Java import
+//Java imports
 import java.math.BigInteger;
 
 //own imports

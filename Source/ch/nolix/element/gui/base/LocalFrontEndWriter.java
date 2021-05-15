@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.element.gui.base;
 
-//Java import
+//Java imports
 import javax.swing.JFileChooser;
 
 import ch.nolix.common.environment.filesystem.FileSystemAccessor;

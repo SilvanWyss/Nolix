@@ -2,7 +2,7 @@
 package ch.nolix.system.database.entity;
 
 import ch.nolix.businessapi.databaseapi.propertytypeapi.PropertyType;
-//own import
+//own imports
 import ch.nolix.common.container.LinkedList;
 
 //class

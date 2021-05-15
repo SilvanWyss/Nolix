@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.systemtest.dynamicmathtest;
 
-//Java import
+//Java imports
 import java.math.BigDecimal;
 
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;

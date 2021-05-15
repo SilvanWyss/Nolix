@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.element.base;
 
-//Java import
+//Java imports
 import java.lang.reflect.Field;
 
 //own imports

@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.element.elementapi;
 
-//own import
+//own imports
 import ch.nolix.common.document.node.BaseNode;
 
 //interface

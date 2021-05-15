@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.element.base;
 
-//own import
+//own imports
 import ch.nolix.element.elementapi.IMutableElement;
 
 //class

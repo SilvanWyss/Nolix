@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.element.gui3d.base;
 
-//Java import
+//Java imports
 import java.awt.image.BufferedImage;
 
 //own imports

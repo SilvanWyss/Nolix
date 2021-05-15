@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.common.incrementapi;
 
-//own import
+//own imports
 import ch.nolix.common.container.LinkedList;
 
 //interface

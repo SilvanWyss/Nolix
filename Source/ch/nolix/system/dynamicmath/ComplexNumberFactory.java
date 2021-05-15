@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.dynamicmath;
 
-//Java import
+//Java imports
 import java.math.BigDecimal;
 
 import ch.nolix.businessapi.dynamicmathapi.IComplexNumberFactory;

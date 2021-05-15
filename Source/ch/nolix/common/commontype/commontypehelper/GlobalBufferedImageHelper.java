@@ -8,7 +8,7 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 
-//own import
+//own imports
 import ch.nolix.common.errorcontrol.exception.WrapperException;
 
 //class

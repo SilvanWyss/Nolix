@@ -1,10 +1,10 @@
 //package declaration
 package ch.nolix.system.database.entity;
 
-//Java import
+//Java imports
 import java.lang.reflect.Field;
 
-//own import
+//own imports
 import ch.nolix.common.container.LinkedList;
 
 //class

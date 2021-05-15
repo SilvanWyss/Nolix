@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.common.container;
 
-//Java import
+//Java imports
 import java.util.Iterator;
 
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;

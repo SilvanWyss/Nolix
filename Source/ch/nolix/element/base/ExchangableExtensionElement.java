@@ -1,7 +1,7 @@
 //package declaraiton
 package ch.nolix.element.base;
 
-//own import
+//own imports
 import ch.nolix.element.elementapi.IRespondingMutableElement;
 
 //class

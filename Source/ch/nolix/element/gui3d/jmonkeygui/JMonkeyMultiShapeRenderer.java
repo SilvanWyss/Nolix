@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.element.gui3d.jmonkeygui;
 
-//JMonkey import
+//JMonkey imports
 import com.jme3.scene.Node;
 import com.jme3.scene.Spatial;
 

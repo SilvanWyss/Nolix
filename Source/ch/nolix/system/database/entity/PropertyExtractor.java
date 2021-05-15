@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.database.entity;
 
-//Java import
+//Java imports
 import java.lang.reflect.Field;
 
 //own imports

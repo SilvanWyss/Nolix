@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.common.testing.test;
 
-//Java import
+//Java imports
 import java.util.ArrayList;
 
 //own imports

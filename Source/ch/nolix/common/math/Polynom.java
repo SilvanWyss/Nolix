@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.common.math;
 
-//Java import
+//Java imports
 import java.util.Arrays;
 
 import ch.nolix.common.constant.PluralLowerCaseCatalogue;

@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.common.container;
 
-//Java import
+//Java imports
 import java.util.Random;
 
 //own imports

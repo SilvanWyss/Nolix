@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.element.gui.input;
 
-//own import
+//own imports
 import ch.nolix.element.elementapi.IElement;
 
 //interface

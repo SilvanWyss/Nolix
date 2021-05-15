@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.common.generalskillapi;
 
-//own import
+//own imports
 import ch.nolix.common.language.EnglishNounHelper;
 
 //interface

@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.common.errorcontrol.invalidargumentexception;
 
-//own import
+//own imports
 import ch.nolix.common.constant.CharacterCatalogue;
 
 //class

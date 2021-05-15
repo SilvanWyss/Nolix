@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.element.gui.input;
 
-//Java import
+//Java imports
 import java.awt.event.KeyEvent;
 
 //own imports

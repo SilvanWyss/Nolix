@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.common.sql;
 
-//Java import
+//Java imports
 import java.sql.Connection;
 
 //class

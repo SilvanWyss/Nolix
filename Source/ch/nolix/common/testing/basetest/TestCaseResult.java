@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.common.testing.basetest;
 
-//Java import
+//Java imports
 import java.lang.reflect.Method;
 
 //own imports

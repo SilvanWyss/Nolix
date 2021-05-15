@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.common.license;
 
-//Java import
+//Java imports
 import java.lang.reflect.InvocationTargetException;
 
 import ch.nolix.common.commontype.commontypewrapper.ClassWrapper;

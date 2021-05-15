@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.databaseapplication.propertybinder;
 
-//own import
+//own imports
 import ch.nolix.system.database.entity.Property;
 
 //class

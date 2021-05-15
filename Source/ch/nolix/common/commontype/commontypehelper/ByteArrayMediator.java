@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.common.commontype.commontypehelper;
 
-//own import
+//own imports
 import ch.nolix.common.errorcontrol.validator.Validator;
 
 //class
