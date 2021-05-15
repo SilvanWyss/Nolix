@@ -5,12 +5,12 @@ package ch.nolix.element.gui.widget;
 import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.document.node.BaseNode;
-import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
+import ch.nolix.element.base.MutableOptionalValue;
+import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.elementenum.RotationDirection;
 import ch.nolix.element.gui.base.Widget;
 import ch.nolix.element.gui.color.Color;
@@ -25,72 +25,41 @@ import ch.nolix.element.gui.painterapi.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 410
+ * @lines 350
  */
 public final class Area extends Widget<Area, AreaLook> {
 	
-	//constant
-	public static final String TYPE_NAME = "Area";
+	//constants
+	public static final int DEFAULT_WIDTH = 500;
+	public static final int DEFAULT_HEIGHT = 200;
+	
+	//constants
+	private static final String WIDTH_HEADER = PascalCaseCatalogue.WIDTH;
+	private static final String HEIGHT_HEADER = PascalCaseCatalogue.HEIGHT;
+	private static final String BACKGROUND_COLOR_HEADER = PascalCaseCatalogue.BACKGROUND_COLOR;
 	
 	//attributes
-	private int width;
-	private int height;
+	private final MutableValue<Integer> width = MutableValue.forInt(WIDTH_HEADER, DEFAULT_WIDTH, this::setWidth);
+	private final MutableValue<Integer> height = MutableValue.forInt(HEIGHT_HEADER, DEFAULT_HEIGHT, this::setHeight);
 	
-	//optional attribute
-	private Color backgroundColor;
+	//attribute
+	private final MutableOptionalValue<Color> backgroundColor =
+	new MutableOptionalValue<>(
+		BACKGROUND_COLOR_HEADER,
+		this::setBackgroundColor,
+		Color::fromSpecification,
+		Color::getSpecification
+	);
 	
 	//constructor
 	/**
 	 * Creates a new {@link Area}.
 	 */
 	public Area() {
+		
+		reset();
+		
 		setBackgroundColor(Color.LIGHT_GREY);
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void addOrChangeAttribute(final BaseNode attribute) {
-		
-		//Enumerates the header of the given attribute.
-		switch (attribute.getHeader()) {
-			case PascalCaseCatalogue.WIDTH:
-				setWidth(attribute.getOneAttributeAsInt());
-				break;
-			case PascalCaseCatalogue.HEIGHT:
-				setHeight(attribute.getOneAttributeAsInt());
-				break;
-			case PascalCaseCatalogue.BACKGROUND_COLOR:
-				setBackgroundColor(Color.fromSpecification(attribute));
-				break;
-			default:
-				
-				//Calls method of the base class.
-				super.addOrChangeAttribute(attribute);
-		}
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void fillUpAttributesInto(final LinkedList<Node> list) {
-		
-		//Calls method of base class.
-		super.fillUpAttributesInto(list);
-		
-		list.addAtEnd(
-			Node.withHeaderAndAttribute(PascalCaseCatalogue.HEIGHT, height),
-			Node.withHeaderAndAttribute(PascalCaseCatalogue.WIDTH, width)
-		);
-		
-		//Handles the case that the current Area has a background color.
-		if (hasBackgroundColor()) {
-			list.addAtEnd(getBackgroundColor().getSpecificationAs(PascalCaseCatalogue.BACKGROUND_COLOR));
-		}
 	}
 	
 	//method
@@ -99,11 +68,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link Area} does not have a background color.
 	 */
 	public Color getBackgroundColor() {
-		
-		//Asserts that the current Area has a background color.
-		supposeHasBackgroundColor();
-		
-		return backgroundColor;
+		return backgroundColor.getValue();
 	}
 	
 	//method
@@ -111,7 +76,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	 * @return true if the current {@link Area} has a background color.
 	 */
 	public boolean hasBackgroundColor() {
-		return (backgroundColor != null);
+		return backgroundColor.hasValue();
 	}
 	
 	//method
@@ -127,14 +92,9 @@ public final class Area extends Widget<Area, AreaLook> {
 	//method
 	/**
 	 * Removes the background color of the current {@link Area}.
-	 * 
-	 * @return the current {@link Area}.
 	 */
-	public Area removeBackgroundColor() {
-		
-		backgroundColor = null;
-		
-		return this;
+	public void removeBackgroundColor() {
+		backgroundColor.clear();
 	}
 	
 	//method
@@ -143,18 +103,11 @@ public final class Area extends Widget<Area, AreaLook> {
 	 * 
 	 * @param backgroundColor
 	 * @return the current {@link Area}.
-	 * @throws ArgumentIsNullException if the given background color is null.
+	 * @throws ArgumentIsNullException if the given backgroundColor is null.
 	 */
 	public Area setBackgroundColor(final Color backgroundColor) {
 		
-		//Asserts that the given background color is not null.
-		Validator
-		.assertThat(backgroundColor)
-		.thatIsNamed(LowerCaseCatalogue.BACKGROUND_COLOR)
-		.isNotNull();
-		
-		//Sets the background color of the current {@link Area}.
-		this.backgroundColor = backgroundColor;
+		this.backgroundColor.setValue(backgroundColor);
 		
 		return this;
 	}
@@ -171,7 +124,7 @@ public final class Area extends Widget<Area, AreaLook> {
 		
 		Validator.assertThat(height).thatIsNamed(LowerCaseCatalogue.HEIGHT).isPositive();
 		
-		this.height = height;
+		this.height.setValue(height);
 		
 		return this;
 	}
@@ -183,10 +136,8 @@ public final class Area extends Widget<Area, AreaLook> {
 	 * @param width
 	 * @param height
 	 * @return the current {@link Area}.
-	 * @throws NonPositiveArgumentException
-	 * if the given width is not positive.
-	 * @throws NonPositiveArgumentException
-	 * if the given height is not positive.
+	 * @throws NonPositiveArgumentException if the given width is not positive.
+	 * @throws NonPositiveArgumentException if the given height is not positive.
 	 */
 	public Area setSize(final int width, final int height) {
 		
@@ -202,14 +153,13 @@ public final class Area extends Widget<Area, AreaLook> {
 	 * 
 	 * @param width
 	 * @return the current {@link Area}.
-	 * @throws NonPositiveArgumentException
-	 * if the given width is not positive.
+	 * @throws NonPositiveArgumentException if the given width is not positive.
 	 */
 	public Area setWidth(final int width) {
 		
 		Validator.assertThat(width).thatIsNamed(LowerCaseCatalogue.WIDTH).isPositive();
 		
-		this.width = width;
+		this.width.setValue(width);
 		
 		return this;
 	}
@@ -252,7 +202,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	 */
 	@Override
 	protected int getHeightWhenExpanded() {
-		return height;
+		return height.getValue();
 	}
 	
 	//method
@@ -261,7 +211,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	 */
 	@Override
 	protected int getWidthWhenExpanded() {
-		return width;
+		return width.getValue();
 	}
 	
 	//method
@@ -389,8 +339,10 @@ public final class Area extends Widget<Area, AreaLook> {
 	 */
 	@Override
 	protected void resetWidgetConfiguration() {
-		setWidth(500);
-		setHeight(200);
+		
+		setWidth(DEFAULT_WIDTH);
+		setHeight(DEFAULT_HEIGHT);
+		
 		removeBackgroundColor();
 	}
 	
@@ -400,20 +352,4 @@ public final class Area extends Widget<Area, AreaLook> {
 	 */
 	@Override
 	protected void resetWidget() {}
-	
-	//method
-	/**
-	 * @throws ArgumentDoesNotHaveAttributeException
-	 * if the current {@link Area} does not have a background color.
-	 */
-	private void supposeHasBackgroundColor() {
-		
-		//Asserts that the current area has a background color.
-		if (!hasBackgroundColor()) {
-			throw new ArgumentDoesNotHaveAttributeException(
-				this,
-				LowerCaseCatalogue.BACKGROUND_COLOR
-			);
-		}
-	}
 }

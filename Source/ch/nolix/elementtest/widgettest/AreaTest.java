@@ -72,7 +72,8 @@ public final class AreaTest extends WidgetTest<Area> {
 	public void testCase_setBackgroundColor() {
 		
 		//setup
-		final var area = new Area().removeBackgroundColor();
+		final var area = new Area();
+		area.removeBackgroundColor();
 		
 		//setup verification
 		expectNot(area.hasBackgroundColor());
