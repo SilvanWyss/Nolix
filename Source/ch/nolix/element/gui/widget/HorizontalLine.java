@@ -1,21 +1,27 @@
 //package declaration
 package ch.nolix.element.gui.widget;
 
+//own imports
 import ch.nolix.element.gui.base.Widget;
 
 //class
 /**
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 50
+ * @lines 60
  */
 public final class HorizontalLine extends Line<HorizontalLine> {
 	
-	//constant
-	public static final String TYPE_NAME = "HorizontalLine";
-	
 	//attribute
 	private boolean isAskedForLength;
+	
+	//constructor
+	/**
+	 * Creates a new {@link HorizontalLine}
+	 */
+	public HorizontalLine() {
+		reset();
+	}
 	
 	//method
 	/**

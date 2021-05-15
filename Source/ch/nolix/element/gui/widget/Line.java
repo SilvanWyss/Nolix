@@ -19,13 +19,10 @@ import ch.nolix.element.gui.painterapi.IPainter;
 /**
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 320
+ * @lines 310
  * @param <L> is the type of a line.
  */
 public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
-	
-	//constant
-	public static final String TYPE_NAME = "Line";
 	
 	//min length to thickness ratio
 	public static final int MIN_LENGTH_TO_THICKNESS_RATIO = 4;
@@ -46,14 +43,6 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 	//attribute
 	private final MutableValue<Color> color =
 	new MutableValue<>(COLOR_HEADER, DEFAULT_COLOR, this::setColor, Color::fromSpecification, Color::getSpecification);
-	
-	//constructor
-	/**
-	 * Creates a new {@link Line}.
-	 */
-	public Line() {
-		setThickness(DEFAULT_THICKNESS);
-	}
 	
 	//method
 	/**
