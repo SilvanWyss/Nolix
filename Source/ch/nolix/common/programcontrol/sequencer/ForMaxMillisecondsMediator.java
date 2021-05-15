@@ -13,7 +13,7 @@ import ch.nolix.common.functionapi.IBooleanGetter;
  * A {@link ForMaxMillisecondsMediator} is not mutable.
  * 
  * @author Silvan Wyss
- * @month 2019-11
+ * @date 2019-11-24
  * @lines 120
  */
 public final class ForMaxMillisecondsMediator {

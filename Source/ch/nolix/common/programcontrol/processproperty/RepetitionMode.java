@@ -6,7 +6,7 @@ package ch.nolix.common.programcontrol.processproperty;
  * A {@link RepetitionMode} defines if a process should run once or be repeated forever.
  * 
  * @author Silvan Wyss
- * @month 2020-08
+ * @date 2020-08-14
  * @lines 10
  */
 public enum RepetitionMode {

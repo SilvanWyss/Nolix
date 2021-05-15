@@ -9,7 +9,7 @@ import ch.nolix.common.language.EnglishNounHelper;
  * A {@link TypeRequestable} is of a certain type.
  * 
  * @author Silvan Wyss
- * @month 2018-11-25
+ * @date 2018-11-25
  * @lines 80
  */
 public interface TypeRequestable {

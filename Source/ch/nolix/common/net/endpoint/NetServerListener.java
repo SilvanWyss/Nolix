@@ -14,7 +14,7 @@ import ch.nolix.common.programcontrol.worker.Worker;
  * A {@link NetServerListener} listens to {@link NetEndPoint}s for a {@link NetServer}.
  *  
  * @author Silvan Wyss
- * @month 2017-04
+ * @date 2017-05-06
  * @lines 70
  */
 final class NetServerListener extends Worker {

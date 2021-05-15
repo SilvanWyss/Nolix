@@ -13,7 +13,7 @@ import ch.nolix.common.independent.independenthelper.CentralArrayHelper;
  * A multi argument mediator is not mutable.
  * 
  * @author Silvan Wyss
- * @month 2017-01
+ * @date 2017-01-01
  * @lines 110
  * @param <A> is the type of the arguments of a multi argument mediator.
  */

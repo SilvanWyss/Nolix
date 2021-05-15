@@ -9,7 +9,7 @@ import ch.nolix.common.container.IContainer;
 * A {@link Feature} can be required for certain functionalities.
 * 
 * @author Silvan Wyss
-* @month 2019-11
+* @date 2019-11-16
 * @lines 30
 */
 public abstract class Feature implements Named {

@@ -7,7 +7,7 @@ package ch.nolix.commontest.programcontroltest.sequencertest;
  * Of this class an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 2017-11
+ * @date 2017-11-18
  * @lines 30
  */
 public final class Launcher {

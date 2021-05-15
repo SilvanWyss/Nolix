@@ -7,7 +7,7 @@ package ch.nolix.common.functionapi;
  * that takes 2 elements of the same type and returns a boolean.
  * 
  * @author Silvan Wyss
- * @month 2017-09
+ * @date 2017-09-28
  * @lines 20
  * @param <E> is the type of the elements a {@link I2ElementTakerBooleanGetter} getter takes.
  */

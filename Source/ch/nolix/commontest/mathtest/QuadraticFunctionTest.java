@@ -11,7 +11,7 @@ import ch.nolix.common.testing.test.Test;
  * A quadratic function test is a test for the quadratic function class.
  * 
  * @author Silvan Wyss
- * @month 2017-04
+ * @date 2017-04-14
  * @lines 40
  */
 public final class QuadraticFunctionTest extends Test {

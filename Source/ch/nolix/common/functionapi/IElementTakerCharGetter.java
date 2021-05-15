@@ -6,7 +6,7 @@ package ch.nolix.common.functionapi;
  * A {@link IElementTakerCharGetter} has a method that takes an element and returns a char.
  * 
  * @author Silvan Wyss
- * @month 2020-05
+ * @date 2020-05-01
  * @lines 20
  * @param <E> is the type of the elements a {@link IElementTakerCharGetter} takes.
  */

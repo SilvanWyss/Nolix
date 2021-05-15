@@ -6,7 +6,7 @@ package ch.nolix.common.functionapi;
 * A {@link I4ElementTakerElementGetter} has a method that takes 4 elements and returns an element.
 * 
 * @author Silvan Wyss
-* @month 2019-03
+* @date 2019-03-03
 * @lines 20
 * @param <E1> is the type of the first element a {@link IElementTakerLongGetter} takes.
 * @param <E2> is the type of the second element a {@link IElementTakerLongGetter} takes.

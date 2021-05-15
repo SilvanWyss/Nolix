@@ -18,7 +18,7 @@ package ch.nolix.common.rasterapi;
  * 8 -------------------------
  * 
  * @author Silvan Wyss
- * @month 2019-09
+ * @date 2019-07-28
  * @lines 50
  */
 public interface TopLeftPositionedRecangular extends Rectangular, TopLeftPositioned {

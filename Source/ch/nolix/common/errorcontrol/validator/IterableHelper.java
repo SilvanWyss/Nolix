@@ -9,7 +9,7 @@ package ch.nolix.common.errorcontrol.validator;
  * Of this class an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 2017-09
+ * @date 2017-09-30
  * @lines 40
  */
 final class IterableHelper {

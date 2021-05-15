@@ -6,7 +6,7 @@ package ch.nolix.common.testing.test;
  * A {@link ObjectTest} is a test to check test units of a certain type.
  * 
  * @author Silvan Wyss
- * @month 2018-09
+ * @date 2018-09-11
  * @lines 20
  * @param <OT> is the type of the test units of a {@link ObjectTest}.
  */

@@ -20,7 +20,7 @@ import ch.nolix.common.independent.independentcontainer.ArrayReadContainer;
  * A named container mediator is not mutable.
  * 
  * @author Silvan Wyss
- * @month 2017-08
+ * @date 2017-08-15
  * @lines 230
  * @param <E> is the type of the elements of the argument of a container mediator.
  */

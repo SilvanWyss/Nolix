@@ -4,7 +4,7 @@
  * for the {@link ch.nolix.common.net.endpoint3} package.
  * 
  * @author Silvan Wyss
- * @month 2019-07
+ * @date 2019-08-01
  * @lines 10
  */
 package ch.nolix.commontest.nettest.endpoint3test;

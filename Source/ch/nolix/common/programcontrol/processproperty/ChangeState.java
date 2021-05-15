@@ -6,7 +6,7 @@ package ch.nolix.common.programcontrol.processproperty;
  * A {@link ChangeState} defines if something is unchanged or changed.
  * 
  * @author Silvan Wyss
- * @month 2020-07
+ * @date 2020-07-30
  * @lines 10
  */
 public enum ChangeState {

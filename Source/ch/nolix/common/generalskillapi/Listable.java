@@ -9,7 +9,7 @@ import ch.nolix.common.container.LinkedList;
  * A {@link Listable} can return a {@link LinkedList} that contains the {@link Listable}.
  * 
  * @author Silvan Wyss
- * @month 2018-10
+ * @date 2018-10-24
  * @lines 30
  * @param <L> is the type of a {@link Listable}.
  */

@@ -6,7 +6,7 @@ package ch.nolix.common.generalskillapi;
  * A {@link Castable} can return itself casted into a given type.
  * 
  * @author Silvan Wyss
- * @month 2018-10
+ * @date 2018-10-20
  * @lines 20
  */
 public interface Castable {

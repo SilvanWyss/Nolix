@@ -6,7 +6,7 @@ package ch.nolix.common.programcontrol.processproperty;
  * A {@link Result} defines if a process run was a success or a failure.
  * 
  * @author Silvan Wyss
- * @month 2020-03
+ * @date 2020-03-28
  * @lines 10
  */
 public enum Result {

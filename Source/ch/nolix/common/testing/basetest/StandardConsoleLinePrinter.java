@@ -9,7 +9,7 @@ package ch.nolix.common.testing.basetest;
  * Several output streams are flushed independent from each other.
  * So the order of the output of several output streams in the console is not guaranteed.
  * 
- * @month 2020-03
+ * @date 2020-03-14
  * @author Silvan Wyss
  * @lines 40
  */

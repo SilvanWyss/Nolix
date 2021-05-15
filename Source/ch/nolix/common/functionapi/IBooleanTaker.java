@@ -6,7 +6,7 @@ package ch.nolix.common.functionapi;
  * A {@link IBooleanTaker} has a method that takes a boolean.
  * 
  * @author Silvan Wyss
- * @month 2018-08
+ * @date 2018-09-01
  * @lines 20
  */
 @FunctionalInterface

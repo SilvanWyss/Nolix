@@ -6,7 +6,7 @@ package ch.nolix.common.functionapi;
  * A {@link IIntTaker} has a method that takes an int.
  * 
  * @author Silvan Wyss
- * @month 2018-08
+ * @date 2018-08-26
  * @lines 20
  */
 @FunctionalInterface

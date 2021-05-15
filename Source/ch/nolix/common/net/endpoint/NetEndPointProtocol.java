@@ -4,7 +4,7 @@ package ch.nolix.common.net.endpoint;
 //class
 /**
  * @author Silvan Wyss
- * @month 2019-05
+ * @date 2019-05-01
  * @lines 20
  */
 final class NetEndPointProtocol {

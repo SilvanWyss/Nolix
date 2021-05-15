@@ -6,7 +6,7 @@ package ch.nolix.common.functionapi;
  * A {@link IElementTakerByteGetter} has a method that takes an element and returns a byte.
  * 
  * @author Silvan Wyss
- * @month 2019-03
+ * @date 2019-03-05
  * @lines 20
  * @param <E> is the type of the elements a {@link IElementTakerByteGetter} takes.
  */

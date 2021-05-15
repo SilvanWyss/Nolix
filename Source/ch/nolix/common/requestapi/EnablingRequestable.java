@@ -6,7 +6,7 @@ package ch.nolix.common.requestapi;
  * A {@link EnablingRequestable} can be asked if it is enabled or disabled.
  * 
  * @author Silvan Wyss
- * @month 2020-10
+ * @date 2020-10-02
  * @lines 20
  */
 public interface EnablingRequestable {

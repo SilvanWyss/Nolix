@@ -7,7 +7,7 @@ package ch.nolix.common.rasterapi;
  * The top left position of a {@link TopLeftPositioned} is discrete.
  * 
  * @author Silvan Wyss
- * @month 2019-07
+ * @date 2019-07-28
  * @lines 20
  */
 public interface TopLeftPositioned {

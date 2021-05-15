@@ -6,7 +6,7 @@ package ch.nolix.common.skillapi;
  * A {@link Startable} can be started once.
  * 
  * @author Silvan Wyss
- * @month 2020-04
+ * @date 2020-04-29
  * @lines 20
  */
 public interface Startable {

@@ -9,7 +9,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentExcept
 * An extended string mediator is not mutable.
 * 
 * @author Silvan Wyss
-* @month 2017-11
+* @date 2017-11-12
 * @lines 40
 */
 public class ExtendedStringMediator extends StringMediator {

@@ -6,7 +6,7 @@ package ch.nolix.common.programcontrol.futureapi;
  * A {@link IResultFuture} is a {@link IFuture} that will deliver a result when it is finished.
  * 
  * @author Silvan Wyss
- * @month 2019-04
+ * @date 2019-04-14
  * @lines 30
  * @param <R> is the type of the result of a {@link IResultFuture}.
  */

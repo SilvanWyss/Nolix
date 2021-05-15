@@ -6,7 +6,7 @@ package ch.nolix.common.programcontrol.processproperty;
  * A {@link ConnectionOrigin} defines if a connection was requested or accepted.
  * 
  * @author Silvan Wyss
- * @month 2020-05
+ * @date 2020-05-01
  * @lines 10
  */
 public enum ConnectionOrigin {

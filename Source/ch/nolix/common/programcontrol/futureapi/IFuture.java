@@ -9,7 +9,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentExce
  * A {@link IFuture} can always be asked if the background job has finished or thrown an error.
  * 
  * @author Silvan Wyss
- * @month 2019-04
+ * @date 2019-04-14
  * @lines 110
  */
 public interface IFuture {

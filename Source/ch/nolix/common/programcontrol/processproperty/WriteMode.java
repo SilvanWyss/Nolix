@@ -6,7 +6,7 @@ package ch.nolix.common.programcontrol.processproperty;
  * A {@link WriteMode} defines the behavior when a target, that should be created, exists already.
  * 
  * @author Silvan Wyss
- * @month 2019-04
+ * @date 2019-04-14
  * @lines 10
  */
 public enum WriteMode {

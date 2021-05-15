@@ -21,7 +21,7 @@ import ch.nolix.common.errorcontrol.validator.Validator;
  * A {@link LicenseManager} contains {@link License}s.
  * 
  * @author Silvan Wyss
- * @month 2019-11
+ * @date 2019-11-16
  * @lines 190
  */
 public final class LicenseManager {

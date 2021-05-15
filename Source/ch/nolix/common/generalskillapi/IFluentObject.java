@@ -6,7 +6,7 @@ package ch.nolix.common.generalskillapi;
  * A {@link IFluentObject} can return itself casted into its concrete type.
  * 
  * @author Silvan Wyss
- * @month 2017-10
+ * @date 2017-11-01
  * @lines 20
  * @param <FO> is the type of a {@link IFluentObject}.
  */

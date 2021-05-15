@@ -10,7 +10,7 @@ import ch.nolix.common.errorcontrol.validator.Validator;
  * Of the {@link ValidatorTutorial} an instance cannot be created.
  * 
  * @author Silvan Wys
- * @month 2017-05
+ * @date 2017-05-14
  * @lines 40
  */
 public final class ValidatorTutorial {

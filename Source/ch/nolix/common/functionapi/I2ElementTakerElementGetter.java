@@ -6,7 +6,7 @@ package ch.nolix.common.functionapi;
 * A {@link I2ElementTakerElementGetter} has a method that takes 2 elements and returns an element.
 * 
 * @author Silvan Wyss
-* @month 2019-02
+* @date 2019-02-17
 * @lines 20
 * @param <E1> is the type of the first element a {@link IElementTakerLongGetter} takes.
 * @param <E2> is the type of the second element a {@link IElementTakerLongGetter} takes.

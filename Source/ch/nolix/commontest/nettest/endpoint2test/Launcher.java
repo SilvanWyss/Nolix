@@ -6,7 +6,7 @@ package ch.nolix.commontest.nettest.endpoint2test;
  * Of the {@link Launcher} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 2017-02
+ * @date 2017-02-01
  * @lines 20
  */
 public final class Launcher {

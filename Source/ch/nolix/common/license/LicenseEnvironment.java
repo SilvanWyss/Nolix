@@ -9,7 +9,7 @@ import ch.nolix.common.environment.nolixenvironment.NolixEnvironment;
  * Of the {@link LicenseEnvironment} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 2019-11
+ * @date 2019-11-16
  * @lines 30
  */
 public final class LicenseEnvironment {

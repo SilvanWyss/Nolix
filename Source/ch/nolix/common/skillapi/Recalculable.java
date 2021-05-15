@@ -12,7 +12,7 @@ package ch.nolix.common.skillapi;
  * whereas as a {@link Refreshable} refreshes also the display when it is shown.
  * 
  * @author Silvan Wyss
- * @month 2019-03
+ * @date 2019-03-25
  * @lines 20
  */
 public interface Recalculable {

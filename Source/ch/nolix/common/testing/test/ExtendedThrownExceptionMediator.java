@@ -10,7 +10,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullExcep
 * A {@link ExtendedThrownExceptionMediator} is not mutable.
 * 
 * @author Silvan Wyss
-* @month 2018-12
+* @date 2018-12-09
 * @lines 80
 */
 public final class ExtendedThrownExceptionMediator extends ThrownExceptionMediator {

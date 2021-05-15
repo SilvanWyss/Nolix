@@ -6,7 +6,7 @@ package ch.nolix.common.rasterapi;
  * A {@link Rectangular} has a discrete, non-negative width and a height.
  * 
  * @author Silvan Wyss
- * @month 2019-07
+ * @date 2019-07-28
  * @lines 40
  */
 public interface Rectangular {

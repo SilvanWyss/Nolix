@@ -16,7 +16,7 @@ import ch.nolix.common.programcontrol.closeableelement.ICloseableElement;
  * A {@link NetEndPoint} is a {@link EndPoint} that can send messages to an other {@link NetEndPoint}.
  * 
  * @author Silvan Wyss
- * @month 2017-05
+ * @date 2017-05-22
  * @lines 330
  */
 public class NetEndPoint extends EndPoint {

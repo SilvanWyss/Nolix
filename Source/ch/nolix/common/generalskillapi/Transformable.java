@@ -16,7 +16,7 @@ import ch.nolix.common.functionapi.IElementTakerElementGetter;
  * A {@link Transformable} can generate an {@link Object} that is a transformation of the {@link Transformable}.
  * 
  * @author Silvan Wyss
- * @month 2020-09
+ * @date 2020-09-04
  * @lines 60
  * @param <T> is the type of the {@link Object}s a {@link Transformable} can be transformed to.
  */

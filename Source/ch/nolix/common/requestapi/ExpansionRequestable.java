@@ -6,7 +6,7 @@ package ch.nolix.common.requestapi;
  * A {@link ExpansionRequestable} can be asked if it is expanded or collapsed.
  * 
  * @author Silvan Wyss
- * @month 2020-10
+ * @date 2020-10-02
  * @lines 20
  */
 public interface ExpansionRequestable {

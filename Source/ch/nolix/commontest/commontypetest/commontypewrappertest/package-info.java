@@ -4,7 +4,7 @@
  * defines tests for the {@link ch.nolix.common.commontype.commontypewrapper} package.
  * 
  * @author Silvan Wyss
- * @month 2019-09
+ * @date 2019-10-01
  * @lines 10
  */
 package ch.nolix.commontest.commontypetest.commontypewrappertest;

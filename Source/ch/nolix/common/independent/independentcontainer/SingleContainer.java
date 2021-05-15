@@ -13,7 +13,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentExcept
  * A {@link SingleContainer} is not mutable.
  * 
  * @author Silvan Wyss
- * @month 2020-03
+ * @date 2020-03-09
  * @param <E> is the type of the element of a {@link SingleContainer}.
  * @lines 70
  */

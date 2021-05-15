@@ -3,7 +3,7 @@
  * The {@link ch.nolix.common.net.endpoint2} package defines an end point and a server for it.
  * 
  * @author Silvan Wyss
- * @month 2019-07
+ * @date 2019-08-01
  * @lines 10
  */
 package ch.nolix.common.net.endpoint2;

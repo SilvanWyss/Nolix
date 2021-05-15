@@ -3,7 +3,7 @@
  * The {@link ch.nolix.common.net.websocket} package defines types that support a WebSocket server.
  * 
  * @author Silvan Wyss
- * @month 2019-08
+ * @date 2019-09-01
  * @lines 10
  */
 package ch.nolix.common.net.websocket;

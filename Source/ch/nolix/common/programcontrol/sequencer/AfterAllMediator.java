@@ -15,7 +15,7 @@ import ch.nolix.common.functionapi.IBooleanGetter;
  * A {@link AfterAllMediator} is not mutable.
  * 
  * @author Silvan Wyss
- * @month 2017-01-01
+ * @date 2017-01-01
  * @lines 220
  */
 public final class AfterAllMediator {

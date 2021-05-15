@@ -6,7 +6,7 @@ package ch.nolix.commontest.commontypetest.commontypehelpertest;
  * Of the {@link Launcher} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @month 2018-08
+ * @date 2018-08-18
  * @lines 20
  */
 public final class Launcher {

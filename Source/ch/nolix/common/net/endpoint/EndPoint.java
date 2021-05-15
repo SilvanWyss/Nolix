@@ -21,7 +21,7 @@ import ch.nolix.common.programcontrol.sequencer.Sequencer;
  * A {@link EndPoint} is closable.
  * 
  * @author Silvan Wyss
- * @month 2017-04
+ * @date 2017-05-06
  * @lines 200
  */
 public abstract class EndPoint implements ICloseableElement, ISender {

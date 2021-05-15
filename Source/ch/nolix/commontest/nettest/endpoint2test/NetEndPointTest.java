@@ -14,7 +14,7 @@ import ch.nolix.common.testing.test.Test;
  * A {@link NetEndPointTest} is a test for {@link NetEndPoint}.
  * 
  * @author Silvan Wyss
- * @month 2017-05-21
+ * @date 2017-05-21
  * @lines 100
  */
 public final class NetEndPointTest extends Test {

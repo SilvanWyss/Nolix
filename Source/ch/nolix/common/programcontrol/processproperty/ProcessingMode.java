@@ -6,7 +6,7 @@ package ch.nolix.common.programcontrol.processproperty;
  * A {@link ProcessingMode} defines if a process should be run single-threaded or multi-threaded.
  * 
  * @author Silvan Wyss
- * @month 2019-07
+ * @date 2019-07-14
  * @lines 10
  */
 public enum ProcessingMode {

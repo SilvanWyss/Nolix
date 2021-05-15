@@ -13,7 +13,7 @@ import ch.nolix.common.functionapi.IBooleanGetter;
  * An as long as mediator is not mutable.
  * 
  * @author Silvan Wyss
- * @month 2017-05
+ * @date 2017-06-01
  * @lines 110
  */
 public final class AsLongAsMediator {

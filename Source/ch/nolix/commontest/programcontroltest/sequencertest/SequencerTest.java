@@ -12,7 +12,7 @@ import ch.nolix.common.testing.test.Test;
  * A sequencer test is not mutable.
  * 
  * @author Silvan Wyss
- * @month 2017-11
+ * @date 2017-11-18
  * @lines 30
  */
 public final class SequencerTest extends Test {

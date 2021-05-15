@@ -10,7 +10,7 @@ import ch.nolix.common.independent.independenthelper.CentralArrayHelper;
  * A long container mediator is not mutable.
  * 
  * @author Silvan Wyss
- * @month 2017-01
+ * @date 2017-01-01
  * @lines 40
  */
 public final class MultiLongMediator extends MultiArgumentMediator<Long> {

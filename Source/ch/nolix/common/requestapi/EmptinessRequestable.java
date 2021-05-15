@@ -6,7 +6,7 @@ package ch.nolix.common.requestapi;
  * A {@link EmptinessRequestable} can be asked if it is empty or contains elements.
  * 
  * @author Silvan Wyss
- * @month 2020-06
+ * @date 2020-06-11
  * @lines 20
  */
 public interface EmptinessRequestable {

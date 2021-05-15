@@ -2,12 +2,11 @@ package ch.nolix.commontutorial.validatortutorial;
 
 import ch.nolix.common.errorcontrol.validator.Validator;
 
-//class
 /**
  * The {@link StringValidationTutorial} is a tutorial for the {@link Validator}.
  * 
  * @author Silvan
- * @month 2017-03
+ * @date 2017-03-05
  * @lines 30
  */
 public final class StringValidationTutorial {

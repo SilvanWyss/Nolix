@@ -12,7 +12,7 @@ import ch.nolix.common.programcontrol.futureapi.IFuture;
 //class
 /**
  * @author Silvan Wyss
- * @month 2020-08
+ * @date 2020-08-15
  * @lines 170
  */
 public final class SequencerMediator {
