@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.gui.widget;
 
+import ch.nolix.common.constant.PascalCaseCatalogue;
 //own imports
 import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -20,14 +21,14 @@ import ch.nolix.element.gui.painterapi.IPainter;
  */
 public final class Button extends TextLineWidget<Button, ButtonLook> {
 	
-	//constants
+	//constant
 	public static final String DEFAULT_TEXT = StringCatalogue.MINUS;
 	
 	//constant
-	private static final String ROLE_HEADER = "Role";
+	private static final String ROLE_HEADER = PascalCaseCatalogue.ROLE;
 	
 	//attribute
-	private final MutableOptionalValue<ButtonRole> role =
+	private final MutableOptionalValue<ButtonRole> optionalRole =
 	new MutableOptionalValue<>(
 		ROLE_HEADER,
 		this::setRole,
@@ -60,7 +61,7 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link Button} does not have a role.
 	 */
 	public ButtonRole getRole() {
-		return role.getValue();
+		return optionalRole.getValue();
 	}
 	
 	//method
@@ -68,7 +69,7 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 	 * @return true if the current {@link Button} has a role.
 	 */
 	public boolean hasRole() {
-		return role.hasValue();
+		return optionalRole.hasValue();
 	}
 	
 	//method
@@ -85,7 +86,7 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 	 * Removes the role of the current {@link Button}.
 	 */
 	public void removeRole() {
-		role.clear();
+		optionalRole.clear();
 	}
 	
 	//method
@@ -98,7 +99,7 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 	 */
 	public Button setRole(final ButtonRole role) {
 		
-		this.role.setValue(role);
+		this.optionalRole.setValue(role);
 		
 		//Returns the current Button.
 		return this;
