@@ -13,7 +13,7 @@ import ch.nolix.common.functionapi.IElementTakerElementGetter;
 /**
  * @author Silvan Wyss
  * @date 2018-03-01
- * @lines 80
+ * @lines 110
  * @param <V> is the type of the value of a {@link OptionalValue}.
  */
 public final class OptionalValue<V> extends SingleValue<V> {
@@ -54,7 +54,18 @@ public final class OptionalValue<V> extends SingleValue<V> {
 	 * @throws ArgumentIsNullException if the given setterMethod is null.
 	 */
 	public static OptionalValue<String> forString(final String name, final IElementTaker<String> setterMethod) {
-		return new OptionalValue<>(name, setterMethod, BaseNode::getOneAttributeHeader, Node::withAttribute);
+		return new OptionalValue<>(
+			name,
+			setterMethod,
+			s -> s.getRefOneAttribute().getHeaderOrEmptyString(),
+			s -> {
+				if (s.isEmpty()) {
+					return new Node();
+				}
+				
+				return Node.withAttribute(s);
+			}
+		);
 	}
 	
 	//constructor

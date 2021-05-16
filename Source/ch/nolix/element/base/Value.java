@@ -13,7 +13,7 @@ import ch.nolix.common.functionapi.IElementTakerElementGetter;
 /**
  * @author Silvan Wyss
  * @date 2018-03-01
- * @lines 100
+ * @lines 110
  * @param <V> is the type of the value of a {@link Value}.
  */
 public final class Value<V> extends SingleValue<V> {
@@ -54,9 +54,20 @@ public final class Value<V> extends SingleValue<V> {
 	 * @throws ArgumentIsNullException if the given setterMethod is null.
 	 */
 	public static Value<String> forString(final String name, final IElementTaker<String> setterMethod) {
-		return new Value<>(name, setterMethod, BaseNode::getOneAttributeHeader, Node::withAttribute);
+		return new Value<>(
+			name,
+			setterMethod,
+			s -> s.getRefOneAttribute().getHeaderOrEmptyString(),
+			s -> {
+				if (s.isEmpty()) {
+					return new Node();
+				}
+				
+				return Node.withAttribute(s);
+			}
+		);
 	}
-			
+	
 	//constructor
 	/**
 	 * Creates a new {@link Value} with the given name, setterMethod, valueCreator and specificationCreator.

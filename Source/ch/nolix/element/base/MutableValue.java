@@ -13,7 +13,7 @@ import ch.nolix.common.functionapi.IElementTakerElementGetter;
 /**
  * @author Silvan Wyss
  * @date 2018-03-01
- * @lines 120
+ * @lines 140
  * @param <V> is the type of the value of a {@link MutableValue}.
  */
 public final class MutableValue<V> extends SingleValue<V> {
@@ -75,7 +75,19 @@ public final class MutableValue<V> extends SingleValue<V> {
 		final IElementTaker<String> setterMethod
 	) {
 		return
-		new MutableValue<>(name, defaultValue, setterMethod, BaseNode::getOneAttributeHeader, Node::withAttribute);
+		new MutableValue<>(
+			name,
+			defaultValue,
+			setterMethod,
+			s -> s.getRefOneAttribute().getHeaderOrEmptyString(),
+			s -> {
+				if (s.isEmpty()) {
+					return new Node();
+				}
+				
+				return Node.withAttribute(s);
+			}
+		);
 	}
 	
 	//constructor
