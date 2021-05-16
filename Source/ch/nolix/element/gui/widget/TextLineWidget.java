@@ -5,7 +5,6 @@ package ch.nolix.element.gui.widget;
 import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.functionapi.IAction;
@@ -33,30 +32,11 @@ extends BorderWidget<TLW, TLWL> {
 	//constant
 	public static final int TEXT_CURSOR_WIDTH = 2;
 	
+	//constant
+	private static final String TEXT_HEADER = PascalCaseCatalogue.TEXT;
+	
 	//attribute
-	private MutableValue<String> text =
-	new MutableValue<>(
-		PascalCaseCatalogue.TEXT,
-		StringCatalogue.EMPTY_STRING,
-		this::setText,
-		s -> {
-			
-			if (!s.containsAttributes()) {
-				return  StringCatalogue.EMPTY_STRING;
-			}
-			
-			return s.getOneAttributeHeader();
-		},
-		t -> {
-			
-			final var specification = new Node();
-			if (!t.isEmpty()) {
-				specification.addAttribute(t);
-			}
-			
-			return specification;
-		}
-	);
+	private MutableValue<String> text = MutableValue.forString(TEXT_HEADER, getDefaultText(), this::setText);
 	
 	//optional attribute
 	private IElementTaker<String> noteTextUpdateAction;
@@ -153,7 +133,7 @@ extends BorderWidget<TLW, TLWL> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected boolean contentAreaMustBeExpandedToTargetSize() {
+	protected final boolean contentAreaMustBeExpandedToTargetSize() {
 		return false;
 	}
 	
@@ -170,6 +150,12 @@ extends BorderWidget<TLW, TLWL> {
 	 */
 	@Override
 	protected final void fillUpWidgetsForPainting(final LinkedList<Widget<?, ?>> list) {}
+	
+	//method declaration
+	/**
+	 * @return the default text of the current {@link TextLineWidget}.
+	 */
+	protected abstract String getDefaultText();
 	
 	//method
 	/**
@@ -312,6 +298,24 @@ extends BorderWidget<TLW, TLWL> {
 	 */
 	@Override
 	protected final void recalculateBorderWidget() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected final void resetBorderWidget() {
+		
+		setText(getDefaultText());
+		
+		resetTextLineWidget();
+	}
+	
+	//method declaration
+	/**
+	 * Resets the current {@link TextLineWidget}.
+	 */
+	protected abstract void resetTextLineWidget();
 	
 	//method
 	private void setTextWhenHasOtherText(final String text) {

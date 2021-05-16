@@ -119,12 +119,15 @@ public final class Downloader extends TextLineWidget<Downloader, DownloaderLook>
 	}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected DownloaderLook createLook() {
 		return new DownloaderLook();
+	}
+	
+	//method
+	@Override
+	protected String getDefaultText() {
+		return DEFAULT_TEXT;
 	}
 	
 	//method
@@ -153,8 +156,7 @@ public final class Downloader extends TextLineWidget<Downloader, DownloaderLook>
 	
 	//method
 	@Override
-	protected void resetBorderWidget() {
-		setText(DEFAULT_TEXT);
+	protected void resetTextLineWidget() {
 		setCustomCursorIcon(DEFAULT_CURSOR_ICON);
 		removeFileProvider();
 	}

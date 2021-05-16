@@ -126,6 +126,15 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
+	protected String getDefaultText() {
+		return DEFAULT_TEXT;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	protected void noteKeyPressOnSelfWhenFocused(final Key key) {
 		
 		//Enumerates the given key.
@@ -194,8 +203,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void resetBorderWidget() {
-		setText(DEFAULT_TEXT);
+	protected void resetTextLineWidget() {
 		textCursorPosition.setValue(0);
 	}
 	

@@ -16,7 +16,7 @@ import ch.nolix.element.gui.painterapi.IPainter;
 /**
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 150
+ * @lines 160
  */
 public final class Button extends TextLineWidget<Button, ButtonLook> {
 	
@@ -125,6 +125,15 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
+	protected String getDefaultText() {
+		return DEFAULT_TEXT;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	protected void noteLeftMouseButtonPressOnContentAreaWhenEnabled() {}
 	
 	//method
@@ -153,7 +162,5 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void resetBorderWidget() {
-		setText(DEFAULT_TEXT);
-	}
+	protected void resetTextLineWidget() {}
 }

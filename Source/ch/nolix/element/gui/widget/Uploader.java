@@ -60,12 +60,15 @@ public final class Uploader extends TextLineWidget<Uploader, UploaderLook> {
 	}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected UploaderLook createLook() {
 		return new UploaderLook();
+	}
+	
+	//method
+	@Override
+	protected String getDefaultText() {
+		return DEFAULT_TEXT;
 	}
 	
 	//method
@@ -103,8 +106,7 @@ public final class Uploader extends TextLineWidget<Uploader, UploaderLook> {
 	
 	//method
 	@Override
-	protected void resetBorderWidget() {
-		setText(DEFAULT_TEXT);
+	protected void resetTextLineWidget() {
 		setCustomCursorIcon(CursorIcon.HAND);
 	}
 }
