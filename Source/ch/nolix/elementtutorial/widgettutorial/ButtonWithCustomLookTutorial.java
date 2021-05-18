@@ -7,11 +7,11 @@ import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.widget.Button;
 
 /**
- * The {@link ButtonTutorial} is a tutorial for {@link Button}s.
- * Of the {@link ButtonTutorial} an instance cannot be created.
+ * The {@link ButtonWithCustomLookTutorial} is a tutorial for {@link Button}s.
+ * Of the {@link ButtonWithCustomLookTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @date 2021-05-21
+ * @date 2021-05-18
  * @lines 60
  */
 public final class ButtonWithCustomLookTutorial {
@@ -24,7 +24,7 @@ public final class ButtonWithCustomLookTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
-		final var frame = new Frame().setTitle("Button Tutorial");
+		final var frame = new Frame().setTitle("Button with custom look Tutorial");
 		
 		//Creates a Button.
 		final var button = new Button().setText("Change background color");
@@ -56,7 +56,7 @@ public final class ButtonWithCustomLookTutorial {
 	}
 	
 	/**
-	 * Prevents that an instance of the {@link ButtonTutorial} can be created.
+	 * Prevents that an instance of the {@link ButtonWithCustomLookTutorial} can be created.
 	 */
 	private ButtonWithCustomLookTutorial() {}
 }
