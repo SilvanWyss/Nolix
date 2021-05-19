@@ -11,7 +11,7 @@ import ch.nolix.element.gui.painterapi.IPainter;
 
 //class
 public final class SelectionMenu extends ItemMenu<SelectionMenu> {
-		
+	
 	//attribute
 	private final VerticalStack mainVerticalStack = new VerticalStack();
 	
@@ -20,6 +20,7 @@ public final class SelectionMenu extends ItemMenu<SelectionMenu> {
 		
 		reset();
 		
+		getRefLook().setBorderThicknessForState(WidgetLookState.BASE, 1);
 		getRefItemLook().setBackgroundColorForState(WidgetLookState.HOVER, Color.LIGHT_GREY);
 		getRefSelectedItemLook().setBackgroundColorForState(WidgetLookState.BASE, Color.GREY);
 	}
