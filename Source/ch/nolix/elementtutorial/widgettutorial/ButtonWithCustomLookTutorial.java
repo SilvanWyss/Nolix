@@ -48,7 +48,7 @@ public final class ButtonWithCustomLookTutorial {
 			l
 			.setBackgroundColorForState(WidgetLookState.BASE, Color.LAVENDER)
 			.setBackgroundColorForState(WidgetLookState.HOVER, Color.SKY_BLUE)
-			.setPaddingForState(WidgetLookState.BASE, 20)
+			.setPaddingForState(WidgetLookState.BASE, 10)
 		);
 		
 		//Adds the Button to the Frame.
