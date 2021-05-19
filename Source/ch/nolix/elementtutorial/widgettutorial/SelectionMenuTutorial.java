@@ -1,8 +1,6 @@
 package ch.nolix.elementtutorial.widgettutorial;
 
 import ch.nolix.element.gui.base.Frame;
-import ch.nolix.element.gui.base.WidgetLookState;
-import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.widget.SelectionMenu;
 
 /**
@@ -11,7 +9,7 @@ import ch.nolix.element.gui.widget.SelectionMenu;
  * 
  * @author Silvan Wyss
  * @date 2018-05-05
- * @lines 60
+ * @lines 50
  */
 public final class SelectionMenuTutorial {
 	
@@ -23,9 +21,7 @@ public final class SelectionMenuTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
-		final var frame =
-		new Frame()
-		.setTitle("SelectionMenu Tutorial");
+		final var frame = new Frame().setTitle("SelectionMenu Tutorial");
 		
 		//Creates a SelectionMenu.
 		final var selectionMenu =
@@ -44,19 +40,7 @@ public final class SelectionMenuTutorial {
 			"Jürgen Habermas",
 			"Richard David Precht"
 		);
-		
-		//Configures the look of the SelectionMenu.
-		selectionMenu
-		.setProposalHeight(200)
-		.onLook(
-			l ->
-			l
-			.setBorderThicknessForState(WidgetLookState.BASE, 5)
-			.setBackgroundColorForState(WidgetLookState.BASE, Color.LAVENDER)
-		)
-		.onItemLook(il -> il.setPaddingForState(WidgetLookState.BASE, 5))
-		.onSelectedItemLook(il -> il.setPaddingForState(WidgetLookState.BASE, 5));
-		
+						
 		//Adds the SelectionMenu to the Frame.
 		frame.addLayerOnTop(selectionMenu);
 	}
