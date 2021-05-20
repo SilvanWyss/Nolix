@@ -137,9 +137,6 @@ public final class DropdownMenu extends ItemMenu<DropdownMenu> {
 		//Selects the corresponding selected item on the expandedDropDownMenu.
 		if (containsSelectedItem()) {
 			expandedDropdownMenu.selectItem(getRefSelectedItem().getText());
-			
-			final var showAreaYPositionOnScrolledArea = (getIndexOfSelectedItem() - 1) * getRefFirstItem().getHeight();
-			expandedDropdownMenu.setShowAreaYPositionOnScrolledArea(showAreaYPositionOnScrolledArea);
 		}
 		
 		//Sets the select action of the expandedDropdownMenu.
@@ -154,6 +151,12 @@ public final class DropdownMenu extends ItemMenu<DropdownMenu> {
 		//Recalculates the expandedDropdownMenu again twice.
 		expandedDropdownMenu.recalculate();
 		expandedDropdownMenu.recalculate();
+		
+		//Scrolls to the selected item on the expandedDropDownMenu.
+		if (containsSelectedItem()) {
+			final var showAreaYPositionOnScrolledArea = (getIndexOfSelectedItem() - 1) * getRefFirstItem().getHeight();
+			expandedDropdownMenu.setShowAreaYPositionOnScrolledArea(showAreaYPositionOnScrolledArea);
+		}
 		
 		//Adds the expandedDropdownMenu on the top of the GUI of the current DropdownMenu.
 		getParentGUI().addLayerOnTop(

@@ -214,6 +214,7 @@ public final class ItemMenuItem extends Element<ItemMenuItem> implements Optiona
 	//method
 	void recalculate() {
 		label.getRefLook().setFrom(getRefItemLook());
+		label.recalculate();
 	}
 
 	//method
