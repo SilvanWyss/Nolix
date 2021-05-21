@@ -1,7 +1,6 @@
 package ch.nolix.elementtutorial.guitutorial.widgettutorial;
 
 import ch.nolix.element.gui.base.Frame;
-import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.image.Image;
 import ch.nolix.element.gui.widget.ImageWidget;
@@ -12,7 +11,7 @@ import ch.nolix.element.gui.widget.ImageWidget;
  * 
  * @author Silvan Wyss
  * @date 2018-08-23
- * @lines 50
+ * @lines 40
  */
 public final class ImageWidgetTutorial {
 	
@@ -24,13 +23,10 @@ public final class ImageWidgetTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
-		final var frame =
-		new Frame()
-		.setTitle("Image Widget Tutorial");
+		final var frame = new Frame().setTitle("ImageWidget Tutorial");
 		
 		//Creates an Image.
 		final var image = new Image(800, 500);
-		
 		for (var y = 1; y <= 500; y++) {
 			for (var x = 1; x <= 800; x++) {
 				image.setPixel(x, y, new Color((x * y) % 255, 0, (x + y) % 255));
@@ -40,16 +36,7 @@ public final class ImageWidgetTutorial {
 		//Creates an ImageWidget with the image.
 		final var imageWidget = new ImageWidget().setImage(image);
 		
-		//Configures the look of the ImageWidget.
-		imageWidget.onLook(
-			l ->
-			l
-			.setBorderThicknessForState(WidgetLookState.BASE, 5)
-			.setBackgroundColorForState(WidgetLookState.BASE, Color.LAVENDER)
-			.setPaddingForState(WidgetLookState.BASE, 5)
-		);
-		
-		//Adds the imageWidget to the frame.
+		//Adds the ImageWidget to the Frame.
 		frame.addLayerOnTop(imageWidget);
 	}
 	
