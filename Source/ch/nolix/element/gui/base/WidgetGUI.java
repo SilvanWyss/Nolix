@@ -269,6 +269,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	//method
 	/**
 	 * Adds the given layer on the top of the current {@link WidgetGUI}.
+	 * Sets the root {@link Widget} of the given layer focused if the given layer contains a root {@link Widget}.
 	 * 
 	 * @param layer
 	 * @return the current {@link WidgetGUI}.
@@ -282,6 +283,10 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 		layer.setParentGUI(this);
 		layers.add(layer);
 		topLayer = layer;
+		
+		if (layer.containsAny()) {
+			layer.getRefRootWidget().setFocused();
+		}
 		
 		updateFromConfiguration();
 		
