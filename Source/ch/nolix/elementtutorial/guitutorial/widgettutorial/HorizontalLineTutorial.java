@@ -1,9 +1,6 @@
 package ch.nolix.elementtutorial.guitutorial.widgettutorial;
 
-import ch.nolix.element.elementenum.ContentPosition;
 import ch.nolix.element.gui.base.Frame;
-import ch.nolix.element.gui.base.WidgetLookState;
-import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.containerwidget.HorizontalStack;
 import ch.nolix.element.gui.containerwidget.VerticalStack;
 import ch.nolix.element.gui.widget.HorizontalLine;
@@ -15,7 +12,7 @@ import ch.nolix.element.gui.widget.Label;
  * 
  * @author Silvan Wyss
  * @date 2020-06-13
- * @lines 60
+ * @lines 40
  */
 public final class HorizontalLineTutorial {
 	
@@ -27,9 +24,7 @@ public final class HorizontalLineTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
-		final var frame =
-		new Frame()
-		.setTitle("HorizontalLine Tutorial");
+		final var frame = new Frame().setTitle("HorizontalLine Tutorial");
 	
 		//Creates a VerticalStack with 3 Labels and 2 HorizontalLines.
 		final var verticalStack =
@@ -40,18 +35,6 @@ public final class HorizontalLineTutorial {
 			new Label().setText("Ut enim ad minim veniam"),
 			new HorizontalLine(),
 			new Label().setText("quis nostrud exercitation")
-		);
-		
-		//Configures the look of the VerticalStack.
-		verticalStack
-		.setContentPosition(ContentPosition.TOP)
-		.setElementMargin(50)
-		.onLook(
-			l ->
-			l
-			.setBorderThicknessForState(WidgetLookState.BASE, 5)
-			.setPaddingForState(WidgetLookState.BASE, 50)
-			.setBackgroundColorForState(WidgetLookState.BASE, Color.LAVENDER)
 		);
 		
 		//Adds the VerticalStack to the Frame.
