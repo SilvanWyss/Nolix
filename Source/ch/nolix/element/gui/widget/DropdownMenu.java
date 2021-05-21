@@ -28,6 +28,7 @@ public final class DropdownMenu extends ItemMenu<DropdownMenu> {
 		
 		reset();
 		
+		getRefLook().setBorderThicknessForState(WidgetLookState.BASE, 1);
 		getRefItemLook().setBackgroundColorForState(WidgetLookState.HOVER, Color.LIGHT_GREY);
 		getRefSelectedItemLook().setBackgroundColorForState(WidgetLookState.BASE, Color.GREY);
 	}
@@ -99,9 +100,7 @@ public final class DropdownMenu extends ItemMenu<DropdownMenu> {
 	//method
 	@Override
 	protected void recalculateItemMenu() {
-		if (containsAny()) {
-			selectedItemLabel.setMinWidth(getRefItemLabels().getRefFirst().getMinWidth());
-		}
+		selectedItemLabel.setMinWidth(calculateSelectedItemLabelWidth());
 	}
 	
 	//method
@@ -114,7 +113,17 @@ public final class DropdownMenu extends ItemMenu<DropdownMenu> {
 		mainHorizontalStack.addWidget(selectedItemLabel, expandButton);
 		expandButton.setText(" v ").setLeftMouseButtonReleaseAction(this::expand);
 	}
+	
+	//method
+	private int calculateSelectedItemLabelWidth() {
 		
+		if (isEmpty()) {
+			return 100;
+		}
+		
+		return getRefItemLabels().getRefFirst().getMinWidth();
+	}
+	
 	//method
 	private void collapseMenuWhenMenuIsExpanded() {
 		expandedDropdownMenu.getParentLayer().removeSelfFromGUI();
