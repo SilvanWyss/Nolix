@@ -6,7 +6,7 @@ import ch.nolix.element.gui.widget.Label;
 
 /**
  * The {@link LabelShorteningTextTutorial} is a tutorial for {@link Label}s.
- * Of the {@link LabelTutorial} an instance cannot be created.
+ * Of the {@link TimeLabelTutorial} an instance cannot be created.
  *
  * @author Silvan Wyss
  * @date 2019-05-19

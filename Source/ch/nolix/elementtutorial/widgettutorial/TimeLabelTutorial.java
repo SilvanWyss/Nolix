@@ -9,14 +9,14 @@ import ch.nolix.element.gui.widget.Label;
 import ch.nolix.element.time.Time;
 
 /**
- * The {@link LabelTutorial} is a tutorial for {@link Label}s.
- * Of the {@link LabelTutorial} an instance cannot be created.
+ * The {@link TimeLabelTutorial} is a tutorial for {@link Label}s.
+ * Of the {@link TimeLabelTutorial} an instance cannot be created.
  *
  * @author Silvan Wyss
  * @date 2017-09-09
  * @lines 80
  */
-public final class LabelTutorial {
+public final class TimeLabelTutorial {
 	
 	/**
 	 * Creates a {@link Frame} with 2 {@link Label}s.
@@ -26,7 +26,7 @@ public final class LabelTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
-		final var frame = new Frame().setTitle("Label Tutorial");
+		final var frame = new Frame().setTitle("Time Label Tutorial");
 		
 		//Creates clockCaptionLabel.
 		final var clockCaptionLabel = new Label().setText("Time:");
@@ -79,7 +79,7 @@ public final class LabelTutorial {
 	}
 	
 	/**
-	 * Prevents that an instance of the {@link LabelTutorial} can be created.
+	 * Prevents that an instance of the {@link TimeLabelTutorial} can be created.
 	 */
-	private LabelTutorial() {}
+	private TimeLabelTutorial() {}
 }
