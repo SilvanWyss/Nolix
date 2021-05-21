@@ -28,7 +28,7 @@ import ch.nolix.element.gui.textformat.TextFormat;
 /**
  * @author Silvan Wyss
  * @date 2017-03-06
- * @lines 890
+ * @lines 880
  */
 public final class Console extends BorderWidget<Console, ConsoleLook> implements Clearable {
 	
@@ -85,9 +85,14 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 		
 		reset();
 		
-		setProposalWidth(200);
-		setProposalHeight(100);
-		getRefLook().setPaddingForState(WidgetLookState.BASE, 10);
+		setProposalWidth(500);
+		setProposalHeight(200);
+		
+		getRefLook()
+		.setBackgroundColorForState(WidgetLookState.BASE, Color.WHITE_SMOKE)
+		.setPaddingForState(WidgetLookState.BASE, 10);
+		
+		recalculate();
 	}
 	
 	//method
@@ -475,22 +480,18 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	/**
 	 * Writes the edit line of the current {@link Console} to the current {@link Console}.
 	 * Attention: Clears the edit line of the current {@link Console}.
-	 * 
-	 * @return the current {@link Console}.
 	 */
-	public Console writeEditLine() {
-		return writeLine(editLine);
+	public void writeEditLine() {
+		writeLine(editLine);
 	}
 	
 	//method
 	/**
 	 * Writes an empty line to the current {@link Console}.
 	 * Attention: Clears the edit line of the current {@link Console}.
-	 * 
-	 * @return the current {@link Console}.
 	 */
-	public Console writeEmptyLine() {
-		return writeLine(StringCatalogue.EMPTY_STRING);
+	public void writeEmptyLine() {
+		writeLine(StringCatalogue.EMPTY_STRING);
 	}
 	
 	//method
@@ -499,10 +500,9 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	 * Attention: Clears the edit line of the current {@link Console}.
 	 * 
 	 * @param character
-	 * @return the current {@link Console}.
 	 */
-	public Console writeLine(final char character) {
-		return writeLine(Character.toString(character));
+	public void writeLine(final char character) {
+		writeLine(Character.toString(character));
 	}
 	
 	//method
@@ -511,16 +511,12 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	 * Attention: Clears the edit line of the current {@link Console}.
 	 * 
 	 * @param line
-	 * @return the current {@link Console}.
 	 * @throws ArgumentIsNullException if the given line is null.
 	 */
-	public Console writeLine(final String line) {
-		
+	public void writeLine(final String line) {
 		lines.addAtEnd(line);
 		clearEditLine();
 		scrollToBottom();
-		
-		return this;
 	}
 	
 	//method
@@ -529,17 +525,14 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	 * Attention: Clears the edit line of the current {@link Console}.
 	 * 
 	 * @param lines
-	 * @return the current {@link Console}.
 	 * @throws ArgumentIsNullException if one of the given lines is null.
 	 */
-	public Console writeLine(final String... lines) {
+	public void writeLine(final String... lines) {
 		
 		//Iterates the given lines.
 		for (final String l : lines) {
 			writeLine(l);
 		}
-		
-		return this;
 	}
 	
 	//method
@@ -548,17 +541,14 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	 * Attention: Clears the edit line of the current {@link Console}.
 	 * 
 	 * @param lines
-	 * @return the current {@link Console}.
 	 * @throws ArgumentIsNullException if one of the given lines is null.
 	 */
-	public Console writeLines(final IContainer<String> lines) {
+	public void writeLines(final IContainer<String> lines) {
 
 		//Iterates the given lines.
 		for (final String l : lines) {
 			writeLine(l);
 		}
-		
-		return this;
 	}
 	
 	//method
@@ -628,40 +618,6 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 		}
 		
 		return font.getSwingTextWidth(LINE_PREFIX) + getLines().getMax(font::getSwingTextWidth);
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void paintContentArea(final IPainter painter, final ConsoleLook consoleLook) {
-		
-		final var textSize = consoleLook.getTextSize();
-		final var font = getFont();
-		
-		//Iterates the lines of the current Console.
-		for (final var l : getLines()) {
-			painter.paintText(LINE_PREFIX + l, font);
-			painter.translate(0, textSize);
-		}
-		
-		if (isEditable()) {
-			
-			//Paints the edit line of the current Console.
-			painter.paintText(LINE_PREFIX + getEditLine(), font);
-			
-			//Paints the text cursor of the current Console.
-			final var textCursorXPosition =
-			font.getSwingTextWidth(LINE_PREFIX + getEditLineBeforeTextCursor()) - 1;
-			painter.setColor(consoleLook.getTextColor());
-			painter.paintFilledRectangle(
-				textCursorXPosition,
-				0,
-				2,
-				font.getTextSize()
-			);
-		}
 	}
 	
 	//method
@@ -796,6 +752,40 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	 */
 	@Override
 	protected void noteRightMouseButtonReleaseOnContentAreaWhenEnabled() {}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void paintContentArea(final IPainter painter, final ConsoleLook consoleLook) {
+		
+		final var textSize = consoleLook.getTextSize();
+		final var font = getFont();
+		
+		//Iterates the lines of the current Console.
+		for (final var l : getLines()) {
+			painter.paintText(LINE_PREFIX + l, font);
+			painter.translate(0, textSize);
+		}
+		
+		if (isEditable()) {
+			
+			//Paints the edit line of the current Console.
+			painter.paintText(LINE_PREFIX + getEditLine(), font);
+			
+			//Paints the text cursor of the current Console.
+			final var textCursorXPosition =
+			font.getSwingTextWidth(LINE_PREFIX + getEditLineBeforeTextCursor()) - 1;
+			painter.setColor(consoleLook.getTextColor());
+			painter.paintFilledRectangle(
+				textCursorXPosition,
+				0,
+				2,
+				font.getTextSize()
+			);
+		}
+	}
 	
 	//method
 	/**
