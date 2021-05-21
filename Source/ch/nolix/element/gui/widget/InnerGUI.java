@@ -35,7 +35,6 @@ public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> impleme
 		
 		reset();
 		
-		createCloseDependencyTo(internalGUI);
 		setProposalWidth(200);
 		setProposalHeight(200);
 	}
