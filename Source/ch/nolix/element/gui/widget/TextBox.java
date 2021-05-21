@@ -18,13 +18,14 @@ import ch.nolix.element.gui.painterapi.IPainter;
 /**
  * @author Silvan Wyss
  * @date 2017-01-01
- * @lines 330
+ * @lines 340
  */
 public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	
 	//constants
 	public static final String DEFAULT_TEXT = StringCatalogue.EMPTY_STRING;
 	public static final int DEFAULT_CURSOR_POSITION = 0;
+	public static final int TEXT_CURSOR_WIDTH = 2;
 	
 	//constant
 	private static final String TEXT_CURSOR_POSITION_HEADER = "TextCursorPosition";
@@ -127,6 +128,15 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	@Override
 	protected String getDefaultText() {
 		return DEFAULT_TEXT;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected int getTextWidthAddition() {
+		return TEXT_CURSOR_WIDTH;
 	}
 	
 	//method

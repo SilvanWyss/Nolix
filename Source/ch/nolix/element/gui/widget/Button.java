@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.element.gui.widget;
 
-import ch.nolix.common.constant.PascalCaseCatalogue;
 //own imports
+import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -17,7 +17,7 @@ import ch.nolix.element.gui.painterapi.IPainter;
 /**
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 160
+ * @lines 170
  */
 public final class Button extends TextLineWidget<Button, ButtonLook> {
 	
@@ -119,16 +119,25 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteKeyPressOnSelfWhenFocused(final Key key) {}
+	protected String getDefaultText() {
+		return DEFAULT_TEXT;
+	}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected String getDefaultText() {
-		return DEFAULT_TEXT;
+	protected int getTextWidthAddition() {
+		return 0;
 	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void noteKeyPressOnSelfWhenFocused(final Key key) {}
 	
 	//method
 	/**

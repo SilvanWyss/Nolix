@@ -73,6 +73,12 @@ public final class Uploader extends TextLineWidget<Uploader, UploaderLook> {
 	
 	//method
 	@Override
+	protected int getTextWidthAddition() {
+		return 0;
+	}
+	
+	//method
+	@Override
 	protected void noteKeyPressOnSelfWhenFocused(final Key key) {}
 	
 	//method

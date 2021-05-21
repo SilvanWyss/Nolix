@@ -22,15 +22,12 @@ import ch.nolix.element.gui.textformat.TextFormat;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 320
+ * @lines 330
  * @param <TLW> is the type of a {@link TextLineWidget}.
  * @param <TLWL> is the type of the {@link BorderWidgetLook} of a {@link TextLineWidget}.
  */
 public abstract class TextLineWidget<TLW extends TextLineWidget<TLW, TLWL>, TLWL extends BorderWidgetLook<TLWL>>
 extends BorderWidget<TLW, TLWL> {
-	
-	//constant
-	public static final int TEXT_CURSOR_WIDTH = 2;
 	
 	//constant
 	private static final String TEXT_HEADER = PascalCaseCatalogue.TEXT;
@@ -172,7 +169,7 @@ extends BorderWidget<TLW, TLWL> {
 	 */
 	@Override
 	protected final int getNaturalContentAreaWidth() {
-		return getTextFormat().getSwingTextWidth(getText() + TEXT_CURSOR_WIDTH);
+		return getTextFormat().getSwingTextWidth(getText() + getTextWidthAddition());
 	}
 	
 	//method
@@ -191,6 +188,12 @@ extends BorderWidget<TLW, TLWL> {
 			look.getTextColor()
 		);
 	}
+	
+	//method
+	/**
+	 * @return the value that have to be added to the width of the text of the current {@link TextLineWidget}.
+	 */
+	protected abstract int getTextWidthAddition();
 	
 	//method
 	/**

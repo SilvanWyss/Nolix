@@ -19,7 +19,7 @@ import ch.nolix.element.gui.painterapi.IPainter;
 /**
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 210
+ * @lines 220
  */
 public final class Label extends TextLineWidget<Label, LabelLook> {
 	
@@ -153,6 +153,15 @@ public final class Label extends TextLineWidget<Label, LabelLook> {
 	@Override
 	protected String getDefaultText() {
 		return DEFAULT_TEXT;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected int getTextWidthAddition() {
+		return 0;
 	}
 	
 	//method

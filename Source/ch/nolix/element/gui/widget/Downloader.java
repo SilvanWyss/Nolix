@@ -132,6 +132,12 @@ public final class Downloader extends TextLineWidget<Downloader, DownloaderLook>
 	
 	//method
 	@Override
+	protected int getTextWidthAddition() {
+		return 0;
+	}
+	
+	//method
+	@Override
 	protected void noteKeyPressOnSelfWhenFocused(final Key key) {}
 	
 	//method
