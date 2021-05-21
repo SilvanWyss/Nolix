@@ -1,8 +1,6 @@
 package ch.nolix.elementtutorial.widgettutorial;
 
 import ch.nolix.element.gui.base.Frame;
-import ch.nolix.element.gui.base.WidgetLookState;
-import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.widget.DropdownMenu;
 
 /**
@@ -23,9 +21,7 @@ public final class DropdownMenuTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
-		final var frame =
-		new Frame()
-		.setTitle("DropdownMenu Tutorial");
+		final var frame = new Frame().setTitle("DropdownMenu Tutorial");
 		
 		//Creates a DropdownMenu.
 		final var dropdownMenu =
@@ -43,17 +39,7 @@ public final class DropdownMenuTutorial {
 			"Theodor W. Adorno"
 		);
 		
-		//Configures the look of the dropdownMenu.
-		dropdownMenu.onLook(
-			l ->
-			l			
-			.setBorderThicknessForState(WidgetLookState.BASE, 5)
-			.setBackgroundColorForState(WidgetLookState.BASE, Color.LAVENDER)
-		)
-		.onItemLook(il -> il.setPaddingForState(WidgetLookState.BASE, 5))
-		.onSelectedItemLook(il -> il.setPaddingForState(WidgetLookState.BASE, 5));
-		
-		//Adds the dropdownMenu to the frame.
+		//Adds the DropdownMenu to the Frame.
 		frame.addLayerOnTop(dropdownMenu);
 	}
 	
