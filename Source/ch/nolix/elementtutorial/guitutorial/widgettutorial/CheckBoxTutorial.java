@@ -4,7 +4,7 @@ import ch.nolix.element.gui.base.Frame;
 import ch.nolix.element.gui.widget.CheckBox;
 
 /**
- * The {@link CheckBoxTutorial} provides a tutorial for {@link CheckBox}s.
+ * The {@link CheckBoxTutorial} is a tutorial for {@link CheckBox}s.
  * Of the {@link CheckBoxTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss

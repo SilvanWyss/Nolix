@@ -3,7 +3,7 @@ package ch.nolix.commontutorial.validatortutorial;
 import ch.nolix.common.errorcontrol.validator.Validator;
 
 /**
- * This class provides a tutorial how the zeta validator validates an integer.
+ * This class is a tutorial how the zeta validator validates an integer.
  * 
  * @author Silvan Wyss
  * @date 2016-12-01

@@ -4,7 +4,7 @@ import ch.nolix.element.gui.base.Frame;
 import ch.nolix.element.gui.widget.Console;
 
 /**
- * The {@link ConsoleTutorial} provides a tutorial for {@link Console}s.
+ * The {@link ConsoleTutorial} is a tutorial for {@link Console}s.
  * Of the {@link ConsoleTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss

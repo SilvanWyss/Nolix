@@ -6,7 +6,7 @@ import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.widget.CheckBox;
 
 /**
- * The {@link CheckBoxWithCustomLookTutorial} provides a tutorial for {@link CheckBox}s.
+ * The {@link CheckBoxWithCustomLookTutorial} is a tutorial for {@link CheckBox}s.
  * Of the {@link CheckBoxWithCustomLookTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
