@@ -3,8 +3,6 @@ package ch.nolix.elementtutorial.guitutorial.widgettutorial;
 import ch.nolix.common.environment.filesystem.FileAccessor;
 import ch.nolix.common.environment.filesystem.FileSystemAccessor;
 import ch.nolix.element.gui.base.Frame;
-import ch.nolix.element.gui.base.WidgetLookState;
-import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.widget.Downloader;
 
 /**
@@ -13,7 +11,7 @@ import ch.nolix.element.gui.widget.Downloader;
  * 
  * @author Silvan Wyss
  * @date 2018-07-07
- * @lines 50
+ * @lines 40
  */
 public final class DownloaderTutorial {
 	
@@ -25,30 +23,21 @@ public final class DownloaderTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
-		final var frame =
-		new Frame()
-		.setTitle("Downloader Tutorial");
+		final var frame = new Frame().setTitle("Downloader Tutorial");
 		
 		//Creates a file for the Downloader.
-		FileSystemAccessor.overwriteFile("tutorial.txt", "Tutorial");
+		var filePath = "tutorial.txt";
+		var i = 1;
+		while (FileSystemAccessor.exists(filePath)) {
+			filePath = "tutorial" + i + ".txt";
+			i++;
+		}
+		FileSystemAccessor.createFile(filePath, "tutorial");
 		
 		//Creates a Downloader.
-		final var downloader =
-		new Downloader()
-		.setText("Download file")
-		.setFileProvider(new FileAccessor("tutorial.txt")) ;
+		final var downloader = new Downloader().setText("Download file").setFileProvider(new FileAccessor(filePath));
 		
-		//Configures the look of the downloader.
-		downloader.onLook(
-			l ->
-			l
-			.setBorderThicknessForState(WidgetLookState.BASE, 5)
-			.setBackgroundColorForState(WidgetLookState.BASE, Color.LAVENDER)
-			.setPaddingForState(WidgetLookState.BASE, 5)
-			.setTextSizeForState(WidgetLookState.BASE, 50)
-		);
-		
-		//Adds the downloader to the frame.
+		//Adds the Downloader to the Frame.
 		frame.addLayerOnTop(downloader);
 	}
 	
