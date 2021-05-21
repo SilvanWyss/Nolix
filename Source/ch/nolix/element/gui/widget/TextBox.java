@@ -18,16 +18,15 @@ import ch.nolix.element.gui.painterapi.IPainter;
 /**
  * @author Silvan Wyss
  * @date 2017-01-01
- * @lines 310
+ * @lines 330
  */
 public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	
-	//constant
-	public static final String TYPE_NAME = "TextBox";
-	public static final String DEFAULT_TEXT = StringCatalogue.EMPTY_STRING;
-	
 	//constants
-	private static final int DEFAULT_CURSOR_POSITION = 0;
+	public static final String DEFAULT_TEXT = StringCatalogue.EMPTY_STRING;
+	public static final int DEFAULT_CURSOR_POSITION = 0;
+	
+	//constant
 	private static final String TEXT_CURSOR_POSITION_HEADER = "TextCursorPosition";
 	
 	//attribute
@@ -49,8 +48,8 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 		reset();
 		
 		setProposalWidth(200);
-		setCustomCursorIcon(CursorIcon.EDIT);
 		getRefLook().setBorderThicknessForState(WidgetLookState.BASE, 1);
+		setCustomCursorIcon(CursorIcon.EDIT);
 	}
 	
 	//method
@@ -161,11 +160,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 				break;
 			default:
 				if (key.isCharacter()) {
-					if (getRefKeyBoard().keyIsPressed(Key.SHIFT) ^ getRefKeyBoard().shiftIsLocked()) {
-						insertCharacterAfterCursor(key.toUpperCaseChar());	
-					} else {
-						insertCharacterAfterCursor(key.toLowerCaseChar());
-					}
+					noteCharacterKeyPressOnSelfWhenFocused(key);
 				}
 		}
 	}
@@ -285,6 +280,26 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	
 	//method
 	/**
+	 * Lets the current {@link TextBox} note a key press for the case when
+	 * the current {@link BorderWidget} is focused and the given key is a character.
+	 * 
+	 * @param characterKey
+	 */
+	private void noteCharacterKeyPressOnSelfWhenFocused(final Key characterKey) {
+		if (getRefKeyBoard().keyIsPressed(Key.CONTROL) && characterKey == Key.V) {
+			final var clipboardText = fromFrontEnd().getTextFromClipboard();
+			for (var i = 0; i < clipboardText.length(); i++) {
+				insertCharacterAfterCursor(clipboardText.charAt(i));
+			}
+		} else if (getRefKeyBoard().keyIsPressed(Key.SHIFT) ^ getRefKeyBoard().shiftIsLocked()) {
+			insertCharacterAfterCursor(characterKey.toUpperCaseChar());	
+		} else {
+			insertCharacterAfterCursor(characterKey.toLowerCaseChar());
+		}
+	}
+	
+	//method
+	/**
 	 * Paints the text cursor of the current {@link TextBox} using the given painter and textBoxLook.
 	 * @param painter
 	 * @param textBoxLook
@@ -310,10 +325,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	 */
 	private void setTextCursorPosition(final int textCursorPosition) {
 		
-		Validator
-		.assertThat(textCursorPosition)
-		.thatIsNamed("text cursor position")
-		.isNotNegative();
+		Validator.assertThat(textCursorPosition).thatIsNamed("text cursor position").isNotNegative();
 		
 		this.textCursorPosition.setValue(textCursorPosition);
 	}
