@@ -7,14 +7,14 @@ import ch.nolix.element.gui.widget.BorderWidget;
 import ch.nolix.element.gui.widget.Label;
 
 /**
- * The {@link ScrollTutorial} is a tutorial for the scroll feature of {@link BorderWidget}s.
- * Of the {@link ScrollTutorial} an instance cannot be created.
+ * The {@link ScrollingLabelTutorial} is a tutorial for the scroll feature of {@link BorderWidget}s.
+ * Of the {@link ScrollingLabelTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @date 2018-04-02
  * @lines 50
  */
-public final class ScrollTutorial {
+public final class ScrollingLabelTutorial {
 	
 	/**
 	 * Creates a {@link Frame} with a scrollable {@link Label}.
@@ -26,7 +26,7 @@ public final class ScrollTutorial {
 		//Creates a Frame.
 		final var frame =
 		new Frame()
-		.setTitle("Scroll Tutorial");
+		.setTitle("Scrolling Label Tutorial");
 		
 		//Creates a Label.
 		final var label = new Label().setText("PLATON");
@@ -48,7 +48,7 @@ public final class ScrollTutorial {
 	}
 	
 	/**
-	 * Prevents that an instance of the {@link ScrollTutorial} can be created.
+	 * Prevents that an instance of the {@link ScrollingLabelTutorial} can be created.
 	 */
-	private ScrollTutorial() {}
+	private ScrollingLabelTutorial() {}
 }
