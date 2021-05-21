@@ -63,7 +63,7 @@ import ch.nolix.element.gui.painterapi.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 1370
+ * @lines 1360
  * @param <BW> is the type of a {@link BorderWidget}.
  * @param <BWL> is the type of the {@link BorderWidgetLook}s of a {@link BorderWidget}.
  */
@@ -738,6 +738,7 @@ extends Widget<BW, BWL> {
 		Validator.assertThat(maxHeight).thatIsNamed("max height").isPositive();
 		
 		this.maxHeight.setValue(maxHeight);
+		setShowAreaYPositionOnScrolledArea(0);
 		
 		return asConcrete();
 	}
@@ -755,6 +756,7 @@ extends Widget<BW, BWL> {
 		Validator.assertThat(maxWidth).thatIsNamed("max width").isPositive();
 		
 		this.maxWidth.setValue(maxWidth);
+		setShowAreaYPositionOnScrolledArea(0);
 		
 		return asConcrete();
 	}
@@ -769,6 +771,7 @@ extends Widget<BW, BWL> {
 	public final BW setMinHeight(final int minHeight) {
 		
 		this.minHeight.setValue(minHeight);
+		setShowAreaYPositionOnScrolledArea(0);
 		
 		return asConcrete();
 	}
@@ -783,6 +786,7 @@ extends Widget<BW, BWL> {
 	public final BW setMinWidth(final int minWidth) {
 		
 		this.minWidth.setValue(minWidth);
+		setShowAreaYPositionOnScrolledArea(0);
 		
 		return asConcrete();
 	}
@@ -800,24 +804,7 @@ extends Widget<BW, BWL> {
 		Validator.assertThat(proposalHeight).thatIsNamed("proposal height").isPositive();
 		
 		this.proposalHeight.setValue(proposalHeight);
-		
-		return asConcrete();
-	}
-	
-	//method
-	/**
-	 * Sets the proposal width and the proposal height of the current {@link BorderWidget}.
-	 * 
-	 * @param proposalWidth
-	 * @param proposalHeight
-	 * @return the current {@link BorderWidget}.
-	 * @throws NonPositiveArgumentException if the given proposal width is not positive.
-	 * @throws NonPositiveArgumentException if the given proposal height is not positive.
-	 */
-	public final BW setProposalSize(final int proposalWidth, final int proposalHeight) {
-		
-		setProposalWidth(proposalWidth);
-		setProposalHeight(proposalHeight);
+		setShowAreaYPositionOnScrolledArea(0);
 		
 		return asConcrete();
 	}
@@ -835,6 +822,7 @@ extends Widget<BW, BWL> {
 		Validator.assertThat(proposalWidth).thatIsNamed("proposal width").isPositive();
 		
 		this.proposalWidth.setValue(proposalWidth);
+		setShowAreaYPositionOnScrolledArea(0);
 		
 		return asConcrete();
 	}

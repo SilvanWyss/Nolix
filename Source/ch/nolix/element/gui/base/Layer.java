@@ -1203,8 +1203,8 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 		final var borderWidget = rootWidget.as(BorderWidget.class);
 		
 		//Handles the case that the borderWidget has activated automatic size.
-		if (borderWidget.hasAutomaticSize()) {					
-			borderWidget.setProposalSize(viewAreaWidth, viewAreaHeight);
+		if (borderWidget.hasAutomaticSize()) {
+			borderWidget.setProposalWidth(viewAreaWidth).setProposalHeight(viewAreaHeight);
 		}
 	}
 	
@@ -1263,10 +1263,9 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 				final var viewAreaHeight = parentGUI.getViewAreaHeight();
 				
 				if (viewAreaWidth > 0 && viewAreaHeight > 0) {
-					lRootWidget.setProposalSize(
-						parentGUI.getViewAreaWidth(),
-						parentGUI.getViewAreaHeight()
-					);
+					lRootWidget
+					.setProposalWidth(parentGUI.getViewAreaWidth())
+					.setProposalHeight(parentGUI.getViewAreaHeight());
 				}
 			}
 		}

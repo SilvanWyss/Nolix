@@ -85,7 +85,8 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 		
 		reset();
 		
-		setProposalSize(200, 100);
+		setProposalWidth(200);
+		setProposalHeight(100);
 		getRefLook().setPaddingForState(WidgetLookState.BASE, 10);
 	}
 	
