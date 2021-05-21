@@ -1,8 +1,6 @@
 package ch.nolix.elementtutorial.widgettutorial;
 
 import ch.nolix.element.gui.base.Frame;
-import ch.nolix.element.gui.base.WidgetLookState;
-import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.widget.TextBox;
 
 /**
@@ -11,7 +9,7 @@ import ch.nolix.element.gui.widget.TextBox;
  * 
  * @author Silvan Wyss
  * @date 2018-05-13
- * @lines 40
+ * @lines 30
  */
 public final class TextBoxTutorial {
 	
@@ -23,25 +21,12 @@ public final class TextBoxTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
-		final var frame =
-		new Frame()
-		.setTitle("TextBox Tutorial");
+		final var frame = new Frame().setTitle("TextBox Tutorial");
 		
 		//Creates a TextBox.
 		final var textBox = new TextBox();
 		
-		//Configures the look of the textBox.
-		textBox
-		.setProposalWidth(200)
-		.onLook(
-			l ->
-			l
-			.setBorderThicknessForState(WidgetLookState.BASE, 5)
-			.setBackgroundColorForState(WidgetLookState.BASE, Color.LAVENDER)
-			.setPaddingForState(WidgetLookState.BASE, 5)
-		);
-		
-		//Adds the textBox to the frame.
+		//Adds the TextBox to the Frame.
 		frame.addLayerOnTop(textBox);
 	}
 	
