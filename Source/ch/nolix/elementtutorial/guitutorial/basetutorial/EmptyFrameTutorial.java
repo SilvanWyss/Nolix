@@ -1,7 +1,6 @@
 package ch.nolix.elementtutorial.guitutorial.basetutorial;
 
 import ch.nolix.element.gui.base.Frame;
-import ch.nolix.element.gui.color.Color;
 
 /**
  * The {@link EmptyFrameTutorial} is a tutorial for a {@link Frame}s.
@@ -9,6 +8,7 @@ import ch.nolix.element.gui.color.Color;
  * 
  * @author Silvan Wyss
  * @date 2016-12-01
+ * @lines 20
  */
 public final class EmptyFrameTutorial {
 	
@@ -18,9 +18,7 @@ public final class EmptyFrameTutorial {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		new Frame()
-		.setTitle("Empty Frame Tutorial")
-		.setBackgroundColor(Color.LAVENDER);
+		new Frame().setTitle("Empty Frame Tutorial");
 	}
 	
 	/**
