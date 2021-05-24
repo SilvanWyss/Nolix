@@ -2,8 +2,6 @@ package ch.nolix.systemtutorial.clienttutorial.guiclienttutorial;
 
 import ch.nolix.common.environment.localcomputer.ShellProvider;
 import ch.nolix.common.programcontrol.sequencer.Sequencer;
-import ch.nolix.element.gui.base.WidgetLookState;
-import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.widget.DropdownMenu;
 import ch.nolix.system.client.base.NetServer;
 import ch.nolix.system.client.guiclient.BackGUIClientSession;
@@ -49,16 +47,6 @@ public final class DropdownMenuTutorial {
 				"Ludwig Wittgenstein",
 				"Theodor W. Adorno"
 			);
-			
-			//Configures the look of the DropdownMenu.
-			dropdownMenu.onLook(
-				l ->
-				l
-				.setBorderThicknessForState(WidgetLookState.BASE, 5)
-				.setBackgroundColorForState(WidgetLookState.BASE, Color.LAVENDER)
-			)
-			.onItemLook(il -> il.setPaddingForState(WidgetLookState.BASE, 5))
-			.onSelectedItemLook(il -> il.setPaddingForState(WidgetLookState.BASE, 5));
 			
 			//Adds the DropdownMenu to the GUI of the current MainSession.
 			getRefGUI().addLayerOnTop(dropdownMenu);
