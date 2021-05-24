@@ -2,7 +2,6 @@ package ch.nolix.systemtutorial.clienttutorial.guiclienttutorial;
 
 import ch.nolix.common.environment.localcomputer.ShellProvider;
 import ch.nolix.common.programcontrol.sequencer.Sequencer;
-import ch.nolix.element.gui.color.Color;
 import ch.nolix.system.client.base.NetServer;
 import ch.nolix.system.client.guiclient.BackGUIClientSession;
 import ch.nolix.system.client.guiclient.FrontGUIClient;
@@ -30,11 +29,7 @@ public final class EmptyGUITutorial {
 	private static final class MainSession extends BackGUIClientSession {
 		
 		@Override
-		protected void initializeBaseBackGUIClientSession() {
-			
-			//Sets the background color of the GUI of the current MainSession.
-			getRefGUI().setBackgroundColor(Color.LAVENDER);
-		}
+		protected void initializeBaseBackGUIClientSession() {}
 	}
 	
 	private EmptyGUITutorial() {}
