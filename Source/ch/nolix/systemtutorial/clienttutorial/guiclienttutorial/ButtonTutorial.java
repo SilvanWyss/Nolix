@@ -2,8 +2,6 @@ package ch.nolix.systemtutorial.clienttutorial.guiclienttutorial;
 
 import ch.nolix.common.environment.localcomputer.ShellProvider;
 import ch.nolix.common.programcontrol.sequencer.Sequencer;
-import ch.nolix.element.gui.base.CursorIcon;
-import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.widget.Button;
 import ch.nolix.system.client.base.NetServer;
@@ -42,20 +40,6 @@ public final class ButtonTutorial {
 			new Button()
 			.setText("Change background color")
 			.setLeftMouseButtonPressAction(this::changeBackgroundColor);
-			
-			//Configures the look of the Button.
-			button
-			.setCustomCursorIcon(CursorIcon.HAND)
-			.onLook(
-				l ->
-				l
-				.setBorderThicknessForState(WidgetLookState.BASE, 5)
-				.setBackgroundColorForState(WidgetLookState.BASE, Color.LAVENDER)
-				.setBackgroundColorForState(WidgetLookState.HOVER, Color.LAVENDER)
-				.setBackgroundColorForState(WidgetLookState.FOCUS, Color.LAVENDER)
-				.setPaddingForState(WidgetLookState.BASE, 5)
-				.setTextSizeForState(WidgetLookState.BASE, 50)
-			);
 			
 			//Adds the Button to the GUI of the current MainSession.
 			getRefGUI().addLayerOnTop(button);
