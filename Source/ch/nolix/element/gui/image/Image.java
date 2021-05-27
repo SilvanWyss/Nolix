@@ -199,6 +199,24 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	}
 	
 	//method
+	public Image getSection(final int xPosition, final int yPosition, final int width, final int height) {
+		
+		Validator.assertThat(xPosition).thatIsNamed("x-position").isPositive();
+		Validator.assertThat(xPosition).thatIsNamed("y-position").isPositive();
+		Validator.assertThat(width).thatIsNamed(LowerCaseCatalogue.WIDTH).isBetween(0, getWidth() - xPosition + 1);
+		Validator.assertThat(height).thatIsNamed(LowerCaseCatalogue.WIDTH).isBetween(0, getHeight() - yPosition + 1);
+		
+		final var section = new Image(width, height);
+		for (var i = 1; i <= width; i++) {
+			for (var j = 1; j <= height; j++) {
+				section.setPixel(i, j, getPixel(xPosition + i - 1, yPosition + j - 1));
+			}
+		}
+		
+		return section;
+	}
+	
+	//method
 	public Color getTopLeftPixel() {
 		return getPixel(1, 1);
 	}
