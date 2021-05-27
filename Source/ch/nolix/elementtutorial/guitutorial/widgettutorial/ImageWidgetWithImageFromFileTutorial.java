@@ -21,19 +21,12 @@ public final class ImageWidgetWithImageFromFileTutorial {
 		//Creates a Frame.
 		final var frame = new Frame().setTitle("ImageWidget Tutorial");
 		
-		//Creates an Image.
-		final var image = Image.fromResource("ch/nolix/elementTutorial/widgetTutorial/resource/Singer_Building.jpg");
+		//Creates an Image from file.
+		final var image =
+		Image.fromResource("ch/nolix/elementTutorial/guitutorial/widgetTutorial/resource/Singer_Building.jpg");
 		
 		//Creates an ImageWidget with the Image.
 		final var imageWidget = new ImageWidget().setImage(image);
-		
-		//Configures the look of the ImageWidget.
-		imageWidget
-		.getRefLook()	
-		.setBorderThicknessForState(WidgetLookState.BASE, 5)
-		.setBorderColorForState(WidgetLookState.BASE, Color.DARK_BLUE)
-		.setBackgroundColorForState(WidgetLookState.BASE, Color.WHITE_SMOKE)
-		.setPaddingForState(WidgetLookState.BASE, 5);
 		
 		//Adds the ImageWidget to the Frame.
 		frame.addLayerOnTop(imageWidget);
