@@ -32,6 +32,8 @@ import ch.nolix.element.gui.baseapi.IOccupiableCanvasInputActionManager;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.color.ColorGradient;
 import ch.nolix.element.gui.image.Background;
+import ch.nolix.element.gui.image.Image;
+import ch.nolix.element.gui.image.ImageApplication;
 import ch.nolix.element.gui.input.IInputTaker;
 import ch.nolix.element.gui.input.IResizableInputTaker;
 import ch.nolix.element.gui.input.Key;
@@ -48,7 +50,7 @@ import ch.nolix.element.gui.widget.BorderWidget;
  * 
  * @author Silvan Wyss
  * @date 2019-05-18
- * @lines 1380
+ * @lines 1420
  */
 public final class Layer extends ConfigurableElement<Layer>
 implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInputTaker, Recalculable {
@@ -218,7 +220,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	//method
 	/**
 	 * @return the background {@link Color} of the current {@link Layer}.
-	 * @throws ArgumentDoesNotHaveAttributeException if the current {@Layer} does not have a background color.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@Layer} does not have a background {@link Color}.
 	 */
 	public Color getBackgroundColor() {
 		return background.getValue().getColor();
@@ -227,10 +229,20 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	//method
 	/**
 	 * @return the background {@link ColorGradient} of the current {@link Layer}.
-	 * @throws ArgumentDoesNotHaveAttributeException if the current {@Layer} does not have a background color gradient.
+	 * @throws ArgumentDoesNotHaveAttributeException if
+	 * the current {@Layer} does not have a background {@link ColorGradient}.
 	 */
 	public ColorGradient getBackgroundColorGradient() {
 		return background.getValue().getColorGradient();
+	}
+	
+	//method
+	/**
+	 * @return the background {@link Image} of the current {@link Layer}.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@Layer} does not have a background {@link Image}.
+	 */
+	public Image getBackgroundImage() {
+		return background.getValue().getImage();
 	}
 	
 	//method
@@ -412,6 +424,14 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 */
 	public boolean hasBackgroundColorGradient() {
 		return (hasBackground() && background.getValue().isColorGradient());
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link Layer} has a background {@link Image}.
+	 */
+	public boolean hasBackgroundImage() {
+		return (hasBackground() && background.getValue().isImage());
 	}
 	
 	//method
@@ -829,6 +849,27 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	
 	//method
 	/**
+	 * Sets the background {@link Image} of the current {@link Layer}.
+	 * Removes any former background of the current {@link Layer}.
+	 * 
+	 * @param backgroundImage
+	 * @param imageApplication
+	 * @return the current {@link Layer}.
+	 * @throws ArgumentIsNullException if the given backgroundColor is null.
+	 * @throws ArgumentIsNullException if the given imageApplication is null.
+	 */
+	public Layer setBackgroundImage(final Image backgroundImage, final ImageApplication imageApplication) {
+		
+		final var lBackground = new Background();
+		lBackground.setImage(backgroundImage, imageApplication);
+		
+		setBackground(lBackground);
+		
+		return this;
+	}
+	
+	//method
+	/**
 	 * Lets the current {@link Layer} be allowed to be configured.
 	 * 
 	 * @return the current {@link Layer}.
@@ -1227,15 +1268,20 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	//For a better performance, this implementation does not use all comfortable methods.
 	private void paintBackground(final IPainter painter) {
 		
-		//Handles the case that the current Layer has a background color.
+		//Handles the case that the current Layer has a background Color.
 		if (hasBackgroundColor()) {
 			painter.setColor(getBackgroundColor());
 			painter.paintFilledRectangle(parentGUI.getViewAreaWidth(), parentGUI.getViewAreaHeight());
 			
-		//Handles the case that the current Layer has a background color gradient.
+		//Handles the case that the current Layer has a background ColorGradient.
 		} else if (hasBackgroundColorGradient()) {
 			painter.setColorGradient(getBackgroundColorGradient());
 			painter.paintFilledRectangle(parentGUI.getViewAreaWidth(), parentGUI.getViewAreaHeight());
+		}
+		
+		//Handles the case that the current Layer has a background Image.
+		else if (hasBackgroundImage()) {
+			painter.paintImage(getBackgroundImage(), parentGUI.getViewAreaWidth(), parentGUI.getViewAreaHeight());
 		}
 	}
 	
