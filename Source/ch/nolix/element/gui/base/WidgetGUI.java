@@ -29,6 +29,8 @@ import ch.nolix.element.gui.containerwidget.HorizontalStack;
 import ch.nolix.element.gui.containerwidget.SingleContainer;
 import ch.nolix.element.gui.containerwidget.TabContainer;
 import ch.nolix.element.gui.containerwidget.VerticalStack;
+import ch.nolix.element.gui.image.Image;
+import ch.nolix.element.gui.image.ImageApplication;
 import ch.nolix.element.gui.input.IResizableInputTaker;
 import ch.nolix.element.gui.input.Key;
 import ch.nolix.element.gui.painterapi.IPainter;
@@ -52,7 +54,7 @@ import ch.nolix.element.gui.widget.VerticalLine;
  * 
  * @author Silvan Wyss
  * @date 2019-08-01
- * @lines 820
+ * @lines 860
  * @param <WG> is the type of a {@link WidgetGUI}.
  */
 public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implements IWidgetGUI<WG> {
@@ -404,9 +406,31 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	//method
 	/**
 	 * @return the background {@link Color} of the current {@link WidgetGUI}.
+	 * @throws ArgumentDoesNotHaveAttributeException if
+	 * the current {@WidgetGUI} does not have a background {@link Color}.
 	 */
 	public final Color getBackgroundColor() {
 		return background.getBackgroundColor();
+	}
+	
+	//method
+	/**
+	 * @return the background {@link ColorGradient} of the current {@link WidgetGUI}.
+	 * @throws ArgumentDoesNotHaveAttributeException if
+	 * the current {@WidgetGUI} does not have a background {@link ColorGradient}.
+	 */
+	public final ColorGradient getBackgroundColorGradient() {
+		return background.getBackgroundColorGradient();
+	}
+	
+	//method
+	/**
+	 * @return the background {@link Image} of the current {@link WidgetGUI}.
+	 * @throws ArgumentDoesNotHaveAttributeException if
+	 * the current {@WidgetGUI} does not have a background {@link Image}.
+	 */
+	public final Image getBackgroundImage() {
+		return background.getBackgroundImage();
 	}
 	
 	//method
@@ -590,6 +614,24 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	public final WG setBackgroundColorGradient(final ColorGradient backgroundColorGradient) {
 		
 		background.setBackgroundColorGradient(backgroundColorGradient);
+		
+		return asConcrete();
+	}
+	
+	//method
+	/**
+	 * Sets the background {@link Image} of the current {@link WidgetGUI}.
+	 * Removes any former background of the current {@link WidgetGUI}.
+	 * 
+	 * @param backgroundImage
+	 * @param imageApplication
+	 * @return the current {@link WidgetGUI}.
+	 * @throws ArgumentIsNullException if the given backgroundColor is null.
+	 * @throws ArgumentIsNullException if the given imageApplication is null.
+	 */
+	public final WG setBackgroundImage(final Image backgroundImage, final ImageApplication imageApplication) {
+		
+		background.setBackgroundImage(backgroundImage, imageApplication);
 		
 		return asConcrete();
 	}
