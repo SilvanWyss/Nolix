@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.gui.base;
 
+//own imports
 import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
@@ -51,7 +52,7 @@ import ch.nolix.element.gui.widget.VerticalLine;
  * 
  * @author Silvan Wyss
  * @date 2019-08-01
- * @lines 800
+ * @lines 820
  * @param <WG> is the type of a {@link WidgetGUI}.
  */
 public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implements IWidgetGUI<WG> {
@@ -573,6 +574,22 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	public final WG setBackgroundColor(final Color backgroundColor) {
 		
 		background.setBackgroundColor(backgroundColor);
+		
+		return asConcrete();
+	}
+	
+	//method
+	/**
+	 * Sets the background {@link ColorGradient} of the current {@link WidgetGUI}.
+	 * Removes any former background of the current {@link WidgetGUI}.
+	 * 
+	 * @param backgroundColorGradient
+	 * @return the current {@link WidgetGUI}.
+	 * @throws ArgumentIsNullException if the given backgroundColorGradient is null.
+	 */
+	public final WG setBackgroundColorGradient(final ColorGradient backgroundColorGradient) {
+		
+		background.setBackgroundColorGradient(backgroundColorGradient);
 		
 		return asConcrete();
 	}
