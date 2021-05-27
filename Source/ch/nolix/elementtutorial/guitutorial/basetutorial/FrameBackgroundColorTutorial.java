@@ -14,7 +14,7 @@ import ch.nolix.element.gui.color.Color;
 public final class FrameBackgroundColorTutorial {
 	
 	/**
-	 * Creates a {@link Frame} and sets a background color to it.
+	 * Creates a {@link Frame} and sets a background {@link Color} to it.
 	 * 
 	 * @param args
 	 */
