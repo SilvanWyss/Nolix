@@ -15,7 +15,7 @@ import ch.nolix.element.gui.color.ColorGradient;
 public final class FrameBackgroundColorGradientTutorial {
 	
 	/**
-	 * Creates a {@link Frame} and sets a background color to it.
+	 * Creates a {@link Frame} and sets a background {@link ColorGradient} to it.
 	 * 
 	 * @param args
 	 */
