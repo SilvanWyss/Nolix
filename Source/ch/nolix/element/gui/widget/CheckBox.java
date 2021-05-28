@@ -3,9 +3,8 @@ package ch.nolix.element.gui.widget;
 
 //own imports
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.document.node.BaseNode;
-import ch.nolix.common.document.node.Node;
 import ch.nolix.common.math.Calculator;
+import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.elementenum.RotationDirection;
 import ch.nolix.element.gui.base.Widget;
 import ch.nolix.element.gui.input.Key;
@@ -15,18 +14,19 @@ import ch.nolix.element.gui.painterapi.IPainter;
 /**
  * @author Silvan Wyss
  * @date 2016-06-01
- * @lines 370
+ * @lines 310
  */
 public final class CheckBox extends BorderWidget<CheckBox, CheckBoxLook> {
 	
 	//constant
-	public static final String TYPE_NAME = "Checkbox";
+	public static final boolean DEFAULT_CHECK_STATE = false;
 	
 	//constant
 	private static final String CHECK_FLAG_HEADER = "Checked";
 	
 	//attribute
-	private boolean checked;
+	private final MutableValue<Boolean> checked =
+	MutableValue.forBoolean(CHECK_FLAG_HEADER, DEFAULT_CHECK_STATE, this::setCheckFlag);
 	
 	//constructor
 	/**
@@ -38,47 +38,10 @@ public final class CheckBox extends BorderWidget<CheckBox, CheckBoxLook> {
 	
 	//method
 	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void addOrChangeAttribute(final BaseNode attribute) {
-		
-		//Enumerates the header of the given attribute.
-		switch (attribute.getHeader()) {
-			case CHECK_FLAG_HEADER:
-				setCheckFlag(attribute.getOneAttributeAsBoolean());
-				break;
-			default:
-				
-				//Calls method of the base class.
-				super.addOrChangeAttribute(attribute);
-		}
-	}
-	
-	//method
-	/**
 	 * Checks the current {@link CheckBox}.
-	 * 
-	 * @return the current {@link CheckBox}.
 	 */
-	public CheckBox check() {
-		
-		checked = true;
-		
-		return this;
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void fillUpAttributesInto(final LinkedList<Node> list) {
-		
-		//Calls method of base class.
-		super.fillUpAttributesInto(list);
-		
-		list.addAtEnd(Node.withHeaderAndAttribute(CHECK_FLAG_HEADER, isChecked()));
+	public void check() {
+		checked.setValue(true);
 	}
 	
 	//method
@@ -95,38 +58,15 @@ public final class CheckBox extends BorderWidget<CheckBox, CheckBoxLook> {
 	 * @return true if the current {@link CheckBox} is checked.
 	 */
 	public boolean isChecked() {
-		return checked;
-	}
-	
-	//method
-	/**
-	 * Sets the check flag of the current {@link CheckBox}.
-	 * 
-	 * @param checked
-	 * @return the current {@link CheckBox}.
-	 */
-	public CheckBox setCheckFlag(boolean checked) {
-		
-		if (!checked) {
-			uncheck();
-		} else {
-			check();
-		}
-		
-		return this;
+		return checked.getValue();
 	}
 	
 	//method
 	/**
 	 * Unchecks the current {@link CheckBox}.
-	 * 
-	 * @return the current {@link CheckBox}.
 	 */
-	public CheckBox uncheck() {
-		
-		checked = false;
-		
-		return this;
+	public void uncheck() {
+		checked.setValue(false);
 	}
 	
 	//method
@@ -291,58 +231,48 @@ public final class CheckBox extends BorderWidget<CheckBox, CheckBoxLook> {
 		
 		painter.setColor(checkBoxLook.getTextColor());
 		
-		//Paints the left border of the current check box.
+		//Paints the left border of the current CheckBox.
 		painter.paintFilledRectangle(0, 0, t, s);
 		
-		//Paints the right border of the current check box.
+		//Paints the right border of the current CheckBox.
 		painter.paintFilledRectangle(s - t, 0, t, s);
 		
-		//Paints the top border of the current check box.
+		//Paints the top border of the current CheckBox.
 		painter.paintFilledRectangle(0, 0, s, t);
 		
-		//Paints the bottom border of the current check box.
+		//Paints the bottom border of the current CheckBox.
 		painter.paintFilledRectangle(0, s - t, s, t);
 		
-		//Paints the icon of the current check box if it is checked.
+		//Paints the icon of the current CheckBox if it is checked.
 		if (isChecked()) {
 			
 			final var a = Calculator.getMax(1, (int)(0.75 * t));
 			
 			//Paints the line from the bottom left corner to to the top right corner of the cross.	
-				final int[] bottomLeftToTopRightLineXs = new int[4];
-				final int[] bottomLeftToTopRightLineYs = new int[4];
-				
-				bottomLeftToTopRightLineXs[0] = a;
-				bottomLeftToTopRightLineYs[0] = s;
-				
-				bottomLeftToTopRightLineXs[1] = s;
-				bottomLeftToTopRightLineYs[1] = a;
-				
-				bottomLeftToTopRightLineXs[2] = s - a;
-				bottomLeftToTopRightLineYs[2] = 0;
-				
-				bottomLeftToTopRightLineXs[3] = 0;
-				bottomLeftToTopRightLineYs[3] = s - a;
-				
-				painter.paintFilledPolygon(bottomLeftToTopRightLineXs, bottomLeftToTopRightLineYs);
-				
+			final int[] bottomLeftToTopRightLineXs = new int[4];
+			final int[] bottomLeftToTopRightLineYs = new int[4];
+			bottomLeftToTopRightLineXs[0] = a;
+			bottomLeftToTopRightLineYs[0] = s;
+			bottomLeftToTopRightLineXs[1] = s;
+			bottomLeftToTopRightLineYs[1] = a;
+			bottomLeftToTopRightLineXs[2] = s - a;
+			bottomLeftToTopRightLineYs[2] = 0;
+			bottomLeftToTopRightLineXs[3] = 0;
+			bottomLeftToTopRightLineYs[3] = s - a;
+			painter.paintFilledPolygon(bottomLeftToTopRightLineXs, bottomLeftToTopRightLineYs);
+			
 			//Paints the line from the bottom right corner to the top left corner of the cross.
-				final int[] bottomRightToTopLeftLineXs = new int[4];
-				final int[] bottomRightToTopLeftLineYs = new int[4];
-				
-				bottomRightToTopLeftLineXs[0] = s;
-				bottomRightToTopLeftLineYs[0] = s - a;
-				
-				bottomRightToTopLeftLineXs[1] = a;
-				bottomRightToTopLeftLineYs[1] = 0;
-				
-				bottomRightToTopLeftLineXs[2] = 0;
-				bottomRightToTopLeftLineYs[2] = a;
-				
-				bottomRightToTopLeftLineXs[3] = s - a;
-				bottomRightToTopLeftLineYs[3] = s;
-				
-				painter.paintFilledPolygon(bottomRightToTopLeftLineXs, bottomRightToTopLeftLineYs);
+			final int[] bottomRightToTopLeftLineXs = new int[4];
+			final int[] bottomRightToTopLeftLineYs = new int[4];
+			bottomRightToTopLeftLineXs[0] = s;
+			bottomRightToTopLeftLineYs[0] = s - a;
+			bottomRightToTopLeftLineXs[1] = a;
+			bottomRightToTopLeftLineYs[1] = 0;
+			bottomRightToTopLeftLineXs[2] = 0;
+			bottomRightToTopLeftLineYs[2] = a;
+			bottomRightToTopLeftLineXs[3] = s - a;
+			bottomRightToTopLeftLineYs[3] = s;
+			painter.paintFilledPolygon(bottomRightToTopLeftLineXs, bottomRightToTopLeftLineYs);
 		}
 	}
 	
@@ -367,5 +297,19 @@ public final class CheckBox extends BorderWidget<CheckBox, CheckBoxLook> {
 	@Override
 	protected void resetBorderWidget() {
 		uncheck();
+	}
+	
+	//method
+	/**
+	 * Sets the check flag of the current {@link CheckBox}.
+	 * 
+	 * @param checked
+	 */
+	private void setCheckFlag(final boolean checked) {
+		if (!checked) {
+			uncheck();
+		} else {
+			check();
+		}
 	}
 }
