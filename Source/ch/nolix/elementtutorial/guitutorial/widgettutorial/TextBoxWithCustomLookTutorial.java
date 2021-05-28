@@ -23,7 +23,7 @@ public final class TextBoxWithCustomLookTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
-		final var frame = new Frame().setTitle("TextBox with custom look Tutorial");
+		final var frame = new Frame().setTitle("TextBox with custom look tutorial");
 		
 		//Creates a TextBox.
 		final var textBox = new TextBox();

@@ -17,7 +17,7 @@ public final class DefaultFractalTutorial {
 		//Creates a Frame.
 		final var frame =
 		new Frame()
-		.setTitle("Default Fractal Tutorial")
+		.setTitle("Default Fractal tutorial")
 		.addLayerOnTop(new Label().setText("Please wait..."));
 		
 		//Sets the Image of a Fractal to the Frame. The creation of the Image may last a few seconds.

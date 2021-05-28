@@ -20,7 +20,7 @@ public final class FrameBackgroundColorTutorial {
 	 */
 	public static void main(String[] args) {
 		new Frame()
-		.setTitle("Frame background color Tutorial")
+		.setTitle("Frame background color tutorial")
 		.setBackgroundColor(Color.LAVENDER);
 	}
 	

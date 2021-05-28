@@ -16,7 +16,7 @@ public final class ButtonTutorial {
 		final var netServer = new NetServer();
 		
 		//Adds a default Application to the NetServer.
-		netServer.addDefaultApplication("Button Tutorial", MainSession.class);
+		netServer.addDefaultApplication("Button tutorial", MainSession.class);
 		
 		//Creates a FrontGUIClient that will connect to the NetServer.
 		new FrontGUIClient();

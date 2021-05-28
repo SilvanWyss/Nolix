@@ -23,7 +23,7 @@ public final class ImageWidgetTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
-		final var frame = new Frame().setTitle("ImageWidget Tutorial");
+		final var frame = new Frame().setTitle("ImageWidget tutorial");
 		
 		//Creates an Image.
 		final var image = new Image(800, 500);

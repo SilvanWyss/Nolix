@@ -21,7 +21,7 @@ public final class FrameBackgroundColorGradientTutorial {
 	 */
 	public static void main(String[] args) {
 		new Frame()
-		.setTitle("Frame background color gradient Tutorial")
+		.setTitle("Frame background color gradient tutorial")
 		.setBackgroundColorGradient(new ColorGradient(Color.SKY_BLUE, Color.WHITE));
 	}
 	

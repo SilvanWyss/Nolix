@@ -23,7 +23,7 @@ public final class GUI3DTutorial2 {
 	 */
 	public static void main(String[] args) {
 		
-		final var mainFrame = new JMonkeyMainFrame("3D GUI Tutorial");
+		final var mainFrame = new JMonkeyMainFrame("3D GUI tutorial");
 		
 		mainFrame.setRootShape(
 			new MultiShape(

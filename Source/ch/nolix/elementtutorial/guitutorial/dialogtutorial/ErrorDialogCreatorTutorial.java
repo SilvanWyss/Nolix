@@ -15,7 +15,7 @@ public final class ErrorDialogCreatorTutorial {
 		final var frame = new Frame();
 		
 		//Sets the title of the Frame.
-		frame.setTitle("ErrorDialog Tutorial");
+		frame.setTitle("ErrorDialog tutorial");
 		
 		//Adds a Button, that can open an ErrorDialog, to the Frame.
 		frame.addLayerOnTop(

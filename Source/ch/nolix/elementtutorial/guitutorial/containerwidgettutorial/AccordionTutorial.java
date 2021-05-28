@@ -24,7 +24,7 @@ public final class AccordionTutorial {
 	public static void main(String[] args) {
 				
 		//Creates a Frame.
-		final var frame = new Frame().setTitle("Accordion Tutorial");
+		final var frame = new Frame().setTitle("Accordion tutorial");
 		
 		//Creates an Accordion.
 		final var accordion =

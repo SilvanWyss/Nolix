@@ -21,7 +21,7 @@ public final class BlackWhiteMandelbrotFractalTutorial {
 		//Creates a Frame that shows a realtime-generated image of a Fractal.
 		final var frame =
 		new Frame()
-		.setTitle("Black White Mandelrbrot Fractal Tutorial")
+		.setTitle("Black White Mandelrbrot Fractal tutorial")
 		.addLayerOnTop(
 			new ImageWidget()
 			.setImage(

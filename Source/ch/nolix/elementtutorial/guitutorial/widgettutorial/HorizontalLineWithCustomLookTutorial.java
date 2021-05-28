@@ -27,7 +27,7 @@ public final class HorizontalLineWithCustomLookTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
-		final var frame = new Frame().setTitle("HorizontalLine with custom look Tutorial");
+		final var frame = new Frame().setTitle("HorizontalLine with custom look tutorial");
 	
 		//Creates a VerticalStack with 3 Labels and 2 HorizontalLines.
 		final var verticalStack =

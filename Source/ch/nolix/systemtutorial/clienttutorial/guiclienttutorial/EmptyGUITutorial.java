@@ -14,7 +14,7 @@ public final class EmptyGUITutorial {
 		final var netServer = new NetServer();
 		
 		//Adds a default Application to the NetServer.
-		netServer.addDefaultApplication("Empty GUI Tutorial", MainSession.class);
+		netServer.addDefaultApplication("Empty GUI tutorial", MainSession.class);
 		
 		//Creates a FrontGUIClient that will connect to the NetServer.
 		new FrontGUIClient();

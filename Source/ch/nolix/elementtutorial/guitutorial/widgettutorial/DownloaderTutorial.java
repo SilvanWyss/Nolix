@@ -23,7 +23,7 @@ public final class DownloaderTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
-		final var frame = new Frame().setTitle("Downloader Tutorial");
+		final var frame = new Frame().setTitle("Downloader tutorial");
 		
 		//Creates a file for the Downloader.
 		var filePath = "tutorial.txt";

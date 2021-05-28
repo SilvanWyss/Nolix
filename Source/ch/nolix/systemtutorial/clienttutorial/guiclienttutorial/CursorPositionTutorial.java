@@ -18,7 +18,7 @@ public final class CursorPositionTutorial {
 		final var netServer = new NetServer();
 		
 		//Adds a default Application to the NetServer.
-		netServer.addDefaultApplication("Cursor position Tutorial", MainSession.class);
+		netServer.addDefaultApplication("Cursor position tutorial", MainSession.class);
 		
 		//Creates a FrontGUIClient that will connect to the NetServer.
 		new FrontGUIClient();

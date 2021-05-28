@@ -17,7 +17,7 @@ public final class AligningContainerWithAutomaticSizeTutorial {
 		label.getRefLook().setTextSizeForState(WidgetLookState.BASE, 100);
 		
 		new Frame()
-		.setTitle("AligningContainer with automatic size Tutorial")
+		.setTitle("AligningContainer with automatic size tutorial")
 		.addLayerOnTop(
 			new AligningContainer()
 			.setOnTop(label)

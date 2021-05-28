@@ -27,7 +27,7 @@ public final class FloatContainerTutorial {
 		//Creates a Frame.
 		final var frame = 
 		new Frame()
-		.setTitle("Float Container Tutorial");
+		.setTitle("Float Container tutorial");
 		
 		//Creates a FloatConatiner.
 		final var floatContainer =

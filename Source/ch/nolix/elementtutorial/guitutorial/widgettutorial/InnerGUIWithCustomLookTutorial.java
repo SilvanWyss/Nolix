@@ -25,7 +25,7 @@ public final class InnerGUIWithCustomLookTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
-		final var frame = new Frame().setTitle("InnerGUI with custom look Tutorial");
+		final var frame = new Frame().setTitle("InnerGUI with custom look tutorial");
 		
 		//Creates InnerGUIs.
 		final var innerGUI1 =

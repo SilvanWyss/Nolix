@@ -28,7 +28,7 @@ public final class GridTutorial {
 		//Creates a Frame.
 		final var frame =
 		new Frame()
-		.setTitle("Grid Tutorial");
+		.setTitle("Grid tutorial");
 		
 		//Creates a Grid
 		final var grid =

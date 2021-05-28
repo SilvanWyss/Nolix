@@ -14,7 +14,7 @@ public final class YesNoDialogCreatorTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
-		final var frame = new Frame().setTitle("YesNoDialog Tutorial");
+		final var frame = new Frame().setTitle("YesNoDialog tutorial");
 		
 		//Adds a Button, that can open a YesNoDialog, to the Frame.
 		frame.addLayerOnTop(

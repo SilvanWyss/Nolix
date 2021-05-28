@@ -18,7 +18,7 @@ public final class ImageWidgetTutorial {
 		final var netServer = new NetServer();
 		
 		//Adds a default Application to the NetServer.
-		netServer.addDefaultApplication("ImageWidget Tutorial", MainSession.class);
+		netServer.addDefaultApplication("ImageWidget tutorial", MainSession.class);
 		
 		//Creates a FrontGUIClient that will connect to the NetServer.
 		new FrontCanvasGUIClient();

@@ -16,7 +16,7 @@ public final class HelloWorldGUITutorial {
 		final var netServer = new NetServer();
 		
 		//Adds a default Application to the NetServer.
-		netServer.addDefaultApplication("Hello World GUI Tutorial", MainSession.class);
+		netServer.addDefaultApplication("Hello World GUI tutorial", MainSession.class);
 		
 		//Creates a FrontGUIClient that will connect to the NetServer.
 		new FrontGUIClient();

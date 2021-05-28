@@ -17,7 +17,7 @@ public final class AligningContainerTutorial {
 		label.getRefLook().setTextSizeForState(WidgetLookState.BASE, 100);
 		
 		new Frame()
-		.setTitle("AligningContainer Tutorial")
+		.setTitle("AligningContainer tutorial")
 		.addLayerOnTop(
 			new AligningContainer()
 			.setOnTop(label)

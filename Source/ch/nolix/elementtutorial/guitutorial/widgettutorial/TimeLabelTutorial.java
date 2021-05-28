@@ -26,7 +26,7 @@ public final class TimeLabelTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
-		final var frame = new Frame().setTitle("Time Label Tutorial");
+		final var frame = new Frame().setTitle("Time Label tutorial");
 		
 		//Creates clockCaptionLabel.
 		final var clockCaptionLabel = new Label().setText("Time:");

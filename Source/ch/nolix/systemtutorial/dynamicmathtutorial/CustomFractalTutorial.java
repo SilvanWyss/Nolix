@@ -21,7 +21,7 @@ public final class CustomFractalTutorial {
 		//Creates a Frame that shows a realtime-generated image of a Fractal.
 		final var frame =
 		new Frame()
-		.setTitle("Custom Fractal Tutorial")
+		.setTitle("Custom Fractal tutorial")
 		.addLayerOnTop(
 			new ImageWidget()
 			.setImage(

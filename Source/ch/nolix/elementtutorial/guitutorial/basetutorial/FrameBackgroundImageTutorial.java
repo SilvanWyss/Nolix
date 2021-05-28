@@ -22,7 +22,7 @@ public final class FrameBackgroundImageTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
-		final var frame = new Frame().setTitle("Frame background image Tutorial");
+		final var frame = new Frame().setTitle("Frame background image tutorial");
 		
 		//Creates an Image from file.
 		final var image = Image.fromResource("ch/nolix/elementTutorial/guiTutorial/basetutorial/resource/Pilatus.jpg");

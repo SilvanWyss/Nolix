@@ -23,7 +23,7 @@ public final class ConsoleWithCustomLookTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
-		final var frame = new Frame().setTitle("Console with custom look Tutorial");
+		final var frame = new Frame().setTitle("Console with custom look tutorial");
 		
 		//Creates a Console.
 		final var console =	new Console();

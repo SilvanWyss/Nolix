@@ -23,7 +23,7 @@ public final class JuliaFractalTutorial {
 		//Creates a Frame that shows a realtime-generated image of a Fractal.
 		final var frame =
 		new Frame()
-		.setTitle("Julia Fractal Tutorial")
+		.setTitle("Julia Fractal tutorial")
 		.addLayerOnTop(
 			new ImageWidget()
 			.setImage(

@@ -18,7 +18,7 @@ public final class EmptyFrameTutorial {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		new Frame().setTitle("Empty Frame Tutorial");
+		new Frame().setTitle("Empty Frame tutorial");
 	}
 	
 	/**

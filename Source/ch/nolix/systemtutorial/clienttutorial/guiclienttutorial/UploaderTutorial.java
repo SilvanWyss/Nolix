@@ -15,7 +15,7 @@ public class UploaderTutorial {
 		final var netServer = new NetServer();
 		
 		//Adds a default Application to the NetServer.
-		netServer.addDefaultApplication("Uploader Tutorial", MainSession.class);
+		netServer.addDefaultApplication("Uploader tutorial", MainSession.class);
 		
 		//Creates a FrontGUIClient that will connect to the NetServer.
 		new FrontGUIClient();

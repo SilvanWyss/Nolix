@@ -21,7 +21,7 @@ public final class SelectionMenuTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
-		final var frame = new Frame().setTitle("SelectionMenu Tutorial");
+		final var frame = new Frame().setTitle("SelectionMenu tutorial");
 		
 		//Creates a SelectionMenu.
 		final var selectionMenu =

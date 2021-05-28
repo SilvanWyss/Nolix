@@ -15,7 +15,7 @@ public final class DropdownMenuTutorial {
 		final var netServer = new NetServer();
 		
 		//Adds a default Application to the NetServer.
-		netServer.addDefaultApplication("DropdownMenu Tutorial", MainSession.class);
+		netServer.addDefaultApplication("DropdownMenu tutorial", MainSession.class);
 		
 		//Creates a FrontCanvasGUIClient that will connect to the NetServer.
 		new FrontCanvasGUIClient();

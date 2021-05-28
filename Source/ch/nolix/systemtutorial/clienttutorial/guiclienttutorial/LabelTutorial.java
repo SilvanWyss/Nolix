@@ -19,7 +19,7 @@ public final class LabelTutorial {
 		final var netServer = new NetServer();
 		
 		//Adds a default Application to the NetServer.
-		netServer.addDefaultApplication("Label Tutorial", MainSession.class);
+		netServer.addDefaultApplication("Label tutorial", MainSession.class);
 		
 		//Creates a FrontGUIClient that will connect to the NetServer.
 		new FrontGUIClient();

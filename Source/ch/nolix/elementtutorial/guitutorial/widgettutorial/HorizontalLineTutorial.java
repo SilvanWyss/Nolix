@@ -24,7 +24,7 @@ public final class HorizontalLineTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
-		final var frame = new Frame().setTitle("HorizontalLine Tutorial");
+		final var frame = new Frame().setTitle("HorizontalLine tutorial");
 	
 		//Creates a VerticalStack with 3 Labels and 2 HorizontalLines.
 		final var verticalStack =

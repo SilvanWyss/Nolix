@@ -24,7 +24,7 @@ public final class ButtonWithCustomLookTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
-		final var frame = new Frame().setTitle("Button with custom look Tutorial");
+		final var frame = new Frame().setTitle("Button with custom look tutorial");
 		
 		//Creates a Button.
 		final var button = new Button().setText("Change background color");

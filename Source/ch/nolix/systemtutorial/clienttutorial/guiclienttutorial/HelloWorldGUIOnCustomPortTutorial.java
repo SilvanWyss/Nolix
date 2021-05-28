@@ -19,7 +19,7 @@ public final class HelloWorldGUIOnCustomPortTutorial {
 		final var netServer = new NetServer(port);
 		
 		//Adds a default Application to the NetServer.
-		netServer.addDefaultApplication("Hello World GUI on custom port Tutorial", MainSession.class);
+		netServer.addDefaultApplication("Hello World GUI on custom port tutorial", MainSession.class);
 		
 		//Creates a FrontGUIClient that will connect to the NetServer.
 		new FrontGUIClient(port);

@@ -32,7 +32,7 @@ public final class TextureCreatorsTutorial {
 		
 		//Creates a Frame that will show the textures.
 		new Frame()
-		.setTitle("TextureCreators Tutorial")
+		.setTitle("TextureCreators tutorial")
 		.addLayerOnTop(
 			new Accordion()
 			.addTab(

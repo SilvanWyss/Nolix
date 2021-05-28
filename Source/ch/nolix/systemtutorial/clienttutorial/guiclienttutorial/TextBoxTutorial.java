@@ -17,7 +17,7 @@ public final class TextBoxTutorial {
 		final var netServer = new NetServer();
 		
 		//Adds a default Application to the NetServer.
-		netServer.addDefaultApplication("TextBox Tutorial", MainSession.class);
+		netServer.addDefaultApplication("TextBox tutorial", MainSession.class);
 		
 		//Creates a FrontGUIClient that will connect to the NetServer.
 		new FrontGUIClient();
