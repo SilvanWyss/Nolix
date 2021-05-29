@@ -143,7 +143,7 @@ TopLeftPositionedRecangular {
 				setHoverState(attribute.getOneAttributeAsBoolean());
 				break;
 			default:
-				internalAddOrChangeAttribute(attribute);
+				addOrChangeAttribute(attribute);
 		}
 	}
 	
