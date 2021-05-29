@@ -16,7 +16,7 @@ import ch.nolix.element.base.Element;
 import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.elementapi.IMutableElement;
 import ch.nolix.element.gui.base.CursorIcon;
-import ch.nolix.element.gui.base.OptionalWidgetProperty;
+import ch.nolix.element.gui.base.MutableOptionalWidgetProperty;
 import ch.nolix.element.gui.base.Widget;
 import ch.nolix.element.gui.widget.Label;
 
@@ -65,7 +65,7 @@ implements Clearable, Headerable<AccordionTab>, IMutableElement<AccordionTab> {
 	private VerticalStack mainVerticalStack = new VerticalStack();
 	private final HorizontalStack headerHorizontalStack = new HorizontalStack();
 	private final Label headerLabel = new Label();
-	private final OptionalWidgetProperty widget = new OptionalWidgetProperty(this::setWidget);
+	private final MutableOptionalWidgetProperty widget = new MutableOptionalWidgetProperty(this::setWidget);
 	private final SingleContainer widgetContainer = new SingleContainer();
 	
 	//optional attribute

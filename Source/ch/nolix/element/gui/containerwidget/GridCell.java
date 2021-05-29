@@ -10,14 +10,14 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.skillapi.Clearable;
 import ch.nolix.element.base.Element;
 import ch.nolix.element.elementapi.IMutableElement;
-import ch.nolix.element.gui.base.OptionalWidgetProperty;
+import ch.nolix.element.gui.base.MutableOptionalWidgetProperty;
 import ch.nolix.element.gui.base.Widget;
 
 //class
 final class GridCell extends Element<GridCell> implements Clearable, IMutableElement<GridCell> {
 	
 	//attribute
-	private final OptionalWidgetProperty widget = new OptionalWidgetProperty(this::setWidget);
+	private final MutableOptionalWidgetProperty widget = new MutableOptionalWidgetProperty(this::setWidget);
 	
 	//optional attribute
 	private final int rowIndex;

@@ -17,7 +17,7 @@ import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.elementapi.IMutableElement;
 import ch.nolix.element.elementenum.ContentPosition;
 import ch.nolix.element.gui.base.CursorIcon;
-import ch.nolix.element.gui.base.OptionalWidgetProperty;
+import ch.nolix.element.gui.base.MutableOptionalWidgetProperty;
 import ch.nolix.element.gui.base.Widget;
 import ch.nolix.element.gui.widget.Label;
 
@@ -73,7 +73,7 @@ implements Clearable, Headerable<TabContainerTab>, IMutableElement<TabContainerT
 	
 	//attributes
 	private final Label menuItemLabel = new Label();
-	private final OptionalWidgetProperty widget = new OptionalWidgetProperty(this::setWidget);
+	private final MutableOptionalWidgetProperty widget = new MutableOptionalWidgetProperty(this::setWidget);
 	
 	//constructor
 	/**

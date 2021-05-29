@@ -12,7 +12,7 @@ import ch.nolix.common.skillapi.Clearable;
 import ch.nolix.element.base.Property;
 
 //class
-public final class OptionalWidgetProperty extends Property implements Clearable {
+public final class MutableOptionalWidgetProperty extends Property implements Clearable {
 	
 	//attribute
 	private final IElementTaker<Widget<?, ?>> setterMethod;
@@ -21,7 +21,7 @@ public final class OptionalWidgetProperty extends Property implements Clearable 
 	private Widget<?, ?> widget;
 	
 	//constructor
-	public OptionalWidgetProperty(final IElementTaker<Widget<?, ?>> setterMethod) {
+	public MutableOptionalWidgetProperty(final IElementTaker<Widget<?, ?>> setterMethod) {
 		
 		Validator.assertThat(setterMethod).thatIsNamed("setter method")	.isNotNull();
 		
