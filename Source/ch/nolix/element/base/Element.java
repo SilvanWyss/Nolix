@@ -22,7 +22,7 @@ import ch.nolix.element.elementapi.IElement;
 /**
  * @author Silvan Wyss
  * @date 2017-10-29
- * @lines 230
+ * @lines 260
  * @param <E> is the type of a {@link Element}.
  */
 public abstract class Element<E extends Element<E>> implements IElement<E> {
@@ -142,10 +142,34 @@ public abstract class Element<E extends Element<E>> implements IElement<E> {
 	}
 	
 	//method
-	private void extractPropertiesIfNotExtracted() {
-		if (!propertiesAreExtracted()) {
-			extractProperties();
-		}
+	/**
+	 * Registers a mutable value at the current {@link Element}.
+	 * 
+	 * @param <V>
+	 * @param name
+	 * @param setter
+	 * @param getter
+	 * @param valueCreator
+	 * @param specificationCreator
+	 * @throws ArgumentIsNullException if the given name is null.
+	 * @throws InvalidArgumentException if the given name is blank.
+	 * @throws ArgumentIsNullException if the given setter is null.
+	 * @throws ArgumentIsNullException if the given valueCreator is null.
+	 * @throws ArgumentIsNullException if the given specificationCreator is null.
+	 */
+	protected final <V> void registerMutableValue(
+		final String name,
+		final IElementTaker<V> setter,
+		final IElementGetter<V> getter,
+		final IElementTakerElementGetter<BaseNode, V> valueCreator,
+		final IElementTakerElementGetter<V, Node> specificationCreator
+	) {
+		
+		extractPropertiesIfNotExtracted();
+		
+		properties.addAtEnd(
+			new MutableValueFilter<V>(name,	setter,	getter,	valueCreator, specificationCreator)
+		);
 	}
 	
 	//method
@@ -208,6 +232,16 @@ public abstract class Element<E extends Element<E>> implements IElement<E> {
 		//Iterates the fields of the given class.
 		for (final var f : pClass.getDeclaredFields()) {
 			extractProbableProperty(f);
+		}
+	}
+	
+	//method
+	/**
+	 * Extracts the properties of the current {@link Element} if they are not extracted yet.
+	 */
+	private void extractPropertiesIfNotExtracted() {
+		if (!propertiesAreExtracted()) {
+			extractProperties();
 		}
 	}
 	
