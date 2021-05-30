@@ -5,7 +5,6 @@ package ch.nolix.element.gui.widget;
 import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.element.base.MutableValue;
@@ -19,7 +18,7 @@ import ch.nolix.element.gui.painterapi.IPainter;
 /**
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 310
+ * @lines 280
  * @param <L> is the type of a line.
  */
 public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
@@ -43,31 +42,6 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 	//attribute
 	private final MutableValue<Color> color =
 	new MutableValue<>(COLOR_HEADER, DEFAULT_COLOR, this::setColor, Color::fromSpecification, Color::getSpecification);
-	
-	//method
-	/**
-	 * Adds or change the given attribute to this line.
-	 * 
-	 * @param attribute
-	 * @throws InvalidArgumentException if the given attribute is not valid.
-	 */
-	@Override
-	public final void addOrChangeAttribute(final BaseNode attribute) {
-		
-		//Enumerates the header of the given attribute.
-		switch (attribute.getHeader()) {
-			case PascalCaseCatalogue.THICKNESS:
-				setThickness(attribute.getOneAttributeAsInt());
-				break;
-			case Color.TYPE_NAME:
-				setColor(new Color(attribute.getOneAttributeHeader()));
-				break;
-			default:
-				
-				//Calls method of the base class.
-				super.addOrChangeAttribute(attribute);
-		}
-	}
 	
 	//method
 	/**
