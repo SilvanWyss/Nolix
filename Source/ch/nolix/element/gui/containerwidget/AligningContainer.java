@@ -18,14 +18,14 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 	
 	//constants
 	private static final String TOP_LEFT_HEADER = "TopLeft";
-	private static final String TOP = "Top";
-	private static final String TOP_RIGHT = "TopRight";
-	private static final String LEFT = "Left";
-	private static final String CENTER = "Center";
-	private static final String RIGHT = "Right";
-	private static final String BOTTOM_LEFT = "BottomLeft";
-	private static final String BOTTOM = "Bottom";
-	private static final String BOTTOM_RIGHT = "BottomRight";
+	private static final String TOP_HEADER = "Top";
+	private static final String TOP_RIGHT_HEADER = "TopRight";
+	private static final String LEFT_HEADER = "Left";
+	private static final String CENTER_HEADER = "Center";
+	private static final String RIGHT_HEADER = "Right";
+	private static final String BOTTOM_LEFT_HEADER = "BottomLeft";
+	private static final String BOTTOM_HEADER = "Bottom";
+	private static final String BOTTOM_RIGHT_HEADER = "BottomRight";
 	
 	//attributes
 	private final AligningContainerSlot topLeftSlot = new AligningContainerSlot();
@@ -50,31 +50,31 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 	@Override
 	public void addOrChangeAttribute(final BaseNode attribute) {
 		switch (attribute.getHeader()) {
-			case TOP:
+			case TOP_HEADER:
 				setOnTop(WidgetGUI.createWidgetFrom(attribute.getRefOneAttribute()));
 				break;
 			case TOP_LEFT_HEADER:
 				setOnTopLeft(WidgetGUI.createWidgetFrom(attribute.getRefOneAttribute()));
 				break;
-			case TOP_RIGHT:
+			case TOP_RIGHT_HEADER:
 				setOnTopRight(WidgetGUI.createWidgetFrom(attribute.getRefOneAttribute()));
 				break;
-			case LEFT:
+			case LEFT_HEADER:
 				setOnLeft(WidgetGUI.createWidgetFrom(attribute.getRefOneAttribute()));
 				break;
-			case CENTER:
+			case CENTER_HEADER:
 				setOnCenter(WidgetGUI.createWidgetFrom(attribute.getRefOneAttribute()));
 				break;
-			case RIGHT:
+			case RIGHT_HEADER:
 				setOnRight(WidgetGUI.createWidgetFrom(attribute.getRefOneAttribute()));
 				break;
-			case BOTTOM_LEFT:
+			case BOTTOM_LEFT_HEADER:
 				setOnBottomLeft(WidgetGUI.createWidgetFrom(attribute.getRefOneAttribute()));
 				break;
-			case BOTTOM:
+			case BOTTOM_HEADER:
 				setOnBottom(WidgetGUI.createWidgetFrom(attribute.getRefOneAttribute()));
 				break;
-			case BOTTOM_RIGHT:
+			case BOTTOM_RIGHT_HEADER:
 				setOnBottomRight(WidgetGUI.createWidgetFrom(attribute.getRefOneAttribute()));
 				break;
 			default:
