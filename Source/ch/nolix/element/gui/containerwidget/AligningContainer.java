@@ -97,45 +97,46 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	@Override
 	public void fillUpAttributesInto(final LinkedList<Node> list) {
 		
 		super.fillUpAttributesInto(list);
 		
 		if (topLeftSlot.containsAny()) {
-			list.addAtEnd(topLeftSlot.getRefWidget().getSpecification());
+			list.addAtEnd(topLeftSlot.getRefWidget().getSpecificationAs(TOP_LEFT_HEADER));
 		}
 		
 		if (topSlot.containsAny()) {
-			list.addAtEnd(topSlot.getRefWidget().getSpecification());
+			list.addAtEnd(topSlot.getRefWidget().getSpecificationAs(TOP_HEADER));
 		}
 		
 		if (topRightSlot.containsAny()) {
-			list.addAtEnd(topRightSlot.getRefWidget().getSpecification());
+			list.addAtEnd(topRightSlot.getRefWidget().getSpecificationAs(TOP_RIGHT_HEADER));
 		}
 		
 		if (leftSlot.containsAny()) {
-			list.addAtEnd(leftSlot.getRefWidget().getSpecification());
+			list.addAtEnd(leftSlot.getRefWidget().getSpecificationAs(LEFT_HEADER));
 		}
 		
 		if (centerSlot.containsAny()) {
-			list.addAtEnd(centerSlot.getRefWidget().getSpecification());
+			list.addAtEnd(centerSlot.getRefWidget().getSpecificationAs(CENTER_HEADER));
 		}
 		
 		if (rightSlot.containsAny()) {
-			list.addAtEnd(rightSlot.getRefWidget().getSpecification());
+			list.addAtEnd(rightSlot.getRefWidget().getSpecificationAs(RIGHT_HEADER));
 		}
 		
 		if (bottomLeftSlot.containsAny()) {
-			list.addAtEnd(bottomLeftSlot.getRefWidget().getSpecification());
+			list.addAtEnd(bottomLeftSlot.getRefWidget().getSpecificationAs(BOTTOM_LEFT_HEADER));
 		}
 		
 		if (bottomSlot.containsAny()) {
-			list.addAtEnd(bottomSlot.getRefWidget().getSpecification());
+			list.addAtEnd(bottomSlot.getRefWidget().getSpecificationAs(BOTTOM_HEADER));
 		}
 		
 		if (bottomRightSlot.containsAny()) {
-			list.addAtEnd(bottomRightSlot.getRefWidget().getSpecification());
+			list.addAtEnd(bottomRightSlot.getRefWidget().getSpecificationAs(BOTTOM_RIGHT_HEADER));
 		}
 	}
 	
