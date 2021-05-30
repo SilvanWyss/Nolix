@@ -185,6 +185,51 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 	}
 	
 	//method
+	public Widget<?, ?> getRefBottomLeftWidget() {
+		return bottomLeftSlot.getRefWidget();
+	}
+	
+	//method
+	public Widget<?, ?> getRefBottomRightWidget() {
+		return bottomRightSlot.getRefWidget();
+	}
+	
+	//method
+	public Widget<?, ?> getRefBottomWidget() {
+		return bottomSlot.getRefWidget();
+	}
+	
+	//method
+	public Widget<?, ?> getRefCenterWidget() {
+		return centerSlot.getRefWidget();
+	}
+	
+	//method
+	public Widget<?, ?> getRefLeftWidget() {
+		return leftSlot.getRefWidget();
+	}
+	
+	//method
+	public Widget<?, ?> getRefRightWidget() {
+		return rightSlot.getRefWidget();
+	}
+	
+	//method
+	public Widget<?, ?> getRefTopLeftWidget() {
+		return topLeftSlot.getRefWidget();
+	}
+	
+	//method
+	public Widget<?, ?> getRefTopRightWidget() {
+		return topRightSlot.getRefWidget();
+	}
+	
+	//method
+	public Widget<?, ?> getRefTopWidget() {
+		return topSlot.getRefWidget();
+	}
+	
+	//method
 	public AligningContainer setOnBottom(final Widget<?, ?> widget) {
 		
 		bottomSlot.setWidget(widget);
