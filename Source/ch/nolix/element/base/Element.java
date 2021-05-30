@@ -9,15 +9,20 @@ import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
+import ch.nolix.common.functionapi.IBooleanGetter;
+import ch.nolix.common.functionapi.IElementGetter;
+import ch.nolix.common.functionapi.IElementTaker;
+import ch.nolix.common.functionapi.IElementTakerElementGetter;
 import ch.nolix.element.elementapi.IElement;
 
 //class
 /**
  * @author Silvan Wyss
  * @date 2017-10-29
- * @lines 180
+ * @lines 230
  * @param <E> is the type of a {@link Element}.
  */
 public abstract class Element<E extends Element<E>> implements IElement<E> {
@@ -97,6 +102,54 @@ public abstract class Element<E extends Element<E>> implements IElement<E> {
 	
 	//method
 	/**
+	 * Registers a mutable optional value at the current {@link Element}.
+	 * 
+	 * @param <V>
+	 * @param name
+	 * @param setter
+	 * @param valuePresenceChecker
+	 * @param getter
+	 * @param valueCreator
+	 * @param specificationCreator
+	 * @throws ArgumentIsNullException if the given name is null.
+	 * @throws InvalidArgumentException if the given name is blank.
+	 * @throws ArgumentIsNullException if the given setter is null.
+	 * @throws ArgumentIsNullException if the given valuePresenceChecker is null.
+	 * @throws ArgumentIsNullException if the given valueCreator is null.
+	 * @throws ArgumentIsNullException if the given specificationCreator is null.
+	 */
+	protected final <V> void registerMutableOptionalValue(
+		final String name,
+		final IElementTaker<V> setter,
+		final IBooleanGetter valuePresenceChecker,
+		final IElementGetter<V> getter,
+		final IElementTakerElementGetter<BaseNode, V> valueCreator,
+		final IElementTakerElementGetter<V, Node> specificationCreator
+	) {
+		
+		extractPropertiesIfNotExtracted();
+		
+		properties.addAtEnd(
+			new MutableOptionalValueFilter<V>(
+				name,
+				setter,
+				valuePresenceChecker,
+				getter,
+				valueCreator,
+				specificationCreator
+			)
+		);
+	}
+	
+	//method
+	private void extractPropertiesIfNotExtracted() {
+		if (!propertiesAreExtracted()) {
+			extractProperties();
+		}
+	}
+	
+	//method
+	/**
 	 * Extracts the property from the given field, if the given field is a property.
 	 * 
 	 * @param field
@@ -164,10 +217,7 @@ public abstract class Element<E extends Element<E>> implements IElement<E> {
 	 */
 	private IContainer<Property> getRefProperties() {
 		
-		//Handles the case that the properties of the current Entity are not extracted yet.
-		if (!propertiesAreExtracted()) {
-			extractProperties();
-		}
+		extractPropertiesIfNotExtracted();
 		
 		return properties;
 	}
