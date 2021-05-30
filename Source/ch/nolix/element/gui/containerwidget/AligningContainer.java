@@ -140,6 +140,51 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 	}
 	
 	//method
+	public boolean containsWidgetOnBottom() {
+		return bottomSlot.containsAny();
+	}
+	
+	//method
+	public boolean containsWidgetOnBottomLeft() {
+		return bottomLeftSlot.containsAny();
+	}
+	
+	//method
+	public boolean containsWidgetOnBottomRight() {
+		return bottomRightSlot.containsAny();
+	}
+	
+	//method
+	public boolean containsWidgetOnCenter() {
+		return centerSlot.containsAny();
+	}
+	
+	//method
+	public boolean containsWidgetOnLeft() {
+		return leftSlot.containsAny();
+	}
+	
+	//method
+	public boolean containsWidgetOnRight() {
+		return rightSlot.containsAny();
+	}
+	
+	//method
+	public boolean containsWidgetOnTop() {
+		return topSlot.containsAny();
+	}
+	
+	//method
+	public boolean containsWidgetOnTopLeft() {
+		return topLeftSlot.containsAny();
+	}
+	
+	//method
+	public boolean containsWidgetOnTopRight() {
+		return topRightSlot.containsAny();
+	}
+	
+	//method
 	public AligningContainer setOnBottom(final Widget<?, ?> widget) {
 		
 		bottomSlot.setWidget(widget);
