@@ -22,7 +22,7 @@ import ch.nolix.element.elementapi.IElement;
 /**
  * @author Silvan Wyss
  * @date 2017-10-29
- * @lines 260
+ * @lines 290
  * @param <E> is the type of a {@link Element}.
  */
 public abstract class Element<E extends Element<E>> implements IElement<E> {
@@ -102,9 +102,39 @@ public abstract class Element<E extends Element<E>> implements IElement<E> {
 	
 	//method
 	/**
+	 * Registers a {@link MultiValue} at the current {@link Element}.
+	 * 
+	 * @param <V> is the type of the value of the registered {@link MultiValue}.
+	 * @param name
+	 * @param adder
+	 * @param getter
+	 * @param valueCreator
+	 * @param specificationCreator
+	 * @throws ArgumentIsNullException if the given name is null.
+	 * @throws InvalidArgumentException if the given name is blank.
+	 * @throws ArgumentIsNullException if the given adder is null.
+	 * @throws ArgumentIsNullException if the given getter is null.
+	 * @throws ArgumentIsNullException if the given valueCreator is null.
+	 * @throws ArgumentIsNullException if the given specificationCreator is null.
+	 */
+	protected final <V> void registerMultiProperty(
+		final String name,
+		final IElementTaker<V> adder,
+		final IElementGetter<IContainer<V>> getter,
+		final IElementTakerElementGetter<BaseNode, V> valueCreator,
+		final IElementTakerElementGetter<V, Node> specificationCreator
+	) {
+		
+		extractPropertiesIfNotExtracted();
+		
+		properties.addAtEnd(new MultiPropertyExtractor<>(name, adder, getter, valueCreator, specificationCreator));
+	}
+	
+	//method
+	/**
 	 * Registers a single {@link Property} at the current {@link Element}.
 	 * 
-	 * @param <V> is the type of the value of the registered {@link Property}.
+	 * @param <V> is the type of the value of the registered single {@link Property}.
 	 * @param name
 	 * @param setter
 	 * @param valuePresenceChecker
@@ -145,7 +175,7 @@ public abstract class Element<E extends Element<E>> implements IElement<E> {
 	/**
 	 * Registers a single {@link Property} at the current {@link Element}.
 	 * 
-	 * @param <V> is the type of the value of the registered {@link Property}.
+	 * @param <V> is the type of the value of the registered single {@link Property}.
 	 * @param name
 	 * @param setter
 	 * @param getter
