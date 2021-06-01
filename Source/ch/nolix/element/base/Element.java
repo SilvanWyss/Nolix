@@ -102,7 +102,7 @@ public abstract class Element<E extends Element<E>> implements IElement<E> {
 	
 	//method
 	/**
-	 * Registers a mutable optional value at the current {@link Element}.
+	 * Registers a single value at the current {@link Element}.
 	 * 
 	 * @param <V>
 	 * @param name
@@ -118,7 +118,7 @@ public abstract class Element<E extends Element<E>> implements IElement<E> {
 	 * @throws ArgumentIsNullException if the given valueCreator is null.
 	 * @throws ArgumentIsNullException if the given specificationCreator is null.
 	 */
-	protected final <V> void registerMutableOptionalValue(
+	protected final <V> void registerSingleValue(
 		final String name,
 		final IElementTaker<V> setter,
 		final IBooleanGetter valuePresenceChecker,
@@ -130,7 +130,7 @@ public abstract class Element<E extends Element<E>> implements IElement<E> {
 		extractPropertiesIfNotExtracted();
 		
 		properties.addAtEnd(
-			new MutableOptionalValueFilter<V>(
+			new SingleValueExtractor<V>(
 				name,
 				setter,
 				valuePresenceChecker,
@@ -143,7 +143,7 @@ public abstract class Element<E extends Element<E>> implements IElement<E> {
 	
 	//method
 	/**
-	 * Registers a mutable value at the current {@link Element}.
+	 * Registers a single value at the current {@link Element}.
 	 * 
 	 * @param <V>
 	 * @param name
@@ -157,7 +157,7 @@ public abstract class Element<E extends Element<E>> implements IElement<E> {
 	 * @throws ArgumentIsNullException if the given valueCreator is null.
 	 * @throws ArgumentIsNullException if the given specificationCreator is null.
 	 */
-	protected final <V> void registerMutableValue(
+	protected final <V> void registerSingleValue(
 		final String name,
 		final IElementTaker<V> setter,
 		final IElementGetter<V> getter,
@@ -167,9 +167,7 @@ public abstract class Element<E extends Element<E>> implements IElement<E> {
 		
 		extractPropertiesIfNotExtracted();
 		
-		properties.addAtEnd(
-			new MutableValueFilter<V>(name,	setter,	getter,	valueCreator, specificationCreator)
-		);
+		properties.addAtEnd(new SingleValueExtractor<V>(name, setter, getter, valueCreator, specificationCreator));
 	}
 	
 	//method

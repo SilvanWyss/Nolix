@@ -7,22 +7,53 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.validator.Validator;
+import ch.nolix.common.functionapi.IBooleanGetter;
 import ch.nolix.common.functionapi.IElementGetter;
 import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.common.functionapi.IElementTakerElementGetter;
 
 //class
-final class MutableValueFilter<V> extends Property {
+final class SingleValueExtractor<V> extends Property {
 	
 	//attributes
 	private final String name;
 	private final IElementTaker<V> setter;
+	
+	//optional attribute
+	private final IBooleanGetter valuePresenceChecker;
+	
+	//attributes
 	private final IElementGetter<V> getter;
 	private final IElementTakerElementGetter<BaseNode, V> valueCreator;
 	private final IElementTakerElementGetter<V, Node> specificationCreator;
 	
 	//constructor
-	public MutableValueFilter(
+	public SingleValueExtractor(
+		final String name,
+		final IElementTaker<V> setter,
+		final IBooleanGetter valuePresenceChecker,
+		final IElementGetter<V> getter,
+		final IElementTakerElementGetter<BaseNode, V> valueCreator,
+		final IElementTakerElementGetter<V, Node> specificationCreator
+	) {
+		
+		Validator.assertThat(name).thatIsNamed(PascalCaseCatalogue.NAME).isNotBlank();
+		Validator.assertThat(setter).thatIsNamed("setter").isNotNull();
+		Validator.assertThat(valuePresenceChecker).thatIsNamed("value presence checker").isNotNull();
+		Validator.assertThat(getter).thatIsNamed("getter").isNotNull();
+		Validator.assertThat(valueCreator).thatIsNamed("value creator").isNotNull();
+		Validator.assertThat(specificationCreator).thatIsNamed("specification creator").isNotNull();
+		
+		this.name = name;
+		this.setter = setter;
+		this.valuePresenceChecker = valuePresenceChecker;
+		this.getter = getter;
+		this.valueCreator = valueCreator;
+		this.specificationCreator = specificationCreator;
+	}
+	
+	//constructor
+	public SingleValueExtractor(
 		final String name,
 		final IElementTaker<V> setter,
 		final IElementGetter<V> getter,
@@ -38,6 +69,7 @@ final class MutableValueFilter<V> extends Property {
 		
 		this.name = name;
 		this.setter = setter;
+		valuePresenceChecker = null;
 		this.getter = getter;
 		this.valueCreator = valueCreator;
 		this.specificationCreator = specificationCreator;
@@ -63,6 +95,13 @@ final class MutableValueFilter<V> extends Property {
 	//method
 	@Override
 	protected void fillUpAttributesInto(final LinkedList<Node> list) {
-		list.addAtEnd(specificationCreator.getOutput(getter.getOutput()));
+		if (providesValue()) {
+			list.addAtEnd(specificationCreator.getOutput(getter.getOutput()));
+		}
+	}
+	
+	//method
+	private boolean providesValue() {
+		return (valuePresenceChecker != null && valuePresenceChecker.getOutput());
 	}
 }
