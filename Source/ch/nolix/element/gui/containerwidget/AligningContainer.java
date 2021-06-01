@@ -3,8 +3,6 @@ package ch.nolix.element.gui.containerwidget;
 
 //own imports
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.document.node.BaseNode;
-import ch.nolix.common.document.node.Node;
 import ch.nolix.common.math.Calculator;
 import ch.nolix.element.elementenum.RotationDirection;
 import ch.nolix.element.gui.base.Widget;
@@ -41,47 +39,12 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 	//constructor
 	public AligningContainer() {
 		
+		registerProperties();
 		reset();
 		
 		getRefLook().setPaddingForState(WidgetLookState.BASE, 10);
 	}
-	
-	//method
-	@Override
-	public void addOrChangeAttribute(final BaseNode attribute) {
-		switch (attribute.getHeader()) {
-			case TOP_HEADER:
-				setOnTop(WidgetGUI.createWidgetFrom(attribute.getRefOneAttribute()));
-				break;
-			case TOP_LEFT_HEADER:
-				setOnTopLeft(WidgetGUI.createWidgetFrom(attribute.getRefOneAttribute()));
-				break;
-			case TOP_RIGHT_HEADER:
-				setOnTopRight(WidgetGUI.createWidgetFrom(attribute.getRefOneAttribute()));
-				break;
-			case LEFT_HEADER:
-				setOnLeft(WidgetGUI.createWidgetFrom(attribute.getRefOneAttribute()));
-				break;
-			case CENTER_HEADER:
-				setOnCenter(WidgetGUI.createWidgetFrom(attribute.getRefOneAttribute()));
-				break;
-			case RIGHT_HEADER:
-				setOnRight(WidgetGUI.createWidgetFrom(attribute.getRefOneAttribute()));
-				break;
-			case BOTTOM_LEFT_HEADER:
-				setOnBottomLeft(WidgetGUI.createWidgetFrom(attribute.getRefOneAttribute()));
-				break;
-			case BOTTOM_HEADER:
-				setOnBottom(WidgetGUI.createWidgetFrom(attribute.getRefOneAttribute()));
-				break;
-			case BOTTOM_RIGHT_HEADER:
-				setOnBottomRight(WidgetGUI.createWidgetFrom(attribute.getRefOneAttribute()));
-				break;
-			default:
-				super.addOrChangeAttribute(attribute);
-		}
-	}
-	
+		
 	//method
 	@Override
 	public void clear() {
@@ -94,50 +57,6 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 		bottomLeftSlot.clear();
 		bottomSlot.clear();
 		bottomRightSlot.clear();
-	}
-	
-	//method
-	//For a better performance, this implementation does not use all comfortable methods.
-	@Override
-	public void fillUpAttributesInto(final LinkedList<Node> list) {
-		
-		super.fillUpAttributesInto(list);
-		
-		if (topLeftSlot.containsAny()) {
-			list.addAtEnd(topLeftSlot.getRefWidget().getSpecificationAs(TOP_LEFT_HEADER));
-		}
-		
-		if (topSlot.containsAny()) {
-			list.addAtEnd(topSlot.getRefWidget().getSpecificationAs(TOP_HEADER));
-		}
-		
-		if (topRightSlot.containsAny()) {
-			list.addAtEnd(topRightSlot.getRefWidget().getSpecificationAs(TOP_RIGHT_HEADER));
-		}
-		
-		if (leftSlot.containsAny()) {
-			list.addAtEnd(leftSlot.getRefWidget().getSpecificationAs(LEFT_HEADER));
-		}
-		
-		if (centerSlot.containsAny()) {
-			list.addAtEnd(centerSlot.getRefWidget().getSpecificationAs(CENTER_HEADER));
-		}
-		
-		if (rightSlot.containsAny()) {
-			list.addAtEnd(rightSlot.getRefWidget().getSpecificationAs(RIGHT_HEADER));
-		}
-		
-		if (bottomLeftSlot.containsAny()) {
-			list.addAtEnd(bottomLeftSlot.getRefWidget().getSpecificationAs(BOTTOM_LEFT_HEADER));
-		}
-		
-		if (bottomSlot.containsAny()) {
-			list.addAtEnd(bottomSlot.getRefWidget().getSpecificationAs(BOTTOM_HEADER));
-		}
-		
-		if (bottomRightSlot.containsAny()) {
-			list.addAtEnd(bottomRightSlot.getRefWidget().getSpecificationAs(BOTTOM_RIGHT_HEADER));
-		}
 	}
 	
 	//method
@@ -477,4 +396,89 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 	//method
 	@Override
 	protected void resetContainerWidget() {}
+	
+	//method
+	private void registerProperties() {
+		
+		registerSingleProperty(
+			TOP_LEFT_HEADER,
+			this::setOnTopLeft,
+			this::containsWidgetOnTopLeft,
+			this::getRefTopLeftWidget,
+			WidgetGUI::createWidgetFrom,
+			Widget::getSpecification
+		);
+		
+		registerSingleProperty(
+			TOP_HEADER,
+			this::setOnTop,
+			this::containsWidgetOnTop,
+			this::getRefTopWidget,
+			WidgetGUI::createWidgetFrom,
+			Widget::getSpecification
+		);
+		
+		registerSingleProperty(
+			TOP_RIGHT_HEADER,
+			this::setOnTopRight,
+			this::containsWidgetOnTopRight,
+			this::getRefTopRightWidget,
+			WidgetGUI::createWidgetFrom,
+			Widget::getSpecification
+		);
+		
+		registerSingleProperty(
+			LEFT_HEADER,
+			this::setOnLeft,
+			this::containsWidgetOnLeft,
+			this::getRefLeftWidget,
+			WidgetGUI::createWidgetFrom,
+			Widget::getSpecification
+		);
+		
+		registerSingleProperty(
+			CENTER_HEADER,
+			this::setOnCenter,
+			this::containsWidgetOnCenter,
+			this::getRefCenterWidget,
+			WidgetGUI::createWidgetFrom,
+			Widget::getSpecification
+		);
+		
+		registerSingleProperty(
+			RIGHT_HEADER,
+			this::setOnRight,
+			this::containsWidgetOnRight,
+			this::getRefRightWidget,
+			WidgetGUI::createWidgetFrom,
+			Widget::getSpecification
+		);
+		
+		registerSingleProperty(
+			BOTTOM_LEFT_HEADER,
+			this::setOnBottomLeft,
+			this::containsWidgetOnBottomLeft,
+			this::getRefBottomLeftWidget,
+			WidgetGUI::createWidgetFrom,
+			Widget::getSpecification
+		);
+		
+		registerSingleProperty(
+			BOTTOM_HEADER,
+			this::setOnBottom,
+			this::containsWidgetOnBottom,
+			this::getRefBottomWidget,
+			WidgetGUI::createWidgetFrom,
+			Widget::getSpecification
+		);
+		
+		registerSingleProperty(
+			BOTTOM_RIGHT_HEADER,
+			this::setOnBottomRight,
+			this::containsWidgetOnBottomRight,
+			this::getRefBottomRightWidget,
+			WidgetGUI::createWidgetFrom,
+			Widget::getSpecification
+		);
+	}
 }
