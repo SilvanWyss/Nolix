@@ -13,7 +13,7 @@ import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.common.functionapi.IElementTakerElementGetter;
 
 //class
-final class SingleValueExtractor<V> extends Property {
+final class SinglePropertyExtractor<V> extends Property {
 	
 	//attributes
 	private final String name;
@@ -28,7 +28,7 @@ final class SingleValueExtractor<V> extends Property {
 	private final IElementTakerElementGetter<V, Node> specificationCreator;
 	
 	//constructor
-	public SingleValueExtractor(
+	public SinglePropertyExtractor(
 		final String name,
 		final IElementTaker<V> setter,
 		final IBooleanGetter valuePresenceChecker,
@@ -53,7 +53,7 @@ final class SingleValueExtractor<V> extends Property {
 	}
 	
 	//constructor
-	public SingleValueExtractor(
+	public SinglePropertyExtractor(
 		final String name,
 		final IElementTaker<V> setter,
 		final IElementGetter<V> getter,

@@ -102,9 +102,9 @@ public abstract class Element<E extends Element<E>> implements IElement<E> {
 	
 	//method
 	/**
-	 * Registers a single value at the current {@link Element}.
+	 * Registers a single {@link Property} at the current {@link Element}.
 	 * 
-	 * @param <V>
+	 * @param <V> is the type of the value of the registered {@link Property}.
 	 * @param name
 	 * @param setter
 	 * @param valuePresenceChecker
@@ -118,7 +118,7 @@ public abstract class Element<E extends Element<E>> implements IElement<E> {
 	 * @throws ArgumentIsNullException if the given valueCreator is null.
 	 * @throws ArgumentIsNullException if the given specificationCreator is null.
 	 */
-	protected final <V> void registerSingleValue(
+	protected final <V> void registerSingleProperty(
 		final String name,
 		final IElementTaker<V> setter,
 		final IBooleanGetter valuePresenceChecker,
@@ -130,7 +130,7 @@ public abstract class Element<E extends Element<E>> implements IElement<E> {
 		extractPropertiesIfNotExtracted();
 		
 		properties.addAtEnd(
-			new SingleValueExtractor<V>(
+			new SinglePropertyExtractor<V>(
 				name,
 				setter,
 				valuePresenceChecker,
@@ -143,9 +143,9 @@ public abstract class Element<E extends Element<E>> implements IElement<E> {
 	
 	//method
 	/**
-	 * Registers a single value at the current {@link Element}.
+	 * Registers a single {@link Property} at the current {@link Element}.
 	 * 
-	 * @param <V>
+	 * @param <V> is the type of the value of the registered {@link Property}.
 	 * @param name
 	 * @param setter
 	 * @param getter
@@ -157,7 +157,7 @@ public abstract class Element<E extends Element<E>> implements IElement<E> {
 	 * @throws ArgumentIsNullException if the given valueCreator is null.
 	 * @throws ArgumentIsNullException if the given specificationCreator is null.
 	 */
-	protected final <V> void registerSingleValue(
+	protected final <V> void registerSingleProperty(
 		final String name,
 		final IElementTaker<V> setter,
 		final IElementGetter<V> getter,
@@ -167,7 +167,7 @@ public abstract class Element<E extends Element<E>> implements IElement<E> {
 		
 		extractPropertiesIfNotExtracted();
 		
-		properties.addAtEnd(new SingleValueExtractor<V>(name, setter, getter, valueCreator, specificationCreator));
+		properties.addAtEnd(new SinglePropertyExtractor<V>(name, setter, getter, valueCreator, specificationCreator));
 	}
 	
 	//method
