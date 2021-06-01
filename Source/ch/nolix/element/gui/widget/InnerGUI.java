@@ -2,12 +2,12 @@
 package ch.nolix.element.gui.widget;
 
 //own imports
+import ch.nolix.common.constant.FunctionCatalogue;
 import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.chainednode.ChainedNode;
 import ch.nolix.common.document.node.BaseNode;
-import ch.nolix.common.document.node.Node;
 import ch.nolix.common.programcontrol.closeableelement.CloseController;
 import ch.nolix.element.configuration.Configuration;
 import ch.nolix.element.elementenum.RotationDirection;
@@ -33,6 +33,13 @@ public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> impleme
 	//constructor
 	public InnerGUI() {
 		
+		registerSingleProperty(
+			GUI_HEADER,
+			internalGUI::resetFrom,
+			internalGUI::getSpecification,
+			FunctionCatalogue::getSelf,
+			BaseNode::getCopy
+		);
 		reset();
 		
 		setProposalWidth(200);
@@ -59,29 +66,8 @@ public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> impleme
 	
 	//method
 	@Override
-	public void addOrChangeAttribute(final BaseNode attribute) {
-		switch (attribute.getHeader()) {
-			case GUI_HEADER:
-				internalGUI.resetFrom(attribute);
-				break;
-			default:
-				super.addOrChangeAttribute(attribute);
-		}
-	}
-	
-	//method
-	@Override
 	public void clear() {
 		internalGUI.clear();
-	}
-	
-	//method
-	@Override
-	public void fillUpAttributesInto(final LinkedList<Node> list) {
-		
-		super.fillUpAttributesInto(list);
-		
-		list.addAtEnd(internalGUI.getSpecificationAs(GUI_HEADER));
 	}
 	
 	//method
