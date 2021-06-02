@@ -22,7 +22,7 @@ import ch.nolix.element.elementapi.IElement;
 /**
  * @author Silvan Wyss
  * @date 2017-10-29
- * @lines 290
+ * @lines 320
  * @param <E> is the type of a {@link Element}.
  */
 public abstract class Element<E extends Element<E>> implements IElement<E> {
@@ -134,6 +134,31 @@ public abstract class Element<E extends Element<E>> implements IElement<E> {
 	/**
 	 * Registers a single {@link Property} at the current {@link Element}.
 	 * 
+	 * @param name
+	 * @param setter
+	 * @param getter
+	 * @throws ArgumentIsNullException if the given name is null.
+	 * @throws InvalidArgumentException if the given name is blank.
+	 * @throws ArgumentIsNullException if the given setter is null.
+	 * @throws ArgumentIsNullException if the given getter is null.
+	 */
+	protected final void registerSingleProperty(
+		final String name,
+		final IElementTaker<Node> setter,
+		final IElementGetter<Node> getter
+	) {
+		
+		extractPropertiesIfNotExtracted();
+		
+		properties.addAtEnd(
+			new SinglePropertyExtractor<Node>(name, setter, getter, BaseNode::getCopy, BaseNode::getCopy)
+		);
+	}
+	
+	//method
+	/**
+	 * Registers a single {@link Property} at the current {@link Element}.
+	 * 
 	 * @param <V> is the type of the value of the registered single {@link Property}.
 	 * @param name
 	 * @param setter
@@ -145,6 +170,7 @@ public abstract class Element<E extends Element<E>> implements IElement<E> {
 	 * @throws InvalidArgumentException if the given name is blank.
 	 * @throws ArgumentIsNullException if the given setter is null.
 	 * @throws ArgumentIsNullException if the given valuePresenceChecker is null.
+	 * @throws ArgumentIsNullException if the given getter is null.
 	 * @throws ArgumentIsNullException if the given valueCreator is null.
 	 * @throws ArgumentIsNullException if the given specificationCreator is null.
 	 */
@@ -184,6 +210,7 @@ public abstract class Element<E extends Element<E>> implements IElement<E> {
 	 * @throws ArgumentIsNullException if the given name is null.
 	 * @throws InvalidArgumentException if the given name is blank.
 	 * @throws ArgumentIsNullException if the given setter is null.
+	 * @throws ArgumentIsNullException if the given getter is null.
 	 * @throws ArgumentIsNullException if the given valueCreator is null.
 	 * @throws ArgumentIsNullException if the given specificationCreator is null.
 	 */
