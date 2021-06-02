@@ -2,12 +2,10 @@
 package ch.nolix.element.gui.widget;
 
 //own imports
-import ch.nolix.common.constant.FunctionCatalogue;
 import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.chainednode.ChainedNode;
-import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.programcontrol.closeableelement.CloseController;
 import ch.nolix.element.configuration.Configuration;
 import ch.nolix.element.elementenum.RotationDirection;
@@ -36,9 +34,7 @@ public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> impleme
 		registerSingleProperty(
 			GUI_HEADER,
 			internalGUI::resetFrom,
-			internalGUI::getSpecification,
-			FunctionCatalogue::getSelf,
-			BaseNode::getCopy
+			internalGUI::getSpecification
 		);
 		reset();
 		
