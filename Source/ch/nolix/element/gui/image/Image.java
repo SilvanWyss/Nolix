@@ -13,7 +13,6 @@ import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.commontype.commontypehelper.GlobalBufferedImageHelper;
 import ch.nolix.common.constant.LowerCaseCatalogue;
-import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.container.matrix.Matrix;
 import ch.nolix.common.document.node.BaseNode;
@@ -122,6 +121,7 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 		
 		Validator.assertThat(color).thatIsNamed(Color.class).isNotNull();
 		
+		registerSingleProperty(PIXEL_ARRAY_HEADER, this::setPixelArray, this::getPixelArraySpecification);
 		setWidth(width);
 		setHeight(height);
 		
@@ -151,26 +151,8 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	
 	//method
 	@Override
-	public void addOrChangeAttribute(final BaseNode attribute) {
-		switch (attribute.getHeader()) {
-			case PIXEL_ARRAY_HEADER:
-				setPixelArray(attribute);
-				break;
-			default:
-				internalAddOrChangeAttribute(attribute);
-		}
-	}
-	
-	//method
-	@Override
-	public void fillUpAttributesInto(final LinkedList<Node> list) {
-		
-		//Calls method of the base class.
-		super.fillUpAttributesInto(list);
-		
-		generatePixelArraySpecificationIfNeeded();
-		
-		list.addAtEnd(pixelArraySpecification);
+	public void addOrChangeAttribute(BaseNode attribute) {
+		internalAddOrChangeAttribute(attribute);
 	}
 	
 	//method
@@ -416,6 +398,14 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	private void generatePixelArraySpecificationWhenNeeded() {
 		pixelArraySpecification = Node.withHeader(PIXEL_ARRAY_HEADER);
 		pixels.forEach(p -> pixelArraySpecification.addAttribute(p.getHexadecimalValueAlwaysWithAlphaValue()));
+	}
+	
+	//method
+	private Node getPixelArraySpecification() {
+		
+		generatePixelArraySpecificationIfNeeded();
+		
+		return pixelArraySpecification;
 	}
 	
 	//method
