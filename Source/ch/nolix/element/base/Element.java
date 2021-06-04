@@ -22,13 +22,16 @@ import ch.nolix.element.elementapi.IElement;
 /**
  * @author Silvan Wyss
  * @date 2017-10-29
- * @lines 320
+ * @lines 310
  * @param <E> is the type of a {@link Element}.
  */
 public abstract class Element<E extends Element<E>> implements IElement<E> {
 	
+	//attribute
+	private boolean extractedProperties;
+	
 	//multi-attribute
-	private LinkedList<Property> properties;
+	private final LinkedList<Property> properties = new LinkedList<>();
 	
 	//method
 	/**
@@ -124,9 +127,6 @@ public abstract class Element<E extends Element<E>> implements IElement<E> {
 		final IElementTakerElementGetter<BaseNode, V> valueCreator,
 		final IElementTakerElementGetter<V, Node> specificationCreator
 	) {
-		
-		extractPropertiesIfNotExtracted();
-		
 		properties.addAtEnd(new MultiPropertyExtractor<>(name, adder, getter, valueCreator, specificationCreator));
 	}
 	
@@ -147,9 +147,6 @@ public abstract class Element<E extends Element<E>> implements IElement<E> {
 		final IElementTaker<Node> setter,
 		final IElementGetter<Node> getter
 	) {
-		
-		extractPropertiesIfNotExtracted();
-		
 		properties.addAtEnd(
 			new SinglePropertyExtractor<Node>(name, setter, getter, BaseNode::getCopy, BaseNode::getCopy)
 		);
@@ -182,9 +179,6 @@ public abstract class Element<E extends Element<E>> implements IElement<E> {
 		final IElementTakerElementGetter<BaseNode, V> valueCreator,
 		final IElementTakerElementGetter<V, Node> specificationCreator
 	) {
-		
-		extractPropertiesIfNotExtracted();
-		
 		properties.addAtEnd(
 			new SinglePropertyExtractor<V>(
 				name,
@@ -221,9 +215,6 @@ public abstract class Element<E extends Element<E>> implements IElement<E> {
 		final IElementTakerElementGetter<BaseNode, V> valueCreator,
 		final IElementTakerElementGetter<V, Node> specificationCreator
 	) {
-		
-		extractPropertiesIfNotExtracted();
-		
 		properties.addAtEnd(new SinglePropertyExtractor<V>(name, setter, getter, valueCreator, specificationCreator));
 	}
 	
@@ -266,14 +257,14 @@ public abstract class Element<E extends Element<E>> implements IElement<E> {
 	 */
 	private void extractProperties() {
 		
-		properties = new LinkedList<>();
-		
 		//Iterates the classes of the current {@link Entity}.
 		Class<?> lClass = getClass();
 		while (lClass != null) {
 			extractProperties(lClass);
 			lClass = lClass.getSuperclass();
 		}
+		
+		extractedProperties = true;
 	}
 	
 	//method
@@ -316,6 +307,6 @@ public abstract class Element<E extends Element<E>> implements IElement<E> {
 	 * @return true if the properties of the current {@link Element} are extracted.
 	 */
 	private boolean propertiesAreExtracted() {
-		return (properties != null);
+		return extractedProperties;
 	}
 }
