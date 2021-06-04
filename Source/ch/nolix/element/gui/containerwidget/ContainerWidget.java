@@ -3,15 +3,10 @@ package ch.nolix.element.gui.containerwidget;
 
 //own imports
 import ch.nolix.common.constant.PascalCaseCatalogue;
-import ch.nolix.common.constant.LowerCaseCatalogue;
-import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.document.node.BaseNode;
-import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.skillapi.Clearable;
+import ch.nolix.element.base.MutableOptionalValue;
 import ch.nolix.element.gui.base.Widget;
 import ch.nolix.element.gui.widget.BorderWidget;
 import ch.nolix.element.gui.widget.BorderWidgetLook;
@@ -22,54 +17,24 @@ import ch.nolix.element.gui.widget.BorderWidgetLook;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 170
+ * @lines 120
  * @param <CW> is the type of a {@link ContainerWidget}.
  * @param <BWS> is the type of the {@link BorderWidgetLook} of a {@link ContainerWidget}.
  */
 public abstract class ContainerWidget<CW extends ContainerWidget<CW, BWS>, BWS extends BorderWidgetLook<BWS>>
 extends BorderWidget<CW, BWS> implements Clearable {
 	
-	//optional attribute
-	private ContainerRole role;
+	//constant
+	private static final String ROLE_HEADER = PascalCaseCatalogue.ROLE;
 	
-	//method
-	/**
-	 * Adds or changes the given attribute to the current {@link ContainerWidget}.
-	 * 
-	 * @param attribute
-	 * @throws InvalidArgumentException if the given attribute is not valid.
-	 */
-	@Override
-	public void addOrChangeAttribute(final BaseNode attribute) {
-		
-		//Enumerates the header of the given attribute.
-		switch (attribute.getHeader()) {
-			case PascalCaseCatalogue.ROLE:
-				setRole(ContainerRole.fromSpecification(attribute));
-				break;
-			default:
-				
-				//Calls method of the base class.
-				super.addOrChangeAttribute(attribute);
-		}
-	}
-	
-	//method
-	//For a better performance, this implementation does not use all comfortable methods.
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void fillUpAttributesInto(final LinkedList<Node> list) {
-		
-		//Calls method of the base class.
-		super.fillUpAttributesInto(list);
-		
-		//Handles the case that the current container has a role.
-		if (role != null) {
-			list.addAtEnd(role.getSpecificationAs(PascalCaseCatalogue.ROLE));
-		}
-	}
+	//attribute
+	private final MutableOptionalValue<ContainerRole> role =
+	new MutableOptionalValue<>(
+		ROLE_HEADER,
+		this::setRole,
+		ContainerRole::fromSpecification,
+		ContainerRole::getSpecification
+	);
 	
 	//method
 	/**
@@ -77,11 +42,7 @@ extends BorderWidget<CW, BWS> implements Clearable {
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link ContainerWidget} does not have a role.
 	 */
 	public final ContainerRole getRole() {
-		
-		//Asserts that the current container has a role.
-		assertHasRole();
-		
-		return role;
+		return role.getValue();
 	}
 	
 	//method
@@ -98,7 +59,7 @@ extends BorderWidget<CW, BWS> implements Clearable {
 	 * @return true if the current {@link ContainerWidget} has a role.
 	 */
 	public final boolean hasRole() {
-		return (role != null);
+		return role.hasValue();
 	}
 	
 	//method
@@ -107,7 +68,7 @@ extends BorderWidget<CW, BWS> implements Clearable {
 	 */
 	@Override
 	public final boolean hasRole(final String role) {
-			
+		
 		//Handles the case that the current container does not have a role.
 		if (!hasRole()) {
 			return false;
@@ -122,7 +83,7 @@ extends BorderWidget<CW, BWS> implements Clearable {
 	 * Removes the role of the current {@link ContainerWidget}.
 	 */
 	public void removeRole() {
-		role = null;
+		role.clear();
 	}
 	
 	//method
@@ -135,11 +96,7 @@ extends BorderWidget<CW, BWS> implements Clearable {
 	 */
 	public final CW setRole(final ContainerRole role) {
 		
-		//Asserts that the given role is not null.
-		Validator.assertThat(role).thatIsNamed(LowerCaseCatalogue.ROLE).isNotNull();
-		
-		//Sets the role of the current ContainerWidget.
-		this.role = role;
+		this.role.setValue(role);
 		
 		return asConcrete();
 	}
@@ -162,14 +119,4 @@ extends BorderWidget<CW, BWS> implements Clearable {
 	 * Resets the current {@link ContainerWidget}.
 	 */
 	protected abstract void resetContainerWidget();
-	
-	//method
-	/**
-	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link ContainerWidget} does not have a role.
-	 */
-	private void assertHasRole() {
-		if (!hasRole()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.ROLE);
-		}
-	}
 }
