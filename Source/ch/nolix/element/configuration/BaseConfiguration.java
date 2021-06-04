@@ -152,7 +152,7 @@ implements IMutableElement<C> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void addOrChangeAttribute(final BaseNode attribute) {
+	public final void addOrChangeAttribute(final BaseNode attribute) {
 		internalAddOrChangeAttribute(attribute);
 	}
 	
