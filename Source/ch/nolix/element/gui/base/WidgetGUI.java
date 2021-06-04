@@ -8,7 +8,6 @@ import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.chainednode.ChainedNode;
 import ch.nolix.common.document.node.BaseNode;
-import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentException;
@@ -16,6 +15,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentExce
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.programcontrol.processproperty.ChangeState;
 import ch.nolix.common.state.Visibility;
+import ch.nolix.element.base.ForwardingProperty;
 import ch.nolix.element.base.MultiValue;
 import ch.nolix.element.elementapi.IConfigurableElement;
 import ch.nolix.element.elementenum.ExtendedContentPosition;
@@ -54,7 +54,7 @@ import ch.nolix.element.gui.widget.VerticalLine;
  * 
  * @author Silvan Wyss
  * @date 2019-08-01
- * @lines 860
+ * @lines 810
  * @param <WG> is the type of a {@link WidgetGUI}.
  */
 public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implements IWidgetGUI<WG> {
@@ -62,7 +62,8 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	//constant
 	public static final Color DEFAULT_BACKGROUND_COLOR = Color.WHITE;
 	
-	//constant
+	//constants
+	private static final String BACKGROUND_COLOR_HEADER = "BackgrondColor";
 	private static final String BACKGROUND_COLOR_GRADIENT_HEADER = "BackgroundColorGradient";
 	
 	//static attribute
@@ -156,6 +157,20 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	
 	//attribute
 	private final Layer background = new Layer();
+	
+	//attribute
+	@SuppressWarnings("unused")
+	private final ForwardingProperty<Color> backgroundColor =
+	new ForwardingProperty<>(BACKGROUND_COLOR_HEADER, this::setBackgroundColor, Color::fromSpecification);
+	
+	//attribute
+	@SuppressWarnings("unused")
+	private final ForwardingProperty<ColorGradient> backgroundColorGradient =
+	new ForwardingProperty<>(
+		BACKGROUND_COLOR_GRADIENT_HEADER,
+		this::setBackgroundColorGradient,
+		ColorGradient::fromSpecification
+	);
 	
 	//attribute
 	private final MultiValue<Layer> layers =
@@ -311,39 +326,6 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	
 	//method
 	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final void addOrChangeAttribute(final BaseNode attribute) {
-				
-		//Handles the case that the given attribute specifies a Widget.
-		if (canCreateWidget(attribute.getHeader())) {
-			
-			//Handles the case that the current GUI does not contain a layer.
-			if (isEmpty()) {
-				addLayerOnTop(new Layer());
-			}
-			
-			layers.getRefFirst().setRootWidget(createWidgetFrom(attribute));
-			
-		//Handles the case that the given attribute does not specify a widget.
-		} else {
-			//Enumerates the header of the given attribute.
-			switch (attribute.getHeader()) {				
-				case PascalCaseCatalogue.BACKGROUND_COLOR:
-					background.setBackgroundColor(Color.fromSpecification(attribute));
-					break;		
-				case BACKGROUND_COLOR_GRADIENT_HEADER:
-					background.setBackgroundColorGradient(ColorGradient.fromSpecification(attribute));
-					break;
-				default:
-					internalAddOrChangeAttribute(attribute);
-			}
-		}
-	}
-	
-	//method
-	/**
 	 * Adds or changes the given attributes to the {@link Widget}s of the current {@link GUI}.
 	 * 
 	 * @param attributes
@@ -376,31 +358,6 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	public final void clear() {
 		layers.clear();
 		topLayer = null;
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void fillUpAttributesInto(final LinkedList<Node> list) {
-		
-		//Calls method of the base class.
-		super.fillUpAttributesInto(list);
-		
-		//Handles the case that the current WidgetGUI has a background Color.
-		if (background.hasBackgroundColor()) {
-			list.addAtEnd(
-				background.getBackgroundColor().getSpecificationAs(PascalCaseCatalogue.BACKGROUND_COLOR)
-			);
-		}
-		
-		//Handles the case that the current WidgetGUI has a background ColorGradient.
-		if (background.hasBackgroundColorGradient()) {
-			list.addAtEnd(
-				background.getBackgroundColorGradient().getSpecificationAs(BACKGROUND_COLOR_GRADIENT_HEADER)
-			);
-		}
 	}
 	
 	//method
