@@ -6,7 +6,7 @@ import ch.nolix.common.container.SingleContainer;
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.element.formatelement.FilterProperty;
+import ch.nolix.element.formatelement.ForwardingProperty;
 import ch.nolix.element.formatelement.NonCascadingProperty;
 import ch.nolix.element.gui.base.WidgetLook;
 import ch.nolix.element.gui.base.WidgetLookState;
@@ -252,8 +252,8 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	);
 	
 	//attribute
-	private final FilterProperty<WidgetLookState, Integer> borderThickness =
-	new FilterProperty<>(
+	private final ForwardingProperty<WidgetLookState, Integer> borderThickness =
+	new ForwardingProperty<>(
 		BORDER_THICKNESS_HEADER,
 		leftBorderThickness,
 		rightBorderThickness,
@@ -262,8 +262,8 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	);
 	
 	//attribute
-	private final FilterProperty<WidgetLookState, Color> borderColor =
-	new FilterProperty<>(
+	private final ForwardingProperty<WidgetLookState, Color> borderColor =
+	new ForwardingProperty<>(
 		BORDER_COLOR_HEADER,
 		leftBorderColor,
 		rightBorderColor,
@@ -272,8 +272,8 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	);
 	
 	//attribute
-	private final FilterProperty<WidgetLookState, Integer> padding =
-	new FilterProperty<>(PADDING_HEADER, leftPadding, rightPadding, topPadding, bottomPadding);
+	private final ForwardingProperty<WidgetLookState, Integer> padding =
+	new ForwardingProperty<>(PADDING_HEADER, leftPadding, rightPadding, topPadding, bottomPadding);
 	
 	//method
 	public final Color getBackgroundColor() {

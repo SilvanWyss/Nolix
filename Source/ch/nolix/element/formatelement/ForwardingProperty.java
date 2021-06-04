@@ -8,14 +8,14 @@ import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
 
 //class
-public final class FilterProperty<S extends Enum<S>, V> extends Property<S>{
+public final class ForwardingProperty<S extends Enum<S>, V> extends Property<S>{
 	
 	//multi-attribute
 	private final IContainer<MaterializedProperty<S, V>> materializedProperties;
 	
 	//constructor
 	@SafeVarargs
-	public FilterProperty(final String name, final MaterializedProperty<S, V>... materializedProperties) {
+	public ForwardingProperty(final String name, final MaterializedProperty<S, V>... materializedProperties) {
 		
 		super(name);
 		
@@ -23,7 +23,7 @@ public final class FilterProperty<S extends Enum<S>, V> extends Property<S>{
 	}
 	
 	//constructor
-	public FilterProperty(final String name, final IContainer<MaterializedProperty<S, V>> materializedProperties) {
+	public ForwardingProperty(final String name, final IContainer<MaterializedProperty<S, V>> materializedProperties) {
 		
 		super(name);
 		
