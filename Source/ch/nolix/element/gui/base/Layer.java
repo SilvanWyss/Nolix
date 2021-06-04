@@ -50,7 +50,7 @@ import ch.nolix.element.gui.widget.BorderWidget;
  * 
  * @author Silvan Wyss
  * @date 2019-05-18
- * @lines 1420
+ * @lines 1410
  */
 public final class Layer extends ConfigurableElement<Layer>
 implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInputTaker, Recalculable {
@@ -63,8 +63,9 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	//constants
 	private static final String BACKGROUND_HEADER = "Background";
 	private static final String FREE_CONTENT_POSITION_HEADER = "FreeContentPosition";
+	private static final String ROOT_WIDGET_HEADER = "RootWidget";
 	private static final String CONFIGURATION_ALLOWED_FLAG_HEADER = "ConfigurationAllowed";
-	
+		
 	//static method
 	/**
 	 * @param specification
@@ -156,14 +157,16 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	private IElementTaker<Layer> mouseWheelPressAction;
 	private IElementTaker<Layer> mouseWheelReleaseAction;
 	
-	//method
-	@Override
-	public void addOrChangeAttribute(final BaseNode attribute) {
-		if (WidgetGUI.canCreateWidgetFrom(attribute)) {
-			setRootWidget(WidgetGUI.createWidgetFrom(attribute));
-		} else {
-			internalAddOrChangeAttribute(attribute);
-		}
+	//constructor
+	public Layer() {
+		registerSingleProperty(
+			ROOT_WIDGET_HEADER,
+			this::setRootWidget,
+			this::containsAny,
+			this::getRefRootWidget,
+			s -> WidgetGUI.createWidgetFrom(s.getRefOneAttribute()),
+			w -> Node.withAttribute(w.getSpecification())
+		);
 	}
 	
 	//method
@@ -189,22 +192,6 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	@Override
 	public void clear() {
 		rootWidget = null;
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void fillUpAttributesInto(final LinkedList<Node> list) {
-		
-		//Calls method of the base class.
-		super.fillUpAttributesInto(list);
-		
-		//Handles the case that the current Layer has a root Widget.
-		if (containsAny()) {
-			list.addAtEnd(rootWidget.getSpecification());
-		}
 	}
 	
 	//method
