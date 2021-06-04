@@ -62,6 +62,7 @@ TopLeftPositionedRecangular {
 	public static final CursorIcon DEFAULT_CURSOR_ICON = CursorIcon.ARROW;
 	
 	//constants
+	private static final String CURSOR_ICON_HEADER = "CursorIcon";
 	private static final String GREY_OUT_WHEN_DISABLED_HEADER = "GreyOutWhenDisabled";
 	private static final String ENABLED_HEADER = "Enabled";
 	private static final String EXPANDED_HEADER = "Expanded";
@@ -112,39 +113,12 @@ TopLeftPositionedRecangular {
 	private IElementTaker<W> mouseWheelPressAction;
 	private IElementTaker<W> mouseWheelReleaseAction;
 	
-	//method
+	//constructor
 	/**
-	 * Adds or changes the given attribute to the current {@link Widget}.
-	 * 
-	 * @param attribute
-	 * @throws InvalidArgumentException if the given attribute is not valid.
+	 * Creates a new {@link Widget}.
 	 */
-	@Override
-	public void addOrChangeAttribute(final BaseNode attribute) {
-		
-		//Enumerates the header of the given attribute.
-		switch (attribute.getHeader()) {
-			case CursorIcon.TYPE_NAME:
-				setCustomCursorIcon(CursorIcon.fromSpecification(attribute));
-				break;
-			case GREY_OUT_WHEN_DISABLED_HEADER:
-				setGreyOutState(attribute.getOneAttributeAsBoolean());
-				break;
-			case ENABLED_HEADER:
-				setEnablingState(attribute.getOneAttributeAsBoolean());
-				break;
-			case EXPANDED_HEADER:
-				setExpansionState(attribute.getOneAttributeAsBoolean());
-				break;
-			case FOCUSED_HEADER:
-				setFocusState(attribute.getOneAttributeAsBoolean());
-				break;
-			case HOVERED_HEADER:
-				setHoverState(attribute.getOneAttributeAsBoolean());
-				break;
-			default:
-				addOrChangeAttribute(attribute);
-		}
+	public Widget() {
+		registerProperties();
 	}
 	
 	//method
@@ -211,26 +185,6 @@ TopLeftPositionedRecangular {
 		&& yPositionOnParent >= this.yPositionOnContentAreaOfParent
 		&& xPositionOnParent < this.xPositionOnContentAreaOfParent + getWidth()
 		&& yPositionOnParent < this.yPositionOnContentAreaOfParent + getHeight();
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void fillUpAttributesInto(final LinkedList<Node> list) {
-		
-		//Calls method of the base class.
-		super.fillUpAttributesInto(list);
-		
-		list.addAtEnd(
-			getCustomCursorIcon().getSpecification(),
-			Node.withHeaderAndAttribute(GREY_OUT_WHEN_DISABLED_HEADER, greysOutWhenDisabled()),
-			Node.withHeaderAndAttribute(ENABLED_HEADER, isEnabled()),
-			Node.withHeaderAndAttribute(EXPANDED_HEADER, isExpanded()),
-			Node.withHeaderAndAttribute(FOCUSED_HEADER, isFocused()),
-			Node.withHeaderAndAttribute(HOVERED_HEADER, isHovered())
-		);
 	}
 	
 	//method
@@ -1960,6 +1914,61 @@ TopLeftPositionedRecangular {
 	
 	//method
 	/**
+	 * Registers some properties of the current {@link Widget}.
+	 */
+	private void registerProperties() {
+		
+		registerSingleProperty(
+			CURSOR_ICON_HEADER,
+			this::setCustomCursorIcon,
+			this::getCustomCursorIcon,
+			CursorIcon::fromSpecification,
+			CursorIcon::getSpecification
+		);
+		
+		registerSingleProperty(
+			ENABLED_HEADER,
+			this::setEnabledState,
+			this::isEnabled,
+			BaseNode::toBoolean,
+			Node::withAttribute
+		);
+		
+		registerSingleProperty(
+			EXPANDED_HEADER,
+			this::setExpansionState,
+			this::isExpanded,
+			BaseNode::toBoolean,
+			Node::withAttribute
+		);
+		
+		registerSingleProperty(
+			FOCUSED_HEADER,
+			this::setFocusState,
+			this::isFocused,
+			BaseNode::toBoolean,
+			Node::withAttribute
+		);
+		
+		registerSingleProperty(
+			GREY_OUT_WHEN_DISABLED_HEADER,
+			this::setGreyOutState,
+			this::greysOutWhenDisabled,
+			BaseNode::toBoolean,
+			Node::withAttribute
+		);
+		
+		registerSingleProperty(
+			HOVERED_HEADER,
+			this::setHoverState,
+			this::isHovered,
+			BaseNode::toBoolean,
+			Node::withAttribute
+		);
+	}
+	
+	//method
+	/**
 	 * Sets the position of the cursor on the current {@link Widget} recursively.
 	 * 
 	 * @param cursorXPosition
@@ -1982,7 +1991,7 @@ TopLeftPositionedRecangular {
 	}
 	
 	//method
-	private void setEnablingState(final boolean enabled) {
+	private void setEnabledState(final boolean enabled) {
 		if (!enabled) {
 			setDisabled();
 		} else {
