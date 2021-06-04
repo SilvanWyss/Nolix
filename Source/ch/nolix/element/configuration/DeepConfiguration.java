@@ -84,6 +84,7 @@ public final class DeepConfiguration extends BaseConfiguration<DeepConfiguration
 			final var elements = element.getSubConfigurables();
 			
 			if (selects(element)) {
+				final var configurations = getRefConfigurations();
 				setAttachingAttributesTo(element);
 				elements.forEach(e -> configurations.forEach(c -> c.configure(e)));
 			}
@@ -184,7 +185,10 @@ public final class DeepConfiguration extends BaseConfiguration<DeepConfiguration
 			final var elements = element.getSubConfigurables();
 			
 			if (selects(element)) {
+				
 				setAttachingAttributesTo(element);
+				
+				final var configurations = getRefConfigurations();
 				elements.forEach(e -> configurations.forEach(c -> c.configure(e)));
 			}
 				

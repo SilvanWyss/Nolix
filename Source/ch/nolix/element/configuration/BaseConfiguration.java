@@ -2,8 +2,8 @@
 package ch.nolix.element.configuration;
 
 //own imports
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
-import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -22,7 +22,7 @@ import ch.nolix.element.gui.base.Widget;
 /**
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 550
+ * @lines 560
  * @param <C> is the type of a {@link BaseConfiguration}.
  */
 public abstract class BaseConfiguration<C extends BaseConfiguration<C>> extends Element<C>
@@ -33,7 +33,9 @@ implements IMutableElement<C> {
 	private static final String SELECTOR_ID_HEADER = "SelectorId";
 	private static final String SELECTOR_ROLE_HEADER = "SelectorRole";
 	private static final String SELECTOR_TOKEN_HEADER = "SelectorToken";
-		
+	private static final String ATTACHING_ATTRIBUTES_HEADER = "Attach";
+	private static final String CONFIGURATIONS_HEADER = "Configurations";
+	
 	//attribute
 	private final MutableOptionalValue<String> selectorType =
 	MutableOptionalValue.forString(SELECTOR_TYPE_HEADER, this::setSelectorType);
@@ -50,9 +52,23 @@ implements IMutableElement<C> {
 	private final MultiValue<String> selectorTokens =
 	MultiValue.forStrings(SELECTOR_TOKEN_HEADER, this::addSelectorToken);
 	
-	//multi-attributes
-	private final LinkedList<Node> attachingAttributes = new LinkedList<>();
-	protected final LinkedList<BaseConfiguration<?>> configurations = new LinkedList<>();
+	//attribute
+	private final MultiValue<Node> attachingAttributes =
+	new MultiValue<>(
+		ATTACHING_ATTRIBUTES_HEADER,
+		this::addAttachingAttribute,
+		BaseNode::getCopy,
+		BaseNode::getCopy
+	);
+	
+	//attribute
+	private final MultiValue<BaseConfiguration<?>> configurations =
+	new MultiValue<>(
+		CONFIGURATIONS_HEADER,
+		this::addConfiguration,
+		this::createConfigurationFromSpecification,
+		BaseConfiguration::getSpecification
+	);
 	
 	//method
 	/**
@@ -64,9 +80,7 @@ implements IMutableElement<C> {
 	 */
 	public final C addAttachingAttribute(final BaseNode attachingAttribute) {
 		
-		attachingAttributes.addAtEnd(
-			Node.withHeaderAndAttributes(attachingAttribute.getHeader(), attachingAttribute.getRefAttributes())
-		);
+		attachingAttributes.add(attachingAttribute.getCopy());
 		
 		return asConcrete();
 	}
@@ -111,7 +125,7 @@ implements IMutableElement<C> {
 	 */
 	public final C addConfiguration(final BaseConfiguration<?> configuration) {
 		
-		configurations.addAtEnd(configuration);
+		configurations.add(configuration);
 		
 		return asConcrete();
 	}
@@ -126,32 +140,20 @@ implements IMutableElement<C> {
 	 */
 	public final C addConfiguration(final BaseConfiguration<?>...configurations) {
 		
-		this.configurations.addAtEnd(configurations);
+		for (final var c : configurations) {
+			addConfiguration(c);
+		}
 		
 		return asConcrete();
 	}
 	
 	//method
 	/**
-	 * Adds or changes the given attribute to the current {@link BaseConfiguration}.
-	 * 
-	 * @param attribute
-	 * @throws InvalidArgumentException if the given attribute is not valid.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public void addOrChangeAttribute(final BaseNode attribute) {
-		
-		//Enumerates the header of the given attribute.
-		switch (attribute.getHeader()) {
-			case Configuration.TYPE_NAME:
-				addConfiguration(Configuration.fromSpecification(attribute));
-				break;
-			case DeepConfiguration.TYPE_NAME:
-				addConfiguration(DeepConfiguration.fromSpecification(attribute));
-				break;
-			default:
-				addAttachingAttribute(attribute);
-		}
+		internalAddOrChangeAttribute(attribute);
 	}
 	
 	//method
@@ -278,20 +280,6 @@ implements IMutableElement<C> {
 	 * @param element
 	 */
 	public abstract void configure(IConfigurableElement<?> element);
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void fillUpAttributesInto(final LinkedList<Node> list) {
-		
-		//Calls method of the base class.
-		super.fillUpAttributesInto(list);
-		
-		list.addAtEnd(attachingAttributes);
-		list.addAtEnd(configurations, BaseConfiguration::getSpecification);
-	}
 	
 	//method
 	/**
@@ -498,6 +486,10 @@ implements IMutableElement<C> {
 		return asConcrete();
 	}
 	
+	protected final IContainer<BaseConfiguration<?>> getRefConfigurations() {
+		return configurations;
+	}
+	
 	//method declaration
 	/**
 	 * Resets the current {@link Widget}.
@@ -554,6 +546,23 @@ implements IMutableElement<C> {
 		if (containsSelectorRole(selectorRole)) {
 			throw
 			new InvalidArgumentException(this, "contains already the given selector role '" + selectorRole + "'");
+		}
+	}
+	
+	//method
+	/**
+	 * @param specification
+	 * @return a new {@link BaseConfiguration} from the given specification.
+	 * @throws InvalidArgumentException if the given specification is not valid.
+	 */
+	private BaseConfiguration<?> createConfigurationFromSpecification(final BaseNode specification) {
+		switch (specification.getHeader()) {
+			case Configuration.TYPE_NAME:
+				return Configuration.fromSpecification(specification);
+			case DeepConfiguration.TYPE_NAME:
+				return DeepConfiguration.fromSpecification(specification);
+			default:
+				throw new InvalidArgumentException(LowerCaseCatalogue.SPECIFICATION, specification, "is not valid");
 		}
 	}
 }

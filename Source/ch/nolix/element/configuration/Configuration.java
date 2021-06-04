@@ -60,11 +60,13 @@ public final class Configuration extends BaseConfiguration<Configuration> {
 	 */
 	@Override
 	public void configure(final IConfigurableElement<?> element) {
+		
 		if (selects(element)) {
 			
 			setAttachingAttributesTo(element);
-						
+			
 			final var elements = element.getSubConfigurables();
+			final var configurations = getRefConfigurations();
 			elements.forEach(e -> configurations.forEach(c -> c.configure(e)));
 		}
 	}
