@@ -10,6 +10,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullExcep
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
+import ch.nolix.element.base.MultiValueExtractor;
 import ch.nolix.element.base.MutableOptionalValue;
 import ch.nolix.element.elementenum.RotationDirection;
 import ch.nolix.element.gui.base.Widget;
@@ -23,13 +24,14 @@ import ch.nolix.element.gui.painterapi.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 370
+ * @lines 340
  * @param <S> is the type of a {@link Stack}.
  */
 public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, StackLook> {
 	
-	//constant
+	//constants
 	private static final String ELEMENT_MARGIN_HEADER = "ElementMargin";
+	private static final String WIDGET_HEADER = "Widget";
 	
 	//attribute
 	private final MutableOptionalValue<Integer> elementMargin =
@@ -43,29 +45,16 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	//multi-attribute
 	private final LinkedList<Widget<?, ?>> widgets = new LinkedList<>();
 	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void addOrChangeAttribute(final BaseNode attribute) {
-		
-		if (WidgetGUI.canCreateWidgetFrom(attribute)) {
-			addWidget(WidgetGUI.createWidgetFrom(attribute));
-			return;
-		}
-		
-		//Enumerates the header of the given attribute.
-		switch (attribute.getHeader()) {
-			case ELEMENT_MARGIN_HEADER:
-				setElementMargin(attribute.getOneAttributeAsInt());
-				break;
-			default:
-				
-				//Calls method of the base class.
-				super.addOrChangeAttribute(attribute);
-		}
-	}
+	//attribute
+	@SuppressWarnings("unused")
+	private final MultiValueExtractor<Widget<?, ?>> widgetsExtractor =
+	new MultiValueExtractor<>(
+		WIDGET_HEADER,
+		this::addWidget,
+		this::getChildWidgets,
+		WidgetGUI::createWidgetFrom,
+		Widget::getSpecification
+	);
 	
 	//method
 	/**
@@ -126,20 +115,6 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	@Override
 	public final void clear() {
 		widgets.clear();
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void fillUpAttributesInto(final LinkedList<Node> list) {
-		
-		super.fillUpAttributesInto(list);
-		
-		for (final var cw : getChildWidgets()) {
-			list.addAtEnd(cw.getSpecification());
-		}
 	}
 	
 	//method
