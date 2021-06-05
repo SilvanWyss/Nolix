@@ -20,6 +20,7 @@ import ch.nolix.common.math.Calculator;
 import ch.nolix.common.skillapi.Clearable;
 import ch.nolix.common.skillapi.Recalculable;
 import ch.nolix.element.base.MutableOptionalValue;
+import ch.nolix.element.base.MutableOptionalValueExtractor;
 import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.base.OptionalValue;
 import ch.nolix.element.configuration.ConfigurableElement;
@@ -144,6 +145,18 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	//optional attribute
 	private Widget<?, ?> rootWidget;
 	
+	//attribute
+	@SuppressWarnings("unused")
+	private final MutableOptionalValueExtractor<Widget<?, ?>> rootWidgetExtractor =
+	new MutableOptionalValueExtractor<>(
+		ROOT_WIDGET_HEADER,
+		this::setRootWidget,
+		this::containsAny,
+		this::getRefRootWidget,
+		s -> WidgetGUI.createWidgetFrom(s.getRefOneAttribute()),
+		w -> Node.withAttribute(w.getSpecification())
+	);
+	
 	//optional attributes
 	private I2ElementTaker<Layer, Key> continuousKeyPressAction;
 	private IElementTaker<Layer> mouseMoveAction;
@@ -156,18 +169,6 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	private IElementTaker<Layer> mouseWheelClickAction;
 	private IElementTaker<Layer> mouseWheelPressAction;
 	private IElementTaker<Layer> mouseWheelReleaseAction;
-	
-	//constructor
-	public Layer() {
-		registerSingleProperty(
-			ROOT_WIDGET_HEADER,
-			this::setRootWidget,
-			this::containsAny,
-			this::getRefRootWidget,
-			s -> WidgetGUI.createWidgetFrom(s.getRefOneAttribute()),
-			w -> Node.withAttribute(w.getSpecification())
-		);
-	}
 	
 	//method
 	/**
