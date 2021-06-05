@@ -7,12 +7,10 @@ import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.matrix.Matrix;
 import ch.nolix.common.container.matrix.MatrixRow;
-import ch.nolix.common.document.node.BaseNode;
-import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.validator.Validator;
+import ch.nolix.element.base.MultiValueExtractor;
 import ch.nolix.element.elementenum.RotationDirection;
 import ch.nolix.element.gui.base.Widget;
-import ch.nolix.element.gui.base.WidgetGUI;
 import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.input.Key;
 import ch.nolix.element.gui.painterapi.IPainter;
@@ -20,9 +18,23 @@ import ch.nolix.element.gui.widget.Label;
 
 //class
 public final class Grid extends ContainerWidget<Grid, GridLook> {
-		
+	
+	//constant
+	private static final String CELL_HEADER = PascalCaseCatalogue.CELL;
+	
 	//multi-attribute
 	private Matrix<GridCell> cells = new Matrix<>();
+	
+	//attribute
+	@SuppressWarnings("unused")
+	private final MultiValueExtractor<GridCell> cellsExtractor =
+	new MultiValueExtractor<>(
+		CELL_HEADER,
+		this::addCell,
+		() -> cells.getRefSelected(GridCell::containsAny),
+		GridCell::fromSpecification,
+		GridCell::getSpecification
+	);
 	
 	//constructor
 	public Grid() {
@@ -37,41 +49,8 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 	
 	//method
 	@Override
-	public void addOrChangeAttribute(final BaseNode attribute) {
-		switch (attribute.getHeader()) {
-			case PascalCaseCatalogue.CELL:
-				
-				final var attributes = attribute.getRefAttributes();
-				
-				setWidget(
-					attributes.getRefAt(1).toInt(),
-					attributes.getRefAt(2).toInt(),
-					WidgetGUI.createWidgetFrom(attributes.getRefAt(3))
-				);
-				
-				break;
-			default:
-				super.addOrChangeAttribute(attribute);
-		}
-	}
-	
-	//method
-	@Override
 	public void clear() {
 		cells.clear();
-	}
-	
-	//method
-	@Override
-	public void fillUpAttributesInto(final LinkedList<Node> list) {
-		
-		super.fillUpAttributesInto(list);
-		
-		for (final GridCell c : cells) {
-			if (c.containsAny()) {
-				list.addAtEnd(c.getSpecificationAs(PascalCaseCatalogue.CELL));
-			}
-		}
 	}
 	
 	//method
@@ -155,9 +134,8 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 	//method
 	public Grid setWidget(final int rowIndex, final int columnIndex, final Widget<?, ?> widget) {
 		
-		expandTo(rowIndex, columnIndex);
-		cells.setAt(rowIndex, columnIndex, new GridCell(rowIndex, columnIndex).setWidget(widget));
-		
+		addCell(new GridCell(rowIndex, columnIndex).setWidget(widget));
+				
 		return this;
 	}
 	
@@ -398,6 +376,12 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 	@Override
 	protected void resetContainerWidget() {
 		clear();
+	}
+	
+	//method
+	private void addCell(final GridCell cell) {
+		expandTo(cell.getRowIndex(), cell.getColumnIndex());
+		cells.setAt(cell.getRowIndex(), cell.getColumnIndex(), cell);
 	}
 	
 	//method
