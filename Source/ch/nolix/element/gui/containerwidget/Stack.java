@@ -2,6 +2,7 @@
 package ch.nolix.element.gui.containerwidget;
 
 //own imports
+import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.document.node.BaseNode;
@@ -31,7 +32,7 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	
 	//constants
 	private static final String ELEMENT_MARGIN_HEADER = "ElementMargin";
-	private static final String WIDGET_HEADER = "Widget";
+	private static final String CHILD_HEADER = PascalCaseCatalogue.CHILD;
 	
 	//attribute
 	private final MutableOptionalValue<Integer> elementMargin =
@@ -49,7 +50,7 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	@SuppressWarnings("unused")
 	private final MultiValueExtractor<Widget<?, ?>> widgetsExtractor =
 	new MultiValueExtractor<>(
-		WIDGET_HEADER,
+		CHILD_HEADER,
 		this::addWidget,
 		this::getChildWidgets,
 		WidgetGUI::createWidgetFrom,
