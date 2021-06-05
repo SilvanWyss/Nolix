@@ -20,6 +20,15 @@ final class GridCell extends Element<GridCell> implements Clearable, IMutableEle
 	private static final String ROW_INDEX_HEADER = PascalCaseCatalogue.ROW_INDEX;
 	private static final String COLUMN_INDEX_HEADER = PascalCaseCatalogue.COLUMN_INDEX;
 	
+	//static method
+	public static GridCell fromSpecification(final BaseNode specification) {
+		
+		final var cell = new GridCell();
+		cell.resetFrom(specification);
+		
+		return cell;
+	}
+	
 	//attributes
 	private final MutableOptionalWidgetProperty widget = new MutableOptionalWidgetProperty(this::setWidget);
 	
@@ -32,6 +41,9 @@ final class GridCell extends Element<GridCell> implements Clearable, IMutableEle
 		setRowIndex(rowIndex);
 		setColumnIndex(columnIndex);
 	}
+	
+	//constructor
+	private GridCell() {}
 	
 	//method
 	@Override
