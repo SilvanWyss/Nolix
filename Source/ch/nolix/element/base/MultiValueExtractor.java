@@ -13,7 +13,7 @@ import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.common.functionapi.IElementTakerElementGetter;
 
 //class
-final class MultiValueExtractor<V> extends Property {
+public final class MultiValueExtractor<V> extends Property {
 	
 	//attributes
 	private final String name;
