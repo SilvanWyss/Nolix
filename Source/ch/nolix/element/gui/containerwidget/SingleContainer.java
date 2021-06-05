@@ -3,10 +3,9 @@ package ch.nolix.element.gui.containerwidget;
 
 //own imports
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.document.node.BaseNode;
-import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.element.base.MutableOptionalValueExtractor;
 import ch.nolix.element.elementenum.RotationDirection;
 import ch.nolix.element.gui.base.Widget;
 import ch.nolix.element.gui.base.WidgetGUI;
@@ -19,12 +18,27 @@ import ch.nolix.element.gui.painterapi.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 310
+ * @lines 290
  */
 public final class SingleContainer extends ContainerWidget<SingleContainer, SingleContainerLook> {
 	
+	//constant
+	private static final String WIDGET_HEADER = "Widget";
+	
 	//optional attribute
 	private Widget<?, ?> widget;
+	
+	//attribute
+	@SuppressWarnings("unused")
+	private final MutableOptionalValueExtractor<Widget<?, ?>> widgetExtractor =
+	new MutableOptionalValueExtractor<>(
+		WIDGET_HEADER,
+		this::setWidget,
+		this::containsAny,
+		this::getRefWidget,
+		WidgetGUI::createWidgetFrom,
+		Widget::getSpecification
+	);
 	
 	//method
 	/**
@@ -39,42 +53,8 @@ public final class SingleContainer extends ContainerWidget<SingleContainer, Sing
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void addOrChangeAttribute(BaseNode attribute) {
-		
-		//Handles the case that the given attribute specicifies a widget.
-		if (WidgetGUI.canCreateWidgetFrom(attribute)) {
-			setWidget(WidgetGUI.createWidgetFrom(attribute));
-			return;
-		}
-		
-		//Calls method of the base class.
-		super.addOrChangeAttribute(attribute);
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	public void clear() {
 		widget = null;
-	}
-	
-	//method
-	//For a better performance, this implementation does not use all comfortable methods.
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void fillUpAttributesInto(final LinkedList<Node> list) {
-		
-		//Calls method of the base class.
-		super.fillUpAttributesInto(list);
-		
-		//Handles the case that the current single container has a widget.
-		if (widget != null) {
-			list.addAtEnd(widget.getSpecification());
-		}
 	}
 	
 	//method
