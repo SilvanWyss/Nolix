@@ -9,13 +9,8 @@ import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
-import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.functionapi.IBooleanGetter;
-import ch.nolix.common.functionapi.IElementGetter;
-import ch.nolix.common.functionapi.IElementTaker;
-import ch.nolix.common.functionapi.IElementTakerElementGetter;
 import ch.nolix.element.elementapi.IElement;
 
 //class
@@ -27,11 +22,8 @@ import ch.nolix.element.elementapi.IElement;
  */
 public abstract class Element<E extends Element<E>> implements IElement<E> {
 	
-	//attribute
-	private boolean extractedProperties;
-	
 	//multi-attribute
-	private final LinkedList<Property> properties = new LinkedList<>();
+	private LinkedList<Property> properties;
 	
 	//method
 	/**
@@ -105,121 +97,6 @@ public abstract class Element<E extends Element<E>> implements IElement<E> {
 	
 	//method
 	/**
-	 * Registers a {@link MultiValue} at the current {@link Element}.
-	 * 
-	 * @param <V> is the type of the value of the registered {@link MultiValue}.
-	 * @param name
-	 * @param adder
-	 * @param getter
-	 * @param valueCreator
-	 * @param specificationCreator
-	 * @throws ArgumentIsNullException if the given name is null.
-	 * @throws InvalidArgumentException if the given name is blank.
-	 * @throws ArgumentIsNullException if the given adder is null.
-	 * @throws ArgumentIsNullException if the given getter is null.
-	 * @throws ArgumentIsNullException if the given valueCreator is null.
-	 * @throws ArgumentIsNullException if the given specificationCreator is null.
-	 */
-	protected final <V> void registerMultiProperty(
-		final String name,
-		final IElementTaker<V> adder,
-		final IElementGetter<IContainer<V>> getter,
-		final IElementTakerElementGetter<BaseNode, V> valueCreator,
-		final IElementTakerElementGetter<V, Node> specificationCreator
-	) {
-		properties.addAtEnd(new MultiPropertyExtractor<>(name, adder, getter, valueCreator, specificationCreator));
-	}
-	
-	//method
-	/**
-	 * Registers a single {@link Property} at the current {@link Element}.
-	 * 
-	 * @param name
-	 * @param setter
-	 * @param getter
-	 * @throws ArgumentIsNullException if the given name is null.
-	 * @throws InvalidArgumentException if the given name is blank.
-	 * @throws ArgumentIsNullException if the given setter is null.
-	 * @throws ArgumentIsNullException if the given getter is null.
-	 */
-	protected final void registerSingleProperty(
-		final String name,
-		final IElementTaker<Node> setter,
-		final IElementGetter<Node> getter
-	) {
-		properties.addAtEnd(
-			new MutableValueExtractor<Node>(name, setter, getter, BaseNode::getCopy, BaseNode::getCopy)
-		);
-	}
-	
-	//method
-	/**
-	 * Registers a single {@link Property} at the current {@link Element}.
-	 * 
-	 * @param <V> is the type of the value of the registered single {@link Property}.
-	 * @param name
-	 * @param setter
-	 * @param valuePresenceChecker
-	 * @param getter
-	 * @param valueCreator
-	 * @param specificationCreator
-	 * @throws ArgumentIsNullException if the given name is null.
-	 * @throws InvalidArgumentException if the given name is blank.
-	 * @throws ArgumentIsNullException if the given setter is null.
-	 * @throws ArgumentIsNullException if the given valuePresenceChecker is null.
-	 * @throws ArgumentIsNullException if the given getter is null.
-	 * @throws ArgumentIsNullException if the given valueCreator is null.
-	 * @throws ArgumentIsNullException if the given specificationCreator is null.
-	 */
-	protected final <V> void registerSingleProperty(
-		final String name,
-		final IElementTaker<V> setter,
-		final IBooleanGetter valuePresenceChecker,
-		final IElementGetter<V> getter,
-		final IElementTakerElementGetter<BaseNode, V> valueCreator,
-		final IElementTakerElementGetter<V, Node> specificationCreator
-	) {
-		properties.addAtEnd(
-			new MutableOptionalValueExtractor<V>(
-				name,
-				setter,
-				valuePresenceChecker,
-				getter,
-				valueCreator,
-				specificationCreator
-			)
-		);
-	}
-	
-	//method
-	/**
-	 * Registers a single {@link Property} at the current {@link Element}.
-	 * 
-	 * @param <V> is the type of the value of the registered single {@link Property}.
-	 * @param name
-	 * @param setter
-	 * @param getter
-	 * @param valueCreator
-	 * @param specificationCreator
-	 * @throws ArgumentIsNullException if the given name is null.
-	 * @throws InvalidArgumentException if the given name is blank.
-	 * @throws ArgumentIsNullException if the given setter is null.
-	 * @throws ArgumentIsNullException if the given getter is null.
-	 * @throws ArgumentIsNullException if the given valueCreator is null.
-	 * @throws ArgumentIsNullException if the given specificationCreator is null.
-	 */
-	protected final <V> void registerSingleProperty(
-		final String name,
-		final IElementTaker<V> setter,
-		final IElementGetter<V> getter,
-		final IElementTakerElementGetter<BaseNode, V> valueCreator,
-		final IElementTakerElementGetter<V, Node> specificationCreator
-	) {
-		properties.addAtEnd(new MutableValueExtractor<V>(name, setter, getter, valueCreator, specificationCreator));
-	}
-	
-	//method
-	/**
 	 * Extracts the property from the given field, if the given field is a property.
 	 * 
 	 * @param field
@@ -257,14 +134,14 @@ public abstract class Element<E extends Element<E>> implements IElement<E> {
 	 */
 	private void extractProperties() {
 		
+		properties = new LinkedList<>();
+		
 		//Iterates the classes of the current {@link Entity}.
 		Class<?> lClass = getClass();
 		while (lClass != null) {
 			extractProperties(lClass);
 			lClass = lClass.getSuperclass();
 		}
-		
-		extractedProperties = true;
 	}
 	
 	//method
@@ -307,6 +184,6 @@ public abstract class Element<E extends Element<E>> implements IElement<E> {
 	 * @return true if the properties of the current {@link Element} are extracted.
 	 */
 	private boolean propertiesAreExtracted() {
-		return extractedProperties;
+		return (properties != null);
 	}
 }
