@@ -17,8 +17,6 @@ public final class MutableValueExtractor<V> extends Property {
 	//attributes
 	private final String name;
 	private final IElementTaker<V> setter;
-	
-	//attributes
 	private final IElementGetter<V> getter;
 	private final IElementTakerElementGetter<BaseNode, V> valueCreator;
 	private final IElementTakerElementGetter<V, Node> specificationCreator;
