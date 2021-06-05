@@ -7,13 +7,12 @@ import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
-import ch.nolix.common.document.node.BaseNode;
-import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.skillapi.Clearable;
+import ch.nolix.element.base.MultiValue;
+import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.elementenum.RotationDirection;
 import ch.nolix.element.gui.base.CursorIcon;
 import ch.nolix.element.gui.base.Widget;
@@ -28,7 +27,7 @@ import ch.nolix.element.gui.textformat.TextFormat;
 /**
  * @author Silvan Wyss
  * @date 2017-03-06
- * @lines 880
+ * @lines 820
  */
 public final class Console extends BorderWidget<Console, ConsoleLook> implements Clearable {
 	
@@ -59,7 +58,8 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	/**
 	 * The edit line is the line of the current {@link Console} that can be edited.
 	 */
-	private String editLine = StringCatalogue.EMPTY_STRING;
+	private final MutableValue<String> editLine =
+	MutableValue.forString(EDIT_LINE_HEADER, StringCatalogue.EMPTY_STRING, this::setEditLine);
 	
 	//attribute
 	/**
@@ -74,8 +74,8 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	 */
 	private String secretEditLine;
 	
-	//multi-attribute
-	private final LinkedList<String> lines = new LinkedList<>();
+	//attribute
+	private final MultiValue<String> lines = MultiValue.forStrings(LINES_HEADER, this::writeLine);
 	
 	//constructor
 	/**
@@ -94,32 +94,7 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 		
 		recalculate();
 	}
-	
-	//method
-	/**
-	 * Adds or change the given attribute to the current {@link Console}.
-	 * 
-	 * @param attribute
-	 * @throws InvalidArgumentException if the given attribute is not valid.
-	 */
-	@Override
-	public void addOrChangeAttribute(final BaseNode attribute) {
 		
-		//Enumerates the header of the given attribute.
-		switch (attribute.getHeader()) {
-			case LINES_HEADER:
-				attribute.getRefAttributes().forEach(a -> writeLine(a.getHeaderOrEmptyString()));
-				break;
-			case EDIT_LINE_HEADER:
-				setEditLine(attribute.getRefOneAttribute().getHeaderOrEmptyString());
-				break;
-			default:
-				
-				//Calls method of the base class.
-				super.addOrChangeAttribute(attribute);
-		}
-	}
-	
 	//method
 	/**
 	 * Removes all lines of the current {@link Console} and clears the edit line of the current {@link Console}.
@@ -135,7 +110,7 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	 * Clears the edit line of the current {@link Console}.
 	 */
 	public void clearEditLine() {
-		editLine = StringCatalogue.EMPTY_STRING;
+		editLine.setValue(StringCatalogue.EMPTY_STRING);
 		textCursorPosition = 0;
 	}
 	
@@ -145,9 +120,8 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	 * in the edit line of the current {@link Console} if there is one.
 	 */
 	public void deleteCharacterAfterTextCursor() {
-		if (textCursorPosition < editLine.length()) {
-			editLine
-			= getEditLineBeforeTextCursor() + getEditLineAfterTextCursor().substring(1);
+		if (textCursorPosition < getEditLine().length()) {
+			setEditLine(getEditLineBeforeTextCursor() + getEditLineAfterTextCursor().substring(1));
 		}
 	}
 	
@@ -157,50 +131,12 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	 * in the edit line of the current {@link Console} if there is one.
 	 */
 	public void deleteCharacterBeforeTextCursor() {
-		if (!editLine.isEmpty() && textCursorPosition > 0) {
+		if (!getEditLine().isEmpty() && textCursorPosition > 0) {
 			
-			editLine
-			= editLine.substring(0, textCursorPosition - 1) + getEditLineAfterTextCursor();
+			setEditLine(getEditLine().substring(0, textCursorPosition - 1) + getEditLineAfterTextCursor());
 			
 			textCursorPosition--;
 		}
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void fillUpAttributesInto(final LinkedList<Node> list) {
-		
-		//Calls method of base class.
-		super.fillUpAttributesInto(list);
-		
-		//Handles the case that the current Console contains one or several lines.
-		if (containsAny()) {
-			
-			final var linesSpecification = new Node();
-			linesSpecification.setHeader(LINES_HEADER);
-			
-			for (final var l : lines) {
-				
-				final var lineAttribute = new Node();
-				if (!l.isEmpty()) {
-					lineAttribute.setHeader(l);
-				}
-				
-				linesSpecification.addAttribute(lineAttribute);
-			}
-			
-			list.addAtEnd(linesSpecification);
-		}
-		
-		final var editLineSpecification = new Node().setHeader(EDIT_LINE_HEADER);
-		if (!editLine.isEmpty()) {
-			editLineSpecification.addAttribute(Node.withHeader(editLine));
-		}
-		
-		list.addAtEnd(editLineSpecification);
 	}
 	
 	//method
@@ -210,7 +146,7 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	 * @return the edit line of the current {@link Console}.
 	 */
 	public String getEditLine() {
-		return editLine;
+		return editLine.getValue();
 	}
 	
 	//method
@@ -218,7 +154,7 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	 * @return the text of the edit line of the current {@link Console} after the text cursor.
 	 */
 	public String getEditLineAfterTextCursor() {
-		return editLine.substring(textCursorPosition);
+		return getEditLine().substring(textCursorPosition);
 	}
 	
 	//method
@@ -226,7 +162,7 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	 * @return the text of the edit line of the current {@link Console} before the text cursor.
 	 */
 	public String getEditLineBeforeTextCursor() {
-		return editLine.substring(0, textCursorPosition);
+		return getEditLine().substring(0, textCursorPosition);
 	}
 	
 	//method
@@ -451,11 +387,8 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	 */
 	public Console setEditLine(final String editLine) {
 		
-		//Asserts that the given edit line is not null.
-		Validator.assertThat(editLine).thatIsNamed("edit line").isNotNull();
-		
 		//Sets the edit line of the current Console.
-		this.editLine = editLine;
+		this.editLine.setValue(editLine);
 		
 		//Sets the text cursor position at the end of the edit line.
 		textCursorPosition = getEditLine().length();
@@ -482,7 +415,7 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	 * Attention: Clears the edit line of the current {@link Console}.
 	 */
 	public void writeEditLine() {
-		writeLine(editLine);
+		writeLine(getEditLine());
 	}
 	
 	//method
@@ -514,7 +447,7 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	 * @throws ArgumentIsNullException if the given line is null.
 	 */
 	public void writeLine(final String line) {
-		lines.addAtEnd(line);
+		lines.add(line);
 		clearEditLine();
 		scrollToBottom();
 	}
