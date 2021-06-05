@@ -21,6 +21,7 @@ import ch.nolix.common.environment.runningjar.RunningJar;
 import ch.nolix.common.errorcontrol.exception.WrapperException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.element.base.Element;
+import ch.nolix.element.base.MutableSpecificationValueExtractor;
 import ch.nolix.element.base.Value;
 import ch.nolix.element.elementapi.IMutableElement;
 import ch.nolix.element.gui.color.Color;
@@ -107,6 +108,11 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 	//attribute
 	private final Matrix<Color> pixels;
 	
+	//attribute
+	@SuppressWarnings("unused")
+	private final MutableSpecificationValueExtractor pixelsExtractor =
+	new MutableSpecificationValueExtractor(PIXEL_ARRAY_HEADER, this::setPixelArray, this::getPixelArraySpecification);
+	
 	//optional attributes
 	private Node pixelArraySpecification;
 	private BufferedImage bufferedImage;
@@ -121,7 +127,6 @@ public final class Image extends Element<Image> implements IMutableElement<Image
 		
 		Validator.assertThat(color).thatIsNamed(Color.class).isNotNull();
 		
-		registerSingleProperty(PIXEL_ARRAY_HEADER, this::setPixelArray, this::getPixelArraySpecification);
 		setWidth(width);
 		setHeight(height);
 		
