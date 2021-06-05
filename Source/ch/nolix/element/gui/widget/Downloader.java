@@ -2,9 +2,6 @@
 package ch.nolix.element.gui.widget;
 
 //own imports
-import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.document.node.BaseNode;
-import ch.nolix.common.document.node.Node;
 import ch.nolix.common.environment.filesystem.FileAccessor;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.errorcontrol.validator.Validator;
@@ -22,9 +19,6 @@ public final class Downloader extends TextLineWidget<Downloader, DownloaderLook>
 	public static final String DEFAULT_TEXT = "Download";
 	public static final CursorIcon DEFAULT_CURSOR_ICON = CursorIcon.HAND;
 	
-	//constant
-	private static final String FILE_GETTER_HEADER = "FileGetter";
-	
 	//attribute
 	private boolean providesFile;
 	
@@ -39,29 +33,6 @@ public final class Downloader extends TextLineWidget<Downloader, DownloaderLook>
 		getRefLook()
 		.setTextColorForState(WidgetLookState.BASE, Color.DARK_BLUE)
 		.setTextColorForState(WidgetLookState.HOVER, Color.BLUE);
-	}
-	
-	//method
-	@Override
-	public void addOrChangeAttribute(final BaseNode attribute) {
-		switch (attribute.getHeader()) {
-			case FILE_GETTER_HEADER:
-				setProvideFile();
-				break;
-			default:
-				super.addOrChangeAttribute(attribute);
-		}
-	}
-	
-	//method
-	@Override
-	public void fillUpAttributesInto(final LinkedList<Node> list) {
-		
-		super.fillUpAttributesInto(list);
-		
-		if (providesFile()) {
-			list.addAtEnd(Node.withHeader(FILE_GETTER_HEADER));
-		}
 	}
 	
 	//method
@@ -178,11 +149,6 @@ public final class Downloader extends TextLineWidget<Downloader, DownloaderLook>
 	//method
 	private boolean hasFileGetter() {
 		return (fileProvider != null);
-	}
-	
-	//method
-	private void setProvideFile() {
-		providesFile = true;
 	}
 	
 	//method
