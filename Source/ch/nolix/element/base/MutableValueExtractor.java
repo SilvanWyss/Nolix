@@ -12,7 +12,7 @@ import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.common.functionapi.IElementTakerElementGetter;
 
 //class
-public final class ValueExtractor<V> extends Property {
+public final class MutableValueExtractor<V> extends Property {
 	
 	//attributes
 	private final String name;
@@ -24,7 +24,7 @@ public final class ValueExtractor<V> extends Property {
 	private final IElementTakerElementGetter<V, Node> specificationCreator;
 	
 	//constructor
-	public ValueExtractor(
+	public MutableValueExtractor(
 		final String name,
 		final IElementTaker<V> setter,
 		final IElementGetter<V> getter,
