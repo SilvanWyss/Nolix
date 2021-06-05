@@ -20,6 +20,7 @@ import ch.nolix.common.requestapi.EnablingRequestable;
 import ch.nolix.common.requestapi.ExpansionRequestable;
 import ch.nolix.common.skillapi.Recalculable;
 import ch.nolix.element.base.ExtensionElement;
+import ch.nolix.element.base.MutableValueExtractor;
 import ch.nolix.element.configuration.ConfigurableElement;
 import ch.nolix.element.elementapi.IConfigurableElement;
 import ch.nolix.element.elementenum.RotationDirection;
@@ -45,7 +46,7 @@ import ch.nolix.element.gui.painterapi.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 2070
+ * @lines 2080
  * @param <W> is the type of a {@link Widget}.
  * @param <WL> is the type of the {@link WidgetLook} of a {@link Widget}.
  */
@@ -72,16 +73,82 @@ TopLeftPositionedRecangular {
 	//static attribute
 	private static final WidgetLookStateCalculator widgetLookStateCalculator = new WidgetLookStateCalculator();
 	
-	//attributes	
+	//attribute	
 	private CursorIcon customCursorIcon = DEFAULT_CURSOR_ICON;
-	private boolean greysOutWhenDisabled;
+	
+	//attribute
+	@SuppressWarnings("unused")
+	private final MutableValueExtractor<CursorIcon> customCursorIconExtractor =
+	new MutableValueExtractor<>(
+		CURSOR_ICON_HEADER,
+		this::setCustomCursorIcon,
+		this::getCustomCursorIcon,
+		CursorIcon::fromSpecification,
+		CursorIcon::getSpecification
+	);	
 	
 	//attributes
+	private boolean greysOutWhenDisabled;
 	private boolean enabled = true;
 	private boolean expanded = true;
 	private boolean focused;
 	private boolean hovered;
-			
+	
+	//attribute
+	@SuppressWarnings("unused")
+	private final MutableValueExtractor<Boolean> enabledStateExtractor =
+	new MutableValueExtractor<>(
+		ENABLED_HEADER,
+		this::setEnabledState,
+		this::isEnabled,
+		BaseNode::toBoolean,
+		Node::withAttribute
+	);
+	
+	//attribute
+	@SuppressWarnings("unused")
+	private final MutableValueExtractor<Boolean> expansionStateExtractor =
+	new MutableValueExtractor<>(
+		EXPANDED_HEADER,
+		this::setExpansionState,
+		this::isExpanded,
+		BaseNode::toBoolean,
+		Node::withAttribute
+	);
+	
+	//attribute
+	@SuppressWarnings("unused")
+	private final MutableValueExtractor<Boolean> focusStateExtractor =
+	new MutableValueExtractor<>(
+		FOCUSED_HEADER,
+		this::setFocusState,
+		this::isFocused,
+		BaseNode::toBoolean,
+		Node::withAttribute
+	);
+	
+	//attribute
+	@SuppressWarnings("unused")
+	private final MutableValueExtractor<Boolean> greyOutStateExtractor =
+	new MutableValueExtractor<>(
+		GREY_OUT_WHEN_DISABLED_HEADER,
+		this::setGreyOutState,
+		this::greysOutWhenDisabled,
+		BaseNode::toBoolean,
+		Node::withAttribute
+	);
+	
+	//attribute
+	@SuppressWarnings("unused")
+	private final MutableValueExtractor<Boolean> hoverStateExtractor =
+	new MutableValueExtractor<>(
+		HOVERED_HEADER,
+		this::setHoverState,
+		this::isHovered,
+		BaseNode::toBoolean,
+		Node::withAttribute
+	);
+	
 	//attributes
 	private int xPositionOnContentAreaOfParent;
 	private int yPositionOnContentAreaOfParent;
@@ -112,14 +179,6 @@ TopLeftPositionedRecangular {
 	private IElementTaker<W> mouseWheelClickAction;
 	private IElementTaker<W> mouseWheelPressAction;
 	private IElementTaker<W> mouseWheelReleaseAction;
-	
-	//constructor
-	/**
-	 * Creates a new {@link Widget}.
-	 */
-	public Widget() {
-		registerProperties();
-	}
 	
 	//method
 	/**
@@ -1910,61 +1969,6 @@ TopLeftPositionedRecangular {
 		if (paintsWidgetsForPaintingAPriori()) {
 			getRefWidgetsForPainting().forEach(w -> w.paintRecursively(painter));
 		}
-	}
-	
-	//method
-	/**
-	 * Registers some properties of the current {@link Widget}.
-	 */
-	private void registerProperties() {
-		
-		registerSingleProperty(
-			CURSOR_ICON_HEADER,
-			this::setCustomCursorIcon,
-			this::getCustomCursorIcon,
-			CursorIcon::fromSpecification,
-			CursorIcon::getSpecification
-		);
-		
-		registerSingleProperty(
-			ENABLED_HEADER,
-			this::setEnabledState,
-			this::isEnabled,
-			BaseNode::toBoolean,
-			Node::withAttribute
-		);
-		
-		registerSingleProperty(
-			EXPANDED_HEADER,
-			this::setExpansionState,
-			this::isExpanded,
-			BaseNode::toBoolean,
-			Node::withAttribute
-		);
-		
-		registerSingleProperty(
-			FOCUSED_HEADER,
-			this::setFocusState,
-			this::isFocused,
-			BaseNode::toBoolean,
-			Node::withAttribute
-		);
-		
-		registerSingleProperty(
-			GREY_OUT_WHEN_DISABLED_HEADER,
-			this::setGreyOutState,
-			this::greysOutWhenDisabled,
-			BaseNode::toBoolean,
-			Node::withAttribute
-		);
-		
-		registerSingleProperty(
-			HOVERED_HEADER,
-			this::setHoverState,
-			this::isHovered,
-			BaseNode::toBoolean,
-			Node::withAttribute
-		);
 	}
 	
 	//method
