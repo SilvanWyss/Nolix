@@ -2,9 +2,9 @@
 package ch.nolix.element.gui.containerwidget;
 
 //own imports
+import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.document.node.BaseNode;
-import ch.nolix.common.document.node.Node;
+import ch.nolix.element.base.MultiValueExtractor;
 import ch.nolix.element.elementenum.RotationDirection;
 import ch.nolix.element.gui.base.Widget;
 import ch.nolix.element.gui.base.WidgetGUI;
@@ -14,24 +14,26 @@ import ch.nolix.element.gui.painterapi.IPainter;
 //class
 public final class FloatContainer extends ContainerWidget<FloatContainer, FloatContainerLook> {
 	
+	//constant
+	private static final String CHILD_HEADER = PascalCaseCatalogue.CHILD;
+	
 	//multi-attribute
 	private final LinkedList<Widget<?, ?>> widgets = new LinkedList<>();
+	
+	//attribute
+	@SuppressWarnings("unused")
+	private final MultiValueExtractor<Widget<?, ?>> widgetsExtractor =
+	new MultiValueExtractor<>(
+		CHILD_HEADER,
+		this::addWidget,
+		this::getChildWidgets,
+		WidgetGUI::createWidgetFrom,
+		Widget::getSpecification
+	);
 	
 	//constructor
 	public FloatContainer() {
 		reset();
-	}
-	
-	//own imports
-	@Override
-	public void addOrChangeAttribute(final BaseNode attribute) {
-		
-		if (WidgetGUI.canCreateWidgetFrom(attribute)) {
-			addWidget(WidgetGUI.createWidgetFrom(attribute));
-			return;
-		}
-		
-		super.addOrChangeAttribute(attribute);
 	}
 	
 	//method
@@ -64,17 +66,6 @@ public final class FloatContainer extends ContainerWidget<FloatContainer, FloatC
 	@Override
 	public void clear() {
 		widgets.clear();
-	}
-	
-	//method
-	@Override
-	public void fillUpAttributesInto(final LinkedList<Node> list) {
-		
-		super.fillUpAttributesInto(list);
-		
-		for (final var w : widgets) {
-			list.addAtEnd(w.getSpecification());
-		}
 	}
 	
 	//method
