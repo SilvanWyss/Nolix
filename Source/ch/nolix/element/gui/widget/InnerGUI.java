@@ -7,6 +7,7 @@ import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.chainednode.ChainedNode;
 import ch.nolix.common.programcontrol.closeableelement.CloseController;
+import ch.nolix.element.base.MutableSpecificationValueExtractor;
 import ch.nolix.element.configuration.Configuration;
 import ch.nolix.element.elementenum.RotationDirection;
 import ch.nolix.element.gui.base.IWidgetGUI;
@@ -28,14 +29,14 @@ public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> impleme
 	private final WidgetGUI<?> internalGUI = new InvisibleGUI();
 	private final Label titleLabel = new Label();
 	
+	//attribute
+	@SuppressWarnings("unused")
+	private final MutableSpecificationValueExtractor internalGUIExtractor =
+	new MutableSpecificationValueExtractor(GUI_HEADER,	internalGUI::resetFrom,	internalGUI::getSpecification);
+	
 	//constructor
 	public InnerGUI() {
 		
-		registerSingleProperty(
-			GUI_HEADER,
-			internalGUI::resetFrom,
-			internalGUI::getSpecification
-		);
 		reset();
 		
 		setProposalWidth(200);
