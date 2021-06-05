@@ -4,6 +4,7 @@ package ch.nolix.element.gui.containerwidget;
 //own imports
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.math.Calculator;
+import ch.nolix.element.base.MutableOptionalValueExtractor;
 import ch.nolix.element.elementenum.RotationDirection;
 import ch.nolix.element.gui.base.Widget;
 import ch.nolix.element.gui.base.WidgetGUI;
@@ -36,10 +37,117 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 	private final AligningContainerSlot bottomSlot = new AligningContainerSlot();
 	private final AligningContainerSlot bottomRightSlot = new AligningContainerSlot();
 	
+	//attribute
+	@SuppressWarnings("unused")
+	private final MutableOptionalValueExtractor<Widget<?, ?>> topLeftWidgetExtractor =
+	new MutableOptionalValueExtractor<>(
+		TOP_LEFT_HEADER,
+		this::setOnTopLeft,
+		this::containsWidgetOnTopLeft,
+		this::getRefTopLeftWidget,
+		WidgetGUI::createWidgetFrom,
+		Widget::getSpecification
+	);
+	
+	//attribute
+	@SuppressWarnings("unused")
+	private final MutableOptionalValueExtractor<Widget<?, ?>> topWidgetExtractor =
+	new MutableOptionalValueExtractor<>(
+		TOP_HEADER,
+		this::setOnTop,
+		this::containsWidgetOnTop,
+		this::getRefTopWidget,
+		WidgetGUI::createWidgetFrom,
+		Widget::getSpecification
+	);
+	
+	//attribute
+	@SuppressWarnings("unused")
+	private final MutableOptionalValueExtractor<Widget<?, ?>> topRightWidgetExtractor =
+	new MutableOptionalValueExtractor<>(
+		TOP_RIGHT_HEADER,
+		this::setOnTopRight,
+		this::containsWidgetOnTopRight,
+		this::getRefTopRightWidget,
+		WidgetGUI::createWidgetFrom,
+		Widget::getSpecification
+	);
+	
+	//attribute
+	@SuppressWarnings("unused")
+	private final MutableOptionalValueExtractor<Widget<?, ?>> leftWidgetExtractor =
+	new MutableOptionalValueExtractor<>(
+		LEFT_HEADER,
+		this::setOnLeft,
+		this::containsWidgetOnLeft,
+		this::getRefLeftWidget,
+		WidgetGUI::createWidgetFrom,
+		Widget::getSpecification
+	);
+	
+	//attribute
+	@SuppressWarnings("unused")
+	private final MutableOptionalValueExtractor<Widget<?, ?>> centerWidgetExtractor =
+	new MutableOptionalValueExtractor<>(
+		CENTER_HEADER,
+		this::setOnCenter,
+		this::containsWidgetOnCenter,
+		this::getRefCenterWidget,
+		WidgetGUI::createWidgetFrom,
+		Widget::getSpecification
+	);
+	
+	//attribute
+	@SuppressWarnings("unused")
+	private final MutableOptionalValueExtractor<Widget<?, ?>> rightWidgetExtractor =
+	new MutableOptionalValueExtractor<>(
+		RIGHT_HEADER,
+		this::setOnRight,
+		this::containsWidgetOnRight,
+		this::getRefRightWidget,
+		WidgetGUI::createWidgetFrom,
+		Widget::getSpecification
+	);
+	
+	//attribute
+	@SuppressWarnings("unused")
+	private final MutableOptionalValueExtractor<Widget<?, ?>> bottomLeftWidgetExtractor =
+	new MutableOptionalValueExtractor<>(
+		BOTTOM_LEFT_HEADER,
+		this::setOnBottomLeft,
+		this::containsWidgetOnBottomLeft,
+		this::getRefBottomLeftWidget,
+		WidgetGUI::createWidgetFrom,
+		Widget::getSpecification
+	);
+	
+	//attribute
+	@SuppressWarnings("unused")
+	private final MutableOptionalValueExtractor<Widget<?, ?>> bottomWidgetExtractor =
+	new MutableOptionalValueExtractor<>(
+		BOTTOM_HEADER,
+		this::setOnBottom,
+		this::containsWidgetOnBottom,
+		this::getRefBottomWidget,
+		WidgetGUI::createWidgetFrom,
+		Widget::getSpecification
+	);
+	
+	//attribute
+	@SuppressWarnings("unused")
+	private final MutableOptionalValueExtractor<Widget<?, ?>> bottomRightWidgetExtractor =
+	new MutableOptionalValueExtractor<>(
+		BOTTOM_RIGHT_HEADER,
+		this::setOnBottomRight,
+		this::containsWidgetOnBottomRight,
+		this::getRefBottomRightWidget,
+		WidgetGUI::createWidgetFrom,
+		Widget::getSpecification
+	);
+	
 	//constructor
 	public AligningContainer() {
 		
-		registerProperties();
 		reset();
 		
 		getRefLook().setPaddingForState(WidgetLookState.BASE, 10);
@@ -396,89 +504,4 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 	//method
 	@Override
 	protected void resetContainerWidget() {}
-	
-	//method
-	private void registerProperties() {
-		
-		registerSingleProperty(
-			TOP_LEFT_HEADER,
-			this::setOnTopLeft,
-			this::containsWidgetOnTopLeft,
-			this::getRefTopLeftWidget,
-			WidgetGUI::createWidgetFrom,
-			Widget::getSpecification
-		);
-		
-		registerSingleProperty(
-			TOP_HEADER,
-			this::setOnTop,
-			this::containsWidgetOnTop,
-			this::getRefTopWidget,
-			WidgetGUI::createWidgetFrom,
-			Widget::getSpecification
-		);
-		
-		registerSingleProperty(
-			TOP_RIGHT_HEADER,
-			this::setOnTopRight,
-			this::containsWidgetOnTopRight,
-			this::getRefTopRightWidget,
-			WidgetGUI::createWidgetFrom,
-			Widget::getSpecification
-		);
-		
-		registerSingleProperty(
-			LEFT_HEADER,
-			this::setOnLeft,
-			this::containsWidgetOnLeft,
-			this::getRefLeftWidget,
-			WidgetGUI::createWidgetFrom,
-			Widget::getSpecification
-		);
-		
-		registerSingleProperty(
-			CENTER_HEADER,
-			this::setOnCenter,
-			this::containsWidgetOnCenter,
-			this::getRefCenterWidget,
-			WidgetGUI::createWidgetFrom,
-			Widget::getSpecification
-		);
-		
-		registerSingleProperty(
-			RIGHT_HEADER,
-			this::setOnRight,
-			this::containsWidgetOnRight,
-			this::getRefRightWidget,
-			WidgetGUI::createWidgetFrom,
-			Widget::getSpecification
-		);
-		
-		registerSingleProperty(
-			BOTTOM_LEFT_HEADER,
-			this::setOnBottomLeft,
-			this::containsWidgetOnBottomLeft,
-			this::getRefBottomLeftWidget,
-			WidgetGUI::createWidgetFrom,
-			Widget::getSpecification
-		);
-		
-		registerSingleProperty(
-			BOTTOM_HEADER,
-			this::setOnBottom,
-			this::containsWidgetOnBottom,
-			this::getRefBottomWidget,
-			WidgetGUI::createWidgetFrom,
-			Widget::getSpecification
-		);
-		
-		registerSingleProperty(
-			BOTTOM_RIGHT_HEADER,
-			this::setOnBottomRight,
-			this::containsWidgetOnBottomRight,
-			this::getRefBottomRightWidget,
-			WidgetGUI::createWidgetFrom,
-			Widget::getSpecification
-		);
-	}
 }
