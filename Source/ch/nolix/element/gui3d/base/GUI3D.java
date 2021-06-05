@@ -20,6 +20,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentExce
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.programcontrol.closeableelement.CloseController;
 import ch.nolix.common.skillapi.Clearable;
+import ch.nolix.element.base.MutableOptionalSpecificationValueExtractor;
 import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.configuration.ConfigurationElement;
 import ch.nolix.element.elementapi.IConfigurableElement;
@@ -35,7 +36,7 @@ import ch.nolix.element.gui.color.Color;
 /**
  * @author Silvan Wyss
  * @date 2017-11-11
- * @lines 430
+ * @lines 420
  * @param <G> is the type of a {@link GUI3D}.
  */
 public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G> implements Clearable, IBaseGUI<G> {
@@ -43,6 +44,9 @@ public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G> 
 	//constants
 	public static final String DEFAULT_TITLE = StringCatalogue.DEFAULT_STRING;
 	public static final Color DEFAULT_BACKGROUND_COLOR = Color.WHITE;
+	
+	//constant
+	private static final String ROOT_SHAPE_HEADER = "RootShape";
 	
 	//attribute
 	private final MutableValue<String> title =
@@ -70,28 +74,18 @@ public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G> 
 	//optional element
 	private Shape<?> rootShape;
 	
+	//attribute
+	@SuppressWarnings("unused")
+	private final MutableOptionalSpecificationValueExtractor rootShapeExtractor =
+	new MutableOptionalSpecificationValueExtractor(
+		ROOT_SHAPE_HEADER,
+		s -> setRootShape(createShape(s.getRefOneAttribute())),
+		this::containsAny,
+		() -> Node.withAttribute(rootShape.getSpecification())
+	);
+	
 	//multi-attribute
 	private LinkedList<Pair<Class<?>, IShapeRenderer<?, ?, ?>>> shapeClasses = new LinkedList<>();
-	
-	//method
-	/**
-	 * Adds or changes the given attribute to the current {@link GUI3D}.
-	 * 
-	 * @param attribute
-	 * @throws InvalidArgumentException if the given attribute is not valid.
-	 */
-	@Override
-	public void addOrChangeAttribute(final BaseNode attribute) {
-		
-		//Handles the case that the given attribute specifies a shape.
-		if (canCreateShape(attribute.getHeader())) {
-			setRootShape(createShape(attribute.getHeader()));
-			return;
-		}
-		
-		//Handles the case that the given attribute does not specify a shape.
-		internalAddOrChangeAttribute(attribute);
-	}
 	
 	//method
 	/**
@@ -147,22 +141,6 @@ public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G> 
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void fillUpAttributesInto(final LinkedList<Node> list) {
-		
-		//Calls method of the base class.
-		super.fillUpAttributesInto(list);
-		
-		//Handles the case that the current GUI3D has a root Shape.
-		if (hasRootShape()) {
-			list.addAtEnd(getRefRootShape().getSpecification());
-		}
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	public final IFrontEndReader fromFrontEnd() {
 		return new LocalFrontEndReader();
 	}
@@ -209,7 +187,7 @@ public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G> 
 	public final Shape<?> getRefRootShape() {
 		
 		//Asserts that the current {@link _3D_GUI} has a root shape.
-		if (!hasRootShape()) {
+		if (isEmpty()) {
 			throw new ArgumentDoesNotHaveAttributeException(this, "root shape");
 		}
 		
@@ -235,19 +213,11 @@ public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G> 
 	
 	//method
 	/**
-	 * @return true if the current {@link GUI3D} has a root shape.
-	 */
-	public final boolean hasRootShape() {
-		return (rootShape != null);
-	}
-	
-	//method
-	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public final boolean isEmpty() {
-		return hasRootShape();
+		return (rootShape == null);
 	}
 	
 	//method
@@ -280,7 +250,7 @@ public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G> 
 	public final void refresh() {
 		
 		//Handles the case that the current {@link _3D_GUI} has a root shape.
-		if (hasRootShape()) {
+		if (containsAny()) {
 			getRefRootShape().renderRecursively();
 		}
 		
@@ -390,6 +360,20 @@ public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G> 
 	
 	//method
 	/**
+	 * @param specification
+	 * @return a new {@link Shape} of the given specification.
+	 * @throws InvalidArgumentException if the current specification is not valid.
+	 */
+	private Shape<?> createShape(final BaseNode specification) {
+		
+		final var shape = createShape(specification.getHeader());
+		shape.resetFrom(specification);
+		
+		return shape;
+	}
+	
+	//method
+	/**
 	 * @param type
 	 * @return a new shape of the given type.
 	 * @throws InvalidArgumentException if the current {@link GUI3D} cannot create a shape of the given type.
@@ -428,7 +412,7 @@ public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G> 
 		final LinkedList<Shape<?>> shapes = new LinkedList<>();
 		
 		//Handles the case that the current {@link _3D_GUI} has a root shape.
-		if (hasRootShape()) {
+		if (containsAny()) {
 			shapes.addAtEnd(getRefRootShape());
 		}
 		
