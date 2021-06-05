@@ -148,7 +148,7 @@ public abstract class Element<E extends Element<E>> implements IElement<E> {
 		final IElementGetter<Node> getter
 	) {
 		properties.addAtEnd(
-			new SinglePropertyExtractor<Node>(name, setter, getter, BaseNode::getCopy, BaseNode::getCopy)
+			new MutableValueExtractor<Node>(name, setter, getter, BaseNode::getCopy, BaseNode::getCopy)
 		);
 	}
 	
@@ -180,7 +180,7 @@ public abstract class Element<E extends Element<E>> implements IElement<E> {
 		final IElementTakerElementGetter<V, Node> specificationCreator
 	) {
 		properties.addAtEnd(
-			new SinglePropertyExtractor<V>(
+			new MutableOptionalValueExtractor<V>(
 				name,
 				setter,
 				valuePresenceChecker,
@@ -215,7 +215,7 @@ public abstract class Element<E extends Element<E>> implements IElement<E> {
 		final IElementTakerElementGetter<BaseNode, V> valueCreator,
 		final IElementTakerElementGetter<V, Node> specificationCreator
 	) {
-		properties.addAtEnd(new SinglePropertyExtractor<V>(name, setter, getter, valueCreator, specificationCreator));
+		properties.addAtEnd(new MutableValueExtractor<V>(name, setter, getter, valueCreator, specificationCreator));
 	}
 	
 	//method
