@@ -9,7 +9,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullExcep
 import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.element.base.Element;
+import ch.nolix.element.base.MutableElement;
 import ch.nolix.element.base.MutableOptionalValue;
 import ch.nolix.element.elementapi.IConfigurableElement;
 
@@ -22,7 +22,7 @@ import ch.nolix.element.elementapi.IConfigurableElement;
  * @lines 150
  * @param <CE> is the type of a {@link ConfigurableElement}.
  */
-public abstract class ConfigurableElement<CE extends ConfigurableElement<CE>> extends Element<CE>
+public abstract class ConfigurableElement<CE extends ConfigurableElement<CE>> extends MutableElement<CE>
 implements IConfigurableElement<CE> {
 	
 	//constants

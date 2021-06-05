@@ -20,14 +20,14 @@ import ch.nolix.common.document.node.Node;
 import ch.nolix.common.environment.runningjar.RunningJar;
 import ch.nolix.common.errorcontrol.exception.WrapperException;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.element.base.Element;
+import ch.nolix.element.base.MutableElement;
 import ch.nolix.element.base.MutableSpecificationValueExtractor;
 import ch.nolix.element.base.Value;
 import ch.nolix.element.elementapi.IMutableElement;
 import ch.nolix.element.gui.color.Color;
 
 //class
-public final class Image extends Element<Image> implements IMutableElement<Image> {
+public final class Image extends MutableElement<Image> implements IMutableElement<Image> {
 
 	//constant
 	public static final String TYPE_NAME = "Image";

@@ -18,9 +18,9 @@ import ch.nolix.element.elementapi.IElement;
  * @author Silvan Wyss
  * @date 2017-10-29
  * @lines 310
- * @param <E> is the type of a {@link Element}.
+ * @param <E> is the type of a {@link MutableElement}.
  */
-public abstract class Element<E extends Element<E>> implements IElement<E> {
+public abstract class MutableElement<E extends MutableElement<E>> implements IElement<E> {
 	
 	//multi-attribute
 	private LinkedList<Property> properties;
@@ -40,7 +40,7 @@ public abstract class Element<E extends Element<E>> implements IElement<E> {
 			return false;
 		}
 		
-		final var entity = (Element<?>)object;
+		final var entity = (MutableElement<?>)object;
 		return getSpecification().equals(entity.getSpecification());
 	}
 	
@@ -79,7 +79,7 @@ public abstract class Element<E extends Element<E>> implements IElement<E> {
 	
 	//method
 	/**
-	 * Adds or changes the given attribute to the current {@link Element}.
+	 * Adds or changes the given attribute to the current {@link MutableElement}.
 	 * 
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
@@ -130,7 +130,7 @@ public abstract class Element<E extends Element<E>> implements IElement<E> {
 	
 	//method
 	/**
-	 * Extracts the properties of the current {@link Element}.
+	 * Extracts the properties of the current {@link MutableElement}.
 	 */
 	private void extractProperties() {
 		
@@ -160,7 +160,7 @@ public abstract class Element<E extends Element<E>> implements IElement<E> {
 	
 	//method
 	/**
-	 * Extracts the properties of the current {@link Element} if they are not extracted yet.
+	 * Extracts the properties of the current {@link MutableElement} if they are not extracted yet.
 	 */
 	private void extractPropertiesIfNotExtracted() {
 		if (!propertiesAreExtracted()) {
@@ -170,7 +170,7 @@ public abstract class Element<E extends Element<E>> implements IElement<E> {
 	
 	//method
 	/**
-	 * @return the properties of the current {@link Element}.
+	 * @return the properties of the current {@link MutableElement}.
 	 */
 	private IContainer<Property> getRefProperties() {
 		
@@ -181,7 +181,7 @@ public abstract class Element<E extends Element<E>> implements IElement<E> {
 	
 	//method
 	/**
-	 * @return true if the properties of the current {@link Element} are extracted.
+	 * @return true if the properties of the current {@link MutableElement} are extracted.
 	 */
 	private boolean propertiesAreExtracted() {
 		return (properties != null);

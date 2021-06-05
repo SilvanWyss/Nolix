@@ -12,7 +12,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullExcep
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.skillapi.Clearable;
-import ch.nolix.element.base.Element;
+import ch.nolix.element.base.MutableElement;
 import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.elementapi.IMutableElement;
 import ch.nolix.element.elementenum.ContentPosition;
@@ -27,7 +27,7 @@ import ch.nolix.element.gui.widget.Label;
  * @date 2016-05-01
  * @lines 250
  */
-public final class TabContainerTab extends Element<TabContainerTab>
+public final class TabContainerTab extends MutableElement<TabContainerTab>
 implements Clearable, Headerable<TabContainerTab>, IMutableElement<TabContainerTab> {
 	
 	//constants

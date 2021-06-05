@@ -6,11 +6,11 @@ import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.constant.LowerCaseCatalogue;
-import ch.nolix.element.base.Element;
+import ch.nolix.element.base.MutableElement;
 import ch.nolix.element.base.Value;
 
 //class
-public final class KeyInput extends Element<KeyInput> implements IInput<KeyInput> {
+public final class KeyInput extends MutableElement<KeyInput> implements IInput<KeyInput> {
 	
 	//constant
 	private static final String INPUT_TYPE_HEADER = "InputType";

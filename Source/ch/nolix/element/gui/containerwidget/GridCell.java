@@ -7,14 +7,14 @@ import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.skillapi.Clearable;
-import ch.nolix.element.base.Element;
+import ch.nolix.element.base.MutableElement;
 import ch.nolix.element.base.Value;
 import ch.nolix.element.elementapi.IMutableElement;
 import ch.nolix.element.gui.base.MutableOptionalWidgetProperty;
 import ch.nolix.element.gui.base.Widget;
 
 //class
-final class GridCell extends Element<GridCell> implements Clearable, IMutableElement<GridCell> {
+final class GridCell extends MutableElement<GridCell> implements Clearable, IMutableElement<GridCell> {
 	
 	//constants
 	private static final String ROW_INDEX_HEADER = PascalCaseCatalogue.ROW_INDEX;

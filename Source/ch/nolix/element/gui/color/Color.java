@@ -11,7 +11,7 @@ import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.element.base.Element;
+import ch.nolix.element.base.MutableElement;
 
 //class
 /**
@@ -24,7 +24,7 @@ import ch.nolix.element.base.Element;
  * @date 2016-01-01
  * @lines 1360
  */
-public class Color extends Element<Color> {
+public class Color extends MutableElement<Color> {
 	
 	//constant
 	public static final String TYPE_NAME = "Color";

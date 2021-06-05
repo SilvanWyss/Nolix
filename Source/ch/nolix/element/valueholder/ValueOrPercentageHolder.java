@@ -9,7 +9,7 @@ import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.element.base.Element;
+import ch.nolix.element.base.MutableElement;
 
 //class
 /**
@@ -20,7 +20,7 @@ import ch.nolix.element.base.Element;
  * @date 2018-03-25
  * @lines 140
  */
-public final class ValueOrPercentageHolder extends Element<ValueOrPercentageHolder> {
+public final class ValueOrPercentageHolder extends MutableElement<ValueOrPercentageHolder> {
 	
 	//attributes
 	private final boolean hasValue;

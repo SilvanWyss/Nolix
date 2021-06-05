@@ -3,13 +3,13 @@ package ch.nolix.element.gui.widget;
 
 //own imports
 import ch.nolix.common.document.node.BaseNode;
-import ch.nolix.element.base.Element;
+import ch.nolix.element.base.MutableElement;
 import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.elementapi.IMutableElement;
 import ch.nolix.element.gui.color.Color;
 
 //class
-public final class BorderWidgetScrollBarLook extends Element<BorderWidgetScrollBarLook>
+public final class BorderWidgetScrollBarLook extends MutableElement<BorderWidgetScrollBarLook>
 implements IMutableElement<BorderWidgetScrollBarLook> {
 	
 	//constants

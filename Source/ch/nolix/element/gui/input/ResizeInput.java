@@ -7,11 +7,11 @@ import ch.nolix.common.container.pair.IntPair;
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.element.base.Element;
+import ch.nolix.element.base.MutableElement;
 import ch.nolix.element.base.Value;
 
 //class
-public final class ResizeInput extends Element<ResizeInput> implements IInput<ResizeInput> {
+public final class ResizeInput extends MutableElement<ResizeInput> implements IInput<ResizeInput> {
 	
 	//static method
 	public static ResizeInput fromSpecification(final BaseNode specification) {

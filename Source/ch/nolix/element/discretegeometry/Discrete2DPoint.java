@@ -5,7 +5,7 @@ package ch.nolix.element.discretegeometry;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
-import ch.nolix.element.base.Element;
+import ch.nolix.element.base.MutableElement;
 
 //class
 /**
@@ -16,7 +16,7 @@ import ch.nolix.element.base.Element;
  * @date 2019-05-19
  * @lines 70
  */
-public final class Discrete2DPoint extends Element<Discrete2DPoint> {
+public final class Discrete2DPoint extends MutableElement<Discrete2DPoint> {
 	
 	//static method
 	/**

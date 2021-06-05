@@ -11,14 +11,14 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.attributeapi.optionalattributeapi.OptionalIdentifiedByString;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.functionapi.IElementTaker;
-import ch.nolix.element.base.Element;
+import ch.nolix.element.base.MutableElement;
 import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.base.OptionalValue;
 import ch.nolix.element.base.Value;
 import ch.nolix.element.gui.base.IWidgetGUI;
 
 //class
-public final class ItemMenuItem extends Element<ItemMenuItem> implements OptionalIdentifiedByString {
+public final class ItemMenuItem extends MutableElement<ItemMenuItem> implements OptionalIdentifiedByString {
 	
 	//constants
 	public static final boolean DEFAULT_SELECTION_FLAG = false;

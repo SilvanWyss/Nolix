@@ -9,7 +9,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentExce
 import ch.nolix.common.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.math.Calculator;
-import ch.nolix.element.base.Element;
+import ch.nolix.element.base.MutableElement;
 import ch.nolix.element.time.Time;
 
 //class
@@ -20,7 +20,7 @@ import ch.nolix.element.time.Time;
  * @date 2016-09-01
  * @lines 430
  */
-public class CandleStick extends Element<CandleStick> {
+public class CandleStick extends MutableElement<CandleStick> {
 	
 	//constants
 	public static final double DEFAULT_HAMMER_MIN_LOWER_WICK_LENGTH_RATIO = 0.5;
