@@ -63,7 +63,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	public static final Color DEFAULT_BACKGROUND_COLOR = Color.WHITE;
 	
 	//constants
-	private static final String BACKGROUND_COLOR_HEADER = "BackgrondColor";
+	private static final String BACKGROUND_COLOR_HEADER = "BackgroundColor";
 	private static final String BACKGROUND_COLOR_GRADIENT_HEADER = "BackgroundColorGradient";
 	
 	//static attribute
