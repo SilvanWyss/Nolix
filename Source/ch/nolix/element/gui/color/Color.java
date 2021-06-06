@@ -11,7 +11,7 @@ import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.element.base.MutableElement;
+import ch.nolix.element.elementapi.IElement;
 
 //class
 /**
@@ -24,7 +24,7 @@ import ch.nolix.element.base.MutableElement;
  * @date 2016-01-01
  * @lines 1360
  */
-public class Color extends MutableElement<Color> {
+public class Color implements IElement<Color> {
 	
 	//constant
 	public static final String TYPE_NAME = "Color";
@@ -856,10 +856,6 @@ public class Color extends MutableElement<Color> {
 	 */
 	@Override
 	public void fillUpAttributesInto(final LinkedList<Node> list) {
-		
-		//Calls method of the base class.
-		super.fillUpAttributesInto(list);
-		
 		list.addAtEnd(Node.fromString(getHexadecimalValue()));
 	}
 	

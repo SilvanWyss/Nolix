@@ -5,7 +5,7 @@ import ch.nolix.common.commontype.commontypehelper.GlobalDoubleHelper;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.node.Node;
 import ch.nolix.common.math.Vector;
-import ch.nolix.element.base.MutableElement;
+import ch.nolix.element.elementapi.IElement;
 
 //class
 /**
@@ -18,7 +18,7 @@ import ch.nolix.element.base.MutableElement;
  * @date 2016-06-01
  * @lines 140
  */
-public final class Point2D extends MutableElement<Point2D> {
+public final class Point2D implements IElement<Point2D> {
 	
 	//constants
 	public static final double DEFAULT_X = 0.0;
@@ -56,10 +56,6 @@ public final class Point2D extends MutableElement<Point2D> {
 	 */
 	@Override
 	public void fillUpAttributesInto(final LinkedList<Node> list) {
-		
-		//Calls method of the base class.
-		super.fillUpAttributesInto(list);
-		
 		list.addAtEnd(
 			Node.withHeader(GlobalDoubleHelper.toString(getX())),
 			Node.withHeader(GlobalDoubleHelper.toString(getY()))

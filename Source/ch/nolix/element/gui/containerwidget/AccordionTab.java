@@ -14,15 +14,13 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.skillapi.Clearable;
 import ch.nolix.element.base.MutableElement;
 import ch.nolix.element.base.MutableValue;
-import ch.nolix.element.elementapi.IMutableElement;
 import ch.nolix.element.gui.base.CursorIcon;
 import ch.nolix.element.gui.base.MutableOptionalWidgetProperty;
 import ch.nolix.element.gui.base.Widget;
 import ch.nolix.element.gui.widget.Label;
 
 //class
-public final class AccordionTab extends MutableElement<AccordionTab>
-implements Clearable, Headerable<AccordionTab>, IMutableElement<AccordionTab> {
+public final class AccordionTab extends MutableElement<AccordionTab> implements Clearable, Headerable<AccordionTab> {
 	
 	//constants
 	public static final String DEFAULT_HEADER = StringCatalogue.DEFAULT_STRING;
@@ -74,12 +72,6 @@ implements Clearable, Headerable<AccordionTab>, IMutableElement<AccordionTab> {
 	//constructor
 	public AccordionTab() {
 		reset();
-	}
-	
-	//method
-	@Override
-	public void addOrChangeAttribute(final BaseNode attribute) {
-		internalAddOrChangeAttribute(attribute);
 	}
 	
 	//method

@@ -49,6 +49,11 @@ public final class ResizeInput extends MutableElement<ResizeInput> implements II
 		return size.getValue().getValue1();
 	}
 	
+	//method
+	@Override
+	public void reset() {}
+	
+	//method
 	private void setViewAreaSize(final int viewAreaWidth, final int viewAreaHeight) {
 		setViewAreaSize(new IntPair(viewAreaWidth, viewAreaHeight));
 	}

@@ -16,7 +16,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentExce
 import ch.nolix.common.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.element.base.MutableElement;
+import ch.nolix.element.elementapi.IElement;
 import ch.nolix.element.gui.color.Color;
 
 //class
@@ -34,7 +34,7 @@ import ch.nolix.element.gui.color.Color;
  * @date 2017-08-26
  * @lines 460
  */
-public final class TextFormat extends MutableElement<TextFormat> {
+public final class TextFormat implements IElement<TextFormat> {
 	
 	//constants
 	public static final Font DEFAULT_TEXT_FONT = Font.VERDANA;
@@ -237,10 +237,6 @@ public final class TextFormat extends MutableElement<TextFormat> {
 	 */
 	@Override
 	public void fillUpAttributesInto(final LinkedList<Node> list) {
-		
-		//Calls method of the base class.
-		super.fillUpAttributesInto(list);
-		
 		list.addAtEnd(
 			font.getSpecificationAs(TEXT_FONT_HEADER),
 			Node.withHeaderAndAttribute(BOLD_FLAG_HEADER, bold),

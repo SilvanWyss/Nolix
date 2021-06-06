@@ -4,6 +4,7 @@ package ch.nolix.element.geometry;
 //own imports
 import ch.nolix.common.commontype.commontypehelper.GlobalDoubleHelper;
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
 import ch.nolix.common.math.Vector;
 import ch.nolix.element.elementapi.IElement;
@@ -17,7 +18,7 @@ import ch.nolix.element.elementapi.IElement;
  * 
  * @author Silvan Wyss
  * @date 2016-06-01
- * @lines 140
+ * @lines 160
  */
 public class Point3D implements IElement<Point3D> {
 	
@@ -25,7 +26,23 @@ public class Point3D implements IElement<Point3D> {
 	public static final double DEFAULT_X = 0.0;
 	public static final double DEFAULT_Y = 0.0;
 	public static final double DEFAULT_Z = 0.0;
-
+	
+	//static method
+	/**
+	 * @param specification
+	 * @return a new {@link Point3D} from the given specification.
+	 */
+	public static Point3D fromSpecification(final BaseNode specification) {
+		
+		final var attributes = specification.getRefAttributes();
+		
+		return new Point3D(
+			attributes.getRefAt(1).toDouble(),
+			attributes.getRefAt(2).toDouble(),
+			attributes.getRefAt(3).toDouble()
+		);
+	}
+	
 	//attributes
 	private final double x;
 	private final double y;

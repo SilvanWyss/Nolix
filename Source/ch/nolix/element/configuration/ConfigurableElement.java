@@ -3,7 +3,6 @@ package ch.nolix.element.configuration;
 
 //own imports
 import ch.nolix.common.constant.PascalCaseCatalogue;
-import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentException;
@@ -19,7 +18,7 @@ import ch.nolix.element.elementapi.IConfigurableElement;
  * 
  * @author Silvan Wyss
  * @date 2016-02-01-01
- * @lines 150
+ * @lines 140
  * @param <CE> is the type of a {@link ConfigurableElement}.
  */
 public abstract class ConfigurableElement<CE extends ConfigurableElement<CE>> extends MutableElement<CE>
@@ -32,15 +31,6 @@ implements IConfigurableElement<CE> {
 	//attributes
 	private final MutableOptionalValue<String> id = MutableOptionalValue.forString(ID_HEADER, this::setId);
 	private final MutableOptionalValue<String> token = MutableOptionalValue.forString(TOKEN_HEADER, this::setToken);
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void addOrChangeAttribute(final BaseNode attribute) {
-		internalAddOrChangeAttribute(attribute);
-	}
 	
 	//method
 	/**

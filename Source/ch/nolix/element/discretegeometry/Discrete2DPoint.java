@@ -5,7 +5,7 @@ package ch.nolix.element.discretegeometry;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
-import ch.nolix.element.base.MutableElement;
+import ch.nolix.element.elementapi.IElement;
 
 //class
 /**
@@ -16,7 +16,7 @@ import ch.nolix.element.base.MutableElement;
  * @date 2019-05-19
  * @lines 70
  */
-public final class Discrete2DPoint extends MutableElement<Discrete2DPoint> {
+public final class Discrete2DPoint implements IElement<Discrete2DPoint> {
 	
 	//static method
 	/**
@@ -52,10 +52,6 @@ public final class Discrete2DPoint extends MutableElement<Discrete2DPoint> {
 	 */
 	@Override
 	public void fillUpAttributesInto(final LinkedList<Node> list) {
-		
-		//Calls method of the base class.
-		super.fillUpAttributesInto(list);
-		
 		list.addAtEnd(Node.withHeader(x), Node.withHeader(y));
 	}
 	

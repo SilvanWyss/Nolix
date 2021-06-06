@@ -30,7 +30,11 @@ public final class ItemMenuItem extends MutableElement<ItemMenuItem> implements 
 	
 	//static method
 	public static ItemMenuItem fromSpecification(final BaseNode specification) {
-		return new ItemMenuItem(specification);
+		
+		final var item = new ItemMenuItem();
+		item.resetFrom(specification);
+		
+		return item;
 	}
 	
 	//attribute
@@ -115,12 +119,6 @@ public final class ItemMenuItem extends MutableElement<ItemMenuItem> implements 
 		setId(id);
 	}
 	
-	//constructor
-	private ItemMenuItem(final BaseNode specification) {
-		unselect();
-		specification.getRefAttributes().forEach(this::internalAddOrChangeAttribute);
-	}
-	
 	//method
 	public boolean belongsToMenu() {
 		return (parentMenu != null);
@@ -176,6 +174,12 @@ public final class ItemMenuItem extends MutableElement<ItemMenuItem> implements 
 	//method
 	public boolean isSelected() {
 		return selectionFlag.getValue();
+	}
+	
+	//method
+	@Override
+	public void reset() {
+		unselect();
 	}
 	
 	//method

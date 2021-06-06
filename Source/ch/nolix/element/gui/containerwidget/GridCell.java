@@ -9,12 +9,11 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.skillapi.Clearable;
 import ch.nolix.element.base.MutableElement;
 import ch.nolix.element.base.Value;
-import ch.nolix.element.elementapi.IMutableElement;
 import ch.nolix.element.gui.base.MutableOptionalWidgetProperty;
 import ch.nolix.element.gui.base.Widget;
 
 //class
-final class GridCell extends MutableElement<GridCell> implements Clearable, IMutableElement<GridCell> {
+final class GridCell extends MutableElement<GridCell> implements Clearable {
 	
 	//constants
 	private static final String ROW_INDEX_HEADER = PascalCaseCatalogue.ROW_INDEX;
@@ -44,12 +43,6 @@ final class GridCell extends MutableElement<GridCell> implements Clearable, IMut
 	
 	//constructor
 	private GridCell() {}
-	
-	//method
-	@Override
-	public void addOrChangeAttribute(final BaseNode attribute) {
-		internalAddOrChangeAttribute(attribute);
-	}
 	
 	//method
 	@Override

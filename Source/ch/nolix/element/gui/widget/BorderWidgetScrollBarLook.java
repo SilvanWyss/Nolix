@@ -5,12 +5,10 @@ package ch.nolix.element.gui.widget;
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.element.base.MutableElement;
 import ch.nolix.element.base.MutableValue;
-import ch.nolix.element.elementapi.IMutableElement;
 import ch.nolix.element.gui.color.Color;
 
 //class
-public final class BorderWidgetScrollBarLook extends MutableElement<BorderWidgetScrollBarLook>
-implements IMutableElement<BorderWidgetScrollBarLook> {
+public final class BorderWidgetScrollBarLook extends MutableElement<BorderWidgetScrollBarLook> {
 	
 	//constants
 	public static final Color DEFAULT_SCROLL_BAR_COLOR = Color.LIGHT_GREY;
@@ -52,12 +50,6 @@ implements IMutableElement<BorderWidgetScrollBarLook> {
 	//constructor
 	public BorderWidgetScrollBarLook() {
 		reset();
-	}
-	
-	//method
-	@Override
-	public void addOrChangeAttribute(final BaseNode attribute) {
-		internalAddOrChangeAttribute(attribute);
 	}
 	
 	//method

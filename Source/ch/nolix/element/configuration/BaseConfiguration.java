@@ -15,18 +15,16 @@ import ch.nolix.element.base.MutableElement;
 import ch.nolix.element.base.MultiValue;
 import ch.nolix.element.base.MutableOptionalValue;
 import ch.nolix.element.elementapi.IConfigurableElement;
-import ch.nolix.element.elementapi.IMutableElement;
 import ch.nolix.element.gui.base.Widget;
 
 //class
 /**
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 560
+ * @lines 550
  * @param <C> is the type of a {@link BaseConfiguration}.
  */
-public abstract class BaseConfiguration<C extends BaseConfiguration<C>> extends MutableElement<C>
-implements IMutableElement<C> {
+public abstract class BaseConfiguration<C extends BaseConfiguration<C>> extends MutableElement<C> {
 	
 	//constants
 	private static final String SELECTOR_TYPE_HEADER = "SelectorType";
@@ -145,15 +143,6 @@ implements IMutableElement<C> {
 		}
 		
 		return asConcrete();
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final void addOrChangeAttribute(final BaseNode attribute) {
-		internalAddOrChangeAttribute(attribute);
 	}
 	
 	//method

@@ -202,6 +202,10 @@ public final class KeyInput extends MutableElement<KeyInput> implements IInput<K
 	}
 	
 	//method
+	@Override
+	public void reset() {}
+	
+	//method
 	private void setInputType(final KeyInputType inputType) {
 		this.inputType.setValue(inputType);
 	}

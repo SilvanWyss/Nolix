@@ -7,12 +7,11 @@ import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
 import ch.nolix.element.base.MutableElement;
 import ch.nolix.element.base.MutableOptionalValue;
-import ch.nolix.element.elementapi.IMutableElement;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.color.ColorGradient;
 
 //class
-public final class Background extends MutableElement<Background> implements IMutableElement<Background> {
+public final class Background extends MutableElement<Background> {
 	
 	//constant
 	public static final Color DEFAULT_COLOR = Color.WHITE;
@@ -65,12 +64,6 @@ public final class Background extends MutableElement<Background> implements IMut
 	//constructor
 	public Background() {
 		reset();
-	}
-	
-	//method
-	@Override
-	public void addOrChangeAttribute(final BaseNode attribute) {
-		internalAddOrChangeAttribute(attribute);
 	}
 	
 	//method

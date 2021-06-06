@@ -2,13 +2,13 @@
 package ch.nolix.element.gui3d.base;
 
 //own imports
-import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.container.ReadContainer;
-import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
+import ch.nolix.element.base.MutableValueExtractor;
 import ch.nolix.element.configuration.ConfigurableElement;
 import ch.nolix.element.elementapi.IConfigurableElement;
 import ch.nolix.element.geometry.Point2D;
@@ -29,8 +29,22 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	//constant
 	public static final Point3D DEFAULT_POSITION = new Point3D(0.0, 0.0, 0.0);
 	
+	//constant
+	private static final String POSITION_HEADER = PascalCaseCatalogue.POSITION;
+	
 	//attribute
 	private Point3D position = DEFAULT_POSITION;
+	
+	//attribute
+	@SuppressWarnings("unused")
+	private final MutableValueExtractor<Point3D> positionExtractor =
+	new MutableValueExtractor<>(
+		POSITION_HEADER,
+		this::setPosition,
+		this::getPosition,
+		Point3D::fromSpecification,
+		Point3D::getSpecification
+	);
 	
 	//optional attributes
 	private GUI3D<?> mGUI;
@@ -42,19 +56,6 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	 */
 	public final boolean belongsToAGUI() {
 		return (mGUI != null);
-	}
-		
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void fillUpAttributesInto(final LinkedList<Node> list) {
-		
-		//Calls method of the base class.
-		super.fillUpAttributesInto(list);
-		
-		list.addAtEnd(position.getSpecification());
 	}
 	
 	//method

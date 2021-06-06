@@ -23,11 +23,10 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.element.base.MutableElement;
 import ch.nolix.element.base.MutableSpecificationValueExtractor;
 import ch.nolix.element.base.Value;
-import ch.nolix.element.elementapi.IMutableElement;
 import ch.nolix.element.gui.color.Color;
 
 //class
-public final class Image extends MutableElement<Image> implements IMutableElement<Image> {
+public final class Image extends MutableElement<Image> {
 
 	//constant
 	public static final String TYPE_NAME = "Image";
@@ -152,12 +151,6 @@ public final class Image extends MutableElement<Image> implements IMutableElemen
 		setHeight(pixels.getRowCount());
 		
 		this.pixels = pixels;
-	}
-	
-	//method
-	@Override
-	public void addOrChangeAttribute(BaseNode attribute) {
-		internalAddOrChangeAttribute(attribute);
 	}
 	
 	//method

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.valueholder;
 
+//own imports
 import ch.nolix.common.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.constant.PascalCaseCatalogue;
@@ -9,7 +10,7 @@ import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.element.base.MutableElement;
+import ch.nolix.element.elementapi.IElement;
 
 //class
 /**
@@ -20,7 +21,7 @@ import ch.nolix.element.base.MutableElement;
  * @date 2018-03-25
  * @lines 140
  */
-public final class ValueOrPercentageHolder extends MutableElement<ValueOrPercentageHolder> {
+public final class ValueOrPercentageHolder implements IElement<ValueOrPercentageHolder> {
 	
 	//attributes
 	private final boolean hasValue;
@@ -82,8 +83,6 @@ public final class ValueOrPercentageHolder extends MutableElement<ValueOrPercent
 	 */
 	@Override
 	public void fillUpAttributesInto(final LinkedList<Node> list) {
-		
-		super.fillUpAttributesInto(list);
 		
 		if (hasValue()) {
 			list.addAtEnd(Node.withHeaderAndAttribute(PascalCaseCatalogue.VALUE, getValue()));

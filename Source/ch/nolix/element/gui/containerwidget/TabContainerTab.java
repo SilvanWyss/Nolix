@@ -14,7 +14,6 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.skillapi.Clearable;
 import ch.nolix.element.base.MutableElement;
 import ch.nolix.element.base.MutableValue;
-import ch.nolix.element.elementapi.IMutableElement;
 import ch.nolix.element.elementenum.ContentPosition;
 import ch.nolix.element.gui.base.CursorIcon;
 import ch.nolix.element.gui.base.MutableOptionalWidgetProperty;
@@ -28,7 +27,7 @@ import ch.nolix.element.gui.widget.Label;
  * @lines 250
  */
 public final class TabContainerTab extends MutableElement<TabContainerTab>
-implements Clearable, Headerable<TabContainerTab>, IMutableElement<TabContainerTab> {
+implements Clearable, Headerable<TabContainerTab> {
 	
 	//constants
 	public static final String DEFAULT_HEADER = PascalCaseCatalogue.DEFAULT;
@@ -81,15 +80,6 @@ implements Clearable, Headerable<TabContainerTab>, IMutableElement<TabContainerT
 	 */
 	public TabContainerTab() {
 		reset();
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void addOrChangeAttribute(final BaseNode attribute) {
-		internalAddOrChangeAttribute(attribute);
 	}
 		
 	//method

@@ -71,6 +71,10 @@ public final class MouseInput extends MutableElement<MouseInput> implements IInp
 	}
 	
 	//method
+	@Override
+	public void reset() {}
+	
+	//method
 	private void setCursorPosition(final Discrete2DPoint cursorPosition) {
 		this.cursorPosition.setValue(cursorPosition);
 	}
