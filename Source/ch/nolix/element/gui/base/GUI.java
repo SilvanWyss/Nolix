@@ -298,11 +298,11 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void noteKeyPress(final Key key) {
+	public final void noteKeyDown(final Key key) {
 		if (inputTaker != null) {
-			inputTaker.noteKeyPress(key);
+			inputTaker.noteKeyDown(key);
 		} else {
-			noteKeyPressWhenDoesNotHaveInputTaker(key);
+			noteKeyDownWhenDoesNotHaveInputTaker(key);
 		}
 	}
 	
@@ -631,7 +631,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	}
 	
 	//method declaration
-	protected abstract void noteKeyPressWhenDoesNotHaveInputTaker(Key key);
+	protected abstract void noteKeyDownWhenDoesNotHaveInputTaker(Key key);
 	
 	//method declaration
 	protected abstract void noteKeyReleaseWhenDoesNotHaveInputTaker(Key key);

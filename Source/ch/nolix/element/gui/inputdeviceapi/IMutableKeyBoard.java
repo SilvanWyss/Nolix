@@ -7,7 +7,7 @@ import ch.nolix.element.gui.input.Key;
 public interface IMutableKeyBoard extends IKeyBoard {
 	
 	//method declaration
-	void noteKeyPress(Key key);
+	void noteKeyDown(Key key);
 	
 	//method declaration
 	void noteKeyRelease(Key key);

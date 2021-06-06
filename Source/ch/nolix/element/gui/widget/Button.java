@@ -137,7 +137,7 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteKeyPressOnSelfWhenFocused(final Key key) {}
+	protected void noteKeyDownOnSelfWhenFocused(final Key key) {}
 	
 	//method
 	/**

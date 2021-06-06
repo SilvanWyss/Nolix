@@ -9,7 +9,7 @@ public class InputTakerStub implements IInputTaker {
 	
 	//method
 	@Override
-	public void noteKeyPress(final Key key) {}
+	public void noteKeyDown(final Key key) {}
 	
 	//method
 	@Override

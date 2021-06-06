@@ -103,7 +103,7 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 	
 	//method
 	@Override
-	protected final void noteKeyPressWhenDoesNotHaveInputTaker(Key key) {}
+	protected final void noteKeyDownWhenDoesNotHaveInputTaker(Key key) {}
 	
 	//method
 	@Override

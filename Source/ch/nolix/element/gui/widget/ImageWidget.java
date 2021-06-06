@@ -103,7 +103,7 @@ public final class ImageWidget extends BorderWidget<ImageWidget, ImageWidgetLook
 	
 	//method
 	@Override
-	protected void noteKeyPressOnSelfWhenFocused(final Key key) {}
+	protected void noteKeyDownOnSelfWhenFocused(final Key key) {}
 	
 	//method
 	@Override

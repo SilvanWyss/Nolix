@@ -116,7 +116,7 @@ public final class FloatContainer extends ContainerWidget<FloatContainer, FloatC
 	
 	//method
 	@Override
-	protected void noteKeyPressOnSelfWhenFocused(final Key key) {}
+	protected void noteKeyDownOnSelfWhenFocused(final Key key) {}
 	
 	//method
 	@Override

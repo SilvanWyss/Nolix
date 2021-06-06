@@ -295,7 +295,7 @@ public abstract class ItemMenu<IM extends ItemMenu<IM>> extends BorderWidget<IM,
 	
 	//method
 	@Override
-	protected final void noteKeyPressOnSelfWhenFocused(final Key key) {}
+	protected final void noteKeyDownOnSelfWhenFocused(final Key key) {}
 	
 	//method
 	@Override

@@ -23,7 +23,7 @@ public final class KeyBoard implements IMutableKeyBoard {
 	
 	//method
 	@Override
-	public void noteKeyPress(final Key key) {
+	public void noteKeyDown(final Key key) {
 		
 		if (!pressedKeys.containsEqualing(key)) {
 			pressedKeys.addAtEnd(key);

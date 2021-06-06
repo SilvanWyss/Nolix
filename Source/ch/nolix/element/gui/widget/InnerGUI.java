@@ -218,8 +218,8 @@ public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> impleme
 	
 	//method
 	@Override
-	protected void noteKeyPressOnSelfWhenFocused(final Key key) {
-		internalGUI.noteKeyPress(key);
+	protected void noteKeyDownOnSelfWhenFocused(final Key key) {
+		internalGUI.noteKeyDown(key);
 	}
 	
 	//method

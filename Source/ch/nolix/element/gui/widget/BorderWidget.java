@@ -1005,7 +1005,7 @@ extends Widget<BW, BWL> {
 	 * 
 	 * @param key
 	 */
-	protected abstract void noteKeyPressOnSelfWhenFocused(Key key);
+	protected abstract void noteKeyDownOnSelfWhenFocused(Key key);
 	
 	//method declaration
 	/**

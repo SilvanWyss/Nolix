@@ -79,7 +79,7 @@ public final class Uploader extends TextLineWidget<Uploader, UploaderLook> {
 	
 	//method
 	@Override
-	protected void noteKeyPressOnSelfWhenFocused(final Key key) {}
+	protected void noteKeyDownOnSelfWhenFocused(final Key key) {}
 	
 	//method
 	@Override

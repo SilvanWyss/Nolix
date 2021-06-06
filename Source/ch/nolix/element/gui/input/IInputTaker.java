@@ -39,7 +39,7 @@ public interface IInputTaker {
 	default void noteKeyInput(final KeyInput keyInput) {
 		switch (keyInput.getInputType()) {
 			case PRESS:
-				noteKeyPress(keyInput.getKey());
+				noteKeyDown(keyInput.getKey());
 				break;
 			case RELEASE:
 				noteKeyRelease(keyInput.getKey());
@@ -56,7 +56,7 @@ public interface IInputTaker {
 	 * 
 	 * @param key
 	 */
-	void noteKeyPress(Key key);
+	void noteKeyDown(Key key);
 	
 	//method declaration
 	/**

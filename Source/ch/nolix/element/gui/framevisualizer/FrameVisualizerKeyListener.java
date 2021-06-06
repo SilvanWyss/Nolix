@@ -33,7 +33,7 @@ final class FrameVisualizerKeyListener implements KeyListener {
 	//method
 	@Override
 	public void keyPressed(final KeyEvent keyEvent) {
-		parentFrame.noteKeyPress(Key.fromAWTKeyEvent(keyEvent));
+		parentFrame.noteKeyDown(Key.fromAWTKeyEvent(keyEvent));
 	}
 	
 	//method

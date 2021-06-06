@@ -144,7 +144,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteKeyPressOnSelfWhenFocused(final Key key) {
+	protected void noteKeyDownOnSelfWhenFocused(final Key key) {
 		
 		//Enumerates the given key.
 		switch (key) {
@@ -170,7 +170,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 				break;
 			default:
 				if (key.isCharacter()) {
-					noteCharacterKeyPressOnSelfWhenFocused(key);
+					noteCharacterKeyDownOnSelfWhenFocused(key);
 				}
 		}
 	}
@@ -295,7 +295,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	 * 
 	 * @param characterKey
 	 */
-	private void noteCharacterKeyPressOnSelfWhenFocused(final Key characterKey) {
+	private void noteCharacterKeyDownOnSelfWhenFocused(final Key characterKey) {
 		if (getRefKeyBoard().keyIsPressed(Key.CONTROL) && characterKey == Key.V) {
 			final var clipboardText = fromFrontEnd().getTextFromClipboard();
 			for (var i = 0; i < clipboardText.length(); i++) {

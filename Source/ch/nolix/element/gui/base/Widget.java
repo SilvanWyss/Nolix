@@ -168,7 +168,7 @@ TopLeftPositionedRecangular {
 	private WidgetParent parent;
 	
 	//optional attributes
-	private I2ElementTaker<W, Key> continuousKeyPressAction;
+	private I2ElementTaker<W, Key> keyDownAction;
 	private IElementTaker<W> mouseMoveAction;
 	private IElementTaker<W> leftMouseButtonClickAction;
 	private IElementTaker<W> leftMouseButtonPressAction;
@@ -657,17 +657,17 @@ TopLeftPositionedRecangular {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void noteKeyPress(final Key key) {
+	public final void noteKeyDown(final Key key) {
 		if (isEnabled()) {
 			
-			noteContinuousKeyPressOnSelfWhenEnabled_(key);
+			noteKeyDownOnSelfWhenEnabled_(key);
 			
 			if (isFocused()) {
-				noteKeyPressOnSelfWhenFocused(key);
+				noteKeyDownOnSelfWhenFocused(key);
 			}	
 			
 			if (redirectsInputsToShownWidgets()) {
-				getRefWidgetsForPainting().forEach(w -> w.noteKeyPress(key));
+				getRefWidgetsForPainting().forEach(w -> w.noteKeyDown(key));
 			}
 		}
 	}
@@ -1064,15 +1064,15 @@ TopLeftPositionedRecangular {
 	 * Sets the continuous key press action of the current {@link Widget}. 
 	 * 
 	 * @return the current {@link Widget}.
-	 * @throws ArgumentIsNullException if the given continuousKeyPressAction is null.
+	 * @throws ArgumentIsNullException if the given keyDownAction is null.
 	 */
 	@Override
-	public final W setContinuousKeyPressAction(final I2ElementTaker<W, Key> continuousKeyPressAction) {
+	public final W setKeyDownAction(final I2ElementTaker<W, Key> keyDownAction) {
 		
 		//Asserts that the given customCursorIcon is not null.
-		Validator.assertThat(continuousKeyPressAction).thatIsNamed("continuous key press action").isNotNull();
+		Validator.assertThat(keyDownAction).thatIsNamed("continuous key press action").isNotNull();
 		
-		this.continuousKeyPressAction = continuousKeyPressAction;
+		this.keyDownAction = keyDownAction;
 		
 		return asConcrete();
 	}
@@ -1495,7 +1495,7 @@ TopLeftPositionedRecangular {
 	 * 
 	 * @param key
 	 */
-	protected abstract void noteKeyPressOnSelfWhenFocused(Key key);
+	protected abstract void noteKeyDownOnSelfWhenFocused(Key key);
 	
 	//method declaration
 	/**
@@ -1775,12 +1775,12 @@ TopLeftPositionedRecangular {
 	 * 
 	 * @param key
 	 */
-	private void noteContinuousKeyPressOnSelfWhenEnabled_(final Key key) {
+	private void noteKeyDownOnSelfWhenEnabled_(final Key key) {
 		
 		//Handles the case that the current Widget has a continuous key press action.
 		//For a better performance, this implementation does not use all comfortable methods.
-		if (continuousKeyPressAction != null) {
-			continuousKeyPressAction.run(asConcrete(), key);
+		if (keyDownAction != null) {
+			keyDownAction.run(asConcrete(), key);
 		}
 	}
 	

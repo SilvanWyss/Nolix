@@ -12,15 +12,15 @@ import ch.nolix.element.gui.input.Key;
 public interface IInputActionManager<IAM extends IInputActionManager<IAM>> {
 	
 	//method
-	default IAM setContinuousKeyPressAction(final IElementTaker<Key> continuousKeyPressAction) {
+	default IAM setKeyDownAction(final IElementTaker<Key> keyDownAction) {
 		
-		Validator.assertThat(continuousKeyPressAction).thatIsNamed("continuous key press action").isNotNull();
+		Validator.assertThat(keyDownAction).thatIsNamed("continuous key press action").isNotNull();
 		
-		return setContinuousKeyPressAction((iam, k) -> continuousKeyPressAction.run(k));
+		return setKeyDownAction((iam, k) -> keyDownAction.run(k));
 	}
 	
 	//method declaration
-	IAM setContinuousKeyPressAction(final I2ElementTaker<IAM, Key> continuousKeyPressAction);
+	IAM setKeyDownAction(final I2ElementTaker<IAM, Key> keyDownAction);
 	
 	//method
 	default IAM setLeftMouseButtonClickAction(final IAction leftMouseButtonClickAction) {

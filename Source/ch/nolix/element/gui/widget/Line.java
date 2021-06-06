@@ -153,7 +153,7 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void noteKeyPressOnSelfWhenFocused(final Key key) {}
+	protected final void noteKeyDownOnSelfWhenFocused(final Key key) {}
 	
 	//method
 	/**

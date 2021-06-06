@@ -69,7 +69,7 @@ final class BaseFrontGUIClientInputTaker implements IResizableInputTaker {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void noteKeyPress(final Key key) {
+	public void noteKeyDown(final Key key) {
 		inputTaker.run(new KeyInput(key, KeyInputType.PRESS));
 	}
 	

@@ -227,7 +227,7 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void noteKeyPressOnSelfWhenFocused(final Key key) {}
+	protected final void noteKeyDownOnSelfWhenFocused(final Key key) {}
 	
 	//method
 	/**

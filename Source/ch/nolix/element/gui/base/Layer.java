@@ -158,7 +158,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	);
 	
 	//optional attributes
-	private I2ElementTaker<Layer, Key> continuousKeyPressAction;
+	private I2ElementTaker<Layer, Key> keyDownAction;
 	private IElementTaker<Layer> mouseMoveAction;
 	private IElementTaker<Layer> leftMouseButtonClickAction;
 	private IElementTaker<Layer> leftMouseButtonPressAction;
@@ -463,18 +463,18 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void noteKeyPress(final Key key) {
+	public void noteKeyDown(final Key key) {
 		
 		notedKeyPress = true;
 		
 		//Handles the case that the current Layer has a continuous key press action.
-		if (continuousKeyPressAction != null) {
-			continuousKeyPressAction.run(this, key);
+		if (keyDownAction != null) {
+			keyDownAction.run(this, key);
 		}
 		
 		//Handles the case that the current Layer has a root Widget.
 		if (rootWidget != null) {
-			rootWidget.noteKeyPress(key);
+			rootWidget.noteKeyDown(key);
 		}
 	}
 	
@@ -905,16 +905,16 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	/**
 	 * Sets the continuous key press action of the current {@link Layer}. 
 	 * 
-	 * @param continuousKeyPressAction
+	 * @param keyDownAction
 	 * @return the current {@link Layer}.
-	 * @throws ArgumentIsNullException if the given continuousKeyPressAction is null.
+	 * @throws ArgumentIsNullException if the given keyDownAction is null.
 	 */
-	public Layer setContinuousKeyPressAction(final I2ElementTaker<Layer, Key> continuousKeyPressAction) {
+	public Layer setKeyDownAction(final I2ElementTaker<Layer, Key> keyDownAction) {
 		
 		//Asserts that the given customCursorIcon is not null.
-		Validator.assertThat(continuousKeyPressAction).thatIsNamed("continuous key press action").isNotNull();
+		Validator.assertThat(keyDownAction).thatIsNamed("continuous key press action").isNotNull();
 		
-		this.continuousKeyPressAction = continuousKeyPressAction;
+		this.keyDownAction = keyDownAction;
 		
 		return asConcrete();
 	}
