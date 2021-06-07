@@ -8,7 +8,7 @@ import ch.nolix.common.testing.basetest.TestPool;
 /**
  * @author Silvan Wyss
  * @date 2019-05-19
- * @lines 30
+ * @lines 20
  */
 public final class WidgetTestPool extends TestPool {
 	
@@ -19,6 +19,7 @@ public final class WidgetTestPool extends TestPool {
 	public WidgetTestPool() {
 		super(
 			AreaTest.class,
+			ButtonTest.class,
 			CaptionPositionTest.class,
 			CheckBoxTest.class,
 			LabelTest.class,
