@@ -24,9 +24,6 @@ public enum ButtonRole implements IElement<ButtonRole> {
 	CONFIRM_BUTTON,
 	CANCEL_BUTTON;
 	
-	//constant
-	public static final String TYPE_NAME = "ButtonRole";
-	
 	//static method
 	/**
 	 * @param specification
