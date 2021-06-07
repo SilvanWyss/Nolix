@@ -28,7 +28,7 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 	private static final String ROLE_HEADER = PascalCaseCatalogue.ROLE;
 	
 	//attribute
-	private final MutableOptionalValue<ButtonRole> optionalRole =
+	private final MutableOptionalValue<ButtonRole> role =
 	new MutableOptionalValue<>(
 		ROLE_HEADER,
 		this::setRole,
@@ -61,7 +61,7 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link Button} does not have a role.
 	 */
 	public ButtonRole getRole() {
-		return optionalRole.getValue();
+		return role.getValue();
 	}
 	
 	//method
@@ -69,7 +69,7 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 	 * @return true if the current {@link Button} has a role.
 	 */
 	public boolean hasRole() {
-		return optionalRole.hasValue();
+		return role.hasValue();
 	}
 	
 	//method
@@ -86,7 +86,7 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 	 * Removes the role of the current {@link Button}.
 	 */
 	public void removeRole() {
-		optionalRole.clear();
+		role.clear();
 	}
 	
 	//method
@@ -99,7 +99,7 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 	 */
 	public Button setRole(final ButtonRole role) {
 		
-		this.optionalRole.setValue(role);
+		this.role.setValue(role);
 		
 		//Returns the current Button.
 		return this;
