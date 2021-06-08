@@ -27,9 +27,6 @@ import ch.nolix.element.gui.color.Color;
 
 //class
 public final class Image extends MutableElement<Image> {
-
-	//constant
-	public static final String TYPE_NAME = "Image";
 	
 	//constant
 	private static final String PIXEL_ARRAY_HEADER = "PixelArray";
