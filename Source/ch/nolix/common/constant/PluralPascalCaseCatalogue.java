@@ -88,6 +88,7 @@ public final class PluralPascalCaseCatalogue {
 	public static final String HASH_CODES = "HashCodes";
 	public static final String HEADERS = "Headers";
 	public static final String HEIGHTS = "Heights";
+	public static final String ICON = "Icons";
 	public static final String IDS = "Ids";
 	public static final String IMPLEMENTATIONS = "Implementations";
 	public static final String INDEXES = "Indexes";

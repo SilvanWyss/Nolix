@@ -88,6 +88,7 @@ public final class LowerCaseCatalogue {
 	public static final String HASH_CODE = "hash code";
 	public static final String HEADER = "header";
 	public static final String HEIGHT = "height";
+	public static final String ICON = "icon";
 	public static final String ID = "id";
 	public static final String IMPLEMENTATION = "implementation";
 	public static final String INDEX = "index";

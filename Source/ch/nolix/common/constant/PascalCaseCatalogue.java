@@ -88,6 +88,7 @@ public final class PascalCaseCatalogue {
 	public static final String HASH_CODE = "HashCode";
 	public static final String HEADER = "Header";
 	public static final String HEIGHT = "Height";
+	public static final String ICON = "Icon";
 	public static final String ID = "Id";
 	public static final String IMPLEMENTATION = "Implementation";
 	public static final String INDEX = "Index";
