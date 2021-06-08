@@ -7,7 +7,7 @@ package ch.nolix.common.constant;
  * 
  * @author Silvan Wyss
  * @date 2018-04-07
- * @lines 190
+ * @lines 200
  */
 public final class PascalCaseCatalogue {
 	
@@ -156,6 +156,7 @@ public final class PascalCaseCatalogue {
 	public static final String SPECIFICATION = "Specification";
 	public static final String START_DATE = "StartDate";
 	public static final String START_INDEX = "StartIndex";
+	public static final String START_TIME = "StartTime";
 	public static final String START_VALUE = "StartValue";
 	public static final String STATE = "State";
 	public static final String STATEMENT = "Statement";
@@ -173,6 +174,7 @@ public final class PascalCaseCatalogue {
 	public static final String TEXT_SIZE = "TextSize";
 	public static final String TEXTURE = "Texture";
 	public static final String THICKNESS = "Thickness";
+	public static final String TIME = "Time";
 	public static final String TIMEOUT = "Timeout";
 	public static final String TIMEOUT_IN_MICROSECONDS = "TimeoutMicroseconds";
 	public static final String TIMEOUT_IN_MILLISECONDS = "TimeoutMilliseconds";

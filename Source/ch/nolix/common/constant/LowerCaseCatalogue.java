@@ -7,7 +7,7 @@ package ch.nolix.common.constant;
  * 
  * @author Silvan Wyss
  * @date 2017-11-13
- * @lines 190
+ * @lines 200
  */
 public final class LowerCaseCatalogue {
 	
@@ -156,6 +156,7 @@ public final class LowerCaseCatalogue {
 	public static final String SPECIFICATION = "specification";
 	public static final String START_DATE = "start date";
 	public static final String START_INDEX = "start index";
+	public static final String START_TIME = "start time";
 	public static final String START_VALUE = "start value";
 	public static final String STATE = "state";
 	public static final String STATEMENT = "statement";
@@ -173,6 +174,7 @@ public final class LowerCaseCatalogue {
 	public static final String TEXT_SIZE = "text size";
 	public static final String TEXTURE = "texture";
 	public static final String THICKNESS = "thickness";
+	public static final String TIME = "time";
 	public static final String TIMEOUT = "timeout";
 	public static final String TIMEOUT_IN_MICROSECONDS = "timeout in microseconds";
 	public static final String TIMEOUT_IN_MILLISECONDS = "timeout in milliseconds";
