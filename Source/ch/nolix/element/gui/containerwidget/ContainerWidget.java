@@ -7,9 +7,9 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHave
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.skillapi.Clearable;
 import ch.nolix.element.base.MutableOptionalValue;
-import ch.nolix.element.gui.base.Widget;
 import ch.nolix.element.gui.widget.BorderWidget;
 import ch.nolix.element.gui.widget.BorderWidgetLook;
+import ch.nolix.element.gui.widget.Widget;
 
 //class
 /**

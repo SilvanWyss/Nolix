@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.gui.base;
+package ch.nolix.element.gui.widget;
 
 //own imports
 import ch.nolix.common.constant.LowerCaseCatalogue;

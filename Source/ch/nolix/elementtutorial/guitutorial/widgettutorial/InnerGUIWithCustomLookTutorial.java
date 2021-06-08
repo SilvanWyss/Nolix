@@ -1,11 +1,11 @@
 package ch.nolix.elementtutorial.guitutorial.widgettutorial;
 
 import ch.nolix.element.gui.base.Frame;
-import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.containerwidget.HorizontalStack;
 import ch.nolix.element.gui.widget.InnerGUI;
 import ch.nolix.element.gui.widget.Label;
+import ch.nolix.element.gui.widget.WidgetLookState;
 
 /**
  * The {@link InnerGUIWithCustomLookTutorial} is a tutorial for {@link InnerGUI}s.

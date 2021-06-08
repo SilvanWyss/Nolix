@@ -10,11 +10,11 @@ import ch.nolix.common.container.matrix.MatrixRow;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.element.base.MultiValueExtractor;
 import ch.nolix.element.elementenum.RotationDirection;
-import ch.nolix.element.gui.base.Widget;
-import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.input.Key;
 import ch.nolix.element.gui.painterapi.IPainter;
 import ch.nolix.element.gui.widget.Label;
+import ch.nolix.element.gui.widget.Widget;
+import ch.nolix.element.gui.widget.WidgetLookState;
 
 //class
 public final class Grid extends ContainerWidget<Grid, GridLook> {

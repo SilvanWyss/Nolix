@@ -5,7 +5,7 @@ import ch.nolix.common.constant.FunctionCatalogue;
 import ch.nolix.common.testing.basetest.TestCase;
 import ch.nolix.common.testing.test.ObjectTest;
 import ch.nolix.element.gui.base.InvisibleGUI;
-import ch.nolix.element.gui.base.Widget;
+import ch.nolix.element.gui.widget.Widget;
 
 //class
 /**

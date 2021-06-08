@@ -40,6 +40,7 @@ import ch.nolix.element.gui.input.IResizableInputTaker;
 import ch.nolix.element.gui.input.Key;
 import ch.nolix.element.gui.painterapi.IPainter;
 import ch.nolix.element.gui.widget.BorderWidget;
+import ch.nolix.element.gui.widget.Widget;
 
 //class
 /**

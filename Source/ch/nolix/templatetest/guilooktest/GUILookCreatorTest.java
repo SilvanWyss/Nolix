@@ -6,7 +6,6 @@ import ch.nolix.common.testing.basetest.TestCase;
 import ch.nolix.common.testing.test.ObjectTest;
 import ch.nolix.element.configuration.Configuration;
 import ch.nolix.element.gui.base.InvisibleGUI;
-import ch.nolix.element.gui.base.Widget;
 import ch.nolix.element.gui.containerwidget.VerticalStack;
 import ch.nolix.element.gui.widget.Area;
 import ch.nolix.element.gui.widget.Button;
@@ -19,6 +18,7 @@ import ch.nolix.element.gui.widget.SelectionMenu;
 import ch.nolix.element.gui.widget.TextBox;
 import ch.nolix.element.gui.widget.Uploader;
 import ch.nolix.element.gui.widget.VerticalLine;
+import ch.nolix.element.gui.widget.Widget;
 
 //class
 public abstract class GUILookCreatorTest extends ObjectTest<Configuration> {

@@ -1,13 +1,13 @@
 //package declaration
 package ch.nolix.system.databaseapplication.main;
 
-import ch.nolix.element.gui.base.Widget;
 import ch.nolix.element.gui.containerwidget.ContainerRole;
 import ch.nolix.element.gui.containerwidget.HorizontalStack;
 import ch.nolix.element.gui.containerwidget.VerticalStack;
 import ch.nolix.element.gui.widget.ImageWidget;
 import ch.nolix.element.gui.widget.Label;
 import ch.nolix.element.gui.widget.LabelRole;
+import ch.nolix.element.gui.widget.Widget;
 import ch.nolix.system.client.guiclient.BackGUIClientSession;
 import ch.nolix.system.database.databaseadapter.DatabaseAdapter;
 

@@ -2,12 +2,12 @@ package ch.nolix.elementtutorial.guitutorial.widgettutorial;
 
 import ch.nolix.element.elementenum.ContentPosition;
 import ch.nolix.element.gui.base.Frame;
-import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.containerwidget.HorizontalStack;
 import ch.nolix.element.gui.containerwidget.VerticalStack;
 import ch.nolix.element.gui.widget.HorizontalLine;
 import ch.nolix.element.gui.widget.Label;
+import ch.nolix.element.gui.widget.WidgetLookState;
 
 /**
  * The {@link HorizontalLineWithCustomLookTutorial} is a tutorial for {@link HorizontalLineTutorial}s.

@@ -7,7 +7,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHave
 import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.skillapi.Clearable;
-import ch.nolix.element.gui.base.Widget;
+import ch.nolix.element.gui.widget.Widget;
 
 //class
 final class AligningContainerSlot implements Clearable {

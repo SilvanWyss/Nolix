@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.gui.base;
+package ch.nolix.element.gui.widget;
 
 //own imports
 import ch.nolix.common.constant.LowerCaseCatalogue;
@@ -24,6 +24,10 @@ import ch.nolix.element.base.MutableValueExtractor;
 import ch.nolix.element.configuration.ConfigurableElement;
 import ch.nolix.element.elementapi.IConfigurableElement;
 import ch.nolix.element.elementenum.RotationDirection;
+import ch.nolix.element.gui.base.CursorIcon;
+import ch.nolix.element.gui.base.GUI;
+import ch.nolix.element.gui.base.Layer;
+import ch.nolix.element.gui.base.WidgetGUI;
 import ch.nolix.element.gui.baseapi.IFrontEndReader;
 import ch.nolix.element.gui.baseapi.IFrontEndWriter;
 import ch.nolix.element.gui.baseapi.IInputActionManager;

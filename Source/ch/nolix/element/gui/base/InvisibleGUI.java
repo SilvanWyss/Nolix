@@ -3,6 +3,7 @@ package ch.nolix.element.gui.base;
 
 //own imports
 import ch.nolix.common.state.Visibility;
+import ch.nolix.element.gui.widget.Widget;
 
 //class
 public class InvisibleGUI extends WidgetGUI<InvisibleGUI> {

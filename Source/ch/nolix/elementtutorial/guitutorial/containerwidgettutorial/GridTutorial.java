@@ -1,12 +1,12 @@
 package ch.nolix.elementtutorial.guitutorial.containerwidgettutorial;
 
 import ch.nolix.element.gui.base.Frame;
-import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.containerwidget.Grid;
 import ch.nolix.element.gui.containerwidget.GridType;
 import ch.nolix.element.gui.widget.Area;
 import ch.nolix.element.gui.widget.Label;
+import ch.nolix.element.gui.widget.WidgetLookState;
 
 /**
  * The {@link GridTutorial} is a tutorial for {@link Grid}s.

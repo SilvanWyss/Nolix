@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.gui.base;
+package ch.nolix.element.gui.widget;
 
 //class
 final class WidgetLookStateCalculator {

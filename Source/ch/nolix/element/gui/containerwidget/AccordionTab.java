@@ -16,8 +16,8 @@ import ch.nolix.element.base.MutableElement;
 import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.gui.base.CursorIcon;
 import ch.nolix.element.gui.base.MutableOptionalWidgetProperty;
-import ch.nolix.element.gui.base.Widget;
 import ch.nolix.element.gui.widget.Label;
+import ch.nolix.element.gui.widget.Widget;
 
 //class
 public final class AccordionTab extends MutableElement<AccordionTab> implements Clearable, Headerable<AccordionTab> {

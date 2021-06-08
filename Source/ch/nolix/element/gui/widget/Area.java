@@ -12,7 +12,6 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.element.base.MutableOptionalValue;
 import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.elementenum.RotationDirection;
-import ch.nolix.element.gui.base.Widget;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.input.Key;
 import ch.nolix.element.gui.painterapi.IPainter;

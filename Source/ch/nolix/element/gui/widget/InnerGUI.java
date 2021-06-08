@@ -13,7 +13,6 @@ import ch.nolix.element.elementenum.RotationDirection;
 import ch.nolix.element.gui.base.IWidgetGUI;
 import ch.nolix.element.gui.base.InvisibleGUI;
 import ch.nolix.element.gui.base.Layer;
-import ch.nolix.element.gui.base.Widget;
 import ch.nolix.element.gui.base.WidgetGUI;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.input.Key;

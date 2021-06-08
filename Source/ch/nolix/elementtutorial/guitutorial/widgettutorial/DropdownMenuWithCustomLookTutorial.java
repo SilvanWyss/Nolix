@@ -1,9 +1,9 @@
 package ch.nolix.elementtutorial.guitutorial.widgettutorial;
 
 import ch.nolix.element.gui.base.Frame;
-import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.widget.DropdownMenu;
+import ch.nolix.element.gui.widget.WidgetLookState;
 
 /**
  * The {@link DropdownMenuWithCustomLookTutorial} is a tutorial for {@link DropdownMenu}s.

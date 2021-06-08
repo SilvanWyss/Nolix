@@ -4,7 +4,6 @@ package ch.nolix.template.guilook;
 //own imports
 import ch.nolix.element.configuration.DeepConfiguration;
 import ch.nolix.element.gui.base.LayerRole;
-import ch.nolix.element.gui.base.Widget;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.containerwidget.ContainerRole;
 import ch.nolix.element.gui.containerwidget.Grid;
@@ -14,6 +13,7 @@ import ch.nolix.element.gui.widget.CheckBox;
 import ch.nolix.element.gui.widget.Console;
 import ch.nolix.element.gui.widget.Downloader;
 import ch.nolix.element.gui.widget.LabelRole;
+import ch.nolix.element.gui.widget.Widget;
 import ch.nolix.element.gui.widget.ItemMenu;
 import ch.nolix.element.configuration.Configuration;
 

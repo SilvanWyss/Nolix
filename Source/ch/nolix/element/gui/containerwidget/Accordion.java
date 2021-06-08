@@ -16,11 +16,11 @@ import ch.nolix.element.base.MultiValue;
 import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.base.SubElement;
 import ch.nolix.element.elementenum.RotationDirection;
-import ch.nolix.element.gui.base.Widget;
-import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.input.Key;
 import ch.nolix.element.gui.painterapi.IPainter;
+import ch.nolix.element.gui.widget.Widget;
+import ch.nolix.element.gui.widget.WidgetLookState;
 
 //class
 /**

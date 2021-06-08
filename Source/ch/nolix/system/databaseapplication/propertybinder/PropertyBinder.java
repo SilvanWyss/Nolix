@@ -3,7 +3,7 @@ package ch.nolix.system.databaseapplication.propertybinder;
 
 //own imports
 import ch.nolix.common.functionapi.IAction;
-import ch.nolix.element.gui.base.Widget;
+import ch.nolix.element.gui.widget.Widget;
 import ch.nolix.system.database.entity.Property;
 
 //class

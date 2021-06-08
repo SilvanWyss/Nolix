@@ -2,10 +2,10 @@
 package ch.nolix.elementtest.containerwidgettest;
 
 import ch.nolix.common.testing.basetest.TestCase;
-import ch.nolix.element.gui.base.Widget;
 import ch.nolix.element.gui.containerwidget.TabContainer;
 import ch.nolix.element.gui.containerwidget.TabContainerTab;
 import ch.nolix.element.gui.widget.Area;
+import ch.nolix.element.gui.widget.Widget;
 
 //class
 public final class TabContainerTest extends ContainerWidgetTest<TabContainer> {

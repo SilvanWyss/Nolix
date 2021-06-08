@@ -1,9 +1,9 @@
 package ch.nolix.elementtutorial.guitutorial.widgettutorial;
 
 import ch.nolix.element.gui.base.Frame;
-import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.widget.CheckBox;
+import ch.nolix.element.gui.widget.WidgetLookState;
 
 /**
  * The {@link CheckBoxWithCustomLookTutorial} is a tutorial for {@link CheckBox}s.

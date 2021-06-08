@@ -5,8 +5,6 @@ package ch.nolix.element.gui.widget;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.element.gui.base.CursorIcon;
 import ch.nolix.element.gui.base.Layer;
-import ch.nolix.element.gui.base.Widget;
-import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.containerwidget.HorizontalStack;
 import ch.nolix.element.gui.input.Key;

@@ -47,6 +47,7 @@ import ch.nolix.element.gui.widget.SelectionMenu;
 import ch.nolix.element.gui.widget.TextBox;
 import ch.nolix.element.gui.widget.Uploader;
 import ch.nolix.element.gui.widget.VerticalLine;
+import ch.nolix.element.gui.widget.Widget;
 
 //class
 /**

@@ -3,8 +3,6 @@ package ch.nolix.element.gui.widget;
 
 //own imports
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.element.gui.base.Widget;
-import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.containerwidget.VerticalStack;
 import ch.nolix.element.gui.painterapi.IPainter;

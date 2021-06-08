@@ -2,10 +2,10 @@ package ch.nolix.elementtutorial.guitutorial.containerwidgettutorial;
 
 import ch.nolix.element.elementenum.ContentPosition;
 import ch.nolix.element.gui.base.Frame;
-import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.containerwidget.FloatContainer;
 import ch.nolix.element.gui.widget.Label;
+import ch.nolix.element.gui.widget.WidgetLookState;
 
 /**
  * The {@link FloatContainerTutorial} is a tutorial for {@link FloatContainer}s.

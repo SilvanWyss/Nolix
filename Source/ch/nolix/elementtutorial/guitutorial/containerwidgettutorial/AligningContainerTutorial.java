@@ -2,11 +2,11 @@ package ch.nolix.elementtutorial.guitutorial.containerwidgettutorial;
 
 import ch.nolix.common.math.Calculator;
 import ch.nolix.element.gui.base.Frame;
-import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.containerwidget.AligningContainer;
 import ch.nolix.element.gui.widget.Button;
 import ch.nolix.element.gui.widget.Label;
+import ch.nolix.element.gui.widget.WidgetLookState;
 
 public final class AligningContainerTutorial {
 	

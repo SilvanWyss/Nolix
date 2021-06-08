@@ -16,7 +16,6 @@ import ch.nolix.common.skillapi.Clearable;
 import ch.nolix.element.base.MultiValue;
 import ch.nolix.element.base.SubElement;
 import ch.nolix.element.elementenum.RotationDirection;
-import ch.nolix.element.gui.base.Widget;
 import ch.nolix.element.gui.input.Key;
 
 //class

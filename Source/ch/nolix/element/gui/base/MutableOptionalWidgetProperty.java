@@ -10,6 +10,7 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.common.skillapi.Clearable;
 import ch.nolix.element.base.Property;
+import ch.nolix.element.gui.widget.Widget;
 
 //class
 public final class MutableOptionalWidgetProperty extends Property implements Clearable {

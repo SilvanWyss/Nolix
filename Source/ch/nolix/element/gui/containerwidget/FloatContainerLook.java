@@ -5,8 +5,8 @@ package ch.nolix.element.gui.containerwidget;
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
 import ch.nolix.element.formatelement.NonCascadingProperty;
-import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.widget.BorderWidgetLook;
+import ch.nolix.element.gui.widget.WidgetLookState;
 
 //class
 public final class FloatContainerLook extends BorderWidgetLook<FloatContainerLook> {

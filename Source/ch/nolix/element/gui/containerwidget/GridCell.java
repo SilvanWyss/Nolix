@@ -10,7 +10,7 @@ import ch.nolix.common.skillapi.Clearable;
 import ch.nolix.element.base.MutableElement;
 import ch.nolix.element.base.Value;
 import ch.nolix.element.gui.base.MutableOptionalWidgetProperty;
-import ch.nolix.element.gui.base.Widget;
+import ch.nolix.element.gui.widget.Widget;
 
 //class
 final class GridCell extends MutableElement<GridCell> implements Clearable {

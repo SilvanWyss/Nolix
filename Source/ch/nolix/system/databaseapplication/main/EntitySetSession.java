@@ -4,7 +4,6 @@ package ch.nolix.system.databaseapplication.main;
 import ch.nolix.businessapi.databaseapi.propertytypeapi.PropertyType;
 //own imports
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.element.gui.base.Widget;
 import ch.nolix.element.gui.containerwidget.ContainerRole;
 import ch.nolix.element.gui.containerwidget.Grid;
 import ch.nolix.element.gui.containerwidget.HorizontalStack;
@@ -14,6 +13,7 @@ import ch.nolix.element.gui.widget.Button;
 import ch.nolix.element.gui.widget.ButtonRole;
 import ch.nolix.element.gui.widget.Label;
 import ch.nolix.element.gui.widget.LabelRole;
+import ch.nolix.element.gui.widget.Widget;
 import ch.nolix.system.database.databaseadapter.EntitySet;
 import ch.nolix.system.database.entity.Entity;
 import ch.nolix.system.database.entity.Reference;

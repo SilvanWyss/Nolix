@@ -3,9 +3,9 @@ package ch.nolix.elementtutorial.guitutorial.widgettutorial;
 import ch.nolix.common.environment.filesystem.FileAccessor;
 import ch.nolix.common.environment.filesystem.FileSystemAccessor;
 import ch.nolix.element.gui.base.Frame;
-import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.widget.Downloader;
+import ch.nolix.element.gui.widget.WidgetLookState;
 
 /**
  * The {@link DownloaderWithCustomLookTutorial} is a tutorial for {@link Downloader}s.

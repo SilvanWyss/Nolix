@@ -3,8 +3,8 @@ package ch.nolix.elementtutorial.guitutorial.basetutorial;
 import ch.nolix.element.elementenum.ExtendedContentPosition;
 import ch.nolix.element.gui.base.Frame;
 import ch.nolix.element.gui.base.Layer;
-import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.widget.Label;
+import ch.nolix.element.gui.widget.WidgetLookState;
 
 /**
  * The {@link CursorPositionTutorial} is a tutorial for {@link Frame}s.

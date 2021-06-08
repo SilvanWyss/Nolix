@@ -8,8 +8,6 @@ import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.element.formatelement.ForwardingProperty;
 import ch.nolix.element.formatelement.NonCascadingProperty;
-import ch.nolix.element.gui.base.WidgetLook;
-import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.color.ColorGradient;
 import ch.nolix.element.gui.image.Background;

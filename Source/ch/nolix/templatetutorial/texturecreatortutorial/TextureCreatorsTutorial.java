@@ -1,10 +1,10 @@
 package ch.nolix.templatetutorial.texturecreatortutorial;
 
 import ch.nolix.element.gui.base.Frame;
-import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.containerwidget.Accordion;
 import ch.nolix.element.gui.widget.ImageWidget;
+import ch.nolix.element.gui.widget.WidgetLookState;
 import ch.nolix.system.texture.TextureCreator;
 import ch.nolix.template.texturecreator.ConcreteTextureCreator;
 import ch.nolix.template.texturecreator.JuteTextureCreator;

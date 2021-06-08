@@ -7,9 +7,9 @@ import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.element.formatelement.NonCascadingProperty;
-import ch.nolix.element.gui.base.WidgetLookState;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.widget.BorderWidgetLook;
+import ch.nolix.element.gui.widget.WidgetLookState;
 
 //class
 public final class GridLook extends BorderWidgetLook<GridLook> {
