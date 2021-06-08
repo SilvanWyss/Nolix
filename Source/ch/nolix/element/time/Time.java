@@ -30,12 +30,9 @@ import ch.nolix.element.elementapi.IElement;
  * 
  * @author Silvan Wyss
  * @date 2016-09-01
- * @lines 730
+ * @lines 720
  */
 public final class Time implements IElement<Time> {
-	
-	//constant
-	public static final String TYPE_NAME = "Time";
 	
 	//constants
 	public static final int DEFAULT_YEAR = 2000;
