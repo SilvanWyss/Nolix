@@ -90,6 +90,7 @@ public final class PluralPascalCaseCatalogue {
 	public static final String HEIGHTS = "Heights";
 	public static final String ICON = "Icons";
 	public static final String IDS = "Ids";
+	public static final String IMAGE = "Images";
 	public static final String IMPLEMENTATIONS = "Implementations";
 	public static final String INDEXES = "Indexes";
 	public static final String INFO_STRINGS = "InfoStrings";

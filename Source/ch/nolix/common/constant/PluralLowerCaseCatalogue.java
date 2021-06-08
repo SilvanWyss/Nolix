@@ -90,6 +90,7 @@ public final class PluralLowerCaseCatalogue {
 	public static final String HEIGHTS = "heights";
 	public static final String ICON = "icons";
 	public static final String IDS = "ids";
+	public static final String IMAGE = "images";
 	public static final String IMPLEMENTATIONS = "implementations";
 	public static final String INDEXS = "indexes";
 	public static final String INFO_STRINGS = "info strings";

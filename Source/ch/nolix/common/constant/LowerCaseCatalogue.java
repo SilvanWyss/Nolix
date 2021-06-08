@@ -90,6 +90,7 @@ public final class LowerCaseCatalogue {
 	public static final String HEIGHT = "height";
 	public static final String ICON = "icon";
 	public static final String ID = "id";
+	public static final String IMAGE = "image";
 	public static final String IMPLEMENTATION = "implementation";
 	public static final String INDEX = "index";
 	public static final String INFO_STRING = "info string";

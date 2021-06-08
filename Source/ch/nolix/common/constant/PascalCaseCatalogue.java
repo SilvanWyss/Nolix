@@ -90,6 +90,7 @@ public final class PascalCaseCatalogue {
 	public static final String HEIGHT = "Height";
 	public static final String ICON = "Icon";
 	public static final String ID = "Id";
+	public static final String IMAGE = "Image";
 	public static final String IMPLEMENTATION = "Implementation";
 	public static final String INDEX = "Index";
 	public static final String INFO_STRING = "InfoString";
