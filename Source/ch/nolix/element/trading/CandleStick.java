@@ -2,6 +2,7 @@
 package ch.nolix.element.trading;
 
 //own imports
+import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -25,8 +26,9 @@ public class CandleStick implements IElement<CandleStick> {
 	//constants
 	public static final double DEFAULT_HAMMER_MIN_LOWER_WICK_LENGTH_RATIO = 0.5;
 	public static final double DEFAULT_INVERTED_HAMMER_MIN_UPPER_WICK_LENGT_RATIO = 0.5;
-
+	
 	//constants
+	private static final String TIME_HEADER = PascalCaseCatalogue.TIME;
 	private static final String OPENING_PRICE_HEADER = "OpeningPrice";
 	private static final String CLOSING_PRICE_HEADER = "ClosingPrice";
 	private static final String LOWEST_PRICE_HEADER = "LowestPrice";
@@ -47,7 +49,7 @@ public class CandleStick implements IElement<CandleStick> {
 		
 		for (Node a : attributes) {
 			switch (a.getHeader()) {
-				case Time.TYPE_NAME:
+				case TIME_HEADER:
 					time = Time.fromSpecification(a);
 					break;
 				case OPENING_PRICE_HEADER:
@@ -160,7 +162,7 @@ public class CandleStick implements IElement<CandleStick> {
 	@Override
 	public void fillUpAttributesInto(final LinkedList<Node> list) {
 		list.addAtEnd(
-			time.getSpecification(),
+			time.getSpecificationAs(TIME_HEADER),
 			Node.withHeaderAndAttribute(OPENING_PRICE_HEADER, getOpeningPrice()),
 			Node.withHeaderAndAttribute(CLOSING_PRICE_HEADER, getClosingPrice()),
 			Node.withHeaderAndAttribute(LOWEST_PRICE_HEADER, getLowestPrice()),
