@@ -2,6 +2,7 @@
 package ch.nolix.element.gui.widget;
 
 //own imports
+import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.skillapi.Clearable;
 import ch.nolix.element.base.MutableOptionalValue;
@@ -13,10 +14,13 @@ import ch.nolix.element.gui.painterapi.IPainter;
 //class
 public final class ImageWidget extends BorderWidget<ImageWidget, ImageWidgetLook> implements Clearable {
 	
+	//constant
+	private static final String IMAGE_HEADER = PascalCaseCatalogue.IMAGE;
+	
 	//attribute
 	private final MutableOptionalValue<Image> image =
 	new MutableOptionalValue<>(
-		Image.TYPE_NAME,
+		IMAGE_HEADER,
 		this::setImage,
 		Image::fromSpecification,
 		Image::getSpecification
