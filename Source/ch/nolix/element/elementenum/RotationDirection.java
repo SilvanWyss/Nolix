@@ -13,14 +13,11 @@ import ch.nolix.element.elementapi.IElement;
 /**
  * @author Silvan Wyss
  * @date 2019-07-28
- * @lines 60
+ * @lines 50
  */
 public enum RotationDirection implements IElement<RotationDirection> {
 	FORWARD,
 	BACKWARD;
-	
-	//constant
-	public static final String TYPE_NAME = "DirectionOfRotation";
 	
 	//static method
 	/**
