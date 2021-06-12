@@ -1,18 +1,16 @@
 //package declaration
 package ch.nolix.element.gui.containerwidget;
 
+//own imports
 import ch.nolix.element.gui.widget.Widget;
 
 //class
 /**
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 90
+ * @lines 80
  */
 public final class HorizontalStack extends Stack<HorizontalStack> {
-	
-	//constant
-	public static final String TYPE_NAME = "HorizontalStack";
 	
 	//method
 	/**
