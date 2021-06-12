@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.element.gui.base;
 
+//own imports
+import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.chainednode.ChainedNode;
@@ -27,10 +29,13 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 	public static final Color BACKGROUND_COLOR = Color.WHITE;
 	public static final CursorIcon DEFAULT_CURSOR_ICON = CursorIcon.ARROW;
 	
+	//constant
+	private static final String CURSOR_ICON_HEADER = PascalCaseCatalogue.CURSOR_ICON;
+	
 	//attribute
 	private MutableValue<CursorIcon> cursorIcon =
 	new MutableValue<>(
-		CursorIcon.TYPE_NAME,
+		CURSOR_ICON_HEADER,
 		DEFAULT_CURSOR_ICON,
 		this::setCursorIcon,
 		CursorIcon::fromSpecification,
