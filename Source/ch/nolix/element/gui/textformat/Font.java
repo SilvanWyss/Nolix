@@ -16,7 +16,7 @@ import ch.nolix.element.elementapi.IElement;
  * 
  * @author Silvan Wyss
  * @date 2017-08-19
- * @lines 80
+ * @lines 70
  */
 public enum Font implements IElement<Font> {
 	ARIAL,
@@ -27,9 +27,6 @@ public enum Font implements IElement<Font> {
 	PAPYRUS,
 	TAHOMA,
 	VERDANA;
-	
-	//constant
-	public static final String TYPE_NAME = "Font";
 	
 	//static method
 	/**
