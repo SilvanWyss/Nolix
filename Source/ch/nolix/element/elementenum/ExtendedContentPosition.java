@@ -13,7 +13,7 @@ import ch.nolix.element.elementapi.IElement;
 /**
  * @author Silvan Wyss
  * @date 2019-05-18
- * @lines 50
+ * @lines 40
  */
 public enum ExtendedContentPosition implements IElement<ExtendedContentPosition> {
 	TOP_LEFT,
@@ -26,9 +26,6 @@ public enum ExtendedContentPosition implements IElement<ExtendedContentPosition>
 	BOTTOM,
 	BOTTOM_RIGHT,
 	FREE;
-	
-	//constant
-	public static final String TYPE_NAME = "ExtendedContentPosition";
 	
 	//static method
 	/**
