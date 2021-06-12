@@ -44,6 +44,7 @@ public final class LowerCaseCatalogue {
 	public static final String CONTROLLER = "controller";
 	public static final String CREATION_DATE = "creation date";
 	public static final String CREATOR = "creator";
+	public static final String CURSOR_ICON = "cursor icon";
 	public static final String CURSOR_POSITION = "cursor position";
 	public static final String DATABASE = "database";
 	public static final String DATA_TYPE = "data type";

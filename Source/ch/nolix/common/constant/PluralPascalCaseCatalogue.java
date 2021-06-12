@@ -44,6 +44,7 @@ public final class PluralPascalCaseCatalogue {
 	public static final String CONTROLLERS = "Controllers";
 	public static final String CREATION_DATES = "CreationDates";
 	public static final String CREATORS = "Creators";
+	public static final String CURSOR_ICONS = "CursorIcons";
 	public static final String CURSOR_POSITIONS = "CursorPositions";
 	public static final String DATABASES = "Databases";
 	public static final String DATA_TYPES = "DataTypes";

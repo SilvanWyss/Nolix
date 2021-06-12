@@ -44,6 +44,7 @@ public final class PascalCaseCatalogue {
 	public static final String CONTROLLER = "Controller";
 	public static final String CREATION_DATE = "CreationDate";
 	public static final String CREATOR = "Creator";
+	public static final String CURSOR_ICON = "CursorIcon";
 	public static final String CURSOR_POSITION = "CursorPosition";
 	public static final String DATABASE = "Database";
 	public static final String DATA_TYPE = "DataType";

@@ -44,6 +44,7 @@ public final class PluralLowerCaseCatalogue {
 	public static final String CONTROLLERS = "controllers";
 	public static final String CREATION_DATES = "creation dates";
 	public static final String CREATORS = "creators";
+	public static final String CURSOR_ICONS = "cursor icons";
 	public static final String CURSOR_POSITIONS = "cursor positions";
 	public static final String DATABASES = "databases";
 	public static final String DATA_TYPES = "data types";
