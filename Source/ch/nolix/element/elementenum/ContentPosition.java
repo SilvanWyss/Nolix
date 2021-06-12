@@ -26,9 +26,6 @@ public enum ContentPosition implements IElement<ContentPosition> {
 	BOTTOM,
 	BOTTOM_RIGHT;
 	
-	//constant
-	public static final String TYPE_NAME = "ContentPosition";
-	
 	//static method
 	/**
 	 * @param specification
