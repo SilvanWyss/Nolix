@@ -240,7 +240,7 @@ public final class Fractal implements IFractal {
 				
 		final var heightInpixel = getHeightInPixel();		
 		
-		final var image = new Image(widthInPixel, heightInpixel);
+		final var image = Image.withWidthAndHeight(widthInPixel, heightInpixel);
 		
 		final var argument
 		= new ComplexNumber(getMinRealComponent(), getMinImaginaryComponent(), getBigDecimalScale());

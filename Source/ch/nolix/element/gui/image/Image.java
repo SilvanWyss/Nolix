@@ -39,7 +39,7 @@ public final class Image extends MutableElement<Image> {
 	//static method
 	public static Image fromBufferedImage(final BufferedImage bufferedImage) {
 		
-		final var image = new Image(bufferedImage.getWidth(), bufferedImage.getHeight());
+		final var image = Image.withWidthAndHeight(bufferedImage.getWidth(), bufferedImage.getHeight());
 		
 		for (var i = 1; i <= image.getWidth(); i++) {
 			for (var j = 1; j <= image.getHeight(); j++) {
@@ -68,7 +68,7 @@ public final class Image extends MutableElement<Image> {
 	public static Image fromSpecification(final BaseNode specification) {
 		
 		final var image =
-		new Image(
+		Image.withWidthAndHeight(
 			specification.getRefFirstAttribute(a -> a.hasHeader(PascalCaseCatalogue.WIDTH)).getOneAttributeAsInt(),
 			specification.getRefFirstAttribute(a -> a.hasHeader(PascalCaseCatalogue.HEIGHT)).getOneAttributeAsInt()
 		);
@@ -81,6 +81,35 @@ public final class Image extends MutableElement<Image> {
 	//static method
 	public static Image fromString(final String string) {
 		return fromSpecification(Node.fromString(string));
+	}
+	
+	//static method
+	public static Image withWidthAndHeight(final int width, final int height) {
+		return withWidthAndHeightAndColor(width, height, Color.WHITE);
+	}
+	
+	//static method
+	public static Image withWidthAndHeightAndColor(final int width, final int height, final Color color) {
+		
+		Validator.assertThat(width).thatIsNamed(LowerCaseCatalogue.WIDTH).isPositive();
+		Validator.assertThat(height).thatIsNamed(LowerCaseCatalogue.HEIGHT).isPositive();
+		Validator.assertThat(color).thatIsNamed(Color.class).isNotNull();
+		
+		var pixels = new Matrix<Color>();
+		
+		if (width > 0 && height > 0) {
+			
+			final var row = new Color[width];
+			for (var i = 0; i < width; i++) {
+				row[i] = color;
+			}
+			
+			for (var i = 1; i <= height; i++) {
+				pixels.addRow(row);
+			}
+		}
+		
+		return new Image(pixels);
 	}
 	
 	//attribute
@@ -112,34 +141,6 @@ public final class Image extends MutableElement<Image> {
 	//optional attributes
 	private Node pixelArraySpecification;
 	private BufferedImage bufferedImage;
-	
-	//constructor
-	public Image(final int width, final int height) {
-		this(width, height, Color.WHITE);
-	}
-	
-	//constructor
-	public Image(final int width, final int height, final Color color) {
-		
-		Validator.assertThat(color).thatIsNamed(Color.class).isNotNull();
-		
-		setWidth(width);
-		setHeight(height);
-		
-		pixels = new Matrix<>();
-		
-		if (width > 0 && height > 0) {
-			
-			final var row = new Color[width];
-			for (var i = 0; i < width; i++) {
-				row[i] = color;
-			}
-			
-			for (var i = 1; i <= height; i++) {
-				pixels.addRow(row);
-			}
-		}
-	}
 	
 	//constructor
 	private Image(final Matrix<Color> pixels) {
@@ -183,7 +184,7 @@ public final class Image extends MutableElement<Image> {
 		Validator.assertThat(width).thatIsNamed(LowerCaseCatalogue.WIDTH).isBetween(0, getWidth() - xPosition + 1);
 		Validator.assertThat(height).thatIsNamed(LowerCaseCatalogue.WIDTH).isBetween(0, getHeight() - yPosition + 1);
 		
-		final var section = new Image(width, height);
+		final var section = Image.withWidthAndHeight(width, height);
 		for (var i = 1; i <= width; i++) {
 			for (var j = 1; j <= height; j++) {
 				section.setPixel(i, j, getPixel(xPosition + i - 1, yPosition + j - 1));
@@ -297,7 +298,7 @@ public final class Image extends MutableElement<Image> {
 	//method
 	public Image toRepeatedImage(final int width, final int height) {
 		
-		final var image = new Image(width, height);
+		final var image = Image.withWidthAndHeight(width, height);
 		
 		final var sourceWidth = getWidth();
 		final var sourceHeight = getHeight();
@@ -330,7 +331,7 @@ public final class Image extends MutableElement<Image> {
 		Validator.assertThat(widthFactor).thatIsNamed("width factor").isPositive();
 		Validator.assertThat(heightFactor).thatIsNamed("height factor").isPositive();
 		
-		final var image = new Image((int)(widthFactor * getWidth()), (int)(heightFactor * getHeight()));
+		final var image = Image.withWidthAndHeight((int)(widthFactor * getWidth()), (int)(heightFactor * getHeight()));
 		final var reziprocalWidthFactor = 1.0 / widthFactor;
 		final var reziprocalHeightFactor = 1.0 / heightFactor;
 		

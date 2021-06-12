@@ -4,9 +4,9 @@ package ch.nolix.system.dynamicmath;
 //Java imports
 import java.math.BigDecimal;
 
+//own imports
 import ch.nolix.businessapi.dynamicmathapi.IComplexNumber;
 import ch.nolix.businessapi.dynamicmathapi.IImageBuilder;
-//own imports
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -38,7 +38,7 @@ public final class ImageBuilder implements IImageBuilder {
 		Validator.assertThat(fractal).thatIsNamed(Fractal.class).isNotNull();		
 		
 		this.fractal = fractal;
-		image = new Image(fractal.getWidthInPixel(), fractal.getHeightInPixel(), Color.WHITE);
+		image = Image.withWidthAndHeightAndColor(fractal.getWidthInPixel(), fractal.getHeightInPixel(), Color.WHITE);
 		
 		fillImage();
 	}

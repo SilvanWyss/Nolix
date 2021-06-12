@@ -17,7 +17,7 @@ public abstract class TextureCreator {
 	//method
 	public final Image createTexture16x16() {
 		
-		final var texture = new Image(TEXTURE_16_16, TEXTURE_16_16);
+		final var texture = Image.withWidthAndHeight(TEXTURE_16_16, TEXTURE_16_16);
 		fillTexture16x16(texture);
 		
 		return texture;
