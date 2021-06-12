@@ -27,9 +27,6 @@ public enum CursorIcon implements IElement<CursorIcon> {
 	MOVE,
 	WAIT;
 	
-	//constant
-	public static final String TYPE_NAME = "CursorIcon";
-	
 	//static method
 	/**
 	 * @param specification
