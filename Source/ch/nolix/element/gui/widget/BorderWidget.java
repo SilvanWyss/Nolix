@@ -81,6 +81,7 @@ extends Widget<BW, BWL> {
 		
 	//constants
 	private static final String AUTOMATIC_SIZE_HEADER = "AutomaticSize";
+	private static final String CONTENT_POSITION_HEADER = "ContentPosition";
 	private static final String MIN_WIDTH_HEADER = "MinWidth";
 	private static final String MIN_HEIGHT_HEADER = "MinHeight";
 	private static final String MAX_WIDTH_HEADER = "MaxWidth";
@@ -109,7 +110,7 @@ extends Widget<BW, BWL> {
 	//attribute
 	private MutableValue<ContentPosition> contentPosition =
 	new MutableValue<>(
-		ContentPosition.TYPE_NAME,
+		CONTENT_POSITION_HEADER,
 		DEFAULT_CONTENT_POSITION,
 		this::setContentPosition,
 		ContentPosition::fromSpecification,
