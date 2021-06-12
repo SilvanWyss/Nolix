@@ -22,12 +22,9 @@ import ch.nolix.element.gui.base.Element;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 1360
+ * @lines 1350
  */
 public class Color extends Element<Color> {
-	
-	//constant
-	public static final String TYPE_NAME = "Color";
 	
 	//constant
 	public static final int DEFAULT_ALPHA_VALUE = 255;
