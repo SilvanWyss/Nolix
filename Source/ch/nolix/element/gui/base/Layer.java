@@ -26,7 +26,6 @@ import ch.nolix.element.base.OptionalValue;
 import ch.nolix.element.configuration.ConfigurableElement;
 import ch.nolix.element.discretegeometry.Discrete2DPoint;
 import ch.nolix.element.elementapi.IConfigurableElement;
-import ch.nolix.element.elementenum.ContentPosition;
 import ch.nolix.element.elementenum.ExtendedContentPosition;
 import ch.nolix.element.elementenum.RotationDirection;
 import ch.nolix.element.gui.baseapi.IOccupiableCanvasInputActionManager;
@@ -64,6 +63,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	
 	//constants
 	private static final String BACKGROUND_HEADER = "Background";
+	private static final String CONTENT_POSITION_HEADER = "ContentPosition";
 	private static final String FREE_CONTENT_POSITION_HEADER = "FreeContentPosition";
 	private static final String ROOT_WIDGET_HEADER = "RootWidget";
 	private static final String CONFIGURATION_ALLOWED_FLAG_HEADER = "ConfigurationAllowed";
@@ -103,7 +103,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	//attribute
 	private final MutableValue<ExtendedContentPosition> contentPosition =
 	new MutableValue<>(
-		ContentPosition.TYPE_NAME,
+		CONTENT_POSITION_HEADER,
 		DEFAULT_CONTENT_POSITION,
 		this::setContentPosition,
 		ExtendedContentPosition::fromSpecification,
