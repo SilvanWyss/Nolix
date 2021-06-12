@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.gui.containerwidget;
 
+//own imports
 import ch.nolix.element.gui.widget.Widget;
 
 //class
@@ -10,9 +11,6 @@ import ch.nolix.element.gui.widget.Widget;
  * @lines 90
  */
 public final class VerticalStack extends Stack<VerticalStack> {
-	
-	//constant
-	public static final String TYPE_NAME = "VerticalStack";
 	
 	//constructor
 	/**
