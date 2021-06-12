@@ -25,12 +25,11 @@ import ch.nolix.element.gui.textformat.TextFormat;
 /**
  * @author Silvan Wyss
  * @date 2017-03-06
- * @lines 820
+ * @lines 810
  */
 public final class Console extends BorderWidget<Console, ConsoleLook> implements Clearable {
 	
-	//constants
-	public static final String TYPE_NAME = "Console";
+	//constant
 	public static final Color DEFAULT_BACKGROUND_COLOR = Color.LIGHT_GREY;
 	
 	//constant
