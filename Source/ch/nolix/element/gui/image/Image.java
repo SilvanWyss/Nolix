@@ -86,7 +86,7 @@ public final class Image implements IElement<Image>, IImage {
 	
 	//method
 	@Override
-	public IImage getSection(int xPosition, int yPosition, int width, int height) {
+	public MutableImage getSection(int xPosition, int yPosition, int width, int height) {
 		return internalImage.getSection(xPosition, yPosition, width, height);
 	}
 	
@@ -128,7 +128,7 @@ public final class Image implements IElement<Image>, IImage {
 	
 	//method
 	@Override
-	public IImage toLeftRotatedImage() {
+	public MutableImage toLeftRotatedImage() {
 		return internalImage.toLeftRotatedImage();
 	}
 	
@@ -145,25 +145,25 @@ public final class Image implements IElement<Image>, IImage {
 	
 	//method
 	@Override
-	public IImage toRepeatedImage(int width, int height) {
+	public MutableImage toRepeatedImage(int width, int height) {
 		return internalImage.toRepeatedImage(width, height);
 	}
 	
 	//method
 	@Override
-	public IImage toRightRotatedImage() {
+	public MutableImage toRightRotatedImage() {
 		return internalImage.toRightRotatedImage();
 	}
 	
 	//method
 	@Override
-	public IImage toScaledImage(double factor) {
+	public MutableImage toScaledImage(double factor) {
 		return internalImage.toScaledImage(factor);
 	}
 	
 	//method
 	@Override
-	public IImage toScaledImage(double widthFactor, double heightFactor) {
+	public MutableImage toScaledImage(double widthFactor, double heightFactor) {
 		return internalImage.toScaledImage(widthFactor, heightFactor);
 	}
 }
