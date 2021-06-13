@@ -26,7 +26,7 @@ import ch.nolix.element.base.Value;
 import ch.nolix.element.gui.color.Color;
 
 //class
-public final class MutableImage extends MutableElement<MutableImage> {
+public final class MutableImage extends MutableElement<MutableImage> implements IImage {
 	
 	//constant
 	private static final String PIXEL_ARRAY_HEADER = "PixelArray";
@@ -81,6 +81,11 @@ public final class MutableImage extends MutableElement<MutableImage> {
 	//static method
 	public static MutableImage fromString(final String string) {
 		return fromSpecification(Node.fromString(string));
+	}
+	
+	//static method
+	public static MutableImage withPixels(final Matrix<Color> pixels) {
+		return new MutableImage(pixels.getCopy());
 	}
 	
 	//static method
@@ -152,11 +157,13 @@ public final class MutableImage extends MutableElement<MutableImage> {
 	}
 	
 	//method
+	@Override
 	public Color getBottomLeftPixel() {
 		return getPixel(1, getHeight());
 	}
 	
 	//method
+	@Override
 	public Color getBottomRightPixel() {
 		return getPixel(getWidth(), getHeight());
 	}
@@ -167,21 +174,25 @@ public final class MutableImage extends MutableElement<MutableImage> {
 	}
 	
 	//method
+	@Override
 	public int getHeight() {
 		return height.getValue();
 	}
 	
 	//method
+	@Override
 	public Color getPixel(final int xPosition, final int yPosition) {
 		return pixels.getRefAt(yPosition, xPosition);
 	}
 	
 	//method
+	@Override
 	public int getPixelCount() {
 		return pixels.getElementCount();
 	}
 	
 	//method
+	@Override
 	public MutableImage getSection(final int xPosition, final int yPosition, final int width, final int height) {
 		
 		Validator.assertThat(xPosition).thatIsNamed("x-position").isPositive();
@@ -200,16 +211,19 @@ public final class MutableImage extends MutableElement<MutableImage> {
 	}
 	
 	//method
+	@Override
 	public Color getTopLeftPixel() {
 		return getPixel(1, 1);
 	}
 	
 	//method
+	@Override
 	public Color getTopRightPixel() {
 		return getPixel(getWidth(), 1);
 	}
 	
 	//method
+	@Override
 	public int getWidth() {
 		return width.getValue();
 	}
@@ -278,6 +292,7 @@ public final class MutableImage extends MutableElement<MutableImage> {
 	}
 		
 	//method
+	@Override
 	public BufferedImage toBufferedImage() {
 		
 		generateBufferedImageIfNeeded();
@@ -286,21 +301,32 @@ public final class MutableImage extends MutableElement<MutableImage> {
 	}
 	
 	//method
+	@Override
+	public Image toImmutableImage() {
+		return Image.withPixels(pixels);
+	}
+	
+	//method
+	@Override
 	public byte[] toJPG() {
 		return to("jpg");
 	}
 	
 	//method
+	@Override
 	public MutableImage toLeftRotatedImage() {
 		return new MutableImage(pixels.toLeftRotatedMatrix());
 	}
 	
 	//method
+	@Override
 	public byte[] toPNG() {
 		return to("png");
 	}
 	
 	//method
+	//method
+	@Override
 	public MutableImage toRepeatedImage(final int width, final int height) {
 		
 		final var image = MutableImage.withWidthAndHeight(width, height);
@@ -318,11 +344,13 @@ public final class MutableImage extends MutableElement<MutableImage> {
 	}
 	
 	//method
+	@Override
 	public MutableImage toRightRotatedImage() {
 		return new MutableImage(pixels.toRightRotatedMatrix());
 	}
 	
 	//method
+	@Override
 	public MutableImage toScaledImage(final double factor) {
 		
 		Validator.assertThat(factor).thatIsNamed(LowerCaseCatalogue.FACTOR).isPositive();
@@ -331,6 +359,7 @@ public final class MutableImage extends MutableElement<MutableImage> {
 	}
 	
 	//method
+	@Override
 	public MutableImage toScaledImage(final double widthFactor, final double heightFactor) {
 		
 		Validator.assertThat(widthFactor).thatIsNamed("width factor").isPositive();
