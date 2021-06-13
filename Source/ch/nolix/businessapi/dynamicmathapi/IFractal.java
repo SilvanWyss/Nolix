@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 //own imports
 import ch.nolix.common.functionapi.I2ElementTakerElementGetter;
 import ch.nolix.element.gui.color.Color;
-import ch.nolix.element.gui.image.Image;
+import ch.nolix.element.gui.image.MutableImage;
 
 //interface
 public interface IFractal {
@@ -65,5 +65,5 @@ public interface IFractal {
 	IImageBuilder startImageBuild();
 	
 	//method declaration
-	Image toImage();
+	MutableImage toImage();
 }

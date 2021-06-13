@@ -3,7 +3,7 @@ package ch.nolix.element.gui.painterapi;
 
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.color.ColorGradient;
-import ch.nolix.element.gui.image.Image;
+import ch.nolix.element.gui.image.MutableImage;
 import ch.nolix.element.gui.textformat.TextFormat;
 
 //interface
@@ -56,9 +56,9 @@ public interface IPainter {
 	//method declaration
 	/**
 	 * @param id
-	 * @return the {@link Image} with the given id from the current {@link IPainter}.
+	 * @return the {@link MutableImage} with the given id from the current {@link IPainter}.
 	 */
-	Image getImageById(String id);
+	MutableImage getImageById(String id);
 	
 	//method declaration
 	/**
@@ -104,19 +104,19 @@ public interface IPainter {
 	/**
 	 * Lets the current {@link IPainter} paint the given image.
 	 * 
-	 * @param image
+	 * @param mutableImage
 	 */
-	void paintImage(Image image);
+	void paintImage(MutableImage mutableImage);
 	
 	//method declaration
 	/**
 	 * Lets the current {@link IPainter} paint the given image with the given width and height.
 	 * 
-	 * @param image
+	 * @param mutableImage
 	 * @param width
 	 * @param height
 	 */
-	void paintImage(Image image, int width, int height);
+	void paintImage(MutableImage mutableImage, int width, int height);
 	
 	//method declaration
 	/**
@@ -189,9 +189,9 @@ public interface IPainter {
 	 * Lets the current {@link IPainter} register the given image at the given id.
 	 * 
 	 * @param id
-	 * @param image
+	 * @param mutableImage
 	 */
-	void registerImageAtId(String id, Image image);
+	void registerImageAtId(String id, MutableImage mutableImage);
 	
 	//method declaration
 	/**

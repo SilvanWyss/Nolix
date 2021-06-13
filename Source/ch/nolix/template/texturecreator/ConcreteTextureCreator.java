@@ -2,7 +2,7 @@
 package ch.nolix.template.texturecreator;
 
 import ch.nolix.element.gui.color.Color;
-import ch.nolix.element.gui.image.Image;
+import ch.nolix.element.gui.image.MutableImage;
 import ch.nolix.system.texture.TextureCreator;
 
 //class
@@ -10,7 +10,7 @@ public final class ConcreteTextureCreator extends TextureCreator {
 	
 	//method
 	@Override
-	protected void fillTexture16x16(final Image texture) {
+	protected void fillTexture16x16(final MutableImage texture) {
 		
 		final var color1 = new Color(0x808080);
 		final var color2 = new Color(0xC0C0C0);

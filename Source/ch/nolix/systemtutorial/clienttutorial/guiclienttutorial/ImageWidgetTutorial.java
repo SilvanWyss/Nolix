@@ -3,7 +3,7 @@ package ch.nolix.systemtutorial.clienttutorial.guiclienttutorial;
 import ch.nolix.common.environment.localcomputer.ShellProvider;
 import ch.nolix.common.programcontrol.sequencer.Sequencer;
 import ch.nolix.element.gui.color.Color;
-import ch.nolix.element.gui.image.Image;
+import ch.nolix.element.gui.image.MutableImage;
 import ch.nolix.element.gui.widget.ImageWidget;
 import ch.nolix.element.gui.widget.WidgetLookState;
 import ch.nolix.system.client.base.NetServer;
@@ -36,7 +36,7 @@ public final class ImageWidgetTutorial {
 		protected void initializeBaseBackGUIClientSession() {
 			
 			//Creates an Image.
-			final var image = Image.fromResource("ch/nolix/elementTutorial/widgetTutorial/resource/Singer_Building.jpg");
+			final var image = MutableImage.fromResource("ch/nolix/elementTutorial/widgetTutorial/resource/Singer_Building.jpg");
 			
 			//Creates an ImageWidget with the Image.
 			final var imageWidget = new ImageWidget().setImage(image);

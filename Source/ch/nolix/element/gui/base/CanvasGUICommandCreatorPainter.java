@@ -9,7 +9,7 @@ import ch.nolix.common.document.chainednode.ChainedNode;
 import ch.nolix.common.independent.independenthelper.CentralArrayHelper;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.color.ColorGradient;
-import ch.nolix.element.gui.image.Image;
+import ch.nolix.element.gui.image.MutableImage;
 import ch.nolix.element.gui.painterapi.IPainter;
 import ch.nolix.element.gui.textformat.TextFormat;
 
@@ -21,18 +21,18 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 	
 	//attributes
 	private final CanvasGUIPainterPool bottom;
-	private final CachingContainer<Image> imageCachingContainer;
+	private final CachingContainer<MutableImage> imageCachingContainer;
 	private final int index;
 	
 	//constructor
-	public CanvasGUICommandCreatorPainter(final CachingContainer<Image> imageCachingContainer) {
+	public CanvasGUICommandCreatorPainter(final CachingContainer<MutableImage> imageCachingContainer) {
 		this(new CanvasGUIPainterPool(), imageCachingContainer);
 	}
 	
 	//constructor
 	private CanvasGUICommandCreatorPainter(
 		final CanvasGUIPainterPool bottom,
-		final CachingContainer<Image> imageCachingContainer
+		final CachingContainer<MutableImage> imageCachingContainer
 	) {
 		this.bottom = bottom;
 		this.imageCachingContainer = imageCachingContainer;
@@ -85,7 +85,7 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 	
 	//method
 	@Override
-	public Image getImageById(final String id) {
+	public MutableImage getImageById(final String id) {
 		return imageCachingContainer.getRefById(id);
 	}
 	
@@ -149,22 +149,22 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 	
 	//method
 	@Override
-	public void paintImage(final Image image) {
+	public void paintImage(final MutableImage mutableImage) {
 		appendPaintCommand(
 			CanvasGUICommandProtocol.PAINT_IMAGE_BY_ID
 			+ '('
-			+ registerImageIfNotRegisteredAndGetId(image)
+			+ registerImageIfNotRegisteredAndGetId(mutableImage)
 			+ ')'
 		);
 	}
 	
 	//method
 	@Override
-	public void paintImage(final Image image, final int width, final int height) {
+	public void paintImage(final MutableImage mutableImage, final int width, final int height) {
 		appendPaintCommand(
 			CanvasGUICommandProtocol.PAINT_IMAGE_BY_ID
 			+ '('
-			+ registerImageIfNotRegisteredAndGetId(image)
+			+ registerImageIfNotRegisteredAndGetId(mutableImage)
 			+ ','
 			+ width
 			+ ','
@@ -229,13 +229,13 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 	
 	//method
 	@Override
-	public void registerImageAtId(final String id, final Image image) {
+	public void registerImageAtId(final String id, final MutableImage mutableImage) {
 		
 		if (imageCachingContainer.containsWithId(id)) {
 			return;
 		}
 		
-		imageCachingContainer.registerAtId(id, image);
+		imageCachingContainer.registerAtId(id, mutableImage);
 		
 		appendPaintCommand(
 			CanvasGUICommandProtocol.REGISTER_IMAGE
@@ -244,7 +244,7 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 			+ "("
 			+ id
 			+ "),"
-			+ image.getSpecification()
+			+ mutableImage.getSpecification()
 			+ ")"
 		);
 	}
@@ -290,20 +290,20 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 	}
 	
 	//method
-	private String registerImageIfNotRegisteredAndGetId(final Image image) {
+	private String registerImageIfNotRegisteredAndGetId(final MutableImage mutableImage) {
 		
-		final var idContainer = imageCachingContainer.getOptionalIdOf(image);
+		final var idContainer = imageCachingContainer.getOptionalIdOf(mutableImage);
 		
 		if (idContainer.isEmpty()) {
 			
-			final var id = imageCachingContainer.registerAndGetId(image);
+			final var id = imageCachingContainer.registerAndGetId(mutableImage);
 			
 			appendPaintCommand(
 				CanvasGUICommandProtocol.REGISTER_IMAGE
 				+ "("
 				+ id
 				+ ","
-				+ image.getSpecification()
+				+ mutableImage.getSpecification()
 				+ ")"
 			);
 			

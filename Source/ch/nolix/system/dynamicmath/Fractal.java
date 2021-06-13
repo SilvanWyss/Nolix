@@ -16,7 +16,7 @@ import ch.nolix.common.functionapi.IElementTakerElementGetter;
 import ch.nolix.common.functionapi.IIntTakerElementGetter;
 import ch.nolix.common.programcontrol.processproperty.ProcessingMode;
 import ch.nolix.element.gui.color.Color;
-import ch.nolix.element.gui.image.Image;
+import ch.nolix.element.gui.image.MutableImage;
 
 //class
 public final class Fractal implements IFractal {
@@ -215,7 +215,7 @@ public final class Fractal implements IFractal {
 	
 	//method
 	@Override
-	public Image toImage() {
+	public MutableImage toImage() {
 		
 		final var imageBuilder = startImageBuild();
 		imageBuilder.waitUntilIsFinishedSuccessfully();
@@ -224,7 +224,7 @@ public final class Fractal implements IFractal {
 	}
 	
 	//method
-	public Image toImage(final ProcessingMode processingMode) {
+	public MutableImage toImage(final ProcessingMode processingMode) {
 		switch (processingMode) {
 			case SINGLE_THREADED:
 				return toImageSingleThreaded();
@@ -236,11 +236,11 @@ public final class Fractal implements IFractal {
 	}
 	
 	//method
-	public Image toImageSingleThreaded() {
+	public MutableImage toImageSingleThreaded() {
 				
 		final var heightInpixel = getHeightInPixel();		
 		
-		final var image = Image.withWidthAndHeight(widthInPixel, heightInpixel);
+		final var image = MutableImage.withWidthAndHeight(widthInPixel, heightInpixel);
 		
 		final var argument
 		= new ComplexNumber(getMinRealComponent(), getMinImaginaryComponent(), getBigDecimalScale());

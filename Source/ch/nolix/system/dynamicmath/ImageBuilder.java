@@ -16,7 +16,7 @@ import ch.nolix.common.programcontrol.futureapi.IFuture;
 import ch.nolix.common.programcontrol.jobpool.JobPool;
 import ch.nolix.common.programcontrol.sequencer.Sequencer;
 import ch.nolix.element.gui.color.Color;
-import ch.nolix.element.gui.image.Image;
+import ch.nolix.element.gui.image.MutableImage;
 
 //class
 public final class ImageBuilder implements IImageBuilder {
@@ -26,7 +26,7 @@ public final class ImageBuilder implements IImageBuilder {
 	
 	//attributes
 	private final Fractal fractal;
-	private final Image image;
+	private final MutableImage mutableImage;
 	private final JobPool jobPool = new JobPool();
 	
 	//multi-attribute
@@ -38,7 +38,7 @@ public final class ImageBuilder implements IImageBuilder {
 		Validator.assertThat(fractal).thatIsNamed(Fractal.class).isNotNull();		
 		
 		this.fractal = fractal;
-		image = Image.withWidthAndHeightAndColor(fractal.getWidthInPixel(), fractal.getHeightInPixel(), Color.WHITE);
+		mutableImage = MutableImage.withWidthAndHeightAndColor(fractal.getWidthInPixel(), fractal.getHeightInPixel(), Color.WHITE);
 		
 		fillImage();
 	}
@@ -64,8 +64,8 @@ public final class ImageBuilder implements IImageBuilder {
 	
 	//method
 	@Override
-	public Image getRefImage() {
-		return image;
+	public MutableImage getRefImage() {
+		return mutableImage;
 	}
 	
 	//method
@@ -128,7 +128,7 @@ public final class ImageBuilder implements IImageBuilder {
 				fractal.getBigDecimalScale()	
 			);
 			
-			image.setPixel(
+			mutableImage.setPixel(
 				x,
 				fractal.getHeightInPixel() - y + 1,
 				fractal.getColor(

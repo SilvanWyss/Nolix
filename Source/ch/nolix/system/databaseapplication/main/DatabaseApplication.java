@@ -5,7 +5,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHave
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.programcontrol.sequencer.Sequencer;
 import ch.nolix.element.configuration.Configuration;
-import ch.nolix.element.gui.image.Image;
+import ch.nolix.element.gui.image.MutableImage;
 import ch.nolix.system.client.base.Application;
 import ch.nolix.system.client.guiclient.BackGUIClient;
 import ch.nolix.system.database.databaseadapter.DatabaseAdapter;
@@ -19,7 +19,7 @@ public abstract class DatabaseApplication extends Application<BackGUIClient> {
 	private boolean isReady;
 	
 	//optional attribute
-	private Image pageLogo;
+	private MutableImage pageLogo;
 	
 	//constructor
 	public DatabaseApplication(final String name, final DatabaseAdapter databaseAdapter) {
@@ -61,7 +61,7 @@ public abstract class DatabaseApplication extends Application<BackGUIClient> {
 	}
 	
 	//method
-	public final Image getPageLogo() {
+	public final MutableImage getPageLogo() {
 		
 		assertHasPageLogo();
 		
@@ -79,7 +79,7 @@ public abstract class DatabaseApplication extends Application<BackGUIClient> {
 	}
 	
 	//method
-	public final DatabaseApplication setPageLogo(final Image pageLogo) {
+	public final DatabaseApplication setPageLogo(final MutableImage pageLogo) {
 		
 		Validator.assertThat(pageLogo).thatIsNamed("page logo").isNotNull();
 		

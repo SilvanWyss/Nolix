@@ -8,7 +8,7 @@ import ch.nolix.element.gui.base.Layer;
 import ch.nolix.element.gui.containerwidget.ContainerRole;
 import ch.nolix.element.gui.containerwidget.VerticalStack;
 import ch.nolix.element.gui.dialog.UploadImageDialogCreator;
-import ch.nolix.element.gui.image.Image;
+import ch.nolix.element.gui.image.MutableImage;
 import ch.nolix.element.gui.widget.Button;
 import ch.nolix.element.gui.widget.ButtonRole;
 import ch.nolix.element.gui.widget.ImageWidget;
@@ -24,7 +24,7 @@ public final class UploadImageDialogCreatorTutorial {
 		.setTitle("ErrorDialog tutorial");
 		
 		//Loads an Image from file.
-		final var image = Image.fromResource("ch/nolix/elementTutorial/widgetTutorial/resource/Singer_Building.jpg");
+		final var image = MutableImage.fromResource("ch/nolix/elementTutorial/widgetTutorial/resource/Singer_Building.jpg");
 		
 		//Create a ImageWidget.
 		final var imageWidget = new ImageWidget().setImage(image);

@@ -26,20 +26,20 @@ import ch.nolix.element.base.Value;
 import ch.nolix.element.gui.color.Color;
 
 //class
-public final class Image extends MutableElement<Image> {
+public final class MutableImage extends MutableElement<MutableImage> {
 	
 	//constant
 	private static final String PIXEL_ARRAY_HEADER = "PixelArray";
 	
 	//static method
-	public static Image fromBytes(final byte[] bytes) {
+	public static MutableImage fromBytes(final byte[] bytes) {
 		return fromBufferedImage(GlobalBufferedImageHelper.fromBytes(bytes));
 	}
 	
 	//static method
-	public static Image fromBufferedImage(final BufferedImage bufferedImage) {
+	public static MutableImage fromBufferedImage(final BufferedImage bufferedImage) {
 		
-		final var image = Image.withWidthAndHeight(bufferedImage.getWidth(), bufferedImage.getHeight());
+		final var image = MutableImage.withWidthAndHeight(bufferedImage.getWidth(), bufferedImage.getHeight());
 		
 		for (var i = 1; i <= image.getWidth(); i++) {
 			for (var j = 1; j <= image.getHeight(); j++) {
@@ -52,7 +52,7 @@ public final class Image extends MutableElement<Image> {
 	}
 	
 	//static method
-	public static Image fromFile(final String filePath) {
+	public static MutableImage fromFile(final String filePath) {
 		
 		final var bufferedImage = GlobalBufferedImageHelper.fromFile(filePath);
 		
@@ -60,15 +60,15 @@ public final class Image extends MutableElement<Image> {
 	}
 	
 	//static method
-	public static Image fromResource(final String path) {
+	public static MutableImage fromResource(final String path) {
 		return fromBytes(RunningJar.getResourceAsBytes(path));
 	}
 	
 	//static method
-	public static Image fromSpecification(final BaseNode specification) {
+	public static MutableImage fromSpecification(final BaseNode specification) {
 		
 		final var image =
-		Image.withWidthAndHeight(
+		MutableImage.withWidthAndHeight(
 			specification.getRefFirstAttribute(a -> a.hasHeader(PascalCaseCatalogue.WIDTH)).getOneAttributeAsInt(),
 			specification.getRefFirstAttribute(a -> a.hasHeader(PascalCaseCatalogue.HEIGHT)).getOneAttributeAsInt()
 		);
@@ -79,17 +79,17 @@ public final class Image extends MutableElement<Image> {
 	}
 	
 	//static method
-	public static Image fromString(final String string) {
+	public static MutableImage fromString(final String string) {
 		return fromSpecification(Node.fromString(string));
 	}
 	
 	//static method
-	public static Image withWidthAndHeight(final int width, final int height) {
+	public static MutableImage withWidthAndHeight(final int width, final int height) {
 		return withWidthAndHeightAndColor(width, height, Color.WHITE);
 	}
 	
 	//static method
-	public static Image withWidthAndHeightAndColor(final int width, final int height, final Color color) {
+	public static MutableImage withWidthAndHeightAndColor(final int width, final int height, final Color color) {
 		
 		Validator.assertThat(width).thatIsNamed(LowerCaseCatalogue.WIDTH).isPositive();
 		Validator.assertThat(height).thatIsNamed(LowerCaseCatalogue.HEIGHT).isPositive();
@@ -109,7 +109,7 @@ public final class Image extends MutableElement<Image> {
 			}
 		}
 		
-		return new Image(pixels);
+		return new MutableImage(pixels);
 	}
 	
 	//attribute
@@ -143,7 +143,7 @@ public final class Image extends MutableElement<Image> {
 	private BufferedImage bufferedImage;
 	
 	//constructor
-	private Image(final Matrix<Color> pixels) {
+	private MutableImage(final Matrix<Color> pixels) {
 		
 		setWidth(pixels.getColumnCount());
 		setHeight(pixels.getRowCount());
@@ -177,14 +177,14 @@ public final class Image extends MutableElement<Image> {
 	}
 	
 	//method
-	public Image getSection(final int xPosition, final int yPosition, final int width, final int height) {
+	public MutableImage getSection(final int xPosition, final int yPosition, final int width, final int height) {
 		
 		Validator.assertThat(xPosition).thatIsNamed("x-position").isPositive();
 		Validator.assertThat(xPosition).thatIsNamed("y-position").isPositive();
 		Validator.assertThat(width).thatIsNamed(LowerCaseCatalogue.WIDTH).isBetween(0, getWidth() - xPosition + 1);
 		Validator.assertThat(height).thatIsNamed(LowerCaseCatalogue.WIDTH).isBetween(0, getHeight() - yPosition + 1);
 		
-		final var section = Image.withWidthAndHeight(width, height);
+		final var section = MutableImage.withWidthAndHeight(width, height);
 		for (var i = 1; i <= width; i++) {
 			for (var j = 1; j <= height; j++) {
 				section.setPixel(i, j, getPixel(xPosition + i - 1, yPosition + j - 1));
@@ -231,7 +231,7 @@ public final class Image extends MutableElement<Image> {
 	}
 	
 	//method
-	public Image setPixel(int xPosition, int yPosition, final Color color) {
+	public MutableImage setPixel(int xPosition, int yPosition, final Color color) {
 		
 		deletePixelArraySpecificationAndBufferedImage();
 		
@@ -286,8 +286,8 @@ public final class Image extends MutableElement<Image> {
 	}
 	
 	//method
-	public Image toLeftRotatedImage() {
-		return new Image(pixels.toLeftRotatedMatrix());
+	public MutableImage toLeftRotatedImage() {
+		return new MutableImage(pixels.toLeftRotatedMatrix());
 	}
 	
 	//method
@@ -296,9 +296,9 @@ public final class Image extends MutableElement<Image> {
 	}
 	
 	//method
-	public Image toRepeatedImage(final int width, final int height) {
+	public MutableImage toRepeatedImage(final int width, final int height) {
 		
-		final var image = Image.withWidthAndHeight(width, height);
+		final var image = MutableImage.withWidthAndHeight(width, height);
 		
 		final var sourceWidth = getWidth();
 		final var sourceHeight = getHeight();
@@ -313,12 +313,12 @@ public final class Image extends MutableElement<Image> {
 	}
 	
 	//method
-	public Image toRightRotatedImage() {
-		return new Image(pixels.toRightRotatedMatrix());
+	public MutableImage toRightRotatedImage() {
+		return new MutableImage(pixels.toRightRotatedMatrix());
 	}
 	
 	//method
-	public Image toScaledImage(final double factor) {
+	public MutableImage toScaledImage(final double factor) {
 		
 		Validator.assertThat(factor).thatIsNamed(LowerCaseCatalogue.FACTOR).isPositive();
 		
@@ -326,12 +326,12 @@ public final class Image extends MutableElement<Image> {
 	}
 	
 	//method
-	public Image toScaledImage(final double widthFactor, final double heightFactor) {
+	public MutableImage toScaledImage(final double widthFactor, final double heightFactor) {
 		
 		Validator.assertThat(widthFactor).thatIsNamed("width factor").isPositive();
 		Validator.assertThat(heightFactor).thatIsNamed("height factor").isPositive();
 		
-		final var image = Image.withWidthAndHeight((int)(widthFactor * getWidth()), (int)(heightFactor * getHeight()));
+		final var image = MutableImage.withWidthAndHeight((int)(widthFactor * getWidth()), (int)(heightFactor * getHeight()));
 		final var reziprocalWidthFactor = 1.0 / widthFactor;
 		final var reziprocalHeightFactor = 1.0 / heightFactor;
 		

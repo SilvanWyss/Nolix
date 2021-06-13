@@ -1,7 +1,7 @@
 package ch.nolix.elementtutorial.guitutorial.basetutorial;
 
 import ch.nolix.element.gui.base.Frame;
-import ch.nolix.element.gui.image.Image;
+import ch.nolix.element.gui.image.MutableImage;
 import ch.nolix.element.gui.image.ImageApplication;
 
 /**
@@ -15,7 +15,7 @@ import ch.nolix.element.gui.image.ImageApplication;
 public final class FrameBackgroundImageTutorial {
 	
 	/**
-	 * Creates a {@link Frame} and sets a background {@link Image} to it.
+	 * Creates a {@link Frame} and sets a background {@link MutableImage} to it.
 	 * 
 	 * @param args
 	 */
@@ -25,7 +25,7 @@ public final class FrameBackgroundImageTutorial {
 		final var frame = new Frame().setTitle("Frame background image tutorial");
 		
 		//Creates an Image from file.
-		final var image = Image.fromResource("ch/nolix/elementTutorial/guiTutorial/basetutorial/resource/Pilatus.jpg");
+		final var image = MutableImage.fromResource("ch/nolix/elementTutorial/guiTutorial/basetutorial/resource/Pilatus.jpg");
 		
 		//Sets the Image as background to the Frame.
 		frame.setBackgroundImage(image, ImageApplication.SCALE_TO_FRAME);

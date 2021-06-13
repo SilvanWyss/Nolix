@@ -11,7 +11,7 @@ import ch.nolix.element.formatelement.NonCascadingProperty;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.color.ColorGradient;
 import ch.nolix.element.gui.image.Background;
-import ch.nolix.element.gui.image.Image;
+import ch.nolix.element.gui.image.MutableImage;
 import ch.nolix.element.gui.image.ImageApplication;
 
 //class
@@ -284,7 +284,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	}
 	
 	//method
-	public final Image getBackgroundImage() {
+	public final MutableImage getBackgroundImage() {
 		return background.getValue().getImage();
 	}
 	
@@ -552,7 +552,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	//method
 	public final BWL setBackgroundImageForState(
 		final WidgetLookState state,
-		final Image backgroundImage,
+		final MutableImage backgroundImage,
 		final ImageApplication imageApplication
 	) {
 		

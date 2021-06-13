@@ -29,7 +29,7 @@ import ch.nolix.element.gui.containerwidget.HorizontalStack;
 import ch.nolix.element.gui.containerwidget.SingleContainer;
 import ch.nolix.element.gui.containerwidget.TabContainer;
 import ch.nolix.element.gui.containerwidget.VerticalStack;
-import ch.nolix.element.gui.image.Image;
+import ch.nolix.element.gui.image.MutableImage;
 import ch.nolix.element.gui.image.ImageApplication;
 import ch.nolix.element.gui.input.IResizableInputTaker;
 import ch.nolix.element.gui.input.Key;
@@ -383,11 +383,11 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	
 	//method
 	/**
-	 * @return the background {@link Image} of the current {@link WidgetGUI}.
+	 * @return the background {@link MutableImage} of the current {@link WidgetGUI}.
 	 * @throws ArgumentDoesNotHaveAttributeException if
-	 * the current {@WidgetGUI} does not have a background {@link Image}.
+	 * the current {@WidgetGUI} does not have a background {@link MutableImage}.
 	 */
-	public final Image getBackgroundImage() {
+	public final MutableImage getBackgroundImage() {
 		return background.getBackgroundImage();
 	}
 	
@@ -578,7 +578,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	
 	//method
 	/**
-	 * Sets the background {@link Image} of the current {@link WidgetGUI}.
+	 * Sets the background {@link MutableImage} of the current {@link WidgetGUI}.
 	 * Removes any former background of the current {@link WidgetGUI}.
 	 * 
 	 * @param backgroundImage
@@ -587,7 +587,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 * @throws ArgumentIsNullException if the given backgroundColor is null.
 	 * @throws ArgumentIsNullException if the given imageApplication is null.
 	 */
-	public final WG setBackgroundImage(final Image backgroundImage, final ImageApplication imageApplication) {
+	public final WG setBackgroundImage(final MutableImage backgroundImage, final ImageApplication imageApplication) {
 		
 		background.setBackgroundImage(backgroundImage, imageApplication);
 		

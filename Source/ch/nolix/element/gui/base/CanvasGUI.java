@@ -15,7 +15,7 @@ import ch.nolix.element.elementapi.IConfigurableElement;
 import ch.nolix.element.elementenum.RotationDirection;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.color.ColorGradient;
-import ch.nolix.element.gui.image.Image;
+import ch.nolix.element.gui.image.MutableImage;
 import ch.nolix.element.gui.input.IResizableInputTaker;
 import ch.nolix.element.gui.input.Key;
 import ch.nolix.element.gui.painterapi.IPainter;
@@ -349,7 +349,7 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 	) {
 		
 		final var id = registerImageCommand.getAttributeAt(1).toString();
-		final var image = Image.fromSpecification(registerImageCommand.getAttributeAt(2).toNode());
+		final var image = MutableImage.fromSpecification(registerImageCommand.getAttributeAt(2).toNode());
 		
 		return pr -> pr.getRefPainterByIndex(painterIndex).registerImageAtId(id, image);
 	}

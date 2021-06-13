@@ -4,7 +4,7 @@ package ch.nolix.elementtest.graphictest;
 import ch.nolix.common.testing.basetest.TestCase;
 import ch.nolix.common.testing.test.Test;
 import ch.nolix.element.gui.color.Color;
-import ch.nolix.element.gui.image.Image;
+import ch.nolix.element.gui.image.MutableImage;
 
 //class
 public final class ImageTest extends Test {
@@ -19,7 +19,7 @@ public final class ImageTest extends Test {
 		final var color = Color.BLUE;
 		
 		//execution
-		final var testUnit = Image.withWidthAndHeightAndColor(width, height, color);
+		final var testUnit = MutableImage.withWidthAndHeightAndColor(width, height, color);
 		
 		//verification part 1
 		expect(testUnit.getWidth()).isEqualTo(width);
@@ -38,7 +38,7 @@ public final class ImageTest extends Test {
 	public void testCase_getBottomLeftPixel() {
 		
 		//setup
-		final var testUnit = Image.withWidthAndHeightAndColor(100, 50, Color.WHITE);
+		final var testUnit = MutableImage.withWidthAndHeightAndColor(100, 50, Color.WHITE);
 		testUnit.setPixel(1, 50, Color.RED);
 		
 		//execution
@@ -53,7 +53,7 @@ public final class ImageTest extends Test {
 	public void testCase_getBottomRightPixel() {
 		
 		//setup
-		final var testUnit = Image.withWidthAndHeightAndColor(100, 50, Color.WHITE);
+		final var testUnit = MutableImage.withWidthAndHeightAndColor(100, 50, Color.WHITE);
 		testUnit.setPixel(100, 50, Color.RED);
 		
 		//execution
@@ -68,7 +68,7 @@ public final class ImageTest extends Test {
 	public void testCase_getTopLeftPixel() {
 		
 		//setup
-		final var testUnit = Image.withWidthAndHeightAndColor(100, 50, Color.WHITE);
+		final var testUnit = MutableImage.withWidthAndHeightAndColor(100, 50, Color.WHITE);
 		testUnit.setPixel(1, 1, Color.RED);
 		
 		//execution
@@ -83,7 +83,7 @@ public final class ImageTest extends Test {
 	public void testCase_getTopRightPixel() {
 		
 		//setup
-		final var testUnit = Image.withWidthAndHeightAndColor(100, 50, Color.WHITE);
+		final var testUnit = MutableImage.withWidthAndHeightAndColor(100, 50, Color.WHITE);
 		testUnit.setPixel(100, 1, Color.RED);
 		
 		//execution
@@ -102,7 +102,7 @@ public final class ImageTest extends Test {
 		final var height = 50;
 		
 		//setup
-		final var testUnit = Image.withWidthAndHeight(width, height);
+		final var testUnit = MutableImage.withWidthAndHeight(width, height);
 		for (var i = 1; i <= width; i++) {
 			testUnit.setPixel(i, 1, Color.RED);
 		}
@@ -128,7 +128,7 @@ public final class ImageTest extends Test {
 		
 		//setup
 		final var testUnit =
-		Image
+		MutableImage
 		.withWidthAndHeight(2, 2)
 		.setPixel(1, 1, Color.YELLOW)
 		.setPixel(1, 2, Color.RED)
@@ -153,7 +153,7 @@ public final class ImageTest extends Test {
 		
 		//setup
 		final var testUnit =
-		Image
+		MutableImage
 		.withWidthAndHeight(2, 2)
 		.setPixel(1, 1, Color.YELLOW)
 		.setPixel(1, 2, Color.RED)
@@ -190,7 +190,7 @@ public final class ImageTest extends Test {
 		
 		//setup
 		final var testUnit =
-		Image
+		MutableImage
 		.withWidthAndHeight(2, 2)
 		.setPixel(1, 1, Color.YELLOW)
 		.setPixel(1, 2, Color.RED)
@@ -215,7 +215,7 @@ public final class ImageTest extends Test {
 		
 		//setup
 		final var testUnit =
-		Image
+		MutableImage
 		.withWidthAndHeight(2, 2)
 		.setPixel(1, 1, Color.YELLOW)
 		.setPixel(1, 2, Color.RED)

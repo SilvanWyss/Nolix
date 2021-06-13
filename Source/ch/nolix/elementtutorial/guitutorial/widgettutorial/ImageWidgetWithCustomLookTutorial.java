@@ -2,7 +2,7 @@ package ch.nolix.elementtutorial.guitutorial.widgettutorial;
 
 import ch.nolix.element.gui.base.Frame;
 import ch.nolix.element.gui.color.Color;
-import ch.nolix.element.gui.image.Image;
+import ch.nolix.element.gui.image.MutableImage;
 import ch.nolix.element.gui.widget.ImageWidget;
 import ch.nolix.element.gui.widget.WidgetLookState;
 
@@ -27,7 +27,7 @@ public final class ImageWidgetWithCustomLookTutorial {
 		final var frame = new Frame().setTitle("ImageWidget tutorial");
 		
 		//Creates an Image.
-		final var image = Image.withWidthAndHeight(800, 500);
+		final var image = MutableImage.withWidthAndHeight(800, 500);
 		for (var y = 1; y <= 500; y++) {
 			for (var x = 1; x <= 800; x++) {
 				image.setPixel(x, y, new Color((x * y) % 255, 0, (x + y) % 255));

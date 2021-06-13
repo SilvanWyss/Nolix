@@ -1,7 +1,7 @@
 package ch.nolix.elementtutorial.guitutorial.widgettutorial;
 
 import ch.nolix.element.gui.base.Frame;
-import ch.nolix.element.gui.image.Image;
+import ch.nolix.element.gui.image.MutableImage;
 import ch.nolix.element.gui.widget.ImageWidget;
 
 /**
@@ -21,7 +21,7 @@ public final class ImageWidgetWithImageFromFileTutorial {
 		
 		//Creates an Image from file.
 		final var image =
-		Image.fromResource("ch/nolix/elementTutorial/guitutorial/widgetTutorial/resource/Singer_Building.jpg");
+		MutableImage.fromResource("ch/nolix/elementTutorial/guitutorial/widgetTutorial/resource/Singer_Building.jpg");
 		
 		//Creates an ImageWidget with the Image.
 		final var imageWidget = new ImageWidget().setImage(image);

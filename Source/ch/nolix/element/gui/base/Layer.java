@@ -32,7 +32,7 @@ import ch.nolix.element.gui.baseapi.IOccupiableCanvasInputActionManager;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.color.ColorGradient;
 import ch.nolix.element.gui.image.Background;
-import ch.nolix.element.gui.image.Image;
+import ch.nolix.element.gui.image.MutableImage;
 import ch.nolix.element.gui.image.ImageApplication;
 import ch.nolix.element.gui.input.IInputTaker;
 import ch.nolix.element.gui.input.IResizableInputTaker;
@@ -227,10 +227,10 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	
 	//method
 	/**
-	 * @return the background {@link Image} of the current {@link Layer}.
-	 * @throws ArgumentDoesNotHaveAttributeException if the current {@Layer} does not have a background {@link Image}.
+	 * @return the background {@link MutableImage} of the current {@link Layer}.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@Layer} does not have a background {@link MutableImage}.
 	 */
-	public Image getBackgroundImage() {
+	public MutableImage getBackgroundImage() {
 		return background.getValue().getImage();
 	}
 	
@@ -417,7 +417,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	
 	//method
 	/**
-	 * @return true if the current {@link Layer} has a background {@link Image}.
+	 * @return true if the current {@link Layer} has a background {@link MutableImage}.
 	 */
 	public boolean hasBackgroundImage() {
 		return (hasBackground() && background.getValue().isImage());
@@ -838,7 +838,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	
 	//method
 	/**
-	 * Sets the background {@link Image} of the current {@link Layer}.
+	 * Sets the background {@link MutableImage} of the current {@link Layer}.
 	 * Removes any former background of the current {@link Layer}.
 	 * 
 	 * @param backgroundImage
@@ -847,7 +847,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * @throws ArgumentIsNullException if the given backgroundColor is null.
 	 * @throws ArgumentIsNullException if the given imageApplication is null.
 	 */
-	public Layer setBackgroundImage(final Image backgroundImage, final ImageApplication imageApplication) {
+	public Layer setBackgroundImage(final MutableImage backgroundImage, final ImageApplication imageApplication) {
 		
 		final var lBackground = new Background();
 		lBackground.setImage(backgroundImage, imageApplication);

@@ -7,7 +7,7 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.skillapi.Clearable;
 import ch.nolix.element.base.MutableOptionalValue;
 import ch.nolix.element.elementenum.RotationDirection;
-import ch.nolix.element.gui.image.Image;
+import ch.nolix.element.gui.image.MutableImage;
 import ch.nolix.element.gui.input.Key;
 import ch.nolix.element.gui.painterapi.IPainter;
 
@@ -18,12 +18,12 @@ public final class ImageWidget extends BorderWidget<ImageWidget, ImageWidgetLook
 	private static final String IMAGE_HEADER = PascalCaseCatalogue.IMAGE;
 	
 	//attribute
-	private final MutableOptionalValue<Image> image =
+	private final MutableOptionalValue<MutableImage> mutableImage =
 	new MutableOptionalValue<>(
 		IMAGE_HEADER,
 		this::setImage,
-		Image::fromSpecification,
-		Image::getSpecification
+		MutableImage::fromSpecification,
+		MutableImage::getSpecification
 	);
 	
 	//constructor
@@ -34,12 +34,12 @@ public final class ImageWidget extends BorderWidget<ImageWidget, ImageWidgetLook
 	//method
 	@Override
 	public void clear() {
-		image.clear();
+		mutableImage.clear();
 	}
 	
 	//method
-	public Image getRefImage() {
-		return image.getValue();
+	public MutableImage getRefImage() {
+		return mutableImage.getValue();
 	}
 
 	//method
@@ -51,13 +51,13 @@ public final class ImageWidget extends BorderWidget<ImageWidget, ImageWidgetLook
 	//method
 	@Override
 	public boolean isEmpty() {
-		return !image.hasValue();
+		return !mutableImage.hasValue();
 	}
 	
 	//method
-	public ImageWidget setImage(final Image image) {
+	public ImageWidget setImage(final MutableImage mutableImage) {
 		
-		this.image.setValue(image);
+		this.mutableImage.setValue(mutableImage);
 		
 		return this;
 	}

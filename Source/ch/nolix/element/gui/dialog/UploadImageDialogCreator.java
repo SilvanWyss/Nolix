@@ -9,7 +9,7 @@ import ch.nolix.element.gui.base.LayerRole;
 import ch.nolix.element.gui.containerwidget.ContainerRole;
 import ch.nolix.element.gui.containerwidget.HorizontalStack;
 import ch.nolix.element.gui.containerwidget.VerticalStack;
-import ch.nolix.element.gui.image.Image;
+import ch.nolix.element.gui.image.MutableImage;
 import ch.nolix.element.gui.widget.Button;
 import ch.nolix.element.gui.widget.ButtonRole;
 import ch.nolix.element.gui.widget.ImageWidget;
@@ -20,8 +20,8 @@ public final class UploadImageDialogCreator {
 	
 	//method
 	public Layer createUploadImageDialogWithCurrentImageAndImageTaker(
-		final Image currentImage,
-		final IElementTaker<Image> imageTaker
+		final MutableImage currentImage,
+		final IElementTaker<MutableImage> imageTaker
 	) {
 		
 		final var imageWidget = new ImageWidget();
@@ -31,14 +31,14 @@ public final class UploadImageDialogCreator {
 	}
 	
 	//method
-	public Layer createUploadImageDialogWithImageTaker(final IElementTaker<Image> imageTaker) {
+	public Layer createUploadImageDialogWithImageTaker(final IElementTaker<MutableImage> imageTaker) {
 		return createUploadImageDialogWithImageWidgetAndImageTaker(new ImageWidget(), imageTaker);
 	}
 	
 	//method
 	private Layer createUploadImageDialogWithImageWidgetAndImageTaker(
 		final ImageWidget imageWidget,
-		final IElementTaker<Image> imageTaker
+		final IElementTaker<MutableImage> imageTaker
 	) {
 		
 		Validator.assertThat(imageWidget).thatIsNamed(ImageWidget.class).isNotNull();
@@ -52,7 +52,7 @@ public final class UploadImageDialogCreator {
 			.setRole(ContainerRole.DIALOG_CONTAINER)
 			.addWidget(
 				imageWidget,
-				new Uploader().setFileTaker(data -> imageWidget.setImage(Image.fromBytes(data))),
+				new Uploader().setFileTaker(data -> imageWidget.setImage(MutableImage.fromBytes(data))),
 				new HorizontalStack()
 				.addWidget(
 					new Button()

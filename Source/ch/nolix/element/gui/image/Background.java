@@ -49,13 +49,13 @@ public final class Background extends MutableElement<Background> {
 	);
 	
 	//attribute
-	private final MutableOptionalValue<Pair<Image, ImageApplication>> image =
+	private final MutableOptionalValue<Pair<MutableImage, ImageApplication>> mutableImage =
 	new MutableOptionalValue<>(
 		IMAGE_HEADER,
 		this::setImage,
 		s ->
 		new Pair<>(
-			Image.fromSpecification(s.getRefAttributeAt(1)),
+			MutableImage.fromSpecification(s.getRefAttributeAt(1)),
 			ImageApplication.fromSpecification(s.getRefAttributeAt(2))
 		),
 		bi -> Node.withAttribute(bi.getRefElement1().getSpecification(), bi.getRefElement2().getSpecification())
@@ -77,13 +77,13 @@ public final class Background extends MutableElement<Background> {
 	}
 	
 	//method
-	public Image getImage() {
-		return image.getValue().getRefElement1();
+	public MutableImage getImage() {
+		return mutableImage.getValue().getRefElement1();
 	}
 	
 	//method
 	public ImageApplication getImageApplication() {
-		return image.getValue().getRefElement2();
+		return mutableImage.getValue().getRefElement2();
 	}
 	
 	//method
@@ -98,7 +98,7 @@ public final class Background extends MutableElement<Background> {
 	
 	//method
 	public boolean isImage() {
-		return image.hasValue();
+		return mutableImage.hasValue();
 	}
 		
 	//method
@@ -124,22 +124,22 @@ public final class Background extends MutableElement<Background> {
 	}
 	
 	//method
-	public void setImage(final Image image, final ImageApplication imageApplication) {
-		setImage(new Pair<>(image, imageApplication));
+	public void setImage(final MutableImage mutableImage, final ImageApplication imageApplication) {
+		setImage(new Pair<>(mutableImage, imageApplication));
 	}
 	
 	//method
 	private void clear() {
 		color.clear();
 		colorGradient.clear();
-		image.clear();
+		mutableImage.clear();
 	}
 	
 	//method
-	private void setImage(final Pair<Image, ImageApplication> backgroundImage) {
+	private void setImage(final Pair<MutableImage, ImageApplication> backgroundImage) {
 		
 		clear();
 		
-		this.image.setValue(backgroundImage);
+		this.mutableImage.setValue(backgroundImage);
 	}
 }

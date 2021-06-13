@@ -11,7 +11,7 @@ import ch.nolix.common.caching.CachingContainer;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.color.ColorGradient;
-import ch.nolix.element.gui.image.Image;
+import ch.nolix.element.gui.image.MutableImage;
 import ch.nolix.element.gui.painterapi.IPainter;
 import ch.nolix.element.gui.textformat.TextFormat;
 
@@ -22,14 +22,14 @@ public final class SwingPainter implements IPainter {
 	public static final TextFormat DEFAULT_TEXT_FORMAT = new TextFormat();
 	
 	//attributes
-	private final CachingContainer<Image> imageCache;
+	private final CachingContainer<MutableImage> imageCache;
 	private final Graphics graphics;
 	
 	//optional attribute
 	private ColorGradient colorGradient;
 	
 	//constructor
-	public SwingPainter(final CachingContainer<Image> imageCache, final Graphics graphics) {
+	public SwingPainter(final CachingContainer<MutableImage> imageCache, final Graphics graphics) {
 		
 		Validator.assertThat(imageCache).thatIsNamed("image cache").isNotNull();
 		Validator.assertThat(graphics).thatIsNamed(Graphics.class).isNotNull();
@@ -79,7 +79,7 @@ public final class SwingPainter implements IPainter {
 	
 	//method
 	@Override
-	public Image getImageById(final String id) {
+	public MutableImage getImageById(final String id) {
 		return imageCache.getRefById(id);
 	}
 	
@@ -130,14 +130,14 @@ public final class SwingPainter implements IPainter {
 	
 	//method
 	@Override
-	public void paintImage(final Image image) {
-		graphics.drawImage(image.toBufferedImage(), 0, 0, null);
+	public void paintImage(final MutableImage mutableImage) {
+		graphics.drawImage(mutableImage.toBufferedImage(), 0, 0, null);
 	}
 	
 	//method
 	@Override
-	public void paintImage(final Image image, final int width, final int height) {
-		graphics.drawImage(image.toBufferedImage(), 0, 0, width, height, null);
+	public void paintImage(final MutableImage mutableImage, final int width, final int height) {
+		graphics.drawImage(mutableImage.toBufferedImage(), 0, 0, width, height, null);
 	}
 	
 	//method
@@ -170,13 +170,13 @@ public final class SwingPainter implements IPainter {
 	
 	//method
 	@Override
-	public void registerImageAtId(final String id, final Image image) {
+	public void registerImageAtId(final String id, final MutableImage mutableImage) {
 		
 		if (imageCache.containsWithId(id)) {
 			return;
 		}
 		
-		imageCache.registerAtId(id, image);
+		imageCache.registerAtId(id, mutableImage);
 	}
 	
 	//method

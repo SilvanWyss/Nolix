@@ -12,7 +12,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullExcep
 import ch.nolix.element.base.MutableOptionalValue;
 import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.gui.color.Color;
-import ch.nolix.element.gui.image.Image;
+import ch.nolix.element.gui.image.MutableImage;
 
 //class
 /**
@@ -39,12 +39,12 @@ public abstract class AtomicShape<BS extends AtomicShape<BS>> extends Shape<BS> 
 	);
 	
 	//attribute
-	private final MutableOptionalValue<Image> defaultTexture =
+	private final MutableOptionalValue<MutableImage> defaultTexture =
 	new MutableOptionalValue<>(
 		PascalCaseCatalogue.DEFAULT_TEXTURE,
 		this::setDefaultTexture,
-		Image::fromSpecification,
-		Image::getSpecification
+		MutableImage::fromSpecification,
+		MutableImage::getSpecification
 	);
 	
 	//method
@@ -71,7 +71,7 @@ public abstract class AtomicShape<BS extends AtomicShape<BS>> extends Shape<BS> 
 	 * @return the default texture of the current {@link AtomicShape}.
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link AtomicShape} does not have a default texture.
 	 */
-	public final Image getRefDefaultTexture() {
+	public final MutableImage getRefDefaultTexture() {
 		return defaultTexture.getValue();
 	}
 	
@@ -138,7 +138,7 @@ public abstract class AtomicShape<BS extends AtomicShape<BS>> extends Shape<BS> 
 	 * @return the current {@link AtomicShape}.
 	 * @throws ArgumentIsNullException if the given default texture is null.
 	 */
-	public final BS setDefaultTexture(final Image defaultTexture) {
+	public final BS setDefaultTexture(final MutableImage defaultTexture) {
 		
 		this.defaultTexture.setValue(defaultTexture);
 		
