@@ -162,6 +162,11 @@ public final class MutableImage extends MutableElement<MutableImage> {
 	}
 	
 	//method
+	public MutableImage getCopy() {
+		return new MutableImage(pixels.getCopy());
+	}
+	
+	//method
 	public int getHeight() {
 		return height.getValue();
 	}
