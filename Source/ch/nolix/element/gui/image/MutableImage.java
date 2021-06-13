@@ -390,6 +390,12 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 	}
 	
 	//method
+	@Override
+	public MutableImage toStretchedImage(int width, int height) {
+		return toScaledImage((double)width / getWidth(), (double)height / getHeight());
+	}
+	
+	//method
 	private void deletePixelArraySpecificationAndBufferedImage() {
 		pixelArraySpecification = null;
 		bufferedImage = null;

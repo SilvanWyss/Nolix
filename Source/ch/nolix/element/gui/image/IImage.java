@@ -63,4 +63,7 @@ public interface IImage {
 	
 	//method declaration
 	IImage toScaledImage(double widthFactor, double heightFactor);
+	
+	//method declaration
+	IImage toStretchedImage(int width, int height);
 }
