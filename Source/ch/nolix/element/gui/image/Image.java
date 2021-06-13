@@ -7,6 +7,7 @@ import java.awt.image.BufferedImage;
 //own imports
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.matrix.Matrix;
+import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
 import ch.nolix.common.environment.runningjar.RunningJar;
 import ch.nolix.common.errorcontrol.validator.Validator;
@@ -24,6 +25,11 @@ public final class Image implements IElement<Image>, IImage {
 	//static method
 	public static Image fromResource(final String path) {
 		return new Image(MutableImage.fromBytes(RunningJar.getResourceAsBytes(path)));
+	}
+	
+	//static method
+	public static Image fromSpecification(final BaseNode specification) {
+		return new Image(MutableImage.fromSpecification(specification));
 	}
 	
 	//static method
