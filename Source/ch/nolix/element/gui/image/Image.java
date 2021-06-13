@@ -8,6 +8,7 @@ import java.awt.image.BufferedImage;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.matrix.Matrix;
 import ch.nolix.common.document.node.Node;
+import ch.nolix.common.environment.runningjar.RunningJar;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.element.elementapi.IElement;
 import ch.nolix.element.gui.color.Color;
@@ -17,7 +18,12 @@ public final class Image implements IElement<Image>, IImage {
 	
 	//static method
 	public static Image fromFile(final String filePath) {
-		return MutableImage.fromFile(filePath).toImmutableImage();
+		return new Image(MutableImage.fromFile(filePath));
+	}
+	
+	//static method
+	public static Image fromResource(final String path) {
+		return new Image(MutableImage.fromBytes(RunningJar.getResourceAsBytes(path)));
 	}
 	
 	//static method
