@@ -38,7 +38,9 @@ public final class ImageBuilder implements IImageBuilder {
 		Validator.assertThat(fractal).thatIsNamed(Fractal.class).isNotNull();		
 		
 		this.fractal = fractal;
-		mutableImage = MutableImage.withWidthAndHeightAndColor(fractal.getWidthInPixel(), fractal.getHeightInPixel(), Color.WHITE);
+		
+		mutableImage =
+		MutableImage.withWidthAndHeightAndColor(fractal.getWidthInPixel(), fractal.getHeightInPixel(), Color.WHITE);
 		
 		fillImage();
 	}
