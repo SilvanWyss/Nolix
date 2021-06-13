@@ -23,7 +23,7 @@ import ch.nolix.element.gui.baseapi.IBaseGUI;
 import ch.nolix.element.gui.baseapi.IFrontEndReader;
 import ch.nolix.element.gui.baseapi.IFrontEndWriter;
 import ch.nolix.element.gui.framevisualizer.FrameVisualizer;
-import ch.nolix.element.gui.image.Image;
+import ch.nolix.element.gui.image.MutableImage;
 import ch.nolix.element.gui.input.IResizableInputTaker;
 import ch.nolix.element.gui.input.Key;
 import ch.nolix.element.gui.inputdevice.KeyBoard;
@@ -58,13 +58,14 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	public static final IntPair DEFAULT_CURSOR_POSITION_ON_VIEW_AREA = new IntPair(-1, -1);
 	
 	//constants
+	private static final String TITLE_HEADER = PascalCaseCatalogue.TITLE;
 	private static final String VIEW_AREA_SIZE_HEADER = "ViewAreaSize";
 	private static final String CURSOR_POSITION_ON_VIEW_AREA_HEADER = "CursorPositionOnViewArea";
 	
 	//attribute
 	private final MutableValue<String> title =
 	new MutableValue<>(
-		PascalCaseCatalogue.TITLE,
+		TITLE_HEADER,
 		DEFAULT_TITLE,
 		this::setTitle,
 		BaseNode::getOneAttributeHeader,
@@ -95,7 +96,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	private final CloseController closeController = new CloseController(this);
 	private IFrontEndReader frontEndReader = new LocalFrontEndReader();
 	private IFrontEndWriter frontEndWriter = new LocalFrontEndWriter();
-	private final CachingContainer<Image> imageCache = new CachingContainer<>();
+	private final CachingContainer<MutableImage> imageCache = new CachingContainer<>();
 	private final KeyBoard keyBoard = new KeyBoard();
 	private boolean viewAreaSizeHasChangedSinceLastRecalculation = true;
 	
@@ -219,7 +220,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	/**
 	 * @return the image cache of the current {@link GUI}.
 	 */
-	public final CachingContainer<Image> getRefImageCache() {
+	public final CachingContainer<MutableImage> getRefImageCache() {
 		return imageCache;
 	}
 	
