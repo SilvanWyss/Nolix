@@ -23,6 +23,7 @@ import ch.nolix.element.gui.baseapi.IBaseGUI;
 import ch.nolix.element.gui.baseapi.IFrontEndReader;
 import ch.nolix.element.gui.baseapi.IFrontEndWriter;
 import ch.nolix.element.gui.framevisualizer.FrameVisualizer;
+import ch.nolix.element.gui.image.Image;
 import ch.nolix.element.gui.image.MutableImage;
 import ch.nolix.element.gui.input.IResizableInputTaker;
 import ch.nolix.element.gui.input.Key;
@@ -47,18 +48,20 @@ import ch.nolix.element.gui.painterapi.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 730
+ * @lines 760
  * @param <G> is the type of a {@link GUI}.
  */
 public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> implements IBaseGUI<G>, Recalculable {
 	
 	//constants
-	public static final String DEFAULT_TITLE = "GUI";
+	public static final String DEFAULT_TITLE = PascalCaseCatalogue.GUI;
+	public static final Image DEFAULT_ICON = GUIIconCatalogue.NOLIX_ICON;
 	public static final IntPair DEFAULT_VIEW_AREA_SIZE = new IntPair(100, 100);
 	public static final IntPair DEFAULT_CURSOR_POSITION_ON_VIEW_AREA = new IntPair(-1, -1);
 	
 	//constants
 	private static final String TITLE_HEADER = PascalCaseCatalogue.TITLE;
+	private static final String ICON_HEADER = PascalCaseCatalogue.ICON;
 	private static final String VIEW_AREA_SIZE_HEADER = "ViewAreaSize";
 	private static final String CURSOR_POSITION_ON_VIEW_AREA_HEADER = "CursorPositionOnViewArea";
 	
@@ -70,6 +73,16 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 		this::setTitle,
 		BaseNode::getOneAttributeHeader,
 		Node::withAttribute
+	);
+	
+	//attribute
+	private final MutableValue<Image> icon =
+	new MutableValue<>(
+		ICON_HEADER,
+		DEFAULT_ICON,
+		this::setIcon,
+		Image::fromSpecification,
+		Image::getSpecification
 	);
 	
 	//attribute
@@ -205,6 +218,14 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	@Override
 	public final int getCursorYPositionOnViewArea() {
 		return cursorPositionOnViewArea.getValue().getValue2();
+	}
+	
+	//method
+	/**
+	 * @return the icon of the current {@link GUI}.
+	 */
+	public final Image getIcon() {
+		return icon.getValue();
 	}
 	
 	//method
@@ -560,6 +581,20 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 		
 		this.frontEndReader = frontEndReader;
 		this.frontEndWriter = frontEndWriter;
+	}
+	
+	//method
+	/**
+	 * Sets the icon of the current {@link GUI}.
+	 * 
+	 * @param icon
+	 * @return the current {@link GUI}.
+	 */
+	public final G setIcon(final Image icon) {
+		
+		this.icon.setValue(icon.toStretchedImage(64, 64).toImmutableImage());
+		
+		return asConcrete();
 	}
 	
 	//method

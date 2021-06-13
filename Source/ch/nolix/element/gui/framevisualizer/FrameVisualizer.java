@@ -8,18 +8,20 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
+//own imports
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.element.gui.base.GUI;
 import ch.nolix.element.gui.base.IVisualizer;
 import ch.nolix.element.gui.base.SwingPainter;
+import ch.nolix.element.gui.image.Image;
 
 //class
 /**
  * @author Silvan Wyss
  * @date 2019-08-01
- * @lines 200
+ * @lines 220
  */
 public final class FrameVisualizer implements IVisualizer {
 	
@@ -42,7 +44,10 @@ public final class FrameVisualizer implements IVisualizer {
 	//attribute
 	@SuppressWarnings("serial")
 	private final JPanel panel = new JPanel() {
-
+		
+		//optional attribute
+		private transient Image appliedIcon;
+		
 		//method
 		/**
 		 * {@inheritDoc}
@@ -53,11 +58,22 @@ public final class FrameVisualizer implements IVisualizer {
 			//Paints the title of the current frame.
 			frame.setTitle(parentGUI.getTitle());
 			
+			//Updates the icon of the frame if needed.
+			updateIconIfNeededTo(frame);
+			
 			//Calls method of the base class.
 			super.paintComponent(graphics);
 			
 			//Creates swing painter.
 			FrameVisualizer.this.parentGUI.paint(new SwingPainter(parentGUI.getRefImageCache(), graphics));
+		}
+		
+		//method
+		private void updateIconIfNeededTo(final JFrame frame) {
+			if (appliedIcon != parentGUI.getIcon()) {
+				appliedIcon = parentGUI.getIcon();
+				frame.setIconImage(parentGUI.getIcon().toBufferedImage());
+			}
 		}
 	};
 	
