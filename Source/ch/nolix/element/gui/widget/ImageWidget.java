@@ -18,7 +18,7 @@ public final class ImageWidget extends BorderWidget<ImageWidget, ImageWidgetLook
 	private static final String IMAGE_HEADER = PascalCaseCatalogue.IMAGE;
 	
 	//attribute
-	private final MutableOptionalValue<MutableImage> mutableImage =
+	private final MutableOptionalValue<MutableImage> image =
 	new MutableOptionalValue<>(
 		IMAGE_HEADER,
 		this::setImage,
@@ -34,12 +34,12 @@ public final class ImageWidget extends BorderWidget<ImageWidget, ImageWidgetLook
 	//method
 	@Override
 	public void clear() {
-		mutableImage.clear();
+		image.clear();
 	}
 	
 	//method
 	public MutableImage getRefImage() {
-		return mutableImage.getValue();
+		return image.getValue();
 	}
 
 	//method
@@ -51,13 +51,13 @@ public final class ImageWidget extends BorderWidget<ImageWidget, ImageWidgetLook
 	//method
 	@Override
 	public boolean isEmpty() {
-		return !mutableImage.hasValue();
+		return !image.hasValue();
 	}
 	
 	//method
 	public ImageWidget setImage(final MutableImage mutableImage) {
 		
-		this.mutableImage.setValue(mutableImage);
+		this.image.setValue(mutableImage);
 		
 		return this;
 	}
