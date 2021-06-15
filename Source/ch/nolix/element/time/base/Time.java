@@ -30,7 +30,7 @@ import ch.nolix.element.elementapi.IElement;
  * 
  * @author Silvan Wyss
  * @date 2016-09-01
- * @lines 720
+ * @lines 870
  */
 public final class Time implements IElement<Time> {
 	
@@ -116,6 +116,148 @@ public final class Time implements IElement<Time> {
 		
 		final var time = new Time();
 		time.gregorianCalendar.setTimeInMillis(1000 * unixTimeStamp);
+		
+		return time;
+	}
+	
+	//static method
+	/**
+	 * @param year
+	 * @return a new {@link Time} with the given year.
+	 */
+	public static Time withYear(final int year) {
+		
+		final var time = new Time();
+		time.setYear(year);
+		
+		return time;
+	}
+	
+	//static method
+	/**
+	 * @param year
+	 * @param monthOfYear
+	 * @return a new {@link Time} with the given year and monthOfYear.
+	 */
+	public static Time withYearAndMonthOfYear(final int year, final int monthOfYear) {
+		
+		final var time = new Time();
+		time.setYear(year);
+		time.setMonthOfYear(monthOfYear);
+		
+		return time;
+	}
+	
+	//static method
+	/**
+	 * @param year
+	 * @param monthOfYear
+	 * @param dayOfMonth
+	 * @return a new {@link Time} with the given year, monthOfYear and dayOfMonth.
+	 */
+	public static Time withYearAndMonthOfYearAndDayOfMonth(
+		final int year,
+		final int monthOfYear,
+		final int dayOfMonth
+	) {
+		
+		final var time = new Time();
+		time.setYear(year);
+		time.setMonthOfYear(monthOfYear);
+		time.setDayOfMonth(dayOfMonth);
+		
+		return time;
+	}
+	
+	//static method
+	/**
+	 * @param year
+	 * @param monthOfYear
+	 * @param dayOfMonth
+	 * @param hourOfDay
+	 * @param minuteOfHour
+	 * @return a new {@link Time} with the given year, monthOfYear, dayOfMonth, hourOfDay and minuteOfHour.
+	 */
+	public static Time withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHour(
+		final int year,
+		final int monthOfYear,
+		final int dayOfMonth,
+		final int hourOfDay,
+		final int minuteOfHour
+	) {
+		
+		final var time = new Time();
+		time.setYear(year);
+		time.setMonthOfYear(monthOfYear);
+		time.setDayOfMonth(dayOfMonth);
+		time.setHourOfDay(hourOfDay);
+		time.setMinuteOfHour(minuteOfHour);
+		
+		return time;
+	}
+	
+	//static method
+	/**
+	 * @param year
+	 * @param monthOfYear
+	 * @param dayOfMonth
+	 * @param hourOfDay
+	 * @param minuteOfHour
+	 * @param secondOfMinute
+	 * @return a new {@link Time} with
+	 * the given year, monthOfYear, dayOfMonth, hourOfDay, minuteOfHour and secondOfMinute.
+	 */
+	public static Time withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHourAndSecondOfMinute(
+		final int year,
+		final int monthOfYear,
+		final int dayOfMonth,
+		final int hourOfDay,
+		final int minuteOfHour,
+		final int secondOfMinute
+	) {
+		
+		final var time = new Time();
+		time.setYear(year);
+		time.setMonthOfYear(monthOfYear);
+		time.setDayOfMonth(dayOfMonth);
+		time.setHourOfDay(hourOfDay);
+		time.setMinuteOfHour(minuteOfHour);
+		time.setSecondOfMinute(secondOfMinute);
+		
+		return time;
+	}
+	
+	//static method
+	/**
+	 * @param year
+	 * @param monthOfYear
+	 * @param dayOfMonth
+	 * @param hourOfDay
+	 * @param minuteOfHour
+	 * @param secondOfMinute
+	 * @param millisecondOfSecond
+	 * @return a new {@link Time} with
+	 * the given year, monthOfYear, dayOfMonth, hourOfDay, minuteOfHour, secondOfMinute and millisecondOfSecond.
+	 */
+	public static Time
+	withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHourAndSecondOfMinuteAndMillisecondOfSecond(
+		final int year,
+		final int monthOfYear,
+		final int dayOfMonth,
+		final int hourOfDay,
+		final int minuteOfHour,
+		final int secondOfMinute,
+		final int millisecondOfSecond
+	) {
+		
+		final var time = new Time();
+		time.setYear(year);
+		time.setMonthOfYear(monthOfYear);
+		time.setDayOfMonth(dayOfMonth);
+		time.setHourOfDay(hourOfDay);
+		time.setMinuteOfHour(minuteOfHour);
+		time.setSecondOfMinute(secondOfMinute);
+		time.setMillisecondOfSecond(millisecondOfSecond);
 		
 		return time;
 	}
