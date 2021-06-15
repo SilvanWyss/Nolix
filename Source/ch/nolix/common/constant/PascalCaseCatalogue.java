@@ -118,6 +118,7 @@ public final class PascalCaseCatalogue {
 	public static final String NODE = "Node";
 	public static final String NOUN = "Noun";
 	public static final String NUMBER = "Number";
+	public static final String OBJECT = "Object";
 	public static final String OPCODE = "Opcode";
 	public static final String OUTPUT = "Output";
 	public static final String OUTPUT_FUNCTION = "OutputFunction";
@@ -163,6 +164,7 @@ public final class PascalCaseCatalogue {
 	public static final String STATEMENT = "Statement";
 	public static final String STEP = "Step";
 	public static final String STRING = "String";
+	public static final String SUBJECT = "Subject";
 	public static final String SUMMARY = "Summary";
 	public static final String SURNAME = "Surname";
 	public static final String TAB = "Tab";

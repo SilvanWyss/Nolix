@@ -118,6 +118,7 @@ public final class LowerCaseCatalogue {
 	public static final String NODE = "node";
 	public static final String NOUN = "noun";
 	public static final String NUMBER = "number";
+	public static final String OBJECT = "object";
 	public static final String OPCODE = "opcode";
 	public static final String OUTPUT = "output";
 	public static final String OUTPUT_FUNCTION = "output function";
@@ -163,6 +164,7 @@ public final class LowerCaseCatalogue {
 	public static final String STATEMENT = "statement";
 	public static final String STEP = "step";
 	public static final String STRING = "string";
+	public static final String SUBJECT = "subject";
 	public static final String SUMMARY = "summary";
 	public static final String SURNAME = "surname";
 	public static final String TAB = "tab";

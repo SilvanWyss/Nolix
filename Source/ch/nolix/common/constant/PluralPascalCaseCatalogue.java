@@ -118,6 +118,7 @@ public final class PluralPascalCaseCatalogue {
 	public static final String NODES = "Nodes";
 	public static final String NOUNS = "Nouns";
 	public static final String NUMBERS = "Numbers";
+	public static final String OBJECTS = "Objects";
 	public static final String OPCODES = "Opcodes";
 	public static final String OUTPUTS = "Outputs";
 	public static final String OUTPUT_FUNCTIONS = "OutputFunctions";
@@ -163,6 +164,7 @@ public final class PluralPascalCaseCatalogue {
 	public static final String STATEMENTS = "Statements";
 	public static final String STEPS = "Steps";
 	public static final String STRINGS = "Strings";
+	public static final String SUBJECTS = "Subjects";
 	public static final String SUMMARIES = "Summaries";
 	public static final String SURNAMES = "Surnames";
 	public static final String TABS = "Tabs";

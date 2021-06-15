@@ -118,6 +118,7 @@ public final class PluralLowerCaseCatalogue {
 	public static final String NODES = "nodes";
 	public static final String NOUNS = "nouns";
 	public static final String NUMBERS = "numbers";
+	public static final String OBJECTS = "objects";
 	public static final String OPCODES = "opcodes";
 	public static final String OUTPUTS = "outputs";
 	public static final String OUTPUT_FUNCTIONS = "output functions";
@@ -163,6 +164,7 @@ public final class PluralLowerCaseCatalogue {
 	public static final String STATEMENTS = "statements";
 	public static final String STEPS = "steps";
 	public static final String STRINGS = "strings";
+	public static final String SUBJECTS = "subjects";
 	public static final String SUMMARIES = "summaries";
 	public static final String SURNAMES = "surnames";
 	public static final String TABS = "tabs";
