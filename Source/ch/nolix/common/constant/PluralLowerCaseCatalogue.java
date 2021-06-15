@@ -14,6 +14,7 @@ public final class PluralLowerCaseCatalogue {
 	//constants
 	public static final String AGES = "ages";
 	public static final String AMOUNTS = "amounts";
+	public static final String APPOINTMENTS = "appointments";
 	public static final String ARRAYS = "arrays";
 	public static final String ATTRIBUTES = "attributes";
 	public static final String BACKGROUND_COLORS = "background colors";
@@ -69,6 +70,7 @@ public final class PluralLowerCaseCatalogue {
 	public static final String ELEMENT_MARGINS = "element margins";
 	public static final String END_DATES = "end dates";
 	public static final String END_INDEXES = "end indexes";
+	public static final String END_TIMES = "end times";
 	public static final String ENTITIES = "entities";
 	public static final String ENTITY_TYPES = "entity types";
 	public static final String ENUMS = "enums";

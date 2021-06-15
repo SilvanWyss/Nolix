@@ -14,6 +14,7 @@ public final class PluralPascalCaseCatalogue {
 	//constants
 	public static final String AGES = "Ages";
 	public static final String AMOUNTS = "Amounts";
+	public static final String APPOINTMENTS = "Appointments";
 	public static final String ARRAYS = "Arrays";
 	public static final String ATTRIBUTES = "Attributes";
 	public static final String BACKGROUND_COLORS = "BackgroundColors";
@@ -69,6 +70,7 @@ public final class PluralPascalCaseCatalogue {
 	public static final String ELEMENT_MARGINS = "ElementMargins";
 	public static final String END_DATES = "EndDates";
 	public static final String END_INDEXES = "EndIndexes";
+	public static final String END_TIMES = "EndTimes";
 	public static final String ENTITIES = "Entities";
 	public static final String ENTITY_TYPES = "EntityTypes";
 	public static final String ENUMS = "Enums";

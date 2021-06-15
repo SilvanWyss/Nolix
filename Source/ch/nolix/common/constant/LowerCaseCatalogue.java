@@ -14,6 +14,7 @@ public final class LowerCaseCatalogue {
 	//constants
 	public static final String AGE = "age";
 	public static final String AMOUNT = "amount";
+	public static final String APPOINTMENT = "appointment";
 	public static final String ARRAY = "array";
 	public static final String ATTRIBUTE = "attribute";
 	public static final String BACKGROUND_COLOR = "background color";
@@ -69,6 +70,7 @@ public final class LowerCaseCatalogue {
 	public static final String ELEMENT_MARGIN = "element margin";
 	public static final String END_DATE = "end date";
 	public static final String END_INDEX = "end index";
+	public static final String END_TIME = "end time";
 	public static final String ENTITY = "entity";
 	public static final String ENTITY_TYPE = "entity type";
 	public static final String ENUM = "enum";

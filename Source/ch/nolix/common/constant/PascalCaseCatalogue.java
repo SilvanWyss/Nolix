@@ -14,6 +14,7 @@ public final class PascalCaseCatalogue {
 	//constants
 	public static final String AGE = "Age";
 	public static final String AMOUNT = "Amount";
+	public static final String APPOINTMENT = "Appointment";
 	public static final String ARRAY = "Array";
 	public static final String ATTRIBUTE = "Attribute";
 	public static final String BACKGROUND_COLOR = "BackgroundColor";
@@ -69,6 +70,7 @@ public final class PascalCaseCatalogue {
 	public static final String ELEMENT_MARGIN = "ElementMargin";
 	public static final String END_DATE = "EndDate";
 	public static final String END_INDEX = "EndIndex";
+	public static final String END_TIME = "EndTime";
 	public static final String ENTITY = "Entity";
 	public static final String ENTITY_TYPE = "EntityType";
 	public static final String ENUM = "Enum";
