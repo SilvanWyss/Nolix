@@ -26,7 +26,7 @@ import ch.nolix.element.base.Value;
 import ch.nolix.element.gui.color.Color;
 
 //class
-public final class MutableImage extends MutableElement<MutableImage> implements IImage {
+public final class MutableImage extends MutableElement<MutableImage> implements IMutableImage {
 	
 	//constant
 	private static final String PIXEL_ARRAY_HEADER = "PixelArray";
@@ -250,6 +250,7 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 	}
 	
 	//method
+	@Override
 	public MutableImage setPixel(int xPosition, int yPosition, final Color color) {
 		
 		deletePixelArraySpecificationAndBufferedImage();
