@@ -3,7 +3,7 @@ package ch.nolix.elementtest.timetest;
 
 import ch.nolix.common.testing.basetest.TestCase;
 import ch.nolix.common.testing.test.Test;
-import ch.nolix.element.time.Time;
+import ch.nolix.element.time.base.Time;
 
 //class
 /**

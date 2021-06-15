@@ -1,6 +1,6 @@
 //package info
 /**
- * The {@link ch.nolix.elementtest.timetest} package defines tests for the {@link ch.nolix.element.time} package.
+ * The {@link ch.nolix.elementtest.timetest} package defines tests for the {@link ch.nolix.element.time.base} package.
  * 
  * @author Silvan Wyss
  * @date 2019-08-01

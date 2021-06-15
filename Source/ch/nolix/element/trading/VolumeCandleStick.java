@@ -5,7 +5,7 @@ package ch.nolix.element.trading;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.element.time.Time;
+import ch.nolix.element.time.base.Time;
 
 //class
 /**

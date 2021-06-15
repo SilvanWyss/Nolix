@@ -3,7 +3,7 @@ package ch.nolix.elementtest.tradingtest;
 
 import ch.nolix.common.testing.basetest.TestCase;
 import ch.nolix.common.testing.test.Test;
-import ch.nolix.element.time.Time;
+import ch.nolix.element.time.base.Time;
 import ch.nolix.element.trading.CandleStick;
 
 //class

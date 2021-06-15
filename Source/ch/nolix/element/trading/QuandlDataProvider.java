@@ -9,7 +9,7 @@ import java.net.URL;
 //own imports
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.errorcontrol.exception.WrapperException;
-import ch.nolix.element.time.Time;
+import ch.nolix.element.time.base.Time;
 
 //class
 /**

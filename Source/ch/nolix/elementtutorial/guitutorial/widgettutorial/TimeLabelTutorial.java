@@ -6,7 +6,7 @@ import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.containerwidget.HorizontalStack;
 import ch.nolix.element.gui.widget.Label;
 import ch.nolix.element.gui.widget.WidgetLookState;
-import ch.nolix.element.time.Time;
+import ch.nolix.element.time.base.Time;
 
 /**
  * The {@link TimeLabelTutorial} is a tutorial for {@link Label}s.

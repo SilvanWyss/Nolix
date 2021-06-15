@@ -2,7 +2,7 @@
 package ch.nolix.businessapi.projectapi;
 
 import ch.nolix.common.attributeapi.mutablemandatoryattributeapi.Titleble;
-import ch.nolix.element.time.Time;
+import ch.nolix.element.time.base.Time;
 
 //interface
 public interface ITask extends Titleble<ITask>{

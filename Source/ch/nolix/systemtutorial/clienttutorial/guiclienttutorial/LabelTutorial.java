@@ -6,7 +6,7 @@ import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.containerwidget.HorizontalStack;
 import ch.nolix.element.gui.widget.Label;
 import ch.nolix.element.gui.widget.WidgetLookState;
-import ch.nolix.element.time.Time;
+import ch.nolix.element.time.base.Time;
 import ch.nolix.system.client.base.NetServer;
 import ch.nolix.system.client.guiclient.BackGUIClientSession;
 import ch.nolix.system.client.guiclient.FrontGUIClient;
