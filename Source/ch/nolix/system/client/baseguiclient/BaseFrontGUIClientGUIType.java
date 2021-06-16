@@ -16,7 +16,6 @@ import ch.nolix.element.elementapi.IElement;
  * @lines 30
  */
 public enum BaseFrontGUIClientGUIType implements IElement<BaseFrontGUIClientGUIType> {
-	WIDGET_GUI,
 	CANVAS_GUI;
 	
 	//static method

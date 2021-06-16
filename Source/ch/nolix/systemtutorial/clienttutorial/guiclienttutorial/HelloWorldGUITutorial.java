@@ -6,7 +6,7 @@ import ch.nolix.element.gui.widget.Label;
 import ch.nolix.element.gui.widget.WidgetLookState;
 import ch.nolix.system.client.base.NetServer;
 import ch.nolix.system.client.guiclient.BackGUIClientSession;
-import ch.nolix.system.client.guiclient.FrontGUIClient;
+import ch.nolix.system.client.guiclient.FrontCanvasGUIClient;
 
 public final class HelloWorldGUITutorial {
 	
@@ -19,7 +19,7 @@ public final class HelloWorldGUITutorial {
 		netServer.addDefaultApplication("Hello World GUI tutorial", MainSession.class);
 		
 		//Creates a FrontGUIClient that will connect to the NetServer.
-		new FrontGUIClient();
+		new FrontCanvasGUIClient();
 		
 		//Starts a web browser that will connect to the NetServer.
 		ShellProvider.startFirefoxOpeningLoopBackAddress();

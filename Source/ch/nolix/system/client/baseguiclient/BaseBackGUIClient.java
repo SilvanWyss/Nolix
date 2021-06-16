@@ -18,7 +18,6 @@ import ch.nolix.element.gui.base.CanvasGUI;
 import ch.nolix.element.gui.base.GUI;
 import ch.nolix.element.gui.base.IWidgetGUI;
 import ch.nolix.element.gui.base.InvisibleGUI;
-import ch.nolix.element.gui.base.WidgetGUI;
 import ch.nolix.element.gui.input.IInput;
 import ch.nolix.element.gui.input.InputFactory;
 import ch.nolix.element.gui.input.MouseInput;
@@ -169,9 +168,6 @@ public abstract class BaseBackGUIClient<BBGUIC extends BaseBackGUIClient<BBGUIC>
 		
 		//Enumerates the front end type of the current back GUI client.
 		switch (getCounterpartGUIType()) {
-			case WIDGET_GUI:
-				updateWidgetGUIOnCounterpart();
-				break;
 			case CANVAS_GUI:
 				updateCanvasGUIOnCounterpart();
 				break;
@@ -365,11 +361,6 @@ public abstract class BaseBackGUIClient<BBGUIC extends BaseBackGUIClient<BBGUIC>
 	}
 	
 	//method
-	private void runGUICommandOnCounterpart(final ChainedNode pGUICommand) {
-		internalRunOnCounterpart(ChainedNode.withHeaderAndNextNode(ObjectProtocol.GUI, pGUICommand));
-	}
-	
-	//method
 	/**
 	 * Lets the current {@link BaseBackGUIClient} run the given GUICommand.
 	 * 
@@ -395,14 +386,5 @@ public abstract class BaseBackGUIClient<BBGUIC extends BaseBackGUIClient<BBGUIC>
 	 */
 	private void updateCanvasGUIOnCounterpart() {
 		canvasGUICounterpartUpdater.updateCounterpart();
-	}
-	
-	//method
-	/**
-	 * Update the {@link GUI} of the counterpart of the current {@link BaseBackGUIClient}
-	 * for the case when it is a {@link WidgetGUI}.
-	 */
-	private void updateWidgetGUIOnCounterpart() {
-		runGUICommandOnCounterpart(new ChainedNode(CommandProtocol.RESET, getRefGUI().getAttributes()));
 	}
 }

@@ -11,11 +11,6 @@ import ch.nolix.system.client.baseguiclient.BaseFrontGUIClientGUIType;
 
 //class
 /**
- * A {@link FrontCanvasGUIClient} does the same as a browser-analogue of a {@link FrontGUIClient}.
- * 
- * The requirements for a browser-analogue of a {@link FrontGUIClient} allow
- * that a browser-analogue of a {@link FrontGUIClient} can be implemented in JavaScript.
- * 
  * @author Silvan Wyss
  * @date 2018-09-05
  * @lines 120

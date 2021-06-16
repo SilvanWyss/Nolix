@@ -12,7 +12,6 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentExce
 import ch.nolix.element.gui.base.GUI;
 import ch.nolix.element.gui.input.IInput;
 import ch.nolix.system.client.base.Client;
-import ch.nolix.system.client.guiclient.FrontGUIClient;
 
 //class
 /**
@@ -36,9 +35,6 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 		
 		//Enumerates the given pGUIType.
 		switch (pGUIType) {
-			case WIDGET_GUI:
-				mGUIHandler = new BaseFrontGUIClientWidgetGUIHandler(this);
-				break;
 			case CANVAS_GUI:
 				mGUIHandler = new BaseFrontGUIClientCanvasGUIHandler(this);
 				break;
@@ -140,7 +136,7 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 	
 	//method
 	/**
-	 * @return the {@link GUI} of the current {@link FrontGUIClient}.
+	 * @return the {@link GUI} of the current {@link BaseFrontGUIClient}.
 	 */
 	private GUI<?> getRefGUI() {
 		return mGUIHandler.getRefGUI();
