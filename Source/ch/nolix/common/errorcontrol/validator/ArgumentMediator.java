@@ -29,7 +29,7 @@ public class ArgumentMediator<A> extends Mediator {
 	 * 
 	 * @param argument
 	 */
-	ArgumentMediator(final A argument) {
+	protected ArgumentMediator(final A argument) {
 		
 		//Calls other constructor.
 		this(DEFAULT_ARGUMENT_NAME, argument);
@@ -44,7 +44,7 @@ public class ArgumentMediator<A> extends Mediator {
 	 * @throws ArgumentIsNullException if the given argumentName is null.
 	 * @throws InvalidArgumentException if the given argument name is blank.
 	 */
-	ArgumentMediator(final String argumentName, final A argument) {
+	protected ArgumentMediator(final String argumentName, final A argument) {
 		
 		//Calls constructor of the base class.
 		super(argumentName);
