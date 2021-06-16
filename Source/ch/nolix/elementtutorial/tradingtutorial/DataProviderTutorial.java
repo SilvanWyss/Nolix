@@ -22,8 +22,8 @@ public final class DataProviderTutorial {
 		new QuandlDataProvider()
 		.getCandleSticksPerDay(
 			NYSEProductSymbolCatalogue.BP,
-			new Time(2017, 2, 1, 16, 0),
-			new Time(2017, 2, 3, 22, 0)
+			Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHour(2017, 2, 1, 16, 0),
+			Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHour(2017, 2, 3, 22, 0)
 		)
 		.forEach(System.out::println);
 	}

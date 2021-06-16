@@ -30,7 +30,7 @@ import ch.nolix.element.elementapi.IElement;
  * 
  * @author Silvan Wyss
  * @date 2016-09-01
- * @lines 870
+ * @lines 750
  */
 public final class Time implements IElement<Time> {
 	
@@ -175,6 +175,30 @@ public final class Time implements IElement<Time> {
 	 * @param monthOfYear
 	 * @param dayOfMonth
 	 * @param hourOfDay
+	 * @return a new {@link Time} with the given year, monthOfYear, dayOfMonth and hourOfDay.
+	 */
+	public static Time withYearAndMonthOfYearAndDayOfMonthAndHourOfDay(
+		final int year,
+		final int monthOfYear,
+		final int dayOfMonth,
+		final int hourOfDay
+	) {
+		
+		final var time = new Time();
+		time.setYear(year);
+		time.setMonthOfYear(monthOfYear);
+		time.setDayOfMonth(dayOfMonth);
+		time.setHourOfDay(hourOfDay);
+		
+		return time;
+	}
+	
+	//static method
+	/**
+	 * @param year
+	 * @param monthOfYear
+	 * @param dayOfMonth
+	 * @param hourOfDay
 	 * @param minuteOfHour
 	 * @return a new {@link Time} with the given year, monthOfYear, dayOfMonth, hourOfDay and minuteOfHour.
 	 */
@@ -266,151 +290,9 @@ public final class Time implements IElement<Time> {
 	/**
 	 * Creates a new {@link Time} with default values.
 	 */
-	public Time() {
+	private Time() {
 		gregorianCalendar.setLenient(true);
 		reset();
-	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link Time} with the given year.
-	 * 
-	 * @param year
-	 */
-	public Time(final int year) {
-		
-		//Calls other constructor.
-		this();
-		
-		setYear(year);
-	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link Time} with the given year and monthOfYear.
-	 * 
-	 * @param year
-	 * @param monthOfYear
-	 */
-	public Time(final int year,	final int monthOfYear) {
-		
-		//Calls other constructor.
-		this(year);
-		
-		setMonthOfYear(monthOfYear);
-	}
-
-	//constructor
-	/**
-	 * Creates a new {@link Time} with the given year, monthOfYear and dayOfMonth.
-	 * 
-	 * @param year
-	 * @param monthOfYear
-	 * @param dayOfMonth
-	 */
-	public Time(final int year,	final int monthOfYear, final int dayOfMonth) {
-		
-		//Calls other constructor.
-		this(year, monthOfYear);
-		
-		setDayOfMonth(dayOfMonth);
-	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link Time} with the given year, monthOfYear, dayOfMonth and hourOfDay.
-	 * 
-	 * @param year
-	 * @param monthOfYear
-	 * @param dayOfMonth
-	 * @param hourOfDay
-	 */
-	public Time(final int year, final int monthOfYear,final int dayOfMonth, final int hourOfDay) {
-		
-		//Calls other constructor.
-		this(year, monthOfYear, dayOfMonth);
-
-		setHourOfDay(hourOfDay);
-	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link Time} with the given year, monthOfYear, dayOfMonth, hourOfDay and minuteOfHour.
-	 * 
-	 * @param year
-	 * @param monthOfYear
-	 * @param dayOfMonth
-	 * @param hourOfDay
-	 * @param minuteOfHour
-	 */
-	public Time(
-		final int year,
-		final int monthOfYear,
-		final int dayOfMonth,
-		final int hourOfDay,
-		final int minuteOfHour
-	) {
-		
-		//Calls other constructor.
-		this(year, monthOfYear, dayOfMonth, hourOfDay);
-		
-		setMinuteOfHour(minuteOfHour);
-	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link Time} with the given
-	 * year, monthOfYear, dayOfMonth, hourOfDay, minuteOfHour and secondOfMinute.
-	 * 
-	 * @param year
-	 * @param monthOfYear
-	 * @param dayOfMonth
-	 * @param hourOfDay
-	 * @param minuteOfHour
-	 * @param secondOfMinute
-	 */
-	public Time(
-		final int year,
-		final int monthOfYear,
-		final int dayOfMonth,
-		final int hourOfDay,
-		final int minuteOfHour,
-		final int secondOfMinute
-	) {
-		
-		//Calls other constructor.
-		this(year, monthOfYear, dayOfMonth, hourOfDay, minuteOfHour);
-		
-		setSecondOfMinute(secondOfMinute);
-	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link Time} with the given
-	 * year, monthOfYear, dayOfMonth, hourOfDay, minuteOfHour, secondOfMinute and millisecondOfSecond.
-	 * 
-	 * @param year
-	 * @param monthOfYear
-	 * @param dayOfMonth
-	 * @param hourOfDay
-	 * @param minuteOfHour
-	 * @param secondOfMinute
-	 * @param millisecondOfSecond
-	 */
-	public Time(
-		final int year,
-		final int monthOfYear,
-		final int dayOfMonth,
-		final int hourOfDay,
-		final int minuteOfHour,
-		final int secondOfMinute,
-		final int millisecondOfSecond
-	) {
-		
-		//Calls other constructor.
-		this(year, monthOfYear, dayOfMonth, hourOfDay, minuteOfHour, secondOfMinute);
-		
-		setMillisecondOfSecond(millisecondOfSecond);
 	}
 	
 	//method
@@ -439,7 +321,7 @@ public final class Time implements IElement<Time> {
 	 */
 	public Time getDay() {
 		return
-		new Time(
+		Time.withYearAndMonthOfYearAndDayOfMonth(
 			getYearAsInt(),			
 			getMonthOfYear(),
 			getDayOfMonth()
@@ -471,14 +353,14 @@ public final class Time implements IElement<Time> {
 	 */
 	public Time getHour() {
 		return
-		new Time(
+		Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDay(
 			getYearAsInt(),			
 			getMonthOfYear(),
 			getDayOfMonth(),
 			getHourOfDay()
 		);
 	}
-
+	
 	//method
 	/**
 	 * @return the hour of the month of the current {@link Time}.
@@ -520,7 +402,7 @@ public final class Time implements IElement<Time> {
 	 */
 	public Time getMinute() {
 		return
-		new Time(
+		Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHour(
 			getYearAsInt(),
 			getMonthOfYear(),
 			getDayOfMonth(),
@@ -542,7 +424,7 @@ public final class Time implements IElement<Time> {
 	 * @return the month of the current {@link Time}.
 	 */
 	public Time getMonth() {
-		return new Time(getYearAsInt(), getMonthOfYear());
+		return Time.withYearAndMonthOfYear(getYearAsInt(), getMonthOfYear());
 	}
 	
 	//method
@@ -585,11 +467,11 @@ public final class Time implements IElement<Time> {
 		
 		//Handles the case that the month of the year of the current {@link Time} is not December.
 		if (getMonthOfYear() < 12) {
-			return new Time(getYearAsInt(), getMonthOfYear() + 1);
+			return Time.withYearAndMonthOfYear(getYearAsInt(), getMonthOfYear() + 1);
 		}
 		
 		//Handles the case that the month of the year of the current {@link Time} is December.
-		return new Time(getYearAsInt() + 1, 1);
+		return Time.withYearAndMonthOfYear(getYearAsInt() + 1, 1);
 	}
 	
 	//method
@@ -605,7 +487,7 @@ public final class Time implements IElement<Time> {
 	 * @return the next year of the current {@link Time}.
 	 */
 	public Time getNextYear() {
-		return new Time(getYearAsInt() + 1);
+		return Time.withYear(getYearAsInt() + 1);
 	}
 	
 	//method
@@ -614,7 +496,7 @@ public final class Time implements IElement<Time> {
 	 */
 	public Time getSecond() {
 		return
-		new Time(
+		Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHourAndSecondOfMinute(
 			getYearAsInt(),
 			getMonthOfYear(),
 			getDayOfMonth(),
@@ -687,8 +569,12 @@ public final class Time implements IElement<Time> {
 		return time;
 	}
 	
+	//method
+	/**
+	 * @return the year of the current {@link Time}.
+	 */
 	public Time getYear() {
-		return new Time(getYearAsInt());
+		return Time.withYear(getYearAsInt());
 	}
 	
 	//method

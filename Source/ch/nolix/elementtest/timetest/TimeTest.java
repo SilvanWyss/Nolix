@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.elementtest.timetest;
 
+//own imports
 import ch.nolix.common.testing.basetest.TestCase;
 import ch.nolix.common.testing.test.Test;
 import ch.nolix.element.time.base.Time;
@@ -11,12 +12,12 @@ import ch.nolix.element.time.base.Time;
  * 
  * @author Silvan Wyss
  * @date 2017-02-04
- * @lines 100
+ * @lines 90
  */
 public final class TimeTest extends Test {
 	
 	//loop test case
-	public void loopTestCase_creation() {
+	public void loopTestCase_creation_1A() {
 		
 		//main loop
 		for (int y = 1600; y <= 1600; y++) {
@@ -32,7 +33,7 @@ public final class TimeTest extends Test {
 				for (int d = 1; d <= dayCount; d++) {
 					
 					//execution
-					final Time time = new Time(y, m, d);
+					final Time time = Time.withYearAndMonthOfYearAndDayOfMonth(y, m, d);
 					
 					//verification
 					expect(time.getYearAsInt()).isEqualTo(y);
@@ -44,14 +45,15 @@ public final class TimeTest extends Test {
 	}
 	
 	//loop test case
-	public void loopTestCase_creation_2() {
+	public void loopTestCase_creation_1B() {
 				
 		//main loop
 		for (int h = 0; h <= 23; h++) {
 			for (int m = 0; m <= 59; m++) {
 					
 				//execution
-				final Time time	= new Time(2000, 1,	1,	h,	m);
+				final Time time	=
+				Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHour(2000, 1, 1, h, m);
 				
 				//verification
 				expect(time.getYearAsInt()).isEqualTo(2000);
@@ -67,27 +69,19 @@ public final class TimeTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_creation() {
-		
-		//execution
-		final Time time = new Time();
-			
-		//verification
-		expect(time.getYearAsInt()).isEqualTo(Time.DEFAULT_YEAR);
-		expect(time.getMonthOfYear()).isEqualTo(Time.DEFAULT_MONTH_OF_YEAR);
-		expect(time.getDayOfMonth()).isEqualTo(Time.DEFAULT_DAY_OF_MONTH);
-		expect(time.getHourOfDay()).isEqualTo(Time.DEFAULT_HOUR_OF_DAY);
-		expect(time.getMinuteOfHour()).isEqualTo(Time.DEFAULT_MINUTE_OF_HOUR);
-		expect(time.getSecondOfMinute()).isEqualTo(Time.DEFAULT_SECOND_OF_MINUTE);
-		expect(time.getMillisecondOfSecond()).isEqualTo(Time.DEFAULT_MILLISECOND_OF_SECOND);
-	}
-	
-	//method
-	@TestCase
 	public void testCase_getDay() {
 		
 		//setup
-		final Time time = new Time(2010, 10, 10, 10, 10, 10, 100);
+		final Time time =
+		Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHourAndSecondOfMinuteAndMillisecondOfSecond(
+			2010,
+			10,
+			10,
+			10,
+			10,
+			10,
+			100
+		);
 		
 		//execution
 		final Time day = time.getDay();

@@ -34,8 +34,8 @@ public final class CandleStickTutorial {
 		new QuandlDataProvider()
 		.getCandleSticksPerDay(
 			NYSEProductSymbolCatalogue.BOEING,
-			new Time(2015, 1, 1),
-			new Time(2015, 12, 31)
+			Time.withYearAndMonthOfYearAndDayOfMonth(2015, 1, 1),
+			Time.withYearAndMonthOfYearAndDayOfMonth(2015, 12, 31)
 		);
 		
 		//Calculates the percentage.
