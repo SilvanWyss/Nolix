@@ -14,7 +14,6 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullExcep
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.programcontrol.sequencer.Sequencer;
-import ch.nolix.element.gui.base.CanvasGUI;
 import ch.nolix.element.gui.base.GUI;
 import ch.nolix.element.gui.base.IWidgetGUI;
 import ch.nolix.element.gui.base.InvisibleGUI;
@@ -37,10 +36,9 @@ public abstract class BaseBackGUIClient<BBGUIC extends BaseBackGUIClient<BBGUIC>
 	
 	//attributes
 	private BaseFrontGUIClientGUIType counterpartGUIType;
+	private IBackGUIClientCounterpartUpdater counterpartUpdater;
 	private boolean isNotingMouseInput;
 	private boolean isWaitingForFileFromCounterpart;
-	private final BaseBackGUIClientCanvasGUICounterpartUpdater canvasGUICounterpartUpdater =
-	new BaseBackGUIClientCanvasGUICounterpartUpdater(this);
 	
 	//optional attribute
 	private Node latestFileDataFromCounterpart;
@@ -159,19 +157,11 @@ public abstract class BaseBackGUIClient<BBGUIC extends BaseBackGUIClient<BBGUIC>
 	
 	//method
 	/**
-	 * Resets the GUI on the counterpart of the current {@link BaseBackGUIClient}.
-	 * Refreshes the GUI of the current {@link BaseBackGUIClient} before.
+	 * Updates the counterpart of the current {@link BaseBackGUIClient}.
 	 */
-	final void updateGUIOnCounterpart() {
-		
+	final void updateCounterpart() {
 		getRefGUI().refresh();
-		
-		//Enumerates the front end type of the current back GUI client.
-		switch (getCounterpartGUIType()) {
-			case CANVAS_GUI:
-				updateCanvasGUIOnCounterpart();
-				break;
-		}
+		getCounterpartUpdater().updateCounterpart();
 	}
 	
 	//method
@@ -198,6 +188,29 @@ public abstract class BaseBackGUIClient<BBGUIC extends BaseBackGUIClient<BBGUIC>
 	
 	//method
 	/**
+	 * @return a {@link IBackGUIClientCounterpartUpdater} for the current {@link BaseBackGUIClient}.
+	 */
+	private IBackGUIClientCounterpartUpdater createCounterpartUpdater() {
+		switch (getCounterpartGUIType()) {
+			case CANVAS_GUI:
+				return new BaseBackGUIClientCanvasGUICounterpartUpdater(this);
+			default:
+				throw new InvalidArgumentException(getCounterpartGUIType());
+		}
+	}
+	
+	//method
+	/**
+	 * Sets the {@link IBackGUIClientCounterpartUpdater} of the current {@link BaseBackGUIClient} if needed.
+	 */
+	private void createCounterpartUpdaterIfNeeded() {
+		if (counterpartUpdater == null) {
+			counterpartUpdater = createCounterpartUpdater();
+		}	
+	}
+	
+	//method
+	/**
 	 * Lets the current {@link BaseBackGUIClient} fetch the GUI type from the counterpart of the current {@link BaseBackGUIClient}
 	 * if the current {@link BaseBackGUIClient} does not know it.
 	 */
@@ -208,6 +221,17 @@ public abstract class BaseBackGUIClient<BBGUIC extends BaseBackGUIClient<BBGUIC>
 				Node.withAttribute(internalGetDataFromCounterpart(ChainedNode.withHeader(ObjectProtocol.GUI_TYPE)))
 			);
 		}
+	}
+	
+	//method
+	/**
+	 * @return the {@link IBackGUIClientCounterpartUpdater} of the current {@link BaseBackGUIClient}.
+	 */
+	private IBackGUIClientCounterpartUpdater getCounterpartUpdater() {
+		
+		createCounterpartUpdaterIfNeeded();
+				
+		return counterpartUpdater;
 	}
 	
 	//method
@@ -281,7 +305,7 @@ public abstract class BaseBackGUIClient<BBGUIC extends BaseBackGUIClient<BBGUIC>
 		
 		//There can happen that the action before made that the current BaseBackGUIClient was closed.
 		if (!isClosed()) {
-			updateGUIOnCounterpart();
+			updateCounterpart();
 		}
 	}
 	
@@ -377,14 +401,5 @@ public abstract class BaseBackGUIClient<BBGUIC extends BaseBackGUIClient<BBGUIC>
 			default:
 				throw new InvalidArgumentException("GUI command", lGUICommand, "is not valid");
 		}
-	}
-	
-	//method
-	/**
-	 * Update the {@link GUI} of the counterpart of the current {@link BaseBackGUIClient}
-	 * for the case when it is a {@link CanvasGUI}.
-	 */
-	private void updateCanvasGUIOnCounterpart() {
-		canvasGUICounterpartUpdater.updateCounterpart();
 	}
 }

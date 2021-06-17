@@ -51,6 +51,6 @@ public abstract class BaseBackGUIClientSession<BGUIC extends BaseBackGUIClient<B
 	//method
 	@Override
 	protected final void updateCounterpart() {
-		getParentClient().updateGUIOnCounterpart();
+		getParentClient().updateCounterpart();
 	}
 }

@@ -8,7 +8,7 @@ import ch.nolix.common.document.chainednode.ChainedNode;
 import ch.nolix.common.errorcontrol.validator.Validator;
 
 //class
-final class BaseBackGUIClientCanvasGUICounterpartUpdater {
+final class BaseBackGUIClientCanvasGUICounterpartUpdater implements IBackGUIClientCounterpartUpdater {
 	
 	//static attribute
 	private static final BaseBackGUIClientUpdateCanvasGUICommandCreator updateCanvasGUICommandCreator =
