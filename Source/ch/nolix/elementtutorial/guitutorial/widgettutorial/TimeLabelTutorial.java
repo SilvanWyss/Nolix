@@ -14,7 +14,7 @@ import ch.nolix.element.time.base.Time;
  *
  * @author Silvan Wyss
  * @date 2017-09-09
- * @lines 80
+ * @lines 90
  */
 public final class TimeLabelTutorial {
 	
@@ -41,9 +41,15 @@ public final class TimeLabelTutorial {
 		clockLabel.getRefLook()
 		.setBackgroundColorForState(WidgetLookState.BASE, Color.YELLOW)
 		.setTextSizeForState(WidgetLookState.BASE, 50);
-	
-		//Adds the clockCaptionLabel and clockLabel to the Frame.
-		frame.addLayerOnTop(new HorizontalStack().addWidget(clockCaptionLabel, clockLabel));
+		
+		//Creates mainHorizontalStack.
+		final var mainHorizontalStack = new HorizontalStack().addWidget(clockCaptionLabel, clockLabel);
+		
+		//Configures the look of the mainHorizontalStack.
+		mainHorizontalStack.setElementMargin(50);
+		
+		//Adds the mainHorizontalStack to the Frame.
+		frame.addLayerOnTop(mainHorizontalStack);
 		
 		//Starts a background job that updates constantly the text of the clockLabel.
 		Sequencer
