@@ -4,7 +4,7 @@ package ch.nolix.system.client.base;
 //own imports
 import ch.nolix.common.environment.runningjar.RunningJar;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.system.client.base.resources.ResourcePathCatalogue;
+import ch.nolix.system.client.base.resource.ResourcePathCatalogue;
 
 //class
 final class NetServerHTTPMessage {
