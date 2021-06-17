@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.system.client.baseguiclient;
 
+//own imports
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.validator.Validator;
-//own imports
 import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.common.functionapi.IIntGetter;
 import ch.nolix.element.elementenum.RotationDirection;
