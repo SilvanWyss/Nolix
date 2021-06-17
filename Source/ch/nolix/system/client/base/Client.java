@@ -160,6 +160,14 @@ implements ICloseableElement, OptionalLabelable<C>, ISmartObject<C>, TypeRequest
 	
 	//method
 	/**
+	 * @return true if the current {@link Client} has requested the connection.
+	 */
+	public final boolean hasRequestedConnection() {
+		return endPoint.hasRequestedConnection();
+	}
+	
+	//method
+	/**
 	 * @return true if the current {@link Client} has a target.
 	 */
 	public final boolean hasTarget() {
@@ -465,14 +473,6 @@ implements ICloseableElement, OptionalLabelable<C>, ISmartObject<C>, TypeRequest
 	 */
 	protected final Session<C> internalGetRefCurrentSession() {
 		return sessionManager.getRefCurrentSession();
-	}
-	
-	//method
-	/**
-	 * @return true if the current {@link Client} has requested the connection.
-	 */
-	protected final boolean internalHasRequestedConnection() {
-		return endPoint.hasRequestedConnection();
 	}
 	
 	//method
