@@ -79,9 +79,10 @@ public abstract class BaseNetEndPoint extends EndPoint {
 	
 	//method
 	/**
-	 * {@inheritDoc}
+	 * Lets the current {@link BaseNetEndPoint} send the given message.
+	 * 
+	 * @param message
 	 */
-	@Override
 	public final void send(final String message) {
 		sendRawMessage(NetEndPointProtocol.MESSAGE_PREFIX + message);
 	}

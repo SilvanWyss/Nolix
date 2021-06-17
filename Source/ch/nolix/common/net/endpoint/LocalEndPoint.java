@@ -140,10 +140,10 @@ public final class LocalEndPoint extends EndPoint {
 	/**
 	 * Lets this local send the given message.
 	 * 
+	 * @param message
 	 * @throws ArgumentIsNullException if the given message is null.
 	 * @throws ClosedArgumentException if this local end point is closed.
 	 */
-	@Override
 	public void send(final String message) {
 		
 		//Asserts that the given message is not null.

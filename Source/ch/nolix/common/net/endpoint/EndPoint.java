@@ -9,7 +9,6 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ClosedArgumentExcep
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.functionapi.IElementTaker;
-import ch.nolix.common.net.communicationapi.ISender;
 import ch.nolix.common.programcontrol.closeableelement.CloseController;
 import ch.nolix.common.programcontrol.closeableelement.ICloseableElement;
 import ch.nolix.common.programcontrol.processproperty.ConnectionOrigin;
@@ -24,7 +23,7 @@ import ch.nolix.common.programcontrol.sequencer.Sequencer;
  * @date 2017-05-06
  * @lines 200
  */
-public abstract class EndPoint implements ICloseableElement, ISender {
+public abstract class EndPoint implements ICloseableElement {
 	
 	//attributes
 	private final boolean hasRequestedConnection;
@@ -161,6 +160,13 @@ public abstract class EndPoint implements ICloseableElement, ISender {
 		//Sets the receiver of the current EndPoint.
 		this.receiver = receiver;
 	}
+	
+	//method declaration
+	/**
+	 * Lets the current {@link EndPoint} send the given message.
+	 * @param message
+	 */
+	public abstract void send(final String message);
 	
 	//method
 	/**

@@ -5,7 +5,7 @@ package ch.nolix.common.net.endpoint2;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.net.communicationapi.IReplier;
+import ch.nolix.common.functionapi.IElementTakerElementGetter;
 import ch.nolix.common.programcontrol.closeableelement.CloseController;
 import ch.nolix.common.programcontrol.closeableelement.ICloseableElement;
 
@@ -18,7 +18,7 @@ import ch.nolix.common.programcontrol.closeableelement.ICloseableElement;
  * @date 2017-05-21
  * @lines 110
  */
-public abstract class EndPoint implements ICloseableElement, IReplier {
+public abstract class EndPoint implements ICloseableElement {
 	
 	//constant
 	private static final long REPLIER_GETTING_DELAY_IN_MILLISECONDS = 5000;
@@ -27,7 +27,7 @@ public abstract class EndPoint implements ICloseableElement, IReplier {
 	private final CloseController closeController = new CloseController(this);
 	
 	//optional attribute
-	private IReplier replier;
+	private IElementTakerElementGetter<String, String> replier;
 	
 	//method
 	/**
@@ -76,10 +76,10 @@ public abstract class EndPoint implements ICloseableElement, IReplier {
 	 * @param replier
 	 * @throws ArgumentIsNullException if the given replier is null.
 	 */
-	public void setReplier(final IReplier replier) {
+	public void setReplier(final IElementTakerElementGetter<String, String> replier) {
 		
 		//Asserts that the given replier is not null.
-		Validator.assertThat(replier).isOfType(IReplier.class);
+		Validator.assertThat(replier).thatIsNamed("replier").isNotNull();
 		
 		//Sets the replier of this end point.
 		this.replier = replier;
@@ -90,7 +90,7 @@ public abstract class EndPoint implements ICloseableElement, IReplier {
 	 * @return the replier of this end point.
 	 * @throws ArgumentDoesNotHaveAttributeException if this end point does not have a replier.
 	 */
-	protected final IReplier getRefReplier() {
+	protected final IElementTakerElementGetter<String, String> getRefReplier() {
 		
 		final long startTimeInMilliseconds = System.currentTimeMillis();
 		
@@ -102,7 +102,7 @@ public abstract class EndPoint implements ICloseableElement, IReplier {
 			System.out.flush();
 			
 			if (System.currentTimeMillis() - startTimeInMilliseconds > REPLIER_GETTING_DELAY_IN_MILLISECONDS) {
-				throw new ArgumentDoesNotHaveAttributeException(this, IReplier.class);
+				throw new ArgumentDoesNotHaveAttributeException(this, "replier");
 			}
 		}
 		
