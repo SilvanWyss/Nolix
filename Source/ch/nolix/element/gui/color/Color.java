@@ -22,12 +22,9 @@ import ch.nolix.element.gui.base.Element;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 1350
+ * @lines 1340
  */
 public final class Color extends Element<Color> {
-	
-	//constant
-	public static final int DEFAULT_ALPHA_VALUE = 255;
 	
 	//constants
 	public static final int ALICE_BLUE_INT = 0xF0F8FF;
@@ -735,6 +732,13 @@ public final class Color extends Element<Color> {
 	public static final Color YELLOW_GREEN = new Color(YELLOW_GREEN_INT);
 	
 	//constants
+	public static final IContainer<Color> WEB_COLORS;
+	public static final IContainer<Pair<String, Color>> WEB_COLOR_NAMES;
+	
+	//constant
+	public static final int DEFAULT_ALPHA_VALUE = 255;
+	
+	//constants
 	public static final long MIN_COLOR_INT = 0;
 	public static final long MAX_COLOR_INT = 4_294_967_296L;
 	
@@ -742,9 +746,11 @@ public final class Color extends Element<Color> {
 	public static final short MIN_COLOR_COMPONENT = 0;
 	public static final short MAX_COLOR_COMPONENT = 255;
 	
-	//static attributes
-	private static final ColorConstantExtractor colorConstantExtractor = new ColorConstantExtractor();
-	private static final ColorNameConstantExtractor colorNameConstantExtractor = new ColorNameConstantExtractor();
+	//static initializer
+	static {
+		WEB_COLORS = new ColorConstantExtractor().getColors();
+		WEB_COLOR_NAMES = new ColorNameConstantExtractor().getColorNames();
+	}
 	
 	//static method
 	/**
@@ -754,22 +760,6 @@ public final class Color extends Element<Color> {
 	 */
 	public static Color fromSpecification(final BaseNode specification) {
 		return new Color(specification.getOneAttributeHeader());
-	}
-	
-	//static method
-	/**
-	 * @return the web colors.
-	 */
-	public static IContainer<Color> getWebColors() {
-		return colorConstantExtractor.getColors();
-	}
-	
-	//static method
-	/**
-	 * @return the web color pairs.
-	 */
-	public static IContainer<Pair<String, Color>> getWebColorPairs() {
-		return colorNameConstantExtractor.getColorNames();
 	}
 	
 	//attributes
@@ -919,7 +909,7 @@ public final class Color extends Element<Color> {
 	 */
 	public String getHexadecimalValueOrColorName() {
 		
-		final var pair = getWebColorPairs().getRefFirstOrNull(wc -> wc.getRefElement2().equals(this));
+		final var pair = WEB_COLOR_NAMES.getRefFirstOrNull(wc -> wc.getRefElement2().equals(this));
 		
 		//Handles the case that the current Color has a color name.
 		if (pair != null) {
@@ -1251,7 +1241,7 @@ public final class Color extends Element<Color> {
 	 */
 	private void setValue(final String value) {
 		
-		final Pair<String, Color> pair = getWebColorPairs().getRefFirstOrNull(p -> p.getRefElement1().equals(value));
+		final Pair<String, Color> pair = WEB_COLOR_NAMES.getRefFirstOrNull(p -> p.getRefElement1().equals(value));
 		
 		//Handles the case that the given value is not a color name.
 		if (pair == null) {
