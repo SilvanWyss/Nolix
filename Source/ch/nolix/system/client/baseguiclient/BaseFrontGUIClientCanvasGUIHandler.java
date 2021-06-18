@@ -7,6 +7,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentExce
 import ch.nolix.element.gui.base.CanvasFrame;
 import ch.nolix.element.gui.base.CursorIcon;
 import ch.nolix.element.gui.base.GUI;
+import ch.nolix.element.gui.image.Image;
 
 //class
 final class BaseFrontGUIClientCanvasGUIHandler implements IFrontGUIClientGUIHandler {
@@ -47,6 +48,10 @@ final class BaseFrontGUIClientCanvasGUIHandler implements IFrontGUIClientGUIHand
 		switch (pGUICommand.getHeader()) {
 			case CommandProtocol.SET_TITLE:
 				mGUI.setTitle(pGUICommand.getOneAttributeAsString());
+				mGUI.refresh();
+				break;
+			case CommandProtocol.SET_ICON:
+				mGUI.setIcon(Image.fromSpecification(pGUICommand.getOneAttributeAsNode()));
 				mGUI.refresh();
 				break;
 			case CommandProtocol.SET_CURSOR_ICON:

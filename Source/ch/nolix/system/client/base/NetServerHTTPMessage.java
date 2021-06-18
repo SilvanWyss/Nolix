@@ -53,8 +53,8 @@ final class NetServerHTTPMessage {
 		+ "<html>\n"
 		+ "<head>\n"
 		
-		//This link avoids that a browser request a favorite icon.
-		+ "<link rel=\"icon\" href=\"data:,\">\n"
+		//The 'data:,' link avoids that a browser requests a favorite icon.
+		+ "<link id=\"icon\" rel=\"icon\" href=\"data:,\">\n"
 		
 		+ "<script>\n"
 		+ REQUIRE_JS_SCRIPT

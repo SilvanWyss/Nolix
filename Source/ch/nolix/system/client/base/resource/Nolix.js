@@ -2958,6 +2958,17 @@ define("Element/CanvasGUI/CanvasGUI", ["require", "exports", "Common/Caching/Cac
         setCursorIcon(cursorIcon) {
             this.canvas.style.cursor = cursorIcon.toHTMLCode();
         }
+        setIcon(icon) {
+            if (icon === null) {
+                throw new Error('The given icon is null.');
+            }
+            if (icon === undefined) {
+                throw new Error('The given icon is undefined.');
+            }
+            this.icon = icon;
+            const favicon = document.getElementById('icon');
+            favicon.href = icon.toCanvas().toDataURL('image/png');
+        }
         setPaintCommands(paintCommands) {
             this.paintCommands.refill(paintCommands);
         }
@@ -3455,6 +3466,7 @@ define("System/FrontCanvasGUIClient/FrontCanvasGUIClientCommandProtocol", ["requ
     FrontCanvasGUIClientCommandProtocol.GET_FILE = 'GetFile';
     FrontCanvasGUIClientCommandProtocol.NOTE_INPUT = 'NoteInput';
     FrontCanvasGUIClientCommandProtocol.SET_CURSOR_ICON = 'SetCursorIcon';
+    FrontCanvasGUIClientCommandProtocol.SET_ICON = 'SetIcon';
     FrontCanvasGUIClientCommandProtocol.SET_PAINT_COMMANDS = 'SetPaintCommands';
     FrontCanvasGUIClientCommandProtocol.SET_TITLE = "SetTitle";
     exports.FrontCanvasGUIClientCommandProtocol = FrontCanvasGUIClientCommandProtocol;
@@ -3471,7 +3483,7 @@ define("System/FrontCanvasGUIClient/FrontCanvasGUIClientObjectProtocol", ["requi
     FrontCanvasGUIClientObjectProtocol.VIEW_AREA_SIZE = 'ViewAreaSize';
     exports.FrontCanvasGUIClientObjectProtocol = FrontCanvasGUIClientObjectProtocol;
 });
-define("System/FrontCanvasGUIClient/GUIHandler", ["require", "exports", "Element/CanvasGUI/CanvasGUI", "Element/CursorIcon/CursorIcon", "System/FrontCanvasGUIClient/FrontCanvasGUIClientCommandProtocol", "System/FrontCanvasGUIClient/FrontCanvasGUIClientObjectProtocol"], function (require, exports, CanvasGUI_1, CursorIcon_1, FrontCanvasGUIClientCommandProtocol_1, FrontCanvasGUIClientObjectProtocol_1) {
+define("System/FrontCanvasGUIClient/GUIHandler", ["require", "exports", "Element/CanvasGUI/CanvasGUI", "Element/CursorIcon/CursorIcon", "System/FrontCanvasGUIClient/FrontCanvasGUIClientCommandProtocol", "System/FrontCanvasGUIClient/FrontCanvasGUIClientObjectProtocol", "Element/Graphic/Image"], function (require, exports, CanvasGUI_1, CursorIcon_1, FrontCanvasGUIClientCommandProtocol_1, FrontCanvasGUIClientObjectProtocol_1, Image_2) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class GUIHandler {
@@ -3502,6 +3514,10 @@ define("System/FrontCanvasGUIClient/GUIHandler", ["require", "exports", "Element
             switch (pGUICommand.getHeader()) {
                 case FrontCanvasGUIClientCommandProtocol_1.FrontCanvasGUIClientCommandProtocol.SET_TITLE:
                     this.mGUI.setTitle(pGUICommand.getOneAttributeAsString());
+                    this.mGUI.refresh();
+                    break;
+                case FrontCanvasGUIClientCommandProtocol_1.FrontCanvasGUIClientCommandProtocol.SET_ICON:
+                    this.mGUI.setIcon(Image_2.Image.fromSpecification(pGUICommand.getOneAttributeAsNode()));
                     this.mGUI.refresh();
                     break;
                 case FrontCanvasGUIClientCommandProtocol_1.FrontCanvasGUIClientCommandProtocol.SET_CURSOR_ICON:
