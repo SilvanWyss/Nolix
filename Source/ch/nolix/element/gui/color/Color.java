@@ -24,7 +24,7 @@ import ch.nolix.element.gui.base.Element;
  * @date 2016-01-01
  * @lines 1350
  */
-public class Color extends Element<Color> {
+public final class Color extends Element<Color> {
 	
 	//constant
 	public static final int DEFAULT_ALPHA_VALUE = 255;
