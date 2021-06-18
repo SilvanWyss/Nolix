@@ -1,18 +1,20 @@
 //package declaration
 package ch.nolix.element.gui.baseapi;
 
+//own imports
 import ch.nolix.common.attributeapi.mutablemandatoryattributeapi.Titleble;
 import ch.nolix.common.programcontrol.closeableelement.ICloseableElement;
 import ch.nolix.common.rasterapi.Rectangular;
 import ch.nolix.common.skillapi.Refreshable;
 import ch.nolix.element.gui.base.CursorIcon;
+import ch.nolix.element.gui.image.Image;
 import ch.nolix.element.gui.input.IResizableInputTaker;
 
 //interface
 /**
  * @author Silvan Wyss
  * @date 2019-08-01
- * @lines 80
+ * @lines 100
  * @param <G> is the type of a {@link IBaseGUI}.
  */
 public interface IBaseGUI<G extends IBaseGUI<G>>
@@ -41,6 +43,12 @@ extends ICloseableElement, IResizableInputTaker, Rectangular, Refreshable, Title
 	 * @return the y-position of the cursor on the view area of the current {@link IBaseGUI}.
 	 */
 	int getCursorYPositionOnViewArea();
+	
+	//method declaration
+	/**
+	 * @return the icon of the current {@link IBaseGUI}.
+	 */
+	Image getIcon();
 	
 	//method declaration
 	/**
@@ -85,4 +93,13 @@ extends ICloseableElement, IResizableInputTaker, Rectangular, Refreshable, Title
 	 * @return the {@link IFrontEndWriter} of the current {@link IBaseGUI}.
 	 */
 	IFrontEndWriter onFrontEnd();
+	
+	//method
+	/**
+	 * Sets the icon of the current{@link IBaseGUI}.
+	 * 
+	 * @param icon
+	 * @return the current{@link IBaseGUI}.
+	 */
+	G setIcon(final Image icon);
 }

@@ -25,27 +25,31 @@ import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.configuration.ConfigurationElement;
 import ch.nolix.element.elementapi.IConfigurableElement;
 import ch.nolix.element.gui.base.CursorIcon;
+import ch.nolix.element.gui.base.GUIIconCatalogue;
 import ch.nolix.element.gui.base.LocalFrontEndReader;
 import ch.nolix.element.gui.base.LocalFrontEndWriter;
 import ch.nolix.element.gui.baseapi.IBaseGUI;
 import ch.nolix.element.gui.baseapi.IFrontEndReader;
 import ch.nolix.element.gui.baseapi.IFrontEndWriter;
 import ch.nolix.element.gui.color.Color;
+import ch.nolix.element.gui.image.Image;
 
 //class
 /**
  * @author Silvan Wyss
  * @date 2017-11-11
- * @lines 420
+ * @lines 450
  * @param <G> is the type of a {@link GUI3D}.
  */
 public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G> implements Clearable, IBaseGUI<G> {
 	
 	//constants
 	public static final String DEFAULT_TITLE = StringCatalogue.DEFAULT_STRING;
+	public static final Image DEFAULT_ICON = GUIIconCatalogue.NOLIX_ICON;
 	public static final Color DEFAULT_BACKGROUND_COLOR = Color.WHITE;
 	
-	//constant
+	//constants
+	private static final String ICON_HEADER = PascalCaseCatalogue.ICON;
 	private static final String ROOT_SHAPE_HEADER = "RootShape";
 	
 	//attribute
@@ -56,6 +60,16 @@ public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G> 
 		this::setTitle,
 		BaseNode::getOneAttributeHeader,
 		Node::withAttribute
+	);
+	
+	//attribute
+	private final MutableValue<Image> icon =
+	new MutableValue<>(
+		ICON_HEADER,
+		DEFAULT_ICON,
+		this::setIcon,
+		Image::fromSpecification,
+		Image::getSpecification
 	);
 	
 	//attribute
@@ -196,6 +210,15 @@ public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G> 
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final Image getIcon() {
+		return icon.getValue();
+	}
+	
+	//method
+	/**
 	 * @return the title of the current {@link GUI3D}.
 	 */
 	public final String getTitle() {
@@ -304,6 +327,18 @@ public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G> 
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final G setIcon(final Image icon) {
+		
+		this.icon.setValue(icon.toStretchedImage(64, 64).toImmutableImage());
+		
+		return asConcrete();
+	}
+	
+	//method
+	/**
 	 * Sets the title of the current {@link GUI3D}.
 	 * 
 	 * @param title
@@ -311,6 +346,7 @@ public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G> 
 	 * @throws ArgumentIsNullException if the given title is null.
 	 * @throws EmptyArgumentException if the given title is blank.
 	 */
+	@Override
 	public final G setTitle(final String title) {
 		
 		//Asserts that the given title is not blank.

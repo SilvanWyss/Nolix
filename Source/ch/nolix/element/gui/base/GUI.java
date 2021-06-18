@@ -222,8 +222,9 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	
 	//method
 	/**
-	 * @return the icon of the current {@link GUI}.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public final Image getIcon() {
 		return icon.getValue();
 	}
@@ -585,11 +586,9 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	
 	//method
 	/**
-	 * Sets the icon of the current {@link GUI}.
-	 * 
-	 * @param icon
-	 * @return the current {@link GUI}.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public final G setIcon(final Image icon) {
 		
 		this.icon.setValue(icon.toStretchedImage(64, 64).toImmutableImage());
@@ -606,6 +605,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	 * @throws ArgumentIsNullException if the given title is null.
 	 * @throws InvalidArgumentException if the given title is blank.
 	 */
+	@Override
 	public final G setTitle(final String title) {
 		
 		Validator.assertThat(title).thatIsNamed(LowerCaseCatalogue.TITLE).isNotBlank();
