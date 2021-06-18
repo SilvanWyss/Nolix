@@ -53,17 +53,17 @@ public interface IImage {
 	byte[] toPNG();
 	
 	//method declaration
-	IImage toRepeatedImage(int width, int height);
+	IMutableImage toRepeatedImage(int width, int height);
 	
 	//method declaration
-	IImage toRightRotatedImage();
+	IMutableImage toRightRotatedImage();
 	
 	//method declaration
-	IImage toScaledImage(double factor);
+	IMutableImage toScaledImage(double factor);
 	
 	//method declaration
-	IImage toScaledImage(double widthFactor, double heightFactor);
+	IMutableImage toScaledImage(double widthFactor, double heightFactor);
 	
 	//method declaration
-	IImage toStretchedImage(int width, int height);
+	IMutableImage toStretchedImage(int width, int height);
 }
