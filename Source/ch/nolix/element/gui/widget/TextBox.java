@@ -26,7 +26,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	
 	//constants
 	public static final String DEFAULT_TEXT = StringCatalogue.EMPTY_STRING;
-	public static final TextMode DEFAULT_TEXTMODE = TextMode.NORMAL;
+	public static final TextMode DEFAULT_TEXT_MODE = TextMode.NORMAL;
 	public static final int DEFAULT_CURSOR_POSITION = 0;
 	public static final int TEXT_CURSOR_WIDTH = 2;
 	
@@ -38,7 +38,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	private MutableValue<TextMode> textMode =
 	new MutableValue<>(
 		TEXT_MODE_HEADER,
-		DEFAULT_TEXTMODE,
+		DEFAULT_TEXT_MODE,
 		this::setTextMode,
 		TextMode::fromSpecification,
 		TextMode::getSpecification
