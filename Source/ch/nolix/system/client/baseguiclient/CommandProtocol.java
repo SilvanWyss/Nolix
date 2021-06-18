@@ -13,6 +13,7 @@ final class CommandProtocol {
 	public static final String SAVE_FILE = "SaveFile";
 	public static final String SEND_FILE = "SendFile";
 	public static final String SET_CURSOR_ICON = "SetCursorIcon";
+	public static final String SET_ICON = "SetIcon";
 	public static final String SET_PAINT_COMMANDS = "SetPaintCommands";
 	public static final String SET_TITLE = "SetTitle";
 	public static final String SHOW_ERROR_MESSAGE = "ShowErrorMessage";
