@@ -269,7 +269,7 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 		
 		var i = 1;
 		for (final var p : lPixelArray) {
-			this.pixels.setAt(i, Color.fromSpecification(p));
+			this.pixels.setAt(i, new Color(p.getHeader()));
 			i++;
 		}
 	}
