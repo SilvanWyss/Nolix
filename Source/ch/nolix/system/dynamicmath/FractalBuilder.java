@@ -36,7 +36,7 @@ public final class FractalBuilder implements IFractalBuilder {
 	i -> {
 		
 		if (i < DEFAULT_SEQUENCE_MAX_ITERATION_COUNT) {
-			return new Color(0, 0, (10 * i) % Color.MAX_COLOR_COMPONENT);
+			return Color.withRedValueAndGreenValueAndBlueValue(0, 0, (10 * i) % Color.MAX_COLOR_COMPONENT);
 		}
 		
 		return Color.BLACK;

@@ -101,7 +101,7 @@ public final class AnthrazitGUILookCreator {
 		return
 		new DeepConfiguration()
 		.addSelectorRole(LayerRole.DIALOG_LAYER)
-		.addAttachingAttribute("Background(Color(" + new Color("0x101010F0").getHexadecimalValue() + "))");
+		.addAttachingAttribute("Background(Color(" + Color.fromString("0x101010F0").getHexadecimalValue() + "))");
 	}
 	
 	//method

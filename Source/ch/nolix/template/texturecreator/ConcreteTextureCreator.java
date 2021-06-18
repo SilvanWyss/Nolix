@@ -12,9 +12,9 @@ public final class ConcreteTextureCreator extends TextureCreator {
 	@Override
 	protected void fillTexture16x16(final MutableImage texture) {
 		
-		final var color1 = new Color(0x808080);
-		final var color2 = new Color(0xC0C0C0);
-		final var color3 = new Color(0xA0A0A0);
+		final var color1 = Color.fromValue(0x808080);
+		final var color2 = Color.fromValue(0xC0C0C0);
+		final var color3 = Color.fromValue(0xA0A0A0);
 		
 		for (var x = 1; x <= texture.getWidth(); x++) {
 			for (var y = 1; y <= texture.getHeight(); y++) {

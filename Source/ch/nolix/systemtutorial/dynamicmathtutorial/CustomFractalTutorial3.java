@@ -39,7 +39,7 @@ public final class CustomFractalTutorial3 {
 					i -> {
 						
 						if (i < maxIterationCount) {
-							return new Color((10 * i) % 256, i % 256, (20 * i) % 256);
+							return Color.withRedValueAndGreenValueAndBlueValue((10 * i) % 256, i % 256, (20 * i) % 256);
 						}
 						
 						return Color.BLACK;

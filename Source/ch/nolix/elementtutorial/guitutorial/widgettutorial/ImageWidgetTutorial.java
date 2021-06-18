@@ -29,7 +29,7 @@ public final class ImageWidgetTutorial {
 		final var image = MutableImage.withWidthAndHeight(800, 500);
 		for (var y = 1; y <= 500; y++) {
 			for (var x = 1; x <= 800; x++) {
-				image.setPixel(x, y, new Color((x * y) % 255, 0, (x + y) % 255));
+				image.setPixel(x, y, Color.withRedValueAndGreenValueAndBlueValue((x * y) % 255, 0, (x + y) % 255));
 			}
 		}
 		

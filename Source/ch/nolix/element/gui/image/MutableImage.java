@@ -43,7 +43,7 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 		for (var i = 1; i <= image.getWidth(); i++) {
 			for (var j = 1; j <= image.getHeight(); j++) {
 				final var pixel = bufferedImage.getRGB(i - 1, j - 1);
-				image.setPixel(i, j, new Color((pixel>>16) & 0xff, (pixel>>8) & 0xff, pixel & 0xFF, (pixel>>24) & 0xff));
+				image.setPixel(i, j, Color.withRedValueAndGreenValueAndBlueValueAndAlphaValue((pixel>>16) & 0xff, (pixel>>8) & 0xff, pixel & 0xFF, (pixel>>24) & 0xff));
 			}
 		}
 		
@@ -269,7 +269,7 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 		
 		var i = 1;
 		for (final var p : lPixelArray) {
-			this.pixels.setAt(i, new Color(p.getHeader()));
+			this.pixels.setAt(i, Color.fromString(p.getHeader()));
 			i++;
 		}
 	}
@@ -403,7 +403,7 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 				
 				final var pixel = pixels.getRefAt(y + 1, x + 1);
 				
-				lBufferedImage.setRGB(x, y, pixel.toAlphaRedGreenBlue());
+				lBufferedImage.setRGB(x, y, pixel.toAlphaRedGreenBlueValue());
 			}
 		}
 		
