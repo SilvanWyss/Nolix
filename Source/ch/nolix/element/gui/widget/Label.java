@@ -14,7 +14,7 @@ import ch.nolix.element.gui.painterapi.IPainter;
 /**
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 160
+ * @lines 170
  */
 public final class Label extends TextLineWidget<Label, LabelLook> {
 	
@@ -48,6 +48,15 @@ public final class Label extends TextLineWidget<Label, LabelLook> {
 	 */
 	public LabelRole getRole() {
 		return role.getValue();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getShownText() {
+		return getText();
 	}
 	
 	//method

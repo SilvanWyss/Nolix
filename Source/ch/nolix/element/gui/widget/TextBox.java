@@ -2,9 +2,12 @@
 package ch.nolix.element.gui.widget;
 
 //own imports
+import ch.nolix.common.constant.CharacterCatalogue;
 import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.math.Calculator;
@@ -17,17 +20,29 @@ import ch.nolix.element.gui.painterapi.IPainter;
 /**
  * @author Silvan Wyss
  * @date 2017-01-01
- * @lines 340
+ * @lines 420
  */
 public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	
 	//constants
 	public static final String DEFAULT_TEXT = StringCatalogue.EMPTY_STRING;
+	public static final TextMode DEFAULT_TEXTMODE = TextMode.NORMAL;
 	public static final int DEFAULT_CURSOR_POSITION = 0;
 	public static final int TEXT_CURSOR_WIDTH = 2;
 	
 	//constant
+	private static final String TEXT_MODE_HEADER = "TextMode";
 	private static final String TEXT_CURSOR_POSITION_HEADER = "TextCursorPosition";
+	
+	//attribute
+	private MutableValue<TextMode> textMode =
+	new MutableValue<>(
+		TEXT_MODE_HEADER,
+		DEFAULT_TEXTMODE,
+		this::setTextMode,
+		TextMode::fromSpecification,
+		TextMode::getSpecification
+	);
 	
 	//attribute
 	private MutableValue<Integer> textCursorPosition =
@@ -54,10 +69,36 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getShownText() {
+		
+		//Enumerates the text mode of the current TextBox.
+		switch (getTextMode()) {
+			case NORMAL:
+				return getShownTextForNormalTextMode();
+			case SECRET:
+				return getShownTextForSecretTextMode();
+			default:
+				throw new InvalidArgumentException(getTextMode());
+		}
+	}
+	
+	//method
+	/**
 	 * @return the width of the text cursor of the current {@link TextBox}.
 	 */
 	public int getTextCursorWidth() {
 		return Calculator.getMax(1, (int)(0.08 * getRefLook().getTextSize()));
+	}
+	
+	//method
+	/**
+	 * @return the text mode of the current {@link TextBox}.
+	 */
+	public TextMode getTextMode() {
+		return textMode.getValue();
 	}
 	
 	//method
@@ -76,7 +117,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	@Override
 	public void noteLeftMouseButtonPressOnContentAreaWhenEnabled() {		
 		
-		final var text = getText();
+		final var text = getShownText();
 		
 		if (text.isEmpty()) {
 			setTextCursorPosition(0);
@@ -109,6 +150,21 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 				}
 			}
 		}
+	}
+	
+	//method
+	/**
+	 * Sets the text mode of the current {@link TextBox}.
+	 * 
+	 * @param textMode
+	 * @return the current {@link TextBox}.
+	 * @throws ArgumentIsNullException if the given textMode is null.
+	 */
+	public TextBox setTextMode(final TextMode textMode) {
+		
+		this.textMode.setValue(textMode);
+		
+		return this;
 	}
 	
 	//method
@@ -156,7 +212,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 				break;
 			case ARROW_RIGHT:
 				
-				if (getTextCursorPosition() < getText().length()) {
+				if (getTextCursorPosition() < getShownText().length()) {
 					setTextCursorPosition(getTextCursorPosition() + 1);
 				}
 				
@@ -217,7 +273,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	 * if there is a character after the text cursor.
 	 */
 	private void deleteCharacterAfterTextCursor() {
-		if (getTextCursorPosition() < getText().length()) {
+		if (getTextCursorPosition() < getShownText().length()) {
 			setText(getTextBeforeTextCursor() + getTextAfterTextCursor().substring(1));
 		}
 	}
@@ -228,7 +284,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	 * if there is a character before the text cursor.
 	 */
 	private void deleteCharacterBeforeTextCursor() {
-		if (!getText().isEmpty() && getTextCursorPosition() > 0) {
+		if (!getShownText().isEmpty() && getTextCursorPosition() > 0) {
 			
 			final var lTextCursorPosition = getTextCursorPosition();
 			
@@ -237,6 +293,37 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 		}
 	}
 	
+	//method
+	/**
+	 * @return the shown text before the text cursor of the current {@link TextBox}.
+	 */
+	private String getShownTextBeforeTextCursor() {
+		return getShownText().substring(0, getTextCursorPosition());
+	}
+	
+	//method
+	/**
+	 * @return the shown text of the current {@link TextBox} for {@link TextMode#NORMAL}.
+	 */
+	private String getShownTextForNormalTextMode() {
+		return getText();
+	}
+	
+	//method
+	/**
+	 * @return the shown text of the current {@link TextBox} for {@link TextMode#SECRET}.
+	 */
+	private String getShownTextForSecretTextMode() {
+		final var stringBuilder = new StringBuilder();
+		
+		final var text = getText();
+		for (var i = 0; i < text.length(); i++) {
+			stringBuilder.append(CharacterCatalogue.BULLET);
+		}
+		
+		return stringBuilder.toString();
+	}
+
 	//method
 	/**
 	 * @return the text after the text cursor of the current {@link TextBox}.
@@ -267,11 +354,11 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	 */
 	private int getTextCursorXPositionOnContentArea() {
 		
-		if (getTextBeforeTextCursor().isEmpty()) {
+		if (getShownTextBeforeTextCursor().isEmpty()) {
 			return 2;
 		}
 		
-		return getTextFormat().getSwingTextWidth(getTextBeforeTextCursor()) - getTextCursorWidth() / 2;
+		return getTextFormat().getSwingTextWidth(getShownTextBeforeTextCursor()) - getTextCursorWidth() / 2;
 	}
 	
 	//method

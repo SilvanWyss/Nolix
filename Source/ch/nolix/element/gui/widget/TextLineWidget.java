@@ -45,6 +45,12 @@ extends BorderWidget<TLW, TLWL> {
 		setText(StringCatalogue.EMPTY_STRING);
 	}
 	
+	//method declaration
+	/**
+	 * @return the shown text of the current {@link TextLineWidget}.
+	 */
+	public abstract String getShownText();
+	
 	//method
 	/**
 	 * @return the text of the current {@link TextLineWidget}.
@@ -168,7 +174,7 @@ extends BorderWidget<TLW, TLWL> {
 	 */
 	@Override
 	protected final int getNaturalContentAreaWidth() {
-		return (getTextFormat().getSwingTextWidth(getText()) + getTextWidthAddition());
+		return (getTextFormat().getSwingTextWidth(getShownText()) + getTextWidthAddition());
 	}
 	
 	//method
@@ -280,7 +286,7 @@ extends BorderWidget<TLW, TLWL> {
 	@Override
 	protected final void paintContentArea(final IPainter painter, final TLWL textLineWidgetLook) {
 		
-		painter.paintText(getText(), getTextFormat());
+		painter.paintText(getShownText(), getTextFormat());
 		
 		paintTextLineWidgetContentArea(painter, textLineWidgetLook);
 	}

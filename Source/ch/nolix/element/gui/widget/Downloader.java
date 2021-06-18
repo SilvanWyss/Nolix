@@ -36,6 +36,12 @@ public final class Downloader extends TextLineWidget<Downloader, DownloaderLook>
 	
 	//method
 	@Override
+	public String getShownText() {
+		return getText();
+	}
+	
+	//method
+	@Override
 	public boolean hasRole(final String role) {
 		return false;
 	}

@@ -38,6 +38,12 @@ public final class Uploader extends TextLineWidget<Uploader, UploaderLook> {
 	}
 	
 	//method
+	@Override
+	public String getShownText() {
+		return getText();
+	}
+	
+	//method
 	public boolean hasFileTaker() {
 		return (fileTaker != null);
 	}

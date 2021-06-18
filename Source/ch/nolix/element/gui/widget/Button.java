@@ -16,7 +16,7 @@ import ch.nolix.element.gui.painterapi.IPainter;
 /**
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 170
+ * @lines 180
  */
 public final class Button extends TextLineWidget<Button, ButtonLook> {
 	
@@ -61,6 +61,15 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 	 */
 	public ButtonRole getRole() {
 		return role.getValue();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getShownText() {
+		return getText();
 	}
 	
 	//method
