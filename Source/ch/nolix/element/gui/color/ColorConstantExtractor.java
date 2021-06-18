@@ -10,7 +10,7 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.reflectionhelper.FieldHelper;
 
 //class
-final class ColorsExtractor {
+final class ColorConstantExtractor {
 	
 	//multi-attribute
 	private final IContainer<Color> colors = extractAndGetColors();

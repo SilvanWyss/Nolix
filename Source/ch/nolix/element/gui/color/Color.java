@@ -743,7 +743,7 @@ public class Color extends Element<Color> {
 	public static final short MAX_COLOR_COMPONENT = 255;
 	
 	//static attributes
-	private static final ColorsExtractor colorsExtractor = new ColorsExtractor();
+	private static final ColorConstantExtractor colorConstantExtractor = new ColorConstantExtractor();
 	private static final ColorPairsExtractor colorPairsExtractor = new ColorPairsExtractor();
 	
 	//static method
@@ -761,7 +761,7 @@ public class Color extends Element<Color> {
 	 * @return the web colors.
 	 */
 	public static IContainer<Color> getWebColors() {
-		return colorsExtractor.getColors();
+		return colorConstantExtractor.getColors();
 	}
 	
 	//static method
