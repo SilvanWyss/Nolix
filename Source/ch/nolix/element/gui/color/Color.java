@@ -744,7 +744,7 @@ public final class Color extends Element<Color> {
 	
 	//static attributes
 	private static final ColorConstantExtractor colorConstantExtractor = new ColorConstantExtractor();
-	private static final ColorPairsExtractor colorPairsExtractor = new ColorPairsExtractor();
+	private static final ColorNameConstantExtractor colorNameConstantExtractor = new ColorNameConstantExtractor();
 	
 	//static method
 	/**
@@ -769,7 +769,7 @@ public final class Color extends Element<Color> {
 	 * @return the web color pairs.
 	 */
 	public static IContainer<Pair<String, Color>> getWebColorPairs() {
-		return colorPairsExtractor.getColorPairs();
+		return colorNameConstantExtractor.getColorNames();
 	}
 	
 	//attributes

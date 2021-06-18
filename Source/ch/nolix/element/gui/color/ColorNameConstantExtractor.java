@@ -11,17 +11,17 @@ import ch.nolix.common.container.pair.Pair;
 import ch.nolix.common.reflectionhelper.FieldHelper;
 
 //class
-public final class ColorPairsExtractor {
+public final class ColorNameConstantExtractor {
 	
 	//constant
 	private static final String STRING_CONSTANT_POSTFIX = "_STRING";
 	
 	//multi-attribute
-	private final IContainer<Pair<String, Color>> colorPairs = extractAndGetColorPairs();
+	private final IContainer<Pair<String, Color>> colorNames = extractAndGetColorNames();
 	
 	//method
-	public IContainer<Pair<String, Color>> getColorPairs() {
-		return colorPairs;
+	public IContainer<Pair<String, Color>> getColorNames() {
+		return colorNames;
 	}
 	
 	//method
@@ -30,16 +30,16 @@ public final class ColorPairsExtractor {
 	}
 	
 	//method
-	private boolean declaresColorString(final Field field) {
+	private boolean declaresColorName(final Field field) {
 		return (FieldHelper.isStatic(field) && field.getName().endsWith(STRING_CONSTANT_POSTFIX));
 	}
 	
 	//method
-	private IContainer<Pair<String, Color>> extractAndGetColorPairs() {
+	private IContainer<Pair<String, Color>> extractAndGetColorNames() {
 		
-		final LinkedList<Pair<String, Color>> lColorPairs = new LinkedList<>();
+		final LinkedList<Pair<String, Color>> lColorNames = new LinkedList<>();
 		
-		final var colorStringFields = getColorStringFields();
+		final var colorStringFields = getColorNameConnstantFields();
 		final var colorFields = getColorFields();
 		
 		for (final var csf : colorStringFields) {
@@ -49,12 +49,12 @@ public final class ColorPairsExtractor {
 			final var colorField =
 			colorFields.removeAndGetRefFirst(cf -> colorStringFieldName.startsWith(cf.getName()));
 			
-			lColorPairs.addAtEnd(
+			lColorNames.addAtEnd(
 				new Pair<>(FieldHelper.getValueFromStaticField(csf), FieldHelper.getValueFromStaticField(colorField))
 			);
 		}
 				
-		return lColorPairs;
+		return lColorNames;
 	}
 
 	//method
@@ -72,16 +72,16 @@ public final class ColorPairsExtractor {
 	}
 
 	//method
-	private LinkedList<Field> getColorStringFields() {
+	private LinkedList<Field> getColorNameConnstantFields() {
 		
-		final var colorStringFields = new LinkedList<Field>();
+		final var colorNameConstantFields = new LinkedList<Field>();
 		
 		for (final var f : Color.class.getDeclaredFields()) {
-			if (declaresColorString(f)) {
-				colorStringFields.addAtEnd(f);
+			if (declaresColorName(f)) {
+				colorNameConstantFields.addAtEnd(f);
 			}
 		}
 		
-		return colorStringFields;
+		return colorNameConstantFields;
 	}
 }
