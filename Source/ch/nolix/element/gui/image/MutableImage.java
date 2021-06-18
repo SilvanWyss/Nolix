@@ -40,7 +40,6 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 	public static MutableImage fromBufferedImage(final BufferedImage bufferedImage) {
 		
 		final var image = MutableImage.withWidthAndHeight(bufferedImage.getWidth(), bufferedImage.getHeight());
-		
 		for (var i = 1; i <= image.getWidth(); i++) {
 			for (var j = 1; j <= image.getHeight(); j++) {
 				final var pixel = bufferedImage.getRGB(i - 1, j - 1);
@@ -72,7 +71,6 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 			specification.getRefFirstAttribute(a -> a.hasHeader(PascalCaseCatalogue.WIDTH)).getOneAttributeAsInt(),
 			specification.getRefFirstAttribute(a -> a.hasHeader(PascalCaseCatalogue.HEIGHT)).getOneAttributeAsInt()
 		);
-		
 		image.setPixelArray(specification.getRefFirstAttribute(a -> a.hasHeader(PIXEL_ARRAY_HEADER)));
 		
 		return image;
@@ -310,7 +308,7 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 	//method
 	@Override
 	public byte[] toJPG() {
-		return to("jpg");
+		return toBytes("jpg");
 	}
 	
 	//method
@@ -322,7 +320,7 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 	//method
 	@Override
 	public byte[] toPNG() {
-		return to("png");
+		return toBytes("png");
 	}
 	
 	//method
@@ -397,6 +395,33 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 	}
 	
 	//method
+	private BufferedImage createBufferedImage() {
+		
+		final var lBufferedImage =	new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_4BYTE_ABGR_PRE);
+		for (var y = 0; y < getHeight(); y++) {
+			for (var x = 0; x < getWidth(); x++) {
+				
+				final var pixel = pixels.getRefAt(y + 1, x + 1);
+				
+				lBufferedImage.setRGB(x, y, pixel.toAlphaRedGreenBlue());
+			}
+		}
+		
+		return lBufferedImage;
+	}
+	
+	//method
+	private Node createPixelArraySpecification() {
+		
+		final var lPixelArraySpecification = Node.withHeader(PIXEL_ARRAY_HEADER);
+		for (final var p : pixels) {
+			lPixelArraySpecification.addAttribute(p.getHexadecimalValueAlwaysWithAlphaValue());
+		}
+		
+		return lPixelArraySpecification;
+	}
+	
+	//method
 	private void deletePixelArraySpecificationAndBufferedImage() {
 		pixelArraySpecification = null;
 		bufferedImage = null;
@@ -405,36 +430,15 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 	//method
 	private void generateBufferedImageIfNeeded() {
 		if (bufferedImage == null) {
-			generateBufferedImageWhenNeeded();
+			bufferedImage = createBufferedImage();
 		}
-	}
-	
-	//method
-	private void generateBufferedImageWhenNeeded() {
-		
-		bufferedImage =	new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_4BYTE_ABGR_PRE);
-		
-		for (var y = 0; y < getHeight(); y++) {
-			for (var x = 0; x < getWidth(); x++) {
-				
-				final var pixel = pixels.getRefAt(y + 1, x + 1);
-				
-				bufferedImage.setRGB(x, y, pixel.toAlphaRedGreenBlue());
-			}
-		}	
 	}
 	
 	//method
 	private void generatePixelArraySpecificationIfNeeded() {
 		if (pixelArraySpecification == null) {
-			generatePixelArraySpecificationWhenNeeded();
+			pixelArraySpecification = createPixelArraySpecification();
 		}
-	}
-	
-	//method
-	private void generatePixelArraySpecificationWhenNeeded() {
-		pixelArraySpecification = Node.withHeader(PIXEL_ARRAY_HEADER);
-		pixels.forEach(p -> pixelArraySpecification.addAttribute(p.getHexadecimalValueAlwaysWithAlphaValue()));
 	}
 	
 	//method
@@ -462,7 +466,7 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 	}
 	
 	//method
-	private byte[] to(final String fileFormat) {
+	private byte[] toBytes(final String fileFormat) {
 		
 		final var byteArrayOutputStream = new ByteArrayOutputStream();
 		
