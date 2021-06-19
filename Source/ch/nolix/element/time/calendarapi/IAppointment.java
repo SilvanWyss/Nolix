@@ -2,11 +2,11 @@
 package ch.nolix.element.time.calendarapi;
 
 //own imports
-import ch.nolix.common.attributeapi.mutablemandatoryattributeapi.IMutableSubjectOwner;
+import ch.nolix.common.attributeapi.mutablemandatoryattributeapi.IMutableSubjectHolder;
 import ch.nolix.element.time.base.Time;
 
 //interface
-public interface IAppointment<A extends IAppointment<A>> extends IMutableSubjectOwner<A> {
+public interface IAppointment<A extends IAppointment<A>> extends IMutableSubjectHolder<A> {
 	
 	//method declaration
 	Time getEndTime();
