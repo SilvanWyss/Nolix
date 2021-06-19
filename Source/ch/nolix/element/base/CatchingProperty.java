@@ -12,7 +12,7 @@ import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.common.functionapi.IElementTakerElementGetter;
 
 //class
-public final class ForwardingProperty<V> extends Property implements Named {
+public final class CatchingProperty<V> extends Property implements Named {
 	
 	//attributes
 	private final String name;
@@ -20,7 +20,7 @@ public final class ForwardingProperty<V> extends Property implements Named {
 	private final IElementTakerElementGetter<BaseNode, V> valueCreator;
 	
 	//constructor
-	public ForwardingProperty(
+	public CatchingProperty(
 		final String name,
 		final IElementTaker<V> setter,
 		final IElementTakerElementGetter<BaseNode, V> valueCreator

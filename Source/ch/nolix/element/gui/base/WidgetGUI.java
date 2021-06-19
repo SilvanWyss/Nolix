@@ -15,7 +15,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentExce
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.programcontrol.processproperty.ChangeState;
 import ch.nolix.common.state.Visibility;
-import ch.nolix.element.base.ForwardingProperty;
+import ch.nolix.element.base.CatchingProperty;
 import ch.nolix.element.base.MultiValue;
 import ch.nolix.element.elementapi.IConfigurableElement;
 import ch.nolix.element.elementenum.ExtendedContentPosition;
@@ -161,13 +161,13 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	
 	//attribute
 	@SuppressWarnings("unused")
-	private final ForwardingProperty<Color> backgroundColor =
-	new ForwardingProperty<>(BACKGROUND_COLOR_HEADER, this::setBackgroundColor, Color::fromSpecification);
+	private final CatchingProperty<Color> backgroundColor =
+	new CatchingProperty<>(BACKGROUND_COLOR_HEADER, this::setBackgroundColor, Color::fromSpecification);
 	
 	//attribute
 	@SuppressWarnings("unused")
-	private final ForwardingProperty<ColorGradient> backgroundColorGradient =
-	new ForwardingProperty<>(
+	private final CatchingProperty<ColorGradient> backgroundColorGradient =
+	new CatchingProperty<>(
 		BACKGROUND_COLOR_GRADIENT_HEADER,
 		this::setBackgroundColorGradient,
 		ColorGradient::fromSpecification
