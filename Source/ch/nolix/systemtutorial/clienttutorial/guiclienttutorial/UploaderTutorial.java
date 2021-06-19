@@ -5,7 +5,7 @@ import ch.nolix.common.programcontrol.sequencer.Sequencer;
 import ch.nolix.element.gui.widget.Uploader;
 import ch.nolix.system.client.base.NetServer;
 import ch.nolix.system.client.guiclient.BackGUIClientSession;
-import ch.nolix.system.client.guiclient.FrontCanvasGUIClient;
+import ch.nolix.system.client.guiclient.FrontGUIClient;
 
 public class UploaderTutorial {
 	
@@ -18,7 +18,7 @@ public class UploaderTutorial {
 		netServer.addDefaultApplication("Uploader tutorial", MainSession.class);
 		
 		//Creates a FrontGUIClient that will connect to the NetServer.
-		new FrontCanvasGUIClient();
+		new FrontGUIClient();
 		
 		//Starts a web browser that will connect to the NetServer.
 		ShellProvider.startFirefoxOpeningLoopBackAddress();

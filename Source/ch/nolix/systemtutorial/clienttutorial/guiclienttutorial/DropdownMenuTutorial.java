@@ -5,7 +5,7 @@ import ch.nolix.common.programcontrol.sequencer.Sequencer;
 import ch.nolix.element.gui.widget.DropdownMenu;
 import ch.nolix.system.client.base.NetServer;
 import ch.nolix.system.client.guiclient.BackGUIClientSession;
-import ch.nolix.system.client.guiclient.FrontCanvasGUIClient;
+import ch.nolix.system.client.guiclient.FrontGUIClient;
 
 public final class DropdownMenuTutorial {
 	
@@ -18,7 +18,7 @@ public final class DropdownMenuTutorial {
 		netServer.addDefaultApplication("DropdownMenu tutorial", MainSession.class);
 		
 		//Creates a FrontCanvasGUIClient that will connect to the NetServer.
-		new FrontCanvasGUIClient();
+		new FrontGUIClient();
 		
 		//Starts a web browser that will connect to the NetServer.
 		ShellProvider.startFirefoxOpeningLoopBackAddress();
