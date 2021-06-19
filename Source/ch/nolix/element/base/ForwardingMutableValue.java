@@ -65,6 +65,6 @@ public final class ForwardingMutableValue<V> extends Property implements Named {
 	//method
 	@Override
 	protected void fillUpAttributesInto(final LinkedList<Node> list) {
-		list.addAtEnd(specificationCreator.getOutput(getValue()));
+		list.addAtEnd(specificationCreator.getOutput(getter.getOutput()));
 	}
 }
