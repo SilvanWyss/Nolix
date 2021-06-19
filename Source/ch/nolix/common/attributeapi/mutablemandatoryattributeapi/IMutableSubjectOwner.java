@@ -2,18 +2,18 @@
 package ch.nolix.common.attributeapi.mutablemandatoryattributeapi;
 
 //own imports
-import ch.nolix.common.attributeapi.mandatoryattributeapi.ISubjectOwner;
+import ch.nolix.common.attributeapi.mandatoryattributeapi.ISubjectHolder;
 
 //interface
 /**
- * A {@link IMutableSubjectOwner} is a {@link ISubjectOwner} whose subject can be set programmatically.
+ * A {@link IMutableSubjectOwner} is a {@link ISubjectHolder} whose subject can be set programmatically.
  * 
  * @author Silvan Wyss
  * @date 2021-06-15
  * @lines 20
  * @param <MSO> is the type of a {@link IMutableSubjectOwner}.
  */
-public interface IMutableSubjectOwner<MSO extends IMutableSubjectOwner<MSO>> extends ISubjectOwner {
+public interface IMutableSubjectOwner<MSO extends IMutableSubjectOwner<MSO>> extends ISubjectHolder {
 	
 	//method declaration
 	/**
