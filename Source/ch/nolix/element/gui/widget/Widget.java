@@ -670,9 +670,7 @@ TopLeftPositionedRecangular {
 				noteKeyDownOnSelfWhenFocused(key);
 			}	
 			
-			if (redirectsInputsToShownWidgets()) {
-				getRefWidgetsForPainting().forEach(w -> w.noteKeyDown(key));
-			}
+			getRefWidgetsForPainting().forEach(w -> w.noteKeyDown(key));
 		}
 	}
 	
@@ -688,9 +686,7 @@ TopLeftPositionedRecangular {
 				noteKeyReleaseOnSelfWhenFocused(key);
 			}
 			
-			if (redirectsInputsToShownWidgets()) {
-				getRefWidgetsForPainting().forEach(w -> w.noteKeyRelease(key));
-			}
+			getRefWidgetsForPainting().forEach(w -> w.noteKeyRelease(key));
 		}
 	}
 	
@@ -706,9 +702,7 @@ TopLeftPositionedRecangular {
 				noteKeyTypingOnSelfWhenFocused(key);
 			}
 			
-			if (redirectsInputsToShownWidgets()) {
-				getRefWidgetsForPainting().forEach(w -> w.noteKeyTyping(key));
-			}
+			getRefWidgetsForPainting().forEach(w -> w.noteKeyTyping(key));
 		}
 	}
 	
