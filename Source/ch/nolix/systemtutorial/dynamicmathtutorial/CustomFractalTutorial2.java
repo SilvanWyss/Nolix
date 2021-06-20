@@ -39,7 +39,11 @@ public final class CustomFractalTutorial2 {
 					i -> {
 						
 						if (i < maxIterationCount) {
-							return Color.withRedValueAndGreenValueAndBlueValue(i % 256, i % 256, i % 256);
+							
+							final var component = i % 256;
+							
+							return
+							Color.withRedValueAndGreenValueAndBlueValue(component,	component,	component);
 						}
 						
 						return Color.BLACK;
