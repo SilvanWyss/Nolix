@@ -5,6 +5,10 @@ package ch.nolix.element.gui.textbox;
 import ch.nolix.common.attributeapi.mutablemandatoryattributeapi.IMutableTextHolder;
 import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.common.errorcontrol.validator.Validator;
+import ch.nolix.common.functionapi.IAction;
+import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.element.base.ForwardingMutableValue;
 import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.elementenum.RotationDirection;
@@ -15,6 +19,7 @@ import ch.nolix.element.gui.painterapi.IPainter;
 import ch.nolix.element.gui.widget.BorderWidget;
 import ch.nolix.element.gui.widget.Button;
 import ch.nolix.element.gui.widget.TextBoxLook;
+import ch.nolix.element.gui.widget.TextLineWidget;
 import ch.nolix.element.gui.widget.TextMode;
 import ch.nolix.element.gui.widget.Widget;
 
@@ -133,6 +138,22 @@ public final class TextBox extends BorderWidget<TextBox, TextBoxLook> implements
 		
 		coverTextWhenSecretTextModeFlag.setValue(true);
 		updateInternalsFromTextMode();
+		
+		return this;
+	}
+	
+	//method
+	public TextBox setNoteTextUpdateAction(final IAction noteTextUpdateAction) {
+		
+		internalTextBox.setNoteTextUpdateAction(noteTextUpdateAction);
+		
+		return this;
+	}
+	
+	//method
+	public TextBox setNoteTextUpdateAction(final IElementTaker<String> noteTextUpdateAction) {
+		
+		internalTextBox.setNoteTextUpdateAction(noteTextUpdateAction);
 		
 		return this;
 	}
