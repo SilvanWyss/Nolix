@@ -1,7 +1,7 @@
 package ch.nolix.elementtutorial.guitutorial.widgettutorial;
 
 import ch.nolix.element.gui.base.Frame;
-import ch.nolix.element.gui.widget.TextBox;
+import ch.nolix.element.gui.textbox.TextBox;
 
 /**
  * The {@link TextBoxTutorial} is a tutorial for {@link TextBox}s.

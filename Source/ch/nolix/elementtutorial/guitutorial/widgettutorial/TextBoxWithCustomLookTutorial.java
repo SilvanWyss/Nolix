@@ -2,7 +2,7 @@ package ch.nolix.elementtutorial.guitutorial.widgettutorial;
 
 import ch.nolix.element.gui.base.Frame;
 import ch.nolix.element.gui.color.Color;
-import ch.nolix.element.gui.widget.TextBox;
+import ch.nolix.element.gui.textbox.TextBox;
 import ch.nolix.element.gui.widget.WidgetLookState;
 
 /**

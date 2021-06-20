@@ -3,7 +3,7 @@ package ch.nolix.system.databaseapplication.propertybinder;
 
 //own imports
 import ch.nolix.common.functionapi.IAction;
-import ch.nolix.element.gui.widget.TextBox;
+import ch.nolix.element.gui.textbox.TextBox;
 import ch.nolix.system.database.entity.Value;
 
 //class
