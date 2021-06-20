@@ -99,6 +99,11 @@ public final class TextBox extends BorderWidget<TextBox, TextBoxLook> implements
 	}
 	
 	//method
+	public void emptyText() {
+		internalTextBox.emptyText();
+	}
+	
+	//method
 	@Override
 	public String getText() {
 		return internalTextBox.getText();
