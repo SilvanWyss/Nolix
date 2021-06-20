@@ -24,7 +24,7 @@ import ch.nolix.element.gui.widget.Widget;
 public final class TextBox extends BorderWidget<TextBox, TextBoxLook> implements IMutableTextHolder<TextBox> {
 	
 	//constants
-	public static final String DEFAULT_TEXT = ch.nolix.element.gui.widget.TextBox.DEFAULT_TEXT;
+	public static final String DEFAULT_TEXT = ch.nolix.element.gui.textbox.TextBoxInputField.DEFAULT_TEXT;
 	public static final TextMode DEFAULT_TEXT_MODE = TextMode.NORMAL;
 	public static final boolean DEFAULT_COVER_TEXT_WHEN_SECRET_TEXT_MODE_FLAG = true;
 	public static final boolean DEFAULT_SHOW_TOGGLE_BUTTON_WHEN_SECRET_TEXT_MODE_FLAG = true;
@@ -71,15 +71,15 @@ public final class TextBox extends BorderWidget<TextBox, TextBoxLook> implements
 	
 	//attributes
 	private final HorizontalStack mainHorizontalStack = new HorizontalStack();
-	private final ch.nolix.element.gui.widget.TextBox internalTextBox = new ch.nolix.element.gui.widget.TextBox();
+	private final TextBoxInputField inputField = new TextBoxInputField();
 	private final Button toggleButton = new Button();
 	
 	//constructor
 	public TextBox() {
 		
-		internalTextBox.reset();
+		inputField.reset();
 		
-		mainHorizontalStack.addWidget(internalTextBox, toggleButton);
+		mainHorizontalStack.addWidget(inputField, toggleButton);
 		
 		toggleButton.reset();
 		toggleButton
@@ -97,13 +97,13 @@ public final class TextBox extends BorderWidget<TextBox, TextBoxLook> implements
 	
 	//method
 	public void emptyText() {
-		internalTextBox.emptyText();
+		inputField.emptyText();
 	}
 	
 	//method
 	@Override
 	public String getText() {
-		return internalTextBox.getText();
+		return inputField.getText();
 	}
 	
 	//method
@@ -147,7 +147,7 @@ public final class TextBox extends BorderWidget<TextBox, TextBoxLook> implements
 	//method
 	public TextBox setNoteTextUpdateAction(final IAction noteTextUpdateAction) {
 		
-		internalTextBox.setNoteTextUpdateAction(noteTextUpdateAction);
+		inputField.setNoteTextUpdateAction(noteTextUpdateAction);
 		
 		return this;
 	}
@@ -155,7 +155,7 @@ public final class TextBox extends BorderWidget<TextBox, TextBoxLook> implements
 	//method
 	public TextBox setNoteTextUpdateAction(final IElementTaker<String> noteTextUpdateAction) {
 		
-		internalTextBox.setNoteTextUpdateAction(noteTextUpdateAction);
+		inputField.setNoteTextUpdateAction(noteTextUpdateAction);
 		
 		return this;
 	}
@@ -173,7 +173,7 @@ public final class TextBox extends BorderWidget<TextBox, TextBoxLook> implements
 	@Override
 	public TextBox setText(final String text) {
 		
-		internalTextBox.setText(text);
+		inputField.setText(text);
 		
 		return this;
 	}
@@ -290,13 +290,13 @@ public final class TextBox extends BorderWidget<TextBox, TextBoxLook> implements
 	protected void recalculateBorderWidget() {
 		
 		if (isFocused()) {
-			internalTextBox.setFocused();
+			inputField.setFocused();
 		} else {
-			internalTextBox.setUnfocused();
+			inputField.setUnfocused();
 		}
 		
 		if (hasTargetWidth() && getTextMode() == TextMode.SECRET) {
-			internalTextBox.setProposalWidth(
+			inputField.setProposalWidth(
 				getContentArea().getTargetWidth() - toggleButton.getWidth()
 			);
 		}
@@ -309,7 +309,7 @@ public final class TextBox extends BorderWidget<TextBox, TextBoxLook> implements
 		setTextMode(DEFAULT_TEXT_MODE);
 		setCoverTextWhenSecretTextMode();
 		
-		internalTextBox.reset();
+		inputField.reset();
 	}
 	
 	//method
@@ -344,9 +344,9 @@ public final class TextBox extends BorderWidget<TextBox, TextBoxLook> implements
 		if (getTextMode() == TextMode.SECRET) {
 			
 			if (coversTextWhenSecretTextMode()) {
-				internalTextBox.setTextMode(TextMode.SECRET);
+				inputField.setTextMode(TextMode.SECRET);
 			} else {
-				internalTextBox.setTextMode(TextMode.NORMAL);
+				inputField.setTextMode(TextMode.NORMAL);
 			}
 			
 			if (showsToggleButtonWhenSecretTextMode()) {
@@ -355,7 +355,7 @@ public final class TextBox extends BorderWidget<TextBox, TextBoxLook> implements
 				toggleButton.setCollapsed();
 			}
 		} else {
-			internalTextBox.setTextMode(TextMode.NORMAL);
+			inputField.setTextMode(TextMode.NORMAL);
 			toggleButton.setCollapsed();
 		}
 	}

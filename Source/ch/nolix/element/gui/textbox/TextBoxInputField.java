@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.gui.widget;
+package ch.nolix.element.gui.textbox;
 
 //own imports
 import ch.nolix.common.constant.CharacterCatalogue;
@@ -15,14 +15,19 @@ import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.gui.base.CursorIcon;
 import ch.nolix.element.gui.input.Key;
 import ch.nolix.element.gui.painterapi.IPainter;
+import ch.nolix.element.gui.widget.BorderWidget;
+import ch.nolix.element.gui.widget.TextBoxLook;
+import ch.nolix.element.gui.widget.TextLineWidget;
+import ch.nolix.element.gui.widget.TextMode;
+import ch.nolix.element.gui.widget.WidgetLookState;
 
 //class
 /**
  * @author Silvan Wyss
  * @date 2017-01-01
- * @lines 420
+ * @lines 430
  */
-public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
+final class TextBoxInputField extends TextLineWidget<TextBoxInputField, TextBoxLook> {
 	
 	//constants
 	public static final String DEFAULT_TEXT = StringCatalogue.EMPTY_STRING;
@@ -56,9 +61,9 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	
 	//constructor
 	/**
-	 * Creates a new {@link TextBox}.
+	 * Creates a new {@link TextBoxInputField}.
 	 */
-	public TextBox() {
+	public TextBoxInputField() {
 		
 		reset();
 		
@@ -87,7 +92,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	
 	//method
 	/**
-	 * @return the width of the text cursor of the current {@link TextBox}.
+	 * @return the width of the text cursor of the current {@link TextBoxInputField}.
 	 */
 	public int getTextCursorWidth() {
 		return Calculator.getMax(1, (int)(0.08 * getRefLook().getTextSize()));
@@ -95,7 +100,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	
 	//method
 	/**
-	 * @return the text mode of the current {@link TextBox}.
+	 * @return the text mode of the current {@link TextBoxInputField}.
 	 */
 	public TextMode getTextMode() {
 		return textMode.getValue();
@@ -154,13 +159,13 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	
 	//method
 	/**
-	 * Sets the text mode of the current {@link TextBox}.
+	 * Sets the text mode of the current {@link TextBoxInputField}.
 	 * 
 	 * @param textMode
-	 * @return the current {@link TextBox}.
+	 * @return the current {@link TextBoxInputField}.
 	 * @throws ArgumentIsNullException if the given textMode is null.
 	 */
-	public TextBox setTextMode(final TextMode textMode) {
+	public TextBoxInputField setTextMode(final TextMode textMode) {
 		
 		this.textMode.setValue(textMode);
 		
@@ -295,7 +300,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	
 	//method
 	/**
-	 * @return the shown text before the text cursor of the current {@link TextBox}.
+	 * @return the shown text before the text cursor of the current {@link TextBoxInputField}.
 	 */
 	private String getShownTextBeforeTextCursor() {
 		return getShownText().substring(0, getTextCursorPosition());
@@ -303,7 +308,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	
 	//method
 	/**
-	 * @return the shown text of the current {@link TextBox} for {@link TextMode#NORMAL}.
+	 * @return the shown text of the current {@link TextBoxInputField} for {@link TextMode#NORMAL}.
 	 */
 	private String getShownTextForNormalTextMode() {
 		return getText();
@@ -311,7 +316,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	
 	//method
 	/**
-	 * @return the shown text of the current {@link TextBox} for {@link TextMode#SECRET}.
+	 * @return the shown text of the current {@link TextBoxInputField} for {@link TextMode#SECRET}.
 	 */
 	private String getShownTextForSecretTextMode() {
 		final var stringBuilder = new StringBuilder();
@@ -326,7 +331,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 
 	//method
 	/**
-	 * @return the text after the text cursor of the current {@link TextBox}.
+	 * @return the text after the text cursor of the current {@link TextBoxInputField}.
 	 */
 	private String getTextAfterTextCursor() {
 		return getText().substring(getTextCursorPosition());
@@ -334,7 +339,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	
 	//method
 	/**
-	 * @return the text before the text cursor of the current {@link TextBox}.
+	 * @return the text before the text cursor of the current {@link TextBoxInputField}.
 	 */
 	private String getTextBeforeTextCursor() {
 		return getText().substring(0, getTextCursorPosition());
@@ -342,7 +347,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	
 	//method
 	/**
-	 * @return the text cursor position of the current {@link TextBox}.
+	 * @return the text cursor position of the current {@link TextBoxInputField}.
 	 */
 	private int getTextCursorPosition() {
 		return textCursorPosition.getValue();
@@ -350,7 +355,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	
 	//method
 	/**
-	 * @return the x-position of the text cursor of the current {@link TextBox} on the content area.
+	 * @return the x-position of the text cursor of the current {@link TextBoxInputField} on the content area.
 	 */
 	private int getTextCursorXPositionOnContentArea() {
 		
@@ -363,7 +368,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	
 	//method
 	/**
-	 * Inserts the given character after the text cursor to the text of the current {@link TextBox}.
+	 * Inserts the given character after the text cursor to the text of the current {@link TextBoxInputField}.
 	 * 
 	 * @param character
 	 */
@@ -376,7 +381,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	
 	//method
 	/**
-	 * Lets the current {@link TextBox} note a key press for the case when
+	 * Lets the current {@link TextBoxInputField} note a key press for the case when
 	 * the current {@link BorderWidget} is focused and the given key is a character.
 	 * 
 	 * @param characterKey
@@ -396,7 +401,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	
 	//method
 	/**
-	 * Paints the text cursor of the current {@link TextBox} using the given painter and textBoxLook.
+	 * Paints the text cursor of the current {@link TextBoxInputField} using the given painter and textBoxLook.
 	 * @param painter
 	 * @param textBoxLook
 	 */
@@ -414,7 +419,7 @@ public final class TextBox extends TextLineWidget<TextBox, TextBoxLook> {
 	
 	//method
 	/**
-	 * Sets the text cursor position of the current {@link TextBox}.
+	 * Sets the text cursor position of the current {@link TextBoxInputField}.
 	 * 
 	 * @param textCursorPosition
 	 * @throws NegativeArgumentException if the given text cursor position is negative.
