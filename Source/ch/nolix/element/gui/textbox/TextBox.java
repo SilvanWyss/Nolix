@@ -116,6 +116,15 @@ public final class TextBox extends BorderWidget<TextBox, TextBoxLook> implements
 	}
 	
 	//method
+	public TextBox setCoverTextWhenSecretTextMode() {
+		
+		coverTextWhenSecretTextModeFlag.setValue(true);
+		updateInternalsFromTextMode();
+		
+		return this;
+	}
+	
+	//method
 	public TextBox setDoNotCoverTextWhenSecretTextMode() {
 		
 		coverTextWhenSecretTextModeFlag.setValue(false);
@@ -128,15 +137,6 @@ public final class TextBox extends BorderWidget<TextBox, TextBoxLook> implements
 	public TextBox setDoNotShowToggleButtonWhenSecretTextMode() {
 		
 		showToggleButtonWhenSecretTextModeFlag.setValue(false);
-		updateInternalsFromTextMode();
-		
-		return this;
-	}
-	
-	//method
-	public TextBox setCoverTextWhenSecretTextMode() {
-		
-		coverTextWhenSecretTextModeFlag.setValue(true);
 		updateInternalsFromTextMode();
 		
 		return this;
