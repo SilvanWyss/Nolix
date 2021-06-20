@@ -795,9 +795,9 @@ public final class Color extends Element<Color> {
 			final var alphaValue = getColorComponentFrom(string.substring(8, 10));
 			return new Color(redValue, greenValue, blueValue, alphaValue);
 		}
-			
+		
 		//Handles the case that the given value is a color name.
-		return fromValue(Long.valueOf(string));
+		return pair.getRefElement().getRefElement2();
 	}
 	
 	//static method
