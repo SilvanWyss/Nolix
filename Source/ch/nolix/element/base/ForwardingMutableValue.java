@@ -15,6 +15,48 @@ import ch.nolix.common.functionapi.IElementTakerElementGetter;
 //class
 public final class ForwardingMutableValue<V> extends Property implements Named {
 	
+	//static method
+	public static ForwardingMutableValue<Boolean> forBoolean(
+		final String name,
+		final IElementTaker<Boolean> setter,
+		final IElementGetter<Boolean> getter
+	) {
+		return
+		new ForwardingMutableValue<>(name, setter, getter, BaseNode::getOneAttributeAsBoolean, Node::withAttribute);
+	}
+	
+	//static method
+	public static ForwardingMutableValue<Integer> forInt(
+		final String name,
+		final IElementTaker<Integer> setter,
+		final IElementGetter<Integer> getter
+	) {
+		return new ForwardingMutableValue<>(name, setter, getter, BaseNode::getOneAttributeAsInt, Node::withAttribute);
+	}
+	
+	//static method
+	public static ForwardingMutableValue<String> forString(
+		final String name,
+		final IElementTaker<String> setter,
+		final IElementGetter<String> getter
+	) {
+		return
+		new ForwardingMutableValue<>(
+			name,
+			setter,
+			getter,
+			s -> s.getRefOneAttribute().getHeaderOrEmptyString(),
+			s -> {
+				
+				if (s.isEmpty()) {
+					return new Node();
+				}
+				
+				return Node.withAttribute(s);
+			}
+		);
+	}
+	
 	//attributes
 	private final String name;
 	private final IElementTaker<V> setter;
