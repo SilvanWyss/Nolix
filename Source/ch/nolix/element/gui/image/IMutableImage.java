@@ -5,8 +5,8 @@ package ch.nolix.element.gui.image;
 import ch.nolix.element.gui.color.Color;
 
 //interface
-public interface IMutableImage extends IImage {
+public interface IMutableImage<MI extends IMutableImage<MI>> extends IImage<MI> {
 	
 	//method declaration
-	IMutableImage setPixel(int xPosition, int yPosition, Color color);
+	MI setPixel(int xPosition, int yPosition, Color color);
 }

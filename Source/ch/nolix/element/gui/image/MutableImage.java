@@ -26,7 +26,7 @@ import ch.nolix.element.base.Value;
 import ch.nolix.element.gui.color.Color;
 
 //class
-public final class MutableImage extends MutableElement<MutableImage> implements IMutableImage {
+public final class MutableImage extends MutableElement<MutableImage> implements IMutableImage<MutableImage> {
 	
 	//constant
 	private static final String PIXEL_ARRAY_HEADER = "PixelArray";

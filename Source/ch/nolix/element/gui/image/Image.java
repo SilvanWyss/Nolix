@@ -11,11 +11,11 @@ import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
 import ch.nolix.common.environment.runningjar.RunningJar;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.element.elementapi.IElement;
+import ch.nolix.element.gui.base.Element;
 import ch.nolix.element.gui.color.Color;
 
 //class
-public final class Image implements IElement<Image>, IImage {
+public final class Image extends Element<Image> implements IImage<Image> {
 	
 	//static method
 	public static Image fromFile(final String filePath) {

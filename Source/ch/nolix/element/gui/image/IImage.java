@@ -5,10 +5,11 @@ package ch.nolix.element.gui.image;
 import java.awt.image.BufferedImage;
 
 //own imports
+import ch.nolix.element.elementapi.IElement;
 import ch.nolix.element.gui.color.Color;
 
 //interface
-public interface IImage {
+public interface IImage<I extends IImage<I>> extends IElement<I> {
 	
 	//method declaration
 	Color getBottomLeftPixel();
@@ -26,7 +27,7 @@ public interface IImage {
 	int getPixelCount();
 	
 	//method declaration
-	IImage getSection(int xPosition, int yPosition, int width, int height);
+	IMutableImage<?> getSection(int xPosition, int yPosition, int width, int height);
 	
 	//method declaration
 	Color getTopLeftPixel();
@@ -41,32 +42,32 @@ public interface IImage {
 	BufferedImage toBufferedImage();
 	
 	//method declaration
-	IImage toImmutableImage();
+	IImage<?> toImmutableImage();
 	
 	//method declaration
 	byte[] toJPG();
 	
 	//method declaration
-	IImage toLeftRotatedImage();
+	IMutableImage<?> toLeftRotatedImage();
 	
 	//method declaration
 	byte[] toPNG();
 	
 	//method declaration
-	IMutableImage toRepeatedImage(int width, int height);
+	IMutableImage<?> toRepeatedImage(int width, int height);
 	
 	//method declaration
-	IMutableImage toRightRotatedImage();
+	IMutableImage<?> toRightRotatedImage();
 	
 	//method declaration
-	IMutableImage toScaledImage(double factor);
+	IMutableImage<?> toScaledImage(double factor);
 	
 	//method declaration
-	IMutableImage toScaledImage(double widthFactor, double heightFactor);
+	IMutableImage<?> toScaledImage(double widthFactor, double heightFactor);
 	
 	//method declaration
-	IMutableImage toStretchedImage(int width, int height);
+	IMutableImage<?> toStretchedImage(int width, int height);
 	
 	//method declaration
-	IMutableImage withAlphaValue(final double alphaValue);
+	IMutableImage<?> withAlphaValue(final double alphaValue);
 }
