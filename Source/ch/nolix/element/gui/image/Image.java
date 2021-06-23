@@ -172,4 +172,10 @@ public final class Image implements IElement<Image>, IImage {
 	public MutableImage toStretchedImage(final int width, final int height) {
 		return internalImage.toStretchedImage(width, height);
 	}
+	
+	//method
+	@Override
+	public MutableImage withAlphaValue(final double alphaValue) {
+		return internalImage.withAlphaValue(alphaValue);
+	}
 }

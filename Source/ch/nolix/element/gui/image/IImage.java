@@ -66,4 +66,7 @@ public interface IImage {
 	
 	//method declaration
 	IMutableImage toStretchedImage(int width, int height);
+	
+	//method declaration
+	IMutableImage withAlphaValue(final double alphaValue);
 }

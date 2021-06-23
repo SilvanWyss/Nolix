@@ -404,6 +404,18 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 	}
 	
 	//method
+	@Override
+	public MutableImage withAlphaValue(final double alphaValue) {
+		
+		final var lPixels = new Matrix<Color>();
+		for (final var r : pixels.getRows()) {
+			lPixels.addRow(r.to(p -> p.withAlphaValue(alphaValue)));
+		}
+		
+		return new MutableImage(lPixels);
+	}
+	
+	//method
 	private BufferedImage createBufferedImage() {
 		
 		final var lBufferedImage =	new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_4BYTE_ABGR_PRE);
