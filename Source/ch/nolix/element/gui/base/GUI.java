@@ -23,6 +23,7 @@ import ch.nolix.element.gui.baseapi.IBaseGUI;
 import ch.nolix.element.gui.baseapi.IFrontEndReader;
 import ch.nolix.element.gui.baseapi.IFrontEndWriter;
 import ch.nolix.element.gui.framevisualizer.FrameVisualizer;
+import ch.nolix.element.gui.image.IImage;
 import ch.nolix.element.gui.image.Image;
 import ch.nolix.element.gui.image.MutableImage;
 import ch.nolix.element.gui.input.IResizableInputTaker;
@@ -589,9 +590,9 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final G setIcon(final Image icon) {
+	public final G setIcon(final IImage<?> icon) {
 		
-		this.icon.setValue(icon.toStretchedImage(64, 64).toImmutableImage());
+		this.icon.setValue(Image.fromAnyImage(icon.toStretchedImage(64, 64)));
 		
 		return asConcrete();
 	}

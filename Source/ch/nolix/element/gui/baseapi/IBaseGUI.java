@@ -7,6 +7,7 @@ import ch.nolix.common.programcontrol.closeableelement.ICloseableElement;
 import ch.nolix.common.rasterapi.Rectangular;
 import ch.nolix.common.skillapi.Refreshable;
 import ch.nolix.element.gui.base.CursorIcon;
+import ch.nolix.element.gui.image.IImage;
 import ch.nolix.element.gui.image.Image;
 import ch.nolix.element.gui.input.IResizableInputTaker;
 
@@ -101,5 +102,5 @@ extends ICloseableElement, IResizableInputTaker, Rectangular, Refreshable, Title
 	 * @param icon
 	 * @return the current{@link IBaseGUI}.
 	 */
-	G setIcon(final Image icon);
+	G setIcon(final IImage<?> icon);
 }

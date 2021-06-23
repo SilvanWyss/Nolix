@@ -32,6 +32,7 @@ import ch.nolix.element.gui.baseapi.IBaseGUI;
 import ch.nolix.element.gui.baseapi.IFrontEndReader;
 import ch.nolix.element.gui.baseapi.IFrontEndWriter;
 import ch.nolix.element.gui.color.Color;
+import ch.nolix.element.gui.image.IImage;
 import ch.nolix.element.gui.image.Image;
 
 //class
@@ -330,9 +331,9 @@ public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G> 
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final G setIcon(final Image icon) {
+	public final G setIcon(final IImage<?> icon) {
 		
-		this.icon.setValue(icon.toStretchedImage(64, 64).toImmutableImage());
+		this.icon.setValue(Image.fromAnyImage(icon.toStretchedImage(64, 64)));
 		
 		return asConcrete();
 	}
