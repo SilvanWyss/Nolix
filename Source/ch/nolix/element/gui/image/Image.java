@@ -18,6 +18,16 @@ import ch.nolix.element.gui.color.Color;
 public final class Image extends Element<Image> implements IImage<Image> {
 	
 	//static method
+	public static Image fromAnyImage(final IImage<?> image) {
+		
+		if (image instanceof Image) {
+			return image.as(Image.class);
+		}
+		
+		return new Image(new MutableImage(image.getPixles()));
+	}
+	
+	//static method
 	public static Image fromFile(final String filePath) {
 		return new Image(MutableImage.fromFile(filePath));
 	}
