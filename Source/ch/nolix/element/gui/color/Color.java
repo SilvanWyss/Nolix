@@ -23,7 +23,7 @@ import ch.nolix.element.gui.base.Element;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 1320
+ * @lines 1350
  */
 public final class Color extends Element<Color> {
 	
@@ -1316,5 +1316,36 @@ public final class Color extends Element<Color> {
 		65536L * getRedValue()
 		+ 256 * getGreenValue()
 		+ getBlueValue();
+	}
+	
+	//method
+	/**
+	 * @param alphaValue
+	 * @return a new {@link Color} from the current {@link Color} with the given alphaValue.
+	 */
+	public Color withAlphaValue(final double alphaValue) {
+		
+		Validator.assertThat(alphaValue).thatIsNamed("alpha value").isBetween(0.0, 1.0);
+		
+		return withRedValueAndGreenValueAndBlueValueAndAlphaValue(
+			getRedValue(),
+			getGreenValue(),
+			getBlueValue(),
+			(int)(256 * alphaValue)
+		);
+	}
+	
+	//method
+	/**
+	 * @param alphaValue
+	 * @return a new {@link Color} from the current {@link Color} with the given alphaValue.
+	 */
+	public Color withIntegerAlphaValue(final int alphaValue) {
+		return withRedValueAndGreenValueAndBlueValueAndAlphaValue(
+			getRedValue(),
+			getGreenValue(),
+			getBlueValue(),
+			alphaValue
+		);
 	}
 }
