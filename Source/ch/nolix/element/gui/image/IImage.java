@@ -5,6 +5,7 @@ package ch.nolix.element.gui.image;
 import java.awt.image.BufferedImage;
 
 //own imports
+import ch.nolix.common.container.matrix.Matrix;
 import ch.nolix.element.elementapi.IElement;
 import ch.nolix.element.gui.color.Color;
 
@@ -25,6 +26,9 @@ public interface IImage<I extends IImage<I>> extends IElement<I> {
 	
 	//method declaration
 	int getPixelCount();
+	
+	//method declaration
+	Matrix<Color> getPixles();
 	
 	//method declaration
 	IMutableImage<?> getSection(int xPosition, int yPosition, int width, int height);

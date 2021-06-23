@@ -86,6 +86,12 @@ public final class Image extends Element<Image> implements IImage<Image> {
 	
 	//method
 	@Override
+	public Matrix<Color> getPixles() {
+		return internalImage.getPixles();
+	}
+	
+	//method
+	@Override
 	public MutableImage getSection(int xPosition, int yPosition, int width, int height) {
 		return internalImage.getSection(xPosition, yPosition, width, height);
 	}

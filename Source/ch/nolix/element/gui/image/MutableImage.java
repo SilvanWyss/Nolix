@@ -200,6 +200,12 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 	
 	//method
 	@Override
+	public Matrix<Color> getPixles() {
+		return pixels.getCopy();
+	}
+	
+	//method
+	@Override
 	public MutableImage getSection(final int xPosition, final int yPosition, final int width, final int height) {
 		
 		Validator.assertThat(xPosition).thatIsNamed("x-position").isPositive();
