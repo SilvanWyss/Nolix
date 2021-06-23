@@ -32,6 +32,11 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 	private static final String PIXEL_ARRAY_HEADER = "PixelArray";
 	
 	//static method
+	public static MutableImage fromAnyImage(final IImage<?> image) {
+		return new MutableImage(image.getPixles());
+	}
+	
+	//static method
 	public static MutableImage fromBytes(final byte[] bytes) {
 		return fromBufferedImage(GlobalBufferedImageHelper.fromBytes(bytes));
 	}
