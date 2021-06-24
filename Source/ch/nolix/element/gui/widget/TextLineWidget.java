@@ -326,7 +326,7 @@ extends BorderWidget<TLW, TLWL> {
 	protected abstract void resetTextLineWidget();
 	
 	//method
-	private void setTextWhenHasOtherText(final String text) {
+	protected void setTextWhenHasOtherText(final String text) {
 		
 		this.text.setValue(text);
 		

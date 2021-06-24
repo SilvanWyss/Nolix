@@ -11,6 +11,7 @@ import ch.nolix.element.base.ForwardingMutableValue;
 import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.elementenum.RotationDirection;
 import ch.nolix.element.gui.base.CursorIcon;
+import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.containerwidget.HorizontalStack;
 import ch.nolix.element.gui.input.Key;
 import ch.nolix.element.gui.painterapi.IPainter;
@@ -19,6 +20,7 @@ import ch.nolix.element.gui.widget.Button;
 import ch.nolix.element.gui.widget.TextBoxLook;
 import ch.nolix.element.gui.widget.TextMode;
 import ch.nolix.element.gui.widget.Widget;
+import ch.nolix.element.gui.widget.WidgetLookState;
 
 //class
 public final class TextBox extends BorderWidget<TextBox, TextBoxLook> implements IMutableTextHolder<TextBox> {
@@ -78,9 +80,7 @@ public final class TextBox extends BorderWidget<TextBox, TextBoxLook> implements
 	public TextBox() {
 		
 		inputField.reset();
-		
 		mainHorizontalStack.addWidget(inputField, toggleButton);
-		
 		toggleButton.reset();
 		toggleButton
 		.setCustomCursorIcon(CursorIcon.HAND)
@@ -88,6 +88,14 @@ public final class TextBox extends BorderWidget<TextBox, TextBoxLook> implements
 		.setLeftMouseButtonPressAction(this::toggleCoverTextWhenSecretTextModeFlag);
 		
 		reset();
+		
+		setCustomCursorIcon(CursorIcon.EDIT);
+		setProposalWidth(200);
+		onLook(
+			l ->
+			l.setBorderThicknessForState(WidgetLookState.BASE, 1)
+			.setBackgroundColorForState(WidgetLookState.BASE, Color.WHITE)
+		);
 	}
 	
 	//method

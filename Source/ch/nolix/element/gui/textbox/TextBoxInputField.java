@@ -19,7 +19,6 @@ import ch.nolix.element.gui.widget.BorderWidget;
 import ch.nolix.element.gui.widget.TextBoxLook;
 import ch.nolix.element.gui.widget.TextLineWidget;
 import ch.nolix.element.gui.widget.TextMode;
-import ch.nolix.element.gui.widget.WidgetLookState;
 
 //class
 /**
@@ -67,8 +66,6 @@ final class TextBoxInputField extends TextLineWidget<TextBoxInputField, TextBoxL
 		
 		reset();
 		
-		setProposalWidth(200);
-		getRefLook().setBorderThicknessForState(WidgetLookState.BASE, 1);
 		setCustomCursorIcon(CursorIcon.EDIT);
 	}
 	
@@ -196,7 +193,7 @@ final class TextBoxInputField extends TextLineWidget<TextBoxInputField, TextBoxL
 	 */
 	@Override
 	protected int getTextWidthAddition() {
-		return TEXT_CURSOR_WIDTH;
+		return 2*TEXT_CURSOR_WIDTH;
 	}
 	
 	//method
@@ -429,5 +426,16 @@ final class TextBoxInputField extends TextLineWidget<TextBoxInputField, TextBoxL
 		Validator.assertThat(textCursorPosition).thatIsNamed("text cursor position").isNotNegative();
 		
 		this.textCursorPosition.setValue(textCursorPosition);
+	}
+	
+	//method
+	@Override
+	protected void setTextWhenHasOtherText(final String text) {
+		
+		super.setTextWhenHasOtherText(text);
+		
+		if (textCursorPosition.getValue() > text.length()) {
+			textCursorPosition.setValue(text.length());
+		}
 	}
 }
