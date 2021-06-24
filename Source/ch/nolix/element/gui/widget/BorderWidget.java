@@ -62,7 +62,7 @@ import ch.nolix.element.gui.painterapi.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 1360
+ * @lines 1370
  * @param <BW> is the type of a {@link BorderWidget}.
  * @param <BWL> is the type of the {@link BorderWidgetLook}s of a {@link BorderWidget}.
  */
@@ -1307,6 +1307,15 @@ extends Widget<BW, BWL> {
 	 */
 	protected abstract void recalculateBorderWidget();
 	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected boolean redirectsInputsToShownWidgets() {
+		return (isEnabled() && (showAreaIsUnderCursor() || !anyScrollBarIsVisible()));
+	}
+	
 	//method declaration
 	/**
 	 * Resets the current {@link BorderWidget}.
@@ -1359,5 +1368,10 @@ extends Widget<BW, BWL> {
 		setShowAreaYPositionOnScrolledArea(0);
 		
 		resetBorderWidgetConfiguration();
+	}
+	
+	//method
+	private boolean anyScrollBarIsVisible() {
+		return (verticalScrollBar.isVisible() || horizontalScrollBar.isVisible());
 	}
 }

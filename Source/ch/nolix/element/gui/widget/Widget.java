@@ -1632,7 +1632,7 @@ TopLeftPositionedRecangular {
 	/**
 	 * @return true if the current {@link Widget} redirects inputs to its shown {@link Widget}s.
 	 */
-	protected final boolean redirectsInputsToShownWidgets() {
+	protected boolean redirectsInputsToShownWidgets() {
 		return (isEnabled() && showAreaIsUnderCursor());
 	}
 	
