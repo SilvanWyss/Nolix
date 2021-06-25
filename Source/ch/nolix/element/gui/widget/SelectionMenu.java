@@ -44,7 +44,7 @@ public final class SelectionMenu extends ItemMenu<SelectionMenu> {
 	//method
 	@Override
 	protected void noteAddItem(final ItemMenuItem itemMenuItem) {
-		mainVerticalStack.addWidget(itemMenuItem.getRefLabel());
+		mainVerticalStack.add(itemMenuItem.getRefLabel());
 	}
 	
 	//method

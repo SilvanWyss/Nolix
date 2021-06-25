@@ -51,7 +51,7 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	private final MultiValueExtractor<Widget<?, ?>> widgetsExtractor =
 	new MultiValueExtractor<>(
 		CHILD_HEADER,
-		this::addWidget,
+		this::add,
 		this::getChildWidgets,
 		WidgetGUI::createWidgetFrom,
 		Widget::getSpecification
@@ -67,7 +67,7 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	 * @throws InvalidArgumentException
 	 * if the given widget belongs to another GUI than the current {@link Stack}.
 	 */
-	public final S addWidget(final Widget<?, ?> widget) {
+	public final S add(final Widget<?, ?> widget) {
 		
 		//Asserts that the given widget is not null.
 		Validator.assertThat(widget).isOfType(Widget.class);
@@ -87,7 +87,7 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	 * @throws InvalidArgumentException
 	 * if one of the given widgets belongs to another GUI than the current {@link Stack}.
 	 */
-	public final S addWidget(final Widget<?, ?>... widgets) {
+	public final S add(final Widget<?, ?>... widgets) {
 		return addWidgets(ReadContainer.forArray(widgets));
 	}
 	
@@ -104,7 +104,7 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	 */
 	public final <W extends Widget<?, ?>> S addWidgets(final Iterable<W> widgets) {
 		
-		widgets.forEach(this::addWidget);
+		widgets.forEach(this::add);
 		
 		return asConcrete();
 	}

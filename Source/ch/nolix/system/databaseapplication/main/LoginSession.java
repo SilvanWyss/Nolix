@@ -13,7 +13,7 @@ public final class LoginSession extends DatabaseApplicationSession {
 	protected VerticalStack createContentWidget() {
 		return
 		new VerticalStack()
-		.addWidget(
+		.add(
 			new Button()
 			.setRole(ButtonRole.ACTION_BUTTON)
 			.setText("Login")

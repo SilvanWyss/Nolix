@@ -16,7 +16,7 @@ public abstract class UserSession extends DatabaseApplicationSession {
 	protected final VerticalStack createContentWidget() {
 		return
 		new VerticalStack()
-		.addWidget(
+		.add(
 			createNavigationWidget(),
 			createSubContentWidget()
 		);

@@ -54,7 +54,7 @@ public final class EntitySession extends HeaderedSession {
 	protected VerticalStack createSubSubContentWidget() {
 		return
 		new VerticalStack()
-		.addWidget(
+		.add(
 			createMainDataWidget(),
 			createReferenceDataWidget(),
 			createBackReferenceDataWidget()
@@ -96,10 +96,10 @@ public final class EntitySession extends HeaderedSession {
 	private VerticalStack createMainDataWidget() {
 		return
 		new VerticalStack()
-		.addWidget(
+		.add(
 			createDataGrid(),
 			new HorizontalStack()
-			.addWidget(
+			.add(
 				new Button()
 				.setRole(ButtonRole.SAVE_BUTTON)
 				.setText("Save")
@@ -125,7 +125,7 @@ public final class EntitySession extends HeaderedSession {
 			for (final var e : mr.getRefEntities()) {
 				final var lEntitySetName = e.getParentEntitySet().getName();
 				final var lEntityId = e.getId();
-				multiReferenceHorizontalStack.addWidget(
+				multiReferenceHorizontalStack.add(
 					new Button()
 					.setText(e.getIdAsString())
 					.setLeftMouseButtonPressAction(() -> push(new EntitySession(lEntitySetName, lEntityId)))

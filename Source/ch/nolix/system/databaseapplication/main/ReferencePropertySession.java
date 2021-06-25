@@ -39,10 +39,10 @@ public final class ReferencePropertySession extends HeaderedSession {
 	protected Widget<?, ?> createSubSubContentWidget() {
 		return
 		new VerticalStack()
-		.addWidget(
+		.add(
 			createReferencesSelectionMenu(),
 			new HorizontalStack()
-			.addWidget(
+			.add(
 				new Button()
 				.setText("Select")
 				.setLeftMouseButtonPressAction(this::select),

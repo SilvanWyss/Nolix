@@ -35,7 +35,7 @@ public abstract class HeaderedSession extends UserSession {
 	@Override
 	protected final VerticalStack createSubContentWidget() {
 		return new VerticalStack()
-				.addWidget(
+				.add(
 			createHeaderWidget(),
 			createSubSubContentWidget()
 		);

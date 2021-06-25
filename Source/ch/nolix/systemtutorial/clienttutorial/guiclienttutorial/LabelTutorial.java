@@ -54,7 +54,7 @@ public final class LabelTutorial {
 			//Adds the clockCaptionLabel and clockLabel to the GUI of the current MainSession.
 			getRefGUI().addLayerOnTop(
 				new HorizontalStack()
-				.addWidget(clockCaptionLabel, clockLabel)
+				.add(clockCaptionLabel, clockLabel)
 			);
 			
 			//Starts a background job that updates constantly the text of the clockLabel.

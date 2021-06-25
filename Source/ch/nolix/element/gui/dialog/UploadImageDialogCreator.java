@@ -50,11 +50,11 @@ public final class UploadImageDialogCreator {
 		.setRootWidget(
 			new VerticalStack()
 			.setRole(ContainerRole.DIALOG_CONTAINER)
-			.addWidget(
+			.add(
 				imageWidget,
 				new Uploader().setFileTaker(data -> imageWidget.setImage(MutableImage.fromBytes(data))),
 				new HorizontalStack()
-				.addWidget(
+				.add(
 					new Button()
 					.setRole(ButtonRole.CANCEL_BUTTON)
 					.setText("Cancel")

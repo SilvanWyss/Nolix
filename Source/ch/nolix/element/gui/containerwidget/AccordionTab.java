@@ -134,8 +134,8 @@ public final class AccordionTab extends MutableElement<AccordionTab> implements 
 		headerLabel.reset();
 		widgetContainer.reset();
 		
-		mainVerticalStack.addWidget(headerHorizontalStack, widgetContainer);
-		headerHorizontalStack.addWidget(headerLabel);
+		mainVerticalStack.add(headerHorizontalStack, widgetContainer);
+		headerHorizontalStack.add(headerLabel);
 		
 		headerLabel
 		.setCustomCursorIcon(CursorIcon.HAND)

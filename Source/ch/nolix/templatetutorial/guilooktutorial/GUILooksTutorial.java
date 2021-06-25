@@ -32,12 +32,12 @@ public final class GUILooksTutorial {
 		.addLayerOnTop(
 			new VerticalStack()
 			.setRole(ContainerRole.OVERALL_CONTAINTER)
-			.addWidget(
+			.add(
 				new Label()
 				.setRole(LabelRole.TITLE)
 				.setText("Configure your GUI !"),
 				new HorizontalStack()
-				.addWidget(
+				.add(
 					selectionMenu,
 					new Grid()
 					.setRole(ContainerRole.MAINT_CONTAINER)

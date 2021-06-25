@@ -26,7 +26,7 @@ public abstract class DatabaseApplicationSession extends BackGUIClientSession {
 		getRefGUI()
 		.addLayerOnTop(
 			new VerticalStack()
-			.addWidget(
+			.add(
 				createTitleWidget(),
 				createContentWidget()
 			)
@@ -71,11 +71,11 @@ public abstract class DatabaseApplicationSession extends BackGUIClientSession {
 		
 		final var titleHorizontalStack = new HorizontalStack();
 		
-		titleHorizontalStack.addWidget(createTitleLabel());
+		titleHorizontalStack.add(createTitleLabel());
 		
 		final var parentDatabaseApplication = getParentApplication().as(DatabaseApplication.class);
 		if (parentDatabaseApplication.hasPageLogo()) {
-			titleHorizontalStack.addWidget(
+			titleHorizontalStack.add(
 				new ImageWidget().setImage(parentDatabaseApplication.getPageLogo())
 			);
 		}

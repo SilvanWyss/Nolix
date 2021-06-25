@@ -38,7 +38,7 @@ public final class LayerTutorial {
 		.setContentPosition(ExtendedContentPosition.CENTER)
 		.setRootWidget(
 			new VerticalStack()
-			.addWidget(
+			.add(
 				new Button()
 				.setText("Close")
 				.setLeftMouseButtonReleaseAction(frame::removeTopLayer)

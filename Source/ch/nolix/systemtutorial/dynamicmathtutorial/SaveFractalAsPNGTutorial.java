@@ -28,7 +28,7 @@ public final class SaveFractalAsPNGTutorial {
 		//Lets the Frame show the Image.
 		frame.addLayerOnTop(
 			new VerticalStack()
-			.addWidget(
+			.add(
 				new Downloader()
 				.setText("Save as PNG")
 				.setFileProvider(image::toPNG),

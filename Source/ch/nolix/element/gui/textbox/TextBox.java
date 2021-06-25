@@ -80,7 +80,7 @@ public final class TextBox extends BorderWidget<TextBox, TextBoxLook> implements
 	public TextBox() {
 		
 		inputField.reset();
-		mainHorizontalStack.addWidget(inputField, toggleButton);
+		mainHorizontalStack.add(inputField, toggleButton);
 		toggleButton.reset();
 		toggleButton
 		.setCustomCursorIcon(CursorIcon.HAND)
