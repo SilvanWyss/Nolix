@@ -24,7 +24,7 @@ public final class ImageWidgetTutorial {
 		//Creates a Frame.
 		final var frame = new Frame().setTitle("ImageWidget tutorial");
 		
-		//Creates an Image from resource.
+		//Creates an image from resource.
 		final var image =
 		MutableImage.fromResource("ch/nolix/elementTutorial/guitutorial/widgetTutorial/resource/Singer_Building.jpg");
 		
