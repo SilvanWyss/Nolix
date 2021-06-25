@@ -6,7 +6,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsOutOfRang
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.net.endpoint.NetServer;
 import ch.nolix.system.client.base.Application;
-import ch.nolix.system.client.base.Server;
+import ch.nolix.system.client.base.BaseServer;
 import ch.nolix.system.client.baseguiclient.BaseFrontGUIClient;
 import ch.nolix.system.client.baseguiclient.BaseFrontGUIClientGUIType;
 
@@ -61,16 +61,16 @@ public final class FrontConsoleClient extends BaseFrontGUIClient<FrontConsoleCli
 	/**
 	 * Creates a new {@link FrontConsoleClient} that will connect to the given application on the server.
 	 * 
-	 * @param server
+	 * @param baseServer
 	 * @param application
 	 * @throws ArgumentIsNullException if the given application is null.
 	 * @throws InvalidArgumentException if the given application is blank.
 	 */
-	public FrontConsoleClient(final Server server, final String application) {
+	public FrontConsoleClient(final BaseServer baseServer, final String application) {
 		
 		super(BaseFrontGUIClientGUIType.CANVAS_GUI);
 		
-		internalConnectTo(server, application);
+		internalConnectTo(baseServer, application);
 	}
 	
 	//constructor

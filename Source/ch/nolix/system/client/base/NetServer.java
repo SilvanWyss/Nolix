@@ -10,13 +10,13 @@ import ch.nolix.common.net.endpoint3.EndPoint;
 
 //class
 /**
- * A {@link NetServer} is a {@link Server} that listens to net {@link Client}s on a specific port.
+ * A {@link NetServer} is a {@link BaseServer} that listens to net {@link Client}s on a specific port.
  * 
  * @author Silvan Wyss
  * @date 2017-09-10
  * @lines 100
  */
-public final class NetServer extends Server {
+public final class NetServer extends BaseServer {
 	
 	//constant
 	public static final int DEFAULT_PORT = PortCatalogue.HTTP_PORT;

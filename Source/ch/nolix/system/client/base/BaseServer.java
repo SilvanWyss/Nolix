@@ -13,14 +13,14 @@ import ch.nolix.common.skillapi.Clearable;
 
 //class
 /**
- * A {@link Server} can contain {@link Application}s.
- * A {@link Server} is clearable and closable.
+ * A {@link BaseServer} can contain {@link Application}s.
+ * A {@link BaseServer} is clearable and closable.
  * 
  * @author Silvan Wyss
  * @date 2016-11-01
  * @lines 250
  */
-public class Server implements Clearable, ICloseableElement {
+public class BaseServer implements Clearable, ICloseableElement {
 	
 	//attribute
 	private final CloseController closeController = new CloseController(this);
@@ -33,22 +33,22 @@ public class Server implements Clearable, ICloseableElement {
 	
 	//constructor
 	/**
-	 * Creates a new {@link Server}.
+	 * Creates a new {@link BaseServer}.
 	 */
-	public Server() {}
+	public BaseServer() {}
 	
 	//constructor
-	public Server(final Application<?> defaultApplication) {
+	public BaseServer(final Application<?> defaultApplication) {
 		addDefaultApplication(defaultApplication);
 	}
 	
 	//method
 	/**
-	 * Adds the given application to the current {@link Server}.
+	 * Adds the given application to the current {@link BaseServer}.
 	 * 
 	 * @param application
 	 * @throws ArgumentIsNullException if the given application is null.
-	 * @throws InvalidArgumentException if the current {@link Server}
+	 * @throws InvalidArgumentException if the current {@link BaseServer}
 	 * contains already a {@link Application} with the same name as the given application.
 	 */
 	public final void addApplication(final Application<?> application) {
@@ -71,11 +71,11 @@ public class Server implements Clearable, ICloseableElement {
 	
 	//method
 	/**
-	 * Adds the given applications to the current {@link Server}.
+	 * Adds the given applications to the current {@link BaseServer}.
 	 * 
 	 * @param applications
 	 * @throws ArgumentIsNullException if one of the given applications is null.
-	 * @throws InvalidArgumentException if the current {@link Server}
+	 * @throws InvalidArgumentException if the current {@link BaseServer}
 	 * contains already an other application with the same name as one of the given applications.
 	 */
 	public final void addApplication(final Application<?>... applications) {
@@ -87,12 +87,12 @@ public class Server implements Clearable, ICloseableElement {
 	}
 	
 	/**
-	 * Adds a new {@link Application} with the given name and initialSessionClass to the current {@link Server}.
+	 * Adds a new {@link Application} with the given name and initialSessionClass to the current {@link BaseServer}.
 	 * 
 	 * @param name
 	 * @param initialSessionClass
 	 * @throws InvalidArgumentException
-	 * if the current {@link Server} contains already a {@link Application} with the given name.
+	 * if the current {@link BaseServer} contains already a {@link Application} with the given name.
 	 * @throws ArgumentIsNullException if the given name is null.
 	 * @throws InvalidArgumentException if the given name is blank.
 	 * @throws ArgumentIsNullException if the given initialSessionClass is null.
@@ -105,13 +105,13 @@ public class Server implements Clearable, ICloseableElement {
 	
 	//method
 	/**
-	 * Adds the given defaultApplication to the current {@link Server}.
+	 * Adds the given defaultApplication to the current {@link BaseServer}.
 	 * A default {@link Application} will take the {@link Client}s without target.
 	 * 
 	 * @param defaultApplication
 	 * @throws ArgumentIsNullException if the given defaultApplication is null.
-	 * @throws InvalidArgumentException if the current {@link Server} contains already a default {@link Application}.
-	 * @throws InvalidArgumentException if the current {@link Server}
+	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already a default {@link Application}.
+	 * @throws InvalidArgumentException if the current {@link BaseServer}
 	 * contains already a {@link Application} with the same name as the given defaultApplication.
 	 */
 	public final void addDefaultApplication(final Application<?> defaultApplication) {
@@ -127,13 +127,13 @@ public class Server implements Clearable, ICloseableElement {
 	}
 	
 	/**
-	 * Adds a new default {@link Application} with the given name and initialSessionClass to the current {@link Server}.
+	 * Adds a new default {@link Application} with the given name and initialSessionClass to the current {@link BaseServer}.
 	 * 
 	 * @param name
 	 * @param initialSessionClass
-	 * @throws InvalidArgumentException if the current {@link Server} contains already a default {@link Application}.
+	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already a default {@link Application}.
 	 * @throws InvalidArgumentException
-	 * if the current {@link Server} contains already a {@link Application} with the given name.
+	 * if the current {@link BaseServer} contains already a {@link Application} with the given name.
 	 * @throws ArgumentIsNullException if the given name is null.
 	 * @throws InvalidArgumentException if the given name is blank.
 	 * @throws ArgumentIsNullException if the given initialSessionClass is null.
@@ -146,7 +146,7 @@ public class Server implements Clearable, ICloseableElement {
 	
 	//method
 	/**
-	 * Removes all {@link Application}s of the current {@link Server}.
+	 * Removes all {@link Application}s of the current {@link BaseServer}.
 	 */
 	@Override
 	public final void clear() {
@@ -157,7 +157,7 @@ public class Server implements Clearable, ICloseableElement {
 	//method
 	/**
 	 * @param name
-	 * @return true if the current {@link Server} contains a {@link Application} with the given name.
+	 * @return true if the current {@link BaseServer} contains a {@link Application} with the given name.
 	 */
 	public final boolean containsApplication(final String name) {
 		return applications.contains(a -> a.hasName(name));
@@ -165,7 +165,7 @@ public class Server implements Clearable, ICloseableElement {
 	
 	//method
 	/**
-	 * @return true if the current {@link Server} contains a default {@link Application}.
+	 * @return true if the current {@link BaseServer} contains a default {@link Application}.
 	 */
 	public final boolean containsDefaultApplication() {
 		return (defaultApplication != null);
@@ -174,9 +174,9 @@ public class Server implements Clearable, ICloseableElement {
 	//method
 	/**
 	 * @param name
-	 * @return the {@link Application} with the given name from the current {@link Server}.
+	 * @return the {@link Application} with the given name from the current {@link BaseServer}.
 	 * @throws ArgumentDoesNotHaveAttributeException
-	 * if the current {@link Server} does not contain a {@link Application} with the given name.
+	 * if the current {@link BaseServer} does not contain a {@link Application} with the given name.
 	 */
 	public final Application<?> getRefApplication(final String name) {
 		return applications.getRefFirst(a -> a.hasName(name));
@@ -193,9 +193,9 @@ public class Server implements Clearable, ICloseableElement {
 	
 	//method
 	/**
-	 * @return the default {@link Application} of the current {@link Server}.
+	 * @return the default {@link Application} of the current {@link BaseServer}.
 	 * @throws ArgumentDoesNotHaveAttributeException
-	 * if the current {@link Server} does not contain a default {@link Application}.
+	 * if the current {@link BaseServer} does not contain a default {@link Application}.
 	 */
 	public final Application<?> getRefDefaultApplication() {
 		
@@ -209,7 +209,7 @@ public class Server implements Clearable, ICloseableElement {
 
 	//method
 	/**
-	 * @return true if the current {@link Server} has a {@link Client} connected.
+	 * @return true if the current {@link BaseServer} has a {@link Client} connected.
 	 */
 	public final boolean hasClientConnected() {
 		return applications.contains(Application::hasClientConnected);
@@ -217,7 +217,7 @@ public class Server implements Clearable, ICloseableElement {
 	
 	//method
 	/**
-	 * @return true if the current {@link Server} does not contain a {@link Application}.
+	 * @return true if the current {@link BaseServer} does not contain a {@link Application}.
 	 */
 	@Override
 	public final boolean isEmpty() {
@@ -233,11 +233,11 @@ public class Server implements Clearable, ICloseableElement {
 	
 	//method
 	/**
-	 * Lets the current {@link Server} take the given client.
+	 * Lets the current {@link BaseServer} take the given client.
 	 * 
 	 * @param client
 	 * @throws ArgumentDoesNotHaveAttributeException if the given client does not have a target
-	 * and the current {@link Server} does not contain a default {@link Application}.
+	 * and the current {@link BaseServer} does not contain a default {@link Application}.
 	 */
 	public final void takeClient(final Client<?> client) {
 		

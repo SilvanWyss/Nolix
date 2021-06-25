@@ -357,16 +357,16 @@ implements ICloseableElement, OptionalLabelable<C>, ISmartObject<C>, TypeRequest
 	 * Connects the current {@link Client} to the default application
 	 * on the given server.
 	 * 
-	 * @param server
+	 * @param baseServer
 	 * @throws InvalidArgumentException if the current {@link Client} is already connected.
 	 */
-	protected final void internalConnectTo(final Server server) {
+	protected final void internalConnectTo(final BaseServer baseServer) {
 		
 		//Creates the duplex controller of the current client.
 		internalSetEndPoint(new LocalEndPoint());
 		
 		//Connects the current client to the default application on the given server.
-		server.getRefDefaultApplication().takeEndPoint(
+		baseServer.getRefDefaultApplication().takeEndPoint(
 			((LocalEndPoint)endPoint).getRefCounterpart()
 		);
 	}
@@ -376,17 +376,17 @@ implements ICloseableElement, OptionalLabelable<C>, ISmartObject<C>, TypeRequest
 	 * Connects the current {@link Client} to the application with the given name
 	 * on the given server.
 	 * 
-	 * @param server
+	 * @param baseServer
 	 * @param name
 	 * @throws InvalidArgumentException if the current {@link Client} is already connected.
 	 */
-	protected final void internalConnectTo(final Server server, final String name) {
+	protected final void internalConnectTo(final BaseServer baseServer, final String name) {
 		
 		//Creates the duplex controller of the current client.
 		internalSetEndPoint(new LocalEndPoint());
 		
 		//Connects the current client to the application with the given name on the given server.
-		server.getRefApplication(name).takeEndPoint(
+		baseServer.getRefApplication(name).takeEndPoint(
 			((LocalEndPoint)endPoint).getRefCounterpart()
 		);
 	}
