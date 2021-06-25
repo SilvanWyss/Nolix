@@ -170,6 +170,12 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 	
 	//method
 	@Override
+	public MutableImage asWithWidthAndHeight(final int width, final int height) {
+		return toScaledImage((double)width / getWidth(), (double)height / getHeight());
+	}
+	
+	//method
+	@Override
 	public Color getBottomLeftPixel() {
 		return getPixel(1, getHeight());
 	}
@@ -406,12 +412,6 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 		}
 		
 		return image;
-	}
-	
-	//method
-	@Override
-	public MutableImage toStretchedImage(int width, int height) {
-		return toScaledImage((double)width / getWidth(), (double)height / getHeight());
 	}
 	
 	//method

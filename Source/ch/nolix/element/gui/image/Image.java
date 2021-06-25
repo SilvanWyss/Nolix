@@ -60,6 +60,12 @@ public final class Image extends Element<Image> implements IImage<Image> {
 	
 	//method
 	@Override
+	public MutableImage asWithWidthAndHeight(final int width, final int height) {
+		return internalImage.asWithWidthAndHeight(width, height);
+	}
+	
+	//method
+	@Override
 	public void fillUpAttributesInto(LinkedList<Node> list) {
 		internalImage.fillUpAttributesInto(list);
 	}
@@ -181,12 +187,6 @@ public final class Image extends Element<Image> implements IImage<Image> {
 	@Override
 	public MutableImage toScaledImage(double widthFactor, double heightFactor) {
 		return internalImage.toScaledImage(widthFactor, heightFactor);
-	}
-	
-	//method
-	@Override
-	public MutableImage toStretchedImage(final int width, final int height) {
-		return internalImage.toStretchedImage(width, height);
 	}
 	
 	//method
