@@ -24,7 +24,7 @@ public final class UploadImageDialogCreatorTutorial {
 		.setTitle("ErrorDialog tutorial");
 		
 		//Loads an Image from file.
-		final var image = MutableImage.fromResource("ch/nolix/elementTutorial/widgetTutorial/resource/Singer_Building.jpg");
+		final var image = MutableImage.fromResource("ch/nolix/elementTutorial/guitutorial/widgetTutorial/resource/Singer_Building.jpg");
 		
 		//Create a ImageWidget.
 		final var imageWidget = new ImageWidget().setImage(image);
