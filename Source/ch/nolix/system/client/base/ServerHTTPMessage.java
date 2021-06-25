@@ -7,7 +7,7 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.system.client.base.resource.ResourcePathCatalogue;
 
 //class
-final class NetServerHTTPMessage {
+final class ServerHTTPMessage {
 	
 	//constants
 	private static final String REQUIRE_JS_SCRIPT = RunningJar.getResource(ResourcePathCatalogue.REQUIRE_JS);
@@ -18,7 +18,7 @@ final class NetServerHTTPMessage {
 	private final int serverPort;
 	
 	//constructor
-	public NetServerHTTPMessage(final String serverIP, final int serverPort) {
+	public ServerHTTPMessage(final String serverIP, final int serverPort) {
 		
 		Validator.assertThat(serverIP).thatIsNamed("server IP").isNotBlank();
 		Validator.assertThat(serverPort).thatIsNamed("server port").isBetween(0, 65535);

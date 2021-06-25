@@ -2,7 +2,7 @@ package ch.nolix.systemtutorial.databaseapplicationtutorial;
 
 import ch.nolix.common.environment.localcomputer.ShellProvider;
 import ch.nolix.common.programcontrol.sequencer.Sequencer;
-import ch.nolix.system.client.base.NetServer;
+import ch.nolix.system.client.base.Server;
 import ch.nolix.system.database.databaseadapter.DatabaseAdapter;
 import ch.nolix.system.database.databaseadapter.IDatabaseAdapterCreator;
 import ch.nolix.system.database.databaseadapter.Schema;
@@ -26,7 +26,7 @@ public final class ProductManagerTutorial {
 		final var productManager = new ProductManager(nodeDatabaseAdapterCreator);
 		
 		//Creates a NetServer.
-		final var netServer = new NetServer();
+		final var netServer = new Server();
 		
 		//Adds the ProductManager as default Application to the NetServer.
 		netServer.addDefaultApplication(productManager);

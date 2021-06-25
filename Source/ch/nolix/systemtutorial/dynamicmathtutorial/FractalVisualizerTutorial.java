@@ -10,7 +10,7 @@ import ch.nolix.element.gui.widget.Button;
 import ch.nolix.element.gui.widget.ImageWidget;
 import ch.nolix.element.gui.widget.Label;
 import ch.nolix.system.client.base.Application;
-import ch.nolix.system.client.base.NetServer;
+import ch.nolix.system.client.base.Server;
 import ch.nolix.system.client.guiclient.BackGUIClient;
 import ch.nolix.system.client.guiclient.BackGUIClientSession;
 import ch.nolix.system.dynamicmath.FractalBuilder;
@@ -19,7 +19,7 @@ public final class FractalVisualizerTutorial {
 	
 	public static void main(String[] args) {
 		
-		new NetServer().addDefaultApplication(new FractalVisualizer());
+		new Server().addDefaultApplication(new FractalVisualizer());
 		
 		ShellProvider.startDefaultWebBrowserOpeningLoopBackAddress();
 	}

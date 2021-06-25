@@ -5,7 +5,7 @@ import ch.nolix.common.programcontrol.sequencer.Sequencer;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.textbox.TextBox;
 import ch.nolix.element.gui.widget.WidgetLookState;
-import ch.nolix.system.client.base.NetServer;
+import ch.nolix.system.client.base.Server;
 import ch.nolix.system.client.guiclient.BackGUIClientSession;
 import ch.nolix.system.client.guiclient.FrontGUIClient;
 
@@ -14,7 +14,7 @@ public final class TextBoxTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a NetServer.
-		final var netServer = new NetServer();
+		final var netServer = new Server();
 		
 		//Adds a default Application to the NetServer.
 		netServer.addDefaultApplication("TextBox tutorial", MainSession.class);

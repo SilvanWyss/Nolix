@@ -3,7 +3,7 @@ package ch.nolix.systemtutorial.clienttutorial.guiclienttutorial;
 import ch.nolix.common.environment.localcomputer.ShellProvider;
 import ch.nolix.common.programcontrol.sequencer.Sequencer;
 import ch.nolix.element.gui.widget.DropdownMenu;
-import ch.nolix.system.client.base.NetServer;
+import ch.nolix.system.client.base.Server;
 import ch.nolix.system.client.guiclient.BackGUIClientSession;
 import ch.nolix.system.client.guiclient.FrontGUIClient;
 
@@ -12,7 +12,7 @@ public final class DropdownMenuTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a NetServer.
-		final var netServer = new NetServer();
+		final var netServer = new Server();
 		
 		//Adds a default Application to the NetServer.
 		netServer.addDefaultApplication("DropdownMenu tutorial", MainSession.class);

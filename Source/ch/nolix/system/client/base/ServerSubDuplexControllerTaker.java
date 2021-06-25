@@ -12,28 +12,28 @@ import ch.nolix.common.net.endpoint3.IEndPointTaker;
  * @date 2016-11-01
  * @lines 50
  */
-final class NetServerSubDuplexControllerTaker implements IEndPointTaker {
+final class ServerSubDuplexControllerTaker implements IEndPointTaker {
 	
 	//name
 	private static final String NAME = "InternalDuplexControllerTaker";
 	
 	//attribute
-	private final NetServer netServer;
+	private final Server server;
 	
 	//constructor
 	/**
 	 * Creates a new net server sub duplex controller taker with the given net server.
 	 * 
-	 * @param netServer
+	 * @param server
 	 * @throws ArgumentIsNullException if the given net server is null.
 	 */
-	public NetServerSubDuplexControllerTaker(final NetServer netServer) {
+	public ServerSubDuplexControllerTaker(final Server server) {
 		
 		//Asserts that the given server is not null.
-		Validator.assertThat(netServer).isOfType(NetServer.class);
+		Validator.assertThat(server).isOfType(Server.class);
 		
 		//Sets the net server of this snet server sub duplex controller taker.
-		this.netServer = netServer;
+		this.server = server;
 	}
 
 	//method
@@ -53,6 +53,6 @@ final class NetServerSubDuplexControllerTaker implements IEndPointTaker {
 	 */
 	@Override
 	public void takeEndPoint(final EndPoint endPoint) {
-		netServer.takeEndPoint(endPoint);
+		server.takeEndPoint(endPoint);
 	}
 }

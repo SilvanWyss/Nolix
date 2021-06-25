@@ -2,7 +2,7 @@ package ch.nolix.systemtutorial.clienttutorial.consoleclienttutorial;
 
 import ch.nolix.common.environment.localcomputer.ShellProvider;
 import ch.nolix.common.programcontrol.sequencer.Sequencer;
-import ch.nolix.system.client.base.NetServer;
+import ch.nolix.system.client.base.Server;
 import ch.nolix.system.client.consoleclient.BackConsoleClientSession;
 import ch.nolix.system.client.consoleclient.FrontConsoleClient;
 import ch.nolix.template.consoleclientlook.BlackRedConsoleClientLookCreator;
@@ -12,7 +12,7 @@ public final class WebConsoleClientTutorial {
 	public static void main(final String[] arguments) {
 		
 		//Creates a NetServer.
-		final var netServer = new NetServer();
+		final var netServer = new Server();
 		
 		//Adds a default Application to the NetServer.
 		netServer.addDefaultApplication("WebConsoleClient tutorial", MainSession.class);

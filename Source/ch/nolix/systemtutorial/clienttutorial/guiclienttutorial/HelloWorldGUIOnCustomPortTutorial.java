@@ -4,7 +4,7 @@ import ch.nolix.common.environment.localcomputer.ShellProvider;
 import ch.nolix.common.programcontrol.sequencer.Sequencer;
 import ch.nolix.element.gui.widget.Label;
 import ch.nolix.element.gui.widget.WidgetLookState;
-import ch.nolix.system.client.base.NetServer;
+import ch.nolix.system.client.base.Server;
 import ch.nolix.system.client.guiclient.BackGUIClientSession;
 import ch.nolix.system.client.guiclient.FrontGUIClient;
 
@@ -16,7 +16,7 @@ public final class HelloWorldGUIOnCustomPortTutorial {
 		final var port = 50000;
 		
 		//Creates a NetServers.
-		final var netServer = new NetServer(port);
+		final var netServer = new Server(port);
 		
 		//Adds a default Application to the NetServer.
 		netServer.addDefaultApplication("Hello World GUI on custom port tutorial", MainSession.class);

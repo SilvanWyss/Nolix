@@ -6,7 +6,7 @@ import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.image.MutableImage;
 import ch.nolix.element.gui.widget.ImageWidget;
 import ch.nolix.element.gui.widget.WidgetLookState;
-import ch.nolix.system.client.base.NetServer;
+import ch.nolix.system.client.base.Server;
 import ch.nolix.system.client.guiclient.BackGUIClientSession;
 import ch.nolix.system.client.guiclient.FrontGUIClient;
 
@@ -15,7 +15,7 @@ public final class ImageWidgetTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a NetServer.
-		final var netServer = new NetServer();
+		final var netServer = new Server();
 		
 		//Adds a default Application to the NetServer.
 		netServer.addDefaultApplication("ImageWidget tutorial", MainSession.class);
