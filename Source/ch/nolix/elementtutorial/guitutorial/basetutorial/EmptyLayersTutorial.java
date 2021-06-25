@@ -40,7 +40,7 @@ public final class EmptyLayersTutorial {
 		rectaglesImage.setPixel(2, 1, Color.RED);
 		rectaglesImage.setPixel(1, 2, Color.RED);
 		rectaglesImage.setPixel(2, 2, Color.BLUE);
-		final var transparentRectanglesImage = rectaglesImage.withAlphaValue(0.25);
+		final var transparentRectanglesImage = rectaglesImage.asWithAlphaValue(0.25);
 		
 		//Adds a new Layer to top of the Frame with the transparentRectanglesImage as background Image.
 		frame.addLayerOnTop(new Layer().setBackgroundImage(transparentRectanglesImage, ImageApplication.SCALE_TO_FRAME));

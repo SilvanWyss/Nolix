@@ -191,7 +191,7 @@ public final class Image extends Element<Image> implements IImage<Image> {
 	
 	//method
 	@Override
-	public MutableImage withAlphaValue(final double alphaValue) {
-		return internalImage.withAlphaValue(alphaValue);
+	public MutableImage asWithAlphaValue(final double alphaValue) {
+		return internalImage.asWithAlphaValue(alphaValue);
 	}
 }

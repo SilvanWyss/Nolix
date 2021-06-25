@@ -11,6 +11,9 @@ import ch.nolix.element.gui.color.Color;
 
 //interface
 public interface IImage<I extends IImage<I>> extends IElement<I> {
+		
+	//method declaration
+	IMutableImage<?> asWithAlphaValue(final double alphaValue);
 	
 	//method declaration
 	IMutableImage<?> asWithWidthAndHeight(int width, int height);
@@ -71,7 +74,4 @@ public interface IImage<I extends IImage<I>> extends IElement<I> {
 	
 	//method declaration
 	IMutableImage<?> toScaledImage(double widthFactor, double heightFactor);
-	
-	//method declaration
-	IMutableImage<?> withAlphaValue(final double alphaValue);
 }
