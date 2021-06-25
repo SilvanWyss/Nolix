@@ -68,7 +68,7 @@ public final class FrameWithNameTextBoxTutorial {
 		layer1.setBackgroundColor(Color.LAVENDER);
 		layer1VerticalStack.setElementMargin(10);
 		confirmButton.setCustomCursorIcon(CursorIcon.HAND);
-		layer2.setBackgroundColor(Color.BLACK.withAlphaValue(0.5)).setContentPosition(ExtendedContentPosition.CENTER);
+		layer2.setBackgroundColor(Color.BLACK.asWithAlphaValue(0.5)).setContentPosition(ExtendedContentPosition.CENTER);
 		layer2AligningContainer
 		.setMinWidth(500)
 		.setMinHeight(200)

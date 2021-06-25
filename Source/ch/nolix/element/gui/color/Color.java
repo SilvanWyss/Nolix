@@ -1011,6 +1011,23 @@ public final class Color extends Element<Color> {
 	
 	//method
 	/**
+	 * @param alphaValue
+	 * @return a new {@link Color} from the current {@link Color} with the given alphaValue.
+	 */
+	public Color asWithAlphaValue(final double alphaValue) {
+		
+		Validator.assertThat(alphaValue).thatIsNamed("alpha value").isBetween(0.0, 1.0);
+		
+		return withRedValueAndGreenValueAndBlueValueAndAlphaValue(
+			getRedValue(),
+			getGreenValue(),
+			getBlueValue(),
+			(int)(256 * alphaValue)
+		);
+	}
+	
+	//method
+	/**
 	 * @return a new {@link java.awt.Color} from the current {@link Color}.
 	 */
 	public java.awt.Color createSwingColor() {
@@ -1316,23 +1333,6 @@ public final class Color extends Element<Color> {
 		65536L * getRedValue()
 		+ 256 * getGreenValue()
 		+ getBlueValue();
-	}
-	
-	//method
-	/**
-	 * @param alphaValue
-	 * @return a new {@link Color} from the current {@link Color} with the given alphaValue.
-	 */
-	public Color withAlphaValue(final double alphaValue) {
-		
-		Validator.assertThat(alphaValue).thatIsNamed("alpha value").isBetween(0.0, 1.0);
-		
-		return withRedValueAndGreenValueAndBlueValueAndAlphaValue(
-			getRedValue(),
-			getGreenValue(),
-			getBlueValue(),
-			(int)(256 * alphaValue)
-		);
 	}
 	
 	//method
