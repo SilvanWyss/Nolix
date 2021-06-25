@@ -11,7 +11,7 @@ import ch.nolix.element.gui.color.Color;
 
 //interface
 public interface IImage<I extends IImage<I>> extends IElement<I> {
-		
+	
 	//method declaration
 	IMutableImage<?> asWithAlphaValue(final double alphaValue);
 	
