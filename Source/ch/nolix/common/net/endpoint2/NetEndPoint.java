@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.net.endpoint2;
 
+//own imports
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.errorcontrol.exception.GeneralException;
@@ -17,7 +18,7 @@ import ch.nolix.common.programcontrol.closeableelement.ICloseableElement;
  * 
  * @author Silvan Wyss
  * @date 2017-05-22
- * @lines 330
+ * @lines 350
  */
 public class NetEndPoint extends EndPoint {
 	
@@ -58,6 +59,19 @@ public class NetEndPoint extends EndPoint {
 		
 		//Calls other constructor.
 		this(new ch.nolix.common.net.endpoint.NetEndPoint(port, target));
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link NetEndPoint} that will connect to
+	 * the default target on the default port on the machine with the given ip.
+	 * 
+	 * @param ip
+	 */
+	public NetEndPoint(final String ip) {
+		
+		//Calls other constructor.
+		this(new ch.nolix.common.net.endpoint.NetEndPoint(ip));
 	}
 	
 	//constructor
