@@ -20,6 +20,7 @@ import ch.nolix.common.errorcontrol.logger.Logger;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.net.controllerapi.IDataProviderController;
 import ch.nolix.common.programcontrol.closeableelement.ICloseableElement;
+import ch.nolix.system.client.base.Server;
 
 //class
 /**
@@ -66,7 +67,7 @@ public class NetEndPoint extends EndPoint {
 	//constructor
 	/**
 	 * Creates a new {@link NetEndPoint} that will connect to
-	 * the default target on the default port on the machine with the given ip.
+	 * the default target on the {@link Server#DEFAULT_PORT} on the machine with the given ip.
 	 * 
 	 * @param ip
 	 */

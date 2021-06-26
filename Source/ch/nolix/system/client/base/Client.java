@@ -29,7 +29,7 @@ import ch.nolix.common.programcontrol.sequencer.Sequencer;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 650
+ * @lines 660
  * @param <C> is the type of a {@link Client}.
  */
 public abstract class Client<C extends Client<C>>
@@ -389,6 +389,18 @@ implements ICloseableElement, OptionalLabelable<C>, ISmartObject<C>, TypeRequest
 		baseServer.getRefApplication(name).takeEndPoint(
 			((LocalEndPoint)endPoint).getRefCounterpart()
 		);
+	}
+	
+	//method
+	/**
+	 * Connects the current {@link Client} to
+	 * the default application on the {@link Server#DEFAULT_PORT} on the machine with the given ip.
+	 * 
+	 * @param ip
+	 * @throws InvalidArgumentException if the current {@link Client} is already connected.
+	 */
+	protected final void internalConnectTo(final String ip) {
+		internalSetEndPoint(new NetEndPoint(ip));
 	}
 	
 	//method
