@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.net.endpoint3;
 
+//own imports
 import ch.nolix.common.constant.IPv6Catalogue;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.LinkedList;
@@ -26,7 +27,7 @@ import ch.nolix.common.programcontrol.closeableelement.ICloseableElement;
  * 
  * @author Silvan Wyss
  * @ate 2016-01-01
- * @lines 290
+ * @lines 310
  */
 public class NetEndPoint extends EndPoint {
 	
@@ -61,7 +62,20 @@ public class NetEndPoint extends EndPoint {
 		//Calls other constructor.
 		this(IPv6Catalogue.LOOP_BACK_ADDRESS, port, target);
 	}
-
+	
+	//constructor
+	/**
+	 * Creates a new {@link NetEndPoint} that will connect to
+	 * the default target on the default port on the machine with the given ip.
+	 * 
+	 * @param ip
+	 */
+	public NetEndPoint(final String ip) {
+		
+		//Calls other constructor.
+		this(new ch.nolix.common.net.endpoint2.NetEndPoint(ip));
+	}
+	
 	//constructor
 	/**
 	 * Creates a new {@link NetEndPoint}
