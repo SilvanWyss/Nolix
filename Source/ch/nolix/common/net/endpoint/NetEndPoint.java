@@ -24,7 +24,7 @@ import ch.nolix.common.constant.LowerCaseCatalogue;
 /**
  * @author Silvan Wyss
  * @date 2017-05-06
- * @lines 250
+ * @lines 260
  */
 public final class NetEndPoint extends BaseNetEndPoint {
 	
@@ -57,6 +57,17 @@ public final class NetEndPoint extends BaseNetEndPoint {
 	 */
 	public NetEndPoint(final int port, final String target) {
 		this(IPv6Catalogue.LOOP_BACK_ADDRESS, port, target);
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link NetEndPoint} that will connect to
+	 * the main target on the {@link NetServer#DEFAULT_PORT} on the machine with the given ip.
+	 * 
+	 * @param ip
+	 */
+	public NetEndPoint(final String ip) {
+		this(ip, NetServer.DEFAULT_PORT);
 	}
 	
 	//constructor
