@@ -11,7 +11,7 @@ import ch.nolix.common.programcontrol.worker.Worker;
 
 //class
 /**
- * A {@link NetServerListener} listens to {@link NetEndPoint}s for a {@link NetServer}.
+ * A {@link NetServerListener} listens to {@link NetEndPoint}s for a {@link Server}.
  *  
  * @author Silvan Wyss
  * @date 2017-05-06
@@ -20,7 +20,7 @@ import ch.nolix.common.programcontrol.worker.Worker;
 final class NetServerListener extends Worker {
 	
 	//attribute
-	private final NetServer parentNetServer;
+	private final Server parentNetServer;
 	
 	//constructor
 	/**
@@ -29,7 +29,7 @@ final class NetServerListener extends Worker {
 	 * @param parentNetServer
 	 * @throws ArgumentIsNullException if the given parentNetServer is null.
 	 */
-	public NetServerListener(final NetServer parentNetServer) {
+	public NetServerListener(final Server parentNetServer) {
 		
 		//Asserts that the given netServer is not null.
 		Validator.assertThat(parentNetServer).thatIsNamed("parent NetServer").isNotNull();
@@ -49,7 +49,7 @@ final class NetServerListener extends Worker {
 	//method
 	/**
 	 * Runs the current {@link NetServerListener}.
-	 * Will close the {@link NetServer}, the current {@link NetServerListener} belongs to, when an error occurs.
+	 * Will close the {@link Server}, the current {@link NetServerListener} belongs to, when an error occurs.
 	 */
 	@Override
 	protected void run() {

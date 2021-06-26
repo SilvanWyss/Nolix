@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.commontest.nettest.endpointtest;
 
-import ch.nolix.common.net.endpoint.NetServer;
+import ch.nolix.common.net.endpoint.Server;
 import ch.nolix.common.testing.basetest.TestCase;
 import ch.nolix.common.testing.test.Test;
 
@@ -16,7 +16,7 @@ public final class NetServerTest extends Test {
 		final var port = 50000;
 		
 		//setup
-		final var netServer = new NetServer(port);
+		final var netServer = new Server(port);
 		
 		//setup verification
 		expect(netServer.getPort()).isEqualTo(port);

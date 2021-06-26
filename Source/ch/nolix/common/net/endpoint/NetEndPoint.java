@@ -62,12 +62,12 @@ public final class NetEndPoint extends BaseNetEndPoint {
 	//constructor
 	/**
 	 * Creates a new {@link NetEndPoint} that will connect to
-	 * the main target on the {@link NetServer#DEFAULT_PORT} on the machine with the given ip.
+	 * the main target on the {@link Server#DEFAULT_PORT} on the machine with the given ip.
 	 * 
 	 * @param ip
 	 */
 	public NetEndPoint(final String ip) {
-		this(ip, NetServer.DEFAULT_PORT);
+		this(ip, Server.DEFAULT_PORT);
 	}
 	
 	//constructor

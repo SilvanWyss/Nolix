@@ -25,13 +25,13 @@ import ch.nolix.common.programcontrol.worker.Worker;
 final class NetServerSocketProcessor extends Worker {
 	
 	//attributes
-	private final NetServer parentNetServer;
+	private final Server parentNetServer;
 	private final Socket socket;
 	private final InputStream socketInputStream;
 	private final OutputStream socketOutputStream;
 	
 	//constructor
-	public NetServerSocketProcessor(final NetServer parentNetServer, final Socket socket) {
+	public NetServerSocketProcessor(final Server parentNetServer, final Socket socket) {
 		
 		Validator.assertThat(parentNetServer).thatIsNamed("parent NetServer").isNotNull();
 		Validator.assertThat(socket).thatIsNamed(Socket.class).isNotNull();

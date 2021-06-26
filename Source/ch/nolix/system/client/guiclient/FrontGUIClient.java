@@ -4,7 +4,7 @@ package ch.nolix.system.client.guiclient;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.common.net.endpoint.NetServer;
+import ch.nolix.common.net.endpoint.Server;
 import ch.nolix.system.client.base.Application;
 import ch.nolix.system.client.baseguiclient.BaseFrontGUIClient;
 import ch.nolix.system.client.baseguiclient.BaseFrontGUIClientGUIType;
@@ -27,7 +27,7 @@ public final class FrontGUIClient extends BaseFrontGUIClient<FrontGUIClient> {
 		//Calls constructor of the base class.
 		super(BaseFrontGUIClientGUIType.CANVAS_GUI);
 		
-		internalConnectTo(NetServer.DEFAULT_PORT);
+		internalConnectTo(Server.DEFAULT_PORT);
 	}
 	
 	//constructor

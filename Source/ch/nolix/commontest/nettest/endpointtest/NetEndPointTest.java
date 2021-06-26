@@ -5,7 +5,7 @@ import ch.nolix.common.environment.nolixenvironment.NolixEnvironment;
 import ch.nolix.common.net.endpoint.EndPoint;
 import ch.nolix.common.net.endpoint.IEndPointTaker;
 import ch.nolix.common.net.endpoint.NetEndPoint;
-import ch.nolix.common.net.endpoint.NetServer;
+import ch.nolix.common.net.endpoint.Server;
 import ch.nolix.common.programcontrol.sequencer.Sequencer;
 import ch.nolix.common.testing.basetest.TestCase;
 import ch.nolix.common.testing.test.Test;
@@ -50,7 +50,7 @@ public final class NetEndPointTest extends Test {
 		final var port = 50000;
 		
 		//setup
-		final var netServer = new NetServer(port);
+		final var netServer = new Server(port);
 		netServer.addMainEndPointTaker(new TestEndPointTaker());
 		
 		//execution & verification
@@ -75,7 +75,7 @@ public final class NetEndPointTest extends Test {
 		final var port = 50000;
 		
 		//setup
-		final var netServer = new NetServer(port);
+		final var netServer = new Server(port);
 		final var endPointTakerMock = new TestEndPointTaker();
 		netServer.addMainEndPointTaker(endPointTakerMock);
 		final var netEndPoint = new NetEndPoint(port);

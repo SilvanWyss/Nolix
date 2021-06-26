@@ -15,9 +15,9 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 
 //class
 /**
-* A {@link NetServer} is a {@link BaseServer} that listens to {@link BaseNetEndPoint} on a specific port.
+* A {@link Server} is a {@link BaseServer} that listens to {@link BaseNetEndPoint} on a specific port.
 * 
-* A {@link NetServer} supports the WebSocket protocol and can communicate with a WebSocket.
+* A {@link Server} supports the WebSocket protocol and can communicate with a WebSocket.
  * The WebSocket protocol is complicated. Because:
  * -A WebSocket requires a HTTP handshake.
  * -A WebSocket puts its messages in frames that need to be encoded awkwardly.
@@ -28,7 +28,7 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 * @date 2016-01-01
 * @lines 160
 */
-public final class NetServer extends BaseServer {
+public final class Server extends BaseServer {
 	
 	//constant
 	public static final int DEFAULT_PORT = PortCatalogue.HTTP_PORT;
@@ -51,9 +51,9 @@ public final class NetServer extends BaseServer {
 	
 	//constructor
 	/**
-	 * Creates a new {@link NetServer} that will listen to {@link BaseNetEndPoint}s on the default port.
+	 * Creates a new {@link Server} that will listen to {@link BaseNetEndPoint}s on the default port.
 	 */
-	public NetServer() {
+	public Server() {
 		
 		//Calls other constructor.
 		this(DEFAULT_PORT, DEFAULT_HTTP_MESSAGE);
@@ -61,12 +61,12 @@ public final class NetServer extends BaseServer {
 	
 	//constructor
 	/**
-	 * Creates a new {@link NetServer} that will listen to {@link BaseNetEndPoint}s on the given port.
+	 * Creates a new {@link Server} that will listen to {@link BaseNetEndPoint}s on the given port.
 	 * 
 	 * @param port
 	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
 	 */
-	public NetServer(final int port) {
+	public Server(final int port) {
 		
 		//Calls other constructor.
 		this(port, DEFAULT_HTTP_MESSAGE);
@@ -74,10 +74,10 @@ public final class NetServer extends BaseServer {
 	
 	//constructor
 	/**
-	 * Creates a new {@link NetServer} that will listen to {@link BaseNetEndPoint}s on the given port.
+	 * Creates a new {@link Server} that will listen to {@link BaseNetEndPoint}s on the given port.
 	 * 
-	 * When a web browser connects to the {@link NetServer},
-	 * the {@link NetServer} will send the given HTTP message and close the connection.
+	 * When a web browser connects to the {@link Server},
+	 * the {@link Server} will send the given HTTP message and close the connection.
 	 * 
 	 * @param port
 	 * @param HTTPMessage
@@ -85,7 +85,7 @@ public final class NetServer extends BaseServer {
 	 * @throws ArgumentIsNullException if the given HTTP message is null.
 	 * @throws EmptyArgumentException if the given HTTP message is blank.
 	 */
-	public NetServer(final int port, final String HTTPMessage) {
+	public Server(final int port, final String HTTPMessage) {
 			
 		//Asserts that the given port is in [0,65535]. 
 		Validator.assertThat(port).isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
@@ -117,16 +117,16 @@ public final class NetServer extends BaseServer {
 	
 	//constructor
 	/**
-	 * Creates a new {@link NetServer} that will listen to {@link BaseNetEndPoint}s on the default port.
+	 * Creates a new {@link Server} that will listen to {@link BaseNetEndPoint}s on the default port.
 	 * 
-	 * When a web browser connects to the {@link NetServer},
-	 * the {@link NetServer} will send the given HTTP message and close the connection.
+	 * When a web browser connects to the {@link Server},
+	 * the {@link Server} will send the given HTTP message and close the connection.
 	 * 
 	 * @param HTTPMessage
 	 * @throws ArgumentIsNullException if the given HTTP message is null.
 	 * @throws EmptyArgumentException if the given HTTP message is blank.
 	 */
-	public NetServer(final String HTTPMessage) {
+	public Server(final String HTTPMessage) {
 		
 		//Calls other constructor.
 		this(DEFAULT_PORT, HTTPMessage);
@@ -134,7 +134,7 @@ public final class NetServer extends BaseServer {
 	
 	//method
 	/**
-	 * @return the port of the current {@link NetServer}.
+	 * @return the port of the current {@link Server}.
 	 */
 	public int getPort() {
 		return port;
@@ -155,9 +155,9 @@ public final class NetServer extends BaseServer {
 	
 	//method
 	/**
-	 * The HTTP message of a {@link NetServer} is the message a {@link NetServer} sends to web browsers.
+	 * The HTTP message of a {@link Server} is the message a {@link Server} sends to web browsers.
 	 * 
-	 * @return the HTTP message of the current {@link NetServer}.
+	 * @return the HTTP message of the current {@link Server}.
 	 */
 	String getHTTPMessage() {
 		return mHTTPMessage;
@@ -165,7 +165,7 @@ public final class NetServer extends BaseServer {
 	
 	//method
 	/**
-	 * @return the {@link ServerSocket} of the current {@link NetServer}.
+	 * @return the {@link ServerSocket} of the current {@link Server}.
 	 */
 	ServerSocket getRefServerSocket() {
 		return serverSocket;
