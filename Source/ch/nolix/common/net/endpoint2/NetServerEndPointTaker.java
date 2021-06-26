@@ -16,7 +16,7 @@ final class NetServerEndPointTaker implements ch.nolix.common.net.endpoint.IEndP
 	private static final String NAME = "NetServerEndPointTaker";
 	
 	//attribute
-	private final NetServer parentNetServer;
+	private final Server parentNetServer;
 	
 	//constructor
 	/**
@@ -25,10 +25,10 @@ final class NetServerEndPointTaker implements ch.nolix.common.net.endpoint.IEndP
 	 * @param parentNetServer
 	 * @throws ArgumentIsNullException if the given parentNetServer is null.
 	 */
-	public NetServerEndPointTaker(final NetServer parentNetServer) {
+	public NetServerEndPointTaker(final Server parentNetServer) {
 		
 		//Asserts that the given parentNetServer is not null.
-		Validator.assertThat(parentNetServer).isOfType(NetServer.class);
+		Validator.assertThat(parentNetServer).isOfType(Server.class);
 		
 		//Sets the parentNetServer of the current {@NetServerEndPointTaker}.
 		this.parentNetServer = parentNetServer;
