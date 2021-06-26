@@ -67,10 +67,10 @@ public final class LocalEndPoint extends EndPoint {
 	 * Creates a new local end point
 	 * that will connect to the given target on the given server.
 	 * 
-	 * @param server
+	 * @param baseServer
 	 * @param target
 	 */
-	public LocalEndPoint(final Server server, final String target) {
+	public LocalEndPoint(final BaseServer baseServer, final String target) {
 		
 		//Sets the requested connection flag of this local end point.
 		requestedConnection = true;
@@ -81,7 +81,7 @@ public final class LocalEndPoint extends EndPoint {
 		this.target = target;
 		
 		//Lets the given server take the counterpart of this lcoal end point.
-		server.takeEndPoint(getRefCounterpart());
+		baseServer.takeEndPoint(getRefCounterpart());
 	}
 	
 	//constructor

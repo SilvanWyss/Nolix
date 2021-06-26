@@ -11,14 +11,14 @@ import ch.nolix.common.skillapi.Clearable;
 
 //class
 /**
- * A {@link Server} contains {@link IEndPointTaker}s.
- * A {@link Server} is clearable and closable.
+ * A {@link BaseServer} contains {@link IEndPointTaker}s.
+ * A {@link BaseServer} is clearable and closable.
  * 
  * @author Silvan Wyss
  * @date 2017-03-05
  * @lines 180
  */
-public class Server implements Clearable, ICloseableElement {
+public class BaseServer implements Clearable, ICloseableElement {
 	
 	//attribute
 	private final CloseController closeController = new CloseController(this);
@@ -31,10 +31,10 @@ public class Server implements Clearable, ICloseableElement {
 	
 	//method
 	/**
-	 * Adds the given endPointTaker to the current {@link Server}.
+	 * Adds the given endPointTaker to the current {@link BaseServer}.
 	 * 
 	 * @param endPointTaker
-	 * @throws InvalidArgumentException if the current {@link Server} contains already a {@link IEndPointTaker}
+	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already a {@link IEndPointTaker}
 	 * with the same name as the given endPointTaker.
 	 */
 	public void addEndPointTaker(final IEndPointTaker endPointTaker) {
@@ -54,11 +54,11 @@ public class Server implements Clearable, ICloseableElement {
 	
 	//method
 	/**
-	 * Adds the given mainEndPointTaker to the current {@link Server}.
+	 * Adds the given mainEndPointTaker to the current {@link BaseServer}.
 	 * A main {@link IEndPointTaker} takes all {@link EndPoint}s without target.
 	 * 
 	 * @param mainEndPointTaker
-	 * @throws InvalidArgumentException if the current {@link Server} contains already a main {@link IEndPointTaker}.
+	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already a main {@link IEndPointTaker}.
 	 */
 	public final void addMainEndPointTaker(final IEndPointTaker mainEndPointTaker) {
 		
@@ -74,7 +74,7 @@ public class Server implements Clearable, ICloseableElement {
 	
 	//method
 	/**
-	 * Removes all {@link IEndPointTaker}s from the current {@link Server}.
+	 * Removes all {@link IEndPointTaker}s from the current {@link BaseServer}.
 	 */
 	@Override
 	public final void clear() {
@@ -85,7 +85,7 @@ public class Server implements Clearable, ICloseableElement {
 	//method
 	/**
 	 * @param name
-	 * @return true if the current {@link Server} contains a {@link IEndPointTaker} with the given name.
+	 * @return true if the current {@link BaseServer} contains a {@link IEndPointTaker} with the given name.
 	 */
 	public final boolean containsEndPointTaker(final String name) {
 		return endPointTakers.contains(ept -> ept.hasName(name));
@@ -93,7 +93,7 @@ public class Server implements Clearable, ICloseableElement {
 	
 	//method
 	/**
-	 * @return true if the current {@link Server} contains a main {@link IEndPointTaker}.
+	 * @return true if the current {@link BaseServer} contains a main {@link IEndPointTaker}.
 	 */
 	public final boolean containsMainEndPointTaker() {
 		return (mainEndPointTaker != null);
@@ -110,7 +110,7 @@ public class Server implements Clearable, ICloseableElement {
 	
 	//method
 	/**
-	 * @return true if the current {@link Server} does not contain a {@link IEndPointTaker}.
+	 * @return true if the current {@link BaseServer} does not contain a {@link IEndPointTaker}.
 	 */
 	@Override
 	public final boolean isEmpty() {
@@ -126,11 +126,11 @@ public class Server implements Clearable, ICloseableElement {
 	
 	//method
 	/**
-	 * Removes the {@link IEndPointTaker} with the given name from the current {@link Server}.
+	 * Removes the {@link IEndPointTaker} with the given name from the current {@link BaseServer}.
 	 * 
 	 * @param name
 	 * @throws InvalidArgumentException
-	 * if the current {@link Server} does not contain a {@link IEndPointTaker} with the given name.
+	 * if the current {@link BaseServer} does not contain a {@link IEndPointTaker} with the given name.
 	 */
 	public final void removeEndPointTaker(final String name) {
 		
@@ -145,11 +145,11 @@ public class Server implements Clearable, ICloseableElement {
 	
 	//method
 	/**
-	 * Lets the current {@link Server} take the given endPoint.
+	 * Lets the current {@link BaseServer} take the given endPoint.
 	 * 
 	 * @param endPoint
 	 * @throws ArgumentDoesNotHaveAttributeException if
-	 * the current {@link Server} does not have an arbitrary endPointTaker
+	 * the current {@link BaseServer} does not have an arbitrary endPointTaker
 	 * or does not contain an endPointTaker
 	 * with the same name as the target of the given endPointTaker. 
 	 */
@@ -167,9 +167,9 @@ public class Server implements Clearable, ICloseableElement {
 	
 	//method
 	/**
-	 * @return the main {@link IEndPointTaker} of the current {@link Server}.
+	 * @return the main {@link IEndPointTaker} of the current {@link BaseServer}.
 	 * @throws ArgumentDoesNotHaveAttributeException
-	 * if the current {@link Server} does not contain a main {@link IEndPointTaker}.
+	 * if the current {@link BaseServer} does not contain a main {@link IEndPointTaker}.
 	 */
 	private IEndPointTaker getRefMainEndPointTaker() {
 		
