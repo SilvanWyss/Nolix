@@ -7,14 +7,14 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentExcept
 
 //class
 /**
- * A {@link NetServer} is a {@link Server}
+ * A {@link NetServer} is a {@link BaseServer}
  * that listens to {@link NetEndPoint} on a specific port.
  * 
  * @author Silvan Wyss
  * @date 2016-11-01
  * @lines 60
  */
-public final class NetServer extends Server {
+public final class NetServer extends BaseServer {
 	
 	//attribute
 	private ch.nolix.common.net.endpoint2.Server internalNetServer;
