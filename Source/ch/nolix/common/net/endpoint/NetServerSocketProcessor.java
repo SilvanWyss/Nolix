@@ -90,7 +90,7 @@ final class NetServerSocketProcessor extends Worker {
 						socket,
 						socketInputStream,
 						socketOutputStream,
-						Node.fromString(firstReveivedLine).getOneAttributeHeader()
+						Node.fromString(firstReveivedLine.substring(1)).getHeader()
 					)
 				);
 			case WEB_SOCKET_OR_HTTP:
