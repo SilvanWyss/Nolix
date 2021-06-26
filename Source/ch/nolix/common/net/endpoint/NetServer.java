@@ -15,7 +15,7 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 
 //class
 /**
-* A {@link NetServer} is a {@link Server} that listens to {@link BaseNetEndPoint} on a specific port.
+* A {@link NetServer} is a {@link BaseServer} that listens to {@link BaseNetEndPoint} on a specific port.
 * 
 * A {@link NetServer} supports the WebSocket protocol and can communicate with a WebSocket.
  * The WebSocket protocol is complicated. Because:
@@ -28,7 +28,7 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 * @date 2016-01-01
 * @lines 160
 */
-public final class NetServer extends Server {
+public final class NetServer extends BaseServer {
 	
 	//constant
 	public static final int DEFAULT_PORT = PortCatalogue.HTTP_PORT;

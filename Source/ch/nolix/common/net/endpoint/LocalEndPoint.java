@@ -60,12 +60,12 @@ public final class LocalEndPoint extends EndPoint {
 	/**
 	 * Creates a new local end point that will connect to the given target on the given server.
 	 * 
-	 * @param server
+	 * @param baseServer
 	 * @param target
 	 * @throws ArgumentIsNullException if the given target is null.
 	 * @throws EmptyArgumentException if the given target is empty.
 	 */
-	public LocalEndPoint(final Server server, final String target) {
+	public LocalEndPoint(final BaseServer baseServer, final String target) {
 		
 		//Calls constructor of the base class.
 		super(ConnectionOrigin.REQUESTED_CONNECTION);
@@ -77,7 +77,7 @@ public final class LocalEndPoint extends EndPoint {
 		getRefCounterPart().setTarget(target);
 		
 		//Lets the given server take the counterpart of this local end point.
-		server.takeEndPoint(getRefCounterPart());
+		baseServer.takeEndPoint(getRefCounterPart());
 	}
 	
 	//constructor
