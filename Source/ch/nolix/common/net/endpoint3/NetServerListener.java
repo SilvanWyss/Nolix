@@ -17,22 +17,22 @@ final class NetServerListener implements ch.nolix.common.net.endpoint2.IEndPoint
 	private static final String NAME = "IntenralEndPointTaker";
 	
 	//attribute
-	private final NetServer netServer;
+	private final Server server;
 	
 	//constructor
 	/**
 	 * Creates a new net server sub end point taker with the given duplex contorller taker.
 	 * 
-	 * @param netServer 
+	 * @param server 
 	 * @throws ArgumentIsNullException if the given netServer is null.
 	 */
-	public NetServerListener(final NetServer netServer) {
+	public NetServerListener(final Server server) {
 		
 		//Asserts that the given net server is not null.
-		Validator.assertThat(netServer).isOfType(NetServer.class);
+		Validator.assertThat(server).isOfType(Server.class);
 		
 		//Sets the net server of htis net server sub end point taker.
-		this.netServer = netServer;
+		this.server = server;
 	}
 	
 	//method
@@ -54,7 +54,7 @@ final class NetServerListener implements ch.nolix.common.net.endpoint2.IEndPoint
 	 */
 	@Override
 	public void takeEndPoint(final ch.nolix.common.net.endpoint2.EndPoint endPoint) {
-		netServer.takeEndPoint(
+		server.takeEndPoint(
 			new NetEndPoint((ch.nolix.common.net.endpoint2.NetEndPoint)endPoint)
 		);
 	}

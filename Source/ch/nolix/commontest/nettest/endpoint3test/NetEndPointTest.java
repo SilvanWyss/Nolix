@@ -7,7 +7,7 @@ import ch.nolix.common.net.controllerapi.IDataProviderController;
 import ch.nolix.common.net.endpoint3.EndPoint;
 import ch.nolix.common.net.endpoint3.IEndPointTaker;
 import ch.nolix.common.net.endpoint3.NetEndPoint;
-import ch.nolix.common.net.endpoint3.NetServer;
+import ch.nolix.common.net.endpoint3.Server;
 import ch.nolix.common.programcontrol.sequencer.Sequencer;
 import ch.nolix.common.testing.basetest.TestCase;
 import ch.nolix.common.testing.test.Test;
@@ -83,7 +83,7 @@ public final class NetEndPointTest extends Test {
 		final var port = 50000;
 		
 		//setup
-		final var netServer = new NetServer(port);
+		final var netServer = new Server(port);
 		netServer.addMainEndPointTaker(new EndPointTakerMock());
 		
 		//execution & verification
@@ -108,7 +108,7 @@ public final class NetEndPointTest extends Test {
 		final var port = 50000;
 		
 		//setup
-		final var netServer = new NetServer(port);
+		final var netServer = new Server(port);
 		final var endPointTakerMock = new EndPointTakerMock();
 		netServer.addMainEndPointTaker(endPointTakerMock);
 		final var netEndPoint = new NetEndPoint(port);
@@ -132,7 +132,7 @@ public final class NetEndPointTest extends Test {
 		final var port = 50000;
 		
 		//setup
-		final var netServer = new NetServer(port);
+		final var netServer = new Server(port);
 		final var endPointTakerMock = new EndPointTakerMock();
 		netServer.addMainEndPointTaker(endPointTakerMock);
 		final var netEndPoint = new NetEndPoint(port);

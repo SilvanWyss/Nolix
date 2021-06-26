@@ -22,7 +22,7 @@ public final class Server extends BaseServer {
 	public static final int DEFAULT_PORT = PortCatalogue.HTTP_PORT;
 	
 	//attribute
-	private ch.nolix.common.net.endpoint3.NetServer internalNetServer;
+	private ch.nolix.common.net.endpoint3.Server internalNetServer;
 	
 	//constructor
 	/**
@@ -47,7 +47,7 @@ public final class Server extends BaseServer {
 		
 		//Creates the internalNetServer of the current NetServer.
 		internalNetServer =
-		new ch.nolix.common.net.endpoint3.NetServer(
+		new ch.nolix.common.net.endpoint3.Server(
 			port, 
 			new ServerHTTPMessage(LocalComputer.getLANIP(), port).toString()
 		);
