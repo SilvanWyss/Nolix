@@ -1,11 +1,12 @@
 //package declaration
 package ch.nolix.system.client.guiclient;
 
+//own imports
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.common.net.endpoint.Server;
 import ch.nolix.system.client.base.Application;
+import ch.nolix.system.client.base.Server;
 import ch.nolix.system.client.baseguiclient.BaseFrontGUIClient;
 import ch.nolix.system.client.baseguiclient.BaseFrontGUIClientGUIType;
 
@@ -13,7 +14,7 @@ import ch.nolix.system.client.baseguiclient.BaseFrontGUIClientGUIType;
 /**
  * @author Silvan Wyss
  * @date 2018-09-05
- * @lines 120
+ * @lines 130
  */
 public final class FrontGUIClient extends BaseFrontGUIClient<FrontGUIClient> {
 	
@@ -78,6 +79,21 @@ public final class FrontGUIClient extends BaseFrontGUIClient<FrontGUIClient> {
 		super(BaseFrontGUIClientGUIType.CANVAS_GUI);
 		
 		internalConnectTo(port, application);
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link FrontGUIClient} that will connect to
+	 * the default {@link Application} on the {@link Server#DEFAULT_PORT} on the machine with the given ip.
+	 * 
+	 * @param ip
+	 */
+	public FrontGUIClient(final String ip) {
+		
+		//Calls constructor of the base class.
+		super(BaseFrontGUIClientGUIType.CANVAS_GUI);
+		
+		internalConnectTo(ip);
 	}
 	
 	//constructor
