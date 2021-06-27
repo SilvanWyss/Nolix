@@ -16,7 +16,7 @@ import ch.nolix.common.skillapi.Clearable;
  * 
  * @author Silvan Wyss
  * @date 2017-05-06
- * @lines 220
+ * @lines 200
  */
 public abstract class BaseServer implements Clearable, ICloseableElement {
 	
@@ -36,16 +36,9 @@ public abstract class BaseServer implements Clearable, ICloseableElement {
 	 * 
 	 * @param defaultEndPointTaker
 	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already
-	 * a default {@link IEndPointTaker}.
-	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already
 	 * a {@link IEndPointTaker} with the same name as the given endPointTaker.
 	 */
 	public final void addDefaultEndPointTaker(final IEndPointTaker defaultEndPointTaker) {
-		
-		//Asserts that the current Server does not contain already a default IEndPointTaker.
-		assertDoesNotContainDefaultEndPointTaker();
-		
-		//Adds the given defaultEndPointTaker to the current Server.
 		addEndPointTaker(defaultEndPointTaker);
 		this.defaultEndPointTaker = defaultEndPointTaker;
 	}
@@ -165,17 +158,6 @@ public abstract class BaseServer implements Clearable, ICloseableElement {
 	private void assertContainsDefaultEndPointTakter() {
 		if (!containsDefaultEndPointTaker()) {
 			throw new ArgumentDoesNotHaveAttributeException(this, "default end point taker");
-		}
-	}
-	
-	//method
-	/**
-	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already
-	 * a default {@link IEndPointTaker}.
-	 */
-	private void assertDoesNotContainDefaultEndPointTaker() {
-		if (containsDefaultEndPointTaker()) {
-			throw new InvalidArgumentException(this, "contains already a default end point taker");
 		}
 	}
 	
