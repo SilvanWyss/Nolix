@@ -4,10 +4,8 @@ package ch.nolix.common.net.endpoint;
 //own imports
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.programcontrol.closeableelement.CloseController;
 import ch.nolix.common.programcontrol.closeableelement.ICloseableElement;
 import ch.nolix.common.skillapi.Clearable;
@@ -18,7 +16,7 @@ import ch.nolix.common.skillapi.Clearable;
  * 
  * @author Silvan Wyss
  * @date 2017-05-06
- * @lines 180
+ * @lines 220
  */
 public abstract class BaseServer implements Clearable, ICloseableElement {
 	
@@ -26,52 +24,51 @@ public abstract class BaseServer implements Clearable, ICloseableElement {
 	private final CloseController closeController = new CloseController(this);
 	
 	//optional attribute
-	private IEndPointTaker mainEndPointTaker;
+	private IEndPointTaker defaultEndPointTaker;
 	
 	//multi-attribute
 	private final LinkedList<IEndPointTaker> endPointTakers = new LinkedList<>();
 	
 	//method
 	/**
+	 * Adds the given defaultEndPointTaker to the current {@link BaseServer}.
+	 * A default {@link IEndPointTaker} takes all {@link EndPoint}s that do not have a target.
+	 * 
+	 * @param defaultEndPointTaker
+	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already
+	 * a default {@link IEndPointTaker}.
+	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already
+	 * a {@link IEndPointTaker} with the same name as the given endPointTaker.
+	 */
+	public final void addDefaultEndPointTaker(final IEndPointTaker defaultEndPointTaker) {
+		
+		//Asserts that the current Server does not contain already a default IEndPointTaker.
+		assertDoesNotContainDefaultEndPointTaker();
+		
+		//Adds the given defaultEndPointTaker to the current Server.
+		addEndPointTaker(defaultEndPointTaker);
+		this.defaultEndPointTaker = defaultEndPointTaker;
+	}
+	
+	//method
+	/**
 	 * Adds the given endPointTaker to the current {@link BaseServer}.
 	 * 
 	 * @param endPointTaker
-	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already a {@link IEndPointTaker}
-	 * with the same name as the given endPointTaker.
+	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already
+	 * a {@link IEndPointTaker} with the same name as the given endPointTaker.
 	 */
 	public final void addEndPointTaker(final IEndPointTaker endPointTaker) {
 		
 		//Extracts the name of the given endPointTaker.
 		final var name = endPointTaker.getName();
 		
-		//Asserts that the current Server
-		//contains already an IEndPointTaker with the same name as the given endPointTaker.
-		if (containsEndPointTaker(name)) {
-			throw
-			new InvalidArgumentException(this, "contains another EndPointTaker with the name '" + name + "'");
-		}
+		//Asserts that the current Server does not contain already
+		//an IEndPointTaker with the same name as the given endPointTaker.
+		assertDoesNotContainEndPointTakerWithName(name);
 		
+		//Adds the given endPointTaker to the current Server.
 		this.endPointTakers.addAtEnd(endPointTaker);
-	}
-
-	//method
-	/**
-	 * Adds the given mainEndPointTaker to the current {@link BaseServer}.
-	 * A main {@link IEndPointTaker} takes all {@link EndPoint}s without target.
-	 * 
-	 * @param mainEndPointTaker
-	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already a main {@link IEndPointTaker}.
-	 */
-	public final void addMainEndPointTaker(final IEndPointTaker mainEndPointTaker) {
-		
-		//Asserts that the current Server does not contain already a main IEndPointTaker.
-		if (containsMainEndPointTaker()) {
-			throw new InvalidArgumentException(this, "contains already a mainEndPointTaker");
-		}
-		
-		addEndPointTaker(mainEndPointTaker);
-		
-		this.mainEndPointTaker = mainEndPointTaker;
 	}
 	
 	//method
@@ -81,7 +78,15 @@ public abstract class BaseServer implements Clearable, ICloseableElement {
 	@Override
 	public final void clear() {
 		endPointTakers.clear();
-		mainEndPointTaker = null;
+		defaultEndPointTaker = null;
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link BaseServer} contains a default {@link IEndPointTaker}.
+	 */
+	public final boolean containsDefaultEndPointTaker() {
+		return (defaultEndPointTaker != null);
 	}
 	
 	//method
@@ -89,16 +94,8 @@ public abstract class BaseServer implements Clearable, ICloseableElement {
 	 * @param name
 	 * @return true if the current {@link BaseServer} contains a {@link IEndPointTaker} with the given name.
 	 */
-	public final boolean containsEndPointTaker(final String name) {
+	public final boolean containsEndPointTakerWithName(final String name) {
 		return endPointTakers.contains(ept -> ept.hasName(name));
-	}
-	
-	//method
-	/**
-	 * @return true if the current {@link BaseServer} contains a main {@link IEndPointTaker}.
-	 */
-	public final boolean containsMainEndPointTaker() {
-		return (mainEndPointTaker != null);
 	}
 	
 	//method
@@ -109,7 +106,7 @@ public abstract class BaseServer implements Clearable, ICloseableElement {
 	public final CloseController getRefCloseController() {
 		return closeController;
 	}
-
+	
 	//method
 	/**
 	 * @return true if the current {@link BaseServer} does not contain a {@link IEndPointTaker}.
@@ -124,18 +121,11 @@ public abstract class BaseServer implements Clearable, ICloseableElement {
 	 * Removes the {@link IEndPointTaker} with the given name from the current {@link BaseServer}.
 	 * 
 	 * @param name
-	 * @throws InvalidArgumentException
-	 * if the current {@link BaseServer} does not contain a {@link IEndPointTaker} with the given name.
+	 * @throws InvalidArgumentException if the current {@link BaseServer} does not contain
+	 * a {@link IEndPointTaker} with the given name.
 	 */
-	public final void removeEndPointTaker(final String name) {
-		
-		final var endPointTaker = this.endPointTakers.removeAndGetRefFirst(ept -> ept.hasName(name));
-		
-		//Handles the case that the concerning IEndPointTaker
-		//has been the main IEndPointTaker of the current {@link Server}.
-		if (endPointTaker == mainEndPointTaker) {
-			mainEndPointTaker = null;
-		}
+	public final void removeEndPointTakerWithName(final String name) {
+		removeEndPointTaker(endPointTakers.getRefFirst(ept -> ept.hasName(name)));
 	}
 	
 	//method
@@ -143,16 +133,14 @@ public abstract class BaseServer implements Clearable, ICloseableElement {
 	 * Lets the current {@link BaseServer} take the given endPoint.
 	 * 
 	 * @param endPoint
-	 * @throws ArgumentIsNullException if the given endPoint is null.
-	 * @throws ArgumentDoesNotHaveAttributeException if
-	 * the current {@link BaseServer} does not have an arbitrary endPointTaker
-	 * or does not contain an endPointTaker
-	 * with the same name as the target of the given endPointTaker. 
+	 * @throws ClosedArgumentException if the given endPoint is closed.
+	 * @throws ArgumentDoesNotHaveAttributeException if the given endPoint does not have a target and
+	 * the current {@link BaseServer} does not have a default {@link IEndPointTaker}.
+	 * @throws ArgumentDoesNotHaveAttributeException if the given endPoint has a target and
+	 * the current {@link BaseServer} does not contain
+	 * a {@link IEndPointTaker} with a name that equals the target of the given endPoint. 
 	 */
 	public final void takeEndPoint(final EndPoint endPoint) {
-		
-		//Asserts that the given endPoint is not null.
-		Validator.assertThat(endPoint).thatIsNamed(EndPoint.class).isNotNull();
 		
 		//Asserts that the given endPoint is open.
 		if (endPoint.isClosed()) {
@@ -161,8 +149,8 @@ public abstract class BaseServer implements Clearable, ICloseableElement {
 		
 		//Handles the case that the given endPoint does not have a target.
 		if (!endPoint.hasTarget()) {
-			getRefMainEndPointTaker().takeEndPoint(endPoint);
-			
+			getRefDefaultEndPointTaker().takeEndPoint(endPoint);
+		
 		//Handles the case that the given endPoint has a target.
 		} else {
 			endPointTakers.getRefFirst(ept -> ept.hasName(endPoint.getTarget())).takeEndPoint(endPoint);
@@ -171,18 +159,65 @@ public abstract class BaseServer implements Clearable, ICloseableElement {
 	
 	//method
 	/**
-	 * @return the main {@link IEndPointTaker} of the current {@link BaseServer}.
-	 * @throws ArgumentDoesNotHaveAttributeException
-	 * if the current {@link BaseServer} does not contain a main {@link IEndPointTaker}.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BaseServer} does not contain
+	 * a default {@link IEndPointTaker}.
 	 */
-	private IEndPointTaker getRefMainEndPointTaker() {
-		
-		//Asserts that the current Server has a main IEndPointTaker.
-		//For a better performance, this implementation does not use all comfortable methods.
-		if (mainEndPointTaker == null) {
-			throw new ArgumentDoesNotHaveAttributeException(this, "main IEndPointTaker");
+	private void assertContainsDefaultEndPointTakter() {
+		if (!containsDefaultEndPointTaker()) {
+			throw new ArgumentDoesNotHaveAttributeException(this, "default end point taker");
 		}
+	}
+	
+	//method
+	/**
+	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already
+	 * a default {@link IEndPointTaker}.
+	 */
+	private void assertDoesNotContainDefaultEndPointTaker() {
+		if (containsDefaultEndPointTaker()) {
+			throw new InvalidArgumentException(this, "contains already a default end point taker");
+		}
+	}
+	
+	//method
+	/**
+	 * @param name
+	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already
+	 * a {@link IEndPointTaker} with the same name as the given endPointTaker.
+	 */
+	private void assertDoesNotContainEndPointTakerWithName(final String name) {
+		if (containsEndPointTakerWithName(name)) {
+			throw
+			new InvalidArgumentException(this, "contains already an EndPointTaker with the name '" + name + "'");
+		}
+	}
+	
+	//method
+	/**
+	 * @return the default {@link IEndPointTaker} of the current {@link BaseServer}.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BaseServer} does not contain
+	 * a default {@link IEndPointTaker}.
+	 */
+	private IEndPointTaker getRefDefaultEndPointTaker() {
 		
-		return mainEndPointTaker;
+		assertContainsDefaultEndPointTakter();
+		
+		return defaultEndPointTaker;
+	}
+	
+	//method
+	/**
+	 * Removes the given endPointTaker from the current {@link BaseServer}.
+	 * 
+	 * @param endPointTaker
+	 * @throws InvalidArgumentException if the current {@link BaseServer} does not contain the given endPointTaker.
+	 */
+	private void removeEndPointTaker(final IEndPointTaker endPointTaker) {
+		
+		endPointTakers.removeFirst(endPointTaker);
+		
+		if (endPointTaker == defaultEndPointTaker) {
+			defaultEndPointTaker = null;
+		}
 	}
 }

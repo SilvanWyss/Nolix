@@ -33,7 +33,7 @@ public final class Server extends BaseServer {
 		//Creates a close dependency to the internal net server of the current net server.
 		createCloseDependencyTo(internalNetServer);
 		
-		internalNetServer.addMainEndPointTaker(new NetServerEndPointTaker(this));
+		internalNetServer.addDefaultEndPointTaker(new NetServerEndPointTaker(this));
 	}
 	
 	//constructor
@@ -57,7 +57,7 @@ public final class Server extends BaseServer {
 		//Creates a close dependency to the internal net server of the current net server.
 		createCloseDependencyTo(internalNetServer);
 		
-		internalNetServer.addMainEndPointTaker(new NetServerEndPointTaker(this));
+		internalNetServer.addDefaultEndPointTaker(new NetServerEndPointTaker(this));
 	}
 	
 	//method
