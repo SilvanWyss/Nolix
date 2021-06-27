@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.net.endpoint;
 
+//own imports
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -19,7 +20,7 @@ import ch.nolix.common.skillapi.Clearable;
  * @date 2017-05-06
  * @lines 180
  */
-public class BaseServer implements Clearable, ICloseableElement {
+public abstract class BaseServer implements Clearable, ICloseableElement {
 	
 	//attribute
 	private final CloseController closeController = new CloseController(this);
@@ -117,13 +118,6 @@ public class BaseServer implements Clearable, ICloseableElement {
 	public final boolean isEmpty() {
 		return endPointTakers.isEmpty();
 	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void noteClose() {}
 	
 	//method
 	/**
