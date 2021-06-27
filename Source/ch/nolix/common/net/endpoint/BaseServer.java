@@ -193,7 +193,7 @@ public abstract class BaseServer implements Clearable, ICloseableElement {
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BaseServer} does not contain
 	 * a {@link IEndPointTaker} with the given name. 
 	 */
-	private IEndPointTaker getRefEndPointTakerByName(String name) {
+	private IEndPointTaker getRefEndPointTakerByName(final String name) {
 		return endPointTakers.getRefFirst(ept -> ept.hasName(name));
 	}
 	
