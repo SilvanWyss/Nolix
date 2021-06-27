@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.net.endpoint;
 
+//own imports
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.environment.nolixenvironment.NolixEnvironment;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -21,12 +22,12 @@ import ch.nolix.common.programcontrol.sequencer.Sequencer;
  * 
  * @author Silvan Wyss
  * @date 2017-05-06
- * @lines 200
+ * @lines 220
  */
 public abstract class EndPoint implements ICloseableElement {
 	
 	//attributes
-	private final boolean hasRequestedConnection;
+	private final boolean requestedConnection;
 	private final CloseController closeController = new CloseController(this);
 	
 	//optional attributes
@@ -44,7 +45,7 @@ public abstract class EndPoint implements ICloseableElement {
 		
 		Validator.assertThat(connectionOrigin).thatIsNamed(ConnectionOrigin.class).isNotNull();
 		
-		hasRequestedConnection = connectionOrigin == ConnectionOrigin.REQUESTED_CONNECTION;
+		requestedConnection = connectionOrigin == ConnectionOrigin.REQUESTED_CONNECTION;
 	}
 	
 	//constructor
@@ -61,8 +62,7 @@ public abstract class EndPoint implements ICloseableElement {
 		
 		Validator.assertThat(connectionOrigin).thatIsNamed(ConnectionOrigin.class).isNotNull();
 		
-		hasRequestedConnection = connectionOrigin == ConnectionOrigin.REQUESTED_CONNECTION;
-		
+		requestedConnection = connectionOrigin == ConnectionOrigin.REQUESTED_CONNECTION;
 		setTarget(target);
 	}
 	
@@ -82,6 +82,7 @@ public abstract class EndPoint implements ICloseableElement {
 	public abstract EndPointType getType();
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * @return the target of the current {@link EndPoint}.
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link EndPoint} does not have a target.
@@ -89,7 +90,6 @@ public abstract class EndPoint implements ICloseableElement {
 	public final String getTarget() {
 		
 		//Asserts that the current EndPoint has a target.
-		//For a better performance, this implementation does not use all comfortable methods.
 		if (this.target == null) {
 			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.TARGET);
 		}
@@ -110,7 +110,7 @@ public abstract class EndPoint implements ICloseableElement {
 	 * @return true if the current {@link EndPoint} has requested the connection.
 	 */
 	public final boolean hasRequestedConnection() {
-		return hasRequestedConnection;
+		return requestedConnection;
 	}
 	
 	//method
@@ -164,9 +164,10 @@ public abstract class EndPoint implements ICloseableElement {
 	//method declaration
 	/**
 	 * Lets the current {@link EndPoint} send the given message.
+	 * 
 	 * @param message
 	 */
-	public abstract void send(final String message);
+	public abstract void send(String message);
 	
 	//method
 	/**
@@ -183,13 +184,11 @@ public abstract class EndPoint implements ICloseableElement {
 		.forMaxMilliseconds(NolixEnvironment.DEFAULT_CONNECT_AND_DISCONNECT_TIMEOUT_IN_MILLISECONDS)
 		.waitUntil(this::hasReceiver);
 		
-		if (!hasReceiver()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.RECEIVER);
-		}
+		assertHasReceiver();
 		
 		return receiver;
 	}
-
+	
 	//method
 	/**
 	 * Sets the target of the current {@link EndPoint}.
@@ -209,5 +208,15 @@ public abstract class EndPoint implements ICloseableElement {
 		
 		//Sets the target of the current EndPoint.
 		this.target = target;
+	}
+	
+	//method
+	/**
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link EndPoint} does not have a receiver.
+	 */
+	private void assertHasReceiver() {
+		if (!hasReceiver()) {
+			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.RECEIVER);
+		}
 	}
 }
