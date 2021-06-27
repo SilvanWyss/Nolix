@@ -16,7 +16,7 @@ import ch.nolix.common.skillapi.Clearable;
  * 
  * @author Silvan Wyss
  * @date 2017-05-06
- * @lines 200
+ * @lines 210
  */
 public abstract class BaseServer implements Clearable, ICloseableElement {
 	
@@ -128,7 +128,7 @@ public abstract class BaseServer implements Clearable, ICloseableElement {
 	 * @param endPoint
 	 * @throws ClosedArgumentException if the given endPoint is closed.
 	 * @throws ArgumentDoesNotHaveAttributeException if the given endPoint does not have a target and
-	 * the current {@link BaseServer} does not have a default {@link IEndPointTaker}.
+	 * the current {@link BaseServer} does not contain a default {@link IEndPointTaker}.
 	 * @throws ArgumentDoesNotHaveAttributeException if the given endPoint has a target and
 	 * the current {@link BaseServer} does not contain
 	 * a {@link IEndPointTaker} with a name that equals the target of the given endPoint. 
@@ -136,9 +136,7 @@ public abstract class BaseServer implements Clearable, ICloseableElement {
 	public final void takeEndPoint(final EndPoint endPoint) {
 		
 		//Asserts that the given endPoint is open.
-		if (endPoint.isClosed()) {
-			throw new ClosedArgumentException(endPoint);
-		}
+		endPoint.assertIsOpen();
 		
 		//Handles the case that the given endPoint does not have a target.
 		if (!endPoint.hasTarget()) {
@@ -146,7 +144,7 @@ public abstract class BaseServer implements Clearable, ICloseableElement {
 		
 		//Handles the case that the given endPoint has a target.
 		} else {
-			endPointTakers.getRefFirst(ept -> ept.hasName(endPoint.getTarget())).takeEndPoint(endPoint);
+			getRefEndPointTakerByName(endPoint.getTarget()).takeEndPoint(endPoint);
 		}
 	}
 	
@@ -185,6 +183,18 @@ public abstract class BaseServer implements Clearable, ICloseableElement {
 		assertContainsDefaultEndPointTakter();
 		
 		return defaultEndPointTaker;
+	}
+	
+	//method
+	/**
+	 * 
+	 * @param name
+	 * @return the {@link IEndPointTaker} with the given name from the current {@link BaseServer}.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BaseServer} does not contain
+	 * a {@link IEndPointTaker} with the given name. 
+	 */
+	private IEndPointTaker getRefEndPointTakerByName(String name) {
+		return endPointTakers.getRefFirst(ept -> ept.hasName(name));
 	}
 	
 	//method
