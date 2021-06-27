@@ -18,7 +18,7 @@ import ch.nolix.common.skillapi.Clearable;
  * @date 2017-03-05
  * @lines 180
  */
-public class BaseServer implements Clearable, ICloseableElement {
+public abstract class BaseServer implements Clearable, ICloseableElement {
 	
 	//attribute
 	private final CloseController closeController = new CloseController(this);
@@ -37,7 +37,7 @@ public class BaseServer implements Clearable, ICloseableElement {
 	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already a {@link IEndPointTaker}
 	 * with the same name as the given endPointTaker.
 	 */
-	public void addEndPointTaker(final IEndPointTaker endPointTaker) {
+	public final void addEndPointTaker(final IEndPointTaker endPointTaker) {
 		
 		//Extracts the name of the given endPointTaker.
 		final var name = endPointTaker.getName();
