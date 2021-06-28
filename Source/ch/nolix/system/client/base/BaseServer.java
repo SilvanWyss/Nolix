@@ -9,18 +9,17 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentExce
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.programcontrol.closeableelement.CloseController;
 import ch.nolix.common.programcontrol.closeableelement.ICloseableElement;
-import ch.nolix.common.skillapi.Clearable;
 
 //class
 /**
  * A {@link BaseServer} can contain {@link Application}s.
- * A {@link BaseServer} is clearable and closable.
+ * A {@link BaseServer} is closable.
  * 
  * @author Silvan Wyss
  * @date 2016-11-01
- * @lines 250
+ * @lines 220
  */
-public class BaseServer implements Clearable, ICloseableElement {
+public abstract class BaseServer implements ICloseableElement {
 	
 	//attribute
 	private final CloseController closeController = new CloseController(this);
@@ -30,17 +29,6 @@ public class BaseServer implements Clearable, ICloseableElement {
 	
 	//multi-attribute
 	private final LinkedList<Application<?>> applications = new LinkedList<>();
-	
-	//constructor
-	/**
-	 * Creates a new {@link BaseServer}.
-	 */
-	public BaseServer() {}
-	
-	//constructor
-	public BaseServer(final Application<?> defaultApplication) {
-		addDefaultApplication(defaultApplication);
-	}
 	
 	//method
 	/**
@@ -146,16 +134,6 @@ public class BaseServer implements Clearable, ICloseableElement {
 	
 	//method
 	/**
-	 * Removes all {@link Application}s of the current {@link BaseServer}.
-	 */
-	@Override
-	public final void clear() {
-		applications.clear();
-		defaultApplication = null;
-	}
-	
-	//method
-	/**
 	 * @param name
 	 * @return true if the current {@link BaseServer} contains a {@link Application} with the given name.
 	 */
@@ -213,15 +191,6 @@ public class BaseServer implements Clearable, ICloseableElement {
 	 */
 	public final boolean hasClientConnected() {
 		return applications.contains(Application::hasClientConnected);
-	}
-	
-	//method
-	/**
-	 * @return true if the current {@link BaseServer} does not contain a {@link Application}.
-	 */
-	@Override
-	public final boolean isEmpty() {
-		return applications.isEmpty();
 	}
 	
 	//method
