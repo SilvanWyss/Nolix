@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.net.endpoint3;
 
+//own imports
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentException;
@@ -12,17 +13,16 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentExcept
  * 
  * @author Silvan Wyss
  * @date 2016-11-01
- * @lines 60
+ * @lines 80
  */
 public final class Server extends BaseServer {
 	
 	//attribute
-	private ch.nolix.common.net.endpoint2.Server internalNetServer;
+	private final ch.nolix.common.net.endpoint2.Server internalServer;
 	
 	//constructor
 	/**
-	 * Creates a new {@link Server}
-	 * that will listen to {@link NetEndPoint} on the given port.
+	 * Creates a new {@link Server} that will listen to {@link NetEndPoint}s on the given port.
 	 * 
 	 * @param port
 	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
@@ -30,18 +30,15 @@ public final class Server extends BaseServer {
 	public Server(final int port) {
 		
 		//Creates the internal net server of the current net server.
-		internalNetServer = new ch.nolix.common.net.endpoint2.Server(port);
+		internalServer = new ch.nolix.common.net.endpoint2.Server(port);
 		
 		//Creates a close dependency to the internal net server of the current net server.
-		createCloseDependencyTo(internalNetServer);
-		
-		internalNetServer.addDefaultEndPointTaker(new NetServerListener(this));
+		createCloseDependencyTo(internalServer);
 	}
 	
 	//constructor
 	/**
-	 * Creates a new {@link Server}
-	 * that will listen to {@link NetEndPoint} on the given port.
+	 * Creates a new {@link Server} that will listen to {@link NetEndPoint}s on the given port.
 	 * 
 	 * When a web browser connects to the {@link Server},
 	 * the {@link Server} will send the given HTTP message and close the connection.
@@ -50,17 +47,15 @@ public final class Server extends BaseServer {
 	 * @param HTTPMessage
 	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
 	 * @throws ArgumentIsNullException if the given HTTP message is null.
-	 * @throws EmptyArgumentException if the given HTTP message is empty.
+	 * @throws EmptyArgumentException if the given HTTP message is blank.
 	 */
 	public Server(final int port, final String HTTPMessage) {
 		
 		//Creates the internal net server of the current net server.
-		internalNetServer = new ch.nolix.common.net.endpoint2.Server(port, HTTPMessage);
+		internalServer = new ch.nolix.common.net.endpoint2.Server(port, HTTPMessage);
 		
 		//Creates a close dependency to the internal net server of the current net server.
-		createCloseDependencyTo(internalNetServer);
-		
-		internalNetServer.addDefaultEndPointTaker(new NetServerListener(this));
+		createCloseDependencyTo(internalServer);
 	}
 	
 	//method
@@ -68,6 +63,24 @@ public final class Server extends BaseServer {
 	 * @return the port of the current {@link Server}.
 	 */
 	public int getPort() {
-		return internalNetServer.getPort();
+		return internalServer.getPort();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void noteAddedDefaultEndPointTaker(final IEndPointTaker defaultEndPointTaker) {
+		internalServer.addDefaultEndPointTaker(new ServerEndPointTaker(defaultEndPointTaker.getName(), this));
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void noteAddedEndPointTaker(final IEndPointTaker endPointTaker) {
+		internalServer.addEndPointTaker(new ServerEndPointTaker(endPointTaker.getName(), this));
 	}
 }

@@ -39,6 +39,9 @@ public abstract class EndPoint implements ICloseableElement {
 	}
 	
 	//method declaration
+	public abstract String getReplyTo(final String message);
+	
+	//method declaration
 	/**
 	 * @return the target of this end point.
 	 */

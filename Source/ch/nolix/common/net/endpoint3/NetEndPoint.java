@@ -33,7 +33,7 @@ import ch.nolix.system.client.base.Server;
 public class NetEndPoint extends EndPoint {
 	
 	//attribute
-	private final ch.nolix.common.net.endpoint2.NetEndPoint internalNetEndPoint;
+	private final ch.nolix.common.net.endpoint2.EndPoint internalNetEndPoint;
 		
 	//constructor
 	/**
@@ -117,7 +117,7 @@ public class NetEndPoint extends EndPoint {
 	 * @param internalNetEndPoint
 	 * @throws ArgumentIsNullException if the given netEndPoint is null.
 	 */
-	NetEndPoint(final ch.nolix.common.net.endpoint2.NetEndPoint internalNetEndPoint) {
+	NetEndPoint(final ch.nolix.common.net.endpoint2.EndPoint internalNetEndPoint) {
 		
 		//Asserts that the given netEndPoint is not null.
 		Validator.assertThat(internalNetEndPoint).isOfType(ch.nolix.common.net.endpoint2.NetEndPoint.class);

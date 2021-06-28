@@ -84,7 +84,7 @@ public final class NetEndPointTest extends Test {
 		
 		//setup
 		final var netServer = new Server(port);
-		netServer.addMainEndPointTaker(new EndPointTakerMock());
+		netServer.addDefaultEndPointTaker(new EndPointTakerMock());
 		
 		//execution & verification
 		expectRunning(
@@ -110,7 +110,7 @@ public final class NetEndPointTest extends Test {
 		//setup
 		final var netServer = new Server(port);
 		final var endPointTakerMock = new EndPointTakerMock();
-		netServer.addMainEndPointTaker(endPointTakerMock);
+		netServer.addDefaultEndPointTaker(endPointTakerMock);
 		final var netEndPoint = new NetEndPoint(port);
 		
 		//execution
@@ -134,7 +134,7 @@ public final class NetEndPointTest extends Test {
 		//setup
 		final var netServer = new Server(port);
 		final var endPointTakerMock = new EndPointTakerMock();
-		netServer.addMainEndPointTaker(endPointTakerMock);
+		netServer.addDefaultEndPointTaker(endPointTakerMock);
 		final var netEndPoint = new NetEndPoint(port);
 		
 		//execution

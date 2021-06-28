@@ -52,7 +52,7 @@ public final class Server extends BaseServer {
 			new ServerHTTPMessage(LocalComputer.getLANIP(), port).toString()
 		);
 		
-		internalNetServer.addMainEndPointTaker(new ServerSubDuplexControllerTaker(this));
+		internalNetServer.addDefaultEndPointTaker(new ServerSubDuplexControllerTaker(this));
 		
 		//Creates a close dependency between the current NetServer and its internalNetServer.
 		createCloseDependencyTo(internalNetServer);
