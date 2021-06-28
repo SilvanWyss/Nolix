@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.net.endpoint2;
 
+//own imports
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentException;
@@ -11,12 +12,12 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentExcept
  * 
  * @author Silvan Wyss
  * @date 2016-06-01
- * @lines 70
+ * @lines 80
  */
 public final class Server extends BaseServer {
 	
 	//attribute
-	private final ch.nolix.common.net.endpoint.Server internalNetServer;
+	private final ch.nolix.common.net.endpoint.Server internalServer;
 	
 	//constructor
 	/**
@@ -28,12 +29,10 @@ public final class Server extends BaseServer {
 	public Server(final int port) {
 		
 		//Creates the internal net server of the current net server.
-		internalNetServer =	new ch.nolix.common.net.endpoint.Server(port);
+		internalServer = new ch.nolix.common.net.endpoint.Server(port);
 		
 		//Creates a close dependency to the internal net server of the current net server.
-		createCloseDependencyTo(internalNetServer);
-		
-		internalNetServer.addDefaultEndPointTaker(new NetServerEndPointTaker(this));
+		createCloseDependencyTo(internalServer);
 	}
 	
 	//constructor
@@ -52,12 +51,10 @@ public final class Server extends BaseServer {
 	public Server(final int port, final String HTTPMessage) {
 		
 		//Creates the internal net server of the current net server.
-		internalNetServer =	new ch.nolix.common.net.endpoint.Server(port, HTTPMessage);
+		internalServer = new ch.nolix.common.net.endpoint.Server(port, HTTPMessage);
 		
 		//Creates a close dependency to the internal net server of the current net server.
-		createCloseDependencyTo(internalNetServer);
-		
-		internalNetServer.addDefaultEndPointTaker(new NetServerEndPointTaker(this));
+		createCloseDependencyTo(internalServer);
 	}
 	
 	//method
@@ -65,6 +62,24 @@ public final class Server extends BaseServer {
 	 * @return the port of the current {@link Server}.
 	 */
 	public int getPort() {
-		return internalNetServer.getPort();
+		return internalServer.getPort();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void noteAddedDefaultEndPointTaker(final IEndPointTaker defaultEndPointTaker) {
+		internalServer.addDefaultEndPointTaker(new ServerEndPointTaker(defaultEndPointTaker.getName(), this));
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void noteAddedEndPointTaker(final IEndPointTaker endPointTaker) {
+		internalServer.addEndPointTaker(new ServerEndPointTaker(endPointTaker.getName(), this));
 	}
 }
