@@ -386,7 +386,7 @@ implements ICloseableElement, OptionalLabelable<C>, ISmartObject<C>, TypeRequest
 		internalSetEndPoint(new LocalEndPoint());
 		
 		//Connects the current client to the application with the given name on the given server.
-		baseServer.getRefApplication(name).takeEndPoint(
+		baseServer.getRefApplicationByName(name).takeEndPoint(
 			((LocalEndPoint)endPoint).getRefCounterpart()
 		);
 	}

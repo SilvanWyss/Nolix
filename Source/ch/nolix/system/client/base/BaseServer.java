@@ -6,7 +6,6 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.programcontrol.closeableelement.CloseController;
 import ch.nolix.common.programcontrol.closeableelement.ICloseableElement;
 
@@ -17,7 +16,7 @@ import ch.nolix.common.programcontrol.closeableelement.ICloseableElement;
  * 
  * @author Silvan Wyss
  * @date 2016-11-01
- * @lines 220
+ * @lines 260
  */
 public abstract class BaseServer implements ICloseableElement {
 	
@@ -36,35 +35,24 @@ public abstract class BaseServer implements ICloseableElement {
 	 * 
 	 * @param application
 	 * @throws ArgumentIsNullException if the given application is null.
-	 * @throws InvalidArgumentException if the current {@link BaseServer}
-	 * contains already a {@link Application} with the same name as the given application.
+	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already
+	 * a {@link Application} with the same name as the given application.
 	 */
 	public final void addApplication(final Application<?> application) {
 		
-		//Asserts that the given application is not null.
-		Validator.assertThat(application).isOfType(Application.class);
+		addApplicationToList(application);
 		
-		//Asserts that the current Server
-		//does not contain already an Application with the same name as the given application..
-		if (containsApplication(application.getName())) {
-			throw
-			new InvalidArgumentException(
-				this,
-				"contains already an Application with the name " + application.getNameInQuotes()
-			);
-		}
-		
-		applications.addAtEnd(application);
+		noteAddedApplication(application);
 	}
-	
+
 	//method
 	/**
 	 * Adds the given applications to the current {@link BaseServer}.
 	 * 
 	 * @param applications
 	 * @throws ArgumentIsNullException if one of the given applications is null.
-	 * @throws InvalidArgumentException if the current {@link BaseServer}
-	 * contains already an other application with the same name as one of the given applications.
+	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already
+	 * a {@link Application} with the same name as one of the given applications.
 	 */
 	public final void addApplication(final Application<?>... applications) {
 		
@@ -79,10 +67,10 @@ public abstract class BaseServer implements ICloseableElement {
 	 * 
 	 * @param name
 	 * @param initialSessionClass
-	 * @throws InvalidArgumentException
-	 * if the current {@link BaseServer} contains already a {@link Application} with the given name.
 	 * @throws ArgumentIsNullException if the given name is null.
 	 * @throws InvalidArgumentException if the given name is blank.
+	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already
+	 * a {@link Application} with the given name.
 	 * @throws ArgumentIsNullException if the given initialSessionClass is null.
 	 */
 	public final void addApplication(final String name, Class<?> initialSessionClass) {
@@ -94,51 +82,39 @@ public abstract class BaseServer implements ICloseableElement {
 	//method
 	/**
 	 * Adds the given defaultApplication to the current {@link BaseServer}.
-	 * A default {@link Application} will take the {@link Client}s without target.
+	 * A default {@link Application} takes all {@link Client}s that do not have a target.
 	 * 
 	 * @param defaultApplication
 	 * @throws ArgumentIsNullException if the given defaultApplication is null.
-	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already a default {@link Application}.
 	 * @throws InvalidArgumentException if the current {@link BaseServer}
 	 * contains already a {@link Application} with the same name as the given defaultApplication.
 	 */
 	public final void addDefaultApplication(final Application<?> defaultApplication) {
 		
-		//Asserts that the current Server does not contain already a default Application.
-		if (containsDefaultApplication()) {
-			throw new InvalidArgumentException(this, "contains already a default Application");
-		}
-		
-		addApplication(defaultApplication);
-		
+		addApplicationToList(defaultApplication);
 		this.defaultApplication = defaultApplication;
+		
+		noteAddedDefaultApplication(defaultApplication);
 	}
 	
 	/**
-	 * Adds a new default {@link Application} with the given name and initialSessionClass to the current {@link BaseServer}.
+	 * Adds a new default {@link Application} with
+	 * the given name and initialSessionClass to the current {@link BaseServer}.
 	 * 
 	 * @param name
 	 * @param initialSessionClass
-	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already a default {@link Application}.
-	 * @throws InvalidArgumentException
-	 * if the current {@link BaseServer} contains already a {@link Application} with the given name.
 	 * @throws ArgumentIsNullException if the given name is null.
 	 * @throws InvalidArgumentException if the given name is blank.
+	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already
+	 * a default {@link Application}.
+	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already
+	 * a {@link Application} with the given name.
 	 * @throws ArgumentIsNullException if the given initialSessionClass is null.
 	 */
-	public final void addDefaultApplication(final String name, Class<?> initialSessionClass) {
+	public final void addDefaultApplication(final String name, final Class<?> initialSessionClass) {
 		
-		//Calls other method.
+		//Calls other method
 		addDefaultApplication(new Application<>(name, initialSessionClass));
-	}
-	
-	//method
-	/**
-	 * @param name
-	 * @return true if the current {@link BaseServer} contains a {@link Application} with the given name.
-	 */
-	public final boolean containsApplication(final String name) {
-		return applications.contains(a -> a.hasName(name));
 	}
 	
 	//method
@@ -152,11 +128,20 @@ public abstract class BaseServer implements ICloseableElement {
 	//method
 	/**
 	 * @param name
-	 * @return the {@link Application} with the given name from the current {@link BaseServer}.
-	 * @throws ArgumentDoesNotHaveAttributeException
-	 * if the current {@link BaseServer} does not contain a {@link Application} with the given name.
+	 * @return true if the current {@link BaseServer} contains a {@link Application} with the given name.
 	 */
-	public final Application<?> getRefApplication(final String name) {
+	public final boolean containsApplicationWithName(final String name) {
+		return applications.contains(a -> a.hasName(name));
+	}
+		
+	//method
+	/**
+	 * @param name
+	 * @return the {@link Application} with the given name from the current {@link BaseServer}.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BaseServer} does not contain
+	 * a {@link Application} with the given name.
+	 */
+	public final Application<?> getRefApplicationByName(final String name) {
 		return applications.getRefFirst(a -> a.hasName(name));
 	}
 	
@@ -172,19 +157,17 @@ public abstract class BaseServer implements ICloseableElement {
 	//method
 	/**
 	 * @return the default {@link Application} of the current {@link BaseServer}.
-	 * @throws ArgumentDoesNotHaveAttributeException
-	 * if the current {@link BaseServer} does not contain a default {@link Application}.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BaseServer} does not contain
+	 * a default {@link Application}.
 	 */
 	public final Application<?> getRefDefaultApplication() {
 		
 		//Asserts that the current Server contains a default Application.
-		if (!containsDefaultApplication()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, "default Application");
-		}
+		assertContainsDefaultApplication();
 		
 		return defaultApplication;
 	}
-
+	
 	//method
 	/**
 	 * @return true if the current {@link BaseServer} has a {@link Client} connected.
@@ -207,6 +190,9 @@ public abstract class BaseServer implements ICloseableElement {
 	 * @param client
 	 * @throws ArgumentDoesNotHaveAttributeException if the given client does not have a target
 	 * and the current {@link BaseServer} does not contain a default {@link Application}.
+	 * @throws ArgumentDoesNotHaveAttributeException if the given client has a target
+	 * and the current {@link BaseServer} does not contain a {@link Application}
+	 * with a name that equals the given target.
 	 */
 	public final void takeClient(final Client<?> client) {
 		
@@ -216,7 +202,64 @@ public abstract class BaseServer implements ICloseableElement {
 			
 		//Handles the case that the given client has a target.
 		} else {
-			getRefApplication(client.getTarget()).takeClient(client);
+			getRefApplicationByName(client.getTarget()).takeClient(client);
+		}
+	}
+	
+	//method declaration
+	/**
+	 * Notes that the curent {@link BaseServer} has added the given application.
+	 * 
+	 * @param application
+	 */
+	protected abstract void noteAddedApplication(Application<?> application);
+
+	//method declaration
+	/**
+	 * Notes that the curent {@link BaseServer} has added the given defaultApplication2.
+	 * 
+	 * @param defaultApplication2
+	 */
+	protected abstract void noteAddedDefaultApplication(Application<?> defaultApplication2);
+	
+	//method
+	/**
+	 * Adds the given application to the list of {@link Application}s of the current {@link BaseServer}.
+	 * 
+	 * @param application
+	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already
+	 * a {@link Application} with the same name as one of the given applications.
+	 */
+	private void addApplicationToList(final Application<?> application) {
+		
+		//Asserts that the current Server does not contain already
+		//an Application with the same name as the given application..
+		assertDoesNotContainApplicationWithName(application.getName());
+		
+		//Adds the given application to the list of Applications of the current BaseServer.
+		applications.addAtEnd(application);
+	}
+	
+	//method
+	/**
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BaseServer} does not contain
+	 * a default {@link Application}.
+	 */
+	private void assertContainsDefaultApplication() {
+		if (!containsDefaultApplication()) {
+			throw new ArgumentDoesNotHaveAttributeException(this, "default Application");
+		}
+	}
+	
+	//method
+	/**
+	 * @param name
+	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already
+	 * a {@link Application} with the same name as one of the given applications.
+	 */
+	private void assertDoesNotContainApplicationWithName(final String name) {
+		if (containsApplicationWithName(name)) {
+			throw new InvalidArgumentException(this, "contains already an Application with the name '" + name + "'");
 		}
 	}
 }
