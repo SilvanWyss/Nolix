@@ -16,6 +16,9 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentExcept
  */
 public final class Server extends BaseServer {
 	
+	//constant
+	public static final int DEFAULT_PORT = ch.nolix.common.net.endpoint.Server.DEFAULT_PORT;
+	
 	//attribute
 	private final ch.nolix.common.net.endpoint.Server internalServer;
 	
