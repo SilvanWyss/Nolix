@@ -3,12 +3,12 @@ package ch.nolix.elementtest;
 
 //own imports
 import ch.nolix.common.testing.basetest.TestPool;
-import ch.nolix.elementtest.containerwidgettest.ContainerWidgetTestPool;
 import ch.nolix.elementtest.elementenumtest.ElementEnumTestPool;
 import ch.nolix.elementtest.formatelementtest.FormatElementTestPool;
 import ch.nolix.elementtest.graphictest.GraphicTestPool;
 import ch.nolix.elementtest.guitest.GUITestPool;
 import ch.nolix.elementtest.guitest.colortest.ColorTestPool;
+import ch.nolix.elementtest.guitest.containerwidgettest.ContainerWidgetTestPool;
 import ch.nolix.elementtest.guitest.widgettest.WidgetTestPool;
 import ch.nolix.elementtest.timetest.TimeTestPool;
 import ch.nolix.elementtest.tradingtest.TradingTestPool;

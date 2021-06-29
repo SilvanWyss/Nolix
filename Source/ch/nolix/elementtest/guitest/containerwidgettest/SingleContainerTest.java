@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.elementtest.containerwidgettest;
+package ch.nolix.elementtest.guitest.containerwidgettest;
 
 //own imports
 import ch.nolix.common.testing.basetest.TestCase;
