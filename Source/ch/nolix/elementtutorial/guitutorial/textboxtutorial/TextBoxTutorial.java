@@ -1,4 +1,4 @@
-package ch.nolix.elementtutorial.guitutorial.widgettutorial;
+package ch.nolix.elementtutorial.guitutorial.textboxtutorial;
 
 import ch.nolix.element.gui.base.Frame;
 import ch.nolix.element.gui.textbox.TextBox;
