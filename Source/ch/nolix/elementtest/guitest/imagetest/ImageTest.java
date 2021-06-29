@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.elementtest.graphictest;
+package ch.nolix.elementtest.guitest.imagetest;
 
 import ch.nolix.common.testing.basetest.TestCase;
 import ch.nolix.common.testing.test.Test;

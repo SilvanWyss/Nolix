@@ -1,12 +1,12 @@
 //package declaration
-package ch.nolix.elementtest.graphictest;
+package ch.nolix.elementtest.guitest.imagetest;
 
 //class
 public final class Launcher {
 	
 	//main method
 	public static void main(String[] args) {
-		new GraphicTestPool().run();
+		new ImageTestPool().run();
 	}
 	
 	//constructor

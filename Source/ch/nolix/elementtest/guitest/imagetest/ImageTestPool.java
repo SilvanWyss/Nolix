@@ -1,13 +1,13 @@
 //package declaration
-package ch.nolix.elementtest.graphictest;
+package ch.nolix.elementtest.guitest.imagetest;
 
 import ch.nolix.common.testing.basetest.TestPool;
 
 //class
-public final class GraphicTestPool extends TestPool {
+public final class ImageTestPool extends TestPool {
 	
 	//constructor
-	public GraphicTestPool() {
+	public ImageTestPool() {
 		super(ImageTest.class);
 	}
 }
