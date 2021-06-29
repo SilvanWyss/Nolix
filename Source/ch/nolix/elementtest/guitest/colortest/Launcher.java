@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.elementtest.colortest;
+package ch.nolix.elementtest.guitest.colortest;
 
 //class
 /**
