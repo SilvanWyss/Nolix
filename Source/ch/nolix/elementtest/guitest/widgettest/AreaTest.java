@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.elementtest.widgettest;
+package ch.nolix.elementtest.guitest.widgettest;
 
 import ch.nolix.common.testing.basetest.TestCase;
 import ch.nolix.element.gui.color.Color;

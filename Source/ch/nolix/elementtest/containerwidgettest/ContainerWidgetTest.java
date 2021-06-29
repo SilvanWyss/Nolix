@@ -5,7 +5,7 @@ import ch.nolix.common.testing.basetest.TestCase;
 import ch.nolix.element.gui.containerwidget.ContainerWidget;
 import ch.nolix.element.gui.widget.Area;
 import ch.nolix.element.gui.widget.Widget;
-import ch.nolix.elementtest.widgettest.BorderWidgetTest;
+import ch.nolix.elementtest.guitest.widgettest.BorderWidgetTest;
 
 //class
 public abstract class ContainerWidgetTest<CW extends ContainerWidget<CW, ?>> extends BorderWidgetTest<CW> {

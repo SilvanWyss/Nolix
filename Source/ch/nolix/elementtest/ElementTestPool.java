@@ -9,9 +9,9 @@ import ch.nolix.elementtest.elementenumtest.ElementEnumTestPool;
 import ch.nolix.elementtest.formatelementtest.FormatElementTestPool;
 import ch.nolix.elementtest.graphictest.GraphicTestPool;
 import ch.nolix.elementtest.guitest.GUITestPool;
+import ch.nolix.elementtest.guitest.widgettest.WidgetTestPool;
 import ch.nolix.elementtest.timetest.TimeTestPool;
 import ch.nolix.elementtest.tradingtest.TradingTestPool;
-import ch.nolix.elementtest.widgettest.WidgetTestPool;
 
 //class
 /**
