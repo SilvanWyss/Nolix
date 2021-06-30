@@ -1,8 +1,6 @@
 //package declaration
 package ch.nolix.system.database.databaseadapter;
 
-import ch.nolix.businessapi.databaseapi.propertytypeapi.BasePropertyType;
-import ch.nolix.businessapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.common.attributeapi.mandatoryattributeapi.Headered;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
@@ -10,6 +8,8 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.system.database.entity.Entity;
 import ch.nolix.system.database.parametrizeddatatype.ParametrizedDataType;
 import ch.nolix.system.databaseschema.parametrizedschemadatatype.ParametrizedSchemaDataType;
+import ch.nolix.techapi.databaseapi.propertytypeapi.BasePropertyType;
+import ch.nolix.techapi.databaseapi.propertytypeapi.PropertyType;
 
 //class
 public final class Column<C> implements Headered {

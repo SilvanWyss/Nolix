@@ -1,10 +1,10 @@
 //package declaration
 package ch.nolix.system.database.parametrizeddatatype;
 
-import ch.nolix.businessapi.databaseapi.propertytypeapi.PropertyType;
 //own imports
 import ch.nolix.common.container.IContainer;
 import ch.nolix.system.databaseschema.parametrizedschemadatatype.ParametrizedSchemaMultiValueType;
+import ch.nolix.techapi.databaseapi.propertytypeapi.PropertyType;
 
 //class
 public final class ParametrizedMultiValueType<C> extends BaseParametrizedValueType<C> {

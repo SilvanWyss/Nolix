@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.databaseschema.parametrizedschemadatatype;
 
-import ch.nolix.businessapi.databaseapi.propertytypeapi.PropertyType;
+import ch.nolix.techapi.databaseapi.propertytypeapi.PropertyType;
 
 //class
 public final class ParametrizedSchemaOptionalReferenceType extends BaseParametrizedSchemaReferenceType {

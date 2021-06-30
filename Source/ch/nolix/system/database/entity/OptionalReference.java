@@ -1,10 +1,10 @@
 //package declaration
 package ch.nolix.system.database.entity;
 
-import ch.nolix.businessapi.databaseapi.propertytypeapi.PropertyType;
 //own imports
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.skillapi.Clearable;
+import ch.nolix.techapi.databaseapi.propertytypeapi.PropertyType;
 
 //class
 public final class OptionalReference<E extends Entity> extends SingleReference<E> implements Clearable {

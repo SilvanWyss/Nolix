@@ -4,7 +4,6 @@ package ch.nolix.system.database.entity;
 //Java imports
 import java.lang.reflect.ParameterizedType;
 
-import ch.nolix.businessapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.common.attributeapi.mandatoryattributeapi.Headered;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
@@ -14,6 +13,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotBelo
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.reflectionhelper.ReflectionHelper;
 import ch.nolix.element.elementapi.IElement;
+import ch.nolix.techapi.databaseapi.propertytypeapi.PropertyType;
 
 //class
 public abstract class Property<V> implements Headered, IElement<Property<V>> {
