@@ -5,21 +5,21 @@ package ch.nolix.system.database.entitysetmapper;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.system.database.databaseadapter.Column;
-import ch.nolix.system.database.databaseschemaadapter.DatabaseSchemaAdapter;
-import ch.nolix.system.database.databaseschemaadapter.EntitySet;
 import ch.nolix.system.database.parametrizeddatatype.BaseParametrizedBackReferenceType;
 import ch.nolix.system.database.parametrizeddatatype.BaseParametrizedReferenceType;
-import ch.nolix.system.database.parametrizedschemadatatype.ParametrizedSchemaBackReferenceType;
-import ch.nolix.system.database.parametrizedschemadatatype.ParametrizedSchemaDataType;
-import ch.nolix.system.database.parametrizedschemadatatype.SchemaIdType;
-import ch.nolix.system.database.parametrizedschemadatatype.ParametrizedSchemaMultiBackReferenceType;
-import ch.nolix.system.database.parametrizedschemadatatype.ParametrizedSchemaMultiReferenceType;
-import ch.nolix.system.database.parametrizedschemadatatype.ParametrizedSchemaMultiValueType;
-import ch.nolix.system.database.parametrizedschemadatatype.ParametrizedSchemaOptionalBackReferenceType;
-import ch.nolix.system.database.parametrizedschemadatatype.ParametrizedSchemaOptionalReferenceType;
-import ch.nolix.system.database.parametrizedschemadatatype.ParametrizedSchemaOptionalValueType;
-import ch.nolix.system.database.parametrizedschemadatatype.ParametrizedSchemaReferenceType;
-import ch.nolix.system.database.parametrizedschemadatatype.ParametrizedSchemaValueType;
+import ch.nolix.system.databaseschema.databaseschemaadapter.DatabaseSchemaAdapter;
+import ch.nolix.system.databaseschema.databaseschemaadapter.EntitySet;
+import ch.nolix.system.databaseschema.parametrizedschemadatatype.ParametrizedSchemaBackReferenceType;
+import ch.nolix.system.databaseschema.parametrizedschemadatatype.ParametrizedSchemaDataType;
+import ch.nolix.system.databaseschema.parametrizedschemadatatype.ParametrizedSchemaMultiBackReferenceType;
+import ch.nolix.system.databaseschema.parametrizedschemadatatype.ParametrizedSchemaMultiReferenceType;
+import ch.nolix.system.databaseschema.parametrizedschemadatatype.ParametrizedSchemaMultiValueType;
+import ch.nolix.system.databaseschema.parametrizedschemadatatype.ParametrizedSchemaOptionalBackReferenceType;
+import ch.nolix.system.databaseschema.parametrizedschemadatatype.ParametrizedSchemaOptionalReferenceType;
+import ch.nolix.system.databaseschema.parametrizedschemadatatype.ParametrizedSchemaOptionalValueType;
+import ch.nolix.system.databaseschema.parametrizedschemadatatype.ParametrizedSchemaReferenceType;
+import ch.nolix.system.databaseschema.parametrizedschemadatatype.ParametrizedSchemaValueType;
+import ch.nolix.system.databaseschema.parametrizedschemadatatype.SchemaIdType;
 
 //class
 public final class ParametrizedSchemaDataTypeMapper {

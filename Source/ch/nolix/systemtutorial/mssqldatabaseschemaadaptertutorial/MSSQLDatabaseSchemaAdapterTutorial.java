@@ -3,7 +3,7 @@ package ch.nolix.systemtutorial.mssqldatabaseschemaadaptertutorial;
 import ch.nolix.system.database.entity.Entity;
 import ch.nolix.system.database.entity.Value;
 import ch.nolix.system.database.entitysetmapper.EntitySetMapper;
-import ch.nolix.system.database.mssqldatabaseschemaadapter.MSSQLDatabaseSchemaAdapter;
+import ch.nolix.system.databaseschema.mssqldatabaseschemaadapter.MSSQLDatabaseSchemaAdapter;
 
 public final class MSSQLDatabaseSchemaAdapterTutorial {
 	

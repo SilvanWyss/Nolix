@@ -4,7 +4,7 @@ package ch.nolix.system.database.parametrizeddatatype;
 import ch.nolix.businessapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.system.database.entity.Entity;
-import ch.nolix.system.database.parametrizedschemadatatype.ParametrizedSchemaMultiBackReferenceType;
+import ch.nolix.system.databaseschema.parametrizedschemadatatype.ParametrizedSchemaMultiBackReferenceType;
 
 //class
 public final class ParametrizedMultiBackReferenceType<E extends Entity> extends BaseParametrizedBackReferenceType<E> {
@@ -23,7 +23,7 @@ public final class ParametrizedMultiBackReferenceType<E extends Entity> extends 
 	//method
 	@Override
 	public ParametrizedSchemaMultiBackReferenceType toSchemaDataType(
-		final IContainer<ch.nolix.system.database.databaseschemaadapter.EntitySet> schemaEntitySets
+		final IContainer<ch.nolix.system.databaseschema.databaseschemaadapter.EntitySet> schemaEntitySets
 	) {
 		
 		final var backReferencedEntitiesName = getBackReferencedEntitiesName();

@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.system.database.entitysetmapper} package defines
- * a mapper for {@link ch.nolix.system.database.databaseschemaadapter.EntitySet}s.
+ * a mapper for {@link ch.nolix.system.databaseschema.databaseschemaadapter.EntitySet}s.
  * 
  * @author Silvan Wyss
  * @date 2021-02-27

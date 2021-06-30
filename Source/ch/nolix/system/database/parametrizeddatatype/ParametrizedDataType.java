@@ -6,7 +6,7 @@ import ch.nolix.businessapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.system.database.entity.Entity;
-import ch.nolix.system.database.parametrizedschemadatatype.ParametrizedSchemaDataType;
+import ch.nolix.system.databaseschema.parametrizedschemadatatype.ParametrizedSchemaDataType;
 
 //class
 public abstract class ParametrizedDataType<C> {
@@ -47,6 +47,6 @@ public abstract class ParametrizedDataType<C> {
 	
 	//method declaration
 	public abstract ParametrizedSchemaDataType<?> toSchemaDataType(
-		final IContainer<ch.nolix.system.database.databaseschemaadapter.EntitySet> schemaEntitySets
+		final IContainer<ch.nolix.system.databaseschema.databaseschemaadapter.EntitySet> schemaEntitySets
 	);
 }

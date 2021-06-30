@@ -5,7 +5,7 @@ import ch.nolix.businessapi.databaseapi.propertytypeapi.PropertyType;
 //own imports
 import ch.nolix.common.container.IContainer;
 import ch.nolix.system.database.entity.Entity;
-import ch.nolix.system.database.parametrizedschemadatatype.ParametrizedSchemaReferenceType;
+import ch.nolix.system.databaseschema.parametrizedschemadatatype.ParametrizedSchemaReferenceType;
 
 //class
 public final class ParametrizedReferenceType<E extends Entity> extends BaseParametrizedReferenceType<E> {
@@ -24,7 +24,7 @@ public final class ParametrizedReferenceType<E extends Entity> extends BaseParam
 	//method
 	@Override
 	public ParametrizedSchemaReferenceType toSchemaDataType(
-		final IContainer<ch.nolix.system.database.databaseschemaadapter.EntitySet> schemaEntitySets
+		final IContainer<ch.nolix.system.databaseschema.databaseschemaadapter.EntitySet> schemaEntitySets
 	) {
 		
 		final var referencedEntitiesName = getReferencedEntitiesName();
