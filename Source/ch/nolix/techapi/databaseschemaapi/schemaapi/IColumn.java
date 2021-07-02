@@ -31,6 +31,26 @@ public interface IColumn<
 	}
 	
 	//method
+	default boolean isAnyBackReferenceType() {
+		return getParametrizedPropertyType().isAnyBackReferenceType();
+	}
+	
+	//method
+	default boolean isAnyControlColumn() {
+		return getParametrizedPropertyType().isAnyControlType();
+	}
+	
+	//method
+	default boolean isAnyReferenceColumn() {
+		return getParametrizedPropertyType().isAnyReferenceType();
+	}
+	
+	//method
+	default boolean isAnyValueColumn() {
+		return getParametrizedPropertyType().isAnyValueType();
+	}
+	
+	//method
 	default boolean references(final ITable<?, ?, ?> table) {
 		return getParametrizedPropertyType().references(table);
 	}
