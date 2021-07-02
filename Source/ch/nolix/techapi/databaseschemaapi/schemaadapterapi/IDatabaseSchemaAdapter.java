@@ -2,7 +2,7 @@
 package ch.nolix.techapi.databaseschemaapi.schemaadapterapi;
 
 //own imports
-import ch.nolix.common.skillapi.IChangesSaver;
+import ch.nolix.common.skillapi.IChangeSaver;
 import ch.nolix.techapi.databaseschemaapi.schema.IColumn;
 import ch.nolix.techapi.databaseschemaapi.schema.IDatabase;
 import ch.nolix.techapi.databaseschemaapi.schema.IParametrizedPropertyType;
@@ -15,7 +15,7 @@ public interface IDatabaseSchemaAdapter<
 	C extends IColumn<C, PPT>,
 	PPT extends IParametrizedPropertyType<Object>
 >
-extends IChangesSaver {
+extends IChangeSaver {
 	
 	//method
 	default IDatabaseSchemaAdapter<D, T, C, PPT> addTable(T table) {

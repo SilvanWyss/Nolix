@@ -4,7 +4,7 @@ package ch.nolix.system.database.entity;
 //own imports
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.document.node.BaseNode;
-import ch.nolix.common.skillapi.IChangesSaver;
+import ch.nolix.common.skillapi.IChangeSaver;
 
 //interface
 /**
@@ -93,7 +93,7 @@ import ch.nolix.common.skillapi.IChangesSaver;
  * @date 2019-11-23
  * @lines 120
  */
-public interface IDatabaseAdapter extends IChangesSaver  {
+public interface IDatabaseAdapter extends IChangeSaver  {
 	
 	//method declaration
 	/**
