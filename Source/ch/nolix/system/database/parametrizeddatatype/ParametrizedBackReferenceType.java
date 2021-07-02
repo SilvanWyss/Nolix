@@ -29,6 +29,8 @@ public final class ParametrizedBackReferenceType<E extends Entity> extends BaseP
 		final var backReferencedEntitiesName = getBackReferencedEntitiesName();
 		
 		return
-		new ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedBackReferenceType(schemaEntitySets.getRefFirst(ses -> ses.hasName(backReferencedEntitiesName)));
+		new ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedBackReferenceType(
+			schemaEntitySets.getRefFirst(ses -> ses.hasName(backReferencedEntitiesName))
+		);
 	}
 }
