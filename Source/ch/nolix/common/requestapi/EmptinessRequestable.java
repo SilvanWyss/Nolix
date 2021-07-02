@@ -1,15 +1,28 @@
 //package declaration
 package ch.nolix.common.requestapi;
 
+//own imports
+import ch.nolix.common.errorcontrol.invalidargumentexception.NonEmptyArgumentException;
+
 //interface
 /**
  * A {@link EmptinessRequestable} can be asked if it is empty or contains elements.
  * 
  * @author Silvan Wyss
  * @date 2020-06-11
- * @lines 20
+ * @lines 40
  */
 public interface EmptinessRequestable {
+	
+	//method
+	/**
+	 * @throws NonEmptyArgumentException if the current {@link EmptinessRequestable} is not empty.
+	 */
+	default void assertIsEmpty() {
+		if (containsAny()) {
+			throw new NonEmptyArgumentException(this);
+		}
+	}
 	
 	//method
 	/**
