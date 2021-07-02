@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.techapi.databaseapi.propertytypeapi;
+package ch.nolix.techapi.databaseschemaapi.propertytypeapi;
 
 //enum
 public enum BasePropertyType {

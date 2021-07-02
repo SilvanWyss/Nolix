@@ -6,7 +6,7 @@ import ch.nolix.common.container.IContainer;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.system.database.entity.Entity;
 import ch.nolix.system.databaseschema.parametrizedschemadatatype.ParametrizedSchemaDataType;
-import ch.nolix.techapi.databaseapi.propertytypeapi.PropertyType;
+import ch.nolix.techapi.databaseschemaapi.propertytypeapi.PropertyType;
 
 //class
 public abstract class ParametrizedDataType<C> {

@@ -7,7 +7,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.UnsupportedArgument
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.sql.SQLDatabaseEngine;
 import ch.nolix.system.databaseschema.parametrizedschemadatatype.ParametrizedSchemaDataType;
-import ch.nolix.techapi.databaseapi.propertytypeapi.PropertyType;
+import ch.nolix.techapi.databaseschemaapi.propertytypeapi.PropertyType;
 
 //class
 public final class Column implements Headered {

@@ -3,7 +3,7 @@ package ch.nolix.system.database.entity;
 
 //own imports
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.techapi.databaseapi.propertytypeapi.PropertyType;
+import ch.nolix.techapi.databaseschemaapi.propertytypeapi.PropertyType;
 
 //class
 public final class MultiBackReference<E extends Entity> extends BaseBackReference<E> {

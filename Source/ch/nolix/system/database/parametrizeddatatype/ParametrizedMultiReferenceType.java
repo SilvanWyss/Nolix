@@ -4,7 +4,7 @@ package ch.nolix.system.database.parametrizeddatatype;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.system.database.entity.Entity;
 import ch.nolix.system.databaseschema.parametrizedschemadatatype.ParametrizedSchemaMultiReferenceType;
-import ch.nolix.techapi.databaseapi.propertytypeapi.PropertyType;
+import ch.nolix.techapi.databaseschemaapi.propertytypeapi.PropertyType;
 
 //class
 public final class ParametrizedMultiReferenceType<E extends Entity> extends BaseParametrizedReferenceType<E> {

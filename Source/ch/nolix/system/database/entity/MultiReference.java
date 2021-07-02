@@ -6,7 +6,7 @@ import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.techapi.databaseapi.propertytypeapi.PropertyType;
+import ch.nolix.techapi.databaseschemaapi.propertytypeapi.PropertyType;
 
 //class
 public final class MultiReference<E extends Entity> extends BaseReference<E> {

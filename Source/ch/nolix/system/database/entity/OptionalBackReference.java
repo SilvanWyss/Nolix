@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.database.entity;
 
-import ch.nolix.techapi.databaseapi.propertytypeapi.PropertyType;
+import ch.nolix.techapi.databaseschemaapi.propertytypeapi.PropertyType;
 
 //class
 public final class OptionalBackReference<E extends Entity> extends SingleBackReference<E> {
