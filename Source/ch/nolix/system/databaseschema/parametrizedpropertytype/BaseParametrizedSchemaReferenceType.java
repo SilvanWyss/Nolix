@@ -1,7 +1,10 @@
 //package declaration
 package ch.nolix.system.databaseschema.parametrizedpropertytype;
 
+//own imports
 import ch.nolix.common.errorcontrol.validator.Validator;
+import ch.nolix.techapi.databaseschemaapi.schemaapi.IColumn;
+import ch.nolix.techapi.databaseschemaapi.schemaapi.ITable;
 
 //class
 public abstract class BaseParametrizedSchemaReferenceType extends ParametrizedPropertyType<IEntitySet> {
@@ -45,13 +48,13 @@ public abstract class BaseParametrizedSchemaReferenceType extends ParametrizedPr
 	
 	//method
 	@Override
-	public final boolean references(final IEntitySet entitySet) {
-		return (referencedEntitySet == entitySet);
+	public final boolean references(final ITable<?, ?, ?> table) {
+		return (referencedEntitySet == table);
 	}
 	
 	//method
 	@Override
-	public final boolean referencesBack(final IEntitySet entitySet) {
+	public final boolean referencesBack(final IColumn<?, ?> column) {
 		return false;
 	}
 }

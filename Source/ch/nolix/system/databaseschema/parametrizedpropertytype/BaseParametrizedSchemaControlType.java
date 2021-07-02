@@ -1,6 +1,10 @@
 //package declaration
 package ch.nolix.system.databaseschema.parametrizedpropertytype;
 
+//own imports
+import ch.nolix.techapi.databaseschemaapi.schemaapi.IColumn;
+import ch.nolix.techapi.databaseschemaapi.schemaapi.ITable;
+
 //class
 public abstract class BaseParametrizedSchemaControlType<C> extends ParametrizedPropertyType<C>{
 	
@@ -35,13 +39,13 @@ public abstract class BaseParametrizedSchemaControlType<C> extends ParametrizedP
 	
 	//method
 	@Override
-	public final boolean references(final IEntitySet entitySet) {
+	public final boolean references(final ITable<?, ?, ?> table) {
 		return false;
 	}
 	
 	//method
 	@Override
-	public final boolean referencesBack(final IEntitySet entitySet) {
+	public final boolean referencesBack(final IColumn<?, ?> column) {
 		return false;
 	}
 }
