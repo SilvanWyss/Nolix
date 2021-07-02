@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.techapi.databaseschemaapi.schema;
+package ch.nolix.techapi.databaseschemaapi.schemaapi;
 
 //own imports
 import ch.nolix.techapi.databaseschemaapi.propertytypeapi.BasePropertyType;

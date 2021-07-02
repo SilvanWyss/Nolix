@@ -3,10 +3,10 @@ package ch.nolix.techapi.databaseschemaapi.schemaadapterapi;
 
 //own imports
 import ch.nolix.common.skillapi.IChangeSaver;
-import ch.nolix.techapi.databaseschemaapi.schema.IColumn;
-import ch.nolix.techapi.databaseschemaapi.schema.IDatabase;
-import ch.nolix.techapi.databaseschemaapi.schema.IParametrizedPropertyType;
-import ch.nolix.techapi.databaseschemaapi.schema.ITable;
+import ch.nolix.techapi.databaseschemaapi.schemaapi.IColumn;
+import ch.nolix.techapi.databaseschemaapi.schemaapi.IDatabase;
+import ch.nolix.techapi.databaseschemaapi.schemaapi.IParametrizedPropertyType;
+import ch.nolix.techapi.databaseschemaapi.schemaapi.ITable;
 
 //interface
 public interface IDatabaseSchemaAdapter<
