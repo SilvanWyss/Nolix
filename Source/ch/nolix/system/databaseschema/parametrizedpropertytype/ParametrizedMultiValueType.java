@@ -4,16 +4,16 @@ package ch.nolix.system.databaseschema.parametrizedpropertytype;
 import ch.nolix.techapi.databaseschemaapi.propertytypeapi.PropertyType;
 
 //class
-public final class ParametrizedSchemaValueType<V> extends BaseParametrizedSchemaValueType<V> {
+public final class ParametrizedMultiValueType<V> extends BaseParametrizedValueType<V> {
 	
 	//constructor
-	public ParametrizedSchemaValueType(final Class<V> valueClass) {
+	public ParametrizedMultiValueType(final Class<V> valueClass) {
 		super(valueClass);
 	}
 	
 	//method
 	@Override
 	public PropertyType getPropertyType() {
-		return PropertyType.VALUE;
+		return PropertyType.MULTI_VALUE;
 	}
 }

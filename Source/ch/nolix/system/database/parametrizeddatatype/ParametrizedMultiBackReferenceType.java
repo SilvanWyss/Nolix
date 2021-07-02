@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.system.database.parametrizeddatatype;
 
+//own imports
 import ch.nolix.common.container.IContainer;
 import ch.nolix.system.database.entity.Entity;
-import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedSchemaMultiBackReferenceType;
 import ch.nolix.techapi.databaseschemaapi.propertytypeapi.PropertyType;
 
 //class
@@ -22,14 +22,14 @@ public final class ParametrizedMultiBackReferenceType<E extends Entity> extends 
 	
 	//method
 	@Override
-	public ParametrizedSchemaMultiBackReferenceType toSchemaDataType(
+	public ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedMultiBackReferenceType toSchemaDataType(
 		final IContainer<ch.nolix.system.databaseschema.databaseschemaadapter.EntitySet> schemaEntitySets
 	) {
 		
 		final var backReferencedEntitiesName = getBackReferencedEntitiesName();
 		
 		return
-		new ParametrizedSchemaMultiBackReferenceType(
+		new ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedMultiBackReferenceType(
 			schemaEntitySets.getRefFirst(ses -> ses.hasName(backReferencedEntitiesName))
 		);
 	}

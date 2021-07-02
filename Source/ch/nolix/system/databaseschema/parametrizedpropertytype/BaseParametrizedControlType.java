@@ -2,36 +2,27 @@
 package ch.nolix.system.databaseschema.parametrizedpropertytype;
 
 //own imports
-import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.techapi.databaseschemaapi.schemaapi.IColumn;
 import ch.nolix.techapi.databaseschemaapi.schemaapi.ITable;
 
 //class
-public abstract class BaseParametrizedSchemaBackReferenceType extends ParametrizedPropertyType<IEntitySet> {
-	
-	//attribute
-	private final IEntitySet backReferencedEntitySet;
+public abstract class BaseParametrizedControlType<C> extends ParametrizedPropertyType<C>{
 	
 	//constructor
-	public BaseParametrizedSchemaBackReferenceType(final IEntitySet backReferencedEntitySet) {
-		
-		super(IEntitySet.class);
-		
-		Validator.assertThat(backReferencedEntitySet).thatIsNamed("back-referenced EntitySet").isNotNull();
-		
-		this.backReferencedEntitySet = backReferencedEntitySet;
+	public BaseParametrizedControlType(final Class<C> contentClass) {
+		super(contentClass);
 	}
 	
 	//method
 	@Override
 	public final boolean isAnyBackReferenceType() {
-		return true;
+		return false;
 	}
 	
 	//method
 	@Override
 	public final boolean isAnyControlType() {
-		return false;
+		return true;
 	}
 	
 	//method
@@ -55,6 +46,6 @@ public abstract class BaseParametrizedSchemaBackReferenceType extends Parametriz
 	//method
 	@Override
 	public final boolean referencesBack(final IColumn<?, ?> column) {
-		return (backReferencedEntitySet == column);
+		return false;
 	}
 }

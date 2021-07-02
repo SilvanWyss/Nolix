@@ -4,10 +4,10 @@ package ch.nolix.system.databaseschema.parametrizedpropertytype;
 import ch.nolix.techapi.databaseschemaapi.propertytypeapi.PropertyType;
 
 //class
-public final class ParametrizedSchemaOptionalValueType<V> extends BaseParametrizedSchemaValueType<V> {
+public final class ParametrizedOptionalValueType<V> extends BaseParametrizedValueType<V> {
 	
 	//constructor
-	public ParametrizedSchemaOptionalValueType(final Class<V> valueClass) {
+	public ParametrizedOptionalValueType(final Class<V> valueClass) {
 		super(valueClass);
 	}
 	

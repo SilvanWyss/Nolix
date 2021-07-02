@@ -4,16 +4,16 @@ package ch.nolix.system.databaseschema.parametrizedpropertytype;
 import ch.nolix.techapi.databaseschemaapi.propertytypeapi.PropertyType;
 
 //class
-public final class ParametrizedSchemaBackReferenceType extends BaseParametrizedSchemaBackReferenceType {
+public final class ParametrizedMultiReferenceType extends BaseParametrizedReferenceType {
 	
 	//constructor
-	public ParametrizedSchemaBackReferenceType(final IEntitySet referencedEntitySet) {
+	public ParametrizedMultiReferenceType(final IEntitySet referencedEntitySet) {
 		super(referencedEntitySet);
 	}
 	
 	//method
 	@Override
 	public PropertyType getPropertyType() {
-		return PropertyType.BACK_REFERENCE;
+		return PropertyType.MULTI_REFERENCE;
 	}
 }

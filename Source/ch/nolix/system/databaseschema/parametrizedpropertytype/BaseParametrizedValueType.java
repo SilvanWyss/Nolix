@@ -2,24 +2,15 @@
 package ch.nolix.system.databaseschema.parametrizedpropertytype;
 
 //own imports
-import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.techapi.databaseschemaapi.schemaapi.IColumn;
 import ch.nolix.techapi.databaseschemaapi.schemaapi.ITable;
 
 //class
-public abstract class BaseParametrizedSchemaReferenceType extends ParametrizedPropertyType<IEntitySet> {
-	
-	//attribute
-	private final IEntitySet referencedEntitySet;
+public abstract class BaseParametrizedValueType<V> extends ParametrizedPropertyType<V> {
 	
 	//constructor
-	public BaseParametrizedSchemaReferenceType(final IEntitySet referencedEntitySet) {
-		
-		super(IEntitySet.class);
-		
-		Validator.assertThat(referencedEntitySet).thatIsNamed("referenced EntitySet").isNotNull();
-		
-		this.referencedEntitySet = referencedEntitySet;
+	public BaseParametrizedValueType(final Class<V> valueClass) {
+		super(valueClass);
 	}
 	
 	//method
@@ -37,19 +28,19 @@ public abstract class BaseParametrizedSchemaReferenceType extends ParametrizedPr
 	//method
 	@Override
 	public final boolean isAnyReferenceType() {
-		return true;
-	}
-	
-	//method
-	@Override
-	public final boolean isAnyValueType() {
 		return false;
 	}
 	
 	//method
 	@Override
+	public boolean isAnyValueType() {
+		return true;
+	}
+	
+	//method
+	@Override
 	public final boolean references(final ITable<?, ?, ?> table) {
-		return (referencedEntitySet == table);
+		return false;
 	}
 	
 	//method

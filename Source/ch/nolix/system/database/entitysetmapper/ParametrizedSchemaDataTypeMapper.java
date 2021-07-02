@@ -9,16 +9,16 @@ import ch.nolix.system.database.parametrizeddatatype.BaseParametrizedBackReferen
 import ch.nolix.system.database.parametrizeddatatype.BaseParametrizedReferenceType;
 import ch.nolix.system.databaseschema.databaseschemaadapter.DatabaseSchemaAdapter;
 import ch.nolix.system.databaseschema.databaseschemaadapter.EntitySet;
-import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedSchemaBackReferenceType;
+import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedBackReferenceType;
 import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedPropertyType;
-import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedSchemaMultiBackReferenceType;
-import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedSchemaMultiReferenceType;
-import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedSchemaMultiValueType;
-import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedSchemaOptionalBackReferenceType;
-import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedSchemaOptionalReferenceType;
-import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedSchemaOptionalValueType;
-import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedSchemaReferenceType;
-import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedSchemaValueType;
+import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedMultiBackReferenceType;
+import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedMultiReferenceType;
+import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedMultiValueType;
+import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedOptionalBackReferenceType;
+import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedOptionalReferenceType;
+import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedOptionalValueType;
+import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedReferenceType;
+import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedValueType;
 import ch.nolix.system.databaseschema.parametrizedpropertytype.SchemaIdType;
 
 //class
@@ -39,39 +39,39 @@ public final class ParametrizedSchemaDataTypeMapper {
 	public ParametrizedPropertyType<?> createParametrizedSchemaDataTypeFor(final Column<?> column) {
 		switch (column.getDataType()) {
 			case VALUE:
-				return new ParametrizedSchemaValueType<>(column.getRefContentClass());
+				return new ParametrizedValueType<>(column.getRefContentClass());
 			case OPTIONAL_VALUE:
-				return new ParametrizedSchemaOptionalValueType<>(column.getRefContentClass());
+				return new ParametrizedOptionalValueType<>(column.getRefContentClass());
 			case MULTI_VALUE:
-				return new ParametrizedSchemaMultiValueType<>(column.getRefContentClass());
+				return new ParametrizedMultiValueType<>(column.getRefContentClass());
 			case REFERENCE:
 				return
-				new ParametrizedSchemaReferenceType(
+				new ParametrizedReferenceType(
 					getReferencedEntitySetFor((BaseParametrizedReferenceType<?>)column.getParametrizedDataType())
 				);
 			case OPTIONAL_REFERENCE:
 				return
-				new ParametrizedSchemaOptionalReferenceType(
+				new ParametrizedOptionalReferenceType(
 					getReferencedEntitySetFor((BaseParametrizedReferenceType<?>)column.getParametrizedDataType())
 				);
 			case MULTI_REFERENCE:
 				return
-				new ParametrizedSchemaMultiReferenceType(
+				new ParametrizedMultiReferenceType(
 					getReferencedEntitySetFor((BaseParametrizedReferenceType<?>)column.getParametrizedDataType())
 				);
 			case BACK_REFERENCE:
 				return
-				new ParametrizedSchemaBackReferenceType(
+				new ParametrizedBackReferenceType(
 					getBackReferencingEntitySetFor((BaseParametrizedBackReferenceType<?>)column.getParametrizedDataType())
 				);
 			case OPTIONAL_BACK_REFERENCE:
 				return
-				new ParametrizedSchemaOptionalBackReferenceType(
+				new ParametrizedOptionalBackReferenceType(
 					getBackReferencingEntitySetFor((BaseParametrizedBackReferenceType<?>)column.getParametrizedDataType())
 				);
 			case MULTI_BACK_REFERENCE:
 				return
-					new ParametrizedSchemaMultiBackReferenceType(
+					new ParametrizedMultiBackReferenceType(
 						getBackReferencingEntitySetFor((BaseParametrizedBackReferenceType<?>)column.getParametrizedDataType())
 					);
 			case ID:

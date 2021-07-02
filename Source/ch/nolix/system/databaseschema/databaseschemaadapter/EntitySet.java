@@ -13,12 +13,12 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.sql.SQLDatabaseEngine;
 import ch.nolix.system.databaseschema.parametrizedpropertytype.IEntitySet;
 import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedPropertyType;
-import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedSchemaMultiReferenceType;
-import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedSchemaMultiValueType;
-import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedSchemaOptionalReferenceType;
-import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedSchemaOptionalValueType;
-import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedSchemaReferenceType;
-import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedSchemaValueType;
+import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedMultiReferenceType;
+import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedMultiValueType;
+import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedOptionalReferenceType;
+import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedOptionalValueType;
+import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedReferenceType;
+import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedValueType;
 
 //class
 public final class EntitySet implements IEntitySet, Named {
@@ -60,7 +60,7 @@ public final class EntitySet implements IEntitySet, Named {
 	//method
 	public EntitySet addColumn(final String header, final Class<?> valueClass) {
 		
-		addColumn(header, new ParametrizedSchemaValueType<>(valueClass));
+		addColumn(header, new ParametrizedValueType<>(valueClass));
 		
 		return this;
 	}
@@ -73,7 +73,7 @@ public final class EntitySet implements IEntitySet, Named {
 	//method
 	public EntitySet addMultiColumn(final String header, final Class<?> valueClass) {
 		
-		addColumn(header, new ParametrizedSchemaMultiValueType<>(valueClass));
+		addColumn(header, new ParametrizedMultiValueType<>(valueClass));
 		
 		return this;
 	}
@@ -81,7 +81,7 @@ public final class EntitySet implements IEntitySet, Named {
 	//method
 	public EntitySet addMultiReferenceColumn(final String header, final EntitySet referencedEntitySet) {
 		
-		addColumn(header, new ParametrizedSchemaMultiReferenceType(referencedEntitySet));
+		addColumn(header, new ParametrizedMultiReferenceType(referencedEntitySet));
 		
 		return this;
 	}
@@ -89,7 +89,7 @@ public final class EntitySet implements IEntitySet, Named {
 	//method
 	public EntitySet addOptionalColumn(final String header, final Class<?> valueClass) {
 		
-		addColumn(header, new ParametrizedSchemaOptionalValueType<>(valueClass));
+		addColumn(header, new ParametrizedOptionalValueType<>(valueClass));
 		
 		return this;
 	}
@@ -97,7 +97,7 @@ public final class EntitySet implements IEntitySet, Named {
 	//method
 	public EntitySet addOptionalReferenceColumn(final String header, final EntitySet referencedEntitySet) {
 		
-		addColumn(header, new ParametrizedSchemaOptionalReferenceType(referencedEntitySet));
+		addColumn(header, new ParametrizedOptionalReferenceType(referencedEntitySet));
 	
 		return this;
 	}
@@ -105,7 +105,7 @@ public final class EntitySet implements IEntitySet, Named {
 	//method
 	public EntitySet addReferenceColumn(final String header, final EntitySet referencedEntitySet) {
 				
-		addColumn(header, new ParametrizedSchemaReferenceType(referencedEntitySet));
+		addColumn(header, new ParametrizedReferenceType(referencedEntitySet));
 		
 		return this;
 	}

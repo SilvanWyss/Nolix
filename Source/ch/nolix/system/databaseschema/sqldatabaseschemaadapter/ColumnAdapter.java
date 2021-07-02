@@ -7,7 +7,7 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.system.databaseschema.databaseschemaadapter.Column;
 import ch.nolix.system.databaseschema.databaseschemaadapter.IColumnAdapter;
 import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedPropertyType;
-import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedSchemaValueType;
+import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedValueType;
 
 //class
 public final class ColumnAdapter implements IColumnAdapter {
@@ -36,7 +36,7 @@ public final class ColumnAdapter implements IColumnAdapter {
 	public ParametrizedPropertyType<?> getDataType() {
 		
 		//TODO: return SchemaDataTypeFactory.fromSpecification(...)
-		return new ParametrizedSchemaValueType<>(Object.class);
+		return new ParametrizedValueType<>(Object.class);
 	}
 	
 	//method
