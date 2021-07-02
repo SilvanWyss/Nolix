@@ -12,7 +12,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.UnsupportedArgument
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.sql.SQLDatabaseEngine;
 import ch.nolix.system.databaseschema.parametrizedpropertytype.IEntitySet;
-import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedSchemaDataType;
+import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedPropertyType;
 import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedSchemaMultiReferenceType;
 import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedSchemaMultiValueType;
 import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedSchemaOptionalReferenceType;
@@ -66,7 +66,7 @@ public final class EntitySet implements IEntitySet, Named {
 	}
 	
 	//method
-	private void addColumn(final String header, final ParametrizedSchemaDataType<?> dataType) {
+	private void addColumn(final String header, final ParametrizedPropertyType<?> dataType) {
 		addColumn(new Column(header, dataType));
 	}
 	

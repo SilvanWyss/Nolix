@@ -10,7 +10,7 @@ import ch.nolix.system.database.parametrizeddatatype.BaseParametrizedReferenceTy
 import ch.nolix.system.databaseschema.databaseschemaadapter.DatabaseSchemaAdapter;
 import ch.nolix.system.databaseschema.databaseschemaadapter.EntitySet;
 import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedSchemaBackReferenceType;
-import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedSchemaDataType;
+import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedPropertyType;
 import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedSchemaMultiBackReferenceType;
 import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedSchemaMultiReferenceType;
 import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedSchemaMultiValueType;
@@ -36,7 +36,7 @@ public final class ParametrizedSchemaDataTypeMapper {
 	}
 	
 	//method
-	public ParametrizedSchemaDataType<?> createParametrizedSchemaDataTypeFor(final Column<?> column) {
+	public ParametrizedPropertyType<?> createParametrizedSchemaDataTypeFor(final Column<?> column) {
 		switch (column.getDataType()) {
 			case VALUE:
 				return new ParametrizedSchemaValueType<>(column.getRefContentClass());

@@ -6,7 +6,7 @@ import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.errorcontrol.invalidargumentexception.UnsupportedArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.sql.SQLDatabaseEngine;
-import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedSchemaDataType;
+import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedPropertyType;
 import ch.nolix.techapi.databaseschemaapi.propertytypeapi.PropertyType;
 
 //class
@@ -14,10 +14,10 @@ public final class Column implements Headered {
 	
 	//attributes
 	private final String header;
-	private final ParametrizedSchemaDataType<?> dataType;
+	private final ParametrizedPropertyType<?> dataType;
 	
 	//constructor
-	public Column(final String header, final ParametrizedSchemaDataType<?> dataType) {
+	public Column(final String header, final ParametrizedPropertyType<?> dataType) {
 		
 		Validator.assertThat(header).thatIsNamed(LowerCaseCatalogue.HEADER).isNotBlank();
 		Validator.assertThat(dataType).thatIsNamed(LowerCaseCatalogue.DATA_TYPE).isNotNull();
@@ -27,7 +27,7 @@ public final class Column implements Headered {
 	}
 	
 	//method
-	public ParametrizedSchemaDataType<?> getDataType() {
+	public ParametrizedPropertyType<?> getDataType() {
 		return dataType;
 	}
 	

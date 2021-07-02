@@ -4,7 +4,7 @@ package ch.nolix.system.databaseschema.parametrizedpropertytype;
 import ch.nolix.common.errorcontrol.validator.Validator;
 
 //class
-public abstract class BaseParametrizedSchemaBackReferenceType extends ParametrizedSchemaDataType<IEntitySet> {
+public abstract class BaseParametrizedSchemaBackReferenceType extends ParametrizedPropertyType<IEntitySet> {
 	
 	//attribute
 	private final IEntitySet backReferencedEntitySet;

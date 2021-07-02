@@ -2,13 +2,13 @@
 package ch.nolix.system.databaseschema.databaseschemaadapter;
 
 import ch.nolix.common.attributeapi.mandatoryattributeapi.Headered;
-import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedSchemaDataType;
+import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedPropertyType;
 
 //interface
 public interface IColumnAdapter extends Headered {
 	
 	//method declaration
-	ParametrizedSchemaDataType<?> getDataType();
+	ParametrizedPropertyType<?> getDataType();
 	
 	//method
 	default Column toColumn() {

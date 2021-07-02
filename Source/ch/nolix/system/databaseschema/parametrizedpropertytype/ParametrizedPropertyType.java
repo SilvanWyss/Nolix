@@ -6,13 +6,13 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.techapi.databaseschemaapi.propertytypeapi.PropertyType;
 
 //class
-public abstract class ParametrizedSchemaDataType<DT> {
+public abstract class ParametrizedPropertyType<DT> {
 	
 	//attribute
 	private final Class<DT> dataType;
 	
 	//constructor
-	public ParametrizedSchemaDataType(final Class<DT> dataTye) {
+	public ParametrizedPropertyType(final Class<DT> dataTye) {
 		
 		Validator.assertThat(dataTye).thatIsNamed("data type").isNotNull();
 		

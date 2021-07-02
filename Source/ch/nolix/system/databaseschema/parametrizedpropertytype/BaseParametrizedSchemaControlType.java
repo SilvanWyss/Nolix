@@ -2,7 +2,7 @@
 package ch.nolix.system.databaseschema.parametrizedpropertytype;
 
 //class
-public abstract class BaseParametrizedSchemaControlType<C> extends ParametrizedSchemaDataType<C>{
+public abstract class BaseParametrizedSchemaControlType<C> extends ParametrizedPropertyType<C>{
 	
 	//constructor
 	public BaseParametrizedSchemaControlType(final Class<C> contentClass) {
