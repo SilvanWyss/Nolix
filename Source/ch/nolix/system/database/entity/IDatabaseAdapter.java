@@ -93,7 +93,7 @@ import ch.nolix.common.skillapi.IChangesSaver;
  * @date 2019-11-23
  * @lines 120
  */
-public interface IDatabaseAdapter extends IChangesSaver<IDatabaseAdapter>  {
+public interface IDatabaseAdapter extends IChangesSaver  {
 	
 	//method declaration
 	/**

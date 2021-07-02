@@ -11,9 +11,8 @@ import ch.nolix.common.requestapi.ChangeRequestable;
  * @author Silvan Wyss
  * @date 2018-04-9
  * @lines 20
- * @param <CS> is the type of a {@link IChangesSaver}.
  */
-public interface IChangesSaver<CS extends IChangesSaver<CS>> extends ChangeRequestable, Resettable {
+public interface IChangesSaver extends ChangeRequestable, Resettable {
 	
 	//method declaration
 	/**
