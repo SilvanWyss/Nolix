@@ -13,7 +13,7 @@ public final class ParametrizedSchemaOptionalBackReferenceType extends BaseParam
 	
 	//method
 	@Override
-	public PropertyType getPropertyKind() {
+	public PropertyType getPropertyType() {
 		return PropertyType.OPTIONAL_BACK_REFERENCE;
 	}
 }

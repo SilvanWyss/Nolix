@@ -1,30 +1,31 @@
 //package declaration
 package ch.nolix.system.databaseschema.parametrizedschemadatatype;
 
+//own imports
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.techapi.databaseschemaapi.propertytypeapi.PropertyType;
 
 //class
-public abstract class ParametrizedSchemaDataType<C> {
+public abstract class ParametrizedSchemaDataType<DT> {
 	
 	//attribute
-	private final Class<C> contentClass;
+	private final Class<DT> dataType;
 	
 	//constructor
-	public ParametrizedSchemaDataType(final Class<C> contentClass) {
+	public ParametrizedSchemaDataType(final Class<DT> dataTye) {
 		
-		Validator.assertThat(contentClass).thatIsNamed("content class").isNotNull();
+		Validator.assertThat(dataTye).thatIsNamed("data type").isNotNull();
 		
-		this.contentClass = contentClass;
+		this.dataType = dataTye;
+	}
+	
+	//method
+	public final Class<DT> getDataType() {
+		return dataType;
 	}
 	
 	//method declaration
-	public abstract PropertyType getPropertyKind();
-	
-	//method
-	public final Class<C> getRefContentClass() {
-		return contentClass;
-	}
+	public abstract PropertyType getPropertyType();
 	
 	//method declaration
 	public abstract boolean isAnyBackReferenceType();

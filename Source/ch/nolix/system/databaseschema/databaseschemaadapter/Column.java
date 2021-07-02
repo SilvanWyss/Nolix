@@ -39,12 +39,12 @@ public final class Column implements Headered {
 	
 	//method
 	public PropertyType getPropertyKind() {
-		return dataType.getPropertyKind();
+		return dataType.getPropertyType();
 	}
 	
 	//method
 	public Class<?> getRefContentClass() {
-		return dataType.getRefContentClass();
+		return dataType.getDataType();
 	}
 	
 	//method

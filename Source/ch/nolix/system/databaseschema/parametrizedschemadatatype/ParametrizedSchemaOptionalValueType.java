@@ -13,7 +13,7 @@ public final class ParametrizedSchemaOptionalValueType<V> extends BaseParametriz
 	
 	//method
 	@Override
-	public PropertyType getPropertyKind() {
+	public PropertyType getPropertyType() {
 		return PropertyType.OPTIONAL_VALUE;
 	}
 }

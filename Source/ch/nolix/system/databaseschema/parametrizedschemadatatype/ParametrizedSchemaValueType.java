@@ -13,7 +13,7 @@ public final class ParametrizedSchemaValueType<V> extends BaseParametrizedSchema
 	
 	//method
 	@Override
-	public PropertyType getPropertyKind() {
+	public PropertyType getPropertyType() {
 		return PropertyType.VALUE;
 	}
 }

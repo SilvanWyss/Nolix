@@ -13,7 +13,7 @@ public final class ParametrizedSchemaReferenceType extends BaseParametrizedSchem
 	
 	//method
 	@Override
-	public PropertyType getPropertyKind() {
+	public PropertyType getPropertyType() {
 		return PropertyType.REFERENCE;
 	}
 }

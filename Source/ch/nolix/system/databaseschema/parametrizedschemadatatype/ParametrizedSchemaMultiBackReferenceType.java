@@ -13,7 +13,7 @@ public final class ParametrizedSchemaMultiBackReferenceType extends BaseParametr
 	
 	//method
 	@Override
-	public PropertyType getPropertyKind() {
+	public PropertyType getPropertyType() {
 		return PropertyType.MULTI_BACK_REFERENCE;
 	}
 }

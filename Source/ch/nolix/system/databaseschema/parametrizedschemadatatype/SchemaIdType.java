@@ -13,7 +13,7 @@ public final class SchemaIdType extends BaseParametrizedSchemaControlType<Long> 
 	
 	//method
 	@Override
-	public PropertyType getPropertyKind() {
+	public PropertyType getPropertyType() {
 		return PropertyType.ID;
 	}
 }
