@@ -6,7 +6,7 @@ import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.errorcontrol.invalidargumentexception.UnsupportedArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.sql.SQLDatabaseEngine;
-import ch.nolix.system.databaseschema.parametrizedschemadatatype.ParametrizedSchemaDataType;
+import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedSchemaDataType;
 import ch.nolix.techapi.databaseschemaapi.propertytypeapi.PropertyType;
 
 //class

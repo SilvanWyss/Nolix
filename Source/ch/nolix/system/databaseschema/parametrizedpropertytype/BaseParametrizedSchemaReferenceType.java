@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.databaseschema.parametrizedschemadatatype;
+package ch.nolix.system.databaseschema.parametrizedpropertytype;
 
 import ch.nolix.common.errorcontrol.validator.Validator;
 

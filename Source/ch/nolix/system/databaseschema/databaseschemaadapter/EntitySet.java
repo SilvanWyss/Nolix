@@ -11,14 +11,14 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentExce
 import ch.nolix.common.errorcontrol.invalidargumentexception.UnsupportedArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.sql.SQLDatabaseEngine;
-import ch.nolix.system.databaseschema.parametrizedschemadatatype.IEntitySet;
-import ch.nolix.system.databaseschema.parametrizedschemadatatype.ParametrizedSchemaDataType;
-import ch.nolix.system.databaseschema.parametrizedschemadatatype.ParametrizedSchemaMultiReferenceType;
-import ch.nolix.system.databaseschema.parametrizedschemadatatype.ParametrizedSchemaMultiValueType;
-import ch.nolix.system.databaseschema.parametrizedschemadatatype.ParametrizedSchemaOptionalReferenceType;
-import ch.nolix.system.databaseschema.parametrizedschemadatatype.ParametrizedSchemaOptionalValueType;
-import ch.nolix.system.databaseschema.parametrizedschemadatatype.ParametrizedSchemaReferenceType;
-import ch.nolix.system.databaseschema.parametrizedschemadatatype.ParametrizedSchemaValueType;
+import ch.nolix.system.databaseschema.parametrizedpropertytype.IEntitySet;
+import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedSchemaDataType;
+import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedSchemaMultiReferenceType;
+import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedSchemaMultiValueType;
+import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedSchemaOptionalReferenceType;
+import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedSchemaOptionalValueType;
+import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedSchemaReferenceType;
+import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedSchemaValueType;
 
 //class
 public final class EntitySet implements IEntitySet, Named {

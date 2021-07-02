@@ -6,8 +6,8 @@ import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.system.databaseschema.databaseschemaadapter.Column;
 import ch.nolix.system.databaseschema.databaseschemaadapter.IColumnAdapter;
-import ch.nolix.system.databaseschema.parametrizedschemadatatype.ParametrizedSchemaDataType;
-import ch.nolix.system.databaseschema.parametrizedschemadatatype.ParametrizedSchemaValueType;
+import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedSchemaDataType;
+import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedSchemaValueType;
 
 //class
 public final class ColumnAdapter implements IColumnAdapter {

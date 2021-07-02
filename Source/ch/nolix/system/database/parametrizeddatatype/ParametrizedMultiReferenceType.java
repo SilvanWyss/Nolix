@@ -3,7 +3,7 @@ package ch.nolix.system.database.parametrizeddatatype;
 
 import ch.nolix.common.container.IContainer;
 import ch.nolix.system.database.entity.Entity;
-import ch.nolix.system.databaseschema.parametrizedschemadatatype.ParametrizedSchemaMultiReferenceType;
+import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedSchemaMultiReferenceType;
 import ch.nolix.techapi.databaseschemaapi.propertytypeapi.PropertyType;
 
 //class

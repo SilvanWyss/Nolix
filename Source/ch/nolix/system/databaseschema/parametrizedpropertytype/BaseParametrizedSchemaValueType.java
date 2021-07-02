@@ -1,12 +1,12 @@
 //package declaration
-package ch.nolix.system.databaseschema.parametrizedschemadatatype;
+package ch.nolix.system.databaseschema.parametrizedpropertytype;
 
 //class
-public abstract class BaseParametrizedSchemaControlType<C> extends ParametrizedSchemaDataType<C>{
+public abstract class BaseParametrizedSchemaValueType<V> extends ParametrizedSchemaDataType<V> {
 	
 	//constructor
-	public BaseParametrizedSchemaControlType(final Class<C> contentClass) {
-		super(contentClass);
+	public BaseParametrizedSchemaValueType(final Class<V> valueClass) {
+		super(valueClass);
 	}
 	
 	//method
@@ -18,7 +18,7 @@ public abstract class BaseParametrizedSchemaControlType<C> extends ParametrizedS
 	//method
 	@Override
 	public final boolean isAnyControlType() {
-		return true;
+		return false;
 	}
 	
 	//method
@@ -29,8 +29,8 @@ public abstract class BaseParametrizedSchemaControlType<C> extends ParametrizedS
 	
 	//method
 	@Override
-	public final boolean isAnyValueType() {
-		return false;
+	public boolean isAnyValueType() {
+		return true;
 	}
 	
 	//method

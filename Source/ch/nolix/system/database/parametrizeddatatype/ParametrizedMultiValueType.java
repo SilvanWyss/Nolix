@@ -3,7 +3,7 @@ package ch.nolix.system.database.parametrizeddatatype;
 
 //own imports
 import ch.nolix.common.container.IContainer;
-import ch.nolix.system.databaseschema.parametrizedschemadatatype.ParametrizedSchemaMultiValueType;
+import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedSchemaMultiValueType;
 import ch.nolix.techapi.databaseschemaapi.propertytypeapi.PropertyType;
 
 //class

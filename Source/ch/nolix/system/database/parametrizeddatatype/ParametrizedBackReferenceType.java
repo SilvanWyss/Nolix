@@ -4,7 +4,7 @@ package ch.nolix.system.database.parametrizeddatatype;
 //own imports
 import ch.nolix.common.container.IContainer;
 import ch.nolix.system.database.entity.Entity;
-import ch.nolix.system.databaseschema.parametrizedschemadatatype.ParametrizedSchemaBackReferenceType;
+import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedSchemaBackReferenceType;
 import ch.nolix.techapi.databaseschemaapi.propertytypeapi.PropertyType;
 
 //class
