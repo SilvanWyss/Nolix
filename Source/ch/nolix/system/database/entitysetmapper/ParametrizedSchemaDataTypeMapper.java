@@ -12,12 +12,9 @@ import ch.nolix.system.databaseschema.databaseschemaadapter.EntitySet;
 import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedBackReferenceType;
 import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedPropertyType;
 import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedMultiBackReferenceType;
-import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedMultiReferenceType;
 import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedMultiValueType;
 import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedOptionalBackReferenceType;
-import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedOptionalReferenceType;
 import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedOptionalValueType;
-import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedReferenceType;
 import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedValueType;
 import ch.nolix.system.databaseschema.parametrizedpropertytype.SchemaIdType;
 
@@ -45,20 +42,29 @@ public final class ParametrizedSchemaDataTypeMapper {
 			case MULTI_VALUE:
 				return new ParametrizedMultiValueType<>(column.getRefContentClass());
 			case REFERENCE:
+				//TODO: Refactor.
+				/*
 				return
 				new ParametrizedReferenceType(
 					getReferencedEntitySetFor((BaseParametrizedReferenceType<?>)column.getParametrizedDataType())
 				);
+				*/
 			case OPTIONAL_REFERENCE:
+				//TODO: Refactor.
+				/*
 				return
 				new ParametrizedOptionalReferenceType(
 					getReferencedEntitySetFor((BaseParametrizedReferenceType<?>)column.getParametrizedDataType())
 				);
+				*/
 			case MULTI_REFERENCE:
+				//TODO: Refactor.
+				/*
 				return
 				new ParametrizedMultiReferenceType(
 					getReferencedEntitySetFor((BaseParametrizedReferenceType<?>)column.getParametrizedDataType())
 				);
+				*/
 			case BACK_REFERENCE:
 				return
 				new ParametrizedBackReferenceType(

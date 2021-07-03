@@ -24,12 +24,15 @@ public final class ParametrizedMultiReferenceType<E extends Entity> extends Base
 	public ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedMultiReferenceType toSchemaDataType(
 		final IContainer<ch.nolix.system.databaseschema.databaseschemaadapter.EntitySet> schemaEntitySets
 	) {
-		
+		//TODO: Refactor.
+		/*
 		final var referencedEntitiesName = getReferencedEntitiesName();
 		
 		return
 		new ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedMultiReferenceType(
 			schemaEntitySets.getRefFirst(ses -> ses.hasName(referencedEntitiesName))
 		);
+		*/
+		return null;
 	}
 }

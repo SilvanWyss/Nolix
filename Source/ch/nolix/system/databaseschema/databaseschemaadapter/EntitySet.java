@@ -13,11 +13,8 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.sql.SQLDatabaseEngine;
 import ch.nolix.system.databaseschema.parametrizedpropertytype.IEntitySet;
 import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedPropertyType;
-import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedMultiReferenceType;
 import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedMultiValueType;
-import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedOptionalReferenceType;
 import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedOptionalValueType;
-import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedReferenceType;
 import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedValueType;
 
 //class
@@ -81,7 +78,8 @@ public final class EntitySet implements IEntitySet, Named {
 	//method
 	public EntitySet addMultiReferenceColumn(final String header, final EntitySet referencedEntitySet) {
 		
-		addColumn(header, new ParametrizedMultiReferenceType(referencedEntitySet));
+		//TODO: Refactor.
+		//addColumn(header, new ParametrizedMultiReferenceType(referencedEntitySet));
 		
 		return this;
 	}
@@ -97,15 +95,17 @@ public final class EntitySet implements IEntitySet, Named {
 	//method
 	public EntitySet addOptionalReferenceColumn(final String header, final EntitySet referencedEntitySet) {
 		
-		addColumn(header, new ParametrizedOptionalReferenceType(referencedEntitySet));
+		//TODO: Refactor.
+		//addColumn(header, new ParametrizedOptionalReferenceType(referencedEntitySet));
 	
 		return this;
 	}
 		
 	//method
 	public EntitySet addReferenceColumn(final String header, final EntitySet referencedEntitySet) {
-				
-		addColumn(header, new ParametrizedReferenceType(referencedEntitySet));
+		
+		//TODO: Refactor.
+		//addColumn(header, new ParametrizedReferenceType(referencedEntitySet));
 		
 		return this;
 	}

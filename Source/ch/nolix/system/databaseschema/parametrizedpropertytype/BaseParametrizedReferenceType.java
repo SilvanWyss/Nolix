@@ -7,19 +7,19 @@ import ch.nolix.techapi.databaseschemaapi.schemaapi.IColumn;
 import ch.nolix.techapi.databaseschemaapi.schemaapi.ITable;
 
 //class
-public abstract class BaseParametrizedReferenceType extends ParametrizedPropertyType<IEntitySet> {
+public abstract class BaseParametrizedReferenceType extends ParametrizedPropertyType<Long> {
 	
 	//attribute
-	private final IEntitySet referencedEntitySet;
+	private final ITable<?, ?, ?> referencedTable;
 	
 	//constructor
-	public BaseParametrizedReferenceType(final IEntitySet referencedEntitySet) {
+	public BaseParametrizedReferenceType(final ITable<?, ?, ?> referencedTable) {
 		
-		super(IEntitySet.class);
+		super(Long.class);
 		
-		Validator.assertThat(referencedEntitySet).thatIsNamed("referenced EntitySet").isNotNull();
+		Validator.assertThat(referencedTable).thatIsNamed("referenced table").isNotNull();
 		
-		this.referencedEntitySet = referencedEntitySet;
+		this.referencedTable = referencedTable;
 	}
 	
 	//method
@@ -49,7 +49,7 @@ public abstract class BaseParametrizedReferenceType extends ParametrizedProperty
 	//method
 	@Override
 	public final boolean references(final ITable<?, ?, ?> table) {
-		return (referencedEntitySet == table);
+		return (referencedTable == table);
 	}
 	
 	//method

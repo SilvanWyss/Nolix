@@ -24,12 +24,15 @@ public final class ParametrizedOptionalReferenceType<E extends Entity> extends B
 	public ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedOptionalReferenceType toSchemaDataType(
 		final IContainer<ch.nolix.system.databaseschema.databaseschemaadapter.EntitySet> schemaEntitySets
 	) {
-		
+		//TODO: Refactor.
+		/*
 		final var referencedEntitiesName = getReferencedEntitiesName();
 		
 		return
 		new ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedOptionalReferenceType(
 			schemaEntitySets.getRefFirst(ses -> ses.hasName(referencedEntitiesName))
 		);
+		*/
+		return null;
 	}
 }

@@ -25,12 +25,15 @@ public final class ParametrizedReferenceType<E extends Entity> extends BaseParam
 	public ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedReferenceType toSchemaDataType(
 		final IContainer<ch.nolix.system.databaseschema.databaseschemaadapter.EntitySet> schemaEntitySets
 	) {
-		
+		//TODO: Refactor.
+		/*
 		final var referencedEntitiesName = getReferencedEntitiesName();
 		
 		return
 		new ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedReferenceType(
 			schemaEntitySets.getRefFirst(ses -> ses.hasName(referencedEntitiesName))
 		);
+		*/
+		return null;
 	}
 }
