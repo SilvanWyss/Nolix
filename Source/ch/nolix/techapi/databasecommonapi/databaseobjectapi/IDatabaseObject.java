@@ -30,7 +30,7 @@ public interface IDatabaseObject {
 		}
 	}
 	
-	//method
+	//method declaration
 	DatabaseObjectState getState();
 		
 	//method
