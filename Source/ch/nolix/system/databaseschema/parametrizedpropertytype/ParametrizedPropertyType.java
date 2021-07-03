@@ -3,10 +3,10 @@ package ch.nolix.system.databaseschema.parametrizedpropertytype;
 
 //own imports
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.techapi.databaseschemaapi.schemaapi.IParametrizedPropertyType;
+import ch.nolix.techapi.databaseschemaapi.extendedschema.IExtendedParametrizedPropertyType;
 
 //class
-public abstract class ParametrizedPropertyType<DT> implements IParametrizedPropertyType<DT> {
+public abstract class ParametrizedPropertyType<DT> implements IExtendedParametrizedPropertyType<DT> {
 	
 	//attribute
 	private final Class<DT> dataType;

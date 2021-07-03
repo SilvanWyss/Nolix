@@ -24,31 +24,11 @@ public interface IColumn<
 	}
 	
 	//method declaration
-	IParametrizedPropertyType<?> getParametrizedPropertyType();
+	PPT getParametrizedPropertyType();
 	
 	//method
 	default PropertyType getPropertyType() {
 		return getParametrizedPropertyType().getPropertyType();
-	}
-	
-	//method
-	default boolean isAnyBackReferenceType() {
-		return getParametrizedPropertyType().isAnyBackReferenceType();
-	}
-	
-	//method
-	default boolean isAnyControlColumn() {
-		return getParametrizedPropertyType().isAnyControlType();
-	}
-	
-	//method
-	default boolean isAnyReferenceColumn() {
-		return getParametrizedPropertyType().isAnyReferenceType();
-	}
-	
-	//method
-	default boolean isAnyValueColumn() {
-		return getParametrizedPropertyType().isAnyValueType();
 	}
 	
 	//method
