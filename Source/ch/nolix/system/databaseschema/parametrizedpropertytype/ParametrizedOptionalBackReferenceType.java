@@ -1,14 +1,16 @@
 //package declaration
 package ch.nolix.system.databaseschema.parametrizedpropertytype;
 
+//own imports
 import ch.nolix.techapi.databaseschemaapi.propertytypeapi.PropertyType;
+import ch.nolix.techapi.databaseschemaapi.schemaapi.IColumn;
 
 //class
 public final class ParametrizedOptionalBackReferenceType extends BaseParametrizedBackReferenceType {
 	
 	//constructor
-	public ParametrizedOptionalBackReferenceType(final IEntitySet referencedEntitySet) {
-		super(referencedEntitySet);
+	public ParametrizedOptionalBackReferenceType(final IColumn<?, ?> backReferencedColumn) {
+		super(backReferencedColumn);
 	}
 	
 	//method

@@ -9,11 +9,8 @@ import ch.nolix.system.database.parametrizeddatatype.BaseParametrizedBackReferen
 import ch.nolix.system.database.parametrizeddatatype.BaseParametrizedReferenceType;
 import ch.nolix.system.databaseschema.databaseschemaadapter.DatabaseSchemaAdapter;
 import ch.nolix.system.databaseschema.databaseschemaadapter.EntitySet;
-import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedBackReferenceType;
 import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedPropertyType;
-import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedMultiBackReferenceType;
 import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedMultiValueType;
-import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedOptionalBackReferenceType;
 import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedOptionalValueType;
 import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedValueType;
 import ch.nolix.system.databaseschema.parametrizedpropertytype.SchemaIdType;
@@ -66,20 +63,29 @@ public final class ParametrizedSchemaDataTypeMapper {
 				);
 				*/
 			case BACK_REFERENCE:
+				//TODO: Refactor.
+				/*
 				return
 				new ParametrizedBackReferenceType(
 					getBackReferencingEntitySetFor((BaseParametrizedBackReferenceType<?>)column.getParametrizedDataType())
 				);
+				*/
 			case OPTIONAL_BACK_REFERENCE:
+				//TODO: Refactor.
+				/*
 				return
 				new ParametrizedOptionalBackReferenceType(
 					getBackReferencingEntitySetFor((BaseParametrizedBackReferenceType<?>)column.getParametrizedDataType())
 				);
+				*/
 			case MULTI_BACK_REFERENCE:
+				//TODO: Refactor.
+				/*
 				return
-					new ParametrizedMultiBackReferenceType(
-						getBackReferencingEntitySetFor((BaseParametrizedBackReferenceType<?>)column.getParametrizedDataType())
-					);
+				new ParametrizedMultiBackReferenceType(
+					getBackReferencingEntitySetFor((BaseParametrizedBackReferenceType<?>)column.getParametrizedDataType())
+				);
+				*/
 			case ID:
 				return new SchemaIdType();
 			default:

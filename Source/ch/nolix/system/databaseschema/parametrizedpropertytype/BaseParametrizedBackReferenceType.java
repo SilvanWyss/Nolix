@@ -7,19 +7,19 @@ import ch.nolix.techapi.databaseschemaapi.schemaapi.IColumn;
 import ch.nolix.techapi.databaseschemaapi.schemaapi.ITable;
 
 //class
-public abstract class BaseParametrizedBackReferenceType extends ParametrizedPropertyType<IEntitySet> {
+public abstract class BaseParametrizedBackReferenceType extends ParametrizedPropertyType<Long> {
 	
 	//attribute
-	private final IEntitySet backReferencedEntitySet;
+	private final IColumn<?, ?> backReferencedColumn;
 	
 	//constructor
-	public BaseParametrizedBackReferenceType(final IEntitySet backReferencedEntitySet) {
+	public BaseParametrizedBackReferenceType(final IColumn<?, ?> backReferencedColumn) {
 		
-		super(IEntitySet.class);
+		super(Long.class);
 		
-		Validator.assertThat(backReferencedEntitySet).thatIsNamed("back-referenced EntitySet").isNotNull();
+		Validator.assertThat(backReferencedColumn).thatIsNamed("back-referenced column").isNotNull();
 		
-		this.backReferencedEntitySet = backReferencedEntitySet;
+		this.backReferencedColumn = backReferencedColumn;
 	}
 	
 	//method
@@ -55,6 +55,6 @@ public abstract class BaseParametrizedBackReferenceType extends ParametrizedProp
 	//method
 	@Override
 	public final boolean referencesBack(final IColumn<?, ?> column) {
-		return (backReferencedEntitySet == column);
+		return (backReferencedColumn == column);
 	}
 }

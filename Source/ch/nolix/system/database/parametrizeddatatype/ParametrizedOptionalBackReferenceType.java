@@ -27,12 +27,15 @@ extends BaseParametrizedBackReferenceType<E> {
 	toSchemaDataType(
 		final IContainer<ch.nolix.system.databaseschema.databaseschemaadapter.EntitySet> schemaEntitySets
 	) {
-		
+		//TODO: Refactor.
+		/*
 		final var backReferencedEntitiesName = getBackReferencedEntitiesName();
 		
 		return
 		new ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedOptionalBackReferenceType(
 			schemaEntitySets.getRefFirst(ses -> ses.hasName(backReferencedEntitiesName))
 		);
+		*/
+		return null;
 	}
 }
