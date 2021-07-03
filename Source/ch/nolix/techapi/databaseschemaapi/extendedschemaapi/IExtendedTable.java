@@ -11,6 +11,4 @@ public interface IExtendedTable<
 	EC extends IExtendedColumn<EC, EPPT>,
 	EPPT extends IExtendedParametrizedPropertyType<? super Object>
 >
-extends IDatabaseObject, ITable<ET, EC, EPPT> {
-
-}
+extends IDatabaseObject, ITable<ET, EC, EPPT> {}
