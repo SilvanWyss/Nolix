@@ -43,13 +43,12 @@ public interface Identified {
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * @param object
 	 * @return true if the current {@link Identified} has the same id as the given object.
 	 */
 	default boolean hasSameIdAs(final Identified object) {
-		
-		//For a better performance, this implementation does not use all comfortable methods.
 		return (object != null && getId() == object.getId());
 	}
 }
