@@ -3,7 +3,7 @@ package ch.nolix.system.databaseschema.parametrizedpropertytype;
 
 //own imports
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.techapi.databaseschemaapi.extendedschema.IExtendedParametrizedPropertyType;
+import ch.nolix.techapi.databaseschemaapi.extendedschemaapi.IExtendedParametrizedPropertyType;
 
 //class
 public abstract class ParametrizedPropertyType<DT> implements IExtendedParametrizedPropertyType<DT> {
