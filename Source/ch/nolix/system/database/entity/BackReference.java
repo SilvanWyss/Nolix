@@ -2,7 +2,7 @@
 package ch.nolix.system.database.entity;
 
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.techapi.databaseschemaapi.propertytypeapi.PropertyType;
+import ch.nolix.techapi.databasecommonapi.propertytypeapi.PropertyType;
 
 //class
 public final class BackReference<E extends Entity> extends SingleBackReference<E> {

@@ -4,7 +4,7 @@ package ch.nolix.system.database.entity;
 //own imports
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentException;
-import ch.nolix.techapi.databaseschemaapi.propertytypeapi.PropertyType;
+import ch.nolix.techapi.databasecommonapi.propertytypeapi.PropertyType;
 
 //class
 public final class Reference<E extends Entity> extends SingleReference<E> {

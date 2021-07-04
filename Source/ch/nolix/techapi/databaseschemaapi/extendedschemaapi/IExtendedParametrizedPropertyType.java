@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.techapi.databaseschemaapi.extendedschemaapi;
 
-//own imports
-import ch.nolix.techapi.databaseschemaapi.propertytypeapi.BasePropertyType;
+import ch.nolix.techapi.databasecommonapi.propertytypeapi.BasePropertyType;
 import ch.nolix.techapi.databaseschemaapi.schemaapi.IParametrizedPropertyType;
 
 //interface

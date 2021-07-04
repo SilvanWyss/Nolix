@@ -4,7 +4,7 @@ package ch.nolix.system.database.parametrizeddatatype;
 //own imports
 import ch.nolix.common.container.IContainer;
 import ch.nolix.system.databaseschema.parametrizedpropertytype.SchemaIdType;
-import ch.nolix.techapi.databaseschemaapi.propertytypeapi.PropertyType;
+import ch.nolix.techapi.databasecommonapi.propertytypeapi.PropertyType;
 
 //class
 public final class ParametrizedIdType extends BaseParametrizedControlType<Long> {

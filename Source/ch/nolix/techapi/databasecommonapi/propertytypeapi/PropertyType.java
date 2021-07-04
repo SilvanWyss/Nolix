@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.techapi.databaseschemaapi.propertytypeapi;
+package ch.nolix.techapi.databasecommonapi.propertytypeapi;
 
 //own imports
 import ch.nolix.common.constant.LowerCaseCatalogue;

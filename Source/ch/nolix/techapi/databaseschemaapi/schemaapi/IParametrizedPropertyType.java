@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.techapi.databaseschemaapi.schemaapi;
 
-//own imports
-import ch.nolix.techapi.databaseschemaapi.propertytypeapi.BasePropertyType;
-import ch.nolix.techapi.databaseschemaapi.propertytypeapi.PropertyType;
+import ch.nolix.techapi.databasecommonapi.propertytypeapi.BasePropertyType;
+import ch.nolix.techapi.databasecommonapi.propertytypeapi.PropertyType;
 
 //interface
 public interface IParametrizedPropertyType<DT> {
