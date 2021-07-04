@@ -169,6 +169,7 @@ public final class PluralPascalCaseCatalogue {
 	public static final String SUBJECTS = "Subjects";
 	public static final String SUMMARIES = "Summaries";
 	public static final String SURNAMES = "Surnames";
+	public static final String TABLES = "Tables";
 	public static final String TABS = "Tabs";
 	public static final String TARGETS = "Targets";
 	public static final String TESTS = "Tests";

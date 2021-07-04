@@ -169,6 +169,7 @@ public final class LowerCaseCatalogue {
 	public static final String SUBJECT = "subject";
 	public static final String SUMMARY = "summary";
 	public static final String SURNAME = "surname";
+	public static final String TABLE = "table";
 	public static final String TAB = "tab";
 	public static final String TARGET = "target";
 	public static final String TEST = "test";

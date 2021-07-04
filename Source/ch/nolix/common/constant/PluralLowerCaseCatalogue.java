@@ -169,6 +169,7 @@ public final class PluralLowerCaseCatalogue {
 	public static final String SUBJECTS = "subjects";
 	public static final String SUMMARIES = "summaries";
 	public static final String SURNAMES = "surnames";
+	public static final String TABLES = "tables";
 	public static final String TABS = "tabs";
 	public static final String TARGETS = "targets";
 	public static final String TESTS = "tests";

@@ -170,6 +170,7 @@ public final class PascalCaseCatalogue {
 	public static final String SUMMARY = "Summary";
 	public static final String SURNAME = "Surname";
 	public static final String TAB = "Tab";
+	public static final String TABLE = "Table";
 	public static final String TARGET = "Target";
 	public static final String TEST = "Test";
 	public static final String TEST_CASE = "TestCase";
