@@ -2,7 +2,7 @@
 package ch.nolix.techapi.databaseschemaapi.flatschemadtoapi;
 
 //interface
-public interface IFlatDatbaseDTO {
+public interface IFlatDatabaseDTO {
 	
 	//method declaration
 	String getName();
