@@ -4,6 +4,7 @@ package ch.nolix.techapi.databaseschemaapi.extendedschemaapi;
 //own imports
 import ch.nolix.techapi.databasecommonapi.databaseobjectapi.IDatabaseObject;
 import ch.nolix.techapi.databaseschemaapi.schemaapi.IColumn;
+import ch.nolix.techapi.databaseschemaapi.schemadtoapi.IColumnDTO;
 
 //interface
 public interface IExtendedColumn<
@@ -31,4 +32,7 @@ extends IColumn<EC, EPPT>, IDatabaseObject {
 	default boolean isAnyValueColumn() {
 		return getParametrizedPropertyType().isAnyValueType();
 	}
+	
+	//method declaration
+	IColumnDTO toDTO();
 }
