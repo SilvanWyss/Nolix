@@ -3,7 +3,7 @@ package ch.nolix.system.databaseschema.parametrizedpropertytype;
 
 //own imports
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.system.databaseschema.schemadto.ParametrizedPropertyTypeDTO;
+import ch.nolix.system.databaseschema.schemadto.BaseParametrizedPropertyTypeDTO;
 import ch.nolix.techapi.databaseschemaapi.extendedschemaapi.IExtendedParametrizedPropertyType;
 
 //class
@@ -28,7 +28,7 @@ public abstract class ParametrizedPropertyType<DT> implements IExtendedParametri
 	
 	//method
 	@Override
-	public final ParametrizedPropertyTypeDTO toDTO() {
+	public final BaseParametrizedPropertyTypeDTO toDTO() {
 		//TODO: Implement.
 		return null;
 	}

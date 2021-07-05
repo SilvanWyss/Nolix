@@ -8,5 +8,5 @@ public interface IColumnDTO {
 	String getHeader();
 	
 	//method declaration
-	IParametrizedPropertyTypeDTO getParametrizedPropertyType();
+	IBaseParametrizedPropertyTypeDTO getParametrizedPropertyType();
 }

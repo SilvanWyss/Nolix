@@ -5,29 +5,29 @@ package ch.nolix.system.databaseschema.schemadto;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.techapi.databaseschemaapi.schemadtoapi.IColumnDTO;
-import ch.nolix.techapi.databaseschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
+import ch.nolix.techapi.databaseschemaapi.schemadtoapi.IBaseParametrizedPropertyTypeDTO;
 
 //class
 public final class ColumnDTO implements IColumnDTO {
 	
 	//attributes
 	private String header;
-	private ParametrizedPropertyTypeDTO parametrizedPropertyTypeDTO;
+	private BaseParametrizedPropertyTypeDTO baseParametrizedPropertyTypeDTO;
 	
 	//constructor
 	//For a better performance, this implementation does not use all comfortable methods.
-	public ColumnDTO(final String header, final ParametrizedPropertyTypeDTO parametrizedPropertyTypeDTO) {
+	public ColumnDTO(final String header, final BaseParametrizedPropertyTypeDTO baseParametrizedPropertyTypeDTO) {
 		
 		if (header == null) {
 			throw new ArgumentIsNullException(LowerCaseCatalogue.HEADER);
 		}
 		
-		if (parametrizedPropertyTypeDTO == null) {
-			throw new ArgumentIsNullException(IParametrizedPropertyTypeDTO.class);
+		if (baseParametrizedPropertyTypeDTO == null) {
+			throw new ArgumentIsNullException(IBaseParametrizedPropertyTypeDTO.class);
 		}
 		
 		this.header = header;
-		this.parametrizedPropertyTypeDTO = parametrizedPropertyTypeDTO;
+		this.baseParametrizedPropertyTypeDTO = baseParametrizedPropertyTypeDTO;
 	}
 	
 	//method
@@ -38,7 +38,7 @@ public final class ColumnDTO implements IColumnDTO {
 	
 	//method
 	@Override
-	public IParametrizedPropertyTypeDTO getParametrizedPropertyType() {
-		return parametrizedPropertyTypeDTO;
+	public IBaseParametrizedPropertyTypeDTO getParametrizedPropertyType() {
+		return baseParametrizedPropertyTypeDTO;
 	}
 }

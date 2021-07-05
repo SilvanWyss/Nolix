@@ -2,7 +2,7 @@
 package ch.nolix.techapi.databaseschemaapi.schemaaccessorapi;
 
 //own imports
-import ch.nolix.techapi.databaseschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
+import ch.nolix.techapi.databaseschemaapi.schemadtoapi.IBaseParametrizedPropertyTypeDTO;
 
 //interface
 public interface IColumnAccessor {
@@ -17,6 +17,6 @@ public interface IColumnAccessor {
 	void setHeaderOfCurrentColumnToDatabase(String header);
 	
 	//method declaration
-	void setParametrizedPropertyTypeForCurrentColumnToDatabase(IParametrizedPropertyTypeDTO parametrizedPropertyType);
+	void setParametrizedPropertyTypeForCurrentColumnToDatabase(IBaseParametrizedPropertyTypeDTO parametrizedPropertyType);
 
 }
