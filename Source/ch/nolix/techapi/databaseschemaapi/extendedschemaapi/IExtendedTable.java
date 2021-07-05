@@ -4,7 +4,9 @@ package ch.nolix.techapi.databaseschemaapi.extendedschemaapi;
 //own imports
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.techapi.databasecommonapi.databaseobjectapi.IDatabaseObject;
+import ch.nolix.techapi.databaseschemaapi.flatschemadtoapi.IFlatTableDTO;
 import ch.nolix.techapi.databaseschemaapi.schemaapi.ITable;
+import ch.nolix.techapi.databaseschemaapi.schemadtoapi.ITableDTO;
 
 //interface
 public interface IExtendedTable<
@@ -20,4 +22,10 @@ extends IDatabaseObject, ITable<ET, EC, EPPT> {
 			throw new InvalidArgumentException(this, "contains already a column with the header '" + header + "'");
 		}
 	}
+	
+	//method declaration
+	IFlatTableDTO getFlatDTO();
+	
+	//method declaration
+	ITableDTO toDTO();
 }
