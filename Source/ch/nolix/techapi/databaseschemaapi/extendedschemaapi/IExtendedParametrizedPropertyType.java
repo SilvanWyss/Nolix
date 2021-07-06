@@ -3,6 +3,7 @@ package ch.nolix.techapi.databaseschemaapi.extendedschemaapi;
 
 //own imports
 import ch.nolix.techapi.databasecommonapi.propertytypeapi.BasePropertyType;
+import ch.nolix.techapi.databasecommonapi.propertytypeapi.PropertyType;
 import ch.nolix.techapi.databaseschemaapi.schemaapi.IParametrizedPropertyType;
 import ch.nolix.techapi.databaseschemaapi.schemadtoapi.IBaseParametrizedPropertyTypeDTO;
 
@@ -27,6 +28,11 @@ public interface IExtendedParametrizedPropertyType<DT> extends IParametrizedProp
 	//method
 	default boolean isAnyValueType() {
 		return (getBasePropertyType() == BasePropertyType.BASE_VALUE);
+	}
+	
+	//method
+	default boolean isIdType() {
+		return (getPropertyType() == PropertyType.ID);
 	}
 	
 	//method declaration
