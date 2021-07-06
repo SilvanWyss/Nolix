@@ -7,7 +7,7 @@ import ch.nolix.techapi.databasecommonapi.propertytypeapi.PropertyType;
 import ch.nolix.techapi.databaseschemaapi.schemadtoapi.IBaseParametrizedPropertyTypeDTO;
 
 //class
-public final class BaseParametrizedPropertyTypeDTO implements IBaseParametrizedPropertyTypeDTO {
+public abstract class BaseParametrizedPropertyTypeDTO implements IBaseParametrizedPropertyTypeDTO {
 	
 	//attributes
 	private final PropertyType propertyType;
@@ -31,13 +31,13 @@ public final class BaseParametrizedPropertyTypeDTO implements IBaseParametrizedP
 	
 	//method
 	@Override
-	public String getDataTypeFullClassName() {
+	public final String getDataTypeFullClassName() {
 		return dataTypeFullClassName;
 	}
 	
 	//method
 	@Override
-	public PropertyType getPropertyType() {
+	public final PropertyType getPropertyType() {
 		return propertyType;
 	}
 }
