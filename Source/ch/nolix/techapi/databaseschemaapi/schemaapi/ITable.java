@@ -18,21 +18,12 @@ extends IFluentObject<T>, Namable<T> {
 	T addColumn(C column);
 	
 	//method
-	default T addColumnWithHeaderAndParametrizedPropertyType(final String header, final PPT parametrizedPropertyType) {
-		
-		final var column = createColumnObject().setHeader(header).setParametrizedPropertyType(parametrizedPropertyType);
-		addColumn(column);
-		
-		return asConcrete();
-	}
+	T addColumnWithHeaderAndParametrizedPropertyType(final String header, final PPT parametrizedPropertyType);
 	
 	//method
 	default boolean containsColumnWithHeader(final String header) {
 		return getRefColumns().contains(c -> c.hasHeader(header));
 	}
-	
-	//method declaration
-	C createColumnObject();
 	
 	//method declaration
 	void deleteColumn(C column);
