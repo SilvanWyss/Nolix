@@ -33,6 +33,11 @@ extends IColumn<EC, EPPT>, IDatabaseObject {
 		return getParametrizedPropertyType().isAnyValueType();
 	}
 	
+	//method
+	default boolean isIdColumn() {
+		return getParametrizedPropertyType().isIdType();
+	}
+	
 	//method declaration
 	IColumnDTO toDTO();
 }
