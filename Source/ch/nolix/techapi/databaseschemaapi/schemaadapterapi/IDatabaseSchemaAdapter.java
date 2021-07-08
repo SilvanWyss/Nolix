@@ -26,16 +26,16 @@ extends IChangeSaver {
 	}
 	
 	//method
-	default IDatabaseSchemaAdapter<D, T, C, PPT> addTableWithName(final String name) {
-		
-		getRefDatabase().addTableWithName(name);
-		
-		return this;
+	default boolean containsTableWithName(final String name) {
+		return getRefDatabase().containsTableWithName(name);
 	}
 	
 	//method
-	default boolean containsTableWithName(final String name) {
-		return getRefDatabase().containsTableWithName(name);
+	default IDatabaseSchemaAdapter<D, T, C, PPT> createTableWithName(final String name) {
+		
+		getRefDatabase().createTableWithName(name);
+		
+		return this;
 	}
 	
 	//method
@@ -44,7 +44,7 @@ extends IChangeSaver {
 	}
 	
 	//method
-	default void deleteTableWithName(final String name) {
+	default void deleteTableByName(final String name) {
 		deleteTable(getRefTableByName(name));
 	}
 	
