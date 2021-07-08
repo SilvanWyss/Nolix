@@ -4,7 +4,6 @@ package ch.nolix.techapi.databaseschemaapi.schemaapi;
 //own imports
 import ch.nolix.common.attributeapi.mutablemandatoryattributeapi.Namable;
 import ch.nolix.common.container.IContainer;
-import ch.nolix.common.generalskillapi.IFluentObject;
 
 //interface
 public interface ITable<
@@ -12,13 +11,10 @@ public interface ITable<
 	C extends IColumn<C, PPT>,
 	PPT extends IParametrizedPropertyType<? super Object>
 >
-extends IFluentObject<T>, Namable<T> {
+extends Namable<T> {
 	
 	//method declaration
 	T addColumn(C column);
-	
-	//method
-	T addColumnWithHeaderAndParametrizedPropertyType(final String header, final PPT parametrizedPropertyType);
 	
 	//method
 	default boolean containsColumnWithHeader(final String header) {
@@ -26,10 +22,13 @@ extends IFluentObject<T>, Namable<T> {
 	}
 	
 	//method declaration
+	T createColumnWithHeaderAndParametrizedPropertyType(final String header, final PPT parametrizedPropertyType);
+	
+	//method declaration
 	void deleteColumn(C column);
 	
 	//method
-	default void deleteColumnWithHeader(final String header) {
+	default void deleteColumnByHeader(final String header) {
 		deleteColumn(getRefColumnByHeader(header));
 	}
 	
