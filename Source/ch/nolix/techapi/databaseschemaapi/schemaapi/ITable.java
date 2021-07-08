@@ -9,7 +9,7 @@ import ch.nolix.common.container.IContainer;
 public interface ITable<
 	T extends ITable<T, C, PPT>,
 	C extends IColumn<C, PPT>,
-	PPT extends IParametrizedPropertyType<? super Object>
+	PPT extends IBaseParametrizedPropertyType<? super Object>
 >
 extends Namable<T> {
 	
