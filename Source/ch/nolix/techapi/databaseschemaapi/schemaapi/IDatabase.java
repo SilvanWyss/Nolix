@@ -10,7 +10,7 @@ public interface IDatabase<
 	D extends IDatabase<D, T, C, PPT>,
 	T extends ITable<T, C, PPT>,
 	C extends IColumn<C, PPT>,
-	PPT extends IBaseParametrizedPropertyType<Object>
+	PPT extends IParametrizedPropertyType<Object>
 >
 extends Named {
 	

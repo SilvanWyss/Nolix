@@ -6,7 +6,7 @@ import ch.nolix.techapi.databasecommonapi.propertytypeapi.BasePropertyType;
 import ch.nolix.techapi.databasecommonapi.propertytypeapi.PropertyType;
 
 //interface
-public interface IBaseParametrizedPropertyType<DT> {
+public interface IParametrizedPropertyType<DT> {
 	
 	//method
 	default BasePropertyType getBasePropertyType() {
