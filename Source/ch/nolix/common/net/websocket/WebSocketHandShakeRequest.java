@@ -12,7 +12,7 @@ public final class WebSocketHandShakeRequest {
 	
 	//static method
 	public static boolean canBe(final IContainer<String> lines) {
-		return lines.contains(l -> l.contains(WebSocketHandShakeRequest.SEC_WEBSOCKET_KEY_HEADER));
+		return lines.containsAny(l -> l.contains(WebSocketHandShakeRequest.SEC_WEBSOCKET_KEY_HEADER));
 	}
 	
 	//attribute

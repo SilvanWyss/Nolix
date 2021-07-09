@@ -18,7 +18,7 @@ public interface IDatabaseEngine<
 	
 	//method
 	default boolean containsDatabaseWithName(final String name) {
-		return getRefDatabases().contains(db -> db.containsTableWithName(name));
+		return getRefDatabases().containsAny(db -> db.containsTableWithName(name));
 	}
 	
 	//method declaration

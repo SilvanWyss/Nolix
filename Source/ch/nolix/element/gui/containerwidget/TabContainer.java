@@ -143,7 +143,7 @@ public final class TabContainer extends ContainerWidget<TabContainer, TabContain
 	 * @return true if the current {@link TabContainer} contains a selected tab.
 	 */
 	public boolean containsSelectedTab() {
-		return getRefTabs().contains(TabContainerTab::isSelected);
+		return getRefTabs().containsAny(TabContainerTab::isSelected);
 	}
 	
 	//method

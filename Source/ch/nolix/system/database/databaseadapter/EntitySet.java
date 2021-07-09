@@ -84,17 +84,17 @@ public final class EntitySet<E extends Entity> implements IEntitySet<E> {
 	
 	//method
 	public boolean canReference(final Entity entity) {
-		return getColumns().contains(c -> c.canReference(entity));
+		return getColumns().containsAny(c -> c.canReference(entity));
 	}
 	
 	//method
 	public <E2 extends Entity> boolean canReferenceBackEntityOfType(final Class<E2> type) {
-		return columns.contains(c -> c.canReferenceBackEntityOfType(type));
+		return columns.containsAny(c -> c.canReferenceBackEntityOfType(type));
 	}
 	
 	//method
 	public <E2 extends Entity> boolean canReferenceEntityOfType(final Class<E2> type) {
-		return columns.contains(c -> c.canReferenceEntityOfType(type));
+		return columns.containsAny(c -> c.canReferenceEntityOfType(type));
 	}
 	
 	//method
@@ -236,7 +236,7 @@ public final class EntitySet<E extends Entity> implements IEntitySet<E> {
 			return false;
 		}
 		
-		return getRefEntities().contains(e -> e.references(entity));
+		return getRefEntities().containsAny(e -> e.references(entity));
 	}
 	
 	//method
@@ -246,6 +246,6 @@ public final class EntitySet<E extends Entity> implements IEntitySet<E> {
 			return false;
 		}
 		
-		return getRefEntities().contains(e -> e.references(header, entity));
+		return getRefEntities().containsAny(e -> e.references(header, entity));
 	}
 }

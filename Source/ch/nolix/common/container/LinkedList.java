@@ -483,7 +483,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 			
 			final LinkedList<E> group
 			= groups.getRefFirstOrNull(
-				l -> l.contains(e2 -> norm.getOutput(e).equals(categoryRepresentator))
+				l -> l.containsAny(e2 -> norm.getOutput(e).equals(categoryRepresentator))
 			);
 			
 			if (group == null) {

@@ -65,12 +65,12 @@ public abstract class Entity implements IElement<Entity>, Identified, ShortDescr
 	
 	//method
 	public final boolean canReference(final Entity entity) {
-		return getRefProperties().contains(p -> p.canReference(entity));
+		return getRefProperties().containsAny(p -> p.canReference(entity));
 	}
 	
 	//method
 	public final boolean canReferenceEntities() {
-		return getRefProperties().contains(Property::canReferenceEntity);
+		return getRefProperties().containsAny(Property::canReferenceEntity);
 	}
 	
 	//method
@@ -220,7 +220,7 @@ public abstract class Entity implements IElement<Entity>, Identified, ShortDescr
 	
 	//method
 	public final boolean isReferenced() {
-		return getParentDatabaseAdapter().getRefEntitySets().contains(es -> es.references(this));
+		return getParentDatabaseAdapter().getRefEntitySets().containsAny(es -> es.references(this));
 	}
 	
 	//method
@@ -239,12 +239,12 @@ public abstract class Entity implements IElement<Entity>, Identified, ShortDescr
 	
 	//method
 	public final boolean references(final Entity entity) {
-		return getRefProperties().contains(p -> p.references(entity));
+		return getRefProperties().containsAny(p -> p.references(entity));
 	}
 	
 	//method
 	public final boolean references(final String header, final Entity entity) {
-		return getRefProperties().contains(p -> p.hasHeader(header) && p.references(entity));
+		return getRefProperties().containsAny(p -> p.hasHeader(header) && p.references(entity));
 	}
 	
 	//method

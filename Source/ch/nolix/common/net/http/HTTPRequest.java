@@ -21,9 +21,9 @@ public final class HTTPRequest {
 	//static method
 	public static boolean canBe(final IContainer<String> lines) {	
 		return
-		lines.contains(l -> l.contains(HTTP_HEADER))
-		&& lines.contains(l -> l.contains(HOST_HEADER))
-		&& lines.contains(l -> l.contains(ACCEPT_HEADER + ": text/html"));
+		lines.containsAny(l -> l.contains(HTTP_HEADER))
+		&& lines.containsAny(l -> l.contains(HOST_HEADER))
+		&& lines.containsAny(l -> l.contains(ACCEPT_HEADER + ": text/html"));
 	}
 	
 	//constructor

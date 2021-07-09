@@ -282,7 +282,7 @@ public class NetEndPoint extends EndPoint {
 	 * @return true if the current {@link NetEndPoint} has received a package with the given index.
 	 */
 	private final boolean receivedPackage(final int index) {
-		return getRefReceivedPackages().contains(rp -> rp.hasIndex(index));
+		return getRefReceivedPackages().containsAny(rp -> rp.hasIndex(index));
 	}
 	
 	//method

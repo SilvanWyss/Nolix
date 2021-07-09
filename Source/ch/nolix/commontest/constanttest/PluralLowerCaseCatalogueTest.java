@@ -24,7 +24,7 @@ public final class PluralLowerCaseCatalogueTest extends Test {
 			expect(c).isOfType(String.class);
 			
 			final var stringValue = c.toString();
-			if (!exceptions.containsEqualing(stringValue)) {
+			if (!exceptions.containsAnyEqualing(stringValue)) {
 				expect(stringValue).fulfils(GlobalStringHelper::isLowerCase);
 			}
 		}

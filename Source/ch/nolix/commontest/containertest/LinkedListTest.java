@@ -72,7 +72,7 @@ public final class LinkedListTest extends Test {
 		final var testUnit = LinkedList.withElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
 		
 		//execution
-		final var result = testUnit.contains((e1, e2) -> e1.length() == e2.length());
+		final var result = testUnit.containsAny((e1, e2) -> e1.length() == e2.length());
 		
 		//verification
 		expect(result);
@@ -86,7 +86,7 @@ public final class LinkedListTest extends Test {
 		final var testUnit = LinkedList.withElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
 		
 		//execution
-		final var result = testUnit.contains((e1, e2) -> e1.length() == e2.length() + 1);
+		final var result = testUnit.containsAny((e1, e2) -> e1.length() == e2.length() + 1);
 		
 		//verification
 		expect(result);
@@ -100,7 +100,7 @@ public final class LinkedListTest extends Test {
 		final var testUnit = LinkedList.withElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
 		
 		//execution
-		final var result = testUnit.contains((e1, e2) -> e1.length() == e2.length() + 2);
+		final var result = testUnit.containsAny((e1, e2) -> e1.length() == e2.length() + 2);
 		
 		//verification
 		expect(result);
@@ -114,7 +114,7 @@ public final class LinkedListTest extends Test {
 		final var testUnit = LinkedList.withElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
 		
 		//execution
-		final var result = testUnit.contains((e1, e2) -> e1.length() == e2.length() + 3);
+		final var result = testUnit.containsAny((e1, e2) -> e1.length() == e2.length() + 3);
 		
 		//verification
 		expect(result);
@@ -128,7 +128,7 @@ public final class LinkedListTest extends Test {
 		final var testUnit = LinkedList.withElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
 		
 		//execution
-		final var result = testUnit.contains((e1, e2) -> e1.length() == e2.length() + 4);
+		final var result = testUnit.containsAny((e1, e2) -> e1.length() == e2.length() + 4);
 		
 		//verification
 		expect(result);
@@ -142,7 +142,7 @@ public final class LinkedListTest extends Test {
 		final var testUnit = LinkedList.withElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
 		
 		//execution
-		final var result = testUnit.contains((e1, e2) -> e1.length() == e2.length() + 5);
+		final var result = testUnit.containsAny((e1, e2) -> e1.length() == e2.length() + 5);
 		
 		//verification
 		expect(result);
@@ -156,7 +156,7 @@ public final class LinkedListTest extends Test {
 		final var testUnit = LinkedList.withElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
 		
 		//execution
-		final var result = testUnit.contains((e1, e2) -> e1.length() == e2.length() + 6);
+		final var result = testUnit.containsAny((e1, e2) -> e1.length() == e2.length() + 6);
 		
 		//verification
 		expectNot(result);
@@ -727,21 +727,21 @@ public final class LinkedListTest extends Test {
 		
 		//execution & verification
 			expect(
-				result.contains(s -> s.equals("x")),
-				result.contains(s -> s.equals("xx")),
-				result.contains(s -> s.equals("xxx")),
-				result.contains(s -> s.equals("xxxx")),
-				result.contains(s -> s.equals("xxxxx")),
-				result.contains(s -> s.equals("xxxxxx"))
+				result.containsAny(s -> s.equals("x")),
+				result.containsAny(s -> s.equals("xx")),
+				result.containsAny(s -> s.equals("xxx")),
+				result.containsAny(s -> s.equals("xxxx")),
+				result.containsAny(s -> s.equals("xxxxx")),
+				result.containsAny(s -> s.equals("xxxxxx"))
 			);
 			
 			expectNot(
-				result.contains(s -> s.equals("xxxxxxx")),
-				result.contains(s -> s.equals("xxxxxxxx")),
-				result.contains(s -> s.equals("xxxxxxxxx")),
-				result.contains(s -> s.equals("xxxxxxxxxx")),
-				result.contains(s -> s.equals("xxxxxxxxxxx")),
-				result.contains(s -> s.equals("xxxxxxxxxxxx"))
+				result.containsAny(s -> s.equals("xxxxxxx")),
+				result.containsAny(s -> s.equals("xxxxxxxx")),
+				result.containsAny(s -> s.equals("xxxxxxxxx")),
+				result.containsAny(s -> s.equals("xxxxxxxxxx")),
+				result.containsAny(s -> s.equals("xxxxxxxxxxx")),
+				result.containsAny(s -> s.equals("xxxxxxxxxxxx"))
 			);
 	}
 	

@@ -48,7 +48,7 @@ public final class JobPool {
 	 * @return true if the current {@link JobPool} contains waiting jobs.
 	 */
 	public boolean containsWaitingJobs() {
-		return jobWrappers.contains(JobWrapper::isFresh);
+		return jobWrappers.containsAny(JobWrapper::isFresh);
 	}
 	
 	//method

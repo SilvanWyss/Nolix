@@ -112,7 +112,7 @@ public final class EntitySet implements IEntitySet, Named {
 	
 	//method
 	public boolean containsColumn(final String header) {
-		return columns.contains(c -> c.hasHeader(header));
+		return columns.containsAny(c -> c.hasHeader(header));
 	}
 	
 	//method

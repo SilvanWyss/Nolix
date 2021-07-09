@@ -115,7 +115,7 @@ public final class LicenseManager {
 	 * @return true if the current {@link LicenseManager} contains a {@link License} of the given licenseType.
 	 */
 	public <L extends License> boolean containsLicense(final Class<L> licenseType) {
-		return licenses.contains(l -> l.getClass() == licenseType);
+		return licenses.containsAny(l -> l.getClass() == licenseType);
 	}
 	
 	//method

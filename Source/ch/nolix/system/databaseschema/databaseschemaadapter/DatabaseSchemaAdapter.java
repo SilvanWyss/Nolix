@@ -60,7 +60,7 @@ public abstract class DatabaseSchemaAdapter<DSA extends DatabaseSchemaAdapter<DS
 	
 	//method
 	public final boolean containsEntitySet(final String name) {
-		return loadedAndCreatedEntitySets.contains(es -> es.hasName(name));
+		return loadedAndCreatedEntitySets.containsAny(es -> es.hasName(name));
 	}
 	
 	//method

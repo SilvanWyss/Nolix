@@ -88,7 +88,7 @@ public abstract class BaseServer implements Clearable, ICloseableElement {
 	 * @return true if the current {@link BaseServer} contains a {@link IEndPointTaker} with the given name.
 	 */
 	public final boolean containsEndPointTakerWithName(final String name) {
-		return endPointTakers.contains(ept -> ept.hasName(name));
+		return endPointTakers.containsAny(ept -> ept.hasName(name));
 	}
 	
 	//method

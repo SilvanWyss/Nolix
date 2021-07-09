@@ -139,7 +139,7 @@ public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G> 
 	 * @return true if the current {@link GUI3D} can create a shape of the given type.
 	 */
 	public final boolean canCreateShape(final String type) {
-		return shapeClasses.contains(sc -> sc.getRefElement1().getSimpleName().equals(type));
+		return shapeClasses.containsAny(sc -> sc.getRefElement1().getSimpleName().equals(type));
 	}
 	
 	//method

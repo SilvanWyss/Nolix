@@ -111,7 +111,7 @@ final class WidgetProvider {
 	 * can create a {@link Widget} of the given type.
 	 */
 	public boolean canCreateWidgetOf(final String type) {
-		return widgetClasses.contains(wc -> wc.getSimpleName().equals(type));
+		return widgetClasses.containsAny(wc -> wc.getSimpleName().equals(type));
 	}
 	
 	//method

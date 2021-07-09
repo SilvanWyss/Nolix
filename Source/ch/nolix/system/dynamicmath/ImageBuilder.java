@@ -48,7 +48,7 @@ public final class ImageBuilder implements IImageBuilder {
 	//method
 	@Override
 	public boolean caughtError() {
-		return futures.contains(IFuture::caughtError);
+		return futures.containsAny(IFuture::caughtError);
 	}
 	
 	//method

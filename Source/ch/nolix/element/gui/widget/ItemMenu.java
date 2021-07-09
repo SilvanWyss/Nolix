@@ -112,22 +112,22 @@ public abstract class ItemMenu<IM extends ItemMenu<IM>> extends BorderWidget<IM,
 	
 	//method
 	public final boolean containsEmptyItem() {
-		return getRefItems().contains(ItemMenuItem::isEmptyItem);
+		return getRefItems().containsAny(ItemMenuItem::isEmptyItem);
 	}
 	
 	//method
 	public final boolean containsItem(final String text) {
-		return getRefItems().contains(i -> i.hasText(text));
+		return getRefItems().containsAny(i -> i.hasText(text));
 	}
 	
 	//method
 	public final boolean containsItemWithId(final String id) {
-		return getRefItems().contains(i -> i.hasId(id));
+		return getRefItems().containsAny(i -> i.hasId(id));
 	}
 	
 	//method
 	public final boolean containsSelectedItem() {
-		return getRefItems().contains(ItemMenuItem::isSelected);
+		return getRefItems().containsAny(ItemMenuItem::isSelected);
 	}
 	
 	//method

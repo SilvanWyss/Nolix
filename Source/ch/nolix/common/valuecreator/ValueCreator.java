@@ -53,6 +53,6 @@ public final class ValueCreator<S> {
 	
 	//method
 	boolean canCreateValuesOf(final Class<?> type) {
-		return specificValueCreators.contains(svc -> svc.canCreateValuesOf(type));
+		return specificValueCreators.containsAny(svc -> svc.canCreateValuesOf(type));
 	}
 }

@@ -234,7 +234,7 @@ public abstract class BaseConfiguration<C extends BaseConfiguration<C>> extends 
 	 * @return true if the current {@link BaseConfiguration} contains the given selectorRole.
 	 */
 	public final boolean containsSelectorRole(final String selectorRole) {
-		return selectorRoles.containsEqualing(selectorRole);
+		return selectorRoles.containsAnyEqualing(selectorRole);
 	}
 	
 	//method
@@ -251,7 +251,7 @@ public abstract class BaseConfiguration<C extends BaseConfiguration<C>> extends 
 	 * @return true if the current {@link BaseConfiguration} contains the given selectorToken.
 	 */
 	public final boolean containsSelectorToken(final String selectorToken) {
-		return selectorTokens.containsEqualing(selectorToken);
+		return selectorTokens.containsAnyEqualing(selectorToken);
 	}
 	
 	//method

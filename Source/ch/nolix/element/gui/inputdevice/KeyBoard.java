@@ -18,14 +18,14 @@ public final class KeyBoard implements IMutableKeyBoard {
 	//method
 	@Override
 	public boolean keyIsPressed(final Key key) {
-		return pressedKeys.containsEqualing(key);
+		return pressedKeys.containsAnyEqualing(key);
 	}
 	
 	//method
 	@Override
 	public void noteKeyDown(final Key key) {
 		
-		if (!pressedKeys.containsEqualing(key)) {
+		if (!pressedKeys.containsAnyEqualing(key)) {
 			pressedKeys.addAtEnd(key);
 		}
 		

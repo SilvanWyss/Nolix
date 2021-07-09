@@ -19,7 +19,7 @@ extends Named {
 	
 	//method
 	default boolean containsTableWithName(final String name) {
-		return getRefTables().contains(t -> t.hasName(name));
+		return getRefTables().containsAny(t -> t.hasName(name));
 	}
 	
 	//method declaration

@@ -29,7 +29,7 @@ public abstract class Schema {
 	
 	//method
 	public boolean containsEntityType(final String name) {
-		return entityTypes.contains(et -> et.hasName(name));
+		return entityTypes.containsAny(et -> et.hasName(name));
 	}
 	
 	//method

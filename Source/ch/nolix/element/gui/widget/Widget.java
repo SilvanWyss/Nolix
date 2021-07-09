@@ -258,7 +258,7 @@ TopLeftPositionedRecangular {
 	 * @return true if the free view area of the curent {@link Widget} is under the cursor.
 	 */
 	public final boolean freeViewAreaIsUnderCursor() {
-		return (isUnderCursor() && getRefWidgetsForPainting().contains(Widget::isUnderCursor));
+		return (isUnderCursor() && getRefWidgetsForPainting().containsAny(Widget::isUnderCursor));
 	}
 	
 	//method

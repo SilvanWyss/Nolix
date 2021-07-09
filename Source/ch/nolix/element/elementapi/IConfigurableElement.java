@@ -32,7 +32,7 @@ TypeRequestable {
 	 */
 	@Override
 	default boolean containsElement(final String id) {
-		return getSubConfigurablesRecursively().contains(sc -> sc.hasId(id));
+		return getSubConfigurablesRecursively().containsAny(sc -> sc.hasId(id));
 	}
 	
 	//method declaration

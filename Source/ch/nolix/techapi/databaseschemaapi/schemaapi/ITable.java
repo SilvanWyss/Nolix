@@ -18,7 +18,7 @@ extends Namable<T> {
 	
 	//method
 	default boolean containsColumnWithHeader(final String header) {
-		return getRefColumns().contains(c -> c.hasHeader(header));
+		return getRefColumns().containsAny(c -> c.hasHeader(header));
 	}
 	
 	//method declaration

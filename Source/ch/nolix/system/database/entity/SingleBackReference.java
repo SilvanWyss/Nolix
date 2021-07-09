@@ -46,7 +46,7 @@ public abstract class SingleBackReference<E extends Entity> extends BaseBackRefe
 		return
 		getReferencingEntitySet()
 		.getRefEntities()
-		.contains(e -> e.references(getReferencingPropertyHeader(), getParentEntity()));
+		.containsAny(e -> e.references(getReferencingPropertyHeader(), getParentEntity()));
 	}
 	
 	//method

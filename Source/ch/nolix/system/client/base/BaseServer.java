@@ -131,7 +131,7 @@ public abstract class BaseServer implements ICloseableElement {
 	 * @return true if the current {@link BaseServer} contains a {@link Application} with the given name.
 	 */
 	public final boolean containsApplicationWithName(final String name) {
-		return applications.contains(a -> a.hasName(name));
+		return applications.containsAny(a -> a.hasName(name));
 	}
 		
 	//method
@@ -173,7 +173,7 @@ public abstract class BaseServer implements ICloseableElement {
 	 * @return true if the current {@link BaseServer} has a {@link Client} connected.
 	 */
 	public final boolean hasClientConnected() {
-		return applications.contains(Application::hasClientConnected);
+		return applications.containsAny(Application::hasClientConnected);
 	}
 	
 	//method

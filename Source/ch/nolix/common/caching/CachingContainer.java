@@ -27,7 +27,7 @@ public final class CachingContainer<E> implements IContainer<E> {
 	
 	//method
 	public boolean containsWithId(final String id) {
-		return elements.contains(e -> e.getRefElement1().equals(id));
+		return elements.containsAny(e -> e.getRefElement1().equals(id));
 	}
 	
 	//method

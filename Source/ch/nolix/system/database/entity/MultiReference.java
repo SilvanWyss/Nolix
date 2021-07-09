@@ -52,7 +52,7 @@ public final class MultiReference<E extends Entity> extends BaseReference<E> {
 			return false;
 		}
 		
-		return referencedEntityIds.contains(rei -> rei.equals(entity.getId()));
+		return referencedEntityIds.containsAny(rei -> rei.equals(entity.getId()));
 	}
 	
 	//method
@@ -106,7 +106,7 @@ public final class MultiReference<E extends Entity> extends BaseReference<E> {
 	
 	//method
 	private boolean containsValue(final long referencedEntityId) {
-		return referencedEntityIds.contains(rei -> rei == referencedEntityId);
+		return referencedEntityIds.containsAny(rei -> rei == referencedEntityId);
 	}
 
 	//method

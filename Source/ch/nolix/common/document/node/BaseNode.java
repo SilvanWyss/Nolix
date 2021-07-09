@@ -183,7 +183,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * @return true if the current {@link BaseNode} contains an attribute the given selector selects.
 	 */
 	public boolean containsAttribute(final IElementTakerBooleanGetter<BaseNode> selector) {
-		return getRefAttributes().contains(selector);
+		return getRefAttributes().containsAny(selector);
 	}
 	
 	//method

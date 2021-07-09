@@ -79,7 +79,7 @@ public abstract class DatabaseAdapter implements IDatabaseAdapter {
 
 	//method
 	public final boolean containsEntitySet(final String name) {
-		return entitySets.contains(es -> es.hasName(name));
+		return entitySets.containsAny(es -> es.hasName(name));
 	}
 	
 	//method

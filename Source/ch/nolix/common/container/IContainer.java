@@ -57,53 +57,6 @@ public interface IContainer<E> extends Iterable<E> {
 	/**
 	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
-	 * @param selector
-	 * @return true if the current {@link IContainer} contains an element the given selector selects.
-	 */
-	default boolean contains(final IElementTakerBooleanGetter<E> selector) {
-		
-		//Iterates the current IContainer.
-		for (final var e : this) {
-			
-			//Handles the case that the given selector selects the current element.
-			if (selector.getOutput(e)) {
-				return true;
-			}
-		}
-		
-		return false;
-	}
-	
-	//method
-	/**
-	 * The complexity of this implementation is O(n^2) if the current {@link IContainer} contains n elements.
-	 *
-	 * @param selector
-	 * @return true if the current {@link IContainer}
-	 * contains at least 2 elements the given selector selects together.
-	 */
-	default boolean contains(final I2ElementTakerBooleanGetter<E> selector) {
-		
-		//Iterates the current IContainer.
-		for (final var e : this) {
-			
-			//Iterates the current IContainer for the current element.
-			for (final var e2 : this) {
-				
-				//Handles the case that the given selector selects the current elements.
-				if (selector.getOutput(e, e2)) {
-					return true;
-				}
-			}
-		}
-		
-		return false;
-	}
-	
-	//method
-	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
-	 * 
 	 * @param element
 	 * @return true if the current {@link IContainer} contains the given element.
 	 */
@@ -179,6 +132,53 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method
 	/**
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * 
+	 * @param selector
+	 * @return true if the current {@link IContainer} contains an element the given selector selects.
+	 */
+	default boolean containsAny(final IElementTakerBooleanGetter<E> selector) {
+		
+		//Iterates the current IContainer.
+		for (final var e : this) {
+			
+			//Handles the case that the given selector selects the current element.
+			if (selector.getOutput(e)) {
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
+	//method
+	/**
+	 * The complexity of this implementation is O(n^2) if the current {@link IContainer} contains n elements.
+	 *
+	 * @param selector
+	 * @return true if the current {@link IContainer}
+	 * contains at least 2 elements the given selector selects together.
+	 */
+	default boolean containsAny(final I2ElementTakerBooleanGetter<E> selector) {
+		
+		//Iterates the current IContainer.
+		for (final var e : this) {
+			
+			//Iterates the current IContainer for the current element.
+			for (final var e2 : this) {
+				
+				//Handles the case that the given selector selects the current elements.
+				if (selector.getOutput(e, e2)) {
+					return true;
+				}
+			}
+		}
+		
+		return false;
+	}
+	
+	//method
+	/**
 	 * The complexity of this implementation is O(m*n) if:
 	 * -The current {@link IContainer} contains m elements.
 	 * -n elements are given.
@@ -198,6 +198,18 @@ public interface IContainer<E> extends Iterable<E> {
 		}
 		
 		return false;
+	}
+	
+	//method
+	/**
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * 
+	 * @param element
+	 * @return true if the current {@link IContainer}
+	 * contains an element that equals the given given element.
+	 */
+	default boolean containsAnyEqualing(final Object element) {
+		return containsAny(e -> e.equals(element));
 	}
 	
 	//method
@@ -232,18 +244,6 @@ public interface IContainer<E> extends Iterable<E> {
 	 */
 	default boolean containsAsManyAs(final IContainer<E> container) {
 		return (getElementCount() == container.getElementCount());
-	}
-	
-	//method
-	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
-	 * 
-	 * @param element
-	 * @return true if the current {@link IContainer}
-	 * contains an element that equals the given given element.
-	 */
-	default boolean containsEqualing(final Object element) {
-		return contains(e -> e.equals(element));
 	}
 	
 	//method
@@ -298,7 +298,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return true if the current {@link IContainer} does not contain an element the given selector selects.
 	 */
 	default boolean containsNone(final IElementTakerBooleanGetter<E> selector) {
-		return !contains(selector::getOutput);
+		return !containsAny(selector::getOutput);
 	}
 	
 	//method
@@ -425,7 +425,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return true if the current {@link IContainer} contains only elements the given selector selects.
 	 */
 	default boolean containsOnly(final IElementTakerBooleanGetter<E> selector) {
-		return !contains(e -> !selector.getOutput(e));
+		return !containsAny(e -> !selector.getOutput(e));
 	}
 	
 	//method
