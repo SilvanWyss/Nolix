@@ -5,7 +5,7 @@ package ch.nolix.system.databaseschema.schemadto;
 import ch.nolix.techapi.databasecommonapi.propertytypeapi.PropertyType;
 
 //class
-public final class BaseParametrizedValueTypeDTO extends BaseParametrizedPropertyTypeDTO {
+public final class BaseParametrizedValueTypeDTO extends ParametrizedPropertyTypeDTO {
 	
 	//constructor
 	public BaseParametrizedValueTypeDTO(final PropertyType propertyType, final String dataTypeFullClassName) {

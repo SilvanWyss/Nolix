@@ -12,22 +12,22 @@ public final class ColumnDTO implements IColumnDTO {
 	
 	//attributes
 	private String header;
-	private BaseParametrizedPropertyTypeDTO baseParametrizedPropertyTypeDTO;
+	private ParametrizedPropertyTypeDTO parametrizedPropertyTypeDTO;
 	
 	//constructor
 	//For a better performance, this implementation does not use all comfortable methods.
-	public ColumnDTO(final String header, final BaseParametrizedPropertyTypeDTO baseParametrizedPropertyTypeDTO) {
+	public ColumnDTO(final String header, final ParametrizedPropertyTypeDTO parametrizedPropertyTypeDTO) {
 		
 		if (header == null) {
 			throw new ArgumentIsNullException(LowerCaseCatalogue.HEADER);
 		}
 		
-		if (baseParametrizedPropertyTypeDTO == null) {
+		if (parametrizedPropertyTypeDTO == null) {
 			throw new ArgumentIsNullException(IParametrizedPropertyTypeDTO.class);
 		}
 		
 		this.header = header;
-		this.baseParametrizedPropertyTypeDTO = baseParametrizedPropertyTypeDTO;
+		this.parametrizedPropertyTypeDTO = parametrizedPropertyTypeDTO;
 	}
 	
 	//method
@@ -39,6 +39,6 @@ public final class ColumnDTO implements IColumnDTO {
 	//method
 	@Override
 	public IParametrizedPropertyTypeDTO getParametrizedPropertyType() {
-		return baseParametrizedPropertyTypeDTO;
+		return parametrizedPropertyTypeDTO;
 	}
 }

@@ -7,7 +7,7 @@ import ch.nolix.techapi.databasecommonapi.propertytypeapi.PropertyType;
 import ch.nolix.techapi.databaseschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
 
 //class
-public abstract class BaseParametrizedPropertyTypeDTO implements IParametrizedPropertyTypeDTO {
+public abstract class ParametrizedPropertyTypeDTO implements IParametrizedPropertyTypeDTO {
 	
 	//attributes
 	private final PropertyType propertyType;
@@ -15,7 +15,7 @@ public abstract class BaseParametrizedPropertyTypeDTO implements IParametrizedPr
 	
 	//constructor
 	//For a better performance, this implementation does not use all comfortable methods.
-	public BaseParametrizedPropertyTypeDTO(final PropertyType propertyType,  final String dataTypeFullClassName) {
+	public ParametrizedPropertyTypeDTO(final PropertyType propertyType,  final String dataTypeFullClassName) {
 		
 		if (propertyType == null) {
 			throw new ArgumentIsNullException(PropertyType.class);
