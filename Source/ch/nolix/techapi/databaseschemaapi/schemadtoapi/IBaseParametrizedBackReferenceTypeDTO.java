@@ -2,7 +2,7 @@
 package ch.nolix.techapi.databaseschemaapi.schemadtoapi;
 
 //interface
-public interface IBaseParametrizedBackReferenceTypeDTO extends IBaseParametrizedPropertyTypeDTO {
+public interface IBaseParametrizedBackReferenceTypeDTO extends IParametrizedPropertyTypeDTO {
 	
 	//method declaration
 	String getBackReferencedColumnHeader();

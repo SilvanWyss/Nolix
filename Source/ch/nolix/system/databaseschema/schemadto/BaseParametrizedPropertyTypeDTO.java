@@ -4,10 +4,10 @@ package ch.nolix.system.databaseschema.schemadto;
 //own imports
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.techapi.databasecommonapi.propertytypeapi.PropertyType;
-import ch.nolix.techapi.databaseschemaapi.schemadtoapi.IBaseParametrizedPropertyTypeDTO;
+import ch.nolix.techapi.databaseschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
 
 //class
-public abstract class BaseParametrizedPropertyTypeDTO implements IBaseParametrizedPropertyTypeDTO {
+public abstract class BaseParametrizedPropertyTypeDTO implements IParametrizedPropertyTypeDTO {
 	
 	//attributes
 	private final PropertyType propertyType;

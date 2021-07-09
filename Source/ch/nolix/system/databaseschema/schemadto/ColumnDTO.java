@@ -5,7 +5,7 @@ package ch.nolix.system.databaseschema.schemadto;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.techapi.databaseschemaapi.schemadtoapi.IColumnDTO;
-import ch.nolix.techapi.databaseschemaapi.schemadtoapi.IBaseParametrizedPropertyTypeDTO;
+import ch.nolix.techapi.databaseschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
 
 //class
 public final class ColumnDTO implements IColumnDTO {
@@ -23,7 +23,7 @@ public final class ColumnDTO implements IColumnDTO {
 		}
 		
 		if (baseParametrizedPropertyTypeDTO == null) {
-			throw new ArgumentIsNullException(IBaseParametrizedPropertyTypeDTO.class);
+			throw new ArgumentIsNullException(IParametrizedPropertyTypeDTO.class);
 		}
 		
 		this.header = header;
@@ -38,7 +38,7 @@ public final class ColumnDTO implements IColumnDTO {
 	
 	//method
 	@Override
-	public IBaseParametrizedPropertyTypeDTO getParametrizedPropertyType() {
+	public IParametrizedPropertyTypeDTO getParametrizedPropertyType() {
 		return baseParametrizedPropertyTypeDTO;
 	}
 }

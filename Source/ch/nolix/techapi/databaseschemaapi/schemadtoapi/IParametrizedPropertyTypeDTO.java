@@ -5,7 +5,7 @@ package ch.nolix.techapi.databaseschemaapi.schemadtoapi;
 import ch.nolix.techapi.databasecommonapi.propertytypeapi.PropertyType;
 
 //interface
-public interface IBaseParametrizedPropertyTypeDTO {
+public interface IParametrizedPropertyTypeDTO {
 	
 	//method declaration
 	String getDataTypeFullClassName();
