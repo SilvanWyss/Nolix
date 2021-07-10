@@ -15,6 +15,13 @@ public interface IExtendedColumn<
 extends IColumn<EC, EPPT>, IDatabaseObject {
 	
 	//method
+	default void assertIsAnyBackReferenceColumn() {
+		if (!isAnyBackReferenceColumn()) {
+			throw new InvalidArgumentException(this, "is not any back reference column");
+		}
+	}
+	
+	//method
 	default void assertIsAnyReferenceColumn() {
 		if (!isAnyReferenceColumn()) {
 			throw new InvalidArgumentException(this, "is not any reference column");
@@ -22,7 +29,7 @@ extends IColumn<EC, EPPT>, IDatabaseObject {
 	}
 	
 	//method
-	default boolean isAnyBackReferenceType() {
+	default boolean isAnyBackReferenceColumn() {
 		return getParametrizedPropertyType().isAnyBackReferenceType();
 	}
 	
