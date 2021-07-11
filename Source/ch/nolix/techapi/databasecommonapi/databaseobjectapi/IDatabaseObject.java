@@ -37,6 +37,13 @@ public interface IDatabaseObject {
 		}
 	}
 	
+	//method
+	default void assertIsNotLinkedWithActualDatabase() {
+		if (isLinkedWithActualDatabase()) {
+			throw new InvalidArgumentException(this, "is already linked with an actual database");
+		}
+	}
+	
 	//method declaration
 	DatabaseObjectState getState();
 		
