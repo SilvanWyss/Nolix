@@ -3,6 +3,7 @@ package ch.nolix.techapi.databaseschemaapi.extendedschemaapi;
 
 //own imports
 import ch.nolix.techapi.databasecommonapi.databaseobjectapi.IDatabaseObject;
+import ch.nolix.techapi.databaseschemaapi.schemaaccessorapi.IDatabaseAccessor;
 import ch.nolix.techapi.databaseschemaapi.schemaapi.IDatabase;
 
 //interface
@@ -12,4 +13,11 @@ public interface IExtendedDatabase<
 	EC extends IExtendedColumn<EC, EPPT>,
 	EPPT extends IExtendedParametrizedPropertyType<?>
 >
-extends IDatabase<ED, ET, EC, EPPT>, IDatabaseObject {}
+extends IDatabase<ED, ET, EC, EPPT>, IDatabaseObject {
+	
+	//method declaration
+	void setAccessorForActualDatabase(IDatabaseAccessor databaseAccessor);
+	
+	//method declaration
+	void setExpired();
+}
