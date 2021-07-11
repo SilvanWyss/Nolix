@@ -16,6 +16,9 @@ public interface IDatabaseAccessor {
 	void deleteTableWithNameFromDatabase(String name);
 	
 	//method declaration
+	ITableAccessor getAccessorForTableWithName(String name);
+	
+	//method declaration
 	String getNameOfCurrentDatabase();
 	
 	//method declaration
