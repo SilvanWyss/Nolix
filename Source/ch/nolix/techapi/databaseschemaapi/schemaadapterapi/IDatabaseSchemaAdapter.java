@@ -13,9 +13,8 @@ public interface IDatabaseSchemaAdapter<
 	D extends IDatabase<D, T, C, PPT>,
 	T extends ITable<T, C, PPT>,
 	C extends IColumn<C, PPT>,
-	PPT extends IParametrizedPropertyType<Object>
->
-extends IChangeSaver {
+	PPT extends IParametrizedPropertyType<?>
+> extends IChangeSaver {
 	
 	//method
 	default IDatabaseSchemaAdapter<D, T, C, PPT> addTable(T table) {
