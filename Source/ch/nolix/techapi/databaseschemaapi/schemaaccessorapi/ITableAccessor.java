@@ -18,6 +18,9 @@ public interface ITableAccessor {
 	String getNameOfCurrentTable();
 	
 	//method declaration
+	IColumnAccessor getAccessorForColumnWithHeader(String header);
+	
+	//method declaration
 	IContainer<IColumnDTO> loadColumnsOfCurrentTableFromDatabase();
 	
 	//method declaration
