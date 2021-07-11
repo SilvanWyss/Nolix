@@ -10,6 +10,13 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.NonNewArgumentExcep
 public interface IDatabaseObject {
 	
 	//method
+	default void assertIsLinkedWithActualDatabase() {
+		if (!isLinkedWithActualDatabase()) {
+			throw new InvalidArgumentException(this, "is not linked with an actual database");
+		}
+	}
+	
+	//method
 	default void assertIsLoaded() {
 		if (!isLoaded()) {
 			throw new InvalidArgumentException(this, "is not loaded");
@@ -42,6 +49,9 @@ public interface IDatabaseObject {
 	default boolean isExpired() {
 		return (getState() == DatabaseObjectState.EXPIRED);
 	}
+	
+	//method declaration
+	boolean isLinkedWithActualDatabase();
 	
 	//method
 	default boolean isLoaded() {
