@@ -10,7 +10,7 @@ import ch.nolix.techapi.databaseschemaapi.schemadtoapi.IColumnDTO;
 //interface
 public interface IExtendedColumn<
 	EC extends IColumn<EC, EPPT>,
-	EPPT extends IExtendedParametrizedPropertyType<? super Object>
+	EPPT extends IExtendedParametrizedPropertyType<?>
 >
 extends IColumn<EC, EPPT>, IDatabaseObject {
 	

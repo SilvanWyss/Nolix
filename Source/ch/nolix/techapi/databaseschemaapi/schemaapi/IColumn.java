@@ -10,7 +10,7 @@ import ch.nolix.techapi.databasecommonapi.propertytypeapi.PropertyType;
 //interface
 public interface IColumn<
 	C extends IColumn<C, PPT>,
-	PPT extends IParametrizedPropertyType<? super Object>
+	PPT extends IParametrizedPropertyType<?>
 > extends EmptinessRequestable, Headerable<C> {
 	
 	//method

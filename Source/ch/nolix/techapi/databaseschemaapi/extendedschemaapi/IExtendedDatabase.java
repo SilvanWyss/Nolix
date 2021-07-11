@@ -10,6 +10,6 @@ public interface IExtendedDatabase<
 	ED extends IExtendedDatabase<ED, ET, EC, EPPT>,
 	ET extends IExtendedTable<ET, EC, EPPT>,
 	EC extends IExtendedColumn<EC, EPPT>,
-	EPPT extends IExtendedParametrizedPropertyType<? super Object>
+	EPPT extends IExtendedParametrizedPropertyType<?>
 >
 extends IDatabase<ED, ET, EC, EPPT>, IDatabaseObject {}
