@@ -2,12 +2,12 @@
 package ch.nolix.techapi.databasecommonapi.databaseobjectapi;
 
 //own imports
-import ch.nolix.common.errorcontrol.invalidargumentexception.ExpiredArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.NonNewArgumentException;
+import ch.nolix.common.programcontrol.closeableelement.ICloseableElement;
 
 //interface
-public interface IDatabaseObject {
+public interface IDatabaseObject extends ICloseableElement {
 	
 	//method
 	default void assertIsLinkedWithActualDatabase() {
@@ -31,13 +31,6 @@ public interface IDatabaseObject {
 	}
 	
 	//method
-	default void assertIsNotExpired() {
-		if (isExpired()) {
-			throw new ExpiredArgumentException(this);
-		}
-	}
-	
-	//method
 	default void assertIsNotLinkedWithActualDatabase() {
 		if (isLinkedWithActualDatabase()) {
 			throw new InvalidArgumentException(this, "is already linked with an actual database");
@@ -50,11 +43,6 @@ public interface IDatabaseObject {
 	//method
 	default boolean isEdited() {
 		return (getState() == DatabaseObjectState.EDITED);
-	}
-	
-	//method
-	default boolean isExpired() {
-		return (getState() == DatabaseObjectState.EXPIRED);
 	}
 	
 	//method declaration

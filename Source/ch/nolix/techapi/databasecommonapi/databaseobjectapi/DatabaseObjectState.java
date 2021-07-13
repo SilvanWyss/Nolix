@@ -13,6 +13,9 @@ public enum DatabaseObjectState {
 	//loaded from database and edited
 	EDITED,
 	
+	//loaded from database and deleted
+	DELETED,
+	
 	//not valid anymore
-	EXPIRED
+	CLOSED
 }

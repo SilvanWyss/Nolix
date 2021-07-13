@@ -11,7 +11,8 @@ import ch.nolix.techapi.databaseschemaapi.extendedschemaapi.IExtendedDatabase;
 import ch.nolix.techapi.databaseschemaapi.schemaaccessorapi.IDatabaseAccessor;
 
 //class
-public final class Database implements IExtendedDatabase<Database, Table, Column, ParametrizedPropertyType<?>> {
+public final class Database extends DatabaseObject
+implements IExtendedDatabase<Database, Table, Column, ParametrizedPropertyType<?>> {
 	
 	//static attributes
 	private static final DatabaseMutationPreValidator mutationPreValidator = new DatabaseMutationPreValidator();
@@ -88,22 +89,22 @@ public final class Database implements IExtendedDatabase<Database, Table, Column
 	
 	//method
 	@Override
+	public void noteClose() {
+		
+		state = DatabaseObjectState.CLOSED;
+		
+		//Does not call getRefTables method to avoid that the tables need to be loaded from the database.
+		tables.forEach(Table::close);
+	}
+	
+	//method
+	@Override
 	public void setAccessorForActualDatabase(final IDatabaseAccessor accessor) {
 		
 		Validator.assertThat(accessor).thatIsNamed("accessor").isNotNull();
 		assertIsNotLinkedWithActualDatabase();
 		
 		this.accessor = accessor;
-	}
-	
-	//method
-	@Override
-	public void setExpired() {
-		
-		state = DatabaseObjectState.EXPIRED;
-		
-		//Does not call getRefTables method to avoid that the tables need to be loaded from the database.
-		tables.forEach(Table::setExpired);
 	}
 	
 	//method

@@ -17,7 +17,4 @@ extends IDatabase<ED, ET, EC, EPPT>, IDatabaseObject {
 	
 	//method declaration
 	void setAccessorForActualDatabase(IDatabaseAccessor databaseAccessor);
-	
-	//method declaration
-	void setExpired();
 }

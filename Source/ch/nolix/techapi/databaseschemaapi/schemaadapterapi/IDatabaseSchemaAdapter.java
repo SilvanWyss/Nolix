@@ -2,6 +2,7 @@
 package ch.nolix.techapi.databaseschemaapi.schemaadapterapi;
 
 //own imports
+import ch.nolix.common.programcontrol.closeableelement.ICloseableElement;
 import ch.nolix.common.skillapi.IChangeSaver;
 import ch.nolix.techapi.databaseschemaapi.schemaapi.IColumn;
 import ch.nolix.techapi.databaseschemaapi.schemaapi.IDatabase;
@@ -14,7 +15,7 @@ public interface IDatabaseSchemaAdapter<
 	T extends ITable<T, C, PPT>,
 	C extends IColumn<C, PPT>,
 	PPT extends IParametrizedPropertyType<?>
-> extends IChangeSaver {
+> extends IChangeSaver, ICloseableElement {
 	
 	//method
 	default IDatabaseSchemaAdapter<D, T, C, PPT> addTable(T table) {

@@ -8,7 +8,8 @@ import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
-import ch.nolix.common.errorcontrol.invalidargumentexception.ExpiredArgumentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ClosedArgumentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.DeletedArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedPropertyType;
 import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedValueType;
@@ -19,7 +20,7 @@ import ch.nolix.techapi.databaseschemaapi.schemaaccessorapi.IColumnAccessor;
 import ch.nolix.techapi.databaseschemaapi.schemadtoapi.IColumnDTO;
 
 //class
-public final class Column implements IExtendedColumn<Column, ParametrizedPropertyType<?>> {
+public final class Column extends DatabaseObject implements IExtendedColumn<Column, ParametrizedPropertyType<?>> {
 	
 	//constant
 	private static final String INITIAL_HEADER = StringCatalogue.DEFAULT_STRING;
@@ -95,6 +96,12 @@ public final class Column implements IExtendedColumn<Column, ParametrizedPropert
 	@Override
 	public boolean isLinkedWithActualDatabase() {
 		return (belongsToTable() && getParentTable().isLinkedWithActualDatabase());
+	}
+	
+	//method
+	@Override
+	public void noteClose() {
+		state = DatabaseObjectState.CLOSED;
 	}
 	
 	//method
@@ -187,11 +194,13 @@ public final class Column implements IExtendedColumn<Column, ParametrizedPropert
 				break;
 			case EDITED:
 				break;
-			case EXPIRED:
-				throw new ExpiredArgumentException(this);
+			case DELETED:
+				throw new DeletedArgumentException(this);
+			case CLOSED:
+				throw new ClosedArgumentException(this);
 		}
 	}
-
+	
 	//method
 	void noteReferenceColumnHasChangedHeader() {
 		
@@ -203,11 +212,6 @@ public final class Column implements IExtendedColumn<Column, ParametrizedPropert
 	//method
 	void setHeaderAttributeUnchecked(final String header) {
 		this.header = header;
-	}
-	
-	//method
-	void setExpired() {
-		state = DatabaseObjectState.EXPIRED;
 	}
 	
 	//method

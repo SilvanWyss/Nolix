@@ -16,7 +16,7 @@ import ch.nolix.techapi.databaseschemaapi.flatschemadtoapi.IFlatTableDTO;
 import ch.nolix.techapi.databaseschemaapi.schemaaccessorapi.ITableAccessor;
 
 //class
-public final class Table implements IExtendedTable<Table, Column, ParametrizedPropertyType<?>> {
+public final class Table extends DatabaseObject implements IExtendedTable<Table, Column, ParametrizedPropertyType<?>> {
 	
 	//static attributes
 	private static final TableMutationPreValidator mutationPreValidator = new TableMutationPreValidator();
@@ -105,6 +105,16 @@ public final class Table implements IExtendedTable<Table, Column, ParametrizedPr
 	
 	//method
 	@Override
+	public void noteClose() {
+		
+		state = DatabaseObjectState.CLOSED;
+		
+		//Does not call getRefColumns method to avoid that the columns need to be loaded from the database.
+		columns.forEach(Column::close);
+	}
+	
+	//method
+	@Override
 	public Table setName(final String name) {
 		
 		mutationPreValidator.assertCanSetNameToTable(this, name);
@@ -145,15 +155,6 @@ public final class Table implements IExtendedTable<Table, Column, ParametrizedPr
 		gainAccessorIfNeeded();
 		
 		return accessor;
-	}
-	
-	//method
-	void setExpired() {
-		
-		state = DatabaseObjectState.EXPIRED;
-		
-		//Does not call getRefColumns method to avoid that the columns need to be loaded from the database.
-		columns.forEach(Column::setExpired);
 	}
 	
 	//method
