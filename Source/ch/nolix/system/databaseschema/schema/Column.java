@@ -154,8 +154,18 @@ public final class Column extends DatabaseObject implements IExtendedColumn<Colu
 	}
 	
 	//method
+	boolean belongsToDatabase() {
+		return (belongsToTable() && getParentTable().belongsToDatabase());
+	}
+	
+	//method
 	boolean belongsToTable() {
 		return (parentTable != null);
+	}
+	
+	//method
+	Database getParentDatabase() {
+		return getParentTable().getParentDatabase();
 	}
 	
 	//method
@@ -182,6 +192,16 @@ public final class Column extends DatabaseObject implements IExtendedColumn<Colu
 		}
 		
 		return getRefBackReferencingColumnsWhenIsReferenceColumn();
+	}
+	
+	//method
+	boolean isBackReferenced() {
+		
+		if (!isAnyReferenceColumn()) {
+			return false;
+		}
+		
+		return isBackReferencedWhenIsAnyReferenceColumn();
 	}
 	
 	//method
@@ -236,11 +256,6 @@ public final class Column extends DatabaseObject implements IExtendedColumn<Colu
 	}
 	
 	//method
-	private boolean belongsToDatabase() {
-		return (belongsToTable() && getParentTable().belongsToDatabase());
-	}
-	
-	//method
 	private void gainAccessor() {
 		accessor = getParentTable().getRefAccessor().getAccessorForColumnWithHeader(getHeader());
 	}
@@ -250,11 +265,6 @@ public final class Column extends DatabaseObject implements IExtendedColumn<Colu
 		if (!hasAccessor()) {
 			gainAccessor();
 		}
-	}
-	
-	//method
-	private Database getParentDatabase() {
-		return getParentTable().getParentDatabase();
 	}
 	
 	//method
@@ -276,16 +286,6 @@ public final class Column extends DatabaseObject implements IExtendedColumn<Colu
 	//method
 	private boolean hasAccessor() {
 		return (accessor != null);
-	}
-	
-	//method
-	private boolean isBackReferenced() {
-		
-		if (!isAnyReferenceColumn()) {
-			return false;
-		}
-		
-		return isBackReferencedWhenIsAnyReferenceColumn();
 	}
 	
 	//method
