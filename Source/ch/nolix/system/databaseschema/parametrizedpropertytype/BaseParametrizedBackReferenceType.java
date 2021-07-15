@@ -23,6 +23,11 @@ public abstract class BaseParametrizedBackReferenceType extends ParametrizedProp
 	}
 	
 	//method
+	public IColumn<?, ?> getBackReferencedColumn() {
+		return backReferencedColumn;
+	}
+	
+	//method
 	@Override
 	public final boolean isAnyBackReferenceType() {
 		return true;
@@ -55,6 +60,6 @@ public abstract class BaseParametrizedBackReferenceType extends ParametrizedProp
 	//method
 	@Override
 	public final boolean referencesBack(final IColumn<?, ?> column) {
-		return (backReferencedColumn == column);
+		return (getBackReferencedColumn() == column);
 	}
 }
