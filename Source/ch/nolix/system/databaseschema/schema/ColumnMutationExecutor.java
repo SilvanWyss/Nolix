@@ -9,7 +9,20 @@ final class ColumnMutationExecutor {
 	
 	//method
 	public void setHeaderToColumn(final Column column, final String header) {
-		//TODO: Implement.
+		
+		column.noteEdit();
+		
+		final var backRefernceColumns = column.getRefBackReferencingColumns();
+		
+		column.setHeaderAttribute(header);
+		
+		if (column.isLinkedWithActualDatabase()) {
+			column.getRefAccessor().setHeaderOfCurrentColumnToDatabase(header);
+		}
+		
+		for (final var brc : backRefernceColumns) {
+			setParametrizedPropertyTypeToColumn(brc, brc.getParametrizedPropertyType());
+		}
 	}
 	
 	//method
@@ -17,6 +30,15 @@ final class ColumnMutationExecutor {
 		final Column column,
 		final ParametrizedPropertyType<?> parametrizedPropertyType
 	) {
-		//TODO: Implement.
+		
+		column.noteEdit();
+		
+		column.setParametrizedPropertyTypeAttribute(parametrizedPropertyType);
+		
+		if (column.isLinkedWithActualDatabase()) {
+			column
+			.getRefAccessor()
+			.setParametrizedPropertyTypeForCurrentColumnToDatabase(parametrizedPropertyType.toDTO());
+		}
 	}
 }

@@ -222,15 +222,7 @@ public final class Column extends DatabaseObject implements IExtendedColumn<Colu
 	}
 	
 	//method
-	void noteReferenceColumnHasChangedHeader() {
-		
-		assertIsAnyBackReferenceColumn();
-		
-		mutationExecutor.setParametrizedPropertyTypeToColumn(this, parametrizedPropertyType);
-	}
-
-	//method
-	void setHeaderAttributeUnchecked(final String header) {
+	void setHeaderAttribute(final String header) {
 		this.header = header;
 	}
 	
@@ -243,7 +235,7 @@ public final class Column extends DatabaseObject implements IExtendedColumn<Colu
 	}
 
 	//method
-	void setParametrizedPropertyTypeAttributeUnchecked(final ParametrizedPropertyType<?> parametrizedPropertyType) {
+	void setParametrizedPropertyTypeAttribute(final ParametrizedPropertyType<?> parametrizedPropertyType) {
 		this.parametrizedPropertyType = parametrizedPropertyType;
 	}
 
