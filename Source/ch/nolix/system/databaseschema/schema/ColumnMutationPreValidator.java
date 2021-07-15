@@ -39,8 +39,9 @@ final class ColumnMutationPreValidator {
 		if (parametrizedPropertyType.isAnyReferenceType() && column.belongsToDatabase()) {
 			
 			final var baseParametrizedReferenceType = (BaseParametrizedReferenceType)parametrizedPropertyType;
+			final var referencedTable = baseParametrizedReferenceType.getReferencedTable();
 				
-			column.getParentDatabase().assertContainsTable(baseParametrizedReferenceType.getReferencedTable());
+			column.getParentDatabase().assertContainsTable(referencedTable);
 		}
 		
 		if (!parametrizedPropertyType.isAnyReferenceType()) {
