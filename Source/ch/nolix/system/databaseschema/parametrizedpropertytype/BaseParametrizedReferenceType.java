@@ -23,6 +23,11 @@ public abstract class BaseParametrizedReferenceType extends ParametrizedProperty
 	}
 	
 	//method
+	public ITable<?, ?, ?> getReferencedTable() {
+		return referencedTable;
+	}
+	
+	//method
 	@Override
 	public final boolean isAnyBackReferenceType() {
 		return false;
@@ -49,7 +54,7 @@ public abstract class BaseParametrizedReferenceType extends ParametrizedProperty
 	//method
 	@Override
 	public final boolean references(final ITable<?, ?, ?> table) {
-		return (referencedTable == table);
+		return (getReferencedTable() == table);
 	}
 	
 	//method
