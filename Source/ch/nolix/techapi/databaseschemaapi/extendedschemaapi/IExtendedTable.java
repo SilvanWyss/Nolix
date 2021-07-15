@@ -5,6 +5,7 @@ package ch.nolix.techapi.databaseschemaapi.extendedschemaapi;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.techapi.databasecommonapi.databaseobjectapi.IDatabaseObject;
 import ch.nolix.techapi.databaseschemaapi.flatschemadtoapi.IFlatTableDTO;
+import ch.nolix.techapi.databaseschemaapi.schemaapi.IColumn;
 import ch.nolix.techapi.databaseschemaapi.schemaapi.ITable;
 import ch.nolix.techapi.databaseschemaapi.schemadtoapi.ITableDTO;
 
@@ -21,6 +22,11 @@ extends IDatabaseObject, ITable<ET, EC, EPPT> {
 		if (containsColumnWithHeader(header)) {
 			throw new InvalidArgumentException(this, "contains already a column with the header '" + header + "'");
 		}
+	}
+	
+	//method
+	default boolean containsColumn(final IColumn<?, ?> column) {
+		return getRefColumns().contains(column);
 	}
 	
 	//method declaration
