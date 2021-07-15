@@ -2,8 +2,10 @@
 package ch.nolix.techapi.databaseschemaapi.extendedschemaapi;
 
 //own imports
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.techapi.databasecommonapi.databaseobjectapi.IDatabaseObject;
 import ch.nolix.techapi.databaseschemaapi.schemaaccessorapi.IDatabaseAccessor;
+import ch.nolix.techapi.databaseschemaapi.schemaapi.IColumn;
 import ch.nolix.techapi.databaseschemaapi.schemaapi.IDatabase;
 
 //interface
@@ -14,6 +16,18 @@ public interface IExtendedDatabase<
 	EPPT extends IExtendedParametrizedPropertyType<?>
 >
 extends IDatabase<ED, ET, EC, EPPT>, IDatabaseObject {
+	
+	//method
+	default void assertContainsTableWithColumn(final IColumn<?, ?> column) {
+		if (!containsTableWithColumn(column)) {
+			throw new ArgumentDoesNotContainElementException(this, column);
+		}
+	}
+	
+	//method
+	default boolean containsTableWithColumn(final IColumn<?, ?> column) {
+		return getRefTables().containsAny(t -> t.containsColumn(column));
+	}
 	
 	//method declaration
 	void setAccessorForActualDatabase(IDatabaseAccessor databaseAccessor);
