@@ -37,6 +37,11 @@ extends IDatabaseObject, ITable<ET, EC, EPPT> {
 		return getRefColumns().contains(column);
 	}
 	
+	//method
+	default boolean containsColumnThatReferencesTable(final ITable<?, ?, ?> table) {
+		return getRefColumns().containsAny(c -> c.references(table));
+	}
+	
 	//method declaration
 	IFlatTableDTO getFlatDTO();
 	
