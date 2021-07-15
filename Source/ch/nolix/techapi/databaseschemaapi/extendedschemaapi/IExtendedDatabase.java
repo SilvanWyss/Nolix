@@ -3,6 +3,7 @@ package ch.nolix.techapi.databaseschemaapi.extendedschemaapi;
 
 //own imports
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.techapi.databasecommonapi.databaseobjectapi.IDatabaseObject;
 import ch.nolix.techapi.databaseschemaapi.schemaaccessorapi.IDatabaseAccessor;
 import ch.nolix.techapi.databaseschemaapi.schemaapi.IColumn;
@@ -29,6 +30,13 @@ extends IDatabase<ED, ET, EC, EPPT>, IDatabaseObject {
 	default void assertContainsTableWithColumn(final IColumn<?, ?> column) {
 		if (!containsTableWithColumn(column)) {
 			throw new ArgumentDoesNotContainElementException(this, column);
+		}
+	}
+	
+	//method
+	default void assertDoesNotContainTableWithName(final String name) {
+		if (containsTableWithName(name)) {
+			throw new InvalidArgumentException(this, "contains already a table with the name '" + name + "'");
 		}
 	}
 	
