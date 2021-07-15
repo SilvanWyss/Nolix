@@ -2,7 +2,8 @@
 package ch.nolix.system.databaseschema.parametrizedpropertytype;
 
 //own imports
-import ch.nolix.common.errorcontrol.validator.Validator;
+import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.techapi.databasecommonapi.propertytypeapi.BasePropertyType;
 import ch.nolix.techapi.databaseschemaapi.schemaapi.IColumn;
 import ch.nolix.techapi.databaseschemaapi.schemaapi.ITable;
 
@@ -17,7 +18,7 @@ public abstract class BaseParametrizedBackReferenceType extends ParametrizedProp
 		
 		super(Long.class);
 		
-		Validator.assertThat(backReferencedColumn).thatIsNamed("back-referenced column").isNotNull();
+		assertIsAnyReferenceColumn(backReferencedColumn);
 		
 		this.backReferencedColumn = backReferencedColumn;
 	}
@@ -61,5 +62,17 @@ public abstract class BaseParametrizedBackReferenceType extends ParametrizedProp
 	@Override
 	public final boolean referencesBack(final IColumn<?, ?> column) {
 		return (getBackReferencedColumn() == column);
+	}
+	
+	//method
+	private void assertIsAnyReferenceColumn(IColumn<?, ?> backReferencedColumn) {
+		if (!isAnyReferenceColumn(backReferencedColumn)) {
+			throw new InvalidArgumentException("back referenced column", backReferencedColumn, "is not any refence column");
+		}
+	}
+	
+	//method
+	private boolean isAnyReferenceColumn(IColumn<?, ?> backReferencedColumn) {
+		return (backReferencedColumn.getBasePropertyType() == BasePropertyType.BASE_REFERENCE);
 	}
 }
