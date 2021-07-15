@@ -7,6 +7,7 @@ import ch.nolix.techapi.databasecommonapi.databaseobjectapi.IDatabaseObject;
 import ch.nolix.techapi.databaseschemaapi.schemaaccessorapi.IDatabaseAccessor;
 import ch.nolix.techapi.databaseschemaapi.schemaapi.IColumn;
 import ch.nolix.techapi.databaseschemaapi.schemaapi.IDatabase;
+import ch.nolix.techapi.databaseschemaapi.schemaapi.ITable;
 
 //interface
 public interface IExtendedDatabase<
@@ -18,10 +19,22 @@ public interface IExtendedDatabase<
 extends IDatabase<ED, ET, EC, EPPT>, IDatabaseObject {
 	
 	//method
+	default void assertContainsTable(final ITable<?, ?, ?> table) {
+		if (!containsTable(table)) {
+			throw new ArgumentDoesNotContainElementException(this, table);
+		}
+	}
+	
+	//method
 	default void assertContainsTableWithColumn(final IColumn<?, ?> column) {
 		if (!containsTableWithColumn(column)) {
 			throw new ArgumentDoesNotContainElementException(this, column);
 		}
+	}
+	
+	//method
+	default boolean containsTable(final ITable<?, ?, ?> table) {
+		return getRefTables().contains(table);
 	}
 	
 	//method
