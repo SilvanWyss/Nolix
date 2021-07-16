@@ -4,7 +4,7 @@ package ch.nolix.techapi.databaseschemaapi.extendedschemaapi;
 //own imports
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.techapi.databasecommonapi.databaseobjectapi.IDatabaseObject;
+import ch.nolix.techapi.databasecommonapi.databaseobjectapi.IExtendedDatabaseObject;
 import ch.nolix.techapi.databaseschemaapi.schemaaccessorapi.IDatabaseAccessor;
 import ch.nolix.techapi.databaseschemaapi.schemaapi.IColumn;
 import ch.nolix.techapi.databaseschemaapi.schemaapi.IDatabase;
@@ -17,7 +17,7 @@ public interface IExtendedDatabase<
 	EC extends IExtendedColumn<EC, EPPT>,
 	EPPT extends IExtendedParametrizedPropertyType<?>
 >
-extends IDatabase<ED, ET, EC, EPPT>, IDatabaseObject {
+extends IDatabase<ED, ET, EC, EPPT>, IExtendedDatabaseObject {
 	
 	//method
 	default void assertContainsTable(final ITable<?, ?, ?> table) {

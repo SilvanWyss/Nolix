@@ -3,7 +3,7 @@ package ch.nolix.techapi.databaseschemaapi.extendedschemaapi;
 
 //own imports
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.techapi.databasecommonapi.databaseobjectapi.IDatabaseObject;
+import ch.nolix.techapi.databasecommonapi.databaseobjectapi.IExtendedDatabaseObject;
 import ch.nolix.techapi.databaseschemaapi.schemaapi.IColumn;
 import ch.nolix.techapi.databaseschemaapi.schemadtoapi.IColumnDTO;
 
@@ -12,7 +12,7 @@ public interface IExtendedColumn<
 	EC extends IColumn<EC, EPPT>,
 	EPPT extends IExtendedParametrizedPropertyType<?>
 >
-extends IColumn<EC, EPPT>, IDatabaseObject {
+extends IColumn<EC, EPPT>, IExtendedDatabaseObject {
 	
 	//method
 	default void assertIsAnyBackReferenceColumn() {

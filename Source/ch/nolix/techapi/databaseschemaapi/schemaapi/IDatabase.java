@@ -4,6 +4,7 @@ package ch.nolix.techapi.databaseschemaapi.schemaapi;
 //own imports
 import ch.nolix.common.attributeapi.mandatoryattributeapi.Named;
 import ch.nolix.common.container.IContainer;
+import ch.nolix.techapi.databasecommonapi.databaseobjectapi.IDatabaseObject;
 
 //interface
 public interface IDatabase<
@@ -11,8 +12,7 @@ public interface IDatabase<
 	T extends ITable<T, C, PPT>,
 	C extends IColumn<C, PPT>,
 	PPT extends IParametrizedPropertyType<?>
->
-extends Named {
+> extends IDatabaseObject, Named {
 	
 	//method declaration
 	D addTable(T table);

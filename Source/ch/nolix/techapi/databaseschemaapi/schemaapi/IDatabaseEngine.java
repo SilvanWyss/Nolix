@@ -3,6 +3,7 @@ package ch.nolix.techapi.databaseschemaapi.schemaapi;
 
 //own imports
 import ch.nolix.common.container.IContainer;
+import ch.nolix.techapi.databasecommonapi.databaseobjectapi.IDatabaseObject;
 
 //interface
 public interface IDatabaseEngine<
@@ -11,7 +12,7 @@ public interface IDatabaseEngine<
 	T extends ITable<T, C, PPT>,
 	C extends IColumn<C, PPT>,
 	PPT extends IParametrizedPropertyType<?>
-> {
+> extends IDatabaseObject {
 	
 	//method declaration
 	DE addDatabase(D database);

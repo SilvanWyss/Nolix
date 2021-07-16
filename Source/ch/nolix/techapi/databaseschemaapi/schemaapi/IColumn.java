@@ -4,6 +4,7 @@ package ch.nolix.techapi.databaseschemaapi.schemaapi;
 //own imports
 import ch.nolix.common.attributeapi.mutablemandatoryattributeapi.Headerable;
 import ch.nolix.common.requestapi.EmptinessRequestable;
+import ch.nolix.techapi.databasecommonapi.databaseobjectapi.IDatabaseObject;
 import ch.nolix.techapi.databasecommonapi.propertytypeapi.BasePropertyType;
 import ch.nolix.techapi.databasecommonapi.propertytypeapi.PropertyType;
 
@@ -11,7 +12,7 @@ import ch.nolix.techapi.databasecommonapi.propertytypeapi.PropertyType;
 public interface IColumn<
 	C extends IColumn<C, PPT>,
 	PPT extends IParametrizedPropertyType<?>
-> extends EmptinessRequestable, Headerable<C> {
+> extends IDatabaseObject, EmptinessRequestable, Headerable<C> {
 	
 	//method
 	default BasePropertyType getBasePropertyType() {
