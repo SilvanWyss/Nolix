@@ -54,6 +54,11 @@ public interface IExtendedColumn<
 	}
 	
 	//method
+	default boolean belongsToDatabase() {
+		return (belongsToTable() && getParentTable().belongsToDatabase());
+	}
+	
+	//method
 	default BasePropertyType getBasePropertyType() {
 		return getParametrizedPropertyType().getBasePropertyType();
 	}
@@ -62,6 +67,15 @@ public interface IExtendedColumn<
 	default Class<?> getDataType() {
 		return getParametrizedPropertyType().getDataType();
 	}
+	
+	//method
+	default IExtendedDatabase<?, ?, ?, ?> getParentDatabase() {
+		return getParentTable().getParentDatabase();
+	}
+	
+	//method declaration
+	@Override
+	IExtendedTable<?, ?, ?> getParentTable();
 	
 	//method
 	default PropertyType getPropertyType() {

@@ -62,6 +62,10 @@ public interface IExtendedTable<
 		return getRefColumns().getElementCount();
 	}
 	
+	//method declaration
+	@Override
+	IExtendedDatabase<?, ?, ?, ?> getParentDatabase();
+	
 	//method
 	default EC getRefColumnByHeader(final String header) {
 		return getRefColumns().getRefFirst(c -> c.hasHeader(header));

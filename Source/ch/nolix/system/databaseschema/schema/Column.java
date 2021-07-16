@@ -79,6 +79,13 @@ public final class Column extends DatabaseObject implements IExtendedColumn<Colu
 	}
 	
 	//method
+	@Override
+	public Database getParentDatabase() {
+		return getParentTable().getParentDatabase();
+	}
+	
+	//method
+	@Override
 	public Table getParentTable() {
 		
 		assertBelongsToTable();
@@ -148,16 +155,6 @@ public final class Column extends DatabaseObject implements IExtendedColumn<Colu
 		if (isBackReferenced()) {
 			throw new InvalidArgumentException(this, "is back referenced");
 		}
-	}
-	
-	//method
-	boolean belongsToDatabase() {
-		return (belongsToTable() && getParentTable().belongsToDatabase());
-	}
-	
-	//method
-	Database getParentDatabase() {
-		return getParentTable().getParentDatabase();
 	}
 	
 	//method
