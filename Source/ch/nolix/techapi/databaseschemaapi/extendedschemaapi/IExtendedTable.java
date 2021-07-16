@@ -2,6 +2,7 @@
 package ch.nolix.techapi.databaseschemaapi.extendedschemaapi;
 
 //own imports
+import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentContainsElementException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
@@ -85,11 +86,21 @@ public interface IExtendedTable<
 	
 	//method declaration
 	@Override
-	IExtendedDatabase<?, ?, ?, ?> getParentDatabase();
+	IExtendedDatabase<?, ET, EC, EPPT> getParentDatabase();
 	
 	//method
 	default EC getRefColumnByHeader(final String header) {
 		return getRefColumns().getRefFirst(c -> c.hasHeader(header));
+	}
+	
+	//method
+	default LinkedList<EC> getRefReferencingColumns() {
+		
+		if (!belongsToDatabase()) {
+			return getRefReferencingColumnsWhenDoesNotBelongToDatabase();
+		}
+		
+		return getRefReferencingColumnsWhenBelongsToDatabase();
 	}
 	
 	//method
@@ -103,5 +114,16 @@ public interface IExtendedTable<
 		return 
 		belongsToDatabase()
 		&& getParentDatabase().getRefTables().containsAny(t -> t.containsColumnThatReferencesTable(this));
+	}
+	
+	//method
+	private LinkedList<EC> getRefReferencingColumnsWhenBelongsToDatabase() {
+		return
+		getParentDatabase().getRefTables().toFromMany(t -> t.getRefColumns().getRefSelected(c -> c.references(this)));
+	}
+	
+	//method
+	private LinkedList<EC> getRefReferencingColumnsWhenDoesNotBelongToDatabase() {
+		return getRefColumns().getRefSelected(c -> c.references(this));
 	}
 }
