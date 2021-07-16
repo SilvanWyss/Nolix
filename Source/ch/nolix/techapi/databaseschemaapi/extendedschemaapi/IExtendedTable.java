@@ -4,7 +4,9 @@ package ch.nolix.techapi.databaseschemaapi.extendedschemaapi;
 //own imports
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentContainsElementException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ReferencedArgumentException;
 import ch.nolix.techapi.databasecommonapi.databaseobjectapi.IExtendedDatabaseObject;
 import ch.nolix.techapi.databaseschemaapi.schemaapi.IColumn;
 import ch.nolix.techapi.databaseschemaapi.schemaapi.ITable;
@@ -38,6 +40,20 @@ public interface IExtendedTable<
 	}
 	
 	//method
+	default void assertDoesNotContainIdColumn() {
+		if (containsIdColumn()) {
+			throw new ArgumentHasAttributeException(this, "id column");
+		}
+	}
+	
+	//method
+	default void assertIsNotReferenced() {
+		if (isReferenced()) {
+			throw new ReferencedArgumentException(this);
+		}
+	}
+	
+	//method
 	default boolean containsColumn(final IColumn<?, ?> column) {
 		return getRefColumns().contains(column);
 	}
@@ -50,6 +66,11 @@ public interface IExtendedTable<
 	//method
 	default boolean containsColumnWithHeader(final String header) {
 		return getRefColumns().containsAny(c -> c.hasHeader(header));
+	}
+	
+	//method
+	default boolean containsIdColumn() {
+		return getRefColumns().containsAny(IExtendedColumn::isIdColumn);
 	}
 	
 	//method
@@ -75,5 +96,12 @@ public interface IExtendedTable<
 	@Override
 	default boolean isDeleted() {
 		return IExtendedDatabaseObject.super.isDeleted();
+	}
+	
+	//method
+	default boolean isReferenced() {
+		return 
+		belongsToDatabase()
+		&& getParentDatabase().getRefTables().containsAny(t -> t.containsColumnThatReferencesTable(this));
 	}
 }

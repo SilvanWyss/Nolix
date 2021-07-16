@@ -5,8 +5,6 @@ package ch.nolix.system.databaseschema.schema;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
-import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
-import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.databaseschema.flatschemadto.FlatTableDTO;
 import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedPropertyType;
 import ch.nolix.system.databaseschema.schemadto.ColumnDTO;
@@ -144,20 +142,6 @@ public final class Table extends DatabaseObject implements IExtendedTable<Table,
 	}
 	
 	//method
-	void assertDoesNotContainIdColumn() {
-		if (containsIdColumn()) {
-			throw new ArgumentHasAttributeException(this, "id column");
-		}
-	}
-	
-	//method
-	void assertIsNotReferenced() {
-		if (isReferenced()) {
-			throw new InvalidArgumentException(this, "is referenced");
-		}
-	}
-	
-	//method
 	ITableAccessor getRefAccessor() {
 		
 		gainAccessorIfNeeded();
@@ -180,10 +164,7 @@ public final class Table extends DatabaseObject implements IExtendedTable<Table,
 		}
 	}
 	
-	//method
-	private boolean containsIdColumn() {
-		return getRefColumns().containsAny(Column::isIdColumn);
-	}
+
 	
 	//method
 	private LinkedList<ColumnDTO> createColumnDTOs() {
@@ -210,13 +191,6 @@ public final class Table extends DatabaseObject implements IExtendedTable<Table,
 	//method
 	private boolean hasLoadedColumnsFromDatabase() {
 		return loadedColumnsFromDatabase;
-	}
-	
-	//method
-	private boolean isReferenced() {
-		return 
-		belongsToDatabase()
-		&& getParentDatabase().getRefTables().containsAny(t -> t.containsColumnThatReferencesTable(this));
 	}
 	
 	//method
