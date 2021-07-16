@@ -6,18 +6,15 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentContainsEle
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.techapi.databasecommonapi.databaseobjectapi.IExtendedDatabaseObject;
-import ch.nolix.techapi.databaseschemaapi.flatschemadtoapi.IFlatTableDTO;
 import ch.nolix.techapi.databaseschemaapi.schemaapi.IColumn;
 import ch.nolix.techapi.databaseschemaapi.schemaapi.ITable;
-import ch.nolix.techapi.databaseschemaapi.schemadtoapi.ITableDTO;
 
 //interface
 public interface IExtendedTable<
 	ET extends IExtendedTable<ET, EC, EPPT>,
 	EC extends IExtendedColumn<EC, EPPT>,
 	EPPT extends IExtendedParametrizedPropertyType<?>
->
-extends IExtendedDatabaseObject, ITable<ET, EC, EPPT> {
+> extends IExtendedDatabaseObject, ITable<ET, EC, EPPT> {
 	
 	//method
 	default void assertContainsColumn(final IColumn<?, ?> column) {
@@ -50,9 +47,23 @@ extends IExtendedDatabaseObject, ITable<ET, EC, EPPT> {
 		return getRefColumns().containsAny(c -> c.references(table));
 	}
 	
-	//method declaration
-	IFlatTableDTO getFlatDTO();
+	//method
+	default boolean containsColumnWithHeader(final String header) {
+		return getRefColumns().containsAny(c -> c.hasHeader(header));
+	}
 	
-	//method declaration
-	ITableDTO toDTO();
+	//method
+	default void deleteColumnByHeader(final String header) {
+		deleteColumn(getRefColumnByHeader(header));
+	}
+	
+	//method
+	default int getColumnCount() {
+		return getRefColumns().getElementCount();
+	}
+	
+	//method
+	default EC getRefColumnByHeader(final String header) {
+		return getRefColumns().getRefFirst(c -> c.hasHeader(header));
+	}
 }

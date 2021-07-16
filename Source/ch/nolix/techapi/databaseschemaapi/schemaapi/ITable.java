@@ -5,22 +5,18 @@ package ch.nolix.techapi.databaseschemaapi.schemaapi;
 import ch.nolix.common.attributeapi.mutablemandatoryattributeapi.Namable;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.techapi.databasecommonapi.databaseobjectapi.IDatabaseObject;
+import ch.nolix.techapi.databaseschemaapi.flatschemadtoapi.IFlatTableDTO;
+import ch.nolix.techapi.databaseschemaapi.schemadtoapi.ITableDTO;
 
 //interface
 public interface ITable<
 	T extends ITable<T, C, PPT>,
 	C extends IColumn<C, PPT>,
 	PPT extends IParametrizedPropertyType<?>
->
-extends IDatabaseObject, Namable<T> {
+> extends IDatabaseObject, Namable<T> {
 	
 	//method declaration
 	T addColumn(C column);
-	
-	//method
-	default boolean containsColumnWithHeader(final String header) {
-		return getRefColumns().containsAny(c -> c.hasHeader(header));
-	}
 	
 	//method declaration
 	T createColumnWithHeaderAndParametrizedPropertyType(final String header, final PPT parametrizedPropertyType);
@@ -28,21 +24,12 @@ extends IDatabaseObject, Namable<T> {
 	//method declaration
 	void deleteColumn(C column);
 	
-	//method
-	default void deleteColumnByHeader(final String header) {
-		deleteColumn(getRefColumnByHeader(header));
-	}
-	
-	//method
-	default int getColumnCount() {
-		return getRefColumns().getElementCount();
-	}
-	
-	//method
-	default C getRefColumnByHeader(final String header) {
-		return getRefColumns().getRefFirst(c -> c.hasHeader(header));
-	}
+	//method declaration
+	IFlatTableDTO getFlatDTO();
 	
 	//method declarations
 	IContainer<C> getRefColumns();
+	
+	//method declaration
+	ITableDTO toDTO();
 }
