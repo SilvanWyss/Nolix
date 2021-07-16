@@ -8,7 +8,6 @@ import ch.nolix.techapi.databasecommonapi.propertytypeapi.BasePropertyType;
 import ch.nolix.techapi.databasecommonapi.propertytypeapi.PropertyType;
 import ch.nolix.techapi.databaseschemaapi.schemaapi.IColumn;
 import ch.nolix.techapi.databaseschemaapi.schemaapi.ITable;
-import ch.nolix.techapi.databaseschemaapi.schemadtoapi.IColumnDTO;
 
 //interface
 public interface IExtendedColumn<
