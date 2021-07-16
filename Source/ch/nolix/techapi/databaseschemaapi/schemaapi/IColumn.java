@@ -17,6 +17,9 @@ public interface IColumn<
 	boolean belongsToTable();
 	
 	//method declaration
+	void delete();
+	
+	//method declaration
 	PPT getParametrizedPropertyType();
 	
 	//method declaration

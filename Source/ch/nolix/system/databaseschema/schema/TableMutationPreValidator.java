@@ -53,15 +53,4 @@ final class TableMutationPreValidator {
 		
 		Validator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
 	}
-	
-	//method
-	public void assertTableCanDeleteColumn(final Table table, final Column column) {
-		
-		table.assertIsOpen();		
-		table.assertContainsColumn(column);
-		
-		column.assertIsOpen();
-		column.assertIsNotIdColumn();
-		column.assertIsNotBackReferenced();
-	}
 }

@@ -10,11 +10,6 @@ final class TableMutationExecutor {
 	}
 	
 	//method
-	public void deleteColumnFromTable(final Table table, final Column column) {
-		//TODO: Implement.
-	}
-	
-	//method
 	public void setNameToTable(final Table table, final String name) {
 		//TODO: Implement.
 	}

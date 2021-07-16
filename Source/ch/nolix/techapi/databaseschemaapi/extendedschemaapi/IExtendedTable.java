@@ -54,7 +54,7 @@ public interface IExtendedTable<
 	
 	//method
 	default void deleteColumnByHeader(final String header) {
-		deleteColumn(getRefColumnByHeader(header));
+		getRefColumnByHeader(header).delete();
 	}
 	
 	//method

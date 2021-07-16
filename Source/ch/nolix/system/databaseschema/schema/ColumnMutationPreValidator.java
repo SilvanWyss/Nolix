@@ -12,6 +12,14 @@ import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedPrope
 final class ColumnMutationPreValidator {
 	
 	//method
+	public void assertCanDeleteColumn(final Column column) {			
+		column.assertIsOpen();
+		column.assertIsNotDeleted();
+		column.assertIsNotIdColumn();
+		column.assertIsNotBackReferenced();
+	}
+	
+	//method
 	public void assertCanSetHeaderToColumn(final Column column, final String header) {
 		
 		column.assertIsOpen();

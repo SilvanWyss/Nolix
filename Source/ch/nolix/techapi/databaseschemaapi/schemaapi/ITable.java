@@ -25,9 +25,6 @@ public interface ITable<
 	T createColumnWithHeaderAndParametrizedPropertyType(final String header, final PPT parametrizedPropertyType);
 	
 	//method declaration
-	void deleteColumn(C column);
-	
-	//method declaration
 	IFlatTableDTO getFlatDTO();
 	
 	//method declaration

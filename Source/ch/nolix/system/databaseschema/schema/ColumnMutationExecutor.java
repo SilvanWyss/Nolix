@@ -8,6 +8,11 @@ import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedPrope
 final class ColumnMutationExecutor {
 	
 	//method
+	public void deleteColumn(final Column column) {
+		//TODO: Implement.
+	}
+	
+	//method
 	public void setHeaderToColumn(final Column column, final String header) {
 		
 		column.noteEdit();

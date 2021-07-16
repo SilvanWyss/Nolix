@@ -66,6 +66,13 @@ public final class Column extends DatabaseObject implements IExtendedColumn<Colu
 		return (parentTable != null);
 	}
 	
+	//metod
+	@Override
+	public void delete() {
+		mutationPreValidator.assertCanDeleteColumn(this);
+		mutationExecutor.deleteColumn(this);
+	}
+	
 	//method
 	@Override
 	public String getHeader() {
