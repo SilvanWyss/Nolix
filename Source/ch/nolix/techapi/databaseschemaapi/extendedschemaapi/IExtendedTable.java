@@ -70,4 +70,10 @@ public interface IExtendedTable<
 	default EC getRefColumnByHeader(final String header) {
 		return getRefColumns().getRefFirst(c -> c.hasHeader(header));
 	}
+	
+	//method
+	@Override
+	default boolean isDeleted() {
+		return IExtendedDatabaseObject.super.isDeleted();
+	}
 }

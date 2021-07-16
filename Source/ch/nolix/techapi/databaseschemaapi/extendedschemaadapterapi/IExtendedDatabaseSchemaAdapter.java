@@ -38,13 +38,8 @@ public interface IExtendedDatabaseSchemaAdapter<
 	}
 	
 	//method
-	default void deleteTable(ET table) {
-		getRefDatabase().deleteTable(table);
-	}
-	
-	//method
 	default void deleteTableByName(final String name) {
-		deleteTable(getRefTableByName(name));
+		getRefDatabase().deleteTableByName(name);
 	}
 	
 	//method

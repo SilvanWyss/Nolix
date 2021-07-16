@@ -43,6 +43,11 @@ final class TableMutationPreValidator {
 	}
 	
 	//method
+	public void assertCanDeleteTable(final Table table) {
+		//TODO: Implement.
+	}
+	
+	//method
 	public void assertCanSetNameToTable(final Table table, final String name) {
 		
 		table.assertIsOpen();

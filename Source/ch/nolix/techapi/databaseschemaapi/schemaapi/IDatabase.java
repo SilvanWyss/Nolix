@@ -21,9 +21,6 @@ public interface IDatabase<
 	//method declaration
 	D createTableWithName(String name);
 	
-	//method
-	void deleteTable(T table);
-	
 	//method declaration
 	IContainer<T> getRefTables();
 		

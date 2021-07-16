@@ -56,7 +56,7 @@ extends IDatabase<ED, ET, EC, EPPT>, IExtendedDatabaseObject {
 	
 	//method
 	default void deleteTableByName(final String name) {
-		deleteTable(getRefTableByName(name));
+		getRefTableByName(name).delete();
 	}
 	
 	//method

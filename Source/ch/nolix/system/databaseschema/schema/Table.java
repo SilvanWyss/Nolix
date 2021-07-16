@@ -71,6 +71,13 @@ public final class Table extends DatabaseObject implements IExtendedTable<Table,
 	
 	//method
 	@Override
+	public void delete() {
+		mutationPreValidator.assertCanDeleteTable(this);
+		mutationExecutor.deleteTable(this);
+	}
+	
+	//method
+	@Override
 	public IFlatTableDTO getFlatDTO() {
 		return new FlatTableDTO(getName());
 	}

@@ -52,14 +52,7 @@ implements IExtendedDatabase<Database, Table, Column, ParametrizedPropertyType<?
 	public Database createTableWithName(final String name) {
 		return addTable(new Table(name));
 	}
-	
-	//method
-	@Override
-	public void deleteTable(Table table) {
-		mutationPreValidator.assertCanDeleteTableFromDatabase(this, table);
-		mutationExecutor.deleteTableFromDatabase(this, table);
-	}
-	
+		
 	//method
 	@Override
 	public IContainer<Table> getRefTables() {
