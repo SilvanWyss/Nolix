@@ -103,6 +103,11 @@ public interface IExtendedColumn<
 	}
 	
 	//method
+	default boolean isDeleted() {
+		return IExtendedDatabaseObject.super.isDeleted();
+	}
+	
+	//method
 	default boolean isIdColumn() {
 		return getParametrizedPropertyType().isIdType();
 	}
