@@ -73,6 +73,7 @@ public abstract class BaseParametrizedBackReferenceType extends ParametrizedProp
 	
 	//method
 	private boolean isAnyReferenceColumn(IColumn<?, ?> backReferencedColumn) {
-		return (backReferencedColumn.getBasePropertyType() == BasePropertyType.BASE_REFERENCE);
+		return
+		backReferencedColumn.getParametrizedPropertyType().getBasePropertyType() == BasePropertyType.BASE_REFERENCE;
 	}
 }

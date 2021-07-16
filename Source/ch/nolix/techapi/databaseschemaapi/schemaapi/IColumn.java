@@ -5,43 +5,16 @@ package ch.nolix.techapi.databaseschemaapi.schemaapi;
 import ch.nolix.common.attributeapi.mutablemandatoryattributeapi.Headerable;
 import ch.nolix.common.requestapi.EmptinessRequestable;
 import ch.nolix.techapi.databasecommonapi.databaseobjectapi.IDatabaseObject;
-import ch.nolix.techapi.databasecommonapi.propertytypeapi.BasePropertyType;
-import ch.nolix.techapi.databasecommonapi.propertytypeapi.PropertyType;
 
 //interface
 public interface IColumn<
 	C extends IColumn<C, PPT>,
 	PPT extends IParametrizedPropertyType<?>
-> extends IDatabaseObject, EmptinessRequestable, Headerable<C> {
-	
-	//method
-	default BasePropertyType getBasePropertyType() {
-		return getParametrizedPropertyType().getBasePropertyType();
-	}
-	
-	//method
-	default Class<?> getDataType() {
-		return getParametrizedPropertyType().getDataType();
-	}
+> extends EmptinessRequestable, Headerable<C>, IDatabaseObject {
 	
 	//method declaration
 	PPT getParametrizedPropertyType();
 	
-	//method
-	default PropertyType getPropertyType() {
-		return getParametrizedPropertyType().getPropertyType();
-	}
-	
-	//method
-	default boolean references(final ITable<?, ?, ?> table) {
-		return getParametrizedPropertyType().references(table);
-	}
-	
-	//method
-	default boolean referencesBack(final IColumn<?, ?> column) {
-		return getParametrizedPropertyType().referencesBack(column);
-	}
-	
-	//method
+	//method declaration
 	C setParametrizedPropertyType(PPT parametrizedPropertyType);
 }
