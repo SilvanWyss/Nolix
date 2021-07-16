@@ -4,6 +4,7 @@ package ch.nolix.techapi.databasecommonapi.databaseobjectapi;
 //own imports
 import ch.nolix.common.errorcontrol.invalidargumentexception.DeletedArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.NewArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.NonNewArgumentException;
 
 //interface
@@ -41,6 +42,13 @@ public interface IExtendedDatabaseObject extends IDatabaseObject {
 	default void assertIsNotLinkedWithActualDatabase() {
 		if (isLinkedWithActualDatabase()) {
 			throw new InvalidArgumentException(this, "is already linked with an actual database");
+		}
+	}
+	
+	//method
+	default void assertIsNotNew() {
+		if (isNew()) {
+			throw new NewArgumentException(this);
 		}
 	}
 	
