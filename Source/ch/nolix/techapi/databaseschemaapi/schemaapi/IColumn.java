@@ -5,6 +5,7 @@ package ch.nolix.techapi.databaseschemaapi.schemaapi;
 import ch.nolix.common.attributeapi.mutablemandatoryattributeapi.Headerable;
 import ch.nolix.common.requestapi.EmptinessRequestable;
 import ch.nolix.techapi.databasecommonapi.databaseobjectapi.IDatabaseObject;
+import ch.nolix.techapi.databaseschemaapi.schemadtoapi.IColumnDTO;
 
 //interface
 public interface IColumn<
@@ -17,4 +18,7 @@ public interface IColumn<
 	
 	//method declaration
 	C setParametrizedPropertyType(PPT parametrizedPropertyType);
+	
+	//method declaration
+	IColumnDTO toDTO();
 }
