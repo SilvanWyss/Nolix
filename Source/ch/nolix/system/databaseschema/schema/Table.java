@@ -9,7 +9,6 @@ import ch.nolix.system.databaseschema.flatschemadto.FlatTableDTO;
 import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedPropertyType;
 import ch.nolix.system.databaseschema.schemadto.ColumnDTO;
 import ch.nolix.system.databaseschema.schemadto.TableDTO;
-import ch.nolix.techapi.databasecommonapi.databaseobjectapi.DatabaseObjectState;
 import ch.nolix.techapi.databaseschemaapi.extendedschemaapi.IExtendedTable;
 import ch.nolix.techapi.databaseschemaapi.flatschemadtoapi.IFlatTableDTO;
 import ch.nolix.techapi.databaseschemaapi.schemaaccessorapi.ITableAccessor;
@@ -28,7 +27,6 @@ public final class Table extends DatabaseObject implements IExtendedTable<Table,
 	
 	//attributes
 	private String name;
-	private DatabaseObjectState state = DatabaseObjectState.NEW;
 	private boolean loadedColumnsFromDatabase;
 	
 	//optional attribute
@@ -105,24 +103,8 @@ public final class Table extends DatabaseObject implements IExtendedTable<Table,
 	
 	//method
 	@Override
-	public DatabaseObjectState getState() {
-		return state;
-	}
-	
-	//method
-	@Override
 	public boolean isLinkedWithActualDatabase() {
 		return (belongsToDatabase() && getParentDatabase().isLinkedWithActualDatabase());
-	}
-	
-	//method
-	@Override
-	public void noteClose() {
-		
-		state = DatabaseObjectState.CLOSED;
-		
-		//Does not call getRefColumns method to avoid that the columns need to be loaded from the database.
-		columns.forEach(Column::close);
 	}
 	
 	//method
@@ -150,11 +132,11 @@ public final class Table extends DatabaseObject implements IExtendedTable<Table,
 	}
 	
 	//method
-	void setLoaded() {
+	@Override
+	protected void noteCloseDatabaseObject() {
 		
-		assertIsNew();
-		
-		state = DatabaseObjectState.LOADED;
+		//Does not call getRefColumns method to avoid that the columns need to be loaded from the database.
+		columns.forEach(Column::close);
 	}
 	
 	//method
@@ -163,8 +145,6 @@ public final class Table extends DatabaseObject implements IExtendedTable<Table,
 			throw new ArgumentDoesNotBelongToParentException(this, Database.class);
 		}
 	}
-	
-
 	
 	//method
 	private LinkedList<ColumnDTO> createColumnDTOs() {

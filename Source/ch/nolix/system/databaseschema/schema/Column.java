@@ -5,13 +5,10 @@ package ch.nolix.system.databaseschema.schema;
 import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.errorcontrol.invalidargumentexception.ClosedArgumentException;
-import ch.nolix.common.errorcontrol.invalidargumentexception.DeletedArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedPropertyType;
 import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedValueType;
 import ch.nolix.system.databaseschema.schemadto.ColumnDTO;
-import ch.nolix.techapi.databasecommonapi.databaseobjectapi.DatabaseObjectState;
 import ch.nolix.techapi.databaseschemaapi.extendedschemaapi.IExtendedColumn;
 import ch.nolix.techapi.databaseschemaapi.schemaaccessorapi.IColumnAccessor;
 import ch.nolix.techapi.databaseschemaapi.schemadtoapi.IColumnDTO;
@@ -48,7 +45,6 @@ public final class Column extends DatabaseObject implements IExtendedColumn<Colu
 	//attributes
 	private String header = INITIAL_HEADER;
 	private ParametrizedPropertyType<?> parametrizedPropertyType = INITIAL_PROPERTY_TYPE;
-	private DatabaseObjectState state = DatabaseObjectState.NEW;
 	
 	//optional attributes
 	private Table parentTable;
@@ -102,12 +98,6 @@ public final class Column extends DatabaseObject implements IExtendedColumn<Colu
 	
 	//method
 	@Override
-	public DatabaseObjectState getState() {
-		return state;
-	}
-	
-	//method
-	@Override
 	public boolean isEmpty() {
 		
 		if (isNew()) {
@@ -121,12 +111,6 @@ public final class Column extends DatabaseObject implements IExtendedColumn<Colu
 	@Override
 	public boolean isLinkedWithActualDatabase() {
 		return (belongsToTable() && getParentTable().isLinkedWithActualDatabase());
-	}
-	
-	//method
-	@Override
-	public void noteClose() {
-		state = DatabaseObjectState.CLOSED;
 	}
 	
 	//method
@@ -192,36 +176,13 @@ public final class Column extends DatabaseObject implements IExtendedColumn<Colu
 		return isBackReferencedWhenIsAnyReferenceColumn();
 	}
 	
-	//method
-	void noteEdit() {
-		switch (getState()) {
-			case NEW:
-				break;
-			case LOADED:
-				setEdited();
-				break;
-			case EDITED:
-				break;
-			case DELETED:
-				throw new DeletedArgumentException(this);
-			case CLOSED:
-				throw new ClosedArgumentException(this);
-		}
-	}
+
 	
 	//method
 	void setHeaderAttribute(final String header) {
 		this.header = header;
 	}
 	
-	//method
-	void setLoaded() {
-		
-		assertIsNew();
-		
-		state = DatabaseObjectState.LOADED;
-	}
-
 	//method
 	void setParametrizedPropertyTypeAttribute(final ParametrizedPropertyType<?> parametrizedPropertyType) {
 		this.parametrizedPropertyType = parametrizedPropertyType;
@@ -234,6 +195,10 @@ public final class Column extends DatabaseObject implements IExtendedColumn<Colu
 		
 		this.parentTable = parentTable;
 	}
+	
+	//method
+	@Override
+	protected void noteCloseDatabaseObject() {}
 	
 	//method
 	private void gainAccessor() {
@@ -283,10 +248,5 @@ public final class Column extends DatabaseObject implements IExtendedColumn<Colu
 		}
 		
 		return false;
-	}
-	
-	//method
-	private void setEdited() {
-		state = DatabaseObjectState.EDITED;
 	}
 }

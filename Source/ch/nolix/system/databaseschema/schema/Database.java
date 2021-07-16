@@ -6,7 +6,6 @@ import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedPropertyType;
-import ch.nolix.techapi.databasecommonapi.databaseobjectapi.DatabaseObjectState;
 import ch.nolix.techapi.databaseschemaapi.extendedschemaapi.IExtendedDatabase;
 import ch.nolix.techapi.databaseschemaapi.schemaaccessorapi.IDatabaseAccessor;
 
@@ -20,7 +19,6 @@ implements IExtendedDatabase<Database, Table, Column, ParametrizedPropertyType<?
 	
 	//attributes
 	private final String name;
-	private DatabaseObjectState state = DatabaseObjectState.NEW;
 	private boolean loadedTablesFromDatabase;
 	
 	//optional attribute
@@ -70,24 +68,8 @@ implements IExtendedDatabase<Database, Table, Column, ParametrizedPropertyType<?
 	
 	//method
 	@Override
-	public DatabaseObjectState getState() {
-		return state;
-	}
-	
-	//method
-	@Override
 	public boolean isLinkedWithActualDatabase() {
 		return (accessor != null);
-	}
-	
-	//method
-	@Override
-	public void noteClose() {
-		
-		state = DatabaseObjectState.CLOSED;
-		
-		//Does not call getRefTables method to avoid that the tables need to be loaded from the database.
-		tables.forEach(Table::close);
 	}
 	
 	//method
@@ -108,6 +90,14 @@ implements IExtendedDatabase<Database, Table, Column, ParametrizedPropertyType<?
 		return accessor;
 	}
 	
+	//method
+	@Override
+	protected void noteCloseDatabaseObject() {
+		
+		//Does not call getRefTables method to avoid that the tables need to be loaded from the database.
+		tables.forEach(Table::close);
+	}
+
 	//method
 	private boolean hasLoadedTablesFromDatabase() {
 		return loadedTablesFromDatabase;
