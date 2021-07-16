@@ -5,6 +5,7 @@ package ch.nolix.techapi.databaseschemaapi.schemaapi;
 import ch.nolix.common.attributeapi.mandatoryattributeapi.Named;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.techapi.databasecommonapi.databaseobjectapi.IDatabaseObject;
+import ch.nolix.techapi.databaseschemaapi.schemaaccessorapi.IDatabaseAccessor;
 
 //interface
 public interface IDatabase<
@@ -17,32 +18,15 @@ public interface IDatabase<
 	//method declaration
 	D addTable(T table);
 	
-	//method
-	default boolean containsTableWithName(final String name) {
-		return getRefTables().containsAny(t -> t.hasName(name));
-	}
-	
 	//method declaration
 	D createTableWithName(String name);
 	
 	//method
 	void deleteTable(T table);
 	
-	//method
-	default void deleteTableByName(final String name) {
-		deleteTable(getRefTableByName(name));
-	}
-	
-	//method
-	default T getRefTableByName(final String name) {
-		return getRefTables().getRefFirst(t -> t.hasName(name));
-	}
-	
-	//method
-	default int getTableCount() {
-		return getRefTables().getElementCount();
-	}
-	
 	//method declaration
 	IContainer<T> getRefTables();
+		
+	//method declaration
+	void setAccessorForActualDatabase(IDatabaseAccessor databaseAccessor);
 }

@@ -3,7 +3,6 @@ package ch.nolix.techapi.databaseschemaapi.schemaapi;
 
 //own imports
 import ch.nolix.common.container.IContainer;
-import ch.nolix.techapi.databasecommonapi.databaseobjectapi.IDatabaseObject;
 
 //interface
 public interface IDatabaseEngine<
@@ -12,36 +11,16 @@ public interface IDatabaseEngine<
 	T extends ITable<T, C, PPT>,
 	C extends IColumn<C, PPT>,
 	PPT extends IParametrizedPropertyType<?>
-> extends IDatabaseObject {
+> {
 	
 	//method declaration
 	DE addDatabase(D database);
-	
-	//method
-	default boolean containsDatabaseWithName(final String name) {
-		return getRefDatabases().containsAny(db -> db.containsTableWithName(name));
-	}
 	
 	//method declaration
 	DE createDatabaseWithName(String name);
 	
 	//method declaration
 	void deleteDatabase(D database);
-	
-	//method
-	default void deleteDatabaseByName(final String name) {
-		deleteDatabase(getRefDatabaseByName(name));
-	}
-	
-	//method
-	default int getDatabaseCount() {
-		return getRefDatabases().getElementCount();
-	}
-	
-	//method
-	default D getRefDatabaseByName(final String name) {
-		return getRefDatabases().getRefFirst(db -> db.hasName(name));
-	}
 	
 	//method declaration
 	IContainer<D> getRefDatabases();

@@ -5,7 +5,6 @@ package ch.nolix.techapi.databaseschemaapi.extendedschemaapi;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.techapi.databasecommonapi.databaseobjectapi.IExtendedDatabaseObject;
-import ch.nolix.techapi.databaseschemaapi.schemaaccessorapi.IDatabaseAccessor;
 import ch.nolix.techapi.databaseschemaapi.schemaapi.IColumn;
 import ch.nolix.techapi.databaseschemaapi.schemaapi.IDatabase;
 import ch.nolix.techapi.databaseschemaapi.schemaapi.ITable;
@@ -50,6 +49,24 @@ extends IDatabase<ED, ET, EC, EPPT>, IExtendedDatabaseObject {
 		return getRefTables().containsAny(t -> t.containsColumn(column));
 	}
 	
-	//method declaration
-	void setAccessorForActualDatabase(IDatabaseAccessor databaseAccessor);
+	//method
+	default boolean containsTableWithName(final String name) {
+		return getRefTables().containsAny(t -> t.hasName(name));
+	}
+	
+	//method
+	default void deleteTableByName(final String name) {
+		deleteTable(getRefTableByName(name));
+	}
+	
+	//method
+	default ET getRefTableByName(final String name) {
+		return getRefTables().getRefFirst(t -> t.hasName(name));
+	}
+	
+	//method
+	default int getTableCount() {
+		return getRefTables().getElementCount();
+	}
+
 }
