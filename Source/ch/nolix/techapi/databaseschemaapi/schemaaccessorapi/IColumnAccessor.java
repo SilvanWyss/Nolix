@@ -11,6 +11,9 @@ public interface IColumnAccessor {
 	boolean currentColumnIsEmptyOnDatabase();
 	
 	//method declaration
+	void deleteCurrentColumnFromDatabase();
+	
+	//method declaration
 	String getHeaderOfCurrentColumn();
 	
 	//method declaration

@@ -13,9 +13,6 @@ public interface IDatabaseAccessor {
 	void addTableToCurrentDatabase(ITableDTO table);
 	
 	//method declaration
-	void deleteTableWithNameFromDatabase(String name);
-	
-	//method declaration
 	ITableAccessor getAccessorForTableWithName(String name);
 	
 	//method declaration

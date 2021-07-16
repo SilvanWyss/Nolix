@@ -12,7 +12,7 @@ public interface ITableAccessor {
 	void addColumnToCurrentTableToDatabase(IColumnDTO column);
 	
 	//method declaration
-	void deleteColumnWithHeaderOfCurrentTableFromDatabaseWithHeader(String header);
+	void deleteCurrentTableFromDatabase();
 	
 	//method declaration
 	String getNameOfCurrentTable();
