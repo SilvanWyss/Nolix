@@ -41,16 +41,6 @@ public interface IExtendedDatabaseEngineAdapter<
 	}
 	
 	//method
-	default void deleteDatabase(final ED database) {
-		getRefDatabaseEngine().deleteDatabase(database);
-	}
-	
-	//method
-	default void deleteDatabaseByName(final String name) {
-		getRefDatabaseEngine().deleteDatabaseByName(name);
-	}
-	
-	//method
 	default int getDatabaseCount() {
 		return getRefDatabaseEngine().getDatabaseCount();
 	}

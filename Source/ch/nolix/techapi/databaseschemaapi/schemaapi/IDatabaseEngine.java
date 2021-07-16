@@ -20,8 +20,5 @@ public interface IDatabaseEngine<
 	DE createDatabaseWithName(String name);
 	
 	//method declaration
-	void deleteDatabase(D database);
-	
-	//method declaration
 	IContainer<D> getRefDatabases();
 }
