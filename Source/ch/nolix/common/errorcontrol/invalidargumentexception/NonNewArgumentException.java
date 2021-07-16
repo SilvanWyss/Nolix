@@ -8,7 +8,7 @@ package ch.nolix.common.errorcontrol.invalidargumentexception;
  * A {@link NonNewArgumentException} is not mutable.
  * 
  * @author Silvan Wyss
- * @date 2021-03-07
+ * @date 2021-07-03
  * @lines 30
  */
 @SuppressWarnings("serial")
