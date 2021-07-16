@@ -2,6 +2,7 @@
 package ch.nolix.techapi.databasecommonapi.databaseobjectapi;
 
 //own imports
+import ch.nolix.common.errorcontrol.invalidargumentexception.DeletedArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.NonNewArgumentException;
 
@@ -30,10 +31,22 @@ public interface IExtendedDatabaseObject extends IDatabaseObject {
 	}
 	
 	//method
+	default void assertIsNotDeleted() {
+		if (isDeleted()) {
+			throw new DeletedArgumentException(this);
+		}
+	}
+	
+	//method
 	default void assertIsNotLinkedWithActualDatabase() {
 		if (isLinkedWithActualDatabase()) {
 			throw new InvalidArgumentException(this, "is already linked with an actual database");
 		}
+	}
+	
+	//method
+	default boolean isDeleted() {
+		return (getState() == DatabaseObjectState.DELETED);
 	}
 		
 	//method
