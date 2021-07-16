@@ -1,21 +1,67 @@
 //package declaration
 package ch.nolix.system.databaseschema.schema;
 
+//own imports
+import ch.nolix.common.constant.LowerCaseCatalogue;
+import ch.nolix.common.errorcontrol.validator.Validator;
+import ch.nolix.system.databaseschema.parametrizedpropertytype.BaseParametrizedBackReferenceType;
+import ch.nolix.system.databaseschema.parametrizedpropertytype.BaseParametrizedReferenceType;
+
 //class
 final class TableMutationPreValidator {
 	
 	//method
 	public void assertCanAddColumnToTable(final Table table, final Column column) {
-		//TODO: Implement.
+		
+		table.assertIsOpen();
+		table.assertDoesNotContainColumnWithHeader(column.getHeader());
+		
+		column.assertIsOpen();
+		column.assertIsNew();
+		
+		if (column.isIdColumn()) {
+			table.assertDoesNotContainIdColumn();
+		}
+		
+		if (column.isAnyReferenceColumn() && table.belongsToDatabase()) {
+			
+			final var baseParametrizedReferenceType = (BaseParametrizedReferenceType)column.getParametrizedPropertyType();
+			final var referencedTable = baseParametrizedReferenceType.getReferencedTable();
+				
+			table.getParentDatabase().assertContainsTable(referencedTable);
+		}
+				
+		if (column.isAnyBackReferenceColumn() && table.belongsToDatabase()) {
+			
+			final var baseParametrizedBackReferenceType =
+			(BaseParametrizedBackReferenceType)column.getParametrizedPropertyType();
+			
+			final var backReferencedColumn = baseParametrizedBackReferenceType.getBackReferencedColumn();
+			
+			table.getParentDatabase().assertContainsTableWithColumn(backReferencedColumn);
+		}
 	}
 	
 	//method
 	public void assertCanSetNameToTable(final Table table, final String name) {
-		//TODO: Implement.
+		
+		table.assertIsOpen();
+		
+		if (table.belongsToDatabase()) {
+			table.getParentDatabase().assertDoesNotContainTableWithName(name);
+		}
+		
+		Validator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
 	}
 	
 	//method
 	public void assertTableCanDeleteColumn(final Table table, final Column column) {
-		//TODO: Implement.
+		
+		table.assertIsOpen();		
+		table.assertContainsColumn(column);
+		
+		column.assertIsOpen();
+		column.assertIsNotIdColumn();
+		column.assertIsNotBackReferenced();
 	}
 }
