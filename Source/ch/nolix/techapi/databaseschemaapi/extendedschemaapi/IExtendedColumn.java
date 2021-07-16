@@ -86,7 +86,5 @@ public interface IExtendedColumn<
 	default boolean referencesBack(final IColumn<?, ?> column) {
 		return getParametrizedPropertyType().referencesBack(column);
 	}
-	
-	//method declaration
-	IColumnDTO toDTO();
+
 }
