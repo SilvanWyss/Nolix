@@ -14,7 +14,13 @@ public interface IColumn<
 > extends EmptinessRequestable, Headerable<C>, IDatabaseObject {
 	
 	//method declaration
+	boolean belongsToTable();
+	
+	//method declaration
 	PPT getParametrizedPropertyType();
+	
+	//method declaration
+	ITable<?, ?, ?> getParentTable();
 	
 	//method declaration
 	C setParametrizedPropertyType(PPT parametrizedPropertyType);

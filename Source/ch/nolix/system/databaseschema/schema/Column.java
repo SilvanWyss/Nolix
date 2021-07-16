@@ -2,12 +2,9 @@
 package ch.nolix.system.databaseschema.schema;
 
 //own imports
-import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
-import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.DeletedArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -65,6 +62,12 @@ public final class Column extends DatabaseObject implements IExtendedColumn<Colu
 	
 	//method
 	@Override
+	public boolean belongsToTable() {
+		return (parentTable != null);
+	}
+	
+	//method
+	@Override
 	public String getHeader() {
 		return header;
 	}
@@ -73,6 +76,14 @@ public final class Column extends DatabaseObject implements IExtendedColumn<Colu
 	@Override
 	public ParametrizedPropertyType<?> getParametrizedPropertyType() {
 		return parametrizedPropertyType;
+	}
+	
+	//method
+	public Table getParentTable() {
+		
+		assertBelongsToTable();
+		
+		return parentTable;
 	}
 	
 	//method
@@ -133,20 +144,6 @@ public final class Column extends DatabaseObject implements IExtendedColumn<Colu
 	}
 	
 	//method
-	void assertBelongsToTable() {
-		if (!belongsToTable()) {
-			throw new ArgumentDoesNotBelongToParentException(this, LowerCaseCatalogue.TABLE);
-		}
-	}
-
-	//method
-	void assertDoesNotBelongToTable() {
-		if (belongsToTable()) {
-			throw new ArgumentBelongsToParentException(this, Table.class);
-		}
-	}
-	
-	//method
 	void assertIsNotBackReferenced() {
 		if (isBackReferenced()) {
 			throw new InvalidArgumentException(this, "is back referenced");
@@ -159,21 +156,8 @@ public final class Column extends DatabaseObject implements IExtendedColumn<Colu
 	}
 	
 	//method
-	boolean belongsToTable() {
-		return (parentTable != null);
-	}
-	
-	//method
 	Database getParentDatabase() {
 		return getParentTable().getParentDatabase();
-	}
-	
-	//method
-	Table getParentTable() {
-		
-		assertBelongsToTable();
-		
-		return parentTable;
 	}
 	
 	//method

@@ -2,6 +2,9 @@
 package ch.nolix.techapi.databaseschemaapi.extendedschemaapi;
 
 //own imports
+import ch.nolix.common.constant.LowerCaseCatalogue;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.techapi.databasecommonapi.databaseobjectapi.IExtendedDatabaseObject;
 import ch.nolix.techapi.databasecommonapi.propertytypeapi.BasePropertyType;
@@ -14,6 +17,20 @@ public interface IExtendedColumn<
 	EC extends IColumn<EC, EPPT>,
 	EPPT extends IExtendedParametrizedPropertyType<?>
 > extends IColumn<EC, EPPT>, IExtendedDatabaseObject {
+	
+	//method
+	default void assertBelongsToTable() {
+		if (!belongsToTable()) {
+			throw new ArgumentDoesNotBelongToParentException(this, LowerCaseCatalogue.TABLE);
+		}
+	}
+
+	//method
+	default void assertDoesNotBelongToTable() {
+		if (belongsToTable()) {
+			throw new ArgumentBelongsToParentException(this, getParentTable());
+		}
+	}
 	
 	//method
 	default void assertIsAnyBackReferenceColumn() {
@@ -85,5 +102,4 @@ public interface IExtendedColumn<
 	default boolean referencesBack(final IColumn<?, ?> column) {
 		return getParametrizedPropertyType().referencesBack(column);
 	}
-
 }
