@@ -56,6 +56,11 @@ public final class Table extends DatabaseObject implements IExtendedTable<Table,
 	}
 	
 	//method
+	public boolean belongsToDatabase() {
+		return (parentDatabase != null);
+	}
+	
+	//method
 	@Override
 	public Table createColumnWithHeaderAndParametrizedPropertyType( 
 		final String header,
@@ -81,6 +86,14 @@ public final class Table extends DatabaseObject implements IExtendedTable<Table,
 	@Override
 	public String getName() {
 		return name;
+	}
+	
+	//method
+	public Database getParentDatabase() {
+		
+		assertBelongsToDatabase();
+		
+		return parentDatabase;
 	}
 	
 	//method
@@ -142,19 +155,6 @@ public final class Table extends DatabaseObject implements IExtendedTable<Table,
 		if (isReferenced()) {
 			throw new InvalidArgumentException(this, "is referenced");
 		}
-	}
-	
-	//method
-	boolean belongsToDatabase() {
-		return (parentDatabase != null);
-	}
-	
-	//method
-	Database getParentDatabase() {
-		
-		assertBelongsToDatabase();
-		
-		return parentDatabase;
 	}
 	
 	//method

@@ -19,6 +19,9 @@ public interface ITable<
 	T addColumn(C column);
 	
 	//method declaration
+	boolean belongsToDatabase();
+	
+	//method declaration
 	T createColumnWithHeaderAndParametrizedPropertyType(final String header, final PPT parametrizedPropertyType);
 	
 	//method declaration
@@ -26,6 +29,9 @@ public interface ITable<
 	
 	//method declaration
 	IFlatTableDTO getFlatDTO();
+	
+	//method declaration
+	IDatabase<?, ?, ?, ?> getParentDatabase();
 	
 	//method declarations
 	IContainer<C> getRefColumns();
