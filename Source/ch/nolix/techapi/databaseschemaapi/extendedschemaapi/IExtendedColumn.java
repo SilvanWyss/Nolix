@@ -29,6 +29,13 @@ extends IColumn<EC, EPPT>, IDatabaseObject {
 	}
 	
 	//method
+	default void assertIsNotIdColumn() {
+		if (isIdColumn()) {
+			throw new InvalidArgumentException(this, "is an id column");
+		}
+	}
+	
+	//method
 	default boolean isAnyBackReferenceColumn() {
 		return getParametrizedPropertyType().isAnyBackReferenceType();
 	}
