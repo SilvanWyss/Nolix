@@ -44,7 +44,10 @@ final class TableMutationPreValidator {
 	
 	//method
 	public void assertCanDeleteTable(final Table table) {
-		//TODO: Implement.
+		table.assertIsOpen();
+		table.assertIsNotNew();
+		table.assertIsNotDeleted();
+		table.assertIsNotReferenced();
 	}
 	
 	//method
