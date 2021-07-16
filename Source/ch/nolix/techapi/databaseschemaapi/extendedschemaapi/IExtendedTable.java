@@ -3,6 +3,7 @@ package ch.nolix.techapi.databaseschemaapi.extendedschemaapi;
 
 //own imports
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentContainsElementException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.techapi.databasecommonapi.databaseobjectapi.IDatabaseObject;
 import ch.nolix.techapi.databaseschemaapi.flatschemadtoapi.IFlatTableDTO;
@@ -17,6 +18,13 @@ public interface IExtendedTable<
 	EPPT extends IExtendedParametrizedPropertyType<?>
 >
 extends IDatabaseObject, ITable<ET, EC, EPPT> {
+	
+	//method
+	default void assertContainsColumn(final IColumn<?, ?> column) {
+		if (!containsColumn(column)) {
+			throw new ArgumentDoesNotContainElementException(this, column);
+		}
+	}
 	
 	//method
 	default void assertDoesNotContainColumn(final IColumn<?, ?> column) {
