@@ -89,6 +89,16 @@ public interface IExtendedTable<
 	IExtendedDatabase<?, ET, EC, EPPT> getParentDatabase();
 	
 	//method
+	default LinkedList<EC> getRefBackReferencingColumns() {
+		
+		if (!belongsToDatabase()) {
+			return getRefBackReferencingColumnsWhenDoesNotBelongToDatabase();
+		}
+		
+		return getRefBackReferencingColumnsWhenBelongsToDatabase();
+	}
+	
+	//method
 	default EC getRefColumnByHeader(final String header) {
 		return getRefColumns().getRefFirst(c -> c.hasHeader(header));
 	}
@@ -114,6 +124,22 @@ public interface IExtendedTable<
 		return 
 		belongsToDatabase()
 		&& getParentDatabase().getRefTables().containsAny(t -> t.containsColumnThatReferencesTable(this));
+	}
+	
+	//method
+	private LinkedList<EC> getRefBackReferencingColumnsWhenBelongsToDatabase() {
+		
+		final var columns = getParentDatabase().getRefTables().toFromMany(ET::getRefColumns);
+		
+		return getRefColumns().getRefSelected(c -> columns.containsAny(c2 -> c2.referencesBack(c)));
+	}
+	
+	//method
+	private LinkedList<EC> getRefBackReferencingColumnsWhenDoesNotBelongToDatabase() {
+		
+		final var columns = getRefColumns();
+		
+		return getRefColumns().getRefSelected(c -> columns.containsAny(c2 -> c2.referencesBack(c)));
 	}
 	
 	//method
