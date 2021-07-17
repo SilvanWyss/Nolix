@@ -5,6 +5,7 @@ package ch.nolix.techapi.databaseschemaapi.extendedschemaapi;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentContainsElementException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ReferencedArgumentException;
@@ -23,6 +24,13 @@ public interface IExtendedTable<
 	default void assertContainsColumn(final IColumn<?, ?> column) {
 		if (!containsColumn(column)) {
 			throw new ArgumentDoesNotContainElementException(this, column);
+		}
+	}
+	
+	//method
+	default void assertContainsIdColumn() {
+		if (!containsIdColumn()) {
+			throw new ArgumentDoesNotHaveAttributeException(this, "id column");
 		}
 	}
 	
