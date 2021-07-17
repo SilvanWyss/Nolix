@@ -7,6 +7,7 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedPropertyType;
 import ch.nolix.techapi.databaseschemaapi.extendedschemaapi.IExtendedDatabase;
+import ch.nolix.techapi.databaseschemaapi.extendedschemaapi.IExtendedDatabaseEngine;
 import ch.nolix.techapi.databaseschemaapi.schemaaccessorapi.IDatabaseAccessor;
 
 //class
@@ -47,10 +48,30 @@ implements IExtendedDatabase<Database, Table, Column, ParametrizedPropertyType<?
 	
 	//method
 	@Override
+	public boolean belongsToEngine() {
+		//TODO: Implement.
+		return false;
+	}
+	
+	//method
+	@Override
 	public Database createTableWithName(final String name) {
 		return addTable(new Table(name));
 	}
-		
+	
+	//method
+	@Override
+	public String getName() {
+		return name;
+	}
+	
+	//method
+	@Override
+	public IExtendedDatabaseEngine<?, Database, Table, Column, ParametrizedPropertyType<?>> getParentEngine() {
+		//TODO: Implement.
+		return null;
+	}
+	
 	//method
 	@Override
 	public IContainer<Table> getRefTables() {
@@ -58,12 +79,6 @@ implements IExtendedDatabase<Database, Table, Column, ParametrizedPropertyType<?
 		loadTablesFromDatabaseIfNeeded();
 		
 		return tables;
-	}
-	
-	//method
-	@Override
-	public String getName() {
-		return name;
 	}
 	
 	//method

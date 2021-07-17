@@ -19,7 +19,13 @@ public interface IDatabase<
 	D addTable(T table);
 	
 	//method declaration
+	boolean belongsToEngine();
+	
+	//method declaration
 	D createTableWithName(String name);
+	
+	//method declaration
+	IDatabaseEngine<?, D, T, C, PPT> getParentEngine();
 	
 	//method declaration
 	IContainer<T> getRefTables();

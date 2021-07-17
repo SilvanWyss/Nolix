@@ -98,6 +98,9 @@ extends IDatabase<ED, ET, EC, EPPT>, IExtendedDatabaseObject {
 		getRefTableByName(name).delete();
 	}
 	
+	//method declaration	
+	IExtendedDatabaseEngine<?, ED, ET, EC, EPPT> getParentEngine();
+	
 	//method
 	default ET getRefTableByName(final String name) {
 		return getRefTables().getRefFirst(t -> t.hasName(name));
