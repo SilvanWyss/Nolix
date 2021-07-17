@@ -72,12 +72,7 @@ public abstract class DatabaseSchemaAdapter<DA extends IDatabaseAccessor> implem
 	}
 	
 	//method declaration
-	abstract IDatabaseAccessor getAccessorForDatabase();
-	
-	//method
-	final String getDatabaseName() {
-		return databaseName;
-	}
+	protected abstract IDatabaseAccessor getRefAccessorForDatabase();
 	
 	//method declaration
 	protected abstract boolean accessorContainsAnyRecursiveChange(DA databaseAccessor);
@@ -87,7 +82,12 @@ public abstract class DatabaseSchemaAdapter<DA extends IDatabaseAccessor> implem
 	
 	//method declaration
 	protected abstract void saveChangesRecursivelyToDatabaseFromAccessor(DA databaseAccessor);
-
+	
+	//method
+	final String getDatabaseName() {
+		return databaseName;
+	}
+	
 	//method
 	private void initializeSession() {
 		session = new DatabaseSchemaSession<>(this);
