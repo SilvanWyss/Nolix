@@ -187,7 +187,12 @@ public final class Column extends DatabaseObject implements IExtendedColumn<Colu
 	void setParametrizedPropertyTypeAttribute(final ParametrizedPropertyType<?> parametrizedPropertyType) {
 		this.parametrizedPropertyType = parametrizedPropertyType;
 	}
-
+	
+	//method
+	void setParametrizedPropertyTypeToDatabase() {
+		getRefAccessor().setParametrizedPropertyTypeForCurrentColumnToDatabase(parametrizedPropertyType.toDTO());
+	}
+	
 	//method
 	void setParentTable(final Table parentTable) {
 		

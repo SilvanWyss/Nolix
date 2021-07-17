@@ -15,7 +15,7 @@ final class ColumnMutationExecutor {
 	//method
 	public void setHeaderToColumn(final Column column, final String header) {
 		
-		final var backRefernceColumns = column.getRefBackReferencingColumns();
+		final var backReferencingColumns = column.getRefBackReferencingColumns();
 		
 		column.setHeaderAttribute(header);
 		
@@ -23,9 +23,7 @@ final class ColumnMutationExecutor {
 			column.getRefAccessor().setHeaderOfCurrentColumnToDatabase(header);
 		}
 		
-		for (final var brc : backRefernceColumns) {
-			setParametrizedPropertyTypeToColumn(brc, brc.getParametrizedPropertyType());
-		}
+		backReferencingColumns.forEach(Column::setParametrizedPropertyTypeToDatabase);
 		
 		column.setEdited();
 	}
