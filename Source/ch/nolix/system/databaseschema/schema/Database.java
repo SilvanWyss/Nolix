@@ -98,6 +98,11 @@ implements IExtendedDatabase<Database, Table, Column, ParametrizedPropertyType<?
 	}
 	
 	//method
+	void addTableAttribute(final Table table) {
+		tables.addAtEnd(table);
+	}
+	
+	//method
 	IDatabaseAccessor getRefAccessor() {
 		
 		assertIsLinkedWithActualDatabase();
