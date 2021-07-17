@@ -18,6 +18,13 @@ public interface IExtendedDatabaseObject extends IDatabaseObject {
 	}
 	
 	//method
+	default void assertIsLinkedWithRealDatabase() {
+		if (!isLinkedWithRealDatabase()) {
+			throw new InvalidArgumentException(this, "is not linked with a real database");
+		}
+	}
+	
+	//method
 	default void assertIsLoaded() {
 		if (!isLoaded()) {
 			throw new InvalidArgumentException(this, "is not loaded");
