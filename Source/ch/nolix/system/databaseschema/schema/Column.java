@@ -10,7 +10,6 @@ import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedPrope
 import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedValueType;
 import ch.nolix.system.databaseschema.schemadto.ColumnDTO;
 import ch.nolix.techapi.databaseschemaapi.extendedschemaapi.IExtendedColumn;
-import ch.nolix.techapi.databaseschemaapi.realschemaapi.IRealSchemaAdapter;
 import ch.nolix.techapi.databaseschemaapi.schemaaccessorapi.IColumnAccessor;
 import ch.nolix.techapi.databaseschemaapi.schemadtoapi.IColumnDTO;
 
@@ -168,7 +167,7 @@ public final class Column extends DatabaseObject implements IExtendedColumn<Colu
 	}
 	
 	//method
-	IRealSchemaAdapter getRefRealSchemaAdapter() {
+	RealSchemaAdapter getRefRealSchemaAdapter() {
 		return getParentDatabase().getRefRealSchemaAdapter();
 	}
 	

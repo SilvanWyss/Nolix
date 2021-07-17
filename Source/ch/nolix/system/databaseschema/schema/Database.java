@@ -24,7 +24,7 @@ implements IExtendedDatabase<Database, Table, Column, ParametrizedPropertyType<?
 	private boolean loadedTablesFromDatabase;
 	
 	//optional attribute
-	private IRealSchemaAdapter realSchemaAdapter;
+	private RealSchemaAdapter realSchemaAdapter;
 	private IDatabaseAccessor accessor;
 	
 	//multi-attribute
@@ -102,11 +102,7 @@ implements IExtendedDatabase<Database, Table, Column, ParametrizedPropertyType<?
 	//method
 	@Override
 	public void setRealSchemaAdapter(final IRealSchemaAdapter realSchemaAdapter) {
-		
-		Validator.assertThat(realSchemaAdapter).thatIsNamed(IRealSchemaAdapter.class).isNotNull();
-		assertIsNotLinkedWithActualDatabase();
-		
-		this.realSchemaAdapter = realSchemaAdapter;
+		setRealSchemaAdapter(new RealSchemaAdapter(realSchemaAdapter));
 	}
 	
 	//method
@@ -123,7 +119,7 @@ implements IExtendedDatabase<Database, Table, Column, ParametrizedPropertyType<?
 	}
 	
 	//method
-	IRealSchemaAdapter getRefRealSchemaAdapter() {
+	RealSchemaAdapter getRefRealSchemaAdapter() {
 		
 		assertIsLinkedWithRealDatabase();
 		
@@ -167,5 +163,14 @@ implements IExtendedDatabase<Database, Table, Column, ParametrizedPropertyType<?
 	//method
 	private boolean needsToLoadTablesFromDatabase() {
 		return (isLoaded() && !hasLoadedTablesFromDatabase());
+	}
+	
+	//method
+	private void setRealSchemaAdapter(final RealSchemaAdapter realSchemaAdapter) {
+		
+		Validator.assertThat(realSchemaAdapter).thatIsNamed(RealSchemaAdapter.class).isNotNull();
+		assertIsNotLinkedWithActualDatabase();
+		
+		this.realSchemaAdapter = realSchemaAdapter;
 	}
 }
