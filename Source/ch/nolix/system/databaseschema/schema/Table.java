@@ -124,11 +124,21 @@ public final class Table extends DatabaseObject implements IExtendedTable<Table,
 	}
 	
 	//method
+	void addColumnAttribute(final Column column) {
+		columns.addAtEnd(column);
+	}
+	
+	//method
 	ITableAccessor getRefAccessor() {
 		
 		gainAccessorIfNeeded();
 		
 		return accessor;
+	}
+	
+	//method
+	void setNameAttribute(final String name) {
+		this.name = name;
 	}
 	
 	//method

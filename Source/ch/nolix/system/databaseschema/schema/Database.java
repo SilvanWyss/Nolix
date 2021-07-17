@@ -91,6 +91,11 @@ implements IExtendedDatabase<Database, Table, Column, ParametrizedPropertyType<?
 	}
 	
 	//method
+	void removeTableAttribute(final Table table) {
+		tables.removeFirst(table);
+	}
+	
+	//method
 	@Override
 	protected void noteCloseDatabaseObject() {
 		
