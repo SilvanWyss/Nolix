@@ -26,6 +26,17 @@ extends IDatabase<ED, ET, EC, EPPT>, IExtendedDatabaseObject {
 	}
 	
 	//method
+	default void assertContainsTableReferencedByColumn(final IColumn<?, ?> column) {
+		if (!containsTableReferencedByColumn(column)) {
+			throw
+			new InvalidArgumentException(
+				this,
+				"does not contain a table that is referenced by the column " + column.getHeaderInQuotes() + "."
+			);
+		}
+	}
+	
+	//method
 	default void assertContainsTableWithColumn(final IColumn<?, ?> column) {
 		if (!containsTableWithColumn(column)) {
 			throw new ArgumentDoesNotContainElementException(this, column);
@@ -42,6 +53,11 @@ extends IDatabase<ED, ET, EC, EPPT>, IExtendedDatabaseObject {
 	//method
 	default boolean containsTable(final ITable<?, ?, ?> table) {
 		return getRefTables().contains(table);
+	}
+	
+	//method
+	default boolean containsTableReferencedByColumn(final IColumn<?, ?> column) {
+		return getRefTables().containsAny(t -> column.getParametrizedPropertyType().references(t));
 	}
 	
 	//method
@@ -68,5 +84,4 @@ extends IDatabase<ED, ET, EC, EPPT>, IExtendedDatabaseObject {
 	default int getTableCount() {
 		return getRefTables().getElementCount();
 	}
-
 }
