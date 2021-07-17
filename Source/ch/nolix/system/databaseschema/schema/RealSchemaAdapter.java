@@ -37,6 +37,11 @@ final class RealSchemaAdapter {
 	}
 	
 	//method
+	public boolean columnIsEmpty(final IColumn<?, ?> column) {
+		return internalRealSchemaAdapter.columnIsEmpty(column.getParentTable().getName(), column.getHeader());
+	}
+	
+	//method
 	public void deleteColumn(final IColumn<?, ?> column) {
 		internalRealSchemaAdapter.deleteColumn(column.getParentTable().getName(), column.getHeader());
 	}
