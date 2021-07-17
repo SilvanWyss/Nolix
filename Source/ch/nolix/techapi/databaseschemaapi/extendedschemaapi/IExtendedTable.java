@@ -10,6 +10,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentHasAttribut
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ReferencedArgumentException;
 import ch.nolix.techapi.databasecommonapi.databaseobjectapi.IExtendedDatabaseObject;
+import ch.nolix.techapi.databasecommonapi.propertytypeapi.BasePropertyType;
 import ch.nolix.techapi.databaseschemaapi.schemaapi.IColumn;
 import ch.nolix.techapi.databaseschemaapi.schemaapi.ITable;
 
@@ -65,6 +66,17 @@ public interface IExtendedTable<
 	//method
 	default boolean containsColumn(final IColumn<?, ?> column) {
 		return getRefColumns().contains(column);
+	}
+	
+	//method
+	default boolean containsColumnThatReferencesBackColumn(final IColumn<?, ?> column) {
+		
+		//For a better performance, this check, that is theoretically not necessary, excludes many cases.
+		if (column.getParametrizedPropertyType().getBasePropertyType() != BasePropertyType.BASE_REFERENCE) {
+			return false;
+		}
+		
+		return getRefColumns().containsAny(c -> c.referencesBack(column));
 	}
 	
 	//method
