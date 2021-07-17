@@ -31,7 +31,7 @@ implements IExtendedDatabase<Database, Table, Column, ParametrizedPropertyType<?
 	//constructor
 	public Database(final String name) {
 		
-		mutationPreValidator.assertCanSetNameToDatabase(name);
+		mutationPreValidator.assertCanSetNameToDatabase(this, name);
 		
 		this.name = name;
 	}
