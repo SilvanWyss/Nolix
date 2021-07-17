@@ -8,6 +8,7 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedPropertyType;
 import ch.nolix.techapi.databaseschemaapi.extendedschemaapi.IExtendedDatabase;
 import ch.nolix.techapi.databaseschemaapi.extendedschemaapi.IExtendedDatabaseEngine;
+import ch.nolix.techapi.databaseschemaapi.realschemaapi.IRealSchemaAdapter;
 import ch.nolix.techapi.databaseschemaapi.schemaaccessorapi.IDatabaseAccessor;
 
 //class
@@ -23,6 +24,7 @@ implements IExtendedDatabase<Database, Table, Column, ParametrizedPropertyType<?
 	private boolean loadedTablesFromDatabase;
 	
 	//optional attribute
+	private IRealSchemaAdapter realSchemaAdapter;
 	private IDatabaseAccessor accessor;
 	
 	//multi-attribute
@@ -84,7 +86,7 @@ implements IExtendedDatabase<Database, Table, Column, ParametrizedPropertyType<?
 	//method
 	@Override
 	public boolean isLinkedWithRealDatabase() {
-		return (accessor != null);
+		return (realSchemaAdapter != null);
 	}
 	
 	//method
@@ -98,8 +100,34 @@ implements IExtendedDatabase<Database, Table, Column, ParametrizedPropertyType<?
 	}
 	
 	//method
+	@Override
+	public void setRealSchemaAdapter(final IRealSchemaAdapter realSchemaAdapter) {
+		
+		Validator.assertThat(realSchemaAdapter).thatIsNamed(IRealSchemaAdapter.class).isNotNull();
+		assertIsNotLinkedWithActualDatabase();
+		
+		this.realSchemaAdapter = realSchemaAdapter;
+	}
+	
+	//method
+	@Override
+	protected void noteCloseDatabaseObject() {
+		
+		//Does not call getRefTables method to avoid that the tables need to be loaded from the database.
+		tables.forEach(Table::close);
+	}
+	
+	//method
 	void addTableAttribute(final Table table) {
 		tables.addAtEnd(table);
+	}
+	
+	//method
+	IRealSchemaAdapter getRefRealSchemaAdapter() {
+		
+		assertIsLinkedWithRealDatabase();
+		
+		return realSchemaAdapter;
 	}
 	
 	//method
@@ -115,14 +143,6 @@ implements IExtendedDatabase<Database, Table, Column, ParametrizedPropertyType<?
 		tables.removeFirst(table);
 	}
 	
-	//method
-	@Override
-	protected void noteCloseDatabaseObject() {
-		
-		//Does not call getRefTables method to avoid that the tables need to be loaded from the database.
-		tables.forEach(Table::close);
-	}
-
 	//method
 	private boolean hasLoadedTablesFromDatabase() {
 		return loadedTablesFromDatabase;

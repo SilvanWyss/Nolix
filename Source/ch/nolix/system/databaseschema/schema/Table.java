@@ -11,6 +11,7 @@ import ch.nolix.system.databaseschema.schemadto.ColumnDTO;
 import ch.nolix.system.databaseschema.schemadto.TableDTO;
 import ch.nolix.techapi.databaseschemaapi.extendedschemaapi.IExtendedTable;
 import ch.nolix.techapi.databaseschemaapi.flatschemadtoapi.IFlatTableDTO;
+import ch.nolix.techapi.databaseschemaapi.realschemaapi.IRealSchemaAdapter;
 import ch.nolix.techapi.databaseschemaapi.schemaaccessorapi.ITableAccessor;
 
 //class
@@ -134,6 +135,11 @@ public final class Table extends DatabaseObject implements IExtendedTable<Table,
 		gainAccessorIfNeeded();
 		
 		return accessor;
+	}
+	
+	//method
+	IRealSchemaAdapter getRefRealSchemaAdapter() {
+		return getParentDatabase().getRefRealSchemaAdapter();
 	}
 	
 	//method
