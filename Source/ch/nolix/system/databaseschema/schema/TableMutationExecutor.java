@@ -9,7 +9,7 @@ final class TableMutationExecutor {
 		
 		table.addColumnAttribute(column);
 		
-		if (table.isLinkedWithActualDatabase()) {
+		if (table.isLinkedWithRealDatabase()) {
 			table.getRefAccessor().addColumnToCurrentTableToDatabase(column.toDTO());
 		}
 		
@@ -23,7 +23,7 @@ final class TableMutationExecutor {
 			table.getParentDatabase().removeTableAttribute(table);
 		}
 		
-		if (table.isLinkedWithActualDatabase()) {
+		if (table.isLinkedWithRealDatabase()) {
 			table.getRefAccessor().deleteCurrentTableFromDatabase();
 		}
 		
@@ -38,7 +38,7 @@ final class TableMutationExecutor {
 		
 		table.setNameAttribute(name);
 		
-		if (table.isLinkedWithActualDatabase()) {
+		if (table.isLinkedWithRealDatabase()) {
 			
 			table.getRefAccessor().setNameForCurrentTableToDatabase(name);
 			

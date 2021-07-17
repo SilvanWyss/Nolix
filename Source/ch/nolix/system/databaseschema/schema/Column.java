@@ -109,8 +109,8 @@ public final class Column extends DatabaseObject implements IExtendedColumn<Colu
 	
 	//method
 	@Override
-	public boolean isLinkedWithActualDatabase() {
-		return (belongsToTable() && getParentTable().isLinkedWithActualDatabase());
+	public boolean isLinkedWithRealDatabase() {
+		return (belongsToTable() && getParentTable().isLinkedWithRealDatabase());
 	}
 	
 	//method

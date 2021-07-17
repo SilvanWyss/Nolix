@@ -9,7 +9,7 @@ final class DatabaseMutationExecutor {
 		
 		database.addTableAttribute(table);
 		
-		if (database.isLinkedWithActualDatabase()) {
+		if (database.isLinkedWithRealDatabase()) {
 			database.getRefAccessor().addTableToCurrentDatabase(table.toDTO());
 		}
 		

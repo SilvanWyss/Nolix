@@ -26,7 +26,7 @@ final class ColumnMutationExecutor {
 		
 		column.setHeaderAttribute(header);
 		
-		if (column.isLinkedWithActualDatabase()) {
+		if (column.isLinkedWithRealDatabase()) {
 			column.getRefAccessor().setHeaderOfCurrentColumnToDatabase(header);
 		}
 		
@@ -43,7 +43,7 @@ final class ColumnMutationExecutor {
 		
 		column.setParametrizedPropertyTypeAttribute(parametrizedPropertyType);
 		
-		if (column.isLinkedWithActualDatabase()) {
+		if (column.isLinkedWithRealDatabase()) {
 			column
 			.getRefAccessor()
 			.setParametrizedPropertyTypeForCurrentColumnToDatabase(parametrizedPropertyType.toDTO());

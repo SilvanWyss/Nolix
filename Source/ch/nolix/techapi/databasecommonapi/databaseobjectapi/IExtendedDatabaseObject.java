@@ -12,7 +12,7 @@ public interface IExtendedDatabaseObject extends IDatabaseObject {
 	
 	//method
 	default void assertIsLinkedWithActualDatabase() {
-		if (!isLinkedWithActualDatabase()) {
+		if (!isLinkedWithRealDatabase()) {
 			throw new InvalidArgumentException(this, "is not linked with an actual database");
 		}
 	}
@@ -40,7 +40,7 @@ public interface IExtendedDatabaseObject extends IDatabaseObject {
 	
 	//method
 	default void assertIsNotLinkedWithActualDatabase() {
-		if (isLinkedWithActualDatabase()) {
+		if (isLinkedWithRealDatabase()) {
 			throw new InvalidArgumentException(this, "is already linked with an actual database");
 		}
 	}

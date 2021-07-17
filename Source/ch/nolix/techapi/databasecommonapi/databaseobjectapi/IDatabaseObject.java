@@ -11,5 +11,5 @@ public interface IDatabaseObject extends ICloseableElement {
 	DatabaseObjectState getState();
 	
 	//method declaration
-	boolean isLinkedWithActualDatabase();
+	boolean isLinkedWithRealDatabase();
 }

@@ -83,7 +83,7 @@ implements IExtendedDatabase<Database, Table, Column, ParametrizedPropertyType<?
 	
 	//method
 	@Override
-	public boolean isLinkedWithActualDatabase() {
+	public boolean isLinkedWithRealDatabase() {
 		return (accessor != null);
 	}
 	

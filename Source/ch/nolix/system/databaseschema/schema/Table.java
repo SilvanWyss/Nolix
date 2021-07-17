@@ -103,8 +103,8 @@ public final class Table extends DatabaseObject implements IExtendedTable<Table,
 	
 	//method
 	@Override
-	public boolean isLinkedWithActualDatabase() {
-		return (belongsToDatabase() && getParentDatabase().isLinkedWithActualDatabase());
+	public boolean isLinkedWithRealDatabase() {
+		return (belongsToDatabase() && getParentDatabase().isLinkedWithRealDatabase());
 	}
 	
 	//method
