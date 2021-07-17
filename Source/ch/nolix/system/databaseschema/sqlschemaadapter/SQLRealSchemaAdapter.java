@@ -1,0 +1,134 @@
+//package declaration
+package ch.nolix.system.databaseschema.sqlschemaadapter;
+
+//own imports
+import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.errorcontrol.validator.Validator;
+import ch.nolix.common.sql.SQLConnection;
+import ch.nolix.element.time.base.Time;
+import ch.nolix.techapi.databaseschemaapi.flatschemadtoapi.IFlatTableDTO;
+import ch.nolix.techapi.databaseschemaapi.realschemaapi.IRealSchemaAdapter;
+import ch.nolix.techapi.databaseschemaapi.schemadtoapi.IColumnDTO;
+import ch.nolix.techapi.databaseschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
+import ch.nolix.techapi.databaseschemaapi.schemadtoapi.ITableDTO;
+
+//class
+public final class SQLRealSchemaAdapter implements IRealSchemaAdapter {
+	
+	//static attribute
+	private static final SQLStatementCreator mSQLStatementCreator = new SQLStatementCreator();
+	
+	//attributes
+	private final SQLConnection mSQLConnection;
+	private final SQLMutationManager mSQLMutationManager;
+	
+	//constructor
+	public SQLRealSchemaAdapter(final SQLConnection pSQLConnection) {
+
+		Validator.assertThat(pSQLConnection).thatIsNamed(SQLConnection.class).isNotNull();
+		
+		mSQLConnection = pSQLConnection;
+		mSQLMutationManager = new SQLMutationManager();
+	}
+	
+	//method
+	@Override
+	public void addColumn(final String tableName, final IColumnDTO column) {
+		//TODO: Implement.
+	}
+	
+	//method
+	@Override
+	public void addTable(final ITableDTO table) {
+		//TODO: Implement.
+	}
+	
+	//method
+	@Override
+	public boolean columnIsEmpty(final String tableName, final String columnHeader) {
+		//TODO: Implement.
+		return false;
+	}
+	
+	//method
+	@Override
+	public void deleteColumn(final String tableName, final String columnHeader) {
+		//TODO: Implement.
+	}
+	
+	//method
+	@Override
+	public void deleteTable(final String tableName) {
+		//TODO: Implement.
+	}
+	
+	//method
+	@Override
+	public boolean hasChanges() {
+		return mSQLMutationManager.containsAny();
+	}
+	
+	//method
+	@Override
+	public LinkedList<IColumnDTO> loadColumnsOfTable(final String tableName) {
+		//TODO: Implement.
+		return null;
+	}
+	
+	//method
+	@Override
+	public LinkedList<IFlatTableDTO> loadFlatTables() {
+		//TODO: Implement.
+		return null;
+	}
+	
+	//method
+	@Override
+	public Time loadSchemaTimestamp() {
+		//TODO: Implement.
+		return null;
+	}
+	
+	//method
+	@Override
+	public void reset() {
+		mSQLMutationManager.reset();
+	}
+	
+	//method
+	@Override
+	public void setColumnHeader(final String tableName, final String columnHeader, final String newColumnHeader) {
+		//TODO: Implement.
+	}
+	
+	//method
+	@Override
+	public void setColumnParametrizedPropertyType(
+		final String tableName,
+		final String columnHeader,
+		final IParametrizedPropertyTypeDTO parametrizedPropertyType
+	) {
+		//TODO: Implement.
+	}
+	
+	//method
+	@Override
+	public void setSchemaTimestamp(final Time schemaTimestamp) {
+		//TODO: Implement.
+	}
+	
+	//method
+	@Override
+	public void setTableName(final String tableName, final String newTableName) {
+		//TODO: Implement.
+	}
+	
+	//method
+	@Override
+	public void saveChanges() {
+		
+		mSQLMutationManager.execute(mSQLConnection);
+		
+		reset();
+	}
+}
