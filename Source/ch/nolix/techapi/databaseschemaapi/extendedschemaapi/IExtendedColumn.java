@@ -114,11 +114,11 @@ public interface IExtendedColumn<
 	
 	//method
 	default boolean references(final ITable<?, ?, ?> table) {
-		return getParametrizedPropertyType().references(table);
+		return getParametrizedPropertyType().referencesTable(table);
 	}
 	
 	//method
 	default boolean referencesBack(final IColumn<?, ?> column) {
-		return getParametrizedPropertyType().referencesBack(column);
+		return getParametrizedPropertyType().referencesBackColumn(column);
 	}
 }

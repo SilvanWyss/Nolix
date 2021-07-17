@@ -11,6 +11,11 @@ import ch.nolix.techapi.databaseschemaapi.schemadtoapi.IParametrizedPropertyType
 public interface IExtendedParametrizedPropertyType<DT> extends IParametrizedPropertyType<DT> {
 	
 	//method
+	default BasePropertyType getBasePropertyType() {
+		return getPropertyType().getBaseType();
+	}
+	
+	//method
 	default boolean isAnyBackReferenceType() {
 		return (getBasePropertyType() == BasePropertyType.BASE_BACK_REFERENCE);
 	}

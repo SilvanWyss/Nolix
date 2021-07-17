@@ -2,16 +2,10 @@
 package ch.nolix.techapi.databaseschemaapi.schemaapi;
 
 //own imports
-import ch.nolix.techapi.databasecommonapi.propertytypeapi.BasePropertyType;
 import ch.nolix.techapi.databasecommonapi.propertytypeapi.PropertyType;
 
 //interface
 public interface IParametrizedPropertyType<DT> {
-	
-	//method
-	default BasePropertyType getBasePropertyType() {
-		return getPropertyType().getBaseType();
-	}
 	
 	//method declaration
 	Class<DT> getDataType();
@@ -20,8 +14,8 @@ public interface IParametrizedPropertyType<DT> {
 	PropertyType getPropertyType();
 	
 	//method declaration
-	boolean references(ITable<?, ?, ?> table);
+	boolean referencesTable(ITable<?, ?, ?> table);
 	
 	//method declaration
-	boolean referencesBack(IColumn<?, ?> column);
+	boolean referencesBackColumn(IColumn<?, ?> column);
 }

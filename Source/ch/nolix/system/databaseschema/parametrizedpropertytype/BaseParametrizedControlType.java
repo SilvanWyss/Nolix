@@ -39,13 +39,13 @@ public abstract class BaseParametrizedControlType<C> extends ParametrizedPropert
 	
 	//method
 	@Override
-	public final boolean references(final ITable<?, ?, ?> table) {
+	public final boolean referencesTable(final ITable<?, ?, ?> table) {
 		return false;
 	}
 	
 	//method
 	@Override
-	public final boolean referencesBack(final IColumn<?, ?> column) {
+	public final boolean referencesBackColumn(final IColumn<?, ?> column) {
 		return false;
 	}
 }

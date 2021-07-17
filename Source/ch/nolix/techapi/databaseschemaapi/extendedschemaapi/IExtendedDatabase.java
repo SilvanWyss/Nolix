@@ -69,7 +69,7 @@ extends IDatabase<ED, ET, EC, EPPT>, IExtendedDatabaseObject {
 	
 	//method
 	default boolean containsTableReferencedByColumn(final IColumn<?, ?> column) {
-		return getRefTables().containsAny(t -> column.getParametrizedPropertyType().references(t));
+		return getRefTables().containsAny(t -> column.getParametrizedPropertyType().referencesTable(t));
 	}
 	
 	//method
@@ -81,7 +81,7 @@ extends IDatabase<ED, ET, EC, EPPT>, IExtendedDatabaseObject {
 	default boolean containsTableWithColumnBackReferencedByColumn(final IColumn<?, ?> column) {
 		
 		//For a better performance, this check, that is theoretically not necessary, excludes many cases.
-		if (column.getParametrizedPropertyType().getBasePropertyType() != BasePropertyType.BASE_BACK_REFERENCE) {
+		if (column.getParametrizedPropertyType().getPropertyType().getBaseType() != BasePropertyType.BASE_BACK_REFERENCE) {
 			return false;
 		}
 		

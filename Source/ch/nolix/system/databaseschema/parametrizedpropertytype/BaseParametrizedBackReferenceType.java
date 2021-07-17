@@ -54,13 +54,13 @@ public abstract class BaseParametrizedBackReferenceType extends ParametrizedProp
 	
 	//method
 	@Override
-	public final boolean references(final ITable<?, ?, ?> table) {
+	public final boolean referencesTable(final ITable<?, ?, ?> table) {
 		return false;
 	}
 	
 	//method
 	@Override
-	public final boolean referencesBack(final IColumn<?, ?> column) {
+	public final boolean referencesBackColumn(final IColumn<?, ?> column) {
 		return (getBackReferencedColumn() == column);
 	}
 	
@@ -74,6 +74,7 @@ public abstract class BaseParametrizedBackReferenceType extends ParametrizedProp
 	//method
 	private boolean isAnyReferenceColumn(IColumn<?, ?> backReferencedColumn) {
 		return
-		backReferencedColumn.getParametrizedPropertyType().getBasePropertyType() == BasePropertyType.BASE_REFERENCE;
+		backReferencedColumn.getParametrizedPropertyType().getPropertyType().getBaseType() ==
+		BasePropertyType.BASE_REFERENCE;
 	}
 }
