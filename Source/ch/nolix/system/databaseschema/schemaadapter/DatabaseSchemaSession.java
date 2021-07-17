@@ -2,27 +2,23 @@
 package ch.nolix.system.databaseschema.schemaadapter;
 
 //own imports
-import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.system.databaseschema.schema.Database;
-import ch.nolix.techapi.databaseschemaapi.schemaaccessorapi.IDatabaseAccessor;
+import ch.nolix.techapi.databaseschemaapi.realschemaapi.IRealSchemaAdapter;
 
 //class
-final class DatabaseSchemaSession<DSA extends DatabaseSchemaAdapter<DA>, DA extends IDatabaseAccessor>
-implements AutoCloseable {
+final class DatabaseSchemaSession implements AutoCloseable {
 	
 	//attributes
-	private final DSA parentAdapter;
 	private final Database database;
-	private final DA accessor;
+	private final IRealSchemaAdapter realSchemaAdapter;
 	
 	//constructor
-	public DatabaseSchemaSession(final DSA parentAdapter) {
+	public DatabaseSchemaSession(final String databaseName, final IRealSchemaAdapter realSchemaAdapter) {
 		
-		Validator.assertThat(parentAdapter).thatIsNamed("parent adapter").isNotNull();
+		database = new Database(databaseName);
+		database.setRealSchemaAdapter(realSchemaAdapter);
 		
-		this.parentAdapter = parentAdapter;
-		database = new Database(parentAdapter.getDatabaseName());
-		accessor = parentAdapter.createAccessorForDatabase(database);
+		this.realSchemaAdapter = realSchemaAdapter;
 	}
 	
 	//method
@@ -38,12 +34,12 @@ implements AutoCloseable {
 	
 	//method
 	public boolean hasChanges() {
-		return parentAdapter.accessorContainsAnyRecursiveChange(accessor);
+		return realSchemaAdapter.hasChanges();
 	}
 	
 	//method
 	public void saveChanges() {
-		parentAdapter.saveChangesRecursivelyToDatabaseFromAccessor(accessor);
+		realSchemaAdapter.saveChanges();
 		close();
 	}
 }

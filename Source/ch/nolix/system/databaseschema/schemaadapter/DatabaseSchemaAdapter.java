@@ -9,10 +9,10 @@ import ch.nolix.system.databaseschema.schema.Column;
 import ch.nolix.system.databaseschema.schema.Database;
 import ch.nolix.system.databaseschema.schema.Table;
 import ch.nolix.techapi.databaseschemaapi.extendedschemaadapterapi.IExtendedDatabaseSchemaAdapter;
-import ch.nolix.techapi.databaseschemaapi.schemaaccessorapi.IDatabaseAccessor;
+import ch.nolix.techapi.databaseschemaapi.realschemaapi.IRealSchemaAdapter;
 
 //class
-public abstract class DatabaseSchemaAdapter<DA extends IDatabaseAccessor> implements IExtendedDatabaseSchemaAdapter<
+public abstract class DatabaseSchemaAdapter implements IExtendedDatabaseSchemaAdapter<
 	Database,
 	Table,
 	Column,
@@ -22,7 +22,7 @@ public abstract class DatabaseSchemaAdapter<DA extends IDatabaseAccessor> implem
 	//attributes
 	private final String databaseName;
 	private final CloseController closeController = new CloseController(this);
-	private DatabaseSchemaSession<DatabaseSchemaAdapter<DA>, DA> session;
+	private DatabaseSchemaSession session;
 	
 	//constructor
 	public DatabaseSchemaAdapter(final String databaseName) {
@@ -30,6 +30,7 @@ public abstract class DatabaseSchemaAdapter<DA extends IDatabaseAccessor> implem
 		Validator.assertThat(databaseName).thatIsNamed("database name").isNotBlank();
 		
 		this.databaseName = databaseName;
+		
 		initializeSession();
 	}
 	
@@ -72,24 +73,10 @@ public abstract class DatabaseSchemaAdapter<DA extends IDatabaseAccessor> implem
 	}
 	
 	//method declaration
-	protected abstract IDatabaseAccessor getRefAccessorForDatabase();
-	
-	//method declaration
-	protected abstract boolean accessorContainsAnyRecursiveChange(DA databaseAccessor);
-	
-	//method declaration
-	protected abstract DA createAccessorForDatabase(Database database);
-	
-	//method declaration
-	protected abstract void saveChangesRecursivelyToDatabaseFromAccessor(DA databaseAccessor);
-	
-	//method
-	final String getDatabaseName() {
-		return databaseName;
-	}
+	protected abstract IRealSchemaAdapter createRealSchemaAdapter();
 	
 	//method
 	private void initializeSession() {
-		session = new DatabaseSchemaSession<>(this);
+		session = new DatabaseSchemaSession(databaseName, createRealSchemaAdapter());
 	}
 }
