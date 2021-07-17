@@ -5,6 +5,7 @@ package ch.nolix.techapi.databaseschemaapi.extendedschemaapi;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.techapi.databasecommonapi.databaseobjectapi.IExtendedDatabaseObject;
+import ch.nolix.techapi.databasecommonapi.propertytypeapi.BasePropertyType;
 import ch.nolix.techapi.databaseschemaapi.schemaapi.IColumn;
 import ch.nolix.techapi.databaseschemaapi.schemaapi.IDatabase;
 import ch.nolix.techapi.databaseschemaapi.schemaapi.ITable;
@@ -31,7 +32,7 @@ extends IDatabase<ED, ET, EC, EPPT>, IExtendedDatabaseObject {
 			throw
 			new InvalidArgumentException(
 				this,
-				"does not contain a table that is referenced by the column " + column.getHeaderInQuotes() + "."
+				"does not contain a table that is referenced by the column " + column.getHeaderInQuotes()
 			);
 		}
 	}
@@ -40,6 +41,17 @@ extends IDatabase<ED, ET, EC, EPPT>, IExtendedDatabaseObject {
 	default void assertContainsTableWithColumn(final IColumn<?, ?> column) {
 		if (!containsTableWithColumn(column)) {
 			throw new ArgumentDoesNotContainElementException(this, column);
+		}
+	}
+	
+	//method
+	default void assertContainsTableWithColumnBackReferencedByColumn(final IColumn<?, ?> column) {
+		if (containsTableWithColumnBackReferencedByColumn(column)) {
+			throw
+			new InvalidArgumentException(
+				this,
+				"does not contain a table with a column that references back the given column " + column.getHeader()
+			);
 		}
 	}
 	
@@ -63,6 +75,17 @@ extends IDatabase<ED, ET, EC, EPPT>, IExtendedDatabaseObject {
 	//method
 	default boolean containsTableWithColumn(final IColumn<?, ?> column) {
 		return getRefTables().containsAny(t -> t.containsColumn(column));
+	}
+	
+	//method
+	default boolean containsTableWithColumnBackReferencedByColumn(final IColumn<?, ?> column) {
+		
+		//For a better performance, this check, that is theoretically not necessary, excludes many cases.
+		if (column.getParametrizedPropertyType().getBasePropertyType() != BasePropertyType.BASE_BACK_REFERENCE) {
+			return false;
+		}
+		
+		return getRefTables().containsAny(t -> t.containsColumnBackReferencedByColumn(column));
 	}
 	
 	//method

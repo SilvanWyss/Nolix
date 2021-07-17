@@ -69,6 +69,17 @@ public interface IExtendedTable<
 	}
 	
 	//method
+	default boolean containsColumnBackReferencedByColumn(final IColumn<?, ?> column) {
+		
+		//For a better performance, this check, that is theoretically not necessary, excludes many cases.
+		if (column.getParametrizedPropertyType().getBasePropertyType() != BasePropertyType.BASE_BACK_REFERENCE) {
+			return false;
+		}
+		
+		return getRefColumns().containsAny(c -> column.getParametrizedPropertyType().referencesBack(c));
+	}
+	
+	//method
 	default boolean containsColumnThatReferencesBackColumn(final IColumn<?, ?> column) {
 		
 		//For a better performance, this check, that is theoretically not necessary, excludes many cases.
