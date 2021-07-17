@@ -9,7 +9,6 @@ import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedPrope
 import ch.nolix.techapi.databaseschemaapi.extendedschemaapi.IExtendedDatabase;
 import ch.nolix.techapi.databaseschemaapi.extendedschemaapi.IExtendedDatabaseEngine;
 import ch.nolix.techapi.databaseschemaapi.realschemaapi.IRealSchemaAdapter;
-import ch.nolix.techapi.databaseschemaapi.schemaaccessorapi.IDatabaseAccessor;
 
 //class
 public final class Database extends DatabaseObject
@@ -25,7 +24,6 @@ implements IExtendedDatabase<Database, Table, Column, ParametrizedPropertyType<?
 	
 	//optional attribute
 	private RealSchemaAdapter realSchemaAdapter;
-	private IDatabaseAccessor accessor;
 	
 	//multi-attribute
 	private LinkedList<Table> tables = new LinkedList<>();
@@ -91,16 +89,6 @@ implements IExtendedDatabase<Database, Table, Column, ParametrizedPropertyType<?
 	
 	//method
 	@Override
-	public void setAccessorForActualDatabase(final IDatabaseAccessor accessor) {
-		
-		Validator.assertThat(accessor).thatIsNamed("accessor").isNotNull();
-		assertIsNotLinkedWithActualDatabase();
-		
-		this.accessor = accessor;
-	}
-	
-	//method
-	@Override
 	public void setRealSchemaAdapter(final IRealSchemaAdapter realSchemaAdapter) {
 		setRealSchemaAdapter(new RealSchemaAdapter(realSchemaAdapter));
 	}
@@ -127,14 +115,6 @@ implements IExtendedDatabase<Database, Table, Column, ParametrizedPropertyType<?
 	}
 	
 	//method
-	IDatabaseAccessor getRefAccessor() {
-		
-		assertIsLinkedWithActualDatabase();
-		
-		return accessor;
-	}
-	
-	//method
 	void removeTableAttribute(final Table table) {
 		tables.removeFirst(table);
 	}
@@ -147,7 +127,7 @@ implements IExtendedDatabase<Database, Table, Column, ParametrizedPropertyType<?
 	//method
 	private void loadTablesFromDatabase() {
 		
-		tables = getRefAccessor().loadFlatTablesFromCurrentDatabase().to(Table::fromFlatDTO);
+		tables = getRefRealSchemaAdapter().loadFlatTables().to(Table::fromFlatDTO);
 		tables.forEach(Table::setLoaded);
 		
 		loadedTablesFromDatabase = true;		

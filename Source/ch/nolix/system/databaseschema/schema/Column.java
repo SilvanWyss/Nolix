@@ -10,7 +10,6 @@ import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedPrope
 import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedValueType;
 import ch.nolix.system.databaseschema.schemadto.ColumnDTO;
 import ch.nolix.techapi.databaseschemaapi.extendedschemaapi.IExtendedColumn;
-import ch.nolix.techapi.databaseschemaapi.schemaaccessorapi.IColumnAccessor;
 import ch.nolix.techapi.databaseschemaapi.schemadtoapi.IColumnDTO;
 
 //class
@@ -48,7 +47,6 @@ public final class Column extends DatabaseObject implements IExtendedColumn<Colu
 	
 	//optional attributes
 	private Table parentTable;
-	private IColumnAccessor accessor;
 	
 	//constructor
 	public Column(final String header, final ParametrizedPropertyType<?> parametrizedPropertyType) {
@@ -104,7 +102,7 @@ public final class Column extends DatabaseObject implements IExtendedColumn<Colu
 			return true;
 		}
 		
-		return getRefAccessor().currentColumnIsEmptyOnDatabase();
+		return getRefRealSchemaAdapter().columnIsEmpty(this);
 	}
 	
 	//method
@@ -149,14 +147,6 @@ public final class Column extends DatabaseObject implements IExtendedColumn<Colu
 	}
 	
 	//method
-	IColumnAccessor getRefAccessor() {
-		
-		gainAccessorIfNeeded();
-		
-		return accessor;
-	}
-	
-	//method
 	IContainer<Column> getRefBackReferencingColumns() {
 		
 		if (!isAnyReferenceColumn()) {
@@ -180,9 +170,7 @@ public final class Column extends DatabaseObject implements IExtendedColumn<Colu
 		
 		return isBackReferencedWhenIsAnyReferenceColumn();
 	}
-	
-
-	
+		
 	//method
 	void setHeaderAttribute(final String header) {
 		this.header = header;
@@ -195,7 +183,7 @@ public final class Column extends DatabaseObject implements IExtendedColumn<Colu
 	
 	//method
 	void setParametrizedPropertyTypeToDatabase() {
-		getRefAccessor().setParametrizedPropertyTypeForCurrentColumnToDatabase(parametrizedPropertyType.toDTO());
+		getRefRealSchemaAdapter().setColumnParametrizedPropertyType(this, parametrizedPropertyType);
 	}
 	
 	//method
@@ -211,18 +199,6 @@ public final class Column extends DatabaseObject implements IExtendedColumn<Colu
 	protected void noteCloseDatabaseObject() {}
 	
 	//method
-	private void gainAccessor() {
-		accessor = getParentTable().getRefAccessor().getAccessorForColumnWithHeader(getHeader());
-	}
-	
-	//method
-	private void gainAccessorIfNeeded() {
-		if (!hasAccessor()) {
-			gainAccessor();
-		}
-	}
-	
-	//method
 	private IContainer<Column> getRefBackReferencingColumnsWhenIsReferenceColumn() {
 		if (belongsToDatabase()) {
 			return
@@ -236,11 +212,6 @@ public final class Column extends DatabaseObject implements IExtendedColumn<Colu
 		}
 		
 		return new LinkedList<>();
-	}
-	
-	//method
-	private boolean hasAccessor() {
-		return (accessor != null);
 	}
 	
 	//method

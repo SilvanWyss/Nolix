@@ -11,7 +11,6 @@ import ch.nolix.system.databaseschema.schemadto.ColumnDTO;
 import ch.nolix.system.databaseschema.schemadto.TableDTO;
 import ch.nolix.techapi.databaseschemaapi.extendedschemaapi.IExtendedTable;
 import ch.nolix.techapi.databaseschemaapi.flatschemadtoapi.IFlatTableDTO;
-import ch.nolix.techapi.databaseschemaapi.schemaaccessorapi.ITableAccessor;
 
 //class
 public final class Table extends DatabaseObject implements IExtendedTable<Table, Column, ParametrizedPropertyType<?>> {
@@ -31,7 +30,6 @@ public final class Table extends DatabaseObject implements IExtendedTable<Table,
 	
 	//optional attribute
 	private Database parentDatabase;
-	private ITableAccessor accessor;
 	
 	//multi-attribute
 	private LinkedList<Column> columns = new LinkedList<>();
@@ -129,14 +127,6 @@ public final class Table extends DatabaseObject implements IExtendedTable<Table,
 	}
 	
 	//method
-	ITableAccessor getRefAccessor() {
-		
-		gainAccessorIfNeeded();
-		
-		return accessor;
-	}
-	
-	//method
 	RealSchemaAdapter getRefRealSchemaAdapter() {
 		return getParentDatabase().getRefRealSchemaAdapter();
 	}
@@ -172,23 +162,6 @@ public final class Table extends DatabaseObject implements IExtendedTable<Table,
 	}
 	
 	//method
-	private void gainAccessor() {
-		accessor = getParentDatabase().getRefAccessor().getAccessorForTableWithName(getName());
-	}
-	
-	//method
-	private void gainAccessorIfNeeded() {
-		if (!hasAccessor()) {
-			gainAccessor();
-		}
-	}
-	
-	//method
-	private boolean hasAccessor() {
-		return (accessor != null);
-	}
-
-	//method
 	private boolean hasLoadedColumnsFromDatabase() {
 		return loadedColumnsFromDatabase;
 	}
@@ -196,7 +169,7 @@ public final class Table extends DatabaseObject implements IExtendedTable<Table,
 	//method
 	private void loadColumnsFromDatabase() {
 						
-		columns = getRefAccessor().loadColumnsOfCurrentTableFromDatabase().to(Column::fromDTO);
+		columns = getRefRealSchemaAdapter().loadColumnsOfTable(this).to(Column::fromDTO);
 		columns.forEach(Column::setLoaded);
 		
 		loadedColumnsFromDatabase = true;
