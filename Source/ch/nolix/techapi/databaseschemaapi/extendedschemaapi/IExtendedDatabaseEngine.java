@@ -2,6 +2,7 @@
 package ch.nolix.techapi.databaseschemaapi.extendedschemaapi;
 
 //own imports
+import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.techapi.databaseschemaapi.schemaapi.IDatabaseEngine;
 
 //interface
@@ -12,6 +13,13 @@ public interface IExtendedDatabaseEngine<
 	EC extends IExtendedColumn<EC, EPPT>,
 	EPPT extends IExtendedParametrizedPropertyType<?>
 > extends IDatabaseEngine<EDE, ED, ET, EC, EPPT> {
+	
+	//method
+	default void assertDoesNotContainDatabaseWithName(final String name) {
+		if (containsDatabaseWithName(name)) {
+			throw new InvalidArgumentException(this, "contains already a database with the name '" + name + "'");
+		}
+	}
 	
 	//method
 	default boolean containsDatabaseWithName(final String name) {
