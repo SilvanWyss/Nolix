@@ -9,7 +9,14 @@ final class ColumnMutationExecutor {
 	
 	//method
 	public void deleteColumn(final Column column) {
-		//TODO: Implement.
+		
+		if (column.belongsToTable()) {
+			column.getParentTable().removeColumnAttribute(column);
+		}
+		
+		column.getRefAccessor().deleteCurrentColumnFromDatabase();
+		
+		column.setDeleted();
 	}
 	
 	//method

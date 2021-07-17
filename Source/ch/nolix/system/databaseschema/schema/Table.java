@@ -137,6 +137,11 @@ public final class Table extends DatabaseObject implements IExtendedTable<Table,
 	}
 	
 	//method
+	void removeColumnAttribute(final Column column) {
+		columns.removeFirst(column);
+	}
+	
+	//method
 	void setNameAttribute(final String name) {
 		this.name = name;
 	}
