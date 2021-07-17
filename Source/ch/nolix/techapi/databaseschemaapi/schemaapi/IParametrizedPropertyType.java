@@ -3,6 +3,7 @@ package ch.nolix.techapi.databaseschemaapi.schemaapi;
 
 //own imports
 import ch.nolix.techapi.databasecommonapi.propertytypeapi.PropertyType;
+import ch.nolix.techapi.databaseschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
 
 //interface
 public interface IParametrizedPropertyType<DT> {
@@ -18,4 +19,7 @@ public interface IParametrizedPropertyType<DT> {
 	
 	//method declaration
 	boolean referencesBackColumn(IColumn<?, ?> column);
+	
+	//method declaration
+	IParametrizedPropertyTypeDTO toDTO();
 }
