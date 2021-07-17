@@ -15,9 +15,4 @@ final class DatabaseMutationExecutor {
 		
 		database.setEdited();
 	}
-	
-	//method
-	public void deleteTableFromDatabase(final Database database, final Table table) {
-		//TODO: Implement.
-	}
 }
