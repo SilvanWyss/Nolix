@@ -4,7 +4,7 @@ package ch.nolix.techapi.databaseschemaapi.realschemaapi;
 //own imports
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.element.time.base.Time;
-import ch.nolix.system.databaseschema.flatschemadto.FlatTableDTO;
+import ch.nolix.techapi.databaseschemaapi.flatschemadtoapi.IFlatTableDTO;
 import ch.nolix.techapi.databaseschemaapi.schemadtoapi.IColumnDTO;
 
 //interface
@@ -17,7 +17,7 @@ public interface IRealSchemaReader {
 	LinkedList<IColumnDTO> loadColumnsOfTable(String tableName);
 	
 	//method declaration
-	LinkedList<FlatTableDTO> loadFlatTables();
+	LinkedList<IFlatTableDTO> loadFlatTables();
 	
 	//method declaration
 	Time loadSchemaTimestamp();
