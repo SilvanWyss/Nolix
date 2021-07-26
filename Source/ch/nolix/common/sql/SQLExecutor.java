@@ -2,23 +2,24 @@
 package ch.nolix.common.sql;
 
 //own imports
-import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.skillapi.Resettable;
+import ch.nolix.common.requestapi.CloseStateRequestable;
 
 //class
-public final class SQLExecutor implements Resettable {
+public final class SQLExecutor implements AutoCloseable, CloseStateRequestable {
 	
-	//attribute
+	//attributes
+	private boolean closed;
 	private final SQLConnection mSQLConnection;
 	
 	//multi-attribute
-	private final LinkedList<String> statements = new LinkedList<>();
+	private final LinkedList<String> mSQLStatements = new LinkedList<>();
 	
 	//constructor
-	SQLExecutor(final SQLConnection pSQLConnection) {
+	public SQLExecutor(final SQLConnection pSQLConnection) {
 		
 		Validator.assertThat(pSQLConnection).isOfType(SQLConnection.class);
 		
@@ -26,39 +27,58 @@ public final class SQLExecutor implements Resettable {
 	}
 	
 	//method
-	public SQLExecutor addStatement(final String statement) {
+	public SQLExecutor addSQLStatement(final String pSQLstatement) {
 		
-		Validator
-		.assertThat(statement)
-		.thatIsNamed(LowerCaseCatalogue.STATEMENT)
-		.isNotBlank();
+		Validator.assertThat(pSQLstatement)	.thatIsNamed("SQL statement").isNotBlank();
 		
-		if (!statement.endsWith(";")) {
-			statements.addAtEnd(statement + ';');
-		} else {
-			statements.addAtEnd(statement);
-		}
+		assertIsOpen();
+		mSQLStatements.addAtEnd(getSQLStatementWithSemicolonAtEnd(pSQLstatement));
 		
 		return this;
 	}
 	
+	@Override
+	public void close() {
+		closed = true;
+	}
+	
 	//method
 	public void execute() {
+		
+		assertIsOpen();
+		
 		try {
-			mSQLConnection.execute(statements.toString());
+			mSQLConnection.execute(mSQLStatements.toString());
 		} finally {
-			reset();
+			close();
 		}
 	}
 	
 	//method
 	public IContainer<String> getStatements() {
-		return statements.getCopy();
+		return mSQLStatements;
 	}
 	
 	//method
 	@Override
-	public void reset() {
-		statements.clear();
+	public boolean isClosed() {
+		return closed;
+	}
+	
+	//method
+	private void assertIsOpen() {
+		if (isClosed()) {
+			throw new ClosedArgumentException(this);
+		}
+	}
+	
+	//method
+	private String getSQLStatementWithSemicolonAtEnd(String pSQLStatement) {
+		
+		if (!pSQLStatement.endsWith(";")) {
+			return (pSQLStatement + ";");
+		}
+		
+		return pSQLStatement;
 	}
 }

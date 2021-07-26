@@ -119,17 +119,17 @@ extends DatabaseSchemaAdapter<SQLDSA> {
 		final var lSQLExecutor = mSQLConnection.createSQLExecutor();
 		
 		for (final var es : createdEntitySets) {
-			lSQLExecutor.addStatement(es.getSQLHelper(getSQLDatabaseEngine()).getCreateSQLStatement());
+			lSQLExecutor.addSQLStatement(es.getSQLHelper(getSQLDatabaseEngine()).getCreateSQLStatement());
 		}
 		
 		//TODO: Handle changedEntitySets.
 		
 		//TODO: Check if all of the given deletedEntitySets are allowed to be deleted.
 		for (final var es : deletedEntitySets) {
-			lSQLExecutor.addStatement(es.getSQLHelper(getSQLDatabaseEngine()).getDeleteSQLStatement());
+			lSQLExecutor.addSQLStatement(es.getSQLHelper(getSQLDatabaseEngine()).getDeleteSQLStatement());
 		}
 		
-		lSQLExecutor.addStatement(getSetDatabaseReadySQLStatement());
+		lSQLExecutor.addSQLStatement(getSetDatabaseReadySQLStatement());
 		
 		lSQLExecutor.execute();
 	}
