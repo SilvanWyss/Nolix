@@ -5,7 +5,7 @@ package ch.nolix.techapi.sqlschemaapi.schemadtoapi;
 import ch.nolix.common.container.IContainer;
 
 //interface
-public interface IDatabase {
+public interface IDatabaseDTO {
 	
 	//method declaration
 	String getName();
