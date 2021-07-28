@@ -126,6 +126,7 @@ public final class PluralPascalCaseCatalogue {
 	public static final String OUTPUT_FUNCTIONS = "OutputFunctions";
 	public static final String OUTPUT_VALUES = "OutputValues";
 	public static final String PADDINGS = "Paddings";
+	public static final String PARAMETERS = "Parameters";
 	public static final String PARENTS = "Parents";
 	public static final String PATHS = "Paths";
 	public static final String PERCENTAGES = "Percentages";

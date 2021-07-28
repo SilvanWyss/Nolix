@@ -126,6 +126,7 @@ public final class PascalCaseCatalogue {
 	public static final String OUTPUT_FUNCTION = "OutputFunction";
 	public static final String OUTPUT_VALUE = "OutputValue";
 	public static final String PADDING = "Padding";
+	public static final String PARAMETER = "Parameter";
 	public static final String PARENT = "Parent";
 	public static final String PATH = "Path";
 	public static final String PERCENTAGE = "Percentage";

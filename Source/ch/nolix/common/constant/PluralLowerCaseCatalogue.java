@@ -126,6 +126,7 @@ public final class PluralLowerCaseCatalogue {
 	public static final String OUTPUT_FUNCTIONS = "output functions";
 	public static final String OUTPUT_VALUES = "output values";
 	public static final String PADDINGS = "paddings";
+	public static final String PARAMETERS = "parameters";
 	public static final String PARENTS = "parents";
 	public static final String PATHS = "paths";
 	public static final String PERCENTAGES = "percentages";

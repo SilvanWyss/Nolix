@@ -126,6 +126,7 @@ public final class LowerCaseCatalogue {
 	public static final String OUTPUT_FUNCTION = "output function";
 	public static final String OUTPUT_VALUE = "output value";
 	public static final String PADDING = "padding";
+	public static final String PARAMETER = "parameter";
 	public static final String PARENT = "parent";
 	public static final String PATH = "path";
 	public static final String PERCENTAGE = "percentage";
