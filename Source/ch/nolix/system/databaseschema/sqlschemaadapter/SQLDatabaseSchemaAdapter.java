@@ -5,7 +5,6 @@ package ch.nolix.system.databaseschema.sqlschemaadapter;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.sql.SQLConnection;
 import ch.nolix.system.databaseschema.schemaadapter.DatabaseSchemaAdapter;
-import ch.nolix.techapi.databaseschemaapi.realschemaapi.IRealSchemaAdapter;
 
 //class
 public abstract class SQLDatabaseSchemaAdapter extends DatabaseSchemaAdapter {
@@ -25,7 +24,7 @@ public abstract class SQLDatabaseSchemaAdapter extends DatabaseSchemaAdapter {
 	
 	//method
 	@Override
-	protected final IRealSchemaAdapter createRealSchemaAdapter() {
+	protected final SQLRealSchemaAdapter createRealSchemaAdapter() {
 		return new SQLRealSchemaAdapter(mSQLConnection);
 	}
 }

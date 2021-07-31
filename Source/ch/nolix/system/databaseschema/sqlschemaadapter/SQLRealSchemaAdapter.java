@@ -15,12 +15,8 @@ import ch.nolix.techapi.databaseschemaapi.schemadtoapi.ITableDTO;
 //class
 public final class SQLRealSchemaAdapter implements IRealSchemaAdapter {
 	
-	//static attribute
-	private static final SQLStatementCreator mSQLStatementCreator = new SQLStatementCreator();
-	
 	//attributes
 	private final SQLConnection mSQLConnection;
-	private final SQLMutationManager mSQLMutationManager;
 	
 	//constructor
 	public SQLRealSchemaAdapter(final SQLConnection pSQLConnection) {
@@ -28,7 +24,6 @@ public final class SQLRealSchemaAdapter implements IRealSchemaAdapter {
 		Validator.assertThat(pSQLConnection).thatIsNamed(SQLConnection.class).isNotNull();
 		
 		mSQLConnection = pSQLConnection;
-		mSQLMutationManager = new SQLMutationManager();
 	}
 	
 	//method
@@ -65,7 +60,8 @@ public final class SQLRealSchemaAdapter implements IRealSchemaAdapter {
 	//method
 	@Override
 	public boolean hasChanges() {
-		return mSQLMutationManager.containsAny();
+		//TODO: Implement.
+		return false;
 	}
 	
 	//method
@@ -92,7 +88,7 @@ public final class SQLRealSchemaAdapter implements IRealSchemaAdapter {
 	//method
 	@Override
 	public void reset() {
-		mSQLMutationManager.reset();
+		//TODO: Implement.
 	}
 	
 	//method
@@ -126,9 +122,6 @@ public final class SQLRealSchemaAdapter implements IRealSchemaAdapter {
 	//method
 	@Override
 	public void saveChanges() {
-		
-		mSQLMutationManager.execute(mSQLConnection);
-		
-		reset();
+		//TODO: Implement.
 	}
 }
