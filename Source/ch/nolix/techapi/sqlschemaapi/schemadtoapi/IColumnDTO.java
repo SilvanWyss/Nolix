@@ -11,7 +11,7 @@ public interface IColumnDTO {
 	IContainer<IConstraintDTO> getConstraints();
 	
 	//method declaration
-	String getDataType();
+	IDataTypeDTO getDataType();
 	
 	//method declaration
 	String getName();

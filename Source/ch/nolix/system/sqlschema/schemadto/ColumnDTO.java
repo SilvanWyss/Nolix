@@ -8,6 +8,7 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.techapi.sqlschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.techapi.sqlschemaapi.schemadtoapi.IConstraintDTO;
+import ch.nolix.techapi.sqlschemaapi.schemadtoapi.IDataTypeDTO;
 
 //class
 public final class ColumnDTO implements IColumnDTO {
@@ -17,18 +18,18 @@ public final class ColumnDTO implements IColumnDTO {
 	
 	//attributes
 	private final String name;
-	private final String dataType;
+	private final IDataTypeDTO dataType;
 	
 	//multi-attribute
 	private final IContainer<IConstraintDTO> constraints;
 	
 	//constructor
-	public ColumnDTO(final String name, final String dataType) {
+	public ColumnDTO(final String name, final IDataTypeDTO dataType) {
 		this(name, dataType, EMPTY_CONSTRAINT_LIST);
 	}
 	
 	//constructor
-	public ColumnDTO(final String name, final String dataType, final IContainer<IConstraintDTO> constraints) {
+	public ColumnDTO(final String name, final IDataTypeDTO dataType, final IContainer<IConstraintDTO> constraints) {
 		
 		Validator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotNull();
 		Validator.assertThat(dataType).thatIsNamed(LowerCaseCatalogue.DATA_TYPE).isNotNull();
@@ -46,7 +47,7 @@ public final class ColumnDTO implements IColumnDTO {
 	
 	//method
 	@Override
-	public String getDataType() {
+	public IDataTypeDTO getDataType() {
 		return dataType;
 	}
 	
