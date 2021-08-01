@@ -44,12 +44,6 @@ final class SQLIntermediateSchemaWriter implements IIntermediateSchemaWriter {
 	
 	//method
 	@Override
-	public void reset() {
-		//TODO: Implement.
-	}
-	
-	//method
-	@Override
 	public void setColumnHeader(final String tableName, final String columnHeader, final String newColumnHeader) {
 		//TODO: Implement.
 	}

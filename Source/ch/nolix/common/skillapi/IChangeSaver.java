@@ -9,10 +9,9 @@ import ch.nolix.common.requestapi.ChangeRequestable;
  * A {@link IChangeSaver} can save its changes.
  * 
  * @author Silvan Wyss
- * @date 2018-04-9
- * @lines 20
+ * @date 2018-04-09
  */
-public interface IChangeSaver extends ChangeRequestable, Resettable {
+public interface IChangeSaver extends ChangeRequestable {
 	
 	//method declaration
 	/**

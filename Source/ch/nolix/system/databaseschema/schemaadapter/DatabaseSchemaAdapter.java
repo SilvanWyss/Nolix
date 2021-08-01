@@ -60,16 +60,8 @@ public abstract class DatabaseSchemaAdapter implements IExtendedDatabaseSchemaAd
 	
 	//method
 	@Override
-	public final void reset() {
-		session.close();
-		initializeSession();
-	}
-	
-	//method
-	@Override
 	public final void saveChanges() {
 		session.saveChanges();
-		reset();
 	}
 	
 	//method declaration
