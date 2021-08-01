@@ -6,7 +6,7 @@ import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.errorcontrol.validator.Validator;
 
 //enum
-public enum SQLTableType {
+public enum TableType {
 	SYSTEM_DATA("S"),
 	CONTENT_DATA("C"),
 	MULTI_PROPERTY_COLUMN_DATA("M");
@@ -15,7 +15,7 @@ public enum SQLTableType {
 	private final String prefix;
 	
 	//constructor
-	SQLTableType(final String prefix) {
+	TableType(final String prefix) {
 		
 		Validator.assertThat(prefix).thatIsNamed(LowerCaseCatalogue.PREFIX).isNotBlank();
 		
