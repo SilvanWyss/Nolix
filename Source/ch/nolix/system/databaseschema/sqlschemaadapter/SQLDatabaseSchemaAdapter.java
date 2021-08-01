@@ -24,7 +24,7 @@ public abstract class SQLDatabaseSchemaAdapter extends DatabaseSchemaAdapter {
 	
 	//method
 	@Override
-	protected final SQLRealSchemaAdapter createRealSchemaAdapter() {
+	protected final SQLRealSchemaAdapter createIntermediateSchemaAdapter() {
 		return new SQLRealSchemaAdapter(mSQLConnection);
 	}
 }

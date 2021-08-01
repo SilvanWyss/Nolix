@@ -13,13 +13,13 @@ import ch.nolix.techapi.databaseschemaapi.schemaapi.ITable;
 import ch.nolix.techapi.databaseschemaapi.schemadtoapi.IColumnDTO;
 
 //class
-final class RealSchemaAdapter {
+final class IntermediateSchemaAdapter {
 	
 	//attribute
 	private final IIntermediateSchemaAdapter internalRealSchemaAdapter;
 	
 	//constructor
-	public RealSchemaAdapter(final IIntermediateSchemaAdapter internalIRealSchemaAdapter) {
+	public IntermediateSchemaAdapter(final IIntermediateSchemaAdapter internalIRealSchemaAdapter) {
 		
 		Validator.assertThat(internalIRealSchemaAdapter).thatIsNamed("internal real schema adapter").isNotNull();
 		

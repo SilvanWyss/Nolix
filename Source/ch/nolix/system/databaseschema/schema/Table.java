@@ -127,7 +127,7 @@ public final class Table extends DatabaseObject implements IExtendedTable<Table,
 	}
 	
 	//method
-	RealSchemaAdapter getRefRealSchemaAdapter() {
+	IntermediateSchemaAdapter getRefRealSchemaAdapter() {
 		return getParentDatabase().getRefRealSchemaAdapter();
 	}
 	
