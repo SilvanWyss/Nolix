@@ -38,7 +38,7 @@ extends DatabaseSchemaAdapter<SQLDSA> {
 		return
 		DatabaseState.valueOf(
 			mSQLConnection
-			.getRows("SELECT content FROM " + DATABASE_PROPERTIES_TABLE_NAME + " WHERE name = 'State'")
+			.getRecords("SELECT content FROM " + DATABASE_PROPERTIES_TABLE_NAME + " WHERE name = 'State'")
 			.getRefOne()
 			.getRefOne()
 		);

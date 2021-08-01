@@ -7,7 +7,6 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 //own imports
-import ch.nolix.common.constant.CharacterCatalogue;
 import ch.nolix.common.constant.IPv4Catalogue;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
@@ -106,14 +105,7 @@ public abstract class SQLConnection implements AutoCloseable {
 	
 	//method
 	public final SQLConnection execute(final String pSQLStatement) {
-		
-		try (final var statement = connection.createStatement()) {
-			statement.execute(pSQLStatement);
-		} catch (final SQLException pSQLException) {
-			throw new WrapperException(pSQLException);
-		}
-		
-		return this;
+		return execute(ReadContainer.withElements(pSQLStatement));
 	}
 	
 	//method
@@ -122,54 +114,38 @@ public abstract class SQLConnection implements AutoCloseable {
 	}
 	
 	//method
-	public final String getResult(final String SQLQuery) {
-		return getRows(SQLQuery).toString(CharacterCatalogue.SEMICOLON);
-	}
-	
-	//method
-	public final LinkedList<LinkedList<String>> getRows(final String pSQLQuery) {
+	public final LinkedList<Record> getRecords(final String pSQLQuery) {
+		
+		final var records = new LinkedList<Record>();
 		try (final var statement = connection.createStatement()) {
-			
-			final var rows = new LinkedList<LinkedList<String>>();
 			
 			try (final var result = statement.executeQuery(pSQLQuery)) {
 			
 				final var columnCount = result.getMetaData().getColumnCount();
 				
 				while (result.next()) {
-					final var line = new LinkedList<String>();
+					final var values = new LinkedList<String>();
 					for (var i = 1; i <= columnCount; i++) {
-						line.addAtEnd(result.getString(i));
+						values.addAtEnd(result.getString(i));
 					}
-					rows.addAtEnd(line);
+					records.addAtEnd(new Record(values));
 				}
-				
-				return rows;
 			}
 		} catch (SQLException pSQLException) {
 			throw new WrapperException(pSQLException);
 		}
+		
+		return records;
 	}
 	
 	//method
-	public final LinkedList<String> getRowsAsString(final String pSQLQuery) {
-		return getRows(pSQLQuery).toStrings();
+	public final LinkedList<String> getRecordsAsStrings(final String pSQLQuery) {
+		return getRecords(pSQLQuery).toStrings();
 	}
 	
 	//method
 	public final SQLDatabaseEngine getSQLDatabaseEngine() {
 		return mSQLDatabaseEngine;
-	}
-	
-	//method
-	public final boolean tableExistsOnDatabase(final String name) {
-		return
-		getRows(
-			"SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = '"
-			+ name
-			+ "'"
-		)
-		.containsAny();
 	}
 	
 	//method declaration
