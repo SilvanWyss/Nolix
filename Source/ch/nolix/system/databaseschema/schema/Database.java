@@ -8,7 +8,7 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedPropertyType;
 import ch.nolix.techapi.databaseschemaapi.extendedschemaapi.IExtendedDatabase;
 import ch.nolix.techapi.databaseschemaapi.extendedschemaapi.IExtendedDatabaseEngine;
-import ch.nolix.techapi.databaseschemaapi.realschemaapi.IRealSchemaAdapter;
+import ch.nolix.techapi.databaseschemaapi.intermediateschemaapi.IIntermediateSchemaAdapter;
 
 //class
 public final class Database extends DatabaseObject
@@ -89,8 +89,8 @@ implements IExtendedDatabase<Database, Table, Column, ParametrizedPropertyType<?
 	
 	//method
 	@Override
-	public void setRealSchemaAdapter(final IRealSchemaAdapter realSchemaAdapter) {
-		setRealSchemaAdapter(new RealSchemaAdapter(realSchemaAdapter));
+	public void setRealSchemaAdapter(final IIntermediateSchemaAdapter intermediateSchemaAdapter) {
+		setRealSchemaAdapter(new RealSchemaAdapter(intermediateSchemaAdapter));
 	}
 	
 	//method

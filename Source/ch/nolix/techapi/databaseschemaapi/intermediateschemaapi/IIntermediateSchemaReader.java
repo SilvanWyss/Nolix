@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.techapi.databaseschemaapi.realschemaapi;
+package ch.nolix.techapi.databaseschemaapi.intermediateschemaapi;
 
 //own imports
 import ch.nolix.common.container.LinkedList;
@@ -8,7 +8,7 @@ import ch.nolix.techapi.databaseschemaapi.flatschemadtoapi.IFlatTableDTO;
 import ch.nolix.techapi.databaseschemaapi.schemadtoapi.IColumnDTO;
 
 //interface
-public interface IRealSchemaReader {
+public interface IIntermediateSchemaReader {
 	
 	//method declaration
 	boolean columnIsEmpty(String tableName, String columnHeader);

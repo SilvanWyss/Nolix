@@ -7,13 +7,13 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.sql.SQLConnection;
 import ch.nolix.element.time.base.Time;
 import ch.nolix.techapi.databaseschemaapi.flatschemadtoapi.IFlatTableDTO;
-import ch.nolix.techapi.databaseschemaapi.realschemaapi.IRealSchemaAdapter;
+import ch.nolix.techapi.databaseschemaapi.intermediateschemaapi.IIntermediateSchemaAdapter;
 import ch.nolix.techapi.databaseschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.techapi.databaseschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
 import ch.nolix.techapi.databaseschemaapi.schemadtoapi.ITableDTO;
 
 //class
-public final class SQLRealSchemaAdapter implements IRealSchemaAdapter {
+public final class SQLRealSchemaAdapter implements IIntermediateSchemaAdapter {
 	
 	//attributes
 	private final SQLConnection mSQLConnection;

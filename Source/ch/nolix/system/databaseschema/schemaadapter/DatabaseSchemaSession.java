@@ -3,22 +3,22 @@ package ch.nolix.system.databaseschema.schemaadapter;
 
 //own imports
 import ch.nolix.system.databaseschema.schema.Database;
-import ch.nolix.techapi.databaseschemaapi.realschemaapi.IRealSchemaAdapter;
+import ch.nolix.techapi.databaseschemaapi.intermediateschemaapi.IIntermediateSchemaAdapter;
 
 //class
 final class DatabaseSchemaSession implements AutoCloseable {
 	
 	//attributes
 	private final Database database;
-	private final IRealSchemaAdapter realSchemaAdapter;
+	private final IIntermediateSchemaAdapter intermediateSchemaAdapter;
 	
 	//constructor
-	public DatabaseSchemaSession(final String databaseName, final IRealSchemaAdapter realSchemaAdapter) {
+	public DatabaseSchemaSession(final String databaseName, final IIntermediateSchemaAdapter intermediateSchemaAdapter) {
 		
 		database = new Database(databaseName);
-		database.setRealSchemaAdapter(realSchemaAdapter);
+		database.setRealSchemaAdapter(intermediateSchemaAdapter);
 		
-		this.realSchemaAdapter = realSchemaAdapter;
+		this.intermediateSchemaAdapter = intermediateSchemaAdapter;
 	}
 	
 	//method
@@ -34,12 +34,12 @@ final class DatabaseSchemaSession implements AutoCloseable {
 	
 	//method
 	public boolean hasChanges() {
-		return realSchemaAdapter.hasChanges();
+		return intermediateSchemaAdapter.hasChanges();
 	}
 	
 	//method
 	public void saveChanges() {
-		realSchemaAdapter.saveChanges();
+		intermediateSchemaAdapter.saveChanges();
 		close();
 	}
 }

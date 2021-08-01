@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.techapi.databaseschemaapi.realschemaapi;
+package ch.nolix.techapi.databaseschemaapi.intermediateschemaapi;
 
 //own imports
 import ch.nolix.common.skillapi.IChangeSaver;
@@ -9,7 +9,7 @@ import ch.nolix.techapi.databaseschemaapi.schemadtoapi.IParametrizedPropertyType
 import ch.nolix.techapi.databaseschemaapi.schemadtoapi.ITableDTO;
 
 //interface
-public interface IRealSchemaWriter extends IChangeSaver {
+public interface IIntermediateSchemaWriter extends IChangeSaver {
 	
 	//method declaration
 	void addColumn(String tableName, IColumnDTO column);

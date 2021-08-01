@@ -5,7 +5,7 @@ package ch.nolix.techapi.databaseschemaapi.schemaapi;
 import ch.nolix.common.attributeapi.mandatoryattributeapi.Named;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.techapi.databasecommonapi.databaseobjectapi.IDatabaseObject;
-import ch.nolix.techapi.databaseschemaapi.realschemaapi.IRealSchemaAdapter;
+import ch.nolix.techapi.databaseschemaapi.intermediateschemaapi.IIntermediateSchemaAdapter;
 
 //interface
 public interface IDatabase<
@@ -31,5 +31,5 @@ public interface IDatabase<
 	IContainer<T> getRefTables();
 	
 	//method declaration
-	void setRealSchemaAdapter(IRealSchemaAdapter realSchemaAdapter);
+	void setRealSchemaAdapter(IIntermediateSchemaAdapter intermediateSchemaAdapter);
 }

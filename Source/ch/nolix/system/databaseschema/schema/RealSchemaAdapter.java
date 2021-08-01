@@ -6,7 +6,7 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.element.time.base.Time;
 import ch.nolix.techapi.databaseschemaapi.flatschemadtoapi.IFlatTableDTO;
-import ch.nolix.techapi.databaseschemaapi.realschemaapi.IRealSchemaAdapter;
+import ch.nolix.techapi.databaseschemaapi.intermediateschemaapi.IIntermediateSchemaAdapter;
 import ch.nolix.techapi.databaseschemaapi.schemaapi.IColumn;
 import ch.nolix.techapi.databaseschemaapi.schemaapi.IParametrizedPropertyType;
 import ch.nolix.techapi.databaseschemaapi.schemaapi.ITable;
@@ -16,10 +16,10 @@ import ch.nolix.techapi.databaseschemaapi.schemadtoapi.IColumnDTO;
 final class RealSchemaAdapter {
 	
 	//attribute
-	private final IRealSchemaAdapter internalRealSchemaAdapter;
+	private final IIntermediateSchemaAdapter internalRealSchemaAdapter;
 	
 	//constructor
-	public RealSchemaAdapter(final IRealSchemaAdapter internalIRealSchemaAdapter) {
+	public RealSchemaAdapter(final IIntermediateSchemaAdapter internalIRealSchemaAdapter) {
 		
 		Validator.assertThat(internalIRealSchemaAdapter).thatIsNamed("internal real schema adapter").isNotNull();
 		
