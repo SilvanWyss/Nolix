@@ -14,7 +14,7 @@ public interface IIntermediateSchemaReader {
 	boolean columnIsEmpty(String tableName, String columnHeader);
 	
 	//method declaration
-	LinkedList<IColumnDTO> loadColumnsOfTable(String tableName);
+	LinkedList<IColumnDTO> loadColumns(String tableName);
 	
 	//method declaration
 	LinkedList<IFlatTableDTO> loadFlatTables();

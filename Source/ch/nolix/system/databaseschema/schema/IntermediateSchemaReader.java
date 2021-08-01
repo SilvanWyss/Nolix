@@ -35,7 +35,7 @@ final class IntermediateSchemaReader {
 	
 	//method
 	public LinkedList<IColumnDTO> loadColumnsOfTable(final ITable<?, ?, ?> table) {
-		return internalIntermediateSchemaReader.loadColumnsOfTable(table.getName());
+		return internalIntermediateSchemaReader.loadColumns(table.getName());
 	}
 	
 	//method

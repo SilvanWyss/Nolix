@@ -20,7 +20,7 @@ final class SQLIntermediateSchemaReader implements IIntermediateSchemaReader {
 	
 	//method
 	@Override
-	public LinkedList<IColumnDTO> loadColumnsOfTable(final String tableName) {
+	public LinkedList<IColumnDTO> loadColumns(final String tableName) {
 		//TODO: Implement.
 		return null;
 	}
