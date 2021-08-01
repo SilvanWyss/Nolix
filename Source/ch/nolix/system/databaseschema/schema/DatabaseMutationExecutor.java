@@ -10,7 +10,7 @@ final class DatabaseMutationExecutor {
 		database.addTableAttribute(table);
 		
 		if (database.isLinkedWithRealDatabase()) {
-			database.getRefRealSchemaAdapter().addTable(table);
+			database.getRefRealSchemaAdapter().getRefIntermediateSchemaWriter().addTable(table);
 		}
 		
 		database.setEdited();

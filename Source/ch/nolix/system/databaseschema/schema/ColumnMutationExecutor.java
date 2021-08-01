@@ -14,8 +14,8 @@ final class ColumnMutationExecutor {
 			column.getParentTable().removeColumnAttribute(column);
 		}
 		
-		column.getRefRealSchemaAdapter().deleteColumn(column);
-				
+		column.getRefRealSchemaAdapter().getRefIntermediateSchemaWriter().deleteColumn(column);
+		
 		column.setDeleted();
 	}
 	
@@ -28,7 +28,7 @@ final class ColumnMutationExecutor {
 		column.setHeaderAttribute(header);
 		
 		if (column.isLinkedWithRealDatabase()) {
-			column.getRefRealSchemaAdapter().setColumnHeader(column, oldHeader, header);
+			column.getRefRealSchemaAdapter().getRefIntermediateSchemaWriter().setColumnHeader(column, oldHeader, header);
 		}
 		
 		backReferencingColumns.forEach(Column::setParametrizedPropertyTypeToDatabase);
@@ -45,7 +45,10 @@ final class ColumnMutationExecutor {
 		column.setParametrizedPropertyTypeAttribute(parametrizedPropertyType);
 		
 		if (column.isLinkedWithRealDatabase()) {
-			column.getRefRealSchemaAdapter().setColumnParametrizedPropertyType(column, parametrizedPropertyType);
+			column
+			.getRefRealSchemaAdapter()
+			.getRefIntermediateSchemaWriter()
+			.setColumnParametrizedPropertyType(column, parametrizedPropertyType);
 		}
 		
 		column.setEdited();

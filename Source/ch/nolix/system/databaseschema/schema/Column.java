@@ -102,7 +102,7 @@ public final class Column extends DatabaseObject implements IExtendedColumn<Colu
 			return true;
 		}
 		
-		return getRefRealSchemaAdapter().columnIsEmpty(this);
+		return getRefRealSchemaAdapter().getRefIntermediateSchemaReader().columnIsEmpty(this);
 	}
 	
 	//method
@@ -183,7 +183,9 @@ public final class Column extends DatabaseObject implements IExtendedColumn<Colu
 	
 	//method
 	void setParametrizedPropertyTypeToDatabase() {
-		getRefRealSchemaAdapter().setColumnParametrizedPropertyType(this, parametrizedPropertyType);
+		getRefRealSchemaAdapter()
+		.getRefIntermediateSchemaWriter()
+		.setColumnParametrizedPropertyType(this, parametrizedPropertyType);
 	}
 	
 	//method

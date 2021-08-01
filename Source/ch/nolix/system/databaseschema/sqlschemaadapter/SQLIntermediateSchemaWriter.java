@@ -2,29 +2,14 @@
 package ch.nolix.system.databaseschema.sqlschemaadapter;
 
 //own imports
-import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.sql.SQLConnection;
 import ch.nolix.element.time.base.Time;
-import ch.nolix.techapi.databaseschemaapi.flatschemadtoapi.IFlatTableDTO;
-import ch.nolix.techapi.databaseschemaapi.intermediateschemaapi.IIntermediateSchemaAdapter;
+import ch.nolix.techapi.databaseschemaapi.intermediateschemaapi.IIntermediateSchemaWriter;
 import ch.nolix.techapi.databaseschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.techapi.databaseschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
 import ch.nolix.techapi.databaseschemaapi.schemadtoapi.ITableDTO;
 
 //class
-public final class SQLRealSchemaAdapter implements IIntermediateSchemaAdapter {
-	
-	//attributes
-	private final SQLConnection mSQLConnection;
-	
-	//constructor
-	public SQLRealSchemaAdapter(final SQLConnection pSQLConnection) {
-
-		Validator.assertThat(pSQLConnection).thatIsNamed(SQLConnection.class).isNotNull();
-		
-		mSQLConnection = pSQLConnection;
-	}
+final class SQLIntermediateSchemaWriter implements IIntermediateSchemaWriter {
 	
 	//method
 	@Override
@@ -36,13 +21,6 @@ public final class SQLRealSchemaAdapter implements IIntermediateSchemaAdapter {
 	@Override
 	public void addTable(final ITableDTO table) {
 		//TODO: Implement.
-	}
-	
-	//method
-	@Override
-	public boolean columnIsEmpty(final String tableName, final String columnHeader) {
-		//TODO: Implement.
-		return false;
 	}
 	
 	//method
@@ -62,27 +40,6 @@ public final class SQLRealSchemaAdapter implements IIntermediateSchemaAdapter {
 	public boolean hasChanges() {
 		//TODO: Implement.
 		return false;
-	}
-	
-	//method
-	@Override
-	public LinkedList<IColumnDTO> loadColumnsOfTable(final String tableName) {
-		//TODO: Implement.
-		return null;
-	}
-	
-	//method
-	@Override
-	public LinkedList<IFlatTableDTO> loadFlatTables() {
-		//TODO: Implement.
-		return null;
-	}
-	
-	//method
-	@Override
-	public Time loadSchemaTimestamp() {
-		//TODO: Implement.
-		return null;
 	}
 	
 	//method

@@ -2,4 +2,11 @@
 package ch.nolix.techapi.databaseschemaapi.intermediateschemaapi;
 
 //interface
-public interface IIntermediateSchemaAdapter extends IIntermediateSchemaReader, IIntermediateSchemaWriter {}
+public interface IIntermediateSchemaAdapter {
+	
+	//method declaration
+	IIntermediateSchemaReader getRefIntermediateSchemaReader();
+	
+	//method declaration
+	IIntermediateSchemaWriter getRefIntermediateSchemaWriter();
+}

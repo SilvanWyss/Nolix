@@ -169,7 +169,7 @@ public final class Table extends DatabaseObject implements IExtendedTable<Table,
 	//method
 	private void loadColumnsFromDatabase() {
 						
-		columns = getRefRealSchemaAdapter().loadColumnsOfTable(this).to(Column::fromDTO);
+		columns = getRefRealSchemaAdapter().getRefIntermediateSchemaReader().loadColumnsOfTable(this).to(Column::fromDTO);
 		columns.forEach(Column::setLoaded);
 		
 		loadedColumnsFromDatabase = true;
