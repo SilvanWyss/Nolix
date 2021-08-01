@@ -88,11 +88,6 @@ public abstract class SQLConnection implements AutoCloseable {
 	}
 	
 	//method
-	public final SQLExecutor createSQLExecutor() {
-		return new SQLExecutor(this);
-	}
-	
-	//method
 	public final SQLConnection execute(final Iterable<String> pSQLStatements) {
 		
 		try (final var statement = connection.createStatement()) {

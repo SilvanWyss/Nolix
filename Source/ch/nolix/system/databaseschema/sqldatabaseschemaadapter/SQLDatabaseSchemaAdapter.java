@@ -8,6 +8,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentExce
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.sql.SQLConnection;
 import ch.nolix.common.sql.SQLDatabaseEngine;
+import ch.nolix.common.sql.SQLExecutor;
 import ch.nolix.system.databaseschema.databaseschemaadapter.DatabaseSchemaAdapter;
 import ch.nolix.system.databaseschema.databaseschemaadapter.DatabaseState;
 import ch.nolix.system.databaseschema.databaseschemaadapter.EntitySet;
@@ -116,7 +117,7 @@ extends DatabaseSchemaAdapter<SQLDSA> {
 			}
 		}
 		
-		final var lSQLExecutor = mSQLConnection.createSQLExecutor();
+		final var lSQLExecutor = new SQLExecutor(mSQLConnection);
 		
 		for (final var es : createdEntitySets) {
 			lSQLExecutor.addSQLStatement(es.getSQLHelper(getSQLDatabaseEngine()).getCreateSQLStatement());
