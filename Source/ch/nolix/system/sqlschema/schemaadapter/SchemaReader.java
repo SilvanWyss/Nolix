@@ -35,7 +35,7 @@ public abstract class SchemaReader implements ISchemaReader {
 	public final LinkedList<IColumnDTO> loadColumns(final String tableName) {
 		return
 		mSQLConnection
-		.getRows(schemaQueryCreator.createQueryToLoadNameAndDataTypeOfColumns(tableName))
+		.getRecords(schemaQueryCreator.createQueryToLoadNameAndDataTypeOfColumns(tableName))
 		.to(r -> new ColumnDTO(r.getRefAt(1), new DataTypeDTO(r.getRefAt(2))));
 	}
 	
@@ -44,7 +44,7 @@ public abstract class SchemaReader implements ISchemaReader {
 	public final LinkedList<IFlatTableDTO> loadFlatTables() {
 		return
 		mSQLConnection
-		.getRowsAsString(schemaQueryCreator.createQueryToLoadNameOfTables())
+		.getRecordsAsStrings(schemaQueryCreator.createQueryToLoadNameOfTables())
 		.to(FlatTableDTO::new);
 	}
 }
