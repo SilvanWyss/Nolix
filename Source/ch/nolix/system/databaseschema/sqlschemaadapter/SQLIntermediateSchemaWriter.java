@@ -2,6 +2,8 @@
 package ch.nolix.system.databaseschema.sqlschemaadapter;
 
 //own imports
+import ch.nolix.common.sql.SQLConnection;
+import ch.nolix.common.sql.SQLExecutor;
 import ch.nolix.element.time.base.Time;
 import ch.nolix.techapi.databaseschemaapi.intermediateschemaapi.IIntermediateSchemaWriter;
 import ch.nolix.techapi.databaseschemaapi.schemadtoapi.IColumnDTO;
@@ -10,6 +12,14 @@ import ch.nolix.techapi.databaseschemaapi.schemadtoapi.ITableDTO;
 
 //class
 final class SQLIntermediateSchemaWriter implements IIntermediateSchemaWriter {
+	
+	//attribute
+	private final SQLExecutor mSQLExecutor;
+	
+	//constructor
+	public SQLIntermediateSchemaWriter(final SQLConnection pSQLConnection) {
+		mSQLExecutor = new SQLExecutor(pSQLConnection);
+	}
 	
 	//method
 	@Override

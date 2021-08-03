@@ -20,8 +20,8 @@ public final class SQLIntermediateSchemaAdapter implements IIntermediateSchemaAd
 		Validator.assertThat(pSQLConnection).thatIsNamed(SQLConnection.class).isNotNull();
 		
 		mSQLConnection = pSQLConnection;
-		mSQLIntermediateSchemaReader = new SQLIntermediateSchemaReader();
-		mSQLIntermediateSchemaWriter = new SQLIntermediateSchemaWriter();
+		mSQLIntermediateSchemaReader = new SQLIntermediateSchemaReader(mSQLConnection);
+		mSQLIntermediateSchemaWriter = new SQLIntermediateSchemaWriter(mSQLConnection);
 	}
 	
 	//method

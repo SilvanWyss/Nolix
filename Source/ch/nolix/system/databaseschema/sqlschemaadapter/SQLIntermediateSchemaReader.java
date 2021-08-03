@@ -3,6 +3,8 @@ package ch.nolix.system.databaseschema.sqlschemaadapter;
 
 //own imports
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.errorcontrol.validator.Validator;
+import ch.nolix.common.sql.SQLConnection;
 import ch.nolix.element.time.base.Time;
 import ch.nolix.techapi.databaseschemaapi.flatschemadtoapi.IFlatTableDTO;
 import ch.nolix.techapi.databaseschemaapi.intermediateschemaapi.IIntermediateSchemaReader;
@@ -10,6 +12,17 @@ import ch.nolix.techapi.databaseschemaapi.schemadtoapi.IColumnDTO;
 
 //class
 final class SQLIntermediateSchemaReader implements IIntermediateSchemaReader {
+	
+	//attribute
+	private final SQLConnection mSQLConnection;
+	
+	//constructor
+	public SQLIntermediateSchemaReader(final SQLConnection pSQLConnection) {
+		
+		Validator.assertThat(pSQLConnection).thatIsNamed(SQLConnection.class).isNotNull();
+		
+		mSQLConnection = pSQLConnection;
+	}
 	
 	//method
 	@Override
@@ -37,10 +50,5 @@ final class SQLIntermediateSchemaReader implements IIntermediateSchemaReader {
 	public Time loadSchemaTimestamp() {
 		//TODO: Implement.
 		return null;
-	}
-	
-	//method
-	private boolean isContentDataTable(final ch.nolix.techapi.sqlschemaapi.flatschemadtoapi.IFlatTableDTO flatTableDTO) {
-		return flatTableDTO.getName().startsWith(TableType.CONTENT_DATA.getPrefix());
 	}
 }
