@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.databaseschema.sqlschemaadapter;
+package ch.nolix.system.intermediateschema;
 
 //own imports
 import ch.nolix.common.sql.SQLConnection;
