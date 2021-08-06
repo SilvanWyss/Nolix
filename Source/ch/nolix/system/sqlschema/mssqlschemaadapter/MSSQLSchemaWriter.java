@@ -10,7 +10,7 @@ import ch.nolix.system.sqlschema.schemaadapter.SchemaWriter;
 public final class MSSQLSchemaWriter extends SchemaWriter {
 	
 	//constructor
-	public MSSQLSchemaWriter(MSSQLConnection pMSSQLConnection) {
+	public MSSQLSchemaWriter(final MSSQLConnection pMSSQLConnection) {
 		super(pMSSQLConnection, new MSSQLSchemaStatementCreator());
 	}
 }
