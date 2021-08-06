@@ -12,14 +12,14 @@ import ch.nolix.techapi.intermediateschemaapi.schemaadapterapi.IIntermediateSche
 import ch.nolix.techapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //class
-final class SQLIntermediateSchemaReader implements IIntermediateSchemaReader {
+final class IntermediateSchemaReader implements IIntermediateSchemaReader {
 	
 	//attribute
 	private final SQLConnection mSQLConnection;
 	private final ISchemaAdapter schemaAdapter;
 	
 	//constructor
-	public SQLIntermediateSchemaReader(final SQLConnection pSQLConnection, final ISchemaAdapter schemaAdapter) {
+	public IntermediateSchemaReader(final SQLConnection pSQLConnection, final ISchemaAdapter schemaAdapter) {
 		
 		Validator.assertThat(pSQLConnection).thatIsNamed(SQLConnection.class).isNotNull();
 		Validator.assertThat(schemaAdapter).thatIsNamed(ISchemaAdapter.class).isNotNull();
