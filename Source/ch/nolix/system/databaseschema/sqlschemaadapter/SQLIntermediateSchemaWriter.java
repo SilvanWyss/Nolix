@@ -2,6 +2,7 @@
 package ch.nolix.system.databaseschema.sqlschemaadapter;
 
 //own imports
+import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.sql.SQLConnection;
 import ch.nolix.common.sql.SQLExecutor;
 import ch.nolix.element.time.base.Time;
@@ -9,16 +10,22 @@ import ch.nolix.techapi.databaseschemaapi.intermediateschemaapi.IIntermediateSch
 import ch.nolix.techapi.databaseschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.techapi.databaseschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
 import ch.nolix.techapi.databaseschemaapi.schemadtoapi.ITableDTO;
+import ch.nolix.techapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //class
 final class SQLIntermediateSchemaWriter implements IIntermediateSchemaWriter {
 	
-	//attribute
+	//attributes
 	private final SQLExecutor mSQLExecutor;
+	private final ISchemaAdapter schemaAdapter;
 	
 	//constructor
-	public SQLIntermediateSchemaWriter(final SQLConnection pSQLConnection) {
+	public SQLIntermediateSchemaWriter(final SQLConnection pSQLConnection, final ISchemaAdapter schemaAdapter) {
+		
+		Validator.assertThat(schemaAdapter).thatIsNamed(ISchemaAdapter.class).isNotNull();
+		
 		mSQLExecutor = new SQLExecutor(pSQLConnection);
+		this.schemaAdapter = schemaAdapter;
 	}
 	
 	//method

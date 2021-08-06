@@ -2,26 +2,21 @@
 package ch.nolix.system.databaseschema.sqlschemaadapter;
 
 //own imports
-import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.sql.SQLConnection;
 import ch.nolix.techapi.databaseschemaapi.intermediateschemaapi.IIntermediateSchemaAdapter;
+import ch.nolix.techapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //class
 public final class SQLIntermediateSchemaAdapter implements IIntermediateSchemaAdapter {
 	
 	//attributes
-	private final SQLConnection mSQLConnection;
 	private final SQLIntermediateSchemaReader mSQLIntermediateSchemaReader;
 	private final SQLIntermediateSchemaWriter mSQLIntermediateSchemaWriter;
 	
 	//constructor
-	public SQLIntermediateSchemaAdapter(final SQLConnection pSQLConnection) {
-		
-		Validator.assertThat(pSQLConnection).thatIsNamed(SQLConnection.class).isNotNull();
-		
-		mSQLConnection = pSQLConnection;
-		mSQLIntermediateSchemaReader = new SQLIntermediateSchemaReader(mSQLConnection);
-		mSQLIntermediateSchemaWriter = new SQLIntermediateSchemaWriter(mSQLConnection);
+	public SQLIntermediateSchemaAdapter(final SQLConnection pSQLConnection, final ISchemaAdapter schemaAdapter) {
+		mSQLIntermediateSchemaReader = new SQLIntermediateSchemaReader(pSQLConnection, schemaAdapter);
+		mSQLIntermediateSchemaWriter = new SQLIntermediateSchemaWriter(pSQLConnection, schemaAdapter);
 	}
 	
 	//method

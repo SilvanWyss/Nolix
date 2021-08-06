@@ -9,19 +9,23 @@ import ch.nolix.element.time.base.Time;
 import ch.nolix.techapi.databaseschemaapi.flatschemadtoapi.IFlatTableDTO;
 import ch.nolix.techapi.databaseschemaapi.intermediateschemaapi.IIntermediateSchemaReader;
 import ch.nolix.techapi.databaseschemaapi.schemadtoapi.IColumnDTO;
+import ch.nolix.techapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //class
 final class SQLIntermediateSchemaReader implements IIntermediateSchemaReader {
 	
 	//attribute
 	private final SQLConnection mSQLConnection;
+	private final ISchemaAdapter schemaAdapter;
 	
 	//constructor
-	public SQLIntermediateSchemaReader(final SQLConnection pSQLConnection) {
+	public SQLIntermediateSchemaReader(final SQLConnection pSQLConnection, final ISchemaAdapter schemaAdapter) {
 		
 		Validator.assertThat(pSQLConnection).thatIsNamed(SQLConnection.class).isNotNull();
+		Validator.assertThat(schemaAdapter).thatIsNamed(ISchemaAdapter.class).isNotNull();
 		
 		mSQLConnection = pSQLConnection;
+		this.schemaAdapter = schemaAdapter;
 	}
 	
 	//method
