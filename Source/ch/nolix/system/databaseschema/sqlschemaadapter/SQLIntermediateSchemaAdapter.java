@@ -3,7 +3,7 @@ package ch.nolix.system.databaseschema.sqlschemaadapter;
 
 //own imports
 import ch.nolix.common.sql.SQLConnection;
-import ch.nolix.techapi.databaseschemaapi.intermediateschemaapi.IIntermediateSchemaAdapter;
+import ch.nolix.techapi.intermediateschemaapi.schemaadapterapi.IIntermediateSchemaAdapter;
 import ch.nolix.techapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //class

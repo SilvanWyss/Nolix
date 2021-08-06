@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.techapi.databaseschemaapi.intermediateschemaapi;
+package ch.nolix.techapi.intermediateschemaapi.schemaadapterapi;
 
 //own imports
 import ch.nolix.common.container.LinkedList;

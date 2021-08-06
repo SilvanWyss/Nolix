@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.databaseschema.schema;
 
-//own imports
-import ch.nolix.techapi.databaseschemaapi.intermediateschemaapi.IIntermediateSchemaAdapter;
+import ch.nolix.techapi.intermediateschemaapi.schemaadapterapi.IIntermediateSchemaAdapter;
 
 //class
 final class IntermediateSchemaAdapter {

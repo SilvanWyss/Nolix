@@ -3,7 +3,7 @@ package ch.nolix.system.databaseschema.schemaadapter;
 
 //own imports
 import ch.nolix.system.databaseschema.schema.Database;
-import ch.nolix.techapi.databaseschemaapi.intermediateschemaapi.IIntermediateSchemaAdapter;
+import ch.nolix.techapi.intermediateschemaapi.schemaadapterapi.IIntermediateSchemaAdapter;
 
 //class
 final class DatabaseSchemaSession implements AutoCloseable {
