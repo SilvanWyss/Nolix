@@ -52,6 +52,12 @@ public abstract class SchemaWriter implements ISchemaWriter {
 	
 	//method
 	@Override
+	public final boolean hasChanges() {
+		return mSQLExecutor.getStatements().containsAny();
+	}
+	
+	//method
+	@Override
 	public final void renameColumn(final String tableName, final String columnName, final String newColumnName) {
 		mSQLExecutor.addSQLStatement(
 			schemaStatementCreator.createStatementToRenameColumn(tableName, columnName, newColumnName)
@@ -62,5 +68,11 @@ public abstract class SchemaWriter implements ISchemaWriter {
 	@Override
 	public final void renameTable(final String tableName, final String newTableName) {
 		mSQLExecutor.addSQLStatement(schemaStatementCreator.createStatementToRenameTable(tableName, newTableName));
+	}
+	
+	//method
+	@Override
+	public final void saveChanges() {
+		mSQLExecutor.execute();
 	}
 }

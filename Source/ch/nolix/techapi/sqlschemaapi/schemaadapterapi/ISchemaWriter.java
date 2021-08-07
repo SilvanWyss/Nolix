@@ -2,11 +2,12 @@
 package ch.nolix.techapi.sqlschemaapi.schemaadapterapi;
 
 //own imports
+import ch.nolix.common.skillapi.IChangeSaver;
 import ch.nolix.techapi.sqlschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.techapi.sqlschemaapi.schemadtoapi.ITableDTO;
 
 //interface
-public interface ISchemaWriter {
+public interface ISchemaWriter extends IChangeSaver {
 	
 	//method declaration
 	void addColumn(String tableName, IColumnDTO column);
