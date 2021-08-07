@@ -66,7 +66,7 @@ public final class ReadContainer<E> implements IContainer<E> {
 	 * @throws ArgumentIsNullException if the given objects is null.
 	 * @throws ArgumentIsNullException if one of the given objects is null.
 	 */
-	@SuppressWarnings("unchecked")
+	@SafeVarargs
 	public static <E2> ReadContainer<E2> forIterables(final Iterable<E2>... objects) {
 		return new ReadContainer<>(new MultiReadContainer<>(objects));
 	}
