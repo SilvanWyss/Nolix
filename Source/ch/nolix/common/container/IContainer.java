@@ -2053,7 +2053,6 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return a new sub {@link IContainer} from the current {@link IContainer} without
 	 * the first occurrence of the given element.
 	 */
-	@SuppressWarnings("unchecked")
 	default IContainer<E> withoutFirst(final E element) {
 		
 		final var indexContainer = getOptionalIndexOfFirst(element);
