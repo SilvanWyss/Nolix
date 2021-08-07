@@ -2,6 +2,7 @@
 package ch.nolix.system.sqlschema.schemaadapter;
 
 //own imports
+import ch.nolix.common.container.IContainer;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.sql.SQLConnection;
 import ch.nolix.common.sql.SQLExecutor;
@@ -48,6 +49,12 @@ public abstract class SchemaWriter implements ISchemaWriter {
 	@Override
 	public final void deleteTable(final String tableName) {
 		mSQLExecutor.addSQLStatement(schemaStatementCreator.createStatementToDeleteTable(tableName));
+	}
+	
+	//method
+	@Override
+	public final IContainer<String> getSQLStatements() {
+		return mSQLExecutor.getStatements();
 	}
 	
 	//method
