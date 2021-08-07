@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.intermediateschema;
+package ch.nolix.system.intermediateschema.schemaadapter;
 
 //own imports
 import ch.nolix.common.errorcontrol.validator.Validator;
