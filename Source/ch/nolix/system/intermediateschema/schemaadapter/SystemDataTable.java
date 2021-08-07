@@ -4,14 +4,14 @@ package ch.nolix.system.intermediateschema.schemaadapter;
 //own imports
 import ch.nolix.common.attributeapi.mandatoryattributeapi.Named;
 import ch.nolix.common.constant.LowerCaseCatalogue;
-import ch.nolix.common.constant.PluralPascalCaseCatalogue;
+import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.errorcontrol.validator.Validator;
 
 //enum
 public enum SystemDataTable implements Named {
-	DATABASE_PROPERTIES("DatabaseProperties"),
-	TABLES(PluralPascalCaseCatalogue.TABLES),
-	COLUMNS(PluralPascalCaseCatalogue.COLUMNS);
+	DATABASE_PROPERTY("DatabaseProperty"),
+	TABLE(PascalCaseCatalogue.TABLE),
+	COLUMN(PascalCaseCatalogue.COLUMN);
 	
 	//attribute
 	private final String name;
