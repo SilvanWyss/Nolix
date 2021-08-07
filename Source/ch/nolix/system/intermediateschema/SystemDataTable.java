@@ -10,6 +10,7 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 //enum
 public enum SystemDataTable implements Named {
 	DATABASE_PROPERTIES("DatabaseProperties"),
+	TABLES(PluralPascalCaseCatalogue.TABLES),
 	COLUMNS(PluralPascalCaseCatalogue.COLUMNS);
 	
 	//attribute
