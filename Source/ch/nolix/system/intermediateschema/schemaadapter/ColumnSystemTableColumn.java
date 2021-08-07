@@ -10,7 +10,11 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 //enum
 public enum ColumnSystemTableColumn implements Named {
 	TABLE(PascalCaseCatalogue.TABLE),
-	HEADER(PascalCaseCatalogue.HEADER);
+	HEADER(PascalCaseCatalogue.HEADER),
+	DATA_TYPE(PascalCaseCatalogue.DATA_TYPE),
+	REFERENCED_TABLE("ReferencedTable"),
+	BACK_REFERENCED_TABLE("BackReferencedTable"),
+	BACK_REFERENCED_COLUM("BackReferencedColumn");
 	
 	//attribute
 	private final String name;
