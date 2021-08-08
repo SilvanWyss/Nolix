@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.techapi.databaseschemaapi.flatschemadtoapi;
+package ch.nolix.techapi.intermediateschemaapi.flatschemadtoapi;
 
 //interface
 public interface IFlatDatabaseDTO {

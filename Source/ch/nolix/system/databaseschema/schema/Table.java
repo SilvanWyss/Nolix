@@ -10,7 +10,7 @@ import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedPrope
 import ch.nolix.system.databaseschema.schemadto.ColumnDTO;
 import ch.nolix.system.databaseschema.schemadto.TableDTO;
 import ch.nolix.techapi.databaseschemaapi.extendedschemaapi.IExtendedTable;
-import ch.nolix.techapi.databaseschemaapi.flatschemadtoapi.IFlatTableDTO;
+import ch.nolix.techapi.intermediateschemaapi.flatschemadtoapi.IFlatTableDTO;
 
 //class
 public final class Table extends DatabaseObject implements IExtendedTable<Table, Column, ParametrizedPropertyType<?>> {

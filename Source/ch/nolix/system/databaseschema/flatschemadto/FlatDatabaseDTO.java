@@ -4,7 +4,7 @@ package ch.nolix.system.databaseschema.flatschemadto;
 //own imports
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.techapi.databaseschemaapi.flatschemadtoapi.IFlatDatabaseDTO;
+import ch.nolix.techapi.intermediateschemaapi.flatschemadtoapi.IFlatDatabaseDTO;
 
 //class
 public final class FlatDatabaseDTO implements IFlatDatabaseDTO {
