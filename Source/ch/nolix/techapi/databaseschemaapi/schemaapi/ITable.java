@@ -7,7 +7,7 @@ import ch.nolix.common.container.IContainer;
 import ch.nolix.techapi.databasecommonapi.databaseobjectapi.Deletable;
 import ch.nolix.techapi.databasecommonapi.databaseobjectapi.IDatabaseObject;
 import ch.nolix.techapi.databaseschemaapi.flatschemadtoapi.IFlatTableDTO;
-import ch.nolix.techapi.databaseschemaapi.schemadtoapi.ITableDTO;
+import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.ITableDTO;
 
 //interface
 public interface ITable<

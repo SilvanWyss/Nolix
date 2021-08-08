@@ -3,7 +3,7 @@ package ch.nolix.system.databaseschema.schema;
 
 //own imports
 import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedPropertyType;
-import ch.nolix.techapi.databaseschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
+import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
 
 //class
 public final class ParametrizedPropertyTypeFactory {

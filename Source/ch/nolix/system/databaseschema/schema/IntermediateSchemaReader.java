@@ -8,8 +8,8 @@ import ch.nolix.element.time.base.Time;
 import ch.nolix.techapi.databaseschemaapi.flatschemadtoapi.IFlatTableDTO;
 import ch.nolix.techapi.databaseschemaapi.schemaapi.IColumn;
 import ch.nolix.techapi.databaseschemaapi.schemaapi.ITable;
-import ch.nolix.techapi.databaseschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.techapi.intermediateschemaapi.schemaadapterapi.IIntermediateSchemaReader;
+import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.IColumnDTO;
 
 //class
 final class IntermediateSchemaReader {

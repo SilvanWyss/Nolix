@@ -5,8 +5,8 @@ package ch.nolix.system.databaseschema.schemadto;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.techapi.databaseschemaapi.schemadtoapi.IColumnDTO;
-import ch.nolix.techapi.databaseschemaapi.schemadtoapi.ITableDTO;
+import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.IColumnDTO;
+import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.ITableDTO;
 
 //class
 public final class TableDTO implements ITableDTO {

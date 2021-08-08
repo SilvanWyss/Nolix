@@ -6,7 +6,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullExcep
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.techapi.databasecommonapi.propertytypeapi.BasePropertyType;
 import ch.nolix.techapi.databasecommonapi.propertytypeapi.PropertyType;
-import ch.nolix.techapi.databaseschemaapi.schemadtoapi.IBaseParametrizedBackReferenceTypeDTO;
+import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.IBaseParametrizedBackReferenceTypeDTO;
 
 //class
 public final class BaseParametrizedBackReferenceTypeDTO extends ParametrizedPropertyTypeDTO

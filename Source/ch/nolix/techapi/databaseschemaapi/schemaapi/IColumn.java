@@ -6,7 +6,7 @@ import ch.nolix.common.attributeapi.mutablemandatoryattributeapi.Headerable;
 import ch.nolix.common.requestapi.EmptinessRequestable;
 import ch.nolix.techapi.databasecommonapi.databaseobjectapi.Deletable;
 import ch.nolix.techapi.databasecommonapi.databaseobjectapi.IDatabaseObject;
-import ch.nolix.techapi.databaseschemaapi.schemadtoapi.IColumnDTO;
+import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.IColumnDTO;
 
 //interface
 public interface IColumn<

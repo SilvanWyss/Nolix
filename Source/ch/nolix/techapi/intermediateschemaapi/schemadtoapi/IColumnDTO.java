@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.techapi.databaseschemaapi.schemadtoapi;
+package ch.nolix.techapi.intermediateschemaapi.schemadtoapi;
 
 //interface
 public interface IColumnDTO {

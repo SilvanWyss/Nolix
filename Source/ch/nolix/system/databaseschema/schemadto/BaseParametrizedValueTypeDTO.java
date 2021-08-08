@@ -3,7 +3,7 @@ package ch.nolix.system.databaseschema.schemadto;
 
 //own imports
 import ch.nolix.techapi.databasecommonapi.propertytypeapi.PropertyType;
-import ch.nolix.techapi.databaseschemaapi.schemadtoapi.IBaseParametrizedValueTypeDTO;
+import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.IBaseParametrizedValueTypeDTO;
 
 //class
 public final class BaseParametrizedValueTypeDTO extends ParametrizedPropertyTypeDTO

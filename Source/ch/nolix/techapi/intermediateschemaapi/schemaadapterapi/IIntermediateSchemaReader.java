@@ -5,7 +5,7 @@ package ch.nolix.techapi.intermediateschemaapi.schemaadapterapi;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.element.time.base.Time;
 import ch.nolix.techapi.databaseschemaapi.flatschemadtoapi.IFlatTableDTO;
-import ch.nolix.techapi.databaseschemaapi.schemadtoapi.IColumnDTO;
+import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.IColumnDTO;
 
 //interface
 public interface IIntermediateSchemaReader {

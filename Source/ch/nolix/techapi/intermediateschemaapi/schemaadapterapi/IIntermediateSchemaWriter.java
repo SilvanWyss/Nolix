@@ -4,9 +4,9 @@ package ch.nolix.techapi.intermediateschemaapi.schemaadapterapi;
 //own imports
 import ch.nolix.common.skillapi.IChangeSaver;
 import ch.nolix.element.time.base.Time;
-import ch.nolix.techapi.databaseschemaapi.schemadtoapi.IColumnDTO;
-import ch.nolix.techapi.databaseschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
-import ch.nolix.techapi.databaseschemaapi.schemadtoapi.ITableDTO;
+import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.IColumnDTO;
+import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
+import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.ITableDTO;
 
 //interface
 public interface IIntermediateSchemaWriter extends IChangeSaver {
