@@ -103,6 +103,7 @@ public final class LowerCaseCatalogue {
 	public static final String ITEM = "item";
 	public static final String JOB = "job";
 	public static final String KEY = "key";
+	public static final String LABEL = "label";
 	public static final String LAYER = "layer";
 	public static final String LENGTH = "length";
 	public static final String LETTER = "letter";

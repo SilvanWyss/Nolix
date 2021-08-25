@@ -103,6 +103,7 @@ public final class PluralLowerCaseCatalogue {
 	public static final String ITEMS = "items";
 	public static final String JOBS = "jobs";
 	public static final String KEYS = "keys";
+	public static final String LABELS = "labels";
 	public static final String LAYERS = "layers";
 	public static final String LENGTHS = "lengths";
 	public static final String LETTERS = "letters";

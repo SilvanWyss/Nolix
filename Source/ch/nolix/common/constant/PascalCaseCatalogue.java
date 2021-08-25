@@ -103,6 +103,7 @@ public final class PascalCaseCatalogue {
 	public static final String ITEM = "Item";
 	public static final String JOB = "Job";
 	public static final String KEY = "Key";
+	public static final String LABEL = "Label";
 	public static final String LAYER = "Layer";
 	public static final String LENGTH = "Length";
 	public static final String LETTER = "Letter";

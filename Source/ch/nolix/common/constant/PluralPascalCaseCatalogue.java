@@ -103,6 +103,7 @@ public final class PluralPascalCaseCatalogue {
 	public static final String ITEMS = "Items";
 	public static final String JOBS = "Jobs";
 	public static final String KEYS = "Keys";
+	public static final String LABELS = "Labels";
 	public static final String LAYERS = "Layers";
 	public static final String LENGTHS = "Lengths";
 	public static final String LETTERS = "Letters";
