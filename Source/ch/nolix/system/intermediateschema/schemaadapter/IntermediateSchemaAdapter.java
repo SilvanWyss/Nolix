@@ -7,7 +7,7 @@ import ch.nolix.techapi.intermediateschemaapi.schemaadapterapi.IIntermediateSche
 import ch.nolix.techapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //class
-public final class IntermediateSchemaAdapter implements IIntermediateSchemaAdapter {
+public abstract class IntermediateSchemaAdapter implements IIntermediateSchemaAdapter {
 	
 	//attributes
 	private final IntermediateSchemaReader mSQLIntermediateSchemaReader;
@@ -21,13 +21,13 @@ public final class IntermediateSchemaAdapter implements IIntermediateSchemaAdapt
 	
 	//method
 	@Override
-	public IntermediateSchemaReader getRefIntermediateSchemaReader() {
+	public final IntermediateSchemaReader getRefIntermediateSchemaReader() {
 		return mSQLIntermediateSchemaReader;
 	}
 	
 	//method
 	@Override
-	public IntermediateSchemaWriter getRefIntermediateSchemaWriter() {
+	public final IntermediateSchemaWriter getRefIntermediateSchemaWriter() {
 		return mSQLIntermediateSchemaWriter;
 	}
 }
