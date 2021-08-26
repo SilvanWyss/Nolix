@@ -1,12 +1,13 @@
 //package declaration
-package ch.nolix.system.intermediateschema.schemaadapter;
+package ch.nolix.system.intermediateschema.databasepropertysystemtable;
 
 //own imports
+import ch.nolix.common.attributeapi.mandatoryattributeapi.Labeled;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.errorcontrol.validator.Validator;
 
 //class
-public enum DatabaseProperty {
+public enum DatabaseProperty implements Labeled {
 	SCHEMA_TIMESTAMP("SchemaTimestamp");
 	
 	//attribute
@@ -21,7 +22,8 @@ public enum DatabaseProperty {
 	}
 	
 	//method
-	public String getLabel() {
+	@Override
+	public final String getLabel() {
 		return label;
 	}
 }
