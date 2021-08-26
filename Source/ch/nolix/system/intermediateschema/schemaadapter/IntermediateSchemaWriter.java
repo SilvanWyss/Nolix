@@ -2,9 +2,9 @@
 package ch.nolix.system.intermediateschema.schemaadapter;
 
 //own imports
+import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.sql.SQLConnection;
-import ch.nolix.common.sql.SQLExecutor;
 import ch.nolix.element.time.base.Time;
 import ch.nolix.techapi.intermediateschemaapi.schemaadapterapi.IIntermediateSchemaWriter;
 import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.IColumnDTO;
@@ -16,53 +16,69 @@ import ch.nolix.techapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter;
 final class IntermediateSchemaWriter implements IIntermediateSchemaWriter {
 	
 	//attributes
-	private final SQLExecutor mSQLExecutor;
-	private final ISchemaAdapter schemaAdapter;
+	private final SystemDataWriter systemDataWriter;
+	private final SchemaWriter schemaWriter;
+	private final SQLConnection mSQLConnection;
 	
 	//constructor
 	public IntermediateSchemaWriter(final SQLConnection pSQLConnection, final ISchemaAdapter schemaAdapter) {
 		
-		Validator.assertThat(schemaAdapter).thatIsNamed(ISchemaAdapter.class).isNotNull();
+		Validator.assertThat(pSQLConnection).thatIsNamed(SQLConnection.class).isNotNull();
 		
-		mSQLExecutor = new SQLExecutor(pSQLConnection);
-		this.schemaAdapter = schemaAdapter;
+		mSQLConnection = pSQLConnection;
+		systemDataWriter = new SystemDataWriter();
+		schemaWriter = new SchemaWriter(schemaAdapter.getRefSchemaWriter());		
 	}
 	
 	//method
 	@Override
 	public void addColumn(final String tableName, final IColumnDTO column) {
-		//TODO: Implement.
+		systemDataWriter.addColumn(tableName, column);
+		schemaWriter.addColumn(tableName, column);
 	}
 	
 	//method
 	@Override
 	public void addTable(final ITableDTO table) {
-		//TODO: Implement.
+		systemDataWriter.addTable(table);
+		schemaWriter.addTable(table);
 	}
 	
 	//method
 	@Override
 	public void deleteColumn(final String tableName, final String columnHeader) {
-		//TODO: Implement.
+		systemDataWriter.deleteColumn(tableName, columnHeader);
+		schemaWriter.deleteColumn(tableName, columnHeader);
 	}
 	
 	//method
 	@Override
 	public void deleteTable(final String tableName) {
-		//TODO: Implement.
+		systemDataWriter.deleteTable(tableName);
+		schemaWriter.deleteTable(tableName);
 	}
 	
 	//method
 	@Override
 	public boolean hasChanges() {
-		//TODO: Implement.
-		return false;
+		return (systemDataWriter.hasChanges() || schemaWriter.hasChanges());
+	}
+	
+	//method
+	@Override
+	public void saveChanges() {
+		
+		final ReadContainer<String> lSQLStatements =
+		ReadContainer.forIterables(systemDataWriter.getSQLStatements(), schemaWriter.getSQLStatements());
+		
+		mSQLConnection.execute(lSQLStatements);
 	}
 	
 	//method
 	@Override
 	public void setColumnHeader(final String tableName, final String columnHeader, final String newColumnHeader) {
-		//TODO: Implement.
+		systemDataWriter.setColumnHeader(tableName, columnHeader, newColumnHeader);
+		schemaWriter.setColumnHeader(tableName, columnHeader, newColumnHeader);
 	}
 	
 	//method
@@ -72,24 +88,19 @@ final class IntermediateSchemaWriter implements IIntermediateSchemaWriter {
 		final String columnHeader,
 		final IParametrizedPropertyTypeDTO parametrizedPropertyType
 	) {
-		//TODO: Implement.
+		systemDataWriter.setColumnParametrizedPropertyType(tableName, columnHeader, parametrizedPropertyType);
 	}
 	
 	//method
 	@Override
 	public void setSchemaTimestamp(final Time schemaTimestamp) {
-		//TODO: Implement.
+		systemDataWriter.setSchemaTimestamp(schemaTimestamp);
 	}
 	
 	//method
 	@Override
 	public void setTableName(final String tableName, final String newTableName) {
-		//TODO: Implement.
-	}
-	
-	//method
-	@Override
-	public void saveChanges() {
-		//TODO: Implement.
+		systemDataWriter.setTableName(tableName, newTableName);
+		schemaWriter.setTableName(tableName, newTableName);
 	}
 }
