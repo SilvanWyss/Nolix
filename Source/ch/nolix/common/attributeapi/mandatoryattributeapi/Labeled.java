@@ -7,7 +7,7 @@ package ch.nolix.common.attributeapi.mandatoryattributeapi;
  * 
  * @author Silvan Wyss
  * @date 2021-08-26
- * @lines 20
+ * @lines 30
  */
 public interface Labeled {
 	
@@ -16,6 +16,11 @@ public interface Labeled {
 	 * @return the label of the current {@link Labeled}.
 	 */
 	String getLabel();
+	
+	//method
+	default String getLabelInQuotes() {
+		return ("'" + getLabel()+  "'");
+	}
 	
 	//method
 	/**
