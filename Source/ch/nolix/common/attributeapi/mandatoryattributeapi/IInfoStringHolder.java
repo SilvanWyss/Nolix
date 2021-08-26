@@ -3,24 +3,24 @@ package ch.nolix.common.attributeapi.mandatoryattributeapi;
 
 //interface
 /**
- * A {@link Labeled} has an info string.
+ * A {@link IInfoStringHolder} has an info string.
  * 
  * @author Silvan Wyss
  * @date 2016-12-01
  * @lines 20
  */
-public interface Labeled {
+public interface IInfoStringHolder {
 	
 	//method declaration
 	/**
-	 * @return the info string of the current {@link Labeled}.
+	 * @return the info string of the current {@link IInfoStringHolder}.
 	 */
 	String getInfoString();
 	
 	//method
 	/**
 	 * @param infoString
-	 * @return true if the current {@link Labeled} has the given info string.
+	 * @return true if the current {@link IInfoStringHolder} has the given info string.
 	 */
 	default boolean hasInfoString(final String infoString) {
 		return getInfoString().equals(infoString);
