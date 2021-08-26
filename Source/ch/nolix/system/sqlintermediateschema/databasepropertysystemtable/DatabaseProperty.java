@@ -1,22 +1,20 @@
 //package declaration
-package ch.nolix.system.intermediateschema.databasepropertysystemtable;
+package ch.nolix.system.sqlintermediateschema.databasepropertysystemtable;
 
 //own imports
 import ch.nolix.common.attributeapi.mandatoryattributeapi.Labeled;
 import ch.nolix.common.constant.LowerCaseCatalogue;
-import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.errorcontrol.validator.Validator;
 
 //class
-public enum DatabasePropertySystemTableColumn implements Labeled {
-	KEY(PascalCaseCatalogue.KEY),
-	VALUE(PascalCaseCatalogue.VALUE);
+public enum DatabaseProperty implements Labeled {
+	SCHEMA_TIMESTAMP("SchemaTimestamp");
 	
 	//attribute
 	private final String label;
 	
 	//constructor
-	DatabasePropertySystemTableColumn(final String label) {
+	DatabaseProperty(final String label) {
 		
 		Validator.assertThat(label).thatIsNamed(LowerCaseCatalogue.LABEL).isNotBlank();
 		

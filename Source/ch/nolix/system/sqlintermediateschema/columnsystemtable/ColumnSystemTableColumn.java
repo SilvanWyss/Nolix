@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.intermediateschema.tablesystemtable;
+package ch.nolix.system.sqlintermediateschema.columnsystemtable;
 
 //own imports
 import ch.nolix.common.attributeapi.mandatoryattributeapi.Named;
@@ -8,14 +8,20 @@ import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.errorcontrol.validator.Validator;
 
 //enum
-public enum TableSystemTableColumn implements Named {
-	NAME(PascalCaseCatalogue.NAME);
+public enum ColumnSystemTableColumn implements Named {
+	TABLE(PascalCaseCatalogue.TABLE),
+	HEADER(PascalCaseCatalogue.HEADER),
+	PROPERTY_TYPE("PropertyType"),
+	DATA_TYPE(PascalCaseCatalogue.DATA_TYPE),
+	REFERENCED_TABLE("ReferencedTable"),
+	BACK_REFERENCED_TABLE("BackReferencedTable"),
+	BACK_REFERENCED_COLUM("BackReferencedColumn");
 	
 	//attribute
 	private final String name;
 	
 	//constructor
-	TableSystemTableColumn(final String name) {
+	ColumnSystemTableColumn(final String name) {
 		
 		Validator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
 		

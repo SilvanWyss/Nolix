@@ -1,14 +1,13 @@
 //package declaration
-package ch.nolix.system.intermediateschema.schemaadapter;
+package ch.nolix.system.sqlintermediateschema.schemaadapter;
 
 import ch.nolix.element.time.base.Time;
-//own imports
-import ch.nolix.system.intermediateschema.columnsystemtable.ColumnSystemTableColumn;
-import ch.nolix.system.intermediateschema.columnsystemtable.ParametrizedPropertyTypeRecordMapper;
-import ch.nolix.system.intermediateschema.databasepropertysystemtable.DatabaseProperty;
-import ch.nolix.system.intermediateschema.databasepropertysystemtable.DatabasePropertySystemTableColumn;
-import ch.nolix.system.intermediateschema.tablesystemtable.TableSystemTableColumn;
-import ch.nolix.system.intermediateschema.tablesystemtable.TableSystemTableRecordMapper;
+import ch.nolix.system.sqlintermediateschema.columnsystemtable.ColumnSystemTableColumn;
+import ch.nolix.system.sqlintermediateschema.columnsystemtable.ParametrizedPropertyTypeRecordMapper;
+import ch.nolix.system.sqlintermediateschema.databasepropertysystemtable.DatabaseProperty;
+import ch.nolix.system.sqlintermediateschema.databasepropertysystemtable.DatabasePropertySystemTableColumn;
+import ch.nolix.system.sqlintermediateschema.tablesystemtable.TableSystemTableColumn;
+import ch.nolix.system.sqlintermediateschema.tablesystemtable.TableSystemTableRecordMapper;
 import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
 import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.ITableDTO;

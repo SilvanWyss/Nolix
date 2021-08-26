@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.intermediateschema.columnsystemtable;
+package ch.nolix.system.sqlintermediateschema.columnsystemtable;
 
 //class
 public final class ParametrizedPropertyTypeRecord {

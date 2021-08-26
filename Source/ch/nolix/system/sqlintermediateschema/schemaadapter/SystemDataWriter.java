@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.intermediateschema.schemaadapter;
+package ch.nolix.system.sqlintermediateschema.schemaadapter;
 
 //own imports
 import ch.nolix.common.container.IContainer;

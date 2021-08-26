@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.intermediateschema.tablesystemtable;
+package ch.nolix.system.sqlintermediateschema.tablesystemtable;
 
 //class
 public final class TableSystemTableRecord {
