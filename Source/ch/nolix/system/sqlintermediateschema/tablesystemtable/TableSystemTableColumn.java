@@ -2,29 +2,29 @@
 package ch.nolix.system.sqlintermediateschema.tablesystemtable;
 
 //own imports
-import ch.nolix.common.attributeapi.mandatoryattributeapi.Named;
+import ch.nolix.common.attributeapi.mandatoryattributeapi.Labeled;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.errorcontrol.validator.Validator;
 
 //enum
-public enum TableSystemTableColumn implements Named {
+public enum TableSystemTableColumn implements Labeled {
 	NAME(PascalCaseCatalogue.NAME);
 	
 	//attribute
-	private final String name;
+	private final String label;
 	
 	//constructor
-	TableSystemTableColumn(final String name) {
+	TableSystemTableColumn(final String label) {
 		
-		Validator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
+		Validator.assertThat(label).thatIsNamed(LowerCaseCatalogue.LABEL).isNotBlank();
 		
-		this.name = name;
+		this.label = label;
 	}
 	
 	//method
 	@Override
-	public String getName() {
-		return name;
+	public String getLabel() {
+		return label;
 	}
 }

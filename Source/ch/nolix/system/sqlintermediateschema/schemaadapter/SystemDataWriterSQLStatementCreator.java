@@ -169,11 +169,11 @@ final class SystemDataWriterSQLStatementCreator {
 		"UPDATE "
 		+ SystemDataTable.TABLE.getNameWithPrefix()
 		+ " SET "
-		+ TableSystemTableColumn.NAME.getName()
+		+ TableSystemTableColumn.NAME.getLabel()
 		+ " = '"
 		+ newTableName
 		+ "' WHERE "
-		+ TableSystemTableColumn.NAME.getName()
+		+ TableSystemTableColumn.NAME.getLabel()
 		+ " = '"
 		+ tableName
 		+ "'";
