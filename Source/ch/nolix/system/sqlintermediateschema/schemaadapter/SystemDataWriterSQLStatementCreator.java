@@ -33,7 +33,7 @@ final class SystemDataWriterSQLStatementCreator {
 		
 		return
 	    "INSERT INTO "
-		+ SystemDataTable.COLUMN.getName()
+		+ SystemTable.COLUMN.getName()
 		+ " VALUES ('"
 		+ tableName
 		+ "', '"
@@ -58,7 +58,7 @@ final class SystemDataWriterSQLStatementCreator {
 		
 		return
 	    "INSERT INTO "
-		+ SystemDataTable.TABLE.getNameWithPrefix()
+		+ SystemTable.TABLE.getNameWithPrefix()
 		+ " VALUES ("
 		+ tableSystemTableRecord.getNameValue()
 		+ ")";
@@ -68,7 +68,7 @@ final class SystemDataWriterSQLStatementCreator {
 	public String createStatementToDeleteColumn(final String tableName, final String columnHeader) {
 		return
 		"DELETE FROM "
-		+ SystemDataTable.COLUMN.getNameWithPrefix()
+		+ SystemTable.COLUMN.getNameWithPrefix()
 		+ " WHERE "
 		+ ColumnSystemTableColumn.TABLE.getName()
 		+ " = "
@@ -84,7 +84,7 @@ final class SystemDataWriterSQLStatementCreator {
 	public String createStatementToDeleteTable(final String tableName) {
 		return 
 		"DELETE FROM "
-		+ SystemDataTable.TABLE.getNameWithPrefix()
+		+ SystemTable.TABLE.getNameWithPrefix()
 		+ " WHERE "
 		+ TableSystemTableColumn.NAME
 		+ " = '"
@@ -96,7 +96,7 @@ final class SystemDataWriterSQLStatementCreator {
 	public String createStatementToSetColumnHeader(String tableName, String columnHeader, String newColumnHeader) {
 		return
 	    "UPDATE "
-		+ SystemDataTable.COLUMN.getNameWithPrefix()
+		+ SystemTable.COLUMN.getNameWithPrefix()
 		+ " SET "
 		+ ColumnSystemTableColumn.HEADER
 		+ " = '"
@@ -124,7 +124,7 @@ final class SystemDataWriterSQLStatementCreator {
 		
 		return
 		"UPDATE "
-		+ SystemDataTable.COLUMN.getNameWithPrefix()
+		+ SystemTable.COLUMN.getNameWithPrefix()
 		+ " SET "
 		+ ColumnSystemTableColumn.DATA_TYPE
 		+ " = "
@@ -152,7 +152,7 @@ final class SystemDataWriterSQLStatementCreator {
 	public String createStatementToSetSchemaTimestamp(Time schemaTimestamp) {
 		return
 		"UPDATE "
-		+ SystemDataTable.DATABASE_PROPERTY.getNameWithPrefix()
+		+ SystemTable.DATABASE_PROPERTY.getNameWithPrefix()
 		+ " SET "
 		+ DatabasePropertySystemTableColumn.VALUE.getLabel()
 		+ " = '"
@@ -167,7 +167,7 @@ final class SystemDataWriterSQLStatementCreator {
 	public String createStatementToSetTableName(String tableName, String newTableName) {
 		return
 		"UPDATE "
-		+ SystemDataTable.TABLE.getNameWithPrefix()
+		+ SystemTable.TABLE.getNameWithPrefix()
 		+ " SET "
 		+ TableSystemTableColumn.NAME.getLabel()
 		+ " = '"
