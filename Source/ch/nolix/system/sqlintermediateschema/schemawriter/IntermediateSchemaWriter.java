@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.sqlintermediateschema.schemaadapter;
+package ch.nolix.system.sqlintermediateschema.schemawriter;
 
 //own imports
 import ch.nolix.common.container.ReadContainer;
@@ -13,7 +13,7 @@ import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.ITableDTO;
 import ch.nolix.techapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //class
-final class IntermediateSchemaWriter implements IIntermediateSchemaWriter {
+public final class IntermediateSchemaWriter implements IIntermediateSchemaWriter {
 	
 	//attributes
 	private final SystemDataWriter systemDataWriter;

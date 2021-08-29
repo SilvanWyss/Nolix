@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.sqlintermediateschema.schemaadapter;
+package ch.nolix.system.sqlintermediateschema.schemawriter;
 
 import ch.nolix.element.time.base.Time;
 import ch.nolix.system.sqlintermediateschema.columnsystemtable.ColumnSystemTableColumn;

@@ -3,6 +3,7 @@ package ch.nolix.system.sqlintermediateschema.schemaadapter;
 
 //own imports
 import ch.nolix.common.sql.SQLConnection;
+import ch.nolix.system.sqlintermediateschema.schemawriter.IntermediateSchemaWriter;
 import ch.nolix.techapi.intermediateschemaapi.schemaadapterapi.IIntermediateSchemaAdapter;
 import ch.nolix.techapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter;
 
