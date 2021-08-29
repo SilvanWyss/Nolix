@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.sqlintermediateschema.schemaadapter;
+package ch.nolix.system.sqlintermediateschema.structure;
 
 //own imports
 import ch.nolix.common.attributeapi.mandatoryattributeapi.Named;

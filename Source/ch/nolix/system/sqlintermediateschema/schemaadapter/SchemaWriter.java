@@ -5,6 +5,7 @@ package ch.nolix.system.sqlintermediateschema.schemaadapter;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.requestapi.ChangeRequestable;
+import ch.nolix.system.sqlintermediateschema.structure.TableType;
 import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.ITableDTO;
 import ch.nolix.techapi.sqlschemaapi.schemaadapterapi.ISchemaWriter;

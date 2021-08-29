@@ -6,6 +6,7 @@ import ch.nolix.system.sqlintermediateschema.columnsystemtable.ColumnSystemTable
 import ch.nolix.system.sqlintermediateschema.columnsystemtable.ParametrizedPropertyTypeRecordMapper;
 import ch.nolix.system.sqlintermediateschema.databasepropertysystemtable.DatabaseProperty;
 import ch.nolix.system.sqlintermediateschema.databasepropertysystemtable.DatabasePropertySystemTableColumn;
+import ch.nolix.system.sqlintermediateschema.structure.SystemTable;
 import ch.nolix.system.sqlintermediateschema.tablesystemtable.TableSystemTableColumn;
 import ch.nolix.system.sqlintermediateschema.tablesystemtable.TableSystemTableRecordMapper;
 import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.IColumnDTO;

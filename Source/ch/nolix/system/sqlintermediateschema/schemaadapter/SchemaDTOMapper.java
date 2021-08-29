@@ -2,6 +2,7 @@
 package ch.nolix.system.sqlintermediateschema.schemaadapter;
 
 //own imports
+import ch.nolix.system.sqlintermediateschema.structure.TableType;
 import ch.nolix.system.sqlschema.schemadto.ColumnDTO;
 import ch.nolix.system.sqlschema.schemadto.DataTypeDTO;
 import ch.nolix.system.sqlschema.schemadto.TableDTO;
