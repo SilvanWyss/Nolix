@@ -6,7 +6,7 @@ import ch.nolix.system.sqlintermediateschema.columnsystemtable.ColumnSystemTable
 import ch.nolix.system.sqlintermediateschema.columnsystemtable.ParametrizedPropertyTypeRecordMapper;
 import ch.nolix.system.sqlintermediateschema.databasepropertysystemtable.DatabaseProperty;
 import ch.nolix.system.sqlintermediateschema.databasepropertysystemtable.DatabasePropertySystemTableColumn;
-import ch.nolix.system.sqlintermediateschema.structure.SystemTable;
+import ch.nolix.system.sqlintermediateschema.structure.SystemDataTable;
 import ch.nolix.system.sqlintermediateschema.tablesystemtable.TableSystemTableColumn;
 import ch.nolix.system.sqlintermediateschema.tablesystemtable.TableSystemTableRecordMapper;
 import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.IColumnDTO;
@@ -34,7 +34,7 @@ final class SystemDataWriterSQLStatementCreator {
 		
 		return
 	    "INSERT INTO "
-		+ SystemTable.COLUMN.getName()
+		+ SystemDataTable.COLUMN.getName()
 		+ " VALUES ('"
 		+ tableName
 		+ "', '"
@@ -59,7 +59,7 @@ final class SystemDataWriterSQLStatementCreator {
 		
 		return
 	    "INSERT INTO "
-		+ SystemTable.TABLE.getNameWithPrefix()
+		+ SystemDataTable.TABLE.getNameWithPrefix()
 		+ " VALUES ("
 		+ tableSystemTableRecord.getNameValue()
 		+ ")";
@@ -69,7 +69,7 @@ final class SystemDataWriterSQLStatementCreator {
 	public String createStatementToDeleteColumn(final String tableName, final String columnHeader) {
 		return
 		"DELETE FROM "
-		+ SystemTable.COLUMN.getNameWithPrefix()
+		+ SystemDataTable.COLUMN.getNameWithPrefix()
 		+ " WHERE "
 		+ ColumnSystemTableColumn.TABLE.getName()
 		+ " = "
@@ -85,7 +85,7 @@ final class SystemDataWriterSQLStatementCreator {
 	public String createStatementToDeleteTable(final String tableName) {
 		return 
 		"DELETE FROM "
-		+ SystemTable.TABLE.getNameWithPrefix()
+		+ SystemDataTable.TABLE.getNameWithPrefix()
 		+ " WHERE "
 		+ TableSystemTableColumn.NAME
 		+ " = '"
@@ -97,7 +97,7 @@ final class SystemDataWriterSQLStatementCreator {
 	public String createStatementToSetColumnHeader(String tableName, String columnHeader, String newColumnHeader) {
 		return
 	    "UPDATE "
-		+ SystemTable.COLUMN.getNameWithPrefix()
+		+ SystemDataTable.COLUMN.getNameWithPrefix()
 		+ " SET "
 		+ ColumnSystemTableColumn.HEADER
 		+ " = '"
@@ -125,7 +125,7 @@ final class SystemDataWriterSQLStatementCreator {
 		
 		return
 		"UPDATE "
-		+ SystemTable.COLUMN.getNameWithPrefix()
+		+ SystemDataTable.COLUMN.getNameWithPrefix()
 		+ " SET "
 		+ ColumnSystemTableColumn.DATA_TYPE
 		+ " = "
@@ -153,7 +153,7 @@ final class SystemDataWriterSQLStatementCreator {
 	public String createStatementToSetSchemaTimestamp(Time schemaTimestamp) {
 		return
 		"UPDATE "
-		+ SystemTable.DATABASE_PROPERTY.getNameWithPrefix()
+		+ SystemDataTable.DATABASE_PROPERTY.getNameWithPrefix()
 		+ " SET "
 		+ DatabasePropertySystemTableColumn.VALUE.getLabel()
 		+ " = '"
@@ -168,7 +168,7 @@ final class SystemDataWriterSQLStatementCreator {
 	public String createStatementToSetTableName(String tableName, String newTableName) {
 		return
 		"UPDATE "
-		+ SystemTable.TABLE.getNameWithPrefix()
+		+ SystemDataTable.TABLE.getNameWithPrefix()
 		+ " SET "
 		+ TableSystemTableColumn.NAME.getLabel()
 		+ " = '"

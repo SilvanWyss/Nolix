@@ -8,7 +8,7 @@ import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.errorcontrol.validator.Validator;
 
 //enum
-public enum SystemTable implements Named {
+public enum SystemDataTable implements Named {
 	DATABASE_PROPERTY("DatabaseProperty"),
 	TABLE(PascalCaseCatalogue.TABLE),
 	COLUMN(PascalCaseCatalogue.COLUMN);
@@ -17,7 +17,7 @@ public enum SystemTable implements Named {
 	private final String name;
 	
 	//constructor
-	SystemTable(final String name) {
+	SystemDataTable(final String name) {
 		
 		Validator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
 		
