@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.sqlintermediateschema.schemaadapter;
+package ch.nolix.system.sqlintermediateschema.schemareader;
 
 //own imports
 import ch.nolix.common.container.LinkedList;
@@ -12,7 +12,7 @@ import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.techapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //class
-final class IntermediateSchemaReader implements IIntermediateSchemaReader {
+public final class IntermediateSchemaReader implements IIntermediateSchemaReader {
 	
 	//attribute
 	private final SQLConnection mSQLConnection;
