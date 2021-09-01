@@ -40,7 +40,7 @@ extends DatabaseSchemaAdapter<SQLDSA> {
 			mSQLConnection
 			.getRecords("SELECT content FROM " + DATABASE_PROPERTIES_TABLE_NAME + " WHERE name = 'State'")
 			.getRefOne()
-			.getRefOne()
+			.get(0)
 		);
 	}
 	

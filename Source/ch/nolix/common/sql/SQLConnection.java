@@ -5,6 +5,8 @@ package ch.nolix.common.sql;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 //own imports
 import ch.nolix.common.constant.IPv4Catalogue;
@@ -114,9 +116,9 @@ public abstract class SQLConnection implements AutoCloseable {
 	}
 	
 	//method
-	public final LinkedList<Record> getRecords(final String pSQLQuery) {
+	public final LinkedList<List<String>> getRecords(final String pSQLQuery) {
 		
-		final var records = new LinkedList<Record>();
+		final var records = new LinkedList<List<String>>();
 		try (final var statement = connection.createStatement()) {
 			
 			try (final var result = statement.executeQuery(pSQLQuery)) {
@@ -124,11 +126,11 @@ public abstract class SQLConnection implements AutoCloseable {
 				final var columnCount = result.getMetaData().getColumnCount();
 				
 				while (result.next()) {
-					final var values = new LinkedList<String>();
+					final var entries = new ArrayList<String>();
 					for (var i = 1; i <= columnCount; i++) {
-						values.addAtEnd(result.getString(i));
+						entries.add(result.getString(i));
 					}
-					records.addAtEnd(new Record(values));
+					records.addAtEnd(entries);
 				}
 			}
 		} catch (SQLException pSQLException) {

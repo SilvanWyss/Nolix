@@ -36,7 +36,7 @@ public abstract class SchemaReader implements ISchemaReader {
 		return
 		mSQLConnection
 		.getRecords(schemaQueryCreator.createQueryToLoadNameAndDataTypeOfColumns(tableName))
-		.to(r -> new ColumnDTO(r.getRefAt(1), new DataTypeDTO(r.getRefAt(2))));
+		.to(r -> new ColumnDTO(r.get(0), new DataTypeDTO(r.get(1))));
 	}
 	
 	//method
