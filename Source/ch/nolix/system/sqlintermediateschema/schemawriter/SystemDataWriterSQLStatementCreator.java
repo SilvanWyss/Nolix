@@ -71,11 +71,11 @@ final class SystemDataWriterSQLStatementCreator {
 		"DELETE FROM "
 		+ SystemDataTable.COLUMN.getNameWithPrefix()
 		+ " WHERE "
-		+ ColumnSystemTableColumn.TABLE.getName()
+		+ ColumnSystemTableColumn.TABLE.getLabel()
 		+ " = "
 		+ tableName
 		+ " AND "
-		+ ColumnSystemTableColumn.HEADER.getName()
+		+ ColumnSystemTableColumn.HEADER.getLabel()
 		+ " = '"
 		+ columnHeader
 		+ "'"; 
@@ -103,11 +103,11 @@ final class SystemDataWriterSQLStatementCreator {
 		+ " = '"
 		+ newColumnHeader
 		+ "' WHERE "
-		+ ColumnSystemTableColumn.TABLE.getName()
+		+ ColumnSystemTableColumn.TABLE.getLabel()
 		+ " = '"
 		+ tableName
 		+ "' AND "
-		+ ColumnSystemTableColumn.HEADER.getName()
+		+ ColumnSystemTableColumn.HEADER.getLabel()
 		+ " = '"
 		+ columnHeader
 		+ "'";
