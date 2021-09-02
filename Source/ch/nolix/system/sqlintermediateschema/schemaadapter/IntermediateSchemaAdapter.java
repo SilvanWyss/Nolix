@@ -17,8 +17,8 @@ public abstract class IntermediateSchemaAdapter implements IIntermediateSchemaAd
 	
 	//constructor
 	public IntermediateSchemaAdapter(final SQLConnection pSQLConnection, final ISchemaAdapter schemaAdapter) {
-		mSQLIntermediateSchemaReader = new IntermediateSchemaReader(pSQLConnection, schemaAdapter);
-		mSQLIntermediateSchemaWriter = new IntermediateSchemaWriter(pSQLConnection, schemaAdapter);
+		mSQLIntermediateSchemaReader = new IntermediateSchemaReader(pSQLConnection, schemaAdapter.getRefSchemaReader());
+		mSQLIntermediateSchemaWriter = new IntermediateSchemaWriter(pSQLConnection, schemaAdapter.getRefSchemaWriter());
 	}
 	
 	//method

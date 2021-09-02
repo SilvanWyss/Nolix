@@ -10,7 +10,7 @@ import ch.nolix.techapi.intermediateschemaapi.schemaadapterapi.IIntermediateSche
 import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
 import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.ITableDTO;
-import ch.nolix.techapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter;
+import ch.nolix.techapi.sqlschemaapi.schemaadapterapi.ISchemaWriter;
 
 //class
 public final class IntermediateSchemaWriter implements IIntermediateSchemaWriter {
@@ -21,13 +21,13 @@ public final class IntermediateSchemaWriter implements IIntermediateSchemaWriter
 	private final SQLConnection mSQLConnection;
 	
 	//constructor
-	public IntermediateSchemaWriter(final SQLConnection pSQLConnection, final ISchemaAdapter schemaAdapter) {
+	public IntermediateSchemaWriter(final SQLConnection pSQLConnection, final ISchemaWriter schemaWriter) {
 		
 		Validator.assertThat(pSQLConnection).thatIsNamed(SQLConnection.class).isNotNull();
 		
 		mSQLConnection = pSQLConnection;
 		systemDataWriter = new SystemDataWriter();
-		schemaWriter = new SchemaWriter(schemaAdapter.getRefSchemaWriter());		
+		this.schemaWriter = new SchemaWriter(schemaWriter);		
 	}
 	
 	//method
