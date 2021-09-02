@@ -32,6 +32,15 @@ public abstract class SchemaReader implements ISchemaReader {
 	
 	//method
 	@Override
+	public final boolean columnsIsEmpty(final String tableName, final String columnName) {
+		return
+		mSQLConnection
+		.getRecords(schemaQueryCreator.createQueryToLoadTopFirstRecordWhereColumnIsNotNull(tableName, columnName))
+		.isEmpty();
+	}
+	
+	//method
+	@Override
 	public final LinkedList<IColumnDTO> loadColumns(final String tableName) {
 		return
 		mSQLConnection

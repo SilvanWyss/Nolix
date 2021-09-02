@@ -9,4 +9,7 @@ public interface ISchemaQueryCreator {
 	
 	//method declaration
 	String createQueryToLoadNameOfTables();
+	
+	//method declaration
+	String createQueryToLoadTopFirstRecordWhereColumnIsNotNull(String tableName, String columnName);
 }

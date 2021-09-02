@@ -10,6 +10,9 @@ import ch.nolix.techapi.sqlschemaapi.schemadtoapi.IColumnDTO;
 public interface ISchemaReader {
 	
 	//method declaration
+	boolean columnsIsEmpty(String tableName, String columnName);
+	
+	//method declaration
 	LinkedList<IColumnDTO> loadColumns(String tableName);
 	
 	//method declaration
