@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.database.databaseadapter;
 
+//own imports
 import ch.nolix.common.attributeapi.mandatoryattributeapi.Headered;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
@@ -70,7 +71,8 @@ public final class Column<C> implements Headered {
 	public ch.nolix.system.databaseschema.databaseschemaadapter.Column toSchemaColumn(
 		final IContainer<ch.nolix.system.databaseschema.databaseschemaadapter.EntitySet> schemaEntitySets
 	) {
-		return new ch.nolix.system.databaseschema.databaseschemaadapter.Column(getHeader(), getSchemaDataType(schemaEntitySets));
+		return
+		new ch.nolix.system.databaseschema.databaseschemaadapter.Column(getHeader(), getSchemaDataType(schemaEntitySets));
 	}
 	
 	//method
