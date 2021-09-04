@@ -66,13 +66,6 @@ public final class SQLExecutor implements AutoCloseable, CloseStateRequestable {
 	}
 	
 	//method
-	private void assertIsOpen() {
-		if (isClosed()) {
-			throw new ClosedArgumentException(this);
-		}
-	}
-	
-	//method
 	private String getSQLStatementWithSemicolonAtEnd(String pSQLStatement) {
 		
 		if (!pSQLStatement.endsWith(";")) {

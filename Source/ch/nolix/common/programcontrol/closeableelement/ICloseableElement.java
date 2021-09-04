@@ -11,21 +11,9 @@ import ch.nolix.common.skillapi.Closeable;
 /**
  * @author Silvan Wyss
  * @date 2020-07-05
- * @lines 80
+ * @lines 70
  */
 public interface ICloseableElement extends Closeable {
-	
-	//method
-	/**
-	 * @throws ClosedArgumentException if the current {@link ICloseableElement} is closed.
-	 */
-	default void assertIsOpen() {
-		
-		//Asserts that the current ICloseableElement is open.
-		if (isClosed()) {
-			throw new ClosedArgumentException(this);
-		}
-	}
 	
 	//method
 	/**
