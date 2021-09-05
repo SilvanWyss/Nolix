@@ -5,7 +5,7 @@ package ch.nolix.common.programcontrol.groupcloseable;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.common.skillapi.Closeable;
+import ch.nolix.common.requestapi.CloseStateRequestable;
 
 //interface
 /**
@@ -13,13 +13,12 @@ import ch.nolix.common.skillapi.Closeable;
  * @date 2020-07-05
  * @lines 70
  */
-public interface GroupCloseable extends Closeable {
+public interface GroupCloseable extends CloseStateRequestable {
 	
 	//method
 	/**
-	 * {@inheritDoc}
+	 * Closes the current {@link GroupCloseable}.
 	 */
-	@Override
 	default void close() {
 		getRefCloseController().close();
 	}
