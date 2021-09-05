@@ -6,7 +6,7 @@ import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.chainednode.ChainedNode;
-import ch.nolix.common.programcontrol.closeableelement.CloseController;
+import ch.nolix.common.programcontrol.groupcloseable.CloseController;
 import ch.nolix.element.base.MutableSpecificationValueExtractor;
 import ch.nolix.element.configuration.Configuration;
 import ch.nolix.element.elementenum.RotationDirection;

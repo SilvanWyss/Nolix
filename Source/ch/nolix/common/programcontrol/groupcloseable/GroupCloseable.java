@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.common.programcontrol.closeableelement;
+package ch.nolix.common.programcontrol.groupcloseable;
 
 //own imports
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -13,7 +13,7 @@ import ch.nolix.common.skillapi.Closeable;
  * @date 2020-07-05
  * @lines 70
  */
-public interface ICloseableElement extends Closeable {
+public interface GroupCloseable extends Closeable {
 	
 	//method
 	/**
@@ -26,32 +26,32 @@ public interface ICloseableElement extends Closeable {
 	
 	//method
 	/**
-	 * Adds a close dependency between the current {@link ICloseableElement} and the given element.
+	 * Adds a close dependency between the current {@link GroupCloseable} and the given element.
 	 * 
-	 * When a {@link ICloseableElement} is closed all of its close dependencies will be closed too and vice versa.
+	 * When a {@link GroupCloseable} is closed all of its close dependencies will be closed too and vice versa.
 	 * 
 	 * @param element
 	 * @throws ArgumentIsNullException if the given element is null.
-	 * @throws ClosedArgumentException if the current {@link ICloseableElement} is closed.
+	 * @throws ClosedArgumentException if the current {@link GroupCloseable} is closed.
 	 * @throws InvalidArgumentException
-	 * if the current {@link ICloseableElement} has already a close dependency to the given element.
+	 * if the current {@link GroupCloseable} has already a close dependency to the given element.
 	 */
-	default void createCloseDependencyTo(final ICloseableElement element) {
+	default void createCloseDependencyTo(final GroupCloseable element) {
 		getRefCloseController().createCloseDependencyTo(element);
 	}
 	
 	//method declaration
 	/**
-	 * @return the {@link CloseController} of the current {@link ICloseableElement}.
+	 * @return the {@link CloseController} of the current {@link GroupCloseable}.
 	 */
 	CloseController getRefCloseController();
 	
 	//method
 	/**
 	 * @param element
-	 * @return true if the current {@link ICloseableElement} has a close dependency to the given element.
+	 * @return true if the current {@link GroupCloseable} has a close dependency to the given element.
 	 */
-	default boolean hasCloseDependencyTo(final ICloseableElement element) {
+	default boolean hasCloseDependencyTo(final GroupCloseable element) {
 		return getRefCloseController().hasCloseDependencyTo(element);
 	}
 	
@@ -66,7 +66,7 @@ public interface ICloseableElement extends Closeable {
 	
 	//method declaration
 	/**
-	 * Lets the current {@link ICloseableElement} note a close.
+	 * Lets the current {@link GroupCloseable} note a close.
 	 */
 	void noteClose();
 }

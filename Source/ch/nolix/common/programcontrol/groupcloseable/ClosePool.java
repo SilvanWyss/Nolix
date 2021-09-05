@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.common.programcontrol.closeableelement;
+package ch.nolix.common.programcontrol.groupcloseable;
 
 //own imports
 import ch.nolix.common.constant.LowerCaseCatalogue;
@@ -24,7 +24,7 @@ final class ClosePool {
 	private boolean closing;
 	
 	//multi-attribute
-	private final LinkedList<ICloseableElement> elements = new LinkedList<>();
+	private final LinkedList<GroupCloseable> elements = new LinkedList<>();
 	
 	//constructor
 	/**
@@ -32,7 +32,7 @@ final class ClosePool {
 	 * 
 	 * @param element
 	 */
-	public ClosePool(final ICloseableElement element) {
+	public ClosePool(final GroupCloseable element) {
 		elements.addAtEnd(element);
 	}
 	
@@ -45,7 +45,7 @@ final class ClosePool {
 	 * @throws InvalidArgumentException if the current {@link ClosePool} is not open.
 	 * @throws InvalidArgumentException if the current {@link ClosePool} contains already the given element.
 	 */
-	public void add(final ICloseableElement element) {
+	public void add(final GroupCloseable element) {
 		
 		//Asserts that the given element is not null.
 		Validator.assertThat(element).thatIsNamed(LowerCaseCatalogue.ELEMENT).isNotNull();
@@ -103,7 +103,7 @@ final class ClosePool {
 	 * @param element
 	 * @return if the current {@link ClosePool} contains the given element.
 	 */
-	public boolean contains(final ICloseableElement element) {
+	public boolean contains(final GroupCloseable element) {
 		return elements.contains(element);
 	}
 	
@@ -111,7 +111,7 @@ final class ClosePool {
 	/**
 	 * @return the elements of the current {@link ClosePool}.
 	 */
-	public IContainer<ICloseableElement> getRefElements() {
+	public IContainer<GroupCloseable> getRefElements() {
 		return elements;
 	}
 	
@@ -120,7 +120,7 @@ final class ClosePool {
 	 * @param element
 	 * @throws InvalidArgumentException if the current {@link ClosePool} contains already the given element.
 	 */
-	private void assertDoesNotContain(final ICloseableElement element) {
+	private void assertDoesNotContain(final GroupCloseable element) {
 		
 		//Asserts that the current ClosePool does not contain the given element.
 		if (contains(element)) {
@@ -146,7 +146,7 @@ final class ClosePool {
 	 * 
 	 * @param closeableElement
 	 */
-	private void closeSafely(final ICloseableElement closeableElement) {
+	private void closeSafely(final GroupCloseable closeableElement) {
 		try {
 			closeableElement.noteClose();
 		} catch (final Exception exception) {

@@ -12,7 +12,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullExcep
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.constant.LowerCaseCatalogue;
-import ch.nolix.common.programcontrol.closeableelement.CloseController;
+import ch.nolix.common.programcontrol.groupcloseable.CloseController;
 import ch.nolix.common.programcontrol.processproperty.ChangeState;
 import ch.nolix.common.skillapi.Recalculable;
 import ch.nolix.common.state.Visibility;

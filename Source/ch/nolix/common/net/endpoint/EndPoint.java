@@ -10,8 +10,8 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ClosedArgumentExcep
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.functionapi.IElementTaker;
-import ch.nolix.common.programcontrol.closeableelement.CloseController;
-import ch.nolix.common.programcontrol.closeableelement.ICloseableElement;
+import ch.nolix.common.programcontrol.groupcloseable.CloseController;
+import ch.nolix.common.programcontrol.groupcloseable.GroupCloseable;
 import ch.nolix.common.programcontrol.processproperty.ConnectionOrigin;
 import ch.nolix.common.programcontrol.sequencer.Sequencer;
 
@@ -24,7 +24,7 @@ import ch.nolix.common.programcontrol.sequencer.Sequencer;
  * @date 2017-05-06
  * @lines 220
  */
-public abstract class EndPoint implements ICloseableElement {
+public abstract class EndPoint implements GroupCloseable {
 	
 	//attributes
 	private final boolean requestedConnection;

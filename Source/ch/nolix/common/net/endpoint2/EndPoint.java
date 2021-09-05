@@ -6,8 +6,8 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHave
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.functionapi.IElementTakerElementGetter;
-import ch.nolix.common.programcontrol.closeableelement.CloseController;
-import ch.nolix.common.programcontrol.closeableelement.ICloseableElement;
+import ch.nolix.common.programcontrol.groupcloseable.CloseController;
+import ch.nolix.common.programcontrol.groupcloseable.GroupCloseable;
 
 //class
 /**
@@ -18,7 +18,7 @@ import ch.nolix.common.programcontrol.closeableelement.ICloseableElement;
  * @date 2017-05-21
  * @lines 110
  */
-public abstract class EndPoint implements ICloseableElement {
+public abstract class EndPoint implements GroupCloseable {
 	
 	//constant
 	private static final long REPLIER_GETTING_DELAY_IN_MILLISECONDS = 5000;

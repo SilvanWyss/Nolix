@@ -19,7 +19,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentExce
 import ch.nolix.common.errorcontrol.logger.Logger;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.net.controllerapi.IDataProviderController;
-import ch.nolix.common.programcontrol.closeableelement.ICloseableElement;
+import ch.nolix.common.programcontrol.groupcloseable.GroupCloseable;
 import ch.nolix.system.client.base.Server;
 
 //class
@@ -137,7 +137,7 @@ public class NetEndPoint extends EndPoint {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void createCloseDependencyTo(final ICloseableElement element) {
+	public final void createCloseDependencyTo(final GroupCloseable element) {
 		
 		//This implementation just ensures that it cannot be overwritten.
 		super.createCloseDependencyTo(element);

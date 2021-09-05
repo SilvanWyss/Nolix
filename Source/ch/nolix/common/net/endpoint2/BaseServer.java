@@ -6,8 +6,8 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.common.programcontrol.closeableelement.CloseController;
-import ch.nolix.common.programcontrol.closeableelement.ICloseableElement;
+import ch.nolix.common.programcontrol.groupcloseable.CloseController;
+import ch.nolix.common.programcontrol.groupcloseable.GroupCloseable;
 
 //class
 /**
@@ -18,7 +18,7 @@ import ch.nolix.common.programcontrol.closeableelement.ICloseableElement;
  * @date 2017-03-05
  * @lines 200
  */
-public abstract class BaseServer implements ICloseableElement {
+public abstract class BaseServer implements GroupCloseable {
 	
 	//attribute
 	private final CloseController closeController = new CloseController(this);

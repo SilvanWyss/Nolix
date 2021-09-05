@@ -3,7 +3,7 @@ package ch.nolix.element.gui.baseapi;
 
 //own imports
 import ch.nolix.common.attributeapi.mutablemandatoryattributeapi.Titleble;
-import ch.nolix.common.programcontrol.closeableelement.ICloseableElement;
+import ch.nolix.common.programcontrol.groupcloseable.GroupCloseable;
 import ch.nolix.common.rasterapi.Rectangular;
 import ch.nolix.common.skillapi.Refreshable;
 import ch.nolix.element.gui.base.CursorIcon;
@@ -19,7 +19,7 @@ import ch.nolix.element.gui.input.IResizableInputTaker;
  * @param <G> is the type of a {@link IBaseGUI}.
  */
 public interface IBaseGUI<G extends IBaseGUI<G>>
-extends ICloseableElement, IResizableInputTaker, Rectangular, Refreshable, Titleble<G> {
+extends GroupCloseable, IResizableInputTaker, Rectangular, Refreshable, Titleble<G> {
 	
 	//method declaration
 	/**

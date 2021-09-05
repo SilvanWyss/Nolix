@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.common.programcontrol.closeableelement;
+package ch.nolix.common.programcontrol.groupcloseable;
 
 //own imports
 import ch.nolix.common.container.IContainer;
@@ -26,7 +26,7 @@ public final class CloseController {
 	 * @param element
 	 * @throws ArgumentIsNullException if the given element is null.
 	 */
-	public CloseController(final ICloseableElement element) {
+	public CloseController(final GroupCloseable element) {
 		parentClosePool = new ClosePool(element);
 	}
 	
@@ -50,7 +50,7 @@ public final class CloseController {
 	 * @throws InvalidArgumentException
 	 * if the current {@link CloseController} has already a close dependency to the given element.
 	 */
-	void createCloseDependencyTo(ICloseableElement element) {
+	void createCloseDependencyTo(GroupCloseable element) {
 		parentClosePool.add(element);
 	}
 	
@@ -58,7 +58,7 @@ public final class CloseController {
 	/**
 	 * @return the close dependencies of the current {@link CloseController}.
 	 */
-	IContainer<ICloseableElement> getRefCloseDependencies() {
+	IContainer<GroupCloseable> getRefCloseDependencies() {
 		return parentClosePool.getRefElements();
 	}
 	
@@ -75,7 +75,7 @@ public final class CloseController {
 	 * @param element
 	 * @return true if the current {@link CloseController} has a close dependency to the given element.
 	 */
-	boolean hasCloseDependencyTo(final ICloseableElement element) {
+	boolean hasCloseDependencyTo(final GroupCloseable element) {
 		return parentClosePool.contains(element);
 	}
 	

@@ -6,7 +6,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ClosedArgumentExcep
 import ch.nolix.common.errorcontrol.invalidargumentexception.DeletedArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.NewArgumentException;
-import ch.nolix.common.programcontrol.closeableelement.CloseController;
+import ch.nolix.common.programcontrol.groupcloseable.CloseController;
 import ch.nolix.techapi.databasecommonapi.databaseobjectapi.DatabaseObjectState;
 import ch.nolix.techapi.databasecommonapi.databaseobjectapi.IDatabaseObject;
 

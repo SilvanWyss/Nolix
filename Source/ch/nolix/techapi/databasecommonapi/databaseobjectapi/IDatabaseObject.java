@@ -1,11 +1,10 @@
 //package
 package ch.nolix.techapi.databasecommonapi.databaseobjectapi;
 
-//own imports
-import ch.nolix.common.programcontrol.closeableelement.ICloseableElement;
+import ch.nolix.common.programcontrol.groupcloseable.GroupCloseable;
 
 //interface
-public interface IDatabaseObject extends ICloseableElement {
+public interface IDatabaseObject extends GroupCloseable {
 	
 	//method declaration
 	DatabaseObjectState getState();

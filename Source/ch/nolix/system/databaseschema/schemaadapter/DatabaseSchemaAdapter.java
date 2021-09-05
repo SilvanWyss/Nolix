@@ -3,7 +3,7 @@ package ch.nolix.system.databaseschema.schemaadapter;
 
 //own imports
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.programcontrol.closeableelement.CloseController;
+import ch.nolix.common.programcontrol.groupcloseable.CloseController;
 import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedPropertyType;
 import ch.nolix.system.databaseschema.schema.Column;
 import ch.nolix.system.databaseschema.schema.Database;

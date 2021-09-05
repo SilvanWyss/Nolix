@@ -10,8 +10,8 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullExcep
 import ch.nolix.common.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.net.controllerapi.IDataProviderController;
-import ch.nolix.common.programcontrol.closeableelement.CloseController;
-import ch.nolix.common.programcontrol.closeableelement.ICloseableElement;
+import ch.nolix.common.programcontrol.groupcloseable.CloseController;
+import ch.nolix.common.programcontrol.groupcloseable.GroupCloseable;
 import ch.nolix.common.programcontrol.sequencer.Sequencer;
 
 //class
@@ -22,7 +22,7 @@ import ch.nolix.common.programcontrol.sequencer.Sequencer;
  * @date 2016-01-01
  * @lines 200
  */
-public abstract class EndPoint implements ICloseableElement, IDataProviderController {
+public abstract class EndPoint implements GroupCloseable, IDataProviderController {
 	
 	//attribute
 	private final CloseController closeController = new CloseController(this);

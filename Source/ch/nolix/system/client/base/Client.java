@@ -19,8 +19,8 @@ import ch.nolix.common.generalskillapi.TypeRequestable;
 import ch.nolix.common.net.endpoint3.EndPoint;
 import ch.nolix.common.net.endpoint3.LocalEndPoint;
 import ch.nolix.common.net.endpoint3.NetEndPoint;
-import ch.nolix.common.programcontrol.closeableelement.CloseController;
-import ch.nolix.common.programcontrol.closeableelement.ICloseableElement;
+import ch.nolix.common.programcontrol.groupcloseable.CloseController;
+import ch.nolix.common.programcontrol.groupcloseable.GroupCloseable;
 import ch.nolix.common.programcontrol.sequencer.Sequencer;
 
 //class
@@ -33,7 +33,7 @@ import ch.nolix.common.programcontrol.sequencer.Sequencer;
  * @param <C> is the type of a {@link Client}.
  */
 public abstract class Client<C extends Client<C>>
-implements ICloseableElement, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
+implements GroupCloseable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
 	
 	//constants
 	protected static final String SESSION_USER_RUN_METHOD_HEADER = "SessionUserRunMethod";
