@@ -5,10 +5,11 @@ package ch.nolix.common.testing.basetest;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
+//own imports
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.independent.independentcontainer.List;
-import ch.nolix.common.skillapi.Closeable;
+import ch.nolix.common.programcontrol.groupcloseable.GroupCloseable;
 
 //class
 /**
@@ -78,9 +79,9 @@ public abstract class BaseTest {
 	 * 
 	 * @param element
 	 */
-	protected final void registerToClose(final Closeable element) {
+	protected final void registerToClose(final GroupCloseable element) {
 		if (element != null) {
-			registerToClose(element.asAutoClosable());
+			registerToClose(element::close);
 		}
 	}
 	
