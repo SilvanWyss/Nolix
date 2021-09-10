@@ -9,7 +9,7 @@ import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.IParametrizedProperty
 import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.ITableDTO;
 
 //interface
-public interface IIntermediateSchemaWriter extends IChangeSaver {
+public interface ISchemaWriter extends IChangeSaver {
 	
 	//method declaration
 	void addColumn(String tableName, IColumnDTO column);

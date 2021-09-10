@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.databaseschema.schema;
 
-import ch.nolix.techapi.intermediateschemaapi.schemaadapterapi.IIntermediateSchemaAdapter;
+import ch.nolix.techapi.intermediateschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //class
 final class IntermediateSchemaAdapter {
@@ -11,7 +11,7 @@ final class IntermediateSchemaAdapter {
 	private final IntermediateSchemaWriter intermediateSchemaWriter;
 	
 	//constructor
-	public IntermediateSchemaAdapter(final IIntermediateSchemaAdapter internalIIntermediateSchemaAdapter) {
+	public IntermediateSchemaAdapter(final ISchemaAdapter internalIIntermediateSchemaAdapter) {
 		
 		intermediateSchemaReader =
 		new IntermediateSchemaReader(internalIIntermediateSchemaAdapter.getRefIntermediateSchemaReader());

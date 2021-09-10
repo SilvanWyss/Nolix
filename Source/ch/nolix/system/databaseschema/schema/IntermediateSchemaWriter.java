@@ -7,16 +7,16 @@ import ch.nolix.element.time.base.Time;
 import ch.nolix.techapi.databaseschemaapi.schemaapi.IColumn;
 import ch.nolix.techapi.databaseschemaapi.schemaapi.IParametrizedPropertyType;
 import ch.nolix.techapi.databaseschemaapi.schemaapi.ITable;
-import ch.nolix.techapi.intermediateschemaapi.schemaadapterapi.IIntermediateSchemaWriter;
+import ch.nolix.techapi.intermediateschemaapi.schemaadapterapi.ISchemaWriter;
 
 //class
 final class IntermediateSchemaWriter {
 	
 	//attribute
-	private final IIntermediateSchemaWriter internalIntermediateSchemaWriter;
+	private final ISchemaWriter internalIntermediateSchemaWriter;
 	
 	//constructor
-	public IntermediateSchemaWriter(final IIntermediateSchemaWriter internalIntermediateSchemaWriter) {
+	public IntermediateSchemaWriter(final ISchemaWriter internalIntermediateSchemaWriter) {
 		
 		Validator
 		.assertThat(internalIntermediateSchemaWriter)

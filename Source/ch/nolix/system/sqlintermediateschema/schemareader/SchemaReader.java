@@ -10,12 +10,11 @@ import ch.nolix.system.databaseschema.flatschemadto.FlatTableDTO;
 import ch.nolix.system.sqlintermediateschema.columnsystemtable.ColumnDTOMapper;
 import ch.nolix.system.sqlintermediateschema.structure.TableType;
 import ch.nolix.techapi.intermediateschemaapi.flatschemadtoapi.IFlatTableDTO;
-import ch.nolix.techapi.intermediateschemaapi.schemaadapterapi.IIntermediateSchemaReader;
+import ch.nolix.techapi.intermediateschemaapi.schemaadapterapi.ISchemaReader;
 import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.IColumnDTO;
-import ch.nolix.techapi.sqlschemaapi.schemaadapterapi.ISchemaReader;
 
 //class
-public final class IntermediateSchemaReader implements IIntermediateSchemaReader {
+public final class SchemaReader implements ISchemaReader {
 	
 	//static attributes
 	private static final QueryCreator queryCreator = new QueryCreator();
@@ -23,10 +22,13 @@ public final class IntermediateSchemaReader implements IIntermediateSchemaReader
 	
 	//attributes
 	private final SQLConnection mSQLConnection;
-	private final ISchemaReader schemaReader;
+	private final ch.nolix.techapi.sqlschemaapi.schemaadapterapi.ISchemaReader schemaReader;
 	
 	//constructor
-	public IntermediateSchemaReader(final SQLConnection pSQLConnection, final ISchemaReader schemaReader) {
+	public SchemaReader(
+		final SQLConnection pSQLConnection,
+		final ch.nolix.techapi.sqlschemaapi.schemaadapterapi.ISchemaReader schemaReader
+	) {
 		
 		Validator.assertThat(pSQLConnection).thatIsNamed(SQLConnection.class).isNotNull();
 		Validator.assertThat(schemaReader).thatIsNamed(ISchemaReader.class).isNotNull();

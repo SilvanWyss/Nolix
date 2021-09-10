@@ -8,17 +8,17 @@ import ch.nolix.element.time.base.Time;
 import ch.nolix.techapi.databaseschemaapi.schemaapi.IColumn;
 import ch.nolix.techapi.databaseschemaapi.schemaapi.ITable;
 import ch.nolix.techapi.intermediateschemaapi.flatschemadtoapi.IFlatTableDTO;
-import ch.nolix.techapi.intermediateschemaapi.schemaadapterapi.IIntermediateSchemaReader;
+import ch.nolix.techapi.intermediateschemaapi.schemaadapterapi.ISchemaReader;
 import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.IColumnDTO;
 
 //class
 final class IntermediateSchemaReader {
 	
 	//attribute
-	private final IIntermediateSchemaReader internalIntermediateSchemaReader;
+	private final ISchemaReader internalIntermediateSchemaReader;
 	
 	//constructor
-	public IntermediateSchemaReader(final IIntermediateSchemaReader internalIntermediateSchemaReader) {
+	public IntermediateSchemaReader(final ISchemaReader internalIntermediateSchemaReader) {
 		
 		Validator
 		.assertThat(internalIntermediateSchemaReader)

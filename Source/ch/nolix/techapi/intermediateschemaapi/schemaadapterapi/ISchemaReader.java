@@ -8,7 +8,7 @@ import ch.nolix.techapi.intermediateschemaapi.flatschemadtoapi.IFlatTableDTO;
 import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.IColumnDTO;
 
 //interface
-public interface IIntermediateSchemaReader {
+public interface ISchemaReader {
 	
 	//method declaration
 	boolean columnIsEmpty(String tableName, String columnHeader);

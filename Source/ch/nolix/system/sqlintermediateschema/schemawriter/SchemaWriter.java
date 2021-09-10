@@ -2,79 +2,107 @@
 package ch.nolix.system.sqlintermediateschema.schemawriter;
 
 //own imports
-import ch.nolix.common.container.IContainer;
+import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.requestapi.ChangeRequestable;
-import ch.nolix.system.sqlintermediateschema.structure.TableType;
+import ch.nolix.common.sql.SQLConnection;
+import ch.nolix.element.time.base.Time;
+import ch.nolix.techapi.intermediateschemaapi.schemaadapterapi.ISchemaWriter;
 import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.IColumnDTO;
+import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
 import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.ITableDTO;
-import ch.nolix.techapi.sqlschemaapi.schemaadapterapi.ISchemaWriter;
 
 //class
-final class SchemaWriter implements ChangeRequestable {
+public final class SchemaWriter implements ISchemaWriter {
 	
-	//static attribute
-	private static final SchemaDTOMapper schemaDTOMapper = new SchemaDTOMapper();
-	
-	//attribute
-	private final ISchemaWriter internalSchemaWriter;
+	//attributes
+	private final SystemDataWriter systemDataWriter;
+	private final InternalSchemaWriter internalSchemaWriter;
+	private final SQLConnection mSQLConnection;
 	
 	//constructor
-	public SchemaWriter(final ISchemaWriter internalSchemaWriter) {
+	public SchemaWriter(
+		final SQLConnection pSQLConnection,
+		final ch.nolix.techapi.sqlschemaapi.schemaadapterapi.ISchemaWriter schemaWriter
+	) {
 		
-		Validator.assertThat(internalSchemaWriter).thatIsNamed("internal schema writer").isNotNull();
+		Validator.assertThat(pSQLConnection).thatIsNamed(SQLConnection.class).isNotNull();
 		
-		this.internalSchemaWriter = internalSchemaWriter;
+		mSQLConnection = pSQLConnection;
+		systemDataWriter = new SystemDataWriter();
+		this.internalSchemaWriter = new InternalSchemaWriter(schemaWriter);		
 	}
 	
 	//method
+	@Override
 	public void addColumn(final String tableName, final IColumnDTO column) {
-		internalSchemaWriter.addColumn(
-			TableType.CONTENT_DATA.getPrefix() + tableName,
-			schemaDTOMapper.createSQLColumnDTOFrom(column)
-		);
+		systemDataWriter.addColumn(tableName, column);
+		internalSchemaWriter.addColumn(tableName, column);
 	}
 	
 	//method
+	@Override
 	public void addTable(final ITableDTO table) {
-		internalSchemaWriter.addTable(schemaDTOMapper.createSQLTableDTOFrom(table));
+		systemDataWriter.addTable(table);
+		internalSchemaWriter.addTable(table);
 	}
 	
 	//method
+	@Override
 	public void deleteColumn(final String tableName, final String columnHeader) {
-		internalSchemaWriter.deleteColumn(TableType.CONTENT_DATA.getPrefix() + tableName, columnHeader);
+		systemDataWriter.deleteColumn(tableName, columnHeader);
+		internalSchemaWriter.deleteColumn(tableName, columnHeader);
 	}
 	
 	//method
+	@Override
 	public void deleteTable(final String tableName) {
-		internalSchemaWriter.deleteTable(TableType.CONTENT_DATA.getPrefix() + tableName);
-	}
-	
-	//method
-	public IContainer<String> getSQLStatements() {
-		return internalSchemaWriter.getSQLStatements();
+		systemDataWriter.deleteTable(tableName);
+		internalSchemaWriter.deleteTable(tableName);
 	}
 	
 	//method
 	@Override
 	public boolean hasChanges() {
-		return internalSchemaWriter.hasChanges();
+		return (systemDataWriter.hasChanges() || internalSchemaWriter.hasChanges());
 	}
 	
 	//method
+	@Override
+	public void saveChanges() {
+		
+		final ReadContainer<String> lSQLStatements =
+		ReadContainer.forIterables(systemDataWriter.getSQLStatements(), internalSchemaWriter.getSQLStatements());
+		
+		mSQLConnection.execute(lSQLStatements);
+	}
+	
+	//method
+	@Override
 	public void setColumnHeader(final String tableName, final String columnHeader, final String newColumnHeader) {
-		internalSchemaWriter.renameColumn(
-			TableType.CONTENT_DATA.getPrefix() + tableName,
-			columnHeader,
-			newColumnHeader
-		);
+		systemDataWriter.setColumnHeader(tableName, columnHeader, newColumnHeader);
+		internalSchemaWriter.setColumnHeader(tableName, columnHeader, newColumnHeader);
 	}
 	
 	//method
+	@Override
+	public void setColumnParametrizedPropertyType(
+		final String tableName,
+		final String columnHeader,
+		final IParametrizedPropertyTypeDTO parametrizedPropertyType
+	) {
+		systemDataWriter.setColumnParametrizedPropertyType(tableName, columnHeader, parametrizedPropertyType);
+	}
+	
+	//method
+	@Override
+	public void setSchemaTimestamp(final Time schemaTimestamp) {
+		systemDataWriter.setSchemaTimestamp(schemaTimestamp);
+	}
+	
+	//method
+	@Override
 	public void setTableName(final String tableName, final String newTableName) {
-		internalSchemaWriter.renameTable(
-			TableType.CONTENT_DATA.getPrefix() + tableName,
-			TableType.CONTENT_DATA.getPrefix() + newTableName
-		);
+		systemDataWriter.setTableName(tableName, newTableName);
+		internalSchemaWriter.setTableName(tableName, newTableName);
 	}
 }

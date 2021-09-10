@@ -9,7 +9,7 @@ import ch.nolix.system.databaseschema.schema.Column;
 import ch.nolix.system.databaseschema.schema.Database;
 import ch.nolix.system.databaseschema.schema.Table;
 import ch.nolix.techapi.databaseschemaapi.extendedschemaadapterapi.IExtendedDatabaseSchemaAdapter;
-import ch.nolix.techapi.intermediateschemaapi.schemaadapterapi.IIntermediateSchemaAdapter;
+import ch.nolix.techapi.intermediateschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //class
 public abstract class DatabaseSchemaAdapter implements IExtendedDatabaseSchemaAdapter<
@@ -65,7 +65,7 @@ public abstract class DatabaseSchemaAdapter implements IExtendedDatabaseSchemaAd
 	}
 	
 	//method declaration
-	protected abstract IIntermediateSchemaAdapter createIntermediateSchemaAdapter();
+	protected abstract ISchemaAdapter createIntermediateSchemaAdapter();
 	
 	//method
 	private void initializeSession() {

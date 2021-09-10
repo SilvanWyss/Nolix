@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.system.sqlintermediateschema.schemaadapter} package defines
- * a {@link ch.nolix.techapi.intermediateschemaapi.schemaadapterapi.IIntermediateSchemaWriter}.
+ * a {@link ch.nolix.techapi.intermediateschemaapi.schemaadapterapi.ISchemaWriter}.
  * 
  * @author Silvan Wyss
  * @date 2021-08-29
