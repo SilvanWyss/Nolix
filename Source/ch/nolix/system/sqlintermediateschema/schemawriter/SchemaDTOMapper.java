@@ -2,9 +2,9 @@
 package ch.nolix.system.sqlintermediateschema.schemawriter;
 
 //own imports
+import ch.nolix.system.sqlintermediateschema.structure.SQLDatatypeCatalogue;
 import ch.nolix.system.sqlintermediateschema.structure.TableType;
 import ch.nolix.system.sqlschema.schemadto.ColumnDTO;
-import ch.nolix.system.sqlschema.schemadto.DataTypeDTO;
 import ch.nolix.system.sqlschema.schemadto.TableDTO;
 import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.ITableDTO;
@@ -12,12 +12,9 @@ import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.ITableDTO;
 //class
 final class SchemaDTOMapper {
 	
-	//constant
-	private static final DataTypeDTO TEXT_DATA_TYPE =  new DataTypeDTO("NVARCHAR", "MAX");
-	
 	//method
 	public ColumnDTO createSQLColumnDTOFrom(final IColumnDTO column) {
-		return new ColumnDTO(column.getHeader(), TEXT_DATA_TYPE);
+		return new ColumnDTO(column.getHeader(), SQLDatatypeCatalogue.TEXT_DATA_TYPE);
 	}
 	
 	//method
