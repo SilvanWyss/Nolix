@@ -17,7 +17,7 @@ import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.IColumnDTO;
 //class
 public final class ColumnDTOMapper {
 	
-	//mehtod
+	//method
 	public IColumnDTO createColumnDTO(final List<String> columnSystemTableRecord) {
 		switch (PropertyType.valueOf(columnSystemTableRecord.get(2)).getBaseType()) {
 			case BASE_VALUE:

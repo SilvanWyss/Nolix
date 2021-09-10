@@ -6,9 +6,9 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.sql.SQLConnection;
 import ch.nolix.element.time.base.Time;
-import ch.nolix.system.databaseschema.flatschemadto.FlatTableDTO;
 import ch.nolix.system.sqlintermediateschema.columnsystemtable.ColumnDTOMapper;
 import ch.nolix.system.sqlintermediateschema.structure.TableType;
+import ch.nolix.system.sqlintermediateschema.tablesystemtable.TableDTOMapper;
 import ch.nolix.techapi.intermediateschemaapi.flatschemadtoapi.IFlatTableDTO;
 import ch.nolix.techapi.intermediateschemaapi.schemaadapterapi.ISchemaReader;
 import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.IColumnDTO;
@@ -18,6 +18,7 @@ public final class SchemaReader implements ISchemaReader {
 	
 	//static attributes
 	private static final QueryCreator queryCreator = new QueryCreator();
+	private static final TableDTOMapper tableDTOMapper = new TableDTOMapper();
 	private static final ColumnDTOMapper columnDTOMapper = new ColumnDTOMapper();
 	
 	//attributes
@@ -58,7 +59,7 @@ public final class SchemaReader implements ISchemaReader {
 		return
 		mSQLConnection
 		.getRecords(queryCreator.createQueryToLoadFlatTables())
-		.to(r -> new FlatTableDTO(r.get(0)));
+		.to(tableDTOMapper::createTableDTO);
 	}
 	
 	//method
