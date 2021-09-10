@@ -7,7 +7,7 @@ package ch.nolix.common.constant;
  * 
  * @author Silvan Wyss
  * @date 2018-03-24
- * @lines 200
+ * @lines 210
  */
 public final class PluralLowerCaseCatalogue {
 	
@@ -187,6 +187,7 @@ public final class PluralLowerCaseCatalogue {
 	public static final String TIMEOUTS_IN_MILLISECONDS = "timeouts in milliseconds";
 	public static final String TIMEOUTS_IN_NANOSECONDS = "timeouts in nanoseconds";
 	public static final String TIMEOUTS_IN_SECONDS = "timeouts in seconds";
+	public static final String TIMESTAMPS = "timestamps";
 	public static final String TIMES = "times";
 	public static final String TITLES = "titles";
 	public static final String TOKENS = "tokens";
