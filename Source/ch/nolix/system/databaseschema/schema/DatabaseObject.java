@@ -7,11 +7,12 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.DeletedArgumentExce
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.NewArgumentException;
 import ch.nolix.common.programcontrol.groupcloseable.CloseController;
+import ch.nolix.common.programcontrol.groupcloseable.GroupCloseable;
 import ch.nolix.techapi.databasecommonapi.databaseobjectapi.DatabaseObjectState;
-import ch.nolix.techapi.databasecommonapi.databaseobjectapi.IDatabaseObject;
+import ch.nolix.techapi.databasecommonapi.databaseobjectapi.IExtendedDatabaseObject;
 
 //class
-abstract class DatabaseObject implements IDatabaseObject {
+abstract class DatabaseObject implements GroupCloseable, IExtendedDatabaseObject {
 	
 	//attributes
 	private final CloseController closeController = new CloseController(this);

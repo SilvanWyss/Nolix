@@ -1,10 +1,11 @@
 //package
 package ch.nolix.techapi.databasecommonapi.databaseobjectapi;
 
-import ch.nolix.common.programcontrol.groupcloseable.GroupCloseable;
+//own imports
+import ch.nolix.common.requestapi.CloseStateRequestable;
 
 //interface
-public interface IDatabaseObject extends GroupCloseable {
+public interface IDatabaseObject extends CloseStateRequestable {
 	
 	//method declaration
 	DatabaseObjectState getState();
