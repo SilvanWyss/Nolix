@@ -17,4 +17,7 @@ public interface ISchemaReader {
 	
 	//method declaration
 	LinkedList<IFlatTableDTO> loadFlatTables();
+	
+	//method declaration
+	boolean tableExists(String tableName);
 }

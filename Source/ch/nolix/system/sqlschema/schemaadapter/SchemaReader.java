@@ -56,4 +56,13 @@ public abstract class SchemaReader implements ISchemaReader {
 		.getRecordsAsStrings(schemaQueryCreator.createQueryToLoadNameOfTables())
 		.to(FlatTableDTO::new);
 	}
+	
+	//method
+	@Override
+	public boolean tableExists(String tableName) {
+		return
+		mSQLConnection
+		.getRecords(schemaQueryCreator.createQueryToLoadTable(tableName))
+		.containsAny();
+	}
 }
