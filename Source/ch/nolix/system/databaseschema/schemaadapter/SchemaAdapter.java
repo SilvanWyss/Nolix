@@ -8,11 +8,11 @@ import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedPrope
 import ch.nolix.system.databaseschema.schema.Column;
 import ch.nolix.system.databaseschema.schema.Database;
 import ch.nolix.system.databaseschema.schema.Table;
-import ch.nolix.techapi.databaseschemaapi.extendedschemaadapterapi.IExtendedDatabaseSchemaAdapter;
+import ch.nolix.techapi.databaseschemaapi.extendedschemaadapterapi.IExtendedSchemaAdapter;
 import ch.nolix.techapi.intermediateschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //class
-public abstract class DatabaseSchemaAdapter implements IExtendedDatabaseSchemaAdapter<
+public abstract class SchemaAdapter implements IExtendedSchemaAdapter<
 	Database,
 	Table,
 	Column,
@@ -25,7 +25,7 @@ public abstract class DatabaseSchemaAdapter implements IExtendedDatabaseSchemaAd
 	private DatabaseSchemaSession session;
 	
 	//constructor
-	public DatabaseSchemaAdapter(final String databaseName) {
+	public SchemaAdapter(final String databaseName) {
 		
 		Validator.assertThat(databaseName).thatIsNamed("database name").isNotBlank();
 		

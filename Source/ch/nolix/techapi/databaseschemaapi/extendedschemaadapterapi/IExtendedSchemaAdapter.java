@@ -6,18 +6,18 @@ import ch.nolix.techapi.databaseschemaapi.extendedschemaapi.IExtendedColumn;
 import ch.nolix.techapi.databaseschemaapi.extendedschemaapi.IExtendedDatabase;
 import ch.nolix.techapi.databaseschemaapi.extendedschemaapi.IExtendedParametrizedPropertyType;
 import ch.nolix.techapi.databaseschemaapi.extendedschemaapi.IExtendedTable;
-import ch.nolix.techapi.databaseschemaapi.schemaadapterapi.IDatabaseSchemaAdapter;
+import ch.nolix.techapi.databaseschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //interface
-public interface IExtendedDatabaseSchemaAdapter<
+public interface IExtendedSchemaAdapter<
 	ED extends IExtendedDatabase<ED, ET, EC, EPPT>,
 	ET extends IExtendedTable<ET, EC, EPPT>,
 	EC extends IExtendedColumn<EC, EPPT>,
 	EPPT extends IExtendedParametrizedPropertyType<?>
-> extends IDatabaseSchemaAdapter<ED, ET, EC, EPPT> {
+> extends ISchemaAdapter<ED, ET, EC, EPPT> {
 	
 	//method
-	default IExtendedDatabaseSchemaAdapter<ED, ET, EC, EPPT> addTable(ET table) {
+	default IExtendedSchemaAdapter<ED, ET, EC, EPPT> addTable(ET table) {
 		
 		getRefDatabase().addTable(table);
 		
@@ -30,7 +30,7 @@ public interface IExtendedDatabaseSchemaAdapter<
 	}
 	
 	//method
-	default IExtendedDatabaseSchemaAdapter<ED, ET, EC, EPPT> createTableWithName(final String name) {
+	default IExtendedSchemaAdapter<ED, ET, EC, EPPT> createTableWithName(final String name) {
 		
 		getRefDatabase().createTableWithName(name);
 		

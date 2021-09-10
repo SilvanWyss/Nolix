@@ -9,7 +9,7 @@ import ch.nolix.techapi.databaseschemaapi.schemaapi.IParametrizedPropertyType;
 import ch.nolix.techapi.databaseschemaapi.schemaapi.ITable;
 
 //interface
-public interface IDatabaseSchemaAdapter<
+public interface ISchemaAdapter<
 	D extends IDatabase<D, T, C, PPT>,
 	T extends ITable<T, C, PPT>,
 	C extends IColumn<C, PPT>,
