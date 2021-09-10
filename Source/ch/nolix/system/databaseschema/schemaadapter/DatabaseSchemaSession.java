@@ -34,12 +34,12 @@ final class DatabaseSchemaSession implements AutoCloseable {
 	
 	//method
 	public boolean hasChanges() {
-		return schemaAdapter.getRefIntermediateSchemaWriter().hasChanges();
+		return schemaAdapter.getRefSchemaWriter().hasChanges();
 	}
 	
 	//method
 	public void saveChanges() {
-		schemaAdapter.getRefIntermediateSchemaWriter().saveChanges();
+		schemaAdapter.getRefSchemaWriter().saveChanges();
 		close();
 	}
 }

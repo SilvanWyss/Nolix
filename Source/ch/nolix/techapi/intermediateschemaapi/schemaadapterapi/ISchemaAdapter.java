@@ -5,8 +5,8 @@ package ch.nolix.techapi.intermediateschemaapi.schemaadapterapi;
 public interface ISchemaAdapter {
 	
 	//method declaration
-	ISchemaReader getRefIntermediateSchemaReader();
+	ISchemaReader getRefSchemaReader();
 	
 	//method declaration
-	ISchemaWriter getRefIntermediateSchemaWriter();
+	ISchemaWriter getRefSchemaWriter();
 }

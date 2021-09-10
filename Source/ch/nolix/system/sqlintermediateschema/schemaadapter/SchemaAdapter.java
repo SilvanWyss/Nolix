@@ -29,13 +29,13 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 	
 	//method
 	@Override
-	public final SchemaReader getRefIntermediateSchemaReader() {
+	public final SchemaReader getRefSchemaReader() {
 		return mSQLIntermediateSchemaReader;
 	}
 	
 	//method
 	@Override
-	public final SchemaWriter getRefIntermediateSchemaWriter() {
+	public final SchemaWriter getRefSchemaWriter() {
 		return mSQLIntermediateSchemaWriter;
 	}
 }
