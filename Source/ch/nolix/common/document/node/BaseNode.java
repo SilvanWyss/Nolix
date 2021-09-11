@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.common.document.node;
 
+//own imports
 import ch.nolix.common.attributeapi.mutableoptionalattributeapi.OptionalHeaderable;
 import ch.nolix.common.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.common.constant.CharacterCatalogue;
@@ -30,7 +31,7 @@ import ch.nolix.common.programcontrol.processproperty.WriteMode;
  *  
  * @author Silvan Wyss
  * @date 2017-06-24
- * @lines 830
+ * @lines 840
  */
 public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	
@@ -192,6 +193,15 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 */
 	public boolean containsAttributes() {
 		return getRefAttributes().containsAny();
+	}
+	
+	//method
+	/**
+	 * @param header
+	 * @return true if the current {@link BaseNode} contains an attribute with the given header.
+	 */
+	public boolean containsAttributeWithHeader(final String header) {
+		return containsAttribute(a -> a.hasHeader(header));
 	}
 	
 	//method
