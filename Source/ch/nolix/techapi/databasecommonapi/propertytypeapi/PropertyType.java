@@ -3,6 +3,7 @@ package ch.nolix.techapi.databasecommonapi.propertytypeapi;
 
 //own imports
 import ch.nolix.common.constant.LowerCaseCatalogue;
+import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.errorcontrol.validator.Validator;
 
 //enum
@@ -17,6 +18,11 @@ public enum PropertyType {
 	BACK_REFERENCE(BasePropertyType.BASE_BACK_REFERENCE),
 	OPTIONAL_BACK_REFERENCE(BasePropertyType.BASE_BACK_REFERENCE),
 	MULTI_BACK_REFERENCE(BasePropertyType.BASE_BACK_REFERENCE);
+	
+	//static method
+	public static PropertyType fromSpecification(final BaseNode specification) {
+		return valueOf(specification.getOneAttributeHeader());
+	}
 	
 	//attribute
 	private final BasePropertyType baseType;
