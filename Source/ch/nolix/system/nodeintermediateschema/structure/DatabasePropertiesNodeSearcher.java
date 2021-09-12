@@ -9,6 +9,6 @@ public final class DatabasePropertiesNodeSearcher {
 	
 	//method
 	public BaseNode getSchemaTimestampNodeFromDatabasePropertiesNode(final BaseNode databasePropertiesNode) {
-		return databasePropertiesNode.getRefFirstAttribute(SubNodeHeaderCatalogue.TIMESTAMP);
+		return databasePropertiesNode.getRefFirstAttribute(SubNodeHeaderCatalogue.SCHEMA_TIMESTAMP);
 	}
 }

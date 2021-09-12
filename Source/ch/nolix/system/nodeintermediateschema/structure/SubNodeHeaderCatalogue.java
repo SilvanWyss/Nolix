@@ -10,7 +10,7 @@ public final class SubNodeHeaderCatalogue {
 	//constants
 	public static final String DATABASE = PascalCaseCatalogue.DATABASE;
 	public static final String DATABASE_PROPERTIES = "DatabaseProperties";
-	public static final String TIMESTAMP = PascalCaseCatalogue.TIMESTAMP;
+	public static final String SCHEMA_TIMESTAMP = "SchemaTimestamp";
 	public static final String TABLE = PascalCaseCatalogue.TABLE;
 	public static final String NAME = PascalCaseCatalogue.NAME;
 	public static final String COLUMN = PascalCaseCatalogue.COLUMN;
