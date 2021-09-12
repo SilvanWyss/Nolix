@@ -12,13 +12,12 @@ import ch.nolix.system.databaseschema.schemadto.BaseParametrizedReferenceTypeDTO
 import ch.nolix.system.databaseschema.schemadto.BaseParametrizedValueTypeDTO;
 import ch.nolix.system.databaseschema.schemadto.ColumnDTO;
 import ch.nolix.techapi.databasecommonapi.propertytypeapi.PropertyType;
-import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.IColumnDTO;
 
 //class
 public final class ColumnDTOMapper {
 	
 	//method
-	public IColumnDTO createColumnDTO(final List<String> columnSystemTableRecord) {
+	public ColumnDTO createColumnDTO(final List<String> columnSystemTableRecord) {
 		switch (PropertyType.valueOf(columnSystemTableRecord.get(2)).getBaseType()) {
 			case BASE_VALUE:
 				return createColumnDTOForBaseValue(columnSystemTableRecord);
@@ -35,7 +34,7 @@ public final class ColumnDTOMapper {
 	}
 	
 	//method
-	private IColumnDTO createColumnDTOForBaseBackReference(final List<String> columnSystemTableRecord) {
+	private ColumnDTO createColumnDTOForBaseBackReference(final List<String> columnSystemTableRecord) {
 		return
 		new ColumnDTO(
 			columnSystemTableRecord.get(0),
@@ -49,7 +48,7 @@ public final class ColumnDTOMapper {
 	}
 	
 	//method
-	private IColumnDTO createColumnDTOForBaseControlType(final List<String> columnSystemTableRecord) {
+	private ColumnDTO createColumnDTOForBaseControlType(final List<String> columnSystemTableRecord) {
 		return
 		new ColumnDTO(
 			columnSystemTableRecord.get(0),
@@ -61,7 +60,7 @@ public final class ColumnDTOMapper {
 	}
 	
 	//method
-	private IColumnDTO createColumnDTOForBaseReference(final List<String> columnSystemTableRecord) {
+	private ColumnDTO createColumnDTOForBaseReference(final List<String> columnSystemTableRecord) {
 		return
 		new ColumnDTO(
 			columnSystemTableRecord.get(0),
@@ -74,7 +73,7 @@ public final class ColumnDTOMapper {
 	}
 	
 	//method
-	private IColumnDTO createColumnDTOForBaseValue(final List<String> columnSystemTableRecord) {
+	private ColumnDTO createColumnDTOForBaseValue(final List<String> columnSystemTableRecord) {
 		return
 		new ColumnDTO(
 			columnSystemTableRecord.get(0),
