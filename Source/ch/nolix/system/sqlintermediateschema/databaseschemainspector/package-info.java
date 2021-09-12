@@ -1,6 +1,7 @@
 //package info
 /**
- * The {@link ch.nolix.system.sqlintermediateschema.databaseschemainspector} package defines a database inspector.
+ * The {@link ch.nolix.system.sqlintermediateschema.databaseschemainspector} package defines
+ * a database schema inspector.
  * 
  * @author Silvan Wyss
  * @date 2021-09-10
