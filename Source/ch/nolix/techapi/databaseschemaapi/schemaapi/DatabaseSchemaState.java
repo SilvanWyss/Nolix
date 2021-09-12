@@ -1,9 +1,9 @@
 //package declaration
-package ch.nolix.system.sqlintermediateschema.databaseschemainspector;
+package ch.nolix.techapi.databaseschemaapi.schemaapi;
 
 //enum
 public enum DatabaseSchemaState {
-	EMPTY,
+	UNINITIALIZED,
 	INITIALIZED,
 	INVALID
 }

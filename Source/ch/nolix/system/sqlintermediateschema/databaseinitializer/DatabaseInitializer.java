@@ -16,7 +16,7 @@ public final class DatabaseInitializer {
 	//method
 	public void initializeDatabaseIfNotInitialized(ISchemaAdapter schemaAdapter) {
 		switch (databaseSchemaInspector.getDatabaseSchemaState(schemaAdapter)) {
-			case EMPTY:
+			case UNINITIALIZED:
 				internalDatabaseInitializer.initializeDatabase(schemaAdapter);
 				break;
 			case INITIALIZED:
