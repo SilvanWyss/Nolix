@@ -8,7 +8,7 @@ import ch.nolix.common.document.node.BaseNode;
 public final class DatabasePropertiesNodeSearcher {
 	
 	//method
-	public BaseNode getTimestampNodeFromDatabasePropertiesNode(final BaseNode databasePropertiesNode) {
+	public BaseNode getSchemaTimestampNodeFromDatabasePropertiesNode(final BaseNode databasePropertiesNode) {
 		return databasePropertiesNode.getRefFirstAttribute(SubNodeHeaderCatalogue.TIMESTAMP);
 	}
 }
