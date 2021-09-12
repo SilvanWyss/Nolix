@@ -5,7 +5,7 @@ package ch.nolix.system.nodeintermediateschema.structure;
 import ch.nolix.common.constant.PascalCaseCatalogue;
 
 //class
-final class SubNodeHeaderCatalogue {
+public final class SubNodeHeaderCatalogue {
 	
 	//constants
 	public static final String DATABASE = PascalCaseCatalogue.DATABASE;
