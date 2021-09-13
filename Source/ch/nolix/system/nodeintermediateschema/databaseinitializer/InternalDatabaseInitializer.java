@@ -13,7 +13,7 @@ final class InternalDatabaseInitializer {
 	//method
 	public void initializeDatabase(final BaseNode databaseNode) {
 		databaseNode
-		.setHeader(SubNodeHeaderCatalogue.HEADER)
+		.setHeader(SubNodeHeaderCatalogue.DATABASE)
 		.addAttribute(createDatabasePropertiesNode());
 	}
 	
