@@ -19,12 +19,12 @@ public final class SchemaAdapter implements ISchemaAdapter {
 	private static final DatabaseInitializer databaseInitializer = new DatabaseInitializer();
 	
 	//static method
-	public static SchemaAdapter forNode(final BaseNode databaseNode) {
+	public static SchemaAdapter forDatabaseNode(final BaseNode databaseNode) {
 		return new SchemaAdapter(databaseNode);
 	}
 	
 	//static method
-	public static SchemaAdapter forNodeInFile(final String filePath) {
+	public static SchemaAdapter forDatabaseNodeInFile(final String filePath) {
 		return new SchemaAdapter(new FileNode(filePath));
 	}
 	
