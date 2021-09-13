@@ -30,8 +30,6 @@ public abstract class SchemaAdapter implements IExtendedSchemaAdapter<
 		Validator.assertThat(databaseName).thatIsNamed("database name").isNotBlank();
 		
 		this.databaseName = databaseName;
-		
-		initializeSession();
 	}
 	
 	//method
@@ -68,7 +66,7 @@ public abstract class SchemaAdapter implements IExtendedSchemaAdapter<
 	protected abstract ISchemaAdapter createIntermediateSchemaAdapter();
 	
 	//method
-	private void initializeSession() {
+	protected final void initializeSession() {
 		session = new DatabaseSchemaSession(databaseName, createIntermediateSchemaAdapter());
 	}
 }
