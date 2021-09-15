@@ -25,6 +25,17 @@ public interface IExtendedSchemaAdapter<
 	}
 	
 	//method
+	@SuppressWarnings("unchecked")
+	default IExtendedSchemaAdapter<ED, ET, EC, EPPT> addTable(ET... tables) {
+		
+		for (final var t : tables) {
+			getRefDatabase().addTable(t);
+		}
+		
+		return this;
+	}
+	
+	//method
 	default boolean containsTableWithName(final String name) {
 		return getRefDatabase().containsTableWithName(name);
 	}
