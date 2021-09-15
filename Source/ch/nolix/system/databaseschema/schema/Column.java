@@ -189,10 +189,7 @@ public final class Column extends DatabaseObject implements IExtendedColumn<Colu
 	}
 	
 	//method
-	void setParentTable(final Table parentTable) {
-		
-		mutationPreValidator.assertCanSetParentTableToColumn(this, parentTable);
-		
+	void setParentTableAttribute(final Table parentTable) {
 		this.parentTable = parentTable;
 	}
 	

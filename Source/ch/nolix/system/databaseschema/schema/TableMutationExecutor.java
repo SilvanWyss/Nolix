@@ -8,6 +8,7 @@ final class TableMutationExecutor {
 	public void addColumnToTable(final Table table, final Column column) {
 		
 		table.addColumnAttribute(column);
+		column.setParentTableAttribute(table);
 		
 		if (table.isLinkedWithRealDatabase()) {
 			table.getRefRealSchemaAdapter().getRefIntermediateSchemaWriter().addColumnToTable(table, column);
