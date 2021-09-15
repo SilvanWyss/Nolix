@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.system.databaseschema.parametrizedpropertytype;
 
-import ch.nolix.system.databaseschema.schemadto.BaseParametrizedReferenceTypeDTO;
-import ch.nolix.system.databaseschema.schemadto.BaseParametrizedValueTypeDTO;
 //own imports
+import ch.nolix.system.databaseschema.schemadto.BaseParametrizedValueTypeDTO;
 import ch.nolix.techapi.databaseschemaapi.schemaapi.IColumn;
 import ch.nolix.techapi.databaseschemaapi.schemaapi.ITable;
 import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
