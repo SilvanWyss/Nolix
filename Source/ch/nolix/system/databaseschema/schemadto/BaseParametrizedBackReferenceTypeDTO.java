@@ -27,7 +27,7 @@ implements IBaseParametrizedBackReferenceTypeDTO {
 		
 		super(propertyType, dataTypeFullClassName);
 		
-		if (propertyType.getBaseType() != BasePropertyType.BASE_REFERENCE) {
+		if (propertyType.getBaseType() != BasePropertyType.BASE_BACK_REFERENCE) {
 			throw new InvalidArgumentException(propertyType);
 		}
 		
