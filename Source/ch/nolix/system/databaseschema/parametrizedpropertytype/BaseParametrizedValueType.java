@@ -1,9 +1,12 @@
 //package declaration
 package ch.nolix.system.databaseschema.parametrizedpropertytype;
 
+import ch.nolix.system.databaseschema.schemadto.BaseParametrizedReferenceTypeDTO;
+import ch.nolix.system.databaseschema.schemadto.BaseParametrizedValueTypeDTO;
 //own imports
 import ch.nolix.techapi.databaseschemaapi.schemaapi.IColumn;
 import ch.nolix.techapi.databaseschemaapi.schemaapi.ITable;
+import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
 
 //class
 public abstract class BaseParametrizedValueType<V> extends ParametrizedPropertyType<V> {
@@ -47,5 +50,11 @@ public abstract class BaseParametrizedValueType<V> extends ParametrizedPropertyT
 	@Override
 	public final boolean referencesBackColumn(final IColumn<?, ?> column) {
 		return false;
+	}
+	
+	//method
+	@Override
+	public final IParametrizedPropertyTypeDTO toDTO() {
+		return new BaseParametrizedValueTypeDTO(getPropertyType(), getDataType().getName());
 	}
 }

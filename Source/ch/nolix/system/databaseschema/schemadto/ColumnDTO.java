@@ -12,11 +12,11 @@ public final class ColumnDTO implements IColumnDTO {
 	
 	//attributes
 	private String header;
-	private ParametrizedPropertyTypeDTO parametrizedPropertyTypeDTO;
+	private IParametrizedPropertyTypeDTO parametrizedPropertyTypeDTO;
 	
 	//constructor
 	//For a better performance, this implementation does not use all comfortable methods.
-	public ColumnDTO(final String header, final ParametrizedPropertyTypeDTO parametrizedPropertyTypeDTO) {
+	public ColumnDTO(final String header, final IParametrizedPropertyTypeDTO parametrizedPropertyTypeDTO) {
 		
 		if (header == null) {
 			throw new ArgumentIsNullException(LowerCaseCatalogue.HEADER);

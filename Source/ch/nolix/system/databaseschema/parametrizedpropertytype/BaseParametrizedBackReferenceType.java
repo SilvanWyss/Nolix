@@ -3,9 +3,11 @@ package ch.nolix.system.databaseschema.parametrizedpropertytype;
 
 //own imports
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.system.databaseschema.schemadto.BaseParametrizedBackReferenceTypeDTO;
 import ch.nolix.techapi.databasecommonapi.propertytypeapi.BasePropertyType;
 import ch.nolix.techapi.databaseschemaapi.schemaapi.IColumn;
 import ch.nolix.techapi.databaseschemaapi.schemaapi.ITable;
+import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
 
 //class
 public abstract class BaseParametrizedBackReferenceType extends ParametrizedPropertyType<Long> {
@@ -62,6 +64,18 @@ public abstract class BaseParametrizedBackReferenceType extends ParametrizedProp
 	@Override
 	public final boolean referencesBackColumn(final IColumn<?, ?> column) {
 		return (getBackReferencedColumn() == column);
+	}
+	
+	//method
+	@Override
+	public final IParametrizedPropertyTypeDTO toDTO() {
+		return
+		new BaseParametrizedBackReferenceTypeDTO(
+			getPropertyType(),
+			getDataType().getName(),
+			getBackReferencedColumn().getParentTable().getName(),
+			getBackReferencedColumn().getHeader()
+		);
 	}
 	
 	//method

@@ -2,8 +2,10 @@
 package ch.nolix.system.databaseschema.parametrizedpropertytype;
 
 //own imports
+import ch.nolix.system.databaseschema.schemadto.BaseParametrizedControlTypeDTO;
 import ch.nolix.techapi.databaseschemaapi.schemaapi.IColumn;
 import ch.nolix.techapi.databaseschemaapi.schemaapi.ITable;
+import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
 
 //class
 public abstract class BaseParametrizedControlType<C> extends ParametrizedPropertyType<C>{
@@ -47,5 +49,11 @@ public abstract class BaseParametrizedControlType<C> extends ParametrizedPropert
 	@Override
 	public final boolean referencesBackColumn(final IColumn<?, ?> column) {
 		return false;
+	}
+	
+	//method
+	@Override
+	public final IParametrizedPropertyTypeDTO toDTO() {
+		return new BaseParametrizedControlTypeDTO(getPropertyType(), getDataType().getName());
 	}
 }
