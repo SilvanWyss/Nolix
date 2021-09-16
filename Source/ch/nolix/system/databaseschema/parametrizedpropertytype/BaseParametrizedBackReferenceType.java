@@ -10,7 +10,7 @@ import ch.nolix.techapi.databaseschemaapi.schemaapi.ITable;
 import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
 
 //class
-public abstract class BaseParametrizedBackReferenceType extends ParametrizedPropertyType<Long> {
+public abstract class BaseParametrizedBackReferenceType extends ParametrizedPropertyType<String> {
 	
 	//attribute
 	private final IColumn<?, ?> backReferencedColumn;
@@ -18,7 +18,7 @@ public abstract class BaseParametrizedBackReferenceType extends ParametrizedProp
 	//constructor
 	public BaseParametrizedBackReferenceType(final IColumn<?, ?> backReferencedColumn) {
 		
-		super(Long.class);
+		super(String.class);
 		
 		assertIsAnyReferenceColumn(backReferencedColumn);
 		

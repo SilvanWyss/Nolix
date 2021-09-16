@@ -9,7 +9,7 @@ import ch.nolix.techapi.databaseschemaapi.schemaapi.ITable;
 import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
 
 //class
-public abstract class BaseParametrizedReferenceType extends ParametrizedPropertyType<Long> {
+public abstract class BaseParametrizedReferenceType extends ParametrizedPropertyType<String> {
 	
 	//attribute
 	private final ITable<?, ?, ?> referencedTable;
@@ -17,7 +17,7 @@ public abstract class BaseParametrizedReferenceType extends ParametrizedProperty
 	//constructor
 	public BaseParametrizedReferenceType(final ITable<?, ?, ?> referencedTable) {
 		
-		super(Long.class);
+		super(String.class);
 		
 		Validator.assertThat(referencedTable).thatIsNamed("referenced table").isNotNull();
 		
