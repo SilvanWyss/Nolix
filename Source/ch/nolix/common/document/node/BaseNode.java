@@ -31,7 +31,7 @@ import ch.nolix.common.programcontrol.processproperty.WriteMode;
  *  
  * @author Silvan Wyss
  * @date 2017-06-24
- * @lines 840
+ * @lines 850
  */
 public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	
@@ -500,6 +500,17 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	}
 	
 	//method
+	/**
+	 * @return true if the current {@link BaseNode} does not have a header and does not contain attributes.
+	 */
+	public boolean isBlank() {
+		return (!hasHeader() && !containsAttributes());
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public int hashCode() {
 		return toString().hashCode();
