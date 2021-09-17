@@ -14,7 +14,7 @@ import ch.nolix.techapi.sqlschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.techapi.sqlschemaapi.schemalanguageapi.ISchemaQueryCreator;
 
 //class
-public abstract class SchemaReader implements ISchemaReader {
+public class SchemaReader implements ISchemaReader {
 	
 	//attributes
 	private final SQLConnection mSQLConnection;
@@ -32,7 +32,7 @@ public abstract class SchemaReader implements ISchemaReader {
 	
 	//method
 	@Override
-	public final boolean columnsIsEmpty(final String tableName, final String columnName) {
+	public boolean columnsIsEmpty(final String tableName, final String columnName) {
 		return
 		mSQLConnection
 		.getRecords(schemaQueryCreator.createQueryToLoadTopFirstRecordWhereColumnIsNotNull(tableName, columnName))
@@ -41,7 +41,7 @@ public abstract class SchemaReader implements ISchemaReader {
 	
 	//method
 	@Override
-	public final LinkedList<IColumnDTO> loadColumns(final String tableName) {
+	public LinkedList<IColumnDTO> loadColumns(final String tableName) {
 		return
 		mSQLConnection
 		.getRecords(schemaQueryCreator.createQueryToLoadNameAndDataTypeOfColumns(tableName))
@@ -50,7 +50,7 @@ public abstract class SchemaReader implements ISchemaReader {
 	
 	//method
 	@Override
-	public final LinkedList<IFlatTableDTO> loadFlatTables() {
+	public LinkedList<IFlatTableDTO> loadFlatTables() {
 		return
 		mSQLConnection
 		.getRecordsAsStrings(schemaQueryCreator.createQueryToLoadNameOfTables())

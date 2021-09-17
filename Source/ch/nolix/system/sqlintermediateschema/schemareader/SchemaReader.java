@@ -12,6 +12,7 @@ import ch.nolix.system.sqlintermediateschema.tablesystemtable.TableDTOMapper;
 import ch.nolix.techapi.intermediateschemaapi.flatschemadtoapi.IFlatTableDTO;
 import ch.nolix.techapi.intermediateschemaapi.schemaadapterapi.ISchemaReader;
 import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.IColumnDTO;
+import ch.nolix.techapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //class
 public final class SchemaReader implements ISchemaReader {
@@ -23,25 +24,22 @@ public final class SchemaReader implements ISchemaReader {
 	
 	//attributes
 	private final SQLConnection mSQLConnection;
-	private final ch.nolix.techapi.sqlschemaapi.schemaadapterapi.ISchemaReader schemaReader;
+	private final ISchemaAdapter schemaAdapter;
 	
 	//constructor
-	public SchemaReader(
-		final SQLConnection pSQLConnection,
-		final ch.nolix.techapi.sqlschemaapi.schemaadapterapi.ISchemaReader schemaReader
-	) {
+	public SchemaReader(final SQLConnection pSQLConnection,	final ISchemaAdapter schemaAdapter) {
 		
 		Validator.assertThat(pSQLConnection).thatIsNamed(SQLConnection.class).isNotNull();
-		Validator.assertThat(schemaReader).thatIsNamed(ISchemaReader.class).isNotNull();
+		Validator.assertThat(schemaAdapter).thatIsNamed(ISchemaAdapter.class).isNotNull();
 		
 		mSQLConnection = pSQLConnection;
-		this.schemaReader = schemaReader;
+		this.schemaAdapter = schemaAdapter;
 	}
 	
 	//method
 	@Override
 	public boolean columnIsEmpty(final String tableName, final String columnHeader) {
-		return schemaReader.columnsIsEmpty(TableType.CONTENT_DATA.getPrefix() + tableName, columnHeader);
+		return schemaAdapter.columnsIsEmpty(TableType.CONTENT_DATA.getPrefix() + tableName, columnHeader);
 	}
 	
 	//method

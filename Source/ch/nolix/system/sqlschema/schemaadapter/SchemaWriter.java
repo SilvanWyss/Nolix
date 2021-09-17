@@ -12,7 +12,7 @@ import ch.nolix.techapi.sqlschemaapi.schemadtoapi.ITableDTO;
 import ch.nolix.techapi.sqlschemaapi.schemalanguageapi.ISchemaStatementCreator;
 
 //class
-public abstract class SchemaWriter implements ISchemaWriter {
+public class SchemaWriter implements ISchemaWriter {
 	
 	//attributes
 	private final SQLExecutor mSQLExecutor;
@@ -29,43 +29,43 @@ public abstract class SchemaWriter implements ISchemaWriter {
 	
 	//method
 	@Override
-	public final void addColumn(final String tableName, final IColumnDTO column) {
+	public void addColumn(final String tableName, final IColumnDTO column) {
 		mSQLExecutor.addSQLStatement(schemaStatementCreator.createStatementToAddColumn(tableName, column));
 	}
 	
 	//method
 	@Override
-	public final void addTable(final ITableDTO table) {
+	public void addTable(final ITableDTO table) {
 		mSQLExecutor.addSQLStatement(schemaStatementCreator.createStatementToAddTable(table));
 	}
 	
 	//method
 	@Override
-	public final void deleteColumn(final String tableName, final String columnName) {
+	public void deleteColumn(final String tableName, final String columnName) {
 		mSQLExecutor.addSQLStatement(schemaStatementCreator.createStatementToDeleteColumn(tableName, columnName));
 	}
 	
 	//method
 	@Override
-	public final void deleteTable(final String tableName) {
+	public void deleteTable(final String tableName) {
 		mSQLExecutor.addSQLStatement(schemaStatementCreator.createStatementToDeleteTable(tableName));
 	}
 	
 	//method
 	@Override
-	public final IContainer<String> getSQLStatements() {
+	public IContainer<String> getSQLStatements() {
 		return mSQLExecutor.getStatements();
 	}
 	
 	//method
 	@Override
-	public final boolean hasChanges() {
+	public boolean hasChanges() {
 		return mSQLExecutor.getStatements().containsAny();
 	}
 	
 	//method
 	@Override
-	public final void renameColumn(final String tableName, final String columnName, final String newColumnName) {
+	public void renameColumn(final String tableName, final String columnName, final String newColumnName) {
 		mSQLExecutor.addSQLStatement(
 			schemaStatementCreator.createStatementToRenameColumn(tableName, columnName, newColumnName)
 		);
@@ -73,13 +73,13 @@ public abstract class SchemaWriter implements ISchemaWriter {
 	
 	//method
 	@Override
-	public final void renameTable(final String tableName, final String newTableName) {
+	public void renameTable(final String tableName, final String newTableName) {
 		mSQLExecutor.addSQLStatement(schemaStatementCreator.createStatementToRenameTable(tableName, newTableName));
 	}
 	
 	//method
 	@Override
-	public final void saveChanges() {
+	public void saveChanges() {
 		mSQLExecutor.execute();
 	}
 }
