@@ -2,11 +2,17 @@
 package ch.nolix.system.sqlintermediateschema.schemaadapter;
 
 //own imports
+import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.sql.SQLConnection;
+import ch.nolix.element.time.base.Time;
 import ch.nolix.system.sqlintermediateschema.databaseinitializer.DatabaseInitializer;
 import ch.nolix.system.sqlintermediateschema.schemareader.SchemaReader;
 import ch.nolix.system.sqlintermediateschema.schemawriter.SchemaWriter;
+import ch.nolix.techapi.intermediateschemaapi.flatschemadtoapi.IFlatTableDTO;
 import ch.nolix.techapi.intermediateschemaapi.schemaadapterapi.ISchemaAdapter;
+import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.IColumnDTO;
+import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
+import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.ITableDTO;
 
 //class
 public abstract class SchemaAdapter implements ISchemaAdapter {
@@ -32,13 +38,89 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 	
 	//method
 	@Override
-	public final SchemaReader getRefSchemaReader() {
-		return mSQLIntermediateSchemaReader;
+	public boolean columnIsEmpty(final String tableName, final String columnHeader) {
+		return mSQLIntermediateSchemaReader.columnIsEmpty(tableName, columnHeader);
 	}
 	
 	//method
 	@Override
-	public final SchemaWriter getRefSchemaWriter() {
-		return mSQLIntermediateSchemaWriter;
+	public void addColumn(final String tableName, IColumnDTO column) {
+		mSQLIntermediateSchemaWriter.addColumn(tableName, column);
+	}
+	
+	//method
+	@Override
+	public void addTable(final ITableDTO table) {
+		mSQLIntermediateSchemaWriter.addTable(table);
+	}
+	
+	//method
+	@Override
+	public void deleteColumn(final String tableName, final String columnHeader) {
+		mSQLIntermediateSchemaWriter.deleteColumn(tableName, columnHeader);
+	}
+	
+	//method
+	@Override
+	public void deleteTable(final String tableName) {
+		mSQLIntermediateSchemaWriter.deleteTable(tableName);
+	}
+	
+	//method
+	@Override
+	public boolean hasChanges() {
+		return mSQLIntermediateSchemaWriter.hasChanges();
+	}
+	
+	//method
+	@Override
+	public LinkedList<IColumnDTO> loadColumns(final String tableName) {
+		return mSQLIntermediateSchemaReader.loadColumns(tableName);
+	}
+	
+	//method
+	@Override
+	public LinkedList<IFlatTableDTO> loadFlatTables() {
+		return mSQLIntermediateSchemaReader.loadFlatTables();
+	}
+	
+	//method
+	@Override
+	public Time loadSchemaTimestamp() {
+		return mSQLIntermediateSchemaReader.loadSchemaTimestamp();
+	}
+	
+	//method
+	@Override
+	public void saveChanges() {
+		mSQLIntermediateSchemaWriter.saveChanges();
+	}
+	
+	//method
+	@Override
+	public void setColumnHeader(final String tableName, final String columnHeader, final String newColumnHeader) {
+		mSQLIntermediateSchemaWriter.setColumnHeader(tableName, columnHeader, newColumnHeader);
+	}
+	
+	//method
+	@Override
+	public void setColumnParametrizedPropertyType(
+		final String tableName,
+		final String columnHeader,
+		final IParametrizedPropertyTypeDTO parametrizedPropertyType
+	) {
+		mSQLIntermediateSchemaWriter.setColumnParametrizedPropertyType(tableName, columnHeader, parametrizedPropertyType);
+	}
+	
+	//method
+	@Override
+	public void setSchemaTimestamp(final Time schemaTimestamp) {
+		mSQLIntermediateSchemaWriter.setSchemaTimestamp(schemaTimestamp);
+	}
+	
+	//method
+	@Override
+	public void setTableName(final String tableName, final String newTableName) {
+		mSQLIntermediateSchemaWriter.setTableName(tableName, newTableName);
 	}
 }

@@ -2,14 +2,18 @@
 package ch.nolix.system.nodeintermediateschema.schemaadapter;
 
 //own imports
+import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.filenode.FileNode;
 import ch.nolix.common.document.node.BaseNode;
+import ch.nolix.element.time.base.Time;
 import ch.nolix.system.nodeintermediateschema.databaseinitializer.DatabaseInitializer;
 import ch.nolix.system.nodeintermediateschema.schemareader.SchemaReader;
 import ch.nolix.system.nodeintermediateschema.schemawriter.SchemaWriter;
+import ch.nolix.techapi.intermediateschemaapi.flatschemadtoapi.IFlatTableDTO;
 import ch.nolix.techapi.intermediateschemaapi.schemaadapterapi.ISchemaAdapter;
-import ch.nolix.techapi.intermediateschemaapi.schemaadapterapi.ISchemaReader;
-import ch.nolix.techapi.intermediateschemaapi.schemaadapterapi.ISchemaWriter;
+import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.IColumnDTO;
+import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
+import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.ITableDTO;
 
 //class
 public final class SchemaAdapter implements ISchemaAdapter {
@@ -28,8 +32,8 @@ public final class SchemaAdapter implements ISchemaAdapter {
 	}
 	
 	//attributes
-	private final ISchemaReader schemaReader;
-	private final ISchemaWriter schemaWriter;
+	private final SchemaReader schemaReader;
+	private final SchemaWriter schemaWriter;
 	
 	//constructor
 	private SchemaAdapter(final BaseNode databaseNode) {
@@ -42,13 +46,89 @@ public final class SchemaAdapter implements ISchemaAdapter {
 	
 	//method
 	@Override
-	public ISchemaReader getRefSchemaReader() {
-		return schemaReader;
+	public boolean columnIsEmpty(final String tableName, final String columnHeader) {
+		return schemaReader.columnIsEmpty(tableName, columnHeader);
 	}
 	
 	//method
 	@Override
-	public ISchemaWriter getRefSchemaWriter() {
-		return schemaWriter;
+	public void addColumn(final String tableName, IColumnDTO column) {
+		schemaWriter.addColumn(tableName, column);
+	}
+	
+	//method
+	@Override
+	public void addTable(final ITableDTO table) {
+		schemaWriter.addTable(table);
+	}
+	
+	//method
+	@Override
+	public void deleteColumn(final String tableName, final String columnHeader) {
+		schemaWriter.deleteColumn(tableName, columnHeader);
+	}
+	
+	//method
+	@Override
+	public void deleteTable(final String tableName) {
+		schemaWriter.deleteTable(tableName);
+	}
+	
+	//method
+	@Override
+	public boolean hasChanges() {
+		return schemaWriter.hasChanges();
+	}
+	
+	//method
+	@Override
+	public LinkedList<IColumnDTO> loadColumns(final String tableName) {
+		return schemaReader.loadColumns(tableName);
+	}
+	
+	//method
+	@Override
+	public LinkedList<IFlatTableDTO> loadFlatTables() {
+		return schemaReader.loadFlatTables();
+	}
+	
+	//method
+	@Override
+	public Time loadSchemaTimestamp() {
+		return schemaReader.loadSchemaTimestamp();
+	}
+	
+	//method
+	@Override
+	public void saveChanges() {
+		schemaWriter.saveChanges();
+	}
+	
+	//method
+	@Override
+	public void setColumnHeader(final String tableName, final String columnHeader, final String newColumnHeader) {
+		schemaWriter.setColumnHeader(tableName, columnHeader, newColumnHeader);
+	}
+	
+	//method
+	@Override
+	public void setColumnParametrizedPropertyType(
+		final String tableName,
+		final String columnHeader,
+		final IParametrizedPropertyTypeDTO parametrizedPropertyType
+	) {
+		schemaWriter.setColumnParametrizedPropertyType(tableName, columnHeader, parametrizedPropertyType);
+	}
+	
+	//method
+	@Override
+	public void setSchemaTimestamp(final Time schemaTimestamp) {
+		schemaWriter.setSchemaTimestamp(schemaTimestamp);
+	}
+	
+	//method
+	@Override
+	public void setTableName(final String tableName, final String newTableName) {
+		schemaWriter.setTableName(tableName, newTableName);
 	}
 }

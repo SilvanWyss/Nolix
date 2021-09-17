@@ -14,10 +14,10 @@ final class IntermediateSchemaAdapter {
 	public IntermediateSchemaAdapter(final ISchemaAdapter internalIIntermediateSchemaAdapter) {
 		
 		intermediateSchemaReader =
-		new IntermediateSchemaReader(internalIIntermediateSchemaAdapter.getRefSchemaReader());
+		new IntermediateSchemaReader(internalIIntermediateSchemaAdapter);
 		
 		intermediateSchemaWriter =
-		new IntermediateSchemaWriter(internalIIntermediateSchemaAdapter.getRefSchemaWriter());
+		new IntermediateSchemaWriter(internalIIntermediateSchemaAdapter);
 	}
 	
 	//method
