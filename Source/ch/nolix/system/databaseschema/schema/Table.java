@@ -6,6 +6,7 @@ import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
+import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.system.databaseschema.flatschemadto.FlatTableDTO;
 import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedPropertyType;
 import ch.nolix.system.databaseschema.parametrizedpropertytype.IdType;
@@ -127,6 +128,14 @@ public final class Table extends DatabaseObject implements IExtendedTable<Table,
 	}
 	
 	//method
+	@Override
+	protected void noteCloseDatabaseObject() {
+		
+		//Does not call getRefColumns method to avoid that the columns need to be loaded from the database.
+		columns.forEach(Column::close);
+	}
+	
+	//method
 	void addColumnAttribute(final Column column) {
 		columns.addAtEnd(column);
 	}
@@ -147,11 +156,12 @@ public final class Table extends DatabaseObject implements IExtendedTable<Table,
 	}
 	
 	//method
-	@Override
-	protected void noteCloseDatabaseObject() {
+	void setParentDatabase(final Database parentDatabase) {
 		
-		//Does not call getRefColumns method to avoid that the columns need to be loaded from the database.
-		columns.forEach(Column::close);
+		Validator.assertThat(parentDatabase).thatIsNamed("parent database").isNotNull();
+		assertDoesNotBelongToDatabase();
+		
+		this.parentDatabase = parentDatabase;
 	}
 	
 	//method

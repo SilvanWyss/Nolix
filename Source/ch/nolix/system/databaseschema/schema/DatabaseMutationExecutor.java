@@ -8,6 +8,7 @@ final class DatabaseMutationExecutor {
 	public void addTableToDatabase(final Database database, final Table table) {
 		
 		database.addTableAttribute(table);
+		table.setParentDatabase(database);
 		
 		if (database.isLinkedWithRealDatabase()) {
 			database.getRefRealSchemaAdapter().getRefIntermediateSchemaWriter().addTable(table);

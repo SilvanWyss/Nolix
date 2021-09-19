@@ -129,6 +129,7 @@ implements IExtendedDatabase<Database, Table, Column, ParametrizedPropertyType<?
 		
 		tables = getRefRealSchemaAdapter().getRefIntermediateSchemaReader().loadFlatTables().to(Table::fromFlatDTO);
 		tables.forEach(Table::setLoaded);
+		tables.forEach(t -> t.setParentDatabase(this));
 		
 		loadedTablesFromDatabase = true;		
 	}
