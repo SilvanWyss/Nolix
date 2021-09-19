@@ -31,7 +31,9 @@ public final class ParametrizedPropertyTypeNodeMapper {
 	}
 	
 	//method
-	private Node createParametrizedPropertyTypeFrom(IBaseParametrizedBackReferenceTypeDTO baseParametrizedBackReferenceType) {
+	private Node createParametrizedPropertyTypeFrom(
+		IBaseParametrizedBackReferenceTypeDTO baseParametrizedBackReferenceType
+	) {
 		return
 		Node.withHeaderAndAttribute(
 			SubNodeHeaderCatalogue.PARAMETRIZED_PROPERTY_TYPE,
