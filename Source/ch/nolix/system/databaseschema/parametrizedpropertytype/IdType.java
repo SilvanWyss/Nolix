@@ -4,10 +4,10 @@ package ch.nolix.system.databaseschema.parametrizedpropertytype;
 import ch.nolix.techapi.databasecommonapi.propertytypeapi.PropertyType;
 
 //class
-public final class SchemaIdType extends BaseParametrizedControlType<String> {
+public final class IdType extends BaseParametrizedControlType<String> {
 	
 	//constructor
-	public SchemaIdType() {
+	public IdType() {
 		super(String.class);
 	}
 	

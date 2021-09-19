@@ -8,7 +8,7 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.system.databaseschema.flatschemadto.FlatTableDTO;
 import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedPropertyType;
-import ch.nolix.system.databaseschema.parametrizedpropertytype.SchemaIdType;
+import ch.nolix.system.databaseschema.parametrizedpropertytype.IdType;
 import ch.nolix.system.databaseschema.schemadto.ColumnDTO;
 import ch.nolix.system.databaseschema.schemadto.TableDTO;
 import ch.nolix.techapi.databaseschemaapi.extendedschemaapi.IExtendedTable;
@@ -173,7 +173,7 @@ public final class Table extends DatabaseObject implements IExtendedTable<Table,
 	
 	//method
 	private Column createIdColumn() {
-		return new Column(PascalCaseCatalogue.ID, new SchemaIdType());
+		return new Column(PascalCaseCatalogue.ID, new IdType());
 	}
 	
 	//method

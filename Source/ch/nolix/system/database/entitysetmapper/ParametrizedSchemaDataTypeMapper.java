@@ -13,7 +13,7 @@ import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedPrope
 import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedMultiValueType;
 import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedOptionalValueType;
 import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedValueType;
-import ch.nolix.system.databaseschema.parametrizedpropertytype.SchemaIdType;
+import ch.nolix.system.databaseschema.parametrizedpropertytype.IdType;
 
 //class
 public final class ParametrizedSchemaDataTypeMapper {
@@ -87,7 +87,7 @@ public final class ParametrizedSchemaDataTypeMapper {
 				);
 				*/
 			case ID:
-				return new SchemaIdType();
+				return new IdType();
 			default:
 				throw new InvalidArgumentException(column);
 		}
