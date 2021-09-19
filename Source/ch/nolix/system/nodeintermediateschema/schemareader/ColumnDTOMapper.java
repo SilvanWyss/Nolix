@@ -25,7 +25,7 @@ final class ColumnDTOMapper {
 	
 	//method
 	private String getHeaderFromColumnNode(final BaseNode columnNode) {
-		return columnNodeSearcher.getHeaderNodeFromColumnNode(columnNode).getHeader();
+		return columnNodeSearcher.getHeaderNodeFromColumnNode(columnNode).getOneAttributeHeader();
 	}
 	
 	//method
