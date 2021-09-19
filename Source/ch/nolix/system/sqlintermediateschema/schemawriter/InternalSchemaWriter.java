@@ -13,23 +13,25 @@ import ch.nolix.techapi.sqlschemaapi.schemaadapterapi.ISchemaWriter;
 //class
 final class InternalSchemaWriter implements ChangeRequestable {
 	
-	//static attribute
-	private static final SchemaDTOMapper schemaDTOMapper = new SchemaDTOMapper();
-	
-	//attribute
-	private final ISchemaWriter internalSchemaWriter;
+	//attributes
+	private final ISchemaWriter mSQLSchemaWriter;
+	private final SchemaDTOMapper schemaDTOMapper;
 	
 	//constructor
-	public InternalSchemaWriter(final ISchemaWriter internalSchemaWriter) {
+	public InternalSchemaWriter(
+		final ISchemaWriter pSQLSchemaWriter,
+		final ch.nolix.techapi.sqlschemaapi.schemadtoapi.IColumnDTO pSQLSaveStampColumnDTO
+	) {
 		
-		Validator.assertThat(internalSchemaWriter).thatIsNamed("internal schema writer").isNotNull();
+		Validator.assertThat(pSQLSchemaWriter).thatIsNamed(ISchemaWriter.class).isNotNull();
 		
-		this.internalSchemaWriter = internalSchemaWriter;
+		this.mSQLSchemaWriter = pSQLSchemaWriter;
+		schemaDTOMapper = new SchemaDTOMapper(pSQLSaveStampColumnDTO);
 	}
 	
 	//method
 	public void addColumn(final String tableName, final IColumnDTO column) {
-		internalSchemaWriter.addColumn(
+		mSQLSchemaWriter.addColumn(
 			TableType.CONTENT_DATA.getPrefix() + tableName,
 			schemaDTOMapper.createSQLColumnDTOFrom(column)
 		);
@@ -37,33 +39,33 @@ final class InternalSchemaWriter implements ChangeRequestable {
 	
 	//method
 	public void addTable(final ITableDTO table) {
-		internalSchemaWriter.addTable(schemaDTOMapper.createSQLTableDTOFrom(table));
+		mSQLSchemaWriter.addTable(schemaDTOMapper.createSQLTableDTOFrom(table));
 	}
 	
 	//method
 	public void deleteColumn(final String tableName, final String columnHeader) {
-		internalSchemaWriter.deleteColumn(TableType.CONTENT_DATA.getPrefix() + tableName, columnHeader);
+		mSQLSchemaWriter.deleteColumn(TableType.CONTENT_DATA.getPrefix() + tableName, columnHeader);
 	}
 	
 	//method
 	public void deleteTable(final String tableName) {
-		internalSchemaWriter.deleteTable(TableType.CONTENT_DATA.getPrefix() + tableName);
+		mSQLSchemaWriter.deleteTable(TableType.CONTENT_DATA.getPrefix() + tableName);
 	}
 	
 	//method
 	public IContainer<String> getSQLStatements() {
-		return internalSchemaWriter.getSQLStatements();
+		return mSQLSchemaWriter.getSQLStatements();
 	}
 	
 	//method
 	@Override
 	public boolean hasChanges() {
-		return internalSchemaWriter.hasChanges();
+		return mSQLSchemaWriter.hasChanges();
 	}
 	
 	//method
 	public void setColumnHeader(final String tableName, final String columnHeader, final String newColumnHeader) {
-		internalSchemaWriter.renameColumn(
+		mSQLSchemaWriter.renameColumn(
 			TableType.CONTENT_DATA.getPrefix() + tableName,
 			columnHeader,
 			newColumnHeader
@@ -72,7 +74,7 @@ final class InternalSchemaWriter implements ChangeRequestable {
 	
 	//method
 	public void setTableName(final String tableName, final String newTableName) {
-		internalSchemaWriter.renameTable(
+		mSQLSchemaWriter.renameTable(
 			TableType.CONTENT_DATA.getPrefix() + tableName,
 			TableType.CONTENT_DATA.getPrefix() + newTableName
 		);

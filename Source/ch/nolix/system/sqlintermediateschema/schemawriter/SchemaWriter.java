@@ -22,14 +22,15 @@ public final class SchemaWriter implements ISchemaWriter {
 	//constructor
 	public SchemaWriter(
 		final SQLConnection pSQLConnection,
-		final ch.nolix.techapi.sqlschemaapi.schemaadapterapi.ISchemaWriter schemaWriter
+		final ch.nolix.techapi.sqlschemaapi.schemaadapterapi.ISchemaWriter schemaWriter,
+		final ch.nolix.techapi.sqlschemaapi.schemadtoapi.IColumnDTO pSQLSaveStampColumnDTO
 	) {
 		
 		Validator.assertThat(pSQLConnection).thatIsNamed(SQLConnection.class).isNotNull();
 		
 		mSQLConnection = pSQLConnection;
 		systemDataWriter = new SystemDataWriter();
-		this.internalSchemaWriter = new InternalSchemaWriter(schemaWriter);		
+		internalSchemaWriter = new InternalSchemaWriter(schemaWriter, pSQLSaveStampColumnDTO);		
 	}
 	
 	//method
