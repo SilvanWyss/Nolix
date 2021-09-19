@@ -13,12 +13,12 @@ import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.ITableDTO;
 final class SchemaDTOMapper {
 	
 	//method
-	public ColumnDTO createSQLColumnDTOFrom(final IColumnDTO column) {
+	public ch.nolix.techapi.sqlschemaapi.schemadtoapi.IColumnDTO createSQLColumnDTOFrom(final IColumnDTO column) {
 		return new ColumnDTO(column.getHeader(), SQLDatatypeCatalogue.TEXT_DATA_TYPE);
 	}
 	
 	//method
-	public TableDTO createSQLTableDTOFrom(final ITableDTO table) {
+	public ch.nolix.techapi.sqlschemaapi.schemadtoapi.ITableDTO createSQLTableDTOFrom(final ITableDTO table) {
 		return 
 		new TableDTO(
 			TableType.CONTENT_DATA.getPrefix() + table.getName(),
