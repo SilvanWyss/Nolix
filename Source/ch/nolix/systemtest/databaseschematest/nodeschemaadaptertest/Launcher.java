@@ -1,12 +1,12 @@
 //package declaration
-package ch.nolix.systemtest.databaseschematest.nodedatabaseschemaadaptertest;
+package ch.nolix.systemtest.databaseschematest.nodeschemaadaptertest;
 
 //class
 public final class Launcher {
 	
 	//main method
 	public static void main(String[] args) {
-		new NodeDatabaseSchemaAdapterTestPool().run();
+		new NodeSchemaAdapterTestPool().run();
 	}
 	
 	//constructor

@@ -6,15 +6,15 @@ import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedMulti
 import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedValueType;
 import ch.nolix.system.databaseschema.schema.Column;
 import ch.nolix.system.databaseschema.schema.Table;
-import ch.nolix.system.databaseschema.schemaadapter.NodeDatabaseSchemaAdapter;
+import ch.nolix.system.databaseschema.schemaadapter.NodeSchemaAdapter;
 
-public final class NodeDatabaseSchemaAdapterTutorial {
+public final class NodeSchemaAdapterTutorial {
 	
 	public static void main(String[] args) {
 		
 		final var database = new Node();
 		
-		final var nodeDatabaseSchemaAdapter = NodeDatabaseSchemaAdapter.forDatabaseNode("CountryDatabase", database);
+		final var nodeDatabaseSchemaAdapter = NodeSchemaAdapter.forDatabaseNode("CountryDatabase", database);
 		
 		final var cityTable =
 		new Table("City")
@@ -33,5 +33,5 @@ public final class NodeDatabaseSchemaAdapterTutorial {
 		System.out.println(database.toFormatedString());
 	}
 	
-	private NodeDatabaseSchemaAdapterTutorial() {}
+	private NodeSchemaAdapterTutorial() {}
 }

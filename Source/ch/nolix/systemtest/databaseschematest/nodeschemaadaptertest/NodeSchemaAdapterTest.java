@@ -1,15 +1,15 @@
 //package declaration
-package ch.nolix.systemtest.databaseschematest.nodedatabaseschemaadaptertest;
+package ch.nolix.systemtest.databaseschematest.nodeschemaadaptertest;
 
 //own imports
 import ch.nolix.common.document.node.Node;
 import ch.nolix.common.testing.basetest.TestCase;
 import ch.nolix.common.testing.test.Test;
 import ch.nolix.system.databaseschema.schema.Table;
-import ch.nolix.system.databaseschema.schemaadapter.NodeDatabaseSchemaAdapter;
+import ch.nolix.system.databaseschema.schemaadapter.NodeSchemaAdapter;
 
 //class
-public final class NodeDatabaseSchemaAdapterTest extends Test {
+public final class NodeSchemaAdapterTest extends Test {
 	
 	//method
 	@TestCase
@@ -22,7 +22,7 @@ public final class NodeDatabaseSchemaAdapterTest extends Test {
 		expect(database.isBlank());
 		
 		//execution
-		NodeDatabaseSchemaAdapter.forDatabaseNode("MyDatabase", database);
+		NodeSchemaAdapter.forDatabaseNode("MyDatabase", database);
 		
 		//verification
 		expect(database.getHeader()).isEqualTo("Database");
@@ -36,7 +36,7 @@ public final class NodeDatabaseSchemaAdapterTest extends Test {
 		
 		//setup
 		final var database = new Node();
-		final var testUnit = NodeDatabaseSchemaAdapter.forDatabaseNode("MyDatabase", database);
+		final var testUnit = NodeSchemaAdapter.forDatabaseNode("MyDatabase", database);
 		
 		//execution
 		testUnit.addTable(new Table("MyTable")).saveChanges();
