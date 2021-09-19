@@ -35,7 +35,7 @@ public final class Column extends DatabaseObject implements IExtendedColumn<Colu
 		return 
 		new Column(
 			columnDTO.getHeader(),
-			parametrizedPropertyTypeMapper.createParametrizedPropertyTypefromDTO(
+			parametrizedPropertyTypeMapper.createParametrizedPropertyTypeFromDTO(
 				columnDTO.getParametrizedPropertyType(),
 				tables
 			)
