@@ -1,9 +1,9 @@
 //package declaration
-package ch.nolix.techapi.sqldataapi.dataadapterapi;
+package ch.nolix.techapi.intermediatedataapi.dataadapterapi;
 
 //own imports
 import ch.nolix.common.independent.independentcontainer.List;
-import ch.nolix.techapi.sqldataapi.recorddtoapi.IRecordDTO;
+import ch.nolix.techapi.intermediatedataapi.recorddtoapi.IRecordDTO;
 
 //interface
 public interface IDataReader {
