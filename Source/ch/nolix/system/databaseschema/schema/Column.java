@@ -23,20 +23,21 @@ public final class Column extends DatabaseObject implements IExtendedColumn<Colu
 	new ParametrizedValueType<>(Integer.class);
 	
 	//static attribute
-	private static final ParametrizedPropertyTypeFactory parametrizedPropertyTypeFactory =
-	new ParametrizedPropertyTypeFactory();
+	private static final ParametrizedPropertyTypeMapper parametrizedPropertyTypeMapper =
+	new ParametrizedPropertyTypeMapper();
 	
 	//static attributes
 	private static final ColumnMutationPreValidator mutationPreValidator = new ColumnMutationPreValidator();
 	private static final ColumnMutationExecutor mutationExecutor = new ColumnMutationExecutor();
 	
 	//static method
-	public static Column fromDTO(final IColumnDTO columnDTO) {
+	public static Column fromDTO(final IColumnDTO columnDTO, final IContainer<Table> tables) {
 		return 
 		new Column(
 			columnDTO.getHeader(),
-			parametrizedPropertyTypeFactory.createParametrizedPropertyTypefromDTOUnchecked(
-				columnDTO.getParametrizedPropertyType()
+			parametrizedPropertyTypeMapper.createParametrizedPropertyTypefromDTO(
+				columnDTO.getParametrizedPropertyType(),
+				tables
 			)
 		);
 	}
