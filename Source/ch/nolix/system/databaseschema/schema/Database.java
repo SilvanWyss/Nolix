@@ -151,6 +151,7 @@ implements IExtendedDatabase<Database, Table, Column, ParametrizedPropertyType<?
 		Validator.assertThat(intermediateSchemaAdapter).thatIsNamed(IntermediateSchemaAdapter.class).isNotNull();
 		assertIsNotLinkedWithActualDatabase();
 		
+		setLoaded();
 		this.intermediateSchemaAdapter = intermediateSchemaAdapter;
 	}
 }

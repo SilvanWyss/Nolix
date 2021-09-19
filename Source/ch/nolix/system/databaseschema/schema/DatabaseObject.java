@@ -37,6 +37,9 @@ abstract class DatabaseObject implements GroupCloseable, IExtendedDatabaseObject
 		noteCloseDatabaseObject();
 	}
 	
+	//method declaration
+	protected abstract void noteCloseDatabaseObject();
+	
 	//method
 	final void setDeleted() {
 		switch (getState()) {
@@ -87,7 +90,4 @@ abstract class DatabaseObject implements GroupCloseable, IExtendedDatabaseObject
 				throw new ClosedArgumentException(this);
 		}
 	}
-	
-	//method declaration
-	protected abstract void noteCloseDatabaseObject();
 }
