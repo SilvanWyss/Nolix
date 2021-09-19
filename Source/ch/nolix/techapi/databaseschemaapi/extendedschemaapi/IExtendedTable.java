@@ -3,6 +3,7 @@ package ch.nolix.techapi.databaseschemaapi.extendedschemaapi;
 
 //own imports
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentContainsElementException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -32,6 +33,13 @@ public interface IExtendedTable<
 	default void assertContainsIdColumn() {
 		if (!containsIdColumn()) {
 			throw new ArgumentDoesNotHaveAttributeException(this, "id column");
+		}
+	}
+	
+	//method
+	default void assertDoesNotBelongToDatabase() {
+		if (belongsToDatabase()) {
+			throw new ArgumentBelongsToParentException(this, getParentDatabase());
 		}
 	}
 	
