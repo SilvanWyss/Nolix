@@ -204,6 +204,7 @@ public final class Table extends DatabaseObject implements IExtendedTable<Table,
 		.loadColumnsOfTable(this).to(c -> Column.fromDTO(c, tables));
 		
 		columns.forEach(Column::setLoaded);
+		columns.forEach(c -> c.setParentTableAttribute(this));
 	}
 	
 	//method
