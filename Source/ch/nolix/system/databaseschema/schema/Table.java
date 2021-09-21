@@ -11,9 +11,12 @@ import ch.nolix.system.databaseschema.flatschemadto.FlatTableDTO;
 import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedPropertyType;
 import ch.nolix.system.databaseschema.parametrizedpropertytype.IdType;
 import ch.nolix.system.databaseschema.schemadto.ColumnDTO;
+import ch.nolix.system.databaseschema.schemadto.SaveStampConfigurationDTO;
 import ch.nolix.system.databaseschema.schemadto.TableDTO;
 import ch.nolix.techapi.databaseschemaapi.extendedschemaapi.IExtendedTable;
 import ch.nolix.techapi.intermediateschemaapi.flatschemadtoapi.IFlatTableDTO;
+import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.ISaveStampConfigurationDTO;
+import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.SaveStampStrategy;
 
 //class
 public final class Table extends DatabaseObject implements IExtendedTable<Table, Column, ParametrizedPropertyType<?>> {
@@ -124,7 +127,7 @@ public final class Table extends DatabaseObject implements IExtendedTable<Table,
 	//method
 	@Override
 	public TableDTO toDTO() {
-		return new TableDTO(getName(), createColumnDTOs());
+		return new TableDTO(getName(), createSaveStampConfigurationDTO(), createColumnDTOs());
 	}
 	
 	//method
@@ -184,6 +187,11 @@ public final class Table extends DatabaseObject implements IExtendedTable<Table,
 	//method
 	private Column createIdColumn() {
 		return new Column(PascalCaseCatalogue.ID, new IdType());
+	}
+	
+	//method
+	private ISaveStampConfigurationDTO createSaveStampConfigurationDTO() {
+		return new SaveStampConfigurationDTO(SaveStampStrategy.OWN_SAVE_STAMP);
 	}
 	
 	//method

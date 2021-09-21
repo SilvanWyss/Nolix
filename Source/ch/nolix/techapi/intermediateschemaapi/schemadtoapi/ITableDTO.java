@@ -12,4 +12,7 @@ public interface ITableDTO {
 	
 	//method declaration
 	String getName();
+	
+	//method declaration
+	ISaveStampConfigurationDTO getSaveStampConfiguration();
 }
