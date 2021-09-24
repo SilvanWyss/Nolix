@@ -8,6 +8,7 @@ import ch.nolix.common.sql.SQLConnection;
 import ch.nolix.techapi.sqloptimisticlockingdataapi.dataadapterapi.IDataReader;
 import ch.nolix.techapi.sqloptimisticlockingdataapi.recorddtoapi.IRecordDTO;
 import ch.nolix.techapi.sqloptimisticlockingdataapi.sqldatalanguageapi.IDataQueryCreator;
+import ch.nolix.techapi.sqlschemaapi.schemadtoapi.ITableDTO;
 
 //class
 final class DataReader implements IDataReader {
@@ -31,10 +32,10 @@ final class DataReader implements IDataReader {
 	
 	//method
 	@Override
-	public LinkedList<IRecordDTO> loadAllRecordsFromTable(final String tableName) {
+	public LinkedList<IRecordDTO> loadAllRecordsFromTable(final ITableDTO table) {
 		return
 		mSQLConnection
-		.getRecords(dataQueryCreator.createQueryToLoadAllRecordsFromTable(tableName))
-		.to(recordDTOMapper::createRecordDTOFromSQLRecord);
+		.getRecords(dataQueryCreator.createQueryToLoadAllRecordsFromTable(table.getName()))
+		.to(r -> recordDTOMapper.createRecordDTOFromSQLRecord(r, table));
 	}
 }
