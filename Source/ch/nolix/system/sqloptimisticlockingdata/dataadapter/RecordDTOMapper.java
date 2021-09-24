@@ -6,8 +6,8 @@ import java.util.List;
 
 //own imports
 import ch.nolix.common.container.IContainer;
-import ch.nolix.common.container.LinkedList;
 import ch.nolix.system.sqloptimisticlockingdata.recorddto.RecordDTO;
+import ch.nolix.techapi.sqloptimisticlockingdataapi.recorddtoapi.ICellDTO;
 import ch.nolix.techapi.sqloptimisticlockingdataapi.recorddtoapi.IRecordDTO;
 
 //class
@@ -24,13 +24,8 @@ final class RecordDTOMapper {
 	}
 	
 	//method
-	private IContainer<String> getRecordValuesFromSQLRecordValues(final List<String> pSQLRecordValues) {
-		
-		final var recordValues = new LinkedList<String>();
-		for (var i = 2; i < pSQLRecordValues.size(); i++) {
-			recordValues.addAtEnd(pSQLRecordValues.get(i));
-		}
-		
-		return recordValues;
+	private IContainer<ICellDTO> getRecordValuesFromSQLRecordValues(final List<String> pSQLRecordValues) {
+		//TODO: Implement
+		return null;
 	}
 }

@@ -14,5 +14,5 @@ public interface IRecordDTO {
 	String getSaveStamp();
 	
 	//method
-	IContainer<String> getValues();
+	IContainer<ICellDTO> getValues();
 }

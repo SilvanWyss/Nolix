@@ -6,6 +6,7 @@ import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.constant.PluralLowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.techapi.sqloptimisticlockingdataapi.recorddtoapi.ICellDTO;
 import ch.nolix.techapi.sqloptimisticlockingdataapi.recorddtoapi.IRecordDTO;
 
 //class
@@ -16,10 +17,10 @@ public final class RecordDTO implements IRecordDTO {
 	private final String saveStamp;
 	
 	//multi-attribute
-	private final IContainer<String> values;
+	private final IContainer<ICellDTO> values;
 	
 	//constructor
-	public RecordDTO(final String id, final String saveStamp, final IContainer<String> values) {
+	public RecordDTO(final String id, final String saveStamp, final IContainer<ICellDTO> values) {
 		
 		if (id == null) {
 			throw new ArgumentIsNullException(LowerCaseCatalogue.ID);
@@ -52,7 +53,7 @@ public final class RecordDTO implements IRecordDTO {
 	
 	//method
 	@Override
-	public IContainer<String> getValues() {
+	public IContainer<ICellDTO> getValues() {
 		return values;
 	}
 }
