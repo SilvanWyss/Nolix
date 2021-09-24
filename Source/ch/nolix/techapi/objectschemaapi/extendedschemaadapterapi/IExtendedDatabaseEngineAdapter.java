@@ -1,14 +1,13 @@
 //package declaration
-package ch.nolix.techapi.databaseschemaapi.extendedschemaadapterapi;
+package ch.nolix.techapi.objectschemaapi.extendedschemaadapterapi;
 
 import ch.nolix.common.container.IContainer;
-//own improts
-import ch.nolix.techapi.databaseschemaapi.extendedschemaapi.IExtendedColumn;
-import ch.nolix.techapi.databaseschemaapi.extendedschemaapi.IExtendedDatabase;
-import ch.nolix.techapi.databaseschemaapi.extendedschemaapi.IExtendedDatabaseEngine;
-import ch.nolix.techapi.databaseschemaapi.extendedschemaapi.IExtendedParametrizedPropertyType;
-import ch.nolix.techapi.databaseschemaapi.extendedschemaapi.IExtendedTable;
-import ch.nolix.techapi.databaseschemaapi.schemaadapterapi.IDatabaseEngineAdapter;
+import ch.nolix.techapi.objectschemaapi.extendedschemaapi.IExtendedColumn;
+import ch.nolix.techapi.objectschemaapi.extendedschemaapi.IExtendedDatabase;
+import ch.nolix.techapi.objectschemaapi.extendedschemaapi.IExtendedDatabaseEngine;
+import ch.nolix.techapi.objectschemaapi.extendedschemaapi.IExtendedParametrizedPropertyType;
+import ch.nolix.techapi.objectschemaapi.extendedschemaapi.IExtendedTable;
+import ch.nolix.techapi.objectschemaapi.schemaadapterapi.IDatabaseEngineAdapter;
 
 //interface
 public interface IExtendedDatabaseEngineAdapter<

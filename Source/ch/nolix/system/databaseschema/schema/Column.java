@@ -9,8 +9,8 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentExce
 import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedPropertyType;
 import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedValueType;
 import ch.nolix.system.databaseschema.schemadto.ColumnDTO;
-import ch.nolix.techapi.databaseschemaapi.extendedschemaapi.IExtendedColumn;
 import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.IColumnDTO;
+import ch.nolix.techapi.objectschemaapi.extendedschemaapi.IExtendedColumn;
 
 //class
 public final class Column extends DatabaseObject implements IExtendedColumn<Column, ParametrizedPropertyType<?>> {

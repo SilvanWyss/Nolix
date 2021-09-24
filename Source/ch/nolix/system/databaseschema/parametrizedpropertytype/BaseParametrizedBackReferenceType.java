@@ -5,9 +5,9 @@ package ch.nolix.system.databaseschema.parametrizedpropertytype;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.databaseschema.schemadto.BaseParametrizedBackReferenceTypeDTO;
 import ch.nolix.techapi.databasecommonapi.propertytypeapi.BasePropertyType;
-import ch.nolix.techapi.databaseschemaapi.schemaapi.IColumn;
-import ch.nolix.techapi.databaseschemaapi.schemaapi.ITable;
 import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
+import ch.nolix.techapi.objectschemaapi.schemaapi.IColumn;
+import ch.nolix.techapi.objectschemaapi.schemaapi.ITable;
 
 //class
 public abstract class BaseParametrizedBackReferenceType extends ParametrizedPropertyType<String> {

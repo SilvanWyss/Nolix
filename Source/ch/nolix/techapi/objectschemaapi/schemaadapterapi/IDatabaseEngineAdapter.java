@@ -1,13 +1,13 @@
 //package declaration
-package ch.nolix.techapi.databaseschemaapi.schemaadapterapi;
+package ch.nolix.techapi.objectschemaapi.schemaadapterapi;
 
 //own imports
 import ch.nolix.common.skillapi.IChangeSaver;
-import ch.nolix.techapi.databaseschemaapi.schemaapi.IParametrizedPropertyType;
-import ch.nolix.techapi.databaseschemaapi.schemaapi.IColumn;
-import ch.nolix.techapi.databaseschemaapi.schemaapi.IDatabase;
-import ch.nolix.techapi.databaseschemaapi.schemaapi.IDatabaseEngine;
-import ch.nolix.techapi.databaseschemaapi.schemaapi.ITable;
+import ch.nolix.techapi.objectschemaapi.schemaapi.IColumn;
+import ch.nolix.techapi.objectschemaapi.schemaapi.IDatabase;
+import ch.nolix.techapi.objectschemaapi.schemaapi.IDatabaseEngine;
+import ch.nolix.techapi.objectschemaapi.schemaapi.IParametrizedPropertyType;
+import ch.nolix.techapi.objectschemaapi.schemaapi.ITable;
 
 //interface
 public interface IDatabaseEngineAdapter<

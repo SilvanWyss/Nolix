@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.techapi.databaseschemaapi.schemaapi;
+package ch.nolix.techapi.objectschemaapi.schemaapi;
 
 //enum
 public enum DatabaseSchemaState {

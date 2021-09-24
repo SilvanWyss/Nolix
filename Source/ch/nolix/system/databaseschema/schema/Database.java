@@ -6,9 +6,9 @@ import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedPropertyType;
-import ch.nolix.techapi.databaseschemaapi.extendedschemaapi.IExtendedDatabase;
-import ch.nolix.techapi.databaseschemaapi.extendedschemaapi.IExtendedDatabaseEngine;
 import ch.nolix.techapi.intermediateschemaapi.schemaadapterapi.ISchemaAdapter;
+import ch.nolix.techapi.objectschemaapi.extendedschemaapi.IExtendedDatabase;
+import ch.nolix.techapi.objectschemaapi.extendedschemaapi.IExtendedDatabaseEngine;
 
 //class
 public final class Database extends DatabaseObject

@@ -1,9 +1,9 @@
 //package declaration
-package ch.nolix.techapi.databaseschemaapi.extendedschemaapi;
+package ch.nolix.techapi.objectschemaapi.extendedschemaapi;
 
 //own imports
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.techapi.databaseschemaapi.schemaapi.IDatabaseEngine;
+import ch.nolix.techapi.objectschemaapi.schemaapi.IDatabaseEngine;
 
 //interface
 public interface IExtendedDatabaseEngine<

@@ -3,7 +3,7 @@ package ch.nolix.system.sqlintermediateschema.databaseschemainspector;
 
 //own imports
 import ch.nolix.system.sqlintermediateschema.structure.SystemDataTable;
-import ch.nolix.techapi.databaseschemaapi.schemaapi.DatabaseSchemaState;
+import ch.nolix.techapi.objectschemaapi.schemaapi.DatabaseSchemaState;
 import ch.nolix.techapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //class

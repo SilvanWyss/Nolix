@@ -2,7 +2,7 @@
 package ch.nolix.system.databaseschema.parametrizedpropertytype;
 
 import ch.nolix.techapi.databasecommonapi.propertytypeapi.PropertyType;
-import ch.nolix.techapi.databaseschemaapi.schemaapi.IColumn;
+import ch.nolix.techapi.objectschemaapi.schemaapi.IColumn;
 
 //class
 public final class ParametrizedOptionalBackReferenceType extends BaseParametrizedBackReferenceType {

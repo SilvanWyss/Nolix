@@ -1,5 +1,5 @@
 //package declarations
-package ch.nolix.techapi.databaseschemaapi.extendedschemaapi;
+package ch.nolix.techapi.objectschemaapi.extendedschemaapi;
 
 //own imports
 import ch.nolix.common.constant.LowerCaseCatalogue;
@@ -9,8 +9,8 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentExce
 import ch.nolix.techapi.databasecommonapi.databaseobjectapi.IExtendedDatabaseObject;
 import ch.nolix.techapi.databasecommonapi.propertytypeapi.BasePropertyType;
 import ch.nolix.techapi.databasecommonapi.propertytypeapi.PropertyType;
-import ch.nolix.techapi.databaseschemaapi.schemaapi.IColumn;
-import ch.nolix.techapi.databaseschemaapi.schemaapi.ITable;
+import ch.nolix.techapi.objectschemaapi.schemaapi.IColumn;
+import ch.nolix.techapi.objectschemaapi.schemaapi.ITable;
 
 //interface
 public interface IExtendedColumn<

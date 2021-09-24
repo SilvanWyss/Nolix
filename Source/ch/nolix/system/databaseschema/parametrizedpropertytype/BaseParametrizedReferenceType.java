@@ -4,9 +4,9 @@ package ch.nolix.system.databaseschema.parametrizedpropertytype;
 //own imports
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.system.databaseschema.schemadto.BaseParametrizedReferenceTypeDTO;
-import ch.nolix.techapi.databaseschemaapi.schemaapi.IColumn;
-import ch.nolix.techapi.databaseschemaapi.schemaapi.ITable;
 import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
+import ch.nolix.techapi.objectschemaapi.schemaapi.IColumn;
+import ch.nolix.techapi.objectschemaapi.schemaapi.ITable;
 
 //class
 public abstract class BaseParametrizedReferenceType extends ParametrizedPropertyType<String> {
