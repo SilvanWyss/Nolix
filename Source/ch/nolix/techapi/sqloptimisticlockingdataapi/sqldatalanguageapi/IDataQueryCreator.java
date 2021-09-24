@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.techapi.intermediatedataapi.sqldatalanguageapi;
+package ch.nolix.techapi.sqloptimisticlockingdataapi.sqldatalanguageapi;
 
 //interface
 public interface IDataQueryCreator {

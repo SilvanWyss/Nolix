@@ -1,8 +1,7 @@
 //package declaration
-package ch.nolix.system.sqlintermediatedata.sqldatalanguage;
+package ch.nolix.system.sqloptimisticlockingdata.sqldatalanguage;
 
-//own imports
-import ch.nolix.techapi.intermediatedataapi.sqldatalanguageapi.IDataQueryCreator;
+import ch.nolix.techapi.sqloptimisticlockingdataapi.sqldatalanguageapi.IDataQueryCreator;
 
 //class
 public final class MSSQLDataQueryCreator implements IDataQueryCreator{

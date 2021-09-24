@@ -1,12 +1,12 @@
 //package declaration
-package ch.nolix.system.sqlintermediatedata.recorddto;
+package ch.nolix.system.sqloptimisticlockingdata.recorddto;
 
 //own imports
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.constant.PluralLowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.techapi.intermediatedataapi.recorddtoapi.IRecordDTO;
+import ch.nolix.techapi.sqloptimisticlockingdataapi.recorddtoapi.IRecordDTO;
 
 //class
 public final class RecordDTO implements IRecordDTO {

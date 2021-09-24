@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.sqlintermediatedata.dataadapter;
+package ch.nolix.system.sqloptimisticlockingdata.dataadapter;
 
 //Java imports
 import java.util.List;
@@ -7,8 +7,8 @@ import java.util.List;
 //own imports
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.system.sqlintermediatedata.recorddto.RecordDTO;
-import ch.nolix.techapi.intermediatedataapi.recorddtoapi.IRecordDTO;
+import ch.nolix.system.sqloptimisticlockingdata.recorddto.RecordDTO;
+import ch.nolix.techapi.sqloptimisticlockingdataapi.recorddtoapi.IRecordDTO;
 
 //class
 final class RecordDTOMapper {

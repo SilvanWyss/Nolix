@@ -1,8 +1,7 @@
 //package declaration
-package ch.nolix.techapi.intermediatedataapi.sqldatalanguageapi;
+package ch.nolix.techapi.sqloptimisticlockingdataapi.sqldatalanguageapi;
 
-//own imports
-import ch.nolix.techapi.intermediatedataapi.recorddtoapi.IRecordDTO;
+import ch.nolix.techapi.sqloptimisticlockingdataapi.recorddtoapi.IRecordDTO;
 
 //interface
 public interface IDataStatementCreator {

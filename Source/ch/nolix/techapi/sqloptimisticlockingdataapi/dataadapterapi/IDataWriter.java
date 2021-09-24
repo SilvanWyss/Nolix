@@ -1,9 +1,9 @@
 //package declaration
-package ch.nolix.techapi.intermediatedataapi.dataadapterapi;
+package ch.nolix.techapi.sqloptimisticlockingdataapi.dataadapterapi;
 
 //own imports
 import ch.nolix.common.skillapi.IChangeSaver;
-import ch.nolix.techapi.intermediatedataapi.recorddtoapi.IRecordDTO;
+import ch.nolix.techapi.sqloptimisticlockingdataapi.recorddtoapi.IRecordDTO;
 
 //interface
 public interface IDataWriter extends IChangeSaver {

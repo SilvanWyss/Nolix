@@ -1,10 +1,9 @@
 //package declaration
 //package declaration
-package ch.nolix.system.sqlintermediatedata.sqldatalanguage;
+package ch.nolix.system.sqloptimisticlockingdata.sqldatalanguage;
 
-//own imports
-import ch.nolix.techapi.intermediatedataapi.recorddtoapi.IRecordDTO;
-import ch.nolix.techapi.intermediatedataapi.sqldatalanguageapi.IDataStatementCreator;
+import ch.nolix.techapi.sqloptimisticlockingdataapi.recorddtoapi.IRecordDTO;
+import ch.nolix.techapi.sqloptimisticlockingdataapi.sqldatalanguageapi.IDataStatementCreator;
 
 //class
 public final class MSSQLDataStatementCreator implements IDataStatementCreator {

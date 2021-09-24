@@ -1,13 +1,13 @@
 //package declaration
-package ch.nolix.system.sqlintermediatedata.dataadapter;
+package ch.nolix.system.sqloptimisticlockingdata.dataadapter;
 
 //own imports
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.sql.SQLConnection;
 import ch.nolix.common.sql.SQLExecutor;
-import ch.nolix.techapi.intermediatedataapi.dataadapterapi.IDataWriter;
-import ch.nolix.techapi.intermediatedataapi.recorddtoapi.IRecordDTO;
-import ch.nolix.techapi.intermediatedataapi.sqldatalanguageapi.IDataStatementCreator;
+import ch.nolix.techapi.sqloptimisticlockingdataapi.dataadapterapi.IDataWriter;
+import ch.nolix.techapi.sqloptimisticlockingdataapi.recorddtoapi.IRecordDTO;
+import ch.nolix.techapi.sqloptimisticlockingdataapi.sqldatalanguageapi.IDataStatementCreator;
 
 //class
 final class DataWriter implements IDataWriter {
