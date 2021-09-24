@@ -22,8 +22,8 @@ public final class ParametrizedBackReferenceType<E extends Entity> extends BaseP
 	
 	//method
 	@Override
-	public ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedBackReferenceType toSchemaDataType(
-		final IContainer<ch.nolix.system.databaseschema.databaseschemaadapter.EntitySet> schemaEntitySets
+	public ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedBackReferenceType toSchemaDataType(
+		final IContainer<ch.nolix.system.objectschema.databaseschemaadapter.EntitySet> schemaEntitySets
 	) {
 		//TODO: Refacotr.
 		/*

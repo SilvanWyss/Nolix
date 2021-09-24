@@ -43,7 +43,7 @@ public abstract class Schema {
 	}
 	
 	//method
-	public IContainer<ch.nolix.system.databaseschema.databaseschemaadapter.EntitySet> getSchemaEntitySets() {
+	public IContainer<ch.nolix.system.objectschema.databaseschemaadapter.EntitySet> getSchemaEntitySets() {
 		
 		final var schemaEntitySets = entityTypes.to(EntityType::toEmptySchemaEntitySet);
 		entityTypes.forEach(et -> et.fillUpColumnsInOwnSchemaEntitySetFrom(schemaEntitySets));

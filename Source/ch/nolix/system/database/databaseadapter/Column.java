@@ -8,7 +8,7 @@ import ch.nolix.common.container.IContainer;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.system.database.entity.Entity;
 import ch.nolix.system.database.parametrizeddatatype.ParametrizedDataType;
-import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedPropertyType;
+import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedPropertyType;
 import ch.nolix.techapi.databasecommonapi.propertytypeapi.BasePropertyType;
 import ch.nolix.techapi.databasecommonapi.propertytypeapi.PropertyType;
 
@@ -68,16 +68,16 @@ public final class Column<C> implements Headered {
 	}
 	
 	//method
-	public ch.nolix.system.databaseschema.databaseschemaadapter.Column toSchemaColumn(
-		final IContainer<ch.nolix.system.databaseschema.databaseschemaadapter.EntitySet> schemaEntitySets
+	public ch.nolix.system.objectschema.databaseschemaadapter.Column toSchemaColumn(
+		final IContainer<ch.nolix.system.objectschema.databaseschemaadapter.EntitySet> schemaEntitySets
 	) {
 		return
-		new ch.nolix.system.databaseschema.databaseschemaadapter.Column(getHeader(), getSchemaDataType(schemaEntitySets));
+		new ch.nolix.system.objectschema.databaseschemaadapter.Column(getHeader(), getSchemaDataType(schemaEntitySets));
 	}
 	
 	//method
 	private ParametrizedPropertyType<?> getSchemaDataType(
-		final IContainer<ch.nolix.system.databaseschema.databaseschemaadapter.EntitySet> schemaEntitySets
+		final IContainer<ch.nolix.system.objectschema.databaseschemaadapter.EntitySet> schemaEntitySets
 	) {
 		return parametrizedDataType.toSchemaDataType(schemaEntitySets);
 	}

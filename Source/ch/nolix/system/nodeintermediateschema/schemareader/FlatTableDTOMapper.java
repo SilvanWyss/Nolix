@@ -3,8 +3,8 @@ package ch.nolix.system.nodeintermediateschema.schemareader;
 
 //own imports
 import ch.nolix.common.document.node.BaseNode;
-import ch.nolix.system.databaseschema.flatschemadto.FlatTableDTO;
 import ch.nolix.system.nodeintermediateschema.structure.TableNodeSearcher;
+import ch.nolix.system.objectschema.flatschemadto.FlatTableDTO;
 
 //class
 final class FlatTableDTOMapper {

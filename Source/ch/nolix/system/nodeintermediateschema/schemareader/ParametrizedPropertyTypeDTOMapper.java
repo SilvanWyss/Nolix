@@ -4,12 +4,12 @@ package ch.nolix.system.nodeintermediateschema.schemareader;
 //own imports
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.system.databaseschema.schemadto.BaseParametrizedBackReferenceTypeDTO;
-import ch.nolix.system.databaseschema.schemadto.BaseParametrizedControlTypeDTO;
-import ch.nolix.system.databaseschema.schemadto.BaseParametrizedReferenceTypeDTO;
-import ch.nolix.system.databaseschema.schemadto.BaseParametrizedValueTypeDTO;
-import ch.nolix.system.databaseschema.schemadto.ParametrizedPropertyTypeDTO;
 import ch.nolix.system.nodeintermediateschema.structure.ParametrizedPropertyTypeNodeSearcher;
+import ch.nolix.system.objectschema.schemadto.BaseParametrizedBackReferenceTypeDTO;
+import ch.nolix.system.objectschema.schemadto.BaseParametrizedControlTypeDTO;
+import ch.nolix.system.objectschema.schemadto.BaseParametrizedReferenceTypeDTO;
+import ch.nolix.system.objectschema.schemadto.BaseParametrizedValueTypeDTO;
+import ch.nolix.system.objectschema.schemadto.ParametrizedPropertyTypeDTO;
 import ch.nolix.techapi.databasecommonapi.propertytypeapi.PropertyType;
 
 //class

@@ -3,9 +3,9 @@ package ch.nolix.system.nodeintermediateschema.schemareader;
 
 //own imports
 import ch.nolix.common.document.node.BaseNode;
-import ch.nolix.system.databaseschema.schemadto.ColumnDTO;
-import ch.nolix.system.databaseschema.schemadto.ParametrizedPropertyTypeDTO;
 import ch.nolix.system.nodeintermediateschema.structure.ColumnNodeSearcher;
+import ch.nolix.system.objectschema.schemadto.ColumnDTO;
+import ch.nolix.system.objectschema.schemadto.ParametrizedPropertyTypeDTO;
 
 //class
 final class ColumnDTOMapper {

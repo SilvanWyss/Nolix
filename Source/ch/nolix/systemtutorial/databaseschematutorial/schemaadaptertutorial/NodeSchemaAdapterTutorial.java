@@ -1,12 +1,12 @@
 package ch.nolix.systemtutorial.databaseschematutorial.schemaadaptertutorial;
 
 import ch.nolix.common.document.node.Node;
-import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedBackReferenceType;
-import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedMultiReferenceType;
-import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedValueType;
-import ch.nolix.system.databaseschema.schema.Column;
-import ch.nolix.system.databaseschema.schema.Table;
-import ch.nolix.system.databaseschema.schemaadapter.NodeSchemaAdapter;
+import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedBackReferenceType;
+import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedMultiReferenceType;
+import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedValueType;
+import ch.nolix.system.objectschema.schema.Column;
+import ch.nolix.system.objectschema.schema.Table;
+import ch.nolix.system.objectschema.schemaadapter.NodeSchemaAdapter;
 
 public final class NodeSchemaAdapterTutorial {
 	

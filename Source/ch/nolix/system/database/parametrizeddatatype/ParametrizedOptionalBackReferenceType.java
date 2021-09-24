@@ -23,9 +23,9 @@ extends BaseParametrizedBackReferenceType<E> {
 	
 	//method
 	@Override
-	public ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedOptionalBackReferenceType
+	public ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedOptionalBackReferenceType
 	toSchemaDataType(
-		final IContainer<ch.nolix.system.databaseschema.databaseschemaadapter.EntitySet> schemaEntitySets
+		final IContainer<ch.nolix.system.objectschema.databaseschemaadapter.EntitySet> schemaEntitySets
 	) {
 		//TODO: Refactor.
 		/*

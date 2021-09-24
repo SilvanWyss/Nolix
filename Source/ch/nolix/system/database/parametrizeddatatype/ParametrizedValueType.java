@@ -21,9 +21,9 @@ public final class ParametrizedValueType<C> extends BaseParametrizedValueType<C>
 	
 	//method
 	@Override
-	public ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedValueType<C> toSchemaDataType(
-		final IContainer<ch.nolix.system.databaseschema.databaseschemaadapter.EntitySet> schemaEntitySets
+	public ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedValueType<C> toSchemaDataType(
+		final IContainer<ch.nolix.system.objectschema.databaseschemaadapter.EntitySet> schemaEntitySets
 	) {
-		return new ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedValueType<>(getRefContentClass());
+		return new ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedValueType<>(getRefContentClass());
 	}
 }

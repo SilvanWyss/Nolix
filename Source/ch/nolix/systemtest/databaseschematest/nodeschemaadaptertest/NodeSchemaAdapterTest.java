@@ -5,8 +5,8 @@ package ch.nolix.systemtest.databaseschematest.nodeschemaadaptertest;
 import ch.nolix.common.document.node.Node;
 import ch.nolix.common.testing.basetest.TestCase;
 import ch.nolix.common.testing.test.Test;
-import ch.nolix.system.databaseschema.schema.Table;
-import ch.nolix.system.databaseschema.schemaadapter.NodeSchemaAdapter;
+import ch.nolix.system.objectschema.schema.Table;
+import ch.nolix.system.objectschema.schemaadapter.NodeSchemaAdapter;
 
 //class
 public final class NodeSchemaAdapterTest extends Test {

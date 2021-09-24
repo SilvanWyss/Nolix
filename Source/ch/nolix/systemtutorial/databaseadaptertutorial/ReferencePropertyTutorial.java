@@ -6,7 +6,7 @@ import ch.nolix.system.database.entity.Entity;
 import ch.nolix.system.database.entity.Reference;
 import ch.nolix.system.database.entity.Value;
 import ch.nolix.system.database.nodedatabaseadapter.NodeDatabaseAdapter;
-import ch.nolix.system.databaseschema.nodedatabaseschemaadapter.NodeDatabaseSchemaAdapter;
+import ch.nolix.system.objectschema.nodedatabaseschemaadapter.NodeDatabaseSchemaAdapter;
 
 public final class ReferencePropertyTutorial {
 	

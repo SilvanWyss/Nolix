@@ -22,8 +22,8 @@ public final class ParametrizedReferenceType<E extends Entity> extends BaseParam
 	
 	//method
 	@Override
-	public ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedReferenceType toSchemaDataType(
-		final IContainer<ch.nolix.system.databaseschema.databaseschemaadapter.EntitySet> schemaEntitySets
+	public ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedReferenceType toSchemaDataType(
+		final IContainer<ch.nolix.system.objectschema.databaseschemaadapter.EntitySet> schemaEntitySets
 	) {
 		//TODO: Refactor.
 		/*

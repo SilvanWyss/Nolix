@@ -13,7 +13,7 @@ import ch.nolix.system.database.databaseadapter.DatabaseAdapter;
 import ch.nolix.system.database.databaseadapter.Schema;
 import ch.nolix.system.database.entity.Entity;
 import ch.nolix.system.database.entity.IEntitySet;
-import ch.nolix.system.databaseschema.nodedatabaseschemaadapter.NodeDatabaseSchemaAdapter;
+import ch.nolix.system.objectschema.nodedatabaseschemaadapter.NodeDatabaseSchemaAdapter;
 
 //class
 public final class NodeDatabaseAdapter extends DatabaseAdapter {

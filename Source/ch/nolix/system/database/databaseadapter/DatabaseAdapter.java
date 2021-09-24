@@ -11,7 +11,7 @@ import ch.nolix.common.valuecreator.ValueCreator;
 import ch.nolix.system.database.entity.Entity;
 import ch.nolix.system.database.entity.IDatabaseAdapter;
 import ch.nolix.system.database.entity.IEntitySet;
-import ch.nolix.system.databaseschema.databaseschemaadapter.DatabaseSchemaAdapter;
+import ch.nolix.system.objectschema.databaseschemaadapter.DatabaseSchemaAdapter;
 
 //class
 public abstract class DatabaseAdapter implements IDatabaseAdapter {

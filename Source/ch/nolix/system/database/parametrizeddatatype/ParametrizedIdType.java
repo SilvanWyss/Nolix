@@ -3,7 +3,7 @@ package ch.nolix.system.database.parametrizeddatatype;
 
 //own imports
 import ch.nolix.common.container.IContainer;
-import ch.nolix.system.databaseschema.parametrizedpropertytype.IdType;
+import ch.nolix.system.objectschema.parametrizedpropertytype.IdType;
 import ch.nolix.techapi.databasecommonapi.propertytypeapi.PropertyType;
 
 //class
@@ -23,7 +23,7 @@ public final class ParametrizedIdType extends BaseParametrizedControlType<Long> 
 	//method
 	@Override
 	public IdType toSchemaDataType(
-		final IContainer<ch.nolix.system.databaseschema.databaseschemaadapter.EntitySet> schemaEntitySets
+		final IContainer<ch.nolix.system.objectschema.databaseschemaadapter.EntitySet> schemaEntitySets
 	) {
 		return new IdType();
 	}

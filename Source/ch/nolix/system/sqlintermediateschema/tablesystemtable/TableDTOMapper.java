@@ -4,8 +4,7 @@ package ch.nolix.system.sqlintermediateschema.tablesystemtable;
 //Java imports
 import java.util.List;
 
-//own imports
-import ch.nolix.system.databaseschema.flatschemadto.FlatTableDTO;
+import ch.nolix.system.objectschema.flatschemadto.FlatTableDTO;
 import ch.nolix.techapi.intermediateschemaapi.flatschemadtoapi.IFlatTableDTO;
 
 //class

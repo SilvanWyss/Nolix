@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.systemtutorial.databaseschematutorial} package defines
- * tutorials for the {@link ch.nolix.system.databaseschema} package.
+ * tutorials for the {@link ch.nolix.system.objectschema} package.
  * 
  * @author Silvan Wyss
  * @date 2021-09-15

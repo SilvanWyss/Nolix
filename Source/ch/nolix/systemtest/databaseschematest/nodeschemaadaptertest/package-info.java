@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.systemtest.databaseschematest.nodeschemaadaptertest} package defines
- * tests for the {@link ch.nolix.system.databaseschema.nodedatabaseschemaadapter} package.
+ * tests for the {@link ch.nolix.system.objectschema.nodedatabaseschemaadapter} package.
  * 
  * @author Silvan Wyss
  * @date 2021-09-16

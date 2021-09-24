@@ -21,11 +21,11 @@ public final class ParametrizedOptionalValueType<C> extends BaseParametrizedValu
 	
 	//method
 	@Override
-	public ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedOptionalValueType<C> toSchemaDataType(
-		final IContainer<ch.nolix.system.databaseschema.databaseschemaadapter.EntitySet> schemaEntitySets
+	public ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedOptionalValueType<C> toSchemaDataType(
+		final IContainer<ch.nolix.system.objectschema.databaseschemaadapter.EntitySet> schemaEntitySets
 	) {
 		return
-		new ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedOptionalValueType<>(
+		new ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedOptionalValueType<>(
 			getRefContentClass()
 		);
 	}

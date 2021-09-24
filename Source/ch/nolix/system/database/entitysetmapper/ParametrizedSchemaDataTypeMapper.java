@@ -7,13 +7,13 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.system.database.databaseadapter.Column;
 import ch.nolix.system.database.parametrizeddatatype.BaseParametrizedBackReferenceType;
 import ch.nolix.system.database.parametrizeddatatype.BaseParametrizedReferenceType;
-import ch.nolix.system.databaseschema.databaseschemaadapter.DatabaseSchemaAdapter;
-import ch.nolix.system.databaseschema.databaseschemaadapter.EntitySet;
-import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedPropertyType;
-import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedMultiValueType;
-import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedOptionalValueType;
-import ch.nolix.system.databaseschema.parametrizedpropertytype.ParametrizedValueType;
-import ch.nolix.system.databaseschema.parametrizedpropertytype.IdType;
+import ch.nolix.system.objectschema.databaseschemaadapter.DatabaseSchemaAdapter;
+import ch.nolix.system.objectschema.databaseschemaadapter.EntitySet;
+import ch.nolix.system.objectschema.parametrizedpropertytype.IdType;
+import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedMultiValueType;
+import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedOptionalValueType;
+import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedPropertyType;
+import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedValueType;
 
 //class
 public final class ParametrizedSchemaDataTypeMapper {
