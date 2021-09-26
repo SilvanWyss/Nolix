@@ -162,26 +162,23 @@ public abstract class DatabaseSchemaAdapter<DSA extends DatabaseSchemaAdapter<DS
 	
 	//method
 	private void assertCanDelete(final EntitySet entitySet) {
+		//TODO: Refactor.
+		/*
 		for (final var e : loadedAndCreatedEntitySets) {
 			for (final var c : e.getRefColumns()) {
 				
 				final var dataType = c.getDataType();
 				
-				//TODO: Refactor.
-				/*
 				if (dataType.references(entitySet)) {
 					throw new InvalidArgumentException(entitySet, "is referenced by " + entitySet.getName());
 				}
-				*/
 				
-				//TODO: Refactor.
-				/*
 				if (dataType.referencesBack(entitySet)) {
 					throw new InvalidArgumentException(entitySet, "is referenced back by " + entitySet.getName());
 				}
-				*/
 			}
 		}
+		*/
 	}
 	
 	//method declaration
