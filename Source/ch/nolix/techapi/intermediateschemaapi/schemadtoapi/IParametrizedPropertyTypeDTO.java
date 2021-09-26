@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.techapi.intermediateschemaapi.schemadtoapi;
 
+//own imports
 import ch.nolix.techapi.databaseapi.propertytypeapi.PropertyType;
 
 //interface
