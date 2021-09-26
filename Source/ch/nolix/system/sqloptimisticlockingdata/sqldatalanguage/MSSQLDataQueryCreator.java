@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.sqloptimisticlockingdata.sqldatalanguage;
 
+//own imports
 import ch.nolix.techapi.sqloptimisticlockingdataapi.sqldatalanguageapi.IDataQueryCreator;
 
 //class
