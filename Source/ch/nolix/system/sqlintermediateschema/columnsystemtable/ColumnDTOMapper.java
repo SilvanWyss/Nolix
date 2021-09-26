@@ -11,7 +11,7 @@ import ch.nolix.system.objectschema.schemadto.BaseParametrizedControlTypeDTO;
 import ch.nolix.system.objectschema.schemadto.BaseParametrizedReferenceTypeDTO;
 import ch.nolix.system.objectschema.schemadto.BaseParametrizedValueTypeDTO;
 import ch.nolix.system.objectschema.schemadto.ColumnDTO;
-import ch.nolix.techapi.databasecommonapi.propertytypeapi.PropertyType;
+import ch.nolix.techapi.databaseapi.propertytypeapi.PropertyType;
 
 //class
 public final class ColumnDTOMapper {

@@ -3,7 +3,7 @@ package ch.nolix.system.objectschema.schemadto;
 
 //own imports
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.techapi.databasecommonapi.propertytypeapi.PropertyType;
+import ch.nolix.techapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
 
 //class

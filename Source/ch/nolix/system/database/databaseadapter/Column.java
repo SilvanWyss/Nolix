@@ -9,8 +9,8 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.system.database.entity.Entity;
 import ch.nolix.system.database.parametrizeddatatype.ParametrizedDataType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedPropertyType;
-import ch.nolix.techapi.databasecommonapi.propertytypeapi.BasePropertyType;
-import ch.nolix.techapi.databasecommonapi.propertytypeapi.PropertyType;
+import ch.nolix.techapi.databaseapi.propertytypeapi.BasePropertyType;
+import ch.nolix.techapi.databaseapi.propertytypeapi.PropertyType;
 
 //class
 public final class Column<C> implements Headered {

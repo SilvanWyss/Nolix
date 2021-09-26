@@ -4,7 +4,7 @@ package ch.nolix.system.database.entity;
 import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentException;
 //own imports
 import ch.nolix.common.functionapi.IElementTaker;
-import ch.nolix.techapi.databasecommonapi.propertytypeapi.PropertyType;
+import ch.nolix.techapi.databaseapi.propertytypeapi.PropertyType;
 
 //class
 public final class Value<V> extends SingleValue<V> {

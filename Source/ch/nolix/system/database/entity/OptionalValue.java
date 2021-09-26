@@ -4,7 +4,7 @@ package ch.nolix.system.database.entity;
 //own imports
 import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.common.skillapi.Clearable;
-import ch.nolix.techapi.databasecommonapi.propertytypeapi.PropertyType;
+import ch.nolix.techapi.databaseapi.propertytypeapi.PropertyType;
 
 //class
 public class OptionalValue<V> extends SingleValue<V> implements Clearable {

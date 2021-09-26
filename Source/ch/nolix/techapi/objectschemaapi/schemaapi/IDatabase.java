@@ -4,7 +4,7 @@ package ch.nolix.techapi.objectschemaapi.schemaapi;
 //own imports
 import ch.nolix.common.attributeapi.mandatoryattributeapi.Named;
 import ch.nolix.common.container.IContainer;
-import ch.nolix.techapi.databasecommonapi.databaseobjectapi.IDatabaseObject;
+import ch.nolix.techapi.databaseapi.databaseobjectapi.IDatabaseObject;
 import ch.nolix.techapi.intermediateschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //interface

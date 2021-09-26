@@ -1,5 +1,5 @@
 //package
-package ch.nolix.techapi.databasecommonapi.databaseobjectapi;
+package ch.nolix.techapi.databaseapi.databaseobjectapi;
 
 //own imports
 import ch.nolix.common.errorcontrol.invalidargumentexception.DeletedArgumentException;

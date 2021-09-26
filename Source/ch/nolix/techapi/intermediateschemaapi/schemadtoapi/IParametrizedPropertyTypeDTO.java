@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.techapi.intermediateschemaapi.schemadtoapi;
 
-//own imports
-import ch.nolix.techapi.databasecommonapi.propertytypeapi.PropertyType;
+import ch.nolix.techapi.databaseapi.propertytypeapi.PropertyType;
 
 //interface
 public interface IParametrizedPropertyTypeDTO {

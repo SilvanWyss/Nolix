@@ -10,7 +10,7 @@ import ch.nolix.system.objectschema.schemadto.BaseParametrizedControlTypeDTO;
 import ch.nolix.system.objectschema.schemadto.BaseParametrizedReferenceTypeDTO;
 import ch.nolix.system.objectschema.schemadto.BaseParametrizedValueTypeDTO;
 import ch.nolix.system.objectschema.schemadto.ParametrizedPropertyTypeDTO;
-import ch.nolix.techapi.databasecommonapi.propertytypeapi.PropertyType;
+import ch.nolix.techapi.databaseapi.propertytypeapi.PropertyType;
 
 //class
 public class ParametrizedPropertyTypeDTOMapper {

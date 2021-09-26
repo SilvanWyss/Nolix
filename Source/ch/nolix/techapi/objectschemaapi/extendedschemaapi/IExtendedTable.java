@@ -10,8 +10,8 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHave
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ReferencedArgumentException;
-import ch.nolix.techapi.databasecommonapi.databaseobjectapi.IExtendedDatabaseObject;
-import ch.nolix.techapi.databasecommonapi.propertytypeapi.BasePropertyType;
+import ch.nolix.techapi.databaseapi.databaseobjectapi.IExtendedDatabaseObject;
+import ch.nolix.techapi.databaseapi.propertytypeapi.BasePropertyType;
 import ch.nolix.techapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.techapi.objectschemaapi.schemaapi.ITable;
 

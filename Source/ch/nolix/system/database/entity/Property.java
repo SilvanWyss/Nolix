@@ -13,7 +13,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotBelo
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.reflectionhelper.ReflectionHelper;
 import ch.nolix.element.elementapi.IElement;
-import ch.nolix.techapi.databasecommonapi.propertytypeapi.PropertyType;
+import ch.nolix.techapi.databaseapi.propertytypeapi.PropertyType;
 
 //class
 public abstract class Property<V> implements Headered, IElement<Property<V>> {

@@ -6,9 +6,9 @@ import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.techapi.databasecommonapi.databaseobjectapi.IExtendedDatabaseObject;
-import ch.nolix.techapi.databasecommonapi.propertytypeapi.BasePropertyType;
-import ch.nolix.techapi.databasecommonapi.propertytypeapi.PropertyType;
+import ch.nolix.techapi.databaseapi.databaseobjectapi.IExtendedDatabaseObject;
+import ch.nolix.techapi.databaseapi.propertytypeapi.BasePropertyType;
+import ch.nolix.techapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.techapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.techapi.objectschemaapi.schemaapi.ITable;
 
