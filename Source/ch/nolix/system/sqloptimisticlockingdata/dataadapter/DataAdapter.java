@@ -8,7 +8,6 @@ import ch.nolix.techapi.sqloptimisticlockingdataapi.dataadapterapi.IDataAdapter;
 import ch.nolix.techapi.sqloptimisticlockingdataapi.recorddtoapi.IRecordDTO;
 import ch.nolix.techapi.sqloptimisticlockingdataapi.sqldatalanguageapi.IDataQueryCreator;
 import ch.nolix.techapi.sqloptimisticlockingdataapi.sqldatalanguageapi.IDataStatementCreator;
-import ch.nolix.techapi.sqlschemaapi.schemadtoapi.ITableDTO;
 
 //class
 public final class DataAdapter implements IDataAdapter {
@@ -53,8 +52,8 @@ public final class DataAdapter implements IDataAdapter {
 	
 	//method
 	@Override
-	public LinkedList<IRecordDTO> loadAllRecordsFromTable(final ITableDTO table) {
-		return dataReader.loadAllRecordsFromTable(table);
+	public LinkedList<IRecordDTO> loadAllRecordsFromTable(final String tableName) {
+		return dataReader.loadAllRecordsFromTable(tableName);
 	}
 	
 	//method
