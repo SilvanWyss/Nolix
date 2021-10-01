@@ -8,13 +8,15 @@ import ch.nolix.common.sql.SQLConnection;
 import ch.nolix.system.sqlschema.flatschemadto.FlatTableDTO;
 import ch.nolix.system.sqlschema.schemadto.ColumnDTO;
 import ch.nolix.system.sqlschema.schemadto.DataTypeDTO;
+import ch.nolix.system.sqlschema.schemadto.TableDTO;
 import ch.nolix.techapi.sqlschemaapi.flatschemadtoapi.IFlatTableDTO;
 import ch.nolix.techapi.sqlschemaapi.schemaadapterapi.ISchemaReader;
 import ch.nolix.techapi.sqlschemaapi.schemadtoapi.IColumnDTO;
+import ch.nolix.techapi.sqlschemaapi.schemadtoapi.ITableDTO;
 import ch.nolix.techapi.sqlschemaapi.schemalanguageapi.ISchemaQueryCreator;
 
 //class
-public class SchemaReader implements ISchemaReader {
+final class SchemaReader implements ISchemaReader {
 	
 	//attributes
 	private final SQLConnection mSQLConnection;
@@ -55,6 +57,12 @@ public class SchemaReader implements ISchemaReader {
 		mSQLConnection
 		.getRecordsAsStrings(schemaQueryCreator.createQueryToLoadNameOfTables())
 		.to(FlatTableDTO::new);
+	}
+	
+	//method
+	@Override
+	public LinkedList<ITableDTO> loadTables() {
+		return loadFlatTables().to(t -> new TableDTO(t.getName(), loadColumns(t.getName())));
 	}
 	
 	//method

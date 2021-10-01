@@ -87,6 +87,12 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 	
 	//method
 	@Override
+	public final LinkedList<ITableDTO> loadTables() {
+		return schemaReader.loadTables();
+	}
+	
+	//method
+	@Override
 	public final void renameColumn(final String tableName, final String columnName, final String newColumnName) {
 		schemaWriter.renameColumn(tableName, columnName, newColumnName);
 	}
