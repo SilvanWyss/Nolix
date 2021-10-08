@@ -152,6 +152,7 @@ public final class PascalCaseCatalogue {
 	public static final String ROW_COUNT = "RowCount";
 	public static final String ROW_INDEX = "RowIndex";
 	public static final String RUNTIME = "Runtime";
+	public static final String SAVE_STAMP = "SaveStamp";
 	public static final String SENDER = "Sender";
 	public static final String SEPARATOR = "Separator";
 	public static final String SEQUENCE = "Sequence";

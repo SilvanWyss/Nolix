@@ -152,6 +152,7 @@ public final class PluralLowerCaseCatalogue {
 	public static final String ROW_COUNTS = "row counts";
 	public static final String ROW_INDEXES = "row indexes";
 	public static final String RUNTIMES = "runtimes";
+	public static final String SAVE_STAMPS = "save stamps";
 	public static final String SENDERS = "senders";
 	public static final String SEPARATORS = "separators";
 	public static final String SEQUENCES ="sequences";

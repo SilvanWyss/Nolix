@@ -152,6 +152,7 @@ public final class PluralPascalCaseCatalogue {
 	public static final String ROW_COUNTS = "RowCounts";
 	public static final String ROW_INDEXES = "RowIndexes";
 	public static final String RUNTIMES = "Runtimes";
+	public static final String SAVE_STAMPS = "SaveStamps";
 	public static final String SENDERS = "Senders";
 	public static final String SEPARATORS = "Separators";
 	public static final String SEQUENCES = "Sequences";

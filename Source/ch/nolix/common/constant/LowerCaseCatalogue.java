@@ -152,6 +152,7 @@ public final class LowerCaseCatalogue {
 	public static final String ROW_COUNT = "row count";
 	public static final String ROW_INDEX = "row index";
 	public static final String RUNTIME = "runtime";
+	public static final String SAVE_STAMP = "save stamp";
 	public static final String SENDER = "sender";
 	public static final String SEPARATOR = "separator";
 	public static final String SEQUENCE ="sequence";
