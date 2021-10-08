@@ -9,8 +9,8 @@ import ch.nolix.techapi.intermediatedataapi.recorddtoapi.ILoadedRecordDTO;
 public interface IDataReader {
 	
 	//method declaration
-	ILoadedRecordDTO loadRecordFromTableById(String tableName, String id);
+	LinkedList<ILoadedRecordDTO> loadAllRecordsFromTable(String tableName);
 	
 	//method declaration
-	LinkedList<ILoadedRecordDTO> loadAllRecordsFromTable(String tableName);
+	ILoadedRecordDTO loadRecordFromTableById(String tableName, String id);
 }
