@@ -47,7 +47,7 @@ final class DataWriter implements IDataWriter {
 	//method
 	@Override
 	public boolean hasChanges() {
-		return mSQLExecutor.getStatements().containsAny();
+		return mSQLExecutor.getSQLStatements().containsAny();
 	}
 	
 	//method

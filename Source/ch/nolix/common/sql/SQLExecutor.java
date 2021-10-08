@@ -54,7 +54,7 @@ public final class SQLExecutor implements AutoCloseable, CloseStateRequestable {
 	}
 	
 	//method
-	public IContainer<String> getStatements() {
+	public IContainer<String> getSQLStatements() {
 		return mSQLStatements;
 	}
 	

@@ -54,13 +54,13 @@ public class SchemaWriter implements ISchemaWriter {
 	//method
 	@Override
 	public IContainer<String> getSQLStatements() {
-		return mSQLExecutor.getStatements();
+		return mSQLExecutor.getSQLStatements();
 	}
 	
 	//method
 	@Override
 	public boolean hasChanges() {
-		return mSQLExecutor.getStatements().containsAny();
+		return mSQLExecutor.getSQLStatements().containsAny();
 	}
 	
 	//method
