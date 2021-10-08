@@ -3,14 +3,14 @@ package ch.nolix.techapi.intermediatedataapi.dataadapterapi;
 
 //own imports
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.techapi.intermediatedataapi.recorddtoapi.IRecordDTO;
+import ch.nolix.techapi.intermediatedataapi.recorddtoapi.ILoadedRecordDTO;
 
 //interface
 public interface IDataReader {
 	
 	//method declaration
-	IRecordDTO loadRecordFromTableById(String tableName, String id);
+	ILoadedRecordDTO loadRecordFromTableById(String tableName, String id);
 	
 	//method declaration
-	LinkedList<IRecordDTO> loadAllRecordsFromTable(String tableName);
+	LinkedList<ILoadedRecordDTO> loadAllRecordsFromTable(String tableName);
 }
