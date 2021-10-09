@@ -116,6 +116,11 @@ public abstract class SQLConnection implements AutoCloseable {
 	}
 	
 	//method
+	public final List<String> getOneRecord(final String pSQLQuery) {
+		return getRecords(pSQLQuery).getRefOne();
+	}
+	
+	//method
 	public final LinkedList<List<String>> getRecords(final String pSQLQuery) {
 		
 		final var records = new LinkedList<List<String>>();
