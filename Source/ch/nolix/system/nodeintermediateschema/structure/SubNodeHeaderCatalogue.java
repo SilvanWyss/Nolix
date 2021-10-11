@@ -21,6 +21,8 @@ public final class SubNodeHeaderCatalogue {
 	public static final String REFERENCED_TABLE = "ReferencedTable";
 	public static final String BACK_REFERENCED_TABLE = "BackReferencedTable";
 	public static final String BACK_REFERENCED_COLUMN = "BackReferencedColumn";
+	public static final String SAVE_STAMP = PascalCaseCatalogue.SAVE_STAMP;
+	public static final String BIG_DECIMAL = "BigDecimal";
 	public static final String ENTITY = PascalCaseCatalogue.ENTITY;
 	
 	//constructor

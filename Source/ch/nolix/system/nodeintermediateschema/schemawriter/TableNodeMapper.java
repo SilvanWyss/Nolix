@@ -32,6 +32,20 @@ public final class TableNodeMapper {
 	
 	//method
 	private Iterable<Node> createColumnNodesFrom(final ITableDTO table) {
-		return table.getColumns().to(columnNodeMapper::createColumnNodeFrom);
+		
+		final var columnNodes = table.getColumns().to(columnNodeMapper::createColumnNodeFrom);
+		columnNodes.addAtEnd(createSaveStampColumnNode());
+		
+		return columnNodes;
+	}
+	
+	//method
+	private Node createSaveStampColumnNode() {
+		return
+		Node.withHeaderAndAttribute(
+			SubNodeHeaderCatalogue.COLUMN,
+			Node.withHeaderAndAttribute(SubNodeHeaderCatalogue.HEADER, SubNodeHeaderCatalogue.SAVE_STAMP),
+			Node.withHeaderAndAttribute(SubNodeHeaderCatalogue.DATA_TYPE, SubNodeHeaderCatalogue.BIG_DECIMAL)
+		);
 	}
 }
