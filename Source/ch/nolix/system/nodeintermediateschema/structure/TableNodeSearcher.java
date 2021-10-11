@@ -21,7 +21,7 @@ public final class TableNodeSearcher {
 	
 	//method
 	public IContainer<BaseNode> getColumnNodesFromTableNode(final BaseNode tableNode) {
-		return tableNode.getRefAttributes(SubNodeHeaderCatalogue.COLUMN);
+		return tableNode.getRefAttributes(SubNodeHeaderCatalogue.COLUMN).from(3);
 	}
 	
 	//method
