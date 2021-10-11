@@ -2,13 +2,11 @@
 package ch.nolix.system.objectschema.schema;
 
 //own imports
-import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.system.objectschema.flatschemadto.FlatTableDTO;
-import ch.nolix.system.objectschema.parametrizedpropertytype.IdType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedPropertyType;
 import ch.nolix.system.objectschema.schemadto.ColumnDTO;
 import ch.nolix.system.objectschema.schemadto.SaveStampConfigurationDTO;
@@ -42,10 +40,7 @@ public final class Table extends DatabaseObject implements IExtendedTable<Table,
 	
 	//constructor
 	public Table(final String name) {
-		
 		setName(name);
-		
-		addIdColumn();
 	}
 	
 	//method
@@ -168,11 +163,6 @@ public final class Table extends DatabaseObject implements IExtendedTable<Table,
 	}
 	
 	//method
-	private void addIdColumn() {
-		addColumn(createIdColumn());
-	}
-	
-	//method
 	private void assertBelongsToDatabase() {
 		if (!belongsToDatabase()) {
 			throw new ArgumentDoesNotBelongToParentException(this, Database.class);
@@ -182,11 +172,6 @@ public final class Table extends DatabaseObject implements IExtendedTable<Table,
 	//method
 	private LinkedList<ColumnDTO> createColumnDTOs() {
 		return getRefColumns().to(Column::toDTO);
-	}
-	
-	//method
-	private Column createIdColumn() {
-		return new Column(PascalCaseCatalogue.ID, new IdType());
 	}
 	
 	//method

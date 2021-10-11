@@ -18,7 +18,6 @@ final class DatabaseMutationPreValidator {
 		
 		table.assertIsOpen();
 		table.assertIsNotDeleted();
-		table.assertContainsIdColumn();
 	}
 	
 	//method
