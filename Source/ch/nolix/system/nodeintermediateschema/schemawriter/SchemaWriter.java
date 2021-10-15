@@ -165,6 +165,9 @@ public final class SchemaWriter implements ISchemaWriter {
 	
 	//method
 	private void saveChangesWhenHasChanges() {
+		
 		databaseNode.resetAttributes(editedDatabaseNode.getRefAttributes());
+		
+		hasChanges = false;
 	}
 }
