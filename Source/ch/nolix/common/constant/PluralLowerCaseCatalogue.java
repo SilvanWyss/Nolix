@@ -140,6 +140,8 @@ public final class PluralLowerCaseCatalogue {
 	public static final String RADII = "radii";
 	public static final String REASONS = "reasons";
 	public static final String RECEIVERS = "receivers";
+	public static final String RECORDS = "records";
+	public static final String REPLIERS = "repliers";
 	public static final String REPLIES = "replies";
 	public static final String REQUESTS = "reqests";
 	public static final String RESOURCES = "resources";

@@ -140,6 +140,8 @@ public final class LowerCaseCatalogue {
 	public static final String RADIUS = "radius";
 	public static final String REASON = "reason";
 	public static final String RECEIVER = "receiver";
+	public static final String RECORD = "record";
+	public static final String REPLIER = "replier";
 	public static final String REPLY = "reply";
 	public static final String REQUEST = "reqest";
 	public static final String RESOURCE = "resource";

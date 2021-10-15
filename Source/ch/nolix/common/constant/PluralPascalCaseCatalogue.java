@@ -139,6 +139,8 @@ public final class PluralPascalCaseCatalogue {
 	public static final String PRICES = "Prices";
 	public static final String RADII = "Radii";
 	public static final String REASONS = "Reasons";
+	public static final String RECEIVERS = "Receivers";
+	public static final String RECORDS = "Records";
 	public static final String REPLIERS = "Repliers";
 	public static final String REPLIES = "Replies";
 	public static final String REQUESTS = "Requests";

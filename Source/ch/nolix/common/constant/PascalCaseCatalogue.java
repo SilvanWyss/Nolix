@@ -139,6 +139,8 @@ public final class PascalCaseCatalogue {
 	public static final String PRICE = "Price";
 	public static final String RADIUS = "Radius";
 	public static final String REASON = "Reason";
+	public static final String RECEIVER = "Receiver";
+	public static final String RECORD = "Record";
 	public static final String REPLIER = "Replier";
 	public static final String REPLY = "Reply";
 	public static final String REQUEST = "Request";
