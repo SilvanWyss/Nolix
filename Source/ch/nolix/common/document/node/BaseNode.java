@@ -31,7 +31,7 @@ import ch.nolix.common.programcontrol.processproperty.WriteMode;
  *  
  * @author Silvan Wyss
  * @date 2017-06-24
- * @lines 850
+ * @lines 860
  */
 public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	
@@ -515,7 +515,16 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	public int hashCode() {
 		return toString().hashCode();
 	}
-		
+	
+	//method declaration
+	/**
+	 * Removes the first attribute the given selector selects from the current {@link BaseNode}.
+	 * 
+	 * @param selector
+	 * @return the first attribute the given selector selects.
+	 */
+	public abstract BaseNode removeAndGetRefFirstAttribute(IElementTakerBooleanGetter<BaseNode> selector);
+	
 	//method declaration
 	/**
 	 * Removes the attributes of the current {@link BaseNode}.

@@ -21,7 +21,7 @@ import ch.nolix.common.generalskillapi.ISmartObject;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 610
+ * @lines 630
  */
 public final class Node extends BaseNode implements ISmartObject<Node> {
 	
@@ -573,6 +573,20 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	@Override
 	public void removeAttributes() {
 		attributes.clear();
+	}
+	
+	//method
+	/**
+	 * Removes the first attribute the given selector selects from the current {@link Node}.
+	 * 
+	 * @param selector
+	 * @return the first attribute the given selector selects.
+	 * @throws InvalidArgumentException if
+	 * the current {@link Node} does not contain an attribute the given selector selects.
+	 */
+	@Override
+	public BaseNode removeAndGetRefFirstAttribute(final IElementTakerBooleanGetter<BaseNode> selector) {
+		return attributes.removeAndGetRefFirst(selector::getOutput);
 	}
 	
 	//method

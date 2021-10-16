@@ -16,7 +16,7 @@ import ch.nolix.common.functionapi.IElementTakerBooleanGetter;
 /**
  * @author Silvan Wyss
  * @date 2017-07-14
- * @lines 170
+ * @lines 200
  */
 public final class SubNode extends BaseNode {
 	
@@ -130,6 +130,24 @@ public final class SubNode extends BaseNode {
 	@Override
 	public boolean hasHeader() {
 		return internalSpecification.hasHeader();
+	}
+	
+	//method
+	/**
+	 * Removes the first attribute the given selector selects from the current {@link SubNode}.
+	 * 
+	 * @param selector
+	 * @return the first attribute the given selector selects.
+	 * @throws InvalidArgumentException if
+	 * the current {@link Node} does not contain an attribute the given selector selects.
+	 */
+	@Override
+	public BaseNode removeAndGetRefFirstAttribute(final IElementTakerBooleanGetter<BaseNode> selector) {
+		
+		final var attribute = internalSpecification.removeAndGetRefFirstAttribute(selector::getOutput);
+		parentFileNode.save();
+		
+		return attribute;
 	}
 	
 	//method
