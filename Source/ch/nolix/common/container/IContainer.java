@@ -36,7 +36,7 @@ import ch.nolix.common.functionapi.IElementTakerLongGetter;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 2130
+ * @lines 2160
  * @param <E> is the type of the elements a {@link IContainer} can store.
  */
 public interface IContainer<E> extends Iterable<E> {
@@ -596,6 +596,33 @@ public interface IContainer<E> extends Iterable<E> {
 	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param element
+	 * @return the index of the first element in the current {@link IContainer} that equals the given element.
+	 * @throws InvalidArgumentException if
+	 * the current {@link IContainer} does not contain an element that equals the given element.
+	 */
+	default int getIndexOfFirstEqualElement(final E element) {
+		
+		//Iterates the current IContainer.
+		var index = 1;
+		for (final var e : this) {
+			
+			//Handles the case that the current element equals the given element.
+			if (e.equals(element)) {
+				return index;
+			}
+			
+			//Increments index.
+			index++;
+		}
+		
+		throw new InvalidArgumentException(this, "does not contain an equal element");
+	}
+	
+	//method
+	/**
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * 
+	 * @param element
 	 * @return the index of the given element in the current {@link IContainer}.
 	 * @throws InvalidArgumentException if the current {@link IContainer} does not contain the given element.
 	 */
@@ -610,6 +637,7 @@ public interface IContainer<E> extends Iterable<E> {
 				return index;
 			}
 			
+			//Increments index.
 			index++;
 		}
 		
