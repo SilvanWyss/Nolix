@@ -3,7 +3,7 @@ package ch.nolix.system.sqlintermediatedata.mssql;
 
 //own imports
 import ch.nolix.system.sqlintermediatedata.sqlapi.IQueryCreator;
-import ch.nolix.techapi.intermediatedataapi.recorddtoapi.ITableDefinitionDTO;
+import ch.nolix.system.sqlintermediatedata.sqlapi.ITableDefinitionDTO;
 
 //class
 public final class QueryCreator implements IQueryCreator {

@@ -5,7 +5,7 @@ package ch.nolix.system.sqlintermediatedata.recorddto;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.techapi.intermediatedataapi.recorddtoapi.ITableDefinitionDTO;
+import ch.nolix.system.sqlintermediatedata.sqlapi.ITableDefinitionDTO;
 
 //class
 public final class TableDefinitionDTO implements ITableDefinitionDTO {

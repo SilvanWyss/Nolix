@@ -3,7 +3,7 @@ package ch.nolix.system.sqlintermediatedata.datareader;
 
 //own imports
 import ch.nolix.common.container.IContainer;
-import ch.nolix.techapi.intermediatedataapi.recorddtoapi.ITableDefinitionDTO;
+import ch.nolix.system.sqlintermediatedata.sqlapi.ITableDefinitionDTO;
 import ch.nolix.techapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //class

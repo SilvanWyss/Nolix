@@ -9,9 +9,9 @@ import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.system.sqlintermediatedata.recorddto.ContentFieldDTO;
 import ch.nolix.system.sqlintermediatedata.recorddto.LoadedRecordDTO;
+import ch.nolix.system.sqlintermediatedata.sqlapi.ITableDefinitionDTO;
 import ch.nolix.techapi.intermediatedataapi.recorddtoapi.IContentFieldDTO;
 import ch.nolix.techapi.intermediatedataapi.recorddtoapi.ILoadedRecordDTO;
-import ch.nolix.techapi.intermediatedataapi.recorddtoapi.ITableDefinitionDTO;
 
 //class
 final class LoadedRecordDTOMapper {

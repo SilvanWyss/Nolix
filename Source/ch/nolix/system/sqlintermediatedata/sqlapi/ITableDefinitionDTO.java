@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.techapi.intermediatedataapi.recorddtoapi;
+package ch.nolix.system.sqlintermediatedata.sqlapi;
 
 //own imports
 import ch.nolix.common.container.IContainer;

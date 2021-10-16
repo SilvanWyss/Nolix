@@ -6,9 +6,9 @@ import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.sql.SQLConnection;
 import ch.nolix.system.sqlintermediatedata.sqlapi.IQueryCreator;
+import ch.nolix.system.sqlintermediatedata.sqlapi.ITableDefinitionDTO;
 import ch.nolix.techapi.intermediatedataapi.dataadapterapi.IDataReader;
 import ch.nolix.techapi.intermediatedataapi.recorddtoapi.ILoadedRecordDTO;
-import ch.nolix.techapi.intermediatedataapi.recorddtoapi.ITableDefinitionDTO;
 import ch.nolix.techapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //class
