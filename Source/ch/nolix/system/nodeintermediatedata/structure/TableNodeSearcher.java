@@ -2,6 +2,7 @@
 package ch.nolix.system.nodeintermediatedata.structure;
 
 //own imports
+import ch.nolix.common.container.IContainer;
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.system.nodeintermediatedata.tabledefinition.FieldIndexCatalogue;
 
@@ -24,6 +25,11 @@ public final class TableNodeSearcher {
 			a.hasHeader(SubNodeHeaderCatalogue.RECORD)
 			&& a.getRefAttributeAt(FieldIndexCatalogue.ID_INDEX).hasHeader(id)
 		);
+	}
+	
+	//method
+	public IContainer<BaseNode> getRefRecordNodesFromTableNode(final BaseNode tableNode) {
+		return tableNode.getRefAttributes(SubNodeHeaderCatalogue.RECORD);
 	}
 	
 	//method

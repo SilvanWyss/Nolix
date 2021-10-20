@@ -14,6 +14,11 @@ public final class RecordNodeSearcher {
 	}
 	
 	//method
+	public BaseNode getRefIdNodeFromRecordNode(final BaseNode recordNode) {
+		return recordNode.getRefAttributeAt(FieldIndexCatalogue.ID_INDEX);
+	}
+	
+	//method
 	public BaseNode getRefSaveStampNodeFromRecordNode(final BaseNode recordNode) {
 		return recordNode.getRefAttributeAt(FieldIndexCatalogue.ID_INDEX);
 	}

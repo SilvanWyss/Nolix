@@ -37,6 +37,11 @@ public final class TableDefinition implements Named {
 	}
 	
 	//method
+	public IContainer<String> getContentColumnHeadersInOrder() {
+		return contentColumnHeadersInOrder;
+	}
+	
+	//method
 	public int getIndexOfContentColumnWithHeader(final String header) {
 		return contentColumnHeadersInOrder.getIndexOfFirstEqualElement(header);
 	}
