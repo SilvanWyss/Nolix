@@ -13,9 +13,9 @@ public final class TableDefinitionLoader {
 	private static final TableDefinitionMapper tableDefinitionMapper = new TableDefinitionMapper();
 	
 	//method
-	public LinkedList<TableDefinition> loadTableDefinitionsFromDatabase(final BaseNode database) {
+	public LinkedList<TableDefinition> loadTableDefinitionsFromDatabaseNode(final BaseNode databaseNode) {
 		return 
-		database
+		databaseNode
 		.getRefAttributes(SubNodeHeaderCatalogue.TABLE)
 		.to(tableDefinitionMapper::createTableDefinitionFromTableNode);
 	}

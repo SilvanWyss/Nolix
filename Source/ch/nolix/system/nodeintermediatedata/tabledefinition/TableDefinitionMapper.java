@@ -9,7 +9,7 @@ import ch.nolix.system.nodeintermediatedata.structure.TableNodeSearcher;
 import ch.nolix.system.nodeintermediateschema.structure.SubNodeHeaderCatalogue;
 
 //class
-public final class TableDefinitionMapper {
+final class TableDefinitionMapper {
 	
 	//static attribute
 	private static final TableNodeSearcher tableNodeSearcher = new TableNodeSearcher();
