@@ -112,6 +112,7 @@ public final class LowerCaseCatalogue {
 	public static final String LINE_COLOR = "line color";
 	public static final String LINE_NUMBER = "line number";
 	public static final String LINE_THICKNESS = "line thickness";
+	public static final String LOGIN_NAME = "login name";
 	public static final String MAXIMUM = "maximum";
 	public static final String MESSAGE = "message";
 	public static final String METHOD = "method";
@@ -129,6 +130,7 @@ public final class LowerCaseCatalogue {
 	public static final String PADDING = "padding";
 	public static final String PARAMETER = "parameter";
 	public static final String PARENT = "parent";
+	public static final String PASSWORD = "password";
 	public static final String PATH = "path";
 	public static final String PERCENTAGE = "percentage";
 	public static final String PERMISSION = "permission";

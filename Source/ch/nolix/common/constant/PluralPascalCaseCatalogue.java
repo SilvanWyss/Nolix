@@ -112,6 +112,7 @@ public final class PluralPascalCaseCatalogue {
 	public static final String LINE_COLORS = "LineColors";
 	public static final String LINE_NUMBERS = "LineNumbers";
 	public static final String LINE_THICKNESSES = "LineThicknesses";
+	public static final String LOGIN_NAME = "LoginNames";
 	public static final String MAXIMA = "Maxima";
 	public static final String MESSAGES = "Messages";
 	public static final String METHODS = "Methods";
@@ -129,6 +130,7 @@ public final class PluralPascalCaseCatalogue {
 	public static final String PADDINGS = "Paddings";
 	public static final String PARAMETERS = "Parameters";
 	public static final String PARENTS = "Parents";
+	public static final String PASSWORD = "Passwords";
 	public static final String PATHS = "Paths";
 	public static final String PERCENTAGES = "Percentages";
 	public static final String PERMISSIONS = "Permissions";

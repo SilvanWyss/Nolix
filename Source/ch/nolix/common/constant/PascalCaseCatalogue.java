@@ -112,6 +112,7 @@ public final class PascalCaseCatalogue {
 	public static final String LINE_COLOR = "LineColor";
 	public static final String LINE_NUMBER = "LineNumber";
 	public static final String LINE_THICKNESS = "LineThickness";
+	public static final String LOGIN_NAME = "LoginName";
 	public static final String MAXIMUM = "Maximum";
 	public static final String MESSAGE = "Message";
 	public static final String METHOD = "Method";
@@ -129,6 +130,7 @@ public final class PascalCaseCatalogue {
 	public static final String PADDING = "Padding";
 	public static final String PARAMETER = "Parameter";
 	public static final String PARENT = "Parent";
+	public static final String PASSWORD = "Password";
 	public static final String PATH = "Path";
 	public static final String PERCENTAGE = "Percentage";
 	public static final String PERMISSION = "Permission";
