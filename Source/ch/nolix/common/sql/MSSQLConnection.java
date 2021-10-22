@@ -23,6 +23,20 @@ public final class MSSQLConnection extends SQLConnection {
 	//constructor
 	public MSSQLConnection(
 		final int port,
+		final String userName,
+		final String userPassword
+	) {
+		super(
+			SQL_DATABASE_ENGINE,
+			port,
+			userName,
+			userPassword
+		);
+	}
+	
+	//constructor
+	public MSSQLConnection(
+		final int port,
 		final String databaseName,
 		final String userName,
 		final String userPassword

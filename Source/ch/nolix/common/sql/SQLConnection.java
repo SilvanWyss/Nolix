@@ -36,6 +36,44 @@ public abstract class SQLConnection implements AutoCloseable {
 	public SQLConnection(
 		final SQLDatabaseEngine pSQLDatabaseEngine,
 		final int port,
+		final String userName,
+		final String userPassword
+	) {
+		this(
+			pSQLDatabaseEngine,
+			IPv4Catalogue.LOOP_BACK_ADDRESS,
+			port,
+			userName,
+			userPassword
+		);
+	}
+	
+	//constructor
+	public SQLConnection(
+		final SQLDatabaseEngine pSQLDatabaseEngine,
+		final String ip,
+		final int port,
+		final String userName,
+		final String userPassword
+	) {
+		
+		Validator.assertThat(pSQLDatabaseEngine).thatIsNamed(SQLDatabaseEngine.class).isNotNull();
+		
+		this.mSQLDatabaseEngine = pSQLDatabaseEngine;
+		
+		registerSQLDatabaseEngineDriver();
+		
+		try {
+			connection = DriverManager.getConnection("jdbc:sqlserver://" + ip + ':'+ port, userName, userPassword);
+		} catch (final SQLException pSQLException) {
+			throw new WrapperException(pSQLException);
+		}
+	}
+	
+	//constructor
+	public SQLConnection(
+		final SQLDatabaseEngine pSQLDatabaseEngine,
+		final int port,
 		final String databaseName,
 		final String userName,
 		final String userPassword
