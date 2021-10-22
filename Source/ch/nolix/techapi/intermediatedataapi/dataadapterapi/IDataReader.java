@@ -13,4 +13,7 @@ public interface IDataReader {
 	
 	//method declaration
 	ILoadedRecordDTO loadRecordFromTableById(String tableName, String id);
+	
+	//method declaration
+	boolean tableContainsRecordWithGivenValueAtColumn(String tableName, String columnHeader, String value);
 }

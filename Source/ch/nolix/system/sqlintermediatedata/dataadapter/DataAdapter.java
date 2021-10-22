@@ -35,43 +35,53 @@ public abstract class DataAdapter implements IDataAdapter {
 	
 	//method	
 	@Override
-	public LinkedList<ILoadedRecordDTO> loadAllRecordsFromTable(String tableName) {
+	public final LinkedList<ILoadedRecordDTO> loadAllRecordsFromTable(final String tableName) {
 		return dataReader.loadAllRecordsFromTable(tableName);
 	}
 	
 	//method
 	@Override
-	public ILoadedRecordDTO loadRecordFromTableById(String tableName, String id) {
+	public final ILoadedRecordDTO loadRecordFromTableById(final String tableName, final String id) {
 		return dataReader.loadRecordFromTableById(tableName, id);
 	}
 	
 	//method
 	@Override
-	public void deleteRecordFromTable(String tableName, IRecordDeletionDTO recordDeletion) {
+	public final void deleteRecordFromTable(final String tableName, final IRecordDeletionDTO recordDeletion) {
 		dataWriter.deleteRecordFromTable(tableName, recordDeletion);
 	}
 	
 	//method
 	@Override
-	public boolean hasChanges() {
+	public final boolean hasChanges() {
 		return dataWriter.hasChanges();
 	}
 	
 	//method
 	@Override
-	public void insertRecordIntoTable(String tableName, IRecordDTO record) {
+	public final void insertRecordIntoTable(final String tableName, final IRecordDTO record) {
 		dataWriter.insertRecordIntoTable(tableName, record);
 	}
 	
 	//method
 	@Override
-	public void saveChanges() {
+	public final void saveChanges() {
 		dataWriter.saveChanges();
 	}
 	
 	//method
 	@Override
-	public void updateRecordOnTable(String tableName, IRecordUpdateDTO recordUpdate) {
+	public final boolean tableContainsRecordWithGivenValueAtColumn(
+		final String tableName,
+		final String columnHeader,
+		final String value
+	) {
+		return dataReader.tableContainsRecordWithGivenValueAtColumn(tableName, columnHeader, value);
+	}
+	
+	//method
+	@Override
+	public final void updateRecordOnTable(final String tableName, final IRecordUpdateDTO recordUpdate) {
 		dataWriter.updateRecordOnTable(tableName, recordUpdate);
 	}
 }

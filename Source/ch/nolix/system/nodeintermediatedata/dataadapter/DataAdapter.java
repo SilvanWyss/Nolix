@@ -70,6 +70,12 @@ public final class DataAdapter implements IDataAdapter {
 	
 	//method
 	@Override
+	public boolean tableContainsRecordWithGivenValueAtColumn(String tableName, String columnHeader, String value) {
+		return dataReader.tableContainsRecordWithGivenValueAtColumn(tableName, columnHeader, value);
+	}
+	
+	//method
+	@Override
 	public void updateRecordOnTable(String tableName, IRecordUpdateDTO recordUpdate) {
 		dataWriter.updateRecordOnTable(tableName, recordUpdate);
 	}

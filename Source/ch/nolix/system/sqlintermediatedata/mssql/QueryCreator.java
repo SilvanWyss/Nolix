@@ -10,6 +10,16 @@ public final class QueryCreator implements IQueryCreator {
 	
 	//method
 	@Override
+	public String createQueryToCountRecordsWithGivenValueAtGivenColumn(
+		final String tableName,
+		final String columnHeader,
+		final String value
+	) {
+		return "SELECT COUNT(" + columnHeader + ") FROM " + tableName + " WHERE "+ columnHeader + " = '" + value + "'";
+	}
+	
+	//method
+	@Override
 	public String createQueryToLoadAllRecordsFromTable(final ITableDefinitionDTO tableDefinition) {
 		return
 		"SELECT Id, SaveStamp, "

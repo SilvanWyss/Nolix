@@ -45,4 +45,20 @@ final class InternalDataReader {
 			tableDefinition
 		);
 	}
+	
+	//method
+	public boolean tableContainsRecordWithGivenValueAtColumn(
+		final String tableName,
+		final String columnHeader,
+		final String value
+	) {
+		return
+		Integer.valueOf(
+			mSQLConnection.getOneRecord(
+				queryCreator.createQueryToCountRecordsWithGivenValueAtGivenColumn(tableName, columnHeader, value)
+			)
+			.get(0)
+		)
+		> 0;
+	}
 }

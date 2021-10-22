@@ -48,6 +48,21 @@ public final class DataReader implements IDataReader {
 	}
 	
 	//method
+	@Override
+	public boolean tableContainsRecordWithGivenValueAtColumn(
+		final String tableName,
+		final String columnHeader,
+		final String value
+	) {
+		return
+		internalDataReader.tableContainsRecordWithGivenValueAtColumn(
+			tableName,
+			columnHeader,
+			value
+		);
+	}
+	
+	//method
 	private ITableDefinitionDTO getTableDefinitionForTableWithName(final String tableName) {
 		return tableDefinitions.getRefFirst(td -> td.getName().equals(tableName));
 	}

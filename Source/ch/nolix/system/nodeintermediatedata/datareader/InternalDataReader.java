@@ -48,4 +48,18 @@ public final class InternalDataReader {
 		
 		return loadedRecordDTOMapper.createLoadedRecordDTOFromRecordNode(recordNode, tableDefinition);
 	}
+	
+	//method
+	public boolean tableContainsRecordWithGivenValueAtColumn(
+		final TableDefinition tableDefinition,
+		final String columnHeader,
+		final String value
+	) {
+		
+		final var tableNode = databaseNodeSearcher.getTableNodeFromDatabaseNode(databaseNode, tableDefinition.getName());
+		final var valueIndex = 2 + tableDefinition.getIndexOfContentColumnWithHeader(columnHeader);
+		
+		return
+		tableNodeSearcher.tableNodeContainsRecordNodeWhoseFieldAtGivenIndexHasGivenHeader(tableNode, valueIndex, value);
+	}
 }

@@ -45,10 +45,20 @@ public final class TableNodeSearcher {
 	//method
 	public boolean tableNodeContainsRecordNodeWithId(final BaseNode tableNode, final String id) {
 		return
+		tableNodeContainsRecordNodeWhoseFieldAtGivenIndexHasGivenHeader(tableNode, FieldIndexCatalogue.ID_INDEX, id);
+	}
+	
+	//method
+	public boolean tableNodeContainsRecordNodeWhoseFieldAtGivenIndexHasGivenHeader(
+		final BaseNode tableNode,
+		final int valueIndex,
+		final String header
+	) {
+		return
 		tableNode.containsAttribute(
 			a ->
 			a.hasHeader(SubNodeHeaderCatalogue.RECORD)
-			&& a.getRefAttributeAt(FieldIndexCatalogue.ID_INDEX).hasHeader(id)
+			&& a.getRefAttributeAt(valueIndex).hasHeader(header)
 		);
 	}
 }
