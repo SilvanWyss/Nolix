@@ -1,10 +1,10 @@
 //package info
 /**
- * The {@link ch.nolix.systemtest.objectschematest.nodeschemaadaptertest} package defines
+ * The {@link ch.nolix.systemtest.objectschematest.schemaadaptertest} package defines
  * tests for the {@link ch.nolix.system.objectschema.nodedatabaseschemaadapter} package.
  * 
  * @author Silvan Wyss
  * @date 2021-09-16
  * @lines 10
  */
-package ch.nolix.systemtest.objectschematest.nodeschemaadaptertest;
+package ch.nolix.systemtest.objectschematest.schemaadaptertest;
