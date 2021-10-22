@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemtest.databaseschematest.nodeschemaadaptertest;
+package ch.nolix.systemtest.objectschematest.nodeschemaadaptertest;
 
 //class
 public final class Launcher {

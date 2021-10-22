@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemtest.databaseschematest.nodeschemaadaptertest;
+package ch.nolix.systemtest.objectschematest.nodeschemaadaptertest;
 
 //own imports
 import ch.nolix.common.document.node.Node;
