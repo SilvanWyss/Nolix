@@ -1,4 +1,4 @@
-package ch.nolix.systemtutorial.databaseschematutorial.schemaadaptertutorial;
+package ch.nolix.systemtutorial.objectschematutorial.schemaadaptertutorial;
 
 import ch.nolix.common.document.node.Node;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedBackReferenceType;
