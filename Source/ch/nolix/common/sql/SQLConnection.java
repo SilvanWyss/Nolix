@@ -93,12 +93,22 @@ public abstract class SQLConnection implements AutoCloseable {
 		
 		try (final var statement = connection.createStatement()) {
 			
+			connection.setAutoCommit(false);
+			
 			for (final var lSQLStatement : pSQLStatements) {
 				statement.addBatch(lSQLStatement);
 			}
 			
-			statement.executeBatch();		
+			statement.executeBatch();
+			connection.commit();
 		} catch (final SQLException pSQLException) {
+			
+			try {
+				connection.rollback();
+			} catch (final SQLException pSQLException2) {
+				throw new WrapperException(pSQLException2);
+			}
+			
 			throw new WrapperException(pSQLException);
 		}
 		
