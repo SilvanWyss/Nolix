@@ -47,7 +47,7 @@ public final class SQLExecutor implements AutoCloseable, CloseStateRequestable {
 		assertIsOpen();
 		
 		try {
-			mSQLConnection.execute(mSQLStatements.toString());
+			mSQLConnection.execute(mSQLStatements);
 		} finally {
 			close();
 		}
