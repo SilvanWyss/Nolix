@@ -71,7 +71,7 @@ final class SystemDataWriterSQLStatementCreator {
 		"DELETE FROM "
 		+ SystemDataTable.COLUMN.getNameWithPrefix()
 		+ " WHERE "
-		+ ColumnSystemTableColumn.TABLE.getLabel()
+		+ ColumnSystemTableColumn.PARENT_TABLE.getLabel()
 		+ " = "
 		+ tableName
 		+ " AND "
@@ -103,7 +103,7 @@ final class SystemDataWriterSQLStatementCreator {
 		+ " = '"
 		+ newColumnHeader
 		+ "' WHERE "
-		+ ColumnSystemTableColumn.TABLE.getLabel()
+		+ ColumnSystemTableColumn.PARENT_TABLE.getLabel()
 		+ " = '"
 		+ tableName
 		+ "' AND "
@@ -139,7 +139,7 @@ final class SystemDataWriterSQLStatementCreator {
 		+ " = "
 		+ parametrezidPropertyTypeRecord.getBackReferencedTableValue()
 		+ "WHERE"
-		+ ColumnSystemTableColumn.TABLE
+		+ ColumnSystemTableColumn.PARENT_TABLE
 		+ " = '"
 		+ tableName
 		+ "' AND "

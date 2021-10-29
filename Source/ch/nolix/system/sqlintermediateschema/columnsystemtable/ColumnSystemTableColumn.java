@@ -9,7 +9,7 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 
 //enum
 public enum ColumnSystemTableColumn implements Labeled {
-	TABLE(PascalCaseCatalogue.TABLE),
+	PARENT_TABLE("ParentTable"),
 	HEADER(PascalCaseCatalogue.HEADER),
 	PROPERTY_TYPE("PropertyType"),
 	DATA_TYPE(PascalCaseCatalogue.DATA_TYPE),

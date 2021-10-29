@@ -33,7 +33,7 @@ public final class SystemDataTableSQLDTOCatalogue {
 	
 	//constant
 	private static final ColumnDTO COLUMN_TABLE_SQL_DTO =
-	new ColumnDTO(ColumnSystemTableColumn.TABLE.getLabel(), SQLDatatypeCatalogue.TEXT_DATA_TYPE);
+	new ColumnDTO(ColumnSystemTableColumn.PARENT_TABLE.getLabel(), SQLDatatypeCatalogue.TEXT_DATA_TYPE);
 	
 	//constant
 	private static final ColumnDTO COLUMN_HEADER_SQL_DTO =

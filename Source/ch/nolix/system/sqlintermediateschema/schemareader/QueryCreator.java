@@ -17,7 +17,7 @@ final class QueryCreator {
 		"SELECT "
 		+ ColumnSystemTableColumn.HEADER.getLabel()
 		+ ", "
-		+ ColumnSystemTableColumn.TABLE.getLabel()
+		+ ColumnSystemTableColumn.PARENT_TABLE.getLabel()
 		+ ", "
 		+ ColumnSystemTableColumn.PROPERTY_TYPE.getLabel()
 		+ ", "
@@ -31,7 +31,7 @@ final class QueryCreator {
 		+ " FROM "
 		+ SystemDataTable.COLUMN.getNameWithPrefix()
 		+ " WHERE "
-		+ ColumnSystemTableColumn.TABLE.getLabel()
+		+ ColumnSystemTableColumn.PARENT_TABLE.getLabel()
 		+ " = "
 		+ tableName;
 	}
