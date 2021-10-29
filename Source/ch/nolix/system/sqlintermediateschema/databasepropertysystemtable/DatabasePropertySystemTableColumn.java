@@ -9,7 +9,10 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 
 //class
 public enum DatabasePropertySystemTableColumn implements Labeled {
-	KEY(PascalCaseCatalogue.KEY),
+	
+	//'Key' is a reserved word in MSSQL databases.
+	KEY("ValueKey"),
+	
 	VALUE(PascalCaseCatalogue.VALUE);
 	
 	//attribute
