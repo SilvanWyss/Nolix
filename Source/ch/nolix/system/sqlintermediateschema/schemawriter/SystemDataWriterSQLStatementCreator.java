@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlintermediateschema.schemawriter;
 
+import ch.nolix.common.container.LinkedList;
 import ch.nolix.element.time.base.Time;
 import ch.nolix.system.sqlintermediateschema.columnsystemtable.ColumnSystemTableColumn;
 import ch.nolix.system.sqlintermediateschema.columnsystemtable.ParametrizedPropertyTypeRecordMapper;
@@ -34,7 +35,7 @@ final class SystemDataWriterSQLStatementCreator {
 		
 		return
 	    "INSERT INTO "
-		+ SystemDataTable.COLUMN.getName()
+		+ SystemDataTable.COLUMN.getNameWithPrefix()
 		+ " VALUES ('"
 		+ tableName
 		+ "', '"
@@ -53,16 +54,17 @@ final class SystemDataWriterSQLStatementCreator {
 	}
 	
 	//method
-	public String createStatementToAddTable(final ITableDTO table) {
+	public LinkedList<String> createStatementsToAddTable(final ITableDTO table) {
 		
-		final var tableSystemTableRecord = tableSystemTableRecordMapper.createTableSystemTableRecordFrom(table);
+		final var statements = new LinkedList<String>();
 		
-		return
-	    "INSERT INTO "
-		+ SystemDataTable.TABLE.getNameWithPrefix()
-		+ " VALUES ("
-		+ tableSystemTableRecord.getNameValue()
-		+ ")";
+		statements.addAtEnd(createStatementToAddTableIgnoringColumns(table));
+		
+		for (final var c : table.getColumns()) {
+			statements.addAtEnd(createStatementToAddColumn(table.getName(), c));
+		}
+		
+		return statements;
 	}
 	
 	//method
@@ -178,5 +180,18 @@ final class SystemDataWriterSQLStatementCreator {
 		+ " = '"
 		+ tableName
 		+ "'";
+	}
+	
+	//method
+	private String createStatementToAddTableIgnoringColumns(ITableDTO table) {
+		
+		final var tableSystemTableRecord = tableSystemTableRecordMapper.createTableSystemTableRecordFrom(table);
+		
+		return
+	    "INSERT INTO "
+		+ SystemDataTable.TABLE.getNameWithPrefix()
+		+ " VALUES ("
+		+ tableSystemTableRecord.getNameValue()
+		+ ")";
 	}
 }

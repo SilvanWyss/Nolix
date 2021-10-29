@@ -36,7 +36,7 @@ final class SystemDataWriter implements ChangeRequestable {
 	
 	//method
 	public void addTable(final ITableDTO table) {
-		mSQLStatements.addAtEnd(systemDataWriterSQLStatementCreator.createStatementToAddTable(table));
+		mSQLStatements.addAtEnd(systemDataWriterSQLStatementCreator.createStatementsToAddTable(table));
 	}
 	
 	//method
