@@ -19,18 +19,18 @@ final class MultiReadContainerIterator<E> implements Iterator<E> {
 	
 	//constructor
 	public MultiReadContainerIterator(final IContainer<IContainer<E>> containers) {
+		
 		rootIterator = containers.iterator();
+		
+		if (rootIterator.hasNext()) {
+			currentIterator = rootIterator.next().iterator();
+		}
 	}
 	
 	//method
 	@Override
 	public boolean hasNext() {
-		
-		if (currentIterator != null && currentIterator.hasNext()) {
-			return true;
-		}
-		
-		return rootIterator.hasNext();
+		return (currentIterator != null && currentIterator.hasNext());
 	}
 	
 	//method
@@ -38,16 +38,15 @@ final class MultiReadContainerIterator<E> implements Iterator<E> {
 	public E next() {
 		
 		if (!hasNext()) {
-			throw new ArgumentDoesNotHaveAttributeException(
-				this,
-				LowerCaseCatalogue.NEXT_ELEMENT
-			);
+			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.NEXT_ELEMENT);
 		}
 		
-		if (currentIterator == null || !currentIterator.hasNext()) {
-			currentIterator = rootIterator.next().iterator();
+		final var element = currentIterator.next();
+		
+		if (!currentIterator.hasNext()) {
+			currentIterator = rootIterator.hasNext() ? rootIterator.next().iterator() : null;
 		}
 		
-		return currentIterator.next();
+		return element;
 	}
 }
