@@ -20,11 +20,15 @@ public final class MSSQLSchemaAdapter extends SchemaAdapter {
 		Validator.assertThat(pSQLConnection).thatIsNamed(SQLConnection.class).isNotNull();
 		
 		mSQLConnection = pSQLConnection;
+		
+		mSQLConnection.execute("USE " + databaseName);
+		
+		initializeSession();
 	}
 	
 	//method
 	@Override
 	protected ISchemaAdapter createIntermediateSchemaAdapter() {
 		return new ch.nolix.system.sqlintermediateschema.schemaadapter.MSSQLSchemaAdapter(mSQLConnection);
-	}	
+	}
 }
