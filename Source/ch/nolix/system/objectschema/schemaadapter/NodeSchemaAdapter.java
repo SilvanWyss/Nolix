@@ -6,7 +6,7 @@ import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
 import ch.nolix.common.environment.filesystem.FileAccessor;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.techapi.intermediateschemaapi.schemaadapterapi.ISchemaAdapter;
+import ch.nolix.techapi.rawobjectschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //class
 public final class NodeSchemaAdapter extends SchemaAdapter {
@@ -43,6 +43,6 @@ public final class NodeSchemaAdapter extends SchemaAdapter {
 	//method
 	@Override
 	protected ISchemaAdapter createIntermediateSchemaAdapter() {
-		return ch.nolix.system.nodeintermediateschema.schemaadapter.SchemaAdapter.forDatabaseNode(databaseNode);
+		return ch.nolix.system.noderawobjectschema.schemaadapter.SchemaAdapter.forDatabaseNode(databaseNode);
 	}
 }

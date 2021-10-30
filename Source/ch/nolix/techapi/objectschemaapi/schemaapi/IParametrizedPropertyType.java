@@ -2,7 +2,7 @@
 package ch.nolix.techapi.objectschemaapi.schemaapi;
 
 import ch.nolix.techapi.databaseapi.propertytypeapi.PropertyType;
-import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
+import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
 
 //interface
 public interface IParametrizedPropertyType<DT> {

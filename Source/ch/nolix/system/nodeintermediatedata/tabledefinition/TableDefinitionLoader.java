@@ -4,7 +4,7 @@ package ch.nolix.system.nodeintermediatedata.tabledefinition;
 //own imports
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.node.BaseNode;
-import ch.nolix.system.nodeintermediateschema.structure.SubNodeHeaderCatalogue;
+import ch.nolix.system.noderawobjectschema.structure.SubNodeHeaderCatalogue;
 
 //class
 public final class TableDefinitionLoader {

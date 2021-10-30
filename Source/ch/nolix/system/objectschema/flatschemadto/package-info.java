@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.system.objectschema.flatschemadto} package defines
- * the types that are declared in the {@link ch.nolix.techapi.intermediateschemaapi.flatschemadtoapi} package.
+ * the types that are declared in the {@link ch.nolix.techapi.rawobjectschemaapi.flatschemadtoapi} package.
  * 
  * @author Silvan Wyss
  * @date 2021-07-04

@@ -13,7 +13,7 @@ public final class TableNodeSearcher {
 	public BaseNode getRefNameNodeFromTableNode(final BaseNode tableNode) {
 		return
 		tableNode.getRefFirstAttribute(
-			ch.nolix.system.nodeintermediateschema.structure.SubNodeHeaderCatalogue.NAME
+			ch.nolix.system.noderawobjectschema.structure.SubNodeHeaderCatalogue.NAME
 		);
 	}
 	

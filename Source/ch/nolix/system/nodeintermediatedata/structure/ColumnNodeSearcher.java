@@ -3,7 +3,7 @@ package ch.nolix.system.nodeintermediatedata.structure;
 
 //own imports
 import ch.nolix.common.document.node.BaseNode;
-import ch.nolix.system.nodeintermediateschema.structure.SubNodeHeaderCatalogue;
+import ch.nolix.system.noderawobjectschema.structure.SubNodeHeaderCatalogue;
 
 //class
 public final class ColumnNodeSearcher {

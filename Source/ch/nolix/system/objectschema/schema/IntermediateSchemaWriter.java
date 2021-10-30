@@ -4,10 +4,10 @@ package ch.nolix.system.objectschema.schema;
 //own imports
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.element.time.base.Time;
-import ch.nolix.techapi.intermediateschemaapi.schemaadapterapi.ISchemaWriter;
 import ch.nolix.techapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.techapi.objectschemaapi.schemaapi.IParametrizedPropertyType;
 import ch.nolix.techapi.objectschemaapi.schemaapi.ITable;
+import ch.nolix.techapi.rawobjectschemaapi.schemaadapterapi.ISchemaWriter;
 
 //class
 final class IntermediateSchemaWriter {

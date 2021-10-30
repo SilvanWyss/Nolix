@@ -3,8 +3,8 @@ package ch.nolix.techapi.objectschemaapi.extendedschemaapi;
 
 import ch.nolix.techapi.databaseapi.propertytypeapi.BasePropertyType;
 import ch.nolix.techapi.databaseapi.propertytypeapi.PropertyType;
-import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
 import ch.nolix.techapi.objectschemaapi.schemaapi.IParametrizedPropertyType;
+import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
 
 //interface
 public interface IExtendedParametrizedPropertyType<DT> extends IParametrizedPropertyType<DT> {

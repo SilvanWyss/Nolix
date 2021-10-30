@@ -8,7 +8,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentHasAttribut
 import ch.nolix.system.nodeintermediatedata.structure.RecordNodeSearcher;
 import ch.nolix.system.nodeintermediatedata.structure.TableNodeSearcher;
 import ch.nolix.system.nodeintermediatedata.tabledefinition.TableDefinition;
-import ch.nolix.system.nodeintermediateschema.structure.DatabaseNodeSearcher;
+import ch.nolix.system.noderawobjectschema.structure.DatabaseNodeSearcher;
 import ch.nolix.techapi.intermediatedataapi.recorddtoapi.IRecordDTO;
 import ch.nolix.techapi.intermediatedataapi.recorddtoapi.IRecordDeletionDTO;
 import ch.nolix.techapi.intermediatedataapi.recorddtoapi.IRecordUpdateDTO;

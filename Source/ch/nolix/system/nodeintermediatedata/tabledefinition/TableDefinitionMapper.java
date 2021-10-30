@@ -6,7 +6,7 @@ import ch.nolix.common.container.IContainer;
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.system.nodeintermediatedata.structure.ColumnNodeSearcher;
 import ch.nolix.system.nodeintermediatedata.structure.TableNodeSearcher;
-import ch.nolix.system.nodeintermediateschema.structure.SubNodeHeaderCatalogue;
+import ch.nolix.system.noderawobjectschema.structure.SubNodeHeaderCatalogue;
 
 //class
 final class TableDefinitionMapper {

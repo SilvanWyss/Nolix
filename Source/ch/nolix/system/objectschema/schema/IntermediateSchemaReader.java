@@ -5,11 +5,11 @@ package ch.nolix.system.objectschema.schema;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.element.time.base.Time;
-import ch.nolix.techapi.intermediateschemaapi.flatschemadtoapi.IFlatTableDTO;
-import ch.nolix.techapi.intermediateschemaapi.schemaadapterapi.ISchemaReader;
-import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.techapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.techapi.objectschemaapi.schemaapi.ITable;
+import ch.nolix.techapi.rawobjectschemaapi.flatschemadtoapi.IFlatTableDTO;
+import ch.nolix.techapi.rawobjectschemaapi.schemaadapterapi.ISchemaReader;
+import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IColumnDTO;
 
 //class
 final class IntermediateSchemaReader {

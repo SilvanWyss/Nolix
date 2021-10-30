@@ -11,10 +11,10 @@ import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedPropert
 import ch.nolix.system.objectschema.schemadto.ColumnDTO;
 import ch.nolix.system.objectschema.schemadto.SaveStampConfigurationDTO;
 import ch.nolix.system.objectschema.schemadto.TableDTO;
-import ch.nolix.techapi.intermediateschemaapi.flatschemadtoapi.IFlatTableDTO;
-import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.ISaveStampConfigurationDTO;
-import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.SaveStampStrategy;
 import ch.nolix.techapi.objectschemaapi.extendedschemaapi.IExtendedTable;
+import ch.nolix.techapi.rawobjectschemaapi.flatschemadtoapi.IFlatTableDTO;
+import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.ISaveStampConfigurationDTO;
+import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.SaveStampStrategy;
 
 //class
 public final class Table extends DatabaseObject implements IExtendedTable<Table, Column, ParametrizedPropertyType<?>> {

@@ -8,8 +8,8 @@ import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedPropert
 import ch.nolix.system.objectschema.schema.Column;
 import ch.nolix.system.objectschema.schema.Database;
 import ch.nolix.system.objectschema.schema.Table;
-import ch.nolix.techapi.intermediateschemaapi.schemaadapterapi.ISchemaAdapter;
 import ch.nolix.techapi.objectschemaapi.extendedschemaadapterapi.IExtendedSchemaAdapter;
+import ch.nolix.techapi.rawobjectschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //class
 public abstract class SchemaAdapter implements IExtendedSchemaAdapter<

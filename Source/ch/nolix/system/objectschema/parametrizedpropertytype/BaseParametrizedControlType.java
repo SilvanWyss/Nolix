@@ -2,9 +2,9 @@
 package ch.nolix.system.objectschema.parametrizedpropertytype;
 
 import ch.nolix.system.objectschema.schemadto.BaseParametrizedControlTypeDTO;
-import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
 import ch.nolix.techapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.techapi.objectschemaapi.schemaapi.ITable;
+import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
 
 //class
 public abstract class BaseParametrizedControlType<C> extends ParametrizedPropertyType<C>{

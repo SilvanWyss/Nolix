@@ -6,8 +6,8 @@ import ch.nolix.common.attributeapi.mutablemandatoryattributeapi.Namable;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.techapi.databaseapi.databaseobjectapi.Deletable;
 import ch.nolix.techapi.databaseapi.databaseobjectapi.IDatabaseObject;
-import ch.nolix.techapi.intermediateschemaapi.flatschemadtoapi.IFlatTableDTO;
-import ch.nolix.techapi.intermediateschemaapi.schemadtoapi.ITableDTO;
+import ch.nolix.techapi.rawobjectschemaapi.flatschemadtoapi.IFlatTableDTO;
+import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.ITableDTO;
 
 //interface
 public interface ITable<
