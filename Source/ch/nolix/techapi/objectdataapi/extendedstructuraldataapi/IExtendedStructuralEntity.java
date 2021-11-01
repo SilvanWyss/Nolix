@@ -3,7 +3,6 @@ package ch.nolix.techapi.objectdataapi.extendedstructuraldataapi;
 
 //own imports
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.techapi.objectdataapi.extendeddataapi.IExtendedEntity;
 import ch.nolix.techapi.objectdataapi.structuraldataapi.IProperty;
 import ch.nolix.techapi.objectdataapi.structuraldataapi.IStructuralEntity;
 
@@ -11,7 +10,7 @@ import ch.nolix.techapi.objectdataapi.structuraldataapi.IStructuralEntity;
 public interface IExtendedStructuralEntity<
     ESE extends IExtendedStructuralEntity<ESE, P>,
     P extends IProperty<P>
-> extends IExtendedEntity<ESE>, IStructuralEntity<ESE, P> {
+> extends IStructuralEntity<ESE, P> {
     
 	//method
 	default void assertIsNotBackReferenced() {
