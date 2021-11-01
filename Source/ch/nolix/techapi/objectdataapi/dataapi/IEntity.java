@@ -15,5 +15,11 @@ public interface IEntity<
 extends Deletable, IDatabaseObject, IdentifiedByString, ShortDescripted {
 	
 	//method declaration
+	boolean belongsToTable();
+	
+	//method declaration
+	ITable<?, ?, ?> getParentTable();
+	
+	//method declaration
 	IContainer<P> getRefProperties();
 }
