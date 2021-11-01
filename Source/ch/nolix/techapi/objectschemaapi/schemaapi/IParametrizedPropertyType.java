@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.techapi.objectschemaapi.schemaapi;
 
+//own imports
 import ch.nolix.techapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
 
