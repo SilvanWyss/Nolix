@@ -7,7 +7,7 @@ import ch.nolix.techapi.objectdataapi.dataapi.ITable;
 import ch.nolix.techapi.objectdataapi.extendeddataapi.IExtendedEntity;
 
 //class
-public class Entity extends DatabaseObject implements IExtendedEntity<Entity, Property> {
+public abstract class Entity extends DatabaseObject implements IExtendedEntity<Entity, Property> {
 	
 	//method
 	@Override
@@ -56,6 +56,7 @@ public class Entity extends DatabaseObject implements IExtendedEntity<Entity, Pr
 		return false;
 	}
 	
+	//method
 	@Override
 	public final boolean isDeleted() {
 		// TODO Auto-generated method stub
