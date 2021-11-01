@@ -11,13 +11,6 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.NonNewArgumentExcep
 public interface IExtendedDatabaseObject extends IDatabaseObject {
 	
 	//method
-	default void assertIsLinkedWithActualDatabase() {
-		if (!isLinkedWithRealDatabase()) {
-			throw new InvalidArgumentException(this, "is not linked with an actual database");
-		}
-	}
-	
-	//method
 	default void assertIsLinkedWithRealDatabase() {
 		if (!isLinkedWithRealDatabase()) {
 			throw new InvalidArgumentException(this, "is not linked with a real database");
