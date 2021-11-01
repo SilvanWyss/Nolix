@@ -154,6 +154,12 @@ public interface IExtendedTable<
 	}
 	
 	//method
+	@Override
+	default boolean isLinkedWithRealDatabase() {
+		return (belongsToDatabase() && getParentDatabase().isLinkedWithRealDatabase());
+	}
+	
+	//method
 	default boolean isReferenced() {
 		return 
 		belongsToDatabase()

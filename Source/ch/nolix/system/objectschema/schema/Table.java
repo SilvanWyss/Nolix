@@ -105,12 +105,6 @@ public final class Table extends DatabaseObject implements IExtendedTable<Table,
 	
 	//method
 	@Override
-	public boolean isLinkedWithRealDatabase() {
-		return (belongsToDatabase() && getParentDatabase().isLinkedWithRealDatabase());
-	}
-	
-	//method
-	@Override
 	public Table setName(final String name) {
 		
 		mutationPreValidator.assertCanSetNameToTable(this, name);
