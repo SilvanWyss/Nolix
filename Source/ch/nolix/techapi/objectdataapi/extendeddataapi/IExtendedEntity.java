@@ -3,6 +3,7 @@ package ch.nolix.techapi.objectdataapi.extendeddataapi;
 
 //own imports
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.techapi.databaseapi.databaseobjectapi.IExtendedDatabaseObject;
 import ch.nolix.techapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.techapi.objectdataapi.dataapi.IProperty;
 
@@ -10,7 +11,7 @@ import ch.nolix.techapi.objectdataapi.dataapi.IProperty;
 public interface IExtendedEntity<
     EE extends IExtendedEntity<EE, P>,
     P extends IProperty<P>
-> extends IEntity<EE, P> {
+> extends IEntity<EE, P>, IExtendedDatabaseObject {
     
 	//method
 	default void assertIsNotBackReferenced() {
@@ -28,6 +29,12 @@ public interface IExtendedEntity<
     
     //method declaration
     boolean isBackReferenced();
+    
+    //method
+    @Override
+    default boolean isLinkedWithRealDatabase() {
+    	return (belongsToTable() && getParentTable().isLinkedWithRealDatabase());
+    }
     
     //method declaration
     boolean isReferenced();
