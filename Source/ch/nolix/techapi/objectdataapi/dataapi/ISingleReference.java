@@ -1,17 +1,17 @@
 //package declaration
-package ch.nolix.techapi.objectdataapi.structuraldataapi;
+package ch.nolix.techapi.objectdataapi.dataapi;
 
 //interface
 public interface ISingleReference<
-	SR extends ISingleReference<SR, SE>,
-	SE extends IStructuralEntity<SE, SR>
+	SR extends ISingleReference<SR, E>,
+	E extends IEntity<E, SR>
 > extends IProperty<SR> {
 	
 	//method declaration
 	String getEntityId();
 	
 	//method declaration
-	SE getRefEntity();
+	E getRefEntity();
 	
 	//method declaration
 	boolean referencesEntity();

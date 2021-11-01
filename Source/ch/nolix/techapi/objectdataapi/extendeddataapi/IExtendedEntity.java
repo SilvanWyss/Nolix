@@ -1,16 +1,16 @@
 //package declaration
-package ch.nolix.techapi.objectdataapi.extendedstructuraldataapi;
+package ch.nolix.techapi.objectdataapi.extendeddataapi;
 
 //own imports
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.techapi.objectdataapi.structuraldataapi.IProperty;
-import ch.nolix.techapi.objectdataapi.structuraldataapi.IStructuralEntity;
+import ch.nolix.techapi.objectdataapi.dataapi.IEntity;
+import ch.nolix.techapi.objectdataapi.dataapi.IProperty;
 
 //interface
-public interface IExtendedStructuralEntity<
-    ESE extends IExtendedStructuralEntity<ESE, P>,
+public interface IExtendedEntity<
+    EE extends IExtendedEntity<EE, P>,
     P extends IProperty<P>
-> extends IStructuralEntity<ESE, P> {
+> extends IEntity<EE, P> {
     
 	//method
 	default void assertIsNotBackReferenced() {

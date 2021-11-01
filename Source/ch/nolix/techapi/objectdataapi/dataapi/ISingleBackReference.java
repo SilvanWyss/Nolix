@@ -1,10 +1,10 @@
 //package declaration
-package ch.nolix.techapi.objectdataapi.structuraldataapi;
+package ch.nolix.techapi.objectdataapi.dataapi;
 
 //interface
 public interface ISingleBackReference<
 	SBR extends ISingleBackReference<SBR, SE>,
-	SE extends IStructuralEntity<SE, SBR>
+	SE extends IEntity<SE, SBR>
 >
 extends IProperty<SBR> {
 	
