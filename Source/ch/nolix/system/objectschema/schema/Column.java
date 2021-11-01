@@ -108,12 +108,6 @@ public final class Column extends DatabaseObject implements IExtendedColumn<Colu
 	
 	//method
 	@Override
-	public boolean isLinkedWithRealDatabase() {
-		return (belongsToTable() && getParentTable().isLinkedWithRealDatabase());
-	}
-	
-	//method
-	@Override
 	public Column setHeader(final String header) {
 		
 		mutationPreValidator.assertCanSetHeaderToColumn(this, header);

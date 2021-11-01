@@ -113,6 +113,12 @@ public interface IExtendedColumn<
 	}
 	
 	//method
+	@Override
+	default boolean isLinkedWithRealDatabase() {
+		return belongsToTable() && getParentTable().isLinkedWithRealDatabase();
+	}
+	
+	//method
 	default boolean references(final ITable<?, ?, ?> table) {
 		return getParametrizedPropertyType().referencesTable(table);
 	}
