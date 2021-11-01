@@ -16,6 +16,9 @@ public interface ITable<
 	T addEntity(E entity);
 	
 	//method declaration
+	IDatabase<?, ?, ?, ?> getParentDatabase();
+	
+	//method declaration
 	IContainer<E> getRefAllEntities();
 	
 	//method declaration
