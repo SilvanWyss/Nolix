@@ -2,6 +2,8 @@
 package ch.nolix.techapi.objectdataapi.extendeddataapi;
 
 //own imports
+import ch.nolix.common.constant.LowerCaseCatalogue;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.techapi.databaseapi.databaseobjectapi.IExtendedDatabaseObject;
 import ch.nolix.techapi.objectdataapi.dataapi.IEntity;
@@ -13,6 +15,13 @@ public interface IExtendedEntity<
     P extends IProperty<P>
 > extends IEntity<EE, P>, IExtendedDatabaseObject {
     
+	//method
+	default void assertBelongsToTable() {
+		if (!belongsToTable()) {
+			throw new ArgumentDoesNotBelongToParentException(this, LowerCaseCatalogue.TABLE);
+		}
+	}
+	
 	//method
 	default void assertIsNotBackReferenced() {
 		if (isBackReferenced() ) {
