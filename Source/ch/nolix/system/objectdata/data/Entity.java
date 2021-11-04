@@ -1,7 +1,11 @@
 //package declaration
 package ch.nolix.system.objectdata.data;
 
+//Java imports
+import java.util.UUID;
+
 //own imports
+import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.techapi.objectdataapi.dataapi.ITable;
 import ch.nolix.techapi.objectdataapi.extendeddataapi.IExtendedEntity;
@@ -9,31 +13,43 @@ import ch.nolix.techapi.objectdataapi.extendeddataapi.IExtendedEntity;
 //class
 public abstract class Entity extends DatabaseObject implements IExtendedEntity<Entity, Property> {
 	
+	//static attribute
+	private static final EntityPreMutationValidator preMutationValidator = new EntityPreMutationValidator();
+	
+	//attributes
+	private String id = UUID.randomUUID().toString().replace(StringCatalogue.MINUS, StringCatalogue.EMPTY_STRING);
+	
+	//optional attribute
+	private Table parentTable;
+	
 	//method
 	@Override
 	public final boolean belongsToTable() {
-		//TODO: Implement.
-		return false;
+		return (parentTable != null);
 	}
 	
 	//method
 	@Override
 	public final void delete() {
-		//TODO: Implement.
+		
+		preMutationValidator.assertCanDeleteEntity(this);
+		
+		deleteActually();
 	}
 	
 	//method
 	@Override
 	public final String getId() {
-		//TODO: Implement.
-		return null;
+		return id;
 	}
 	
 	//method
 	@Override
 	public final ITable<?, ?, ?> getParentTable() {
-		//TODO: Implement.
-		return null;
+		
+		assertBelongsToTable();
+		
+		return parentTable;
 	}
 	
 	//method
@@ -45,21 +61,13 @@ public abstract class Entity extends DatabaseObject implements IExtendedEntity<E
 	
 	//method
 	@Override
-	public final String getShortDescription() {
-		//TODO: Implement.
-		return null;
+	public String getShortDescription() {
+		return (getClass().getSimpleName() + " " + getId());
 	}
 	
 	//method
 	public final boolean isBackReferenced() {
 		//TODO: Implement.
-		return false;
-	}
-	
-	//method
-	@Override
-	public final boolean isDeleted() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 	
@@ -72,4 +80,9 @@ public abstract class Entity extends DatabaseObject implements IExtendedEntity<E
 	//method
 	@Override
 	protected final void noteCloseDatabaseObject() {}
+	
+	//method
+	private void deleteActually() {
+		//TODO: Implement.
+	}
 }
