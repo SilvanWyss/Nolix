@@ -2,6 +2,9 @@
 package ch.nolix.system.objectdata.data;
 
 //own imports
+import ch.nolix.common.errorcontrol.invalidargumentexception.ClosedArgumentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.DeletedArgumentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.NewArgumentException;
 import ch.nolix.common.programcontrol.groupcloseable.CloseController;
 import ch.nolix.common.programcontrol.groupcloseable.GroupCloseable;
 import ch.nolix.techapi.databaseapi.databaseobjectapi.DatabaseObjectState;
@@ -35,4 +38,20 @@ abstract class DatabaseObject implements GroupCloseable, IExtendedDatabaseObject
 	
 	//method declaration
 	protected abstract void noteCloseDatabaseObject();
+	
+	//method
+	final void setDeleted() {
+		switch (getState()) {
+			case NEW:
+				throw new NewArgumentException(this);
+			case LOADED:
+			case EDITED:
+				state = DatabaseObjectState.DELETED;
+				break;
+			case DELETED:
+				throw new DeletedArgumentException(this);
+			case CLOSED:
+				throw new ClosedArgumentException(this);
+		}
+	}
 }
