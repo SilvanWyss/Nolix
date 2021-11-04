@@ -46,7 +46,6 @@ abstract class DatabaseObject implements GroupCloseable, IExtendedDatabaseObject
 			case NEW:
 				throw new NewArgumentException(this);
 			case LOADED:
-				break;
 			case EDITED:
 				state = DatabaseObjectState.DELETED;
 				break;
