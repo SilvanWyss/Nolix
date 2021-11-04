@@ -35,6 +35,7 @@ public final class LowerCaseCatalogue {
 	public static final String COLOR = "color";
 	public static final String COLUMN = "column";
 	public static final String COLUMN_COUNT = "column count";
+	public static final String COLUMN_HEADER = "column header";
 	public static final String COLUMN_INDEX = "column index";
 	public static final String COMMAND = "command";
 	public static final String CONDITION = "condition";

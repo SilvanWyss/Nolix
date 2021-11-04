@@ -35,6 +35,7 @@ public final class PluralPascalCaseCatalogue {
 	public static final String COLORS = "Colors";
 	public static final String COLUMNS = "Columns";
 	public static final String COLUMN_COUNTS = "ColumnCounts";
+	public static final String COLUMN_HEADERS = "ColumnHeaders";
 	public static final String COLUMN_INDEXES = "ColumnIndexes";
 	public static final String COMMANDS ="Commands";
 	public static final String CONDITIONS = "Conditions";
