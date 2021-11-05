@@ -27,7 +27,7 @@ public final class Column extends DatabaseObject implements IExtendedColumn<Colu
 	new ParametrizedPropertyTypeMapper();
 	
 	//static attributes
-	private static final ColumnMutationPreValidator mutationPreValidator = new ColumnMutationPreValidator();
+	private static final ColumnMutationValidator mutationValidator = new ColumnMutationValidator();
 	private static final ColumnMutationExecutor mutationExecutor = new ColumnMutationExecutor();
 	
 	//static method
@@ -64,7 +64,7 @@ public final class Column extends DatabaseObject implements IExtendedColumn<Colu
 	//metod
 	@Override
 	public void delete() {
-		mutationPreValidator.assertCanDeleteColumn(this);
+		mutationValidator.assertCanDeleteColumn(this);
 		mutationExecutor.deleteColumn(this);
 	}
 	
@@ -110,7 +110,7 @@ public final class Column extends DatabaseObject implements IExtendedColumn<Colu
 	@Override
 	public Column setHeader(final String header) {
 		
-		mutationPreValidator.assertCanSetHeaderToColumn(this, header);
+		mutationValidator.assertCanSetHeaderToColumn(this, header);
 		mutationExecutor.setHeaderToColumn(this, header);
 		
 		return this;
@@ -122,7 +122,7 @@ public final class Column extends DatabaseObject implements IExtendedColumn<Colu
 		final ParametrizedPropertyType<?> parametrizedPropertyType
 	) {
 		
-		mutationPreValidator.assertCanSetParametrizedPropertyTypeToColumn(this, parametrizedPropertyType);
+		mutationValidator.assertCanSetParametrizedPropertyTypeToColumn(this, parametrizedPropertyType);
 		mutationExecutor.setParametrizedPropertyTypeToColumn(this, parametrizedPropertyType);
 		
 		return this;

@@ -9,7 +9,7 @@ import ch.nolix.system.objectschema.parametrizedpropertytype.BaseParametrizedRef
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedPropertyType;
 
 //class
-final class ColumnMutationPreValidator {
+final class ColumnMutationValidator {
 	
 	//method
 	public void assertCanDeleteColumn(final Column column) {			
