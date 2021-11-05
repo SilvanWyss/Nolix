@@ -93,6 +93,18 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 	
 	//method
 	@Override
+	public ITableDTO loadTable(final String tableName) {
+		return mSQLIntermediateSchemaReader.loadTable(tableName);
+	}
+	
+	//method
+	@Override
+	public LinkedList<ITableDTO> loadTables() {
+		return mSQLIntermediateSchemaReader.loadTables();
+	}
+	
+	//method
+	@Override
 	public void saveChanges() {
 		mSQLIntermediateSchemaWriter.saveChanges();
 	}

@@ -8,11 +8,11 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotBelo
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.system.objectschema.flatschemadto.FlatTableDTO;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedPropertyType;
-import ch.nolix.system.objectschema.schemadto.ColumnDTO;
 import ch.nolix.system.objectschema.schemadto.SaveStampConfigurationDTO;
 import ch.nolix.system.objectschema.schemadto.TableDTO;
 import ch.nolix.techapi.objectschemaapi.extendedschemaapi.IExtendedTable;
 import ch.nolix.techapi.rawobjectschemaapi.flatschemadtoapi.IFlatTableDTO;
+import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.ISaveStampConfigurationDTO;
 import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.SaveStampStrategy;
 
@@ -164,7 +164,7 @@ public final class Table extends DatabaseObject implements IExtendedTable<Table,
 	}
 	
 	//method
-	private LinkedList<ColumnDTO> createColumnDTOs() {
+	private LinkedList<IColumnDTO> createColumnDTOs() {
 		return getRefColumns().to(Column::toDTO);
 	}
 	

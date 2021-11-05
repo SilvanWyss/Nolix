@@ -10,9 +10,13 @@ import ch.nolix.system.noderawobjectschema.structure.ColumnNodeSearcher;
 import ch.nolix.system.noderawobjectschema.structure.DatabaseNodeSearcher;
 import ch.nolix.system.noderawobjectschema.structure.DatabasePropertiesNodeSearcher;
 import ch.nolix.system.noderawobjectschema.structure.TableNodeSearcher;
+import ch.nolix.system.objectschema.schemadto.SaveStampConfigurationDTO;
+import ch.nolix.system.objectschema.schemadto.TableDTO;
 import ch.nolix.techapi.rawobjectschemaapi.flatschemadtoapi.IFlatTableDTO;
 import ch.nolix.techapi.rawobjectschemaapi.schemaadapterapi.ISchemaReader;
 import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IColumnDTO;
+import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.ITableDTO;
+import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.SaveStampStrategy;
 
 //class
 public final class SchemaReader implements ISchemaReader {
@@ -67,6 +71,23 @@ public final class SchemaReader implements ISchemaReader {
 		databaseNodeSearcher
 		.getTableNodesFromDatabaseNode(databaseNode)
 		.to(flatTableDTOMapper::createFlatTableDTOFromTableNode);
+	}
+	
+	//method
+	@Override
+	public ITableDTO loadTable(final String tableName) {
+		return
+		new TableDTO(
+			tableName,
+			new SaveStampConfigurationDTO(SaveStampStrategy.OWN_SAVE_STAMP),
+			loadColumns(tableName)
+		);
+	}
+	
+	//method
+	@Override
+	public LinkedList<ITableDTO> loadTables() {
+		return loadFlatTables().to(t -> loadTable(t.getName()));
 	}
 	
 	//method

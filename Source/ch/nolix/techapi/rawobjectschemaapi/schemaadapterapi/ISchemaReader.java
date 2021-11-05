@@ -6,6 +6,7 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.element.time.base.Time;
 import ch.nolix.techapi.rawobjectschemaapi.flatschemadtoapi.IFlatTableDTO;
 import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IColumnDTO;
+import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.ITableDTO;
 
 //interface
 public interface ISchemaReader {
@@ -18,6 +19,12 @@ public interface ISchemaReader {
 	
 	//method declaration
 	LinkedList<IFlatTableDTO> loadFlatTables();
+	
+	//method declaration
+	ITableDTO loadTable(String tableName);
+	
+	//method declaration
+	LinkedList<ITableDTO> loadTables();
 	
 	//method declaration
 	Time loadSchemaTimestamp();

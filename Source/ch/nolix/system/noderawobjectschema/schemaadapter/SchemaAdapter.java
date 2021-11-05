@@ -100,6 +100,18 @@ public final class SchemaAdapter implements ISchemaAdapter {
 	
 	//method
 	@Override
+	public ITableDTO loadTable(final String tableName) {
+		return schemaReader.loadTable(tableName);
+	}
+	
+	//method
+	@Override
+	public LinkedList<ITableDTO> loadTables() {
+		return schemaReader.loadTables();
+	}
+	
+	//method
+	@Override
 	public void saveChanges() {
 		schemaWriter.saveChanges();
 	}

@@ -24,7 +24,7 @@ public final class TableDTO implements ITableDTO {
 	public TableDTO(
 		final String name,
 		final ISaveStampConfigurationDTO saveStampConfiguration,
-		final IContainer<ColumnDTO> columnDTOs
+		final IContainer<IColumnDTO> columnDTOs
 	) {
 		
 		if (name == null) {

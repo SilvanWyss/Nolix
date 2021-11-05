@@ -6,12 +6,16 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.sql.SQLConnection;
 import ch.nolix.element.time.base.Time;
+import ch.nolix.system.objectschema.schemadto.SaveStampConfigurationDTO;
+import ch.nolix.system.objectschema.schemadto.TableDTO;
 import ch.nolix.system.sqlrawobjectschema.columnsystemtable.ColumnDTOMapper;
 import ch.nolix.system.sqlrawobjectschema.structure.TableType;
 import ch.nolix.system.sqlrawobjectschema.tablesystemtable.TableDTOMapper;
 import ch.nolix.techapi.rawobjectschemaapi.flatschemadtoapi.IFlatTableDTO;
 import ch.nolix.techapi.rawobjectschemaapi.schemaadapterapi.ISchemaReader;
 import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IColumnDTO;
+import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.ITableDTO;
+import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.SaveStampStrategy;
 import ch.nolix.techapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //class
@@ -67,5 +71,22 @@ public final class SchemaReader implements ISchemaReader {
 		Time.fromString(
 			mSQLConnection.getRecords(queryCreator.createQueryToLoadSchemaTimestamp()).getRefFirst().get(0)
 		);
+	}
+	
+	//method
+	@Override
+	public ITableDTO loadTable(final String tableName) {
+		return
+		new TableDTO(
+			tableName,
+			new SaveStampConfigurationDTO(SaveStampStrategy.OWN_SAVE_STAMP),
+			loadColumns(tableName)
+		);
+	}
+	
+	//method
+	@Override
+	public LinkedList<ITableDTO> loadTables() {
+		return loadFlatTables().to(t -> loadTable(t.getName()));
 	}
 }
