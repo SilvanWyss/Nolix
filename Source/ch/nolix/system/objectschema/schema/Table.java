@@ -20,7 +20,7 @@ import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.SaveStampStrategy;
 public final class Table extends DatabaseObject implements IExtendedTable<Table, Column, ParametrizedPropertyType<?>> {
 	
 	//static attributes
-	private static final TableMutationPreValidator mutationPreValidator = new TableMutationPreValidator();
+	private static final TableMutationValidator mutationValidator = new TableMutationValidator();
 	private static final TableMutationExecutor mutationExecutor = new TableMutationExecutor();
 	
 	//static method
@@ -47,7 +47,7 @@ public final class Table extends DatabaseObject implements IExtendedTable<Table,
 	@Override
 	public Table addColumn(final Column column) {
 		
-		mutationPreValidator.assertCanAddColumnToTable(this, column);
+		mutationValidator.assertCanAddColumnToTable(this, column);
 		mutationExecutor.addColumnToTable(this, column);
 		
 		return this;
@@ -70,7 +70,7 @@ public final class Table extends DatabaseObject implements IExtendedTable<Table,
 	//method
 	@Override
 	public void delete() {
-		mutationPreValidator.assertCanDeleteTable(this);
+		mutationValidator.assertCanDeleteTable(this);
 		mutationExecutor.deleteTable(this);
 	}
 	
@@ -107,7 +107,7 @@ public final class Table extends DatabaseObject implements IExtendedTable<Table,
 	@Override
 	public Table setName(final String name) {
 		
-		mutationPreValidator.assertCanSetNameToTable(this, name);
+		mutationValidator.assertCanSetNameToTable(this, name);
 		mutationExecutor.setNameToTable(this, name);
 		
 		return this;

@@ -8,7 +8,7 @@ import ch.nolix.system.objectschema.parametrizedpropertytype.BaseParametrizedBac
 import ch.nolix.system.objectschema.parametrizedpropertytype.BaseParametrizedReferenceType;
 
 //class
-final class TableMutationPreValidator {
+final class TableMutationValidator {
 	
 	//method
 	public void assertCanAddColumnToTable(final Table table, final Column column) {
