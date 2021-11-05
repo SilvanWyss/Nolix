@@ -1,0 +1,82 @@
+//package declaration
+package ch.nolix.system.noderawobjectdata.dataadapter;
+
+//own imports
+import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.document.node.BaseNode;
+import ch.nolix.system.noderawobjectdata.datareader.DataReader;
+import ch.nolix.system.noderawobjectdata.datareader.TableDefinitionLoader;
+import ch.nolix.system.noderawobjectdata.datawriter.DataWriter;
+import ch.nolix.techapi.rawobjectdataapi.dataadapterapi.IDataAdapter;
+import ch.nolix.techapi.rawobjectdataapi.recorddtoapi.ILoadedRecordDTO;
+import ch.nolix.techapi.rawobjectdataapi.recorddtoapi.IRecordDTO;
+import ch.nolix.techapi.rawobjectdataapi.recorddtoapi.IRecordDeletionDTO;
+import ch.nolix.techapi.rawobjectdataapi.recorddtoapi.IRecordUpdateDTO;
+
+//class
+public final class DataAdapter implements IDataAdapter {
+	
+	//static attribute
+	private static final TableDefinitionLoader tableDefinitionLoader = new TableDefinitionLoader();
+	
+	//attributes
+	private final DataReader dataReader;
+	private final DataWriter dataWriter;
+	
+	//constructor
+	public DataAdapter(final BaseNode databaseNode) {
+		
+		final var tableDefinitions = tableDefinitionLoader.loadTableDefinitionsFromDatabaseNode(databaseNode);
+		
+		dataReader = new DataReader(databaseNode, tableDefinitions);
+		dataWriter = new DataWriter(databaseNode, tableDefinitions);
+	}
+	
+	//method
+	@Override
+	public LinkedList<ILoadedRecordDTO> loadAllRecordsFromTable(String tableName) {
+		return dataReader.loadAllRecordsFromTable(tableName);
+	}
+	
+	//method
+	@Override
+	public ILoadedRecordDTO loadRecordFromTableById(String tableName, String id) {
+		return dataReader.loadRecordFromTableById(tableName, id);
+	}
+	
+	//method
+	@Override
+	public void deleteRecordFromTable(String tableName, IRecordDeletionDTO recordDeletion) {
+		dataWriter.deleteRecordFromTable(tableName, recordDeletion);
+	}
+	
+	//method
+	@Override
+	public boolean hasChanges() {
+		return dataWriter.hasChanges();
+	}
+	
+	//method
+	@Override
+	public void insertRecordIntoTable(String tableName, IRecordDTO record) {
+		dataWriter.insertRecordIntoTable(tableName, record);
+	}
+	
+	//method
+	@Override
+	public void saveChanges() {
+		dataWriter.saveChanges();
+	}
+	
+	//method
+	@Override
+	public boolean tableContainsRecordWithGivenValueAtColumn(String tableName, String columnHeader, String value) {
+		return dataReader.tableContainsRecordWithGivenValueAtColumn(tableName, columnHeader, value);
+	}
+	
+	//method
+	@Override
+	public void updateRecordOnTable(String tableName, IRecordUpdateDTO recordUpdate) {
+		dataWriter.updateRecordOnTable(tableName, recordUpdate);
+	}
+}

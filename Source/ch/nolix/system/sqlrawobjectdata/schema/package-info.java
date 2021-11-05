@@ -1,0 +1,1 @@
+package ch.nolix.system.sqlrawobjectdata.schema;
