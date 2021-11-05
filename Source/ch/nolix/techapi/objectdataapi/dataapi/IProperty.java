@@ -8,6 +8,9 @@ import ch.nolix.techapi.databaseapi.propertytypeapi.PropertyType;
 public interface IProperty<P extends IProperty<P>> {
 	
 	//method declaration
+	boolean belongsToEntity();
+	
+	//method declaration
 	boolean canReference(IEntity<?, ?> entity);
 	
 	//method declaration
@@ -20,7 +23,13 @@ public interface IProperty<P extends IProperty<P>> {
 	boolean canReferenceEntityOfType(Class<IEntity<?, ?>> entityType);
 	
 	//method declaration
+	IEntity<?, ?> getParentEntity();
+	
+	//method declaration
 	PropertyType getType();
+	
+	//method declaration
+	boolean isLinkedWithRealDatabase();
 	
 	//method declaration
 	boolean references(IEntity<?, ?> entity);
