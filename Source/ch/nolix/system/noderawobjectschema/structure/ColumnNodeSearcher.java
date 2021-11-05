@@ -13,17 +13,12 @@ public final class ColumnNodeSearcher {
 	}
 	
 	//method
-	public BaseNode getHeaderNodeFromColumnNode(final BaseNode columnNode) {
+	public BaseNode getRefHeaderNodeFromColumnNode(final BaseNode columnNode) {
 		return columnNode.getRefFirstAttribute(SubNodeHeaderCatalogue.HEADER);
 	}
 	
 	//method
-	public BaseNode getParametrizedPropertyTypeNodeFromColumnNode(final BaseNode columnNode) {
+	public BaseNode getRefParametrizedPropertyTypeNodeFromColumnNode(final BaseNode columnNode) {
 		return columnNode.getRefFirstAttribute(SubNodeHeaderCatalogue.PARAMETRIZED_PROPERTY_TYPE);
-	}
-	
-	//method
-	public BaseNode getPropertyTypeNodeFromColumnNode(final BaseNode columnNode) {
-		return columnNode.getRefFirstAttribute(SubNodeHeaderCatalogue.PROPERTY_TYPE);
 	}
 }

@@ -18,7 +18,7 @@ public class TableNodeSearcher {
 	) {
 		return
 		getRefColumnNodesFromTableNode(tableNode).getRefFirst(
-			csn -> columnNodeSearcher.getHeaderNodeFromColumnNode(csn).getRefOneAttribute().hasHeader(columnHeader)
+			csn -> columnNodeSearcher.getRefHeaderNodeFromColumnNode(csn).getRefOneAttribute().hasHeader(columnHeader)
 		);
 	}
 	

@@ -72,7 +72,7 @@ public final class SchemaWriter implements ISchemaWriter {
 		tableNode.removeFirstAttribute(
 			a -> 
 			a.hasHeader(SubNodeHeaderCatalogue.COLUMN)
-			&& columnNodeSearcher.getHeaderNodeFromColumnNode(a).getRefOneAttribute().hasHeader(columnHeader)
+			&& columnNodeSearcher.getRefHeaderNodeFromColumnNode(a).getRefOneAttribute().hasHeader(columnHeader)
 		);
 		
 		hasChanges = true;
@@ -111,7 +111,7 @@ public final class SchemaWriter implements ISchemaWriter {
 		
 		final var tableNode = databaseNodeSearcher.getTableNodeFromDatabaseNode(editedDatabaseNode, tableName);
 		final var columnNode = tableNodeSearcher.getRefColumnNodeFromTableNodeByColumnHeader(tableNode, columnHeader);
-		final var headerNode = columnNodeSearcher.getHeaderNodeFromColumnNode(columnNode);
+		final var headerNode = columnNodeSearcher.getRefHeaderNodeFromColumnNode(columnNode);
 		headerNode.setHeader(newColumnHeader);
 		
 		hasChanges = true;

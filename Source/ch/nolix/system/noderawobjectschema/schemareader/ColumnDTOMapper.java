@@ -25,13 +25,13 @@ final class ColumnDTOMapper {
 	
 	//method
 	private String getHeaderFromColumnNode(final BaseNode columnNode) {
-		return columnNodeSearcher.getHeaderNodeFromColumnNode(columnNode).getOneAttributeHeader();
+		return columnNodeSearcher.getRefHeaderNodeFromColumnNode(columnNode).getOneAttributeHeader();
 	}
 	
 	//method
 	private ParametrizedPropertyTypeDTO createParametrizedPropertyTypeFromColumnNode(final BaseNode columnNode) {
 		
-		final var parametrizedPropertyTypeNode = columnNodeSearcher.getParametrizedPropertyTypeNodeFromColumnNode(columnNode);
+		final var parametrizedPropertyTypeNode = columnNodeSearcher.getRefParametrizedPropertyTypeNodeFromColumnNode(columnNode);
 		
 		return
 		parametrizedPropertyTypeDTOMapper.createParametrizedProeprtyTypeDTOFromParametrizedPropertyTypeNode(

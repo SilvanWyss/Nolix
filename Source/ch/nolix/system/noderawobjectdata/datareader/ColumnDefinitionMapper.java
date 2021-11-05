@@ -3,7 +3,7 @@ package ch.nolix.system.noderawobjectdata.datareader;
 
 //own imports
 import ch.nolix.common.document.node.BaseNode;
-import ch.nolix.system.noderawobjectdata.structure.ColumnNodeSearcher;
+import ch.nolix.system.noderawobjectschema.structure.ColumnNodeSearcher;
 import ch.nolix.system.noderawobjectschema.structure.ParametrizedPropertyTypeNodeSearcher;
 import ch.nolix.system.sqlrawobjectdata.schema.ColumnDefinition;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IColumnDefinition;
