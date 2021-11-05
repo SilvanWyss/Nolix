@@ -14,7 +14,7 @@ import ch.nolix.techapi.objectdataapi.extendeddataapi.IExtendedEntity;
 public abstract class Entity extends DatabaseObject implements IExtendedEntity<Entity, Property> {
 	
 	//static attribute
-	private static final EntityPreMutationValidator preMutationValidator = new EntityPreMutationValidator();
+	private static final EntityMutationValidator mutationValidator = new EntityMutationValidator();
 	
 	//attributes
 	private String id = UUID.randomUUID().toString().replace(StringCatalogue.MINUS, StringCatalogue.EMPTY_STRING);
@@ -32,7 +32,7 @@ public abstract class Entity extends DatabaseObject implements IExtendedEntity<E
 	@Override
 	public final void delete() {
 		
-		preMutationValidator.assertCanDeleteEntity(this);
+		mutationValidator.assertCanDeleteEntity(this);
 		
 		deleteActually();
 	}

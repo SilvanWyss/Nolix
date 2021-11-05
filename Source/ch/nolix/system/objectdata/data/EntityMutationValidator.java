@@ -2,7 +2,7 @@
 package ch.nolix.system.objectdata.data;
 
 //class
-final class EntityPreMutationValidator {
+final class EntityMutationValidator {
 	
 	//method
 	public void assertCanDeleteEntity(final Entity entity) {
