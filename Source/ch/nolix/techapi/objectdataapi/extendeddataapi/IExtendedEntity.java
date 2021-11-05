@@ -36,15 +36,9 @@ public interface IExtendedEntity<
         }
     }
     
-    //method declaration
-    boolean isBackReferenced();
-    
     //method
     @Override
     default boolean isLinkedWithRealDatabase() {
     	return (belongsToTable() && getParentTable().isLinkedWithRealDatabase());
     }
-    
-    //method declaration
-    boolean isReferenced();
 }

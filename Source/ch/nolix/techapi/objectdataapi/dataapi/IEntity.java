@@ -22,4 +22,10 @@ extends Deletable, IDatabaseObject, IdentifiedByString, ShortDescripted {
 	
 	//method declaration
 	IContainer<P> getRefProperties();
+    
+    //method declaration
+    boolean isBackReferenced();
+	
+    //method declaration
+    boolean isReferenced();
 }
