@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.techapi.objectdataapi.extendeddataapi;
 
-//own imports
-import ch.nolix.techapi.databaseapi.databaseobjectapi.IExtendedDatabaseObject;
+import ch.nolix.techapi.databaseapi.extendeddatabaseobjectapi.IExtendedDatabaseObject;
 import ch.nolix.techapi.objectdataapi.dataapi.IDatabase;
 import ch.nolix.techapi.objectdataapi.dataapi.IProperty;
 
