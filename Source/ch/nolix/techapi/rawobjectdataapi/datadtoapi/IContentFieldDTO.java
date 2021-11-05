@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.techapi.rawobjectdataapi.recorddtoapi;
+package ch.nolix.techapi.rawobjectdataapi.datadtoapi;
 
 //interface
 public interface IContentFieldDTO {

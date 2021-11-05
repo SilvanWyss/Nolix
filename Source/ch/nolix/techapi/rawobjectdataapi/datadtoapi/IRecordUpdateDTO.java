@@ -1,18 +1,18 @@
 //package declaration
-package ch.nolix.techapi.rawobjectdataapi.recorddtoapi;
+package ch.nolix.techapi.rawobjectdataapi.datadtoapi;
 
 //own imports
 import ch.nolix.common.container.IContainer;
 
 //interface
-public interface ILoadedRecordDTO {
-	
-	//method declaration
-	IContainer<IContentFieldDTO> getContentFields();
+public interface IRecordUpdateDTO {
 	
 	//method declaration
 	String getId();
 	
 	//method declaration
 	String getSaveStamp();
+	
+	//method declaration
+	IContainer<IContentFieldDTO> getUpdatedContentFields();
 }

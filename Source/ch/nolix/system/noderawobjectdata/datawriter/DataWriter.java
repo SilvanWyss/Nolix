@@ -7,9 +7,9 @@ import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.system.noderawobjectdata.tabledefinition.TableDefinition;
 import ch.nolix.techapi.rawobjectdataapi.dataadapterapi.IDataWriter;
-import ch.nolix.techapi.rawobjectdataapi.recorddtoapi.IRecordDTO;
-import ch.nolix.techapi.rawobjectdataapi.recorddtoapi.IRecordDeletionDTO;
-import ch.nolix.techapi.rawobjectdataapi.recorddtoapi.IRecordUpdateDTO;
+import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IRecordDTO;
+import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IRecordDeletionDTO;
+import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
 
 //class
 public final class DataWriter implements IDataWriter {

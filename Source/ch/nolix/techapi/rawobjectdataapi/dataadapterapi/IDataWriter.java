@@ -3,9 +3,9 @@ package ch.nolix.techapi.rawobjectdataapi.dataadapterapi;
 
 //own imports
 import ch.nolix.common.skillapi.IChangeSaver;
-import ch.nolix.techapi.rawobjectdataapi.recorddtoapi.IRecordDTO;
-import ch.nolix.techapi.rawobjectdataapi.recorddtoapi.IRecordDeletionDTO;
-import ch.nolix.techapi.rawobjectdataapi.recorddtoapi.IRecordUpdateDTO;
+import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IRecordDTO;
+import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IRecordDeletionDTO;
+import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
 
 //interface
 public interface IDataWriter extends IChangeSaver {

@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.system.sqlrawobjectdata.datareader;
 
-import ch.nolix.system.sqlrawobjectdata.recorddto.ContentFieldDTO;
+import ch.nolix.system.sqlrawobjectdata.datadto.ContentFieldDTO;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IColumnDefinition;
-import ch.nolix.techapi.rawobjectdataapi.recorddtoapi.IContentFieldDTO;
+import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IContentFieldDTO;
 
 //class
 public final class ContentFieldMapper {

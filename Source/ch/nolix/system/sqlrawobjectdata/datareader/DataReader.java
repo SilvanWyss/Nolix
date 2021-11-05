@@ -8,7 +8,7 @@ import ch.nolix.common.sql.SQLConnection;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IQueryCreator;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.ITableDefinition;
 import ch.nolix.techapi.rawobjectdataapi.dataadapterapi.IDataReader;
-import ch.nolix.techapi.rawobjectdataapi.recorddtoapi.ILoadedRecordDTO;
+import ch.nolix.techapi.rawobjectdataapi.datadtoapi.ILoadedRecordDTO;
 import ch.nolix.techapi.rawobjectschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //class

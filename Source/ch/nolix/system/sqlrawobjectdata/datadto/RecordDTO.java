@@ -1,12 +1,12 @@
 //package declaration
-package ch.nolix.system.sqlrawobjectdata.recorddto;
+package ch.nolix.system.sqlrawobjectdata.datadto;
 
 //own imports
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.techapi.rawobjectdataapi.recorddtoapi.IContentFieldDTO;
-import ch.nolix.techapi.rawobjectdataapi.recorddtoapi.IRecordDTO;
+import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IContentFieldDTO;
+import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IRecordDTO;
 
 //class
 public final class RecordDTO implements IRecordDTO {

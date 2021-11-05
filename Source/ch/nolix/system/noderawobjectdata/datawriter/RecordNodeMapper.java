@@ -7,7 +7,7 @@ import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.document.node.Node;
 import ch.nolix.system.noderawobjectdata.structure.SubNodeHeaderCatalogue;
 import ch.nolix.system.noderawobjectdata.tabledefinition.TableDefinition;
-import ch.nolix.techapi.rawobjectdataapi.recorddtoapi.IRecordDTO;
+import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IRecordDTO;
 
 //class
 final class RecordNodeMapper {

@@ -1,28 +1,28 @@
 //package declaration
-package ch.nolix.system.sqlrawobjectdata.recorddto;
+package ch.nolix.system.sqlrawobjectdata.datadto;
 
 //own imports
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.techapi.rawobjectdataapi.recorddtoapi.IContentFieldDTO;
-import ch.nolix.techapi.rawobjectdataapi.recorddtoapi.ILoadedRecordDTO;
+import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IContentFieldDTO;
+import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
 
 //class
-public final class LoadedRecordDTO implements ILoadedRecordDTO {
+public final class RecordUpdateDTO implements IRecordUpdateDTO {
 	
 	//attributes
 	private final String id;
 	private final String saveStamp;
 	
 	//multi-attribute
-	private final IContainer<IContentFieldDTO> contentFields;
+	private final IContainer<IContentFieldDTO> updatedContentFields;
 	
 	//constructor
-	public LoadedRecordDTO(
+	public RecordUpdateDTO(
 		final String id,
 		final String saveStamp,
-		final IContainer<IContentFieldDTO> contentFields
+		final IContainer<IContentFieldDTO> updatedContentFields
 	) {
 		
 		if (id == null) {
@@ -33,21 +33,15 @@ public final class LoadedRecordDTO implements ILoadedRecordDTO {
 			throw new ArgumentIsNullException(LowerCaseCatalogue.SAVE_STAMP);
 		}
 		
-		if (contentFields == null) {
-			throw new ArgumentIsNullException("content fields");
+		if (updatedContentFields == null) {
+			throw new ArgumentIsNullException("updated content fields");
 		}
 		
 		this.id = id;
 		this.saveStamp = saveStamp;
-		this.contentFields = contentFields;
+		this.updatedContentFields = updatedContentFields;
 	}
 	
-	//method
-	@Override
-	public IContainer<IContentFieldDTO> getContentFields() {
-		return contentFields;
-	}
-
 	//method
 	@Override
 	public String getId() {
@@ -58,5 +52,11 @@ public final class LoadedRecordDTO implements ILoadedRecordDTO {
 	@Override
 	public String getSaveStamp() {
 		return saveStamp;
+	}
+	
+	//method
+	@Override
+	public IContainer<IContentFieldDTO> getUpdatedContentFields() {
+		return updatedContentFields;
 	}
 }

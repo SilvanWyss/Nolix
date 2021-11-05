@@ -8,10 +8,10 @@ import ch.nolix.system.noderawobjectdata.datareader.DataReader;
 import ch.nolix.system.noderawobjectdata.datareader.TableDefinitionLoader;
 import ch.nolix.system.noderawobjectdata.datawriter.DataWriter;
 import ch.nolix.techapi.rawobjectdataapi.dataadapterapi.IDataAdapter;
-import ch.nolix.techapi.rawobjectdataapi.recorddtoapi.ILoadedRecordDTO;
-import ch.nolix.techapi.rawobjectdataapi.recorddtoapi.IRecordDTO;
-import ch.nolix.techapi.rawobjectdataapi.recorddtoapi.IRecordDeletionDTO;
-import ch.nolix.techapi.rawobjectdataapi.recorddtoapi.IRecordUpdateDTO;
+import ch.nolix.techapi.rawobjectdataapi.datadtoapi.ILoadedRecordDTO;
+import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IRecordDTO;
+import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IRecordDeletionDTO;
+import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
 
 //class
 public final class DataAdapter implements IDataAdapter {

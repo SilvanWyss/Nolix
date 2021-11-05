@@ -3,7 +3,7 @@ package ch.nolix.techapi.rawobjectdataapi.dataadapterapi;
 
 //own imports
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.techapi.rawobjectdataapi.recorddtoapi.ILoadedRecordDTO;
+import ch.nolix.techapi.rawobjectdataapi.datadtoapi.ILoadedRecordDTO;
 
 //interface
 public interface IDataReader {

@@ -7,11 +7,11 @@ import java.util.List;
 //own imports
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
-import ch.nolix.system.sqlrawobjectdata.recorddto.LoadedRecordDTO;
+import ch.nolix.system.sqlrawobjectdata.datadto.LoadedRecordDTO;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IColumnDefinition;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.ITableDefinition;
-import ch.nolix.techapi.rawobjectdataapi.recorddtoapi.IContentFieldDTO;
-import ch.nolix.techapi.rawobjectdataapi.recorddtoapi.ILoadedRecordDTO;
+import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IContentFieldDTO;
+import ch.nolix.techapi.rawobjectdataapi.datadtoapi.ILoadedRecordDTO;
 
 //class
 final class LoadedRecordDTOMapper {

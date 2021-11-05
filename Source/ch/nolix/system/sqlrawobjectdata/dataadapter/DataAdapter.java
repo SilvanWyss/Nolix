@@ -9,10 +9,10 @@ import ch.nolix.system.sqlrawobjectdata.datawriter.DataWriter;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IQueryCreator;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IStatementCreator;
 import ch.nolix.techapi.rawobjectdataapi.dataadapterapi.IDataAdapter;
-import ch.nolix.techapi.rawobjectdataapi.recorddtoapi.ILoadedRecordDTO;
-import ch.nolix.techapi.rawobjectdataapi.recorddtoapi.IRecordDTO;
-import ch.nolix.techapi.rawobjectdataapi.recorddtoapi.IRecordDeletionDTO;
-import ch.nolix.techapi.rawobjectdataapi.recorddtoapi.IRecordUpdateDTO;
+import ch.nolix.techapi.rawobjectdataapi.datadtoapi.ILoadedRecordDTO;
+import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IRecordDTO;
+import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IRecordDeletionDTO;
+import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
 import ch.nolix.techapi.rawobjectschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //class
