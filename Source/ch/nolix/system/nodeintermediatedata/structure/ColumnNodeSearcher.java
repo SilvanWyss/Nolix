@@ -12,4 +12,9 @@ public final class ColumnNodeSearcher {
 	public BaseNode getRefHeaderNodeFromColumnNode(final BaseNode columnNode) {
 		return columnNode.getRefFirstAttribute(SubNodeHeaderCatalogue.HEADER);
 	}
+	
+	//method
+	public BaseNode getRefParametrizedPropertyTypeNodeFromColumnNode(final BaseNode columnNode) {
+		return columnNode.getRefFirstAttribute(SubNodeHeaderCatalogue.PARAMETRIZED_PROPERTY_TYPE);
+	}
 }
