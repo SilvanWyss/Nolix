@@ -1,9 +1,10 @@
 //package declaration
-package ch.nolix.system.nodeintermediatedata.tabledefinition;
+package ch.nolix.system.nodeintermediatedata.datareader;
 
 //own imports
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.node.BaseNode;
+import ch.nolix.system.nodeintermediatedata.tabledefinition.TableDefinition;
 import ch.nolix.system.noderawobjectschema.structure.SubNodeHeaderCatalogue;
 
 //class

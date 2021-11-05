@@ -45,7 +45,7 @@ final class RecordNodeMapper {
 			if (value == null) {
 				attributes[index] = new Node();
 			} else {
-				attributes[index] =	Node.withHeader(value);
+				attributes[index] =	Node.withHeader(value.toString());
 			}
 		}
 		

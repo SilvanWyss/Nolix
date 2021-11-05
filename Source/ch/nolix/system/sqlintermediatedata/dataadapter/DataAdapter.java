@@ -13,7 +13,7 @@ import ch.nolix.techapi.intermediatedataapi.recorddtoapi.ILoadedRecordDTO;
 import ch.nolix.techapi.intermediatedataapi.recorddtoapi.IRecordDTO;
 import ch.nolix.techapi.intermediatedataapi.recorddtoapi.IRecordDeletionDTO;
 import ch.nolix.techapi.intermediatedataapi.recorddtoapi.IRecordUpdateDTO;
-import ch.nolix.techapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter;
+import ch.nolix.techapi.rawobjectschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //class
 public abstract class DataAdapter implements IDataAdapter {

@@ -8,8 +8,8 @@ public interface IQueryCreator {
 	String createQueryToCountRecordsWithGivenValueAtGivenColumn(String tableName, String columnHeader, String value);
 	
 	//method declaration
-	String createQueryToLoadAllRecordsFromTable(ITableDefinitionDTO tableDefinition);
+	String createQueryToLoadAllRecordsFromTable(ITableDefinition tableDefinition);
 	
 	//method declaration
-	String createQueryToLoadRecordFromTableById(String id, ITableDefinitionDTO tableDefinition);
+	String createQueryToLoadRecordFromTableById(String id, ITableDefinition tableDefinition);
 }

@@ -13,7 +13,7 @@ public final class ContentFieldDTO implements IContentFieldDTO {
 	private final String columnHeader;
 	
 	//optional attribute
-	private final String value;
+	private final Object value;
 			
 	//constructor
 	public ContentFieldDTO(final String columnHeader) {
@@ -27,7 +27,7 @@ public final class ContentFieldDTO implements IContentFieldDTO {
 	}
 	
 	//constructor
-	public ContentFieldDTO(final String columnHeader, final String value) {
+	public ContentFieldDTO(final String columnHeader, final Object value) {
 		
 		if (columnHeader == null) {
 			throw new ArgumentIsNullException("column header");
@@ -49,7 +49,7 @@ public final class ContentFieldDTO implements IContentFieldDTO {
 	
 	//method
 	@Override
-	public String getValueOrNull() {
+	public Object getValueOrNull() {
 		return value;
 	}
 }

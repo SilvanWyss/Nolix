@@ -1,15 +1,15 @@
 //package declaration
-package ch.nolix.system.nodeintermediatedata.tabledefinition;
+package ch.nolix.system.sqlintermediatedata.schema;
 
 //own imports
-import ch.nolix.common.attributeapi.mandatoryattributeapi.Named;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.system.sqlintermediatedata.sqlapi.IColumnDefinition;
+import ch.nolix.system.sqlintermediatedata.sqlapi.ITableDefinition;
 
 //class
-public final class TableDefinition implements Named {
+public final class TableDefinition implements ITableDefinition {
 	
 	//attribute
 	private final String name;
@@ -18,7 +18,7 @@ public final class TableDefinition implements Named {
 	private final IContainer<IColumnDefinition> contentColumnDefinitions;
 	
 	//constructor
-	public TableDefinition(final String name, IContainer<IColumnDefinition> contentColumnDefinitions) {
+	public TableDefinition(final String name, final IContainer<IColumnDefinition> contentColumnDefinitions) {
 		
 		if (name == null) {
 			throw new ArgumentIsNullException(LowerCaseCatalogue.NAME);
@@ -33,18 +33,9 @@ public final class TableDefinition implements Named {
 	}
 	
 	//method
-	public int getContentColumnCount() {
-		return contentColumnDefinitions.getElementCount();
-	}
-	
-	//method
+	@Override
 	public IContainer<IColumnDefinition> getContentColumnDefinitions() {
 		return contentColumnDefinitions;
-	}
-	
-	//method
-	public int getIndexOfContentColumnWithHeader(final String header) {
-		return contentColumnDefinitions.getIndexOfFirst(ccd -> ccd.getColumnHeader().equals(header));
 	}
 	
 	//method

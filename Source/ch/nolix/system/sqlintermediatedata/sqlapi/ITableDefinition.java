@@ -5,10 +5,10 @@ package ch.nolix.system.sqlintermediatedata.sqlapi;
 import ch.nolix.common.container.IContainer;
 
 //interface
-public interface ITableDefinitionDTO {
+public interface ITableDefinition {
 	
 	//method declaration
-	IContainer<String> getContentColumnHeaders();
+	IContainer<IColumnDefinition> getContentColumnDefinitions();
 	
 	//method declaration
 	String getName();

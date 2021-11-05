@@ -6,10 +6,10 @@ import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.sql.SQLConnection;
 import ch.nolix.system.sqlintermediatedata.sqlapi.IQueryCreator;
-import ch.nolix.system.sqlintermediatedata.sqlapi.ITableDefinitionDTO;
+import ch.nolix.system.sqlintermediatedata.sqlapi.ITableDefinition;
 import ch.nolix.techapi.intermediatedataapi.dataadapterapi.IDataReader;
 import ch.nolix.techapi.intermediatedataapi.recorddtoapi.ILoadedRecordDTO;
-import ch.nolix.techapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter;
+import ch.nolix.techapi.rawobjectschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //class
 public final class DataReader implements IDataReader {
@@ -21,7 +21,7 @@ public final class DataReader implements IDataReader {
 	private final InternalDataReader internalDataReader;
 	
 	//multi-attribute
-	private final IContainer<ITableDefinitionDTO> tableDefinitions;
+	private final IContainer<ITableDefinition> tableDefinitions;
 	
 	//constructor
 	public DataReader(
@@ -63,7 +63,7 @@ public final class DataReader implements IDataReader {
 	}
 	
 	//method
-	private ITableDefinitionDTO getTableDefinitionForTableWithName(final String tableName) {
-		return tableDefinitions.getRefFirst(td -> td.getName().equals(tableName));
+	private ITableDefinition getTableDefinitionForTableWithName(final String tableName) {
+		return tableDefinitions.getRefFirstOrNull(td -> td.getName().equals(tableName));
 	}
 }

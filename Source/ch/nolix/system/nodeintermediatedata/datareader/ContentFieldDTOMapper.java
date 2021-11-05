@@ -3,22 +3,31 @@ package ch.nolix.system.nodeintermediatedata.datareader;
 
 //own imports
 import ch.nolix.common.document.node.BaseNode;
+import ch.nolix.system.sqlintermediatedata.datareader.ValueMapper;
 import ch.nolix.system.sqlintermediatedata.recorddto.ContentFieldDTO;
+import ch.nolix.system.sqlintermediatedata.sqlapi.IColumnDefinition;
 import ch.nolix.techapi.intermediatedataapi.recorddtoapi.IContentFieldDTO;
 
 //class
 public final class ContentFieldDTOMapper {
 	
+	//static attribute
+	private static final ValueMapper valueMapper = new ValueMapper();
+	
 	//method
 	public IContentFieldDTO createContentFieldDTOFromContentFieldNode(
-		final String columnHeader,
-		final BaseNode contentFieldNode
+		final BaseNode contentFieldNode,
+		final IColumnDefinition columnDefinition
 	) {
 		
 		if (!contentFieldNode.containsAttributes()) {
-			return new ContentFieldDTO(columnHeader);
+			return new ContentFieldDTO(columnDefinition.getColumnHeader());
 		}
 		
-		return new ContentFieldDTO(columnHeader, contentFieldNode.getRefAttributes().toString());
+		return
+		new ContentFieldDTO(
+			columnDefinition.getColumnHeader(),
+			valueMapper.createValueFromString(contentFieldNode.getRefAttributes().toString(), columnDefinition)
+		);
 	}
 }

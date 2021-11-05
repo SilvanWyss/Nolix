@@ -8,5 +8,5 @@ public interface IContentFieldDTO {
 	String getColumnHeader();
 	
 	//method declaration
-	String getValueOrNull();
+	Object getValueOrNull();
 }

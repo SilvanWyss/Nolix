@@ -6,7 +6,7 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.sql.SQLConnection;
 import ch.nolix.system.sqlintermediatedata.sqlapi.IQueryCreator;
-import ch.nolix.system.sqlintermediatedata.sqlapi.ITableDefinitionDTO;
+import ch.nolix.system.sqlintermediatedata.sqlapi.ITableDefinition;
 import ch.nolix.techapi.intermediatedataapi.recorddtoapi.ILoadedRecordDTO;
 
 //class
@@ -30,7 +30,7 @@ final class InternalDataReader {
 	}
 	
 	//method
-	public LinkedList<ILoadedRecordDTO> loadAllRecordsFromTable(final ITableDefinitionDTO tableDefinition) {
+	public LinkedList<ILoadedRecordDTO> loadAllRecordsFromTable(final ITableDefinition tableDefinition) {
 		return
 		mSQLConnection
 		.getRecords(queryCreator.createQueryToLoadAllRecordsFromTable(tableDefinition))
@@ -38,7 +38,7 @@ final class InternalDataReader {
 	}
 	
 	//method
-	public ILoadedRecordDTO loadRecordFromTableById(final ITableDefinitionDTO tableDefinition, final String id) {
+	public ILoadedRecordDTO loadRecordFromTableById(final ITableDefinition tableDefinition, final String id) {
 		return
 		loadedRecordDTOMapper.createLoadedRecordDTOFromSQLRecord(
 			mSQLConnection.getOneRecord(queryCreator.createQueryToLoadRecordFromTableById(id, tableDefinition)),

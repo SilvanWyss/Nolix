@@ -97,7 +97,7 @@ final class DatabaseUpdater {
 			if (value == null) {
 				contentFieldNode.removeHeader();
 			} else {
-				contentFieldNode.setHeader(value);
+				contentFieldNode.setHeader(value.toString());
 			}
 		}
 	}
