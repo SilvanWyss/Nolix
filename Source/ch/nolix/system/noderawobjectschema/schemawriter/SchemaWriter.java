@@ -85,7 +85,7 @@ public final class SchemaWriter implements ISchemaWriter {
 		editedDatabaseNode.removeFirstAttribute(
 			a -> 
 			a.hasHeader(SubNodeHeaderCatalogue.TABLE)
-			&&  tableNodeSearcher.getNameNodeFromTableNode(a).getRefOneAttribute().hasHeader(tableName)
+			&&  tableNodeSearcher.getRefNameNodeFromTableNode(a).getRefOneAttribute().hasHeader(tableName)
 		);
 		
 		hasChanges = true;
@@ -110,7 +110,7 @@ public final class SchemaWriter implements ISchemaWriter {
 	public void setColumnHeader(final String tableName, final String columnHeader, final String newColumnHeader) {
 		
 		final var tableNode = databaseNodeSearcher.getTableNodeFromDatabaseNode(editedDatabaseNode, tableName);
-		final var columnNode = tableNodeSearcher.getColumnNodeFromTableNode(tableNode, columnHeader);
+		final var columnNode = tableNodeSearcher.getRefColumnNodeFromTableNodeByColumnHeader(tableNode, columnHeader);
 		final var headerNode = columnNodeSearcher.getHeaderNodeFromColumnNode(columnNode);
 		headerNode.setHeader(newColumnHeader);
 		
@@ -126,7 +126,7 @@ public final class SchemaWriter implements ISchemaWriter {
 	) {
 		
 		final var tableNode = databaseNodeSearcher.getTableNodeFromDatabaseNode(editedDatabaseNode, tableName);
-		final var columnNode = tableNodeSearcher.getColumnNodeFromTableNode(tableNode, columnHeader);
+		final var columnNode = tableNodeSearcher.getRefColumnNodeFromTableNodeByColumnHeader(tableNode, columnHeader);
 						
 		columnNode.removeFirstAttribute(SubNodeHeaderCatalogue.PARAMETRIZED_PROPERTY_TYPE);
 		
@@ -157,7 +157,7 @@ public final class SchemaWriter implements ISchemaWriter {
 	public void setTableName(final String tableName, final String newTableName) {
 		
 		final var tableNode = databaseNodeSearcher.getTableNodeFromDatabaseNode(editedDatabaseNode, tableName);
-		final var nameNode = tableNodeSearcher.getNameNodeFromTableNode(tableNode);
+		final var nameNode = tableNodeSearcher.getRefNameNodeFromTableNode(tableNode);
 		nameNode.getRefOneAttribute().setHeader(newTableName);
 		
 		hasChanges = true;

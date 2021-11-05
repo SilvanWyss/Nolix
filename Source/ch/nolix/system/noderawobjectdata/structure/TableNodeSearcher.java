@@ -10,14 +10,6 @@ import ch.nolix.system.noderawobjectdata.tabledefinition.FieldIndexCatalogue;
 public final class TableNodeSearcher {
 	
 	//method
-	public BaseNode getRefNameNodeFromTableNode(final BaseNode tableNode) {
-		return
-		tableNode.getRefFirstAttribute(
-			ch.nolix.system.noderawobjectschema.structure.SubNodeHeaderCatalogue.NAME
-		);
-	}
-	
-	//method
 	public BaseNode getRefRecordNodeFromTableNode(final BaseNode tableNode, final String id) {
 		return
 		tableNode.getRefFirstAttribute(

@@ -49,7 +49,7 @@ public final class SchemaReader implements ISchemaReader {
 		
 		final var tableNode = databaseNodeSearcher.getTableNodeFromDatabaseNode(databaseNode, tableName);
 		
-		final var columnNode = tableNodeSearcher.getColumnNodeFromTableNode(tableNode, columnHeader);
+		final var columnNode = tableNodeSearcher.getRefColumnNodeFromTableNodeByColumnHeader(tableNode, columnHeader);
 		
 		return columnNodeSearcher.columnNodeContainsEntityNode(columnNode);
 	}
@@ -61,7 +61,7 @@ public final class SchemaReader implements ISchemaReader {
 		final var tableNode = databaseNodeSearcher.getTableNodeFromDatabaseNode(databaseNode, tableName);
 		
 		return
-		tableNodeSearcher.getColumnNodesFromTableNode(tableNode).to(columnDTOMapper::createColumnDTOFromColumnNode);
+		tableNodeSearcher.getRefColumnNodesFromTableNode(tableNode).to(columnDTOMapper::createColumnDTOFromColumnNode);
 	}
 	
 	//method

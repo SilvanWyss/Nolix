@@ -4,9 +4,9 @@ package ch.nolix.system.noderawobjectdata.datareader;
 //own imports
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.document.node.BaseNode;
-import ch.nolix.system.noderawobjectdata.structure.TableNodeSearcher;
 import ch.nolix.system.noderawobjectdata.tabledefinition.TableDefinition;
 import ch.nolix.system.noderawobjectschema.structure.SubNodeHeaderCatalogue;
+import ch.nolix.system.noderawobjectschema.structure.TableNodeSearcher;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IColumnDefinition;
 
 //class

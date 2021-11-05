@@ -6,26 +6,29 @@ import ch.nolix.common.container.IContainer;
 import ch.nolix.common.document.node.BaseNode;
 
 //class
-public final class TableNodeSearcher {
+public class TableNodeSearcher {
 	
 	//static attribute
 	private static final ColumnNodeSearcher columnNodeSearcher = new ColumnNodeSearcher();
 	
 	//method
-	public BaseNode getColumnNodeFromTableNode(final BaseNode tableNode, final String columnHeader) {
+	public final BaseNode getRefColumnNodeFromTableNodeByColumnHeader(
+		final BaseNode tableNode,
+		final String columnHeader
+	) {
 		return
-		getColumnNodesFromTableNode(tableNode).getRefFirst(
+		getRefColumnNodesFromTableNode(tableNode).getRefFirst(
 			csn -> columnNodeSearcher.getHeaderNodeFromColumnNode(csn).getRefOneAttribute().hasHeader(columnHeader)
 		);
 	}
 	
 	//method
-	public IContainer<BaseNode> getColumnNodesFromTableNode(final BaseNode tableNode) {
+	public final IContainer<BaseNode> getRefColumnNodesFromTableNode(final BaseNode tableNode) {
 		return tableNode.getRefAttributes(SubNodeHeaderCatalogue.COLUMN).from(3);
 	}
 	
 	//method
-	public BaseNode getNameNodeFromTableNode(final BaseNode tableNode) {
+	public final BaseNode getRefNameNodeFromTableNode(final BaseNode tableNode) {
 		return tableNode.getRefFirstAttribute(SubNodeHeaderCatalogue.NAME);
 	}
 }
