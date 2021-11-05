@@ -65,11 +65,6 @@ public final class Column implements Headered {
 	}
 	
 	//method
-	public boolean isAnyControlColumn() {
-		return dataType.isAnyControlType();
-	}
-	
-	//method
 	public boolean isAnyDataColumn() {
 		return dataType.isAnyValueType();
 	}

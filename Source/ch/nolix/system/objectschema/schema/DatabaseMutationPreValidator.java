@@ -44,8 +44,6 @@ final class DatabaseMutationPreValidator {
 				}
 				
 				break;
-			case BASE_CONTROL_TYPE:
-				break;
 			case BASE_REFERENCE:
 				
 				if (!column.references(table)) {

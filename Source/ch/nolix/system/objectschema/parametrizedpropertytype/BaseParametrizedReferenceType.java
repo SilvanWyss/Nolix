@@ -37,12 +37,6 @@ public abstract class BaseParametrizedReferenceType extends ParametrizedProperty
 	
 	//method
 	@Override
-	public final boolean isAnyControlType() {
-		return false;
-	}
-	
-	//method
-	@Override
 	public final boolean isAnyReferenceType() {
 		return true;
 	}

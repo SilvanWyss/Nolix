@@ -47,13 +47,6 @@ public interface IExtendedColumn<
 	}
 	
 	//method
-	default void assertIsNotIdColumn() {
-		if (isIdColumn()) {
-			throw new InvalidArgumentException(this, "is an id column");
-		}
-	}
-	
-	//method
 	default boolean belongsToDatabase() {
 		return (belongsToTable() && getParentTable().belongsToDatabase());
 	}
@@ -88,11 +81,6 @@ public interface IExtendedColumn<
 	}
 	
 	//method
-	default boolean isAnyControlColumn() {
-		return getParametrizedPropertyType().isAnyControlType();
-	}
-	
-	//method
 	default boolean isAnyReferenceColumn() {
 		return getParametrizedPropertyType().isAnyReferenceType();
 	}
@@ -105,11 +93,6 @@ public interface IExtendedColumn<
 	//method
 	default boolean isDeleted() {
 		return IExtendedDatabaseObject.super.isDeleted();
-	}
-	
-	//method
-	default boolean isIdColumn() {
-		return getParametrizedPropertyType().isIdType();
 	}
 	
 	//method

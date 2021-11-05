@@ -15,7 +15,6 @@ final class ColumnMutationPreValidator {
 	public void assertCanDeleteColumn(final Column column) {			
 		column.assertIsOpen();
 		column.assertIsNotDeleted();
-		column.assertIsNotIdColumn();
 		column.assertIsNotBackReferenced();
 	}
 	
@@ -39,11 +38,7 @@ final class ColumnMutationPreValidator {
 		
 		column.assertIsOpen();
 		column.assertIsEmpty();
-		
-		if (parametrizedPropertyType.isIdType() && column.belongsToTable()) {
-			column.getParentTable().assertDoesNotContainIdColumn();
-		}
-		
+				
 		if (parametrizedPropertyType.isAnyReferenceType() && column.belongsToDatabase()) {
 			
 			final var baseParametrizedReferenceType = (BaseParametrizedReferenceType)parametrizedPropertyType;

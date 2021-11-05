@@ -9,7 +9,6 @@ import ch.nolix.system.database.parametrizeddatatype.BaseParametrizedBackReferen
 import ch.nolix.system.database.parametrizeddatatype.BaseParametrizedReferenceType;
 import ch.nolix.system.objectschema.databaseschemaadapter.DatabaseSchemaAdapter;
 import ch.nolix.system.objectschema.databaseschemaadapter.EntitySet;
-import ch.nolix.system.objectschema.parametrizedpropertytype.IdType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedMultiValueType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedOptionalValueType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedPropertyType;
@@ -86,8 +85,6 @@ public final class ParametrizedSchemaDataTypeMapper {
 					getBackReferencingEntitySetFor((BaseParametrizedBackReferenceType<?>)column.getParametrizedDataType())
 				);
 				*/
-			case ID:
-				return new IdType();
 			default:
 				throw new InvalidArgumentException(column);
 		}

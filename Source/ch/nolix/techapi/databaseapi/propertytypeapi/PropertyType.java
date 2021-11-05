@@ -8,7 +8,6 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 
 //enum
 public enum PropertyType {
-	ID(BasePropertyType.BASE_CONTROL_TYPE),
 	VALUE(BasePropertyType.BASE_VALUE),
 	OPTIONAL_VALUE(BasePropertyType.BASE_VALUE),
 	MULTI_VALUE(BasePropertyType.BASE_VALUE),

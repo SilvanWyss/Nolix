@@ -6,7 +6,6 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentContainsElementException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
-import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ReferencedArgumentException;
 import ch.nolix.techapi.databaseapi.extendeddatabaseobjectapi.IExtendedDatabaseObject;
@@ -46,13 +45,6 @@ public interface IExtendedTable<
 	default void assertDoesNotContainColumnWithHeader(final String header) {
 		if (containsColumnWithHeader(header)) {
 			throw new InvalidArgumentException(this, "contains already a column with the header '" + header + "'");
-		}
-	}
-	
-	//method
-	default void assertDoesNotContainIdColumn() {
-		if (containsIdColumn()) {
-			throw new ArgumentHasAttributeException(this, "id column");
 		}
 	}
 	
@@ -101,11 +93,6 @@ public interface IExtendedTable<
 	//method
 	default boolean containsColumnWithHeader(final String header) {
 		return getRefColumns().containsAny(c -> c.hasHeader(header));
-	}
-	
-	//method
-	default boolean containsIdColumn() {
-		return getRefColumns().containsAny(IExtendedColumn::isIdColumn);
 	}
 	
 	//method

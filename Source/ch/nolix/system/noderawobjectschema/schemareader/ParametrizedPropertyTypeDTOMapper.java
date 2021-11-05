@@ -6,7 +6,6 @@ import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.noderawobjectschema.structure.ParametrizedPropertyTypeNodeSearcher;
 import ch.nolix.system.objectschema.schemadto.BaseParametrizedBackReferenceTypeDTO;
-import ch.nolix.system.objectschema.schemadto.BaseParametrizedControlTypeDTO;
 import ch.nolix.system.objectschema.schemadto.BaseParametrizedReferenceTypeDTO;
 import ch.nolix.system.objectschema.schemadto.BaseParametrizedValueTypeDTO;
 import ch.nolix.system.objectschema.schemadto.ParametrizedPropertyTypeDTO;
@@ -45,12 +44,6 @@ public class ParametrizedPropertyTypeDTOMapper {
 					parametrizedPropertyTypeNode,
 					propertyType
 				);
-			case BASE_CONTROL_TYPE:
-				return
-				createBaseParametrizedControlTypeDTOFromParametrizedPropertyTypeNode(
-					parametrizedPropertyTypeNode,
-					propertyType
-				);
 			default:
 				throw new InvalidArgumentException(propertyType);
 		}
@@ -67,18 +60,6 @@ public class ParametrizedPropertyTypeDTOMapper {
 			getDataTypeFromParametrizedPropertyTypeNode(parametrizedPropertyTypeNode),
 			getBackReferencedTableNameFromParametrizedPropertyTypeNode(parametrizedPropertyTypeNode),
 			getBackReferencedColumnHeaderFromParametrizedPropertyTypeNode(parametrizedPropertyTypeNode)
-		);
-	}
-	
-	//method
-	private ParametrizedPropertyTypeDTO createBaseParametrizedControlTypeDTOFromParametrizedPropertyTypeNode(
-		final BaseNode parametrizedPropertyTypeNode, 
-		final PropertyType propertyType
-	) {
-		return
-		new BaseParametrizedControlTypeDTO(
-			propertyType,
-			getDataTypeFromParametrizedPropertyTypeNode(parametrizedPropertyTypeNode)
 		);
 	}
 	

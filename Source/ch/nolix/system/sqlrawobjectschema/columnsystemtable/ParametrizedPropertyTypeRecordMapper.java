@@ -5,7 +5,6 @@ package ch.nolix.system.sqlrawobjectschema.columnsystemtable;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.sql.SQLSyntaxCatalogue;
 import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IBaseParametrizedBackReferenceTypeDTO;
-import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IBaseParametrizedControlTypeDTO;
 import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IBaseParametrizedReferenceTypeDTO;
 import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IBaseParametrizedValueTypeDTO;
 import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
@@ -20,9 +19,6 @@ public final class ParametrizedPropertyTypeRecordMapper {
 		switch (parametrizedPropertyType.getPropertyType().getBaseType()) {
 			case BASE_VALUE:
 				return createBaseParametrizedValueTypeRecord((IBaseParametrizedValueTypeDTO)parametrizedPropertyType);
-			case BASE_CONTROL_TYPE:
-				return 
-				createBaseParametrizedControlTypeRecord((IBaseParametrizedControlTypeDTO)parametrizedPropertyType);
 			case BASE_REFERENCE:
 				return
 				createBaseParametrizedReferenceTypeRecord((IBaseParametrizedReferenceTypeDTO)parametrizedPropertyType);
@@ -47,20 +43,6 @@ public final class ParametrizedPropertyTypeRecordMapper {
 			SQLSyntaxCatalogue.NULL,
 			"'" + baseParametrizedBackReferenceType.getBackReferencedTableName() + "'",
 			"'" + baseParametrizedBackReferenceType.getBackReferencedColumnHeader() + "'"
-		);
-	}
-	
-	//method
-	private ParametrizedPropertyTypeRecord createBaseParametrizedControlTypeRecord(
-		final IBaseParametrizedControlTypeDTO baseParametrizedControlType
-	) {
-		return
-		new ParametrizedPropertyTypeRecord(
-			"'" + baseParametrizedControlType.getPropertyType().toString() + "'",
-			"'" + baseParametrizedControlType.getDataTypeFullClassName() + "'",
-			SQLSyntaxCatalogue.NULL,
-			SQLSyntaxCatalogue.NULL,
-			SQLSyntaxCatalogue.NULL
 		);
 	}
 	

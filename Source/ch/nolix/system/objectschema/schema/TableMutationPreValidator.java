@@ -17,11 +17,7 @@ final class TableMutationPreValidator {
 		table.assertDoesNotContainColumnWithHeader(column.getHeader());
 		
 		column.assertIsOpen();
-		column.assertIsNew();
-		
-		if (column.isIdColumn()) {
-			table.assertDoesNotContainIdColumn();
-		}
+		column.assertIsNew();		
 		
 		if (column.isAnyReferenceColumn() && table.belongsToDatabase()) {
 			

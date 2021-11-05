@@ -22,12 +22,6 @@ public abstract class BaseParametrizedValueType<V> extends ParametrizedPropertyT
 	
 	//method
 	@Override
-	public final boolean isAnyControlType() {
-		return false;
-	}
-	
-	//method
-	@Override
 	public final boolean isAnyReferenceType() {
 		return false;
 	}

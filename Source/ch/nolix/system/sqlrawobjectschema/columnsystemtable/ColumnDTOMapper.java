@@ -7,7 +7,6 @@ import java.util.List;
 //own imports
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectschema.schemadto.BaseParametrizedBackReferenceTypeDTO;
-import ch.nolix.system.objectschema.schemadto.BaseParametrizedControlTypeDTO;
 import ch.nolix.system.objectschema.schemadto.BaseParametrizedReferenceTypeDTO;
 import ch.nolix.system.objectschema.schemadto.BaseParametrizedValueTypeDTO;
 import ch.nolix.system.objectschema.schemadto.ColumnDTO;
@@ -23,8 +22,6 @@ public final class ColumnDTOMapper {
 				return createColumnDTOForBaseValue(columnSystemTableRecord);
 			case BASE_BACK_REFERENCE:
 				return createColumnDTOForBaseBackReference(columnSystemTableRecord);
-			case BASE_CONTROL_TYPE:
-				return createColumnDTOForBaseControlType(columnSystemTableRecord);
 			case BASE_REFERENCE:
 				return createColumnDTOForBaseReference(columnSystemTableRecord);
 			default:
@@ -43,18 +40,6 @@ public final class ColumnDTOMapper {
 				columnSystemTableRecord.get(3),
 				columnSystemTableRecord.get(5),
 				columnSystemTableRecord.get(6)
-			)
-		);
-	}
-	
-	//method
-	private ColumnDTO createColumnDTOForBaseControlType(final List<String> columnSystemTableRecord) {
-		return
-		new ColumnDTO(
-			columnSystemTableRecord.get(0),
-			new BaseParametrizedControlTypeDTO(
-				PropertyType.valueOf(columnSystemTableRecord.get(2)),
-				columnSystemTableRecord.get(3)
 			)
 		);
 	}

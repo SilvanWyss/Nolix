@@ -6,7 +6,6 @@ import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.noderawobjectschema.structure.SubNodeHeaderCatalogue;
 import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IBaseParametrizedBackReferenceTypeDTO;
-import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IBaseParametrizedControlTypeDTO;
 import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IBaseParametrizedReferenceTypeDTO;
 import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IBaseParametrizedValueTypeDTO;
 import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
@@ -23,8 +22,6 @@ public final class ParametrizedPropertyTypeNodeMapper {
 				return createParametrizedPropertyTypeFrom((IBaseParametrizedReferenceTypeDTO)parametrizedPropertyType);
 			case BASE_BACK_REFERENCE:
 				return createParametrizedPropertyTypeFrom((IBaseParametrizedBackReferenceTypeDTO)parametrizedPropertyType);
-			case BASE_CONTROL_TYPE:
-				return createParametrizedPropertyTypeFrom((IBaseParametrizedControlTypeDTO)parametrizedPropertyType);
 			default:
 				throw new InvalidArgumentException(parametrizedPropertyType);
 		}
@@ -52,22 +49,6 @@ public final class ParametrizedPropertyTypeNodeMapper {
 			Node.withHeaderAndAttribute(
 				SubNodeHeaderCatalogue.BACK_REFERENCED_COLUMN,
 				baseParametrizedBackReferenceType.getBackReferencedColumnHeader()
-			)
-		);
-	}
-	
-	//method
-	private Node createParametrizedPropertyTypeFrom(IBaseParametrizedControlTypeDTO baseParametrizedControlType) {
-		return
-		Node.withHeaderAndAttribute(
-			SubNodeHeaderCatalogue.PARAMETRIZED_PROPERTY_TYPE,
-			Node.withHeaderAndAttribute(
-				SubNodeHeaderCatalogue.PROPERTY_TYPE,
-				baseParametrizedControlType.getPropertyType().toString()
-			),
-			Node.withHeaderAndAttribute(
-				SubNodeHeaderCatalogue.DATA_TYPE,
-				baseParametrizedControlType.getDataTypeFullClassName()
 			)
 		);
 	}
