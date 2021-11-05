@@ -36,7 +36,7 @@ import ch.nolix.common.functionapi.IElementTakerLongGetter;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 2160
+ * @lines 2180
  * @param <E> is the type of the elements a {@link IContainer} can store.
  */
 public interface IContainer<E> extends Iterable<E> {
@@ -590,6 +590,33 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return the number of elements of the current {@link IContainer}.
 	 */
 	int getElementCount();
+	
+	//method
+	/**
+	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * 
+	 * @param selector
+	 * @return the index of the first element in the current {@link IContainer} the given selector selects.
+	 * @throws InvalidArgumentException if
+	 * the current {@link IContainer} does not contain an element the given selector selects.
+	 */
+	default int getIndexOfFirst(final IElementTakerBooleanGetter<E> selector) {
+		
+		//Iterates the current IContainer.
+		var index = 1;
+		for (final var e : this) {
+			
+			//Handles the case that the given selector selects the current element.
+			if (selector.getOutput(e)) {
+				return index;
+			}
+			
+			//Increments index.
+			index++;
+		}
+		
+		throw new InvalidArgumentException(this, "does not contain an element the given selecto selects");
+	}
 	
 	//method
 	/**
