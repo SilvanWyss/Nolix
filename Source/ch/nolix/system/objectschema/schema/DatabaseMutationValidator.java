@@ -6,7 +6,7 @@ import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.errorcontrol.validator.Validator;
 
 //class
-final class DatabaseMutationPreValidator {
+final class DatabaseMutationValidator {
 	
 	//method
 	public void assertCanAddTableToDatabase(final Database database, final Table table) {

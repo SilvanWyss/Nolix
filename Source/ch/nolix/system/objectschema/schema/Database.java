@@ -15,7 +15,7 @@ public final class Database extends DatabaseObject
 implements IExtendedDatabase<Database, Table, Column, ParametrizedPropertyType<?>> {
 	
 	//static attributes
-	private static final DatabaseMutationPreValidator mutationPreValidator = new DatabaseMutationPreValidator();
+	private static final DatabaseMutationValidator mutationValidator = new DatabaseMutationValidator();
 	private static final DatabaseMutationExecutor mutationExecutor = new DatabaseMutationExecutor();
 	
 	//attributes
@@ -31,7 +31,7 @@ implements IExtendedDatabase<Database, Table, Column, ParametrizedPropertyType<?
 	//constructor
 	public Database(final String name) {
 		
-		mutationPreValidator.assertCanSetNameToDatabase(this, name);
+		mutationValidator.assertCanSetNameToDatabase(this, name);
 		
 		this.name = name;
 	}
@@ -40,7 +40,7 @@ implements IExtendedDatabase<Database, Table, Column, ParametrizedPropertyType<?
 	@Override
 	public Database addTable(final Table table) {
 		
-		mutationPreValidator.assertCanAddTableToDatabase(this, table);
+		mutationValidator.assertCanAddTableToDatabase(this, table);
 		mutationExecutor.addTableToDatabase(this, table);
 		
 		return this;
