@@ -3,21 +3,21 @@ package ch.nolix.techapi.objectdataapi.extendeddataadapterapi;
 
 //own imports
 import ch.nolix.techapi.objectdataapi.dataadapterapi.IDataAdapter;
-import ch.nolix.techapi.objectdataapi.dataapi.IProperty;
 import ch.nolix.techapi.objectdataapi.extendeddataapi.IExtendedDatabase;
 import ch.nolix.techapi.objectdataapi.extendeddataapi.IExtendedEntity;
+import ch.nolix.techapi.objectdataapi.extendeddataapi.IExtendedProperty;
 import ch.nolix.techapi.objectdataapi.extendeddataapi.IExtendedTable;
 
 //interface
 public interface IExtendedDataAdapter<
-	ED extends IExtendedDatabase<ED, ET, EE, P>,
-	ET extends IExtendedTable<ET, EE, P>,
-	EE extends IExtendedEntity<EE, P>,
-	P extends IProperty<P>
-> extends IDataAdapter<ED, ET, EE, P> {
+	ED extends IExtendedDatabase<ED, ET, EE, EP>,
+	ET extends IExtendedTable<ET, EE, EP>,
+	EE extends IExtendedEntity<EE, EP>,
+	EP extends IExtendedProperty<EP>
+> extends IDataAdapter<ED, ET, EE, EP> {
 	
 	//method
-	default IExtendedDataAdapter<ED, ET, EE, P> addEntity(final EE entity) {
+	default IExtendedDataAdapter<ED, ET, EE, EP> addEntity(final EE entity) {
 		
 		getRefDatabase().addEntity(entity);
 		
@@ -26,7 +26,7 @@ public interface IExtendedDataAdapter<
 	
 	//method
 	@SuppressWarnings("unchecked")
-	default IExtendedDataAdapter<ED, ET, EE, P> addEntity(final EE... entities) {
+	default IExtendedDataAdapter<ED, ET, EE, EP> addEntity(final EE... entities) {
 		
 		getRefDatabase().addEntity(entities);
 		

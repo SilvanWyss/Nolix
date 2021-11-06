@@ -1,20 +1,20 @@
 //package declaration
 package ch.nolix.techapi.objectdataapi.extendeddataapi;
 
+//own imports
 import ch.nolix.techapi.databaseapi.extendeddatabaseobjectapi.IExtendedDatabaseObject;
 import ch.nolix.techapi.objectdataapi.dataapi.IDatabase;
-import ch.nolix.techapi.objectdataapi.dataapi.IProperty;
 
 //interface
 public interface IExtendedDatabase<
-	ED extends IExtendedDatabase<ED, ET, EE, P>,
-	ET extends IExtendedTable<ET, EE, P>,
-	EE extends IExtendedEntity<EE, P>,
-	P extends IProperty<P>
-> extends IDatabase<ED, ET, EE, P>, IExtendedDatabaseObject {
+	ED extends IExtendedDatabase<ED, ET, EE, EP>,
+	ET extends IExtendedTable<ET, EE, EP>,
+	EE extends IExtendedEntity<EE, EP>,
+	EP extends IExtendedProperty<EP>
+> extends IDatabase<ED, ET, EE, EP>, IExtendedDatabaseObject {
 	
 	//method
-	default IExtendedDatabase<ED, ET, EE, P> addEntity(final EE entity) {
+	default IExtendedDatabase<ED, ET, EE, EP> addEntity(final EE entity) {
 		
 		getRefTableForEntity(entity).addEntity(entity);
 		
@@ -23,7 +23,7 @@ public interface IExtendedDatabase<
 	
 	//method
 	@SuppressWarnings("unchecked")
-	default IExtendedDatabase<ED, ET, EE, P> addEntity(final EE... entities) {
+	default IExtendedDatabase<ED, ET, EE, EP> addEntity(final EE... entities) {
 		
 		if (entities.length > 0) {
 			getRefTableByEntityClass(entities[0].getClass()).addEntity(entities);
