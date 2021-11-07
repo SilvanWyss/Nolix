@@ -15,7 +15,7 @@ import ch.nolix.techapi.objectschemaapi.schemaapi.ITable;
 //interface
 public interface IExtendedColumn<
 	EC extends IColumn<EC, EPPT>,
-	EPPT extends IExtendedParametrizedPropertyType<?>
+	EPPT extends IExtendedParametrizedPropertyType<EPPT, ?>
 > extends IColumn<EC, EPPT>, IExtendedDatabaseObject {
 	
 	//method

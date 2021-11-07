@@ -7,7 +7,10 @@ import ch.nolix.techapi.objectschemaapi.schemaapi.IParametrizedPropertyType;
 import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
 
 //interface
-public interface IExtendedParametrizedPropertyType<DT> extends IParametrizedPropertyType<DT> {
+public interface IExtendedParametrizedPropertyType<
+	EPPT extends IExtendedParametrizedPropertyType<EPPT, DT>,
+	DT>
+extends IParametrizedPropertyType<EPPT, DT> {
 	
 	//method
 	default BasePropertyType getBasePropertyType() {

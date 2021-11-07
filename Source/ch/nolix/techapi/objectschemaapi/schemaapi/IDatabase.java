@@ -12,7 +12,7 @@ public interface IDatabase<
 	D extends IDatabase<D, T, C, PPT>,
 	T extends ITable<T, C, PPT>,
 	C extends IColumn<C, PPT>,
-	PPT extends IParametrizedPropertyType<?>
+	PPT extends IParametrizedPropertyType<PPT, ?>
 > extends IDatabaseObject, Named {
 	
 	//method declaration

@@ -11,7 +11,7 @@ import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IColumnDTO;
 //interface
 public interface IColumn<
 	C extends IColumn<C, PPT>,
-	PPT extends IParametrizedPropertyType<?>
+	PPT extends IParametrizedPropertyType<PPT, ?>
 > extends Deletable, EmptinessRequestable, Headerable<C>, IDatabaseObject {
 	
 	//method declaration

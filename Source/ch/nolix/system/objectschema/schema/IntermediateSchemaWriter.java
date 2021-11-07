@@ -58,7 +58,7 @@ final class IntermediateSchemaWriter {
 	
 	public void setColumnParametrizedPropertyType(
 		final IColumn<?, ?> column,
-		final IParametrizedPropertyType<?> parametrizedPropertyType
+		final IParametrizedPropertyType<?, ?> parametrizedPropertyType
 	) {
 		internalIntermediateSchemaWriter.setColumnParametrizedPropertyType(
 			column.getParentTable().getName(),

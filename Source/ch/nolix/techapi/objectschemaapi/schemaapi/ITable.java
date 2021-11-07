@@ -13,7 +13,7 @@ import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.ITableDTO;
 public interface ITable<
 	T extends ITable<T, C, PPT>,
 	C extends IColumn<C, PPT>,
-	PPT extends IParametrizedPropertyType<?>
+	PPT extends IParametrizedPropertyType<PPT, ?>
 > extends Deletable, IDatabaseObject, Namable<T> {
 	
 	//method declaration

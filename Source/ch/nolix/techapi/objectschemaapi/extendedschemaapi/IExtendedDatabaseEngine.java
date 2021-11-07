@@ -11,7 +11,7 @@ public interface IExtendedDatabaseEngine<
 	ED extends IExtendedDatabase<ED, ET, EC, EPPT>,
 	ET extends IExtendedTable<ET, EC, EPPT>,
 	EC extends IExtendedColumn<EC, EPPT>,
-	EPPT extends IExtendedParametrizedPropertyType<?>
+	EPPT extends IExtendedParametrizedPropertyType<EPPT, ?>
 > extends IDatabaseEngine<EDE, ED, ET, EC, EPPT> {
 	
 	//method

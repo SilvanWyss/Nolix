@@ -6,7 +6,10 @@ import ch.nolix.techapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
 
 //interface
-public interface IParametrizedPropertyType<DT> {
+public interface IParametrizedPropertyType<
+	PPT extends IParametrizedPropertyType<PPT,DT>,
+	DT
+> {
 	
 	//method declaration
 	Class<DT> getDataType();
