@@ -7,7 +7,7 @@ import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IParametrizedPropertyTyp
 
 //interface
 public interface IParametrizedPropertyType<
-	PPT extends IParametrizedPropertyType<PPT,DT>,
+	PPT extends IParametrizedPropertyType<PPT, DT>,
 	DT
 > {
 	

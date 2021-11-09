@@ -1,13 +1,16 @@
 //package declaration
 package ch.nolix.system.objectschema.parametrizedpropertytype;
 
+//own imports
 import ch.nolix.system.objectschema.schemadto.BaseParametrizedValueTypeDTO;
+import ch.nolix.techapi.objectschemaapi.extendedschemaapi.IExtendedBaseParametrizedValueType;
 import ch.nolix.techapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.techapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
 
 //class
-public abstract class BaseParametrizedValueType<V> extends ParametrizedPropertyType<V> {
+public abstract class BaseParametrizedValueType<V> extends ParametrizedPropertyType<V>
+implements IExtendedBaseParametrizedValueType<ParametrizedPropertyType<V>, V> {
 	
 	//constructor
 	public BaseParametrizedValueType(final Class<V> valueClass) {
