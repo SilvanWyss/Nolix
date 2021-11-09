@@ -4,18 +4,21 @@ package ch.nolix.system.objectschema.parametrizedpropertytype;
 //own imports
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.system.objectschema.schemadto.BaseParametrizedReferenceTypeDTO;
+import ch.nolix.techapi.objectschemaapi.extendedschemaapi.IExtendedBaseParametrizedReferenceType;
+import ch.nolix.techapi.objectschemaapi.extendedschemaapi.IExtendedTable;
 import ch.nolix.techapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.techapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
 
 //class
-public abstract class BaseParametrizedReferenceType extends ParametrizedPropertyType<String> {
+public abstract class BaseParametrizedReferenceType extends ParametrizedPropertyType<String>
+implements IExtendedBaseParametrizedReferenceType<ParametrizedPropertyType<String>> {
 	
 	//attribute
-	private final ITable<?, ?, ?> referencedTable;
+	private final IExtendedTable<?, ?, ?> referencedTable;
 	
 	//constructor
-	public BaseParametrizedReferenceType(final ITable<?, ?, ?> referencedTable) {
+	public BaseParametrizedReferenceType(final IExtendedTable<?, ?, ?> referencedTable) {
 		
 		super(String.class);
 		
@@ -25,7 +28,7 @@ public abstract class BaseParametrizedReferenceType extends ParametrizedProperty
 	}
 	
 	//method
-	public ITable<?, ?, ?> getReferencedTable() {
+	public IExtendedTable<?, ?, ?> getReferencedTable() {
 		return referencedTable;
 	}
 	
