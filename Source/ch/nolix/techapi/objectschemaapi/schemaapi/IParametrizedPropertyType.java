@@ -11,7 +11,14 @@ public interface IParametrizedPropertyType<
 	DT
 > {
 	
+	//method declaration
+	IBaseParametrizedBackReferenceType<?> asBaseParametrizedBackReferenceType();
+	
+	//method declaration
 	IBaseParametrizedReferenceType<?> asBaseParametrizedReferenceType();
+	
+	//method declaration
+	IBaseParametrizedValueType<?, ?> asBaseParametrizedValueType();
 	
 	//method declaration
 	Class<DT> getDataType();

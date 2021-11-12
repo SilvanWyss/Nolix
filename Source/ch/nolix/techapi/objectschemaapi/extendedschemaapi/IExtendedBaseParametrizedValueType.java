@@ -3,7 +3,6 @@ package ch.nolix.techapi.objectschemaapi.extendedschemaapi;
 
 //own imports
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
-import ch.nolix.techapi.objectschemaapi.schemaapi.IBaseParametrizedReferenceType;
 import ch.nolix.techapi.objectschemaapi.schemaapi.IBaseParametrizedValueType;
 import ch.nolix.techapi.objectschemaapi.schemaapi.IParametrizedPropertyType;
 
@@ -15,7 +14,19 @@ public interface IExtendedBaseParametrizedValueType<
 	
 	//method
 	@Override
-	default IBaseParametrizedReferenceType<?> asBaseParametrizedReferenceType() {
+	default IExtendedBaseParametrizedBackReferenceType<?> asBaseParametrizedBackReferenceType() {
+		throw new ArgumentDoesNotSupportMethodException(this, "asBaseParametrizedBackReferenceType");
+	}
+	
+	//method
+	@Override
+	default IExtendedBaseParametrizedReferenceType<?> asBaseParametrizedReferenceType() {
 		throw new ArgumentDoesNotSupportMethodException(this, "asBaseParametrizedReferenceType");
+	}
+	
+	//method
+	@Override
+	default IExtendedBaseParametrizedValueType<?, ?> asBaseParametrizedValueType() {
+		return this;
 	}
 }
