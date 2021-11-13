@@ -23,6 +23,14 @@ public final class EntityHelper extends DatabaseObjectHelper implements IEntityH
 	
 	//method
 	@Override
+	public void assertCanBeDeleted(IEntity<?, ?> entity) {
+		if (!canBeDeleted(entity)) {
+			throw new InvalidArgumentException(entity, "cannot be deleted");
+		}
+	}
+	
+	//method
+	@Override
 	public void assertIsNotBackReferenced(final IEntity<?, ?> entity) {
 		if (entity.isBackReferenced()) {
 			throw new InvalidArgumentException(entity, "is back referenced");
@@ -35,5 +43,11 @@ public final class EntityHelper extends DatabaseObjectHelper implements IEntityH
 		if (entity.isReferenced()) {
 			throw new ReferencedArgumentException(entity);
 		}
+	}
+	
+	//method
+	@Override
+	public boolean canBeDeleted(final IEntity<?, ?> entity) {
+		return (isLoaded(entity) && !entity.isReferenced());
 	}
 }

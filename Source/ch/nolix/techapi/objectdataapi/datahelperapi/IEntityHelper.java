@@ -12,8 +12,14 @@ public interface IEntityHelper extends IDatabaseObjectHelper {
 	void assertBelongsToTable(IEntity<?, ?> entity);
 	
 	//method declaration
+	void assertCanBeDeleted(IEntity<?, ?> entity);
+	
+	//method declaration
 	void assertIsNotBackReferenced(IEntity<?, ?> entity);
 	
 	//method declaration
 	void assertIsNotReferenced(IEntity<?, ?> entity);
+	
+	//method declaration
+	boolean canBeDeleted(IEntity<?, ?> entity);
 }
