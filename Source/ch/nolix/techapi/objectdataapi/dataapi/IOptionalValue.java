@@ -5,4 +5,11 @@ package ch.nolix.techapi.objectdataapi.dataapi;
 import ch.nolix.common.skillapi.Clearable;
 
 //interface
-public interface IOptionalValue<OV extends IOptionalValue<OV, V>, V> extends Clearable, ISingleValue<OV, V> {}
+public interface IOptionalValue<P extends IProperty<P>, V> extends Clearable, IBaseValue<P, V> {
+	
+	//method declaration
+	V getRefValue();
+	
+	//method declaration
+	boolean hasValue();
+}
