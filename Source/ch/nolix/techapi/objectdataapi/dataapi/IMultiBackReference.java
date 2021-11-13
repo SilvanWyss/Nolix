@@ -6,6 +6,6 @@ import ch.nolix.common.container.IContainer;
 
 //interface
 public interface IMultiBackReference<
-	MBR extends IMultiBackReference<MBR, E>,
-	E extends IEntity<E, MBR>
-> extends IContainer<E>, IProperty<MBR> {}
+	P extends IProperty<P>,
+	E extends IEntity<E, P>
+> extends IContainer<E>, IBaseBackReference<P, E> {}

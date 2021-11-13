@@ -3,6 +3,16 @@ package ch.nolix.techapi.objectdataapi.dataapi;
 
 //interface
 public interface IBackReference<
-	BR extends IBackReference<BR, E>,
-	E extends IEntity<E, BR>
-> extends ISingleBackReference<BR, E> {}
+	P extends IProperty<P>,
+	E extends IEntity<E, P>
+> extends IBaseBackReference<P, E> {
+	
+	//method declaration
+	String getEntityId();
+	
+	//method declaration
+	E getRefEntity();
+	
+	//method declaration
+	boolean referencesBackEntity();
+}
