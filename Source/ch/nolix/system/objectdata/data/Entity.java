@@ -7,13 +7,16 @@ import java.util.UUID;
 //own imports
 import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.container.IContainer;
+import ch.nolix.system.objectdata.datahelper.EntityHelper;
+import ch.nolix.techapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.techapi.objectdataapi.dataapi.ITable;
-import ch.nolix.techapi.objectdataapi.extendeddataapi.IExtendedEntity;
+import ch.nolix.techapi.objectdataapi.datahelperapi.IEntityHelper;
 
 //class
-public abstract class Entity extends DatabaseObject implements IExtendedEntity<Entity, Property> {
+public abstract class Entity extends DatabaseObject implements IEntity<Entity, Property> {
 	
-	//static attribute
+	//static attributes
+	private static final IEntityHelper entityHelper = new EntityHelper();
 	private static final EntityMutationValidator mutationValidator = new EntityMutationValidator();
 	
 	//attributes
@@ -47,7 +50,7 @@ public abstract class Entity extends DatabaseObject implements IExtendedEntity<E
 	@Override
 	public final ITable<?, ?, ?> getParentTable() {
 		
-		assertBelongsToTable();
+		entityHelper.assertBelongsToTable(this);
 		
 		return parentTable;
 	}

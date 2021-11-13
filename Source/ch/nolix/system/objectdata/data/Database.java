@@ -2,10 +2,10 @@
 package ch.nolix.system.objectdata.data;
 
 //own imports
-import ch.nolix.techapi.objectdataapi.extendeddataapi.IExtendedDatabase;
+import ch.nolix.techapi.objectdataapi.dataapi.IDatabase;
 
 //class
-public final class Database extends DatabaseObject implements IExtendedDatabase<Database, Table, Entity, Property> {
+public final class Database extends DatabaseObject implements IDatabase<Database, Table, Entity, Property> {
 	
 	//method	
 	@Override

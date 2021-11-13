@@ -3,11 +3,16 @@ package ch.nolix.system.objectdata.data;
 
 //own imports
 import ch.nolix.common.errorcontrol.validator.Validator;
+import ch.nolix.system.objectdata.datahelper.PropertyHelper;
 import ch.nolix.techapi.objectdataapi.dataapi.IEntity;
-import ch.nolix.techapi.objectdataapi.extendeddataapi.IExtendedProperty;
+import ch.nolix.techapi.objectdataapi.dataapi.IProperty;
+import ch.nolix.techapi.objectdataapi.datahelperapi.IPropertyHelper;
 
 //class
-public abstract class Property implements IExtendedProperty<Property> {
+public abstract class Property implements IProperty<Property> {
+	
+	//static attribute
+	private static final IPropertyHelper propertyHelper = new PropertyHelper();
 	
 	//optional attribute
 	private Entity parentEntity;
@@ -22,7 +27,7 @@ public abstract class Property implements IExtendedProperty<Property> {
 	@Override
 	public final IEntity<?, ?> getParentEntity() {
 		
-		assertBelongsToEntity();
+		propertyHelper.assertBelongsToEntity(this);
 		
 		return parentEntity;
 	}
@@ -32,7 +37,7 @@ public abstract class Property implements IExtendedProperty<Property> {
 		
 		Validator.assertThat(parentEntity).thatIsNamed("parent entity").isNotNull();
 		
-		assertDoesNotBelongToEntity();
+		propertyHelper.assertDoesNotBelongToEntity(this);
 		
 		this.parentEntity = parentEntity;
 	}
