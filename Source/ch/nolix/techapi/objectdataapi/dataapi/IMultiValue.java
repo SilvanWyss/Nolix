@@ -5,4 +5,4 @@ package ch.nolix.techapi.objectdataapi.dataapi;
 import ch.nolix.common.container.IContainer;
 
 //interface
-public interface IMultiValue<MV extends IMultiValue<MV, V>, V> extends IContainer<V>, IProperty<MV> {}
+public interface IMultiValue<P extends IProperty<P>, V> extends IContainer<V>, IBaseValue<P, V> {}
