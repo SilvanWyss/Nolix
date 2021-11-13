@@ -75,6 +75,12 @@ public abstract class Entity extends DatabaseObject implements IEntity<Entity, P
 	}
 	
 	//method
+	@Override
+	public final boolean isLinkedWithRealDatabase() {
+		return (belongsToTable() && getParentTable().isLinkedWithRealDatabase());
+	}
+	
+	//method
 	public final boolean isReferenced() {
 		//TODO: Implement.
 		return false;
