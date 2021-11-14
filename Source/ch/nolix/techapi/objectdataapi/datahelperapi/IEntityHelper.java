@@ -22,4 +22,7 @@ public interface IEntityHelper extends IDatabaseObjectHelper {
 	
 	//method declaration
 	boolean canBeDeleted(IEntity<?, ?> entity);
+	
+	//method declaration
+	public boolean isReferencedInLocalData(IEntity<?, ?> entity);
 }

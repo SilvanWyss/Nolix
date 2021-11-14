@@ -50,4 +50,10 @@ public final class EntityHelper extends DatabaseObjectHelper implements IEntityH
 	public boolean canBeDeleted(final IEntity<?, ?> entity) {
 		return (isLoaded(entity) && !entity.isReferenced());
 	}
+	
+	//method
+	@Override
+	public boolean isReferencedInLocalData(final IEntity<?, ?> entity) {
+		return entity.getParentTable().getReferencingColumns().containsAny(rc -> rc.referencesInLocalData(entity));
+	}
 }
