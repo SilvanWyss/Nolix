@@ -3,6 +3,7 @@ package ch.nolix.system.objectdata.data;
 
 //own imports
 import ch.nolix.common.container.IContainer;
+import ch.nolix.techapi.objectdataapi.dataapi.IColumn;
 import ch.nolix.techapi.objectdataapi.dataapi.IDatabase;
 import ch.nolix.techapi.objectdataapi.dataapi.ITable;
 
@@ -33,6 +34,13 @@ public final class Table extends DatabaseObject implements ITable<Table, Entity,
 	//method
 	@Override
 	public Entity getRefEntityById(final String id) {
+		//TODO: Implement.
+		return null;
+	}
+	
+	//method
+	@Override
+	public IContainer<IColumn<Property>> getReferencingColumns() {
 		//TODO: Implement.
 		return null;
 	}

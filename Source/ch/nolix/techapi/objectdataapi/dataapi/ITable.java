@@ -23,4 +23,7 @@ public interface ITable<
 	
 	//method declaration
 	E getRefEntityById(String id);
+	
+	//method
+	IContainer<IColumn<P>> getReferencingColumns();
 }

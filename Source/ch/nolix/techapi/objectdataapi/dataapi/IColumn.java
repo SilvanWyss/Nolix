@@ -14,5 +14,5 @@ public interface IColumn<P extends IProperty<P>> extends IDatabaseObject {
 	ITable<?, ?, P> getParentTable();
 	
 	//method declaration
-	boolean referencesInLocalData(IEntity<?, P> entity);
+	boolean referencesInLocalData(IEntity<?, ?> entity);
 }
