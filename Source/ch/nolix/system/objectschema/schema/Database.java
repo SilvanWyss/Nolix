@@ -23,7 +23,7 @@ implements IExtendedDatabase<Database, Table, Column, ParametrizedPropertyType<?
 	private boolean loadedTablesFromDatabase;
 	
 	//optional attribute
-	private IntermediateSchemaAdapter intermediateSchemaAdapter;
+	private RawSchemaAdapter rawSchemaAdapter;
 	
 	//multi-attribute
 	private LinkedList<Table> tables = new LinkedList<>();
@@ -84,13 +84,13 @@ implements IExtendedDatabase<Database, Table, Column, ParametrizedPropertyType<?
 	//method
 	@Override
 	public boolean isLinkedWithRealDatabase() {
-		return (intermediateSchemaAdapter != null);
+		return (rawSchemaAdapter != null);
 	}
 	
 	//method
 	@Override
 	public void setRealSchemaAdapter(final ISchemaAdapter schemaAdapter) {
-		setRealSchemaAdapter(new IntermediateSchemaAdapter(schemaAdapter));
+		setRealSchemaAdapter(new RawSchemaAdapter(schemaAdapter));
 	}
 	
 	//method
@@ -107,11 +107,11 @@ implements IExtendedDatabase<Database, Table, Column, ParametrizedPropertyType<?
 	}
 	
 	//method
-	IntermediateSchemaAdapter getRefRealSchemaAdapter() {
+	RawSchemaAdapter getRefRealSchemaAdapter() {
 		
 		assertIsLinkedWithRealDatabase();
 		
-		return intermediateSchemaAdapter;
+		return rawSchemaAdapter;
 	}
 	
 	//method
@@ -147,12 +147,12 @@ implements IExtendedDatabase<Database, Table, Column, ParametrizedPropertyType<?
 	}
 	
 	//method
-	private void setRealSchemaAdapter(final IntermediateSchemaAdapter intermediateSchemaAdapter) {
+	private void setRealSchemaAdapter(final RawSchemaAdapter rawSchemaAdapter) {
 		
-		Validator.assertThat(intermediateSchemaAdapter).thatIsNamed(IntermediateSchemaAdapter.class).isNotNull();
+		Validator.assertThat(rawSchemaAdapter).thatIsNamed(RawSchemaAdapter.class).isNotNull();
 		assertIsNotLinkedWithActualDatabase();
 		
 		setLoaded();
-		this.intermediateSchemaAdapter = intermediateSchemaAdapter;
+		this.rawSchemaAdapter = rawSchemaAdapter;
 	}
 }

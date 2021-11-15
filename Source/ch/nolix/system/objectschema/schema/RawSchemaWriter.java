@@ -10,57 +10,54 @@ import ch.nolix.techapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.techapi.rawobjectschemaapi.schemaadapterapi.ISchemaWriter;
 
 //class
-final class IntermediateSchemaWriter {
+final class RawSchemaWriter {
 	
 	//attribute
-	private final ISchemaWriter internalIntermediateSchemaWriter;
+	private final ISchemaWriter internalRawSchemaWriter;
 	
 	//constructor
-	public IntermediateSchemaWriter(final ISchemaWriter internalIntermediateSchemaWriter) {
+	public RawSchemaWriter(final ISchemaWriter internalRawSchemaWriter) {
 		
-		Validator
-		.assertThat(internalIntermediateSchemaWriter)
-		.thatIsNamed("internal intermediate schema writer")
-		.isNotNull();
+		Validator.assertThat(internalRawSchemaWriter).thatIsNamed("internal RawSchemaWriter").isNotNull();
 		
-		this.internalIntermediateSchemaWriter = internalIntermediateSchemaWriter;
+		this.internalRawSchemaWriter = internalRawSchemaWriter;
 	}
 	
 	//method
 	public void addColumnToTable(final ITable<?, ?, ?> table, final IColumn<?, ?> column) {
-		internalIntermediateSchemaWriter.addColumn(table.getName(), column.toDTO());
+		internalRawSchemaWriter.addColumn(table.getName(), column.toDTO());
 	}
 	
 	//method
 	public void addTable(final ITable<?, ?, ?> table) {
-		internalIntermediateSchemaWriter.addTable(table.toDTO());
+		internalRawSchemaWriter.addTable(table.toDTO());
 	}
 	
 	//method
 	public void deleteColumn(final IColumn<?, ?> column) {
-		internalIntermediateSchemaWriter.deleteColumn(column.getParentTable().getName(), column.getHeader());
+		internalRawSchemaWriter.deleteColumn(column.getParentTable().getName(), column.getHeader());
 	}
 	
 	//method
 	public void deleteTable(final ITable<?, ?, ?> table) {
-		internalIntermediateSchemaWriter.deleteTable(table.getName());
+		internalRawSchemaWriter.deleteTable(table.getName());
 	}
 	
 	//method
 	public void saveChanges() {
-		internalIntermediateSchemaWriter.saveChanges();
+		internalRawSchemaWriter.saveChanges();
 	}
 	
 	//method
 	public void setColumnHeader(final IColumn<?, ?> column, final String columnHeader, final String newColumnHeader) {
-		internalIntermediateSchemaWriter.setColumnHeader(column.getParentTable().getName(), columnHeader, newColumnHeader);
+		internalRawSchemaWriter.setColumnHeader(column.getParentTable().getName(), columnHeader, newColumnHeader);
 	}
 	
 	public void setColumnParametrizedPropertyType(
 		final IColumn<?, ?> column,
 		final IParametrizedPropertyType<?, ?> parametrizedPropertyType
 	) {
-		internalIntermediateSchemaWriter.setColumnParametrizedPropertyType(
+		internalRawSchemaWriter.setColumnParametrizedPropertyType(
 			column.getParentTable().getName(),
 			column.getHeader(),
 			parametrizedPropertyType.toDTO()
@@ -69,11 +66,11 @@ final class IntermediateSchemaWriter {
 	
 	//method
 	public void setSchemaTimestamp(final Time schemaTimestamp) {
-		internalIntermediateSchemaWriter.setSchemaTimestamp(schemaTimestamp);
+		internalRawSchemaWriter.setSchemaTimestamp(schemaTimestamp);
 	}
 	
 	//method
 	public void setTableName(final String tableName, final String newTableName) {
-		internalIntermediateSchemaWriter.setTableName(tableName, newTableName);
+		internalRawSchemaWriter.setTableName(tableName, newTableName);
 	}
 }

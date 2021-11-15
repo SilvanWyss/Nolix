@@ -12,39 +12,36 @@ import ch.nolix.techapi.rawobjectschemaapi.schemaadapterapi.ISchemaReader;
 import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IColumnDTO;
 
 //class
-final class IntermediateSchemaReader {
+final class RawSchemaReader {
 	
 	//attribute
-	private final ISchemaReader internalIntermediateSchemaReader;
+	private final ISchemaReader internalRawSchemaReader;
 	
 	//constructor
-	public IntermediateSchemaReader(final ISchemaReader internalIntermediateSchemaReader) {
+	public RawSchemaReader(final ISchemaReader internalRawSchemaReader) {
 		
-		Validator
-		.assertThat(internalIntermediateSchemaReader)
-		.thatIsNamed("internal intermediate schema reader")
-		.isNotNull();
+		Validator.assertThat(internalRawSchemaReader).thatIsNamed("internal RawSchemaReader").isNotNull();
 		
-		this.internalIntermediateSchemaReader = internalIntermediateSchemaReader;
+		this.internalRawSchemaReader = internalRawSchemaReader;
 	}
 	
 	//method
 	public boolean columnIsEmpty(final IColumn<?, ?> column) {
-		return internalIntermediateSchemaReader.columnIsEmpty(column.getParentTable().getName(), column.getHeader());
+		return internalRawSchemaReader.columnIsEmpty(column.getParentTable().getName(), column.getHeader());
 	}
 	
 	//method
 	public LinkedList<IColumnDTO> loadColumnsOfTable(final ITable<?, ?, ?> table) {
-		return internalIntermediateSchemaReader.loadColumns(table.getName());
+		return internalRawSchemaReader.loadColumns(table.getName());
 	}
 	
 	//method
 	public LinkedList<IFlatTableDTO> loadFlatTables() {
-		return internalIntermediateSchemaReader.loadFlatTables();
+		return internalRawSchemaReader.loadFlatTables();
 	}
 	
 	//method
 	public Time loadSchemaTimestamp() {
-		return internalIntermediateSchemaReader.loadSchemaTimestamp();
+		return internalRawSchemaReader.loadSchemaTimestamp();
 	}
 }

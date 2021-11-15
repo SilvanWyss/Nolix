@@ -152,7 +152,7 @@ public final class Column extends DatabaseObject implements IExtendedColumn<Colu
 	}
 	
 	//method
-	IntermediateSchemaAdapter getRefRealSchemaAdapter() {
+	RawSchemaAdapter getRefRealSchemaAdapter() {
 		return getParentDatabase().getRefRealSchemaAdapter();
 	}
 	
