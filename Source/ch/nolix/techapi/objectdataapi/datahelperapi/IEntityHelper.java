@@ -24,5 +24,8 @@ public interface IEntityHelper extends IDatabaseObjectHelper {
 	boolean canBeDeleted(IEntity<?, ?> entity);
 	
 	//method declaration
-	public boolean isReferencedInLocalData(IEntity<?, ?> entity);
+	boolean isReferenced(IEntity<?, ?> entity);
+	
+	//method declaration
+	boolean isReferencedInLocalData(IEntity<?, ?> entity);
 }

@@ -69,6 +69,7 @@ public abstract class Entity extends DatabaseObject implements IEntity<Entity, P
 	}
 	
 	//method
+	@Override
 	public final boolean isBackReferenced() {
 		//TODO: Implement.
 		return false;
@@ -81,7 +82,8 @@ public abstract class Entity extends DatabaseObject implements IEntity<Entity, P
 	}
 	
 	//method
-	public final boolean isReferenced() {
+	@Override
+	public final boolean isReferencedInPersistedData() {
 		//TODO: Implement.
 		return false;
 	}

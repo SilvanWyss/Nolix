@@ -27,5 +27,5 @@ extends Deletable, IDatabaseObject, IdentifiedByString, ShortDescripted {
     boolean isBackReferenced();
 	
     //method declaration
-    boolean isReferenced();
+    boolean isReferencedInPersistedData();
 }

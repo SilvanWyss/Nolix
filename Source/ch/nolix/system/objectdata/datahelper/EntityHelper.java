@@ -40,7 +40,7 @@ public final class EntityHelper extends DatabaseObjectHelper implements IEntityH
 	//method
 	@Override
 	public void assertIsNotReferenced(final IEntity<?, ?> entity) {
-		if (entity.isReferenced()) {
+		if (isReferenced(entity)) {
 			throw new ReferencedArgumentException(entity);
 		}
 	}
@@ -48,7 +48,13 @@ public final class EntityHelper extends DatabaseObjectHelper implements IEntityH
 	//method
 	@Override
 	public boolean canBeDeleted(final IEntity<?, ?> entity) {
-		return (isLoaded(entity) && !entity.isReferenced());
+		return (isLoaded(entity) && !isReferenced(entity));
+	}
+	
+	//method
+	@Override
+	public boolean isReferenced(IEntity<?, ?> entity) {
+		return (isReferencedInLocalData(entity) || entity.isReferencedInPersistedData());
 	}
 	
 	//method
