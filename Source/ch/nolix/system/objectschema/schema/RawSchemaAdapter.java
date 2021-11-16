@@ -18,12 +18,12 @@ final class RawSchemaAdapter {
 	}
 	
 	//method
-	public RawSchemaReader getRefIntermediateSchemaReader() {
+	public RawSchemaReader getRefRawSchemaReader() {
 		return rawSchemaReader;
 	}
 	
 	//method
-	public RawSchemaWriter getRefIntermediateSchemaWriter() {
+	public RawSchemaWriter getRefRawSchemaWriter() {
 		return rawSchemaWriter;
 	}
 }

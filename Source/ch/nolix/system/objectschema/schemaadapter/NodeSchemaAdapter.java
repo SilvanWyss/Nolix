@@ -42,7 +42,7 @@ public final class NodeSchemaAdapter extends SchemaAdapter {
 	
 	//method
 	@Override
-	protected ISchemaAdapter createIntermediateSchemaAdapter() {
+	protected ISchemaAdapter createRawSchemaAdapter() {
 		return ch.nolix.system.noderawobjectschema.schemaadapter.SchemaAdapter.forDatabaseNode(databaseNode);
 	}
 }

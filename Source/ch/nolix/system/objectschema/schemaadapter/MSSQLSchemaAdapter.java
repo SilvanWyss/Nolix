@@ -28,7 +28,7 @@ public final class MSSQLSchemaAdapter extends SchemaAdapter {
 	
 	//method
 	@Override
-	protected ISchemaAdapter createIntermediateSchemaAdapter() {
+	protected ISchemaAdapter createRawSchemaAdapter() {
 		return new ch.nolix.system.sqlrawobjectschema.schemaadapter.MSSQLSchemaAdapter(mSQLConnection);
 	}
 }

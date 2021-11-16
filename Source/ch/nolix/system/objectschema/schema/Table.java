@@ -187,7 +187,7 @@ public final class Table extends DatabaseObject implements IExtendedTable<Table,
 		
 		columns =
 		getRefRealSchemaAdapter()
-		.getRefIntermediateSchemaReader()
+		.getRefRawSchemaReader()
 		.loadColumnsOfTable(this).to(c -> Column.fromDTO(c, tables));
 		
 		columns.forEach(Column::setLoaded);

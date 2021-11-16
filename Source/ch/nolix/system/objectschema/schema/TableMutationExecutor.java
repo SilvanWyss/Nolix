@@ -11,7 +11,7 @@ final class TableMutationExecutor {
 		column.setParentTableAttribute(table);
 		
 		if (table.isLinkedWithRealDatabase()) {
-			table.getRefRealSchemaAdapter().getRefIntermediateSchemaWriter().addColumnToTable(table, column);
+			table.getRefRealSchemaAdapter().getRefRawSchemaWriter().addColumnToTable(table, column);
 		}
 		
 		table.setEdited();
@@ -24,7 +24,7 @@ final class TableMutationExecutor {
 			table.getParentDatabase().removeTableAttribute(table);
 		}
 		
-		table.getRefRealSchemaAdapter().getRefIntermediateSchemaWriter().deleteTable(table);
+		table.getRefRealSchemaAdapter().getRefRawSchemaWriter().deleteTable(table);
 		
 		table.setDeleted();
 	}
@@ -40,7 +40,7 @@ final class TableMutationExecutor {
 		
 		if (table.isLinkedWithRealDatabase()) {
 			
-			table.getRefRealSchemaAdapter().getRefIntermediateSchemaWriter().setTableName(oldTableName, name);
+			table.getRefRealSchemaAdapter().getRefRawSchemaWriter().setTableName(oldTableName, name);
 			
 			referencingColumns.forEach(Column::setParametrizedPropertyTypeToDatabase);
 			backReferencingColumns.forEach(Column::setParametrizedPropertyTypeToDatabase);

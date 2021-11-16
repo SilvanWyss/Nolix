@@ -63,10 +63,10 @@ public abstract class SchemaAdapter implements IExtendedSchemaAdapter<
 	}
 	
 	//method declaration
-	protected abstract ISchemaAdapter createIntermediateSchemaAdapter();
+	protected abstract ISchemaAdapter createRawSchemaAdapter();
 	
 	//method
 	protected final void initializeSession() {
-		session = new DatabaseSchemaSession(databaseName, createIntermediateSchemaAdapter());
+		session = new DatabaseSchemaSession(databaseName, createRawSchemaAdapter());
 	}
 }
