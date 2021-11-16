@@ -21,8 +21,8 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 	private static final DatabaseInitializer databaseInitializer = new DatabaseInitializer();
 	
 	//attributes
-	private final SchemaReader mSQLIntermediateSchemaReader;
-	private final SchemaWriter mSQLIntermediateSchemaWriter;
+	private final SchemaReader rawSchemaReader;
+	private final SchemaWriter rawSchemaWriter;
 	
 	//constructor
 	public SchemaAdapter(
@@ -33,86 +33,86 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 		
 		databaseInitializer.initializeDatabaseIfNotInitialized(mSQLSchemaAdapter);
 		
-		mSQLIntermediateSchemaReader = new SchemaReader(pSQLConnection, mSQLSchemaAdapter);
-		mSQLIntermediateSchemaWriter = new SchemaWriter(pSQLConnection, mSQLSchemaAdapter, pSQLSaveStampColumnDTO);
+		rawSchemaReader = new SchemaReader(pSQLConnection, mSQLSchemaAdapter);
+		rawSchemaWriter = new SchemaWriter(pSQLConnection, mSQLSchemaAdapter, pSQLSaveStampColumnDTO);
 	}
 	
 	//method
 	@Override
 	public boolean columnIsEmpty(final String tableName, final String columnHeader) {
-		return mSQLIntermediateSchemaReader.columnIsEmpty(tableName, columnHeader);
+		return rawSchemaReader.columnIsEmpty(tableName, columnHeader);
 	}
 	
 	//method
 	@Override
 	public void addColumn(final String tableName, IColumnDTO column) {
-		mSQLIntermediateSchemaWriter.addColumn(tableName, column);
+		rawSchemaWriter.addColumn(tableName, column);
 	}
 	
 	//method
 	@Override
 	public void addTable(final ITableDTO table) {
-		mSQLIntermediateSchemaWriter.addTable(table);
+		rawSchemaWriter.addTable(table);
 	}
 	
 	//method
 	@Override
 	public void deleteColumn(final String tableName, final String columnHeader) {
-		mSQLIntermediateSchemaWriter.deleteColumn(tableName, columnHeader);
+		rawSchemaWriter.deleteColumn(tableName, columnHeader);
 	}
 	
 	//method
 	@Override
 	public void deleteTable(final String tableName) {
-		mSQLIntermediateSchemaWriter.deleteTable(tableName);
+		rawSchemaWriter.deleteTable(tableName);
 	}
 	
 	//method
 	@Override
 	public boolean hasChanges() {
-		return mSQLIntermediateSchemaWriter.hasChanges();
+		return rawSchemaWriter.hasChanges();
 	}
 	
 	//method
 	@Override
 	public LinkedList<IColumnDTO> loadColumns(final String tableName) {
-		return mSQLIntermediateSchemaReader.loadColumns(tableName);
+		return rawSchemaReader.loadColumns(tableName);
 	}
 	
 	//method
 	@Override
 	public LinkedList<IFlatTableDTO> loadFlatTables() {
-		return mSQLIntermediateSchemaReader.loadFlatTables();
+		return rawSchemaReader.loadFlatTables();
 	}
 	
 	//method
 	@Override
 	public Time loadSchemaTimestamp() {
-		return mSQLIntermediateSchemaReader.loadSchemaTimestamp();
+		return rawSchemaReader.loadSchemaTimestamp();
 	}
 	
 	//method
 	@Override
 	public ITableDTO loadTable(final String tableName) {
-		return mSQLIntermediateSchemaReader.loadTable(tableName);
+		return rawSchemaReader.loadTable(tableName);
 	}
 	
 	//method
 	@Override
 	public LinkedList<ITableDTO> loadTables() {
-		return mSQLIntermediateSchemaReader.loadTables();
+		return rawSchemaReader.loadTables();
 	}
 	
 	//method
 	@Override
 	public void saveChanges() {
-		mSQLIntermediateSchemaWriter.saveChanges();
+		rawSchemaWriter.saveChanges();
 	}
 	
 	//method
 	@Override
 	public void setColumnHeader(final String tableName, final String columnHeader, final String newColumnHeader) {
-		mSQLIntermediateSchemaWriter.setColumnHeader(tableName, columnHeader, newColumnHeader);
+		rawSchemaWriter.setColumnHeader(tableName, columnHeader, newColumnHeader);
 	}
 	
 	//method
@@ -122,18 +122,18 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 		final String columnHeader,
 		final IParametrizedPropertyTypeDTO parametrizedPropertyType
 	) {
-		mSQLIntermediateSchemaWriter.setColumnParametrizedPropertyType(tableName, columnHeader, parametrizedPropertyType);
+		rawSchemaWriter.setColumnParametrizedPropertyType(tableName, columnHeader, parametrizedPropertyType);
 	}
 	
 	//method
 	@Override
 	public void setSchemaTimestamp(final Time schemaTimestamp) {
-		mSQLIntermediateSchemaWriter.setSchemaTimestamp(schemaTimestamp);
+		rawSchemaWriter.setSchemaTimestamp(schemaTimestamp);
 	}
 	
 	//method
 	@Override
 	public void setTableName(final String tableName, final String newTableName) {
-		mSQLIntermediateSchemaWriter.setTableName(tableName, newTableName);
+		rawSchemaWriter.setTableName(tableName, newTableName);
 	}
 }
