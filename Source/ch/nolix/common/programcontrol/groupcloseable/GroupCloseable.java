@@ -13,7 +13,7 @@ import ch.nolix.common.requestapi.CloseStateRequestable;
  * @date 2020-07-05
  * @lines 70
  */
-public interface GroupCloseable extends CloseStateRequestable {
+public interface GroupCloseable extends AutoCloseable, CloseStateRequestable {
 	
 	//method
 	/**
