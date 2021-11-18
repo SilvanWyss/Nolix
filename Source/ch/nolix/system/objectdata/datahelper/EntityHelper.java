@@ -47,6 +47,12 @@ public final class EntityHelper extends DatabaseObjectHelper implements IEntityH
 	
 	//method
 	@Override
+	public boolean canBeAddedToTable(final IEntity<?, ?> entity) {
+		return isNew(entity);
+	}
+	
+	//method
+	@Override
 	public boolean canBeDeleted(final IEntity<?, ?> entity) {
 		return (isLoaded(entity) && !isReferenced(entity));
 	}
