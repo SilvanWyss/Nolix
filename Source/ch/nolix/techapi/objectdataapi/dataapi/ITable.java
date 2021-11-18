@@ -2,6 +2,7 @@
 package ch.nolix.techapi.objectdataapi.dataapi;
 
 //own imports
+import ch.nolix.common.attributeapi.mandatoryattributeapi.Named;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.techapi.databaseapi.databaseobjectapi.IDatabaseObject;
 
@@ -10,7 +11,7 @@ public interface ITable<
 	T extends ITable<T, E, P>,
 	E extends IEntity<E, P>,
 	P extends IProperty<P>
-> extends IDatabaseObject {
+> extends IDatabaseObject, Named {
 	
 	//method declaration
 	T addEntity(E entity);
