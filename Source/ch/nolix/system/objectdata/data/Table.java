@@ -25,13 +25,6 @@ public final class Table extends DatabaseObject implements ITable<Table, Entity,
 	
 	//method
 	@Override
-	public Table addEntity(final Entity entity) {
-		//TODO: Implement.
-		return null;
-	}
-	
-	//method
-	@Override
 	public String getName() {
 		return name;
 	}
@@ -60,6 +53,13 @@ public final class Table extends DatabaseObject implements ITable<Table, Entity,
 	//method
 	@Override
 	public IContainer<IColumn<Property>> getReferencingColumns() {
+		//TODO: Implement.
+		return null;
+	}
+	
+	//method
+	@Override
+	public Table insert(final Entity entity) {
 		//TODO: Implement.
 		return null;
 	}

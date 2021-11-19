@@ -20,11 +20,11 @@ public interface IEntityHelper extends IDatabaseObjectHelper {
 	//method declaration
 	void assertIsNotReferenced(IEntity<?, ?> entity);
 	
-	//method
-	boolean canBeAddedToTable(IEntity<?, ?> entity);
-	
 	//method declaration
 	boolean canBeDeleted(IEntity<?, ?> entity);
+	
+	//method
+	boolean canBeInsertedIntoTable(IEntity<?, ?> entity);
 	
 	//method declaration
 	boolean isReferenced(IEntity<?, ?> entity);

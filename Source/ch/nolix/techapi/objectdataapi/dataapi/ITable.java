@@ -14,9 +14,6 @@ public interface ITable<
 > extends IDatabaseObject, Named {
 	
 	//method declaration
-	T addEntity(E entity);
-	
-	//method declaration
 	IDatabase<?, ?, ?, ?> getParentDatabase();
 	
 	//method declaration
@@ -27,4 +24,7 @@ public interface ITable<
 	
 	//method
 	IContainer<IColumn<P>> getReferencingColumns();
+		
+	//method declaration
+	T insert(E entity);
 }
