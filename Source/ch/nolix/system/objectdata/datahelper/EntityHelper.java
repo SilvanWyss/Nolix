@@ -54,7 +54,7 @@ public final class EntityHelper extends DatabaseObjectHelper implements IEntityH
 	//method
 	@Override
 	public boolean canBeInsertedIntoTable(final IEntity<?, ?> entity) {
-		return isNew(entity);
+		return isNew(entity) && !referencesUninsertedEntity(entity);
 	}
 	
 	//method
