@@ -12,15 +12,18 @@ import ch.nolix.techapi.objectdataapi.dataapi.ITable;
 //class
 public final class Table extends DatabaseObject implements ITable<Table, Entity, Property> {
 	
-	//attribute
+	//attributes
 	private final String name;
+	private final Database parentDatabase;
 	
 	//constructor
-	Table(final String name) {
+	Table(final String name, final Database parentDatabase) {
 		
 		Validator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
+		Validator.assertThat(parentDatabase).thatIsNamed("parent Database").isNotNull();
 		
 		this.name = name;
+		this.parentDatabase = parentDatabase;
 	}
 	
 	//method
@@ -32,8 +35,7 @@ public final class Table extends DatabaseObject implements ITable<Table, Entity,
 	//method
 	@Override
 	public IDatabase<?, ?, ?, ?> getParentDatabase() {
-		//TODO: Implement.
-		return null;
+		return parentDatabase;
 	}
 	
 	//method
@@ -74,8 +76,7 @@ public final class Table extends DatabaseObject implements ITable<Table, Entity,
 	//method
 	@Override
 	public boolean isLinkedWithRealDatabase() {
-		//TODO: Implement.
-		return false;
+		return getParentDatabase().isLinkedWithRealDatabase();
 	}
 	
 	//method
