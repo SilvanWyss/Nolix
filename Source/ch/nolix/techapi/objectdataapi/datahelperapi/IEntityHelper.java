@@ -31,4 +31,7 @@ public interface IEntityHelper extends IDatabaseObjectHelper {
 	
 	//method declaration
 	boolean isReferencedInLocalData(IEntity<?, ?> entity);
+	
+	//method declaration
+	boolean referencesUninsertedEntity(IEntity<?, ?> entity);
 }
