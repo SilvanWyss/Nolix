@@ -59,6 +59,13 @@ public final class Table extends DatabaseObject implements ITable<Table, Entity,
 	
 	//method
 	@Override
+	public boolean hasInsertedEntityWithId(final String id) {
+		//TODO: Implement.
+		return false;
+	}
+	
+	//method
+	@Override
 	public Table insert(final Entity entity) {
 		//TODO: Implement.
 		return null;

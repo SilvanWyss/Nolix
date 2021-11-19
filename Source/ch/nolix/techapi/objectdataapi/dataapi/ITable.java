@@ -24,7 +24,10 @@ public interface ITable<
 	
 	//method
 	IContainer<IColumn<P>> getReferencingColumns();
-		
+	
+	//method declaration
+	boolean hasInsertedEntityWithId(String id);
+	
 	//method declaration
 	T insert(E entity);
 }
