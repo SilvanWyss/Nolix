@@ -17,6 +17,9 @@ public abstract class Property implements IProperty<Property> {
 	//optional attribute
 	private Entity parentEntity;
 	
+	//constructor
+	Property() {}
+	
 	//method
 	@Override
 	public final boolean belongsToEntity() {
@@ -33,7 +36,13 @@ public abstract class Property implements IProperty<Property> {
 	}
 	
 	//method
-	void setParentEntity(final Entity parentEntity) {
+	@Override
+	public final boolean isLinkedWithRealDatabase() {
+		return (belongsToEntity() && getParentEntity().isLinkedWithRealDatabase());
+	}
+	
+	//method
+	final void setParentEntity(final Entity parentEntity) {
 		
 		Validator.assertThat(parentEntity).thatIsNamed("parent entity").isNotNull();
 		
