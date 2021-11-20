@@ -17,9 +17,6 @@ public abstract class Property implements IProperty<Property> {
 	//optional attribute
 	private Entity parentEntity;
 	
-	//constructor
-	Property() {}
-	
 	//method
 	@Override
 	public final boolean belongsToEntity() {
