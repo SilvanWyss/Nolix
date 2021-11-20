@@ -15,4 +15,7 @@ extends IBaseReference<P, E> {
 	
 	//method declaration
 	boolean referencesEntity();
+	
+	//method declaration
+	IReference<P, E> setEntity(final E entity);
 }
