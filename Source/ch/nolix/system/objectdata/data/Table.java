@@ -7,10 +7,11 @@ import ch.nolix.common.container.IContainer;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.techapi.objectdataapi.dataapi.IColumn;
 import ch.nolix.techapi.objectdataapi.dataapi.IDatabase;
+import ch.nolix.techapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.techapi.objectdataapi.dataapi.ITable;
 
 //class
-public final class Table extends DatabaseObject implements ITable<Table, Entity, Property> {
+public final class Table extends DatabaseObject implements ITable<DataImplementation> {
 	
 	//attributes
 	private final String name;
@@ -34,13 +35,13 @@ public final class Table extends DatabaseObject implements ITable<Table, Entity,
 	
 	//method
 	@Override
-	public IDatabase<?, ?, ?, ?> getParentDatabase() {
+	public IDatabase<DataImplementation> getParentDatabase() {
 		return parentDatabase;
 	}
 	
 	//method
 	@Override
-	public IContainer<Entity> getRefAllEntities() {
+	public IContainer<IEntity<DataImplementation>> getRefAllEntities() {
 		//TODO: Implement.
 		return null;
 	}
@@ -54,7 +55,7 @@ public final class Table extends DatabaseObject implements ITable<Table, Entity,
 	
 	//method
 	@Override
-	public IContainer<IColumn<Property>> getReferencingColumns() {
+	public IContainer<IColumn<DataImplementation>> getReferencingColumns() {
 		//TODO: Implement.
 		return null;
 	}
@@ -68,7 +69,7 @@ public final class Table extends DatabaseObject implements ITable<Table, Entity,
 	
 	//method
 	@Override
-	public Table insert(final Entity entity) {
+	public ITable<DataImplementation> insert(final IEntity<DataImplementation> entity) {
 		//TODO: Implement.
 		return null;
 	}

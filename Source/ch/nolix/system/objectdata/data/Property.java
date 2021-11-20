@@ -9,7 +9,7 @@ import ch.nolix.techapi.objectdataapi.dataapi.IProperty;
 import ch.nolix.techapi.objectdataapi.datahelperapi.IPropertyHelper;
 
 //class
-public abstract class Property implements IProperty<Property> {
+public abstract class Property implements IProperty<DataImplementation> {
 	
 	//static attribute
 	private static final IPropertyHelper propertyHelper = new PropertyHelper();
@@ -25,7 +25,7 @@ public abstract class Property implements IProperty<Property> {
 	
 	//method
 	@Override
-	public final IEntity<?, ?> getParentEntity() {
+	public final IEntity<DataImplementation> getParentEntity() {
 		
 		propertyHelper.assertBelongsToEntity(this);
 		

@@ -9,19 +9,16 @@ import ch.nolix.techapi.databaseapi.databaseobjectapi.Deletable;
 import ch.nolix.techapi.databaseapi.databaseobjectapi.IDatabaseObject;
 
 //interface
-public interface IEntity<
-	E extends IEntity<E, P>,
-	P extends IProperty<P>>
-extends Deletable, IDatabaseObject, IdentifiedByString, ShortDescripted {
+public interface IEntity<IMPL> extends Deletable, IDatabaseObject, IdentifiedByString, ShortDescripted {
 	
 	//method declaration
 	boolean belongsToTable();
 	
 	//method declaration
-	ITable<?, ?, ?> getParentTable();
+	ITable<IMPL> getParentTable();
 	
 	//method declaration
-	IContainer<P> getRefProperties();
+	IContainer<IProperty<IMPL>> getRefProperties();
     
     //method declaration
     boolean isBackReferenced();

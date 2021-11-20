@@ -5,7 +5,7 @@ package ch.nolix.system.objectdata.data;
 import ch.nolix.techapi.objectdataapi.dataapi.IDatabase;
 
 //class
-public final class Database extends DatabaseObject implements IDatabase<Database, Table, Entity, Property> {
+public final class Database extends DatabaseObject implements IDatabase<DataImplementation> {
 	
 	//method	
 	@Override

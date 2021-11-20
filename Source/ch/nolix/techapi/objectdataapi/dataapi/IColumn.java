@@ -6,14 +6,14 @@ import ch.nolix.common.attributeapi.mandatoryattributeapi.Headered;
 import ch.nolix.techapi.databaseapi.databaseobjectapi.IDatabaseObject;
 
 //interface
-public interface IColumn<P extends IProperty<P>> extends Headered, IDatabaseObject {
+public interface IColumn<IMPL> extends Headered, IDatabaseObject {
 	
 	//method declaration
-	IParametrizedPropertyType getParametrizedPropertyType();
+	IParametrizedPropertyType<IMPL> getParametrizedPropertyType();
 	
 	//method declaration
-	ITable<?, ?, P> getParentTable();
+	ITable<IMPL> getParentTable();
 	
 	//method declaration
-	boolean referencesInLocalData(IEntity<?, ?> entity);
+	boolean referencesInLocalData(IEntity<IMPL> entity);
 }

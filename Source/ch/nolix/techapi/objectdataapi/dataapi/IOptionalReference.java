@@ -6,9 +6,9 @@ import ch.nolix.common.skillapi.Clearable;
 
 //interface
 public interface IOptionalReference<
-	P extends IProperty<P>,
-	E extends IEntity<E, P>>
-extends Clearable, IBaseReference<P, E> {
+	IMPL,
+	E extends IEntity<IMPL>>
+extends Clearable, IBaseReference<IMPL, E> {
 	
 	//method declaration
 	String getEntityId();

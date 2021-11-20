@@ -3,6 +3,6 @@ package ch.nolix.techapi.objectdataapi.dataapi;
 
 //interface
 public interface IBaseBackReference<
-	P extends IProperty<P>,
-	E extends IEntity<E, P>
-> extends IProperty<P> {}
+	IMPL,
+	E extends IEntity<IMPL>
+> extends IProperty<IMPL> {}

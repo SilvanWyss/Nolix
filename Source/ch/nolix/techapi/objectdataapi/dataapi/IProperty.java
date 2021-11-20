@@ -5,25 +5,25 @@ package ch.nolix.techapi.objectdataapi.dataapi;
 import ch.nolix.techapi.databaseapi.propertytypeapi.PropertyType;
 
 //interface
-public interface IProperty<P extends IProperty<P>> {
+public interface IProperty<IMPL> {
 	
 	//method declaration
 	boolean belongsToEntity();
 	
 	//method declaration
-	boolean canReference(IEntity<?, ?> entity);
+	boolean canReference(IEntity<IMPL> entity);
 	
 	//method declaration
-	boolean canReferenceBack(IEntity<?, ?> entity);
+	boolean canReferenceBack(IEntity<IMPL> entity);
 	
 	//method declaration
-	boolean canReferenceBackEntityOfType(Class<IEntity<?, ?>> type);
+	boolean canReferenceBackEntityOfType(Class<IEntity<IMPL>> type);
 	
 	//method declaration
-	boolean canReferenceEntityOfType(Class<IEntity<?, ?>> type);
+	boolean canReferenceEntityOfType(Class<IEntity<IMPL>> type);
 	
 	//method declaration
-	IEntity<?, ?> getParentEntity();
+	IEntity<IMPL> getParentEntity();
 	
 	//method declaration
 	PropertyType getType();
@@ -32,8 +32,8 @@ public interface IProperty<P extends IProperty<P>> {
 	boolean isLinkedWithRealDatabase();
 	
 	//method declaration
-	boolean references(IEntity<?, ?> entity);
+	boolean references(IEntity<IMPL> entity);
 	
 	//method declaration
-	boolean referencesBack(IEntity<?, ?> entity);
+	boolean referencesBack(IEntity<IMPL> entity);
 }

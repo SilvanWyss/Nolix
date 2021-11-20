@@ -9,29 +9,29 @@ import ch.nolix.techapi.objectdataapi.dataapi.IEntity;
 public interface IEntityHelper extends IDatabaseObjectHelper {
 	
 	//method declaration
-	void assertBelongsToTable(IEntity<?, ?> entity);
+	void assertBelongsToTable(IEntity<?> entity);
 	
 	//method declaration
-	void assertCanBeDeleted(IEntity<?, ?> entity);
+	void assertCanBeDeleted(IEntity<?> entity);
 	
 	//method declaration
-	void assertIsNotBackReferenced(IEntity<?, ?> entity);
+	void assertIsNotBackReferenced(IEntity<?> entity);
 	
 	//method declaration
-	void assertIsNotReferenced(IEntity<?, ?> entity);
+	void assertIsNotReferenced(IEntity<?> entity);
 	
 	//method declaration
-	boolean canBeDeleted(IEntity<?, ?> entity);
+	boolean canBeDeleted(IEntity<?> entity);
 	
 	//method
-	boolean canBeInsertedIntoTable(IEntity<?, ?> entity);
+	boolean canBeInsertedIntoTable(IEntity<?> entity);
 	
 	//method declaration
-	boolean isReferenced(IEntity<?, ?> entity);
+	boolean isReferenced(IEntity<?> entity);
 	
 	//method declaration
-	boolean isReferencedInLocalData(IEntity<?, ?> entity);
+	<IMPL> boolean isReferencedInLocalData(IEntity<IMPL> entity);
 	
 	//method declaration
-	boolean referencesUninsertedEntity(IEntity<?, ?> entity);
+	boolean referencesUninsertedEntity(IEntity<?> entity);
 }

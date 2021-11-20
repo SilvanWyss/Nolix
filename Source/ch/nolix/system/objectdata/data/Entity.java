@@ -9,11 +9,12 @@ import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.system.objectdata.datahelper.EntityHelper;
 import ch.nolix.techapi.objectdataapi.dataapi.IEntity;
+import ch.nolix.techapi.objectdataapi.dataapi.IProperty;
 import ch.nolix.techapi.objectdataapi.dataapi.ITable;
 import ch.nolix.techapi.objectdataapi.datahelperapi.IEntityHelper;
 
 //class
-public abstract class Entity extends DatabaseObject implements IEntity<Entity, Property> {
+public abstract class Entity extends DatabaseObject implements IEntity<DataImplementation> {
 	
 	//static attributes
 	private static final IEntityHelper entityHelper = new EntityHelper();
@@ -48,7 +49,7 @@ public abstract class Entity extends DatabaseObject implements IEntity<Entity, P
 	
 	//method
 	@Override
-	public final ITable<?, ?, ?> getParentTable() {
+	public final ITable<DataImplementation> getParentTable() {
 		
 		entityHelper.assertBelongsToTable(this);
 		
@@ -57,7 +58,7 @@ public abstract class Entity extends DatabaseObject implements IEntity<Entity, P
 	
 	//method
 	@Override
-	public final IContainer<Property> getRefProperties() {
+	public final IContainer<IProperty<DataImplementation>> getRefProperties() {
 		//TODO: Implement.
 		return null;
 	}

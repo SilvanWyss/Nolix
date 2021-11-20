@@ -15,7 +15,7 @@ public final class EntityHelper extends DatabaseObjectHelper implements IEntityH
 	
 	//method
 	@Override
-	public void assertBelongsToTable(final IEntity<?, ?> entity) {
+	public void assertBelongsToTable(final IEntity<?> entity) {
 		if (!entity.belongsToTable()) {
 			throw new ArgumentDoesNotBelongToParentException(entity, ITable.class);
 		}
@@ -23,7 +23,7 @@ public final class EntityHelper extends DatabaseObjectHelper implements IEntityH
 	
 	//method
 	@Override
-	public void assertCanBeDeleted(IEntity<?, ?> entity) {
+	public void assertCanBeDeleted(IEntity<?> entity) {
 		if (!canBeDeleted(entity)) {
 			throw new InvalidArgumentException(entity, "cannot be deleted");
 		}
@@ -31,7 +31,7 @@ public final class EntityHelper extends DatabaseObjectHelper implements IEntityH
 	
 	//method
 	@Override
-	public void assertIsNotBackReferenced(final IEntity<?, ?> entity) {
+	public void assertIsNotBackReferenced(final IEntity<?> entity) {
 		if (entity.isBackReferenced()) {
 			throw new InvalidArgumentException(entity, "is back referenced");
 		}
@@ -39,7 +39,7 @@ public final class EntityHelper extends DatabaseObjectHelper implements IEntityH
 	
 	//method
 	@Override
-	public void assertIsNotReferenced(final IEntity<?, ?> entity) {
+	public void assertIsNotReferenced(final IEntity<?> entity) {
 		if (isReferenced(entity)) {
 			throw new ReferencedArgumentException(entity);
 		}
@@ -47,31 +47,31 @@ public final class EntityHelper extends DatabaseObjectHelper implements IEntityH
 	
 	//method
 	@Override
-	public boolean canBeDeleted(final IEntity<?, ?> entity) {
+	public boolean canBeDeleted(final IEntity<?> entity) {
 		return (isLoaded(entity) && !isReferenced(entity));
 	}
 	
 	//method
 	@Override
-	public boolean canBeInsertedIntoTable(final IEntity<?, ?> entity) {
+	public boolean canBeInsertedIntoTable(final IEntity<?> entity) {
 		return isNew(entity) && !referencesUninsertedEntity(entity);
 	}
 	
 	//method
 	@Override
-	public boolean isReferenced(IEntity<?, ?> entity) {
+	public boolean isReferenced(IEntity<?> entity) {
 		return (isReferencedInLocalData(entity) || entity.isReferencedInPersistedData());
 	}
 	
 	//method
 	@Override
-	public boolean isReferencedInLocalData(final IEntity<?, ?> entity) {
+	public <IMPL> boolean isReferencedInLocalData(final IEntity<IMPL> entity) {
 		return entity.getParentTable().getReferencingColumns().containsAny(rc -> rc.referencesInLocalData(entity));
 	}
 	
 	//method
 	@Override
-	public boolean referencesUninsertedEntity(final IEntity<?, ?> entity) {
+	public boolean referencesUninsertedEntity(final IEntity<?> entity) {
 		//TODO: Implement.
 		return false;
 	}

@@ -3,9 +3,9 @@ package ch.nolix.techapi.objectdataapi.dataapi;
 
 //interface
 public interface IReference<
-	P extends IProperty<P>,
-	E extends IEntity<E, P>>
-extends IBaseReference<P, E> {
+	IMPL,
+	E extends IEntity<IMPL>
+> extends IBaseReference<IMPL, E> {
 	
 	//method declaration
 	String getEntityId();
@@ -17,5 +17,5 @@ extends IBaseReference<P, E> {
 	boolean referencesEntity();
 	
 	//method declaration
-	IReference<P, E> setEntity(final E entity);
+	IReference<IMPL, E> setEntity(final E entity);
 }
