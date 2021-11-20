@@ -17,10 +17,10 @@ public interface IProperty<P extends IProperty<P>> {
 	boolean canReferenceBack(IEntity<?, ?> entity);
 	
 	//method declaration
-	boolean canReferenceBackEntityOfType(Class<IEntity<?, ?>> entityType);
+	boolean canReferenceBackEntityOfType(Class<IEntity<?, ?>> type);
 	
 	//method declaration
-	boolean canReferenceEntityOfType(Class<IEntity<?, ?>> entityType);
+	boolean canReferenceEntityOfType(Class<IEntity<?, ?>> type);
 	
 	//method declaration
 	IEntity<?, ?> getParentEntity();
