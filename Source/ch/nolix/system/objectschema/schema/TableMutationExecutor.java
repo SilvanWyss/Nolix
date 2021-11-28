@@ -1,8 +1,15 @@
 //package declaration
 package ch.nolix.system.objectschema.schema;
 
+//own imports
+import ch.nolix.system.objectschema.schemahelper.TableHelper;
+import ch.nolix.techapi.objectschemaapi.schemahelperapi.ITableHelper;
+
 //class
 final class TableMutationExecutor {
+	
+	//static attribute
+	private static final ITableHelper tableHelper = new TableHelper();
 	
 	//method
 	public void addColumnToTable(final Table table, final Column column) {
@@ -33,8 +40,8 @@ final class TableMutationExecutor {
 	public void setNameToTable(final Table table, final String name) {
 		
 		final var oldTableName = table.getName();
-		final var referencingColumns = table.getRefReferencingColumns();
-		final var backReferencingColumns = table.getRefBackReferencingColumns();
+		final var referencingColumns = tableHelper.getRefReferencingColumns(table);
+		final var backReferencingColumns = tableHelper.getRefBackReferencingColumns(table);
 		
 		table.setNameAttribute(name);
 		
@@ -42,8 +49,13 @@ final class TableMutationExecutor {
 			
 			table.getRefRealSchemaAdapter().getRefRawSchemaWriter().setTableName(oldTableName, name);
 			
-			referencingColumns.forEach(Column::setParametrizedPropertyTypeToDatabase);
-			backReferencingColumns.forEach(Column::setParametrizedPropertyTypeToDatabase);
+			for (final var rc : referencingColumns) {
+				((Column)rc).setParametrizedPropertyTypeToDatabase();
+			}
+			
+			for (final var brc : backReferencingColumns) {
+				((Column)brc).setParametrizedPropertyTypeToDatabase();
+			}
 		}
 		
 		table.setEdited();

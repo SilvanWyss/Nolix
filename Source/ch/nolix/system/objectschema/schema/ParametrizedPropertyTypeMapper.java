@@ -14,12 +14,17 @@ import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedOptiona
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedPropertyType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedReferenceType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedValueType;
+import ch.nolix.system.objectschema.schemahelper.TableHelper;
+import ch.nolix.techapi.objectschemaapi.schemahelperapi.ITableHelper;
 import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IBaseParametrizedBackReferenceTypeDTO;
 import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IBaseParametrizedReferenceTypeDTO;
 import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
 
 //class
 public final class ParametrizedPropertyTypeMapper {
+	
+	//static attribute
+	private static final ITableHelper tableHelper = new TableHelper();
 	
 	//method
 	public ParametrizedPropertyType<?> createParametrizedPropertyTypeFromDTO(
@@ -80,7 +85,11 @@ public final class ParametrizedPropertyTypeMapper {
 		tables.getRefFirst(t -> t.hasName(baseParametrizedBackReferenceType.getBackReferencedTableName()));
 		
 		return
-		backReferencedTable.getRefColumnByHeader(baseParametrizedBackReferenceType.getBackReferencedColumnHeader());
+		(Column)
+		tableHelper.getRefColumnWithGivenHeader(
+			backReferencedTable,
+			baseParametrizedBackReferenceType.getBackReferencedColumnHeader()
+		);
 	}
 	
 	//method

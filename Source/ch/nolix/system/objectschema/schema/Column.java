@@ -9,7 +9,9 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentExce
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedPropertyType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedValueType;
 import ch.nolix.system.objectschema.schemadto.ColumnDTO;
+import ch.nolix.system.objectschema.schemahelper.ColumnHelper;
 import ch.nolix.techapi.objectschemaapi.extendedschemaapi.IExtendedColumn;
+import ch.nolix.techapi.objectschemaapi.schemahelperapi.IColumnHelper;
 import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IColumnDTO;
 
 //class
@@ -29,6 +31,9 @@ public final class Column extends DatabaseObject implements IExtendedColumn<Colu
 	//static attributes
 	private static final ColumnMutationValidator mutationValidator = new ColumnMutationValidator();
 	private static final ColumnMutationExecutor mutationExecutor = new ColumnMutationExecutor();
+	
+	//static attribute
+	private static final IColumnHelper columnHelper = new ColumnHelper();
 	
 	//static method
 	public static Column fromDTO(final IColumnDTO columnDTO, final IContainer<Table> tables) {
@@ -90,7 +95,7 @@ public final class Column extends DatabaseObject implements IExtendedColumn<Colu
 	@Override
 	public Table getParentTable() {
 		
-		assertBelongsToTable();
+		columnHelper.assertBelongsToTable(this);
 		
 		return parentTable;
 	}
@@ -144,7 +149,7 @@ public final class Column extends DatabaseObject implements IExtendedColumn<Colu
 	//method
 	IContainer<Column> getRefBackReferencingColumns() {
 		
-		if (!isAnyReferenceColumn()) {
+		if (!columnHelper.isAReferenceColumn(this)) {
 			return new LinkedList<>();
 		}
 		
@@ -153,13 +158,13 @@ public final class Column extends DatabaseObject implements IExtendedColumn<Colu
 	
 	//method
 	RawSchemaAdapter getRefRawSchemaAdapter() {
-		return getParentDatabase().getRefRealSchemaAdapter();
+		return ((Database)columnHelper.getParentDatabase(this)).getRefRealSchemaAdapter();
 	}
 	
 	//method
 	boolean isBackReferenced() {
 		
-		if (!isAnyReferenceColumn()) {
+		if (!columnHelper.isAReferenceColumn(this)) {
 			return false;
 		}
 		
@@ -194,15 +199,17 @@ public final class Column extends DatabaseObject implements IExtendedColumn<Colu
 	
 	//method
 	private IContainer<Column> getRefBackReferencingColumnsWhenIsReferenceColumn() {
-		if (belongsToDatabase()) {
+		
+		if (columnHelper.belongsToDatabase(this)) {
 			return
-			getParentDatabase()
+			columnHelper
+			.getParentDatabase(this)
 			.getRefTables()
-			.toFromMany(t -> t.getRefColumns().getRefSelected(c -> c.referencesBack(this)));
+			.toFromMany(t -> t.getRefColumns().getRefSelected(c -> columnHelper.referencesBackGivenColumn(c, this)));
 		}
 		
 		if (belongsToTable()) {
-			return getParentTable().getRefColumns().getRefSelected(c -> c.referencesBack(this));
+			return getParentTable().getRefColumns().getRefSelected(c -> columnHelper.referencesBackGivenColumn(c, this));
 		}
 		
 		return new LinkedList<>();
@@ -211,15 +218,16 @@ public final class Column extends DatabaseObject implements IExtendedColumn<Colu
 	//method
 	private boolean isBackReferencedWhenIsAnyReferenceColumn() {
 		
-		if (belongsToDatabase()) {
+		if (columnHelper.belongsToDatabase(this)) {
 			return
-			getParentDatabase()
+			columnHelper
+			.getParentDatabase(this)
 			.getRefTables()
-			.containsAny(t -> t.getRefColumns().containsAny(c -> c.referencesBack(this)));
+			.containsAny(t -> t.getRefColumns().containsAny(c -> columnHelper.referencesBackGivenColumn(c, this)));
 		}
 		
 		if (belongsToTable()) {
-			return getParentTable().getRefColumns().containsAny(c -> c.referencesBack(this));
+			return getParentTable().getRefColumns().containsAny(c -> columnHelper.referencesBackGivenColumn(c, this));
 		}
 		
 		return false;

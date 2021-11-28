@@ -6,7 +6,10 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentBelongsToPa
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.database.databaseobjecthelper.DatabaseObjectHelper;
+import ch.nolix.techapi.databaseapi.propertytypeapi.BasePropertyType;
+import ch.nolix.techapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.techapi.objectschemaapi.schemaapi.IColumn;
+import ch.nolix.techapi.objectschemaapi.schemaapi.IDatabase;
 import ch.nolix.techapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.techapi.objectschemaapi.schemahelperapi.IColumnHelper;
 import ch.nolix.techapi.objectschemaapi.schemahelperapi.IParametrizedPropertyTypeHelper;
@@ -54,6 +57,24 @@ public final class ColumnHelper extends DatabaseObjectHelper implements IColumnH
 	@Override
 	public boolean belongsToDatabase(final IColumn<?, ?> column) {
 		return (column.belongsToTable() && column.getParentTable().belongsToDatabase());
+	}
+	
+	//method
+	@Override
+	public BasePropertyType getBasePropertyType(IColumn<?, ?> column) {
+		return getPropertyType(column).getBaseType();
+	}
+	
+	//method
+	@Override
+	public IDatabase<?, ?, ?, ?> getParentDatabase(final IColumn<?, ?> column) {
+		return column.getParentTable().getParentDatabase();
+	}
+	
+	//method
+	@Override
+	public PropertyType getPropertyType(final IColumn<?, ?> column) {
+		return column.getParametrizedPropertyType().getPropertyType();
 	}
 	
 	//method

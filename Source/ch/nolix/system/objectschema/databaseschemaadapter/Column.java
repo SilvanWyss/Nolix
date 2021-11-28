@@ -7,10 +7,15 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.UnsupportedArgument
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.sql.SQLDatabaseEngine;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedPropertyType;
+import ch.nolix.system.objectschema.schemahelper.ParametrizedPropertyTypeHelper;
 import ch.nolix.techapi.databaseapi.propertytypeapi.PropertyType;
+import ch.nolix.techapi.objectschemaapi.schemahelperapi.IParametrizedPropertyTypeHelper;
 
 //class
 public final class Column implements Headered {
+	
+	//static attributes
+	private final IParametrizedPropertyTypeHelper parametrizedPropertyTypeHelper = new ParametrizedPropertyTypeHelper();
 	
 	//attributes
 	private final String header;
@@ -61,16 +66,16 @@ public final class Column implements Headered {
 	
 	//method
 	public boolean isAnyBackReferenceColumn() {
-		return dataType.isAnyBackReferenceType();
+		return parametrizedPropertyTypeHelper.isABaseBackReferenceType(dataType);
 	}
 	
 	//method
 	public boolean isAnyDataColumn() {
-		return dataType.isAnyValueType();
+		return parametrizedPropertyTypeHelper.isABaseValueType(dataType);
 	}
 	
 	//method
 	public boolean isAnyReferenceColumn() {
-		return dataType.isAnyReferenceType();
+		return parametrizedPropertyTypeHelper.isABaseReferenceType(dataType);
 	}
 }

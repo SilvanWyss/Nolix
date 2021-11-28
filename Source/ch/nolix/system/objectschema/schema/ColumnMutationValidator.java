@@ -7,9 +7,24 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.system.objectschema.parametrizedpropertytype.BaseParametrizedBackReferenceType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.BaseParametrizedReferenceType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedPropertyType;
+import ch.nolix.system.objectschema.schemahelper.ColumnHelper;
+import ch.nolix.system.objectschema.schemahelper.DatabaseHelper;
+import ch.nolix.system.objectschema.schemahelper.ParametrizedPropertyTypeHelper;
+import ch.nolix.system.objectschema.schemahelper.TableHelper;
+import ch.nolix.techapi.objectschemaapi.schemahelperapi.IColumnHelper;
+import ch.nolix.techapi.objectschemaapi.schemahelperapi.IDatabaseHelper;
+import ch.nolix.techapi.objectschemaapi.schemahelperapi.IParametrizedPropertyTypeHelper;
+import ch.nolix.techapi.objectschemaapi.schemahelperapi.ITableHelper;
 
 //class
 final class ColumnMutationValidator {
+	
+	//static attributes
+	private static final IDatabaseHelper databaseHelper = new DatabaseHelper();
+	private static final ITableHelper tableHelper = new TableHelper();
+	private static final IColumnHelper columnHelper = new ColumnHelper();
+	private static final IParametrizedPropertyTypeHelper parametrizedProeprtyTypeHelper =
+	new ParametrizedPropertyTypeHelper();
 	
 	//method
 	public void assertCanDeleteColumn(final Column column) {			
@@ -24,7 +39,7 @@ final class ColumnMutationValidator {
 		column.assertIsOpen();
 		
 		if (column.belongsToTable()) {
-			column.getParentTable().assertDoesNotContainColumnWithHeader(header);
+			tableHelper.assertDoesNotContainColumnWithGivenHeader(column.getParentTable(), header);
 		}
 		
 		Validator.assertThat(header).thatIsNamed(LowerCaseCatalogue.HEADER).isNotBlank();
@@ -38,25 +53,31 @@ final class ColumnMutationValidator {
 		
 		column.assertIsOpen();
 		column.assertIsEmpty();
-				
-		if (parametrizedPropertyType.isAnyReferenceType() && column.belongsToDatabase()) {
+		
+		if (
+			parametrizedProeprtyTypeHelper.isABaseReferenceType(parametrizedPropertyType)
+			&& columnHelper.belongsToDatabase(column)
+		) {
 			
 			final var baseParametrizedReferenceType = (BaseParametrizedReferenceType)parametrizedPropertyType;
 			final var referencedTable = baseParametrizedReferenceType.getReferencedTable();
-				
-			column.getParentDatabase().assertContainsTable(referencedTable);
+			
+			databaseHelper.assertContainsGivenTable(columnHelper.getParentDatabase(column), referencedTable);
 		}
 		
-		if (!parametrizedPropertyType.isAnyReferenceType()) {
+		if (!parametrizedProeprtyTypeHelper.isABaseReferenceType(parametrizedPropertyType)) {
 			column.assertIsNotBackReferenced();
 		}
 		
-		if (parametrizedPropertyType.isAnyBackReferenceType() && column.belongsToDatabase()) {
+		if (parametrizedPropertyType.isAnyBackReferenceType() && columnHelper.belongsToDatabase(column)) {
 			
 			final var baseParametrizedBackReferenceType = (BaseParametrizedBackReferenceType)parametrizedPropertyType;
 			final var backReferencedColumn = baseParametrizedBackReferenceType.getBackReferencedColumn();
 			
-			column.getParentDatabase().assertContainsTableWithColumn(backReferencedColumn);
+			databaseHelper.assertContainsTableWithGivenColumn(
+				columnHelper.getParentDatabase(column),
+				backReferencedColumn
+			);
 		}
 	}
 	
@@ -64,8 +85,8 @@ final class ColumnMutationValidator {
 	public void assertCanSetParentTableToColumn(final Column column, final Table parentTable) {
 		
 		column.assertIsOpen();
-		column.assertDoesNotBelongToTable();
+		columnHelper.assertDoesNotBelongToTable(column);
 		
-		parentTable.assertDoesNotContainColumn(column);
+		tableHelper.assertDoesNotContainGivenColumn(parentTable, column);
 	}
 }

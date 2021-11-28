@@ -4,16 +4,30 @@ package ch.nolix.system.objectschema.schema;
 //own imports
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.errorcontrol.validator.Validator;
+import ch.nolix.system.objectschema.schemahelper.ColumnHelper;
+import ch.nolix.system.objectschema.schemahelper.DatabaseEngineHelper;
+import ch.nolix.system.objectschema.schemahelper.DatabaseHelper;
+import ch.nolix.system.objectschema.schemahelper.TableHelper;
+import ch.nolix.techapi.objectschemaapi.schemahelperapi.IColumnHelper;
+import ch.nolix.techapi.objectschemaapi.schemahelperapi.IDatabaseEngineHelper;
+import ch.nolix.techapi.objectschemaapi.schemahelperapi.IDatabaseHelper;
+import ch.nolix.techapi.objectschemaapi.schemahelperapi.ITableHelper;
 
 //class
 final class DatabaseMutationValidator {
+	
+	//static attributes
+	private static final IDatabaseEngineHelper databaseEngineHelper = new DatabaseEngineHelper();
+	private static final IDatabaseHelper databaseHelper = new DatabaseHelper();
+	private static final ITableHelper tableHelper = new TableHelper();
+	private static final IColumnHelper columnHelper = new ColumnHelper();
 	
 	//method
 	public void assertCanAddTableToDatabase(final Database database, final Table table) {
 		
 		database.assertIsOpen();
 		database.assertIsNotDeleted();
-		database.assertDoesNotContainTableWithName(table.getName());
+		databaseHelper.assertDoesNotContainTableWithGivenName(database, table.getName());
 		assertCanAddTableToDatabaseBecauseOfColumns(database, table);
 		
 		table.assertIsOpen();
@@ -24,7 +38,7 @@ final class DatabaseMutationValidator {
 	public void assertCanSetNameToDatabase(final Database database, final String name) {
 		
 		if (database.belongsToEngine()) {
-			database.getParentEngine().assertDoesNotContainDatabaseWithName(name);
+			databaseEngineHelper.assertDoesNotContainDatabaseWithGivenName(database.getParentEngine(), name);
 		}
 		
 		Validator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
@@ -36,18 +50,18 @@ final class DatabaseMutationValidator {
 		final Table table,
 		final Column column
 	) {
-		switch (column.getBasePropertyType()) {
+		switch (columnHelper.getBasePropertyType(column)) {
 			case BASE_BACK_REFERENCE:
 				
-				if (!table.containsColumnThatReferencesBackColumn(column)) {
-					database.assertContainsTableWithColumnBackReferencedByColumn(column);
+				if (!tableHelper.containsColumnThatReferencesBackGivenColumn(table, column)) {
+					databaseHelper.assertContainsTableWithColumnBackReferencedByGivenColumn(database, column);
 				}
 				
 				break;
 			case BASE_REFERENCE:
 				
-				if (!column.references(table)) {
-					database.assertContainsTableReferencedByColumn(column);
+				if (!columnHelper.referencesGivenTable(column, table)) {
+					databaseHelper.assertContainsTableReferencedByGivenColumn(database, column);
 				}
 				
 				break;

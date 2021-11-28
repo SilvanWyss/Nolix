@@ -10,7 +10,9 @@ import ch.nolix.system.objectschema.flatschemadto.FlatTableDTO;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedPropertyType;
 import ch.nolix.system.objectschema.schemadto.SaveStampConfigurationDTO;
 import ch.nolix.system.objectschema.schemadto.TableDTO;
+import ch.nolix.system.objectschema.schemahelper.TableHelper;
 import ch.nolix.techapi.objectschemaapi.extendedschemaapi.IExtendedTable;
+import ch.nolix.techapi.objectschemaapi.schemahelperapi.ITableHelper;
 import ch.nolix.techapi.rawobjectschemaapi.flatschemadtoapi.IFlatTableDTO;
 import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.ISaveStampConfigurationDTO;
@@ -22,6 +24,9 @@ public final class Table extends DatabaseObject implements IExtendedTable<Table,
 	//static attributes
 	private static final TableMutationValidator mutationValidator = new TableMutationValidator();
 	private static final TableMutationExecutor mutationExecutor = new TableMutationExecutor();
+	
+	//static attribute
+	private static final ITableHelper tableHelper = new TableHelper();
 	
 	//static method
 	public static Table fromFlatDTO(final IFlatTableDTO flatTableDTO) {
@@ -151,7 +156,7 @@ public final class Table extends DatabaseObject implements IExtendedTable<Table,
 	void setParentDatabase(final Database parentDatabase) {
 		
 		Validator.assertThat(parentDatabase).thatIsNamed("parent database").isNotNull();
-		assertDoesNotBelongToDatabase();
+		tableHelper.assertDoesNotBelongToDatabase(this);
 		
 		this.parentDatabase = parentDatabase;
 	}
