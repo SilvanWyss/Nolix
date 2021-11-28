@@ -3,15 +3,13 @@ package ch.nolix.system.objectschema.parametrizedpropertytype;
 
 //own imports
 import ch.nolix.techapi.databaseapi.propertytypeapi.PropertyType;
-import ch.nolix.techapi.objectschemaapi.extendedschemaapi.IExtendedBaseParametrizedBackReferenceType;
 import ch.nolix.techapi.objectschemaapi.schemaapi.IColumn;
 
 //class
-public final class ParametrizedOptionalBackReferenceType extends BaseParametrizedBackReferenceType
-implements IExtendedBaseParametrizedBackReferenceType<ParametrizedPropertyType<String>> {
+public final class ParametrizedOptionalBackReferenceType extends BaseParametrizedBackReferenceType {
 	
 	//constructor
-	public ParametrizedOptionalBackReferenceType(final IColumn<?, ?> backReferencedColumn) {
+	public ParametrizedOptionalBackReferenceType(final IColumn backReferencedColumn) {
 		super(backReferencedColumn);
 	}
 	

@@ -3,13 +3,13 @@ package ch.nolix.system.objectschema.parametrizedpropertytype;
 
 //own imports
 import ch.nolix.techapi.databaseapi.propertytypeapi.PropertyType;
-import ch.nolix.techapi.objectschemaapi.extendedschemaapi.IExtendedTable;
+import ch.nolix.techapi.objectschemaapi.schemaapi.ITable;
 
 //class
 public final class ParametrizedOptionalReferenceType extends BaseParametrizedReferenceType {
 	
 	//constructor
-	public ParametrizedOptionalReferenceType(final IExtendedTable<?, ?, ?> referencedTable) {
+	public ParametrizedOptionalReferenceType(final ITable referencedTable) {
 		super(referencedTable);
 	}
 	

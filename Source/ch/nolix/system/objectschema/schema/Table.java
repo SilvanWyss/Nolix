@@ -7,11 +7,12 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.system.objectschema.flatschemadto.FlatTableDTO;
-import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedPropertyType;
 import ch.nolix.system.objectschema.schemadto.SaveStampConfigurationDTO;
 import ch.nolix.system.objectschema.schemadto.TableDTO;
 import ch.nolix.system.objectschema.schemahelper.TableHelper;
-import ch.nolix.techapi.objectschemaapi.extendedschemaapi.IExtendedTable;
+import ch.nolix.techapi.objectschemaapi.schemaapi.IColumn;
+import ch.nolix.techapi.objectschemaapi.schemaapi.IParametrizedPropertyType;
+import ch.nolix.techapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.techapi.objectschemaapi.schemahelperapi.ITableHelper;
 import ch.nolix.techapi.rawobjectschemaapi.flatschemadtoapi.IFlatTableDTO;
 import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IColumnDTO;
@@ -19,7 +20,7 @@ import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.ISaveStampConfigurationD
 import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.SaveStampStrategy;
 
 //class
-public final class Table extends DatabaseObject implements IExtendedTable<Table, Column, ParametrizedPropertyType<?>> {
+public final class Table extends DatabaseObject implements ITable {
 	
 	//static attributes
 	private static final TableMutationValidator mutationValidator = new TableMutationValidator();
@@ -41,7 +42,7 @@ public final class Table extends DatabaseObject implements IExtendedTable<Table,
 	private Database parentDatabase;
 	
 	//multi-attribute
-	private LinkedList<Column> columns = new LinkedList<>();
+	private LinkedList<IColumn> columns = new LinkedList<>();
 	
 	//constructor
 	public Table(final String name) {
@@ -50,7 +51,7 @@ public final class Table extends DatabaseObject implements IExtendedTable<Table,
 	
 	//method
 	@Override
-	public Table addColumn(final Column column) {
+	public Table addColumn(final IColumn column) {
 		
 		mutationValidator.assertCanAddColumnToTable(this, column);
 		mutationExecutor.addColumnToTable(this, column);
@@ -67,7 +68,7 @@ public final class Table extends DatabaseObject implements IExtendedTable<Table,
 	@Override
 	public Table createColumnWithHeaderAndParametrizedPropertyType( 
 		final String header,
-		final ParametrizedPropertyType<?> parametrizedPropertyType
+		final IParametrizedPropertyType<?> parametrizedPropertyType
 	) {
 		return addColumn(new Column(header, parametrizedPropertyType));
 	}
@@ -101,11 +102,17 @@ public final class Table extends DatabaseObject implements IExtendedTable<Table,
 	
 	//method
 	@Override
-	public IContainer<Column> getRefColumns() {
+	public IContainer<IColumn> getRefColumns() {
 		
 		loadColumnsFromDatabaseIfNeeded();
 		
 		return columns;
+	}
+	
+	//method
+	@Override
+	public boolean isLinkedWithRealDatabase() {
+		return (belongsToDatabase() && getParentDatabase().isLinkedWithRealDatabase());
 	}
 	
 	//method
@@ -129,11 +136,11 @@ public final class Table extends DatabaseObject implements IExtendedTable<Table,
 	protected void noteCloseDatabaseObject() {
 		
 		//Does not call getRefColumns method to avoid that the columns need to be loaded from the database.
-		columns.forEach(Column::close);
+		columns.forEach(IColumn::close);
 	}
 	
 	//method
-	void addColumnAttribute(final Column column) {
+	void addColumnAttribute(final IColumn column) {
 		columns.addAtEnd(column);
 	}
 	
@@ -170,7 +177,7 @@ public final class Table extends DatabaseObject implements IExtendedTable<Table,
 	
 	//method
 	private LinkedList<IColumnDTO> createColumnDTOs() {
-		return getRefColumns().to(Column::toDTO);
+		return getRefColumns().to(IColumn::toDTO);
 	}
 	
 	//method
@@ -195,8 +202,11 @@ public final class Table extends DatabaseObject implements IExtendedTable<Table,
 		.getRefRawSchemaReader()
 		.loadColumnsOfTable(this).to(c -> Column.fromDTO(c, tables));
 		
-		columns.forEach(Column::setLoaded);
-		columns.forEach(c -> c.setParentTableAttribute(this));
+		for (final var c : columns) {
+			final var column = (Column)c;
+			column.setLoaded();
+			column.setParentTableAttribute(this);
+		}
 	}
 	
 	//method

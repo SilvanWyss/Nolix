@@ -2,5 +2,4 @@
 package ch.nolix.techapi.objectschemaapi.schemaapi;
 
 //interface
-public interface IBaseParametrizedValueType<PPT extends IParametrizedPropertyType<PPT, DT>, DT>
-extends IParametrizedPropertyType<PPT, DT> {}
+public interface IBaseParametrizedValueType<DT> extends IParametrizedPropertyType<DT> {}

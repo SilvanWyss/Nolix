@@ -5,14 +5,13 @@ package ch.nolix.system.objectschema.schema;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedPropertyType;
-import ch.nolix.techapi.objectschemaapi.extendedschemaapi.IExtendedDatabase;
-import ch.nolix.techapi.objectschemaapi.extendedschemaapi.IExtendedDatabaseEngine;
+import ch.nolix.techapi.objectschemaapi.schemaapi.IDatabase;
+import ch.nolix.techapi.objectschemaapi.schemaapi.IDatabaseEngine;
+import ch.nolix.techapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.techapi.rawobjectschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //class
-public final class Database extends DatabaseObject
-implements IExtendedDatabase<Database, Table, Column, ParametrizedPropertyType<?>> {
+public final class Database extends DatabaseObject implements IDatabase {
 	
 	//static attributes
 	private static final DatabaseMutationValidator mutationValidator = new DatabaseMutationValidator();
@@ -26,7 +25,7 @@ implements IExtendedDatabase<Database, Table, Column, ParametrizedPropertyType<?
 	private RawSchemaAdapter rawSchemaAdapter;
 	
 	//multi-attribute
-	private LinkedList<Table> tables = new LinkedList<>();
+	private LinkedList<ITable> tables = new LinkedList<>();
 	
 	//constructor
 	public Database(final String name) {
@@ -38,7 +37,7 @@ implements IExtendedDatabase<Database, Table, Column, ParametrizedPropertyType<?
 	
 	//method
 	@Override
-	public Database addTable(final Table table) {
+	public Database addTable(final ITable table) {
 		
 		mutationValidator.assertCanAddTableToDatabase(this, table);
 		mutationExecutor.addTableToDatabase(this, table);
@@ -67,14 +66,14 @@ implements IExtendedDatabase<Database, Table, Column, ParametrizedPropertyType<?
 	
 	//method
 	@Override
-	public IExtendedDatabaseEngine<?, Database, Table, Column, ParametrizedPropertyType<?>> getParentEngine() {
+	public IDatabaseEngine getParentEngine() {
 		//TODO: Implement.
 		return null;
 	}
 	
 	//method
 	@Override
-	public IContainer<Table> getRefTables() {
+	public IContainer<ITable> getRefTables() {
 		
 		loadTablesFromDatabaseIfNeeded();
 		
@@ -98,11 +97,11 @@ implements IExtendedDatabase<Database, Table, Column, ParametrizedPropertyType<?
 	protected void noteCloseDatabaseObject() {
 		
 		//Does not call getRefTables method to avoid that the tables need to be loaded from the database.
-		tables.forEach(Table::close);
+		tables.forEach(ITable::close);
 	}
 	
 	//method
-	void addTableAttribute(final Table table) {
+	void addTableAttribute(final ITable table) {
 		tables.addAtEnd(table);
 	}
 	
@@ -128,8 +127,11 @@ implements IExtendedDatabase<Database, Table, Column, ParametrizedPropertyType<?
 	private void loadTablesFromDatabase() {
 		
 		tables = getRefRealSchemaAdapter().getRefRawSchemaReader().loadFlatTables().to(Table::fromFlatDTO);
-		tables.forEach(Table::setLoaded);
-		tables.forEach(t -> t.setParentDatabase(this));
+		for (final var t : tables) {
+			final var table = (Table)t;
+			table.setLoaded();
+			table.setParentDatabase(this);
+		}
 		
 		loadedTablesFromDatabase = true;		
 	}

@@ -1,7 +1,8 @@
 //package declaration
 package ch.nolix.system.objectschema.schema;
 
-import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedPropertyType;
+//own imports
+import ch.nolix.techapi.objectschemaapi.schemaapi.IParametrizedPropertyType;
 
 //class
 final class ColumnMutationExecutor {
@@ -30,7 +31,9 @@ final class ColumnMutationExecutor {
 			column.getRefRawSchemaAdapter().getRefRawSchemaWriter().setColumnHeader(column, oldHeader, header);
 		}
 		
-		backReferencingColumns.forEach(Column::setParametrizedPropertyTypeToDatabase);
+		for (final var brc : backReferencingColumns) {
+			((Column)brc).setParametrizedPropertyTypeToDatabase();
+		}
 		
 		column.setEdited();
 	}
@@ -38,7 +41,7 @@ final class ColumnMutationExecutor {
 	//method
 	public void setParametrizedPropertyTypeToColumn(
 		final Column column,
-		final ParametrizedPropertyType<?> parametrizedPropertyType
+		final IParametrizedPropertyType<?> parametrizedPropertyType
 	) {
 		
 		column.setParametrizedPropertyTypeAttribute(parametrizedPropertyType);

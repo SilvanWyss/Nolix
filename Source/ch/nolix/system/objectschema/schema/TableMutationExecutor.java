@@ -3,6 +3,7 @@ package ch.nolix.system.objectschema.schema;
 
 //own imports
 import ch.nolix.system.objectschema.schemahelper.TableHelper;
+import ch.nolix.techapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.techapi.objectschemaapi.schemahelperapi.ITableHelper;
 
 //class
@@ -12,10 +13,10 @@ final class TableMutationExecutor {
 	private static final ITableHelper tableHelper = new TableHelper();
 	
 	//method
-	public void addColumnToTable(final Table table, final Column column) {
+	public void addColumnToTable(final Table table, final IColumn column) {
 		
 		table.addColumnAttribute(column);
-		column.setParentTableAttribute(table);
+		((Column)column).setParentTableAttribute(table);
 		
 		if (table.isLinkedWithRealDatabase()) {
 			table.getRefRealSchemaAdapter().getRefRawSchemaWriter().addColumnToTable(table, column);

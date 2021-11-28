@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.objectschema.parametrizedpropertytype;
 
+//own imports
 import ch.nolix.techapi.databaseapi.propertytypeapi.PropertyType;
 
 //class

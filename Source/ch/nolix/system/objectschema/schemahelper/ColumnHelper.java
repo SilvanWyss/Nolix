@@ -23,7 +23,7 @@ public final class ColumnHelper extends DatabaseObjectHelper implements IColumnH
 	
 	//method
 	@Override
-	public void assertBelongsToTable(final IColumn<?, ?> column) {
+	public void assertBelongsToTable(final IColumn column) {
 		if (!column.belongsToTable()) {
 			throw new ArgumentDoesNotBelongToParentException(column, ITable.class);
 		}
@@ -31,7 +31,7 @@ public final class ColumnHelper extends DatabaseObjectHelper implements IColumnH
 	
 	//method
 	@Override
-	public void assertDoesNotBelongToTable(final IColumn<?, ?> column) {
+	public void assertDoesNotBelongToTable(final IColumn column) {
 		if (column.belongsToTable()) {
 			throw new ArgumentBelongsToParentException(column, column.getParentTable());
 		}
@@ -39,7 +39,7 @@ public final class ColumnHelper extends DatabaseObjectHelper implements IColumnH
 	
 	//method
 	@Override
-	public void assertIsABackReferenceColumn(final IColumn<?, ?> column) {
+	public void assertIsABackReferenceColumn(final IColumn column) {
 		if (!isABackReferenceColumn(column)) {
 			throw new InvalidArgumentException(column, "is not a back reference column");
 		}
@@ -47,7 +47,7 @@ public final class ColumnHelper extends DatabaseObjectHelper implements IColumnH
 	
 	//method
 	@Override
-	public void assertIsAReferenceColumn(final IColumn<?, ?> column) {
+	public void assertIsAReferenceColumn(final IColumn column) {
 		if (!isAReferenceColumn(column)) {
 			throw new InvalidArgumentException(column, "is not any reference column");
 		}
@@ -55,58 +55,58 @@ public final class ColumnHelper extends DatabaseObjectHelper implements IColumnH
 	
 	//method
 	@Override
-	public boolean belongsToDatabase(final IColumn<?, ?> column) {
+	public boolean belongsToDatabase(final IColumn column) {
 		return (column.belongsToTable() && column.getParentTable().belongsToDatabase());
 	}
 	
 	//method
 	@Override
-	public BasePropertyType getBasePropertyType(IColumn<?, ?> column) {
+	public BasePropertyType getBasePropertyType(IColumn column) {
 		return getPropertyType(column).getBaseType();
 	}
 	
 	//method
 	@Override
-	public IDatabase<?, ?, ?, ?> getParentDatabase(final IColumn<?, ?> column) {
+	public IDatabase getParentDatabase(final IColumn column) {
 		return column.getParentTable().getParentDatabase();
 	}
 	
 	//method
 	@Override
-	public PropertyType getPropertyType(final IColumn<?, ?> column) {
+	public PropertyType getPropertyType(final IColumn column) {
 		return column.getParametrizedPropertyType().getPropertyType();
 	}
 	
 	//method
 	@Override
-	public boolean isABackReferenceColumn(final IColumn<?, ?> column) {
+	public boolean isABackReferenceColumn(final IColumn column) {
 		return parametrizedPropertyTypeHelper.isABaseBackReferenceType(column.getParametrizedPropertyType());
 	}
 	
 	//method
 	@Override
-	public boolean isAReferenceColumn(final IColumn<?, ?> column) {
+	public boolean isAReferenceColumn(final IColumn column) {
 		return parametrizedPropertyTypeHelper.isABaseReferenceType(column.getParametrizedPropertyType());
 	}
 	
 	//method
 	@Override
-	public boolean isAValueColumn(final IColumn<?, ?> column) {
+	public boolean isAValueColumn(final IColumn column) {
 		return parametrizedPropertyTypeHelper.isABaseValueType(column.getParametrizedPropertyType());
 	}
 	
 	//method
 	@Override
 	public boolean referencesBackGivenColumn(
-		final IColumn<?, ?> column,
-		final IColumn<?, ?> probableBackReferencedColumn
+		final IColumn column,
+		final IColumn probableBackReferencedColumn
 	) {
 		return column.getParametrizedPropertyType().referencesBackColumn(probableBackReferencedColumn);
 	}
 	
 	//method
 	@Override
-	public boolean referencesGivenTable(final IColumn<?, ?> column, final ITable<?, ?, ?> table) {
+	public boolean referencesGivenTable(final IColumn column, final ITable table) {
 		return column.getParametrizedPropertyType().referencesTable(table);
 	}
 }

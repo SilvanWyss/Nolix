@@ -26,12 +26,12 @@ final class RawSchemaReader {
 	}
 	
 	//method
-	public boolean columnIsEmpty(final IColumn<?, ?> column) {
+	public boolean columnIsEmpty(final IColumn column) {
 		return internalRawSchemaReader.columnIsEmpty(column.getParentTable().getName(), column.getHeader());
 	}
 	
 	//method
-	public LinkedList<IColumnDTO> loadColumnsOfTable(final ITable<?, ?, ?> table) {
+	public LinkedList<IColumnDTO> loadColumnsOfTable(final ITable table) {
 		return internalRawSchemaReader.loadColumns(table.getName());
 	}
 	

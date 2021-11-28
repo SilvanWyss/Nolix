@@ -24,22 +24,22 @@ final class RawSchemaWriter {
 	}
 	
 	//method
-	public void addColumnToTable(final ITable<?, ?, ?> table, final IColumn<?, ?> column) {
+	public void addColumnToTable(final ITable table, final IColumn column) {
 		internalRawSchemaWriter.addColumn(table.getName(), column.toDTO());
 	}
 	
 	//method
-	public void addTable(final ITable<?, ?, ?> table) {
+	public void addTable(final ITable table) {
 		internalRawSchemaWriter.addTable(table.toDTO());
 	}
 	
 	//method
-	public void deleteColumn(final IColumn<?, ?> column) {
+	public void deleteColumn(final IColumn column) {
 		internalRawSchemaWriter.deleteColumn(column.getParentTable().getName(), column.getHeader());
 	}
 	
 	//method
-	public void deleteTable(final ITable<?, ?, ?> table) {
+	public void deleteTable(final ITable table) {
 		internalRawSchemaWriter.deleteTable(table.getName());
 	}
 	
@@ -49,13 +49,13 @@ final class RawSchemaWriter {
 	}
 	
 	//method
-	public void setColumnHeader(final IColumn<?, ?> column, final String columnHeader, final String newColumnHeader) {
+	public void setColumnHeader(final IColumn column, final String columnHeader, final String newColumnHeader) {
 		internalRawSchemaWriter.setColumnHeader(column.getParentTable().getName(), columnHeader, newColumnHeader);
 	}
 	
 	public void setColumnParametrizedPropertyType(
-		final IColumn<?, ?> column,
-		final IParametrizedPropertyType<?, ?> parametrizedPropertyType
+		final IColumn column,
+		final IParametrizedPropertyType<?> parametrizedPropertyType
 	) {
 		internalRawSchemaWriter.setColumnParametrizedPropertyType(
 			column.getParentTable().getName(),

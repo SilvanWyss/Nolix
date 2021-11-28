@@ -10,12 +10,14 @@ import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedPropert
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedValueType;
 import ch.nolix.system.objectschema.schemadto.ColumnDTO;
 import ch.nolix.system.objectschema.schemahelper.ColumnHelper;
-import ch.nolix.techapi.objectschemaapi.extendedschemaapi.IExtendedColumn;
+import ch.nolix.techapi.objectschemaapi.schemaapi.IColumn;
+import ch.nolix.techapi.objectschemaapi.schemaapi.IParametrizedPropertyType;
+import ch.nolix.techapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.techapi.objectschemaapi.schemahelperapi.IColumnHelper;
 import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IColumnDTO;
 
 //class
-public final class Column extends DatabaseObject implements IExtendedColumn<Column, ParametrizedPropertyType<?>> {
+public final class Column extends DatabaseObject implements IColumn {
 	
 	//constant
 	private static final String INITIAL_HEADER = StringCatalogue.DEFAULT_STRING;
@@ -36,7 +38,7 @@ public final class Column extends DatabaseObject implements IExtendedColumn<Colu
 	private static final IColumnHelper columnHelper = new ColumnHelper();
 	
 	//static method
-	public static Column fromDTO(final IColumnDTO columnDTO, final IContainer<Table> tables) {
+	public static Column fromDTO(final IColumnDTO columnDTO, final IContainer<ITable> tables) {
 		return 
 		new Column(
 			columnDTO.getHeader(),
@@ -49,13 +51,13 @@ public final class Column extends DatabaseObject implements IExtendedColumn<Colu
 	
 	//attributes
 	private String header = INITIAL_HEADER;
-	private ParametrizedPropertyType<?> parametrizedPropertyType = INITIAL_PROPERTY_TYPE;
+	private IParametrizedPropertyType<?> parametrizedPropertyType = INITIAL_PROPERTY_TYPE;
 	
 	//optional attributes
 	private Table parentTable;
 	
 	//constructor
-	public Column(final String header, final ParametrizedPropertyType<?> parametrizedPropertyType) {
+	public Column(final String header, final IParametrizedPropertyType<?> parametrizedPropertyType) {
 		setHeader(header);
 		setParametrizedPropertyType(parametrizedPropertyType);
 	}
@@ -81,16 +83,10 @@ public final class Column extends DatabaseObject implements IExtendedColumn<Colu
 	
 	//method
 	@Override
-	public ParametrizedPropertyType<?> getParametrizedPropertyType() {
+	public IParametrizedPropertyType<?> getParametrizedPropertyType() {
 		return parametrizedPropertyType;
 	}
-	
-	//method
-	@Override
-	public Database getParentDatabase() {
-		return getParentTable().getParentDatabase();
-	}
-	
+		
 	//method
 	@Override
 	public Table getParentTable() {
@@ -113,6 +109,12 @@ public final class Column extends DatabaseObject implements IExtendedColumn<Colu
 	
 	//method
 	@Override
+	public boolean isLinkedWithRealDatabase() {
+		return (belongsToTable() && getParentTable().isLinkedWithRealDatabase());
+	}
+	
+	//method
+	@Override
 	public Column setHeader(final String header) {
 		
 		mutationValidator.assertCanSetHeaderToColumn(this, header);
@@ -124,7 +126,7 @@ public final class Column extends DatabaseObject implements IExtendedColumn<Colu
 	//method
 	@Override
 	public Column setParametrizedPropertyType(
-		final ParametrizedPropertyType<?> parametrizedPropertyType
+		final IParametrizedPropertyType<?> parametrizedPropertyType
 	) {
 		
 		mutationValidator.assertCanSetParametrizedPropertyTypeToColumn(this, parametrizedPropertyType);
@@ -147,7 +149,7 @@ public final class Column extends DatabaseObject implements IExtendedColumn<Colu
 	}
 	
 	//method
-	IContainer<Column> getRefBackReferencingColumns() {
+	IContainer<IColumn> getRefBackReferencingColumns() {
 		
 		if (!columnHelper.isAReferenceColumn(this)) {
 			return new LinkedList<>();
@@ -177,7 +179,7 @@ public final class Column extends DatabaseObject implements IExtendedColumn<Colu
 	}
 	
 	//method
-	void setParametrizedPropertyTypeAttribute(final ParametrizedPropertyType<?> parametrizedPropertyType) {
+	void setParametrizedPropertyTypeAttribute(final IParametrizedPropertyType<?> parametrizedPropertyType) {
 		this.parametrizedPropertyType = parametrizedPropertyType;
 	}
 	
@@ -198,7 +200,7 @@ public final class Column extends DatabaseObject implements IExtendedColumn<Colu
 	protected void noteCloseDatabaseObject() {}
 	
 	//method
-	private IContainer<Column> getRefBackReferencingColumnsWhenIsReferenceColumn() {
+	private IContainer<IColumn> getRefBackReferencingColumnsWhenIsReferenceColumn() {
 		
 		if (columnHelper.belongsToDatabase(this)) {
 			return

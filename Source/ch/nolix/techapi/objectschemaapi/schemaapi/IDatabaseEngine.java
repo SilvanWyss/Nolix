@@ -5,20 +5,14 @@ package ch.nolix.techapi.objectschemaapi.schemaapi;
 import ch.nolix.common.container.IContainer;
 
 //interface
-public interface IDatabaseEngine<
-	DE extends IDatabaseEngine<DE, D, T, C, PPT>,
-	D extends IDatabase<D, T, C, PPT>,
-	T extends ITable<T, C, PPT>,
-	C extends IColumn<C, PPT>,
-	PPT extends IParametrizedPropertyType<PPT, ?>
-> {
+public interface IDatabaseEngine {
 	
 	//method declaration
-	DE addDatabase(D database);
+	IDatabaseEngine addDatabase(IDatabase database);
 	
 	//method declaration
-	DE createDatabaseWithName(String name);
+	IDatabaseEngine createDatabaseWithName(String name);
 	
 	//method declaration
-	IContainer<D> getRefDatabases();
+	IContainer<IDatabase> getRefDatabases();
 }
