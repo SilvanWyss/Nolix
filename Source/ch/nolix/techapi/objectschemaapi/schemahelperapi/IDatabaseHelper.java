@@ -44,5 +44,8 @@ public interface IDatabaseHelper extends IDatabaseObjectHelper {
 	void deleteTableWithGivenName(IDatabase<?, ?, ?, ?> database, String name);
 	
 	//method declaration
+	ITable<?, ?, ?> getRefTableWithGivenName(IDatabase<?, ?, ?, ?> database, String name);
+	
+	//method declaration
 	int getTableCount(IDatabase<?, ?, ?, ?> database);
 }

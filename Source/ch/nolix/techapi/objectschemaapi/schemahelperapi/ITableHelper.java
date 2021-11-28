@@ -11,7 +11,7 @@ import ch.nolix.techapi.objectschemaapi.schemaapi.ITable;
 public interface ITableHelper extends IDatabaseObjectHelper {
 	
 	//method declaration
-	void assertContainsGivenColumn(IColumn<?, ?> column);
+	void assertContainsGivenColumn(ITable<?, ?, ?> table, IColumn<?, ?> column);
 	
 	//method declaration
 	void assertDoesNotBelongToDatabase(ITable<?, ?, ?> table);
@@ -44,7 +44,7 @@ public interface ITableHelper extends IDatabaseObjectHelper {
 	int getColumnCount(ITable<?, ?, ?> table);
 	
 	//method declaration
-	LinkedList<IColumn<?, ?>> getRefBackReferencingColumnsOf(ITable<?, ?, ?> table);
+	LinkedList<IColumn<?, ?>> getRefBackReferencingColumns(ITable<?, ?, ?> table);
 	
 	//method declaration
 	IColumn<?, ?> getRefColumnWithGivenHeader(ITable<?, ?, ?> table, String header);
