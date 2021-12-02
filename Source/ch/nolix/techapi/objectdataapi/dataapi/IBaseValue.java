@@ -3,6 +3,6 @@ package ch.nolix.techapi.objectdataapi.dataapi;
 
 //interface
 public interface IBaseValue<
-	P extends IProperty<P>,
+	IMPL,
 	V
-> extends IProperty<P> {}
+> extends IProperty<IMPL> {}
