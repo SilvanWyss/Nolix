@@ -29,7 +29,7 @@ final class DatabaseMutationValidator {
 	) {
 		
 		database.assertIsOpen();
-		database.assertIsNotDeleted();
+		databaseHelper.assertIsNotDeleted(database);
 		databaseHelper.assertDoesNotContainTableWithGivenName(database, table.getName());
 		assertCanAddTableToDatabaseBecauseOfColumns(database, table);
 		

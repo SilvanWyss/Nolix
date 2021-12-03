@@ -14,8 +14,8 @@ final class EntityMutationValidator {
 	//method
 	public void assertCanDeleteEntity(final Entity entity) {
 		entity.assertIsOpen();
-		entity.assertIsNotDeleted();
-		entity.assertIsNotNew();
+		entityHelper.assertIsNotDeleted(entity);
+		entityHelper.assertIsNotNew(entity);
 		entityHelper.assertIsNotReferenced(entity);
 	}
 }

@@ -219,6 +219,6 @@ public final class Table extends DatabaseObject implements ITable<SchemaImplemen
 	
 	//method
 	private boolean needsToLoadColumnsFromDatabase() {
-		return (isLoaded() && !hasLoadedColumnsFromDatabase());
+		return (tableHelper.isLoaded(this) && !hasLoadedColumnsFromDatabase());
 	}
 }

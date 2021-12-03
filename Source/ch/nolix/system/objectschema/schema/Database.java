@@ -6,13 +6,18 @@ import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.system.objectschema.parametrizedpropertytype.SchemaImplementation;
+import ch.nolix.system.objectschema.schemahelper.DatabaseHelper;
 import ch.nolix.techapi.objectschemaapi.schemaapi.IDatabase;
 import ch.nolix.techapi.objectschemaapi.schemaapi.IDatabaseEngine;
 import ch.nolix.techapi.objectschemaapi.schemaapi.ITable;
+import ch.nolix.techapi.objectschemaapi.schemahelperapi.IDatabaseHelper;
 import ch.nolix.techapi.rawobjectschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //class
 public final class Database extends DatabaseObject implements IDatabase<SchemaImplementation> {
+	
+	//static attribute
+	private final IDatabaseHelper databaseHelper = new DatabaseHelper();
 	
 	//static attributes
 	private static final DatabaseMutationValidator mutationValidator = new DatabaseMutationValidator();
@@ -109,7 +114,7 @@ public final class Database extends DatabaseObject implements IDatabase<SchemaIm
 	//method
 	RawSchemaAdapter getRefRealSchemaAdapter() {
 		
-		assertIsLinkedWithRealDatabase();
+		databaseHelper.assertIsLinkedWithRealDatabase(this);
 		
 		return rawSchemaAdapter;
 	}
@@ -146,14 +151,14 @@ public final class Database extends DatabaseObject implements IDatabase<SchemaIm
 	
 	//method
 	private boolean needsToLoadTablesFromDatabase() {
-		return (isLoaded() && !hasLoadedTablesFromDatabase());
+		return (databaseHelper.isLoaded(this) && !hasLoadedTablesFromDatabase());
 	}
 	
 	//method
 	private void setRealSchemaAdapter(final RawSchemaAdapter rawSchemaAdapter) {
 		
 		Validator.assertThat(rawSchemaAdapter).thatIsNamed(RawSchemaAdapter.class).isNotNull();
-		assertIsNotLinkedWithActualDatabase();
+		databaseHelper.assertIsNotLinkedWithRealDatabase(this);
 		
 		setLoaded();
 		this.rawSchemaAdapter = rawSchemaAdapter;

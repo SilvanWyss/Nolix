@@ -101,7 +101,7 @@ public final class Column extends DatabaseObject implements IColumn<SchemaImplem
 	@Override
 	public boolean isEmpty() {
 		
-		if (isNew()) {
+		if (columnHelper.isNew(this)) {
 			return true;
 		}
 		

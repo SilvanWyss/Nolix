@@ -9,10 +9,10 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.NewArgumentExceptio
 import ch.nolix.common.programcontrol.groupcloseable.CloseController;
 import ch.nolix.common.programcontrol.groupcloseable.GroupCloseable;
 import ch.nolix.techapi.databaseapi.databaseobjectapi.DatabaseObjectState;
-import ch.nolix.techapi.databaseapi.extendeddatabaseobjectapi.IExtendedDatabaseObject;
+import ch.nolix.techapi.databaseapi.databaseobjectapi.IDatabaseObject;
 
 //class
-abstract class DatabaseObject implements GroupCloseable, IExtendedDatabaseObject {
+abstract class DatabaseObject implements GroupCloseable, IDatabaseObject {
 	
 	//attributes
 	private final CloseController closeController = new CloseController(this);
@@ -28,6 +28,12 @@ abstract class DatabaseObject implements GroupCloseable, IExtendedDatabaseObject
 	@Override
 	public final DatabaseObjectState getState() {
 		return state;
+	}
+	
+	//method
+	@Override
+	public boolean isDeleted() {
+		return (getState() == DatabaseObjectState.DELETED);
 	}
 	
 	//method

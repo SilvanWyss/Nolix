@@ -52,8 +52,8 @@ final class TableMutationValidator {
 	//method
 	public void assertCanDeleteTable(final Table table) {
 		table.assertIsOpen();
-		table.assertIsNotNew();
-		table.assertIsNotDeleted();
+		tableHelper.assertIsNotNew(table);
+		tableHelper.assertIsNotDeleted(table);
 		tableHelper.assertIsNotReferenced(table);
 	}
 	

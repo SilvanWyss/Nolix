@@ -30,7 +30,7 @@ final class ColumnMutationValidator {
 	//method
 	public void assertCanDeleteColumn(final Column column) {			
 		column.assertIsOpen();
-		column.assertIsNotDeleted();
+		columnHelper.assertIsNotDeleted(column);
 		column.assertIsNotBackReferenced();
 	}
 	
