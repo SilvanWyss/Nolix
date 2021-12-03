@@ -13,13 +13,13 @@ import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IParametrizedPropertyTyp
 
 //class
 public abstract class BaseParametrizedReferenceType extends ParametrizedPropertyType<String>
-implements IBaseParametrizedReferenceType {
+implements IBaseParametrizedReferenceType<SchemaImplementation> {
 	
 	//attribute
-	private final ITable referencedTable;
+	private final ITable<SchemaImplementation> referencedTable;
 	
 	//constructor
-	public BaseParametrizedReferenceType(final ITable referencedTable) {
+	public BaseParametrizedReferenceType(final ITable<SchemaImplementation> referencedTable) {
 		
 		super(String.class);
 		
@@ -30,39 +30,39 @@ implements IBaseParametrizedReferenceType {
 	
 	//method
 	@Override
-	public final IBaseParametrizedBackReferenceType asBaseParametrizedBackReferenceType() {
+	public final IBaseParametrizedBackReferenceType<SchemaImplementation> asBaseParametrizedBackReferenceType() {
 		//TODO: Implement.
 		return null;
 	}
 	
 	//method
 	@Override
-	public final IBaseParametrizedReferenceType asBaseParametrizedReferenceType() {
+	public final IBaseParametrizedReferenceType<SchemaImplementation> asBaseParametrizedReferenceType() {
 		//TODO: Implement.
 		return null;
 	}
 	
 	//method
 	@Override
-	public final IBaseParametrizedValueType<?> asBaseParametrizedValueType() {
+	public final IBaseParametrizedValueType<SchemaImplementation, ?> asBaseParametrizedValueType() {
 		//TODO: Implement.
 		return null;
 	}
 	
 	//method
-	public ITable getReferencedTable() {
+	public ITable<SchemaImplementation> getReferencedTable() {
 		return referencedTable;
 	}
 	
 	//method
 	@Override
-	public final boolean referencesTable(final ITable table) {
+	public final boolean referencesTable(final ITable<?> table) {
 		return (getReferencedTable() == table);
 	}
 	
 	//method
 	@Override
-	public final boolean referencesBackColumn(final IColumn column) {
+	public final boolean referencesBackColumn(final IColumn<?> column) {
 		return false;
 	}
 	

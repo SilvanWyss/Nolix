@@ -21,7 +21,7 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 	
 	//method
 	@Override
-	public void assertContainsGivenTable(final IDatabase database, final ITable table) {
+	public void assertContainsGivenTable(final IDatabase<?> database, final ITable<?> table) {
 		if (!containsGivenTable(database, table)) {
 			throw new ArgumentDoesNotContainElementException(database, table);
 		}
@@ -30,8 +30,8 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 	//method
 	@Override
 	public void assertContainsTableReferencedByGivenColumn(
-		final IDatabase database,
-		final IColumn column
+		final IDatabase<?> database,
+		final IColumn<?> column
 	) {
 		if (!containsTableReferencedByGivenColumn(database, column)) {
 			throw
@@ -45,8 +45,8 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 	//method
 	@Override
 	public void assertContainsTableWithColumnBackReferencedByGivenColumn(
-		final IDatabase database,
-		final IColumn column
+		final IDatabase<?> database,
+		final IColumn<?> column
 	) {
 		if (!containsTableWithColumnBackReferencedByGivenColumn(database, column)) {
 			throw
@@ -60,7 +60,7 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 	
 	//method
 	@Override
-	public void assertContainsTableWithGivenColumn(final IDatabase database, final IColumn column) {
+	public void assertContainsTableWithGivenColumn(final IDatabase<?> database, final IColumn<?> column) {
 		if (!containsTableWithGivenColumn(database, column)) {
 			throw new ArgumentDoesNotContainElementException(this, column);
 		}
@@ -68,7 +68,7 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 	
 	//method
 	@Override
-	public void assertDoesNotContainTableWithGivenName(final IDatabase database, final String name) {
+	public void assertDoesNotContainTableWithGivenName(final IDatabase<?> database, final String name) {
 		if (containsTableWithGivenName(database, name)) {
 			throw new InvalidArgumentException(this, "contains a table with the name '" + name + "'");
 		}
@@ -76,15 +76,15 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 	
 	//method
 	@Override
-	public boolean containsGivenTable(final IDatabase database, ITable table) {
+	public boolean containsGivenTable(final IDatabase<?> database, ITable<?> table) {
 		return database.getRefTables().contains(table);
 	}
 	
 	//method
 	@Override
 	public boolean containsTableReferencedByGivenColumn(
-		final IDatabase database,
-		final IColumn column
+		final IDatabase<?> database,
+		final IColumn<?> column
 	) {
 		
 		//For a better performance, this check, that is theoretically not necessary, excludes many cases.
@@ -98,8 +98,8 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 	//method
 	@Override
 	public boolean containsTableWithColumnBackReferencedByGivenColumn(
-		final IDatabase database,
-		final IColumn column
+		final IDatabase<?> database,
+		final IColumn<?> column
 	) {
 		
 		//For a better performance, this check, that is theoretically not necessary, excludes many cases.
@@ -113,31 +113,31 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 	
 	//method
 	@Override
-	public boolean containsTableWithGivenColumn(final IDatabase database, final IColumn column) {
+	public boolean containsTableWithGivenColumn(final IDatabase<?> database, final IColumn<?> column) {
 		return database.getRefTables().containsAny(t -> tableHelper.containsGivenColumn(t, column));
 	}
 	
 	//method
 	@Override
-	public boolean containsTableWithGivenName(final IDatabase database, final String name) {
+	public boolean containsTableWithGivenName(final IDatabase<?> database, final String name) {
 		return database.getRefTables().containsAny(t -> t.hasName(name));
 	}
 	
 	//method
 	@Override
-	public void deleteTableWithGivenName(final IDatabase database, final String name) {
+	public void deleteTableWithGivenName(final IDatabase<?> database, final String name) {
 		getRefTableWithGivenName(database, name).delete();
 	}
 	
 	//method
 	@Override
-	public ITable getRefTableWithGivenName(final IDatabase database, final String name) {
+	public <IMPL> ITable<IMPL> getRefTableWithGivenName(final IDatabase<IMPL> database, final String name) {
 		return database.getRefTables().getRefFirst(t -> t.hasName(name));
 	}
 	
 	//method
 	@Override
-	public int getTableCount(final IDatabase database) {
+	public int getTableCount(final IDatabase<?> database) {
 		return database.getRefTables().getElementCount();
 	}
 }

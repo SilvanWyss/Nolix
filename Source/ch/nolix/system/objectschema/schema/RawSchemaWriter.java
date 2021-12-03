@@ -4,6 +4,7 @@ package ch.nolix.system.objectschema.schema;
 //own imports
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.element.time.base.Time;
+import ch.nolix.system.objectschema.parametrizedpropertytype.SchemaImplementation;
 import ch.nolix.techapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.techapi.objectschemaapi.schemaapi.IParametrizedPropertyType;
 import ch.nolix.techapi.objectschemaapi.schemaapi.ITable;
@@ -24,22 +25,22 @@ final class RawSchemaWriter {
 	}
 	
 	//method
-	public void addColumnToTable(final ITable table, final IColumn column) {
+	public void addColumnToTable(final ITable<SchemaImplementation> table, final IColumn<SchemaImplementation> column) {
 		internalRawSchemaWriter.addColumn(table.getName(), column.toDTO());
 	}
 	
 	//method
-	public void addTable(final ITable table) {
+	public void addTable(final ITable<SchemaImplementation> table) {
 		internalRawSchemaWriter.addTable(table.toDTO());
 	}
 	
 	//method
-	public void deleteColumn(final IColumn column) {
+	public void deleteColumn(final IColumn<SchemaImplementation> column) {
 		internalRawSchemaWriter.deleteColumn(column.getParentTable().getName(), column.getHeader());
 	}
 	
 	//method
-	public void deleteTable(final ITable table) {
+	public void deleteTable(final ITable<SchemaImplementation> table) {
 		internalRawSchemaWriter.deleteTable(table.getName());
 	}
 	
@@ -49,13 +50,13 @@ final class RawSchemaWriter {
 	}
 	
 	//method
-	public void setColumnHeader(final IColumn column, final String columnHeader, final String newColumnHeader) {
+	public void setColumnHeader(final IColumn<SchemaImplementation> column, final String columnHeader, final String newColumnHeader) {
 		internalRawSchemaWriter.setColumnHeader(column.getParentTable().getName(), columnHeader, newColumnHeader);
 	}
 	
 	public void setColumnParametrizedPropertyType(
-		final IColumn column,
-		final IParametrizedPropertyType<?> parametrizedPropertyType
+		final IColumn<SchemaImplementation> column,
+		final IParametrizedPropertyType<SchemaImplementation, ?> parametrizedPropertyType
 	) {
 		internalRawSchemaWriter.setColumnParametrizedPropertyType(
 			column.getParentTable().getName(),

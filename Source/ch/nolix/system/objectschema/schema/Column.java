@@ -8,6 +8,7 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedPropertyType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedValueType;
+import ch.nolix.system.objectschema.parametrizedpropertytype.SchemaImplementation;
 import ch.nolix.system.objectschema.schemadto.ColumnDTO;
 import ch.nolix.system.objectschema.schemahelper.ColumnHelper;
 import ch.nolix.techapi.objectschemaapi.schemaapi.IColumn;
@@ -17,7 +18,7 @@ import ch.nolix.techapi.objectschemaapi.schemahelperapi.IColumnHelper;
 import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IColumnDTO;
 
 //class
-public final class Column extends DatabaseObject implements IColumn {
+public final class Column extends DatabaseObject implements IColumn<SchemaImplementation> {
 	
 	//constant
 	private static final String INITIAL_HEADER = StringCatalogue.DEFAULT_STRING;
@@ -38,8 +39,8 @@ public final class Column extends DatabaseObject implements IColumn {
 	private static final IColumnHelper columnHelper = new ColumnHelper();
 	
 	//static method
-	public static Column fromDTO(final IColumnDTO columnDTO, final IContainer<ITable> tables) {
-		return 
+	public static Column fromDTO(final IColumnDTO columnDTO, final IContainer<ITable<SchemaImplementation>> tables) {
+		return
 		new Column(
 			columnDTO.getHeader(),
 			parametrizedPropertyTypeMapper.createParametrizedPropertyTypeFromDTO(
@@ -51,13 +52,13 @@ public final class Column extends DatabaseObject implements IColumn {
 	
 	//attributes
 	private String header = INITIAL_HEADER;
-	private IParametrizedPropertyType<?> parametrizedPropertyType = INITIAL_PROPERTY_TYPE;
+	private IParametrizedPropertyType<SchemaImplementation, ?> parametrizedPropertyType = INITIAL_PROPERTY_TYPE;
 	
 	//optional attributes
 	private Table parentTable;
 	
 	//constructor
-	public Column(final String header, final IParametrizedPropertyType<?> parametrizedPropertyType) {
+	public Column(final String header, final IParametrizedPropertyType<SchemaImplementation, ?> parametrizedPropertyType) {
 		setHeader(header);
 		setParametrizedPropertyType(parametrizedPropertyType);
 	}
@@ -83,7 +84,7 @@ public final class Column extends DatabaseObject implements IColumn {
 	
 	//method
 	@Override
-	public IParametrizedPropertyType<?> getParametrizedPropertyType() {
+	public IParametrizedPropertyType<SchemaImplementation, ?> getParametrizedPropertyType() {
 		return parametrizedPropertyType;
 	}
 		
@@ -126,7 +127,7 @@ public final class Column extends DatabaseObject implements IColumn {
 	//method
 	@Override
 	public Column setParametrizedPropertyType(
-		final IParametrizedPropertyType<?> parametrizedPropertyType
+		final IParametrizedPropertyType<SchemaImplementation, ?> parametrizedPropertyType
 	) {
 		
 		mutationValidator.assertCanSetParametrizedPropertyTypeToColumn(this, parametrizedPropertyType);
@@ -149,7 +150,7 @@ public final class Column extends DatabaseObject implements IColumn {
 	}
 	
 	//method
-	IContainer<IColumn> getRefBackReferencingColumns() {
+	IContainer<IColumn<SchemaImplementation>> getRefBackReferencingColumns() {
 		
 		if (!columnHelper.isAReferenceColumn(this)) {
 			return new LinkedList<>();
@@ -179,7 +180,9 @@ public final class Column extends DatabaseObject implements IColumn {
 	}
 	
 	//method
-	void setParametrizedPropertyTypeAttribute(final IParametrizedPropertyType<?> parametrizedPropertyType) {
+	void setParametrizedPropertyTypeAttribute(
+		final IParametrizedPropertyType<SchemaImplementation, ?> parametrizedPropertyType
+	) {
 		this.parametrizedPropertyType = parametrizedPropertyType;
 	}
 	
@@ -200,7 +203,7 @@ public final class Column extends DatabaseObject implements IColumn {
 	protected void noteCloseDatabaseObject() {}
 	
 	//method
-	private IContainer<IColumn> getRefBackReferencingColumnsWhenIsReferenceColumn() {
+	private IContainer<IColumn<SchemaImplementation>> getRefBackReferencingColumnsWhenIsReferenceColumn() {
 		
 		if (columnHelper.belongsToDatabase(this)) {
 			return

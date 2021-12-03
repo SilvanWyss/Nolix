@@ -12,7 +12,7 @@ import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IParametrizedPropertyTyp
 
 //class
 public abstract class BaseParametrizedValueType<V> extends ParametrizedPropertyType<V>
-implements IBaseParametrizedValueType<V> {
+implements IBaseParametrizedValueType<SchemaImplementation, V> {
 	
 	//constructor
 	public BaseParametrizedValueType(final Class<V> valueClass) {
@@ -21,34 +21,34 @@ implements IBaseParametrizedValueType<V> {
 	
 	//method
 	@Override
-	public final IBaseParametrizedBackReferenceType asBaseParametrizedBackReferenceType() {
+	public final IBaseParametrizedBackReferenceType<SchemaImplementation> asBaseParametrizedBackReferenceType() {
 		//TODO: Implement.
 		return null;
 	}
 	
 	//method
 	@Override
-	public final IBaseParametrizedReferenceType asBaseParametrizedReferenceType() {
+	public final IBaseParametrizedReferenceType<SchemaImplementation> asBaseParametrizedReferenceType() {
 		//TODO: Implement.
 		return null;
 	}
 	
 	//method
 	@Override
-	public final IBaseParametrizedValueType<?> asBaseParametrizedValueType() {
+	public final IBaseParametrizedValueType<SchemaImplementation, ?> asBaseParametrizedValueType() {
 		//TODO: Implement.
 		return null;
 	}
 	
 	//method
 	@Override
-	public final boolean referencesTable(final ITable table) {
+	public final boolean referencesTable(final ITable<?> table) {
 		return false;
 	}
 	
 	//method
 	@Override
-	public final boolean referencesBackColumn(final IColumn column) {
+	public final boolean referencesBackColumn(final IColumn<?> column) {
 		return false;
 	}
 	

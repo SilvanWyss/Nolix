@@ -8,22 +8,22 @@ import ch.nolix.techapi.databaseapi.databaseobjectapi.IDatabaseObject;
 import ch.nolix.techapi.rawobjectschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //interface
-public interface IDatabase extends IDatabaseObject, Named {
+public interface IDatabase<IMPL> extends IDatabaseObject, Named {
 	
 	//method declaration
-	IDatabase addTable(ITable table);
+	IDatabase<IMPL> addTable(ITable<IMPL> table);
 	
 	//method declaration
 	boolean belongsToEngine();
 	
 	//method declaration
-	IDatabase createTableWithName(String name);
+	IDatabase<IMPL> createTableWithName(String name);
 	
 	//method declaration
-	IDatabaseEngine getParentEngine();
+	IDatabaseEngine<IMPL> getParentEngine();
 	
 	//method declaration
-	IContainer<ITable> getRefTables();
+	IContainer<ITable<IMPL>> getRefTables();
 	
 	//method declaration
 	void setRealSchemaAdapter(ISchemaAdapter schemaAdapter);

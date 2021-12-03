@@ -8,8 +8,6 @@ import ch.nolix.system.objectschema.schemahelper.ColumnHelper;
 import ch.nolix.system.objectschema.schemahelper.DatabaseEngineHelper;
 import ch.nolix.system.objectschema.schemahelper.DatabaseHelper;
 import ch.nolix.system.objectschema.schemahelper.TableHelper;
-import ch.nolix.techapi.objectschemaapi.schemaapi.IColumn;
-import ch.nolix.techapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.techapi.objectschemaapi.schemahelperapi.IColumnHelper;
 import ch.nolix.techapi.objectschemaapi.schemahelperapi.IDatabaseEngineHelper;
 import ch.nolix.techapi.objectschemaapi.schemahelperapi.IDatabaseHelper;
@@ -25,7 +23,10 @@ final class DatabaseMutationValidator {
 	private static final IColumnHelper columnHelper = new ColumnHelper();
 	
 	//method
-	public void assertCanAddTableToDatabase(final Database database, final ITable table) {
+	public void assertCanAddTableToDatabase(
+		final Database database,
+		final Table table
+	) {
 		
 		database.assertIsOpen();
 		database.assertIsNotDeleted();
@@ -49,8 +50,8 @@ final class DatabaseMutationValidator {
 	//method
 	private void assertCanAddTableToDatabaseBecauseOfColumn(
 		final Database database,
-		final ITable table,
-		final IColumn column
+		final Table table,
+		final Column column
 	) {
 		switch (columnHelper.getBasePropertyType(column)) {
 			case BASE_BACK_REFERENCE:
@@ -76,9 +77,12 @@ final class DatabaseMutationValidator {
 	}
 	
 	//method
-	private void assertCanAddTableToDatabaseBecauseOfColumns(final Database database, final ITable table) {
+	private void assertCanAddTableToDatabaseBecauseOfColumns(
+		final Database database,
+		final Table table
+	) {
 		for (final var c : table.getRefColumns()) {
-			assertCanAddTableToDatabaseBecauseOfColumn(database, table, c);
+			assertCanAddTableToDatabaseBecauseOfColumn(database, table, (Column)c);
 		}
 	}
 }

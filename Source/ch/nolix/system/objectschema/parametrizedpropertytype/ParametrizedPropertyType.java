@@ -6,7 +6,7 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.techapi.objectschemaapi.schemaapi.IParametrizedPropertyType;
 
 //class
-public abstract class ParametrizedPropertyType<DT> implements IParametrizedPropertyType<DT> {
+public abstract class ParametrizedPropertyType<DT> implements IParametrizedPropertyType<SchemaImplementation, DT> {
 	
 	//attribute
 	private final Class<DT> dataType;

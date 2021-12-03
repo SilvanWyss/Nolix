@@ -5,6 +5,7 @@ package ch.nolix.system.objectschema.schema;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.element.time.base.Time;
+import ch.nolix.system.objectschema.parametrizedpropertytype.SchemaImplementation;
 import ch.nolix.techapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.techapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.techapi.rawobjectschemaapi.flatschemadtoapi.IFlatTableDTO;
@@ -26,12 +27,12 @@ final class RawSchemaReader {
 	}
 	
 	//method
-	public boolean columnIsEmpty(final IColumn column) {
+	public boolean columnIsEmpty(final IColumn<SchemaImplementation> column) {
 		return internalRawSchemaReader.columnIsEmpty(column.getParentTable().getName(), column.getHeader());
 	}
 	
 	//method
-	public LinkedList<IColumnDTO> loadColumnsOfTable(final ITable table) {
+	public LinkedList<IColumnDTO> loadColumnsOfTable(final ITable<SchemaImplementation> table) {
 		return internalRawSchemaReader.loadColumns(table.getName());
 	}
 	

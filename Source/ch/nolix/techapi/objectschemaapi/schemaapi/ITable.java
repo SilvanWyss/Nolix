@@ -11,28 +11,28 @@ import ch.nolix.techapi.rawobjectschemaapi.flatschemadtoapi.IFlatTableDTO;
 import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.ITableDTO;
 
 //interface
-public interface ITable extends Deletable, IDatabaseObject, GroupCloseable, Namable<ITable> {
+public interface ITable<IMPL> extends Deletable, IDatabaseObject, GroupCloseable, Namable<ITable<IMPL>> {
 	
 	//method declaration
-	ITable addColumn(IColumn column);
+	ITable<IMPL> addColumn(IColumn<IMPL> column);
 	
 	//method declaration
 	boolean belongsToDatabase();
 	
 	//method declaration
-	ITable createColumnWithHeaderAndParametrizedPropertyType(
+	ITable<IMPL> createColumnWithHeaderAndParametrizedPropertyType(
 		String header,
-		IParametrizedPropertyType<?> parametrizedPropertyType
+		IParametrizedPropertyType<IMPL, ?> parametrizedPropertyType
 	);
 	
 	//method declaration
 	IFlatTableDTO getFlatDTO();
 	
 	//method declaration
-	IDatabase getParentDatabase();
+	IDatabase<IMPL> getParentDatabase();
 	
 	//method declarations
-	IContainer<IColumn> getRefColumns();
+	IContainer<IColumn<IMPL>> getRefColumns();
 	
 	//method declaration
 	ITableDTO toDTO();

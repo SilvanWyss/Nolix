@@ -5,13 +5,14 @@ package ch.nolix.system.objectschema.schema;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.errorcontrol.validator.Validator;
+import ch.nolix.system.objectschema.parametrizedpropertytype.SchemaImplementation;
 import ch.nolix.techapi.objectschemaapi.schemaapi.IDatabase;
 import ch.nolix.techapi.objectschemaapi.schemaapi.IDatabaseEngine;
 import ch.nolix.techapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.techapi.rawobjectschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //class
-public final class Database extends DatabaseObject implements IDatabase {
+public final class Database extends DatabaseObject implements IDatabase<SchemaImplementation> {
 	
 	//static attributes
 	private static final DatabaseMutationValidator mutationValidator = new DatabaseMutationValidator();
@@ -25,7 +26,7 @@ public final class Database extends DatabaseObject implements IDatabase {
 	private RawSchemaAdapter rawSchemaAdapter;
 	
 	//multi-attribute
-	private LinkedList<ITable> tables = new LinkedList<>();
+	private LinkedList<ITable<SchemaImplementation>> tables = new LinkedList<>();
 	
 	//constructor
 	public Database(final String name) {
@@ -37,10 +38,10 @@ public final class Database extends DatabaseObject implements IDatabase {
 	
 	//method
 	@Override
-	public Database addTable(final ITable table) {
+	public Database addTable(final ITable<SchemaImplementation> table) {
 		
-		mutationValidator.assertCanAddTableToDatabase(this, table);
-		mutationExecutor.addTableToDatabase(this, table);
+		mutationValidator.assertCanAddTableToDatabase(this, (Table)table);
+		mutationExecutor.addTableToDatabase(this, (Table)table);
 		
 		return this;
 	}
@@ -66,14 +67,14 @@ public final class Database extends DatabaseObject implements IDatabase {
 	
 	//method
 	@Override
-	public IDatabaseEngine getParentEngine() {
+	public IDatabaseEngine<SchemaImplementation> getParentEngine() {
 		//TODO: Implement.
 		return null;
 	}
 	
 	//method
 	@Override
-	public IContainer<ITable> getRefTables() {
+	public IContainer<ITable<SchemaImplementation>> getRefTables() {
 		
 		loadTablesFromDatabaseIfNeeded();
 		
@@ -101,7 +102,7 @@ public final class Database extends DatabaseObject implements IDatabase {
 	}
 	
 	//method
-	void addTableAttribute(final ITable table) {
+	void addTableAttribute(final ITable<SchemaImplementation> table) {
 		tables.addAtEnd(table);
 	}
 	

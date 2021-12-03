@@ -5,14 +5,14 @@ package ch.nolix.techapi.objectschemaapi.schemaapi;
 import ch.nolix.common.container.IContainer;
 
 //interface
-public interface IDatabaseEngine {
+public interface IDatabaseEngine<IMPL> {
 	
 	//method declaration
-	IDatabaseEngine addDatabase(IDatabase database);
+	IDatabaseEngine<IMPL> addDatabase(IDatabase<IMPL> database);
 	
 	//method declaration
-	IDatabaseEngine createDatabaseWithName(String name);
+	IDatabaseEngine<IMPL> createDatabaseWithName(String name);
 	
 	//method declaration
-	IContainer<IDatabase> getRefDatabases();
+	IContainer<IDatabase<IMPL>> getRefDatabases();
 }

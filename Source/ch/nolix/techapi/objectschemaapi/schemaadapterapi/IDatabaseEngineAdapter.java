@@ -6,8 +6,8 @@ import ch.nolix.common.skillapi.IChangeSaver;
 import ch.nolix.techapi.objectschemaapi.schemaapi.IDatabaseEngine;
 
 //interface
-public interface IDatabaseEngineAdapter extends IChangeSaver {
+public interface IDatabaseEngineAdapter<IMPL> extends IChangeSaver {
 	
 	//method declaration
-	IDatabaseEngine getRefDatabaseEngine();
+	IDatabaseEngine<IMPL> getRefDatabaseEngine();
 }

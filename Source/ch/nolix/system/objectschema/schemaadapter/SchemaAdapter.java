@@ -4,13 +4,15 @@ package ch.nolix.system.objectschema.schemaadapter;
 //own imports
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.programcontrol.groupcloseable.CloseController;
+import ch.nolix.system.objectschema.parametrizedpropertytype.SchemaImplementation;
 import ch.nolix.system.objectschema.schema.Database;
 import ch.nolix.system.objectschema.schema.Table;
 import ch.nolix.techapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.techapi.rawobjectschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //class
-public abstract class SchemaAdapter implements ch.nolix.techapi.objectschemaapi.schemaadapterapi.ISchemaAdapter {
+public abstract class SchemaAdapter
+implements ch.nolix.techapi.objectschemaapi.schemaadapterapi.ISchemaAdapter<SchemaImplementation> {
 	
 	//attributes
 	private final String databaseName;
@@ -27,7 +29,9 @@ public abstract class SchemaAdapter implements ch.nolix.techapi.objectschemaapi.
 	
 	//method
 	@Override
-	public ch.nolix.techapi.objectschemaapi.schemaadapterapi.ISchemaAdapter addTable(final ITable table) {
+	public ch.nolix.techapi.objectschemaapi.schemaadapterapi.ISchemaAdapter<SchemaImplementation> addTable(
+		final ITable<SchemaImplementation> table
+	) {
 		
 		getRefDatabase().addTable(table);
 		
@@ -35,7 +39,9 @@ public abstract class SchemaAdapter implements ch.nolix.techapi.objectschemaapi.
 	}
 	
 	//method
-	public ch.nolix.techapi.objectschemaapi.schemaadapterapi.ISchemaAdapter addTable(final Table... tables) {
+	public ch.nolix.techapi.objectschemaapi.schemaadapterapi.ISchemaAdapter<SchemaImplementation> addTable(
+		final Table... tables
+	) {
 		
 		//TODO: Move this implementation.
 		for (final var t : tables) {

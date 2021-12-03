@@ -8,11 +8,11 @@ import ch.nolix.techapi.objectschemaapi.schemaapi.IDatabase;
 import ch.nolix.techapi.objectschemaapi.schemaapi.ITable;
 
 //interface
-public interface ISchemaAdapter extends IChangeSaver, GroupCloseable {
+public interface ISchemaAdapter<IMPL> extends IChangeSaver, GroupCloseable {
 	
 	//method declaration
-	ISchemaAdapter addTable(ITable table);
+	ISchemaAdapter<IMPL> addTable(ITable<IMPL> table);
 	
 	//method declaration
-	IDatabase getRefDatabase();
+	IDatabase<IMPL> getRefDatabase();
 }

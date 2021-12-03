@@ -16,10 +16,10 @@ import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IParametrizedPropertyTyp
 public abstract class BaseParametrizedBackReferenceType extends ParametrizedPropertyType<String> {
 	
 	//attribute
-	private final IColumn backReferencedColumn;
+	private final IColumn<SchemaImplementation> backReferencedColumn;
 	
 	//constructor
-	public BaseParametrizedBackReferenceType(final IColumn backReferencedColumn) {
+	public BaseParametrizedBackReferenceType(final IColumn<SchemaImplementation> backReferencedColumn) {
 		
 		super(String.class);
 		
@@ -30,39 +30,39 @@ public abstract class BaseParametrizedBackReferenceType extends ParametrizedProp
 	
 	//method
 	@Override
-	public final IBaseParametrizedBackReferenceType asBaseParametrizedBackReferenceType() {
+	public final IBaseParametrizedBackReferenceType<SchemaImplementation> asBaseParametrizedBackReferenceType() {
 		//TODO: Implement.
 		return null;
 	}
 	
 	//method
 	@Override
-	public final IBaseParametrizedReferenceType asBaseParametrizedReferenceType() {
+	public final IBaseParametrizedReferenceType<SchemaImplementation> asBaseParametrizedReferenceType() {
 		//TODO: Implement.
 		return null;
 	}
 	
 	//method
 	@Override
-	public final IBaseParametrizedValueType<?> asBaseParametrizedValueType() {
+	public final IBaseParametrizedValueType<SchemaImplementation, ?> asBaseParametrizedValueType() {
 		//TODO: Implement.
 		return null;
 	}
 	
 	//method
-	public IColumn getBackReferencedColumn() {
+	public IColumn<SchemaImplementation> getBackReferencedColumn() {
 		return backReferencedColumn;
 	}
 	
 	//method
 	@Override
-	public final boolean referencesTable(final ITable table) {
+	public final boolean referencesTable(final ITable<?> table) {
 		return false;
 	}
 	
 	//method
 	@Override
-	public final boolean referencesBackColumn(final IColumn column) {
+	public final boolean referencesBackColumn(final IColumn<?> column) {
 		return (getBackReferencedColumn() == column);
 	}
 	
@@ -79,14 +79,14 @@ public abstract class BaseParametrizedBackReferenceType extends ParametrizedProp
 	}
 	
 	//method
-	private void assertIsAnyReferenceColumn(IColumn backReferencedColumn) {
+	private void assertIsAnyReferenceColumn(IColumn<SchemaImplementation> backReferencedColumn) {
 		if (!isAnyReferenceColumn(backReferencedColumn)) {
 			throw new InvalidArgumentException("back referenced column", backReferencedColumn, "is not any refence column");
 		}
 	}
 	
 	//method
-	private boolean isAnyReferenceColumn(IColumn backReferencedColumn) {
+	private boolean isAnyReferenceColumn(IColumn<SchemaImplementation> backReferencedColumn) {
 		return
 		backReferencedColumn.getParametrizedPropertyType().getPropertyType().getBaseType() ==
 		BasePropertyType.BASE_REFERENCE;

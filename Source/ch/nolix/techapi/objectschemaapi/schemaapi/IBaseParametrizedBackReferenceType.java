@@ -2,8 +2,8 @@
 package ch.nolix.techapi.objectschemaapi.schemaapi;
 
 //interface
-public interface IBaseParametrizedBackReferenceType extends IParametrizedPropertyType<String> {
+public interface IBaseParametrizedBackReferenceType<IMPL> extends IParametrizedPropertyType<IMPL, String> {
 	
 	//method declaration
-	IColumn getBackReferencedColumn();
+	IColumn<IMPL> getBackReferencedColumn();
 }

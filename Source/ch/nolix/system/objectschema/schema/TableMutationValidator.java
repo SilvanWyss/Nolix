@@ -9,8 +9,6 @@ import ch.nolix.system.objectschema.parametrizedpropertytype.BaseParametrizedRef
 import ch.nolix.system.objectschema.schemahelper.ColumnHelper;
 import ch.nolix.system.objectschema.schemahelper.DatabaseHelper;
 import ch.nolix.system.objectschema.schemahelper.TableHelper;
-import ch.nolix.techapi.objectschemaapi.schemaapi.IColumn;
-import ch.nolix.techapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.techapi.objectschemaapi.schemahelperapi.IColumnHelper;
 import ch.nolix.techapi.objectschemaapi.schemahelperapi.IDatabaseHelper;
 import ch.nolix.techapi.objectschemaapi.schemahelperapi.ITableHelper;
@@ -24,7 +22,7 @@ final class TableMutationValidator {
 	private static final IColumnHelper columnHelper = new ColumnHelper();
 	
 	//method
-	public void assertCanAddColumnToTable(final ITable table, final IColumn column) {
+	public void assertCanAddColumnToTable(final Table table, final Column column) {
 		
 		table.assertIsOpen();
 		tableHelper.assertDoesNotContainColumnWithGivenHeader(table, column.getHeader());
