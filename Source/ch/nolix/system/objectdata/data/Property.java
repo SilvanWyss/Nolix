@@ -3,10 +3,10 @@ package ch.nolix.system.objectdata.data;
 
 //own imports
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.system.objectdata.datahelper.PropertyHelper;
+import ch.nolix.system.objectdata.propertyhelper.PropertyHelper;
 import ch.nolix.techapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.techapi.objectdataapi.dataapi.IProperty;
-import ch.nolix.techapi.objectdataapi.datahelperapi.IPropertyHelper;
+import ch.nolix.techapi.objectdataapi.propertyhelperapi.IPropertyHelper;
 
 //class
 public abstract class Property implements IProperty<DataImplementation> {

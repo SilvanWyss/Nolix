@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.objectdata.datahelper;
+package ch.nolix.system.objectdata.propertyhelper;
 
 //own imports
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
@@ -7,7 +7,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotBelo
 import ch.nolix.system.database.databaseobjecthelper.DatabaseObjectHelper;
 import ch.nolix.techapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.techapi.objectdataapi.dataapi.IProperty;
-import ch.nolix.techapi.objectdataapi.datahelperapi.IPropertyHelper;
+import ch.nolix.techapi.objectdataapi.propertyhelperapi.IPropertyHelper;
 
 //class
 public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHelper {
