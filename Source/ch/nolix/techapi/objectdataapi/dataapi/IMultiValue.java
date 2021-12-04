@@ -6,6 +6,6 @@ import ch.nolix.common.container.IContainer;
 
 //interface
 public interface IMultiValue<
-	P extends IProperty<P>,
+	IMPL,
 	V
-> extends IContainer<V>, IBaseValue<P, V> {}
+> extends IContainer<V>, IBaseValue<IMPL, V> {}
