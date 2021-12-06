@@ -7,6 +7,8 @@ import ch.nolix.system.objectdata.propertyhelper.PropertyHelper;
 import ch.nolix.techapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.techapi.objectdataapi.dataapi.IProperty;
 import ch.nolix.techapi.objectdataapi.propertyhelperapi.IPropertyHelper;
+import ch.nolix.techapi.rawobjectdataapi.dataadapterapi.IDataAdapter;
+import ch.nolix.techapi.rawobjectdataapi.dataadapterapi.IDataReader;
 
 //class
 public abstract class Property implements IProperty<DataImplementation> {
@@ -39,7 +41,12 @@ public abstract class Property implements IProperty<DataImplementation> {
 	}
 	
 	//method
-	final void setParentEntity(final Entity parentEntity) {
+	protected final IDataAdapter getRefDataAdapter() {
+		return parentEntity.internalGetRefDataAdapter();
+	}
+	
+	//method
+	protected final void setParentEntity(final Entity parentEntity) {
 		
 		Validator.assertThat(parentEntity).thatIsNamed("parent entity").isNotNull();
 		

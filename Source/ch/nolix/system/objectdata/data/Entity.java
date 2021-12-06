@@ -12,6 +12,7 @@ import ch.nolix.techapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.techapi.objectdataapi.dataapi.IProperty;
 import ch.nolix.techapi.objectdataapi.dataapi.ITable;
 import ch.nolix.techapi.objectdataapi.datahelperapi.IEntityHelper;
+import ch.nolix.techapi.rawobjectdataapi.dataadapterapi.IDataAdapter;
 
 //class
 public abstract class Entity extends DatabaseObject implements IEntity<DataImplementation> {
@@ -92,6 +93,11 @@ public abstract class Entity extends DatabaseObject implements IEntity<DataImple
 	//method
 	@Override
 	protected final void noteCloseDatabaseObject() {}
+	
+	//method
+	final IDataAdapter internalGetRefDataAdapter() {
+		return parentTable.internalGetRefDataAdapter();
+	}
 	
 	//method
 	private void deleteActually() {

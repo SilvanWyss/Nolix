@@ -3,6 +3,7 @@ package ch.nolix.system.objectdata.data;
 
 //own imports
 import ch.nolix.techapi.objectdataapi.dataapi.IDatabase;
+import ch.nolix.techapi.rawobjectdataapi.dataadapterapi.IDataAdapter;
 
 //class
 public final class Database extends DatabaseObject implements IDatabase<DataImplementation> {
@@ -25,5 +26,11 @@ public final class Database extends DatabaseObject implements IDatabase<DataImpl
 	@Override
 	protected void noteCloseDatabaseObject() {
 		//TODO: Implement.
+	}
+	
+	//method
+	IDataAdapter internalGetRefDataAdapter() {
+		//TODO: Implement.
+		return null;
 	}
 }

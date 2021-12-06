@@ -9,6 +9,7 @@ import ch.nolix.techapi.objectdataapi.dataapi.IColumn;
 import ch.nolix.techapi.objectdataapi.dataapi.IDatabase;
 import ch.nolix.techapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.techapi.objectdataapi.dataapi.ITable;
+import ch.nolix.techapi.rawobjectdataapi.dataadapterapi.IDataAdapter;
 
 //class
 public final class Table extends DatabaseObject implements ITable<DataImplementation> {
@@ -83,4 +84,9 @@ public final class Table extends DatabaseObject implements ITable<DataImplementa
 	//method
 	@Override
 	protected void noteCloseDatabaseObject() {}
+	
+	//method
+	IDataAdapter internalGetRefDataAdapter() {
+		return parentDatabase.internalGetRefDataAdapter();
+	}
 }
