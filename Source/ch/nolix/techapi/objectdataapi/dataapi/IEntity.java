@@ -20,6 +20,9 @@ public interface IEntity<IMPL> extends Deletable, IDatabaseObject, IdentifiedByS
 	//method declaration
 	IContainer<IProperty<IMPL>> getRefProperties();
     
+	//method declaration
+	String getSaveStamp();
+	
     //method declaration
     boolean isBackReferenced();
 	
