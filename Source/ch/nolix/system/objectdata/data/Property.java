@@ -8,7 +8,6 @@ import ch.nolix.techapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.techapi.objectdataapi.dataapi.IProperty;
 import ch.nolix.techapi.objectdataapi.propertyhelperapi.IPropertyHelper;
 import ch.nolix.techapi.rawobjectdataapi.dataadapterapi.IDataAdapter;
-import ch.nolix.techapi.rawobjectdataapi.dataadapterapi.IDataReader;
 
 //class
 public abstract class Property implements IProperty<DataImplementation> {
