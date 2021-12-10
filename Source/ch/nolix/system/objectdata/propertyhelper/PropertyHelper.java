@@ -14,7 +14,7 @@ public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHel
 	
 	//method
 	@Override
-	public void assertBelongsToEntity(final IProperty<?> property) {
+	public final void assertBelongsToEntity(final IProperty<?> property) {
 		if (!property.belongsToEntity()) {
 			throw new ArgumentDoesNotBelongToParentException(property, IEntity.class);
 		}
@@ -22,7 +22,7 @@ public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHel
 	
 	//method
 	@Override
-	public void assertDoesNotBelongToEntity(final IProperty<?> property) {
+	public final void assertDoesNotBelongToEntity(final IProperty<?> property) {
 		if (property.belongsToEntity()) {
 			throw new ArgumentBelongsToParentException(property, property.getParentEntity());
 		}
