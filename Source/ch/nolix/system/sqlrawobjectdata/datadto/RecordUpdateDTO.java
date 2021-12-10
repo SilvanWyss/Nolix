@@ -4,6 +4,8 @@ package ch.nolix.system.sqlrawobjectdata.datadto;
 //own imports
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
+import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IContentFieldDTO;
 import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
@@ -40,6 +42,24 @@ public final class RecordUpdateDTO implements IRecordUpdateDTO {
 		this.id = id;
 		this.saveStamp = saveStamp;
 		this.updatedContentFields = updatedContentFields;
+	}
+	
+	//constructor
+	public RecordUpdateDTO(
+		final String id,
+		final String saveStamp,
+		final IContentFieldDTO updatedContentField
+	) {
+		this(id, saveStamp, LinkedList.withElements(updatedContentField));
+	}
+	
+	//constructor
+	public RecordUpdateDTO(
+		final String id,
+		final String saveStamp,
+		final IContentFieldDTO... updatedContentFields
+	) {
+		this(id, saveStamp, ReadContainer.forArray(updatedContentFields));
 	}
 	
 	//method
