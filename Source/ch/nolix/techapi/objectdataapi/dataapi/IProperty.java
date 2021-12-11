@@ -2,10 +2,11 @@
 package ch.nolix.techapi.objectdataapi.dataapi;
 
 //own imports
+import ch.nolix.common.attributeapi.mandatoryattributeapi.Named;
 import ch.nolix.techapi.databaseapi.propertytypeapi.PropertyType;
 
 //interface
-public interface IProperty<IMPL> {
+public interface IProperty<IMPL> extends Named {
 	
 	//method declaration
 	boolean belongsToEntity();

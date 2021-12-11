@@ -16,6 +16,11 @@ public final class OptionalValue<V> extends BaseValue<V> implements IOptionalVal
 	//optional attribute
 	private V internalValue;
 	
+	//constructor
+	public OptionalValue(final String name) {
+		super(name);
+	}
+	
 	//method
 	@Override
 	public void clear() {

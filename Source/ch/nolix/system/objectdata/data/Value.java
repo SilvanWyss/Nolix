@@ -16,6 +16,11 @@ public final class Value<V> extends BaseValue<V> implements IValue<DataImplement
 	//optional attribute
 	private V internalValue;
 	
+	//constructor
+	public Value(final String name) {
+		super(name);
+	}
+	
 	//method
 	@Override
 	public V getRefValue() {
