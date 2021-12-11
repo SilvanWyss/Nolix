@@ -20,7 +20,8 @@ public final class MultiValueHelper extends PropertyHelper implements IMultiValu
 		
 		final var parentEntity = multiValue.getParentEntity();
 		
-		return new RecordUpdateDTO(
+		return
+		new RecordUpdateDTO(
 			parentEntity.getId(),
 			parentEntity.getSaveStamp(),
 			new ContentFieldDTO(multiValue.getName(), multiValue)
