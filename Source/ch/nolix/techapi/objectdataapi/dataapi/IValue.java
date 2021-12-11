@@ -9,4 +9,7 @@ public interface IValue<IMPL, V> extends IBaseValue<IMPL, V> {
 	
 	//method declaration
 	boolean hasValue();
+	
+	//method declaration
+	void setValue(V value);
 }
