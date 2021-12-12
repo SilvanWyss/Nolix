@@ -23,6 +23,9 @@ public interface IEntity<IMPL> extends Deletable, IDatabaseObject, IdentifiedByS
 	//method declaration
 	String getSaveStamp();
 	
+	//method declaration
+	boolean hasSaveStamp();
+	
     //method declaration
     boolean isBackReferenced();
 	

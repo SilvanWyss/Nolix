@@ -2,7 +2,9 @@
 package ch.nolix.system.objectdata.datahelper;
 
 //own imports
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ReferencedArgumentException;
 import ch.nolix.system.database.databaseobjecthelper.DatabaseObjectHelper;
@@ -11,11 +13,11 @@ import ch.nolix.techapi.objectdataapi.dataapi.ITable;
 import ch.nolix.techapi.objectdataapi.datahelperapi.IEntityHelper;
 
 //class
-public final class EntityHelper extends DatabaseObjectHelper implements IEntityHelper {
+public class EntityHelper extends DatabaseObjectHelper implements IEntityHelper {
 	
 	//method
 	@Override
-	public void assertBelongsToTable(final IEntity<?> entity) {
+	public final void assertBelongsToTable(final IEntity<?> entity) {
 		if (!entity.belongsToTable()) {
 			throw new ArgumentDoesNotBelongToParentException(entity, ITable.class);
 		}
@@ -23,7 +25,7 @@ public final class EntityHelper extends DatabaseObjectHelper implements IEntityH
 	
 	//method
 	@Override
-	public void assertCanBeDeleted(IEntity<?> entity) {
+	public final void assertCanBeDeleted(final IEntity<?> entity) {
 		if (!canBeDeleted(entity)) {
 			throw new InvalidArgumentException(entity, "cannot be deleted");
 		}
@@ -31,7 +33,15 @@ public final class EntityHelper extends DatabaseObjectHelper implements IEntityH
 	
 	//method
 	@Override
-	public void assertIsNotBackReferenced(final IEntity<?> entity) {
+	public final void assertHasSaveStamp(final IEntity<?> entity) {
+		if (!entity.hasSaveStamp()) {
+			throw new ArgumentDoesNotHaveAttributeException(entity, LowerCaseCatalogue.SAVE_STAMP);
+		}
+	}
+	
+	//method
+	@Override
+	public final void assertIsNotBackReferenced(final IEntity<?> entity) {
 		if (entity.isBackReferenced()) {
 			throw new InvalidArgumentException(entity, "is back referenced");
 		}
@@ -39,7 +49,7 @@ public final class EntityHelper extends DatabaseObjectHelper implements IEntityH
 	
 	//method
 	@Override
-	public void assertIsNotReferenced(final IEntity<?> entity) {
+	public final void assertIsNotReferenced(final IEntity<?> entity) {
 		if (isReferenced(entity)) {
 			throw new ReferencedArgumentException(entity);
 		}
@@ -47,31 +57,31 @@ public final class EntityHelper extends DatabaseObjectHelper implements IEntityH
 	
 	//method
 	@Override
-	public boolean canBeDeleted(final IEntity<?> entity) {
+	public final boolean canBeDeleted(final IEntity<?> entity) {
 		return (isLoaded(entity) && !isReferenced(entity));
 	}
 	
 	//method
 	@Override
-	public boolean canBeInsertedIntoTable(final IEntity<?> entity) {
+	public final boolean canBeInsertedIntoTable(final IEntity<?> entity) {
 		return isNew(entity) && !referencesUninsertedEntity(entity);
 	}
 	
 	//method
 	@Override
-	public boolean isReferenced(IEntity<?> entity) {
+	public final boolean isReferenced(final IEntity<?> entity) {
 		return (isReferencedInLocalData(entity) || entity.isReferencedInPersistedData());
 	}
 	
 	//method
 	@Override
-	public <IMPL> boolean isReferencedInLocalData(final IEntity<IMPL> entity) {
+	public final <IMPL> boolean isReferencedInLocalData(final IEntity<IMPL> entity) {
 		return entity.getParentTable().getReferencingColumns().containsAny(rc -> rc.referencesInLocalData(entity));
 	}
 	
 	//method
 	@Override
-	public boolean referencesUninsertedEntity(final IEntity<?> entity) {
+	public final boolean referencesUninsertedEntity(final IEntity<?> entity) {
 		//TODO: Implement.
 		return false;
 	}

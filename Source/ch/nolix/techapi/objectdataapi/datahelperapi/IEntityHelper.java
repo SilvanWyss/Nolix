@@ -15,6 +15,9 @@ public interface IEntityHelper extends IDatabaseObjectHelper {
 	void assertCanBeDeleted(IEntity<?> entity);
 	
 	//method declaration
+	void assertHasSaveStamp(IEntity<?> entity);
+	
+	//method declaration
 	void assertIsNotBackReferenced(IEntity<?> entity);
 	
 	//method declaration
