@@ -12,7 +12,7 @@ import ch.nolix.techapi.objectdataapi.dataapi.ITable;
 import ch.nolix.techapi.rawobjectdataapi.dataadapterapi.IDataAdapter;
 
 //class
-public final class Table extends DatabaseObject implements ITable<DataImplementation> {
+public final class Table extends ImmutableDatabaseObject implements ITable<DataImplementation> {
 	
 	//attributes
 	private final String name;
@@ -74,16 +74,6 @@ public final class Table extends DatabaseObject implements ITable<DataImplementa
 		//TODO: Implement.
 		return null;
 	}
-	
-	//method
-	@Override
-	public boolean isLinkedWithRealDatabase() {
-		return getParentDatabase().isLinkedWithRealDatabase();
-	}
-	
-	//method
-	@Override
-	protected void noteCloseDatabaseObject() {}
 	
 	//method
 	IDataAdapter internalGetRefDataAdapter() {

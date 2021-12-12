@@ -6,26 +6,13 @@ import ch.nolix.techapi.objectdataapi.dataapi.IDatabase;
 import ch.nolix.techapi.rawobjectdataapi.dataadapterapi.IDataAdapter;
 
 //class
-public final class Database extends DatabaseObject implements IDatabase<DataImplementation> {
+public final class Database extends ImmutableDatabaseObject implements IDatabase<DataImplementation> {
 	
 	//method	
 	@Override
 	public Table getRefTableByName(final String name) {
 		//TODO: Implement.
 		return null;
-	}
-	
-	//method
-	@Override
-	public boolean isLinkedWithRealDatabase() {
-		//TODO: Implement.
-		return false;
-	}
-	
-	//method
-	@Override
-	protected void noteCloseDatabaseObject() {
-		//TODO: Implement.
 	}
 	
 	//method

@@ -9,7 +9,7 @@ import ch.nolix.techapi.databaseapi.databaseobjectapi.IDatabaseObject;
 import ch.nolix.techapi.databaseapi.databaseobjecthelperapi.IDatabaseObjectHelper;
 
 //class
-public abstract class DatabaseObjectHelper implements IDatabaseObjectHelper {
+public class DatabaseObjectHelper implements IDatabaseObjectHelper {
 	
 	//method
 	@Override
