@@ -31,6 +31,8 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<Dat
 		
 		values.addAtEnd(value);
 		
+		noteParentEntityForAddValue();
+		
 		updateRecordForAddValue(value);
 	}
 	
@@ -65,9 +67,16 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<Dat
 	}
 	
 	//method
+	private void noteParentEntityForAddValue() {
+		if (belongsToEntity()) {
+			internalGetParentEntity().internalSetEdited();
+		}
+	}
+	
+	//method
 	private void updateRecordForAddValue(final V value) {
 		if (isLinkedWithRealDatabase()) {
-			getRefDataAdapter().updateRecordOnTable(
+			internalGetRefDataAdapter().updateRecordOnTable(
 				getParentEntity().getParentTable().getName(),
 				multiValueHelper.createRecordUpdateDTOForAddedValue(this, value)
 			);

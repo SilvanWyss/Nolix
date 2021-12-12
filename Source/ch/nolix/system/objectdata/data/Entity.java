@@ -100,6 +100,11 @@ public abstract class Entity extends DatabaseObject implements IEntity<DataImple
 	}
 	
 	//method
+	final void internalSetEdited() {
+		//TODO: Implement.
+	}
+	
+	//method
 	private void deleteActually() {
 		//TODO: Implement.
 	}

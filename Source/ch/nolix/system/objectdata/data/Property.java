@@ -45,10 +45,7 @@ public abstract class Property implements IProperty<DataImplementation> {
 	//method
 	@Override
 	public final IEntity<DataImplementation> getParentEntity() {
-		
-		propertyHelper.assertBelongsToEntity(this);
-		
-		return parentEntity;
+		return internalGetParentEntity();
 	}
 	
 	//method
@@ -58,12 +55,20 @@ public abstract class Property implements IProperty<DataImplementation> {
 	}
 	
 	//method
-	protected final IDataAdapter getRefDataAdapter() {
+	final Entity internalGetParentEntity() {
+		
+		propertyHelper.assertBelongsToEntity(this);
+		
+		return parentEntity;
+	}
+	
+	//method
+	final IDataAdapter internalGetRefDataAdapter() {
 		return parentEntity.internalGetRefDataAdapter();
 	}
 	
 	//method
-	protected final void setParentEntity(final Entity parentEntity) {
+	final void internalSetParentEntity(final Entity parentEntity) {
 		
 		Validator.assertThat(parentEntity).thatIsNamed("parent entity").isNotNull();
 		

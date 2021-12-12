@@ -48,23 +48,32 @@ public final class Value<V> extends BaseValue<V> implements IValue<DataImplement
 	@Override
 	public void setValue(final V value) {
 		
-		Validator.assertThat(value).thatIsNamed(LowerCaseCatalogue.VALUE).isNotNull();
+		setAttributeForSetValue(value);
 		
-		setValueWhenGivenValueIsNotNull(value);
-	}
-	
-	//method
-	private void setValueWhenGivenValueIsNotNull(final V value) {
-		
-		internalValue = value;
+		noteParentEntityForSetValue();
 		
 		updateRecordForSetValue(value);
 	}
 	
 	//method
+	private void noteParentEntityForSetValue() {
+		if (belongsToEntity()) {
+			internalGetParentEntity().internalSetEdited();
+		}
+	}
+	
+	//method
+	private void setAttributeForSetValue(final V value) {
+		
+		Validator.assertThat(value).thatIsNamed(LowerCaseCatalogue.VALUE).isNotNull();
+		
+		internalValue = value;
+	}
+	
+	//method
 	private void updateRecordForSetValue(final V value) {
 		if (isLinkedWithRealDatabase()) {
-			getRefDataAdapter().updateRecordOnTable(
+			internalGetRefDataAdapter().updateRecordOnTable(
 				getParentEntity().getParentTable().getName(),
 				valueHelper.createRecordUpdateDTOForSetValue(this, value)
 			);
