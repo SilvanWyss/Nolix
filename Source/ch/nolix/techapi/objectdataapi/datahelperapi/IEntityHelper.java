@@ -4,6 +4,7 @@ package ch.nolix.techapi.objectdataapi.datahelperapi;
 //own imports
 import ch.nolix.techapi.databaseapi.databaseobjecthelperapi.IDatabaseObjectHelper;
 import ch.nolix.techapi.objectdataapi.dataapi.IEntity;
+import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IRecordDeletionDTO;
 
 //interface
 public interface IEntityHelper extends IDatabaseObjectHelper {
@@ -28,6 +29,9 @@ public interface IEntityHelper extends IDatabaseObjectHelper {
 	
 	//method
 	boolean canBeInsertedIntoTable(IEntity<?> entity);
+	
+	//method declaration
+	IRecordDeletionDTO createRecordDeletionDTOForEntity(IEntity<?> entity);
 	
 	//method declaration
 	boolean isReferenced(IEntity<?> entity);

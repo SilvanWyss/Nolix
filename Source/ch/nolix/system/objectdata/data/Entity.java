@@ -7,6 +7,8 @@ import java.util.UUID;
 //own imports
 import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.container.IContainer;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ClosedArgumentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.DeletedArgumentException;
 import ch.nolix.common.programcontrol.groupcloseable.CloseController;
 import ch.nolix.common.programcontrol.groupcloseable.GroupCloseable;
 import ch.nolix.system.objectdata.datahelper.EntityHelper;
@@ -20,9 +22,8 @@ import ch.nolix.techapi.rawobjectdataapi.dataadapterapi.IDataAdapter;
 //class
 public abstract class Entity implements GroupCloseable, IEntity<DataImplementation> {
 	
-	//static attributes
+	//static attribute
 	private static final IEntityHelper entityHelper = new EntityHelper();
-	private static final EntityMutationValidator mutationValidator = new EntityMutationValidator();
 	
 	//attributes
 	private String id = UUID.randomUUID().toString().replace(StringCatalogue.MINUS, StringCatalogue.EMPTY_STRING);
@@ -43,9 +44,9 @@ public abstract class Entity implements GroupCloseable, IEntity<DataImplementati
 	@Override
 	public final void delete() {
 		
-		mutationValidator.assertCanDeleteEntity(this);
+		entityHelper.assertCanBeDeleted(this);
 		
-		deleteActually();
+		deleteWhenCanBeDeleted();
 	}
 	
 	//method
@@ -142,11 +143,29 @@ public abstract class Entity implements GroupCloseable, IEntity<DataImplementati
 	
 	//method
 	final void internalSetEdited() {
-		//TODO: Implement.
+		switch (getState()) {
+			case NEW:
+				break;
+			case LOADED:
+				state = DatabaseObjectState.EDITED;
+				break;
+			case EDITED:
+				break;
+			case DELETED:
+				throw new DeletedArgumentException(this);
+			case CLOSED:
+				throw new ClosedArgumentException(this);
+		}
 	}
 	
 	//method
-	private void deleteActually() {
-		//TODO: Implement.
+	private void deleteWhenCanBeDeleted() {
+		
+		state = DatabaseObjectState.DELETED;
+		
+		internalGetRefDataAdapter().deleteRecordFromTable(
+			getParentTable().getName(),
+			entityHelper.createRecordDeletionDTOForEntity(this)
+		);
 	}
 }

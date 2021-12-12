@@ -8,9 +8,11 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHave
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ReferencedArgumentException;
 import ch.nolix.system.database.databaseobjecthelper.DatabaseObjectHelper;
+import ch.nolix.system.sqlrawobjectdata.datadto.RecordDeletionDTO;
 import ch.nolix.techapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.techapi.objectdataapi.dataapi.ITable;
 import ch.nolix.techapi.objectdataapi.datahelperapi.IEntityHelper;
+import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IRecordDeletionDTO;
 
 //class
 public class EntityHelper extends DatabaseObjectHelper implements IEntityHelper {
@@ -65,6 +67,12 @@ public class EntityHelper extends DatabaseObjectHelper implements IEntityHelper 
 	@Override
 	public final boolean canBeInsertedIntoTable(final IEntity<?> entity) {
 		return isNew(entity) && !referencesUninsertedEntity(entity);
+	}
+	
+	//method
+	@Override
+	public final IRecordDeletionDTO createRecordDeletionDTOForEntity(IEntity<?> entity) {
+		return new RecordDeletionDTO(entity.getId(), entity.getSaveStamp());
 	}
 	
 	//method
