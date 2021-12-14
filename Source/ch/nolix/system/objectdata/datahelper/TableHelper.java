@@ -15,13 +15,13 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
 	
 	//method
 	@Override
-	public boolean canInsertEntity(final ITable<?> table) {
+	public boolean canInsertEntity(final ITable<?, ?> table) {
 		return table.isOpen();
 	}
 	
 	//method
 	@Override
-	public boolean canInsertGivenEntity(ITable<?> table, IEntity<?> entity) {
+	public boolean canInsertGivenEntity(ITable<?, ?> table, IEntity<?> entity) {
 		return
 		canInsertEntity(table)
 		&& entityHelper.canBeInsertedIntoTable(entity)
@@ -30,7 +30,7 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
 	
 	//method
 	@Override
-	public boolean hasInsertedGivenEntity(final ITable<?> table, final IEntity<?> entity) {
+	public boolean hasInsertedGivenEntity(final ITable<?, ?> table, final IEntity<?> entity) {
 		return table.hasInsertedEntityWithId(entity.getId());
 	}
 }

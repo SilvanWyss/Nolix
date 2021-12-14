@@ -12,7 +12,8 @@ import ch.nolix.techapi.objectdataapi.dataapi.ITable;
 import ch.nolix.techapi.rawobjectdataapi.dataadapterapi.IDataAdapter;
 
 //class
-public final class Table extends ImmutableDatabaseObject implements ITable<DataImplementation> {
+public final class Table<E extends IEntity<DataImplementation>> extends ImmutableDatabaseObject
+implements ITable<DataImplementation, E> {
 	
 	//attributes
 	private final String name;
@@ -42,14 +43,14 @@ public final class Table extends ImmutableDatabaseObject implements ITable<DataI
 	
 	//method
 	@Override
-	public IContainer<IEntity<DataImplementation>> getRefAllEntities() {
+	public IContainer<E> getRefAllEntities() {
 		//TODO: Implement.
 		return null;
 	}
 	
 	//method
 	@Override
-	public Entity getRefEntityById(final String id) {
+	public E getRefEntityById(final String id) {
 		//TODO: Implement.
 		return null;
 	}
@@ -70,7 +71,7 @@ public final class Table extends ImmutableDatabaseObject implements ITable<DataI
 	
 	//method
 	@Override
-	public ITable<DataImplementation> insert(final IEntity<DataImplementation> entity) {
+	public ITable<DataImplementation, E> insert(final E entity) {
 		//TODO: Implement.
 		return null;
 	}

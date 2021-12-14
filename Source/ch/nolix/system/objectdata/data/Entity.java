@@ -31,7 +31,7 @@ public abstract class Entity implements GroupCloseable, IEntity<DataImplementati
 	private final CloseController closeController = new CloseController(this);
 	
 	//optional attributes
-	private Table parentTable;
+	private Table<IEntity<DataImplementation>> parentTable;
 	private String saveStamp;
 	
 	//method
@@ -57,7 +57,7 @@ public abstract class Entity implements GroupCloseable, IEntity<DataImplementati
 	
 	//method
 	@Override
-	public final ITable<DataImplementation> getParentTable() {
+	public final ITable<DataImplementation, IEntity<DataImplementation>> getParentTable() {
 		
 		entityHelper.assertBelongsToTable(this);
 		

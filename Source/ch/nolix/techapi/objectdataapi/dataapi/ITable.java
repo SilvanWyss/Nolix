@@ -7,16 +7,19 @@ import ch.nolix.common.container.IContainer;
 import ch.nolix.techapi.databaseapi.databaseobjectapi.IDatabaseObject;
 
 //interface
-public interface ITable<IMPL> extends IDatabaseObject, Named {
+public interface ITable<
+	IMPL,
+	E extends IEntity<IMPL>
+> extends IDatabaseObject, Named {
 	
 	//method declaration
 	IDatabase<IMPL> getParentDatabase();
 	
 	//method declaration
-	IContainer<IEntity<IMPL>> getRefAllEntities();
+	IContainer<E> getRefAllEntities();
 	
 	//method declaration
-	IEntity<IMPL> getRefEntityById(String id);
+	E getRefEntityById(String id);
 	
 	//method
 	IContainer<IColumn<IMPL>> getReferencingColumns();
@@ -25,5 +28,5 @@ public interface ITable<IMPL> extends IDatabaseObject, Named {
 	boolean hasInsertedEntityWithId(String id);
 	
 	//method declaration
-	ITable<IMPL> insert(IEntity<IMPL> entity);
+	ITable<IMPL, E> insert(E entity);
 }

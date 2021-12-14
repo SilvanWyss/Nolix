@@ -15,7 +15,7 @@ public interface IEntity<IMPL> extends Deletable, IDatabaseObject, IdentifiedByS
 	boolean belongsToTable();
 	
 	//method declaration
-	ITable<IMPL> getParentTable();
+	ITable<IMPL, IEntity<IMPL>> getParentTable();
 	
 	//method declaration
 	IContainer<IProperty<IMPL>> getRefProperties();

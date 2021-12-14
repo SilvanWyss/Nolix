@@ -12,7 +12,7 @@ public interface IColumn<IMPL> extends Headered, IDatabaseObject {
 	IParametrizedPropertyType<IMPL> getParametrizedPropertyType();
 	
 	//method declaration
-	ITable<IMPL> getParentTable();
+	ITable<IMPL, IEntity<IMPL>> getParentTable();
 	
 	//method declaration
 	boolean referencesInLocalData(IEntity<IMPL> entity);

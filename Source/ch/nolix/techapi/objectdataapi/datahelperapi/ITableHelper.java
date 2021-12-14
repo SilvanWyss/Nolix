@@ -10,11 +10,11 @@ import ch.nolix.techapi.objectdataapi.dataapi.ITable;
 public interface ITableHelper extends IDatabaseObjectHelper {
 	
 	//method declaration
-	boolean canInsertEntity(ITable<?> table);
+	boolean canInsertEntity(ITable<?, ?> table);
 	
 	//method declaration
-	boolean canInsertGivenEntity(ITable<?> table, IEntity<?> entity);
+	boolean canInsertGivenEntity(ITable<?, ?> table, IEntity<?> entity);
 	
 	//method declaration
-	boolean hasInsertedGivenEntity(ITable<?> table, IEntity<?> entity);
+	boolean hasInsertedGivenEntity(ITable<?, ?> table, IEntity<?> entity);
 }
