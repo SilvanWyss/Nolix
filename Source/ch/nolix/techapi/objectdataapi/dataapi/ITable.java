@@ -13,6 +13,9 @@ public interface ITable<
 > extends IDatabaseObject, Named {
 	
 	//method declaration
+	Class<E> getEntityClass();
+	
+	//method declaration
 	IDatabase<IMPL> getParentDatabase();
 	
 	//method declaration

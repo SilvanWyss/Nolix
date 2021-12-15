@@ -17,16 +17,25 @@ implements ITable<DataImplementation, E> {
 	
 	//attributes
 	private final String name;
+	private final Class<E> entityClass;
 	private final Database parentDatabase;
 	
 	//constructor
-	Table(final String name, final Database parentDatabase) {
+	Table(final String name, final Class<E> entityClass, final Database parentDatabase) {
 		
 		Validator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
+		Validator.assertThat(entityClass).thatIsNamed("entity class").isNotNull();
 		Validator.assertThat(parentDatabase).thatIsNamed("parent Database").isNotNull();
 		
 		this.name = name;
+		this.entityClass = entityClass;
 		this.parentDatabase = parentDatabase;
+	}
+	
+	//method
+	@Override
+	public Class<E> getEntityClass() {
+		return entityClass;
 	}
 	
 	//method
