@@ -15,20 +15,32 @@ implements IReference<DataImplementation, E> {
 	//static attribute
 	private static final IReferenceHelper referenceHelper = new ReferenceHelper();
 	
+	//static method
+	public static <E2 extends Entity> Reference<E2> forEntity(final Class<E2> type) {
+		return new Reference<>(type.getSimpleName());
+	}
+	
 	//optional attributes
 	private String referencedEntityId;
 	
 	//constructor
-	public Reference() {
-		//TODO
-		super(null);
+	private Reference(final String referencedTableName) {
+		super(referencedTableName);
 	}
 	
 	//method
 	@Override
-	public boolean canReference(final IEntity<DataImplementation> entity) {
-		// TODO Auto-generated method stub
-		return false;
+	public String getEntityId() {
+		
+		referenceHelper.assertReferencesEntity(this);
+		
+		return referencedEntityId;
+	}
+	
+	//method
+	@Override
+	public E getRefEntity() {
+		return getReferencedTable().getRefEntityById(getEntityId());
 	}
 	
 	//method
@@ -40,15 +52,10 @@ implements IReference<DataImplementation, E> {
 	//method
 	@Override
 	public boolean references(final IEntity<DataImplementation> entity) {
-		//TODO: Implement.
-		return false;
-	}
-	
-	//method
-	@Override
-	public E getRefEntity() {
-		//TODO: Implement.
-		return null;
+		return
+		referencesEntity()
+		&& entity != null
+		&& getEntityId().equals(entity.getId());
 	}
 	
 	//method
@@ -62,13 +69,5 @@ implements IReference<DataImplementation, E> {
 	public IReference<DataImplementation, E> setEntity(final E entity) {
 		//TODO: Implement.
 		return this;
-	}
-	
-	//method
-	private String getReferencedEntityId() {
-		
-		referenceHelper.assertReferencesEntity(this);
-		
-		return referencedEntityId;
 	}
 }

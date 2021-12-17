@@ -8,6 +8,9 @@ public interface IReference<
 > extends IBaseReference<IMPL, E> {
 	
 	//method declaration
+	String getEntityId();
+	
+	//method declaration
 	E getRefEntity();
 	
 	//method declaration

@@ -24,16 +24,24 @@ implements IBaseReference<DataImplementation, E> {
 		
 		this.referencedTableName = referencedTableName;
 	}
-	
+		
 	//method
 	@Override
-	public boolean canReferenceBack(final IEntity<DataImplementation> entity) {
+	public final boolean canReference(final IEntity<DataImplementation> entity) {
+		return
+		entity != null
+		&& getReferencedTable().getEntityClass() == entity.getClass();
+	}
+		
+	//method
+	@Override
+	public final boolean canReferenceBack(final IEntity<DataImplementation> entity) {
 		return false;
 	}
 	
 	//method
 	@Override
-	public boolean canReferenceBackEntityOfType(final Class<IEntity<DataImplementation>> type) {
+	public final boolean canReferenceBackEntityOfType(final Class<IEntity<DataImplementation>> type) {
 		return false;
 	}
 	
@@ -54,7 +62,7 @@ implements IBaseReference<DataImplementation, E> {
 	
 	//method
 	@Override
-	public boolean referencesBack(final IEntity<DataImplementation> entity) {
+	public final boolean referencesBack(final IEntity<DataImplementation> entity) {
 		return false;
 	}
 	

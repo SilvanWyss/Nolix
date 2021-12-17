@@ -15,4 +15,7 @@ extends Clearable, IBaseReference<IMPL, E> {
 	
 	//method declaration
 	E getRefEntity();
+	
+	//method declaration
+	IOptionalReference<IMPL, E> setEntity(E entity);
 }

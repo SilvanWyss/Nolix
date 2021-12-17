@@ -15,21 +15,17 @@ implements IOptionalReference<DataImplementation, E> {
 	//static attribute
 	private static final IOptionalReferenceHelper optionalReferenceHelper = new OptionalReferenceHelper();
 	
+	//static method
+	public static <E2 extends Entity> OptionalReference<E2> forEntity(final Class<E2> type) {
+		return new OptionalReference<>(type.getSimpleName());
+	}
+	
 	//optional attribute
 	private String referencedEntityId;
 	
 	//constructor
-	public OptionalReference() {
-		//TODO
-		super(null);
-	}
-	
-	//method
-	@Override
-	public boolean canReference(final IEntity<DataImplementation> entity) {
-		return
-		entity != null
-		&& getReferencedTable().getEntityClass() == entity.getClass();
+	private OptionalReference(final String referencedTableName) {
+		super(referencedTableName);
 	}
 	
 	//method
@@ -73,6 +69,13 @@ implements IOptionalReference<DataImplementation, E> {
 		containsAny()
 		&& entity != null
 		&& getEntityId().equals(entity.getId());
+	}
+	
+	//method
+	@Override
+	public IOptionalReference<DataImplementation, E> setEntity(final E entity) {
+		//TODO: Implement.
+		return this;
 	}
 	
 	//method
