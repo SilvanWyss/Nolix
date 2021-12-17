@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.system.objectdata.data;
 
-import ch.nolix.common.errorcontrol.validator.Validator;
 //own imports
+import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.techapi.objectdataapi.dataapi.IBaseReference;
 import ch.nolix.techapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.techapi.objectdataapi.dataapi.ITable;
@@ -37,6 +37,12 @@ implements IBaseReference<DataImplementation, E> {
 	@Override
 	public boolean canReferenceBackEntityOfType(final Class<IEntity<DataImplementation>> type) {
 		return false;
+	}
+	
+	//method
+	@Override
+	public final boolean canReferenceEntityOfType(final Class<IEntity<DataImplementation>> type) {
+		return (getReferencedTable().getEntityClass() == type);
 	}
 	
 	//method

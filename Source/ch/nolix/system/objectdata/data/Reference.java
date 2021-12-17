@@ -33,13 +33,6 @@ implements IReference<DataImplementation, E> {
 	
 	//method
 	@Override
-	public boolean canReferenceEntityOfType(final Class<IEntity<DataImplementation>> type) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-	
-	//method
-	@Override
 	public PropertyType getType() {
 		return PropertyType.REFERENCE;
 	}

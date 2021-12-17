@@ -15,7 +15,4 @@ extends Clearable, IBaseReference<IMPL, E> {
 	
 	//method declaration
 	E getRefEntity();
-	
-	//method declaration
-	boolean referencesEntity();
 }
