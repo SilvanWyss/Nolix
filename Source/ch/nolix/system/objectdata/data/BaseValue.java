@@ -8,11 +8,6 @@ import ch.nolix.techapi.objectdataapi.dataapi.IEntity;
 //class
 public abstract class BaseValue<V> extends Property implements IBaseValue<DataImplementation, V> {
 	
-	//constructor
-	public BaseValue(final String name) {
-		super(name);
-	}
-	
 	//method
 	@Override
 	public boolean canReference(final IEntity<DataImplementation> entity) {

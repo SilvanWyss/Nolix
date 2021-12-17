@@ -19,12 +19,7 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<Dat
 	
 	//multi-attribute
 	private final LinkedList<V> values = new LinkedList<>();
-	
-	//constructor
-	public MultiValue(final String name) {
-		super(name);
-	}
-	
+		
 	//method
 	@Override
 	public void addValue(V value) {

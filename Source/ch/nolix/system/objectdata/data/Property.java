@@ -2,8 +2,8 @@
 package ch.nolix.system.objectdata.data;
 
 //own imports
-import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.errorcontrol.validator.Validator;
+import ch.nolix.common.reflectionhelper.ReflectionHelper;
 import ch.nolix.system.objectdata.propertyhelper.PropertyHelper;
 import ch.nolix.techapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.techapi.objectdataapi.dataapi.IProperty;
@@ -17,18 +17,10 @@ public abstract class Property implements IProperty<DataImplementation> {
 	private static final IPropertyHelper propertyHelper = new PropertyHelper();
 	
 	//attribute
-	private final String name;
+	private String name;
 	
 	//optional attribute
 	private Entity parentEntity;
-	
-	//constructor
-	public Property(final String name) {
-		
-		Validator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
-		
-		this.name = name;
-	}
 	
 	//method
 	@Override
@@ -39,6 +31,9 @@ public abstract class Property implements IProperty<DataImplementation> {
 	//method
 	@Override
 	public final String getName() {
+		
+		fetchNameIfNotFetched();
+		
 		return name;
 	}
 	
@@ -75,5 +70,27 @@ public abstract class Property implements IProperty<DataImplementation> {
 		propertyHelper.assertDoesNotBelongToEntity(this);
 		
 		this.parentEntity = parentEntity;
+	}
+	
+	//method
+	private boolean fetchedName() {
+		return (name != null);
+	}
+	
+	//method
+	private void fetchName() {
+		name = findName();
+	}
+	
+	//method
+	private void fetchNameIfNotFetched() {
+		if (!fetchedName()) {
+			fetchName();
+		}
+	}
+	
+	//method
+	private String findName() {
+		return ReflectionHelper.getFieldName(getParentEntity(), this);
 	}
 }

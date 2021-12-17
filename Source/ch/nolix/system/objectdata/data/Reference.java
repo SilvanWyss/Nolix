@@ -19,9 +19,9 @@ implements IReference<DataImplementation, E> {
 	private String referencedEntityId;
 	
 	//constructor
-	public Reference(final String name) {
+	public Reference() {
 		//TODO
-		super(name, null);
+		super(null);
 	}
 	
 	//method

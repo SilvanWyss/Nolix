@@ -18,9 +18,7 @@ implements IBaseReference<DataImplementation, E> {
 	private ITable<DataImplementation, E> referencedTable;
 	
 	//constructor
-	public BaseReference(final String name, final String referencedTableName) {
-		
-		super(name);
+	public BaseReference(final String referencedTableName) {
 		
 		Validator.assertThat(referencedTableName).thatIsNamed("referenced table name").isNotBlank();
 		

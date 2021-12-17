@@ -19,9 +19,9 @@ implements IOptionalReference<DataImplementation, E> {
 	private String referencedEntityId;
 	
 	//constructor
-	public OptionalReference(final String name) {
+	public OptionalReference() {
 		//TODO
-		super(name, null);
+		super(null);
 	}
 	
 	//method
