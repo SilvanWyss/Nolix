@@ -20,7 +20,8 @@ implements IReference<DataImplementation, E> {
 	
 	//constructor
 	public Reference(final String name) {
-		super(name);
+		//TODO
+		super(name, null);
 	}
 	
 	//method
