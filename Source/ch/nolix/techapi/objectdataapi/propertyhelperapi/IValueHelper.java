@@ -13,5 +13,5 @@ public interface IValueHelper extends IDatabaseObjectHelper {
 	void assertHasValue(IValue<?, ?> value);
 	
 	//method declaration
-	<V> IRecordUpdateDTO createRecordUpdateDTOForSetValue(IValue<?, V> value, V setValue);
+	IRecordUpdateDTO createRecordUpdateDTOForSetValue(IValue<?, ?> value, Object setValue);
 }

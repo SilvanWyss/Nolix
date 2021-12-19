@@ -2,6 +2,8 @@
 package ch.nolix.system.objectdata.data;
 
 //own imports
+import ch.nolix.common.constant.LowerCaseCatalogue;
+import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.system.objectdata.propertyhelper.OptionalValueHelper;
 import ch.nolix.techapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.techapi.objectdataapi.dataapi.IOptionalValue;
@@ -19,7 +21,12 @@ public final class OptionalValue<V> extends BaseValue<V> implements IOptionalVal
 	//method
 	@Override
 	public void clear() {
+		
 		internalValue = null;
+		
+		noteParentEntityForChangeValue();
+		
+		updateRecordForClear();
 	}
 	
 	//method
@@ -41,5 +48,51 @@ public final class OptionalValue<V> extends BaseValue<V> implements IOptionalVal
 	@Override
 	public PropertyType getType() {
 		return PropertyType.OPTIONAL_VALUE;
+	}
+	
+	//method
+	@Override
+	public void setValue(final V value) {
+		
+		setAttributeForSetValue(value);
+		
+		noteParentEntityForChangeValue();
+		
+		updateRecordForSetValue(value);
+	}
+	
+	//method
+	private void noteParentEntityForChangeValue() {
+		if (belongsToEntity()) {
+			internalGetParentEntity().internalSetEdited();
+		}
+	}
+	
+	//method
+	private void setAttributeForSetValue(final V value) {
+		
+		Validator.assertThat(value).thatIsNamed(LowerCaseCatalogue.VALUE).isNotNull();
+		
+		internalValue = value;
+	}
+	
+	//method
+	private void updateRecordForClear() {
+		if (isLinkedWithRealDatabase()) {
+			internalGetRefDataAdapter().deleteRecordFromTable(
+				getParentEntity().getParentTable().getName(),
+				optionalValueHelper.createRecordDeletioDTOFor(this)
+			);
+		}
+	}
+	
+	//method
+	private void updateRecordForSetValue(final V value) {
+		if (isLinkedWithRealDatabase()) {
+			internalGetRefDataAdapter().updateRecordOnTable(
+				getParentEntity().getParentTable().getName(),
+				optionalValueHelper.createRecordUpdateDTOForValue(this, value)
+			);
+		}
 	}
 }
