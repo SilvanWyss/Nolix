@@ -21,6 +21,9 @@ public interface IEntity<IMPL> extends Deletable, IDatabaseObject, IdentifiedByS
 	IContainer<IProperty<IMPL>> getRefProperties();
     
 	//method declaration
+	String getTableName();
+	
+	//method declaration
 	String getSaveStamp();
 	
 	//method declaration
