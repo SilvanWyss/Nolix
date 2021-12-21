@@ -24,20 +24,6 @@ implements IBaseReference<DataImplementation, E> {
 		
 		this.referencedTableName = referencedTableName;
 	}
-		
-	//method
-	@Override
-	public final boolean canReference(final IEntity<DataImplementation> entity) {
-		return
-		entity != null
-		&& getReferencedTable().getEntityClass() == entity.getClass();
-	}
-		
-	//method
-	@Override
-	public final boolean canReferenceBack(final IEntity<DataImplementation> entity) {
-		return false;
-	}
 	
 	//method
 	@Override

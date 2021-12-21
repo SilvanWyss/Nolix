@@ -12,12 +12,6 @@ public interface IProperty<IMPL> extends Named {
 	boolean belongsToEntity();
 	
 	//method declaration
-	boolean canReference(IEntity<IMPL> entity);
-	
-	//method declaration
-	boolean canReferenceBack(IEntity<IMPL> entity);
-	
-	//method declaration
 	boolean canReferenceBackEntityOfType(Class<IEntity<IMPL>> type);
 	
 	//method declaration
