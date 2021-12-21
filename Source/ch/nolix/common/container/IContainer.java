@@ -36,7 +36,7 @@ import ch.nolix.common.functionapi.IElementTakerLongGetter;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 2180
+ * @lines 2200
  * @param <E> is the type of the elements a {@link IContainer} can store.
  */
 public interface IContainer<E> extends Iterable<E> {
@@ -1777,6 +1777,20 @@ public interface IContainer<E> extends Iterable<E> {
 		}
 		
 		return true;
+	}
+	
+	//method
+	/**
+	 * The complexity of this implementation is O(1).
+	 * 
+	 * @param <E2> is the type of the elements of the created {@link ExtractorIterator}.
+	 * @param extractor
+	 * @return a new {@link ExtractorIterator} for the current {@link IContainer} that delivers
+	 * the elements the given extractor extracts from the elements from the current {@link IContainer}.
+	 * @throws ArgumentIsNullException if the given extractor is null.
+	 */
+	default <E2> ExtractorIterator<E, E2> iterator(final IElementTakerElementGetter<E, E2> extractor) {
+		return ExtractorIterator.forContainerWithExtractor(this, extractor);
 	}
 	
 	//method
