@@ -16,8 +16,13 @@ implements IOptionalReference<DataImplementation, E> {
 	private static final IOptionalReferenceHelper optionalReferenceHelper = new OptionalReferenceHelper();
 	
 	//static method
-	public static <E2 extends BaseEntity> OptionalReference<E2> forEntity(final Class<E2> type) {
+	public static <E2 extends Entity> OptionalReference<E2> forEntity(final Class<E2> type) {
 		return new OptionalReference<>(type.getSimpleName());
+	}
+	
+	//static method
+	public static OptionalReference<GeneralEntity> forEntityWithTableName(final String tableName) {
+		return new OptionalReference<>(tableName);
 	}
 	
 	//optional attribute
