@@ -20,6 +20,9 @@ public interface IMultiReference<
 		return IContainer.super.containsAny();
 	}
 	
+	//method declaration
+	IContainer<String> getReferencedEntityIds();
+	
 	//method
 	@Override
 	default boolean isEmpty() {
