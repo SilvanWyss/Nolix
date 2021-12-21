@@ -20,7 +20,7 @@ public abstract class Property implements IProperty<DataImplementation> {
 	private String name;
 	
 	//optional attribute
-	private Entity parentEntity;
+	private BaseEntity parentEntity;
 	
 	//method
 	@Override
@@ -50,7 +50,7 @@ public abstract class Property implements IProperty<DataImplementation> {
 	}
 	
 	//method
-	final Entity internalGetParentEntity() {
+	final BaseEntity internalGetParentEntity() {
 		
 		propertyHelper.assertBelongsToEntity(this);
 		
@@ -63,7 +63,7 @@ public abstract class Property implements IProperty<DataImplementation> {
 	}
 	
 	//method
-	final void internalSetParentEntity(final Entity parentEntity) {
+	final void internalSetParentEntity(final BaseEntity parentEntity) {
 		
 		Validator.assertThat(parentEntity).thatIsNamed("parent entity").isNotNull();
 		

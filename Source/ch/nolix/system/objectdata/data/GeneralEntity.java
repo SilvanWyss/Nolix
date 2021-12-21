@@ -5,7 +5,7 @@ package ch.nolix.system.objectdata.data;
 import ch.nolix.common.errorcontrol.validator.Validator;
 
 //class
-public final class GeneralEntity extends Entity {
+public final class GeneralEntity extends BaseEntity {
 	
 	//static method
 	public GeneralEntity withTableName(final String tableName) {

@@ -20,7 +20,7 @@ import ch.nolix.techapi.objectdataapi.datahelperapi.IEntityHelper;
 import ch.nolix.techapi.rawobjectdataapi.dataadapterapi.IDataAdapter;
 
 //class
-public abstract class Entity implements GroupCloseable, IEntity<DataImplementation> {
+public abstract class BaseEntity implements GroupCloseable, IEntity<DataImplementation> {
 	
 	//static attribute
 	private static final IEntityHelper entityHelper = new EntityHelper();

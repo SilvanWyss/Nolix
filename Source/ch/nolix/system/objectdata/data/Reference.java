@@ -16,7 +16,7 @@ implements IReference<DataImplementation, E> {
 	private static final IReferenceHelper referenceHelper = new ReferenceHelper();
 	
 	//static method
-	public static <E2 extends Entity> Reference<E2> forEntity(final Class<E2> type) {
+	public static <E2 extends BaseEntity> Reference<E2> forEntity(final Class<E2> type) {
 		return new Reference<>(type.getSimpleName());
 	}
 	
