@@ -48,6 +48,12 @@ implements IBaseReference<DataImplementation, E> {
 	
 	//method
 	@Override
+	public final String getReferencedTableName() {
+		return referencedTableName;
+	}
+	
+	//method
+	@Override
 	public final boolean referencesBack(final IEntity<DataImplementation> entity) {
 		return false;
 	}

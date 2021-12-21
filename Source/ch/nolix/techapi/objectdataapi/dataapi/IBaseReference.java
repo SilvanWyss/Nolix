@@ -9,4 +9,7 @@ public interface IBaseReference<
 	
 	//method declaration
 	ITable<IMPL, E> getReferencedTable();
+	
+	//method declaration
+	String getReferencedTableName();
 }
