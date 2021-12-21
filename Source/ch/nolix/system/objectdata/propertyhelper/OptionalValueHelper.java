@@ -4,11 +4,9 @@ package ch.nolix.system.objectdata.propertyhelper;
 //own imports
 import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.system.sqlrawobjectdata.datadto.ContentFieldDTO;
-import ch.nolix.system.sqlrawobjectdata.datadto.RecordDeletionDTO;
 import ch.nolix.system.sqlrawobjectdata.datadto.RecordUpdateDTO;
 import ch.nolix.techapi.objectdataapi.dataapi.IOptionalValue;
 import ch.nolix.techapi.objectdataapi.propertyhelperapi.IOptionalValueHelper;
-import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IRecordDeletionDTO;
 import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
 
 //class
@@ -24,16 +22,24 @@ public final class OptionalValueHelper extends PropertyHelper implements IOption
 	
 	//method
 	@Override
-	public IRecordDeletionDTO createRecordDeletioDTOFor(final IOptionalValue<?, ?> optionalValue) {
+	public IRecordUpdateDTO createRecordUpdateDTOForClear(final IOptionalValue<?, ?> optionalValue) {
 		
 		final var parentEntity = optionalValue.getParentEntity();
 		
-		return new RecordDeletionDTO(parentEntity.getId(), parentEntity.getSaveStamp());
+		return
+		new RecordUpdateDTO(
+			parentEntity.getId(),
+			parentEntity.getSaveStamp(),
+			new ContentFieldDTO(optionalValue.getName())
+		);
 	}
 	
 	//method
 	@Override
-	public IRecordUpdateDTO createRecordUpdateDTOForValue(final IOptionalValue<?, ?> optionalValue, final Object value) {
+	public IRecordUpdateDTO createRecordUpdateDTOForSetValue(
+		final IOptionalValue<?, ?> optionalValue,
+		final Object value
+	) {
 		
 		final var parentEntity = optionalValue.getParentEntity();
 		
