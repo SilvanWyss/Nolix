@@ -2,6 +2,7 @@
 package ch.nolix.system.objectdata.propertyhelper;
 
 //own imports
+import ch.nolix.system.objectdata.data.MultiValue;
 import ch.nolix.system.sqlrawobjectdata.datadto.ContentFieldDTO;
 import ch.nolix.system.sqlrawobjectdata.datadto.RecordUpdateDTO;
 import ch.nolix.techapi.objectdataapi.dataapi.IMultiValue;
@@ -24,7 +25,21 @@ public final class MultiValueHelper extends PropertyHelper implements IMultiValu
 		new RecordUpdateDTO(
 			parentEntity.getId(),
 			parentEntity.getSaveStamp(),
-			new ContentFieldDTO(multiValue.getName(), multiValue)
+			new ContentFieldDTO(multiValue.getName(), addedValue)
+		);
+	}
+	
+	//method
+	@Override
+	public IRecordUpdateDTO createRecordUpdateDTOForClear(final MultiValue<?> multiValue) {
+		
+		final var parentEntity = multiValue.getParentEntity();
+		
+		return
+		new RecordUpdateDTO(
+			parentEntity.getId(),
+			parentEntity.getSaveStamp(),
+			new ContentFieldDTO(multiValue.getName())
 		);
 	}
 }

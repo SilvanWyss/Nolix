@@ -26,7 +26,7 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<Dat
 		
 		values.addAtEnd(value);
 		
-		noteParentEntityForAddValue();
+		noteParentEntityForChangeValue();
 		
 		updateRecordForAddValue(value);
 	}
@@ -34,9 +34,15 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<Dat
 	//method
 	@Override
 	public void clear() {
+		
 		values.clear();
+		
+		noteParentEntityForChangeValue();
+		
+		updateRecordForClear();
 	}
-	
+
+
 	//method
 	@Override
 	public int getElementCount() {
@@ -62,7 +68,7 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<Dat
 	}
 	
 	//method
-	private void noteParentEntityForAddValue() {
+	private void noteParentEntityForChangeValue() {
 		if (belongsToEntity()) {
 			internalGetParentEntity().internalSetEdited();
 		}
@@ -76,5 +82,13 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<Dat
 				multiValueHelper.createRecordUpdateDTOForAddedValue(this, value)
 			);
 		}
+	}
+	
+	//method
+	private void updateRecordForClear() {
+		internalGetRefDataAdapter().updateRecordOnTable(
+			getParentEntity().getParentTable().getName(),
+			multiValueHelper.createRecordUpdateDTOForClear(this)
+		);
 	}
 }
