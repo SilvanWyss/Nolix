@@ -9,6 +9,7 @@ import ch.nolix.techapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.techapi.objectdataapi.dataapi.IProperty;
 import ch.nolix.techapi.objectdataapi.propertyhelperapi.IPropertyHelper;
 import ch.nolix.techapi.rawobjectdataapi.dataadapterapi.IDataAdapter;
+import ch.nolix.techapi.rawobjectdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
 
 //class
 public abstract class Property implements IProperty<DataImplementation> {
@@ -58,8 +59,8 @@ public abstract class Property implements IProperty<DataImplementation> {
 	}
 	
 	//method
-	final IDataAdapter internalGetRefDataAdapter() {
-		return parentEntity.internalGetRefDataAdapter();
+	final IDataAndSchemaAdapter internalGetRefDataAndSchemaAdapter() {
+		return parentEntity.internalGetRefDataAndSchemaAdapter();
 	}
 	
 	//method

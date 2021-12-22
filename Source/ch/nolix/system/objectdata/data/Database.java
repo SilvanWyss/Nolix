@@ -5,7 +5,7 @@ package ch.nolix.system.objectdata.data;
 import ch.nolix.techapi.objectdataapi.dataapi.IDatabase;
 import ch.nolix.techapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.techapi.objectdataapi.dataapi.ITable;
-import ch.nolix.techapi.rawobjectdataapi.dataadapterapi.IDataAdapter;
+import ch.nolix.techapi.rawobjectdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
 
 //class
 public final class Database extends ImmutableDatabaseObject implements IDatabase<DataImplementation> {
@@ -18,7 +18,7 @@ public final class Database extends ImmutableDatabaseObject implements IDatabase
 	}
 	
 	//method
-	IDataAdapter internalGetRefDataAdapter() {
+	IDataAndSchemaAdapter internalGetRefDataAndSchemaAdapter() {
 		//TODO: Implement.
 		return null;
 	}

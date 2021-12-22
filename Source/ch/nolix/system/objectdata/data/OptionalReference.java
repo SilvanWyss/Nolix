@@ -104,7 +104,7 @@ implements IOptionalReference<DataImplementation, E> {
 	//method
 	private void updateRecordForClear() {
 		if (isLinkedWithRealDatabase()) {
-			internalGetRefDataAdapter().updateRecordOnTable(
+			internalGetRefDataAndSchemaAdapter().updateRecordOnTable(
 				getParentEntity().getTableName(),
 				optionalReferenceHelper.createRecordUpdateDTOForClear(this)
 			);
@@ -114,7 +114,7 @@ implements IOptionalReference<DataImplementation, E> {
 	//method
 	private void updateRecordForSetEntity(final E entity) {
 		if (isLinkedWithRealDatabase()) {
-			internalGetRefDataAdapter().updateRecordOnTable(
+			internalGetRefDataAndSchemaAdapter().updateRecordOnTable(
 				getParentEntity().getTableName(),
 				optionalReferenceHelper.createRecordUpdateDTOForSetEntity(this, entity)
 			);

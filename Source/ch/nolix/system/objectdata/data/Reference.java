@@ -85,7 +85,7 @@ implements IReference<DataImplementation, E> {
 	//method
 	private void updateRecordForSetEntity(final E entity) {
 		if (isLinkedWithRealDatabase()) {
-			internalGetRefDataAdapter().updateRecordOnTable(
+			internalGetRefDataAndSchemaAdapter().updateRecordOnTable(
 				getParentEntity().getTableName(),
 				referenceHelper.createRecordUpdateDTOForSetEntity(this, entity)
 			);

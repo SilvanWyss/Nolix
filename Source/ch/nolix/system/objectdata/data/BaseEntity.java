@@ -18,6 +18,7 @@ import ch.nolix.techapi.objectdataapi.dataapi.IProperty;
 import ch.nolix.techapi.objectdataapi.dataapi.ITable;
 import ch.nolix.techapi.objectdataapi.datahelperapi.IEntityHelper;
 import ch.nolix.techapi.rawobjectdataapi.dataadapterapi.IDataAdapter;
+import ch.nolix.techapi.rawobjectdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
 
 //class
 public abstract class BaseEntity implements GroupCloseable, IEntity<DataImplementation> {
@@ -165,8 +166,8 @@ public abstract class BaseEntity implements GroupCloseable, IEntity<DataImplemen
 	}
 	
 	//method
-	final IDataAdapter internalGetRefDataAdapter() {
-		return internalGetParentTable().internalGetRefDataAdapter();
+	final IDataAndSchemaAdapter internalGetRefDataAndSchemaAdapter() {
+		return internalGetParentTable().internalGetRefDataAndSchemaAdapter();
 	}
 	
 	//method
@@ -206,7 +207,7 @@ public abstract class BaseEntity implements GroupCloseable, IEntity<DataImplemen
 	//method
 	private void updateRecordForDelete() {
 		if (isLinkedWithRealDatabase()) {
-			internalGetRefDataAdapter().deleteRecordFromTable(
+			internalGetRefDataAndSchemaAdapter().deleteRecordFromTable(
 				getParentTable().getName(),
 				entityHelper.createRecordDeletionDTOForEntity(this)
 			);
