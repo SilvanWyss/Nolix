@@ -53,7 +53,7 @@ public final class Value<V> extends BaseValue<V> implements IValue<DataImplement
 	//method
 	private void updateRecordForSetValue(final V value) {
 		if (isLinkedWithRealDatabase()) {
-			internalGetRefDataAdapter().updateRecordOnTable(
+			internalGetRefDataAndSchemaAdapter().updateRecordOnTable(
 				getParentEntity().getTableName(),
 				valueHelper.createRecordUpdateDTOForSetValue(this, value)
 			);
