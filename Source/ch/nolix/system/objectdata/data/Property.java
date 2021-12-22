@@ -3,7 +3,7 @@ package ch.nolix.system.objectdata.data;
 
 //own imports
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.reflectionhelper.ReflectionHelper;
+import ch.nolix.common.reflectionhelper.GlobalReflectionHelper;
 import ch.nolix.system.objectdata.propertyhelper.PropertyHelper;
 import ch.nolix.techapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.techapi.objectdataapi.dataapi.IProperty;
@@ -98,6 +98,6 @@ public abstract class Property implements IProperty<DataImplementation> {
 	
 	//method
 	private String findName() {
-		return ReflectionHelper.getFieldName(getParentEntity(), this);
+		return GlobalReflectionHelper.getFieldName(getParentEntity(), this);
 	}
 }

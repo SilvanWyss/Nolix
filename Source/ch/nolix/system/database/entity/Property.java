@@ -11,7 +11,7 @@ import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.reflectionhelper.ReflectionHelper;
+import ch.nolix.common.reflectionhelper.GlobalReflectionHelper;
 import ch.nolix.element.elementapi.IElement;
 import ch.nolix.techapi.databaseapi.propertytypeapi.PropertyType;
 
@@ -61,7 +61,7 @@ public abstract class Property<V> implements Headered, IElement<Property<V>> {
 	//method
 	@Override
 	public final String getHeader() {
-		return ReflectionHelper.getFieldName(getParentEntity(), this);
+		return GlobalReflectionHelper.getFieldName(getParentEntity(), this);
 	}
 	
 	//method
@@ -94,7 +94,7 @@ public abstract class Property<V> implements Headered, IElement<Property<V>> {
 	@SuppressWarnings("unchecked")
 	public final Class<V> getValueClass() {
 		
-		final var valueClass = ReflectionHelper.getRefField(getParentEntity(), this).getGenericType();
+		final var valueClass = GlobalReflectionHelper.getRefField(getParentEntity(), this).getGenericType();
 		
 		return (Class<V>)((ParameterizedType)valueClass).getActualTypeArguments()[0];
 	}

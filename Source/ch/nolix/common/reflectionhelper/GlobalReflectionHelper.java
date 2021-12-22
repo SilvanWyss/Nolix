@@ -8,7 +8,7 @@ import ch.nolix.common.errorcontrol.exception.WrapperException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 
 //class
-public final class ReflectionHelper {
+public final class GlobalReflectionHelper {
 	
 	//static method
 	public static String getFieldName(final Object object, final Object attribute) {
@@ -40,5 +40,5 @@ public final class ReflectionHelper {
 	}
 	
 	//constructor
-	private ReflectionHelper() {}
+	private GlobalReflectionHelper() {}
 }

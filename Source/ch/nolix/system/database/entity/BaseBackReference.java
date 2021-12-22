@@ -10,7 +10,7 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.reflectionhelper.ReflectionHelper;
+import ch.nolix.common.reflectionhelper.GlobalReflectionHelper;
 
 //class
 public abstract class BaseBackReference<E extends Entity> extends Property<E> {
@@ -65,7 +65,7 @@ public abstract class BaseBackReference<E extends Entity> extends Property<E> {
 	public final Class<E> getReferencingEntityClass() {
 		
 		final var referencingEntityClass =
-		ReflectionHelper.getRefField(getParentEntity(), this).getGenericType();
+		GlobalReflectionHelper.getRefField(getParentEntity(), this).getGenericType();
 		
 		return
 		(Class<E>)
