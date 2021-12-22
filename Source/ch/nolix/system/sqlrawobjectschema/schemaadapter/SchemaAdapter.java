@@ -27,14 +27,14 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 	//constructor
 	public SchemaAdapter(
 		final SQLConnection pSQLConnection,
-		final ch.nolix.techapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter mSQLSchemaAdapter,
+		final ch.nolix.techapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter pSQLSchemaAdapter,
 		final ch.nolix.techapi.sqlschemaapi.schemadtoapi.IColumnDTO pSQLSaveStampColumnDTO
 	) {
 		
-		databaseInitializer.initializeDatabaseIfNotInitialized(mSQLSchemaAdapter);
+		databaseInitializer.initializeDatabaseIfNotInitialized(pSQLSchemaAdapter);
 		
-		rawSchemaReader = new SchemaReader(pSQLConnection, mSQLSchemaAdapter);
-		rawSchemaWriter = new SchemaWriter(pSQLConnection, mSQLSchemaAdapter, pSQLSaveStampColumnDTO);
+		rawSchemaReader = new SchemaReader(pSQLConnection, pSQLSchemaAdapter);
+		rawSchemaWriter = new SchemaWriter(pSQLConnection, pSQLSchemaAdapter, pSQLSaveStampColumnDTO);
 	}
 	
 	//method
