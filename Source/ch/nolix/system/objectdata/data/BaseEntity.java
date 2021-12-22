@@ -17,7 +17,6 @@ import ch.nolix.techapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.techapi.objectdataapi.dataapi.IProperty;
 import ch.nolix.techapi.objectdataapi.dataapi.ITable;
 import ch.nolix.techapi.objectdataapi.datahelperapi.IEntityHelper;
-import ch.nolix.techapi.rawobjectdataapi.dataadapterapi.IDataAdapter;
 import ch.nolix.techapi.rawobjectdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
 
 //class
