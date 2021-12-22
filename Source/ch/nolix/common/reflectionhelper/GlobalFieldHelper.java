@@ -13,7 +13,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentExce
 import ch.nolix.system.database.entity.Property;
 
 //class
-public final class FieldHelper {
+public final class GlobalFieldHelper {
 	
 	//static method
 	@SuppressWarnings("unchecked")
@@ -78,5 +78,5 @@ public final class FieldHelper {
 	}
 	
 	//constructor
-	private FieldHelper() {}
+	private GlobalFieldHelper() {}
 }

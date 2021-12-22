@@ -8,7 +8,7 @@ import java.lang.reflect.Field;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.pair.Pair;
-import ch.nolix.common.reflectionhelper.FieldHelper;
+import ch.nolix.common.reflectionhelper.GlobalFieldHelper;
 
 //class
 public final class ColorNameConstantExtractor {
@@ -26,12 +26,12 @@ public final class ColorNameConstantExtractor {
 	
 	//method
 	private boolean declaresColor(final Field field) {
-		return FieldHelper.isStaticAndStoresValueOfGivenType(field, Color.class);
+		return GlobalFieldHelper.isStaticAndStoresValueOfGivenType(field, Color.class);
 	}
 	
 	//method
 	private boolean declaresColorName(final Field field) {
-		return (FieldHelper.isStatic(field) && field.getName().endsWith(STRING_CONSTANT_POSTFIX));
+		return (GlobalFieldHelper.isStatic(field) && field.getName().endsWith(STRING_CONSTANT_POSTFIX));
 	}
 	
 	//method
@@ -50,7 +50,7 @@ public final class ColorNameConstantExtractor {
 			colorFields.removeAndGetRefFirst(cf -> colorStringFieldName.startsWith(cf.getName()));
 			
 			lColorNames.addAtEnd(
-				new Pair<>(FieldHelper.getValueFromStaticField(csf), FieldHelper.getValueFromStaticField(colorField))
+				new Pair<>(GlobalFieldHelper.getValueFromStaticField(csf), GlobalFieldHelper.getValueFromStaticField(colorField))
 			);
 		}
 				
