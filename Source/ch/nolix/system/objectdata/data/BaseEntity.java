@@ -25,13 +25,19 @@ public abstract class BaseEntity implements GroupCloseable, IEntity<DataImplemen
 	//static attribute
 	private static final IEntityHelper entityHelper = new EntityHelper();
 	
-	//attributes
+	//attribute
 	private String id = UUID.randomUUID().toString().replace(StringCatalogue.MINUS, StringCatalogue.EMPTY_STRING);
+	
+	//attribute
 	private DatabaseObjectState state = DatabaseObjectState.NEW;
+	
+	//attribute
 	private final CloseController closeController = new CloseController(this);
 	
-	//optional attributes
+	//optional attribute
 	private Table<IEntity<DataImplementation>> parentTable;
+	
+	//optional attribute
 	private String saveStamp;
 	
 	//method
@@ -46,9 +52,13 @@ public abstract class BaseEntity implements GroupCloseable, IEntity<DataImplemen
 		
 		entityHelper.assertCanBeDeleted(this);
 		
-		deleteWhenCanBeDeleted();
+		updateStateForDelete();
+		
+		internalSetEdited();
+		
+		updateRecordForDelete();
 	}
-	
+
 	//method
 	@Override
 	public final String getId() {
@@ -94,7 +104,7 @@ public abstract class BaseEntity implements GroupCloseable, IEntity<DataImplemen
 	
 	//method
 	@Override
-	public String getShortDescription() {
+	public final String getShortDescription() {
 		return (getClass().getSimpleName() + " " + getId());
 	}
 	
@@ -120,7 +130,9 @@ public abstract class BaseEntity implements GroupCloseable, IEntity<DataImplemen
 	//method
 	@Override
 	public final boolean isLinkedWithRealDatabase() {
-		return (belongsToTable() && getParentTable().isLinkedWithRealDatabase());
+		return
+		belongsToTable()
+		&& getParentTable().isLinkedWithRealDatabase();
 	}
 	
 	//method
@@ -137,8 +149,16 @@ public abstract class BaseEntity implements GroupCloseable, IEntity<DataImplemen
 	}
 	
 	//method
+	final Table<?> internalGetParentTable() {
+		
+		entityHelper.assertBelongsToTable(this);
+		
+		return parentTable;
+	}
+	
+	//method
 	final IDataAdapter internalGetRefDataAdapter() {
-		return parentTable.internalGetRefDataAdapter();
+		return internalGetParentTable().internalGetRefDataAdapter();
 	}
 	
 	//method
@@ -159,13 +179,17 @@ public abstract class BaseEntity implements GroupCloseable, IEntity<DataImplemen
 	}
 	
 	//method
-	private void deleteWhenCanBeDeleted() {
-		
+	private void updateRecordForDelete() {
+		if (isLinkedWithRealDatabase()) {
+			internalGetRefDataAdapter().deleteRecordFromTable(
+				getParentTable().getName(),
+				entityHelper.createRecordDeletionDTOForEntity(this)
+			);
+		}
+	}
+	
+	//method
+	private void updateStateForDelete() {
 		state = DatabaseObjectState.DELETED;
-		
-		internalGetRefDataAdapter().deleteRecordFromTable(
-			getParentTable().getName(),
-			entityHelper.createRecordDeletionDTOForEntity(this)
-		);
 	}
 }
