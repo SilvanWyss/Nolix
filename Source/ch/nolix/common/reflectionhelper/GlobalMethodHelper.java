@@ -7,14 +7,14 @@ import java.lang.reflect.Method;
 
 //class
 /**
- * The {@link MethodHelper} provides methods to handle methods.
- * Of the {@link MethodHelper} an instance cannot be created.
+ * The {@link GlobalMethodHelper} provides methods to handle methods.
+ * Of the {@link GlobalMethodHelper} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @date 2016-03-01
  * @lines 50
  */
-public final class MethodHelper {
+public final class GlobalMethodHelper {
 	
 	//static method
 	/**
@@ -50,7 +50,7 @@ public final class MethodHelper {
 	
 	//constructor
 	/**
-	 * Prevents that an instance of the {@link MethodHelper} can be created.
+	 * Prevents that an instance of the {@link GlobalMethodHelper} can be created.
 	 */
-	private MethodHelper() {}
+	private GlobalMethodHelper() {}
 }

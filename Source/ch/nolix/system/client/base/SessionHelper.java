@@ -6,19 +6,19 @@ import java.lang.reflect.Method;
 
 import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.reflectionhelper.MethodHelper;
+import ch.nolix.common.reflectionhelper.GlobalMethodHelper;
 
 //class
 final class SessionHelper {
 	
 	//static method
 	public static boolean isDataMethod(final Method method) {
-		return (method != null && MethodHelper.methodHasAnnotation(method, DataMethod.class));
+		return (method != null && GlobalMethodHelper.methodHasAnnotation(method, DataMethod.class));
 	}
 	
 	//static method
 	public static boolean isRunMethod(final Method method) {		
-		return (method != null && MethodHelper.methodHasAnnotation(method, RunMethod.class));
+		return (method != null && GlobalMethodHelper.methodHasAnnotation(method, RunMethod.class));
 	}
 	
 	//static method
