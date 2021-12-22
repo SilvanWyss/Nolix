@@ -10,8 +10,14 @@ import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
 public interface IValueHelper extends IDatabaseObjectHelper {
 	
 	//method declaration
+	void assertCanSetGivenValue(IValue<?, ?> value, Object valueToSet);
+	
+	//method declaration
 	void assertHasValue(IValue<?, ?> value);
 	
 	//method declaration
-	IRecordUpdateDTO createRecordUpdateDTOForSetValue(IValue<?, ?> value, Object setValue);
+	boolean canSetGivenValue(IValue<?, ?> value, Object valueToSet);
+	
+	//method declaration
+	IRecordUpdateDTO createRecordUpdateDTOForSetValue(IValue<?, ?> value, Object valueToSet);
 }

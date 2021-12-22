@@ -2,8 +2,6 @@
 package ch.nolix.system.objectdata.data;
 
 //own imports
-import ch.nolix.common.constant.LowerCaseCatalogue;
-import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.system.objectdata.propertyhelper.ValueHelper;
 import ch.nolix.techapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.techapi.objectdataapi.dataapi.IValue;
@@ -43,35 +41,27 @@ public final class Value<V> extends BaseValue<V> implements IValue<DataImplement
 	@Override
 	public void setValue(final V value) {
 		
-		setAttributeForSetValue(value);
+		valueHelper.assertCanSetGivenValue(this, value);
 		
-		noteParentEntityForSetValue();
+		updateStateForSetValue(value);
+		
+		internalSetParentEntityAsEdited();
 		
 		updateRecordForSetValue(value);
-	}
-	
-	//method
-	private void noteParentEntityForSetValue() {
-		if (belongsToEntity()) {
-			internalGetParentEntity().internalSetEdited();
-		}
-	}
-	
-	//method
-	private void setAttributeForSetValue(final V value) {
-		
-		Validator.assertThat(value).thatIsNamed(LowerCaseCatalogue.VALUE).isNotNull();
-		
-		internalValue = value;
 	}
 	
 	//method
 	private void updateRecordForSetValue(final V value) {
 		if (isLinkedWithRealDatabase()) {
 			internalGetRefDataAdapter().updateRecordOnTable(
-				getParentEntity().getParentTable().getName(),
+				getParentEntity().getTableName(),
 				valueHelper.createRecordUpdateDTOForSetValue(this, value)
 			);
 		}
+	}
+	
+	//method
+	private void updateStateForSetValue(final V value) {
+		internalValue = value;
 	}
 }

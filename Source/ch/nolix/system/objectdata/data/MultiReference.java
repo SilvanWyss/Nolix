@@ -4,8 +4,8 @@ package ch.nolix.system.objectdata.data;
 //Java imports
 import java.util.Iterator;
 
-import ch.nolix.common.container.IContainer;
 //own imports
+import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.system.objectdata.propertyhelper.MultiReferenceHelper;
 import ch.nolix.techapi.databaseapi.propertytypeapi.PropertyType;
@@ -38,20 +38,25 @@ implements IMultiReference<DataImplementation, E> {
 		super(referencedTableName);
 	}
 	
+	//method
 	@Override
 	public void addEntity(final E entity) {
-		//TODO: Implement
+		
+		multiReferenceHelper.assertCanAddGivenEntity(this, entity);
+		
+		updateStateForAddEntity(entity);
+		
+		internalSetParentEntityAsEdited();
+		
+		updateRecordForAddEntity(entity);
 	}
 	
 	//method
 	@Override
 	public void clear() {
-		
-		referencedEntityIds.clear();
-		
-		noteParentEntityForChange();
-		
-		updateParentEntityForClear();
+		if (containsAny()) {
+			clearWhenContainsAny();
+		}
 	}
 	
 	//method
@@ -99,24 +104,49 @@ implements IMultiReference<DataImplementation, E> {
 	}
 	
 	//method
+	private void clearWhenContainsAny() {
+		
+		multiReferenceHelper.assertCanClear(this);
+		
+		updateStateForClear();
+		
+		internalSetParentEntityAsEdited();
+		
+		updateRecordForClear();
+	}
+	
+	//method
 	private String getIdOfEntityAt(final int index) {
 		return referencedEntityIds.getRefAt(index);
 	}
 	
 	//method
-	private void noteParentEntityForChange() {
+	private void updateRecordForAddEntity(final E entity) {
 		if (belongsToEntity()) {
-			internalGetParentEntity().internalSetEdited();
+			internalGetRefDataAdapter().updateRecordOnTable(
+				getParentEntity().getTableName(),
+				multiReferenceHelper.createRecordupdateDTOForAddEntity(this, entity)
+			);
 		}
 	}
 	
 	//method
-	private void updateParentEntityForClear() {
+	private void updateRecordForClear() {
 		if (belongsToEntity()) {
 			internalGetRefDataAdapter().updateRecordOnTable(
-				getParentEntity().getId(),
+				getParentEntity().getTableName(),
 				multiReferenceHelper.createRecordUpdateDTOForClear(this)
 			);
 		}
+	}
+	
+	//method
+	private void updateStateForAddEntity(final E entity) {
+		referencedEntityIds.addAtEnd(entity.getId());
+	}
+	
+	//method
+	private void updateStateForClear() {
+		referencedEntityIds.clear();
 	}
 }

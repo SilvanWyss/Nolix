@@ -17,5 +17,5 @@ public interface IReference<
 	boolean referencesEntity();
 	
 	//method declaration
-	IReference<IMPL, E> setEntity(final E entity);
+	void setEntity(final E entity);
 }

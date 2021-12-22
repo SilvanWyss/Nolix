@@ -73,6 +73,13 @@ public abstract class Property implements IProperty<DataImplementation> {
 	}
 	
 	//method
+	final void internalSetParentEntityAsEdited() {
+		if (belongsToEntity()) {
+			internalGetParentEntity().internalSetEdited();
+		}
+	}
+	
+	//method
 	private boolean fetchedName() {
 		return (name != null);
 	}

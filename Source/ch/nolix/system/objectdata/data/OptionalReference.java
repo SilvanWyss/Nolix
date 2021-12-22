@@ -78,13 +78,56 @@ implements IOptionalReference<DataImplementation, E> {
 	
 	//method
 	@Override
-	public IOptionalReference<DataImplementation, E> setEntity(final E entity) {
-		//TODO: Implement.
-		return this;
+	public void setEntity(final E entity) {
+		
+		optionalReferenceHelper.assertCanSetGivenEntity(this, entity);
+		
+		updateStateForSetEntity(entity);
+		
+		internalSetParentEntityAsEdited();
+		
+		updateRecordForSetEntity(entity);
 	}
 	
 	//method
 	private void clearWhenContainsAny() {
-		//TODO: Implement.
+		
+		optionalReferenceHelper.assertCanClear(this);
+		
+		updateStateForClear();
+		
+		internalSetParentEntityAsEdited();
+		
+		updateRecordForClear();
+	}
+	
+	//method
+	private void updateRecordForClear() {
+		if (isLinkedWithRealDatabase()) {
+			internalGetRefDataAdapter().updateRecordOnTable(
+				getParentEntity().getTableName(),
+				optionalReferenceHelper.createRecordUpdateDTOForClear(this)
+			);
+		}
+	}
+	
+	//method
+	private void updateRecordForSetEntity(final E entity) {
+		if (isLinkedWithRealDatabase()) {
+			internalGetRefDataAdapter().updateRecordOnTable(
+				getParentEntity().getTableName(),
+				optionalReferenceHelper.createRecordUpdateDTOForSetEntity(this, entity)
+			);
+		}
+	}
+	
+	//method
+	private void updateStateForSetEntity(final E entity) {
+		referencedEntityId = entity.getId();
+	}
+	
+	//method
+	private void updateStateForClear() {
+		referencedEntityId = null;
 	}
 }

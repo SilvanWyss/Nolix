@@ -24,7 +24,7 @@ public final class OptionalValue<V> extends BaseValue<V> implements IOptionalVal
 		
 		internalValue = null;
 		
-		noteParentEntityForChangeValue();
+		internalSetParentEntityAsEdited();
 		
 		updateRecordForClear();
 	}
@@ -54,22 +54,17 @@ public final class OptionalValue<V> extends BaseValue<V> implements IOptionalVal
 	@Override
 	public void setValue(final V value) {
 		
-		setAttributeForSetValue(value);
+		optionalValueHelper.assertCanSetGivenValue(this, value);
 		
-		noteParentEntityForChangeValue();
+		updateStateForSetValue(value);
+		
+		internalSetParentEntityAsEdited();
 		
 		updateRecordForSetValue(value);
 	}
 	
 	//method
-	private void noteParentEntityForChangeValue() {
-		if (belongsToEntity()) {
-			internalGetParentEntity().internalSetEdited();
-		}
-	}
-	
-	//method
-	private void setAttributeForSetValue(final V value) {
+	private void updateStateForSetValue(final V value) {
 		
 		Validator.assertThat(value).thatIsNamed(LowerCaseCatalogue.VALUE).isNotNull();
 		
@@ -80,7 +75,7 @@ public final class OptionalValue<V> extends BaseValue<V> implements IOptionalVal
 	private void updateRecordForClear() {
 		if (isLinkedWithRealDatabase()) {
 			internalGetRefDataAdapter().updateRecordOnTable(
-				getParentEntity().getParentTable().getName(),
+				getParentEntity().getTableName(),
 				optionalValueHelper.createRecordUpdateDTOForClear(this)
 			);
 		}
@@ -90,7 +85,7 @@ public final class OptionalValue<V> extends BaseValue<V> implements IOptionalVal
 	private void updateRecordForSetValue(final V value) {
 		if (isLinkedWithRealDatabase()) {
 			internalGetRefDataAdapter().updateRecordOnTable(
-				getParentEntity().getParentTable().getName(),
+				getParentEntity().getTableName(),
 				optionalValueHelper.createRecordUpdateDTOForSetValue(this, value)
 			);
 		}

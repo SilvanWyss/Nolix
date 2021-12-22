@@ -71,8 +71,29 @@ implements IReference<DataImplementation, E> {
 	
 	//method
 	@Override
-	public IReference<DataImplementation, E> setEntity(final E entity) {
-		//TODO: Implement.
-		return this;
+	public void setEntity(final E entity) {
+		
+		referenceHelper.assertCanSetGivenEntity(this, entity);
+		
+		updateStateForSetEntity(entity);
+		
+		internalSetParentEntityAsEdited();
+		
+		updateRecordForSetEntity(entity);
+	}
+	
+	//method
+	private void updateRecordForSetEntity(final E entity) {
+		if (isLinkedWithRealDatabase()) {
+			internalGetRefDataAdapter().updateRecordOnTable(
+				getParentEntity().getTableName(),
+				referenceHelper.createRecordUpdateDTOForSetEntity(this, entity)
+			);
+		}
+	}
+	
+	//method
+	private void updateStateForSetEntity(final E entity) {
+		referencedEntityId = entity.getId();
 	}
 }

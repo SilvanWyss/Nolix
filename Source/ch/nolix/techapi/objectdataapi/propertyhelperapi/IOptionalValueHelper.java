@@ -10,7 +10,13 @@ import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
 public interface IOptionalValueHelper extends IDatabaseObjectHelper {
 	
 	//method declaration
+	void assertCanSetGivenValue(IOptionalValue<?, ?> optionalValue, final Object value);
+	
+	//method declaration
 	void assertHasValue(IOptionalValue<?, ?> optionalValue);
+	
+	//method declaration
+	boolean canSetGivenValue(IOptionalValue<?, ?> optionalValue, Object value);
 	
 	//method declaration
 	IRecordUpdateDTO createRecordUpdateDTOForClear(IOptionalValue<?, ?> optionalValue);
