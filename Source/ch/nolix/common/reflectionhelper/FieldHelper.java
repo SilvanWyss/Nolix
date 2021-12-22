@@ -10,6 +10,7 @@ import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.errorcontrol.exception.WrapperException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.system.database.entity.Property;
 
 //class
 public final class FieldHelper {
@@ -28,6 +29,11 @@ public final class FieldHelper {
 		} catch (final IllegalAccessException illegalAccessException) {
 			throw new WrapperException(illegalAccessException);
 		}
+	}
+	
+	//static method
+	public static boolean hasGivenTypeOrSuperType(final Field field, final Class<?> type) {
+		return type.isAssignableFrom(field.getType());
 	}
 	
 	//static method
