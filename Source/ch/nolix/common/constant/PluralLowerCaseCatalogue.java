@@ -22,6 +22,7 @@ public final class PluralLowerCaseCatalogue {
 	public static final String BITS = "bits";
 	public static final String BOOLEANS = "booleans";
 	public static final String BORDER_COLORS = "border colors";
+	public static final String BUILDERS = "builders";
 	public static final String BYTES = "bytes";
 	public static final String CAPACITIES = "capacities";
 	public static final String CAPTIONS = "captions";

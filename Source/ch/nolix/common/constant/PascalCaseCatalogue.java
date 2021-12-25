@@ -22,6 +22,7 @@ public final class PascalCaseCatalogue {
 	public static final String BIT = "Bit";
 	public static final String BOOLEAN = "Boolean";
 	public static final String BORDER_COLOR = "BorderColor";
+	public static final String BUILDER = "Builder";
 	public static final String BYTE = "Byte";
 	public static final String CAPACITY = "Capacity";
 	public static final String CAPTION = "Caption";

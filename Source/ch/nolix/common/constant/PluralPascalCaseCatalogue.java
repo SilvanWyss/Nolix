@@ -22,6 +22,7 @@ public final class PluralPascalCaseCatalogue {
 	public static final String BITS = "Bits";
 	public static final String BOOLEANS = "Booleans";
 	public static final String BORDER_COLORS = "BorderColors";
+	public static final String BUILDERS = "Builders";
 	public static final String BYTES = "Bytes";
 	public static final String CAPACITIES = "Capacities";
 	public static final String CAPTIONS = "Captions";

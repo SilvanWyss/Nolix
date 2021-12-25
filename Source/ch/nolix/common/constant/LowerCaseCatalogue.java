@@ -22,6 +22,7 @@ public final class LowerCaseCatalogue {
 	public static final String BIT = "bit";
 	public static final String BOOLEAN = "boolean";
 	public static final String BORDER_COLOR = "border color";
+	public static final String BUILDER = "builder";
 	public static final String BYTE = "byte";
 	public static final String CAPACITY = "capacity";
 	public static final String CAPTION = "caption";
