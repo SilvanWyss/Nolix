@@ -15,7 +15,7 @@ implements IBaseReference<DataImplementation, E> {
 	private final String referencedTableName;
 	
 	//optional attribute
-	private ITable<DataImplementation, E> referencedTable;
+	private Table<E> referencedTable;
 	
 	//constructor
 	public BaseReference(final String referencedTableName) {
@@ -65,7 +65,7 @@ implements IBaseReference<DataImplementation, E> {
 	
 	//method
 	private void extractReferencedTable() {
-		referencedTable = findReferencedTable();
+		referencedTable = loadReferencedTable();
 	}
 	
 	//method
@@ -77,9 +77,7 @@ implements IBaseReference<DataImplementation, E> {
 	
 	//method
 	@SuppressWarnings("unchecked")
-	private ITable<DataImplementation, E> findReferencedTable() {
-		return
-		(ITable<DataImplementation, E>)
-		getParentEntity().getParentTable().getParentDatabase().getRefTableByName(referencedTableName);
+	private Table<E> loadReferencedTable() {
+		return (Table<E>)getParentEntity().getParentTable().getParentDatabase().getRefTableByName(referencedTableName);
 	}
 }
