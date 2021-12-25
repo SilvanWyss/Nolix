@@ -16,22 +16,30 @@ public final class Database extends ImmutableDatabaseObject implements IDatabase
 	private static final TableMapper tableMapper = new TableMapper();
 	
 	//static method
-	public static Database withDataAndSchemaAdapter(final IDataAndSchemaAdapter dataAndSchemaAdapter) {
-		return new Database(dataAndSchemaAdapter);
+	public static Database withDataAndSchemaAdapterAndSchema(
+		final IDataAndSchemaAdapter dataAndSchemaAdapter,
+		final Schema schema
+	) {
+		return new Database(dataAndSchemaAdapter, schema);
 	}
 	
 	//attribute
 	private final IDataAndSchemaAdapter dataAndSchemaAdapter;
 	
+	//attribute
+	private final Schema schema;
+	
 	//multi-attribute
 	private final LinkedList<Table<IEntity<DataImplementation>>> tables = new LinkedList<>();
 	
 	//constructor
-	private Database(final IDataAndSchemaAdapter dataAndSchemaAdapter) {
+	private Database(final IDataAndSchemaAdapter dataAndSchemaAdapter, final Schema schema) {
 		
 		Validator.assertThat(dataAndSchemaAdapter).thatIsNamed(IDataAndSchemaAdapter.class).isNotNull();
+		Validator.assertThat(schema).thatIsNamed(Schema.class).isNotNull();
 		
 		this.dataAndSchemaAdapter = dataAndSchemaAdapter;
+		this.schema = schema;
 	}
 	
 	//method	
@@ -53,6 +61,11 @@ public final class Database extends ImmutableDatabaseObject implements IDatabase
 	//method
 	IDataAndSchemaAdapter internalGetRefDataAndSchemaAdapter() {
 		return dataAndSchemaAdapter;
+	}
+	
+	//method
+	Schema internalGetSchema() {
+		return schema;
 	}
 	
 	//method
