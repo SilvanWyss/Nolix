@@ -2,11 +2,16 @@
 package ch.nolix.system.objectdata.data;
 
 //own imports
+import ch.nolix.system.objectdata.datahelper.SchemaHelper;
 import ch.nolix.techapi.objectdataapi.dataapi.IEntity;
+import ch.nolix.techapi.objectdataapi.datahelperapi.ISchemaHelper;
 import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.ITableDTO;
 
 //class
 final class TableMapper {
+	
+	//static attribute
+	private static final ISchemaHelper schemaHelper = new SchemaHelper();
 	
 	//method
 	public Table<IEntity<DataImplementation>> createTableFromTableDTOForDatabase(
@@ -14,8 +19,10 @@ final class TableMapper {
 		final Database database
 	) {
 		
-		//TODO: Complete implementation.
-		return new Table<>(getNameFrom(tableDTO), null, database);
+		final var name = getNameFrom(tableDTO);
+		
+		return
+		new Table<>(getNameFrom(tableDTO), schemaHelper.getEntityTypeByName(database.internalGetSchema(), name), database);
 	}
 	
 	//method
