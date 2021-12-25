@@ -25,9 +25,6 @@ public abstract class BaseEntity implements GroupCloseable, IEntity<DataImplemen
 	//static attribute
 	private static final IEntityHelper entityHelper = new EntityHelper();
 	
-	//static attribute
-	private static final PropertyExtractor propertyExtractor = new PropertyExtractor();
-	
 	//attribute
 	private String id = UUID.randomUUID().toString().replace(StringCatalogue.MINUS, StringCatalogue.EMPTY_STRING);
 	
@@ -169,6 +166,9 @@ public abstract class BaseEntity implements GroupCloseable, IEntity<DataImplemen
 		return internalGetParentTable().internalGetRefDataAndSchemaAdapter();
 	}
 	
+	//method declaration
+	abstract IContainer<Property> internalLoadProperties();
+	
 	//method
 	final void internalSetEdited() {
 		switch (getState()) {
@@ -200,7 +200,7 @@ public abstract class BaseEntity implements GroupCloseable, IEntity<DataImplemen
 	
 	//method
 	private void extractPropertiesWhenNotExtracted() {
-		properties = propertyExtractor.getRefPropertiesFrom(this);
+		properties = internalLoadProperties();
 	}
 	
 	//method
