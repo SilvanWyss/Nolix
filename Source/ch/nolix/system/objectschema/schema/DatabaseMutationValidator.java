@@ -5,11 +5,9 @@ package ch.nolix.system.objectschema.schema;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.system.objectschema.schemahelper.ColumnHelper;
-import ch.nolix.system.objectschema.schemahelper.DatabaseEngineHelper;
 import ch.nolix.system.objectschema.schemahelper.DatabaseHelper;
 import ch.nolix.system.objectschema.schemahelper.TableHelper;
 import ch.nolix.techapi.objectschemaapi.schemahelperapi.IColumnHelper;
-import ch.nolix.techapi.objectschemaapi.schemahelperapi.IDatabaseEngineHelper;
 import ch.nolix.techapi.objectschemaapi.schemahelperapi.IDatabaseHelper;
 import ch.nolix.techapi.objectschemaapi.schemahelperapi.ITableHelper;
 
@@ -17,7 +15,6 @@ import ch.nolix.techapi.objectschemaapi.schemahelperapi.ITableHelper;
 final class DatabaseMutationValidator {
 	
 	//static attributes
-	private static final IDatabaseEngineHelper databaseEngineHelper = new DatabaseEngineHelper();
 	private static final IDatabaseHelper databaseHelper = new DatabaseHelper();
 	private static final ITableHelper tableHelper = new TableHelper();
 	private static final IColumnHelper columnHelper = new ColumnHelper();
