@@ -73,7 +73,7 @@ implements ITable<DataImplementation, E> {
 	
 	//method
 	@Override
-	public boolean hasInsertedEntityWithId(final String id) {
+	public boolean hasInsertedEntityWithGivenIdInLocalData(final String id) {
 		//TODO: Implement.
 		return false;
 	}

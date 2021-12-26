@@ -25,12 +25,12 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
 		return
 		canInsertEntity(table)
 		&& entityHelper.canBeInsertedIntoTable(entity)
-		&& hasInsertedGivenEntity(table, entity);
+		&& !hasInsertedGivenEntityInLocalData(table, entity);
 	}
 	
 	//method
 	@Override
-	public boolean hasInsertedGivenEntity(final ITable<?, ?> table, final IEntity<?> entity) {
-		return table.hasInsertedEntityWithId(entity.getId());
+	public boolean hasInsertedGivenEntityInLocalData(final ITable<?, ?> table, final IEntity<?> entity) {
+		return table.hasInsertedEntityWithGivenIdInLocalData(entity.getId());
 	}
 }

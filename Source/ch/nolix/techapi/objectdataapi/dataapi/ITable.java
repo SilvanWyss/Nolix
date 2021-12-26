@@ -28,7 +28,7 @@ public interface ITable<
 	IContainer<IColumn<IMPL>> getReferencingColumns();
 	
 	//method declaration
-	boolean hasInsertedEntityWithId(String id);
+	boolean hasInsertedEntityWithGivenIdInLocalData(String id);
 	
 	//method declaration
 	ITable<IMPL, E> insert(E entity);
