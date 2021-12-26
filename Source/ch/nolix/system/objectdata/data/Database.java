@@ -42,6 +42,15 @@ public final class Database extends ImmutableDatabaseObject implements IDatabase
 		this.schema = schema;
 	}
 	
+	//method
+	@Override
+	@SuppressWarnings("unchecked")
+	public <E extends IEntity<DataImplementation>> ITable<DataImplementation, E> getRefTableByEntityClass(
+		final Class<E> entityClass
+	) {
+		return (ITable<DataImplementation, E>)getRefTableByName(entityClass.getSimpleName());		
+	}
+	
 	//method	
 	@Override
 	public ITable<DataImplementation, IEntity<DataImplementation>> getRefTableByName(final String name) {

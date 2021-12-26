@@ -8,5 +8,8 @@ import ch.nolix.techapi.databaseapi.databaseobjectapi.IDatabaseObject;
 public interface IDatabase<IMPL> extends IDatabaseObject {
 	
 	//method declaration
+	<E extends IEntity<IMPL>> ITable<IMPL, E> getRefTableByEntityClass(final Class<E> entityClass);
+	
+	//method declaration
 	ITable<IMPL, IEntity<IMPL>> getRefTableByName(String name);
 }
