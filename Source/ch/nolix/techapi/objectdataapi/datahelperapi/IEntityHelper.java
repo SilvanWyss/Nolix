@@ -27,8 +27,11 @@ public interface IEntityHelper extends IDatabaseObjectHelper {
 	//method declaration
 	boolean canBeDeleted(IEntity<?> entity);
 	
-	//method
+	//method declaration
 	boolean canBeInsertedIntoTable(IEntity<?> entity);
+	
+	//method declaration
+	boolean containsMandatoryAndEmptyBaseValuesOrBaseReferences(IEntity<?> entity);
 	
 	//method declaration
 	IRecordDeletionDTO createRecordDeletionDTOForEntity(IEntity<?> entity);

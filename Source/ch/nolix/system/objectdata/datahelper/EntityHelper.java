@@ -8,14 +8,21 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHave
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ReferencedArgumentException;
 import ch.nolix.system.database.databaseobjecthelper.DatabaseObjectHelper;
+import ch.nolix.system.objectdata.propertyhelper.PropertyHelper;
 import ch.nolix.system.sqlrawobjectdata.datadto.RecordDeletionDTO;
+import ch.nolix.techapi.databaseapi.propertytypeapi.BasePropertyType;
 import ch.nolix.techapi.objectdataapi.dataapi.IEntity;
+import ch.nolix.techapi.objectdataapi.dataapi.IProperty;
 import ch.nolix.techapi.objectdataapi.dataapi.ITable;
 import ch.nolix.techapi.objectdataapi.datahelperapi.IEntityHelper;
+import ch.nolix.techapi.objectdataapi.propertyhelperapi.IPropertyHelper;
 import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IRecordDeletionDTO;
 
 //class
 public class EntityHelper extends DatabaseObjectHelper implements IEntityHelper {
+	
+	//static attribute
+	private static final IPropertyHelper propertyHelper = new PropertyHelper();
 	
 	//method
 	@Override
@@ -66,7 +73,16 @@ public class EntityHelper extends DatabaseObjectHelper implements IEntityHelper 
 	//method
 	@Override
 	public final boolean canBeInsertedIntoTable(final IEntity<?> entity) {
-		return isNew(entity) && !referencesUninsertedEntity(entity);
+		return
+		isNew(entity)
+		&& !referencesUninsertedEntity(entity)
+		&& !containsMandatoryAndEmptyBaseValuesOrBaseReferences(entity);
+	}
+	
+	//method
+	@Override
+	public boolean containsMandatoryAndEmptyBaseValuesOrBaseReferences(final IEntity<?> entity) {
+		return entity.getRefProperties().containsAny(this::isMandatoryAndEmptyBaseValueOrBaseReference);
 	}
 	
 	//method
@@ -92,5 +108,22 @@ public class EntityHelper extends DatabaseObjectHelper implements IEntityHelper 
 	public final boolean referencesUninsertedEntity(final IEntity<?> entity) {
 		//TODO: Implement.
 		return false;
+	}
+	
+	//method
+	private boolean isBaseValueOrBaseReference(final IProperty<?> property) {
+		
+		final var baseType = property.getType().getBaseType();
+		
+		return
+		baseType == BasePropertyType.BASE_VALUE
+		|| baseType == BasePropertyType.BASE_REFERENCE;
+	}
+	
+	//method
+	private boolean isMandatoryAndEmptyBaseValueOrBaseReference(final IProperty<?> property) {
+		return
+		isBaseValueOrBaseReference(property)
+		&& propertyHelper.isMandatoryAndEmptyBoth(property);
 	}
 }
