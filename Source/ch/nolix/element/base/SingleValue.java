@@ -12,7 +12,6 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentExce
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.functionapi.IElementTaker;
 import ch.nolix.common.functionapi.IElementTakerElementGetter;
-import ch.nolix.common.requestapi.OptionalityRequestable;
 
 //class
 /**
@@ -21,7 +20,7 @@ import ch.nolix.common.requestapi.OptionalityRequestable;
  * @lines 140
  * @param <V> is the type of the value of a {@link SingleValue}.
  */
-abstract class SingleValue<V> extends BaseValue<V> implements OptionalityRequestable {
+abstract class SingleValue<V> extends BaseValue<V> {
 	
 	//attribute
 	private final IElementTaker<V> setterMethod;

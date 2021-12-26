@@ -129,13 +129,4 @@ public final class MutableValue<V> extends SingleValue<V> {
 	public boolean isMutable() {
 		return true;
 	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public boolean isOptional() {
-		return false;
-	}
 }
