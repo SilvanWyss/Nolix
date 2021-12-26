@@ -110,6 +110,12 @@ implements IMultiReference<DataImplementation, E> {
 	}
 	
 	//method
+	@Override
+	public boolean referencesUninsertedEntity() {
+		return containsAny(e -> !e.belongsToTable());
+	}
+	
+	//method
 	private void clearWhenContainsAny() {
 		
 		multiReferenceHelper.assertCanClear(this);

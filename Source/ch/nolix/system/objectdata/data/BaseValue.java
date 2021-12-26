@@ -10,25 +10,31 @@ public abstract class BaseValue<V> extends Property implements IBaseValue<DataIm
 		
 	//method
 	@Override
-	public boolean canReferenceBackEntityOfType(final Class<IEntity<DataImplementation>> type) {
+	public final boolean canReferenceBackEntityOfType(final Class<IEntity<DataImplementation>> type) {
 		return false;
 	}
 	
 	//method
 	@Override
-	public boolean canReferenceEntityOfType(final Class<IEntity<DataImplementation>> type) {
+	public final boolean canReferenceEntityOfType(final Class<IEntity<DataImplementation>> type) {
 		return false;
 	}
 	
 	//method
 	@Override
-	public boolean references(final IEntity<DataImplementation> entity) {
+	public final boolean references(final IEntity<DataImplementation> entity) {
 		return false;
 	}
 	
 	//method
 	@Override
-	public boolean referencesBack(final IEntity<DataImplementation> entity) {
+	public final boolean referencesBack(final IEntity<DataImplementation> entity) {
+		return false;
+	}
+	
+	//method
+	@Override
+	public final boolean referencesUninsertedEntity() {
 		return false;
 	}
 }

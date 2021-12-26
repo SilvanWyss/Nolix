@@ -33,4 +33,7 @@ public interface IProperty<IMPL> extends EmptinessRequestable, MandatoryRequesta
 	
 	//method declaration
 	boolean referencesBack(IEntity<IMPL> entity);
+	
+	//method declaration
+	boolean referencesUninsertedEntity();
 }

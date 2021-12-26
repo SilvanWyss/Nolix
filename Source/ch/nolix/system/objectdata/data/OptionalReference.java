@@ -84,6 +84,14 @@ implements IOptionalReference<DataImplementation, E> {
 	
 	//method
 	@Override
+	public boolean referencesUninsertedEntity() {
+		return
+		containsAny()
+		&& !getRefEntity().belongsToTable();
+	}
+	
+	//method
+	@Override
 	public void setEntity(final E entity) {
 		
 		optionalReferenceHelper.assertCanSetGivenEntity(this, entity);
