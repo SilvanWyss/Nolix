@@ -20,7 +20,7 @@ public final class Value<V> extends BaseValue<V> implements IValue<DataImplement
 	@Override
 	public V getRefValue() {
 		
-		valueHelper.assertHasValue(this);
+		valueHelper.assertIsNotEmpty(this);
 		
 		return internalValue;
 	}
@@ -33,8 +33,8 @@ public final class Value<V> extends BaseValue<V> implements IValue<DataImplement
 	
 	//method
 	@Override
-	public boolean hasValue() {
-		return (internalValue != null);
+	public boolean isEmpty() {
+		return (internalValue == null);
 	}
 	
 	//method

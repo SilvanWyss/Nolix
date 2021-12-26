@@ -37,7 +37,7 @@ implements IReference<DataImplementation, E> {
 	@Override
 	public String getEntityId() {
 		
-		referenceHelper.assertReferencesEntity(this);
+		referenceHelper.assertIsNotEmpty(this);
 		
 		return referencedEntityId;
 	}
@@ -56,6 +56,12 @@ implements IReference<DataImplementation, E> {
 	
 	//method
 	@Override
+	public boolean isEmpty() {
+		return (referencedEntityId == null);
+	}
+	
+	//method
+	@Override
 	public boolean isMandatory() {
 		return true;
 	}
@@ -64,15 +70,9 @@ implements IReference<DataImplementation, E> {
 	@Override
 	public boolean references(final IEntity<DataImplementation> entity) {
 		return
-		referencesEntity()
+		containsAny()
 		&& entity != null
 		&& getEntityId().equals(entity.getId());
-	}
-	
-	//method
-	@Override
-	public boolean referencesEntity() {
-		return (referencedEntityId != null);
 	}
 	
 	//method

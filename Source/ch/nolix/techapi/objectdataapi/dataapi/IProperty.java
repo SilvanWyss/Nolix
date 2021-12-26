@@ -3,11 +3,12 @@ package ch.nolix.techapi.objectdataapi.dataapi;
 
 //own imports
 import ch.nolix.common.attributeapi.mandatoryattributeapi.Named;
+import ch.nolix.common.requestapi.EmptinessRequestable;
 import ch.nolix.common.requestapi.MandatoryRequestable;
 import ch.nolix.techapi.databaseapi.propertytypeapi.PropertyType;
 
 //interface
-public interface IProperty<IMPL> extends MandatoryRequestable, Named {
+public interface IProperty<IMPL> extends EmptinessRequestable, MandatoryRequestable, Named {
 	
 	//method declaration
 	boolean belongsToEntity();

@@ -14,8 +14,5 @@ public interface IReference<
 	E getRefEntity();
 	
 	//method declaration
-	boolean referencesEntity();
-	
-	//method declaration
 	void setEntity(final E entity);
 }

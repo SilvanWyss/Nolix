@@ -13,4 +13,7 @@ public interface IPropertyHelper extends IDatabaseObjectHelper {
 	
 	//method declaration
 	void assertDoesNotBelongToEntity(IProperty<?> property);
+	
+	//method declaration
+	void assertIsNotEmpty(IProperty<?> property);
 }

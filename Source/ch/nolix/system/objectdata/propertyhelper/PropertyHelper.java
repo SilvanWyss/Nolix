@@ -4,6 +4,7 @@ package ch.nolix.system.objectdata.propertyhelper;
 //own imports
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
+import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.system.database.databaseobjecthelper.DatabaseObjectHelper;
 import ch.nolix.techapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.techapi.objectdataapi.dataapi.IProperty;
@@ -25,6 +26,14 @@ public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHel
 	public final void assertDoesNotBelongToEntity(final IProperty<?> property) {
 		if (property.belongsToEntity()) {
 			throw new ArgumentBelongsToParentException(property, property.getParentEntity());
+		}
+	}
+	
+	//method
+	@Override
+	public void assertIsNotEmpty(final IProperty<?> property) {
+		if (property.isEmpty()) {
+			throw new EmptyArgumentException(property);
 		}
 	}
 }

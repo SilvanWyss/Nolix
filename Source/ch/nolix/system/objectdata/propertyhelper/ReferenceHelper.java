@@ -15,14 +15,6 @@ public final class ReferenceHelper extends PropertyHelper implements IReferenceH
 	
 	//method
 	@Override
-	public void assertReferencesEntity(final IReference<?, ?> reference) {
-		if (!reference.referencesEntity()) {
-			throw new InvalidArgumentException(reference, "does not reference an entity");
-		}
-	}
-	
-	//method
-	@Override
 	public void assertCanSetGivenEntity(final IReference<?, ?> reference, final IEntity<?> entity) {
 		if (!canSetGivenEntity(reference, entity)) {
 			throw new InvalidArgumentException(reference, "cannot reference the given entity");

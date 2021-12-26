@@ -13,9 +13,6 @@ public interface IReferenceHelper extends IPropertyHelper {
 	void assertCanSetGivenEntity(IReference<?, ?> reference, IEntity<?> entity);
 	
 	//method declaration
-	void assertReferencesEntity(IReference<?, ?> referenc);
-	
-	//method declaration
 	boolean canSetGivenEntity(final IReference<?, ?> reference, IEntity<?> entity);
 	
 	//method declaration
