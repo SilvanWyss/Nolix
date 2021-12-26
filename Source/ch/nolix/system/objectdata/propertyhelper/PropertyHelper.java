@@ -36,4 +36,20 @@ public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHel
 			throw new EmptyArgumentException(property);
 		}
 	}
+	
+	//method
+	@Override
+	public void assertIsNotMandatoryAndEmptyBoth(final IProperty<?> property) {
+		if (isMandatoryAndEmptyBoth(property)) {
+			throw new EmptyArgumentException(property);
+		}
+	}
+	
+	//method
+	@Override
+	public boolean isMandatoryAndEmptyBoth(final IProperty<?> property) {
+		return
+		property.isMandatory()
+		&& property.isEmpty();
+	}
 }

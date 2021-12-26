@@ -16,4 +16,10 @@ public interface IPropertyHelper extends IDatabaseObjectHelper {
 	
 	//method declaration
 	void assertIsNotEmpty(IProperty<?> property);
+	
+	//method declaration
+	void assertIsNotMandatoryAndEmptyBoth(IProperty<?> property);
+	
+	//method declaration
+	boolean isMandatoryAndEmptyBoth(IProperty<?> property);
 }
