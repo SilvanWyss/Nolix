@@ -56,6 +56,12 @@ implements IReference<DataImplementation, E> {
 	
 	//method
 	@Override
+	public boolean isMandatory() {
+		return true;
+	}
+	
+	//method
+	@Override
 	public boolean references(final IEntity<DataImplementation> entity) {
 		return
 		referencesEntity()

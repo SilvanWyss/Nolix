@@ -52,6 +52,12 @@ public final class OptionalValue<V> extends BaseValue<V> implements IOptionalVal
 	
 	//method
 	@Override
+	public boolean isMandatory() {
+		return false;
+	}
+	
+	//method
+	@Override
 	public void setValue(final V value) {
 		
 		optionalValueHelper.assertCanSetGivenValue(this, value);

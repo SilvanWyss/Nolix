@@ -39,6 +39,12 @@ public final class Value<V> extends BaseValue<V> implements IValue<DataImplement
 	
 	//method
 	@Override
+	public boolean isMandatory() {
+		return false;
+	}
+	
+	//method
+	@Override
 	public void setValue(final V value) {
 		
 		valueHelper.assertCanSetGivenValue(this, value);

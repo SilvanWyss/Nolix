@@ -85,6 +85,12 @@ implements IMultiReference<DataImplementation, E> {
 	
 	//method
 	@Override
+	public boolean isMandatory() {
+		return false;
+	}
+	
+	//method
+	@Override
 	public Iterator<E> iterator() {
 		
 		final var referencedTable = getReferencedTable();

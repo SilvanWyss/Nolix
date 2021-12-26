@@ -69,6 +69,12 @@ implements IOptionalReference<DataImplementation, E> {
 	
 	//method
 	@Override
+	public boolean isMandatory() {
+		return false;
+	}
+	
+	//method
+	@Override
 	public boolean references(IEntity<DataImplementation> entity) {
 		return
 		containsAny()

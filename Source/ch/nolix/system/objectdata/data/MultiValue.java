@@ -66,6 +66,12 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<Dat
 	
 	//method
 	@Override
+	public boolean isMandatory() {
+		return false;
+	}
+	
+	//method
+	@Override
 	public Iterator<V> iterator() {
 		return values.iterator();
 	}
