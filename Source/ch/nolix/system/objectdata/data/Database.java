@@ -68,6 +68,16 @@ public final class Database extends ImmutableDatabaseObject implements IDatabase
 	}
 	
 	//method
+	@Override
+	@SuppressWarnings("unchecked")
+	public <E extends IEntity<DataImplementation>> IDatabase<DataImplementation> insert(final E entity) {
+		
+		getRefTableByEntityClass(entity.getClass()).insert(entity);
+		
+		return this;
+	}
+	
+	//method
 	IDataAndSchemaAdapter internalGetRefDataAndSchemaAdapter() {
 		return dataAndSchemaAdapter;
 	}

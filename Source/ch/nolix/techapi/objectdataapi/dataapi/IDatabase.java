@@ -12,4 +12,7 @@ public interface IDatabase<IMPL> extends IDatabaseObject {
 	
 	//method declaration
 	ITable<IMPL, IEntity<IMPL>> getRefTableByName(String name);
+	
+	//method declaration
+	<E extends IEntity<IMPL>> IDatabase<IMPL> insert(E entity);
 }
