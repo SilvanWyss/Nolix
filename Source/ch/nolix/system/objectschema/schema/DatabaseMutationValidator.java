@@ -39,11 +39,6 @@ final class DatabaseMutationValidator {
 	
 	//method
 	public void assertCanSetNameToDatabase(final Database database, final String name) {
-		
-		if (database.belongsToEngine()) {
-			databaseEngineHelper.assertDoesNotContainDatabaseWithGivenName(database.getParentEngine(), name);
-		}
-		
 		Validator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
 	}
 	

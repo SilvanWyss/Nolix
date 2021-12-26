@@ -8,7 +8,6 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.system.objectschema.parametrizedpropertytype.SchemaImplementation;
 import ch.nolix.system.objectschema.schemahelper.DatabaseHelper;
 import ch.nolix.techapi.objectschemaapi.schemaapi.IDatabase;
-import ch.nolix.techapi.objectschemaapi.schemaapi.IDatabaseEngine;
 import ch.nolix.techapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.techapi.objectschemaapi.schemahelperapi.IDatabaseHelper;
 import ch.nolix.techapi.rawobjectschemaapi.schemaadapterapi.ISchemaAdapter;
@@ -68,13 +67,6 @@ public final class Database extends DatabaseObject implements IDatabase<SchemaIm
 	@Override
 	public String getName() {
 		return name;
-	}
-	
-	//method
-	@Override
-	public IDatabaseEngine<SchemaImplementation> getParentEngine() {
-		//TODO: Implement.
-		return null;
 	}
 	
 	//method

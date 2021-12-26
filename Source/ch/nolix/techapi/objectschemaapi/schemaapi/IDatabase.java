@@ -20,9 +20,6 @@ public interface IDatabase<IMPL> extends IDatabaseObject, Named {
 	IDatabase<IMPL> createTableWithName(String name);
 	
 	//method declaration
-	IDatabaseEngine<IMPL> getParentEngine();
-	
-	//method declaration
 	IContainer<ITable<IMPL>> getRefTables();
 	
 	//method declaration
