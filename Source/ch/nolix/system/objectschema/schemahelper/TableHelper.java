@@ -70,7 +70,7 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
 	@Override
 	public boolean containsColumnBackReferencedByGivenColumn(final ITable<?> table, final IColumn<?> column) {
 		
-		//For a better performance, this check, that is theoretically not necessary, excludes many cases.
+		//This check is theoretically not necessary, but provides a better performance for some cases.
 		if (!columnHelper.isABackReferenceColumn(column)) {
 			return false;
 		}
@@ -82,7 +82,7 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
 	@Override
 	public boolean containsColumnThatReferencesBackGivenColumn(final ITable<?> table, final IColumn<?> column) {
 		
-		//For a better performance, this check, that is theoretically not necessary, excludes many cases.
+		//This check is theoretically not necessary, but provides a better performance for some cases.
 		if (!columnHelper.isAReferenceColumn(column)) {
 			return false;
 		}

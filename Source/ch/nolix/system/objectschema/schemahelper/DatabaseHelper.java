@@ -87,7 +87,7 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 		final IColumn<?> column
 	) {
 		
-		//For a better performance, this check, that is theoretically not necessary, excludes many cases.
+		//This check is theoretically not necessary, but provides a better performance for some cases.
 		if (!columnHelper.isAReferenceColumn(column)) {
 			return false;
 		}
@@ -102,7 +102,7 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 		final IColumn<?> column
 	) {
 		
-		//For a better performance, this check, that is theoretically not necessary, excludes many cases.
+		//This check is theoretically not necessary, but provides a better performance for some cases.
 		if (!columnHelper.isABackReferenceColumn(column)) {
 			return false;
 		}
