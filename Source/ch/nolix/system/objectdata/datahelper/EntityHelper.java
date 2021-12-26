@@ -106,8 +106,7 @@ public class EntityHelper extends DatabaseObjectHelper implements IEntityHelper 
 	//method
 	@Override
 	public final boolean referencesUninsertedEntity(final IEntity<?> entity) {
-		//TODO: Implement.
-		return false;
+		return entity.getRefProperties().containsAny(IProperty::referencesUninsertedEntity);
 	}
 	
 	//method
