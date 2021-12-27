@@ -3,11 +3,13 @@ package ch.nolix.system.objectdata.datahelper;
 
 //own imports
 import ch.nolix.common.constant.LowerCaseCatalogue;
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ReferencedArgumentException;
 import ch.nolix.system.database.databaseobjecthelper.DatabaseObjectHelper;
+import ch.nolix.system.objectdata.data.BaseEntity;
 import ch.nolix.system.objectdata.propertyhelper.PropertyHelper;
 import ch.nolix.system.sqlrawobjectdata.datadto.RecordDeletionDTO;
 import ch.nolix.techapi.databaseapi.propertytypeapi.BasePropertyType;
@@ -37,6 +39,14 @@ public class EntityHelper extends DatabaseObjectHelper implements IEntityHelper 
 	public final void assertCanBeDeleted(final IEntity<?> entity) {
 		if (!canBeDeleted(entity)) {
 			throw new InvalidArgumentException(entity, "cannot be deleted");
+		}
+	}
+	
+	//method
+	@Override
+	public final void assertDoesNotBelongToTable(final IEntity<?> entity) {
+		if (entity.belongsToTable()) {
+			throw new ArgumentBelongsToParentException(entity, entity.getParentTable());
 		}
 	}
 	
