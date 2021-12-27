@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.common.reflectionhelper;
 
+//Java imports
+import java.lang.reflect.Constructor;
+
 //own imports
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
@@ -8,6 +11,11 @@ import ch.nolix.common.errorcontrol.exception.WrapperException;
 
 //class
 public final class GlobalClassHelper {
+	
+	//static method
+	public static <T> T createInstanceFromDefaultConstructorOf(final Class<T> pClass) {
+		return GlobalConstructorHelper.createInstanceFromDefaultConstructor(getRefDefaultConstructorOf(pClass));
+	}
 	
 	//static method
 	public static IContainer<Object> getPublicStaticFieldValuesOfClass(final Class<?> pClass) {
@@ -28,6 +36,20 @@ public final class GlobalClassHelper {
 		}
 		
 		return publicStaticFields;
+	}
+	
+	//static method
+	public static <T> Constructor<T> getRefDefaultConstructorOf(final Class<T> pClass) {
+		try {
+			
+			final var defaultConstructor = pClass.getDeclaredConstructor();
+			
+			defaultConstructor.setAccessible(true);
+			
+			return defaultConstructor;
+		} catch (final NoSuchMethodException noSuchMethodException) {
+			throw new WrapperException(noSuchMethodException);
+		}
 	}
 	
 	//constructor
