@@ -11,6 +11,7 @@ import ch.nolix.techapi.objectdataapi.dataapi.IDatabase;
 import ch.nolix.techapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.techapi.objectdataapi.dataapi.ITable;
 import ch.nolix.techapi.rawobjectdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
+import ch.nolix.techapi.rawobjectdataapi.datadtoapi.ILoadedRecordDTO;
 
 //class
 public final class Table<E extends IEntity<DataImplementation>> extends ImmutableDatabaseObject
@@ -27,6 +28,9 @@ implements ITable<DataImplementation, E> {
 	
 	//attribute
 	private final Database parentDatabase;
+	
+	//attribute
+	private boolean loadedAllEntitiesInLocalData;
 	
 	//multi-attribute
 	private final LinkedList<E> entitiesInLocalData = new LinkedList<>();
@@ -64,8 +68,10 @@ implements ITable<DataImplementation, E> {
 	//method
 	@Override
 	public IContainer<E> getRefAllEntities() {
-		//TODO: Implement.
-		return null;
+		
+		loadAllEntitiesInLocalDataIfNotLoaded();
+		
+		return entitiesInLocalData;
 	}
 	
 	//method
@@ -94,8 +100,7 @@ implements ITable<DataImplementation, E> {
 	//method
 	@Override
 	public boolean hasInsertedEntityWithGivenIdInLocalData(final String id) {
-		//TODO: Implement.
-		return false;
+		return entitiesInLocalData.containsAny(e -> e.hasId(id));
 	}
 	
 	//method
@@ -116,6 +121,12 @@ implements ITable<DataImplementation, E> {
 	}
 	
 	//method
+	@SuppressWarnings("unchecked")
+	private E createEntityFrom(ILoadedRecordDTO record) {
+		return (E)entityMapper.createEntityFromRecordForGivenTable(record, (Table<BaseEntity>)this);
+	}
+	
+	//method
 	private IContainer<E> getRefEntitiesInLocalData() {
 		return entitiesInLocalData;
 	}
@@ -126,13 +137,41 @@ implements ITable<DataImplementation, E> {
 	}
 	
 	//method
-	@SuppressWarnings("unchecked")
+	private void insertEntityFromGivenRecordInLocalDataIfNotInserted(ILoadedRecordDTO record) {
+		if (!hasInsertedEntityWithGivenIdInLocalData(record.getId())) {
+			entitiesInLocalData.addAtEnd(createEntityFrom(record));
+		}
+	}
+	
+	//method
+	private void loadAllEntitiesInLocalDataIfNotLoaded() {
+		if (!loadedAllEntitiesInLocalData()) {
+			loadAllEntitiesInLocalDataWhenNotLoadedAll();
+		}
+	}
+	
+	//method
+	private void loadAllEntitiesInLocalDataWhenNotLoadedAll() {
+		
+		for (final var r : internalGetRefDataAndSchemaAdapter().loadAllRecordsFromTable(getName())) {
+			insertEntityFromGivenRecordInLocalDataIfNotInserted(r);
+		}
+		
+		loadedAllEntitiesInLocalData = true;
+	}
+	
+	//method
+	private boolean loadedAllEntitiesInLocalData() {
+		return loadedAllEntitiesInLocalData;
+	}
+	
+	//method
 	private E loadEntityById(final String id) {
-		return
-		(E)
-		entityMapper.createEntityFromRecordForGivenTable(
-			internalGetRefDataAndSchemaAdapter().loadRecordFromTableById(getName(), id),
-			(Table<Entity>)this
-		);
+		return createEntityFrom(loadRecordOfEntityById(id));
+	}
+	
+	//method
+	private ILoadedRecordDTO loadRecordOfEntityById(final String id) {
+		return internalGetRefDataAndSchemaAdapter().loadRecordFromTableById(getName(), id);
 	}
 }
