@@ -97,6 +97,12 @@ implements IReference<DataImplementation, E> {
 	}
 	
 	//method
+	@Override
+	void internalSetOrClearDirectlyFromContent(final Object content) {
+		referencedEntityId = (String)content;		
+	}
+	
+	//method
 	private void updateRecordForSetEntity(final E entity) {
 		if (isLinkedWithRealDatabase()) {
 			internalGetRefDataAndSchemaAdapter().updateRecordOnTable(

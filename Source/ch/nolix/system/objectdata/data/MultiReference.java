@@ -116,6 +116,12 @@ implements IMultiReference<DataImplementation, E> {
 	}
 	
 	//method
+	@Override
+	void internalSetOrClearDirectlyFromContent(final Object content) {
+		//TODO: Implement.
+	}
+	
+	//method
 	private void clearWhenContainsAny() {
 		
 		multiReferenceHelper.assertCanClear(this);

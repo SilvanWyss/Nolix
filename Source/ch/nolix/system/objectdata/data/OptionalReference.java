@@ -104,6 +104,16 @@ implements IOptionalReference<DataImplementation, E> {
 	}
 	
 	//method
+	@Override
+	void internalSetOrClearDirectlyFromContent(final Object content) {
+		if (content == null) {
+			referencedEntityId = null;
+		} else {
+			referencedEntityId = (String)content;
+		}
+	}
+	
+	//method
 	private void clearWhenContainsAny() {
 		
 		optionalReferenceHelper.assertCanClear(this);

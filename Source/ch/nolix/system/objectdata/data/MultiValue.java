@@ -77,6 +77,12 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<Dat
 	}
 	
 	//method
+	@Override
+	void internalSetOrClearDirectlyFromContent(final Object content) {
+		//TODO: Implement.
+	}
+	
+	//method
 	private void updateRecordForAddValue(final V value) {
 		if (isLinkedWithRealDatabase()) {
 			internalGetRefDataAndSchemaAdapter().updateRecordOnTable(

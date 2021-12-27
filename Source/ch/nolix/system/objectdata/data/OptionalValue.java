@@ -70,6 +70,17 @@ public final class OptionalValue<V> extends BaseValue<V> implements IOptionalVal
 	}
 	
 	//method
+	@Override
+	@SuppressWarnings("unchecked")
+	void internalSetOrClearDirectlyFromContent(final Object content) {
+		if (content == null) {
+			internalValue = null;
+		} else {
+			internalValue = (V)content;
+		}
+	}
+	
+	//method
 	private void updateStateForSetValue(final V value) {
 		
 		Validator.assertThat(value).thatIsNamed(LowerCaseCatalogue.VALUE).isNotNull();

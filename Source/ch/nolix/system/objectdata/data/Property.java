@@ -73,6 +73,9 @@ public abstract class Property implements IProperty<DataImplementation> {
 	}
 	
 	//method
+	abstract void internalSetOrClearDirectlyFromContent(final Object content);
+	
+	//method
 	final void internalSetParentEntityAsEdited() {
 		if (belongsToEntity()) {
 			internalGetParentEntity().internalSetEdited();
