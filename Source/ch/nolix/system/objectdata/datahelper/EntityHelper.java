@@ -9,7 +9,6 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHave
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ReferencedArgumentException;
 import ch.nolix.system.database.databaseobjecthelper.DatabaseObjectHelper;
-import ch.nolix.system.objectdata.data.BaseEntity;
 import ch.nolix.system.objectdata.propertyhelper.PropertyHelper;
 import ch.nolix.system.sqlrawobjectdata.datadto.RecordDeletionDTO;
 import ch.nolix.techapi.databaseapi.propertytypeapi.BasePropertyType;
