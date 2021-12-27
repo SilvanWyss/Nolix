@@ -4,6 +4,7 @@ package ch.nolix.system.objectdata.data;
 //own imports
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
+import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.techapi.objectdataapi.dataapi.IColumn;
 import ch.nolix.techapi.objectdataapi.dataapi.IDatabase;
@@ -15,10 +16,20 @@ import ch.nolix.techapi.rawobjectdataapi.dataandschemaadapterapi.IDataAndSchemaA
 public final class Table<E extends IEntity<DataImplementation>> extends ImmutableDatabaseObject
 implements ITable<DataImplementation, E> {
 	
-	//attributes
+	//static attribute
+	private static final EntityMapper entityMapper = new EntityMapper();
+	
+	//attribute
 	private final String name;
+	
+	//attribute
 	private final Class<E> entityClass;
+	
+	//attribute
 	private final Database parentDatabase;
+	
+	//multi-attribute
+	private final LinkedList<E> entitiesInLocalData = new LinkedList<>();
 	
 	//constructor
 	Table(final String name, final Class<E> entityClass, final Database parentDatabase) {
@@ -60,8 +71,17 @@ implements ITable<DataImplementation, E> {
 	//method
 	@Override
 	public E getRefEntityById(final String id) {
-		//TODO: Implement.
-		return null;
+		
+		final var entity = getRefEntitiesInLocalData().getRefFirstOrNull(e -> e.hasId(id));
+		
+		if (entity == null) {
+			
+			addEntityWithIdWhenIsNotAdded(id);
+			
+			return getRefEntityByIdWhenIsInLocalData(id);
+		}
+		
+		return entity;
 	}
 	
 	//method
@@ -88,5 +108,31 @@ implements ITable<DataImplementation, E> {
 	//method
 	IDataAndSchemaAdapter internalGetRefDataAndSchemaAdapter() {
 		return parentDatabase.internalGetRefDataAndSchemaAdapter();
+	}
+	
+	//method
+	private void addEntityWithIdWhenIsNotAdded(final String id) {
+		entitiesInLocalData.addAtEnd(loadEntityById(id));
+	}
+	
+	//method
+	private IContainer<E> getRefEntitiesInLocalData() {
+		return entitiesInLocalData;
+	}
+	
+	//method
+	private E getRefEntityByIdWhenIsInLocalData(final String id) {
+		return getRefEntitiesInLocalData().getRefFirst(e -> e.hasId(id));
+	}
+	
+	//method
+	@SuppressWarnings("unchecked")
+	private E loadEntityById(final String id) {
+		return
+		(E)
+		entityMapper.createEntityFromRecordForGivenTable(
+			internalGetRefDataAndSchemaAdapter().loadRecordFromTableById(getName(), id),
+			(Table<Entity>)this
+		);
 	}
 }
