@@ -5,10 +5,12 @@ package ch.nolix.system.objectdata.data;
 import java.util.UUID;
 
 //own imports
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.DeletedArgumentException;
+import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.programcontrol.groupcloseable.CloseController;
 import ch.nolix.common.programcontrol.groupcloseable.GroupCloseable;
 import ch.nolix.system.objectdata.datahelper.EntityHelper;
@@ -184,6 +186,22 @@ public abstract class BaseEntity implements GroupCloseable, IEntity<DataImplemen
 			case CLOSED:
 				throw new ClosedArgumentException(this);
 		}
+	}
+	
+	//method
+	final void internalSetParentTable(final Table<IEntity<DataImplementation>> parentTable) {
+		
+		Validator.assertThat(parentTable).thatIsNamed("parent table").isNotNull();
+		
+		this.parentTable = parentTable;
+	}
+	
+	//method
+	final void internalSetSaveStamp(final String saveStamp) {
+		
+		Validator.assertThat(saveStamp).thatIsNamed(LowerCaseCatalogue.SAVE_STAMP).isNotNull();
+		
+		this.saveStamp = saveStamp;
 	}
 	
 	//method
