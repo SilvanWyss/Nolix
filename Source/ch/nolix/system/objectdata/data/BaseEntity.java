@@ -168,6 +168,11 @@ public abstract class BaseEntity implements GroupCloseable, IEntity<DataImplemen
 		return internalGetParentTable().internalGetRefDataAndSchemaAdapter();
 	}
 	
+	//method
+	final Property internalGetRefPropertyByName(final String name) {
+		return properties.getRefFirst(p -> p.hasName(name));
+	}
+	
 	//method declaration
 	abstract IContainer<Property> internalLoadProperties();
 	
@@ -186,6 +191,22 @@ public abstract class BaseEntity implements GroupCloseable, IEntity<DataImplemen
 			case CLOSED:
 				throw new ClosedArgumentException(this);
 		}
+	}
+	
+	//method
+	final void internalSetId(final String id) {
+		
+		Validator.assertThat(id).thatIsNamed(LowerCaseCatalogue.ID).isNotBlank();
+		
+		this.id = id;
+	}
+	
+	//method
+	final void internalSetLoaded() {
+		
+		entityHelper.assertIsNew(this);
+		
+		state = DatabaseObjectState.LOADED;
 	}
 	
 	//method
