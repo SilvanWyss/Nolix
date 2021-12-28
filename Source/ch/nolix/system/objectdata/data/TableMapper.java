@@ -4,6 +4,7 @@ package ch.nolix.system.objectdata.data;
 //own imports
 import ch.nolix.system.objectdata.datahelper.SchemaHelper;
 import ch.nolix.techapi.objectdataapi.dataapi.IEntity;
+import ch.nolix.techapi.objectdataapi.dataapi.ITable;
 import ch.nolix.techapi.objectdataapi.datahelperapi.ISchemaHelper;
 import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.ITableDTO;
 
@@ -14,7 +15,7 @@ final class TableMapper {
 	private static final ISchemaHelper schemaHelper = new SchemaHelper();
 	
 	//method
-	public Table<IEntity<DataImplementation>> createTableFromTableDTOForDatabase(
+	public ITable<DataImplementation, IEntity<DataImplementation>> createTableFromTableDTOForDatabase(
 		final ITableDTO tableDTO,
 		final Database database
 	) {

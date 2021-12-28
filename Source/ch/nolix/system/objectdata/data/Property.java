@@ -20,7 +20,7 @@ public abstract class Property implements IProperty<DataImplementation> {
 	private String name;
 	
 	//optional attribute
-	private BaseEntity parentEntity;
+	private IEntity<DataImplementation> parentEntity;
 	
 	//method
 	@Override
@@ -40,7 +40,10 @@ public abstract class Property implements IProperty<DataImplementation> {
 	//method
 	@Override
 	public final IEntity<DataImplementation> getParentEntity() {
-		return internalGetParentEntity();
+		
+		propertyHelper.assertBelongsToEntity(this);
+		
+		return parentEntity;
 	}
 	
 	//method
@@ -50,16 +53,8 @@ public abstract class Property implements IProperty<DataImplementation> {
 	}
 	
 	//method
-	final BaseEntity internalGetParentEntity() {
-		
-		propertyHelper.assertBelongsToEntity(this);
-		
-		return parentEntity;
-	}
-	
-	//method
 	final IDataAndSchemaAdapter internalGetRefDataAndSchemaAdapter() {
-		return parentEntity.internalGetRefDataAndSchemaAdapter();
+		return ((BaseEntity)parentEntity).internalGetRefDataAndSchemaAdapter();
 	}
 	
 	//method
@@ -78,7 +73,7 @@ public abstract class Property implements IProperty<DataImplementation> {
 	//method
 	final void internalSetParentEntityAsEdited() {
 		if (belongsToEntity()) {
-			internalGetParentEntity().internalSetEdited();
+			((BaseEntity)getParentEntity()).internalSetEdited();
 		}
 	}
 	

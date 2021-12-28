@@ -30,7 +30,8 @@ public final class Database extends ImmutableDatabaseObject implements IDatabase
 	private final Schema schema;
 	
 	//multi-attribute
-	private final LinkedList<Table<IEntity<DataImplementation>>> tables = new LinkedList<>();
+	private final LinkedList<ITable<DataImplementation, IEntity<DataImplementation>>> tablesInLocalData =
+	new LinkedList<>();
 	
 	//constructor
 	private Database(final IDataAndSchemaAdapter dataAndSchemaAdapter, final Schema schema) {
@@ -55,7 +56,7 @@ public final class Database extends ImmutableDatabaseObject implements IDatabase
 	@Override
 	public ITable<DataImplementation, IEntity<DataImplementation>> getRefTableByName(final String name) {
 		
-		final var table = tables.getRefFirstOrNull(t -> t.hasName(name));
+		final var table = tablesInLocalData.getRefFirstOrNull(t -> t.hasName(name));
 		
 		if (table == null) {
 			
@@ -89,16 +90,16 @@ public final class Database extends ImmutableDatabaseObject implements IDatabase
 	
 	//method
 	private void addTableWithNameWhenIsNotAdded(final String name) {
-		tables.addAtEnd(loadTableWithName(name));
+		tablesInLocalData.addAtEnd(loadTableWithName(name));
 	}
 	
 	//method
-	private Table<IEntity<DataImplementation>> getRefTableByNameWhenIsAdded(final String name) {
-		return tables.getRefFirst(t -> t.hasName(name));
+	private ITable<DataImplementation, IEntity<DataImplementation>> getRefTableByNameWhenIsAdded(final String name) {
+		return tablesInLocalData.getRefFirst(t -> t.hasName(name));
 	}
 	
 	//method
-	private Table<IEntity<DataImplementation>> loadTableWithName(final String name) {
+	private ITable<DataImplementation, IEntity<DataImplementation>> loadTableWithName(final String name) {
 		return
 		tableMapper.createTableFromTableDTOForDatabase(
 			internalGetRefDataAndSchemaAdapter().loadTable(name),

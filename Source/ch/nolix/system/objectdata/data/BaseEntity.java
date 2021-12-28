@@ -37,7 +37,7 @@ public abstract class BaseEntity implements GroupCloseable, IEntity<DataImplemen
 	private final CloseController closeController = new CloseController(this);
 	
 	//optional attribute
-	private Table<IEntity<DataImplementation>> parentTable;
+	private ITable<DataImplementation, IEntity<DataImplementation>> parentTable;
 	
 	//optional attribute
 	private String saveStamp;
@@ -156,16 +156,8 @@ public abstract class BaseEntity implements GroupCloseable, IEntity<DataImplemen
 	}
 	
 	//method
-	final Table<?> internalGetParentTable() {
-		
-		entityHelper.assertBelongsToTable(this);
-		
-		return parentTable;
-	}
-	
-	//method
 	final IDataAndSchemaAdapter internalGetRefDataAndSchemaAdapter() {
-		return internalGetParentTable().internalGetRefDataAndSchemaAdapter();
+		return ((Table<?>)getParentTable()).internalGetRefDataAndSchemaAdapter();
 	}
 	
 	//method
@@ -210,7 +202,7 @@ public abstract class BaseEntity implements GroupCloseable, IEntity<DataImplemen
 	}
 	
 	//method
-	final void internalSetParentTable(final Table<IEntity<DataImplementation>> parentTable) {
+	final void internalSetParentTable(final ITable<DataImplementation, IEntity<DataImplementation>> parentTable) {
 		
 		Validator.assertThat(parentTable).thatIsNamed("parent table").isNotNull();
 		

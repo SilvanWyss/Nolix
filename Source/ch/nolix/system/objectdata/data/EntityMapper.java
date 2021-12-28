@@ -4,6 +4,7 @@ package ch.nolix.system.objectdata.data;
 //own imports
 import ch.nolix.common.reflectionhelper.GlobalClassHelper;
 import ch.nolix.techapi.objectdataapi.dataapi.IEntity;
+import ch.nolix.techapi.objectdataapi.dataapi.ITable;
 import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IContentFieldDTO;
 import ch.nolix.techapi.rawobjectdataapi.datadtoapi.ILoadedRecordDTO;
 
@@ -12,16 +13,17 @@ final class EntityMapper {
 	
 	//method
 	@SuppressWarnings("unchecked")
-	public <E extends BaseEntity> E createEntityFromRecordForGivenTable(
+	public <E extends IEntity<DataImplementation>> E createEntityFromRecordForGivenTable(
 		final ILoadedRecordDTO record,
-		final Table<E> table
+		final ITable<DataImplementation, E> table
 	) {
 		
 		final var entity = createEmptyEntityFor(table);
 		
-		entity.internalSetParentTable((Table<IEntity<DataImplementation>>)table);
-		entity.internalSetLoaded();
-		addDataFromRecordToEntity(record, entity);
+		final var concreteEntity = (BaseEntity)entity;
+		concreteEntity.internalSetParentTable((ITable<DataImplementation, IEntity<DataImplementation>>)table);
+		concreteEntity.internalSetLoaded();
+		addDataFromRecordToEntity(record, concreteEntity);
 		
 		return entity;
 	}
@@ -51,12 +53,12 @@ final class EntityMapper {
 	}
 	
 	//method
-	private <E extends BaseEntity> E createEmptyEntityFor(final Table<E> table) {
+	private <E extends IEntity<DataImplementation>> E createEmptyEntityFor(final ITable<DataImplementation, E> table) {
 		return createEmptyEntityOfEntityClass(table.getEntityClass());
 	}
 	
 	//method
-	private <E extends BaseEntity> E createEmptyEntityOfEntityClass(final Class<E> entityClass) {
+	private <E extends IEntity<DataImplementation>> E createEmptyEntityOfEntityClass(final Class<E> entityClass) {
 		return GlobalClassHelper.createInstanceFromDefaultConstructorOf(entityClass);
 	}
 }
