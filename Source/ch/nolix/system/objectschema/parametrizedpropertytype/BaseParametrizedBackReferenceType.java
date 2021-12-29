@@ -2,6 +2,7 @@
 package ch.nolix.system.objectschema.parametrizedpropertytype;
 
 //own imports
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectschema.schemadto.BaseParametrizedBackReferenceTypeDTO;
 import ch.nolix.techapi.databaseapi.propertytypeapi.BasePropertyType;
@@ -13,7 +14,8 @@ import ch.nolix.techapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
 
 //class
-public abstract class BaseParametrizedBackReferenceType extends ParametrizedPropertyType<String> {
+public abstract class BaseParametrizedBackReferenceType extends ParametrizedPropertyType<String>
+implements IBaseParametrizedBackReferenceType<SchemaImplementation> {
 	
 	//attribute
 	private final IColumn<SchemaImplementation> backReferencedColumn;
@@ -31,22 +33,19 @@ public abstract class BaseParametrizedBackReferenceType extends ParametrizedProp
 	//method
 	@Override
 	public final IBaseParametrizedBackReferenceType<SchemaImplementation> asBaseParametrizedBackReferenceType() {
-		//TODO: Implement.
-		return null;
+		return this;
 	}
 	
 	//method
 	@Override
 	public final IBaseParametrizedReferenceType<SchemaImplementation> asBaseParametrizedReferenceType() {
-		//TODO: Implement.
-		return null;
+		throw new ArgumentDoesNotSupportMethodException(this, "asBaseParametrizedReferenceType");
 	}
 	
 	//method
 	@Override
 	public final IBaseParametrizedValueType<SchemaImplementation, ?> asBaseParametrizedValueType() {
-		//TODO: Implement.
-		return null;
+		throw new ArgumentDoesNotSupportMethodException(this, "asBaseParametrizedValueType");
 	}
 	
 	//method

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.objectschema.parametrizedpropertytype;
 
+import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 //own imports
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.system.objectschema.schemadto.BaseParametrizedReferenceTypeDTO;
@@ -31,22 +32,19 @@ implements IBaseParametrizedReferenceType<SchemaImplementation> {
 	//method
 	@Override
 	public final IBaseParametrizedBackReferenceType<SchemaImplementation> asBaseParametrizedBackReferenceType() {
-		//TODO: Implement.
-		return null;
+		throw new ArgumentDoesNotSupportMethodException(this, "asBaseParametrizedBackReferenceType");
 	}
 	
 	//method
 	@Override
 	public final IBaseParametrizedReferenceType<SchemaImplementation> asBaseParametrizedReferenceType() {
-		//TODO: Implement.
-		return null;
+		return this;
 	}
 	
 	//method
 	@Override
 	public final IBaseParametrizedValueType<SchemaImplementation, ?> asBaseParametrizedValueType() {
-		//TODO: Implement.
-		return null;
+		throw new ArgumentDoesNotSupportMethodException(this, "asBaseParametrizedValueType");
 	}
 	
 	//method
