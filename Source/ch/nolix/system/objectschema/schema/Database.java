@@ -52,13 +52,6 @@ public final class Database extends DatabaseObject implements IDatabase<SchemaIm
 	
 	//method
 	@Override
-	public boolean belongsToEngine() {
-		//TODO: Implement.
-		return false;
-	}
-	
-	//method
-	@Override
 	public Database createTableWithName(final String name) {
 		return addTable(new Table(name));
 	}

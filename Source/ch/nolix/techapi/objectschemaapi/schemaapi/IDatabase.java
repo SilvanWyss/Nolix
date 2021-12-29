@@ -14,9 +14,6 @@ public interface IDatabase<IMPL> extends IDatabaseObject, Named {
 	IDatabase<IMPL> addTable(ITable<IMPL> table);
 	
 	//method declaration
-	boolean belongsToEngine();
-	
-	//method declaration
 	IDatabase<IMPL> createTableWithName(String name);
 	
 	//method declaration
