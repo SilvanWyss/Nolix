@@ -91,7 +91,7 @@ public class EntityHelper extends DatabaseObjectHelper implements IEntityHelper 
 	//method
 	@Override
 	public boolean containsMandatoryAndEmptyBaseValuesOrBaseReferences(final IEntity<?> entity) {
-		return entity.getRefProperties().containsAny(this::isMandatoryAndEmptyBaseValueOrBaseReference);
+		return entity.technicalGetRefProperties().containsAny(this::isMandatoryAndEmptyBaseValueOrBaseReference);
 	}
 	
 	//method
@@ -115,7 +115,7 @@ public class EntityHelper extends DatabaseObjectHelper implements IEntityHelper 
 	//method
 	@Override
 	public final boolean referencesUninsertedEntity(final IEntity<?> entity) {
-		return entity.getRefProperties().containsAny(IProperty::referencesUninsertedEntity);
+		return entity.technicalGetRefProperties().containsAny(IProperty::referencesUninsertedEntity);
 	}
 	
 	//method

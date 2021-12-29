@@ -16,9 +16,6 @@ public interface IEntity<IMPL> extends Deletable, IDatabaseObject, IdentifiedByS
 	
 	//method declaration
 	ITable<IMPL, IEntity<IMPL>> getParentTable();
-	
-	//method declaration
-	IContainer<IProperty<IMPL>> getRefProperties();
     
 	//method declaration
 	String getTableName();
@@ -34,4 +31,7 @@ public interface IEntity<IMPL> extends Deletable, IDatabaseObject, IdentifiedByS
 	
     //method declaration
     boolean isReferencedInPersistedData();
+    
+	//method declaration
+	IContainer<IProperty<IMPL>> technicalGetRefProperties();
 }

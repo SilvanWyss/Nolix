@@ -87,7 +87,7 @@ public abstract class BaseEntity implements GroupCloseable, IEntity<DataImplemen
 	
 	//method
 	@Override
-	public final IContainer<IProperty<DataImplementation>> getRefProperties() {
+	public final IContainer<IProperty<DataImplementation>> technicalGetRefProperties() {
 		
 		extractPropertiesIfNotExtracted();
 		
