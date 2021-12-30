@@ -22,14 +22,14 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 	
 	//method
 	@Override
-	public boolean allBackReferencesAreValidInsideDatabase(final IDatabase<?> database) {
+	public boolean allBackReferencesAreValid(final IDatabase<?> database) {
 		return getRefAllBackReferenceColumns(database).containsOnly(columnHelper::isAValidBackReferenceColumn);
 	}
 	
 	//method
 	@Override
-	public void assertAllBackReferencesAreValidInsideDatabase(final IDatabase<?> database) {
-		if (!allBackReferencesAreValidInsideDatabase(database)) {
+	public void assertAllBackReferencesAreValid(final IDatabase<?> database) {
+		if (!allBackReferencesAreValid(database)) {
 			throw new InvalidArgumentException(database, "contains invalid back references");
 		}
 	}

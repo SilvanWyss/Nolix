@@ -45,7 +45,7 @@ final class DatabaseSchemaSession implements AutoCloseable {
 	//method
 	public void saveChanges() {
 		
-		databaseHelper.assertAllBackReferencesAreValidInsideDatabase(database);
+		databaseHelper.assertAllBackReferencesAreValid(database);
 		
 		schemaAdapter.saveChanges();
 		close();

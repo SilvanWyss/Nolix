@@ -12,10 +12,10 @@ import ch.nolix.techapi.objectschemaapi.schemaapi.ITable;
 public interface IDatabaseHelper extends IDatabaseObjectHelper {
 	
 	//method declaration
-	boolean allBackReferencesAreValidInsideDatabase(IDatabase<?> database);
+	boolean allBackReferencesAreValid(IDatabase<?> database);
 	
 	//method declaration
-	void assertAllBackReferencesAreValidInsideDatabase(IDatabase<?> database);
+	void assertAllBackReferencesAreValid(IDatabase<?> database);
 	
 	//method declaration
 	void assertContainsGivenTable(IDatabase<?> database, ITable<?> table);
