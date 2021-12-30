@@ -2,6 +2,7 @@
 package ch.nolix.system.objectschema.schemahelper;
 
 //own imports
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -31,6 +32,22 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 	public void assertAllBackReferencesAreValid(final IDatabase<?> database) {
 		if (!allBackReferencesAreValid(database)) {
 			throw new InvalidArgumentException(database, "contains invalid back references");
+		}
+	}
+	
+	//method
+	@Override
+	public void assertCanAddGivenTable(final IDatabase<?> database, final ITable<?> table) {
+		if (!canAddGivenTable(database, table)) {
+			throw new InvalidArgumentException(database, "cannot add the given table '" + table.getName() + "'");
+		}
+	}
+	
+	//method
+	@Override
+	public void assertCanSetGivenNameToDatabase(final String name) {
+		if (!canSetGivenNameToDatabase(name)) {
+			throw new InvalidArgumentException(LowerCaseCatalogue.NAME, name, "cannot be set to database");
 		}
 	}
 	
@@ -87,6 +104,31 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 		if (containsTableWithGivenName(database, name)) {
 			throw new InvalidArgumentException(this, "contains a table with the name '" + name + "'");
 		}
+	}
+	
+	//method
+	@Override
+	public boolean canAddGivenTable(final IDatabase<?> database, final ITable<?> table) {
+		return
+		canAddTable(database)
+		&& table != null
+		&& table.isOpen()
+		&& !containsTableWithGivenName(database, table.getName())
+		&& canAddGivenTableBecauseOfColumns(database, table);
+	}
+	
+	//method
+	@Override
+	public boolean canAddTable(final IDatabase<?> database) {
+		return
+		database != null
+		&& database.isOpen();
+	}
+	
+	//method
+	@Override
+	public boolean canSetGivenNameToDatabase(final String name) {
+		return !name.isBlank();
 	}
 	
 	//method
@@ -160,5 +202,39 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 	@Override
 	public int getTableCount(final IDatabase<?> database) {
 		return database.getRefTables().getElementCount();
+	}
+	
+	//method
+	private boolean canAddGivenTableBecauseOfColumns(final IDatabase<?> database, final ITable<?> table) {
+		return table.getRefColumns().containsOnly(c -> canAddGivenTableBecauseOfGivenColumn(database, table, c));
+	}
+	
+	//method
+	private boolean canAddGivenTableBecauseOfGivenColumn(
+		final IDatabase<?> database,
+		final ITable<?> table,
+		final IColumn<?> column
+	) {
+		switch (columnHelper.getBasePropertyType(column)) {
+			case BASE_VALUE:
+				return true;
+			case BASE_REFERENCE:
+				return canAddGivenTableBecauseOfGivenReferenceColumn(database, table, column);
+			case BASE_BACK_REFERENCE:
+				return true;
+			default:
+				return true;
+		}
+	}
+	
+	//method
+	private boolean canAddGivenTableBecauseOfGivenReferenceColumn(
+		final IDatabase<?> database,
+		final ITable<?> table,
+		final IColumn<?> referenceColumn
+	) {
+		return
+		containsTableReferencedByGivenColumn(database, referenceColumn)
+		|| columnHelper.referencesGivenTable(referenceColumn, table);
 	}
 }

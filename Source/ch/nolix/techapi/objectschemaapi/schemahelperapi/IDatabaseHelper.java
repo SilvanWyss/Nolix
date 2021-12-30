@@ -18,6 +18,12 @@ public interface IDatabaseHelper extends IDatabaseObjectHelper {
 	void assertAllBackReferencesAreValid(IDatabase<?> database);
 	
 	//method declaration
+	void assertCanAddGivenTable(IDatabase<?> database, ITable<?> table);
+	
+	//method declaration
+	void assertCanSetGivenNameToDatabase(String name);
+	
+	//method declaration
 	void assertContainsGivenTable(IDatabase<?> database, ITable<?> table);
 	
 	//method declaration
@@ -31,6 +37,15 @@ public interface IDatabaseHelper extends IDatabaseObjectHelper {
 	
 	//method declaration
 	void assertDoesNotContainTableWithGivenName(IDatabase<?> database, String name);
+	
+	//method declaration
+	boolean canAddGivenTable(IDatabase<?> database, ITable<?> table);
+	
+	//method declaration
+	boolean canAddTable(IDatabase<?> database);
+	
+	//method declaration
+	boolean canSetGivenNameToDatabase(String name);
 	
 	//method declaration
 	boolean containsGivenTable(IDatabase<?> database, ITable<?> table);

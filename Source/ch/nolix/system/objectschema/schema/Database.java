@@ -19,7 +19,6 @@ public final class Database extends DatabaseObject implements IDatabase<SchemaIm
 	private final IDatabaseHelper databaseHelper = new DatabaseHelper();
 	
 	//static attributes
-	private static final DatabaseMutationValidator mutationValidator = new DatabaseMutationValidator();
 	private static final DatabaseMutationExecutor mutationExecutor = new DatabaseMutationExecutor();
 	
 	//attributes
@@ -35,7 +34,7 @@ public final class Database extends DatabaseObject implements IDatabase<SchemaIm
 	//constructor
 	public Database(final String name) {
 		
-		mutationValidator.assertCanSetNameToDatabase(this, name);
+		databaseHelper.assertCanSetGivenNameToDatabase(name);
 		
 		this.name = name;
 	}
@@ -44,7 +43,7 @@ public final class Database extends DatabaseObject implements IDatabase<SchemaIm
 	@Override
 	public Database addTable(final ITable<SchemaImplementation> table) {
 		
-		mutationValidator.assertCanAddTableToDatabase(this, (Table)table);
+		databaseHelper.assertCanAddGivenTable(this, table);
 		mutationExecutor.addTableToDatabase(this, (Table)table);
 		
 		return this;
