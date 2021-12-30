@@ -2,6 +2,7 @@
 package ch.nolix.techapi.objectdataapi.dataapi;
 
 //own imports
+import ch.nolix.common.container.IContainer;
 import ch.nolix.techapi.databaseapi.databaseobjectapi.IDatabaseObject;
 
 //interface
@@ -15,4 +16,7 @@ public interface IDatabase<IMPL> extends IDatabaseObject {
 	
 	//method declaration
 	<E extends IEntity<IMPL>> IDatabase<IMPL> insert(E entity);
+	
+	//method declaration
+	IContainer<ITable<IMPL, IEntity<IMPL>>> technicalGetRefTablesInLocalData();
 }

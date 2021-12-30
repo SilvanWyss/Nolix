@@ -109,7 +109,24 @@ public class EntityHelper extends DatabaseObjectHelper implements IEntityHelper 
 	//method
 	@Override
 	public final <IMPL> boolean isReferencedInLocalData(final IEntity<IMPL> entity) {
-		return entity.getParentTable().getReferencingColumns().containsAny(rc -> rc.referencesInLocalData(entity));
+		
+		if (!entity.belongsToTable()) {
+			return false;
+		}
+		
+		for (final var t : entity.getParentTable().getParentDatabase().technicalGetRefTablesInLocalData()) {
+			if (t.technicalGetRefEntitiesInLocalData().containsAny(e -> referencesGivenEntity(e, entity))) {
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
+	//method
+	@Override
+	public final <IMPL> boolean referencesGivenEntity(final IEntity<IMPL> sourceEntity, final IEntity<IMPL> entity) {
+		return sourceEntity.technicalGetRefProperties().containsAny(p -> p.references(entity));
 	}
 	
 	//method

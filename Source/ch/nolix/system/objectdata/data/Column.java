@@ -54,11 +54,4 @@ public final class Column extends ImmutableDatabaseObject implements IColumn<Dat
 	public ITable<DataImplementation, IEntity<DataImplementation>> getParentTable() {
 		return parentTable;
 	}
-	
-	//method
-	@Override
-	public boolean referencesInLocalData(final IEntity<DataImplementation> entity) {
-		//TODO: Implement.
-		return false;
-	}
 }

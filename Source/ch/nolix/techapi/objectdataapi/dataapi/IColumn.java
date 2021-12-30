@@ -13,7 +13,4 @@ public interface IColumn<IMPL> extends Headered, IDatabaseObject {
 	
 	//method declaration
 	ITable<IMPL, IEntity<IMPL>> getParentTable();
-	
-	//method declaration
-	boolean referencesInLocalData(IEntity<IMPL> entity);
 }

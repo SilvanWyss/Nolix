@@ -46,5 +46,8 @@ public interface IEntityHelper extends IDatabaseObjectHelper {
 	<IMPL> boolean isReferencedInLocalData(IEntity<IMPL> entity);
 	
 	//method declaration
+	<IMPL> boolean referencesGivenEntity(IEntity<IMPL> sourceEntity, IEntity<IMPL> entity);
+	
+	//method declaration
 	boolean referencesUninsertedEntity(IEntity<?> entity);
 }

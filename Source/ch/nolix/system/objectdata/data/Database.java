@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.objectdata.data;
 
+import ch.nolix.common.container.IContainer;
 //own imports
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.errorcontrol.validator.Validator;
@@ -76,6 +77,12 @@ public final class Database extends ImmutableDatabaseObject implements IDatabase
 		getRefTableByEntityClass(entity.getClass()).insert(entity);
 		
 		return this;
+	}
+	
+	//method
+	@Override
+	public IContainer<ITable<DataImplementation, IEntity<DataImplementation>>> technicalGetRefTablesInLocalData() {
+		return tablesInLocalData;
 	}
 	
 	//method
