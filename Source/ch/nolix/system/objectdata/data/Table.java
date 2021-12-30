@@ -6,16 +6,26 @@ import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.errorcontrol.validator.Validator;
+import ch.nolix.system.objectdata.datahelper.EntityHelper;
+import ch.nolix.system.objectdata.datahelper.TableHelper;
 import ch.nolix.techapi.objectdataapi.dataapi.IColumn;
 import ch.nolix.techapi.objectdataapi.dataapi.IDatabase;
 import ch.nolix.techapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.techapi.objectdataapi.dataapi.ITable;
+import ch.nolix.techapi.objectdataapi.datahelperapi.IEntityHelper;
+import ch.nolix.techapi.objectdataapi.datahelperapi.ITableHelper;
 import ch.nolix.techapi.rawobjectdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
 import ch.nolix.techapi.rawobjectdataapi.datadtoapi.ILoadedRecordDTO;
 
 //class
 public final class Table<E extends IEntity<DataImplementation>> extends ImmutableDatabaseObject
 implements ITable<DataImplementation, E> {
+	
+	//static attribute
+	private static final ITableHelper tableHelper = new TableHelper();
+	
+	//static attribute
+	private static final IEntityHelper entityHelper = new EntityHelper();
 	
 	//static attribute
 	private static final EntityMapper entityMapper = new EntityMapper();
@@ -106,8 +116,12 @@ implements ITable<DataImplementation, E> {
 	//method
 	@Override
 	public ITable<DataImplementation, E> insert(final E entity) {
-		//TODO: Implement.
-		return null;
+		
+		tableHelper.assertCanInsertGivenEntity(this, entity);
+		
+		insertWhenCanBeInserted(entity);
+		
+		return this;
 	}
 	
 	//method
@@ -147,6 +161,17 @@ implements ITable<DataImplementation, E> {
 		if (!hasInsertedEntityWithGivenIdInLocalData(record.getId())) {
 			entitiesInLocalData.addAtEnd(createEntityFrom(record));
 		}
+	}
+	
+	//method
+	@SuppressWarnings("unchecked")
+	private void insertWhenCanBeInserted(final E entity) {
+		
+		((BaseEntity)entity).internalSetParentTable((ITable<DataImplementation, IEntity<DataImplementation>>)this);
+		
+		entitiesInLocalData.addAtEnd(entity);
+		
+		internalGetRefDataAndSchemaAdapter().insertRecordIntoTable(getName(), entityHelper.createRecordFor(entity));
 	}
 	
 	//method

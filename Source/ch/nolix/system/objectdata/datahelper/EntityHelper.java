@@ -10,6 +10,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentExce
 import ch.nolix.common.errorcontrol.invalidargumentexception.ReferencedArgumentException;
 import ch.nolix.system.database.databaseobjecthelper.DatabaseObjectHelper;
 import ch.nolix.system.objectdata.propertyhelper.PropertyHelper;
+import ch.nolix.system.sqlrawobjectdata.datadto.RecordDTO;
 import ch.nolix.system.sqlrawobjectdata.datadto.RecordDeletionDTO;
 import ch.nolix.techapi.databaseapi.propertytypeapi.BasePropertyType;
 import ch.nolix.techapi.objectdataapi.dataapi.IEntity;
@@ -17,6 +18,7 @@ import ch.nolix.techapi.objectdataapi.dataapi.IProperty;
 import ch.nolix.techapi.objectdataapi.dataapi.ITable;
 import ch.nolix.techapi.objectdataapi.datahelperapi.IEntityHelper;
 import ch.nolix.techapi.objectdataapi.propertyhelperapi.IPropertyHelper;
+import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IRecordDTO;
 import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IRecordDeletionDTO;
 
 //class
@@ -98,6 +100,13 @@ public class EntityHelper extends DatabaseObjectHelper implements IEntityHelper 
 	@Override
 	public final IRecordDeletionDTO createRecordDeletionDTOForEntity(IEntity<?> entity) {
 		return new RecordDeletionDTO(entity.getId(), entity.getSaveStamp());
+	}
+	
+	//method
+	@Override
+	public final IRecordDTO createRecordFor(final IEntity<?> entity) {
+		return
+		new RecordDTO(entity.getId(), entity.technicalGetRefProperties().to(propertyHelper::createContentFieldFor));
 	}
 	
 	//method

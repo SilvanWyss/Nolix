@@ -9,6 +9,7 @@ import ch.nolix.system.database.databaseobjecthelper.DatabaseObjectHelper;
 import ch.nolix.techapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.techapi.objectdataapi.dataapi.IProperty;
 import ch.nolix.techapi.objectdataapi.propertyhelperapi.IPropertyHelper;
+import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IContentFieldDTO;
 
 //class
 public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHelper {
@@ -43,6 +44,13 @@ public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHel
 		if (isMandatoryAndEmptyBoth(property)) {
 			throw new EmptyArgumentException(property);
 		}
+	}
+	
+	//method
+	@Override
+	public IContentFieldDTO createContentFieldFor(final IProperty<?> property) {
+		//TODO: Implement.
+		return null;
 	}
 	
 	//method
