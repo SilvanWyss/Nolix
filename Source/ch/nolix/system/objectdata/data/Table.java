@@ -111,6 +111,12 @@ implements ITable<DataImplementation, E> {
 	}
 	
 	//method
+	@Override
+	public IContainer<E> technicalGetRefEntitiesInLocalData() {
+		return entitiesInLocalData;
+	}
+	
+	//method
 	IDataAndSchemaAdapter internalGetRefDataAndSchemaAdapter() {
 		return parentDatabase.internalGetRefDataAndSchemaAdapter();
 	}

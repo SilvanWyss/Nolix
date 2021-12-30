@@ -32,4 +32,7 @@ public interface ITable<
 	
 	//method declaration
 	ITable<IMPL, E> insert(E entity);
+	
+	//method declaration
+	IContainer<E> technicalGetRefEntitiesInLocalData();
 }
