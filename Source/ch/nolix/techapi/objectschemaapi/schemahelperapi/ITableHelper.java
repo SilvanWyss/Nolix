@@ -2,6 +2,7 @@
 package ch.nolix.techapi.objectschemaapi.schemahelperapi;
 
 //own imports
+import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.techapi.databaseapi.databaseobjecthelperapi.IDatabaseObjectHelper;
 import ch.nolix.techapi.objectschemaapi.schemaapi.IColumn;
@@ -42,6 +43,9 @@ public interface ITableHelper extends IDatabaseObjectHelper {
 	
 	//method declaration
 	int getColumnCount(ITable<?> table);
+	
+	//method declaration
+	<IMPL> IContainer<IColumn<IMPL>> getRefBackReferenceColumns(ITable<IMPL> table);
 	
 	//method declaration
 	<IMPL> LinkedList<IColumn<IMPL>> getRefBackReferencingColumns(ITable<IMPL> table);

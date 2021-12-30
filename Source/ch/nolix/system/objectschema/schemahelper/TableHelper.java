@@ -2,6 +2,7 @@
 package ch.nolix.system.objectschema.schemahelper;
 
 //own imports
+import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentContainsElementException;
@@ -109,6 +110,12 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
 	@Override
 	public int getColumnCount(final ITable<?> table) {
 		return table.getRefColumns().getElementCount();
+	}
+	
+	//method
+	@Override
+	public <IMPL> IContainer<IColumn<IMPL>> getRefBackReferenceColumns(final ITable<IMPL> table) {
+		return table.getRefColumns().getRefSelected(columnHelper::isABackReferenceColumn);
 	}
 	
 	//method

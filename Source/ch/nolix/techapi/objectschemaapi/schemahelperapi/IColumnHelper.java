@@ -43,6 +43,9 @@ public interface IColumnHelper extends IDatabaseObjectHelper {
 	boolean isAReferenceColumn(IColumn<?> column);
 	
 	//method declaration
+	boolean isAValidBackReferenceColumn(IColumn<?> column);
+	
+	//method declaration
 	boolean isAValueColumn(IColumn<?> column);
 	
 	//method declaration

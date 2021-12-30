@@ -1,11 +1,17 @@
 //package declaration
 package ch.nolix.system.objectschema.schemaadapter;
 
+//own imports
 import ch.nolix.system.objectschema.schema.Database;
+import ch.nolix.system.objectschema.schemahelper.DatabaseHelper;
+import ch.nolix.techapi.objectschemaapi.schemahelperapi.IDatabaseHelper;
 import ch.nolix.techapi.rawobjectschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //class
 final class DatabaseSchemaSession implements AutoCloseable {
+	
+	//static attribute
+	private static final IDatabaseHelper databaseHelper = new DatabaseHelper();
 	
 	//attributes
 	private final Database database;
@@ -38,6 +44,9 @@ final class DatabaseSchemaSession implements AutoCloseable {
 	
 	//method
 	public void saveChanges() {
+		
+		databaseHelper.assertAllBackReferencesAreValidInsideDatabase(database);
+		
 		schemaAdapter.saveChanges();
 		close();
 	}

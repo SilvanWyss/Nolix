@@ -97,6 +97,28 @@ public final class ColumnHelper extends DatabaseObjectHelper implements IColumnH
 	
 	//method
 	@Override
+	public boolean isAValidBackReferenceColumn(IColumn<?> column) {
+		
+		if (!isABackReferenceColumn(column)) {
+			return false;
+		}
+		
+		final var parametrizedPropertyType = column.getParametrizedPropertyType();
+		
+		final var backReferencedColumn =
+		parametrizedPropertyType.asBaseParametrizedBackReferenceType().getBackReferencedColumn();
+		
+		final var backReferencedColumnParametrizedPropertyType = backReferencedColumn.getParametrizedPropertyType();
+		
+		if (!parametrizedPropertyTypeHelper.isABaseReferenceType(backReferencedColumnParametrizedPropertyType)) {
+			return false;
+		}
+		
+		return referencesGivenTable(backReferencedColumn, column.getParentTable());
+	}
+	
+	//method
+	@Override
 	public boolean referencesBackGivenColumn(
 		final IColumn<?> column,
 		final IColumn<?> probableBackReferencedColumn

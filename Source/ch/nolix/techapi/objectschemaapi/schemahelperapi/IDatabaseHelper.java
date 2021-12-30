@@ -2,6 +2,7 @@
 package ch.nolix.techapi.objectschemaapi.schemahelperapi;
 
 //own imports
+import ch.nolix.common.container.IContainer;
 import ch.nolix.techapi.databaseapi.databaseobjecthelperapi.IDatabaseObjectHelper;
 import ch.nolix.techapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.techapi.objectschemaapi.schemaapi.IDatabase;
@@ -9,6 +10,12 @@ import ch.nolix.techapi.objectschemaapi.schemaapi.ITable;
 
 //interface
 public interface IDatabaseHelper extends IDatabaseObjectHelper {
+	
+	//method declaration
+	boolean allBackReferencesAreValidInsideDatabase(IDatabase<?> database);
+	
+	//method declaration
+	void assertAllBackReferencesAreValidInsideDatabase(IDatabase<?> database);
 	
 	//method declaration
 	void assertContainsGivenTable(IDatabase<?> database, ITable<?> table);
@@ -42,6 +49,9 @@ public interface IDatabaseHelper extends IDatabaseObjectHelper {
 	
 	//method declaration
 	void deleteTableWithGivenName(IDatabase<?> database, String name);
+	
+	//method declaration
+	<IMPL> IContainer<IColumn<IMPL>> getRefAllBackReferenceColumns(IDatabase<IMPL> database);
 	
 	//method declaration
 	<IMPL> ITable<IMPL> getRefTableWithGivenName(IDatabase<IMPL> database, String name);

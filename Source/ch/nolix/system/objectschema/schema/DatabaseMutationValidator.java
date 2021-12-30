@@ -47,14 +47,6 @@ final class DatabaseMutationValidator {
 	) {
 		switch (columnHelper.getBasePropertyType(column)) {
 			case BASE_BACK_REFERENCE:
-				
-				//TODO: Complete implementation.
-				/*
-				if (!tableHelper.containsColumnThatReferencesBackGivenColumn(table, column)) {
-					databaseHelper.assertContainsTableWithColumnBackReferencedByGivenColumn(database, column);
-				}
-				*/
-				
 				break;
 			case BASE_REFERENCE:
 				

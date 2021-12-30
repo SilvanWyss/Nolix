@@ -2,6 +2,7 @@
 package ch.nolix.system.objectschema.schemahelper;
 
 //own imports
+import ch.nolix.common.container.IContainer;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.database.databaseobjecthelper.DatabaseObjectHelper;
@@ -18,6 +19,20 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 	//static attributes
 	private static final ITableHelper tableHelper = new TableHelper();
 	private static final IColumnHelper columnHelper = new ColumnHelper();
+	
+	//method
+	@Override
+	public boolean allBackReferencesAreValidInsideDatabase(final IDatabase<?> database) {
+		return getRefAllBackReferenceColumns(database).containsOnly(columnHelper::isAValidBackReferenceColumn);
+	}
+	
+	//method
+	@Override
+	public void assertAllBackReferencesAreValidInsideDatabase(final IDatabase<?> database) {
+		if (!allBackReferencesAreValidInsideDatabase(database)) {
+			throw new InvalidArgumentException(database, "contains invalid back references");
+		}
+	}
 	
 	//method
 	@Override
@@ -127,6 +142,12 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 	@Override
 	public void deleteTableWithGivenName(final IDatabase<?> database, final String name) {
 		getRefTableWithGivenName(database, name).delete();
+	}
+	
+	//method
+	@Override
+	public <IMPL> IContainer<IColumn<IMPL>> getRefAllBackReferenceColumns(final IDatabase<IMPL> database) {
+		return database.getRefTables().toFromMany(tableHelper::getRefBackReferenceColumns);
 	}
 	
 	//method
