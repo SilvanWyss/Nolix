@@ -140,7 +140,7 @@ implements IMultiReference<DataImplementation, E> {
 	
 	//method
 	private void updateRecordForAddEntity(final E entity) {
-		if (belongsToEntity()) {
+		if (isLinkedWithRealDatabase()) {
 			internalGetRefDataAndSchemaAdapter().updateRecordOnTable(
 				getParentEntity().getTableName(),
 				multiReferenceHelper.createRecordupdateDTOForAddEntity(this, entity)
@@ -150,7 +150,7 @@ implements IMultiReference<DataImplementation, E> {
 	
 	//method
 	private void updateRecordForClear() {
-		if (belongsToEntity()) {
+		if (isLinkedWithRealDatabase()) {
 			internalGetRefDataAndSchemaAdapter().updateRecordOnTable(
 				getParentEntity().getTableName(),
 				multiReferenceHelper.createRecordUpdateDTOForClear(this)

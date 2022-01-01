@@ -94,10 +94,12 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<Dat
 	
 	//method
 	private void updateRecordForClear() {
-		internalGetRefDataAndSchemaAdapter().updateRecordOnTable(
+		if (isLinkedWithRealDatabase()) {
+			internalGetRefDataAndSchemaAdapter().updateRecordOnTable(
 				getParentEntity().getTableName(),
-			multiValueHelper.createRecordUpdateDTOForClear(this)
-		);
+				multiValueHelper.createRecordUpdateDTOForClear(this)
+			);
+		}
 	}
 	
 	//method
