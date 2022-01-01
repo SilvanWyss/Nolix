@@ -32,7 +32,7 @@ final class InternalSchemaWriter implements ChangeRequestable {
 	//method
 	public void addColumn(final String tableName, final IColumnDTO column) {
 		mSQLSchemaWriter.addColumn(
-			TableType.CONTENT_DATA.getPrefix() + tableName,
+			TableType.BASE_CONTENT_DATA.getPrefix() + tableName,
 			schemaDTOMapper.createSQLColumnDTOFrom(column)
 		);
 	}
@@ -44,12 +44,12 @@ final class InternalSchemaWriter implements ChangeRequestable {
 	
 	//method
 	public void deleteColumn(final String tableName, final String columnHeader) {
-		mSQLSchemaWriter.deleteColumn(TableType.CONTENT_DATA.getPrefix() + tableName, columnHeader);
+		mSQLSchemaWriter.deleteColumn(TableType.BASE_CONTENT_DATA.getPrefix() + tableName, columnHeader);
 	}
 	
 	//method
 	public void deleteTable(final String tableName) {
-		mSQLSchemaWriter.deleteTable(TableType.CONTENT_DATA.getPrefix() + tableName);
+		mSQLSchemaWriter.deleteTable(TableType.BASE_CONTENT_DATA.getPrefix() + tableName);
 	}
 	
 	//method
@@ -66,7 +66,7 @@ final class InternalSchemaWriter implements ChangeRequestable {
 	//method
 	public void setColumnHeader(final String tableName, final String columnHeader, final String newColumnHeader) {
 		mSQLSchemaWriter.renameColumn(
-			TableType.CONTENT_DATA.getPrefix() + tableName,
+			TableType.BASE_CONTENT_DATA.getPrefix() + tableName,
 			columnHeader,
 			newColumnHeader
 		);
@@ -75,8 +75,8 @@ final class InternalSchemaWriter implements ChangeRequestable {
 	//method
 	public void setTableName(final String tableName, final String newTableName) {
 		mSQLSchemaWriter.renameTable(
-			TableType.CONTENT_DATA.getPrefix() + tableName,
-			TableType.CONTENT_DATA.getPrefix() + newTableName
+			TableType.BASE_CONTENT_DATA.getPrefix() + tableName,
+			TableType.BASE_CONTENT_DATA.getPrefix() + newTableName
 		);
 	}
 }

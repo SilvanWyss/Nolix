@@ -8,8 +8,8 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 //enum
 public enum TableType {
 	SYSTEM_DATA("S"),
-	CONTENT_DATA("C"),
-	MULTI_PROPERTY_COLUMN_DATA("M");
+	BASE_CONTENT_DATA("B"),
+	MULTI_CONTENT_DATA("M");
 	
 	//attribute
 	private final String prefix;
