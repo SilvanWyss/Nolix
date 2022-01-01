@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlrawobjectschema.structure;
 
-//own imports
-import ch.nolix.system.sqlrawobjectschema.databasepropertysystemtable.DatabasePropertySystemTableColumn;
+import ch.nolix.system.sqlrawobjectschema.databasepropertytable.DatabasePropertySystemTableColumn;
 import ch.nolix.system.sqlschema.schemadto.ColumnDTO;
 import ch.nolix.system.sqlschema.schemadto.TableDTO;
 

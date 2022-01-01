@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.sqlrawobjectschema.databasepropertysystemtable;
+package ch.nolix.system.sqlrawobjectschema.databasepropertytable;
 
 //own imports
 import ch.nolix.common.attributeapi.mandatoryattributeapi.Labeled;
