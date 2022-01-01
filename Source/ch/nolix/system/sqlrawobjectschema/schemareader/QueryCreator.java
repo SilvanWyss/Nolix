@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlrawobjectschema.schemareader;
 
-import ch.nolix.system.sqlrawobjectschema.columnsystemtable.ColumnSystemTableColumn;
+import ch.nolix.system.sqlrawobjectschema.columntable.ColumnTableColumn;
 import ch.nolix.system.sqlrawobjectschema.databasepropertysystemtable.DatabaseProperty;
 import ch.nolix.system.sqlrawobjectschema.databasepropertysystemtable.DatabasePropertySystemTableColumn;
 import ch.nolix.system.sqlrawobjectschema.structure.SystemDataTable;
@@ -14,23 +14,23 @@ final class QueryCreator {
 	public String createQueryToLoadCoumns(final String tableName) {
 		return
 		"SELECT "
-		+ ColumnSystemTableColumn.HEADER.getLabel()
+		+ ColumnTableColumn.HEADER.getLabel()
 		+ ", "
-		+ ColumnSystemTableColumn.PARENT_TABLE.getLabel()
+		+ ColumnTableColumn.PARENT_TABLE.getLabel()
 		+ ", "
-		+ ColumnSystemTableColumn.PROPERTY_TYPE.getLabel()
+		+ ColumnTableColumn.PROPERTY_TYPE.getLabel()
 		+ ", "
-		+ ColumnSystemTableColumn.DATA_TYPE.getLabel()
+		+ ColumnTableColumn.DATA_TYPE.getLabel()
 		+ ", "
-		+ ColumnSystemTableColumn.REFERENCED_TABLE.getLabel()
+		+ ColumnTableColumn.REFERENCED_TABLE.getLabel()
 		+ ", "
-		+ ColumnSystemTableColumn.BACK_REFERENCED_TABLE.getLabel()
+		+ ColumnTableColumn.BACK_REFERENCED_TABLE.getLabel()
 		+ ", "
-		+ ColumnSystemTableColumn.BACK_REFERENCED_COLUM.getLabel()
+		+ ColumnTableColumn.BACK_REFERENCED_COLUM.getLabel()
 		+ " FROM "
 		+ SystemDataTable.COLUMN.getNameWithPrefix()
 		+ " WHERE "
-		+ ColumnSystemTableColumn.PARENT_TABLE.getLabel()
+		+ ColumnTableColumn.PARENT_TABLE.getLabel()
 		+ " = "
 		+ tableName;
 	}

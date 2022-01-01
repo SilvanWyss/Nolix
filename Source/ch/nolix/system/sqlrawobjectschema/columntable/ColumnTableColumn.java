@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.sqlrawobjectschema.columnsystemtable;
+package ch.nolix.system.sqlrawobjectschema.columntable;
 
 //own imports
 import ch.nolix.common.attributeapi.mandatoryattributeapi.Labeled;
@@ -8,7 +8,7 @@ import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.errorcontrol.validator.Validator;
 
 //enum
-public enum ColumnSystemTableColumn implements Labeled {
+public enum ColumnTableColumn implements Labeled {
 	PARENT_TABLE("ParentTable"),
 	HEADER(PascalCaseCatalogue.HEADER),
 	PROPERTY_TYPE("PropertyType"),
@@ -21,7 +21,7 @@ public enum ColumnSystemTableColumn implements Labeled {
 	private final String label;
 	
 	//constructor
-	ColumnSystemTableColumn(final String label) {
+	ColumnTableColumn(final String label) {
 		
 		Validator.assertThat(label).thatIsNamed(LowerCaseCatalogue.LABEL).isNotBlank();
 		

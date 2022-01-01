@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlrawobjectschema.structure;
 
-import ch.nolix.system.sqlrawobjectschema.columnsystemtable.ColumnSystemTableColumn;
+import ch.nolix.system.sqlrawobjectschema.columntable.ColumnTableColumn;
 import ch.nolix.system.sqlrawobjectschema.databasepropertysystemtable.DatabasePropertySystemTableColumn;
 import ch.nolix.system.sqlrawobjectschema.tablesystemtable.TableSystemTableColumn;
 import ch.nolix.system.sqlschema.schemadto.ColumnDTO;
@@ -32,31 +32,31 @@ public final class SystemDataTableSQLDTOCatalogue {
 	
 	//constant
 	private static final ColumnDTO COLUMN_TABLE_SQL_DTO =
-	new ColumnDTO(ColumnSystemTableColumn.PARENT_TABLE.getLabel(), SQLDatatypeCatalogue.TEXT_DATA_TYPE);
+	new ColumnDTO(ColumnTableColumn.PARENT_TABLE.getLabel(), SQLDatatypeCatalogue.TEXT_DATA_TYPE);
 	
 	//constant
 	private static final ColumnDTO COLUMN_HEADER_SQL_DTO =
-	new ColumnDTO(ColumnSystemTableColumn.HEADER.getLabel(), SQLDatatypeCatalogue.TEXT_DATA_TYPE);
+	new ColumnDTO(ColumnTableColumn.HEADER.getLabel(), SQLDatatypeCatalogue.TEXT_DATA_TYPE);
 	
 	//constant
 	private static final ColumnDTO COLUMN_PROPERTY_TYPE_SQL_DTO =
-	new ColumnDTO(ColumnSystemTableColumn.PROPERTY_TYPE.getLabel(), SQLDatatypeCatalogue.TEXT_DATA_TYPE);
+	new ColumnDTO(ColumnTableColumn.PROPERTY_TYPE.getLabel(), SQLDatatypeCatalogue.TEXT_DATA_TYPE);
 	
 	//constant
 	private static final ColumnDTO COLUMN_DATA_TYPE_SQL_DTO =
-	new ColumnDTO(ColumnSystemTableColumn.DATA_TYPE.getLabel(), SQLDatatypeCatalogue.TEXT_DATA_TYPE);
+	new ColumnDTO(ColumnTableColumn.DATA_TYPE.getLabel(), SQLDatatypeCatalogue.TEXT_DATA_TYPE);
 	
 	//constant
 	private static final ColumnDTO COLUMN_REFERENCED_TABLE_SQL_DTO =
-	new ColumnDTO(ColumnSystemTableColumn.REFERENCED_TABLE.getLabel(), SQLDatatypeCatalogue.TEXT_DATA_TYPE);
+	new ColumnDTO(ColumnTableColumn.REFERENCED_TABLE.getLabel(), SQLDatatypeCatalogue.TEXT_DATA_TYPE);
 	
 	//constant
 	private static final ColumnDTO COLUMN_BACK_REFERENCED_TABLE_SQL_DTO =
-	new ColumnDTO(ColumnSystemTableColumn.BACK_REFERENCED_TABLE.getLabel(), SQLDatatypeCatalogue.TEXT_DATA_TYPE);
+	new ColumnDTO(ColumnTableColumn.BACK_REFERENCED_TABLE.getLabel(), SQLDatatypeCatalogue.TEXT_DATA_TYPE);
 	
 	//constant
 	private static final ColumnDTO COLUMN_BACK_REFERENCED_COLUMN_SQL_DTO =
-	new ColumnDTO(ColumnSystemTableColumn.BACK_REFERENCED_COLUM.getLabel(), SQLDatatypeCatalogue.TEXT_DATA_TYPE);
+	new ColumnDTO(ColumnTableColumn.BACK_REFERENCED_COLUM.getLabel(), SQLDatatypeCatalogue.TEXT_DATA_TYPE);
 	
 	//constant
 	public static final TableDTO TABLE_SYSTEM_TABLE_SQL_DTO =

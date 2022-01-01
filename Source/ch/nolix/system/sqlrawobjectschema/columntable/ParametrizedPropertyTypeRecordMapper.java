@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.sqlrawobjectschema.columnsystemtable;
+package ch.nolix.system.sqlrawobjectschema.columntable;
 
 //own imports
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;

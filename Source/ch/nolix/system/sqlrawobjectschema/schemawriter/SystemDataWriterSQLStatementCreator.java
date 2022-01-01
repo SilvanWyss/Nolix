@@ -3,8 +3,8 @@ package ch.nolix.system.sqlrawobjectschema.schemawriter;
 
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.element.time.base.Time;
-import ch.nolix.system.sqlrawobjectschema.columnsystemtable.ColumnSystemTableColumn;
-import ch.nolix.system.sqlrawobjectschema.columnsystemtable.ParametrizedPropertyTypeRecordMapper;
+import ch.nolix.system.sqlrawobjectschema.columntable.ColumnTableColumn;
+import ch.nolix.system.sqlrawobjectschema.columntable.ParametrizedPropertyTypeRecordMapper;
 import ch.nolix.system.sqlrawobjectschema.databasepropertysystemtable.DatabaseProperty;
 import ch.nolix.system.sqlrawobjectschema.databasepropertysystemtable.DatabasePropertySystemTableColumn;
 import ch.nolix.system.sqlrawobjectschema.structure.SystemDataTable;
@@ -73,11 +73,11 @@ final class SystemDataWriterSQLStatementCreator {
 		"DELETE FROM "
 		+ SystemDataTable.COLUMN.getNameWithPrefix()
 		+ " WHERE "
-		+ ColumnSystemTableColumn.PARENT_TABLE.getLabel()
+		+ ColumnTableColumn.PARENT_TABLE.getLabel()
 		+ " = "
 		+ tableName
 		+ " AND "
-		+ ColumnSystemTableColumn.HEADER.getLabel()
+		+ ColumnTableColumn.HEADER.getLabel()
 		+ " = '"
 		+ columnHeader
 		+ "'"; 
@@ -101,15 +101,15 @@ final class SystemDataWriterSQLStatementCreator {
 	    "UPDATE "
 		+ SystemDataTable.COLUMN.getNameWithPrefix()
 		+ " SET "
-		+ ColumnSystemTableColumn.HEADER
+		+ ColumnTableColumn.HEADER
 		+ " = '"
 		+ newColumnHeader
 		+ "' WHERE "
-		+ ColumnSystemTableColumn.PARENT_TABLE.getLabel()
+		+ ColumnTableColumn.PARENT_TABLE.getLabel()
 		+ " = '"
 		+ tableName
 		+ "' AND "
-		+ ColumnSystemTableColumn.HEADER.getLabel()
+		+ ColumnTableColumn.HEADER.getLabel()
 		+ " = '"
 		+ columnHeader
 		+ "'";
@@ -129,23 +129,23 @@ final class SystemDataWriterSQLStatementCreator {
 		"UPDATE "
 		+ SystemDataTable.COLUMN.getNameWithPrefix()
 		+ " SET "
-		+ ColumnSystemTableColumn.DATA_TYPE
+		+ ColumnTableColumn.DATA_TYPE
 		+ " = "
 		+ parametrezidPropertyTypeRecord.getDataTypeValue()
 		+ ", "
-		+ ColumnSystemTableColumn.REFERENCED_TABLE
+		+ ColumnTableColumn.REFERENCED_TABLE
 		+ " = "
 		+ parametrezidPropertyTypeRecord.getReferencedTableValue()
 		+ ", "
-		+ ColumnSystemTableColumn.BACK_REFERENCED_TABLE
+		+ ColumnTableColumn.BACK_REFERENCED_TABLE
 		+ " = "
 		+ parametrezidPropertyTypeRecord.getBackReferencedTableValue()
 		+ "WHERE"
-		+ ColumnSystemTableColumn.PARENT_TABLE
+		+ ColumnTableColumn.PARENT_TABLE
 		+ " = '"
 		+ tableName
 		+ "' AND "
-		+ ColumnSystemTableColumn.HEADER
+		+ ColumnTableColumn.HEADER
 		+ " = '"
 		+ columnHeader
 		+ "'";

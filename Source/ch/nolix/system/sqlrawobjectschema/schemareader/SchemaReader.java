@@ -8,7 +8,7 @@ import ch.nolix.common.sql.SQLConnection;
 import ch.nolix.element.time.base.Time;
 import ch.nolix.system.objectschema.schemadto.SaveStampConfigurationDTO;
 import ch.nolix.system.objectschema.schemadto.TableDTO;
-import ch.nolix.system.sqlrawobjectschema.columnsystemtable.ColumnDTOMapper;
+import ch.nolix.system.sqlrawobjectschema.columntable.ColumnDTOMapper;
 import ch.nolix.system.sqlrawobjectschema.structure.TableType;
 import ch.nolix.system.sqlrawobjectschema.tablesystemtable.TableDTOMapper;
 import ch.nolix.techapi.rawobjectschemaapi.flatschemadtoapi.IFlatTableDTO;
