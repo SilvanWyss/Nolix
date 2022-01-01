@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.system.sqlrawobjectschema.databaseinitializer;
 
+//own imports
+import ch.nolix.system.sqlrawobjectschema.columntable.ColumnTableSQLDTOCatalogue;
 import ch.nolix.system.sqlrawobjectschema.structure.SystemDataTableSQLDTOCatalogue;
 import ch.nolix.techapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter;
 
@@ -12,7 +14,7 @@ final class InternalDatabaseInitializer {
 		
 		schemaAdapter.addTable(SystemDataTableSQLDTOCatalogue.DATABASE_PROPERTY_SYSTEM_TABLE_SQL_DTO);
 		schemaAdapter.addTable(SystemDataTableSQLDTOCatalogue.TABLE_SYSTEM_TABLE_SQL_DTO);
-		schemaAdapter.addTable(SystemDataTableSQLDTOCatalogue.COLUMNS_SYSTEM_TABLE_SQL_DTO);
+		schemaAdapter.addTable(ColumnTableSQLDTOCatalogue.COLUMNS_TABLE_SQL_DTO);
 		
 		schemaAdapter.saveChanges();
 	}
