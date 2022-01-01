@@ -40,6 +40,6 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
 	//method
 	@Override
 	public boolean hasInsertedGivenEntityInLocalData(final ITable<?, ?> table, final IEntity<?> entity) {
-		return table.hasInsertedEntityWithGivenIdInLocalData(entity.getId());
+		return table.containsEntityWithGivenIdInLocalData(entity.getId());
 	}
 }

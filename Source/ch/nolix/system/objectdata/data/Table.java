@@ -8,7 +8,6 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.system.objectdata.datahelper.EntityHelper;
 import ch.nolix.system.objectdata.datahelper.TableHelper;
-import ch.nolix.techapi.objectdataapi.dataapi.IColumn;
 import ch.nolix.techapi.objectdataapi.dataapi.IDatabase;
 import ch.nolix.techapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.techapi.objectdataapi.dataapi.ITable;
@@ -59,6 +58,12 @@ implements ITable<DataImplementation, E> {
 	
 	//method
 	@Override
+	public boolean containsEntityWithGivenIdInLocalData(final String id) {
+		return entitiesInLocalData.containsAny(e -> e.hasId(id));
+	}
+	
+	//method
+	@Override
 	public Class<E> getEntityClass() {
 		return entityClass;
 	}
@@ -98,19 +103,6 @@ implements ITable<DataImplementation, E> {
 		}
 		
 		return entity;
-	}
-	
-	//method
-	@Override
-	public IContainer<IColumn<DataImplementation>> getReferencingColumns() {
-		//TODO: Implement.
-		return null;
-	}
-	
-	//method
-	@Override
-	public boolean hasInsertedEntityWithGivenIdInLocalData(final String id) {
-		return entitiesInLocalData.containsAny(e -> e.hasId(id));
 	}
 	
 	//method
@@ -158,7 +150,7 @@ implements ITable<DataImplementation, E> {
 	
 	//method
 	private void insertEntityFromGivenRecordInLocalDataIfNotInserted(ILoadedRecordDTO record) {
-		if (!hasInsertedEntityWithGivenIdInLocalData(record.getId())) {
+		if (!containsEntityWithGivenIdInLocalData(record.getId())) {
 			entitiesInLocalData.addAtEnd(createEntityFrom(record));
 		}
 	}

@@ -47,12 +47,6 @@ public abstract class BaseEntity implements GroupCloseable, IEntity<DataImplemen
 	
 	//method
 	@Override
-	public final boolean knowsParentTable() {
-		return (parentTable != null);
-	}
-	
-	//method
-	@Override
 	public final void delete() {
 		
 		entityHelper.assertCanBeDeleted(this);
@@ -63,7 +57,7 @@ public abstract class BaseEntity implements GroupCloseable, IEntity<DataImplemen
 		
 		updateRecordForDelete();
 	}
-
+	
 	//method
 	@Override
 	public final String getId() {
@@ -140,6 +134,12 @@ public abstract class BaseEntity implements GroupCloseable, IEntity<DataImplemen
 	public final boolean isReferencedInPersistedData() {
 		//TODO: Implement.
 		return false;
+	}
+	
+	//method
+	@Override
+	public final boolean knowsParentTable() {
+		return (parentTable != null);
 	}
 	
 	//method

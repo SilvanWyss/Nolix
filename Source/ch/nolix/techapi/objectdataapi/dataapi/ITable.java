@@ -13,6 +13,9 @@ public interface ITable<
 > extends IDatabaseObject, Named {
 	
 	//method declaration
+	boolean containsEntityWithGivenIdInLocalData(String id);
+	
+	//method declaration
 	Class<E> getEntityClass();
 	
 	//method declaration
@@ -23,12 +26,6 @@ public interface ITable<
 	
 	//method declaration
 	E getRefEntityById(String id);
-	
-	//method
-	IContainer<IColumn<IMPL>> getReferencingColumns();
-	
-	//method declaration
-	boolean hasInsertedEntityWithGivenIdInLocalData(String id);
 	
 	//method declaration
 	ITable<IMPL, E> insert(E entity);
