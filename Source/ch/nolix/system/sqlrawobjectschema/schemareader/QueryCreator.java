@@ -5,7 +5,7 @@ import ch.nolix.system.sqlrawobjectschema.columntable.ColumnTableColumn;
 import ch.nolix.system.sqlrawobjectschema.databasepropertysystemtable.DatabaseProperty;
 import ch.nolix.system.sqlrawobjectschema.databasepropertysystemtable.DatabasePropertySystemTableColumn;
 import ch.nolix.system.sqlrawobjectschema.structure.SystemDataTable;
-import ch.nolix.system.sqlrawobjectschema.tablesystemtable.TableSystemTableColumn;
+import ch.nolix.system.sqlrawobjectschema.tabletable.TableTableColumn;
 
 //class
 final class QueryCreator {
@@ -39,7 +39,7 @@ final class QueryCreator {
 	public String createQueryToLoadFlatTables() {
 		return
 		"SELECT "
-		+ TableSystemTableColumn.NAME.getLabel()
+		+ TableTableColumn.NAME.getLabel()
 		+ " FROM "
 		+ SystemDataTable.TABLE.getNameWithPrefix();
 	}

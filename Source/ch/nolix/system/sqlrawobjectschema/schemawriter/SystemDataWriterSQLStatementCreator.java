@@ -8,8 +8,8 @@ import ch.nolix.system.sqlrawobjectschema.columntable.ParametrizedPropertyTypeRe
 import ch.nolix.system.sqlrawobjectschema.databasepropertysystemtable.DatabaseProperty;
 import ch.nolix.system.sqlrawobjectschema.databasepropertysystemtable.DatabasePropertySystemTableColumn;
 import ch.nolix.system.sqlrawobjectschema.structure.SystemDataTable;
-import ch.nolix.system.sqlrawobjectschema.tablesystemtable.TableSystemTableColumn;
-import ch.nolix.system.sqlrawobjectschema.tablesystemtable.TableSystemTableRecordMapper;
+import ch.nolix.system.sqlrawobjectschema.tabletable.TableTableColumn;
+import ch.nolix.system.sqlrawobjectschema.tabletable.TableTableRecordMapper;
 import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
 import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.ITableDTO;
@@ -22,8 +22,8 @@ final class SystemDataWriterSQLStatementCreator {
 	new ParametrizedPropertyTypeRecordMapper();
 	
 	//static attribute
-	private static final TableSystemTableRecordMapper tableSystemTableRecordMapper =
-	new TableSystemTableRecordMapper();
+	private static final TableTableRecordMapper tableSystemTableRecordMapper =
+	new TableTableRecordMapper();
 	
 	//method
 	public String createStatementToAddColumn(final String tableName, final IColumnDTO column) {
@@ -89,7 +89,7 @@ final class SystemDataWriterSQLStatementCreator {
 		"DELETE FROM "
 		+ SystemDataTable.TABLE.getNameWithPrefix()
 		+ " WHERE "
-		+ TableSystemTableColumn.NAME
+		+ TableTableColumn.NAME
 		+ " = '"
 		+ tableName
 		+ "'";
@@ -172,11 +172,11 @@ final class SystemDataWriterSQLStatementCreator {
 		"UPDATE "
 		+ SystemDataTable.TABLE.getNameWithPrefix()
 		+ " SET "
-		+ TableSystemTableColumn.NAME.getLabel()
+		+ TableTableColumn.NAME.getLabel()
 		+ " = '"
 		+ newTableName
 		+ "' WHERE "
-		+ TableSystemTableColumn.NAME.getLabel()
+		+ TableTableColumn.NAME.getLabel()
 		+ " = '"
 		+ tableName
 		+ "'";

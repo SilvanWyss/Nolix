@@ -10,7 +10,7 @@ import ch.nolix.system.objectschema.schemadto.SaveStampConfigurationDTO;
 import ch.nolix.system.objectschema.schemadto.TableDTO;
 import ch.nolix.system.sqlrawobjectschema.columntable.ColumnDTOMapper;
 import ch.nolix.system.sqlrawobjectschema.structure.TableType;
-import ch.nolix.system.sqlrawobjectschema.tablesystemtable.TableDTOMapper;
+import ch.nolix.system.sqlrawobjectschema.tabletable.TableDTOMapper;
 import ch.nolix.techapi.rawobjectschemaapi.flatschemadtoapi.IFlatTableDTO;
 import ch.nolix.techapi.rawobjectschemaapi.schemaadapterapi.ISchemaReader;
 import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IColumnDTO;

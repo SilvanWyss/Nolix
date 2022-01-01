@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.sqlrawobjectschema.tablesystemtable;
+package ch.nolix.system.sqlrawobjectschema.tabletable;
 
 //Java imports
 import java.util.List;
