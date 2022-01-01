@@ -14,7 +14,7 @@ final class InternalDatabaseInitializer {
 		
 		schemaAdapter.addTable(SystemDataTableSQLDTOCatalogue.DATABASE_PROPERTY_SYSTEM_TABLE_SQL_DTO);
 		schemaAdapter.addTable(SystemDataTableSQLDTOCatalogue.TABLE_SYSTEM_TABLE_SQL_DTO);
-		schemaAdapter.addTable(ColumnTableSQLDTOCatalogue.COLUMNS_TABLE_SQL_DTO);
+		schemaAdapter.addTable(ColumnTableSQLDTOCatalogue.COLUMN_TABLE_SQL_DTO);
 		
 		schemaAdapter.saveChanges();
 	}

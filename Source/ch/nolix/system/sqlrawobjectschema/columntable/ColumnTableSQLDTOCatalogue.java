@@ -39,7 +39,7 @@ public final class ColumnTableSQLDTOCatalogue {
 	new ColumnDTO(ColumnTableColumn.BACK_REFERENCED_COLUM.getLabel(), SQLDatatypeCatalogue.TEXT_DATA_TYPE);
 	
 	//constant
-	public static final TableDTO COLUMNS_TABLE_SQL_DTO =
+	public static final TableDTO COLUMN_TABLE_SQL_DTO =
 	new TableDTO(
 		SystemDataTable.COLUMN.getNameWithPrefix(),
 		PARENT_TABLE_SQL_DTO,
