@@ -87,7 +87,7 @@ implements IOptionalReference<DataImplementation, E> {
 	public boolean referencesUninsertedEntity() {
 		return
 		containsAny()
-		&& !getRefEntity().belongsToTable();
+		&& !getRefEntity().knowsParentTable();
 	}
 	
 	//method
@@ -129,7 +129,7 @@ implements IOptionalReference<DataImplementation, E> {
 	private void updateRecordForClear() {
 		if (isLinkedWithRealDatabase()) {
 			internalGetRefDataAndSchemaAdapter().updateRecordOnTable(
-				getParentEntity().getTableName(),
+				getParentEntity().getParentTableName(),
 				optionalReferenceHelper.createRecordUpdateDTOForClear(this)
 			);
 		}
@@ -139,7 +139,7 @@ implements IOptionalReference<DataImplementation, E> {
 	private void updateRecordForSetEntity(final E entity) {
 		if (isLinkedWithRealDatabase()) {
 			internalGetRefDataAndSchemaAdapter().updateRecordOnTable(
-				getParentEntity().getTableName(),
+				getParentEntity().getParentTableName(),
 				optionalReferenceHelper.createRecordUpdateDTOForSetEntity(this, entity)
 			);
 		}

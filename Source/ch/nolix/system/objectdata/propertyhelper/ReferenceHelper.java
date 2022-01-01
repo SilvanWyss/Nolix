@@ -28,7 +28,7 @@ public final class ReferenceHelper extends PropertyHelper implements IReferenceH
 		canSetEntity(reference)
 		&& entity != null
 		&& entity.isOpen()
-		&& reference.getReferencedTableName().equals(entity.getTableName());
+		&& reference.getReferencedTableName().equals(entity.getParentTableName());
 	}
 	
 	//method

@@ -92,7 +92,7 @@ public final class OptionalValue<V> extends BaseValue<V> implements IOptionalVal
 	private void updateRecordForClear() {
 		if (isLinkedWithRealDatabase()) {
 			internalGetRefDataAndSchemaAdapter().updateRecordOnTable(
-				getParentEntity().getTableName(),
+				getParentEntity().getParentTableName(),
 				optionalValueHelper.createRecordUpdateDTOForClear(this)
 			);
 		}
@@ -102,7 +102,7 @@ public final class OptionalValue<V> extends BaseValue<V> implements IOptionalVal
 	private void updateRecordForSetValue(final V value) {
 		if (isLinkedWithRealDatabase()) {
 			internalGetRefDataAndSchemaAdapter().updateRecordOnTable(
-				getParentEntity().getTableName(),
+				getParentEntity().getParentTableName(),
 				optionalValueHelper.createRecordUpdateDTOForSetValue(this, value)
 			);
 		}

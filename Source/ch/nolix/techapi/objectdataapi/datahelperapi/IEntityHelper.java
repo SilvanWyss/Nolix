@@ -23,9 +23,6 @@ public interface IEntityHelper extends IDatabaseObjectHelper {
 	void assertHasSaveStamp(IEntity<?> entity);
 	
 	//method declaration
-	void assertIsNotBackReferenced(IEntity<?> entity);
-	
-	//method declaration
 	void assertIsNotReferenced(IEntity<?> entity);
 	
 	//method declaration

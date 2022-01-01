@@ -47,7 +47,7 @@ public abstract class BaseEntity implements GroupCloseable, IEntity<DataImplemen
 	
 	//method
 	@Override
-	public final boolean belongsToTable() {
+	public final boolean knowsParentTable() {
 		return (parentTable != null);
 	}
 	
@@ -123,13 +123,6 @@ public abstract class BaseEntity implements GroupCloseable, IEntity<DataImplemen
 	
 	//method
 	@Override
-	public final boolean isBackReferenced() {
-		//TODO: Implement.
-		return false;
-	}
-	
-	//method
-	@Override
 	public final boolean isDeleted() {
 		return (getState() == DatabaseObjectState.DELETED);
 	}
@@ -138,7 +131,7 @@ public abstract class BaseEntity implements GroupCloseable, IEntity<DataImplemen
 	@Override
 	public final boolean isLinkedWithRealDatabase() {
 		return
-		belongsToTable()
+		knowsParentTable()
 		&& getParentTable().isLinkedWithRealDatabase();
 	}
 	

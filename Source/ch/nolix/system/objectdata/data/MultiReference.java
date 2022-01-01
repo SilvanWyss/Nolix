@@ -112,7 +112,7 @@ implements IMultiReference<DataImplementation, E> {
 	//method
 	@Override
 	public boolean referencesUninsertedEntity() {
-		return containsAny(e -> !e.belongsToTable());
+		return containsAny(e -> !e.knowsParentTable());
 	}
 	
 	//method
@@ -142,7 +142,7 @@ implements IMultiReference<DataImplementation, E> {
 	private void updateRecordForAddEntity(final E entity) {
 		if (isLinkedWithRealDatabase()) {
 			internalGetRefDataAndSchemaAdapter().updateRecordOnTable(
-				getParentEntity().getTableName(),
+				getParentEntity().getParentTableName(),
 				multiReferenceHelper.createRecordupdateDTOForAddEntity(this, entity)
 			);
 		}
@@ -152,7 +152,7 @@ implements IMultiReference<DataImplementation, E> {
 	private void updateRecordForClear() {
 		if (isLinkedWithRealDatabase()) {
 			internalGetRefDataAndSchemaAdapter().updateRecordOnTable(
-				getParentEntity().getTableName(),
+				getParentEntity().getParentTableName(),
 				multiReferenceHelper.createRecordUpdateDTOForClear(this)
 			);
 		}

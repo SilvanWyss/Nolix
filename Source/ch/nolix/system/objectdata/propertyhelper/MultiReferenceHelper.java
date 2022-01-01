@@ -35,7 +35,7 @@ public final class MultiReferenceHelper extends PropertyHelper implements IMulti
 		canAddEntity(multiReference)
 		&& entity != null
 		&& entity.isOpen()
-		&& multiReference.getReferencedTableName().equals(entity.getTableName());
+		&& multiReference.getReferencedTableName().equals(entity.getParentTableName());
 	}
 	
 	//method

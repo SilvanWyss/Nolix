@@ -12,7 +12,7 @@ public abstract class Entity extends BaseEntity {
 	
 	//method
 	@Override
-	public final String getTableName() {
+	public final String getParentTableName() {
 		return getClass().getSimpleName();
 	}
 	

@@ -12,13 +12,10 @@ import ch.nolix.techapi.databaseapi.databaseobjectapi.IDatabaseObject;
 public interface IEntity<IMPL> extends Deletable, IDatabaseObject, IdentifiedByString, ShortDescripted {
 	
 	//method declaration
-	boolean belongsToTable();
-	
-	//method declaration
 	ITable<IMPL, IEntity<IMPL>> getParentTable();
     
 	//method declaration
-	String getTableName();
+	String getParentTableName();
 	
 	//method declaration
 	String getSaveStamp();
@@ -27,10 +24,10 @@ public interface IEntity<IMPL> extends Deletable, IDatabaseObject, IdentifiedByS
 	boolean hasSaveStamp();
 	
     //method declaration
-    boolean isBackReferenced();
-	
-    //method declaration
     boolean isReferencedInPersistedData();
+    
+	//method declaration
+	boolean knowsParentTable();
     
 	//method declaration
 	IContainer<IProperty<IMPL>> technicalGetRefProperties();

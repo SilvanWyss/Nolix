@@ -54,7 +54,7 @@ public final class OptionalReferenceHelper extends PropertyHelper implements IOp
 		canSetEntity(optionalReference)
 		&& entity != null
 		&& entity.isOpen()
-		&& optionalReference.getReferencedTableName().equals(entity.getTableName());
+		&& optionalReference.getReferencedTableName().equals(entity.getParentTableName());
 	}
 	
 	//method

@@ -22,7 +22,7 @@ public final class GeneralEntity extends BaseEntity {
 	
 	//method
 	@Override
-	public String getTableName() {
+	public String getParentTableName() {
 		return tableName;
 	}
 	

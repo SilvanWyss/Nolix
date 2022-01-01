@@ -22,7 +22,7 @@ public final class EntityTest extends Test {
 			expect(result.getState()).isEqualTo(DatabaseObjectState.NEW);
 			expect(result.getId()).hasLength(32);
 			expect(result.getShortDescription()).startsWith("Thing");
-			expectNot(result.belongsToTable());
+			expectNot(result.knowsParentTable());
 		}
 	}
 }

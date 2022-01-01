@@ -30,7 +30,7 @@ public class EntityHelper extends DatabaseObjectHelper implements IEntityHelper 
 	//method
 	@Override
 	public final void assertBelongsToTable(final IEntity<?> entity) {
-		if (!entity.belongsToTable()) {
+		if (!entity.knowsParentTable()) {
 			throw new ArgumentDoesNotBelongToParentException(entity, ITable.class);
 		}
 	}
@@ -46,7 +46,7 @@ public class EntityHelper extends DatabaseObjectHelper implements IEntityHelper 
 	//method
 	@Override
 	public final void assertDoesNotBelongToTable(final IEntity<?> entity) {
-		if (entity.belongsToTable()) {
+		if (entity.knowsParentTable()) {
 			throw new ArgumentBelongsToParentException(entity, entity.getParentTable());
 		}
 	}
@@ -56,14 +56,6 @@ public class EntityHelper extends DatabaseObjectHelper implements IEntityHelper 
 	public final void assertHasSaveStamp(final IEntity<?> entity) {
 		if (!entity.hasSaveStamp()) {
 			throw new ArgumentDoesNotHaveAttributeException(entity, LowerCaseCatalogue.SAVE_STAMP);
-		}
-	}
-	
-	//method
-	@Override
-	public final void assertIsNotBackReferenced(final IEntity<?> entity) {
-		if (entity.isBackReferenced()) {
-			throw new InvalidArgumentException(entity, "is back referenced");
 		}
 	}
 	
@@ -119,7 +111,7 @@ public class EntityHelper extends DatabaseObjectHelper implements IEntityHelper 
 	@Override
 	public final <IMPL> boolean isReferencedInLocalData(final IEntity<IMPL> entity) {
 		
-		if (!entity.belongsToTable()) {
+		if (!entity.knowsParentTable()) {
 			return false;
 		}
 		
