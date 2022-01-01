@@ -75,7 +75,7 @@ implements IOptionalReference<DataImplementation, E> {
 	
 	//method
 	@Override
-	public boolean references(IEntity<DataImplementation> entity) {
+	public boolean references(IEntity<?> entity) {
 		return
 		containsAny()
 		&& entity != null

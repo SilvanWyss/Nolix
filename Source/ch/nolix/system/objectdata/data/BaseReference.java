@@ -27,18 +27,6 @@ implements IBaseReference<DataImplementation, E> {
 	
 	//method
 	@Override
-	public final boolean canReferenceBackEntityOfType(final Class<IEntity<DataImplementation>> type) {
-		return false;
-	}
-	
-	//method
-	@Override
-	public final boolean canReferenceEntityOfType(final Class<IEntity<DataImplementation>> type) {
-		return (getReferencedTable().getEntityClass() == type);
-	}
-	
-	//method
-	@Override
 	public final ITable<DataImplementation, E> getReferencedTable() {
 		
 		extractReferencedTableIfNotExtracted();
@@ -54,7 +42,7 @@ implements IBaseReference<DataImplementation, E> {
 	
 	//method
 	@Override
-	public final boolean referencesBack(final IEntity<DataImplementation> entity) {
+	public final boolean referencesBack(final IEntity<?> entity) {
 		return false;
 	}
 	

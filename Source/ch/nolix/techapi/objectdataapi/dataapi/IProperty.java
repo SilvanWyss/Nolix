@@ -14,12 +14,6 @@ public interface IProperty<IMPL> extends EmptinessRequestable, MandatoryRequesta
 	boolean belongsToEntity();
 	
 	//method declaration
-	boolean canReferenceBackEntityOfType(Class<IEntity<IMPL>> type);
-	
-	//method declaration
-	boolean canReferenceEntityOfType(Class<IEntity<IMPL>> type);
-	
-	//method declaration
 	IEntity<IMPL> getParentEntity();
 	
 	//method declaration
@@ -29,10 +23,10 @@ public interface IProperty<IMPL> extends EmptinessRequestable, MandatoryRequesta
 	boolean isLinkedWithRealDatabase();
 	
 	//method declaration
-	boolean references(IEntity<IMPL> entity);
+	boolean references(IEntity<?> entity);
 	
 	//method declaration
-	boolean referencesBack(IEntity<IMPL> entity);
+	boolean referencesBack(IEntity<?> entity);
 	
 	//method declaration
 	boolean referencesUninsertedEntity();

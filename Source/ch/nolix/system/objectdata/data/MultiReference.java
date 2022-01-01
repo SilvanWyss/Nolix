@@ -100,7 +100,7 @@ implements IMultiReference<DataImplementation, E> {
 	
 	//method
 	@Override
-	public boolean references(final IEntity<DataImplementation> entity) {
+	public boolean references(final IEntity<?> entity) {
 		
 		if (entity == null) {
 			return false;
@@ -112,7 +112,7 @@ implements IMultiReference<DataImplementation, E> {
 	//method
 	@Override
 	public boolean referencesUninsertedEntity() {
-		return containsAny(e -> !e.knowsParentTable());
+		return containsOnly(IEntity::knowsParentTable);
 	}
 	
 	//method

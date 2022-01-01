@@ -68,7 +68,7 @@ implements IReference<DataImplementation, E> {
 	
 	//method
 	@Override
-	public boolean references(final IEntity<DataImplementation> entity) {
+	public boolean references(final IEntity<?> entity) {
 		return
 		containsAny()
 		&& entity != null
