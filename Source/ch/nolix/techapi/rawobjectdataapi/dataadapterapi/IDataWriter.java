@@ -11,7 +11,16 @@ import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
 public interface IDataWriter extends IChangeSaver {
 	
 	//method declaration
+	void deleteEntriesFromMultiField(String tableName, String recordId, String multiFieldColumn);
+	
+	//method declaration
+	void deleteEntryFromMultiField(String tableName, String recordId, String multiFieldColumn, String entry);
+	
+	//method declaration
 	void deleteRecordFromTable(String tableName, IRecordDeletionDTO recordDeletion);
+	
+	//method declaration
+	void insertEntryIntoMultiField(String tableName, String recordId, String multiFieldColumn, String entry);
 	
 	//method declaration
 	void insertRecordIntoTable(String tableName, IRecordDTO record);

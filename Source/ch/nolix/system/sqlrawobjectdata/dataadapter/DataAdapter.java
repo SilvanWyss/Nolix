@@ -33,16 +33,25 @@ public abstract class DataAdapter implements IDataAdapter {
 		dataWriter = new DataWriter(pSQLConnection, statementCreator);
 	}
 	
-	//method	
+	//method
 	@Override
-	public final LinkedList<ILoadedRecordDTO> loadAllRecordsFromTable(final String tableName) {
-		return dataReader.loadAllRecordsFromTable(tableName);
+	public final void deleteEntriesFromMultiField(
+		final String tableName,
+		final String recordId,
+		final String multiFieldColumn
+	) {
+		dataWriter.deleteEntriesFromMultiField(tableName, recordId, multiFieldColumn);
 	}
 	
 	//method
 	@Override
-	public final ILoadedRecordDTO loadRecordFromTableById(final String tableName, final String id) {
-		return dataReader.loadRecordFromTableById(tableName, id);
+	public final void deleteEntryFromMultiField(
+		final String tableName,
+		final String recordId,
+		final String multiFieldColumn,
+		final String entry
+	) {
+		dataWriter.deleteEntryFromMultiField(tableName, recordId, multiFieldColumn, entry);
 	}
 	
 	//method
@@ -59,8 +68,41 @@ public abstract class DataAdapter implements IDataAdapter {
 	
 	//method
 	@Override
+	public final void insertEntryIntoMultiField(
+		final String tableName,
+		final String recordId,
+		final String multiFieldColumn,
+		final String entry
+	) {
+		dataWriter.insertEntryIntoMultiField(tableName, recordId, multiFieldColumn, entry);
+	}
+	
+	//method
+	@Override
 	public final void insertRecordIntoTable(final String tableName, final IRecordDTO record) {
 		dataWriter.insertRecordIntoTable(tableName, record);
+	}
+	
+	//method	
+	@Override
+	public final LinkedList<ILoadedRecordDTO> loadAllRecordsFromTable(final String tableName) {
+		return dataReader.loadAllRecordsFromTable(tableName);
+	}
+	
+	//method
+	@Override
+	public final LinkedList<Object> loadMultiFieldEntriesFromRecord(
+		final String tableName,
+		final String recordId,
+		final String multiFieldColumnName
+	) {
+		return dataReader.loadMultiFieldEntriesFromRecord(tableName, recordId, multiFieldColumnName);
+	}
+	
+	//method
+	@Override
+	public final ILoadedRecordDTO loadRecordFromTableById(final String tableName, final String id) {
+		return dataReader.loadRecordFromTableById(tableName, id);
 	}
 	
 	//method

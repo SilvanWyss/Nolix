@@ -55,6 +55,27 @@ public abstract class DataAndSchemaAdapter implements IDataAndSchemaAdapter {
 	
 	//method
 	@Override
+	public final void deleteEntriesFromMultiField(
+		final String tableName,
+		final String recordId,
+		final String multiFieldColumn
+	) {
+		dataWriter.deleteEntriesFromMultiField(tableName, recordId, multiFieldColumn);
+	}
+	
+	//method
+	@Override
+	public final void deleteEntryFromMultiField(
+		final String tableName,
+		final String recordId,
+		final String multiFieldColumn,
+		final String entry
+	) {
+		dataWriter.deleteEntryFromMultiField(tableName, recordId, multiFieldColumn, entry);
+	}
+	
+	//method
+	@Override
 	public final void deleteRecordFromTable(final String tableName, final IRecordDeletionDTO recordDeletion) {
 		dataWriter.deleteRecordFromTable(tableName, recordDeletion);
 	}
@@ -63,6 +84,17 @@ public abstract class DataAndSchemaAdapter implements IDataAndSchemaAdapter {
 	@Override
 	public final boolean hasChanges() {
 		return dataWriter.hasChanges();
+	}
+	
+	//method
+	@Override
+	public final void insertEntryIntoMultiField(
+		final String tableName,
+		final String recordId,
+		final String multiFieldColumn,
+		final String entry
+	) {
+		dataWriter.insertEntryIntoMultiField(tableName, recordId, multiFieldColumn, entry);
 	}
 	
 	//method
@@ -87,6 +119,16 @@ public abstract class DataAndSchemaAdapter implements IDataAndSchemaAdapter {
 	@Override
 	public final LinkedList<IFlatTableDTO> loadFlatTables() {
 		return schemaReader.loadFlatTables();
+	}
+	
+	//method
+	@Override
+	public final LinkedList<Object> loadMultiFieldEntriesFromRecord(
+		final String tableName,
+		final String recordId,
+		final String multiFieldColumnName
+	) {
+		return dataReader.loadMultiFieldEntriesFromRecord(tableName, recordId, multiFieldColumnName);
 	}
 	
 	//method

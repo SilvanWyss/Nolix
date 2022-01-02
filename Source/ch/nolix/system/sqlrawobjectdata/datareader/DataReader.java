@@ -43,6 +43,17 @@ public final class DataReader implements IDataReader {
 	
 	//method
 	@Override
+	public LinkedList<Object> loadMultiFieldEntriesFromRecord(
+		final String tableName,
+		final String recordId,
+		final String multiFieldColumnName
+	) {
+		//TODO: Implement.
+		return null;
+	}
+	
+	//method
+	@Override
 	public ILoadedRecordDTO loadRecordFromTableById(final String tableName, final String id) {
 		return internalDataReader.loadRecordFromTableById(getTableDefinitionForTableWithName(tableName), id);
 	}

@@ -12,6 +12,9 @@ public interface IDataReader {
 	LinkedList<ILoadedRecordDTO> loadAllRecordsFromTable(String tableName);
 	
 	//method declaration
+	LinkedList<Object> loadMultiFieldEntriesFromRecord(String tableName, String recordId, String multiFieldColumnName);
+	
+	//method declaration
 	ILoadedRecordDTO loadRecordFromTableById(String tableName, String id);
 	
 	//method declaration

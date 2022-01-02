@@ -31,6 +31,27 @@ public final class DataWriter implements IDataWriter {
 	
 	//method
 	@Override
+	public void deleteEntriesFromMultiField(
+		final String tableName,
+		final String recordId,
+		final String multiFieldColumn
+	) {
+		//TODO: Implement.
+	}
+	
+	//method
+	@Override
+	public void deleteEntryFromMultiField(
+		final String tableName,
+		final String recordId,
+		final String multiFieldColumn,
+		final String entry
+	) {
+		//TODO: Implement.
+	}
+	
+	//method
+	@Override
 	public void deleteRecordFromTable(final String tableName, final IRecordDeletionDTO recordDeletion) {
 		internalDataWriter.deleteRecordFromTable(tableName, recordDeletion);
 	}
@@ -39,6 +60,17 @@ public final class DataWriter implements IDataWriter {
 	@Override
 	public boolean hasChanges() {
 		return internalDataWriter.hasChanges();
+	}
+	
+	//method
+	@Override
+	public void insertEntryIntoMultiField(
+		final String tableName,
+		final String recordId,
+		final String multiFieldColumn,
+		final String entry
+	) {
+		//TODO: Implement.
 	}
 	
 	//method

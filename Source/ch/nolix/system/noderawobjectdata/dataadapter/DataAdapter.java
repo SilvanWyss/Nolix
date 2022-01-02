@@ -34,6 +34,38 @@ public final class DataAdapter implements IDataAdapter {
 	
 	//method
 	@Override
+	public void deleteEntriesFromMultiField(
+		final String tableName,
+		final String recordId,
+		final String multiFieldColumn
+	) {
+		dataWriter.deleteEntriesFromMultiField(tableName, recordId, multiFieldColumn);
+	}
+	
+	//method
+	@Override
+	public void deleteEntryFromMultiField(
+		final String tableName,
+		final String recordId,
+		final String multiFieldColumn,
+		final String entry
+	) {
+		dataWriter.deleteEntryFromMultiField(tableName, recordId, multiFieldColumn, entry);
+	}
+	
+	//method
+	@Override
+	public void insertEntryIntoMultiField(
+		final String tableName,
+		final String recordId,
+		final String multiFieldColumn,
+		final String entry
+	) {
+		dataWriter.insertEntryIntoMultiField(tableName, recordId, multiFieldColumn, entry);
+	}
+	
+	//method
+	@Override
 	public LinkedList<ILoadedRecordDTO> loadAllRecordsFromTable(String tableName) {
 		return dataReader.loadAllRecordsFromTable(tableName);
 	}
@@ -60,6 +92,16 @@ public final class DataAdapter implements IDataAdapter {
 	@Override
 	public void insertRecordIntoTable(String tableName, IRecordDTO record) {
 		dataWriter.insertRecordIntoTable(tableName, record);
+	}
+	
+	//method
+	@Override
+	public LinkedList<Object> loadMultiFieldEntriesFromRecord(
+		final String tableName,
+		final String recordId,
+		final String multiFieldColumnName
+	) {
+		return dataReader.loadMultiFieldEntriesFromRecord(tableName, recordId, multiFieldColumnName);
 	}
 	
 	//method
