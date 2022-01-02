@@ -4,7 +4,7 @@ package ch.nolix.system.sqlrawobjectdata.dataadapter;
 //own imports
 import ch.nolix.common.sql.MSSQLConnection;
 import ch.nolix.system.sqlrawobjectdata.mssql.QueryCreator;
-import ch.nolix.system.sqlrawobjectdata.mssql.StatementCreator;
+import ch.nolix.system.sqlrawobjectdata.mssql.RecordStatementCreator;
 import ch.nolix.system.sqlrawobjectschema.schemaadapter.MSSQLSchemaAdapter;
 
 //class
@@ -16,7 +16,7 @@ public final class MSSQLDataAdapter extends DataAdapter {
 			pMSSQLConnection,
 			new MSSQLSchemaAdapter(pMSSQLConnection),
 			new QueryCreator(),
-			new StatementCreator()
+			new RecordStatementCreator()
 		);
 	}
 }

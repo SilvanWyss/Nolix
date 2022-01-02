@@ -1,14 +1,15 @@
 //package declaration
 package ch.nolix.system.sqlrawobjectdata.mssql;
 
-import ch.nolix.system.sqlrawobjectdata.sqlapi.IStatementCreator;
+//own imports
+import ch.nolix.system.sqlrawobjectdata.sqlapi.IRecordStatementCreator;
 import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IContentFieldDTO;
 import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IRecordDTO;
 import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IRecordDeletionDTO;
 import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
 
 //class
-public final class StatementCreator implements IStatementCreator {
+public final class RecordStatementCreator implements IRecordStatementCreator {
 	
 	//method
 	@Override

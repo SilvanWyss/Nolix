@@ -7,7 +7,7 @@ import ch.nolix.common.sql.SQLConnection;
 import ch.nolix.system.sqlrawobjectdata.datareader.DataReader;
 import ch.nolix.system.sqlrawobjectdata.datawriter.DataWriter;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IQueryCreator;
-import ch.nolix.system.sqlrawobjectdata.sqlapi.IStatementCreator;
+import ch.nolix.system.sqlrawobjectdata.sqlapi.IRecordStatementCreator;
 import ch.nolix.techapi.rawobjectdataapi.dataadapterapi.IDataAdapter;
 import ch.nolix.techapi.rawobjectdataapi.datadtoapi.ILoadedRecordDTO;
 import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IRecordDTO;
@@ -27,10 +27,10 @@ public abstract class DataAdapter implements IDataAdapter {
 		final SQLConnection pSQLConnection,
 		final ISchemaAdapter schemaAdapter,
 		final IQueryCreator queryCreator,
-		final IStatementCreator statementCreator
+		final IRecordStatementCreator recordStatementCreator
 	) {
 		dataReader = new DataReader(pSQLConnection, schemaAdapter, queryCreator);
-		dataWriter = new DataWriter(pSQLConnection, statementCreator);
+		dataWriter = new DataWriter(pSQLConnection, recordStatementCreator);
 	}
 	
 	//method

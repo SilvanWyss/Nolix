@@ -1,12 +1,13 @@
 //package declaration
 package ch.nolix.system.sqlrawobjectdata.sqlapi;
 
+//own imports
 import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IRecordDTO;
 import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IRecordDeletionDTO;
 import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
 
 //interface
-public interface IStatementCreator {
+public interface IRecordStatementCreator {
 	
 	//method declaration
 	String createStatementToDeleteRecordFromTable(String tableName, IRecordDeletionDTO recordDeletion);

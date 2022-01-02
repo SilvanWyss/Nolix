@@ -5,7 +5,7 @@ package ch.nolix.system.sqlrawobjectdata.datawriter;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.sql.SQLConnection;
 import ch.nolix.common.sql.SQLExecutor;
-import ch.nolix.system.sqlrawobjectdata.sqlapi.IStatementCreator;
+import ch.nolix.system.sqlrawobjectdata.sqlapi.IRecordStatementCreator;
 import ch.nolix.techapi.rawobjectdataapi.dataadapterapi.IDataWriter;
 import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IRecordDTO;
 import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IRecordDeletionDTO;
@@ -16,15 +16,15 @@ public final class DataWriter implements IDataWriter {
 	
 	//attributes
 	private final SQLExecutor mSQLExecutor;
-	private final IStatementCreator statementCreator;
+	private final IRecordStatementCreator recordStatementCreator;
 	
 	//constructor
-	public DataWriter(final SQLConnection pSQLConnection, final IStatementCreator statementCreator) {
+	public DataWriter(final SQLConnection pSQLConnection, final IRecordStatementCreator recordStatementCreator) {
 		
-		Validator.assertThat(statementCreator).thatIsNamed(IStatementCreator.class).isNotNull();
+		Validator.assertThat(recordStatementCreator).thatIsNamed(IRecordStatementCreator.class).isNotNull();
 		
 		mSQLExecutor = new SQLExecutor(pSQLConnection);
-		this.statementCreator = statementCreator;
+		this.recordStatementCreator = recordStatementCreator;
 	}
 	
 	//method
@@ -52,7 +52,7 @@ public final class DataWriter implements IDataWriter {
 	@Override
 	public void deleteRecordFromTable(final String tableName, final IRecordDeletionDTO recordDeletion) {
 		mSQLExecutor.addSQLStatement(
-			statementCreator.createStatementToDeleteRecordFromTable(tableName, recordDeletion)
+			recordStatementCreator.createStatementToDeleteRecordFromTable(tableName, recordDeletion)
 		);
 	}
 	
@@ -76,13 +76,13 @@ public final class DataWriter implements IDataWriter {
 	//method
 	@Override
 	public void insertRecordIntoTable(final String tableName, final IRecordDTO record) {
-		mSQLExecutor.addSQLStatement(statementCreator.createStatementToInsertRecordIntoTable(tableName, record));
+		mSQLExecutor.addSQLStatement(recordStatementCreator.createStatementToInsertRecordIntoTable(tableName, record));
 	}
 	
 	//method
 	@Override
 	public void updateRecordOnTable(final String tableName, final IRecordUpdateDTO recordUpdate) {
-		mSQLExecutor.addSQLStatement(statementCreator.createStatementToUpdateRecordOnTable(tableName, recordUpdate));
+		mSQLExecutor.addSQLStatement(recordStatementCreator.createStatementToUpdateRecordOnTable(tableName, recordUpdate));
 	}
 	
 	//method
