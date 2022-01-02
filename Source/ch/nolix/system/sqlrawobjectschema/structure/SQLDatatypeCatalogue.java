@@ -8,6 +8,9 @@ import ch.nolix.system.sqlschema.schemadto.DataTypeDTO;
 public final class SQLDatatypeCatalogue {
 	
 	//constant
+	public static final DataTypeDTO INTEGER = new DataTypeDTO("INT");
+	
+	//constant
 	public static final DataTypeDTO TEXT_DATA_TYPE =  new DataTypeDTO("NVARCHAR", "MAX");
 	
 	//constructor
