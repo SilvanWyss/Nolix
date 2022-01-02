@@ -1,12 +1,13 @@
 //package declaration
 package ch.nolix.system.sqlrawobjectdata.mssql;
 
+//own imports
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IColumnDefinition;
-import ch.nolix.system.sqlrawobjectdata.sqlapi.IQueryCreator;
+import ch.nolix.system.sqlrawobjectdata.sqlapi.IRecordQueryCreator;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.ITableDefinition;
 
 //class
-public final class QueryCreator implements IQueryCreator {
+public final class RecordQueryCreator implements IRecordQueryCreator {
 	
 	//method
 	@Override

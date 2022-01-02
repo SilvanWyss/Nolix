@@ -2,7 +2,7 @@
 package ch.nolix.system.sqlrawobjectdata.sqlapi;
 
 //interface
-public interface IQueryCreator {
+public interface IRecordQueryCreator {
 	
 	//method declaration
 	String createQueryToCountRecordsWithGivenValueAtGivenColumn(String tableName, String columnHeader, String value);

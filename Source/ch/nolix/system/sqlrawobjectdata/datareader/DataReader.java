@@ -5,7 +5,7 @@ package ch.nolix.system.sqlrawobjectdata.datareader;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.sql.SQLConnection;
-import ch.nolix.system.sqlrawobjectdata.sqlapi.IQueryCreator;
+import ch.nolix.system.sqlrawobjectdata.sqlapi.IRecordQueryCreator;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.ITableDefinition;
 import ch.nolix.techapi.rawobjectdataapi.dataadapterapi.IDataReader;
 import ch.nolix.techapi.rawobjectdataapi.datadtoapi.ILoadedRecordDTO;
@@ -27,10 +27,10 @@ public final class DataReader implements IDataReader {
 	public DataReader(
 		final SQLConnection pSQLConnection,
 		final ISchemaAdapter schemaAdapter,
-		final IQueryCreator queryCreator
+		final IRecordQueryCreator recordQueryCreator
 	) {
 		
-		internalDataReader = new InternalDataReader(pSQLConnection, queryCreator);
+		internalDataReader = new InternalDataReader(pSQLConnection, recordQueryCreator);
 		
 		tableDefinitions = databaseInspector.createTableDefinitionsFrom(schemaAdapter);
 	}

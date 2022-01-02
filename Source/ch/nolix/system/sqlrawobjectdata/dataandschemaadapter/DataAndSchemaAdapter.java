@@ -7,7 +7,7 @@ import ch.nolix.common.sql.SQLConnection;
 import ch.nolix.element.time.base.Time;
 import ch.nolix.system.sqlrawobjectdata.datareader.DataReader;
 import ch.nolix.system.sqlrawobjectdata.datawriter.DataWriter;
-import ch.nolix.system.sqlrawobjectdata.sqlapi.IQueryCreator;
+import ch.nolix.system.sqlrawobjectdata.sqlapi.IRecordQueryCreator;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IRecordStatementCreator;
 import ch.nolix.system.sqlrawobjectschema.schemareader.SchemaReader;
 import ch.nolix.techapi.rawobjectdataapi.dataadapterapi.IDataReader;
@@ -38,11 +38,11 @@ public abstract class DataAndSchemaAdapter implements IDataAndSchemaAdapter {
 	public DataAndSchemaAdapter(
 		final SQLConnection pSQLConnection,
 		final ISchemaAdapter schemaAdapter,
-		final IQueryCreator queryCreator,
+		final IRecordQueryCreator recordQueryCreator,
 		final IRecordStatementCreator recordStatementCreator,
 		final ch.nolix.techapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter pSQLSchemaAdapter
 	) {
-		dataReader = new DataReader(pSQLConnection, schemaAdapter, queryCreator);
+		dataReader = new DataReader(pSQLConnection, schemaAdapter, recordQueryCreator);
 		dataWriter = new DataWriter(pSQLConnection, recordStatementCreator);
 		schemaReader = new SchemaReader(pSQLConnection, pSQLSchemaAdapter);
 	}

@@ -3,7 +3,7 @@ package ch.nolix.system.sqlrawobjectdata.dataandschemaadapter;
 
 //own imports
 import ch.nolix.common.sql.MSSQLConnection;
-import ch.nolix.system.sqlrawobjectdata.mssql.QueryCreator;
+import ch.nolix.system.sqlrawobjectdata.mssql.RecordQueryCreator;
 import ch.nolix.system.sqlrawobjectdata.mssql.RecordStatementCreator;
 import ch.nolix.system.sqlrawobjectschema.schemaadapter.MSSQLSchemaAdapter;
 
@@ -20,7 +20,7 @@ public final class MSSQLDataAndSchemaAdapter extends DataAndSchemaAdapter {
 		super(
 			pMSSQLConnection,
 			new MSSQLSchemaAdapter(pMSSQLConnection),
-			new QueryCreator(),
+			new RecordQueryCreator(),
 			new RecordStatementCreator(),
 			new ch.nolix.system.sqlschema.schemaadapter.MSSQLSchemaAdapter(pMSSQLConnection)
 		);
