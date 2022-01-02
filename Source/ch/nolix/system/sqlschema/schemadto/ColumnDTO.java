@@ -5,6 +5,7 @@ package ch.nolix.system.sqlschema.schemadto;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.techapi.sqlschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.techapi.sqlschemaapi.schemadtoapi.IConstraintDTO;
@@ -37,6 +38,11 @@ public final class ColumnDTO implements IColumnDTO {
 		this.name = name;
 		this.dataType = dataType;
 		this.constraints = constraints.toList();
+	}
+	
+	//constructor
+	public ColumnDTO(final String name, final IDataTypeDTO dataType, final IConstraintDTO... constraints) {
+		this(name, dataType, ReadContainer.forArray(constraints));
 	}
 	
 	//method
