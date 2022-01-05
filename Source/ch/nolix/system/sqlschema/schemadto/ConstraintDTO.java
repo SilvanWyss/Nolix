@@ -2,8 +2,8 @@
 package ch.nolix.system.sqlschema.schemadto;
 
 //own imports
-import ch.nolix.common.constant.LowerCaseCatalogue;
-import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.common.container.IContainer;
+import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.techapi.sqlschemaapi.schemadtoapi.ConstraintType;
 import ch.nolix.techapi.sqlschemaapi.schemadtoapi.IConstraintDTO;
@@ -14,53 +14,27 @@ public final class ConstraintDTO implements IConstraintDTO {
 	//attribute
 	private final ConstraintType type;
 	
-	//optional attribute
-	private final String parameter;
+	//multi-attribute
+	private final IContainer<String> parameters;
 	
 	//constructor
-	public ConstraintDTO(final ConstraintType type) {
+	public ConstraintDTO(final ConstraintType type, final String... parameters) {
 		
 		Validator.assertThat(type).thatIsNamed(ConstraintType.class).isNotNull();
 		
 		this.type = type;
-		parameter = null;
-	}
-	
-	//constructor
-	public ConstraintDTO(final ConstraintType type, final String parameter) {
-		
-		Validator.assertThat(type).thatIsNamed(ConstraintType.class).isNotNull();
-		Validator.assertThat(parameter).thatIsNamed(LowerCaseCatalogue.PARAMETER).isNotNull();
-		
-		this.type = type;
-		this.parameter = parameter;
+		this.parameters = ReadContainer.forArray(parameters);
 	}
 	
 	//method
 	@Override
-	public String getParameter() {
-		
-		assertHasParameter();
-		
-		return parameter;
+	public IContainer<String> getParameters() {
+		return parameters;
 	}
 	
 	//method
 	@Override
 	public ConstraintType getType() {
 		return type;
-	}
-	
-	//method
-	@Override
-	public boolean hasParameter() {
-		return (parameter != null);
-	}
-	
-	//method
-	private void assertHasParameter() {
-		if (!hasParameter()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.PARAMETER);
-		}
 	}
 }
