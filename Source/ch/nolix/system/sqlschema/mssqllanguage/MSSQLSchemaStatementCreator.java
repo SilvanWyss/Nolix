@@ -3,12 +3,13 @@ package ch.nolix.system.sqlschema.mssqllanguage;
 
 //own imports
 import ch.nolix.techapi.sqlschemaapi.schemadtoapi.IColumnDTO;
+import ch.nolix.techapi.sqlschemaapi.schemadtoapi.IConstraintDTO;
 import ch.nolix.techapi.sqlschemaapi.schemadtoapi.IDataTypeDTO;
 import ch.nolix.techapi.sqlschemaapi.schemadtoapi.ITableDTO;
 import ch.nolix.techapi.sqlschemaapi.schemalanguageapi.ISchemaStatementCreator;
 
 //class
-public class MSSQLSchemaStatementCreator implements ISchemaStatementCreator {
+public final class MSSQLSchemaStatementCreator implements ISchemaStatementCreator {
 	
 	//method
 	@Override
@@ -53,7 +54,36 @@ public class MSSQLSchemaStatementCreator implements ISchemaStatementCreator {
 	
 	//method
 	private String getColumnAsSQL(final IColumnDTO column) {
-		return (column.getName() + " " + getDataTypeAsSQL(column.getDataType()));
+		
+		var lSQL = column.getName() + " " + getDataTypeAsSQL(column.getDataType());
+		
+		if (column.getConstraints().containsAny()) {
+			lSQL += getConstraintsAsSQL(column);
+		}
+		
+		return lSQL;
+	}
+	
+	//method
+	private String getConstraintAsSQL(final IConstraintDTO constraint) {
+		
+		var lSQL = constraint.getType().toString();
+		
+		if (constraint.getParameters().containsAny()) {
+			getConstraintParametersAsSQL(constraint);
+		}
+		
+		return lSQL;
+	}
+	
+	//method
+	private String getConstraintsAsSQL(final IColumnDTO column) {
+		return column.getConstraints().to(this::getConstraintAsSQL).toString(",");
+	}
+	
+	//method
+	private String getConstraintParametersAsSQL(final IConstraintDTO constraint) {
+		return ("(" + constraint.getParameters().toString(",") + ")");
 	}
 	
 	//method
