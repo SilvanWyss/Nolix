@@ -38,6 +38,7 @@ public final class PascalCaseCatalogue {
 	public static final String COLUMN_COUNT = "ColumnCount";
 	public static final String COLUMN_HEADER = "ColumnHeader";
 	public static final String COLUMN_INDEX = "ColumnIndex";
+	public static final String COLUMN_NAME = "ColumnName";
 	public static final String COMMAND ="Command";
 	public static final String CONDITION = "Condition";
 	public static final String CONFIGURATION = "Configuration";

@@ -38,6 +38,7 @@ public final class PluralLowerCaseCatalogue {
 	public static final String COLUMN_COUNTS = "column counts";
 	public static final String COLUMN_HEADERS = "column headers";
 	public static final String COLUMN_INDEXES = "column indexes";
+	public static final String COLUMN_NAMES = "column names";
 	public static final String COMMANDS = "commands";
 	public static final String CONDITIONS = "conditions";
 	public static final String CONFIGURATIONS = "configurations";
