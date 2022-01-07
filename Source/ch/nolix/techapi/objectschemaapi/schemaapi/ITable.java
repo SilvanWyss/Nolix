@@ -20,8 +20,8 @@ public interface ITable<IMPL> extends Deletable, IDatabaseObject, GroupCloseable
 	boolean belongsToDatabase();
 	
 	//method declaration
-	ITable<IMPL> createColumnWithHeaderAndParametrizedPropertyType(
-		String header,
+	ITable<IMPL> createColumnWithNameAndParametrizedPropertyType(
+		String name,
 		IParametrizedPropertyType<IMPL, ?> parametrizedPropertyType
 	);
 	

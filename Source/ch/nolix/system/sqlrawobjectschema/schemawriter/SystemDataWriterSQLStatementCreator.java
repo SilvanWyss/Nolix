@@ -39,7 +39,7 @@ final class SystemDataWriterSQLStatementCreator {
 		+ " VALUES ('"
 		+ tableName
 		+ "', '"
-		+ column.getHeader()
+		+ column.getName()
 		+ "', "
 		+ parametrezidPropertyTypeRecord.getPropertyTypeValue()
 		+ ", "
@@ -68,7 +68,7 @@ final class SystemDataWriterSQLStatementCreator {
 	}
 	
 	//method
-	public String createStatementToDeleteColumn(final String tableName, final String columnHeader) {
+	public String createStatementToDeleteColumn(final String tableName, final String columnName) {
 		return
 		"DELETE FROM "
 		+ SystemDataTable.COLUMN.getNameWithPrefix()
@@ -77,9 +77,9 @@ final class SystemDataWriterSQLStatementCreator {
 		+ " = "
 		+ tableName
 		+ " AND "
-		+ ColumnTableColumn.HEADER.getLabel()
+		+ ColumnTableColumn.NAME.getLabel()
 		+ " = '"
-		+ columnHeader
+		+ columnName
 		+ "'"; 
 	}
 	
@@ -96,29 +96,29 @@ final class SystemDataWriterSQLStatementCreator {
 	}
 	
 	//method
-	public String createStatementToSetColumnHeader(String tableName, String columnHeader, String newColumnHeader) {
+	public String createStatementToSetColumnName(String tableName, String columnName, String newColumnName) {
 		return
 	    "UPDATE "
 		+ SystemDataTable.COLUMN.getNameWithPrefix()
 		+ " SET "
-		+ ColumnTableColumn.HEADER
+		+ ColumnTableColumn.NAME
 		+ " = '"
-		+ newColumnHeader
+		+ newColumnName
 		+ "' WHERE "
 		+ ColumnTableColumn.PARENT_TABLE.getLabel()
 		+ " = '"
 		+ tableName
 		+ "' AND "
-		+ ColumnTableColumn.HEADER.getLabel()
+		+ ColumnTableColumn.NAME.getLabel()
 		+ " = '"
-		+ columnHeader
+		+ columnName
 		+ "'";
 	}
 	
 	//method
 	public String createStatementToSetColumnParametrizedPropertyType(
 		final String tableName,
-		final String columnHeader,
+		final String columnName,
 		final IParametrizedPropertyTypeDTO parametrizedPropertyType
 	) {
 		
@@ -145,9 +145,9 @@ final class SystemDataWriterSQLStatementCreator {
 		+ " = '"
 		+ tableName
 		+ "' AND "
-		+ ColumnTableColumn.HEADER
+		+ ColumnTableColumn.NAME
 		+ " = '"
-		+ columnHeader
+		+ columnName
 		+ "'";
 	}
 	

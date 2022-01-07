@@ -21,12 +21,12 @@ public final class ContentFieldDTOMapper {
 	) {
 		
 		if (!contentFieldNode.containsAttributes()) {
-			return new ContentFieldDTO(columnDefinition.getColumnHeader());
+			return new ContentFieldDTO(columnDefinition.getColumnName());
 		}
 		
 		return
 		new ContentFieldDTO(
-			columnDefinition.getColumnHeader(),
+			columnDefinition.getColumnName(),
 			valueMapper.createValueFromString(contentFieldNode.getRefAttributes().toString(), columnDefinition)
 		);
 	}

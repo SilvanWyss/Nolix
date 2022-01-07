@@ -13,7 +13,7 @@ public final class ColumnDefinitionMapper {
 	public IColumnDefinition createColumnDefinitionFrom(final IColumnDTO column) {
 		return
 		new ColumnDefinition(
-			column.getHeader(),
+			column.getName(),
 			DataType.valueOf(column.getParametrizedPropertyType().getDataTypeFullClassName())
 		);
 	}

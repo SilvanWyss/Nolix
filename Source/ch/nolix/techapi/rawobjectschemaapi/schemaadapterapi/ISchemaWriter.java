@@ -18,18 +18,18 @@ public interface ISchemaWriter extends IChangeSaver {
 	void addTable(ITableDTO table);
 	
 	//method declaration
-	void deleteColumn(String tableName, String columnHeader);
+	void deleteColumn(String tableName, String columnName);
 	
 	//method declaration
 	void deleteTable(String tableName);
 	
 	//method declaration
-	void setColumnHeader(String tableName, String columnHeader, String newColumnHeader);
+	void setColumnName(String tableName, String columnName, String newColumnName);
 	
 	//method declaration
 	void setColumnParametrizedPropertyType(
 		String tableName,
-		String columnHeader,
+		String columnName,
 		IParametrizedPropertyTypeDTO parametrizedPropertyType
 	);
 	

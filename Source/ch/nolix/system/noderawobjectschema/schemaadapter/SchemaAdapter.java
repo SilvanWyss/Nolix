@@ -46,8 +46,8 @@ public final class SchemaAdapter implements ISchemaAdapter {
 	
 	//method
 	@Override
-	public boolean columnIsEmpty(final String tableName, final String columnHeader) {
-		return schemaReader.columnIsEmpty(tableName, columnHeader);
+	public boolean columnIsEmpty(final String tableName, final String columnName) {
+		return schemaReader.columnIsEmpty(tableName, columnName);
 	}
 	
 	//method
@@ -64,8 +64,8 @@ public final class SchemaAdapter implements ISchemaAdapter {
 	
 	//method
 	@Override
-	public void deleteColumn(final String tableName, final String columnHeader) {
-		schemaWriter.deleteColumn(tableName, columnHeader);
+	public void deleteColumn(final String tableName, final String columnName) {
+		schemaWriter.deleteColumn(tableName, columnName);
 	}
 	
 	//method
@@ -118,18 +118,18 @@ public final class SchemaAdapter implements ISchemaAdapter {
 	
 	//method
 	@Override
-	public void setColumnHeader(final String tableName, final String columnHeader, final String newColumnHeader) {
-		schemaWriter.setColumnHeader(tableName, columnHeader, newColumnHeader);
+	public void setColumnName(final String tableName, final String columnName, final String newColumnName) {
+		schemaWriter.setColumnName(tableName, columnName, newColumnName);
 	}
 	
 	//method
 	@Override
 	public void setColumnParametrizedPropertyType(
 		final String tableName,
-		final String columnHeader,
+		final String columnName,
 		final IParametrizedPropertyTypeDTO parametrizedPropertyType
 	) {
-		schemaWriter.setColumnParametrizedPropertyType(tableName, columnHeader, parametrizedPropertyType);
+		schemaWriter.setColumnParametrizedPropertyType(tableName, columnName, parametrizedPropertyType);
 	}
 	
 	//method

@@ -11,14 +11,14 @@ import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IParametrizedPropertyTyp
 public final class ColumnDTO implements IColumnDTO {
 	
 	//attributes
-	private String header;
+	private String name;
 	private IParametrizedPropertyTypeDTO parametrizedPropertyTypeDTO;
 	
 	//constructor
 	//For a better performance, this implementation does not use all comfortable methods.
-	public ColumnDTO(final String header, final IParametrizedPropertyTypeDTO parametrizedPropertyTypeDTO) {
+	public ColumnDTO(final String name, final IParametrizedPropertyTypeDTO parametrizedPropertyTypeDTO) {
 		
-		if (header == null) {
+		if (name == null) {
 			throw new ArgumentIsNullException(LowerCaseCatalogue.HEADER);
 		}
 		
@@ -26,14 +26,14 @@ public final class ColumnDTO implements IColumnDTO {
 			throw new ArgumentIsNullException(IParametrizedPropertyTypeDTO.class);
 		}
 		
-		this.header = header;
+		this.name = name;
 		this.parametrizedPropertyTypeDTO = parametrizedPropertyTypeDTO;
 	}
 	
 	//method
 	@Override
-	public String getHeader() {
-		return header;
+	public String getName() {
+		return name;
 	}
 	
 	//method

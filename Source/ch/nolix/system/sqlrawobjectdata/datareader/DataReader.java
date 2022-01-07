@@ -62,13 +62,13 @@ public final class DataReader implements IDataReader {
 	@Override
 	public boolean tableContainsRecordWithGivenValueAtColumn(
 		final String tableName,
-		final String columnHeader,
+		final String columnName,
 		final String value
 	) {
 		return
 		internalDataReader.tableContainsRecordWithGivenValueAtColumn(
 			tableName,
-			columnHeader,
+			columnName,
 			value
 		);
 	}

@@ -42,7 +42,7 @@ public final class ParametrizedPropertyTypeRecordMapper {
 			"'" + baseParametrizedBackReferenceType.getDataTypeFullClassName() + "'",
 			SQLSyntaxCatalogue.NULL,
 			"'" + baseParametrizedBackReferenceType.getBackReferencedTableName() + "'",
-			"'" + baseParametrizedBackReferenceType.getBackReferencedColumnHeader() + "'"
+			"'" + baseParametrizedBackReferenceType.getBackReferencedColumnName() + "'"
 		);
 	}
 	

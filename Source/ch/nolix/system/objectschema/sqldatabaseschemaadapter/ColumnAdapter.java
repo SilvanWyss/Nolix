@@ -13,22 +13,19 @@ import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedValueTy
 public final class ColumnAdapter implements IColumnAdapter {
 	
 	//attribute
-	private String header;
+	private String name;
 	
 	//constructor
 	public ColumnAdapter(final Column column) {
-		this(column.getHeader());
+		this(column.getName());
 	}
 	
 	//constructor
-	public ColumnAdapter(final String header) {
+	public ColumnAdapter(final String name) {
 		
-		Validator
-		.assertThat(header)
-		.thatIsNamed(LowerCaseCatalogue.HEADER)
-		.isNotBlank();
+		Validator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
 		
-		this.header = header;
+		this.name = name;
 	}
 	
 	//method
@@ -41,7 +38,7 @@ public final class ColumnAdapter implements IColumnAdapter {
 	
 	//method
 	@Override
-	public String getHeader() {
-		return header;
+	public String getName() {
+		return name;
 	}
 }

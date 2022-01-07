@@ -85,7 +85,7 @@ public final class CreateEntitySession extends HeaderedSession {
 			if (p.isAtMostOne()) {
 				
 				dataGrid
-				.setWidget(rowIndex, 1, new Label().setText(p.getHeader()))
+				.setWidget(rowIndex, 1, new Label().setText(p.getName()))
 				.setWidget(rowIndex, 2, CentralPropertyBinder.createWidgetAndBindItWith(p).getRefWidget());
 				
 				rowIndex++;

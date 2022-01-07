@@ -12,13 +12,13 @@ public class TableNodeSearcher {
 	private static final ColumnNodeSearcher columnNodeSearcher = new ColumnNodeSearcher();
 	
 	//method
-	public final BaseNode getRefColumnNodeFromTableNodeByColumnHeader(
+	public final BaseNode getRefColumnNodeFromTableNodeByColumnName(
 		final BaseNode tableNode,
-		final String columnHeader
+		final String columnName
 	) {
 		return
 		getRefColumnNodesFromTableNode(tableNode).getRefFirst(
-			csn -> columnNodeSearcher.getRefHeaderNodeFromColumnNode(csn).getRefOneAttribute().hasHeader(columnHeader)
+			csn -> columnNodeSearcher.getRefNameNodeFromColumnNode(csn).getRefOneAttribute().hasHeader(columnName)
 		);
 	}
 	

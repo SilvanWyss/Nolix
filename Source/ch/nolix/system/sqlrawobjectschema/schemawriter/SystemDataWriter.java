@@ -28,9 +28,9 @@ final class SystemDataWriter implements ChangeRequestable {
 	}
 	
 	//method
-	public void deleteColumn(String tableName, String columnHeader) {
+	public void deleteColumn(String tableName, String columnName) {
 		mSQLStatements.addAtEnd(
-			systemDataWriterSQLStatementCreator.createStatementToDeleteColumn(tableName, columnHeader)
+			systemDataWriterSQLStatementCreator.createStatementToDeleteColumn(tableName, columnName)
 		);
 	}
 	
@@ -56,12 +56,12 @@ final class SystemDataWriter implements ChangeRequestable {
 	}
 	
 	//method
-	public void setColumnHeader(final String tableName, final String columnHeader, final String newColumnHeader) {
+	public void setColumnName(final String tableName, final String columnName, final String newColumnName) {
 		mSQLStatements.addAtEnd(
-			systemDataWriterSQLStatementCreator.createStatementToSetColumnHeader(
+			systemDataWriterSQLStatementCreator.createStatementToSetColumnName(
 				tableName,
-				columnHeader,
-				newColumnHeader
+				columnName,
+				newColumnName
 			)
 		);
 	}
@@ -69,13 +69,13 @@ final class SystemDataWriter implements ChangeRequestable {
 	//method
 	public void setColumnParametrizedPropertyType(
 		final String tableName,
-		final String columnHeader,
+		final String columnName,
 		final IParametrizedPropertyTypeDTO parametrizedPropertyType
 	) {
 		mSQLStatements.addAtEnd(
 			systemDataWriterSQLStatementCreator.createStatementToSetColumnParametrizedPropertyType(
 				tableName,
-				columnHeader,
+				columnName,
 				parametrizedPropertyType
 			)
 		);

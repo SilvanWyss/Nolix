@@ -43,8 +43,8 @@ public final class TableDefinition implements Named {
 	}
 	
 	//method
-	public int getIndexOfContentColumnWithHeader(final String header) {
-		return contentColumnDefinitions.getIndexOfFirst(ccd -> ccd.getColumnHeader().equals(header));
+	public int getIndexOfContentColumnWithName(final String name) {
+		return contentColumnDefinitions.getIndexOfFirst(ccd -> ccd.getColumnName().equals(name));
 	}
 	
 	//method

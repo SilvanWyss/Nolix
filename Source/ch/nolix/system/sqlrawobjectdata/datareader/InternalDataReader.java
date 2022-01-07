@@ -49,13 +49,13 @@ final class InternalDataReader {
 	//method
 	public boolean tableContainsRecordWithGivenValueAtColumn(
 		final String tableName,
-		final String columnHeader,
+		final String columnName,
 		final String value
 	) {
 		return
 		Integer.valueOf(
 			mSQLConnection.getOneRecord(
-				recordQueryCreator.createQueryToCountRecordsWithGivenValueAtGivenColumn(tableName, columnHeader, value)
+				recordQueryCreator.createQueryToCountRecordsWithGivenValueAtGivenColumn(tableName, columnName, value)
 			)
 			.get(0)
 		)

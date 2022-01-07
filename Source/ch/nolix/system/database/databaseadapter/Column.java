@@ -2,7 +2,7 @@
 package ch.nolix.system.database.databaseadapter;
 
 //own imports
-import ch.nolix.common.attributeapi.mandatoryattributeapi.Headered;
+import ch.nolix.common.attributeapi.mandatoryattributeapi.Named;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.errorcontrol.validator.Validator;
@@ -13,19 +13,19 @@ import ch.nolix.techapi.databaseapi.propertytypeapi.BasePropertyType;
 import ch.nolix.techapi.databaseapi.propertytypeapi.PropertyType;
 
 //class
-public final class Column<C> implements Headered {
+public final class Column<C> implements Named {
 	
 	//attributes
-	private final String header;
+	private final String name;
 	private final ParametrizedDataType<C> parametrizedDataType;
 	
 	//constructor
-	public Column(final String header, final ParametrizedDataType<C> dataType) {
+	public Column(final String name, final ParametrizedDataType<C> dataType) {
 		
-		Validator.assertThat(header).thatIsNamed(LowerCaseCatalogue.HEADER).isNotBlank();
+		Validator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
 		Validator.assertThat(dataType).isOfType(ParametrizedDataType.class);
 		
-		this.header = header;
+		this.name = name;
 		this.parametrizedDataType = dataType;
 	}
 	
@@ -53,8 +53,8 @@ public final class Column<C> implements Headered {
 	
 	//method
 	@Override
-	public String getHeader() {
-		return header;
+	public String getName() {
+		return name;
 	}
 	
 	//method
@@ -72,7 +72,7 @@ public final class Column<C> implements Headered {
 		final IContainer<ch.nolix.system.objectschema.databaseschemaadapter.EntitySet> schemaEntitySets
 	) {
 		return
-		new ch.nolix.system.objectschema.databaseschemaadapter.Column(getHeader(), getSchemaDataType(schemaEntitySets));
+		new ch.nolix.system.objectschema.databaseschemaadapter.Column(getName(), getSchemaDataType(schemaEntitySets));
 	}
 	
 	//method

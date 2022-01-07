@@ -45,11 +45,11 @@ public final class SchemaReader implements ISchemaReader {
 	
 	//method
 	@Override
-	public boolean columnIsEmpty(String tableName, String columnHeader) {
+	public boolean columnIsEmpty(String tableName, String columnName) {
 		
 		final var tableNode = databaseNodeSearcher.getTableNodeFromDatabaseNode(databaseNode, tableName);
 		
-		final var columnNode = tableNodeSearcher.getRefColumnNodeFromTableNodeByColumnHeader(tableNode, columnHeader);
+		final var columnNode = tableNodeSearcher.getRefColumnNodeFromTableNodeByColumnName(tableNode, columnName);
 		
 		return columnNodeSearcher.columnNodeContainsEntityNode(columnNode);
 	}

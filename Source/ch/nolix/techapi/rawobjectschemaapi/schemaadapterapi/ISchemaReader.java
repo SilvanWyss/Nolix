@@ -12,7 +12,7 @@ import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.ITableDTO;
 public interface ISchemaReader {
 	
 	//method declaration
-	boolean columnIsEmpty(String tableName, String columnHeader);
+	boolean columnIsEmpty(String tableName, String columnName);
 	
 	//method declaration
 	LinkedList<IColumnDTO> loadColumns(String tableName);

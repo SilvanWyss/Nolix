@@ -21,14 +21,14 @@ public final class ColumnDefinitionMapper {
 	public IColumnDefinition createColumnDefinitionFromColumnNode(final BaseNode columnNode) {
 		return
 		new ColumnDefinition(
-			getColumnHeaderFromColumnNode(columnNode),
+			getColumnNameFromColumnNode(columnNode),
 			getDataTypeFromColumnNode(columnNode)
 		);
 	}
 	
 	//method
-	private String getColumnHeaderFromColumnNode(final BaseNode columnNode) {
-		return columnNodeSearcher.getRefHeaderNodeFromColumnNode(columnNode).getOneAttributeHeader();
+	private String getColumnNameFromColumnNode(final BaseNode columnNode) {
+		return columnNodeSearcher.getRefNameNodeFromColumnNode(columnNode).getOneAttributeHeader();
 	}
 	
 	//method

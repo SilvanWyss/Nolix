@@ -88,9 +88,9 @@ public final class ParametrizedPropertyTypeMapper {
 		
 		return
 		(Column)
-		tableHelper.getRefColumnWithGivenHeader(
+		tableHelper.getRefColumnWithGivenName(
 			backReferencedTable,
-			baseParametrizedBackReferenceType.getBackReferencedColumnHeader()
+			baseParametrizedBackReferenceType.getBackReferencedColumnName()
 		);
 	}
 	

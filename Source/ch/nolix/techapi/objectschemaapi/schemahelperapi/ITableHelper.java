@@ -51,7 +51,7 @@ public interface ITableHelper extends IDatabaseObjectHelper {
 	<IMPL> LinkedList<IColumn<IMPL>> getRefBackReferencingColumns(ITable<IMPL> table);
 	
 	//method declaration
-	<IMPL> IColumn<IMPL> getRefColumnWithGivenHeader(ITable<IMPL> table, String header);
+	<IMPL> IColumn<IMPL> getRefColumnWithGivenName(ITable<IMPL> table, String name);
 	
 	//method declaration
 	<IMPL> LinkedList<IColumn<IMPL>> getRefReferencingColumns(ITable<IMPL> table);

@@ -49,9 +49,9 @@ public final class SchemaWriter implements ISchemaWriter {
 	
 	//method
 	@Override
-	public void deleteColumn(final String tableName, final String columnHeader) {
-		systemDataWriter.deleteColumn(tableName, columnHeader);
-		internalSchemaWriter.deleteColumn(tableName, columnHeader);
+	public void deleteColumn(final String tableName, final String columnName) {
+		systemDataWriter.deleteColumn(tableName, columnName);
+		internalSchemaWriter.deleteColumn(tableName, columnName);
 	}
 	
 	//method
@@ -79,19 +79,19 @@ public final class SchemaWriter implements ISchemaWriter {
 	
 	//method
 	@Override
-	public void setColumnHeader(final String tableName, final String columnHeader, final String newColumnHeader) {
-		systemDataWriter.setColumnHeader(tableName, columnHeader, newColumnHeader);
-		internalSchemaWriter.setColumnHeader(tableName, columnHeader, newColumnHeader);
+	public void setColumnName(final String tableName, final String columnName, final String newColumnName) {
+		systemDataWriter.setColumnName(tableName, columnName, newColumnName);
+		internalSchemaWriter.setColumnName(tableName, columnName, newColumnName);
 	}
 	
 	//method
 	@Override
 	public void setColumnParametrizedPropertyType(
 		final String tableName,
-		final String columnHeader,
+		final String columnName,
 		final IParametrizedPropertyTypeDTO parametrizedPropertyType
 	) {
-		systemDataWriter.setColumnParametrizedPropertyType(tableName, columnHeader, parametrizedPropertyType);
+		systemDataWriter.setColumnParametrizedPropertyType(tableName, columnName, parametrizedPropertyType);
 	}
 	
 	//method

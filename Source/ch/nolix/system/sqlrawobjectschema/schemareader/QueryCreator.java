@@ -14,7 +14,7 @@ final class QueryCreator {
 	public String createQueryToLoadCoumns(final String tableName) {
 		return
 		"SELECT "
-		+ ColumnTableColumn.HEADER.getLabel()
+		+ ColumnTableColumn.NAME.getLabel()
 		+ ", "
 		+ ColumnTableColumn.PARENT_TABLE.getLabel()
 		+ ", "

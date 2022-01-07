@@ -14,7 +14,7 @@ implements IBaseParametrizedBackReferenceTypeDTO {
 	
 	//attributes
 	private final String backReferencedTableName;
-	private final String backReferencedColumnHeader;
+	private final String backReferencedColumnName;
 	
 	//constructor
 	//For a better performance, this implementation does not use all comfortable methods.
@@ -22,7 +22,7 @@ implements IBaseParametrizedBackReferenceTypeDTO {
 		final PropertyType propertyType,
 		final String dataTypeFullClassName,
 		final String backReferencedTableName,
-		final String backReferencedColumnHeader
+		final String backReferencedColumnName
 	) {
 		
 		super(propertyType, dataTypeFullClassName);
@@ -35,18 +35,18 @@ implements IBaseParametrizedBackReferenceTypeDTO {
 			throw new ArgumentIsNullException("back referenced table name");
 		}
 		
-		if (backReferencedColumnHeader == null) {
-			throw new ArgumentIsNullException("back referenced column header");
+		if (backReferencedColumnName == null) {
+			throw new ArgumentIsNullException("back referenced column name");
 		}
 		
 		this.backReferencedTableName = backReferencedTableName;
-		this.backReferencedColumnHeader = backReferencedColumnHeader;
+		this.backReferencedColumnName = backReferencedColumnName;
 	}
 	
 	//method
 	@Override
-	public String getBackReferencedColumnHeader() {
-		return backReferencedColumnHeader;
+	public String getBackReferencedColumnName() {
+		return backReferencedColumnName;
 	}
 	
 	//method

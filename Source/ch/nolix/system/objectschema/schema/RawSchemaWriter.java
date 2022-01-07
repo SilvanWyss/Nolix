@@ -50,8 +50,12 @@ final class RawSchemaWriter {
 	}
 	
 	//method
-	public void setColumnHeader(final IColumn<SchemaImplementation> column, final String columnHeader, final String newColumnHeader) {
-		internalRawSchemaWriter.setColumnHeader(column.getParentTable().getName(), columnHeader, newColumnHeader);
+	public void setColumnName(
+		final IColumn<SchemaImplementation> column,
+		final String columnName,
+		final String newColumnName
+	) {
+		internalRawSchemaWriter.setColumnName(column.getParentTable().getName(), columnName, newColumnName);
 	}
 	
 	public void setColumnParametrizedPropertyType(

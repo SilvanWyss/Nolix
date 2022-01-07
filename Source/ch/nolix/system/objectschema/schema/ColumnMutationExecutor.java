@@ -26,10 +26,10 @@ final class ColumnMutationExecutor {
 		final var oldName = column.getName();
 		final var backReferencingColumns = column.getRefBackReferencingColumns();
 		
-		column.setHeaderAttribute(name);
+		column.setNameAttribute(name);
 		
 		if (column.isLinkedWithRealDatabase()) {
-			column.getRefRawSchemaAdapter().getRefRawSchemaWriter().setColumnHeader(column, oldName, name);
+			column.getRefRawSchemaAdapter().getRefRawSchemaWriter().setColumnName(column, oldName, name);
 		}
 		
 		for (final var brc : backReferencingColumns) {

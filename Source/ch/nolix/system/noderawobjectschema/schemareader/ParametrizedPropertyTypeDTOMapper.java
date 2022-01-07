@@ -59,7 +59,7 @@ public class ParametrizedPropertyTypeDTOMapper {
 			propertyType,
 			getDataTypeFromParametrizedPropertyTypeNode(parametrizedPropertyTypeNode),
 			getBackReferencedTableNameFromParametrizedPropertyTypeNode(parametrizedPropertyTypeNode),
-			getBackReferencedColumnHeaderFromParametrizedPropertyTypeNode(parametrizedPropertyTypeNode)
+			getBackReferencedColumnNameFromParametrizedPropertyTypeNode(parametrizedPropertyTypeNode)
 		);
 	}
 	
@@ -89,7 +89,7 @@ public class ParametrizedPropertyTypeDTOMapper {
 	}
 	
 	//method
-	private String getBackReferencedColumnHeaderFromParametrizedPropertyTypeNode(
+	private String getBackReferencedColumnNameFromParametrizedPropertyTypeNode(
 		final BaseNode parametrizedPropertyTypeNode
 	) {
 		

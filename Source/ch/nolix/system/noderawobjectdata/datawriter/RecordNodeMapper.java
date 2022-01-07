@@ -39,7 +39,7 @@ final class RecordNodeMapper {
 		
 		for (final var cf : record.getContentFields()) {
 			
-			final var index = 1 + tableDefinition.getIndexOfContentColumnWithHeader(cf.getColumnHeader());
+			final var index = 1 + tableDefinition.getIndexOfContentColumnWithName(cf.getColumnName());
 			
 			final var value = cf.getValueOrNull();
 			if (value == null) {

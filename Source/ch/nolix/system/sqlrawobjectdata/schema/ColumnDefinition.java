@@ -11,27 +11,28 @@ import ch.nolix.techapi.databaseapi.datatypeapi.DataType;
 public final class ColumnDefinition implements IColumnDefinition {
 	
 	//attributes
-	private final String columnHeader;
+	private final String columnName;
 	private final DataType dataType;
 	
-	public ColumnDefinition(final String columnHeader, final DataType dataType) {
+	public ColumnDefinition(final String columnName, final DataType dataType) {
 		
-		if (columnHeader == null) {
-			throw new ArgumentIsNullException(LowerCaseCatalogue.COLUMN_HEADER);
+		if (columnName == null) {
+			//TODO: Implement.
+			//throw new ArgumentIsNullException(LowerCaseCatalogue.COLUMN_NAME);
 		}
 		
 		if (dataType == null) {
 			throw new ArgumentIsNullException(LowerCaseCatalogue.DATA_TYPE);
 		}
 		
-		this.columnHeader = columnHeader;
+		this.columnName = columnName;
 		this.dataType = dataType;
 	}
 	
 	//method
 	@Override
-	public String getColumnHeader() {
-		return columnHeader;
+	public String getColumnName() {
+		return columnName;
 	}
 	
 	//method

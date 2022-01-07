@@ -1,7 +1,8 @@
 //package declaration
 package ch.nolix.system.objectschema.databaseschemaadapter;
 
-import ch.nolix.common.attributeapi.mandatoryattributeapi.Headered;
+//own imports
+import ch.nolix.common.attributeapi.mandatoryattributeapi.Named;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.errorcontrol.invalidargumentexception.UnsupportedArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
@@ -12,22 +13,22 @@ import ch.nolix.techapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.techapi.objectschemaapi.schemahelperapi.IParametrizedPropertyTypeHelper;
 
 //class
-public final class Column implements Headered {
+public final class Column implements Named {
 	
 	//static attributes
 	private final IParametrizedPropertyTypeHelper parametrizedPropertyTypeHelper = new ParametrizedPropertyTypeHelper();
 	
 	//attributes
-	private final String header;
+	private final String name;
 	private final ParametrizedPropertyType<?> dataType;
 	
 	//constructor
-	public Column(final String header, final ParametrizedPropertyType<?> dataType) {
+	public Column(final String name, final ParametrizedPropertyType<?> dataType) {
 		
-		Validator.assertThat(header).thatIsNamed(LowerCaseCatalogue.HEADER).isNotBlank();
+		Validator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
 		Validator.assertThat(dataType).thatIsNamed(LowerCaseCatalogue.DATA_TYPE).isNotNull();
 		
-		this.header = header;
+		this.name = name;
 		this.dataType = dataType;
 	}
 	
@@ -38,8 +39,8 @@ public final class Column implements Headered {
 	
 	//method
 	@Override
-	public String getHeader() {
-		return header;
+	public String getName() {
+		return name;
 	}
 	
 	//method

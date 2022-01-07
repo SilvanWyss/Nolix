@@ -35,15 +35,15 @@ final class ColumnMutationValidator {
 	}
 	
 	//method
-	public void assertCanSetHeaderToColumn(final Column column, final String header) {
+	public void assertCanSetNameToColumn(final Column column, final String name) {
 		
 		column.assertIsOpen();
 		
 		if (column.belongsToTable()) {
-			tableHelper.assertDoesNotContainColumnWithGivenName(column.getParentTable(), header);
+			tableHelper.assertDoesNotContainColumnWithGivenName(column.getParentTable(), name);
 		}
 		
-		Validator.assertThat(header).thatIsNamed(LowerCaseCatalogue.HEADER).isNotBlank();
+		Validator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
 	}
 	
 	//method

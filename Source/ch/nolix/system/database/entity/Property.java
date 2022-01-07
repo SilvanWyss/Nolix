@@ -4,7 +4,8 @@ package ch.nolix.system.database.entity;
 //Java imports
 import java.lang.reflect.ParameterizedType;
 
-import ch.nolix.common.attributeapi.mandatoryattributeapi.Headered;
+//own imports
+import ch.nolix.common.attributeapi.mandatoryattributeapi.Named;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.node.Node;
@@ -16,7 +17,7 @@ import ch.nolix.element.elementapi.IElement;
 import ch.nolix.techapi.databaseapi.propertytypeapi.PropertyType;
 
 //class
-public abstract class Property<V> implements Headered, IElement<Property<V>> {
+public abstract class Property<V> implements Named, IElement<Property<V>> {
 	
 	//optional attribute
 	private Entity parentEntity;
@@ -60,7 +61,7 @@ public abstract class Property<V> implements Headered, IElement<Property<V>> {
 	
 	//method
 	@Override
-	public final String getHeader() {
+	public final String getName() {
 		return GlobalReflectionHelper.getFieldName(getParentEntity(), this);
 	}
 	
@@ -87,7 +88,7 @@ public abstract class Property<V> implements Headered, IElement<Property<V>> {
 	
 	//method
 	public final Node getSpecificationAsAttribute() {
-		return getSpecificationAs(getHeader());
+		return getSpecificationAs(getName());
 	}
 	
 	//method

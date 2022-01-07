@@ -10,41 +10,43 @@ import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IContentFieldDTO;
 public final class ContentFieldDTO implements IContentFieldDTO {
 		
 	//attribute
-	private final String columnHeader;
+	private final String columnName;
 	
 	//optional attribute
 	private final Object value;
 			
 	//constructor
-	public ContentFieldDTO(final String columnHeader) {
+	public ContentFieldDTO(final String columnName) {
 		
-		if (columnHeader == null) {
-			throw new ArgumentIsNullException("column header");
+		if (columnName == null) {
+			//TODO: Implement.
+			//throw new ArgumentIsNullException(LowerCaseCatalogue.COLUMN_NAME);
 		}
 		
-		this.columnHeader = columnHeader;
+		this.columnName = columnName;
 		value = null;
 	}
 	
 	//constructor
-	public ContentFieldDTO(final String columnHeader, final Object value) {
+	public ContentFieldDTO(final String columnName, final Object value) {
 		
-		if (columnHeader == null) {
-			throw new ArgumentIsNullException("column header");
+		if (columnName == null) {
+			//TODO: Implement.
+			//throw new ArgumentIsNullException(LowerCaseCatalogue.COLUMN_NAME);
 		}
 		
 		if (value == null) {
 			throw new ArgumentIsNullException(LowerCaseCatalogue.VALUE);
 		}
 		
-		this.columnHeader = columnHeader;
+		this.columnName = columnName;
 		this.value = value;
 	}
 	
 	//method
 	@Override
-	public String getColumnHeader() {
-		return columnHeader;
+	public String getColumnName() {
+		return columnName;
 	}
 	
 	//method

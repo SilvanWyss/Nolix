@@ -76,7 +76,7 @@ public final class EntitySetSession extends HeaderedSession {
 					columnIndex,
 					new Label()
 					.setRole(LabelRole.LEVEL2_HEADER)
-					.setText(c.getHeader())
+					.setText(c.getName())
 				);
 				
 				columnIndex++;
@@ -89,7 +89,7 @@ public final class EntitySetSession extends HeaderedSession {
 					columnIndex,
 					new Label()
 					.setRole(LabelRole.LEVEL2_HEADER)
-					.setText(c.getHeader())
+					.setText(c.getName())
 				);
 				
 				columnIndex++;
@@ -115,7 +115,7 @@ public final class EntitySetSession extends HeaderedSession {
 			
 			//Inserts the Propertys of the Entitys into the grid in the in the same order as the columns.
 			final var properties = e.getRefProperties();
-			for (final var p : getRefEntitySet().getColumns().to(c -> properties.getRefFirst(pr -> pr.hasSameHeaderAs(c)))) {	
+			for (final var p : getRefEntitySet().getColumns().to(c -> properties.getRefFirst(pr -> pr.hasSameNameAs(c)))) {	
 				switch (p.getPropertyKind()) {
 					case VALUE:
 						

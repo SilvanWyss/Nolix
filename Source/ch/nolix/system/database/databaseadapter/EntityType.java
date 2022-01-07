@@ -112,7 +112,7 @@ public final class EntityType<E extends Entity> implements Named {
 		columns.clear();
 		
 		for (final var p : createEmptyEntity().getRefProperties()) {
-			columns.addAtBegin(new Column<>(p.getHeader(), ParametrizedDataTypeFactory.createDatatypeFor(p)));
+			columns.addAtBegin(new Column<>(p.getName(), ParametrizedDataTypeFactory.createDatatypeFor(p)));
 		}
 	}
 	

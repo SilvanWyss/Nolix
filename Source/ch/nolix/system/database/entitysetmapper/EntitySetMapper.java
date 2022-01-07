@@ -36,7 +36,7 @@ public final class EntitySetMapper {
 	
 	//method
 	private Column createColumnFor(final ch.nolix.system.database.databaseadapter.Column<?> column) {
-		return new Column(column.getHeader(), createParametrizedSchemaDataTypeFor(column));
+		return new Column(column.getName(), createParametrizedSchemaDataTypeFor(column));
 	}
 	
 	//method

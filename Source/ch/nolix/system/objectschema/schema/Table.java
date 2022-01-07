@@ -67,11 +67,11 @@ public final class Table extends DatabaseObject implements ITable<SchemaImplemen
 	
 	//method
 	@Override
-	public Table createColumnWithHeaderAndParametrizedPropertyType( 
-		final String header,
+	public Table createColumnWithNameAndParametrizedPropertyType( 
+		final String name,
 		final IParametrizedPropertyType<SchemaImplementation, ?> parametrizedPropertyType
 	) {
-		return addColumn(new Column(header, parametrizedPropertyType));
+		return addColumn(new Column(name, parametrizedPropertyType));
 	}
 	
 	//method

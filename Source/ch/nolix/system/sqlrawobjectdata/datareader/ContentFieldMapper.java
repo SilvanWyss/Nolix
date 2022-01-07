@@ -18,7 +18,7 @@ public final class ContentFieldMapper {
 	) {
 		return
 		new ContentFieldDTO(
-			contentColumnDefinition.getColumnHeader(),
+			contentColumnDefinition.getColumnName(),
 			valueMapper.createValueFromString(string, contentColumnDefinition)
 		);
 	}

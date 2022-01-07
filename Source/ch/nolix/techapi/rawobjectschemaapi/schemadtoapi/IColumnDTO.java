@@ -5,7 +5,7 @@ package ch.nolix.techapi.rawobjectschemaapi.schemadtoapi;
 public interface IColumnDTO {
 	
 	//method declaration
-	String getHeader();
+	String getName();
 	
 	//method declaration
 	IParametrizedPropertyTypeDTO getParametrizedPropertyType();

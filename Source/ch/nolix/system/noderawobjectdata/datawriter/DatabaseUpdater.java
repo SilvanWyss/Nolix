@@ -90,7 +90,7 @@ final class DatabaseUpdater {
 			final var contentFieldNode =
 			recordNodeSearcher.getRefContentFieldNodeFromRecordNodeAtIndex(
 				recordNode,
-				tableDefinition.getIndexOfContentColumnWithHeader(ucf.getColumnHeader())
+				tableDefinition.getIndexOfContentColumnWithName(ucf.getColumnName())
 			);
 			
 			final var value = ucf.getValueOrNull();

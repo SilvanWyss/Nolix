@@ -43,8 +43,8 @@ final class InternalSchemaWriter implements ChangeRequestable {
 	}
 	
 	//method
-	public void deleteColumn(final String tableName, final String columnHeader) {
-		mSQLSchemaWriter.deleteColumn(TableType.BASE_CONTENT_DATA.getPrefix() + tableName, columnHeader);
+	public void deleteColumn(final String tableName, final String columnName) {
+		mSQLSchemaWriter.deleteColumn(TableType.BASE_CONTENT_DATA.getPrefix() + tableName, columnName);
 	}
 	
 	//method
@@ -64,11 +64,11 @@ final class InternalSchemaWriter implements ChangeRequestable {
 	}
 	
 	//method
-	public void setColumnHeader(final String tableName, final String columnHeader, final String newColumnHeader) {
+	public void setColumnName(final String tableName, final String columnName, final String newColumnName) {
 		mSQLSchemaWriter.renameColumn(
 			TableType.BASE_CONTENT_DATA.getPrefix() + tableName,
-			columnHeader,
-			newColumnHeader
+			columnName,
+			newColumnName
 		);
 	}
 	

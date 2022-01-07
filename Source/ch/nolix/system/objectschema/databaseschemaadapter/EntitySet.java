@@ -49,70 +49,70 @@ public final class EntitySet implements IEntitySet, Named {
 	//method
 	public void addColumn(final Column column) {
 		
-		assertDoesNotContainColumn(column.getHeader());
+		assertDoesNotContainColumn(column.getName());
 		
 		columns.addAtEnd(column);
 	}
 	
 	//method
-	public EntitySet addColumn(final String header, final Class<?> valueClass) {
+	public EntitySet addColumn(final String name, final Class<?> valueClass) {
 		
-		addColumn(header, new ParametrizedValueType<>(valueClass));
-		
-		return this;
-	}
-	
-	//method
-	private void addColumn(final String header, final ParametrizedPropertyType<?> dataType) {
-		addColumn(new Column(header, dataType));
-	}
-	
-	//method
-	public EntitySet addMultiColumn(final String header, final Class<?> valueClass) {
-		
-		addColumn(header, new ParametrizedMultiValueType<>(valueClass));
+		addColumn(name, new ParametrizedValueType<>(valueClass));
 		
 		return this;
 	}
 	
 	//method
-	public EntitySet addMultiReferenceColumn(final String header, final EntitySet referencedEntitySet) {
+	private void addColumn(final String name, final ParametrizedPropertyType<?> dataType) {
+		addColumn(new Column(name, dataType));
+	}
+	
+	//method
+	public EntitySet addMultiColumn(final String name, final Class<?> valueClass) {
+		
+		addColumn(name, new ParametrizedMultiValueType<>(valueClass));
+		
+		return this;
+	}
+	
+	//method
+	public EntitySet addMultiReferenceColumn(final String name, final EntitySet referencedEntitySet) {
 		
 		//TODO: Refactor.
-		//addColumn(header, new ParametrizedMultiReferenceType(referencedEntitySet));
+		//addColumn(name, new ParametrizedMultiReferenceType(referencedEntitySet));
 		
 		return this;
 	}
 	
 	//method
-	public EntitySet addOptionalColumn(final String header, final Class<?> valueClass) {
+	public EntitySet addOptionalColumn(final String name, final Class<?> valueClass) {
 		
-		addColumn(header, new ParametrizedOptionalValueType<>(valueClass));
+		addColumn(name, new ParametrizedOptionalValueType<>(valueClass));
 		
 		return this;
 	}
 	
 	//method
-	public EntitySet addOptionalReferenceColumn(final String header, final EntitySet referencedEntitySet) {
+	public EntitySet addOptionalReferenceColumn(final String name, final EntitySet referencedEntitySet) {
 		
 		//TODO: Refactor.
-		//addColumn(header, new ParametrizedOptionalReferenceType(referencedEntitySet));
+		//addColumn(name, new ParametrizedOptionalReferenceType(referencedEntitySet));
 	
 		return this;
 	}
 		
 	//method
-	public EntitySet addReferenceColumn(final String header, final EntitySet referencedEntitySet) {
+	public EntitySet addReferenceColumn(final String name, final EntitySet referencedEntitySet) {
 		
 		//TODO: Refactor.
-		//addColumn(header, new ParametrizedReferenceType(referencedEntitySet));
+		//addColumn(name, new ParametrizedReferenceType(referencedEntitySet));
 		
 		return this;
 	}
 	
 	//method
-	public boolean containsColumn(final String header) {
-		return columns.containsAny(c -> c.hasHeader(header));
+	public boolean containsColumn(final String name) {
+		return columns.containsAny(c -> c.hasName(name));
 	}
 	
 	//method
@@ -267,11 +267,11 @@ public final class EntitySet implements IEntitySet, Named {
 	}
 	
 	//method
-	private void assertDoesNotContainColumn(final String header) {
-		if (containsColumn(header)) {
+	private void assertDoesNotContainColumn(final String name) {
+		if (containsColumn(name)) {
 			throw new InvalidArgumentException(
 				this,
-				"contains a column with the header '" + header + "'"
+				"contains already a column with the name '" + name + "'"
 			);
 		}
 	}

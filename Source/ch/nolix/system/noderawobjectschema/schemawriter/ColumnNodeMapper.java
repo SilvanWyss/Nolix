@@ -28,7 +28,7 @@ public final class ColumnNodeMapper {
 	
 	//method
 	private Node createHeaderNodeFrom(final IColumnDTO column) {
-		return Node.withHeaderAndAttribute(SubNodeHeaderCatalogue.HEADER, column.getHeader());
+		return Node.withHeaderAndAttribute(SubNodeHeaderCatalogue.HEADER, column.getName());
 	}
 	
 	//method

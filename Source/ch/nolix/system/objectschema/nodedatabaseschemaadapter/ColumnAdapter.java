@@ -37,7 +37,7 @@ public final class ColumnAdapter implements IColumnAdapter {
 	
 	//method
 	@Override
-	public String getHeader() {
+	public String getName() {
 		return
 		columnNode
 		.getRefFirstAttribute(PascalCaseCatalogue.HEADER)
@@ -55,6 +55,6 @@ public final class ColumnAdapter implements IColumnAdapter {
 	//method
 	@Override
 	public Column toColumn() {
-		return new Column(getHeader(), getDataType());
+		return new Column(getName(), getDataType());
 	}
 }

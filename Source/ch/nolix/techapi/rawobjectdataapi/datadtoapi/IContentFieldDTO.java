@@ -5,7 +5,7 @@ package ch.nolix.techapi.rawobjectdataapi.datadtoapi;
 public interface IContentFieldDTO {
 	
 	//method declaration
-	String getColumnHeader();
+	String getColumnName();
 	
 	//method declaration
 	Object getValueOrNull();

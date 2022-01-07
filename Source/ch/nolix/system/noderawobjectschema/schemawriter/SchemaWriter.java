@@ -66,13 +66,13 @@ public final class SchemaWriter implements ISchemaWriter {
 	
 	//method
 	@Override
-	public void deleteColumn(final String tableName, final String columnHeader) {
+	public void deleteColumn(final String tableName, final String columnName) {
 		
 		final var tableNode = databaseNodeSearcher.getTableNodeFromDatabaseNode(editedDatabaseNode, tableName);
 		tableNode.removeFirstAttribute(
 			a -> 
 			a.hasHeader(SubNodeHeaderCatalogue.COLUMN)
-			&& columnNodeSearcher.getRefHeaderNodeFromColumnNode(a).getRefOneAttribute().hasHeader(columnHeader)
+			&& columnNodeSearcher.getRefNameNodeFromColumnNode(a).getRefOneAttribute().hasHeader(columnName)
 		);
 		
 		hasChanges = true;
@@ -107,12 +107,12 @@ public final class SchemaWriter implements ISchemaWriter {
 	
 	//method
 	@Override
-	public void setColumnHeader(final String tableName, final String columnHeader, final String newColumnHeader) {
+	public void setColumnName(final String tableName, final String columnName, final String newColumnName) {
 		
 		final var tableNode = databaseNodeSearcher.getTableNodeFromDatabaseNode(editedDatabaseNode, tableName);
-		final var columnNode = tableNodeSearcher.getRefColumnNodeFromTableNodeByColumnHeader(tableNode, columnHeader);
-		final var headerNode = columnNodeSearcher.getRefHeaderNodeFromColumnNode(columnNode);
-		headerNode.setHeader(newColumnHeader);
+		final var columnNode = tableNodeSearcher.getRefColumnNodeFromTableNodeByColumnName(tableNode, columnName);
+		final var headerNode = columnNodeSearcher.getRefNameNodeFromColumnNode(columnNode);
+		headerNode.setHeader(newColumnName);
 		
 		hasChanges = true;
 	}
@@ -121,12 +121,12 @@ public final class SchemaWriter implements ISchemaWriter {
 	@Override
 	public void setColumnParametrizedPropertyType(
 		final String tableName,
-		final String columnHeader,
+		final String columnName,
 		final IParametrizedPropertyTypeDTO parametrizedPropertyType
 	) {
 		
 		final var tableNode = databaseNodeSearcher.getTableNodeFromDatabaseNode(editedDatabaseNode, tableName);
-		final var columnNode = tableNodeSearcher.getRefColumnNodeFromTableNodeByColumnHeader(tableNode, columnHeader);
+		final var columnNode = tableNodeSearcher.getRefColumnNodeFromTableNodeByColumnName(tableNode, columnName);
 						
 		columnNode.removeFirstAttribute(SubNodeHeaderCatalogue.PARAMETRIZED_PROPERTY_TYPE);
 		

@@ -80,7 +80,7 @@ public final class PropertyBinding {
 	
 	//method
 	private String getDefaultErrorMessage() {
-		return ("The " + property.getHeader() + " is not valid.");
+		return ("The " + property.getName() + " is not valid.");
 	}
 	
 	//method

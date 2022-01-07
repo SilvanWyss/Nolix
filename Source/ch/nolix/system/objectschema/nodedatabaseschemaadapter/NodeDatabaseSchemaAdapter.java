@@ -161,7 +161,7 @@ public final class NodeDatabaseSchemaAdapter extends DatabaseSchemaAdapter<NodeD
 	private Node createSpecificationFor(final Column column) {
 		return
 		Node.withAttribute(
-			Node.withHeaderAndAttribute(PascalCaseCatalogue.HEADER, column.getHeader()),
+			Node.withHeaderAndAttribute(PascalCaseCatalogue.HEADER, column.getName()),
 			Node.withHeader(column.getPropertyKind().toString())
 		);
 	}

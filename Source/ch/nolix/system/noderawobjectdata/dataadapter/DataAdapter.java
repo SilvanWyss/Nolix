@@ -112,8 +112,8 @@ public final class DataAdapter implements IDataAdapter {
 	
 	//method
 	@Override
-	public boolean tableContainsRecordWithGivenValueAtColumn(String tableName, String columnHeader, String value) {
-		return dataReader.tableContainsRecordWithGivenValueAtColumn(tableName, columnHeader, value);
+	public boolean tableContainsRecordWithGivenValueAtColumn(String tableName, String columnName, String value) {
+		return dataReader.tableContainsRecordWithGivenValueAtColumn(tableName, columnName, value);
 	}
 	
 	//method

@@ -15,8 +15,8 @@ public final class ColumnTableSQLDTOCatalogue {
 	new ColumnDTO(ColumnTableColumn.PARENT_TABLE.getLabel(), SQLDatatypeCatalogue.TEXT_DATA_TYPE);
 	
 	//constant
-	private static final ColumnDTO HEADER_SQL_DTO =
-	new ColumnDTO(ColumnTableColumn.HEADER.getLabel(), SQLDatatypeCatalogue.TEXT_DATA_TYPE);
+	private static final ColumnDTO NAME_SQL_DTO =
+	new ColumnDTO(ColumnTableColumn.NAME.getLabel(), SQLDatatypeCatalogue.TEXT_DATA_TYPE);
 	
 	//constant
 	private static final ColumnDTO PROPERTY_TYPE_SQL_DTO =
@@ -43,7 +43,7 @@ public final class ColumnTableSQLDTOCatalogue {
 	new TableDTO(
 		SystemDataTable.COLUMN.getNameWithPrefix(),
 		PARENT_TABLE_SQL_DTO,
-		HEADER_SQL_DTO,
+		NAME_SQL_DTO,
 		PROPERTY_TYPE_SQL_DTO,
 		DATA_TYPE_SQL_DTO,
 		REFERENCED_TABLE_SQL_DTO,

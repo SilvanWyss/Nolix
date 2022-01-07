@@ -49,8 +49,8 @@ public abstract class DataAndSchemaAdapter implements IDataAndSchemaAdapter {
 	
 	//method
 	@Override
-	public final boolean columnIsEmpty(final String tableName, final String columnHeader) {
-		return schemaReader.columnIsEmpty(tableName, columnHeader);
+	public final boolean columnIsEmpty(final String tableName, final String columnName) {
+		return schemaReader.columnIsEmpty(tableName, columnName);
 	}
 	
 	//method
@@ -165,10 +165,10 @@ public abstract class DataAndSchemaAdapter implements IDataAndSchemaAdapter {
 	@Override
 	public final boolean tableContainsRecordWithGivenValueAtColumn(
 		final String tableName,
-		final String columnHeader,
+		final String columnName,
 		final String value
 	) {
-		return dataReader.tableContainsRecordWithGivenValueAtColumn(tableName, columnHeader, value);
+		return dataReader.tableContainsRecordWithGivenValueAtColumn(tableName, columnName, value);
 	}
 	
 	//method

@@ -48,7 +48,7 @@ public final class ParametrizedPropertyTypeNodeMapper {
 			),
 			Node.withHeaderAndAttribute(
 				SubNodeHeaderCatalogue.BACK_REFERENCED_COLUMN,
-				baseParametrizedBackReferenceType.getBackReferencedColumnHeader()
+				baseParametrizedBackReferenceType.getBackReferencedColumnName()
 			)
 		);
 	}

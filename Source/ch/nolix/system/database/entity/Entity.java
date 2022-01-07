@@ -181,7 +181,7 @@ public abstract class Entity implements IElement<Entity>, Identified, ShortDescr
 		}
 		
 		for (final var e : reference.getParentEntitySet().getRefEntities()) {
-			final var r = e.getRefRefenceByHeader(reference.getHeader());
+			final var r = e.getRefRefenceByHeader(reference.getName());
 			if (r.referencesEntity() && !r.references(this)) {
 				return false;
 			}
@@ -244,7 +244,7 @@ public abstract class Entity implements IElement<Entity>, Identified, ShortDescr
 	
 	//method
 	public final boolean references(final String header, final Entity entity) {
-		return getRefProperties().containsAny(p -> p.hasHeader(header) && p.references(entity));
+		return getRefProperties().containsAny(p -> p.hasName(header) && p.references(entity));
 	}
 	
 	//method
@@ -441,7 +441,7 @@ public abstract class Entity implements IElement<Entity>, Identified, ShortDescr
 	//method
 	@SuppressWarnings("unchecked")
 	private BaseReference<Entity> getRefRefenceByHeader(final String header) {
-		return getRefReferences().getRefFirst(r -> r.hasHeader(header));
+		return getRefReferences().getRefFirst(r -> r.hasName(header));
 	}
 	
 	//method
@@ -449,7 +449,7 @@ public abstract class Entity implements IElement<Entity>, Identified, ShortDescr
 	private <E extends Entity> BaseBackReference<Entity> getRefBackReferenceForOrNull(final BaseReference<E> reference) {
 		return
 		getRefBackReferences()
-		.getRefFirstOrNull(br -> br.getReferencingPropertyHeader().equals(reference.getHeader()));
+		.getRefFirstOrNull(br -> br.getReferencingPropertyHeader().equals(reference.getName()));
 	}
 	
 	//method

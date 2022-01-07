@@ -13,10 +13,10 @@ public final class RecordQueryCreator implements IRecordQueryCreator {
 	@Override
 	public String createQueryToCountRecordsWithGivenValueAtGivenColumn(
 		final String tableName,
-		final String columnHeader,
+		final String columnName,
 		final String value
 	) {
-		return "SELECT COUNT(" + columnHeader + ") FROM " + tableName + " WHERE "+ columnHeader + " = '" + value + "'";
+		return "SELECT COUNT(" + columnName + ") FROM " + tableName + " WHERE "+ columnName + " = '" + value + "'";
 	}
 	
 	//method
@@ -24,7 +24,7 @@ public final class RecordQueryCreator implements IRecordQueryCreator {
 	public String createQueryToLoadAllRecordsFromTable(final ITableDefinition tableDefinition) {
 		return
 		"SELECT Id, SaveStamp, "
-		+ tableDefinition.getContentColumnDefinitions().to(IColumnDefinition::getColumnHeader).toString(", ")
+		+ tableDefinition.getContentColumnDefinitions().to(IColumnDefinition::getColumnName).toString(", ")
 		+ " FROM "
 		+ tableDefinition.getName();
 	}
@@ -34,7 +34,7 @@ public final class RecordQueryCreator implements IRecordQueryCreator {
 	public String createQueryToLoadRecordFromTableById(String id, ITableDefinition tableDefinition) {
 		return
 		"SELECT Id, SaveStamp, "
-		+ tableDefinition.getContentColumnDefinitions().to(IColumnDefinition::getColumnHeader).toString(", ")
+		+ tableDefinition.getContentColumnDefinitions().to(IColumnDefinition::getColumnName).toString(", ")
 		+ " FROM "
 		+ tableDefinition.getName()
 		+ "WHERE Id = '"

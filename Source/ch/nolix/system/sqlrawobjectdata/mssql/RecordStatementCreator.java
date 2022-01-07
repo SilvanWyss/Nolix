@@ -35,7 +35,7 @@ public final class RecordStatementCreator implements IRecordStatementCreator {
 		"INSERT INTO "
 		+ tableName
 		+ " (Id, "
-		+ record.getContentFields().to(IContentFieldDTO::getColumnHeader).toString(", ")
+		+ record.getContentFields().to(IContentFieldDTO::getColumnName).toString(", ")
 		+ ") VALUES ("
 		+ record.getId()
 		+ ", "
@@ -50,7 +50,7 @@ public final class RecordStatementCreator implements IRecordStatementCreator {
 		"UPDATE "
 		+ tableName
 		+ " SET "
-		+ recordUpdate.getUpdatedContentFields().to(cf -> cf.getColumnHeader() + " = " + getValueOrNullInSQLOf(cf))
+		+ recordUpdate.getUpdatedContentFields().to(cf -> cf.getColumnName() + " = " + getValueOrNullInSQLOf(cf))
 		+ " WHERE Id = '"
 		+ recordUpdate.getId()
 		+ "' AND SaveStamp = '"

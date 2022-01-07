@@ -33,7 +33,7 @@ public abstract class EntitySetSQLHelper {
 		for (final var c : entitySet.getRefColumns()) {
 			
 			stringBuilder
-			.append(c.getHeader())
+			.append(c.getName())
 			.append(" ")
 			.append(c.getSQLHelper(getDatabaseEngine()).getSQLDataType())
 			.append(",");

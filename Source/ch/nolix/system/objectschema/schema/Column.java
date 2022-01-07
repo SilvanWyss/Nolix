@@ -42,7 +42,7 @@ public final class Column extends DatabaseObject implements IColumn<SchemaImplem
 	public static Column fromDTO(final IColumnDTO columnDTO, final IContainer<ITable<SchemaImplementation>> tables) {
 		return
 		new Column(
-			columnDTO.getHeader(),
+			columnDTO.getName(),
 			parametrizedPropertyTypeMapper.createParametrizedPropertyTypeFromDTO(
 				columnDTO.getParametrizedPropertyType(),
 				tables
@@ -118,7 +118,7 @@ public final class Column extends DatabaseObject implements IColumn<SchemaImplem
 	@Override
 	public Column setName(final String name) {
 		
-		mutationValidator.assertCanSetHeaderToColumn(this, name);
+		mutationValidator.assertCanSetNameToColumn(this, name);
 		mutationExecutor.setHeaderToColumn(this, name);
 		
 		return this;
@@ -175,7 +175,7 @@ public final class Column extends DatabaseObject implements IColumn<SchemaImplem
 	}
 		
 	//method
-	void setHeaderAttribute(final String header) {
+	void setNameAttribute(final String header) {
 		this.name = header;
 	}
 	

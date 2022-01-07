@@ -8,7 +8,7 @@ import ch.nolix.techapi.databaseapi.datatypeapi.DataType;
 public interface IColumnDefinition {
 	
 	//method declaration
-	String getColumnHeader();
+	String getColumnName();
 	
 	//method declaration
 	DataType getDataType();

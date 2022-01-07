@@ -35,11 +35,11 @@ public final class EntitySetAdapter implements IEntitySetAdapter {
 	//method
 	public void addColumn(final Column column) {
 		
-		if (containsColumn(column.getHeader())) {
+		if (containsColumn(column.getName())) {
 			throw
 			new InvalidArgumentException(
 				ENTITY_SET_SPECIFICATION_VARIABLE_NAME,
-				"contains already a column with the header" + column.getHeaderInQuotes()
+				"contains already a column with the name" + column.getNameInQuotes()
 			);
 		}
 		
@@ -47,12 +47,12 @@ public final class EntitySetAdapter implements IEntitySetAdapter {
 	}
 	
 	//method
-	public boolean containsColumn(final String header) {
+	public boolean containsColumn(final String name) {
 		return
 		entitySetSpecification.containsAttribute(
 			a ->
 				a.hasHeader(PascalCaseCatalogue.COLUMN)
-				&& new ColumnAdapter(a).hasHeader(header)
+				&& new ColumnAdapter(a).hasName(name)
 		);
 	}
 
@@ -62,14 +62,14 @@ public final class EntitySetAdapter implements IEntitySetAdapter {
 		.removeFirstAttribute(
 			a ->
 			a.hasHeader(PascalCaseCatalogue.COLUMN)
-			&& new ColumnAdapter(a).hasSameHeaderAs(column)
+			&& new ColumnAdapter(a).hasSameNameAs(column)
 		);
 	}
 
 	//method
 	@Override
 	public IColumnAdapter getColumnAdapter(final Column column) {
-		return getColumnAdapters().getRefFirst(cc -> cc.hasSameHeaderAs(column));
+		return getColumnAdapters().getRefFirst(cc -> cc.hasSameNameAs(column));
 	}
 	
 	//method
@@ -94,7 +94,7 @@ public final class EntitySetAdapter implements IEntitySetAdapter {
 	private Node createSpecificationFor(final Column column) {
 		return
 		Node.withAttribute(
-			Node.withHeaderAndAttribute(PascalCaseCatalogue.HEADER, column.getHeader()),
+			Node.withHeaderAndAttribute(PascalCaseCatalogue.HEADER, column.getName()),
 			Node.withHeader(column.getPropertyKind().toString())
 		);
 	}

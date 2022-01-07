@@ -52,12 +52,12 @@ public final class InternalDataReader {
 	//method
 	public boolean tableContainsRecordWithGivenValueAtColumn(
 		final TableDefinition tableDefinition,
-		final String columnHeader,
+		final String columnName,
 		final String value
 	) {
 		
 		final var tableNode = databaseNodeSearcher.getTableNodeFromDatabaseNode(databaseNode, tableDefinition.getName());
-		final var valueIndex = 2 + tableDefinition.getIndexOfContentColumnWithHeader(columnHeader);
+		final var valueIndex = 2 + tableDefinition.getIndexOfContentColumnWithName(columnName);
 		
 		return
 		tableNodeSearcher.tableNodeContainsRecordNodeWhoseFieldAtGivenIndexHasGivenHeader(tableNode, valueIndex, value);

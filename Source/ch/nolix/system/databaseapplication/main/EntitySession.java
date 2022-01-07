@@ -83,7 +83,7 @@ public final class EntitySession extends HeaderedSession {
 			if (p.isAtMostOne()) {
 				
 				dataGrid
-				.setWidget(rowIndex, 1, new Label().setText(p.getHeader()))
+				.setWidget(rowIndex, 1, new Label().setText(p.getName()))
 				.setWidget(rowIndex, 2, CentralPropertyBinder.createWidgetAndBindItWith(p).getRefWidget());
 				
 				rowIndex++;
@@ -132,7 +132,7 @@ public final class EntitySession extends HeaderedSession {
 				);
 			}
 			
-			referenceDataTabContainer.addTab(mr.getHeader(), multiReferenceHorizontalStack);
+			referenceDataTabContainer.addTab(mr.getName(), multiReferenceHorizontalStack);
 		}
 		
 		return referenceDataTabContainer;

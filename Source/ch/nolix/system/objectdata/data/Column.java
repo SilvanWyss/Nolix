@@ -13,7 +13,7 @@ import ch.nolix.techapi.objectdataapi.dataapi.ITable;
 public final class Column extends ImmutableDatabaseObject implements IColumn<DataImplementation> {
 	
 	//attribute
-	private final String header;
+	private final String name;
 	
 	//attribute
 	private final ParametrizedPropertyType parametrizedPropertyType;
@@ -23,24 +23,24 @@ public final class Column extends ImmutableDatabaseObject implements IColumn<Dat
 	
 	//constructor
 	Column(
-		final String header,
+		final String name,
 		final ParametrizedPropertyType parametrizedPropertyType,
 		final Table<IEntity<DataImplementation>> parentTable
 	) {
 		
-		Validator.assertThat(header).thatIsNamed(LowerCaseCatalogue.HEADER).isNotBlank();
+		Validator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
 		Validator.assertThat(parametrizedPropertyType).thatIsNamed(ParametrizedPropertyType.class).isNotNull();
 		Validator.assertThat(parentTable).thatIsNamed("parent table").isNotNull();
 		
-		this.header = header;
+		this.name = name;
 		this.parametrizedPropertyType = parametrizedPropertyType;
 		this.parentTable = parentTable;
 	}
 	
 	//method
 	@Override
-	public String getHeader() {
-		return header;
+	public String getName() {
+		return name;
 	}
 	
 	//method
