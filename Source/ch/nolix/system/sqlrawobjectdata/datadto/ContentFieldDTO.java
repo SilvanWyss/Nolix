@@ -19,8 +19,7 @@ public final class ContentFieldDTO implements IContentFieldDTO {
 	public ContentFieldDTO(final String columnName) {
 		
 		if (columnName == null) {
-			//TODO: Implement.
-			//throw new ArgumentIsNullException(LowerCaseCatalogue.COLUMN_NAME);
+			throw new ArgumentIsNullException(LowerCaseCatalogue.COLUMN_NAME);
 		}
 		
 		this.columnName = columnName;
@@ -31,8 +30,7 @@ public final class ContentFieldDTO implements IContentFieldDTO {
 	public ContentFieldDTO(final String columnName, final Object value) {
 		
 		if (columnName == null) {
-			//TODO: Implement.
-			//throw new ArgumentIsNullException(LowerCaseCatalogue.COLUMN_NAME);
+			throw new ArgumentIsNullException(LowerCaseCatalogue.COLUMN_NAME);
 		}
 		
 		if (value == null) {
