@@ -69,7 +69,7 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 			throw
 			new InvalidArgumentException(
 				database,
-				"does not contain a table that is referenced by the column " + column.getHeaderInQuotes()
+				"does not contain a table that is referenced by the column " + column.getNameInQuotes()
 			);
 		}
 	}
@@ -84,7 +84,7 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 			throw
 			new InvalidArgumentException(
 				this,
-				"does not contain a table with a column that references back the column " + column.getHeader()
+				"does not contain a table with a column that references back the column " + column.getName()
 			);
 		}
 		

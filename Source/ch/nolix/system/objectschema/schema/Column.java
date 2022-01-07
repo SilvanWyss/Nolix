@@ -51,15 +51,15 @@ public final class Column extends DatabaseObject implements IColumn<SchemaImplem
 	}
 	
 	//attributes
-	private String header = INITIAL_HEADER;
+	private String name = INITIAL_HEADER;
 	private IParametrizedPropertyType<SchemaImplementation, ?> parametrizedPropertyType = INITIAL_PROPERTY_TYPE;
 	
 	//optional attributes
 	private Table parentTable;
 	
 	//constructor
-	public Column(final String header, final IParametrizedPropertyType<SchemaImplementation, ?> parametrizedPropertyType) {
-		setHeader(header);
+	public Column(final String name, final IParametrizedPropertyType<SchemaImplementation, ?> parametrizedPropertyType) {
+		setName(name);
 		setParametrizedPropertyType(parametrizedPropertyType);
 	}
 	
@@ -78,8 +78,8 @@ public final class Column extends DatabaseObject implements IColumn<SchemaImplem
 	
 	//method
 	@Override
-	public String getHeader() {
-		return header;
+	public String getName() {
+		return name;
 	}
 	
 	//method
@@ -116,10 +116,10 @@ public final class Column extends DatabaseObject implements IColumn<SchemaImplem
 	
 	//method
 	@Override
-	public Column setHeader(final String header) {
+	public Column setName(final String name) {
 		
-		mutationValidator.assertCanSetHeaderToColumn(this, header);
-		mutationExecutor.setHeaderToColumn(this, header);
+		mutationValidator.assertCanSetHeaderToColumn(this, name);
+		mutationExecutor.setHeaderToColumn(this, name);
 		
 		return this;
 	}
@@ -139,7 +139,7 @@ public final class Column extends DatabaseObject implements IColumn<SchemaImplem
 	//method
 	@Override
 	public ColumnDTO toDTO() {
-		return new ColumnDTO(getHeader(), getParametrizedPropertyType().toDTO());
+		return new ColumnDTO(getName(), getParametrizedPropertyType().toDTO());
 	}
 	
 	//method
@@ -176,7 +176,7 @@ public final class Column extends DatabaseObject implements IColumn<SchemaImplem
 		
 	//method
 	void setHeaderAttribute(final String header) {
-		this.header = header;
+		this.name = header;
 	}
 	
 	//method

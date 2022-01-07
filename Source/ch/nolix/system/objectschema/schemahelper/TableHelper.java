@@ -47,8 +47,8 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
 	
 	//method
 	@Override
-	public void assertDoesNotContainColumnWithGivenHeader(final ITable<?> table, final String header) {
-		if (containsColumnWithGivenHeader(table, header)) {
+	public void assertDoesNotContainColumnWithGivenName(final ITable<?> table, final String header) {
+		if (containsColumnWithGivenName(table, header)) {
 			throw new InvalidArgumentException(table, "contains already a column with the header '" + header + "'");
 		}
 	}
@@ -102,8 +102,8 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
 	
 	//method
 	@Override
-	public boolean containsColumnWithGivenHeader(final ITable<?> table, final String header) {
-		return table.getRefColumns().containsAny(c -> c.hasHeader(header));
+	public boolean containsColumnWithGivenName(final ITable<?> table, final String name) {
+		return table.getRefColumns().containsAny(c -> c.hasName(name));
 	}
 	
 	//method
@@ -131,8 +131,8 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
 	
 	//method
 	@Override
-	public <IMPL> IColumn<IMPL> getRefColumnWithGivenHeader(final ITable<IMPL> table, final String header) {
-		return table.getRefColumns().getRefFirst(c -> c.hasHeader(header));
+	public <IMPL> IColumn<IMPL> getRefColumnWithGivenHeader(final ITable<IMPL> table, final String name) {
+		return table.getRefColumns().getRefFirst(c -> c.hasName(name));
 	}
 	
 	//method

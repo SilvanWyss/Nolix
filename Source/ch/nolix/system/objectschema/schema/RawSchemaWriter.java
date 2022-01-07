@@ -36,7 +36,7 @@ final class RawSchemaWriter {
 	
 	//method
 	public void deleteColumn(final IColumn<SchemaImplementation> column) {
-		internalRawSchemaWriter.deleteColumn(column.getParentTable().getName(), column.getHeader());
+		internalRawSchemaWriter.deleteColumn(column.getParentTable().getName(), column.getName());
 	}
 	
 	//method
@@ -60,7 +60,7 @@ final class RawSchemaWriter {
 	) {
 		internalRawSchemaWriter.setColumnParametrizedPropertyType(
 			column.getParentTable().getName(),
-			column.getHeader(),
+			column.getName(),
 			parametrizedPropertyType.toDTO()
 		);
 	}

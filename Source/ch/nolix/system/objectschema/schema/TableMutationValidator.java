@@ -25,7 +25,7 @@ final class TableMutationValidator {
 	public void assertCanAddColumnToTable(final Table table, final Column column) {
 		
 		table.assertIsOpen();
-		tableHelper.assertDoesNotContainColumnWithGivenHeader(table, column.getHeader());
+		tableHelper.assertDoesNotContainColumnWithGivenName(table, column.getName());
 		
 		column.assertIsOpen();
 		columnHelper.assertIsNew(column);

@@ -28,7 +28,7 @@ final class RawSchemaReader {
 	
 	//method
 	public boolean columnIsEmpty(final IColumn<SchemaImplementation> column) {
-		return internalRawSchemaReader.columnIsEmpty(column.getParentTable().getName(), column.getHeader());
+		return internalRawSchemaReader.columnIsEmpty(column.getParentTable().getName(), column.getName());
 	}
 	
 	//method

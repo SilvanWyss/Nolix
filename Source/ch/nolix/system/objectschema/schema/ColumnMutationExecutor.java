@@ -21,15 +21,15 @@ final class ColumnMutationExecutor {
 	}
 	
 	//method
-	public void setHeaderToColumn(final Column column, final String header) {
+	public void setHeaderToColumn(final Column column, final String name) {
 		
-		final var oldHeader = column.getHeader();
+		final var oldName = column.getName();
 		final var backReferencingColumns = column.getRefBackReferencingColumns();
 		
-		column.setHeaderAttribute(header);
+		column.setHeaderAttribute(name);
 		
 		if (column.isLinkedWithRealDatabase()) {
-			column.getRefRawSchemaAdapter().getRefRawSchemaWriter().setColumnHeader(column, oldHeader, header);
+			column.getRefRawSchemaAdapter().getRefRawSchemaWriter().setColumnHeader(column, oldName, name);
 		}
 		
 		for (final var brc : backReferencingColumns) {

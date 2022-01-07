@@ -40,7 +40,7 @@ final class ColumnMutationValidator {
 		column.assertIsOpen();
 		
 		if (column.belongsToTable()) {
-			tableHelper.assertDoesNotContainColumnWithGivenHeader(column.getParentTable(), header);
+			tableHelper.assertDoesNotContainColumnWithGivenName(column.getParentTable(), header);
 		}
 		
 		Validator.assertThat(header).thatIsNamed(LowerCaseCatalogue.HEADER).isNotBlank();

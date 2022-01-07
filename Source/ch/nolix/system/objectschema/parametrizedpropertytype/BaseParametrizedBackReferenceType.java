@@ -73,7 +73,7 @@ implements IBaseParametrizedBackReferenceType<SchemaImplementation> {
 			getPropertyType(),
 			getDataType().getName(),
 			getBackReferencedColumn().getParentTable().getName(),
-			getBackReferencedColumn().getHeader()
+			getBackReferencedColumn().getName()
 		);
 	}
 	

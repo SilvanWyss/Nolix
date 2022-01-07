@@ -21,7 +21,7 @@ public interface ITableHelper extends IDatabaseObjectHelper {
 	void assertDoesNotContainGivenColumn(ITable<?> table, IColumn<?> column);
 	
 	//method declaration
-	void assertDoesNotContainColumnWithGivenHeader(ITable<?> table, String header);
+	void assertDoesNotContainColumnWithGivenName(ITable<?> table, String name);
 	
 	//method declaration
 	void assertIsNotReferenced(ITable<?> table);
@@ -39,7 +39,7 @@ public interface ITableHelper extends IDatabaseObjectHelper {
 	boolean containsColumnThatReferencesGivenTable(ITable<?> table, ITable<?> probableReferencedTable);
 	
 	//method declaration
-	boolean containsColumnWithGivenHeader(ITable<?> table, final String header);
+	boolean containsColumnWithGivenName(ITable<?> table, final String name);
 	
 	//method declaration
 	int getColumnCount(ITable<?> table);
