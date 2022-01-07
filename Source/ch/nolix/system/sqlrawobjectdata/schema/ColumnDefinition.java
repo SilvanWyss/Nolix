@@ -17,8 +17,7 @@ public final class ColumnDefinition implements IColumnDefinition {
 	public ColumnDefinition(final String columnName, final DataType dataType) {
 		
 		if (columnName == null) {
-			//TODO: Implement.
-			//throw new ArgumentIsNullException(LowerCaseCatalogue.COLUMN_NAME);
+			throw new ArgumentIsNullException(LowerCaseCatalogue.COLUMN_NAME);
 		}
 		
 		if (dataType == null) {
