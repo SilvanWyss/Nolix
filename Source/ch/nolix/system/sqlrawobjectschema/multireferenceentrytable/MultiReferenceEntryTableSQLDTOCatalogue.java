@@ -16,18 +16,18 @@ public final class MultiReferenceEntryTableSQLDTOCatalogue {
 	private static final IColumnDTO MULTI_REFERENCE_COLUMN_COLUMN_SQL_DTO =
 	new ColumnDTO(
 		MultiReferenceEntryTableColumn.MULTI_REFERENCE_COLUMN.getLabel(),
-		SQLDatatypeCatalogue.TEXT_DATA_TYPE
+		SQLDatatypeCatalogue.TEXT
 	);
 	
 	//constant
 	private static final IColumnDTO RECORD_COLUMN_SQL_DTO =
-	new ColumnDTO(MultiReferenceEntryTableColumn.RECORD.getLabel(), SQLDatatypeCatalogue.TEXT_DATA_TYPE);
+	new ColumnDTO(MultiReferenceEntryTableColumn.RECORD.getLabel(), SQLDatatypeCatalogue.TEXT);
 	
 	//constant
 	private static final IColumnDTO REFERENCED_RECORD_COLUMN_SQL_DTO =
 	new ColumnDTO(
 		MultiReferenceEntryTableColumn.REFERENCED_RECORD.getLabel(),
-		SQLDatatypeCatalogue.TEXT_DATA_TYPE
+		SQLDatatypeCatalogue.TEXT
 	);
 	
 	//constant

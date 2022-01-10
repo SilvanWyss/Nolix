@@ -27,7 +27,7 @@ final class SchemaDTOMapper {
 	
 	//method
 	public ch.nolix.techapi.sqlschemaapi.schemadtoapi.IColumnDTO createSQLColumnDTOFrom(final IColumnDTO column) {
-		return new ColumnDTO(column.getName(), SQLDatatypeCatalogue.TEXT_DATA_TYPE);
+		return new ColumnDTO(column.getName(), SQLDatatypeCatalogue.TEXT);
 	}
 	
 	//method

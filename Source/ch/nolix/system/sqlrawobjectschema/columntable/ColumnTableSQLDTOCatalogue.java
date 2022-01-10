@@ -14,31 +14,31 @@ public final class ColumnTableSQLDTOCatalogue {
 	
 	//constant
 	private static final IColumnDTO PARENT_TABLE_SQL_DTO =
-	new ColumnDTO(ColumnTableColumn.PARENT_TABLE.getLabel(), SQLDatatypeCatalogue.TEXT_DATA_TYPE);
+	new ColumnDTO(ColumnTableColumn.PARENT_TABLE.getLabel(), SQLDatatypeCatalogue.TEXT);
 	
 	//constant
 	private static final IColumnDTO NAME_SQL_DTO =
-	new ColumnDTO(ColumnTableColumn.NAME.getLabel(), SQLDatatypeCatalogue.TEXT_DATA_TYPE);
+	new ColumnDTO(ColumnTableColumn.NAME.getLabel(), SQLDatatypeCatalogue.TEXT);
 	
 	//constant
 	private static final IColumnDTO PROPERTY_TYPE_SQL_DTO =
-	new ColumnDTO(ColumnTableColumn.PROPERTY_TYPE.getLabel(), SQLDatatypeCatalogue.TEXT_DATA_TYPE);
+	new ColumnDTO(ColumnTableColumn.PROPERTY_TYPE.getLabel(), SQLDatatypeCatalogue.TEXT);
 	
 	//constant
 	private static final IColumnDTO DATA_TYPE_SQL_DTO =
-	new ColumnDTO(ColumnTableColumn.DATA_TYPE.getLabel(), SQLDatatypeCatalogue.TEXT_DATA_TYPE);
+	new ColumnDTO(ColumnTableColumn.DATA_TYPE.getLabel(), SQLDatatypeCatalogue.TEXT);
 	
 	//constant
 	private static final IColumnDTO REFERENCED_TABLE_SQL_DTO =
-	new ColumnDTO(ColumnTableColumn.REFERENCED_TABLE.getLabel(), SQLDatatypeCatalogue.TEXT_DATA_TYPE);
+	new ColumnDTO(ColumnTableColumn.REFERENCED_TABLE.getLabel(), SQLDatatypeCatalogue.TEXT);
 	
 	//constant
 	private static final IColumnDTO BACK_REFERENCED_TABLE_SQL_DTO =
-	new ColumnDTO(ColumnTableColumn.BACK_REFERENCED_TABLE.getLabel(), SQLDatatypeCatalogue.TEXT_DATA_TYPE);
+	new ColumnDTO(ColumnTableColumn.BACK_REFERENCED_TABLE.getLabel(), SQLDatatypeCatalogue.TEXT);
 	
 	//constant
 	private static final IColumnDTO BACK_REFERENCED_COLUMN_SQL_DTO =
-	new ColumnDTO(ColumnTableColumn.BACK_REFERENCED_COLUM.getLabel(), SQLDatatypeCatalogue.TEXT_DATA_TYPE);
+	new ColumnDTO(ColumnTableColumn.BACK_REFERENCED_COLUM.getLabel(), SQLDatatypeCatalogue.TEXT);
 	
 	//constant
 	public static final ITableDTO COLUMN_TABLE_SQL_DTO =
