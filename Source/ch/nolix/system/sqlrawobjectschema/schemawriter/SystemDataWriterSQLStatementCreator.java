@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlrawobjectschema.schemawriter;
 
+//own imports
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.element.time.base.Time;
 import ch.nolix.system.sqlrawobjectschema.columntable.ColumnTableColumn;
@@ -26,7 +27,7 @@ final class SystemDataWriterSQLStatementCreator {
 	new TableTableRecordMapper();
 	
 	//method
-	public String createStatementToAddColumn(final String tableName, final IColumnDTO column) {
+	public String createStatementToAddColumn(final String parentTableName, final IColumnDTO column) {
 		
 		final var parametrezidPropertyTypeRecord =
 		parametrizedPropertyTypeRecordMapper.createParametrizedPropertyTypeRecordFrom(
@@ -36,8 +37,22 @@ final class SystemDataWriterSQLStatementCreator {
 		return
 	    "INSERT INTO "
 		+ SystemDataTable.COLUMN.getNameWithPrefix()
-		+ " VALUES ('"
-		+ tableName
+		+ " ("
+		+ ColumnTableColumn.PARENT_TABLE.getLabel()
+		+ ", "
+		+ ColumnTableColumn.NAME.getLabel()
+		+ ", "
+		+ ColumnTableColumn.PROPERTY_TYPE.getLabel()
+		+ ", "
+		+ ColumnTableColumn.DATA_TYPE.getLabel()
+		+ ", "
+		+ ColumnTableColumn.REFERENCED_TABLE.getLabel()
+		+ ", "
+		+ ColumnTableColumn.BACK_REFERENCED_TABLE.getLabel()
+		+ ", "
+		+ ColumnTableColumn.BACK_REFERENCED_COLUM.getLabel()
+		+ ") VALUES ('"
+		+ parentTableName
 		+ "', '"
 		+ column.getName()
 		+ "', "
