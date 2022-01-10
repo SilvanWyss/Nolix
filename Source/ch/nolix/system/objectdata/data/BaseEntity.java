@@ -28,7 +28,8 @@ public abstract class BaseEntity implements GroupCloseable, IEntity<DataImplemen
 	private static final IEntityHelper entityHelper = new EntityHelper();
 	
 	//attribute
-	private String id = UUID.randomUUID().toString().replace(StringCatalogue.MINUS, StringCatalogue.EMPTY_STRING);
+	private String id =
+	UUID.randomUUID().toString().replace(StringCatalogue.MINUS, StringCatalogue.EMPTY_STRING).substring(22, 32);
 	
 	//attribute
 	private DatabaseObjectState state = DatabaseObjectState.NEW;
