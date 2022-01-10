@@ -2,6 +2,7 @@
 package ch.nolix.system.sqlschema.mssqllanguage;
 
 //own imports
+import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.techapi.sqlschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.techapi.sqlschemaapi.schemadtoapi.IConstraintDTO;
 import ch.nolix.techapi.sqlschemaapi.schemadtoapi.IDataTypeDTO;
@@ -67,7 +68,7 @@ public final class MSSQLSchemaStatementCreator implements ISchemaStatementCreato
 	//method
 	private String getConstraintAsSQL(final IConstraintDTO constraint) {
 		
-		var lSQL = constraint.getType().toString();
+		var lSQL = constraint.getType().toString().replace(StringCatalogue.UNDERSCORE, StringCatalogue.SPACE);
 		
 		if (constraint.getParameters().containsAny()) {
 			getConstraintParametersAsSQL(constraint);
