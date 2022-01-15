@@ -205,7 +205,13 @@ final class SystemDataWriterSQLStatementCreator {
 		return
 	    "INSERT INTO "
 		+ SystemDataTable.TABLE.getNameWithPrefix()
-		+ " VALUES ("
+		+ " ("
+		+ TableTableColumn.ID.getLabel()
+		+ ", "
+		+ TableTableColumn.NAME.getLabel()
+		+ ") VALUES ("
+		+ "'MyId'" //TODO: Complete.
+		+ ", "
 		+ tableSystemTableRecord.getNameValue()
 		+ ")";
 	}

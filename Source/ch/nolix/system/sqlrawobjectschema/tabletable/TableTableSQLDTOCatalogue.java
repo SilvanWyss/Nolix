@@ -5,7 +5,9 @@ package ch.nolix.system.sqlrawobjectschema.tabletable;
 import ch.nolix.system.sqlrawobjectschema.structure.SQLDatatypeCatalogue;
 import ch.nolix.system.sqlrawobjectschema.structure.SystemDataTable;
 import ch.nolix.system.sqlschema.schemadto.ColumnDTO;
+import ch.nolix.system.sqlschema.schemadto.ConstraintDTO;
 import ch.nolix.system.sqlschema.schemadto.TableDTO;
+import ch.nolix.techapi.sqlschemaapi.schemadtoapi.ConstraintType;
 import ch.nolix.techapi.sqlschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.techapi.sqlschemaapi.schemadtoapi.ITableDTO;
 
@@ -13,12 +15,19 @@ import ch.nolix.techapi.sqlschemaapi.schemadtoapi.ITableDTO;
 public final class TableTableSQLDTOCatalogue {
 	
 	//constant
+	private static final IColumnDTO ID_COLUMN_SQL_DTO =
+	new ColumnDTO(
+		TableTableColumn.ID.getLabel(),
+		SQLDatatypeCatalogue.TEXT
+	);
+	
+	//constant
 	private static final IColumnDTO NAME_COLUMN_SQL_DTO =
 	new ColumnDTO(TableTableColumn.NAME.getLabel(), SQLDatatypeCatalogue.TEXT);
 	
 	//constant
 	public static final ITableDTO TABLE_TABLE_SQL_DTO =
-	new TableDTO(SystemDataTable.TABLE.getNameWithPrefix(),	NAME_COLUMN_SQL_DTO);
+	new TableDTO(SystemDataTable.TABLE.getNameWithPrefix(), ID_COLUMN_SQL_DTO, NAME_COLUMN_SQL_DTO);
 	
 	//constructor
 	private TableTableSQLDTOCatalogue() {}

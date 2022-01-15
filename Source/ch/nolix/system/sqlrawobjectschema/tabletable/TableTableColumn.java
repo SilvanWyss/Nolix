@@ -9,6 +9,7 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 
 //enum
 public enum TableTableColumn implements Labeled {
+	ID(PascalCaseCatalogue.ID),
 	NAME(PascalCaseCatalogue.NAME);
 	
 	//attribute
