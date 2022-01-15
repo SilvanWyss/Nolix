@@ -5,9 +5,7 @@ package ch.nolix.system.sqlrawobjectschema.tabletable;
 import ch.nolix.system.sqlrawobjectschema.structure.SQLDatatypeCatalogue;
 import ch.nolix.system.sqlrawobjectschema.structure.SystemDataTable;
 import ch.nolix.system.sqlschema.schemadto.ColumnDTO;
-import ch.nolix.system.sqlschema.schemadto.ConstraintDTO;
 import ch.nolix.system.sqlschema.schemadto.TableDTO;
-import ch.nolix.techapi.sqlschemaapi.schemadtoapi.ConstraintType;
 import ch.nolix.techapi.sqlschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.techapi.sqlschemaapi.schemadtoapi.ITableDTO;
 

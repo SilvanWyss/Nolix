@@ -1,7 +1,6 @@
 //package declaration
 package ch.nolix.system.sqlrawobjectschema.schemawriter;
 
-import ch.nolix.common.constant.PascalCaseCatalogue;
 //own imports
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
