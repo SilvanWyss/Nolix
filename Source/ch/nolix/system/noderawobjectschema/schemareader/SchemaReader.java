@@ -78,6 +78,7 @@ public final class SchemaReader implements ISchemaReader {
 	public ITableDTO loadTable(final String tableName) {
 		return
 		new TableDTO(
+			"Id", //TODO: Complete.
 			tableName,
 			new SaveStampConfigurationDTO(SaveStampStrategy.OWN_SAVE_STAMP),
 			loadColumns(tableName)

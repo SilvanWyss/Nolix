@@ -129,7 +129,8 @@ public final class Table extends DatabaseObject implements ITable<SchemaImplemen
 	//method
 	@Override
 	public TableDTO toDTO() {
-		return new TableDTO(getName(), createSaveStampConfigurationDTO(), createColumnDTOs());
+		//TODO: Complete.
+		return new TableDTO("Id", getName(), createSaveStampConfigurationDTO(), createColumnDTOs());
 	}
 	
 	//method

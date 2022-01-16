@@ -11,6 +11,9 @@ public interface ITableDTO {
 	IContainer<IColumnDTO> getColumns();
 	
 	//method declaration
+	String getId();
+	
+	//method declaration
 	String getName();
 	
 	//method declaration

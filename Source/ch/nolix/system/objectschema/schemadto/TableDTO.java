@@ -13,6 +13,7 @@ import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.ITableDTO;
 public final class TableDTO implements ITableDTO {
 	
 	//attributes
+	private final String id;
 	private final String name;
 	private final ISaveStampConfigurationDTO saveStampConfiguration;
 	
@@ -22,10 +23,15 @@ public final class TableDTO implements ITableDTO {
 	//constructor
 	//For a better performance, this implementation does not use all comfortable methods.
 	public TableDTO(
+		final String id,
 		final String name,
 		final ISaveStampConfigurationDTO saveStampConfiguration,
 		final IContainer<IColumnDTO> columnDTOs
 	) {
+		
+		if (id == null) {
+			throw new ArgumentIsNullException(LowerCaseCatalogue.ID);
+		}
 		
 		if (name == null) {
 			throw new ArgumentIsNullException(LowerCaseCatalogue.NAME);
@@ -39,6 +45,7 @@ public final class TableDTO implements ITableDTO {
 			throw new ArgumentIsNullException("column DTOs");
 		}
 		
+		this.id = id;
 		this.name = name;
 		this.saveStampConfiguration = saveStampConfiguration;
 		this.columnDTOs = columnDTOs.asContainerWithElementsOfEvaluatedType();
@@ -48,6 +55,12 @@ public final class TableDTO implements ITableDTO {
 	@Override
 	public IContainer<IColumnDTO> getColumns() {
 		return columnDTOs;
+	}
+	
+	//method
+	@Override
+	public String getId() {
+		return id;
 	}
 	
 	//method
