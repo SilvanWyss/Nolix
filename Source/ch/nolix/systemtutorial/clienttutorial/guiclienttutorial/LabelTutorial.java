@@ -51,11 +51,14 @@ public final class LabelTutorial {
 			.setBackgroundColorForState(WidgetLookState.BASE, Color.YELLOW)
 			.setTextSizeForState(WidgetLookState.BASE, 50);
 			
-			//Adds the clockCaptionLabel and clockLabel to the GUI of the current MainSession.
-			getRefGUI().addLayerOnTop(
-				new HorizontalStack()
-				.add(clockCaptionLabel, clockLabel)
-			);
+			//Creates mainHorizontalStack.
+			final var mainHorizontalStack = new HorizontalStack().add(clockCaptionLabel, clockLabel);
+			
+			//Configures the look of the mainHorizontalStack.
+			mainHorizontalStack.setElementMargin(50);
+			
+			//Adds the mainHorizontalStack to the GUI of the current MainSession.
+			getRefGUI().addLayerOnTop(mainHorizontalStack);
 			
 			//Starts a background job that updates constantly the text of the clockLabel.
 			Sequencer
