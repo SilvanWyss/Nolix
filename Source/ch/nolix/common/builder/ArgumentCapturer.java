@@ -8,9 +8,8 @@ import ch.nolix.common.functionapi.IElementGetter;
 //class
 public abstract class ArgumentCapturer<
 	A,
-	NAC extends BaseArgumentCapturer<?, O>,
-	O
-> extends BaseArgumentCapturer<A, O> {
+	NAC extends BaseArgumentCapturer<?>
+> extends BaseArgumentCapturer<A> {
 	
 	//attribute
 	private final NAC nextArgumentCapturer;
@@ -38,7 +37,7 @@ public abstract class ArgumentCapturer<
 	
 	//method
 	@Override
-	final void internalSetBuilder(final IElementGetter<O> builder) {
+	final void internalSetBuilder(final IElementGetter<?> builder) {
 		nextArgumentCapturer.internalSetBuilder(builder);
 	}
 }

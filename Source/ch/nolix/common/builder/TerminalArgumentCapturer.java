@@ -12,7 +12,7 @@ import ch.nolix.common.functionapi.IElementGetter;
 public abstract class TerminalArgumentCapturer<
 	A,
 	O
-> extends BaseArgumentCapturer<A, O> {
+> extends BaseArgumentCapturer<A> {
 	
 	//optional attribute
 	private IElementGetter<O> builder;
@@ -34,13 +34,14 @@ public abstract class TerminalArgumentCapturer<
 	}
 	
 	//method
-	final void internalSetBuilder(final IElementGetter<O> builder) {
+	@SuppressWarnings("unchecked")
+	final void internalSetBuilder(final IElementGetter<?> builder) {
 		
 		Validator.assertThat(builder).thatIsNamed(LowerCaseCatalogue.BUILDER).isNotNull();
 		
 		assertDoesNotHaveBuilder();
 		
-		this.builder = builder;
+		this.builder = (IElementGetter<O>)builder;
 	}
 	
 	//method

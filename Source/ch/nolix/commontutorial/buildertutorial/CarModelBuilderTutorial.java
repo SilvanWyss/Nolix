@@ -19,7 +19,7 @@ public class CarModelBuilderTutorial {
 	
 	public static final class CarModel {
 		
-		public static WeightInKilogramCapturer<TopSpeedCapturer<CarModel>, CarModel> withName(final String name) {
+		public static WeightInKilogramCapturer<TopSpeedCapturer<CarModel>> withName(final String name) {
 			return
 			new CarModelBuilder(
 				new NameCapturer<>(
@@ -71,10 +71,8 @@ public class CarModelBuilderTutorial {
 		}
 	}
 	
-	private static final class NameCapturer<
-		NAC extends BaseArgumentCapturer<?, O>,
-		O
-	> extends ArgumentCapturer<String, NAC, O> {
+	private static final class NameCapturer<NAC extends BaseArgumentCapturer<?>>
+	extends ArgumentCapturer<String, NAC> {
 		
 		public NameCapturer(final NAC nextArgumentCapturer) {
 			super(nextArgumentCapturer);
@@ -85,10 +83,8 @@ public class CarModelBuilderTutorial {
 		}
 	}
 	
-	private static final class WeightInKilogramCapturer<
-		NAC extends BaseArgumentCapturer<?, O>,
-		O
-	> extends ArgumentCapturer<Integer, NAC, O> {
+	private static final class WeightInKilogramCapturer<NAC extends BaseArgumentCapturer<?>
+	> extends ArgumentCapturer<Integer, NAC> {
 		
 		public WeightInKilogramCapturer(final NAC nextArgumentCapturer) {
 			super(nextArgumentCapturer);
@@ -100,26 +96,25 @@ public class CarModelBuilderTutorial {
 	}
 	
 	private static final class TopSpeedCapturer<O> extends TerminalArgumentCapturer<Integer, O> {
-		
 		public O withTopSpeedInKilometerPerHour(final int topSpeedInKilometerPerHour) {
 			return setArgumentAndBuild(topSpeedInKilometerPerHour);
 		}
 	}
 	
 	private static final class CarModelBuilder extends Builder<
-		NameCapturer<WeightInKilogramCapturer<TopSpeedCapturer<CarModel>, CarModel>, CarModel>,
+		NameCapturer<WeightInKilogramCapturer<TopSpeedCapturer<CarModel>>>,
 		CarModel
 	> {
 		
 		public CarModelBuilder(
-			final NameCapturer<WeightInKilogramCapturer<TopSpeedCapturer<CarModel>, CarModel>, CarModel> nameCapturer
+			final NameCapturer<WeightInKilogramCapturer<TopSpeedCapturer<CarModel>>> nameCapturer
 		) {
 			super(nameCapturer);
 		}
 		
 		@Override
 		protected CarModel build(
-			final NameCapturer<WeightInKilogramCapturer<TopSpeedCapturer<CarModel>, CarModel>, CarModel> nameCapturer
+			final NameCapturer<WeightInKilogramCapturer<TopSpeedCapturer<CarModel>>> nameCapturer
 		) {
 						
 			final var weightInKilogramCapturer = nameCapturer.getRefNextArgumentCapturer();

@@ -5,10 +5,7 @@ package ch.nolix.common.builder;
 import ch.nolix.common.functionapi.IElementGetter;
 
 //class
-public abstract class BaseArgumentCapturer<
-	A,
-	O
-> {
+public abstract class BaseArgumentCapturer<A> {
 	
 	//attribute
 	private A argument;
@@ -24,5 +21,5 @@ public abstract class BaseArgumentCapturer<
 	}
 	
 	//method declaration
-	abstract void internalSetBuilder(IElementGetter<O> builder);
+	abstract void internalSetBuilder(IElementGetter<?> builder);
 }

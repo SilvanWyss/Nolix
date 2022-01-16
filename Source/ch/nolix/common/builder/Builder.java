@@ -6,7 +6,7 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 
 //class
 public abstract class Builder<
-	SAC extends ArgumentCapturer<?, ?, O>,
+	SAC extends ArgumentCapturer<?, ?>,
 	O
 > {
 	
