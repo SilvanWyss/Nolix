@@ -2,6 +2,7 @@
 package ch.nolix.techapi.objectschemaapi.schemaapi;
 
 //own imports
+import ch.nolix.common.attributeapi.mandatoryattributeapi.IdentifiedByString;
 import ch.nolix.common.attributeapi.mutablemandatoryattributeapi.Namable;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.programcontrol.groupcloseable.GroupCloseable;
@@ -11,7 +12,13 @@ import ch.nolix.techapi.rawobjectschemaapi.flatschemadtoapi.IFlatTableDTO;
 import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.ITableDTO;
 
 //interface
-public interface ITable<IMPL> extends Deletable, IDatabaseObject, GroupCloseable, Namable<ITable<IMPL>> {
+public interface ITable<IMPL>
+extends
+Deletable,
+IDatabaseObject,
+GroupCloseable,
+IdentifiedByString,
+Namable<ITable<IMPL>> {
 	
 	//method declaration
 	ITable<IMPL> addColumn(IColumn<IMPL> column);

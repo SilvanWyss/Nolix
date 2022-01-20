@@ -2,8 +2,10 @@
 package ch.nolix.system.objectschema.schema;
 
 //own imports
+import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.data.GlobalIdCreator;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.system.objectschema.flatschemadto.FlatTableDTO;
@@ -32,11 +34,16 @@ public final class Table extends DatabaseObject implements ITable<SchemaImplemen
 	
 	//static method
 	public static Table fromFlatDTO(final IFlatTableDTO flatTableDTO) {
-		return new Table(flatTableDTO.getName());
+		return new Table(flatTableDTO.getId(), flatTableDTO.getName());
 	}
 	
-	//attributes
+	//attribute
+	private final String id;
+	
+	//attribute
 	private String name;
+	
+	//attribute
 	private boolean loadedColumnsFromDatabase;
 	
 	//optional attribute
@@ -47,6 +54,18 @@ public final class Table extends DatabaseObject implements ITable<SchemaImplemen
 	
 	//constructor
 	public Table(final String name) {
+		this(
+			GlobalIdCreator.createIdOf10HexadecimalCharacters(),
+			name
+		);
+	}
+	
+	//constructor
+	public Table(final String id, final String name) {
+		
+		Validator.assertThat(id).thatIsNamed(LowerCaseCatalogue.ID).isNotBlank();
+		
+		this.id = id;
 		setName(name);
 	}
 	
@@ -84,7 +103,13 @@ public final class Table extends DatabaseObject implements ITable<SchemaImplemen
 	//method
 	@Override
 	public IFlatTableDTO getFlatDTO() {
-		return new FlatTableDTO(getName());
+		return new FlatTableDTO(getId(), getName());
+	}
+	
+	//method
+	@Override
+	public String getId() {
+		return id;
 	}
 	
 	//method

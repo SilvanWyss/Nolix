@@ -39,6 +39,8 @@ final class QueryCreator {
 	public String createQueryToLoadFlatTables() {
 		return
 		"SELECT "
+		+ TableTableColumn.ID.getLabel()
+		+ ", "
 		+ TableTableColumn.NAME.getLabel()
 		+ " FROM "
 		+ SystemDataTable.TABLE.getNameWithPrefix();

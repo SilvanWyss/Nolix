@@ -17,6 +17,7 @@ final class FlatTableDTOMapper {
 		
 		final var name = tableNodeSearcher.getRefNameNodeFromTableNode(tableNode).getOneAttributeHeader();
 		
-		return new FlatTableDTO(name);
+		//TODO: Complete.
+		return new FlatTableDTO("Id", name);
 	}
 }
