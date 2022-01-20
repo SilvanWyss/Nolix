@@ -1,13 +1,10 @@
 //package declaration
 package ch.nolix.system.objectdata.data;
 
-//Java imports
-import java.util.UUID;
-
 //own imports
 import ch.nolix.common.constant.LowerCaseCatalogue;
-import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.container.IContainer;
+import ch.nolix.common.data.GlobalIdCreator;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.DeletedArgumentException;
 import ch.nolix.common.errorcontrol.validator.Validator;
@@ -28,8 +25,7 @@ public abstract class BaseEntity implements GroupCloseable, IEntity<DataImplemen
 	private static final IEntityHelper entityHelper = new EntityHelper();
 	
 	//attribute
-	private String id =
-	UUID.randomUUID().toString().replace(StringCatalogue.MINUS, StringCatalogue.EMPTY_STRING).substring(22, 32);
+	private String id = GlobalIdCreator.createIdOf10HexadecimalCharacters();
 	
 	//attribute
 	private DatabaseObjectState state = DatabaseObjectState.NEW;
