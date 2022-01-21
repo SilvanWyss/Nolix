@@ -109,7 +109,7 @@ public final class Database extends ImmutableDatabaseObject implements IDatabase
 	private ITable<DataImplementation, IEntity<DataImplementation>> loadTableWithName(final String name) {
 		return
 		tableMapper.createTableFromTableDTOForDatabase(
-			internalGetRefDataAndSchemaAdapter().loadTable(name),
+			internalGetRefDataAndSchemaAdapter().loadTableByName(name),
 			this
 		);
 	}

@@ -15,13 +15,25 @@ public interface ISchemaReader {
 	boolean columnIsEmpty(String tableName, String columnName);
 	
 	//method declaration
-	LinkedList<IColumnDTO> loadColumns(String tableName);
+	LinkedList<IColumnDTO> loadColumnsByTableName(String tableName);
+	
+	//method declaration
+	LinkedList<IColumnDTO> loadColumnsByTableId(String tableId);
+	
+	//method declaration
+	IFlatTableDTO loadFlatTableById(String id);
+	
+	//method declaration
+	IFlatTableDTO loadFlatTableByName(String name);
 	
 	//method declaration
 	LinkedList<IFlatTableDTO> loadFlatTables();
 	
 	//method declaration
-	ITableDTO loadTable(String tableName);
+	ITableDTO loadTableById(String id);
+	
+	//method declaration
+	ITableDTO loadTableByName(String name);
 	
 	//method declaration
 	LinkedList<ITableDTO> loadTables();

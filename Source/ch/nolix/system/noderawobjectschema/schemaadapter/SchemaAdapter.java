@@ -82,8 +82,26 @@ public final class SchemaAdapter implements ISchemaAdapter {
 	
 	//method
 	@Override
-	public LinkedList<IColumnDTO> loadColumns(final String tableName) {
-		return schemaReader.loadColumns(tableName);
+	public LinkedList<IColumnDTO> loadColumnsByTableId(final String tableId) {
+		return schemaReader.loadColumnsByTableId(tableId);
+	}
+	
+	//method
+	@Override
+	public LinkedList<IColumnDTO> loadColumnsByTableName(final String tableName) {
+		return schemaReader.loadColumnsByTableName(tableName);
+	}
+	
+	//method
+	@Override
+	public IFlatTableDTO loadFlatTableById(final String id) {
+		return schemaReader.loadFlatTableById(id);
+	}
+	
+	//method
+	@Override
+	public IFlatTableDTO loadFlatTableByName(final String name) {
+		return schemaReader.loadFlatTableById(name);
 	}
 	
 	//method
@@ -100,8 +118,14 @@ public final class SchemaAdapter implements ISchemaAdapter {
 	
 	//method
 	@Override
-	public ITableDTO loadTable(final String tableName) {
-		return schemaReader.loadTable(tableName);
+	public ITableDTO loadTableById(final String id) {
+		return schemaReader.loadTableById(id);
+	}
+	
+	//method
+	@Override
+	public ITableDTO loadTableByName(final String name) {
+		return schemaReader.loadTableByName(name);
 	}
 	
 	//method

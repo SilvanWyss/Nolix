@@ -32,7 +32,8 @@ public final class InternalDataReader {
 	//class
 	public LinkedList<ILoadedRecordDTO> loadAllRecordsFromTable(final TableDefinition tableDefinition) {
 		
-		final var tableNode = databaseNodeSearcher.getTableNodeFromDatabaseNode(databaseNode, tableDefinition.getName());
+		final var tableNode =
+		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableDefinition.getName());
 		
 		return
 		tableNodeSearcher
@@ -43,7 +44,9 @@ public final class InternalDataReader {
 	//method
 	public ILoadedRecordDTO loadRecordFromTableById(final TableDefinition tableDefinition, final String id) {
 		
-		final var tableNode = databaseNodeSearcher.getTableNodeFromDatabaseNode(databaseNode, tableDefinition.getName());
+		final var tableNode =
+		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableDefinition.getName());
+		
 		final var recordNode = tableNodeSearcher.getRefRecordNodeFromTableNode(tableNode, id);
 		
 		return loadedRecordDTOMapper.createLoadedRecordDTOFromRecordNode(recordNode, tableDefinition);
@@ -56,7 +59,9 @@ public final class InternalDataReader {
 		final String value
 	) {
 		
-		final var tableNode = databaseNodeSearcher.getTableNodeFromDatabaseNode(databaseNode, tableDefinition.getName());
+		final var tableNode =
+		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableDefinition.getName());
+		
 		final var valueIndex = 2 + tableDefinition.getIndexOfContentColumnWithName(columnName);
 		
 		return

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlrawobjectschema.schemareader;
 
+//own imports
 import ch.nolix.system.sqlrawobjectschema.columntable.ColumnTableColumn;
 import ch.nolix.system.sqlrawobjectschema.databasepropertytable.DatabaseProperty;
 import ch.nolix.system.sqlrawobjectschema.databasepropertytable.DatabasePropertySystemTableColumn;
@@ -11,7 +12,7 @@ import ch.nolix.system.sqlrawobjectschema.tabletable.TableTableColumn;
 final class QueryCreator {
 	
 	//method
-	public String createQueryToLoadCoumns(final String tableName) {
+	public String createQueryToLoadCoumnsByTableId(final String tableId) {
 		return
 		"SELECT "
 		+ ColumnTableColumn.NAME.getLabel()
@@ -31,8 +32,67 @@ final class QueryCreator {
 		+ SystemDataTable.COLUMN.getNameWithPrefix()
 		+ " WHERE "
 		+ ColumnTableColumn.PARENT_TABLE.getLabel()
-		+ " = "
-		+ tableName;
+		+ " = '"
+		+ tableId
+		+ "'";
+	}
+	
+	//method
+	public String createQueryToLoadCoumnsByTableName(final String tableName) {
+		return
+		"SELECT "
+		+ ColumnTableColumn.NAME.getLabel()
+		+ ", "
+		+ ColumnTableColumn.PARENT_TABLE.getLabel()
+		+ ", "
+		+ ColumnTableColumn.PROPERTY_TYPE.getLabel()
+		+ ", "
+		+ ColumnTableColumn.DATA_TYPE.getLabel()
+		+ ", "
+		+ ColumnTableColumn.REFERENCED_TABLE.getLabel()
+		+ ", "
+		+ ColumnTableColumn.BACK_REFERENCED_TABLE.getLabel()
+		+ ", "
+		+ ColumnTableColumn.BACK_REFERENCED_COLUM.getLabel()
+		+ " FROM "
+		+ SystemDataTable.COLUMN.getNameWithPrefix()
+		+ " WHERE "
+		+ ColumnTableColumn.PARENT_TABLE.getLabel()
+		+ " = '"
+		+ tableName
+		+ "'";
+	}
+	
+	//method
+	public String createQueryToLoadFlatTableById(final String id) {
+		return
+		"SELECT "
+		+ TableTableColumn.ID.getLabel()
+		+ ", "
+		+ TableTableColumn.NAME.getLabel()
+		+ " FROM "
+		+ SystemDataTable.TABLE.getNameWithPrefix()
+		+ " WHERE "
+		+ TableTableColumn.ID.getLabel()
+		+ " = '"
+		+ id
+		+ "'";
+	}
+	
+	//method
+	public String createQueryToLoadFlatTableByName(final String name) {
+		return
+		"SELECT "
+		+ TableTableColumn.ID.getLabel()
+		+ ", "
+		+ TableTableColumn.NAME.getLabel()
+		+ " FROM "
+		+ SystemDataTable.TABLE.getNameWithPrefix()
+		+ " WHERE "
+		+ TableTableColumn.NAME.getLabel()
+		+ " = '"
+		+ name
+		+ "'";
 	}
 	
 	//method

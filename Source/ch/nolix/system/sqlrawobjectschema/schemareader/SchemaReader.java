@@ -21,13 +21,19 @@ import ch.nolix.techapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter;
 //class
 public final class SchemaReader implements ISchemaReader {
 	
-	//static attributes
+	//static attribute
 	private static final QueryCreator queryCreator = new QueryCreator();
+	
+	//static attribute
 	private static final TableDTOMapper tableDTOMapper = new TableDTOMapper();
+	
+	//static attribute
 	private static final ColumnDTOMapper columnDTOMapper = new ColumnDTOMapper();
 	
-	//attributes
+	//attribute
 	private final SQLConnection mSQLConnection;
+	
+	//attribute
 	private final ISchemaAdapter schemaAdapter;
 	
 	//constructor
@@ -48,11 +54,38 @@ public final class SchemaReader implements ISchemaReader {
 	
 	//method
 	@Override
-	public LinkedList<IColumnDTO> loadColumns(final String tableName) {
+	public LinkedList<IColumnDTO> loadColumnsByTableId(final String tableId) {
 		return
 		mSQLConnection
-		.getRecords(queryCreator.createQueryToLoadCoumns(tableName))
+		.getRecords(queryCreator.createQueryToLoadCoumnsByTableId(tableId))
 		.to(columnDTOMapper::createColumnDTO);
+	}
+	
+	//method
+	@Override
+	public LinkedList<IColumnDTO> loadColumnsByTableName(final String tableName) {
+		return
+		mSQLConnection
+		.getRecords(queryCreator.createQueryToLoadCoumnsByTableName(tableName))
+		.to(columnDTOMapper::createColumnDTO);
+	}
+	
+	//method
+	@Override
+	public IFlatTableDTO loadFlatTableById(final String id) {
+		return
+		tableDTOMapper.createTableDTO(
+			mSQLConnection.getOneRecord(queryCreator.createQueryToLoadFlatTableById(id))
+		);
+	}
+	
+	//method
+	@Override
+	public IFlatTableDTO loadFlatTableByName(final String name) {
+		return
+		tableDTOMapper.createTableDTO(
+			mSQLConnection.getOneRecord(queryCreator.createQueryToLoadFlatTableByName(name))
+		);
 	}
 	
 	//method
@@ -75,19 +108,30 @@ public final class SchemaReader implements ISchemaReader {
 	
 	//method
 	@Override
-	public ITableDTO loadTable(final String tableName) {
-		return
-		new TableDTO(
-			"Id", //TODO: Complete.
-			tableName,
-			new SaveStampConfigurationDTO(SaveStampStrategy.OWN_SAVE_STAMP),
-			loadColumns(tableName)
-		);
+	public ITableDTO loadTableById(final String id) {
+		return loadTable(loadFlatTableById(id));
+	}
+	
+	//method
+	@Override
+	public ITableDTO loadTableByName(final String name) {
+		return loadTable(loadFlatTableByName(name));
 	}
 	
 	//method
 	@Override
 	public LinkedList<ITableDTO> loadTables() {
-		return loadFlatTables().to(t -> loadTable(t.getName()));
+		return loadFlatTables().to(t -> loadTableById(t.getId()));
+	}
+	
+	//method
+	private ITableDTO loadTable(final IFlatTableDTO flatTable) {
+		return
+		new TableDTO(
+			flatTable.getId(),
+			flatTable.getName(),
+			new SaveStampConfigurationDTO(SaveStampStrategy.OWN_SAVE_STAMP),
+			loadColumnsByTableId(flatTable.getId())
+		);
 	}
 }

@@ -31,8 +31,11 @@ final class DatabaseUpdater {
 		final IRecordDeletionDTO recordDeletion
 	) {
 		
-		final var tableNode = databaseNodeSearcher.getTableNodeFromDatabaseNode(database, tableName);
-		final var recordNode = tableNodeSearcher.removeAndGetRefRecordNodeFromTableNode(tableNode, recordDeletion.getId());
+		final var tableNode = databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(database, tableName);
+		
+		final var recordNode =
+		tableNodeSearcher.removeAndGetRefRecordNodeFromTableNode(tableNode, recordDeletion.getId());
+		
 		final var saveStampNode = recordNodeSearcher.getRefSaveStampNodeFromRecordNode(recordNode);
 		
 		if (!saveStampNode.hasHeader(recordDeletion.getSaveStamp())) {
@@ -46,7 +49,8 @@ final class DatabaseUpdater {
 		final TableDefinition tableDefinition,
 		final IRecordDTO record
 	) {
-		final var tableNode = databaseNodeSearcher.getTableNodeFromDatabaseNode(database, tableDefinition.getName());
+		final var tableNode =
+		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(database, tableDefinition.getName());
 		
 		if (tableNodeSearcher.tableNodeContainsRecordNodeWithId(tableNode, record.getId())) {
 			throw
@@ -68,7 +72,9 @@ final class DatabaseUpdater {
 		final IRecordUpdateDTO recordUdate
 	) {
 	
-		final var tableNode = databaseNodeSearcher.getTableNodeFromDatabaseNode(database, tableDefinition.getName());
+		final var tableNode =
+		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(database, tableDefinition.getName());
+		
 		final var recordNode = tableNodeSearcher.getRefRecordNodeFromTableNode(tableNode, recordUdate.getId());
 		final var saveStampNode = recordNodeSearcher.getRefSaveStampNodeFromRecordNode(recordNode);
 		

@@ -111,8 +111,26 @@ public abstract class DataAndSchemaAdapter implements IDataAndSchemaAdapter {
 	
 	//method
 	@Override
-	public final LinkedList<IColumnDTO> loadColumns(final String tableName) {
-		return schemaReader.loadColumns(tableName);
+	public final LinkedList<IColumnDTO> loadColumnsByTableId(final String tableId) {
+		return schemaReader.loadColumnsByTableId(tableId);
+	}
+	
+	//method
+	@Override
+	public final LinkedList<IColumnDTO> loadColumnsByTableName(final String tableName) {
+		return schemaReader.loadColumnsByTableName(tableName);
+	}
+	
+	//method
+	@Override
+	public final ITableDTO loadTableById(final String id) {
+		return schemaReader.loadTableById(id);
+	}
+	
+	//method
+	@Override
+	public final IFlatTableDTO loadFlatTableByName(final String name) {
+		return schemaReader.loadFlatTableByName(name);
 	}
 	
 	//method
@@ -145,8 +163,14 @@ public abstract class DataAndSchemaAdapter implements IDataAndSchemaAdapter {
 	
 	//method
 	@Override
-	public final ITableDTO loadTable(final String tableName) {
-		return schemaReader.loadTable(tableName);
+	public IFlatTableDTO loadFlatTableById(String id) {
+		return schemaReader.loadFlatTableById(id);
+	}
+	
+	//method
+	@Override
+	public final ITableDTO loadTableByName(final String name) {
+		return schemaReader.loadTableByName(name);
 	}
 	
 	//method

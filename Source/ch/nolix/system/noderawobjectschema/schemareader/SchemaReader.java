@@ -21,15 +21,23 @@ import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.SaveStampStrategy;
 //class
 public final class SchemaReader implements ISchemaReader {
 	
-	//static attributes
+	//static attribute
 	private static final DatabaseNodeSearcher databaseNodeSearcher = new DatabaseNodeSearcher();
+	
+	//static attribute
 	private static final DatabasePropertiesNodeSearcher databasePropertiesNodeSearcher =
 	new DatabasePropertiesNodeSearcher();
+	
+	//static attribute
 	private static final TableNodeSearcher tableNodeSearcher = new TableNodeSearcher();
+	
+	//static attribute
 	private static final ColumnNodeSearcher columnNodeSearcher = new ColumnNodeSearcher();
 	
-	//static attributes
+	//static attribute
 	private static final FlatTableDTOMapper flatTableDTOMapper = new FlatTableDTOMapper();
+	
+	//static attribute
 	private static final ColumnDTOMapper columnDTOMapper = new ColumnDTOMapper();
 	
 	//attribute
@@ -47,7 +55,7 @@ public final class SchemaReader implements ISchemaReader {
 	@Override
 	public boolean columnIsEmpty(String tableName, String columnName) {
 		
-		final var tableNode = databaseNodeSearcher.getTableNodeFromDatabaseNode(databaseNode, tableName);
+		final var tableNode = databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableName);
 		
 		final var columnNode = tableNodeSearcher.getRefColumnNodeFromTableNodeByColumnName(tableNode, columnName);
 		
@@ -56,9 +64,9 @@ public final class SchemaReader implements ISchemaReader {
 	
 	//method
 	@Override
-	public LinkedList<IColumnDTO> loadColumns(String tableName) {
+	public LinkedList<IColumnDTO> loadColumnsByTableId(final String tableId) {
 		
-		final var tableNode = databaseNodeSearcher.getTableNodeFromDatabaseNode(databaseNode, tableName);
+		final var tableNode = databaseNodeSearcher.getRefTableNodeByTableIdFromDatabaseNode(databaseNode, tableId);
 		
 		return
 		tableNodeSearcher.getRefColumnNodesFromTableNode(tableNode).to(columnDTOMapper::createColumnDTOFromColumnNode);
@@ -66,29 +74,66 @@ public final class SchemaReader implements ISchemaReader {
 	
 	//method
 	@Override
-	public LinkedList<IFlatTableDTO> loadFlatTables() {
+	public LinkedList<IColumnDTO> loadColumnsByTableName(final String tableName) {
+		
+		final var tableNode = databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableName);
+		
 		return
-		databaseNodeSearcher
-		.getTableNodesFromDatabaseNode(databaseNode)
-		.to(flatTableDTOMapper::createFlatTableDTOFromTableNode);
+		tableNodeSearcher.getRefColumnNodesFromTableNode(tableNode).to(columnDTOMapper::createColumnDTOFromColumnNode);
 	}
 	
 	//method
 	@Override
-	public ITableDTO loadTable(final String tableName) {
+	public IFlatTableDTO loadFlatTableById(final String id) {
 		return
-		new TableDTO(
-			"Id", //TODO: Complete.
-			tableName,
-			new SaveStampConfigurationDTO(SaveStampStrategy.OWN_SAVE_STAMP),
-			loadColumns(tableName)
+		flatTableDTOMapper.createFlatTableDTOFromTableNode(
+			databaseNodeSearcher.getRefTableNodeByTableIdFromDatabaseNode(databaseNode, id)
 		);
 	}
 	
 	//method
 	@Override
+	public IFlatTableDTO loadFlatTableByName(final String name) {
+		return
+		flatTableDTOMapper.createFlatTableDTOFromTableNode(
+			databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, name)
+		);
+	}
+	
+	//method
+	@Override
+	public LinkedList<IFlatTableDTO> loadFlatTables() {
+		return
+		databaseNodeSearcher
+		.getRefTableNodesFromDatabaseNode(databaseNode)
+		.to(flatTableDTOMapper::createFlatTableDTOFromTableNode);
+	}
+	
+	//method
+	@Override
+	public ITableDTO loadTableById(final String id) {
+		
+		final var tableNode = databaseNodeSearcher.getRefTableNodeByTableIdFromDatabaseNode(databaseNode, id);
+		
+		return loadTableFromTableNode(tableNode);
+	}
+	
+	//method
+	@Override
+	public ITableDTO loadTableByName(final String name) {
+		
+		final var tableNode = databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, name);
+		
+		return loadTableFromTableNode(tableNode);
+	}
+	
+	//method
+	@Override
 	public LinkedList<ITableDTO> loadTables() {
-		return loadFlatTables().to(t -> loadTable(t.getName()));
+		return
+		databaseNodeSearcher
+		.getRefTableNodesFromDatabaseNode(databaseNode)
+		.to(this::loadTableFromTableNode);
 	}
 	
 	//method
@@ -96,11 +141,28 @@ public final class SchemaReader implements ISchemaReader {
 	public Time loadSchemaTimestamp() {
 		
 		final var databasePropertiesNode =
-		databaseNodeSearcher.getDatabasePropertiesNodeFromDatabaseNode(databaseNode);
+		databaseNodeSearcher.getRefDatabasePropertiesNodeFromDatabaseNode(databaseNode);
 		
 		final var timestampNode =
 		databasePropertiesNodeSearcher.getSchemaTimestampNodeFromDatabasePropertiesNode(databasePropertiesNode);
 		
 		return Time.fromSpecification(timestampNode);
+	}
+	
+	//method
+	private LinkedList<IColumnDTO> loadColumnsFromTableNode(final BaseNode tableNode) {
+		return
+		tableNodeSearcher.getRefColumnNodesFromTableNode(tableNode).to(columnDTOMapper::createColumnDTOFromColumnNode);
+	}
+	
+	//method
+	private ITableDTO loadTableFromTableNode(final BaseNode tableNode) {
+		return
+		new TableDTO(
+			tableNodeSearcher.getRefIdNodeFromTableNode(tableNode).getOneAttributeHeader(),
+			tableNodeSearcher.getRefNameNodeFromTableNode(tableNode).getOneAttributeHeader(),
+			new SaveStampConfigurationDTO(SaveStampStrategy.OWN_SAVE_STAMP),
+			loadColumnsFromTableNode(tableNode)
+		);
 	}
 }

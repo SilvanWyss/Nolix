@@ -39,85 +39,109 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 	
 	//method
 	@Override
-	public boolean columnIsEmpty(final String tableName, final String columnName) {
+	public final boolean columnIsEmpty(final String tableName, final String columnName) {
 		return rawSchemaReader.columnIsEmpty(tableName, columnName);
 	}
 	
 	//method
 	@Override
-	public void addColumn(final String tableName, IColumnDTO column) {
+	public final void addColumn(final String tableName, IColumnDTO column) {
 		rawSchemaWriter.addColumn(tableName, column);
 	}
 	
 	//method
 	@Override
-	public void addTable(final ITableDTO table) {
+	public final void addTable(final ITableDTO table) {
 		rawSchemaWriter.addTable(table);
 	}
 	
 	//method
 	@Override
-	public void deleteColumn(final String tableName, final String columnName) {
+	public final void deleteColumn(final String tableName, final String columnName) {
 		rawSchemaWriter.deleteColumn(tableName, columnName);
 	}
 	
 	//method
 	@Override
-	public void deleteTable(final String tableName) {
+	public final void deleteTable(final String tableName) {
 		rawSchemaWriter.deleteTable(tableName);
 	}
 	
 	//method
 	@Override
-	public boolean hasChanges() {
+	public final boolean hasChanges() {
 		return rawSchemaWriter.hasChanges();
 	}
 	
 	//method
 	@Override
-	public LinkedList<IColumnDTO> loadColumns(final String tableName) {
-		return rawSchemaReader.loadColumns(tableName);
+	public final LinkedList<IColumnDTO> loadColumnsByTableId(final String tableId) {
+		return rawSchemaReader.loadColumnsByTableId(tableId);
 	}
 	
 	//method
 	@Override
-	public LinkedList<IFlatTableDTO> loadFlatTables() {
+	public final LinkedList<IColumnDTO> loadColumnsByTableName(final String tableName) {
+		return rawSchemaReader.loadColumnsByTableName(tableName);
+	}
+	
+	//method
+	@Override
+	public final IFlatTableDTO loadFlatTableById(final String id) {
+		return rawSchemaReader.loadFlatTableById(id);
+	}
+	
+	//method
+	@Override
+	public IFlatTableDTO loadFlatTableByName(final String name) {
+		return rawSchemaReader.loadFlatTableByName(name);
+	}
+	
+	//method
+	@Override
+	public final LinkedList<IFlatTableDTO> loadFlatTables() {
 		return rawSchemaReader.loadFlatTables();
 	}
 	
 	//method
 	@Override
-	public Time loadSchemaTimestamp() {
+	public final Time loadSchemaTimestamp() {
 		return rawSchemaReader.loadSchemaTimestamp();
 	}
 	
 	//method
 	@Override
-	public ITableDTO loadTable(final String tableName) {
-		return rawSchemaReader.loadTable(tableName);
+	public final ITableDTO loadTableById(final String id) {
+		return rawSchemaReader.loadTableById(id);
 	}
 	
 	//method
 	@Override
-	public LinkedList<ITableDTO> loadTables() {
+	public final ITableDTO loadTableByName(final String name) {
+		return rawSchemaReader.loadTableByName(name);
+	}
+	
+	//method
+	@Override
+	public final LinkedList<ITableDTO> loadTables() {
 		return rawSchemaReader.loadTables();
 	}
 	
 	//method
 	@Override
-	public void saveChanges() {
+	public final void saveChanges() {
 		rawSchemaWriter.saveChanges();
 	}
 	
 	//method
 	@Override
-	public void setColumnName(final String tableName, final String columnName, final String newColumnName) {
+	public final void setColumnName(final String tableName, final String columnName, final String newColumnName) {
 		rawSchemaWriter.setColumnName(tableName, columnName, newColumnName);
 	}
 	
 	//method
 	@Override
-	public void setColumnParametrizedPropertyType(
+	public final void setColumnParametrizedPropertyType(
 		final String tableName,
 		final String columnName,
 		final IParametrizedPropertyTypeDTO parametrizedPropertyType
@@ -127,13 +151,13 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 	
 	//method
 	@Override
-	public void setSchemaTimestamp(final Time schemaTimestamp) {
+	public final void setSchemaTimestamp(final Time schemaTimestamp) {
 		rawSchemaWriter.setSchemaTimestamp(schemaTimestamp);
 	}
 	
 	//method
 	@Override
-	public void setTableName(final String tableName, final String newTableName) {
+	public final void setTableName(final String tableName, final String newTableName) {
 		rawSchemaWriter.setTableName(tableName, newTableName);
 	}
 }

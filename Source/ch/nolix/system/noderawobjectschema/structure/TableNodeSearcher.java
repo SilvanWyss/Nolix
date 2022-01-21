@@ -28,6 +28,11 @@ public class TableNodeSearcher {
 	}
 	
 	//method
+	public final BaseNode getRefIdNodeFromTableNode(final BaseNode tableNode) {
+		return tableNode.getRefFirstAttribute(SubNodeHeaderCatalogue.ID);
+	}
+	
+	//method
 	public final BaseNode getRefNameNodeFromTableNode(final BaseNode tableNode) {
 		return tableNode.getRefFirstAttribute(SubNodeHeaderCatalogue.NAME);
 	}

@@ -33,7 +33,7 @@ final class RawSchemaReader {
 	
 	//method
 	public LinkedList<IColumnDTO> loadColumnsOfTable(final ITable<SchemaImplementation> table) {
-		return internalRawSchemaReader.loadColumns(table.getName());
+		return internalRawSchemaReader.loadColumnsByTableId(table.getId());
 	}
 	
 	//method

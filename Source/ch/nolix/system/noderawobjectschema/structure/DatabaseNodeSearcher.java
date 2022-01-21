@@ -9,20 +9,28 @@ import ch.nolix.common.document.node.BaseNode;
 public final class DatabaseNodeSearcher {
 	
 	//method
-	public BaseNode getDatabasePropertiesNodeFromDatabaseNode(final BaseNode databaseNode) {
+	public BaseNode getRefDatabasePropertiesNodeFromDatabaseNode(final BaseNode databaseNode) {
 		return databaseNode.getRefFirstAttribute(SubNodeHeaderCatalogue.DATABASE_PROPERTIES);
 	}
 	
 	//method
-	public BaseNode getTableNodeFromDatabaseNode(final BaseNode databaseNode, final String tableName) {
+	public BaseNode getRefTableNodeByTableIdFromDatabaseNode(final BaseNode databaseNode, final String tableId) {
 		return
-		getTableNodesFromDatabaseNode(databaseNode).getRefFirst(
+		getRefTableNodesFromDatabaseNode(databaseNode).getRefFirst(
+			tsn -> tsn.getRefFirstAttribute(SubNodeHeaderCatalogue.ID).getRefOneAttribute().hasHeader(tableId)
+		);
+	}
+	
+	//method
+	public BaseNode getRefTableNodeByTableNameFromDatabaseNode(final BaseNode databaseNode, final String tableName) {
+		return
+		getRefTableNodesFromDatabaseNode(databaseNode).getRefFirst(
 			tsn -> tsn.getRefFirstAttribute(SubNodeHeaderCatalogue.NAME).getRefOneAttribute().hasHeader(tableName)
 		);
 	}
 	
 	//method
-	public IContainer<BaseNode> getTableNodesFromDatabaseNode(final BaseNode databaseNode) {
+	public IContainer<BaseNode> getRefTableNodesFromDatabaseNode(final BaseNode databaseNode) {
 		return databaseNode.getRefAttributes(SubNodeHeaderCatalogue.TABLE);
 	}
 }

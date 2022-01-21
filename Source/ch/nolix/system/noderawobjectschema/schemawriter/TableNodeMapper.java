@@ -19,10 +19,15 @@ public final class TableNodeMapper {
 		
 		node
 		.setHeader(SubNodeHeaderCatalogue.TABLE)
-		.addAttribute(createNameNodeFrom(table))
+		.addAttribute(createIdNodeFrom(table), createNameNodeFrom(table))
 		.addAttributes(createColumnNodesFrom(table));
 		
 		return node;
+	}
+	
+	//method
+	private Node createIdNodeFrom(final ITableDTO table) {
+		return Node.withHeaderAndAttribute(SubNodeHeaderCatalogue.ID, table.getId());
 	}
 	
 	//method
