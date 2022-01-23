@@ -139,7 +139,9 @@ public final class Column extends DatabaseObject implements IColumn<SchemaImplem
 	//method
 	@Override
 	public ColumnDTO toDTO() {
-		return new ColumnDTO(getName(), getParametrizedPropertyType().toDTO());
+		
+		//TODO: Complete.
+		return new ColumnDTO("Id", getName(), getParametrizedPropertyType().toDTO());
 	}
 	
 	//method

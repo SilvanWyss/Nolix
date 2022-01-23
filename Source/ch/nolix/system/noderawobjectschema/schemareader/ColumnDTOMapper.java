@@ -20,7 +20,16 @@ final class ColumnDTOMapper {
 	//method
 	public ColumnDTO createColumnDTOFromColumnNode(final BaseNode columnNode) {
 		return
-		new ColumnDTO(getNameFromColumnNode(columnNode), createParametrizedPropertyTypeFromColumnNode(columnNode));
+		new ColumnDTO(
+			getIdFromColumnNode(columnNode),
+			getNameFromColumnNode(columnNode),
+			createParametrizedPropertyTypeFromColumnNode(columnNode)
+		);
+	}
+	
+	//method
+	private String getIdFromColumnNode(final BaseNode columnNode) {
+		return columnNodeSearcher.getRefIdNodeFromColumnNode(columnNode).getOneAttributeHeader();
 	}
 	
 	//method

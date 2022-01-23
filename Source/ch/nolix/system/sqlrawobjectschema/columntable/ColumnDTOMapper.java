@@ -32,8 +32,11 @@ public final class ColumnDTOMapper {
 	
 	//method
 	private ColumnDTO createColumnDTOForBaseBackReference(final List<String> columnSystemTableRecord) {
+		
+		//TODO: Complete.
 		return
 		new ColumnDTO(
+			"Id",
 			columnSystemTableRecord.get(0),
 			new BaseParametrizedBackReferenceTypeDTO(
 				PropertyType.valueOf(columnSystemTableRecord.get(2)),
@@ -46,8 +49,11 @@ public final class ColumnDTOMapper {
 	
 	//method
 	private ColumnDTO createColumnDTOForBaseReference(final List<String> columnSystemTableRecord) {
+		
+		//TODO: Complete.
 		return
 		new ColumnDTO(
+			"Id",
 			columnSystemTableRecord.get(0),
 			new BaseParametrizedReferenceTypeDTO(
 				PropertyType.valueOf(columnSystemTableRecord.get(2)),
@@ -59,8 +65,11 @@ public final class ColumnDTOMapper {
 	
 	//method
 	private ColumnDTO createColumnDTOForBaseValue(final List<String> columnSystemTableRecord) {
+		
+		//TODO: Complete.
 		return
 		new ColumnDTO(
+			"Id",
 			columnSystemTableRecord.get(0),
 			new BaseParametrizedValueTypeDTO(
 				PropertyType.valueOf(columnSystemTableRecord.get(2)),

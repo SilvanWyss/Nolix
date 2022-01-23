@@ -5,6 +5,9 @@ package ch.nolix.techapi.rawobjectschemaapi.schemadtoapi;
 public interface IColumnDTO {
 	
 	//method declaration
+	String getId();
+	
+	//method declaration
 	String getName();
 	
 	//method declaration

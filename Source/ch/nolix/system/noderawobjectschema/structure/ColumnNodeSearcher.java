@@ -13,6 +13,11 @@ public final class ColumnNodeSearcher {
 	}
 	
 	//method
+	public BaseNode getRefIdNodeFromColumnNode(final BaseNode columnNode) {
+		return columnNode.getRefFirstAttribute(SubNodeHeaderCatalogue.ID);
+	}
+	
+	//method
 	public BaseNode getRefNameNodeFromColumnNode(final BaseNode columnNode) {
 		return columnNode.getRefFirstAttribute(SubNodeHeaderCatalogue.NAME);
 	}
