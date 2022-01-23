@@ -71,7 +71,7 @@ implements IBaseParametrizedReferenceType<SchemaImplementation> {
 		new BaseParametrizedReferenceTypeDTO(
 			getPropertyType(),
 			getDataType().getName(),
-			getReferencedTable().getName()
+			getReferencedTable().getId()
 		);
 	}
 }
