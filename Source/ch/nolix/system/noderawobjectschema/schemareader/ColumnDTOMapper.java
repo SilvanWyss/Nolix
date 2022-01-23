@@ -40,7 +40,8 @@ final class ColumnDTOMapper {
 	//method
 	private ParametrizedPropertyTypeDTO createParametrizedPropertyTypeFromColumnNode(final BaseNode columnNode) {
 		
-		final var parametrizedPropertyTypeNode = columnNodeSearcher.getRefParametrizedPropertyTypeNodeFromColumnNode(columnNode);
+		final var parametrizedPropertyTypeNode =
+		columnNodeSearcher.getRefParametrizedPropertyTypeNodeFromColumnNode(columnNode);
 		
 		return
 		parametrizedPropertyTypeDTOMapper.createParametrizedProeprtyTypeDTOFromParametrizedPropertyTypeNode(
