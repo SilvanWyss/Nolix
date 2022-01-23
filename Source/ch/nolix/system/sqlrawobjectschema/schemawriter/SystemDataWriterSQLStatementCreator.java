@@ -51,12 +51,14 @@ final class SystemDataWriterSQLStatementCreator {
 		+ ColumnTableColumn.REFERENCED_TABLE_ID.getLabel()
 		+ ", "
 		+ ColumnTableColumn.BACK_REFERENCED_COLUM_ID.getLabel()
-		+ ") VALUES ('"
+		+ ") SELECT '"
 		+ column.getId()
-		+ "', '"
-		+ parentTableName
-		+ "', '"
-		+ column.getId()
+		+ "', "
+		+ SystemDataTable.TABLE.getNameWithPrefix()
+		+ "."
+		+ TableTableColumn.ID.getLabel()
+		+ ", '"
+		+ column.getName()
 		+ "', "
 		+ parametrezidPropertyTypeRecord.getPropertyTypeValue()
 		+ ", "
@@ -65,7 +67,15 @@ final class SystemDataWriterSQLStatementCreator {
 		+ parametrezidPropertyTypeRecord.getReferencedTableIdValue()
 		+ ", "
 		+ parametrezidPropertyTypeRecord.getBackReferencedColumnIdValue()
-		+ ")";
+		+ " FROM "
+		+ SystemDataTable.TABLE.getNameWithPrefix()
+		+ " WHERE "
+		+ SystemDataTable.TABLE.getNameWithPrefix()
+		+ "."
+		+ TableTableColumn.NAME.getLabel()
+		+ " = '"
+		+ parentTableName
+		+ "'" ;
 	}
 	
 	//method
