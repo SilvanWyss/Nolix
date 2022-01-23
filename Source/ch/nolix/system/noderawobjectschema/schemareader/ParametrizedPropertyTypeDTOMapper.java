@@ -71,7 +71,7 @@ public class ParametrizedPropertyTypeDTOMapper {
 		new BaseParametrizedReferenceTypeDTO(
 			propertyType,
 			getDataTypeFromParametrizedPropertyTypeNode(parametrizedPropertyTypeNode),
-			getReferencedTableNameFromParametrizedPropertyTypeNode(parametrizedPropertyTypeNode)
+			getReferencedTableIdFromParametrizedPropertyTypeNode(parametrizedPropertyTypeNode)
 		);
 	}
 	
@@ -121,13 +121,13 @@ public class ParametrizedPropertyTypeDTOMapper {
 	}
 	
 	//method
-	private String getReferencedTableNameFromParametrizedPropertyTypeNode(final BaseNode parametrizedPropertyTypeNode) {
+	private String getReferencedTableIdFromParametrizedPropertyTypeNode(final BaseNode parametrizedPropertyTypeNode) {
 		
-		final var referencedTableNode =
+		final var referencedTableIdNode =
 		parametrizedPropertyTypeNodeSearcher.getRefReferencedTableIdNodeFromParametrizedPropertyTypeNode(
 			parametrizedPropertyTypeNode
 		);
 		
-		return referencedTableNode.getOneAttributeHeader();
+		return referencedTableIdNode.getOneAttributeHeader();
 	}
 }
