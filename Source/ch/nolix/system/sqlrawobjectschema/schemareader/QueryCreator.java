@@ -15,6 +15,8 @@ final class QueryCreator {
 	public String createQueryToLoadCoumnsByTableId(final String tableId) {
 		return
 		"SELECT "
+		+ ColumnTableColumn.ID.getLabel()
+		+ ", "
 		+ ColumnTableColumn.NAME.getLabel()
 		+ ", "
 		+ ColumnTableColumn.PARENT_TABLE.getLabel()
@@ -41,6 +43,8 @@ final class QueryCreator {
 	public String createQueryToLoadCoumnsByTableName(final String tableName) {
 		return
 		"SELECT "
+		+ ColumnTableColumn.ID.getLabel()
+		+ ", "
 		+ ColumnTableColumn.NAME.getLabel()
 		+ ", "
 		+ ColumnTableColumn.PARENT_TABLE.getLabel()

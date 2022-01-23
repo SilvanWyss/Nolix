@@ -38,6 +38,8 @@ final class SystemDataWriterSQLStatementCreator {
 	    "INSERT INTO "
 		+ SystemDataTable.COLUMN.getNameWithPrefix()
 		+ " ("
+		+ ColumnTableColumn.ID.getLabel()
+		+ ", "
 		+ ColumnTableColumn.PARENT_TABLE.getLabel()
 		+ ", "
 		+ ColumnTableColumn.NAME.getLabel()
@@ -52,6 +54,8 @@ final class SystemDataWriterSQLStatementCreator {
 		+ ", "
 		+ ColumnTableColumn.BACK_REFERENCED_COLUM.getLabel()
 		+ ") VALUES ('"
+		+ "Id" //TODO: Complete.
+		+ "', '"
 		+ parentTableName
 		+ "', '"
 		+ column.getName()

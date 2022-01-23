@@ -4,6 +4,7 @@ package ch.nolix.system.sqlrawobjectschema.columntable;
 //own imports
 import ch.nolix.system.sqlrawobjectschema.structure.SQLDatatypeCatalogue;
 import ch.nolix.system.sqlrawobjectschema.structure.SystemDataTable;
+import ch.nolix.system.sqlrawobjectschema.tabletable.TableTableColumn;
 import ch.nolix.system.sqlschema.schemadto.ColumnDTO;
 import ch.nolix.system.sqlschema.schemadto.TableDTO;
 import ch.nolix.techapi.sqlschemaapi.schemadtoapi.IColumnDTO;
@@ -11,6 +12,10 @@ import ch.nolix.techapi.sqlschemaapi.schemadtoapi.ITableDTO;
 
 //class
 public final class ColumnTableSQLDTOCatalogue {
+	
+	//constant
+	private static final IColumnDTO ID_SQL_DTO =
+	new ColumnDTO(TableTableColumn.ID.getLabel(), SQLDatatypeCatalogue.TEXT);
 	
 	//constant
 	private static final IColumnDTO PARENT_TABLE_SQL_DTO =
@@ -44,6 +49,7 @@ public final class ColumnTableSQLDTOCatalogue {
 	public static final ITableDTO COLUMN_TABLE_SQL_DTO =
 	new TableDTO(
 		SystemDataTable.COLUMN.getNameWithPrefix(),
+		ID_SQL_DTO,
 		PARENT_TABLE_SQL_DTO,
 		NAME_SQL_DTO,
 		PROPERTY_TYPE_SQL_DTO,
