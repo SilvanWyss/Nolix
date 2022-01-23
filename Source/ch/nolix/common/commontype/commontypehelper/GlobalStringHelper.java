@@ -89,6 +89,22 @@ public final class GlobalStringHelper {
 	}
 	
 	//static method
+	//For a better performance, this implementation does not use all comfortable methods.
+	/**
+	 * @param string
+	 * @return the given string in quotes
+	 * @throws ArgumentIsNullException if the given string is null.
+	 */
+	public static String getInQuotes(final String string) {
+		
+		if (string == null) {
+			throw new ArgumentIsNullException(LowerCaseCatalogue.STRING);
+		}
+		
+		return ("'" + string + "'");
+	}
+	
+	//static method
 	/**
 	 * @param string
 	 * @return true if the given string is in lower case.
