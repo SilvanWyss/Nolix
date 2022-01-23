@@ -19,21 +19,19 @@ final class QueryCreator {
 		+ ", "
 		+ ColumnTableColumn.NAME.getLabel()
 		+ ", "
-		+ ColumnTableColumn.PARENT_TABLE.getLabel()
+		+ ColumnTableColumn.PARENT_TABLE_ID.getLabel()
 		+ ", "
 		+ ColumnTableColumn.PROPERTY_TYPE.getLabel()
 		+ ", "
 		+ ColumnTableColumn.DATA_TYPE.getLabel()
 		+ ", "
-		+ ColumnTableColumn.REFERENCED_TABLE.getLabel()
+		+ ColumnTableColumn.REFERENCED_TABLE_ID.getLabel()
 		+ ", "
-		+ ColumnTableColumn.BACK_REFERENCED_TABLE.getLabel()
-		+ ", "
-		+ ColumnTableColumn.BACK_REFERENCED_COLUM.getLabel()
+		+ ColumnTableColumn.BACK_REFERENCED_COLUM_ID.getLabel()
 		+ " FROM "
 		+ SystemDataTable.COLUMN.getNameWithPrefix()
 		+ " WHERE "
-		+ ColumnTableColumn.PARENT_TABLE.getLabel()
+		+ ColumnTableColumn.PARENT_TABLE_ID.getLabel()
 		+ " = '"
 		+ tableId
 		+ "'";
@@ -47,21 +45,19 @@ final class QueryCreator {
 		+ ", "
 		+ ColumnTableColumn.NAME.getLabel()
 		+ ", "
-		+ ColumnTableColumn.PARENT_TABLE.getLabel()
+		+ ColumnTableColumn.PARENT_TABLE_ID.getLabel()
 		+ ", "
 		+ ColumnTableColumn.PROPERTY_TYPE.getLabel()
 		+ ", "
 		+ ColumnTableColumn.DATA_TYPE.getLabel()
 		+ ", "
-		+ ColumnTableColumn.REFERENCED_TABLE.getLabel()
+		+ ColumnTableColumn.REFERENCED_TABLE_ID.getLabel()
 		+ ", "
-		+ ColumnTableColumn.BACK_REFERENCED_TABLE.getLabel()
-		+ ", "
-		+ ColumnTableColumn.BACK_REFERENCED_COLUM.getLabel()
+		+ ColumnTableColumn.BACK_REFERENCED_COLUM_ID.getLabel()
 		+ " FROM "
 		+ SystemDataTable.COLUMN.getNameWithPrefix()
 		+ " WHERE "
-		+ ColumnTableColumn.PARENT_TABLE.getLabel()
+		+ ColumnTableColumn.PARENT_TABLE_ID.getLabel()
 		+ " = '"
 		+ tableName
 		+ "'";

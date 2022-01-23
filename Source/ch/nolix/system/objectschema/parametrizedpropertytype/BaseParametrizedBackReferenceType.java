@@ -72,8 +72,7 @@ implements IBaseParametrizedBackReferenceType<SchemaImplementation> {
 		new BaseParametrizedBackReferenceTypeDTO(
 			getPropertyType(),
 			getDataType().getName(),
-			getBackReferencedColumn().getParentTable().getName(),
-			getBackReferencedColumn().getName()
+			getBackReferencedColumn().getId()
 		);
 	}
 	

@@ -48,7 +48,7 @@ public final class ColumnDefinitionMapper {
 	private DataType getDataTypeFromParametrizedPropertyTypeNode(BaseNode parametrizedPropertyTypeNode) {
 		return
 		getDataTypeFromDataTypeNode(
-			parametrizedPropertyTypeNodeSearcher.getDataTypeNodeFromParametriedPropertyTypeNode(parametrizedPropertyTypeNode)
+			parametrizedPropertyTypeNodeSearcher.getRefDataTypeNodeFromParametriedPropertyTypeNode(parametrizedPropertyTypeNode)
 		);
 	}
 }

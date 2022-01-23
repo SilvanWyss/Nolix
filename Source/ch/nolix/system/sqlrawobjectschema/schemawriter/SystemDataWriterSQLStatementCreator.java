@@ -40,7 +40,7 @@ final class SystemDataWriterSQLStatementCreator {
 		+ " ("
 		+ ColumnTableColumn.ID.getLabel()
 		+ ", "
-		+ ColumnTableColumn.PARENT_TABLE.getLabel()
+		+ ColumnTableColumn.PARENT_TABLE_ID.getLabel()
 		+ ", "
 		+ ColumnTableColumn.NAME.getLabel()
 		+ ", "
@@ -48,11 +48,9 @@ final class SystemDataWriterSQLStatementCreator {
 		+ ", "
 		+ ColumnTableColumn.DATA_TYPE.getLabel()
 		+ ", "
-		+ ColumnTableColumn.REFERENCED_TABLE.getLabel()
+		+ ColumnTableColumn.REFERENCED_TABLE_ID.getLabel()
 		+ ", "
-		+ ColumnTableColumn.BACK_REFERENCED_TABLE.getLabel()
-		+ ", "
-		+ ColumnTableColumn.BACK_REFERENCED_COLUM.getLabel()
+		+ ColumnTableColumn.BACK_REFERENCED_COLUM_ID.getLabel()
 		+ ") VALUES ('"
 		+ column.getId()
 		+ "', '"
@@ -64,11 +62,9 @@ final class SystemDataWriterSQLStatementCreator {
 		+ ", "
 		+ parametrezidPropertyTypeRecord.getDataTypeValue()
 		+ ", "
-		+ parametrezidPropertyTypeRecord.getReferencedTableValue()
+		+ parametrezidPropertyTypeRecord.getReferencedTableIdValue()
 		+ ", "
-		+ parametrezidPropertyTypeRecord.getBackReferencedTableValue()
-		+ ", "
-		+ parametrezidPropertyTypeRecord.getBackReferencedColumnValue()
+		+ parametrezidPropertyTypeRecord.getBackReferencedColumnIdValue()
 		+ ")";
 	}
 	
@@ -92,7 +88,7 @@ final class SystemDataWriterSQLStatementCreator {
 		"DELETE FROM "
 		+ SystemDataTable.COLUMN.getNameWithPrefix()
 		+ " WHERE "
-		+ ColumnTableColumn.PARENT_TABLE.getLabel()
+		+ ColumnTableColumn.PARENT_TABLE_ID.getLabel()
 		+ " = "
 		+ tableName
 		+ " AND "
@@ -124,7 +120,7 @@ final class SystemDataWriterSQLStatementCreator {
 		+ " = '"
 		+ newColumnName
 		+ "' WHERE "
-		+ ColumnTableColumn.PARENT_TABLE.getLabel()
+		+ ColumnTableColumn.PARENT_TABLE_ID.getLabel()
 		+ " = '"
 		+ tableName
 		+ "' AND "
@@ -136,8 +132,7 @@ final class SystemDataWriterSQLStatementCreator {
 	
 	//method
 	public String createStatementToSetColumnParametrizedPropertyType(
-		final String tableName,
-		final String columnName,
+		final String columnID,
 		final IParametrizedPropertyTypeDTO parametrizedPropertyType
 	) {
 		
@@ -152,21 +147,17 @@ final class SystemDataWriterSQLStatementCreator {
 		+ " = "
 		+ parametrezidPropertyTypeRecord.getDataTypeValue()
 		+ ", "
-		+ ColumnTableColumn.REFERENCED_TABLE
+		+ ColumnTableColumn.REFERENCED_TABLE_ID
 		+ " = "
-		+ parametrezidPropertyTypeRecord.getReferencedTableValue()
+		+ parametrezidPropertyTypeRecord.getReferencedTableIdValue()
 		+ ", "
-		+ ColumnTableColumn.BACK_REFERENCED_TABLE
+		+ ColumnTableColumn.BACK_REFERENCED_COLUM_ID
 		+ " = "
-		+ parametrezidPropertyTypeRecord.getBackReferencedTableValue()
+		+ parametrezidPropertyTypeRecord.getBackReferencedColumnIdValue()
 		+ "WHERE"
-		+ ColumnTableColumn.PARENT_TABLE
+		+ ColumnTableColumn.ID
 		+ " = '"
-		+ tableName
-		+ "' AND "
-		+ ColumnTableColumn.NAME
-		+ " = '"
-		+ columnName
+		+ columnID
 		+ "'";
 	}
 	

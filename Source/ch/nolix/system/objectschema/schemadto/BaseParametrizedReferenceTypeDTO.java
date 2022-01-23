@@ -11,27 +11,27 @@ public final class BaseParametrizedReferenceTypeDTO extends ParametrizedProperty
 implements IBaseParametrizedReferenceTypeDTO {
 	
 	//attribute
-	private final String referencedTableName;
+	private final String referencedTableId;
 	
 	//constructor
 	public BaseParametrizedReferenceTypeDTO(
 		final PropertyType propertyType,
 		final String dataTypeFullClassName,
-		final String referencedTableName
+		final String referencedTableId
 	) {
 		
 		super(propertyType, dataTypeFullClassName);
 		
-		if (referencedTableName == null) {
-			throw new ArgumentIsNullException("referenced table name");
+		if (referencedTableId == null) {
+			throw new ArgumentIsNullException("referenced table id");
 		}
 		
-		this.referencedTableName = referencedTableName;
+		this.referencedTableId = referencedTableId;
 	}
 	
 	//method
 	@Override
-	public String getReferencedTableName() {
-		return referencedTableName;
+	public String getReferencedTableId() {
+		return referencedTableId;
 	}
 }

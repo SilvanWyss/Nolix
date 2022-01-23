@@ -63,8 +63,7 @@ final class RawSchemaWriter {
 		final IParametrizedPropertyType<SchemaImplementation, ?> parametrizedPropertyType
 	) {
 		internalRawSchemaWriter.setColumnParametrizedPropertyType(
-			column.getParentTable().getName(),
-			column.getName(),
+			column.getId(),
 			parametrizedPropertyType.toDTO()
 		);
 	}

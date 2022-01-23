@@ -5,8 +5,5 @@ package ch.nolix.techapi.rawobjectschemaapi.schemadtoapi;
 public interface IBaseParametrizedBackReferenceTypeDTO extends IParametrizedPropertyTypeDTO {
 	
 	//method declaration
-	String getBackReferencedColumnName();
-	
-	//method declaration
-	String getBackReferencedTableName();
+	String getBackReferencedColumnId();
 }

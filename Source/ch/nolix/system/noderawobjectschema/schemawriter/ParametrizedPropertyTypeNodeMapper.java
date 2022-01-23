@@ -17,18 +17,18 @@ public final class ParametrizedPropertyTypeNodeMapper {
 	public Node createParametrizedPropertyTypeNodeFrom(final IParametrizedPropertyTypeDTO parametrizedPropertyType) {
 		switch (parametrizedPropertyType.getPropertyType().getBaseType()) {
 			case BASE_VALUE:
-				return createParametrizedPropertyTypeFrom((IBaseParametrizedValueTypeDTO)parametrizedPropertyType);
+				return createParametrizedPropertyTypeNodeFrom((IBaseParametrizedValueTypeDTO)parametrizedPropertyType);
 			case BASE_REFERENCE:
-				return createParametrizedPropertyTypeFrom((IBaseParametrizedReferenceTypeDTO)parametrizedPropertyType);
+				return createParametrizedPropertyTypeNodeFrom((IBaseParametrizedReferenceTypeDTO)parametrizedPropertyType);
 			case BASE_BACK_REFERENCE:
-				return createParametrizedPropertyTypeFrom((IBaseParametrizedBackReferenceTypeDTO)parametrizedPropertyType);
+				return createParametrizedPropertyTypeNodeFrom((IBaseParametrizedBackReferenceTypeDTO)parametrizedPropertyType);
 			default:
 				throw new InvalidArgumentException(parametrizedPropertyType);
 		}
 	}
 	
 	//method
-	private Node createParametrizedPropertyTypeFrom(
+	private Node createParametrizedPropertyTypeNodeFrom(
 		IBaseParametrizedBackReferenceTypeDTO baseParametrizedBackReferenceType
 	) {
 		return
@@ -43,18 +43,14 @@ public final class ParametrizedPropertyTypeNodeMapper {
 				baseParametrizedBackReferenceType.getDataTypeFullClassName()
 			),
 			Node.withHeaderAndAttribute(
-				SubNodeHeaderCatalogue.BACK_REFERENCED_TABLE,
-				baseParametrizedBackReferenceType.getBackReferencedTableName()
-			),
-			Node.withHeaderAndAttribute(
-				SubNodeHeaderCatalogue.BACK_REFERENCED_COLUMN,
-				baseParametrizedBackReferenceType.getBackReferencedColumnName()
+				SubNodeHeaderCatalogue.BACK_REFERENCED_COLUMN_ID,
+				baseParametrizedBackReferenceType.getBackReferencedColumnId()
 			)
 		);
 	}
 	
 	//method
-	private Node createParametrizedPropertyTypeFrom(IBaseParametrizedReferenceTypeDTO baseParametrizedReferenceType) {
+	private Node createParametrizedPropertyTypeNodeFrom(IBaseParametrizedReferenceTypeDTO baseParametrizedReferenceType) {
 		return
 		Node.withHeaderAndAttribute(
 			SubNodeHeaderCatalogue.PARAMETRIZED_PROPERTY_TYPE,
@@ -67,14 +63,14 @@ public final class ParametrizedPropertyTypeNodeMapper {
 				baseParametrizedReferenceType.getDataTypeFullClassName()
 			),
 			Node.withHeaderAndAttribute(
-				SubNodeHeaderCatalogue.REFERENCED_TABLE,
-				baseParametrizedReferenceType.getReferencedTableName()
+				SubNodeHeaderCatalogue.REFERENCED_TABLE_ID,
+				baseParametrizedReferenceType.getReferencedTableId()
 			)
 		);
 	}
 	
 	//method
-	private Node createParametrizedPropertyTypeFrom(final IBaseParametrizedValueTypeDTO baseParametrizedValueType) {
+	private Node createParametrizedPropertyTypeNodeFrom(final IBaseParametrizedValueTypeDTO baseParametrizedValueType) {
 		return
 		Node.withHeaderAndAttribute(
 			SubNodeHeaderCatalogue.PARAMETRIZED_PROPERTY_TYPE,

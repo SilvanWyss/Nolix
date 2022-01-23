@@ -20,6 +20,7 @@ public final class ColumnNodeMapper {
 		
 		node
 		.setHeader(SubNodeHeaderCatalogue.COLUMN)
+		.addAttribute(createIdNodeFrom(column))
 		.addAttribute(createHeaderNodeFrom(column))
 		.addAttribute(createParametrizedPropertyTypeNodeFrom(column));
 		
@@ -29,6 +30,11 @@ public final class ColumnNodeMapper {
 	//method
 	private Node createHeaderNodeFrom(final IColumnDTO column) {
 		return Node.withHeaderAndAttribute(SubNodeHeaderCatalogue.HEADER, column.getName());
+	}
+	
+	//method
+	private Node createIdNodeFrom(final IColumnDTO column) {
+		return Node.withHeaderAndAttribute(SubNodeHeaderCatalogue.ID, column.getId());
 	}
 	
 	//method

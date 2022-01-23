@@ -15,18 +15,13 @@ import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedPropert
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedReferenceType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedValueType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.SchemaImplementation;
-import ch.nolix.system.objectschema.schemahelper.TableHelper;
 import ch.nolix.techapi.objectschemaapi.schemaapi.ITable;
-import ch.nolix.techapi.objectschemaapi.schemahelperapi.ITableHelper;
 import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IBaseParametrizedBackReferenceTypeDTO;
 import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IBaseParametrizedReferenceTypeDTO;
 import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
 
 //class
 public final class ParametrizedPropertyTypeMapper {
-	
-	//static attribute
-	private static final ITableHelper tableHelper = new TableHelper();
 	
 	//method
 	public ParametrizedPropertyType<?> createParametrizedPropertyTypeFromDTO(
@@ -43,32 +38,32 @@ public final class ParametrizedPropertyTypeMapper {
 			case REFERENCE:
 				return
 				new ParametrizedReferenceType(
-					getReferencedTableFromParametrizedPropertyType(parametrizedPropertyType, tables)
+					getRefReferencedTableFromParametrizedPropertyType(parametrizedPropertyType, tables)
 				);
 			case OPTIONAL_REFERENCE:
 				return
 				new ParametrizedOptionalReferenceType(
-					getReferencedTableFromParametrizedPropertyType(parametrizedPropertyType, tables)
+					getRefReferencedTableFromParametrizedPropertyType(parametrizedPropertyType, tables)
 				);
 			case MULTI_REFERENCE:
 				return
 				new ParametrizedMultiReferenceType(
-					getReferencedTableFromParametrizedPropertyType(parametrizedPropertyType, tables)
+					getRefReferencedTableFromParametrizedPropertyType(parametrizedPropertyType, tables)
 				);
 			case BACK_REFERENCE:
 				return
 				new ParametrizedBackReferenceType(
-					getBackReferencedColumnFromParametrizedPropertyType(parametrizedPropertyType, tables)
+					getRefBackReferencedColumnFromParametrizedPropertyType(parametrizedPropertyType, tables)
 				);
 			case OPTIONAL_BACK_REFERENCE:
 				return
 				new ParametrizedOptionalBackReferenceType(
-					getBackReferencedColumnFromParametrizedPropertyType(parametrizedPropertyType, tables)
+					getRefBackReferencedColumnFromParametrizedPropertyType(parametrizedPropertyType, tables)
 				);
 			case MULTI_BACK_REFERENCE:
 				return
 				new ParametrizedMultiBackReferenceType(
-					getBackReferencedColumnFromParametrizedPropertyType(parametrizedPropertyType, tables)
+					getRefBackReferencedColumnFromParametrizedPropertyType(parametrizedPropertyType, tables)
 				);
 			default:
 				throw new InvalidArgumentException(parametrizedPropertyType);
@@ -76,33 +71,27 @@ public final class ParametrizedPropertyTypeMapper {
 	}
 	
 	//method
-	private Column getBackReferencedColumnFromParametrizedPropertyType(
+	private Column getRefBackReferencedColumnFromParametrizedPropertyType(
 		final IParametrizedPropertyTypeDTO parametrizedPropertyType,
 		final IContainer<ITable<SchemaImplementation>> tables
 	) {
 		
 		final var baseParametrizedBackReferenceType = (IBaseParametrizedBackReferenceTypeDTO)parametrizedPropertyType;
-		
-		final var backReferencedTable = 
-		tables.getRefFirst(t -> t.hasName(baseParametrizedBackReferenceType.getBackReferencedTableName()));
+		final var backReferencedColumnId = baseParametrizedBackReferenceType.getBackReferencedColumnId();
 		
 		return
-		(Column)
-		tableHelper.getRefColumnWithGivenName(
-			backReferencedTable,
-			baseParametrizedBackReferenceType.getBackReferencedColumnName()
-		);
+		(Column)tables.toFromMany(ITable::getRefColumns).getRefFirst(c -> c.hasId(backReferencedColumnId));
 	}
 	
 	//method
-	private ITable<SchemaImplementation> getReferencedTableFromParametrizedPropertyType(
+	private ITable<SchemaImplementation> getRefReferencedTableFromParametrizedPropertyType(
 		final IParametrizedPropertyTypeDTO parametrizedPropertyType,
 		final IContainer<ITable<SchemaImplementation>> tables
 	) {
 		
 		final var baseParametrizedReferenceType = (IBaseParametrizedReferenceTypeDTO)parametrizedPropertyType;
 		
-		return tables.getRefFirst(t -> t.hasName(baseParametrizedReferenceType.getReferencedTableName()));
+		return tables.getRefFirst(t -> t.hasId(baseParametrizedReferenceType.getReferencedTableId()));
 	}
 	
 	//method

@@ -8,6 +8,20 @@ import ch.nolix.common.document.node.BaseNode;
 //class
 public final class DatabaseNodeSearcher {
 	
+	//static attribute
+	private static final TableNodeSearcher tableNodeSearcher = new TableNodeSearcher();
+	
+	//static attribute
+	private static final ColumnNodeSearcher columnNodeSearcher = new ColumnNodeSearcher();
+	
+	//method
+	public BaseNode getRefColumnNodeByColumnIdFromDatabaseNode(final BaseNode databaseNode, final String columnId) {
+		return
+		getRefTableNodesFromDatabaseNode(databaseNode)
+		.toFromMany(tableNodeSearcher::getRefColumnNodesFromTableNode)
+		.getRefFirst(cn -> columnNodeSearcher.getRefIdNodeFromColumnNode(cn).getRefOneAttribute().hasHeader(columnId));
+	}
+	
 	//method
 	public BaseNode getRefDatabasePropertiesNodeFromDatabaseNode(final BaseNode databaseNode) {
 		return databaseNode.getRefFirstAttribute(SubNodeHeaderCatalogue.DATABASE_PROPERTIES);

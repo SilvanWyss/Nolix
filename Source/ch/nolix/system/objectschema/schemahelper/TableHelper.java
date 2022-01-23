@@ -131,12 +131,6 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
 	
 	//method
 	@Override
-	public <IMPL> IColumn<IMPL> getRefColumnWithGivenName(final ITable<IMPL> table, final String name) {
-		return table.getRefColumns().getRefFirst(c -> c.hasName(name));
-	}
-	
-	//method
-	@Override
 	public <IMPL> LinkedList<IColumn<IMPL>> getRefReferencingColumns(final ITable<IMPL> table) {
 		
 		if (!table.belongsToDatabase()) {

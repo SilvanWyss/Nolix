@@ -10,13 +10,12 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 //enum
 public enum ColumnTableColumn implements Labeled {
 	ID(PascalCaseCatalogue.ID),
-	PARENT_TABLE("ParentTable"),
+	PARENT_TABLE_ID("ParentTableId"),
 	NAME(PascalCaseCatalogue.NAME),
 	PROPERTY_TYPE("PropertyType"),
 	DATA_TYPE(PascalCaseCatalogue.DATA_TYPE),
-	REFERENCED_TABLE("ReferencedTable"),
-	BACK_REFERENCED_TABLE("BackReferencedTable"),
-	BACK_REFERENCED_COLUM("BackReferencedColumn");
+	REFERENCED_TABLE_ID("ReferencedTableId"),
+	BACK_REFERENCED_COLUM_ID("BackReferencedColumnId");
 	
 	//attribute
 	private final String label;

@@ -7,33 +7,25 @@ public final class ParametrizedPropertyTypeRecord {
 	//attributes
 	private final String propertyTypeValue;
 	private final String dataTypeValue;
-	private final String referencedTableValue;
-	private final String backReferencedTableValue;
-	private final String backReferencedColumnValue;
+	private final String referencedTableIdValue;
+	private final String backReferencedColumnIdValue;
 	
 	//constructor
 	public ParametrizedPropertyTypeRecord(
 		final String propertyTypeValue,
 		final String dataTypeValue,
-		final String referencedTableValue,
-		final String backReferencedTableValue,
-		final String backReferencedColumnValue	
+		final String referencedTableIdValue,
+		final String backReferencedColumnIdValue	
 	) {
 		this.propertyTypeValue = propertyTypeValue;
 		this.dataTypeValue = dataTypeValue;
-		this.referencedTableValue = referencedTableValue;
-		this.backReferencedTableValue = backReferencedTableValue;
-		this.backReferencedColumnValue = backReferencedColumnValue;
+		this.referencedTableIdValue = referencedTableIdValue;
+		this.backReferencedColumnIdValue = backReferencedColumnIdValue;
 	}
 	
 	//method
-	public String getBackReferencedColumnValue() {
-		return backReferencedColumnValue;
-	}
-	
-	//method
-	public String getBackReferencedTableValue() {
-		return backReferencedTableValue;
+	public String getBackReferencedColumnIdValue() {
+		return backReferencedColumnIdValue;
 	}
 	
 	//method
@@ -47,7 +39,7 @@ public final class ParametrizedPropertyTypeRecord {
 	}
 	
 	//method
-	public String getReferencedTableValue() {
-		return referencedTableValue;
+	public String getReferencedTableIdValue() {
+		return referencedTableIdValue;
 	}
 }

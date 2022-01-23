@@ -41,8 +41,7 @@ public final class ParametrizedPropertyTypeRecordMapper {
 			"'" + baseParametrizedBackReferenceType.getPropertyType().toString() + "'",
 			"'" + baseParametrizedBackReferenceType.getDataTypeFullClassName() + "'",
 			SQLSyntaxCatalogue.NULL,
-			"'" + baseParametrizedBackReferenceType.getBackReferencedTableName() + "'",
-			"'" + baseParametrizedBackReferenceType.getBackReferencedColumnName() + "'"
+			"'" + baseParametrizedBackReferenceType.getBackReferencedColumnId() + "'"
 		);
 	}
 	
@@ -54,8 +53,7 @@ public final class ParametrizedPropertyTypeRecordMapper {
 		new ParametrizedPropertyTypeRecord(
 			"'" + baseParametrizedReferenceType.getPropertyType().toString() + "'",
 			"'" + baseParametrizedReferenceType.getDataTypeFullClassName() + "'",
-			"'" + baseParametrizedReferenceType.getReferencedTableName() + "'",
-			SQLSyntaxCatalogue.NULL,
+			"'" + baseParametrizedReferenceType.getReferencedTableId() + "'",
 			SQLSyntaxCatalogue.NULL
 		);
 	}
@@ -68,7 +66,6 @@ public final class ParametrizedPropertyTypeRecordMapper {
 		new ParametrizedPropertyTypeRecord(
 			"'" + baseParametrizedPropertyType.getPropertyType().toString() + "'",
 			"'" + baseParametrizedPropertyType.getDataTypeFullClassName() + "'",
-			SQLSyntaxCatalogue.NULL,
 			SQLSyntaxCatalogue.NULL,
 			SQLSyntaxCatalogue.NULL
 		);

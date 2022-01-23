@@ -142,11 +142,10 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 	//method
 	@Override
 	public final void setColumnParametrizedPropertyType(
-		final String tableName,
-		final String columnName,
+		final String columnId,
 		final IParametrizedPropertyTypeDTO parametrizedPropertyType
 	) {
-		rawSchemaWriter.setColumnParametrizedPropertyType(tableName, columnName, parametrizedPropertyType);
+		rawSchemaWriter.setColumnParametrizedPropertyType(columnId, parametrizedPropertyType);
 	}
 	
 	//method

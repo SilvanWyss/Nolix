@@ -28,8 +28,7 @@ public interface ISchemaWriter extends IChangeSaver {
 	
 	//method declaration
 	void setColumnParametrizedPropertyType(
-		String tableName,
-		String columnName,
+		String columnId,
 		IParametrizedPropertyTypeDTO parametrizedPropertyType
 	);
 	

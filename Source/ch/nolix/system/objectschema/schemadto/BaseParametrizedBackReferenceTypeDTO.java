@@ -13,16 +13,14 @@ public final class BaseParametrizedBackReferenceTypeDTO extends ParametrizedProp
 implements IBaseParametrizedBackReferenceTypeDTO {
 	
 	//attributes
-	private final String backReferencedTableName;
-	private final String backReferencedColumnName;
+	private final String backReferencedColumnId;
 	
 	//constructor
 	//For a better performance, this implementation does not use all comfortable methods.
 	public BaseParametrizedBackReferenceTypeDTO(
 		final PropertyType propertyType,
 		final String dataTypeFullClassName,
-		final String backReferencedTableName,
-		final String backReferencedColumnName
+		final String backReferencedColumnId
 	) {
 		
 		super(propertyType, dataTypeFullClassName);
@@ -31,27 +29,16 @@ implements IBaseParametrizedBackReferenceTypeDTO {
 			throw new InvalidArgumentException(propertyType);
 		}
 		
-		if (backReferencedTableName == null) {
-			throw new ArgumentIsNullException("back referenced table name");
+		if (backReferencedColumnId == null) {
+			throw new ArgumentIsNullException("back referenced column id");
 		}
 		
-		if (backReferencedColumnName == null) {
-			throw new ArgumentIsNullException("back referenced column name");
-		}
-		
-		this.backReferencedTableName = backReferencedTableName;
-		this.backReferencedColumnName = backReferencedColumnName;
+		this.backReferencedColumnId = backReferencedColumnId;
 	}
 	
 	//method
 	@Override
-	public String getBackReferencedColumnName() {
-		return backReferencedColumnName;
-	}
-	
-	//method
-	@Override
-	public String getBackReferencedTableName() {
-		return backReferencedTableName;
+	public String getBackReferencedColumnId() {
+		return backReferencedColumnId;
 	}
 }

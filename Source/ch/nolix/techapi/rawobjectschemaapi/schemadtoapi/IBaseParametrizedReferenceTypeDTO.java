@@ -5,5 +5,5 @@ package ch.nolix.techapi.rawobjectschemaapi.schemadtoapi;
 public interface IBaseParametrizedReferenceTypeDTO extends IParametrizedPropertyTypeDTO {
 	
 	//method declaration
-	String getReferencedTableName();
+	String getReferencedTableId();
 }

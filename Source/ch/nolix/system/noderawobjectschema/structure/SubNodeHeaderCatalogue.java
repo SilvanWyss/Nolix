@@ -18,9 +18,8 @@ public final class SubNodeHeaderCatalogue {
 	public static final String PARAMETRIZED_PROPERTY_TYPE = "ParametrizedPropertyType";
 	public static final String PROPERTY_TYPE = "PropertyType";
 	public static final String DATA_TYPE = PascalCaseCatalogue.DATA_TYPE;
-	public static final String REFERENCED_TABLE = "ReferencedTable";
-	public static final String BACK_REFERENCED_TABLE = "BackReferencedTable";
-	public static final String BACK_REFERENCED_COLUMN = "BackReferencedColumn";
+	public static final String REFERENCED_TABLE_ID = "ReferencedTableId";
+	public static final String BACK_REFERENCED_COLUMN_ID = "BackReferencedColumnId";
 	public static final String ID = PascalCaseCatalogue.ID;
 	public static final String SAVE_STAMP = PascalCaseCatalogue.SAVE_STAMP;
 	public static final String STRING = PascalCaseCatalogue.STRING;
