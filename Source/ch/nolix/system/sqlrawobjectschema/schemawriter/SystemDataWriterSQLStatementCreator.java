@@ -54,11 +54,11 @@ final class SystemDataWriterSQLStatementCreator {
 		+ ", "
 		+ ColumnTableColumn.BACK_REFERENCED_COLUM.getLabel()
 		+ ") VALUES ('"
-		+ "Id" //TODO: Complete.
+		+ column.getId()
 		+ "', '"
 		+ parentTableName
 		+ "', '"
-		+ column.getName()
+		+ column.getId()
 		+ "', "
 		+ parametrezidPropertyTypeRecord.getPropertyTypeValue()
 		+ ", "

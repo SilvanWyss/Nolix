@@ -1,11 +1,14 @@
 //package declaration
 package ch.nolix.system.objectschema.schema;
 
+import ch.nolix.common.constant.LowerCaseCatalogue;
 //own imports
 import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.data.GlobalIdCreator;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedPropertyType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedValueType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.SchemaImplementation;
@@ -42,6 +45,7 @@ public final class Column extends DatabaseObject implements IColumn<SchemaImplem
 	public static Column fromDTO(final IColumnDTO columnDTO, final IContainer<ITable<SchemaImplementation>> tables) {
 		return
 		new Column(
+			columnDTO.getId(),
 			columnDTO.getName(),
 			parametrizedPropertyTypeMapper.createParametrizedPropertyTypeFromDTO(
 				columnDTO.getParametrizedPropertyType(),
@@ -50,15 +54,36 @@ public final class Column extends DatabaseObject implements IColumn<SchemaImplem
 		);
 	}
 	
-	//attributes
+	//attribute
+	private final String id;
+	
+	//attribute
 	private String name = INITIAL_HEADER;
+	
+	//attribute
 	private IParametrizedPropertyType<SchemaImplementation, ?> parametrizedPropertyType = INITIAL_PROPERTY_TYPE;
 	
 	//optional attributes
 	private Table parentTable;
 	
 	//constructor
-	public Column(final String name, final IParametrizedPropertyType<SchemaImplementation, ?> parametrizedPropertyType) {
+	public Column(
+		final String name,
+		final IParametrizedPropertyType<SchemaImplementation, ?> parametrizedPropertyType
+	) {
+		this(GlobalIdCreator.createIdOf10HexadecimalCharacters(), name, parametrizedPropertyType);
+	}
+	
+	//constructor
+	private Column(
+		final String id,
+		final String name,
+		final IParametrizedPropertyType<SchemaImplementation, ?> parametrizedPropertyType
+	) {
+		
+		Validator.assertThat(id).thatIsNamed(LowerCaseCatalogue.ID).isNotBlank();
+		
+		this.id = id;
 		setName(name);
 		setParametrizedPropertyType(parametrizedPropertyType);
 	}
@@ -80,6 +105,12 @@ public final class Column extends DatabaseObject implements IColumn<SchemaImplem
 	@Override
 	public String getName() {
 		return name;
+	}
+	
+	//method
+	@Override
+	public String getId() {
+		return id;
 	}
 	
 	//method
@@ -139,9 +170,7 @@ public final class Column extends DatabaseObject implements IColumn<SchemaImplem
 	//method
 	@Override
 	public ColumnDTO toDTO() {
-		
-		//TODO: Complete.
-		return new ColumnDTO("Id", getName(), getParametrizedPropertyType().toDTO());
+		return new ColumnDTO(getId(), getName(), getParametrizedPropertyType().toDTO());
 	}
 	
 	//method

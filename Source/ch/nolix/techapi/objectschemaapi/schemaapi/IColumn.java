@@ -2,6 +2,7 @@
 package ch.nolix.techapi.objectschemaapi.schemaapi;
 
 //own imports
+import ch.nolix.common.attributeapi.mandatoryattributeapi.IdentifiedByString;
 import ch.nolix.common.attributeapi.mutablemandatoryattributeapi.Namable;
 import ch.nolix.common.programcontrol.groupcloseable.GroupCloseable;
 import ch.nolix.common.requestapi.EmptinessRequestable;
@@ -11,7 +12,7 @@ import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IColumnDTO;
 
 //interface
 public interface IColumn<IMPL>
-extends Deletable, EmptinessRequestable, GroupCloseable, IDatabaseObject, Namable<IColumn<IMPL>> {
+extends Deletable, EmptinessRequestable, GroupCloseable, IDatabaseObject, IdentifiedByString, Namable<IColumn<IMPL>> {
 	
 	//method declaration
 	boolean belongsToTable();

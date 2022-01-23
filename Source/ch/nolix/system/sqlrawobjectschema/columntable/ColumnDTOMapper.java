@@ -47,28 +47,24 @@ public final class ColumnDTOMapper {
 	
 	//method
 	private ColumnDTO createColumnDTOForBaseReference(final List<String> columnSystemTableRecord) {
-		
-		//TODO: Complete.
 		return
 		new ColumnDTO(
-			"Id",
 			columnSystemTableRecord.get(0),
+			columnSystemTableRecord.get(1),
 			new BaseParametrizedReferenceTypeDTO(
-				PropertyType.valueOf(columnSystemTableRecord.get(2)),
-				columnSystemTableRecord.get(3),
-				columnSystemTableRecord.get(4)
+				PropertyType.valueOf(columnSystemTableRecord.get(3)),
+				columnSystemTableRecord.get(4),
+				columnSystemTableRecord.get(5)
 			)
 		);
 	}
 	
 	//method
 	private ColumnDTO createColumnDTOForBaseValue(final List<String> columnSystemTableRecord) {
-		
-		//TODO: Complete.
 		return
 		new ColumnDTO(
-			"Id",
 			columnSystemTableRecord.get(0),
+			columnSystemTableRecord.get(1),
 			new BaseParametrizedValueTypeDTO(
 				PropertyType.valueOf(columnSystemTableRecord.get(2)),
 				columnSystemTableRecord.get(3)
