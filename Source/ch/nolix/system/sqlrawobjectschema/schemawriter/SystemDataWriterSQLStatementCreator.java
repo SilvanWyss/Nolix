@@ -214,7 +214,7 @@ final class SystemDataWriterSQLStatementCreator {
 		+ ", "
 		+ TableTableColumn.NAME.getLabel()
 		+ ") VALUES ("
-		+ "'MyId'" //TODO: Complete.
+		+ tableSystemTableRecord.getIdValue()
 		+ ", "
 		+ tableSystemTableRecord.getNameValue()
 		+ ")";
