@@ -12,7 +12,7 @@ public interface IDataReader {
 	LinkedList<ILoadedRecordDTO> loadAllRecordsFromTable(String tableName);
 	
 	//method declaration
-	LinkedList<Object> loadMultiFieldEntriesFromRecord(String tableName, String recordId, String multiFieldColumnName);
+	LinkedList<Object> loadMultiValueEntriesFromRecord(String tableName, String recordId, String multiValueColumnName);
 	
 	//method declaration
 	ILoadedRecordDTO loadRecordFromTableById(String tableName, String id);

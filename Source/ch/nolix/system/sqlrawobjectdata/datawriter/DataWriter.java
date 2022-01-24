@@ -29,20 +29,20 @@ public final class DataWriter implements IDataWriter {
 	
 	//method
 	@Override
-	public void deleteEntriesFromMultiField(
+	public void deleteEntriesFromMultiValue(
 		final String tableName,
 		final String recordId,
-		final String multiFieldColumn
+		final String multiValueColumnName
 	) {
 		//TODO: Implement.
 	}
 	
 	//method
 	@Override
-	public void deleteEntryFromMultiField(
+	public void deleteEntryFromMultiValue(
 		final String tableName,
 		final String recordId,
-		final String multiFieldColumn,
+		final String multiValueColumnName,
 		final String entry
 	) {
 		//TODO: Implement.
@@ -64,10 +64,10 @@ public final class DataWriter implements IDataWriter {
 	
 	//method
 	@Override
-	public void insertEntryIntoMultiField(
+	public void insertEntryIntoMultiValue(
 		final String tableName,
 		final String recordId,
-		final String multiFieldColumn,
+		final String multiValueColumnName,
 		final String entry
 	) {
 		//TODO: Implement.

@@ -34,34 +34,34 @@ public final class DataAdapter implements IDataAdapter {
 	
 	//method
 	@Override
-	public void deleteEntriesFromMultiField(
+	public void deleteEntriesFromMultiValue(
 		final String tableName,
 		final String recordId,
-		final String multiFieldColumn
+		final String multiValueColumnName
 	) {
-		dataWriter.deleteEntriesFromMultiField(tableName, recordId, multiFieldColumn);
+		dataWriter.deleteEntriesFromMultiValue(tableName, recordId, multiValueColumnName);
 	}
 	
 	//method
 	@Override
-	public void deleteEntryFromMultiField(
+	public void deleteEntryFromMultiValue(
+		final String tableName,
+		final String recordId,
+		final String multiValueColumnName,
+		final String entry
+	) {
+		dataWriter.deleteEntryFromMultiValue(tableName, recordId, multiValueColumnName, entry);
+	}
+	
+	//method
+	@Override
+	public void insertEntryIntoMultiValue(
 		final String tableName,
 		final String recordId,
 		final String multiFieldColumn,
 		final String entry
 	) {
-		dataWriter.deleteEntryFromMultiField(tableName, recordId, multiFieldColumn, entry);
-	}
-	
-	//method
-	@Override
-	public void insertEntryIntoMultiField(
-		final String tableName,
-		final String recordId,
-		final String multiFieldColumn,
-		final String entry
-	) {
-		dataWriter.insertEntryIntoMultiField(tableName, recordId, multiFieldColumn, entry);
+		dataWriter.insertEntryIntoMultiValue(tableName, recordId, multiFieldColumn, entry);
 	}
 	
 	//method
@@ -96,12 +96,12 @@ public final class DataAdapter implements IDataAdapter {
 	
 	//method
 	@Override
-	public LinkedList<Object> loadMultiFieldEntriesFromRecord(
+	public LinkedList<Object> loadMultiValueEntriesFromRecord(
 		final String tableName,
 		final String recordId,
 		final String multiFieldColumnName
 	) {
-		return dataReader.loadMultiFieldEntriesFromRecord(tableName, recordId, multiFieldColumnName);
+		return dataReader.loadMultiValueEntriesFromRecord(tableName, recordId, multiFieldColumnName);
 	}
 	
 	//method

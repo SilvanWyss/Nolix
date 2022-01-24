@@ -43,10 +43,10 @@ public final class DataReader implements IDataReader {
 	
 	//method
 	@Override
-	public LinkedList<Object> loadMultiFieldEntriesFromRecord(
+	public LinkedList<Object> loadMultiValueEntriesFromRecord(
 		final String tableName,
 		final String recordId,
-		final String multiFieldColumnName
+		final String multiValueColumnName
 	) {
 		//TODO: Implement.
 		return null;

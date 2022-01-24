@@ -55,23 +55,23 @@ public abstract class DataAndSchemaAdapter implements IDataAndSchemaAdapter {
 	
 	//method
 	@Override
-	public final void deleteEntriesFromMultiField(
+	public final void deleteEntriesFromMultiValue(
 		final String tableName,
 		final String recordId,
-		final String multiFieldColumn
+		final String multiValueColumnName
 	) {
-		dataWriter.deleteEntriesFromMultiField(tableName, recordId, multiFieldColumn);
+		dataWriter.deleteEntriesFromMultiValue(tableName, recordId, multiValueColumnName);
 	}
 	
 	//method
 	@Override
-	public final void deleteEntryFromMultiField(
+	public final void deleteEntryFromMultiValue(
 		final String tableName,
 		final String recordId,
-		final String multiFieldColumn,
+		final String multiValueColumnName,
 		final String entry
 	) {
-		dataWriter.deleteEntryFromMultiField(tableName, recordId, multiFieldColumn, entry);
+		dataWriter.deleteEntryFromMultiValue(tableName, recordId, multiValueColumnName, entry);
 	}
 	
 	//method
@@ -88,13 +88,13 @@ public abstract class DataAndSchemaAdapter implements IDataAndSchemaAdapter {
 	
 	//method
 	@Override
-	public final void insertEntryIntoMultiField(
+	public final void insertEntryIntoMultiValue(
 		final String tableName,
 		final String recordId,
-		final String multiFieldColumn,
+		final String multiValueColumnName,
 		final String entry
 	) {
-		dataWriter.insertEntryIntoMultiField(tableName, recordId, multiFieldColumn, entry);
+		dataWriter.insertEntryIntoMultiValue(tableName, recordId, multiValueColumnName, entry);
 	}
 	
 	//method
@@ -141,12 +141,12 @@ public abstract class DataAndSchemaAdapter implements IDataAndSchemaAdapter {
 	
 	//method
 	@Override
-	public final LinkedList<Object> loadMultiFieldEntriesFromRecord(
+	public final LinkedList<Object> loadMultiValueEntriesFromRecord(
 		final String tableName,
 		final String recordId,
 		final String multiFieldColumnName
 	) {
-		return dataReader.loadMultiFieldEntriesFromRecord(tableName, recordId, multiFieldColumnName);
+		return dataReader.loadMultiValueEntriesFromRecord(tableName, recordId, multiFieldColumnName);
 	}
 	
 	//method
