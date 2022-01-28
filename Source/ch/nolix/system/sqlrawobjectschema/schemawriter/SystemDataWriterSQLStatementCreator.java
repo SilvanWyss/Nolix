@@ -36,7 +36,7 @@ final class SystemDataWriterSQLStatementCreator {
 		
 		return
 	    "INSERT INTO "
-		+ SystemDataTable.COLUMN.getNameWithPrefix()
+		+ SystemDataTable.COLUMN.getFullName()
 		+ " ("
 		+ ColumnTableColumn.ID.getLabel()
 		+ ", "
@@ -54,7 +54,7 @@ final class SystemDataWriterSQLStatementCreator {
 		+ ") SELECT '"
 		+ column.getId()
 		+ "', "
-		+ SystemDataTable.TABLE.getNameWithPrefix()
+		+ SystemDataTable.TABLE.getFullName()
 		+ "."
 		+ TableTableColumn.ID.getLabel()
 		+ ", '"
@@ -68,9 +68,9 @@ final class SystemDataWriterSQLStatementCreator {
 		+ ", "
 		+ parametrezidPropertyTypeRecord.getBackReferencedColumnIdValue()
 		+ " FROM "
-		+ SystemDataTable.TABLE.getNameWithPrefix()
+		+ SystemDataTable.TABLE.getFullName()
 		+ " WHERE "
-		+ SystemDataTable.TABLE.getNameWithPrefix()
+		+ SystemDataTable.TABLE.getFullName()
 		+ "."
 		+ TableTableColumn.NAME.getLabel()
 		+ " = '"
@@ -96,7 +96,7 @@ final class SystemDataWriterSQLStatementCreator {
 	public String createStatementToDeleteColumn(final String tableName, final String columnName) {
 		return
 		"DELETE FROM "
-		+ SystemDataTable.COLUMN.getNameWithPrefix()
+		+ SystemDataTable.COLUMN.getFullName()
 		+ " WHERE "
 		+ ColumnTableColumn.PARENT_TABLE_ID.getLabel()
 		+ " = "
@@ -112,7 +112,7 @@ final class SystemDataWriterSQLStatementCreator {
 	public String createStatementToDeleteTable(final String tableName) {
 		return 
 		"DELETE FROM "
-		+ SystemDataTable.TABLE.getNameWithPrefix()
+		+ SystemDataTable.TABLE.getFullName()
 		+ " WHERE "
 		+ TableTableColumn.NAME
 		+ " = '"
@@ -124,7 +124,7 @@ final class SystemDataWriterSQLStatementCreator {
 	public String createStatementToSetColumnName(String tableName, String columnName, String newColumnName) {
 		return
 	    "UPDATE "
-		+ SystemDataTable.COLUMN.getNameWithPrefix()
+		+ SystemDataTable.COLUMN.getFullName()
 		+ " SET "
 		+ ColumnTableColumn.NAME
 		+ " = '"
@@ -151,7 +151,7 @@ final class SystemDataWriterSQLStatementCreator {
 		
 		return
 		"UPDATE "
-		+ SystemDataTable.COLUMN.getNameWithPrefix()
+		+ SystemDataTable.COLUMN.getFullName()
 		+ " SET "
 		+ ColumnTableColumn.DATA_TYPE
 		+ " = "
@@ -175,7 +175,7 @@ final class SystemDataWriterSQLStatementCreator {
 	public String createStatementToSetSchemaTimestamp(Time schemaTimestamp) {
 		return
 		"UPDATE "
-		+ SystemDataTable.DATABASE_PROPERTY.getNameWithPrefix()
+		+ SystemDataTable.DATABASE_PROPERTY.getFullName()
 		+ " SET "
 		+ DatabasePropertySystemTableColumn.VALUE.getLabel()
 		+ " = '"
@@ -190,7 +190,7 @@ final class SystemDataWriterSQLStatementCreator {
 	public String createStatementToSetTableName(String tableName, String newTableName) {
 		return
 		"UPDATE "
-		+ SystemDataTable.TABLE.getNameWithPrefix()
+		+ SystemDataTable.TABLE.getFullName()
 		+ " SET "
 		+ TableTableColumn.NAME.getLabel()
 		+ " = '"
@@ -209,7 +209,7 @@ final class SystemDataWriterSQLStatementCreator {
 		
 		return
 	    "INSERT INTO "
-		+ SystemDataTable.TABLE.getNameWithPrefix()
+		+ SystemDataTable.TABLE.getFullName()
 		+ " ("
 		+ TableTableColumn.ID.getLabel()
 		+ ", "

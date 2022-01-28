@@ -29,7 +29,7 @@ final class QueryCreator {
 		+ ", "
 		+ ColumnTableColumn.BACK_REFERENCED_COLUM_ID.getLabel()
 		+ " FROM "
-		+ SystemDataTable.COLUMN.getNameWithPrefix()
+		+ SystemDataTable.COLUMN.getFullName()
 		+ " WHERE "
 		+ ColumnTableColumn.PARENT_TABLE_ID.getLabel()
 		+ " = '"
@@ -55,7 +55,7 @@ final class QueryCreator {
 		+ ", "
 		+ ColumnTableColumn.BACK_REFERENCED_COLUM_ID.getLabel()
 		+ " FROM "
-		+ SystemDataTable.COLUMN.getNameWithPrefix()
+		+ SystemDataTable.COLUMN.getFullName()
 		+ " WHERE "
 		+ ColumnTableColumn.PARENT_TABLE_ID.getLabel()
 		+ " = '"
@@ -71,7 +71,7 @@ final class QueryCreator {
 		+ ", "
 		+ TableTableColumn.NAME.getLabel()
 		+ " FROM "
-		+ SystemDataTable.TABLE.getNameWithPrefix()
+		+ SystemDataTable.TABLE.getFullName()
 		+ " WHERE "
 		+ TableTableColumn.ID.getLabel()
 		+ " = '"
@@ -87,7 +87,7 @@ final class QueryCreator {
 		+ ", "
 		+ TableTableColumn.NAME.getLabel()
 		+ " FROM "
-		+ SystemDataTable.TABLE.getNameWithPrefix()
+		+ SystemDataTable.TABLE.getFullName()
 		+ " WHERE "
 		+ TableTableColumn.NAME.getLabel()
 		+ " = '"
@@ -103,7 +103,7 @@ final class QueryCreator {
 		+ ", "
 		+ TableTableColumn.NAME.getLabel()
 		+ " FROM "
-		+ SystemDataTable.TABLE.getNameWithPrefix();
+		+ SystemDataTable.TABLE.getFullName();
 	}
 	
 	//method
@@ -112,7 +112,7 @@ final class QueryCreator {
 		"SELECT "
 		+ DatabasePropertySystemTableColumn.VALUE.getLabel()
 		+ " FROM "
-		+ SystemDataTable.DATABASE_PROPERTY.getNameWithPrefix()
+		+ SystemDataTable.DATABASE_PROPERTY.getFullName()
 		+ " WHERE "
 		+ DatabasePropertySystemTableColumn.KEY.getLabel()
 		+ " = "

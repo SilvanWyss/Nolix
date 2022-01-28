@@ -11,7 +11,7 @@ public final class DatabaseSchemaInspector {
 	//method
 	public DatabaseSchemaState getDatabaseSchemaState(final ISchemaAdapter schemaAdapter) {
 		
-		if (schemaAdapter.tableExists(SystemDataTable.DATABASE_PROPERTY.getNameWithPrefix())) {
+		if (schemaAdapter.tableExists(SystemDataTable.DATABASE_PROPERTY.getFullName())) {
 			return DatabaseSchemaState.INITIALIZED;
 		}
 		

@@ -25,7 +25,7 @@ public final class TableTableSQLDTOCatalogue {
 	
 	//constant
 	public static final ITableDTO TABLE_TABLE_SQL_DTO =
-	new TableDTO(SystemDataTable.TABLE.getNameWithPrefix(), ID_COLUMN_SQL_DTO, NAME_COLUMN_SQL_DTO);
+	new TableDTO(SystemDataTable.TABLE.getFullName(), ID_COLUMN_SQL_DTO, NAME_COLUMN_SQL_DTO);
 	
 	//constructor
 	private TableTableSQLDTOCatalogue() {}

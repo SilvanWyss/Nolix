@@ -2,13 +2,13 @@
 package ch.nolix.system.sqlrawobjectschema.structure;
 
 //own imports
-import ch.nolix.common.attributeapi.mandatoryattributeapi.Named;
+import ch.nolix.common.attributeapi.mandatoryattributeapi.FullNamed;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.constant.PascalCaseCatalogue;
 import ch.nolix.common.errorcontrol.validator.Validator;
 
 //enum
-public enum SystemDataTable implements Named {
+public enum SystemDataTable implements FullNamed {
 	DATABASE_PROPERTY("DatabaseProperty"),
 	TABLE(PascalCaseCatalogue.TABLE),
 	COLUMN(PascalCaseCatalogue.COLUMN);
@@ -31,12 +31,7 @@ public enum SystemDataTable implements Named {
 	}
 	
 	//method
-	public String getNameWithPrefix() {
-		return (getPrefix() + getName());
-	}
-	
-	//method
-	public String getPrefix() {
+	public String getNamePrefix() {
 		return TableType.SYSTEM_DATA.getNamePrefix();
 	}
 }

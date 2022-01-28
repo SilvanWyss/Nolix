@@ -44,7 +44,7 @@ public final class ColumnTableSQLDTOCatalogue {
 	//constant
 	public static final ITableDTO COLUMN_TABLE_SQL_DTO =
 	new TableDTO(
-		SystemDataTable.COLUMN.getNameWithPrefix(),
+		SystemDataTable.COLUMN.getFullName(),
 		ID_SQL_DTO,
 		PARENT_TABLE_ID_SQL_DTO,
 		NAME_SQL_DTO,
