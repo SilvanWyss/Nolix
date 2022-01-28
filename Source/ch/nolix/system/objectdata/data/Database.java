@@ -5,10 +5,10 @@ import ch.nolix.common.container.IContainer;
 //own imports
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.techapi.objectdataapi.dataapi.IDatabase;
-import ch.nolix.techapi.objectdataapi.dataapi.IEntity;
-import ch.nolix.techapi.objectdataapi.dataapi.ITable;
-import ch.nolix.techapi.rawobjectdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
+import ch.nolix.systemapi.objectdataapi.dataapi.IDatabase;
+import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
+import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
+import ch.nolix.systemapi.rawobjectdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
 
 //class
 public final class Database extends ImmutableDatabaseObject implements IDatabase<DataImplementation> {

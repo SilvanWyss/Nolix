@@ -8,13 +8,13 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.system.objectdata.datahelper.EntityHelper;
 import ch.nolix.system.objectdata.datahelper.TableHelper;
-import ch.nolix.techapi.objectdataapi.dataapi.IDatabase;
-import ch.nolix.techapi.objectdataapi.dataapi.IEntity;
-import ch.nolix.techapi.objectdataapi.dataapi.ITable;
-import ch.nolix.techapi.objectdataapi.datahelperapi.IEntityHelper;
-import ch.nolix.techapi.objectdataapi.datahelperapi.ITableHelper;
-import ch.nolix.techapi.rawobjectdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
-import ch.nolix.techapi.rawobjectdataapi.datadtoapi.ILoadedRecordDTO;
+import ch.nolix.systemapi.objectdataapi.dataapi.IDatabase;
+import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
+import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
+import ch.nolix.systemapi.objectdataapi.datahelperapi.IEntityHelper;
+import ch.nolix.systemapi.objectdataapi.datahelperapi.ITableHelper;
+import ch.nolix.systemapi.rawobjectdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.ILoadedRecordDTO;
 
 //class
 public final class Table<E extends IEntity<DataImplementation>> extends ImmutableDatabaseObject

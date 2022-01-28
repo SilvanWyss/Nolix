@@ -14,7 +14,7 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotBelo
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.reflectionhelper.GlobalReflectionHelper;
 import ch.nolix.element.elementapi.IElement;
-import ch.nolix.techapi.databaseapi.propertytypeapi.PropertyType;
+import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 
 //class
 public abstract class Property<V> implements Named, IElement<Property<V>> {

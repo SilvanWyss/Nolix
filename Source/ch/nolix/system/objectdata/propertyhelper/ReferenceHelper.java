@@ -5,10 +5,10 @@ package ch.nolix.system.objectdata.propertyhelper;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.sqlrawobjectdata.datadto.ContentFieldDTO;
 import ch.nolix.system.sqlrawobjectdata.datadto.RecordUpdateDTO;
-import ch.nolix.techapi.objectdataapi.dataapi.IEntity;
-import ch.nolix.techapi.objectdataapi.dataapi.IReference;
-import ch.nolix.techapi.objectdataapi.propertyhelperapi.IReferenceHelper;
-import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
+import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
+import ch.nolix.systemapi.objectdataapi.dataapi.IReference;
+import ch.nolix.systemapi.objectdataapi.propertyhelperapi.IReferenceHelper;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
 
 //class
 public final class ReferenceHelper extends PropertyHelper implements IReferenceHelper {

@@ -6,11 +6,11 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.element.time.base.Time;
 import ch.nolix.system.objectschema.parametrizedpropertytype.SchemaImplementation;
-import ch.nolix.techapi.objectschemaapi.schemaapi.IColumn;
-import ch.nolix.techapi.objectschemaapi.schemaapi.ITable;
-import ch.nolix.techapi.rawobjectschemaapi.flatschemadtoapi.IFlatTableDTO;
-import ch.nolix.techapi.rawobjectschemaapi.schemaadapterapi.ISchemaReader;
-import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IColumnDTO;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
+import ch.nolix.systemapi.rawobjectschemaapi.flatschemadtoapi.IFlatTableDTO;
+import ch.nolix.systemapi.rawobjectschemaapi.schemaadapterapi.ISchemaReader;
+import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.IColumnDTO;
 
 //class
 final class RawSchemaReader {

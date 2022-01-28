@@ -4,9 +4,9 @@ package ch.nolix.system.objectdata.datahelper;
 //own imports
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.database.databaseobjecthelper.DatabaseObjectHelper;
-import ch.nolix.techapi.objectdataapi.dataapi.IEntity;
-import ch.nolix.techapi.objectdataapi.dataapi.ITable;
-import ch.nolix.techapi.objectdataapi.datahelperapi.ITableHelper;
+import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
+import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
+import ch.nolix.systemapi.objectdataapi.datahelperapi.ITableHelper;
 
 //class
 public final class TableHelper extends DatabaseObjectHelper implements ITableHelper {

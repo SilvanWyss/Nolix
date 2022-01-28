@@ -4,9 +4,9 @@ package ch.nolix.system.objectschema.schemahelper;
 //own imports
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.database.databaseobjecthelper.DatabaseObjectHelper;
-import ch.nolix.techapi.objectschemaapi.schemaapi.IDatabase;
-import ch.nolix.techapi.objectschemaapi.schemaapi.IDatabaseEngine;
-import ch.nolix.techapi.objectschemaapi.schemahelperapi.IDatabaseEngineHelper;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IDatabase;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IDatabaseEngine;
+import ch.nolix.systemapi.objectschemaapi.schemahelperapi.IDatabaseEngineHelper;
 
 //class
 public final class DatabaseEngineHelper extends DatabaseObjectHelper implements IDatabaseEngineHelper {

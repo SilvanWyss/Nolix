@@ -4,8 +4,8 @@ package ch.nolix.system.objectschema.schemadto;
 //own imports
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IColumnDTO;
-import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
+import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.IColumnDTO;
+import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
 
 //class
 public final class ColumnDTO implements IColumnDTO {

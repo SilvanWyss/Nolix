@@ -4,7 +4,7 @@ package ch.nolix.system.sqlrawobjectdata.datadto;
 //own imports
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IContentFieldDTO;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IContentFieldDTO;
 
 //class
 public final class ContentFieldDTO implements IContentFieldDTO {

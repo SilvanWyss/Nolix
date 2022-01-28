@@ -4,10 +4,10 @@ package ch.nolix.system.objectdata.data;
 //own imports
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.techapi.objectdataapi.dataapi.IColumn;
-import ch.nolix.techapi.objectdataapi.dataapi.IEntity;
-import ch.nolix.techapi.objectdataapi.dataapi.IParametrizedPropertyType;
-import ch.nolix.techapi.objectdataapi.dataapi.ITable;
+import ch.nolix.systemapi.objectdataapi.dataapi.IColumn;
+import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
+import ch.nolix.systemapi.objectdataapi.dataapi.IParametrizedPropertyType;
+import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 
 //class
 public final class Column extends ImmutableDatabaseObject implements IColumn<DataImplementation> {

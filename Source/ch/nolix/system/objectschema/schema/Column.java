@@ -14,11 +14,11 @@ import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedValueTy
 import ch.nolix.system.objectschema.parametrizedpropertytype.SchemaImplementation;
 import ch.nolix.system.objectschema.schemadto.ColumnDTO;
 import ch.nolix.system.objectschema.schemahelper.ColumnHelper;
-import ch.nolix.techapi.objectschemaapi.schemaapi.IColumn;
-import ch.nolix.techapi.objectschemaapi.schemaapi.IParametrizedPropertyType;
-import ch.nolix.techapi.objectschemaapi.schemaapi.ITable;
-import ch.nolix.techapi.objectschemaapi.schemahelperapi.IColumnHelper;
-import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IColumnDTO;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IParametrizedPropertyType;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
+import ch.nolix.systemapi.objectschemaapi.schemahelperapi.IColumnHelper;
+import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.IColumnDTO;
 
 //class
 public final class Column extends DatabaseObject implements IColumn<SchemaImplementation> {

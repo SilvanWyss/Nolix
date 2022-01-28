@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.system.objectdata.dataadapter} packages implements
- * the types that are declared in the {@link ch.nolix.techapi.objectdataapi.dataadapterapi} package.
+ * the types that are declared in the {@link ch.nolix.systemapi.objectdataapi.dataadapterapi} package.
  * 
  * @author Silvan Wyss
  * @date 2021-11-02

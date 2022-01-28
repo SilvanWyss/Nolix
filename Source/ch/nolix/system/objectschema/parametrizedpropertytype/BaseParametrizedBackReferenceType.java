@@ -5,13 +5,13 @@ package ch.nolix.system.objectschema.parametrizedpropertytype;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectschema.schemadto.BaseParametrizedBackReferenceTypeDTO;
-import ch.nolix.techapi.databaseapi.propertytypeapi.BasePropertyType;
-import ch.nolix.techapi.objectschemaapi.schemaapi.IBaseParametrizedBackReferenceType;
-import ch.nolix.techapi.objectschemaapi.schemaapi.IBaseParametrizedReferenceType;
-import ch.nolix.techapi.objectschemaapi.schemaapi.IBaseParametrizedValueType;
-import ch.nolix.techapi.objectschemaapi.schemaapi.IColumn;
-import ch.nolix.techapi.objectschemaapi.schemaapi.ITable;
-import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
+import ch.nolix.systemapi.databaseapi.propertytypeapi.BasePropertyType;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseParametrizedBackReferenceType;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseParametrizedReferenceType;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseParametrizedValueType;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
+import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
 
 //class
 public abstract class BaseParametrizedBackReferenceType extends ParametrizedPropertyType<String>

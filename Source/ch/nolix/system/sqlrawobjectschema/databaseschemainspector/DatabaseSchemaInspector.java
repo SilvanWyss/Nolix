@@ -2,8 +2,8 @@
 package ch.nolix.system.sqlrawobjectschema.databaseschemainspector;
 
 import ch.nolix.system.sqlrawobjectschema.structure.SystemDataTable;
-import ch.nolix.techapi.objectschemaapi.schemaapi.DatabaseSchemaState;
-import ch.nolix.techapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.DatabaseSchemaState;
+import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //class
 public final class DatabaseSchemaInspector {

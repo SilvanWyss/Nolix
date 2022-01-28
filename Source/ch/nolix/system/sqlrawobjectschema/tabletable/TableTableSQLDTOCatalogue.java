@@ -6,8 +6,8 @@ import ch.nolix.system.sqlrawobjectschema.structure.SQLDatatypeCatalogue;
 import ch.nolix.system.sqlrawobjectschema.structure.SystemDataTable;
 import ch.nolix.system.sqlschema.schemadto.ColumnDTO;
 import ch.nolix.system.sqlschema.schemadto.TableDTO;
-import ch.nolix.techapi.sqlschemaapi.schemadtoapi.IColumnDTO;
-import ch.nolix.techapi.sqlschemaapi.schemadtoapi.ITableDTO;
+import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDTO;
+import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.ITableDTO;
 
 //class
 public final class TableTableSQLDTOCatalogue {

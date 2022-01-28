@@ -2,8 +2,7 @@
 package ch.nolix.system.objectschema.schema;
 
 import ch.nolix.system.objectschema.parametrizedpropertytype.SchemaImplementation;
-//own imports
-import ch.nolix.techapi.objectschemaapi.schemaapi.IParametrizedPropertyType;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IParametrizedPropertyType;
 
 //class
 final class ColumnMutationExecutor {

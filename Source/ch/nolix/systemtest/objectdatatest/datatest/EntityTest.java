@@ -5,7 +5,7 @@ package ch.nolix.systemtest.objectdatatest.datatest;
 import ch.nolix.common.testing.basetest.TestCase;
 import ch.nolix.common.testing.test.Test;
 import ch.nolix.system.objectdata.data.Entity;
-import ch.nolix.techapi.databaseapi.databaseobjectapi.DatabaseObjectState;
+import ch.nolix.systemapi.databaseapi.databaseobjectapi.DatabaseObjectState;
 
 //class
 public final class EntityTest extends Test {

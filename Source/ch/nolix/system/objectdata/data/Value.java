@@ -3,9 +3,9 @@ package ch.nolix.system.objectdata.data;
 
 //own imports
 import ch.nolix.system.objectdata.propertyhelper.ValueHelper;
-import ch.nolix.techapi.databaseapi.propertytypeapi.PropertyType;
-import ch.nolix.techapi.objectdataapi.dataapi.IValue;
-import ch.nolix.techapi.objectdataapi.propertyhelperapi.IValueHelper;
+import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
+import ch.nolix.systemapi.objectdataapi.dataapi.IValue;
+import ch.nolix.systemapi.objectdataapi.propertyhelperapi.IValueHelper;
 
 //class
 public final class Value<V> extends BaseValue<V> implements IValue<DataImplementation, V> {

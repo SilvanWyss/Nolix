@@ -8,11 +8,11 @@ import ch.nolix.element.time.base.Time;
 import ch.nolix.system.sqlrawobjectschema.databaseinitializer.DatabaseInitializer;
 import ch.nolix.system.sqlrawobjectschema.schemareader.SchemaReader;
 import ch.nolix.system.sqlrawobjectschema.schemawriter.SchemaWriter;
-import ch.nolix.techapi.rawobjectschemaapi.flatschemadtoapi.IFlatTableDTO;
-import ch.nolix.techapi.rawobjectschemaapi.schemaadapterapi.ISchemaAdapter;
-import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IColumnDTO;
-import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
-import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.ITableDTO;
+import ch.nolix.systemapi.rawobjectschemaapi.flatschemadtoapi.IFlatTableDTO;
+import ch.nolix.systemapi.rawobjectschemaapi.schemaadapterapi.ISchemaAdapter;
+import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.IColumnDTO;
+import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
+import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.ITableDTO;
 
 //class
 public abstract class SchemaAdapter implements ISchemaAdapter {
@@ -27,8 +27,8 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 	//constructor
 	public SchemaAdapter(
 		final SQLConnection pSQLConnection,
-		final ch.nolix.techapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter pSQLSchemaAdapter,
-		final ch.nolix.techapi.sqlschemaapi.schemadtoapi.IColumnDTO pSQLSaveStampColumnDTO
+		final ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter pSQLSchemaAdapter,
+		final ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDTO pSQLSaveStampColumnDTO
 	) {
 		
 		databaseInitializer.initializeDatabaseIfNotInitialized(pSQLSchemaAdapter);

@@ -16,7 +16,7 @@ import ch.nolix.element.gui.widget.Widget;
 import ch.nolix.system.database.databaseadapter.EntitySet;
 import ch.nolix.system.database.entity.Entity;
 import ch.nolix.system.database.entity.Reference;
-import ch.nolix.techapi.databaseapi.propertytypeapi.PropertyType;
+import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 
 //class
 public final class EntitySetSession extends HeaderedSession {

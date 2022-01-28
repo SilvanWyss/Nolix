@@ -6,10 +6,10 @@ import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.sql.SQLConnection;
 import ch.nolix.element.time.base.Time;
-import ch.nolix.techapi.rawobjectschemaapi.schemaadapterapi.ISchemaWriter;
-import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IColumnDTO;
-import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
-import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.ITableDTO;
+import ch.nolix.systemapi.rawobjectschemaapi.schemaadapterapi.ISchemaWriter;
+import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.IColumnDTO;
+import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
+import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.ITableDTO;
 
 //class
 public final class SchemaWriter implements ISchemaWriter {
@@ -22,8 +22,8 @@ public final class SchemaWriter implements ISchemaWriter {
 	//constructor
 	public SchemaWriter(
 		final SQLConnection pSQLConnection,
-		final ch.nolix.techapi.sqlschemaapi.schemaadapterapi.ISchemaWriter schemaWriter,
-		final ch.nolix.techapi.sqlschemaapi.schemadtoapi.IColumnDTO pSQLSaveStampColumnDTO
+		final ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaWriter schemaWriter,
+		final ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDTO pSQLSaveStampColumnDTO
 	) {
 		
 		Validator.assertThat(pSQLConnection).thatIsNamed(SQLConnection.class).isNotNull();

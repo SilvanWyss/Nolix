@@ -3,10 +3,10 @@ package ch.nolix.system.objectdata.data;
 
 //own imports
 import ch.nolix.common.reflectionhelper.GlobalClassHelper;
-import ch.nolix.techapi.objectdataapi.dataapi.IEntity;
-import ch.nolix.techapi.objectdataapi.dataapi.ITable;
-import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IContentFieldDTO;
-import ch.nolix.techapi.rawobjectdataapi.datadtoapi.ILoadedRecordDTO;
+import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
+import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IContentFieldDTO;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.ILoadedRecordDTO;
 
 //class
 final class EntityMapper {

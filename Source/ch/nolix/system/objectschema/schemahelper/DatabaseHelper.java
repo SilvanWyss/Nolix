@@ -7,12 +7,12 @@ import ch.nolix.common.container.IContainer;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.database.databaseobjecthelper.DatabaseObjectHelper;
-import ch.nolix.techapi.objectschemaapi.schemaapi.IColumn;
-import ch.nolix.techapi.objectschemaapi.schemaapi.IDatabase;
-import ch.nolix.techapi.objectschemaapi.schemaapi.ITable;
-import ch.nolix.techapi.objectschemaapi.schemahelperapi.IColumnHelper;
-import ch.nolix.techapi.objectschemaapi.schemahelperapi.IDatabaseHelper;
-import ch.nolix.techapi.objectschemaapi.schemahelperapi.ITableHelper;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IDatabase;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
+import ch.nolix.systemapi.objectschemaapi.schemahelperapi.IColumnHelper;
+import ch.nolix.systemapi.objectschemaapi.schemahelperapi.IDatabaseHelper;
+import ch.nolix.systemapi.objectschemaapi.schemahelperapi.ITableHelper;
 
 //class
 public final class DatabaseHelper extends DatabaseObjectHelper implements IDatabaseHelper{

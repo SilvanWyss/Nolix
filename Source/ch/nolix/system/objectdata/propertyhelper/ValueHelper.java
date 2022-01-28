@@ -5,9 +5,9 @@ package ch.nolix.system.objectdata.propertyhelper;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.sqlrawobjectdata.datadto.ContentFieldDTO;
 import ch.nolix.system.sqlrawobjectdata.datadto.RecordUpdateDTO;
-import ch.nolix.techapi.objectdataapi.dataapi.IValue;
-import ch.nolix.techapi.objectdataapi.propertyhelperapi.IValueHelper;
-import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
+import ch.nolix.systemapi.objectdataapi.dataapi.IValue;
+import ch.nolix.systemapi.objectdataapi.propertyhelperapi.IValueHelper;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
 
 //class
 public final class ValueHelper extends PropertyHelper implements IValueHelper {

@@ -3,7 +3,7 @@ package ch.nolix.system.objectschema.schema;
 
 //own imports
 import ch.nolix.system.objectschema.schemahelper.TableHelper;
-import ch.nolix.techapi.objectschemaapi.schemahelperapi.ITableHelper;
+import ch.nolix.systemapi.objectschemaapi.schemahelperapi.ITableHelper;
 
 //class
 final class TableMutationExecutor {

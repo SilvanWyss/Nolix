@@ -3,10 +3,10 @@ package ch.nolix.system.objectdata.data;
 
 //own imports
 import ch.nolix.system.objectdata.datahelper.SchemaHelper;
-import ch.nolix.techapi.objectdataapi.dataapi.IEntity;
-import ch.nolix.techapi.objectdataapi.dataapi.ITable;
-import ch.nolix.techapi.objectdataapi.datahelperapi.ISchemaHelper;
-import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.ITableDTO;
+import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
+import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
+import ch.nolix.systemapi.objectdataapi.datahelperapi.ISchemaHelper;
+import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.ITableDTO;
 
 //class
 final class TableMapper {

@@ -10,17 +10,17 @@ import ch.nolix.system.sqlrawobjectdata.datawriter.DataWriter;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IRecordQueryCreator;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IRecordStatementCreator;
 import ch.nolix.system.sqlrawobjectschema.schemareader.SchemaReader;
-import ch.nolix.techapi.rawobjectdataapi.dataadapterapi.IDataReader;
-import ch.nolix.techapi.rawobjectdataapi.dataadapterapi.IDataWriter;
-import ch.nolix.techapi.rawobjectdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
-import ch.nolix.techapi.rawobjectdataapi.datadtoapi.ILoadedRecordDTO;
-import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IRecordDTO;
-import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IRecordDeletionDTO;
-import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
-import ch.nolix.techapi.rawobjectschemaapi.flatschemadtoapi.IFlatTableDTO;
-import ch.nolix.techapi.rawobjectschemaapi.schemaadapterapi.ISchemaAdapter;
-import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IColumnDTO;
-import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.ITableDTO;
+import ch.nolix.systemapi.rawobjectdataapi.dataadapterapi.IDataReader;
+import ch.nolix.systemapi.rawobjectdataapi.dataadapterapi.IDataWriter;
+import ch.nolix.systemapi.rawobjectdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.ILoadedRecordDTO;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDTO;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDeletionDTO;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
+import ch.nolix.systemapi.rawobjectschemaapi.flatschemadtoapi.IFlatTableDTO;
+import ch.nolix.systemapi.rawobjectschemaapi.schemaadapterapi.ISchemaAdapter;
+import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.IColumnDTO;
+import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.ITableDTO;
 
 //class
 public abstract class DataAndSchemaAdapter implements IDataAndSchemaAdapter {
@@ -40,7 +40,7 @@ public abstract class DataAndSchemaAdapter implements IDataAndSchemaAdapter {
 		final ISchemaAdapter schemaAdapter,
 		final IRecordQueryCreator recordQueryCreator,
 		final IRecordStatementCreator recordStatementCreator,
-		final ch.nolix.techapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter pSQLSchemaAdapter
+		final ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter pSQLSchemaAdapter
 	) {
 		dataReader = new DataReader(pSQLConnection, schemaAdapter, recordQueryCreator);
 		dataWriter = new DataWriter(pSQLConnection, recordStatementCreator);

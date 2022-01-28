@@ -5,14 +5,14 @@ package ch.nolix.system.sqlschema.schemaadapter;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.sql.SQLConnection;
-import ch.nolix.techapi.sqlschemaapi.flatschemadtoapi.IFlatTableDTO;
-import ch.nolix.techapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter;
-import ch.nolix.techapi.sqlschemaapi.schemaadapterapi.ISchemaReader;
-import ch.nolix.techapi.sqlschemaapi.schemaadapterapi.ISchemaWriter;
-import ch.nolix.techapi.sqlschemaapi.schemadtoapi.IColumnDTO;
-import ch.nolix.techapi.sqlschemaapi.schemadtoapi.ITableDTO;
-import ch.nolix.techapi.sqlschemaapi.schemalanguageapi.ISchemaQueryCreator;
-import ch.nolix.techapi.sqlschemaapi.schemalanguageapi.ISchemaStatementCreator;
+import ch.nolix.systemapi.sqlschemaapi.flatschemadtoapi.IFlatTableDTO;
+import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter;
+import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaReader;
+import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaWriter;
+import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDTO;
+import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.ITableDTO;
+import ch.nolix.systemapi.sqlschemaapi.schemalanguageapi.ISchemaQueryCreator;
+import ch.nolix.systemapi.sqlschemaapi.schemalanguageapi.ISchemaStatementCreator;
 
 //class
 public abstract class SchemaAdapter implements ISchemaAdapter {

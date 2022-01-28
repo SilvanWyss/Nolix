@@ -8,8 +8,8 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentExce
 import ch.nolix.common.errorcontrol.invalidargumentexception.NewArgumentException;
 import ch.nolix.common.programcontrol.groupcloseable.CloseController;
 import ch.nolix.common.programcontrol.groupcloseable.GroupCloseable;
-import ch.nolix.techapi.databaseapi.databaseobjectapi.DatabaseObjectState;
-import ch.nolix.techapi.databaseapi.databaseobjectapi.IDatabaseObject;
+import ch.nolix.systemapi.databaseapi.databaseobjectapi.DatabaseObjectState;
+import ch.nolix.systemapi.databaseapi.databaseobjectapi.IDatabaseObject;
 
 //class
 abstract class DatabaseObject implements GroupCloseable, IDatabaseObject {

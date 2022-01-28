@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.system.objectschema.parametrizedpropertytype;
 
-//own imports
-import ch.nolix.techapi.databaseapi.propertytypeapi.PropertyType;
-import ch.nolix.techapi.objectschemaapi.schemaapi.IColumn;
+import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 
 //class
 public final class ParametrizedMultiBackReferenceType extends BaseParametrizedBackReferenceType {

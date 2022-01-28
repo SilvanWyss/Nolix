@@ -5,9 +5,9 @@ package ch.nolix.system.objectdata.data;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.system.objectdata.propertyhelper.OptionalValueHelper;
-import ch.nolix.techapi.databaseapi.propertytypeapi.PropertyType;
-import ch.nolix.techapi.objectdataapi.dataapi.IOptionalValue;
-import ch.nolix.techapi.objectdataapi.propertyhelperapi.IOptionalValueHelper;
+import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
+import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalValue;
+import ch.nolix.systemapi.objectdataapi.propertyhelperapi.IOptionalValueHelper;
 
 //class
 public final class OptionalValue<V> extends BaseValue<V> implements IOptionalValue<DataImplementation, V> {

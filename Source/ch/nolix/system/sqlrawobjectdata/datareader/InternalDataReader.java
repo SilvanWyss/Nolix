@@ -7,7 +7,7 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.sql.SQLConnection;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IRecordQueryCreator;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.ITableDefinition;
-import ch.nolix.techapi.rawobjectdataapi.datadtoapi.ILoadedRecordDTO;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.ILoadedRecordDTO;
 
 //class
 final class InternalDataReader {

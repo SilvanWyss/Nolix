@@ -5,7 +5,7 @@ package ch.nolix.system.sqlrawobjectdata.schema;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IColumnDefinition;
-import ch.nolix.techapi.databaseapi.datatypeapi.DataType;
+import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 
 //class
 public final class ColumnDefinition implements IColumnDefinition {

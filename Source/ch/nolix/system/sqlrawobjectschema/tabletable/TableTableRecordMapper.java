@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlrawobjectschema.tabletable;
 
-//own imports
-import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.ITableDTO;
+import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.ITableDTO;
 
 //class
 public final class TableTableRecordMapper {

@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.system.sqlrawobjectdata.dataandschemaadapter} package defines
- * the types that are declared in the {@link ch.nolix.techapi.rawobjectdataapi.dataandschemaadapterapi} package for
+ * the types that are declared in the {@link ch.nolix.systemapi.rawobjectdataapi.dataandschemaadapterapi} package for
  * SQL databases.
  * 
  * @author Silvan Wyss

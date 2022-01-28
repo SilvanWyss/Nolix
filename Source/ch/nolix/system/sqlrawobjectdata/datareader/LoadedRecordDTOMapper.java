@@ -10,8 +10,8 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.system.sqlrawobjectdata.datadto.LoadedRecordDTO;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IColumnDefinition;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.ITableDefinition;
-import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IContentFieldDTO;
-import ch.nolix.techapi.rawobjectdataapi.datadtoapi.ILoadedRecordDTO;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IContentFieldDTO;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.ILoadedRecordDTO;
 
 //class
 final class LoadedRecordDTOMapper {

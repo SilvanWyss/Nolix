@@ -6,7 +6,7 @@ import java.util.List;
 
 //own imports
 import ch.nolix.system.objectschema.flatschemadto.FlatTableDTO;
-import ch.nolix.techapi.rawobjectschemaapi.flatschemadtoapi.IFlatTableDTO;
+import ch.nolix.systemapi.rawobjectschemaapi.flatschemadtoapi.IFlatTableDTO;
 
 //class
 public final class TableDTOMapper {

@@ -3,8 +3,8 @@ package ch.nolix.system.sqlrawobjectdata.datareader;
 
 import ch.nolix.system.sqlrawobjectdata.schema.ColumnDefinition;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IColumnDefinition;
-import ch.nolix.techapi.databaseapi.datatypeapi.DataType;
-import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IColumnDTO;
+import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
+import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.IColumnDTO;
 
 //class
 public final class ColumnDefinitionMapper {

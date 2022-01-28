@@ -3,10 +3,10 @@ package ch.nolix.system.sqlrawobjectdata.mssql;
 
 //own imports
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IRecordStatementCreator;
-import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IContentFieldDTO;
-import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IRecordDTO;
-import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IRecordDeletionDTO;
-import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IContentFieldDTO;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDTO;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDeletionDTO;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
 
 //class
 public final class RecordStatementCreator implements IRecordStatementCreator {

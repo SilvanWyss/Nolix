@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.objectschema.parametrizedpropertytype;
 
-import ch.nolix.techapi.databaseapi.propertytypeapi.PropertyType;
+import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 
 //class
 public final class ParametrizedMultiValueType<V> extends BaseParametrizedValueType<V> {

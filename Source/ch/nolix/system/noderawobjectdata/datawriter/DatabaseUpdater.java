@@ -9,9 +9,9 @@ import ch.nolix.system.noderawobjectdata.structure.RecordNodeSearcher;
 import ch.nolix.system.noderawobjectdata.structure.TableNodeSearcher;
 import ch.nolix.system.noderawobjectdata.tabledefinition.TableDefinition;
 import ch.nolix.system.noderawobjectschema.structure.DatabaseNodeSearcher;
-import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IRecordDTO;
-import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IRecordDeletionDTO;
-import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDTO;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDeletionDTO;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
 
 //class
 final class DatabaseUpdater {

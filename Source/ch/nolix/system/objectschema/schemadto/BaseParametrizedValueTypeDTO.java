@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.system.objectschema.schemadto;
 
-import ch.nolix.techapi.databaseapi.propertytypeapi.PropertyType;
-import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IBaseParametrizedValueTypeDTO;
+import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
+import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.IBaseParametrizedValueTypeDTO;
 
 //class
 public final class BaseParametrizedValueTypeDTO extends ParametrizedPropertyTypeDTO

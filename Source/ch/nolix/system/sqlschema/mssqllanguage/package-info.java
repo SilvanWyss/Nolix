@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.system.sqlschema.mssqllanguage} package defines
- * the types that are declared in the {@link ch.nolix.techapi.sqlschemaapi.schemalanguageapi} package.
+ * the types that are declared in the {@link ch.nolix.systemapi.sqlschemaapi.schemalanguageapi} package.
  * 
  * @author Silvan Wyss
  * @date 2021-07-31

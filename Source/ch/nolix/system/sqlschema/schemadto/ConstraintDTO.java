@@ -5,8 +5,8 @@ package ch.nolix.system.sqlschema.schemadto;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.techapi.sqlschemaapi.schemadtoapi.ConstraintType;
-import ch.nolix.techapi.sqlschemaapi.schemadtoapi.IConstraintDTO;
+import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.ConstraintType;
+import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IConstraintDTO;
 
 //class
 public final class ConstraintDTO implements IConstraintDTO {

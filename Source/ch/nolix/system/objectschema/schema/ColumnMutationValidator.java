@@ -11,11 +11,11 @@ import ch.nolix.system.objectschema.schemahelper.ColumnHelper;
 import ch.nolix.system.objectschema.schemahelper.DatabaseHelper;
 import ch.nolix.system.objectschema.schemahelper.ParametrizedPropertyTypeHelper;
 import ch.nolix.system.objectschema.schemahelper.TableHelper;
-import ch.nolix.techapi.objectschemaapi.schemaapi.IParametrizedPropertyType;
-import ch.nolix.techapi.objectschemaapi.schemahelperapi.IColumnHelper;
-import ch.nolix.techapi.objectschemaapi.schemahelperapi.IDatabaseHelper;
-import ch.nolix.techapi.objectschemaapi.schemahelperapi.IParametrizedPropertyTypeHelper;
-import ch.nolix.techapi.objectschemaapi.schemahelperapi.ITableHelper;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IParametrizedPropertyType;
+import ch.nolix.systemapi.objectschemaapi.schemahelperapi.IColumnHelper;
+import ch.nolix.systemapi.objectschemaapi.schemahelperapi.IDatabaseHelper;
+import ch.nolix.systemapi.objectschemaapi.schemahelperapi.IParametrizedPropertyTypeHelper;
+import ch.nolix.systemapi.objectschemaapi.schemahelperapi.ITableHelper;
 
 //class
 final class ColumnMutationValidator {

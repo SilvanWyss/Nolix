@@ -7,7 +7,7 @@ import ch.nolix.system.noderawobjectschema.structure.ColumnNodeSearcher;
 import ch.nolix.system.noderawobjectschema.structure.ParametrizedPropertyTypeNodeSearcher;
 import ch.nolix.system.sqlrawobjectdata.schema.ColumnDefinition;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IColumnDefinition;
-import ch.nolix.techapi.databaseapi.datatypeapi.DataType;
+import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 
 //class
 public final class ColumnDefinitionMapper {

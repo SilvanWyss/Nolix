@@ -5,8 +5,8 @@ package ch.nolix.system.objectdata.data;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.techapi.objectdataapi.dataapi.IEntity;
-import ch.nolix.techapi.objectdataapi.dataapi.ISchema;
+import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
+import ch.nolix.systemapi.objectdataapi.dataapi.ISchema;
 
 //class
 public final class Schema implements ISchema<DataImplementation> {

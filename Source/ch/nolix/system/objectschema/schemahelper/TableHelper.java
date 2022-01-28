@@ -10,10 +10,10 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotCont
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ReferencedArgumentException;
 import ch.nolix.system.database.databaseobjecthelper.DatabaseObjectHelper;
-import ch.nolix.techapi.objectschemaapi.schemaapi.IColumn;
-import ch.nolix.techapi.objectschemaapi.schemaapi.ITable;
-import ch.nolix.techapi.objectschemaapi.schemahelperapi.IColumnHelper;
-import ch.nolix.techapi.objectschemaapi.schemahelperapi.ITableHelper;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
+import ch.nolix.systemapi.objectschemaapi.schemahelperapi.IColumnHelper;
+import ch.nolix.systemapi.objectschemaapi.schemahelperapi.ITableHelper;
 
 //class
 public final class TableHelper extends DatabaseObjectHelper implements ITableHelper {

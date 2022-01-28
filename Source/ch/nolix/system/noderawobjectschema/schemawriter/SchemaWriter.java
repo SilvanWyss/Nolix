@@ -10,10 +10,10 @@ import ch.nolix.system.noderawobjectschema.structure.DatabaseNodeSearcher;
 import ch.nolix.system.noderawobjectschema.structure.DatabasePropertiesNodeSearcher;
 import ch.nolix.system.noderawobjectschema.structure.SubNodeHeaderCatalogue;
 import ch.nolix.system.noderawobjectschema.structure.TableNodeSearcher;
-import ch.nolix.techapi.rawobjectschemaapi.schemaadapterapi.ISchemaWriter;
-import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IColumnDTO;
-import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
-import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.ITableDTO;
+import ch.nolix.systemapi.rawobjectschemaapi.schemaadapterapi.ISchemaWriter;
+import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.IColumnDTO;
+import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
+import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.ITableDTO;
 
 //class
 public final class SchemaWriter implements ISchemaWriter {

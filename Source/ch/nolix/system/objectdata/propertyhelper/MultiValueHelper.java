@@ -6,9 +6,9 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentExce
 import ch.nolix.system.objectdata.data.MultiValue;
 import ch.nolix.system.sqlrawobjectdata.datadto.ContentFieldDTO;
 import ch.nolix.system.sqlrawobjectdata.datadto.RecordUpdateDTO;
-import ch.nolix.techapi.objectdataapi.dataapi.IMultiValue;
-import ch.nolix.techapi.objectdataapi.propertyhelperapi.IMultiValueHelper;
-import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
+import ch.nolix.systemapi.objectdataapi.dataapi.IMultiValue;
+import ch.nolix.systemapi.objectdataapi.propertyhelperapi.IMultiValueHelper;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
 
 //class
 public final class MultiValueHelper extends PropertyHelper implements IMultiValueHelper {

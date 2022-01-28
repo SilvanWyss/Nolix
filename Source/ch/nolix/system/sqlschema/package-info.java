@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.system.sqlschema} package defines
- * the types that are declared in the {@link ch.nolix.techapi.sqlschemaapi} package.
+ * the types that are declared in the {@link ch.nolix.systemapi.sqlschemaapi} package.
  * 
  * @author Silvan Wyss
  * @date 2021-07-28

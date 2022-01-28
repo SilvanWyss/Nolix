@@ -11,9 +11,9 @@ import ch.nolix.system.sqlrawobjectschema.databasepropertytable.DatabaseProperty
 import ch.nolix.system.sqlrawobjectschema.structure.SystemDataTable;
 import ch.nolix.system.sqlrawobjectschema.tabletable.TableTableColumn;
 import ch.nolix.system.sqlrawobjectschema.tabletable.TableTableRecordMapper;
-import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IColumnDTO;
-import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
-import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.ITableDTO;
+import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.IColumnDTO;
+import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
+import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.ITableDTO;
 
 //class
 final class SystemDataWriterSQLStatementCreator {

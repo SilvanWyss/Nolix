@@ -11,12 +11,12 @@ import ch.nolix.system.objectschema.schemadto.TableDTO;
 import ch.nolix.system.sqlrawobjectschema.columntable.ColumnDTOMapper;
 import ch.nolix.system.sqlrawobjectschema.structure.TableType;
 import ch.nolix.system.sqlrawobjectschema.tabletable.TableDTOMapper;
-import ch.nolix.techapi.rawobjectschemaapi.flatschemadtoapi.IFlatTableDTO;
-import ch.nolix.techapi.rawobjectschemaapi.schemaadapterapi.ISchemaReader;
-import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IColumnDTO;
-import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.ITableDTO;
-import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.SaveStampStrategy;
-import ch.nolix.techapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter;
+import ch.nolix.systemapi.rawobjectschemaapi.flatschemadtoapi.IFlatTableDTO;
+import ch.nolix.systemapi.rawobjectschemaapi.schemaadapterapi.ISchemaReader;
+import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.IColumnDTO;
+import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.ITableDTO;
+import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.SaveStampStrategy;
+import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //class
 public final class SchemaReader implements ISchemaReader {

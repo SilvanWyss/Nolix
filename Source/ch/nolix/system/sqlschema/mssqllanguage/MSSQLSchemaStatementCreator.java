@@ -3,11 +3,11 @@ package ch.nolix.system.sqlschema.mssqllanguage;
 
 //own imports
 import ch.nolix.common.constant.StringCatalogue;
-import ch.nolix.techapi.sqlschemaapi.schemadtoapi.IColumnDTO;
-import ch.nolix.techapi.sqlschemaapi.schemadtoapi.IConstraintDTO;
-import ch.nolix.techapi.sqlschemaapi.schemadtoapi.IDataTypeDTO;
-import ch.nolix.techapi.sqlschemaapi.schemadtoapi.ITableDTO;
-import ch.nolix.techapi.sqlschemaapi.schemalanguageapi.ISchemaStatementCreator;
+import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDTO;
+import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IConstraintDTO;
+import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IDataTypeDTO;
+import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.ITableDTO;
+import ch.nolix.systemapi.sqlschemaapi.schemalanguageapi.ISchemaStatementCreator;
 
 //class
 public final class MSSQLSchemaStatementCreator implements ISchemaStatementCreator {

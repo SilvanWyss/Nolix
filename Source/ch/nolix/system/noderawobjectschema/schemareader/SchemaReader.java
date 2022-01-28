@@ -12,11 +12,11 @@ import ch.nolix.system.noderawobjectschema.structure.DatabasePropertiesNodeSearc
 import ch.nolix.system.noderawobjectschema.structure.TableNodeSearcher;
 import ch.nolix.system.objectschema.schemadto.SaveStampConfigurationDTO;
 import ch.nolix.system.objectschema.schemadto.TableDTO;
-import ch.nolix.techapi.rawobjectschemaapi.flatschemadtoapi.IFlatTableDTO;
-import ch.nolix.techapi.rawobjectschemaapi.schemaadapterapi.ISchemaReader;
-import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IColumnDTO;
-import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.ITableDTO;
-import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.SaveStampStrategy;
+import ch.nolix.systemapi.rawobjectschemaapi.flatschemadtoapi.IFlatTableDTO;
+import ch.nolix.systemapi.rawobjectschemaapi.schemaadapterapi.ISchemaReader;
+import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.IColumnDTO;
+import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.ITableDTO;
+import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.SaveStampStrategy;
 
 //class
 public final class SchemaReader implements ISchemaReader {

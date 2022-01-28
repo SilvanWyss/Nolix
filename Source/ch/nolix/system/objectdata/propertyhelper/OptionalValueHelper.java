@@ -6,9 +6,9 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentExcept
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.sqlrawobjectdata.datadto.ContentFieldDTO;
 import ch.nolix.system.sqlrawobjectdata.datadto.RecordUpdateDTO;
-import ch.nolix.techapi.objectdataapi.dataapi.IOptionalValue;
-import ch.nolix.techapi.objectdataapi.propertyhelperapi.IOptionalValueHelper;
-import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
+import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalValue;
+import ch.nolix.systemapi.objectdataapi.propertyhelperapi.IOptionalValueHelper;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
 
 //class
 public final class OptionalValueHelper extends PropertyHelper implements IOptionalValueHelper {

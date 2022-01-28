@@ -4,7 +4,7 @@ package ch.nolix.system.sqlschema.flatschemadto;
 //own imports
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.techapi.sqlschemaapi.flatschemadtoapi.IFlatDatabaseDTO;
+import ch.nolix.systemapi.sqlschemaapi.flatschemadtoapi.IFlatDatabaseDTO;
 
 //class
 public final class FlatDatabaseDTO implements IFlatDatabaseDTO {

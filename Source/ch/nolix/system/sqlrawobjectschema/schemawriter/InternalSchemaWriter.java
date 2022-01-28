@@ -6,9 +6,9 @@ import ch.nolix.common.container.IContainer;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.requestapi.ChangeRequestable;
 import ch.nolix.system.sqlrawobjectschema.structure.TableType;
-import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IColumnDTO;
-import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.ITableDTO;
-import ch.nolix.techapi.sqlschemaapi.schemaadapterapi.ISchemaWriter;
+import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.IColumnDTO;
+import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.ITableDTO;
+import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaWriter;
 
 //class
 final class InternalSchemaWriter implements ChangeRequestable {
@@ -20,7 +20,7 @@ final class InternalSchemaWriter implements ChangeRequestable {
 	//constructor
 	public InternalSchemaWriter(
 		final ISchemaWriter pSQLSchemaWriter,
-		final ch.nolix.techapi.sqlschemaapi.schemadtoapi.IColumnDTO pSQLSaveStampColumnDTO
+		final ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDTO pSQLSaveStampColumnDTO
 	) {
 		
 		Validator.assertThat(pSQLSchemaWriter).thatIsNamed(ISchemaWriter.class).isNotNull();

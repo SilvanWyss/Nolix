@@ -4,7 +4,7 @@ package ch.nolix.system.noderawobjectschema.schemawriter;
 //own imports
 import ch.nolix.common.document.node.Node;
 import ch.nolix.system.noderawobjectschema.structure.SubNodeHeaderCatalogue;
-import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.ITableDTO;
+import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.ITableDTO;
 
 //class
 public final class TableNodeMapper {

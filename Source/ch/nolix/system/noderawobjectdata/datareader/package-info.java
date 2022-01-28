@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.system.noderawobjectdata.datareader} package defines
- * a {@link ch.nolix.techapi.rawobjectdataapi.dataadapterapi.IDataReader} for
+ * a {@link ch.nolix.systemapi.rawobjectdataapi.dataadapterapi.IDataReader} for
  * databases that base on {@link ch.nolix.common.document.node.BaseNode}s.
  * 
  * @author Silvan Wyss

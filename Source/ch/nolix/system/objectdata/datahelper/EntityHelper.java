@@ -12,14 +12,14 @@ import ch.nolix.system.database.databaseobjecthelper.DatabaseObjectHelper;
 import ch.nolix.system.objectdata.propertyhelper.PropertyHelper;
 import ch.nolix.system.sqlrawobjectdata.datadto.RecordDTO;
 import ch.nolix.system.sqlrawobjectdata.datadto.RecordDeletionDTO;
-import ch.nolix.techapi.databaseapi.propertytypeapi.BasePropertyType;
-import ch.nolix.techapi.objectdataapi.dataapi.IEntity;
-import ch.nolix.techapi.objectdataapi.dataapi.IProperty;
-import ch.nolix.techapi.objectdataapi.dataapi.ITable;
-import ch.nolix.techapi.objectdataapi.datahelperapi.IEntityHelper;
-import ch.nolix.techapi.objectdataapi.propertyhelperapi.IPropertyHelper;
-import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IRecordDTO;
-import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IRecordDeletionDTO;
+import ch.nolix.systemapi.databaseapi.propertytypeapi.BasePropertyType;
+import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
+import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
+import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
+import ch.nolix.systemapi.objectdataapi.datahelperapi.IEntityHelper;
+import ch.nolix.systemapi.objectdataapi.propertyhelperapi.IPropertyHelper;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDTO;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDeletionDTO;
 
 //class
 public class EntityHelper extends DatabaseObjectHelper implements IEntityHelper {

@@ -3,9 +3,9 @@ package ch.nolix.system.objectschema.schemahelper;
 
 //own imports
 import ch.nolix.system.database.databaseobjecthelper.DatabaseObjectHelper;
-import ch.nolix.techapi.databaseapi.propertytypeapi.BasePropertyType;
-import ch.nolix.techapi.objectschemaapi.schemaapi.IParametrizedPropertyType;
-import ch.nolix.techapi.objectschemaapi.schemahelperapi.IParametrizedPropertyTypeHelper;
+import ch.nolix.systemapi.databaseapi.propertytypeapi.BasePropertyType;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IParametrizedPropertyType;
+import ch.nolix.systemapi.objectschemaapi.schemahelperapi.IParametrizedPropertyTypeHelper;
 
 //class
 public final class ParametrizedPropertyTypeHelper extends DatabaseObjectHelper

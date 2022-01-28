@@ -11,12 +11,12 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.programcontrol.groupcloseable.CloseController;
 import ch.nolix.common.programcontrol.groupcloseable.GroupCloseable;
 import ch.nolix.system.objectdata.datahelper.EntityHelper;
-import ch.nolix.techapi.databaseapi.databaseobjectapi.DatabaseObjectState;
-import ch.nolix.techapi.objectdataapi.dataapi.IEntity;
-import ch.nolix.techapi.objectdataapi.dataapi.IProperty;
-import ch.nolix.techapi.objectdataapi.dataapi.ITable;
-import ch.nolix.techapi.objectdataapi.datahelperapi.IEntityHelper;
-import ch.nolix.techapi.rawobjectdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
+import ch.nolix.systemapi.databaseapi.databaseobjectapi.DatabaseObjectState;
+import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
+import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
+import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
+import ch.nolix.systemapi.objectdataapi.datahelperapi.IEntityHelper;
+import ch.nolix.systemapi.rawobjectdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
 
 //class
 public abstract class BaseEntity implements GroupCloseable, IEntity<DataImplementation> {

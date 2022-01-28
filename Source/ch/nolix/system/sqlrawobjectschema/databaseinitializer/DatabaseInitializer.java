@@ -4,7 +4,7 @@ package ch.nolix.system.sqlrawobjectschema.databaseinitializer;
 //own imports
 import ch.nolix.common.errorcontrol.exception.GeneralException;
 import ch.nolix.system.sqlrawobjectschema.databaseschemainspector.DatabaseSchemaInspector;
-import ch.nolix.techapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter;
+import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //class
 public final class DatabaseInitializer {

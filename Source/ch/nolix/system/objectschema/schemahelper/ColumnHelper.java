@@ -6,13 +6,13 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentBelongsToPa
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.database.databaseobjecthelper.DatabaseObjectHelper;
-import ch.nolix.techapi.databaseapi.propertytypeapi.BasePropertyType;
-import ch.nolix.techapi.databaseapi.propertytypeapi.PropertyType;
-import ch.nolix.techapi.objectschemaapi.schemaapi.IColumn;
-import ch.nolix.techapi.objectschemaapi.schemaapi.IDatabase;
-import ch.nolix.techapi.objectschemaapi.schemaapi.ITable;
-import ch.nolix.techapi.objectschemaapi.schemahelperapi.IColumnHelper;
-import ch.nolix.techapi.objectschemaapi.schemahelperapi.IParametrizedPropertyTypeHelper;
+import ch.nolix.systemapi.databaseapi.propertytypeapi.BasePropertyType;
+import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IDatabase;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
+import ch.nolix.systemapi.objectschemaapi.schemahelperapi.IColumnHelper;
+import ch.nolix.systemapi.objectschemaapi.schemahelperapi.IParametrizedPropertyTypeHelper;
 
 //class
 public final class ColumnHelper extends DatabaseObjectHelper implements IColumnHelper {

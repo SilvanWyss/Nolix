@@ -5,8 +5,8 @@ package ch.nolix.system.sqlschema.schemadto;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.techapi.sqlschemaapi.schemadtoapi.IDatabaseDTO;
-import ch.nolix.techapi.sqlschemaapi.schemadtoapi.ITableDTO;
+import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IDatabaseDTO;
+import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.ITableDTO;
 
 //class
 public final class DatabaseDTO implements IDatabaseDTO {

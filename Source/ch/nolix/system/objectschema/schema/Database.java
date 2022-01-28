@@ -7,10 +7,10 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.system.objectschema.parametrizedpropertytype.SchemaImplementation;
 import ch.nolix.system.objectschema.schemahelper.DatabaseHelper;
-import ch.nolix.techapi.objectschemaapi.schemaapi.IDatabase;
-import ch.nolix.techapi.objectschemaapi.schemaapi.ITable;
-import ch.nolix.techapi.objectschemaapi.schemahelperapi.IDatabaseHelper;
-import ch.nolix.techapi.rawobjectschemaapi.schemaadapterapi.ISchemaAdapter;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IDatabase;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
+import ch.nolix.systemapi.objectschemaapi.schemahelperapi.IDatabaseHelper;
+import ch.nolix.systemapi.rawobjectschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //class
 public final class Database extends DatabaseObject implements IDatabase<SchemaImplementation> {

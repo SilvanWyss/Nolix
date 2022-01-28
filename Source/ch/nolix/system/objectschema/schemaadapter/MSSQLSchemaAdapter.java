@@ -4,7 +4,7 @@ package ch.nolix.system.objectschema.schemaadapter;
 //own imports
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.sql.SQLConnection;
-import ch.nolix.techapi.rawobjectschemaapi.schemaadapterapi.ISchemaAdapter;
+import ch.nolix.systemapi.rawobjectschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //class
 public final class MSSQLSchemaAdapter extends SchemaAdapter {

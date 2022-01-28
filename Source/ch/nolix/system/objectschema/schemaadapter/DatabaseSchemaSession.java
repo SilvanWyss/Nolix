@@ -4,8 +4,8 @@ package ch.nolix.system.objectschema.schemaadapter;
 //own imports
 import ch.nolix.system.objectschema.schema.Database;
 import ch.nolix.system.objectschema.schemahelper.DatabaseHelper;
-import ch.nolix.techapi.objectschemaapi.schemahelperapi.IDatabaseHelper;
-import ch.nolix.techapi.rawobjectschemaapi.schemaadapterapi.ISchemaAdapter;
+import ch.nolix.systemapi.objectschemaapi.schemahelperapi.IDatabaseHelper;
+import ch.nolix.systemapi.rawobjectschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //class
 final class DatabaseSchemaSession implements AutoCloseable {

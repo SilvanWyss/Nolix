@@ -6,10 +6,10 @@ import ch.nolix.common.container.IContainer;
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.system.noderawobjectdata.tabledefinition.TableDefinition;
-import ch.nolix.techapi.rawobjectdataapi.dataadapterapi.IDataWriter;
-import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IRecordDTO;
-import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IRecordDeletionDTO;
-import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
+import ch.nolix.systemapi.rawobjectdataapi.dataadapterapi.IDataWriter;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDTO;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDeletionDTO;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
 
 //class
 public final class DataWriter implements IDataWriter {

@@ -6,10 +6,10 @@ import ch.nolix.common.container.IContainer;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.sql.SQLConnection;
 import ch.nolix.common.sql.SQLExecutor;
-import ch.nolix.techapi.sqlschemaapi.schemaadapterapi.ISchemaWriter;
-import ch.nolix.techapi.sqlschemaapi.schemadtoapi.IColumnDTO;
-import ch.nolix.techapi.sqlschemaapi.schemadtoapi.ITableDTO;
-import ch.nolix.techapi.sqlschemaapi.schemalanguageapi.ISchemaStatementCreator;
+import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaWriter;
+import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDTO;
+import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.ITableDTO;
+import ch.nolix.systemapi.sqlschemaapi.schemalanguageapi.ISchemaStatementCreator;
 
 //class
 public class SchemaWriter implements ISchemaWriter {

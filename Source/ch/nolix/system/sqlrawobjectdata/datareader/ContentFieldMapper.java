@@ -3,7 +3,7 @@ package ch.nolix.system.sqlrawobjectdata.datareader;
 
 import ch.nolix.system.sqlrawobjectdata.datadto.ContentFieldDTO;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IColumnDefinition;
-import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IContentFieldDTO;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IContentFieldDTO;
 
 //class
 public final class ContentFieldMapper {

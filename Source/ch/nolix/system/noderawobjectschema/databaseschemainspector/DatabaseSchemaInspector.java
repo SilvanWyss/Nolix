@@ -4,7 +4,7 @@ package ch.nolix.system.noderawobjectschema.databaseschemainspector;
 //own imports
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.system.noderawobjectschema.structure.SubNodeHeaderCatalogue;
-import ch.nolix.techapi.objectschemaapi.schemaapi.DatabaseSchemaState;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.DatabaseSchemaState;
 
 //class
 public final class DatabaseSchemaInspector {

@@ -4,12 +4,12 @@ package ch.nolix.system.objectschema.parametrizedpropertytype;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 //own imports
 import ch.nolix.system.objectschema.schemadto.BaseParametrizedValueTypeDTO;
-import ch.nolix.techapi.objectschemaapi.schemaapi.IBaseParametrizedBackReferenceType;
-import ch.nolix.techapi.objectschemaapi.schemaapi.IBaseParametrizedReferenceType;
-import ch.nolix.techapi.objectschemaapi.schemaapi.IBaseParametrizedValueType;
-import ch.nolix.techapi.objectschemaapi.schemaapi.IColumn;
-import ch.nolix.techapi.objectschemaapi.schemaapi.ITable;
-import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseParametrizedBackReferenceType;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseParametrizedReferenceType;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseParametrizedValueType;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
+import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
 
 //class
 public abstract class BaseParametrizedValueType<V> extends ParametrizedPropertyType<V>

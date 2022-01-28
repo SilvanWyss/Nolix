@@ -7,8 +7,8 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.system.noderawobjectdata.tabledefinition.TableDefinition;
-import ch.nolix.techapi.rawobjectdataapi.dataadapterapi.IDataReader;
-import ch.nolix.techapi.rawobjectdataapi.datadtoapi.ILoadedRecordDTO;
+import ch.nolix.systemapi.rawobjectdataapi.dataadapterapi.IDataReader;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.ILoadedRecordDTO;
 
 //class
 public final class DataReader implements IDataReader {

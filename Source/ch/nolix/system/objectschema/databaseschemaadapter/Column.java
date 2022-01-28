@@ -9,8 +9,8 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.sql.SQLDatabaseEngine;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedPropertyType;
 import ch.nolix.system.objectschema.schemahelper.ParametrizedPropertyTypeHelper;
-import ch.nolix.techapi.databaseapi.propertytypeapi.PropertyType;
-import ch.nolix.techapi.objectschemaapi.schemahelperapi.IParametrizedPropertyTypeHelper;
+import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
+import ch.nolix.systemapi.objectschemaapi.schemahelperapi.IParametrizedPropertyTypeHelper;
 
 //class
 public final class Column implements Named {

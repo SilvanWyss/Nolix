@@ -6,7 +6,7 @@ import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.common.document.node.Node;
 import ch.nolix.common.environment.filesystem.FileAccessor;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.techapi.rawobjectschemaapi.schemaadapterapi.ISchemaAdapter;
+import ch.nolix.systemapi.rawobjectschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //class
 public final class NodeSchemaAdapter extends SchemaAdapter {

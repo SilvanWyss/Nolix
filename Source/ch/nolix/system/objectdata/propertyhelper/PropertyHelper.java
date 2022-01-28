@@ -6,10 +6,10 @@ import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentBelongsToPa
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.system.database.databaseobjecthelper.DatabaseObjectHelper;
-import ch.nolix.techapi.objectdataapi.dataapi.IEntity;
-import ch.nolix.techapi.objectdataapi.dataapi.IProperty;
-import ch.nolix.techapi.objectdataapi.propertyhelperapi.IPropertyHelper;
-import ch.nolix.techapi.rawobjectdataapi.datadtoapi.IContentFieldDTO;
+import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
+import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
+import ch.nolix.systemapi.objectdataapi.propertyhelperapi.IPropertyHelper;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IContentFieldDTO;
 
 //class
 public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHelper {

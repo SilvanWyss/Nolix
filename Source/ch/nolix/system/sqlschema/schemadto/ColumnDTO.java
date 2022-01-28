@@ -7,9 +7,9 @@ import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.container.ReadContainer;
 import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.techapi.sqlschemaapi.schemadtoapi.IColumnDTO;
-import ch.nolix.techapi.sqlschemaapi.schemadtoapi.IConstraintDTO;
-import ch.nolix.techapi.sqlschemaapi.schemadtoapi.IDataTypeDTO;
+import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDTO;
+import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IConstraintDTO;
+import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IDataTypeDTO;
 
 //class
 public final class ColumnDTO implements IColumnDTO {

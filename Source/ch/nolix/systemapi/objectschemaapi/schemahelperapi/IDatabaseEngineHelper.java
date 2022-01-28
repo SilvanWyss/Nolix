@@ -1,0 +1,21 @@
+//package declaration
+package ch.nolix.systemapi.objectschemaapi.schemahelperapi;
+
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IDatabase;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IDatabaseEngine;
+
+//interface
+public interface IDatabaseEngineHelper {
+	
+	//method declaration
+	void assertDoesNotContainDatabaseWithGivenName(IDatabaseEngine<?> databaseEngine, String name);
+	
+	//method declaration
+	boolean containsDatabaseWithGivenName(IDatabaseEngine<?> databaseEngine, String name);
+	
+	//method declaration
+	int getDatabaseCount(IDatabaseEngine<?> databaseEngine);
+	
+	//method declaration
+	<IMPL> IDatabase<IMPL> getRefDatabaseWithGivenName(IDatabaseEngine<IMPL> databaseEngine, String name);
+}

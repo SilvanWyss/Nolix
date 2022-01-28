@@ -8,7 +8,7 @@ import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.system.noderawobjectdata.structure.TableNodeSearcher;
 import ch.nolix.system.noderawobjectdata.tabledefinition.TableDefinition;
 import ch.nolix.system.noderawobjectschema.structure.DatabaseNodeSearcher;
-import ch.nolix.techapi.rawobjectdataapi.datadtoapi.ILoadedRecordDTO;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.ILoadedRecordDTO;
 
 //class
 public final class InternalDataReader {

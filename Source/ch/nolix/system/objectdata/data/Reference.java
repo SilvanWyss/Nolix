@@ -3,10 +3,10 @@ package ch.nolix.system.objectdata.data;
 
 //own imports
 import ch.nolix.system.objectdata.propertyhelper.ReferenceHelper;
-import ch.nolix.techapi.databaseapi.propertytypeapi.PropertyType;
-import ch.nolix.techapi.objectdataapi.dataapi.IEntity;
-import ch.nolix.techapi.objectdataapi.dataapi.IReference;
-import ch.nolix.techapi.objectdataapi.propertyhelperapi.IReferenceHelper;
+import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
+import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
+import ch.nolix.systemapi.objectdataapi.dataapi.IReference;
+import ch.nolix.systemapi.objectdataapi.propertyhelperapi.IReferenceHelper;
 
 //class
 public final class Reference<E extends IEntity<DataImplementation>> extends BaseReference<E>

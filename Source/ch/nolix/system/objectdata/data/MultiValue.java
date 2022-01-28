@@ -7,9 +7,9 @@ import java.util.Iterator;
 //own imports
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.system.objectdata.propertyhelper.MultiValueHelper;
-import ch.nolix.techapi.databaseapi.propertytypeapi.PropertyType;
-import ch.nolix.techapi.objectdataapi.dataapi.IMultiValue;
-import ch.nolix.techapi.objectdataapi.propertyhelperapi.IMultiValueHelper;
+import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
+import ch.nolix.systemapi.objectdataapi.dataapi.IMultiValue;
+import ch.nolix.systemapi.objectdataapi.propertyhelperapi.IMultiValueHelper;
 
 //class
 public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<DataImplementation, V> {

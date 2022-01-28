@@ -5,10 +5,10 @@ package ch.nolix.system.noderawobjectschema.schemawriter;
 import ch.nolix.common.document.node.Node;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.noderawobjectschema.structure.SubNodeHeaderCatalogue;
-import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IBaseParametrizedBackReferenceTypeDTO;
-import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IBaseParametrizedReferenceTypeDTO;
-import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IBaseParametrizedValueTypeDTO;
-import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
+import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.IBaseParametrizedBackReferenceTypeDTO;
+import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.IBaseParametrizedReferenceTypeDTO;
+import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.IBaseParametrizedValueTypeDTO;
+import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
 
 //class
 public final class ParametrizedPropertyTypeNodeMapper {

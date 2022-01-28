@@ -9,7 +9,7 @@ import java.math.BigInteger;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.element.time.base.Time;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IColumnDefinition;
-import ch.nolix.techapi.databaseapi.datatypeapi.DataType;
+import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 
 //class
 public final class ValueMapper {

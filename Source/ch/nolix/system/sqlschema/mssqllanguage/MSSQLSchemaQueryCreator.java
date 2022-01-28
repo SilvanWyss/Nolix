@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlschema.mssqllanguage;
 
-//own imports
-import ch.nolix.techapi.sqlschemaapi.schemalanguageapi.ISchemaQueryCreator;
+import ch.nolix.systemapi.sqlschemaapi.schemalanguageapi.ISchemaQueryCreator;
 
 //class
 public final class MSSQLSchemaQueryCreator implements ISchemaQueryCreator {

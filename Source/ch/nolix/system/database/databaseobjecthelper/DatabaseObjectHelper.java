@@ -4,9 +4,9 @@ package ch.nolix.system.database.databaseobjecthelper;
 //own imports
 import ch.nolix.common.errorcontrol.invalidargumentexception.DeletedArgumentException;
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.techapi.databaseapi.databaseobjectapi.DatabaseObjectState;
-import ch.nolix.techapi.databaseapi.databaseobjectapi.IDatabaseObject;
-import ch.nolix.techapi.databaseapi.databaseobjecthelperapi.IDatabaseObjectHelper;
+import ch.nolix.systemapi.databaseapi.databaseobjectapi.DatabaseObjectState;
+import ch.nolix.systemapi.databaseapi.databaseobjectapi.IDatabaseObject;
+import ch.nolix.systemapi.databaseapi.databaseobjecthelperapi.IDatabaseObjectHelper;
 
 //class
 public class DatabaseObjectHelper implements IDatabaseObjectHelper {

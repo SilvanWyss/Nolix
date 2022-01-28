@@ -10,21 +10,21 @@ import ch.nolix.system.sqlrawobjectschema.structure.TableType;
 import ch.nolix.system.sqlrawobjectschema.tabletable.TableTableColumn;
 import ch.nolix.system.sqlschema.schemadto.ColumnDTO;
 import ch.nolix.system.sqlschema.schemadto.TableDTO;
-import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IColumnDTO;
-import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.ITableDTO;
+import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.IColumnDTO;
+import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.ITableDTO;
 
 //class
 final class SchemaDTOMapper {
 	
 	//static attribute
-	private final ch.nolix.techapi.sqlschemaapi.schemadtoapi.IColumnDTO mSQLIdColumnDTO =
+	private final ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDTO mSQLIdColumnDTO =
 	new ColumnDTO(TableTableColumn.ID.getLabel(), SQLDatatypeCatalogue.TEXT);
 	
 	//attribute
-	private final ch.nolix.techapi.sqlschemaapi.schemadtoapi.IColumnDTO mSQLSaveStampColumnDTO;
+	private final ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDTO mSQLSaveStampColumnDTO;
 	
 	//constructor
-	public SchemaDTOMapper(final ch.nolix.techapi.sqlschemaapi.schemadtoapi.IColumnDTO pSQLSaveStampColumnDTO) {
+	public SchemaDTOMapper(final ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDTO pSQLSaveStampColumnDTO) {
 		
 		Validator.assertThat(pSQLSaveStampColumnDTO).thatIsNamed("SQL save stamp DTO").isNotNull();
 		
@@ -32,17 +32,17 @@ final class SchemaDTOMapper {
 	}
 	
 	//method
-	public ch.nolix.techapi.sqlschemaapi.schemadtoapi.IColumnDTO createSQLColumnDTOFrom(final IColumnDTO column) {
+	public ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDTO createSQLColumnDTOFrom(final IColumnDTO column) {
 		return new ColumnDTO(column.getName(), SQLDatatypeCatalogue.TEXT);
 	}
 	
 	//method
-	public ch.nolix.techapi.sqlschemaapi.schemadtoapi.ITableDTO createSQLTableDTOFrom(final ITableDTO table) {
+	public ch.nolix.systemapi.sqlschemaapi.schemadtoapi.ITableDTO createSQLTableDTOFrom(final ITableDTO table) {
 		return new TableDTO(TableType.BASE_CONTENT_DATA.getPrefix() + table.getName(), createSQLColumnDTOsFrom(table));
 	}
 	
 	//method
-	private IContainer<ch.nolix.techapi.sqlschemaapi.schemadtoapi.IColumnDTO> createSQLColumnDTOsFrom(
+	private IContainer<ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDTO> createSQLColumnDTOsFrom(
 		final ITableDTO table
 	) {
 		

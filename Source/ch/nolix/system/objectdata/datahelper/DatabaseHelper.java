@@ -3,10 +3,10 @@ package ch.nolix.system.objectdata.datahelper;
 
 //own imports
 import ch.nolix.system.database.databaseobjecthelper.DatabaseObjectHelper;
-import ch.nolix.techapi.objectdataapi.dataapi.IDatabase;
-import ch.nolix.techapi.objectdataapi.dataapi.IEntity;
-import ch.nolix.techapi.objectdataapi.dataapi.ITable;
-import ch.nolix.techapi.objectdataapi.datahelperapi.IDatabaseHelper;
+import ch.nolix.systemapi.objectdataapi.dataapi.IDatabase;
+import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
+import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
+import ch.nolix.systemapi.objectdataapi.datahelperapi.IDatabaseHelper;
 
 //class
 public final class DatabaseHelper extends DatabaseObjectHelper implements IDatabaseHelper {

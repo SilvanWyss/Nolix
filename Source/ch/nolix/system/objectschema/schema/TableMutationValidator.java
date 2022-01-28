@@ -9,9 +9,9 @@ import ch.nolix.system.objectschema.parametrizedpropertytype.BaseParametrizedRef
 import ch.nolix.system.objectschema.schemahelper.ColumnHelper;
 import ch.nolix.system.objectschema.schemahelper.DatabaseHelper;
 import ch.nolix.system.objectschema.schemahelper.TableHelper;
-import ch.nolix.techapi.objectschemaapi.schemahelperapi.IColumnHelper;
-import ch.nolix.techapi.objectschemaapi.schemahelperapi.IDatabaseHelper;
-import ch.nolix.techapi.objectschemaapi.schemahelperapi.ITableHelper;
+import ch.nolix.systemapi.objectschemaapi.schemahelperapi.IColumnHelper;
+import ch.nolix.systemapi.objectschemaapi.schemahelperapi.IDatabaseHelper;
+import ch.nolix.systemapi.objectschemaapi.schemahelperapi.ITableHelper;
 
 //class
 final class TableMutationValidator {

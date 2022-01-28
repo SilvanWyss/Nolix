@@ -13,14 +13,14 @@ import ch.nolix.system.objectschema.parametrizedpropertytype.SchemaImplementatio
 import ch.nolix.system.objectschema.schemadto.SaveStampConfigurationDTO;
 import ch.nolix.system.objectschema.schemadto.TableDTO;
 import ch.nolix.system.objectschema.schemahelper.TableHelper;
-import ch.nolix.techapi.objectschemaapi.schemaapi.IColumn;
-import ch.nolix.techapi.objectschemaapi.schemaapi.IParametrizedPropertyType;
-import ch.nolix.techapi.objectschemaapi.schemaapi.ITable;
-import ch.nolix.techapi.objectschemaapi.schemahelperapi.ITableHelper;
-import ch.nolix.techapi.rawobjectschemaapi.flatschemadtoapi.IFlatTableDTO;
-import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.IColumnDTO;
-import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.ISaveStampConfigurationDTO;
-import ch.nolix.techapi.rawobjectschemaapi.schemadtoapi.SaveStampStrategy;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IParametrizedPropertyType;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
+import ch.nolix.systemapi.objectschemaapi.schemahelperapi.ITableHelper;
+import ch.nolix.systemapi.rawobjectschemaapi.flatschemadtoapi.IFlatTableDTO;
+import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.IColumnDTO;
+import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.ISaveStampConfigurationDTO;
+import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.SaveStampStrategy;
 
 //class
 public final class Table extends DatabaseObject implements ITable<SchemaImplementation> {

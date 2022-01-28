@@ -8,10 +8,10 @@ import java.util.Iterator;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.system.objectdata.propertyhelper.MultiReferenceHelper;
-import ch.nolix.techapi.databaseapi.propertytypeapi.PropertyType;
-import ch.nolix.techapi.objectdataapi.dataapi.IEntity;
-import ch.nolix.techapi.objectdataapi.dataapi.IMultiReference;
-import ch.nolix.techapi.objectdataapi.propertyhelperapi.IMultiReferenceHelper;
+import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
+import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
+import ch.nolix.systemapi.objectdataapi.dataapi.IMultiReference;
+import ch.nolix.systemapi.objectdataapi.propertyhelperapi.IMultiReferenceHelper;
 
 //class
 public final class MultiReference<E extends IEntity<DataImplementation>> extends BaseReference<E>

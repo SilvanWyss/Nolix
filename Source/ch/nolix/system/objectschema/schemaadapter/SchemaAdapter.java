@@ -7,12 +7,12 @@ import ch.nolix.common.programcontrol.groupcloseable.CloseController;
 import ch.nolix.system.objectschema.parametrizedpropertytype.SchemaImplementation;
 import ch.nolix.system.objectschema.schema.Database;
 import ch.nolix.system.objectschema.schema.Table;
-import ch.nolix.techapi.objectschemaapi.schemaapi.ITable;
-import ch.nolix.techapi.rawobjectschemaapi.schemaadapterapi.ISchemaAdapter;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
+import ch.nolix.systemapi.rawobjectschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //class
 public abstract class SchemaAdapter
-implements ch.nolix.techapi.objectschemaapi.schemaadapterapi.ISchemaAdapter<SchemaImplementation> {
+implements ch.nolix.systemapi.objectschemaapi.schemaadapterapi.ISchemaAdapter<SchemaImplementation> {
 	
 	//attributes
 	private final String databaseName;
@@ -29,7 +29,7 @@ implements ch.nolix.techapi.objectschemaapi.schemaadapterapi.ISchemaAdapter<Sche
 	
 	//method
 	@Override
-	public ch.nolix.techapi.objectschemaapi.schemaadapterapi.ISchemaAdapter<SchemaImplementation> addTable(
+	public ch.nolix.systemapi.objectschemaapi.schemaadapterapi.ISchemaAdapter<SchemaImplementation> addTable(
 		final ITable<SchemaImplementation> table
 	) {
 		
@@ -39,7 +39,7 @@ implements ch.nolix.techapi.objectschemaapi.schemaadapterapi.ISchemaAdapter<Sche
 	}
 	
 	//method
-	public ch.nolix.techapi.objectschemaapi.schemaadapterapi.ISchemaAdapter<SchemaImplementation> addTable(
+	public ch.nolix.systemapi.objectschemaapi.schemaadapterapi.ISchemaAdapter<SchemaImplementation> addTable(
 		final Table... tables
 	) {
 		
