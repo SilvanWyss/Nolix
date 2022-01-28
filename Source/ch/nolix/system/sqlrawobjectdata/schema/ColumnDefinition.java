@@ -10,28 +10,45 @@ import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 //class
 public final class ColumnDefinition implements IColumnDefinition {
 	
-	//attributes
-	private final String columnName;
-	private final DataType dataType;
+	//attribute
+	private final String columnId;
 	
-	public ColumnDefinition(final String columnName, final DataType dataType) {
+	//attribute
+	private final String columnName;
+	
+	//attribute
+	private final DataType columnDataType;
+	
+	//constructor
+	public ColumnDefinition(final String columnId, final String columnName, final DataType columnDataType) {
+		
+		if (columnId == null) {
+			throw new ArgumentIsNullException("column id");
+		}
 		
 		if (columnName == null) {
 			throw new ArgumentIsNullException(LowerCaseCatalogue.COLUMN_NAME);
 		}
 		
-		if (dataType == null) {
-			throw new ArgumentIsNullException(LowerCaseCatalogue.DATA_TYPE);
+		if (columnDataType == null) {
+			throw new ArgumentIsNullException("column data type");
 		}
 		
+		this.columnId = columnId;
 		this.columnName = columnName;
-		this.dataType = dataType;
+		this.columnDataType = columnDataType;
 	}
 	
 	//method
 	@Override
 	public DataType getColumnDataType() {
-		return dataType;
+		return columnDataType;
+	}
+	
+	//method
+	@Override
+	public String getColumnId() {
+		return columnId;
 	}
 	
 	//method

@@ -11,5 +11,8 @@ public interface IColumnDefinition {
 	DataType getColumnDataType();
 	
 	//method declaration
+	String getColumnId();
+	
+	//method declaration
 	String getColumnName();
 }

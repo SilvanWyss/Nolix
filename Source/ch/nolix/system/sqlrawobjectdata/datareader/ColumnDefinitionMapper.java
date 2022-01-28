@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlrawobjectdata.datareader;
 
+//own imports
 import ch.nolix.system.sqlrawobjectdata.schema.ColumnDefinition;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IColumnDefinition;
 import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
@@ -13,6 +14,7 @@ public final class ColumnDefinitionMapper {
 	public IColumnDefinition createColumnDefinitionFrom(final IColumnDTO column) {
 		return
 		new ColumnDefinition(
+			column.getId(),
 			column.getName(),
 			DataType.valueOf(column.getParametrizedPropertyType().getDataTypeFullClassName())
 		);

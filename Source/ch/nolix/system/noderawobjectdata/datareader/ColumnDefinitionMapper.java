@@ -21,9 +21,15 @@ public final class ColumnDefinitionMapper {
 	public IColumnDefinition createColumnDefinitionFromColumnNode(final BaseNode columnNode) {
 		return
 		new ColumnDefinition(
+			getColumnIdFromColumnNode(columnNode),
 			getColumnNameFromColumnNode(columnNode),
 			getDataTypeFromColumnNode(columnNode)
 		);
+	}
+	
+	//method
+	private String getColumnIdFromColumnNode(final BaseNode columnNode) {
+		return columnNodeSearcher.getRefIdNodeFromColumnNode(columnNode).getOneAttributeHeader();
 	}
 	
 	//method
