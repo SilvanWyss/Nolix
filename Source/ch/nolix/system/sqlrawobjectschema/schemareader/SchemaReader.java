@@ -49,7 +49,7 @@ public final class SchemaReader implements ISchemaReader {
 	//method
 	@Override
 	public boolean columnIsEmpty(final String tableName, final String columnName) {
-		return schemaAdapter.columnsIsEmpty(TableType.BASE_CONTENT_DATA.getPrefix() + tableName, columnName);
+		return schemaAdapter.columnsIsEmpty(TableType.BASE_CONTENT_DATA.getNamePrefix() + tableName, columnName);
 	}
 	
 	//method

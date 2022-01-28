@@ -36,6 +36,6 @@ public enum MultiContentTable implements Named {
 	
 	//method
 	public final String getPrefix() {
-		return TableType.MULTI_CONTENT_DATA.getPrefix();
+		return TableType.MULTI_CONTENT_DATA.getNamePrefix();
 	}
 }

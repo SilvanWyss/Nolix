@@ -37,6 +37,6 @@ public enum SystemDataTable implements Named {
 	
 	//method
 	public String getPrefix() {
-		return TableType.SYSTEM_DATA.getPrefix();
+		return TableType.SYSTEM_DATA.getNamePrefix();
 	}
 }

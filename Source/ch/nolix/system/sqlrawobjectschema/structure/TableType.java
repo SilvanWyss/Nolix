@@ -2,7 +2,6 @@
 package ch.nolix.system.sqlrawobjectschema.structure;
 
 //own imports
-import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.errorcontrol.validator.Validator;
 
 //enum
@@ -12,18 +11,18 @@ public enum TableType {
 	MULTI_CONTENT_DATA("M");
 	
 	//attribute
-	private final String prefix;
+	private final String namePrefix;
 	
 	//constructor
-	TableType(final String prefix) {
+	TableType(final String namePrefix) {
 		
-		Validator.assertThat(prefix).thatIsNamed(LowerCaseCatalogue.PREFIX).isNotBlank();
+		Validator.assertThat(namePrefix).thatIsNamed("name prefix").isNotBlank();
 		
-		this.prefix = prefix;
+		this.namePrefix = namePrefix;
 	}
 	
 	//method
-	public final String getPrefix() {
-		return prefix;
+	public final String getNamePrefix() {
+		return namePrefix;
 	}
 }
