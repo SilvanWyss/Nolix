@@ -15,23 +15,23 @@ final class QueryCreator {
 	public String createQueryToLoadCoumnsByTableId(final String tableId) {
 		return
 		"SELECT "
-		+ ColumnTableColumn.ID.getLabel()
+		+ ColumnTableColumn.ID.getName()
 		+ ", "
-		+ ColumnTableColumn.NAME.getLabel()
+		+ ColumnTableColumn.NAME.getName()
 		+ ", "
-		+ ColumnTableColumn.PARENT_TABLE_ID.getLabel()
+		+ ColumnTableColumn.PARENT_TABLE_ID.getName()
 		+ ", "
-		+ ColumnTableColumn.PROPERTY_TYPE.getLabel()
+		+ ColumnTableColumn.PROPERTY_TYPE.getName()
 		+ ", "
-		+ ColumnTableColumn.DATA_TYPE.getLabel()
+		+ ColumnTableColumn.DATA_TYPE.getName()
 		+ ", "
-		+ ColumnTableColumn.REFERENCED_TABLE_ID.getLabel()
+		+ ColumnTableColumn.REFERENCED_TABLE_ID.getName()
 		+ ", "
-		+ ColumnTableColumn.BACK_REFERENCED_COLUM_ID.getLabel()
+		+ ColumnTableColumn.BACK_REFERENCED_COLUM_ID.getName()
 		+ " FROM "
 		+ SystemDataTable.COLUMN.getFullName()
 		+ " WHERE "
-		+ ColumnTableColumn.PARENT_TABLE_ID.getLabel()
+		+ ColumnTableColumn.PARENT_TABLE_ID.getName()
 		+ " = '"
 		+ tableId
 		+ "'";
@@ -41,23 +41,23 @@ final class QueryCreator {
 	public String createQueryToLoadCoumnsByTableName(final String tableName) {
 		return
 		"SELECT "
-		+ ColumnTableColumn.ID.getLabel()
+		+ ColumnTableColumn.ID.getName()
 		+ ", "
-		+ ColumnTableColumn.NAME.getLabel()
+		+ ColumnTableColumn.NAME.getName()
 		+ ", "
-		+ ColumnTableColumn.PARENT_TABLE_ID.getLabel()
+		+ ColumnTableColumn.PARENT_TABLE_ID.getName()
 		+ ", "
-		+ ColumnTableColumn.PROPERTY_TYPE.getLabel()
+		+ ColumnTableColumn.PROPERTY_TYPE.getName()
 		+ ", "
-		+ ColumnTableColumn.DATA_TYPE.getLabel()
+		+ ColumnTableColumn.DATA_TYPE.getName()
 		+ ", "
-		+ ColumnTableColumn.REFERENCED_TABLE_ID.getLabel()
+		+ ColumnTableColumn.REFERENCED_TABLE_ID.getName()
 		+ ", "
-		+ ColumnTableColumn.BACK_REFERENCED_COLUM_ID.getLabel()
+		+ ColumnTableColumn.BACK_REFERENCED_COLUM_ID.getName()
 		+ " FROM "
 		+ SystemDataTable.COLUMN.getFullName()
 		+ " WHERE "
-		+ ColumnTableColumn.PARENT_TABLE_ID.getLabel()
+		+ ColumnTableColumn.PARENT_TABLE_ID.getName()
 		+ " = '"
 		+ tableName
 		+ "'";

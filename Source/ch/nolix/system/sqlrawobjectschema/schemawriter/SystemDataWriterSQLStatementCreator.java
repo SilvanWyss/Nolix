@@ -38,19 +38,19 @@ final class SystemDataWriterSQLStatementCreator {
 	    "INSERT INTO "
 		+ SystemDataTable.COLUMN.getFullName()
 		+ " ("
-		+ ColumnTableColumn.ID.getLabel()
+		+ ColumnTableColumn.ID.getName()
 		+ ", "
-		+ ColumnTableColumn.PARENT_TABLE_ID.getLabel()
+		+ ColumnTableColumn.PARENT_TABLE_ID.getName()
 		+ ", "
-		+ ColumnTableColumn.NAME.getLabel()
+		+ ColumnTableColumn.NAME.getName()
 		+ ", "
-		+ ColumnTableColumn.PROPERTY_TYPE.getLabel()
+		+ ColumnTableColumn.PROPERTY_TYPE.getName()
 		+ ", "
-		+ ColumnTableColumn.DATA_TYPE.getLabel()
+		+ ColumnTableColumn.DATA_TYPE.getName()
 		+ ", "
-		+ ColumnTableColumn.REFERENCED_TABLE_ID.getLabel()
+		+ ColumnTableColumn.REFERENCED_TABLE_ID.getName()
 		+ ", "
-		+ ColumnTableColumn.BACK_REFERENCED_COLUM_ID.getLabel()
+		+ ColumnTableColumn.BACK_REFERENCED_COLUM_ID.getName()
 		+ ") SELECT '"
 		+ column.getId()
 		+ "', "
@@ -94,11 +94,11 @@ final class SystemDataWriterSQLStatementCreator {
 		"DELETE FROM "
 		+ SystemDataTable.COLUMN.getFullName()
 		+ " WHERE "
-		+ ColumnTableColumn.PARENT_TABLE_ID.getLabel()
+		+ ColumnTableColumn.PARENT_TABLE_ID.getName()
 		+ " = "
 		+ tableName
 		+ " AND "
-		+ ColumnTableColumn.NAME.getLabel()
+		+ ColumnTableColumn.NAME.getName()
 		+ " = '"
 		+ columnName
 		+ "'"; 
@@ -126,11 +126,11 @@ final class SystemDataWriterSQLStatementCreator {
 		+ " = '"
 		+ newColumnName
 		+ "' WHERE "
-		+ ColumnTableColumn.PARENT_TABLE_ID.getLabel()
+		+ ColumnTableColumn.PARENT_TABLE_ID.getName()
 		+ " = '"
 		+ tableName
 		+ "' AND "
-		+ ColumnTableColumn.NAME.getLabel()
+		+ ColumnTableColumn.NAME.getName()
 		+ " = '"
 		+ columnName
 		+ "'";
