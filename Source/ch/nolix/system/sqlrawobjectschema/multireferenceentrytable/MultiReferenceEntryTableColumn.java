@@ -2,31 +2,42 @@
 package ch.nolix.system.sqlrawobjectschema.multireferenceentrytable;
 
 //own imports
-import ch.nolix.common.attributeapi.mandatoryattributeapi.Labeled;
+import ch.nolix.common.attributeapi.mandatoryattributeapi.FullNamed;
 import ch.nolix.common.constant.LowerCaseCatalogue;
-import ch.nolix.common.constant.PascalCaseCatalogue;
+import ch.nolix.common.constant.StringCatalogue;
 import ch.nolix.common.errorcontrol.validator.Validator;
+import ch.nolix.system.sqlrawobjectschema.structure.MultiContentTable;
 
 //enum
-public enum MultiReferenceEntryTableColumn implements Labeled {
-	MULTI_REFERENCE_COLUMN("MutliReferenceColumn"),
-	RECORD(PascalCaseCatalogue.RECORD),
-	REFERENCED_RECORD("ReferencedRecord");
+public enum MultiReferenceEntryTableColumn implements FullNamed {
+	MULTI_REFERENCE_COLUMN_ID("MutliReferenceColumnId"),
+	RECORD_ID("RecordId"),
+	REFERENCED_RECORD_ID("ReferencedRecordId");
+	
+	//constant
+	private static final String NAME_PREFIX =
+	MultiContentTable.MULTI_REFERENCE_ENTRY.getFullName() + StringCatalogue.DOT;
 	
 	//attribute
-	private final String label;
+	private final String name;
 	
 	//constructor
-	MultiReferenceEntryTableColumn(final String label) {
+	MultiReferenceEntryTableColumn(final String name) {
 		
-		Validator.assertThat(label).thatIsNamed(LowerCaseCatalogue.LABEL).isNotBlank();
+		Validator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
 		
-		this.label = label;
+		this.name = name;
 	}
 	
 	//method
 	@Override
-	public final String getLabel() {
-		return label;
+	public final String getName() {
+		return name;
+	}
+	
+	//method
+	@Override
+	public String getNamePrefix() {
+		return NAME_PREFIX;
 	}
 }
