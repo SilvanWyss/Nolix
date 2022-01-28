@@ -67,13 +67,13 @@ final class QueryCreator {
 	public String createQueryToLoadFlatTableById(final String id) {
 		return
 		"SELECT "
-		+ TableTableColumn.ID.getLabel()
+		+ TableTableColumn.ID.getName()
 		+ ", "
-		+ TableTableColumn.NAME.getLabel()
+		+ TableTableColumn.NAME.getName()
 		+ " FROM "
 		+ SystemDataTable.TABLE.getFullName()
 		+ " WHERE "
-		+ TableTableColumn.ID.getLabel()
+		+ TableTableColumn.ID.getName()
 		+ " = '"
 		+ id
 		+ "'";
@@ -83,13 +83,13 @@ final class QueryCreator {
 	public String createQueryToLoadFlatTableByName(final String name) {
 		return
 		"SELECT "
-		+ TableTableColumn.ID.getLabel()
+		+ TableTableColumn.ID.getName()
 		+ ", "
-		+ TableTableColumn.NAME.getLabel()
+		+ TableTableColumn.NAME.getName()
 		+ " FROM "
 		+ SystemDataTable.TABLE.getFullName()
 		+ " WHERE "
-		+ TableTableColumn.NAME.getLabel()
+		+ TableTableColumn.NAME.getName()
 		+ " = '"
 		+ name
 		+ "'";
@@ -99,9 +99,9 @@ final class QueryCreator {
 	public String createQueryToLoadFlatTables() {
 		return
 		"SELECT "
-		+ TableTableColumn.ID.getLabel()
+		+ TableTableColumn.ID.getName()
 		+ ", "
-		+ TableTableColumn.NAME.getLabel()
+		+ TableTableColumn.NAME.getName()
 		+ " FROM "
 		+ SystemDataTable.TABLE.getFullName();
 	}

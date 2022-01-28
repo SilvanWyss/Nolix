@@ -54,9 +54,7 @@ final class SystemDataWriterSQLStatementCreator {
 		+ ") SELECT '"
 		+ column.getId()
 		+ "', "
-		+ SystemDataTable.TABLE.getFullName()
-		+ "."
-		+ TableTableColumn.ID.getLabel()
+		+ TableTableColumn.ID.getFullName()
 		+ ", '"
 		+ column.getName()
 		+ "', "
@@ -70,9 +68,7 @@ final class SystemDataWriterSQLStatementCreator {
 		+ " FROM "
 		+ SystemDataTable.TABLE.getFullName()
 		+ " WHERE "
-		+ SystemDataTable.TABLE.getFullName()
-		+ "."
-		+ TableTableColumn.NAME.getLabel()
+		+ TableTableColumn.NAME.getFullName()
 		+ " = '"
 		+ parentTableName
 		+ "'" ;
@@ -192,11 +188,11 @@ final class SystemDataWriterSQLStatementCreator {
 		"UPDATE "
 		+ SystemDataTable.TABLE.getFullName()
 		+ " SET "
-		+ TableTableColumn.NAME.getLabel()
+		+ TableTableColumn.NAME.getName()
 		+ " = '"
 		+ newTableName
 		+ "' WHERE "
-		+ TableTableColumn.NAME.getLabel()
+		+ TableTableColumn.NAME.getName()
 		+ " = '"
 		+ tableName
 		+ "'";
@@ -211,9 +207,9 @@ final class SystemDataWriterSQLStatementCreator {
 	    "INSERT INTO "
 		+ SystemDataTable.TABLE.getFullName()
 		+ " ("
-		+ TableTableColumn.ID.getLabel()
+		+ TableTableColumn.ID.getName()
 		+ ", "
-		+ TableTableColumn.NAME.getLabel()
+		+ TableTableColumn.NAME.getName()
 		+ ") VALUES ("
 		+ tableSystemTableRecord.getIdValue()
 		+ ", "

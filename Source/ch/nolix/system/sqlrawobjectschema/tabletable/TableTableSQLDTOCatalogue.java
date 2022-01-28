@@ -15,13 +15,13 @@ public final class TableTableSQLDTOCatalogue {
 	//constant
 	private static final IColumnDTO ID_COLUMN_SQL_DTO =
 	new ColumnDTO(
-		TableTableColumn.ID.getLabel(),
+		TableTableColumn.ID.getName(),
 		SQLDatatypeCatalogue.TEXT
 	);
 	
 	//constant
 	private static final IColumnDTO NAME_COLUMN_SQL_DTO =
-	new ColumnDTO(TableTableColumn.NAME.getLabel(), SQLDatatypeCatalogue.TEXT);
+	new ColumnDTO(TableTableColumn.NAME.getName(), SQLDatatypeCatalogue.TEXT);
 	
 	//constant
 	public static final ITableDTO TABLE_TABLE_SQL_DTO =

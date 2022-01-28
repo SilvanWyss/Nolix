@@ -18,7 +18,7 @@ final class SchemaDTOMapper {
 	
 	//static attribute
 	private final ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDTO mSQLIdColumnDTO =
-	new ColumnDTO(TableTableColumn.ID.getLabel(), SQLDatatypeCatalogue.TEXT);
+	new ColumnDTO(TableTableColumn.ID.getName(), SQLDatatypeCatalogue.TEXT);
 	
 	//attribute
 	private final ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDTO mSQLSaveStampColumnDTO;

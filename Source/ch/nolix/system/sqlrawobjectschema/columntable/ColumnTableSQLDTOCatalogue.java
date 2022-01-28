@@ -15,7 +15,7 @@ public final class ColumnTableSQLDTOCatalogue {
 	
 	//constant
 	private static final IColumnDTO ID_SQL_DTO =
-	new ColumnDTO(TableTableColumn.ID.getLabel(), SQLDatatypeCatalogue.TEXT);
+	new ColumnDTO(TableTableColumn.ID.getName(), SQLDatatypeCatalogue.TEXT);
 	
 	//constant
 	private static final IColumnDTO PARENT_TABLE_ID_SQL_DTO =
