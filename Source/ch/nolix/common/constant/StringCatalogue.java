@@ -12,9 +12,10 @@ package ch.nolix.common.constant;
 public final class StringCatalogue {
 	
 	//constants
-	public static final String EMPTY_STRING = "";
 	public static final String DEFAULT_STRING = "Default";
+	public static final String DOT = ".";
 	public static final String ELLIPSIS = "...";
+	public static final String EMPTY_STRING = "";
 	public static final String FALSE_HEADER = "false";
 	public static final String HEXADECIMAL_PREFIX = "0x";
 	public static final String MINUS = "-";
