@@ -37,7 +37,7 @@ final class LoadedRecordDTOMapper {
 		final List<String> pSQLRecordValues,
 		final ITableDefinition tableDefinition
 	) {
-		return getContentFieldsFromSQLRecord(pSQLRecordValues, tableDefinition.getContentColumnDefinitions());
+		return getContentFieldsFromSQLRecord(pSQLRecordValues, tableDefinition.getColumnDefinitions());
 	}
 	
 	//method

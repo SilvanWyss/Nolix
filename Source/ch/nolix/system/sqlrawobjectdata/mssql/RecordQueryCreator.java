@@ -24,9 +24,9 @@ public final class RecordQueryCreator implements IRecordQueryCreator {
 	public String createQueryToLoadAllRecordsFromTable(final ITableDefinition tableDefinition) {
 		return
 		"SELECT Id, SaveStamp, "
-		+ tableDefinition.getContentColumnDefinitions().to(IColumnDefinition::getColumnName).toString(", ")
+		+ tableDefinition.getColumnDefinitions().to(IColumnDefinition::getColumnName).toString(", ")
 		+ " FROM "
-		+ tableDefinition.getName();
+		+ tableDefinition.getTableName();
 	}
 	
 	//method
@@ -34,9 +34,9 @@ public final class RecordQueryCreator implements IRecordQueryCreator {
 	public String createQueryToLoadRecordFromTableById(String id, ITableDefinition tableDefinition) {
 		return
 		"SELECT Id, SaveStamp, "
-		+ tableDefinition.getContentColumnDefinitions().to(IColumnDefinition::getColumnName).toString(", ")
+		+ tableDefinition.getColumnDefinitions().to(IColumnDefinition::getColumnName).toString(", ")
 		+ " FROM "
-		+ tableDefinition.getName()
+		+ tableDefinition.getTableName()
 		+ "WHERE Id = '"
 		+ id
 		+ "'";

@@ -75,6 +75,6 @@ public final class DataReader implements IDataReader {
 	
 	//method
 	private ITableDefinition getTableDefinitionForTableWithName(final String tableName) {
-		return tableDefinitions.getRefFirstOrNull(td -> td.getName().equals(tableName));
+		return tableDefinitions.getRefFirstOrNull(td -> td.getTableName().equals(tableName));
 	}
 }

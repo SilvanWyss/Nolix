@@ -8,8 +8,11 @@ import ch.nolix.common.container.IContainer;
 public interface ITableDefinition {
 	
 	//method declaration
-	IContainer<IColumnDefinition> getContentColumnDefinitions();
+	IContainer<IColumnDefinition> getColumnDefinitions();
 	
 	//method declaration
-	String getName();
+	String getTableId();
+	
+	//method declaration
+	String getTableName();
 }

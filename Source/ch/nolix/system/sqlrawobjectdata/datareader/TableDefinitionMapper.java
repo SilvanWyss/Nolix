@@ -15,6 +15,7 @@ public final class TableDefinitionMapper {
 	public ITableDefinition createTableDefinitionFrom(final ITableDTO table) {
 		return
 		new TableDefinition(
+			table.getId(),
 			table.getName(),
 			table.getColumns().to(columnDefinitionMapper::createColumnDefinitionFrom)
 		);

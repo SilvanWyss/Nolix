@@ -2,7 +2,6 @@
 package ch.nolix.system.sqlrawobjectdata.schema;
 
 //own imports
-import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IColumnDefinition;
@@ -12,35 +11,53 @@ import ch.nolix.system.sqlrawobjectdata.sqlapi.ITableDefinition;
 public final class TableDefinition implements ITableDefinition {
 	
 	//attribute
-	private final String name;
+	private final String tableId;
+	
+	//attribute
+	private final String tableName;
 	
 	//multi-attribute
-	private final IContainer<IColumnDefinition> contentColumnDefinitions;
+	private final IContainer<IColumnDefinition> columnDefinitions;
 	
 	//constructor
-	public TableDefinition(final String name, final IContainer<IColumnDefinition> contentColumnDefinitions) {
+	public TableDefinition(
+		final String tableId,
+		final String tableName,
+		final IContainer<IColumnDefinition> columnDefinitions
+	) {
 		
-		if (name == null) {
-			throw new ArgumentIsNullException(LowerCaseCatalogue.NAME);
+		if (tableId == null) {
+			throw new ArgumentIsNullException("table id");
 		}
 		
-		if (contentColumnDefinitions == null) {
-			throw new ArgumentIsNullException("content column definitions");
+		if (tableName == null) {
+			throw new ArgumentIsNullException("table name");
 		}
 		
-		this.name = name;
-		this.contentColumnDefinitions = contentColumnDefinitions;
+		if (columnDefinitions == null) {
+			throw new ArgumentIsNullException("column definitions");
+		}
+		
+		this.tableId = tableId;
+		this.tableName = tableName;
+		this.columnDefinitions = columnDefinitions;
 	}
 	
 	//method
 	@Override
-	public IContainer<IColumnDefinition> getContentColumnDefinitions() {
-		return contentColumnDefinitions;
+	public IContainer<IColumnDefinition> getColumnDefinitions() {
+		return columnDefinitions;
 	}
 	
 	//method
 	@Override
-	public String getName() {
-		return name;
+	public String getTableId() {
+		return tableId;
+	}
+	
+	//method
+	@Override
+	public String getTableName() {
+		return tableName;
 	}
 }
