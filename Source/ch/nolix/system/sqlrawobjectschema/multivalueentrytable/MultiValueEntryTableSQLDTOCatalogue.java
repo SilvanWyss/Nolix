@@ -34,7 +34,7 @@ public final class MultiValueEntryTableSQLDTOCatalogue {
 	//constant
 	public static final ITableDTO MULTI_VALUE_ENTRY_TABLE_SQL_DTO =
 	new TableDTO(
-		MultiContentTable.MULTI_VALUE_ENTRY.getNameWithPrefix(),
+		MultiContentTable.MULTI_VALUE_ENTRY.getFullName(),
 		MULTI_VALUE_COLUMN_COLUMN_SQL_DTO,
 		RECORD_COLUMN_SQL_DTO,
 		VALUE_COLUMN_SQL_DTO
