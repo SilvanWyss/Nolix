@@ -30,13 +30,13 @@ public final class ColumnDefinition implements IColumnDefinition {
 	
 	//method
 	@Override
-	public String getColumnName() {
-		return columnName;
+	public DataType getColumnDataType() {
+		return dataType;
 	}
 	
 	//method
 	@Override
-	public DataType getDataType() {
-		return dataType;
+	public String getColumnName() {
+		return columnName;
 	}
 }

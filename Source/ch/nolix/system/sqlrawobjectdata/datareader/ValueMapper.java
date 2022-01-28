@@ -16,7 +16,7 @@ public final class ValueMapper {
 	
 	//method
 	public Object createValueFromString(final String string, final IColumnDefinition contentColumnDefinition) {
-		return createValueFromString(string, contentColumnDefinition.getDataType());
+		return createValueFromString(string, contentColumnDefinition.getColumnDataType());
 	}
 	
 	//method
