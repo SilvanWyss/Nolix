@@ -16,7 +16,7 @@ public final class MultiValueEntryTableSQLDTOCatalogue {
 	//constant
 	private static final IColumnDTO MULTI_VALUE_COLUMN_COLUMN_SQL_DTO =
 	new ColumnDTO(
-		MultiValueEntryTableColumn.MULTI_VALUE_COLUMN.getLabel(),
+		MultiValueEntryTableColumn.MULTI_VALUE_COLUMN_ID.getName(),
 		SQLDatatypeCatalogue.TEXT
 	);
 	
@@ -27,7 +27,7 @@ public final class MultiValueEntryTableSQLDTOCatalogue {
 	//constant
 	private static final IColumnDTO VALUE_COLUMN_SQL_DTO =
 	new ColumnDTO(
-		MultiValueEntryTableColumn.VALUE.getLabel(),
+		MultiValueEntryTableColumn.VALUE.getName(),
 		SQLDatatypeCatalogue.TEXT
 	);
 	
