@@ -6,9 +6,11 @@ import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.sql.SQLConnection;
+import ch.nolix.system.sqlrawobjectdata.sqlapi.IMultiValueQueryCreator;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IRecordQueryCreator;
 import ch.nolix.systemapi.rawobjectdataapi.dataadapterapi.IDataReader;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.ILoadedRecordDTO;
+import ch.nolix.systemapi.rawobjectdataapi.schemainfoapi.IColumnInfo;
 import ch.nolix.systemapi.rawobjectdataapi.schemainfoapi.ITableInfo;
 
 //class
@@ -24,12 +26,13 @@ public final class DataReader implements IDataReader {
 	public DataReader(
 		final SQLConnection pSQLConnection,
 		final IContainer<ITableInfo> tableInfos,
-		final IRecordQueryCreator recordQueryCreator
+		final IRecordQueryCreator recordQueryCreator,
+		final IMultiValueQueryCreator multiValueQueryCreator
 	) {
 		
 		Validator.assertThat(tableInfos).thatIsNamed("table definitions").isNotNull();
 		
-		internalDataReader = new InternalDataReader(pSQLConnection, recordQueryCreator);
+		internalDataReader = new InternalDataReader(pSQLConnection, recordQueryCreator, multiValueQueryCreator);
 		
 		this.tableInfos = tableInfos;
 	}
@@ -47,8 +50,11 @@ public final class DataReader implements IDataReader {
 		final String recordId,
 		final String multiValueColumnName
 	) {
-		//TODO: Implement.
-		return null;
+		return
+		internalDataReader.loadMultiValueEntriesFromRecord(
+			recordId,
+			getColumnDefinitionByTableNameAndColumnName(tableName, multiValueColumnName)
+		);
 	}
 	
 	//method
@@ -70,6 +76,14 @@ public final class DataReader implements IDataReader {
 			columnName,
 			value
 		);
+	}
+	
+	//method
+	private IColumnInfo getColumnDefinitionByTableNameAndColumnName(
+		final String tableName,
+		final String columnName
+	) {
+		return getTableDefinitionByTableName(tableName).getColumnInfoByColumnName(columnName);
 	}
 	
 	//method
