@@ -5,13 +5,13 @@ package ch.nolix.system.sqlrawobjectdata.datawriter;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.sql.SQLConnection;
-import ch.nolix.system.sqlrawobjectdata.sqlapi.IColumnDefinition;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IRecordStatementCreator;
-import ch.nolix.system.sqlrawobjectdata.sqlapi.ITableDefinition;
 import ch.nolix.systemapi.rawobjectdataapi.dataadapterapi.IDataWriter;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDeletionDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
+import ch.nolix.systemapi.rawobjectdataapi.schemainfoapi.IColumnInfo;
+import ch.nolix.systemapi.rawobjectdataapi.schemainfoapi.ITableInfo;
 
 //class
 public final class DataWriter implements IDataWriter {
@@ -20,19 +20,19 @@ public final class DataWriter implements IDataWriter {
 	private final InternalDataWriter internalDataWriter;
 	
 	//multi-attribute
-	private final IContainer<ITableDefinition> tableDefinitions;
+	private final IContainer<ITableInfo> tableInfos;
 	
 	//constructor
 	public DataWriter(
 		final SQLConnection pSQLConnection,
-		final IContainer<ITableDefinition> tableDefinitions,
+		final IContainer<ITableInfo> tableInfos,
 		final IRecordStatementCreator recordStatementCreator
 	) {
 		
-		Validator.assertThat(tableDefinitions).thatIsNamed("table definitions").isNotNull();
+		Validator.assertThat(tableInfos).thatIsNamed("table definitions").isNotNull();
 		
 		internalDataWriter = new InternalDataWriter(pSQLConnection, recordStatementCreator);		
-		this.tableDefinitions = tableDefinitions;
+		this.tableInfos = tableInfos;
 	}
 	
 	//method
@@ -109,15 +109,15 @@ public final class DataWriter implements IDataWriter {
 	}
 	
 	//method
-	private IColumnDefinition getColumnDefinitionByTableNameAndColumnName(
+	private IColumnInfo getColumnDefinitionByTableNameAndColumnName(
 		final String tableName,
 		final String columnName
 	) {
-		return getTableDefinitionByTableName(tableName).getColumnDefinitionByColumnName(columnName);
+		return getTableDefinitionByTableName(tableName).getColumnInfoByColumnName(columnName);
 	}
 	
 	//method
-	private ITableDefinition getTableDefinitionByTableName(final String tableName) {
-		return tableDefinitions.getRefFirstOrNull(td -> td.getTableName().equals(tableName));
+	private ITableInfo getTableDefinitionByTableName(final String tableName) {
+		return tableInfos.getRefFirstOrNull(td -> td.getTableName().equals(tableName));
 	}
 }

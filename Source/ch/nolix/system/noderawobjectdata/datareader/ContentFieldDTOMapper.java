@@ -5,8 +5,8 @@ package ch.nolix.system.noderawobjectdata.datareader;
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.system.sqlrawobjectdata.datadto.ContentFieldDTO;
 import ch.nolix.system.sqlrawobjectdata.datareader.ValueMapper;
-import ch.nolix.system.sqlrawobjectdata.sqlapi.IColumnDefinition;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IContentFieldDTO;
+import ch.nolix.systemapi.rawobjectdataapi.schemainfoapi.IColumnInfo;
 
 //class
 public final class ContentFieldDTOMapper {
@@ -17,17 +17,17 @@ public final class ContentFieldDTOMapper {
 	//method
 	public IContentFieldDTO createContentFieldDTOFromContentFieldNode(
 		final BaseNode contentFieldNode,
-		final IColumnDefinition columnDefinition
+		final IColumnInfo columnInfo
 	) {
 		
 		if (!contentFieldNode.containsAttributes()) {
-			return new ContentFieldDTO(columnDefinition.getColumnName());
+			return new ContentFieldDTO(columnInfo.getColumnName());
 		}
 		
 		return
 		new ContentFieldDTO(
-			columnDefinition.getColumnName(),
-			valueMapper.createValueFromString(contentFieldNode.getRefAttributes().toString(), columnDefinition)
+			columnInfo.getColumnName(),
+			valueMapper.createValueFromString(contentFieldNode.getRefAttributes().toString(), columnInfo)
 		);
 	}
 }

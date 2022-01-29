@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.system.sqlrawobjectdata.sqlapi;
 
+import ch.nolix.systemapi.rawobjectdataapi.schemainfoapi.ITableInfo;
+
 //interface
 public interface IRecordQueryCreator {
 	
@@ -8,8 +10,8 @@ public interface IRecordQueryCreator {
 	String createQueryToCountRecordsWithGivenValueAtGivenColumn(String tableName, String columnName, String value);
 	
 	//method declaration
-	String createQueryToLoadAllRecordsFromTable(ITableDefinition tableDefinition);
+	String createQueryToLoadAllRecordsFromTable(ITableInfo tableInfo);
 	
 	//method declaration
-	String createQueryToLoadRecordFromTableById(String id, ITableDefinition tableDefinition);
+	String createQueryToLoadRecordFromTableById(String id, ITableInfo tableInfo);
 }

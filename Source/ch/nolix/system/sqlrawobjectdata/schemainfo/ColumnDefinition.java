@@ -1,14 +1,14 @@
 //package declaration
-package ch.nolix.system.sqlrawobjectdata.schema;
+package ch.nolix.system.sqlrawobjectdata.schemainfo;
 
 //own imports
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.system.sqlrawobjectdata.sqlapi.IColumnDefinition;
 import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
+import ch.nolix.systemapi.rawobjectdataapi.schemainfoapi.IColumnInfo;
 
 //class
-public final class ColumnDefinition implements IColumnDefinition {
+public final class ColumnDefinition implements IColumnInfo {
 	
 	//attribute
 	private final String columnId;

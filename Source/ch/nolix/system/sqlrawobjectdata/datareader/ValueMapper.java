@@ -8,14 +8,14 @@ import java.math.BigInteger;
 //own imports
 import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.element.time.base.Time;
-import ch.nolix.system.sqlrawobjectdata.sqlapi.IColumnDefinition;
 import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
+import ch.nolix.systemapi.rawobjectdataapi.schemainfoapi.IColumnInfo;
 
 //class
 public final class ValueMapper {
 	
 	//method
-	public Object createValueFromString(final String string, final IColumnDefinition contentColumnDefinition) {
+	public Object createValueFromString(final String string, final IColumnInfo contentColumnDefinition) {
 		return createValueFromString(string, contentColumnDefinition.getColumnDataType());
 	}
 	

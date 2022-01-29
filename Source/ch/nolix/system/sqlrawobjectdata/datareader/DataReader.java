@@ -7,9 +7,9 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.sql.SQLConnection;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IRecordQueryCreator;
-import ch.nolix.system.sqlrawobjectdata.sqlapi.ITableDefinition;
 import ch.nolix.systemapi.rawobjectdataapi.dataadapterapi.IDataReader;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.ILoadedRecordDTO;
+import ch.nolix.systemapi.rawobjectdataapi.schemainfoapi.ITableInfo;
 
 //class
 public final class DataReader implements IDataReader {
@@ -18,20 +18,20 @@ public final class DataReader implements IDataReader {
 	private final InternalDataReader internalDataReader;
 	
 	//multi-attribute
-	private final IContainer<ITableDefinition> tableDefinitions;
+	private final IContainer<ITableInfo> tableInfos;
 	
 	//constructor
 	public DataReader(
 		final SQLConnection pSQLConnection,
-		final IContainer<ITableDefinition> tableDefinitions,
+		final IContainer<ITableInfo> tableInfos,
 		final IRecordQueryCreator recordQueryCreator
 	) {
 		
-		Validator.assertThat(tableDefinitions).thatIsNamed("table definitions").isNotNull();
+		Validator.assertThat(tableInfos).thatIsNamed("table definitions").isNotNull();
 		
 		internalDataReader = new InternalDataReader(pSQLConnection, recordQueryCreator);
 		
-		this.tableDefinitions = tableDefinitions;
+		this.tableInfos = tableInfos;
 	}
 	
 	//method
@@ -73,7 +73,7 @@ public final class DataReader implements IDataReader {
 	}
 	
 	//method
-	private ITableDefinition getTableDefinitionByTableName(final String tableName) {
-		return tableDefinitions.getRefFirstOrNull(td -> td.getTableName().equals(tableName));
+	private ITableInfo getTableDefinitionByTableName(final String tableName) {
+		return tableInfos.getRefFirstOrNull(td -> td.getTableName().equals(tableName));
 	}
 }

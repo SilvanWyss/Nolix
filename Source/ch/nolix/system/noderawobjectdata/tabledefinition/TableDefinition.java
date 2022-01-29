@@ -6,7 +6,7 @@ import ch.nolix.common.attributeapi.mandatoryattributeapi.Named;
 import ch.nolix.common.constant.LowerCaseCatalogue;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.system.sqlrawobjectdata.sqlapi.IColumnDefinition;
+import ch.nolix.systemapi.rawobjectdataapi.schemainfoapi.IColumnInfo;
 
 //class
 public final class TableDefinition implements Named {
@@ -15,10 +15,10 @@ public final class TableDefinition implements Named {
 	private final String name;
 	
 	//multi-attribute
-	private final IContainer<IColumnDefinition> contentColumnDefinitions;
+	private final IContainer<IColumnInfo> contentColumnDefinitions;
 	
 	//constructor
-	public TableDefinition(final String name, IContainer<IColumnDefinition> contentColumnDefinitions) {
+	public TableDefinition(final String name, IContainer<IColumnInfo> contentColumnDefinitions) {
 		
 		if (name == null) {
 			throw new ArgumentIsNullException(LowerCaseCatalogue.NAME);
@@ -38,7 +38,7 @@ public final class TableDefinition implements Named {
 	}
 	
 	//method
-	public IContainer<IColumnDefinition> getContentColumnDefinitions() {
+	public IContainer<IColumnInfo> getContentColumnDefinitions() {
 		return contentColumnDefinitions;
 	}
 	

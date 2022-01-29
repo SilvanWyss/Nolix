@@ -1,11 +1,11 @@
 //package declaration
-package ch.nolix.system.sqlrawobjectdata.sqlapi;
+package ch.nolix.systemapi.rawobjectdataapi.schemainfoapi;
 
 //own imports
 import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 
 //interface
-public interface IColumnDefinition {
+public interface IColumnInfo {
 	
 	//method declaration
 	DataType getColumnDataType();

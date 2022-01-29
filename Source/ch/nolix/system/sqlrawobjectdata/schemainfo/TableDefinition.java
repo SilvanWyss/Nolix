@@ -1,14 +1,14 @@
 //package declaration
-package ch.nolix.system.sqlrawobjectdata.schema;
+package ch.nolix.system.sqlrawobjectdata.schemainfo;
 
 //own imports
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.system.sqlrawobjectdata.sqlapi.IColumnDefinition;
-import ch.nolix.system.sqlrawobjectdata.sqlapi.ITableDefinition;
+import ch.nolix.systemapi.rawobjectdataapi.schemainfoapi.IColumnInfo;
+import ch.nolix.systemapi.rawobjectdataapi.schemainfoapi.ITableInfo;
 
 //class
-public final class TableDefinition implements ITableDefinition {
+public final class TableDefinition implements ITableInfo {
 	
 	//attribute
 	private final String tableId;
@@ -17,13 +17,13 @@ public final class TableDefinition implements ITableDefinition {
 	private final String tableName;
 	
 	//multi-attribute
-	private final IContainer<IColumnDefinition> columnDefinitions;
+	private final IContainer<IColumnInfo> columnInfos;
 	
 	//constructor
 	public TableDefinition(
 		final String tableId,
 		final String tableName,
-		final IContainer<IColumnDefinition> columnDefinitions
+		final IContainer<IColumnInfo> columnInfos
 	) {
 		
 		if (tableId == null) {
@@ -34,19 +34,19 @@ public final class TableDefinition implements ITableDefinition {
 			throw new ArgumentIsNullException("table name");
 		}
 		
-		if (columnDefinitions == null) {
+		if (columnInfos == null) {
 			throw new ArgumentIsNullException("column definitions");
 		}
 		
 		this.tableId = tableId;
 		this.tableName = tableName;
-		this.columnDefinitions = columnDefinitions;
+		this.columnInfos = columnInfos;
 	}
 	
 	//method
 	@Override
-	public IContainer<IColumnDefinition> getColumnDefinitions() {
-		return columnDefinitions;
+	public IContainer<IColumnInfo> getColumnInfos() {
+		return columnInfos;
 	}
 	
 	//method

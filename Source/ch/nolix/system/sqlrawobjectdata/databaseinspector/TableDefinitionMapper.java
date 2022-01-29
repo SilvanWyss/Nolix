@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.system.sqlrawobjectdata.databaseinspector;
 
-import ch.nolix.system.sqlrawobjectdata.schema.TableDefinition;
-import ch.nolix.system.sqlrawobjectdata.sqlapi.ITableDefinition;
+import ch.nolix.system.sqlrawobjectdata.schemainfo.TableDefinition;
+import ch.nolix.systemapi.rawobjectdataapi.schemainfoapi.ITableInfo;
 import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.ITableDTO;
 
 //class
@@ -12,7 +12,7 @@ public final class TableDefinitionMapper {
 	private static final ColumnDefinitionMapper columnDefinitionMapper = new ColumnDefinitionMapper();
 	
 	//method
-	public ITableDefinition createTableDefinitionFrom(final ITableDTO table) {
+	public ITableInfo createTableDefinitionFrom(final ITableDTO table) {
 		return
 		new TableDefinition(
 			table.getId(),

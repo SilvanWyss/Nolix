@@ -2,8 +2,8 @@
 package ch.nolix.system.sqlrawobjectdata.datareader;
 
 import ch.nolix.system.sqlrawobjectdata.datadto.ContentFieldDTO;
-import ch.nolix.system.sqlrawobjectdata.sqlapi.IColumnDefinition;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IContentFieldDTO;
+import ch.nolix.systemapi.rawobjectdataapi.schemainfoapi.IColumnInfo;
 
 //class
 public final class ContentFieldMapper {
@@ -14,7 +14,7 @@ public final class ContentFieldMapper {
 	//method
 	public IContentFieldDTO createContentFieldFromString(
 		final String string,
-		final IColumnDefinition contentColumnDefinition
+		final IColumnInfo contentColumnDefinition
 	) {
 		return
 		new ContentFieldDTO(

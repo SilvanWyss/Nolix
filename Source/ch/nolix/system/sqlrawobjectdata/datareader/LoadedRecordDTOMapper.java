@@ -8,10 +8,10 @@ import java.util.List;
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.system.sqlrawobjectdata.datadto.LoadedRecordDTO;
-import ch.nolix.system.sqlrawobjectdata.sqlapi.IColumnDefinition;
-import ch.nolix.system.sqlrawobjectdata.sqlapi.ITableDefinition;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IContentFieldDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.ILoadedRecordDTO;
+import ch.nolix.systemapi.rawobjectdataapi.schemainfoapi.IColumnInfo;
+import ch.nolix.systemapi.rawobjectdataapi.schemainfoapi.ITableInfo;
 
 //class
 final class LoadedRecordDTOMapper {
@@ -22,28 +22,28 @@ final class LoadedRecordDTOMapper {
 	//method
 	public ILoadedRecordDTO createLoadedRecordDTOFromSQLRecord(
 		final List<String> pSQLRecordValues,
-		final ITableDefinition tableDefinition
+		final ITableInfo tableInfo
 	) {
 		return
 		new LoadedRecordDTO(
 			pSQLRecordValues.get(0),
 			pSQLRecordValues.get(1),
-			getContentFieldsFromSQLRecord(pSQLRecordValues, tableDefinition)
+			getContentFieldsFromSQLRecord(pSQLRecordValues, tableInfo)
 		);
 	}
 	
 	//method
 	private IContainer<IContentFieldDTO> getContentFieldsFromSQLRecord(
 		final List<String> pSQLRecordValues,
-		final ITableDefinition tableDefinition
+		final ITableInfo tableInfo
 	) {
-		return getContentFieldsFromSQLRecord(pSQLRecordValues, tableDefinition.getColumnDefinitions());
+		return getContentFieldsFromSQLRecord(pSQLRecordValues, tableInfo.getColumnInfos());
 	}
 	
 	//method
 	private IContainer<IContentFieldDTO> getContentFieldsFromSQLRecord(
 		final List<String> pSQLRecordValues,
-		final IContainer<IColumnDefinition> contentColumnDefinitions
+		final IContainer<IColumnInfo> contentColumnDefinitions
 	) {
 		
 		final var recordValues = new LinkedList<IContentFieldDTO>();

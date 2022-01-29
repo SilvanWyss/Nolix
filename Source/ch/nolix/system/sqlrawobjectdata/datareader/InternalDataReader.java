@@ -6,8 +6,8 @@ import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.sql.SQLConnection;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IRecordQueryCreator;
-import ch.nolix.system.sqlrawobjectdata.sqlapi.ITableDefinition;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.ILoadedRecordDTO;
+import ch.nolix.systemapi.rawobjectdataapi.schemainfoapi.ITableInfo;
 
 //class
 final class InternalDataReader {
@@ -32,19 +32,19 @@ final class InternalDataReader {
 	}
 	
 	//method
-	public LinkedList<ILoadedRecordDTO> loadAllRecordsFromTable(final ITableDefinition tableDefinition) {
+	public LinkedList<ILoadedRecordDTO> loadAllRecordsFromTable(final ITableInfo tableInfo) {
 		return
 		mSQLConnection
-		.getRecords(recordQueryCreator.createQueryToLoadAllRecordsFromTable(tableDefinition))
-		.to(r -> loadedRecordDTOMapper.createLoadedRecordDTOFromSQLRecord(r, tableDefinition));
+		.getRecords(recordQueryCreator.createQueryToLoadAllRecordsFromTable(tableInfo))
+		.to(r -> loadedRecordDTOMapper.createLoadedRecordDTOFromSQLRecord(r, tableInfo));
 	}
 	
 	//method
-	public ILoadedRecordDTO loadRecordFromTableById(final ITableDefinition tableDefinition, final String id) {
+	public ILoadedRecordDTO loadRecordFromTableById(final ITableInfo tableInfo, final String id) {
 		return
 		loadedRecordDTOMapper.createLoadedRecordDTOFromSQLRecord(
-			mSQLConnection.getOneRecord(recordQueryCreator.createQueryToLoadRecordFromTableById(id, tableDefinition)),
-			tableDefinition
+			mSQLConnection.getOneRecord(recordQueryCreator.createQueryToLoadRecordFromTableById(id, tableInfo)),
+			tableInfo
 		);
 	}
 	

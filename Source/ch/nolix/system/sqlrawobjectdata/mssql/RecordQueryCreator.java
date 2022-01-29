@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.system.sqlrawobjectdata.mssql;
 
-//own imports
-import ch.nolix.system.sqlrawobjectdata.sqlapi.IColumnDefinition;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IRecordQueryCreator;
-import ch.nolix.system.sqlrawobjectdata.sqlapi.ITableDefinition;
+import ch.nolix.systemapi.rawobjectdataapi.schemainfoapi.IColumnInfo;
+import ch.nolix.systemapi.rawobjectdataapi.schemainfoapi.ITableInfo;
 
 //class
 public final class RecordQueryCreator implements IRecordQueryCreator {
@@ -21,22 +20,22 @@ public final class RecordQueryCreator implements IRecordQueryCreator {
 	
 	//method
 	@Override
-	public String createQueryToLoadAllRecordsFromTable(final ITableDefinition tableDefinition) {
+	public String createQueryToLoadAllRecordsFromTable(final ITableInfo tableInfo) {
 		return
 		"SELECT Id, SaveStamp, "
-		+ tableDefinition.getColumnDefinitions().to(IColumnDefinition::getColumnName).toString(", ")
+		+ tableInfo.getColumnInfos().to(IColumnInfo::getColumnName).toString(", ")
 		+ " FROM "
-		+ tableDefinition.getTableName();
+		+ tableInfo.getTableName();
 	}
 	
 	//method
 	@Override
-	public String createQueryToLoadRecordFromTableById(String id, ITableDefinition tableDefinition) {
+	public String createQueryToLoadRecordFromTableById(String id, ITableInfo tableInfo) {
 		return
 		"SELECT Id, SaveStamp, "
-		+ tableDefinition.getColumnDefinitions().to(IColumnDefinition::getColumnName).toString(", ")
+		+ tableInfo.getColumnInfos().to(IColumnInfo::getColumnName).toString(", ")
 		+ " FROM "
-		+ tableDefinition.getTableName()
+		+ tableInfo.getTableName()
 		+ "WHERE Id = '"
 		+ id
 		+ "'";

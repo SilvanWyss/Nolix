@@ -7,7 +7,7 @@ import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.system.noderawobjectdata.tabledefinition.TableDefinition;
 import ch.nolix.system.noderawobjectschema.structure.SubNodeHeaderCatalogue;
 import ch.nolix.system.noderawobjectschema.structure.TableNodeSearcher;
-import ch.nolix.system.sqlrawobjectdata.sqlapi.IColumnDefinition;
+import ch.nolix.systemapi.rawobjectdataapi.schemainfoapi.IColumnInfo;
 
 //class
 final class TableDefinitionMapper {
@@ -25,7 +25,7 @@ final class TableDefinitionMapper {
 	}
 	
 	//method
-	private IContainer<IColumnDefinition> getContentColumnDefinitionsFromTableNode(BaseNode tableNode) {
+	private IContainer<IColumnInfo> getContentColumnDefinitionsFromTableNode(BaseNode tableNode) {
 		return
 		getColumnNodesInOrderFromTableNode(tableNode).to(columnDefinitionMapper::createColumnDefinitionFromColumnNode);
 	}
