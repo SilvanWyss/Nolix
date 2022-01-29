@@ -5,6 +5,7 @@ package ch.nolix.system.sqlrawobjectdata.datawriter;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.sql.SQLConnection;
 import ch.nolix.common.sql.SQLExecutor;
+import ch.nolix.system.sqlrawobjectdata.sqlapi.IMultiValueStatementCreator;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IRecordStatementCreator;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDeletionDTO;
@@ -18,34 +19,44 @@ public final class InternalDataWriter {
 	
 	//attribute
 	private final IRecordStatementCreator recordStatementCreator;
+	
+	//attribute
+	private final IMultiValueStatementCreator multiValueStatementCreator;
 
 	//constructor
 	public InternalDataWriter(
 		final SQLConnection pSQLConnection,
-		final IRecordStatementCreator recordStatementCreator
+		final IRecordStatementCreator recordStatementCreator,
+		final IMultiValueStatementCreator multiValueStatementCreator
 	) {
 		
 		Validator.assertThat(recordStatementCreator).thatIsNamed(IRecordStatementCreator.class).isNotNull();
+		Validator.assertThat(multiValueStatementCreator).thatIsNamed(IMultiValueStatementCreator.class).isNotNull();
 		
 		mSQLExecutor = new SQLExecutor(pSQLConnection);
 		this.recordStatementCreator = recordStatementCreator;
+		this.multiValueStatementCreator = multiValueStatementCreator;
 	}
 	
 	//method
 	public void deleteEntriesFromMultiValue(
 		final String recordId,
-		final String multiValueColumnName
+		final String multiValueColumnId
 	) {
-		//TODO: Implement.
+		mSQLExecutor.addSQLStatement(
+			multiValueStatementCreator.createQueryToDeleteEntriesFromMultiValue(recordId, multiValueColumnId)
+		);
 	}
 	
 	//method
 	public void deleteEntryFromMultiValue(
 		final String recordId,
-		final String multiValueColumnName,
+		final String multiValueColumnId,
 		final String entry
 	) {
-		//TODO: Implement.
+		mSQLExecutor.addSQLStatement(
+			multiValueStatementCreator.createQueryToDeleteEntryFromMultiValue(recordId, multiValueColumnId, entry)
+		);
 	}
 	
 	//method
@@ -66,7 +77,9 @@ public final class InternalDataWriter {
 		final String multiValueColumnId,
 		final String entry
 	) {
-		//TODO: Implement.
+		mSQLExecutor.addSQLStatement(
+			multiValueStatementCreator.createQueryToInsertEntryIntoMultiValue(recordId, multiValueColumnId, entry)
+		);
 	}
 	
 	//method
