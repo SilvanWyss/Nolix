@@ -17,6 +17,8 @@ final class InternalDataReader {
 	
 	//attribute
 	private final SQLConnection mSQLConnection;
+	
+	//attribute
 	private final IRecordQueryCreator recordQueryCreator;
 	
 	//constructor

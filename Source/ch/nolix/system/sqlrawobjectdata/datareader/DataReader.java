@@ -4,18 +4,15 @@ package ch.nolix.system.sqlrawobjectdata.datareader;
 //own imports
 import ch.nolix.common.container.IContainer;
 import ch.nolix.common.container.LinkedList;
+import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.sql.SQLConnection;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IRecordQueryCreator;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.ITableDefinition;
 import ch.nolix.systemapi.rawobjectdataapi.dataadapterapi.IDataReader;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.ILoadedRecordDTO;
-import ch.nolix.systemapi.rawobjectschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //class
 public final class DataReader implements IDataReader {
-	
-	//static attribute
-	private static final DatabaseInspector databaseInspector = new DatabaseInspector();
 	
 	//attribute
 	private final InternalDataReader internalDataReader;
@@ -26,19 +23,21 @@ public final class DataReader implements IDataReader {
 	//constructor
 	public DataReader(
 		final SQLConnection pSQLConnection,
-		final ISchemaAdapter schemaAdapter,
+		final IContainer<ITableDefinition> tableDefinitions,
 		final IRecordQueryCreator recordQueryCreator
 	) {
 		
+		Validator.assertThat(tableDefinitions).thatIsNamed("table definitions").isNotNull();
+		
 		internalDataReader = new InternalDataReader(pSQLConnection, recordQueryCreator);
 		
-		tableDefinitions = databaseInspector.createTableDefinitionsFrom(schemaAdapter);
+		this.tableDefinitions = tableDefinitions;
 	}
 	
 	//method
 	@Override
 	public LinkedList<ILoadedRecordDTO> loadAllRecordsFromTable(final String tableName) {
-		return internalDataReader.loadAllRecordsFromTable(getTableDefinitionForTableWithName(tableName));
+		return internalDataReader.loadAllRecordsFromTable(getTableDefinitionByTableName(tableName));
 	}
 	
 	//method
@@ -55,7 +54,7 @@ public final class DataReader implements IDataReader {
 	//method
 	@Override
 	public ILoadedRecordDTO loadRecordFromTableById(final String tableName, final String id) {
-		return internalDataReader.loadRecordFromTableById(getTableDefinitionForTableWithName(tableName), id);
+		return internalDataReader.loadRecordFromTableById(getTableDefinitionByTableName(tableName), id);
 	}
 	
 	//method
@@ -74,7 +73,7 @@ public final class DataReader implements IDataReader {
 	}
 	
 	//method
-	private ITableDefinition getTableDefinitionForTableWithName(final String tableName) {
+	private ITableDefinition getTableDefinitionByTableName(final String tableName) {
 		return tableDefinitions.getRefFirstOrNull(td -> td.getTableName().equals(tableName));
 	}
 }

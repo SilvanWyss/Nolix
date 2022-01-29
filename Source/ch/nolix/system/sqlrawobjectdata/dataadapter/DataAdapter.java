@@ -4,6 +4,7 @@ package ch.nolix.system.sqlrawobjectdata.dataadapter;
 //own imports
 import ch.nolix.common.container.LinkedList;
 import ch.nolix.common.sql.SQLConnection;
+import ch.nolix.system.sqlrawobjectdata.databaseinspector.DatabaseInspector;
 import ch.nolix.system.sqlrawobjectdata.datareader.DataReader;
 import ch.nolix.system.sqlrawobjectdata.datawriter.DataWriter;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IRecordQueryCreator;
@@ -18,6 +19,9 @@ import ch.nolix.systemapi.rawobjectschemaapi.schemaadapterapi.ISchemaAdapter;
 //class
 public abstract class DataAdapter implements IDataAdapter {
 	
+	//static attribute
+	private static final DatabaseInspector databaseInspector = new DatabaseInspector();
+	
 	//attributes
 	private final DataReader dataReader;
 	private final DataWriter dataWriter;
@@ -29,8 +33,11 @@ public abstract class DataAdapter implements IDataAdapter {
 		final IRecordQueryCreator recordQueryCreator,
 		final IRecordStatementCreator recordStatementCreator
 	) {
-		dataReader = new DataReader(pSQLConnection, schemaAdapter, recordQueryCreator);
-		dataWriter = new DataWriter(pSQLConnection, recordStatementCreator);
+		
+		final var tableDefinitions = databaseInspector.createTableDefinitionsFrom(schemaAdapter);
+		
+		dataReader = new DataReader(pSQLConnection, tableDefinitions, recordQueryCreator);
+		dataWriter = new DataWriter(pSQLConnection, tableDefinitions, recordStatementCreator);
 	}
 	
 	//method

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.sqlrawobjectdata.datareader;
+package ch.nolix.system.sqlrawobjectdata.databaseinspector;
 
 import ch.nolix.system.sqlrawobjectdata.schema.TableDefinition;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.ITableDefinition;

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.sqlrawobjectdata.datareader;
+package ch.nolix.system.sqlrawobjectdata.databaseinspector;
 
 //own imports
 import ch.nolix.system.sqlrawobjectdata.schema.ColumnDefinition;
@@ -8,7 +8,7 @@ import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.IColumnDTO;
 
 //class
-public final class ColumnDefinitionMapper {
+final class ColumnDefinitionMapper {
 	
 	//method
 	public IColumnDefinition createColumnDefinitionFrom(final IColumnDTO column) {

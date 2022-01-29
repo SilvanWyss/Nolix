@@ -2,10 +2,12 @@
 package ch.nolix.system.sqlrawobjectdata.datawriter;
 
 //own imports
+import ch.nolix.common.container.IContainer;
 import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.common.sql.SQLConnection;
-import ch.nolix.common.sql.SQLExecutor;
+import ch.nolix.system.sqlrawobjectdata.sqlapi.IColumnDefinition;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IRecordStatementCreator;
+import ch.nolix.system.sqlrawobjectdata.sqlapi.ITableDefinition;
 import ch.nolix.systemapi.rawobjectdataapi.dataadapterapi.IDataWriter;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDeletionDTO;
@@ -14,17 +16,23 @@ import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
 //class
 public final class DataWriter implements IDataWriter {
 	
-	//attributes
-	private final SQLExecutor mSQLExecutor;
-	private final IRecordStatementCreator recordStatementCreator;
+	//attribute
+	private final InternalDataWriter internalDataWriter;
+	
+	//multi-attribute
+	private final IContainer<ITableDefinition> tableDefinitions;
 	
 	//constructor
-	public DataWriter(final SQLConnection pSQLConnection, final IRecordStatementCreator recordStatementCreator) {
+	public DataWriter(
+		final SQLConnection pSQLConnection,
+		final IContainer<ITableDefinition> tableDefinitions,
+		final IRecordStatementCreator recordStatementCreator
+	) {
 		
-		Validator.assertThat(recordStatementCreator).thatIsNamed(IRecordStatementCreator.class).isNotNull();
+		Validator.assertThat(tableDefinitions).thatIsNamed("table definitions").isNotNull();
 		
-		mSQLExecutor = new SQLExecutor(pSQLConnection);
-		this.recordStatementCreator = recordStatementCreator;
+		internalDataWriter = new InternalDataWriter(pSQLConnection, recordStatementCreator);		
+		this.tableDefinitions = tableDefinitions;
 	}
 	
 	//method
@@ -34,7 +42,10 @@ public final class DataWriter implements IDataWriter {
 		final String recordId,
 		final String multiValueColumnName
 	) {
-		//TODO: Implement.
+		internalDataWriter.deleteEntriesFromMultiValue(
+			recordId,
+			getColumnDefinitionByTableNameAndColumnName(tableName, multiValueColumnName).getColumnId()
+		);
 	}
 	
 	//method
@@ -45,21 +56,23 @@ public final class DataWriter implements IDataWriter {
 		final String multiValueColumnName,
 		final String entry
 	) {
-		//TODO: Implement.
-	}
-	
-	//method
-	@Override
-	public void deleteRecordFromTable(final String tableName, final IRecordDeletionDTO recordDeletion) {
-		mSQLExecutor.addSQLStatement(
-			recordStatementCreator.createStatementToDeleteRecordFromTable(tableName, recordDeletion)
+		internalDataWriter.deleteEntryFromMultiValue(
+			recordId,
+			getColumnDefinitionByTableNameAndColumnName(tableName, multiValueColumnName).getColumnId(),
+			entry
 		);
 	}
 	
 	//method
 	@Override
+	public void deleteRecordFromTable(final String tableName, final IRecordDeletionDTO recordDeletion) {
+		internalDataWriter.deleteRecordFromTable(tableName, recordDeletion);
+	}
+	
+	//method
+	@Override
 	public boolean hasChanges() {
-		return mSQLExecutor.getSQLStatements().containsAny();
+		return internalDataWriter.hasChanges();
 	}
 	
 	//method
@@ -70,24 +83,41 @@ public final class DataWriter implements IDataWriter {
 		final String multiValueColumnName,
 		final String entry
 	) {
-		//TODO: Implement.
+		internalDataWriter.insertEntryIntoMultiValue(
+			recordId,
+			getColumnDefinitionByTableNameAndColumnName(tableName, multiValueColumnName).getColumnId(),
+			entry
+		);
 	}
 	
 	//method
 	@Override
 	public void insertRecordIntoTable(final String tableName, final IRecordDTO record) {
-		mSQLExecutor.addSQLStatement(recordStatementCreator.createStatementToInsertRecordIntoTable(tableName, record));
+		internalDataWriter.insertRecordIntoTable(tableName, record);
 	}
 	
 	//method
 	@Override
 	public void updateRecordOnTable(final String tableName, final IRecordUpdateDTO recordUpdate) {
-		mSQLExecutor.addSQLStatement(recordStatementCreator.createStatementToUpdateRecordOnTable(tableName, recordUpdate));
+		internalDataWriter.updateRecordOnTable(tableName, recordUpdate);
 	}
 	
 	//method
 	@Override
 	public void saveChanges() {
-		mSQLExecutor.execute();
+		internalDataWriter.saveChanges();
+	}
+	
+	//method
+	private IColumnDefinition getColumnDefinitionByTableNameAndColumnName(
+		final String tableName,
+		final String columnName
+	) {
+		return getTableDefinitionByTableName(tableName).getColumnDefinitionByColumnName(columnName);
+	}
+	
+	//method
+	private ITableDefinition getTableDefinitionByTableName(final String tableName) {
+		return tableDefinitions.getRefFirstOrNull(td -> td.getTableName().equals(tableName));
 	}
 }
