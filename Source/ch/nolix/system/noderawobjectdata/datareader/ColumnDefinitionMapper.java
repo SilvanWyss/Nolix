@@ -5,7 +5,7 @@ package ch.nolix.system.noderawobjectdata.datareader;
 import ch.nolix.common.document.node.BaseNode;
 import ch.nolix.system.noderawobjectschema.structure.ColumnNodeSearcher;
 import ch.nolix.system.noderawobjectschema.structure.ParametrizedPropertyTypeNodeSearcher;
-import ch.nolix.system.sqlrawobjectdata.schemainfo.ColumnDefinition;
+import ch.nolix.system.sqlrawobjectdata.schemainfo.ColumnInfo;
 import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.systemapi.rawobjectdataapi.schemainfoapi.IColumnInfo;
 
@@ -20,7 +20,7 @@ public final class ColumnDefinitionMapper {
 	//method
 	public IColumnInfo createColumnDefinitionFromColumnNode(final BaseNode columnNode) {
 		return
-		new ColumnDefinition(
+		new ColumnInfo(
 			getColumnIdFromColumnNode(columnNode),
 			getColumnNameFromColumnNode(columnNode),
 			getDataTypeFromColumnNode(columnNode)

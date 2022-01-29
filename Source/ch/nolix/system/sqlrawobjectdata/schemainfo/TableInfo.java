@@ -8,7 +8,7 @@ import ch.nolix.systemapi.rawobjectdataapi.schemainfoapi.IColumnInfo;
 import ch.nolix.systemapi.rawobjectdataapi.schemainfoapi.ITableInfo;
 
 //class
-public final class TableDefinition implements ITableInfo {
+public final class TableInfo implements ITableInfo {
 	
 	//attribute
 	private final String tableId;
@@ -20,7 +20,7 @@ public final class TableDefinition implements ITableInfo {
 	private final IContainer<IColumnInfo> columnInfos;
 	
 	//constructor
-	public TableDefinition(
+	public TableInfo(
 		final String tableId,
 		final String tableName,
 		final IContainer<IColumnInfo> columnInfos

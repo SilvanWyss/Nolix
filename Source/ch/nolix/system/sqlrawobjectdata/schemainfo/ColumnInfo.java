@@ -8,7 +8,7 @@ import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.systemapi.rawobjectdataapi.schemainfoapi.IColumnInfo;
 
 //class
-public final class ColumnDefinition implements IColumnInfo {
+public final class ColumnInfo implements IColumnInfo {
 	
 	//attribute
 	private final String columnId;
@@ -20,7 +20,7 @@ public final class ColumnDefinition implements IColumnInfo {
 	private final DataType columnDataType;
 	
 	//constructor
-	public ColumnDefinition(final String columnId, final String columnName, final DataType columnDataType) {
+	public ColumnInfo(final String columnId, final String columnName, final DataType columnDataType) {
 		
 		if (columnId == null) {
 			throw new ArgumentIsNullException("column id");
