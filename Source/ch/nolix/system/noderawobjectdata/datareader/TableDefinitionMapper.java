@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.noderawobjectdata.datareader;
 
+//own imports
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.system.noderawobjectdata.tabledefinition.TableInfo;
@@ -27,11 +28,11 @@ final class TableDefinitionMapper {
 	//method
 	private IContainer<IColumnInfo> getContentColumnDefinitionsFromTableNode(BaseNode tableNode) {
 		return
-		getColumnNodesInOrderFromTableNode(tableNode).to(columnDefinitionMapper::createColumnDefinitionFromColumnNode);
+		getRefColumnNodesInOrderFromTableNode(tableNode).to(columnDefinitionMapper::createColumnDefinitionFromColumnNode);
 	}
 	
 	//method
-	private IContainer<BaseNode> getColumnNodesInOrderFromTableNode(final BaseNode tableNode) {
+	private IContainer<BaseNode> getRefColumnNodesInOrderFromTableNode(final BaseNode tableNode) {
 		return tableNode.getRefAttributes(SubNodeHeaderCatalogue.COLUMN);
 	}
 	
