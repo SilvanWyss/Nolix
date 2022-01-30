@@ -4,12 +4,11 @@ package ch.nolix.element.elementfactory;
 //Java imports
 import java.lang.reflect.InvocationTargetException;
 
-//own imports
-import ch.nolix.common.constant.LowerCaseCatalogue;
-import ch.nolix.common.document.node.BaseNode;
-import ch.nolix.common.errorcontrol.exception.WrapperException;
-import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.functionapi.IElementTakerElementGetter;
+import ch.nolix.core.constant.LowerCaseCatalogue;
+import ch.nolix.core.document.node.BaseNode;
+import ch.nolix.core.errorcontrol.exception.WrapperException;
+import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.functionapi.IElementTakerElementGetter;
 import ch.nolix.element.elementapi.IMutableElement;
 
 //class

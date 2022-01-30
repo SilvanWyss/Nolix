@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.templatetest.guilooktest;
 
-import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.testing.basetest.TestCase;
-import ch.nolix.common.testing.test.ObjectTest;
+import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.testing.basetest.TestCase;
+import ch.nolix.core.testing.test.ObjectTest;
 import ch.nolix.element.configuration.Configuration;
 import ch.nolix.element.gui.base.InvisibleGUI;
 import ch.nolix.element.gui.containerwidget.VerticalStack;

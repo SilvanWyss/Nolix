@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.system.objectschema.schemaadapter;
 
-//own imports
-import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.sql.SQLConnection;
+import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.sql.SQLConnection;
 import ch.nolix.systemapi.rawobjectschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //class

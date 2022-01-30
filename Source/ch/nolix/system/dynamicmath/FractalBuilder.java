@@ -7,10 +7,9 @@ import java.math.BigDecimal;
 import ch.nolix.businessapi.dynamicmathapi.IClosedInterval;
 import ch.nolix.businessapi.dynamicmathapi.IComplexNumber;
 import ch.nolix.businessapi.dynamicmathapi.IFractalBuilder;
-//own imports
-import ch.nolix.common.functionapi.I2ElementTakerElementGetter;
-import ch.nolix.common.functionapi.IElementTakerElementGetter;
-import ch.nolix.common.functionapi.IIntTakerElementGetter;
+import ch.nolix.core.functionapi.I2ElementTakerElementGetter;
+import ch.nolix.core.functionapi.IElementTakerElementGetter;
+import ch.nolix.core.functionapi.IIntTakerElementGetter;
 import ch.nolix.element.gui.color.Color;
 
 //class

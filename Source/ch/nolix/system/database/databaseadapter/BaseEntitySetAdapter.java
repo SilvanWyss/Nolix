@@ -1,11 +1,11 @@
 //package declaration
 package ch.nolix.system.database.databaseadapter;
 
-import ch.nolix.common.attributeapi.mandatoryattributeapi.Named;
-import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.document.node.BaseNode;
-import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.valuecreator.ValueCreator;
+import ch.nolix.core.attributeapi.mandatoryattributeapi.Named;
+import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.document.node.BaseNode;
+import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.valuecreator.ValueCreator;
 import ch.nolix.system.database.entity.Entity;
 
 //class

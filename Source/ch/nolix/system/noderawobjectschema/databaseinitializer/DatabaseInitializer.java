@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.system.noderawobjectschema.databaseinitializer;
 
-//own imports
-import ch.nolix.common.document.node.BaseNode;
-import ch.nolix.common.errorcontrol.exception.GeneralException;
+import ch.nolix.core.document.node.BaseNode;
+import ch.nolix.core.errorcontrol.exception.GeneralException;
 import ch.nolix.system.noderawobjectschema.databaseschemainspector.DatabaseSchemaInspector;
 
 //class

@@ -4,14 +4,13 @@ package ch.nolix.element.gui.base;
 //Java imports
 import java.lang.reflect.InvocationTargetException;
 
-//own imports
-import ch.nolix.common.constant.LowerCaseCatalogue;
-import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.document.node.BaseNode;
-import ch.nolix.common.errorcontrol.exception.WrapperException;
-import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.common.errorcontrol.validator.Validator;
+import ch.nolix.core.constant.LowerCaseCatalogue;
+import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.document.node.BaseNode;
+import ch.nolix.core.errorcontrol.exception.WrapperException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.element.gui.widget.Widget;
 
 //class

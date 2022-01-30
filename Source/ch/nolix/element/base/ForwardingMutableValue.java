@@ -1,16 +1,15 @@
 //package declaration
 package ch.nolix.element.base;
 
-//own imports
-import ch.nolix.common.attributeapi.mandatoryattributeapi.Named;
-import ch.nolix.common.constant.LowerCaseCatalogue;
-import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.document.node.BaseNode;
-import ch.nolix.common.document.node.Node;
-import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.functionapi.IElementGetter;
-import ch.nolix.common.functionapi.IElementTaker;
-import ch.nolix.common.functionapi.IElementTakerElementGetter;
+import ch.nolix.core.attributeapi.mandatoryattributeapi.Named;
+import ch.nolix.core.constant.LowerCaseCatalogue;
+import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.document.node.BaseNode;
+import ch.nolix.core.document.node.Node;
+import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.functionapi.IElementGetter;
+import ch.nolix.core.functionapi.IElementTaker;
+import ch.nolix.core.functionapi.IElementTakerElementGetter;
 
 //class
 public final class ForwardingMutableValue<V> extends Property implements Named {

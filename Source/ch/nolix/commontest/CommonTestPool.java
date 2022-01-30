@@ -1,8 +1,6 @@
 //package declaration
 package ch.nolix.commontest;
 
-//own imports
-import ch.nolix.common.testing.basetest.TestPool;
 import ch.nolix.commontest.cachingtest.CachingTestPool;
 import ch.nolix.commontest.commontypetest.CommonTypeTestPool;
 import ch.nolix.commontest.constanttest.ConstantTestPool;
@@ -16,6 +14,7 @@ import ch.nolix.commontest.nettest.NetTestPool;
 import ch.nolix.commontest.nettest.websockettest.WebSocketTestPool;
 import ch.nolix.commontest.programcontroltest.ProgramControlTestPool;
 import ch.nolix.commontest.providertest.ProviderTestPool;
+import ch.nolix.core.testing.basetest.TestPool;
 
 //class
 /**

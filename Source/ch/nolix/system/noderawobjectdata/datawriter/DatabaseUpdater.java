@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.system.noderawobjectdata.datawriter;
 
-//own imports
-import ch.nolix.common.document.node.BaseNode;
-import ch.nolix.common.errorcontrol.exception.GeneralException;
-import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
+import ch.nolix.core.document.node.BaseNode;
+import ch.nolix.core.errorcontrol.exception.GeneralException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
 import ch.nolix.system.noderawobjectdata.structure.RecordNodeSearcher;
 import ch.nolix.system.noderawobjectdata.structure.TableNodeSearcher;
 import ch.nolix.system.noderawobjectdata.tabledefinition.TableDefinition;

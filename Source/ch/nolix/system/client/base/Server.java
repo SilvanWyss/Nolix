@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.system.client.base;
 
-//own imports
-import ch.nolix.common.environment.localcomputer.LocalComputer;
-import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
-import ch.nolix.common.net.endpoint3.EndPoint;
+import ch.nolix.core.environment.localcomputer.LocalComputer;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
+import ch.nolix.core.net.endpoint3.EndPoint;
 
 //class
 /**
@@ -17,10 +16,10 @@ import ch.nolix.common.net.endpoint3.EndPoint;
 public final class Server extends BaseServer {
 	
 	//constant
-	public static final int DEFAULT_PORT = ch.nolix.common.net.endpoint3.Server.DEFAULT_PORT;
+	public static final int DEFAULT_PORT = ch.nolix.core.net.endpoint3.Server.DEFAULT_PORT;
 	
 	//attribute
-	private ch.nolix.common.net.endpoint3.Server internalNetServer;
+	private ch.nolix.core.net.endpoint3.Server internalNetServer;
 	
 	//constructor
 	/**
@@ -43,7 +42,7 @@ public final class Server extends BaseServer {
 		
 		//Creates the internalNetServer of the current NetServer.
 		internalNetServer =
-		new ch.nolix.common.net.endpoint3.Server(
+		new ch.nolix.core.net.endpoint3.Server(
 			port,
 			new ServerHTTPMessage(LocalComputer.getLANIP(), port).toString()
 		);

@@ -1,16 +1,15 @@
 //package declaration
 package ch.nolix.system.database.entity;
 
-//own imports
-import ch.nolix.common.constant.LowerCaseCatalogue;
-import ch.nolix.common.container.IContainer;
-import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.container.ReadContainer;
-import ch.nolix.common.document.node.Node;
-import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.functionapi.IElementTaker;
+import ch.nolix.core.constant.LowerCaseCatalogue;
+import ch.nolix.core.container.IContainer;
+import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.document.node.Node;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.functionapi.IElementTaker;
 
 //class
 public abstract class SingleValue<V> extends BaseValueProperty<V> {

@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.elementtest.guitest.widgettest;
 
-//own imports
-import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.common.testing.basetest.TestCase;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.element.gui.widget.Button;
 import ch.nolix.element.gui.widget.ButtonRole;
 

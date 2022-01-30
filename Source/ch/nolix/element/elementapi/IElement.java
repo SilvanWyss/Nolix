@@ -1,15 +1,14 @@
 //package declaration
 package ch.nolix.element.elementapi;
 
-//own imports
-import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.document.node.Node;
-import ch.nolix.common.document.xml.XMLNode;
-import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentException;
-import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.common.generalskillapi.ISmartObject;
-import ch.nolix.common.programcontrol.processproperty.WriteMode;
+import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.document.node.Node;
+import ch.nolix.core.document.xml.XMLNode;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.generalskillapi.ISmartObject;
+import ch.nolix.core.programcontrol.processproperty.WriteMode;
 
 //interface
 /**

@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.system.objectschema.sqldatabaseschemaadapter;
 
-//own imports
-import ch.nolix.common.constant.LowerCaseCatalogue;
-import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.errorcontrol.validator.Validator;
+import ch.nolix.core.constant.LowerCaseCatalogue;
+import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.system.objectschema.databaseschemaadapter.Column;
 import ch.nolix.system.objectschema.databaseschemaadapter.IColumnAdapter;
 import ch.nolix.system.objectschema.databaseschemaadapter.IEntitySetAdapter;

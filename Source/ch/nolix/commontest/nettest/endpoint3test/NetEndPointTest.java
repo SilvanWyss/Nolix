@@ -1,16 +1,16 @@
 //package declaration
 package ch.nolix.commontest.nettest.endpoint3test;
 
-import ch.nolix.common.document.chainednode.ChainedNode;
-import ch.nolix.common.document.node.Node;
-import ch.nolix.common.net.controllerapi.IDataProviderController;
-import ch.nolix.common.net.endpoint3.EndPoint;
-import ch.nolix.common.net.endpoint3.IEndPointTaker;
-import ch.nolix.common.net.endpoint3.NetEndPoint;
-import ch.nolix.common.net.endpoint3.Server;
-import ch.nolix.common.programcontrol.sequencer.Sequencer;
-import ch.nolix.common.testing.basetest.TestCase;
-import ch.nolix.common.testing.test.Test;
+import ch.nolix.core.document.chainednode.ChainedNode;
+import ch.nolix.core.document.node.Node;
+import ch.nolix.core.net.controllerapi.IDataProviderController;
+import ch.nolix.core.net.endpoint3.EndPoint;
+import ch.nolix.core.net.endpoint3.IEndPointTaker;
+import ch.nolix.core.net.endpoint3.NetEndPoint;
+import ch.nolix.core.net.endpoint3.Server;
+import ch.nolix.core.programcontrol.sequencer.Sequencer;
+import ch.nolix.core.testing.basetest.TestCase;
+import ch.nolix.core.testing.test.Test;
 
 //class
 /**

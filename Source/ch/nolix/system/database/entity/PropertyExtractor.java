@@ -4,9 +4,8 @@ package ch.nolix.system.database.entity;
 //Java imports
 import java.lang.reflect.Field;
 
-//own imports
-import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.errorcontrol.exception.WrapperException;
+import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.errorcontrol.exception.WrapperException;
 
 //class
 public final class PropertyExtractor {

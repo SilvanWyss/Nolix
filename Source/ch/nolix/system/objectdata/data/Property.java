@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.system.objectdata.data;
 
-//own imports
-import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.reflectionhelper.GlobalReflectionHelper;
+import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.reflectionhelper.GlobalReflectionHelper;
 import ch.nolix.system.objectdata.propertyhelper.PropertyHelper;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;

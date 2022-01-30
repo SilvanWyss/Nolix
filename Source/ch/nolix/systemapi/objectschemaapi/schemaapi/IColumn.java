@@ -1,11 +1,10 @@
 //package declaration
 package ch.nolix.systemapi.objectschemaapi.schemaapi;
 
-//own imports
-import ch.nolix.common.attributeapi.mandatoryattributeapi.IdentifiedByString;
-import ch.nolix.common.attributeapi.mutablemandatoryattributeapi.Namable;
-import ch.nolix.common.programcontrol.groupcloseable.GroupCloseable;
-import ch.nolix.common.requestapi.EmptinessRequestable;
+import ch.nolix.core.attributeapi.mandatoryattributeapi.IdentifiedByString;
+import ch.nolix.core.attributeapi.mutablemandatoryattributeapi.Namable;
+import ch.nolix.core.programcontrol.groupcloseable.GroupCloseable;
+import ch.nolix.core.requestapi.EmptinessRequestable;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.Deletable;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.IDatabaseObject;
 import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.IColumnDTO;

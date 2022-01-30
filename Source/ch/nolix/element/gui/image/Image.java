@@ -4,13 +4,12 @@ package ch.nolix.element.gui.image;
 //Java imports
 import java.awt.image.BufferedImage;
 
-//own imports
-import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.container.matrix.Matrix;
-import ch.nolix.common.document.node.BaseNode;
-import ch.nolix.common.document.node.Node;
-import ch.nolix.common.environment.runningjar.RunningJar;
-import ch.nolix.common.errorcontrol.validator.Validator;
+import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.container.matrix.Matrix;
+import ch.nolix.core.document.node.BaseNode;
+import ch.nolix.core.document.node.Node;
+import ch.nolix.core.environment.runningjar.RunningJar;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.element.gui.base.Element;
 import ch.nolix.element.gui.color.Color;
 

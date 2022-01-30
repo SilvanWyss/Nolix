@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.commontest.providertest.implprovidertest} package
- * defines tests for the {@link ch.nolix.common.provider.implprovider} package.
+ * defines tests for the {@link ch.nolix.core.provider.implprovider} package.
  * 
  * @author Silvan Wyss
  * @date 2021-01-16

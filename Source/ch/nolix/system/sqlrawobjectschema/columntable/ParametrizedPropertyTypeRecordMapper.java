@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.system.sqlrawobjectschema.columntable;
 
-//own imports
-import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.common.sql.SQLSyntaxCatalogue;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.sql.SQLSyntaxCatalogue;
 import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.IBaseParametrizedBackReferenceTypeDTO;
 import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.IBaseParametrizedReferenceTypeDTO;
 import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.IBaseParametrizedValueTypeDTO;

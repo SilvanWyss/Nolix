@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.element.trading;
 
-//own imports
-import ch.nolix.common.container.IContainer;
-import ch.nolix.common.container.ReadContainer;
+import ch.nolix.core.container.IContainer;
+import ch.nolix.core.container.ReadContainer;
 
 //class
 /**

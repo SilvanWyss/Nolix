@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.systemapi.objectdataapi.dataapi;
 
-//own imports
-import ch.nolix.common.attributeapi.mandatoryattributeapi.Named;
-import ch.nolix.common.requestapi.EmptinessRequestable;
-import ch.nolix.common.requestapi.MandatoryRequestable;
+import ch.nolix.core.attributeapi.mandatoryattributeapi.Named;
+import ch.nolix.core.requestapi.EmptinessRequestable;
+import ch.nolix.core.requestapi.MandatoryRequestable;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 
 //interface

@@ -1,6 +1,6 @@
 package ch.nolix.elementtutorial.guitutorial.containerwidgettutorial;
 
-import ch.nolix.common.math.Calculator;
+import ch.nolix.core.math.Calculator;
 import ch.nolix.element.gui.base.Frame;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.containerwidget.AligningContainer;

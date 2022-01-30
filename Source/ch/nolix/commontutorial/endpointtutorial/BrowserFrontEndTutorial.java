@@ -1,9 +1,8 @@
 package ch.nolix.commontutorial.endpointtutorial;
 
-//own imports
-import ch.nolix.common.constant.IPv4Catalogue;
-import ch.nolix.common.environment.localcomputer.ShellProvider;
-import ch.nolix.common.net.endpoint.Server;
+import ch.nolix.core.constant.IPv4Catalogue;
+import ch.nolix.core.environment.localcomputer.ShellProvider;
+import ch.nolix.core.net.endpoint.Server;
 
 public final class BrowserFrontEndTutorial {
 	

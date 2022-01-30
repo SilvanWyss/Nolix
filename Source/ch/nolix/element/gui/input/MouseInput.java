@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.element.gui.input;
 
-//own imports
-import ch.nolix.common.constant.PascalCaseCatalogue;
-import ch.nolix.common.document.node.BaseNode;
+import ch.nolix.core.constant.PascalCaseCatalogue;
+import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.element.base.MutableElement;
 import ch.nolix.element.base.Value;
 import ch.nolix.element.discretegeometry.Discrete2DPoint;

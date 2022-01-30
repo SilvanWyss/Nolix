@@ -4,13 +4,12 @@ package ch.nolix.system.database.entity;
 //Java imports
 import java.lang.reflect.ParameterizedType;
 
-//own imports
-import ch.nolix.common.container.IContainer;
-import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.reflectionhelper.GlobalReflectionHelper;
+import ch.nolix.core.container.IContainer;
+import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.reflectionhelper.GlobalReflectionHelper;
 
 //class
 public abstract class BaseBackReference<E extends Entity> extends Property<E> {

@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.client.baseguiclient;
 
-//own imports
-import ch.nolix.common.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 
 //class
 final class BaseBackGUIClientCanvasGUICounterpartUpdater implements IBackGUIClientCounterpartUpdater {

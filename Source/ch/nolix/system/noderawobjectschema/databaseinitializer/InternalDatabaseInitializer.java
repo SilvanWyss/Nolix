@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.system.noderawobjectschema.databaseinitializer;
 
-//own imports
-import ch.nolix.common.document.node.BaseNode;
-import ch.nolix.common.document.node.Node;
+import ch.nolix.core.document.node.BaseNode;
+import ch.nolix.core.document.node.Node;
 import ch.nolix.element.time.base.Time;
 import ch.nolix.system.noderawobjectschema.structure.SubNodeHeaderCatalogue;
 

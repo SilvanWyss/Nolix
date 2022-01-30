@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlschema.mssqllanguage;
 
-//own imports
-import ch.nolix.common.constant.StringCatalogue;
+import ch.nolix.core.constant.StringCatalogue;
 import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IConstraintDTO;
 import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IDataTypeDTO;

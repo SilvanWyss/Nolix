@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.element.gui.input;
 
-import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.element.elementenum.RotationDirection;
 
 //interface

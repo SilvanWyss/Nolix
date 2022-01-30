@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.businessapi.dynamicmathapi;
 
-import ch.nolix.common.provider.implproviderapi.IImplProvider;
-import ch.nolix.common.provider.implproviderapi.IImplRegistrator;
+import ch.nolix.core.provider.implproviderapi.IImplProvider;
+import ch.nolix.core.provider.implproviderapi.IImplRegistrator;
 
 //class
 public abstract class BaseDynamicMathImplRegistrator implements IImplRegistrator {

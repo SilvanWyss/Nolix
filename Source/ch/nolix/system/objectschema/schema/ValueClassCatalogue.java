@@ -4,10 +4,9 @@ package ch.nolix.system.objectschema.schema;
 //Java imports
 import java.math.BigDecimal;
 
-//own imports
-import ch.nolix.common.container.IContainer;
-import ch.nolix.common.container.ReadContainer;
-import ch.nolix.common.document.node.Node;
+import ch.nolix.core.container.IContainer;
+import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.document.node.Node;
 
 //class
 public final class ValueClassCatalogue {

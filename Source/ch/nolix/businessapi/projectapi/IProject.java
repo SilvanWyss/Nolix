@@ -1,11 +1,10 @@
 //package declaration
 package ch.nolix.businessapi.projectapi;
 
-import ch.nolix.common.attributeapi.mutablemandatoryattributeapi.Namable;
-//own imports
-import ch.nolix.common.container.IContainer;
-import ch.nolix.common.generalskillapi.IFluentObject;
-import ch.nolix.common.skillapi.Clearable;
+import ch.nolix.core.attributeapi.mutablemandatoryattributeapi.Namable;
+import ch.nolix.core.container.IContainer;
+import ch.nolix.core.generalskillapi.IFluentObject;
+import ch.nolix.core.skillapi.Clearable;
 
 //interface
 public interface IProject extends Clearable, IFluentObject<IProject>, Namable<IProject> {

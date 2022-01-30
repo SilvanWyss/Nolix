@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.element.gui.base;
 
-//own imports
-import ch.nolix.common.state.Visibility;
+import ch.nolix.core.state.Visibility;
 import ch.nolix.element.gui.widget.Widget;
 
 //class

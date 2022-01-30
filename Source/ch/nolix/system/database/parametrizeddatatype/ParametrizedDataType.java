@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.system.database.parametrizeddatatype;
 
-//own imports
-import ch.nolix.common.container.IContainer;
-import ch.nolix.common.errorcontrol.validator.Validator;
+import ch.nolix.core.container.IContainer;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.system.database.entity.Entity;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedPropertyType;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;

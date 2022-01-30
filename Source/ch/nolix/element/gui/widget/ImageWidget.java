@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.element.gui.widget;
 
-//own imports
-import ch.nolix.common.constant.PascalCaseCatalogue;
-import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.skillapi.Clearable;
+import ch.nolix.core.constant.PascalCaseCatalogue;
+import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.skillapi.Clearable;
 import ch.nolix.element.base.MutableOptionalValue;
 import ch.nolix.element.elementenum.RotationDirection;
 import ch.nolix.element.gui.image.MutableImage;

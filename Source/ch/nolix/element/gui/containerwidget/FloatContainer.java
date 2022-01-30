@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.element.gui.containerwidget;
 
-//own imports
-import ch.nolix.common.constant.PascalCaseCatalogue;
-import ch.nolix.common.container.LinkedList;
+import ch.nolix.core.constant.PascalCaseCatalogue;
+import ch.nolix.core.container.LinkedList;
 import ch.nolix.element.base.MultiValueExtractor;
 import ch.nolix.element.elementenum.RotationDirection;
 import ch.nolix.element.gui.base.WidgetGUI;

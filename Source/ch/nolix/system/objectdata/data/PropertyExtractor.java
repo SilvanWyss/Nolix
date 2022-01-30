@@ -4,10 +4,9 @@ package ch.nolix.system.objectdata.data;
 //Java imports
 import java.lang.reflect.Field;
 
-//own imports
-import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.errorcontrol.exception.WrapperException;
-import ch.nolix.common.reflectionhelper.GlobalFieldHelper;
+import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.errorcontrol.exception.WrapperException;
+import ch.nolix.core.reflectionhelper.GlobalFieldHelper;
 
 //class
 final class PropertyExtractor {

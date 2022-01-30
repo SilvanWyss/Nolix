@@ -1,7 +1,7 @@
 package ch.nolix.systemtutorial.clienttutorial.consoleclienttutorial;
 
-import ch.nolix.common.environment.localcomputer.ShellProvider;
-import ch.nolix.common.programcontrol.sequencer.Sequencer;
+import ch.nolix.core.environment.localcomputer.ShellProvider;
+import ch.nolix.core.programcontrol.sequencer.Sequencer;
 import ch.nolix.system.client.base.Server;
 import ch.nolix.system.client.consoleclient.BackConsoleClientSession;
 import ch.nolix.system.client.consoleclient.FrontConsoleClient;

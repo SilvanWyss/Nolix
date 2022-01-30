@@ -1,13 +1,12 @@
 //package declaration
 package ch.nolix.system.objectschema.schema;
 
-//own imports
-import ch.nolix.common.constant.LowerCaseCatalogue;
-import ch.nolix.common.container.IContainer;
-import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.data.GlobalIdCreator;
-import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
-import ch.nolix.common.errorcontrol.validator.Validator;
+import ch.nolix.core.constant.LowerCaseCatalogue;
+import ch.nolix.core.container.IContainer;
+import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.data.GlobalIdCreator;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.system.objectschema.flatschemadto.FlatTableDTO;
 import ch.nolix.system.objectschema.parametrizedpropertytype.SchemaImplementation;
 import ch.nolix.system.objectschema.schemadto.SaveStampConfigurationDTO;

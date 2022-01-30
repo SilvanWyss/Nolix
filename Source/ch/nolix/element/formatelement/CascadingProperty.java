@@ -1,13 +1,12 @@
 //package declaration
 package ch.nolix.element.formatelement;
 
-//own imports
-import ch.nolix.common.constant.LowerCaseCatalogue;
-import ch.nolix.common.document.node.BaseNode;
-import ch.nolix.common.document.node.Node;
-import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.functionapi.I2ElementTaker;
-import ch.nolix.common.functionapi.IElementTakerElementGetter;
+import ch.nolix.core.constant.LowerCaseCatalogue;
+import ch.nolix.core.document.node.BaseNode;
+import ch.nolix.core.document.node.Node;
+import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.functionapi.I2ElementTaker;
+import ch.nolix.core.functionapi.IElementTakerElementGetter;
 
 //class
 public final class CascadingProperty<S extends Enum<S>, V> extends MaterializedProperty<S, V> {

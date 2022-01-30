@@ -1,14 +1,13 @@
 //package declaration
 package ch.nolix.system.objectschema.schemahelper;
 
-//own imports
-import ch.nolix.common.container.IContainer;
-import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
-import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentContainsElementException;
-import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
-import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.common.errorcontrol.invalidargumentexception.ReferencedArgumentException;
+import ch.nolix.core.container.IContainer;
+import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentContainsElementException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ReferencedArgumentException;
 import ch.nolix.system.database.databaseobjecthelper.DatabaseObjectHelper;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;

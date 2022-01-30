@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.objectschema.mssqldatabaseschemaadapter;
 
-//own imports
-import ch.nolix.common.sql.MSSQLConnection;
+import ch.nolix.core.sql.MSSQLConnection;
 import ch.nolix.system.objectschema.sqldatabaseschemaadapter.SQLDatabaseSchemaAdapter;
 
 //class

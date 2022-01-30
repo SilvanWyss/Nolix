@@ -1,12 +1,11 @@
 //package declaration
 package ch.nolix.element.gui.containerwidget;
 
-//own imports
-import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentException;
-import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.skillapi.Clearable;
+import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
+import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.skillapi.Clearable;
 import ch.nolix.element.gui.widget.Widget;
 
 //class

@@ -1,14 +1,13 @@
 //package declaration
 package ch.nolix.system.database.nodedatabaseadapter;
 
-//own imports
-import ch.nolix.common.constant.PascalCaseCatalogue;
-import ch.nolix.common.constant.LowerCaseCatalogue;
-import ch.nolix.common.container.IContainer;
-import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.document.filenode.FileNode;
-import ch.nolix.common.document.node.BaseNode;
-import ch.nolix.common.errorcontrol.validator.Validator;
+import ch.nolix.core.constant.LowerCaseCatalogue;
+import ch.nolix.core.constant.PascalCaseCatalogue;
+import ch.nolix.core.container.IContainer;
+import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.document.filenode.FileNode;
+import ch.nolix.core.document.node.BaseNode;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.system.database.databaseadapter.DatabaseAdapter;
 import ch.nolix.system.database.databaseadapter.Schema;
 import ch.nolix.system.database.entity.Entity;

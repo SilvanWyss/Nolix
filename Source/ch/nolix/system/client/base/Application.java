@@ -5,19 +5,19 @@ package ch.nolix.system.client.base;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
-import ch.nolix.common.attributeapi.mandatoryattributeapi.Named;
-import ch.nolix.common.constant.LowerCaseCatalogue;
-import ch.nolix.common.container.IContainer;
-import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.errorcontrol.exception.WrapperException;
-import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.functionapi.IElementGetter;
-import ch.nolix.common.generalskillapi.Castable;
-import ch.nolix.common.net.endpoint3.EndPoint;
-import ch.nolix.common.programcontrol.sequencer.Sequencer;
+import ch.nolix.core.attributeapi.mandatoryattributeapi.Named;
+import ch.nolix.core.constant.LowerCaseCatalogue;
+import ch.nolix.core.container.IContainer;
+import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.errorcontrol.exception.WrapperException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.functionapi.IElementGetter;
+import ch.nolix.core.generalskillapi.Castable;
+import ch.nolix.core.net.endpoint3.EndPoint;
+import ch.nolix.core.programcontrol.sequencer.Sequencer;
 
 //class
 /**

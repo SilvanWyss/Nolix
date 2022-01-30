@@ -1,12 +1,11 @@
 //package declaration
 package ch.nolix.element.gui.textbox;
 
-//own imports
-import ch.nolix.common.attributeapi.mutablemandatoryattributeapi.IMutableTextHolder;
-import ch.nolix.common.constant.PascalCaseCatalogue;
-import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.functionapi.IAction;
-import ch.nolix.common.functionapi.IElementTaker;
+import ch.nolix.core.attributeapi.mutablemandatoryattributeapi.IMutableTextHolder;
+import ch.nolix.core.constant.PascalCaseCatalogue;
+import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.functionapi.IAction;
+import ch.nolix.core.functionapi.IElementTaker;
 import ch.nolix.element.base.ForwardingMutableValue;
 import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.elementenum.RotationDirection;

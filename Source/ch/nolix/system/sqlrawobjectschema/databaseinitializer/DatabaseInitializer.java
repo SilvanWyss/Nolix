@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlrawobjectschema.databaseinitializer;
 
-//own imports
-import ch.nolix.common.errorcontrol.exception.GeneralException;
+import ch.nolix.core.errorcontrol.exception.GeneralException;
 import ch.nolix.system.sqlrawobjectschema.databaseschemainspector.DatabaseSchemaInspector;
 import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter;
 

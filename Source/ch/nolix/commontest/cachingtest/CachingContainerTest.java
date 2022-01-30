@@ -1,11 +1,11 @@
 //package declaration
 package ch.nolix.commontest.cachingtest;
 
-import ch.nolix.common.caching.CachingContainer;
-import ch.nolix.common.demo.Cat;
-import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.common.testing.basetest.TestCase;
-import ch.nolix.common.testing.test.Test;
+import ch.nolix.core.caching.CachingContainer;
+import ch.nolix.core.demo.Cat;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.testing.basetest.TestCase;
+import ch.nolix.core.testing.test.Test;
 
 //class
 public final class CachingContainerTest extends Test {

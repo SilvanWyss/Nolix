@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.businessapi.projectapi;
 
-import ch.nolix.common.attributeapi.mutablemandatoryattributeapi.Titleble;
+import ch.nolix.core.attributeapi.mutablemandatoryattributeapi.Titleble;
 import ch.nolix.element.time.base.Time;
 
 //interface

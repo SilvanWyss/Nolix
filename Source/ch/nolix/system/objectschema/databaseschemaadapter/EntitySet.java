@@ -1,16 +1,16 @@
 //package declaration
 package ch.nolix.system.objectschema.databaseschemaadapter;
 
-import ch.nolix.common.attributeapi.mandatoryattributeapi.Named;
-import ch.nolix.common.constant.LowerCaseCatalogue;
-import ch.nolix.common.container.IContainer;
-import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
-import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
-import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.common.errorcontrol.invalidargumentexception.UnsupportedArgumentException;
-import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.sql.SQLDatabaseEngine;
+import ch.nolix.core.attributeapi.mandatoryattributeapi.Named;
+import ch.nolix.core.constant.LowerCaseCatalogue;
+import ch.nolix.core.container.IContainer;
+import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.UnsupportedArgumentException;
+import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.sql.SQLDatabaseEngine;
 import ch.nolix.system.objectschema.parametrizedpropertytype.IEntitySet;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedMultiValueType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedOptionalValueType;

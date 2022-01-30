@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.objectschema.parametrizedpropertytype;
 
-//own imports
-import ch.nolix.common.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IParametrizedPropertyType;
 
 //class

@@ -2,7 +2,7 @@
 /**
  * The {@link ch.nolix.system.objectschema.nodedatabaseschemaadapter} package
  * defines a {@link ch.nolix.system.objectschema.databaseschemaadapter.DatabaseSchemaAdapter}
- * for databases that are {@link ch.nolix.common.document.node.Node}s.
+ * for databases that are {@link ch.nolix.core.document.node.Node}s.
  * 
  * @author Silvan Wyss
  * @date 2019-08-01

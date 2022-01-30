@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.system.objectschema.databaseschemaadapter;
 
-//own imports
-import ch.nolix.common.container.IContainer;
-import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.license.Feature;
+import ch.nolix.core.container.IContainer;
+import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.license.Feature;
 import ch.nolix.nolixlicense.Nolix2020Classic;
 import ch.nolix.nolixlicense.Nolix2020Ultimate;
 

@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.element.template;
 
-import ch.nolix.common.document.node.BaseNode;
-import ch.nolix.common.valuecreator.SpecificValueCreator;
+import ch.nolix.core.document.node.BaseNode;
+import ch.nolix.core.valuecreator.SpecificValueCreator;
 import ch.nolix.element.gui.image.MutableImage;
 
 //class

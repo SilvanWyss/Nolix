@@ -4,15 +4,14 @@ package ch.nolix.system.database.entity;
 //Java imports
 import java.lang.reflect.ParameterizedType;
 
-//own imports
-import ch.nolix.common.attributeapi.mandatoryattributeapi.Named;
-import ch.nolix.common.container.IContainer;
-import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.document.node.Node;
-import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
-import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
-import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.reflectionhelper.GlobalReflectionHelper;
+import ch.nolix.core.attributeapi.mandatoryattributeapi.Named;
+import ch.nolix.core.container.IContainer;
+import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.document.node.Node;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
+import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.reflectionhelper.GlobalReflectionHelper;
 import ch.nolix.element.elementapi.IElement;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 

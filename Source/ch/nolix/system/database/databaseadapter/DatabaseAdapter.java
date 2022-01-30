@@ -1,13 +1,12 @@
 //package declaration
 package ch.nolix.system.database.databaseadapter;
 
-//own imports
-import ch.nolix.common.constant.PluralLowerCaseCatalogue;
-import ch.nolix.common.container.IContainer;
-import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.document.node.BaseNode;
-import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.valuecreator.ValueCreator;
+import ch.nolix.core.constant.PluralLowerCaseCatalogue;
+import ch.nolix.core.container.IContainer;
+import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.document.node.BaseNode;
+import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.valuecreator.ValueCreator;
 import ch.nolix.system.database.entity.Entity;
 import ch.nolix.system.database.entity.IDatabaseAdapter;
 import ch.nolix.system.database.entity.IEntitySet;
@@ -32,11 +31,11 @@ public abstract class DatabaseAdapter implements IDatabaseAdapter {
 		this.schema = schema;
 				
 		valueCreator
-		.registerSpecificValueCreator(ch.nolix.common.template.ValueFromNodeCreatorCatalogue.BIG_DECIMAL_CREATOR)
-		.registerSpecificValueCreator(ch.nolix.common.template.ValueFromNodeCreatorCatalogue.BINARY_OBJECT_CREATOR)
-		.registerSpecificValueCreator(ch.nolix.common.template.ValueFromNodeCreatorCatalogue.BOOLEAN_CREATOR)
-		.registerSpecificValueCreator(ch.nolix.common.template.ValueFromNodeCreatorCatalogue.INTEGER_CREATOR)
-		.registerSpecificValueCreator(ch.nolix.common.template.ValueFromNodeCreatorCatalogue.STRING_CREATOR)
+		.registerSpecificValueCreator(ch.nolix.core.template.ValueFromNodeCreatorCatalogue.BIG_DECIMAL_CREATOR)
+		.registerSpecificValueCreator(ch.nolix.core.template.ValueFromNodeCreatorCatalogue.BINARY_OBJECT_CREATOR)
+		.registerSpecificValueCreator(ch.nolix.core.template.ValueFromNodeCreatorCatalogue.BOOLEAN_CREATOR)
+		.registerSpecificValueCreator(ch.nolix.core.template.ValueFromNodeCreatorCatalogue.INTEGER_CREATOR)
+		.registerSpecificValueCreator(ch.nolix.core.template.ValueFromNodeCreatorCatalogue.STRING_CREATOR)
 		.registerSpecificValueCreator(ch.nolix.element.template.FromNodeCreatorCatalogue.IMAGE_CREATOR);
 		
 		reset();

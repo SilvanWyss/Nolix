@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.element.base;
 
-//own imports
-import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.document.node.BaseNode;
-import ch.nolix.common.document.node.Node;
+import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.document.node.BaseNode;
+import ch.nolix.core.document.node.Node;
 
 //class
 public abstract class Property {

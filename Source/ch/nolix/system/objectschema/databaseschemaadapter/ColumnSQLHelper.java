@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.system.objectschema.databaseschemaadapter;
 
-import ch.nolix.common.errorcontrol.validator.Validator;
-//own imports
-import ch.nolix.common.sql.SQLDatabaseEngine;
+import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.sql.SQLDatabaseEngine;
 
 //class
 public abstract class ColumnSQLHelper {

@@ -1,12 +1,11 @@
 //package declaration
 package ch.nolix.system.client.base;
 
-//own imports
-import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.programcontrol.sequencer.Sequencer;
+import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.programcontrol.sequencer.Sequencer;
 
 //class
 final class ClientSessionManager<C extends Client<C>> {

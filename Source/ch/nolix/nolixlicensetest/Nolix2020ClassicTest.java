@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.nolixlicensetest;
 
-import ch.nolix.common.errorcontrol.invalidargumentexception.UnacceptedKeyException;
-import ch.nolix.common.testing.basetest.TestCase;
-import ch.nolix.common.testing.test.Test;
+import ch.nolix.core.errorcontrol.invalidargumentexception.UnacceptedKeyException;
+import ch.nolix.core.testing.basetest.TestCase;
+import ch.nolix.core.testing.test.Test;
 import ch.nolix.nolixlicense.Nolix2020Classic;
 
 //class

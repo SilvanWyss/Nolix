@@ -1,15 +1,14 @@
 //package declaration
 package ch.nolix.element.valueholder;
 
-//own imports
-import ch.nolix.common.commontype.commontypehelper.GlobalStringHelper;
-import ch.nolix.common.constant.LowerCaseCatalogue;
-import ch.nolix.common.constant.PascalCaseCatalogue;
-import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.document.node.BaseNode;
-import ch.nolix.common.document.node.Node;
-import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
+import ch.nolix.core.constant.LowerCaseCatalogue;
+import ch.nolix.core.constant.PascalCaseCatalogue;
+import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.document.node.BaseNode;
+import ch.nolix.core.document.node.Node;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.element.elementapi.IElement;
 
 //class

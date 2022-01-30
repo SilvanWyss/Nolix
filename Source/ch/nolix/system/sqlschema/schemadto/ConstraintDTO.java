@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.system.sqlschema.schemadto;
 
-//own imports
-import ch.nolix.common.container.IContainer;
-import ch.nolix.common.container.ReadContainer;
-import ch.nolix.common.errorcontrol.validator.Validator;
+import ch.nolix.core.container.IContainer;
+import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.ConstraintType;
 import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IConstraintDTO;
 

@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.system.database.entity;
 
-import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentException;
-//own imports
-import ch.nolix.common.functionapi.IElementTaker;
+import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
+import ch.nolix.core.functionapi.IElementTaker;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 
 //class

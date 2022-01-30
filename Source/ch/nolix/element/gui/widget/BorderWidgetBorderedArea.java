@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.element.gui.widget;
 
-import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.common.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.element.gui.baseapi.HoverableByCursor;
 import ch.nolix.element.gui.painterapi.IPainter;
 

@@ -1,15 +1,14 @@
 //package declaration
 package ch.nolix.system.objectdata.data;
 
-//own imports
-import ch.nolix.common.constant.LowerCaseCatalogue;
-import ch.nolix.common.container.IContainer;
-import ch.nolix.common.data.GlobalIdCreator;
-import ch.nolix.common.errorcontrol.invalidargumentexception.ClosedArgumentException;
-import ch.nolix.common.errorcontrol.invalidargumentexception.DeletedArgumentException;
-import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.programcontrol.groupcloseable.CloseController;
-import ch.nolix.common.programcontrol.groupcloseable.GroupCloseable;
+import ch.nolix.core.constant.LowerCaseCatalogue;
+import ch.nolix.core.container.IContainer;
+import ch.nolix.core.data.GlobalIdCreator;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.DeletedArgumentException;
+import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.programcontrol.groupcloseable.CloseController;
+import ch.nolix.core.programcontrol.groupcloseable.GroupCloseable;
 import ch.nolix.system.objectdata.datahelper.EntityHelper;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.DatabaseObjectState;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;

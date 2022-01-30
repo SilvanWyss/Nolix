@@ -1,16 +1,15 @@
 //package declaration
 package ch.nolix.element.gui.widget;
 
-//own imports
-import ch.nolix.common.constant.CharacterCatalogue;
-import ch.nolix.common.constant.StringCatalogue;
-import ch.nolix.common.container.IContainer;
-import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.container.ReadContainer;
-import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.skillapi.Clearable;
+import ch.nolix.core.constant.CharacterCatalogue;
+import ch.nolix.core.constant.StringCatalogue;
+import ch.nolix.core.container.IContainer;
+import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.skillapi.Clearable;
 import ch.nolix.element.base.MultiValue;
 import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.elementenum.RotationDirection;

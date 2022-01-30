@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlrawobjectschema.schemaadapter;
 
-//own imports
-import ch.nolix.common.sql.SQLConnection;
+import ch.nolix.core.sql.SQLConnection;
 import ch.nolix.system.sqlschema.schemadto.ColumnDTO;
 import ch.nolix.system.sqlschema.schemadto.DataTypeDTO;
 import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDTO;

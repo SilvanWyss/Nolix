@@ -1,12 +1,12 @@
 //package declaration
 package ch.nolix.element.gui.widget;
 
-import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.math.Calculator;
-import ch.nolix.common.rasterapi.Rectangular;
-import ch.nolix.common.skillapi.Recalculable;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.math.Calculator;
+import ch.nolix.core.rasterapi.Rectangular;
+import ch.nolix.core.skillapi.Recalculable;
 import ch.nolix.element.gui.painterapi.IPainter;
 
 //class

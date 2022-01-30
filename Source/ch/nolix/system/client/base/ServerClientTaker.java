@@ -1,11 +1,10 @@
 //package declaration
 package ch.nolix.system.client.base;
 
-//own imports
-import ch.nolix.common.constant.LowerCaseCatalogue;
-import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.common.errorcontrol.validator.Validator;
+import ch.nolix.core.constant.LowerCaseCatalogue;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.errorcontrol.validator.Validator;
 
 //class
 /**
@@ -13,7 +12,7 @@ import ch.nolix.common.errorcontrol.validator.Validator;
  * @date 2021-06-28
  * @lines 50
  */
-public class ServerClientTaker implements ch.nolix.common.net.endpoint3.IEndPointTaker {
+public class ServerClientTaker implements ch.nolix.core.net.endpoint3.IEndPointTaker {
 	
 	//attributes
 	private final String name;
@@ -52,7 +51,7 @@ public class ServerClientTaker implements ch.nolix.common.net.endpoint3.IEndPoin
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void takeEndPoint(final ch.nolix.common.net.endpoint3.EndPoint endPoint) {
+	public void takeEndPoint(final ch.nolix.core.net.endpoint3.EndPoint endPoint) {
 		parentServer.takeEndPoint(endPoint);
 	}
 }

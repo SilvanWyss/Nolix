@@ -3,8 +3,8 @@ package ch.nolix.systemtutorial.dynamicmathtutorial;
 import ch.nolix.businessapi.dynamicmathapi.IComplexNumber;
 import ch.nolix.businessapi.dynamicmathapi.IComplexNumberFactory;
 import ch.nolix.businessapi.dynamicmathapi.IImplicitComplexSequenceBuilder;
-import ch.nolix.common.functionapi.IIntTaker;
-import ch.nolix.common.provider.implprovider.GlobalImplProvider;
+import ch.nolix.core.functionapi.IIntTaker;
+import ch.nolix.core.provider.implprovider.GlobalImplProvider;
 import ch.nolix.system.dynamicmath.DynamicMathImplRegistrator;
 
 public final class ComplexSequenceTutorial {

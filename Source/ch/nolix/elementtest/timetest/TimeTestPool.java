@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.elementtest.timetest;
 
-//own imports
-import ch.nolix.common.testing.basetest.TestPool;
+import ch.nolix.core.testing.basetest.TestPool;
 
 //class
 /**

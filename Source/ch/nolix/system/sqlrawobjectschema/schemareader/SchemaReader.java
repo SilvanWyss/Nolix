@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.system.sqlrawobjectschema.schemareader;
 
-//own imports
-import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.sql.SQLConnection;
+import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.sql.SQLConnection;
 import ch.nolix.element.time.base.Time;
 import ch.nolix.system.objectschema.schemadto.SaveStampConfigurationDTO;
 import ch.nolix.system.objectschema.schemadto.TableDTO;

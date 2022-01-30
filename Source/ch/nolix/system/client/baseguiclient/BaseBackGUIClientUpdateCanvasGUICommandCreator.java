@@ -1,11 +1,10 @@
 //package declaration
 package ch.nolix.system.client.baseguiclient;
 
-//own imports
-import ch.nolix.common.container.IContainer;
-import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.document.chainednode.ChainedNode;
-import ch.nolix.common.document.node.Node;
+import ch.nolix.core.container.IContainer;
+import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.document.chainednode.ChainedNode;
+import ch.nolix.core.document.node.Node;
 import ch.nolix.element.gui.base.CursorIcon;
 import ch.nolix.element.gui.base.IWidgetGUI;
 import ch.nolix.element.gui.image.Image;

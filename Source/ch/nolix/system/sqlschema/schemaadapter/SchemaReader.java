@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.system.sqlschema.schemaadapter;
 
-//own imports
-import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.sql.SQLConnection;
+import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.sql.SQLConnection;
 import ch.nolix.system.sqlschema.flatschemadto.FlatTableDTO;
 import ch.nolix.system.sqlschema.schemadto.ColumnDTO;
 import ch.nolix.system.sqlschema.schemadto.DataTypeDTO;

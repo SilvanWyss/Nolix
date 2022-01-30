@@ -7,14 +7,14 @@ import java.math.BigDecimal;
 //own imports
 import ch.nolix.businessapi.dynamicmathapi.IComplexNumber;
 import ch.nolix.businessapi.dynamicmathapi.IImageBuilder;
-import ch.nolix.common.constant.LowerCaseCatalogue;
-import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.programcontrol.futureapi.IFuture;
-import ch.nolix.common.programcontrol.jobpool.JobPool;
-import ch.nolix.common.programcontrol.sequencer.Sequencer;
+import ch.nolix.core.constant.LowerCaseCatalogue;
+import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.programcontrol.futureapi.IFuture;
+import ch.nolix.core.programcontrol.jobpool.JobPool;
+import ch.nolix.core.programcontrol.sequencer.Sequencer;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.image.MutableImage;
 

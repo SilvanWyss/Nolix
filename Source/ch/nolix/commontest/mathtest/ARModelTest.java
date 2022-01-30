@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.commontest.mathtest;
 
-import ch.nolix.common.math.ARModel;
-import ch.nolix.common.testing.basetest.TestCase;
-import ch.nolix.common.testing.test.Test;
+import ch.nolix.core.math.ARModel;
+import ch.nolix.core.testing.basetest.TestCase;
+import ch.nolix.core.testing.test.Test;
 
 //class
 /**

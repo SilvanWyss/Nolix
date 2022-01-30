@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.templatetest;
 
-import ch.nolix.common.testing.basetest.TestPool;
+import ch.nolix.core.testing.basetest.TestPool;
 import ch.nolix.templatetest.consoleclientlooktest.ConsoleClientLookTestPool;
 import ch.nolix.templatetest.guilooktest.GUILooksTestPool;
 

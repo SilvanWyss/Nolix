@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.noderawobjectdata.datareader;
 
-//own imports
-import ch.nolix.common.document.node.BaseNode;
+import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.system.sqlrawobjectdata.datadto.ContentFieldDTO;
 import ch.nolix.system.sqlrawobjectdata.datareader.ValueMapper;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IContentFieldDTO;

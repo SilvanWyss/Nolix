@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.system.sqlrawobjectschema.schemawriter;
 
-//own imports
-import ch.nolix.common.container.ReadContainer;
-import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.sql.SQLConnection;
+import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.sql.SQLConnection;
 import ch.nolix.element.time.base.Time;
 import ch.nolix.systemapi.rawobjectschemaapi.schemaadapterapi.ISchemaWriter;
 import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.IColumnDTO;

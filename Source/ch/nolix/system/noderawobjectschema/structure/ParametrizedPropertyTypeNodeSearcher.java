@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.noderawobjectschema.structure;
 
-//own imports
-import ch.nolix.common.document.node.BaseNode;
+import ch.nolix.core.document.node.BaseNode;
 
 //class
 public final class ParametrizedPropertyTypeNodeSearcher {

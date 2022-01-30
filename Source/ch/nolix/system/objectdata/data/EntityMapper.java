@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.objectdata.data;
 
-//own imports
-import ch.nolix.common.reflectionhelper.GlobalClassHelper;
+import ch.nolix.core.reflectionhelper.GlobalClassHelper;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IContentFieldDTO;

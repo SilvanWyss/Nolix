@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.objectdata.data;
 
-//own imports
-import ch.nolix.common.container.IContainer;
+import ch.nolix.core.container.IContainer;
 
 //class
 public abstract class Entity extends BaseEntity {

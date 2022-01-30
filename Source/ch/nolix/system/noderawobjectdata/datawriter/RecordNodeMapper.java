@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.system.noderawobjectdata.datawriter;
 
-//own imports
-import ch.nolix.common.container.IContainer;
-import ch.nolix.common.container.ReadContainer;
-import ch.nolix.common.document.node.Node;
+import ch.nolix.core.container.IContainer;
+import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.document.node.Node;
 import ch.nolix.system.noderawobjectdata.structure.SubNodeHeaderCatalogue;
 import ch.nolix.system.noderawobjectdata.tabledefinition.TableDefinition;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDTO;

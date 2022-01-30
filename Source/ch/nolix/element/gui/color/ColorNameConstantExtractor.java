@@ -4,11 +4,10 @@ package ch.nolix.element.gui.color;
 //Java imports
 import java.lang.reflect.Field;
 
-//own imports
-import ch.nolix.common.container.IContainer;
-import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.container.pair.Pair;
-import ch.nolix.common.reflectionhelper.GlobalFieldHelper;
+import ch.nolix.core.container.IContainer;
+import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.container.pair.Pair;
+import ch.nolix.core.reflectionhelper.GlobalFieldHelper;
 
 //class
 public final class ColorNameConstantExtractor {

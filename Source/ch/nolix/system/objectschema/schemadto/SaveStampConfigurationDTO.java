@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.system.objectschema.schemadto;
 
-//own imports
-import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.ISaveStampConfigurationDTO;
 import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.SaveStampStrategy;
 

@@ -1,7 +1,7 @@
 package ch.nolix.elementtutorial.guitutorial.widgettutorial;
 
-import ch.nolix.common.environment.filesystem.FileAccessor;
-import ch.nolix.common.environment.filesystem.FileSystemAccessor;
+import ch.nolix.core.environment.filesystem.FileAccessor;
+import ch.nolix.core.environment.filesystem.FileSystemAccessor;
 import ch.nolix.element.gui.base.Frame;
 import ch.nolix.element.gui.widget.Downloader;
 

@@ -5,8 +5,7 @@ package ch.nolix.systemapi.databaseapi.datatypeapi;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 
-//own imports
-import ch.nolix.common.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.element.time.base.Time;
 
 //enum

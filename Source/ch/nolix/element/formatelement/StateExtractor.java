@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.element.formatelement;
 
-//own imports
-import ch.nolix.common.container.IContainer;
-import ch.nolix.common.container.LinkedList;
+import ch.nolix.core.container.IContainer;
+import ch.nolix.core.container.LinkedList;
 
 //class
 final class StateExtractor<S extends Enum<S>> {

@@ -2,7 +2,7 @@ package ch.nolix.commontutorial.sequencertutorial;
 
 import java.util.Random;
 
-import ch.nolix.common.programcontrol.sequencer.Sequencer;
+import ch.nolix.core.programcontrol.sequencer.Sequencer;
 
 public final class AsSoonAsMethodTutorial {
 	

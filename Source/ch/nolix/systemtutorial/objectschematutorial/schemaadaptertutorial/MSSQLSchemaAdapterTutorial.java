@@ -1,6 +1,6 @@
 package ch.nolix.systemtutorial.objectschematutorial.schemaadaptertutorial;
 
-import ch.nolix.common.sql.MSSQLConnection;
+import ch.nolix.core.sql.MSSQLConnection;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedBackReferenceType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedMultiReferenceType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedValueType;

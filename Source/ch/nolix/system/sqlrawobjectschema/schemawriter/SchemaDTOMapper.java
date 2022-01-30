@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.system.sqlrawobjectschema.schemawriter;
 
-//own imports
-import ch.nolix.common.container.IContainer;
-import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.errorcontrol.validator.Validator;
+import ch.nolix.core.container.IContainer;
+import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.system.sqlrawobjectschema.structure.SQLDatatypeCatalogue;
 import ch.nolix.system.sqlrawobjectschema.structure.TableType;
 import ch.nolix.system.sqlrawobjectschema.tabletable.TableTableColumn;

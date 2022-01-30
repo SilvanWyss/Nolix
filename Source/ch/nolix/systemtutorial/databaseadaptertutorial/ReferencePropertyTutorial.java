@@ -1,6 +1,6 @@
 package ch.nolix.systemtutorial.databaseadaptertutorial;
 
-import ch.nolix.common.document.node.Node;
+import ch.nolix.core.document.node.Node;
 import ch.nolix.system.database.databaseadapter.Schema;
 import ch.nolix.system.database.entity.Entity;
 import ch.nolix.system.database.entity.Reference;

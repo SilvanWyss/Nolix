@@ -1,14 +1,13 @@
 //package declaration
 package ch.nolix.system.objectschema.sqldatabaseschemaadapter;
 
-//own imports
-import ch.nolix.common.container.IContainer;
-import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.sql.SQLConnection;
-import ch.nolix.common.sql.SQLDatabaseEngine;
-import ch.nolix.common.sql.SQLExecutor;
+import ch.nolix.core.container.IContainer;
+import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.sql.SQLConnection;
+import ch.nolix.core.sql.SQLDatabaseEngine;
+import ch.nolix.core.sql.SQLExecutor;
 import ch.nolix.system.objectschema.databaseschemaadapter.DatabaseSchemaAdapter;
 import ch.nolix.system.objectschema.databaseschemaadapter.DatabaseState;
 import ch.nolix.system.objectschema.databaseschemaadapter.EntitySet;

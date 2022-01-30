@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.system.noderawobjectschema.schemawriter;
 
-//own imports
-import ch.nolix.common.document.node.BaseNode;
-import ch.nolix.common.errorcontrol.validator.Validator;
+import ch.nolix.core.document.node.BaseNode;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.element.time.base.Time;
 import ch.nolix.system.noderawobjectschema.structure.ColumnNodeSearcher;
 import ch.nolix.system.noderawobjectschema.structure.DatabaseNodeSearcher;

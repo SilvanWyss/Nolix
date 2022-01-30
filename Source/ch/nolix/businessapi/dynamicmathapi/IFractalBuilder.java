@@ -4,13 +4,12 @@ package ch.nolix.businessapi.dynamicmathapi;
 //Java imports
 import java.math.BigDecimal;
 
-//own imports
-import ch.nolix.common.functionapi.I2ElementTakerElementGetter;
-import ch.nolix.common.functionapi.I3ElementTakerElementGetter;
-import ch.nolix.common.functionapi.I4ElementTakerElementGetter;
-import ch.nolix.common.functionapi.I5ElementTakerElementGetter;
-import ch.nolix.common.functionapi.IElementTakerElementGetter;
-import ch.nolix.common.functionapi.IIntTakerElementGetter;
+import ch.nolix.core.functionapi.I2ElementTakerElementGetter;
+import ch.nolix.core.functionapi.I3ElementTakerElementGetter;
+import ch.nolix.core.functionapi.I4ElementTakerElementGetter;
+import ch.nolix.core.functionapi.I5ElementTakerElementGetter;
+import ch.nolix.core.functionapi.IElementTakerElementGetter;
+import ch.nolix.core.functionapi.IIntTakerElementGetter;
 import ch.nolix.element.gui.color.Color;
 
 //interface

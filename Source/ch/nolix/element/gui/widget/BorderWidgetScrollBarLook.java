@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.element.gui.widget;
 
-//own imports
-import ch.nolix.common.document.node.BaseNode;
+import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.element.base.MutableElement;
 import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.gui.color.Color;

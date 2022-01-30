@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.objectschema.databaseschemaadapter;
 
-//own imports
-import ch.nolix.common.attributeapi.mandatoryattributeapi.Named;
+import ch.nolix.core.attributeapi.mandatoryattributeapi.Named;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedPropertyType;
 
 //interface

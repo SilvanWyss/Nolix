@@ -1,14 +1,13 @@
 //package declaration
 package ch.nolix.commontest.containertest;
 
-//own imports
-import ch.nolix.common.constant.FunctionCatalogue;
-import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.container.SequencePattern;
-import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.common.errorcontrol.invalidargumentexception.EmptyArgumentException;
-import ch.nolix.common.testing.basetest.TestCase;
-import ch.nolix.common.testing.test.Test;
+import ch.nolix.core.constant.FunctionCatalogue;
+import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.container.SequencePattern;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
+import ch.nolix.core.testing.basetest.TestCase;
+import ch.nolix.core.testing.test.Test;
 
 //class
 /**

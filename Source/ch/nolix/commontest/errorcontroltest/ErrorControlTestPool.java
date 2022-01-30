@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.commontest.errorcontroltest;
 
-import ch.nolix.common.testing.basetest.TestPool;
 import ch.nolix.commontest.errorcontroltest.validatortest.ValidatorTestPool;
+import ch.nolix.core.testing.basetest.TestPool;
 
 //class
 public final class ErrorControlTestPool extends TestPool {

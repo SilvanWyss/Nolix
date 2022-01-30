@@ -1,11 +1,10 @@
 //package declaration
 package ch.nolix.element.elementapi;
 
-//own imports
-import ch.nolix.common.document.node.BaseNode;
-import ch.nolix.common.document.node.Node;
-import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.common.skillapi.Resettable;
+import ch.nolix.core.document.node.BaseNode;
+import ch.nolix.core.document.node.Node;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.skillapi.Resettable;
 
 //interface
 /**

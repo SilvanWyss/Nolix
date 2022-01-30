@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.commontest.demotest;
 
-import ch.nolix.common.demo.BankAccount;
-import ch.nolix.common.testing.basetest.TestCase;
-import ch.nolix.common.testing.test.Test;
+import ch.nolix.core.demo.BankAccount;
+import ch.nolix.core.testing.basetest.TestCase;
+import ch.nolix.core.testing.test.Test;
 
 //class
 public final class BankAccountTest extends Test {

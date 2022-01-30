@@ -1,13 +1,13 @@
 //package declaration
 package ch.nolix.system.client.base;
 
-import ch.nolix.common.document.chainednode.ChainedNode;
-import ch.nolix.common.document.node.Node;
-import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.net.controllerapi.IDataProviderController;
-import ch.nolix.common.net.endpoint3.EndPoint;
+import ch.nolix.core.document.chainednode.ChainedNode;
+import ch.nolix.core.document.node.Node;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.net.controllerapi.IDataProviderController;
+import ch.nolix.core.net.endpoint3.EndPoint;
 
 //class
 /**

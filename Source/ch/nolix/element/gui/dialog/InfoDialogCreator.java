@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.element.gui.dialog;
 
-import ch.nolix.common.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.element.gui.base.Layer;
 import ch.nolix.element.gui.base.LayerRole;
 import ch.nolix.element.gui.containerwidget.ContainerRole;

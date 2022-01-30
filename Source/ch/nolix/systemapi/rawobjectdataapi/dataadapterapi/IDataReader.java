@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.rawobjectdataapi.dataadapterapi;
 
-//own imports
-import ch.nolix.common.container.LinkedList;
+import ch.nolix.core.container.LinkedList;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.ILoadedRecordDTO;
 
 //interface

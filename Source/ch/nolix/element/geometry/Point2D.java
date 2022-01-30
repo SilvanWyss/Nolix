@@ -1,10 +1,10 @@
 //package declaration
 package ch.nolix.element.geometry;
 
-import ch.nolix.common.commontype.commontypehelper.GlobalDoubleHelper;
-import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.document.node.Node;
-import ch.nolix.common.math.Vector;
+import ch.nolix.core.commontype.commontypehelper.GlobalDoubleHelper;
+import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.document.node.Node;
+import ch.nolix.core.math.Vector;
 import ch.nolix.element.elementapi.IElement;
 
 //class

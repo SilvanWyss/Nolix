@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.commontest.programcontroltest;
 
-//own imports
-import ch.nolix.common.testing.basetest.TestPool;
 import ch.nolix.commontest.programcontroltest.sequencertest.SequencerTestPool;
+import ch.nolix.core.testing.basetest.TestPool;
 
 //class
 public final class ProgramControlTestPool extends TestPool {

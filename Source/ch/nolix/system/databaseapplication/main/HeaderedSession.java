@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.system.databaseapplication.main;
 
-//own imports
-import ch.nolix.common.constant.LowerCaseCatalogue;
-import ch.nolix.common.errorcontrol.validator.Validator;
+import ch.nolix.core.constant.LowerCaseCatalogue;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.element.gui.containerwidget.VerticalStack;
 import ch.nolix.element.gui.widget.Label;
 import ch.nolix.element.gui.widget.LabelRole;

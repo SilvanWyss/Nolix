@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlrawobjectschema.tabletable;
 
-//own imports
-import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 
 //class
 public final class TableTableRecord {

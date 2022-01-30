@@ -7,13 +7,12 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
 
-//own imports
-import ch.nolix.common.constant.PluralLowerCaseCatalogue;
-import ch.nolix.common.container.pair.Pair;
-import ch.nolix.common.errorcontrol.validator.Validator;
 import ch.nolix.businessapi.dynamicmathapi.IImplicitSequence;
-import ch.nolix.common.constant.LowerCaseCatalogue;
-import ch.nolix.common.functionapi.IElementTakerElementGetter;
+import ch.nolix.core.constant.LowerCaseCatalogue;
+import ch.nolix.core.constant.PluralLowerCaseCatalogue;
+import ch.nolix.core.container.pair.Pair;
+import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.functionapi.IElementTakerElementGetter;
 
 //class
 public final class ImpliciteSequence<N> implements IImplicitSequence<N> {

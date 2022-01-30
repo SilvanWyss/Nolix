@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.rawobjectdataapi.dataadapterapi;
 
-//own imports
-import ch.nolix.common.skillapi.IChangeSaver;
+import ch.nolix.core.skillapi.IChangeSaver;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDeletionDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;

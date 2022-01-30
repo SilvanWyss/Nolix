@@ -4,16 +4,15 @@ package ch.nolix.system.client.baseguiclient;
 //Java imports
 import java.nio.charset.StandardCharsets;
 
-//own imports
-import ch.nolix.common.container.IContainer;
-import ch.nolix.common.container.SingleContainer;
-import ch.nolix.common.document.chainednode.ChainedNode;
-import ch.nolix.common.document.node.BaseNode;
-import ch.nolix.common.document.node.Node;
-import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.programcontrol.sequencer.Sequencer;
+import ch.nolix.core.container.IContainer;
+import ch.nolix.core.container.SingleContainer;
+import ch.nolix.core.document.chainednode.ChainedNode;
+import ch.nolix.core.document.node.BaseNode;
+import ch.nolix.core.document.node.Node;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.programcontrol.sequencer.Sequencer;
 import ch.nolix.element.gui.base.GUI;
 import ch.nolix.element.gui.base.IWidgetGUI;
 import ch.nolix.element.gui.base.InvisibleGUI;

@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.rawobjectschemaapi.schemaadapterapi;
 
-//own imports
-import ch.nolix.common.container.LinkedList;
+import ch.nolix.core.container.LinkedList;
 import ch.nolix.element.time.base.Time;
 import ch.nolix.systemapi.rawobjectschemaapi.flatschemadtoapi.IFlatTableDTO;
 import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.IColumnDTO;

@@ -1,10 +1,10 @@
 //package declaration
 package ch.nolix.commontest.programcontroltest.sequencertest;
 
-import ch.nolix.common.programcontrol.sequencer.ResultFuture;
-import ch.nolix.common.programcontrol.sequencer.Sequencer;
-import ch.nolix.common.testing.basetest.TestCase;
-import ch.nolix.common.testing.test.Test;
+import ch.nolix.core.programcontrol.sequencer.ResultFuture;
+import ch.nolix.core.programcontrol.sequencer.Sequencer;
+import ch.nolix.core.testing.basetest.TestCase;
+import ch.nolix.core.testing.test.Test;
 
 //class
 /** 

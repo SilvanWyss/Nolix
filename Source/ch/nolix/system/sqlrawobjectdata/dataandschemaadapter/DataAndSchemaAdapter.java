@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.system.sqlrawobjectdata.dataandschemaadapter;
 
-//own imports
-import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.sql.SQLConnection;
+import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.sql.SQLConnection;
 import ch.nolix.element.time.base.Time;
 import ch.nolix.system.sqlrawobjectdata.databaseinspector.DatabaseInspector;
 import ch.nolix.system.sqlrawobjectdata.datareader.DataReader;

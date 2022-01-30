@@ -1,12 +1,11 @@
 //package declaration
 package ch.nolix.element.gui3d.shape;
 
-//own imports
-import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.container.ReadContainer;
-import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.common.errorcontrol.validator.Validator;
+import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.element.gui3d.base.Shape;
 
 //class

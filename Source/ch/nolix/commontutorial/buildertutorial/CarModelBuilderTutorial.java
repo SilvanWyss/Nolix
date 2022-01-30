@@ -1,11 +1,11 @@
 package ch.nolix.commontutorial.buildertutorial;
 
-import ch.nolix.common.builder.ArgumentCapturer;
-import ch.nolix.common.builder.BaseArgumentCapturer;
-import ch.nolix.common.builder.Builder;
-import ch.nolix.common.builder.TerminalArgumentCapturer;
-import ch.nolix.common.constant.LowerCaseCatalogue;
-import ch.nolix.common.errorcontrol.validator.Validator;
+import ch.nolix.core.builder.ArgumentCapturer;
+import ch.nolix.core.builder.BaseArgumentCapturer;
+import ch.nolix.core.builder.Builder;
+import ch.nolix.core.builder.TerminalArgumentCapturer;
+import ch.nolix.core.constant.LowerCaseCatalogue;
+import ch.nolix.core.errorcontrol.validator.Validator;
 
 public class CarModelBuilderTutorial {
 	

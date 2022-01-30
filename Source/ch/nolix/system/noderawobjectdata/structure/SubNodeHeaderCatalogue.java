@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.noderawobjectdata.structure;
 
-//own imports
-import ch.nolix.common.constant.PascalCaseCatalogue;
+import ch.nolix.core.constant.PascalCaseCatalogue;
 
 //class
 public final class SubNodeHeaderCatalogue {

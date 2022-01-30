@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.rawobjectschemaapi.schemaadapterapi;
 
-//own imports
-import ch.nolix.common.skillapi.IChangeSaver;
+import ch.nolix.core.skillapi.IChangeSaver;
 import ch.nolix.element.time.base.Time;
 import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;

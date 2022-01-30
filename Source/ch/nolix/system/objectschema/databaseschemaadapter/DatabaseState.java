@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.system.objectschema.databaseschemaadapter;
 
-//own imports
-import ch.nolix.common.commontype.commontypehelper.GlobalStringHelper;
-import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.document.node.Node;
+import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
+import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.document.node.Node;
 import ch.nolix.element.elementapi.IElement;
 
 //enum

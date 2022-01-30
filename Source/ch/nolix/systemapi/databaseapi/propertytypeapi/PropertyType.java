@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.systemapi.databaseapi.propertytypeapi;
 
-//own imports
-import ch.nolix.common.constant.LowerCaseCatalogue;
-import ch.nolix.common.document.node.BaseNode;
-import ch.nolix.common.errorcontrol.validator.Validator;
+import ch.nolix.core.constant.LowerCaseCatalogue;
+import ch.nolix.core.document.node.BaseNode;
+import ch.nolix.core.errorcontrol.validator.Validator;
 
 //enum
 public enum PropertyType {

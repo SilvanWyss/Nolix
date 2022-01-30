@@ -4,13 +4,12 @@ package ch.nolix.element.gui.input;
 //Java imports
 import java.awt.event.KeyEvent;
 
-//own imports
-import ch.nolix.common.commontype.commontypehelper.GlobalStringHelper;
-import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.document.node.BaseNode;
-import ch.nolix.common.document.node.Node;
-import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.common.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
+import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
+import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.document.node.BaseNode;
+import ch.nolix.core.document.node.Node;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.element.elementapi.IElement;
 
 //enum

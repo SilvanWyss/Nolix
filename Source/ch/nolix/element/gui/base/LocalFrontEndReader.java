@@ -10,13 +10,12 @@ import java.io.IOException;
 import java.util.List;
 import javax.swing.JFileChooser;
 
-//own imports
-import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.container.ReadContainer;
-import ch.nolix.common.container.SingleContainer;
-import ch.nolix.common.environment.filesystem.FileAccessor;
-import ch.nolix.common.environment.filesystem.FileSystemAccessor;
-import ch.nolix.common.errorcontrol.exception.WrapperException;
+import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.container.SingleContainer;
+import ch.nolix.core.environment.filesystem.FileAccessor;
+import ch.nolix.core.environment.filesystem.FileSystemAccessor;
+import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.element.gui.baseapi.IFrontEndReader;
 
 //class

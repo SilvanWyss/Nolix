@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.element.trading;
 
-//own imports
-import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.document.node.Node;
-import ch.nolix.common.errorcontrol.validator.Validator;
+import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.document.node.Node;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.element.time.base.Time;
 
 //class

@@ -1,13 +1,12 @@
 //package declaration
 package ch.nolix.element.elementapi;
 
-import ch.nolix.common.attributeapi.mutableoptionalattributeapi.OptionalIdentifiableByString;
-import ch.nolix.common.attributeapi.mutableoptionalattributeapi.OptionalTokenable;
-//own imports
-import ch.nolix.common.container.IContainer;
-import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.generalskillapi.TypeRequestable;
-import ch.nolix.common.requestapi.ContainsElementByStringIdRequestable;
+import ch.nolix.core.attributeapi.mutableoptionalattributeapi.OptionalIdentifiableByString;
+import ch.nolix.core.attributeapi.mutableoptionalattributeapi.OptionalTokenable;
+import ch.nolix.core.container.IContainer;
+import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.generalskillapi.TypeRequestable;
+import ch.nolix.core.requestapi.ContainsElementByStringIdRequestable;
 
 //interface
 /**

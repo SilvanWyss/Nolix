@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.noderawobjectdata.structure;
 
-//own imports
-import ch.nolix.common.document.node.BaseNode;
+import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.system.noderawobjectdata.tabledefinition.FieldIndexCatalogue;
 
 //class

@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.businessapi.dynamicmathapi;
 
-//own imports
-import ch.nolix.common.functionapi.IElementTakerElementGetter;
-import ch.nolix.common.skillapi.IBuilder;
+import ch.nolix.core.functionapi.IElementTakerElementGetter;
+import ch.nolix.core.skillapi.IBuilder;
 
 //interface
 public interface IImplicitComplexSequenceBuilder extends IBuilder<IImplicitSequence<IComplexNumber>> {

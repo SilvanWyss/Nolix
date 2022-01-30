@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.sqlschemaapi.schemadtoapi;
 
-//own imports
-import ch.nolix.common.container.IContainer;
+import ch.nolix.core.container.IContainer;
 
 //interface
 public interface ITableDTO {

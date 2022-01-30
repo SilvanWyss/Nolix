@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.system.databaseapplication.main;
 
-import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.programcontrol.sequencer.Sequencer;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.programcontrol.sequencer.Sequencer;
 import ch.nolix.element.configuration.Configuration;
 import ch.nolix.element.gui.image.MutableImage;
 import ch.nolix.system.client.base.Application;

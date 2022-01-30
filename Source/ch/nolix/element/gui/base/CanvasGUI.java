@@ -1,15 +1,14 @@
 //package declaration
 package ch.nolix.element.gui.base;
 
-//own imports
-import ch.nolix.common.constant.PascalCaseCatalogue;
-import ch.nolix.common.container.IContainer;
-import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.document.chainednode.ChainedNode;
-import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.common.functionapi.IElementTaker;
-import ch.nolix.common.programcontrol.processproperty.ChangeState;
-import ch.nolix.common.state.Visibility;
+import ch.nolix.core.constant.PascalCaseCatalogue;
+import ch.nolix.core.container.IContainer;
+import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.document.chainednode.ChainedNode;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.functionapi.IElementTaker;
+import ch.nolix.core.programcontrol.processproperty.ChangeState;
+import ch.nolix.core.state.Visibility;
 import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.elementapi.IConfigurableElement;
 import ch.nolix.element.elementenum.RotationDirection;

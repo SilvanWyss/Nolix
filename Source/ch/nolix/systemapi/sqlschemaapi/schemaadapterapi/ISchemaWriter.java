@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.systemapi.sqlschemaapi.schemaadapterapi;
 
-//own imports
-import ch.nolix.common.container.IContainer;
-import ch.nolix.common.skillapi.IChangeSaver;
+import ch.nolix.core.container.IContainer;
+import ch.nolix.core.skillapi.IChangeSaver;
 import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.ITableDTO;
 

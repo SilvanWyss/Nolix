@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.system.objectdata.data;
 
-//own imports
-import ch.nolix.common.programcontrol.groupcloseable.CloseController;
-import ch.nolix.common.programcontrol.groupcloseable.GroupCloseable;
+import ch.nolix.core.programcontrol.groupcloseable.CloseController;
+import ch.nolix.core.programcontrol.groupcloseable.GroupCloseable;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.DatabaseObjectState;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.IDatabaseObject;
 

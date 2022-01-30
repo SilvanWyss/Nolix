@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.commontest.nettest.websockettest;
 
-import ch.nolix.common.testing.basetest.TestPool;
+import ch.nolix.core.testing.basetest.TestPool;
 
 //class
 public final class WebSocketTestPool extends TestPool {

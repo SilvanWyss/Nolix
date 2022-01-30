@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.system.noderawobjectdata.dataadapter;
 
-//own imports
-import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.document.node.BaseNode;
+import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.system.noderawobjectdata.datareader.DataReader;
 import ch.nolix.system.noderawobjectdata.datareader.TableDefinitionLoader;
 import ch.nolix.system.noderawobjectdata.datawriter.DataWriter;

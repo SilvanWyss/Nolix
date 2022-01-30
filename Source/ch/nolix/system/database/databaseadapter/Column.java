@@ -1,11 +1,10 @@
 //package declaration
 package ch.nolix.system.database.databaseadapter;
 
-//own imports
-import ch.nolix.common.attributeapi.mandatoryattributeapi.Named;
-import ch.nolix.common.constant.LowerCaseCatalogue;
-import ch.nolix.common.container.IContainer;
-import ch.nolix.common.errorcontrol.validator.Validator;
+import ch.nolix.core.attributeapi.mandatoryattributeapi.Named;
+import ch.nolix.core.constant.LowerCaseCatalogue;
+import ch.nolix.core.container.IContainer;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.system.database.entity.Entity;
 import ch.nolix.system.database.parametrizeddatatype.ParametrizedDataType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedPropertyType;

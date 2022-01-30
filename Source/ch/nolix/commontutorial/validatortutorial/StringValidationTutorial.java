@@ -1,6 +1,6 @@
 package ch.nolix.commontutorial.validatortutorial;
 
-import ch.nolix.common.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.Validator;
 
 /**
  * The {@link StringValidationTutorial} is a tutorial for the {@link Validator}.

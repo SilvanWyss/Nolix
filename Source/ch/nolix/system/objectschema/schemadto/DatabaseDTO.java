@@ -1,11 +1,10 @@
 //package declaration
 package ch.nolix.system.objectschema.schemadto;
 
-//own imports
-import ch.nolix.common.constant.LowerCaseCatalogue;
-import ch.nolix.common.constant.PluralLowerCaseCatalogue;
-import ch.nolix.common.container.IContainer;
-import ch.nolix.common.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.core.constant.LowerCaseCatalogue;
+import ch.nolix.core.constant.PluralLowerCaseCatalogue;
+import ch.nolix.core.container.IContainer;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.IDatabaseDTO;
 import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.ITableDTO;
 

@@ -1,12 +1,12 @@
 //package declaration
 package ch.nolix.commontest.constanttest;
 
-import ch.nolix.common.commontype.commontypehelper.GlobalStringHelper;
-import ch.nolix.common.constant.PluralPascalCaseCatalogue;
-import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.reflectionhelper.GlobalClassHelper;
-import ch.nolix.common.testing.basetest.TestCase;
-import ch.nolix.common.testing.test.Test;
+import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
+import ch.nolix.core.constant.PluralPascalCaseCatalogue;
+import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.reflectionhelper.GlobalClassHelper;
+import ch.nolix.core.testing.basetest.TestCase;
+import ch.nolix.core.testing.test.Test;
 
 //class
 public final class PluralPascalCaseCatalogueTest extends Test {

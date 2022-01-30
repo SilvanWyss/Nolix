@@ -4,13 +4,13 @@ package ch.nolix.commontest.licensetest;
 //Java imports
 import java.util.Objects;
 
-import ch.nolix.common.container.IContainer;
-import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.license.GlobalLicenseManager;
-import ch.nolix.common.license.Feature;
-import ch.nolix.common.license.License;
-import ch.nolix.common.testing.basetest.TestCase;
-import ch.nolix.common.testing.test.Test;
+import ch.nolix.core.container.IContainer;
+import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.license.Feature;
+import ch.nolix.core.license.GlobalLicenseManager;
+import ch.nolix.core.license.License;
+import ch.nolix.core.testing.basetest.TestCase;
+import ch.nolix.core.testing.test.Test;
 
 //class
 public final class GlobalLicenseManagerTest extends Test {

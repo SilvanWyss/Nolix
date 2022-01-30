@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.commontest.documenttest.nodetest;
 
-import ch.nolix.common.document.node.Node;
+import ch.nolix.core.document.node.Node;
 
 //class
 /**

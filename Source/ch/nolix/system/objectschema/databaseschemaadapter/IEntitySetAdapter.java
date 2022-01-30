@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.system.objectschema.databaseschemaadapter;
 
-import ch.nolix.common.attributeapi.mandatoryattributeapi.Named;
-import ch.nolix.common.container.LinkedList;
+import ch.nolix.core.attributeapi.mandatoryattributeapi.Named;
+import ch.nolix.core.container.LinkedList;
 
 //interface
 public interface IEntitySetAdapter extends Named {

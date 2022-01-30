@@ -4,9 +4,9 @@ package ch.nolix.system.client.base;
 //Java imports
 import java.lang.reflect.Method;
 
-import ch.nolix.common.document.node.Node;
-import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.reflectionhelper.GlobalMethodHelper;
+import ch.nolix.core.document.node.Node;
+import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.reflectionhelper.GlobalMethodHelper;
 
 //class
 final class SessionHelper {

@@ -1,12 +1,11 @@
 //package declaration
 package ch.nolix.system.objectschema.databaseschemaadapter;
 
-//own imports
-import ch.nolix.common.container.IContainer;
-import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.common.generalskillapi.IFluentObject;
-import ch.nolix.common.license.GlobalLicenseManager;
+import ch.nolix.core.container.IContainer;
+import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.generalskillapi.IFluentObject;
+import ch.nolix.core.license.GlobalLicenseManager;
 
 //class
 /**

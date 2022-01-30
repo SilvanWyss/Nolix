@@ -8,9 +8,9 @@ import java.math.RoundingMode;
 
 //own imports
 import ch.nolix.businessapi.dynamicmathapi.IComplexNumber;
-import ch.nolix.common.constant.LowerCaseCatalogue;
-import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.math.Calculator;
+import ch.nolix.core.constant.LowerCaseCatalogue;
+import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.math.Calculator;
 
 //class
 public final class ComplexNumber implements IComplexNumber {

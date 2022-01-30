@@ -1,11 +1,10 @@
 //package declaration
 package ch.nolix.element.formatelement;
 
-//own imports
-import ch.nolix.common.attributeapi.mandatoryattributeapi.Indexed;
-import ch.nolix.common.attributeapi.mandatoryattributeapi.Prefixed;
-import ch.nolix.common.constant.LowerCaseCatalogue;
-import ch.nolix.common.errorcontrol.validator.Validator;
+import ch.nolix.core.attributeapi.mandatoryattributeapi.Indexed;
+import ch.nolix.core.attributeapi.mandatoryattributeapi.Prefixed;
+import ch.nolix.core.constant.LowerCaseCatalogue;
+import ch.nolix.core.errorcontrol.validator.Validator;
 
 //class
 final class State<S extends Enum<S>> implements Indexed, Prefixed {

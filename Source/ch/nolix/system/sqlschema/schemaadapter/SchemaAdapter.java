@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.system.sqlschema.schemaadapter;
 
-//own imports
-import ch.nolix.common.container.IContainer;
-import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.sql.SQLConnection;
+import ch.nolix.core.container.IContainer;
+import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.sql.SQLConnection;
 import ch.nolix.systemapi.sqlschemaapi.flatschemadtoapi.IFlatTableDTO;
 import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter;
 import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaReader;

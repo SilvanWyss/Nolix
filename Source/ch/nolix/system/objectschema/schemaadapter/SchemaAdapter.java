@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.system.objectschema.schemaadapter;
 
-//own imports
-import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.programcontrol.groupcloseable.CloseController;
+import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.system.objectschema.parametrizedpropertytype.SchemaImplementation;
 import ch.nolix.system.objectschema.schema.Database;
 import ch.nolix.system.objectschema.schema.Table;

@@ -1,15 +1,14 @@
 //package declaration
 package ch.nolix.element.base;
 
-//own imports
-import ch.nolix.common.constant.PascalCaseCatalogue;
-import ch.nolix.common.container.IContainer;
-import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.document.node.BaseNode;
-import ch.nolix.common.document.node.Node;
-import ch.nolix.common.errorcontrol.validator.Validator;
-import ch.nolix.common.functionapi.IElementGetter;
-import ch.nolix.common.functionapi.IElementTaker;
+import ch.nolix.core.constant.PascalCaseCatalogue;
+import ch.nolix.core.container.IContainer;
+import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.document.node.BaseNode;
+import ch.nolix.core.document.node.Node;
+import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.functionapi.IElementGetter;
+import ch.nolix.core.functionapi.IElementTaker;
 
 //class
 public final class MultiSpecificationValueExtractor extends Property {

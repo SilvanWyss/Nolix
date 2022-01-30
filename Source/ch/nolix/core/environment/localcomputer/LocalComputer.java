@@ -1,0 +1,24 @@
+//package declaration
+package ch.nolix.core.environment.localcomputer;
+
+//own imports
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
+import ch.nolix.core.errorcontrol.exception.WrapperException;
+
+//class
+public final class LocalComputer {
+	
+	//static method
+	public static String getLANIP() {
+		try {
+			return InetAddress.getLocalHost().getHostAddress();
+		} catch (final UnknownHostException unknownHostException) {
+			throw new WrapperException(unknownHostException);
+		}
+	}
+	
+	//constructor
+	private LocalComputer () {}
+}

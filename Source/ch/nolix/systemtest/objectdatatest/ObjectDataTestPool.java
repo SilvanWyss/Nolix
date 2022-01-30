@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemtest.objectdatatest;
 
-//own imports
-import ch.nolix.common.testing.basetest.TestPool;
+import ch.nolix.core.testing.basetest.TestPool;
 import ch.nolix.systemtest.objectdatatest.datatest.DataTestPool;
 
 //class

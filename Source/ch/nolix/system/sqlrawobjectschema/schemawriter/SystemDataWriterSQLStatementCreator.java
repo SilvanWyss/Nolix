@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlrawobjectschema.schemawriter;
 
-//own imports
-import ch.nolix.common.container.LinkedList;
+import ch.nolix.core.container.LinkedList;
 import ch.nolix.element.time.base.Time;
 import ch.nolix.system.sqlrawobjectschema.columntable.ColumnTableColumn;
 import ch.nolix.system.sqlrawobjectschema.columntable.ParametrizedPropertyTypeRecordMapper;

@@ -4,8 +4,7 @@ package ch.nolix.system.objectdata.data;
 //Java imports
 import java.util.Iterator;
 
-//own imports
-import ch.nolix.common.container.LinkedList;
+import ch.nolix.core.container.LinkedList;
 import ch.nolix.system.objectdata.propertyhelper.MultiValueHelper;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiValue;

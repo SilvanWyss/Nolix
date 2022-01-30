@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.element.gui.image;
 
-//own imports
-import ch.nolix.common.container.pair.Pair;
-import ch.nolix.common.document.node.BaseNode;
-import ch.nolix.common.document.node.Node;
+import ch.nolix.core.container.pair.Pair;
+import ch.nolix.core.document.node.BaseNode;
+import ch.nolix.core.document.node.Node;
 import ch.nolix.element.base.MutableElement;
 import ch.nolix.element.base.MutableOptionalValue;
 import ch.nolix.element.gui.color.Color;

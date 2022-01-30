@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.systemapi.objectschemaapi.schemaadapterapi;
 
-//own imports
-import ch.nolix.common.programcontrol.groupcloseable.GroupCloseable;
-import ch.nolix.common.skillapi.IChangeSaver;
+import ch.nolix.core.programcontrol.groupcloseable.GroupCloseable;
+import ch.nolix.core.skillapi.IChangeSaver;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IDatabase;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 

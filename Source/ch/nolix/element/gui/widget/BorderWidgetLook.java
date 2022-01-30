@@ -1,11 +1,10 @@
 //package declaration
 package ch.nolix.element.gui.widget;
 
-//own imports
-import ch.nolix.common.container.SingleContainer;
-import ch.nolix.common.document.node.BaseNode;
-import ch.nolix.common.document.node.Node;
-import ch.nolix.common.errorcontrol.validator.Validator;
+import ch.nolix.core.container.SingleContainer;
+import ch.nolix.core.document.node.BaseNode;
+import ch.nolix.core.document.node.Node;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.element.formatelement.ForwardingProperty;
 import ch.nolix.element.formatelement.NonCascadingProperty;
 import ch.nolix.element.gui.color.Color;

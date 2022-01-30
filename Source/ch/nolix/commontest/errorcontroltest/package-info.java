@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.commontest.errorcontroltest} package defines
- * tests for the {@link ch.nolix.common.errorcontrol} package.
+ * tests for the {@link ch.nolix.core.errorcontrol} package.
  * 
  * @author Silvan Wyss
  * @date 2021-03-03

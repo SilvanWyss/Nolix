@@ -1,6 +1,6 @@
 //package info
 /**
- * The {@link ch.nolix.commontutorial} package defines tutorials for the {@link ch.nolix.common} package.
+ * The {@link ch.nolix.commontutorial} package defines tutorials for the {@link ch.nolix.core} package.
  * 
  * @author Silvan Wyss
  * @date 2019-08-01

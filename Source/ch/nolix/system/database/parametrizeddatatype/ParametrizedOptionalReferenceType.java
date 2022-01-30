@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.database.parametrizeddatatype;
 
-import ch.nolix.common.container.IContainer;
+import ch.nolix.core.container.IContainer;
 import ch.nolix.system.database.entity.Entity;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 

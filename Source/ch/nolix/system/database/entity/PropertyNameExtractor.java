@@ -4,8 +4,7 @@ package ch.nolix.system.database.entity;
 //Java imports
 import java.lang.reflect.Field;
 
-//own imports
-import ch.nolix.common.container.LinkedList;
+import ch.nolix.core.container.LinkedList;
 
 //class
 public final class PropertyNameExtractor {

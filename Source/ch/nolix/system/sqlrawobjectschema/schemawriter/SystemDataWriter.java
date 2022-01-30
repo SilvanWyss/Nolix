@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.system.sqlrawobjectschema.schemawriter;
 
-//own imports
-import ch.nolix.common.container.IContainer;
-import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.requestapi.ChangeRequestable;
+import ch.nolix.core.container.IContainer;
+import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.requestapi.ChangeRequestable;
 import ch.nolix.element.time.base.Time;
 import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;

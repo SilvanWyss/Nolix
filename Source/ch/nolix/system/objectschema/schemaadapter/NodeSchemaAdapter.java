@@ -1,11 +1,10 @@
 //package declaration
 package ch.nolix.system.objectschema.schemaadapter;
 
-//own imports
-import ch.nolix.common.document.node.BaseNode;
-import ch.nolix.common.document.node.Node;
-import ch.nolix.common.environment.filesystem.FileAccessor;
-import ch.nolix.common.errorcontrol.validator.Validator;
+import ch.nolix.core.document.node.BaseNode;
+import ch.nolix.core.document.node.Node;
+import ch.nolix.core.environment.filesystem.FileAccessor;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.systemapi.rawobjectschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //class

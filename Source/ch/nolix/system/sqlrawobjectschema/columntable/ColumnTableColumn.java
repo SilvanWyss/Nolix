@@ -1,12 +1,11 @@
 //package declaration
 package ch.nolix.system.sqlrawobjectschema.columntable;
 
-//own imports
-import ch.nolix.common.attributeapi.mandatoryattributeapi.FullNamed;
-import ch.nolix.common.constant.LowerCaseCatalogue;
-import ch.nolix.common.constant.PascalCaseCatalogue;
-import ch.nolix.common.constant.StringCatalogue;
-import ch.nolix.common.errorcontrol.validator.Validator;
+import ch.nolix.core.attributeapi.mandatoryattributeapi.FullNamed;
+import ch.nolix.core.constant.LowerCaseCatalogue;
+import ch.nolix.core.constant.PascalCaseCatalogue;
+import ch.nolix.core.constant.StringCatalogue;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.system.sqlrawobjectschema.structure.SystemDataTable;
 
 //enum

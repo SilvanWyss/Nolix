@@ -1,12 +1,11 @@
 //package declaration
 package ch.nolix.element.gui.widget;
 
-//own imports
-import ch.nolix.common.constant.PascalCaseCatalogue;
-import ch.nolix.common.container.IContainer;
-import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.document.chainednode.ChainedNode;
-import ch.nolix.common.programcontrol.groupcloseable.CloseController;
+import ch.nolix.core.constant.PascalCaseCatalogue;
+import ch.nolix.core.container.IContainer;
+import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.document.chainednode.ChainedNode;
+import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.element.base.MutableSpecificationValueExtractor;
 import ch.nolix.element.configuration.Configuration;
 import ch.nolix.element.elementenum.RotationDirection;

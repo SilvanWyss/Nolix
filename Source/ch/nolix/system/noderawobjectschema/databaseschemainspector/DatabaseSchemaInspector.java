@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.noderawobjectschema.databaseschemainspector;
 
-//own imports
-import ch.nolix.common.document.node.BaseNode;
+import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.system.noderawobjectschema.structure.SubNodeHeaderCatalogue;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.DatabaseSchemaState;
 

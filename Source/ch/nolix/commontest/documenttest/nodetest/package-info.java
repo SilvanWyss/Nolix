@@ -1,6 +1,6 @@
 //package info
 /**
- * The {@link ch.nolix.commontest.documenttest.nodetest} package defines tests for the {@link ch.nolix.common.document.node} package.
+ * The {@link ch.nolix.commontest.documenttest.nodetest} package defines tests for the {@link ch.nolix.core.document.node} package.
  * 
  * @author Silvan Wyss
  * @date 2019-08-01

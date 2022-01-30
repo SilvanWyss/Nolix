@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.elementtest.guitest.containerwidgettest;
 
-import ch.nolix.common.testing.basetest.TestCase;
+import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.element.gui.containerwidget.TabContainer;
 import ch.nolix.element.gui.containerwidget.TabContainerTab;
 import ch.nolix.element.gui.widget.Area;

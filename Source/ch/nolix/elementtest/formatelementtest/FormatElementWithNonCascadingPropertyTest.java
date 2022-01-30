@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.elementtest.formatelementtest;
 
-//own imports
-import ch.nolix.common.document.node.Node;
-import ch.nolix.common.testing.basetest.TestCase;
-import ch.nolix.common.testing.test.Test;
+import ch.nolix.core.document.node.Node;
+import ch.nolix.core.testing.basetest.TestCase;
+import ch.nolix.core.testing.test.Test;
 import ch.nolix.element.formatelement.FormatElement;
 import ch.nolix.element.formatelement.NonCascadingProperty;
 import ch.nolix.element.gui.color.Color;

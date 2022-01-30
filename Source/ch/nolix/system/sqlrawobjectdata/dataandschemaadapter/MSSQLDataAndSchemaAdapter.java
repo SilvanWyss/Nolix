@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlrawobjectdata.dataandschemaadapter;
 
-//own imports
-import ch.nolix.common.sql.MSSQLConnection;
+import ch.nolix.core.sql.MSSQLConnection;
 import ch.nolix.system.sqlrawobjectdata.mssql.MultiValueQueryCreator;
 import ch.nolix.system.sqlrawobjectdata.mssql.MultiValueStatementCreator;
 import ch.nolix.system.sqlrawobjectdata.mssql.RecordQueryCreator;

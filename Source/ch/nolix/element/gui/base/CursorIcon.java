@@ -5,12 +5,11 @@ package ch.nolix.element.gui.base;
 import java.awt.Cursor;
 import java.util.Locale;
 
-//own imports
-import ch.nolix.common.commontype.commontypehelper.GlobalStringHelper;
-import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.document.node.BaseNode;
-import ch.nolix.common.document.node.Node;
-import ch.nolix.common.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
+import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.document.node.BaseNode;
+import ch.nolix.core.document.node.Node;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.element.elementapi.IElement;
 
 //enum

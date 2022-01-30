@@ -8,9 +8,9 @@
 //package declaration
 package ch.nolix.commontest.commontypetest.commontypehelpertest;
 
-import ch.nolix.common.commontype.commontypehelper.GlobalCharacterHelper;
-import ch.nolix.common.testing.basetest.TestCase;
-import ch.nolix.common.testing.simpletest.SimpleTest;
+import ch.nolix.core.commontype.commontypehelper.GlobalCharacterHelper;
+import ch.nolix.core.testing.basetest.TestCase;
+import ch.nolix.core.testing.simpletest.SimpleTest;
 
 //class
 /**

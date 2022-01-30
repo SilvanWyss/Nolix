@@ -1,11 +1,10 @@
 //package declaration
 package ch.nolix.element.gui.baseapi;
 
-//own imports
-import ch.nolix.common.attributeapi.mutablemandatoryattributeapi.Titleble;
-import ch.nolix.common.programcontrol.groupcloseable.GroupCloseable;
-import ch.nolix.common.rasterapi.Rectangular;
-import ch.nolix.common.skillapi.Refreshable;
+import ch.nolix.core.attributeapi.mutablemandatoryattributeapi.Titleble;
+import ch.nolix.core.programcontrol.groupcloseable.GroupCloseable;
+import ch.nolix.core.rasterapi.Rectangular;
+import ch.nolix.core.skillapi.Refreshable;
 import ch.nolix.element.gui.base.CursorIcon;
 import ch.nolix.element.gui.image.IImage;
 import ch.nolix.element.gui.image.Image;

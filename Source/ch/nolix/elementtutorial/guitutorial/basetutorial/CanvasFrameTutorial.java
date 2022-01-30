@@ -1,9 +1,8 @@
 package ch.nolix.elementtutorial.guitutorial.basetutorial;
 
-//own imports
-import ch.nolix.common.container.IContainer;
-import ch.nolix.common.container.LinkedList;
-import ch.nolix.common.functionapi.IElementTaker;
+import ch.nolix.core.container.IContainer;
+import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.functionapi.IElementTaker;
 import ch.nolix.element.elementenum.RotationDirection;
 import ch.nolix.element.elementenum.UniDirection;
 import ch.nolix.element.gui.base.CanvasFrame;

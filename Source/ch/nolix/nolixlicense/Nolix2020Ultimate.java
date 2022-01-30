@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.nolixlicense;
 
-//own imports
-import ch.nolix.common.license.License;
+import ch.nolix.core.license.License;
 
 //class
 public final class Nolix2020Ultimate extends License {
