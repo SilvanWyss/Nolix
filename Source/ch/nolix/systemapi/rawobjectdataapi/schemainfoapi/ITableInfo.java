@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.systemapi.rawobjectdataapi.schemainfoapi;
 
+//own imports
+import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.container.IContainer;
 
 //interface
@@ -19,4 +21,9 @@ public interface ITableInfo {
 	
 	//method declaration
 	String getTableName();
+	
+	//method
+	default String getTableNameInQuotes() {
+		return GlobalStringHelper.getInQuotes(getTableName());
+	}
 }
