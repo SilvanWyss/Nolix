@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.nolixtest;
 
-import ch.nolix.commontest.CommonTestPool;
 import ch.nolix.core.testing.basetest.TestPool;
+import ch.nolix.coretest.CoreTestPool;
 import ch.nolix.elementtest.ElementTestPool;
 import ch.nolix.nolixlicensetest.NolixLicensesTestPool;
 import ch.nolix.systemtest.SystemTestPool;
@@ -24,7 +24,7 @@ public final class NolixTestPool extends TestPool {
 	 */
 	public NolixTestPool() {
 		super(
-			new CommonTestPool(),
+			new CoreTestPool(),
 			new ElementTestPool(),
 			new SystemTestPool(),
 			new TemplatesTestPool(),
