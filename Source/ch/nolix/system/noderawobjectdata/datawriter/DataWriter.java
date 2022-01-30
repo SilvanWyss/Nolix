@@ -9,6 +9,7 @@ import ch.nolix.system.noderawobjectdata.tabledefinition.TableInfo;
 import ch.nolix.systemapi.rawobjectdataapi.dataadapterapi.IDataWriter;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDeletionDTO;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordHeadDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
 
 //class
@@ -33,17 +34,17 @@ public final class DataWriter implements IDataWriter {
 	@Override
 	public void deleteEntriesFromMultiValue(
 		final String tableName,
-		final String recordId,
+		final IRecordHeadDTO recordHead,
 		final String multiValueColumnName
 	) {
-		//TODO: Implement.
+		internalDataWriter.deleteEntriesFromMultiValue(getTableInfoByTableName(tableName), recordHead, multiValueColumnName);
 	}
 	
 	//method
 	@Override
 	public void deleteEntryFromMultiValue(
 		final String tableName,
-		final String recordId,
+		final IRecordHeadDTO recordHead,
 		final String multiValueColumnName,
 		final String entry
 	) {
@@ -66,7 +67,7 @@ public final class DataWriter implements IDataWriter {
 	@Override
 	public void insertEntryIntoMultiValue(
 		final String tableName,
-		final String recordId,
+		final IRecordHeadDTO recordHead,
 		final String multiValueColumnName,
 		final String entry
 	) {

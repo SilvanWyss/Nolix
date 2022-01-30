@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.noderawobjectdata.datawriter;
 
+//own imports
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.errorcontrol.exception.GeneralException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
@@ -8,6 +9,7 @@ import ch.nolix.system.noderawobjectdata.structure.RecordNodeSearcher;
 import ch.nolix.system.noderawobjectdata.structure.TableNodeSearcher;
 import ch.nolix.system.noderawobjectdata.tabledefinition.TableInfo;
 import ch.nolix.system.noderawobjectschema.structure.DatabaseNodeSearcher;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordHeadDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDeletionDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
@@ -22,6 +24,33 @@ final class DatabaseUpdater {
 	private static final DatabaseNodeSearcher databaseNodeSearcher = new DatabaseNodeSearcher();
 	private static final TableNodeSearcher tableNodeSearcher = new TableNodeSearcher();
 	private static final RecordNodeSearcher recordNodeSearcher = new RecordNodeSearcher();
+	
+	//method
+	public void deleteEntriesFromMultiValue(
+		final BaseNode databaseNode,
+		final TableInfo tableInfo,
+		final IRecordHeadDTO recordHead,
+		final String multiValueColumnName
+	) {
+		
+		final var tableNode =
+		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
+		
+		final var recordNode = tableNodeSearcher.getRefRecordNodeFromTableNode(tableNode, recordHead.getId());
+		final var multiValueColumnIndex = tableInfo.getIndexOfColumnByColumnName(multiValueColumnName);
+		
+		final var multiValueColumnNode =
+		recordNodeSearcher.getRefContentFieldNodeFromRecordNodeAtIndex(recordNode, multiValueColumnIndex);
+		
+		final var saveStampNode = recordNodeSearcher.getRefSaveStampNodeFromRecordNode(recordNode);
+		final var saveStamp = saveStampNode.getOneAttributeHeader();
+		
+		if (saveStamp.equals(recordHead.getSaveStamp())) {
+			throw new GeneralException("The data was changed in the meanwhile.");
+		}
+		
+		multiValueColumnNode.removeAttributes();
+	}
 	
 	//method
 	public void deleteRecordFromTable(

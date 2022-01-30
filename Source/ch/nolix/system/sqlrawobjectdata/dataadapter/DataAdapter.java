@@ -14,6 +14,7 @@ import ch.nolix.systemapi.rawobjectdataapi.dataadapterapi.IDataAdapter;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.ILoadedRecordDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDeletionDTO;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordHeadDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
 import ch.nolix.systemapi.rawobjectschemaapi.schemaadapterapi.ISchemaAdapter;
 
@@ -47,21 +48,21 @@ public abstract class DataAdapter implements IDataAdapter {
 	@Override
 	public final void deleteEntriesFromMultiValue(
 		final String tableName,
-		final String recordId,
+		final IRecordHeadDTO recordHead,
 		final String multiFieldColumn
 	) {
-		dataWriter.deleteEntriesFromMultiValue(tableName, recordId, multiFieldColumn);
+		dataWriter.deleteEntriesFromMultiValue(tableName, recordHead, multiFieldColumn);
 	}
 	
 	//method
 	@Override
 	public final void deleteEntryFromMultiValue(
 		final String tableName,
-		final String recordId,
+		final IRecordHeadDTO recordHead,
 		final String multiFieldColumn,
 		final String entry
 	) {
-		dataWriter.deleteEntryFromMultiValue(tableName, recordId, multiFieldColumn, entry);
+		dataWriter.deleteEntryFromMultiValue(tableName, recordHead, multiFieldColumn, entry);
 	}
 	
 	//method
@@ -80,11 +81,11 @@ public abstract class DataAdapter implements IDataAdapter {
 	@Override
 	public final void insertEntryIntoMultiValue(
 		final String tableName,
-		final String recordId,
+		final IRecordHeadDTO recordHead,
 		final String multiFieldColumn,
 		final String entry
 	) {
-		dataWriter.insertEntryIntoMultiValue(tableName, recordId, multiFieldColumn, entry);
+		dataWriter.insertEntryIntoMultiValue(tableName, recordHead, multiFieldColumn, entry);
 	}
 	
 	//method

@@ -8,6 +8,7 @@ import ch.nolix.core.functionapi.IElementTaker;
 import ch.nolix.system.noderawobjectdata.tabledefinition.TableInfo;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDeletionDTO;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordHeadDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
 
 //class
@@ -28,6 +29,17 @@ final class InternalDataWriter {
 		Validator.assertThat(nodeDatabase).thatIsNamed("node database").isNotNull();
 		
 		this.nodeDatabase = nodeDatabase;
+	}
+	
+	//method
+	public void deleteEntriesFromMultiValue(
+		final TableInfo tableInfo,
+		final IRecordHeadDTO recordHead,
+		final String multiValueColumnName
+	) {
+		changeActions.addAtEnd(
+			d -> databaseUpdater.deleteEntriesFromMultiValue(d, tableInfo, recordHead, multiValueColumnName)
+		);
 	}
 	
 	//method

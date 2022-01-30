@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlrawobjectdata.datawriter;
 
+//own imports
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.sql.SQLConnection;
 import ch.nolix.core.sql.SQLExecutor;
@@ -8,6 +9,7 @@ import ch.nolix.system.sqlrawobjectdata.sqlapi.IMultiValueStatementCreator;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IRecordStatementCreator;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDeletionDTO;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordHeadDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
 
 //class
@@ -39,22 +41,26 @@ public final class InternalDataWriter {
 	
 	//method
 	public void deleteEntriesFromMultiValue(
-		final String recordId,
+		final IRecordHeadDTO recordHead,
 		final String multiValueColumnId
 	) {
 		mSQLExecutor.addSQLStatement(
-			multiValueStatementCreator.createQueryToDeleteEntriesFromMultiValue(recordId, multiValueColumnId)
+			multiValueStatementCreator.createQueryToDeleteEntriesFromMultiValue(recordHead.getId(), multiValueColumnId)
+			//TODO: Implement.
+			//recordStatementCreator.createStatementToAssertRecordHasSameSaveStamp(record)	
 		);
 	}
 	
 	//method
 	public void deleteEntryFromMultiValue(
-		final String recordId,
+		final IRecordHeadDTO recordHead,
 		final String multiValueColumnId,
 		final String entry
 	) {
 		mSQLExecutor.addSQLStatement(
-			multiValueStatementCreator.createQueryToDeleteEntryFromMultiValue(recordId, multiValueColumnId, entry)
+			multiValueStatementCreator.createQueryToDeleteEntryFromMultiValue(recordHead.getId(), multiValueColumnId, entry)
+			//TODO: Implement.
+			//recordStatementCreator.createStatementToAssertRecordHasSameSaveStamp(record)	
 		);
 	}
 	
@@ -72,12 +78,14 @@ public final class InternalDataWriter {
 	
 	//method
 	public void insertEntryIntoMultiValue(
-		final String recordId,
+		final IRecordHeadDTO recordHead,
 		final String multiValueColumnId,
 		final String entry
 	) {
 		mSQLExecutor.addSQLStatement(
-			multiValueStatementCreator.createQueryToInsertEntryIntoMultiValue(recordId, multiValueColumnId, entry)
+			multiValueStatementCreator.createQueryToInsertEntryIntoMultiValue(recordHead.getId(), multiValueColumnId, entry)
+			//TODO: Implement.
+			//recordStatementCreator.createStatementToAssertRecordHasSameSaveStamp(record)	
 		);
 	}
 	

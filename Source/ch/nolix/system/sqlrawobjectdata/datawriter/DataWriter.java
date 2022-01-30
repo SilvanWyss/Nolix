@@ -9,6 +9,7 @@ import ch.nolix.system.sqlrawobjectdata.sqlapi.IRecordStatementCreator;
 import ch.nolix.systemapi.rawobjectdataapi.dataadapterapi.IDataWriter;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDeletionDTO;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordHeadDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
 import ch.nolix.systemapi.rawobjectdataapi.schemainfoapi.IColumnInfo;
 import ch.nolix.systemapi.rawobjectdataapi.schemainfoapi.ITableInfo;
@@ -40,11 +41,11 @@ public final class DataWriter implements IDataWriter {
 	@Override
 	public void deleteEntriesFromMultiValue(
 		final String tableName,
-		final String recordId,
+		final IRecordHeadDTO recordHead,
 		final String multiValueColumnName
 	) {
 		internalDataWriter.deleteEntriesFromMultiValue(
-			recordId,
+			recordHead,
 			getColumnDefinitionByTableNameAndColumnName(tableName, multiValueColumnName).getColumnId()
 		);
 	}
@@ -53,12 +54,12 @@ public final class DataWriter implements IDataWriter {
 	@Override
 	public void deleteEntryFromMultiValue(
 		final String tableName,
-		final String recordId,
+		final IRecordHeadDTO recordHead,
 		final String multiValueColumnName,
 		final String entry
 	) {
 		internalDataWriter.deleteEntryFromMultiValue(
-			recordId,
+			recordHead,
 			getColumnDefinitionByTableNameAndColumnName(tableName, multiValueColumnName).getColumnId(),
 			entry
 		);
@@ -80,12 +81,12 @@ public final class DataWriter implements IDataWriter {
 	@Override
 	public void insertEntryIntoMultiValue(
 		final String tableName,
-		final String recordId,
+		final IRecordHeadDTO recordHead,
 		final String multiValueColumnName,
 		final String entry
 	) {
 		internalDataWriter.insertEntryIntoMultiValue(
-			recordId,
+			recordHead,
 			getColumnDefinitionByTableNameAndColumnName(tableName, multiValueColumnName).getColumnId(),
 			entry
 		);

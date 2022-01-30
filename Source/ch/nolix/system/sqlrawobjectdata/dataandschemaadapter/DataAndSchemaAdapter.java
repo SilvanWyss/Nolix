@@ -18,6 +18,7 @@ import ch.nolix.systemapi.rawobjectdataapi.dataandschemaadapterapi.IDataAndSchem
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.ILoadedRecordDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDeletionDTO;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordHeadDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
 import ch.nolix.systemapi.rawobjectschemaapi.flatschemadtoapi.IFlatTableDTO;
 import ch.nolix.systemapi.rawobjectschemaapi.schemaadapterapi.ISchemaAdapter;
@@ -67,21 +68,21 @@ public abstract class DataAndSchemaAdapter implements IDataAndSchemaAdapter {
 	@Override
 	public final void deleteEntriesFromMultiValue(
 		final String tableName,
-		final String recordId,
+		final IRecordHeadDTO recordHead,
 		final String multiValueColumnName
 	) {
-		dataWriter.deleteEntriesFromMultiValue(tableName, recordId, multiValueColumnName);
+		dataWriter.deleteEntriesFromMultiValue(tableName, recordHead, multiValueColumnName);
 	}
 	
 	//method
 	@Override
 	public final void deleteEntryFromMultiValue(
 		final String tableName,
-		final String recordId,
+		final IRecordHeadDTO recordHead,
 		final String multiValueColumnName,
 		final String entry
 	) {
-		dataWriter.deleteEntryFromMultiValue(tableName, recordId, multiValueColumnName, entry);
+		dataWriter.deleteEntryFromMultiValue(tableName, recordHead, multiValueColumnName, entry);
 	}
 	
 	//method
@@ -100,11 +101,11 @@ public abstract class DataAndSchemaAdapter implements IDataAndSchemaAdapter {
 	@Override
 	public final void insertEntryIntoMultiValue(
 		final String tableName,
-		final String recordId,
+		final IRecordHeadDTO recordHead,
 		final String multiValueColumnName,
 		final String entry
 	) {
-		dataWriter.insertEntryIntoMultiValue(tableName, recordId, multiValueColumnName, entry);
+		dataWriter.insertEntryIntoMultiValue(tableName, recordHead, multiValueColumnName, entry);
 	}
 	
 	//method
