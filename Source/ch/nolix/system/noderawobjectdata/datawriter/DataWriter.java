@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.noderawobjectdata.datawriter;
 
+//own imports
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.errorcontrol.validator.Validator;
@@ -13,7 +14,7 @@ import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
 //class
 public final class DataWriter implements IDataWriter {
 	
-	//attributes
+	//attribute
 	private final InternalDataWriter internalDataWriter;
 	
 	//multi-attribute
@@ -74,8 +75,8 @@ public final class DataWriter implements IDataWriter {
 	
 	//method
 	@Override
-	public void insertRecordIntoTable(String tableName, IRecordDTO record) {
-		internalDataWriter.insertRecordIntoTable(getTableDefinitionForTableWithName(tableName), record);
+	public void insertRecordIntoTable(final String tableName, final IRecordDTO record) {
+		internalDataWriter.insertRecordIntoTable(getTableInfoByTableName(tableName), record);
 	}
 	
 	//method
@@ -86,12 +87,12 @@ public final class DataWriter implements IDataWriter {
 	
 	//method
 	@Override
-	public void updateRecordOnTable(String tableName, IRecordUpdateDTO recordUpdate) {
-		internalDataWriter.updateRecordOnTable(getTableDefinitionForTableWithName(tableName), recordUpdate);
+	public void updateRecordOnTable(final String tableName, final IRecordUpdateDTO recordUpdate) {
+		internalDataWriter.updateRecordOnTable(getTableInfoByTableName(tableName), recordUpdate);
 	}
 	
 	//method
-	private TableInfo getTableDefinitionForTableWithName(final String tableName) {
+	private TableInfo getTableInfoByTableName(final String tableName) {
 		return tableInfos.getRefFirst(td -> td.getTableName().equals(tableName));
 	}
 }
