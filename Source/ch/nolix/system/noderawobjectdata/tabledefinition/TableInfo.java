@@ -2,54 +2,68 @@
 package ch.nolix.system.noderawobjectdata.tabledefinition;
 
 //own imports
-import ch.nolix.core.attributeapi.mandatoryattributeapi.Named;
-import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.systemapi.rawobjectdataapi.schemainfoapi.IColumnInfo;
+import ch.nolix.systemapi.rawobjectdataapi.schemainfoapi.ITableInfo;
 
 //class
-public final class TableInfo implements Named {
+public final class TableInfo implements ITableInfo {
 	
 	//attribute
-	private final String name;
+	private final String tableId;
+	
+	//attribute
+	private final String tableName;
 	
 	//multi-attribute
-	private final IContainer<IColumnInfo> contentColumnDefinitions;
+	private final IContainer<IColumnInfo> columnInfos;
 	
 	//constructor
-	public TableInfo(final String name, IContainer<IColumnInfo> contentColumnDefinitions) {
+	public TableInfo(final String tableId, final String tableName, IContainer<IColumnInfo> contentColumnDefinitions) {
 		
-		if (name == null) {
-			throw new ArgumentIsNullException(LowerCaseCatalogue.NAME);
+		if (tableId == null) {
+			throw new ArgumentIsNullException("table id");
+		}
+		
+		if (tableName == null) {
+			throw new ArgumentIsNullException("table name");
 		}
 		
 		if (contentColumnDefinitions == null) {
 			throw new ArgumentIsNullException("content column definitions");
 		}
 		
-		this.name = name;
-		this.contentColumnDefinitions = contentColumnDefinitions;
+		this.tableId = tableId;
+		this.tableName = tableName;
+		this.columnInfos = contentColumnDefinitions;
 	}
 	
 	//method
-	public int getContentColumnCount() {
-		return contentColumnDefinitions.getElementCount();
-	}
-	
-	//method
-	public IContainer<IColumnInfo> getContentColumnDefinitions() {
-		return contentColumnDefinitions;
-	}
-	
-	//method
-	public int getIndexOfContentColumnWithName(final String name) {
-		return contentColumnDefinitions.getIndexOfFirst(ccd -> ccd.getColumnName().equals(name));
+	public int getColumnCount() {
+		return columnInfos.getElementCount();
 	}
 	
 	//method
 	@Override
-	public String getName() {
-		return name;
+	public IContainer<IColumnInfo> getColumnInfos() {
+		return columnInfos;
+	}
+	
+	//method
+	public int getIndexOfColumnByColumnName(final String columnName) {
+		return columnInfos.getIndexOfFirst(ci -> ci.getColumnName().equals(columnName));
+	}
+	
+	//method
+	@Override
+	public String getTableId() {
+		return tableId;
+	}
+	
+	//method
+	@Override
+	public String getTableName() {
+		return tableName;
 	}
 }

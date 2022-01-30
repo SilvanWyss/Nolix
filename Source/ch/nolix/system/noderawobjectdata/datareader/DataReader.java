@@ -64,6 +64,6 @@ public final class DataReader implements IDataReader {
 	
 	//method
 	private TableInfo getTableDefinitionForTableWithName(final String tableName) {
-		return tableInfos.getRefFirst(td -> td.getName().equals(tableName));
+		return tableInfos.getRefFirst(td -> td.getTableName().equals(tableName));
 	}
 }

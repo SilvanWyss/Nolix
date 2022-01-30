@@ -18,6 +18,7 @@ final class TableDefinitionMapper {
 	//method
 	public TableInfo createTableDefinitionFromTableNode(final BaseNode tableNode) {
 		return new TableInfo(
+			getTableIdFromTableNode(tableNode),
 			getTableNameFromTableNode(tableNode),
 			getContentColumnDefinitionsFromTableNode(tableNode)
 		);
@@ -34,6 +35,13 @@ final class TableDefinitionMapper {
 		return tableNode.getRefAttributes(SubNodeHeaderCatalogue.COLUMN);
 	}
 	
+	//TODO: Move this and other equivalent methods to TableNodeSearcher.
+	//method
+	private String getTableIdFromTableNode(final BaseNode tableNode) {
+		return tableNodeSearcher.getRefIdNodeFromTableNode(tableNode).getOneAttributeHeader();
+	}
+	
+	//TODO: Move this and other equivalent methods to TableNodeSearcher.
 	//method
 	private String getTableNameFromTableNode(final BaseNode tableNode) {
 		return tableNodeSearcher.getRefNameNodeFromTableNode(tableNode).getOneAttributeHeader();

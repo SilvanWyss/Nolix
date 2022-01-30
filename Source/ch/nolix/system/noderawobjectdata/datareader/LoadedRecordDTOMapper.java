@@ -38,7 +38,7 @@ public final class LoadedRecordDTOMapper {
 		
 		final var contentFields = new LinkedList<IContentFieldDTO>();
 		var index = 1;
-		for (final var ccd : tableInfo.getContentColumnDefinitions()) {
+		for (final var ccd : tableInfo.getColumnInfos()) {
 			
 			final var contentFieldNode = recordNodeSearcher.getRefContentFieldNodeFromRecordNodeAtIndex(recordNode, index);
 			

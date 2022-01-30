@@ -49,12 +49,12 @@ final class DatabaseUpdater {
 		final IRecordDTO record
 	) {
 		final var tableNode =
-		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(database, tableInfo.getName());
+		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(database, tableInfo.getTableName());
 		
 		if (tableNodeSearcher.tableNodeContainsRecordNodeWithId(tableNode, record.getId())) {
 			throw
 			new ArgumentHasAttributeException(
-				"table " + tableInfo.getNameInQuotes(),
+				"table " + tableInfo.getTableNameInQuotes(),
 				"record with the id '" + record.getId() + "'"
 			);
 		}
@@ -72,7 +72,7 @@ final class DatabaseUpdater {
 	) {
 	
 		final var tableNode =
-		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(database, tableInfo.getName());
+		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(database, tableInfo.getTableName());
 		
 		final var recordNode = tableNodeSearcher.getRefRecordNodeFromTableNode(tableNode, recordUdate.getId());
 		final var saveStampNode = recordNodeSearcher.getRefSaveStampNodeFromRecordNode(recordNode);
@@ -95,7 +95,7 @@ final class DatabaseUpdater {
 			final var contentFieldNode =
 			recordNodeSearcher.getRefContentFieldNodeFromRecordNodeAtIndex(
 				recordNode,
-				tableInfo.getIndexOfContentColumnWithName(ucf.getColumnName())
+				tableInfo.getIndexOfColumnByColumnName(ucf.getColumnName())
 			);
 			
 			final var value = ucf.getValueOrNull();

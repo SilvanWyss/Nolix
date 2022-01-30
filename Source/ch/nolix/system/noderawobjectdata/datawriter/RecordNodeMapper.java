@@ -31,14 +31,14 @@ final class RecordNodeMapper {
 		final TableInfo tableInfo
 	) {
 		
-		final var attributes = new Node[2 + tableInfo.getContentColumnCount()];
+		final var attributes = new Node[2 + tableInfo.getColumnCount()];
 		
 		attributes[0] = createIdAttributeFrom(record);
 		attributes[1] = createSaveStampAttribute(saveStamp);
 		
 		for (final var cf : record.getContentFields()) {
 			
-			final var index = 1 + tableInfo.getIndexOfContentColumnWithName(cf.getColumnName());
+			final var index = 1 + tableInfo.getIndexOfColumnByColumnName(cf.getColumnName());
 			
 			final var value = cf.getValueOrNull();
 			if (value == null) {
