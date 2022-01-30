@@ -8,7 +8,6 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.system.noderawobjectdata.tabledefinition.TableInfo;
 import ch.nolix.systemapi.rawobjectdataapi.dataadapterapi.IDataWriter;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDTO;
-import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDeletionDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordHeadDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
 
@@ -53,8 +52,8 @@ public final class DataWriter implements IDataWriter {
 	
 	//method
 	@Override
-	public void deleteRecordFromTable(final String tableName, final IRecordDeletionDTO recordDeletion) {
-		internalDataWriter.deleteRecordFromTable(tableName, recordDeletion);
+	public void deleteRecordFromTable(final String tableName, final IRecordHeadDTO recordHead) {
+		internalDataWriter.deleteRecordFromTable(tableName, recordHead);
 	}
 	
 	//method

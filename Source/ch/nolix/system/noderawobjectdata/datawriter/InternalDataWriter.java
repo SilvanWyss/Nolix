@@ -1,13 +1,13 @@
 //package declaration
 package ch.nolix.system.noderawobjectdata.datawriter;
 
+//own imports
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.functionapi.IElementTaker;
 import ch.nolix.system.noderawobjectdata.tabledefinition.TableInfo;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDTO;
-import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDeletionDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordHeadDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
 
@@ -43,8 +43,8 @@ final class InternalDataWriter {
 	}
 	
 	//method
-	public void deleteRecordFromTable(final String tableName, final IRecordDeletionDTO recordDeletion) {
-		changeActions.addAtEnd(d -> databaseUpdater.deleteRecordFromTable(d, tableName, recordDeletion));
+	public void deleteRecordFromTable(final String tableName, final IRecordHeadDTO recordHead) {
+		changeActions.addAtEnd(d -> databaseUpdater.deleteRecordFromTable(d, tableName, recordHead));
 	}
 	
 	//method

@@ -4,10 +4,10 @@ package ch.nolix.system.sqlrawobjectdata.datadto;
 //own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDeletionDTO;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordHeadDTO;
 
 //class
-public final class RecordHeadDTO implements IRecordDeletionDTO {
+public final class RecordHeadDTO implements IRecordHeadDTO {
 	
 	//attribute
 	private final String id;

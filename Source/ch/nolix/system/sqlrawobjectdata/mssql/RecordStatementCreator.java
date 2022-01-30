@@ -5,7 +5,7 @@ package ch.nolix.system.sqlrawobjectdata.mssql;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IRecordStatementCreator;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IContentFieldDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDTO;
-import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDeletionDTO;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordHeadDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
 
 //class
@@ -15,15 +15,15 @@ public final class RecordStatementCreator implements IRecordStatementCreator {
 	@Override
 	public String createStatementToDeleteRecordFromTable(
 		final String tableName,
-		final IRecordDeletionDTO recordDeletion
+		final IRecordHeadDTO recordHead
 	) {
 		return
 		"DELETE FROM "
 		+ tableName
 		+ " WHERE Id = '"
-		+ recordDeletion.getId()
+		+ recordHead.getId()
 		+ "' AND SaveStamp = '"
-		+ recordDeletion.getSaveStamp()
+		+ recordHead.getSaveStamp()
 		+ "';"
 		+ "IF @@RowCount = 0 BEGIN THROW error(100000, 'The data was changed in the meanwhile.', 0) END;";
 	}

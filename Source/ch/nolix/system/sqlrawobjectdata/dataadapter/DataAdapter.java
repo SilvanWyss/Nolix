@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlrawobjectdata.dataadapter;
 
+//own imports
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.sql.SQLConnection;
 import ch.nolix.system.sqlrawobjectdata.databaseinspector.DatabaseInspector;
@@ -13,7 +14,6 @@ import ch.nolix.system.sqlrawobjectdata.sqlapi.IRecordStatementCreator;
 import ch.nolix.systemapi.rawobjectdataapi.dataadapterapi.IDataAdapter;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.ILoadedRecordDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDTO;
-import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDeletionDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordHeadDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
 import ch.nolix.systemapi.rawobjectschemaapi.schemaadapterapi.ISchemaAdapter;
@@ -67,8 +67,8 @@ public abstract class DataAdapter implements IDataAdapter {
 	
 	//method
 	@Override
-	public final void deleteRecordFromTable(final String tableName, final IRecordDeletionDTO recordDeletion) {
-		dataWriter.deleteRecordFromTable(tableName, recordDeletion);
+	public final void deleteRecordFromTable(final String tableName, final IRecordHeadDTO recordHead) {
+		dataWriter.deleteRecordFromTable(tableName, recordHead);
 	}
 	
 	//method

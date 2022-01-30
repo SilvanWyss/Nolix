@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.noderawobjectdata.dataadapter;
 
+//own imports
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.system.noderawobjectdata.datareader.DataReader;
@@ -9,7 +10,6 @@ import ch.nolix.system.noderawobjectdata.datawriter.DataWriter;
 import ch.nolix.systemapi.rawobjectdataapi.dataadapterapi.IDataAdapter;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.ILoadedRecordDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDTO;
-import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDeletionDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordHeadDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
 
@@ -78,8 +78,8 @@ public final class DataAdapter implements IDataAdapter {
 	
 	//method
 	@Override
-	public void deleteRecordFromTable(String tableName, IRecordDeletionDTO recordDeletion) {
-		dataWriter.deleteRecordFromTable(tableName, recordDeletion);
+	public void deleteRecordFromTable(String tableName, IRecordHeadDTO recordHead) {
+		dataWriter.deleteRecordFromTable(tableName, recordHead);
 	}
 	
 	//method

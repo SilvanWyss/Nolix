@@ -8,7 +8,6 @@ import ch.nolix.core.sql.SQLExecutor;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IMultiValueStatementCreator;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IRecordStatementCreator;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDTO;
-import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDeletionDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordHeadDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
 
@@ -65,9 +64,9 @@ public final class InternalDataWriter {
 	}
 	
 	//method
-	public void deleteRecordFromTable(final String tableName, final IRecordDeletionDTO recordDeletion) {
+	public void deleteRecordFromTable(final String tableName, final IRecordHeadDTO recordHead) {
 		mSQLExecutor.addSQLStatement(
-			recordStatementCreator.createStatementToDeleteRecordFromTable(tableName, recordDeletion)
+			recordStatementCreator.createStatementToDeleteRecordFromTable(tableName, recordHead)
 		);
 	}
 	

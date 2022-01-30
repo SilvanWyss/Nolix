@@ -11,7 +11,6 @@ import ch.nolix.system.noderawobjectdata.tabledefinition.TableInfo;
 import ch.nolix.system.noderawobjectschema.structure.DatabaseNodeSearcher;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordHeadDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDTO;
-import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDeletionDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
 
 //class
@@ -56,17 +55,17 @@ final class DatabaseUpdater {
 	public void deleteRecordFromTable(
 		final BaseNode database,
 		final String tableName,
-		final IRecordDeletionDTO recordDeletion
+		final IRecordHeadDTO recordHead
 	) {
 		
 		final var tableNode = databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(database, tableName);
 		
 		final var recordNode =
-		tableNodeSearcher.removeAndGetRefRecordNodeFromTableNode(tableNode, recordDeletion.getId());
+		tableNodeSearcher.removeAndGetRefRecordNodeFromTableNode(tableNode, recordHead.getId());
 		
 		final var saveStampNode = recordNodeSearcher.getRefSaveStampNodeFromRecordNode(recordNode);
 		
-		if (!saveStampNode.hasHeader(recordDeletion.getSaveStamp())) {
+		if (!saveStampNode.hasHeader(recordHead.getSaveStamp())) {
 			throw new GeneralException("The data was changed in the meanwhile.");
 		}
 	}

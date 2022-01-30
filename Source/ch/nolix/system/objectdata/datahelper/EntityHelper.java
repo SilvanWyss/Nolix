@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.objectdata.datahelper;
 
+//own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
@@ -10,7 +11,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ReferencedArgumentExc
 import ch.nolix.system.database.databaseobjecthelper.DatabaseObjectHelper;
 import ch.nolix.system.objectdata.propertyhelper.PropertyHelper;
 import ch.nolix.system.sqlrawobjectdata.datadto.RecordDTO;
-import ch.nolix.system.sqlrawobjectdata.datadto.RecordDeletionDTO;
+import ch.nolix.system.sqlrawobjectdata.datadto.RecordHeadDTO;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.BasePropertyType;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
@@ -18,7 +19,7 @@ import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 import ch.nolix.systemapi.objectdataapi.datahelperapi.IEntityHelper;
 import ch.nolix.systemapi.objectdataapi.propertyhelperapi.IPropertyHelper;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDTO;
-import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDeletionDTO;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordHeadDTO;
 
 //class
 public class EntityHelper extends DatabaseObjectHelper implements IEntityHelper {
@@ -89,8 +90,8 @@ public class EntityHelper extends DatabaseObjectHelper implements IEntityHelper 
 	
 	//method
 	@Override
-	public final IRecordDeletionDTO createRecordDeletionDTOForEntity(IEntity<?> entity) {
-		return new RecordDeletionDTO(entity.getId(), entity.getSaveStamp());
+	public final IRecordHeadDTO createRecordHeadDTOForEntity(IEntity<?> entity) {
+		return new RecordHeadDTO(entity.getId(), entity.getSaveStamp());
 	}
 	
 	//method

@@ -4,7 +4,6 @@ package ch.nolix.systemapi.rawobjectdataapi.dataadapterapi;
 //own imports
 import ch.nolix.core.skillapi.IChangeSaver;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDTO;
-import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDeletionDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordHeadDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
 
@@ -23,7 +22,7 @@ public interface IDataWriter extends IChangeSaver {
 	);
 	
 	//method declaration
-	void deleteRecordFromTable(String tableName, IRecordDeletionDTO recordDeletion);
+	void deleteRecordFromTable(String tableName, IRecordHeadDTO recordHead);
 	
 	//method declaration
 	void insertEntryIntoMultiValue(String tableName, IRecordHeadDTO recordHead, String multiValueColumnName, String entry);

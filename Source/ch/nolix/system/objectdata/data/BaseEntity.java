@@ -228,7 +228,7 @@ public abstract class BaseEntity implements GroupCloseable, IEntity<DataImplemen
 		if (isLinkedWithRealDatabase()) {
 			internalGetRefDataAndSchemaAdapter().deleteRecordFromTable(
 				getParentTable().getName(),
-				entityHelper.createRecordDeletionDTOForEntity(this)
+				entityHelper.createRecordHeadDTOForEntity(this)
 			);
 		}
 	}
