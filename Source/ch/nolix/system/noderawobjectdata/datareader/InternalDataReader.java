@@ -5,7 +5,7 @@ import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.system.noderawobjectdata.structure.TableNodeSearcher;
-import ch.nolix.system.noderawobjectdata.tabledefinition.TableDefinition;
+import ch.nolix.system.noderawobjectdata.tabledefinition.TableInfo;
 import ch.nolix.system.noderawobjectschema.structure.DatabaseNodeSearcher;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.ILoadedRecordDTO;
 
@@ -29,39 +29,39 @@ public final class InternalDataReader {
 	}
 	
 	//class
-	public LinkedList<ILoadedRecordDTO> loadAllRecordsFromTable(final TableDefinition tableDefinition) {
+	public LinkedList<ILoadedRecordDTO> loadAllRecordsFromTable(final TableInfo tableInfo) {
 		
 		final var tableNode =
-		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableDefinition.getName());
+		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getName());
 		
 		return
 		tableNodeSearcher
 		.getRefRecordNodesFromTableNode(tableNode)
-		.to(rn -> loadedRecordDTOMapper.createLoadedRecordDTOFromRecordNode(rn, tableDefinition));
+		.to(rn -> loadedRecordDTOMapper.createLoadedRecordDTOFromRecordNode(rn, tableInfo));
 	}
 	
 	//method
-	public ILoadedRecordDTO loadRecordFromTableById(final TableDefinition tableDefinition, final String id) {
+	public ILoadedRecordDTO loadRecordFromTableById(final TableInfo tableInfo, final String id) {
 		
 		final var tableNode =
-		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableDefinition.getName());
+		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getName());
 		
 		final var recordNode = tableNodeSearcher.getRefRecordNodeFromTableNode(tableNode, id);
 		
-		return loadedRecordDTOMapper.createLoadedRecordDTOFromRecordNode(recordNode, tableDefinition);
+		return loadedRecordDTOMapper.createLoadedRecordDTOFromRecordNode(recordNode, tableInfo);
 	}
 	
 	//method
 	public boolean tableContainsRecordWithGivenValueAtColumn(
-		final TableDefinition tableDefinition,
+		final TableInfo tableInfo,
 		final String columnName,
 		final String value
 	) {
 		
 		final var tableNode =
-		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableDefinition.getName());
+		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getName());
 		
-		final var valueIndex = 2 + tableDefinition.getIndexOfContentColumnWithName(columnName);
+		final var valueIndex = 2 + tableInfo.getIndexOfContentColumnWithName(columnName);
 		
 		return
 		tableNodeSearcher.tableNodeContainsRecordNodeWhoseFieldAtGivenIndexHasGivenHeader(tableNode, valueIndex, value);

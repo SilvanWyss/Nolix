@@ -5,7 +5,7 @@ import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.system.noderawobjectdata.structure.SubNodeHeaderCatalogue;
-import ch.nolix.system.noderawobjectdata.tabledefinition.TableDefinition;
+import ch.nolix.system.noderawobjectdata.tabledefinition.TableInfo;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDTO;
 
 //class
@@ -13,14 +13,14 @@ final class RecordNodeMapper {
 	
 	//method
 	public Node createNodeFromRecordWithSaveStamp(
-		final TableDefinition tableDefinition,
+		final TableInfo tableInfo,
 		final IRecordDTO record,
 		final long saveStamp
 	) {
 		return
 		Node.withHeaderAndAttributes(
 			SubNodeHeaderCatalogue.RECORD,
-			createAttributesFromRecordWithSaveStamp(record, saveStamp, tableDefinition)
+			createAttributesFromRecordWithSaveStamp(record, saveStamp, tableInfo)
 		);
 	}
 	
@@ -28,17 +28,17 @@ final class RecordNodeMapper {
 	private IContainer<Node> createAttributesFromRecordWithSaveStamp(
 		final IRecordDTO record,
 		final long saveStamp,
-		final TableDefinition tableDefinition
+		final TableInfo tableInfo
 	) {
 		
-		final var attributes = new Node[2 + tableDefinition.getContentColumnCount()];
+		final var attributes = new Node[2 + tableInfo.getContentColumnCount()];
 		
 		attributes[0] = createIdAttributeFrom(record);
 		attributes[1] = createSaveStampAttribute(saveStamp);
 		
 		for (final var cf : record.getContentFields()) {
 			
-			final var index = 1 + tableDefinition.getIndexOfContentColumnWithName(cf.getColumnName());
+			final var index = 1 + tableInfo.getIndexOfContentColumnWithName(cf.getColumnName());
 			
 			final var value = cf.getValueOrNull();
 			if (value == null) {

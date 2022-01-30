@@ -5,7 +5,7 @@ import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.system.noderawobjectdata.tabledefinition.TableDefinition;
+import ch.nolix.system.noderawobjectdata.tabledefinition.TableInfo;
 import ch.nolix.systemapi.rawobjectdataapi.dataadapterapi.IDataReader;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.ILoadedRecordDTO;
 
@@ -16,16 +16,16 @@ public final class DataReader implements IDataReader {
 	private final InternalDataReader internalDataReader;
 	
 	//multi-attribute
-	private final IContainer<TableDefinition> tableDefinitions;
+	private final IContainer<TableInfo> tableInfos;
 	
 	//constructor
-	public DataReader(final BaseNode databaseNode, final IContainer<TableDefinition> tableDefinitions) {
+	public DataReader(final BaseNode databaseNode, final IContainer<TableInfo> tableInfos) {
 		
-		Validator.assertThat(tableDefinitions).thatIsNamed("table definitions").isNotNull();
-		Validator.assertThat(tableDefinitions).thatIsNamed("table definitions").isNotNull();
+		Validator.assertThat(tableInfos).thatIsNamed("table definitions").isNotNull();
+		Validator.assertThat(tableInfos).thatIsNamed("table definitions").isNotNull();
 		
 		internalDataReader = new InternalDataReader(databaseNode);
-		this.tableDefinitions = tableDefinitions;
+		this.tableInfos = tableInfos;
 	}
 	
 	//method
@@ -63,7 +63,7 @@ public final class DataReader implements IDataReader {
 	}
 	
 	//method
-	private TableDefinition getTableDefinitionForTableWithName(final String tableName) {
-		return tableDefinitions.getRefFirst(td -> td.getName().equals(tableName));
+	private TableInfo getTableDefinitionForTableWithName(final String tableName) {
+		return tableInfos.getRefFirst(td -> td.getName().equals(tableName));
 	}
 }

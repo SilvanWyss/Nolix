@@ -6,7 +6,7 @@ import ch.nolix.core.errorcontrol.exception.GeneralException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
 import ch.nolix.system.noderawobjectdata.structure.RecordNodeSearcher;
 import ch.nolix.system.noderawobjectdata.structure.TableNodeSearcher;
-import ch.nolix.system.noderawobjectdata.tabledefinition.TableDefinition;
+import ch.nolix.system.noderawobjectdata.tabledefinition.TableInfo;
 import ch.nolix.system.noderawobjectschema.structure.DatabaseNodeSearcher;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDeletionDTO;
@@ -45,21 +45,21 @@ final class DatabaseUpdater {
 	//method
 	public void insertRecordIntoTable(
 		final BaseNode database,
-		final TableDefinition tableDefinition,
+		final TableInfo tableInfo,
 		final IRecordDTO record
 	) {
 		final var tableNode =
-		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(database, tableDefinition.getName());
+		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(database, tableInfo.getName());
 		
 		if (tableNodeSearcher.tableNodeContainsRecordNodeWithId(tableNode, record.getId())) {
 			throw
 			new ArgumentHasAttributeException(
-				"table " + tableDefinition.getNameInQuotes(),
+				"table " + tableInfo.getNameInQuotes(),
 				"record with the id '" + record.getId() + "'"
 			);
 		}
 		
-		final var recordNode = recordNodeMapper.createNodeFromRecordWithSaveStamp(tableDefinition, record, 0);
+		final var recordNode = recordNodeMapper.createNodeFromRecordWithSaveStamp(tableInfo, record, 0);
 		
 		tableNode.addAttribute(recordNode);
 	}
@@ -67,12 +67,12 @@ final class DatabaseUpdater {
 	//method
 	public void updateRecordOnTable(
 		final BaseNode database,
-		final TableDefinition tableDefinition,
+		final TableInfo tableInfo,
 		final IRecordUpdateDTO recordUdate
 	) {
 	
 		final var tableNode =
-		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(database, tableDefinition.getName());
+		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(database, tableInfo.getName());
 		
 		final var recordNode = tableNodeSearcher.getRefRecordNodeFromTableNode(tableNode, recordUdate.getId());
 		final var saveStampNode = recordNodeSearcher.getRefSaveStampNodeFromRecordNode(recordNode);
@@ -81,13 +81,13 @@ final class DatabaseUpdater {
 			throw new GeneralException("The data was changed in the meanwhile.");
 		}
 		
-		updateRecordNodeFromRecordWhenValidated(recordNode, tableDefinition, recordUdate);
+		updateRecordNodeFromRecordWhenValidated(recordNode, tableInfo, recordUdate);
 	}
 	
 	//method
 	private void updateRecordNodeFromRecordWhenValidated(
 		final BaseNode recordNode,
-		final TableDefinition tableDefinition,
+		final TableInfo tableInfo,
 		final IRecordUpdateDTO recordUdate
 	) {
 		for (final var ucf : recordUdate.getUpdatedContentFields()) {
@@ -95,7 +95,7 @@ final class DatabaseUpdater {
 			final var contentFieldNode =
 			recordNodeSearcher.getRefContentFieldNodeFromRecordNodeAtIndex(
 				recordNode,
-				tableDefinition.getIndexOfContentColumnWithName(ucf.getColumnName())
+				tableInfo.getIndexOfContentColumnWithName(ucf.getColumnName())
 			);
 			
 			final var value = ucf.getValueOrNull();

@@ -4,7 +4,7 @@ package ch.nolix.system.noderawobjectdata.datawriter;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.system.noderawobjectdata.tabledefinition.TableDefinition;
+import ch.nolix.system.noderawobjectdata.tabledefinition.TableInfo;
 import ch.nolix.systemapi.rawobjectdataapi.dataadapterapi.IDataWriter;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDeletionDTO;
@@ -17,15 +17,15 @@ public final class DataWriter implements IDataWriter {
 	private final InternalDataWriter internalDataWriter;
 	
 	//multi-attribute
-	private final IContainer<TableDefinition> tableDefinitions;
+	private final IContainer<TableInfo> tableInfos;
 	
 	//constructor
-	public DataWriter(final BaseNode nodeDatabase, final IContainer<TableDefinition> tableDefinitions) {
+	public DataWriter(final BaseNode nodeDatabase, final IContainer<TableInfo> tableInfos) {
 		
-		Validator.assertThat(tableDefinitions).thatIsNamed("table definitions").isNotNull();
+		Validator.assertThat(tableInfos).thatIsNamed("table definitions").isNotNull();
 		
 		internalDataWriter = new InternalDataWriter(nodeDatabase);
-		this.tableDefinitions = tableDefinitions;		
+		this.tableInfos = tableInfos;		
 	}
 	
 	//method
@@ -91,7 +91,7 @@ public final class DataWriter implements IDataWriter {
 	}
 	
 	//method
-	private TableDefinition getTableDefinitionForTableWithName(final String tableName) {
-		return tableDefinitions.getRefFirst(td -> td.getName().equals(tableName));
+	private TableInfo getTableDefinitionForTableWithName(final String tableName) {
+		return tableInfos.getRefFirst(td -> td.getName().equals(tableName));
 	}
 }

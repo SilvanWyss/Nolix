@@ -3,7 +3,7 @@ package ch.nolix.system.noderawobjectdata.datareader;
 
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.document.node.BaseNode;
-import ch.nolix.system.noderawobjectdata.tabledefinition.TableDefinition;
+import ch.nolix.system.noderawobjectdata.tabledefinition.TableInfo;
 import ch.nolix.system.noderawobjectschema.structure.SubNodeHeaderCatalogue;
 import ch.nolix.system.noderawobjectschema.structure.TableNodeSearcher;
 import ch.nolix.systemapi.rawobjectdataapi.schemainfoapi.IColumnInfo;
@@ -16,8 +16,8 @@ final class TableDefinitionMapper {
 	private static final TableNodeSearcher tableNodeSearcher = new TableNodeSearcher();
 	
 	//method
-	public TableDefinition createTableDefinitionFromTableNode(final BaseNode tableNode) {
-		return new TableDefinition(
+	public TableInfo createTableDefinitionFromTableNode(final BaseNode tableNode) {
+		return new TableInfo(
 			getTableNameFromTableNode(tableNode),
 			getContentColumnDefinitionsFromTableNode(tableNode)
 		);

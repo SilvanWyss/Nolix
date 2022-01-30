@@ -5,7 +5,7 @@ import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.system.noderawobjectdata.structure.RecordNodeSearcher;
-import ch.nolix.system.noderawobjectdata.tabledefinition.TableDefinition;
+import ch.nolix.system.noderawobjectdata.tabledefinition.TableInfo;
 import ch.nolix.system.sqlrawobjectdata.datadto.LoadedRecordDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IContentFieldDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.ILoadedRecordDTO;
@@ -20,25 +20,25 @@ public final class LoadedRecordDTOMapper {
 	//method
 	public ILoadedRecordDTO createLoadedRecordDTOFromRecordNode(
 		final BaseNode recordNode,
-		final TableDefinition tableDefinition
+		final TableInfo tableInfo
 	) {
 		return
 		new LoadedRecordDTO(
 			getIdFromRecordNode(recordNode),
 			getSaveStampFromRecordNode(recordNode),
-			createContentFieldsFromRecordNode(recordNode, tableDefinition)
+			createContentFieldsFromRecordNode(recordNode, tableInfo)
 		);
 	}
 	
 	//method
 	private IContainer<IContentFieldDTO> createContentFieldsFromRecordNode(
 		final BaseNode recordNode,
-		final TableDefinition tableDefinition
+		final TableInfo tableInfo
 	) {
 		
 		final var contentFields = new LinkedList<IContentFieldDTO>();
 		var index = 1;
-		for (final var ccd : tableDefinition.getContentColumnDefinitions()) {
+		for (final var ccd : tableInfo.getContentColumnDefinitions()) {
 			
 			final var contentFieldNode = recordNodeSearcher.getRefContentFieldNodeFromRecordNodeAtIndex(recordNode, index);
 			

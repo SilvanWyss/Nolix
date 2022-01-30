@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.noderawobjectdata.tabledefinition;
 
+//own imports
 import ch.nolix.core.attributeapi.mandatoryattributeapi.Named;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.IContainer;
@@ -8,7 +9,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.systemapi.rawobjectdataapi.schemainfoapi.IColumnInfo;
 
 //class
-public final class TableDefinition implements Named {
+public final class TableInfo implements Named {
 	
 	//attribute
 	private final String name;
@@ -17,7 +18,7 @@ public final class TableDefinition implements Named {
 	private final IContainer<IColumnInfo> contentColumnDefinitions;
 	
 	//constructor
-	public TableDefinition(final String name, IContainer<IColumnInfo> contentColumnDefinitions) {
+	public TableInfo(final String name, IContainer<IColumnInfo> contentColumnDefinitions) {
 		
 		if (name == null) {
 			throw new ArgumentIsNullException(LowerCaseCatalogue.NAME);

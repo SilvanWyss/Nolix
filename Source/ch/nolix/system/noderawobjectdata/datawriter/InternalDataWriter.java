@@ -5,7 +5,7 @@ import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.functionapi.IElementTaker;
-import ch.nolix.system.noderawobjectdata.tabledefinition.TableDefinition;
+import ch.nolix.system.noderawobjectdata.tabledefinition.TableInfo;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDeletionDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
@@ -36,8 +36,8 @@ final class InternalDataWriter {
 	}
 	
 	//method
-	public void insertRecordIntoTable(final TableDefinition tableDefinition, final IRecordDTO record) {
-		changeActions.addAtEnd(d -> databaseUpdater.insertRecordIntoTable(d, tableDefinition, record));
+	public void insertRecordIntoTable(final TableInfo tableInfo, final IRecordDTO record) {
+		changeActions.addAtEnd(d -> databaseUpdater.insertRecordIntoTable(d, tableInfo, record));
 	}
 	
 	//method
@@ -53,8 +53,8 @@ final class InternalDataWriter {
 	}
 	
 	//method
-	public void updateRecordOnTable(final TableDefinition tableDefinition, IRecordUpdateDTO recordUpdate) {
-		changeActions.addAtEnd(d -> databaseUpdater.updateRecordOnTable(d, tableDefinition, recordUpdate));
+	public void updateRecordOnTable(final TableInfo tableInfo, IRecordUpdateDTO recordUpdate) {
+		changeActions.addAtEnd(d -> databaseUpdater.updateRecordOnTable(d, tableInfo, recordUpdate));
 	}
 	
 	// method
