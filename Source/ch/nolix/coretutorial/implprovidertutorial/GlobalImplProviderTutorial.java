@@ -1,4 +1,4 @@
-package ch.nolix.commontutorial.implprovidertutorial;
+package ch.nolix.coretutorial.implprovidertutorial;
 
 import ch.nolix.core.provider.implprovider.GlobalImplProvider;
 

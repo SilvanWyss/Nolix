@@ -1,4 +1,4 @@
-package ch.nolix.commontutorial.validatortutorial;
+package ch.nolix.coretutorial.validatortutorial;
 
 import ch.nolix.core.errorcontrol.validator.Validator;
 

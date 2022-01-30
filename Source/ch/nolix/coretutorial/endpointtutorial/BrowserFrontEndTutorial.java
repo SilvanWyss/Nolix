@@ -1,4 +1,4 @@
-package ch.nolix.commontutorial.endpointtutorial;
+package ch.nolix.coretutorial.endpointtutorial;
 
 import ch.nolix.core.constant.IPv4Catalogue;
 import ch.nolix.core.environment.localcomputer.ShellProvider;

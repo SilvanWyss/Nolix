@@ -1,4 +1,4 @@
-package ch.nolix.commontutorial.mathtutorial;
+package ch.nolix.coretutorial.mathtutorial;
 
 import ch.nolix.core.math.Matrix;
 

@@ -1,4 +1,4 @@
-package ch.nolix.commontutorial.sequencertutorial;
+package ch.nolix.coretutorial.sequencertutorial;
 
 import java.util.Random;
 

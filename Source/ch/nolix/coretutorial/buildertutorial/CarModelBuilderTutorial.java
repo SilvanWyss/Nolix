@@ -1,4 +1,4 @@
-package ch.nolix.commontutorial.buildertutorial;
+package ch.nolix.coretutorial.buildertutorial;
 
 import ch.nolix.core.builder.ArgumentCapturer;
 import ch.nolix.core.builder.BaseArgumentCapturer;
