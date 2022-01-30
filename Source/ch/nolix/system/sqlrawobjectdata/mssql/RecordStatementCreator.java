@@ -25,7 +25,7 @@ public final class RecordStatementCreator implements IRecordStatementCreator {
 		+ "' AND SaveStamp = '"
 		+ recordDeletion.getSaveStamp()
 		+ "';"
-		+ "IF @@RowCount = BEGIN THROW error(100000, 'The data was changed in the meanwhile.', 0) END;";
+		+ "IF @@RowCount = 0 BEGIN THROW error(100000, 'The data was changed in the meanwhile.', 0) END;";
 	}
 	
 	//method
@@ -56,7 +56,7 @@ public final class RecordStatementCreator implements IRecordStatementCreator {
 		+ "' AND SaveStamp = '"
 		+  recordUpdate.getSaveStamp()
 		+ "';"
-		+ "IF @@RowCount = BEGIN THROW error(100000, 'The data were changed in the meanwhile.', 0) END;";
+		+ "IF @@RowCount = 0 BEGIN THROW error(100000, 'The data were changed in the meanwhile.', 0) END;";
 	}
 	
 	//method
