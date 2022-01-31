@@ -34,11 +34,11 @@ final class InternalDataWriter {
 	//method
 	public void deleteEntriesFromMultiValue(
 		final TableInfo tableInfo,
-		final IRecordHeadDTO recordHead,
+		final String recordId,
 		final String multiValueColumnName
 	) {
 		changeActions.addAtEnd(
-			d -> databaseUpdater.deleteEntriesFromMultiValue(d, tableInfo, recordHead, multiValueColumnName)
+			d -> databaseUpdater.deleteEntriesFromMultiValue(d, tableInfo, recordId, multiValueColumnName)
 		);
 	}
 	

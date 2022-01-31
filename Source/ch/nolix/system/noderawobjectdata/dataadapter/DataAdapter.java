@@ -36,32 +36,32 @@ public final class DataAdapter implements IDataAdapter {
 	@Override
 	public void deleteEntriesFromMultiValue(
 		final String tableName,
-		final IRecordHeadDTO recordHead,
+		final String recordId,
 		final String multiValueColumnName
 	) {
-		dataWriter.deleteEntriesFromMultiValue(tableName, recordHead, multiValueColumnName);
+		dataWriter.deleteEntriesFromMultiValue(tableName, recordId, multiValueColumnName);
 	}
 	
 	//method
 	@Override
 	public void deleteEntryFromMultiValue(
 		final String tableName,
-		final IRecordHeadDTO recordHead,
+		final String recordId,
 		final String multiValueColumnName,
 		final String entry
 	) {
-		dataWriter.deleteEntryFromMultiValue(tableName, recordHead, multiValueColumnName, entry);
+		dataWriter.deleteEntryFromMultiValue(tableName, recordId, multiValueColumnName, entry);
 	}
 	
 	//method
 	@Override
 	public void insertEntryIntoMultiValue(
 		final String tableName,
-		final IRecordHeadDTO recordHead,
+		final String recordId,
 		final String multiFieldColumn,
 		final String entry
 	) {
-		dataWriter.insertEntryIntoMultiValue(tableName, recordHead, multiFieldColumn, entry);
+		dataWriter.insertEntryIntoMultiValue(tableName, recordId, multiFieldColumn, entry);
 	}
 	
 	//method

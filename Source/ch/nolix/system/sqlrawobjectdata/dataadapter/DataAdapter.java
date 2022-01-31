@@ -48,21 +48,21 @@ public abstract class DataAdapter implements IDataAdapter {
 	@Override
 	public final void deleteEntriesFromMultiValue(
 		final String tableName,
-		final IRecordHeadDTO recordHead,
+		final String recordId,
 		final String multiFieldColumn
 	) {
-		dataWriter.deleteEntriesFromMultiValue(tableName, recordHead, multiFieldColumn);
+		dataWriter.deleteEntriesFromMultiValue(tableName, recordId, multiFieldColumn);
 	}
 	
 	//method
 	@Override
 	public final void deleteEntryFromMultiValue(
 		final String tableName,
-		final IRecordHeadDTO recordHead,
+		final String recordId,
 		final String multiFieldColumn,
 		final String entry
 	) {
-		dataWriter.deleteEntryFromMultiValue(tableName, recordHead, multiFieldColumn, entry);
+		dataWriter.deleteEntryFromMultiValue(tableName, recordId, multiFieldColumn, entry);
 	}
 	
 	//method
@@ -81,11 +81,11 @@ public abstract class DataAdapter implements IDataAdapter {
 	@Override
 	public final void insertEntryIntoMultiValue(
 		final String tableName,
-		final IRecordHeadDTO recordHead,
+		final String recordId,
 		final String multiFieldColumn,
 		final String entry
 	) {
-		dataWriter.insertEntryIntoMultiValue(tableName, recordHead, multiFieldColumn, entry);
+		dataWriter.insertEntryIntoMultiValue(tableName, recordId, multiFieldColumn, entry);
 	}
 	
 	//method

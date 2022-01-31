@@ -68,21 +68,21 @@ public abstract class DataAndSchemaAdapter implements IDataAndSchemaAdapter {
 	@Override
 	public final void deleteEntriesFromMultiValue(
 		final String tableName,
-		final IRecordHeadDTO recordHead,
+		final String recordId,
 		final String multiValueColumnName
 	) {
-		dataWriter.deleteEntriesFromMultiValue(tableName, recordHead, multiValueColumnName);
+		dataWriter.deleteEntriesFromMultiValue(tableName, recordId, multiValueColumnName);
 	}
 	
 	//method
 	@Override
 	public final void deleteEntryFromMultiValue(
 		final String tableName,
-		final IRecordHeadDTO recordHead,
+		final String recordId,
 		final String multiValueColumnName,
 		final String entry
 	) {
-		dataWriter.deleteEntryFromMultiValue(tableName, recordHead, multiValueColumnName, entry);
+		dataWriter.deleteEntryFromMultiValue(tableName, recordId, multiValueColumnName, entry);
 	}
 	
 	//method
@@ -101,11 +101,11 @@ public abstract class DataAndSchemaAdapter implements IDataAndSchemaAdapter {
 	@Override
 	public final void insertEntryIntoMultiValue(
 		final String tableName,
-		final IRecordHeadDTO recordHead,
+		final String recordId,
 		final String multiValueColumnName,
 		final String entry
 	) {
-		dataWriter.insertEntryIntoMultiValue(tableName, recordHead, multiValueColumnName, entry);
+		dataWriter.insertEntryIntoMultiValue(tableName, recordId, multiValueColumnName, entry);
 	}
 	
 	//method

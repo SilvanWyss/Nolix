@@ -40,26 +40,22 @@ public final class InternalDataWriter {
 	
 	//method
 	public void deleteEntriesFromMultiValue(
-		final IRecordHeadDTO recordHead,
+		final String recordId,
 		final String multiValueColumnId
 	) {
 		mSQLExecutor.addSQLStatement(
-			multiValueStatementCreator.createQueryToDeleteEntriesFromMultiValue(recordHead.getId(), multiValueColumnId)
-			//TODO: Implement.
-			//recordStatementCreator.createStatementToAssertRecordHasSameSaveStamp(record)	
+			multiValueStatementCreator.createStatementToDeleteEntriesFromMultiValue(recordId, multiValueColumnId)
 		);
 	}
 	
 	//method
 	public void deleteEntryFromMultiValue(
-		final IRecordHeadDTO recordHead,
+		final String recordId,
 		final String multiValueColumnId,
 		final String entry
 	) {
 		mSQLExecutor.addSQLStatement(
-			multiValueStatementCreator.createQueryToDeleteEntryFromMultiValue(recordHead.getId(), multiValueColumnId, entry)
-			//TODO: Implement.
-			//recordStatementCreator.createStatementToAssertRecordHasSameSaveStamp(record)	
+			multiValueStatementCreator.createStatementToDeleteEntryFromMultiValue(recordId, multiValueColumnId, entry)
 		);
 	}
 	
@@ -77,14 +73,12 @@ public final class InternalDataWriter {
 	
 	//method
 	public void insertEntryIntoMultiValue(
-		final IRecordHeadDTO recordHead,
+		final String recordId,
 		final String multiValueColumnId,
 		final String entry
 	) {
 		mSQLExecutor.addSQLStatement(
-			multiValueStatementCreator.createQueryToInsertEntryIntoMultiValue(recordHead.getId(), multiValueColumnId, entry)
-			//TODO: Implement.
-			//recordStatementCreator.createStatementToAssertRecordHasSameSaveStamp(record)	
+			multiValueStatementCreator.createQueryToInsertEntryIntoMultiValue(recordId, multiValueColumnId, entry)
 		);
 	}
 	

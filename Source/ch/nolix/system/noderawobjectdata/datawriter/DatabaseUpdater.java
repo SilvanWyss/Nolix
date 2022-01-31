@@ -28,26 +28,19 @@ final class DatabaseUpdater {
 	public void deleteEntriesFromMultiValue(
 		final BaseNode databaseNode,
 		final TableInfo tableInfo,
-		final IRecordHeadDTO recordHead,
+		final String recordId,
 		final String multiValueColumnName
 	) {
 		
 		final var tableNode =
 		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
 		
-		final var recordNode = tableNodeSearcher.getRefRecordNodeFromTableNode(tableNode, recordHead.getId());
+		final var recordNode = tableNodeSearcher.getRefRecordNodeFromTableNode(tableNode, recordId);
 		final var multiValueColumnIndex = tableInfo.getIndexOfColumnByColumnName(multiValueColumnName);
 		
 		final var multiValueColumnNode =
 		recordNodeSearcher.getRefContentFieldNodeFromRecordNodeAtIndex(recordNode, multiValueColumnIndex);
-		
-		final var saveStampNode = recordNodeSearcher.getRefSaveStampNodeFromRecordNode(recordNode);
-		final var saveStamp = saveStampNode.getOneAttributeHeader();
-		
-		if (saveStamp.equals(recordHead.getSaveStamp())) {
-			throw new GeneralException("The data was changed in the meanwhile.");
-		}
-		
+						
 		multiValueColumnNode.removeAttributes();
 	}
 	

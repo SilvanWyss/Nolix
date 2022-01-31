@@ -11,7 +11,7 @@ public final class MultiValueStatementCreator implements IMultiValueStatementCre
 	
 	//method
 	@Override
-	public String createQueryToDeleteEntriesFromMultiValue(final String recordId, final String multiValueColumnId) {
+	public String createStatementToDeleteEntriesFromMultiValue(final String recordId, final String multiValueColumnId) {
 		return
 		"DELETE FROM "
 		+  MultiContentTable.MULTI_VALUE_ENTRY.getFullName()
@@ -28,7 +28,7 @@ public final class MultiValueStatementCreator implements IMultiValueStatementCre
 	
 	//method
 	@Override
-	public String createQueryToDeleteEntryFromMultiValue(
+	public String createStatementToDeleteEntryFromMultiValue(
 		final String recordId,
 		final String multiValueColumnId,
 		final String entry
