@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.noderawobjectdata.datareader;
 
+//own imports
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
@@ -39,10 +40,14 @@ public final class DataReader implements IDataReader {
 	public LinkedList<Object> loadMultiValueEntriesFromRecord(
 		final String tableName,
 		final String recordId,
-		final String multiFieldColumnName
+		final String multiValueColumnName
 	) {
-		//TODO: Implement.
-		return null;
+		return
+		internalDataReader.loadMultiValueEntriesFromRecord(
+			getTableDefinitionForTableWithName(tableName),
+			recordId,
+			multiValueColumnName
+		);
 	}
 	
 	//method
