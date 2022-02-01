@@ -36,7 +36,11 @@ public final class DataWriter implements IDataWriter {
 		final String recordId,
 		final String multiValueColumnName
 	) {
-		internalDataWriter.deleteEntriesFromMultiValue(getTableInfoByTableName(tableName), recordId, multiValueColumnName);
+		internalDataWriter.deleteEntriesFromMultiValue(
+			getTableInfoByTableName(tableName),
+			recordId,
+			multiValueColumnName
+		);
 	}
 	
 	//method
@@ -75,7 +79,12 @@ public final class DataWriter implements IDataWriter {
 		final String multiValueColumnName,
 		final String entry
 	) {
-		//TODO: Implement.
+		internalDataWriter.insertEntryIntoMultiValue(
+			getTableInfoByTableName(tableName),
+			recordId,
+			multiValueColumnName,
+			entry
+		);
 	}
 	
 	//method

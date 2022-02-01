@@ -3,6 +3,7 @@ package ch.nolix.system.noderawobjectdata.datawriter;
 
 //own imports
 import ch.nolix.core.document.node.BaseNode;
+import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.exception.GeneralException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
 import ch.nolix.system.noderawobjectdata.structure.RecordNodeSearcher;
@@ -84,6 +85,28 @@ final class DatabaseUpdater {
 		if (!saveStampNode.hasHeader(recordHead.getSaveStamp())) {
 			throw new GeneralException("The data was changed in the meanwhile.");
 		}
+	}
+	
+	//method
+	public void insertEntryIntoMultiValue(
+		final BaseNode databaseNode,
+		final TableInfo tableInfo,
+		final String recordId,
+		final String multiValueColumnName,
+		final String entry
+	) {
+		
+		final var tableNode =
+		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
+		
+		final var recordNode = tableNodeSearcher.getRefRecordNodeFromTableNode(tableNode, recordId);
+		
+		final var multiValueColumnIndex = tableInfo.getIndexOfColumnByColumnName(multiValueColumnName);
+		
+		final var multiValueColumnNode =
+		recordNodeSearcher.getRefContentFieldNodeFromRecordNodeAtIndex(recordNode, multiValueColumnIndex);
+		
+		multiValueColumnNode.addAttribute(Node.withHeader(entry));
 	}
 	
 	//method

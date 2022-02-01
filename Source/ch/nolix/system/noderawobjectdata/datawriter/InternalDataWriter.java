@@ -60,13 +60,25 @@ final class InternalDataWriter {
 	}
 	
 	//method
-	public void insertRecordIntoTable(final TableInfo tableInfo, final IRecordDTO record) {
-		changeActions.addAtEnd(d -> databaseUpdater.insertRecordIntoTable(d, tableInfo, record));
+	public boolean hasChanges() {
+		return changeActions.containsAny();
 	}
 	
 	//method
-	public boolean hasChanges() {
-		return changeActions.containsAny();
+	public void insertEntryIntoMultiValue(
+		final TableInfo tableInfo,
+		final String recordId,
+		final String multiValueColumnName,
+		final String entry
+	) {
+		changeActions.addAtEnd(
+			d -> databaseUpdater.insertEntryIntoMultiValue(d, tableInfo, recordId, multiValueColumnName, entry)
+		);
+	}
+	
+	//method
+	public void insertRecordIntoTable(final TableInfo tableInfo, final IRecordDTO record) {
+		changeActions.addAtEnd(d -> databaseUpdater.insertRecordIntoTable(d, tableInfo, record));
 	}
 	
 	//method
