@@ -1,7 +1,9 @@
 //package declaration
 package ch.nolix.core.errorcontrol.validator;
 
+//own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNotNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EqualArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -14,7 +16,7 @@ import ch.nolix.core.functionapi.IElementTakerBooleanGetter;
  * 
  * @author Silvan Wyss
  * @date 2017-01-01
- * @lines 150
+ * @lines 160
  * @param <A> is the type of the argument of an {@link ArgumentMediator}.
  */
 public class ArgumentMediator<A> extends Mediator {
@@ -123,6 +125,18 @@ public class ArgumentMediator<A> extends Mediator {
 		//Asserts that the argument of the current ArgumentMediator is not null.
 		if (argument == null) {
 			throw new ArgumentIsNullException(getArgumentName());
+		}
+	}
+	
+	//method
+	/**
+	 * @throws ArgumentIsNotNullException if the argument of the current {@link ArgumentMediator} is not (!) null.
+	 */
+	public final void isNull() {
+		
+		//Asserts that the argument of the current ArgumentMediator is (!) null.
+		if (argument != null) {
+			throw new ArgumentIsNotNullException(getRefArgument());
 		}
 	}
 	
