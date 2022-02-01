@@ -14,7 +14,7 @@ import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
 //class
 final class InternalDataWriter {
 	
-	//static attributes
+	//static attribute
 	private static final DatabaseUpdater databaseUpdater = new DatabaseUpdater();
 	
 	//attribute
@@ -37,7 +37,7 @@ final class InternalDataWriter {
 		final String recordId,
 		final String multiValueColumnName
 	) {
-		changeActions.addAtEnd(
+		addChangeAction(
 			d -> databaseUpdater.deleteEntriesFromMultiValue(d, tableInfo, recordId, multiValueColumnName)
 		);
 	}
@@ -49,14 +49,14 @@ final class InternalDataWriter {
 		final String multiValueColumnName,
 		final String entry
 	) {
-		changeActions.addAtEnd(
+		addChangeAction(
 			d -> databaseUpdater.deleteEntryFromMultiValue(d, tableInfo, recordId, multiValueColumnName, entry)
 		);
 	}
 	
 	//method
 	public void deleteRecordFromTable(final String tableName, final IRecordHeadDTO recordHead) {
-		changeActions.addAtEnd(d -> databaseUpdater.deleteRecordFromTable(d, tableName, recordHead));
+		addChangeAction(d -> databaseUpdater.deleteRecordFromTable(d, tableName, recordHead));
 	}
 	
 	//method
@@ -71,14 +71,14 @@ final class InternalDataWriter {
 		final String multiValueColumnName,
 		final String entry
 	) {
-		changeActions.addAtEnd(
+		addChangeAction(
 			d -> databaseUpdater.insertEntryIntoMultiValue(d, tableInfo, recordId, multiValueColumnName, entry)
 		);
 	}
 	
 	//method
 	public void insertRecordIntoTable(final TableInfo tableInfo, final IRecordDTO record) {
-		changeActions.addAtEnd(d -> databaseUpdater.insertRecordIntoTable(d, tableInfo, record));
+		addChangeAction(d -> databaseUpdater.insertRecordIntoTable(d, tableInfo, record));
 	}
 	
 	//method
@@ -90,7 +90,11 @@ final class InternalDataWriter {
 	
 	//method
 	public void updateRecordOnTable(final TableInfo tableInfo, IRecordUpdateDTO recordUpdate) {
-		changeActions.addAtEnd(d -> databaseUpdater.updateRecordOnTable(d, tableInfo, recordUpdate));
+		addChangeAction(d -> databaseUpdater.updateRecordOnTable(d, tableInfo, recordUpdate));
+	}
+	
+	private void addChangeAction(final IElementTaker<BaseNode> changeAction) {
+		addChangeAction(changeAction);
 	}
 	
 	// method
