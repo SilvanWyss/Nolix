@@ -36,12 +36,35 @@ final class DatabaseUpdater {
 		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
 		
 		final var recordNode = tableNodeSearcher.getRefRecordNodeFromTableNode(tableNode, recordId);
+		
 		final var multiValueColumnIndex = tableInfo.getIndexOfColumnByColumnName(multiValueColumnName);
 		
 		final var multiValueColumnNode =
 		recordNodeSearcher.getRefContentFieldNodeFromRecordNodeAtIndex(recordNode, multiValueColumnIndex);
 						
 		multiValueColumnNode.removeAttributes();
+	}
+	
+	//method
+	public void deleteEntryFromMultiValue(
+		final BaseNode databaseNode,
+		final TableInfo tableInfo,
+		final String recordId,
+		final String multiValueColumnName,
+		final String entry
+	) {
+		
+		final var tableNode =
+		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
+		
+		final var recordNode = tableNodeSearcher.getRefRecordNodeFromTableNode(tableNode, recordId);
+		
+		final var multiValueColumnIndex = tableInfo.getIndexOfColumnByColumnName(multiValueColumnName);
+		
+		final var multiValueColumnNode =
+		recordNodeSearcher.getRefContentFieldNodeFromRecordNodeAtIndex(recordNode, multiValueColumnIndex);
+		
+		multiValueColumnNode.removeFirstAttribute(entry);
 	}
 	
 	//method

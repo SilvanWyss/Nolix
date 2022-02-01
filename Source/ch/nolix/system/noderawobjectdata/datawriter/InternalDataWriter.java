@@ -43,6 +43,18 @@ final class InternalDataWriter {
 	}
 	
 	//method
+	public void deleteEntryFromMultiValue(
+		final TableInfo tableInfo,
+		final String recordId,
+		final String multiValueColumnName,
+		final String entry
+	) {
+		changeActions.addAtEnd(
+			d -> databaseUpdater.deleteEntryFromMultiValue(d, tableInfo, recordId, multiValueColumnName, entry)
+		);
+	}
+	
+	//method
 	public void deleteRecordFromTable(final String tableName, final IRecordHeadDTO recordHead) {
 		changeActions.addAtEnd(d -> databaseUpdater.deleteRecordFromTable(d, tableName, recordHead));
 	}
