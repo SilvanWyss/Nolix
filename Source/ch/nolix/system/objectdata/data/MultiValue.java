@@ -4,7 +4,10 @@ package ch.nolix.system.objectdata.data;
 //Java imports
 import java.util.Iterator;
 
+//own imports
+import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.system.objectdata.propertyhelper.MultiValueHelper;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiValue;
@@ -16,44 +19,55 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<Dat
 	//static attribute
 	private static final IMultiValueHelper multiValueHelper = new MultiValueHelper();
 	
+	//attribute
+	private boolean loadedValues;
+	
 	//multi-attribute
 	private final LinkedList<V> values = new LinkedList<>();
-		
+	
+	//multi-attribute
+	private final LinkedList<V> newValues = new LinkedList<>();
+	
+	//multi-attribute
+	private final LinkedList<V> deletedValues = new LinkedList<>();
+	
 	//method
 	@Override
 	public void addValue(final V value) {
 		
-		multiValueHelper.assertCanAddGivenValue(this, value);
+		assertCanAddGivenValue(value);
 		
 		updateStateForAddValue(value);
 		
 		internalSetParentEntityAsEdited();
-		
-		updateRecordForAddValue(value);
 	}
 	
 	//method
 	@Override
 	public void clear() {
 		
-		multiValueHelper.assertCanClear(this);
+		assertCanClear();
 		
 		updateStateForClear();
 		
 		internalSetParentEntityAsEdited();
-		
-		updateRecordForClear();
 	}
 	
 	//method
 	@Override
 	public int getElementCount() {
+		
+		loadValuesIfNotLoaded();
+		
 		return values.getElementCount();
 	}
 	
 	//method
 	@Override
 	public V getRefAt(final int index) {
+		
+		loadValuesIfNotLoaded();
+		
 		return values.getRefAt(index);
 	}
 	
@@ -72,15 +86,54 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<Dat
 	//method
 	@Override
 	public Iterator<V> iterator() {
+		
+		loadValuesIfNotLoaded();
+		
 		return values.iterator();
 	}
 	
 	//method
 	@Override
 	void internalSetOrClearDirectlyFromContent(final Object content) {
-		//TODO: Implement.
+		Validator.assertThat(content).thatIsNamed(LowerCaseCatalogue.CONTENT).isNull();
 	}
 	
+	//method
+	private void assertCanAddGivenValue(final V value) {
+		multiValueHelper.assertCanAddGivenValue(this, value);
+	}
+	
+	//mehtod
+	private void assertCanClear() {
+		multiValueHelper.assertCanClear(this);
+	}
+	
+	//method
+	private boolean loadedValues() {
+		return loadedValues;
+	}
+	
+	//method
+	private void loadValuesIfNotLoaded() {
+		if (!loadedValues()) {
+			loadValuesWhenNotLoaded();
+		}
+	}
+	
+	//method	
+	private void loadValuesWhenNotLoaded() {
+		
+		loadedValues = true;
+		
+		if (isLinkedWithRealDatabase()) {
+			internalGetRefDataAndSchemaAdapter().loadMultiValueEntriesFromRecord(
+				getParentEntity().getParentTableName(),
+				getParentEntity().getId(),
+				getName()
+			);
+		}
+	}
+
 	//method
 	private void updateRecordForAddValue(final V value) {
 		if (isLinkedWithRealDatabase()) {
@@ -103,11 +156,21 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<Dat
 	
 	//method
 	private void updateStateForAddValue(final V value) {
+		
 		values.addAtEnd(value);
+		
+		newValues.addAtEnd(value);
 	}
 	
 	//method
 	private void updateStateForClear() {
+		
+		loadValuesIfNotLoaded();
+		
+		deletedValues.addAtEnd(values);
+		
 		values.clear();
+		
+		newValues.clear();
 	}
 }
