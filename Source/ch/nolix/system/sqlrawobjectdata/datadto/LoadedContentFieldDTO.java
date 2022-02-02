@@ -3,10 +3,10 @@ package ch.nolix.system.sqlrawobjectdata.datadto;
 
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IContentFieldDTO;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.ILoadedContentFieldDTO;
 
 //class
-public final class ContentFieldDTO implements IContentFieldDTO {
+public final class LoadedContentFieldDTO implements ILoadedContentFieldDTO {
 		
 	//attribute
 	private final String columnName;
@@ -15,7 +15,7 @@ public final class ContentFieldDTO implements IContentFieldDTO {
 	private final Object value;
 			
 	//constructor
-	public ContentFieldDTO(final String columnName) {
+	public LoadedContentFieldDTO(final String columnName) {
 		
 		if (columnName == null) {
 			throw new ArgumentIsNullException(LowerCaseCatalogue.COLUMN_NAME);
@@ -26,7 +26,7 @@ public final class ContentFieldDTO implements IContentFieldDTO {
 	}
 	
 	//constructor
-	public ContentFieldDTO(final String columnName, final Object value) {
+	public LoadedContentFieldDTO(final String columnName, final Object value) {
 		
 		if (columnName == null) {
 			throw new ArgumentIsNullException(LowerCaseCatalogue.COLUMN_NAME);

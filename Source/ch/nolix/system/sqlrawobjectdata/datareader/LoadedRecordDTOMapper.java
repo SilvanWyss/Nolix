@@ -7,7 +7,7 @@ import java.util.List;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.system.sqlrawobjectdata.datadto.LoadedRecordDTO;
-import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IContentFieldDTO;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.ILoadedContentFieldDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.ILoadedRecordDTO;
 import ch.nolix.systemapi.rawobjectdataapi.schemainfoapi.IColumnInfo;
 import ch.nolix.systemapi.rawobjectdataapi.schemainfoapi.ITableInfo;
@@ -32,7 +32,7 @@ final class LoadedRecordDTOMapper {
 	}
 	
 	//method
-	private IContainer<IContentFieldDTO> getContentFieldsFromSQLRecord(
+	private IContainer<ILoadedContentFieldDTO> getContentFieldsFromSQLRecord(
 		final List<String> pSQLRecordValues,
 		final ITableInfo tableInfo
 	) {
@@ -40,12 +40,12 @@ final class LoadedRecordDTOMapper {
 	}
 	
 	//method
-	private IContainer<IContentFieldDTO> getContentFieldsFromSQLRecord(
+	private IContainer<ILoadedContentFieldDTO> getContentFieldsFromSQLRecord(
 		final List<String> pSQLRecordValues,
 		final IContainer<IColumnInfo> contentColumnDefinitions
 	) {
 		
-		final var recordValues = new LinkedList<IContentFieldDTO>();
+		final var recordValues = new LinkedList<ILoadedContentFieldDTO>();
 		var lSQLRecordValueIterator = pSQLRecordValues.iterator();
 		for (final var ccd : contentColumnDefinitions) {
 			recordValues.addAtEnd(contentFieldMapper.createContentFieldFromString(lSQLRecordValueIterator.next(), ccd));

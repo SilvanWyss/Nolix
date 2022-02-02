@@ -7,7 +7,7 @@ import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.system.noderawobjectdata.structure.RecordNodeSearcher;
 import ch.nolix.system.noderawobjectdata.tabledefinition.TableInfo;
 import ch.nolix.system.sqlrawobjectdata.datadto.LoadedRecordDTO;
-import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IContentFieldDTO;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.ILoadedContentFieldDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.ILoadedRecordDTO;
 
 //class
@@ -31,12 +31,12 @@ public final class LoadedRecordDTOMapper {
 	}
 	
 	//method
-	private IContainer<IContentFieldDTO> createContentFieldsFromRecordNode(
+	private IContainer<ILoadedContentFieldDTO> createContentFieldsFromRecordNode(
 		final BaseNode recordNode,
 		final TableInfo tableInfo
 	) {
 		
-		final var contentFields = new LinkedList<IContentFieldDTO>();
+		final var contentFields = new LinkedList<ILoadedContentFieldDTO>();
 		var index = 1;
 		for (final var ccd : tableInfo.getColumnInfos()) {
 			

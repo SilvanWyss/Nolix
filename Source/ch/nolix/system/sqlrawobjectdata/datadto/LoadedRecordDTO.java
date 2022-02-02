@@ -4,7 +4,7 @@ package ch.nolix.system.sqlrawobjectdata.datadto;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IContentFieldDTO;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.ILoadedContentFieldDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.ILoadedRecordDTO;
 
 //class
@@ -15,13 +15,13 @@ public final class LoadedRecordDTO implements ILoadedRecordDTO {
 	private final String saveStamp;
 	
 	//multi-attribute
-	private final IContainer<IContentFieldDTO> contentFields;
+	private final IContainer<ILoadedContentFieldDTO> contentFields;
 	
 	//constructor
 	public LoadedRecordDTO(
 		final String id,
 		final String saveStamp,
-		final IContainer<IContentFieldDTO> contentFields
+		final IContainer<ILoadedContentFieldDTO> contentFields
 	) {
 		
 		if (id == null) {
@@ -43,7 +43,7 @@ public final class LoadedRecordDTO implements ILoadedRecordDTO {
 	
 	//method
 	@Override
-	public IContainer<IContentFieldDTO> getContentFields() {
+	public IContainer<ILoadedContentFieldDTO> getContentFields() {
 		return contentFields;
 	}
 

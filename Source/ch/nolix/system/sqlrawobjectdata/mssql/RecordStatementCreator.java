@@ -3,7 +3,7 @@ package ch.nolix.system.sqlrawobjectdata.mssql;
 
 //own imports
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IRecordStatementCreator;
-import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IContentFieldDTO;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.ILoadedContentFieldDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordHeadDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
@@ -35,7 +35,7 @@ public final class RecordStatementCreator implements IRecordStatementCreator {
 		"INSERT INTO "
 		+ tableName
 		+ " (Id, "
-		+ record.getContentFields().to(IContentFieldDTO::getColumnName).toString(", ")
+		+ record.getContentFields().to(ILoadedContentFieldDTO::getColumnName).toString(", ")
 		+ ") VALUES ("
 		+ record.getId()
 		+ ", "
@@ -60,7 +60,7 @@ public final class RecordStatementCreator implements IRecordStatementCreator {
 	}
 	
 	//method
-	private String getValueOrNullInSQLOf(final IContentFieldDTO contentField) {
+	private String getValueOrNullInSQLOf(final ILoadedContentFieldDTO contentField) {
 		
 		final var value = contentField.getValueOrNull();
 		

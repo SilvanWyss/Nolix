@@ -13,5 +13,5 @@ public interface IRecordUpdateDTO {
 	String getSaveStamp();
 	
 	//method declaration
-	IContainer<IContentFieldDTO> getUpdatedContentFields();
+	IContainer<ILoadedContentFieldDTO> getUpdatedContentFields();
 }

@@ -4,7 +4,7 @@ package ch.nolix.system.objectdata.data;
 import ch.nolix.core.reflectionhelper.GlobalClassHelper;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
-import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IContentFieldDTO;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.ILoadedContentFieldDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.ILoadedRecordDTO;
 
 //class
@@ -28,7 +28,7 @@ final class EntityMapper {
 	}
 	
 	//method
-	private void addDataFromContentFieldToEntity(final IContentFieldDTO contentField, final BaseEntity entity) {
+	private void addDataFromContentFieldToEntity(final ILoadedContentFieldDTO contentField, final BaseEntity entity) {
 		addDataFromContentFieldToProperty(
 			contentField,
 			entity.internalGetRefPropertyByName(contentField.getColumnName())
@@ -36,7 +36,7 @@ final class EntityMapper {
 	}
 	
 	//method
-	private void addDataFromContentFieldToProperty(final IContentFieldDTO contentField, final Property property) {
+	private void addDataFromContentFieldToProperty(final ILoadedContentFieldDTO contentField, final Property property) {
 		property.internalSetOrClearDirectlyFromContent(contentField.getValueOrNull());
 	}
 	

@@ -7,7 +7,7 @@ import ch.nolix.core.container.IContainer;
 public interface IRecordDTO {
 	
 	//method declaration
-	IContainer<IContentFieldDTO> getContentFields();
+	IContainer<ILoadedContentFieldDTO> getContentFields();
 	
 	//method declaration
 	String getId();

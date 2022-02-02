@@ -2,7 +2,7 @@
 package ch.nolix.systemapi.rawobjectdataapi.datadtoapi;
 
 //interface
-public interface IContentFieldDTO {
+public interface ILoadedContentFieldDTO {
 	
 	//method declaration
 	String getColumnName();

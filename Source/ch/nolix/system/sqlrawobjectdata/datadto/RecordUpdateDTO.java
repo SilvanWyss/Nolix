@@ -6,7 +6,7 @@ import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IContentFieldDTO;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.ILoadedContentFieldDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
 
 //class
@@ -17,13 +17,13 @@ public final class RecordUpdateDTO implements IRecordUpdateDTO {
 	private final String saveStamp;
 	
 	//multi-attribute
-	private final IContainer<IContentFieldDTO> updatedContentFields;
+	private final IContainer<ILoadedContentFieldDTO> updatedContentFields;
 	
 	//constructor
 	public RecordUpdateDTO(
 		final String id,
 		final String saveStamp,
-		final IContainer<IContentFieldDTO> updatedContentFields
+		final IContainer<ILoadedContentFieldDTO> updatedContentFields
 	) {
 		
 		if (id == null) {
@@ -47,7 +47,7 @@ public final class RecordUpdateDTO implements IRecordUpdateDTO {
 	public RecordUpdateDTO(
 		final String id,
 		final String saveStamp,
-		final IContentFieldDTO updatedContentField
+		final ILoadedContentFieldDTO updatedContentField
 	) {
 		this(id, saveStamp, LinkedList.withElements(updatedContentField));
 	}
@@ -56,7 +56,7 @@ public final class RecordUpdateDTO implements IRecordUpdateDTO {
 	public RecordUpdateDTO(
 		final String id,
 		final String saveStamp,
-		final IContentFieldDTO... updatedContentFields
+		final ILoadedContentFieldDTO... updatedContentFields
 	) {
 		this(id, saveStamp, ReadContainer.forArray(updatedContentFields));
 	}
@@ -75,7 +75,7 @@ public final class RecordUpdateDTO implements IRecordUpdateDTO {
 	
 	//method
 	@Override
-	public IContainer<IContentFieldDTO> getUpdatedContentFields() {
+	public IContainer<ILoadedContentFieldDTO> getUpdatedContentFields() {
 		return updatedContentFields;
 	}
 }

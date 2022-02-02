@@ -2,7 +2,7 @@
 package ch.nolix.system.objectdata.propertyhelper;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.system.sqlrawobjectdata.datadto.ContentFieldDTO;
+import ch.nolix.system.sqlrawobjectdata.datadto.LoadedContentFieldDTO;
 import ch.nolix.system.sqlrawobjectdata.datadto.RecordUpdateDTO;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IReference;
@@ -39,7 +39,7 @@ public final class ReferenceHelper extends PropertyHelper implements IReferenceH
 		return new RecordUpdateDTO(
 			parentEntity.getId(),
 			parentEntity.getSaveStamp(),
-			new ContentFieldDTO(reference.getName(), entity.getId())
+			new LoadedContentFieldDTO(reference.getName(), entity.getId())
 		);
 	}
 	
