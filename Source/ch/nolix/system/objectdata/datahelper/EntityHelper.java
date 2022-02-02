@@ -98,7 +98,7 @@ public class EntityHelper extends DatabaseObjectHelper implements IEntityHelper 
 	@Override
 	public final IRecordDTO createRecordFor(final IEntity<?> entity) {
 		return
-		new RecordDTO(entity.getId(), entity.technicalGetRefProperties().to(propertyHelper::createContentFieldFor));
+		new RecordDTO(entity.getId(), entity.technicalGetRefProperties().to(IProperty::technicalToContentField));
 	}
 	
 	//method

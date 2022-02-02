@@ -4,7 +4,6 @@ package ch.nolix.systemapi.objectdataapi.propertyhelperapi;
 //own imports
 import ch.nolix.systemapi.databaseapi.databaseobjecthelperapi.IDatabaseObjectHelper;
 import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
-import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IContentFieldDTO;
 
 //interface
 public interface IPropertyHelper extends IDatabaseObjectHelper {
@@ -20,9 +19,6 @@ public interface IPropertyHelper extends IDatabaseObjectHelper {
 	
 	//method declaration
 	void assertIsNotMandatoryAndEmptyBoth(IProperty<?> property);
-	
-	//method declaration
-	IContentFieldDTO createContentFieldFor(IProperty<?> property);
 	
 	//method declaration
 	boolean isMandatoryAndEmptyBoth(IProperty<?> property);
