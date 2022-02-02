@@ -1,10 +1,12 @@
 //package declaration
 package ch.nolix.systemapi.objectdataapi.dataapi;
 
+//own imports
 import ch.nolix.core.attributeapi.mandatoryattributeapi.Named;
 import ch.nolix.core.requestapi.EmptinessRequestable;
 import ch.nolix.core.requestapi.MandatoryRequestable;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IContentFieldDTO;
 
 //interface
 public interface IProperty<IMPL> extends EmptinessRequestable, MandatoryRequestable, Named {
@@ -29,4 +31,7 @@ public interface IProperty<IMPL> extends EmptinessRequestable, MandatoryRequesta
 	
 	//method declaration
 	boolean referencesUninsertedEntity();
+	
+	//method declaration
+	IContentFieldDTO technicalToContentField();
 }

@@ -3,10 +3,12 @@ package ch.nolix.system.objectdata.data;
 
 //own imports
 import ch.nolix.system.objectdata.propertyhelper.ReferenceHelper;
+import ch.nolix.system.sqlrawobjectdata.datadto.ContentFieldDTO;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IReference;
 import ch.nolix.systemapi.objectdataapi.propertyhelperapi.IReferenceHelper;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IContentFieldDTO;
 
 //class
 public final class Reference<E extends IEntity<DataImplementation>> extends BaseReference<E>
@@ -94,6 +96,12 @@ implements IReference<DataImplementation, E> {
 		internalSetParentEntityAsEdited();
 		
 		updateRecordForSetEntity(entity);
+	}
+	
+	//method
+	@Override
+	public IContentFieldDTO technicalToContentField() {
+		return new ContentFieldDTO(getName(), getEntityId());
 	}
 	
 	//method

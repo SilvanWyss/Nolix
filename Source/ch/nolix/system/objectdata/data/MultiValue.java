@@ -6,12 +6,15 @@ import java.util.Iterator;
 
 //own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
+import ch.nolix.core.constant.StringCatalogue;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.system.objectdata.propertyhelper.MultiValueHelper;
+import ch.nolix.system.sqlrawobjectdata.datadto.ContentFieldDTO;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiValue;
 import ch.nolix.systemapi.objectdataapi.propertyhelperapi.IMultiValueHelper;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IContentFieldDTO;
 
 //class
 public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<DataImplementation, V> {
@@ -90,6 +93,12 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<Dat
 		loadValuesIfNotLoaded();
 		
 		return values.iterator();
+	}
+	
+	//method
+	@Override
+	public IContentFieldDTO technicalToContentField() {
+		return new ContentFieldDTO(getName(), StringCatalogue.EMPTY_STRING);
 	}
 	
 	//method
