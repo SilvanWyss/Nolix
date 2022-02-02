@@ -40,11 +40,11 @@ final class RecordNodeMapper {
 			
 			final var index = 1 + tableInfo.getIndexOfColumnByColumnName(cf.getColumnName());
 			
-			final var value = cf.getValueOrNull();
-			if (value == null) {
+			final var string = cf.getValueAsStringOrNull();
+			if (string == null) {
 				attributes[index] = new Node();
 			} else {
-				attributes[index] =	Node.withHeader(value.toString());
+				attributes[index] =	Node.withHeader(string);
 			}
 		}
 		

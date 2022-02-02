@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.objectdata.propertyhelper;
 
+//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
@@ -8,7 +9,7 @@ import ch.nolix.system.database.databaseobjecthelper.DatabaseObjectHelper;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
 import ch.nolix.systemapi.objectdataapi.propertyhelperapi.IPropertyHelper;
-import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.ILoadedContentFieldDTO;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IContentFieldDTO;
 
 //class
 public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHelper {
@@ -47,7 +48,7 @@ public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHel
 	
 	//method
 	@Override
-	public ILoadedContentFieldDTO createContentFieldFor(final IProperty<?> property) {
+	public IContentFieldDTO createContentFieldFor(final IProperty<?> property) {
 		//TODO: Implement.
 		return null;
 	}

@@ -1,12 +1,13 @@
 //package declaration
 package ch.nolix.system.sqlrawobjectdata.datadto;
 
+//own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.ILoadedContentFieldDTO;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IContentFieldDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
 
 //class
@@ -17,13 +18,13 @@ public final class RecordUpdateDTO implements IRecordUpdateDTO {
 	private final String saveStamp;
 	
 	//multi-attribute
-	private final IContainer<ILoadedContentFieldDTO> updatedContentFields;
+	private final IContainer<IContentFieldDTO> updatedContentFields;
 	
 	//constructor
 	public RecordUpdateDTO(
 		final String id,
 		final String saveStamp,
-		final IContainer<ILoadedContentFieldDTO> updatedContentFields
+		final IContainer<IContentFieldDTO> updatedContentFields
 	) {
 		
 		if (id == null) {
@@ -47,7 +48,7 @@ public final class RecordUpdateDTO implements IRecordUpdateDTO {
 	public RecordUpdateDTO(
 		final String id,
 		final String saveStamp,
-		final ILoadedContentFieldDTO updatedContentField
+		final IContentFieldDTO updatedContentField
 	) {
 		this(id, saveStamp, LinkedList.withElements(updatedContentField));
 	}
@@ -56,7 +57,7 @@ public final class RecordUpdateDTO implements IRecordUpdateDTO {
 	public RecordUpdateDTO(
 		final String id,
 		final String saveStamp,
-		final ILoadedContentFieldDTO... updatedContentFields
+		final IContentFieldDTO... updatedContentFields
 	) {
 		this(id, saveStamp, ReadContainer.forArray(updatedContentFields));
 	}
@@ -75,7 +76,7 @@ public final class RecordUpdateDTO implements IRecordUpdateDTO {
 	
 	//method
 	@Override
-	public IContainer<ILoadedContentFieldDTO> getUpdatedContentFields() {
+	public IContainer<IContentFieldDTO> getUpdatedContentFields() {
 		return updatedContentFields;
 	}
 }

@@ -1,8 +1,9 @@
 //package declaration
 package ch.nolix.system.objectdata.propertyhelper;
 
+//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.system.sqlrawobjectdata.datadto.LoadedContentFieldDTO;
+import ch.nolix.system.sqlrawobjectdata.datadto.ContentFieldDTO;
 import ch.nolix.system.sqlrawobjectdata.datadto.RecordUpdateDTO;
 import ch.nolix.systemapi.objectdataapi.dataapi.IValue;
 import ch.nolix.systemapi.objectdataapi.propertyhelperapi.IValueHelper;
@@ -36,7 +37,7 @@ public final class ValueHelper extends PropertyHelper implements IValueHelper {
 		new RecordUpdateDTO(
 			parentEntity.getId(),
 			parentEntity.getSaveStamp(),
-			new LoadedContentFieldDTO(value.getName(), setValue)
+			new ContentFieldDTO(value.getName(), setValue.toString())
 		);
 	}
 

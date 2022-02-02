@@ -1,10 +1,11 @@
 //package declaration
 package ch.nolix.system.sqlrawobjectdata.datadto;
 
+//own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.ILoadedContentFieldDTO;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IContentFieldDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDTO;
 
 //class
@@ -14,10 +15,10 @@ public final class RecordDTO implements IRecordDTO {
 	private final String id;
 	
 	//multi-attribute
-	private final IContainer<ILoadedContentFieldDTO> contentFields;
+	private final IContainer<IContentFieldDTO> contentFields;
 	
 	//constructor
-	public RecordDTO(final String id, final IContainer<ILoadedContentFieldDTO> contentFields) {
+	public RecordDTO(final String id, final IContainer<IContentFieldDTO> contentFields) {
 		
 		if (id == null) {
 			throw new ArgumentIsNullException(LowerCaseCatalogue.ID);
@@ -33,7 +34,7 @@ public final class RecordDTO implements IRecordDTO {
 	
 	//method
 	@Override
-	public IContainer<ILoadedContentFieldDTO> getContentFields() {
+	public IContainer<IContentFieldDTO> getContentFields() {
 		return contentFields;
 	}
 	

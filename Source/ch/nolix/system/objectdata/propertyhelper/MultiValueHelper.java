@@ -1,9 +1,10 @@
 //package declaration
 package ch.nolix.system.objectdata.propertyhelper;
 
+//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectdata.data.MultiValue;
-import ch.nolix.system.sqlrawobjectdata.datadto.LoadedContentFieldDTO;
+import ch.nolix.system.sqlrawobjectdata.datadto.ContentFieldDTO;
 import ch.nolix.system.sqlrawobjectdata.datadto.RecordUpdateDTO;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiValue;
 import ch.nolix.systemapi.objectdataapi.propertyhelperapi.IMultiValueHelper;
@@ -58,7 +59,7 @@ public final class MultiValueHelper extends PropertyHelper implements IMultiValu
 		new RecordUpdateDTO(
 			parentEntity.getId(),
 			parentEntity.getSaveStamp(),
-			new LoadedContentFieldDTO(multiValue.getName(), multiValue.asContainerWithElementsOfEvaluatedType())
+			new ContentFieldDTO(multiValue.getName(), "")
 		);
 	}
 	
@@ -72,7 +73,7 @@ public final class MultiValueHelper extends PropertyHelper implements IMultiValu
 		new RecordUpdateDTO(
 			parentEntity.getId(),
 			parentEntity.getSaveStamp(),
-			new LoadedContentFieldDTO(multiValue.getName())
+			new ContentFieldDTO(multiValue.getName())
 		);
 	}
 	

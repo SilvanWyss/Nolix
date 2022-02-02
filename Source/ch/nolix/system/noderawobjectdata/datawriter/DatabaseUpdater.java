@@ -165,11 +165,11 @@ final class DatabaseUpdater {
 				tableInfo.getIndexOfColumnByColumnName(ucf.getColumnName())
 			);
 			
-			final var value = ucf.getValueOrNull();
+			final var value = ucf.getValueAsStringOrNull();
 			if (value == null) {
 				contentFieldNode.removeHeader();
 			} else {
-				contentFieldNode.setHeader(value.toString());
+				contentFieldNode.setHeader(value);
 			}
 		}
 	}
