@@ -112,7 +112,7 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<Dat
 		multiValueHelper.assertCanAddGivenValue(this, value);
 	}
 	
-	//mehtod
+	//method
 	private void assertCanClear() {
 		multiValueHelper.assertCanClear(this);
 	}
