@@ -47,6 +47,14 @@ public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHel
 	
 	//method
 	@Override
+	public boolean belongsToLoadedEntity(final IProperty<?> property) {
+		return
+		property.belongsToEntity()
+		&& isLoaded(property.getParentEntity());
+	}
+	
+	//method
+	@Override
 	public boolean isMandatoryAndEmptyBoth(final IProperty<?> property) {
 		return
 		property.isMandatory()
