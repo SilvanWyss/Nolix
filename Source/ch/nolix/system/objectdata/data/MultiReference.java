@@ -4,9 +4,12 @@ package ch.nolix.system.objectdata.data;
 //Java imports
 import java.util.Iterator;
 
+//own imports
+import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.constant.StringCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.system.objectdata.propertyhelper.MultiReferenceHelper;
 import ch.nolix.system.sqlrawobjectdata.datadto.ContentFieldDTO;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
@@ -32,8 +35,17 @@ implements IMultiReference<DataImplementation, E> {
 		return new MultiReference<>(tableName);
 	}
 	
+	//attribute
+	private boolean extractedReferencedEntityIds;
+	
 	//multi-attribute
 	private final LinkedList<String> referencedEntityIds = new LinkedList<>();
+	
+	//multi-attribute
+	private final LinkedList<String> newReferencedEntityIds = new LinkedList<>();
+	
+	//multi-attribute
+	private final LinkedList<String> deletedReferencedEntityIds = new LinkedList<>();
 	
 	//constructor
 	private MultiReference(final String referencedTableName) {
@@ -44,13 +56,11 @@ implements IMultiReference<DataImplementation, E> {
 	@Override
 	public void addEntity(final E entity) {
 		
-		multiReferenceHelper.assertCanAddGivenEntity(this, entity);
+		assertCanAddEntity(entity);
 		
 		updateStateForAddEntity(entity);
 		
 		internalSetParentEntityAsEdited();
-		
-		updateRecordForAddEntity(entity);
 	}
 	
 	//method
@@ -64,18 +74,21 @@ implements IMultiReference<DataImplementation, E> {
 	//method
 	@Override
 	public int getElementCount() {
-		return referencedEntityIds.getElementCount();
+		return getReferencedEntityIds().getElementCount();
 	}
 	
 	//method
 	@Override
-	public E getRefAt(final int index) {
+	public E getRefAt(final int index) {		
 		return getReferencedTable().getRefEntityById(getIdOfEntityAt(index));
 	}
 	
 	//method
 	@Override
 	public IContainer<String> getReferencedEntityIds() {
+		
+		extractReferencedEntityIdsIfNeeded();
+		
 		return referencedEntityIds;
 	}
 	
@@ -97,7 +110,7 @@ implements IMultiReference<DataImplementation, E> {
 		
 		final var referencedTable = getReferencedTable();
 		
-		return referencedEntityIds.iterator(referencedTable::getRefEntityById);
+		return getReferencedEntityIds().iterator(referencedTable::getRefEntityById);
 	}
 	
 	//method
@@ -108,7 +121,7 @@ implements IMultiReference<DataImplementation, E> {
 			return false;
 		}
 		
-		return referencedEntityIds.containsAnyEqualing(entity.getId());
+		return getReferencedEntityIds().containsAnyEqualing(entity.getId());
 	}
 	
 	//method
@@ -126,24 +139,65 @@ implements IMultiReference<DataImplementation, E> {
 	//method
 	@Override
 	void internalSetOrClearDirectlyFromContent(final Object content) {
-		//TODO: Implement.
+		Validator.assertThat(content).thatIsNamed(LowerCaseCatalogue.CONTENT).isNull();
+	}
+	
+	//method
+	private void assertCanAddEntity(final E entity) {
+		multiReferenceHelper.assertCanAddGivenEntity(this, entity);
+	}
+	
+	//method
+	private void assertCanClear() {
+		multiReferenceHelper.assertCanClear(this);
 	}
 	
 	//method
 	private void clearWhenContainsAny() {
 		
-		multiReferenceHelper.assertCanClear(this);
+		assertCanClear();
 		
 		updateStateForClear();
 		
 		internalSetParentEntityAsEdited();
+	}
+	
+	//method
+	private boolean extractedReferencedEntityIds() {
+		return extractedReferencedEntityIds;
+	}
+	
+	//method
+	private void extractReferencedEntityIdsIfNeeded() {
+		if (shouldExtractReferencedEntityIds()) {
+			extractReferencedEntityIdsWhenNotLoaded();
+		}
+	}
+	
+	//method
+	private void extractReferencedEntityIdsWhenNotLoaded() {
 		
-		updateRecordForClear();
+		extractedReferencedEntityIds = true;
+		
+		referencedEntityIds.addAtEnd(loadReferencedEntityIds());
 	}
 	
 	//method
 	private String getIdOfEntityAt(final int index) {
-		return referencedEntityIds.getRefAt(index);
+		return getReferencedEntityIds().getRefAt(index);
+	}
+	
+	//method
+	private LinkedList<String> loadReferencedEntityIds() {
+		//TODO: Implement.
+		return null;
+	}
+	
+	//method
+	private boolean shouldExtractReferencedEntityIds() {
+		return
+		!extractedReferencedEntityIds()
+		&& multiReferenceHelper.belongsToLoadedEntity(this);
 	}
 	
 	//method
@@ -168,11 +222,21 @@ implements IMultiReference<DataImplementation, E> {
 	
 	//method
 	private void updateStateForAddEntity(final E entity) {
+		
 		referencedEntityIds.addAtEnd(entity.getId());
+		
+		newReferencedEntityIds.addAtEnd(entity.getId());
 	}
 	
 	//method
 	private void updateStateForClear() {
+		
+		extractReferencedEntityIdsIfNeeded();
+		
+		deletedReferencedEntityIds.addAtEnd(referencedEntityIds);
+		
 		referencedEntityIds.clear();
+		
+		newReferencedEntityIds.clear();
 	}
 }
