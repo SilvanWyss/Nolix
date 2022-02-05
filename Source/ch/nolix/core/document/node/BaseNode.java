@@ -30,7 +30,7 @@ import ch.nolix.core.programcontrol.processproperty.WriteMode;
  *  
  * @author Silvan Wyss
  * @date 2017-06-24
- * @lines 860
+ * @lines 870
  */
 public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	
@@ -327,6 +327,14 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 */
 	public long getFirstAttributeAsLong() {
 		return getRefFirstAttribute().toLong();
+	}
+	
+	//method
+	/**
+	 * @return the headers of the attributes of the current {@link BaseNode}.
+	 */
+	public LinkedList<String> getHeadersOfAttributes() {
+		return getRefAttributes().to(BaseNode::getHeader);
 	}
 	
 	//method
