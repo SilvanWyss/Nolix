@@ -44,7 +44,7 @@ public final class DataReader implements IDataReader {
 	
 	//method
 	@Override
-	public LinkedList<Object> loadMultiValueEntriesFromRecord(
+	public LinkedList<Object> loadAllMultiValueEntriesFromRecord(
 		final String tableName,
 		final String recordId,
 		final String multiValueColumnName

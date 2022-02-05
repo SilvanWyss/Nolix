@@ -96,12 +96,12 @@ public final class DataAdapter implements IDataAdapter {
 	
 	//method
 	@Override
-	public LinkedList<Object> loadMultiValueEntriesFromRecord(
+	public LinkedList<Object> loadAllMultiValueEntriesFromRecord(
 		final String tableName,
 		final String recordId,
 		final String multiFieldColumnName
 	) {
-		return dataReader.loadMultiValueEntriesFromRecord(tableName, recordId, multiFieldColumnName);
+		return dataReader.loadAllMultiValueEntriesFromRecord(tableName, recordId, multiFieldColumnName);
 	}
 	
 	//method
