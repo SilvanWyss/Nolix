@@ -1,10 +1,12 @@
 //package declaration
 package ch.nolix.system.sqlrawobjectdata.datareader;
 
+//own imports
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.sql.SQLConnection;
+import ch.nolix.system.sqlrawobjectdata.sqlapi.IMultiReferenceQueryCreator;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IMultiValueQueryCreator;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IRecordQueryCreator;
 import ch.nolix.systemapi.rawobjectdataapi.dataadapterapi.IDataReader;
@@ -26,20 +28,34 @@ public final class DataReader implements IDataReader {
 		final SQLConnection pSQLConnection,
 		final IContainer<ITableInfo> tableInfos,
 		final IRecordQueryCreator recordQueryCreator,
-		final IMultiValueQueryCreator multiValueQueryCreator
+		final IMultiValueQueryCreator multiValueQueryCreator,
+		final IMultiReferenceQueryCreator multiReferenceQueryCreator
 	) {
 		
 		Validator.assertThat(tableInfos).thatIsNamed("table definitions").isNotNull();
 		
-		internalDataReader = new InternalDataReader(pSQLConnection, recordQueryCreator, multiValueQueryCreator);
+		internalDataReader =
+		new InternalDataReader(
+			pSQLConnection,
+			recordQueryCreator,
+			multiValueQueryCreator,
+			multiReferenceQueryCreator
+		);
 		
 		this.tableInfos = tableInfos;
 	}
 	
 	//method
 	@Override
-	public LinkedList<ILoadedRecordDTO> loadAllRecordsFromTable(final String tableName) {
-		return internalDataReader.loadAllRecordsFromTable(getTableDefinitionByTableName(tableName));
+	public LinkedList<String> loadAllMultiReferenceEntriesForRecord(
+		final String tableName,
+		final String recordId,
+		final String multiReferenceColumnName
+	) {
+		return internalDataReader.loadAllMultiReferenceEntriesForRecord(
+			recordId,
+			getColumnDefinitionByTableNameAndColumnName(tableName, multiReferenceColumnName)
+		);
 	}
 	
 	//method
@@ -56,6 +72,12 @@ public final class DataReader implements IDataReader {
 		);
 	}
 	
+	//method
+	@Override
+	public LinkedList<ILoadedRecordDTO> loadAllRecordsFromTable(final String tableName) {
+		return internalDataReader.loadAllRecordsFromTable(getTableDefinitionByTableName(tableName));
+	}
+
 	//method
 	@Override
 	public ILoadedRecordDTO loadRecordFromTableById(final String tableName, final String id) {

@@ -31,8 +31,17 @@ public final class DataReader implements IDataReader {
 	
 	//method
 	@Override
-	public LinkedList<ILoadedRecordDTO> loadAllRecordsFromTable(final String tableName) {
-		return internalDataReader.loadAllRecordsFromTable(getTableDefinitionForTableWithName(tableName));
+	public LinkedList<String> loadAllMultiReferenceEntriesForRecord(
+		final String tableName,
+		final String recordId,
+		final String multiReferenceColumnName
+	) {
+		return
+		internalDataReader.loadAllMultiReferenceEntriesForRecord(
+			getTableDefinitionForTableWithName(tableName),
+			recordId,
+			multiReferenceColumnName
+		);
 	}
 	
 	//method
@@ -48,6 +57,12 @@ public final class DataReader implements IDataReader {
 			recordId,
 			multiValueColumnName
 		);
+	}
+	
+	//method
+	@Override
+	public LinkedList<ILoadedRecordDTO> loadAllRecordsFromTable(final String tableName) {
+		return internalDataReader.loadAllRecordsFromTable(getTableDefinitionForTableWithName(tableName));
 	}
 	
 	//method

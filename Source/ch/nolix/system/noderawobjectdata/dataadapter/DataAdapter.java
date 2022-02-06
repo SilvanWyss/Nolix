@@ -55,29 +55,6 @@ public final class DataAdapter implements IDataAdapter {
 	
 	//method
 	@Override
-	public void insertEntryIntoMultiValue(
-		final String tableName,
-		final String recordId,
-		final String multiFieldColumn,
-		final String entry
-	) {
-		dataWriter.insertEntryIntoMultiValue(tableName, recordId, multiFieldColumn, entry);
-	}
-	
-	//method
-	@Override
-	public LinkedList<ILoadedRecordDTO> loadAllRecordsFromTable(String tableName) {
-		return dataReader.loadAllRecordsFromTable(tableName);
-	}
-	
-	//method
-	@Override
-	public ILoadedRecordDTO loadRecordFromTableById(String tableName, String id) {
-		return dataReader.loadRecordFromTableById(tableName, id);
-	}
-	
-	//method
-	@Override
 	public void deleteRecordFromTable(String tableName, IRecordHeadDTO recordHead) {
 		dataWriter.deleteRecordFromTable(tableName, recordHead);
 	}
@@ -90,8 +67,29 @@ public final class DataAdapter implements IDataAdapter {
 	
 	//method
 	@Override
+	public void insertEntryIntoMultiValue(
+		final String tableName,
+		final String recordId,
+		final String multiFieldColumn,
+		final String entry
+	) {
+		dataWriter.insertEntryIntoMultiValue(tableName, recordId, multiFieldColumn, entry);
+	}
+	
+	//method
+	@Override
 	public void insertRecordIntoTable(String tableName, IRecordDTO record) {
 		dataWriter.insertRecordIntoTable(tableName, record);
+	}
+	
+	//method
+	@Override
+	public LinkedList<String> loadAllMultiReferenceEntriesForRecord(
+		final String tableName,
+		final String recordId,
+		final String multiReferenceColumnName
+	) {
+		return dataReader.loadAllMultiReferenceEntriesForRecord(tableName, recordId, multiReferenceColumnName);
 	}
 	
 	//method
@@ -102,6 +100,18 @@ public final class DataAdapter implements IDataAdapter {
 		final String multiFieldColumnName
 	) {
 		return dataReader.loadAllMultiValueEntriesFromRecord(tableName, recordId, multiFieldColumnName);
+	}
+	
+	//method
+	@Override
+	public LinkedList<ILoadedRecordDTO> loadAllRecordsFromTable(String tableName) {
+		return dataReader.loadAllRecordsFromTable(tableName);
+	}
+	
+	//method
+	@Override
+	public ILoadedRecordDTO loadRecordFromTableById(String tableName, String id) {
+		return dataReader.loadRecordFromTableById(tableName, id);
 	}
 	
 	//method

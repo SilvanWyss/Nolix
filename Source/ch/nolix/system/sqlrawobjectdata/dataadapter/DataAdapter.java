@@ -7,6 +7,7 @@ import ch.nolix.core.sql.SQLConnection;
 import ch.nolix.system.sqlrawobjectdata.databaseinspector.DatabaseInspector;
 import ch.nolix.system.sqlrawobjectdata.datareader.DataReader;
 import ch.nolix.system.sqlrawobjectdata.datawriter.DataWriter;
+import ch.nolix.system.sqlrawobjectdata.sqlapi.IMultiReferenceQueryCreator;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IMultiValueQueryCreator;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IMultiValueStatementCreator;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IRecordQueryCreator;
@@ -35,13 +36,23 @@ public abstract class DataAdapter implements IDataAdapter {
 		final IRecordQueryCreator recordQueryCreator,
 		final IRecordStatementCreator recordStatementCreator,
 		final IMultiValueQueryCreator multiValueQueryCreator,
-		final IMultiValueStatementCreator multiValueStatementCreator
+		final IMultiValueStatementCreator multiValueStatementCreator,
+		final IMultiReferenceQueryCreator multiReferenceQueryCreator
 	) {
 		
 		final var tableDefinitions = databaseInspector.createTableDefinitionsFrom(schemaAdapter);
 		
-		dataReader = new DataReader(pSQLConnection, tableDefinitions, recordQueryCreator, multiValueQueryCreator);
-		dataWriter = new DataWriter(pSQLConnection, tableDefinitions, recordStatementCreator, multiValueStatementCreator);
+		dataReader =
+		new DataReader(
+			pSQLConnection,
+			tableDefinitions,
+			recordQueryCreator,
+			multiValueQueryCreator,
+			multiReferenceQueryCreator
+		);
+		
+		dataWriter =
+		new DataWriter(pSQLConnection, tableDefinitions, recordStatementCreator, multiValueStatementCreator);
 	}
 	
 	//method
@@ -94,10 +105,13 @@ public abstract class DataAdapter implements IDataAdapter {
 		dataWriter.insertRecordIntoTable(tableName, record);
 	}
 	
-	//method	
 	@Override
-	public final LinkedList<ILoadedRecordDTO> loadAllRecordsFromTable(final String tableName) {
-		return dataReader.loadAllRecordsFromTable(tableName);
+	public final LinkedList<String> loadAllMultiReferenceEntriesForRecord(
+		final String tableName,
+		final String recordId,
+		final String multiReferenceColumnName
+	) {
+		return dataReader.loadAllMultiReferenceEntriesForRecord(tableName, recordId, multiReferenceColumnName);
 	}
 	
 	//method
@@ -108,6 +122,12 @@ public abstract class DataAdapter implements IDataAdapter {
 		final String multiFieldColumnName
 	) {
 		return dataReader.loadAllMultiValueEntriesFromRecord(tableName, recordId, multiFieldColumnName);
+	}
+	
+	//method	
+	@Override
+	public final LinkedList<ILoadedRecordDTO> loadAllRecordsFromTable(final String tableName) {
+		return dataReader.loadAllRecordsFromTable(tableName);
 	}
 	
 	//method

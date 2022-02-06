@@ -1,9 +1,11 @@
 //package declaration
 package ch.nolix.system.sqlrawobjectdata.datareader;
 
+//own imports
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.sql.SQLConnection;
+import ch.nolix.system.sqlrawobjectdata.sqlapi.IMultiReferenceQueryCreator;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IMultiValueQueryCreator;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IRecordQueryCreator;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.ILoadedRecordDTO;
@@ -28,28 +30,42 @@ final class InternalDataReader {
 	//attribute
 	private final IMultiValueQueryCreator multiValueQueryCreator;
 	
+	//attribute
+	private final IMultiReferenceQueryCreator multiReferenceQueryCreator;
+	
 	//constructor
 	public InternalDataReader(
 		final SQLConnection pSQLConnection,
 		final IRecordQueryCreator recordQueryCreator,
-		final IMultiValueQueryCreator multiValueQueryCreator
+		final IMultiValueQueryCreator multiValueQueryCreator,
+		final IMultiReferenceQueryCreator multiReferenceQueryCreator
 	) {
 		
 		Validator.assertThat(pSQLConnection).thatIsNamed(SQLConnection.class).isNotNull();
 		Validator.assertThat(recordQueryCreator).thatIsNamed(IRecordQueryCreator.class).isNotNull();
 		Validator.assertThat(multiValueQueryCreator).thatIsNamed(IMultiValueQueryCreator.class).isNotNull();
+		Validator.assertThat(multiReferenceQueryCreator).thatIsNamed(IMultiReferenceQueryCreator.class).isNotNull();
 		
 		mSQLConnection = pSQLConnection;
 		this.recordQueryCreator = recordQueryCreator;
 		this.multiValueQueryCreator = multiValueQueryCreator;
+		this.multiReferenceQueryCreator = multiReferenceQueryCreator;
 	}
 	
 	//method
-	public LinkedList<ILoadedRecordDTO> loadAllRecordsFromTable(final ITableInfo tableInfo) {
+	public LinkedList<String> loadAllMultiReferenceEntriesForRecord(
+		final String recordId,
+		final IColumnInfo multiReferenceColumnInfo
+	) {
 		return
 		mSQLConnection
-		.getRecords(recordQueryCreator.createQueryToLoadAllRecordsFromTable(tableInfo))
-		.to(r -> loadedRecordDTOMapper.createLoadedRecordDTOFromSQLRecord(r, tableInfo));
+		.getRecords(
+			multiReferenceQueryCreator.createQueryToLoadAllMultiReferenceEntriesForRecord(
+				recordId,
+				multiReferenceColumnInfo.getColumnId()
+			)
+		)
+		.to(r -> r.get(0));
 	}
 	
 	//method
@@ -66,6 +82,14 @@ final class InternalDataReader {
 			)
 		)
 		.to(r -> valueMapper.createValueFromString(r.get(0), multiValueColumnInfo));
+	}
+	
+	//method
+	public LinkedList<ILoadedRecordDTO> loadAllRecordsFromTable(final ITableInfo tableInfo) {
+		return
+		mSQLConnection
+		.getRecords(recordQueryCreator.createQueryToLoadAllRecordsFromTable(tableInfo))
+		.to(r -> loadedRecordDTOMapper.createLoadedRecordDTOFromSQLRecord(r, tableInfo));
 	}
 	
 	//method

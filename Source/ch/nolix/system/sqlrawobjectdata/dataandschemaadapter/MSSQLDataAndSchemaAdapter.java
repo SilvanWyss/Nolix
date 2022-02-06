@@ -1,7 +1,9 @@
 //package declaration
 package ch.nolix.system.sqlrawobjectdata.dataandschemaadapter;
 
+//own imports
 import ch.nolix.core.sql.MSSQLConnection;
+import ch.nolix.system.sqlrawobjectdata.mssql.MultiReferenceQueryCreator;
 import ch.nolix.system.sqlrawobjectdata.mssql.MultiValueQueryCreator;
 import ch.nolix.system.sqlrawobjectdata.mssql.MultiValueStatementCreator;
 import ch.nolix.system.sqlrawobjectdata.mssql.RecordQueryCreator;
@@ -25,6 +27,7 @@ public final class MSSQLDataAndSchemaAdapter extends DataAndSchemaAdapter {
 			new RecordStatementCreator(),
 			new MultiValueQueryCreator(),
 			new MultiValueStatementCreator(),
+			new MultiReferenceQueryCreator(),
 			new ch.nolix.system.sqlschema.schemaadapter.MSSQLSchemaAdapter(pMSSQLConnection)
 		);
 	}

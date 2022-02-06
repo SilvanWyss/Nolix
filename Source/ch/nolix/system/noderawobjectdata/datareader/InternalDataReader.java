@@ -54,6 +54,27 @@ public final class InternalDataReader {
 	}
 	
 	//method
+	public LinkedList<String> loadAllMultiReferenceEntriesForRecord(
+		final TableInfo tableInfo,
+		final String recordId,
+		final String multiReferenceColumnName
+	) {
+		
+		final var tableNode =
+		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
+		
+		final var recordNode = tableNodeSearcher.getRefRecordNodeFromTableNode(tableNode, recordId);
+		
+		final var multiValueColumnIndex = tableInfo.getIndexOfColumnByColumnName(multiReferenceColumnName);
+		
+		final var multiValueNode =
+		recordNodeSearcher.getRefContentFieldNodeFromRecordNodeAtIndex(recordNode, multiValueColumnIndex);
+		
+		return multiValueNode.getHeadersOfAttributes();
+		
+	}
+	
+	//method
 	public LinkedList<Object> loadMultiValueEntriesFromRecord(
 		final TableInfo tableInfo,
 		final String recordId,
