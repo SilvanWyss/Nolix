@@ -189,8 +189,12 @@ implements IMultiReference<DataImplementation, E> {
 	
 	//method
 	private LinkedList<String> loadReferencedEntityIds() {
-		//TODO: Implement.
-		return null;
+		return
+		internalGetRefDataAndSchemaAdapter().loadAllMultiReferenceEntriesForRecord(
+			getParentEntity().getParentTableName(),
+			getParentEntity().getId(),
+			getName()
+		);
 	}
 	
 	//method
