@@ -22,7 +22,7 @@ public final class MultiValueQueryCreator implements IMultiValueQueryCreator {
 		+ " = '"
 		+ recordId
 		+ "' AND "
-		+ MultiValueEntryTableColumn.MULTI_VALUE_COLUMN_ID
+		+ MultiValueEntryTableColumn.MULTI_VALUE_COLUMN_ID.getName()
 		+ " = '"
 		+ multiValueColumnId
 		+ "'";
