@@ -5,7 +5,6 @@ package ch.nolix.system.noderawobjectdata.datareader;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.system.noderawobjectdata.tabledefinition.TableInfo;
-import ch.nolix.system.noderawobjectschema.structure.SubNodeHeaderCatalogue;
 import ch.nolix.system.noderawobjectschema.structure.TableNodeSearcher;
 import ch.nolix.systemapi.rawobjectdataapi.schemainfoapi.IColumnInfo;
 
@@ -33,18 +32,16 @@ final class TableDefinitionMapper {
 	
 	//method
 	private IContainer<BaseNode> getRefColumnNodesInOrderFromTableNode(final BaseNode tableNode) {
-		return tableNode.getRefAttributes(SubNodeHeaderCatalogue.COLUMN);
+		return tableNodeSearcher.getRefColumnNodesFromTableNode(tableNode);
 	}
 	
-	//TODO: Move this and other equivalent methods to TableNodeSearcher.
 	//method
 	private String getTableIdFromTableNode(final BaseNode tableNode) {
-		return tableNodeSearcher.getRefIdNodeFromTableNode(tableNode).getOneAttributeHeader();
+		return tableNodeSearcher.getTableIdFromTableNode(tableNode);
 	}
 	
-	//TODO: Move this and other equivalent methods to TableNodeSearcher.
 	//method
 	private String getTableNameFromTableNode(final BaseNode tableNode) {
-		return tableNodeSearcher.getRefNameNodeFromTableNode(tableNode).getOneAttributeHeader();
+		return tableNodeSearcher.getTableNameFromTableNode(tableNode);
 	}
 }

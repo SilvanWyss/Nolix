@@ -35,4 +35,14 @@ public class TableNodeSearcher {
 	public final BaseNode getRefNameNodeFromTableNode(final BaseNode tableNode) {
 		return tableNode.getRefFirstAttribute(SubNodeHeaderCatalogue.NAME);
 	}
+	
+	//method
+	public String getTableIdFromTableNode(final BaseNode tableNode) {
+		return getRefIdNodeFromTableNode(tableNode).getOneAttributeHeader();
+	}
+	
+	//method
+	public String getTableNameFromTableNode(final BaseNode tableNode) {
+		return getRefNameNodeFromTableNode(tableNode).getOneAttributeHeader();
+	}
 }
