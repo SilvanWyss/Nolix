@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.document.node;
 
+//own imports
 import ch.nolix.core.attributeapi.mutableoptionalattributeapi.OptionalHeaderable;
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.constant.CharacterCatalogue;
@@ -30,7 +31,7 @@ import ch.nolix.core.programcontrol.processproperty.WriteMode;
  *  
  * @author Silvan Wyss
  * @date 2017-06-24
- * @lines 870
+ * @lines 880
  */
 public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	
@@ -555,6 +556,16 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	public void removeFirstAttribute(final String header) {
 		removeFirstAttribute(a -> a.hasHeader(header));
 	}
+	
+	//method declaration
+	/**
+	 * Replaces the first attribute of the current {@link BaseNode}, that has the given header, with
+	 * the given attribute.
+	 * 
+	 * @param header
+	 * @param attribute
+	 */
+	public abstract void replaceFirstAttributeHavingGivenHeaderWithGivenAttribute(String header, BaseNode attribute);
 	
 	//method
 	/**

@@ -616,6 +616,18 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void replaceFirstAttributeHavingGivenHeaderWithGivenAttribute(
+		final String header,
+		final BaseNode attribute
+	) {
+		attributes.replaceFirst(a -> a.hasHeader(header), attribute.getCopy());
+	}
+	
+	//method
+	/**
 	 * Sets the header of the current {@link Node}.
 	 * 
 	 * @param header

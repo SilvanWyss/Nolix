@@ -162,7 +162,20 @@ public final class SubNode extends BaseNode {
 		internalSpecification.removeFirstAttribute(selector::getOutput);
 		parentFileNode.save();
 	}
-
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void replaceFirstAttributeHavingGivenHeaderWithGivenAttribute(
+		final String header,
+		final BaseNode attribute
+	) {
+		internalSpecification.replaceFirstAttributeHavingGivenHeaderWithGivenAttribute(header, attribute);
+		parentFileNode.save();
+	}
+	
 	//method
 	/**
 	 * Sets the given header to the current {@link SubNode}.

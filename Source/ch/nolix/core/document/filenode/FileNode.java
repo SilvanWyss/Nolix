@@ -183,6 +183,19 @@ public final class FileNode extends BaseNode {
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void replaceFirstAttributeHavingGivenHeaderWithGivenAttribute(
+		final String header,
+		final BaseNode attribute
+	) {
+		internalSpecification.replaceFirstAttributeHavingGivenHeaderWithGivenAttribute(header, attribute);
+		save();
+	}
+	
+	//method
+	/**
 	 * Sets the header of this {@link FileNode}.
 	 * 
 	 * @param header
