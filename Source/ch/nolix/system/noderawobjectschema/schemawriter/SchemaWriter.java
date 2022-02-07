@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.noderawobjectschema.schemawriter;
 
+//own imports
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.element.time.base.Time;
@@ -129,11 +130,8 @@ public final class SchemaWriter implements ISchemaWriter {
 		
 		final var columnNode = databaseNodeSearcher.getRefColumnNodeByColumnIdFromDatabaseNode(databaseNode, columnId);
 		
-		//TODO: create BaseNode::setAttribute method.
-		
-		columnNode.removeFirstAttribute(SubNodeHeaderCatalogue.PARAMETRIZED_PROPERTY_TYPE);
-		
-		columnNode.addAttribute(
+		columnNode.replaceFirstAttributeHavingGivenHeaderWithGivenAttribute(
+			SubNodeHeaderCatalogue.PARAMETRIZED_PROPERTY_TYPE,
 			parametrizedPropertyTypeNodeMapper.createParametrizedPropertyTypeNodeFrom(parametrizedPropertyType)
 		);
 		
