@@ -8,6 +8,7 @@ import ch.nolix.core.sql.SQLConnection;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IMultiReferenceQueryCreator;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IMultiValueQueryCreator;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IRecordQueryCreator;
+import ch.nolix.system.sqlrawobjectdata.sqlapi.ISQLSyntaxProvider;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.ILoadedRecordDTO;
 import ch.nolix.systemapi.rawobjectdataapi.schemainfoapi.IColumnInfo;
 import ch.nolix.systemapi.rawobjectdataapi.schemainfoapi.ITableInfo;
@@ -36,20 +37,15 @@ final class InternalDataReader {
 	//constructor
 	public InternalDataReader(
 		final SQLConnection pSQLConnection,
-		final IRecordQueryCreator recordQueryCreator,
-		final IMultiValueQueryCreator multiValueQueryCreator,
-		final IMultiReferenceQueryCreator multiReferenceQueryCreator
+		final ISQLSyntaxProvider pSQLSyntaxProvider
 	) {
 		
 		Validator.assertThat(pSQLConnection).thatIsNamed(SQLConnection.class).isNotNull();
-		Validator.assertThat(recordQueryCreator).thatIsNamed(IRecordQueryCreator.class).isNotNull();
-		Validator.assertThat(multiValueQueryCreator).thatIsNamed(IMultiValueQueryCreator.class).isNotNull();
-		Validator.assertThat(multiReferenceQueryCreator).thatIsNamed(IMultiReferenceQueryCreator.class).isNotNull();
 		
 		mSQLConnection = pSQLConnection;
-		this.recordQueryCreator = recordQueryCreator;
-		this.multiValueQueryCreator = multiValueQueryCreator;
-		this.multiReferenceQueryCreator = multiReferenceQueryCreator;
+		recordQueryCreator = pSQLSyntaxProvider.getRecordQueryCreator();
+		multiValueQueryCreator = pSQLSyntaxProvider.getMultiValueQueryCreator();
+		multiReferenceQueryCreator = pSQLSyntaxProvider.getMultiReferenceQueryCreator();
 	}
 	
 	//method

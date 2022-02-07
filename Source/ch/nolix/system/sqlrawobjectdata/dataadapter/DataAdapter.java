@@ -7,11 +7,7 @@ import ch.nolix.core.sql.SQLConnection;
 import ch.nolix.system.sqlrawobjectdata.databaseinspector.DatabaseInspector;
 import ch.nolix.system.sqlrawobjectdata.datareader.DataReader;
 import ch.nolix.system.sqlrawobjectdata.datawriter.DataWriter;
-import ch.nolix.system.sqlrawobjectdata.sqlapi.IMultiReferenceQueryCreator;
-import ch.nolix.system.sqlrawobjectdata.sqlapi.IMultiValueQueryCreator;
-import ch.nolix.system.sqlrawobjectdata.sqlapi.IMultiValueStatementCreator;
-import ch.nolix.system.sqlrawobjectdata.sqlapi.IRecordQueryCreator;
-import ch.nolix.system.sqlrawobjectdata.sqlapi.IRecordStatementCreator;
+import ch.nolix.system.sqlrawobjectdata.sqlapi.ISQLSyntaxProvider;
 import ch.nolix.systemapi.rawobjectdataapi.dataadapterapi.IDataAdapter;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.ILoadedRecordDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDTO;
@@ -33,26 +29,13 @@ public abstract class DataAdapter implements IDataAdapter {
 	public DataAdapter(
 		final SQLConnection pSQLConnection,
 		final ISchemaAdapter schemaAdapter,
-		final IRecordQueryCreator recordQueryCreator,
-		final IRecordStatementCreator recordStatementCreator,
-		final IMultiValueQueryCreator multiValueQueryCreator,
-		final IMultiValueStatementCreator multiValueStatementCreator,
-		final IMultiReferenceQueryCreator multiReferenceQueryCreator
+		final ISQLSyntaxProvider pSQLSyntaxProvider
 	) {
 		
 		final var tableDefinitions = databaseInspector.createTableDefinitionsFrom(schemaAdapter);
 		
-		dataReader =
-		new DataReader(
-			pSQLConnection,
-			tableDefinitions,
-			recordQueryCreator,
-			multiValueQueryCreator,
-			multiReferenceQueryCreator
-		);
-		
-		dataWriter =
-		new DataWriter(pSQLConnection, tableDefinitions, recordStatementCreator, multiValueStatementCreator);
+		dataReader = new DataReader(pSQLConnection, tableDefinitions, pSQLSyntaxProvider);
+		dataWriter = new DataWriter(pSQLConnection, tableDefinitions, pSQLSyntaxProvider);
 	}
 	
 	//method

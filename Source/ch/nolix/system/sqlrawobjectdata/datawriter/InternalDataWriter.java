@@ -2,11 +2,11 @@
 package ch.nolix.system.sqlrawobjectdata.datawriter;
 
 //own imports
-import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.sql.SQLConnection;
 import ch.nolix.core.sql.SQLExecutor;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IMultiValueStatementCreator;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IRecordStatementCreator;
+import ch.nolix.system.sqlrawobjectdata.sqlapi.ISQLSyntaxProvider;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordHeadDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
@@ -26,16 +26,11 @@ public final class InternalDataWriter {
 	//constructor
 	public InternalDataWriter(
 		final SQLConnection pSQLConnection,
-		final IRecordStatementCreator recordStatementCreator,
-		final IMultiValueStatementCreator multiValueStatementCreator
+		final ISQLSyntaxProvider pSQLSyntaxProvider
 	) {
-		
-		Validator.assertThat(recordStatementCreator).thatIsNamed(IRecordStatementCreator.class).isNotNull();
-		Validator.assertThat(multiValueStatementCreator).thatIsNamed(IMultiValueStatementCreator.class).isNotNull();
-		
 		mSQLExecutor = new SQLExecutor(pSQLConnection);
-		this.recordStatementCreator = recordStatementCreator;
-		this.multiValueStatementCreator = multiValueStatementCreator;
+		recordStatementCreator = pSQLSyntaxProvider.getRecordStatementCreator();
+		multiValueStatementCreator = pSQLSyntaxProvider.getMultiValueStatemeentCreator();
 	}
 	
 	//method

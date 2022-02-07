@@ -6,9 +6,7 @@ import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.sql.SQLConnection;
-import ch.nolix.system.sqlrawobjectdata.sqlapi.IMultiReferenceQueryCreator;
-import ch.nolix.system.sqlrawobjectdata.sqlapi.IMultiValueQueryCreator;
-import ch.nolix.system.sqlrawobjectdata.sqlapi.IRecordQueryCreator;
+import ch.nolix.system.sqlrawobjectdata.sqlapi.ISQLSyntaxProvider;
 import ch.nolix.systemapi.rawobjectdataapi.dataadapterapi.IDataReader;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.ILoadedRecordDTO;
 import ch.nolix.systemapi.rawobjectdataapi.schemainfoapi.IColumnInfo;
@@ -27,21 +25,12 @@ public final class DataReader implements IDataReader {
 	public DataReader(
 		final SQLConnection pSQLConnection,
 		final IContainer<ITableInfo> tableInfos,
-		final IRecordQueryCreator recordQueryCreator,
-		final IMultiValueQueryCreator multiValueQueryCreator,
-		final IMultiReferenceQueryCreator multiReferenceQueryCreator
+		final ISQLSyntaxProvider pSQLSyntaxProvider
 	) {
 		
 		Validator.assertThat(tableInfos).thatIsNamed("table definitions").isNotNull();
 		
-		internalDataReader =
-		new InternalDataReader(
-			pSQLConnection,
-			recordQueryCreator,
-			multiValueQueryCreator,
-			multiReferenceQueryCreator
-		);
-		
+		internalDataReader = new InternalDataReader(pSQLConnection, pSQLSyntaxProvider);
 		this.tableInfos = tableInfos;
 	}
 	

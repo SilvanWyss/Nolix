@@ -5,8 +5,7 @@ package ch.nolix.system.sqlrawobjectdata.datawriter;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.sql.SQLConnection;
-import ch.nolix.system.sqlrawobjectdata.sqlapi.IMultiValueStatementCreator;
-import ch.nolix.system.sqlrawobjectdata.sqlapi.IRecordStatementCreator;
+import ch.nolix.system.sqlrawobjectdata.sqlapi.ISQLSyntaxProvider;
 import ch.nolix.systemapi.rawobjectdataapi.dataadapterapi.IDataWriter;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordHeadDTO;
@@ -27,13 +26,12 @@ public final class DataWriter implements IDataWriter {
 	public DataWriter(
 		final SQLConnection pSQLConnection,
 		final IContainer<ITableInfo> tableInfos,
-		final IRecordStatementCreator recordStatementCreator,
-		final IMultiValueStatementCreator multiValueStatementCreator
+		final ISQLSyntaxProvider pSQLSyntaxProvider
 	) {
 		
 		Validator.assertThat(tableInfos).thatIsNamed("table definitions").isNotNull();
 		
-		internalDataWriter = new InternalDataWriter(pSQLConnection, recordStatementCreator, multiValueStatementCreator);		
+		internalDataWriter = new InternalDataWriter(pSQLConnection, pSQLSyntaxProvider);		
 		this.tableInfos = tableInfos;
 	}
 	
