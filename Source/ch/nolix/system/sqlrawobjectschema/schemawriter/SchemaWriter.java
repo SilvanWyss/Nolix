@@ -1,8 +1,9 @@
 //package declaration
 package ch.nolix.system.sqlrawobjectschema.schemawriter;
 
-import ch.nolix.core.container.ReadContainer;
+//own imports
 import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.sql.SQLCollector;
 import ch.nolix.core.sql.SQLConnection;
 import ch.nolix.element.time.base.Time;
 import ch.nolix.systemapi.rawobjectschemaapi.schemaadapterapi.ISchemaWriter;
@@ -13,9 +14,16 @@ import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.ITableDTO;
 //class
 public final class SchemaWriter implements ISchemaWriter {
 	
-	//attributes
+	//attribute
 	private final SystemDataWriter systemDataWriter;
+	
+	//attribute
 	private final InternalSchemaWriter internalSchemaWriter;
+	
+	//attribute
+	private final SQLCollector mSQLCollector = new SQLCollector();
+	
+	//attribute
 	private final SQLConnection mSQLConnection;
 	
 	//constructor
@@ -28,7 +36,7 @@ public final class SchemaWriter implements ISchemaWriter {
 		Validator.assertThat(pSQLConnection).thatIsNamed(SQLConnection.class).isNotNull();
 		
 		mSQLConnection = pSQLConnection;
-		systemDataWriter = new SystemDataWriter();
+		systemDataWriter = new SystemDataWriter(mSQLCollector);
 		internalSchemaWriter = new InternalSchemaWriter(schemaWriter, pSQLSaveStampColumnDTO);		
 	}
 	
@@ -70,10 +78,9 @@ public final class SchemaWriter implements ISchemaWriter {
 	@Override
 	public void saveChanges() {
 		
-		final ReadContainer<String> lSQLStatements =
-		ReadContainer.forIterables(systemDataWriter.getSQLStatements(), internalSchemaWriter.getSQLStatements());
+		mSQLCollector.addSQLStatements(internalSchemaWriter.getSQLStatements());
 		
-		mSQLConnection.execute(lSQLStatements);
+		mSQLCollector.executeUsingConnection(mSQLConnection);		
 	}
 	
 	//method

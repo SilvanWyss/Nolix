@@ -1,9 +1,10 @@
 //package declaration
 package ch.nolix.system.sqlrawobjectschema.schemawriter;
 
-import ch.nolix.core.container.IContainer;
-import ch.nolix.core.container.LinkedList;
+//own imports
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.requestapi.ChangeRequestable;
+import ch.nolix.core.sql.SQLCollector;
 import ch.nolix.element.time.base.Time;
 import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
@@ -12,51 +13,54 @@ import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.ITableDTO;
 //class
 final class SystemDataWriter implements ChangeRequestable {
 	
-	//constant
+	//static attribute
 	private final SystemDataWriterSQLStatementCreator systemDataWriterSQLStatementCreator =
 	new SystemDataWriterSQLStatementCreator();
 	
 	//attribute
-	private final LinkedList<String> mSQLStatements = new LinkedList<>();
+	private final SQLCollector mSQLCollector;
+	
+	//constructor
+	public SystemDataWriter(final SQLCollector pSQLCollector) {
+		
+		Validator.assertThat(pSQLCollector).thatIsNamed(SQLCollector.class).isNotNull();
+		
+		mSQLCollector = pSQLCollector;
+	}
 		
 	//method
 	public void addColumn(final String tableName, final IColumnDTO column) {
-		mSQLStatements.addAtEnd(
+		mSQLCollector.addSQLStatement(
 			systemDataWriterSQLStatementCreator.createStatementToAddColumn(tableName, column)
 		);
 	}
 	
 	//method
 	public void deleteColumn(String tableName, String columnName) {
-		mSQLStatements.addAtEnd(
+		mSQLCollector.addSQLStatement(
 			systemDataWriterSQLStatementCreator.createStatementToDeleteColumn(tableName, columnName)
 		);
 	}
 	
 	//method
 	public void addTable(final ITableDTO table) {
-		mSQLStatements.addAtEnd(systemDataWriterSQLStatementCreator.createStatementsToAddTable(table));
+		mSQLCollector.addSQLStatements(systemDataWriterSQLStatementCreator.createStatementsToAddTable(table));
 	}
 	
 	//method
 	public void deleteTable(final String tableName) {
-		mSQLStatements.addAtEnd(systemDataWriterSQLStatementCreator.createStatementToDeleteTable(tableName));
+		mSQLCollector.addSQLStatement(systemDataWriterSQLStatementCreator.createStatementToDeleteTable(tableName));
 	}
-	
-	//method
-	public IContainer<String> getSQLStatements() {
-		return mSQLStatements;
-	}
-	
+		
 	//method
 	@Override
 	public boolean hasChanges() {
-		return mSQLStatements.containsAny();
+		return mSQLCollector.containsAny();
 	}
 	
 	//method
 	public void setColumnName(final String tableName, final String columnName, final String newColumnName) {
-		mSQLStatements.addAtEnd(
+		mSQLCollector.addSQLStatement(
 			systemDataWriterSQLStatementCreator.createStatementToSetColumnName(
 				tableName,
 				columnName,
@@ -70,7 +74,7 @@ final class SystemDataWriter implements ChangeRequestable {
 		final String columnId,
 		final IParametrizedPropertyTypeDTO parametrizedPropertyType
 	) {
-		mSQLStatements.addAtEnd(
+		mSQLCollector.addSQLStatement(
 			systemDataWriterSQLStatementCreator.createStatementToSetColumnParametrizedPropertyType(
 				columnId,
 				parametrizedPropertyType
@@ -80,14 +84,14 @@ final class SystemDataWriter implements ChangeRequestable {
 	
 	//method
 	public void setSchemaTimestamp(Time schemaTimestamp) {
-		mSQLStatements.addAtEnd(
+		mSQLCollector.addSQLStatement(
 			systemDataWriterSQLStatementCreator.createStatementToSetSchemaTimestamp(schemaTimestamp)
 		);
 	}
 	
 	//method
 	public void setTableName(final String tableName, final String newTableName) {
-		mSQLStatements.addAtEnd(
+		mSQLCollector.addSQLStatement(
 			systemDataWriterSQLStatementCreator.createStatementToSetTableName(tableName, newTableName)
 		);
 	}
