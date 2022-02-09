@@ -2,6 +2,7 @@
 package ch.nolix.core.sql;
 
 //own imports
+import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.skillapi.Clearable;
@@ -43,6 +44,11 @@ public final class SQLCollector implements Clearable {
 		} finally {
 			clear();
 		}
+	}
+	
+	//method
+	public IContainer<String> getSQLStatements() {
+		return mSQLStatements;
 	}
 	
 	//method
