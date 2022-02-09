@@ -23,6 +23,14 @@ public final class SQLCollector implements Clearable {
 	}
 	
 	//method
+	public SQLCollector addSQLStatements(final Iterable<String> pSQLStatements) {
+		
+		pSQLStatements.forEach(this::addSQLStatement);
+		
+		return this;
+	}
+	
+	//method
 	@Override
 	public void clear() {
 		mSQLStatements.clear();
