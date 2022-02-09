@@ -2,8 +2,9 @@
 package ch.nolix.system.sqlrawobjectdata.datawriter;
 
 //own imports
+import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.sql.SQLCollector;
 import ch.nolix.core.sql.SQLConnection;
-import ch.nolix.core.sql.SQLExecutor;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IMultiValueStatementCreator;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IRecordStatementCreator;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.ISQLSyntaxProvider;
@@ -15,7 +16,10 @@ import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
 public final class InternalDataWriter {
 	
 	//attribute
-	private final SQLExecutor mSQLExecutor;
+	private final SQLCollector mSQLCollector = new SQLCollector();
+	
+	//attribute
+	private final SQLConnection mSQLConnection;
 	
 	//attribute
 	private final IRecordStatementCreator recordStatementCreator;
@@ -28,7 +32,10 @@ public final class InternalDataWriter {
 		final SQLConnection pSQLConnection,
 		final ISQLSyntaxProvider pSQLSyntaxProvider
 	) {
-		mSQLExecutor = new SQLExecutor(pSQLConnection);
+		
+		Validator.assertThat(pSQLConnection).thatIsNamed(SQLConnection.class).isNotNull();
+		
+		mSQLConnection = pSQLConnection;
 		recordStatementCreator = pSQLSyntaxProvider.getRecordStatementCreator();
 		multiValueStatementCreator = pSQLSyntaxProvider.getMultiValueStatemeentCreator();
 	}
@@ -38,7 +45,7 @@ public final class InternalDataWriter {
 		final String recordId,
 		final String multiValueColumnId
 	) {
-		mSQLExecutor.addSQLStatement(
+		mSQLCollector.addSQLStatement(
 			multiValueStatementCreator.createStatementToDeleteEntriesFromMultiValue(recordId, multiValueColumnId)
 		);
 	}
@@ -49,21 +56,21 @@ public final class InternalDataWriter {
 		final String multiValueColumnId,
 		final String entry
 	) {
-		mSQLExecutor.addSQLStatement(
+		mSQLCollector.addSQLStatement(
 			multiValueStatementCreator.createStatementToDeleteEntryFromMultiValue(recordId, multiValueColumnId, entry)
 		);
 	}
 	
 	//method
 	public void deleteRecordFromTable(final String tableName, final IRecordHeadDTO recordHead) {
-		mSQLExecutor.addSQLStatement(
+		mSQLCollector.addSQLStatement(
 			recordStatementCreator.createStatementToDeleteRecordFromTable(tableName, recordHead)
 		);
 	}
 	
 	//method
 	public boolean hasChanges() {
-		return mSQLExecutor.getSQLStatements().containsAny();
+		return mSQLCollector.containsAny();
 	}
 	
 	//method
@@ -72,23 +79,27 @@ public final class InternalDataWriter {
 		final String multiValueColumnId,
 		final String entry
 	) {
-		mSQLExecutor.addSQLStatement(
+		mSQLCollector.addSQLStatement(
 			multiValueStatementCreator.createQueryToInsertEntryIntoMultiValue(recordId, multiValueColumnId, entry)
 		);
 	}
 	
 	//method
 	public void insertRecordIntoTable(final String tableName, final IRecordDTO record) {
-		mSQLExecutor.addSQLStatement(recordStatementCreator.createStatementToInsertRecordIntoTable(tableName, record));
-	}
-	
-	//method
-	public void updateRecordOnTable(final String tableName, final IRecordUpdateDTO recordUpdate) {
-		mSQLExecutor.addSQLStatement(recordStatementCreator.createStatementToUpdateRecordOnTable(tableName, recordUpdate));
+		mSQLCollector.addSQLStatement(
+			recordStatementCreator.createStatementToInsertRecordIntoTable(tableName, record)
+		);
 	}
 	
 	//method
 	public void saveChanges() {
-		mSQLExecutor.execute();
+		mSQLCollector.executeUsingConnection(mSQLConnection);
+	}
+	
+	//method
+	public void updateRecordOnTable(final String tableName, final IRecordUpdateDTO recordUpdate) {
+		mSQLCollector.addSQLStatement(
+			recordStatementCreator.createStatementToUpdateRecordOnTable(tableName, recordUpdate)
+		);
 	}
 }
