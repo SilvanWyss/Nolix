@@ -98,14 +98,20 @@ public final class DataWriter implements IDataWriter {
 	
 	//method
 	@Override
-	public void updateRecordOnTable(final String tableName, final IRecordUpdateDTO recordUpdate) {
-		internalDataWriter.updateRecordOnTable(tableName, recordUpdate);
+	public void reset() {
+		internalDataWriter.reset();
 	}
 	
 	//method
 	@Override
-	public void saveChanges() {
-		internalDataWriter.saveChanges();
+	public void saveChangesAndReset() {
+		internalDataWriter.saveChangesAndReset();
+	}
+	
+	//method
+	@Override
+	public void updateRecordOnTable(final String tableName, final IRecordUpdateDTO recordUpdate) {
+		internalDataWriter.updateRecordOnTable(tableName, recordUpdate);
 	}
 	
 	//method

@@ -196,8 +196,14 @@ public abstract class DataAndSchemaAdapter implements IDataAndSchemaAdapter {
 	
 	//method
 	@Override
-	public final void saveChanges() {
-		dataWriter.saveChanges();
+	public final void reset() {
+		dataWriter.reset();
+	}
+	
+	//method
+	@Override
+	public final void saveChangesAndReset() {
+		dataWriter.saveChangesAndReset();
 	}
 	
 	//method

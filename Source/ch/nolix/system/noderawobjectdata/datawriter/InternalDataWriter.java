@@ -81,10 +81,15 @@ final class InternalDataWriter {
 		addChangeAction(d -> databaseUpdater.insertRecordIntoTable(d, tableInfo, record));
 	}
 	
+	//methods
+	public void reset() {
+		changeActions.clear();
+	}
+	
 	//method
-	public void saveChanges() {
+	public void saveChangesAndReset() {
 		if (hasChanges()) {
-			saveChangesWhenHasChanges();
+			saveChangesAndResetWhenHasChanges();
 		}
 	}
 	
@@ -109,7 +114,10 @@ final class InternalDataWriter {
 	}
 	
 	//method
-	private synchronized void saveChangesWhenHasChanges() {
+	private synchronized void saveChangesAndResetWhenHasChanges() {
+		
 		nodeDatabase.resetAttributes(createNodeDatabaseWithChanges().getRefAttributes());
+		
+		reset();
 	}
 }

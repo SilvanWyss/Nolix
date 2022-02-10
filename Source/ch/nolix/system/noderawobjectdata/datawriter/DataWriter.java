@@ -95,8 +95,14 @@ public final class DataWriter implements IDataWriter {
 	
 	//method
 	@Override
-	public void saveChanges() {
-		internalDataWriter.saveChanges();
+	public void reset() {
+		internalDataWriter.reset();
+	}
+	
+	//method
+	@Override
+	public void saveChangesAndReset() {
+		internalDataWriter.saveChangesAndReset();
 	}
 	
 	//method

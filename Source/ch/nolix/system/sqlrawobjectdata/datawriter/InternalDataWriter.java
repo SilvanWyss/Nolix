@@ -92,8 +92,16 @@ public final class InternalDataWriter {
 	}
 	
 	//method
-	public void saveChanges() {
-		mSQLCollector.executeAndClearUsingConnection(mSQLConnection);
+	public void reset() {
+		mSQLCollector.clear();
+	}
+	
+	//method
+	public void saveChangesAndReset() {
+		
+		mSQLCollector.executeUsingConnection(mSQLConnection);
+		
+		reset();
 	}
 	
 	//method

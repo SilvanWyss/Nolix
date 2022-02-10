@@ -116,8 +116,14 @@ public final class DataAdapter implements IDataAdapter {
 	
 	//method
 	@Override
-	public void saveChanges() {
-		dataWriter.saveChanges();
+	public void reset() {
+		dataWriter.reset();
+	}
+	
+	//method
+	@Override
+	public void saveChangesAndReset() {
+		dataWriter.saveChangesAndReset();
 	}
 	
 	//method
