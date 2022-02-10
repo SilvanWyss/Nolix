@@ -1,11 +1,12 @@
 //package declaration
 package ch.nolix.systemapi.objectdataapi.dataadapterapi;
 
-import ch.nolix.core.skillapi.IChangeSaver;
+//own imports
+import ch.nolix.core.skillapi.IMultiTimeChangeSaver;
 import ch.nolix.systemapi.objectdataapi.dataapi.IDatabase;
 
 //interface
-public interface IDataAdapter<IMPL> extends AutoCloseable, IChangeSaver {
+public interface IDataAdapter<IMPL> extends IMultiTimeChangeSaver {
 	
 	//method declaration
 	IDatabase<IMPL> getRefDatabase();
