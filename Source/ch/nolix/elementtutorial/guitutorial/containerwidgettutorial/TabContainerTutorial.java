@@ -24,6 +24,7 @@ public final class TabContainerTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
+		@SuppressWarnings("resource")
 		final var frame = new Frame().setTitle("TabContainer tutorial");
 		
 		//Creates a TabContainer.

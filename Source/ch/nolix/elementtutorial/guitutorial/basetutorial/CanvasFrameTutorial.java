@@ -32,9 +32,8 @@ public final class CanvasFrameTutorial {
 	public static void main(String[] args) {
 		
 		//Creates CanvasFrame.
-		final var canvasFrame =
-		new CanvasFrame(new InputTaker())
-		.setTitle("CanvasFrame tutorial");
+		@SuppressWarnings("resource")
+		final var canvasFrame = new CanvasFrame(new InputTaker()).setTitle("CanvasFrame tutorial");
 		
 		//Create paint commands.
 		@SuppressWarnings("unchecked")

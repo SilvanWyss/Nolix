@@ -23,6 +23,7 @@ public final class SelectionMenuWithCustomLookTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
+		@SuppressWarnings("resource")
 		final var frame = new Frame().setTitle("SelectionMenu with custom look tutorial");
 		
 		//Creates a SelectionMenu.

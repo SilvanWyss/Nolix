@@ -21,6 +21,7 @@ public final class ConsoleTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
+		@SuppressWarnings("resource")
 		final var frame = new Frame().setTitle("Console tutorial");
 		
 		//Creates a Console.

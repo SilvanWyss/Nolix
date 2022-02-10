@@ -22,6 +22,7 @@ public final class FrameBackgroundImageTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
+		@SuppressWarnings("resource")
 		final var frame = new Frame().setTitle("Frame background image tutorial");
 		
 		//Creates an Image from file.

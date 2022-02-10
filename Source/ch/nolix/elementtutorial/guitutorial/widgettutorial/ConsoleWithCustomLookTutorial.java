@@ -23,6 +23,7 @@ public final class ConsoleWithCustomLookTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
+		@SuppressWarnings("resource")
 		final var frame = new Frame().setTitle("Console with custom look tutorial");
 		
 		//Creates a Console.

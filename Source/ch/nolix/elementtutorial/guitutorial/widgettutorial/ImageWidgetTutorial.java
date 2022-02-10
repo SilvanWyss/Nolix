@@ -22,6 +22,7 @@ public final class ImageWidgetTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
+		@SuppressWarnings("resource")
 		final var frame = new Frame().setTitle("ImageWidget tutorial");
 		
 		//Creates an image from resource.

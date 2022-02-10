@@ -24,6 +24,7 @@ public final class ImageWidgetWithScrollBarTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
+		@SuppressWarnings("resource")
 		final var frame = new Frame().setTitle("ImageWidget with scroll bar tutorial");
 		
 		//Creates an enlarged image from resource.

@@ -25,6 +25,7 @@ public final class EmptyLayersTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
+		@SuppressWarnings("resource")
 		final var frame = new Frame().setTitle("Empty Layers tutorial");
 		
 		//Creates an Image that shows a mountain.

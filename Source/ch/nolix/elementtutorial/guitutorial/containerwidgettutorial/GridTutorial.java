@@ -26,9 +26,8 @@ public final class GridTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
-		final var frame =
-		new Frame()
-		.setTitle("Grid tutorial");
+		@SuppressWarnings("resource")
+		final var frame = new Frame().setTitle("Grid tutorial");
 		
 		//Creates a Grid
 		final var grid =

@@ -24,6 +24,7 @@ public final class AccordionTutorial {
 	public static void main(String[] args) {
 				
 		//Creates a Frame.
+		@SuppressWarnings("resource")
 		final var frame = new Frame().setTitle("Accordion tutorial");
 		
 		//Creates an Accordion.

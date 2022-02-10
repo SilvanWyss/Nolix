@@ -22,6 +22,7 @@ public final class CheckBoxWithCustomLookTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
+		@SuppressWarnings("resource")
 		final var frame = new Frame().setTitle("Checkbox with custom look tutorial");
 		
 		//Creates a CheckBox.

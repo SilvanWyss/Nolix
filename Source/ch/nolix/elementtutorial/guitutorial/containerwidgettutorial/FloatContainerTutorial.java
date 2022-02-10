@@ -25,9 +25,8 @@ public final class FloatContainerTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
-		final var frame = 
-		new Frame()
-		.setTitle("Float Container tutorial");
+		@SuppressWarnings("resource")
+		final var frame = new Frame().setTitle("Float Container tutorial");
 		
 		//Creates a FloatConatiner.
 		final var floatContainer =

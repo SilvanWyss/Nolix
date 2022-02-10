@@ -31,6 +31,7 @@ public final class FrameWithNameTextBoxTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame, Layers and Widgets.
+		@SuppressWarnings("resource")
 		final var frame = new Frame().setTitle("Frame with name TextBox tutorial");
 		final var layer1 = new Layer();
 		final var layer1VerticalStack = new VerticalStack();

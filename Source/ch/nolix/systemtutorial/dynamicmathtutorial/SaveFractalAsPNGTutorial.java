@@ -17,6 +17,7 @@ public final class SaveFractalAsPNGTutorial {
 		new DynamicMathImplRegistrator().registerImplementationTo(GlobalImplProvider.getRefInstance());
 		
 		//Creates a Frame.
+		@SuppressWarnings("resource")
 		final var frame =
 		new Frame()
 		.setTitle("Save Fractal as PNG tutorial")

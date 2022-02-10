@@ -23,6 +23,7 @@ public final class TextBoxWithCustomLookTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
+		@SuppressWarnings("resource")
 		final var frame = new Frame().setTitle("TextBox with custom look tutorial");
 		
 		//Creates a TextBox.

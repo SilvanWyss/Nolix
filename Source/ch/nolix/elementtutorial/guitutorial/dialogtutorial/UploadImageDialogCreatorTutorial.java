@@ -19,9 +19,8 @@ public final class UploadImageDialogCreatorTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
-		final var frame =
-		new Frame()
-		.setTitle("ErrorDialog tutorial");
+		@SuppressWarnings("resource")
+		final var frame = new Frame().setTitle("ErrorDialog tutorial");
 		
 		//Loads an Image from file.
 		final var image =

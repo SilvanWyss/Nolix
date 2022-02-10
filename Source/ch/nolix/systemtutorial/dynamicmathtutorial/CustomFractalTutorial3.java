@@ -21,6 +21,7 @@ public final class CustomFractalTutorial3 {
 		final var j = GlobalImplProvider.ofInterface(IComplexNumberFactory.class).createInstance().create(-0.745, 0.25);
 		
 		//Creates a Frame that shows a realtime-generated image of a Fractal.
+		@SuppressWarnings("resource")
 		final var frame =
 		new Frame()
 		.setTitle("Custom Fractal Tutorial 3")

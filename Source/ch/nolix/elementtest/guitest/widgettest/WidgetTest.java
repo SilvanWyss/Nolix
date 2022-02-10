@@ -24,16 +24,18 @@ public abstract class WidgetTest<W extends Widget<W, ?>> extends ObjectTest<W> {
 		
 		//setup
 		final var testUnit = createTestUnit();
-		final var invisibleGUI = new InvisibleGUI();
 		
 		//setup verification
 		expectNot(testUnit.belongsToGUI());
 		
-		//execution
-		invisibleGUI.addLayerOnTop(testUnit);
-		
-		//verification
-		expect(testUnit.belongsToGUI());
+		try (final var invisibleGUI = new InvisibleGUI()) {
+			
+			//execution
+			invisibleGUI.addLayerOnTop(testUnit);
+			
+			//verification
+			expect(testUnit.belongsToGUI());
+		}
 	}
 	
 	//method

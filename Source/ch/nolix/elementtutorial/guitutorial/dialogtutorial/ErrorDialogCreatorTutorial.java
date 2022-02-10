@@ -12,6 +12,7 @@ public final class ErrorDialogCreatorTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
+		@SuppressWarnings("resource")
 		final var frame = new Frame();
 		
 		//Sets the title of the Frame.

@@ -24,13 +24,18 @@ public final class InnerGUITutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
+		@SuppressWarnings("resource")
 		final var frame = new Frame().setTitle("InnerGUI tutorial");
 		
-		//Creates InnerGUIs.
+		//Creates an InnerGUI.
+		@SuppressWarnings("resource")
 		final var innerGUI1 =
 		new InnerGUI()
 		.setTitle("Inner GUI 1")
 		.addLayerOnTop(new Label().setText("A").onLook(l -> l.setTextSizeForState(WidgetLookState.BASE, 100)));
+		
+		//Creates a second InnerGUI.
+		@SuppressWarnings("resource")
 		final var innerGUI2 =
 		new InnerGUI()
 		.setTitle("Inner GUI 2")

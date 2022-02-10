@@ -23,6 +23,7 @@ public final class DownloaderTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
+		@SuppressWarnings("resource")
 		final var frame = new Frame().setTitle("Downloader tutorial");
 		
 		//Creates a file for the Downloader.

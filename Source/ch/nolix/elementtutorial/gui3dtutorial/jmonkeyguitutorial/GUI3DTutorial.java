@@ -20,6 +20,7 @@ public final class GUI3DTutorial {
 	 */
 	public static void main(String[] args) {
 		
+		@SuppressWarnings("resource")
 		final JMonkeyMainFrame mainFrame = new JMonkeyMainFrame();
 		
 		mainFrame.setRootShape(

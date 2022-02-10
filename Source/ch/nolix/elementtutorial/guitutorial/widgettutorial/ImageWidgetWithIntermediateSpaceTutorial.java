@@ -25,6 +25,7 @@ public final class ImageWidgetWithIntermediateSpaceTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
+		@SuppressWarnings("resource")
 		final var frame = new Frame().setTitle("ImageWidget with intermediate space tutorial");
 		
 		//Creates an enlarged image from resource.

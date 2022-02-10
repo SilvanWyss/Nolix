@@ -23,9 +23,8 @@ public final class CursorPositionTutorial {
 	public static void main(String[] args) {
 		
 		//Creates Frame.
-		final var frame =
-		new Frame()
-		.setTitle("Cursor position tutorial");
+		@SuppressWarnings("resource")
+		final var frame = new Frame().setTitle("Cursor position tutorial");
 		
 		//Creates cursorPositionLabel.
 		final var cursorPositionLabel = new Label();

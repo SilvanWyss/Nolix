@@ -22,6 +22,7 @@ public final class TextBoxForPasswordTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
+		@SuppressWarnings("resource")
 		final var frame = new Frame().setTitle("TextBox for password tutorial");
 		
 		//Creates a TextBox for passwords.

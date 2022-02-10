@@ -26,6 +26,7 @@ public final class DownloaderWithCustomLookTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
+		@SuppressWarnings("resource")
 		final var frame = new Frame().setTitle("Downloader with custom look tutorial");
 		
 		//Creates a file for the Downloader.

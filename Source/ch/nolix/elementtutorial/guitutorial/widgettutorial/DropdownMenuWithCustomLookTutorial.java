@@ -23,6 +23,7 @@ public final class DropdownMenuWithCustomLookTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
+		@SuppressWarnings("resource")
 		final var frame = new Frame().setTitle("DropdownMenu with custom look tutorial");
 		
 		//Creates a DropdownMenu.

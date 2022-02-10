@@ -19,6 +19,7 @@ public final class CustomFractalTutorial {
 		final var maxIterationCount = 100;
 		
 		//Creates a Frame that shows a realtime-generated image of a Fractal.
+		@SuppressWarnings("resource")
 		final var frame =
 		new Frame()
 		.setTitle("Custom Fractal tutorial")

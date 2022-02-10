@@ -24,6 +24,7 @@ public final class ImageWidgetWithBorderTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
+		@SuppressWarnings("resource")
 		final var frame = new Frame().setTitle("ImageWidget with border tutorial");
 		
 		//Creates an image from resource.

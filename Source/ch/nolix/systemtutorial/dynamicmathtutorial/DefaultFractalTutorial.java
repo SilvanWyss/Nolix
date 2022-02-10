@@ -15,6 +15,7 @@ public final class DefaultFractalTutorial {
 		new DynamicMathImplRegistrator().registerImplementationTo(GlobalImplProvider.getRefInstance());
 		
 		//Creates a Frame.
+		@SuppressWarnings("resource")
 		final var frame =
 		new Frame()
 		.setTitle("Default Fractal tutorial")

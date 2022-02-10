@@ -21,6 +21,7 @@ public final class TextBoxTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
+		@SuppressWarnings("resource")
 		final var frame = new Frame().setTitle("TextBox tutorial");
 		
 		//Creates a TextBox.

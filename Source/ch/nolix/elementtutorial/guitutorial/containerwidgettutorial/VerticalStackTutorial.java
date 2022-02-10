@@ -21,6 +21,7 @@ public final class VerticalStackTutorial {
 	 */
 	public static void main(String[] args) {
 		
+		@SuppressWarnings("resource")
 		final var frame = new Frame().setTitle("VerticalStack tutorial");
 		
 		//Creates VerticalStack.

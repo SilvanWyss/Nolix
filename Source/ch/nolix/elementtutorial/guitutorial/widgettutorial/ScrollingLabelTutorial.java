@@ -24,9 +24,8 @@ public final class ScrollingLabelTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
-		final var frame =
-		new Frame()
-		.setTitle("Scrolling Label tutorial");
+		@SuppressWarnings("resource")
+		final var frame = new Frame().setTitle("Scrolling Label tutorial");
 		
 		//Creates a Label.
 		final var label = new Label().setText("PLATON");

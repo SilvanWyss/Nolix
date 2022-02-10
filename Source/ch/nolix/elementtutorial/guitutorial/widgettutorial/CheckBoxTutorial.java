@@ -21,6 +21,7 @@ public final class CheckBoxTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Frame.
+		@SuppressWarnings("resource")
 		final var frame = new Frame().setTitle("Checkbox tutorial");
 		
 		//Creates a CheckBox.

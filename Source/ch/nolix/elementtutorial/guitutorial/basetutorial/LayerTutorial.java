@@ -27,10 +27,8 @@ public final class LayerTutorial {
 	public static void main(String[] args) {
 		
 		//Creates Frame.
-		final var frame =
-		new Frame()
-		.setTitle("GUILayer tutorial")
-		.setBackgroundColor(Color.LAVENDER);
+		@SuppressWarnings("resource")
+		final var frame = new Frame().setTitle("GUILayer tutorial").setBackgroundColor(Color.LAVENDER);
 		
 		//Creates dialogLayer.
 		final var dialogLayer =

@@ -19,6 +19,7 @@ public final class BlackWhiteMandelbrotFractalTutorial {
 		final var maxIterationCount = 100;
 		
 		//Creates a Frame that shows a realtime-generated image of a Fractal.
+		@SuppressWarnings("resource")
 		final var frame =
 		new Frame()
 		.setTitle("Black White Mandelrbrot Fractal tutorial")

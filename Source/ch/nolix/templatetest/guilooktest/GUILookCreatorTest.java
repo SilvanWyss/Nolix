@@ -28,6 +28,7 @@ public abstract class GUILookCreatorTest extends ObjectTest<Configuration> {
 	public void testCase_configure_whenTheGUIContainsWidgets() {
 		
 		//setup
+		@SuppressWarnings("resource")
 		final var lGUI =
 		new InvisibleGUI()
 		.addLayerOnTop(
