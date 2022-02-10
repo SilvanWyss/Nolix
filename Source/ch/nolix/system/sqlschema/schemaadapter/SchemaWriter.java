@@ -94,6 +94,6 @@ public class SchemaWriter implements ISchemaWriter {
 	//method
 	@Override
 	public void saveChangesAndReset() {
-		mSQLCollector.executeUsingConnection(mSQLConnection);
+		mSQLCollector.executeAndClearUsingConnection(mSQLConnection);
 	}
 }

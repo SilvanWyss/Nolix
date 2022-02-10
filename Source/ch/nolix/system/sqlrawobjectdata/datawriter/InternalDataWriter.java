@@ -93,7 +93,7 @@ public final class InternalDataWriter {
 	
 	//method
 	public void saveChanges() {
-		mSQLCollector.executeUsingConnection(mSQLConnection);
+		mSQLCollector.executeAndClearUsingConnection(mSQLConnection);
 	}
 	
 	//method

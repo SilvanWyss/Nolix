@@ -80,7 +80,7 @@ public final class SchemaWriter implements ISchemaWriter {
 		
 		mSQLCollector.addSQLStatements(internalSchemaWriter.getSQLStatements());
 		
-		mSQLCollector.executeUsingConnection(mSQLConnection);		
+		mSQLCollector.executeAndClearUsingConnection(mSQLConnection);		
 	}
 	
 	//method
