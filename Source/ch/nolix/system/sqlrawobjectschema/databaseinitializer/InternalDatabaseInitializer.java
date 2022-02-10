@@ -22,6 +22,6 @@ final class InternalDatabaseInitializer {
 		schemaAdapter.addTable(MultiReferenceEntryTableSQLDTOCatalogue.MULTI_REFERENCE_ENTRY_TABLE_SQL_DTO);
 		schemaAdapter.addTable(MultiValueEntryTableSQLDTOCatalogue.MULTI_VALUE_ENTRY_TABLE_SQL_DTO);
 		
-		schemaAdapter.saveChanges();
+		schemaAdapter.saveChangesAndReset();
 	}
 }
