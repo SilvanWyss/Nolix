@@ -23,12 +23,12 @@ public final class NodeSchemaAdapterTutorial {
 		
 		final var countryTable = 
 		new Table("Country").addColumn(new Column("Name", new ParametrizedValueType<>(String.class)));
-				
+			
 		final var citiesColumn = new Column("Cities", new ParametrizedMultiReferenceType(cityTable));
 		countryTable.addColumn(citiesColumn);
 		cityTable.addColumn(new Column("Country", new ParametrizedBackReferenceType(citiesColumn)));
 		
-		nodeDatabaseSchemaAdapter.addTable(cityTable, countryTable).saveChanges();
+		nodeDatabaseSchemaAdapter.addTable(cityTable, countryTable).saveChangesAndReset();
 		
 		System.out.println(database.toFormatedString());
 	}

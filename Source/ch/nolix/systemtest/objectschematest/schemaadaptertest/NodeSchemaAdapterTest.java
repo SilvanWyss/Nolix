@@ -38,7 +38,7 @@ public final class NodeSchemaAdapterTest extends Test {
 		final var testUnit = NodeSchemaAdapter.forDatabaseNode("MyDatabase", database);
 		
 		//execution
-		testUnit.addTable(new Table("MyTable")).saveChanges();
+		testUnit.addTable(new Table("MyTable")).saveChangesAndReset();
 		
 		//verification
 		final var tableNodes = database.getRefAttributes("Table");

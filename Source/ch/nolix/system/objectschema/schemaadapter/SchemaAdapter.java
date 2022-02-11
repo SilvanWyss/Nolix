@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.system.objectschema.schemaadapter;
 
+//own imports
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.system.objectschema.parametrizedpropertytype.SchemaImplementation;
 import ch.nolix.system.objectschema.schema.Database;
 import ch.nolix.system.objectschema.schema.Table;
@@ -13,9 +13,10 @@ import ch.nolix.systemapi.rawobjectschemaapi.schemaadapterapi.ISchemaAdapter;
 public abstract class SchemaAdapter
 implements ch.nolix.systemapi.objectschemaapi.schemaadapterapi.ISchemaAdapter<SchemaImplementation> {
 	
-	//attributes
+	//attribute
 	private final String databaseName;
-	private final CloseController closeController = new CloseController(this);
+	
+	//attribute
 	private DatabaseSchemaSession session;
 	
 	//constructor
@@ -52,12 +53,6 @@ implements ch.nolix.systemapi.objectschemaapi.schemaadapterapi.ISchemaAdapter<Sc
 	
 	//method
 	@Override
-	public final CloseController getRefCloseController() {
-		return closeController;
-	}
-	
-	//method
-	@Override
 	public final Database getRefDatabase() {
 		return session.getRefDatabase();
 	}
@@ -70,14 +65,17 @@ implements ch.nolix.systemapi.objectschemaapi.schemaadapterapi.ISchemaAdapter<Sc
 	
 	//method
 	@Override
-	public final void noteClose() {
+	public final void reset() {
 		//TODO: Implement.
 	}
 	
 	//method
 	@Override
-	public final void saveChanges() {
+	public final void saveChangesAndReset() {
+		
 		session.saveChanges();
+		
+		reset();
 	}
 	
 	//method declaration

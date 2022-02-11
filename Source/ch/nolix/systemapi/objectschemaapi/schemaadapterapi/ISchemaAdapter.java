@@ -1,13 +1,13 @@
 //package declaration
 package ch.nolix.systemapi.objectschemaapi.schemaadapterapi;
 
-import ch.nolix.core.programcontrol.groupcloseable.GroupCloseable;
-import ch.nolix.core.skillapi.IChangeSaver;
+//own imports
+import ch.nolix.core.skillapi.IMultiTimeChangeSaver;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IDatabase;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
 //interface
-public interface ISchemaAdapter<IMPL> extends IChangeSaver, GroupCloseable {
+public interface ISchemaAdapter<IMPL> extends IMultiTimeChangeSaver {
 	
 	//method declaration
 	ISchemaAdapter<IMPL> addTable(ITable<IMPL> table);
