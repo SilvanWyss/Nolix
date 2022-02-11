@@ -135,8 +135,14 @@ public final class SchemaAdapter implements ISchemaAdapter {
 	
 	//method
 	@Override
-	public void saveChanges() {
-		schemaWriter.saveChanges();
+	public void reset() {
+		schemaWriter.reset();
+	}
+	
+	//method
+	@Override
+	public void saveChangesAndReset() {
+		schemaWriter.saveChangesAndReset();
 	}
 	
 	//method

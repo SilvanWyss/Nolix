@@ -1,14 +1,15 @@
 //package declaration
 package ch.nolix.systemapi.rawobjectschemaapi.schemaadapterapi;
 
-import ch.nolix.core.skillapi.IChangeSaver;
+//own imports
+import ch.nolix.core.skillapi.IMultiTimeChangeSaver;
 import ch.nolix.element.time.base.Time;
 import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
 import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.ITableDTO;
 
 //interface
-public interface ISchemaWriter extends IChangeSaver {
+public interface ISchemaWriter extends IMultiTimeChangeSaver {
 	
 	//method declaration
 	void addColumn(String tableName, IColumnDTO column);

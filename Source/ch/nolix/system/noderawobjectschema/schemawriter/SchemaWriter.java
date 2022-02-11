@@ -18,22 +18,36 @@ import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.ITableDTO;
 //class
 public final class SchemaWriter implements ISchemaWriter {
 	
-	//static attributes
+	//static attribute
 	private static final DatabaseNodeSearcher databaseNodeSearcher = new DatabaseNodeSearcher();
+	
+	//static attribute
 	private static final DatabasePropertiesNodeSearcher databasePropertiesNodeSearcher =
 	new DatabasePropertiesNodeSearcher();
+	
+	//static attribute
 	private static final TableNodeSearcher tableNodeSearcher = new TableNodeSearcher();
+	
+	//static attribute
 	private static final ColumnNodeSearcher columnNodeSearcher = new ColumnNodeSearcher();
 	
-	//static attributes
+	//static attribute
 	private static final TableNodeMapper tableNodeMapper = new TableNodeMapper();
+	
+	//static attribute
 	private static final ColumnNodeMapper columnNodeMapper = new ColumnNodeMapper();
+	
+	//static attribute
 	private static final ParametrizedPropertyTypeNodeMapper parametrizedPropertyTypeNodeMapper =
 	new ParametrizedPropertyTypeNodeMapper();
 	
-	//attributes
+	//attribute
 	private final BaseNode databaseNode;
-	private final BaseNode editedDatabaseNode;
+	
+	//attribute
+	private BaseNode editedDatabaseNode;
+	
+	//attribute
 	private boolean hasChanges;
 	
 	//constructor
@@ -42,7 +56,8 @@ public final class SchemaWriter implements ISchemaWriter {
 		Validator.assertThat(databaseNode).thatIsNamed("database Node").isNotNull();
 		
 		this.databaseNode = databaseNode;
-		editedDatabaseNode = databaseNode.getCopy();
+		
+		reset();
 	}
 	
 	//method
@@ -101,9 +116,18 @@ public final class SchemaWriter implements ISchemaWriter {
 	
 	//method
 	@Override
-	public void saveChanges() {
+	public void reset() {
+		
+		editedDatabaseNode = databaseNode.getCopy();
+		
+		hasChanges = false;
+	}
+	
+	//method
+	@Override
+	public void saveChangesAndReset() {
 		if (hasChanges()) {
-			saveChangesWhenHasChanges();
+			saveChangesAndResetWhenHasChanges();
 		}
 	}
 	
@@ -167,10 +191,10 @@ public final class SchemaWriter implements ISchemaWriter {
 	}
 	
 	//method
-	private void saveChangesWhenHasChanges() {
+	private void saveChangesAndResetWhenHasChanges() {
 		
 		databaseNode.resetAttributes(editedDatabaseNode.getRefAttributes());
 		
-		hasChanges = false;
+		reset();
 	}
 }

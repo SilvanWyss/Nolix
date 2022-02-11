@@ -71,7 +71,7 @@ implements ch.nolix.systemapi.objectschemaapi.schemaadapterapi.ISchemaAdapter<Sc
 	//method
 	@Override
 	public final void noteClose() {
-		session.close();
+		//TODO: Implement.
 	}
 	
 	//method

@@ -128,8 +128,14 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 	
 	//method
 	@Override
-	public final void saveChanges() {
-		rawSchemaWriter.saveChanges();
+	public final void reset() {
+		rawSchemaWriter.reset();
+	}
+	
+	//method
+	@Override
+	public final void saveChangesAndReset() {
+		rawSchemaWriter.saveChangesAndReset();
 	}
 	
 	//method

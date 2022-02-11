@@ -44,8 +44,8 @@ final class RawSchemaWriter {
 	}
 	
 	//method
-	public void saveChanges() {
-		internalRawSchemaWriter.saveChanges();
+	public void saveChangesAndReset() {
+		internalRawSchemaWriter.saveChangesAndReset();
 	}
 	
 	//method

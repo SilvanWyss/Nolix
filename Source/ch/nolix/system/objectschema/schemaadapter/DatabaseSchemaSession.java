@@ -8,7 +8,7 @@ import ch.nolix.systemapi.objectschemaapi.schemahelperapi.IDatabaseHelper;
 import ch.nolix.systemapi.rawobjectschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //class
-final class DatabaseSchemaSession implements AutoCloseable {
+final class DatabaseSchemaSession {
 	
 	//static attribute
 	private static final IDatabaseHelper databaseHelper = new DatabaseHelper();
@@ -27,12 +27,6 @@ final class DatabaseSchemaSession implements AutoCloseable {
 	}
 	
 	//method
-	@Override
-	public void close() {
-		database.close();
-	}
-	
-	//method
 	public Database getRefDatabase() {
 		return database;
 	}
@@ -47,7 +41,6 @@ final class DatabaseSchemaSession implements AutoCloseable {
 		
 		databaseHelper.assertAllBackReferencesAreValid(database);
 		
-		schemaAdapter.saveChanges();
-		close();
+		schemaAdapter.saveChangesAndReset();
 	}
 }

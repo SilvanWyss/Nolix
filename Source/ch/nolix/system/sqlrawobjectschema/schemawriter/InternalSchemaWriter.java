@@ -63,6 +63,11 @@ final class InternalSchemaWriter implements ChangeRequestable {
 	}
 	
 	//method
+	public void reset() {
+		mSQLSchemaWriter.reset();
+	}
+	
+	//method
 	public void setColumnName(final String tableName, final String columnName, final String newColumnName) {
 		mSQLSchemaWriter.renameColumn(
 			TableType.BASE_CONTENT_DATA.getNamePrefix() + tableName,
