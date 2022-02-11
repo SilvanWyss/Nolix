@@ -3,7 +3,6 @@ package ch.nolix.system.database.entity;
 
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.document.node.BaseNode;
-import ch.nolix.core.skillapi.IResettableChangeSaver;
 
 //interface
 /**
@@ -92,7 +91,7 @@ import ch.nolix.core.skillapi.IResettableChangeSaver;
  * @date 2019-11-23
  * @lines 120
  */
-public interface IDatabaseAdapter extends IResettableChangeSaver  {
+public interface IDatabaseAdapter  {
 	
 	//method declaration
 	/**

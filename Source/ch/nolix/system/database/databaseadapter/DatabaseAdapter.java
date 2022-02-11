@@ -114,13 +114,11 @@ public abstract class DatabaseAdapter implements IDatabaseAdapter {
 	}
 	
 	//method
-	@Override
 	public final boolean hasChanges() {
 		return mutatedEntitiesInOrder.containsAny();
 	}
 	
 	//method
-	@Override
 	public final void reset() {
 		
 		entitySets.clear();
@@ -132,7 +130,6 @@ public abstract class DatabaseAdapter implements IDatabaseAdapter {
 	}
 	
 	//method
-	@Override
 	public final void saveChanges() {
 		
 		saveChangesToDatabase(mutatedEntitiesInOrder);
