@@ -2,7 +2,7 @@
 package ch.nolix.core.usercontrol;
 
 //class
-final class LoginNameMediator {
+public final class LoginNameMediator {
 	
 	//attribute
 	private final String loginName;
