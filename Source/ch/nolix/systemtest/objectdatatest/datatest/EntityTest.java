@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemtest.objectdatatest.datatest;
 
+//own imports
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 import ch.nolix.system.objectdata.data.Entity;
@@ -19,7 +20,7 @@ public final class EntityTest extends Test {
 			
 			//verification
 			expect(result.getState()).isEqualTo(DatabaseObjectState.NEW);
-			expect(result.getId()).hasLength(32);
+			expect(result.getId()).hasLength(10);
 			expect(result.getShortDescription()).startsWith("Thing");
 			expectNot(result.knowsParentTable());
 		}
