@@ -34,7 +34,7 @@ import ch.nolix.core.document.node.BaseNode;
  * A {@link IDatabaseAdapter} does not store the whole database in the memory.
  * A {@link IDatabaseAdapter} loads the needed {@link Entity}s in background and lazily.
  * A {@link IDatabaseAdapter} does not store changes to a database immediately.
- * A {@link IDatabaseAdapter} stores all its changes when the {@link IDatabaseAdapter#saveChanges} is called.
+ * A {@link IDatabaseAdapter} stores all its changes when the save method of the {@link IDatabaseAdapter} is called.
  * 
  * Generally, what needs to be validated and when?
  * -A {@link BaseValueProperty} validates its values immediately when it is edited.
