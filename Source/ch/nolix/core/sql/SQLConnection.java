@@ -8,18 +8,26 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+//own imports
 import ch.nolix.core.constant.IPv4Catalogue;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.programcontrol.groupcloseable.CloseController;
+import ch.nolix.core.programcontrol.groupcloseable.GroupCloseable;
 
 //class
-public abstract class SQLConnection implements AutoCloseable {
+public abstract class SQLConnection implements GroupCloseable {
 	
-	//attributes
+	//attribute
 	private final SQLDatabaseEngine mSQLDatabaseEngine;
+	
+	//attribute
 	private final Connection connection;
+	
+	//attribute
+	private final CloseController closeController = new CloseController(this);
 	
 	//constructor
 	public SQLConnection(final SQLDatabaseEngine pSQLDatabaseEngine, final Connection connection) {
@@ -116,16 +124,6 @@ public abstract class SQLConnection implements AutoCloseable {
 	}
 	
 	//method
-	@Override
-	public final void close() {
-		try {
-			connection.close();
-		} catch (SQLException pSQLException) {
-			throw new WrapperException(pSQLException);
-		}
-	}
-	
-	//method
 	public final SQLConnection execute(final Iterable<String> pSQLStatements) {
 		
 		try (final var statement = connection.createStatement()) {
@@ -168,6 +166,12 @@ public abstract class SQLConnection implements AutoCloseable {
 	}
 	
 	//method
+	@Override
+	public final CloseController getRefCloseController() {
+		return closeController;
+	}
+	
+	//method
 	public final LinkedList<List<String>> getRecords(final String pSQLQuery) {
 		
 		final var records = new LinkedList<List<String>>();
@@ -200,6 +204,16 @@ public abstract class SQLConnection implements AutoCloseable {
 	//method
 	public final SQLDatabaseEngine getSQLDatabaseEngine() {
 		return mSQLDatabaseEngine;
+	}
+	
+	//method
+	@Override
+	public final void noteClose() {
+		try {
+			connection.close();
+		} catch (final SQLException pSQLException) {
+			throw new WrapperException(pSQLException);
+		}
 	}
 	
 	//method declaration
