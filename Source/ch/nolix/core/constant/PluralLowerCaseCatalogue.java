@@ -115,7 +115,8 @@ public final class PluralLowerCaseCatalogue {
 	public static final String LINE_COLORS = "line colors";
 	public static final String LINE_NUMBERS = "line numbers";
 	public static final String LINE_THICKNESSES = "line thicknesses";
-	public static final String LOGIN_NAME = "login names";
+	public static final String LOGIN_NAMES = "login names";
+	public static final String LOGIN_PASSWORDS = "login passwords";
 	public static final String MAXIMA = "maxima";
 	public static final String MESSAGES = "messages";
 	public static final String METHODS = "methods";

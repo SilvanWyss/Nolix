@@ -116,6 +116,7 @@ public final class PascalCaseCatalogue {
 	public static final String LINE_NUMBER = "LineNumber";
 	public static final String LINE_THICKNESS = "LineThickness";
 	public static final String LOGIN_NAME = "LoginName";
+	public static final String LOGIN_PASSWORD = "LoginPassword";
 	public static final String MAXIMUM = "Maximum";
 	public static final String MESSAGE = "Message";
 	public static final String METHOD = "Method";

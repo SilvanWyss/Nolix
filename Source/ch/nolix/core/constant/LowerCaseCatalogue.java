@@ -116,6 +116,7 @@ public final class LowerCaseCatalogue {
 	public static final String LINE_NUMBER = "line number";
 	public static final String LINE_THICKNESS = "line thickness";
 	public static final String LOGIN_NAME = "login name";
+	public static final String LOGIN_PASSWORD = "login password";
 	public static final String MAXIMUM = "maximum";
 	public static final String MESSAGE = "message";
 	public static final String METHOD = "method";

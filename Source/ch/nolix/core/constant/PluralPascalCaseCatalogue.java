@@ -115,7 +115,8 @@ public final class PluralPascalCaseCatalogue {
 	public static final String LINE_COLORS = "LineColors";
 	public static final String LINE_NUMBERS = "LineNumbers";
 	public static final String LINE_THICKNESSES = "LineThicknesses";
-	public static final String LOGIN_NAME = "LoginNames";
+	public static final String LOGIN_NAMES = "LoginNames";
+	public static final String LOGIN_PASSWORDS = "LoginPassword";
 	public static final String MAXIMA = "Maxima";
 	public static final String MESSAGES = "Messages";
 	public static final String METHODS = "Methods";
