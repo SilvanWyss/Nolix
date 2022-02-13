@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.builder;
+package ch.nolix.core.builder.base;
 
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;

@@ -1,9 +1,9 @@
-package ch.nolix.coretutorial.buildertutorial;
+package ch.nolix.coretutorial.buildertutorial.basetutorial;
 
-import ch.nolix.core.builder.ArgumentCapturer;
-import ch.nolix.core.builder.BaseArgumentCapturer;
-import ch.nolix.core.builder.Builder;
-import ch.nolix.core.builder.TerminalArgumentCapturer;
+import ch.nolix.core.builder.base.ArgumentCapturer;
+import ch.nolix.core.builder.base.BaseArgumentCapturer;
+import ch.nolix.core.builder.base.Builder;
+import ch.nolix.core.builder.base.TerminalArgumentCapturer;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.validator.Validator;
 
