@@ -9,7 +9,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.UnsupportedCaseExcept
 public final class SQLConnectionFactory {
 	
 	//method
-	public SQLConnection createSQLConnectionTo(final ISQLDatabaseTarget pSQLDatabaseTarget) {
+	public SQLConnection createSQLConnectionFor(final SQLConnectionPool pSQLDatabaseTarget) {
 		switch (pSQLDatabaseTarget.getSQLDatabaseEngine()) {
 			case MSSQL:
 				return new MSSQLConnection(
@@ -17,7 +17,8 @@ public final class SQLConnectionFactory {
 					pSQLDatabaseTarget.getPort(),
 					pSQLDatabaseTarget.getDatabaseName(),
 					pSQLDatabaseTarget.getLoginName(),
-					pSQLDatabaseTarget.getLoginPassword()
+					pSQLDatabaseTarget.getLoginPassword(),
+					pSQLDatabaseTarget
 				);
 			case MYSQL:
 			case ORACLE:

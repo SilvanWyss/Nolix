@@ -131,6 +131,43 @@ public abstract class SQLConnection implements GroupCloseable {
 		parentSQLConnectionPool = null;
 	}
 	
+	//constructor
+	public SQLConnection(
+		final SQLDatabaseEngine pSQLDatabaseEngine,
+		final String ip,
+		final int port,
+		final String databaseName,
+		final String userName,
+		final String userPassword,
+		final SQLConnectionPool parentSQLConnectionPool
+	) {
+		
+		Validator.assertThat(pSQLDatabaseEngine).thatIsNamed(SQLDatabaseEngine.class).isNotNull();
+		Validator.assertThat(parentSQLConnectionPool).thatIsNamed("parent SQLConnectionPool").isNotNull();
+		
+		Validator
+		.assertThat(parentSQLConnectionPool)
+		.thatIsNamed("parent SQLConnectionPool")
+		.fulfills(SQLConnectionPool::isOpen);
+		
+		this.mSQLDatabaseEngine = pSQLDatabaseEngine;
+		
+		registerSQLDatabaseEngineDriver();
+		
+		try {
+			connection =
+			DriverManager.getConnection(
+				"jdbc:sqlserver://" + ip + ':'+ port + ";database=" + databaseName,
+				userName,
+				userPassword
+			);
+		} catch (final SQLException pSQLException) {
+			throw new WrapperException(pSQLException);
+		}
+		
+		this.parentSQLConnectionPool = parentSQLConnectionPool;
+	}
+	
 	//method
 	public final boolean belongsToSQLConnectionPool() {
 		return (parentSQLConnectionPool != null);
