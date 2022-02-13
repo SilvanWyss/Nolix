@@ -8,5 +8,5 @@ public interface IServerTarget {
 	String getIpOrDomain();
 	
 	//method declaration
-	String getPort();
+	int getPort();
 }
