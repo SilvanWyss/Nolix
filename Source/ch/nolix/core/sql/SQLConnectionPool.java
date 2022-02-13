@@ -1,0 +1,152 @@
+//package declaration
+package ch.nolix.core.sql;
+
+//own imports
+import ch.nolix.core.constant.LowerCaseCatalogue;
+import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.programcontrol.groupcloseable.CloseController;
+import ch.nolix.core.programcontrol.groupcloseable.GroupCloseable;
+import ch.nolix.core.usercontrol.Credential;
+
+//class
+public final class SQLConnectionPool implements GroupCloseable, ISQLDatabaseTarget {
+	
+	//static attribute
+	private static final SQLConnectionFactory sSQLConnectionFactory = new SQLConnectionFactory();
+	
+	//attribute
+	private final String ipOrAddressName;
+	
+	//attribute
+	private final int port;
+	
+	//attribute
+	private final String databaseName;
+	
+	//attribute
+	private final SQLDatabaseEngine mSQLDatabaseEngine;
+	
+	//attribute
+	private final Credential credential;
+	
+	//attribute
+	private final CloseController closeController = new CloseController(this);
+	
+	//multi-attribute
+	private final LinkedList<SQLConnectionWrapper> mSQLConnections = new LinkedList<>();
+	
+	//TODO: Use Builder.
+	//constructor
+	public SQLConnectionPool(
+		final String ipOrAddressName,
+		final int port,
+		final String databaseName,
+		final SQLDatabaseEngine pSQLDatabaseEngine,
+		final String loginName,
+		final String loginPassword
+	) {
+		
+		Validator.assertThat(ipOrAddressName).thatIsNamed("ip or address name").isNotBlank();
+		Validator.assertThat(port).thatIsNamed(LowerCaseCatalogue.PORT).isBetween(0, 65_535);
+		Validator.assertThat(databaseName).thatIsNamed("database name").isNotBlank();
+		Validator.assertThat(pSQLDatabaseEngine).thatIsNamed(SQLDatabaseEngine.class).isNotNull();
+				
+		this.ipOrAddressName = ipOrAddressName;
+		this.port = port;
+		this.databaseName = databaseName;
+		mSQLDatabaseEngine = pSQLDatabaseEngine;
+		credential = Credential.withLoginName(loginName).andPassword(loginPassword);
+	}
+	
+	//method
+	public SQLConnection borrowSQLConnection() {
+		
+		final var lSQLConnection = getOrCreateAvailableSQLConnectionWrapper();
+		
+		lSQLConnection.setAsInUse();
+		
+		return lSQLConnection.getRefSQLConnection();
+	}
+	
+	//method
+	public boolean containsAvailableSQLConnection() {
+		return mSQLConnections.containsAny(SQLConnectionWrapper::isAvailable);
+	}
+	
+	//method
+	@Override
+	public String getDatabaseName() {
+		return databaseName;
+	}
+	
+	//method
+	@Override
+	public String getIpOrAddressName() {
+		return ipOrAddressName;
+	}
+	
+	//method
+	@Override
+	public String getLoginName() {
+		return credential.getPassword();
+	}
+	
+	//method
+	@Override
+	public String getLoginPassword() {
+		return credential.getPassword();
+	}
+	
+	//method
+	@Override
+	public int getPort() {
+		return port;
+	}
+	
+	//method
+	@Override
+	public CloseController getRefCloseController() {
+		return closeController;
+	}
+	
+	//method
+	@Override
+	public SQLDatabaseEngine getSQLDatabaseEngine() {
+		return mSQLDatabaseEngine;
+	}
+	
+	//method
+	@Override
+	public void noteClose() {
+		for (final var sqlc : mSQLConnections) {
+			sqlc.getRefSQLConnection().closeDirectly();
+		}
+	}
+	
+	//method
+	public void takeBackSQLConnection(final SQLConnection pSQLConnection) {
+		mSQLConnections.getRefFirst(sqlc -> sqlc.contains(pSQLConnection)).setAvailable();
+	}
+	
+	//method
+	private SQLConnectionWrapper createSQLConnectionWrapper() {
+		
+		final var lSQLConnectionWrapper = new SQLConnectionWrapper(sSQLConnectionFactory.createSQLConnectionTo(this));
+		
+		mSQLConnections.addAtEnd(lSQLConnectionWrapper);
+		
+		return lSQLConnectionWrapper;
+	}
+	
+	//method
+	private SQLConnectionWrapper getOrCreateAvailableSQLConnectionWrapper() {
+		
+		final var lSQLConnectionWrapper = mSQLConnections.getRefFirstOrNull(SQLConnectionWrapper::isAvailable);
+		if (lSQLConnectionWrapper != null) {
+			return lSQLConnectionWrapper;
+		}
+		
+		return createSQLConnectionWrapper();
+	}
+}

@@ -29,6 +29,9 @@ public abstract class SQLConnection implements GroupCloseable {
 	//attribute
 	private final CloseController closeController = new CloseController(this);
 	
+	//optional attribute
+	private final SQLConnectionPool parentSQLConnectionPool;
+	
 	//constructor
 	public SQLConnection(final SQLDatabaseEngine pSQLDatabaseEngine, final Connection connection) {
 		
@@ -37,6 +40,7 @@ public abstract class SQLConnection implements GroupCloseable {
 		
 		this.mSQLDatabaseEngine = pSQLDatabaseEngine;
 		this.connection = connection;
+		parentSQLConnectionPool = null;
 	}
 	
 	//constructor
@@ -75,6 +79,8 @@ public abstract class SQLConnection implements GroupCloseable {
 		} catch (final SQLException pSQLException) {
 			throw new WrapperException(pSQLException);
 		}
+		
+		parentSQLConnectionPool = null;
 	}
 	
 	//constructor
@@ -120,6 +126,23 @@ public abstract class SQLConnection implements GroupCloseable {
 			);
 		} catch (final SQLException pSQLException) {
 			throw new WrapperException(pSQLException);
+		}
+		
+		parentSQLConnectionPool = null;
+	}
+	
+	//method
+	public final boolean belongsToSQLConnectionPool() {
+		return (parentSQLConnectionPool != null);
+	}
+	
+	//method
+	@Override
+	public final void close() {
+		if (!belongsToSQLConnectionPool()) {
+			GroupCloseable.super.close();
+		} else {
+			giveBackSelfToParentSQLConnectionPool();
 		}
 	}
 	
@@ -209,6 +232,11 @@ public abstract class SQLConnection implements GroupCloseable {
 	//method
 	@Override
 	public final void noteClose() {
+		closeDirectly();
+	}
+	
+	//method
+	final void closeDirectly() {
 		try {
 			connection.close();
 		} catch (final SQLException pSQLException) {
@@ -218,6 +246,11 @@ public abstract class SQLConnection implements GroupCloseable {
 	
 	//method declaration
 	protected abstract String getSQLDatabaseEngineDriverClass();
+	
+	//method
+	private void giveBackSelfToParentSQLConnectionPool() {
+		parentSQLConnectionPool.takeBackSQLConnection(this);
+	}
 	
 	//method
 	private void registerSQLDatabaseEngineDriver() {
