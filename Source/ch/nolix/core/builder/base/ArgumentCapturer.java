@@ -22,7 +22,7 @@ public abstract class ArgumentCapturer<
 	}
 	
 	//method
-	public final NAC getRefNextArgumentCapturer() {
+	public final NAC n() {
 		return nextArgumentCapturer;
 	}
 	
@@ -31,7 +31,7 @@ public abstract class ArgumentCapturer<
 		
 		internalSetArgument(argument);
 		
-		return getRefNextArgumentCapturer();
+		return n();
 	}
 	
 	//method

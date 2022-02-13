@@ -116,9 +116,9 @@ public class CarModelBuilderTutorial {
 		protected CarModel build(
 			final NameCapturer<WeightInKilogramCapturer<TopSpeedCapturer<CarModel>>> nameCapturer
 		) {
-						
-			final var weightInKilogramCapturer = nameCapturer.getRefNextArgumentCapturer();
-			final var topSpeedCapturer = weightInKilogramCapturer.getRefNextArgumentCapturer();
+			
+			final var weightInKilogramCapturer = nameCapturer.n();
+			final var topSpeedCapturer = weightInKilogramCapturer.n();
 			
 			return new CarModel(
 				nameCapturer.getRefArgument(),
