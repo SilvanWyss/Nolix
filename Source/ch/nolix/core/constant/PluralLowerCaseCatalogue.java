@@ -7,7 +7,7 @@ package ch.nolix.core.constant;
  * 
  * @author Silvan Wyss
  * @date 2018-03-24
- * @lines 210
+ * @lines 220
  */
 public final class PluralLowerCaseCatalogue {
 	
@@ -51,6 +51,7 @@ public final class PluralLowerCaseCatalogue {
 	public static final String CURSOR_ICONS = "cursor icons";
 	public static final String CURSOR_POSITIONS = "cursor positions";
 	public static final String DATABASES = "databases";
+	public static final String DATABASE_NAMES = "database names";
 	public static final String DATA_TYPES = "data types";
 	public static final String DATES = "dates";
 	public static final String DATES_OF_BIRTH = "dates of birth";

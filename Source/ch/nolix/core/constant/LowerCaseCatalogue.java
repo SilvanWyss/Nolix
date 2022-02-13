@@ -7,7 +7,7 @@ package ch.nolix.core.constant;
  * 
  * @author Silvan Wyss
  * @date 2017-11-13
- * @lines 210
+ * @lines 220
  */
 public final class LowerCaseCatalogue {
 	
@@ -51,6 +51,7 @@ public final class LowerCaseCatalogue {
 	public static final String CURSOR_ICON = "cursor icon";
 	public static final String CURSOR_POSITION = "cursor position";
 	public static final String DATABASE = "database";
+	public static final String DATABASE_NAME = "database name";
 	public static final String DATA_TYPE = "data type";
 	public static final String DATE = "date";
 	public static final String DATE_OF_BIRTH = "date of birth";

@@ -7,7 +7,7 @@ package ch.nolix.core.constant;
  * 
  * @author Silvan Wyss
  * @date 2018-04-07
- * @lines 210
+ * @lines 220
  */
 public final class PascalCaseCatalogue {
 	
@@ -51,6 +51,7 @@ public final class PascalCaseCatalogue {
 	public static final String CURSOR_ICON = "CursorIcon";
 	public static final String CURSOR_POSITION = "CursorPosition";
 	public static final String DATABASE = "Database";
+	public static final String DATABASE_NAME = "DatabaseName";
 	public static final String DATA_TYPE = "DataType";
 	public static final String DATE = "Date";
 	public static final String DATE_OF_BIRTH = "DateOfBirth";
