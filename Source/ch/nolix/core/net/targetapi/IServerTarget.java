@@ -5,7 +5,7 @@ package ch.nolix.core.net.targetapi;
 public interface IServerTarget {
 	
 	//method declaration
-	String getIpOrDomain();
+	String getIpOrAddressName();
 	
 	//method declaration
 	int getPort();
