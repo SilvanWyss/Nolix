@@ -8,5 +8,5 @@ public interface IAuthenticationServerTarget extends IServerTarget {
 	String getLoginName();
 	
 	//method declaration
-	String getPassword();
+	String getLoginPassword();
 }
