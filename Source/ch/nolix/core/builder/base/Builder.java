@@ -1,8 +1,6 @@
 //package declaration
 package ch.nolix.core.builder.base;
 
-import ch.nolix.core.errorcontrol.validator.Validator;
-
 //class
 public abstract class Builder<
 	SAC extends ArgumentCapturer<?, ?>,
@@ -13,13 +11,11 @@ public abstract class Builder<
 	private final SAC startArgumentCapturer;
 	
 	//constructor
-	public Builder(final SAC startArgumentCapturer) {
+	public Builder() {
 		
-		Validator.assertThat(startArgumentCapturer).thatIsNamed("start argument capturer").isNotNull();
+		startArgumentCapturer = createStartArgumentCapturer();
 		
 		startArgumentCapturer.internalSetBuilder(this::build);
-		
-		this.startArgumentCapturer = startArgumentCapturer;
 	}
 	
 	//method
@@ -29,6 +25,9 @@ public abstract class Builder<
 	
 	//method declaration
 	protected abstract O build(SAC startArgumentCapturer);
+	
+	//method declaration
+	protected abstract SAC createStartArgumentCapturer();
 	
 	//method
 	private O build() {

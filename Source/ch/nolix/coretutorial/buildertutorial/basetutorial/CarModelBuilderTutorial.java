@@ -20,16 +20,7 @@ public class CarModelBuilderTutorial {
 	public static final class CarModel {
 		
 		public static WeightInKilogramCapturer<TopSpeedCapturer<CarModel>> withName(final String name) {
-			return
-			new CarModelBuilder(
-				new NameCapturer<>(
-					new WeightInKilogramCapturer<>(
-						new TopSpeedCapturer<>()
-					)
-				)
-			)
-			.getRefStart()
-			.withName(name);
+			return new CarModelBuilder().getRefStart().withName(name);
 		}
 		
 		private final String name;
@@ -106,12 +97,6 @@ public class CarModelBuilderTutorial {
 		CarModel
 	> {
 		
-		public CarModelBuilder(
-			final NameCapturer<WeightInKilogramCapturer<TopSpeedCapturer<CarModel>>> nameCapturer
-		) {
-			super(nameCapturer);
-		}
-		
 		@Override
 		protected CarModel build(
 			final NameCapturer<WeightInKilogramCapturer<TopSpeedCapturer<CarModel>>> nameCapturer
@@ -125,6 +110,11 @@ public class CarModelBuilderTutorial {
 				weightInKilogramCapturer.getRefArgument(),
 				topSpeedCapturer.getRefArgument()
 			);
+		}
+		
+		@Override
+		protected NameCapturer<WeightInKilogramCapturer<TopSpeedCapturer<CarModel>>> createStartArgumentCapturer() {
+			return new NameCapturer<>(new WeightInKilogramCapturer<>(new TopSpeedCapturer<>()));
 		}
 	}
 }
