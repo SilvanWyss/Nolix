@@ -42,7 +42,7 @@ public final class Value<V> extends BaseValue<V> implements IValue<DataImplement
 	//method
 	@Override
 	public boolean isMandatory() {
-		return false;
+		return true;
 	}
 	
 	//method
