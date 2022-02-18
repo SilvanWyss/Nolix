@@ -26,6 +26,27 @@ final class DatabaseUpdater {
 	private static final RecordNodeSearcher recordNodeSearcher = new RecordNodeSearcher();
 	
 	//method
+	public void deleteEntriesFromMultiReference(
+		final BaseNode databaseNode,
+		final TableInfo tableInfo,
+		final String entityId,
+		final String multiReferenceColumnName
+	) {
+		
+		final var tableNode =
+		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
+		
+		final var entityNode = tableNodeSearcher.getRefRecordNodeFromTableNode(tableNode, entityId);
+		
+		final var multiReferenceColumnIndex = tableInfo.getIndexOfColumnByColumnName(multiReferenceColumnName);
+		
+		final var multiReferenceColumnNode =
+		recordNodeSearcher.getRefContentFieldNodeFromRecordNodeAtIndex(entityNode, multiReferenceColumnIndex);
+		
+		multiReferenceColumnNode.removeAttributes();
+	}
+	
+	//method
 	public void deleteEntriesFromMultiValue(
 		final BaseNode databaseNode,
 		final TableInfo tableInfo,
@@ -44,6 +65,28 @@ final class DatabaseUpdater {
 		recordNodeSearcher.getRefContentFieldNodeFromRecordNodeAtIndex(recordNode, multiValueColumnIndex);
 						
 		multiValueColumnNode.removeAttributes();
+	}
+	
+	//method
+	public void deleteEntryFromMultiReference(
+		final BaseNode databaseNode,
+		final TableInfo tableInfo,
+		final String entityId,
+		final String multiReferencedColumnName,
+		final String referencedEntityId
+	) {
+		
+		final var tableNode =
+		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
+		
+		final var entityNode = tableNodeSearcher.getRefRecordNodeFromTableNode(tableNode, entityId);
+		
+		final var multiReferenceColumnIndex = tableInfo.getIndexOfColumnByColumnName(multiReferencedColumnName);
+		
+		final var multiReferenceColumnNode =
+		recordNodeSearcher.getRefContentFieldNodeFromRecordNodeAtIndex(entityNode, multiReferenceColumnIndex);
+		
+		multiReferenceColumnNode.removeFirstAttribute(referencedEntityId);
 	}
 	
 	//method
@@ -85,6 +128,28 @@ final class DatabaseUpdater {
 		if (!saveStampNode.hasHeader(recordHead.getSaveStamp())) {
 			throw new GeneralException("The data was changed in the meanwhile.");
 		}
+	}
+	
+	//method
+	public void insertEntryIntoMultiReference(
+		final BaseNode databaseNode,
+		final TableInfo tableInfo,
+		final String entityId,
+		final String multiReferenceColumnName,
+		final String referencedEntityId
+	) {
+		
+		final var tableNode =
+		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
+		
+		final var entityNode = tableNodeSearcher.getRefRecordNodeFromTableNode(tableNode, entityId);
+		
+		final var multiReferenceColumnIndex = tableInfo.getIndexOfColumnByColumnName(multiReferenceColumnName);
+		
+		final var multiReferenceColumnNode =
+		recordNodeSearcher.getRefContentFieldNodeFromRecordNodeAtIndex(entityNode, multiReferenceColumnIndex);
+		
+		multiReferenceColumnNode.addAttribute(Node.withHeader(referencedEntityId));
 	}
 	
 	//method

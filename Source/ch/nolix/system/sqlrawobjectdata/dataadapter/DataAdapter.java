@@ -40,12 +40,33 @@ public abstract class DataAdapter implements IDataAdapter {
 	
 	//method
 	@Override
+	public final void deleteEntriesFromMultiReference(
+		final String tableName,
+		final String entityId,
+		final String multiReferenceColumnName
+	) {
+		dataWriter.deleteEntriesFromMultiReference(tableName, entityId, multiReferenceColumnName);
+	}
+	
+	//method
+	@Override
 	public final void deleteEntriesFromMultiValue(
 		final String tableName,
 		final String recordId,
 		final String multiFieldColumn
 	) {
 		dataWriter.deleteEntriesFromMultiValue(tableName, recordId, multiFieldColumn);
+	}
+	
+	//method
+	@Override
+	public final void deleteEntryFromMultiReference(
+		final String tableName,
+		final String entityId,
+		final String multiRefereceColumnName,
+		final String referencedEntityId
+	) {
+		dataWriter.deleteEntryFromMultiReference(tableName, entityId, multiRefereceColumnName, referencedEntityId);
 	}
 	
 	//method
@@ -69,6 +90,17 @@ public abstract class DataAdapter implements IDataAdapter {
 	@Override
 	public final boolean hasChanges() {
 		return dataWriter.hasChanges();
+	}
+	
+	//method
+	@Override
+	public final void insertEntryIntoMultiReference(
+		final String tableName,
+		final String entityId,
+		final String multiReferenceColumnName,
+		final String referencedEntityId
+	) {
+		dataWriter.insertEntryIntoMultiReference(tableName, entityId, multiReferenceColumnName, referencedEntityId);
 	}
 	
 	//method

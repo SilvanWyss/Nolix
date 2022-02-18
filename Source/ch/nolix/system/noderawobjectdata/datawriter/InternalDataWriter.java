@@ -32,6 +32,17 @@ final class InternalDataWriter {
 	}
 	
 	//method
+	public void deleteEntriesFromMultiReference(
+		final TableInfo tableInfo,
+		final String entityId,
+		final String multiReferenceColumnName
+	) {
+		addChangeAction(
+			d -> databaseUpdater.deleteEntriesFromMultiReference(d, tableInfo, entityId, multiReferenceColumnName)
+		);
+	}
+	
+	//method
 	public void deleteEntriesFromMultiValue(
 		final TableInfo tableInfo,
 		final String recordId,
@@ -39,6 +50,25 @@ final class InternalDataWriter {
 	) {
 		addChangeAction(
 			d -> databaseUpdater.deleteEntriesFromMultiValue(d, tableInfo, recordId, multiValueColumnName)
+		);
+	}
+	
+	//method
+	public void deleteEntryFromMultiReference(
+		final TableInfo tableInfo,
+		final String entityId,
+		final String multiReferenceColumnName,
+		final String referencedEntityId
+	) {
+		addChangeAction(
+			d -> 
+			databaseUpdater.deleteEntryFromMultiReference(
+				d,
+				tableInfo,
+				entityId,
+				multiReferenceColumnName,
+				referencedEntityId
+			)
 		);
 	}
 	
@@ -62,6 +92,25 @@ final class InternalDataWriter {
 	//method
 	public boolean hasChanges() {
 		return changeActions.containsAny();
+	}
+	
+	//method
+	public void insertEntryIntoMultiReference(
+		final TableInfo tableInfo,
+		final String entityId,
+		final String multiReferenceColumnName,
+		final String referencedEntityId
+	) {
+		addChangeAction(
+			d ->
+			databaseUpdater.insertEntryIntoMultiReference(
+				d,
+				tableInfo,
+				entityId,
+				multiReferenceColumnName,
+				referencedEntityId
+			)
+		);
 	}
 	
 	//method

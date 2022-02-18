@@ -31,6 +31,20 @@ public final class DataWriter implements IDataWriter {
 	
 	//method
 	@Override
+	public void deleteEntriesFromMultiReference(
+		final String tableName,
+		final String entityId,
+		final String multiReferenceColumnName
+	) {
+		internalDataWriter.deleteEntriesFromMultiReference(
+			getTableInfoByTableName(tableName),
+			entityId,
+			multiReferenceColumnName
+		);
+	}
+	
+	//method
+	@Override
 	public void deleteEntriesFromMultiValue(
 		final String tableName,
 		final String recordId,
@@ -40,6 +54,22 @@ public final class DataWriter implements IDataWriter {
 			getTableInfoByTableName(tableName),
 			recordId,
 			multiValueColumnName
+		);
+	}
+	
+	//method
+	@Override
+	public void deleteEntryFromMultiReference(
+		final String tableName,
+		final String entityId,
+		final String multiRefereceColumnName,
+		final String referencedEntityId
+	) {
+		internalDataWriter.deleteEntryFromMultiReference(
+			getTableInfoByTableName(tableName),
+			entityId,
+			multiRefereceColumnName,
+			referencedEntityId
 		);
 	}
 	
@@ -69,6 +99,22 @@ public final class DataWriter implements IDataWriter {
 	@Override
 	public boolean hasChanges() {
 		return internalDataWriter.hasChanges();
+	}
+	
+	//method
+	@Override
+	public void insertEntryIntoMultiReference(
+		final String tableName,
+		final String entityId,
+		final String multiReferenceColumnName,
+		final String referencedEntityId
+	) {
+		internalDataWriter.insertEntryIntoMultiReference(
+			getTableInfoByTableName(tableName),
+			entityId,
+			multiReferenceColumnName,
+			referencedEntityId
+		);
 	}
 	
 	//method

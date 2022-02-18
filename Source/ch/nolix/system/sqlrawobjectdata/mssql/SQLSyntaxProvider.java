@@ -3,6 +3,7 @@ package ch.nolix.system.sqlrawobjectdata.mssql;
 
 //own imports
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IMultiReferenceQueryCreator;
+import ch.nolix.system.sqlrawobjectdata.sqlapi.IMultiReferenceStatementCreator;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IMultiValueQueryCreator;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IMultiValueStatementCreator;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IRecordQueryCreator;
@@ -27,6 +28,10 @@ public final class SQLSyntaxProvider implements ISQLSyntaxProvider {
 	//static attribute
 	private static final IMultiReferenceQueryCreator multiReferenceQueryCreator = new MultiReferenceQueryCreator();
 	
+	//static attribute
+	private static final IMultiReferenceStatementCreator multiReferenceStatementCreator =
+	new MultiReferenceStatementCreator();
+	
 	//method
 	@Override
 	public IMultiReferenceQueryCreator getMultiReferenceQueryCreator() {
@@ -37,6 +42,12 @@ public final class SQLSyntaxProvider implements ISQLSyntaxProvider {
 	@Override
 	public IMultiValueQueryCreator getMultiValueQueryCreator() {
 		return multiValueQueryCreator;
+	}
+	
+	//method
+	@Override
+	public IMultiReferenceStatementCreator getMultiReferenceStatemeentCreator() {
+		return multiReferenceStatementCreator;
 	}
 	
 	//method

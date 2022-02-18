@@ -5,6 +5,7 @@ package ch.nolix.system.sqlrawobjectdata.datawriter;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.sql.SQLCollector;
 import ch.nolix.core.sql.SQLConnection;
+import ch.nolix.system.sqlrawobjectdata.sqlapi.IMultiReferenceStatementCreator;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IMultiValueStatementCreator;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IRecordStatementCreator;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.ISQLSyntaxProvider;
@@ -26,6 +27,9 @@ public final class InternalDataWriter {
 	
 	//attribute
 	private final IMultiValueStatementCreator multiValueStatementCreator;
+	
+	//attribute
+	private final IMultiReferenceStatementCreator multiReferenceStatementCreator;
 
 	//constructor
 	public InternalDataWriter(
@@ -38,6 +42,17 @@ public final class InternalDataWriter {
 		mSQLConnection = pSQLConnection;
 		recordStatementCreator = pSQLSyntaxProvider.getRecordStatementCreator();
 		multiValueStatementCreator = pSQLSyntaxProvider.getMultiValueStatemeentCreator();
+		multiReferenceStatementCreator = pSQLSyntaxProvider.getMultiReferenceStatemeentCreator();
+	}
+	
+	//method
+	public void deleteEntriesFromMultiReference(
+		final String recordId,
+		final String multiReferenceColumnId
+	) {
+		mSQLCollector.addSQLStatement(
+			multiReferenceStatementCreator.createStatementToDeleteEntriesFromMultiReference(recordId, multiReferenceColumnId)
+		);
 	}
 	
 	//method
@@ -47,6 +62,21 @@ public final class InternalDataWriter {
 	) {
 		mSQLCollector.addSQLStatement(
 			multiValueStatementCreator.createStatementToDeleteEntriesFromMultiValue(recordId, multiValueColumnId)
+		);
+	}
+	
+	//method
+	public void deleteEntryFromMultiReference(
+		final String entityId,
+		final String multiReferenceColumnId,
+		final String referencedEntityId
+	) {
+		mSQLCollector.addSQLStatement(
+			multiReferenceStatementCreator.createStatementToDeleteEntryFromMultiReference(
+				entityId,
+				multiReferenceColumnId,
+				referencedEntityId
+			)
 		);
 	}
 	
@@ -71,6 +101,21 @@ public final class InternalDataWriter {
 	//method
 	public boolean hasChanges() {
 		return mSQLCollector.containsAny();
+	}
+	
+	//method
+	public void insertEntryIntoMultiReference(
+		final String entityId,
+		final String multiReferenceColumnId,
+		final String referencedEntityId
+	) {
+		mSQLCollector.addSQLStatement(
+			multiReferenceStatementCreator.createStatementToInsertEntryIntoMultiReference(
+				entityId,
+				multiReferenceColumnId,
+				referencedEntityId
+			)
+		);
 	}
 	
 	//method
