@@ -12,6 +12,7 @@ import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
 //class
 public final class ValueHelper extends PropertyHelper implements IValueHelper {
 	
+	//method
 	@Override
 	public void assertCanSetGivenValue(final IValue<?, ?> value, final Object valueToSet) {
 		if (!canSetGivenValue(value, valueToSet)) {
@@ -40,12 +41,11 @@ public final class ValueHelper extends PropertyHelper implements IValueHelper {
 			new ContentFieldDTO(value.getName(), setValue.toString())
 		);
 	}
-
+	
 	//method
 	private boolean canSetValue(final IValue<?, ?> value) {
 		return
 		value != null
-		&& value.belongsToEntity()
-		&& value.getParentEntity().isOpen();
+		&& value.isOpen();
 	}
 }
