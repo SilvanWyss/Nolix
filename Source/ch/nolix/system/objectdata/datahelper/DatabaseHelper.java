@@ -7,9 +7,13 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IDatabase;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 import ch.nolix.systemapi.objectdataapi.datahelperapi.IDatabaseHelper;
+import ch.nolix.systemapi.objectdataapi.datahelperapi.ITableHelper;
 
 //class
 public final class DatabaseHelper extends DatabaseObjectHelper implements IDatabaseHelper {
+	
+	//static attribute
+	private final ITableHelper tableHelper = new TableHelper();
 	
 	//method
 	@Override
@@ -19,5 +23,11 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 		final E entity
 	) {
 		return database.getRefTableByEntityClass(entity.getClass());
+	}
+	
+	//method
+	@Override
+	public boolean hasChanges(final IDatabase<?> database) {
+		return database.technicalGetRefTablesInLocalData().containsAny(tableHelper::hasChanges);
 	}
 }
