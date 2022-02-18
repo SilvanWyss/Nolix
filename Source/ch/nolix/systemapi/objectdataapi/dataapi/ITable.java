@@ -4,14 +4,13 @@ package ch.nolix.systemapi.objectdataapi.dataapi;
 //own imports
 import ch.nolix.core.attributeapi.mandatoryattributeapi.Named;
 import ch.nolix.core.container.IContainer;
-import ch.nolix.core.requestapi.ChangeRequestable;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.IDatabaseObject;
 
 //interface
 public interface ITable<
 	IMPL,
 	E extends IEntity<IMPL>
-> extends ChangeRequestable, IDatabaseObject, Named {
+> extends IDatabaseObject, Named {
 	
 	//method declaration
 	boolean containsEntityWithGivenIdInLocalData(String id);

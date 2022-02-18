@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.objectdata.datahelper;
 
+//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.database.databaseobjecthelper.DatabaseObjectHelper;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
@@ -34,6 +35,12 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
 		canInsertEntity(table)
 		&& entityHelper.canBeInsertedIntoTable(entity)
 		&& !hasInsertedGivenEntityInLocalData(table, entity);
+	}
+	
+	//method
+	@Override
+	public boolean hasChanges(final ITable<?, ?> table) {
+		return table.technicalGetRefEntitiesInLocalData().containsOnly(entityHelper::isLoaded);
 	}
 	
 	//method

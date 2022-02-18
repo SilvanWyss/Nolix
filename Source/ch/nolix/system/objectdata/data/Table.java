@@ -113,12 +113,6 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 	
 	//method
 	@Override
-	public boolean hasChanges() {
-		return entitiesInLocalData.containsOnly(entityHelper::isLoaded);
-	}
-	
-	//method
-	@Override
 	public ITable<DataImplementation, E> insert(final E entity) {
 		
 		tableHelper.assertCanInsertGivenEntity(this, entity);
