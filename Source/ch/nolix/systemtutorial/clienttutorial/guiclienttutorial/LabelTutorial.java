@@ -13,13 +13,14 @@ import ch.nolix.system.client.guiclient.FrontGUIClient;
 
 public final class LabelTutorial {
 	
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 				
 		//Creates a NetServer.
-		final var netServer = new Server();
+		final var server = new Server();
 		
 		//Adds a default Application to the NetServer.
-		netServer.addDefaultApplication("Label tutorial", MainSession.class);
+		server.addDefaultApplication("Label tutorial", MainSession.class);
 		
 		//Creates a FrontGUIClient that will connect to the NetServer.
 		new FrontGUIClient();
@@ -28,12 +29,13 @@ public final class LabelTutorial {
 		ShellProvider.startFirefoxOpeningLoopBackAddress();
 		
 		//Closes the NetServer as soon as it does not have a client connected any more.
-		Sequencer.asSoonAsNoMore(netServer::hasClientConnected).runInBackground(netServer::close);
+		Sequencer.asSoonAsNoMore(server::hasClientConnected).runInBackground(server::close);
 	}
 	
 	private static final class MainSession extends BackGUIClientSession {
 		
 		@Override
+		@SuppressWarnings("resource")
 		protected void initializeBaseBackGUIClientSession() {
 						
 			//Creates clockCaptionLabel.
