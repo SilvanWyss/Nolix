@@ -20,7 +20,7 @@ public final class MultiValueStatementCreator implements IMultiValueStatementCre
 		+ " = '"
 		+ recordId
 		+ "' AND "
-		+ MultiValueEntryTableColumn.MULTI_VALUE_COLUMN_ID
+		+ MultiValueEntryTableColumn.MULTI_VALUE_COLUMN_ID.getName()
 		+ " = '"
 		+ multiValueColumnId
 		+ "'";
@@ -41,11 +41,11 @@ public final class MultiValueStatementCreator implements IMultiValueStatementCre
 		+ " = '"
 		+ recordId
 		+ "' AND "
-		+ MultiValueEntryTableColumn.MULTI_VALUE_COLUMN_ID
+		+ MultiValueEntryTableColumn.MULTI_VALUE_COLUMN_ID.getName()
 		+ " = '"
 		+ multiValueColumnId
 		+ "' AND "
-		+ MultiValueEntryTableColumn.VALUE
+		+ MultiValueEntryTableColumn.VALUE.getName()
 		+ " = '"
 		+ entry
 		+ "'";
