@@ -1,9 +1,11 @@
 //package declaration
 package ch.nolix.system.objectdata.data;
 
+//own imports
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.reflectionhelper.GlobalReflectionHelper;
 import ch.nolix.system.objectdata.propertyhelper.PropertyHelper;
+import ch.nolix.systemapi.databaseapi.databaseobjectapi.DatabaseObjectState;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
 import ch.nolix.systemapi.objectdataapi.propertyhelperapi.IPropertyHelper;
@@ -43,6 +45,39 @@ public abstract class Property implements IProperty<DataImplementation> {
 		propertyHelper.assertBelongsToEntity(this);
 		
 		return parentEntity;
+	}
+	
+	//method
+	@Override
+	public final DatabaseObjectState getState() {
+		
+		if (!belongsToEntity()) {
+			return DatabaseObjectState.NEW;
+		}
+		
+		return getParentEntity().getState();
+	}
+	
+	//method
+	@Override
+	public final boolean isClosed() {
+		
+		if (!belongsToEntity()) {
+			return false;
+		}
+		
+		return getParentEntity().isClosed();
+	}
+	
+	//method
+	@Override
+	public final boolean isDeleted() {
+		
+		if (!belongsToEntity()) {
+			return false;
+		}
+		
+		return getParentEntity().isDeleted();
 	}
 	
 	//method

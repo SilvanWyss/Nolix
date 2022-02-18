@@ -1,6 +1,7 @@
 //package
 package ch.nolix.systemapi.databaseapi.databaseobjectapi;
 
+//own imports
 import ch.nolix.core.requestapi.CloseStateRequestable;
 
 //interface
