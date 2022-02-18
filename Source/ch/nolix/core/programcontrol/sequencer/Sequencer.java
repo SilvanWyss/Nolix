@@ -18,7 +18,6 @@ import ch.nolix.core.programcontrol.jobpool.JobPool;
  * 
  * @author Silvan Wyss
  * @date 2016-06-01
- * @lines 220
  */
 public final class Sequencer {
 	

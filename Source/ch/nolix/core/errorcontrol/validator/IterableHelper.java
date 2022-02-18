@@ -10,7 +10,6 @@ package ch.nolix.core.errorcontrol.validator;
  * 
  * @author Silvan Wyss
  * @date 2017-09-30
- * @lines 40
  */
 final class IterableHelper {
 	

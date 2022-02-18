@@ -31,7 +31,6 @@ import ch.nolix.element.gui.color.Color;
  * 
  * @author Silvan Wyss
  * @date 2017-08-26
- * @lines 460
  */
 public final class TextFormat implements IElement<TextFormat> {
 	

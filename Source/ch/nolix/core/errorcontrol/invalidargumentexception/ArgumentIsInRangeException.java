@@ -10,7 +10,6 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
  * 
  * @author Silvan Wyss
  * @date 2017-10-14
- * @lines 110
  */
 @SuppressWarnings("serial")
 public final class ArgumentIsInRangeException extends InvalidArgumentException {

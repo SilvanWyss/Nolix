@@ -9,7 +9,6 @@ import ch.nolix.core.attributeapi.mandatoryattributeapi.Labeled;
  * 
  * @author Silvan Wyss
  * @date 2021-08-26
- * @lines 20
  * @param <L> is the type of a {@link Labelable}.
  */
 public interface Labelable<L extends Labelable<L>> extends Labeled {

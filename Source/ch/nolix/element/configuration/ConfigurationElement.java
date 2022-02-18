@@ -11,7 +11,6 @@ import ch.nolix.element.base.MutableOptionalValue;
  * 
  * @author Silvan Wyss
  * @date 2016-05-01
- * @lines 100
  * @param <CE> is the type of a {@link ConfigurationElement}.
  */
 public abstract class ConfigurationElement<CE extends ConfigurationElement<CE>> extends ConfigurableElement<CE> {

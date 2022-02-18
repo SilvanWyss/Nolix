@@ -11,7 +11,6 @@ import ch.nolix.element.elementapi.IConfigurableElement;
  * 
  * @author Silvan Wyss
  * @date 2019-07-26
- * @lines 60
  * @param <CEWOC> is the type of a {@link IConfigurableElementWithOptionalConfiguration}.
  */
 public interface IConfigurableElementWithOptionalConfiguration<CEWOC extends IConfigurableElement<CEWOC>>

@@ -23,7 +23,6 @@ import ch.nolix.core.programcontrol.processproperty.TargetInfoState;
 /**
  * @author Silvan Wyss
  * @date 2017-05-06
- * @lines 260
  */
 public final class NetEndPoint extends BaseNetEndPoint {
 	

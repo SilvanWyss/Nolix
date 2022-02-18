@@ -20,7 +20,6 @@ import ch.nolix.element.elementenum.UniDirection;
  * 
  * @author Silvan Wyss
  * @date 2016-08-01
- * @lines 240
  */
 public class ColorGradient implements IElement<ColorGradient> {
 	

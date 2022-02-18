@@ -11,7 +11,6 @@ import ch.nolix.core.testing.test.Test;
  * 
  * @author Silvan Wyss
  * @date 2016-08-01
- * @lines 100
  */
 public final class ARModelTest extends Test {
 

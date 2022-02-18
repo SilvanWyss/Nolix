@@ -7,7 +7,6 @@ package ch.nolix.core.constant;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 20
  */
 public final class PortCatalogue {
 	

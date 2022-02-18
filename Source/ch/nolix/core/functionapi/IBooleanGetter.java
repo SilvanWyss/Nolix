@@ -11,7 +11,6 @@ import ch.nolix.core.errorcontrol.validator.Validator;
  * 
  * @author Silvan Wyss
  * @date 2016-07-01
- * @lines 30
  */
 @FunctionalInterface
 public interface IBooleanGetter {

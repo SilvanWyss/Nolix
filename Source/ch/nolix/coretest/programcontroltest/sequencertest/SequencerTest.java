@@ -13,7 +13,6 @@ import ch.nolix.core.testing.test.Test;
  * 
  * @author Silvan Wyss
  * @date 2017-11-18
- * @lines 30
  */
 public final class SequencerTest extends Test {
 

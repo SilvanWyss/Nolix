@@ -18,7 +18,6 @@ import ch.nolix.core.programcontrol.sequencer.Sequencer;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 410
  */
 public final class GlobalStringHelper {
 		

@@ -11,7 +11,6 @@ import ch.nolix.core.functionapi.IElementTakerBooleanGetter;
  * 
  * @author Silvan Wyss
  * @date 2017-01-01
- * @lines 220
  * @param <V> is the type of the value of a value mediator.
  */
 public class ValueMediator<V> extends Mediator {

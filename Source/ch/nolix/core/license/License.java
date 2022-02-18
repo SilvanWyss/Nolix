@@ -13,7 +13,6 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 /**
  * @author Silvan Wyss
  * @date 2017-05-16
- * @lines 110
  */
 public abstract class License implements Named {
 	

@@ -7,7 +7,6 @@ package ch.nolix.element.gui.widget;
  * 
  * @author Silvan Wyss
  * @date 2020-12-20
- * @lines 10
  */
 public enum WidgetParentType {
 	LAYER,

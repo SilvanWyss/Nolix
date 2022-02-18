@@ -13,7 +13,6 @@ package ch.nolix.core.skillapi;
  * 
  * @author Silvan Wyss
  * @date 2019-03-25
- * @lines 20
  */
 public interface Recalculable {
 	

@@ -9,7 +9,6 @@ import ch.nolix.core.attributeapi.mandatoryattributeapi.Named;
  * 
  * @author Silvan Wyss
  * @date 2016-11-01
- * @lines 20
  */
 public interface IEndPointTaker extends Named {
 

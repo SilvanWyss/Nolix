@@ -7,7 +7,6 @@ package ch.nolix.core.constant;
  * 
  * @author Silvan Wyss
  * @date 2017-12-08
- * @lines 30
  */
 public final class NumberCatalogue {
 	

@@ -28,7 +28,6 @@ import ch.nolix.core.requestapi.ApproximativeEqualing;
  * 
  * @author Silvan Wyss
  * @date 2016-02-01
- * @lines 1170
  */
 public final class Matrix implements ApproximativeEqualing {
 	

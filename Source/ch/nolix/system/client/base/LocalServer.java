@@ -5,7 +5,6 @@ package ch.nolix.system.client.base;
 /**
  * @author Silvan Wyss
  * @date 2021-06-29
- * @lines 20
  */
 public final class LocalServer extends BaseServer {
 	

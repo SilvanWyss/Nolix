@@ -14,7 +14,6 @@ import ch.nolix.core.functionapi.IBooleanGetter;
 /**
  * @author Silvan Wyss
  * @date 2017-06-04
- * @lines 370
  */
 final class JobRunner extends Thread {
 	

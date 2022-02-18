@@ -35,7 +35,6 @@ import ch.nolix.core.functionapi.IElementTakerLongGetter;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 2200
  * @param <E> is the type of the elements a {@link IContainer} can store.
  */
 public interface IContainer<E> extends Iterable<E> {

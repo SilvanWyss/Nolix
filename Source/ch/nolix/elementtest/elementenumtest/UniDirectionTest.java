@@ -13,7 +13,6 @@ import ch.nolix.element.elementenum.UniDirection;
  * 
  * @author Silvan Wyss
  * @date 2017-09-16
- * @lines 50
  */
 public final class UniDirectionTest extends Test {
 	

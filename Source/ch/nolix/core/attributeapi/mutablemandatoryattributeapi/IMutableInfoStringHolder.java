@@ -9,7 +9,6 @@ import ch.nolix.core.attributeapi.mandatoryattributeapi.IInfoStringHolder;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 20
  * @param <S> is the type of a {@link IMutableInfoStringHolder}.
  */
 public interface IMutableInfoStringHolder<S extends IMutableInfoStringHolder<S>> extends IInfoStringHolder {

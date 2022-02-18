@@ -12,7 +12,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
  * 
  * @author Silvan Wyss
  * @date 2016-09-01
- * @lines 50
  */
 public final class TestAccessor {
 	

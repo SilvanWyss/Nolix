@@ -38,7 +38,6 @@ import ch.nolix.element.gui.image.Image;
 /**
  * @author Silvan Wyss
  * @date 2017-11-11
- * @lines 450
  * @param <G> is the type of a {@link GUI3D}.
  */
 public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G> implements Clearable, IBaseGUI<G> {

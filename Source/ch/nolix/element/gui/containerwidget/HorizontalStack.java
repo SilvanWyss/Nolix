@@ -8,7 +8,6 @@ import ch.nolix.element.gui.widget.Widget;
 /**
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 90
  */
 public final class HorizontalStack extends Stack<HorizontalStack> {
 	

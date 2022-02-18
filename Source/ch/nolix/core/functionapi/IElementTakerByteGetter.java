@@ -7,7 +7,6 @@ package ch.nolix.core.functionapi;
  * 
  * @author Silvan Wyss
  * @date 2019-03-05
- * @lines 20
  * @param <E> is the type of the elements a {@link IElementTakerByteGetter} takes.
  */
 @FunctionalInterface

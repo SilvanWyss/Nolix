@@ -9,7 +9,6 @@ import ch.nolix.core.container.LinkedList;
  * 
  * @author Silvan Wyss
  * @date 2018-10-24
- * @lines 30
  * @param <L> is the type of a {@link Listable}.
  */
 public interface Listable<L extends Listable<L>> {

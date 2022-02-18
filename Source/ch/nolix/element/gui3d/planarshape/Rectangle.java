@@ -13,7 +13,6 @@ import ch.nolix.element.gui3d.base.AtomicShape;
 /**
  * @author Silvan Wyss
  * @date 2018-09-23
- * @lines 140
  */
 public final class Rectangle extends AtomicShape<Rectangle> {
 	

@@ -7,7 +7,6 @@ package ch.nolix.core.skillapi;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 10 
  */
 public interface Resettable {
 	

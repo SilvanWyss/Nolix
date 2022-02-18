@@ -9,7 +9,6 @@ import ch.nolix.system.client.baseguiclient.BaseBackGUIClient;
 /**
  * @author Silvan Wyss
  * @date 2017-03-02
- * @lines 20
  */
 public final class BackConsoleClient extends BaseBackGUIClient<BackConsoleClient> {
 	

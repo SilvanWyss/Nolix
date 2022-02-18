@@ -7,7 +7,6 @@ package ch.nolix.core.testing.test;
  * 
  * @author Silvan Wyss
  * @date 2018-09-11
- * @lines 20
  * @param <OT> is the type of the test units of a {@link ObjectTest}.
  */
 public abstract class ObjectTest<OT> extends Test {

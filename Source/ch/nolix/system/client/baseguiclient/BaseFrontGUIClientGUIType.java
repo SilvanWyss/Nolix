@@ -12,7 +12,6 @@ import ch.nolix.element.elementapi.IElement;
 /**
  * @author Silvan Wyss
  * @date 2018-09-16
- * @lines 30
  */
 public enum BaseFrontGUIClientGUIType implements IElement<BaseFrontGUIClientGUIType> {
 	CANVAS_GUI;

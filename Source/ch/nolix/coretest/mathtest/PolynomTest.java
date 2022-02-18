@@ -11,7 +11,6 @@ import ch.nolix.core.testing.test.Test;
  * 
  * @author Silvan Wyss
  * @date 2016-06-01
- * @lines 140
  */
 public final class PolynomTest extends Test {
 	

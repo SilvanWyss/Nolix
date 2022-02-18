@@ -7,7 +7,6 @@ package ch.nolix.core.constant;
  * 
  * @author Silvan Wyss
  * @date 2017-02-05
- * @lines 50
  */
 public final class TimeUnitCatalogue {
 	

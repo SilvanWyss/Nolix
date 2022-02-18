@@ -9,7 +9,6 @@ import ch.nolix.core.document.node.Node;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 20
  */
 public final class NodeTest extends BaseNodeTest {
 	

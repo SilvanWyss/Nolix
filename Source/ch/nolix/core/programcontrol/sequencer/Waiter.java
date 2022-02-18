@@ -13,7 +13,6 @@ import ch.nolix.core.errorcontrol.validator.Validator;
  * 
  * @author Silvan Wyss
  * @date 2017-06-04
- * @lines 60
  */
 final class Waiter {
 	

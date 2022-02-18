@@ -8,7 +8,6 @@ package ch.nolix.core.container.pair;
  * 
  * @author Silvan Wyss
  * @date 2020-05-30
- * @lines 90
  */
 public final class IntPair {
 	

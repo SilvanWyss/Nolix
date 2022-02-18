@@ -12,7 +12,6 @@ import ch.nolix.element.gui.widget.WidgetLookState;
  * 
  * @author Silvan Wyss
  * @date 2018-12-11
- * @lines 400
  * @param <BW> is the type of the {@link BorderWidget}s of a {@link BorderWidgetTest}.
  */
 public abstract class BorderWidgetTest<BW extends BorderWidget<BW, ?>> extends WidgetTest<BW> {

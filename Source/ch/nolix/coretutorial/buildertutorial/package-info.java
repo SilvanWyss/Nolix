@@ -5,6 +5,5 @@
  * 
  * @author Silvan Wyss
  * @date 2021-12-25
- * @lines 10
  */
 package ch.nolix.coretutorial.buildertutorial;

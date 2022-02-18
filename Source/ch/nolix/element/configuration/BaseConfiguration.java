@@ -20,7 +20,6 @@ import ch.nolix.element.gui.widget.Widget;
 /**
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 550
  * @param <C> is the type of a {@link BaseConfiguration}.
  */
 public abstract class BaseConfiguration<C extends BaseConfiguration<C>> extends MutableElement<C> {

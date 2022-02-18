@@ -17,7 +17,6 @@ import ch.nolix.core.errorcontrol.validator.Validator;
  * 
  * @author Silvan Wyss
  * @date 2017-07-01
- * @lines 190
  * @param <E> is the type of the elements of a {@link ReadContainer}.
  */
 public final class ReadContainer<E> implements IContainer<E> {

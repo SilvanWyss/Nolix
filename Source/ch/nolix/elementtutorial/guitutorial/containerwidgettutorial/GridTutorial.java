@@ -14,7 +14,6 @@ import ch.nolix.element.gui.widget.WidgetLookState;
  * 
  * @author Silvan Wyss
  * @date 2018-05-01
- * @lines 60
  */
 public final class GridTutorial {
 	

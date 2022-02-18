@@ -11,7 +11,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
  * 
  * @author Silvan Wyss
  * @date 2019-11-16
- * @lines 80
  */
 public final class GlobalLicenseManager {
 	

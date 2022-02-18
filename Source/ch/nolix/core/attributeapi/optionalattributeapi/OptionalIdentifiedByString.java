@@ -7,7 +7,6 @@ package ch.nolix.core.attributeapi.optionalattributeapi;
  * 
  * @author Silvan Wyss
  * @date 2020-01-05
- * @lines 40
  */
 public interface OptionalIdentifiedByString {
 	

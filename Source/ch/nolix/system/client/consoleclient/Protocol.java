@@ -7,7 +7,6 @@ package ch.nolix.system.client.consoleclient;
  * 
  * @author Silvan Wyss
  * @date 2017-08-20
- * @lines 40
  */
 final class Protocol {
 	

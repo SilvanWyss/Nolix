@@ -9,7 +9,6 @@ import ch.nolix.element.elementapi.IConfigurableElement;
 /**
  * @author Silvan Wyss
  * @date 2016-02-01
- * @lines 70
  */
 public final class Configuration extends BaseConfiguration<Configuration> {
 

@@ -7,7 +7,6 @@ import ch.nolix.core.document.node.BaseNode;
 /**
  * @author Silvan Wyss
  * @date 2021-04-01
- * @lines 30
  * @param <RME> is the type of a {@link IRespondingMutableElement}.
  */
 public interface IRespondingMutableElement<RME extends IRespondingMutableElement<RME>> extends IMutableElement<RME> {

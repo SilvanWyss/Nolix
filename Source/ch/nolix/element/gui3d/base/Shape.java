@@ -20,7 +20,6 @@ import ch.nolix.element.geometry.Point3D;
  * 
  * @author Silvan Wyss
  * @date 2017-11-11
- * @lines 360
  * @param <S> is the type of a {@link Shape}.
  */
 public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {

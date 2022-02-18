@@ -11,7 +11,6 @@ import ch.nolix.core.errorcontrol.validator.Validator;
  * 
  * @author Silvan Wyss
  * @date 2019-09-06
- * @lines 130
  */
 public final class ByteWrapper {
 	

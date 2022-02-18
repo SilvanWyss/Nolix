@@ -7,7 +7,6 @@ package ch.nolix.core.requestapi;
  * 
  * @author Silvan Wyss
  * @date 2021-02-26
- * @lines 20
  */
 public interface ChangeRequestable {
 	

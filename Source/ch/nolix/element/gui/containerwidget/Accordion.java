@@ -25,7 +25,6 @@ import ch.nolix.element.gui.widget.WidgetLookState;
 /**
  * @author Silvan Wyss
  * @date 2018-08-13
- * @lines 540
  */
 public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	

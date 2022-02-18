@@ -10,7 +10,6 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 /**
  * @author Silvan Wyss
  * @date 2021-06-28
- * @lines 50
  */
 public class ServerClientTaker implements ch.nolix.core.net.endpoint3.IEndPointTaker {
 	

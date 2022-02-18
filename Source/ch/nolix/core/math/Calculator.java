@@ -17,7 +17,6 @@ import ch.nolix.core.errorcontrol.validator.Validator;
  * 
  * @author Silvan Wyss
  * @date 2016-05-01
- * @lines 450
  */
 public final class Calculator {
 	

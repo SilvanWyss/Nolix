@@ -7,7 +7,6 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 /**
  * @author Silvan Wyss
  * @date 2017-11-11
- * @lines 50
  * @param <S> is the type of the shape of a shape renderer.
  * @param <RO> is the type of the render object of a shape renderer.
  * @param <SRO> is the type of the sub render objects of a shape renderer.

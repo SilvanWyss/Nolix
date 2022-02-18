@@ -5,6 +5,5 @@
  * 
  * @author Silvan Wyss
  * @date 2021-03-10
- * @lines 10
  */
 package ch.nolix.coretest.programcontroltest;

@@ -5,6 +5,5 @@
  * 
  * @author Silvan Wyss
  * @date 2019-09-30
- * @lines 10
  */
 package ch.nolix.core.valuecreator;

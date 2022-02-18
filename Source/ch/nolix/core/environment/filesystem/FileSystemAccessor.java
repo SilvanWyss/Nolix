@@ -24,7 +24,6 @@ import ch.nolix.core.programcontrol.processproperty.WriteMode;
  * 
  * @author Silvan Wyss
  * @date 2017-07-14
- * @lines 400
  */
 public final class FileSystemAccessor {
 	

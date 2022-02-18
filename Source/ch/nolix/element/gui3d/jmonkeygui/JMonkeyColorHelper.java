@@ -14,7 +14,6 @@ import ch.nolix.element.gui.color.Color;
  * 
  * @author Silvan Wyss
  * @date 2017-11-11
- * @lines 40
  */
 public final class JMonkeyColorHelper {
 

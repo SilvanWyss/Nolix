@@ -13,7 +13,6 @@ import ch.nolix.core.independent.independenthelper.CentralArrayHelper;
  * 
  * @author Silvan Wyss
  * @date 2017-01-01
- * @lines 110
  * @param <A> is the type of the arguments of a multi argument mediator.
  */
 public class MultiArgumentMediator<A> {

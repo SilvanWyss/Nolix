@@ -15,7 +15,6 @@ import ch.nolix.core.testing.test.Test;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 760
  */
 public final class LinkedListTest extends Test {
 	

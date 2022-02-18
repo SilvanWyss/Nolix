@@ -24,7 +24,6 @@ import ch.nolix.element.gui.textformat.TextFormat;
 /**
  * @author Silvan Wyss
  * @date 2017-03-06
- * @lines 810
  */
 public final class Console extends BorderWidget<Console, ConsoleLook> implements Clearable {
 	

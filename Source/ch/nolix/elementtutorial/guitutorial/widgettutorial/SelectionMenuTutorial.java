@@ -9,7 +9,6 @@ import ch.nolix.element.gui.widget.SelectionMenu;
  * 
  * @author Silvan Wyss
  * @date 2018-05-05
- * @lines 50
  */
 public final class SelectionMenuTutorial {
 	

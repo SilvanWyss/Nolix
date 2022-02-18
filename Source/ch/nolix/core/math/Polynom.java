@@ -23,7 +23,6 @@ import ch.nolix.core.errorcontrol.validator.Validator;
  * 
  * @author Silvan Wyss
  * @date 2016-03-01
- * @lines 400
  */
 public final class Polynom {
 	

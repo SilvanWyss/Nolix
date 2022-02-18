@@ -12,7 +12,6 @@ import ch.nolix.element.gui.widget.WidgetLookState;
  * 
  * @author Silvan Wyss
  * @date 2018-05-10
- * @lines 50
  */
 public final class TabContainerTutorial {
 	

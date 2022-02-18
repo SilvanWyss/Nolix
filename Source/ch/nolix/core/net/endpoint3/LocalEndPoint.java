@@ -16,7 +16,6 @@ import ch.nolix.core.net.controllerapi.IDataProviderController;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 210
  */
 public final class LocalEndPoint extends EndPoint {
 	

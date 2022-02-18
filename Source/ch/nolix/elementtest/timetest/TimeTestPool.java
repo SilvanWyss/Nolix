@@ -7,7 +7,6 @@ import ch.nolix.core.testing.basetest.TestPool;
 /**
  * @author Silvan Wyss
  * @date 2017-11-14
- * @lines 20
  */
 public final class TimeTestPool extends TestPool {
 

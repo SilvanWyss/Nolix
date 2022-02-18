@@ -12,7 +12,6 @@ import ch.nolix.element.gui.painterapi.IPainter;
 /**
  * @author Silvan Wyss
  * @date 2016-06-01
- * @lines 310
  */
 public final class CheckBox extends BorderWidget<CheckBox, CheckBoxLook> {
 	

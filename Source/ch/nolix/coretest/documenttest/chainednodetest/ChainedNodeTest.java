@@ -12,7 +12,6 @@ import ch.nolix.core.testing.test.Test;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 290
  */
 public final class ChainedNodeTest extends Test {
 	

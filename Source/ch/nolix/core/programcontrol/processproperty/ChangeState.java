@@ -7,7 +7,6 @@ package ch.nolix.core.programcontrol.processproperty;
  * 
  * @author Silvan Wyss
  * @date 2020-07-30
- * @lines 10
  */
 public enum ChangeState {
 	UNCHANGED,

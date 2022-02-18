@@ -9,7 +9,6 @@ import ch.nolix.core.attributeapi.optionalattributeapi.OptionalValued;
  * 
  * @author Silvan Wyss
  * @date 2018-10-01
- * @lines 30
  * @param <OV> is the type of a {@link OptionalValueable}.
  * @param <V> is the type of the value of a {@link OptionalValueable}.
  */

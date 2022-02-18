@@ -14,7 +14,6 @@ import ch.nolix.element.gui.painterapi.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2019-05-08
- * @lines 250
  * @param <BWL>
  * is the type of the {@link BorderWidgetLook} of the {@link BorderWidget} of a {@link BorderWidgetScrolledArea}.
  */

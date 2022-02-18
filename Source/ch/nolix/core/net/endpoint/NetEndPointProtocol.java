@@ -5,7 +5,6 @@ package ch.nolix.core.net.endpoint;
 /**
  * @author Silvan Wyss
  * @date 2019-05-01
- * @lines 20
  */
 final class NetEndPointProtocol {
 	

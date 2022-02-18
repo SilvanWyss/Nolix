@@ -11,7 +11,6 @@ import ch.nolix.core.errorcontrol.validator.Validator;
  * 
  * @author Silvan Wys
  * @date 2017-05-14
- * @lines 40
  */
 public final class ValidatorTutorial {
 	

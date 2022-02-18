@@ -16,7 +16,6 @@ import ch.nolix.core.functionapi.IElementTakerElementGetter;
 /**
  * @author Silvan Wyss
  * @date 2018-03-04
- * @lines 140
  * @param <V> is the type of the value of a {@link SingleValue}.
  */
 abstract class SingleValue<V> extends BaseValue<V> {

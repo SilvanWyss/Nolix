@@ -12,7 +12,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentExceptio
  * 
  * @author Silvan Wyss
  * @date 2016-11-01
- * @lines 80
  */
 public final class Server extends BaseServer {
 	

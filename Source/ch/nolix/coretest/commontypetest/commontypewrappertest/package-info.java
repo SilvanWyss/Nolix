@@ -5,6 +5,5 @@
  * 
  * @author Silvan Wyss
  * @date 2019-10-01
- * @lines 10
  */
 package ch.nolix.coretest.commontypetest.commontypewrappertest;

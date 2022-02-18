@@ -7,7 +7,6 @@ package ch.nolix.nolixtest;
  * 
  * @author Silvan Wyss
  * @date 2017-11-17
- * @lines 20
  */
 public final class Launcher {
 	

@@ -9,7 +9,6 @@ import ch.nolix.core.requestapi.EmptinessRequestable;
  * 
  * @author Silvan Wyss
  * @date 2016-03-01
- * @lines 20
  */
 public interface Clearable extends EmptinessRequestable {
 	

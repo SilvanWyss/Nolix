@@ -12,7 +12,6 @@ import ch.nolix.element.trading.CandleStick;
  * 
  * @author Silvan Wyss
  * @date 2016-10-01
- * @lines 100
  */
 public final class CandleStickTest extends Test {
 	

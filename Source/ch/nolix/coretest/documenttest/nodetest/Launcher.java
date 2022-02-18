@@ -7,7 +7,6 @@ package ch.nolix.coretest.documenttest.nodetest;
  * 
  * @author Silvan Wyss
  * @date 2017-02-06
- * @lines 20
  */
 public final class Launcher {
 	

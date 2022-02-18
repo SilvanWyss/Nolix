@@ -15,7 +15,6 @@ import ch.nolix.core.programcontrol.groupcloseable.GroupCloseable;
  * 
  * @author Silvan Wyss
  * @date 2017-03-05
- * @lines 200
  */
 public abstract class BaseServer implements GroupCloseable {
 	

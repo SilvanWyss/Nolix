@@ -10,7 +10,6 @@ import java.util.Objects;
  * 
  * @author Silvan Wyss
  * @date 2017-01-01
- * @lines 120
  */
 public final class FunctionCatalogue {
 		

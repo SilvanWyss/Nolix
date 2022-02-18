@@ -13,7 +13,6 @@ import ch.nolix.core.independent.independenthelper.CentralArrayHelper;
  * 
  * @author Silvan Wyss
  * @date 2016-12-01
- * @lines 420
  */
 public final class MultiLongMediator extends Mediator {
 

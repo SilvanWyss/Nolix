@@ -23,7 +23,6 @@ import ch.nolix.element.gui.widget.Widget;
 /**
  * @author Silvan Wyss
  * @date 2016-05-01
- * @lines 250
  */
 public final class TabContainerTab extends MutableElement<TabContainerTab>
 implements Clearable, Headerable<TabContainerTab> {

@@ -9,7 +9,6 @@ import ch.nolix.element.gui.textbox.TextBox;
  * 
  * @author Silvan Wyss
  * @date 2018-05-13
- * @lines 30
  */
 public final class TextBoxTutorial {
 	

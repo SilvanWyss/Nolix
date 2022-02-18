@@ -7,7 +7,6 @@ package ch.nolix.core.programcontrol.processproperty;
  * 
  * @author Silvan Wyss
  * @date 2019-07-14
- * @lines 10
  */
 public enum ProcessingMode {
 	SINGLE_THREADED,

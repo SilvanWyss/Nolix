@@ -9,7 +9,6 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 /**
  * @author Silvan Wyss
  * @date 2016-09-01
- * @lines 80
  */
 public abstract class StatisticalModel {
 	

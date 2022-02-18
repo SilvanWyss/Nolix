@@ -12,7 +12,6 @@ import ch.nolix.element.elementapi.IElement;
 /**
  * @author Silvan Wyss
  * @date 2018-05-18
- * @lines 40
  */
 public enum ButtonRole implements IElement<ButtonRole> {
 	ACTION_BUTTON,

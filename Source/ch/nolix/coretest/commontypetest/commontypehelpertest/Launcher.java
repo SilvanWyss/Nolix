@@ -7,7 +7,6 @@ package ch.nolix.coretest.commontypetest.commontypehelpertest;
  * 
  * @author Silvan Wyss
  * @date 2018-08-18
- * @lines 20
  */
 public final class Launcher {
 

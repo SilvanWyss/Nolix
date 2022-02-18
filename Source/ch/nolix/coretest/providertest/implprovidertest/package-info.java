@@ -5,6 +5,5 @@
  * 
  * @author Silvan Wyss
  * @date 2021-01-16
- * @lines 10
  */
 package ch.nolix.coretest.providertest.implprovidertest;

@@ -19,7 +19,6 @@ import ch.nolix.element.gui.input.ResizeInput;
 /**
  * @author Silvan Wyss
  * @date 2019-08-02
- * @lines 260
  */
 final class BaseFrontGUIClientInputTaker implements IResizableInputTaker {
 	

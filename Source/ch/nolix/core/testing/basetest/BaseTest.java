@@ -14,7 +14,6 @@ import ch.nolix.core.programcontrol.groupcloseable.GroupCloseable;
 /**
  * @author Silvan Wyss
  * @date 2016-09-01
- * @lines 220
  */
 public abstract class BaseTest {
 	

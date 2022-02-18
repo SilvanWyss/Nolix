@@ -20,7 +20,6 @@ import ch.nolix.element.gui.image.Image;
 /**
  * @author Silvan Wyss
  * @date 2019-08-01
- * @lines 220
  */
 public final class FrameVisualizer implements IVisualizer {
 	

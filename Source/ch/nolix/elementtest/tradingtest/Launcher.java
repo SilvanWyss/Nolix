@@ -5,7 +5,6 @@ package ch.nolix.elementtest.tradingtest;
 /**
  * @author Silvan Wyss
  * @date 2016-10-01
- * @lines 20
  */
 public final class Launcher {
 

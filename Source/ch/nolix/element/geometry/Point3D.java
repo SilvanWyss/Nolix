@@ -17,7 +17,6 @@ import ch.nolix.element.elementapi.IElement;
  * 
  * @author Silvan Wyss
  * @date 2016-06-01
- * @lines 160
  */
 public class Point3D implements IElement<Point3D> {
 	

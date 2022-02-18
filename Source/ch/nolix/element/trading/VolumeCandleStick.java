@@ -13,7 +13,6 @@ import ch.nolix.element.time.base.Time;
  * 
  * @author Silvan Wyss
  * @date 2016-10-01
- * @lines 100
  */
 public final class VolumeCandleStick extends CandleStick {
 	

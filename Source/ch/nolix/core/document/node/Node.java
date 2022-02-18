@@ -21,7 +21,6 @@ import ch.nolix.core.generalskillapi.ISmartObject;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 630
  */
 public final class Node extends BaseNode implements ISmartObject<Node> {
 	

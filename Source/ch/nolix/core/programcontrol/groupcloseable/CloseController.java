@@ -11,7 +11,6 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 /**
  * @author Silvan Wyss
  * @date 2020-07-05
- * @lines 90
  */
 public final class CloseController {
 	

@@ -10,7 +10,6 @@ import ch.nolix.element.gui.widget.Button;
  * 
  * @author Silvan Wyss
  * @date 2018-05-19
- * @lines 40
  */
 public final class ButtonTutorial {
 	

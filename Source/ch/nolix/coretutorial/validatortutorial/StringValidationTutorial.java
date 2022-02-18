@@ -7,7 +7,6 @@ import ch.nolix.core.errorcontrol.validator.Validator;
  * 
  * @author Silvan
  * @date 2017-03-05
- * @lines 30
  */
 public final class StringValidationTutorial {
 	

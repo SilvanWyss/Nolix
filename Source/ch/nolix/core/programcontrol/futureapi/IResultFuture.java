@@ -7,7 +7,6 @@ package ch.nolix.core.programcontrol.futureapi;
  * 
  * @author Silvan Wyss
  * @date 2019-04-14
- * @lines 30
  * @param <R> is the type of the result of a {@link IResultFuture}.
  */
 public interface IResultFuture<R> extends IFuture {

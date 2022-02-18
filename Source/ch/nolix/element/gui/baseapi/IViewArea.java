@@ -12,7 +12,6 @@ import ch.nolix.element.gui.input.IInputTaker;
  * 
  * @author Silvan Wyss
  * @date 2019-08-01
- * @lines 30
  */
 interface IViewArea extends IInputTaker, TopLeftPositionedRecangular {
 	

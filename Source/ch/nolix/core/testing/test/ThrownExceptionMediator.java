@@ -15,7 +15,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
  * 
  * @author Silvan Wyss
  * @date 2018-12-09
- * @lines 160
  */
 public abstract class ThrownExceptionMediator extends Mediator {
 	

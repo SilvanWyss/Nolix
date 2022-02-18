@@ -12,7 +12,6 @@ import ch.nolix.core.functionapi.IElementTakerElementGetter;
 /**
  * @author Silvan Wyss
  * @date 2018-03-01
- * @lines 110
  * @param <V> is the type of the value of a {@link OptionalValue}.
  */
 public final class OptionalValue<V> extends SingleValue<V> {

@@ -14,7 +14,6 @@ import java.math.BigInteger;
  * 
  * @author Silvan Wyss
  * @date 2016-03-01
- * @lines 140
  */
 @SuppressWarnings("serial")
 public final class NonPositiveArgumentException extends InvalidArgumentException {

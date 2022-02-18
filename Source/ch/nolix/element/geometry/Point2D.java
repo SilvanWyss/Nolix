@@ -16,7 +16,6 @@ import ch.nolix.element.elementapi.IElement;
  * 
  * @author Silvan Wyss
  * @date 2016-06-01
- * @lines 140
  */
 public final class Point2D implements IElement<Point2D> {
 	

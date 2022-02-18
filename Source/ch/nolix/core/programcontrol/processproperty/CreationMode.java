@@ -7,7 +7,6 @@ package ch.nolix.core.programcontrol.processproperty;
  * 
  * @author Silvan Wyss
  * @date 2020-08-17
- * @lines 10
  */
 public enum CreationMode {
 	THROW_EXCEPTION_WHEN_TARGET_DOES_NOT_EXIST_ALREADY,

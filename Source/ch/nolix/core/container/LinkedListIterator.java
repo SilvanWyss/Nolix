@@ -10,7 +10,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 /**
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 70
  * @param <E> is the type of the elements of a {@link LinkedListIterator}.
  */
 final class LinkedListIterator<E> implements Iterator<E> {

@@ -5,6 +5,5 @@
  * 
  * @author Silvan Wyss
  * @date 2021-09-15
- * @lines 10
  */
 package ch.nolix.systemtutorial.objectschematutorial.schemaadaptertutorial;

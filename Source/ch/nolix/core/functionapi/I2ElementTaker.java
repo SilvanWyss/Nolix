@@ -7,7 +7,6 @@ package ch.nolix.core.functionapi;
  * 
  * @author Silvan Wyss
  * @date 2020-07-27
- * @lines 20
  * @param <E1> is the type of the first element a {@link I2ElementTaker} takes.
  * @param <E2> is the type of the second element a {@link I2ElementTaker} takes.
  */

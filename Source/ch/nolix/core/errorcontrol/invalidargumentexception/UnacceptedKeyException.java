@@ -8,7 +8,6 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
  * 
  * @author Silvan Wyss
  * @date 2020-12-18
- * @lines 30
  */
 @SuppressWarnings("serial")
 public final class UnacceptedKeyException extends InvalidArgumentException {

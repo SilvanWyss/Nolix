@@ -14,7 +14,6 @@ import ch.nolix.core.requestapi.ContainsElementByStringIdRequestable;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 80
  * @param <C> is the type of a {@link IConfigurableElement}.
  */
 public interface IConfigurableElement<C extends IConfigurableElement<C>>

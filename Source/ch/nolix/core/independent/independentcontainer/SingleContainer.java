@@ -14,7 +14,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentExceptio
  * @author Silvan Wyss
  * @date 2020-03-09
  * @param <E> is the type of the element of a {@link SingleContainer}.
- * @lines 70
  */
 public final class SingleContainer<E> {
 	

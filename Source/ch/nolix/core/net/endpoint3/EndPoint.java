@@ -20,7 +20,6 @@ import ch.nolix.core.programcontrol.sequencer.Sequencer;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 200
  */
 public abstract class EndPoint implements GroupCloseable, IDataProviderController {
 	

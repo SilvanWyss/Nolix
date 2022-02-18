@@ -15,7 +15,6 @@ import ch.nolix.core.valuecreator.ValueCreator;
  * 
  * @author Silvan Wyss
  * @date 2019-12-30
- * @lines 80
  */
 public final class EntityAccessor {
 	

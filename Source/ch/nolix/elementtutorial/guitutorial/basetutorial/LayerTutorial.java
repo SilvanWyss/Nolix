@@ -14,7 +14,6 @@ import ch.nolix.element.gui.widget.WidgetLookState;
  * 
  * @author Silvan Wyss
  * @date 2019-05-22
- * @lines 70
  */
 public final class LayerTutorial {
 	

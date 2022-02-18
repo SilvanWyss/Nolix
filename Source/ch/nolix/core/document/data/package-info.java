@@ -4,6 +4,5 @@
  * 
  * @author Silvan Wyss
  * @date 2019-11-01
- * @lines 10
  */
 package ch.nolix.core.document.data;

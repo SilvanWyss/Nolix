@@ -7,7 +7,6 @@ package ch.nolix.core.skillapi;
  * 
  * @author Silvan Wyss
  * @date 2017-09-09
- * @lines 10
  */
 public interface Refreshable {
 

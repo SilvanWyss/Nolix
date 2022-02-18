@@ -8,7 +8,6 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
  * 
  * @author Silvan Wyss
  * @date 2019-01-26
- * @lines 30
  */
 @SuppressWarnings("serial")
 public final class ClosedArgumentException extends InvalidArgumentException {

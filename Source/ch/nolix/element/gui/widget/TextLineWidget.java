@@ -20,7 +20,6 @@ import ch.nolix.element.gui.textformat.TextFormat;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 330
  * @param <TLW> is the type of a {@link TextLineWidget}.
  * @param <TLWL> is the type of the {@link BorderWidgetLook} of a {@link TextLineWidget}.
  */

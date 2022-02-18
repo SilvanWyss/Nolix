@@ -7,7 +7,6 @@ package ch.nolix.core.attributeapi.mandatoryattributeapi;
  * 
  * @author Silvan Wyss
  * @date 2016-12-01
- * @lines 20
  */
 public interface IInfoStringHolder {
 	

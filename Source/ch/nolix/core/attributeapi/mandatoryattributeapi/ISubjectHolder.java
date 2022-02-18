@@ -7,7 +7,6 @@ package ch.nolix.core.attributeapi.mandatoryattributeapi;
  * 
  * @author Silvan Wyss
  * @date 2021-06-15
- * @lines 50
  */
 public interface ISubjectHolder {
 	

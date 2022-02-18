@@ -24,7 +24,6 @@ import ch.nolix.element.gui.widget.Widget;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 340
  * @param <S> is the type of a {@link Stack}.
  */
 public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, StackLook> {

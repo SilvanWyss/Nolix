@@ -7,7 +7,6 @@ package ch.nolix.core.constant;
  * 
  * @author Silvan Wyss
  * @date 2018-04-26
- * @lines 220
  */
 public final class PluralPascalCaseCatalogue {
 	

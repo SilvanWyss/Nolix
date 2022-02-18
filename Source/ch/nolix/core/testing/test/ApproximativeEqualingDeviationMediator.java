@@ -12,7 +12,6 @@ import ch.nolix.core.requestapi.ApproximativeEqualing;
  * 
  * @author Silvan Wyss
  * @date 2016-09-01
- * @lines 110
  */
 public final class ApproximativeEqualingDeviationMediator extends Mediator {
 	

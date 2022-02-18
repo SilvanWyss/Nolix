@@ -5,6 +5,5 @@
  * 
  * @author Silvan Wyss
  * @date 2020-08-01
- * @lines 10
  */
 package ch.nolix.elementtutorial.guitutorial.dialogtutorial;

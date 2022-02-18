@@ -7,7 +7,6 @@ package ch.nolix.core.functionapi;
  * 
  * @author Silvan Wyss
  * @date 2016-06-01
- * @lines 10
  */
 @FunctionalInterface
 public interface IAction {

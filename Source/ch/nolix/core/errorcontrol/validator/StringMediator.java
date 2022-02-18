@@ -20,7 +20,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NonEmptyArgumentExcep
  * 
  * @author Silvan Wyss
  * @date 2016-09-01
- * @lines 250
  */
 public class StringMediator extends ArgumentMediator<String> {
 	

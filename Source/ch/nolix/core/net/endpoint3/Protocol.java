@@ -7,7 +7,6 @@ package ch.nolix.core.net.endpoint3;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 20
  */
 final class Protocol {
 	

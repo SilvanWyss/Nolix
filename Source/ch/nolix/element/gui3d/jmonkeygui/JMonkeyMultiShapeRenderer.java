@@ -14,7 +14,6 @@ import ch.nolix.element.gui3d.shape.MultiShape;
  * 
  * @author Silvan Wyss
  * @date 2017-11-11
- * @lines 60
  */
 public final class JMonkeyMultiShapeRenderer implements IJMonkeyShapeRenderer<MultiShape, Node> {
 	

@@ -10,7 +10,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
  * 
  * @author Silvan Wyss
  * @date 2016-12-01
- * @lines 60
  */
 abstract class Mediator {
 	

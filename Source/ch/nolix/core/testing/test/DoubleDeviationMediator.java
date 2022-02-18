@@ -11,7 +11,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentExcep
  * 
  * @author Silvan Wyss
  * @date 2016-09-01
- * @lines 110
  */
 public final class DoubleDeviationMediator extends Mediator {
 

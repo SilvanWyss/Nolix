@@ -9,7 +9,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NonEmptyArgumentExcep
  * 
  * @author Silvan Wyss
  * @date 2020-06-11
- * @lines 40
  */
 public interface EmptinessRequestable {
 	

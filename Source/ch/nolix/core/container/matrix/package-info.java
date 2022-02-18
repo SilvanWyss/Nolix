@@ -5,6 +5,5 @@
  * 
  * @author Silvan Wyss
  * @date 2020-03-08
- * @lines 10
  */
 package ch.nolix.core.container.matrix;

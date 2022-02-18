@@ -7,7 +7,6 @@ package ch.nolix.core.programcontrol.processproperty;
  * 
  * @author Silvan Wyss
  * @date 2020-03-28
- * @lines 10
  */
 public enum Result {
 	SUCCESS,

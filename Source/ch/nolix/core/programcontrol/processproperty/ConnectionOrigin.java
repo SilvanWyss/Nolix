@@ -7,7 +7,6 @@ package ch.nolix.core.programcontrol.processproperty;
  * 
  * @author Silvan Wyss
  * @date 2020-05-01
- * @lines 10
  */
 public enum ConnectionOrigin {
 	REQUESTED_CONNECTION,

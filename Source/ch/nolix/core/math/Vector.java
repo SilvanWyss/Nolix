@@ -14,7 +14,6 @@ import ch.nolix.core.errorcontrol.validator.Validator;
  * 
  * @author Silvan Wyss
  * @date 2016-02-01
- * @lines 180
  */
 public final class Vector {
 	

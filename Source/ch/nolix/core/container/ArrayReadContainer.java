@@ -13,7 +13,6 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 /**
  * @author Silvan Wyss
  * @date 2017-11-26
- * @lines 90
  * @param <E> is the type of the elements of a {@link ArrayReadContainer}.
  */
 final class ArrayReadContainer<E> implements IContainer<E> {

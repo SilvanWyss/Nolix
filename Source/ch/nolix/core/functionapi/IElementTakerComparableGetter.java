@@ -7,7 +7,6 @@ package ch.nolix.core.functionapi;
  * 
  * @author Silvan Wyss
  * @date 2016-04-01
- * @lines 20
  * @param <E> is the type of the element a {@link IElementTakerComparableGetter} takes.
  * @param <E2> is the type of the element of the {@link Comparable}
  * a {@link IElementTakerComparableGetter} returns.

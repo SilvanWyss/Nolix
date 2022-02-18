@@ -4,6 +4,5 @@
  * 
  * @author Silvan Wyss
  * @date 2021-03-05
- * @lines 10
  */
 package ch.nolix.coretest.demotest;

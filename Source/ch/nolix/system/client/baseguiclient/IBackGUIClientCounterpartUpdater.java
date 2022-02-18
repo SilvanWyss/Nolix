@@ -5,7 +5,6 @@ package ch.nolix.system.client.baseguiclient;
 /**
  * @author Silvan Wyss
  * @date 2021-06-1
- * @lines 10
  */
 public interface IBackGUIClientCounterpartUpdater {
 	

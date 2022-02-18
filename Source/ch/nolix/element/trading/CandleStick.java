@@ -18,7 +18,6 @@ import ch.nolix.element.time.base.Time;
  * 
  * @author Silvan Wyss
  * @date 2016-09-01
- * @lines 430
  */
 public class CandleStick implements IElement<CandleStick> {
 	

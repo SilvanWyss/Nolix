@@ -7,7 +7,6 @@ import ch.nolix.core.testing.basetest.TestPool;
 /**
  * @author Silvan Wyss
  * @date 2019-05-19
- * @lines 20
  */
 public final class WidgetTestPool extends TestPool {
 	

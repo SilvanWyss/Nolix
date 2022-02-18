@@ -11,7 +11,6 @@ import ch.nolix.core.errorcontrol.validator.Validator;
  * 
  * @author Silvan Wyss
  * @date 2016-06-01
- * @lines 210
  */
 public final class QuadraticFunction {
 	

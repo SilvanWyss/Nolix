@@ -9,7 +9,6 @@ import ch.nolix.core.testing.basetest.TestAccessor;
 /**
  * @author Silvan Wyss
  * @date 2017-01-08
- * @lines 70
  */
 public abstract class Mediator {
 

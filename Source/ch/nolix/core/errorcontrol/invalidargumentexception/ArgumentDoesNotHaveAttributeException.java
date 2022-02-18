@@ -10,7 +10,6 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
  * 
  * @author Silvan Wyss
  * @date 2019-01-31
- * @lines 110
  */
 @SuppressWarnings("serial")
 public final class ArgumentDoesNotHaveAttributeException extends InvalidArgumentException {

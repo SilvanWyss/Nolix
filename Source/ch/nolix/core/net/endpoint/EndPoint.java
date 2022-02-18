@@ -21,7 +21,6 @@ import ch.nolix.core.programcontrol.sequencer.Sequencer;
  * 
  * @author Silvan Wyss
  * @date 2017-05-06
- * @lines 220
  */
 public abstract class EndPoint implements GroupCloseable {
 	

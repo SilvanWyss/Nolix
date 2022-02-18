@@ -10,7 +10,6 @@ import ch.nolix.core.testing.basetest.BaseTest;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 450
  */
 public abstract class SimpleTest extends BaseTest {
 	

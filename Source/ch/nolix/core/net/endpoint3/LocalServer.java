@@ -5,7 +5,6 @@ package ch.nolix.core.net.endpoint3;
 /**
  * @author Silvan Wyss
  * @date 2021-06-28
- * @lines 20
  */
 public final class LocalServer extends BaseServer {
 	

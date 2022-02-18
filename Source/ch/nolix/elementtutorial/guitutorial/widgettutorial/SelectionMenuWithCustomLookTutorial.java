@@ -11,7 +11,6 @@ import ch.nolix.element.gui.widget.WidgetLookState;
  * 
  * @author Silvan Wyss
  * @date 2021-05-19
- * @lines 70
  */
 public final class SelectionMenuWithCustomLookTutorial {
 	

@@ -5,6 +5,5 @@
  * 
  * @author Silvan Wyss
  * @date 2022-02-15
- * @lines 10
  */
 package ch.nolix.core.builder.argumentcapturer;

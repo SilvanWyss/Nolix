@@ -15,7 +15,6 @@ import ch.nolix.core.functionapi.IBooleanGetter;
  * 
  * @author Silvan Wyss
  * @date 2017-01-01
- * @lines 220
  */
 public final class AfterAllMediator {
 

@@ -13,7 +13,6 @@ import ch.nolix.core.errorcontrol.validator.Validator;
  * 
  * @author Silvan Wyss
  * @date 2017-05-22
- * @lines 220
  */
 public final class LocalEndPoint extends EndPoint {
 

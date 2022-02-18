@@ -8,7 +8,6 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 /**
  * @author Silvan Wyss
  * @date 2016-08-01
- * @lines 90
  */
 public final class ARModel extends StatisticalModel {
 	

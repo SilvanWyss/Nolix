@@ -11,7 +11,6 @@ import ch.nolix.core.net.endpoint3.EndPoint;
  * 
  * @author Silvan Wyss
  * @date 2017-09-10
- * @lines 90
  */
 public final class Server extends BaseServer {
 	

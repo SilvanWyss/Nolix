@@ -4,6 +4,5 @@
  * 
  * @author Silvan Wyss
  * @date 2021-03-08
- * @lines 10
  */
 package ch.nolix.core.environment;

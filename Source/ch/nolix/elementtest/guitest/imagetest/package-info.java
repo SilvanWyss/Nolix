@@ -4,6 +4,5 @@
  * 
  * @author Silvan Wyss
  * @date 2020-06-01
- * @lines 10
  */
 package ch.nolix.elementtest.guitest.imagetest;

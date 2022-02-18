@@ -5,7 +5,6 @@ package ch.nolix.element.gui.widget;
 /**
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 60
  */
 public final class VerticalLine extends Line<VerticalLine> {
 	

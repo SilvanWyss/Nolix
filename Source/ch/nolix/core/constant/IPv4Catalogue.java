@@ -7,7 +7,6 @@ package ch.nolix.core.constant;
  * 
  * @author Silvan Wyss
  * @date 2018-12-02
- * @lines 20
  */
 public final class IPv4Catalogue {
 	

@@ -12,7 +12,6 @@ import ch.nolix.template.consoleclientlook.BlackRedConsoleClientLookCreator;
  * 
  * @author Silvan Wyss
  * @date 2017-08-20
- * @lines 70
  */
 public final class ConsoleClientTutorial {
 	

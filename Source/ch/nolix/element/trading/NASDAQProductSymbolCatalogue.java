@@ -11,7 +11,6 @@ import ch.nolix.core.container.ReadContainer;
  * 
  * @author Silvan Wyss
  * @date 2017-01-01
- * @lines 50
  */
 public final class NASDAQProductSymbolCatalogue {
 	

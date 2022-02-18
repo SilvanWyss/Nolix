@@ -9,7 +9,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentExcepti
  * 
  * @author Silvan Wyss
  * @date 2020-07-01
- * @lines 40
  */
 public interface CloseStateRequestable {
 	

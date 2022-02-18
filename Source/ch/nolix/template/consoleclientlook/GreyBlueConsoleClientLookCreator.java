@@ -11,7 +11,6 @@ import ch.nolix.element.configuration.Configuration;
 /**
  * @author Silvan Wyss
  * @date 2017-09-01
- * @lines 50
  */
 public final class GreyBlueConsoleClientLookCreator {
 

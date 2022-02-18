@@ -10,7 +10,6 @@ import ch.nolix.core.programcontrol.futureapi.IFuture;
 /**
  * @author Silvan Wyss
  * @date 2017-05-23
- * @lines 90
  */
 public final class Future implements IFuture {
 	

@@ -12,7 +12,6 @@ import com.jme3.system.JmeSystem;
  * 
  * @author Silvan Wyss
  * @date 2017-11-11
- * @lines 30
  */
 public final class JMonkeyHelper {
 	

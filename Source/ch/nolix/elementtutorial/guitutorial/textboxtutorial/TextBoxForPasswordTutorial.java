@@ -10,7 +10,6 @@ import ch.nolix.element.gui.widget.TextMode;
  * 
  * @author Silvan Wyss
  * @date 2021-06-29
- * @lines 30
  */
 public final class TextBoxForPasswordTutorial {
 	

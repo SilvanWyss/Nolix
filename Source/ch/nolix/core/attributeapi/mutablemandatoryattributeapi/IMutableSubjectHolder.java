@@ -9,7 +9,6 @@ import ch.nolix.core.attributeapi.mandatoryattributeapi.ISubjectHolder;
  * 
  * @author Silvan Wyss
  * @date 2021-06-15
- * @lines 20
  * @param <MSO> is the type of a {@link IMutableSubjectHolder}.
  */
 public interface IMutableSubjectHolder<MSO extends IMutableSubjectHolder<MSO>> extends ISubjectHolder {

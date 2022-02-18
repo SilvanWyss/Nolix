@@ -11,7 +11,6 @@ import ch.nolix.core.testing.test.Test;
  * 
  * @author Silvan Wyss
  * @date 2016-09-01
- * @lines 190
  */
 public final class MatrixTest extends Test {
 	

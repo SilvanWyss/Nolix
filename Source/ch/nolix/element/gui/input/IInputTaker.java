@@ -8,7 +8,6 @@ import ch.nolix.element.elementenum.RotationDirection;
 /**
  * @author Silvan
  * @date 2019-08-01
- * @lines 330
  */
 public interface IInputTaker {
 	

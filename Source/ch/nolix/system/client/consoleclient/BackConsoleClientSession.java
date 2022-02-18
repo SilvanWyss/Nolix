@@ -14,7 +14,6 @@ import ch.nolix.template.consoleclientlook.GreyBlueConsoleClientLookCreator;
 /**
  * @author Silvan Wyss
  * @date 2017-04-02
- * @lines 200
  */
 public abstract class BackConsoleClientSession extends BaseBackGUIClientSession<BackConsoleClient> {
 	

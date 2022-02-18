@@ -10,7 +10,6 @@ import ch.nolix.element.gui.widget.CheckBox;
  * 
  * @author Silvan Wyss
  * @date 2017-03-12
- * @lines 60
  */
 public final class CheckBoxTest extends WidgetTest<CheckBox> {
 	

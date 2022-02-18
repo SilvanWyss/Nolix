@@ -5,6 +5,5 @@
  * 
  * @author Silvan Wyss
  * @date 2020-02-01
- * @lines 10
  */
 package ch.nolix.coretutorial.runningjartutorial;

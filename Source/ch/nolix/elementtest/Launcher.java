@@ -5,7 +5,6 @@ package ch.nolix.elementtest;
 /**
  * @author Silvan Wyss
  * @date 2016-02-01
- * @lines 20
  */
 public final class Launcher {
 	

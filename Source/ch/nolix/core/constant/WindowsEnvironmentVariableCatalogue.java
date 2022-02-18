@@ -10,7 +10,6 @@ package ch.nolix.core.constant;
  * 
  * @author Silvan Wyss
  * @date 2016-10-01
- * @lines 30
  */
 public final class WindowsEnvironmentVariableCatalogue {
 	

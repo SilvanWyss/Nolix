@@ -18,7 +18,6 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 /**
  * @author Silvan Wyss
  * @date 2017-11-17
- * @lines 120
  */
 final class JMonkeyMainFrameRawInputListener implements RawInputListener {
 	

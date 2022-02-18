@@ -13,7 +13,6 @@ import ch.nolix.core.functionapi.IBooleanGetter;
  * 
  * @author Silvan Wyss
  * @date 2017-06-01
- * @lines 110
  */
 public final class AsLongAsMediator {
 

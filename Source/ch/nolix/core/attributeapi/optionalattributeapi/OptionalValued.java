@@ -7,7 +7,6 @@ package ch.nolix.core.attributeapi.optionalattributeapi;
  * 
  * @author Silvan Wyss
  * @date 2020-03-29
- * @lines 100
  * @param <V> is the type of the value of a {@link OptionalValued}.
  */
 public interface OptionalValued<V> {

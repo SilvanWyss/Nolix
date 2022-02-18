@@ -11,7 +11,6 @@ import ch.nolix.core.net.endpoint3.EndPoint;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 170
  */
 public final class StandardClient extends Client<StandardClient> {
 	

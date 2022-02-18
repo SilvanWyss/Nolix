@@ -16,7 +16,6 @@ import ch.nolix.element.gui.widget.Widget;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 120
  * @param <CW> is the type of a {@link ContainerWidget}.
  * @param <BWS> is the type of the {@link BorderWidgetLook} of a {@link ContainerWidget}.
  */

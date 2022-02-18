@@ -5,7 +5,6 @@ package ch.nolix.core.programcontrol.sequencer;
 /**
  * @author Silvan Wyss
  * @date 2020-08-15
- * @lines 20
  */
 public final class ActionMediator {
 	

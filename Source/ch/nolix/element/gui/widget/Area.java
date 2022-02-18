@@ -23,7 +23,6 @@ import ch.nolix.element.gui.painterapi.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 350
  */
 public final class Area extends Widget<Area, AreaLook> {
 	

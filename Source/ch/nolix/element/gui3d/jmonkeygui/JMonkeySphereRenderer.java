@@ -15,7 +15,6 @@ import ch.nolix.element.gui3d.shape.Sphere;
  * 
  * @author Silvan Wyss
  * @date 2017-11-11
- * @lines 70
  */
 public final class JMonkeySphereRenderer
 implements IJMonkeyShapeRenderer<Sphere, Geometry> {

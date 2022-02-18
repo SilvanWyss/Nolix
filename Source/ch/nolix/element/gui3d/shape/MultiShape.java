@@ -12,7 +12,6 @@ import ch.nolix.element.gui3d.base.Shape;
 /**
  * @author Silvan Wyss
  * @date 2017-11-11
- * @lines 170
  */
 public final class MultiShape extends Shape<MultiShape> {
 

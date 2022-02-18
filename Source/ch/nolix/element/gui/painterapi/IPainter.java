@@ -10,7 +10,6 @@ import ch.nolix.element.gui.textformat.TextFormat;
 /**
  * @author Silvan Wyss
  * @date 2018-03-13
- * @lines 240
  */
 public interface IPainter {
 	

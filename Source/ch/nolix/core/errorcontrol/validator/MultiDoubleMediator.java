@@ -14,7 +14,6 @@ import ch.nolix.core.independent.independenthelper.CentralArrayHelper;
  * 
  * @author Silvan Wyss
  * @date 2017-01-01
- * @lines 150
  */
 public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
 	

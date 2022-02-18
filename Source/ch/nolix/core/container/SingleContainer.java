@@ -14,7 +14,6 @@ import ch.nolix.core.errorcontrol.validator.Validator;
  * @author Silvan Wyss
  * @date 2020-01-11
  * @param <E> is the type of the element of a {@link SingleContainer}.
- * @lines 110
  */
 public final class SingleContainer<E> implements IContainer<E> {
 	

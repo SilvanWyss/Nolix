@@ -10,7 +10,6 @@ import ch.nolix.element.gui.textbox.TextBox;
  * 
  * @author Silvan Wyss
  * @date 2016-09-01
- * @lines 60
  */
 public class TextBoxTest extends BorderWidgetTest<TextBox> {
 	

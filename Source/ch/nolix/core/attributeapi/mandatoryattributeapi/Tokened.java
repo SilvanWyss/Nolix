@@ -7,7 +7,6 @@ package ch.nolix.core.attributeapi.mandatoryattributeapi;
  * 
  * @author Silvan Wyss
  * @date 2017-01-01
- * @lines 50
  */
 public interface Tokened {
 	

@@ -9,7 +9,6 @@ import ch.nolix.element.gui.widget.DropdownMenu;
  * 
  * @author Silvan Wyss
  * @date 2019-05-24
- * @lines 50
  */
 public final class DropdownMenuTutorial {
 	

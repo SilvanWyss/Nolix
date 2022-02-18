@@ -7,7 +7,6 @@ package ch.nolix.core.attributeapi.mandatoryattributeapi;
  * 
  * @author Silvan Wyss
  * @date 2018-04-07
- * @lines 50
  */
 public interface Headered {
 	

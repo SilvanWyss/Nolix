@@ -15,7 +15,6 @@ import ch.nolix.core.functionapi.IElementTakerBooleanGetter;
 /**
  * @author Silvan Wyss
  * @date 2017-07-14
- * @lines 200
  */
 public final class SubNode extends BaseNode {
 	

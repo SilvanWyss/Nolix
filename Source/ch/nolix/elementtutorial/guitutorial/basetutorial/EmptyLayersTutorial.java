@@ -12,7 +12,6 @@ import ch.nolix.element.gui.image.MutableImage;
  * 
  * @author Silvan Wyss
  * @date 2021-06-21
- * @lines 50
  */
 public final class EmptyLayersTutorial {
 	

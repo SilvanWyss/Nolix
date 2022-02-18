@@ -7,7 +7,6 @@ import ch.nolix.core.document.chainednode.ChainedNode;
 /**
  * @author Silvan Wyss
  * @date 2017-01-01
- * @lines 30
  */
 public interface IController {
 	

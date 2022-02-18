@@ -11,7 +11,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
  * 
  * @author Silvan Wyss
  * @date 2017-07-10
- * @lines 170
  */
 public final class FolderAccessor extends FileSystemItemAccessor {
 	

@@ -7,7 +7,6 @@ package ch.nolix.core.constant;
  * 
  * @author Silvan Wyss
  * @date 2018-03-24
- * @lines 220
  */
 public final class PluralLowerCaseCatalogue {
 	

@@ -9,7 +9,6 @@ import ch.nolix.core.attributeapi.mandatoryattributeapi.Indexed;
  * 
  * @author Silvan Wyss
  * @date 2020-03-29
- * @lines 20
  * @param <I> is the type of a {@link Indexable}.
  */
 public interface Indexable<I> extends Indexed {

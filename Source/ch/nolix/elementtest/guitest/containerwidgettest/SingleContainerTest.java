@@ -12,7 +12,6 @@ import ch.nolix.element.gui.widget.Widget;
  * 
  * @author Silvan Wyss
  * @date 2019-01-01
- * @lines 60
  */
 public class SingleContainerTest extends ContainerWidgetTest<SingleContainer> {
 	

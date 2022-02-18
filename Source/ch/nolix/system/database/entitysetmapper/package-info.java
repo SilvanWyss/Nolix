@@ -5,6 +5,5 @@
  * 
  * @author Silvan Wyss
  * @date 2021-02-27
- * @lines 10
  */
 package ch.nolix.system.database.entitysetmapper;

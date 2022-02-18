@@ -17,7 +17,6 @@ import ch.nolix.element.gui3d.shape.BaseCube;
  * 
  * @author Silvan Wyss
  * @date 2017-11-11
- * @lines 80
  */
 public final class JMonkeyBaseCubeRenderer implements IJMonkeyShapeRenderer<BaseCube, Geometry> {
 	

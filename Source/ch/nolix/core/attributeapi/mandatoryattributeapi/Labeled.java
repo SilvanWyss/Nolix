@@ -7,7 +7,6 @@ package ch.nolix.core.attributeapi.mandatoryattributeapi;
  * 
  * @author Silvan Wyss
  * @date 2021-08-26
- * @lines 30
  */
 public interface Labeled {
 	

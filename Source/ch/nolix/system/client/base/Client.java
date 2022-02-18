@@ -28,7 +28,6 @@ import ch.nolix.core.programcontrol.sequencer.Sequencer;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 660
  * @param <C> is the type of a {@link Client}.
  */
 public abstract class Client<C extends Client<C>>

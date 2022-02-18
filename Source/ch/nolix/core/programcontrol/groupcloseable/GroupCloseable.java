@@ -10,7 +10,6 @@ import ch.nolix.core.requestapi.CloseStateRequestable;
 /**
  * @author Silvan Wyss
  * @date 2020-07-05
- * @lines 70
  */
 public interface GroupCloseable extends AutoCloseable, CloseStateRequestable {
 	

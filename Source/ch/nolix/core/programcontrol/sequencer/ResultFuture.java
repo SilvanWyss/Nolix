@@ -10,7 +10,6 @@ import ch.nolix.core.programcontrol.futureapi.IResultFuture;
 /**
  * @author Silvan Wyss
  * @date 2017-09-29
- * @lines 100
  * @param <R> is the type of the result of a {@link ResultFuture}.
  */
 public final class ResultFuture<R> implements IResultFuture<R> {

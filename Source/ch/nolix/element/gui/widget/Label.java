@@ -13,7 +13,6 @@ import ch.nolix.element.gui.painterapi.IPainter;
 /**
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 170
  */
 public final class Label extends TextLineWidget<Label, LabelLook> {
 	

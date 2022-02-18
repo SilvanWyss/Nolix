@@ -15,7 +15,6 @@ import ch.nolix.core.testing.test.Test;
  * 
  * @author Silvan Wyss
  * @date 2017-05-21
- * @lines 100
  */
 public final class NetEndPointTest extends Test {
 	

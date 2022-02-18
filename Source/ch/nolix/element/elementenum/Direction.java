@@ -15,7 +15,6 @@ import ch.nolix.element.elementapi.IElement;
  * 
  * @author Silvan Wyss
  * @date 2017-09-16
- * @lines 30
  */
 public enum Direction implements IElement<Direction> {
 	LEFT_TO_RIGHT,

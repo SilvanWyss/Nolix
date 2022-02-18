@@ -12,7 +12,6 @@ import ch.nolix.core.requestapi.ApproximativeEqualing;
  * 
  * @author Silvan Wyss
  * @date 2017-01-01
- * @lines 60
  */
 public final class ApproximativeEqualingMediator extends ValueMediator<ApproximativeEqualing> {
 	

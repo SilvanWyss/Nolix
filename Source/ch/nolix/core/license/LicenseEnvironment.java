@@ -10,7 +10,6 @@ import ch.nolix.core.environment.nolixenvironment.NolixEnvironment;
  * 
  * @author Silvan Wyss
  * @date 2019-11-16
- * @lines 30
  */
 public final class LicenseEnvironment {
 	

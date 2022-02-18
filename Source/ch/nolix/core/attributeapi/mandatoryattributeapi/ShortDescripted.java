@@ -20,7 +20,6 @@ package ch.nolix.core.attributeapi.mandatoryattributeapi;
  * 
  * @author Silvan Wyss
  * @date 2018-12-01
- * @lines 40
  */
 public interface ShortDescripted {
 	

@@ -14,7 +14,6 @@ import ch.nolix.core.skillapi.Runnable;
  * 
  * @author Silvan Wyss
  * @date 2016-02-01
- * @lines 220
  */
 public abstract class TestPool implements Runnable {
 	

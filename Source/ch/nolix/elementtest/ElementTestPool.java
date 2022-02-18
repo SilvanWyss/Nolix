@@ -16,7 +16,6 @@ import ch.nolix.elementtest.tradingtest.TradingTestPool;
 /**
  * @author Silvan Wyss
  * @date 2016-09-01
- * @lines 40
  */
 public final class ElementTestPool extends TestPool {
 	

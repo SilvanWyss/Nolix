@@ -5,6 +5,5 @@
  * 
  * @author Silvan Wyss
  * @date 2021-09-16
- * @lines 10
  */
 package ch.nolix.systemtest.objectschematest;

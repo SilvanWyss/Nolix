@@ -4,6 +4,5 @@
  * 
  * @author Silvan Wyss
  * @date 2019-07-22
- * @lines 10
  */
 package ch.nolix.businessapi.projectapi;

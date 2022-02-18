@@ -11,7 +11,6 @@ import ch.nolix.element.gui.color.Color;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 220
  */
 public final class ColorTest extends Test {
 	

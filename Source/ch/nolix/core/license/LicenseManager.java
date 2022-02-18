@@ -21,7 +21,6 @@ import ch.nolix.core.errorcontrol.validator.Validator;
  * 
  * @author Silvan Wyss
  * @date 2019-11-16
- * @lines 190
  */
 public final class LicenseManager {
 	

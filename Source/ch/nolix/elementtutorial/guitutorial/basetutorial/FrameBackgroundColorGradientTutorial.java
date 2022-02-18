@@ -10,7 +10,6 @@ import ch.nolix.element.gui.color.ColorGradient;
  * 
  * @author Silvan Wyss
  * @date 2021-05-27
- * @lines 30
  */
 public final class FrameBackgroundColorGradientTutorial {
 	

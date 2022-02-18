@@ -7,7 +7,6 @@ import ch.nolix.core.errorcontrol.validator.Validator;
  * 
  * @author Silvan Wyss
  * @date 2016-12-01
- * @lines 30
  */
 public final class IntegerValidationTutorial1 {
 	

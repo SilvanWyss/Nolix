@@ -11,7 +11,6 @@ import ch.nolix.element.gui.widget.CaptionPosition;
  * 
  * @author Silvan Wyss
  * @date 2019-01-01
- * @lines 70
  */
 public final class CaptionPositionTest extends Test {
 	

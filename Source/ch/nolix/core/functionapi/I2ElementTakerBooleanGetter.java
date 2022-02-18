@@ -8,7 +8,6 @@ package ch.nolix.core.functionapi;
  * 
  * @author Silvan Wyss
  * @date 2017-09-28
- * @lines 20
  * @param <E> is the type of the elements a {@link I2ElementTakerBooleanGetter} getter takes.
  */
 @FunctionalInterface

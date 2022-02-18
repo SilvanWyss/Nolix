@@ -9,7 +9,6 @@ import ch.nolix.core.attributeapi.mandatoryattributeapi.Valued;
  * 
  * @author Silvan Wyss
  * @date 2018-09-06
- * @lines 20
  * @param <VA> is the type of a {@link Valueable}.
  * @param <V> is the type of the value of a {@link Valueable}.
  */

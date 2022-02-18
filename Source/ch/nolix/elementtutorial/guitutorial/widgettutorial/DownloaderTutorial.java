@@ -11,7 +11,6 @@ import ch.nolix.element.gui.widget.Downloader;
  * 
  * @author Silvan Wyss
  * @date 2018-07-07
- * @lines 40
  */
 public final class DownloaderTutorial {
 	

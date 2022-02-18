@@ -7,7 +7,6 @@ package ch.nolix.core.constant;
  * 
  * @author Silvan Wyss
  * @date 2018-12-16
- * @lines 50
  */
 public final class FileExtensionCatalogue {
 	

@@ -17,7 +17,6 @@ import ch.nolix.element.time.base.Time;
  * 
  * @author Silvan Wyss
  * @date 2017-08-26
- * @lines 70
  */
 public final class QuandlDataProvider {
 	

@@ -18,7 +18,6 @@ import ch.nolix.system.client.base.Server;
  * 
  * @author Silvan Wyss
  * @date 2017-05-22
- * @lines 350
  */
 public class NetEndPoint extends EndPoint {
 	

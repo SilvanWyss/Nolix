@@ -7,7 +7,6 @@ package ch.nolix.core.generalskillapi;
  * 
  * @author Silvan Wyss
  * @date 2017-11-01
- * @lines 20
  * @param <FO> is the type of a {@link IFluentObject}.
  */
 public interface IFluentObject<FO extends IFluentObject<FO>> {

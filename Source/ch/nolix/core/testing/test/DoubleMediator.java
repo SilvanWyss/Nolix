@@ -13,7 +13,6 @@ import ch.nolix.core.functionapi.IElementTakerBooleanGetter;
  * 
  * @author Silvan Wyss
  * @date 2016-09-01
- * @lines 260
  */
 public final class DoubleMediator extends Mediator {
 

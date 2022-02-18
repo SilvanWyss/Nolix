@@ -17,7 +17,6 @@ import ch.nolix.element.elementapi.IConfigurableElement;
  * 
  * @author Silvan Wyss
  * @date 2016-02-01-01
- * @lines 140
  * @param <CE> is the type of a {@link ConfigurableElement}.
  */
 public abstract class ConfigurableElement<CE extends ConfigurableElement<CE>> extends MutableElement<CE>

@@ -11,7 +11,6 @@ import ch.nolix.core.errorcontrol.validator.Validator;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 90
  * @param <E1> is the type of the element 1 of a {@link Pair}.
  * @param <E2> is the type of the element 2 of a {@link Pair}.
  */

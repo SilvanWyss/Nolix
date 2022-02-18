@@ -49,7 +49,6 @@ import ch.nolix.element.gui.painterapi.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 2080
  * @param <W> is the type of a {@link Widget}.
  * @param <WL> is the type of the {@link WidgetLook} of a {@link Widget}.
  */

@@ -7,7 +7,6 @@ package ch.nolix.core.requestapi;
  * 
  * @author Silvan Wyss
  * @date 2016-08-01
- * @lines 30
  */
 public interface ApproximativeEqualing {
 	

@@ -9,7 +9,6 @@ import ch.nolix.core.attributeapi.optionalattributeapi.OptionalTokened;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 30
  * @param <OT> is the type of a {@link OptionalTokenable}.
  */
 public interface OptionalTokenable<OT extends OptionalTokenable<OT>> extends OptionalTokened {

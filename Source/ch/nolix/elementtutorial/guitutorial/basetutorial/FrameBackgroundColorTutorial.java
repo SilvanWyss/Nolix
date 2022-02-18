@@ -9,7 +9,6 @@ import ch.nolix.element.gui.color.Color;
  * 
  * @author Silvan Wyss
  * @date 2021-05-24
- * @lines 30
  */
 public final class FrameBackgroundColorTutorial {
 	

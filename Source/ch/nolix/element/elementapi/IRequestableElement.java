@@ -10,7 +10,6 @@ import ch.nolix.core.document.node.BaseNode;
  * 
  * @author Silvan Wyss
  * @date 2019-08-01
- * @lines 30
  */
 public interface IRequestableElement extends IElement<IRequestableElement> {
 	

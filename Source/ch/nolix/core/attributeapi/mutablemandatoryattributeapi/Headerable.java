@@ -9,7 +9,6 @@ import ch.nolix.core.attributeapi.mandatoryattributeapi.Headered;
  * 
  * @author Silvan Wyss
  * @date 2018-04-15
- * @lines 20
  * @param <H> is the type of a {@link Headerable}.
  */
 public interface Headerable<H extends Headered> extends Headered {

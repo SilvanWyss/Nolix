@@ -9,7 +9,6 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
  * 
  * @author Silvan Wyss
  * @date 2021-07-03
- * @lines 30
  */
 @SuppressWarnings("serial")
 public final class NonNewArgumentException extends InvalidArgumentException {

@@ -5,6 +5,5 @@
  * 
  * @author Silvan Wyss
  * @date 2020-08-06
- * @lines 10
  */
 package ch.nolix.core.demo;

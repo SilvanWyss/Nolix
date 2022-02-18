@@ -24,7 +24,6 @@ import ch.nolix.element.gui.widget.WidgetLookState;
 /**
  * @author Silvan Wyss
  * @date 2016-05-01
- * @lines 500
  */
 public final class TabContainer extends ContainerWidget<TabContainer, TabContainerLook> {
 	

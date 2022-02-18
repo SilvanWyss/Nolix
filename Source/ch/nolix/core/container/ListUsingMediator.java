@@ -9,7 +9,6 @@ import ch.nolix.core.functionapi.IElementTakerElementGetter;
 /**
  * @author Silvan Wyss
  * @date 2017-06-18
- * @lines 120
  * @param <E> is the type of the elements of the elements of the {@link LinkedList} of the {@link ListUsingMediator}.
  */
 public final class ListUsingMediator<E> {

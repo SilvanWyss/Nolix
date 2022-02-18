@@ -5,6 +5,5 @@
  * 
  * @author Silvan Wyss
  * @date 2021-05-27
- * @lines 10
  */
 package ch.nolix.elementtutorial.guitutorial.basetutorial.resource;

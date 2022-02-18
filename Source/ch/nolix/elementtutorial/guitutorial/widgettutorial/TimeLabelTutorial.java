@@ -14,7 +14,6 @@ import ch.nolix.element.time.base.Time;
  *
  * @author Silvan Wyss
  * @date 2017-09-09
- * @lines 90
  */
 public final class TimeLabelTutorial {
 	

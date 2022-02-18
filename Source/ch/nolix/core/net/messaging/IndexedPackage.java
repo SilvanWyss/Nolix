@@ -12,7 +12,6 @@ import ch.nolix.core.errorcontrol.validator.Validator;
  * 
  * @author Silvan Wyss
  * @date 2016-06-01
- * @lines 60
  * @param <C> is the type of the content of a {@link IndexedPackage}.
  */
 public class IndexedPackage<C> implements Indexed {

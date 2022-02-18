@@ -14,7 +14,6 @@ import ch.nolix.core.container.IContainer;
  * 
  * @author Silvan Wyss
  * @date 2018-08-25
- * @lines 60
  */
 public interface IResource extends Named {
 	

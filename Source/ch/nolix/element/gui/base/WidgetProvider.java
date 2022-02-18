@@ -17,7 +17,6 @@ import ch.nolix.element.gui.widget.Widget;
 /**
  * @author Silvan Wyss
  * @date 2018-03-31
- * @lines 170
  */
 final class WidgetProvider {
 

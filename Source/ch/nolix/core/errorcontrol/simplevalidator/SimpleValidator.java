@@ -17,7 +17,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentExcept
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 350
  */
 public final class SimpleValidator {
 	

@@ -12,7 +12,6 @@ import ch.nolix.element.gui.widget.WidgetLookState;
  * 
  * @author Silvan Wyss
  * @date 2020-12-14
- * @lines 40
  */
 public final class InnerGUITutorial {
 	

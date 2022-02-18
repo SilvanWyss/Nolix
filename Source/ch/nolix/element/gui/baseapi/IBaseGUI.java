@@ -14,7 +14,6 @@ import ch.nolix.element.gui.input.IResizableInputTaker;
 /**
  * @author Silvan Wyss
  * @date 2019-08-01
- * @lines 100
  * @param <G> is the type of a {@link IBaseGUI}.
  */
 public interface IBaseGUI<G extends IBaseGUI<G>>

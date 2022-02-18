@@ -16,7 +16,6 @@ import ch.nolix.core.functionapi.IElementTakerBooleanGetter;
  * 
  * @author Silvan Wyss
  * @date 2017-01-01
- * @lines 160
  * @param <A> is the type of the argument of an {@link ArgumentMediator}.
  */
 public class ArgumentMediator<A> extends Mediator {

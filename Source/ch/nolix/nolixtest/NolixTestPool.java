@@ -14,7 +14,6 @@ import ch.nolix.templatetest.TemplatesTestPool;
  * 
  * @author Silvan Wyss
  * @date 2017-11-17
- * @lines 30
  */
 public final class NolixTestPool extends TestPool {
 	

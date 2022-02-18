@@ -9,7 +9,6 @@ import ch.nolix.element.trading.QuandlDataProvider;
  * 
  * @author Silvan Wyss
  * @date 2017-02-06
- * @lines 30
  */
 public final class DataProviderTutorial {
 	

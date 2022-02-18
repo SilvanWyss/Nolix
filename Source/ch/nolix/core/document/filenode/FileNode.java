@@ -19,7 +19,6 @@ import ch.nolix.core.functionapi.IElementTakerBooleanGetter;
  * 
  * @author Silvan Wyss
  * @date 2017-07-14
- * @lines 210
  */
 public final class FileNode extends BaseNode {
 

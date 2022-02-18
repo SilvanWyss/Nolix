@@ -23,7 +23,6 @@ import ch.nolix.element.gui.widget.TextMode;
 /**
  * @author Silvan Wyss
  * @date 2017-01-01
- * @lines 430
  */
 final class TextBoxInputField extends TextLineWidget<TextBoxInputField, TextBoxLook> {
 	

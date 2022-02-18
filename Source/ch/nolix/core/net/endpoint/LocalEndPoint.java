@@ -13,7 +13,6 @@ import ch.nolix.core.programcontrol.processproperty.ConnectionOrigin;
  * 
  * @author Silvan Wyss
  * @date 2017-05-06
- * @lines 170
  */
 public final class LocalEndPoint extends EndPoint {
 	

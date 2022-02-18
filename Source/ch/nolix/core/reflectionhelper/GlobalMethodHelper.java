@@ -12,7 +12,6 @@ import java.lang.reflect.Method;
  * 
  * @author Silvan Wyss
  * @date 2016-03-01
- * @lines 50
  */
 public final class GlobalMethodHelper {
 	

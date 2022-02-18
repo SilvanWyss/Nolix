@@ -7,7 +7,6 @@ package ch.nolix.core.functionapi;
  * 
  * @author Silvan Wyss
  * @date 2017-12-08
- * @lines 20
  */
 @FunctionalInterface
 public interface ILongTakerLongGetter {

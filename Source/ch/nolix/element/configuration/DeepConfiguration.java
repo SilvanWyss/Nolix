@@ -13,7 +13,6 @@ import ch.nolix.element.elementapi.IConfigurableElement;
 /**
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 140
  */
 public final class DeepConfiguration extends BaseConfiguration<DeepConfiguration> {
 	

@@ -7,7 +7,6 @@ package ch.nolix.core.attributeapi.mandatoryattributeapi;
  * 
  * @author Silvan Wyss
  * @date 2018-09-09
- * @lines 50
  * @param <VA> is the type of a {@link Valued}.
  * @param <V> is the type of the value of a {@link Valued}.
  */

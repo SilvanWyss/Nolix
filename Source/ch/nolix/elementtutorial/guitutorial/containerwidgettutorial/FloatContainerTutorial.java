@@ -13,7 +13,6 @@ import ch.nolix.element.gui.widget.WidgetLookState;
  * 
  * @author Silvan Wyss
  * @date 2018-06-01
- * @lines 70
  */
 public final class FloatContainerTutorial {
 	

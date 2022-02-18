@@ -14,7 +14,6 @@ import ch.nolix.core.functionapi.IElementTakerBooleanGetter;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 150
  * @param <E> is the type of the element of a {@link LinkedListNode}.
  */
 final class LinkedListNode<E> {

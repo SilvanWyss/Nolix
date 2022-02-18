@@ -16,7 +16,6 @@ import ch.nolix.element.elementapi.IMutableElement;
 /**
  * @author Silvan Wyss
  * @date 2017-10-29
- * @lines 220
  * @param <ME> is the type of a {@link MutableElement}.
  */
 public abstract class MutableElement<ME extends MutableElement<ME>> implements IMutableElement<ME> {

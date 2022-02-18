@@ -8,7 +8,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumen
 /**
  * @author Silvan Wyss
  * @date 2016-10-01
- * @lines 70
  */
 public enum MessageRole {
 	TARGET_APPLICATION_MESSAGE,

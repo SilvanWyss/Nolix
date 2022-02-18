@@ -5,6 +5,5 @@
  * 
  * @author Silvan Wyss
  * @date 2018-11-25
- * @lines 10
  */
 package ch.nolix.core.generalskillapi;

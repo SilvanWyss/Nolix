@@ -7,7 +7,6 @@ import ch.nolix.core.testing.basetest.TestPool;
 /**
  * @author Silvan Wyss
  * @date 2017-03-01
- * @lines 20
  */
 public final class NodeTestPool extends TestPool {
 	

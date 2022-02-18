@@ -18,7 +18,6 @@ import ch.nolix.core.programcontrol.sequencer.Sequencer;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 210
  */
 public abstract class BaseNetEndPoint extends EndPoint {
 	

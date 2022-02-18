@@ -7,7 +7,6 @@ import ch.nolix.core.testing.basetest.TestPool;
 /**
  * @author Silvan Wyss
  * @date 2017-11-18
- * @lines 20
  */
 public final class SequencerTestPool extends TestPool {
 

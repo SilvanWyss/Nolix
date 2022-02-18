@@ -11,7 +11,6 @@ import ch.nolix.element.gui.widget.Area;
  * 
  * @author Silvan Wyss
  * @date 2016-07-01
- * @lines 80
  */
 public final class AreaTest extends WidgetTest<Area> {
 	

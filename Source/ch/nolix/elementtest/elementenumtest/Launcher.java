@@ -7,7 +7,6 @@ package ch.nolix.elementtest.elementenumtest;
  * 
  * @author Silvan Wyss
  * @date 2017-09-16
- * @lines 20
  */
 public final class Launcher {
 

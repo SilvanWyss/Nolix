@@ -10,7 +10,6 @@ import ch.nolix.core.errorcontrol.validator.Validator;
  * 
  * @author Silvan Wyss
  * @date 2016-10-01
- * @lines 70
  */
 final class Package extends ch.nolix.core.net.messaging.IndexedPackage<String> {
 	

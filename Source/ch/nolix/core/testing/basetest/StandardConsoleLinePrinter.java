@@ -11,7 +11,6 @@ package ch.nolix.core.testing.basetest;
  * 
  * @date 2020-03-14
  * @author Silvan Wyss
- * @lines 40
  */
 public final class StandardConsoleLinePrinter implements ILinePrinter {
 	

@@ -7,7 +7,6 @@ package ch.nolix.element.gui.base;
  * 
  * @author Silvan Wyss
  * @date 2016-07-01
- * @lines 40
  */
 public final class ValueCatalogue {
 	

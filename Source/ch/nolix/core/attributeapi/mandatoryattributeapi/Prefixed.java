@@ -7,7 +7,6 @@ package ch.nolix.core.attributeapi.mandatoryattributeapi;
  * 
  * @author Silvan Wyss
  * @date 2021-03-26
- * @lines 20
  */
 public interface Prefixed {
 	

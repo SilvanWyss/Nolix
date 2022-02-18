@@ -9,7 +9,6 @@ import ch.nolix.core.constant.StringCatalogue;
  * 
  * @author Silvan Wyss
  * @date 2020-03-28
- * @lines 90
  */
 public interface OptionalHeadered {
 	

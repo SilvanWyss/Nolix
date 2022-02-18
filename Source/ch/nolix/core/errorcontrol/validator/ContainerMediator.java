@@ -20,7 +20,6 @@ import ch.nolix.core.independent.independentcontainer.ArrayReadContainer;
  * 
  * @author Silvan Wyss
  * @date 2017-08-15
- * @lines 230
  * @param <E> is the type of the elements of the argument of a container mediator.
  */
 public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {

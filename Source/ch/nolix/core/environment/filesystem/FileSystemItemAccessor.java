@@ -14,7 +14,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
  * 
  * @author Silvan Wyss
  * @date 2017-07-10
- * @lines 130
  */
 public class FileSystemItemAccessor {
 

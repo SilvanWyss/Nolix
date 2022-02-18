@@ -13,7 +13,6 @@ import ch.nolix.core.constant.CharacterCatalogue;
  * 
  * @author Silvan Wyss
  * @date 2017-08-15
- * @lines 130
  */
 public final class PopupWindowProvider {
 	

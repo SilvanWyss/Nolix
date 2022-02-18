@@ -8,7 +8,6 @@ import ch.nolix.element.elementapi.IElement;
 /**
  * @author Silvan Wyss
  * @date 2021-06-06
- * @lines 50
  * @param <E> is the type of a {@link Element}.
  */
 public abstract class Element<E extends Element<E>> implements IElement<E> {

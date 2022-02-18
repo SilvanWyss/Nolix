@@ -15,7 +15,6 @@ import ch.nolix.template.texturecreator.JuteTextureCreator;
  * 
  * @author Silvan Wyss
  * @date 2018-08-25
- * @lines 60
  */
 public final class TextureCreatorsTutorial {
 	

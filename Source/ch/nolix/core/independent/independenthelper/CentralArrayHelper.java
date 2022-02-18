@@ -10,7 +10,6 @@ import ch.nolix.core.independent.independentcontainer.List;
  * 
  * @author Silvan Wyss
  * @date 2017-08-14
- * @lines 250
  */
 public final class CentralArrayHelper {
 	

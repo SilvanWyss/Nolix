@@ -13,7 +13,6 @@ import ch.nolix.element.gui.input.Key;
 /**
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 60
  */
 final class FrameVisualizerKeyListener implements KeyListener {
 	

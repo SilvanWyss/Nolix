@@ -54,7 +54,6 @@ import ch.nolix.element.gui.widget.Widget;
  * 
  * @author Silvan Wyss
  * @date 2019-08-01
- * @lines 810
  * @param <WG> is the type of a {@link WidgetGUI}.
  */
 public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implements IWidgetGUI<WG> {

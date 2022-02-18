@@ -15,7 +15,6 @@ import ch.nolix.element.elementapi.IElement;
  * 
  * @author Silvan Wyss
  * @date 2017-08-19
- * @lines 70
  */
 public enum Font implements IElement<Font> {
 	ARIAL,

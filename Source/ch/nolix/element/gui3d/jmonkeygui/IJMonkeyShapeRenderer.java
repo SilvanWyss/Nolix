@@ -12,7 +12,6 @@ import ch.nolix.element.gui3d.base.Shape;
 /**
  * @author Silvan Wyss
  * @date 2017-11-11
- * @lines 20
  * @param <S> is the type of the shape of a JMonkey shape renderer.
  * @param <RO> is the type of the render object of a JMonkey shape renderer.
  */

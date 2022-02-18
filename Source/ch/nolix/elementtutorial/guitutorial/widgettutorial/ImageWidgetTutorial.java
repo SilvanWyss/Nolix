@@ -10,7 +10,6 @@ import ch.nolix.element.gui.widget.ImageWidget;
  * 
  * @author Silvan Wyss
  * @date 2018-08-23
- * @lines 40
  */
 public final class ImageWidgetTutorial {
 	

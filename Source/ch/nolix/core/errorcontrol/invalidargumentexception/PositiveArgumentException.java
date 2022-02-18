@@ -10,7 +10,6 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
  * 
  * @author Silvan Wyss
  * @date 2017-01-01
- * @lines 80
  */
 @SuppressWarnings("serial")
 public final class PositiveArgumentException extends InvalidArgumentException {

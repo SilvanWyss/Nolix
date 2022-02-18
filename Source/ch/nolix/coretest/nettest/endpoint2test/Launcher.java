@@ -7,7 +7,6 @@ package ch.nolix.coretest.nettest.endpoint2test;
  * 
  * @author Silvan Wyss
  * @date 2017-02-01
- * @lines 20
  */
 public final class Launcher {
 	

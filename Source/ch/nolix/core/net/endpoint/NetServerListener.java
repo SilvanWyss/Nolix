@@ -15,7 +15,6 @@ import ch.nolix.core.programcontrol.worker.Worker;
  *  
  * @author Silvan Wyss
  * @date 2017-05-06
- * @lines 70
  */
 final class NetServerListener extends Worker {
 	

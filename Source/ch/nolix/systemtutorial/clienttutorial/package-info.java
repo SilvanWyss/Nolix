@@ -5,6 +5,5 @@
  * 
  * @author Silvan Wyss
  * @date 2021-02-23
- * @lines 10
  */
 package ch.nolix.systemtutorial.clienttutorial;

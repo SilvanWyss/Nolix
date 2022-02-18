@@ -10,7 +10,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
  * 
  * @author Silvan Wyss
  * @date 2019-04-14
- * @lines 110
  */
 public interface IFuture {
 	

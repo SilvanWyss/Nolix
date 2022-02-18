@@ -13,7 +13,6 @@ import java.util.Locale;
  * 
  * @author Silvan Wyss
  * @date 2016-08-01
- * @lines 40
  */
 public final class GlobalDoubleHelper {
 

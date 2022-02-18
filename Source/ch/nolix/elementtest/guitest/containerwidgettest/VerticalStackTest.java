@@ -14,7 +14,6 @@ import ch.nolix.element.gui.widget.Widget;
  * 
  * @author Silvan Wyss
  * @date 2016-07-01
- * @lines 60
  */
 public final class VerticalStackTest extends ContainerWidgetTest<VerticalStack> {
 	

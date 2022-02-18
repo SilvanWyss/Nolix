@@ -8,7 +8,6 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
  * 
  * @author Silvan Wyss
  * @date 2019-02-01
- * @lines 50
  */
 @SuppressWarnings("serial")
 public final class ArgumentCannotRemoveAttributeException extends InvalidArgumentException {

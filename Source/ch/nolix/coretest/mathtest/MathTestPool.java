@@ -7,7 +7,6 @@ import ch.nolix.core.testing.basetest.TestPool;
 /**
  * @author Silvan Wyss
  * @date 2016-09-01
- * @lines 20
  */
 public final class MathTestPool extends TestPool {
 	

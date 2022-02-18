@@ -9,7 +9,6 @@ import ch.nolix.element.gui.widget.Console;
  * 
  * @author Silvan Wyss
  * @date 2018-06-29
- * @lines 30
  */
 public final class ConsoleTutorial {
 	

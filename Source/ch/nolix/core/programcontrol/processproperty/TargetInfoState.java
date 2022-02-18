@@ -8,7 +8,6 @@ package ch.nolix.core.programcontrol.processproperty;
  * 
  * @author Silvan Wyss
  * @date 2020-05-03
- * @lines 10
  */
 public enum TargetInfoState {
 	RECEIVED_TARGET_INFO,

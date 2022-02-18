@@ -15,7 +15,6 @@ import ch.nolix.core.errorcontrol.validator.Validator;
  * 
  * @author Silvan Wyss
  * @date 2017-11-26
- * @lines 80
  * @param <E> is the type of the elements of the {@link ArrayReadContainer}
  * a {@link ArrayReadContainerIterator} belongs to.
  */

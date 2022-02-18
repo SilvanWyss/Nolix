@@ -8,7 +8,6 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
  * 
  * @author Silvan Wyss
  * @date 2019-05-05
- * @lines 30
  */
 @SuppressWarnings("serial")
 public final class FrozenArgumentException extends InvalidArgumentException {

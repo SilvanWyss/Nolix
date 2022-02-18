@@ -12,7 +12,6 @@ import ch.nolix.core.functionapi.IIntTaker;
  * 
  * @author Silvan Wyss
  * @date 2016-06-01
- * @lines 70
  */
 public final class ForCountMediator {
 

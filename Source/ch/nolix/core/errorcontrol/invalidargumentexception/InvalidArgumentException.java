@@ -20,7 +20,6 @@ import ch.nolix.core.constant.CharacterCatalogue;
  * 
  * @author Silvan Wyss
  * @date 2016-12-01
- * @lines 200
  */
 @SuppressWarnings("serial")
 public class InvalidArgumentException extends RuntimeException {

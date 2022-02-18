@@ -89,7 +89,6 @@ import ch.nolix.core.document.node.BaseNode;
  * 
  * @author Silvan Wyss
  * @date 2019-11-23
- * @lines 120
  */
 public interface IDatabaseAdapter  {
 	

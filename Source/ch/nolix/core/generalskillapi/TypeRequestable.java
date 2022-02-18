@@ -9,7 +9,6 @@ import ch.nolix.core.language.EnglishNounHelper;
  * 
  * @author Silvan Wyss
  * @date 2018-11-25
- * @lines 80
  */
 public interface TypeRequestable {
 	

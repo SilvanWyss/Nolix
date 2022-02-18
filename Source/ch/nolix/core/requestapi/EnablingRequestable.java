@@ -7,7 +7,6 @@ package ch.nolix.core.requestapi;
  * 
  * @author Silvan Wyss
  * @date 2020-10-02
- * @lines 20
  */
 public interface EnablingRequestable {
 	

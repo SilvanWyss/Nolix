@@ -8,7 +8,6 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
  * 
  * @author Silvan Wyss
  * @date 2017-01-08
- * @lines 40
  */
 @SuppressWarnings("serial")
 public class ArgumentIsNotNullException extends InvalidArgumentException {

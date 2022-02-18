@@ -13,7 +13,6 @@ import ch.nolix.element.elementapi.IElement;
  * 
  * @author Silvan Wyss
  * @date 2019-05-19
- * @lines 70
  */
 public final class Discrete2DPoint implements IElement<Discrete2DPoint> {
 	

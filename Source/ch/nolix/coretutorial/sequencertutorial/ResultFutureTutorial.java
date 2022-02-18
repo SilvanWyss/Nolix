@@ -10,7 +10,6 @@ import ch.nolix.core.programcontrol.sequencer.Sequencer;
  * 
  * @author Silvan Wyss
  * @date 2017-10-05
- * @lines 40
  */
 public final class ResultFutureTutorial {
 	

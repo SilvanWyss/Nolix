@@ -9,7 +9,6 @@ import ch.nolix.core.attributeapi.mandatoryattributeapi.IdentifiedByString;
  * 
  * @author Silvan Wyss
  * @date 2020-03-29
- * @lines 20
  * @param <IBS> is the type of a {@link IdentifiableByString}.
  */
 public interface IdentifiableByString<IBS> extends IdentifiedByString {

@@ -12,7 +12,6 @@ import ch.nolix.element.gui.widget.Label;
  * 
  * @author Silvan Wyss
  * @date 2020-06-13
- * @lines 40
  */
 public final class HorizontalLineTutorial {
 	

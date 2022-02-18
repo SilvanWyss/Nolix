@@ -14,7 +14,6 @@ import ch.nolix.system.client.baseguiclient.BaseFrontGUIClientGUIType;
 /**
  * @author Silvan Wyss
  * @date 2017-03-02
- * @lines 90
  */
 public final class FrontConsoleClient extends BaseFrontGUIClient<FrontConsoleClient> {
 	

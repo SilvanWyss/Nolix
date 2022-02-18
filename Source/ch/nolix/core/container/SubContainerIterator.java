@@ -14,7 +14,6 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 /**
  * @author Silvan Wyss
  * @date 2017-08-27
- * @lines 80
  * @param <E> is the type of the elements of a {@link SubContainerIterator}.
  */
 final class SubContainerIterator<E> implements Iterator<E> {

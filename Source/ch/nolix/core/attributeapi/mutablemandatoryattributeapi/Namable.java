@@ -9,7 +9,6 @@ import ch.nolix.core.attributeapi.mandatoryattributeapi.Named;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 20
  * @param <N> is the type of a {@link Namable}.
  */
 public interface Namable<N extends Namable<N>> extends Named {

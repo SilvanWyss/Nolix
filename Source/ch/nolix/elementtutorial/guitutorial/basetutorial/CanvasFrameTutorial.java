@@ -20,7 +20,6 @@ import ch.nolix.system.client.baseguiclient.PaintRun;
  * 
  * @author Silvan Wyss
  * @date 2019-08-15
- * @lines 110
  */
 public final class CanvasFrameTutorial {
 	

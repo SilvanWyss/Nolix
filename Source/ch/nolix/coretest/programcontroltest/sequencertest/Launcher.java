@@ -8,7 +8,6 @@ package ch.nolix.coretest.programcontroltest.sequencertest;
  * 
  * @author Silvan Wyss
  * @date 2017-11-18
- * @lines 30
  */
 public final class Launcher {
 	

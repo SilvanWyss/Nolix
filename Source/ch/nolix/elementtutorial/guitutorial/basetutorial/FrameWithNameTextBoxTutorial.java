@@ -19,7 +19,6 @@ import ch.nolix.element.gui.widget.WidgetLookState;
  * 
  * @author Silvan Wyss
  * @date 2021-06-25
- * @lines 90
  */
 public final class FrameWithNameTextBoxTutorial {
 	

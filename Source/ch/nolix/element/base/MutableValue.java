@@ -12,7 +12,6 @@ import ch.nolix.core.functionapi.IElementTakerElementGetter;
 /**
  * @author Silvan Wyss
  * @date 2018-03-01
- * @lines 140
  * @param <V> is the type of the value of a {@link MutableValue}.
  */
 public final class MutableValue<V> extends SingleValue<V> {

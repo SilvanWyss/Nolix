@@ -8,7 +8,6 @@ import ch.nolix.element.gui.base.Frame;
  * 
  * @author Silvan Wyss
  * @date 2016-12-01
- * @lines 20
  */
 public final class EmptyFrameTutorial {
 	

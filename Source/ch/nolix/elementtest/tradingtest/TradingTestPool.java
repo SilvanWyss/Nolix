@@ -7,7 +7,6 @@ import ch.nolix.core.testing.basetest.TestPool;
 /**
  * @author Silvan
  * @date 2016-09-01
- * @lines 20
  */
 public final class TradingTestPool extends TestPool {
 	

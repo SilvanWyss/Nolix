@@ -10,7 +10,6 @@ import ch.nolix.core.functionapi.IAction;
  * 
  * @author Silvan Wyss
  * @date 2016-10-01
- * @lines 80
  */
 public final class ClosureMediator extends Mediator {
 	

@@ -27,7 +27,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumen
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 880
  */
 public final class ChainedNode implements OptionalHeadered {
 	

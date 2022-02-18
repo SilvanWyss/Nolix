@@ -8,7 +8,6 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
  * 
  * @author Silvan Wyss
  * @date 2017-01-01
- * @lines 90
  */
 @SuppressWarnings("serial")
 public final class UnequalArgumentException extends InvalidArgumentException {

@@ -7,7 +7,6 @@ package ch.nolix.core.constant;
  * 
  * @author Silvan Wyss
  * @date 2018-04-07
- * @lines 220
  */
 public final class PascalCaseCatalogue {
 	

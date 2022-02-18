@@ -7,7 +7,6 @@ package ch.nolix.core.skillapi;
  * 
  * @author Silvan Wyss
  * @date 2020-04-29
- * @lines 20
  */
 public interface Startable {
 	

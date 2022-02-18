@@ -19,7 +19,6 @@ import ch.nolix.element.gui.image.MutableImage;
  * 
  * @author Silvan Wyss
  * @date 2017-11-11
- * @lines 140
  * @param <BS> is the type of a {@link AtomicShape}.
  */
 public abstract class AtomicShape<BS extends AtomicShape<BS>> extends Shape<BS> {

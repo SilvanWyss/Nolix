@@ -13,7 +13,6 @@ import ch.nolix.core.functionapi.IBooleanGetter;
  * 
  * @author Silvan Wyss
  * @date 2019-11-24
- * @lines 120
  */
 public final class ForMaxMillisecondsMediator {
 	

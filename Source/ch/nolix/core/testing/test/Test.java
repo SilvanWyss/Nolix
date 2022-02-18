@@ -14,7 +14,6 @@ import ch.nolix.core.testing.basetest.TestAccessor;
  * 
  * @author Silvan Wyss
  * @date 2016-09-01
- * @lines 280
  */
 public abstract class Test extends ch.nolix.core.testing.basetest.BaseTest {
 	

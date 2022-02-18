@@ -7,7 +7,6 @@ package ch.nolix.core.attributeapi.mandatoryattributeapi;
  * 
  * @author Silvan Wyss
  * @date 2019-06-10
- * @lines 30
  */
 public interface IdentifiedByString {
 	

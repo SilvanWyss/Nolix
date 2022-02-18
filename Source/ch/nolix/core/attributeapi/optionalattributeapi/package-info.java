@@ -5,6 +5,5 @@
  * 
  * @author Silvan Wyss
  * @date 2020-04-01
- * @lines 10
  */
 package ch.nolix.core.attributeapi.optionalattributeapi;

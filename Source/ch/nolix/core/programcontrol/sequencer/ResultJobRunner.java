@@ -13,7 +13,6 @@ import ch.nolix.core.functionapi.IElementGetter;
 /**
  * @author Silvan Wyss
  * @date 2017-09-29
- * @lines 130
  * @param <R> is the type of the result of the resulltJob of a {@link ResultJobRunner}.
  */
 final class ResultJobRunner<R> extends Thread {

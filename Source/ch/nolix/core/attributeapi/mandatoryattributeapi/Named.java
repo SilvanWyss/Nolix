@@ -9,7 +9,6 @@ import ch.nolix.core.language.EnglishNounHelper;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @lines 60
  */
 public interface Named {
 	

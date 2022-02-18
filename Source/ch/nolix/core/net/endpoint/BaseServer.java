@@ -15,7 +15,6 @@ import ch.nolix.core.skillapi.Clearable;
  * 
  * @author Silvan Wyss
  * @date 2017-05-06
- * @lines 210
  */
 public abstract class BaseServer implements Clearable, GroupCloseable {
 	

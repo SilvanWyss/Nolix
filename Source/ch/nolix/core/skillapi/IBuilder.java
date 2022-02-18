@@ -7,7 +7,6 @@ package ch.nolix.core.skillapi;
  * 
  * @author Silvan Wyss
  * @date 2019-03-10
- * @lines 20
  * @param <O> is the type of the objects a {@link IBuilder} builds.
  */
 public interface IBuilder<O> {

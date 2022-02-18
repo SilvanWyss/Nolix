@@ -9,7 +9,6 @@ package ch.nolix.core.container.pair;
  * 
  * @author Silvan Wyss
  * @date 2016-08-01
- * @lines 90
  */
 public final class FPNPair {
 	

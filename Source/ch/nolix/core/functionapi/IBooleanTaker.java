@@ -7,7 +7,6 @@ package ch.nolix.core.functionapi;
  * 
  * @author Silvan Wyss
  * @date 2018-09-01
- * @lines 20
  */
 @FunctionalInterface
 public interface IBooleanTaker {

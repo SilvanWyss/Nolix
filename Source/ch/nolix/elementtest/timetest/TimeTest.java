@@ -11,7 +11,6 @@ import ch.nolix.element.time.base.Time;
  * 
  * @author Silvan Wyss
  * @date 2017-02-04
- * @lines 90
  */
 public final class TimeTest extends Test {
 	

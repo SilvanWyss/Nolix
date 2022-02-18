@@ -13,7 +13,6 @@ import ch.nolix.element.gui.widget.Widget;
  * 
  * @author Silvan Wyss
  * @date 2018-09-11
- * @lines 90
  */
 public final class AccordionTest extends ContainerWidgetTest<Accordion> {
 	

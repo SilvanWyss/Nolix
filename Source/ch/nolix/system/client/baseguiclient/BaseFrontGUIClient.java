@@ -17,7 +17,6 @@ import ch.nolix.system.client.base.Client;
 /**
  * @author Silvan Wyss
  * @date 2018-09-16
- * @lines 150
  * @param <FGC> is the type of a {@link BaseFrontGUIClient}.
  */
 public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> extends Client<FGC> {

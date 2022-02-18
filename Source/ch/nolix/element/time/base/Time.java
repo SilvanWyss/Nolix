@@ -29,7 +29,6 @@ import ch.nolix.element.elementapi.IElement;
  * 
  * @author Silvan Wyss
  * @date 2016-09-01
- * @lines 750
  */
 public final class Time implements IElement<Time> {
 	

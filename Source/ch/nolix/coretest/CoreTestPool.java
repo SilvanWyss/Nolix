@@ -20,7 +20,6 @@ import ch.nolix.coretest.providertest.ProviderTestPool;
 /**
  * @author Silvan Wyss
  * @date 2016-09-10
- * @lines 40
  */
 public final class CoreTestPool extends TestPool {
 	

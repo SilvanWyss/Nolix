@@ -8,7 +8,6 @@ package ch.nolix.core.independent.independenthelper;
  * 
  * @author Silvan Wyss
  * @date 2017-12-16
- * @lines 40
  */
 public final class IterableHelper {
 	

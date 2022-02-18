@@ -7,7 +7,6 @@ package ch.nolix.core.generalskillapi;
  * 
  * @author Silvan Wyss
  * @date 2018-10-20
- * @lines 20
  */
 public interface Castable {
 	

@@ -15,7 +15,6 @@ import ch.nolix.core.programcontrol.groupcloseable.GroupCloseable;
  * 
  * @author Silvan Wyss
  * @date 2017-05-21
- * @lines 110
  */
 public abstract class EndPoint implements GroupCloseable {
 	

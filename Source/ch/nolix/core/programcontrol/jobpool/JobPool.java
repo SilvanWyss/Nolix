@@ -14,7 +14,6 @@ import ch.nolix.core.programcontrol.futureapi.IFuture;
  * 
  * @author Silvan Wyss
  * @date 2019-04-14
- * @lines 100
  */
 public final class JobPool {
 	

@@ -50,7 +50,6 @@ import ch.nolix.element.gui.widget.Widget;
  * 
  * @author Silvan Wyss
  * @date 2019-05-18
- * @lines 1410
  */
 public final class Layer extends ConfigurableElement<Layer>
 implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInputTaker, Recalculable {

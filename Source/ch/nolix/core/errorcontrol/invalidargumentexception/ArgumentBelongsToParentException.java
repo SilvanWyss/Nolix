@@ -8,7 +8,6 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
  * 
  * @author Silvan Wyss
  * @date 2019-10-01
- * @lines 40
  */
 @SuppressWarnings("serial")
 public class ArgumentBelongsToParentException extends InvalidArgumentException {

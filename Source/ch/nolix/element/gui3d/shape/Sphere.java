@@ -14,7 +14,6 @@ import ch.nolix.element.gui3d.base.AtomicShape;
 /**
  * @author Silvan Wyss
  * @date 2017-11-11
- * @lines 110
  */
 public final class Sphere extends AtomicShape<Sphere> {
 	

@@ -18,7 +18,6 @@ import ch.nolix.element.elementapi.IElement;
  *  
  * @author Silvan Wyss
  * @date 2018-03-25
- * @lines 140
  */
 public final class ValueOrPercentageHolder implements IElement<ValueOrPercentageHolder> {
 	

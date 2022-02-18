@@ -9,7 +9,6 @@ import ch.nolix.core.attributeapi.mandatoryattributeapi.Identified;
  * 
  * @author Silvan Wyss
  * @date 2020-03-29
- * @lines 20
  * @param <I> is the type of a {@link Identifiable}.
  */
 public interface Identifiable<I> extends Identified {

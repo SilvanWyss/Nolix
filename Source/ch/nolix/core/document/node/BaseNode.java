@@ -31,7 +31,6 @@ import ch.nolix.core.programcontrol.processproperty.WriteMode;
  *  
  * @author Silvan Wyss
  * @date 2017-06-24
- * @lines 880
  */
 public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	
