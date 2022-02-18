@@ -1,12 +1,14 @@
 //package declaration
 package ch.nolix.system.objectdata.data;
 
+//own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.system.objectdata.datahelper.EntityHelper;
 import ch.nolix.system.objectdata.datahelper.TableHelper;
+import ch.nolix.systemapi.databaseapi.databaseobjectapi.DatabaseObjectState;
 import ch.nolix.systemapi.objectdataapi.dataapi.IDatabase;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
@@ -16,8 +18,7 @@ import ch.nolix.systemapi.rawobjectdataapi.dataandschemaadapterapi.IDataAndSchem
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.ILoadedRecordDTO;
 
 //class
-public final class Table<E extends IEntity<DataImplementation>> extends ImmutableDatabaseObject
-implements ITable<DataImplementation, E> {
+public final class Table<E extends IEntity<DataImplementation>> implements ITable<DataImplementation, E> {
 	
 	//static attribute
 	private static final ITableHelper tableHelper = new TableHelper();
@@ -106,6 +107,12 @@ implements ITable<DataImplementation, E> {
 	
 	//method
 	@Override
+	public DatabaseObjectState getState() {
+		return parentDatabase.getState();
+	}
+	
+	//method
+	@Override
 	public ITable<DataImplementation, E> insert(final E entity) {
 		
 		tableHelper.assertCanInsertGivenEntity(this, entity);
@@ -113,6 +120,24 @@ implements ITable<DataImplementation, E> {
 		insertWhenCanBeInserted(entity);
 		
 		return this;
+	}
+	
+	//method
+	@Override
+	public boolean isClosed() {
+		return parentDatabase.isClosed();
+	}
+	
+	//method
+	@Override
+	public boolean isDeleted() {
+		return parentDatabase.isDeleted();
+	}
+	
+	//method
+	@Override
+	public boolean isLinkedWithRealDatabase() {
+		return true;
 	}
 	
 	//method
