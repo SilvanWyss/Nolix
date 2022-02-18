@@ -60,6 +60,8 @@ implements IMultiReference<DataImplementation, E> {
 		
 		updateStateForAddEntity(entity);
 		
+		updateRelatedRecordForAddEntity(entity);
+		
 		internalSetParentEntityAsEdited();
 	}
 	
@@ -159,6 +161,8 @@ implements IMultiReference<DataImplementation, E> {
 		
 		updateStateForClear();
 		
+		updateRelatedRecordForClear();
+		
 		internalSetParentEntityAsEdited();
 	}
 	
@@ -205,21 +209,24 @@ implements IMultiReference<DataImplementation, E> {
 	}
 	
 	//method
-	private void updateRecordForAddEntity(final E entity) {
+	private void updateRelatedRecordForAddEntity(final E entity) {
 		if (isLinkedWithRealDatabase()) {
-			internalGetRefDataAndSchemaAdapter().updateRecordOnTable(
+			internalGetRefDataAndSchemaAdapter().insertEntryIntoMultiReference(
 				getParentEntity().getParentTableName(),
-				multiReferenceHelper.createRecordupdateDTOForAddEntity(this, entity)
+				getParentEntity().getId(),
+				getName(),
+				entity.getId()
 			);
 		}
 	}
 	
 	//method
-	private void updateRecordForClear() {
+	private void updateRelatedRecordForClear() {
 		if (isLinkedWithRealDatabase()) {
-			internalGetRefDataAndSchemaAdapter().updateRecordOnTable(
+			internalGetRefDataAndSchemaAdapter().deleteEntriesFromMultiReference(
 				getParentEntity().getParentTableName(),
-				multiReferenceHelper.createRecordUpdateDTOForClear(this)
+				getParentEntity().getId(),
+				getName()
 			);
 		}
 	}
