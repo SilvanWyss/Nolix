@@ -10,6 +10,7 @@ import ch.nolix.systemapi.databaseapi.databaseobjectapi.DatabaseObjectState;
 //class
 public final class ValueTest extends Test {
 	
+	//method
 	@TestCase
 	public void testCase_creation() {
 		
@@ -23,5 +24,20 @@ public final class ValueTest extends Test {
 		expectNot(result.isLinkedWithRealDatabase());
 		expect(result.isMandatory());
 		expect(result.isEmpty());
+	}
+	
+	//method
+	@TestCase
+	public void testCase_setValue() {
+		
+		//setup
+		final var testUnit = new Value<String>();
+		
+		//execution
+		testUnit.setValue("LoremIpsum");
+		
+		//verification
+		expect(testUnit.containsAny());
+		expect(testUnit.getRefValue()).isEqualTo("LoremIpsum");
 	}
 }
