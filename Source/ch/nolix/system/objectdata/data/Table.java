@@ -93,7 +93,7 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 	@Override
 	public E getRefEntityById(final String id) {
 		
-		final var entity = getRefEntitiesInLocalData().getRefFirstOrNull(e -> e.hasId(id));
+		final var entity = technicalGetRefEntitiesInLocalData().getRefFirstOrNull(e -> e.hasId(id));
 		
 		if (entity == null) {
 			
@@ -147,8 +147,24 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 	}
 	
 	//method
+	@SuppressWarnings("unchecked")
+	void internalClose() {
+		((IContainer<BaseEntity>)technicalGetRefEntitiesInLocalData()).forEach(BaseEntity::internalClose);
+	}
+	
+	//method
 	IDataAndSchemaAdapter internalGetRefDataAndSchemaAdapter() {
 		return parentDatabase.internalGetRefDataAndSchemaAdapter();
+	}
+	
+	//method
+	@SuppressWarnings("unchecked")
+	void internalReset() {
+		
+		((IContainer<BaseEntity>)technicalGetRefEntitiesInLocalData()).forEach(BaseEntity::internalClose);
+		
+		loadedAllEntitiesInLocalData = false;
+		entitiesInLocalData.clear();
 	}
 	
 	//method
@@ -163,13 +179,8 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 	}
 	
 	//method
-	private IContainer<E> getRefEntitiesInLocalData() {
-		return entitiesInLocalData;
-	}
-	
-	//method
 	private E getRefEntityByIdWhenIsInLocalData(final String id) {
-		return getRefEntitiesInLocalData().getRefFirst(e -> e.hasId(id));
+		return technicalGetRefEntitiesInLocalData().getRefFirst(e -> e.hasId(id));
 	}
 	
 	//method
