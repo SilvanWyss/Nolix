@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.objectschema.schemahelper;
 
+//own imports
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
@@ -176,7 +177,7 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
 		table
 		.getParentDatabase()
 		.getRefTables()
-		.toFromMany(t -> t.getRefColumns())
+		.toFromMany(ITable::getRefColumns)
 		.getRefSelected(c -> columnHelper.referencesGivenTable(c, table));
 	}
 	
