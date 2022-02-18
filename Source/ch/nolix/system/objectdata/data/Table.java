@@ -137,7 +137,7 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 	//method
 	@Override
 	public boolean isLinkedWithRealDatabase() {
-		return true;
+		return parentDatabase.isLinkedWithRealDatabase();
 	}
 	
 	//method
