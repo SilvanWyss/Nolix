@@ -108,6 +108,14 @@ public final class Database implements IDatabase<DataImplementation> {
 	
 	//method
 	@Override
+	public void reset() {
+		for (final var t : technicalGetRefTablesInLocalData()) {
+			((Table<?>)t).internalReset();
+		}
+	}
+	
+	//method
+	@Override
 	public IContainer<ITable<DataImplementation, IEntity<DataImplementation>>> technicalGetRefTablesInLocalData() {
 		return tablesInLocalData;
 	}

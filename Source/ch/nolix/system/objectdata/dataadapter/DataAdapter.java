@@ -28,4 +28,9 @@ public abstract class DataAdapter implements IDataAdapter<DataImplementation> {
 	public boolean hasChanges() {
 		return databaseHelper.hasChanges(getRefDatabase());
 	}
+	
+	@Override
+	public void reset() {
+		getRefDatabase().reset();
+	}
 }
