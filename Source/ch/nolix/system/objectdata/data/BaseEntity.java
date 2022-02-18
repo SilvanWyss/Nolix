@@ -1,14 +1,13 @@
 //package declaration
 package ch.nolix.system.objectdata.data;
 
+//own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.data.GlobalIdCreator;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.DeletedArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.programcontrol.groupcloseable.CloseController;
-import ch.nolix.core.programcontrol.groupcloseable.GroupCloseable;
 import ch.nolix.system.objectdata.datahelper.EntityHelper;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.DatabaseObjectState;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
@@ -18,7 +17,7 @@ import ch.nolix.systemapi.objectdataapi.datahelperapi.IEntityHelper;
 import ch.nolix.systemapi.rawobjectdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
 
 //class
-public abstract class BaseEntity implements GroupCloseable, IEntity<DataImplementation> {
+public abstract class BaseEntity implements IEntity<DataImplementation> {
 	
 	//static attribute
 	private static final IEntityHelper entityHelper = new EntityHelper();
@@ -28,9 +27,6 @@ public abstract class BaseEntity implements GroupCloseable, IEntity<DataImplemen
 	
 	//attribute
 	private DatabaseObjectState state = DatabaseObjectState.NEW;
-	
-	//attribute
-	private final CloseController closeController = new CloseController(this);
 	
 	//optional attribute
 	private ITable<DataImplementation, IEntity<DataImplementation>> parentTable;
@@ -71,21 +67,6 @@ public abstract class BaseEntity implements GroupCloseable, IEntity<DataImplemen
 	
 	//method
 	@Override
-	public final CloseController getRefCloseController() {
-		return closeController;
-	}
-	
-	//method
-	@Override
-	public final IContainer<IProperty<DataImplementation>> technicalGetRefProperties() {
-		
-		extractPropertiesIfNotExtracted();
-		
-		return properties.asContainerWithElementsOfEvaluatedType();
-	}
-	
-	//method
-	@Override
 	public final String getSaveStamp() {
 		
 		entityHelper.assertHasSaveStamp(this);
@@ -109,6 +90,12 @@ public abstract class BaseEntity implements GroupCloseable, IEntity<DataImplemen
 	@Override
 	public final boolean hasSaveStamp() {
 		return (saveStamp != null);
+	}
+	
+	//method
+	@Override
+	public final boolean isClosed() {
+		return (getState() == DatabaseObjectState.CLOSED);
 	}
 	
 	//method
@@ -140,7 +127,15 @@ public abstract class BaseEntity implements GroupCloseable, IEntity<DataImplemen
 	
 	//method
 	@Override
-	public final void noteClose() {
+	public final IContainer<IProperty<DataImplementation>> technicalGetRefProperties() {
+		
+		extractPropertiesIfNotExtracted();
+		
+		return properties.asContainerWithElementsOfEvaluatedType();
+	}
+	
+	//method
+	final void internalClose() {
 		state = DatabaseObjectState.CLOSED;
 	}
 	

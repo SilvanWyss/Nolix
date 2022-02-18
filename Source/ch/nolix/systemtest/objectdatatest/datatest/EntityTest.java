@@ -16,13 +16,14 @@ public final class EntityTest extends Test {
 	//method
 	@TestCase
 	public void testCase_creation() {
-		try (final var result = new Thing()) {
-			
-			//verification
-			expect(result.getState()).isEqualTo(DatabaseObjectState.NEW);
-			expect(result.getId()).hasLength(10);
-			expect(result.getShortDescription()).startsWith("Thing");
-			expectNot(result.knowsParentTable());
-		}
+		
+		//execution
+		final var result = new Thing();
+		
+		//verification
+		expect(result.getState()).isEqualTo(DatabaseObjectState.NEW);
+		expect(result.getId()).hasLength(10);
+		expect(result.getShortDescription()).startsWith("Thing");
+		expectNot(result.knowsParentTable());
 	}
 }
