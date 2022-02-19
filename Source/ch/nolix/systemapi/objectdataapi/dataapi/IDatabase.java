@@ -3,11 +3,10 @@ package ch.nolix.systemapi.objectdataapi.dataapi;
 
 //own imports
 import ch.nolix.core.container.IContainer;
-import ch.nolix.core.skillapi.Resettable;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.IDatabaseObject;
 
 //interface
-public interface IDatabase<IMPL> extends IDatabaseObject, Resettable {
+public interface IDatabase<IMPL> extends IDatabaseObject {
 	
 	//method declaration
 	<E extends IEntity<IMPL>> ITable<IMPL, E> getRefTableByEntityClass(final Class<E> entityClass);
