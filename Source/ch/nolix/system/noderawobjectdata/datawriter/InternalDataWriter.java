@@ -18,6 +18,9 @@ final class InternalDataWriter {
 	private static final DatabaseUpdater databaseUpdater = new DatabaseUpdater();
 	
 	//attribute
+	private int saveCount;
+	
+	//attribute
 	private final BaseNode nodeDatabase;
 	
 	//multi-attribute
@@ -90,6 +93,11 @@ final class InternalDataWriter {
 	}
 	
 	//method
+	public int getSaveCount() {
+		return saveCount;
+	}
+	
+	//method
 	public boolean hasChanges() {
 		return changeActions.containsAny();
 	}
@@ -137,8 +145,11 @@ final class InternalDataWriter {
 	
 	//method
 	public void saveChangesAndReset() {
-		if (hasChanges()) {
-			saveChangesAndResetWhenHasChanges();
+		try {
+			nodeDatabase.resetAttributes(createNodeDatabaseWithChanges().getRefAttributes());
+			saveCount++;
+		} finally {
+			reset();
 		}
 	}
 	
@@ -160,13 +171,5 @@ final class InternalDataWriter {
 		}
 		
 		return newNodeDatabase;
-	}
-	
-	//method
-	private synchronized void saveChangesAndResetWhenHasChanges() {
-		
-		nodeDatabase.resetAttributes(createNodeDatabaseWithChanges().getRefAttributes());
-		
-		reset();
 	}
 }

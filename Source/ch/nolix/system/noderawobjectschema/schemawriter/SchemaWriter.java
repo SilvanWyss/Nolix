@@ -42,6 +42,9 @@ public final class SchemaWriter implements ISchemaWriter {
 	new ParametrizedPropertyTypeNodeMapper();
 	
 	//attribute
+	private int saveCount;
+	
+	//attribute
 	private final BaseNode databaseNode;
 	
 	//attribute
@@ -110,6 +113,12 @@ public final class SchemaWriter implements ISchemaWriter {
 	
 	//method
 	@Override
+	public int getSaveCount() {
+		return saveCount;
+	}
+	
+	//method
+	@Override
 	public boolean hasChanges() {
 		return hasChanges;
 	}
@@ -126,8 +135,13 @@ public final class SchemaWriter implements ISchemaWriter {
 	//method
 	@Override
 	public void saveChangesAndReset() {
-		if (hasChanges()) {
-			saveChangesAndResetWhenHasChanges();
+		try {
+			
+			databaseNode.resetAttributes(editedDatabaseNode.getRefAttributes());
+			
+			saveCount++;
+		} finally {
+			reset();
 		}
 	}
 	
@@ -188,13 +202,5 @@ public final class SchemaWriter implements ISchemaWriter {
 		nameNode.getRefOneAttribute().setHeader(newTableName);
 		
 		hasChanges = true;
-	}
-	
-	//method
-	private void saveChangesAndResetWhenHasChanges() {
-		
-		databaseNode.resetAttributes(editedDatabaseNode.getRefAttributes());
-		
-		reset();
 	}
 }

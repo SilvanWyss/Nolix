@@ -68,6 +68,12 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 	
 	//method
 	@Override
+	public final int getSaveCount() {
+		return rawSchemaWriter.getSaveCount();
+	}
+	
+	//method
+	@Override
 	public final boolean hasChanges() {
 		return rawSchemaWriter.hasChanges();
 	}

@@ -88,6 +88,12 @@ public abstract class DataAdapter implements IDataAdapter {
 	
 	//method
 	@Override
+	public int getSaveCount() {
+		return dataWriter.getSaveCount();
+	}
+	
+	//method
+	@Override
 	public final boolean hasChanges() {
 		return dataWriter.hasChanges();
 	}

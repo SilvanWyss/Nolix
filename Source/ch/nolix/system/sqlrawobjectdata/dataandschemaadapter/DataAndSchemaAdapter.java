@@ -108,6 +108,12 @@ public abstract class DataAndSchemaAdapter implements IDataAndSchemaAdapter {
 	
 	//method
 	@Override
+	public final int getSaveCount() {
+		return dataWriter.getSaveCount();
+	}
+	
+	//method
+	@Override
 	public final boolean hasChanges() {
 		return dataWriter.hasChanges();
 	}

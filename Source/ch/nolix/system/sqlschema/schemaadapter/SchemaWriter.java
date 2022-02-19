@@ -15,6 +15,9 @@ import ch.nolix.systemapi.sqlschemaapi.schemalanguageapi.ISchemaStatementCreator
 public class SchemaWriter implements ISchemaWriter {
 	
 	//attribute
+	private int saveCount;
+	
+	//attribute
 	private final SQLCollector mSQLCollector = new SQLCollector();
 	
 	//attribute
@@ -61,6 +64,12 @@ public class SchemaWriter implements ISchemaWriter {
 	
 	//method
 	@Override
+	public int getSaveCount() {
+		return saveCount;
+	}
+	
+	//method
+	@Override
 	public IContainer<String> getSQLStatements() {
 		return mSQLCollector.getSQLStatements();
 	}
@@ -94,6 +103,11 @@ public class SchemaWriter implements ISchemaWriter {
 	//method
 	@Override
 	public void saveChangesAndReset() {
-		mSQLCollector.executeAndClearUsingConnection(mSQLConnection);
+		try {
+			mSQLCollector.executeUsingConnection(mSQLConnection);
+			saveCount++;
+		} finally {
+			reset();
+		}
 	}
 }

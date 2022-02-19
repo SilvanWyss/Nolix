@@ -17,6 +17,9 @@ import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
 public final class InternalDataWriter {
 	
 	//attribute
+	private int saveCount;
+	
+	//attribute
 	private final SQLCollector mSQLCollector = new SQLCollector();
 	
 	//attribute
@@ -99,6 +102,11 @@ public final class InternalDataWriter {
 	}
 	
 	//method
+	public int getSaveCount() {
+		return saveCount;
+	}
+	
+	//method
 	public boolean hasChanges() {
 		return mSQLCollector.containsAny();
 	}
@@ -143,10 +151,12 @@ public final class InternalDataWriter {
 	
 	//method
 	public void saveChangesAndReset() {
-		
-		mSQLCollector.executeUsingConnection(mSQLConnection);
-		
-		reset();
+		try {
+			mSQLCollector.executeUsingConnection(mSQLConnection);
+			saveCount++;
+		} finally {
+			reset();
+		}
 	}
 	
 	//method

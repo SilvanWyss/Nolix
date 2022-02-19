@@ -8,5 +8,8 @@ import ch.nolix.core.requestapi.ChangeRequestable;
 public interface IMultiTimeChangeSaver extends ChangeRequestable, Resettable {
 	
 	//method declaration
+	int getSaveCount();
+	
+	//method declaration
 	void saveChangesAndReset();
 }

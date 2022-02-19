@@ -99,6 +99,12 @@ public final class DataWriter implements IDataWriter {
 	
 	//method
 	@Override
+	public int getSaveCount() {
+		return internalDataWriter.getSaveCount();
+	}
+	
+	//method
+	@Override
 	public boolean hasChanges() {
 		return internalDataWriter.hasChanges();
 	}

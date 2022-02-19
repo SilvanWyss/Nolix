@@ -82,6 +82,12 @@ public final class DataAdapter implements IDataAdapter {
 	
 	//method
 	@Override
+	public int getSaveCount() {
+		return dataWriter.getSaveCount();
+	}
+	
+	//method
+	@Override
 	public boolean hasChanges() {
 		return dataWriter.hasChanges();
 	}

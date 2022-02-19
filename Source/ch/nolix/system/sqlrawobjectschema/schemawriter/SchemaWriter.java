@@ -15,6 +15,9 @@ import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.ITableDTO;
 public final class SchemaWriter implements ISchemaWriter {
 	
 	//attribute
+	private int saveCount;
+	
+	//attribute
 	private final SystemDataWriter systemDataWriter;
 	
 	//attribute
@@ -70,6 +73,12 @@ public final class SchemaWriter implements ISchemaWriter {
 	
 	//method
 	@Override
+	public int getSaveCount() {
+		return saveCount;
+	}
+	
+	//method
+	@Override
 	public boolean hasChanges() {
 		return (systemDataWriter.hasChanges() || internalSchemaWriter.hasChanges());
 	}
@@ -84,11 +93,15 @@ public final class SchemaWriter implements ISchemaWriter {
 	//method
 	@Override
 	public void saveChangesAndReset() {
-		
-		mSQLCollector.addSQLStatements(internalSchemaWriter.getSQLStatements());
-		mSQLCollector.executeUsingConnection(mSQLConnection);
-		
-		reset();
+		try {
+			
+			mSQLCollector.addSQLStatements(internalSchemaWriter.getSQLStatements());
+			mSQLCollector.executeUsingConnection(mSQLConnection);
+			
+			saveCount++;
+		} finally {
+			reset();
+		}
 	}
 	
 	//method

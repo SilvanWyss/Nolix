@@ -59,6 +59,14 @@ implements ch.nolix.systemapi.objectschemaapi.schemaadapterapi.ISchemaAdapter<Sc
 	
 	//method
 	@Override
+	public final int getSaveCount() {
+		
+		//TODO: Implement.
+		return 0;
+	}
+	
+	//method
+	@Override
 	public final boolean hasChanges() {
 		return session.hasChanges();
 	}
@@ -72,10 +80,11 @@ implements ch.nolix.systemapi.objectschemaapi.schemaadapterapi.ISchemaAdapter<Sc
 	//method
 	@Override
 	public final void saveChangesAndReset() {
-		
-		session.saveChanges();
-		
-		reset();
+		try {
+			session.saveChanges();
+		} finally {
+			reset();
+		}
 	}
 	
 	//method declaration
