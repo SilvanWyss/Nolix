@@ -63,12 +63,6 @@ implements ch.nolix.systemapi.objectschemaapi.schemaadapterapi.ISchemaAdapter<Sc
 	
 	//method
 	@Override
-	public final Database getRefDatabase() {
-		return session.getRefDatabase();
-	}
-	
-	//method
-	@Override
 	public final int getSaveCount() {
 		
 		//TODO: Implement.
@@ -107,5 +101,10 @@ implements ch.nolix.systemapi.objectschemaapi.schemaadapterapi.ISchemaAdapter<Sc
 	//method
 	protected final void initializeSession() {
 		session = new DatabaseSchemaSession(databaseName, createRawSchemaAdapter());
+	}
+	
+	//method
+	private Database getRefDatabase() {
+		return session.getRefDatabase();
 	}
 }
