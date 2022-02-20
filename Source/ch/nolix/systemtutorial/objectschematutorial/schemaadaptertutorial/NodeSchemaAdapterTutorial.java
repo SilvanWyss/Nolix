@@ -14,23 +14,24 @@ public final class NodeSchemaAdapterTutorial {
 		
 		final var database = new Node();
 		
-		final var nodeDatabaseSchemaAdapter = NodeSchemaAdapter.forDatabaseNode("CountryDatabase", database);
-		
-		final var cityTable =
-		new Table("City")
-		.addColumn(new Column("Name", new ParametrizedValueType<>(String.class)))
-		.addColumn(new Column("Population", new ParametrizedValueType<>(Integer.class)));
-		
-		final var countryTable = 
-		new Table("Country").addColumn(new Column("Name", new ParametrizedValueType<>(String.class)));
+		try (final var nodeDatabaseSchemaAdapter = NodeSchemaAdapter.forDatabaseNode("CountryDatabase", database)) {
 			
-		final var citiesColumn = new Column("Cities", new ParametrizedMultiReferenceType(cityTable));
-		countryTable.addColumn(citiesColumn);
-		cityTable.addColumn(new Column("Country", new ParametrizedBackReferenceType(citiesColumn)));
-		
-		nodeDatabaseSchemaAdapter.addTable(cityTable).addTable(countryTable).saveChangesAndReset();
-		
-		System.out.println(database.toFormatedString());
+			final var cityTable =
+			new Table("City")
+			.addColumn(new Column("Name", new ParametrizedValueType<>(String.class)))
+			.addColumn(new Column("Population", new ParametrizedValueType<>(Integer.class)));
+			
+			final var countryTable = 
+			new Table("Country").addColumn(new Column("Name", new ParametrizedValueType<>(String.class)));
+				
+			final var citiesColumn = new Column("Cities", new ParametrizedMultiReferenceType(cityTable));
+			countryTable.addColumn(citiesColumn);
+			cityTable.addColumn(new Column("Country", new ParametrizedBackReferenceType(citiesColumn)));
+			
+			nodeDatabaseSchemaAdapter.addTable(cityTable).addTable(countryTable).saveChangesAndReset();
+			
+			System.out.println(database.toFormatedString());
+		}
 	}
 	
 	private NodeSchemaAdapterTutorial() {}
