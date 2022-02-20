@@ -73,8 +73,16 @@ public final class Database implements IDatabase<DataImplementation> {
 	//method
 	@Override
 	public DatabaseObjectState getState() {
-		//TODO: Implement.
-		return null;
+		
+		if (isClosed()) {
+			return DatabaseObjectState.CLOSED;
+		}
+		
+		if (internalGetRefDataAndSchemaAdapter().hasChanges()) {
+			return DatabaseObjectState.EDITED;
+		}
+		
+		return DatabaseObjectState.LOADED;
 	}
 	
 	//method
@@ -90,20 +98,19 @@ public final class Database implements IDatabase<DataImplementation> {
 	//method
 	@Override
 	public boolean isClosed() {
-		return (this.getState() == DatabaseObjectState.CLOSED);
+		return internalGetRefDataAndSchemaAdapter().isClosed();
 	}
 	
 	//method
 	@Override
 	public boolean isDeleted() {
-		return (this.getState() == DatabaseObjectState.DELETED);
+		return false;
 	}
 	
 	//method
 	@Override
 	public boolean isLinkedWithRealDatabase() {
-		//TODO: Implement.
-		return false;
+		return true;
 	}
 	
 	//method
