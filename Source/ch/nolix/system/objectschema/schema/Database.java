@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.objectschema.schema;
 
+//own imports
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.validator.Validator;
@@ -83,7 +84,7 @@ public final class Database extends SchemaObject implements IDatabase<SchemaImpl
 	
 	//method
 	@Override
-	protected void noteCloseDatabaseObject() {
+	protected void noteClose() {
 		
 		//Does not call getRefTables method to avoid that the tables need to be loaded from the database.
 		for (final var t : tables) {
@@ -120,7 +121,7 @@ public final class Database extends SchemaObject implements IDatabase<SchemaImpl
 		tables = getRefRealSchemaAdapter().getRefRawSchemaReader().loadFlatTables().to(Table::fromFlatDTO);
 		for (final var t : tables) {
 			final var table = (Table)t;
-			table.setLoaded();
+			table.internalSetLoaded();
 			table.setParentDatabase(this);
 		}
 		
@@ -145,7 +146,7 @@ public final class Database extends SchemaObject implements IDatabase<SchemaImpl
 		Validator.assertThat(rawSchemaAdapter).thatIsNamed(RawSchemaAdapter.class).isNotNull();
 		databaseHelper.assertIsNotLinkedWithRealDatabase(this);
 		
-		setLoaded();
+		internalSetLoaded();
 		this.rawSchemaAdapter = rawSchemaAdapter;
 	}
 }

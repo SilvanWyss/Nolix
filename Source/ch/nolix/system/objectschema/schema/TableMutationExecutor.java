@@ -21,7 +21,7 @@ final class TableMutationExecutor {
 			table.getRefRealSchemaAdapter().getRefRawSchemaWriter().addColumnToTable(table, column);
 		}
 		
-		table.setEdited();
+		table.internalSetEdited();
 	}
 	
 	//method
@@ -33,7 +33,7 @@ final class TableMutationExecutor {
 		
 		table.getRefRealSchemaAdapter().getRefRawSchemaWriter().deleteTable(table);
 		
-		table.setDeleted();
+		table.internalSetDeleted();
 	}
 	
 	//method
@@ -58,6 +58,6 @@ final class TableMutationExecutor {
 			}
 		}
 		
-		table.setEdited();
+		table.internalSetEdited();
 	}
 }

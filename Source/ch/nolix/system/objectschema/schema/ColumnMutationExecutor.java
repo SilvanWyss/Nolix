@@ -16,7 +16,7 @@ final class ColumnMutationExecutor {
 		
 		column.getRefRawSchemaAdapter().getRefRawSchemaWriter().deleteColumn(column);
 		
-		column.setDeleted();
+		column.internalSetDeleted();
 	}
 	
 	//method
@@ -35,7 +35,7 @@ final class ColumnMutationExecutor {
 			((Column)brc).setParametrizedPropertyTypeToDatabase();
 		}
 		
-		column.setEdited();
+		column.internalSetEdited();
 	}
 	
 	//method
@@ -53,6 +53,6 @@ final class ColumnMutationExecutor {
 			.setColumnParametrizedPropertyType(column, parametrizedPropertyType);
 		}
 		
-		column.setEdited();
+		column.internalSetEdited();
 	}
 }

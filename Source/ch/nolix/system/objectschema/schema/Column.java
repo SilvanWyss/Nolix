@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.objectschema.schema;
 
+//own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.constant.StringCatalogue;
 import ch.nolix.core.container.IContainer;
@@ -230,7 +231,7 @@ public final class Column extends SchemaObject implements IColumn<SchemaImplemen
 	
 	//method
 	@Override
-	protected void noteCloseDatabaseObject() {}
+	protected void noteClose() {}
 	
 	//method
 	private IContainer<IColumn<SchemaImplementation>> getRefBackReferencingColumnsWhenIsReferenceColumn() {

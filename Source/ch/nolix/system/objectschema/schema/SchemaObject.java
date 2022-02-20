@@ -12,7 +12,7 @@ import ch.nolix.systemapi.databaseapi.databaseobjectapi.IDatabaseObject;
 //class
 abstract class SchemaObject implements IDatabaseObject {
 	
-	//attributes
+	//attribute
 	private DatabaseObjectState state = DatabaseObjectState.NEW;
 	
 	//method
@@ -33,17 +33,19 @@ abstract class SchemaObject implements IDatabaseObject {
 		return (getState() == DatabaseObjectState.DELETED);
 	}
 	
+	//method declaration
+	protected abstract void noteClose();
+	
 	//method
 	final void internalClose() {
+		
 		state = DatabaseObjectState.CLOSED;
-		noteCloseDatabaseObject();
+		
+		noteClose();
 	}
 	
-	//method declaration
-	protected abstract void noteCloseDatabaseObject();
-	
 	//method
-	final void setDeleted() {
+	final void internalSetDeleted() {
 		switch (getState()) {
 			case NEW:
 				throw new NewArgumentException(this);
@@ -59,7 +61,7 @@ abstract class SchemaObject implements IDatabaseObject {
 	}
 	
 	//method
-	final void setEdited() {
+	final void internalSetEdited() {
 		switch (getState()) {
 			case NEW:
 				break;
@@ -76,7 +78,7 @@ abstract class SchemaObject implements IDatabaseObject {
 	}
 	
 	//method
-	final void setLoaded() {
+	final void internalSetLoaded() {
 		switch (getState()) {
 			case NEW:
 				state = DatabaseObjectState.LOADED;

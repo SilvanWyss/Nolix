@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.objectschema.schema;
 
+//own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
@@ -158,7 +159,7 @@ public final class Table extends SchemaObject implements ITable<SchemaImplementa
 	
 	//method
 	@Override
-	protected void noteCloseDatabaseObject() {
+	protected void noteClose() {
 		
 		//Does not call getRefColumns method to avoid that the columns need to be loaded from the database.
 		for (final var c : columns) {
@@ -231,7 +232,7 @@ public final class Table extends SchemaObject implements ITable<SchemaImplementa
 		
 		for (final var c : columns) {
 			final var column = (Column)c;
-			column.setLoaded();
+			column.internalSetLoaded();
 			column.setParentTableAttribute(this);
 		}
 	}

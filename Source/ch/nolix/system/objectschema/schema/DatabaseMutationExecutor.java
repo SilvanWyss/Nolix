@@ -17,6 +17,6 @@ final class DatabaseMutationExecutor {
 			database.getRefRealSchemaAdapter().getRefRawSchemaWriter().addTable(table);
 		}
 		
-		database.setEdited();
+		database.internalSetEdited();
 	}
 }
