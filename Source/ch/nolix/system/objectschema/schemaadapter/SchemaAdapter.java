@@ -3,6 +3,7 @@ package ch.nolix.system.objectschema.schemaadapter;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.system.objectschema.parametrizedpropertytype.SchemaImplementation;
 import ch.nolix.system.objectschema.schema.Database;
 import ch.nolix.system.objectschema.schema.Table;
@@ -12,6 +13,9 @@ import ch.nolix.systemapi.rawobjectschemaapi.schemaadapterapi.ISchemaAdapter;
 //class
 public abstract class SchemaAdapter
 implements ch.nolix.systemapi.objectschemaapi.schemaadapterapi.ISchemaAdapter<SchemaImplementation> {
+	
+	//attribute
+	private final CloseController closeController = new CloseController(this);
 	
 	//attribute
 	private final String databaseName;
@@ -53,6 +57,12 @@ implements ch.nolix.systemapi.objectschemaapi.schemaadapterapi.ISchemaAdapter<Sc
 	
 	//method
 	@Override
+	public final CloseController getRefCloseController() {
+		return closeController;
+	}
+	
+	//method
+	@Override
 	public final Database getRefDatabase() {
 		return session.getRefDatabase();
 	}
@@ -70,6 +80,10 @@ implements ch.nolix.systemapi.objectschemaapi.schemaadapterapi.ISchemaAdapter<Sc
 	public final boolean hasChanges() {
 		return session.hasChanges();
 	}
+	
+	//method
+	@Override
+	public final void noteClose() {}
 	
 	//method
 	@Override

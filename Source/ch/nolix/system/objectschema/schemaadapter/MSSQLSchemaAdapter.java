@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.objectschema.schemaadapter;
 
-import ch.nolix.core.errorcontrol.validator.Validator;
+//own imports
 import ch.nolix.core.sql.SQLConnection;
 import ch.nolix.systemapi.rawobjectschemaapi.schemaadapterapi.ISchemaAdapter;
 
@@ -16,7 +16,7 @@ public final class MSSQLSchemaAdapter extends SchemaAdapter {
 		
 		super(databaseName);
 		
-		Validator.assertThat(pSQLConnection).thatIsNamed(SQLConnection.class).isNotNull();
+		createCloseDependencyTo(pSQLConnection);
 		
 		mSQLConnection = pSQLConnection;
 		
