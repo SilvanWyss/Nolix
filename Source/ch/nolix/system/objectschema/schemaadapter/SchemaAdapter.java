@@ -6,37 +6,53 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.system.objectschema.parametrizedpropertytype.SchemaImplementation;
 import ch.nolix.system.objectschema.schema.Database;
+import ch.nolix.system.objectschema.schemahelper.DatabaseHelper;
+import ch.nolix.systemapi.objectschemaapi.schemaadapterapi.ISchemaAdapter;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IDatabase;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
-import ch.nolix.systemapi.rawobjectschemaapi.schemaadapterapi.ISchemaAdapter;
+import ch.nolix.systemapi.objectschemaapi.schemahelperapi.IDatabaseHelper;
 
 //class
-public abstract class SchemaAdapter
-implements ch.nolix.systemapi.objectschemaapi.schemaadapterapi.ISchemaAdapter<SchemaImplementation> {
+public abstract class SchemaAdapter implements ISchemaAdapter<SchemaImplementation> {
+	
+	//static attribute
+	private static final IDatabaseHelper databaseHelper = new DatabaseHelper();
 	
 	//attribute
 	private final CloseController closeController = new CloseController(this);
 	
 	//attribute
-	private final String databaseName;
+	private IDatabase<SchemaImplementation> database;
 	
 	//attribute
-	private DatabaseSchemaSession session;
+	private final ch.nolix.systemapi.rawobjectschemaapi.schemaadapterapi.ISchemaAdapter rawObjectSchemaAdapter;
+	
+	//attribute
+	private int saveCount;
 	
 	//constructor
-	public SchemaAdapter(final String databaseName) {
+	public SchemaAdapter(
+		final String databaseName,
+		final ch.nolix.systemapi.rawobjectschemaapi.schemaadapterapi.ISchemaAdapter rawObjectSchemaAdapter
+	) {
 		
-		Validator.assertThat(databaseName).thatIsNamed("database name").isNotBlank();
+		Validator
+		.assertThat(rawObjectSchemaAdapter)
+		.thatIsNamed(ch.nolix.systemapi.rawobjectschemaapi.schemaadapterapi.ISchemaAdapter.class)
+		.isNotNull();
 		
-		this.databaseName = databaseName;
+		this.rawObjectSchemaAdapter = rawObjectSchemaAdapter;
+		
+		createCloseDependencyTo(rawObjectSchemaAdapter);
+		
+		resetUsingDatabaseName(databaseName);
 	}
 	
 	//method
 	@Override
-	public ch.nolix.systemapi.objectschemaapi.schemaadapterapi.ISchemaAdapter<SchemaImplementation> addTable(
-		final ITable<SchemaImplementation> table
-	) {
+	public ISchemaAdapter<SchemaImplementation> addTable(final ITable<SchemaImplementation> table) {
 		
-		getRefDatabase().addTable(table);
+		database.addTable(table);
 		
 		return this;
 	}
@@ -50,15 +66,13 @@ implements ch.nolix.systemapi.objectschemaapi.schemaadapterapi.ISchemaAdapter<Sc
 	//method
 	@Override
 	public final int getSaveCount() {
-		
-		//TODO: Implement.
-		return 0;
+		return saveCount;
 	}
 	
 	//method
 	@Override
 	public final boolean hasChanges() {
-		return session.hasChanges();
+		return rawObjectSchemaAdapter.hasChanges();
 	}
 	
 	//method
@@ -68,29 +82,29 @@ implements ch.nolix.systemapi.objectschemaapi.schemaadapterapi.ISchemaAdapter<Sc
 	//method
 	@Override
 	public final void reset() {
-		//TODO: Implement.
+		resetUsingDatabaseName(database.getName());
 	}
 	
 	//method
 	@Override
 	public final void saveChangesAndReset() {
 		try {
-			session.saveChanges();
+			
+			databaseHelper.assertAllBackReferencesAreValid(database);
+			rawObjectSchemaAdapter.saveChangesAndReset();
+			
+			saveCount++;
 		} finally {
 			reset();
 		}
 	}
 	
-	//method declaration
-	protected abstract ISchemaAdapter createRawSchemaAdapter();
-	
 	//method
-	protected final void initializeSession() {
-		session = new DatabaseSchemaSession(databaseName, createRawSchemaAdapter());
-	}
-	
-	//method
-	private Database getRefDatabase() {
-		return session.getRefDatabase();
+	private void resetUsingDatabaseName(final String databaseName) {
+		
+		database = new Database(databaseName);
+		database.setRawObjectSchemaAdapter(rawObjectSchemaAdapter);
+		
+		rawObjectSchemaAdapter.reset();
 	}
 }

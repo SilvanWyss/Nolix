@@ -192,7 +192,7 @@ public final class Column extends SchemaObject implements IColumn<SchemaImplemen
 	
 	//method
 	RawSchemaAdapter getRefRawSchemaAdapter() {
-		return ((Database)columnHelper.getParentDatabase(this)).getRefRealSchemaAdapter();
+		return ((Database)columnHelper.getParentDatabase(this)).internalGetRefRawObjectSchemaAdapter();
 	}
 	
 	//method

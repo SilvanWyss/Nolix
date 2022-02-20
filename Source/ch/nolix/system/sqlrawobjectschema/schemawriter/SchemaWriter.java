@@ -35,6 +35,7 @@ public final class SchemaWriter implements ISchemaWriter {
 	
 	//constructor
 	public SchemaWriter(
+		final String databaseName,
 		final SQLConnection pSQLConnection,
 		final ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaWriter schemaWriter,
 		final ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDTO pSQLSaveStampColumnDTO
@@ -47,6 +48,7 @@ public final class SchemaWriter implements ISchemaWriter {
 		internalSchemaWriter = new InternalSchemaWriter(schemaWriter, pSQLSaveStampColumnDTO);		
 		
 		createCloseDependencyTo(pSQLConnection);
+		mSQLConnection.execute("USE " + databaseName);
 	}
 	
 	//method

@@ -1,17 +1,13 @@
 //package declaration
 package ch.nolix.system.objectschema.schemaadapter;
 
+//own imports
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.environment.filesystem.FileAccessor;
-import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.systemapi.rawobjectschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //class
 public final class NodeSchemaAdapter extends SchemaAdapter {
-	
-	//attribute
-	private final BaseNode databaseNode;
 	
 	//static method
 	public static NodeSchemaAdapter forDatabaseNode(final String databaseName, final BaseNode databaseNode) {
@@ -29,19 +25,6 @@ public final class NodeSchemaAdapter extends SchemaAdapter {
 	
 	//constructor
 	private NodeSchemaAdapter(final String databaseName, final BaseNode databaseNode) {
-		
-		super(databaseName);
-		
-		Validator.assertThat(databaseNode).thatIsNamed("database Node").isNotNull();
-		
-		this.databaseNode = databaseNode;
-		
-		initializeSession();
-	}
-	
-	//method
-	@Override
-	protected ISchemaAdapter createRawSchemaAdapter() {
-		return ch.nolix.system.noderawobjectschema.schemaadapter.SchemaAdapter.forDatabaseNode(databaseNode);
+		super(databaseName, ch.nolix.system.noderawobjectschema.schemaadapter.SchemaAdapter.forDatabaseNode(databaseNode));
 	}
 }

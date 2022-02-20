@@ -43,6 +43,7 @@ public abstract class DataAndSchemaAdapter implements IDataAndSchemaAdapter {
 	
 	//constructor
 	public DataAndSchemaAdapter(
+		final String databaseName,
 		final SQLConnection pSQLConnection,
 		final ISchemaAdapter schemaAdapter,
 		final ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter pSQLSchemaAdapter,
@@ -53,7 +54,7 @@ public abstract class DataAndSchemaAdapter implements IDataAndSchemaAdapter {
 		
 		dataReader = new DataReader(pSQLConnection,tableDefinitions, pSQLSyntaxProvider);
 		dataWriter = new DataWriter(pSQLConnection, tableDefinitions, pSQLSyntaxProvider);
-		schemaReader = new SchemaReader(pSQLConnection, pSQLSchemaAdapter);
+		schemaReader = new SchemaReader(databaseName, pSQLConnection, pSQLSchemaAdapter);
 		
 		createCloseDependencyTo(schemaAdapter);
 	}

@@ -10,10 +10,10 @@ import ch.nolix.system.sqlrawobjectschema.schemaadapter.MSSQLSchemaAdapter;
 public final class MSSQLDataAdapter extends DataAdapter {
 	
 	//constructor
-	public MSSQLDataAdapter(final MSSQLConnection pMSSQLConnection) {
+	public MSSQLDataAdapter(final String databaseName, final MSSQLConnection pMSSQLConnection) {
 		super(
 			pMSSQLConnection,
-			new MSSQLSchemaAdapter(pMSSQLConnection),
+			new MSSQLSchemaAdapter(databaseName, pMSSQLConnection),
 			new SQLSyntaxProvider()
 		);
 	}

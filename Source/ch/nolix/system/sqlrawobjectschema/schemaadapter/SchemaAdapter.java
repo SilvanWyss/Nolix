@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlrawobjectschema.schemaadapter;
 
+//own imports
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.sql.SQLConnection;
@@ -31,17 +32,19 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 	
 	//constructor
 	public SchemaAdapter(
+		final String databaseName,
 		final SQLConnection pSQLConnection,
 		final ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter pSQLSchemaAdapter,
 		final ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDTO pSQLSaveStampColumnDTO
 	) {
 		
+		createCloseDependencyTo(pSQLConnection);
+		
+		pSQLConnection.execute("USE " + databaseName);
 		databaseInitializer.initializeDatabaseIfNotInitialized(pSQLSchemaAdapter);
 		
-		rawSchemaReader = new SchemaReader(pSQLConnection, pSQLSchemaAdapter);
-		rawSchemaWriter = new SchemaWriter(pSQLConnection, pSQLSchemaAdapter, pSQLSaveStampColumnDTO);
-		
-		createCloseDependencyTo(pSQLConnection);
+		rawSchemaReader = new SchemaReader(databaseName, pSQLConnection, pSQLSchemaAdapter);
+		rawSchemaWriter = new SchemaWriter(databaseName, pSQLConnection, pSQLSchemaAdapter, pSQLSaveStampColumnDTO);
 	}
 	
 	//method

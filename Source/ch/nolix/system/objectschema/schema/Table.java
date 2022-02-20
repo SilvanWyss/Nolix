@@ -174,7 +174,7 @@ public final class Table extends SchemaObject implements ITable<SchemaImplementa
 	
 	//method
 	RawSchemaAdapter getRefRealSchemaAdapter() {
-		return getParentDatabase().getRefRealSchemaAdapter();
+		return getParentDatabase().internalGetRefRawObjectSchemaAdapter();
 	}
 	
 	//method

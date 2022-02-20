@@ -21,12 +21,14 @@ public final class Database extends SchemaObject implements IDatabase<SchemaImpl
 	//static attributes
 	private static final DatabaseMutationExecutor mutationExecutor = new DatabaseMutationExecutor();
 	
-	//attributes
+	//attribute
 	private final String name;
+	
+	//attribute
 	private boolean loadedTablesFromDatabase;
 	
 	//optional attribute
-	private RawSchemaAdapter rawSchemaAdapter;
+	private RawSchemaAdapter rawObjectSchemaAdapter;
 	
 	//multi-attribute
 	private LinkedList<ITable<SchemaImplementation>> tables = new LinkedList<>();
@@ -73,13 +75,13 @@ public final class Database extends SchemaObject implements IDatabase<SchemaImpl
 	//method
 	@Override
 	public boolean isLinkedWithRealDatabase() {
-		return (rawSchemaAdapter != null);
+		return (rawObjectSchemaAdapter != null);
 	}
 	
 	//method
 	@Override
-	public void setRealSchemaAdapter(final ISchemaAdapter schemaAdapter) {
-		setRealSchemaAdapter(new RawSchemaAdapter(schemaAdapter));
+	public void setRawObjectSchemaAdapter(final ISchemaAdapter rawObjectSchemaAdapter) {
+		setRawObjectSchemaAdapter(new RawSchemaAdapter(rawObjectSchemaAdapter));
 	}
 	
 	//method
@@ -98,11 +100,11 @@ public final class Database extends SchemaObject implements IDatabase<SchemaImpl
 	}
 	
 	//method
-	RawSchemaAdapter getRefRealSchemaAdapter() {
+	RawSchemaAdapter internalGetRefRawObjectSchemaAdapter() {
 		
 		databaseHelper.assertIsLinkedWithRealDatabase(this);
 		
-		return rawSchemaAdapter;
+		return rawObjectSchemaAdapter;
 	}
 	
 	//method
@@ -118,7 +120,7 @@ public final class Database extends SchemaObject implements IDatabase<SchemaImpl
 	//method
 	private void loadTablesFromDatabase() {
 		
-		tables = getRefRealSchemaAdapter().getRefRawSchemaReader().loadFlatTables().to(Table::fromFlatDTO);
+		tables = internalGetRefRawObjectSchemaAdapter().getRefRawSchemaReader().loadFlatTables().to(Table::fromFlatDTO);
 		for (final var t : tables) {
 			final var table = (Table)t;
 			table.internalSetLoaded();
@@ -141,12 +143,12 @@ public final class Database extends SchemaObject implements IDatabase<SchemaImpl
 	}
 	
 	//method
-	private void setRealSchemaAdapter(final RawSchemaAdapter rawSchemaAdapter) {
+	private void setRawObjectSchemaAdapter(final RawSchemaAdapter rawObjectSchemaAdapter) {
 		
-		Validator.assertThat(rawSchemaAdapter).thatIsNamed(RawSchemaAdapter.class).isNotNull();
+		Validator.assertThat(rawObjectSchemaAdapter).thatIsNamed(RawSchemaAdapter.class).isNotNull();
 		databaseHelper.assertIsNotLinkedWithRealDatabase(this);
 		
 		internalSetLoaded();
-		this.rawSchemaAdapter = rawSchemaAdapter;
+		this.rawObjectSchemaAdapter = rawObjectSchemaAdapter;
 	}
 }

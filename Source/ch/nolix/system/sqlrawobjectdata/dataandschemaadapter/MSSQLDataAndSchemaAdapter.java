@@ -10,15 +10,19 @@ import ch.nolix.system.sqlrawobjectschema.schemaadapter.MSSQLSchemaAdapter;
 public final class MSSQLDataAndSchemaAdapter extends DataAndSchemaAdapter {
 	
 	//static method
-	public static MSSQLDataAndSchemaAdapter withDatabaseConnection(final MSSQLConnection pMSSQLConnection) {
-		return new MSSQLDataAndSchemaAdapter(pMSSQLConnection);
+	public static MSSQLDataAndSchemaAdapter withDatabaseNameAndDatabaseConnection(
+		final String databaseName,
+		final MSSQLConnection pMSSQLConnection
+	) {
+		return new MSSQLDataAndSchemaAdapter(databaseName, pMSSQLConnection);
 	}
 	
 	//constructor
-	private MSSQLDataAndSchemaAdapter(final MSSQLConnection pMSSQLConnection) {
+	private MSSQLDataAndSchemaAdapter(final String databaseName, final MSSQLConnection pMSSQLConnection) {
 		super(
+			databaseName,
 			pMSSQLConnection,
-			new MSSQLSchemaAdapter(pMSSQLConnection),
+			new MSSQLSchemaAdapter(databaseName, pMSSQLConnection),
 			new ch.nolix.system.sqlschema.schemaadapter.MSSQLSchemaAdapter(pMSSQLConnection),
 			new SQLSyntaxProvider()
 		);

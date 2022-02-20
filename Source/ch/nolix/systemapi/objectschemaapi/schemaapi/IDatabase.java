@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.objectschemaapi.schemaapi;
 
+//own imports
 import ch.nolix.core.attributeapi.mandatoryattributeapi.Named;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.IDatabaseObject;
@@ -19,5 +20,5 @@ public interface IDatabase<IMPL> extends IDatabaseObject, Named {
 	IContainer<ITable<IMPL>> getRefTables();
 	
 	//method declaration
-	void setRealSchemaAdapter(ISchemaAdapter schemaAdapter);
+	void setRawObjectSchemaAdapter(ISchemaAdapter rawObjectSchemaAdapter);
 }

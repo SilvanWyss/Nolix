@@ -40,7 +40,11 @@ public final class SchemaReader implements ISchemaReader {
 	private final ISchemaAdapter schemaAdapter;
 	
 	//constructor
-	public SchemaReader(final SQLConnection pSQLConnection,	final ISchemaAdapter schemaAdapter) {
+	public SchemaReader(
+		final String databaseName,
+		final SQLConnection pSQLConnection,
+		final ISchemaAdapter schemaAdapter
+	) {
 		
 		Validator.assertThat(pSQLConnection).thatIsNamed(SQLConnection.class).isNotNull();
 		Validator.assertThat(schemaAdapter).thatIsNamed(ISchemaAdapter.class).isNotNull();
@@ -49,6 +53,7 @@ public final class SchemaReader implements ISchemaReader {
 		this.schemaAdapter = schemaAdapter;
 		
 		createCloseDependencyTo(mSQLConnection);
+		mSQLConnection.execute("USE " + databaseName);
 	}
 	
 	//method
