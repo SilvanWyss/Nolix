@@ -1,27 +1,19 @@
 //package declaration
 package ch.nolix.system.objectschema.schema;
 
+//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.DeletedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NewArgumentException;
-import ch.nolix.core.programcontrol.groupcloseable.CloseController;
-import ch.nolix.core.programcontrol.groupcloseable.GroupCloseable;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.DatabaseObjectState;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.IDatabaseObject;
 
 //class
-abstract class DatabaseObject implements GroupCloseable, IDatabaseObject {
+abstract class DatabaseObject implements IDatabaseObject {
 	
 	//attributes
-	private final CloseController closeController = new CloseController(this);
 	private DatabaseObjectState state = DatabaseObjectState.NEW;
-	
-	//method
-	@Override
-	public CloseController getRefCloseController() {
-		return closeController;
-	}
 	
 	//method
 	@Override
@@ -31,13 +23,18 @@ abstract class DatabaseObject implements GroupCloseable, IDatabaseObject {
 	
 	//method
 	@Override
-	public boolean isDeleted() {
-		return (getState() == DatabaseObjectState.DELETED);
+	public final boolean isClosed() {
+		return (getState() == DatabaseObjectState.CLOSED);
 	}
 	
 	//method
 	@Override
-	public final void noteClose() {
+	public final boolean isDeleted() {
+		return (getState() == DatabaseObjectState.DELETED);
+	}
+	
+	//method
+	final void internalClose() {
 		state = DatabaseObjectState.CLOSED;
 		noteCloseDatabaseObject();
 	}

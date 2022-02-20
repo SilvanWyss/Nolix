@@ -86,7 +86,9 @@ public final class Database extends DatabaseObject implements IDatabase<SchemaIm
 	protected void noteCloseDatabaseObject() {
 		
 		//Does not call getRefTables method to avoid that the tables need to be loaded from the database.
-		tables.forEach(ITable::close);
+		for (final var t : tables) {
+			((Table)t).internalClose();
+		}
 	}
 	
 	//method

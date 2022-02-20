@@ -161,7 +161,9 @@ public final class Table extends DatabaseObject implements ITable<SchemaImplemen
 	protected void noteCloseDatabaseObject() {
 		
 		//Does not call getRefColumns method to avoid that the columns need to be loaded from the database.
-		columns.forEach(IColumn::close);
+		for (final var c : columns) {
+			((Column)c).internalClose();
+		}
 	}
 	
 	//method
