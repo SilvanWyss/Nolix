@@ -120,6 +120,13 @@ public final class Database implements IDatabase<DataImplementation> {
 	}
 	
 	//method
+	void internalClose() {
+		for (final var t : technicalGetRefTablesInLocalData()) {
+			((Table<?>)t).internalClose();
+		}
+	}
+	
+	//method
 	IDataAndSchemaAdapter internalGetRefDataAndSchemaAdapter() {
 		return dataAndSchemaAdapter;
 	}

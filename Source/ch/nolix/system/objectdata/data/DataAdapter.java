@@ -8,6 +8,7 @@ import ch.nolix.systemapi.objectdataapi.dataadapterapi.IDataAdapter;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 import ch.nolix.systemapi.objectdataapi.datahelperapi.IDatabaseHelper;
+import ch.nolix.systemapi.rawobjectdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
 
 //class
 public abstract class DataAdapter implements IDataAdapter<DataImplementation> {
@@ -16,16 +17,23 @@ public abstract class DataAdapter implements IDataAdapter<DataImplementation> {
 	private static final IDatabaseHelper databaseHelper = new DatabaseHelper();
 	
 	//attribute
+	private final CloseController closeController = new CloseController(this);
+	
+	//attribute
 	private final Database database;
 	
 	//attribute
-	private final CloseController closeController = new CloseController(this);
+	private int saveCount;
 	
 	//constructor
-	private DataAdapter(final Database database) {
+	public DataAdapter(
+		final IDataAndSchemaAdapter dataAndSchemaAdapter,
+		final Schema schema
+	) {
 		
-		//TODO: Check if database is valid.
-		this.database = database;
+		database = Database.withDataAndSchemaAdapterAndSchema(dataAndSchemaAdapter, schema);
+		
+		createCloseDependencyTo(dataAndSchemaAdapter);
 	}
 	
 	//method
@@ -36,10 +44,16 @@ public abstract class DataAdapter implements IDataAdapter<DataImplementation> {
 	
 	//method
 	@Override
-	public <E extends IEntity<DataImplementation>> ITable<DataImplementation, E> getRefTableByEntityType(
+	public final <E extends IEntity<DataImplementation>> ITable<DataImplementation, E> getRefTableByEntityType(
 		final Class<E> entityType
 	) {
 		return database.getRefTableByEntityClass(entityType);
+	}
+	
+	//method
+	@Override
+	public final int getSaveCount() {
+		return saveCount;
 	}
 	
 	//method
@@ -59,7 +73,26 @@ public abstract class DataAdapter implements IDataAdapter<DataImplementation> {
 	
 	//method
 	@Override
+	public final void noteClose() {
+		database.internalClose();
+	}
+	
+	//method
+	@Override
 	public final void reset() {
 		database.internalReset();
+	}
+	
+	//method
+	@Override
+	public final void saveChangesAndReset() {
+		try {
+			
+			//TODO: Implement.
+			
+			saveCount++;
+		} finally {
+			reset();
+		}
 	}
 }
