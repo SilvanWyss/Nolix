@@ -2,7 +2,6 @@
 package ch.nolix.systemapi.rawobjectdataapi.dataadapterapi;
 
 //own imports
-import ch.nolix.core.programcontrol.groupcloseable.GroupCloseable;
 import ch.nolix.core.skillapi.IMultiTimeChangeSaver;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordHeadDTO;
@@ -13,7 +12,7 @@ import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
  * @author Silvan Wyss
  * @date 2021-09-19
  */
-public interface IDataWriter extends GroupCloseable, IMultiTimeChangeSaver {
+public interface IDataWriter extends IMultiTimeChangeSaver {
 	
 	//method declaration
 	/**

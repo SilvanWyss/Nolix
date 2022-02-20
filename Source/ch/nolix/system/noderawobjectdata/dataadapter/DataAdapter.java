@@ -91,7 +91,7 @@ public final class DataAdapter implements IDataAdapter {
 	
 	//method
 	@Override
-	public final CloseController getRefCloseController() {
+	public CloseController getRefCloseController() {
 		return closeController;
 	}
 	

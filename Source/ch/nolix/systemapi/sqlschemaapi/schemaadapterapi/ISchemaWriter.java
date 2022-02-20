@@ -3,13 +3,12 @@ package ch.nolix.systemapi.sqlschemaapi.schemaadapterapi;
 
 //own imports
 import ch.nolix.core.container.IContainer;
-import ch.nolix.core.programcontrol.groupcloseable.GroupCloseable;
 import ch.nolix.core.skillapi.IMultiTimeChangeSaver;
 import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.ITableDTO;
 
 //interface
-public interface ISchemaWriter extends GroupCloseable, IMultiTimeChangeSaver {
+public interface ISchemaWriter extends IMultiTimeChangeSaver {
 	
 	//method declaration
 	void addColumn(String tableName, IColumnDTO column);
