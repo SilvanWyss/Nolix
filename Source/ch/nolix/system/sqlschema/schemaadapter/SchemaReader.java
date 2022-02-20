@@ -36,6 +36,8 @@ final class SchemaReader implements ISchemaReader {
 		
 		mSQLConnection = pSQLConnection;
 		this.schemaQueryCreator = schemaQueryCreator;
+		
+		createCloseDependencyTo(mSQLConnection);
 	}
 	
 	//method
