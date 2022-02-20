@@ -1,8 +1,10 @@
 //package declaration
 package ch.nolix.system.sqlschema.schemaadapter;
 
+//own imports
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.sql.SQLConnection;
 import ch.nolix.systemapi.sqlschemaapi.flatschemadtoapi.IFlatTableDTO;
 import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter;
@@ -16,9 +18,14 @@ import ch.nolix.systemapi.sqlschemaapi.schemalanguageapi.ISchemaStatementCreator
 //class
 public abstract class SchemaAdapter implements ISchemaAdapter {
 	
-	//attributes
+	//attribute
 	private final ISchemaReader schemaReader;
+	
+	//attribute
 	private final ISchemaWriter schemaWriter;
+	
+	//attribute
+	private final CloseController closeController = new CloseController(this);
 	
 	//constructor
 	public SchemaAdapter(
@@ -26,8 +33,12 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 		final ISchemaQueryCreator schemaQueryCreator,
 		final ISchemaStatementCreator schemaStatementCreator
 	) {
+		
 		schemaReader = new SchemaReader(pSQLConnection, schemaQueryCreator);
 		schemaWriter = new SchemaWriter(pSQLConnection, schemaStatementCreator);
+		
+		createCloseDependencyTo(schemaReader);
+		createCloseDependencyTo(schemaWriter);
 	}
 	
 	//method
@@ -62,14 +73,20 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 	
 	//method
 	@Override
-	public final IContainer<String> getSQLStatements() {
-		return schemaWriter.getSQLStatements();
+	public final CloseController getRefCloseController() {
+		return closeController;
 	}
 	
 	//method
 	@Override
 	public final int getSaveCount() {
 		return schemaWriter.getSaveCount();
+	}
+	
+	//method
+	@Override
+	public final IContainer<String> getSQLStatements() {
+		return schemaWriter.getSQLStatements();
 	}
 	
 	//method
@@ -95,6 +112,10 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 	public final LinkedList<ITableDTO> loadTables() {
 		return schemaReader.loadTables();
 	}
+	
+	//method
+	@Override
+	public final void noteClose() {}
 	
 	//method
 	@Override

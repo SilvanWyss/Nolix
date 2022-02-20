@@ -1,8 +1,10 @@
 //package declaration
 package ch.nolix.system.sqlschema.schemaadapter;
 
+//own imports
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.sql.SQLConnection;
 import ch.nolix.system.sqlschema.flatschemadto.FlatTableDTO;
 import ch.nolix.system.sqlschema.schemadto.ColumnDTO;
@@ -17,9 +19,14 @@ import ch.nolix.systemapi.sqlschemaapi.schemalanguageapi.ISchemaQueryCreator;
 //class
 final class SchemaReader implements ISchemaReader {
 	
-	//attributes
+	//attribute
 	private final SQLConnection mSQLConnection;
+	
+	//attribute
 	private final ISchemaQueryCreator schemaQueryCreator;
+	
+	//attribute
+	private final CloseController closeController = new CloseController(this);
 	
 	//constructor
 	public SchemaReader(final SQLConnection pSQLConnection, final ISchemaQueryCreator schemaQueryCreator) {
@@ -38,6 +45,12 @@ final class SchemaReader implements ISchemaReader {
 		mSQLConnection
 		.getRecords(schemaQueryCreator.createQueryToLoadTopFirstRecordWhereColumnIsNotNull(tableName, columnName))
 		.isEmpty();
+	}
+	
+	//method
+	@Override
+	public CloseController getRefCloseController() {
+		return closeController;
 	}
 	
 	//method
@@ -63,6 +76,10 @@ final class SchemaReader implements ISchemaReader {
 	public LinkedList<ITableDTO> loadTables() {
 		return loadFlatTables().to(t -> new TableDTO(t.getName(), loadColumns(t.getName())));
 	}
+	
+	//method
+	@Override
+	public void noteClose() {}
 	
 	//method
 	@Override

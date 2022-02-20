@@ -4,6 +4,7 @@ package ch.nolix.system.sqlschema.schemaadapter;
 //own imports
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.sql.SQLCollector;
 import ch.nolix.core.sql.SQLConnection;
 import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaWriter;
@@ -26,6 +27,9 @@ public class SchemaWriter implements ISchemaWriter {
 	//attribute
 	private final ISchemaStatementCreator schemaStatementCreator;
 	
+	//attribute
+	private final CloseController closeController = new CloseController(this);
+	
 	//constructor
 	public SchemaWriter(
 		final SQLConnection pSQLConnection,
@@ -36,6 +40,8 @@ public class SchemaWriter implements ISchemaWriter {
 		
 		mSQLConnection = pSQLConnection;
 		this.schemaStatementCreator = schemaStatementCreator;
+		
+		createCloseDependencyTo(mSQLConnection);
 	}
 	
 	//method
@@ -64,6 +70,12 @@ public class SchemaWriter implements ISchemaWriter {
 	
 	//method
 	@Override
+	public CloseController getRefCloseController() {
+		return closeController;
+	}
+	
+	//method
+	@Override
 	public int getSaveCount() {
 		return saveCount;
 	}
@@ -79,6 +91,10 @@ public class SchemaWriter implements ISchemaWriter {
 	public boolean hasChanges() {
 		return mSQLCollector.containsAny();
 	}
+	
+	//method
+	@Override
+	public void noteClose() {}
 	
 	//method
 	@Override
