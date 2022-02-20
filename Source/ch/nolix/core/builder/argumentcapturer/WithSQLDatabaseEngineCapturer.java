@@ -17,6 +17,11 @@ extends ArgumentCapturer<SQLDatabaseEngine, NAC> {
 	}
 	
 	//method
+	public SQLDatabaseEngine getSQLDatabaseEngine() {
+		return getRefArgument();
+	}
+	
+	//method
 	public NAC withSQLDatabaseEngine(final SQLDatabaseEngine pSQLDatabaseEngine) {
 		
 		Validator.assertThat(pSQLDatabaseEngine).thatIsNamed(SQLDatabaseEngine.class).isNotNull();

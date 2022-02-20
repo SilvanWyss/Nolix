@@ -1,24 +1,47 @@
 //package declaration
 package ch.nolix.core.builder.base;
 
+//own imports
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.functionapi.IElementGetter;
 
 //class
 public abstract class BaseArgumentCapturer<A> {
 	
-	//attribute
+	//boolean
+	private boolean hasArgument;
+	
+	//optional attribute
 	private A argument;
 	
 	//method
-	public final A getRefArgument() {
+	protected final A getRefArgument() {
+		
+		assertHasArgument();
+		
 		return argument;
 	}
 	
 	//method
 	final void internalSetArgument(final A argument) {
+		
+		hasArgument = true;
+		
 		this.argument = argument;
 	}
 	
 	//method declaration
 	abstract void internalSetBuilder(IElementGetter<?> builder);
+	
+	//method
+	private void assertHasArgument() {
+		if (!hasArgument()) {
+			throw new ArgumentDoesNotHaveAttributeException(this, "argument");
+		}
+	}
+	
+	//method
+	private boolean hasArgument() {
+		return hasArgument;
+	}
 }

@@ -22,4 +22,9 @@ public final class UsingLoginNameCapturer<NAC extends BaseArgumentCapturer<?>> e
 		
 		return setArgumentAndGetRefNextArgumentCapturer(loginName);
 	}
+	
+	//method
+	public String getLoginName() {
+		return getRefArgument();
+	}
 }

@@ -22,4 +22,9 @@ public final class AndLoginPasswordCapturer<NAC extends BaseArgumentCapturer<?>>
 		
 		return setArgumentAndGetRefNextArgumentCapturer(loginPassword);
 	}
+	
+	//method
+	public String getLoginPassword() {
+		return getRefArgument();
+	}
 }

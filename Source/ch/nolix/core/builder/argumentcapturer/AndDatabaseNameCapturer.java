@@ -22,4 +22,9 @@ public final class AndDatabaseNameCapturer<NAC extends BaseArgumentCapturer<?>> 
 		
 		return setArgumentAndGetRefNextArgumentCapturer(databaseName);
 	}
+	
+	//method
+	public String getDatabaseName() {
+		return getRefArgument();
+	}
 }

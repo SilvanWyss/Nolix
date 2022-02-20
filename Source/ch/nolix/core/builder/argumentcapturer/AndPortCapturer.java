@@ -42,4 +42,9 @@ public final class AndPortCapturer<NAC extends BaseArgumentCapturer<?>> extends 
 		
 		return setArgumentAndGetRefNextArgumentCapturer(port);
 	}
+	
+	//method
+	public int getPort() {
+		return getRefArgument();
+	}
 }

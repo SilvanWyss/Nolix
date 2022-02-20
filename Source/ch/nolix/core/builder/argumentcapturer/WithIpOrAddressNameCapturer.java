@@ -16,6 +16,11 @@ public final class WithIpOrAddressNameCapturer<NAC extends BaseArgumentCapturer<
 	}
 	
 	//method
+	public String getIpOrAddressName() {
+		return getRefArgument();
+	}
+	
+	//method
 	public NAC withIpOrAddressName(final String ipOrAddressName) {
 		
 		Validator.assertThat(ipOrAddressName).thatIsNamed("ip or address name").isNotBlank();

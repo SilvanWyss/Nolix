@@ -16,4 +16,9 @@ public final class AndLoginPasswordTerminalCapturer<O> extends TerminalArgumentC
 		
 		return setArgumentAndBuild(loginPassword);
 	}
+	
+	//method
+	public String getLoginPassword() {
+		return getRefArgument();
+	}
 }

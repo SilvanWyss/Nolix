@@ -69,6 +69,10 @@ public class CarModelBuilderTutorial {
 			super(nextArgumentCapturer);
 		}
 		
+		public String getName() {
+			return getRefArgument();
+		}
+		
 		public NAC withName(final String name) {
 			return setArgumentAndGetRefNextArgumentCapturer(name);
 		}
@@ -81,12 +85,21 @@ public class CarModelBuilderTutorial {
 			super(nextArgumentCapturer);
 		}
 		
+		public int getWeightInKilogram() {
+			return getRefArgument();
+		}
+		
 		public NAC withWeightInKilogram(final Integer weightInKilogram) {
 			return setArgumentAndGetRefNextArgumentCapturer(weightInKilogram);
 		}
 	}
 	
 	private static final class TopSpeedCapturer<O> extends TerminalArgumentCapturer<Integer, O> {
+		
+		public int getTopSpeedInKilometerPerHour() {
+			return getRefArgument();
+		}
+		
 		public O withTopSpeedInKilometerPerHour(final int topSpeedInKilometerPerHour) {
 			return setArgumentAndBuild(topSpeedInKilometerPerHour);
 		}
@@ -106,9 +119,9 @@ public class CarModelBuilderTutorial {
 			final var topSpeedCapturer = weightInKilogramCapturer.n();
 			
 			return new CarModel(
-				nameCapturer.getRefArgument(),
-				weightInKilogramCapturer.getRefArgument(),
-				topSpeedCapturer.getRefArgument()
+				nameCapturer.getName(),
+				weightInKilogramCapturer.getWeightInKilogram(),
+				topSpeedCapturer.getTopSpeedInKilometerPerHour()
 			);
 		}
 		
