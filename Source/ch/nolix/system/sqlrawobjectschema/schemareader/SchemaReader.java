@@ -3,6 +3,7 @@ package ch.nolix.system.sqlrawobjectschema.schemareader;
 
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.sql.SQLConnection;
 import ch.nolix.element.time.base.Time;
 import ch.nolix.system.objectschema.schemadto.SaveStampConfigurationDTO;
@@ -30,6 +31,9 @@ public final class SchemaReader implements ISchemaReader {
 	private static final ColumnDTOMapper columnDTOMapper = new ColumnDTOMapper();
 	
 	//attribute
+	private final CloseController closeController = new CloseController(this);
+	
+	//attribute
 	private final SQLConnection mSQLConnection;
 	
 	//attribute
@@ -43,12 +47,20 @@ public final class SchemaReader implements ISchemaReader {
 		
 		mSQLConnection = pSQLConnection;
 		this.schemaAdapter = schemaAdapter;
+		
+		createCloseDependencyTo(mSQLConnection);
 	}
 	
 	//method
 	@Override
 	public boolean columnIsEmpty(final String tableName, final String columnName) {
 		return schemaAdapter.columnsIsEmpty(TableType.BASE_CONTENT_DATA.getNamePrefix() + tableName, columnName);
+	}
+	
+	//method
+	@Override
+	public CloseController getRefCloseController() {
+		return closeController;
 	}
 	
 	//method
@@ -122,6 +134,10 @@ public final class SchemaReader implements ISchemaReader {
 	public LinkedList<ITableDTO> loadTables() {
 		return loadFlatTables().to(t -> loadTableById(t.getId()));
 	}
+	
+	//method
+	@Override
+	public void noteClose() {}
 	
 	//method
 	private ITableDTO loadTable(final IFlatTableDTO flatTable) {

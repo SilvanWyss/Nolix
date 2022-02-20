@@ -1,9 +1,11 @@
 //package declaration
 package ch.nolix.system.noderawobjectschema.schemaadapter;
 
+//own imports
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.filenode.FileNode;
 import ch.nolix.core.document.node.BaseNode;
+import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.element.time.base.Time;
 import ch.nolix.system.noderawobjectschema.databaseinitializer.DatabaseInitializer;
 import ch.nolix.system.noderawobjectschema.schemareader.SchemaReader;
@@ -30,8 +32,13 @@ public final class SchemaAdapter implements ISchemaAdapter {
 		return new SchemaAdapter(new FileNode(filePath));
 	}
 	
-	//attributes
+	//attribute
+	private final CloseController closeController = new CloseController(this);
+	
+	//attribute
 	private final SchemaReader schemaReader;
+	
+	//attribute
 	private final SchemaWriter schemaWriter;
 	
 	//constructor
@@ -41,6 +48,9 @@ public final class SchemaAdapter implements ISchemaAdapter {
 		
 		schemaReader = new SchemaReader(databaseNode);
 		schemaWriter = new SchemaWriter(databaseNode);
+		
+		createCloseDependencyTo(schemaReader);
+		createCloseDependencyTo(schemaWriter);
 	}
 	
 	//method
@@ -71,6 +81,12 @@ public final class SchemaAdapter implements ISchemaAdapter {
 	@Override
 	public void deleteTable(final String tableName) {
 		schemaWriter.deleteTable(tableName);
+	}
+	
+	//method
+	@Override
+	public CloseController getRefCloseController() {
+		return closeController;
 	}
 	
 	//method
@@ -138,6 +154,10 @@ public final class SchemaAdapter implements ISchemaAdapter {
 	public LinkedList<ITableDTO> loadTables() {
 		return schemaReader.loadTables();
 	}
+	
+	//method
+	@Override
+	public void noteClose() {}
 	
 	//method
 	@Override

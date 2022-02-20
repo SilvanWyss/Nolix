@@ -2,6 +2,7 @@
 package ch.nolix.system.sqlrawobjectschema.schemaadapter;
 
 import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.sql.SQLConnection;
 import ch.nolix.element.time.base.Time;
 import ch.nolix.system.sqlrawobjectschema.databaseinitializer.DatabaseInitializer;
@@ -19,9 +20,14 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 	//static attribute
 	private static final DatabaseInitializer databaseInitializer = new DatabaseInitializer();
 	
-	//attributes
+	//attribute
 	private final SchemaReader rawSchemaReader;
+	
+	//attribute
 	private final SchemaWriter rawSchemaWriter;
+	
+	//attribtue
+	private final CloseController closeController = new CloseController(this);
 	
 	//constructor
 	public SchemaAdapter(
@@ -34,6 +40,8 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 		
 		rawSchemaReader = new SchemaReader(pSQLConnection, pSQLSchemaAdapter);
 		rawSchemaWriter = new SchemaWriter(pSQLConnection, pSQLSchemaAdapter, pSQLSaveStampColumnDTO);
+		
+		createCloseDependencyTo(pSQLConnection);
 	}
 	
 	//method
@@ -64,6 +72,12 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 	@Override
 	public final void deleteTable(final String tableName) {
 		rawSchemaWriter.deleteTable(tableName);
+	}
+	
+	//method
+	@Override
+	public final CloseController getRefCloseController() {
+		return closeController;
 	}
 	
 	//method
@@ -131,6 +145,10 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 	public final LinkedList<ITableDTO> loadTables() {
 		return rawSchemaReader.loadTables();
 	}
+	
+	//method
+	@Override
+	public final void noteClose() {}
 	
 	//method
 	@Override

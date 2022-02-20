@@ -37,8 +37,7 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 		schemaReader = new SchemaReader(pSQLConnection, schemaQueryCreator);
 		schemaWriter = new SchemaWriter(pSQLConnection, schemaStatementCreator);
 		
-		createCloseDependencyTo(schemaReader);
-		createCloseDependencyTo(schemaWriter);
+		createCloseDependencyTo(pSQLConnection);
 	}
 	
 	//method

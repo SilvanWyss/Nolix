@@ -1,9 +1,11 @@
 //package declaration
 package ch.nolix.system.noderawobjectschema.schemareader;
 
+//own imports
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.element.time.base.Time;
 import ch.nolix.system.noderawobjectschema.structure.ColumnNodeSearcher;
 import ch.nolix.system.noderawobjectschema.structure.DatabaseNodeSearcher;
@@ -40,6 +42,9 @@ public final class SchemaReader implements ISchemaReader {
 	private static final ColumnDTOMapper columnDTOMapper = new ColumnDTOMapper();
 	
 	//attribute
+	private final CloseController closeController = new CloseController(this);
+	
+	//attribute
 	private final BaseNode databaseNode;
 	
 	//constructor
@@ -59,6 +64,12 @@ public final class SchemaReader implements ISchemaReader {
 		final var columnNode = tableNodeSearcher.getRefColumnNodeFromTableNodeByColumnName(tableNode, columnName);
 		
 		return columnNodeSearcher.columnNodeContainsEntityNode(columnNode);
+	}
+	
+	//method
+	@Override
+	public CloseController getRefCloseController() {
+		return closeController;
 	}
 	
 	//method
@@ -147,6 +158,10 @@ public final class SchemaReader implements ISchemaReader {
 		
 		return Time.fromSpecification(timestampNode);
 	}
+	
+	//method
+	@Override
+	public void noteClose() {}
 	
 	//method
 	private LinkedList<IColumnDTO> loadColumnsFromTableNode(final BaseNode tableNode) {

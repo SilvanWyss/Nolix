@@ -1,14 +1,16 @@
 //package declaration
 package ch.nolix.systemapi.rawobjectschemaapi.schemaadapterapi;
 
+//own imports
 import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.programcontrol.groupcloseable.GroupCloseable;
 import ch.nolix.element.time.base.Time;
 import ch.nolix.systemapi.rawobjectschemaapi.flatschemadtoapi.IFlatTableDTO;
 import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.ITableDTO;
 
 //interface
-public interface ISchemaReader {
+public interface ISchemaReader extends GroupCloseable {
 	
 	//method declaration
 	boolean columnIsEmpty(String tableName, String columnName);

@@ -3,6 +3,7 @@ package ch.nolix.system.sqlrawobjectschema.schemawriter;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.sql.SQLCollector;
 import ch.nolix.core.sql.SQLConnection;
 import ch.nolix.element.time.base.Time;
@@ -13,6 +14,9 @@ import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.ITableDTO;
 
 //class
 public final class SchemaWriter implements ISchemaWriter {
+	
+	//attribute
+	private final CloseController closeController = new CloseController(this);
 	
 	//attribute
 	private int saveCount;
@@ -41,6 +45,8 @@ public final class SchemaWriter implements ISchemaWriter {
 		mSQLConnection = pSQLConnection;
 		systemDataWriter = new SystemDataWriter(mSQLCollector);
 		internalSchemaWriter = new InternalSchemaWriter(schemaWriter, pSQLSaveStampColumnDTO);		
+		
+		createCloseDependencyTo(pSQLConnection);
 	}
 	
 	//method
@@ -73,6 +79,12 @@ public final class SchemaWriter implements ISchemaWriter {
 	
 	//method
 	@Override
+	public CloseController getRefCloseController() {
+		return closeController;
+	}
+	
+	//method
+	@Override
 	public int getSaveCount() {
 		return saveCount;
 	}
@@ -82,6 +94,10 @@ public final class SchemaWriter implements ISchemaWriter {
 	public boolean hasChanges() {
 		return (systemDataWriter.hasChanges() || internalSchemaWriter.hasChanges());
 	}
+	
+	//method
+	@Override
+	public void noteClose() {}
 	
 	//method
 	@Override

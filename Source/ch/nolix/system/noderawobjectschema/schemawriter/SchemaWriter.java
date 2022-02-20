@@ -4,6 +4,7 @@ package ch.nolix.system.noderawobjectschema.schemawriter;
 //own imports
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.element.time.base.Time;
 import ch.nolix.system.noderawobjectschema.structure.ColumnNodeSearcher;
 import ch.nolix.system.noderawobjectschema.structure.DatabaseNodeSearcher;
@@ -40,6 +41,9 @@ public final class SchemaWriter implements ISchemaWriter {
 	//static attribute
 	private static final ParametrizedPropertyTypeNodeMapper parametrizedPropertyTypeNodeMapper =
 	new ParametrizedPropertyTypeNodeMapper();
+	
+	//attribute
+	private final CloseController closeController = new CloseController(this);
 	
 	//attribute
 	private int saveCount;
@@ -113,6 +117,12 @@ public final class SchemaWriter implements ISchemaWriter {
 	
 	//method
 	@Override
+	public CloseController getRefCloseController() {
+		return closeController;
+	}
+	
+	//method
+	@Override
 	public int getSaveCount() {
 		return saveCount;
 	}
@@ -122,6 +132,10 @@ public final class SchemaWriter implements ISchemaWriter {
 	public boolean hasChanges() {
 		return hasChanges;
 	}
+	
+	//method
+	@Override
+	public void noteClose() {}
 	
 	//method
 	@Override
