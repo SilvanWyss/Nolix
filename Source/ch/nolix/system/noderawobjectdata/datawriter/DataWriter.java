@@ -5,6 +5,7 @@ package ch.nolix.system.noderawobjectdata.datawriter;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.system.noderawobjectdata.tabledefinition.TableInfo;
 import ch.nolix.systemapi.rawobjectdataapi.dataadapterapi.IDataWriter;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDTO;
@@ -13,6 +14,9 @@ import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
 
 //class
 public final class DataWriter implements IDataWriter {
+	
+	//attribute
+	private final CloseController closeController = new CloseController(this);
 	
 	//attribute
 	private final InternalDataWriter internalDataWriter;
@@ -144,6 +148,16 @@ public final class DataWriter implements IDataWriter {
 	public void insertRecordIntoTable(final String tableName, final IRecordDTO record) {
 		internalDataWriter.insertRecordIntoTable(getTableInfoByTableName(tableName), record);
 	}
+	
+	//method
+	@Override
+	public CloseController getRefCloseController() {
+		return closeController;
+	}
+	
+	//method
+	@Override
+	public void noteClose() {}
 	
 	//method
 	@Override

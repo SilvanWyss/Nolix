@@ -3,6 +3,7 @@ package ch.nolix.system.sqlrawobjectdata.dataadapter;
 
 //own imports
 import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.sql.SQLConnection;
 import ch.nolix.system.sqlrawobjectdata.databaseinspector.DatabaseInspector;
 import ch.nolix.system.sqlrawobjectdata.datareader.DataReader;
@@ -21,8 +22,13 @@ public abstract class DataAdapter implements IDataAdapter {
 	//static attribute
 	private static final DatabaseInspector databaseInspector = new DatabaseInspector();
 	
-	//attributes
+	//attribute
+	private final CloseController closeController = new CloseController(this);
+	
+	//attribute
 	private final DataReader dataReader;
+	
+	//attribute
 	private final DataWriter dataWriter;
 	
 	//constructor
@@ -36,6 +42,8 @@ public abstract class DataAdapter implements IDataAdapter {
 		
 		dataReader = new DataReader(pSQLConnection, tableDefinitions, pSQLSyntaxProvider);
 		dataWriter = new DataWriter(pSQLConnection, tableDefinitions, pSQLSyntaxProvider);
+		
+		createCloseDependencyTo(pSQLConnection);
 	}
 	
 	//method
@@ -84,6 +92,12 @@ public abstract class DataAdapter implements IDataAdapter {
 	@Override
 	public final void deleteRecordFromTable(final String tableName, final IRecordHeadDTO recordHead) {
 		dataWriter.deleteRecordFromTable(tableName, recordHead);
+	}
+	
+	//method
+	@Override
+	public CloseController getRefCloseController() {
+		return closeController;
 	}
 	
 	//method
@@ -156,6 +170,10 @@ public abstract class DataAdapter implements IDataAdapter {
 	public final ILoadedRecordDTO loadRecordFromTableById(final String tableName, final String id) {
 		return dataReader.loadRecordFromTableById(tableName, id);
 	}
+	
+	//method
+	@Override
+	public void noteClose() {}
 	
 	//method
 	@Override

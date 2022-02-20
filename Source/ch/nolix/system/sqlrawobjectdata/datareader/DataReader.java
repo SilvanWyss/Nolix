@@ -5,6 +5,7 @@ package ch.nolix.system.sqlrawobjectdata.datareader;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.sql.SQLConnection;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.ISQLSyntaxProvider;
 import ch.nolix.systemapi.rawobjectdataapi.dataadapterapi.IDataReader;
@@ -14,6 +15,9 @@ import ch.nolix.systemapi.rawobjectdataapi.schemainfoapi.ITableInfo;
 
 //class
 public final class DataReader implements IDataReader {
+	
+	//attribute
+	private final CloseController closeController = new CloseController(this);
 	
 	//attribute
 	private final InternalDataReader internalDataReader;
@@ -32,6 +36,14 @@ public final class DataReader implements IDataReader {
 		
 		internalDataReader = new InternalDataReader(pSQLConnection, pSQLSyntaxProvider);
 		this.tableInfos = tableInfos;
+		
+		createCloseDependencyTo(pSQLConnection);
+	}
+	
+	//method
+	@Override
+	public CloseController getRefCloseController() {
+		return closeController;
 	}
 	
 	//method
@@ -72,6 +84,10 @@ public final class DataReader implements IDataReader {
 	public ILoadedRecordDTO loadRecordFromTableById(final String tableName, final String id) {
 		return internalDataReader.loadRecordFromTableById(getTableDefinitionByTableName(tableName), id);
 	}
+	
+	//method
+	@Override
+	public void noteClose() {}
 	
 	//method
 	@Override

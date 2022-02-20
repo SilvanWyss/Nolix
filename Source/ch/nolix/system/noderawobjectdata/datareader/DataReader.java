@@ -6,12 +6,16 @@ import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.system.noderawobjectdata.tabledefinition.TableInfo;
 import ch.nolix.systemapi.rawobjectdataapi.dataadapterapi.IDataReader;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.ILoadedRecordDTO;
 
 //class
 public final class DataReader implements IDataReader {
+	
+	//attribute
+	private final CloseController closeController = new CloseController(this);
 	
 	//attribute
 	private final InternalDataReader internalDataReader;
@@ -27,6 +31,12 @@ public final class DataReader implements IDataReader {
 		
 		internalDataReader = new InternalDataReader(databaseNode);
 		this.tableInfos = tableInfos;
+	}
+	
+	//method
+	@Override
+	public CloseController getRefCloseController() {
+		return closeController;
 	}
 	
 	//method
@@ -70,6 +80,10 @@ public final class DataReader implements IDataReader {
 	public ILoadedRecordDTO loadRecordFromTableById(final String tableName, final String id) {
 		return internalDataReader.loadRecordFromTableById(getTableDefinitionForTableWithName(tableName), id);
 	}
+	
+	//method
+	@Override
+	public void noteClose() {}
 	
 	//method
 	@Override

@@ -3,10 +3,11 @@ package ch.nolix.systemapi.rawobjectdataapi.dataadapterapi;
 
 //own imports
 import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.programcontrol.groupcloseable.GroupCloseable;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.ILoadedRecordDTO;
 
 //interface
-public interface IDataReader {
+public interface IDataReader extends GroupCloseable {
 	
 	//method declaration
 	LinkedList<ILoadedRecordDTO> loadAllRecordsFromTable(String tableName);

@@ -4,6 +4,7 @@ package ch.nolix.system.sqlrawobjectdata.datawriter;
 //own imports
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.sql.SQLConnection;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.ISQLSyntaxProvider;
 import ch.nolix.systemapi.rawobjectdataapi.dataadapterapi.IDataWriter;
@@ -15,6 +16,9 @@ import ch.nolix.systemapi.rawobjectdataapi.schemainfoapi.ITableInfo;
 
 //class
 public final class DataWriter implements IDataWriter {
+	
+	//attribute
+	private final CloseController closeController = new CloseController(this);
 	
 	//attribute
 	private final InternalDataWriter internalDataWriter;
@@ -33,6 +37,8 @@ public final class DataWriter implements IDataWriter {
 		
 		internalDataWriter = new InternalDataWriter(pSQLConnection, pSQLSyntaxProvider);		
 		this.tableInfos = tableInfos;
+		
+		createCloseDependencyTo(pSQLConnection);
 	}
 	
 	//method
@@ -99,6 +105,12 @@ public final class DataWriter implements IDataWriter {
 	
 	//method
 	@Override
+	public CloseController getRefCloseController() {
+		return closeController;
+	}
+	
+	//method
+	@Override
 	public int getSaveCount() {
 		return internalDataWriter.getSaveCount();
 	}
@@ -144,6 +156,10 @@ public final class DataWriter implements IDataWriter {
 	public void insertRecordIntoTable(final String tableName, final IRecordDTO record) {
 		internalDataWriter.insertRecordIntoTable(tableName, record);
 	}
+	
+	//method
+	@Override
+	public void noteClose() {}
 	
 	//method
 	@Override
