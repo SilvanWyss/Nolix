@@ -22,7 +22,7 @@ import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.ISaveStampConfiguratio
 import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.SaveStampStrategy;
 
 //class
-public final class Table extends DatabaseObject implements ITable<SchemaImplementation> {
+public final class Table extends SchemaObject implements ITable<SchemaImplementation> {
 	
 	//static attributes
 	private static final TableMutationValidator mutationValidator = new TableMutationValidator();

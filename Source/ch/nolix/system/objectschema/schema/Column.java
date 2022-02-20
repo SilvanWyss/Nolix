@@ -20,7 +20,7 @@ import ch.nolix.systemapi.objectschemaapi.schemahelperapi.IColumnHelper;
 import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.IColumnDTO;
 
 //class
-public final class Column extends DatabaseObject implements IColumn<SchemaImplementation> {
+public final class Column extends SchemaObject implements IColumn<SchemaImplementation> {
 	
 	//constant
 	private static final String INITIAL_HEADER = StringCatalogue.DEFAULT_STRING;

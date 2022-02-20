@@ -10,7 +10,7 @@ import ch.nolix.systemapi.databaseapi.databaseobjectapi.DatabaseObjectState;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.IDatabaseObject;
 
 //class
-abstract class DatabaseObject implements IDatabaseObject {
+abstract class SchemaObject implements IDatabaseObject {
 	
 	//attributes
 	private DatabaseObjectState state = DatabaseObjectState.NEW;

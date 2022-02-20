@@ -12,7 +12,7 @@ import ch.nolix.systemapi.objectschemaapi.schemahelperapi.IDatabaseHelper;
 import ch.nolix.systemapi.rawobjectschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //class
-public final class Database extends DatabaseObject implements IDatabase<SchemaImplementation> {
+public final class Database extends SchemaObject implements IDatabase<SchemaImplementation> {
 	
 	//static attribute
 	private final IDatabaseHelper databaseHelper = new DatabaseHelper();
