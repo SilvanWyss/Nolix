@@ -16,6 +16,7 @@ public final class EmptyFrameTutorial {
 	 * 
 	 * @param args
 	 */
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		new Frame().setTitle("Empty Frame tutorial");
 	}

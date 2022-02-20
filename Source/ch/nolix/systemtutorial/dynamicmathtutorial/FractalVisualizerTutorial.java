@@ -19,9 +19,13 @@ public final class FractalVisualizerTutorial {
 	
 	public static void main(String[] args) {
 		
-		new Server().addDefaultApplication(new FractalVisualizer());
+		final var server = new Server();
+		
+		server.addDefaultApplication(new FractalVisualizer());
 		
 		ShellProvider.startDefaultWebBrowserOpeningLoopBackAddress();
+		
+		Sequencer.asSoonAsNoMore(server::hasClientConnected).runInBackground(server::close);
 	}
 	
 	private static class FractalVisualizer extends Application<BackGUIClient> {

@@ -12,6 +12,7 @@ import ch.nolix.system.client.guiclient.FrontGUIClient;
 
 public final class CursorPositionTutorial {
 	
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		
 		//Creates a NetServer.

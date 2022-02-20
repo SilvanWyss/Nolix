@@ -18,6 +18,7 @@ public final class FrameBackgroundColorGradientTutorial {
 	 * 
 	 * @param args
 	 */
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		new Frame()
 		.setTitle("Frame background color gradient tutorial")

@@ -21,6 +21,7 @@ public final class ConsoleClientTutorial {
 	 * 
 	 * @param arguments
 	 */
+	@SuppressWarnings("resource")
 	public static void main(final String[] arguments) {
 		
 		//Creates an Application.

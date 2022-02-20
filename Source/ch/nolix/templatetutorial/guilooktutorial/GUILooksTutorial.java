@@ -19,6 +19,7 @@ import ch.nolix.template.guilook.AnthrazitGUILookCreator;
 
 public final class GUILooksTutorial {
 	
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		
 		//Creates a SelectionMenu.

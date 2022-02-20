@@ -10,6 +10,7 @@ import ch.nolix.element.gui.widget.WidgetLookState;
 
 public final class AligningContainerWithAutomaticSizeTutorial {
 	
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		
 		final var label = new Label().setText("X");

@@ -17,6 +17,7 @@ public final class FrameBackgroundColorTutorial {
 	 * 
 	 * @param args
 	 */
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		new Frame()
 		.setTitle("Frame background color tutorial")

@@ -10,6 +10,7 @@ import ch.nolix.system.client.guiclient.FrontGUIClient;
 
 public final class HelloWorldGUIOnCustomPortTutorial {
 	
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		
 		//Defines port.

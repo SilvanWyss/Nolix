@@ -11,6 +11,7 @@ import ch.nolix.system.client.guiclient.FrontGUIClient;
 
 public final class TextBoxTutorial {
 	
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		
 		//Creates a NetServer.

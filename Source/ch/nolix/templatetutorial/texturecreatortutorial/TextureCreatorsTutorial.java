@@ -23,6 +23,7 @@ public final class TextureCreatorsTutorial {
 	 * 
 	 * @param args
 	 */
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		
 		//Creates textures.

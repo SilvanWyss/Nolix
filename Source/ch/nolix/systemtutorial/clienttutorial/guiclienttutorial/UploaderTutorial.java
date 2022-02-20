@@ -9,6 +9,7 @@ import ch.nolix.system.client.guiclient.FrontGUIClient;
 
 public class UploaderTutorial {
 	
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		
 		//Creates a NetServer.

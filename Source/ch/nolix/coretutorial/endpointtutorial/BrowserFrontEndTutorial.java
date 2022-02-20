@@ -6,6 +6,7 @@ import ch.nolix.core.net.endpoint.Server;
 
 public final class BrowserFrontEndTutorial {
 	
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		
 		//Creates net server.

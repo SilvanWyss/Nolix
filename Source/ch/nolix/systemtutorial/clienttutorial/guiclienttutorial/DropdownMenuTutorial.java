@@ -9,6 +9,7 @@ import ch.nolix.system.client.guiclient.FrontGUIClient;
 
 public final class DropdownMenuTutorial {
 	
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		
 		//Creates a NetServer.

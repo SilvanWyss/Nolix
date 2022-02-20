@@ -8,6 +8,7 @@ import ch.nolix.system.client.guiclient.FrontGUIClient;
 
 public final class EmptyGUITutorial {
 	
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 				
 		//Creates a NetServer.

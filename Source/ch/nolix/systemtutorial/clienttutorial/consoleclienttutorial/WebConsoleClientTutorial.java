@@ -9,6 +9,7 @@ import ch.nolix.template.consoleclientlook.BlackRedConsoleClientLookCreator;
 
 public final class WebConsoleClientTutorial {
 
+	@SuppressWarnings("resource")
 	public static void main(final String[] arguments) {
 		
 		//Creates a NetServer.
