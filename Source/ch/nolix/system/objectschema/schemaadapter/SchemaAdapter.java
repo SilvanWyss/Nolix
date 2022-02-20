@@ -6,7 +6,6 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.system.objectschema.parametrizedpropertytype.SchemaImplementation;
 import ch.nolix.system.objectschema.schema.Database;
-import ch.nolix.system.objectschema.schema.Table;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.systemapi.rawobjectschemaapi.schemaadapterapi.ISchemaAdapter;
 
@@ -38,19 +37,6 @@ implements ch.nolix.systemapi.objectschemaapi.schemaadapterapi.ISchemaAdapter<Sc
 	) {
 		
 		getRefDatabase().addTable(table);
-		
-		return this;
-	}
-	
-	//method
-	public ch.nolix.systemapi.objectschemaapi.schemaadapterapi.ISchemaAdapter<SchemaImplementation> addTable(
-		final Table... tables
-	) {
-		
-		//TODO: Move this implementation.
-		for (final var t : tables) {
-			getRefDatabase().addTable(t);
-		}
 		
 		return this;
 	}
