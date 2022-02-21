@@ -12,7 +12,7 @@ import ch.nolix.system.sqlrawobjectdata.sqlapi.ISQLSyntaxProvider;
 import ch.nolix.systemapi.rawobjectdataapi.dataadapterapi.IDataAdapter;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.ILoadedRecordDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDTO;
-import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordHeadDTO;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IEntityHeadDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
 import ch.nolix.systemapi.rawobjectschemaapi.schemaadapterapi.ISchemaAdapter;
 
@@ -90,7 +90,7 @@ public abstract class DataAdapter implements IDataAdapter {
 	
 	//method
 	@Override
-	public final void deleteRecordFromTable(final String tableName, final IRecordHeadDTO recordHead) {
+	public final void deleteRecordFromTable(final String tableName, final IEntityHeadDTO recordHead) {
 		dataWriter.deleteRecordFromTable(tableName, recordHead);
 	}
 	

@@ -5,7 +5,7 @@ package ch.nolix.system.sqlrawobjectdata.mssql;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IRecordStatementCreator;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IContentFieldDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDTO;
-import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordHeadDTO;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IEntityHeadDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
 
 //class
@@ -15,7 +15,7 @@ public final class RecordStatementCreator implements IRecordStatementCreator {
 	@Override
 	public String createStatementToDeleteRecordFromTable(
 		final String tableName,
-		final IRecordHeadDTO recordHead
+		final IEntityHeadDTO recordHead
 	) {
 		return
 		"DELETE FROM "

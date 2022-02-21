@@ -9,7 +9,7 @@ import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.system.noderawobjectdata.tabledefinition.TableInfo;
 import ch.nolix.systemapi.rawobjectdataapi.dataadapterapi.IDataWriter;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDTO;
-import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordHeadDTO;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IEntityHeadDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
 
 //class
@@ -95,7 +95,7 @@ public final class DataWriter implements IDataWriter {
 	
 	//method
 	@Override
-	public void deleteRecordFromTable(final String tableName, final IRecordHeadDTO recordHead) {
+	public void deleteRecordFromTable(final String tableName, final IEntityHeadDTO recordHead) {
 		internalDataWriter.deleteRecordFromTable(tableName, recordHead);
 	}
 	

@@ -4,7 +4,7 @@ package ch.nolix.systemapi.rawobjectdataapi.dataadapterapi;
 //own imports
 import ch.nolix.core.skillapi.IMultiTimeChangeSaver;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDTO;
-import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordHeadDTO;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IEntityHeadDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
 
 //interface
@@ -73,7 +73,7 @@ public interface IDataWriter extends IMultiTimeChangeSaver {
 	 * @param tableName
 	 * @param recordHead
 	 */
-	void deleteRecordFromTable(String tableName, IRecordHeadDTO recordHead);
+	void deleteRecordFromTable(String tableName, IEntityHeadDTO recordHead);
 	
 	//method declaration
 	/**

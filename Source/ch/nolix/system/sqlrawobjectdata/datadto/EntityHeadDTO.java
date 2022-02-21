@@ -4,10 +4,10 @@ package ch.nolix.system.sqlrawobjectdata.datadto;
 //own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordHeadDTO;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IEntityHeadDTO;
 
 //class
-public final class RecordHeadDTO implements IRecordHeadDTO {
+public final class EntityHeadDTO implements IEntityHeadDTO {
 	
 	//attribute
 	private final String id;
@@ -16,7 +16,7 @@ public final class RecordHeadDTO implements IRecordHeadDTO {
 	private final String saveStamp;
 	
 	//constructor
-	public RecordHeadDTO(final String id, final String saveStamp) {
+	public EntityHeadDTO(final String id, final String saveStamp) {
 		
 		if (id == null) {
 			throw new ArgumentIsNullException(LowerCaseCatalogue.ID);

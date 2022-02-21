@@ -8,7 +8,7 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.functionapi.IElementTaker;
 import ch.nolix.system.noderawobjectdata.tabledefinition.TableInfo;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDTO;
-import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordHeadDTO;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IEntityHeadDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
 
 //class
@@ -88,7 +88,7 @@ final class InternalDataWriter {
 	}
 	
 	//method
-	public void deleteRecordFromTable(final String tableName, final IRecordHeadDTO recordHead) {
+	public void deleteRecordFromTable(final String tableName, final IEntityHeadDTO recordHead) {
 		addChangeAction(d -> databaseUpdater.deleteRecordFromTable(d, tableName, recordHead));
 	}
 	

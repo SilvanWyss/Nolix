@@ -5,7 +5,7 @@ package ch.nolix.systemapi.objectdataapi.datahelperapi;
 import ch.nolix.systemapi.databaseapi.databaseobjecthelperapi.IDatabaseObjectHelper;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDTO;
-import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordHeadDTO;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IEntityHeadDTO;
 
 //interface
 public interface IEntityHelper extends IDatabaseObjectHelper {
@@ -35,7 +35,7 @@ public interface IEntityHelper extends IDatabaseObjectHelper {
 	boolean containsMandatoryAndEmptyBaseValuesOrBaseReferences(IEntity<?> entity);
 	
 	//method declaration
-	IRecordHeadDTO createRecordHeadDTOForEntity(IEntity<?> entity);
+	IEntityHeadDTO createRecordHeadDTOForEntity(IEntity<?> entity);
 	
 	//method declaration
 	IRecordDTO createRecordFor(IEntity<?> entity);

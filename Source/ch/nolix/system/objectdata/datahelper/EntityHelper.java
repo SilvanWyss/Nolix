@@ -11,7 +11,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ReferencedArgumentExc
 import ch.nolix.system.database.databaseobjecthelper.DatabaseObjectHelper;
 import ch.nolix.system.objectdata.propertyhelper.PropertyHelper;
 import ch.nolix.system.sqlrawobjectdata.datadto.RecordDTO;
-import ch.nolix.system.sqlrawobjectdata.datadto.RecordHeadDTO;
+import ch.nolix.system.sqlrawobjectdata.datadto.EntityHeadDTO;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.BasePropertyType;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
@@ -19,7 +19,7 @@ import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 import ch.nolix.systemapi.objectdataapi.datahelperapi.IEntityHelper;
 import ch.nolix.systemapi.objectdataapi.propertyhelperapi.IPropertyHelper;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDTO;
-import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordHeadDTO;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IEntityHeadDTO;
 
 //class
 public class EntityHelper extends DatabaseObjectHelper implements IEntityHelper {
@@ -90,8 +90,8 @@ public class EntityHelper extends DatabaseObjectHelper implements IEntityHelper 
 	
 	//method
 	@Override
-	public final IRecordHeadDTO createRecordHeadDTOForEntity(IEntity<?> entity) {
-		return new RecordHeadDTO(entity.getId(), entity.getSaveStamp());
+	public final IEntityHeadDTO createRecordHeadDTOForEntity(IEntity<?> entity) {
+		return new EntityHeadDTO(entity.getId(), entity.getSaveStamp());
 	}
 	
 	//method

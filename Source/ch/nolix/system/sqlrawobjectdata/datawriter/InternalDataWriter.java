@@ -10,7 +10,7 @@ import ch.nolix.system.sqlrawobjectdata.sqlapi.IMultiValueStatementCreator;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IRecordStatementCreator;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.ISQLSyntaxProvider;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDTO;
-import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordHeadDTO;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IEntityHeadDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
 
 //class
@@ -95,7 +95,7 @@ public final class InternalDataWriter {
 	}
 	
 	//method
-	public void deleteRecordFromTable(final String tableName, final IRecordHeadDTO recordHead) {
+	public void deleteRecordFromTable(final String tableName, final IEntityHeadDTO recordHead) {
 		mSQLCollector.addSQLStatement(
 			recordStatementCreator.createStatementToDeleteRecordFromTable(tableName, recordHead)
 		);

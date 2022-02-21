@@ -16,7 +16,7 @@ import ch.nolix.systemapi.rawobjectdataapi.dataadapterapi.IDataWriter;
 import ch.nolix.systemapi.rawobjectdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.ILoadedRecordDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDTO;
-import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordHeadDTO;
+import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IEntityHeadDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
 import ch.nolix.systemapi.rawobjectschemaapi.flatschemadtoapi.IFlatTableDTO;
 import ch.nolix.systemapi.rawobjectschemaapi.schemaadapterapi.ISchemaAdapter;
@@ -109,7 +109,7 @@ public abstract class DataAndSchemaAdapter implements IDataAndSchemaAdapter {
 	
 	//method
 	@Override
-	public final void deleteRecordFromTable(final String tableName, final IRecordHeadDTO recordHead) {
+	public final void deleteRecordFromTable(final String tableName, final IEntityHeadDTO recordHead) {
 		dataWriter.deleteRecordFromTable(tableName, recordHead);
 	}
 	

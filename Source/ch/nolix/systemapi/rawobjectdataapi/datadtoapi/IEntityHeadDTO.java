@@ -2,7 +2,7 @@
 package ch.nolix.systemapi.rawobjectdataapi.datadtoapi;
 
 //interface
-public interface IRecordHeadDTO {
+public interface IEntityHeadDTO {
 	
 	//method declaration
 	String getId();
