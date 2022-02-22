@@ -18,7 +18,7 @@ import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
 final class DatabaseUpdater {
 	
 	//static attributes
-	private static final RecordNodeMapper recordNodeMapper = new RecordNodeMapper();
+	private static final EntityNodeMapper entityNodeMapper = new EntityNodeMapper();
 	
 	//static attributes
 	private static final DatabaseNodeSearcher databaseNodeSearcher = new DatabaseNodeSearcher();
@@ -191,7 +191,7 @@ final class DatabaseUpdater {
 			);
 		}
 		
-		final var recordNode = recordNodeMapper.createNodeFromRecordWithSaveStamp(tableInfo, record, 0);
+		final var recordNode = entityNodeMapper.createNodeFromRecordWithSaveStamp(tableInfo, record, 0);
 		
 		tableNode.addAttribute(recordNode);
 	}

@@ -9,7 +9,7 @@ import ch.nolix.system.noderawobjectdata.tabledefinition.TableInfo;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDTO;
 
 //class
-final class RecordNodeMapper {
+final class EntityNodeMapper {
 	
 	//method
 	public Node createNodeFromRecordWithSaveStamp(
