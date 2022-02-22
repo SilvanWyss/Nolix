@@ -490,11 +490,20 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	/**
 	 * @param selector
 	 * @return the first attribute the given selector selects from the current {@link BaseNode}.
-	 * @throws ArgumentDoesNotHaveAttributeException
-	 * if the current {@link BaseNode} does not contain an attribute the given selector selects.
+	 * @throws ArgumentDoesNotHaveAttributeException if
+	 * the current {@link BaseNode} does not contain an attribute the given selector selects.
 	 */
 	public BaseNode getRefFirstAttribute(IElementTakerBooleanGetter<BaseNode> selector) {
 		return getRefAttributes().getRefFirst(selector);
+	}
+	
+	//method
+	/**
+	 * @param selector
+	 * @return the first attribute the given selector selects from the current {@link BaseNode} or null.
+	 */
+	public BaseNode getRefFirstAttributeOrNull(IElementTakerBooleanGetter<BaseNode> selector) {
+		return getRefAttributes().getRefFirstOrNull(selector);
 	}
 	
 	//method
