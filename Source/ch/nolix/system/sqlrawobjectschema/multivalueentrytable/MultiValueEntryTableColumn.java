@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlrawobjectschema.multivalueentrytable;
 
+//own imports
 import ch.nolix.core.attributeapi.mandatoryattributeapi.FullNamed;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.constant.PascalCaseCatalogue;
@@ -11,7 +12,7 @@ import ch.nolix.system.sqlrawobjectschema.structure.MultiContentTable;
 //enum
 public enum MultiValueEntryTableColumn implements FullNamed {
 	MULTI_VALUE_COLUMN_ID("MutliValueColumnId"),
-	RECORD_ID("RecordId"),
+	ENTITY_ID("EntityId"),
 	VALUE(PascalCaseCatalogue.VALUE);
 	
 	//constant

@@ -18,7 +18,7 @@ public final class MultiValueQueryCreator implements IMultiValueQueryCreator {
 		+ " FROM "
 		+ MultiContentTable.MULTI_VALUE_ENTRY.getFullName()
 		+ " WHERE "
-		+ MultiValueEntryTableColumn.RECORD_ID.getName()
+		+ MultiValueEntryTableColumn.ENTITY_ID.getName()
 		+ " = '"
 		+ entityId
 		+ "' AND "

@@ -16,7 +16,7 @@ public final class MultiValueStatementCreator implements IMultiValueStatementCre
 		"DELETE FROM "
 		+  MultiContentTable.MULTI_VALUE_ENTRY.getFullName()
 		+ " WHERE "
-		+ MultiValueEntryTableColumn.RECORD_ID.getName()
+		+ MultiValueEntryTableColumn.ENTITY_ID.getName()
 		+ " = '"
 		+ entityId
 		+ "' AND "
@@ -37,7 +37,7 @@ public final class MultiValueStatementCreator implements IMultiValueStatementCre
 		"DELETE FROM "
 		+  MultiContentTable.MULTI_VALUE_ENTRY.getFullName()
 		+ " WHERE "
-		+ MultiValueEntryTableColumn.RECORD_ID.getName()
+		+ MultiValueEntryTableColumn.ENTITY_ID.getName()
 		+ " = '"
 		+ entityId
 		+ "' AND "
@@ -62,7 +62,7 @@ public final class MultiValueStatementCreator implements IMultiValueStatementCre
 		"INSERT INTO "
 		+ MultiContentTable.MULTI_VALUE_ENTRY.getFullName()
 		+ " ("
-		+ MultiValueEntryTableColumn.RECORD_ID.getName()
+		+ MultiValueEntryTableColumn.ENTITY_ID.getName()
 		+ ", "
 		+ MultiValueEntryTableColumn.MULTI_VALUE_COLUMN_ID.getName()
 		+ ", "
