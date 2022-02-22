@@ -44,14 +44,9 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<Dat
 	//method
 	@Override
 	public void clear() {
-		
-		assertCanClear();
-		
-		updateStateForClear();
-		
-		updateRecordForClear();
-		
-		internalSetParentEntityAsEdited();
+		if (containsAny()) {
+			clearWhenContainsAny();
+		}
 	}
 	
 	//method
@@ -113,6 +108,18 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<Dat
 	//method
 	private void assertCanClear() {
 		multiValueHelper.assertCanClear(this);
+	}
+	
+	//method
+	private void clearWhenContainsAny() {
+		
+		assertCanClear();
+		
+		updateStateForClear();
+		
+		updateRecordForClear();
+		
+		internalSetParentEntityAsEdited();
 	}
 	
 	//method
