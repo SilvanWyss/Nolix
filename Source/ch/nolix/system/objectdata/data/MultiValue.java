@@ -28,12 +28,6 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<Dat
 	//multi-attribute
 	private final LinkedList<V> values = new LinkedList<>();
 	
-	//multi-attribute
-	private final LinkedList<V> newValues = new LinkedList<>();
-	
-	//multi-attribute
-	private final LinkedList<V> deletedValues = new LinkedList<>();
-	
 	//method
 	@Override
 	public void addValue(final V value) {
@@ -41,6 +35,8 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<Dat
 		assertCanAddGivenValue(value);
 		
 		updateStateForAddValue(value);
+		
+		updateRecordForAddValue(value);
 		
 		internalSetParentEntityAsEdited();
 	}
@@ -52,6 +48,8 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<Dat
 		assertCanClear();
 		
 		updateStateForClear();
+		
+		updateRecordForClear();
 		
 		internalSetParentEntityAsEdited();
 	}
@@ -146,9 +144,11 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<Dat
 	//method
 	private void updateRecordForAddValue(final V value) {
 		if (isLinkedWithRealDatabase()) {
-			internalGetRefDataAndSchemaAdapter().updateRecordOnTable(
+			internalGetRefDataAndSchemaAdapter().insertEntryIntoMultiValue(
 				getParentEntity().getParentTableName(),
-				multiValueHelper.createRecordUpdateDTOForAddedValue(this, value)
+				getParentEntity().getId(),
+				getName(),
+				value.toString()
 			);
 		}
 	}
@@ -156,30 +156,21 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<Dat
 	//method
 	private void updateRecordForClear() {
 		if (isLinkedWithRealDatabase()) {
-			internalGetRefDataAndSchemaAdapter().updateRecordOnTable(
+			internalGetRefDataAndSchemaAdapter().deleteEntriesFromMultiValue(
 				getParentEntity().getParentTableName(),
-				multiValueHelper.createRecordUpdateDTOForClear(this)
+				getParentEntity().getId(),
+				getName()
 			);
 		}
 	}
 	
 	//method
 	private void updateStateForAddValue(final V value) {
-		
 		values.addAtEnd(value);
-		
-		newValues.addAtEnd(value);
 	}
 	
 	//method
 	private void updateStateForClear() {
-		
-		loadValuesIfNotLoaded();
-		
-		deletedValues.addAtEnd(values);
-		
 		values.clear();
-		
-		newValues.clear();
 	}
 }
