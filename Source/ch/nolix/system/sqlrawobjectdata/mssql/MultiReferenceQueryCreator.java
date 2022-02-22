@@ -17,11 +17,11 @@ public final class MultiReferenceQueryCreator implements IMultiReferenceQueryCre
 	) {
 		return
 		"SELECT "
-		+ MultiReferenceEntryTableColumn.REFERENCED_RECORD_ID.getName()
+		+ MultiReferenceEntryTableColumn.REFERENCED_ENTITY_ID.getName()
 		+ " FROM "
 		+ MultiContentTable.MULTI_REFERENCE_ENTRY.getFullName()
 		+ " WHERE "
-		+ MultiReferenceEntryTableColumn.RECORD_ID.getName()
+		+ MultiReferenceEntryTableColumn.ENTITY_ID.getName()
 		+ " = '"
 		+ entityId
 		+ "' AND "

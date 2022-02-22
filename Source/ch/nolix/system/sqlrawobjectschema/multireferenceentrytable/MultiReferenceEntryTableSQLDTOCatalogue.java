@@ -21,12 +21,12 @@ public final class MultiReferenceEntryTableSQLDTOCatalogue {
 	
 	//constant
 	private static final IColumnDTO RECORD_COLUMN_SQL_DTO =
-	new ColumnDTO(MultiReferenceEntryTableColumn.RECORD_ID.getName(), SQLDatatypeCatalogue.TEXT);
+	new ColumnDTO(MultiReferenceEntryTableColumn.ENTITY_ID.getName(), SQLDatatypeCatalogue.TEXT);
 	
 	//constant
 	private static final IColumnDTO REFERENCED_RECORD_COLUMN_SQL_DTO =
 	new ColumnDTO(
-		MultiReferenceEntryTableColumn.REFERENCED_RECORD_ID.getName(),
+		MultiReferenceEntryTableColumn.REFERENCED_ENTITY_ID.getName(),
 		SQLDatatypeCatalogue.TEXT
 	);
 	

@@ -19,7 +19,7 @@ public final class MultiReferenceStatementCreator implements IMultiReferenceStat
 		"DELETE FROM "
 		+  MultiContentTable.MULTI_REFERENCE_ENTRY.getFullName()
 		+ " WHERE "
-		+ MultiReferenceEntryTableColumn.RECORD_ID.getName()
+		+ MultiReferenceEntryTableColumn.ENTITY_ID.getName()
 		+ " = '"
 		+ entityId
 		+ "' AND "
@@ -40,7 +40,7 @@ public final class MultiReferenceStatementCreator implements IMultiReferenceStat
 		"DELETE FROM "
 		+  MultiContentTable.MULTI_REFERENCE_ENTRY.getFullName()
 		+ " WHERE "
-		+ MultiReferenceEntryTableColumn.RECORD_ID.getName()
+		+ MultiReferenceEntryTableColumn.ENTITY_ID.getName()
 		+ " = '"
 		+ entityId
 		+ "' AND "
@@ -48,7 +48,7 @@ public final class MultiReferenceStatementCreator implements IMultiReferenceStat
 		+ " = '"
 		+ multiReferenceColumnId
 		+ "' AND "
-		+ MultiReferenceEntryTableColumn.REFERENCED_RECORD_ID.getName()
+		+ MultiReferenceEntryTableColumn.REFERENCED_ENTITY_ID.getName()
 		+ " = '"
 		+ multiReferenceColumnId
 		+ "'";
@@ -65,11 +65,11 @@ public final class MultiReferenceStatementCreator implements IMultiReferenceStat
 		"INSERT INTO "
 		+ MultiContentTable.MULTI_REFERENCE_ENTRY.getFullName()
 		+ " ("
-		+ MultiReferenceEntryTableColumn.RECORD_ID.getName()
+		+ MultiReferenceEntryTableColumn.ENTITY_ID.getName()
 		+ ", "
 		+ MultiReferenceEntryTableColumn.MULTI_REFERENCE_COLUMN_ID.getName()
 		+ ", "
-		+ MultiReferenceEntryTableColumn.REFERENCED_RECORD_ID.getName()
+		+ MultiReferenceEntryTableColumn.REFERENCED_ENTITY_ID.getName()
 		+ ") VALUES ('"
 		+ entityId
 		+ "', '"

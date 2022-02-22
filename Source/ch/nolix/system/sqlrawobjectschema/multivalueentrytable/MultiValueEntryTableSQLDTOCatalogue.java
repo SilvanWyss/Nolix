@@ -22,7 +22,7 @@ public final class MultiValueEntryTableSQLDTOCatalogue {
 	
 	//constant
 	private static final IColumnDTO RECORD_COLUMN_SQL_DTO =
-	new ColumnDTO(MultiReferenceEntryTableColumn.RECORD_ID.getName(), SQLDatatypeCatalogue.TEXT);
+	new ColumnDTO(MultiReferenceEntryTableColumn.ENTITY_ID.getName(), SQLDatatypeCatalogue.TEXT);
 	
 	//constant
 	private static final IColumnDTO VALUE_COLUMN_SQL_DTO =

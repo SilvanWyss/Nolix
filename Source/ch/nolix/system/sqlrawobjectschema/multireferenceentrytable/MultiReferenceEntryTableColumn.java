@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlrawobjectschema.multireferenceentrytable;
 
+//own imports
 import ch.nolix.core.attributeapi.mandatoryattributeapi.FullNamed;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.constant.StringCatalogue;
@@ -10,8 +11,8 @@ import ch.nolix.system.sqlrawobjectschema.structure.MultiContentTable;
 //enum
 public enum MultiReferenceEntryTableColumn implements FullNamed {
 	MULTI_REFERENCE_COLUMN_ID("MutliReferenceColumnId"),
-	RECORD_ID("RecordId"),
-	REFERENCED_RECORD_ID("ReferencedRecordId");
+	ENTITY_ID("EntityId"),
+	REFERENCED_ENTITY_ID("ReferencedEntityId");
 	
 	//constant
 	private static final String NAME_PREFIX =
