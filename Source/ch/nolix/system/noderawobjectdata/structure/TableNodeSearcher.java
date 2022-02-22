@@ -19,6 +19,16 @@ public final class TableNodeSearcher {
 	}
 	
 	//method
+	public BaseNode getRefEntityNodeFromTableNodeOrNull(final BaseNode tableNode, final String id) {
+		return
+		tableNode.getRefFirstAttributeOrNull(
+			a ->
+			a.hasHeader(SubNodeHeaderCatalogue.RECORD)
+			&& a.getRefAttributeAt(FieldIndexCatalogue.ID_INDEX).hasHeader(id)
+		);
+	}
+	
+	//method
 	public IContainer<BaseNode> getRefRecordNodesFromTableNode(final BaseNode tableNode) {
 		return tableNode.getRefAttributes(SubNodeHeaderCatalogue.RECORD);
 	}

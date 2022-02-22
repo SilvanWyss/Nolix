@@ -160,6 +160,11 @@ public final class InternalDataWriter {
 	}
 	
 	//method
+	public void setEntityAsUpdated(final String tableName, final IEntityHeadDTO entity) {
+		mSQLCollector.addSQLStatement(recordStatementCreator.createStatementToSetEntityAsUpdated(tableName, entity));
+	}
+	
+	//method
 	public void updateRecordOnTable(final String tableName, final IRecordUpdateDTO recordUpdate) {
 		mSQLCollector.addSQLStatement(
 			recordStatementCreator.createStatementToUpdateRecordOnTable(tableName, recordUpdate)

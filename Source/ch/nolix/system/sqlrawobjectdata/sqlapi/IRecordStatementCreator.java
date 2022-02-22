@@ -16,5 +16,8 @@ public interface IRecordStatementCreator {
 	String createStatementToInsertRecordIntoTable(String tableName, IRecordDTO record);
 	
 	//method declaration
+	String createStatementToSetEntityAsUpdated(String tableName, IEntityHeadDTO entity);
+	
+	//method declaration
 	String createStatementToUpdateRecordOnTable(String tableName, IRecordUpdateDTO recordUpdate);
 }

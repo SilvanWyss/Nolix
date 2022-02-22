@@ -263,6 +263,12 @@ public abstract class DataAndSchemaAdapter implements IDataAndSchemaAdapter {
 	
 	//method
 	@Override
+	public final void setEntityAsUpdated(final String tableName, final IEntityHeadDTO entity) {
+		dataWriter.setEntityAsUpdated(tableName, entity);
+	}
+	
+	//method
+	@Override
 	public final boolean tableContainsRecordWithGivenValueAtColumn(
 		final String tableName,
 		final String columnName,

@@ -45,6 +45,22 @@ public final class RecordStatementCreator implements IRecordStatementCreator {
 	
 	//method
 	@Override
+	public String createStatementToSetEntityAsUpdated(final String tableName, final IEntityHeadDTO entity) {
+		return
+		"UPDATE" 
+		+ tableName
+		+ " SET SaveStamp = '"
+		+ (entity.getSaveStamp() + 1)
+		+ " WHERE Id = '"
+		+ entity.getId()
+		+ " AND SaveStamp = "
+		+ entity.getSaveStamp()
+		+ ";"
+		+ "IF @@RowCount = 0 BEGIN THROW error(100000, 'The data was changed in the meanwhile.', 0) END;";
+	}
+	
+	//method
+	@Override
 	public String createStatementToUpdateRecordOnTable(final String tableName, final IRecordUpdateDTO recordUpdate) {
 		return
 		"UPDATE "
@@ -56,7 +72,7 @@ public final class RecordStatementCreator implements IRecordStatementCreator {
 		+ "' AND SaveStamp = '"
 		+  recordUpdate.getSaveStamp()
 		+ "';"
-		+ "IF @@RowCount = 0 BEGIN THROW error(100000, 'The data were changed in the meanwhile.', 0) END;";
+		+ "IF @@RowCount = 0 BEGIN THROW error(100000, 'The data was changed in the meanwhile.', 0) END;";
 	}
 	
 	//method

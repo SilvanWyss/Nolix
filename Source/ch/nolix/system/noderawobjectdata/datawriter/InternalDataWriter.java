@@ -154,6 +154,11 @@ final class InternalDataWriter {
 	}
 	
 	//method
+	public void setEntityAsUpdated(final String tableName, final IEntityHeadDTO entity) {
+		addChangeAction(d -> databaseUpdater.setEntityAsUpdated(d, tableName, entity));
+	}
+	
+	//method
 	public void updateRecordOnTable(final TableInfo tableInfo, IRecordUpdateDTO recordUpdate) {
 		addChangeAction(d -> databaseUpdater.updateRecordOnTable(d, tableInfo, recordUpdate));
 	}

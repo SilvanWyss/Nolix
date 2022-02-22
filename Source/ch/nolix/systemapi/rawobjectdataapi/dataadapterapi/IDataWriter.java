@@ -26,7 +26,7 @@ public interface IDataWriter extends IMultiTimeChangeSaver {
 	
 	//method declaration
 	/**
-	 * There is not asserted that the concerned record was not changed in the meanwhile.
+	 * There is not asserted that the concerned entity was not changed in the meanwhile.
 	 * 
 	 * @param tableName
 	 * @param recordId
@@ -52,7 +52,7 @@ public interface IDataWriter extends IMultiTimeChangeSaver {
 	
 	//method declaration
 	/**
-	 * There is not asserted that the concerned record was not changed in the meanwhile.
+	 * There is not asserted that the concerned entity was not changed in the meanwhile.
 	 * 
 	 * @param tableName
 	 * @param recordId
@@ -68,7 +68,7 @@ public interface IDataWriter extends IMultiTimeChangeSaver {
 	
 	//method declaration
 	/**
-	 * Asserts that the concerned record was not changed in the meanwhile.
+	 * There is not asserted that the concerned entity was not changed in the meanwhile.
 	 * 
 	 * @param tableName
 	 * @param recordHead
@@ -93,7 +93,7 @@ public interface IDataWriter extends IMultiTimeChangeSaver {
 	
 	//method declaration
 	/**
-	 * There is not asserted that the concerned record was not changed in the meanwhile.
+	 * There is not asserted that the concerned entity was not changed in the meanwhile.
 	 * 
 	 * @param tableName
 	 * @param recordId
@@ -104,8 +104,6 @@ public interface IDataWriter extends IMultiTimeChangeSaver {
 	
 	//method declaration
 	/**
-	 * Asserts that the concerned record was not changed in the meanwhile.
-	 * 
 	 * @param tableName
 	 * @param record
 	 */
@@ -113,7 +111,17 @@ public interface IDataWriter extends IMultiTimeChangeSaver {
 	
 	//method declaration
 	/**
-	 *  Asserts that the concerned record was not changed in the meanwhile.
+	 * Sets the concerned entity as updated
+	 * 
+	 * @param tableName
+	 * @param entity
+	 * @throws Exception if the concerned entity was deleted or changed in the meanwhile.
+	 */
+	void setEntityAsUpdated(String tableName, IEntityHeadDTO entity);
+	
+	//method declaration
+	/**
+	 * There is not asserted that the concerned entity was not changed in the meanwhile.
 	 * 
 	 * @param tableName
 	 * @param recordUpdate

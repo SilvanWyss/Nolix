@@ -185,6 +185,12 @@ public final class DataAdapter implements IDataAdapter {
 	
 	//method
 	@Override
+	public void setEntityAsUpdated(final String tableName, final IEntityHeadDTO entity) {
+		dataWriter.setEntityAsUpdated(tableName, entity);
+	}
+	
+	//method
+	@Override
 	public boolean tableContainsRecordWithGivenValueAtColumn(String tableName, String columnName, String value) {
 		return dataReader.tableContainsRecordWithGivenValueAtColumn(tableName, columnName, value);
 	}

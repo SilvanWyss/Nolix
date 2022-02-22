@@ -175,6 +175,12 @@ public final class DataWriter implements IDataWriter {
 	
 	//method
 	@Override
+	public void setEntityAsUpdated(final String tableName, final IEntityHeadDTO entity) {
+		internalDataWriter.setEntityAsUpdated(tableName, entity);
+	}
+	
+	//method
+	@Override
 	public void updateRecordOnTable(final String tableName, final IRecordUpdateDTO recordUpdate) {
 		internalDataWriter.updateRecordOnTable(tableName, recordUpdate);
 	}

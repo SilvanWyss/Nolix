@@ -197,6 +197,28 @@ final class DatabaseUpdater {
 	}
 	
 	//method
+	public void setEntityAsUpdated(final BaseNode database, final String tableName, final IEntityHeadDTO entity) {
+		
+		final var tableNode =
+		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(database, tableName);
+		
+		final var entityNode = tableNodeSearcher.getRefEntityNodeFromTableNodeOrNull(tableNode, entity.getId());
+		if (entityNode == null) {
+			throw new GeneralException("The data was changed in the meanwhile.");
+		}
+		
+		final var saveStampNode = recordNodeSearcher.getRefSaveStampNodeFromRecordNode(entityNode);
+		final var saveStampValueNode = saveStampNode.getRefOneAttribute();
+		
+		final var saveStamp = saveStampValueNode.getHeader();
+		if (!saveStamp.equals(entity.getSaveStamp())) {
+			throw new GeneralException("The data was changed in the meanwhile.");
+		}
+		
+		saveStampValueNode.setHeader(String.valueOf(Integer.valueOf(saveStamp) + 1));
+	}
+	
+	//method
 	public void updateRecordOnTable(
 		final BaseNode database,
 		final TableInfo tableInfo,
