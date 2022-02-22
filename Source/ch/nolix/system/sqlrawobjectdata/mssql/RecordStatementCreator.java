@@ -15,15 +15,15 @@ public final class RecordStatementCreator implements IRecordStatementCreator {
 	@Override
 	public String createStatementToDeleteRecordFromTable(
 		final String tableName,
-		final IEntityHeadDTO recordHead
+		final IEntityHeadDTO entity
 	) {
 		return
 		"DELETE FROM "
 		+ tableName
 		+ " WHERE Id = '"
-		+ recordHead.getId()
+		+ entity.getId()
 		+ "' AND SaveStamp = '"
-		+ recordHead.getSaveStamp()
+		+ entity.getSaveStamp()
 		+ "';"
 		+ "IF @@RowCount = 0 BEGIN THROW error(100000, 'The data was changed in the meanwhile.', 0) END;";
 	}

@@ -10,7 +10,7 @@ import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
 public interface IRecordStatementCreator {
 	
 	//method declaration
-	String createStatementToDeleteRecordFromTable(String tableName, IEntityHeadDTO recordHead);
+	String createStatementToDeleteRecordFromTable(String tableName, IEntityHeadDTO entity);
 	
 	//method declaration
 	String createStatementToInsertRecordIntoTable(String tableName, IRecordDTO record);

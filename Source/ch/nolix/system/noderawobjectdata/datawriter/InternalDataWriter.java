@@ -88,8 +88,8 @@ final class InternalDataWriter {
 	}
 	
 	//method
-	public void deleteRecordFromTable(final String tableName, final IEntityHeadDTO recordHead) {
-		addChangeAction(d -> databaseUpdater.deleteRecordFromTable(d, tableName, recordHead));
+	public void deleteRecordFromTable(final String tableName, final IEntityHeadDTO entity) {
+		addChangeAction(d -> databaseUpdater.deleteRecordFromTable(d, tableName, entity));
 	}
 	
 	//method

@@ -95,9 +95,9 @@ public final class InternalDataWriter {
 	}
 	
 	//method
-	public void deleteRecordFromTable(final String tableName, final IEntityHeadDTO recordHead) {
+	public void deleteRecordFromTable(final String tableName, final IEntityHeadDTO entity) {
 		mSQLCollector.addSQLStatement(
-			recordStatementCreator.createStatementToDeleteRecordFromTable(tableName, recordHead)
+			recordStatementCreator.createStatementToDeleteRecordFromTable(tableName, entity)
 		);
 	}
 	

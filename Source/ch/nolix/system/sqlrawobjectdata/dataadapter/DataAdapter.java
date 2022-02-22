@@ -90,8 +90,8 @@ public abstract class DataAdapter implements IDataAdapter {
 	
 	//method
 	@Override
-	public final void deleteRecordFromTable(final String tableName, final IEntityHeadDTO recordHead) {
-		dataWriter.deleteRecordFromTable(tableName, recordHead);
+	public final void deleteRecordFromTable(final String tableName, final IEntityHeadDTO entity) {
+		dataWriter.deleteRecordFromTable(tableName, entity);
 	}
 	
 	//method

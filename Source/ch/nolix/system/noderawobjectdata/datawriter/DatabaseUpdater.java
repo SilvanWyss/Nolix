@@ -115,17 +115,17 @@ final class DatabaseUpdater {
 	public void deleteRecordFromTable(
 		final BaseNode database,
 		final String tableName,
-		final IEntityHeadDTO recordHead
+		final IEntityHeadDTO entity
 	) {
 		
 		final var tableNode = databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(database, tableName);
 		
 		final var recordNode =
-		tableNodeSearcher.removeAndGetRefRecordNodeFromTableNode(tableNode, recordHead.getId());
+		tableNodeSearcher.removeAndGetRefRecordNodeFromTableNode(tableNode, entity.getId());
 		
 		final var saveStampNode = entityNodeSearcher.getRefSaveStampNodeFromRecordNode(recordNode);
 		
-		if (!saveStampNode.hasHeader(recordHead.getSaveStamp())) {
+		if (!saveStampNode.hasHeader(entity.getSaveStamp())) {
 			throw new GeneralException("The data was changed in the meanwhile.");
 		}
 	}

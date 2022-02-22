@@ -95,8 +95,8 @@ public final class DataWriter implements IDataWriter {
 	
 	//method
 	@Override
-	public void deleteRecordFromTable(final String tableName, final IEntityHeadDTO recordHead) {
-		internalDataWriter.deleteRecordFromTable(tableName, recordHead);
+	public void deleteRecordFromTable(final String tableName, final IEntityHeadDTO entity) {
+		internalDataWriter.deleteRecordFromTable(tableName, entity);
 	}
 	
 	//method

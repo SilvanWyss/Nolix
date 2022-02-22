@@ -71,9 +71,9 @@ public interface IDataWriter extends IMultiTimeChangeSaver {
 	 * There is not asserted that the concerned entity was not changed in the meanwhile.
 	 * 
 	 * @param tableName
-	 * @param recordHead
+	 * @param entity
 	 */
-	void deleteRecordFromTable(String tableName, IEntityHeadDTO recordHead);
+	void deleteRecordFromTable(String tableName, IEntityHeadDTO entity);
 	
 	//method declaration
 	/**
