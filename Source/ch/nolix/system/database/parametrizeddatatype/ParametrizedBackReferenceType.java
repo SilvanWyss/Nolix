@@ -24,7 +24,7 @@ public final class ParametrizedBackReferenceType<E extends Entity> extends BaseP
 	public ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedBackReferenceType toSchemaDataType(
 		final IContainer<ch.nolix.system.objectschema.databaseschemaadapter.EntitySet> schemaEntitySets
 	) {
-		//TODO: Refacotr.
+		//TODO: Refactor.
 		/*
 		final var backReferencedEntitiesName = getBackReferencedEntitiesName();
 		
