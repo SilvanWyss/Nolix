@@ -41,12 +41,6 @@ implements IMultiReference<DataImplementation, E> {
 	//multi-attribute
 	private final LinkedList<String> referencedEntityIds = new LinkedList<>();
 	
-	//multi-attribute
-	private final LinkedList<String> newReferencedEntityIds = new LinkedList<>();
-	
-	//multi-attribute
-	private final LinkedList<String> deletedReferencedEntityIds = new LinkedList<>();
-	
 	//constructor
 	private MultiReference(final String referencedTableName) {
 		super(referencedTableName);
@@ -60,7 +54,7 @@ implements IMultiReference<DataImplementation, E> {
 		
 		updateStateForAddEntity(entity);
 		
-		updateRelatedRecordForAddEntity(entity);
+		updateRecordForAddEntity(entity);
 		
 		internalSetParentEntityAsEdited();
 	}
@@ -161,7 +155,7 @@ implements IMultiReference<DataImplementation, E> {
 		
 		updateStateForClear();
 		
-		updateRelatedRecordForClear();
+		updateRecordForClear();
 		
 		internalSetParentEntityAsEdited();
 	}
@@ -209,7 +203,7 @@ implements IMultiReference<DataImplementation, E> {
 	}
 	
 	//method
-	private void updateRelatedRecordForAddEntity(final E entity) {
+	private void updateRecordForAddEntity(final E entity) {
 		if (isLinkedWithRealDatabase()) {
 			internalGetRefDataAndSchemaAdapter().insertEntryIntoMultiReference(
 				getParentEntity().getParentTableName(),
@@ -221,7 +215,7 @@ implements IMultiReference<DataImplementation, E> {
 	}
 	
 	//method
-	private void updateRelatedRecordForClear() {
+	private void updateRecordForClear() {
 		if (isLinkedWithRealDatabase()) {
 			internalGetRefDataAndSchemaAdapter().deleteEntriesFromMultiReference(
 				getParentEntity().getParentTableName(),
@@ -233,21 +227,11 @@ implements IMultiReference<DataImplementation, E> {
 	
 	//method
 	private void updateStateForAddEntity(final E entity) {
-		
 		referencedEntityIds.addAtEnd(entity.getId());
-		
-		newReferencedEntityIds.addAtEnd(entity.getId());
 	}
 	
 	//method
 	private void updateStateForClear() {
-		
-		extractReferencedEntityIdsIfNeeded();
-		
-		deletedReferencedEntityIds.addAtEnd(referencedEntityIds);
-		
 		referencedEntityIds.clear();
-		
-		newReferencedEntityIds.clear();
 	}
 }
