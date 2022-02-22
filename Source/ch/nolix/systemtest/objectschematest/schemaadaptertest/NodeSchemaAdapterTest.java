@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemtest.objectschematest.schemaadaptertest;
 
+//own imports
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
@@ -46,5 +47,53 @@ public final class NodeSchemaAdapterTest extends Test {
 		final var tableNode = tableNodes.getRefFirst();
 		final var nameNode = tableNode.getRefFirstAttribute("Name");
 		expect(nameNode.getOneAttributeHeader()).isEqualTo("MyTable");
+	}
+	
+	//method
+	@TestCase
+	public void test_getSaveCount_whenIsNew() {
+		
+		//setup
+		final var testUnit = NodeSchemaAdapter.forDatabaseNode("MyDatabase", new Node());
+		
+		//execution
+		final var result = testUnit.getSaveCount();
+		
+		//verification
+		expect(result).isEqualTo(0);
+	}
+	
+	//method
+	@TestCase
+	public void test_getSaveCount_whenSavesChangesAndResetsFor1Times() {
+		
+		//setup
+		final var testUnit = NodeSchemaAdapter.forDatabaseNode("MyDatabase", new Node());
+		testUnit.addTable(new Table("MyTable1"));
+		testUnit.saveChangesAndReset();
+		
+		//execution
+		final var result = testUnit.getSaveCount();
+		
+		//verification
+		expect(result).isEqualTo(1);
+	}
+	
+	//method
+	@TestCase
+	public void test_getSaveCount_whenSavesChangesAndResetsFor2Times() {
+		
+		//setup
+		final var testUnit = NodeSchemaAdapter.forDatabaseNode("MyDatabase", new Node());
+		testUnit.addTable(new Table("MyTable1"));
+		testUnit.saveChangesAndReset();
+		testUnit.addTable(new Table("MyTable2"));
+		testUnit.saveChangesAndReset();
+		
+		//execution
+		final var result = testUnit.getSaveCount();
+		
+		//verification
+		expect(result).isEqualTo(2);
 	}
 }
