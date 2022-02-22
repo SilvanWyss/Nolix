@@ -23,7 +23,7 @@ public class TableNodeSearcher {
 	
 	//method
 	public final IContainer<BaseNode> getRefColumnNodesFromTableNode(final BaseNode tableNode) {
-		return tableNode.getRefAttributes(SubNodeHeaderCatalogue.COLUMN).from(3);
+		return tableNode.getRefAttributes(SubNodeHeaderCatalogue.COLUMN);
 	}
 	
 	//method
