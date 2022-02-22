@@ -4,7 +4,7 @@ package ch.nolix.system.noderawobjectdata.datareader;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
-import ch.nolix.system.noderawobjectdata.structure.RecordNodeSearcher;
+import ch.nolix.system.noderawobjectdata.structure.EntityNodeSearcher;
 import ch.nolix.system.noderawobjectdata.tabledefinition.TableInfo;
 import ch.nolix.system.sqlrawobjectdata.datadto.LoadedRecordDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.ILoadedContentFieldDTO;
@@ -15,7 +15,7 @@ public final class LoadedRecordDTOMapper {
 	
 	//static attributes
 	private static final ContentFieldDTOMapper contentFieldDTOMapper = new ContentFieldDTOMapper();
-	private static final RecordNodeSearcher recordNodeSearcher = new RecordNodeSearcher();
+	private static final EntityNodeSearcher recordNodeSearcher = new EntityNodeSearcher();
 	
 	//method
 	public ILoadedRecordDTO createLoadedRecordDTOFromRecordNode(

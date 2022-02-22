@@ -6,7 +6,7 @@ import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.exception.GeneralException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
-import ch.nolix.system.noderawobjectdata.structure.RecordNodeSearcher;
+import ch.nolix.system.noderawobjectdata.structure.EntityNodeSearcher;
 import ch.nolix.system.noderawobjectdata.structure.TableNodeSearcher;
 import ch.nolix.system.noderawobjectdata.tabledefinition.TableInfo;
 import ch.nolix.system.noderawobjectschema.structure.DatabaseNodeSearcher;
@@ -23,7 +23,7 @@ final class DatabaseUpdater {
 	//static attributes
 	private static final DatabaseNodeSearcher databaseNodeSearcher = new DatabaseNodeSearcher();
 	private static final TableNodeSearcher tableNodeSearcher = new TableNodeSearcher();
-	private static final RecordNodeSearcher recordNodeSearcher = new RecordNodeSearcher();
+	private static final EntityNodeSearcher recordNodeSearcher = new EntityNodeSearcher();
 	
 	//method
 	public void deleteEntriesFromMultiReference(

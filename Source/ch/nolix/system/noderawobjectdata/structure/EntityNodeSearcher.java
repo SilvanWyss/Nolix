@@ -6,7 +6,7 @@ import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.system.noderawobjectdata.tabledefinition.FieldIndexCatalogue;
 
 //class
-public final class RecordNodeSearcher {
+public final class EntityNodeSearcher {
 	
 	//method
 	public String getEntitySaveStampFromEntityNode(final BaseNode entityNode) {

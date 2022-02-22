@@ -5,7 +5,7 @@ package ch.nolix.system.noderawobjectdata.datareader;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.system.noderawobjectdata.structure.RecordNodeSearcher;
+import ch.nolix.system.noderawobjectdata.structure.EntityNodeSearcher;
 import ch.nolix.system.noderawobjectdata.structure.TableNodeSearcher;
 import ch.nolix.system.noderawobjectdata.tabledefinition.TableInfo;
 import ch.nolix.system.noderawobjectschema.structure.DatabaseNodeSearcher;
@@ -22,7 +22,7 @@ public final class InternalDataReader {
 	private static final TableNodeSearcher tableNodeSearcher = new TableNodeSearcher();
 	
 	//static attribute
-	private static final RecordNodeSearcher recordNodeSearcher = new RecordNodeSearcher();
+	private static final EntityNodeSearcher recordNodeSearcher = new EntityNodeSearcher();
 		
 	//static attribute
 	private static final LoadedRecordDTOMapper loadedRecordDTOMapper = new LoadedRecordDTOMapper();
