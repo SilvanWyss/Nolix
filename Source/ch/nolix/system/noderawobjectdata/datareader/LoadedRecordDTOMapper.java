@@ -15,7 +15,7 @@ public final class LoadedRecordDTOMapper {
 	
 	//static attributes
 	private static final ContentFieldDTOMapper contentFieldDTOMapper = new ContentFieldDTOMapper();
-	private static final EntityNodeSearcher recordNodeSearcher = new EntityNodeSearcher();
+	private static final EntityNodeSearcher entityNodeSearcher = new EntityNodeSearcher();
 	
 	//method
 	public ILoadedRecordDTO createLoadedRecordDTOFromRecordNode(
@@ -40,7 +40,7 @@ public final class LoadedRecordDTOMapper {
 		var index = 1;
 		for (final var ccd : tableInfo.getColumnInfos()) {
 			
-			final var contentFieldNode = recordNodeSearcher.getRefContentFieldNodeFromRecordNodeAtIndex(recordNode, index);
+			final var contentFieldNode = entityNodeSearcher.getRefContentFieldNodeFromRecordNodeAtIndex(recordNode, index);
 			
 			contentFields.addAtEnd(contentFieldDTOMapper.createContentFieldDTOFromContentFieldNode(contentFieldNode, ccd));
 		}
@@ -51,7 +51,7 @@ public final class LoadedRecordDTOMapper {
 	//method
 	private String getIdFromRecordNode(final BaseNode recordNode) {
 		
-		final var idNode = recordNodeSearcher.getRefIdNodeFromRecordNode(recordNode);
+		final var idNode = entityNodeSearcher.getRefIdNodeFromRecordNode(recordNode);
 		
 		return idNode.getOneAttributeHeader();
 	}
@@ -59,7 +59,7 @@ public final class LoadedRecordDTOMapper {
 	//method
 	private String getSaveStampFromRecordNode(BaseNode recordNode) {
 		
-		final var saveStampNode = recordNodeSearcher.getRefSaveStampNodeFromRecordNode(recordNode);
+		final var saveStampNode = entityNodeSearcher.getRefSaveStampNodeFromRecordNode(recordNode);
 		
 		return saveStampNode.getOneAttributeHeader();
 	}

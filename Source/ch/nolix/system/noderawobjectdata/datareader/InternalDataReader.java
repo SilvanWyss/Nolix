@@ -22,7 +22,7 @@ public final class InternalDataReader {
 	private static final TableNodeSearcher tableNodeSearcher = new TableNodeSearcher();
 	
 	//static attribute
-	private static final EntityNodeSearcher recordNodeSearcher = new EntityNodeSearcher();
+	private static final EntityNodeSearcher entityNodeSearcher = new EntityNodeSearcher();
 		
 	//static attribute
 	private static final LoadedRecordDTOMapper loadedRecordDTOMapper = new LoadedRecordDTOMapper();
@@ -68,7 +68,7 @@ public final class InternalDataReader {
 		final var multiValueColumnIndex = tableInfo.getIndexOfColumnByColumnName(multiReferenceColumnName);
 		
 		final var multiValueNode =
-		recordNodeSearcher.getRefContentFieldNodeFromRecordNodeAtIndex(recordNode, multiValueColumnIndex);
+		entityNodeSearcher.getRefContentFieldNodeFromRecordNodeAtIndex(recordNode, multiValueColumnIndex);
 		
 		return multiValueNode.getHeadersOfAttributes();
 		
@@ -89,7 +89,7 @@ public final class InternalDataReader {
 		final var multiValueColumnIndex = tableInfo.getIndexOfColumnByColumnName(multiValueColumnName);
 		
 		final var multiValueNode =
-		recordNodeSearcher.getRefContentFieldNodeFromRecordNodeAtIndex(recordNode, multiValueColumnIndex);
+		entityNodeSearcher.getRefContentFieldNodeFromRecordNodeAtIndex(recordNode, multiValueColumnIndex);
 		
 		final var columnInfo = tableInfo.getColumnInfoByColumnName(multiValueColumnName);
 		

@@ -23,7 +23,7 @@ final class DatabaseUpdater {
 	//static attributes
 	private static final DatabaseNodeSearcher databaseNodeSearcher = new DatabaseNodeSearcher();
 	private static final TableNodeSearcher tableNodeSearcher = new TableNodeSearcher();
-	private static final EntityNodeSearcher recordNodeSearcher = new EntityNodeSearcher();
+	private static final EntityNodeSearcher entityNodeSearcher = new EntityNodeSearcher();
 	
 	//method
 	public void deleteEntriesFromMultiReference(
@@ -41,7 +41,7 @@ final class DatabaseUpdater {
 		final var multiReferenceColumnIndex = tableInfo.getIndexOfColumnByColumnName(multiReferenceColumnName);
 		
 		final var multiReferenceColumnNode =
-		recordNodeSearcher.getRefContentFieldNodeFromRecordNodeAtIndex(entityNode, multiReferenceColumnIndex);
+		entityNodeSearcher.getRefContentFieldNodeFromRecordNodeAtIndex(entityNode, multiReferenceColumnIndex);
 		
 		multiReferenceColumnNode.removeAttributes();
 	}
@@ -62,7 +62,7 @@ final class DatabaseUpdater {
 		final var multiValueColumnIndex = tableInfo.getIndexOfColumnByColumnName(multiValueColumnName);
 		
 		final var multiValueColumnNode =
-		recordNodeSearcher.getRefContentFieldNodeFromRecordNodeAtIndex(recordNode, multiValueColumnIndex);
+		entityNodeSearcher.getRefContentFieldNodeFromRecordNodeAtIndex(recordNode, multiValueColumnIndex);
 						
 		multiValueColumnNode.removeAttributes();
 	}
@@ -84,7 +84,7 @@ final class DatabaseUpdater {
 		final var multiReferenceColumnIndex = tableInfo.getIndexOfColumnByColumnName(multiReferencedColumnName);
 		
 		final var multiReferenceColumnNode =
-		recordNodeSearcher.getRefContentFieldNodeFromRecordNodeAtIndex(entityNode, multiReferenceColumnIndex);
+		entityNodeSearcher.getRefContentFieldNodeFromRecordNodeAtIndex(entityNode, multiReferenceColumnIndex);
 		
 		multiReferenceColumnNode.removeFirstAttribute(referencedEntityId);
 	}
@@ -106,7 +106,7 @@ final class DatabaseUpdater {
 		final var multiValueColumnIndex = tableInfo.getIndexOfColumnByColumnName(multiValueColumnName);
 		
 		final var multiValueColumnNode =
-		recordNodeSearcher.getRefContentFieldNodeFromRecordNodeAtIndex(recordNode, multiValueColumnIndex);
+		entityNodeSearcher.getRefContentFieldNodeFromRecordNodeAtIndex(recordNode, multiValueColumnIndex);
 		
 		multiValueColumnNode.removeFirstAttribute(entry);
 	}
@@ -123,7 +123,7 @@ final class DatabaseUpdater {
 		final var recordNode =
 		tableNodeSearcher.removeAndGetRefRecordNodeFromTableNode(tableNode, recordHead.getId());
 		
-		final var saveStampNode = recordNodeSearcher.getRefSaveStampNodeFromRecordNode(recordNode);
+		final var saveStampNode = entityNodeSearcher.getRefSaveStampNodeFromRecordNode(recordNode);
 		
 		if (!saveStampNode.hasHeader(recordHead.getSaveStamp())) {
 			throw new GeneralException("The data was changed in the meanwhile.");
@@ -147,7 +147,7 @@ final class DatabaseUpdater {
 		final var multiReferenceColumnIndex = tableInfo.getIndexOfColumnByColumnName(multiReferenceColumnName);
 		
 		final var multiReferenceColumnNode =
-		recordNodeSearcher.getRefContentFieldNodeFromRecordNodeAtIndex(entityNode, multiReferenceColumnIndex);
+		entityNodeSearcher.getRefContentFieldNodeFromRecordNodeAtIndex(entityNode, multiReferenceColumnIndex);
 		
 		multiReferenceColumnNode.addAttribute(Node.withHeader(referencedEntityId));
 	}
@@ -169,7 +169,7 @@ final class DatabaseUpdater {
 		final var multiValueColumnIndex = tableInfo.getIndexOfColumnByColumnName(multiValueColumnName);
 		
 		final var multiValueColumnNode =
-		recordNodeSearcher.getRefContentFieldNodeFromRecordNodeAtIndex(recordNode, multiValueColumnIndex);
+		entityNodeSearcher.getRefContentFieldNodeFromRecordNodeAtIndex(recordNode, multiValueColumnIndex);
 		
 		multiValueColumnNode.addAttribute(Node.withHeader(entry));
 	}
@@ -207,7 +207,7 @@ final class DatabaseUpdater {
 			throw new GeneralException("The data was changed in the meanwhile.");
 		}
 		
-		final var saveStampNode = recordNodeSearcher.getRefSaveStampNodeFromRecordNode(entityNode);
+		final var saveStampNode = entityNodeSearcher.getRefSaveStampNodeFromRecordNode(entityNode);
 		final var saveStampValueNode = saveStampNode.getRefOneAttribute();
 		
 		final var saveStamp = saveStampValueNode.getHeader();
@@ -229,7 +229,7 @@ final class DatabaseUpdater {
 		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(database, tableInfo.getTableName());
 		
 		final var recordNode = tableNodeSearcher.getRefRecordNodeFromTableNode(tableNode, recordUdate.getId());
-		final var saveStampNode = recordNodeSearcher.getRefSaveStampNodeFromRecordNode(recordNode);
+		final var saveStampNode = entityNodeSearcher.getRefSaveStampNodeFromRecordNode(recordNode);
 		
 		if (!saveStampNode.hasHeader(recordUdate.getSaveStamp())) {
 			throw new GeneralException("The data was changed in the meanwhile.");
@@ -247,7 +247,7 @@ final class DatabaseUpdater {
 		for (final var ucf : recordUdate.getUpdatedContentFields()) {
 			
 			final var contentFieldNode =
-			recordNodeSearcher.getRefContentFieldNodeFromRecordNodeAtIndex(
+			entityNodeSearcher.getRefContentFieldNodeFromRecordNodeAtIndex(
 				recordNode,
 				tableInfo.getIndexOfColumnByColumnName(ucf.getColumnName())
 			);
