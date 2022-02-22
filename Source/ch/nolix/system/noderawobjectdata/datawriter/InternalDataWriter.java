@@ -48,11 +48,11 @@ final class InternalDataWriter {
 	//method
 	public void deleteEntriesFromMultiValue(
 		final TableInfo tableInfo,
-		final String recordId,
+		final String entityId,
 		final String multiValueColumnName
 	) {
 		addChangeAction(
-			d -> databaseUpdater.deleteEntriesFromMultiValue(d, tableInfo, recordId, multiValueColumnName)
+			d -> databaseUpdater.deleteEntriesFromMultiValue(d, tableInfo, entityId, multiValueColumnName)
 		);
 	}
 	
@@ -78,12 +78,12 @@ final class InternalDataWriter {
 	//method
 	public void deleteEntryFromMultiValue(
 		final TableInfo tableInfo,
-		final String recordId,
+		final String entityId,
 		final String multiValueColumnName,
 		final String entry
 	) {
 		addChangeAction(
-			d -> databaseUpdater.deleteEntryFromMultiValue(d, tableInfo, recordId, multiValueColumnName, entry)
+			d -> databaseUpdater.deleteEntryFromMultiValue(d, tableInfo, entityId, multiValueColumnName, entry)
 		);
 	}
 	
@@ -124,12 +124,12 @@ final class InternalDataWriter {
 	//method
 	public void insertEntryIntoMultiValue(
 		final TableInfo tableInfo,
-		final String recordId,
+		final String entityId,
 		final String multiValueColumnName,
 		final String entry
 	) {
 		addChangeAction(
-			d -> databaseUpdater.insertEntryIntoMultiValue(d, tableInfo, recordId, multiValueColumnName, entry)
+			d -> databaseUpdater.insertEntryIntoMultiValue(d, tableInfo, entityId, multiValueColumnName, entry)
 		);
 	}
 	

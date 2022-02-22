@@ -12,7 +12,7 @@ public final class MultiReferenceQueryCreator implements IMultiReferenceQueryCre
 	//method
 	@Override
 	public String createQueryToLoadAllMultiReferenceEntriesForRecord(
-		final String recordId,
+		final String entityId,
 		final String multiReferenceColumnId
 	) {
 		return
@@ -23,7 +23,7 @@ public final class MultiReferenceQueryCreator implements IMultiReferenceQueryCre
 		+ " WHERE "
 		+ MultiReferenceEntryTableColumn.RECORD_ID.getName()
 		+ " = '"
-		+ recordId
+		+ entityId
 		+ "' AND "
 		+ MultiReferenceEntryTableColumn.MULTI_REFERENCE_COLUMN_ID.getName()
 		+ " = '"

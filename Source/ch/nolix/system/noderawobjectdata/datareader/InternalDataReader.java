@@ -56,14 +56,14 @@ public final class InternalDataReader {
 	//method
 	public LinkedList<String> loadAllMultiReferenceEntriesForRecord(
 		final TableInfo tableInfo,
-		final String recordId,
+		final String entityId,
 		final String multiReferenceColumnName
 	) {
 		
 		final var tableNode =
 		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
 		
-		final var recordNode = tableNodeSearcher.getRefRecordNodeFromTableNode(tableNode, recordId);
+		final var recordNode = tableNodeSearcher.getRefRecordNodeFromTableNode(tableNode, entityId);
 		
 		final var multiValueColumnIndex = tableInfo.getIndexOfColumnByColumnName(multiReferenceColumnName);
 		
@@ -77,14 +77,14 @@ public final class InternalDataReader {
 	//method
 	public LinkedList<Object> loadMultiValueEntriesFromRecord(
 		final TableInfo tableInfo,
-		final String recordId,
+		final String entityId,
 		final String multiValueColumnName
 	) {
 		
 		final var tableNode =
 		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
 		
-		final var recordNode = tableNodeSearcher.getRefRecordNodeFromTableNode(tableNode, recordId);
+		final var recordNode = tableNodeSearcher.getRefRecordNodeFromTableNode(tableNode, entityId);
 		
 		final var multiValueColumnIndex = tableInfo.getIndexOfColumnByColumnName(multiValueColumnName);
 		

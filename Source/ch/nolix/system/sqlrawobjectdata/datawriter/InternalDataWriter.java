@@ -50,21 +50,21 @@ public final class InternalDataWriter {
 	
 	//method
 	public void deleteEntriesFromMultiReference(
-		final String recordId,
+		final String entityId,
 		final String multiReferenceColumnId
 	) {
 		mSQLCollector.addSQLStatement(
-			multiReferenceStatementCreator.createStatementToDeleteEntriesFromMultiReference(recordId, multiReferenceColumnId)
+			multiReferenceStatementCreator.createStatementToDeleteEntriesFromMultiReference(entityId, multiReferenceColumnId)
 		);
 	}
 	
 	//method
 	public void deleteEntriesFromMultiValue(
-		final String recordId,
+		final String entityId,
 		final String multiValueColumnId
 	) {
 		mSQLCollector.addSQLStatement(
-			multiValueStatementCreator.createStatementToDeleteEntriesFromMultiValue(recordId, multiValueColumnId)
+			multiValueStatementCreator.createStatementToDeleteEntriesFromMultiValue(entityId, multiValueColumnId)
 		);
 	}
 	
@@ -85,12 +85,12 @@ public final class InternalDataWriter {
 	
 	//method
 	public void deleteEntryFromMultiValue(
-		final String recordId,
+		final String entityId,
 		final String multiValueColumnId,
 		final String entry
 	) {
 		mSQLCollector.addSQLStatement(
-			multiValueStatementCreator.createStatementToDeleteEntryFromMultiValue(recordId, multiValueColumnId, entry)
+			multiValueStatementCreator.createStatementToDeleteEntryFromMultiValue(entityId, multiValueColumnId, entry)
 		);
 	}
 	
@@ -128,12 +128,12 @@ public final class InternalDataWriter {
 	
 	//method
 	public void insertEntryIntoMultiValue(
-		final String recordId,
+		final String entityId,
 		final String multiValueColumnId,
 		final String entry
 	) {
 		mSQLCollector.addSQLStatement(
-			multiValueStatementCreator.createQueryToInsertEntryIntoMultiValue(recordId, multiValueColumnId, entry)
+			multiValueStatementCreator.createQueryToInsertEntryIntoMultiValue(entityId, multiValueColumnId, entry)
 		);
 	}
 	

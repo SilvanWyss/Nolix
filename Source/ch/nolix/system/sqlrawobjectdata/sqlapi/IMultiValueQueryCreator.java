@@ -5,5 +5,5 @@ package ch.nolix.system.sqlrawobjectdata.sqlapi;
 public interface IMultiValueQueryCreator {
 	
 	//method declaration
-	String createQueryToLoadMultiValueEntriesFromRecord(String recordId, String multiValueColumnId);
+	String createQueryToLoadMultiValueEntriesFromRecord(String entityId, String multiValueColumnId);
 }

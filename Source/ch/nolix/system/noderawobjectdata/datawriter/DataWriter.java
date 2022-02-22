@@ -51,12 +51,12 @@ public final class DataWriter implements IDataWriter {
 	@Override
 	public void deleteEntriesFromMultiValue(
 		final String tableName,
-		final String recordId,
+		final String entityId,
 		final String multiValueColumnName
 	) {
 		internalDataWriter.deleteEntriesFromMultiValue(
 			getTableInfoByTableName(tableName),
-			recordId,
+			entityId,
 			multiValueColumnName
 		);
 	}
@@ -81,13 +81,13 @@ public final class DataWriter implements IDataWriter {
 	@Override
 	public void deleteEntryFromMultiValue(
 		final String tableName,
-		final String recordId,
+		final String entityId,
 		final String multiValueColumnName,
 		final String entry
 	) {
 		internalDataWriter.deleteEntryFromMultiValue(
 			getTableInfoByTableName(tableName),
-			recordId,
+			entityId,
 			multiValueColumnName,
 			entry
 		);
@@ -131,13 +131,13 @@ public final class DataWriter implements IDataWriter {
 	@Override
 	public void insertEntryIntoMultiValue(
 		final String tableName,
-		final String recordId,
+		final String entityId,
 		final String multiValueColumnName,
 		final String entry
 	) {
 		internalDataWriter.insertEntryIntoMultiValue(
 			getTableInfoByTableName(tableName),
-			recordId,
+			entityId,
 			multiValueColumnName,
 			entry
 		);

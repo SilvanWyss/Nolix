@@ -60,10 +60,10 @@ public abstract class DataAdapter implements IDataAdapter {
 	@Override
 	public final void deleteEntriesFromMultiValue(
 		final String tableName,
-		final String recordId,
+		final String entityId,
 		final String multiFieldColumn
 	) {
-		dataWriter.deleteEntriesFromMultiValue(tableName, recordId, multiFieldColumn);
+		dataWriter.deleteEntriesFromMultiValue(tableName, entityId, multiFieldColumn);
 	}
 	
 	//method
@@ -81,11 +81,11 @@ public abstract class DataAdapter implements IDataAdapter {
 	@Override
 	public final void deleteEntryFromMultiValue(
 		final String tableName,
-		final String recordId,
+		final String entityId,
 		final String multiFieldColumn,
 		final String entry
 	) {
-		dataWriter.deleteEntryFromMultiValue(tableName, recordId, multiFieldColumn, entry);
+		dataWriter.deleteEntryFromMultiValue(tableName, entityId, multiFieldColumn, entry);
 	}
 	
 	//method
@@ -127,11 +127,11 @@ public abstract class DataAdapter implements IDataAdapter {
 	@Override
 	public final void insertEntryIntoMultiValue(
 		final String tableName,
-		final String recordId,
+		final String entityId,
 		final String multiFieldColumn,
 		final String entry
 	) {
-		dataWriter.insertEntryIntoMultiValue(tableName, recordId, multiFieldColumn, entry);
+		dataWriter.insertEntryIntoMultiValue(tableName, entityId, multiFieldColumn, entry);
 	}
 	
 	//method
@@ -143,20 +143,20 @@ public abstract class DataAdapter implements IDataAdapter {
 	@Override
 	public final LinkedList<String> loadAllMultiReferenceEntriesForRecord(
 		final String tableName,
-		final String recordId,
+		final String entityId,
 		final String multiReferenceColumnName
 	) {
-		return dataReader.loadAllMultiReferenceEntriesForRecord(tableName, recordId, multiReferenceColumnName);
+		return dataReader.loadAllMultiReferenceEntriesForRecord(tableName, entityId, multiReferenceColumnName);
 	}
 	
 	//method
 	@Override
 	public final LinkedList<Object> loadAllMultiValueEntriesFromRecord(
 		final String tableName,
-		final String recordId,
+		final String entityId,
 		final String multiFieldColumnName
 	) {
-		return dataReader.loadAllMultiValueEntriesFromRecord(tableName, recordId, multiFieldColumnName);
+		return dataReader.loadAllMultiValueEntriesFromRecord(tableName, entityId, multiFieldColumnName);
 	}
 	
 	//method	

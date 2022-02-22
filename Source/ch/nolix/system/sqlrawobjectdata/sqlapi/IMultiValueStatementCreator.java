@@ -5,11 +5,11 @@ package ch.nolix.system.sqlrawobjectdata.sqlapi;
 public interface IMultiValueStatementCreator {
 	
 	//method declaration
-	String createStatementToDeleteEntriesFromMultiValue(String recordId, String multiValueColumnName);
+	String createStatementToDeleteEntriesFromMultiValue(String entityId, String multiValueColumnName);
 	
 	//method declaration
-	String createStatementToDeleteEntryFromMultiValue(String recordId, String multiValueColumnId, String entry);
+	String createStatementToDeleteEntryFromMultiValue(String entityId, String multiValueColumnId, String entry);
 	
 	//method declaration
-	String createQueryToInsertEntryIntoMultiValue(String recordId, String multiValueColumnId, String entry);
+	String createQueryToInsertEntryIntoMultiValue(String entityId, String multiValueColumnId, String entry);
 }

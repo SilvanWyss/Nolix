@@ -29,10 +29,10 @@ public interface IDataWriter extends IMultiTimeChangeSaver {
 	 * There is not asserted that the concerned entity was not changed in the meanwhile.
 	 * 
 	 * @param tableName
-	 * @param recordId
+	 * @param entityId
 	 * @param multiValueColumnName
 	 */
-	void deleteEntriesFromMultiValue(String tableName, String recordId, String multiValueColumnName);
+	void deleteEntriesFromMultiValue(String tableName, String entityId, String multiValueColumnName);
 	
 	//method declaration
 	/**
@@ -55,13 +55,13 @@ public interface IDataWriter extends IMultiTimeChangeSaver {
 	 * There is not asserted that the concerned entity was not changed in the meanwhile.
 	 * 
 	 * @param tableName
-	 * @param recordId
+	 * @param entityId
 	 * @param multiValueColumnName
 	 * @param entry
 	 */
 	void deleteEntryFromMultiValue(
 		String tableName,
-		String recordId,
+		String entityId,
 		String multiValueColumnName,
 		String entry
 	);
@@ -96,11 +96,11 @@ public interface IDataWriter extends IMultiTimeChangeSaver {
 	 * There is not asserted that the concerned entity was not changed in the meanwhile.
 	 * 
 	 * @param tableName
-	 * @param recordId
+	 * @param entityId
 	 * @param multiValueColumnName
 	 * @param entry
 	 */
-	void insertEntryIntoMultiValue(String tableName, String recordId, String multiValueColumnName, String entry);
+	void insertEntryIntoMultiValue(String tableName, String entityId, String multiValueColumnName, String entry);
 	
 	//method declaration
 	/**

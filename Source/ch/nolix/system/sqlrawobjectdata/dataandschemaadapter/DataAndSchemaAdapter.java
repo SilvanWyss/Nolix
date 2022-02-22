@@ -79,10 +79,10 @@ public abstract class DataAndSchemaAdapter implements IDataAndSchemaAdapter {
 	@Override
 	public final void deleteEntriesFromMultiValue(
 		final String tableName,
-		final String recordId,
+		final String entityId,
 		final String multiValueColumnName
 	) {
-		dataWriter.deleteEntriesFromMultiValue(tableName, recordId, multiValueColumnName);
+		dataWriter.deleteEntriesFromMultiValue(tableName, entityId, multiValueColumnName);
 	}
 	
 	//method
@@ -100,11 +100,11 @@ public abstract class DataAndSchemaAdapter implements IDataAndSchemaAdapter {
 	@Override
 	public final void deleteEntryFromMultiValue(
 		final String tableName,
-		final String recordId,
+		final String entityId,
 		final String multiValueColumnName,
 		final String entry
 	) {
-		dataWriter.deleteEntryFromMultiValue(tableName, recordId, multiValueColumnName, entry);
+		dataWriter.deleteEntryFromMultiValue(tableName, entityId, multiValueColumnName, entry);
 	}
 	
 	//method
@@ -146,11 +146,11 @@ public abstract class DataAndSchemaAdapter implements IDataAndSchemaAdapter {
 	@Override
 	public final void insertEntryIntoMultiValue(
 		final String tableName,
-		final String recordId,
+		final String entityId,
 		final String multiValueColumnName,
 		final String entry
 	) {
-		dataWriter.insertEntryIntoMultiValue(tableName, recordId, multiValueColumnName, entry);
+		dataWriter.insertEntryIntoMultiValue(tableName, entityId, multiValueColumnName, entry);
 	}
 	
 	//method
@@ -163,20 +163,20 @@ public abstract class DataAndSchemaAdapter implements IDataAndSchemaAdapter {
 	@Override
 	public final LinkedList<String> loadAllMultiReferenceEntriesForRecord(
 		final String tableName,
-		final String recordId,
+		final String entityId,
 		final String multiReferenceColumnName
 	) {
-		return dataReader.loadAllMultiReferenceEntriesForRecord(tableName, recordId, multiReferenceColumnName);
+		return dataReader.loadAllMultiReferenceEntriesForRecord(tableName, entityId, multiReferenceColumnName);
 	}
 	
 	//method
 	@Override
 	public final LinkedList<Object> loadAllMultiValueEntriesFromRecord(
 		final String tableName,
-		final String recordId,
+		final String entityId,
 		final String multiFieldColumnName
 	) {
-		return dataReader.loadAllMultiValueEntriesFromRecord(tableName, recordId, multiFieldColumnName);
+		return dataReader.loadAllMultiValueEntriesFromRecord(tableName, entityId, multiFieldColumnName);
 	}
 	
 	//method	

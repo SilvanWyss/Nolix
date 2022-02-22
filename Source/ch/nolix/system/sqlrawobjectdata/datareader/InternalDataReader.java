@@ -50,14 +50,14 @@ final class InternalDataReader {
 	
 	//method
 	public LinkedList<String> loadAllMultiReferenceEntriesForRecord(
-		final String recordId,
+		final String entityId,
 		final IColumnInfo multiReferenceColumnInfo
 	) {
 		return
 		mSQLConnection
 		.getRecords(
 			multiReferenceQueryCreator.createQueryToLoadAllMultiReferenceEntriesForRecord(
-				recordId,
+				entityId,
 				multiReferenceColumnInfo.getColumnId()
 			)
 		)
@@ -66,14 +66,14 @@ final class InternalDataReader {
 	
 	//method
 	public LinkedList<Object> loadMultiValueEntriesFromRecord(
-		final String recordId,
+		final String entityId,
 		final IColumnInfo multiValueColumnInfo
 	) {
 		return
 		mSQLConnection
 		.getRecords(
 			multiValueQueryCreator.createQueryToLoadMultiValueEntriesFromRecord(
-				recordId,
+				entityId,
 				multiValueColumnInfo.getColumnId()
 			)
 		)

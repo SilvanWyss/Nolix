@@ -15,14 +15,14 @@ public interface IDataReader extends GroupCloseable {
 	//method declaration
 	LinkedList<String> loadAllMultiReferenceEntriesForRecord(
 		String tableName,
-		String recordId,
+		String entityId,
 		String multiReferenceColumnName
 	);
 	
 	//method declaration
 	LinkedList<Object> loadAllMultiValueEntriesFromRecord(
 		String tableName,
-		String recordId,
+		String entityId,
 		String multiValueColumnName
 	);
 	

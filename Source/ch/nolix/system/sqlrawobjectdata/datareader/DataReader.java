@@ -50,11 +50,11 @@ public final class DataReader implements IDataReader {
 	@Override
 	public LinkedList<String> loadAllMultiReferenceEntriesForRecord(
 		final String tableName,
-		final String recordId,
+		final String entityId,
 		final String multiReferenceColumnName
 	) {
 		return internalDataReader.loadAllMultiReferenceEntriesForRecord(
-			recordId,
+			entityId,
 			getColumnDefinitionByTableNameAndColumnName(tableName, multiReferenceColumnName)
 		);
 	}
@@ -63,12 +63,12 @@ public final class DataReader implements IDataReader {
 	@Override
 	public LinkedList<Object> loadAllMultiValueEntriesFromRecord(
 		final String tableName,
-		final String recordId,
+		final String entityId,
 		final String multiValueColumnName
 	) {
 		return
 		internalDataReader.loadMultiValueEntriesFromRecord(
-			recordId,
+			entityId,
 			getColumnDefinitionByTableNameAndColumnName(tableName, multiValueColumnName)
 		);
 	}

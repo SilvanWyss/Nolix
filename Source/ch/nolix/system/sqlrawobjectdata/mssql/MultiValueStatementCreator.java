@@ -11,14 +11,14 @@ public final class MultiValueStatementCreator implements IMultiValueStatementCre
 	
 	//method
 	@Override
-	public String createStatementToDeleteEntriesFromMultiValue(final String recordId, final String multiValueColumnId) {
+	public String createStatementToDeleteEntriesFromMultiValue(final String entityId, final String multiValueColumnId) {
 		return
 		"DELETE FROM "
 		+  MultiContentTable.MULTI_VALUE_ENTRY.getFullName()
 		+ " WHERE "
 		+ MultiValueEntryTableColumn.RECORD_ID.getName()
 		+ " = '"
-		+ recordId
+		+ entityId
 		+ "' AND "
 		+ MultiValueEntryTableColumn.MULTI_VALUE_COLUMN_ID.getName()
 		+ " = '"
@@ -29,7 +29,7 @@ public final class MultiValueStatementCreator implements IMultiValueStatementCre
 	//method
 	@Override
 	public String createStatementToDeleteEntryFromMultiValue(
-		final String recordId,
+		final String entityId,
 		final String multiValueColumnId,
 		final String entry
 	) {
@@ -39,7 +39,7 @@ public final class MultiValueStatementCreator implements IMultiValueStatementCre
 		+ " WHERE "
 		+ MultiValueEntryTableColumn.RECORD_ID.getName()
 		+ " = '"
-		+ recordId
+		+ entityId
 		+ "' AND "
 		+ MultiValueEntryTableColumn.MULTI_VALUE_COLUMN_ID.getName()
 		+ " = '"
@@ -54,7 +54,7 @@ public final class MultiValueStatementCreator implements IMultiValueStatementCre
 	//method
 	@Override
 	public String createQueryToInsertEntryIntoMultiValue(
-		final String recordId,
+		final String entityId,
 		final String multiValueColumnId,
 		final String entry
 	) {
@@ -68,7 +68,7 @@ public final class MultiValueStatementCreator implements IMultiValueStatementCre
 		+ ", "
 		+ MultiValueEntryTableColumn.VALUE.getName()
 		+ ") VALUES ('"
-		+ recordId
+		+ entityId
 		+ "', '"
 		+ multiValueColumnId
 		+ "', '"

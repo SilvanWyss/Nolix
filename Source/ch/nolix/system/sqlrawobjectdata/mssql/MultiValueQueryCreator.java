@@ -11,7 +11,7 @@ public final class MultiValueQueryCreator implements IMultiValueQueryCreator {
 	
 	//method
 	@Override
-	public String createQueryToLoadMultiValueEntriesFromRecord(String recordId, String multiValueColumnId) {
+	public String createQueryToLoadMultiValueEntriesFromRecord(String entityId, String multiValueColumnId) {
 		return
 		"SELECT "
 		+ MultiValueEntryTableColumn.VALUE.getName()
@@ -20,7 +20,7 @@ public final class MultiValueQueryCreator implements IMultiValueQueryCreator {
 		+ " WHERE "
 		+ MultiValueEntryTableColumn.RECORD_ID.getName()
 		+ " = '"
-		+ recordId
+		+ entityId
 		+ "' AND "
 		+ MultiValueEntryTableColumn.MULTI_VALUE_COLUMN_ID.getName()
 		+ " = '"
