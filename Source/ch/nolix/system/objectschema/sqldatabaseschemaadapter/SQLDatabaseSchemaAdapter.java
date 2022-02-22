@@ -115,7 +115,7 @@ extends DatabaseSchemaAdapter<SQLDSA> {
 			}
 		}
 		
-		//TODO: Refactor.s
+		//TODO: Refactor.
 		/*
 		final var lSQLExecutor = new SQLExecutor(mSQLConnection);
 		
