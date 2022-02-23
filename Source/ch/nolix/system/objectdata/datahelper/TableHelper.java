@@ -39,6 +39,12 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
 	
 	//method
 	@Override
+	public boolean containsEntityWithGivenIdInLocalData(final ITable<?, ?> table, final String id) {
+		return table.technicalGetRefEntitiesInLocalData().containsAny(e -> e.hasId(id));
+	}
+	
+	//method
+	@Override
 	public boolean hasChanges(final ITable<?, ?> table) {
 		return table.technicalGetRefEntitiesInLocalData().containsOnly(entityHelper::isLoaded);
 	}
@@ -46,6 +52,6 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
 	//method
 	@Override
 	public boolean hasInsertedGivenEntityInLocalData(final ITable<?, ?> table, final IEntity<?> entity) {
-		return table.containsEntityWithGivenIdInLocalData(entity.getId());
+		return containsEntityWithGivenIdInLocalData(table, entity.getId());
 	}
 }

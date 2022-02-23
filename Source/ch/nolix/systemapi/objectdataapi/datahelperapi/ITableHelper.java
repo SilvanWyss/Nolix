@@ -19,6 +19,9 @@ public interface ITableHelper extends IDatabaseObjectHelper {
 	boolean canInsertGivenEntity(ITable<?, ?> table, IEntity<?> entity);
 	
 	//method declaration
+	boolean containsEntityWithGivenIdInLocalData(ITable<?, ?> table, String id);
+	
+	//method declaration
 	boolean hasChanges(ITable<?, ?> table);
 	
 	//method declaration

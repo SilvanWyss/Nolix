@@ -29,14 +29,23 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 	//static attribute
 	private static final EntityMapper entityMapper = new EntityMapper();
 	
+	//static method
+	static <E2 extends IEntity<DataImplementation>> Table<E2> withParentDatabaseNameAndEntityClass(
+		final Database parentDatabase,
+		final String name,
+		final Class<E2> entityClass
+	) {
+		return new Table<>(parentDatabase, name, entityClass);
+	}	
+	
+	//attribute
+	private final Database parentDatabase;
+	
 	//attribute
 	private final String name;
 	
 	//attribute
 	private final Class<E> entityClass;
-	
-	//attribute
-	private final Database parentDatabase;
 	
 	//attribute
 	private boolean loadedAllEntitiesInLocalData;
@@ -45,21 +54,15 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 	private final LinkedList<E> entitiesInLocalData = new LinkedList<>();
 	
 	//constructor
-	Table(final String name, final Class<E> entityClass, final Database parentDatabase) {
+	private Table(final Database parentDatabase, final String name, final Class<E> entityClass) {
 		
+		Validator.assertThat(parentDatabase).thatIsNamed("parent Database").isNotNull();
 		Validator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
 		Validator.assertThat(entityClass).thatIsNamed("entity class").isNotNull();
-		Validator.assertThat(parentDatabase).thatIsNamed("parent Database").isNotNull();
 		
+		this.parentDatabase = parentDatabase;
 		this.name = name;
 		this.entityClass = entityClass;
-		this.parentDatabase = parentDatabase;
-	}
-	
-	//method
-	@Override
-	public boolean containsEntityWithGivenIdInLocalData(final String id) {
-		return entitiesInLocalData.containsAny(e -> e.hasId(id));
 	}
 	
 	//method
@@ -185,7 +188,7 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 	
 	//method
 	private void insertEntityFromGivenRecordInLocalDataIfNotInserted(ILoadedRecordDTO record) {
-		if (!containsEntityWithGivenIdInLocalData(record.getId())) {
+		if (!tableHelper.containsEntityWithGivenIdInLocalData(this, record.getId())) {
 			entitiesInLocalData.addAtEnd(createEntityFrom(record));
 		}
 	}

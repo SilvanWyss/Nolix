@@ -22,8 +22,12 @@ final class TableMapper {
 		
 		final var name = getNameFrom(tableDTO);
 		
-		return
-		new Table<>(getNameFrom(tableDTO), schemaHelper.getEntityTypeByName(database.internalGetSchema(), name), database);
+		return 
+		Table.withParentDatabaseNameAndEntityClass(
+			database,
+			getNameFrom(tableDTO),
+			schemaHelper.getEntityTypeByName(database.internalGetSchema(), name)
+		);
 	}
 	
 	//method

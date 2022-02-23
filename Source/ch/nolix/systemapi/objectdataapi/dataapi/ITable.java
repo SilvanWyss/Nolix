@@ -13,9 +13,6 @@ public interface ITable<
 > extends IDatabaseObject, Named {
 	
 	//method declaration
-	boolean containsEntityWithGivenIdInLocalData(String id);
-	
-	//method declaration
 	Class<E> getEntityClass();
 	
 	//method declaration
