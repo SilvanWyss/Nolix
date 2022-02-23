@@ -29,12 +29,12 @@ public final class DataAndSchemaAdapter implements IDataAndSchemaAdapter {
 	private static final TableDefinitionLoader tableDefinitionLoader = new TableDefinitionLoader();
 	
 	//static method
-	public DataAndSchemaAdapter forNodeDatabase(final BaseNode nodeDatabase) {
+	public static DataAndSchemaAdapter forNodeDatabase(final BaseNode nodeDatabase) {
 		return new DataAndSchemaAdapter(nodeDatabase);
 	}
 	
 	//static method
-	public DataAndSchemaAdapter  forNodeDatabaseInFile(final String filePath) {
+	public static DataAndSchemaAdapter  forNodeDatabaseInFile(final String filePath) {
 		return new DataAndSchemaAdapter(new FileNode(filePath));
 	}
 	
