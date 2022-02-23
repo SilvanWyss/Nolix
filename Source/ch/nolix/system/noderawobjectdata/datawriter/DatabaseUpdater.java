@@ -229,17 +229,12 @@ final class DatabaseUpdater {
 		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(database, tableInfo.getTableName());
 		
 		final var recordNode = tableNodeSearcher.getRefRecordNodeFromTableNode(tableNode, recordUdate.getId());
-		final var saveStampNode = entityNodeSearcher.getRefSaveStampNodeFromRecordNode(recordNode);
 		
-		if (!saveStampNode.hasHeader(recordUdate.getSaveStamp())) {
-			throw new GeneralException("The data was changed in the meanwhile.");
-		}
-		
-		updateRecordNodeFromRecordWhenValidated(recordNode, tableInfo, recordUdate);
+		updateEntityNode(recordNode, tableInfo, recordUdate);
 	}
 	
 	//method
-	private void updateRecordNodeFromRecordWhenValidated(
+	private void updateEntityNode(
 		final BaseNode recordNode,
 		final TableInfo tableInfo,
 		final IRecordUpdateDTO recordUdate
