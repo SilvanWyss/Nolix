@@ -20,6 +20,7 @@ import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IEntityHeadDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
 import ch.nolix.systemapi.rawobjectschemaapi.flatschemadtoapi.IFlatTableDTO;
 import ch.nolix.systemapi.rawobjectschemaapi.schemaadapterapi.ISchemaAdapter;
+import ch.nolix.systemapi.rawobjectschemaapi.schemaadapterapi.ISchemaReader;
 import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.ITableDTO;
 
@@ -36,7 +37,7 @@ public abstract class DataAndSchemaAdapter implements IDataAndSchemaAdapter {
 	private final IDataWriter dataWriter;
 	
 	//attribute
-	private final SchemaReader schemaReader;
+	private final ISchemaReader schemaReader;
 	
 	//attribute
 	private final CloseController closeController = new CloseController(this);
