@@ -6,6 +6,7 @@ import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.system.objectdata.datahelper.DatabaseHelper;
 import ch.nolix.systemapi.objectdataapi.dataadapterapi.IDataAdapter;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
+import ch.nolix.systemapi.objectdataapi.dataapi.ISchema;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 import ch.nolix.systemapi.objectdataapi.datahelperapi.IDatabaseHelper;
 import ch.nolix.systemapi.rawobjectdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
@@ -28,7 +29,7 @@ public abstract class DataAdapter implements IDataAdapter<DataImplementation> {
 	//constructor
 	public DataAdapter(
 		final IDataAndSchemaAdapter dataAndSchemaAdapter,
-		final Schema schema
+		final ISchema<DataImplementation> schema
 	) {
 		
 		database = Database.withDataAndSchemaAdapterAndSchema(dataAndSchemaAdapter, schema);

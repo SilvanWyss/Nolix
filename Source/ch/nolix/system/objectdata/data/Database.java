@@ -8,6 +8,7 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.DatabaseObjectState;
 import ch.nolix.systemapi.objectdataapi.dataapi.IDatabase;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
+import ch.nolix.systemapi.objectdataapi.dataapi.ISchema;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 import ch.nolix.systemapi.rawobjectdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
 
@@ -20,7 +21,7 @@ public final class Database implements IDatabase<DataImplementation> {
 	//static method
 	public static Database withDataAndSchemaAdapterAndSchema(
 		final IDataAndSchemaAdapter dataAndSchemaAdapter,
-		final Schema schema
+		final ISchema<DataImplementation> schema
 	) {
 		return new Database(dataAndSchemaAdapter, schema);
 	}
@@ -29,17 +30,17 @@ public final class Database implements IDatabase<DataImplementation> {
 	private final IDataAndSchemaAdapter dataAndSchemaAdapter;
 	
 	//attribute
-	private final Schema schema;
+	private final ISchema<DataImplementation> schema;
 	
 	//multi-attribute
 	private final LinkedList<ITable<DataImplementation, IEntity<DataImplementation>>> tablesInLocalData =
 	new LinkedList<>();
 	
 	//constructor
-	private Database(final IDataAndSchemaAdapter dataAndSchemaAdapter, final Schema schema) {
+	private Database(final IDataAndSchemaAdapter dataAndSchemaAdapter, final ISchema<DataImplementation> schema) {
 		
 		Validator.assertThat(dataAndSchemaAdapter).thatIsNamed(IDataAndSchemaAdapter.class).isNotNull();
-		Validator.assertThat(schema).thatIsNamed(Schema.class).isNotNull();
+		Validator.assertThat(schema).thatIsNamed(ISchema.class).isNotNull();
 		
 		this.dataAndSchemaAdapter = dataAndSchemaAdapter;
 		this.schema = schema;
@@ -132,7 +133,7 @@ public final class Database implements IDatabase<DataImplementation> {
 	}
 	
 	//method
-	Schema internalGetSchema() {
+	ISchema<DataImplementation> internalGetSchema() {
 		return schema;
 	}
 	
