@@ -70,9 +70,7 @@ public final class RecordStatementCreator implements IRecordStatementCreator {
 		+ " WHERE Id = '"
 		+ recordUpdate.getId()
 		+ "' AND SaveStamp = '"
-		+  recordUpdate.getSaveStamp()
-		+ "';"
-		+ "IF @@RowCount = 0 BEGIN THROW error(100000, 'The data was changed in the meanwhile.', 0) END;";
+		+  recordUpdate.getSaveStamp();
 	}
 	
 	//method
