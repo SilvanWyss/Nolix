@@ -68,7 +68,7 @@ public interface IDataWriter extends IMultiTimeChangeSaver {
 	
 	//method declaration
 	/**
-	 * There is not asserted that the concerned entity was not changed in the meanwhile.
+	 * Causes an error if the concerned entity was deleted or changed in the meanwhile.
 	 * 
 	 * @param tableName
 	 * @param entity
@@ -111,11 +111,11 @@ public interface IDataWriter extends IMultiTimeChangeSaver {
 	
 	//method declaration
 	/**
-	 * Sets the concerned entity as updated
+	 * Sets the concerned entity as updated.
+	 * Causes an error if the concerned entity was deleted or changed in the meanwhile.
 	 * 
 	 * @param tableName
 	 * @param entity
-	 * @throws Exception if the concerned entity was deleted or changed in the meanwhile.
 	 */
 	void setEntityAsUpdated(String tableName, IEntityHeadDTO entity);
 	
