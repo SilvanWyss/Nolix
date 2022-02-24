@@ -37,8 +37,8 @@ public final class SchemaWriter implements ISchemaWriter {
 	public SchemaWriter(
 		final String databaseName,
 		final SQLConnection pSQLConnection,
-		final ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaWriter schemaWriter,
-		final ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDTO pSQLSaveStampColumnDTO
+		final ch.nolix.systemapi.sqlbasicschemaapi.schemaadapterapi.ISchemaWriter schemaWriter,
+		final ch.nolix.systemapi.sqlbasicschemaapi.schemadtoapi.IColumnDTO pSQLSaveStampColumnDTO
 	) {
 		
 		Validator.assertThat(pSQLConnection).thatIsNamed(SQLConnection.class).isNotNull();

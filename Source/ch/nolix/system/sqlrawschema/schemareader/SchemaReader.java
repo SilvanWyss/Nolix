@@ -16,7 +16,7 @@ import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaReader;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDTO;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.SaveStampStrategy;
-import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter;
+import ch.nolix.systemapi.sqlbasicschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //class
 public final class SchemaReader implements ISchemaReader {

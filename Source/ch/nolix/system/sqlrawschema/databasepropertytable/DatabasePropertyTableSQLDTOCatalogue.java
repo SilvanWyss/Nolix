@@ -1,10 +1,10 @@
 //package declaration
 package ch.nolix.system.sqlrawschema.databasepropertytable;
 
+import ch.nolix.system.sqlbasicschema.schemadto.ColumnDTO;
+import ch.nolix.system.sqlbasicschema.schemadto.TableDTO;
 import ch.nolix.system.sqlrawschema.structure.SQLDatatypeCatalogue;
 import ch.nolix.system.sqlrawschema.structure.SystemDataTable;
-import ch.nolix.system.sqlschema.schemadto.ColumnDTO;
-import ch.nolix.system.sqlschema.schemadto.TableDTO;
 
 //class
 public final class DatabasePropertyTableSQLDTOCatalogue {

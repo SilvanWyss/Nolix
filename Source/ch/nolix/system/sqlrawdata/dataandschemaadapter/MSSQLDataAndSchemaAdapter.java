@@ -23,7 +23,7 @@ public final class MSSQLDataAndSchemaAdapter extends DataAndSchemaAdapter {
 			databaseName,
 			pMSSQLConnection,
 			new MSSQLSchemaAdapter(databaseName, pMSSQLConnection),
-			new ch.nolix.system.sqlschema.schemaadapter.MSSQLSchemaAdapter(pMSSQLConnection),
+			new ch.nolix.system.sqlbasicschema.schemaadapter.MSSQLSchemaAdapter(pMSSQLConnection),
 			new SQLSyntaxProvider()
 		);
 	}

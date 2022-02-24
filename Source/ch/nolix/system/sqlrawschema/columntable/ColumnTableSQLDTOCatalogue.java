@@ -1,13 +1,13 @@
 //package declaration
 package ch.nolix.system.sqlrawschema.columntable;
 
+import ch.nolix.system.sqlbasicschema.schemadto.ColumnDTO;
+import ch.nolix.system.sqlbasicschema.schemadto.TableDTO;
 import ch.nolix.system.sqlrawschema.structure.SQLDatatypeCatalogue;
 import ch.nolix.system.sqlrawschema.structure.SystemDataTable;
 import ch.nolix.system.sqlrawschema.tabletable.TableTableColumn;
-import ch.nolix.system.sqlschema.schemadto.ColumnDTO;
-import ch.nolix.system.sqlschema.schemadto.TableDTO;
-import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDTO;
-import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.ITableDTO;
+import ch.nolix.systemapi.sqlbasicschemaapi.schemadtoapi.IColumnDTO;
+import ch.nolix.systemapi.sqlbasicschemaapi.schemadtoapi.ITableDTO;
 
 //class
 public final class ColumnTableSQLDTOCatalogue {

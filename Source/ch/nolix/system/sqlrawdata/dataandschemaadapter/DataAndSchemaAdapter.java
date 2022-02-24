@@ -47,7 +47,7 @@ public abstract class DataAndSchemaAdapter implements IDataAndSchemaAdapter {
 		final String databaseName,
 		final SQLConnection pSQLConnection,
 		final ISchemaAdapter schemaAdapter,
-		final ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter pSQLSchemaAdapter,
+		final ch.nolix.systemapi.sqlbasicschemaapi.schemaadapterapi.ISchemaAdapter pSQLSchemaAdapter,
 		final ISQLSyntaxProvider pSQLSyntaxProvider
 	) {
 		

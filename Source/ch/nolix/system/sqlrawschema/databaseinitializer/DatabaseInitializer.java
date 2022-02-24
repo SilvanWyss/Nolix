@@ -3,7 +3,7 @@ package ch.nolix.system.sqlrawschema.databaseinitializer;
 
 import ch.nolix.core.errorcontrol.exception.GeneralException;
 import ch.nolix.system.sqlrawschema.databaseschemainspector.DatabaseSchemaInspector;
-import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter;
+import ch.nolix.systemapi.sqlbasicschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //class
 public final class DatabaseInitializer {

@@ -6,7 +6,7 @@ import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertyTableS
 import ch.nolix.system.sqlrawschema.multireferenceentrytable.MultiReferenceEntryTableSQLDTOCatalogue;
 import ch.nolix.system.sqlrawschema.multivalueentrytable.MultiValueEntryTableSQLDTOCatalogue;
 import ch.nolix.system.sqlrawschema.tabletable.TableTableSQLDTOCatalogue;
-import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter;
+import ch.nolix.systemapi.sqlbasicschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //class
 final class InternalDatabaseInitializer {

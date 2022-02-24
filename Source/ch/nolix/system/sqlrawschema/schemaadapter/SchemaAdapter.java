@@ -34,8 +34,8 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 	public SchemaAdapter(
 		final String databaseName,
 		final SQLConnection pSQLConnection,
-		final ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter pSQLSchemaAdapter,
-		final ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDTO pSQLSaveStampColumnDTO
+		final ch.nolix.systemapi.sqlbasicschemaapi.schemaadapterapi.ISchemaAdapter pSQLSchemaAdapter,
+		final ch.nolix.systemapi.sqlbasicschemaapi.schemadtoapi.IColumnDTO pSQLSaveStampColumnDTO
 	) {
 		
 		createCloseDependencyTo(pSQLConnection);

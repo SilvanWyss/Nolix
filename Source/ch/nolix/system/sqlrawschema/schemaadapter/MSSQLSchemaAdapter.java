@@ -4,9 +4,9 @@ package ch.nolix.system.sqlrawschema.schemaadapter;
 //own imports
 import ch.nolix.core.constant.PascalCaseCatalogue;
 import ch.nolix.core.sql.SQLConnection;
-import ch.nolix.system.sqlschema.schemadto.ColumnDTO;
-import ch.nolix.system.sqlschema.schemadto.DataTypeDTO;
-import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDTO;
+import ch.nolix.system.sqlbasicschema.schemadto.ColumnDTO;
+import ch.nolix.system.sqlbasicschema.schemadto.DataTypeDTO;
+import ch.nolix.systemapi.sqlbasicschemaapi.schemadtoapi.IColumnDTO;
 
 //class
 public final class MSSQLSchemaAdapter extends SchemaAdapter {
@@ -20,7 +20,7 @@ public final class MSSQLSchemaAdapter extends SchemaAdapter {
 		super(
 			databaseName,
 			pSQLConnection,
-			new ch.nolix.system.sqlschema.schemaadapter.MSSQLSchemaAdapter(pSQLConnection),
+			new ch.nolix.system.sqlbasicschema.schemaadapter.MSSQLSchemaAdapter(pSQLConnection),
 			SAVE_STAMP_COLUMN_DTO
 		);
 	}
