@@ -3,8 +3,8 @@ package ch.nolix.system.sqlrawobjectdata.mssql;
 
 //own imports
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IMultiReferenceStatementCreator;
-import ch.nolix.system.sqlrawobjectschema.multireferenceentrytable.MultiReferenceEntryTableColumn;
-import ch.nolix.system.sqlrawobjectschema.structure.MultiContentTable;
+import ch.nolix.system.sqlrawschema.multireferenceentrytable.MultiReferenceEntryTableColumn;
+import ch.nolix.system.sqlrawschema.structure.MultiContentTable;
 
 //class
 public final class MultiReferenceStatementCreator implements IMultiReferenceStatementCreator {

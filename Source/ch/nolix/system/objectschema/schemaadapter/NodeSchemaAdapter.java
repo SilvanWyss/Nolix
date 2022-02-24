@@ -25,6 +25,6 @@ public final class NodeSchemaAdapter extends SchemaAdapter {
 	
 	//constructor
 	private NodeSchemaAdapter(final String databaseName, final BaseNode databaseNode) {
-		super(databaseName, ch.nolix.system.noderawobjectschema.schemaadapter.SchemaAdapter.forDatabaseNode(databaseNode));
+		super(databaseName, ch.nolix.system.nodedatabaserawschema.schemaadapter.SchemaAdapter.forDatabaseNode(databaseNode));
 	}
 }

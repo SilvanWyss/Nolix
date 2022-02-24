@@ -7,7 +7,7 @@ import ch.nolix.system.objectschema.parametrizedpropertytype.SchemaImplementatio
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IParametrizedPropertyType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
-import ch.nolix.systemapi.rawobjectschemaapi.schemaadapterapi.ISchemaWriter;
+import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaWriter;
 
 //class
 final class RawSchemaWriter {

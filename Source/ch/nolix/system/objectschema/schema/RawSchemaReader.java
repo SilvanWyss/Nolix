@@ -7,9 +7,9 @@ import ch.nolix.element.time.base.Time;
 import ch.nolix.system.objectschema.parametrizedpropertytype.SchemaImplementation;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
-import ch.nolix.systemapi.rawobjectschemaapi.flatschemadtoapi.IFlatTableDTO;
-import ch.nolix.systemapi.rawobjectschemaapi.schemaadapterapi.ISchemaReader;
-import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.IColumnDTO;
+import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDTO;
+import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaReader;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDTO;
 
 //class
 final class RawSchemaReader {

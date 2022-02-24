@@ -4,7 +4,7 @@ package ch.nolix.system.sqlrawobjectdata.dataandschemaadapter;
 //own imports
 import ch.nolix.core.sql.MSSQLConnection;
 import ch.nolix.system.sqlrawobjectdata.mssql.SQLSyntaxProvider;
-import ch.nolix.system.sqlrawobjectschema.schemaadapter.MSSQLSchemaAdapter;
+import ch.nolix.system.sqlrawschema.schemaadapter.MSSQLSchemaAdapter;
 
 //class
 public final class MSSQLDataAndSchemaAdapter extends DataAndSchemaAdapter {

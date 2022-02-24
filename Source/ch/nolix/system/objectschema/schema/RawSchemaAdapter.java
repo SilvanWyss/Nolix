@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.objectschema.schema;
 
-import ch.nolix.systemapi.rawobjectschemaapi.schemaadapterapi.ISchemaAdapter;
+import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //class
 final class RawSchemaAdapter {

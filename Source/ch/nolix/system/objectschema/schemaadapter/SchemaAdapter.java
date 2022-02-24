@@ -25,7 +25,7 @@ public abstract class SchemaAdapter implements ISchemaAdapter<SchemaImplementati
 	private IDatabase<SchemaImplementation> database;
 	
 	//attribute
-	private final ch.nolix.systemapi.rawobjectschemaapi.schemaadapterapi.ISchemaAdapter rawObjectSchemaAdapter;
+	private final ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter rawObjectSchemaAdapter;
 	
 	//attribute
 	private int saveCount;
@@ -33,12 +33,12 @@ public abstract class SchemaAdapter implements ISchemaAdapter<SchemaImplementati
 	//constructor
 	public SchemaAdapter(
 		final String databaseName,
-		final ch.nolix.systemapi.rawobjectschemaapi.schemaadapterapi.ISchemaAdapter rawObjectSchemaAdapter
+		final ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter rawObjectSchemaAdapter
 	) {
 		
 		Validator
 		.assertThat(rawObjectSchemaAdapter)
-		.thatIsNamed(ch.nolix.systemapi.rawobjectschemaapi.schemaadapterapi.ISchemaAdapter.class)
+		.thatIsNamed(ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter.class)
 		.isNotNull();
 		
 		this.rawObjectSchemaAdapter = rawObjectSchemaAdapter;

@@ -3,7 +3,7 @@ package ch.nolix.system.objectschema.schemadto;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
-import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.IBaseParametrizedReferenceTypeDTO;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParametrizedReferenceTypeDTO;
 
 //class
 public final class BaseParametrizedReferenceTypeDTO extends ParametrizedPropertyTypeDTO

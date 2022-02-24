@@ -10,7 +10,7 @@ import ch.nolix.system.sqlrawobjectdata.databaseinspector.DatabaseInspector;
 import ch.nolix.system.sqlrawobjectdata.datareader.DataReader;
 import ch.nolix.system.sqlrawobjectdata.datawriter.DataWriter;
 import ch.nolix.system.sqlrawobjectdata.sqlapi.ISQLSyntaxProvider;
-import ch.nolix.system.sqlrawobjectschema.schemareader.SchemaReader;
+import ch.nolix.system.sqlrawschema.schemareader.SchemaReader;
 import ch.nolix.systemapi.rawobjectdataapi.dataadapterapi.IDataReader;
 import ch.nolix.systemapi.rawobjectdataapi.dataadapterapi.IDataWriter;
 import ch.nolix.systemapi.rawobjectdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
@@ -18,11 +18,11 @@ import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.ILoadedRecordDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IEntityHeadDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
-import ch.nolix.systemapi.rawobjectschemaapi.flatschemadtoapi.IFlatTableDTO;
-import ch.nolix.systemapi.rawobjectschemaapi.schemaadapterapi.ISchemaAdapter;
-import ch.nolix.systemapi.rawobjectschemaapi.schemaadapterapi.ISchemaReader;
-import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.IColumnDTO;
-import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.ITableDTO;
+import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDTO;
+import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter;
+import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaReader;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDTO;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDTO;
 
 //class
 public abstract class DataAndSchemaAdapter implements IDataAndSchemaAdapter {

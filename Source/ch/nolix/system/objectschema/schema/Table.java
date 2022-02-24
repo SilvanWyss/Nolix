@@ -17,10 +17,10 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IParametrizedPropertyType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.systemapi.objectschemaapi.schemahelperapi.ITableHelper;
-import ch.nolix.systemapi.rawobjectschemaapi.flatschemadtoapi.IFlatTableDTO;
-import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.IColumnDTO;
-import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.ISaveStampConfigurationDTO;
-import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.SaveStampStrategy;
+import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDTO;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDTO;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ISaveStampConfigurationDTO;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.SaveStampStrategy;
 
 //class
 public final class Table extends SchemaObject implements ITable<SchemaImplementation> {

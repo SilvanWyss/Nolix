@@ -10,7 +10,7 @@ import ch.nolix.system.objectschema.schemahelper.DatabaseHelper;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IDatabase;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.systemapi.objectschemaapi.schemahelperapi.IDatabaseHelper;
-import ch.nolix.systemapi.rawobjectschemaapi.schemaadapterapi.ISchemaAdapter;
+import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //class
 public final class Database extends SchemaObject implements IDatabase<SchemaImplementation> {

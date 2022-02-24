@@ -3,7 +3,7 @@ package ch.nolix.system.objectschema.flatschemadto;
 
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.systemapi.rawobjectschemaapi.flatschemadtoapi.IFlatTableDTO;
+import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDTO;
 
 //class
 public final class FlatTableDTO implements IFlatTableDTO {

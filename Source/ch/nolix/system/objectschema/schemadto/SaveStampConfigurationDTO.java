@@ -3,8 +3,8 @@ package ch.nolix.system.objectschema.schemadto;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.ISaveStampConfigurationDTO;
-import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.SaveStampStrategy;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ISaveStampConfigurationDTO;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.SaveStampStrategy;
 
 //class
 public final class SaveStampConfigurationDTO implements ISaveStampConfigurationDTO{

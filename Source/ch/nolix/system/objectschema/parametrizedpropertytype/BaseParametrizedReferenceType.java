@@ -9,7 +9,7 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseParametrizedReferenceTy
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseParametrizedValueType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
-import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
 
 //class
 public abstract class BaseParametrizedReferenceType extends ParametrizedPropertyType<String>

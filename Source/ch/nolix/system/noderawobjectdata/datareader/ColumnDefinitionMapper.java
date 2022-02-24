@@ -2,8 +2,8 @@
 package ch.nolix.system.noderawobjectdata.datareader;
 
 import ch.nolix.core.document.node.BaseNode;
-import ch.nolix.system.noderawobjectschema.structure.ColumnNodeSearcher;
-import ch.nolix.system.noderawobjectschema.structure.ParametrizedPropertyTypeNodeSearcher;
+import ch.nolix.system.nodedatabaserawschema.structure.ColumnNodeSearcher;
+import ch.nolix.system.nodedatabaserawschema.structure.ParametrizedPropertyTypeNodeSearcher;
 import ch.nolix.system.sqlrawobjectdata.schemainfo.ColumnInfo;
 import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.systemapi.rawobjectdataapi.schemainfoapi.IColumnInfo;

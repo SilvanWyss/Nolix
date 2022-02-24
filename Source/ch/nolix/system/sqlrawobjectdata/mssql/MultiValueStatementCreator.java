@@ -3,8 +3,8 @@ package ch.nolix.system.sqlrawobjectdata.mssql;
 
 //own imports
 import ch.nolix.system.sqlrawobjectdata.sqlapi.IMultiValueStatementCreator;
-import ch.nolix.system.sqlrawobjectschema.multivalueentrytable.MultiValueEntryTableColumn;
-import ch.nolix.system.sqlrawobjectschema.structure.MultiContentTable;
+import ch.nolix.system.sqlrawschema.multivalueentrytable.MultiValueEntryTableColumn;
+import ch.nolix.system.sqlrawschema.structure.MultiContentTable;
 
 //class
 public final class MultiValueStatementCreator implements IMultiValueStatementCreator{

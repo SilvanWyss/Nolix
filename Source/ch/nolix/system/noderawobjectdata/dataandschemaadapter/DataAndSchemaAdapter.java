@@ -17,10 +17,10 @@ import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IEntityHeadDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.ILoadedRecordDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDTO;
 import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
-import ch.nolix.systemapi.rawobjectschemaapi.flatschemadtoapi.IFlatTableDTO;
-import ch.nolix.systemapi.rawobjectschemaapi.schemaadapterapi.ISchemaReader;
-import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.IColumnDTO;
-import ch.nolix.systemapi.rawobjectschemaapi.schemadtoapi.ITableDTO;
+import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDTO;
+import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaReader;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDTO;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDTO;
 
 //class
 public final class DataAndSchemaAdapter implements IDataAndSchemaAdapter {
@@ -57,7 +57,7 @@ public final class DataAndSchemaAdapter implements IDataAndSchemaAdapter {
 		
 		dataReader = new DataReader(nodeDatabase, tableInfos);
 		dataWriter = new DataWriter(nodeDatabase, tableInfos);
-		schemaReader = new ch.nolix.system.noderawobjectschema.schemareader.SchemaReader(nodeDatabase);
+		schemaReader = new ch.nolix.system.nodedatabaserawschema.schemareader.SchemaReader(nodeDatabase);
 		
 		createCloseDependencyTo(dataReader);
 		createCloseDependencyTo(dataWriter);
