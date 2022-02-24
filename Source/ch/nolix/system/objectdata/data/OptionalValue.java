@@ -4,11 +4,11 @@ package ch.nolix.system.objectdata.data;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.system.objectdata.propertyhelper.OptionalValueHelper;
-import ch.nolix.system.sqlrawobjectdata.datadto.ContentFieldDTO;
+import ch.nolix.system.sqlrawdata.datadto.ContentFieldDTO;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalValue;
 import ch.nolix.systemapi.objectdataapi.propertyhelperapi.IOptionalValueHelper;
-import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IContentFieldDTO;
+import ch.nolix.systemapi.rawdataapi.datadtoapi.IContentFieldDTO;
 
 //class
 public final class OptionalValue<V> extends BaseValue<V> implements IOptionalValue<DataImplementation, V> {

@@ -4,11 +4,11 @@ package ch.nolix.system.objectdata.propertyhelper;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectdata.data.MultiValue;
-import ch.nolix.system.sqlrawobjectdata.datadto.ContentFieldDTO;
-import ch.nolix.system.sqlrawobjectdata.datadto.RecordUpdateDTO;
+import ch.nolix.system.sqlrawdata.datadto.ContentFieldDTO;
+import ch.nolix.system.sqlrawdata.datadto.RecordUpdateDTO;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiValue;
 import ch.nolix.systemapi.objectdataapi.propertyhelperapi.IMultiValueHelper;
-import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
+import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordUpdateDTO;
 
 //class
 public final class MultiValueHelper extends PropertyHelper implements IMultiValueHelper {

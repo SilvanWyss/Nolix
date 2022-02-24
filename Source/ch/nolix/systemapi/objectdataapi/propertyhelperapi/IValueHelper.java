@@ -2,7 +2,7 @@
 package ch.nolix.systemapi.objectdataapi.propertyhelperapi;
 
 import ch.nolix.systemapi.objectdataapi.dataapi.IValue;
-import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
+import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordUpdateDTO;
 
 //interface
 public interface IValueHelper extends IPropertyHelper {

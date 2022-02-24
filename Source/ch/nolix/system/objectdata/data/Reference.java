@@ -3,12 +3,12 @@ package ch.nolix.system.objectdata.data;
 
 //own imports
 import ch.nolix.system.objectdata.propertyhelper.ReferenceHelper;
-import ch.nolix.system.sqlrawobjectdata.datadto.ContentFieldDTO;
+import ch.nolix.system.sqlrawdata.datadto.ContentFieldDTO;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IReference;
 import ch.nolix.systemapi.objectdataapi.propertyhelperapi.IReferenceHelper;
-import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IContentFieldDTO;
+import ch.nolix.systemapi.rawdataapi.datadtoapi.IContentFieldDTO;
 
 //class
 public final class Reference<E extends IEntity<DataImplementation>> extends BaseReference<E>

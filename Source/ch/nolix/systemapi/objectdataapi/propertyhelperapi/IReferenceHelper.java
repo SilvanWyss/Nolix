@@ -3,7 +3,7 @@ package ch.nolix.systemapi.objectdataapi.propertyhelperapi;
 
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IReference;
-import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
+import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordUpdateDTO;
 
 //interface
 public interface IReferenceHelper extends IPropertyHelper {

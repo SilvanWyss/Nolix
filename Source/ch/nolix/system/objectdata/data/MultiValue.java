@@ -10,11 +10,11 @@ import ch.nolix.core.constant.StringCatalogue;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.system.objectdata.propertyhelper.MultiValueHelper;
-import ch.nolix.system.sqlrawobjectdata.datadto.ContentFieldDTO;
+import ch.nolix.system.sqlrawdata.datadto.ContentFieldDTO;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiValue;
 import ch.nolix.systemapi.objectdataapi.propertyhelperapi.IMultiValueHelper;
-import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IContentFieldDTO;
+import ch.nolix.systemapi.rawdataapi.datadtoapi.IContentFieldDTO;
 
 //class
 public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<DataImplementation, V> {

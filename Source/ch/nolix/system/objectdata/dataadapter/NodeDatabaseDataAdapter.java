@@ -4,7 +4,7 @@ package ch.nolix.system.objectdata.dataadapter;
 //own imports
 import ch.nolix.core.builder.terminalargumentcapturer.UsingSchemaTerminalCapturer;
 import ch.nolix.core.document.node.BaseNode;
-import ch.nolix.system.noderawobjectdata.dataandschemaadapter.DataAndSchemaAdapter;
+import ch.nolix.system.nodedatabaserawdata.dataandschemaadapter.DataAndSchemaAdapter;
 import ch.nolix.system.objectdata.data.DataAdapter;
 import ch.nolix.system.objectdata.data.DataImplementation;
 import ch.nolix.systemapi.objectdataapi.dataapi.ISchema;

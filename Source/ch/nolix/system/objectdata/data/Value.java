@@ -3,11 +3,11 @@ package ch.nolix.system.objectdata.data;
 
 //own imports
 import ch.nolix.system.objectdata.propertyhelper.ValueHelper;
-import ch.nolix.system.sqlrawobjectdata.datadto.ContentFieldDTO;
+import ch.nolix.system.sqlrawdata.datadto.ContentFieldDTO;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.objectdataapi.dataapi.IValue;
 import ch.nolix.systemapi.objectdataapi.propertyhelperapi.IValueHelper;
-import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IContentFieldDTO;
+import ch.nolix.systemapi.rawdataapi.datadtoapi.IContentFieldDTO;
 
 //class
 public final class Value<V> extends BaseValue<V> implements IValue<DataImplementation, V> {

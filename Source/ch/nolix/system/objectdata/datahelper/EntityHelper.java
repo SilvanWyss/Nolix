@@ -10,16 +10,16 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.invalidargumentexception.ReferencedArgumentException;
 import ch.nolix.system.database.databaseobjecthelper.DatabaseObjectHelper;
 import ch.nolix.system.objectdata.propertyhelper.PropertyHelper;
-import ch.nolix.system.sqlrawobjectdata.datadto.RecordDTO;
-import ch.nolix.system.sqlrawobjectdata.datadto.EntityHeadDTO;
+import ch.nolix.system.sqlrawdata.datadto.EntityHeadDTO;
+import ch.nolix.system.sqlrawdata.datadto.RecordDTO;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.BasePropertyType;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 import ch.nolix.systemapi.objectdataapi.datahelperapi.IEntityHelper;
 import ch.nolix.systemapi.objectdataapi.propertyhelperapi.IPropertyHelper;
-import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDTO;
-import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IEntityHeadDTO;
+import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDTO;
+import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordDTO;
 
 //class
 public class EntityHelper extends DatabaseObjectHelper implements IEntityHelper {

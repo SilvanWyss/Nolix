@@ -4,8 +4,8 @@ package ch.nolix.systemapi.objectdataapi.datahelperapi;
 //own imports
 import ch.nolix.systemapi.databaseapi.databaseobjecthelperapi.IDatabaseObjectHelper;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
-import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordDTO;
-import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IEntityHeadDTO;
+import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDTO;
+import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordDTO;
 
 //interface
 public interface IEntityHelper extends IDatabaseObjectHelper {

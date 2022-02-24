@@ -14,8 +14,8 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 import ch.nolix.systemapi.objectdataapi.datahelperapi.IEntityHelper;
 import ch.nolix.systemapi.objectdataapi.datahelperapi.ITableHelper;
-import ch.nolix.systemapi.rawobjectdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
-import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.ILoadedRecordDTO;
+import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
+import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedRecordDTO;
 
 //class
 public final class Table<E extends IEntity<DataImplementation>> implements ITable<DataImplementation, E> {

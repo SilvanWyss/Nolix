@@ -3,7 +3,7 @@ package ch.nolix.systemapi.objectdataapi.propertyhelperapi;
 
 import ch.nolix.systemapi.databaseapi.databaseobjecthelperapi.IDatabaseObjectHelper;
 import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalValue;
-import ch.nolix.systemapi.rawobjectdataapi.datadtoapi.IRecordUpdateDTO;
+import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordUpdateDTO;
 
 //interface
 public interface IOptionalValueHelper extends IDatabaseObjectHelper {
