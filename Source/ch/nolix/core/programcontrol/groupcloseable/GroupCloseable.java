@@ -18,7 +18,7 @@ public interface GroupCloseable extends AutoCloseable, CloseStateRequestable {
 	 * Closes the current {@link GroupCloseable}.
 	 */
 	default void close() {
-		getRefCloseController().close();
+		getRefCloseController().internalClose();
 	}
 	
 	//method
@@ -49,7 +49,7 @@ public interface GroupCloseable extends AutoCloseable, CloseStateRequestable {
 	 * @return true if the current {@link GroupCloseable} has a close dependency to the given element.
 	 */
 	default boolean hasCloseDependencyTo(final GroupCloseable element) {
-		return getRefCloseController().hasCloseDependencyTo(element);
+		return getRefCloseController().internalHasCloseDependencyTo(element);
 	}
 	
 	//method
@@ -58,7 +58,7 @@ public interface GroupCloseable extends AutoCloseable, CloseStateRequestable {
 	 */
 	@Override
 	default boolean isClosed() {
-		return getRefCloseController().isClosed();
+		return getRefCloseController().internalIsClosed();
 	}
 	
 	//method declaration

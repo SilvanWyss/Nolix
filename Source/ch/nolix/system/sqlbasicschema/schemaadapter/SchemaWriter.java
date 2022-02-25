@@ -13,7 +13,7 @@ import ch.nolix.systemapi.sqlbasicschemaapi.schemadtoapi.ITableDTO;
 import ch.nolix.systemapi.sqlbasicschemaapi.schemalanguageapi.ISchemaStatementCreator;
 
 //class
-public class SchemaWriter implements ISchemaWriter {
+public final class SchemaWriter implements ISchemaWriter {
 	
 	//attribute
 	private int saveCount;
@@ -41,7 +41,7 @@ public class SchemaWriter implements ISchemaWriter {
 		mSQLConnection = pSQLConnection;
 		this.schemaStatementCreator = schemaStatementCreator;
 		
-		createCloseDependencyTo(mSQLConnection);
+		getRefCloseController().createCloseDependencyTo(mSQLConnection);
 	}
 	
 	//method

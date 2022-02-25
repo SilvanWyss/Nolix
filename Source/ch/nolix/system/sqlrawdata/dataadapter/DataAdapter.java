@@ -43,7 +43,7 @@ public abstract class DataAdapter implements IDataAdapter {
 		dataReader = new DataReader(pSQLConnection, tableDefinitions, pSQLSyntaxProvider);
 		dataWriter = new DataWriter(pSQLConnection, tableDefinitions, pSQLSyntaxProvider);
 		
-		createCloseDependencyTo(pSQLConnection);
+		getRefCloseController().createCloseDependencyTo(pSQLConnection);
 	}
 	
 	//method
@@ -96,13 +96,13 @@ public abstract class DataAdapter implements IDataAdapter {
 	
 	//method
 	@Override
-	public CloseController getRefCloseController() {
+	public final CloseController getRefCloseController() {
 		return closeController;
 	}
 	
 	//method
 	@Override
-	public int getSaveCount() {
+	public final int getSaveCount() {
 		return dataWriter.getSaveCount();
 	}
 	

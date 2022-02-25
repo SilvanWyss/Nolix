@@ -41,8 +41,8 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
 		this.dataAdapter = dataAdapter;
 		this.schemaReader = schemaReader;
 		
-		createCloseDependencyTo(dataAdapter);
-		createCloseDependencyTo(schemaReader);
+		getRefCloseController().createCloseDependencyTo(dataAdapter);
+		getRefCloseController().createCloseDependencyTo(schemaReader);
 	}
 	
 	//method

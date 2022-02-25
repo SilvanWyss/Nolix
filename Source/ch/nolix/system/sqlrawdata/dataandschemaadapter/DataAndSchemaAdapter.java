@@ -57,7 +57,7 @@ public abstract class DataAndSchemaAdapter implements IDataAndSchemaAdapter {
 		dataWriter = new DataWriter(pSQLConnection, tableDefinitions, pSQLSyntaxProvider);
 		schemaReader = new SchemaReader(databaseName, pSQLConnection, pSQLSchemaAdapter);
 		
-		createCloseDependencyTo(schemaAdapter);
+		getRefCloseController().createCloseDependencyTo(schemaAdapter);
 	}
 	
 	//method

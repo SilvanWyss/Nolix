@@ -55,8 +55,8 @@ final class ClosePool {
 		assertDoesNotContain(element);
 		
 		//Create close dependencies to the given element.
-		final var additionalElements = element.getRefCloseController().getRefCloseDependencies();
-		additionalElements.forEach(ae -> ae.getRefCloseController().setParentClosePool(this));
+		final var additionalElements = element.getRefCloseController().internalGetRefCloseDependencies();
+		additionalElements.forEach(ae -> ae.getRefCloseController().internalSetParentClosePool(this));
 		elements.addAtEnd(additionalElements);
 	}
 	

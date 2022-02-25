@@ -44,7 +44,7 @@ public abstract class SchemaAdapter implements ISchemaAdapter<SchemaImplementati
 		
 		this.rawObjectSchemaAdapter = rawObjectSchemaAdapter;
 		
-		createCloseDependencyTo(rawObjectSchemaAdapter);
+		getRefCloseController().createCloseDependencyTo(rawObjectSchemaAdapter);
 		
 		resetUsingDatabaseName(databaseName);
 	}

@@ -34,7 +34,7 @@ public abstract class DataAdapter implements IDataAdapter<DataImplementation> {
 		
 		database = Database.withDataAndSchemaAdapterAndSchema(dataAndSchemaAdapter, schema);
 		
-		createCloseDependencyTo(dataAndSchemaAdapter);
+		getRefCloseController().createCloseDependencyTo(dataAndSchemaAdapter);
 	}
 	
 	//method
