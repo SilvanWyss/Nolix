@@ -7,19 +7,13 @@ public abstract class Builder<
 	O
 > {
 	
-	//attribute
-	private final SAC startArgumentCapturer;
-	
-	//constructor
-	public Builder() {
-		
-		startArgumentCapturer = createStartArgumentCapturer();
-		
-		startArgumentCapturer.internalSetBuilder(this::build);
-	}
-	
 	//method
 	public final SAC getRefStart() {
+		
+		final var startArgumentCapturer = createStartArgumentCapturer();
+		
+		startArgumentCapturer.internalSetBuilder(() -> build(startArgumentCapturer));
+		
 		return startArgumentCapturer;
 	}
 	
@@ -28,9 +22,4 @@ public abstract class Builder<
 	
 	//method declaration
 	protected abstract SAC createStartArgumentCapturer();
-	
-	//method
-	private O build() {
-		return build(startArgumentCapturer);
-	}
 }
