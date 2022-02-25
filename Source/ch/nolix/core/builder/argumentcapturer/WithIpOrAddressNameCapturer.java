@@ -8,7 +8,8 @@ import ch.nolix.core.constant.IPv4Catalogue;
 import ch.nolix.core.errorcontrol.validator.Validator;
 
 //class
-public final class WithIpOrAddressNameCapturer<NAC extends BaseArgumentCapturer<?>> extends ArgumentCapturer<String, NAC> {
+public final class WithIpOrAddressNameCapturer<NAC extends BaseArgumentCapturer<?>>
+extends ArgumentCapturer<String, NAC> {
 	
 	//method
 	public WithIpOrAddressNameCapturer(final NAC nextArgumentCapturer) {
