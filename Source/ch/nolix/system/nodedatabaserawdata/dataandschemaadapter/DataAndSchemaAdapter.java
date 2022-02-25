@@ -17,7 +17,7 @@ public final class DataAndSchemaAdapter extends BaseDataAndSchemaAdapter {
 	}
 	
 	//static method
-	public static DataAndSchemaAdapter  forNodeDatabaseInFile(final String filePath) {
+	public static DataAndSchemaAdapter forNodeDatabaseInFile(final String filePath) {
 		return new DataAndSchemaAdapter(new FileNode(filePath));
 	}
 	
