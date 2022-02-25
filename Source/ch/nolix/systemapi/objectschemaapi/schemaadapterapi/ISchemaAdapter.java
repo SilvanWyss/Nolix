@@ -2,6 +2,7 @@
 package ch.nolix.systemapi.objectschemaapi.schemaadapterapi;
 
 //own imports
+import ch.nolix.core.container.IContainer;
 import ch.nolix.core.skillapi.IMultiTimeChangeSaver;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
@@ -10,4 +11,10 @@ public interface ISchemaAdapter<IMPL> extends IMultiTimeChangeSaver {
 	
 	//method declaration
 	ISchemaAdapter<IMPL> addTable(ITable<IMPL> table);
+	
+	//method declaration
+	ITable<IMPL> getRefTableByName(String name);
+	
+	//method declaration
+	IContainer<ITable<IMPL>> getRefTables();
 }

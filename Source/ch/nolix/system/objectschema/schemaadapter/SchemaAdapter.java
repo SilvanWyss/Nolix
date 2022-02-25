@@ -2,6 +2,7 @@
 package ch.nolix.system.objectschema.schemaadapter;
 
 //own imports
+import ch.nolix.core.container.IContainer;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.system.objectschema.parametrizedpropertytype.SchemaImplementation;
@@ -61,6 +62,18 @@ public abstract class SchemaAdapter implements ISchemaAdapter<SchemaImplementati
 	@Override
 	public final CloseController getRefCloseController() {
 		return closeController;
+	}
+	
+	//method
+	@Override
+	public final ITable<SchemaImplementation> getRefTableByName(final String name) {
+		return databaseHelper.getRefTableWithGivenName(database, name);
+	}
+	
+	//method
+	@Override
+	public final IContainer<ITable<SchemaImplementation>> getRefTables() {
+		return database.getRefTables();
 	}
 	
 	//method
