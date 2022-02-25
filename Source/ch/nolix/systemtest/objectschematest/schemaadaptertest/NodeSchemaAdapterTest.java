@@ -22,9 +22,12 @@ public final class NodeSchemaAdapterTest extends Test {
 		expect(database.isBlank());
 		
 		//execution
-		NodeSchemaAdapter.forDatabaseNode("MyDatabase", database);
+		final var testUnit = NodeSchemaAdapter.forDatabaseNode("MyDatabase", database);
 		
-		//verification
+		//verification part 1
+		expect(testUnit.isChangeFree());
+		
+		//verification part 2
 		expect(database.getHeader()).isEqualTo("Database");
 		expect(database.getAttributeCount()).isEqualTo(1);
 		expect(database.getRefAttributeAt(1).getHeader()).isEqualTo("DatabaseProperties");
@@ -32,7 +35,7 @@ public final class NodeSchemaAdapterTest extends Test {
 	
 	//method
 	@TestCase
-	public void test_addTable() {
+	public void test_addTable_whenSavesChangesAndResets() {
 		
 		//setup
 		final var database = new Node();
@@ -41,10 +44,15 @@ public final class NodeSchemaAdapterTest extends Test {
 		//execution
 		testUnit.addTable(new Table("MyTable")).saveChangesAndReset();
 		
-		//verification
+		//verification part 1
+		expect(testUnit.isChangeFree());
+		expect(testUnit.getRefTables().getElementCount()).isEqualTo(1);
+		expect(testUnit.getRefTables().containsOne(t -> t.hasName("MyTable")));
+		
+		//verification part 2
 		final var tableNodes = database.getRefAttributes("Table");
 		expect(tableNodes.containsOne());
-		final var tableNode = tableNodes.getRefFirst();
+		final var tableNode  = tableNodes.getRefFirst();
 		final var nameNode = tableNode.getRefFirstAttribute("Name");
 		expect(nameNode.getOneAttributeHeader()).isEqualTo("MyTable");
 	}
