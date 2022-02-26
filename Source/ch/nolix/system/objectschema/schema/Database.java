@@ -28,7 +28,7 @@ public final class Database extends SchemaObject implements IDatabase<SchemaImpl
 	private boolean loadedTablesFromDatabase;
 	
 	//optional attribute
-	private RawSchemaAdapter rawObjectSchemaAdapter;
+	private RawSchemaAdapter rawSchemaAdapter;
 	
 	//multi-attribute
 	private LinkedList<ITable<SchemaImplementation>> tables = new LinkedList<>();
@@ -75,13 +75,13 @@ public final class Database extends SchemaObject implements IDatabase<SchemaImpl
 	//method
 	@Override
 	public boolean isLinkedWithRealDatabase() {
-		return (rawObjectSchemaAdapter != null);
+		return (rawSchemaAdapter != null);
 	}
 	
 	//method
 	@Override
-	public void setRawObjectSchemaAdapter(final ISchemaAdapter rawObjectSchemaAdapter) {
-		setRawObjectSchemaAdapter(new RawSchemaAdapter(rawObjectSchemaAdapter));
+	public void setRawSchemaAdapter(final ISchemaAdapter rawSchemaAdapter) {
+		setRawSchemaAdapter(new RawSchemaAdapter(rawSchemaAdapter));
 	}
 	
 	//method
@@ -100,11 +100,11 @@ public final class Database extends SchemaObject implements IDatabase<SchemaImpl
 	}
 	
 	//method
-	RawSchemaAdapter internalGetRefRawObjectSchemaAdapter() {
+	RawSchemaAdapter internalGetRefRawSchemaAdapter() {
 		
 		databaseHelper.assertIsLinkedWithRealDatabase(this);
 		
-		return rawObjectSchemaAdapter;
+		return rawSchemaAdapter;
 	}
 	
 	//method
@@ -120,7 +120,7 @@ public final class Database extends SchemaObject implements IDatabase<SchemaImpl
 	//method
 	private void loadTablesFromDatabase() {
 		
-		tables = internalGetRefRawObjectSchemaAdapter().getRefRawSchemaReader().loadFlatTables().to(Table::fromFlatDTO);
+		tables = internalGetRefRawSchemaAdapter().loadFlatTables().to(Table::fromFlatDTO);
 		for (final var t : tables) {
 			final var table = (Table)t;
 			table.internalSetLoaded();
@@ -143,12 +143,12 @@ public final class Database extends SchemaObject implements IDatabase<SchemaImpl
 	}
 	
 	//method
-	private void setRawObjectSchemaAdapter(final RawSchemaAdapter rawObjectSchemaAdapter) {
+	private void setRawSchemaAdapter(final RawSchemaAdapter rawSchemaAdapter) {
 		
-		Validator.assertThat(rawObjectSchemaAdapter).thatIsNamed(RawSchemaAdapter.class).isNotNull();
+		Validator.assertThat(rawSchemaAdapter).thatIsNamed(RawSchemaAdapter.class).isNotNull();
 		databaseHelper.assertIsNotLinkedWithRealDatabase(this);
 		
 		internalSetLoaded();
-		this.rawObjectSchemaAdapter = rawObjectSchemaAdapter;
+		this.rawSchemaAdapter = rawSchemaAdapter;
 	}
 }

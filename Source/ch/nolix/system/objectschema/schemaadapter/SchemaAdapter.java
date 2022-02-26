@@ -26,7 +26,7 @@ public abstract class SchemaAdapter implements ISchemaAdapter<SchemaImplementati
 	private IDatabase<SchemaImplementation> database;
 	
 	//attribute
-	private final ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter rawObjectSchemaAdapter;
+	private final ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter rawSchemaAdapter;
 	
 	//attribute
 	private int saveCount;
@@ -34,17 +34,17 @@ public abstract class SchemaAdapter implements ISchemaAdapter<SchemaImplementati
 	//constructor
 	public SchemaAdapter(
 		final String databaseName,
-		final ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter rawObjectSchemaAdapter
+		final ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter rawSchemaAdapter
 	) {
 		
 		Validator
-		.assertThat(rawObjectSchemaAdapter)
+		.assertThat(rawSchemaAdapter)
 		.thatIsNamed(ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter.class)
 		.isNotNull();
 		
-		this.rawObjectSchemaAdapter = rawObjectSchemaAdapter;
+		this.rawSchemaAdapter = rawSchemaAdapter;
 		
-		getRefCloseController().createCloseDependencyTo(rawObjectSchemaAdapter);
+		getRefCloseController().createCloseDependencyTo(rawSchemaAdapter);
 		
 		resetUsingDatabaseName(databaseName);
 	}
@@ -85,7 +85,7 @@ public abstract class SchemaAdapter implements ISchemaAdapter<SchemaImplementati
 	//method
 	@Override
 	public final boolean hasChanges() {
-		return rawObjectSchemaAdapter.hasChanges();
+		return rawSchemaAdapter.hasChanges();
 	}
 	
 	//method
@@ -104,7 +104,7 @@ public abstract class SchemaAdapter implements ISchemaAdapter<SchemaImplementati
 		try {
 			
 			databaseHelper.assertAllBackReferencesAreValid(database);
-			rawObjectSchemaAdapter.saveChangesAndReset();
+			rawSchemaAdapter.saveChangesAndReset();
 			
 			saveCount++;
 		} finally {
@@ -116,8 +116,8 @@ public abstract class SchemaAdapter implements ISchemaAdapter<SchemaImplementati
 	private void resetUsingDatabaseName(final String databaseName) {
 		
 		database = new Database(databaseName);
-		database.setRawObjectSchemaAdapter(rawObjectSchemaAdapter);
+		database.setRawSchemaAdapter(rawSchemaAdapter);
 		
-		rawObjectSchemaAdapter.reset();
+		rawSchemaAdapter.reset();
 	}
 }

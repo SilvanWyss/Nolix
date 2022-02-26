@@ -14,7 +14,7 @@ final class ColumnMutationExecutor {
 			column.getParentTable().removeColumnAttribute(column);
 		}
 		
-		column.getRefRawSchemaAdapter().getRefRawSchemaWriter().deleteColumn(column);
+		column.internalGetRefInternalSchemaAdapter().deleteColumn(column);
 		
 		column.internalSetDeleted();
 	}
@@ -28,7 +28,7 @@ final class ColumnMutationExecutor {
 		column.setNameAttribute(name);
 		
 		if (column.isLinkedWithRealDatabase()) {
-			column.getRefRawSchemaAdapter().getRefRawSchemaWriter().setColumnName(column, oldName, name);
+			column.internalGetRefInternalSchemaAdapter().setColumnName(column, oldName, name);
 		}
 		
 		for (final var brc : backReferencingColumns) {
@@ -48,8 +48,7 @@ final class ColumnMutationExecutor {
 		
 		if (column.isLinkedWithRealDatabase()) {
 			column
-			.getRefRawSchemaAdapter()
-			.getRefRawSchemaWriter()
+			.internalGetRefInternalSchemaAdapter()
 			.setColumnParametrizedPropertyType(column, parametrizedPropertyType);
 		}
 		

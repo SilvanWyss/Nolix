@@ -20,5 +20,5 @@ public interface IDatabase<IMPL> extends IDatabaseObject, Named {
 	IContainer<ITable<IMPL>> getRefTables();
 	
 	//method declaration
-	void setRawObjectSchemaAdapter(ISchemaAdapter rawObjectSchemaAdapter);
+	void setRawSchemaAdapter(ISchemaAdapter rawSchemaAdapter);
 }

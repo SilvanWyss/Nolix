@@ -173,8 +173,8 @@ public final class Table extends SchemaObject implements ITable<SchemaImplementa
 	}
 	
 	//method
-	RawSchemaAdapter getRefRealSchemaAdapter() {
-		return getParentDatabase().internalGetRefRawObjectSchemaAdapter();
+	RawSchemaAdapter internalgetRefRawSchemaAdapter() {
+		return getParentDatabase().internalGetRefRawSchemaAdapter();
 	}
 	
 	//method
@@ -225,10 +225,7 @@ public final class Table extends SchemaObject implements ITable<SchemaImplementa
 		
 		final var tables = getParentDatabase().getRefTables();
 		
-		columns =
-		getRefRealSchemaAdapter()
-		.getRefRawSchemaReader()
-		.loadColumnsOfTable(this).to(c -> Column.fromDTO(c, tables));
+		columns = internalgetRefRawSchemaAdapter().loadColumnsOfTable(this).to(c -> Column.fromDTO(c, tables));
 		
 		for (final var c : columns) {
 			final var column = (Column)c;

@@ -18,7 +18,7 @@ final class TableMutationExecutor {
 		((Column)column).setParentTableAttribute(table);
 		
 		if (table.isLinkedWithRealDatabase()) {
-			table.getRefRealSchemaAdapter().getRefRawSchemaWriter().addColumnToTable(table, column);
+			table.internalgetRefRawSchemaAdapter().addColumnToTable(table, column);
 		}
 		
 		table.internalSetEdited();
@@ -31,7 +31,7 @@ final class TableMutationExecutor {
 			table.getParentDatabase().removeTableAttribute(table);
 		}
 		
-		table.getRefRealSchemaAdapter().getRefRawSchemaWriter().deleteTable(table);
+		table.internalgetRefRawSchemaAdapter().deleteTable(table);
 		
 		table.internalSetDeleted();
 	}
@@ -47,7 +47,7 @@ final class TableMutationExecutor {
 		
 		if (table.isLinkedWithRealDatabase()) {
 			
-			table.getRefRealSchemaAdapter().getRefRawSchemaWriter().setTableName(oldTableName, name);
+			table.internalgetRefRawSchemaAdapter().setTableName(oldTableName, name);
 			
 			for (final var rc : referencingColumns) {
 				((Column)rc).setParametrizedPropertyTypeToDatabase();
