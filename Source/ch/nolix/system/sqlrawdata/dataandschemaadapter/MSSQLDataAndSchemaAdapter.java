@@ -3,28 +3,22 @@ package ch.nolix.system.sqlrawdata.dataandschemaadapter;
 
 //own imports
 import ch.nolix.core.sql.MSSQLConnection;
-import ch.nolix.system.sqlrawdata.mssql.SQLSyntaxProvider;
-import ch.nolix.system.sqlrawschema.schemaadapter.MSSQLSchemaAdapter;
+import ch.nolix.system.rawdata.dataandschemaadapter.BaseDataAndSchemaAdapter;
+import ch.nolix.system.sqlrawdata.dataadapter.MSSQLDataAdapter;
+import ch.nolix.system.sqlrawschema.schemareader.SchemaReader;
 
 //class
-public final class MSSQLDataAndSchemaAdapter extends DataAndSchemaAdapter {
-	
-	//static method
-	public static MSSQLDataAndSchemaAdapter withDatabaseNameAndDatabaseConnection(
-		final String databaseName,
-		final MSSQLConnection pMSSQLConnection
-	) {
-		return new MSSQLDataAndSchemaAdapter(databaseName, pMSSQLConnection);
-	}
+public final class MSSQLDataAndSchemaAdapter extends BaseDataAndSchemaAdapter {
 	
 	//constructor
-	private MSSQLDataAndSchemaAdapter(final String databaseName, final MSSQLConnection pMSSQLConnection) {
+	public MSSQLDataAndSchemaAdapter(final String databaseName, final MSSQLConnection pMSSQLConnection) {
 		super(
-			databaseName,
-			pMSSQLConnection,
-			new MSSQLSchemaAdapter(databaseName, pMSSQLConnection),
-			new ch.nolix.system.sqlbasicschema.schemaadapter.MSSQLSchemaAdapter(pMSSQLConnection),
-			new SQLSyntaxProvider()
+			new MSSQLDataAdapter(databaseName, pMSSQLConnection),
+			new SchemaReader(
+				databaseName,
+				pMSSQLConnection,
+				new ch.nolix.system.sqlbasicschema.schemaadapter.MSSQLSchemaAdapter(pMSSQLConnection)
+			)
 		);
 	}
 }
