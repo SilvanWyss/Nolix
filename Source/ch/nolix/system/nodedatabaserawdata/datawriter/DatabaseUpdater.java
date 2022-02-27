@@ -4,7 +4,7 @@ package ch.nolix.system.nodedatabaserawdata.datawriter;
 //own imports
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
-import ch.nolix.core.errorcontrol.exception.GeneralException;
+import ch.nolix.core.errorcontrol.exception.ResourceWasChangedInTheMeanwhileException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
 import ch.nolix.system.nodedatabaserawdata.structure.EntityNodeSearcher;
 import ch.nolix.system.nodedatabaserawdata.structure.TableNodeSearcher;
@@ -126,7 +126,7 @@ final class DatabaseUpdater {
 		final var saveStampNode = entityNodeSearcher.getRefSaveStampNodeFromRecordNode(recordNode);
 		
 		if (!saveStampNode.hasHeader(entity.getSaveStamp())) {
-			throw new GeneralException("The data was changed in the meanwhile.");
+			throw ResourceWasChangedInTheMeanwhileException.forResource("data");
 		}
 	}
 	
@@ -204,7 +204,7 @@ final class DatabaseUpdater {
 		
 		final var entityNode = tableNodeSearcher.getRefEntityNodeFromTableNodeOrNull(tableNode, entity.getId());
 		if (entityNode == null) {
-			throw new GeneralException("The data was changed in the meanwhile.");
+			throw ResourceWasChangedInTheMeanwhileException.forResource("data");
 		}
 		
 		final var saveStampNode = entityNodeSearcher.getRefSaveStampNodeFromRecordNode(entityNode);
@@ -212,7 +212,7 @@ final class DatabaseUpdater {
 		
 		final var saveStamp = saveStampValueNode.getHeader();
 		if (!saveStamp.equals(entity.getSaveStamp())) {
-			throw new GeneralException("The data was changed in the meanwhile.");
+			throw ResourceWasChangedInTheMeanwhileException.forResource("data");
 		}
 		
 		saveStampValueNode.setHeader(String.valueOf(Integer.valueOf(saveStamp) + 1));
