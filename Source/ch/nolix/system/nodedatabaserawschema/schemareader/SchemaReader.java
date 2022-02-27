@@ -154,7 +154,7 @@ public final class SchemaReader implements ISchemaReader {
 		databaseNodeSearcher.getRefDatabasePropertiesNodeFromDatabaseNode(databaseNode);
 		
 		final var timestampNode =
-		databasePropertiesNodeSearcher.getSchemaTimestampNodeFromDatabasePropertiesNode(databasePropertiesNode);
+		databasePropertiesNodeSearcher.getRefSchemaTimestampNodeFromDatabasePropertiesNode(databasePropertiesNode);
 		
 		return Time.fromSpecification(timestampNode);
 	}

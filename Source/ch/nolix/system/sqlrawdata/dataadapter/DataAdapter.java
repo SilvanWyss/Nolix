@@ -108,6 +108,12 @@ public abstract class DataAdapter implements IDataAdapter {
 	
 	//method
 	@Override
+	public final String getSchemaTimestamp() {
+		return dataReader.getSchemaTimestamp();
+	}
+	
+	//method
+	@Override
 	public final boolean hasChanges() {
 		return dataWriter.hasChanges();
 	}

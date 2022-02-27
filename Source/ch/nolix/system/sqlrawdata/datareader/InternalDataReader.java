@@ -49,6 +49,12 @@ final class InternalDataReader {
 	}
 	
 	//method
+	public String getSchemaTimestamp() {
+		return
+		mSQLConnection.getOneRecord(recordQueryCreator.createQueryToLoadSchemaTimestamp()).get(0);
+	}
+	
+	//method
 	public LinkedList<String> loadAllMultiReferenceEntriesForRecord(
 		final String entityId,
 		final IColumnInfo multiReferenceColumnInfo

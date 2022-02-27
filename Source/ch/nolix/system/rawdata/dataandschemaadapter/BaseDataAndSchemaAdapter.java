@@ -113,6 +113,12 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
 	
 	//method
 	@Override
+	public final String getSchemaTimestamp() {
+		return dataAdapter.getSchemaTimestamp();
+	}
+	
+	//method
+	@Override
 	public final boolean hasChanges() {
 		return dataAdapter.hasChanges();
 	}

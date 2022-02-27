@@ -9,6 +9,7 @@ import ch.nolix.system.nodedatabaserawdata.structure.EntityNodeSearcher;
 import ch.nolix.system.nodedatabaserawdata.structure.TableNodeSearcher;
 import ch.nolix.system.nodedatabaserawdata.tabledefinition.TableInfo;
 import ch.nolix.system.nodedatabaserawschema.structure.DatabaseNodeSearcher;
+import ch.nolix.system.nodedatabaserawschema.structure.DatabasePropertiesNodeSearcher;
 import ch.nolix.system.sqlrawdata.datareader.ValueMapper;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedRecordDTO;
 
@@ -17,6 +18,10 @@ public final class InternalDataReader {
 		
 	//static attribute
 	private static final DatabaseNodeSearcher databaseNodeSearcher = new DatabaseNodeSearcher();
+	
+	//static attribute
+	private static final DatabasePropertiesNodeSearcher databasePropertiesNodeSearcher =
+	new DatabasePropertiesNodeSearcher();
 	
 	//static attribute
 	private static final TableNodeSearcher tableNodeSearcher = new TableNodeSearcher();
@@ -41,7 +46,16 @@ public final class InternalDataReader {
 		this.databaseNode = databaseNode;
 	}
 	
-	//class
+	//method
+	public String getSchemaTimestamp() {
+		
+		final var databasePropertiesNode =
+		databaseNodeSearcher.getRefDatabasePropertiesNodeFromDatabaseNode(databaseNode);
+		
+		return databasePropertiesNodeSearcher.getSchemaTimestampFromDatabasePropertiesNode(databasePropertiesNode);
+	}
+	
+	//method
 	public LinkedList<ILoadedRecordDTO> loadAllRecordsFromTable(final TableInfo tableInfo) {
 		
 		final var tableNode =

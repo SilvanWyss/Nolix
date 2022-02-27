@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlrawdata.sqlapi;
 
+//own imports
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
 
 //interface
@@ -14,4 +15,7 @@ public interface IRecordQueryCreator {
 	
 	//method declaration
 	String createQueryToLoadRecordFromTableById(String id, ITableInfo tableInfo);
+	
+	//method
+	String createQueryToLoadSchemaTimestamp();
 }

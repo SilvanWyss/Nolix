@@ -9,6 +9,9 @@ import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedRecordDTO;
 //interface
 public interface IDataReader extends GroupCloseable {
 	
+	//method
+	String getSchemaTimestamp();
+	
 	//method declaration
 	LinkedList<ILoadedRecordDTO> loadAllRecordsFromTable(String tableName);
 	

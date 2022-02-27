@@ -48,6 +48,12 @@ public final class DataReader implements IDataReader {
 	
 	//method
 	@Override
+	public String getSchemaTimestamp() {
+		return internalDataReader.getSchemaTimestamp();
+	}
+	
+	//method
+	@Override
 	public LinkedList<String> loadAllMultiReferenceEntriesForRecord(
 		final String tableName,
 		final String entityId,
