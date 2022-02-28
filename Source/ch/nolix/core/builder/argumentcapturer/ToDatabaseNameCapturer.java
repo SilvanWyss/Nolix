@@ -10,9 +10,14 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 //class
 public final class ToDatabaseNameCapturer<NAC extends BaseArgumentCapturer<?>> extends ArgumentCapturer<String, NAC> {
 	
-	//method
+	//constructor
 	public ToDatabaseNameCapturer(final NAC nextArgumentCapturer) {
 		super(nextArgumentCapturer);
+	}
+	
+	//method
+	public String getDatabaseName() {
+		return getRefArgument();
 	}
 	
 	//method
