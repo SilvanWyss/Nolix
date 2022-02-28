@@ -112,7 +112,7 @@ public interface IDataWriter extends IMultiTimeChangeSaver {
 	//method declaration
 	/**
 	 * Sets the concerned entity as updated.
-	 * Causes an error if the concerned entity was deleted or changed in the meanwhile.
+	 * Will cause an error if the concerned entity was deleted or changed in the meanwhile.
 	 * 
 	 * @param tableName
 	 * @param entity
