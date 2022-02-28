@@ -93,6 +93,11 @@ final class InternalDataWriter {
 	}
 	
 	//method
+	public void expectGivenSchemaTimestamp(String schemaTimestamp) {
+		addChangeAction(d -> databaseUpdater.expectGivenSchemaTimestamp(d, schemaTimestamp));
+	}
+	
+	//method
 	public int getSaveCount() {
 		return saveCount;
 	}

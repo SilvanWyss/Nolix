@@ -101,6 +101,12 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
 	
 	//method
 	@Override
+	public final void expectGivenSchemaTimestamp(final String schemaTimestamp) {
+		dataAdapter.expectGivenSchemaTimestamp(schemaTimestamp);
+	}
+	
+	//method
+	@Override
 	public final CloseController getRefCloseController() {
 		return closeController;
 	}

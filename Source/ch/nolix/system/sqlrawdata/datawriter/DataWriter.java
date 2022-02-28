@@ -105,6 +105,12 @@ public final class DataWriter implements IDataWriter {
 	
 	//method
 	@Override
+	public void expectGivenSchemaTimestamp(final String schemaTimestamp) {
+		internalDataWriter.expectGivenSchemaTimestamp(schemaTimestamp);
+	}
+	
+	//method
+	@Override
 	public CloseController getRefCloseController() {
 		return closeController;
 	}

@@ -88,6 +88,12 @@ public abstract class BaseDataAdapter implements IDataAdapter {
 	
 	//method
 	@Override
+	public final void expectGivenSchemaTimestamp(final String schemaTimestamp) {
+		dataWriter.expectGivenSchemaTimestamp(schemaTimestamp);
+	}
+	
+	//method
+	@Override
 	public final CloseController getRefCloseController() {
 		return closeController;
 	}

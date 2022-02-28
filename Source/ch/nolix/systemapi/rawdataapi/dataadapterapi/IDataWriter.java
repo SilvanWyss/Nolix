@@ -77,6 +77,14 @@ public interface IDataWriter extends IMultiTimeChangeSaver {
 	
 	//method declaration
 	/**
+	 * Will cause an error if the database does not have the given schema timestamp.
+	 * 
+	 * @param schemaTimestamp
+	 */
+	void expectGivenSchemaTimestamp(final String schemaTimestamp);
+	
+	//method declaration
+	/**
 	 * There is not asserted that the concerned entity was not changed in the meanwhile.
 	 * 
 	 * @param tableName

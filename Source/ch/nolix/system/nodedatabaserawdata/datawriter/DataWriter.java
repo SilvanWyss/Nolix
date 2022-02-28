@@ -101,6 +101,12 @@ public final class DataWriter implements IDataWriter {
 	
 	//method
 	@Override
+	public void expectGivenSchemaTimestamp(String schemaTimestamp) {
+		internalDataWriter.expectGivenSchemaTimestamp(schemaTimestamp);
+	}
+	
+	//method
+	@Override
 	public int getSaveCount() {
 		return internalDataWriter.getSaveCount();
 	}

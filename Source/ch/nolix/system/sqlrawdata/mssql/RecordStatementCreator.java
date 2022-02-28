@@ -1,7 +1,11 @@
 //package declaration
 package ch.nolix.system.sqlrawdata.mssql;
 
+//own imports
 import ch.nolix.system.sqlrawdata.sqlapi.IRecordStatementCreator;
+import ch.nolix.system.sqlrawschema.databasepropertytable.DatabaseProperty;
+import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertySystemTableColumn;
+import ch.nolix.system.sqlrawschema.structure.SystemDataTable;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IContentFieldDTO;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDTO;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordDTO;
@@ -25,6 +29,26 @@ public final class RecordStatementCreator implements IRecordStatementCreator {
 		+ entity.getSaveStamp()
 		+ "';"
 		+ "IF @@RowCount = 0 BEGIN THROW error(100000, 'The data was changed in the meanwhile.', 0) END;";
+	}
+	
+	//method
+	@Override
+	public String createStatementToExpectGivenSchemaTimestamp(final String schemaTimestamp) {
+		return
+		"SELECT "
+		+ DatabasePropertySystemTableColumn.VALUE.getLabel()
+		+ " FROM "
+		+ SystemDataTable.DATABASE_PROPERTY.getFullName()
+		+ " WHERE "
+		+ DatabasePropertySystemTableColumn.KEY.getLabel()
+		+ " = '"
+		+ DatabaseProperty.SCHEMA_TIMESTAMP.getLabel()
+		+ "' AND "
+		+ DatabasePropertySystemTableColumn.VALUE.getLabel()
+		+ " = '"
+		+ schemaTimestamp
+		+ "' "
+		+ "IF @@RowCount = 0 BEGIN THROW error(100000, 'The schema was changed in the meanwhile.', 0) END;";
 	}
 	
 	//method

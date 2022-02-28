@@ -10,6 +10,7 @@ import ch.nolix.system.nodedatabaserawdata.structure.EntityNodeSearcher;
 import ch.nolix.system.nodedatabaserawdata.structure.TableNodeSearcher;
 import ch.nolix.system.nodedatabaserawdata.tabledefinition.TableInfo;
 import ch.nolix.system.nodedatabaserawschema.structure.DatabaseNodeSearcher;
+import ch.nolix.system.nodedatabaserawschema.structure.DatabasePropertiesNodeSearcher;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDTO;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordDTO;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordUpdateDTO;
@@ -17,13 +18,21 @@ import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordUpdateDTO;
 //class
 final class DatabaseUpdater {
 	
-	//static attributes
-	private static final EntityNodeMapper entityNodeMapper = new EntityNodeMapper();
-	
-	//static attributes
+	//static attribute
 	private static final DatabaseNodeSearcher databaseNodeSearcher = new DatabaseNodeSearcher();
+	
+	//static attribute
+	private static final DatabasePropertiesNodeSearcher databasePropertiesNodeSearcher =
+	new DatabasePropertiesNodeSearcher();
+	
+	//static attribute
 	private static final TableNodeSearcher tableNodeSearcher = new TableNodeSearcher();
+	
+	//static attribute
 	private static final EntityNodeSearcher entityNodeSearcher = new EntityNodeSearcher();
+	
+	//static attribute
+	private static final EntityNodeMapper entityNodeMapper = new EntityNodeMapper();
 	
 	//method
 	public void deleteEntriesFromMultiReference(
@@ -127,6 +136,20 @@ final class DatabaseUpdater {
 		
 		if (!saveStampNode.hasHeader(entity.getSaveStamp())) {
 			throw ResourceWasChangedInTheMeanwhileException.forResource("data");
+		}
+	}
+	
+	//method
+	public void expectGivenSchemaTimestamp(final BaseNode databaseNode, final String schemaTimestamp) {
+		
+		final var databasePropertiesNode =
+		databaseNodeSearcher.getRefDatabasePropertiesNodeFromDatabaseNode(databaseNode);
+		
+		final var actualSchemaTimestamp =
+		databasePropertiesNodeSearcher.getSchemaTimestampFromDatabasePropertiesNode(databasePropertiesNode);
+		
+		if (!actualSchemaTimestamp.equals(schemaTimestamp)) {
+			throw ResourceWasChangedInTheMeanwhileException.forResource("schema");
 		}
 	}
 	

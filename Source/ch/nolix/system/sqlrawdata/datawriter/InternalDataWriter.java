@@ -102,6 +102,13 @@ public final class InternalDataWriter {
 	}
 	
 	//method
+	public void expectGivenSchemaTimestamp(final String schemaTimestamp) {
+		mSQLCollector.addSQLStatement(
+			recordStatementCreator.createStatementToExpectGivenSchemaTimestamp(schemaTimestamp)
+		);
+	}
+	
+	//method
 	public int getSaveCount() {
 		return saveCount;
 	}
