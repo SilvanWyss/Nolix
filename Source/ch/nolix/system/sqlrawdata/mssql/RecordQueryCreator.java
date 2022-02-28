@@ -5,6 +5,7 @@ package ch.nolix.system.sqlrawdata.mssql;
 import ch.nolix.system.sqlrawdata.sqlapi.IRecordQueryCreator;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabaseProperty;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertySystemTableColumn;
+import ch.nolix.system.sqlrawschema.structure.SystemDataTable;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
 
@@ -50,6 +51,8 @@ public final class RecordQueryCreator implements IRecordQueryCreator {
 		return
 		"SELECT "
 		+ DatabasePropertySystemTableColumn.VALUE.getLabel()
+		+ " FROM "
+		+ SystemDataTable.DATABASE_PROPERTY.getFullName()
 		+ " WHERE "
 		+ DatabasePropertySystemTableColumn.KEY.getLabel()
 		+ " = '"
