@@ -46,11 +46,11 @@ AndPortCapturer<
 			)
 		);
 		
-		setBuilder(() -> withIpOrAddressName(ipOrAddressName));
+		setBuilder(() -> build(ipOrAddressName));
 	}
 	
 	//method
-	private MSSQLDataAdapter withIpOrAddressName(final String ipOrAddressName) {
+	private MSSQLDataAdapter build(final String ipOrAddressName) {
 		return		
 		new MSSQLDataAdapter(
 			ipOrAddressName,

@@ -2,12 +2,11 @@ package ch.nolix.coretutorial.buildertutorial.basetutorial;
 
 import ch.nolix.core.builder.base.ArgumentCapturer;
 import ch.nolix.core.builder.base.BaseArgumentCapturer;
-import ch.nolix.core.builder.base.Builder;
 import ch.nolix.core.builder.base.TerminalArgumentCapturer;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.validator.Validator;
 
-public class CarModelBuilderTutorial {
+public final class CarModelBuilderTutorial {
 	
 	public static void main(String[] args) {
 		
@@ -19,19 +18,26 @@ public class CarModelBuilderTutorial {
 	
 	public static final class CarModel {
 		
-		public static WeightInKilogramCapturer<TopSpeedCapturer<CarModel>> withName(final String name) {
-			return new CarModelBuilder().getRefStart().withName(name);
+		public static CarModelBuilder withName(final String name) {
+			return new CarModelBuilder(name);
 		}
 		
 		private final String name;
+		
 		private final int weightInKilogram;
+		
 		private final int topSpeedInKilometersPerHour;
 		
 		private CarModel(final String name, final int weightInKilogram, final int topSpeedInKilometersPerHour) {
 			
 			Validator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
+			
 			Validator.assertThat(weightInKilogram).thatIsNamed("weight in kilogram").isPositive();
-			Validator.assertThat(topSpeedInKilometersPerHour).thatIsNamed("top speed in kilometers per hour").isPositive();
+			
+			Validator
+			.assertThat(topSpeedInKilometersPerHour)
+			.thatIsNamed("top speed in kilometers per hour")
+			.isPositive();
 			
 			this.name = name;
 			this.weightInKilogram = weightInKilogram;
@@ -62,24 +68,8 @@ public class CarModelBuilderTutorial {
 		}
 	}
 	
-	private static final class NameCapturer<NAC extends BaseArgumentCapturer<?>>
-	extends ArgumentCapturer<String, NAC> {
-		
-		public NameCapturer(final NAC nextArgumentCapturer) {
-			super(nextArgumentCapturer);
-		}
-		
-		public String getName() {
-			return getRefArgument();
-		}
-		
-		public NAC withName(final String name) {
-			return setArgumentAndGetRefNextArgumentCapturer(name);
-		}
-	}
-	
-	private static final class WeightInKilogramCapturer<NAC extends BaseArgumentCapturer<?>
-	> extends ArgumentCapturer<Integer, NAC> {
+	private static class WeightInKilogramCapturer<NAC extends BaseArgumentCapturer<?>>
+	extends ArgumentCapturer<Integer, NAC> {
 		
 		public WeightInKilogramCapturer(final NAC nextArgumentCapturer) {
 			super(nextArgumentCapturer);
@@ -105,29 +95,24 @@ public class CarModelBuilderTutorial {
 		}
 	}
 	
-	private static final class CarModelBuilder extends Builder<
-		NameCapturer<WeightInKilogramCapturer<TopSpeedCapturer<CarModel>>>,
-		CarModel
-	> {
+	private static final class CarModelBuilder extends WeightInKilogramCapturer<TopSpeedCapturer<CarModel>> {
 		
-		@Override
-		protected CarModel build(
-			final NameCapturer<WeightInKilogramCapturer<TopSpeedCapturer<CarModel>>> nameCapturer
-		) {
+		public CarModelBuilder(final String name) {
 			
-			final var weightInKilogramCapturer = nameCapturer.n();
-			final var topSpeedCapturer = weightInKilogramCapturer.n();
+			super(new TopSpeedCapturer<>());
 			
-			return new CarModel(
-				nameCapturer.getName(),
-				weightInKilogramCapturer.getWeightInKilogram(),
-				topSpeedCapturer.getTopSpeedInKilometerPerHour()
+			setBuilder(() -> build(name));
+		}
+		
+		private CarModel build(final String name) {
+			return
+			new CarModel(
+				name,
+				getWeightInKilogram(),
+				n().getTopSpeedInKilometerPerHour()
 			);
 		}
-		
-		@Override
-		protected NameCapturer<WeightInKilogramCapturer<TopSpeedCapturer<CarModel>>> createStartArgumentCapturer() {
-			return new NameCapturer<>(new WeightInKilogramCapturer<>(new TopSpeedCapturer<>()));
-		}
 	}
+	
+	private CarModelBuilderTutorial() {}
 }
