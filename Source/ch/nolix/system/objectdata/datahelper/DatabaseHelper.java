@@ -2,6 +2,7 @@
 package ch.nolix.system.objectdata.datahelper;
 
 //own imports
+import ch.nolix.core.container.IContainer;
 import ch.nolix.system.database.databaseobjecthelper.DatabaseObjectHelper;
 import ch.nolix.systemapi.objectdataapi.dataapi.IDatabase;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
@@ -14,6 +15,12 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 	
 	//static attribute
 	private final ITableHelper tableHelper = new TableHelper();
+	
+	//method
+	@Override
+	public <IMPL> IContainer<IEntity<IMPL>> getRefEntitiesInLocalData(final IDatabase<IMPL> database) {
+		return database.technicalGetRefTablesInLocalData().toFromMany(ITable::technicalGetRefEntitiesInLocalData);
+	}
 	
 	//method
 	@Override
