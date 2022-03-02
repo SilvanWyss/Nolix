@@ -8,7 +8,7 @@ import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.validator.Validator;
 
 //class
-public final class ToDatabaseNameCapturer<NAC extends BaseArgumentCapturer<?>> extends ArgumentCapturer<String, NAC> {
+public class ToDatabaseNameCapturer<NAC extends BaseArgumentCapturer<?>> extends ArgumentCapturer<String, NAC> {
 	
 	//constructor
 	public ToDatabaseNameCapturer(final NAC nextArgumentCapturer) {

@@ -2,11 +2,7 @@
 package ch.nolix.system.objectdata.dataadapter;
 
 //own imports
-import ch.nolix.core.builder.argumentcapturer.AndLoginPasswordCapturer;
-import ch.nolix.core.builder.argumentcapturer.AndPortCapturer;
-import ch.nolix.core.builder.argumentcapturer.ToDatabaseNameCapturer;
-import ch.nolix.core.builder.argumentcapturer.UsingLoginNameCapturer;
-import ch.nolix.core.builder.terminalargumentcapturer.AndSchemaTerminalCapturer;
+import ch.nolix.core.constant.IPv6Catalogue;
 import ch.nolix.core.sql.MSSQLConnection;
 import ch.nolix.system.objectdata.data.DataAdapter;
 import ch.nolix.system.objectdata.data.DataImplementation;
@@ -17,43 +13,13 @@ import ch.nolix.systemapi.objectdataapi.dataapi.ISchema;
 public final class MSSQLDataAdapter extends DataAdapter {
 	
 	//static method
-	public static
-	AndPortCapturer<
-		ToDatabaseNameCapturer<
-			UsingLoginNameCapturer<
-				AndLoginPasswordCapturer<
-					AndSchemaTerminalCapturer<
-						ISchema<
-							DataImplementation
-						>,
-						MSSQLDataAdapter
-					>
-				>
-			>
-		>
-	>
-	toIpOrAddress(final String ipOrAddressName) {
-		return new MSSQLDataAdapterBuilder().getRefStart().withIpOrAddressName(ipOrAddressName);
+	public static MSSQLDataAdapterBuilder toIpOrAddress(final String ipOrAddressName) {
+		return new MSSQLDataAdapterBuilder(ipOrAddressName);
 	}
 	
 	//static method
-	public static
-	AndPortCapturer<
-		ToDatabaseNameCapturer<
-			UsingLoginNameCapturer<
-				AndLoginPasswordCapturer<
-					AndSchemaTerminalCapturer<
-						ISchema<
-							DataImplementation
-						>,
-						MSSQLDataAdapter
-					>
-				>
-			>
-		>
-	>
-	toLocalHost() {
-		return new MSSQLDataAdapterBuilder().getRefStart().withLocalAddress();
+	public static MSSQLDataAdapterBuilder toLocalHost() {
+		return new MSSQLDataAdapterBuilder(IPv6Catalogue.LOOP_BACK_ADDRESS);
 	}
 	
 	//constructor

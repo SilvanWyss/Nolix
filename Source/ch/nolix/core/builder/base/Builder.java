@@ -12,7 +12,7 @@ public abstract class Builder<
 		
 		final var startArgumentCapturer = createStartArgumentCapturer();
 		
-		startArgumentCapturer.internalSetBuilder(() -> build(startArgumentCapturer));
+		startArgumentCapturer.setBuilder(() -> build(startArgumentCapturer));
 		
 		return startArgumentCapturer;
 	}

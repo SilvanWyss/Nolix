@@ -34,7 +34,7 @@ public abstract class TerminalArgumentCapturer<
 	
 	//method
 	@SuppressWarnings("unchecked")
-	final void internalSetBuilder(final IElementGetter<?> builder) {
+	protected final void setBuilder(final IElementGetter<?> builder) {
 		
 		Validator.assertThat(builder).thatIsNamed(LowerCaseCatalogue.BUILDER).isNotNull();
 		

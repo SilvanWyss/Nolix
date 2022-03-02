@@ -6,7 +6,7 @@ import ch.nolix.core.builder.base.ArgumentCapturer;
 import ch.nolix.core.builder.base.BaseArgumentCapturer;
 
 //class
-public final class WithDatabaseCapturer<
+public class WithDatabaseCapturer<
 	D,
 	NAC extends BaseArgumentCapturer<?>
 > extends ArgumentCapturer<D, NAC> {

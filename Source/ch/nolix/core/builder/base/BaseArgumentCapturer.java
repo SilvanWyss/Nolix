@@ -21,6 +21,9 @@ public abstract class BaseArgumentCapturer<A> {
 		
 		return argument;
 	}
+		
+	//method declaration
+	protected abstract void setBuilder(IElementGetter<?> builder);
 	
 	//method
 	final void internalSetArgument(final A argument) {
@@ -29,9 +32,6 @@ public abstract class BaseArgumentCapturer<A> {
 		
 		this.argument = argument;
 	}
-	
-	//method declaration
-	abstract void internalSetBuilder(IElementGetter<?> builder);
 	
 	//method
 	private void assertHasArgument() {

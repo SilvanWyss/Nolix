@@ -9,7 +9,7 @@ import ch.nolix.core.constant.PortCatalogue;
 import ch.nolix.core.errorcontrol.validator.Validator;
 
 //class
-public final class AndPortCapturer<NAC extends BaseArgumentCapturer<?>> extends ArgumentCapturer<Integer, NAC> {
+public class AndPortCapturer<NAC extends BaseArgumentCapturer<?>> extends ArgumentCapturer<Integer, NAC> {
 	
 	//attribute
 	private final int defaultPort;

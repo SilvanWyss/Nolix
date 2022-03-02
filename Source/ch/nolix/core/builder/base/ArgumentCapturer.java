@@ -36,7 +36,7 @@ public abstract class ArgumentCapturer<
 	
 	//method
 	@Override
-	final void internalSetBuilder(final IElementGetter<?> builder) {
-		nextArgumentCapturer.internalSetBuilder(builder);
+	protected final void setBuilder(final IElementGetter<?> builder) {
+		nextArgumentCapturer.setBuilder(builder);
 	}
 }
