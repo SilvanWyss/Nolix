@@ -66,6 +66,12 @@ public class DatabaseObjectHelper implements IDatabaseObjectHelper {
 	
 	//method
 	@Override
+	public boolean isEdited(final IDatabaseObject databaseObject) {
+		return (databaseObject.getState() == DatabaseObjectState.EDITED);
+	}
+	
+	//method
+	@Override
 	public boolean isLoaded(final IDatabaseObject databaseObject) {
 		return (databaseObject.getState() == DatabaseObjectState.LOADED);
 	}

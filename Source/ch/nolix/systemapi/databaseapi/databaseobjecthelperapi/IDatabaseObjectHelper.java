@@ -28,6 +28,9 @@ public interface IDatabaseObjectHelper {
 	boolean isDeleted(IDatabaseObject databaseObject);
 	
 	//method declaration
+	boolean isEdited(IDatabaseObject databaseObject);
+	
+	//method declaration
 	boolean isLoaded(IDatabaseObject databaseObject);
 	
 	//method declaration
