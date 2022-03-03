@@ -28,7 +28,7 @@ public final class Database implements IDatabase<DataImplementation> {
 	}
 	
 	//attribute
-	private final Time schemaTimestamp;
+	private final String schemaTimestamp;
 	
 	//attribute
 	private final IDataAndSchemaAdapter dataAndSchemaAdapter;
@@ -47,7 +47,7 @@ public final class Database implements IDatabase<DataImplementation> {
 		Validator.assertThat(schema).thatIsNamed(ISchema.class).isNotNull();
 		
 		//TODO: Move creation of Time from String.
-		schemaTimestamp = Time.fromString(dataAndSchemaAdapter.getSchemaTimestamp());
+		schemaTimestamp = dataAndSchemaAdapter.getSchemaTimestamp();
 		this.dataAndSchemaAdapter = dataAndSchemaAdapter;
 		this.schema = schema;
 	}
@@ -79,7 +79,7 @@ public final class Database implements IDatabase<DataImplementation> {
 	
 	//method
 	@Override
-	public Time getSchemaTimestamp() {
+	public String getSchemaTimestamp() {
 		return schemaTimestamp;
 	}
 	
