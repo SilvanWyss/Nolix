@@ -5,7 +5,7 @@ package ch.nolix.system.nodedatabaserawdata.dataandschemaadapter;
 import ch.nolix.core.document.filenode.FileNode;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.system.nodedatabaserawdata.dataadapter.DataAdapter;
-import ch.nolix.system.nodedatabaserawschema.schemareader.SchemaReader;
+import ch.nolix.system.nodedatabaserawschema.schemaadapter.SchemaAdapter;
 import ch.nolix.system.rawdata.dataandschemaadapter.BaseDataAndSchemaAdapter;
 
 //class
@@ -23,6 +23,6 @@ public final class DataAndSchemaAdapter extends BaseDataAndSchemaAdapter {
 	
 	//constructor
 	private DataAndSchemaAdapter(final BaseNode nodeDatabase) {
-		super(new DataAdapter(nodeDatabase), new SchemaReader(nodeDatabase));
+		super(new DataAdapter(nodeDatabase), SchemaAdapter.forDatabaseNode(nodeDatabase));
 	}
 }

@@ -5,7 +5,7 @@ package ch.nolix.system.sqlrawdata.dataandschemaadapter;
 import ch.nolix.core.sql.MSSQLConnection;
 import ch.nolix.system.rawdata.dataandschemaadapter.BaseDataAndSchemaAdapter;
 import ch.nolix.system.sqlrawdata.dataadapter.MSSQLDataAdapter;
-import ch.nolix.system.sqlrawschema.schemareader.SchemaReader;
+import ch.nolix.system.sqlrawschema.schemaadapter.MSSQLSchemaAdapter;
 
 //class
 public final class MSSQLDataAndSchemaAdapter extends BaseDataAndSchemaAdapter {
@@ -14,11 +14,7 @@ public final class MSSQLDataAndSchemaAdapter extends BaseDataAndSchemaAdapter {
 	public MSSQLDataAndSchemaAdapter(final String databaseName, final MSSQLConnection pMSSQLConnection) {
 		super(
 			new MSSQLDataAdapter(databaseName, pMSSQLConnection),
-			new SchemaReader(
-				databaseName,
-				pMSSQLConnection,
-				new ch.nolix.system.sqlbasicschema.schemaadapter.MSSQLSchemaAdapter(pMSSQLConnection)
-			)
+			new MSSQLSchemaAdapter(databaseName, pMSSQLConnection)
 		);
 	}
 }
