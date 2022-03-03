@@ -11,13 +11,12 @@ import ch.nolix.systemapi.objectdataapi.dataapi.ISchema;
 public final class Schema implements ISchema<DataImplementation> {
 	
 	//static method
-	@SuppressWarnings("unchecked")
-	public static Schema withEntityType(final Class<Entity>... entityTypesInOrder) {
+	public static Schema withEntityType(final Class<?>... entityTypesInOrder) {
 		return new Schema(ReadContainer.forArray(entityTypesInOrder));
 	}
 	
 	//static method
-	public static Schema withEntityTypes(final IContainer<Class<Entity>> entityTypesInOrder) {
+	public static Schema withEntityTypes(final IContainer<Class<?>> entityTypesInOrder) {
 		return new Schema(entityTypesInOrder);
 	}
 	
@@ -25,11 +24,11 @@ public final class Schema implements ISchema<DataImplementation> {
 	private final IContainer<Class<Entity>> entityTypesInOrder;
 	
 	//constructor
-	private Schema(final IContainer<Class<Entity>> entityTypesInOrder) {
+	private Schema(final IContainer<Class<?>> entityTypesInOrder) {
 		
 		assertContainsDifferentEntityTypesOnly(entityTypesInOrder);
 		
-		this.entityTypesInOrder = entityTypesInOrder.toList();
+		this.entityTypesInOrder = entityTypesInOrder.asContainerWithElementsOfEvaluatedType();
 	}
 	
 	//method	
@@ -39,7 +38,7 @@ public final class Schema implements ISchema<DataImplementation> {
 	}
 	
 	//method
-	private void assertContainsDifferentEntityTypesOnly(final IContainer<Class<Entity>> entityTypes) {
+	private void assertContainsDifferentEntityTypesOnly(final IContainer<Class<?>> entityTypes) {
 		if (!containsDifferentEntityTypesOnly(entityTypes)) {
 			throw new InvalidArgumentException(
 				"list of entity types",
@@ -50,10 +49,10 @@ public final class Schema implements ISchema<DataImplementation> {
 	}
 	
 	//method
-	private boolean containsDifferentEntityTypesOnly(final IContainer<Class<Entity>> entityTypes) {
+	private boolean containsDifferentEntityTypesOnly(final IContainer<Class<?>> entityTypes) {
 		
 		for (final var et : entityTypes) {
-			if (entityTypes.containsOne(et2 -> et2.getSimpleName().equals(et.getSimpleName()))) {
+			if (entityTypes.getCount(et2 -> et2.getSimpleName().equals(et.getSimpleName())) > 1) {
 				return false;
 			}
 		}
