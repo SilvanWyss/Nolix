@@ -168,8 +168,9 @@ final class InternalDataWriter {
 		addChangeAction(d -> databaseUpdater.updateRecordOnTable(d, tableInfo, recordUpdate));
 	}
 	
+	//method
 	private void addChangeAction(final IElementTaker<BaseNode> changeAction) {
-		addChangeAction(changeAction);
+		changeActions.addAtEnd(changeAction);
 	}
 	
 	// method
