@@ -611,6 +611,15 @@ public final class Time implements IElement<Time> {
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String toString() {
+		return getSpecification().toString();
+	}
+	
+	//method
+	/**
 	 * Adds the given days to the current {@link Time}.
 	 * 
 	 * @param days
