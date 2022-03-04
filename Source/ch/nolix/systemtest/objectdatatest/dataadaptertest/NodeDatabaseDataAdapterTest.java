@@ -27,7 +27,7 @@ public final class NodeDatabaseDataAdapterTest extends Test {
 		final var result = NodeDatabaseDataAdapter.forNodeDatabase(nodeDatabase).usingSchema(schema);
 		
 		//verification
-		expect(result.isChangeFree());
+		expectNot(result.hasChanges());
 	}
 	
 	//method
