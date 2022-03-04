@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.objectdata.data;
 
-import ch.nolix.core.reflectionhelper.GlobalClassHelper;
+//own imports
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedContentFieldDTO;
@@ -10,6 +10,9 @@ import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedRecordDTO;
 //class
 final class EntityMapper {
 	
+	//static attribute
+	private static final EntityCreator entityCreator = new EntityCreator();
+	
 	//method
 	@SuppressWarnings("unchecked")
 	public <E extends IEntity<DataImplementation>> E createEntityFromRecordForGivenTable(
@@ -17,7 +20,7 @@ final class EntityMapper {
 		final ITable<DataImplementation, E> table
 	) {
 		
-		final var entity = createEmptyEntityFor(table);
+		final var entity = entityCreator.createEmptyEntityFor(table);
 		
 		final var concreteEntity = (BaseEntity)entity;
 		concreteEntity.internalSetParentTable((ITable<DataImplementation, IEntity<DataImplementation>>)table);
@@ -49,15 +52,5 @@ final class EntityMapper {
 		for (final var cf : record.getContentFields()) {
 			addDataFromContentFieldToEntity(cf, entity);
 		}
-	}
-	
-	//method
-	private <E extends IEntity<DataImplementation>> E createEmptyEntityFor(final ITable<DataImplementation, E> table) {
-		return createEmptyEntityOfEntityClass(table.getEntityClass());
-	}
-	
-	//method
-	private <E extends IEntity<DataImplementation>> E createEmptyEntityOfEntityClass(final Class<E> entityClass) {
-		return GlobalClassHelper.createInstanceFromDefaultConstructorOf(entityClass);
 	}
 }
