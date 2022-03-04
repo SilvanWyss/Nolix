@@ -3,13 +3,18 @@ package ch.nolix.systemtest.objectdatatest.dataadaptertest;
 
 //own imports
 import ch.nolix.core.document.node.Node;
+import ch.nolix.core.testing.basetest.IgnoreTimeout;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
+import ch.nolix.system.objectdata.data.Entity;
 import ch.nolix.system.objectdata.data.Schema;
 import ch.nolix.system.objectdata.dataadapter.NodeDatabaseDataAdapter;
 
 //class
 public final class NodeDatabaseDataAdapterTest extends Test {
+	
+	//static class
+	private static final class EmptyThing extends Entity {}
 	
 	//method
 	@TestCase
@@ -17,7 +22,6 @@ public final class NodeDatabaseDataAdapterTest extends Test {
 		
 		//setup
 		final var nodeDatabase = new Node();
-		@SuppressWarnings("unchecked")
 		final var schema = Schema.withEntityType();
 		
 		//execution
@@ -25,5 +29,38 @@ public final class NodeDatabaseDataAdapterTest extends Test {
 		
 		//verification
 		expect(result.isChangeFree());
+	}
+	
+	//method
+	@TestCase
+	@IgnoreTimeout
+	public void testCase_insertEntity_whenSavesChangesAndResets() {
+		
+		//setup
+		final var nodeDatabase = new Node();
+		final var schema = Schema.withEntityType(EmptyThing.class);
+		final var testUnit = NodeDatabaseDataAdapter.forNodeDatabase(nodeDatabase).usingSchema(schema);
+		
+		//execution
+		testUnit.insert(new EmptyThing());
+		
+		//verification
+		expectNot(testUnit.hasChanges());
+	}
+	
+	//method
+	@TestCase
+	public void testCase_saveChangesAndReset_whenDoesNotHaveChanges() {
+		
+		//setup
+		final var nodeDatabase = new Node();
+		final var schema = Schema.withEntityType(EmptyThing.class);
+		final var testUnit = NodeDatabaseDataAdapter.forNodeDatabase(nodeDatabase).usingSchema(schema);
+		
+		//execution
+		testUnit.saveChangesAndReset();
+		
+		//verification
+		expectNot(testUnit.hasChanges());
 	}
 }
