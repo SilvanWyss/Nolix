@@ -4,6 +4,7 @@ package ch.nolix.core.container;
 //Java imports
 import java.util.Random;
 
+//own imports
 import ch.nolix.core.constant.FunctionCatalogue;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.constant.StringCatalogue;
@@ -423,7 +424,17 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return true if the current {@link IContainer} contains only elements the given selector selects.
 	 */
 	default boolean containsOnly(final IElementTakerBooleanGetter<E> selector) {
-		return !containsAny(e -> !selector.getOutput(e));
+
+		//Iterates the current IContainer.
+		for (final var e : this) {
+			
+			//Handles the case that the given selector does not select the current element.
+			if (!selector.getOutput(e)) {
+				return false;
+			}
+		}
+		
+		return true;
 	}
 	
 	//method
