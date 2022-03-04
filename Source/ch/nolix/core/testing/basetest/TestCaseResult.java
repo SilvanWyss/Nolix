@@ -142,7 +142,7 @@ public final class TestCaseResult {
 	//method
 	private void fillUpProbableExceptionError(final List<String> outputLines) {
 		if (hasExceptionError()) {
-			outputLines.addAtEnd("   " + getExpectationErrorCount() + " )" + exceptionError.toString());
+			outputLines.addAtEnd("   " + (getExpectationErrorCount() + 1) + ")" + exceptionError.toString());
 		}
 	}
 	

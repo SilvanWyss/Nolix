@@ -134,32 +134,6 @@ public final class TestRun {
 	
 	//method
 	private void printSummary() {
-		if (isPassed()) {
-			printSummaryWhenPassed();
-		} else {
-			printSummaryWhenFailed();
-		}
-	}
-	
-	//method
-	private void printSummaryWhenFailed() {
-		
-		linePrinter.printErrorLine(
-			"-->Summary "
-			+ parentTest.getName()
-			+ ": "
-			+ getPassedTestCaseCount()
-			+ "/"
-			+ getTestCaseCount()
-			+ " test cases passed "
-			+ getRuntimeAndUnitAsStringInBrackets()
-		);
-		
-		linePrinter.printEmptyLine();
-	}
-	
-	//method
-	private void printSummaryWhenPassed() {
 		
 		linePrinter.printInfoLine(
 			"   Summary "
