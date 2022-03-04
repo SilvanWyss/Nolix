@@ -46,7 +46,7 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
 	//method
 	@Override
 	public boolean hasChanges(final ITable<?, ?> table) {
-		return !table.technicalGetRefEntitiesInLocalData().containsAny(e -> !entityHelper.isLoaded(e));
+		return table.technicalGetRefEntitiesInLocalData().containsAny(e -> !entityHelper.isLoaded(e));
 	}
 	
 	//method
