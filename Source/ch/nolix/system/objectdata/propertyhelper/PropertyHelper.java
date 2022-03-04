@@ -1,10 +1,14 @@
 //package declaration
 package ch.nolix.system.objectdata.propertyhelper;
 
+//Java imports
+import java.lang.reflect.ParameterizedType;
+
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
+import ch.nolix.core.reflectionhelper.GlobalReflectionHelper;
 import ch.nolix.system.database.databaseobjecthelper.DatabaseObjectHelper;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
@@ -31,7 +35,7 @@ public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHel
 	
 	//method
 	@Override
-	public void assertIsNotEmpty(final IProperty<?> property) {
+	public final void assertIsNotEmpty(final IProperty<?> property) {
 		if (property.isEmpty()) {
 			throw new EmptyArgumentException(property);
 		}
@@ -39,7 +43,7 @@ public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHel
 	
 	//method
 	@Override
-	public void assertIsNotMandatoryAndEmptyBoth(final IProperty<?> property) {
+	public final void assertIsNotMandatoryAndEmptyBoth(final IProperty<?> property) {
 		if (isMandatoryAndEmptyBoth(property)) {
 			throw new EmptyArgumentException(property);
 		}
@@ -47,15 +51,30 @@ public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHel
 	
 	//method
 	@Override
-	public boolean belongsToLoadedEntity(final IProperty<?> property) {
+	public final boolean belongsToLoadedEntity(final IProperty<?> property) {
 		return
 		property.belongsToEntity()
 		&& isLoaded(property.getParentEntity());
 	}
 	
+	//TODO: Make that this method is not restricted to IBaseValues.
 	//method
 	@Override
-	public boolean isMandatoryAndEmptyBoth(final IProperty<?> property) {
+	@SuppressWarnings("unchecked")
+	public final <DT> Class<DT> getDataType(final IProperty<?> property) {
+		
+		final var propertyParentEntity = property.getParentEntity();
+		
+		final var propertyField = GlobalReflectionHelper.getRefField(propertyParentEntity, property);
+		
+		final var propertyDeclaredType = (ParameterizedType)propertyField.getGenericType();
+		
+		return (Class<DT>)propertyDeclaredType.getActualTypeArguments()[1];
+	}
+	
+	//method
+	@Override
+	public final boolean isMandatoryAndEmptyBoth(final IProperty<?> property) {
 		return
 		property.isMandatory()
 		&& property.isEmpty();

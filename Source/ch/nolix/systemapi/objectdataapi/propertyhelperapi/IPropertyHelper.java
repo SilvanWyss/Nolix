@@ -24,5 +24,8 @@ public interface IPropertyHelper extends IDatabaseObjectHelper {
 	boolean belongsToLoadedEntity(IProperty<?> property);
 	
 	//method declaration
+	<DT> Class<DT> getDataType(IProperty<?> property);
+	
+	//method declaration
 	boolean isMandatoryAndEmptyBoth(IProperty<?> property);
 }
