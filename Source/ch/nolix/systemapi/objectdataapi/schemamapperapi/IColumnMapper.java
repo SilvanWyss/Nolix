@@ -2,20 +2,31 @@
 package ch.nolix.systemapi.objectdataapi.schemamapperapi;
 
 //own imports
+import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
 //interface
 public interface IColumnMapper<IMPL> {
 	
 	//method declaration
-	IColumn<IMPL> createColumnFrom(IProperty<?> property);
+	IColumn<IMPL> createColumnFromGivenPropertyUsingGivenReferencableTables(
+		IProperty<?> property,
+		IContainer<ITable<IMPL>> referencableTables
+	);
 	
 	//method declaration
-	LinkedList<IColumn<IMPL>> createColumnsFrom(Class<IEntity<?>> entityType);
+	<E extends IEntity<?>> LinkedList<IColumn<IMPL>> createColumnsFromGivenEntityTypeUsingGivenReferencableTables(
+		Class<E> entityType,
+		IContainer<ITable<IMPL>> referencableTables
+	);
 	
 	//method declaration
-	LinkedList<IColumn<IMPL>> createColumnsFrom(IEntity<?> entity);
+	LinkedList<IColumn<IMPL>> createColumnsFromGivenEntityUsingGivenReferencableTables(
+		IEntity<?> entity,
+		IContainer<ITable<IMPL>> referencableTables
+	);
 }
