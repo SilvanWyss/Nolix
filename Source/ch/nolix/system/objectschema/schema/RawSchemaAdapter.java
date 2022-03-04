@@ -17,59 +17,59 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDTO;
 final class RawSchemaAdapter {
 	
 	//attribute
-	private final ISchemaAdapter rawSchemaAdapter;
+	private final ISchemaAdapter internalRawSchemaAdapter;
 	
 	//constructor
-	public RawSchemaAdapter(final ISchemaAdapter rawSchemaAdapter) {
+	public RawSchemaAdapter(final ISchemaAdapter internalRawSchemaAdapter) {
 		
-		Validator.assertThat(rawSchemaAdapter).thatIsNamed(ISchemaAdapter.class).isNotNull();
+		Validator.assertThat(internalRawSchemaAdapter).thatIsNamed("internal raw schema adapter").isNotNull();
 		
-		this.rawSchemaAdapter = rawSchemaAdapter;
+		this.internalRawSchemaAdapter = internalRawSchemaAdapter;
 	}
 	
 	//method
 	public void addColumnToTable(final ITable<SchemaImplementation> table, final IColumn<SchemaImplementation> column) {
-		rawSchemaAdapter.addColumn(table.getName(), column.toDTO());
+		internalRawSchemaAdapter.addColumn(table.getName(), column.toDTO());
 	}
 	
 	//method
 	public void addTable(final ITable<SchemaImplementation> table) {
-		rawSchemaAdapter.addTable(table.toDTO());
+		internalRawSchemaAdapter.addTable(table.toDTO());
 	}
 	
 	//method
 	public boolean columnIsEmpty(final IColumn<SchemaImplementation> column) {
-		return rawSchemaAdapter.columnIsEmpty(column.getParentTable().getName(), column.getName());
+		return internalRawSchemaAdapter.columnIsEmpty(column.getParentTable().getName(), column.getName());
 	}
 	
 	//method
 	public void deleteColumn(final IColumn<SchemaImplementation> column) {
-		rawSchemaAdapter.deleteColumn(column.getParentTable().getName(), column.getName());
+		internalRawSchemaAdapter.deleteColumn(column.getParentTable().getName(), column.getName());
 	}
 	
 	//method
 	public void deleteTable(final ITable<SchemaImplementation> table) {
-		rawSchemaAdapter.deleteTable(table.getName());
+		internalRawSchemaAdapter.deleteTable(table.getName());
 	}
 	
 	//method
 	public LinkedList<IColumnDTO> loadColumnsOfTable(final ITable<SchemaImplementation> table) {
-		return rawSchemaAdapter.loadColumnsByTableId(table.getId());
+		return internalRawSchemaAdapter.loadColumnsByTableId(table.getId());
 	}
 	
 	//method
 	public LinkedList<IFlatTableDTO> loadFlatTables() {
-		return rawSchemaAdapter.loadFlatTables();
+		return internalRawSchemaAdapter.loadFlatTables();
 	}
 	
 	//method
 	public Time loadSchemaTimestamp() {
-		return rawSchemaAdapter.loadSchemaTimestamp();
+		return internalRawSchemaAdapter.loadSchemaTimestamp();
 	}
 	
 	//method
 	public void saveChangesAndReset() {
-		rawSchemaAdapter.saveChangesAndReset();
+		internalRawSchemaAdapter.saveChangesAndReset();
 	}
 	
 	//method
@@ -78,14 +78,14 @@ final class RawSchemaAdapter {
 		final String columnName,
 		final String newColumnName
 	) {
-		rawSchemaAdapter.setColumnName(column.getParentTable().getName(), columnName, newColumnName);
+		internalRawSchemaAdapter.setColumnName(column.getParentTable().getName(), columnName, newColumnName);
 	}
 	
 	public void setColumnParametrizedPropertyType(
 		final IColumn<SchemaImplementation> column,
 		final IParametrizedPropertyType<SchemaImplementation, ?> parametrizedPropertyType
 	) {
-		rawSchemaAdapter.setColumnParametrizedPropertyType(
+		internalRawSchemaAdapter.setColumnParametrizedPropertyType(
 			column.getId(),
 			parametrizedPropertyType.toDTO()
 		);
@@ -93,11 +93,11 @@ final class RawSchemaAdapter {
 	
 	//method
 	public void setSchemaTimestamp(final Time schemaTimestamp) {
-		rawSchemaAdapter.setSchemaTimestamp(schemaTimestamp);
+		internalRawSchemaAdapter.setSchemaTimestamp(schemaTimestamp);
 	}
 	
 	//method
 	public void setTableName(final String tableName, final String newTableName) {
-		rawSchemaAdapter.setTableName(tableName, newTableName);
+		internalRawSchemaAdapter.setTableName(tableName, newTableName);
 	}
 }

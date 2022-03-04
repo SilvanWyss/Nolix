@@ -136,7 +136,7 @@ public final class Column extends SchemaObject implements IColumn<SchemaImplemen
 			return true;
 		}
 		
-		return internalGetRefInternalSchemaAdapter().columnIsEmpty(this);
+		return internalGetRefRawSchemaAdapter().columnIsEmpty(this);
 	}
 	
 	//method
@@ -191,7 +191,7 @@ public final class Column extends SchemaObject implements IColumn<SchemaImplemen
 	}
 	
 	//method
-	RawSchemaAdapter internalGetRefInternalSchemaAdapter() {
+	RawSchemaAdapter internalGetRefRawSchemaAdapter() {
 		return ((Database)columnHelper.getParentDatabase(this)).internalGetRefRawSchemaAdapter();
 	}
 	
@@ -219,7 +219,7 @@ public final class Column extends SchemaObject implements IColumn<SchemaImplemen
 	
 	//method
 	void setParametrizedPropertyTypeToDatabase() {
-		internalGetRefInternalSchemaAdapter().setColumnParametrizedPropertyType(this, parametrizedPropertyType);
+		internalGetRefRawSchemaAdapter().setColumnParametrizedPropertyType(this, parametrizedPropertyType);
 	}
 	
 	//method
