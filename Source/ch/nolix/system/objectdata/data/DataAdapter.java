@@ -17,6 +17,9 @@ public abstract class DataAdapter implements IDataAdapter<DataImplementation> {
 	//static attribute
 	private static final IDatabaseHelper databaseHelper = new DatabaseHelper();
 	
+	//static attribute
+	private static final PersistenceManager persistenceManager = new PersistenceManager();
+	
 	//attribute
 	private final CloseController closeController = new CloseController(this);
 	
@@ -89,7 +92,7 @@ public abstract class DataAdapter implements IDataAdapter<DataImplementation> {
 	public final void saveChangesAndReset() {
 		try {
 			
-			//TODO: Implement.
+			persistenceManager.peristChanges(database);
 			
 			saveCount++;
 		} finally {
