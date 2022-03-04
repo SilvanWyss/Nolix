@@ -3,7 +3,6 @@ package ch.nolix.systemtest.objectdatatest.dataadaptertest;
 
 //own imports
 import ch.nolix.core.document.node.Node;
-import ch.nolix.core.testing.basetest.IgnoreTimeout;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 import ch.nolix.system.objectdata.data.Entity;
@@ -33,8 +32,7 @@ public final class NodeDatabaseDataAdapterTest extends Test {
 	
 	//method
 	@TestCase
-	@IgnoreTimeout
-	public void testCase_insertEntity_whenSavesChangesAndResets() {
+	public void testCase_saveChangesAndReset_whenDoesNotHaveChanges() {
 		
 		//setup
 		final var nodeDatabase = new Node();
@@ -42,7 +40,7 @@ public final class NodeDatabaseDataAdapterTest extends Test {
 		final var testUnit = NodeDatabaseDataAdapter.forNodeDatabase(nodeDatabase).usingSchema(schema);
 		
 		//execution
-		testUnit.insert(new EmptyThing());
+		testUnit.saveChangesAndReset();
 		
 		//verification
 		expectNot(testUnit.hasChanges());
@@ -50,12 +48,13 @@ public final class NodeDatabaseDataAdapterTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_saveChangesAndReset_whenDoesNotHaveChanges() {
+	public void testCase_saveChangesAndReset_whenHasInsertedEntity() {
 		
 		//setup
 		final var nodeDatabase = new Node();
 		final var schema = Schema.withEntityType(EmptyThing.class);
 		final var testUnit = NodeDatabaseDataAdapter.forNodeDatabase(nodeDatabase).usingSchema(schema);
+		testUnit.insert(new EmptyThing());
 		
 		//execution
 		testUnit.saveChangesAndReset();
