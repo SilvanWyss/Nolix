@@ -37,7 +37,7 @@ public final class TableMapper implements ITableMapper<SchemaImplementation> {
 	
 	//method
 	private LinkedList<ITable<SchemaImplementation>> createEmptyTablesFrom(final ISchema<?> schema) {
-		return schema.getEntityTypesInOrder().to(et -> createEmptyTableFrom(et));
+		return schema.getEntityTypesInOrder().to(this::createEmptyTableFrom);
 	}
 	
 	//method
