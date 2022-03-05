@@ -2,12 +2,8 @@
 package ch.nolix.core.sql;
 
 //own imports
-import ch.nolix.core.builder.argumentcapturer.AndDatabaseNameCapturer;
-import ch.nolix.core.builder.argumentcapturer.UsingLoginNameCapturer;
-import ch.nolix.core.builder.argumentcapturer.AndPortCapturer;
-import ch.nolix.core.builder.argumentcapturer.WithSQLDatabaseEngineCapturer;
-import ch.nolix.core.builder.terminalargumentcapturer.AndLoginPasswordTerminalCapturer;
 import ch.nolix.core.constant.LowerCaseCatalogue;
+import ch.nolix.core.constant.PortCatalogue;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
@@ -17,24 +13,15 @@ import ch.nolix.core.usercontrol.Credential;
 //class
 public final class SQLConnectionPool implements GroupCloseable, ISQLDatabaseTarget {
 	
+	//constant
+	public static final int DEFAULT_PORT = PortCatalogue.MSSQL_PORT;
+	
 	//static attribute
 	private static final SQLConnectionFactory sSQLConnectionFactory = new SQLConnectionFactory();
 	
 	//static method
-	public static 
-	AndPortCapturer<
-		AndDatabaseNameCapturer<
-			WithSQLDatabaseEngineCapturer<
-				UsingLoginNameCapturer<
-					AndLoginPasswordTerminalCapturer<
-						SQLConnectionPool
-					>
-				>
-			>
-		>
-	>
-	forIpOrAddressName(final String ipOrAddressName) {
-		return new SQLConnectionPoolBuilder().getRefStart().withIpOrAddressName(ipOrAddressName);
+	public static SQLConnectionPoolBuilder forIpOrAddressName(final String ipOrAddressName) {
+		return new SQLConnectionPoolBuilder(ipOrAddressName, DEFAULT_PORT);
 	}
 	
 	//attribute
