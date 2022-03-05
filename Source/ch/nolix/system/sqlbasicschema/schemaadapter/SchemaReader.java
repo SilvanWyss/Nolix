@@ -6,6 +6,7 @@ import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.sql.SQLConnection;
+import ch.nolix.core.sql.SQLConnectionPool;
 import ch.nolix.system.sqlbasicschema.flatschemadto.FlatTableDTO;
 import ch.nolix.system.sqlbasicschema.schemadto.ColumnDTO;
 import ch.nolix.system.sqlbasicschema.schemadto.DataTypeDTO;
@@ -19,6 +20,15 @@ import ch.nolix.systemapi.sqlbasicschemaapi.schemalanguageapi.ISchemaQueryCreato
 //class
 final class SchemaReader implements ISchemaReader {
 	
+	//static method
+	public static SchemaReader forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndSchemaQueryCreator(
+		final String databaseName,
+		final SQLConnectionPool pSQLConnectionPool,
+		final ISchemaQueryCreator schemaQueryCreator
+	) {
+		return new SchemaReader(databaseName, pSQLConnectionPool.borrowSQLConnection(), schemaQueryCreator);
+	}
+	
 	//attribute
 	private final SQLConnection mSQLConnection;
 	
@@ -29,15 +39,19 @@ final class SchemaReader implements ISchemaReader {
 	private final CloseController closeController = new CloseController(this);
 	
 	//constructor
-	public SchemaReader(final SQLConnection pSQLConnection, final ISchemaQueryCreator schemaQueryCreator) {
+	private SchemaReader(
+		final String databaseName,
+		final SQLConnection pSQLConnection,
+		final ISchemaQueryCreator schemaQueryCreator
+	) {
 		
-		Validator.assertThat(pSQLConnection).thatIsNamed(SQLConnection.class).isNotNull();
 		Validator.assertThat(schemaQueryCreator).thatIsNamed(ISchemaQueryCreator.class).isNotNull();
 		
 		mSQLConnection = pSQLConnection;
 		this.schemaQueryCreator = schemaQueryCreator;
 		
 		createCloseDependencyTo(mSQLConnection);
+		mSQLConnection.execute("USE " + databaseName);
 	}
 	
 	//method

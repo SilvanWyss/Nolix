@@ -6,6 +6,7 @@ import ch.nolix.core.container.IContainer;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.sql.SQLConnection;
+import ch.nolix.core.sql.SQLConnectionPool;
 import ch.nolix.system.sqlrawdata.sqlapi.ISQLSyntaxProvider;
 import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataWriter;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDTO;
@@ -17,6 +18,16 @@ import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
 //class
 public final class DataWriter implements IDataWriter {
 	
+	//static attribute
+	public static DataWriter forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndTableInfosAndSQLSyntaxProvider(
+		final String databaseName,
+		final SQLConnectionPool pSQLConnectionPool,
+		final IContainer<ITableInfo> tableInfos,
+		final ISQLSyntaxProvider pSQLSyntaxProvider
+	) {
+		return new DataWriter(databaseName, pSQLConnectionPool.borrowSQLConnection(), tableInfos, pSQLSyntaxProvider);
+	}
+	
 	//attribute
 	private final CloseController closeController = new CloseController(this);
 	
@@ -27,7 +38,8 @@ public final class DataWriter implements IDataWriter {
 	private final IContainer<ITableInfo> tableInfos;
 	
 	//constructor
-	public DataWriter(
+	private DataWriter(
+		final String databaseName,
 		final SQLConnection pSQLConnection,
 		final IContainer<ITableInfo> tableInfos,
 		final ISQLSyntaxProvider pSQLSyntaxProvider
@@ -35,7 +47,7 @@ public final class DataWriter implements IDataWriter {
 		
 		Validator.assertThat(tableInfos).thatIsNamed("table definitions").isNotNull();
 		
-		internalDataWriter = new InternalDataWriter(pSQLConnection, pSQLSyntaxProvider);		
+		internalDataWriter = new InternalDataWriter(databaseName, pSQLConnection, pSQLSyntaxProvider);		
 		this.tableInfos = tableInfos;
 		
 		createCloseDependencyTo(pSQLConnection);

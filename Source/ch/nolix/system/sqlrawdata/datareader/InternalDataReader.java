@@ -36,6 +36,7 @@ final class InternalDataReader {
 	
 	//constructor
 	public InternalDataReader(
+		final String databaseName,
 		final SQLConnection pSQLConnection,
 		final ISQLSyntaxProvider pSQLSyntaxProvider
 	) {
@@ -46,6 +47,8 @@ final class InternalDataReader {
 		recordQueryCreator = pSQLSyntaxProvider.getRecordQueryCreator();
 		multiValueQueryCreator = pSQLSyntaxProvider.getMultiValueQueryCreator();
 		multiReferenceQueryCreator = pSQLSyntaxProvider.getMultiReferenceQueryCreator();
+		
+		mSQLConnection.execute("USE " + databaseName);
 	}
 	
 	//method

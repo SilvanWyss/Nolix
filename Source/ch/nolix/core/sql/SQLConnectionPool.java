@@ -72,9 +72,10 @@ public final class SQLConnectionPool implements GroupCloseable, ISQLDatabaseTarg
 		
 		final var lSQLConnection = getOrCreateAvailableSQLConnectionWrapper();
 		
+		final var innerSQLConnection = lSQLConnection.getRefSQLConnection();
 		lSQLConnection.setAsInUse();
 		
-		return lSQLConnection.getRefSQLConnection();
+		return innerSQLConnection;
 	}
 	
 	//method
@@ -97,7 +98,7 @@ public final class SQLConnectionPool implements GroupCloseable, ISQLDatabaseTarg
 	//method
 	@Override
 	public String getLoginName() {
-		return credential.getPassword();
+		return credential.getLoginName();
 	}
 	
 	//method

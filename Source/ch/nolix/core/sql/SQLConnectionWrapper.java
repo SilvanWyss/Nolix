@@ -19,7 +19,7 @@ final class SQLConnectionWrapper {
 		
 		Validator.assertThat(pSQLConnection).thatIsNamed(SQLConnection.class).isNotNull();
 		Validator.assertThat(pSQLConnection).thatIsNamed(SQLConnection.class).fulfills(SQLConnection::isOpen);
-		assertDoesNotBelongToSQLConnectionPool(pSQLConnection);
+		//assertDoesNotBelongToSQLConnectionPool(pSQLConnection);
 		
 		mSQLConnection = pSQLConnection;
 	}

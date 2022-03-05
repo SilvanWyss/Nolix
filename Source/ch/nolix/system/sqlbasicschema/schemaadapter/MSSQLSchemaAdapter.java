@@ -2,7 +2,6 @@
 package ch.nolix.system.sqlbasicschema.schemaadapter;
 
 //own imports
-import ch.nolix.core.sql.SQLConnection;
 import ch.nolix.core.sql.SQLConnectionPool;
 import ch.nolix.system.sqlbasicschema.mssqllanguage.MSSQLSchemaQueryCreator;
 import ch.nolix.system.sqlbasicschema.mssqllanguage.MSSQLSchemaStatementCreator;
@@ -11,12 +10,15 @@ import ch.nolix.system.sqlbasicschema.mssqllanguage.MSSQLSchemaStatementCreator;
 public final class MSSQLSchemaAdapter extends SchemaAdapter {
 	
 	//static method
-	public static MSSQLSchemaAdapter fromSQLConnectionPool(final SQLConnectionPool pSQLConnectionPool) {
-		return new MSSQLSchemaAdapter(pSQLConnectionPool.borrowSQLConnection());
+	public static MSSQLSchemaAdapter forDatabaseWithGivenNameUsingConnectionFromGivenPool(
+		final String databaseName,	
+		final SQLConnectionPool pSQLConnectionPool
+	) {
+		return new MSSQLSchemaAdapter(databaseName, pSQLConnectionPool);
 	}
 	
 	//constructor
-	public MSSQLSchemaAdapter(final SQLConnection pSQLConnection) {
-		super(pSQLConnection, new MSSQLSchemaQueryCreator(), new MSSQLSchemaStatementCreator());
+	private MSSQLSchemaAdapter(final String databaseName, final SQLConnectionPool pSQLConnectionPool) {
+		super(databaseName, pSQLConnectionPool, new MSSQLSchemaQueryCreator(), new MSSQLSchemaStatementCreator());
 	}
 }

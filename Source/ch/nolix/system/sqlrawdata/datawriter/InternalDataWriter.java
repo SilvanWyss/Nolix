@@ -36,6 +36,7 @@ public final class InternalDataWriter {
 
 	//constructor
 	public InternalDataWriter(
+		final String databaseName,
 		final SQLConnection pSQLConnection,
 		final ISQLSyntaxProvider pSQLSyntaxProvider
 	) {
@@ -46,6 +47,8 @@ public final class InternalDataWriter {
 		recordStatementCreator = pSQLSyntaxProvider.getRecordStatementCreator();
 		multiValueStatementCreator = pSQLSyntaxProvider.getMultiValueStatemeentCreator();
 		multiReferenceStatementCreator = pSQLSyntaxProvider.getMultiReferenceStatemeentCreator();
+		
+		pSQLConnection.execute("USE " + databaseName);
 	}
 	
 	//method

@@ -7,6 +7,7 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.sql.SQLCollector;
 import ch.nolix.core.sql.SQLConnection;
+import ch.nolix.core.sql.SQLConnectionPool;
 import ch.nolix.systemapi.sqlbasicschemaapi.schemaadapterapi.ISchemaWriter;
 import ch.nolix.systemapi.sqlbasicschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.systemapi.sqlbasicschemaapi.schemadtoapi.ITableDTO;
@@ -14,6 +15,15 @@ import ch.nolix.systemapi.sqlbasicschemaapi.schemalanguageapi.ISchemaStatementCr
 
 //class
 public final class SchemaWriter implements ISchemaWriter {
+	
+	//static method
+	public static SchemaWriter forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndSchemaStatementCreator(
+		final String databaseName,
+		final SQLConnectionPool pSQLConnectionPool,
+		final ISchemaStatementCreator schemaStatementCreator
+	) {
+		return new SchemaWriter(databaseName, pSQLConnectionPool.borrowSQLConnection(), schemaStatementCreator);
+	}
 	
 	//attribute
 	private int saveCount;
@@ -31,7 +41,8 @@ public final class SchemaWriter implements ISchemaWriter {
 	private final CloseController closeController = new CloseController(this);
 	
 	//constructor
-	public SchemaWriter(
+	private SchemaWriter(
+		final String databaseName,
 		final SQLConnection pSQLConnection,
 		final ISchemaStatementCreator schemaStatementCreator
 	) {
@@ -42,6 +53,7 @@ public final class SchemaWriter implements ISchemaWriter {
 		this.schemaStatementCreator = schemaStatementCreator;
 		
 		getRefCloseController().createCloseDependencyTo(mSQLConnection);
+		mSQLCollector.addSQLStatement("USE " + databaseName);
 	}
 	
 	//method

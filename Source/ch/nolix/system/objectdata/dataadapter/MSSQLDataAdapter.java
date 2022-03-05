@@ -3,7 +3,8 @@ package ch.nolix.system.objectdata.dataadapter;
 
 //own imports
 import ch.nolix.core.constant.IPv6Catalogue;
-import ch.nolix.core.sql.MSSQLConnection;
+import ch.nolix.core.sql.SQLConnectionPool;
+import ch.nolix.core.sql.SQLDatabaseEngine;
 import ch.nolix.system.objectdata.data.DataAdapter;
 import ch.nolix.system.objectdata.data.DataImplementation;
 import ch.nolix.system.objectschema.schemaadapter.MSSQLSchemaAdapter;
@@ -32,26 +33,32 @@ public final class MSSQLDataAdapter extends DataAdapter {
 		final String loginPassword,
 		final ISchema<DataImplementation> schema
 	) {
-		//TODO: Create a local SQLConnectionPool to serve the MSSQLSchemaAdapter and MSSQLDataAndSchemaAdapter.
-		super(
-			new MSSQLSchemaAdapter(
-				databaseName,
-				new MSSQLConnection(
-					ipOrAddressName,
-					port,
-					loginName,
-					loginPassword
-				)
-			),
+		this(
+			databaseName,
 			schema,
-			() -> new MSSQLDataAndSchemaAdapter(
+			SQLConnectionPool
+			.forIpOrAddressName(ipOrAddressName)
+			.andPort(port)
+			.andDatabase(databaseName)
+			.withSQLDatabaseEngine(SQLDatabaseEngine.MSSQL)
+			.usingLoginName(loginName)
+			.andLoginPassword(loginPassword)
+		);
+	}
+	
+	//constructor
+	private MSSQLDataAdapter(
+		final String databaseName,
+		final ISchema<DataImplementation> schema,
+		final SQLConnectionPool pSQLConnectionPool
+	) {
+		super(
+			MSSQLSchemaAdapter.forDatabaseWithGivenNameUsingConnectionFromGivenPool(databaseName, pSQLConnectionPool),
+			schema,
+			() ->
+			MSSQLDataAndSchemaAdapter.forDatabaseWithGivenNameUsingConnectionFromGivenPool(
 				databaseName,
-				new MSSQLConnection(
-					ipOrAddressName,
-					port,
-					loginName,
-					loginPassword
-				)
+				pSQLConnectionPool
 			)
 		);
 	}

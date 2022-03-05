@@ -6,14 +6,33 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.sql.SQLCollector;
 import ch.nolix.core.sql.SQLConnection;
+import ch.nolix.core.sql.SQLConnectionPool;
 import ch.nolix.element.time.base.Time;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaWriter;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDTO;
+import ch.nolix.systemapi.sqlbasicschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //class
 public final class SchemaWriter implements ISchemaWriter {
+	
+	//TODO: Remove pSQLSaveStampColumnDTO parameter.
+	//static method
+	public static SchemaWriter forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndSchemaAdapter(
+		final String databaseName,
+		final SQLConnectionPool pSQLConnectionPool,
+		final ISchemaAdapter schemaAdapter,
+		final ch.nolix.systemapi.sqlbasicschemaapi.schemadtoapi.IColumnDTO pSQLSaveStampColumnDTO
+	) {
+		return
+		new SchemaWriter(
+			databaseName,
+			pSQLConnectionPool.borrowSQLConnection(),
+			schemaAdapter,
+			pSQLSaveStampColumnDTO
+		);
+	}
 	
 	//attribute
 	private final CloseController closeController = new CloseController(this);

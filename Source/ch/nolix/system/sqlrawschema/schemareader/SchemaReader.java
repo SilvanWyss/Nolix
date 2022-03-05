@@ -1,10 +1,12 @@
 //package declaration
 package ch.nolix.system.sqlrawschema.schemareader;
 
+//own imports
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.sql.SQLConnection;
+import ch.nolix.core.sql.SQLConnectionPool;
 import ch.nolix.element.time.base.Time;
 import ch.nolix.system.objectschema.schemadto.SaveStampConfigurationDTO;
 import ch.nolix.system.objectschema.schemadto.TableDTO;
@@ -30,6 +32,15 @@ public final class SchemaReader implements ISchemaReader {
 	//static attribute
 	private static final ColumnDTOMapper columnDTOMapper = new ColumnDTOMapper();
 	
+	//static method
+	public static SchemaReader forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndSchemaAdapter(
+		final String databaseName,
+		final SQLConnectionPool pSQLConnectionPool,
+		final ISchemaAdapter schemaAdapter
+	) {
+		return new SchemaReader(databaseName, pSQLConnectionPool.borrowSQLConnection(), schemaAdapter);
+	}
+	
 	//attribute
 	private final CloseController closeController = new CloseController(this);
 	
@@ -40,7 +51,7 @@ public final class SchemaReader implements ISchemaReader {
 	private final ISchemaAdapter schemaAdapter;
 	
 	//constructor
-	public SchemaReader(
+	private SchemaReader(
 		final String databaseName,
 		final SQLConnection pSQLConnection,
 		final ISchemaAdapter schemaAdapter
@@ -53,6 +64,8 @@ public final class SchemaReader implements ISchemaReader {
 		this.schemaAdapter = schemaAdapter;
 		
 		createCloseDependencyTo(mSQLConnection);
+		createCloseDependencyTo(schemaAdapter);
+		
 		mSQLConnection.execute("USE " + databaseName);
 	}
 	

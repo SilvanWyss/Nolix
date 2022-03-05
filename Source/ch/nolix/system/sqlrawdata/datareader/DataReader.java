@@ -7,6 +7,7 @@ import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.sql.SQLConnection;
+import ch.nolix.core.sql.SQLConnectionPool;
 import ch.nolix.system.sqlrawdata.sqlapi.ISQLSyntaxProvider;
 import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataReader;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedRecordDTO;
@@ -16,6 +17,17 @@ import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
 //class
 public final class DataReader implements IDataReader {
 	
+	//static method
+	public static DataReader forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndTableInfosAndSQLSyntaxProvider(
+		final String databaseName,
+		final SQLConnectionPool pSQLConnectionPool,
+		final IContainer<ITableInfo> tableInfos,
+		final ISQLSyntaxProvider pSQLSyntaxProvider
+	) {
+		return
+		new DataReader(databaseName, pSQLConnectionPool.borrowSQLConnection(), tableInfos, pSQLSyntaxProvider);
+	}
+		
 	//attribute
 	private final CloseController closeController = new CloseController(this);
 	
@@ -26,7 +38,8 @@ public final class DataReader implements IDataReader {
 	private final IContainer<ITableInfo> tableInfos;
 	
 	//constructor
-	public DataReader(
+	private DataReader(
+		final String databaseName,
 		final SQLConnection pSQLConnection,
 		final IContainer<ITableInfo> tableInfos,
 		final ISQLSyntaxProvider pSQLSyntaxProvider
@@ -34,7 +47,7 @@ public final class DataReader implements IDataReader {
 		
 		Validator.assertThat(tableInfos).thatIsNamed("table definitions").isNotNull();
 		
-		internalDataReader = new InternalDataReader(pSQLConnection, pSQLSyntaxProvider);
+		internalDataReader = new InternalDataReader(databaseName, pSQLConnection, pSQLSyntaxProvider);
 		this.tableInfos = tableInfos;
 		
 		createCloseDependencyTo(pSQLConnection);

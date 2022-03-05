@@ -4,7 +4,7 @@ package ch.nolix.system.sqlrawschema.schemaadapter;
 //own imports
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
-import ch.nolix.core.sql.SQLConnection;
+import ch.nolix.core.sql.SQLConnectionPool;
 import ch.nolix.element.time.base.Time;
 import ch.nolix.system.sqlrawschema.databaseinitializer.DatabaseInitializer;
 import ch.nolix.system.sqlrawschema.schemareader.SchemaReader;
@@ -27,24 +27,36 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 	//attribute
 	private final SchemaWriter rawSchemaWriter;
 	
-	//attribtue
+	//attribute
 	private final CloseController closeController = new CloseController(this);
 	
 	//constructor
 	public SchemaAdapter(
 		final String databaseName,
-		final SQLConnection pSQLConnection,
+		final SQLConnectionPool pSQLConnectionPool,
 		final ch.nolix.systemapi.sqlbasicschemaapi.schemaadapterapi.ISchemaAdapter pSQLSchemaAdapter,
 		final ch.nolix.systemapi.sqlbasicschemaapi.schemadtoapi.IColumnDTO pSQLSaveStampColumnDTO
 	) {
 		
-		getRefCloseController().createCloseDependencyTo(pSQLConnection);
-		
-		pSQLConnection.execute("USE " + databaseName);
 		databaseInitializer.initializeDatabaseIfNotInitialized(pSQLSchemaAdapter);
 		
-		rawSchemaReader = new SchemaReader(databaseName, pSQLConnection, pSQLSchemaAdapter);
-		rawSchemaWriter = new SchemaWriter(databaseName, pSQLConnection, pSQLSchemaAdapter, pSQLSaveStampColumnDTO);
+		rawSchemaReader =
+		SchemaReader.forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndSchemaAdapter(
+			databaseName,
+			pSQLConnectionPool,
+			pSQLSchemaAdapter
+		);
+		
+		rawSchemaWriter =
+		SchemaWriter.forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndSchemaAdapter(
+			databaseName,
+			pSQLConnectionPool,
+			pSQLSchemaAdapter,
+			pSQLSaveStampColumnDTO
+		);
+		
+		getRefCloseController().createCloseDependencyTo(rawSchemaReader);
+		getRefCloseController().createCloseDependencyTo(rawSchemaWriter);
 	}
 	
 	//method

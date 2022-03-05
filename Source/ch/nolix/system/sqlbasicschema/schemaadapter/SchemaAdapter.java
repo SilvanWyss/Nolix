@@ -5,7 +5,7 @@ package ch.nolix.system.sqlbasicschema.schemaadapter;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
-import ch.nolix.core.sql.SQLConnection;
+import ch.nolix.core.sql.SQLConnectionPool;
 import ch.nolix.systemapi.sqlbasicschemaapi.flatschemadtoapi.IFlatTableDTO;
 import ch.nolix.systemapi.sqlbasicschemaapi.schemaadapterapi.ISchemaAdapter;
 import ch.nolix.systemapi.sqlbasicschemaapi.schemaadapterapi.ISchemaReader;
@@ -29,15 +29,28 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 	
 	//constructor
 	public SchemaAdapter(
-		final SQLConnection pSQLConnection,
+		final String databaseName,
+		final SQLConnectionPool pSQLConnectionPool,
 		final ISchemaQueryCreator schemaQueryCreator,
 		final ISchemaStatementCreator schemaStatementCreator
 	) {
 		
-		schemaReader = new SchemaReader(pSQLConnection, schemaQueryCreator);
-		schemaWriter = new SchemaWriter(pSQLConnection, schemaStatementCreator);
+		schemaReader =
+		SchemaReader.forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndSchemaQueryCreator(
+			databaseName,
+			pSQLConnectionPool,
+			schemaQueryCreator
+		);
 		
-		getRefCloseController().createCloseDependencyTo(pSQLConnection);
+		schemaWriter =
+		SchemaWriter.forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndSchemaStatementCreator(
+			databaseName,
+			pSQLConnectionPool,
+			schemaStatementCreator
+		);
+		
+		getRefCloseController().createCloseDependencyTo(schemaReader);
+		getRefCloseController().createCloseDependencyTo(schemaWriter);
 	}
 	
 	//method
