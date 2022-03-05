@@ -219,6 +219,17 @@ public abstract class SQLConnection implements GroupCloseable {
 	
 	//method
 	@Override
+	public final boolean isClosed() {
+		
+		if (!belongsToSQLConnectionPool()) {
+			return GroupCloseable.super.isClosed();
+		}
+		
+		return parentSQLConnectionPool.isClosed();
+	}
+	
+	//method
+	@Override
 	public final void noteClose() {
 		closeDirectly();
 	}
