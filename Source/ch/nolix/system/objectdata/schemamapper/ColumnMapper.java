@@ -41,7 +41,8 @@ public final class ColumnMapper implements IColumnMapper<SchemaImplementation> {
 	
 	//method
 	@Override
-	public <E extends IEntity<?>> LinkedList<IColumn<SchemaImplementation>> createColumnsFromGivenEntityTypeUsingGivenReferencableTables(
+	public <E extends IEntity<?>> LinkedList<IColumn<SchemaImplementation>>
+	createColumnsFromGivenEntityTypeUsingGivenReferencableTables(
 		final Class<E> entityType,
 		final IContainer<ITable<SchemaImplementation>> referencableTables
 	) {
