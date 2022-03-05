@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.coretest.nettest.endpoint2test;
 
+//own imports
 import ch.nolix.core.net.endpoint2.EndPoint;
 import ch.nolix.core.net.endpoint2.IEndPointTaker;
 import ch.nolix.core.net.endpoint2.NetEndPoint;
@@ -55,22 +56,21 @@ public final class NetEndPointTest extends Test {
 		//parameter definition
 		final var port = 50000;
 		
-		//setup
-		final var netServer = new Server(port);
-		netServer.addDefaultEndPointTaker(new EndPointTaker());
-		
-		//execution & verification
-		expectRunning(
-			() -> {
-				final var netEndPoint = new NetEndPoint(port);
-				Sequencer.waitForMilliseconds(500);
-				netEndPoint.close();
-			}
-		)
-		.doesNotThrowException();
-		
-		//cleanup
-		netServer.close();
+		try (final var netServer = new Server(port)) {
+			
+			//setup
+			netServer.addDefaultEndPointTaker(new EndPointTaker());
+			
+			//execution & verification
+			expectRunning(
+				() -> {
+					try (final var result = new NetEndPoint(port)) {
+						Sequencer.waitForMilliseconds(500);
+					}
+				}
+			)
+			.doesNotThrowException();
+		}
 	}
 	
 	//method
@@ -79,22 +79,22 @@ public final class NetEndPointTest extends Test {
 		
 		//parameter definition
 		final var port = 50000;
-		
-		//setup
-		final var netServer = new Server(port);
-		final var endPointTakerMock = new EndPointTaker();
-		netServer.addDefaultEndPointTaker(endPointTakerMock);
-		final var netEndPoint = new NetEndPoint(port);
-		
-		//execution
-		final var reply = netEndPoint.getReplyTo("MESSAGE");
-		
-		//verification
-		expect(endPointTakerMock.getReceivedMessageOrNull()).isEqualTo("MESSAGE");
-		expect(reply).isEqualTo("REPLY");
-		
-		//cleanup
-		netEndPoint.close();
-		netServer.close();
+				
+		try (final var netServer = new Server(port)) {
+			
+			//setup
+			final var endPointTaker = new EndPointTaker();
+			netServer.addDefaultEndPointTaker(endPointTaker);
+			
+			try (final var testUnit = new NetEndPoint(port)) {
+			
+				//execution
+				final var result = testUnit.getReplyTo("MESSAGE");
+				
+				//verification
+				expect(endPointTaker.getReceivedMessageOrNull()).isEqualTo("MESSAGE");
+				expect(result).isEqualTo("REPLY");
+			}
+		}
 	}
 }
