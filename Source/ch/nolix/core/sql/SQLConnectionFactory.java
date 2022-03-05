@@ -15,7 +15,6 @@ public final class SQLConnectionFactory {
 				return new MSSQLConnection(
 					pSQLDatabaseTarget.getIpOrAddressName(),
 					pSQLDatabaseTarget.getPort(),
-					pSQLDatabaseTarget.getDatabaseName(),
 					pSQLDatabaseTarget.getLoginName(),
 					pSQLDatabaseTarget.getLoginPassword(),
 					pSQLDatabaseTarget

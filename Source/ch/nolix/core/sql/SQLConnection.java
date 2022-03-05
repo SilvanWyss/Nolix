@@ -86,57 +86,8 @@ public abstract class SQLConnection implements GroupCloseable {
 	//constructor
 	public SQLConnection(
 		final SQLDatabaseEngine pSQLDatabaseEngine,
-		final int port,
-		final String databaseName,
-		final String userName,
-		final String userPassword
-	) {
-		this(
-			pSQLDatabaseEngine,
-			IPv4Catalogue.LOOP_BACK_ADDRESS,
-			port,
-			databaseName,
-			userName,
-			userPassword
-		);
-	}
-	
-	//constructor
-	public SQLConnection(
-		final SQLDatabaseEngine pSQLDatabaseEngine,
 		final String ip,
 		final int port,
-		final String databaseName,
-		final String userName,
-		final String userPassword
-	) {
-		
-		Validator.assertThat(pSQLDatabaseEngine).thatIsNamed(SQLDatabaseEngine.class).isNotNull();
-		
-		this.mSQLDatabaseEngine = pSQLDatabaseEngine;
-		
-		registerSQLDatabaseEngineDriver();
-		
-		try {
-			connection =
-			DriverManager.getConnection(
-				"jdbc:sqlserver://" + ip + ':'+ port + ";database=" + databaseName,
-				userName,
-				userPassword
-			);
-		} catch (final SQLException pSQLException) {
-			throw new WrapperException(pSQLException);
-		}
-		
-		parentSQLConnectionPool = null;
-	}
-	
-	//constructor
-	public SQLConnection(
-		final SQLDatabaseEngine pSQLDatabaseEngine,
-		final String ip,
-		final int port,
-		final String databaseName,
 		final String userName,
 		final String userPassword,
 		final SQLConnectionPool parentSQLConnectionPool
@@ -157,7 +108,7 @@ public abstract class SQLConnection implements GroupCloseable {
 		try {
 			connection =
 			DriverManager.getConnection(
-				"jdbc:sqlserver://" + ip + ':'+ port + ";database=" + databaseName,
+				"jdbc:sqlserver://" + ip + ':'+ port,
 				userName,
 				userPassword
 			);

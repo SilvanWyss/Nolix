@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.objectschema.mssqldatabaseschemaadapter;
 
+//own imports
 import ch.nolix.core.sql.MSSQLConnection;
 import ch.nolix.system.objectschema.sqldatabaseschemaadapter.SQLDatabaseSchemaAdapter;
 
@@ -11,21 +12,19 @@ extends SQLDatabaseSchemaAdapter<MSSQLDatabaseSchemaAdapter> {
 	//constructor
 	public MSSQLDatabaseSchemaAdapter(
 		final int port,
-		final String databaseName,
 		final String userName,
 		final String userPassword
 	) {
-		super(new MSSQLConnection(port, databaseName, userName, userPassword));
+		super(new MSSQLConnection(port, userName, userPassword));
 	}
 	
 	//constructor
 	public MSSQLDatabaseSchemaAdapter(
 		final String ip,
 		final int port,
-		final String databaseName,
 		final String userName,
 		final String userPassword
 	) {
-		super(new MSSQLConnection(ip, port, databaseName, userName, userPassword));
+		super(new MSSQLConnection(ip, port, userName, userPassword));
 	}
 }

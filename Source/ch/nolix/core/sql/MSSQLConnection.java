@@ -36,25 +36,8 @@ public final class MSSQLConnection extends SQLConnection {
 	
 	//constructor
 	public MSSQLConnection(
-		final int port,
-		final String databaseName,
-		final String userName,
-		final String userPassword
-	) {
-		super(
-			SQL_DATABASE_ENGINE,
-			port,
-			databaseName,
-			userName,
-			userPassword
-		);
-	}
-	
-	//constructor
-	public MSSQLConnection(
 		final String ip,
 		final int port,
-		final String databaseName,
 		final String userName,
 		final String userPassword
 	) {
@@ -62,7 +45,6 @@ public final class MSSQLConnection extends SQLConnection {
 			SQL_DATABASE_ENGINE,
 			ip,
 			port,
-			databaseName,
 			userName,
 			userPassword	
 		);
@@ -72,7 +54,6 @@ public final class MSSQLConnection extends SQLConnection {
 	public MSSQLConnection(
 		final String ip,
 		final int port,
-		final String databaseName,
 		final String userName,
 		final String userPassword,
 		final SQLConnectionPool parentSQLConnectionPool
@@ -81,7 +62,6 @@ public final class MSSQLConnection extends SQLConnection {
 			SQL_DATABASE_ENGINE,
 			ip,
 			port,
-			databaseName,
 			userName,
 			userPassword,
 			parentSQLConnectionPool

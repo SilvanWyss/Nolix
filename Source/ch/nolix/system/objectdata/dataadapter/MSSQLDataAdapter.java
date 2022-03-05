@@ -37,7 +37,6 @@ public final class MSSQLDataAdapter extends DataAdapter {
 				new MSSQLConnection(
 					ipOrAddressName,
 					port,
-					databaseName,
 					loginName,
 					loginPassword
 				)
