@@ -32,8 +32,9 @@ public final class NodeDatabaseDataAdapterBuilder extends Builder<
 		>
 		startArgumentCapturer
 	) {
+		//TODO: Create databaseName parameter.
 		return
-		new NodeDatabaseDataAdapter(startArgumentCapturer.getRefDatabase(), startArgumentCapturer.n().getRefSchema());
+		new NodeDatabaseDataAdapter("DB", startArgumentCapturer.getRefDatabase(), startArgumentCapturer.n().getRefSchema());
 	}
 
 	@Override

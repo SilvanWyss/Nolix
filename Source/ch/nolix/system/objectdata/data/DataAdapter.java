@@ -2,17 +2,25 @@
 package ch.nolix.system.objectdata.data;
 
 //own imports
+import ch.nolix.core.functionapi.IElementGetter;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.system.objectdata.datahelper.DatabaseHelper;
+import ch.nolix.system.objectschema.parametrizedpropertytype.SchemaImplementation;
 import ch.nolix.systemapi.objectdataapi.dataadapterapi.IDataAdapter;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.ISchema;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 import ch.nolix.systemapi.objectdataapi.datahelperapi.IDatabaseHelper;
+import ch.nolix.systemapi.objectdataapi.schemamapperapi.ITableMapper;
+import ch.nolix.systemapi.objectschemaapi.schemaadapterapi.ISchemaAdapter;
 import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
 
 //class
 public abstract class DataAdapter implements IDataAdapter<DataImplementation> {
+	
+	//static attribute
+	private static final ITableMapper<SchemaImplementation> tableMapper =
+	new ch.nolix.system.objectdata.schemamapper.TableMapper();
 	
 	//static attribute
 	private static final IDatabaseHelper databaseHelper = new DatabaseHelper();
@@ -31,12 +39,21 @@ public abstract class DataAdapter implements IDataAdapter<DataImplementation> {
 	
 	//constructor
 	public DataAdapter(
-		final IDataAndSchemaAdapter dataAndSchemaAdapter,
-		final ISchema<DataImplementation> schema
+		final ISchemaAdapter<SchemaImplementation> schemaAdapter,
+		final ISchema<DataImplementation> schema,
+		final IElementGetter<IDataAndSchemaAdapter> dataAndSchemaAdapterCreator
 	) {
 		
-		database = Database.withDataAndSchemaAdapterAndSchema(dataAndSchemaAdapter, schema);
+		//TODO: Add getTableCount method to SchemaAdapter.
+		if (schemaAdapter.getRefTables().isEmpty()) {
+			for (final var t : tableMapper.createTablesFrom(schema)) {
+				schemaAdapter.addTable(t);
+			}
+			schemaAdapter.saveChangesAndReset();
+		}
 		
+		final var dataAndSchemaAdapter = dataAndSchemaAdapterCreator.getOutput();
+		database = Database.withDataAndSchemaAdapterAndSchema(dataAndSchemaAdapter, schema);
 		getRefCloseController().createCloseDependencyTo(dataAndSchemaAdapter);
 	}
 	

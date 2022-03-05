@@ -6,6 +6,7 @@ import ch.nolix.core.constant.IPv6Catalogue;
 import ch.nolix.core.sql.MSSQLConnection;
 import ch.nolix.system.objectdata.data.DataAdapter;
 import ch.nolix.system.objectdata.data.DataImplementation;
+import ch.nolix.system.objectschema.schemaadapter.MSSQLSchemaAdapter;
 import ch.nolix.system.sqlrawdata.dataandschemaadapter.MSSQLDataAndSchemaAdapter;
 import ch.nolix.systemapi.objectdataapi.dataapi.ISchema;
 
@@ -31,8 +32,9 @@ public final class MSSQLDataAdapter extends DataAdapter {
 		final String loginPassword,
 		final ISchema<DataImplementation> schema
 	) {
+		//TODO: Create a local SQLConnectionPool to serve the MSSQLSchemaAdapter and MSSQLDataAndSchemaAdapter.
 		super(
-			new MSSQLDataAndSchemaAdapter(
+			new MSSQLSchemaAdapter(
 				databaseName,
 				new MSSQLConnection(
 					ipOrAddressName,
@@ -41,7 +43,16 @@ public final class MSSQLDataAdapter extends DataAdapter {
 					loginPassword
 				)
 			),
-			schema
+			schema,
+			() -> new MSSQLDataAndSchemaAdapter(
+				databaseName,
+				new MSSQLConnection(
+					ipOrAddressName,
+					port,
+					loginName,
+					loginPassword
+				)
+			)
 		);
 	}
 }
