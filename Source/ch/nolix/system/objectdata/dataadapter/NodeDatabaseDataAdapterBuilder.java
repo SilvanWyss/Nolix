@@ -2,51 +2,37 @@
 package ch.nolix.system.objectdata.dataadapter;
 
 //own imports
-import ch.nolix.core.builder.argumentcapturer.WithDatabaseCapturer;
-import ch.nolix.core.builder.base.Builder;
+import ch.nolix.core.builder.argumentcapturer.WithNameCapturer;
 import ch.nolix.core.builder.terminalargumentcapturer.UsingSchemaTerminalCapturer;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.system.objectdata.data.DataImplementation;
 import ch.nolix.systemapi.objectdataapi.dataapi.ISchema;
 
 //class
-public final class NodeDatabaseDataAdapterBuilder extends Builder<
-	WithDatabaseCapturer<
-		BaseNode,
-		UsingSchemaTerminalCapturer<
-			ISchema<DataImplementation>,
-			NodeDatabaseDataAdapter
-		>
-	>,
-	NodeDatabaseDataAdapter
+public final class NodeDatabaseDataAdapterBuilder
+extends
+WithNameCapturer<
+	UsingSchemaTerminalCapturer<
+		ISchema<DataImplementation>,
+		NodeDatabaseDataAdapter
+	>
 > {
 	
-	//method
-	@Override
-	protected NodeDatabaseDataAdapter build(
-		final
-		WithDatabaseCapturer<
-			BaseNode,
-			UsingSchemaTerminalCapturer<ISchema<DataImplementation>,
-			NodeDatabaseDataAdapter>
-		>
-		startArgumentCapturer
-	) {
-		//TODO: Create databaseName parameter.
-		return
-		new NodeDatabaseDataAdapter("DB", startArgumentCapturer.getRefDatabase(), startArgumentCapturer.n().getRefSchema());
+	//constructor
+	public NodeDatabaseDataAdapterBuilder(final BaseNode nodeDatabase) {
+		
+		super(new UsingSchemaTerminalCapturer<>());
+		
+		setBuilder(() -> build(nodeDatabase));
 	}
-
-	@Override
-	protected
-	WithDatabaseCapturer<
-		BaseNode,
-		UsingSchemaTerminalCapturer<
-			ISchema<DataImplementation>,
-			NodeDatabaseDataAdapter
-		>
-	>
-	createStartArgumentCapturer() {
-		return new WithDatabaseCapturer<>(new UsingSchemaTerminalCapturer<>());
+	
+	//method
+	private NodeDatabaseDataAdapter build(final BaseNode nodeDatabase) {
+		return		
+		new NodeDatabaseDataAdapter(
+			getName(),
+			nodeDatabase,
+			n().getRefSchema()
+		);
 	}
 }

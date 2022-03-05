@@ -24,7 +24,8 @@ public final class NodeDatabaseDataAdapterTest extends Test {
 		final var schema = Schema.withEntityType();
 		
 		//execution
-		final var result = NodeDatabaseDataAdapter.forNodeDatabase(nodeDatabase).usingSchema(schema);
+		final var result =
+		NodeDatabaseDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
 		
 		//verification
 		expectNot(result.hasChanges());
@@ -37,7 +38,8 @@ public final class NodeDatabaseDataAdapterTest extends Test {
 		//setup
 		final var nodeDatabase = new Node();
 		final var schema = Schema.withEntityType(EmptyThing.class);
-		final var testUnit = NodeDatabaseDataAdapter.forNodeDatabase(nodeDatabase).usingSchema(schema);
+		final var testUnit =
+		NodeDatabaseDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
 		
 		//execution
 		testUnit.saveChangesAndReset();
@@ -53,7 +55,8 @@ public final class NodeDatabaseDataAdapterTest extends Test {
 		//setup
 		final var nodeDatabase = new Node();
 		final var schema = Schema.withEntityType(EmptyThing.class);
-		final var testUnit = NodeDatabaseDataAdapter.forNodeDatabase(nodeDatabase).usingSchema(schema);
+		final var testUnit =
+		NodeDatabaseDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
 		testUnit.insert(new EmptyThing());
 		
 		//execution
