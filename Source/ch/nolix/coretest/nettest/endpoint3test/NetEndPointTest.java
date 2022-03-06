@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.coretest.nettest.endpoint3test;
 
+//own imports
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.net.controllerapi.IDataProviderController;
@@ -14,18 +15,20 @@ import ch.nolix.core.testing.test.Test;
 
 //class
 /**
- * A {@link NetEndPointTest} is a test for {@link NetEndPoint}.
+ * A {@link NetEndPointTest} is a test for {@link NetEndPoint}s.
  * 
  * @author Silvan Wyss
  * @date 2016-10-01
  */
 public final class NetEndPointTest extends Test {
 	
-	//mock class
-	private static class EndPointTakerMock implements IEndPointTaker {
+	//static class
+	private static final class EndPointTaker implements IEndPointTaker {
 		
-		//optional attributes
+		//optional attribute
 		private ChainedNode command;
+		
+		//optional attribute
 		private ChainedNode request;
 		
 		//method
@@ -49,16 +52,17 @@ public final class NetEndPointTest extends Test {
 		public void takeEndPoint(final EndPoint endPoint) {
 			endPoint.setReceiverController(new IDataProviderController() {
 				
+				//method
 				@Override
 				public Node getData(final ChainedNode request) {
-					EndPointTakerMock.this.setRequest(request);
+					EndPointTaker.this.setRequest(request);
 					return Node.withHeader("DATA");
 				}
 				
+				//method
 				@Override
 				public void run(final ChainedNode command) {
-					EndPointTakerMock.this.setCommand(command);
-					
+					EndPointTaker.this.setCommand(command);
 				}
 			});
 		}
@@ -80,23 +84,22 @@ public final class NetEndPointTest extends Test {
 		
 		//parameter definition
 		final var port = 50000;
-		
-		//setup
-		final var netServer = new Server(port);
-		netServer.addDefaultEndPointTaker(new EndPointTakerMock());
-		
-		//execution & verification
-		expectRunning(
-			() -> {
-				final var netEndPoint = new NetEndPoint(port);
-				Sequencer.waitForMilliseconds(500);
-				netEndPoint.close();
-			}
-		)
-		.doesNotThrowException();
-		
-		//cleanup
-		netServer.close();
+				
+		try (final var netServer = new Server(port)) {
+			
+			//setup
+			netServer.addDefaultEndPointTaker(new EndPointTaker());
+			
+			//execution & verification
+			expectRunning(
+				() -> {
+					try (final var result = new NetEndPoint(port)) {
+						Sequencer.waitForMilliseconds(500);
+					}
+				}
+			)
+			.doesNotThrowException();
+		}
 	}
 	
 	//method
@@ -106,21 +109,21 @@ public final class NetEndPointTest extends Test {
 		//parameter definition
 		final var port = 50000;
 		
-		//setup
-		final var netServer = new Server(port);
-		final var endPointTakerMock = new EndPointTakerMock();
-		netServer.addDefaultEndPointTaker(endPointTakerMock);
-		final var netEndPoint = new NetEndPoint(port);
-		
-		//execution
-		netEndPoint.run(ChainedNode.withHeader("COMMAND"));
-		
-		//verification
-		expect(endPointTakerMock.getReceivedCommandOrNull()).isEqualTo(ChainedNode.withHeader("COMMAND"));
-		
-		//cleanup
-		netEndPoint.close();
-		netServer.close();
+		try (final var netServer = new Server(port)) {
+			
+			//setup
+			final var endPointTaker = new EndPointTaker();
+			netServer.addDefaultEndPointTaker(endPointTaker);
+			
+			try (final var testUnit = new NetEndPoint(port)) {
+			
+				//execution
+				testUnit.run(ChainedNode.withHeader("COMMAND"));
+				
+				//verification
+				expect(endPointTaker.getReceivedCommandOrNull()).isEqualTo(ChainedNode.withHeader("COMMAND"));
+			}
+		}
 	}
 	
 	//method
@@ -129,22 +132,22 @@ public final class NetEndPointTest extends Test {
 		
 		//parameter definition
 		final var port = 50000;
-		
-		//setup
-		final var netServer = new Server(port);
-		final var endPointTakerMock = new EndPointTakerMock();
-		netServer.addDefaultEndPointTaker(endPointTakerMock);
-		final var netEndPoint = new NetEndPoint(port);
-		
-		//execution
-		final var data = netEndPoint.getData(ChainedNode.withHeader("REQUEST"));
-		
-		//verification
-		expect(endPointTakerMock.getReceivedRequestOrNull()).isEqualTo(ChainedNode.withHeader("REQUEST"));
-		expect(data).isEqualTo(Node.withHeader("DATA"));
-		
-		//cleanup
-		netEndPoint.close();
-		netServer.close();
+				
+		try (final var netServer = new Server(port)) {
+			
+			//setup
+			final var endPointTaker = new EndPointTaker();
+			netServer.addDefaultEndPointTaker(endPointTaker);
+			
+			try (final var testUnit = new NetEndPoint(port)) {
+				
+				//execution
+				final var result = testUnit.getData(ChainedNode.withHeader("REQUEST"));
+				
+				//verification
+				expect(endPointTaker.getReceivedRequestOrNull()).isEqualTo(ChainedNode.withHeader("REQUEST"));
+				expect(result).isEqualTo(Node.withHeader("DATA"));
+			}
+		}
 	}
 }
