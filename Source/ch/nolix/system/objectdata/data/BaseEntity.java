@@ -215,7 +215,10 @@ public abstract class BaseEntity implements IEntity<DataImplementation> {
 	
 	//method
 	private void extractPropertiesWhenNotExtracted() {
+		
 		properties = internalLoadProperties();
+		
+		properties.forEach(p -> p.internalSetParentEntity(this));
 	}
 	
 	//method
