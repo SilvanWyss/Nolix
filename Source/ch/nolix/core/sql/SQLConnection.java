@@ -231,11 +231,11 @@ public abstract class SQLConnection implements GroupCloseable {
 	//method
 	@Override
 	public final void noteClose() {
-		closeDirectly();
+		internalCloseDirectly();
 	}
 	
 	//method
-	final void closeDirectly() {
+	final void internalCloseDirectly() {
 		try {
 			connection.close();
 		} catch (final SQLException pSQLException) {

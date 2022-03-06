@@ -6,7 +6,12 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.Validator;
 
 //class
-final class SQLConnectionWrapper {
+final class SQLConnectionWrapper implements AutoCloseable {
+	
+	//static method
+	public static SQLConnectionWrapper forSQLConnection(final SQLConnection pSQLConnection) {
+		return new SQLConnectionWrapper(pSQLConnection);
+	}
 	
 	//attribute
 	private final SQLConnection mSQLConnection;
@@ -15,11 +20,10 @@ final class SQLConnectionWrapper {
 	private boolean available = true;
 	
 	//constructor
-	public SQLConnectionWrapper(final SQLConnection pSQLConnection) {
+	private SQLConnectionWrapper(final SQLConnection pSQLConnection) {
 		
 		Validator.assertThat(pSQLConnection).thatIsNamed(SQLConnection.class).isNotNull();
 		Validator.assertThat(pSQLConnection).thatIsNamed(SQLConnection.class).fulfills(SQLConnection::isOpen);
-		//assertDoesNotBelongToSQLConnectionPool(pSQLConnection);
 		
 		mSQLConnection = pSQLConnection;
 	}
@@ -30,6 +34,12 @@ final class SQLConnectionWrapper {
 		assertIsAvailable();
 		
 		return mSQLConnection;
+	}
+	
+	//method
+	@Override
+	public void close() {
+		mSQLConnection.internalCloseDirectly();
 	}
 	
 	//method
@@ -59,14 +69,7 @@ final class SQLConnectionWrapper {
 		
 		available = false;
 	}
-	
-	//method
-	private void assertDoesNotBelongToSQLConnectionPool(final SQLConnection pSQLConnection) {
-		if (pSQLConnection.belongsToSQLConnectionPool()) {
-			throw new InvalidArgumentException(pSQLConnection, "belongs to SQLConnectionPool");
-		}
-	}
-	
+		
 	//method
 	private void assertIsAvailable() {
 		if (!isAvailable()) {

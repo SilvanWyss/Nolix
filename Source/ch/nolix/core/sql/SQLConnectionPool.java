@@ -129,7 +129,7 @@ public final class SQLConnectionPool implements GroupCloseable, ISQLDatabaseTarg
 	@Override
 	public void noteClose() {
 		for (final var sqlc : mSQLConnections) {
-			sqlc.getRefSQLConnection().closeDirectly();
+			sqlc.close();
 		}
 	}
 	
@@ -141,7 +141,8 @@ public final class SQLConnectionPool implements GroupCloseable, ISQLDatabaseTarg
 	//method
 	private SQLConnectionWrapper createSQLConnectionWrapper() {
 		
-		final var lSQLConnectionWrapper = new SQLConnectionWrapper(sSQLConnectionFactory.createSQLConnectionFor(this));
+		final var lSQLConnectionWrapper =
+		SQLConnectionWrapper.forSQLConnection(sSQLConnectionFactory.createSQLConnectionFor(this));
 		
 		mSQLConnections.addAtEnd(lSQLConnectionWrapper);
 		
