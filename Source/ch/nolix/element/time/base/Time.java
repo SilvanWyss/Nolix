@@ -5,6 +5,7 @@ package ch.nolix.element.time.base;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
+//own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.constant.TimeUnitCatalogue;
 import ch.nolix.core.container.LinkedList;
@@ -311,6 +312,18 @@ public final class Time implements IElement<Time> {
 				getMillisecondOfSecond()
 			))
 		);
+	}
+	
+	//method
+	@Override
+	public boolean equals(final Object object) {
+		
+		if (!(object instanceof Time)) {
+			return false;
+		}
+		
+		final var time = (Time)object;
+		return getSpecification().equals(time.getSpecification());
 	}
 	
 	//method
