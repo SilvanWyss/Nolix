@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.nodedatabaserawschema.schemawriter;
 
+//own imports
 import ch.nolix.core.document.node.Node;
 import ch.nolix.system.nodedatabaserawschema.structure.SubNodeHeaderCatalogue;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDTO;
@@ -20,20 +21,20 @@ public final class ColumnNodeMapper {
 		node
 		.setHeader(SubNodeHeaderCatalogue.COLUMN)
 		.addAttribute(createIdNodeFrom(column))
-		.addAttribute(createHeaderNodeFrom(column))
+		.addAttribute(createNameNodeFrom(column))
 		.addAttribute(createParametrizedPropertyTypeNodeFrom(column));
 		
 		return node;
 	}
 	
 	//method
-	private Node createHeaderNodeFrom(final IColumnDTO column) {
-		return Node.withHeaderAndAttribute(SubNodeHeaderCatalogue.HEADER, column.getName());
+	private Node createIdNodeFrom(final IColumnDTO column) {
+		return Node.withHeaderAndAttribute(SubNodeHeaderCatalogue.ID, column.getId());
 	}
 	
 	//method
-	private Node createIdNodeFrom(final IColumnDTO column) {
-		return Node.withHeaderAndAttribute(SubNodeHeaderCatalogue.ID, column.getId());
+	private Node createNameNodeFrom(final IColumnDTO column) {
+		return Node.withHeaderAndAttribute(SubNodeHeaderCatalogue.NAME, column.getName());
 	}
 	
 	//method

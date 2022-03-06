@@ -13,7 +13,6 @@ public final class SubNodeHeaderCatalogue {
 	public static final String TABLE = PascalCaseCatalogue.TABLE;
 	public static final String NAME = PascalCaseCatalogue.NAME;
 	public static final String COLUMN = PascalCaseCatalogue.COLUMN;
-	public static final String HEADER = PascalCaseCatalogue.HEADER;
 	public static final String PARAMETRIZED_PROPERTY_TYPE = "ParametrizedPropertyType";
 	public static final String PROPERTY_TYPE = "PropertyType";
 	public static final String DATA_TYPE = PascalCaseCatalogue.DATA_TYPE;
