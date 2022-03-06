@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.coretest.nettest.endpointtest;
 
+//own imports
 import ch.nolix.core.environment.nolixenvironment.NolixEnvironment;
 import ch.nolix.core.net.endpoint.EndPoint;
 import ch.nolix.core.net.endpoint.IEndPointTaker;
@@ -50,21 +51,23 @@ public final class NetEndPointTest extends Test {
 		final var port = 50000;
 		
 		//setup
-		final var netServer = new Server(port);
-		netServer.addDefaultEndPointTaker(new TestEndPointTaker());
-		
-		//execution & verification
-		expectRunning(
-			() -> {
-				final var netEndPoint = new NetEndPoint(port);
-				Sequencer.waitForMilliseconds(NolixEnvironment.DEFAULT_CONNECT_AND_DISCONNECT_TIMEOUT_IN_MILLISECONDS);
-				netEndPoint.close();
-			}
-		)
-		.doesNotThrowException();
-		
-		//cleanup
-		netServer.close();
+		try (final var netServer = new Server(port)) {
+			
+			//setup
+			netServer.addDefaultEndPointTaker(new TestEndPointTaker());
+			
+			//execution & verification
+			expectRunning(
+				() -> {
+					try (final var result = new NetEndPoint(port)) {
+						Sequencer.waitForMilliseconds(
+							NolixEnvironment.DEFAULT_CONNECT_AND_DISCONNECT_TIMEOUT_IN_MILLISECONDS
+						);
+					}
+				}
+			)
+			.doesNotThrowException();
+		}
 	}
 	
 	//method
@@ -74,21 +77,21 @@ public final class NetEndPointTest extends Test {
 		//parameter definition
 		final var port = 50000;
 		
-		//setup
-		final var netServer = new Server(port);
-		final var endPointTakerMock = new TestEndPointTaker();
-		netServer.addDefaultEndPointTaker(endPointTakerMock);
-		final var netEndPoint = new NetEndPoint(port);
-		
-		//execution
-		netEndPoint.send("MESSAGE");
-		Sequencer.waitForMilliseconds(NolixEnvironment.DEFAULT_CONNECT_AND_DISCONNECT_TIMEOUT_IN_MILLISECONDS);
-		
-		//verification
-		expect(endPointTakerMock.getReceivedMessage()).isEqualTo("MESSAGE");
-		
-		//cleanup
-		netEndPoint.close();
-		netServer.close();
+		try (final var netServer = new Server(port)) {
+			
+			//setup
+			final var endPointTaker = new TestEndPointTaker();
+			netServer.addDefaultEndPointTaker(endPointTaker);
+			
+			try (final var testUnit = new NetEndPoint(port)) {
+				
+				//execution
+				testUnit.send("MESSAGE");
+				Sequencer.waitForMilliseconds(NolixEnvironment.DEFAULT_CONNECT_AND_DISCONNECT_TIMEOUT_IN_MILLISECONDS);
+				
+				//verification
+				expect(endPointTaker.getReceivedMessage()).isEqualTo("MESSAGE");
+			}
+		}
 	}
 }
