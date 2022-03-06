@@ -97,6 +97,12 @@ public final class SchemaAdapter implements ISchemaAdapter {
 	
 	//method
 	@Override
+	public int getTableCount() {
+		return schemaReader.getTableCount();
+	}
+	
+	//method
+	@Override
 	public boolean hasChanges() {
 		return schemaWriter.hasChanges();
 	}

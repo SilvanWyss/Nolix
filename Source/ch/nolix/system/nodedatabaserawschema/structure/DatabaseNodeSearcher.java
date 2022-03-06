@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.nodedatabaserawschema.structure;
 
+//own imports
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.document.node.BaseNode;
 
@@ -45,5 +46,10 @@ public final class DatabaseNodeSearcher {
 	//method
 	public IContainer<BaseNode> getRefTableNodesFromDatabaseNode(final BaseNode databaseNode) {
 		return databaseNode.getRefAttributes(SubNodeHeaderCatalogue.TABLE);
+	}
+	
+	//method
+	public int getTableNodeCount(final BaseNode databaseNode) {
+		return databaseNode.getRefAttributes().getCount(a -> a.hasHeader(SubNodeHeaderCatalogue.TABLE));
 	}
 }

@@ -84,6 +84,12 @@ public abstract class SchemaAdapter implements ISchemaAdapter<SchemaImplementati
 	
 	//method
 	@Override
+	public int getTableCount() {
+		return database.getTableCount();
+	}
+	
+	//method
+	@Override
 	public final boolean hasChanges() {
 		return rawSchemaAdapter.hasChanges();
 	}

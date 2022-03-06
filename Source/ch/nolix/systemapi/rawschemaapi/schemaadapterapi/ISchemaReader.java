@@ -16,6 +16,9 @@ public interface ISchemaReader extends GroupCloseable {
 	boolean columnIsEmpty(String tableName, String columnName);
 	
 	//method declaration
+	int getTableCount();
+	
+	//method declaration
 	LinkedList<IColumnDTO> loadColumnsByTableName(String tableName);
 	
 	//method declaration

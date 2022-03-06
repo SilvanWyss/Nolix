@@ -103,6 +103,12 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 	
 	//method
 	@Override
+	public final int getTableCount() {
+		return rawSchemaReader.getTableCount();
+	}
+	
+	//method
+	@Override
 	public final boolean hasChanges() {
 		return rawSchemaWriter.hasChanges();
 	}

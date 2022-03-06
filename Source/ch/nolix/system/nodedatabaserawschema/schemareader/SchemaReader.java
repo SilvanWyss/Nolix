@@ -74,6 +74,12 @@ public final class SchemaReader implements ISchemaReader {
 	
 	//method
 	@Override
+	public int getTableCount() {
+		return databaseNodeSearcher.getTableNodeCount(databaseNode);
+	}
+	
+	//method
+	@Override
 	public LinkedList<IColumnDTO> loadColumnsByTableId(final String tableId) {
 		
 		final var tableNode = databaseNodeSearcher.getRefTableNodeByTableIdFromDatabaseNode(databaseNode, tableId);

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlrawschema.schemareader;
 
+//method
 import ch.nolix.system.sqlrawschema.columntable.ColumnTableColumn;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabaseProperty;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertySystemTableColumn;
@@ -9,6 +10,16 @@ import ch.nolix.system.sqlrawschema.tabletable.TableTableColumn;
 
 //class
 final class QueryCreator {
+	
+	//method
+	public String createQueryToGetTableCount() {
+		return
+		"SELECT COUNT("
+		+ TableTableColumn.ID.getName()
+		+ ") FROM "
+		+ SystemDataTable.TABLE.getFullName()
+		+ ";";
+	}
 	
 	//method
 	public String createQueryToLoadCoumnsByTableId(final String tableId) {

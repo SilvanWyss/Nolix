@@ -74,6 +74,17 @@ public final class Database extends SchemaObject implements IDatabase<SchemaImpl
 	
 	//method
 	@Override
+	public int getTableCount() {
+		
+		if (!isLinkedWithRealDatabase() || hasLoadedTablesFromDatabase()) {
+			return tables.getElementCount();
+		}
+		
+		return rawSchemaAdapter.getTableCount();
+	}
+	
+	//method
+	@Override
 	public boolean isLinkedWithRealDatabase() {
 		return (rawSchemaAdapter != null);
 	}

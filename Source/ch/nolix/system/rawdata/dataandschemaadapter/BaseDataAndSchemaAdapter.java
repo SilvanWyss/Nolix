@@ -125,6 +125,12 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
 	
 	//method
 	@Override
+	public final int getTableCount() {
+		return schemaReader.getTableCount();
+	}
+	
+	//method
+	@Override
 	public final boolean hasChanges() {
 		return dataAdapter.hasChanges();
 	}

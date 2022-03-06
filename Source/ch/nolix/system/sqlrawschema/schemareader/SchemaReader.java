@@ -83,6 +83,12 @@ public final class SchemaReader implements ISchemaReader {
 	
 	//method
 	@Override
+	public int getTableCount() {
+		return Integer.valueOf(mSQLConnection.getOneRecord(queryCreator.createQueryToGetTableCount()).get(0));
+	}
+	
+	//method
+	@Override
 	public LinkedList<IColumnDTO> loadColumnsByTableId(final String tableId) {
 		return
 		mSQLConnection

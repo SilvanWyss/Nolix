@@ -17,4 +17,7 @@ public interface ISchemaAdapter<IMPL> extends IMultiTimeChangeSaver {
 	
 	//method declaration
 	IContainer<ITable<IMPL>> getRefTables();
+	
+	//method declaration
+	int getTableCount();
 }

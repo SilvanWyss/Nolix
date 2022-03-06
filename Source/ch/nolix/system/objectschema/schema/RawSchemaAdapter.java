@@ -53,6 +53,11 @@ final class RawSchemaAdapter {
 	}
 	
 	//method
+	public int getTableCount() {
+		return internalRawSchemaAdapter.getTableCount();
+	}
+	
+	//method
 	public LinkedList<IColumnDTO> loadColumnsOfTable(final ITable<SchemaImplementation> table) {
 		return internalRawSchemaAdapter.loadColumnsByTableId(table.getId());
 	}

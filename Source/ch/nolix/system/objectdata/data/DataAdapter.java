@@ -44,8 +44,8 @@ public abstract class DataAdapter implements IDataAdapter<DataImplementation> {
 		final IElementGetter<IDataAndSchemaAdapter> dataAndSchemaAdapterCreator
 	) {
 		
-		//TODO: Add getTableCount method to SchemaAdapter.
-		if (schemaAdapter.getRefTables().isEmpty()) {
+		//TODO: Create DatabaseInitializer.
+		if (schemaAdapter.getTableCount() == 0) {
 			for (final var t : tableMapper.createTablesFrom(schema)) {
 				schemaAdapter.addTable(t);
 			}
