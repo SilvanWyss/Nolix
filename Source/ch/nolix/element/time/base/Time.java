@@ -598,6 +598,15 @@ public final class Time implements IElement<Time> {
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public int hashCode() {
+		return getSpecification().hashCode();
+	}
+	
+	//method
+	/**
 	 * @param time
 	 * @return true if the current {@link Time} is after the given time.
 	 */
