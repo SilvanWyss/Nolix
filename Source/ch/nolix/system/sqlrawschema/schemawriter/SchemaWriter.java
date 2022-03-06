@@ -17,20 +17,17 @@ import ch.nolix.systemapi.sqlbasicschemaapi.schemaadapterapi.ISchemaAdapter;
 //class
 public final class SchemaWriter implements ISchemaWriter {
 	
-	//TODO: Remove pSQLSaveStampColumnDTO parameter.
 	//static method
 	public static SchemaWriter forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndSchemaAdapter(
 		final String databaseName,
 		final SQLConnectionPool pSQLConnectionPool,
-		final ISchemaAdapter schemaAdapter,
-		final ch.nolix.systemapi.sqlbasicschemaapi.schemadtoapi.IColumnDTO pSQLSaveStampColumnDTO
+		final ISchemaAdapter schemaAdapter
 	) {
 		return
 		new SchemaWriter(
 			databaseName,
 			pSQLConnectionPool.borrowSQLConnection(),
-			schemaAdapter,
-			pSQLSaveStampColumnDTO
+			schemaAdapter
 		);
 	}
 	
@@ -56,15 +53,14 @@ public final class SchemaWriter implements ISchemaWriter {
 	public SchemaWriter(
 		final String databaseName,
 		final SQLConnection pSQLConnection,
-		final ch.nolix.systemapi.sqlbasicschemaapi.schemaadapterapi.ISchemaWriter schemaWriter,
-		final ch.nolix.systemapi.sqlbasicschemaapi.schemadtoapi.IColumnDTO pSQLSaveStampColumnDTO
+		final ch.nolix.systemapi.sqlbasicschemaapi.schemaadapterapi.ISchemaWriter schemaWriter
 	) {
 		
 		Validator.assertThat(pSQLConnection).thatIsNamed(SQLConnection.class).isNotNull();
 		
 		mSQLConnection = pSQLConnection;
 		systemDataWriter = new SystemDataWriter(mSQLCollector);
-		internalSchemaWriter = new InternalSchemaWriter(schemaWriter, pSQLSaveStampColumnDTO);		
+		internalSchemaWriter = new InternalSchemaWriter(schemaWriter);		
 		
 		createCloseDependencyTo(pSQLConnection);
 		mSQLConnection.execute("USE " + databaseName);

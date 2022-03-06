@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlrawschema.schemawriter;
 
+//own imports
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.requestapi.ChangeRequestable;
@@ -12,20 +13,18 @@ import ch.nolix.systemapi.sqlbasicschemaapi.schemaadapterapi.ISchemaWriter;
 //class
 final class InternalSchemaWriter implements ChangeRequestable {
 	
-	//attributes
-	private final ISchemaWriter mSQLSchemaWriter;
-	private final SchemaDTOMapper schemaDTOMapper;
+	//static attribute
+	private static final SchemaDTOMapper schemaDTOMapper = new SchemaDTOMapper();
 	
+	//attribute
+	private final ISchemaWriter mSQLSchemaWriter;
+		
 	//constructor
-	public InternalSchemaWriter(
-		final ISchemaWriter pSQLSchemaWriter,
-		final ch.nolix.systemapi.sqlbasicschemaapi.schemadtoapi.IColumnDTO pSQLSaveStampColumnDTO
-	) {
+	public InternalSchemaWriter(final ISchemaWriter pSQLSchemaWriter) {
 		
 		Validator.assertThat(pSQLSchemaWriter).thatIsNamed(ISchemaWriter.class).isNotNull();
 		
 		this.mSQLSchemaWriter = pSQLSchemaWriter;
-		schemaDTOMapper = new SchemaDTOMapper(pSQLSaveStampColumnDTO);
 	}
 	
 	//method

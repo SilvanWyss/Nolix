@@ -1,34 +1,27 @@
 //package declaration
 package ch.nolix.system.sqlrawschema.schemawriter;
 
+//own imports
+import ch.nolix.core.constant.PascalCaseCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
-import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.system.sqlbasicschema.schemadto.ColumnDTO;
 import ch.nolix.system.sqlbasicschema.schemadto.TableDTO;
 import ch.nolix.system.sqlrawschema.structure.SQLDatatypeCatalogue;
 import ch.nolix.system.sqlrawschema.structure.TableType;
-import ch.nolix.system.sqlrawschema.tabletable.TableTableColumn;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDTO;
 
 //class
 final class SchemaDTOMapper {
 	
-	//static attribute
-	private final ch.nolix.systemapi.sqlbasicschemaapi.schemadtoapi.IColumnDTO mSQLIdColumnDTO =
-	new ColumnDTO(TableTableColumn.ID.getName(), SQLDatatypeCatalogue.TEXT);
+	//constant
+	private static final ch.nolix.systemapi.sqlbasicschemaapi.schemadtoapi.IColumnDTO SQL_ID_COLUMN_DTO =
+	new ColumnDTO(PascalCaseCatalogue.ID, SQLDatatypeCatalogue.TEXT);
 	
-	//attribute
-	private final ch.nolix.systemapi.sqlbasicschemaapi.schemadtoapi.IColumnDTO mSQLSaveStampColumnDTO;
-	
-	//constructor
-	public SchemaDTOMapper(final ch.nolix.systemapi.sqlbasicschemaapi.schemadtoapi.IColumnDTO pSQLSaveStampColumnDTO) {
-		
-		Validator.assertThat(pSQLSaveStampColumnDTO).thatIsNamed("SQL save stamp DTO").isNotNull();
-		
-		mSQLSaveStampColumnDTO = pSQLSaveStampColumnDTO;
-	}
+	//constant
+	private static final ch.nolix.systemapi.sqlbasicschemaapi.schemadtoapi.IColumnDTO SQL_SAVE_STAMP_COLUMN_DTO =
+	new ColumnDTO(PascalCaseCatalogue.SAVE_STAMP, SQLDatatypeCatalogue.INTEGER);
 	
 	//method
 	public ch.nolix.systemapi.sqlbasicschemaapi.schemadtoapi.IColumnDTO createSQLColumnDTOFrom(final IColumnDTO column) {
@@ -45,13 +38,16 @@ final class SchemaDTOMapper {
 		final ITableDTO table
 	) {
 		
-		final var columns = LinkedList.withElements(mSQLIdColumnDTO);
+		final var columns = new LinkedList<ch.nolix.systemapi.sqlbasicschemaapi.schemadtoapi.IColumnDTO>();
+		
+		columns.addAtEnd(SQL_ID_COLUMN_DTO);
 		
 		for (final var c : table.getColumns()) {
 			columns.addAtEnd(createSQLColumnDTOFrom(c));
 		}
 		
-		columns.addAtEnd(mSQLSaveStampColumnDTO);
+		columns.addAtEnd(SQL_SAVE_STAMP_COLUMN_DTO);
+
 		
 		return columns;
 	}

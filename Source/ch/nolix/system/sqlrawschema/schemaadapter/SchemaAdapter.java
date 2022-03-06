@@ -34,8 +34,7 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 	public SchemaAdapter(
 		final String databaseName,
 		final SQLConnectionPool pSQLConnectionPool,
-		final ch.nolix.systemapi.sqlbasicschemaapi.schemaadapterapi.ISchemaAdapter pSQLSchemaAdapter,
-		final ch.nolix.systemapi.sqlbasicschemaapi.schemadtoapi.IColumnDTO pSQLSaveStampColumnDTO
+		final ch.nolix.systemapi.sqlbasicschemaapi.schemaadapterapi.ISchemaAdapter pSQLSchemaAdapter
 	) {
 		
 		databaseInitializer.initializeDatabaseIfNotInitialized(pSQLSchemaAdapter);
@@ -51,8 +50,7 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 		SchemaWriter.forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndSchemaAdapter(
 			databaseName,
 			pSQLConnectionPool,
-			pSQLSchemaAdapter,
-			pSQLSaveStampColumnDTO
+			pSQLSchemaAdapter
 		);
 		
 		getRefCloseController().createCloseDependencyTo(rawSchemaReader);
