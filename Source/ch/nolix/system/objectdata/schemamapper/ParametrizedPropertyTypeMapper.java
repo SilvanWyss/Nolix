@@ -33,7 +33,6 @@ public final class ParametrizedPropertyTypeMapper implements IParametrizedProper
 	//static attribute
 	private static final IPropertyHelper propertyHelper = new PropertyHelper();
 	
-	//TODO: Beautify this method.
 	//method
 	@Override
 	public IParametrizedPropertyType<SchemaImplementation, ?>
