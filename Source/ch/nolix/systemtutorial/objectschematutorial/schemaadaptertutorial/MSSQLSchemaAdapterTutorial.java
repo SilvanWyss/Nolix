@@ -17,7 +17,7 @@ public final class MSSQLSchemaAdapterTutorial {
 			.andDefaultPort()
 			.toDatabase("CountryDatabase")
 			.usingLoginName("sa")
-			.andLoginPassword("sa1234");
+			.andLoginPassword("sa1234")
 		) {
 			
 			final var cityTable =
