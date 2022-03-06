@@ -2,12 +2,16 @@
 package ch.nolix.system.objectschema.schemaadapter;
 
 //own imports
+import ch.nolix.core.constant.IPv4Catalogue;
+import ch.nolix.core.constant.PortCatalogue;
 import ch.nolix.core.sql.SQLConnectionPool;
 
 //class
 public final class MSSQLSchemaAdapter extends SchemaAdapter {
 	
-	//TODO: Create MSSQLSchemaAdapterBuilder.
+	//constant
+	public static final int DEFAULT_PORT = PortCatalogue.MSSQL_PORT;
+	
 	//static method
 	public static MSSQLSchemaAdapter forDatabaseWithGivenNameUsingConnectionFromGivenPool(
 		final String databaseName,
@@ -16,15 +20,26 @@ public final class MSSQLSchemaAdapter extends SchemaAdapter {
 		return
 		new MSSQLSchemaAdapter(
 			databaseName,
-			ch.nolix.system.sqlrawschema.schemaadapter.MSSQLSchemaAdapter.forDatabaseWithGivenNameUsingConnectionFromGivenPool(
+			ch.nolix.system.sqlrawschema.schemaadapter.MSSQLSchemaAdapter
+			.forDatabaseWithGivenNameUsingConnectionFromGivenPool(
 				databaseName,
 				pSQLConnectionPool
 			)
 		);
 	}
 	
+	//static method
+	public static MSSQLSchemaAdapterBuilder toIpOrAddress(final String ipOrAddressName) {
+		return new MSSQLSchemaAdapterBuilder(ipOrAddressName, DEFAULT_PORT);
+	}
+	
+	//static method
+	public static MSSQLSchemaAdapterBuilder toLocalhost() {
+		return toIpOrAddress(IPv4Catalogue.LOOP_BACK_ADDRESS);
+	}
+	
 	//constructor
-	private MSSQLSchemaAdapter(
+	MSSQLSchemaAdapter(
 		String databaseName,
 		final ch.nolix.system.sqlrawschema.schemaadapter.MSSQLSchemaAdapter pMSSQLSchemaAdapter
 	) {

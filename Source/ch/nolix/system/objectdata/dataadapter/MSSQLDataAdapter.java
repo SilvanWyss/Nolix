@@ -2,7 +2,7 @@
 package ch.nolix.system.objectdata.dataadapter;
 
 //own imports
-import ch.nolix.core.constant.IPv6Catalogue;
+import ch.nolix.core.constant.IPv4Catalogue;
 import ch.nolix.core.sql.SQLConnectionPool;
 import ch.nolix.core.sql.SQLDatabaseEngine;
 import ch.nolix.system.objectdata.data.DataAdapter;
@@ -21,7 +21,7 @@ public final class MSSQLDataAdapter extends DataAdapter {
 	
 	//static method
 	public static MSSQLDataAdapterBuilder toLocalHost() {
-		return new MSSQLDataAdapterBuilder(IPv6Catalogue.LOOP_BACK_ADDRESS);
+		return new MSSQLDataAdapterBuilder(IPv4Catalogue.LOOP_BACK_ADDRESS);
 	}
 	
 	//constructor
