@@ -8,6 +8,7 @@ import java.lang.reflect.ParameterizedType;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.reflectionhelper.GlobalReflectionHelper;
 import ch.nolix.system.database.databaseobjecthelper.DatabaseObjectHelper;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
@@ -57,19 +58,18 @@ public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHel
 		&& isLoaded(property.getParentEntity());
 	}
 	
-	//TODO: Make that this method is not restricted to IBaseValues.
 	//method
 	@Override
-	@SuppressWarnings("unchecked")
-	public final <DT> Class<DT> getDataType(final IProperty<?> property) {
-		
-		final var propertyParentEntity = property.getParentEntity();
-		
-		final var propertyField = GlobalReflectionHelper.getRefField(propertyParentEntity, property);
-		
-		final var propertyDeclaredType = (ParameterizedType)propertyField.getGenericType();
-		
-		return (Class<DT>)propertyDeclaredType.getActualTypeArguments()[1];
+	public final Class<?> getDataType(final IProperty<?> property) {
+		switch (property.getType().getBaseType()) {
+			case BASE_VALUE:
+				return getDataTypeWhenIsBaseValue(property);
+			case BASE_REFERENCE:
+			case BASE_BACK_REFERENCE:
+				return String.class;
+			default:
+				throw new InvalidArgumentException(property);
+		}
 	}
 	
 	//method
@@ -78,5 +78,17 @@ public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHel
 		return
 		property.isMandatory()
 		&& property.isEmpty();
+	}
+	
+	//method
+	private Class<?> getDataTypeWhenIsBaseValue(final IProperty<?> property) {
+		
+		final var propertyParentEntity = property.getParentEntity();
+		
+		final var propertyField = GlobalReflectionHelper.getRefField(propertyParentEntity, property);
+		
+		final var propertyDeclaredType = (ParameterizedType)propertyField.getGenericType();
+		
+		return (Class<?>)propertyDeclaredType.getActualTypeArguments()[1];
 	}
 }
