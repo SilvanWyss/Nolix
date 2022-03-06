@@ -89,6 +89,8 @@ public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHel
 		
 		final var propertyDeclaredType = (ParameterizedType)propertyField.getGenericType();
 		
-		return (Class<?>)propertyDeclaredType.getActualTypeArguments()[1];
+		final var typeArguments = propertyDeclaredType.getActualTypeArguments();
+		
+		return (Class<?>)typeArguments[typeArguments.length - 1];
 	}
 }
