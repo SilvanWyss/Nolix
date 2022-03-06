@@ -11,7 +11,6 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.ISchema;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 import ch.nolix.systemapi.objectdataapi.datahelperapi.IDatabaseHelper;
-import ch.nolix.systemapi.objectdataapi.schemamapperapi.ITableMapper;
 import ch.nolix.systemapi.objectschemaapi.schemaadapterapi.ISchemaAdapter;
 import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
 
@@ -19,12 +18,11 @@ import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapt
 public abstract class DataAdapter implements IDataAdapter<DataImplementation> {
 	
 	//static attribute
-	private static final ITableMapper<SchemaImplementation> tableMapper =
-	new ch.nolix.system.objectdata.schemamapper.TableMapper();
-	
-	//static attribute
 	private static final IDatabaseHelper databaseHelper = new DatabaseHelper();
 	
+	//static attribute
+	private static final SchemaInitializer schemaInitializer = new SchemaInitializer();
+		
 	//static attribute
 	private static final PersistenceManager persistenceManager = new PersistenceManager();
 	
@@ -44,13 +42,11 @@ public abstract class DataAdapter implements IDataAdapter<DataImplementation> {
 		final IElementGetter<IDataAndSchemaAdapter> dataAndSchemaAdapterCreator
 	) {
 		
-		//TODO: Create DatabaseInitializer.
-		if (schemaAdapter.getTableCount() == 0) {
-			for (final var t : tableMapper.createTablesFrom(schema)) {
-				schemaAdapter.addTable(t);
-			}
-			schemaAdapter.saveChangesAndReset();
-		}
+		schemaInitializer.initializeDatabaseWithGivenSchemaUsingGivenSchemaAdapterIfDatabaseIsEmpty(
+			schema,
+			schemaAdapter
+		);
+		schemaAdapter.close();
 		
 		final var dataAndSchemaAdapter = dataAndSchemaAdapterCreator.getOutput();
 		database = Database.withDataAndSchemaAdapterAndSchema(dataAndSchemaAdapter, schema);
