@@ -28,7 +28,11 @@ public final class MSSQLSchemaAdapter extends SchemaAdapter {
 		super(
 			databaseName,
 			pSQLConnectionPool,
-			ch.nolix.system.sqlbasicschema.schemaadapter.MSSQLSchemaAdapter.forDatabaseWithGivenNameUsingConnectionFromGivenPool(databaseName, pSQLConnectionPool),
+			ch.nolix.system.sqlbasicschema.schemaadapter.MSSQLSchemaAdapter
+			.forDatabaseWithGivenNameUsingConnectionFromGivenPool(
+				databaseName,
+				pSQLConnectionPool
+			),
 			SAVE_STAMP_COLUMN_DTO
 		);
 	}
