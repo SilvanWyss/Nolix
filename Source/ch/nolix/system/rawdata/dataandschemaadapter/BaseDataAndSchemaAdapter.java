@@ -101,7 +101,7 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
 	
 	//method
 	@Override
-	public final void expectGivenSchemaTimestamp(final String schemaTimestamp) {
+	public final void expectGivenSchemaTimestamp(final Time schemaTimestamp) {
 		dataAdapter.expectGivenSchemaTimestamp(schemaTimestamp);
 	}
 	
@@ -119,7 +119,7 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
 	
 	//method
 	@Override
-	public final String getSchemaTimestamp() {
+	public final Time getSchemaTimestamp() {
 		return dataAdapter.getSchemaTimestamp();
 	}
 	

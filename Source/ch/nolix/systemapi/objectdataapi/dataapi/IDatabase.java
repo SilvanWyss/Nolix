@@ -3,6 +3,7 @@ package ch.nolix.systemapi.objectdataapi.dataapi;
 
 //own imports
 import ch.nolix.core.container.IContainer;
+import ch.nolix.element.time.base.Time;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.IDatabaseObject;
 
 //interface
@@ -15,7 +16,7 @@ public interface IDatabase<IMPL> extends IDatabaseObject {
 	ITable<IMPL, IEntity<IMPL>> getRefTableByName(String name);
 	
 	//method declaration
-	String getSchemaTimestamp();
+	Time getSchemaTimestamp();
 	
 	//method declaration
 	<E extends IEntity<IMPL>> IDatabase<IMPL> insert(E entity);

@@ -5,6 +5,7 @@ package ch.nolix.system.sqlrawdata.datareader;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.sql.SQLConnection;
+import ch.nolix.element.time.base.Time;
 import ch.nolix.system.sqlrawdata.sqlapi.IMultiReferenceQueryCreator;
 import ch.nolix.system.sqlrawdata.sqlapi.IMultiValueQueryCreator;
 import ch.nolix.system.sqlrawdata.sqlapi.IRecordQueryCreator;
@@ -52,9 +53,11 @@ final class InternalDataReader {
 	}
 	
 	//method
-	public String getSchemaTimestamp() {
+	public Time getSchemaTimestamp() {
 		return
-		mSQLConnection.getOneRecord(recordQueryCreator.createQueryToLoadSchemaTimestamp()).get(0);
+		Time.fromString(
+			mSQLConnection.getOneRecord(recordQueryCreator.createQueryToLoadSchemaTimestamp()).get(0)
+		);
 	}
 	
 	//method

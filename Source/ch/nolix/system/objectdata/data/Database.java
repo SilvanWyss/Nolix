@@ -5,6 +5,7 @@ package ch.nolix.system.objectdata.data;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.element.time.base.Time;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.DatabaseObjectState;
 import ch.nolix.systemapi.objectdataapi.dataapi.IDatabase;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
@@ -27,7 +28,7 @@ public final class Database implements IDatabase<DataImplementation> {
 	}
 	
 	//attribute
-	private final String schemaTimestamp;
+	private final Time schemaTimestamp;
 	
 	//attribute
 	private final IDataAndSchemaAdapter dataAndSchemaAdapter;
@@ -45,7 +46,6 @@ public final class Database implements IDatabase<DataImplementation> {
 		Validator.assertThat(dataAndSchemaAdapter).thatIsNamed(IDataAndSchemaAdapter.class).isNotNull();
 		Validator.assertThat(schema).thatIsNamed(ISchema.class).isNotNull();
 		
-		//TODO: Move creation of Time from String.
 		schemaTimestamp = dataAndSchemaAdapter.getSchemaTimestamp();
 		this.dataAndSchemaAdapter = dataAndSchemaAdapter;
 		this.schema = schema;
@@ -78,7 +78,7 @@ public final class Database implements IDatabase<DataImplementation> {
 	
 	//method
 	@Override
-	public String getSchemaTimestamp() {
+	public Time getSchemaTimestamp() {
 		return schemaTimestamp;
 	}
 	

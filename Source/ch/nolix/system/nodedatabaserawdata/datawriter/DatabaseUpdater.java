@@ -6,6 +6,7 @@ import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.exception.ResourceWasChangedInTheMeanwhileException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
+import ch.nolix.element.time.base.Time;
 import ch.nolix.system.nodedatabaserawdata.structure.EntityNodeSearcher;
 import ch.nolix.system.nodedatabaserawdata.structure.TableNodeSearcher;
 import ch.nolix.system.nodedatabaserawdata.tabledefinition.TableInfo;
@@ -140,7 +141,7 @@ final class DatabaseUpdater {
 	}
 	
 	//method
-	public void expectGivenSchemaTimestamp(final BaseNode databaseNode, final String schemaTimestamp) {
+	public void expectGivenSchemaTimestamp(final BaseNode databaseNode, final Time schemaTimestamp) {
 		
 		final var databasePropertiesNode =
 		databaseNodeSearcher.getRefDatabasePropertiesNodeFromDatabaseNode(databaseNode);

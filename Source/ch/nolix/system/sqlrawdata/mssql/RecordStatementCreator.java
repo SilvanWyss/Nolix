@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlrawdata.mssql;
 
+import ch.nolix.element.time.base.Time;
 //own imports
 import ch.nolix.system.sqlrawdata.sqlapi.IRecordStatementCreator;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabaseProperty;
@@ -33,7 +34,7 @@ public final class RecordStatementCreator implements IRecordStatementCreator {
 	
 	//method
 	@Override
-	public String createStatementToExpectGivenSchemaTimestamp(final String schemaTimestamp) {
+	public String createStatementToExpectGivenSchemaTimestamp(final Time schemaTimestamp) {
 		return
 		"SELECT "
 		+ DatabasePropertySystemTableColumn.VALUE.getLabel()

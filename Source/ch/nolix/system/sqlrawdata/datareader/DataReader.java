@@ -8,6 +8,7 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.sql.SQLConnection;
 import ch.nolix.core.sql.SQLConnectionPool;
+import ch.nolix.element.time.base.Time;
 import ch.nolix.system.sqlrawdata.sqlapi.ISQLSyntaxProvider;
 import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataReader;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedRecordDTO;
@@ -61,7 +62,7 @@ public final class DataReader implements IDataReader {
 	
 	//method
 	@Override
-	public String getSchemaTimestamp() {
+	public Time getSchemaTimestamp() {
 		return internalDataReader.getSchemaTimestamp();
 	}
 	

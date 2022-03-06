@@ -5,6 +5,7 @@ package ch.nolix.system.nodedatabaserawdata.datareader;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.element.time.base.Time;
 import ch.nolix.system.nodedatabaserawdata.structure.EntityNodeSearcher;
 import ch.nolix.system.nodedatabaserawdata.structure.TableNodeSearcher;
 import ch.nolix.system.nodedatabaserawdata.tabledefinition.TableInfo;
@@ -47,7 +48,7 @@ public final class InternalDataReader {
 	}
 	
 	//method
-	public String getSchemaTimestamp() {
+	public Time getSchemaTimestamp() {
 		
 		final var databasePropertiesNode =
 		databaseNodeSearcher.getRefDatabasePropertiesNodeFromDatabaseNode(databaseNode);

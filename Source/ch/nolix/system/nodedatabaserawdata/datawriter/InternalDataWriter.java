@@ -6,6 +6,7 @@ import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.functionapi.IElementTaker;
+import ch.nolix.element.time.base.Time;
 import ch.nolix.system.nodedatabaserawdata.tabledefinition.TableInfo;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDTO;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordDTO;
@@ -93,7 +94,7 @@ final class InternalDataWriter {
 	}
 	
 	//method
-	public void expectGivenSchemaTimestamp(String schemaTimestamp) {
+	public void expectGivenSchemaTimestamp(Time schemaTimestamp) {
 		addChangeAction(d -> databaseUpdater.expectGivenSchemaTimestamp(d, schemaTimestamp));
 	}
 	

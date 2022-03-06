@@ -5,6 +5,7 @@ package ch.nolix.system.sqlrawdata.datawriter;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.sql.SQLCollector;
 import ch.nolix.core.sql.SQLConnection;
+import ch.nolix.element.time.base.Time;
 import ch.nolix.system.sqlrawdata.sqlapi.IMultiReferenceStatementCreator;
 import ch.nolix.system.sqlrawdata.sqlapi.IMultiValueStatementCreator;
 import ch.nolix.system.sqlrawdata.sqlapi.IRecordStatementCreator;
@@ -105,7 +106,7 @@ public final class InternalDataWriter {
 	}
 	
 	//method
-	public void expectGivenSchemaTimestamp(final String schemaTimestamp) {
+	public void expectGivenSchemaTimestamp(final Time schemaTimestamp) {
 		mSQLCollector.addSQLStatement(
 			recordStatementCreator.createStatementToExpectGivenSchemaTimestamp(schemaTimestamp)
 		);

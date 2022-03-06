@@ -7,6 +7,7 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.sql.SQLConnection;
 import ch.nolix.core.sql.SQLConnectionPool;
+import ch.nolix.element.time.base.Time;
 import ch.nolix.system.sqlrawdata.sqlapi.ISQLSyntaxProvider;
 import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataWriter;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDTO;
@@ -117,7 +118,7 @@ public final class DataWriter implements IDataWriter {
 	
 	//method
 	@Override
-	public void expectGivenSchemaTimestamp(final String schemaTimestamp) {
+	public void expectGivenSchemaTimestamp(final Time schemaTimestamp) {
 		internalDataWriter.expectGivenSchemaTimestamp(schemaTimestamp);
 	}
 	
