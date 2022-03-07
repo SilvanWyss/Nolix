@@ -5,6 +5,8 @@ package ch.nolix.systemapi.databaseapi.datatypeapi;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 
+//own imports
+import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.element.time.base.Time;
 
@@ -20,7 +22,8 @@ public enum DataType {
 	DYNAMIC_DECIMAL(BigDecimal.class),
 	BOOLEAN(Boolean.class),
 	STRING(String.class),
-	TIME(Time.class);
+	TIME(Time.class),
+	NODE(Node.class);
 	
 	//attribute
 	private final Class<?> dataTypeClass;
