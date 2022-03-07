@@ -29,11 +29,11 @@ public final class ParametrizedPropertyTypeMapper {
 	) {
 		switch (parametrizedPropertyType.getPropertyType()) {
 			case VALUE:
-				return new ParametrizedValueType<>(getValueClassFrom(parametrizedPropertyType));
+				return new ParametrizedValueType<>(parametrizedPropertyType.getDataType().getDataTypeClass());
 			case OPTIONAL_VALUE:
-				return new ParametrizedOptionalValueType<>(getValueClassFrom(parametrizedPropertyType));
+				return new ParametrizedOptionalValueType<>(parametrizedPropertyType.getDataType().getDataTypeClass());
 			case MULTI_VALUE:
-				return new ParametrizedMultiValueType<>(getValueClassFrom(parametrizedPropertyType));
+				return new ParametrizedMultiValueType<>(parametrizedPropertyType.getDataType().getDataTypeClass());
 			case REFERENCE:
 				return
 				new ParametrizedReferenceType(
@@ -91,13 +91,5 @@ public final class ParametrizedPropertyTypeMapper {
 		final var baseParametrizedReferenceType = (IBaseParametrizedReferenceTypeDTO)parametrizedPropertyType;
 		
 		return tables.getRefFirst(t -> t.hasId(baseParametrizedReferenceType.getReferencedTableId()));
-	}
-	
-	//method
-	private Class<?> getValueClassFrom(final IParametrizedPropertyTypeDTO parametrizedPropertyType) {
-		return
-		ValueClassCatalogue.VALUE_CLASSES.getRefFirst(
-			vc -> vc.getName().equals(parametrizedPropertyType.getDataTypeFullClassName())
-		);
 	}
 }

@@ -1,7 +1,9 @@
 //package declaration
 package ch.nolix.system.objectschema.schemadto;
 
+//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
 
@@ -10,28 +12,28 @@ public abstract class ParametrizedPropertyTypeDTO implements IParametrizedProper
 	
 	//attributes
 	private final PropertyType propertyType;
-	private final String dataTypeFullClassName;
+	private final DataType dataType;
 	
 	//constructor
 	//For a better performance, this implementation does not use all comfortable methods.
-	public ParametrizedPropertyTypeDTO(final PropertyType propertyType,  final String dataTypeFullClassName) {
+	public ParametrizedPropertyTypeDTO(final PropertyType propertyType, final DataType dataType) {
 		
 		if (propertyType == null) {
 			throw new ArgumentIsNullException(PropertyType.class);
 		}
 		
-		if (dataTypeFullClassName == null) {
-			throw new ArgumentIsNullException("data type full class name");
+		if (dataType == null) {
+			throw new ArgumentIsNullException(DataType.class);
 		}
 		
 		this.propertyType = propertyType;
-		this.dataTypeFullClassName = dataTypeFullClassName;
+		this.dataType = dataType;
 	}
 	
 	//method
 	@Override
-	public final String getDataTypeFullClassName() {
-		return dataTypeFullClassName;
+	public final DataType getDataType() {
+		return dataType;
 	}
 	
 	//method

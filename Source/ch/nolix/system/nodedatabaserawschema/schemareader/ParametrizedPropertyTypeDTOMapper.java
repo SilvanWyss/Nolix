@@ -8,6 +8,7 @@ import ch.nolix.system.objectschema.schemadto.BaseParametrizedBackReferenceTypeD
 import ch.nolix.system.objectschema.schemadto.BaseParametrizedReferenceTypeDTO;
 import ch.nolix.system.objectschema.schemadto.BaseParametrizedValueTypeDTO;
 import ch.nolix.system.objectschema.schemadto.ParametrizedPropertyTypeDTO;
+import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 
 //class
@@ -100,12 +101,12 @@ public class ParametrizedPropertyTypeDTOMapper {
 	}
 	
 	//method
-	private String getDataTypeFromParametrizedPropertyTypeNode(final BaseNode parametrizedPropertyTypeNode) {
+	private DataType getDataTypeFromParametrizedPropertyTypeNode(final BaseNode parametrizedPropertyTypeNode) {
 		
 		final var dataTypeNode =
 		parametrizedPropertyTypeNodeSearcher.getRefDataTypeNodeFromParametriedPropertyTypeNode(parametrizedPropertyTypeNode);
 		
-		return dataTypeNode.getOneAttributeHeader();
+		return DataType.valueOf(dataTypeNode.getOneAttributeHeader());
 	}
 	
 	//method

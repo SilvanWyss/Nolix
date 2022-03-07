@@ -1,7 +1,9 @@
 //package declaration
 package ch.nolix.system.objectschema.schemadto;
 
+//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParametrizedReferenceTypeDTO;
 
@@ -15,11 +17,11 @@ implements IBaseParametrizedReferenceTypeDTO {
 	//constructor
 	public BaseParametrizedReferenceTypeDTO(
 		final PropertyType propertyType,
-		final String dataTypeFullClassName,
+		final DataType dataType,
 		final String referencedTableId
 	) {
 		
-		super(propertyType, dataTypeFullClassName);
+		super(propertyType, dataType);
 		
 		if (referencedTableId == null) {
 			throw new ArgumentIsNullException("referenced table id");

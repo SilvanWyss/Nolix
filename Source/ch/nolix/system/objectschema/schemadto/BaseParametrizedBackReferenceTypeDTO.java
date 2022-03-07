@@ -3,6 +3,7 @@ package ch.nolix.system.objectschema.schemadto;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.BasePropertyType;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParametrizedBackReferenceTypeDTO;
@@ -18,11 +19,11 @@ implements IBaseParametrizedBackReferenceTypeDTO {
 	//For a better performance, this implementation does not use all comfortable methods.
 	public BaseParametrizedBackReferenceTypeDTO(
 		final PropertyType propertyType,
-		final String dataTypeFullClassName,
+		final DataType dataType,
 		final String backReferencedColumnId
 	) {
 		
-		super(propertyType, dataTypeFullClassName);
+		super(propertyType, dataType);
 		
 		if (propertyType.getBaseType() != BasePropertyType.BASE_BACK_REFERENCE) {
 			throw new InvalidArgumentException(propertyType);

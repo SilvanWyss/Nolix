@@ -39,7 +39,7 @@ public final class ParametrizedPropertyTypeNodeMapper {
 			),
 			Node.withHeaderAndAttribute(
 				SubNodeHeaderCatalogue.DATA_TYPE,
-				baseParametrizedBackReferenceType.getDataTypeFullClassName()
+				baseParametrizedBackReferenceType.getDataType().name()
 			),
 			Node.withHeaderAndAttribute(
 				SubNodeHeaderCatalogue.BACK_REFERENCED_COLUMN_ID,
@@ -59,7 +59,7 @@ public final class ParametrizedPropertyTypeNodeMapper {
 			),
 			Node.withHeaderAndAttribute(
 				SubNodeHeaderCatalogue.DATA_TYPE,
-				baseParametrizedReferenceType.getDataTypeFullClassName()
+				baseParametrizedReferenceType.getDataType().name()
 			),
 			Node.withHeaderAndAttribute(
 				SubNodeHeaderCatalogue.REFERENCED_TABLE_ID,
@@ -79,7 +79,7 @@ public final class ParametrizedPropertyTypeNodeMapper {
 			),
 			Node.withHeaderAndAttribute(
 				SubNodeHeaderCatalogue.DATA_TYPE,
-				baseParametrizedValueType.getDataTypeFullClassName()
+				baseParametrizedValueType.getDataType().name()
 			)
 		);
 	}

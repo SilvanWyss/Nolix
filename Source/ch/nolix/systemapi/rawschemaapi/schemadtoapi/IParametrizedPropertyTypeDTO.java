@@ -1,13 +1,15 @@
 //package declaration
 package ch.nolix.systemapi.rawschemaapi.schemadtoapi;
 
+//own imports
+import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 
 //interface
 public interface IParametrizedPropertyTypeDTO {
 	
 	//method declaration
-	String getDataTypeFullClassName();
+	DataType getDataType();
 	
 	//method declaration
 	PropertyType getPropertyType();

@@ -49,7 +49,7 @@ public final class Column implements Named {
 	
 	//method
 	public Class<?> getRefContentClass() {
-		return dataType.getDataType();
+		return dataType.getDataType().getDataTypeClass();
 	}
 	
 	//method

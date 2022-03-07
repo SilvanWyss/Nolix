@@ -4,6 +4,7 @@ package ch.nolix.system.objectschema.parametrizedpropertytype;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.system.objectschema.schemadto.BaseParametrizedReferenceTypeDTO;
+import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseParametrizedBackReferenceType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseParametrizedReferenceType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseParametrizedValueType;
@@ -21,7 +22,7 @@ implements IBaseParametrizedReferenceType<SchemaImplementation> {
 	//constructor
 	public BaseParametrizedReferenceType(final ITable<SchemaImplementation> referencedTable) {
 		
-		super(String.class);
+		super(DataType.STRING);
 		
 		Validator.assertThat(referencedTable).thatIsNamed("referenced table").isNotNull();
 		
@@ -69,7 +70,7 @@ implements IBaseParametrizedReferenceType<SchemaImplementation> {
 		return
 		new BaseParametrizedReferenceTypeDTO(
 			getPropertyType(),
-			getDataType().getName(),
+			getDataType(),
 			getReferencedTable().getId()
 		);
 	}

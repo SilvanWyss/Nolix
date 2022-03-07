@@ -9,6 +9,7 @@ import ch.nolix.system.objectschema.schemadto.BaseParametrizedBackReferenceTypeD
 import ch.nolix.system.objectschema.schemadto.BaseParametrizedReferenceTypeDTO;
 import ch.nolix.system.objectschema.schemadto.BaseParametrizedValueTypeDTO;
 import ch.nolix.system.objectschema.schemadto.ColumnDTO;
+import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 
 //class
@@ -37,7 +38,7 @@ public final class ColumnDTOMapper {
 			columnSystemTableRecord.get(1),
 			new BaseParametrizedBackReferenceTypeDTO(
 				PropertyType.valueOf(columnSystemTableRecord.get(4)),
-				columnSystemTableRecord.get(5),
+				DataType.valueOf(columnSystemTableRecord.get(5)),
 				columnSystemTableRecord.get(6)
 			)
 		);
@@ -51,7 +52,7 @@ public final class ColumnDTOMapper {
 			columnSystemTableRecord.get(1),
 			new BaseParametrizedReferenceTypeDTO(
 				PropertyType.valueOf(columnSystemTableRecord.get(3)),
-				columnSystemTableRecord.get(4),
+				DataType.valueOf(columnSystemTableRecord.get(4)),
 				columnSystemTableRecord.get(5)
 			)
 		);
@@ -65,7 +66,7 @@ public final class ColumnDTOMapper {
 			columnSystemTableRecord.get(1),
 			new BaseParametrizedValueTypeDTO(
 				PropertyType.valueOf(columnSystemTableRecord.get(2)),
-				columnSystemTableRecord.get(3)
+				DataType.valueOf(columnSystemTableRecord.get(3))
 			)
 		);
 	}
