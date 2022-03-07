@@ -3,12 +3,14 @@ package ch.nolix.systemtest.objectdatatest.dataadaptertest;
 
 //own imports
 import ch.nolix.core.document.node.Node;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 import ch.nolix.system.objectdata.data.Entity;
 import ch.nolix.system.objectdata.data.Schema;
 import ch.nolix.system.objectdata.data.Value;
 import ch.nolix.system.objectdata.dataadapter.NodeDatabaseDataAdapter;
+import ch.nolix.system.objectdata.datahelper.EntityHelper;
 
 //class
 public final class NodeDatabaseDataAdapterTest extends Test {
@@ -20,16 +22,16 @@ public final class NodeDatabaseDataAdapterTest extends Test {
 	private static final class Person extends Entity {
 		
 		//attribute
-		@SuppressWarnings("unused")
 		private final Value<String> firstName = new Value<>();
 		
 		//attribute
-		@SuppressWarnings("unused")
 		private final Value<String> lastName = new Value<>();
 		
-		//attribute
-		@SuppressWarnings("unused")
-		private final Value<Integer> age = new Value<>();
+		//method
+		public void setFirstNameAndLastName(final String firstName, final String lastName) {
+			this.firstName.setValue(firstName);
+			this.lastName.setValue(lastName);
+		}
 	}
 	
 	//method
@@ -46,6 +48,29 @@ public final class NodeDatabaseDataAdapterTest extends Test {
 		
 		//verification
 		expectNot(result.hasChanges());
+	}
+	
+	//method
+	@TestCase
+	public void testCase_insertEntity_whenGivenEntityContainsEmptyButMandatoryProperties() {
+		
+		//setup part 1
+		final var nodeDatabase = new Node();
+		final var schema = Schema.withEntityType(Person.class);
+		final var testUnit =
+		NodeDatabaseDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		
+		//setup part 2
+		final var person = new Person();
+		
+		//setup verification
+		expect(new EntityHelper().containsMandatoryAndEmptyBaseValuesOrBaseReferences(person));
+		
+		//execution & verification
+		expectRunning(() -> testUnit.insert(person)).throwsException().ofType(InvalidArgumentException.class);
+		
+		//verification
+		expectNot(testUnit.hasChanges());
 	}
 	
 	//method
@@ -87,12 +112,16 @@ public final class NodeDatabaseDataAdapterTest extends Test {
 	@TestCase
 	public void testCase_saveChangesAndReset_whenHasInsertedEntity() {
 		
-		//setup
+		//setup part 1
 		final var nodeDatabase = new Node();
 		final var schema = Schema.withEntityType(Person.class);
 		final var testUnit =
 		NodeDatabaseDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
-		testUnit.insert(new Person());
+		
+		//setup part 2
+		final var person = new Person();
+		person.setFirstNameAndLastName("Donald", "Duck");
+		testUnit.insert(person);
 		
 		//execution
 		testUnit.saveChangesAndReset();
