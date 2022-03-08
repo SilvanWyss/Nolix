@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.system.objectschema.parametrizedpropertytype;
 
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 //own imports
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.system.objectschema.schemadto.BaseParametrizedValueTypeDTO;
 import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseParametrizedBackReferenceType;
@@ -17,10 +17,8 @@ public abstract class BaseParametrizedValueType<V> extends ParametrizedPropertyT
 implements IBaseParametrizedValueType<SchemaImplementation, V> {
 	
 	//constructor
-	public BaseParametrizedValueType(final Class<V> valueClass) {
-		
-		//TODO: Refactor.
-		super(DataType.STRING);
+	public BaseParametrizedValueType(final DataType dataType) {
+		super(dataType);
 	}
 	
 	//method

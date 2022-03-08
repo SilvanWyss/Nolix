@@ -32,7 +32,8 @@ public final class ColumnAdapter implements IColumnAdapter {
 	public ParametrizedPropertyType<?> getDataType() {
 		
 		//TODO: return SchemaDataTypeFactory.fromSpecification(...)
-		return new ParametrizedValueType<>(Object.class);
+		//return new ParametrizedValueType<>(Object.class);
+		return null;
 	}
 	
 	//method

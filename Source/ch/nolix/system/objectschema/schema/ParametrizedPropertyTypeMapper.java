@@ -29,11 +29,11 @@ public final class ParametrizedPropertyTypeMapper {
 	) {
 		switch (parametrizedPropertyType.getPropertyType()) {
 			case VALUE:
-				return new ParametrizedValueType<>(parametrizedPropertyType.getDataType().getDataTypeClass());
+				return new ParametrizedValueType<>(parametrizedPropertyType.getDataType());
 			case OPTIONAL_VALUE:
-				return new ParametrizedOptionalValueType<>(parametrizedPropertyType.getDataType().getDataTypeClass());
+				return new ParametrizedOptionalValueType<>(parametrizedPropertyType.getDataType());
 			case MULTI_VALUE:
-				return new ParametrizedMultiValueType<>(parametrizedPropertyType.getDataType().getDataTypeClass());
+				return new ParametrizedMultiValueType<>(parametrizedPropertyType.getDataType());
 			case REFERENCE:
 				return
 				new ParametrizedReferenceType(

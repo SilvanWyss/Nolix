@@ -14,6 +14,7 @@ import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedValueTy
 import ch.nolix.system.objectschema.parametrizedpropertytype.SchemaImplementation;
 import ch.nolix.system.objectschema.schemadto.ColumnDTO;
 import ch.nolix.system.objectschema.schemahelper.ColumnHelper;
+import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IParametrizedPropertyType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
@@ -28,7 +29,7 @@ public final class Column extends SchemaObject implements IColumn<SchemaImplemen
 	
 	//constant
 	private static final ParametrizedPropertyType<?> INITIAL_PROPERTY_TYPE =
-	new ParametrizedValueType<>(Integer.class);
+	new ParametrizedValueType<>(DataType.INTEGER_4);
 	
 	//static attribute
 	private static final ParametrizedPropertyTypeMapper parametrizedPropertyTypeMapper =

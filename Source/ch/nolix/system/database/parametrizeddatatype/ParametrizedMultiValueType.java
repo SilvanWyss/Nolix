@@ -23,7 +23,11 @@ public final class ParametrizedMultiValueType<C> extends BaseParametrizedValueTy
 	public ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedMultiValueType<C> toSchemaDataType(
 		final IContainer<ch.nolix.system.objectschema.databaseschemaadapter.EntitySet> schemaEntitySets
 	) {
+		return null;
+		//TODO: Refactor.
+		/*
 		return
 		new ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedMultiValueType<>(getRefContentClass());
+		*/
 	}
 }

@@ -6,6 +6,7 @@ import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedValueTy
 import ch.nolix.system.objectschema.schema.Column;
 import ch.nolix.system.objectschema.schema.Table;
 import ch.nolix.system.objectschema.schemaadapter.MSSQLSchemaAdapter;
+import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 
 public final class MSSQLSchemaAdapterTutorial {
 	
@@ -22,11 +23,11 @@ public final class MSSQLSchemaAdapterTutorial {
 			
 			final var cityTable =
 			new Table("City")
-			.addColumn(new Column("Name", new ParametrizedValueType<>(String.class)))
-			.addColumn(new Column("Population", new ParametrizedValueType<>(Integer.class)));
+			.addColumn(new Column("Name", new ParametrizedValueType<>(DataType.STRING)))
+			.addColumn(new Column("Population", new ParametrizedValueType<>(DataType.STRING)));
 			
 			final var countryTable = 
-			new Table("Country").addColumn(new Column("Name", new ParametrizedValueType<>(String.class)));
+			new Table("Country").addColumn(new Column("Name", new ParametrizedValueType<>(DataType.STRING)));
 			
 			final var citiesColumn = new Column("Cities", new ParametrizedMultiReferenceType(cityTable));
 			countryTable.addColumn(citiesColumn);

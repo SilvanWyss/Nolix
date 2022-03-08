@@ -15,6 +15,7 @@ import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedOptiona
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedReferenceType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedValueType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.SchemaImplementation;
+import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.systemapi.objectdataapi.dataapi.IBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiBackReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiReference;
@@ -42,11 +43,11 @@ public final class ParametrizedPropertyTypeMapper implements IParametrizedProper
 	) {
 		switch (property.getType()) {
 			case VALUE:
-				return new ParametrizedValueType<>(propertyHelper.getDataType(property));
+				return new ParametrizedValueType<>(DataType.forType(propertyHelper.getDataType(property)));
 			case OPTIONAL_VALUE:
-				return new ParametrizedOptionalValueType<>(propertyHelper.getDataType(property));
+				return new ParametrizedOptionalValueType<>(DataType.forType(propertyHelper.getDataType(property)));
 			case MULTI_VALUE:
-				return new ParametrizedMultiValueType<>(propertyHelper.getDataType(property));
+				return new ParametrizedMultiValueType<>(DataType.forType(propertyHelper.getDataType(property)));
 			case REFERENCE:
 										
 				final var reference = (IReference<?, ?>)property;

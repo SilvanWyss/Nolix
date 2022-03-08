@@ -8,10 +8,7 @@ import ch.nolix.system.database.parametrizeddatatype.BaseParametrizedBackReferen
 import ch.nolix.system.database.parametrizeddatatype.BaseParametrizedReferenceType;
 import ch.nolix.system.objectschema.databaseschemaadapter.DatabaseSchemaAdapter;
 import ch.nolix.system.objectschema.databaseschemaadapter.EntitySet;
-import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedMultiValueType;
-import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedOptionalValueType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedPropertyType;
-import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedValueType;
 
 //class
 public final class ParametrizedSchemaDataTypeMapper {
@@ -31,11 +28,14 @@ public final class ParametrizedSchemaDataTypeMapper {
 	public ParametrizedPropertyType<?> createParametrizedSchemaDataTypeFor(final Column<?> column) {
 		switch (column.getDataType()) {
 			case VALUE:
-				return new ParametrizedValueType<>(column.getRefContentClass());
+				//TODO: Refactor.
+				//return new ParametrizedValueType<>(column.getRefContentClass());
 			case OPTIONAL_VALUE:
-				return new ParametrizedOptionalValueType<>(column.getRefContentClass());
+				//TODO: Refactor.
+				//return new ParametrizedOptionalValueType<>(column.getRefContentClass());
 			case MULTI_VALUE:
-				return new ParametrizedMultiValueType<>(column.getRefContentClass());
+				//TODO: Refactor.
+				//return new ParametrizedMultiValueType<>(column.getRefContentClass());
 			case REFERENCE:
 				//TODO: Refactor.
 				/*

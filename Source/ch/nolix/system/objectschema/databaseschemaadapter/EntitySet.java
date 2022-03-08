@@ -12,10 +12,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.UnsupportedArgumentEx
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.sql.SQLDatabaseEngine;
 import ch.nolix.system.objectschema.parametrizedpropertytype.IEntitySet;
-import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedMultiValueType;
-import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedOptionalValueType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedPropertyType;
-import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedValueType;
 
 //class
 public final class EntitySet implements IEntitySet, Named {
@@ -57,7 +54,8 @@ public final class EntitySet implements IEntitySet, Named {
 	//method
 	public EntitySet addColumn(final String name, final Class<?> valueClass) {
 		
-		addColumn(name, new ParametrizedValueType<>(valueClass));
+		//TODO: Refactor.
+		//addColumn(name, new ParametrizedValueType<>(valueClass));
 		
 		return this;
 	}
@@ -70,7 +68,8 @@ public final class EntitySet implements IEntitySet, Named {
 	//method
 	public EntitySet addMultiColumn(final String name, final Class<?> valueClass) {
 		
-		addColumn(name, new ParametrizedMultiValueType<>(valueClass));
+		//TODO: Refactor.
+		//addColumn(name, new ParametrizedMultiValueType<>(valueClass));
 		
 		return this;
 	}
@@ -87,7 +86,8 @@ public final class EntitySet implements IEntitySet, Named {
 	//method
 	public EntitySet addOptionalColumn(final String name, final Class<?> valueClass) {
 		
-		addColumn(name, new ParametrizedOptionalValueType<>(valueClass));
+		//TODO: Refactor.
+		//addColumn(name, new ParametrizedOptionalValueType<>(valueClass));
 		
 		return this;
 	}

@@ -1,14 +1,16 @@
 //package declaration
 package ch.nolix.system.objectschema.parametrizedpropertytype;
 
+//own imports
+import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 
 //class
 public final class ParametrizedOptionalValueType<V> extends BaseParametrizedValueType<V> {
 	
 	//constructor
-	public ParametrizedOptionalValueType(final Class<V> valueClass) {
-		super(valueClass);
+	public ParametrizedOptionalValueType(final DataType dataType) {
+		super(dataType);
 	}
 	
 	//method
