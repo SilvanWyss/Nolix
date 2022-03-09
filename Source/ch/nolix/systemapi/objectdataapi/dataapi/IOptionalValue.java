@@ -11,4 +11,7 @@ public interface IOptionalValue<IMPL, V> extends Clearable, IBaseValue<IMPL, V> 
 	
 	//method declaration
 	void setValue(V value);
+	
+	//method declaration
+	void setValueFromStringRepresentation(String string);
 }

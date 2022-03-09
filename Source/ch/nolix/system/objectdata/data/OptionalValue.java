@@ -5,6 +5,7 @@ import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.system.objectdata.propertyhelper.OptionalValueHelper;
 import ch.nolix.system.sqlrawdata.datadto.ContentFieldDTO;
+import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalValue;
 import ch.nolix.systemapi.objectdataapi.propertyhelperapi.IOptionalValueHelper;
@@ -68,6 +69,16 @@ public final class OptionalValue<V> extends BaseValue<V> implements IOptionalVal
 		internalSetParentEntityAsEdited();
 		
 		updateRecordForSetValue(value);
+	}
+	
+	//method
+	@Override
+	public void setValueFromStringRepresentation(final String string) {
+		
+		@SuppressWarnings("unchecked")
+		final var value = (V)DataType.forType(optionalValueHelper.getDataType(this)).createValueFromString(string);
+		
+		setValue(value);
 	}
 	
 	//method
