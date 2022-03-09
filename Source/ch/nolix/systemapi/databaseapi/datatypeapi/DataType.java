@@ -14,18 +14,18 @@ import ch.nolix.element.time.base.Time;
 
 //enum
 public enum DataType {
-	INTEGER_1(Byte.class),
-	INTEGER_2(Short.class),
-	INTEGER_4(Integer.class),
-	INTEGER_8(Long.class),
-	FLOATING_POINT_NUMBER_4(Float.class),
-	FLOATING_POINT_NUMBER_8(Double.class),
-	DYNAMIC_INTEGER(BigInteger.class),
-	DYNAMIC_DECIMAL(BigDecimal.class),
-	BOOLEAN(Boolean.class),
-	STRING(String.class),
-	TIME(Time.class),
-	NODE(Node.class);
+	INTEGER_1(Byte.class, new ByteCreator()),
+	INTEGER_2(Short.class, new ShortCreator()),
+	INTEGER_4(Integer.class, new IntegerCreator()),
+	INTEGER_8(Long.class, new LongCreator()),
+	FLOATING_POINT_NUMBER_4(Float.class, new FloatCreator()),
+	FLOATING_POINT_NUMBER_8(Double.class, new DoubleCreator()),
+	DYNAMIC_INTEGER(BigInteger.class, new BigIntegerCreator()),
+	DYNAMIC_DECIMAL(BigDecimal.class, new BigDecimalCreator()),
+	BOOLEAN(Boolean.class, new BooleanCreator()),
+	STRING(String.class, new StringCreator()),
+	TIME(Time.class, new TimeCreator()),
+	NODE(Node.class, new NodeCreator());
 	
 	//static method
 	public static DataType forType(final Class<?> type) {
@@ -62,12 +62,22 @@ public enum DataType {
 	//attribute
 	private final Class<?> dataTypeClass;
 	
+	//attribute
+	private final IValueCreator<?> valueCreator;
+	
 	//constructor
-	DataType(final Class<?> dataTypeClass) {
+	<V> DataType(final Class<V> dataTypeClass, final IValueCreator<V> valueCreator) {
 		
 		Validator.assertThat(dataTypeClass).thatIsNamed("data type class").isNotNull();
+		Validator.assertThat(valueCreator).thatIsNamed(IValueCreator.class).isNotNull();
 		
 		this.dataTypeClass = dataTypeClass;
+		this.valueCreator = valueCreator;
+	}
+	
+	//method
+	public Object createValueFromString(final String string) {
+		return valueCreator.createValueFromString(string);
 	}
 	
 	//method
