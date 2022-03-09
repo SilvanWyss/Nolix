@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.objectdataapi.dataapi;
 
+//own imports
 import ch.nolix.core.skillapi.Clearable;
 
 //interface
@@ -17,4 +18,7 @@ extends Clearable, IBaseReference<IMPL, E> {
 	
 	//method declaration
 	void setEntity(E entity);
+	
+	//method declaration
+	void setEntityWithId(final String id);
 }
