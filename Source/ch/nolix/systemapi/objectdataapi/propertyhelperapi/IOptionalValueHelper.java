@@ -1,12 +1,12 @@
 //package declaration
 package ch.nolix.systemapi.objectdataapi.propertyhelperapi;
 
-import ch.nolix.systemapi.databaseapi.databaseobjecthelperapi.IDatabaseObjectHelper;
+//own imports
 import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalValue;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordUpdateDTO;
 
 //interface
-public interface IOptionalValueHelper extends IDatabaseObjectHelper {
+public interface IOptionalValueHelper extends IPropertyHelper {
 	
 	//method declaration
 	void assertCanSetGivenValue(IOptionalValue<?, ?> optionalValue, final Object value);
