@@ -1,12 +1,13 @@
 //package declaration
 package ch.nolix.system.databaseapplication.propertybinder;
 
+//own mports
 import ch.nolix.core.functionapi.IAction;
 import ch.nolix.element.gui.widget.Widget;
-import ch.nolix.system.database.entity.Property;
+import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
 
 //class
-public abstract class PropertyBinder<P extends Property<?>, W extends Widget<W, ?>> {
+public abstract class PropertyBinder<P extends IProperty<?>, W extends Widget<W, ?>> {
 	
 	//method
 	public final PropertyBinding bindWidgetWithProperty(final W widget, final P property) {
@@ -54,7 +55,8 @@ public abstract class PropertyBinder<P extends Property<?>, W extends Widget<W, 
 	
 	//method
 	private void setNoteUpdateActionToProperty(final P property, final IAction noteUpdateAction) {
-		property.getParentEntity().addNoteUpdateAction(noteUpdateAction);
+		//TODO: Add addNodeUpdateAction method to IEntity. 
+		// property.getParentEntity().addNoteUpdateAction(noteUpdateAction);
 	}
 	
 	//method

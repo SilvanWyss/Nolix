@@ -1,25 +1,26 @@
 //package declaration
 package ch.nolix.system.databaseapplication.propertybinder;
 
+//own imports
 import ch.nolix.core.functionapi.IAction;
 import ch.nolix.element.gui.widget.DropdownMenu;
-import ch.nolix.system.database.entity.Entity;
-import ch.nolix.system.database.entity.OptionalReference;
+import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
+import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalReference;
 
 //class
-public final class OptionalReferenceBinder extends PropertyBinder<OptionalReference<Entity>, DropdownMenu>{
+public final class OptionalReferenceBinder extends PropertyBinder<IOptionalReference<?, IEntity<?>>, DropdownMenu>{
 	
 	//method
 	@Override
 	protected void addSelectionOptionsToWidgetForProperty(
 		final DropdownMenu dropdownMenu,
-		final OptionalReference<Entity> optionalReference
+		final IOptionalReference<?, IEntity<?>> optionalReference
 	) {
 		
 		dropdownMenu.addEmtyItem();
 		
-		for (final var e : optionalReference.getRefEntitySetOfReferencedEntities().getRefEntities()) {
-			dropdownMenu.addItem(e.getIdAsString(), e.getShortDescription());
+		for (final var e : optionalReference.getReferencedTable().getRefAllEntities()) {
+			dropdownMenu.addItem(e.getId(), e.getShortDescription());
 		}
 	}
 	
@@ -38,7 +39,7 @@ public final class OptionalReferenceBinder extends PropertyBinder<OptionalRefere
 	//method
 	@Override
 	protected void updatePropertyFromWidget(
-		final OptionalReference<Entity> optionalReference,
+		final IOptionalReference<?, IEntity<?>> optionalReference,
 		final DropdownMenu dropdownMenu
 	) {
 		if (dropdownMenu.emptyItemIsSelected()) {
@@ -47,10 +48,7 @@ public final class OptionalReferenceBinder extends PropertyBinder<OptionalRefere
 			
 			final var selectedEntityId = dropdownMenu.getRefSelectedItem().getId();
 			
-			final var selectedEntity =
-			optionalReference.getRefEntitySetOfReferencedEntities().getRefEntityById(selectedEntityId);
-			
-			optionalReference.set(selectedEntity);	
+			optionalReference.setEntityWithId(selectedEntityId);
 		}
 	}
 	
@@ -58,12 +56,12 @@ public final class OptionalReferenceBinder extends PropertyBinder<OptionalRefere
 	@Override
 	protected void updateWidgetFromProperty(
 		final DropdownMenu dropdownMenu,
-		final OptionalReference<Entity> optionalReference
+		final IOptionalReference<?, IEntity<?>> optionalReference
 	) {
 		if (optionalReference.isEmpty()) {
 			dropdownMenu.selectEmptyItem();
 		} else {
-			dropdownMenu.selectItemById(optionalReference.getReferencedEntityIdAsString());
+			dropdownMenu.selectItemById(optionalReference.getEntityId());
 		}
 	}
 }

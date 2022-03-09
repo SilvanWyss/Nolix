@@ -1,18 +1,19 @@
 //package declaration
 package ch.nolix.system.databaseapplication.propertybinder;
 
+//own imports
 import ch.nolix.core.functionapi.IAction;
 import ch.nolix.element.gui.textbox.TextBox;
-import ch.nolix.system.database.entity.OptionalValue;
+import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalValue;
 
 //class
-public class OptionalValueBinder extends PropertyBinder<OptionalValue<?>, TextBox> {
+public class OptionalValueBinder extends PropertyBinder<IOptionalValue<?, ?>, TextBox> {
 	
 	//method
 	@Override
 	protected void addSelectionOptionsToWidgetForProperty(
 		final TextBox widget,
-		final OptionalValue<?> optionalValue
+		final IOptionalValue<?, ?> optionalValue
 	) {}
 	
 	//method
@@ -29,21 +30,21 @@ public class OptionalValueBinder extends PropertyBinder<OptionalValue<?>, TextBo
 	
 	//method
 	@Override
-	protected void updatePropertyFromWidget(final OptionalValue<?> optionalValue, final TextBox textBox) {
+	protected void updatePropertyFromWidget(final IOptionalValue<?, ?> optionalValue, final TextBox textBox) {
 		if (textBox.getText().isEmpty()) {
 			optionalValue.clear();
 		} else {
-			optionalValue.setValueFromString(textBox.getText());
+			optionalValue.setValueFromStringRepresentation(textBox.getText());
 		}
 	}
 	
 	//method
 	@Override
-	protected void updateWidgetFromProperty(final TextBox textBox, final OptionalValue<?> optionalValue) {
+	protected void updateWidgetFromProperty(final TextBox textBox, final IOptionalValue<?, ?> optionalValue) {
 		if (optionalValue.isEmpty()) {
 			textBox.emptyText();
 		} else {
-			textBox.setText(optionalValue.getValue().toString());
+			textBox.setText(optionalValue.getRefValue().toString());
 		}
 	}
 }

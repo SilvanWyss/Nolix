@@ -1,15 +1,17 @@
 //package declaration
 package ch.nolix.system.databaseapplication.propertybinder;
 
+//own imports
 import ch.nolix.core.functionapi.IAction;
 import ch.nolix.element.gui.textbox.TextBox;
-import ch.nolix.system.database.entity.Value;
+import ch.nolix.systemapi.objectdataapi.dataapi.IValue;
 
 //class
-public final class ValueBinder extends PropertyBinder<Value<?>, TextBox> {
+public final class ValueBinder extends PropertyBinder<IValue<?, ?>, TextBox> {
 	
+	//attribute
 	@Override
-	protected void addSelectionOptionsToWidgetForProperty(final TextBox widget, final Value<?> property) {}
+	protected void addSelectionOptionsToWidgetForProperty(final TextBox widget, final IValue<?, ?> property) {}
 	
 	//method
 	@Override
@@ -25,15 +27,15 @@ public final class ValueBinder extends PropertyBinder<Value<?>, TextBox> {
 	
 	//method
 	@Override
-	protected void updatePropertyFromWidget(final Value<?> value, final TextBox textBox) {
-		value.setValueFromString(textBox.getText());
+	protected void updatePropertyFromWidget(final IValue<?, ?> value, final TextBox textBox) {
+		value.setValueFromStringRepresentation(textBox.getText());
 	}
 	
 	//method
 	@Override
-	protected void updateWidgetFromProperty(final TextBox textBox, final Value<?> value) {
-		if (value.hasValue()) {
-			textBox.setText(value.getValue().toString());
+	protected void updateWidgetFromProperty(final TextBox textBox, final IValue<?, ?> value) {
+		if (value.containsAny()) {
+			textBox.setText(value.getRefValue().toString());
 		}
 	}
 }

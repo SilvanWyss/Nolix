@@ -1,8 +1,9 @@
 //package declaration
 package ch.nolix.system.databaseapplication.propertybinder;
 
+//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.system.database.entity.Property;
+import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
 
 //class
 public final class PropertyBinderFactory {
@@ -15,8 +16,8 @@ public final class PropertyBinderFactory {
 	
 	//method
 	@SuppressWarnings("unchecked")
-	public <P extends Property<?>> PropertyBinder<P, ?> getPropertyBinderFor(final P property) {
-		switch (property.getPropertyKind()) {
+	public <P extends IProperty<?>> PropertyBinder<P, ?> getPropertyBinderFor(final P property) {
+		switch (property.getType()) {
 			case VALUE:
 				return (PropertyBinder<P, ?>)valueBinder;
 			case OPTIONAL_VALUE:

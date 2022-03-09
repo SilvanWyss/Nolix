@@ -1,18 +1,20 @@
 //package declaration
 package ch.nolix.system.databaseapplication.propertybinder;
 
+//own imports
 import ch.nolix.core.container.SingleContainer;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.element.gui.widget.Label;
 import ch.nolix.element.gui.widget.LabelRole;
 import ch.nolix.element.gui.widget.Widget;
 import ch.nolix.system.database.entity.Property;
+import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
 
 //class
 public final class PropertyBinding {
 	
 	//attributes
-	private final Property<?> property;
+	private final IProperty<?> property;
 	private final Widget<?, ?> widget;
 	private final Label errorLabel = new Label().setRole(LabelRole.ERROR_TEXT);
 	
@@ -20,7 +22,7 @@ public final class PropertyBinding {
 	private Throwable currentError;
 	
 	//constructors
-	public PropertyBinding(final Property<?> property, final Widget<?, ?> widget) {
+	public PropertyBinding(final IProperty<?> property, final Widget<?, ?> widget) {
 		
 		Validator.assertThat(property).thatIsNamed(Property.class).isNotNull();
 		Validator.assertThat(widget).thatIsNamed(Widget.class).isNotNull();
@@ -47,7 +49,7 @@ public final class PropertyBinding {
 	}
 	
 	//method
-	public Property<?> getRefProperty() {
+	public IProperty<?> getRefProperty() {
 		return property;
 	}
 	

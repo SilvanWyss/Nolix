@@ -8,10 +8,8 @@ import ch.nolix.element.gui.containerwidget.VerticalStack;
 import ch.nolix.element.gui.dialog.ErrorDialogCreator;
 import ch.nolix.element.gui.widget.Button;
 import ch.nolix.element.gui.widget.ButtonRole;
-import ch.nolix.element.gui.widget.Label;
 import ch.nolix.system.database.databaseadapter.EntitySet;
 import ch.nolix.system.database.entity.Entity;
-import ch.nolix.system.databaseapplication.propertybinder.CentralPropertyBinder;
 
 //class
 public final class CreateEntitySession extends HeaderedSession {
@@ -83,9 +81,12 @@ public final class CreateEntitySession extends HeaderedSession {
 		for (final var p : newEntity.getRefProperties()) {
 			if (p.isAtMostOne()) {
 				
+				//TODO: Refactor.
+				/*
 				dataGrid
 				.setWidget(rowIndex, 1, new Label().setText(p.getName()))
 				.setWidget(rowIndex, 2, CentralPropertyBinder.createWidgetAndBindItWith(p).getRefWidget());
+				*/
 				
 				rowIndex++;
 			}
