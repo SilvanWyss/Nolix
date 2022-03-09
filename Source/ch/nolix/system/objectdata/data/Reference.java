@@ -100,6 +100,15 @@ implements IReference<DataImplementation, E> {
 	
 	//method
 	@Override
+	public void setEntityWithId(final String id) {
+		
+		final var entity = getReferencedTable().getRefEntityById(id);
+		
+		setEntity(entity);
+	}
+	
+	//method
+	@Override
 	public IContentFieldDTO technicalToContentField() {
 		return new ContentFieldDTO(getName(), getEntityId());
 	}

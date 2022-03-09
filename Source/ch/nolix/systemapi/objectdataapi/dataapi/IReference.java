@@ -15,4 +15,7 @@ public interface IReference<
 	
 	//method declaration
 	void setEntity(final E entity);
+	
+	//method declaration
+	void setEntityWithId(final String id);
 }
