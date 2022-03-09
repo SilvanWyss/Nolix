@@ -9,4 +9,7 @@ public interface IValue<IMPL, V> extends IBaseValue<IMPL, V> {
 	
 	//method declaration
 	void setValue(V value);
+	
+	//method declaration
+	void setValueFromStringRepresentation(String string);
 }

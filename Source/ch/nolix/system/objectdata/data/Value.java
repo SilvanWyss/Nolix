@@ -4,6 +4,7 @@ package ch.nolix.system.objectdata.data;
 //own imports
 import ch.nolix.system.objectdata.propertyhelper.ValueHelper;
 import ch.nolix.system.sqlrawdata.datadto.ContentFieldDTO;
+import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.objectdataapi.dataapi.IValue;
 import ch.nolix.systemapi.objectdataapi.propertyhelperapi.IValueHelper;
@@ -56,6 +57,16 @@ public final class Value<V> extends BaseValue<V> implements IValue<DataImplement
 		internalSetParentEntityAsEdited();
 		
 		updateRecordForSetValue(value);
+	}
+	
+	//method
+	@Override
+	public void setValueFromStringRepresentation(final String string) {
+		
+		@SuppressWarnings("unchecked")
+		final var value = (V)DataType.forType(valueHelper.getDataType(this)).createValueFromString(string);
+		
+		setValue(value);
 	}
 	
 	//method
