@@ -25,7 +25,7 @@ public final class LayerTutorial {
 	 */
 	public static void main(String[] args) {
 		
-		//Creates Frame.
+		//Creates a Frame.
 		@SuppressWarnings("resource")
 		final var frame = new Frame().setTitle("Layer tutorial").setBackgroundColor(Color.LAVENDER);
 		
