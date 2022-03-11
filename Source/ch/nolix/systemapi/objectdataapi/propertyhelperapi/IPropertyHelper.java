@@ -27,5 +27,11 @@ public interface IPropertyHelper extends IDatabaseObjectHelper {
 	Class<?> getDataType(IProperty<?> property);
 	
 	//method declaration
+	boolean isForMultiContent(IProperty<?> property);
+	
+	//method declaration
+	boolean isForSingleContent(IProperty<?> property);
+	
+	//method declaration
 	boolean isMandatoryAndEmptyBoth(IProperty<?> property);
 }

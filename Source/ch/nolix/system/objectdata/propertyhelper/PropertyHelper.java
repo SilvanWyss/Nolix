@@ -11,6 +11,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentExceptio
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.reflectionhelper.GlobalReflectionHelper;
 import ch.nolix.system.database.databaseobjecthelper.DatabaseObjectHelper;
+import ch.nolix.systemapi.databaseapi.cardinalityapi.BaseCardinality;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
 import ch.nolix.systemapi.objectdataapi.propertyhelperapi.IPropertyHelper;
@@ -70,6 +71,18 @@ public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHel
 			default:
 				throw new InvalidArgumentException(property);
 		}
+	}
+	
+	//method
+	@Override
+	public boolean isForMultiContent(final IProperty<?> property) {
+		return (property.getType().getCardinality().getBaseCardinality() == BaseCardinality.MULTI);
+	}
+	
+	//method
+	@Override
+	public boolean isForSingleContent(final IProperty<?> property) {
+		return (property.getType().getCardinality().getBaseCardinality() == BaseCardinality.SINGLE);
 	}
 	
 	//method
