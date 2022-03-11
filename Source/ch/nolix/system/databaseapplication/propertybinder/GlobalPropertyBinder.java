@@ -5,7 +5,7 @@ package ch.nolix.system.databaseapplication.propertybinder;
 import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
 
 //class
-public final class CentralPropertyBinder {
+public final class GlobalPropertyBinder {
 	
 	//static attribute
 	private static final PropertyBinderFactory propertyBinderFactory = new PropertyBinderFactory();
@@ -16,5 +16,5 @@ public final class CentralPropertyBinder {
 	}
 	
 	//constructor
-	private CentralPropertyBinder() {}
+	private GlobalPropertyBinder() {}
 }
