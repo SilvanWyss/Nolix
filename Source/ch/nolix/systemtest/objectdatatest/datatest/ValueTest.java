@@ -19,7 +19,7 @@ public final class ValueTest extends Test {
 		
 		//verification
 		expect(result.getState()).isEqualTo(DatabaseObjectState.NEW);
-		expectNot(result.isClosed());
+		expect(result.isOpen());
 		expectNot(result.isDeleted());
 		expectNot(result.isLinkedWithRealDatabase());
 		expect(result.isMandatory());
