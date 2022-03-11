@@ -26,9 +26,9 @@ public final class OptionalValue<V> extends BaseValue<V> implements IOptionalVal
 		
 		internalValue = null;
 		
-		internalSetParentEntityAsEdited();
-		
 		updateRecordForClear();
+		
+		internalSetParentEntityAsEditedAndRunProbableUpdateAction();
 	}
 	
 	//method
@@ -66,9 +66,9 @@ public final class OptionalValue<V> extends BaseValue<V> implements IOptionalVal
 		
 		updateStateForSetValue(value);
 		
-		internalSetParentEntityAsEdited();
-		
 		updateRecordForSetValue(value);
+		
+		internalSetParentEntityAsEditedAndRunProbableUpdateAction();
 	}
 	
 	//method

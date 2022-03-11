@@ -93,9 +93,9 @@ implements IReference<DataImplementation, E> {
 		
 		updateStateForSetEntity(entity);
 		
-		internalSetParentEntityAsEdited();
-		
 		updateRecordForSetEntity(entity);
+		
+		internalSetParentEntityAsEditedAndRunProbableUpdateAction();
 	}
 	
 	//method

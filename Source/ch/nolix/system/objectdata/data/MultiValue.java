@@ -38,7 +38,7 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<Dat
 		
 		updateRecordForAddValue(value);
 		
-		internalSetParentEntityAsEdited();
+		internalSetParentEntityAsEditedAndRunProbableUpdateAction();
 	}
 	
 	//method
@@ -119,7 +119,7 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<Dat
 		
 		updateRecordForClear();
 		
-		internalSetParentEntityAsEdited();
+		internalSetParentEntityAsEditedAndRunProbableUpdateAction();
 	}
 	
 	//method

@@ -3,11 +3,15 @@ package ch.nolix.system.objectdata.data;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.functionapi.IElementTaker;
 import ch.nolix.core.reflectionhelper.GlobalReflectionHelper;
+import ch.nolix.system.objectdata.propertyflyweight.PropertyFlyWeight;
+import ch.nolix.system.objectdata.propertyflyweight.VoidPropertyFlyWeight;
 import ch.nolix.system.objectdata.propertyhelper.PropertyHelper;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.DatabaseObjectState;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
+import ch.nolix.systemapi.objectdataapi.dataflyweightapi.IPropertyFlyWeight;
 import ch.nolix.systemapi.objectdataapi.propertyhelperapi.IPropertyHelper;
 import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
 
@@ -19,6 +23,9 @@ public abstract class Property implements IProperty<DataImplementation> {
 	
 	//attribute
 	private String name;
+	
+	//attribute
+	private IPropertyFlyWeight propertyFlyWeight = VoidPropertyFlyWeight.INSTANCE;
 	
 	//optional attribute
 	private IEntity<DataImplementation> parentEntity;
@@ -87,6 +94,15 @@ public abstract class Property implements IProperty<DataImplementation> {
 	}
 	
 	//method
+	@Override
+	public void setUpdateAction(final IElementTaker<IProperty<?>> updateAction) {
+		
+		setEffectivePropertyFlyWeightIfPropertyFlyWeightIsVoid();
+		
+		propertyFlyWeight.setUpdateAction(updateAction);
+	}
+	
+	//method
 	final IDataAndSchemaAdapter internalGetRefDataAndSchemaAdapter() {
 		return ((BaseEntity)parentEntity).internalGetRefDataAndSchemaAdapter();
 	}
@@ -105,10 +121,13 @@ public abstract class Property implements IProperty<DataImplementation> {
 	abstract void internalSetOrClearDirectlyFromContent(final Object content);
 	
 	//method
-	final void internalSetParentEntityAsEdited() {
+	final void internalSetParentEntityAsEditedAndRunProbableUpdateAction() {
+		
 		if (belongsToEntity()) {
 			((BaseEntity)getParentEntity()).internalSetEdited();
 		}
+		
+		propertyFlyWeight.noteUpdate(this);
 	}
 	
 	//method
@@ -131,5 +150,17 @@ public abstract class Property implements IProperty<DataImplementation> {
 	//method
 	private String findName() {
 		return GlobalReflectionHelper.getFieldName(getParentEntity(), this);
+	}
+	
+	//method
+	private void setEffectivePropertyFlyWeightIfPropertyFlyWeightIsVoid() {
+		if (propertyFlyWeight.isVoid()) {
+			setEffectivePropertyFlyWeightWhenPropertyFlyWeightIsVoid();
+		}
+	}
+	
+	//method
+	private void setEffectivePropertyFlyWeightWhenPropertyFlyWeightIsVoid() {
+		propertyFlyWeight = new PropertyFlyWeight();
 	}
 }
