@@ -42,8 +42,10 @@ public final class LayerTutorial2 {
 		.setTextSizeForState(WidgetLookState.BASE, 400)
 		.setTextColorForState(WidgetLookState.BASE, Color.BLACK);
 		
-		//Adds labelA and labelB to the Frame.
+		//Adds a new layer with labelA on the Frame.
 		frame.addLayerOnTop(ExtendedContentPosition.CENTER, labelA);
+		
+		//Adds a new layer with labelB on the Frame.
 		frame.addLayerOnTop(ExtendedContentPosition.CENTER, labelB);
 	}
 	
