@@ -51,7 +51,7 @@ public final class UploadImageDialogCreatorTutorial {
 					"CursorIcon(Hand)",
 					"ContentPosition(Center)",
 					"BaseBackground(Color(SkyBlue))",
-					"HoverBackgroundColor(Blue)",
+					"HoverBackground(Color(Blue))",
 					"BaseTextSize(30)"
 				),
 				new DeepConfiguration()
