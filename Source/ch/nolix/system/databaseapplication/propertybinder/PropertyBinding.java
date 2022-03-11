@@ -7,7 +7,6 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.element.gui.widget.Label;
 import ch.nolix.element.gui.widget.LabelRole;
 import ch.nolix.element.gui.widget.Widget;
-import ch.nolix.system.database.entity.Property;
 import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
 
 //class
@@ -24,7 +23,7 @@ public final class PropertyBinding {
 	//constructors
 	public PropertyBinding(final IProperty<?> property, final Widget<?, ?> widget) {
 		
-		Validator.assertThat(property).thatIsNamed(Property.class).isNotNull();
+		Validator.assertThat(property).thatIsNamed(IProperty.class).isNotNull();
 		Validator.assertThat(widget).thatIsNamed(Widget.class).isNotNull();
 		
 		this.property = property;
