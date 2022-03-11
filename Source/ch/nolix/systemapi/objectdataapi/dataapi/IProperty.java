@@ -3,6 +3,7 @@ package ch.nolix.systemapi.objectdataapi.dataapi;
 
 //own imports
 import ch.nolix.core.attributeapi.mandatoryattributeapi.Named;
+import ch.nolix.core.functionapi.IAction;
 import ch.nolix.core.functionapi.IElementTaker;
 import ch.nolix.core.requestapi.EmptinessRequestable;
 import ch.nolix.core.requestapi.MandatoryRequestable;
@@ -35,7 +36,7 @@ public interface IProperty<IMPL> extends EmptinessRequestable, IDatabaseObject, 
 	boolean referencesUninsertedEntity();
 	
 	//method declaration
-	void setUpdateAction(IElementTaker<IProperty<?>> updateAction);
+	void setUpdateAction(IAction updateAction);
 	
 	//method declaration
 	IContentFieldDTO technicalToContentField();

@@ -3,7 +3,7 @@ package ch.nolix.system.objectdata.data;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.functionapi.IElementTaker;
+import ch.nolix.core.functionapi.IAction;
 import ch.nolix.core.reflectionhelper.GlobalReflectionHelper;
 import ch.nolix.system.objectdata.propertyflyweight.PropertyFlyWeight;
 import ch.nolix.system.objectdata.propertyflyweight.VoidPropertyFlyWeight;
@@ -95,7 +95,7 @@ public abstract class Property implements IProperty<DataImplementation> {
 	
 	//method
 	@Override
-	public void setUpdateAction(final IElementTaker<IProperty<?>> updateAction) {
+	public void setUpdateAction(final IAction updateAction) {
 		
 		setEffectivePropertyFlyWeightIfPropertyFlyWeightIsVoid();
 		
@@ -127,7 +127,7 @@ public abstract class Property implements IProperty<DataImplementation> {
 			((BaseEntity)getParentEntity()).internalSetEdited();
 		}
 		
-		propertyFlyWeight.noteUpdate(this);
+		propertyFlyWeight.noteUpdate();
 	}
 	
 	//method

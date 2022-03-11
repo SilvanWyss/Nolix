@@ -2,8 +2,8 @@
 package ch.nolix.system.objectdata.propertyflyweight;
 
 //own imports
-import ch.nolix.core.functionapi.IElementTaker;
-import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
+import ch.nolix.core.functionapi.IAction;
 import ch.nolix.systemapi.objectdataapi.dataflyweightapi.IPropertyFlyWeight;
 
 //class
@@ -23,9 +23,11 @@ public final class VoidPropertyFlyWeight implements IPropertyFlyWeight {
 	
 	//method
 	@Override
-	public void noteUpdate(final IProperty<?> property) {}
+	public void noteUpdate() {}
 	
 	//method
 	@Override
-	public void setUpdateAction(final IElementTaker<IProperty<?>> updateAction) {}
+	public void setUpdateAction(final IAction updateAction) {
+		throw new ArgumentDoesNotSupportMethodException(this, "setUpdateAction");
+	}
 }
