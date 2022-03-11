@@ -9,6 +9,6 @@ public final class DataTestPool extends TestPool {
 	
 	//constructor
 	public DataTestPool() {
-		super(EntityTest.class, ValueTest.class);
+		super(EntityTest.class, OptionalValueTest.class, ValueTest.class);
 	}
 }
