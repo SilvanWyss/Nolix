@@ -71,7 +71,6 @@ public final class OptionalValueHelper extends PropertyHelper implements IOption
 	private boolean canSetValue(final IOptionalValue<?, ?> optionalValue) {
 		return
 		optionalValue != null
-		&& optionalValue.belongsToEntity()
-		&& optionalValue.getParentEntity().isOpen();
+		&& optionalValue.isOpen();
 	}
 }
