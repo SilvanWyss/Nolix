@@ -1,19 +1,9 @@
 package ch.nolix.systemtutorial.databaseapplicationtutorial;
 
-import ch.nolix.core.environment.localcomputer.ShellProvider;
-import ch.nolix.core.programcontrol.sequencer.Sequencer;
-import ch.nolix.system.client.base.Server;
-import ch.nolix.system.database.databaseadapter.DatabaseAdapter;
-import ch.nolix.system.database.databaseadapter.IDatabaseAdapterCreator;
-import ch.nolix.system.database.databaseadapter.Schema;
-import ch.nolix.system.database.entity.Entity;
-import ch.nolix.system.database.entity.Reference;
-import ch.nolix.system.database.entity.Value;
-import ch.nolix.system.database.nodedatabaseadapter.NodeDatabaseAdapterCreator;
-import ch.nolix.system.databaseapplication.main.DatabaseApplication;
-
 public final class ProductManagerTutorial {
 	
+	//TODO: Reimplement DatabaseApplication.
+	/*
 	public static void main(String[] args) {
 		
 		//Defines a database file.
@@ -124,6 +114,7 @@ public final class ProductManagerTutorial {
 			return name.getValue();
 		}
 	}
+	*/
 	
 	private ProductManagerTutorial() {}
 }
