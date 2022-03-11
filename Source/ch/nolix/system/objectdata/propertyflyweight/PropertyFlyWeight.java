@@ -3,14 +3,15 @@ package ch.nolix.system.objectdata.propertyflyweight;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.functionapi.IAction;
+import ch.nolix.core.functionapi.IElementTaker;
+import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
 import ch.nolix.systemapi.objectdataapi.dataflyweightapi.IPropertyFlyWeight;
 
 //class
 public final class PropertyFlyWeight implements IPropertyFlyWeight {
 	
 	//optional attribute
-	private IAction updateAction;
+	private IElementTaker<IProperty<?>> updateAction;
 	
 	//method
 	@Override
@@ -20,14 +21,14 @@ public final class PropertyFlyWeight implements IPropertyFlyWeight {
 	
 	//method
 	@Override
-	public void noteUpdate() {
+	public void noteUpdate(final IProperty<?> property) {
 		if (hasUpdateAction()) {
-			updateAction.run();
+			updateAction.run(property);
 		}
 	}
 	
 	@Override
-	public void setUpdateAction(final IAction updateAction) {
+	public void setUpdateAction(final IElementTaker<IProperty<?>> updateAction) {
 		
 		Validator.assertThat(updateAction).thatIsNamed("update action").isNotNull();
 		

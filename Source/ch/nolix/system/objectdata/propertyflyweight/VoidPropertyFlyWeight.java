@@ -2,7 +2,8 @@
 package ch.nolix.system.objectdata.propertyflyweight;
 
 //own imports
-import ch.nolix.core.functionapi.IAction;
+import ch.nolix.core.functionapi.IElementTaker;
+import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
 import ch.nolix.systemapi.objectdataapi.dataflyweightapi.IPropertyFlyWeight;
 
 //class
@@ -22,9 +23,9 @@ public final class VoidPropertyFlyWeight implements IPropertyFlyWeight {
 	
 	//method
 	@Override
-	public void noteUpdate() {}
+	public void noteUpdate(final IProperty<?> property) {}
 	
 	//method
 	@Override
-	public void setUpdateAction(final IAction updateAction) {}
+	public void setUpdateAction(final IElementTaker<IProperty<?>> updateAction) {}
 }
