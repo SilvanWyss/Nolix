@@ -19,7 +19,7 @@ public final class LayerTutorial {
 	
 	/**
 	 * Creates a {@link Frame} with a {@link Button}.
-	 * The button will add another {@link Layer} to the {@link Frame} when it is clicked on.
+	 * When the user clicks on the {@link Button} a second {@link Layer} will be added to the {@link Frame}.
 	 * 
 	 * @param args
 	 */
@@ -27,7 +27,7 @@ public final class LayerTutorial {
 		
 		//Creates Frame.
 		@SuppressWarnings("resource")
-		final var frame = new Frame().setTitle("GUILayer tutorial").setBackgroundColor(Color.LAVENDER);
+		final var frame = new Frame().setTitle("Layer tutorial").setBackgroundColor(Color.LAVENDER);
 		
 		//Creates dialogLayer.
 		final var dialogLayer =
