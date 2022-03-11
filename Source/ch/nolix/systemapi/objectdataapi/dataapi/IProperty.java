@@ -4,7 +4,6 @@ package ch.nolix.systemapi.objectdataapi.dataapi;
 //own imports
 import ch.nolix.core.attributeapi.mandatoryattributeapi.Named;
 import ch.nolix.core.functionapi.IAction;
-import ch.nolix.core.functionapi.IElementTaker;
 import ch.nolix.core.requestapi.EmptinessRequestable;
 import ch.nolix.core.requestapi.MandatoryRequestable;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.IDatabaseObject;
