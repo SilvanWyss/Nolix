@@ -65,8 +65,6 @@ public final class LocalFrontEndReader implements IFrontEndReader {
 	@Override
 	public SingleContainer<byte[]> readFileToBytes() {
 		
-		
-		
 		if (fileChooser.showOpenDialog(null) != JFileChooser.APPROVE_OPTION) {
 			return new SingleContainer<>();
 		}
