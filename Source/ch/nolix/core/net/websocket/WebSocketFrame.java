@@ -284,7 +284,7 @@ public final class WebSocketFrame {
 			case BITS_16:
 				return calculatePayloadLengthWhenPayloadLengthIs16Bits(inputStream);
 			case BITS_64:
-				return calculatePayloadLengthWhenPayloadLengthI64Bits(inputStream);
+				return calculatePayloadLengthWhenPayloadLengthIs64Bits(inputStream);
 			default:
 				throw new InvalidArgumentException(getPayloadLengthType());
 		}
@@ -310,11 +310,11 @@ public final class WebSocketFrame {
 	}
 	
 	//method
-	private WebSocketFramePayloadLength calculatePayloadLengthWhenPayloadLengthI64Bits(
+	private WebSocketFramePayloadLength calculatePayloadLengthWhenPayloadLengthIs64Bits(
 		final InputStream inputStream
 	) throws IOException {
 		
-		final var headerNext4Bytes = inputStream.readNBytes(2);
+		final var headerNext4Bytes = inputStream.readNBytes(4);
 		
 		return
 		new WebSocketFramePayloadLength(
