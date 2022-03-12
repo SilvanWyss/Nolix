@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.net.websocket;
 
+//own imports
 import ch.nolix.core.commontype.commontypewrapper.ByteWrapper;
 import ch.nolix.core.errorcontrol.validator.Validator;
 
@@ -50,13 +51,13 @@ final class WebSocketFrameFirstNibble {
 		final var wrapperByte1 = new ByteWrapper(byte1);
 		final var wrapperByte2 = new ByteWrapper(byte2);
 		
-		final var RSV1BIt = wrapperByte1.getBitAt(2);
-		final var RSV2BIt = wrapperByte1.getBitAt(3);
-		final var RSV3BIt = wrapperByte1.getBitAt(4);
+		final var RSV1Bit = wrapperByte1.getBitAt(2);
+		final var RSV2Bit = wrapperByte1.getBitAt(3);
+		final var RSV3Bit = wrapperByte1.getBitAt(4);
 		
-		Validator.assertThatTheBit(RSV1BIt).thatIsNamed("RSV1BIt").isCleared();
-		Validator.assertThatTheBit(RSV2BIt).thatIsNamed("RSV2BIt").isCleared();
-		Validator.assertThatTheBit(RSV3BIt).thatIsNamed("RSV3BIt").isCleared();
+		Validator.assertThatTheBit(RSV1Bit).thatIsNamed("RSV1Bit").isCleared();
+		Validator.assertThatTheBit(RSV2Bit).thatIsNamed("RSV2Bit").isCleared();
+		Validator.assertThatTheBit(RSV3Bit).thatIsNamed("RSV3Bit").isCleared();
 		
 		mFINBit = wrapperByte1.getBitAt(1);
 		opcode = byte1 & 0b1111;
