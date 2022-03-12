@@ -7,6 +7,7 @@ import java.io.InputStream;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
 
+//own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalArrayHelper;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -314,14 +315,18 @@ public final class WebSocketFrame {
 		final InputStream inputStream
 	) throws IOException {
 		
-		final var headerNext4Bytes = inputStream.readNBytes(4);
+		final var headerNext8Bytes = inputStream.readNBytes(8);
 		
 		return
 		new WebSocketFramePayloadLength(
-			(headerNext4Bytes[0] & 0xFF)
-			+ (0x100L * (headerNext4Bytes[1] & 0b11111111))
-			+ (0x10000L * (headerNext4Bytes[2] & 0b11111111))
-			+ (0x1000000L * (headerNext4Bytes[3] & 0b11111111))
+			(0x100_000_000_000_000L * (headerNext8Bytes[0] & 0b11111111))
+			+ (0x1_000_000_000_000L * (headerNext8Bytes[1] & 0b11111111))
+			+ (0x10_000_000_000L * (headerNext8Bytes[2] & 0b11111111))
+			+ (0x100_000_000L * (headerNext8Bytes[3] & 0b11111111))
+			+ (0x1_000_000L * (headerNext8Bytes[4] & 0b11111111))
+			+ (0x10_000L * (headerNext8Bytes[5] & 0b11111111))
+			+ (0x100L * (headerNext8Bytes[6] & 0b11111111))
+			+ (headerNext8Bytes[7] & 0b11111111)
 		);
 	}
 }
