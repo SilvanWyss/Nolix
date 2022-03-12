@@ -9,7 +9,10 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import javax.swing.JFileChooser;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
+//own imports
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.container.SingleContainer;
@@ -20,6 +23,27 @@ import ch.nolix.element.gui.baseapi.IFrontEndReader;
 
 //class
 public final class LocalFrontEndReader implements IFrontEndReader {
+	
+	//static attribute
+	private static final JFileChooser fileChooser;
+	
+	//static initializing
+	static {
+		
+		try {
+			UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+		} catch (
+			final
+			ClassNotFoundException
+			| InstantiationException
+			| IllegalAccessException
+			| UnsupportedLookAndFeelException
+		exception) {
+			throw new WrapperException(exception);
+		}
+		
+		fileChooser = new JFileChooser();
+	}
 	
 	//method
 	@Override
@@ -41,7 +65,7 @@ public final class LocalFrontEndReader implements IFrontEndReader {
 	@Override
 	public SingleContainer<byte[]> readFileToBytes() {
 		
-		final var fileChooser = new JFileChooser();
+		
 		
 		if (fileChooser.showOpenDialog(null) != JFileChooser.APPROVE_OPTION) {
 			return new SingleContainer<>();
