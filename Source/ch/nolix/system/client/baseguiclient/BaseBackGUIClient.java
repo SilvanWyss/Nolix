@@ -4,14 +4,17 @@ package ch.nolix.system.client.baseguiclient;
 //Java imports
 import java.nio.charset.StandardCharsets;
 
+//own imports
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.SingleContainer;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
+import ch.nolix.core.environment.filesystem.FileSystemAccessor;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.programcontrol.processproperty.WriteMode;
 import ch.nolix.core.programcontrol.sequencer.Sequencer;
 import ch.nolix.element.gui.base.GUI;
 import ch.nolix.element.gui.base.IWidgetGUI;
@@ -39,7 +42,7 @@ public abstract class BaseBackGUIClient<BBGUIC extends BaseBackGUIClient<BBGUIC>
 	private boolean isWaitingForFileFromCounterpart;
 	
 	//optional attribute
-	private Node latestFileDataFromCounterpart;
+	private SingleContainer<String> latestOptionalFileFromCounterpart;
 	
 	//method
 	/**
@@ -83,8 +86,8 @@ public abstract class BaseBackGUIClient<BBGUIC extends BaseBackGUIClient<BBGUIC>
 			case CommandProtocol.NOTE_INPUT:
 				noteInput(InputFactory.INSTANCE.createElementFrom(command.getOneAttributeAsNode()));				
 				break;
-			case CommandProtocol.RECEIVE_FILE:
-				receiveFileDataFromCounterpart(command.getOneAttributeAsNode());
+			case CommandProtocol.RECEIVE_OPTIONAL_FILE:
+				receiveOptionalFileFromCounterpart(command);
 				break;
 			default:
 				
@@ -111,20 +114,22 @@ public abstract class BaseBackGUIClient<BBGUIC extends BaseBackGUIClient<BBGUIC>
 	//method
 	final SingleContainer<byte[]> getFileFromCounterpart() {
 		
-		final var fileData = getFileFromCounterpartInNode();
+		final var optionalFile = getOptionalFileFromCounterpart();
 		
-		if (!fileData.containsOneAttribute()) {
+		if (optionalFile.isEmpty()) {
 			return new SingleContainer<>();
 		}
 		
-		return new SingleContainer<>(fileData.getRefOneAttribute().toString().getBytes(StandardCharsets.UTF_8));
+		final var fileString = optionalFile.getRefElement();
+		FileSystemAccessor.createFile("C:/Temp/image.jpg", WriteMode.OVERWRITE_WHEN_TARGET_EXISTS_ALREADY, fileString); //temp
+		return new SingleContainer<>(fileString.getBytes(StandardCharsets.UTF_8));
 	}
 	
 	//method
 	/**
 	 * @return the {@link GUI} of the current {@link BaseBackGUIClientSession} of the current {@link BaseBackGUIClient}.
 	 */
-	IWidgetGUI<?> getRefGUI() {
+	final IWidgetGUI<?> getRefGUI() {
 		
 		@SuppressWarnings("rawtypes")
 		final var session = (BaseBackGUIClientSession)internalGetRefCurrentSession();
@@ -233,22 +238,24 @@ public abstract class BaseBackGUIClient<BBGUIC extends BaseBackGUIClient<BBGUIC>
 	}
 	
 	//method
-	private BaseNode getFileFromCounterpartInNode() {
+	private SingleContainer<String> getOptionalFileFromCounterpart() {
 		
 		if (isWebClient()) {
-			return getFileDataFromWebCounterpart();
+			return getOptionalFileDataFromWebCounterpart();
 		}
 		
-		return getFileDataFromNonWebCounterpart();
+		return getOptionalFileFromNonWebCounterpart();
 	}
 	
 	//method
-	private BaseNode getFileDataFromNonWebCounterpart() {
-		return internalGetDataFromCounterpart(ChainedNode.withHeader(CommandProtocol.GET_FILE));
+	private SingleContainer<String> getOptionalFileFromNonWebCounterpart() {
+		//TODO: Refactor.
+		//return internalGetDataFromCounterpart(ChainedNode.withHeader(CommandProtocol.GET_FILE));
+		return null;
 	}
 	
 	//method
-	private Node getFileDataFromWebCounterpart() {
+	private SingleContainer<String> getOptionalFileDataFromWebCounterpart() {
 		
 		assertIsNotWaitingForFileFromCounterpart();
 		
@@ -262,7 +269,7 @@ public abstract class BaseBackGUIClient<BBGUIC extends BaseBackGUIClient<BBGUIC>
 		
 		isWaitingForFileFromCounterpart = false;
 		
-		return latestFileDataFromCounterpart;
+		return latestOptionalFileFromCounterpart;
 	}
 	
 	//method
@@ -352,22 +359,43 @@ public abstract class BaseBackGUIClient<BBGUIC extends BaseBackGUIClient<BBGUIC>
 	}
 	
 	//method
+	private void receiveOptionalFileFromCounterpart(final ChainedNode receiveOptionalFileCommand) {
+		switch (receiveOptionalFileCommand.getAttributeCount()) {
+			case 0:
+				receiveOptionalFileFromCounterpart(new SingleContainer<>());
+				break;
+			case 1:
+				receiveOptionalFileFromCounterpart(
+					new SingleContainer<>(receiveOptionalFileCommand.getOneAttribute().getHeader())
+				);
+				break;
+			default:
+				throw
+				new InvalidArgumentException(
+					"receive optional file commoand",
+					receiveOptionalFileCommand,
+					"is not valid"
+				);
+		}
+	}
+	
+	//method
 	/**
 	 * Lets the current {@link BaseBackGUIClient}
-	 * receive a file from the counterpart of the current {@link BaseBackGUIClient}.
+	 * receive a file optionally from the counterpart of the current {@link BaseBackGUIClient}.
 	 * 
-	 * @param fileData
-	 * @throws ArgumentIsNullException if the given fileData is null.
+	 * @param fileNode
+	 * @throws ArgumentIsNullException if the given fileNode is null.
 	 * @throws InvalidArgumentException if the current {@link BaseBackGUIClient}
 	 * is not waiting for a file from the counterpart of the current {@link BaseBackGUIClient}.
 	 */
-	private void receiveFileDataFromCounterpart(final Node fileData) {
+	private void receiveOptionalFileFromCounterpart(final SingleContainer<String> optionalFile) {
 		
-		Validator.assertThat(fileData).thatIsNamed("file data").isNotNull();
+		Validator.assertThat(optionalFile).thatIsNamed("optional file").isNotNull();
 		assertIsWaitingForFileFromCounterpart();
 		
 		isWaitingForFileFromCounterpart = false;
-		latestFileDataFromCounterpart = fileData;
+		latestOptionalFileFromCounterpart = optionalFile;
 	}
 	
 	//method

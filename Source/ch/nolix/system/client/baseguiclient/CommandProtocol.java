@@ -8,7 +8,7 @@ final class CommandProtocol {
 	public static final String GET_FILE = "GetFile";
 	public static final String GET_TEXT_FROM_CLIPBOARD = "GetTextFromClipboard";
 	public static final String NOTE_INPUT = "NoteInput";
-	public static final String RECEIVE_FILE = "ReceiveFile";
+	public static final String RECEIVE_OPTIONAL_FILE = "ReceiveOptionalFile";
 	public static final String RESET = "Reset";
 	public static final String SAVE_FILE = "SaveFile";
 	public static final String SEND_FILE = "SendFile";
