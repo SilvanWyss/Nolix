@@ -10,11 +10,9 @@ import ch.nolix.core.container.SingleContainer;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
-import ch.nolix.core.environment.filesystem.FileSystemAccessor;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.programcontrol.processproperty.WriteMode;
 import ch.nolix.core.programcontrol.sequencer.Sequencer;
 import ch.nolix.element.gui.base.GUI;
 import ch.nolix.element.gui.base.IWidgetGUI;
@@ -121,7 +119,7 @@ public abstract class BaseBackGUIClient<BBGUIC extends BaseBackGUIClient<BBGUIC>
 		}
 		
 		final var fileString = optionalFile.getRefElement();
-		FileSystemAccessor.createFile("C:/Temp/image.jpg", WriteMode.OVERWRITE_WHEN_TARGET_EXISTS_ALREADY, fileString); //temp
+		
 		return new SingleContainer<>(fileString.getBytes(StandardCharsets.UTF_8));
 	}
 	
