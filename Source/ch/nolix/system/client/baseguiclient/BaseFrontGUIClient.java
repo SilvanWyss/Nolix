@@ -4,6 +4,7 @@ package ch.nolix.system.client.baseguiclient;
 //Java imports
 import java.nio.charset.StandardCharsets;
 
+//own imports
 import ch.nolix.core.container.SingleContainer;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.document.node.Node;
@@ -74,15 +75,19 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 				return Node.withHeader(getGUIType().toString());
 			case CommandProtocol.GET_TEXT_FROM_CLIPBOARD:
 				return Node.withHeader(getRefGUI().fromFrontEnd().getTextFromClipboard());
-			case CommandProtocol.GET_FILE:
+			case CommandProtocol.GET_OPTIONAL_FILE:
 				
 				final var data = readFileToBytes();
 				
 				if (data.isEmpty()) {
-					return new Node();
+					return Node.withHeader(ObjectProtocol.FILE);
 				}
 				
-				return Node.withAttribute(Node.withHeader(new String(data.getRefElement(), StandardCharsets.UTF_8)));
+				return
+				Node.withHeaderAndAttribute(
+					ObjectProtocol.FILE,
+					Node.withHeader(new String(data.getRefElement(), StandardCharsets.UTF_8))
+				);
 			default:
 				
 				//Calls method of the base class.

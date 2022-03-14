@@ -5,6 +5,7 @@ package ch.nolix.system.client.baseguiclient;
 final class ObjectProtocol {
 	
 	//constants
+	public static final String FILE = "File";
 	public static final String GUI = "GUI";
 	public static final String GUI_TYPE = "GUIType";
 	public static final String VIEW_AREA_SIZE = "ViewAreaSize";

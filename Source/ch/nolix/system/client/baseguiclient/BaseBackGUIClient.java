@@ -249,9 +249,17 @@ public abstract class BaseBackGUIClient<BBGUIC extends BaseBackGUIClient<BBGUIC>
 	
 	//method
 	private SingleContainer<String> getOptionalFileFromNonWebCounterpart() {
-		//TODO: Refactor.
-		//return internalGetDataFromCounterpart(ChainedNode.withHeader(CommandProtocol.GET_FILE));
-		return null;
+		
+		final var fileNode = internalGetDataFromCounterpart(ChainedNode.withHeader(CommandProtocol.GET_OPTIONAL_FILE));
+		
+		switch (fileNode.getAttributeCount()) {
+			case 0:
+				return new SingleContainer<>();
+			case 1:
+				return new SingleContainer<>(fileNode.getOneAttributeHeader());
+			default:
+				throw new InvalidArgumentException("fileNode", fileNode, "is not valid");
+		}
 	}
 	
 	//method
