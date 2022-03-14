@@ -711,12 +711,31 @@ define("Common/ChainedNode/ChainedNode", ["require", "exports", "Common/Containe
             this.attributes = new LinkedList_4.LinkedList();
         }
         static createReproducingString(string) {
-            return string
-                .replace('$', ChainedNode.DOLLAR_SYMBOL_CODE)
-                .replace('.', ChainedNode.DOT_CODE)
-                .replace(',', ChainedNode.COMMA_CODE)
-                .replace('(', ChainedNode.OPEN_BRACKET_CODE)
-                .replace(')', ChainedNode.CLOSED_BRACKET_CODE);
+            var reprodudingString = '';
+            for (var i = 0; i < string.length; i++) {
+                switch (string[i]) {
+                    case '$':
+                        reprodudingString += this.DOLLAR_SYMBOL_CODE;
+                        break;
+                        ;
+                    case '.':
+                        reprodudingString += this.DOT_CODE;
+                        break;
+                    case ',':
+                        reprodudingString += this.COMMA_CODE;
+                        break;
+                    case '(':
+                        reprodudingString += this.OPEN_BRACKET_CODE;
+                        break;
+                    case ')':
+                        reprodudingString += this.CLOSED_BRACKET_CODE;
+                        break;
+                    default:
+                        reprodudingString += string[i];
+                        break;
+                }
+            }
+            return reprodudingString;
         }
         static fromNode(node) {
             const chainedNode = new ChainedNode();
@@ -736,6 +755,12 @@ define("Common/ChainedNode/ChainedNode", ["require", "exports", "Common/Containe
         static withHeader(header) {
             const chainedNode = new ChainedNode();
             chainedNode.setHeader(header);
+            return chainedNode;
+        }
+        static withHeaderAndAttribute(header, attribute) {
+            const chainedNode = new ChainedNode();
+            chainedNode.setHeader(header);
+            chainedNode.attributes.addAtEnd(attribute);
             return chainedNode;
         }
         static withHeaderAndAttributeFromNode(header, attribute) {
@@ -993,11 +1018,11 @@ define("Common/ChainedNode/ChainedNode", ["require", "exports", "Common/Containe
             this.nextNode = nextNode;
         }
     }
-    ChainedNode.DOT_CODE = "$D";
-    ChainedNode.COMMA_CODE = "$M";
-    ChainedNode.DOLLAR_SYMBOL_CODE = "$X";
-    ChainedNode.OPEN_BRACKET_CODE = "$O";
-    ChainedNode.CLOSED_BRACKET_CODE = "$C";
+    ChainedNode.DOT_CODE = '$D';
+    ChainedNode.COMMA_CODE = '$M';
+    ChainedNode.DOLLAR_SYMBOL_CODE = '$X';
+    ChainedNode.OPEN_BRACKET_CODE = '$O';
+    ChainedNode.CLOSED_BRACKET_CODE = '$C';
     exports.ChainedNode = ChainedNode;
 });
 define("Common/CommonTypeHelper/StringHelper", ["require", "exports"], function (require, exports) {
@@ -2080,28 +2105,6 @@ define("Element/BaseGUI_API/IInputTaker", ["require", "exports"], function (requ
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
 });
-define("Element/CanvasGUI/CanvasGUICommandProtocol", ["require", "exports"], function (require, exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    class CanvasGUICommandProtocol {
-    }
-    CanvasGUICommandProtocol.PAINT_FILLED_RECTANGLE = 'PaintFilledRectangle';
-    CanvasGUICommandProtocol.PAINT_IMAGE = 'PaintImage';
-    CanvasGUICommandProtocol.PAINT_IMAGE_BY_ID = 'PaintImageById';
-    CanvasGUICommandProtocol.PAINT_TEXT = 'PaintText';
-    CanvasGUICommandProtocol.REGISTER_IMAGE = 'RegisterImage';
-    CanvasGUICommandProtocol.SET_COLOR = 'SetColor';
-    CanvasGUICommandProtocol.TRANSLATE = 'Translate';
-    exports.CanvasGUICommandProtocol = CanvasGUICommandProtocol;
-});
-define("Element/CanvasGUI/CanvasGUIObjectProtocol", ["require", "exports"], function (require, exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    class CanvasGUIObjectProtocol {
-    }
-    CanvasGUIObjectProtocol.CREATE_PAINTER = 'CreatePainter';
-    exports.CanvasGUIObjectProtocol = CanvasGUIObjectProtocol;
-});
 define("Element/Color/Color", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
@@ -2172,63 +2175,6 @@ define("Element/Color/Color", ["require", "exports"], function (require, exports
     Color.BLACK = new Color(0, 0, 0, 255);
     Color.WHITE = new Color(255, 255, 255, 255);
     exports.Color = Color;
-});
-define("Element/TextFormat/FontType", ["require", "exports"], function (require, exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    var FontType;
-    (function (FontType) {
-        FontType[FontType["Arial"] = 0] = "Arial";
-        FontType[FontType["ArialBlack"] = 1] = "ArialBlack";
-        FontType[FontType["ComicSansMS"] = 2] = "ComicSansMS";
-        FontType[FontType["Impact"] = 3] = "Impact";
-        FontType[FontType["LucidaConsole"] = 4] = "LucidaConsole";
-        FontType[FontType["Papyrus"] = 5] = "Papyrus";
-        FontType[FontType["Tahoma"] = 6] = "Tahoma";
-        FontType[FontType["Verdana"] = 7] = "Verdana";
-    })(FontType = exports.FontType || (exports.FontType = {}));
-});
-define("Element/TextFormat/Font", ["require", "exports", "Common/Constant/FontCodeCatalogue", "Element/TextFormat/FontType"], function (require, exports, FontCodeCatalogue_1, FontType_1) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    class Font {
-        static fromSpecification(fontSpecification) {
-            return new Font(FontType_1.FontType[fontSpecification.getOneAttributeHeader()]);
-        }
-        constructor(fontType) {
-            if (fontType === null) {
-                throw new Error('The given fontType is null.');
-            }
-            if (fontType === undefined) {
-                throw new Error('The given fontType is undefined.');
-            }
-            this.fontType = fontType;
-        }
-        getCode() {
-            switch (this.fontType) {
-                case FontType_1.FontType.Arial:
-                    return FontCodeCatalogue_1.FontCodeCatalogue.ARIAL;
-                case FontType_1.FontType.ArialBlack:
-                    return FontCodeCatalogue_1.FontCodeCatalogue.ARIAL_BLACK;
-                case FontType_1.FontType.ComicSansMS:
-                    return FontCodeCatalogue_1.FontCodeCatalogue.COMIC_SANS_MS;
-                case FontType_1.FontType.Impact:
-                    return FontCodeCatalogue_1.FontCodeCatalogue.IMPACT;
-                case FontType_1.FontType.LucidaConsole:
-                    return FontCodeCatalogue_1.FontCodeCatalogue.LUCIDA_CONSOLE;
-                case FontType_1.FontType.Papyrus:
-                    return FontCodeCatalogue_1.FontCodeCatalogue.PAPYRUS;
-                case FontType_1.FontType.Tahoma:
-                    return FontCodeCatalogue_1.FontCodeCatalogue.TAHOMA;
-                case FontType_1.FontType.Verdana:
-                    return FontCodeCatalogue_1.FontCodeCatalogue.VERDANA;
-            }
-        }
-        getFontType() {
-            return this.fontType;
-        }
-    }
-    exports.Font = Font;
 });
 define("Element/Graphic/Image", ["require", "exports", "Element/Color/Color", "Element/Base/Element", "Common/Container/Matrix", "Common/Node/Node", "Common/Constant/PascalCaseNameCatalogue"], function (require, exports, Color_1, Element_1, Matrix_1, Node_4, PascalCaseNameCatalogue_1) {
     "use strict";
@@ -2307,6 +2253,63 @@ define("Element/Graphic/Image", ["require", "exports", "Element/Color/Color", "E
     Image.PIXEL_ARRAY_HEADER = 'PixelArray';
     exports.Image = Image;
 });
+define("Element/TextFormat/FontType", ["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    var FontType;
+    (function (FontType) {
+        FontType[FontType["Arial"] = 0] = "Arial";
+        FontType[FontType["ArialBlack"] = 1] = "ArialBlack";
+        FontType[FontType["ComicSansMS"] = 2] = "ComicSansMS";
+        FontType[FontType["Impact"] = 3] = "Impact";
+        FontType[FontType["LucidaConsole"] = 4] = "LucidaConsole";
+        FontType[FontType["Papyrus"] = 5] = "Papyrus";
+        FontType[FontType["Tahoma"] = 6] = "Tahoma";
+        FontType[FontType["Verdana"] = 7] = "Verdana";
+    })(FontType = exports.FontType || (exports.FontType = {}));
+});
+define("Element/TextFormat/Font", ["require", "exports", "Common/Constant/FontCodeCatalogue", "Element/TextFormat/FontType"], function (require, exports, FontCodeCatalogue_1, FontType_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    class Font {
+        static fromSpecification(fontSpecification) {
+            return new Font(FontType_1.FontType[fontSpecification.getOneAttributeHeader()]);
+        }
+        constructor(fontType) {
+            if (fontType === null) {
+                throw new Error('The given fontType is null.');
+            }
+            if (fontType === undefined) {
+                throw new Error('The given fontType is undefined.');
+            }
+            this.fontType = fontType;
+        }
+        getCode() {
+            switch (this.fontType) {
+                case FontType_1.FontType.Arial:
+                    return FontCodeCatalogue_1.FontCodeCatalogue.ARIAL;
+                case FontType_1.FontType.ArialBlack:
+                    return FontCodeCatalogue_1.FontCodeCatalogue.ARIAL_BLACK;
+                case FontType_1.FontType.ComicSansMS:
+                    return FontCodeCatalogue_1.FontCodeCatalogue.COMIC_SANS_MS;
+                case FontType_1.FontType.Impact:
+                    return FontCodeCatalogue_1.FontCodeCatalogue.IMPACT;
+                case FontType_1.FontType.LucidaConsole:
+                    return FontCodeCatalogue_1.FontCodeCatalogue.LUCIDA_CONSOLE;
+                case FontType_1.FontType.Papyrus:
+                    return FontCodeCatalogue_1.FontCodeCatalogue.PAPYRUS;
+                case FontType_1.FontType.Tahoma:
+                    return FontCodeCatalogue_1.FontCodeCatalogue.TAHOMA;
+                case FontType_1.FontType.Verdana:
+                    return FontCodeCatalogue_1.FontCodeCatalogue.VERDANA;
+            }
+        }
+        getFontType() {
+            return this.fontType;
+        }
+    }
+    exports.Font = Font;
+});
 define("Element/TextFormat/TextFormat", ["require", "exports", "Element/Color/Color", "Element/TextFormat/Font"], function (require, exports, Color_2, Font_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
@@ -2355,6 +2358,32 @@ define("Element/TextFormat/TextFormat", ["require", "exports", "Element/Color/Co
         }
     }
     exports.TextFormat = TextFormat;
+});
+define("Element/PainterAPI/IPainter", ["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+});
+define("Element/CanvasGUI/CanvasGUICommandProtocol", ["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    class CanvasGUICommandProtocol {
+    }
+    CanvasGUICommandProtocol.PAINT_FILLED_RECTANGLE = 'PaintFilledRectangle';
+    CanvasGUICommandProtocol.PAINT_IMAGE = 'PaintImage';
+    CanvasGUICommandProtocol.PAINT_IMAGE_BY_ID = 'PaintImageById';
+    CanvasGUICommandProtocol.PAINT_TEXT = 'PaintText';
+    CanvasGUICommandProtocol.REGISTER_IMAGE = 'RegisterImage';
+    CanvasGUICommandProtocol.SET_COLOR = 'SetColor';
+    CanvasGUICommandProtocol.TRANSLATE = 'Translate';
+    exports.CanvasGUICommandProtocol = CanvasGUICommandProtocol;
+});
+define("Element/CanvasGUI/CanvasGUIObjectProtocol", ["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    class CanvasGUIObjectProtocol {
+    }
+    CanvasGUIObjectProtocol.CREATE_PAINTER = 'CreatePainter';
+    exports.CanvasGUIObjectProtocol = CanvasGUIObjectProtocol;
 });
 define("Element/CanvasGUI/CanvasGUIGlobalPainter", ["require", "exports", "Element/Color/Color", "Element/TextFormat/Font", "Element/TextFormat/FontType", "Element/TextFormat/TextFormat"], function (require, exports, Color_3, Font_2, FontType_2, TextFormat_1) {
     "use strict";
@@ -2444,10 +2473,6 @@ define("Element/CanvasGUI/CanvasGUIGlobalPainter", ["require", "exports", "Eleme
     CanvasGUIGlobalPainter.DEFAULT_TEXT_COLOR = Color_3.Color.BLACK;
     CanvasGUIGlobalPainter.DEFAULT_TEXT_FORMAT = new TextFormat_1.TextFormat(new Font_2.Font(CanvasGUIGlobalPainter.DEFAULT_TEXT_FONT_TYPE), CanvasGUIGlobalPainter.DEFAULT_TEXT_SIZE, CanvasGUIGlobalPainter.DEFAULT_TEXT_COLOR);
     exports.CanvasGUIGlobalPainter = CanvasGUIGlobalPainter;
-});
-define("Element/PainterAPI/IPainter", ["require", "exports"], function (require, exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
 });
 define("Element/CanvasGUI/CanvasGUIPainter", ["require", "exports", "Element/CanvasGUI/CanvasGUIGlobalPainter", "Common/Math/CentralCalculator", "Common/Container/SingleContainer", "Common/Raster/TopLeftPositionedRectangle"], function (require, exports, CanvasGUIGlobalPainter_1, CentralCalculator_1, SingleContainer_1, TopLeftPositionedRectangle_1) {
     "use strict";
@@ -2840,7 +2865,7 @@ define("Element/CanvasGUI/PaintProcess", ["require", "exports", "Common/Containe
     }
     exports.PaintProcess = PaintProcess;
 });
-define("Element/CanvasGUI/CanvasGUI", ["require", "exports", "Common/Caching/CachingContainer", "Element/CanvasGUI/CanvasGUICommandProtocol", "Element/CanvasGUI/CanvasGUIObjectProtocol", "Element/CanvasGUI/CanvasGUIPainter", "Element/Color/Color", "Element/Graphic/Image", "Element/Input/KeyMapper", "Common/Container/LinkedList", "Element/CanvasGUI/PaintProcess", "Common/Pair/Pair", "Common/Enum/RotationDirectionMapper", "Element/TextFormat/TextFormat"], function (require, exports, CachingContainer_1, CanvasGUICommandProtocol_1, CanvasGUIObjectProtocol_1, CanvasGUIPainter_1, Color_4, Image_1, KeyMapper_1, LinkedList_9, PaintProcess_1, Pair_2, RotationDirectionMapper_1, TextFormat_2) {
+define("Element/CanvasGUI/CanvasGUI", ["require", "exports", "Common/Caching/CachingContainer", "Element/CanvasGUI/CanvasGUICommandProtocol", "Element/CanvasGUI/CanvasGUIObjectProtocol", "Element/CanvasGUI/CanvasGUIPainter", "Element/Color/Color", "Element/Graphic/Image", "Element/Input/KeyMapper", "Common/Container/LinkedList", "Element/CanvasGUI/PaintProcess", "Common/Pair/Pair", "Common/Enum/RotationDirectionMapper", "Element/TextFormat/TextFormat", "Common/Constant/StringCatalogue"], function (require, exports, CachingContainer_1, CanvasGUICommandProtocol_1, CanvasGUIObjectProtocol_1, CanvasGUIPainter_1, Color_4, Image_1, KeyMapper_1, LinkedList_9, PaintProcess_1, Pair_2, RotationDirectionMapper_1, TextFormat_2, StringCatalogue_2) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class CanvasGUI {
@@ -2873,6 +2898,35 @@ define("Element/CanvasGUI/CanvasGUI", ["require", "exports", "Common/Caching/Cac
         }
         getCursorYPositionOnViewArea() {
             return this.cursorYPositionOnViewArea;
+        }
+        getFile(fileTaker) {
+            const uploaderDiv = this.window.document.createElement('div');
+            this.window.document.body.appendChild(uploaderDiv);
+            const uploader = this.window.document.createElement('input');
+            uploader.type = 'file';
+            uploader.innerText = 'Upload';
+            uploader.onchange = () => {
+                if (uploader.files.length > 0) {
+                    const file = uploader.files[0];
+                    const fileReader = new FileReader();
+                    fileReader.readAsDataURL(file);
+                    fileReader.onloadend = () => {
+                        if (fileReader.readyState === FileReader.DONE) {
+                            fileTaker(fileReader.result);
+                        }
+                    };
+                    this.window.document.body.removeChild(uploaderDiv);
+                }
+            };
+            uploaderDiv.appendChild(uploader);
+            const cancelButton = this.window.document.createElement('button');
+            cancelButton.type = 'button';
+            cancelButton.innerText = 'Cancel';
+            cancelButton.onclick = () => {
+                fileTaker(StringCatalogue_2.StringCatalogue.EMPTY);
+                this.window.document.body.removeChild(uploaderDiv);
+            };
+            uploaderDiv.appendChild(cancelButton);
         }
         getTitle() {
             return this.title;
@@ -3463,8 +3517,9 @@ define("System/FrontCanvasGUIClient/FrontCanvasGUIClientCommandProtocol", ["requ
     class FrontCanvasGUIClientCommandProtocol {
         constructor() { }
     }
-    FrontCanvasGUIClientCommandProtocol.GET_FILE = 'GetFile';
     FrontCanvasGUIClientCommandProtocol.NOTE_INPUT = 'NoteInput';
+    FrontCanvasGUIClientCommandProtocol.RECEIVE_OPTIONAL_FILE = 'ReceiveOptionalFile';
+    FrontCanvasGUIClientCommandProtocol.SEND_FILE = 'SendFile';
     FrontCanvasGUIClientCommandProtocol.SET_CURSOR_ICON = 'SetCursorIcon';
     FrontCanvasGUIClientCommandProtocol.SET_ICON = 'SetIcon';
     FrontCanvasGUIClientCommandProtocol.SET_PAINT_COMMANDS = 'SetPaintCommands';
@@ -3506,6 +3561,9 @@ define("System/FrontCanvasGUIClient/GUIHandler", ["require", "exports", "Element
         }
         getCursorYPositionOnViewArea() {
             return this.mGUI.getCursorYPositionOnViewArea();
+        }
+        getFile(fileTaker) {
+            this.mGUI.getFile(fileTaker);
         }
         getViewAreaSize() {
             return this.mGUI.getViewAreaSize();
@@ -3698,6 +3756,9 @@ define("System/FrontCanvasGUIClient/FrontCanvasGUIClient", ["require", "exports"
                 case FrontCanvasGUIClientObjectProtocol_2.FrontCanvasGUIClientObjectProtocol.GUI:
                     this.mGUIHandler.runGUICommand(command.getNextNode());
                     break;
+                case FrontCanvasGUIClientCommandProtocol_2.FrontCanvasGUIClientCommandProtocol.SEND_FILE:
+                    this.mGUIHandler.getFile(file => this.sendFile(file));
+                    break;
                 default:
                     throw new Error('The given command is not valid.');
             }
@@ -3706,6 +3767,9 @@ define("System/FrontCanvasGUIClient/FrontCanvasGUIClient", ["require", "exports"
             if (this.endPoint !== undefined) {
                 this.endPoint.run(command);
             }
+        }
+        sendFile(file) {
+            this.runOnConunterpart(ChainedNode_2.ChainedNode.withHeaderAndAttribute(FrontCanvasGUIClientCommandProtocol_2.FrontCanvasGUIClientCommandProtocol.RECEIVE_OPTIONAL_FILE, ChainedNode_2.ChainedNode.withHeader(file)));
         }
     }
     FrontCanvasGUIClient.GUI_TYPE = 'CanvasGUI';

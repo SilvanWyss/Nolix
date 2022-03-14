@@ -3,6 +3,7 @@ package ch.nolix.system.client.baseguiclient;
 
 //Java imports
 import java.nio.charset.StandardCharsets;
+import java.util.Base64;
 
 //own imports
 import ch.nolix.core.container.IContainer;
@@ -118,9 +119,10 @@ public abstract class BaseBackGUIClient<BBGUIC extends BaseBackGUIClient<BBGUIC>
 			return new SingleContainer<>();
 		}
 		
+		//Important: The received fileString is a Base 64 encoded string.
 		final var fileString = optionalFile.getRefElement();
-		
-		return new SingleContainer<>(fileString.getBytes(StandardCharsets.UTF_8));
+		final var bytes = Base64.getDecoder().decode(fileString.substring(fileString.indexOf(',') + 1));
+		return new SingleContainer<>(bytes);
 	}
 	
 	//method
