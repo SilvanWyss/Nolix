@@ -11,7 +11,7 @@ final class CommandProtocol {
 	public static final String RECEIVE_OPTIONAL_FILE = "ReceiveOptionalFile";
 	public static final String RESET = "Reset";
 	public static final String SAVE_FILE = "SaveFile";
-	public static final String SEND_FILE = "SendFile";
+	public static final String SEND_OPTIONAL_FILE = "SendOptionalFile";
 	public static final String SET_CURSOR_ICON = "SetCursorIcon";
 	public static final String SET_ICON = "SetIcon";
 	public static final String SET_PAINT_COMMANDS = "SetPaintCommands";

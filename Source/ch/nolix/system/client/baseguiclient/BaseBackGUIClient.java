@@ -269,7 +269,7 @@ public abstract class BaseBackGUIClient<BBGUIC extends BaseBackGUIClient<BBGUIC>
 		
 		isWaitingForFileFromCounterpart = true;
 		
-		internalRunOnCounterpart(ChainedNode.withHeader(CommandProtocol.SEND_FILE));
+		internalRunOnCounterpart(ChainedNode.withHeader(CommandProtocol.SEND_OPTIONAL_FILE));
 		
 		Sequencer
 		.forMaxSeconds(MAX_WAITING_TIME_FOR_FILE_FROM_COUNTERPART_IN_SECONDS)
