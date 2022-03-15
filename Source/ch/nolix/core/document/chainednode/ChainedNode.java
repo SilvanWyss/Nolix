@@ -155,7 +155,25 @@ public final class ChainedNode implements OptionalHeadered {
 		
 		return chainedNode;
 	}
+	
+	//static method
+	/**
+	 * @param header
+	 * @param attribute
+	 * @return a new {@link ChainedNode} with the given header and attribute.
+	 * @throws ArgumentIsNullException if the given header is null.
+	 * @throws InvalidArgumentException if the given header is blank.
+	 * @throws ArgumentIsNullException if the given attribute is null.
+	 */
+	public static ChainedNode withHeaderAndAttribute(final String header, final ChainedNode attribute) {
 		
+		final var chainedNode = new ChainedNode();
+		chainedNode.setHeader(header);
+		chainedNode.addAttribute(attribute);
+		
+		return chainedNode;
+	}
+	
 	//static method
 	/**
 	 * @param header
