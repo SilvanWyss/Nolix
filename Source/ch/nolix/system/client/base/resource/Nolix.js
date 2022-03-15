@@ -3773,7 +3773,9 @@ define("System/FrontCanvasGUIClient/FrontCanvasGUIClient", ["require", "exports"
             if (fileContainer.isEmpty()) {
                 this.runOnConunterpart(ChainedNode_2.ChainedNode.withHeader(FrontCanvasGUIClientCommandProtocol_2.FrontCanvasGUIClientCommandProtocol.RECEIVE_OPTIONAL_FILE));
             }
-            this.runOnConunterpart(ChainedNode_2.ChainedNode.withHeaderAndAttribute(FrontCanvasGUIClientCommandProtocol_2.FrontCanvasGUIClientCommandProtocol.RECEIVE_OPTIONAL_FILE, ChainedNode_2.ChainedNode.withHeader(fileContainer.getRefElement())));
+            else {
+                this.runOnConunterpart(ChainedNode_2.ChainedNode.withHeaderAndAttribute(FrontCanvasGUIClientCommandProtocol_2.FrontCanvasGUIClientCommandProtocol.RECEIVE_OPTIONAL_FILE, ChainedNode_2.ChainedNode.withHeader(fileContainer.getRefElement())));
+            }
         }
     }
     FrontCanvasGUIClient.GUI_TYPE = 'CanvasGUI';
