@@ -5,7 +5,6 @@ package ch.nolix.system.client.baseguiclient;
 final class CommandProtocol {
 	
 	//constants
-	public static final String GET_OPTIONAL_FILE = "GetOptionalFile";
 	public static final String GET_TEXT_FROM_CLIPBOARD = "GetTextFromClipboard";
 	public static final String NOTE_INPUT = "NoteInput";
 	public static final String RECEIVE_OPTIONAL_FILE = "ReceiveOptionalFile";

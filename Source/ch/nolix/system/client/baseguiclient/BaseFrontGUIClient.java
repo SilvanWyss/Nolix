@@ -75,19 +75,6 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 				return Node.withHeader(getGUIType().toString());
 			case CommandProtocol.GET_TEXT_FROM_CLIPBOARD:
 				return Node.withHeader(getRefGUI().fromFrontEnd().getTextFromClipboard());
-			case CommandProtocol.GET_OPTIONAL_FILE:
-				
-				final var data = readFileToBytes();
-				
-				if (data.isEmpty()) {
-					return Node.withHeader(ObjectProtocol.FILE);
-				}
-				
-				return
-				Node.withHeaderAndAttribute(
-					ObjectProtocol.FILE,
-					Node.withHeader(new String(data.getRefElement(), StandardCharsets.UTF_8))
-				);
 			default:
 				
 				//Calls method of the base class.
@@ -109,6 +96,9 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 				break;
 			case CommandProtocol.SAVE_FILE:
 				saveFile(command.getOneAttributeAsString().getBytes(StandardCharsets.UTF_8));
+				break;
+			case CommandProtocol.SEND_OPTIONAL_FILE:
+				sendOptionalFile();
 				break;
 			case CommandProtocol.SHOW_ERROR_MESSAGE:
 				PopupWindowProvider.showErrorWindow(command.getOneAttributeAsString());
@@ -154,5 +144,23 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 	//method
 	private void saveFile(final byte[] content) {
 		getRefGUI().onFrontEnd().saveFile(content);
+	}
+	
+	private void sendOptionalFile() {
+		
+		final var fileContainer = readFileToBytes();
+		
+		if (fileContainer.isEmpty()) {
+			internalRunOnCounterpart(ChainedNode.withHeader(CommandProtocol.RECEIVE_OPTIONAL_FILE));
+		}
+		
+		final var file = fileContainer.getRefElement();
+		final var fileString = new String(file, StandardCharsets.UTF_8);
+		internalRunOnCounterpart(
+			ChainedNode.withHeaderAndAttribute(
+				CommandProtocol.RECEIVE_OPTIONAL_FILE,
+				ChainedNode.withHeader(fileString)
+			)
+		);
 	}
 }
