@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.client.base;
 
-import ch.nolix.core.attributeapi.mutableoptionalattributeapi.OptionalLabelable;
+//own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.document.node.BaseNode;
@@ -24,14 +24,13 @@ import ch.nolix.core.programcontrol.sequencer.Sequencer;
 
 //class
 /**
- * A {@link Client} is like an end point with comfortable functionalities.
+ * A {@link Client} is an end point with comfortable functionalities.
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
  * @param <C> is the type of a {@link Client}.
  */
-public abstract class Client<C extends Client<C>>
-implements GroupCloseable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestable {
+public abstract class Client<C extends Client<C>> implements GroupCloseable, ISmartObject<C>, TypeRequestable {
 	
 	//constants
 	protected static final String SESSION_USER_RUN_METHOD_HEADER = "SessionUserRunMethod";
@@ -49,9 +48,6 @@ implements GroupCloseable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestabl
 	 * as the {@link Application} it belongs to.
 	 */
 	private Application<C> parentApplication;
-	
-	//optional attribute
-	private String infoString;
 	
 	//method
 	/**
@@ -91,17 +87,6 @@ implements GroupCloseable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestabl
 	 */
 	public final String getApplicationName() {
 		return internalGetParentApplication().getName();
-	}
-	
-	//method
-	@Override
-	public final String getInfoString() {
-		
-		if (infoString == null) {
-			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.INFO_STRING);
-		}
-		
-		return infoString;
 	}
 	
 	//method
@@ -145,15 +130,6 @@ implements GroupCloseable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestabl
 	 */
 	public final String getTarget() {
 		return endPoint.getTarget();
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final boolean hasInfoString() {
-		return (infoString != null);
 	}
 	
 	//method
@@ -212,26 +188,6 @@ implements GroupCloseable, OptionalLabelable<C>, ISmartObject<C>, TypeRequestabl
 	 */
 	@Override
 	public final void noteClose() {}
-	
-	//method
-	@Override
-	public final C removeInfoString() {
-		
-		infoString = null;
-		
-		return asConcrete();
-	}
-	
-	//method
-	@Override
-	public final C setInfoString(final String infoString) {
-		
-		Validator.assertThat(infoString).thatIsNamed(LowerCaseCatalogue.INFO_STRING).isNotBlank();
-		
-		this.infoString = infoString;
-		
-		return asConcrete();
-	}
 	
 	//method
 	/**
