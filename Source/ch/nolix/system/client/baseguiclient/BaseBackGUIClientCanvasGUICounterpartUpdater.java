@@ -27,7 +27,7 @@ final class BaseBackGUIClientCanvasGUICounterpartUpdater implements IBackGUIClie
 		final var updateCommands = updateCanvasGUICommandCreator.createUpdateCommandsFor(parentBackGUIClient.getRefGUI());
 		
 		if (updateCommands.containsAny()) {
-			parentBackGUIClient.runOnCounterpart(updateCommands);
+			parentBackGUIClient.internalRunOnCounterpart(updateCommands);
 		}
 	}	
 }

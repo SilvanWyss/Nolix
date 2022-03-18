@@ -55,7 +55,7 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 	//method
 	public void noteInputOnCounterpart(final IInput<?> input) {
 		if (isOpen()) {
-			internalRunOnCounterpart(
+			runOnCounterpart(
 				ChainedNode.withHeaderAndAttributesFromNodes(CommandProtocol.NOTE_INPUT, input.getSpecification())
 			);
 		}
@@ -148,12 +148,12 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 		final var fileContainer = readFileToBytes();
 		
 		if (fileContainer.isEmpty()) {
-			internalRunOnCounterpart(ChainedNode.withHeader(CommandProtocol.RECEIVE_OPTIONAL_FILE));
+			runOnCounterpart(ChainedNode.withHeader(CommandProtocol.RECEIVE_OPTIONAL_FILE));
 		}
 		
 		final var file = fileContainer.getRefElement();
 		final var fileString = new String(file, StandardCharsets.UTF_8);
-		internalRunOnCounterpart(
+		runOnCounterpart(
 			ChainedNode.withHeaderAndAttribute(
 				CommandProtocol.RECEIVE_OPTIONAL_FILE,
 				ChainedNode.withHeader(fileString)

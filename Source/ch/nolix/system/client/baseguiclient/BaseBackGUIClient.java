@@ -63,7 +63,7 @@ public abstract class BaseBackGUIClient<BBGUIC extends BaseBackGUIClient<BBGUIC>
 	 * @throws ArgumentIsNullException if the given error message is null.
 	 */
 	public final void showErrorMessageOnCounterpart(final String errorMessage) {
-		internalRunOnCounterpart(
+		runOnCounterpart(
 			ChainedNode.withHeaderAndAttributesFromNodes(CommandProtocol.SHOW_ERROR_MESSAGE, Node.withHeader(errorMessage))
 		);
 	}
@@ -98,7 +98,7 @@ public abstract class BaseBackGUIClient<BBGUIC extends BaseBackGUIClient<BBGUIC>
 	final void configureGUI(final InvisibleGUI pGUI) {
 		
 		final var viewAreaSize =
-		internalGetDataFromCounterpart(
+		getDataFromCounterpart(
 			ChainedNode.withHeaderAndNextNode(
 				ObjectProtocol.GUI,
 				ChainedNode.withHeader(ObjectProtocol.VIEW_AREA_SIZE)
@@ -138,18 +138,17 @@ public abstract class BaseBackGUIClient<BBGUIC extends BaseBackGUIClient<BBGUIC>
 	
 	//method
 	final String getTextFromClipboardFromCounterpart() {
-		return
-		internalGetDataFromCounterpart(ChainedNode.withHeader(CommandProtocol.GET_TEXT_FROM_CLIPBOARD)).getHeader();
+		return getDataFromCounterpart(ChainedNode.withHeader(CommandProtocol.GET_TEXT_FROM_CLIPBOARD)).getHeader();
 	}
 	
 	//method
-	void runOnCounterpart(final Iterable<ChainedNode> commands) {
-		internalRunOnCounterpart(commands);
+	final void internalRunOnCounterpart(final Iterable<ChainedNode> commands) {
+		runOnCounterpart(commands);
 	}
 	
 	//method
 	final void saveFileOnCounterpart(final byte[] content) {
-		internalRunOnCounterpart(
+		runOnCounterpart(
 			ChainedNode.withHeaderAndAttributesFromNodes(
 				CommandProtocol.SAVE_FILE,
 				Node.withHeader(new String(content, StandardCharsets.UTF_8))
@@ -220,7 +219,7 @@ public abstract class BaseBackGUIClient<BBGUIC extends BaseBackGUIClient<BBGUIC>
 		if (!knowsCounterpartGUIType()) {
 			counterpartGUIType =
 			BaseFrontGUIClientGUIType.fromSpecification(
-				Node.withAttribute(internalGetDataFromCounterpart(ChainedNode.withHeader(ObjectProtocol.GUI_TYPE)))
+				Node.withAttribute(getDataFromCounterpart(ChainedNode.withHeader(ObjectProtocol.GUI_TYPE)))
 			);
 		}
 	}
@@ -243,7 +242,7 @@ public abstract class BaseBackGUIClient<BBGUIC extends BaseBackGUIClient<BBGUIC>
 		
 		isWaitingForFileFromCounterpart = true;
 		
-		internalRunOnCounterpart(ChainedNode.withHeader(CommandProtocol.SEND_OPTIONAL_FILE));
+		runOnCounterpart(ChainedNode.withHeader(CommandProtocol.SEND_OPTIONAL_FILE));
 		
 		Sequencer
 		.forMaxSeconds(MAX_WAITING_TIME_FOR_FILE_FROM_COUNTERPART_IN_SECONDS)

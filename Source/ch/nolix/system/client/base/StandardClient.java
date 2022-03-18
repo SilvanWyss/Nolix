@@ -57,7 +57,7 @@ public final class StandardClient extends Client<StandardClient> {
 	 */
 	public StandardClient(final String ip, final int port, final Session<StandardClient> initialSession) {
 		internalConnectTo(ip, port);
-		push(initialSession);
+		internalPush(initialSession);
 	}
 	
 	//constructor

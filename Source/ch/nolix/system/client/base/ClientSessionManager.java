@@ -71,7 +71,7 @@ final class ClientSessionManager<C extends Client<C>> {
 	}
 	
 	//method
-	public void popCurrentSession(final Object result) {
+	public void popCurrentSessionAndForwardGivenResult(final Object result) {
 		getRefCurrentSession().setResult(result);
 		popCurrentSessionFromStack();
 	}

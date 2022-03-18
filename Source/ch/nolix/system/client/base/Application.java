@@ -212,9 +212,9 @@ public class Application<C extends Client<C>> implements Castable, Named {
 	@SuppressWarnings("unchecked")
 	public final void takeClient(final Client<?> client) {
 		final var lClient = ((C)client);
-		lClient.setParentApplication(this);
+		lClient.internalSetParentApplication(this);
 		clients.addAtEnd(lClient);
-		Sequencer.runInBackground(() -> lClient.push(createInitialSession()));
+		Sequencer.runInBackground(() -> lClient.internalPush(createInitialSession()));
 	}
 	
 	//method

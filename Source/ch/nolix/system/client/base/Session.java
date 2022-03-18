@@ -63,42 +63,10 @@ public abstract class Session<C extends Client<C>> {
 	
 	//method
 	/**
-	 * @param <CO> is the type of the given application context.
-	 * @return the context of the parent {@link Application}
-	 * of the parent {@link Client} of the current {@link Session}.
-	 * @throws InvalidArgumentException if the current {@link Session} does not belong to a {@link Client}.
-	 * @throws InvalidArgumentException if the parent {@link Client} of the current {@link Session}
-	 * does not belong to a {@link Application}.
-	 * @throws ArgumentDoesNotHaveAttributeException if the {@link Application}
-	 * of the parent {@link Client} of the current {@link Session} does not have a context.
-	 */
-	public final <CO> CO getRefApplicationContext() {
-		return getParentClient().getRefApplicationContext();
-	}
-	
-	//method
-	/**
-	 * @param type
-	 * @param <CO> is the type of the application context of the parent {@link Application} of the current {@link Session}.
-	 * @return the context of the parent {@link Application}
-	 * of the parent {@link Client} of the current {@link Session} as the given type.
-	 * @throws ArgumentIsNullException if the given type is null.
-	 * @throws InvalidArgumentException if the current {@link Session} does not belong to a {@link Client}.
-	 * @throws InvalidArgumentException if the parent {@link Client} of the current {@link Session}
-	 * does not belong to a {@link Application}.
-	 * @throws ArgumentDoesNotHaveAttributeException if the {@link Application}
-	 * of the parent {@link Client} of the current {@link Session} does not have a context.
-	 */
-	public final <CO> CO getRefApplicationContextAs(final Class<CO> type) {
-		return getParentClient().getRefApplicationContextAs(type);
-	}
-	
-	//method
-	/**
 	 * Pops the current {@link Session} from its parent {@link Client}.
 	 */
 	public final void pop() {
-		getParentClient().popCurrentSession();
+		getParentClient().internalPopCurrentSession();
 	}
 	
 	//method
@@ -109,7 +77,7 @@ public abstract class Session<C extends Client<C>> {
 	 * @throws ArgumentIsNullException if the given result is null.
 	 */
 	public final void pop(final Object result) {
-		getParentClient().popCurrentSession(result);
+		getParentClient().internalPopCurrentSessionAndForwardGivenResult(result);
 	}
 	
 	//method
@@ -120,7 +88,7 @@ public abstract class Session<C extends Client<C>> {
 	 * @throws ArgumentIsNullException if the given session is null.
 	 */
 	public final void push(final Session<C> session) {
-		getParentClient().push(session);
+		getParentClient().internalPush(session);
 	}
 	
 	//method
@@ -133,7 +101,7 @@ public abstract class Session<C extends Client<C>> {
 	 * @throws ArgumentIsNullException if the given session is null.
 	 */
 	public final <R> R pushAndGetResult(final Session<C> session) {
-		return getParentClient().pushAndGetResult(session);
+		return getParentClient().internalPushAndGetResult(session);
 	}
 	
 	//method
@@ -146,7 +114,7 @@ public abstract class Session<C extends Client<C>> {
 	 * @throws ArgumentIsNullException if the given session is null.
 	 */
 	public final void setNext(final Session<C> session) {
-		getParentClient().setCurrentSession(session);
+		getParentClient().internalSetCurrentSession(session);
 	}
 	
 	//method declaration
