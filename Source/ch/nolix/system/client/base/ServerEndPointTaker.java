@@ -55,6 +55,6 @@ final class ServerEndPointTaker implements ch.nolix.core.net.endpoint3.IEndPoint
 	 */
 	@Override
 	public void takeEndPoint(final EndPoint endPoint) {
-		parentServer.takeEndPoint(endPoint);
+		parentServer.internalTakeEndPoint(endPoint);
 	}
 }

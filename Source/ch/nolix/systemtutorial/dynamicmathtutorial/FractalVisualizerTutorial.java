@@ -20,7 +20,7 @@ public final class FractalVisualizerTutorial {
 	
 	public static void main(String[] args) {
 		
-		final var server = new Server();
+		final var server = Server.forDefaultPort();
 		
 		server.addDefaultApplication(new FractalVisualizer());
 		

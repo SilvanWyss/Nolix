@@ -18,7 +18,7 @@ public final class HelloWorldGUIOnCustomPortTutorial {
 		final var port = 50000;
 		
 		//Creates a NetServers.
-		final var netServer = new Server(port);
+		final var netServer = Server.forPort(port);
 		
 		//Adds a default Application to the NetServer.
 		netServer.addDefaultApplication(

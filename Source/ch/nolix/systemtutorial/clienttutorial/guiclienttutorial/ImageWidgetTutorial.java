@@ -42,7 +42,7 @@ public final class ImageWidgetTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Server.
-		final var server = new Server();
+		final var server = Server.forDefaultPort();
 		
 		//Adds a default Application to the NetServer.
 		server.addDefaultApplication("ImageWidget tutorial", MainSession.class, VoidApplicationContext.INSTANCE);

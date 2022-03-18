@@ -18,7 +18,7 @@ public final class LabelTutorial {
 	public static void main(String[] args) {
 				
 		//Creates a NetServer.
-		final var server = new Server();
+		final var server = Server.forDefaultPort();
 		
 		//Adds a default Application to the NetServer.
 		server.addDefaultApplication("Label tutorial", MainSession.class, VoidApplicationContext.INSTANCE);

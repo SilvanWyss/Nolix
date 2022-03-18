@@ -16,7 +16,7 @@ public final class TextBoxTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a NetServer.
-		final var netServer = new Server();
+		final var netServer = Server.forDefaultPort();
 		
 		//Adds a default Application to the NetServer.
 		netServer.addDefaultApplication("TextBox tutorial", MainSession.class, VoidApplicationContext.INSTANCE);

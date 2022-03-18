@@ -17,7 +17,7 @@ public final class CursorPositionTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a NetServer.
-		final var netServer = new Server();
+		final var netServer = Server.forDefaultPort();
 		
 		//Adds a default Application to the NetServer.
 		netServer.addDefaultApplication("Cursor position tutorial", MainSession.class, VoidApplicationContext.INSTANCE);

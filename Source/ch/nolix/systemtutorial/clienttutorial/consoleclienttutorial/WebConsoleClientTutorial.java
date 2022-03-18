@@ -14,7 +14,7 @@ public final class WebConsoleClientTutorial {
 	public static void main(final String[] arguments) {
 		
 		//Creates a NetServer.
-		final var netServer = new Server();
+		final var netServer = Server.forDefaultPort();
 		
 		//Adds a default Application to the NetServer.
 		netServer.addDefaultApplication("WebConsoleClient tutorial", MainSession.class, VoidApplicationContext.INSTANCE);
