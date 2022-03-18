@@ -96,14 +96,6 @@ public final class StandardClient extends Client<StandardClient> {
 	
 	//method
 	/**
-	 * @return the current {@link Session} of the current {@link StandardClient}.
-	 */
-	public StandardClientSession getRefCurrentSession() {
-		return (StandardClientSession)internalGetRefCurrentSession();
-	}
-	
-	//method
-	/**
 	 * Resets this client.
 	 * 
 	 * @return this standard client.
@@ -117,7 +109,7 @@ public final class StandardClient extends Client<StandardClient> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected Node internalGetData(final ChainedNode request) {
+	protected Node getDataFromHere(final ChainedNode request) {
 		throw new InvalidArgumentException(LowerCaseCatalogue.REQUEST, request, "is not valid");
 	}
 	
@@ -126,7 +118,7 @@ public final class StandardClient extends Client<StandardClient> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void internalRun(final ChainedNode command) {
+	protected void runHere(final ChainedNode command) {
 		throw new InvalidArgumentException(LowerCaseCatalogue.COMMAND, command, "is not valid");
 	}
 }

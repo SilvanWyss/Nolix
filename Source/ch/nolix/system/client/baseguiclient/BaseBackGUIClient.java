@@ -76,7 +76,7 @@ public abstract class BaseBackGUIClient<BBGUIC extends BaseBackGUIClient<BBGUIC>
 	 * @throws InvalidArgumentException if the given command is not valid.
 	 */
 	@Override
-	protected void internalRun(final ChainedNode command) {
+	protected void runHere(final ChainedNode command) {
 		
 		//Enumerates the header of the given command.
 		switch (command.getHeader()) {
@@ -131,7 +131,7 @@ public abstract class BaseBackGUIClient<BBGUIC extends BaseBackGUIClient<BBGUIC>
 	final IWidgetGUI<?> getRefGUI() {
 		
 		@SuppressWarnings("rawtypes")
-		final var session = (BaseBackGUIClientSession)internalGetRefCurrentSession();
+		final var session = (BaseBackGUIClientSession)getRefCurrentSession();
 		
 		return session.getRefGUI();
 	}

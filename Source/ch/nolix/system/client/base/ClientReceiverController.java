@@ -45,7 +45,7 @@ final class ClientReceiverController implements IDataProviderController {
 	 */
 	@Override
 	public Node getData(final ChainedNode request) {
-		return client.internalGetData(request);
+		return client.getDataFromHere(request);
 	}
 	
 	//method
@@ -57,6 +57,6 @@ final class ClientReceiverController implements IDataProviderController {
 	 */
 	@Override
 	public void run(ChainedNode command) {
-		client.internalRun(command);
+		client.runHere(command);
 	}
 }

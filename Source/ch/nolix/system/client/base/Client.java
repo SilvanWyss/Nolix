@@ -5,6 +5,7 @@ package ch.nolix.system.client.base;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
@@ -44,13 +45,27 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable, IFl
 	//optional attribute
 	private EndPoint endPoint;
 	
-	//TODO: Fix this method.
+	//TODO: Make this method work for backend and frontend Clients both.
 	//method
 	/**
-	 * @return the name of the {@link Application} the current {@link Client} belongs to.
+	 * @return the name of the parent {@link Application} of the current {@link Client}.
 	 */
 	public final String getApplicationName() {
-		return internalGetParentApplication().getName();
+		return getParentApplication().getName();
+	}
+	
+	//TODO: Move this method to backend Clients only.
+	//method
+	/**
+	 * @return the {@link Application} of the current {@link Client}.
+	 * @throws InvalidArgumentException if
+	 * the current {@link Client} does not reference its parent {@link Application}.
+	 */
+	public final Application<C> getParentApplication() {
+		
+		assertReferencesParentApplication();
+		
+		return parentApplication;
 	}
 	
 	//method
@@ -137,6 +152,31 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable, IFl
 		return getRefEndPoint().getData(request);
 	}
 	
+	//method declaration
+	/**
+	 * @param request
+	 * @return the data the given request requests from the current {@link Client}.
+	 */
+	protected abstract Node getDataFromHere(ChainedNode request);
+	
+	//method
+	/**
+	 * @return the current {@link Session} of the current {@link Client}.
+	 * @throws ArgumentDoesNotHaveAttributeException if
+	 * the current {@link Client} does not have a current {@link Session}.
+	 */
+	protected final Session<C> getRefCurrentSession() {
+		return sessionManager.getRefCurrentSession();
+	}
+	
+	//method declaration
+	/**
+	 * Lets the current {@link Client} run the given command.
+	 * 
+	 * @param command
+	 */
+	protected abstract void runHere(ChainedNode command);
+	
 	//method
 	/**
 	 * Runs the given command on the counterpart of the current {@link Client}.
@@ -166,7 +206,7 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable, IFl
 	 * @param commands
 	 * @throws UnconnectedArgumentException if the current {@link Client} is not connected.
 	 */
-	protected void runOnCounterpart(final Iterable<ChainedNode> commands) {
+	protected final void runOnCounterpart(final Iterable<ChainedNode> commands) {
 		getRefEndPoint().run(commands);
 	}
 	
@@ -400,45 +440,6 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable, IFl
 		//Creates the duplex controller of the current client.
 		internalSetEndPoint(new NetEndPoint(ip, port, name));
 	}
-	
-	//method declaration
-	/**
-	 * @param request
-	 * @return the data the given request requests from the current {@link Client}.
-	 */
-	protected abstract Node internalGetData(ChainedNode request);
-	
-	//method
-	/**
-	 * @return the {@link Application} the current {@link Client} belongs to.
-	 * @throws InvalidArgumentException if the current {@link Client}
-	 * does not reference the {@link Application} it belongs to.
-	 */
-	protected final Application<C> internalGetParentApplication() {
-		
-		//Asserts that the current client references the application it belongs to.
-		assertReferencesParentApplication();
-		
-		return parentApplication;
-	}
-	
-	//method
-	/**
-	 * @return the current session of the current {@link Client}.
-	 */
-	protected final Session<C> internalGetRefCurrentSession() {
-		return sessionManager.getRefCurrentSession();
-	}
-	
-
-	
-	//method
-	/**
-	 * Lets the current {@link Client} run the given command.
-	 * 
-	 * @param command
-	 */
-	protected abstract void internalRun(ChainedNode command);
 	
 	//method
 	/**

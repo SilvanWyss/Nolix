@@ -66,7 +66,7 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected Node internalGetData(final ChainedNode request) {
+	protected Node getDataFromHere(final ChainedNode request) {
 		
 		//Enumerates the header of the given request.
 		switch (request.getHeader()) {
@@ -86,7 +86,7 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void internalRun(final ChainedNode command) {
+	protected final void runHere(final ChainedNode command) {
 		
 		//Enumerates the header of the given command.
 		switch (command.getHeader()) {

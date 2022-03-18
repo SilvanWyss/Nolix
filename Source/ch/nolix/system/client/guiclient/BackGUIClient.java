@@ -34,7 +34,7 @@ public final class BackGUIClient extends BaseBackGUIClient<BackGUIClient> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected Node internalGetData(final ChainedNode request) {
+	protected Node getDataFromHere(final ChainedNode request) {
 		throw new InvalidArgumentException(LowerCaseCatalogue.REQUEST, request, "is not valid");
 	}
 }
