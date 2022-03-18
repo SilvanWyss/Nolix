@@ -13,7 +13,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentExceptio
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnconnectedArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.generalskillapi.ISmartObject;
+import ch.nolix.core.generalskillapi.IFluentObject;
 import ch.nolix.core.net.endpoint3.EndPoint;
 import ch.nolix.core.net.endpoint3.LocalEndPoint;
 import ch.nolix.core.net.endpoint3.NetEndPoint;
@@ -29,7 +29,7 @@ import ch.nolix.core.programcontrol.sequencer.Sequencer;
  * @date 2016-01-01
  * @param <C> is the type of a {@link Client}.
  */
-public abstract class Client<C extends Client<C>> implements GroupCloseable, ISmartObject<C> {
+public abstract class Client<C extends Client<C>> implements GroupCloseable, IFluentObject<C> {
 	
 	//constants
 	protected static final String SESSION_USER_RUN_METHOD_HEADER = "SessionUserRunMethod";
