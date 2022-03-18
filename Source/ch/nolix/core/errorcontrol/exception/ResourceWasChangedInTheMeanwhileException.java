@@ -26,7 +26,7 @@ public final class ResourceWasChangedInTheMeanwhileException extends RuntimeExce
 	
 	//static method
 	/**
-	 * @param resouce
+	 * @param resource
 	 * @return a valid resource for the given resource.
 	 * @throws IllegalArgumentException if the given resource is null.
 	 * @throws IllegalArgumentException if the given resource is blank.

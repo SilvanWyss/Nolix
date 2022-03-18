@@ -297,11 +297,11 @@ public abstract class BaseBackGUIClient<
 	
 	//method
 	/**
-	 * Lets the current {@link BaseBackGUIClient}
-	 * receive a file optionally from the counterpart of the current {@link BaseBackGUIClient}.
+	 * Lets the current {@link BaseBackGUIClient} receive
+	 * a file optionally from the counterpart of the current {@link BaseBackGUIClient}.
 	 * 
-	 * @param fileNode
-	 * @throws ArgumentIsNullException if the given fileNode is null.
+	 * @param optionalFile
+	 * @throws ArgumentIsNullException if the given optionalFile is null.
 	 * @throws InvalidArgumentException if the current {@link BaseBackGUIClient}
 	 * is not waiting for a file from the counterpart of the current {@link BaseBackGUIClient}.
 	 */
