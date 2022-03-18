@@ -133,6 +133,14 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable, IFl
 	 */
 	protected abstract Node getDataFromHere(ChainedNode request);
 	
+	//method
+	/**
+	 * @return true if the current {@link Client} is connected.
+	 */
+	protected final boolean isConnected() {
+		return (endPoint != null);
+	}
+	
 	//method declaration
 	/**
 	 * Lets the current {@link Client} run the given command.
@@ -231,13 +239,5 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable, IFl
 		assertIsConnected();
 		
 		return endPoint;
-	}
-	
-	//method
-	/**
-	 * @return true if the current {@link Client} is connected.
-	 */
-	private boolean isConnected() {
-		return (endPoint != null);
 	}
 }

@@ -17,6 +17,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.net.endpoint3.EndPoint;
 import ch.nolix.core.programcontrol.sequencer.Sequencer;
+import ch.nolix.core.reflectionhelper.GlobalClassHelper;
 
 //class
 /**
@@ -141,18 +142,7 @@ public class Application<
 	 * @param endPoint
 	 */
 	public final void takeEndPoint(final EndPoint endPoint) {
-		try {
-			takeClient(getClientConstructor().newInstance(endPoint));
-		} catch (
-			final
-			InstantiationException
-			| IllegalAccessException
-			| IllegalArgumentException
-			| InvocationTargetException
-			exception
-		) {
-			throw new WrapperException(exception);
-		}
+		takeClient(createBackendClientWithEndPoint(endPoint));
 	}
 	
 	//method
@@ -185,20 +175,15 @@ public class Application<
 	
 	//method
 	/**
-	 * @return the constructor of the {@link Client} class of the current {@link Application}.
+	 * @param endPoint
+	 * @return a new {@link BackendClient} with the given endPoint
 	 */
-	private Constructor<BC> getClientConstructor() {		
-		try {
-			
-			//For a better performance, this implementation does not use all comfortable methods.
-			final var clientConstructor = clientClass.getConstructor(EndPoint.class);
-			
-			clientConstructor.setAccessible(true);
-			
-			return clientConstructor;
-		} catch (final NoSuchMethodException | SecurityException exception) {
-			throw new WrapperException(exception);
-		}
+	private BC createBackendClientWithEndPoint(final EndPoint endPoint) {
+		
+		final var backendClient = GlobalClassHelper.createInstanceFromDefaultConstructorOf(clientClass);
+		backendClient.internalSetEndPoint(endPoint);
+		
+		return backendClient;
 	}
 	
 	//method
