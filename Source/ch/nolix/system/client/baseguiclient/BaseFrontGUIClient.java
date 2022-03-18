@@ -13,7 +13,7 @@ import ch.nolix.core.environment.localcomputer.PopupWindowProvider;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.element.gui.base.GUI;
 import ch.nolix.element.gui.input.IInput;
-import ch.nolix.system.client.base.Client;
+import ch.nolix.system.client.base.FrontendClient;
 
 //class
 /**
@@ -21,7 +21,7 @@ import ch.nolix.system.client.base.Client;
  * @date 2018-09-16
  * @param <FGC> is the type of a {@link BaseFrontGUIClient}.
  */
-public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> extends Client<FGC> {
+public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> extends FrontendClient<FGC> {
 	
 	//attribute
 	private final IFrontGUIClientGUIHandler mGUIHandler;

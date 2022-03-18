@@ -45,7 +45,7 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable, IFl
 	//optional attribute
 	private EndPoint endPoint;
 	
-	//TODO: Make this method work for backend and frontend Clients both.
+	//TODO: Move this method to BackendClient.
 	//method
 	/**
 	 * @return the name of the parent {@link Application} of the current {@link Client}.
@@ -54,7 +54,7 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable, IFl
 		return getParentApplication().getName();
 	}
 	
-	//TODO: Move this method to backend Clients only.
+	//TODO: Move this method to BackendClient.
 	//method
 	/**
 	 * @return the {@link Application} of the current {@link Client}.
@@ -101,6 +101,12 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable, IFl
 		return getRefEndPoint().hasTarget();
 	}
 	
+	//method declaration
+	/**
+	 * @return true if the current {@link Clinet} is a backend {@link Client}.
+	 */
+	public abstract boolean isBackendClient();
+	
 	//method
 	/**
 	 * {@inheritDoc}
@@ -109,6 +115,12 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable, IFl
 	public final boolean isClosed() {
 		return getRefEndPoint().isClosed();
 	}
+	
+	//method declaration
+	/**
+	 * @return true if the current {@link Clinet} is a frontend {@link Client}.
+	 */
+	public abstract boolean isFrontendClient();
 	
 	//method
 	/**
@@ -282,6 +294,32 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable, IFl
 	
 	//method
 	/**
+	 * Sets the {@link EndPoint} of the current {@link Client}.
+	 * 
+	 * @param endPoint
+	 * @throws ArgumentIsNullException if the given endPoint is null.
+	 * @throws InvalidArgumentException if the current {@link Client} is already connected.
+	 */
+	final void internalSetEndPoint(final EndPoint endPoint) {
+		
+		//Asserts that the given endPoint is not null.
+		Validator.assertThat(endPoint).thatIsNamed(EndPoint.class).isNotNull();
+		
+		//Asserts that the current Client is not already connected.
+		assertIsNotConnected();
+		
+		//Sets the EndPoint of the current Client.
+		this.endPoint = endPoint;
+		
+		//Creates a close dependency between the current Client and its EndPoint.
+		createCloseDependencyTo(endPoint);
+		
+		//Sets the receiver controller of the EndPoint of the current Client.
+		endPoint.setReceiverController(new ClientReceiverController(this));
+	}
+	
+	//method
+	/**
 	 * Sets the {@link Application} the current {@link Client} will belong to.
 	 * 
 	 * @param parentApplication
@@ -439,30 +477,6 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable, IFl
 		
 		//Creates the duplex controller of the current client.
 		internalSetEndPoint(new NetEndPoint(ip, port, name));
-	}
-	
-	//method
-	/**
-	 * 
-	 * @param endPoint
-	 * @throws ArgumentIsNullException if the given duplex controller is null.
-	 * @throws InvalidArgumentException if the current {@link Client} is already connected.
-	 */
-	protected final void internalSetEndPoint(final EndPoint endPoint) {
-		
-		//Asserts that the given duplex controller is not null.
-		Validator.assertThat(endPoint).isOfType(EndPoint.class);
-		
-		//Asserts that the current client is not already connected.
-		assertIsNotConnected();
-		
-		//Sets the duplex controller of the current client.
-		this.endPoint = endPoint;
-		
-		//Sets the receiver controller of the duplex controller of the current client.
-		endPoint.setReceiverController(new ClientReceiverController(this));
-		
-		createCloseDependencyTo(endPoint);
 	}
 	
 	//method

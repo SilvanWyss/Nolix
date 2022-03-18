@@ -10,6 +10,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentExceptio
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.net.endpoint3.EndPoint;
 
+//TODO: Create BackendStandardClient and FrontendStandardClient.
+//TODO: Create package for StandardClient.
 //class
 /**
  * A standard client is a normal client.
@@ -17,7 +19,7 @@ import ch.nolix.core.net.endpoint3.EndPoint;
  * @author Silvan Wyss
  * @date 2016-01-01
  */
-public final class StandardClient extends Client<StandardClient> {
+public final class StandardClient extends BackendClient<StandardClient> {
 	
 	//constructor
 	/**

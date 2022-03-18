@@ -22,7 +22,7 @@ import ch.nolix.element.gui.base.InvisibleGUI;
 import ch.nolix.element.gui.input.IInput;
 import ch.nolix.element.gui.input.InputFactory;
 import ch.nolix.element.gui.input.MouseInput;
-import ch.nolix.system.client.base.Client;
+import ch.nolix.system.client.base.BackendClient;
 
 //class
 /**
@@ -30,7 +30,7 @@ import ch.nolix.system.client.base.Client;
  * @date 2017-10-01
  * @param <BBGUIC> is the type of a {@link BaseBackGUIClient}.
  */
-public abstract class BaseBackGUIClient<BBGUIC extends BaseBackGUIClient<BBGUIC>> extends Client<BBGUIC> {
+public abstract class BaseBackGUIClient<BBGUIC extends BaseBackGUIClient<BBGUIC>> extends BackendClient<BBGUIC> {
 	
 	//constant
 	private static final int MAX_WAITING_TIME_FOR_FILE_FROM_COUNTERPART_IN_SECONDS = 60;
