@@ -9,8 +9,8 @@ import ch.nolix.element.gui.widget.WidgetLookState;
 import ch.nolix.element.time.base.Time;
 import ch.nolix.system.client.base.Server;
 import ch.nolix.system.client.base.VoidApplicationContext;
-import ch.nolix.system.client.guiclient.BackGUIClientSession;
-import ch.nolix.system.client.guiclient.FrontGUIClient;
+import ch.nolix.system.client.guiclient.BackendGUIClientSession;
+import ch.nolix.system.client.guiclient.FrontendGUIClient;
 
 public final class LabelTutorial {
 	
@@ -24,7 +24,7 @@ public final class LabelTutorial {
 		server.addDefaultApplication("Label tutorial", MainSession.class, VoidApplicationContext.INSTANCE);
 		
 		//Creates a FrontGUIClient that will connect to the NetServer.
-		new FrontGUIClient();
+		new FrontendGUIClient();
 		
 		//Starts a web browser that will connect to the NetServer.
 		ShellProvider.startFirefoxOpeningLoopBackAddress();
@@ -33,7 +33,7 @@ public final class LabelTutorial {
 		Sequencer.asSoonAsNoMore(server::hasClientConnected).runInBackground(server::close);
 	}
 	
-	private static final class MainSession extends BackGUIClientSession<VoidApplicationContext> {
+	private static final class MainSession extends BackendGUIClientSession<VoidApplicationContext> {
 		
 		@Override
 		@SuppressWarnings("resource")

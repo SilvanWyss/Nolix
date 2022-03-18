@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.client.guiclient;
 
+//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -13,43 +14,43 @@ import ch.nolix.system.client.baseguiclient.BaseFrontGUIClient;
  * @author Silvan Wyss
  * @date 2018-09-05
  */
-public final class FrontGUIClient extends BaseFrontGUIClient<FrontGUIClient> {
+public final class FrontendGUIClient extends BaseFrontGUIClient<FrontendGUIClient> {
 	
 	//constructor
 	/**
-	 * Creates a new {@link FrontGUIClient} that will connect to the default application
+	 * Creates a new {@link FrontendGUIClient} that will connect to the default application
 	 * on the default port on the local machine.
 	 */
-	public FrontGUIClient() {
+	public FrontendGUIClient() {
 		connectTo(Server.DEFAULT_PORT);
 	}
 	
 	//constructor
 	/**
-	 * Creates a new {@link FrontGUIClient} that will connect to the given application.
+	 * Creates a new {@link FrontendGUIClient} that will connect to the given application.
 	 * 
 	 * @param application
 	 * @throws ArgumentIsNullException if the given application is null.
 	 */
-	public <AC> FrontGUIClient(final Application<BackGUIClient<AC>, AC> application) {
+	public <AC> FrontendGUIClient(final Application<BackendGUIClient<AC>, AC> application) {
 		connectTo(application);
 	}
 	
 	//constructor
 	/**
-	 * Creates a new {@link FrontGUIClient} that will connect to the main application
+	 * Creates a new {@link FrontendGUIClient} that will connect to the main application
 	 * on the given port on the local machine.
 	 * 
 	 * @param port
 	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
 	 */
-	public FrontGUIClient(final int port) {
+	public FrontendGUIClient(final int port) {
 		connectTo(port);
 	}
 	
 	//constructor
 	/**
-	 * Creates a new {@link FrontGUIClient} that will connect
+	 * Creates a new {@link FrontendGUIClient} that will connect
 	 * to the given application on the given port on the local machine.
 	 * 
 	 * @param port
@@ -58,37 +59,37 @@ public final class FrontGUIClient extends BaseFrontGUIClient<FrontGUIClient> {
 	 * @throws ArgumentIsNullException if the given application is null.
 	 * @throws InvalidArgumentException if the given application is blank.
 	 */
-	public FrontGUIClient(final int port, final String application) {
+	public FrontendGUIClient(final int port, final String application) {
 		connectTo(port, application);
 	}
 	
 	//constructor
 	/**
-	 * Creates a new {@link FrontGUIClient} that will connect to
+	 * Creates a new {@link FrontendGUIClient} that will connect to
 	 * the default {@link Application} on the {@link Server#DEFAULT_PORT} on the machine with the given ip.
 	 * 
 	 * @param ip
 	 */
-	public FrontGUIClient(final String ip) {
+	public FrontendGUIClient(final String ip) {
 		connectTo(ip);
 	}
 	
 	//constructor
 	/**
-	 * Creates a new {@link FrontGUIClient} that will connect
+	 * Creates a new {@link FrontendGUIClient} that will connect
 	 * to the main application on the given port on the machine with the given ip.
 	 * 
 	 * @param ip
 	 * @param port
 	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
 	 */
-	public FrontGUIClient(final String ip, final int port) {
+	public FrontendGUIClient(final String ip, final int port) {
 		connectTo(ip, port);
 	}
 	
 	//constructor
 	/**
-	 * Creates a new {@link FrontGUIClient} that will connect
+	 * Creates a new {@link FrontendGUIClient} that will connect
 	 * to the given application on the given port on the machine with the given ip.
 	 * 
 	 * @param ip
@@ -98,7 +99,7 @@ public final class FrontGUIClient extends BaseFrontGUIClient<FrontGUIClient> {
 	 * @throws ArgumentIsNullException if the given application is null.
 	 * @throws InvalidArgumentException if the given application is blank.
 	 */
-	public FrontGUIClient(final String ip, final int port, final String application) {
+	public FrontendGUIClient(final String ip, final int port, final String application) {
 		connectTo(ip, port, application);
 	}
 }

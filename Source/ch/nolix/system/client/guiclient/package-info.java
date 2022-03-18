@@ -1,6 +1,6 @@
 //package info
 /**
- * The {@link ch.nolix.system.client.consoleclient} package defines a front GUI client and a back GUI client.
+ * The {@link ch.nolix.system.client.consoleclient} package defines GUI {@link Client}s.
  * 
  * @author Silvan Wyss
  * @date 2019-08-01

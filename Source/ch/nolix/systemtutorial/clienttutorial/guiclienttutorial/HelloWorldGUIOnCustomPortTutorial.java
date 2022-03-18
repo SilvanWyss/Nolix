@@ -6,8 +6,8 @@ import ch.nolix.element.gui.widget.Label;
 import ch.nolix.element.gui.widget.WidgetLookState;
 import ch.nolix.system.client.base.Server;
 import ch.nolix.system.client.base.VoidApplicationContext;
-import ch.nolix.system.client.guiclient.BackGUIClientSession;
-import ch.nolix.system.client.guiclient.FrontGUIClient;
+import ch.nolix.system.client.guiclient.BackendGUIClientSession;
+import ch.nolix.system.client.guiclient.FrontendGUIClient;
 
 public final class HelloWorldGUIOnCustomPortTutorial {
 	
@@ -28,7 +28,7 @@ public final class HelloWorldGUIOnCustomPortTutorial {
 		);
 		
 		//Creates a FrontGUIClient that will connect to the NetServer.
-		new FrontGUIClient(port);
+		new FrontendGUIClient(port);
 		
 		//Starts a web browser that will connect to the NetServer.
 		ShellProvider.startFirefoxOpeningLoopBackAddress(port);
@@ -37,7 +37,7 @@ public final class HelloWorldGUIOnCustomPortTutorial {
 		Sequencer.asSoonAsNoMore(netServer::hasClientConnected).runInBackground(netServer::close);
 	}
 	
-	private static final class MainSession extends BackGUIClientSession<VoidApplicationContext> {
+	private static final class MainSession extends BackendGUIClientSession<VoidApplicationContext> {
 		
 		@Override
 		protected void initializeBaseBackGUIClientSession() {

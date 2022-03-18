@@ -8,8 +8,8 @@ import ch.nolix.element.gui.widget.Label;
 import ch.nolix.element.gui.widget.WidgetLookState;
 import ch.nolix.system.client.base.Server;
 import ch.nolix.system.client.base.VoidApplicationContext;
-import ch.nolix.system.client.guiclient.BackGUIClientSession;
-import ch.nolix.system.client.guiclient.FrontGUIClient;
+import ch.nolix.system.client.guiclient.BackendGUIClientSession;
+import ch.nolix.system.client.guiclient.FrontendGUIClient;
 
 public final class CursorPositionTutorial {
 	
@@ -23,7 +23,7 @@ public final class CursorPositionTutorial {
 		netServer.addDefaultApplication("Cursor position tutorial", MainSession.class, VoidApplicationContext.INSTANCE);
 		
 		//Creates a FrontGUIClient that will connect to the NetServer.
-		new FrontGUIClient();
+		new FrontendGUIClient();
 		
 		//Starts a web browser that will connect to the NetServer.
 		ShellProvider.startFirefoxOpeningLoopBackAddress();
@@ -32,7 +32,7 @@ public final class CursorPositionTutorial {
 		Sequencer.asSoonAsNoMore(netServer::hasClientConnected).runInBackground(netServer::close);
 	}
 	
-	private static final class MainSession extends BackGUIClientSession<VoidApplicationContext> {
+	private static final class MainSession extends BackendGUIClientSession<VoidApplicationContext> {
 		
 		private final Label cursorPositionLabel = new Label();
 		

@@ -5,8 +5,8 @@ import ch.nolix.core.programcontrol.sequencer.Sequencer;
 import ch.nolix.element.gui.widget.DropdownMenu;
 import ch.nolix.system.client.base.Server;
 import ch.nolix.system.client.base.VoidApplicationContext;
-import ch.nolix.system.client.guiclient.BackGUIClientSession;
-import ch.nolix.system.client.guiclient.FrontGUIClient;
+import ch.nolix.system.client.guiclient.BackendGUIClientSession;
+import ch.nolix.system.client.guiclient.FrontendGUIClient;
 
 public final class DropdownMenuTutorial {
 	
@@ -20,7 +20,7 @@ public final class DropdownMenuTutorial {
 		netServer.addDefaultApplication("DropdownMenu tutorial", MainSession.class, VoidApplicationContext.INSTANCE);
 		
 		//Creates a FrontCanvasGUIClient that will connect to the NetServer.
-		new FrontGUIClient();
+		new FrontendGUIClient();
 		
 		//Starts a web browser that will connect to the NetServer.
 		ShellProvider.startFirefoxOpeningLoopBackAddress();
@@ -29,7 +29,7 @@ public final class DropdownMenuTutorial {
 		Sequencer.asSoonAsNoMore(netServer::hasClientConnected).runInBackground(netServer::close);
 	}
 	
-	private static final class MainSession extends BackGUIClientSession<VoidApplicationContext> {
+	private static final class MainSession extends BackendGUIClientSession<VoidApplicationContext> {
 		
 		@Override
 		protected void initializeBaseBackGUIClientSession() {

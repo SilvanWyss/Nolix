@@ -5,7 +5,7 @@ package ch.nolix.system.client.guiclient;
 import ch.nolix.system.client.baseguiclient.BaseBackGUIClientSession;
 
 //class
-public abstract class BackGUIClientSession<AC> extends BaseBackGUIClientSession<BackGUIClient<AC>, AC> {
+public abstract class BackendGUIClientSession<AC> extends BaseBackGUIClientSession<BackendGUIClient<AC>, AC> {
 	
 	//method
 	/**
@@ -13,6 +13,6 @@ public abstract class BackGUIClientSession<AC> extends BaseBackGUIClientSession<
 	 */
 	@Override
 	protected final Class<?> internalGetRefClientClass() {
-		return BackGUIClient.class;
+		return BackendGUIClient.class;
 	}
 }

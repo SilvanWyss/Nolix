@@ -12,8 +12,8 @@ import ch.nolix.element.gui.widget.Label;
 import ch.nolix.system.client.base.Application;
 import ch.nolix.system.client.base.Server;
 import ch.nolix.system.client.base.VoidApplicationContext;
-import ch.nolix.system.client.guiclient.BackGUIClient;
-import ch.nolix.system.client.guiclient.BackGUIClientSession;
+import ch.nolix.system.client.guiclient.BackendGUIClient;
+import ch.nolix.system.client.guiclient.BackendGUIClientSession;
 import ch.nolix.system.dynamicmath.FractalBuilder;
 
 public final class FractalVisualizerTutorial {
@@ -30,7 +30,7 @@ public final class FractalVisualizerTutorial {
 	}
 	
 	private static class FractalVisualizer
-	extends Application<BackGUIClient<VoidApplicationContext>, VoidApplicationContext> {
+	extends Application<BackendGUIClient<VoidApplicationContext>, VoidApplicationContext> {
 		
 		public static final String NAME = "Fractal Visualizer";
 		
@@ -39,7 +39,7 @@ public final class FractalVisualizerTutorial {
 		}
 	}
 	
-	private static class FractalSession extends BackGUIClientSession<VoidApplicationContext> {
+	private static class FractalSession extends BackendGUIClientSession<VoidApplicationContext> {
 		
 		private final FractalBuilder fractalBuilder = new FractalBuilder();
 		private final ImageWidget imageWidet = new ImageWidget();
@@ -78,7 +78,7 @@ public final class FractalVisualizerTutorial {
 		}
 	}
 	
-	private static final class GenerateImageSession extends BackGUIClientSession<VoidApplicationContext> {
+	private static final class GenerateImageSession extends BackendGUIClientSession<VoidApplicationContext> {
 		
 		private final FractalBuilder fractalBuilder;
 		
