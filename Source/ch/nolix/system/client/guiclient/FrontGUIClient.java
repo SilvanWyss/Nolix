@@ -36,7 +36,7 @@ public final class FrontGUIClient extends BaseFrontGUIClient<FrontGUIClient> {
 	 * @param application
 	 * @throws ArgumentIsNullException if the given application is null.
 	 */
-	public FrontGUIClient(final Application<BackGUIClient> application) {
+	public <AC> FrontGUIClient(final Application<BackGUIClient<AC>, AC> application) {
 		
 		//Calls constructor of the base class.
 		super(BaseFrontGUIClientGUIType.CANVAS_GUI);

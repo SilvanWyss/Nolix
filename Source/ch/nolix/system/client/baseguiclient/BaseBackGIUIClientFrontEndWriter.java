@@ -8,10 +8,10 @@ import ch.nolix.element.gui.baseapi.IFrontEndWriter;
 final class BaseBackGIUIClientFrontEndWriter implements IFrontEndWriter {
 	
 	//attribute
-	private final BaseBackGUIClient<?> parentBackGUIClient;
+	private final BaseBackGUIClient<?, ?> parentBackGUIClient;
 	
 	//constructor
-	public BaseBackGIUIClientFrontEndWriter(final BaseBackGUIClient<?> parentBackGUIClient) {
+	public BaseBackGIUIClientFrontEndWriter(final BaseBackGUIClient<?, ?> parentBackGUIClient) {
 		
 		Validator.assertThat(parentBackGUIClient).thatIsNamed("parent BackGUIClient").isNotNull();
 		

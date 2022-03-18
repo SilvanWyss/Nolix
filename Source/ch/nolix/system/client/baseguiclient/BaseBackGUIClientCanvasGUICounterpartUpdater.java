@@ -7,14 +7,14 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 final class BaseBackGUIClientCanvasGUICounterpartUpdater implements IBackGUIClientCounterpartUpdater {
 	
 	//attribute
-	private final BaseBackGUIClient<?> parentBackGUIClient;
+	private final BaseBackGUIClient<?, ?> parentBackGUIClient;
 	
 	//attribute
 	private final BaseBackGUIClientUpdateCanvasGUICommandCreator updateCanvasGUICommandCreator =
 	new BaseBackGUIClientUpdateCanvasGUICommandCreator();
 	
 	//constructor
-	public BaseBackGUIClientCanvasGUICounterpartUpdater(final BaseBackGUIClient<?> parentBackGUIClient) {
+	public BaseBackGUIClientCanvasGUICounterpartUpdater(final BaseBackGUIClient<?, ?> parentBackGUIClient) {
 		
 		Validator.assertThat(parentBackGUIClient).thatIsNamed("parent BackGUIClient").isNotNull();
 		

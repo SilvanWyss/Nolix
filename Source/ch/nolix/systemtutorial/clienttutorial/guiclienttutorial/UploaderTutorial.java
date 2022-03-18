@@ -4,6 +4,7 @@ import ch.nolix.core.environment.localcomputer.ShellProvider;
 import ch.nolix.core.programcontrol.sequencer.Sequencer;
 import ch.nolix.element.gui.widget.Uploader;
 import ch.nolix.system.client.base.Server;
+import ch.nolix.system.client.base.VoidApplicationContext;
 import ch.nolix.system.client.guiclient.BackGUIClientSession;
 import ch.nolix.system.client.guiclient.FrontGUIClient;
 
@@ -16,7 +17,7 @@ public class UploaderTutorial {
 		final var netServer = new Server();
 		
 		//Adds a default Application to the NetServer.
-		netServer.addDefaultApplication("Uploader tutorial", MainSession.class);
+		netServer.addDefaultApplication("Uploader tutorial", MainSession.class, VoidApplicationContext.INSTANCE);
 		
 		//Creates a FrontGUIClient that will connect to the NetServer.
 		new FrontGUIClient();
@@ -28,7 +29,7 @@ public class UploaderTutorial {
 		Sequencer.asSoonAsNoMore(netServer::hasClientConnected).runInBackground(netServer::close);
 	}
 	
-	private static final class MainSession extends BackGUIClientSession {
+	private static final class MainSession extends BackGUIClientSession<VoidApplicationContext> {
 		
 		@Override
 		protected void initializeBaseBackGUIClientSession() {

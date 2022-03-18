@@ -18,8 +18,9 @@ import ch.nolix.core.net.endpoint3.EndPoint;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
+ * @param <AC> is the type of the context of the parent {@link Application} of a {@link StandardClient}.
  */
-public final class StandardClient extends BackendClient<StandardClient> {
+public final class StandardClient<AC> extends BackendClient<StandardClient<AC>, AC> {
 	
 	//constructor
 	/**
@@ -28,7 +29,7 @@ public final class StandardClient extends BackendClient<StandardClient> {
 	 * @param targetApplication
 	 * @throws ArgumentIsNullException if the given target application is null.
 	 */
-	public StandardClient(final Application<StandardClient> targetApplication) {
+	public StandardClient(final Application<StandardClient<?>, ?> targetApplication) {
 		//TODO: Create BackendStandardClient and FrontendStandardClient.
 		//internalConnectTo(targetApplication);
 	}
@@ -57,10 +58,10 @@ public final class StandardClient extends BackendClient<StandardClient> {
 	 * @param initialSession
 	 * @throws ArgumentIsNullException if the given initialSession is null.
 	 */
-	public StandardClient(final String ip, final int port, final Session<StandardClient> initialSession) {
+	public StandardClient(final String ip, final int port, final Session<StandardClient<?>, ?> initialSession) {
 		//TODO: Create BackendStandardClient and FrontendStandardClient.
 		//internalConnectTo(ip, port);
-		internalPush(initialSession);
+		//internalPush(initialSession);
 	}
 	
 	//constructor
@@ -102,7 +103,7 @@ public final class StandardClient extends BackendClient<StandardClient> {
 	 * 
 	 * @return this standard client.
 	 */
-	public StandardClient reset() {
+	public StandardClient<AC> reset() {
 		return this;
 	}
 	

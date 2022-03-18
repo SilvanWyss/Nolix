@@ -35,7 +35,7 @@ public final class FrontConsoleClient extends BaseFrontGUIClient<FrontConsoleCli
 	 * @param application
 	 * @throws ArgumentIsNullException if the given target application is null.
 	 */
-	public FrontConsoleClient(final Application<BackConsoleClient> application) {
+	public <AC> FrontConsoleClient(final Application<BackConsoleClient<AC>, AC> application) {
 		
 		super(BaseFrontGUIClientGUIType.CANVAS_GUI);
 		

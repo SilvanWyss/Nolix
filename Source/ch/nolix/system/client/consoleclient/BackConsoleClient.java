@@ -14,8 +14,9 @@ import ch.nolix.system.client.baseguiclient.BaseBackGUIClient;
 /**
  * @author Silvan Wyss
  * @date 2017-03-02
+ * @param <AC> is the type of the context of the parent {@link Application} of a {@link BackConsoleClient}.
  */
-public final class BackConsoleClient extends BaseBackGUIClient<BackConsoleClient> {
+public final class BackConsoleClient<AC> extends BaseBackGUIClient<BackConsoleClient<AC>, AC> {
 	
 	//constructor
 	/**

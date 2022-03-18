@@ -9,7 +9,10 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.sequencer.Sequencer;
 
 //class
-final class ClientSessionManager<C extends BackendClient<C>> {
+final class ClientSessionManager<
+	C extends BackendClient<C, AC>,
+	AC
+> {
 	
 	//constant
 	private static final int MAX_WAIT_TIME_FOR_SESSION_IN_MILLISECONDS = 10_000;
@@ -18,10 +21,10 @@ final class ClientSessionManager<C extends BackendClient<C>> {
 	private final Client<C> parentClient;
 		
 	//optional attribute
-	private Session<C> currentSession;
+	private Session<C, AC> currentSession;
 	
 	//multi-attribute
-	private final LinkedList<Session<C>> sessionStack = new LinkedList<>();
+	private final LinkedList<Session<C, AC>> sessionStack = new LinkedList<>();
 	
 	//constructor
 	public ClientSessionManager(final Client<C> parentClient) {
@@ -54,7 +57,7 @@ final class ClientSessionManager<C extends BackendClient<C>> {
 	}
 	
 	//method
-	public Session<C> getRefCurrentSession() {
+	public Session<C, AC> getRefCurrentSession() {
 		
 		Sequencer
 		.forMaxMilliseconds(MAX_WAIT_TIME_FOR_SESSION_IN_MILLISECONDS)
@@ -78,7 +81,7 @@ final class ClientSessionManager<C extends BackendClient<C>> {
 	}
 	
 	//method
-	public void pushSession(final Session<C> session) {
+	public void pushSession(final Session<C, AC> session) {
 		
 		//Asserts that the given session is not null.
 		Validator.assertThat(session).isOfType(Session.class);
@@ -96,7 +99,7 @@ final class ClientSessionManager<C extends BackendClient<C>> {
 	
 	//method
 	@SuppressWarnings("unchecked")
-	public <R> R pushSessionAndGetResult(final Session<C> session) {
+	public <R> R pushSessionAndGetResult(final Session<C, AC> session) {
 		
 		pushSession(session);
 		
@@ -108,7 +111,7 @@ final class ClientSessionManager<C extends BackendClient<C>> {
 	}
 	
 	//method
-	public void setCurrentSession(final Session<C> session) {
+	public void setCurrentSession(final Session<C, AC> session) {
 		popCurrentSessionFromStack();
 		pushSession(session);
 	}
@@ -145,7 +148,7 @@ final class ClientSessionManager<C extends BackendClient<C>> {
 	}
 	
 	//method
-	private Session<C> getRefTopSession() {
+	private Session<C, AC> getRefTopSession() {
 		return sessionStack.getRefLast();
 	}
 	
@@ -155,7 +158,7 @@ final class ClientSessionManager<C extends BackendClient<C>> {
 	}
 	
 	//method
-	private void initializeSession(final Session<C> session) {
+	private void initializeSession(final Session<C, AC> session) {
 		
 		//Check if the Client is open because it can be closed before.
 		if (parentClient.isOpen()) {

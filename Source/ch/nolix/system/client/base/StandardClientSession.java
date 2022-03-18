@@ -2,7 +2,7 @@
 package ch.nolix.system.client.base;
 
 //class
-public abstract class StandardClientSession extends Session<StandardClient> {
+public abstract class StandardClientSession<AC> extends Session<StandardClient<AC>, AC> {
 	
 	//method
 	/**
@@ -16,7 +16,7 @@ public abstract class StandardClientSession extends Session<StandardClient> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final Class<StandardClient> internalGetRefClientClass() {
+	protected final Class<?> internalGetRefClientClass() {
 		return StandardClient.class;
 	}
 }

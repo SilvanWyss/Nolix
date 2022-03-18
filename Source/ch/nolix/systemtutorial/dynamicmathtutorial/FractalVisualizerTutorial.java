@@ -11,6 +11,7 @@ import ch.nolix.element.gui.widget.ImageWidget;
 import ch.nolix.element.gui.widget.Label;
 import ch.nolix.system.client.base.Application;
 import ch.nolix.system.client.base.Server;
+import ch.nolix.system.client.base.VoidApplicationContext;
 import ch.nolix.system.client.guiclient.BackGUIClient;
 import ch.nolix.system.client.guiclient.BackGUIClientSession;
 import ch.nolix.system.dynamicmath.FractalBuilder;
@@ -28,16 +29,17 @@ public final class FractalVisualizerTutorial {
 		Sequencer.asSoonAsNoMore(server::hasClientConnected).runInBackground(server::close);
 	}
 	
-	private static class FractalVisualizer extends Application<BackGUIClient> {
+	private static class FractalVisualizer
+	extends Application<BackGUIClient<VoidApplicationContext>, VoidApplicationContext> {
 		
 		public static final String NAME = "Fractal Visualizer";
 		
 		public FractalVisualizer() {
-			super(NAME, FractalSession.class);
+			super(NAME, FractalSession.class, VoidApplicationContext.INSTANCE);
 		}
 	}
 	
-	private static class FractalSession extends BackGUIClientSession {
+	private static class FractalSession extends BackGUIClientSession<VoidApplicationContext> {
 		
 		private final FractalBuilder fractalBuilder = new FractalBuilder();
 		private final ImageWidget imageWidet = new ImageWidget();
@@ -76,7 +78,7 @@ public final class FractalVisualizerTutorial {
 		}
 	}
 	
-	private static final class GenerateImageSession extends BackGUIClientSession {
+	private static final class GenerateImageSession extends BackGUIClientSession<VoidApplicationContext> {
 		
 		private final FractalBuilder fractalBuilder;
 		

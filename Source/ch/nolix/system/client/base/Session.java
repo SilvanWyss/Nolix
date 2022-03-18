@@ -15,8 +15,13 @@ import ch.nolix.core.errorcontrol.validator.Validator;
  * @author Silvan Wyss
  * @date 2016-01-01
  * @param <BC> is the type of the {@link BackendClient} of a {@link Session}.
+ * @param <AC> is
+ * the type of the context of the parent {@link Application} of the parent {@link BackendClient} of a {@link Session}.
  */
-public abstract class Session<BC extends BackendClient<BC>> {
+public abstract class Session<
+	BC extends BackendClient<BC, AC>,
+	AC
+> {
 	
 	//attribute
 	private BC parentClient;
@@ -44,8 +49,17 @@ public abstract class Session<BC extends BackendClient<BC>> {
 	/**
 	 * @return the parent {@link Application} of the parent {@link Client} of the current {@link Session}.
 	 */
-	public Application<BC> getParentApplication() {
+	public Application<BC, AC> getParentApplication() {
 		return getParentClient().getParentApplication();
+	}
+	
+	//method
+	/**
+	 * @return
+	 * the context of the parent {@link Application} of the parent {@link Client} of the current {@link Session}.
+	 */
+	public AC getRefApplicationContext() {
+		return getParentApplication().getRefContext();
 	}
 	
 	//method
@@ -87,7 +101,7 @@ public abstract class Session<BC extends BackendClient<BC>> {
 	 * @param session
 	 * @throws ArgumentIsNullException if the given session is null.
 	 */
-	public final void push(final Session<BC> session) {
+	public final void push(final Session<BC, AC> session) {
 		getParentClient().internalPush(session);
 	}
 	
@@ -100,7 +114,7 @@ public abstract class Session<BC extends BackendClient<BC>> {
 	 * @return the result from the given session.
 	 * @throws ArgumentIsNullException if the given session is null.
 	 */
-	public final <R> R pushAndGetResult(final Session<BC> session) {
+	public final <R> R pushAndGetResult(final Session<BC, AC> session) {
 		return getParentClient().internalPushAndGetResult(session);
 	}
 	
@@ -113,7 +127,7 @@ public abstract class Session<BC extends BackendClient<BC>> {
 	 * @param session
 	 * @throws ArgumentIsNullException if the given session is null.
 	 */
-	public final void setNext(final Session<BC> session) {
+	public final void setNext(final Session<BC, AC> session) {
 		getParentClient().internalSetCurrentSession(session);
 	}
 	
@@ -133,7 +147,7 @@ public abstract class Session<BC extends BackendClient<BC>> {
 	/**
 	 * @return the {@link Client} class of the current {@link Session}.
 	 */
-	protected abstract Class<BC> internalGetRefClientClass();
+	protected abstract Class<?> internalGetRefClientClass();
 	
 	//method declaration
 	/**

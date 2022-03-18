@@ -7,12 +7,13 @@ import ch.nolix.element.gui.image.MutableImage;
 import ch.nolix.element.gui.widget.ImageWidget;
 import ch.nolix.element.gui.widget.WidgetLookState;
 import ch.nolix.system.client.base.Server;
+import ch.nolix.system.client.base.VoidApplicationContext;
 import ch.nolix.system.client.guiclient.BackGUIClientSession;
 import ch.nolix.system.client.guiclient.FrontGUIClient;
 
 public final class ImageWidgetTutorial {
 	
-	private static final class MainSession extends BackGUIClientSession {
+	private static final class MainSession extends BackGUIClientSession<VoidApplicationContext> {
 		
 		@Override
 		protected void initializeBaseBackGUIClientSession() {
@@ -44,7 +45,7 @@ public final class ImageWidgetTutorial {
 		final var server = new Server();
 		
 		//Adds a default Application to the NetServer.
-		server.addDefaultApplication("ImageWidget tutorial", MainSession.class);
+		server.addDefaultApplication("ImageWidget tutorial", MainSession.class, VoidApplicationContext.INSTANCE);
 		
 		//Creates a FrontGUIClient that will connect to the Server.
 		new FrontGUIClient();

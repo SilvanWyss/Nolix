@@ -7,7 +7,10 @@ import ch.nolix.element.gui.base.InvisibleGUI;
 import ch.nolix.system.client.base.Session;
 
 //class
-public abstract class BaseBackGUIClientSession<BGUIC extends BaseBackGUIClient<BGUIC>> extends Session<BGUIC> {
+public abstract class BaseBackGUIClientSession<
+	BGUIC extends BaseBackGUIClient<BGUIC, AC>,
+	AC
+> extends Session<BGUIC, AC> {
 	
 	//attribute
 	private final InvisibleGUI mGUI = new InvisibleGUI();

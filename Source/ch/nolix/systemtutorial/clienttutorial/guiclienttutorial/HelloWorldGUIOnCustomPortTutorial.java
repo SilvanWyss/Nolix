@@ -5,6 +5,7 @@ import ch.nolix.core.programcontrol.sequencer.Sequencer;
 import ch.nolix.element.gui.widget.Label;
 import ch.nolix.element.gui.widget.WidgetLookState;
 import ch.nolix.system.client.base.Server;
+import ch.nolix.system.client.base.VoidApplicationContext;
 import ch.nolix.system.client.guiclient.BackGUIClientSession;
 import ch.nolix.system.client.guiclient.FrontGUIClient;
 
@@ -20,7 +21,11 @@ public final class HelloWorldGUIOnCustomPortTutorial {
 		final var netServer = new Server(port);
 		
 		//Adds a default Application to the NetServer.
-		netServer.addDefaultApplication("Hello World GUI on custom port tutorial", MainSession.class);
+		netServer.addDefaultApplication(
+			"Hello World GUI on custom port tutorial",
+			MainSession.class,
+			VoidApplicationContext.INSTANCE
+		);
 		
 		//Creates a FrontGUIClient that will connect to the NetServer.
 		new FrontGUIClient(port);
@@ -32,7 +37,7 @@ public final class HelloWorldGUIOnCustomPortTutorial {
 		Sequencer.asSoonAsNoMore(netServer::hasClientConnected).runInBackground(netServer::close);
 	}
 	
-	private static final class MainSession extends BackGUIClientSession {
+	private static final class MainSession extends BackGUIClientSession<VoidApplicationContext> {
 		
 		@Override
 		protected void initializeBaseBackGUIClientSession() {

@@ -29,8 +29,12 @@ import ch.nolix.system.client.base.BackendClient;
  * @author Silvan Wyss
  * @date 2017-10-01
  * @param <BBGUIC> is the type of a {@link BaseBackGUIClient}.
+ * @param <AC> is the type of the context of the parent {@link Application} of a {@link BaseBackGUIClient}.
  */
-public abstract class BaseBackGUIClient<BBGUIC extends BaseBackGUIClient<BBGUIC>> extends BackendClient<BBGUIC> {
+public abstract class BaseBackGUIClient<
+	BBGUIC extends BaseBackGUIClient<BBGUIC, AC>,
+	AC
+> extends BackendClient<BBGUIC, AC> {
 	
 	//constant
 	private static final int MAX_WAITING_TIME_FOR_FILE_FROM_COUNTERPART_IN_SECONDS = 60;

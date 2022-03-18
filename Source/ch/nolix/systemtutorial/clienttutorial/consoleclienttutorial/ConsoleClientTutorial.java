@@ -1,6 +1,7 @@
 package ch.nolix.systemtutorial.clienttutorial.consoleclienttutorial;
 
 import ch.nolix.system.client.base.Application;
+import ch.nolix.system.client.base.VoidApplicationContext;
 import ch.nolix.system.client.consoleclient.BackConsoleClient;
 import ch.nolix.system.client.consoleclient.BackConsoleClientSession;
 import ch.nolix.system.client.consoleclient.FrontConsoleClient;
@@ -25,13 +26,18 @@ public final class ConsoleClientTutorial {
 	public static void main(final String[] arguments) {
 		
 		//Creates an Application.
-		final var application = new Application<BackConsoleClient>("MyApplication", MainSession.class);
+		final var application =	
+		new Application<BackConsoleClient<VoidApplicationContext>, VoidApplicationContext>(
+			"MyApplication",
+			MainSession.class,
+			VoidApplicationContext.INSTANCE
+		);
 		
 		//Creates a FrontConsoleClient that will connect to the Application.
 		new FrontConsoleClient(application);
 	}
 	
-	private static final class MainSession extends BackConsoleClientSession {
+	private static final class MainSession extends BackConsoleClientSession<VoidApplicationContext> {
 		
 		@Override
 		protected void initializeBackConsoleClientSession() {

@@ -3,6 +3,7 @@ package ch.nolix.systemtutorial.clienttutorial.consoleclienttutorial;
 import ch.nolix.core.environment.localcomputer.ShellProvider;
 import ch.nolix.core.programcontrol.sequencer.Sequencer;
 import ch.nolix.system.client.base.Server;
+import ch.nolix.system.client.base.VoidApplicationContext;
 import ch.nolix.system.client.consoleclient.BackConsoleClientSession;
 import ch.nolix.system.client.consoleclient.FrontConsoleClient;
 import ch.nolix.template.consoleclientlook.BlackRedConsoleClientLookCreator;
@@ -16,7 +17,7 @@ public final class WebConsoleClientTutorial {
 		final var netServer = new Server();
 		
 		//Adds a default Application to the NetServer.
-		netServer.addDefaultApplication("WebConsoleClient tutorial", MainSession.class);
+		netServer.addDefaultApplication("WebConsoleClient tutorial", MainSession.class, VoidApplicationContext.INSTANCE);
 		
 		//Creates a FrontConsoleClient that will connect to the NetServer.
 		new FrontConsoleClient();
@@ -28,7 +29,7 @@ public final class WebConsoleClientTutorial {
 		Sequencer.asSoonAsNoMore(netServer::hasClientConnected).runInBackground(netServer::close);
 	}
 	
-	private static final class MainSession extends BackConsoleClientSession {
+	private static final class MainSession extends BackConsoleClientSession<VoidApplicationContext> {
 		
 		@Override
 		protected void initializeBackConsoleClientSession() {

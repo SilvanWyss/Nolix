@@ -42,7 +42,7 @@ public abstract class FrontendClient<FC extends FrontendClient<FC>> extends Clie
 	 * @param application
 	 * @throws InvalidArgumentException if the current {@link FrontendClient} is already connected.
 	 */
-	protected final void connectTo(final Application<?> application) {
+	protected final void connectTo(final Application<?, ?> application) {
 		
 		final var endPoint = new LocalEndPoint();
 		

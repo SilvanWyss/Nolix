@@ -13,17 +13,21 @@ import ch.nolix.core.net.endpoint3.EndPoint;
  * @author Silvan Wyss
  * @data 2022-03-18
  * @param <BC> is the type of a {@link BackendClient}.
+ * @param <AC> is the type of the context of the parent {@link Application} of a {@link BackendClient}.
  */
-public abstract class BackendClient<BC extends BackendClient<BC>> extends Client<BC> {
+public abstract class BackendClient<
+	BC extends BackendClient<BC, AC>,
+	AC
+> extends Client<BC> {
 	
 	//attribute
-	private final ClientSessionManager<BC> sessionManager = new ClientSessionManager<>(this);
+	private final ClientSessionManager<BC, AC> sessionManager = new ClientSessionManager<>(this);
 	
 	//optional attribute
 	/**
 	 * The {@link Application} the current {@link BackendClient} belongs to.
 	 */
-	private Application<BC> parentApplication;
+	private Application<BC, AC> parentApplication;
 	
 	//method
 	/**
@@ -35,15 +39,23 @@ public abstract class BackendClient<BC extends BackendClient<BC>> extends Client
 	
 	//method
 	/**
-	 * @return the {@link Application} of the current {@link BackendClient}.
+	 * @return the parent {@link Application} of the current {@link BackendClient}.
 	 * @throws InvalidArgumentException if
 	 * the current {@link BackendClient} does not reference its parent {@link Application}.
 	 */
-	public final Application<BC> getParentApplication() {
+	public final Application<BC, AC> getParentApplication() {
 		
 		assertReferencesParentApplication();
 		
 		return parentApplication;
+	}
+	
+	//method
+	/**
+	 * @return the context of the parent {@link Application} of the current {@link BackendClient}.
+	 */
+	public AC getRefApplicationContext() {
+		return getParentApplication().getRefContext();
 	}
 	
 	//method
@@ -70,7 +82,7 @@ public abstract class BackendClient<BC extends BackendClient<BC>> extends Client
 	 * @throws ArgumentDoesNotHaveAttributeException if
 	 * the current {@link BackendClient} does not have a current {@link Session}.
 	 */
-	protected final Session<BC> getRefCurrentSession() {
+	protected final Session<BC, AC> getRefCurrentSession() {
 		return sessionManager.getRefCurrentSession();
 	}
 	
@@ -125,7 +137,7 @@ public abstract class BackendClient<BC extends BackendClient<BC>> extends Client
 	 * @param session
 	 * @throws ArgumentIsNullException if the given session is null.
 	 */
-	final void internalPush(final Session<BC> session) {
+	final void internalPush(final Session<BC, AC> session) {
 		sessionManager.pushSession(session);
 	}
 	
@@ -138,7 +150,7 @@ public abstract class BackendClient<BC extends BackendClient<BC>> extends Client
 	 * @return the result from the given session.
 	 * @throws ArgumentIsNullException if the given session is null.
 	 */
-	final <R> R internalPushAndGetResult(final Session<BC> session) {
+	final <R> R internalPushAndGetResult(final Session<BC, AC> session) {
 		return sessionManager.pushSessionAndGetResult(session);
 	}
 	
@@ -152,7 +164,7 @@ public abstract class BackendClient<BC extends BackendClient<BC>> extends Client
 	 * @param session
 	 * @throws ArgumentIsNullException if the given session is null.
 	 */
-	final void internalSetCurrentSession(final Session<BC> session) {
+	final void internalSetCurrentSession(final Session<BC, AC> session) {
 		sessionManager.setCurrentSession(session);
 	}
 	
@@ -165,7 +177,7 @@ public abstract class BackendClient<BC extends BackendClient<BC>> extends Client
 	 * @throws InvalidArgumentException if
 	 * the current {@link BackendClient} references already its parent {@link Application}.
 	 */
-	final void internalSetParentApplication(final Application<BC> parentApplication) {
+	final void internalSetParentApplication(final Application<BC, AC> parentApplication) {
 		
 		//Asserts that the given parent application is not null.
 		Validator.assertThat(parentApplication).thatIsNamed("parent application").isNotNull();

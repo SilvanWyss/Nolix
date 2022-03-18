@@ -6,6 +6,7 @@ import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.textbox.TextBox;
 import ch.nolix.element.gui.widget.WidgetLookState;
 import ch.nolix.system.client.base.Server;
+import ch.nolix.system.client.base.VoidApplicationContext;
 import ch.nolix.system.client.guiclient.BackGUIClientSession;
 import ch.nolix.system.client.guiclient.FrontGUIClient;
 
@@ -18,7 +19,7 @@ public final class TextBoxTutorial {
 		final var netServer = new Server();
 		
 		//Adds a default Application to the NetServer.
-		netServer.addDefaultApplication("TextBox tutorial", MainSession.class);
+		netServer.addDefaultApplication("TextBox tutorial", MainSession.class, VoidApplicationContext.INSTANCE);
 		
 		//Creates a FrontGUIClient that will connect to the NetServer.
 		new FrontGUIClient();
@@ -30,7 +31,7 @@ public final class TextBoxTutorial {
 		Sequencer.asSoonAsNoMore(netServer::hasClientConnected).runInBackground(netServer::close);
 	}
 	
-	private static final class MainSession extends BackGUIClientSession {
+	private static final class MainSession extends BackGUIClientSession<VoidApplicationContext> {
 		
 		@Override
 		protected void initializeBaseBackGUIClientSession() {

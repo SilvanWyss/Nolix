@@ -14,8 +14,11 @@ import ch.nolix.template.consoleclientlook.GreyBlueConsoleClientLookCreator;
 /**
  * @author Silvan Wyss
  * @date 2017-04-02
+ * @param <AC> is
+ * the type of the context of
+ * the parent {@link Application} of the parent {@link BackConsoleClientSession} of a {@link BaseBackGUIClientSession}.
  */
-public abstract class BackConsoleClientSession extends BaseBackGUIClientSession<BackConsoleClient> {
+public abstract class BackConsoleClientSession<AC> extends BaseBackGUIClientSession<BackConsoleClient<AC>, AC> {
 	
 	//attributes
 	private final Console infoPanel = new Console().setId(WidgetIdCatalogue.INFO_PANEL).setUneditable();
@@ -27,7 +30,7 @@ public abstract class BackConsoleClientSession extends BaseBackGUIClientSession<
 	 * 
 	 * @return the current {@link BackConsoleClientSession}.
 	 */
-	public final BackConsoleClientSession clearConsole() {
+	public final BackConsoleClientSession<AC> clearConsole() {
 		
 		console.clear();
 		updateCounterpart();
@@ -41,7 +44,7 @@ public abstract class BackConsoleClientSession extends BaseBackGUIClientSession<
 	 * 
 	 * @return the current {@link BackConsoleClientSession}.
 	 */
-	public final BackConsoleClientSession clearInfoPanel() {
+	public final BackConsoleClientSession<AC> clearInfoPanel() {
 		
 		infoPanel.clear();
 		updateCounterpart();
@@ -89,7 +92,7 @@ public abstract class BackConsoleClientSession extends BaseBackGUIClientSession<
 	 * @return the current {@link BackConsoleClientSession}.
 	 * @throws ArgumentIsNullException if the given look is null.
 	 */
-	public BackConsoleClientSession setLook(final Configuration look) {
+	public BackConsoleClientSession<AC> setLook(final Configuration look) {
 		
 		getRefGUI().setConfiguration(look);
 		
@@ -102,7 +105,7 @@ public abstract class BackConsoleClientSession extends BaseBackGUIClientSession<
 	 * 
 	 * @return the current {@link BackConsoleClientSession}.
 	 */
-	public final BackConsoleClientSession writeEmptyLineToConsole() {
+	public final BackConsoleClientSession<AC> writeEmptyLineToConsole() {
 		
 		console.writeEmptyLine();
 		updateCounterpart();
@@ -117,7 +120,7 @@ public abstract class BackConsoleClientSession extends BaseBackGUIClientSession<
 	 * @param line
 	 * @return the current {@link BackConsoleClientSession}.
 	 */
-	public final BackConsoleClientSession writeLineToConsole(final String line) {
+	public final BackConsoleClientSession<AC> writeLineToConsole(final String line) {
 		
 		console.writeLine(line);
 		updateCounterpart();
@@ -132,7 +135,7 @@ public abstract class BackConsoleClientSession extends BaseBackGUIClientSession<
 	 * @param lines
 	 * @return the current {@link BackConsoleClientSession}.
 	 */
-	public final BackConsoleClientSession writeLineToConsole(final String... lines) {
+	public final BackConsoleClientSession<AC> writeLineToConsole(final String... lines) {
 		
 		console.writeLine(lines);
 		updateCounterpart();
@@ -147,7 +150,7 @@ public abstract class BackConsoleClientSession extends BaseBackGUIClientSession<
 	 * @param line
 	 * @return the current {@link BackConsoleClientSession}.
 	 */
-	public final BackConsoleClientSession writeLineToInfoPanel(final String line) {
+	public final BackConsoleClientSession<AC> writeLineToInfoPanel(final String line) {
 		
 		infoPanel.writeLine(line);
 		updateCounterpart();
@@ -162,7 +165,7 @@ public abstract class BackConsoleClientSession extends BaseBackGUIClientSession<
 	 * @param lines
 	 * @return the current {@link BackConsoleClientSession}.
 	 */
-	public final BackConsoleClientSession writeLineToInfoPanel(final String... lines) {
+	public final BackConsoleClientSession<AC> writeLineToInfoPanel(final String... lines) {
 		
 		infoPanel.writeLine(lines);
 		updateCounterpart();
@@ -199,7 +202,7 @@ public abstract class BackConsoleClientSession extends BaseBackGUIClientSession<
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final Class<BackConsoleClient> internalGetRefClientClass() {
+	protected final Class<?> internalGetRefClientClass() {
 		return BackConsoleClient.class;
 	}
 }

@@ -22,10 +22,10 @@ public abstract class BaseServer implements GroupCloseable {
 	private final CloseController closeController = new CloseController(this);
 	
 	//optional attribute
-	private Application<?> defaultApplication;
+	private Application<?, ?> defaultApplication;
 	
 	//multi-attribute
-	private final LinkedList<Application<?>> applications = new LinkedList<>();
+	private final LinkedList<Application<?, ?>> applications = new LinkedList<>();
 	
 	//method
 	/**
@@ -36,7 +36,7 @@ public abstract class BaseServer implements GroupCloseable {
 	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already
 	 * a {@link Application} with the same name as the given application.
 	 */
-	public final void addApplication(final Application<?> application) {
+	public final void addApplication(final Application<?, ?> application) {
 		
 		addApplicationToList(application);
 		
@@ -52,7 +52,7 @@ public abstract class BaseServer implements GroupCloseable {
 	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already
 	 * a {@link Application} with the same name as one of the given applications.
 	 */
-	public final void addApplication(final Application<?>... applications) {
+	public final void addApplication(final Application<?, ?>... applications) {
 		
 		//Iterates the given applications.
 		for (final var a: applications) {
@@ -61,23 +61,26 @@ public abstract class BaseServer implements GroupCloseable {
 	}
 	
 	/**
-	 * Adds a new {@link Application} with the given name and initialSessionClass to the current {@link BaseServer}.
+	 * Adds a new {@link Application} with the given name, initialSessionClass and applicationContext to
+	 * the current {@link BaseServer}.
 	 * 
 	 * @param name
 	 * @param initialSessionClass
+	 * @param applicationContext
 	 * @throws ArgumentIsNullException if the given name is null.
 	 * @throws InvalidArgumentException if the given name is blank.
 	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already
 	 * a {@link Application} with the given name.
 	 * @throws ArgumentIsNullException if the given initialSessionClass is null.
 	 */
-	public final <BC extends BackendClient<BC>> void addApplication(
+	public final <BC extends BackendClient<BC, AC>, AC> void addApplication(
 		final String name,
-		final Class<Session<BC>> initialSessionClass
+		final Class<Session<BC, AC>> initialSessionClass,
+		final AC applicationContext
 	) {
 		
 		//Calls other method.
-		addApplication(new Application<>(name, initialSessionClass));
+		addApplication(new Application<BC, AC>(name, initialSessionClass, applicationContext));
 	}
 	
 	//method
@@ -90,7 +93,8 @@ public abstract class BaseServer implements GroupCloseable {
 	 * @throws InvalidArgumentException if the current {@link BaseServer}
 	 * contains already a {@link Application} with the same name as the given defaultApplication.
 	 */
-	public final <BC extends BackendClient<BC>> void addDefaultApplication(final Application<BC> defaultApplication) {
+	public final <BC extends BackendClient<BC, AC>, AC>
+	void addDefaultApplication(final Application<BC, AC> defaultApplication) {
 		
 		addApplicationToList(defaultApplication);
 		this.defaultApplication = defaultApplication;
@@ -99,11 +103,12 @@ public abstract class BaseServer implements GroupCloseable {
 	}
 	
 	/**
-	 * Adds a new default {@link Application} with
-	 * the given name and initialSessionClass to the current {@link BaseServer}.
+	 * Adds a new default {@link Application} with the given name, initialSessionClass and applicationContext to
+	 * the current {@link BaseServer}.
 	 * 
 	 * @param name
 	 * @param initialSessionClass
+	 * @param applicationContext
 	 * @throws ArgumentIsNullException if the given name is null.
 	 * @throws InvalidArgumentException if the given name is blank.
 	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already
@@ -112,13 +117,14 @@ public abstract class BaseServer implements GroupCloseable {
 	 * a {@link Application} with the given name.
 	 * @throws ArgumentIsNullException if the given initialSessionClass is null.
 	 */
-	public final <S extends Session<BC>, BC extends BackendClient<BC>> void addDefaultApplication(
+	public final <S extends Session<BC, AC>, BC extends BackendClient<BC, AC>, AC> void addDefaultApplication(
 		final String name,
-		final Class<S> initialSessionClass
+		final Class<S> initialSessionClass,
+		final AC applicationContext
 	) {
 		
 		//Calls other method
-		addDefaultApplication(new Application<BC>(name, initialSessionClass));
+		addDefaultApplication(new Application<BC, AC>(name, initialSessionClass, applicationContext));
 	}
 	
 	//method
@@ -145,7 +151,7 @@ public abstract class BaseServer implements GroupCloseable {
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BaseServer} does not contain
 	 * a {@link Application} with the given name.
 	 */
-	public final Application<?> getRefApplicationByName(final String name) {
+	public final Application<?, ?> getRefApplicationByName(final String name) {
 		return applications.getRefFirst(a -> a.hasName(name));
 	}
 	
@@ -164,7 +170,7 @@ public abstract class BaseServer implements GroupCloseable {
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BaseServer} does not contain
 	 * a default {@link Application}.
 	 */
-	public final Application<?> getRefDefaultApplication() {
+	public final Application<?, ?> getRefDefaultApplication() {
 		
 		//Asserts that the current Server contains a default Application.
 		assertContainsDefaultApplication();
@@ -198,7 +204,7 @@ public abstract class BaseServer implements GroupCloseable {
 	 * and the current {@link BaseServer} does not contain a {@link Application}
 	 * with a name that equals the given target.
 	 */
-	public final void takeClient(final BackendClient<?> client) {
+	public final void takeClient(final BackendClient<?, ?> client) {
 		
 		//Handles the case that the given client does not have a target.
 		if (!client.hasTarget()) {
@@ -216,7 +222,7 @@ public abstract class BaseServer implements GroupCloseable {
 	 * 
 	 * @param application
 	 */
-	protected abstract void noteAddedApplication(Application<?> application);
+	protected abstract void noteAddedApplication(Application<?, ?> application);
 
 	//method declaration
 	/**
@@ -224,7 +230,7 @@ public abstract class BaseServer implements GroupCloseable {
 	 * 
 	 * @param defaultApplication2
 	 */
-	protected abstract void noteAddedDefaultApplication(Application<?> defaultApplication2);
+	protected abstract void noteAddedDefaultApplication(Application<?, ?> defaultApplication2);
 	
 	//method
 	/**
@@ -234,7 +240,7 @@ public abstract class BaseServer implements GroupCloseable {
 	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already
 	 * a {@link Application} with the same name as one of the given applications.
 	 */
-	private void addApplicationToList(final Application<?> application) {
+	private void addApplicationToList(final Application<?, ?> application) {
 		
 		//Asserts that the current Server does not contain already
 		//an Application with the same name as the given application..
