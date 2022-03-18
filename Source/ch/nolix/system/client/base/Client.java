@@ -7,15 +7,11 @@ import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnconnectedArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.generalskillapi.IFluentObject;
 import ch.nolix.core.net.endpoint3.EndPoint;
-import ch.nolix.core.net.endpoint3.LocalEndPoint;
-import ch.nolix.core.net.endpoint3.NetEndPoint;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.programcontrol.groupcloseable.GroupCloseable;
 
@@ -341,143 +337,7 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable, IFl
 	
 
 
-	//method
-	/**
-	 * Connects the current {@link Client} to the given application.
-	 * 
-	 * @param application
-	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
-	 * @throws InvalidArgumentException if the current {@link Client} is already connected.
-	 */
-	protected final void internalConnectTo(final Application<?> application) {
-		
-		//Creates the duplex controller of the current client.
-		internalSetEndPoint(new LocalEndPoint());
-		
-		//Connects the current client to the given application.
-		application.takeEndPoint(
-			((LocalEndPoint)endPoint).getRefCounterpart()
-		);
-	}
-	
-	//method
-	/**
-	 * Connects the current {@link Client} to the default application
-	 * on the given port on the local machine.
-	 * 
-	 * @param port
-	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
-	 * @throws InvalidArgumentException if the current {@link Client} is already connected.
-	 */
-	protected final void internalConnectTo(final int port) {
-		
-		//Creates the duplex controller of the current client.
-		internalSetEndPoint(new NetEndPoint(port));
-	}
-	
-	//method
-	/**
-	 * Connects the current {@link Client} to the application with the given name
-	 * on the given port on the local machine.
-	 * 
-	 * @param port
-	 * @param name
-	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
-	 * @throws ArgumentIsNullException if the given name is null.
-	 * @throws EmptyArgumentException if the given name is empty.
-	 * @throws InvalidArgumentException if the current {@link Client} is already connected.
-	 */
-	protected final void internalConnectTo(final int port, final String name) {
-		
-		//Creates the duplex controller of the current client.
-		internalSetEndPoint(new NetEndPoint(port, name));
-	}
-	
-	//method
-	/**
-	 * Connects the current {@link Client} to the default application
-	 * on the given server.
-	 * 
-	 * @param baseServer
-	 * @throws InvalidArgumentException if the current {@link Client} is already connected.
-	 */
-	protected final void internalConnectTo(final BaseServer baseServer) {
-		
-		//Creates the duplex controller of the current client.
-		internalSetEndPoint(new LocalEndPoint());
-		
-		//Connects the current client to the default application on the given server.
-		baseServer.getRefDefaultApplication().takeEndPoint(
-			((LocalEndPoint)endPoint).getRefCounterpart()
-		);
-	}
-	
-	//method
-	/**
-	 * Connects the current {@link Client} to the application with the given name
-	 * on the given server.
-	 * 
-	 * @param baseServer
-	 * @param name
-	 * @throws InvalidArgumentException if the current {@link Client} is already connected.
-	 */
-	protected final void internalConnectTo(final BaseServer baseServer, final String name) {
-		
-		//Creates the duplex controller of the current client.
-		internalSetEndPoint(new LocalEndPoint());
-		
-		//Connects the current client to the application with the given name on the given server.
-		baseServer.getRefApplicationByName(name).takeEndPoint(
-			((LocalEndPoint)endPoint).getRefCounterpart()
-		);
-	}
-	
-	//method
-	/**
-	 * Connects the current {@link Client} to
-	 * the default application on the {@link Server#DEFAULT_PORT} on the machine with the given ip.
-	 * 
-	 * @param ip
-	 * @throws InvalidArgumentException if the current {@link Client} is already connected.
-	 */
-	protected final void internalConnectTo(final String ip) {
-		internalSetEndPoint(new NetEndPoint(ip));
-	}
-	
-	//method
-	/**
-	 * Connects the current {@link Client} to the default application
-	 * on given port on the machine with the given ip.
-	 * 
-	 * @param ip
-	 * @param port
-	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
-	 * @throws InvalidArgumentException if the current {@link Client} is already connected.
-	 */
-	protected final void internalConnectTo(final String ip, final int port) {
-		
-		//Creates the duplex controller of the current client.
-		internalSetEndPoint(new NetEndPoint(ip, port));
-	}
-	
-	//method
-	/**
-	 * Connects the current {@link Client} to the application with the given name
-	 * on given port on the machine with the given ip.
-	 * 
-	 * @param ip
-	 * @param port
-	 * @param name
-	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
-	 * @throws ArgumentIsNullException if the given name is null.
-	 * @throws EmptyArgumentException if the given name is empty.
-	 * @throws InvalidArgumentException if the current {@link Client} is already connected.
-	 */
-	protected final void internalConnectTo(String ip, int port, String name) {
-		
-		//Creates the duplex controller of the current client.
-		internalSetEndPoint(new NetEndPoint(ip, port, name));
-	}
+
 	
 	//method
 	/**

@@ -26,7 +26,7 @@ public final class FrontGUIClient extends BaseFrontGUIClient<FrontGUIClient> {
 		//Calls constructor of the base class.
 		super(BaseFrontGUIClientGUIType.CANVAS_GUI);
 		
-		internalConnectTo(Server.DEFAULT_PORT);
+		connectTo(Server.DEFAULT_PORT);
 	}
 	
 	//constructor
@@ -41,7 +41,7 @@ public final class FrontGUIClient extends BaseFrontGUIClient<FrontGUIClient> {
 		//Calls constructor of the base class.
 		super(BaseFrontGUIClientGUIType.CANVAS_GUI);
 		
-		internalConnectTo(application);
+		connectTo(application);
 	}
 	
 	//constructor
@@ -57,7 +57,7 @@ public final class FrontGUIClient extends BaseFrontGUIClient<FrontGUIClient> {
 		//Calls constructor of the base class.
 		super(BaseFrontGUIClientGUIType.CANVAS_GUI);
 		
-		internalConnectTo(port);
+		connectTo(port);
 	}
 	
 	//constructor
@@ -76,7 +76,7 @@ public final class FrontGUIClient extends BaseFrontGUIClient<FrontGUIClient> {
 		//Calls constructor of the base class.
 		super(BaseFrontGUIClientGUIType.CANVAS_GUI);
 		
-		internalConnectTo(port, application);
+		connectTo(port, application);
 	}
 	
 	//constructor
@@ -91,7 +91,7 @@ public final class FrontGUIClient extends BaseFrontGUIClient<FrontGUIClient> {
 		//Calls constructor of the base class.
 		super(BaseFrontGUIClientGUIType.CANVAS_GUI);
 		
-		internalConnectTo(ip);
+		connectTo(ip);
 	}
 	
 	//constructor
@@ -108,7 +108,7 @@ public final class FrontGUIClient extends BaseFrontGUIClient<FrontGUIClient> {
 		//Calls constructor of the base class.
 		super(BaseFrontGUIClientGUIType.CANVAS_GUI);
 		
-		internalConnectTo(ip, port);
+		connectTo(ip, port);
 	}
 	
 	//constructor
@@ -128,6 +128,6 @@ public final class FrontGUIClient extends BaseFrontGUIClient<FrontGUIClient> {
 		//Calls constructor of the base class.
 		super(BaseFrontGUIClientGUIType.CANVAS_GUI);
 		
-		internalConnectTo(ip, port, application);
+		connectTo(ip, port, application);
 	}
 }

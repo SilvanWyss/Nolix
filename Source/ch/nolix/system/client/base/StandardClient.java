@@ -29,9 +29,8 @@ public final class StandardClient extends BackendClient<StandardClient> {
 	 * @throws ArgumentIsNullException if the given target application is null.
 	 */
 	public StandardClient(final Application<StandardClient> targetApplication) {
-
-		//Calls constructor of the base class.
-		internalConnectTo(targetApplication);
+		//TODO: Create BackendStandardClient and FrontendStandardClient.
+		//internalConnectTo(targetApplication);
 	}
 	
 	//constructor
@@ -43,7 +42,8 @@ public final class StandardClient extends BackendClient<StandardClient> {
 	 * @param port
 	 */
 	public StandardClient(String ip, int port) {
-		internalConnectTo(ip, port);
+		//TODO: Create BackendStandardClient and FrontendStandardClient.
+		//internalConnectTo(ip, port);
 	}
 	
 	//constructor
@@ -58,7 +58,8 @@ public final class StandardClient extends BackendClient<StandardClient> {
 	 * @throws ArgumentIsNullException if the given initialSession is null.
 	 */
 	public StandardClient(final String ip, final int port, final Session<StandardClient> initialSession) {
-		internalConnectTo(ip, port);
+		//TODO: Create BackendStandardClient and FrontendStandardClient.
+		//internalConnectTo(ip, port);
 		internalPush(initialSession);
 	}
 	
@@ -78,9 +79,8 @@ public final class StandardClient extends BackendClient<StandardClient> {
 		final int port,
 		final String targetApplication
 	) {
-		
-		//Calls constructor of the base class.
-		internalConnectTo(ip, port, targetApplication);
+		//TODO: Create BackendStandardClient and FrontendStandardClient.
+		//internalConnectTo(ip, port, targetApplication);
 	}
 	
 	//constructor
