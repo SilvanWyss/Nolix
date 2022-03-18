@@ -71,7 +71,10 @@ public abstract class BaseServer implements GroupCloseable {
 	 * a {@link Application} with the given name.
 	 * @throws ArgumentIsNullException if the given initialSessionClass is null.
 	 */
-	public final void addApplication(final String name, Class<?> initialSessionClass) {
+	public final <BC extends BackendClient<BC>> void addApplication(
+		final String name,
+		final Class<Session<BC>> initialSessionClass
+	) {
 		
 		//Calls other method.
 		addApplication(new Application<>(name, initialSessionClass));
@@ -87,7 +90,7 @@ public abstract class BaseServer implements GroupCloseable {
 	 * @throws InvalidArgumentException if the current {@link BaseServer}
 	 * contains already a {@link Application} with the same name as the given defaultApplication.
 	 */
-	public final void addDefaultApplication(final Application<?> defaultApplication) {
+	public final <BC extends BackendClient<BC>> void addDefaultApplication(final Application<BC> defaultApplication) {
 		
 		addApplicationToList(defaultApplication);
 		this.defaultApplication = defaultApplication;
@@ -109,10 +112,13 @@ public abstract class BaseServer implements GroupCloseable {
 	 * a {@link Application} with the given name.
 	 * @throws ArgumentIsNullException if the given initialSessionClass is null.
 	 */
-	public final void addDefaultApplication(final String name, final Class<?> initialSessionClass) {
+	public final <S extends Session<BC>, BC extends BackendClient<BC>> void addDefaultApplication(
+		final String name,
+		final Class<S> initialSessionClass
+	) {
 		
 		//Calls other method
-		addDefaultApplication(new Application<>(name, initialSessionClass));
+		addDefaultApplication(new Application<BC>(name, initialSessionClass));
 	}
 	
 	//method
@@ -192,7 +198,7 @@ public abstract class BaseServer implements GroupCloseable {
 	 * and the current {@link BaseServer} does not contain a {@link Application}
 	 * with a name that equals the given target.
 	 */
-	public final void takeClient(final Client<?> client) {
+	public final void takeClient(final BackendClient<?> client) {
 		
 		//Handles the case that the given client does not have a target.
 		if (!client.hasTarget()) {

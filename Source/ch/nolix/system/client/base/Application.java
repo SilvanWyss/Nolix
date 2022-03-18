@@ -16,7 +16,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.functionapi.IElementGetter;
-import ch.nolix.core.generalskillapi.Castable;
 import ch.nolix.core.net.endpoint3.EndPoint;
 import ch.nolix.core.programcontrol.sequencer.Sequencer;
 
@@ -26,12 +25,16 @@ import ch.nolix.core.programcontrol.sequencer.Sequencer;
  * @date 2016-01-01
  * @param <BC> is the type of the {@link BackendClient}s of a {@link Application}.
  */
-public class Application<BC extends BackendClient<BC>> implements Castable, Named {
+public class Application<BC extends BackendClient<BC>> implements Named {
 	
-	//attributes
+	//attribute
 	private final String name;
+	
+	//attribute
 	private final Class<BC> clientClass;
-	private final Class<?> initialSessionClass;
+	
+	//attribute
+	private final Class<Session<BC>> initialSessionClass;
 	
 	//optional attribute
 	private final Object context;
@@ -50,7 +53,8 @@ public class Application<BC extends BackendClient<BC>> implements Castable, Name
 	 * @throws ArgumentIsNullException if the given clientClass is null.
 	 * @throws ArgumentIsNullException if the given initialSessionClass is null.
 	 */
-	public Application(final String name, final Class<?> initialSessionClass) {
+	@SuppressWarnings("unchecked")
+	public <S extends Session<BC>> Application(final String name, final Class<S> initialSessionClass) {
 		
 		//Asserts that the given name is not null or blank.
 		Validator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
@@ -59,7 +63,7 @@ public class Application<BC extends BackendClient<BC>> implements Castable, Name
 		Validator.assertThat(initialSessionClass).thatIsNamed("initial session class").isNotNull();
 		
 		this.name = name;
-		this.initialSessionClass = initialSessionClass;
+		this.initialSessionClass = (Class<Session<BC>>)(initialSessionClass);
 		clientClass = createInitialSession().internalGetRefClientClass();
 		this.context = null;
 	}
@@ -79,7 +83,7 @@ public class Application<BC extends BackendClient<BC>> implements Castable, Name
 	 */
 	public Application(
 		final String name,
-		final Class<?> initialSessionClass,
+		final Class<Session<BC>> initialSessionClass,
 		final IElementGetter<?> context
 	) {
 		
@@ -102,7 +106,7 @@ public class Application<BC extends BackendClient<BC>> implements Castable, Name
 	 */
 	public Application(
 		final String name,
-		final Class<?> initialSessionClass,
+		final Class<Session<BC>> initialSessionClass,
 		final Object context
 	) {
 		
@@ -211,7 +215,7 @@ public class Application<BC extends BackendClient<BC>> implements Castable, Name
 	 * @param client
 	 */
 	@SuppressWarnings("unchecked")
-	public final void takeClient(final Client<?> client) {
+	public final void takeClient(final BackendClient<?> client) {
 		final var lClient = ((BC)client);
 		lClient.internalSetParentApplication(this);
 		clients.addAtEnd(lClient);
