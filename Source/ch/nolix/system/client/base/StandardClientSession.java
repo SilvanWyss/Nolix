@@ -5,11 +5,6 @@ package ch.nolix.system.client.base;
 public abstract class StandardClientSession extends Session<StandardClient> {
 	
 	//method
-	public void run(final String name, final String... arguments) {
-		internalInvokeSessionUserRunMethod(name, arguments);
-	}
-	
-	//method
 	/**
 	 * {@inheritDoc}
 	 */

@@ -5,6 +5,7 @@ package ch.nolix.system.client.baseguiclient;
 import java.nio.charset.StandardCharsets;
 
 //own imports
+import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.SingleContainer;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.document.node.Node;
@@ -76,9 +77,7 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 			case CommandProtocol.GET_TEXT_FROM_CLIPBOARD:
 				return Node.withHeader(getRefGUI().fromFrontEnd().getTextFromClipboard());
 			default:
-				
-				//Calls method of the base class.
-				return super.internalGetData(request);
+				throw new InvalidArgumentException(LowerCaseCatalogue.REQUEST, request, "is not valid");
 		}
 	}
 	
@@ -104,9 +103,7 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 				PopupWindowProvider.showErrorWindow(command.getOneAttributeAsString());
 				break;
 			default:
-				
-				//Calls method of the base class.
-				super.internalRun(command);
+				throw new InvalidArgumentException(LowerCaseCatalogue.COMMAND, command, "is not valid");
 		}
 	}
 	

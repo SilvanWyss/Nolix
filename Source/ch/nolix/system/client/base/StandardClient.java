@@ -1,8 +1,13 @@
 //package declaration
 package ch.nolix.system.client.base;
 
+//own imports
+import ch.nolix.core.constant.LowerCaseCatalogue;
+import ch.nolix.core.document.chainednode.ChainedNode;
+import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.net.endpoint3.EndPoint;
 
 //class
@@ -105,5 +110,23 @@ public final class StandardClient extends Client<StandardClient> {
 	 */
 	public StandardClient reset() {
 		return this;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected Node internalGetData(final ChainedNode request) {
+		throw new InvalidArgumentException(LowerCaseCatalogue.REQUEST, request, "is not valid");
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void internalRun(final ChainedNode command) {
+		throw new InvalidArgumentException(LowerCaseCatalogue.COMMAND, command, "is not valid");
 	}
 }

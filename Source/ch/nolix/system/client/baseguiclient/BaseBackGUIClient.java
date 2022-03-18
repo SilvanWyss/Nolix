@@ -6,6 +6,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 
 //own imports
+import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.SingleContainer;
 import ch.nolix.core.document.chainednode.ChainedNode;
@@ -89,9 +90,7 @@ public abstract class BaseBackGUIClient<BBGUIC extends BaseBackGUIClient<BBGUIC>
 				receiveOptionalFileFromCounterpart(command);
 				break;
 			default:
-				
-				//Calls method of the base class.
-				super.internalRun(command);
+				throw new InvalidArgumentException(LowerCaseCatalogue.COMMAND, command, "is not valid");
 		}
 	}
 	

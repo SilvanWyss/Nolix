@@ -1,20 +1,12 @@
 //package declaration
 package ch.nolix.system.client.base;
 
-//Java imports
-import java.lang.reflect.Method;
-
+//own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
-import ch.nolix.core.container.LinkedList;
-import ch.nolix.core.document.chainednode.ChainedNode;
-import ch.nolix.core.document.node.BaseNode;
-import ch.nolix.core.document.node.Node;
-import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.system.client.baseguiclient.BaseBackGUIClient;
 
 //class
 /**
@@ -31,44 +23,6 @@ public abstract class Session<C extends Client<C>> {
 	
 	//optional attribute
 	private Object result;
-	
-	//multi-attributes
-	private final LinkedList<Method> runMethods = new LinkedList<>();
-	private final LinkedList<Method> dataMethods = new LinkedList<>();
-	
-	//constructor
-	/**
-	 * Creates a new {@link Session}.
-	 */
-	public Session() {
-		
-		//Extracts the user run methods and the user data methods of the current session.
-		//Iterates the methods of the current Session.
-		Class<?> lClass = getClass();
-		while (lClass != null) {
-			for (final var m : lClass.getMethods()) {
-				if (SessionHelper.isRunMethod(m)) {
-					
-					SessionHelper.validateRunMethod(m);
-					
-					//Setting the method accessible is needed that it can be accessed.
-					m.setAccessible(true);
-					
-					runMethods.addAtEnd(m);
-				} else if (SessionHelper.isDataMethod(m)) {
-					
-					SessionHelper.validateDataMethod(m);
-					
-					//Setting the method accessible is needed that it can be accessed.
-					m.setAccessible(true);
-					
-					dataMethods.addAtEnd(m);
-				}
-			}
-			
-			lClass = lClass.getSuperclass();
-		}
-	}
 	
 	//method
 	/**
@@ -184,17 +138,6 @@ public abstract class Session<C extends Client<C>> {
 	
 	//method
 	/**
-	 * Lets the current {@link BaseBackGUIClient} run the given command locally.
-	 * 
-	 * @param command
-	 */
-	public void runLocally(final String command) {
-		internalInvokeSessionUserRunMethod(Node.fromString(command));
-		updateCounterpart();
-	}
-	
-	//method
-	/**
 	 * Sets the next session of the parent {@link Client} of the current {@link Session}.
 	 * That means the current {@link Session} will be popped from its parent {@link Client}
 	 * and the given session is pushed to the parent {@link Client} of the current {@link Session}.
@@ -224,117 +167,11 @@ public abstract class Session<C extends Client<C>> {
 	 */
 	protected abstract Class<C> internalGetRefClientClass();
 	
-	//method
-	/**
-	 * Invokes the user data method of the current session of the current {@link Client},
-	 * the given session user data method request requests.
-	 * 
-	 * @param sessionUserDataMethodRequest
-	 * @return the data the invoked user data method returns.
-	 * @throws InvalidArgumentException if the current {@link Client} does not contain a current session.
-	 */
-	protected final Node internalInvokeSessionUserDataMethod(
-			final BaseNode sessionUserDataMethodRequest
-	) {
-		//Extracts the name of the session user data method.
-		final var sessionUserDataMethodName = sessionUserDataMethodRequest.getHeader();
-		
-		//Extracts the arguments of the given session user data method request.
-		final var arguments = sessionUserDataMethodRequest.getRefAttributes().toStringArray();
-		
-		//Invokes the session user data method.
-		return invokeUserDataMethod(sessionUserDataMethodName, arguments);
-	}
-	
-	//method
-	/**
-	 * Invokes the user data method of the current session of the current {@link Client},
-	 * that has the given name,
-	 * with the given arguments.
-	 * 
-	 * @param name
-	 * @param arguments
-	 * @return the data the invoked user data method returns.
-	 * @throws InvalidArgumentException if the current {@link Client} does not contain a current session.
-	 */
-	protected final Node internalInvokeSessionUserDataMethod(
-		final String name,
-		final String... arguments
-	) {
-		return invokeUserDataMethod(name, arguments);
-	}
-	
-	//method
-	/**
-	 * Invokes the user run method of the current session of the current {@link Client},
-	 * that has the given name,
-	 * with the given arguments.
-	 * 
-	 * @param name
-	 * @param arguments
-	 * @throws InvalidArgumentException if the current {@link Client} does not contain a current session.
-	 */
-	protected final void internalInvokeSessionUserRunMethod(
-		final String name,
-		final String... arguments
-	) {
-		invokeUserRunMethod(name, arguments);
-	}
-	
-	//method
-	/**
-	 * Invokes the user run method of the current session of the current {@link Client}
-	 * the given session user run method request requests.
-	 * 
-	 * @param sessionUserRunMethodRequest
-	 * @throws InvalidArgumentException if the current {@link Client} does not contain a current session.
-	 */
-	protected final void internalInvokeSessionUserRunMethod(final BaseNode sessionUserRunMethodRequest) {
-		
-		//Extracts the name of the session user run method.
-		final String sessionUserRunMethodName = sessionUserRunMethodRequest.getHeader();
-		
-		//Extracts the arguments of the given session user run method request.
-		final var arguments = sessionUserRunMethodRequest.getRefAttributes().toStringArray();
-		
-		//Extracts the session user run method.
-		internalInvokeSessionUserRunMethod(sessionUserRunMethodName, arguments);
-	}
-	
-	//method
-	/**
-	 * Lets the current {@link Session} run the given command.
-	 * 
-	 * @param command
-	 */
-	protected final void run(final ChainedNode command) {
-		
-		//Enumerates the header of the given command.
-		switch (command.getHeader()) {
-			case Protocol.RUN_METHOD_HEADER:
-				internalInvokeSessionUserRunMethod(command.getOneAttributeAsNode());
-				break;
-			default:
-				throw new InvalidArgumentException(LowerCaseCatalogue.COMMAND, command, "is not valid");
-		}
-	}
-	
 	//method declaration
 	/**
 	 * Updates the counterpart of the {@link Client} of the current {@link Session}.
 	 */
 	protected abstract void updateCounterpart();
-
-	Node getData(final ChainedNode request) {
-		
-		//Enumerates the header of the given request.
-		switch (request.getHeader()) {
-			case Protocol.DATA_METHOD_HEADER:
-				return internalInvokeSessionUserDataMethod(request.getOneAttributeAsNode());
-			default:
-				throw new InvalidArgumentException(LowerCaseCatalogue.REQUEST, request,"is not valid");
-		}
-	}
 	
 	final Object getRefResult() {
 		
@@ -344,46 +181,7 @@ public abstract class Session<C extends Client<C>> {
 		
 		return result;
 	}
-	
-	//method
-	/**
-	 * Invokes the user data method of the current {@link Session},
-	 * that has the given name,
-	 * with the given arguments.
-	 * 
-	 * @param name
-	 * @param arguments
-	 * @return the data the given data method returns for the given parameters.
-	 * @throws RuntimeException if an error occurs.
-	 */
-	final Node invokeUserDataMethod(String name, String... arguments) {
-		try {
-			return
-			(Node)
-			getUserDataMethod(name).invoke(this, (Object[])arguments);
-		} catch (final Exception exception) {
-			throw new WrapperException(exception);
-		}
-	}
-	
-	//method
-	/**
-	 * Invokes the user run method of the current {@link Session},
-	 * that has the given name,
-	 * with the given arguments.
-	 * 
-	 * @param name
-	 * @param arguments
-	 * @throws RuntimeException if an error occurs.
-	 */
-	final void invokeUserRunMethod(final String name, final String... arguments) {
-		try {
-			getUserRunMethod(name).invoke(this, (Object[])arguments);
-		} catch (final Exception exception) {
-			throw new WrapperException(exception);
-		}
-	}
-	
+			
 	//method
 	/**
 	 * Removes the parent client of the current {@link Session}.
@@ -421,28 +219,6 @@ public abstract class Session<C extends Client<C>> {
 		Validator.assertThat(result).thatIsNamed(LowerCaseCatalogue.RESULT).isNotNull();
 		
 		this.result = result;
-	}
-	
-	//method
-	/**
-	 * @param name
-	 * @return the user data method with the given name from the current {@link Session}.
-	 * @throws ArgumentDoesNotHaveAttributeException
-	 * if the current {@link Session} does not contain a user data method with the given name.
-	 */
-	private Method getUserDataMethod(final String name) {
-		return dataMethods.getRefFirst(m -> m.getName().equals(name));
-	}
-	
-	//method
-	/**
-	 * @param name
-	 * @return the user run method with the given name from the current {@link Session}.
-	 * @throws ArgumentDoesNotHaveAttributeException
-	 * if the current {@link Session} does not contain a user run method with the given name.
-	 */
-	private Method getUserRunMethod(final String name) {
-		return runMethods.getRefFirst(m -> m.getName().equals(name));
 	}
 	
 	//method

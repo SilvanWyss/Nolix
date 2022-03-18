@@ -2,7 +2,6 @@
 package ch.nolix.system.client.base;
 
 //own imports
-import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
@@ -30,10 +29,6 @@ import ch.nolix.core.programcontrol.sequencer.Sequencer;
  * @param <C> is the type of a {@link Client}.
  */
 public abstract class Client<C extends Client<C>> implements GroupCloseable, IFluentObject<C> {
-	
-	//constants
-	protected static final String SESSION_USER_RUN_METHOD_HEADER = "SessionUserRunMethod";
-	protected static final String SESSION_USER_DATA_METHOD_HEADER = "SessionUserDataMethod";
 	
 	//attributes
 	private final CloseController closeController = new CloseController(this);
@@ -395,18 +390,8 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable, IFl
 	/**
 	 * @param request
 	 * @return the data the given request requests from the current {@link Client}.
-	 * @throws InvalidArgumentException if the given request is not valid.
 	 */
-	protected Node internalGetData(final ChainedNode request) {
-		
-		//Enumerates the header of the given request.
-		switch (request.getHeader()) {
-			case Protocol.SESSION_HEADER:
-				return internalGetRefCurrentSession().internalInvokeSessionUserDataMethod(request.getOneAttributeAsNode());
-			default:
-				throw new InvalidArgumentException(LowerCaseCatalogue.REQUEST, request,"is not valid");
-		}
-	}
+	protected abstract Node internalGetData(ChainedNode request);
 	
 	//method
 	/**
@@ -453,19 +438,8 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable, IFl
 	 * Lets the current {@link Client} run the given command.
 	 * 
 	 * @param command
-	 * @throws InvalidArgumentException if the given command is not valid.
 	 */
-	protected void internalRun(final ChainedNode command) {
-		
-		//Enumerates the header of the given command.
-		switch (command.getHeader()) {
-			case Protocol.SESSION_HEADER:
-				internalGetRefCurrentSession().run(command.getNextNode());
-				break;
-			default:
-				throw new InvalidArgumentException(LowerCaseCatalogue.COMMAND, command, "is not valid");
-		}
-	}
+	protected abstract void internalRun(ChainedNode command);
 	
 	//method
 	/**

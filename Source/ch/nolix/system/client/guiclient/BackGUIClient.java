@@ -1,7 +1,12 @@
 //package declaration
 package ch.nolix.system.client.guiclient;
 
+//own imports
+import ch.nolix.core.constant.LowerCaseCatalogue;
+import ch.nolix.core.document.chainednode.ChainedNode;
+import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.net.endpoint3.EndPoint;
 import ch.nolix.system.client.baseguiclient.BaseBackGUIClient;
 
@@ -22,5 +27,14 @@ public final class BackGUIClient extends BaseBackGUIClient<BackGUIClient> {
 	 */
 	public BackGUIClient(final EndPoint endPoint) {
 		internalSetEndPoint(endPoint);
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected Node internalGetData(final ChainedNode request) {
+		throw new InvalidArgumentException(LowerCaseCatalogue.REQUEST, request, "is not valid");
 	}
 }
