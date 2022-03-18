@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.client.base;
 
+//own imports
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -8,7 +9,7 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.sequencer.Sequencer;
 
 //class
-final class ClientSessionManager<C extends Client<C>> {
+final class ClientSessionManager<C extends BackendClient<C>> {
 	
 	//constant
 	private static final int MAX_WAIT_TIME_FOR_SESSION_IN_MILLISECONDS = 10_000;

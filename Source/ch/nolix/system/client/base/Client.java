@@ -5,7 +5,6 @@ package ch.nolix.system.client.base;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnconnectedArgumentException;
@@ -28,41 +27,8 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable, IFl
 	//attribute
 	private final CloseController closeController = new CloseController(this);
 	
-	//attribute
-	private final ClientSessionManager<C> sessionManager = new ClientSessionManager<>(this);
-	
-	//optional attribute
-	/**
-	 * The {@link Application} the current {@link Client} belongs to
-	 * if the current {@link Client} is a backend client.
-	 */
-	private Application<C> parentApplication;
-	
 	//optional attribute
 	private EndPoint endPoint;
-	
-	//TODO: Move this method to BackendClient.
-	//method
-	/**
-	 * @return the name of the parent {@link Application} of the current {@link Client}.
-	 */
-	public final String getApplicationName() {
-		return getParentApplication().getName();
-	}
-	
-	//TODO: Move this method to BackendClient.
-	//method
-	/**
-	 * @return the {@link Application} of the current {@link Client}.
-	 * @throws InvalidArgumentException if
-	 * the current {@link Client} does not reference its parent {@link Application}.
-	 */
-	public final Application<C> getParentApplication() {
-		
-		assertReferencesParentApplication();
-		
-		return parentApplication;
-	}
 	
 	//method
 	/**
@@ -167,16 +133,6 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable, IFl
 	 */
 	protected abstract Node getDataFromHere(ChainedNode request);
 	
-	//method
-	/**
-	 * @return the current {@link Session} of the current {@link Client}.
-	 * @throws ArgumentDoesNotHaveAttributeException if
-	 * the current {@link Client} does not have a current {@link Session}.
-	 */
-	protected final Session<C> getRefCurrentSession() {
-		return sessionManager.getRefCurrentSession();
-	}
-	
 	//method declaration
 	/**
 	 * Lets the current {@link Client} run the given command.
@@ -218,75 +174,7 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable, IFl
 		getRefEndPoint().run(commands);
 	}
 	
-	//method
-	/**
-	 * Pops the current {@link Session} of the current {@link Client} from the current {@link Client}.
-	 * Closes the current {@link Client} if
-	 * the current {@link Session} of the current {@link Client} was
-	 * the last {@link Session} of the current {@link Client}.
-	 * 
-	 * @InvalidArgumentException if
-	 * the current {@link Session} of the current {@link Client} is not
-	 * the top {@link Session} of the current {@link Client}.
-	 */
-	final void internalPopCurrentSession() {
-		sessionManager.popCurrentSession();
-	}
-	
-	//method
-	/**
-	 * Pops the current {@link Session} of the current {@link Client} from the current {@link Client}
-	 * Forwards the given result.
-	 * Closes the current {@link Client} if
-	 * the current {@link Session} of the current {@link Client} was
-	 * the last {@link Session} of the current {@link Client}.
-	 * 
-	 * @param result
-	 * @InvalidArgumentException if
-	 * the current {@link Session} of the current {@link Client} is not
-	 * the top {@link Session} of the current {@link Client}.
-	 */
-	final void internalPopCurrentSessionAndForwardGivenResult(final Object result) {
-		sessionManager.popCurrentSessionAndForwardGivenResult(result);
-	}
-	
-	//method
-	/**
-	 * Pushes the given session to the current {@link Client}.
-	 * 
-	 * @param session
-	 * @throws ArgumentIsNullException if the given session is null.
-	 */
-	final void internalPush(final Session<C> session) {
-		sessionManager.pushSession(session);
-	}
-	
-	//method
-	/**
-	 * Pushes the given session to the current {@link Client}.
-	 * 
-	 * @param session
-	 * @param <R> is the type of the returned result.
-	 * @return the result from the given session.
-	 * @throws ArgumentIsNullException if the given session is null.
-	 */
-	final <R> R internalPushAndGetResult(final Session<C> session) {
-		return sessionManager.pushSessionAndGetResult(session);
-	}
-	
-	//method
-	/**
-	 * Sets the current {@link Session} of the current {@link Client}.
-	 * That means the current {@link Session} of the current {@link Client} will
-	 * be popped from the current {@link Client} and
-	 * the given session will be pushed to the current {@link Client}.
-	 * 
-	 * @param session
-	 * @throws ArgumentIsNullException if the given session is null.
-	 */
-	final void internalSetCurrentSession(final Session<C> session) {
-		sessionManager.setCurrentSession(session);
-	}
+
 	
 	//method
 	/**
@@ -316,42 +204,6 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable, IFl
 	
 	//method
 	/**
-	 * Sets the {@link Application} the current {@link Client} will belong to.
-	 * 
-	 * @param parentApplication
-	 * @throws ArgumentIsNullException if the given parentApplication is null.
-	 * @throws InvalidArgumentException if
-	 * the current {@link Client} references already its parent {@link Application}.
-	 */
-	final void internalSetParentApplication(final Application<C> parentApplication) {
-		
-		//Asserts that the given parent application is not null.
-		Validator.assertThat(parentApplication).thatIsNamed("parent application").isNotNull();
-		
-		//Asserts that the current client does not reference its parent application.
-		assertDoesNotReferenceParentApplication();
-				
-		//Sets the parent Application of the current Client.
-		this.parentApplication = parentApplication;
-	}
-	
-
-
-
-	
-	//method
-	/**
-	 * @throws InvalidArgumentException if
-	 * the current {@link Client} references already its parent {@link Application}.
-	 */
-	private void assertDoesNotReferenceParentApplication() {
-		if (referencesParentApplication()) {
-			throw new InvalidArgumentException(this, "references already its parent application");
-		}
-	}
-	
-	//method
-	/**
 	 * @throws UnconnectedArgumentException if the current {@link Client} is not connected.
 	 */
 	private void assertIsConnected() {
@@ -367,17 +219,6 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable, IFl
 	private void assertIsNotConnected() {
 		if (isConnected()) {
 			throw new InvalidArgumentException(this, "is already connected");
-		}
-	}
-	
-	//method
-	/**
-	 * @throws InvalidArgumentException if
-	 * the current {@link Client} does not reference its parent {@link Application}.
-	 */
-	private void assertReferencesParentApplication() {
-		if (!referencesParentApplication()) {
-			throw new InvalidArgumentException(this, "does not reference its parent application");
 		}
 	}
 	
@@ -398,13 +239,5 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable, IFl
 	 */
 	private boolean isConnected() {
 		return (endPoint != null);
-	}
-	
-	//method
-	/**
-	 * @return true if the current {@link Client} references its parent {@link Application}.
-	 */
-	private boolean referencesParentApplication() {
-		return (parentApplication != null);
 	}
 }

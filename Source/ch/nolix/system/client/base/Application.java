@@ -5,6 +5,7 @@ package ch.nolix.system.client.base;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
+//own imports
 import ch.nolix.core.attributeapi.mandatoryattributeapi.Named;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.IContainer;
@@ -23,20 +24,20 @@ import ch.nolix.core.programcontrol.sequencer.Sequencer;
 /**
  * @author Silvan Wyss
  * @date 2016-01-01
- * @param <C> is the type of the {@link Client}s of a {@link Application}.
+ * @param <BC> is the type of the {@link BackendClient}s of a {@link Application}.
  */
-public class Application<C extends Client<C>> implements Castable, Named {
+public class Application<BC extends BackendClient<BC>> implements Castable, Named {
 	
 	//attributes
 	private final String name;
-	private final Class<C> clientClass;
+	private final Class<BC> clientClass;
 	private final Class<?> initialSessionClass;
 	
 	//optional attribute
 	private final Object context;
 	
 	//multi-attribute
-	private final LinkedList<C> clients = new LinkedList<>();
+	private final LinkedList<BC> clients = new LinkedList<>();
 	
 	//constructor
 	/**
@@ -124,7 +125,7 @@ public class Application<C extends Client<C>> implements Castable, Named {
 	/**
 	 * @return the class of the {@link Client}s of the current {@link Application}.
 	 */
-	public final Class<C> getClientClass() {
+	public final Class<BC> getClientClass() {
 		return clientClass;
 	}
 	
@@ -141,7 +142,7 @@ public class Application<C extends Client<C>> implements Castable, Named {
 	/**
 	 * @return the {@link Client}s of the current {@link Application}.
 	 */
-	public final IContainer<C> getRefClients() {
+	public final IContainer<BC> getRefClients() {
 		
 		removeClosedClients();
 		
@@ -211,7 +212,7 @@ public class Application<C extends Client<C>> implements Castable, Named {
 	 */
 	@SuppressWarnings("unchecked")
 	public final void takeClient(final Client<?> client) {
-		final var lClient = ((C)client);
+		final var lClient = ((BC)client);
 		lClient.internalSetParentApplication(this);
 		clients.addAtEnd(lClient);
 		Sequencer.runInBackground(() -> lClient.internalPush(createInitialSession()));
@@ -243,9 +244,9 @@ public class Application<C extends Client<C>> implements Castable, Named {
 	 * @return a new initial {@link Session} for a {@link Client} of the current {@link Application}.
 	 */
 	@SuppressWarnings("unchecked")
-	protected final Session<C> createInitialSession() {
+	protected final Session<BC> createInitialSession() {
 		try {
-			return (Session<C>)getInitialSessionConstructor().newInstance();
+			return (Session<BC>)getInitialSessionConstructor().newInstance();
 		} catch (
 			final
 			InstantiationException
@@ -270,7 +271,7 @@ public class Application<C extends Client<C>> implements Castable, Named {
 	/**
 	 * @return the constructor of the {@link Client} class of the current {@link Application}.
 	 */
-	private Constructor<C> getClientConstructor() {		
+	private Constructor<BC> getClientConstructor() {		
 		try {
 			
 			//For a better performance, this implementation does not use all comfortable methods.

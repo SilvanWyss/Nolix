@@ -14,12 +14,12 @@ import ch.nolix.core.errorcontrol.validator.Validator;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @param <C> is the type of the client of a {@link Session}.
+ * @param <BC> is the type of the {@link BackendClient} of a {@link Session}.
  */
-public abstract class Session<C extends Client<C>> {
+public abstract class Session<BC extends BackendClient<BC>> {
 	
 	//attribute
-	private C parentClient;
+	private BC parentClient;
 	
 	//optional attribute
 	private Object result;
@@ -44,7 +44,7 @@ public abstract class Session<C extends Client<C>> {
 	/**
 	 * @return the parent {@link Application} of the parent {@link Client} of the current {@link Session}.
 	 */
-	public Application<C> getParentApplication() {
+	public Application<BC> getParentApplication() {
 		return getParentClient().getParentApplication();
 	}
 	
@@ -53,7 +53,7 @@ public abstract class Session<C extends Client<C>> {
 	 * @return the parent client of the current {@link Session}.
 	 * @throws InvalidArgumentException if the current {@link Session} does not belong to a client.
 	 */
-	public final C getParentClient() {
+	public final BC getParentClient() {
 		
 		//Asserts that the current {@link Session} belonts to a client.
 		supposeBelongsToClient();
@@ -87,7 +87,7 @@ public abstract class Session<C extends Client<C>> {
 	 * @param session
 	 * @throws ArgumentIsNullException if the given session is null.
 	 */
-	public final void push(final Session<C> session) {
+	public final void push(final Session<BC> session) {
 		getParentClient().internalPush(session);
 	}
 	
@@ -100,7 +100,7 @@ public abstract class Session<C extends Client<C>> {
 	 * @return the result from the given session.
 	 * @throws ArgumentIsNullException if the given session is null.
 	 */
-	public final <R> R pushAndGetResult(final Session<C> session) {
+	public final <R> R pushAndGetResult(final Session<BC> session) {
 		return getParentClient().internalPushAndGetResult(session);
 	}
 	
@@ -113,7 +113,7 @@ public abstract class Session<C extends Client<C>> {
 	 * @param session
 	 * @throws ArgumentIsNullException if the given session is null.
 	 */
-	public final void setNext(final Session<C> session) {
+	public final void setNext(final Session<BC> session) {
 		getParentClient().internalSetCurrentSession(session);
 	}
 	
@@ -133,7 +133,7 @@ public abstract class Session<C extends Client<C>> {
 	/**
 	 * @return the {@link Client} class of the current {@link Session}.
 	 */
-	protected abstract Class<C> internalGetRefClientClass();
+	protected abstract Class<BC> internalGetRefClientClass();
 	
 	//method declaration
 	/**
@@ -166,7 +166,7 @@ public abstract class Session<C extends Client<C>> {
 	 * @throws ArgumentIsNullException if the given parent client is null.
 	 * @throws InvalidArgumentException if the current {@link Session} belongs to a client.
 	 */
-	final void setParentClient(C parentClient) {
+	final void setParentClient(BC parentClient) {
 		
 		//Asserts that the given client is not null.
 		Validator.assertThat(parentClient).thatIsNamed("parent client").isNotNull();
