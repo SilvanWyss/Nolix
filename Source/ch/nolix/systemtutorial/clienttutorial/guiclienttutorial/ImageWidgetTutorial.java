@@ -12,32 +12,16 @@ import ch.nolix.system.client.guiclient.FrontGUIClient;
 
 public final class ImageWidgetTutorial {
 	
-	@SuppressWarnings("resource")
-	public static void main(String[] args) {
-		
-		//Creates a NetServer.
-		final var netServer = new Server();
-		
-		//Adds a default Application to the NetServer.
-		netServer.addDefaultApplication("ImageWidget tutorial", MainSession.class);
-		
-		//Creates a FrontGUIClient that will connect to the NetServer.
-		new FrontGUIClient();
-		
-		//Starts a web browser that will connect to the NetServer.
-		ShellProvider.startFirefoxOpeningLoopBackAddress();
-		
-		//Closes the NetServer as soon as it does not have a client connected any more.
-		Sequencer.asSoonAsNoMore(netServer::hasClientConnected).runInBackground(netServer::close);
-	}
-	
 	private static final class MainSession extends BackGUIClientSession {
 		
 		@Override
 		protected void initializeBaseBackGUIClientSession() {
 			
 			//Creates an Image.
-			final var image = MutableImage.fromResource("ch/nolix/elementTutorial/widgetTutorial/resource/Singer_Building.jpg");
+			final var image =
+			MutableImage.fromResource(
+				"ch/nolix/elementtutorial/guitutorial/widgettutorial/resource/Singer_Building.jpg"
+			);
 			
 			//Creates an ImageWidget with the Image.
 			final var imageWidget = new ImageWidget().setImage(image);
@@ -51,6 +35,25 @@ public final class ImageWidgetTutorial {
 			//Adds the ImageWidget to the GUI of the current MainSession.
 			getRefGUI().addLayerOnTop(imageWidget);
 		}
+	}
+	
+	@SuppressWarnings("resource")
+	public static void main(String[] args) {
+		
+		//Creates a Server.
+		final var server = new Server();
+		
+		//Adds a default Application to the NetServer.
+		server.addDefaultApplication("ImageWidget tutorial", MainSession.class);
+		
+		//Creates a FrontGUIClient that will connect to the Server.
+		new FrontGUIClient();
+		
+		//Starts a web browser that will connect to the NetServer.
+		ShellProvider.startFirefoxOpeningLoopBackAddress();
+		
+		//Closes the Server as soon as it does not have a client connected any more.
+		Sequencer.asSoonAsNoMore(server::hasClientConnected).runInBackground(server::close);
 	}
 	
 	private ImageWidgetTutorial() {}
