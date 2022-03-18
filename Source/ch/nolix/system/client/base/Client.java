@@ -199,7 +199,7 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable, IFl
 		createCloseDependencyTo(endPoint);
 		
 		//Sets the receiver controller of the EndPoint of the current Client.
-		endPoint.setReceiverController(new ClientReceiverController(this));
+		endPoint.setReceiverController(new ClientDataProviderController(this));
 	}
 	
 	//method
