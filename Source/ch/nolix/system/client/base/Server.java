@@ -82,7 +82,7 @@ public final class Server extends BaseServer {
 	 */
 	@Override
 	protected void noteAddedApplication(final Application<?, ?> application) {
-		internalNetServer.addEndPointTaker(new ServerClientTaker(application.getName(), this));
+		internalNetServer.addEndPointTaker(new ServerEndPointTaker(application.getName(), this));
 	}
 	
 	//method
@@ -91,6 +91,6 @@ public final class Server extends BaseServer {
 	 */
 	@Override
 	protected void noteAddedDefaultApplication(Application<?, ?> defaultApplication) {
-		internalNetServer.addDefaultEndPointTaker(new ServerClientTaker(defaultApplication.getName(), this));
+		internalNetServer.addDefaultEndPointTaker(new ServerEndPointTaker(defaultApplication.getName(), this));
 	}
 }
