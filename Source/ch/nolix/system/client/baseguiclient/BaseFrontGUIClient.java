@@ -24,33 +24,7 @@ import ch.nolix.system.client.base.FrontendClient;
 public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> extends FrontendClient<FGC> {
 	
 	//attribute
-	private final IFrontGUIClientGUIHandler mGUIHandler;
-	
-	//constructor
-	/**
-	 * Creates a new {@link BaseFrontGUIClient} that will have the given GUIType.
-	 * 
-	 * @param pGUIType
-	 */
-	public BaseFrontGUIClient(final BaseFrontGUIClientGUIType pGUIType) {		
-		
-		//Enumerates the given pGUIType.
-		switch (pGUIType) {
-			case CANVAS_GUI:
-				mGUIHandler = new BaseFrontGUIClientCanvasGUIHandler(this);
-				break;
-			default:
-				throw new InvalidArgumentException(pGUIType);
-		}
-	}
-	
-	//method
-	/**
-	 * @return the type of the GUI of the current {@link BaseFrontGUIClient}.
-	 */
-	public final BaseFrontGUIClientGUIType getGUIType() {
-		return mGUIHandler.getGUIType();
-	}
+	private final BaseFrontGUIClientGUIHandler mGUIHandler = new BaseFrontGUIClientGUIHandler(this);
 	
 	//method
 	public void noteInputOnCounterpart(final IInput<?> input) {
@@ -72,8 +46,6 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 		switch (request.getHeader()) {
 			case ObjectProtocol.GUI:
 				return getDataFromGUI(request.getNextNode());
-			case ObjectProtocol.GUI_TYPE:
-				return Node.withHeader(getGUIType().toString());
 			case CommandProtocol.GET_TEXT_FROM_CLIPBOARD:
 				return Node.withHeader(getRefGUI().fromFrontEnd().getTextFromClipboard());
 			default:

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.client.consoleclient;
 
+//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -8,7 +9,6 @@ import ch.nolix.core.net.endpoint.Server;
 import ch.nolix.system.client.base.Application;
 import ch.nolix.system.client.base.BaseServer;
 import ch.nolix.system.client.baseguiclient.BaseFrontGUIClient;
-import ch.nolix.system.client.baseguiclient.BaseFrontGUIClientGUIType;
 
 //class
 /**
@@ -22,9 +22,6 @@ public final class FrontConsoleClient extends BaseFrontGUIClient<FrontConsoleCli
 	 * Creates a new {@link FrontConsoleClient} that will connect to the default application on the default port.
 	 */
 	public FrontConsoleClient() {
-		
-		super(BaseFrontGUIClientGUIType.CANVAS_GUI);
-		
 		connectTo(Server.DEFAULT_PORT);
 	}
 	
@@ -36,9 +33,6 @@ public final class FrontConsoleClient extends BaseFrontGUIClient<FrontConsoleCli
 	 * @throws ArgumentIsNullException if the given target application is null.
 	 */
 	public <AC> FrontConsoleClient(final Application<BackConsoleClient<AC>, AC> application) {
-		
-		super(BaseFrontGUIClientGUIType.CANVAS_GUI);
-		
 		connectTo(application);
 	}
 	
@@ -50,9 +44,6 @@ public final class FrontConsoleClient extends BaseFrontGUIClient<FrontConsoleCli
 	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
 	 */
 	public FrontConsoleClient(final int port) {
-		
-		super(BaseFrontGUIClientGUIType.CANVAS_GUI);
-		
 		connectTo(port);
 	}
 	
@@ -66,9 +57,6 @@ public final class FrontConsoleClient extends BaseFrontGUIClient<FrontConsoleCli
 	 * @throws InvalidArgumentException if the given application is blank.
 	 */
 	public FrontConsoleClient(final BaseServer baseServer, final String application) {
-		
-		super(BaseFrontGUIClientGUIType.CANVAS_GUI);
-		
 		connectTo(baseServer, application);
 	}
 	
@@ -84,9 +72,6 @@ public final class FrontConsoleClient extends BaseFrontGUIClient<FrontConsoleCli
 	 * @throws InvalidArgumentException if the given application is blank.
 	 */
 	public FrontConsoleClient(final String ip, final int port, final String application) {
-		
-		super(BaseFrontGUIClientGUIType.CANVAS_GUI);
-		
 		connectTo(ip, port, application);
 	}
 }

@@ -10,13 +10,13 @@ import ch.nolix.element.gui.base.GUI;
 import ch.nolix.element.gui.image.Image;
 
 //class
-final class BaseFrontGUIClientCanvasGUIHandler implements IFrontGUIClientGUIHandler {
+final class BaseFrontGUIClientGUIHandler {
 	
 	//attribute
 	private final CanvasFrame mGUI;
 	
 	//constructor
-	public BaseFrontGUIClientCanvasGUIHandler(final BaseFrontGUIClient<?> parentFrontGuiClientoid) {
+	public BaseFrontGUIClientGUIHandler(final BaseFrontGUIClient<?> parentFrontGuiClientoid) {
 		
 		mGUI =
 		new CanvasFrame(
@@ -31,19 +31,11 @@ final class BaseFrontGUIClientCanvasGUIHandler implements IFrontGUIClientGUIHand
 	}
 	
 	//method
-	@Override
-	public BaseFrontGUIClientGUIType getGUIType() {
-		return BaseFrontGUIClientGUIType.CANVAS_GUI;
-	}
-	
-	//method
-	@Override
 	public GUI<?> getRefGUI() {
 		return mGUI;
 	}
 	
 	//method
-	@Override
 	public void runGUICommand(ChainedNode pGUICommand) {
 		switch (pGUICommand.getHeader()) {
 			case CommandProtocol.SET_TITLE:

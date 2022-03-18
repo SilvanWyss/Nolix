@@ -7,7 +7,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.system.client.base.Application;
 import ch.nolix.system.client.base.Server;
 import ch.nolix.system.client.baseguiclient.BaseFrontGUIClient;
-import ch.nolix.system.client.baseguiclient.BaseFrontGUIClientGUIType;
 
 //class
 /**
@@ -22,10 +21,6 @@ public final class FrontGUIClient extends BaseFrontGUIClient<FrontGUIClient> {
 	 * on the default port on the local machine.
 	 */
 	public FrontGUIClient() {
-		
-		//Calls constructor of the base class.
-		super(BaseFrontGUIClientGUIType.CANVAS_GUI);
-		
 		connectTo(Server.DEFAULT_PORT);
 	}
 	
@@ -37,10 +32,6 @@ public final class FrontGUIClient extends BaseFrontGUIClient<FrontGUIClient> {
 	 * @throws ArgumentIsNullException if the given application is null.
 	 */
 	public <AC> FrontGUIClient(final Application<BackGUIClient<AC>, AC> application) {
-		
-		//Calls constructor of the base class.
-		super(BaseFrontGUIClientGUIType.CANVAS_GUI);
-		
 		connectTo(application);
 	}
 	
@@ -53,10 +44,6 @@ public final class FrontGUIClient extends BaseFrontGUIClient<FrontGUIClient> {
 	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
 	 */
 	public FrontGUIClient(final int port) {
-		
-		//Calls constructor of the base class.
-		super(BaseFrontGUIClientGUIType.CANVAS_GUI);
-		
 		connectTo(port);
 	}
 	
@@ -72,10 +59,6 @@ public final class FrontGUIClient extends BaseFrontGUIClient<FrontGUIClient> {
 	 * @throws InvalidArgumentException if the given application is blank.
 	 */
 	public FrontGUIClient(final int port, final String application) {
-		
-		//Calls constructor of the base class.
-		super(BaseFrontGUIClientGUIType.CANVAS_GUI);
-		
 		connectTo(port, application);
 	}
 	
@@ -87,10 +70,6 @@ public final class FrontGUIClient extends BaseFrontGUIClient<FrontGUIClient> {
 	 * @param ip
 	 */
 	public FrontGUIClient(final String ip) {
-		
-		//Calls constructor of the base class.
-		super(BaseFrontGUIClientGUIType.CANVAS_GUI);
-		
 		connectTo(ip);
 	}
 	
@@ -104,10 +83,6 @@ public final class FrontGUIClient extends BaseFrontGUIClient<FrontGUIClient> {
 	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
 	 */
 	public FrontGUIClient(final String ip, final int port) {
-		
-		//Calls constructor of the base class.
-		super(BaseFrontGUIClientGUIType.CANVAS_GUI);
-		
 		connectTo(ip, port);
 	}
 	
@@ -124,10 +99,6 @@ public final class FrontGUIClient extends BaseFrontGUIClient<FrontGUIClient> {
 	 * @throws InvalidArgumentException if the given application is blank.
 	 */
 	public FrontGUIClient(final String ip, final int port, final String application) {
-		
-		//Calls constructor of the base class.
-		super(BaseFrontGUIClientGUIType.CANVAS_GUI);
-		
 		connectTo(ip, port, application);
 	}
 }

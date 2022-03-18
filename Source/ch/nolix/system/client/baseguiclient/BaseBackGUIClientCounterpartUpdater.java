@@ -1,10 +1,11 @@
 //package declaration
 package ch.nolix.system.client.baseguiclient;
 
+//own imports
 import ch.nolix.core.errorcontrol.validator.Validator;
 
 //class
-final class BaseBackGUIClientCanvasGUICounterpartUpdater implements IBackGUIClientCounterpartUpdater {
+final class BaseBackGUIClientCounterpartUpdater {
 	
 	//attribute
 	private final BaseBackGUIClient<?, ?> parentBackGUIClient;
@@ -14,7 +15,7 @@ final class BaseBackGUIClientCanvasGUICounterpartUpdater implements IBackGUIClie
 	new BaseBackGUIClientUpdateCanvasGUICommandCreator();
 	
 	//constructor
-	public BaseBackGUIClientCanvasGUICounterpartUpdater(final BaseBackGUIClient<?, ?> parentBackGUIClient) {
+	public BaseBackGUIClientCounterpartUpdater(final BaseBackGUIClient<?, ?> parentBackGUIClient) {
 		
 		Validator.assertThat(parentBackGUIClient).thatIsNamed("parent BackGUIClient").isNotNull();
 		

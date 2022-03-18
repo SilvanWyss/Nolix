@@ -3535,7 +3535,6 @@ define("System/FrontCanvasGUIClient/FrontCanvasGUIClientObjectProtocol", ["requi
     }
     FrontCanvasGUIClientObjectProtocol.CLIP_BOARD_TEXT = 'ClipBoardText';
     FrontCanvasGUIClientObjectProtocol.GUI = 'GUI';
-    FrontCanvasGUIClientObjectProtocol.GUI_TYPE = 'GUIType';
     FrontCanvasGUIClientObjectProtocol.VIEW_AREA_SIZE = 'ViewAreaSize';
     exports.FrontCanvasGUIClientObjectProtocol = FrontCanvasGUIClientObjectProtocol;
 });
@@ -3713,23 +3712,20 @@ define("System/FrontCanvasGUIClient/FrontCanvasGUIClient", ["require", "exports"
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class FrontCanvasGUIClient {
+        static withIpAndNumberAndWindow(ip, port, window) {
+            return new FrontCanvasGUIClient(ip, port, SingleContainer_3.SingleContainer.EMPTY_CONTAINER, window);
+        }
         constructor(ip, port, optionalTarget, window) {
             this.mGUIHandler =
                 new GUIHandler_1.GUIHandler(window, new PerformanceFilterInputTaker_1.PerformanceFilterInputTaker(new FrontCanvasGUIClientInputTaker_1.FrontCanvasGUIClientInputTaker(i => this.noteInputOnCounterpart(i), () => this.getCursorXPositionOnViewArea(), () => this.getCursorYPositionOnViewArea())));
             this.endPoint = new NetEndPoint5_1.NetEndPoint5(ip, port, optionalTarget);
             this.endPoint.setReceiverController(new ReceiverController_1.ReceiverController(c => this.run(c), r => this.getData(r)));
         }
-        static withIpAndNumberAndWindow(ip, port, window) {
-            return new FrontCanvasGUIClient(ip, port, SingleContainer_3.SingleContainer.EMPTY_CONTAINER, window);
-        }
         getCursorXPositionOnViewArea() {
             return this.mGUIHandler.getCursorXPositionOnViewArea();
         }
         getCursorYPositionOnViewArea() {
             return this.mGUIHandler.getCursorYPositionOnViewArea();
-        }
-        getGUIType() {
-            return FrontCanvasGUIClient.GUI_TYPE;
         }
         noteInputOnCounterpart(input) {
             this.runOnConunterpart(ChainedNode_2.ChainedNode.withHeaderAndAttributeFromNode(FrontCanvasGUIClientCommandProtocol_2.FrontCanvasGUIClientCommandProtocol.NOTE_INPUT, input.getSpecification()));
@@ -3738,8 +3734,6 @@ define("System/FrontCanvasGUIClient/FrontCanvasGUIClient", ["require", "exports"
             switch (request.getHeader()) {
                 case FrontCanvasGUIClientObjectProtocol_2.FrontCanvasGUIClientObjectProtocol.GUI:
                     return this.getDataFromGUI(request.getNextNode());
-                case FrontCanvasGUIClientObjectProtocol_2.FrontCanvasGUIClientObjectProtocol.GUI_TYPE:
-                    return Node_8.Node.withHeader(this.getGUIType());
                 default:
                     throw new Error('The given request is not valid:' + request.toString());
             }
@@ -3778,6 +3772,5 @@ define("System/FrontCanvasGUIClient/FrontCanvasGUIClient", ["require", "exports"
             }
         }
     }
-    FrontCanvasGUIClient.GUI_TYPE = 'CanvasGUI';
     exports.FrontCanvasGUIClient = FrontCanvasGUIClient;
 });

@@ -40,25 +40,13 @@ public abstract class BaseBackGUIClient<
 	private static final int MAX_WAITING_TIME_FOR_FILE_FROM_COUNTERPART_IN_SECONDS = 60;
 	
 	//attributes
-	private BaseFrontGUIClientGUIType counterpartGUIType;
-	private IBackGUIClientCounterpartUpdater counterpartUpdater;
+	private BaseBackGUIClientCounterpartUpdater counterpartUpdater = new BaseBackGUIClientCounterpartUpdater(this);
 	private boolean isNotingMouseInput;
 	private boolean isWaitingForFileFromCounterpart;
 	
 	//optional attribute
 	private SingleContainer<String> latestOptionalFileFromCounterpart;
-	
-	//method
-	/**
-	 * @return the type of the GUI of the counterpart current {@link BaseBackGUIClient}.
-	 */
-	public final BaseFrontGUIClientGUIType getCounterpartGUIType() {
 		
-		fetchCounterpartGUITypeIfNeeded();
-		
-		return counterpartGUIType;
-	}
-	
 	//method
 	/**
 	 * Shows the given errorMessage on the counterpart of the current {@link BaseBackGUIClient}.
@@ -166,7 +154,7 @@ public abstract class BaseBackGUIClient<
 	 */
 	final void updateCounterpart() {
 		getRefGUI().refresh();
-		getCounterpartUpdater().updateCounterpart();
+		counterpartUpdater.updateCounterpart();
 	}
 	
 	//method
@@ -189,54 +177,6 @@ public abstract class BaseBackGUIClient<
 		if (!isWaitingForFileFromCounterpart()) {
 			throw new InvalidArgumentException(this, "is not waiting for a file from counterpart");
 		}
-	}
-	
-	//method
-	/**
-	 * @return a {@link IBackGUIClientCounterpartUpdater} for the current {@link BaseBackGUIClient}.
-	 */
-	private IBackGUIClientCounterpartUpdater createCounterpartUpdater() {
-		switch (getCounterpartGUIType()) {
-			case CANVAS_GUI:
-				return new BaseBackGUIClientCanvasGUICounterpartUpdater(this);
-			default:
-				throw new InvalidArgumentException(getCounterpartGUIType());
-		}
-	}
-	
-	//method
-	/**
-	 * Sets the {@link IBackGUIClientCounterpartUpdater} of the current {@link BaseBackGUIClient} if needed.
-	 */
-	private void createCounterpartUpdaterIfNeeded() {
-		if (counterpartUpdater == null) {
-			counterpartUpdater = createCounterpartUpdater();
-		}	
-	}
-	
-	//method
-	/**
-	 * Lets the current {@link BaseBackGUIClient} fetch the GUI type from the counterpart of the current {@link BaseBackGUIClient}
-	 * if the current {@link BaseBackGUIClient} does not know it.
-	 */
-	private void fetchCounterpartGUITypeIfNeeded() {
-		if (!knowsCounterpartGUIType()) {
-			counterpartGUIType =
-			BaseFrontGUIClientGUIType.fromSpecification(
-				Node.withAttribute(getDataFromCounterpart(ChainedNode.withHeader(ObjectProtocol.GUI_TYPE)))
-			);
-		}
-	}
-	
-	//method
-	/**
-	 * @return the {@link IBackGUIClientCounterpartUpdater} of the current {@link BaseBackGUIClient}.
-	 */
-	private IBackGUIClientCounterpartUpdater getCounterpartUpdater() {
-		
-		createCounterpartUpdaterIfNeeded();
-				
-		return counterpartUpdater;
 	}
 	
 	//method
@@ -272,15 +212,6 @@ public abstract class BaseBackGUIClient<
 	 */
 	private boolean isWaitingForFileFromCounterpart() {
 		return isWaitingForFileFromCounterpart;
-	}
-	
-	//method
-	/**
-	 * @return true if the current {@link BaseBackGUIClient}
-	 * knows the {@link GUI} type of the current {@link BaseBackGUIClient}.
-	 */
-	private boolean knowsCounterpartGUIType() {
-		return (counterpartGUIType != null);
 	}
 	
 	//method
