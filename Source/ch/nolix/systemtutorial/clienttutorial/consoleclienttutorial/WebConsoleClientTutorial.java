@@ -4,8 +4,8 @@ import ch.nolix.core.environment.localcomputer.ShellProvider;
 import ch.nolix.core.programcontrol.sequencer.Sequencer;
 import ch.nolix.system.client.base.Server;
 import ch.nolix.system.client.base.VoidApplicationContext;
-import ch.nolix.system.client.consoleclient.BackConsoleClientSession;
-import ch.nolix.system.client.consoleclient.FrontConsoleClient;
+import ch.nolix.system.client.consoleclient.BackendConsoleClientSession;
+import ch.nolix.system.client.consoleclient.FrontendConsoleClient;
 import ch.nolix.template.consoleclientlook.BlackRedConsoleClientLookCreator;
 
 public final class WebConsoleClientTutorial {
@@ -20,7 +20,7 @@ public final class WebConsoleClientTutorial {
 		netServer.addDefaultApplication("WebConsoleClient tutorial", MainSession.class, VoidApplicationContext.INSTANCE);
 		
 		//Creates a FrontConsoleClient that will connect to the NetServer.
-		new FrontConsoleClient();
+		new FrontendConsoleClient();
 		
 		//Starts a web browser that will connect to the NetServer.
 		ShellProvider.startFirefoxOpeningLoopBackAddress();
@@ -29,7 +29,7 @@ public final class WebConsoleClientTutorial {
 		Sequencer.asSoonAsNoMore(netServer::hasClientConnected).runInBackground(netServer::close);
 	}
 	
-	private static final class MainSession extends BackConsoleClientSession<VoidApplicationContext> {
+	private static final class MainSession extends BackendConsoleClientSession<VoidApplicationContext> {
 		
 		@Override
 		protected void initializeBackConsoleClientSession() {

@@ -16,9 +16,9 @@ import ch.nolix.template.consoleclientlook.GreyBlueConsoleClientLookCreator;
  * @date 2017-04-02
  * @param <AC> is
  * the type of the context of
- * the parent {@link Application} of the parent {@link BackConsoleClientSession} of a {@link BaseBackGUIClientSession}.
+ * the parent {@link Application} of the parent {@link BackendConsoleClientSession} of a {@link BaseBackGUIClientSession}.
  */
-public abstract class BackConsoleClientSession<AC> extends BaseBackGUIClientSession<BackConsoleClient<AC>, AC> {
+public abstract class BackendConsoleClientSession<AC> extends BaseBackGUIClientSession<BackendConsoleClient<AC>, AC> {
 	
 	//attributes
 	private final Console infoPanel = new Console().setId(WidgetIdCatalogue.INFO_PANEL).setUneditable();
@@ -26,11 +26,11 @@ public abstract class BackConsoleClientSession<AC> extends BaseBackGUIClientSess
 	
 	//method
 	/**
-	 * Clears the console of the current {@link BackConsoleClientSession}.
+	 * Clears the console of the current {@link BackendConsoleClientSession}.
 	 * 
-	 * @return the current {@link BackConsoleClientSession}.
+	 * @return the current {@link BackendConsoleClientSession}.
 	 */
-	public final BackConsoleClientSession<AC> clearConsole() {
+	public final BackendConsoleClientSession<AC> clearConsole() {
 		
 		console.clear();
 		updateCounterpart();
@@ -40,11 +40,11 @@ public abstract class BackConsoleClientSession<AC> extends BaseBackGUIClientSess
 	
 	//method
 	/**
-	 * Clears the info panel of the current {@link BackConsoleClientSession}.
+	 * Clears the info panel of the current {@link BackendConsoleClientSession}.
 	 * 
-	 * @return the current {@link BackConsoleClientSession}.
+	 * @return the current {@link BackendConsoleClientSession}.
 	 */
-	public final BackConsoleClientSession<AC> clearInfoPanel() {
+	public final BackendConsoleClientSession<AC> clearInfoPanel() {
 		
 		infoPanel.clear();
 		updateCounterpart();
@@ -54,7 +54,7 @@ public abstract class BackConsoleClientSession<AC> extends BaseBackGUIClientSess
 	
 	//method
 	/**
-	 * @return the next character from the console of the current {@link BackConsoleClientSession}.
+	 * @return the next character from the console of the current {@link BackendConsoleClientSession}.
 	 */
 	public final char readCharacterFromConsole() {
 		return console.readCharacter();
@@ -62,7 +62,7 @@ public abstract class BackConsoleClientSession<AC> extends BaseBackGUIClientSess
 	
 	//method
 	/**
-	 * Reads the next enter from the console of the current {@link BackConsoleClientSession}.
+	 * Reads the next enter from the console of the current {@link BackendConsoleClientSession}.
 	 */
 	public void readEnterFromConsole() {
 		console.readEnter();
@@ -70,7 +70,7 @@ public abstract class BackConsoleClientSession<AC> extends BaseBackGUIClientSess
 	
 	//method
 	/**
-	 * @return the next line from the console of the current {@link BackConsoleClientSession}.
+	 * @return the next line from the console of the current {@link BackendConsoleClientSession}.
 	 */
 	public final String readLineFromConsole() {
 		return console.readLine();
@@ -78,7 +78,7 @@ public abstract class BackConsoleClientSession<AC> extends BaseBackGUIClientSess
 	
 	//method
 	/**
-	 * @return the next line, that is not empty, from the console of the current {@link BackConsoleClientSession}.
+	 * @return the next line, that is not empty, from the console of the current {@link BackendConsoleClientSession}.
 	 */
 	public final String readNonEmptyLineFromConsole() {
 		return console.readNonEmptyLine();
@@ -86,13 +86,13 @@ public abstract class BackConsoleClientSession<AC> extends BaseBackGUIClientSess
 	
 	//method
 	/**
-	 * Setst the look of the GUI of the current {@link BackConsoleClientSession}.
+	 * Setst the look of the GUI of the current {@link BackendConsoleClientSession}.
 	 * 
 	 * @param look
-	 * @return the current {@link BackConsoleClientSession}.
+	 * @return the current {@link BackendConsoleClientSession}.
 	 * @throws ArgumentIsNullException if the given look is null.
 	 */
-	public BackConsoleClientSession<AC> setLook(final Configuration look) {
+	public BackendConsoleClientSession<AC> setLook(final Configuration look) {
 		
 		getRefGUI().setConfiguration(look);
 		
@@ -101,11 +101,11 @@ public abstract class BackConsoleClientSession<AC> extends BaseBackGUIClientSess
 	
 	//method
 	/**
-	 * Writes an empty line to the console of the current {@link BackConsoleClientSession}.
+	 * Writes an empty line to the console of the current {@link BackendConsoleClientSession}.
 	 * 
-	 * @return the current {@link BackConsoleClientSession}.
+	 * @return the current {@link BackendConsoleClientSession}.
 	 */
-	public final BackConsoleClientSession<AC> writeEmptyLineToConsole() {
+	public final BackendConsoleClientSession<AC> writeEmptyLineToConsole() {
 		
 		console.writeEmptyLine();
 		updateCounterpart();
@@ -115,12 +115,12 @@ public abstract class BackConsoleClientSession<AC> extends BaseBackGUIClientSess
 	
 	//method
 	/**
-	 * Writes the given line to the console of the current {@link BackConsoleClientSession}.
+	 * Writes the given line to the console of the current {@link BackendConsoleClientSession}.
 	 * 
 	 * @param line
-	 * @return the current {@link BackConsoleClientSession}.
+	 * @return the current {@link BackendConsoleClientSession}.
 	 */
-	public final BackConsoleClientSession<AC> writeLineToConsole(final String line) {
+	public final BackendConsoleClientSession<AC> writeLineToConsole(final String line) {
 		
 		console.writeLine(line);
 		updateCounterpart();
@@ -130,12 +130,12 @@ public abstract class BackConsoleClientSession<AC> extends BaseBackGUIClientSess
 	
 	//method
 	/**
-	 * Writes the given lines to the console of the current {@link BackConsoleClientSession}.
+	 * Writes the given lines to the console of the current {@link BackendConsoleClientSession}.
 	 * 
 	 * @param lines
-	 * @return the current {@link BackConsoleClientSession}.
+	 * @return the current {@link BackendConsoleClientSession}.
 	 */
-	public final BackConsoleClientSession<AC> writeLineToConsole(final String... lines) {
+	public final BackendConsoleClientSession<AC> writeLineToConsole(final String... lines) {
 		
 		console.writeLine(lines);
 		updateCounterpart();
@@ -145,12 +145,12 @@ public abstract class BackConsoleClientSession<AC> extends BaseBackGUIClientSess
 	
 	//method
 	/**
-	 * Writes the given line to the info panel of the current {@link BackConsoleClientSession}.
+	 * Writes the given line to the info panel of the current {@link BackendConsoleClientSession}.
 	 * 
 	 * @param line
-	 * @return the current {@link BackConsoleClientSession}.
+	 * @return the current {@link BackendConsoleClientSession}.
 	 */
-	public final BackConsoleClientSession<AC> writeLineToInfoPanel(final String line) {
+	public final BackendConsoleClientSession<AC> writeLineToInfoPanel(final String line) {
 		
 		infoPanel.writeLine(line);
 		updateCounterpart();
@@ -160,12 +160,12 @@ public abstract class BackConsoleClientSession<AC> extends BaseBackGUIClientSess
 	
 	//method
 	/**
-	 * Writes the given lines to the info panel of the current {@link BackConsoleClientSession}.
+	 * Writes the given lines to the info panel of the current {@link BackendConsoleClientSession}.
 	 * 
 	 * @param lines
-	 * @return the current {@link BackConsoleClientSession}.
+	 * @return the current {@link BackendConsoleClientSession}.
 	 */
-	public final BackConsoleClientSession<AC> writeLineToInfoPanel(final String... lines) {
+	public final BackendConsoleClientSession<AC> writeLineToInfoPanel(final String... lines) {
 		
 		infoPanel.writeLine(lines);
 		updateCounterpart();
@@ -193,7 +193,7 @@ public abstract class BackConsoleClientSession<AC> extends BaseBackGUIClientSess
 	
 	//method declaration
 	/**
-	 * Initializes the current {@link BackConsoleClientSession}.
+	 * Initializes the current {@link BackendConsoleClientSession}.
 	 */
 	protected abstract void initializeBackConsoleClientSession();
 	
@@ -203,6 +203,6 @@ public abstract class BackConsoleClientSession<AC> extends BaseBackGUIClientSess
 	 */
 	@Override
 	protected final Class<?> internalGetRefClientClass() {
-		return BackConsoleClient.class;
+		return BackendConsoleClient.class;
 	}
 }

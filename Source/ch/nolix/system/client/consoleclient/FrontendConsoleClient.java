@@ -15,54 +15,54 @@ import ch.nolix.system.client.baseguiclient.BaseFrontGUIClient;
  * @author Silvan Wyss
  * @date 2017-03-02
  */
-public final class FrontConsoleClient extends BaseFrontGUIClient<FrontConsoleClient> {
+public final class FrontendConsoleClient extends BaseFrontGUIClient<FrontendConsoleClient> {
 	
 	//constructor
 	/**
-	 * Creates a new {@link FrontConsoleClient} that will connect to the default application on the default port.
+	 * Creates a new {@link FrontendConsoleClient} that will connect to the default application on the default port.
 	 */
-	public FrontConsoleClient() {
+	public FrontendConsoleClient() {
 		connectTo(Server.DEFAULT_PORT);
 	}
 	
 	//constructor
 	/**
-	 * Creates a new {@link FrontConsoleClient} that will connect to the given application.
+	 * Creates a new {@link FrontendConsoleClient} that will connect to the given application.
 	 * 
 	 * @param application
 	 * @throws ArgumentIsNullException if the given target application is null.
 	 */
-	public <AC> FrontConsoleClient(final Application<BackConsoleClient<AC>, AC> application) {
+	public <AC> FrontendConsoleClient(final Application<BackendConsoleClient<AC>, AC> application) {
 		connectTo(application);
 	}
 	
 	//constructor
 	/**
-	 * Creates a new {@link FrontConsoleClient} that will connect to the default application on the given port.
+	 * Creates a new {@link FrontendConsoleClient} that will connect to the default application on the given port.
 	 * 
 	 * @param port
 	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
 	 */
-	public FrontConsoleClient(final int port) {
+	public FrontendConsoleClient(final int port) {
 		connectTo(port);
 	}
 	
 	//constructor
 	/**
-	 * Creates a new {@link FrontConsoleClient} that will connect to the given application on the server.
+	 * Creates a new {@link FrontendConsoleClient} that will connect to the given application on the server.
 	 * 
 	 * @param baseServer
 	 * @param application
 	 * @throws ArgumentIsNullException if the given application is null.
 	 * @throws InvalidArgumentException if the given application is blank.
 	 */
-	public FrontConsoleClient(final BaseServer baseServer, final String application) {
+	public FrontendConsoleClient(final BaseServer baseServer, final String application) {
 		connectTo(baseServer, application);
 	}
 	
 	//constructor
 	/**
-	 * Creates a new {@link FrontConsoleClient}
+	 * Creates a new {@link FrontendConsoleClient}
 	 * that will connect to the given application on the given port on the machine with the given ip.
 	 * 
 	 * @param ip
@@ -71,7 +71,7 @@ public final class FrontConsoleClient extends BaseFrontGUIClient<FrontConsoleCli
 	 * @throws ArgumentIsNullException if the given application is null.
 	 * @throws InvalidArgumentException if the given application is blank.
 	 */
-	public FrontConsoleClient(final String ip, final int port, final String application) {
+	public FrontendConsoleClient(final String ip, final int port, final String application) {
 		connectTo(ip, port, application);
 	}
 }

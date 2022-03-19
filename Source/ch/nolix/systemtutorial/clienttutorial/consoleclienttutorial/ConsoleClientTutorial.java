@@ -2,13 +2,13 @@ package ch.nolix.systemtutorial.clienttutorial.consoleclienttutorial;
 
 import ch.nolix.system.client.base.Application;
 import ch.nolix.system.client.base.VoidApplicationContext;
-import ch.nolix.system.client.consoleclient.BackConsoleClient;
-import ch.nolix.system.client.consoleclient.BackConsoleClientSession;
-import ch.nolix.system.client.consoleclient.FrontConsoleClient;
+import ch.nolix.system.client.consoleclient.BackendConsoleClient;
+import ch.nolix.system.client.consoleclient.BackendConsoleClientSession;
+import ch.nolix.system.client.consoleclient.FrontendConsoleClient;
 import ch.nolix.template.consoleclientlook.BlackRedConsoleClientLookCreator;
 
 /**
- * The {@link ConsoleClientTutorial} is a tutorial for {@link BackConsoleClient}s.
+ * The {@link ConsoleClientTutorial} is a tutorial for {@link BackendConsoleClient}s.
  * Of the {@link ConsoleClientTutorial} an instance cannot be created.
  * 
  * @author Silvan Wyss
@@ -17,8 +17,8 @@ import ch.nolix.template.consoleclientlook.BlackRedConsoleClientLookCreator;
 public final class ConsoleClientTutorial {
 	
 	/**
-	 * 1. Creates a {@link Application} for {@link BackConsoleClient}s.
-	 * 2. Creates a {@link FrontConsoleClient} that will connect to the {@link Application}.
+	 * 1. Creates a {@link Application} for {@link BackendConsoleClient}s.
+	 * 2. Creates a {@link FrontendConsoleClient} that will connect to the {@link Application}.
 	 * 
 	 * @param arguments
 	 */
@@ -27,17 +27,17 @@ public final class ConsoleClientTutorial {
 		
 		//Creates an Application.
 		final var application =	
-		new Application<BackConsoleClient<VoidApplicationContext>, VoidApplicationContext>(
+		new Application<BackendConsoleClient<VoidApplicationContext>, VoidApplicationContext>(
 			"MyApplication",
 			MainSession.class,
 			VoidApplicationContext.INSTANCE
 		);
 		
 		//Creates a FrontConsoleClient that will connect to the Application.
-		new FrontConsoleClient(application);
+		new FrontendConsoleClient(application);
 	}
 	
-	private static final class MainSession extends BackConsoleClientSession<VoidApplicationContext> {
+	private static final class MainSession extends BackendConsoleClientSession<VoidApplicationContext> {
 		
 		@Override
 		protected void initializeBackConsoleClientSession() {
