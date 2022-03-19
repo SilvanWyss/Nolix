@@ -19,7 +19,7 @@ import ch.nolix.core.errorcontrol.logger.Logger;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.net.controllerapi.IDataProviderController;
 import ch.nolix.core.programcontrol.groupcloseable.GroupCloseable;
-import ch.nolix.system.client.base.Server;
+import ch.nolix.system.application.main.Server;
 
 //class
 /**

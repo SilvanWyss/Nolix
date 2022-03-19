@@ -9,11 +9,11 @@ import ch.nolix.element.gui.textbox.TextBox;
 import ch.nolix.element.gui.widget.Button;
 import ch.nolix.element.gui.widget.ImageWidget;
 import ch.nolix.element.gui.widget.Label;
-import ch.nolix.system.client.base.Application;
-import ch.nolix.system.client.base.Server;
-import ch.nolix.system.client.base.VoidApplicationContext;
-import ch.nolix.system.client.guiclient.BackendGUIClient;
-import ch.nolix.system.client.guiclient.BackendGUIClientSession;
+import ch.nolix.system.application.guiclient.BackendGUIClient;
+import ch.nolix.system.application.guiclient.BackendGUIClientSession;
+import ch.nolix.system.application.main.Application;
+import ch.nolix.system.application.main.Server;
+import ch.nolix.system.application.main.VoidApplicationContext;
 import ch.nolix.system.dynamicmath.FractalBuilder;
 
 public final class FractalVisualizerTutorial {
