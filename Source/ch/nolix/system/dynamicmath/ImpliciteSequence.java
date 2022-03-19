@@ -7,6 +7,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
 
+//own imports
 import ch.nolix.businessapi.dynamicmathapi.IImplicitSequence;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.constant.PluralLowerCaseCatalogue;

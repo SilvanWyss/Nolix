@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.testing.simpletest;
 
+//own imports
 import ch.nolix.core.requestapi.ApproximativeEqualing;
 import ch.nolix.core.testing.basetest.BaseTest;
 

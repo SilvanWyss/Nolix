@@ -4,6 +4,7 @@ package ch.nolix.core.errorcontrol.validator;
 //Java imports
 import java.util.Iterator;
 
+//own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;

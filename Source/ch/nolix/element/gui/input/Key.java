@@ -4,6 +4,7 @@ package ch.nolix.element.gui.input;
 //Java imports
 import java.awt.event.KeyEvent;
 
+//own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;

@@ -1,5 +1,6 @@
 package ch.nolix.elementtutorial.guitutorial.widgettutorial;
 
+//own imports
 import ch.nolix.element.gui.base.Frame;
 import ch.nolix.element.gui.containerwidget.HorizontalStack;
 import ch.nolix.element.gui.widget.InnerGUI;

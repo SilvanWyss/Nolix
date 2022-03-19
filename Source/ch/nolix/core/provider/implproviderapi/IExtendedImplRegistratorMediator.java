@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.provider.implproviderapi;
 
+//own imports
 import ch.nolix.core.programcontrol.processproperty.WriteMode;
 
 //interface

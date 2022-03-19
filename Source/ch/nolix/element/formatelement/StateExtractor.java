@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.formatelement;
 
+//own imports
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 

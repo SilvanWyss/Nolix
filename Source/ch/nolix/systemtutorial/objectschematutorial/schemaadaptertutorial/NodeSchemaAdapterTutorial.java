@@ -1,5 +1,6 @@
 package ch.nolix.systemtutorial.objectschematutorial.schemaadaptertutorial;
 
+//own imports
 import ch.nolix.core.document.node.Node;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedBackReferenceType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedMultiReferenceType;

@@ -1,5 +1,6 @@
 package ch.nolix.elementtutorial.guitutorial.dialogtutorial;
 
+//own imports
 import ch.nolix.element.configuration.DeepConfiguration;
 import ch.nolix.element.configuration.Configuration;
 import ch.nolix.element.gui.base.Frame;

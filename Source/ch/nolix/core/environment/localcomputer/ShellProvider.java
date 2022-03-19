@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+//own imports
 import ch.nolix.core.constant.IPv4Catalogue;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.constant.PortCatalogue;

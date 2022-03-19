@@ -1,5 +1,6 @@
 package ch.nolix.elementtutorial.gui3dtutorial.jmonkeyguitutorial;
 
+//own imports
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui3d.jmonkeygui.JMonkeyMainFrame;
 import ch.nolix.element.gui3d.shape.Sphere;

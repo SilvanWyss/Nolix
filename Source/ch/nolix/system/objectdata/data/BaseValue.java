@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.objectdata.data;
 
+//own imports
 import ch.nolix.systemapi.objectdataapi.dataapi.IBaseValue;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 

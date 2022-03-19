@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.elementtest.guitest.widgettest;
 
+//own imports
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.widget.Label;

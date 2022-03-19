@@ -5,6 +5,7 @@ package ch.nolix.core.net.endpoint;
 import java.io.IOException;
 import java.net.Socket;
 
+//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.worker.Worker;

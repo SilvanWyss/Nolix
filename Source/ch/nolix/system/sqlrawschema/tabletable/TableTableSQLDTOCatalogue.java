@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlrawschema.tabletable;
 
+//own imports
 import ch.nolix.system.sqlbasicschema.schemadto.ColumnDTO;
 import ch.nolix.system.sqlbasicschema.schemadto.TableDTO;
 import ch.nolix.system.sqlrawschema.structure.SQLDatatypeCatalogue;

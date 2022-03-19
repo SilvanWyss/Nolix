@@ -1,5 +1,6 @@
 package ch.nolix.elementtutorial.guitutorial.widgettutorial;
 
+//own imports
 import ch.nolix.core.environment.filesystem.FileAccessor;
 import ch.nolix.core.environment.filesystem.FileSystemAccessor;
 import ch.nolix.element.gui.base.Frame;

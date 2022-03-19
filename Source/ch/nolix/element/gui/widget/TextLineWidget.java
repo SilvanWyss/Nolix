@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.gui.widget;
 
+//own imports
 import ch.nolix.core.constant.PascalCaseCatalogue;
 import ch.nolix.core.constant.StringCatalogue;
 import ch.nolix.core.container.LinkedList;

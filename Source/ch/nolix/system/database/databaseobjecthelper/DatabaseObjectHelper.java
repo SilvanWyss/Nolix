@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.database.databaseobjecthelper;
 
+//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.DeletedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.DatabaseObjectState;

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.elementfactory;
 
+//own imports
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.functionapi.IElementTakerElementGetter;
 import ch.nolix.element.elementapi.IMutableElement;

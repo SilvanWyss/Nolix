@@ -4,6 +4,7 @@ package ch.nolix.element.base;
 //Java imports
 import java.util.Iterator;
 
+//own imports
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;

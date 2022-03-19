@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.elementtest.elementenumtest;
 
+//own imports
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.testing.basetest.TestCase;

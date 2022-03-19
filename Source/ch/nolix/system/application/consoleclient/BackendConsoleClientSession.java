@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.application.consoleclient;
 
+//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.element.configuration.Configuration;
 import ch.nolix.element.gui.base.WidgetIdCatalogue;

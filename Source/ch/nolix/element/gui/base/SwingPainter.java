@@ -6,6 +6,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 
+//own imports
 import ch.nolix.core.caching.CachingContainer;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.element.gui.color.Color;

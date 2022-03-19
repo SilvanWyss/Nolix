@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.testing.test;
 
+//own imports
 import ch.nolix.core.independent.independenthelper.IterableHelper;
 
 //class

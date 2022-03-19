@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.coretest;
 
+//own imports
 import ch.nolix.core.testing.basetest.TestPool;
 import ch.nolix.coretest.cachingtest.CachingTestPool;
 import ch.nolix.coretest.commontypetest.CommonTypeTestPool;

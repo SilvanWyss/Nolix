@@ -4,6 +4,7 @@ package ch.nolix.core.environment.filesystem;
 //Java imports
 import java.io.File;
 
+//own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 

@@ -4,6 +4,7 @@ package ch.nolix.system.sqlrawdata.datareader;
 //Java imports
 import java.util.List;
 
+//own imports
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.system.sqlrawdata.datadto.LoadedRecordDTO;

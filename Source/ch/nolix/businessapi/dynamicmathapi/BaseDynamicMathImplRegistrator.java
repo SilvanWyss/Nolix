@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.businessapi.dynamicmathapi;
 
+//own imports
 import ch.nolix.core.provider.implproviderapi.IImplProvider;
 import ch.nolix.core.provider.implproviderapi.IImplRegistrator;
 

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.elementapi;
 
+//own imports
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.document.xml.XMLNode;

@@ -4,6 +4,7 @@ package ch.nolix.businessapi.dynamicmathapi;
 //Java imports
 import java.math.BigDecimal;
 
+//own imports
 import ch.nolix.core.container.pair.Pair;
 
 //interface

@@ -4,6 +4,7 @@ package ch.nolix.element.gui3d.base;
 //Java imports
 import java.lang.reflect.InvocationTargetException;
 
+//own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.constant.PascalCaseCatalogue;
 import ch.nolix.core.constant.StringCatalogue;

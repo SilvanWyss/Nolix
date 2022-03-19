@@ -4,6 +4,7 @@ package ch.nolix.system.dynamicmath;
 //Java imports
 import java.math.BigDecimal;
 
+//own imports
 import ch.nolix.businessapi.dynamicmathapi.IClosedInterval;
 import ch.nolix.businessapi.dynamicmathapi.IComplexNumber;
 import ch.nolix.businessapi.dynamicmathapi.IFractalBuilder;

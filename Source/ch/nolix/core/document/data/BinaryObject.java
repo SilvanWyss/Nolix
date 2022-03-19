@@ -4,6 +4,7 @@ package ch.nolix.core.document.data;
 //Java imports
 import java.nio.charset.StandardCharsets;
 
+//own imports
 import ch.nolix.core.errorcontrol.validator.Validator;
 
 //class

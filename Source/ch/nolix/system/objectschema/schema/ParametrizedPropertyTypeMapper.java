@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.objectschema.schema;
 
+//own imports
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedBackReferenceType;

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.coretest.documenttest.filenodetest;
 
+//own imports
 import ch.nolix.core.document.filenode.FileNode;
 import ch.nolix.core.environment.filesystem.FileSystemAccessor;
 import ch.nolix.core.testing.basetest.Cleanup;

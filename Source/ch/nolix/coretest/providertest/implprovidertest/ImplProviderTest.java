@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.coretest.providertest.implprovidertest;
 
+//own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.provider.implprovider.ImplProvider;

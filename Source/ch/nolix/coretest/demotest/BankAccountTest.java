@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.coretest.demotest;
 
+//own imports
 import ch.nolix.core.demo.BankAccount;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.businessapi.dynamicmathapi;
 
+//own imports
 import ch.nolix.core.functionapi.IElementTakerElementGetter;
 import ch.nolix.core.skillapi.IBuilder;
 

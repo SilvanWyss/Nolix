@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.objectdataapi.dataapi;
 
+//own imports
 import ch.nolix.core.attributeapi.mandatoryattributeapi.IdentifiedByString;
 import ch.nolix.core.attributeapi.mandatoryattributeapi.ShortDescripted;
 import ch.nolix.core.container.IContainer;

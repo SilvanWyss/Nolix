@@ -5,6 +5,7 @@ package ch.nolix.element.gui.framevisualizer;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.element.gui.base.GUI;

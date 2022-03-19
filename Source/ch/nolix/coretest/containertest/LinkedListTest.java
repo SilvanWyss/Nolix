@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.coretest.containertest;
 
+//own imports
 import ch.nolix.core.constant.FunctionCatalogue;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.container.SequencePattern;

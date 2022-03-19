@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.gui.widget;
 
+//own imports
 import ch.nolix.core.environment.filesystem.FileAccessor;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.validator.Validator;

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.coretest.nettest.websockettest;
 
+//own imports
 import ch.nolix.core.net.websocket.WebSocketHandShakeResponse;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;

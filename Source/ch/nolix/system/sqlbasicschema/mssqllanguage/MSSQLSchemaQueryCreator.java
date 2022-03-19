@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlbasicschema.mssqllanguage;
 
+//own imports
 import ch.nolix.systemapi.sqlbasicschemaapi.schemalanguageapi.ISchemaQueryCreator;
 
 //class

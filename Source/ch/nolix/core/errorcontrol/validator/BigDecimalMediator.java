@@ -4,6 +4,7 @@ package ch.nolix.core.errorcontrol.validator;
 //Java imports
 import java.math.BigDecimal;
 
+//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.SmallerArgumentException;

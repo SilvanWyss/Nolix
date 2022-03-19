@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlrawdata.mssql;
 
+//own imports
 import ch.nolix.system.sqlrawdata.sqlapi.IMultiValueStatementCreator;
 import ch.nolix.system.sqlrawschema.multivalueentrytable.MultiValueEntryTableColumn;
 import ch.nolix.system.sqlrawschema.structure.MultiContentTable;

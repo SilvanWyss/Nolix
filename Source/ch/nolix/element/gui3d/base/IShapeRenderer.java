@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.gui3d.base;
 
+//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 
 //interface

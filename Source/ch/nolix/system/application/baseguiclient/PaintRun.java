@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.application.baseguiclient;
 
+//own imports
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.validator.Validator;

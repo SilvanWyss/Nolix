@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.coretest.cachingtest;
 
+//own imports
 import ch.nolix.core.caching.CachingContainer;
 import ch.nolix.core.demo.Cat;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;

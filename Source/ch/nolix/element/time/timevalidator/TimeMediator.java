@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.time.timevalidator;
 
+//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.ArgumentMediator;
 import ch.nolix.element.time.base.Time;

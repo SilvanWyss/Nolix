@@ -4,6 +4,7 @@ package ch.nolix.core.template;
 //Java imports
 import java.math.BigDecimal;
 
+//own imports
 import ch.nolix.core.document.data.BinaryObject;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.valuecreator.SpecificValueCreator;

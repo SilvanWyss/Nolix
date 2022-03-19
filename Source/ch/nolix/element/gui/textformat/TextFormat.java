@@ -5,6 +5,7 @@ package ch.nolix.element.gui.textformat;
 import java.awt.Canvas;
 import java.awt.Graphics;
 
+//own imports
 import ch.nolix.core.constant.CharacterCatalogue;
 import ch.nolix.core.constant.StringCatalogue;
 import ch.nolix.core.container.LinkedList;

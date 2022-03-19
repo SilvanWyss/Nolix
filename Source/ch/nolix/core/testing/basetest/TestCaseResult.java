@@ -4,6 +4,7 @@ package ch.nolix.core.testing.basetest;
 //Java imports
 import java.lang.reflect.Method;
 
+//own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNotNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;

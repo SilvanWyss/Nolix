@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.document.node;
 
+//own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalBooleanHelper;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.IContainer;

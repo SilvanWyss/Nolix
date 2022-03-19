@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.businessapi.projectapi;
 
+//own imports
 import ch.nolix.core.attributeapi.mutablemandatoryattributeapi.Namable;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.generalskillapi.IFluentObject;

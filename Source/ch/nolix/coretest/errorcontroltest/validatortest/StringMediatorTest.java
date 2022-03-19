@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.coretest.errorcontroltest.validatortest;
 
+//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;

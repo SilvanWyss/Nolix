@@ -4,6 +4,7 @@ package ch.nolix.core.reflectionhelper;
 //Java imports
 import java.lang.reflect.Field;
 
+//own imports
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 

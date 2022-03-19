@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.net.messaging;
 
+//own imports
 import ch.nolix.core.attributeapi.mandatoryattributeapi.Indexed;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;

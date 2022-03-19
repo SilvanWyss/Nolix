@@ -4,6 +4,7 @@ package ch.nolix.element.formatelement;
 //Java imports
 import java.lang.reflect.Field;
 
+//own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;

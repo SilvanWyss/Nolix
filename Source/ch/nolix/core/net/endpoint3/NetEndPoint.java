@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.net.endpoint3;
 
+//own imports
 import ch.nolix.core.constant.IPv6Catalogue;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.LinkedList;

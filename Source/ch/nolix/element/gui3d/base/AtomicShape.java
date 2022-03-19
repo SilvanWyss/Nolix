@@ -4,6 +4,7 @@ package ch.nolix.element.gui3d.base;
 //Java imports
 import java.awt.image.BufferedImage;
 
+//own imports
 import ch.nolix.core.constant.PascalCaseCatalogue;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;

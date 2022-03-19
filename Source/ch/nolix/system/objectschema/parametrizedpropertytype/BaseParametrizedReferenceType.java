@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.objectschema.parametrizedpropertytype;
 
+//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.system.objectschema.schemadto.BaseParametrizedReferenceTypeDTO;

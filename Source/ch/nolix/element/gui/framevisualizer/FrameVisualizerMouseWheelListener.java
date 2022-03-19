@@ -5,6 +5,7 @@ package ch.nolix.element.gui.framevisualizer;
 import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
 
+//own imports
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.element.elementenum.RotationDirection;
 import ch.nolix.element.gui.base.GUI;

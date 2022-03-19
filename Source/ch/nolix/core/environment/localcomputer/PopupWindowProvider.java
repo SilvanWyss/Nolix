@@ -4,6 +4,7 @@ package ch.nolix.core.environment.localcomputer;
 //Java imports
 import javax.swing.JOptionPane;
 
+//own imports
 import ch.nolix.core.constant.CharacterCatalogue;
 
 //class

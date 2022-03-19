@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.gui.painterapi;
 
+//own imports
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.color.ColorGradient;
 import ch.nolix.element.gui.image.MutableImage;

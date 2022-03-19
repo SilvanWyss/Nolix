@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlrawschema.databasepropertytable;
 
+//own imports
 import ch.nolix.core.attributeapi.mandatoryattributeapi.Labeled;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.validator.Validator;

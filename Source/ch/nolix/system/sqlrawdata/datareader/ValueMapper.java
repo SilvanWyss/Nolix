@@ -5,6 +5,7 @@ package ch.nolix.system.sqlrawdata.datareader;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 
+//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.element.time.base.Time;
 import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;

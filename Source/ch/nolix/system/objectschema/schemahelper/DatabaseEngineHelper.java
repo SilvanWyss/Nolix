@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.objectschema.schemahelper;
 
+//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.database.databaseobjecthelper.DatabaseObjectHelper;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IDatabase;

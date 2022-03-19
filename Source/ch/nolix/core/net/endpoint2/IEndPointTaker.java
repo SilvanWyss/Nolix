@@ -8,6 +8,7 @@
 //package declaration
 package ch.nolix.core.net.endpoint2;
 
+//own imports
 import ch.nolix.core.attributeapi.mandatoryattributeapi.Named;
 
 //interface

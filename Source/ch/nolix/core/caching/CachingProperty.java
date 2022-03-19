@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.caching;
 
+//own imports
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.functionapi.IBooleanGetter;
 import ch.nolix.core.functionapi.IElementGetter;

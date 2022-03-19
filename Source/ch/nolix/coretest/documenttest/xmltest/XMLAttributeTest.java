@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.coretest.documenttest.xmltest;
 
+//own imports
 import ch.nolix.core.document.xml.XMLAttribute;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;

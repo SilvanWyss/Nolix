@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.objectdata.data;
 
+//own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.system.objectdata.propertyhelper.OptionalValueHelper;

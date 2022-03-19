@@ -5,6 +5,7 @@ package ch.nolix.element.gui.framevisualizer;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+//own imports
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.element.gui.base.GUI;
 import ch.nolix.element.gui.input.Key;

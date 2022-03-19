@@ -4,6 +4,7 @@ package ch.nolix.element.gui.base;
 //Java imports
 import java.lang.reflect.InvocationTargetException;
 
+//own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;

@@ -5,6 +5,7 @@ package ch.nolix.system.dynamicmath;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
+//own imports
 import ch.nolix.businessapi.dynamicmathapi.IClosedInterval;
 import ch.nolix.businessapi.dynamicmathapi.IComplexNumber;
 import ch.nolix.businessapi.dynamicmathapi.IFractal;

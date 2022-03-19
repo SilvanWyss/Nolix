@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.provider.implprovider;
 
+//own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.processproperty.WriteMode;

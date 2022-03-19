@@ -4,6 +4,7 @@ package ch.nolix.system.dynamicmath;
 //Java imports
 import java.util.ArrayList;
 
+//own imports
 import ch.nolix.businessapi.dynamicmathapi.IComplexNumber;
 import ch.nolix.businessapi.dynamicmathapi.IImplicitComplexSequenceBuilder;
 import ch.nolix.core.commontype.commontypehelper.GlobalArrayHelper;

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.templatetest.consoleclientlooktest;
 
+//own imports
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.ObjectTest;
 import ch.nolix.element.configuration.Configuration;

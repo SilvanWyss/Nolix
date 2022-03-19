@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.coretest.documenttest.nodetest;
 
+//own imports
 import ch.nolix.core.document.node.Node;
 
 //class

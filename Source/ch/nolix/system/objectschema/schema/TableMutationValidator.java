@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.objectschema.schema;
 
+//own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.system.objectschema.parametrizedpropertytype.BaseParametrizedBackReferenceType;

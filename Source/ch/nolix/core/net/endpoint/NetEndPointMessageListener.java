@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.net.endpoint;
 
+//own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalInputStreamHelper;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.worker.Worker;

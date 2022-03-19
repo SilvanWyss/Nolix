@@ -5,6 +5,7 @@ package ch.nolix.core.reflectionhelper;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
+//own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;

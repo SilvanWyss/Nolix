@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlrawschema.databaseinitializer;
 
+//own imports
 import ch.nolix.system.sqlrawschema.columntable.ColumnTableSQLDTOCatalogue;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertyTableSQLDTOCatalogue;
 import ch.nolix.system.sqlrawschema.multireferenceentrytable.MultiReferenceEntryTableSQLDTOCatalogue;

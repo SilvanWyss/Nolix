@@ -4,6 +4,7 @@ package ch.nolix.system.sqlrawschema.columntable;
 //Java imports
 import java.util.List;
 
+//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectschema.schemadto.BaseParametrizedBackReferenceTypeDTO;
 import ch.nolix.system.objectschema.schemadto.BaseParametrizedReferenceTypeDTO;

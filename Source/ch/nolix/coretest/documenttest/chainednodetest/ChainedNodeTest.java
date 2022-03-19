@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.coretest.documenttest.chainednodetest;
 
+//own imports
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.testing.basetest.TestCase;

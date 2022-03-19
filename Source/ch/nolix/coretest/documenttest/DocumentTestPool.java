@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.coretest.documenttest;
 
+//own imports
 import ch.nolix.core.testing.basetest.TestPool;
 import ch.nolix.coretest.documenttest.chainednodetest.ChainedNodeTestPool;
 import ch.nolix.coretest.documenttest.filenodetest.FileNodeTestPool;

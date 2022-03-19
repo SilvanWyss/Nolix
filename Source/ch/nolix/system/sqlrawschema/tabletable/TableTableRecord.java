@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlrawschema.tabletable;
 
+//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 
 //class

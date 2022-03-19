@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.configuration;
 
+//own imports
 import ch.nolix.core.constant.PascalCaseCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.element.base.MutableOptionalValue;

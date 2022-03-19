@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.base;
 
+//own imports
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;

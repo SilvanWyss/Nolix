@@ -1,5 +1,6 @@
 package ch.nolix.elementtutorial.guitutorial.basetutorial;
 
+//own imports
 import ch.nolix.element.elementenum.ExtendedContentPosition;
 import ch.nolix.element.gui.base.CursorIcon;
 import ch.nolix.element.gui.base.Frame;

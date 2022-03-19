@@ -1,5 +1,6 @@
 package ch.nolix.systemtutorial.applicationtutorial.guiclienttutorial;
 
+//own imports
 import ch.nolix.core.environment.localcomputer.ShellProvider;
 import ch.nolix.core.programcontrol.sequencer.Sequencer;
 import ch.nolix.element.elementenum.ExtendedContentPosition;

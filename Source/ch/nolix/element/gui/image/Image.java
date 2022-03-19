@@ -4,6 +4,7 @@ package ch.nolix.element.gui.image;
 //Java imports
 import java.awt.image.BufferedImage;
 
+//own imports
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.container.matrix.Matrix;
 import ch.nolix.core.document.node.BaseNode;

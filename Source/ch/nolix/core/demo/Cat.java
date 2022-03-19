@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.demo;
 
+//own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.validator.Validator;
 

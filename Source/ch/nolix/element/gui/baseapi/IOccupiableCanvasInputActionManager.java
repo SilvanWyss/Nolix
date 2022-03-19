@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.gui.baseapi;
 
+//own imports
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.functionapi.IAction;
 import ch.nolix.core.functionapi.IElementTaker;

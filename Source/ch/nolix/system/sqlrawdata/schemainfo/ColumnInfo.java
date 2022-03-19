@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlrawdata.schemainfo;
 
+//own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;

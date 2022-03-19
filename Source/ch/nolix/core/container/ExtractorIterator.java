@@ -4,6 +4,7 @@ package ch.nolix.core.container;
 //Java imports
 import java.util.Iterator;
 
+//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.functionapi.IElementTakerElementGetter;

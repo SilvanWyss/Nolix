@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.coretest.constanttest;
 
+//own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.constant.PascalCaseCatalogue;
 import ch.nolix.core.container.LinkedList;

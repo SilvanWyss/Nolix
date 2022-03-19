@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.testing.test;
 
+//own imports
 import ch.nolix.core.environment.nolixenvironment.NolixEnvironment;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;

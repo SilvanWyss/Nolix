@@ -4,6 +4,7 @@ package ch.nolix.core.math;
 //Java imports
 import java.util.Random;
 
+//own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalDoubleHelper;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.LinkedList;

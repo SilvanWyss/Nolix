@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.nolixlicense;
 
+//own imports
 import ch.nolix.core.license.License;
 
 //class

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.nodedatabaserawschema.schemareader;
 
+//own imports
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.system.nodedatabaserawschema.structure.TableNodeSearcher;
 import ch.nolix.system.objectschema.flatschemadto.FlatTableDTO;

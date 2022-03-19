@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.gui3d.shape;
 
+//own imports
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;

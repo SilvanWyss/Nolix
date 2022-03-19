@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.elementapi;
 
+//own imports
 import ch.nolix.core.attributeapi.mutableoptionalattributeapi.OptionalIdentifiableByString;
 import ch.nolix.core.attributeapi.mutableoptionalattributeapi.OptionalTokenable;
 import ch.nolix.core.container.IContainer;

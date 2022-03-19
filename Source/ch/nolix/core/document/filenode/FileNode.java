@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.document.filenode;
 
+//own imports
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.document.node.BaseNode;

@@ -4,6 +4,7 @@ package ch.nolix.element.gui.widget;
 //Java imports
 import java.util.Locale;
 
+//own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;

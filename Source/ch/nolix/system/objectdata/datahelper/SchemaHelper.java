@@ -1,6 +1,7 @@
 //package
 package ch.nolix.system.objectdata.datahelper;
 
+//own imports
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.ISchema;
 import ch.nolix.systemapi.objectdataapi.datahelperapi.ISchemaHelper;

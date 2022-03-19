@@ -4,6 +4,7 @@ package ch.nolix.system.objectdata.data;
 //Java imports
 import java.lang.reflect.Field;
 
+//own imports
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.reflectionhelper.GlobalFieldHelper;

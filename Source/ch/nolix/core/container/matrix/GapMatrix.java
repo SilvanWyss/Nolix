@@ -5,6 +5,7 @@ package ch.nolix.core.container.matrix;
 import java.util.Arrays;
 import java.util.Iterator;
 
+//own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;

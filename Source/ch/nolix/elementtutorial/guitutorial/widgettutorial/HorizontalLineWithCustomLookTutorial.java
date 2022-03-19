@@ -1,5 +1,6 @@
 package ch.nolix.elementtutorial.guitutorial.widgettutorial;
 
+//own imports
 import ch.nolix.element.elementenum.ContentPosition;
 import ch.nolix.element.gui.base.Frame;
 import ch.nolix.element.gui.color.Color;

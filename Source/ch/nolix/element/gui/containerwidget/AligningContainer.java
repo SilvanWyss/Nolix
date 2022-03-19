@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.element.gui.containerwidget;
 
+//own imports
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.math.Calculator;
 import ch.nolix.element.base.MutableOptionalValueExtractor;

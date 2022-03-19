@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.coretest.constanttest;
 
+//own imports
 import ch.nolix.core.constant.StringCatalogue;
 import ch.nolix.core.reflectionhelper.GlobalClassHelper;
 import ch.nolix.core.testing.basetest.TestCase;

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.nodedatabaserawschema.structure;
 
+//own imports
 import ch.nolix.core.document.node.BaseNode;
 
 //class

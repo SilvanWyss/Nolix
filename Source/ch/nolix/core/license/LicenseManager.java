@@ -4,6 +4,7 @@ package ch.nolix.core.license;
 //Java imports
 import java.lang.reflect.InvocationTargetException;
 
+//own imports
 import ch.nolix.core.commontype.commontypewrapper.ClassWrapper;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.LinkedList;

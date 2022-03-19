@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.nolixlicensetest;
 
+//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnacceptedKeyException;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;

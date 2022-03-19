@@ -4,6 +4,7 @@ package ch.nolix.element.gui3d.jmonkeygui;
 //JMonkey imports
 import com.jme3.input.event.KeyInputEvent;
 
+//own imports
 import ch.nolix.element.gui.input.Key;
 
 //class
