@@ -10,7 +10,7 @@ import ch.nolix.element.gui.base.IWidgetGUI;
 import ch.nolix.element.gui.image.Image;
 
 //class
-final class BaseBackGUIClientUpdateCanvasGUICommandCreator {
+final class BaseBackendGUIClientGUIUpdateCommandCreator {
 	
 	//optional attributes
 	private String latestTitle;

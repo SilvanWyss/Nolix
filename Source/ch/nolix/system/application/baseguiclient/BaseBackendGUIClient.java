@@ -28,11 +28,11 @@ import ch.nolix.system.application.main.BackendClient;
 /**
  * @author Silvan Wyss
  * @date 2017-10-01
- * @param <BBGUIC> is the type of a {@link BaseBackGUIClient}.
- * @param <AC> is the type of the context of the parent {@link Application} of a {@link BaseBackGUIClient}.
+ * @param <BBGUIC> is the type of a {@link BaseBackendGUIClient}.
+ * @param <AC> is the type of the context of the parent {@link Application} of a {@link BaseBackendGUIClient}.
  */
-public abstract class BaseBackGUIClient<
-	BBGUIC extends BaseBackGUIClient<BBGUIC, AC>,
+public abstract class BaseBackendGUIClient<
+	BBGUIC extends BaseBackendGUIClient<BBGUIC, AC>,
 	AC
 > extends BackendClient<BBGUIC, AC> {
 	
@@ -40,7 +40,7 @@ public abstract class BaseBackGUIClient<
 	private static final int MAX_WAITING_TIME_FOR_FILE_FROM_COUNTERPART_IN_SECONDS = 60;
 	
 	//attributes
-	private BaseBackGUIClientCounterpartUpdater counterpartUpdater = new BaseBackGUIClientCounterpartUpdater(this);
+	private BaseBackendGUIClientCounterpartUpdater counterpartUpdater = new BaseBackendGUIClientCounterpartUpdater(this);
 	private boolean isNotingMouseInput;
 	private boolean isWaitingForFileFromCounterpart;
 	
@@ -49,7 +49,7 @@ public abstract class BaseBackGUIClient<
 		
 	//method
 	/**
-	 * Shows the given errorMessage on the counterpart of the current {@link BaseBackGUIClient}.
+	 * Shows the given errorMessage on the counterpart of the current {@link BaseBackendGUIClient}.
 	 * 
 	 * @param errorMessage
 	 * @throws ArgumentIsNullException if the given error message is null.
@@ -62,7 +62,7 @@ public abstract class BaseBackGUIClient<
 	
 	//method
 	/**
-	 * Lets the current {@link BaseBackGUIClient} run the given command.
+	 * Lets the current {@link BaseBackendGUIClient} run the given command.
 	 * 
 	 * @param command
 	 * @throws InvalidArgumentException if the given command is not valid.
@@ -118,12 +118,12 @@ public abstract class BaseBackGUIClient<
 	
 	//method
 	/**
-	 * @return the {@link GUI} of the current {@link BaseBackGUIClientSession} of the current {@link BaseBackGUIClient}.
+	 * @return the {@link GUI} of the current {@link BaseBackendGUIClientSession} of the current {@link BaseBackendGUIClient}.
 	 */
 	final IWidgetGUI<?> getRefGUI() {
 		
 		@SuppressWarnings("rawtypes")
-		final var session = (BaseBackGUIClientSession)getRefCurrentSession();
+		final var session = (BaseBackendGUIClientSession)getRefCurrentSession();
 		
 		return session.getRefGUI();
 	}
@@ -150,7 +150,7 @@ public abstract class BaseBackGUIClient<
 	
 	//method
 	/**
-	 * Updates the counterpart of the current {@link BaseBackGUIClient}.
+	 * Updates the counterpart of the current {@link BaseBackendGUIClient}.
 	 */
 	final void updateCounterpart() {
 		getRefGUI().refresh();
@@ -159,8 +159,8 @@ public abstract class BaseBackGUIClient<
 	
 	//method
 	/**
-	 * @throws InvalidArgumentException if the current {@link BaseBackGUIClient}
-	 * is already waiting for a file from the counterpart of the current {@link BaseBackGUIClient}.
+	 * @throws InvalidArgumentException if the current {@link BaseBackendGUIClient}
+	 * is already waiting for a file from the counterpart of the current {@link BaseBackendGUIClient}.
 	 */
 	private void assertIsNotWaitingForFileFromCounterpart() {
 		if (isWaitingForFileFromCounterpart()) {
@@ -170,8 +170,8 @@ public abstract class BaseBackGUIClient<
 	
 	//method
 	/**
-	 * @throws InvalidArgumentException if the current {@link BaseBackGUIClient}
-	 * is not waiting for a file from the counterpart of the current {@link BaseBackGUIClient}.
+	 * @throws InvalidArgumentException if the current {@link BaseBackendGUIClient}
+	 * is not waiting for a file from the counterpart of the current {@link BaseBackendGUIClient}.
 	 */
 	private void assertIsWaitingForFileFromCounterpart() {
 		if (!isWaitingForFileFromCounterpart()) {
@@ -199,7 +199,7 @@ public abstract class BaseBackGUIClient<
 	
 	//method
 	/**
-	 * @return true if the current {@link BaseBackGUIClient} is noting a mouse move.
+	 * @return true if the current {@link BaseBackendGUIClient} is noting a mouse move.
 	 */
 	private boolean isNotingMouseInput() {
 		return isNotingMouseInput;
@@ -207,8 +207,8 @@ public abstract class BaseBackGUIClient<
 	
 	//method
 	/**
-	 * @return true if the current {@link BaseBackGUIClient}
-	 * is waiting for a file from the counterpart of the current {@link BaseBackGUIClient}.
+	 * @return true if the current {@link BaseBackendGUIClient}
+	 * is waiting for a file from the counterpart of the current {@link BaseBackendGUIClient}.
 	 */
 	private boolean isWaitingForFileFromCounterpart() {
 		return isWaitingForFileFromCounterpart;
@@ -216,7 +216,7 @@ public abstract class BaseBackGUIClient<
 	
 	//method
 	/**
-	 * Lets the current {@link BaseBackGUIClient} note the given input.
+	 * Lets the current {@link BaseBackendGUIClient} note the given input.
 	 * 
 	 * @param input
 	 */
@@ -232,7 +232,7 @@ public abstract class BaseBackGUIClient<
 	
 	//method
 	/**
-	 * Lets the current {@link BaseBackGUIClient} note the given input.
+	 * Lets the current {@link BaseBackendGUIClient} note the given input.
 	 * 
 	 * @param input
 	 */
@@ -246,7 +246,7 @@ public abstract class BaseBackGUIClient<
 	
 	//method
 	/**
-	 * Lets the current {@link BaseBackGUIClient} the given mouseInput.
+	 * Lets the current {@link BaseBackendGUIClient} the given mouseInput.
 	 * 
 	 * @param mouseInput
 	 */
@@ -258,8 +258,8 @@ public abstract class BaseBackGUIClient<
 	
 	//method
 	/**
-	 * Lets the current {@link BaseBackGUIClient} the given mouseInput for the case
-	 * that the current {@link BaseBackGUIClient} is not already noting a {@link MouseInput}.
+	 * Lets the current {@link BaseBackendGUIClient} the given mouseInput for the case
+	 * that the current {@link BaseBackendGUIClient} is not already noting a {@link MouseInput}.
 	 * 
 	 * @param mouseInput
 	 */
@@ -297,13 +297,13 @@ public abstract class BaseBackGUIClient<
 	
 	//method
 	/**
-	 * Lets the current {@link BaseBackGUIClient} receive
-	 * a file optionally from the counterpart of the current {@link BaseBackGUIClient}.
+	 * Lets the current {@link BaseBackendGUIClient} receive
+	 * a file optionally from the counterpart of the current {@link BaseBackendGUIClient}.
 	 * 
 	 * @param optionalFile
 	 * @throws ArgumentIsNullException if the given optionalFile is null.
-	 * @throws InvalidArgumentException if the current {@link BaseBackGUIClient}
-	 * is not waiting for a file from the counterpart of the current {@link BaseBackGUIClient}.
+	 * @throws InvalidArgumentException if the current {@link BaseBackendGUIClient}
+	 * is not waiting for a file from the counterpart of the current {@link BaseBackendGUIClient}.
 	 */
 	private void receiveOptionalFileFromCounterpart(final SingleContainer<String> optionalFile) {
 		
@@ -316,7 +316,7 @@ public abstract class BaseBackGUIClient<
 	
 	//method
 	/**
-	 * Resets the {@link GUI} of the current {@link BaseBackGUIClient} with the given attributes.
+	 * Resets the {@link GUI} of the current {@link BaseBackendGUIClient} with the given attributes.
 	 * 
 	 * @param attributes
 	 * @param <BN> is the type of the given attributes.
@@ -328,7 +328,7 @@ public abstract class BaseBackGUIClient<
 	
 	//method
 	/**
-	 * Lets the current {@link BaseBackGUIClient} run the given GUICommand.
+	 * Lets the current {@link BaseBackendGUIClient} run the given GUICommand.
 	 * 
 	 * @param lGUICommand
 	 * @throws InvalidArgumentException if the given GUICommand is not valid.

@@ -5,7 +5,7 @@ package ch.nolix.system.application.guiclient;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.system.application.baseguiclient.BaseFrontGUIClient;
+import ch.nolix.system.application.baseguiclient.BaseFrontendGUIClient;
 import ch.nolix.system.application.main.Application;
 import ch.nolix.system.application.main.Server;
 
@@ -14,7 +14,7 @@ import ch.nolix.system.application.main.Server;
  * @author Silvan Wyss
  * @date 2018-09-05
  */
-public final class FrontendGUIClient extends BaseFrontGUIClient<FrontendGUIClient> {
+public final class FrontendGUIClient extends BaseFrontendGUIClient<FrontendGUIClient> {
 	
 	//constructor
 	/**

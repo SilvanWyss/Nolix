@@ -20,7 +20,7 @@ import ch.nolix.element.gui.input.ResizeInput;
  * @author Silvan Wyss
  * @date 2019-08-02
  */
-final class BaseFrontGUIClientInputTaker implements IResizableInputTaker {
+final class BaseFrontendGUIClientGUIInputTaker implements IResizableInputTaker {
 	
 	//attributes
 	private final IElementTaker<IInput<?>> inputTaker;
@@ -29,7 +29,7 @@ final class BaseFrontGUIClientInputTaker implements IResizableInputTaker {
 	
 	//constructor
 	/**
-	 * Creates a new {@link BaseFrontGUIClientInputTaker}
+	 * Creates a new {@link BaseFrontendGUIClientGUIInputTaker}
 	 * with the given inputTaker, cursorXPositionOnViewAreaGetter and cursorYPositionOnViewAreaGetter.
 	 * 
 	 * @param inputTaker
@@ -39,7 +39,7 @@ final class BaseFrontGUIClientInputTaker implements IResizableInputTaker {
 	 * @throws ArgumentIsNullException if the given cursorXPositionOnViewAreaGetter is null.
 	 * @throws ArgumentIsNullException if the given cursorYPositionOnViewAreaGetter is null.
 	 */
-	public BaseFrontGUIClientInputTaker(
+	public BaseFrontendGUIClientGUIInputTaker(
 		final IElementTaker<IInput<?>> inputTaker,
 		final IIntGetter cursorXPositionOnViewAreaGetter,
 		final IIntGetter cursorYPositionOnViewAreaGetter

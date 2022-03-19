@@ -5,17 +5,17 @@ package ch.nolix.system.application.baseguiclient;
 import ch.nolix.core.errorcontrol.validator.Validator;
 
 //class
-final class BaseBackGUIClientCounterpartUpdater {
+final class BaseBackendGUIClientCounterpartUpdater {
 	
 	//attribute
-	private final BaseBackGUIClient<?, ?> parentBackGUIClient;
+	private final BaseBackendGUIClient<?, ?> parentBackGUIClient;
 	
 	//attribute
-	private final BaseBackGUIClientUpdateCanvasGUICommandCreator updateCanvasGUICommandCreator =
-	new BaseBackGUIClientUpdateCanvasGUICommandCreator();
+	private final BaseBackendGUIClientGUIUpdateCommandCreator updateCanvasGUICommandCreator =
+	new BaseBackendGUIClientGUIUpdateCommandCreator();
 	
 	//constructor
-	public BaseBackGUIClientCounterpartUpdater(final BaseBackGUIClient<?, ?> parentBackGUIClient) {
+	public BaseBackendGUIClientCounterpartUpdater(final BaseBackendGUIClient<?, ?> parentBackGUIClient) {
 		
 		Validator.assertThat(parentBackGUIClient).thatIsNamed("parent BackGUIClient").isNotNull();
 		

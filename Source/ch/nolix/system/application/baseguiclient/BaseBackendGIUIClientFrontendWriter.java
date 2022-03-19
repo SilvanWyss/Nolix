@@ -5,13 +5,13 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.element.gui.baseapi.IFrontEndWriter;
 
 //class
-final class BaseBackGIUIClientFrontEndWriter implements IFrontEndWriter {
+final class BaseBackendGIUIClientFrontendWriter implements IFrontEndWriter {
 	
 	//attribute
-	private final BaseBackGUIClient<?, ?> parentBackGUIClient;
+	private final BaseBackendGUIClient<?, ?> parentBackGUIClient;
 	
 	//constructor
-	public BaseBackGIUIClientFrontEndWriter(final BaseBackGUIClient<?, ?> parentBackGUIClient) {
+	public BaseBackendGIUIClientFrontendWriter(final BaseBackendGUIClient<?, ?> parentBackGUIClient) {
 		
 		Validator.assertThat(parentBackGUIClient).thatIsNamed("parent BackGUIClient").isNotNull();
 		

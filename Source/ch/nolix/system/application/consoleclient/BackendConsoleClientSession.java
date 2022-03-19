@@ -7,7 +7,7 @@ import ch.nolix.element.gui.base.WidgetIdCatalogue;
 import ch.nolix.element.gui.containerwidget.ContainerRole;
 import ch.nolix.element.gui.containerwidget.VerticalStack;
 import ch.nolix.element.gui.widget.Console;
-import ch.nolix.system.application.baseguiclient.BaseBackGUIClientSession;
+import ch.nolix.system.application.baseguiclient.BaseBackendGUIClientSession;
 import ch.nolix.template.consoleclientlook.GreyBlueConsoleClientLookCreator;
 
 //class
@@ -16,9 +16,9 @@ import ch.nolix.template.consoleclientlook.GreyBlueConsoleClientLookCreator;
  * @date 2017-04-02
  * @param <AC> is
  * the type of the context of
- * the parent {@link Application} of the parent {@link BackendConsoleClientSession} of a {@link BaseBackGUIClientSession}.
+ * the parent {@link Application} of the parent {@link BackendConsoleClientSession} of a {@link BaseBackendGUIClientSession}.
  */
-public abstract class BackendConsoleClientSession<AC> extends BaseBackGUIClientSession<BackendConsoleClient<AC>, AC> {
+public abstract class BackendConsoleClientSession<AC> extends BaseBackendGUIClientSession<BackendConsoleClient<AC>, AC> {
 	
 	//attributes
 	private final Console infoPanel = new Console().setId(WidgetIdCatalogue.INFO_PANEL).setUneditable();

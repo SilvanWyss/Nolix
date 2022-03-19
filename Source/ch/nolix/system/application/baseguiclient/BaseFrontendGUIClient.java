@@ -19,12 +19,12 @@ import ch.nolix.system.application.main.FrontendClient;
 /**
  * @author Silvan Wyss
  * @date 2018-09-16
- * @param <FGC> is the type of a {@link BaseFrontGUIClient}.
+ * @param <FGC> is the type of a {@link BaseFrontendGUIClient}.
  */
-public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> extends FrontendClient<FGC> {
+public abstract class BaseFrontendGUIClient<FGC extends BaseFrontendGUIClient<FGC>> extends FrontendClient<FGC> {
 	
 	//attribute
-	private final BaseFrontGUIClientGUIHandler mGUIHandler = new BaseFrontGUIClientGUIHandler(this);
+	private final BaseFrontendGUIClientGUIHandler mGUIHandler = new BaseFrontendGUIClientGUIHandler(this);
 	
 	//method
 	public void noteInputOnCounterpart(final IInput<?> input) {
@@ -83,7 +83,7 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 	/**
 	 * @param pGUIDataRequest
 	 * @return the data the given pGUIDataRequest requests
-	 * from the {@link GUI} of the current {@link BaseFrontGUIClient}.
+	 * from the {@link GUI} of the current {@link BaseFrontendGUIClient}.
 	 * @throws InvalidArgumentException if the given pGUIDataRequest is not valid.
 	 */
 	private Node getDataFromGUI(final ChainedNode pGUIDataRequest) {
@@ -99,7 +99,7 @@ public abstract class BaseFrontGUIClient<FGC extends BaseFrontGUIClient<FGC>> ex
 	
 	//method
 	/**
-	 * @return the {@link GUI} of the current {@link BaseFrontGUIClient}.
+	 * @return the {@link GUI} of the current {@link BaseFrontendGUIClient}.
 	 */
 	private GUI<?> getRefGUI() {
 		return mGUIHandler.getRefGUI();

@@ -6,7 +6,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.net.endpoint.Server;
-import ch.nolix.system.application.baseguiclient.BaseFrontGUIClient;
+import ch.nolix.system.application.baseguiclient.BaseFrontendGUIClient;
 import ch.nolix.system.application.main.Application;
 import ch.nolix.system.application.main.BaseServer;
 
@@ -15,7 +15,7 @@ import ch.nolix.system.application.main.BaseServer;
  * @author Silvan Wyss
  * @date 2017-03-02
  */
-public final class FrontendConsoleClient extends BaseFrontGUIClient<FrontendConsoleClient> {
+public final class FrontendConsoleClient extends BaseFrontendGUIClient<FrontendConsoleClient> {
 	
 	//constructor
 	/**

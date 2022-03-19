@@ -7,8 +7,8 @@ import ch.nolix.element.gui.base.InvisibleGUI;
 import ch.nolix.system.application.main.Session;
 
 //class
-public abstract class BaseBackGUIClientSession<
-	BGUIC extends BaseBackGUIClient<BGUIC, AC>,
+public abstract class BaseBackendGUIClientSession<
+	BGUIC extends BaseBackendGUIClient<BGUIC, AC>,
 	AC
 > extends Session<BGUIC, AC> {
 	
@@ -34,8 +34,8 @@ public abstract class BaseBackGUIClientSession<
 		mGUI
 		.setTitle(getApplicationName())
 		.setFrontEndReaderAndFrontEndWriter(
-			new BaseBackGUIClientFrontEndReader(getParentClient()),
-			new BaseBackGIUIClientFrontEndWriter(getParentClient())
+			new BaseBackendGUIClientFrontendReader(getParentClient()),
+			new BaseBackendGIUIClientFrontendWriter(getParentClient())
 		);
 		
 		initializeBaseBackGUIClientSession();

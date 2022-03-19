@@ -10,17 +10,17 @@ import ch.nolix.element.gui.base.GUI;
 import ch.nolix.element.gui.image.Image;
 
 //class
-final class BaseFrontGUIClientGUIHandler {
+final class BaseFrontendGUIClientGUIHandler {
 	
 	//attribute
 	private final CanvasFrame mGUI;
 	
 	//constructor
-	public BaseFrontGUIClientGUIHandler(final BaseFrontGUIClient<?> parentFrontGuiClientoid) {
+	public BaseFrontendGUIClientGUIHandler(final BaseFrontendGUIClient<?> parentFrontGuiClientoid) {
 		
 		mGUI =
 		new CanvasFrame(
-			new BaseFrontGUIClientInputTaker(
+			new BaseFrontendGUIClientGUIInputTaker(
 				parentFrontGuiClientoid::noteInputOnCounterpart,
 				this::getCursorXPositionOnViewArea,
 				this::getCursorYPositionOnViewArea

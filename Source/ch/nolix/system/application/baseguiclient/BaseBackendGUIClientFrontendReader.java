@@ -9,13 +9,13 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.element.gui.baseapi.IFrontEndReader;
 
 //class
-final class BaseBackGUIClientFrontEndReader implements IFrontEndReader {
+final class BaseBackendGUIClientFrontendReader implements IFrontEndReader {
 	
 	//attribute
-	private final BaseBackGUIClient<?, ?> parentBackGUIClient;
+	private final BaseBackendGUIClient<?, ?> parentBackGUIClient;
 	
 	//constructor
-	public BaseBackGUIClientFrontEndReader(final BaseBackGUIClient<?, ?> parentBackGUIClient) {
+	public BaseBackendGUIClientFrontendReader(final BaseBackendGUIClient<?, ?> parentBackGUIClient) {
 		
 		Validator.assertThat(parentBackGUIClient).thatIsNamed("parent BackGUIClient").isNotNull();
 		

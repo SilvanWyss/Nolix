@@ -6,7 +6,7 @@ import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.system.application.baseguiclient.BaseBackGUIClient;
+import ch.nolix.system.application.baseguiclient.BaseBackendGUIClient;
 
 //class
 /**
@@ -14,7 +14,7 @@ import ch.nolix.system.application.baseguiclient.BaseBackGUIClient;
  * @date 2016-01-01
  * @param <AC> is the type of the context of the parent {@link Application} of a {@link BackendGUIClient}.
  */
-public final class BackendGUIClient<AC> extends BaseBackGUIClient<BackendGUIClient<AC>, AC> {
+public final class BackendGUIClient<AC> extends BaseBackendGUIClient<BackendGUIClient<AC>, AC> {
 	
 	//method
 	/**
