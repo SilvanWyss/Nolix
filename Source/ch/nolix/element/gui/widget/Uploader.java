@@ -4,6 +4,7 @@ package ch.nolix.element.gui.widget;
 //own imports
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.functionapi.IElementTaker;
+import ch.nolix.core.programcontrol.sequencer.Sequencer;
 import ch.nolix.element.elementenum.ContentPosition;
 import ch.nolix.element.gui.base.CursorIcon;
 import ch.nolix.element.gui.color.Color;
@@ -92,15 +93,7 @@ public final class Uploader extends TextLineWidget<Uploader, UploaderLook> {
 		
 		isHandlingLeftMouseButtonPress = true;
 		
-		try {
-			final var optionalFile = getParentGUI().fromFrontEnd().readFileToBytes();
-			
-			if (optionalFile.containsAny() && hasFileTaker()) {
-				fileTaker.run(optionalFile.getRefElement());
-			}
-		} finally {
-			isHandlingLeftMouseButtonPress = false;
-		}
+		Sequencer.runInBackground(this::uploadFile);
 	}
 	
 	//method
@@ -119,5 +112,19 @@ public final class Uploader extends TextLineWidget<Uploader, UploaderLook> {
 	@Override
 	protected void resetTextLineWidget() {
 		setCustomCursorIcon(CursorIcon.HAND);
+	}
+	
+	//method
+	private void uploadFile() {
+		try {
+			
+			final var optionalFile = getParentGUI().fromFrontEnd().readFileToBytes();
+			
+			if (hasFileTaker() && optionalFile.containsAny()) {
+				fileTaker.run(optionalFile.getRefElement());
+			}
+		} finally {
+			isHandlingLeftMouseButtonPress = false;
+		}
 	}
 }

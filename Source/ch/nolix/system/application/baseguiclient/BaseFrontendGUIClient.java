@@ -3,6 +3,7 @@ package ch.nolix.system.application.baseguiclient;
 
 //Java imports
 import java.nio.charset.StandardCharsets;
+import java.util.Base64;
 
 //own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
@@ -115,6 +116,7 @@ public abstract class BaseFrontendGUIClient<FGC extends BaseFrontendGUIClient<FG
 		getRefGUI().onFrontEnd().saveFile(content);
 	}
 	
+	//method
 	private void sendOptionalFile() {
 		
 		final var fileContainer = readFileToBytes();
@@ -123,8 +125,8 @@ public abstract class BaseFrontendGUIClient<FGC extends BaseFrontendGUIClient<FG
 			runOnCounterpart(ChainedNode.withHeader(CommandProtocol.RECEIVE_OPTIONAL_FILE));
 		}
 		
-		final var file = fileContainer.getRefElement();
-		final var fileString = new String(file, StandardCharsets.UTF_8);
+		final var fileBytes = fileContainer.getRefElement();
+		final var fileString = Base64.getEncoder().encodeToString(fileBytes);
 		runOnCounterpart(
 			ChainedNode.withHeaderAndAttribute(
 				CommandProtocol.RECEIVE_OPTIONAL_FILE,
