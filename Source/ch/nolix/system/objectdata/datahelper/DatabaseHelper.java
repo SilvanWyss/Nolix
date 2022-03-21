@@ -19,7 +19,7 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 	//method
 	@Override
 	public <IMPL> IContainer<IEntity<IMPL>> getRefEntitiesInLocalData(final IDatabase<IMPL> database) {
-		return database.technicalGetRefTablesInLocalData().toFromMany(ITable::technicalGetRefEntitiesInLocalData);
+		return database.getRefTables().toFromMany(ITable::technicalGetRefEntitiesInLocalData);
 	}
 	
 	//method
@@ -35,6 +35,6 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 	//method
 	@Override
 	public boolean hasChanges(final IDatabase<?> database) {
-		return database.technicalGetRefTablesInLocalData().containsAny(tableHelper::hasChanges);
+		return database.getRefTables().containsAny(tableHelper::hasChanges);
 	}
 }

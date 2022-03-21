@@ -37,8 +37,7 @@ public final class Database implements IDatabase<DataImplementation> {
 	private final ISchema<DataImplementation> schema;
 	
 	//multi-attribute
-	private final LinkedList<ITable<DataImplementation, IEntity<DataImplementation>>> tablesInLocalData =
-	new LinkedList<>();
+	private final LinkedList<ITable<DataImplementation, IEntity<DataImplementation>>> tables;
 	
 	//constructor
 	private Database(final IDataAndSchemaAdapter dataAndSchemaAdapter, final ISchema<DataImplementation> schema) {
@@ -49,6 +48,7 @@ public final class Database implements IDatabase<DataImplementation> {
 		schemaTimestamp = dataAndSchemaAdapter.getSchemaTimestamp();
 		this.dataAndSchemaAdapter = dataAndSchemaAdapter;
 		this.schema = schema;
+		tables = loadTables();
 	}
 	
 	//method
@@ -63,17 +63,13 @@ public final class Database implements IDatabase<DataImplementation> {
 	//method	
 	@Override
 	public ITable<DataImplementation, IEntity<DataImplementation>> getRefTableByName(final String name) {
-		
-		final var table = tablesInLocalData.getRefFirstOrNull(t -> t.hasName(name));
-		
-		if (table == null) {
-			
-			addTableWithNameWhenIsNotAdded(name);
-			
-			return getRefTableByNameWhenIsAdded(name);
-		}
-		
-		return table;
+		return tables.getRefFirst(t -> t.hasName(name));
+	}
+	
+	//method
+	@Override
+	public IContainer<ITable<DataImplementation, IEntity<DataImplementation>>> getRefTables() {
+		return tables;
 	}
 	
 	//method
@@ -126,14 +122,8 @@ public final class Database implements IDatabase<DataImplementation> {
 	}
 	
 	//method
-	@Override
-	public IContainer<ITable<DataImplementation, IEntity<DataImplementation>>> technicalGetRefTablesInLocalData() {
-		return tablesInLocalData;
-	}
-	
-	//method
 	void internalClose() {
-		for (final var t : technicalGetRefTablesInLocalData()) {
+		for (final var t : getRefTables()) {
 			((Table<?>)t).internalClose();
 		}
 	}
@@ -150,27 +140,15 @@ public final class Database implements IDatabase<DataImplementation> {
 	
 	//method
 	void internalReset() {
-		for (final var t : technicalGetRefTablesInLocalData()) {
+		for (final var t : getRefTables()) {
 			((Table<?>)t).internalReset();
 		}
 	}
 	
-	//method
-	private void addTableWithNameWhenIsNotAdded(final String name) {
-		tablesInLocalData.addAtEnd(loadTableWithName(name));
-	}
-	
-	//method
-	private ITable<DataImplementation, IEntity<DataImplementation>> getRefTableByNameWhenIsAdded(final String name) {
-		return tablesInLocalData.getRefFirst(t -> t.hasName(name));
-	}
-	
-	//method
-	private ITable<DataImplementation, IEntity<DataImplementation>> loadTableWithName(final String name) {
+	private LinkedList<ITable<DataImplementation, IEntity<DataImplementation>>> loadTables() {
 		return
-		tableMapper.createTableFromTableDTOForDatabase(
-			internalGetRefDataAndSchemaAdapter().loadTableByName(name),
-			this
-		);
+		internalGetRefDataAndSchemaAdapter()
+		.loadTables()
+		.to(t -> tableMapper.createTableFromTableDTOForDatabase(t, this));
 	}
 }
