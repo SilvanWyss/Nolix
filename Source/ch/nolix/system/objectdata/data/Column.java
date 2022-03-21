@@ -16,7 +16,7 @@ public final class Column extends ImmutableDatabaseObject implements IColumn<Dat
 	private final String name;
 	
 	//attribute
-	private final ParametrizedPropertyType parametrizedPropertyType;
+	private final IParametrizedPropertyType<DataImplementation> parametrizedPropertyType;
 	
 	//attribute
 	private final Table<IEntity<DataImplementation>> parentTable;
@@ -24,7 +24,7 @@ public final class Column extends ImmutableDatabaseObject implements IColumn<Dat
 	//constructor
 	Column(
 		final String name,
-		final ParametrizedPropertyType parametrizedPropertyType,
+		final IParametrizedPropertyType<DataImplementation> parametrizedPropertyType,
 		final Table<IEntity<DataImplementation>> parentTable
 	) {
 		
