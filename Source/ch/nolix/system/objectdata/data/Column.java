@@ -13,8 +13,21 @@ import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 //class
 public final class Column extends ImmutableDatabaseObject implements IColumn<DataImplementation> {
 	
+	//static method
+	static Column withNameAndIdAndParametrizedPropertyTypeAndParentTable(
+		final String name,
+		final String id,
+		final IParametrizedPropertyType<DataImplementation> parametrizedPropertyType,
+		final Table<IEntity<DataImplementation>> parentTable
+	) {
+		return new Column(name, id, parametrizedPropertyType, parentTable);
+	}
+	
 	//attribute
 	private final String name;
+	
+	//attribute
+	private final String id;
 	
 	//attribute
 	private final IParametrizedPropertyType<DataImplementation> parametrizedPropertyType;
@@ -23,19 +36,28 @@ public final class Column extends ImmutableDatabaseObject implements IColumn<Dat
 	private final Table<IEntity<DataImplementation>> parentTable;
 	
 	//constructor
-	Column(
+	private Column(
 		final String name,
+		final String id,
 		final IParametrizedPropertyType<DataImplementation> parametrizedPropertyType,
 		final Table<IEntity<DataImplementation>> parentTable
 	) {
 		
 		Validator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
+		Validator.assertThat(id).thatIsNamed(LowerCaseCatalogue.ID).isNotBlank();
 		Validator.assertThat(parametrizedPropertyType).thatIsNamed(ParametrizedPropertyType.class).isNotNull();
 		Validator.assertThat(parentTable).thatIsNamed("parent table").isNotNull();
 		
 		this.name = name;
+		this.id = id;
 		this.parametrizedPropertyType = parametrizedPropertyType;
 		this.parentTable = parentTable;
+	}
+	
+	//method
+	@Override
+	public String getId() {
+		return id;
 	}
 	
 	//method
