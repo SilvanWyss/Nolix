@@ -30,12 +30,13 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 	private static final EntityMapper entityMapper = new EntityMapper();
 	
 	//static method
-	static <E2 extends IEntity<DataImplementation>> Table<E2> withParentDatabaseNameAndEntityClass(
+	static <E2 extends IEntity<DataImplementation>> Table<E2> withParentDatabaseAndNameAndIdAndEntityClass(
 		final Database parentDatabase,
 		final String name,
+		final String id,
 		final Class<E2> entityClass
 	) {
-		return new Table<>(parentDatabase, name, entityClass);
+		return new Table<>(parentDatabase, name, id, entityClass);
 	}	
 	
 	//attribute
@@ -43,6 +44,9 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 	
 	//attribute
 	private final String name;
+	
+	//attribute
+	private final String id;
 	
 	//attribute
 	private final Class<E> entityClass;
@@ -54,14 +58,16 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 	private final LinkedList<E> entitiesInLocalData = new LinkedList<>();
 	
 	//constructor
-	private Table(final Database parentDatabase, final String name, final Class<E> entityClass) {
+	private Table(final Database parentDatabase, final String name, final String id, final Class<E> entityClass) {
 		
 		Validator.assertThat(parentDatabase).thatIsNamed("parent Database").isNotNull();
 		Validator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
+		Validator.assertThat(id).thatIsNamed(LowerCaseCatalogue.ID).isNotBlank();
 		Validator.assertThat(entityClass).thatIsNamed("entity class").isNotNull();
 		
 		this.parentDatabase = parentDatabase;
 		this.name = name;
+		this.id = id;
 		this.entityClass = entityClass;
 	}
 	
@@ -69,6 +75,12 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 	@Override
 	public Class<E> getEntityClass() {
 		return entityClass;
+	}
+	
+	//method
+	@Override
+	public String getId() {
+		return id;
 	}
 	
 	//method

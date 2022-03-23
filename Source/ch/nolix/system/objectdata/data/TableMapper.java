@@ -19,19 +19,12 @@ final class TableMapper {
 		final ITableDTO tableDTO,
 		final Database database
 	) {
-		
-		final var name = getNameFrom(tableDTO);
-		
 		return 
-		Table.withParentDatabaseNameAndEntityClass(
+		Table.withParentDatabaseAndNameAndIdAndEntityClass(
 			database,
-			getNameFrom(tableDTO),
-			schemaHelper.getEntityTypeByName(database.internalGetSchema(), name)
+			tableDTO.getName(),
+			tableDTO.getId(),
+			schemaHelper.getEntityTypeByName(database.internalGetSchema(), tableDTO.getName())
 		);
-	}
-	
-	//method
-	private String getNameFrom(final ITableDTO tableDTO) {
-		return tableDTO.getName();
 	}
 }
