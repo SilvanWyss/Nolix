@@ -14,6 +14,9 @@ public interface ITable<
 > extends IDatabaseObject, IdentifiedByString, Named {
 	
 	//method declaration
+	IContainer<IColumn<IMPL>> getColumns();
+	
+	//method declaration
 	Class<E> getEntityClass();
 	
 	//method declaration

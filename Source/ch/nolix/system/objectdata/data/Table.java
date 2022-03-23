@@ -9,6 +9,7 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.system.objectdata.datahelper.EntityHelper;
 import ch.nolix.system.objectdata.datahelper.TableHelper;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.DatabaseObjectState;
+import ch.nolix.systemapi.objectdataapi.dataapi.IColumn;
 import ch.nolix.systemapi.objectdataapi.dataapi.IDatabase;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
@@ -69,6 +70,13 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 		this.name = name;
 		this.id = id;
 		this.entityClass = entityClass;
+	}
+	
+	//method
+	@Override
+	public IContainer<IColumn<DataImplementation>> getColumns() {
+		//TOOD: Implement.
+		return null;
 	}
 	
 	//method
