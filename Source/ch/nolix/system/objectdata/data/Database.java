@@ -145,10 +145,18 @@ public final class Database implements IDatabase<DataImplementation> {
 		}
 	}
 	
+	//method
 	private LinkedList<ITable<DataImplementation, IEntity<DataImplementation>>> loadTables() {
-		return
-		internalGetRefDataAndSchemaAdapter()
-		.loadTables()
-		.to(t -> tableMapper.createTableFromTableDTOForDatabase(t, this));
+		
+		final var lTables = new LinkedList<ITable<DataImplementation, IEntity<DataImplementation>>>();
+		for (final var t : internalGetRefDataAndSchemaAdapter().loadTables()) {
+			
+			final var table =
+			tableMapper.createTableFromTableDTOForDatabaseUsingGivenReferencableTables(t, this, lTables);
+			
+			lTables.addAtEnd(table);
+		}
+		
+		return lTables;
 	}
 }

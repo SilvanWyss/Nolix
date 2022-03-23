@@ -3,6 +3,7 @@ package ch.nolix.system.objectdata.data;
 
 //own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
+import ch.nolix.core.constant.PluralLowerCaseCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.validator.Validator;
@@ -31,7 +32,7 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 	private static final EntityMapper entityMapper = new EntityMapper();
 	
 	//static method
-	static <E2 extends IEntity<DataImplementation>> Table<E2> withParentDatabaseAndNameAndIdAndEntityClass(
+	static <E2 extends IEntity<DataImplementation>> Table<E2> withParentDatabaseAndNameAndIdAndEntityClassAndColumns(
 		final Database parentDatabase,
 		final String name,
 		final String id,
@@ -56,10 +57,18 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 	private boolean loadedAllEntitiesInLocalData;
 	
 	//multi-attribute
+	private IContainer<IColumn<DataImplementation>> columns;
+	
+	//multi-attribute
 	private final LinkedList<E> entitiesInLocalData = new LinkedList<>();
 	
 	//constructor
-	private Table(final Database parentDatabase, final String name, final String id, final Class<E> entityClass) {
+	private Table(
+		final Database parentDatabase,
+		final String name,
+		final String id,
+		final Class<E> entityClass
+	) {
 		
 		Validator.assertThat(parentDatabase).thatIsNamed("parent Database").isNotNull();
 		Validator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
@@ -75,8 +84,7 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 	//method
 	@Override
 	public IContainer<IColumn<DataImplementation>> getColumns() {
-		//TOOD: Implement.
-		return null;
+		return columns;
 	}
 	
 	//method
@@ -188,6 +196,14 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 		
 		loadedAllEntitiesInLocalData = false;
 		entitiesInLocalData.clear();
+	}
+	
+	//method
+	void internalSetColumns(final IContainer<IColumn<DataImplementation>> columns) {
+		
+		Validator.assertThat(columns).thatIsNamed(PluralLowerCaseCatalogue.COLUMNS).isNotNull();
+		
+		this.columns = columns;
 	}
 	
 	//method
