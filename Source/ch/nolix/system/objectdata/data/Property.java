@@ -2,6 +2,7 @@
 package ch.nolix.system.objectdata.data;
 
 //own imports
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.functionapi.IAction;
 import ch.nolix.core.reflectionhelper.GlobalReflectionHelper;
@@ -9,6 +10,7 @@ import ch.nolix.system.objectdata.propertyflyweight.PropertyFlyWeight;
 import ch.nolix.system.objectdata.propertyflyweight.VoidPropertyFlyWeight;
 import ch.nolix.system.objectdata.propertyhelper.PropertyHelper;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.DatabaseObjectState;
+import ch.nolix.systemapi.objectdataapi.dataapi.IColumn;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
 import ch.nolix.systemapi.objectdataapi.dataflyweightapi.IPropertyFlyWeight;
@@ -22,13 +24,13 @@ public abstract class Property implements IProperty<DataImplementation> {
 	private static final IPropertyHelper propertyHelper = new PropertyHelper();
 	
 	//attribute
-	private String name;
-	
-	//attribute
 	private IPropertyFlyWeight propertyFlyWeight = VoidPropertyFlyWeight.INSTANCE;
 	
 	//optional attribute
 	private IEntity<DataImplementation> parentEntity;
+	
+	//optional attribute
+	private IColumn<DataImplementation> parentColumn;
 	
 	//method
 	@Override
@@ -40,9 +42,24 @@ public abstract class Property implements IProperty<DataImplementation> {
 	@Override
 	public final String getName() {
 		
-		fetchNameIfNotFetched();
+		if (knowsParentColumn()) {
+			return getParentColumn().getName();
+		}
 		
-		return name;
+		if (belongsToEntity()) {
+			return GlobalReflectionHelper.getFieldName(getParentEntity(), this);
+		}
+		
+		throw new InvalidArgumentException(this, "cannot evaluate own name");
+	}
+	
+	//method
+	@Override
+	public IColumn<DataImplementation> getParentColumn() {
+		
+		assertKnowsParentColumn();
+		
+		return parentColumn;
 	}
 	
 	//method
@@ -95,7 +112,13 @@ public abstract class Property implements IProperty<DataImplementation> {
 	
 	//method
 	@Override
-	public void setUpdateAction(final IAction updateAction) {
+	public final boolean knowsParentColumn() {
+		return (parentColumn != null);
+	}
+	
+	//method
+	@Override
+	public final void setUpdateAction(final IAction updateAction) {
 		
 		setEffectivePropertyFlyWeightIfPropertyFlyWeightIsVoid();
 		
@@ -108,6 +131,12 @@ public abstract class Property implements IProperty<DataImplementation> {
 	}
 	
 	//method
+	final void internalSetParentColumnFromParentTable() {
+		final var name = getName();
+		parentColumn = getParentEntity().getParentTable().getColumns().getRefFirst(c -> c.hasName(name));
+	}
+	
+	//method
 	final void internalSetParentEntity(final BaseEntity parentEntity) {
 		
 		Validator.assertThat(parentEntity).thatIsNamed("parent entity").isNotNull();
@@ -115,6 +144,10 @@ public abstract class Property implements IProperty<DataImplementation> {
 		propertyHelper.assertDoesNotBelongToEntity(this);
 		
 		this.parentEntity = parentEntity;
+		
+		if (parentEntity.knowsParentTable()) {
+			internalSetParentColumnFromParentTable();
+		}
 	}
 	
 	//method
@@ -130,26 +163,12 @@ public abstract class Property implements IProperty<DataImplementation> {
 		propertyFlyWeight.noteUpdate();
 	}
 	
+	//TODO: Move this method to IPropertyHelper.
 	//method
-	private boolean fetchedName() {
-		return (name != null);
-	}
-	
-	//method
-	private void fetchName() {
-		name = findName();
-	}
-	
-	//method
-	private void fetchNameIfNotFetched() {
-		if (!fetchedName()) {
-			fetchName();
+	private void assertKnowsParentColumn() {
+		if (!knowsParentColumn()) {
+			throw new InvalidArgumentException(this, "does not know its parent column");
 		}
-	}
-	
-	//method
-	private String findName() {
-		return GlobalReflectionHelper.getFieldName(getParentEntity(), this);
 	}
 	
 	//method

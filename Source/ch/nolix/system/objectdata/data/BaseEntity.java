@@ -119,6 +119,7 @@ public abstract class BaseEntity implements IEntity<DataImplementation> {
 		return false;
 	}
 	
+	//TODO: Replace this method by belongsToTable method.
 	//method
 	@Override
 	public final boolean knowsParentTable() {
@@ -191,6 +192,8 @@ public abstract class BaseEntity implements IEntity<DataImplementation> {
 		Validator.assertThat(parentTable).thatIsNamed("parent table").isNotNull();
 		
 		this.parentTable = parentTable;
+		
+		properties.forEach(Property::internalSetParentColumnFromParentTable);
 	}
 	
 	//method

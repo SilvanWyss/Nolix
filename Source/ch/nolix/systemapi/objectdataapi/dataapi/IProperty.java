@@ -16,6 +16,9 @@ public interface IProperty<IMPL> extends EmptinessRequestable, IDatabaseObject, 
 	//method declaration
 	boolean belongsToEntity();
 	
+	//method
+	IColumn<IMPL> getParentColumn();
+	
 	//method declaration
 	IEntity<IMPL> getParentEntity();
 	
@@ -24,6 +27,9 @@ public interface IProperty<IMPL> extends EmptinessRequestable, IDatabaseObject, 
 	
 	//method declaration
 	boolean isLinkedWithRealDatabase();
+	
+	//method declaration
+	boolean knowsParentColumn();
 	
 	//method declaration
 	boolean references(IEntity<?> entity);
