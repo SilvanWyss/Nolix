@@ -27,6 +27,6 @@ public final class EntityTest extends Test {
 		expect(result.getId()).hasLength(10);
 		expect(result.getShortDescription()).startsWith("Thing");
 		expectNot(result.isLinkedWithRealDatabase());
-		expectNot(result.knowsParentTable());
+		expectNot(result.belongsToTable());
 	}
 }

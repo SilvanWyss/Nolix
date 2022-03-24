@@ -82,7 +82,7 @@ implements IReference<DataImplementation, E> {
 	public boolean referencesUninsertedEntity() {
 		return
 		containsAny()
-		&& !getRefEntity().knowsParentTable();
+		&& !getRefEntity().belongsToTable();
 	}
 	
 	//method

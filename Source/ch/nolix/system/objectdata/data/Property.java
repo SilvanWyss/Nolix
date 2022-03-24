@@ -140,14 +140,10 @@ public abstract class Property implements IProperty<DataImplementation> {
 	final void internalSetParentEntity(final BaseEntity parentEntity) {
 		
 		Validator.assertThat(parentEntity).thatIsNamed("parent entity").isNotNull();
-		
 		propertyHelper.assertDoesNotBelongToEntity(this);
 		
 		this.parentEntity = parentEntity;
-		
-		if (parentEntity.knowsParentTable()) {
-			internalSetParentColumnFromParentTable();
-		}
+		setParentColumnFromParentTableIfParentEntityBelongsToTable(parentEntity);
 	}
 	
 	//method
@@ -173,5 +169,12 @@ public abstract class Property implements IProperty<DataImplementation> {
 	//method
 	private void setEffectivePropertyFlyWeightWhenPropertyFlyWeightIsVoid() {
 		propertyFlyWeight = new PropertyFlyWeight();
+	}
+	
+	//method
+	private void setParentColumnFromParentTableIfParentEntityBelongsToTable(final BaseEntity parentEntity) {
+		if (parentEntity.belongsToTable()) {
+			internalSetParentColumnFromParentTable();
+		}
 	}
 }

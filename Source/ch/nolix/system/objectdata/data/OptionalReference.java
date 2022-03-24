@@ -89,7 +89,7 @@ implements IOptionalReference<DataImplementation, E> {
 	public boolean referencesUninsertedEntity() {
 		return
 		containsAny()
-		&& !getRefEntity().knowsParentTable();
+		&& !getRefEntity().belongsToTable();
 	}
 	
 	//method

@@ -30,7 +30,7 @@ public class EntityHelper extends DatabaseObjectHelper implements IEntityHelper 
 	//method
 	@Override
 	public final void assertBelongsToTable(final IEntity<?> entity) {
-		if (!entity.knowsParentTable()) {
+		if (!entity.belongsToTable()) {
 			throw new ArgumentDoesNotBelongToParentException(entity, ITable.class);
 		}
 	}
@@ -46,7 +46,7 @@ public class EntityHelper extends DatabaseObjectHelper implements IEntityHelper 
 	//method
 	@Override
 	public final void assertDoesNotBelongToTable(final IEntity<?> entity) {
-		if (entity.knowsParentTable()) {
+		if (entity.belongsToTable()) {
 			throw new ArgumentBelongsToParentException(entity, entity.getParentTable());
 		}
 	}
@@ -111,7 +111,7 @@ public class EntityHelper extends DatabaseObjectHelper implements IEntityHelper 
 	@Override
 	public final <IMPL> boolean isReferencedInLocalData(final IEntity<IMPL> entity) {
 		
-		if (!entity.knowsParentTable()) {
+		if (!entity.belongsToTable()) {
 			return false;
 		}
 		

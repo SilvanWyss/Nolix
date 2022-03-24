@@ -12,6 +12,9 @@ import ch.nolix.systemapi.databaseapi.databaseobjectapi.IDatabaseObject;
 public interface IEntity<IMPL> extends Deletable, IDatabaseObject, IdentifiedByString, ShortDescripted {
 	
 	//method declaration
+	boolean belongsToTable();
+	
+	//method declaration
 	ITable<IMPL, IEntity<IMPL>> getParentTable();
     
 	//method declaration
@@ -25,9 +28,6 @@ public interface IEntity<IMPL> extends Deletable, IDatabaseObject, IdentifiedByS
 	
     //method declaration
     boolean isReferencedInPersistedData();
-    
-	//method declaration
-	boolean knowsParentTable();
     
 	//method declaration
 	IContainer<IProperty<IMPL>> technicalGetRefProperties();

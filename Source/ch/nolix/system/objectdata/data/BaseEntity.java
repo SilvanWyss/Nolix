@@ -39,6 +39,12 @@ public abstract class BaseEntity implements IEntity<DataImplementation> {
 	
 	//method
 	@Override
+	public final boolean belongsToTable() {
+		return (parentTable != null);
+	}
+	
+	//method
+	@Override
 	public final void delete() {
 		
 		entityHelper.assertCanBeDeleted(this);
@@ -108,7 +114,7 @@ public abstract class BaseEntity implements IEntity<DataImplementation> {
 	@Override
 	public final boolean isLinkedWithRealDatabase() {
 		return
-		knowsParentTable()
+		belongsToTable()
 		&& getParentTable().isLinkedWithRealDatabase();
 	}
 	
@@ -117,13 +123,6 @@ public abstract class BaseEntity implements IEntity<DataImplementation> {
 	public final boolean isReferencedInPersistedData() {
 		//TODO: Implement.
 		return false;
-	}
-	
-	//TODO: Replace this method by belongsToTable method.
-	//method
-	@Override
-	public final boolean knowsParentTable() {
-		return (parentTable != null);
 	}
 	
 	//method

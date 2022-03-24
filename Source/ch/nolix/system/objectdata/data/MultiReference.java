@@ -123,7 +123,7 @@ implements IMultiReference<DataImplementation, E> {
 	//method
 	@Override
 	public boolean referencesUninsertedEntity() {
-		return containsOnly(IEntity::knowsParentTable);
+		return containsOnly(IEntity::belongsToTable);
 	}
 	
 	//method
