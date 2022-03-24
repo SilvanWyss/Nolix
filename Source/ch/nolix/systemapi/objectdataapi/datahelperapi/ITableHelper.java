@@ -2,7 +2,9 @@
 package ch.nolix.systemapi.objectdataapi.datahelperapi;
 
 //own imports
+import ch.nolix.core.container.IContainer;
 import ch.nolix.systemapi.databaseapi.databaseobjecthelperapi.IDatabaseObjectHelper;
+import ch.nolix.systemapi.objectdataapi.dataapi.IColumn;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 
@@ -20,6 +22,9 @@ public interface ITableHelper extends IDatabaseObjectHelper {
 	
 	//method declaration
 	boolean containsEntityWithGivenIdInLocalData(ITable<?, ?> table, String id);
+	
+	//method declaration
+	<IMPL> IContainer<IColumn<IMPL>> getColumsThatReferenceGivenTable(ITable<IMPL, IEntity<IMPL>> table);
 	
 	//method declaration
 	boolean hasChanges(ITable<?, ?> table);

@@ -2,8 +2,11 @@
 package ch.nolix.system.objectdata.datahelper;
 
 //own imports
+import ch.nolix.core.container.IContainer;
+import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.database.databaseobjecthelper.DatabaseObjectHelper;
+import ch.nolix.systemapi.objectdataapi.dataapi.IColumn;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 import ch.nolix.systemapi.objectdataapi.datahelperapi.ITableHelper;
@@ -41,6 +44,22 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
 	@Override
 	public boolean containsEntityWithGivenIdInLocalData(final ITable<?, ?> table, final String id) {
 		return table.technicalGetRefEntitiesInLocalData().containsAny(e -> e.hasId(id));
+	}
+	
+	//method
+	@Override
+	public <IMPL> IContainer<IColumn<IMPL>> getColumsThatReferenceGivenTable(final ITable<IMPL, IEntity<IMPL>> table) {
+		
+		final var columns = new LinkedList<IColumn<IMPL>>();
+		for (final var t : table.getParentDatabase().getRefTables()) {
+			for (final var c : t.getColumns()) {
+				if (c.getParametrizedPropertyType().referencesTable(table)) {
+					columns.addAtEnd(c);
+				}
+			}
+		}
+		
+		return columns;
 	}
 	
 	//method
