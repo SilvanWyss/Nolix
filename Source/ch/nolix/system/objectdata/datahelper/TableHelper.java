@@ -48,7 +48,9 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
 	
 	//method
 	@Override
-	public <IMPL> IContainer<IColumn<IMPL>> getColumsThatReferenceGivenTable(final ITable<IMPL, IEntity<IMPL>> table) {
+	public <IMPL, E extends IEntity<IMPL>> IContainer<IColumn<IMPL>> getColumsThatReferenceGivenTable(
+		final ITable<IMPL, E> table
+	) {
 		
 		final var columns = new LinkedList<IColumn<IMPL>>();
 		for (final var t : table.getParentDatabase().getRefTables()) {

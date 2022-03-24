@@ -2,6 +2,7 @@
 package ch.nolix.system.objectdata.data;
 
 //own imports
+import ch.nolix.core.caching.CachingProperty;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.constant.PluralLowerCaseCatalogue;
 import ch.nolix.core.container.IContainer;
@@ -52,6 +53,10 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 	
 	//attribute
 	private final Class<E> entityClass;
+	
+	//attribute
+	private final CachingProperty<IContainer<IColumn<DataImplementation>>> columnsThatReferenceCurrentTable =
+	new CachingProperty<>(() -> tableHelper.getColumsThatReferenceGivenTable(this));
 	
 	//attribute
 	private boolean loadedAllEntitiesInLocalData;
@@ -181,6 +186,11 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 	@SuppressWarnings("unchecked")
 	void internalClose() {
 		((IContainer<BaseEntity>)technicalGetRefEntitiesInLocalData()).forEach(BaseEntity::internalClose);
+	}
+	
+	//method
+	IContainer<IColumn<DataImplementation>> internalGetColumnsThatReferencesCurrentTable() {
+		return columnsThatReferenceCurrentTable.getValue();
 	}
 	
 	//method

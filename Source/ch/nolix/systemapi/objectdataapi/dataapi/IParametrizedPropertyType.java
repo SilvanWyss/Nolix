@@ -11,5 +11,5 @@ public interface IParametrizedPropertyType<IMPL> {
 	PropertyType getPropertyType();
 	
 	//method declaration
-	boolean referencesTable(ITable<IMPL, IEntity<IMPL>> table);
+	<E extends IEntity<IMPL>> boolean referencesTable(ITable<IMPL, E> table);
 }

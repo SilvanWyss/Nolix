@@ -35,7 +35,7 @@ implements IBaseParametrizedValueType<IMPL, V> {
 	
 	//method
 	@Override
-	public final boolean referencesTable(final ITable<IMPL, IEntity<IMPL>> table) {
+	public final <E2 extends IEntity<IMPL>> boolean referencesTable(final ITable<IMPL, E2> table) {
 		return false;
 	}
 }

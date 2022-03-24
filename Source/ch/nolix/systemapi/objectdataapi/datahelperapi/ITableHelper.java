@@ -24,7 +24,7 @@ public interface ITableHelper extends IDatabaseObjectHelper {
 	boolean containsEntityWithGivenIdInLocalData(ITable<?, ?> table, String id);
 	
 	//method declaration
-	<IMPL> IContainer<IColumn<IMPL>> getColumsThatReferenceGivenTable(ITable<IMPL, IEntity<IMPL>> table);
+	<IMPL, E extends IEntity<IMPL>> IContainer<IColumn<IMPL>> getColumsThatReferenceGivenTable(ITable<IMPL, E> table);
 	
 	//method declaration
 	boolean hasChanges(ITable<?, ?> table);
