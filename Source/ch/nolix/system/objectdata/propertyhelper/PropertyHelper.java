@@ -53,6 +53,14 @@ public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHel
 	
 	//method
 	@Override
+	public final void assertKnowsParentColumn(final IProperty<?> property) {
+		if (!property.knowsParentColumn()) {
+			throw new InvalidArgumentException(property, "does not know its parent column");
+		}
+	}
+	
+	//method
+	@Override
 	public final boolean belongsToLoadedEntity(final IProperty<?> property) {
 		return
 		property.belongsToEntity()

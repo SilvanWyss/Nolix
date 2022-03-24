@@ -57,7 +57,7 @@ public abstract class Property implements IProperty<DataImplementation> {
 	@Override
 	public IColumn<DataImplementation> getParentColumn() {
 		
-		assertKnowsParentColumn();
+		propertyHelper.assertKnowsParentColumn(this);
 		
 		return parentColumn;
 	}
@@ -161,14 +161,6 @@ public abstract class Property implements IProperty<DataImplementation> {
 		}
 		
 		propertyFlyWeight.noteUpdate();
-	}
-	
-	//TODO: Move this method to IPropertyHelper.
-	//method
-	private void assertKnowsParentColumn() {
-		if (!knowsParentColumn()) {
-			throw new InvalidArgumentException(this, "does not know its parent column");
-		}
 	}
 	
 	//method

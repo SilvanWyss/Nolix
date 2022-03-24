@@ -21,6 +21,9 @@ public interface IPropertyHelper extends IDatabaseObjectHelper {
 	void assertIsNotMandatoryAndEmptyBoth(IProperty<?> property);
 	
 	//method declaration
+	void assertKnowsParentColumn(IProperty<?> property);
+	
+	//method declaration
 	boolean belongsToLoadedEntity(IProperty<?> property);
 	
 	//method declaration
