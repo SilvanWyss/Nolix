@@ -8,5 +8,5 @@ public interface IBaseParametrizedReferenceType<
 > extends IParametrizedPropertyType<IMPL> {
 	
 	//method declaration
-	Class<E> getEntityType();
+	ITable<IMPL, E> getRefencedTable();
 }

@@ -9,4 +9,7 @@ public interface IParametrizedPropertyType<IMPL> {
 	
 	//method declaration
 	PropertyType getPropertyType();
+	
+	//method declaration
+	boolean referencesTable(ITable<IMPL, IEntity<IMPL>> table);
 }

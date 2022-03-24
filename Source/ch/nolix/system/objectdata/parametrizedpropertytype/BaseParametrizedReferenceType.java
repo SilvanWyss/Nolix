@@ -2,10 +2,10 @@
 package ch.nolix.system.objectdata.parametrizedpropertytype;
 
 //own imports
-import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.systemapi.objectdataapi.dataapi.IBaseParametrizedReferenceType;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
+import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 
 //class
 public abstract class BaseParametrizedReferenceType<
@@ -16,19 +16,25 @@ extends ParametrizedPropertyType<IMPL>
 implements IBaseParametrizedReferenceType<IMPL, E> {
 	
 	//attribute
-	private final Class<E> entityType;
+	private final ITable<IMPL, E> referencedTable;
 	
 	//constructor
-	public BaseParametrizedReferenceType(final Class<E> entityType) {
+	public BaseParametrizedReferenceType(final ITable<IMPL, E> referencedTable) {
 		
-		Validator.assertThat(entityType).thatIsNamed(LowerCaseCatalogue.ENTITY_TYPE).isNotNull();
+		Validator.assertThat(referencedTable).thatIsNamed("referenced table").isNotNull();
 		
-		this.entityType = entityType;
+		this.referencedTable = referencedTable;
 	}
 	
-	//own imports
+	//method
 	@Override
-	public final Class<E> getEntityType() {
-		return entityType;
+	public final ITable<IMPL, E> getRefencedTable() {
+		return referencedTable;
+	}
+	
+	//method
+	@Override
+	public final boolean referencesTable(final ITable<IMPL, IEntity<IMPL>> table) {
+		return (getRefencedTable() == table);
 	}
 }

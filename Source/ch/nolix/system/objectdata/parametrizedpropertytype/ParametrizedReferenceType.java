@@ -4,6 +4,7 @@ package ch.nolix.system.objectdata.parametrizedpropertytype;
 //own imports
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
+import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 
 //class
 public final class ParametrizedReferenceType<
@@ -13,8 +14,8 @@ public final class ParametrizedReferenceType<
 extends BaseParametrizedReferenceType<IMPL, E> {
 	
 	//constructor
-	public ParametrizedReferenceType(final Class<E> entityType) {
-		super(entityType);
+	public ParametrizedReferenceType(final ITable<IMPL, E> referencedTable) {
+		super(referencedTable);
 	}
 	
 	//method

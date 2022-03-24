@@ -48,34 +48,28 @@ final class ParametrizedPropertyTypeMapper {
 				final var baseParametrizedReferenceTypeDTO =
 				(IBaseParametrizedReferenceTypeDTO)parametrizedPropertyTypeDTO;
 				
-				final var entityType =
-				referencableTables
-				.getRefFirst(t -> t.hasId(baseParametrizedReferenceTypeDTO.getReferencedTableId()))
-				.getEntityClass();
+				final var referencedTable =
+				referencableTables.getRefFirst(t -> t.hasId(baseParametrizedReferenceTypeDTO.getReferencedTableId()));
 				
-				return new ParametrizedReferenceType<>(entityType);
+				return new ParametrizedReferenceType<>(referencedTable);
 			case OPTIONAL_REFERENCE:
 				
 				final var baseParametrizedReferenceTypeDTO2 =
 				(IBaseParametrizedReferenceTypeDTO)parametrizedPropertyTypeDTO;
 				
-				final var entityType2 =
-				referencableTables
-				.getRefFirst(t -> t.hasId(baseParametrizedReferenceTypeDTO2.getReferencedTableId()))
-				.getEntityClass();
+				final var referencedTable2 =
+				referencableTables.getRefFirst(t -> t.hasId(baseParametrizedReferenceTypeDTO2.getReferencedTableId()));
 				
-				return new ParametrizedOptionalReferenceType<>(entityType2);
+				return new ParametrizedOptionalReferenceType<>(referencedTable2);
 			case MULTI_REFERENCE:
 				
 				final var baseParametrizedReferenceTypeDTO3 =
 				(IBaseParametrizedReferenceTypeDTO)parametrizedPropertyTypeDTO;
 				
-				final var entityType3 =
-				referencableTables
-				.getRefFirst(t -> t.hasId(baseParametrizedReferenceTypeDTO3.getReferencedTableId()))
-				.getEntityClass();
+				final var referencedTable3 =
+				referencableTables.getRefFirst(t -> t.hasId(baseParametrizedReferenceTypeDTO3.getReferencedTableId()));
 				
-				return new ParametrizedMultiReferenceType<>(entityType3);
+				return new ParametrizedMultiReferenceType<>(referencedTable3);
 			case BACK_REFERENCE:
 				
 				final var baseParametrizedBackRefenceTypeDTO =
