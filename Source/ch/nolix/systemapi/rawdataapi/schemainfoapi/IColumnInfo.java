@@ -21,5 +21,5 @@ public interface IColumnInfo {
 	PropertyType getColumnPropertyType();
 	
 	//method declaration
-	int getColumnZeroBasedIndexOfCellInEntityArray();
+	int getColumnIndexOnEntityNode();
 }

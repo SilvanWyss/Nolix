@@ -25,7 +25,7 @@ public final class ColumnInfo implements IColumnInfo {
 	private final DataType columnDataType;
 	
 	//attribute
-	private final int columnZeroBasedIndexOfCellInEntityArray;
+	private final int columnIndexOnEntityNode;
 	
 	//constructor
 	//For a better performance, this implementation does not use all comfortable methods.
@@ -34,7 +34,7 @@ public final class ColumnInfo implements IColumnInfo {
 		final String columnName,
 		final PropertyType columnPropertyType,
 		final DataType columnDataType,
-		final int columnZeroBasedIndexOfCellInEntityArray
+		final int columnIndexOnEntityNode
 	) {
 		
 		if (columnId == null) {
@@ -53,11 +53,11 @@ public final class ColumnInfo implements IColumnInfo {
 			throw new ArgumentIsNullException("column data type");
 		}
 		
-		if (columnZeroBasedIndexOfCellInEntityArray < 0) {
+		if (columnIndexOnEntityNode < 0) {
 			throw
 			new NegativeArgumentException(
-				"column zero based index of cell in entity array",
-				columnZeroBasedIndexOfCellInEntityArray
+				"column index on entity node",
+				columnIndexOnEntityNode
 			);
 		}
 		
@@ -65,7 +65,7 @@ public final class ColumnInfo implements IColumnInfo {
 		this.columnName = columnName;
 		this.columnPropertyType = columnPropertyType;
 		this.columnDataType = columnDataType;
-		this.columnZeroBasedIndexOfCellInEntityArray = columnZeroBasedIndexOfCellInEntityArray;
+		this.columnIndexOnEntityNode = columnIndexOnEntityNode;
 	}
 	
 	//method
@@ -93,7 +93,7 @@ public final class ColumnInfo implements IColumnInfo {
 	}
 
 	@Override
-	public int getColumnZeroBasedIndexOfCellInEntityArray() {
-		return columnZeroBasedIndexOfCellInEntityArray;
+	public int getColumnIndexOnEntityNode() {
+		return columnIndexOnEntityNode;
 	}
 }

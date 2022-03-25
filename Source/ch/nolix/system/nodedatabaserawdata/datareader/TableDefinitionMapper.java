@@ -29,17 +29,17 @@ final class TableDefinitionMapper {
 	private IContainer<IColumnInfo> getContentColumnDefinitionsFromTableNode(BaseNode tableNode) {
 		
 		final var columnInfos = new LinkedList<IColumnInfo>();
-		var columnZeroBasedIndexOfCellInEntityArray = 2;
+		var columnIndexOnEntityNode = 2;
 		for (final var cn : getRefColumnNodesInOrderFromTableNode(tableNode)) {
 			
 			columnInfos.addAtEnd(
 				columnDefinitionMapper.createColumnDefinitionFromColumnNode(
 					cn,
-					columnZeroBasedIndexOfCellInEntityArray
+					columnIndexOnEntityNode
 				)
 			);
 			
-			columnZeroBasedIndexOfCellInEntityArray++;
+			columnIndexOnEntityNode++;
 		}
 		
 		return columnInfos;

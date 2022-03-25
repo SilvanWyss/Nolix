@@ -21,7 +21,7 @@ public final class ColumnDefinitionMapper {
 	//method
 	public IColumnInfo createColumnDefinitionFromColumnNode(
 		final BaseNode columnNode,
-		final int columnZeroBasedIndexOfCellInEntityArray
+		final int columnIndexOnEntityNode
 	) {
 		return
 		new ColumnInfo(
@@ -29,7 +29,7 @@ public final class ColumnDefinitionMapper {
 			getColumnNameFromColumnNode(columnNode),
 			getColumnPropertyTypeFromColumnNode(columnNode),
 			getColumnDataTypeFromColumnNode(columnNode),
-			columnZeroBasedIndexOfCellInEntityArray
+			columnIndexOnEntityNode
 		);
 	}
 	
