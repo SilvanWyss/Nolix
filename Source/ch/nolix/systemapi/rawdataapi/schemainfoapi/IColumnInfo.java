@@ -19,4 +19,7 @@ public interface IColumnInfo {
 	
 	//method declaration
 	PropertyType getColumnPropertyType();
+	
+	//method declaration
+	int getColumnZeroBasedIndexOfCellInEntityArray();
 }

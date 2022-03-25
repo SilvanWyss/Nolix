@@ -3,6 +3,7 @@ package ch.nolix.system.nodedatabaserawdata.datareader;
 
 //own imports
 import ch.nolix.core.container.IContainer;
+import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.system.nodedatabaserawdata.tabledefinition.TableInfo;
 import ch.nolix.system.nodedatabaserawschema.structure.TableNodeSearcher;
@@ -26,8 +27,22 @@ final class TableDefinitionMapper {
 	
 	//method
 	private IContainer<IColumnInfo> getContentColumnDefinitionsFromTableNode(BaseNode tableNode) {
-		return
-		getRefColumnNodesInOrderFromTableNode(tableNode).to(columnDefinitionMapper::createColumnDefinitionFromColumnNode);
+		
+		final var columnInfos = new LinkedList<IColumnInfo>();
+		var columnZeroBasedIndexOfCellInEntityArray = 2;
+		for (final var cn : getRefColumnNodesInOrderFromTableNode(tableNode)) {
+			
+			columnInfos.addAtEnd(
+				columnDefinitionMapper.createColumnDefinitionFromColumnNode(
+					cn,
+					columnZeroBasedIndexOfCellInEntityArray
+				)
+			);
+			
+			columnZeroBasedIndexOfCellInEntityArray++;
+		}
+		
+		return columnInfos;
 	}
 	
 	//method

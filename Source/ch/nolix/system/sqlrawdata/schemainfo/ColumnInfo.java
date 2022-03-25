@@ -4,6 +4,7 @@ package ch.nolix.system.sqlrawdata.schemainfo;
 //own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
@@ -23,13 +24,17 @@ public final class ColumnInfo implements IColumnInfo {
 	//attribute
 	private final DataType columnDataType;
 	
-	//For a better performance, this implementation does not use all comfortable methods.
+	//attribute
+	private final int columnZeroBasedIndexOfCellInEntityArray;
+	
 	//constructor
+	//For a better performance, this implementation does not use all comfortable methods.
 	public ColumnInfo(
 		final String columnId,
 		final String columnName,
 		final PropertyType columnPropertyType,
-		final DataType columnDataType
+		final DataType columnDataType,
+		final int columnZeroBasedIndexOfCellInEntityArray
 	) {
 		
 		if (columnId == null) {
@@ -48,10 +53,19 @@ public final class ColumnInfo implements IColumnInfo {
 			throw new ArgumentIsNullException("column data type");
 		}
 		
+		if (columnZeroBasedIndexOfCellInEntityArray < 0) {
+			throw
+			new NegativeArgumentException(
+				"column zero based index of cell in entity array",
+				columnZeroBasedIndexOfCellInEntityArray
+			);
+		}
+		
 		this.columnId = columnId;
 		this.columnName = columnName;
 		this.columnPropertyType = columnPropertyType;
 		this.columnDataType = columnDataType;
+		this.columnZeroBasedIndexOfCellInEntityArray = columnZeroBasedIndexOfCellInEntityArray;
 	}
 	
 	//method
@@ -76,5 +90,10 @@ public final class ColumnInfo implements IColumnInfo {
 	@Override
 	public PropertyType getColumnPropertyType() {
 		return columnPropertyType;
+	}
+
+	@Override
+	public int getColumnZeroBasedIndexOfCellInEntityArray() {
+		return columnZeroBasedIndexOfCellInEntityArray;
 	}
 }

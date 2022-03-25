@@ -19,13 +19,17 @@ public final class ColumnDefinitionMapper {
 	new ParametrizedPropertyTypeNodeSearcher();
 	
 	//method
-	public IColumnInfo createColumnDefinitionFromColumnNode(final BaseNode columnNode) {
+	public IColumnInfo createColumnDefinitionFromColumnNode(
+		final BaseNode columnNode,
+		final int columnZeroBasedIndexOfCellInEntityArray
+	) {
 		return
 		new ColumnInfo(
 			getColumnIdFromColumnNode(columnNode),
 			getColumnNameFromColumnNode(columnNode),
 			getColumnPropertyTypeFromColumnNode(columnNode),
-			getColumnDataTypeFromColumnNode(columnNode)
+			getColumnDataTypeFromColumnNode(columnNode),
+			columnZeroBasedIndexOfCellInEntityArray
 		);
 	}
 	
