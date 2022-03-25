@@ -111,17 +111,15 @@ public final class DataReader implements IDataReader {
 	
 	//method
 	@Override
-	public boolean tableContainsRecordWithGivenValueAtColumn(
+	public boolean tableContainsEntityWithGivenValueAtGivenColumn(
 		final String tableName,
 		final String columnName,
 		final String value
 	) {
-		return
-		internalDataReader.tableContainsRecordWithGivenValueAtColumn(
-			tableName,
-			columnName,
-			value
-		);
+		
+		final var columnInfo = getColumnInfoByTableNameAndColumnName(tableName, columnName);
+		
+		return internalDataReader.tableContainsEntityWithGivenValueAtGivenColumn(tableName, columnInfo, value);
 	}
 	
 	//method

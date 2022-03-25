@@ -273,12 +273,12 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
 	
 	//method
 	@Override
-	public final boolean tableContainsRecordWithGivenValueAtColumn(
+	public final boolean tableContainsEntityWithGivenValueAtGivenColumn(
 		final String tableName,
 		final String columnName,
 		final String value
 	) {
-		return dataAdapter.tableContainsRecordWithGivenValueAtColumn(tableName, columnName, value);
+		return dataAdapter.tableContainsEntityWithGivenValueAtGivenColumn(tableName, columnName, value);
 	}
 	
 	//method

@@ -200,12 +200,12 @@ public abstract class BaseDataAdapter implements IDataAdapter {
 	
 	//method
 	@Override
-	public final boolean tableContainsRecordWithGivenValueAtColumn(
+	public final boolean tableContainsEntityWithGivenValueAtGivenColumn(
 		final String tableName,
 		final String columnName,
 		final String value
 	) {
-		return dataReader.tableContainsRecordWithGivenValueAtColumn(tableName, columnName, value);
+		return dataReader.tableContainsEntityWithGivenValueAtGivenColumn(tableName, columnName, value);
 	}
 	
 	//method

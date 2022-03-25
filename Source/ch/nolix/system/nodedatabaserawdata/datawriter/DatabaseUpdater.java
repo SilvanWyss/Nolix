@@ -207,7 +207,7 @@ final class DatabaseUpdater {
 		final var tableNode =
 		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(database, tableInfo.getTableName());
 		
-		if (tableNodeSearcher.tableNodeContainsRecordNodeWithId(tableNode, record.getId())) {
+		if (tableNodeSearcher.tableNodeContainsRecordNodeWithGivenId(tableNode, record.getId())) {
 			throw
 			new ArgumentHasAttributeException(
 				"table " + tableInfo.getTableNameInQuotes(),

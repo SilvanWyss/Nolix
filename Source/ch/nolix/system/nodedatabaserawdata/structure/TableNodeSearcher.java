@@ -45,9 +45,29 @@ public final class TableNodeSearcher {
 	}
 	
 	//method
-	public boolean tableNodeContainsRecordNodeWithId(final BaseNode tableNode, final String id) {
+	public boolean tableNodeContainsRecordNodeWithGivenId(final BaseNode tableNode, final String id) {
 		return
 		tableNodeContainsRecordNodeWhoseFieldAtGivenIndexHasGivenHeader(tableNode, FieldIndexCatalogue.ID_INDEX, id);
+	}
+	
+	//method
+	public boolean tableNodeContainsRecordNodeWhoseFieldAtGivenIndexContainsGivenValue(
+		final BaseNode tableNode,
+		final int valueIndex,
+		final String value
+	) {
+		return
+		tableNode.containsAttribute(
+			a -> {
+				
+				if (!a.hasHeader(SubNodeHeaderCatalogue.RECORD)) {
+					return false;
+				}
+				
+				final var field = a.getRefAttributeAt(valueIndex);
+				return (field.hasHeader(value) || field.containsAttributeWithHeader(value));
+			}
+		);
 	}
 	
 	//method

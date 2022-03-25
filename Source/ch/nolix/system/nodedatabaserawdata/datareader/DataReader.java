@@ -21,6 +21,7 @@ public final class DataReader implements IDataReader {
 	//attribute
 	private final InternalDataReader internalDataReader;
 	
+	//TODO: Use ITableInfo instead of TableInfo.
 	//multi-attribute
 	private final IContainer<TableInfo> tableInfos;
 	
@@ -55,7 +56,7 @@ public final class DataReader implements IDataReader {
 	) {
 		return
 		internalDataReader.loadAllMultiReferenceEntriesForRecord(
-			getTableDefinitionForTableWithName(tableName),
+			getTableInfoByTableName(tableName),
 			entityId,
 			multiReferenceColumnName
 		);
@@ -70,7 +71,7 @@ public final class DataReader implements IDataReader {
 	) {
 		return
 		internalDataReader.loadMultiValueEntriesFromRecord(
-			getTableDefinitionForTableWithName(tableName),
+			getTableInfoByTableName(tableName),
 			entityId,
 			multiValueColumnName
 		);
@@ -79,13 +80,13 @@ public final class DataReader implements IDataReader {
 	//method
 	@Override
 	public LinkedList<ILoadedRecordDTO> loadAllRecordsFromTable(final String tableName) {
-		return internalDataReader.loadAllRecordsFromTable(getTableDefinitionForTableWithName(tableName));
+		return internalDataReader.loadAllRecordsFromTable(getTableInfoByTableName(tableName));
 	}
 	
 	//method
 	@Override
 	public ILoadedRecordDTO loadRecordFromTableById(final String tableName, final String id) {
-		return internalDataReader.loadRecordFromTableById(getTableDefinitionForTableWithName(tableName), id);
+		return internalDataReader.loadRecordFromTableById(getTableInfoByTableName(tableName), id);
 	}
 	
 	//method
@@ -94,17 +95,21 @@ public final class DataReader implements IDataReader {
 	
 	//method
 	@Override
-	public boolean tableContainsRecordWithGivenValueAtColumn(String tableName, String columnName, String value) {
+	public boolean tableContainsEntityWithGivenValueAtGivenColumn(
+		final String tableName,
+		final String columnName,
+		final String value
+	) {
 		return
 		internalDataReader.tableContainsRecordWithGivenValueAtColumn(
-			getTableDefinitionForTableWithName(tableName),
+			getTableInfoByTableName(tableName),
 			columnName,
 			value
 		);
 	}
 	
 	//method
-	private TableInfo getTableDefinitionForTableWithName(final String tableName) {
+	private TableInfo getTableInfoByTableName(final String tableName) {
 		return tableInfos.getRefFirst(td -> td.getTableName().equals(tableName));
 	}
 }

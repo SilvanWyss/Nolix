@@ -135,6 +135,10 @@ public final class InternalDataReader {
 		final var valueIndex = 2 + tableInfo.getIndexOfColumnByColumnName(columnName);
 		
 		return
-		tableNodeSearcher.tableNodeContainsRecordNodeWhoseFieldAtGivenIndexHasGivenHeader(tableNode, valueIndex, value);
+		tableNodeSearcher.tableNodeContainsRecordNodeWhoseFieldAtGivenIndexContainsGivenValue(
+			tableNode,
+			valueIndex,
+			value
+		);
 	}
 }

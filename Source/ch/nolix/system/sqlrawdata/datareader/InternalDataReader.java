@@ -3,6 +3,7 @@ package ch.nolix.system.sqlrawdata.datareader;
 
 //own imports
 import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.sql.SQLConnection;
 import ch.nolix.element.time.base.Time;
@@ -110,15 +111,66 @@ final class InternalDataReader {
 	}
 	
 	//method
-	public boolean tableContainsRecordWithGivenValueAtColumn(
+	public boolean tableContainsEntityWithGivenValueAtGivenColumn(
 		final String tableName,
-		final String columnName,
+		final IColumnInfo columnInfo,
+		final String value
+	) {
+		switch (columnInfo.getColumnPropertyType()) {
+			case VALUE:
+			case OPTIONAL_VALUE:
+			case REFERENCE:
+			case OPTIONAL_REFERENCE:
+			case BACK_REFERENCE:
+			case OPTIONAL_BACK_REFERENCE:
+				return
+				tableContainsEntityWithGivenValueAtGivenSingleColumn(
+					tableName,
+					columnInfo.getColumnName(),
+					value
+				);
+			case MULTI_VALUE:
+				return multiValueEntryTableContainsEntryWithGivenValueForGivenColumn(columnInfo.getColumnId(), value);
+			case MULTI_REFERENCE:
+				return
+				multiReferenceEntryTableContainsEntryWithGivenValueForGivenColumn(columnInfo.getColumnId(), value);
+			default:
+				throw new InvalidArgumentException(columnInfo.getColumnPropertyType());
+		}
+	}
+	
+	//method
+	private boolean multiReferenceEntryTableContainsEntryWithGivenValueForGivenColumn(
+		final String columnId,
+		final String value
+	) {
+		//TODO: Implement.
+		return false;
+	}
+	
+	//method
+	private boolean multiValueEntryTableContainsEntryWithGivenValueForGivenColumn(
+		final String columnId,
+		final String value
+	) {
+		//TODO: Implement.
+		return false;
+	}
+	
+	//method
+	private boolean tableContainsEntityWithGivenValueAtGivenSingleColumn(
+		final String tableName,
+		final String singleColumnName,
 		final String value
 	) {
 		return
 		Integer.valueOf(
 			mSQLConnection.getOneRecord(
-				recordQueryCreator.createQueryToCountRecordsWithGivenValueAtGivenColumn(tableName, columnName, value)
+				recordQueryCreator.createQueryToCountRecordsWithGivenValueAtGivenColumn(
+					tableName,
+					singleColumnName,
+					value
+				)
 			)
 			.get(0)
 		)

@@ -34,5 +34,5 @@ public interface IDataReader extends GroupCloseable {
 	ILoadedRecordDTO loadRecordFromTableById(String tableName, String id);
 	
 	//method declaration
-	boolean tableContainsRecordWithGivenValueAtColumn(String tableName, String columnName, String value);
+	boolean tableContainsEntityWithGivenValueAtGivenColumn(String tableName, String columnName, String value);
 }
