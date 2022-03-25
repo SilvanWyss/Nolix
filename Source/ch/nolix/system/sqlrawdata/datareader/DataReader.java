@@ -75,7 +75,7 @@ public final class DataReader implements IDataReader {
 	) {
 		return internalDataReader.loadAllMultiReferenceEntriesForRecord(
 			entityId,
-			getColumnDefinitionByTableNameAndColumnName(tableName, multiReferenceColumnName)
+			getColumnInfoByTableNameAndColumnName(tableName, multiReferenceColumnName)
 		);
 	}
 	
@@ -89,20 +89,20 @@ public final class DataReader implements IDataReader {
 		return
 		internalDataReader.loadMultiValueEntriesFromRecord(
 			entityId,
-			getColumnDefinitionByTableNameAndColumnName(tableName, multiValueColumnName)
+			getColumnInfoByTableNameAndColumnName(tableName, multiValueColumnName)
 		);
 	}
 	
 	//method
 	@Override
 	public LinkedList<ILoadedRecordDTO> loadAllRecordsFromTable(final String tableName) {
-		return internalDataReader.loadAllRecordsFromTable(getTableDefinitionByTableName(tableName));
+		return internalDataReader.loadAllRecordsFromTable(getTableInfoByTableName(tableName));
 	}
 
 	//method
 	@Override
 	public ILoadedRecordDTO loadRecordFromTableById(final String tableName, final String id) {
-		return internalDataReader.loadRecordFromTableById(getTableDefinitionByTableName(tableName), id);
+		return internalDataReader.loadRecordFromTableById(getTableInfoByTableName(tableName), id);
 	}
 	
 	//method
@@ -125,15 +125,15 @@ public final class DataReader implements IDataReader {
 	}
 	
 	//method
-	private IColumnInfo getColumnDefinitionByTableNameAndColumnName(
+	private IColumnInfo getColumnInfoByTableNameAndColumnName(
 		final String tableName,
 		final String columnName
 	) {
-		return getTableDefinitionByTableName(tableName).getColumnInfoByColumnName(columnName);
+		return getTableInfoByTableName(tableName).getColumnInfoByColumnName(columnName);
 	}
 	
 	//method
-	private ITableInfo getTableDefinitionByTableName(final String tableName) {
+	private ITableInfo getTableInfoByTableName(final String tableName) {
 		return tableInfos.getRefFirstOrNull(td -> td.getTableName().equals(tableName));
 	}
 }
