@@ -7,6 +7,7 @@ import ch.nolix.system.nodedatabaserawschema.structure.ColumnNodeSearcher;
 import ch.nolix.system.nodedatabaserawschema.structure.ParametrizedPropertyTypeNodeSearcher;
 import ch.nolix.system.sqlrawdata.schemainfo.ColumnInfo;
 import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
+import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
 
 //class
@@ -23,7 +24,16 @@ public final class ColumnDefinitionMapper {
 		new ColumnInfo(
 			getColumnIdFromColumnNode(columnNode),
 			getColumnNameFromColumnNode(columnNode),
-			getDataTypeFromColumnNode(columnNode)
+			getColumnPropertyTypeFromColumnNode(columnNode),
+			getColumnDataTypeFromColumnNode(columnNode)
+		);
+	}
+	
+	//method
+	private DataType getColumnDataTypeFromColumnNode(final BaseNode columnNode) {
+		return
+		getDataTypeFromParametrizedPropertyTypeNode(
+			columnNodeSearcher.getRefParametrizedPropertyTypeNodeFromColumnNode(columnNode)
 		);
 	}
 	
@@ -38,11 +48,17 @@ public final class ColumnDefinitionMapper {
 	}
 	
 	//method
-	private DataType getDataTypeFromColumnNode(final BaseNode columnNode) {
-		return
-		getDataTypeFromParametrizedPropertyTypeNode(
-			columnNodeSearcher.getRefParametrizedPropertyTypeNodeFromColumnNode(columnNode)
+	private PropertyType getColumnPropertyTypeFromColumnNode(final BaseNode columnNode) {
+		
+		final var parametrizedPropertyTypeNode =
+		columnNodeSearcher.getRefParametrizedPropertyTypeNodeFromColumnNode(columnNode);
+		
+		final var propertyTypeNode =
+		parametrizedPropertyTypeNodeSearcher.getRefPropertyTypeNodeFromParametrizedPropertyTypeNode(
+			parametrizedPropertyTypeNode
 		);
+		
+		return PropertyType.fromSpecification(propertyTypeNode);
 	}
 	
 	//method
