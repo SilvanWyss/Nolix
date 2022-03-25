@@ -9,6 +9,7 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IColumn;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IParametrizedPropertyType;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
+import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
 
 //class
 public final class Column extends ImmutableDatabaseObject implements IColumn<DataImplementation> {
@@ -76,5 +77,21 @@ public final class Column extends ImmutableDatabaseObject implements IColumn<Dat
 	@Override
 	public ITable<DataImplementation, IEntity<DataImplementation>> getParentTable() {
 		return parentTable;
+	}
+	
+	//method
+	@Override
+	public boolean technicalContainsGivenValueInPersistedData(final String value) {
+		return
+		getRefDataAndSchemaAdapter().tableContainsEntityWithGivenValueAtGivenColumn(
+			getParentTable().getName(),
+			getName(),
+			value
+		);
+	}
+	
+	//method
+	private IDataAndSchemaAdapter getRefDataAndSchemaAdapter() {
+		return parentTable.internalGetRefDataAndSchemaAdapter();
 	}
 }

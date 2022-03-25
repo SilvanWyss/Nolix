@@ -14,4 +14,7 @@ public interface IColumn<IMPL> extends IDatabaseObject, IdentifiedByString, Name
 	
 	//method declaration
 	ITable<IMPL, IEntity<IMPL>> getParentTable();
+	
+	//method
+	boolean technicalContainsGivenValueInPersistedData(String value);
 }
