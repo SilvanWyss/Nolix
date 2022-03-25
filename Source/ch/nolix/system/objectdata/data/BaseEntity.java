@@ -121,8 +121,12 @@ public abstract class BaseEntity implements IEntity<DataImplementation> {
 	//method
 	@Override
 	public final boolean isReferencedInPersistedData() {
-		//TODO: Implement.
-		return false;
+		
+		if (!belongsToTable()) {
+			return false;
+		}
+		
+		return isReferencedInPersistedDataWhenBelongsToTable();
 	}
 	
 	//method
@@ -221,6 +225,17 @@ public abstract class BaseEntity implements IEntity<DataImplementation> {
 		properties = internalLoadProperties();
 		
 		properties.forEach(p -> p.internalSetParentEntity(this));
+	}
+	
+	//method
+	private boolean isReferencedInPersistedDataWhenBelongsToTable() {
+		
+		final var lId = getId();
+		
+		return
+		((Table<?>)getParentTable())
+		.internalGetColumnsThatReferencesCurrentTable()
+		.containsAny(c -> c.technicalContainsGivenValueInPersistedData(lId));
 	}
 	
 	//method
