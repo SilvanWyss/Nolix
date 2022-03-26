@@ -39,7 +39,8 @@ final class EntityNodeMapper {
 		
 		for (final var cf : record.getContentFields()) {
 			
-			final var index = 1 + tableInfo.getIndexOfColumnByColumnName(cf.getColumnName());
+			final var columnInfo =  tableInfo.getColumnInfoByColumnName(cf.getColumnName());
+			final var index = columnInfo.getColumnIndexOnEntityNode() - 1;
 			
 			final var string = cf.getValueAsStringOrNull();
 			if (string == null) {
