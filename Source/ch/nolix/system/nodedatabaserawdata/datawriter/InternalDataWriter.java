@@ -11,6 +11,7 @@ import ch.nolix.system.nodedatabaserawdata.tabledefinition.TableInfo;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDTO;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordDTO;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordUpdateDTO;
+import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
 
 //class
 final class InternalDataWriter {
@@ -39,10 +40,10 @@ final class InternalDataWriter {
 	public void deleteEntriesFromMultiReference(
 		final TableInfo tableInfo,
 		final String entityId,
-		final String multiReferenceColumnName
-	) {
+		final IColumnInfo multiReferenceColumnInfo
+	) {		
 		addChangeAction(
-			d -> databaseUpdater.deleteEntriesFromMultiReference(d, tableInfo, entityId, multiReferenceColumnName)
+			d -> databaseUpdater.deleteEntriesFromMultiReference(d, tableInfo, entityId, multiReferenceColumnInfo)
 		);
 	}
 	
@@ -50,10 +51,10 @@ final class InternalDataWriter {
 	public void deleteEntriesFromMultiValue(
 		final TableInfo tableInfo,
 		final String entityId,
-		final String multiValueColumnName
-	) {
+		final IColumnInfo multiValueColumnInfo
+	) {		
 		addChangeAction(
-			d -> databaseUpdater.deleteEntriesFromMultiValue(d, tableInfo, entityId, multiValueColumnName)
+			d -> databaseUpdater.deleteEntriesFromMultiValue(d, tableInfo, entityId, multiValueColumnInfo)
 		);
 	}
 	
@@ -61,7 +62,7 @@ final class InternalDataWriter {
 	public void deleteEntryFromMultiReference(
 		final TableInfo tableInfo,
 		final String entityId,
-		final String multiReferenceColumnName,
+		final IColumnInfo multiReferenceColumnInfo,
 		final String referencedEntityId
 	) {
 		addChangeAction(
@@ -70,7 +71,7 @@ final class InternalDataWriter {
 				d,
 				tableInfo,
 				entityId,
-				multiReferenceColumnName,
+				multiReferenceColumnInfo,
 				referencedEntityId
 			)
 		);
@@ -80,11 +81,11 @@ final class InternalDataWriter {
 	public void deleteEntryFromMultiValue(
 		final TableInfo tableInfo,
 		final String entityId,
-		final String multiValueColumnName,
+		final IColumnInfo multiValueColumnInfo,
 		final String entry
 	) {
 		addChangeAction(
-			d -> databaseUpdater.deleteEntryFromMultiValue(d, tableInfo, entityId, multiValueColumnName, entry)
+			d -> databaseUpdater.deleteEntryFromMultiValue(d, tableInfo, entityId, multiValueColumnInfo, entry)
 		);
 	}
 	
@@ -112,7 +113,7 @@ final class InternalDataWriter {
 	public void insertEntryIntoMultiReference(
 		final TableInfo tableInfo,
 		final String entityId,
-		final String multiReferenceColumnName,
+		final IColumnInfo multiReferenceColumnInfo,
 		final String referencedEntityId
 	) {
 		addChangeAction(
@@ -121,7 +122,7 @@ final class InternalDataWriter {
 				d,
 				tableInfo,
 				entityId,
-				multiReferenceColumnName,
+				multiReferenceColumnInfo,
 				referencedEntityId
 			)
 		);
@@ -131,11 +132,11 @@ final class InternalDataWriter {
 	public void insertEntryIntoMultiValue(
 		final TableInfo tableInfo,
 		final String entityId,
-		final String multiValueColumnName,
+		final IColumnInfo multiValueColumnInfo,
 		final String entry
 	) {
 		addChangeAction(
-			d -> databaseUpdater.insertEntryIntoMultiValue(d, tableInfo, entityId, multiValueColumnName, entry)
+			d -> databaseUpdater.insertEntryIntoMultiValue(d, tableInfo, entityId, multiValueColumnInfo, entry)
 		);
 	}
 	

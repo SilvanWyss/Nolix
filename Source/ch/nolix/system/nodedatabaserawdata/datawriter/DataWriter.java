@@ -41,10 +41,13 @@ public final class DataWriter implements IDataWriter {
 		final String entityId,
 		final String multiReferenceColumnName
 	) {
+		
+		final var tableInfo = getTableInfoByTableName(tableName);
+		
 		internalDataWriter.deleteEntriesFromMultiReference(
-			getTableInfoByTableName(tableName),
+			tableInfo,
 			entityId,
-			multiReferenceColumnName
+			tableInfo.getColumnInfoByColumnName(multiReferenceColumnName)
 		);
 	}
 	
@@ -55,10 +58,13 @@ public final class DataWriter implements IDataWriter {
 		final String entityId,
 		final String multiValueColumnName
 	) {
+		
+		final var tableInfo = getTableInfoByTableName(tableName);
+		
 		internalDataWriter.deleteEntriesFromMultiValue(
-			getTableInfoByTableName(tableName),
+			tableInfo,
 			entityId,
-			multiValueColumnName
+			tableInfo.getColumnInfoByColumnName(multiValueColumnName)
 		);
 	}
 	
@@ -70,10 +76,13 @@ public final class DataWriter implements IDataWriter {
 		final String multiRefereceColumnName,
 		final String referencedEntityId
 	) {
+		
+		final var tableInfo = getTableInfoByTableName(tableName);
+		
 		internalDataWriter.deleteEntryFromMultiReference(
-			getTableInfoByTableName(tableName),
+			tableInfo,
 			entityId,
-			multiRefereceColumnName,
+			tableInfo.getColumnInfoByColumnName(multiRefereceColumnName),
 			referencedEntityId
 		);
 	}
@@ -86,10 +95,13 @@ public final class DataWriter implements IDataWriter {
 		final String multiValueColumnName,
 		final String entry
 	) {
+		
+		final var tableInfo = getTableInfoByTableName(tableName);
+		
 		internalDataWriter.deleteEntryFromMultiValue(
-			getTableInfoByTableName(tableName),
+			tableInfo,
 			entityId,
-			multiValueColumnName,
+			tableInfo.getColumnInfoByColumnName(multiValueColumnName),
 			entry
 		);
 	}
@@ -126,10 +138,13 @@ public final class DataWriter implements IDataWriter {
 		final String multiReferenceColumnName,
 		final String referencedEntityId
 	) {
+		
+		final var tableInfo = getTableInfoByTableName(tableName);
+		
 		internalDataWriter.insertEntryIntoMultiReference(
-			getTableInfoByTableName(tableName),
+			tableInfo,
 			entityId,
-			multiReferenceColumnName,
+			tableInfo.getColumnInfoByColumnName(multiReferenceColumnName),
 			referencedEntityId
 		);
 	}
@@ -142,10 +157,13 @@ public final class DataWriter implements IDataWriter {
 		final String multiValueColumnName,
 		final String entry
 	) {
+		
+		final var tableInfo = getTableInfoByTableName(tableName);
+		
 		internalDataWriter.insertEntryIntoMultiValue(
-			getTableInfoByTableName(tableName),
+			tableInfo,
 			entityId,
-			multiValueColumnName,
+			tableInfo.getColumnInfoByColumnName(multiValueColumnName),
 			entry
 		);
 	}

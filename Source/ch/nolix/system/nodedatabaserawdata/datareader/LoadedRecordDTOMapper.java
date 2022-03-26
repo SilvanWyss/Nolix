@@ -33,17 +33,16 @@ public final class LoadedRecordDTOMapper {
 	
 	//method
 	private IContainer<ILoadedContentFieldDTO> createContentFieldsFromRecordNode(
-		final BaseNode recordNode,
+		final BaseNode entityNode,
 		final TableInfo tableInfo
 	) {
 		
 		final var contentFields = new LinkedList<ILoadedContentFieldDTO>();
-		var index = 1;
-		for (final var ccd : tableInfo.getColumnInfos()) {
+		for (final var ci : tableInfo.getColumnInfos()) {
 			
-			final var contentFieldNode = entityNodeSearcher.getRefContentFieldNodeFromRecordNodeAtIndex(recordNode, index);
+			final var contentFieldNode = entityNode.getRefAttributeAt(ci.getColumnIndexOnEntityNode());
 			
-			contentFields.addAtEnd(contentFieldDTOMapper.createContentFieldDTOFromContentFieldNode(contentFieldNode, ccd));
+			contentFields.addAtEnd(contentFieldDTOMapper.createContentFieldDTOFromContentFieldNode(contentFieldNode, ci));
 		}
 		
 		return contentFields;

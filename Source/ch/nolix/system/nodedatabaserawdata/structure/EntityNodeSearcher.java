@@ -14,11 +14,6 @@ public final class EntityNodeSearcher {
 	}
 	
 	//method
-	public BaseNode getRefContentFieldNodeFromRecordNodeAtIndex(final BaseNode recordNode, final int index) {
-		return recordNode.getRefAttributeAt(2 + index);
-	}
-	
-	//method
 	public BaseNode getRefIdNodeFromRecordNode(final BaseNode recordNode) {
 		return recordNode.getRefAttributeAt(FieldIndexCatalogue.ID_INDEX);
 	}

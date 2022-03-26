@@ -15,6 +15,7 @@ import ch.nolix.system.nodedatabaserawschema.structure.DatabasePropertiesNodeSea
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDTO;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordDTO;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordUpdateDTO;
+import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
 
 //class
 final class DatabaseUpdater {
@@ -40,7 +41,7 @@ final class DatabaseUpdater {
 		final BaseNode databaseNode,
 		final TableInfo tableInfo,
 		final String entityId,
-		final String multiReferenceColumnName
+		final IColumnInfo multiReferenceColumnInfo
 	) {
 		
 		final var tableNode =
@@ -48,10 +49,9 @@ final class DatabaseUpdater {
 		
 		final var entityNode = tableNodeSearcher.getRefRecordNodeFromTableNode(tableNode, entityId);
 		
-		final var multiReferenceColumnIndex = tableInfo.getIndexOfColumnByColumnName(multiReferenceColumnName);
+		final var multiReferenceColumnIndex = multiReferenceColumnInfo.getColumnIndexOnEntityNode();
 		
-		final var multiReferenceColumnNode =
-		entityNodeSearcher.getRefContentFieldNodeFromRecordNodeAtIndex(entityNode, multiReferenceColumnIndex);
+		final var multiReferenceColumnNode = entityNode.getRefAttributeAt(multiReferenceColumnIndex);
 		
 		multiReferenceColumnNode.removeAttributes();
 	}
@@ -61,19 +61,18 @@ final class DatabaseUpdater {
 		final BaseNode databaseNode,
 		final TableInfo tableInfo,
 		final String entityId,
-		final String multiValueColumnName
+		final IColumnInfo multiValueColumnInfo
 	) {
 		
 		final var tableNode =
 		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
 		
-		final var recordNode = tableNodeSearcher.getRefRecordNodeFromTableNode(tableNode, entityId);
+		final var entityNode = tableNodeSearcher.getRefRecordNodeFromTableNode(tableNode, entityId);
 		
-		final var multiValueColumnIndex = tableInfo.getIndexOfColumnByColumnName(multiValueColumnName);
+		final var multiValueColumnIndex = multiValueColumnInfo.getColumnIndexOnEntityNode();
 		
-		final var multiValueColumnNode =
-		entityNodeSearcher.getRefContentFieldNodeFromRecordNodeAtIndex(recordNode, multiValueColumnIndex);
-						
+		final var multiValueColumnNode = entityNode.getRefAttributeAt(multiValueColumnIndex);
+		
 		multiValueColumnNode.removeAttributes();
 	}
 	
@@ -82,7 +81,7 @@ final class DatabaseUpdater {
 		final BaseNode databaseNode,
 		final TableInfo tableInfo,
 		final String entityId,
-		final String multiReferencedColumnName,
+		final IColumnInfo multiReferencedColumnInfo,
 		final String referencedEntityId
 	) {
 		
@@ -91,10 +90,9 @@ final class DatabaseUpdater {
 		
 		final var entityNode = tableNodeSearcher.getRefRecordNodeFromTableNode(tableNode, entityId);
 		
-		final var multiReferenceColumnIndex = tableInfo.getIndexOfColumnByColumnName(multiReferencedColumnName);
+		final var multiReferenceColumnIndex = multiReferencedColumnInfo.getColumnIndexOnEntityNode();
 		
-		final var multiReferenceColumnNode =
-		entityNodeSearcher.getRefContentFieldNodeFromRecordNodeAtIndex(entityNode, multiReferenceColumnIndex);
+		final var multiReferenceColumnNode = entityNode.getRefAttributeAt(multiReferenceColumnIndex);
 		
 		multiReferenceColumnNode.removeFirstAttribute(referencedEntityId);
 	}
@@ -104,19 +102,18 @@ final class DatabaseUpdater {
 		final BaseNode databaseNode,
 		final TableInfo tableInfo,
 		final String entityId,
-		final String multiValueColumnName,
+		final IColumnInfo multiValueColumnInfo,
 		final String entry
 	) {
 		
 		final var tableNode =
 		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
 		
-		final var recordNode = tableNodeSearcher.getRefRecordNodeFromTableNode(tableNode, entityId);
+		final var entityNode = tableNodeSearcher.getRefRecordNodeFromTableNode(tableNode, entityId);
 		
-		final var multiValueColumnIndex = tableInfo.getIndexOfColumnByColumnName(multiValueColumnName);
+		final var multiValueColumnIndex = multiValueColumnInfo.getColumnIndexOnEntityNode();
 		
-		final var multiValueColumnNode =
-		entityNodeSearcher.getRefContentFieldNodeFromRecordNodeAtIndex(recordNode, multiValueColumnIndex);
+		final var multiValueColumnNode = entityNode.getRefAttributeAt(multiValueColumnIndex);
 		
 		multiValueColumnNode.removeFirstAttribute(entry);
 	}
@@ -159,7 +156,7 @@ final class DatabaseUpdater {
 		final BaseNode databaseNode,
 		final TableInfo tableInfo,
 		final String entityId,
-		final String multiReferenceColumnName,
+		final IColumnInfo multiReferenceColumnInfo,
 		final String referencedEntityId
 	) {
 		
@@ -168,10 +165,9 @@ final class DatabaseUpdater {
 		
 		final var entityNode = tableNodeSearcher.getRefRecordNodeFromTableNode(tableNode, entityId);
 		
-		final var multiReferenceColumnIndex = tableInfo.getIndexOfColumnByColumnName(multiReferenceColumnName);
+		final var multiReferenceColumnIndex = multiReferenceColumnInfo.getColumnIndexOnEntityNode();
 		
-		final var multiReferenceColumnNode =
-		entityNodeSearcher.getRefContentFieldNodeFromRecordNodeAtIndex(entityNode, multiReferenceColumnIndex);
+		final var multiReferenceColumnNode = entityNode.getRefAttributeAt(multiReferenceColumnIndex);
 		
 		multiReferenceColumnNode.addAttribute(Node.withHeader(referencedEntityId));
 	}
@@ -181,19 +177,18 @@ final class DatabaseUpdater {
 		final BaseNode databaseNode,
 		final TableInfo tableInfo,
 		final String entityId,
-		final String multiValueColumnName,
+		final IColumnInfo multiValueColumnInfo,
 		final String entry
 	) {
 		
 		final var tableNode =
 		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
 		
-		final var recordNode = tableNodeSearcher.getRefRecordNodeFromTableNode(tableNode, entityId);
+		final var entityNode = tableNodeSearcher.getRefRecordNodeFromTableNode(tableNode, entityId);
 		
-		final var multiValueColumnIndex = tableInfo.getIndexOfColumnByColumnName(multiValueColumnName);
+		final var multiValueColumnIndex = multiValueColumnInfo.getColumnIndexOnEntityNode();
 		
-		final var multiValueColumnNode =
-		entityNodeSearcher.getRefContentFieldNodeFromRecordNodeAtIndex(recordNode, multiValueColumnIndex);
+		final var multiValueColumnNode = entityNode.getRefAttributeAt(multiValueColumnIndex);
 		
 		multiValueColumnNode.addAttribute(Node.withHeader(entry));
 	}
@@ -265,12 +260,10 @@ final class DatabaseUpdater {
 	) {
 		for (final var ucf : recordUdate.getUpdatedContentFields()) {
 			
-			final var contentFieldNode =
-			entityNodeSearcher.getRefContentFieldNodeFromRecordNodeAtIndex(
-				recordNode,
-				tableInfo.getIndexOfColumnByColumnName(ucf.getColumnName())
-			);
-			
+			final var columnInfo = tableInfo.getColumnInfoByColumnName(ucf.getColumnName());
+			final var columnIndex = columnInfo.getColumnIndexOnEntityNode();
+			final var contentFieldNode = recordNode.getRefAttributeAt(columnIndex);
+						
 			final var value = ucf.getValueAsStringOrNull();
 			if (value == null) {
 				contentFieldNode.removeHeader();
