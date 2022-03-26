@@ -54,11 +54,14 @@ public final class DataReader implements IDataReader {
 		final String entityId,
 		final String multiReferenceColumnName
 	) {
+		
+		final var tableInfo = getTableInfoByTableName(tableName);
+		
 		return
 		internalDataReader.loadAllMultiReferenceEntriesForRecord(
-			getTableInfoByTableName(tableName),
+			tableInfo,
 			entityId,
-			multiReferenceColumnName
+			tableInfo.getColumnInfoByColumnName(multiReferenceColumnName)
 		);
 	}
 	
@@ -69,11 +72,14 @@ public final class DataReader implements IDataReader {
 		final String entityId,
 		final String multiValueColumnName
 	) {
+		
+		final var tableInfo = getTableInfoByTableName(tableName);
+		
 		return
 		internalDataReader.loadMultiValueEntriesFromRecord(
-			getTableInfoByTableName(tableName),
+			tableInfo,
 			entityId,
-			multiValueColumnName
+			tableInfo.getColumnInfoByColumnName(multiValueColumnName)
 		);
 	}
 	
@@ -100,10 +106,13 @@ public final class DataReader implements IDataReader {
 		final String columnName,
 		final String value
 	) {
+		
+		final var tableInfo = getTableInfoByTableName(tableName);
+		
 		return
-		internalDataReader.tableContainsRecordWithGivenValueAtColumn(
+		internalDataReader.tableContainsEntityWithGivenValueAtGivenColumn(
 			getTableInfoByTableName(tableName),
-			columnName,
+			tableInfo.getColumnInfoByColumnName(columnName),
 			value
 		);
 	}

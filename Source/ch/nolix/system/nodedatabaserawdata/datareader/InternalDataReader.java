@@ -6,13 +6,13 @@ import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.element.time.base.Time;
-import ch.nolix.system.nodedatabaserawdata.structure.EntityNodeSearcher;
 import ch.nolix.system.nodedatabaserawdata.structure.TableNodeSearcher;
 import ch.nolix.system.nodedatabaserawdata.tabledefinition.TableInfo;
 import ch.nolix.system.nodedatabaserawschema.structure.DatabaseNodeSearcher;
 import ch.nolix.system.nodedatabaserawschema.structure.DatabasePropertiesNodeSearcher;
 import ch.nolix.system.sqlrawdata.datareader.ValueMapper;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedRecordDTO;
+import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
 
 //class
 public final class InternalDataReader {
@@ -27,9 +27,6 @@ public final class InternalDataReader {
 	//static attribute
 	private static final TableNodeSearcher tableNodeSearcher = new TableNodeSearcher();
 	
-	//static attribute
-	private static final EntityNodeSearcher entityNodeSearcher = new EntityNodeSearcher();
-		
 	//static attribute
 	private static final LoadedRecordDTOMapper loadedRecordDTOMapper = new LoadedRecordDTOMapper();
 	
@@ -72,43 +69,41 @@ public final class InternalDataReader {
 	public LinkedList<String> loadAllMultiReferenceEntriesForRecord(
 		final TableInfo tableInfo,
 		final String entityId,
-		final String multiReferenceColumnName
+		final IColumnInfo multiReferenceColumnInfo
 	) {
 		
 		final var tableNode =
 		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
 		
-		final var recordNode = tableNodeSearcher.getRefRecordNodeFromTableNode(tableNode, entityId);
+		final var entityNode = tableNodeSearcher.getRefRecordNodeFromTableNode(tableNode, entityId);
 		
-		final var multiValueColumnIndex = tableInfo.getIndexOfColumnByColumnName(multiReferenceColumnName);
+		final var multiReferenceColumnIndex = multiReferenceColumnInfo.getColumnIndexOnEntityNode();
 		
-		final var multiValueNode =
-		entityNodeSearcher.getRefContentFieldNodeFromRecordNodeAtIndex(recordNode, multiValueColumnIndex);
+		final var multiValueNode = entityNode.getRefAttributeAt(multiReferenceColumnIndex);
 		
 		return multiValueNode.getHeadersOfAttributes();
-		
 	}
 	
 	//method
 	public LinkedList<Object> loadMultiValueEntriesFromRecord(
 		final TableInfo tableInfo,
 		final String entityId,
-		final String multiValueColumnName
+		final IColumnInfo multiValueColumnInfo
 	) {
 		
 		final var tableNode =
 		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
 		
-		final var recordNode = tableNodeSearcher.getRefRecordNodeFromTableNode(tableNode, entityId);
+		final var entityNode = tableNodeSearcher.getRefRecordNodeFromTableNode(tableNode, entityId);
 		
-		final var multiValueColumnIndex = tableInfo.getIndexOfColumnByColumnName(multiValueColumnName);
+		final var multiValueColumnIndex = multiValueColumnInfo.getColumnIndexOnEntityNode();
 		
-		final var multiValueNode =
-		entityNodeSearcher.getRefContentFieldNodeFromRecordNodeAtIndex(recordNode, multiValueColumnIndex);
+		final var multiValueNode = entityNode.getRefAttributeAt(multiValueColumnIndex);
 		
-		final var columnInfo = tableInfo.getColumnInfoByColumnName(multiValueColumnName);
-		
-		return multiValueNode.getRefAttributes().to(a -> valueMapper.createValueFromString(a.getHeader(), columnInfo));
+		return
+		multiValueNode
+		.getRefAttributes()
+		.to(a -> valueMapper.createValueFromString(a.getHeader(), multiValueColumnInfo));
 	}
 	
 	//method
@@ -123,21 +118,21 @@ public final class InternalDataReader {
 	}
 	
 	//method
-	public boolean tableContainsRecordWithGivenValueAtColumn(
+	public boolean tableContainsEntityWithGivenValueAtGivenColumn(
 		final TableInfo tableInfo,
-		final String columnName,
+		final IColumnInfo columnInfo,
 		final String value
 	) {
 		
 		final var tableNode =
 		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
 		
-		final var valueIndex = 2 + tableInfo.getIndexOfColumnByColumnName(columnName);
+		final var columnIndex = columnInfo.getColumnIndexOnEntityNode();
 		
 		return
 		tableNodeSearcher.tableNodeContainsRecordNodeWhoseFieldAtGivenIndexContainsGivenValue(
 			tableNode,
-			valueIndex,
+			columnIndex,
 			value
 		);
 	}
