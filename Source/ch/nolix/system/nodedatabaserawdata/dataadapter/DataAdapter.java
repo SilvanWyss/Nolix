@@ -7,8 +7,8 @@ import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.system.nodedatabaserawdata.datareader.DataReader;
 import ch.nolix.system.nodedatabaserawdata.datareader.TableDefinitionLoader;
 import ch.nolix.system.nodedatabaserawdata.datawriter.DataWriter;
-import ch.nolix.system.nodedatabaserawdata.tabledefinition.TableInfo;
 import ch.nolix.system.rawdata.dataadapter.BaseDataAdapter;
+import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
 
 //class
 public final class DataAdapter extends BaseDataAdapter {
@@ -24,7 +24,7 @@ public final class DataAdapter extends BaseDataAdapter {
 	//constructor
 	private DataAdapter(
 		final BaseNode nodeDatabase,
-		final IContainer<TableInfo> tableInfos
+		final IContainer<ITableInfo> tableInfos
 	) {
 		super(
 			new DataReader(nodeDatabase, tableInfos),

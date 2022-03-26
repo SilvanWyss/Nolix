@@ -6,15 +6,15 @@ import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.system.nodedatabaserawdata.structure.SubNodeHeaderCatalogue;
-import ch.nolix.system.nodedatabaserawdata.tabledefinition.TableInfo;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordDTO;
+import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
 
 //class
 final class EntityNodeMapper {
 	
 	//method
 	public Node createNodeFromRecordWithSaveStamp(
-		final TableInfo tableInfo,
+		final ITableInfo tableInfo,
 		final IRecordDTO record,
 		final long saveStamp
 	) {
@@ -29,10 +29,10 @@ final class EntityNodeMapper {
 	private IContainer<Node> createAttributesFromRecordWithSaveStamp(
 		final IRecordDTO record,
 		final long saveStamp,
-		final TableInfo tableInfo
+		final ITableInfo tableInfo
 	) {
 		
-		final var attributes = new Node[2 + tableInfo.getColumnCount()];
+		final var attributes = new Node[2 + tableInfo.getColumnInfos().getElementCount()];
 		
 		attributes[0] = createIdAttributeFrom(record);
 		attributes[1] = createSaveStampAttribute(saveStamp);

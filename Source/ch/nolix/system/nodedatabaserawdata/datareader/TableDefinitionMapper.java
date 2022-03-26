@@ -5,9 +5,10 @@ package ch.nolix.system.nodedatabaserawdata.datareader;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
-import ch.nolix.system.nodedatabaserawdata.tabledefinition.TableInfo;
 import ch.nolix.system.nodedatabaserawschema.structure.TableNodeSearcher;
+import ch.nolix.system.sqlrawdata.schemainfo.TableInfo;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
+import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
 
 //class
 final class TableDefinitionMapper {
@@ -17,7 +18,7 @@ final class TableDefinitionMapper {
 	private static final TableNodeSearcher tableNodeSearcher = new TableNodeSearcher();
 	
 	//method
-	public TableInfo createTableDefinitionFromTableNode(final BaseNode tableNode) {
+	public ITableInfo createTableDefinitionFromTableNode(final BaseNode tableNode) {
 		return new TableInfo(
 			getTableIdFromTableNode(tableNode),
 			getTableNameFromTableNode(tableNode),

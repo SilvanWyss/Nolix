@@ -7,11 +7,11 @@ import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.element.time.base.Time;
-import ch.nolix.system.nodedatabaserawdata.tabledefinition.TableInfo;
 import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataWriter;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDTO;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordDTO;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordUpdateDTO;
+import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
 
 //class
 public final class DataWriter implements IDataWriter {
@@ -23,10 +23,10 @@ public final class DataWriter implements IDataWriter {
 	private final InternalDataWriter internalDataWriter;
 	
 	//multi-attribute
-	private final IContainer<TableInfo> tableInfos;
+	private final IContainer<ITableInfo> tableInfos;
 	
 	//constructor
-	public DataWriter(final BaseNode nodeDatabase, final IContainer<TableInfo> tableInfos) {
+	public DataWriter(final BaseNode nodeDatabase, final IContainer<ITableInfo> tableInfos) {
 		
 		Validator.assertThat(tableInfos).thatIsNamed("table definitions").isNotNull();
 		
@@ -209,7 +209,7 @@ public final class DataWriter implements IDataWriter {
 	}
 	
 	//method
-	private TableInfo getTableInfoByTableName(final String tableName) {
+	private ITableInfo getTableInfoByTableName(final String tableName) {
 		return tableInfos.getRefFirst(td -> td.getTableName().equals(tableName));
 	}
 }

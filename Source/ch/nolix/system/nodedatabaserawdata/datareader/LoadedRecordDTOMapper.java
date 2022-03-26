@@ -6,10 +6,10 @@ import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.system.nodedatabaserawdata.structure.EntityNodeSearcher;
-import ch.nolix.system.nodedatabaserawdata.tabledefinition.TableInfo;
 import ch.nolix.system.sqlrawdata.datadto.LoadedRecordDTO;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedContentFieldDTO;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedRecordDTO;
+import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
 
 //class
 public final class LoadedRecordDTOMapper {
@@ -21,7 +21,7 @@ public final class LoadedRecordDTOMapper {
 	//method
 	public ILoadedRecordDTO createLoadedRecordDTOFromRecordNode(
 		final BaseNode recordNode,
-		final TableInfo tableInfo
+		final ITableInfo tableInfo
 	) {
 		return
 		new LoadedRecordDTO(
@@ -34,7 +34,7 @@ public final class LoadedRecordDTOMapper {
 	//method
 	private IContainer<ILoadedContentFieldDTO> createContentFieldsFromRecordNode(
 		final BaseNode entityNode,
-		final TableInfo tableInfo
+		final ITableInfo tableInfo
 	) {
 		
 		final var contentFields = new LinkedList<ILoadedContentFieldDTO>();

@@ -9,13 +9,13 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentHasAttributeE
 import ch.nolix.element.time.base.Time;
 import ch.nolix.system.nodedatabaserawdata.structure.EntityNodeSearcher;
 import ch.nolix.system.nodedatabaserawdata.structure.TableNodeSearcher;
-import ch.nolix.system.nodedatabaserawdata.tabledefinition.TableInfo;
 import ch.nolix.system.nodedatabaserawschema.structure.DatabaseNodeSearcher;
 import ch.nolix.system.nodedatabaserawschema.structure.DatabasePropertiesNodeSearcher;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDTO;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordDTO;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordUpdateDTO;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
+import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
 
 //class
 final class DatabaseUpdater {
@@ -39,7 +39,7 @@ final class DatabaseUpdater {
 	//method
 	public void deleteEntriesFromMultiReference(
 		final BaseNode databaseNode,
-		final TableInfo tableInfo,
+		final ITableInfo tableInfo,
 		final String entityId,
 		final IColumnInfo multiReferenceColumnInfo
 	) {
@@ -59,7 +59,7 @@ final class DatabaseUpdater {
 	//method
 	public void deleteEntriesFromMultiValue(
 		final BaseNode databaseNode,
-		final TableInfo tableInfo,
+		final ITableInfo tableInfo,
 		final String entityId,
 		final IColumnInfo multiValueColumnInfo
 	) {
@@ -79,7 +79,7 @@ final class DatabaseUpdater {
 	//method
 	public void deleteEntryFromMultiReference(
 		final BaseNode databaseNode,
-		final TableInfo tableInfo,
+		final ITableInfo tableInfo,
 		final String entityId,
 		final IColumnInfo multiReferencedColumnInfo,
 		final String referencedEntityId
@@ -100,7 +100,7 @@ final class DatabaseUpdater {
 	//method
 	public void deleteEntryFromMultiValue(
 		final BaseNode databaseNode,
-		final TableInfo tableInfo,
+		final ITableInfo tableInfo,
 		final String entityId,
 		final IColumnInfo multiValueColumnInfo,
 		final String entry
@@ -154,7 +154,7 @@ final class DatabaseUpdater {
 	//method
 	public void insertEntryIntoMultiReference(
 		final BaseNode databaseNode,
-		final TableInfo tableInfo,
+		final ITableInfo tableInfo,
 		final String entityId,
 		final IColumnInfo multiReferenceColumnInfo,
 		final String referencedEntityId
@@ -175,7 +175,7 @@ final class DatabaseUpdater {
 	//method
 	public void insertEntryIntoMultiValue(
 		final BaseNode databaseNode,
-		final TableInfo tableInfo,
+		final ITableInfo tableInfo,
 		final String entityId,
 		final IColumnInfo multiValueColumnInfo,
 		final String entry
@@ -196,7 +196,7 @@ final class DatabaseUpdater {
 	//method
 	public void insertRecordIntoTable(
 		final BaseNode database,
-		final TableInfo tableInfo,
+		final ITableInfo tableInfo,
 		final IRecordDTO record
 	) {
 		final var tableNode =
@@ -240,7 +240,7 @@ final class DatabaseUpdater {
 	//method
 	public void updateRecordOnTable(
 		final BaseNode database,
-		final TableInfo tableInfo,
+		final ITableInfo tableInfo,
 		final IRecordUpdateDTO recordUdate
 	) {
 	
@@ -255,7 +255,7 @@ final class DatabaseUpdater {
 	//method
 	private void updateEntityNode(
 		final BaseNode recordNode,
-		final TableInfo tableInfo,
+		final ITableInfo tableInfo,
 		final IRecordUpdateDTO recordUdate
 	) {
 		for (final var ucf : recordUdate.getUpdatedContentFields()) {

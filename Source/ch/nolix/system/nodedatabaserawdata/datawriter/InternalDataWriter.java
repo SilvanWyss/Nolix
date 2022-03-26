@@ -7,11 +7,11 @@ import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.functionapi.IElementTaker;
 import ch.nolix.element.time.base.Time;
-import ch.nolix.system.nodedatabaserawdata.tabledefinition.TableInfo;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDTO;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordDTO;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordUpdateDTO;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
+import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
 
 //class
 final class InternalDataWriter {
@@ -38,7 +38,7 @@ final class InternalDataWriter {
 	
 	//method
 	public void deleteEntriesFromMultiReference(
-		final TableInfo tableInfo,
+		final ITableInfo tableInfo,
 		final String entityId,
 		final IColumnInfo multiReferenceColumnInfo
 	) {		
@@ -49,7 +49,7 @@ final class InternalDataWriter {
 	
 	//method
 	public void deleteEntriesFromMultiValue(
-		final TableInfo tableInfo,
+		final ITableInfo tableInfo,
 		final String entityId,
 		final IColumnInfo multiValueColumnInfo
 	) {		
@@ -60,7 +60,7 @@ final class InternalDataWriter {
 	
 	//method
 	public void deleteEntryFromMultiReference(
-		final TableInfo tableInfo,
+		final ITableInfo tableInfo,
 		final String entityId,
 		final IColumnInfo multiReferenceColumnInfo,
 		final String referencedEntityId
@@ -79,7 +79,7 @@ final class InternalDataWriter {
 	
 	//method
 	public void deleteEntryFromMultiValue(
-		final TableInfo tableInfo,
+		final ITableInfo tableInfo,
 		final String entityId,
 		final IColumnInfo multiValueColumnInfo,
 		final String entry
@@ -111,7 +111,7 @@ final class InternalDataWriter {
 	
 	//method
 	public void insertEntryIntoMultiReference(
-		final TableInfo tableInfo,
+		final ITableInfo tableInfo,
 		final String entityId,
 		final IColumnInfo multiReferenceColumnInfo,
 		final String referencedEntityId
@@ -130,7 +130,7 @@ final class InternalDataWriter {
 	
 	//method
 	public void insertEntryIntoMultiValue(
-		final TableInfo tableInfo,
+		final ITableInfo tableInfo,
 		final String entityId,
 		final IColumnInfo multiValueColumnInfo,
 		final String entry
@@ -141,7 +141,7 @@ final class InternalDataWriter {
 	}
 	
 	//method
-	public void insertRecordIntoTable(final TableInfo tableInfo, final IRecordDTO record) {
+	public void insertRecordIntoTable(final ITableInfo tableInfo, final IRecordDTO record) {
 		addChangeAction(d -> databaseUpdater.insertRecordIntoTable(d, tableInfo, record));
 	}
 	
@@ -166,7 +166,7 @@ final class InternalDataWriter {
 	}
 	
 	//method
-	public void updateRecordOnTable(final TableInfo tableInfo, IRecordUpdateDTO recordUpdate) {
+	public void updateRecordOnTable(final ITableInfo tableInfo, IRecordUpdateDTO recordUpdate) {
 		addChangeAction(d -> databaseUpdater.updateRecordOnTable(d, tableInfo, recordUpdate));
 	}
 	

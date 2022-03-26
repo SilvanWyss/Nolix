@@ -7,12 +7,12 @@ import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.element.time.base.Time;
 import ch.nolix.system.nodedatabaserawdata.structure.TableNodeSearcher;
-import ch.nolix.system.nodedatabaserawdata.tabledefinition.TableInfo;
 import ch.nolix.system.nodedatabaserawschema.structure.DatabaseNodeSearcher;
 import ch.nolix.system.nodedatabaserawschema.structure.DatabasePropertiesNodeSearcher;
 import ch.nolix.system.sqlrawdata.datareader.ValueMapper;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedRecordDTO;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
+import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
 
 //class
 public final class InternalDataReader {
@@ -54,7 +54,7 @@ public final class InternalDataReader {
 	}
 	
 	//method
-	public LinkedList<ILoadedRecordDTO> loadAllRecordsFromTable(final TableInfo tableInfo) {
+	public LinkedList<ILoadedRecordDTO> loadAllRecordsFromTable(final ITableInfo tableInfo) {
 		
 		final var tableNode =
 		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
@@ -67,7 +67,7 @@ public final class InternalDataReader {
 	
 	//method
 	public LinkedList<String> loadAllMultiReferenceEntriesForRecord(
-		final TableInfo tableInfo,
+		final ITableInfo tableInfo,
 		final String entityId,
 		final IColumnInfo multiReferenceColumnInfo
 	) {
@@ -86,7 +86,7 @@ public final class InternalDataReader {
 	
 	//method
 	public LinkedList<Object> loadMultiValueEntriesFromRecord(
-		final TableInfo tableInfo,
+		final ITableInfo tableInfo,
 		final String entityId,
 		final IColumnInfo multiValueColumnInfo
 	) {
@@ -107,7 +107,7 @@ public final class InternalDataReader {
 	}
 	
 	//method
-	public ILoadedRecordDTO loadRecordFromTableById(final TableInfo tableInfo, final String id) {
+	public ILoadedRecordDTO loadRecordFromTableById(final ITableInfo tableInfo, final String id) {
 		
 		final var tableNode =
 		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
@@ -119,7 +119,7 @@ public final class InternalDataReader {
 	
 	//method
 	public boolean tableContainsEntityWithGivenValueAtGivenColumn(
-		final TableInfo tableInfo,
+		final ITableInfo tableInfo,
 		final IColumnInfo columnInfo,
 		final String value
 	) {
