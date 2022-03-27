@@ -130,31 +130,42 @@ final class InternalDataReader {
 					value
 				);
 			case MULTI_VALUE:
-				return multiValueEntryTableContainsEntryWithGivenValueForGivenColumn(columnInfo.getColumnId(), value);
+				return multiValueEntryExistsForGivenColumnAndValue(columnInfo.getColumnId(), value);
 			case MULTI_REFERENCE:
 				return
-				multiReferenceEntryTableContainsEntryWithGivenValueForGivenColumn(columnInfo.getColumnId(), value);
+				multiReferenceEntryExistsForGivenColumnAndReferencedEntity(columnInfo.getColumnId(), value);
 			default:
 				throw new InvalidArgumentException(columnInfo.getColumnPropertyType());
 		}
 	}
 	
 	//method
-	private boolean multiReferenceEntryTableContainsEntryWithGivenValueForGivenColumn(
+	private boolean multiReferenceEntryExistsForGivenColumnAndReferencedEntity(
 		final String columnId,
-		final String value
+		final String referencedEntityId
 	) {
-		//TODO: Implement.
-		return false;
+		return
+		mSQLConnection.getRecords(
+			multiReferenceQueryCreator
+			.createQueryToLoadOneOrNoneMultiReferenceEntryForGivenColumnAndReferencedEntity(
+				columnId,
+				referencedEntityId
+			)
+		).containsAny();
 	}
 	
 	//method
-	private boolean multiValueEntryTableContainsEntryWithGivenValueForGivenColumn(
+	private boolean multiValueEntryExistsForGivenColumnAndValue(
 		final String columnId,
 		final String value
 	) {
-		//TODO: Implement.
-		return false;
+		return
+		mSQLConnection.getRecords(
+			multiValueQueryCreator.createQueryToLoadOneOrNoneMultiValueEntryForGivenColumnAndValue(
+				columnId,
+				value
+			)
+		).containsAny();
 	}
 	
 	//method

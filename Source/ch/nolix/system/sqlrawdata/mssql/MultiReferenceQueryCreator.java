@@ -28,6 +28,26 @@ public final class MultiReferenceQueryCreator implements IMultiReferenceQueryCre
 		+ MultiReferenceEntryTableColumn.MULTI_REFERENCE_COLUMN_ID.getName()
 		+ " = '"
 		+ multiReferenceColumnId
-		+ "'";
+		+ "';";
+	}
+	
+	//method
+	@Override
+	public String createQueryToLoadOneOrNoneMultiReferenceEntryForGivenColumnAndReferencedEntity(
+		final String columnId,
+		final String referencedEntityId
+	) {
+		return
+		"SELECT TOP 1 * FROM "
+		+ MultiContentTable.MULTI_REFERENCE_ENTRY.getFullName()
+		+ " WHERE "
+		+ MultiReferenceEntryTableColumn.MULTI_REFERENCE_COLUMN_ID.getName()
+		+ " = '"
+		+ columnId
+		+ "' AND "
+		+ MultiReferenceEntryTableColumn.REFERENCED_ENTITY_ID.getName()
+		+ " = '"
+		+ referencedEntityId
+		+ "';";
 	}
 }
