@@ -16,10 +16,11 @@ import ch.nolix.template.consoleclientlook.GreyBlueConsoleClientLookCreator;
  * @author Silvan Wyss
  * @date 2017-04-02
  * @param <AC> is
- * the type of the context of
- * the parent {@link Application} of the parent {@link BackendConsoleClientSession} of a {@link BaseBackendGUIClientSession}.
+ * the type of the context of the parent {@link Application} of the parent {@link BackendConsoleClientSession} of
+ * a {@link BaseBackendGUIClientSession}.
  */
-public abstract class BackendConsoleClientSession<AC> extends BaseBackendGUIClientSession<BackendConsoleClient<AC>, AC> {
+public abstract class BackendConsoleClientSession<AC>
+extends BaseBackendGUIClientSession<BackendConsoleClient<AC>, AC> {
 	
 	//attributes
 	private final Console infoPanel = new Console().setId(WidgetIdCatalogue.INFO_PANEL).setUneditable();
