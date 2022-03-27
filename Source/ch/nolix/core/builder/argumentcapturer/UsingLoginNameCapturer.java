@@ -16,7 +16,7 @@ public class UsingLoginNameCapturer<NAC extends BaseArgumentCapturer<?>> extends
 	}
 	
 	//method
-	public NAC usingLoginName(final String loginName) {
+	public final NAC usingLoginName(final String loginName) {
 		
 		Validator.assertThat(loginName).thatIsNamed(LowerCaseCatalogue.LOGIN_NAME).isNotBlank();
 		
@@ -24,7 +24,7 @@ public class UsingLoginNameCapturer<NAC extends BaseArgumentCapturer<?>> extends
 	}
 	
 	//method
-	public String getLoginName() {
+	public final String getLoginName() {
 		return getRefArgument();
 	}
 }

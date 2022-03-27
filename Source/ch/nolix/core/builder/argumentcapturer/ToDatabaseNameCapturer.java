@@ -16,12 +16,12 @@ public class ToDatabaseNameCapturer<NAC extends BaseArgumentCapturer<?>> extends
 	}
 	
 	//method
-	public String getDatabaseName() {
+	public final String getDatabaseName() {
 		return getRefArgument();
 	}
 	
 	//method
-	public NAC toDatabase(final String databaseName) {
+	public final NAC toDatabase(final String databaseName) {
 		
 		Validator.assertThat(databaseName).thatIsNamed(LowerCaseCatalogue.DATABASE_NAME).isNotBlank();
 		

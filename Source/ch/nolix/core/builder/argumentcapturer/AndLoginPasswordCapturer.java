@@ -16,7 +16,7 @@ public class AndLoginPasswordCapturer<NAC extends BaseArgumentCapturer<?>> exten
 	}
 	
 	//method
-	public NAC andLoginPassword(final String loginPassword) {
+	public final NAC andLoginPassword(final String loginPassword) {
 		
 		Validator.assertThat(loginPassword).thatIsNamed(LowerCaseCatalogue.LOGIN_PASSWORD).isNotBlank();
 		
@@ -24,7 +24,7 @@ public class AndLoginPasswordCapturer<NAC extends BaseArgumentCapturer<?>> exten
 	}
 	
 	//method
-	public String getLoginPassword() {
+	public final String getLoginPassword() {
 		return getRefArgument();
 	}
 }

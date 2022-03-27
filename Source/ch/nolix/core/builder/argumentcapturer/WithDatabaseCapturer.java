@@ -17,12 +17,12 @@ public class WithDatabaseCapturer<
 	}
 	
 	//method
-	public D getRefDatabase() {
+	public final D getRefDatabase() {
 		return getRefArgument();
 	}
 	
 	//method
-	public NAC withDatabase(final D database) {
+	public final NAC withDatabase(final D database) {
 		return setArgumentAndGetRefNextArgumentCapturer(database);
 	}
 }

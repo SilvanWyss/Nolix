@@ -16,7 +16,7 @@ public class AndDatabaseNameCapturer<NAC extends BaseArgumentCapturer<?>> extend
 	}
 	
 	//method
-	public NAC andDatabase(final String databaseName) {
+	public final NAC andDatabase(final String databaseName) {
 		
 		Validator.assertThat(databaseName).thatIsNamed(LowerCaseCatalogue.DATABASE_NAME).isNotBlank();
 		
@@ -24,7 +24,7 @@ public class AndDatabaseNameCapturer<NAC extends BaseArgumentCapturer<?>> extend
 	}
 	
 	//method
-	public String getDatabaseName() {
+	public final String getDatabaseName() {
 		return getRefArgument();
 	}
 }

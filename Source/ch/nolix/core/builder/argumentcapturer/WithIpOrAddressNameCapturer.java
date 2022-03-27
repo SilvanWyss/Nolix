@@ -10,18 +10,18 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 //class
 public class WithIpOrAddressNameCapturer<NAC extends BaseArgumentCapturer<?>> extends ArgumentCapturer<String, NAC> {
 	
-	//method
+	//constructor
 	public WithIpOrAddressNameCapturer(final NAC nextArgumentCapturer) {
 		super(nextArgumentCapturer);
 	}
 	
 	//method
-	public String getIpOrAddressName() {
+	public final String getIpOrAddressName() {
 		return getRefArgument();
 	}
 	
 	//method
-	public NAC withIpOrAddressName(final String ipOrAddressName) {
+	public final NAC withIpOrAddressName(final String ipOrAddressName) {
 		
 		Validator.assertThat(ipOrAddressName).thatIsNamed("ip or address name").isNotBlank();
 		
@@ -29,7 +29,7 @@ public class WithIpOrAddressNameCapturer<NAC extends BaseArgumentCapturer<?>> ex
 	}
 	
 	//method
-	public NAC withLocalAddress() {
+	public final NAC withLocalAddress() {
 		return withIpOrAddressName(IPv4Catalogue.LOOP_BACK_ADDRESS);
 	}
 }

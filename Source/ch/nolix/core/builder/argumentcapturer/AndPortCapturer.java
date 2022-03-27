@@ -28,12 +28,12 @@ public class AndPortCapturer<NAC extends BaseArgumentCapturer<?>> extends Argume
 	}
 	
 	//method
-	public NAC andDefaultPort() {
+	public final NAC andDefaultPort() {
 		return andPort(defaultPort);
 	}
 	
 	//method
-	public NAC andPort(final int port) {
+	public final NAC andPort(final int port) {
 		
 		Validator
 		.assertThat(port)
@@ -44,7 +44,7 @@ public class AndPortCapturer<NAC extends BaseArgumentCapturer<?>> extends Argume
 	}
 	
 	//method
-	public int getPort() {
+	public final int getPort() {
 		return getRefArgument();
 	}
 }
