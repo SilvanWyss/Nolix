@@ -23,7 +23,7 @@ implements IReference<DataImplementation, E> {
 	}
 	
 	//static method
-	public static Reference<GeneralEntity> forEntityWithTableName(final String tableName) {
+	public static Reference<BaseEntity> forEntityWithTableName(final String tableName) {
 		return new Reference<>(tableName);
 	}
 	

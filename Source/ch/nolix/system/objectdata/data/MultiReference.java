@@ -31,7 +31,7 @@ implements IMultiReference<DataImplementation, E> {
 	}
 	
 	//static method
-	public static MultiReference<GeneralEntity> forEntityWithTableName(final String tableName) {
+	public static MultiReference<BaseEntity> forEntityWithTableName(final String tableName) {
 		return new MultiReference<>(tableName);
 	}
 	

@@ -23,7 +23,7 @@ implements IOptionalReference<DataImplementation, E> {
 	}
 	
 	//static method
-	public static OptionalReference<GeneralEntity> forEntityWithTableName(final String tableName) {
+	public static OptionalReference<BaseEntity> forEntityWithTableName(final String tableName) {
 		return new OptionalReference<>(tableName);
 	}
 	

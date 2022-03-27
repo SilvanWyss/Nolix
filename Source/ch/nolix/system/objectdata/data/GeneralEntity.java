@@ -7,6 +7,9 @@ import ch.nolix.core.container.IContainer;
 //class
 public final class GeneralEntity extends BaseEntity {
 	
+	//static attribute
+	private static final PropertyFromTableExtractor propertyFromTableExtractor = new PropertyFromTableExtractor();
+	
 	//static method
 	public GeneralEntity forTable(final Table<GeneralEntity> table) {
 		return new GeneralEntity(table);
@@ -29,7 +32,6 @@ public final class GeneralEntity extends BaseEntity {
 	//method
 	@Override
 	IContainer<Property> internalLoadProperties() {
-		//TODO: Implement.
-		return null;
+		return propertyFromTableExtractor.createPropertiesFromTable(getParentTable());
 	}
 }
