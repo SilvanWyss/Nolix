@@ -130,6 +130,17 @@ public abstract class Property implements IProperty<DataImplementation> {
 		return ((BaseEntity)parentEntity).internalGetRefDataAndSchemaAdapter();
 	}
 	
+	//method declaration
+	abstract void internalSetOrClearDirectlyFromContent(Object content);
+	
+	//method
+	final void internalSetParentColumn(final IColumn<DataImplementation> parentColumn) {
+		
+		Validator.assertThat(parentColumn).thatIsNamed("parent column").isNotNull();
+		
+		this.parentColumn = parentColumn;
+	}
+	
 	//method
 	final void internalSetParentColumnFromParentTable() {
 		final var name = getName();
@@ -145,9 +156,6 @@ public abstract class Property implements IProperty<DataImplementation> {
 		this.parentEntity = parentEntity;
 		setParentColumnFromParentTableIfParentEntityBelongsToTable(parentEntity);
 	}
-	
-	//method
-	abstract void internalSetOrClearDirectlyFromContent(final Object content);
 	
 	//method
 	final void internalSetParentEntityAsEditedAndRunProbableUpdateAction() {
