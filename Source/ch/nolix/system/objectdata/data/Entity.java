@@ -8,7 +8,7 @@ import ch.nolix.core.container.IContainer;
 public abstract class Entity extends BaseEntity {
 	
 	//static attribute
-	private static final PropertyExtractor propertyExtractor = new PropertyExtractor();
+	private static final PropertyFromEntityExtractor propertyFromEntityExtractor = new PropertyFromEntityExtractor();
 	
 	//method
 	@Override
@@ -19,6 +19,6 @@ public abstract class Entity extends BaseEntity {
 	//method
 	@Override
 	final IContainer<Property> internalLoadProperties() {
-		return propertyExtractor.getRefPropertiesFrom(this);
+		return propertyFromEntityExtractor.getRefPropertiesFrom(this);
 	}
 }

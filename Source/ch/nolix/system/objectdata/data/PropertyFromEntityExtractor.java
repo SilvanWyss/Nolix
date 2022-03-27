@@ -10,14 +10,14 @@ import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.reflectionhelper.GlobalFieldHelper;
 
 //class
-final class PropertyExtractor {
+final class PropertyFromEntityExtractor {
 	
 	//method
-	public LinkedList<Property> getRefPropertiesFrom(final Object object) {
+	public LinkedList<Property> getRefPropertiesFrom(final Object entity) {
 		
 		final var properties = new LinkedList<Property>();
 		
-		fillUpPropertiesFromGivenObjectIntoGivenList(object, properties);
+		fillUpPropertiesFromGivenObjectIntoGivenList(entity, properties);
 				
 		return properties;
 	}
