@@ -2,8 +2,11 @@
 package ch.nolix.system.objectdata.parametrizedpropertytype;
 
 //own imports
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.systemapi.objectdataapi.dataapi.IBaseParametrizedBackReferenceType;
+import ch.nolix.systemapi.objectdataapi.dataapi.IBaseParametrizedReferenceType;
+import ch.nolix.systemapi.objectdataapi.dataapi.IBaseParametrizedValueType;
 import ch.nolix.systemapi.objectdataapi.dataapi.IColumn;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
@@ -25,6 +28,24 @@ implements IBaseParametrizedBackReferenceType<IMPL, C>{
 		Validator.assertThat(backReferencedColumn).thatIsNamed("back referenced column").isNotNull();
 		
 		this.backReferencedColumn = backReferencedColumn;
+	}
+	
+	//method
+	@Override
+	public final IBaseParametrizedBackReferenceType<IMPL, C> asBaseParametrizedBackReferenceType() {
+		return this;
+	}
+	
+	//method
+	@Override
+	public final IBaseParametrizedReferenceType<IMPL, ?> asBaseParametrizedReferenceType() {
+		throw new ArgumentDoesNotSupportMethodException(this, "asBaseParametrizedReferenceType");
+	}
+	
+	//method
+	@Override
+	public final IBaseParametrizedValueType<IMPL, ?> asBaseParametrizedValueType() {
+		throw new ArgumentDoesNotSupportMethodException(this, "asBaseParametrizedValueType");
 	}
 	
 	//method
