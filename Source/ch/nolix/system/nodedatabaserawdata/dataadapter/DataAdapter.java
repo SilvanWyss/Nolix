@@ -16,8 +16,13 @@ public final class DataAdapter extends BaseDataAdapter {
 	//static attribute
 	private static final TableDefinitionLoader tableDefinitionLoader = new TableDefinitionLoader();
 	
+	//static method
+	public static DataAdapter forNodeDatabase(final BaseNode nodeDatabase) {
+		return new DataAdapter(nodeDatabase);
+	}
+	
 	//constructor
-	public DataAdapter(final BaseNode nodeDatabase) {
+	private DataAdapter(final BaseNode nodeDatabase) {
 		this(nodeDatabase, tableDefinitionLoader.loadTableDefinitionsFromDatabaseNode(nodeDatabase));
 	}
 	

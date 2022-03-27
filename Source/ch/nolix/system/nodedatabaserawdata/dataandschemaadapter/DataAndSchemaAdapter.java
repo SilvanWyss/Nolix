@@ -23,6 +23,6 @@ public final class DataAndSchemaAdapter extends BaseDataAndSchemaAdapter {
 	
 	//constructor
 	private DataAndSchemaAdapter(final BaseNode nodeDatabase) {
-		super(new DataAdapter(nodeDatabase), SchemaAdapter.forDatabaseNode(nodeDatabase));
+		super(DataAdapter.forNodeDatabase(nodeDatabase), SchemaAdapter.forDatabaseNode(nodeDatabase));
 	}
 }
