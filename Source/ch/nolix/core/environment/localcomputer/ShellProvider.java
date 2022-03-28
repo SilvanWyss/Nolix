@@ -34,8 +34,13 @@ public final class ShellProvider {
 	
 	//static method
 	public static void startDefaultWebBrowserOpeningLoopBackAddress() {
+		startDefaultWebBrowserOpeningURL(IPv4Catalogue.LOOP_BACK_ADDRESS);
+	}
+	
+	//static method
+	public static void startDefaultWebBrowserOpeningURL(final String pURL) {
 		try {
-			Desktop.getDesktop().browse(new URI("http://" + IPv4Catalogue.LOOP_BACK_ADDRESS));
+			Desktop.getDesktop().browse(new URI(pURL));
 		} catch (final IOException | URISyntaxException exception) {
 			throw new WrapperException(exception);
 		}
