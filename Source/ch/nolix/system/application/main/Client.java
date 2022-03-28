@@ -181,9 +181,7 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable, IFl
 	protected final void runOnCounterpart(final Iterable<ChainedNode> commands) {
 		getRefEndPoint().run(commands);
 	}
-	
-
-	
+		
 	//method
 	/**
 	 * Sets the {@link EndPoint} of the current {@link Client}.

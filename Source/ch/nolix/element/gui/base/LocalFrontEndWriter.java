@@ -7,11 +7,18 @@ import javax.swing.JFileChooser;
 //own imports
 import ch.nolix.core.environment.filesystem.FileSystemAccessor;
 import ch.nolix.core.environment.localcomputer.PopupWindowProvider;
+import ch.nolix.core.environment.localcomputer.ShellProvider;
 import ch.nolix.core.programcontrol.processproperty.WriteMode;
 import ch.nolix.element.gui.baseapi.IFrontEndWriter;
 
 //class
 public final class LocalFrontEndWriter implements IFrontEndWriter {
+	
+	//method
+	@Override
+	public void openNewTabWithURL(final String pURL) {
+		ShellProvider.startDefaultWebBrowserOpeningURL(pURL);
+	}
 	
 	//method
 	@Override

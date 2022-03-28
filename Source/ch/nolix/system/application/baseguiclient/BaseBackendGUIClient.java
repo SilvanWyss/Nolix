@@ -134,6 +134,19 @@ public abstract class BaseBackendGUIClient<
 	}
 	
 	//method
+	final void internalOpenNewTabOnCounterpartWithURL(final String pURL) {
+		runOnCounterpart(
+			ChainedNode.withHeaderAndAttribute(
+				CommandProtocol.OPEN_NEW_TAB,
+				ChainedNode.withHeaderAndAttribute(
+					ObjectProtocol.URL,
+					ChainedNode.withHeader(pURL)
+				)
+			)
+		);
+	}
+	
+	//method
 	final void internalRunOnCounterpart(final Iterable<ChainedNode> commands) {
 		runOnCounterpart(commands);
 	}

@@ -9,19 +9,25 @@ import ch.nolix.element.gui.baseapi.IFrontEndWriter;
 final class BaseBackendGIUIClientFrontendWriter implements IFrontEndWriter {
 	
 	//attribute
-	private final BaseBackendGUIClient<?, ?> parentBackGUIClient;
+	private final BaseBackendGUIClient<?, ?> parentBackendGUIClient;
 	
 	//constructor
-	public BaseBackendGIUIClientFrontendWriter(final BaseBackendGUIClient<?, ?> parentBackGUIClient) {
+	public BaseBackendGIUIClientFrontendWriter(final BaseBackendGUIClient<?, ?> parentBackendGUIClient) {
 		
-		Validator.assertThat(parentBackGUIClient).thatIsNamed("parent BackGUIClient").isNotNull();
+		Validator.assertThat(parentBackendGUIClient).thatIsNamed("parent backend GUI client").isNotNull();
 		
-		this.parentBackGUIClient = parentBackGUIClient;
+		this.parentBackendGUIClient = parentBackendGUIClient;
+	}
+	
+	//method
+	@Override
+	public void openNewTabWithURL(final String pURL) {
+		parentBackendGUIClient.internalOpenNewTabOnCounterpartWithURL(pURL);	
 	}
 	
 	//method
 	@Override
 	public void saveFile(byte[] bytes) {
-		parentBackGUIClient.saveFileOnCounterpart(bytes);
+		parentBackendGUIClient.saveFileOnCounterpart(bytes);
 	}
 }

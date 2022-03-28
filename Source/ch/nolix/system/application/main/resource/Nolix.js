@@ -475,18 +475,37 @@ define("Common/Node/Node", ["require", "exports", "Common/Container/LinkedList"]
             this.attributes = new LinkedList_3.LinkedList();
         }
         static createOriginStringFromReproducingString(reproducinString) {
-            if (reproducinString === null) {
-                throw new Error('The given reproducing string is null.');
+            var originString = '';
+            for (var i = 0; i < reproducinString.length; i++) {
+                switch (reproducinString[i]) {
+                    case '$':
+                        switch (reproducinString[i + 1]) {
+                            case 'D':
+                                originString += '.';
+                                break;
+                            case 'M':
+                                originString += '.';
+                                break;
+                            case 'X':
+                                originString += '.';
+                                break;
+                            case 'O':
+                                originString += '.';
+                                break;
+                            case 'C':
+                                originString += '.';
+                                break;
+                            default:
+                                throw new Error('The given reproducing string is not valid.');
+                        }
+                        i++;
+                        break;
+                    default:
+                        originString += reproducinString[i];
+                        break;
+                }
             }
-            if (reproducinString === undefined) {
-                throw new Error('The given reproducing string is undefined.');
-            }
-            return reproducinString
-                .replace(this.DOT_CODE, '.')
-                .replace(this.COMMA_CODE, ',')
-                .replace(this.OPEN_BRACKET_CODE, '(')
-                .replace(this.CLOSED_BRACKET_CODE, ')')
-                .replace(this.DOLLAR_SYMBOL_CODE, '$');
+            return originString;
         }
         static createReproducingString(string) {
             if (string === null) {
@@ -673,11 +692,11 @@ define("Common/Node/Node", ["require", "exports", "Common/Container/LinkedList"]
             }
         }
     }
-    Node.DOT_CODE = "$D";
-    Node.COMMA_CODE = "$M";
-    Node.DOLLAR_SYMBOL_CODE = "$X";
-    Node.OPEN_BRACKET_CODE = "$O";
-    Node.CLOSED_BRACKET_CODE = "$C";
+    Node.DOT_CODE = '$D';
+    Node.COMMA_CODE = '$M';
+    Node.DOLLAR_SYMBOL_CODE = '$X';
+    Node.OPEN_BRACKET_CODE = '$O';
+    Node.CLOSED_BRACKET_CODE = '$C';
     exports.Node = Node;
 });
 define("Common/Constant/StringCatalogue", ["require", "exports"], function (require, exports) {
@@ -2996,6 +3015,13 @@ define("Element/CanvasGUI/CanvasGUI", ["require", "exports", "Common/Caching/Cac
             console.log('The current CanvasGUI notes a right mouse button release.');
             this.inputTaker.noteRightMouseButtonRelease();
         }
+        openNewTabWithURL(pURL) {
+            if (!pURL.startsWith('http://')) {
+                pURL = 'http://' + pURL;
+            }
+            console.log('The current CanvasGUI opens a new tab with the URL \'' + pURL + '\'');
+            this.window.open(pURL, '_blank');
+        }
         refresh() {
             console.log('The current CanvasGUI refreshes.');
             this.canvasRenderingContext2D.clearRect(0, 0, this.getViewAreaWidth(), this.getViewAreaHeight());
@@ -3519,6 +3545,7 @@ define("System/FrontCanvasGUIClient/FrontCanvasGUIClientCommandProtocol", ["requ
         constructor() { }
     }
     FrontCanvasGUIClientCommandProtocol.NOTE_INPUT = 'NoteInput';
+    FrontCanvasGUIClientCommandProtocol.OPEN_NEW_TAB = 'OpenNewTab';
     FrontCanvasGUIClientCommandProtocol.RECEIVE_OPTIONAL_FILE = 'ReceiveOptionalFile';
     FrontCanvasGUIClientCommandProtocol.SEND_OPTIONAL_FILE = 'SendOptionalFile';
     FrontCanvasGUIClientCommandProtocol.SET_CURSOR_ICON = 'SetCursorIcon';
@@ -3535,6 +3562,7 @@ define("System/FrontCanvasGUIClient/FrontCanvasGUIClientObjectProtocol", ["requi
     }
     FrontCanvasGUIClientObjectProtocol.CLIP_BOARD_TEXT = 'ClipBoardText';
     FrontCanvasGUIClientObjectProtocol.GUI = 'GUI';
+    FrontCanvasGUIClientObjectProtocol.URL = 'URL';
     FrontCanvasGUIClientObjectProtocol.VIEW_AREA_SIZE = 'ViewAreaSize';
     exports.FrontCanvasGUIClientObjectProtocol = FrontCanvasGUIClientObjectProtocol;
 });
@@ -3567,6 +3595,9 @@ define("System/FrontCanvasGUIClient/GUIHandler", ["require", "exports", "Element
         }
         getViewAreaSize() {
             return this.mGUI.getViewAreaSize();
+        }
+        openNewTabWithURL(pURL) {
+            this.mGUI.openNewTabWithURL(pURL);
         }
         runGUICommand(pGUICommand) {
             switch (pGUICommand.getHeader()) {
@@ -3751,6 +3782,9 @@ define("System/FrontCanvasGUIClient/FrontCanvasGUIClient", ["require", "exports"
                 case FrontCanvasGUIClientObjectProtocol_2.FrontCanvasGUIClientObjectProtocol.GUI:
                     this.mGUIHandler.runGUICommand(command.getNextNode());
                     break;
+                case FrontCanvasGUIClientCommandProtocol_2.FrontCanvasGUIClientCommandProtocol.OPEN_NEW_TAB:
+                    this.runOpenNewTabCommand(command);
+                    break;
                 case FrontCanvasGUIClientCommandProtocol_2.FrontCanvasGUIClientCommandProtocol.SEND_OPTIONAL_FILE:
                     this.mGUIHandler.getOptionalFile(fileContainer => this.sendOptionalFile(fileContainer));
                     break;
@@ -3758,10 +3792,21 @@ define("System/FrontCanvasGUIClient/FrontCanvasGUIClient", ["require", "exports"
                     throw new Error('The given command is not valid.');
             }
         }
+        openNewTabWithURL(pURL) {
+            this.mGUIHandler.openNewTabWithURL(pURL);
+        }
         runOnConunterpart(command) {
             if (this.endPoint !== undefined) {
                 this.endPoint.run(command);
             }
+        }
+        runOpenNewTabCommand(openNewTabCommand) {
+            const lURL = openNewTabCommand
+                .getAttributes()
+                .getRefFirstByCondition(a => a.hasGivenHeader(FrontCanvasGUIClientObjectProtocol_2.FrontCanvasGUIClientObjectProtocol.URL))
+                .getOneAttribute()
+                .getHeader();
+            this.openNewTabWithURL(lURL);
         }
         sendOptionalFile(fileContainer) {
             if (fileContainer.isEmpty()) {

@@ -66,6 +66,9 @@ public abstract class BaseFrontendGUIClient<FGC extends BaseFrontendGUIClient<FG
 			case ObjectProtocol.GUI:
 				mGUIHandler.runGUICommand(command.getNextNode());
 				break;
+			case CommandProtocol.OPEN_NEW_TAB:
+				runOpenNewTabCommand(command);
+				break;
 			case CommandProtocol.SAVE_FILE:
 				saveFile(command.getOneAttributeAsString().getBytes(StandardCharsets.UTF_8));
 				break;
@@ -105,10 +108,24 @@ public abstract class BaseFrontendGUIClient<FGC extends BaseFrontendGUIClient<FG
 	private GUI<?> getRefGUI() {
 		return mGUIHandler.getRefGUI();
 	}
-		
+	
+	//method
+	private void openNewTabWithURL(final String pURL) {
+		mGUIHandler.getRefGUI().onFrontEnd().openNewTabWithURL(pURL);
+	}
+	
 	//method
 	private SingleContainer<byte[]> readFileToBytes() {
 		return getRefGUI().fromFrontEnd().readFileToBytes();
+	}
+	
+	//method
+	private void runOpenNewTabCommand(final ChainedNode command) {
+		
+		final var lURL =
+		command.getAttributes().getRefFirst(a -> a.hasHeader(ObjectProtocol.URL)).getOneAttribute().getHeader();
+		
+		openNewTabWithURL(lURL);
 	}
 	
 	//method
