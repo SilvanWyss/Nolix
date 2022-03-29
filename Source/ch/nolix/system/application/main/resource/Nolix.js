@@ -2907,6 +2907,7 @@ define("Element/CanvasGUI/CanvasGUI", ["require", "exports", "Common/Caching/Cac
             this.window = window;
             this.canvas = window.document.createElement('canvas');
             this.window.document.body.appendChild(this.canvas);
+            this.window.document.body.style.margin = '0px';
             this.canvasRenderingContext2D = this.canvas.getContext('2d');
             this.updateCanvasSize();
             this.connectInputMethods();
@@ -3251,8 +3252,8 @@ define("Element/CanvasGUI/CanvasGUI", ["require", "exports", "Common/Caching/Cac
             this.cursorYPositionOnViewArea = cursorYPositionOnViewArea;
         }
         updateCanvasSize() {
-            this.viewAreaWidth = this.window.document.body.clientWidth;
-            this.viewAreaHeight = this.window.innerHeight - 50;
+            this.viewAreaWidth = this.window.innerWidth;
+            this.viewAreaHeight = this.window.innerHeight - 5;
             this.canvas.width = CanvasGUI.MONITOR_PIXELS_PER_MODEL_PIXEL * this.getViewAreaWidth();
             this.canvas.height = CanvasGUI.MONITOR_PIXELS_PER_MODEL_PIXEL * this.getViewAreaHeight();
             this.canvas.style.width = this.getViewAreaWidth() + 'px';
