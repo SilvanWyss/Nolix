@@ -7,8 +7,8 @@ import ch.nolix.element.elementenum.ExtendedContentPosition;
 import ch.nolix.element.gui.base.Layer;
 import ch.nolix.element.gui.widget.Label;
 import ch.nolix.element.gui.widget.WidgetLookState;
-import ch.nolix.system.application.guiclient.BackendGUIClientSession;
-import ch.nolix.system.application.guiclient.FrontendGUIClient;
+import ch.nolix.system.application.guiapplication.BackendGUIClientSession;
+import ch.nolix.system.application.guiapplication.FrontendGUIClient;
 import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.main.VoidApplicationContext;
 

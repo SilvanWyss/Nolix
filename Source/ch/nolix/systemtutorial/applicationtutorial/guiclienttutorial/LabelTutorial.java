@@ -8,8 +8,8 @@ import ch.nolix.element.gui.containerwidget.HorizontalStack;
 import ch.nolix.element.gui.widget.Label;
 import ch.nolix.element.gui.widget.WidgetLookState;
 import ch.nolix.element.time.base.Time;
-import ch.nolix.system.application.guiclient.BackendGUIClientSession;
-import ch.nolix.system.application.guiclient.FrontendGUIClient;
+import ch.nolix.system.application.guiapplication.BackendGUIClientSession;
+import ch.nolix.system.application.guiapplication.FrontendGUIClient;
 import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.main.VoidApplicationContext;
 

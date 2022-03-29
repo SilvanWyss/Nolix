@@ -20,7 +20,7 @@ import ch.nolix.element.gui.input.IResizableInputTaker;
 import ch.nolix.element.gui.input.Key;
 import ch.nolix.element.gui.painterapi.IPainter;
 import ch.nolix.element.gui.textformat.TextFormat;
-import ch.nolix.system.application.baseguiclient.PaintRun;
+import ch.nolix.system.application.baseguiapplication.PaintRun;
 
 //class
 public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {

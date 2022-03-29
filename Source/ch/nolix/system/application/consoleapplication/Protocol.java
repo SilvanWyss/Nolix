@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.application.consoleclient;
+package ch.nolix.system.application.consoleapplication;
 
 //class
 /**

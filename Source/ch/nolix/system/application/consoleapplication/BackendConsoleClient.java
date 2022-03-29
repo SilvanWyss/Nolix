@@ -1,12 +1,12 @@
 //package declaration
-package ch.nolix.system.application.consoleclient;
+package ch.nolix.system.application.consoleapplication;
 
 //own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.system.application.baseguiclient.BaseBackendGUIClient;
+import ch.nolix.system.application.baseguiapplication.BaseBackendGUIClient;
 
 //class
 /**

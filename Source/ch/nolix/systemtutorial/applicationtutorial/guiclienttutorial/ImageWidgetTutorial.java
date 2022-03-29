@@ -7,8 +7,8 @@ import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.image.MutableImage;
 import ch.nolix.element.gui.widget.ImageWidget;
 import ch.nolix.element.gui.widget.WidgetLookState;
-import ch.nolix.system.application.guiclient.BackendGUIClientSession;
-import ch.nolix.system.application.guiclient.FrontendGUIClient;
+import ch.nolix.system.application.guiapplication.BackendGUIClientSession;
+import ch.nolix.system.application.guiapplication.FrontendGUIClient;
 import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.main.VoidApplicationContext;
 

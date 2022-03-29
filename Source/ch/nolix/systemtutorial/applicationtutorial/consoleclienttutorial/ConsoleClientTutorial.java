@@ -1,9 +1,8 @@
 package ch.nolix.systemtutorial.applicationtutorial.consoleclienttutorial;
 
-//own imports
-import ch.nolix.system.application.consoleclient.BackendConsoleClient;
-import ch.nolix.system.application.consoleclient.BackendConsoleClientSession;
-import ch.nolix.system.application.consoleclient.FrontendConsoleClient;
+import ch.nolix.system.application.consoleapplication.BackendConsoleClient;
+import ch.nolix.system.application.consoleapplication.BackendConsoleClientSession;
+import ch.nolix.system.application.consoleapplication.FrontendConsoleClient;
 import ch.nolix.system.application.main.Application;
 import ch.nolix.system.application.main.VoidApplicationContext;
 import ch.nolix.template.consoleclientlook.BlackRedConsoleClientLookCreator;

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.application.consoleclient;
+package ch.nolix.system.application.consoleapplication;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -8,7 +8,7 @@ import ch.nolix.element.gui.base.WidgetIdCatalogue;
 import ch.nolix.element.gui.containerwidget.ContainerRole;
 import ch.nolix.element.gui.containerwidget.VerticalStack;
 import ch.nolix.element.gui.widget.Console;
-import ch.nolix.system.application.baseguiclient.BaseBackendGUIClientSession;
+import ch.nolix.system.application.baseguiapplication.BaseBackendGUIClientSession;
 import ch.nolix.template.consoleclientlook.GreyBlueConsoleClientLookCreator;
 
 //class

@@ -3,8 +3,8 @@ package ch.nolix.systemtutorial.applicationtutorial.consoleclienttutorial;
 //own imports
 import ch.nolix.core.environment.localcomputer.ShellProvider;
 import ch.nolix.core.programcontrol.sequencer.Sequencer;
-import ch.nolix.system.application.consoleclient.BackendConsoleClientSession;
-import ch.nolix.system.application.consoleclient.FrontendConsoleClient;
+import ch.nolix.system.application.consoleapplication.BackendConsoleClientSession;
+import ch.nolix.system.application.consoleapplication.FrontendConsoleClient;
 import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.main.VoidApplicationContext;
 import ch.nolix.template.consoleclientlook.BlackRedConsoleClientLookCreator;

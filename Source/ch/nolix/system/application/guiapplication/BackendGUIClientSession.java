@@ -1,8 +1,7 @@
 //package declaration
-package ch.nolix.system.application.guiclient;
+package ch.nolix.system.application.guiapplication;
 
-//own imports
-import ch.nolix.system.application.baseguiclient.BaseBackendGUIClientSession;
+import ch.nolix.system.application.baseguiapplication.BaseBackendGUIClientSession;
 
 //class
 public abstract class BackendGUIClientSession<AC> extends BaseBackendGUIClientSession<BackendGUIClient<AC>, AC> {
