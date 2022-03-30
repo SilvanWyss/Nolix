@@ -581,9 +581,22 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 * Removes any former background of the current {@link WidgetGUI}.
 	 * 
 	 * @param backgroundImage
+	 * @return the current {@link WidgetGUI}.
+	 * @throws ArgumentIsNullException if the given backgroundImage is null.
+	 */
+	public final WG setBackgroundImage(final MutableImage backgroundImage) {
+		return setBackgroundImage(backgroundImage, ImageApplication.SCALE_TO_FRAME);
+	}
+	
+	//method
+	/**
+	 * Sets the background {@link MutableImage} of the current {@link WidgetGUI}.
+	 * Removes any former background of the current {@link WidgetGUI}.
+	 * 
+	 * @param backgroundImage
 	 * @param imageApplication
 	 * @return the current {@link WidgetGUI}.
-	 * @throws ArgumentIsNullException if the given backgroundColor is null.
+	 * @throws ArgumentIsNullException if the given backgroundImage is null.
 	 * @throws ArgumentIsNullException if the given imageApplication is null.
 	 */
 	public final WG setBackgroundImage(final MutableImage backgroundImage, final ImageApplication imageApplication) {
