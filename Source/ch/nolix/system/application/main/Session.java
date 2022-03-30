@@ -7,6 +7,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.requestapi.CloseStateRequestable;
 
 //class
 /**
@@ -21,7 +22,7 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 public abstract class Session<
 	BC extends BackendClient<BC, AC>,
 	AC
-> {
+> implements CloseStateRequestable {
 	
 	//attribute
 	private BC parentClient;
@@ -70,9 +71,20 @@ public abstract class Session<
 	public final BC getParentClient() {
 		
 		//Asserts that the current {@link Session} belonts to a client.
-		supposeBelongsToClient();
+		assertBelongsToClient();
 		
 		return parentClient;
+	}
+	
+	//method
+	@Override
+	public boolean isClosed() {
+		
+		if (!belongsToClient()) {
+			return false;
+		}
+		
+		return getParentClient().isClosed();
 	}
 	
 	//method
@@ -186,7 +198,7 @@ public abstract class Session<
 		Validator.assertThat(parentClient).thatIsNamed("parent client").isNotNull();
 		
 		//Asserts that the current session does not belong to a client.
-		suppoeDoesNotBelongToClient();
+		assertDoesNotBelongToClient();
 						
 		//Sets the parent client of the current session.
 		this.parentClient = parentClient;
@@ -207,7 +219,7 @@ public abstract class Session<
 	/**
 	 * @throws InvalidArgumentException if the current {@link Session} does not belong to a client.
 	 */
-	private void supposeBelongsToClient() {
+	private void assertBelongsToClient() {
 		
 		//Asserts that the current {@link Session} belongs to a client.
 		if (!belongsToClient()) {
@@ -219,7 +231,7 @@ public abstract class Session<
 	/**
 	 * @throws InvalidArgumentException if the current {@link Session} belongs to a client.
 	 */
-	private void suppoeDoesNotBelongToClient() {
+	private void assertDoesNotBelongToClient() {
 		
 		//Asserts that the current {@link Session} does not belong to a client.
 		if (belongsToClient()) {
