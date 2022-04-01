@@ -398,7 +398,18 @@ public final class ChainedNode implements OptionalHeadered {
 		
 		return getEscapeStringFor(header);
 	}
-
+	
+	//method
+	/**
+	 * @param header
+	 * @return the first attribute with the given header from the current {@link ChainedNode}.
+	 * @throws ArgumentDoesNotHaveAttributeException if
+	 * the current {@link ChainedNode} does not contain an attribute with the given header.
+	 */
+	public ChainedNode getFirstAttributeWithHeader(final String header) {
+		return getAttributes().getRefFirst(a -> a.hasHeader(header));
+	}
+	
 	//method
 	/**
 	 * @return the header of the current {@link ChainedNode}.
