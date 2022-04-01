@@ -18,8 +18,8 @@ public final class FrontendGUIClient extends BaseFrontendGUIClient<FrontendGUICl
 	
 	//constructor
 	/**
-	 * Creates a new {@link FrontendGUIClient} that will connect to the default application
-	 * on the default port on the local machine.
+	 * Creates a new {@link FrontendGUIClient} that will connect to
+	 * the default application on the default port on the local computer.
 	 */
 	public FrontendGUIClient() {
 		connectTo(Server.DEFAULT_PORT);
@@ -38,8 +38,8 @@ public final class FrontendGUIClient extends BaseFrontendGUIClient<FrontendGUICl
 	
 	//constructor
 	/**
-	 * Creates a new {@link FrontendGUIClient} that will connect to the main application
-	 * on the given port on the local machine.
+	 * Creates a new {@link FrontendGUIClient} that will connect to
+	 * the default application on the given port on the local computer.
 	 * 
 	 * @param port
 	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
@@ -50,8 +50,8 @@ public final class FrontendGUIClient extends BaseFrontendGUIClient<FrontendGUICl
 	
 	//constructor
 	/**
-	 * Creates a new {@link FrontendGUIClient} that will connect
-	 * to the given application on the given port on the local machine.
+	 * Creates a new {@link FrontendGUIClient} that will connect to
+	 * the given application on the given port on the local computer.
 	 * 
 	 * @param port
 	 * @param application
@@ -65,8 +65,18 @@ public final class FrontendGUIClient extends BaseFrontendGUIClient<FrontendGUICl
 	
 	//constructor
 	/**
+	 * Creates a new {@link FrontendGUIClient} that will connect to the default application of the given server.
+	 * 
+	 * @param server
+	 */
+	public FrontendGUIClient(final Server server) {
+		connectTo(server.getRefDefaultApplication());
+	}
+	
+	//constructor
+	/**
 	 * Creates a new {@link FrontendGUIClient} that will connect to
-	 * the default {@link Application} on the {@link Server#DEFAULT_PORT} on the machine with the given ip.
+	 * the default application on the default port on the computer with the given ip.
 	 * 
 	 * @param ip
 	 */
@@ -76,8 +86,8 @@ public final class FrontendGUIClient extends BaseFrontendGUIClient<FrontendGUICl
 	
 	//constructor
 	/**
-	 * Creates a new {@link FrontendGUIClient} that will connect
-	 * to the main application on the given port on the machine with the given ip.
+	 * Creates a new {@link FrontendGUIClient} that will connect to
+	 * the main application on the given port on the computer with the given ip.
 	 * 
 	 * @param ip
 	 * @param port
@@ -89,8 +99,8 @@ public final class FrontendGUIClient extends BaseFrontendGUIClient<FrontendGUICl
 	
 	//constructor
 	/**
-	 * Creates a new {@link FrontendGUIClient} that will connect
-	 * to the given application on the given port on the machine with the given ip.
+	 * Creates a new {@link FrontendGUIClient} that will connect to
+	 * the given application on the given port on the computer with the given ip.
 	 * 
 	 * @param ip
 	 * @param port
