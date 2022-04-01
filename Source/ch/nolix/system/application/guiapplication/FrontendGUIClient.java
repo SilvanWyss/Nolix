@@ -70,7 +70,7 @@ public final class FrontendGUIClient extends BaseFrontendGUIClient<FrontendGUICl
 	 * @param server
 	 */
 	public FrontendGUIClient(final Server server) {
-		connectTo(server.getRefDefaultApplication());
+		connectTo(server);
 	}
 	
 	//constructor
