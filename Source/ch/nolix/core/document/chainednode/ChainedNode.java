@@ -468,6 +468,18 @@ public final class ChainedNode implements OptionalHeadered {
 	
 	//method
 	/**
+	 * @return the header of the one attribute of the current {@link ChainedNode}.
+	 * @throws EmptyArgumentException if the current {@link ChainedNode} does not contain an attribute.
+	 * @throws InvalidArgumentException if the current {@link ChainedNode} contains several attributes.
+	 * @throws ArgumentDoesNotHaveAttributeException if
+	 * the one attribute of the current {@link ChainedNode} does not have a header.
+	 */
+	public String getOneAttributeHeader() {
+		return getOneAttribute().getHeader();
+	}
+	
+	//method
+	/**
 	 * @return a {@link Integer} representation of the one attribute of the current {@link ChainedNode}.
 	 * @throws EmptyArgumentException if the current {@link ChainedNode} does not contain an attribute.
 	 * @throws InvalidArgumentException if the current {@link ChainedNode} contains several attributes.
