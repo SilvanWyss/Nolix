@@ -20,19 +20,24 @@ import ch.nolix.system.application.main.FrontendClient;
 /**
  * @author Silvan Wyss
  * @date 2018-09-16
- * @param <FGC> is the type of a {@link BaseFrontendGUIClient}.
+ * @param <BFGUIC> is the type of a {@link BaseFrontendGUIClient}.
  */
-public abstract class BaseFrontendGUIClient<FGC extends BaseFrontendGUIClient<FGC>> extends FrontendClient<FGC> {
+public abstract class BaseFrontendGUIClient<BFGUIC extends BaseFrontendGUIClient<BFGUIC>>
+extends FrontendClient<BFGUIC> {
 	
 	//attribute
 	private final BaseFrontendGUIClientGUIHandler mGUIHandler = new BaseFrontendGUIClientGUIHandler(this);
 	
 	//method
-	public void noteInputOnCounterpart(final IInput<?> input) {
+	/**
+	 * Lets the counterpart of the current {@link BaseFrontendGUIClient} note the given input.
+	 * Does nothing if the current {@link BaseFrontedGUIClient} is closed or not connected.
+	 * 
+	 * @param input
+	 */
+	public final void noteInputOnCounterpart(final IInput<?> input) {
 		if (isOpen() && isConnected()) {
-			runOnCounterpart(
-				ChainedNode.withHeaderAndAttributesFromNodes(CommandProtocol.NOTE_INPUT, input.getSpecification())
-			);
+			noteInputOnCounterpartWhenIsOpenAndConnected(input);
 		}
 	}
 	
@@ -41,7 +46,7 @@ public abstract class BaseFrontendGUIClient<FGC extends BaseFrontendGUIClient<FG
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected Node getDataFromHere(final ChainedNode request) {
+	protected final Node getDataFromHere(final ChainedNode request) {
 		
 		//Enumerates the header of the given request.
 		switch (request.getHeader()) {
@@ -110,30 +115,68 @@ public abstract class BaseFrontendGUIClient<FGC extends BaseFrontendGUIClient<FG
 	}
 	
 	//method
+	private String getURLFromOpenNewTabCommand(final ChainedNode openNewTabCommand) {
+		return openNewTabCommand.getFirstAttributeWithHeader(ObjectProtocol.URL).getOneAttributeHeader();
+	}
+	
+	//method
+	/**
+	 * Lets the counterpart of the current {@link BaseFrontendGUIClient} note the given input for the case that
+	 * the current {@link BaseFrontedGUIClient} is open and connected.
+	 * 
+	 * @param input
+	 */
+	private void noteInputOnCounterpartWhenIsOpenAndConnected(final IInput<?> input) {
+		runOnCounterpart(
+			ChainedNode.withHeaderAndAttributesFromNodes(CommandProtocol.NOTE_INPUT, input.getSpecification())
+		);
+	}
+
+	//method
+	/**
+	 * Lets the current {@link BaseFrontendGUIClient} open a new tab with the given URL.
+	 * 
+	 * @param pURL
+	 */
 	private void openNewTabWithURL(final String pURL) {
 		mGUIHandler.getRefGUI().onFrontEnd().openNewTabWithURL(pURL);
 	}
 	
 	//method
+	/**
+	 * @return a file from the current {@link BaseFrontendGUIClient}.
+	 */
 	private SingleContainer<byte[]> readFileToBytes() {
 		return getRefGUI().fromFrontEnd().readFileToBytes();
 	}
 	
 	//method
-	private void runOpenNewTabCommand(final ChainedNode command) {
+	/**
+	 * Lets the current {@link BaseFrontendGUIClient} run the given openNewTabCommand.
+	 * 
+	 * @param openNewTabCommand
+	 */
+	private void runOpenNewTabCommand(final ChainedNode openNewTabCommand) {
 		
-		final var lURL =
-		command.getAttributes().getRefFirst(a -> a.hasHeader(ObjectProtocol.URL)).getOneAttribute().getHeader();
+		final var lURL = getURLFromOpenNewTabCommand(openNewTabCommand);
 		
 		openNewTabWithURL(lURL);
 	}
 	
 	//method
+	/**
+	 * Lets the current {@link BaseFrontendGUIClient} save a file with the given content.
+	 * 
+	 * @param content
+	 */
 	private void saveFile(final byte[] content) {
 		getRefGUI().onFrontEnd().saveFile(content);
 	}
 	
 	//method
+	/**
+	 * Lets the current {@link BaseFrontendGUIClient} send an optional file.
+	 */
 	private void sendOptionalFile() {
 		
 		final var fileContainer = readFileToBytes();
