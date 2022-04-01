@@ -17,6 +17,7 @@ import ch.nolix.element.gui.base.WidgetGUI;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.image.IImage;
 import ch.nolix.element.gui.image.Image;
+import ch.nolix.element.gui.image.ImageApplication;
 import ch.nolix.element.gui.image.MutableImage;
 import ch.nolix.element.gui.input.Key;
 import ch.nolix.element.gui.painterapi.IPainter;
@@ -177,6 +178,15 @@ public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> impleme
 		internalGUI.setBackgroundImage(backgroundImage);
 		
 		return this;
+	}
+	
+	//method
+	@Override
+	public InnerGUI setBackgroundImage(final MutableImage backgroundImage, final ImageApplication imageApplication) {
+		
+		internalGUI.setBackgroundImage(backgroundImage, imageApplication);
+		
+		return null;
 	}
 	
 	//method

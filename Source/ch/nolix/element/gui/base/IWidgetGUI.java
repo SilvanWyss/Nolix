@@ -9,6 +9,7 @@ import ch.nolix.element.configuration.Configuration;
 import ch.nolix.element.elementapi.IConfigurableElement;
 import ch.nolix.element.gui.baseapi.IBaseGUI;
 import ch.nolix.element.gui.color.Color;
+import ch.nolix.element.gui.image.ImageApplication;
 import ch.nolix.element.gui.image.MutableImage;
 import ch.nolix.element.gui.widget.Widget;
 
@@ -32,6 +33,9 @@ public interface IWidgetGUI<WG extends IWidgetGUI<WG>> extends Clearable,  IBase
 	
 	//method declaration
 	WG setBackgroundImage(MutableImage backgroundImage);
+	
+	//method declaration
+	WG setBackgroundImage(MutableImage backgroundImage, ImageApplication imageApplication);
 	
 	//method declaration
 	WG setConfiguration(Configuration configuration);
