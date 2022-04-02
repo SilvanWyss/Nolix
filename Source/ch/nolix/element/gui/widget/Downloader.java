@@ -9,7 +9,7 @@ import ch.nolix.core.functionapi.IElementGetter;
 import ch.nolix.element.gui.base.CursorIcon;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.input.Key;
-import ch.nolix.element.gui.painterapi.IPainter;
+import ch.nolix.elementapi.guiapi.painterapi.IPainter;
 
 //class
 public final class Downloader extends TextLineWidget<Downloader, DownloaderLook> {

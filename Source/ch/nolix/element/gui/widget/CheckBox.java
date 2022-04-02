@@ -7,7 +7,7 @@ import ch.nolix.core.math.Calculator;
 import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.elementenum.RotationDirection;
 import ch.nolix.element.gui.input.Key;
-import ch.nolix.element.gui.painterapi.IPainter;
+import ch.nolix.elementapi.guiapi.painterapi.IPainter;
 
 //class
 /**

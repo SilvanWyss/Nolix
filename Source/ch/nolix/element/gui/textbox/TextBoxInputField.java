@@ -14,11 +14,11 @@ import ch.nolix.core.math.Calculator;
 import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.gui.base.CursorIcon;
 import ch.nolix.element.gui.input.Key;
-import ch.nolix.element.gui.painterapi.IPainter;
 import ch.nolix.element.gui.widget.BorderWidget;
 import ch.nolix.element.gui.widget.TextBoxLook;
 import ch.nolix.element.gui.widget.TextLineWidget;
 import ch.nolix.element.gui.widget.TextMode;
+import ch.nolix.elementapi.guiapi.painterapi.IPainter;
 
 //class
 /**

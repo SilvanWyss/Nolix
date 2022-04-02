@@ -27,13 +27,13 @@ import ch.nolix.element.gui.base.CursorIcon;
 import ch.nolix.element.gui.base.GUIIconCatalogue;
 import ch.nolix.element.gui.base.LocalFrontEndReader;
 import ch.nolix.element.gui.base.LocalFrontEndWriter;
-import ch.nolix.element.gui.baseapi.IBaseGUI;
-import ch.nolix.element.gui.baseapi.IFrontEndReader;
-import ch.nolix.element.gui.baseapi.IFrontEndWriter;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.image.IImage;
 import ch.nolix.element.gui.image.Image;
 import ch.nolix.elementapi.baseapi.IConfigurableElement;
+import ch.nolix.elementapi.guiapi.baseapi.IBaseGUI;
+import ch.nolix.elementapi.guiapi.baseapi.IFrontEndReader;
+import ch.nolix.elementapi.guiapi.baseapi.IFrontEndWriter;
 
 //class
 /**

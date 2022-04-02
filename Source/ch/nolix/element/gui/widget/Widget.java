@@ -27,15 +27,15 @@ import ch.nolix.element.gui.base.CursorIcon;
 import ch.nolix.element.gui.base.GUI;
 import ch.nolix.element.gui.base.Layer;
 import ch.nolix.element.gui.base.WidgetGUI;
-import ch.nolix.element.gui.baseapi.IFrontEndReader;
-import ch.nolix.element.gui.baseapi.IFrontEndWriter;
-import ch.nolix.element.gui.baseapi.IInputActionManager;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.input.IInputTaker;
 import ch.nolix.element.gui.input.Key;
-import ch.nolix.element.gui.inputdeviceapi.IKeyBoard;
-import ch.nolix.element.gui.painterapi.IPainter;
 import ch.nolix.elementapi.baseapi.IConfigurableElement;
+import ch.nolix.elementapi.guiapi.baseapi.IFrontEndReader;
+import ch.nolix.elementapi.guiapi.baseapi.IFrontEndWriter;
+import ch.nolix.elementapi.guiapi.baseapi.IInputActionManager;
+import ch.nolix.elementapi.guiapi.inputdeviceapi.IKeyBoard;
+import ch.nolix.elementapi.guiapi.painterapi.IPainter;
 
 //class
 /**

@@ -14,13 +14,13 @@ import ch.nolix.element.gui.base.CursorIcon;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.containerwidget.HorizontalStack;
 import ch.nolix.element.gui.input.Key;
-import ch.nolix.element.gui.painterapi.IPainter;
 import ch.nolix.element.gui.widget.BorderWidget;
 import ch.nolix.element.gui.widget.Button;
 import ch.nolix.element.gui.widget.TextBoxLook;
 import ch.nolix.element.gui.widget.TextMode;
 import ch.nolix.element.gui.widget.Widget;
 import ch.nolix.element.gui.widget.WidgetLookState;
+import ch.nolix.elementapi.guiapi.painterapi.IPainter;
 
 //class
 public final class TextBox extends BorderWidget<TextBox, TextBoxLook> implements IMutableTextHolder<TextBox> {

@@ -9,7 +9,7 @@ import ch.nolix.element.base.MutableOptionalValue;
 import ch.nolix.element.elementenum.RotationDirection;
 import ch.nolix.element.gui.image.MutableImage;
 import ch.nolix.element.gui.input.Key;
-import ch.nolix.element.gui.painterapi.IPainter;
+import ch.nolix.elementapi.guiapi.painterapi.IPainter;
 
 //class
 public final class ImageWidget extends BorderWidget<ImageWidget, ImageWidgetLook> implements Clearable {

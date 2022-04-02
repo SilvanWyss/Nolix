@@ -8,7 +8,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.element.base.MutableOptionalValue;
 import ch.nolix.element.gui.input.Key;
-import ch.nolix.element.gui.painterapi.IPainter;
+import ch.nolix.elementapi.guiapi.painterapi.IPainter;
 
 //class
 /**

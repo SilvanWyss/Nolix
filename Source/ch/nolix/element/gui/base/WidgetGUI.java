@@ -32,7 +32,6 @@ import ch.nolix.element.gui.image.MutableImage;
 import ch.nolix.element.gui.image.ImageApplication;
 import ch.nolix.element.gui.input.IResizableInputTaker;
 import ch.nolix.element.gui.input.Key;
-import ch.nolix.element.gui.painterapi.IPainter;
 import ch.nolix.element.gui.textbox.TextBox;
 import ch.nolix.element.gui.widget.Area;
 import ch.nolix.element.gui.widget.Button;
@@ -48,6 +47,7 @@ import ch.nolix.element.gui.widget.Uploader;
 import ch.nolix.element.gui.widget.VerticalLine;
 import ch.nolix.element.gui.widget.Widget;
 import ch.nolix.elementapi.baseapi.IConfigurableElement;
+import ch.nolix.elementapi.guiapi.painterapi.IPainter;
 
 //class
 /**

@@ -5,9 +5,9 @@ package ch.nolix.element.gui.widget;
 import ch.nolix.core.container.SingleContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.element.gui.baseapi.HoverableByCursor;
 import ch.nolix.element.gui.color.Color;
-import ch.nolix.element.gui.painterapi.IPainter;
+import ch.nolix.elementapi.guiapi.baseapi.HoverableByCursor;
+import ch.nolix.elementapi.guiapi.painterapi.IPainter;
 
 //class
 /**

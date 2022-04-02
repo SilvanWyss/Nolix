@@ -15,7 +15,7 @@ import ch.nolix.element.elementenum.ContentPosition;
 import ch.nolix.element.elementenum.RotationDirection;
 import ch.nolix.element.gui.base.CursorIcon;
 import ch.nolix.element.gui.input.Key;
-import ch.nolix.element.gui.painterapi.IPainter;
+import ch.nolix.elementapi.guiapi.painterapi.IPainter;
 
 //class
 /**

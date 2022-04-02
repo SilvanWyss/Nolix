@@ -8,9 +8,9 @@ import ch.nolix.element.base.MutableOptionalValueExtractor;
 import ch.nolix.element.elementenum.RotationDirection;
 import ch.nolix.element.gui.base.WidgetGUI;
 import ch.nolix.element.gui.input.Key;
-import ch.nolix.element.gui.painterapi.IPainter;
 import ch.nolix.element.gui.widget.Widget;
 import ch.nolix.element.gui.widget.WidgetLookState;
+import ch.nolix.elementapi.guiapi.painterapi.IPainter;
 
 //class
 public final class AligningContainer extends ContainerWidget<AligningContainer, AligningContainerLook> {

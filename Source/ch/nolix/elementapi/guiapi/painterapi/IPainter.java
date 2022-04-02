@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.gui.painterapi;
+package ch.nolix.elementapi.guiapi.painterapi;
 
 //own imports
 import ch.nolix.element.gui.color.Color;
