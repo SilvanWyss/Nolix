@@ -4,7 +4,7 @@ package ch.nolix.element.configuration;
 //own imports
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.element.elementapi.IConfigurableElement;
+import ch.nolix.elementapi.baseapi.IConfigurableElement;
 
 //class
 /**

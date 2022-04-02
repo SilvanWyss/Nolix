@@ -6,7 +6,7 @@ import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.functionapi.IElementTakerElementGetter;
-import ch.nolix.element.elementapi.IMutableElement;
+import ch.nolix.elementapi.baseapi.IMutableElement;
 
 //class
 public class ElementFactory<E> {

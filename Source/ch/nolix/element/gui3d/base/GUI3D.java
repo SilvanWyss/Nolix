@@ -23,7 +23,6 @@ import ch.nolix.core.skillapi.Clearable;
 import ch.nolix.element.base.MutableOptionalSpecificationValueExtractor;
 import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.configuration.ConfigurationElement;
-import ch.nolix.element.elementapi.IConfigurableElement;
 import ch.nolix.element.gui.base.CursorIcon;
 import ch.nolix.element.gui.base.GUIIconCatalogue;
 import ch.nolix.element.gui.base.LocalFrontEndReader;
@@ -34,6 +33,7 @@ import ch.nolix.element.gui.baseapi.IFrontEndWriter;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.image.IImage;
 import ch.nolix.element.gui.image.Image;
+import ch.nolix.elementapi.baseapi.IConfigurableElement;
 
 //class
 /**

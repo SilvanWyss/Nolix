@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.element.elementenum} package
- * defines enums that are {@link ch.nolix.element.elementapi.IElement}s.
+ * defines enums that are {@link ch.nolix.elementapi.baseapi.IElement}s.
  * 
  * @author Silvan Wyss
  * @date 2019-05-01

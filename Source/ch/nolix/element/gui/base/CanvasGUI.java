@@ -11,7 +11,6 @@ import ch.nolix.core.functionapi.IElementTaker;
 import ch.nolix.core.programcontrol.processproperty.ChangeState;
 import ch.nolix.core.state.Visibility;
 import ch.nolix.element.base.MutableValue;
-import ch.nolix.element.elementapi.IConfigurableElement;
 import ch.nolix.element.elementenum.RotationDirection;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.color.ColorGradient;
@@ -20,6 +19,7 @@ import ch.nolix.element.gui.input.IResizableInputTaker;
 import ch.nolix.element.gui.input.Key;
 import ch.nolix.element.gui.painterapi.IPainter;
 import ch.nolix.element.gui.textformat.TextFormat;
+import ch.nolix.elementapi.baseapi.IConfigurableElement;
 import ch.nolix.system.application.baseguiapplication.PaintRun;
 
 //class

@@ -5,7 +5,7 @@ package ch.nolix.element.elementenum;
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.Node;
-import ch.nolix.element.elementapi.IElement;
+import ch.nolix.elementapi.baseapi.IElement;
 
 //enum
 /**

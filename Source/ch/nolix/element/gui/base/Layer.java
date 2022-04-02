@@ -25,7 +25,6 @@ import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.base.OptionalValue;
 import ch.nolix.element.configuration.ConfigurableElement;
 import ch.nolix.element.discretegeometry.Discrete2DPoint;
-import ch.nolix.element.elementapi.IConfigurableElement;
 import ch.nolix.element.elementenum.ExtendedContentPosition;
 import ch.nolix.element.elementenum.RotationDirection;
 import ch.nolix.element.gui.baseapi.IOccupiableCanvasInputActionManager;
@@ -40,6 +39,7 @@ import ch.nolix.element.gui.input.Key;
 import ch.nolix.element.gui.painterapi.IPainter;
 import ch.nolix.element.gui.widget.BorderWidget;
 import ch.nolix.element.gui.widget.Widget;
+import ch.nolix.elementapi.baseapi.IConfigurableElement;
 
 //class
 /**

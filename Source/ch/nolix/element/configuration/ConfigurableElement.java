@@ -10,7 +10,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.element.base.MutableElement;
 import ch.nolix.element.base.MutableOptionalValue;
-import ch.nolix.element.elementapi.IConfigurableElement;
+import ch.nolix.elementapi.baseapi.IConfigurableElement;
 
 //class
 /**

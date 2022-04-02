@@ -6,8 +6,8 @@ import java.awt.image.BufferedImage;
 
 //own imports
 import ch.nolix.core.container.matrix.Matrix;
-import ch.nolix.element.elementapi.IElement;
 import ch.nolix.element.gui.color.Color;
+import ch.nolix.elementapi.baseapi.IElement;
 
 //interface
 public interface IImage<I extends IImage<I>> extends IElement<I> {

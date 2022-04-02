@@ -11,7 +11,7 @@ import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
-import ch.nolix.element.elementapi.IElement;
+import ch.nolix.elementapi.baseapi.IElement;
 
 //enum
 public enum Key implements IElement<Key> {

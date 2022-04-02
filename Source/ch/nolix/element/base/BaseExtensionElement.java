@@ -7,7 +7,7 @@ import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.element.elementapi.IRespondingMutableElement;
+import ch.nolix.elementapi.baseapi.IRespondingMutableElement;
 
 //class
 public abstract class BaseExtensionElement<E extends IRespondingMutableElement<E>> extends Property {

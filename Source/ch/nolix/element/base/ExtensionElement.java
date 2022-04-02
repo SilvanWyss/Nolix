@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.element.base;
 
-//own imports
-import ch.nolix.element.elementapi.IRespondingMutableElement;
+import ch.nolix.elementapi.baseapi.IRespondingMutableElement;
 
 //class
 public final class ExtensionElement<E extends IRespondingMutableElement<E>> extends BaseExtensionElement<E> {

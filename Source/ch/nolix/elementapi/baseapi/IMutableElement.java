@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.elementapi;
+package ch.nolix.elementapi.baseapi;
 
 //own imports
 import ch.nolix.core.document.node.BaseNode;

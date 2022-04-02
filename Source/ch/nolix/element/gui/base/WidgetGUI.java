@@ -17,7 +17,6 @@ import ch.nolix.core.programcontrol.processproperty.ChangeState;
 import ch.nolix.core.state.Visibility;
 import ch.nolix.element.base.CatchingProperty;
 import ch.nolix.element.base.MultiValue;
-import ch.nolix.element.elementapi.IConfigurableElement;
 import ch.nolix.element.elementenum.ExtendedContentPosition;
 import ch.nolix.element.elementenum.RotationDirection;
 import ch.nolix.element.gui.color.Color;
@@ -48,6 +47,7 @@ import ch.nolix.element.gui.widget.SelectionMenu;
 import ch.nolix.element.gui.widget.Uploader;
 import ch.nolix.element.gui.widget.VerticalLine;
 import ch.nolix.element.gui.widget.Widget;
+import ch.nolix.elementapi.baseapi.IConfigurableElement;
 
 //class
 /**

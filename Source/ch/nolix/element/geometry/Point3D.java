@@ -7,7 +7,7 @@ import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.math.Vector;
-import ch.nolix.element.elementapi.IElement;
+import ch.nolix.elementapi.baseapi.IElement;
 
 //class
 /**

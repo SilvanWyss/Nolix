@@ -6,12 +6,12 @@ import ch.nolix.core.container.IContainer;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.skillapi.Clearable;
 import ch.nolix.element.configuration.Configuration;
-import ch.nolix.element.elementapi.IConfigurableElement;
 import ch.nolix.element.gui.baseapi.IBaseGUI;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.image.ImageApplication;
 import ch.nolix.element.gui.image.MutableImage;
 import ch.nolix.element.gui.widget.Widget;
+import ch.nolix.elementapi.baseapi.IConfigurableElement;
 
 //interface
 public interface IWidgetGUI<WG extends IWidgetGUI<WG>> extends Clearable,  IBaseGUI<WG>, IConfigurableElement<WG>{
