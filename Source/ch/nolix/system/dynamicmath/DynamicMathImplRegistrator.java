@@ -2,26 +2,20 @@
 package ch.nolix.system.dynamicmath;
 
 //own imports
-import ch.nolix.businessapi.dynamicmathapi.BaseDynamicMathImplRegistrator;
+import ch.nolix.businessapi.dynamicmathapi.IClosedIntervalFactory;
+import ch.nolix.businessapi.dynamicmathapi.IComplexNumberFactory;
+import ch.nolix.businessapi.dynamicmathapi.IFractalBuilder;
+import ch.nolix.core.provider.implproviderapi.IImplProvider;
+import ch.nolix.core.provider.implproviderapi.IImplRegistrator;
 
 //class
-public final class DynamicMathImplRegistrator extends BaseDynamicMathImplRegistrator {
+public final class DynamicMathImplRegistrator implements IImplRegistrator {
 	
 	//method
 	@Override
-	protected Class<ClosedIntervalFactory> getClosedIntervalFactoryImpl() {
-		return ClosedIntervalFactory.class;
-	}
-	
-	//method
-	@Override
-	protected Class<ComplexNumberFactory> getCompleNumberFactoryImpl() {
-		return ComplexNumberFactory.class;
-	}
-	
-	//method
-	@Override
-	protected Class<FractalBuilder> getFractalBuilderImpl() {
-		return FractalBuilder.class;
+	public void registerImplementationTo(final IImplProvider implProvider) {
+		implProvider.forInterface(IClosedIntervalFactory.class).registerImplementation(ClosedIntervalFactory.class);
+		implProvider.forInterface(IComplexNumberFactory.class).registerImplementation(ComplexNumberFactory.class);
+		implProvider.forInterface(IFractalBuilder.class).registerImplementation(FractalBuilder.class);
 	}
 }
