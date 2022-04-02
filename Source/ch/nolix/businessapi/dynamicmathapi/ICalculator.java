@@ -8,8 +8,5 @@ import java.math.BigDecimal;
 public interface ICalculator {
 	
 	//method declaration
-	IAmountMediator from(BigDecimal amount);
-	
-	//method declaration
 	BigDecimal getBinomialCoefficient(BigDecimal n, BigDecimal k);
 }
