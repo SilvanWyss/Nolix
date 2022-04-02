@@ -7,6 +7,7 @@ import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.element.base.MutableElement;
 import ch.nolix.element.base.Value;
 import ch.nolix.element.discretegeometry.Discrete2DPoint;
+import ch.nolix.elementapi.guiapi.inputapi.IInput;
 
 //class
 public final class MouseInput extends MutableElement<MouseInput> implements IInput<MouseInput> {

@@ -19,9 +19,9 @@ import ch.nolix.core.programcontrol.sequencer.Sequencer;
 import ch.nolix.element.gui.base.GUI;
 import ch.nolix.element.gui.base.IWidgetGUI;
 import ch.nolix.element.gui.base.InvisibleGUI;
-import ch.nolix.element.gui.input.IInput;
 import ch.nolix.element.gui.input.InputFactory;
 import ch.nolix.element.gui.input.MouseInput;
+import ch.nolix.elementapi.guiapi.inputapi.IInput;
 import ch.nolix.system.application.main.BackendClient;
 
 //class

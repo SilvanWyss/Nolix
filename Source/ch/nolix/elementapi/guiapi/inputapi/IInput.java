@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.gui.input;
+package ch.nolix.elementapi.guiapi.inputapi;
 
 import ch.nolix.elementapi.baseapi.IElement;
 

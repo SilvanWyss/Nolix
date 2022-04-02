@@ -3,7 +3,7 @@ package ch.nolix.elementapi.guiapi.baseapi;
 
 //own imports
 import ch.nolix.core.rasterapi.TopLeftPositionedRecangular;
-import ch.nolix.element.gui.input.IInputTaker;
+import ch.nolix.elementapi.guiapi.inputapi.IInputTaker;
 
 //interface
 /**

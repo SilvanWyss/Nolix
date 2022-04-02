@@ -19,7 +19,7 @@ import ch.nolix.element.gui.image.IImage;
 import ch.nolix.element.gui.image.Image;
 import ch.nolix.element.gui.image.ImageApplication;
 import ch.nolix.element.gui.image.MutableImage;
-import ch.nolix.element.gui.input.Key;
+import ch.nolix.elementapi.guiapi.inputapi.Key;
 import ch.nolix.elementapi.guiapi.painterapi.IPainter;
 
 //class

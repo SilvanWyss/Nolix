@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.element.gui.input;
 
+import ch.nolix.elementapi.guiapi.inputapi.IInput;
+import ch.nolix.elementapi.guiapi.inputapi.IInputTaker;
+
 //interface
 /**
  * @author Silvan Wyss

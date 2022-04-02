@@ -10,7 +10,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.elementenum.RotationDirection;
 import ch.nolix.element.gui.color.Color;
-import ch.nolix.element.gui.input.Key;
+import ch.nolix.elementapi.guiapi.inputapi.Key;
 import ch.nolix.elementapi.guiapi.painterapi.IPainter;
 
 //class

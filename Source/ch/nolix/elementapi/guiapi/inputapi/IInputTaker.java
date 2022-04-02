@@ -1,9 +1,11 @@
 //package declaration
-package ch.nolix.element.gui.input;
+package ch.nolix.elementapi.guiapi.inputapi;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.element.elementenum.RotationDirection;
+import ch.nolix.element.gui.input.KeyInput;
+import ch.nolix.element.gui.input.MouseInput;
 
 //interface
 /**

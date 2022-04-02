@@ -4,8 +4,7 @@ package ch.nolix.element.gui3d.jmonkeygui;
 //JMonkey imports
 import com.jme3.input.event.KeyInputEvent;
 
-//own imports
-import ch.nolix.element.gui.input.Key;
+import ch.nolix.elementapi.guiapi.inputapi.Key;
 
 //class
 public final class KeyMapper {

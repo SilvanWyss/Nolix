@@ -7,7 +7,7 @@ import ch.nolix.core.constant.StringCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.element.base.MutableOptionalValue;
-import ch.nolix.element.gui.input.Key;
+import ch.nolix.elementapi.guiapi.inputapi.Key;
 import ch.nolix.elementapi.guiapi.painterapi.IPainter;
 
 //class

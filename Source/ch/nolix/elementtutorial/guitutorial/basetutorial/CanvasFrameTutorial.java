@@ -10,9 +10,9 @@ import ch.nolix.element.gui.base.CanvasFrame;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.color.ColorGradient;
 import ch.nolix.element.gui.input.IResizableInputTaker;
-import ch.nolix.element.gui.input.Key;
 import ch.nolix.element.gui.textformat.Font;
 import ch.nolix.element.gui.textformat.TextFormat;
+import ch.nolix.elementapi.guiapi.inputapi.Key;
 import ch.nolix.system.application.baseguiapplication.PaintRun;
 
 /**

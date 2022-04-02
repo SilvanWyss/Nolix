@@ -8,7 +8,7 @@ import ch.nolix.core.programcontrol.sequencer.Sequencer;
 import ch.nolix.element.elementenum.ContentPosition;
 import ch.nolix.element.gui.base.CursorIcon;
 import ch.nolix.element.gui.color.Color;
-import ch.nolix.element.gui.input.Key;
+import ch.nolix.elementapi.guiapi.inputapi.Key;
 import ch.nolix.elementapi.guiapi.painterapi.IPainter;
 
 //class

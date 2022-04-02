@@ -3,7 +3,7 @@ package ch.nolix.element.gui.inputdevice;
 
 //own imports
 import ch.nolix.core.container.LinkedList;
-import ch.nolix.element.gui.input.Key;
+import ch.nolix.elementapi.guiapi.inputapi.Key;
 import ch.nolix.elementapi.guiapi.inputdeviceapi.IMutableKeyBoard;
 
 //class

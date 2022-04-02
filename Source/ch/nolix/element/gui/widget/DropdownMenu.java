@@ -7,7 +7,7 @@ import ch.nolix.element.gui.base.CursorIcon;
 import ch.nolix.element.gui.base.Layer;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.containerwidget.HorizontalStack;
-import ch.nolix.element.gui.input.Key;
+import ch.nolix.elementapi.guiapi.inputapi.Key;
 import ch.nolix.elementapi.guiapi.painterapi.IPainter;
 
 //class

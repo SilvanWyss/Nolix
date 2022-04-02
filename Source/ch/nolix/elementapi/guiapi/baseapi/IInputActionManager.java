@@ -6,7 +6,7 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.functionapi.I2ElementTaker;
 import ch.nolix.core.functionapi.IAction;
 import ch.nolix.core.functionapi.IElementTaker;
-import ch.nolix.element.gui.input.Key;
+import ch.nolix.elementapi.guiapi.inputapi.Key;
 
 //interface
 public interface IInputActionManager<IAM extends IInputActionManager<IAM>> {

@@ -13,7 +13,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.environment.localcomputer.PopupWindowProvider;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.element.gui.base.GUI;
-import ch.nolix.element.gui.input.IInput;
+import ch.nolix.elementapi.guiapi.inputapi.IInput;
 import ch.nolix.system.application.main.FrontendClient;
 
 //class

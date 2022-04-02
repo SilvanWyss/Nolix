@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.gui.input;
+package ch.nolix.elementapi.guiapi.inputapi;
 
 //Java imports
 import java.awt.event.KeyEvent;
