@@ -8,18 +8,18 @@ import java.math.BigDecimal;
 public interface IComplexNumberFactory {
 	
 	//method declaration
-	IComplexNumber create(BigDecimal realComponent, BigDecimal imaginaryComponent);
+	IComplexNumber createComplexNumber(BigDecimal realComponent, BigDecimal imaginaryComponent);
 	
 	//method declaration
-	IComplexNumber create(
+	IComplexNumber createComplexNumber(
 		BigDecimal realComponent,
 		BigDecimal imaginaryComponent,
 		int bigDecimalScale
 	);
 	
 	//method declaration
-	IComplexNumber create(double realComponent, double imaginaryComponent);
+	IComplexNumber createComplexNumber(double realComponent, double imaginaryComponent);
 	
 	//method declaration
-	IComplexNumber create(double realComponent, double imaginaryComponent, int bigDecimalScale);
+	IComplexNumber createComplexNumber(double realComponent, double imaginaryComponent, int bigDecimalScale);
 }

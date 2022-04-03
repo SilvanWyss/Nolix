@@ -18,7 +18,9 @@ public final class CustomFractalTutorial3 {
 		new DynamicMathImplRegistrator().registerImplementationTo(GlobalImplProvider.getRefInstance());
 		
 		final var maxIterationCount = 100;
-		final var j = GlobalImplProvider.ofInterface(IComplexNumberFactory.class).createInstance().create(-0.745, 0.25);
+		
+		final var j =
+		GlobalImplProvider.ofInterface(IComplexNumberFactory.class).createInstance().createComplexNumber(-0.745, 0.25);
 		
 		//Creates a Frame that shows a realtime-generated image of a Fractal.
 		@SuppressWarnings("resource")

@@ -31,7 +31,7 @@ public final class MandelbrotFractalTutorial {
 				.setImaginaryComponentInterval(-1.5, 1.5)
 				.setWidthInPixel(800)
 				.setStartValues(
-					GlobalImplProvider.ofInterface(IComplexNumberFactory.class).createInstance().create(0.0, 0.0)
+					GlobalImplProvider.ofInterface(IComplexNumberFactory.class).createInstance().createComplexNumber(0.0, 0.0)
 				)
 				.setNextValueFunctionFor1Predecessor((p, c) -> p.getPower2().getSum(c))
 				.setMinMagnitudeForConvergence(2.5)

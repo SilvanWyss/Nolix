@@ -15,8 +15,8 @@ public final class ComplexSequenceTutorial {
 		new DynamicMathImplRegistrator().registerImplementationTo(GlobalImplProvider.getRefInstance());
 		
 		final var complexNumberFactory = GlobalImplProvider.ofInterface(IComplexNumberFactory.class).createInstance();
-		final var startValues = new IComplexNumber[] { complexNumberFactory.create(0.0, 0.0) };
-		final var c = complexNumberFactory.create(0.0, 1.0);
+		final var startValues = new IComplexNumber[] { complexNumberFactory.createComplexNumber(0.0, 0.0) };
+		final var c = complexNumberFactory.createComplexNumber(0.0, 1.0);
 		
 		//Creates a Sequence.
 		final var sequence =
