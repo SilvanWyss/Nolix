@@ -1,7 +1,6 @@
-package ch.nolix.systemtutorial.dynamicmathtutorial;
+package ch.nolix.businesstutorial.dynamicmathtutorial;
 
 import ch.nolix.business.dynamicmath.DynamicMathImplRegistrator;
-//own imports
 import ch.nolix.businessapi.dynamicmathapi.IComplexNumber;
 import ch.nolix.businessapi.dynamicmathapi.IComplexNumberFactory;
 import ch.nolix.businessapi.dynamicmathapi.IImplicitComplexSequenceBuilder;

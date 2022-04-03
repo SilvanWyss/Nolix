@@ -1,7 +1,6 @@
-package ch.nolix.systemtutorial.dynamicmathtutorial;
+package ch.nolix.businesstutorial.dynamicmathtutorial;
 
 import ch.nolix.business.dynamicmath.DynamicMathImplRegistrator;
-//own imports
 import ch.nolix.businessapi.dynamicmathapi.IComplexNumber;
 import ch.nolix.businessapi.dynamicmathapi.IComplexNumberFactory;
 import ch.nolix.businessapi.dynamicmathapi.IFractalBuilder;
@@ -11,7 +10,7 @@ import ch.nolix.element.gui.base.Frame;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.widget.ImageWidget;
 
-public final class JuliaFractalTutorial {
+public final class BlackWhiteJuliaFractalTutorial {
 	
 	public static void main(String[] args) {
 		
@@ -25,7 +24,7 @@ public final class JuliaFractalTutorial {
 		@SuppressWarnings("resource")
 		final var frame =
 		new Frame()
-		.setTitle("Julia Fractal tutorial")
+		.setTitle("Black White Julia Fractal tutorial")
 		.addLayerOnTop(
 			new ImageWidget()
 			.setImage(
@@ -39,9 +38,9 @@ public final class JuliaFractalTutorial {
 				.setMaxIterationCount(maxIterationCount)
 				.setColorFunction(
 					i -> {
-												
+						
 						if (i < maxIterationCount) {
-							return Color.withRedValueAndGreenValueAndBlueValue(i % 256, (10 * i) % 256, (2 * i) % 256);
+							return Color.WHITE;
 						}
 						
 						return Color.BLACK;
@@ -58,5 +57,5 @@ public final class JuliaFractalTutorial {
 		Sequencer.asLongAs(frame::isOpen).afterAllMilliseconds(100).run(frame::refresh);
 	}
 	
-	private JuliaFractalTutorial() {}
+	private BlackWhiteJuliaFractalTutorial() {}
 }

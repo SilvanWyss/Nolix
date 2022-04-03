@@ -1,7 +1,6 @@
-package ch.nolix.systemtutorial.dynamicmathtutorial;
+package ch.nolix.businesstutorial.dynamicmathtutorial;
 
 import ch.nolix.business.dynamicmath.FractalBuilder;
-//own imports
 import ch.nolix.core.environment.localcomputer.ShellProvider;
 import ch.nolix.core.programcontrol.processproperty.ProcessingMode;
 import ch.nolix.core.programcontrol.sequencer.Sequencer;
