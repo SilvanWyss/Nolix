@@ -11,16 +11,13 @@ import ch.nolix.core.container.pair.Pair;
 public interface IClosedInterval {
 	
 	//method declaration
-	boolean contains(BigDecimal value);
+	boolean containsValue(BigDecimal value);
 	
 	//method declaration
 	int getBigDecimalScale();
 	
 	//method declaration
 	Pair<IClosedInterval, IClosedInterval> getHalfs();
-	
-	//method declaration
-	IClosedInterval getInBigDecimalScale(int bigDecimalScale);
 	
 	//method declaration
 	BigDecimal getLength();
@@ -35,5 +32,8 @@ public interface IClosedInterval {
 	BigDecimal getMin();
 	
 	//method declaration
-	boolean intersects(IClosedInterval closedInterval);
+	IClosedInterval inBigDecimalScale(int bigDecimalScale);
+	
+	//method declaration
+	boolean intersectsWith(IClosedInterval closedInterval);
 }

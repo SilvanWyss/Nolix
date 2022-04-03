@@ -95,8 +95,8 @@ public final class Fractal implements IFractal {
 		.thatIsNamed("big decimal scale")
 		.isPositive();
 		
-		this.imaginaryComponentInterval = imaginaryComponentInterval.getInBigDecimalScale(bigDecimalScale);
-		this.realComponentInterval = realComponentInterval.getInBigDecimalScale(bigDecimalScale);
+		this.imaginaryComponentInterval = imaginaryComponentInterval.inBigDecimalScale(bigDecimalScale);
+		this.realComponentInterval = realComponentInterval.inBigDecimalScale(bigDecimalScale);
 		this.widthInPixel = widthInPixel;
 		this.sequencesStartValuesFunction = sequencesStartValuesFunction;
 		this.sequencesNextValueFunction = sequencesNextValueFunction;

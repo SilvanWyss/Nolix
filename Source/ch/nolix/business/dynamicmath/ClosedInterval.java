@@ -15,22 +15,17 @@ import ch.nolix.core.math.Calculator;
 //class
 public final class ClosedInterval implements IClosedInterval {
 	
-	//attributes
+	//attribute
 	private final BigDecimal min;
+	
+	//attribute
 	private final BigDecimal max;
 	
 	//constructor
 	public ClosedInterval(final BigDecimal min, final BigDecimal max) {
 		
-		Validator
-		.assertThat(min)
-		.thatIsNamed(LowerCaseCatalogue.MINIMUM)
-		.isNotNull();
-		
-		Validator
-		.assertThat(max)
-		.thatIsNamed(LowerCaseCatalogue.MAXIMUM)
-		.isNotSmallerThan(min);
+		Validator.assertThat(min).thatIsNamed(LowerCaseCatalogue.MINIMUM).isNotNull();
+		Validator.assertThat(max).thatIsNamed(LowerCaseCatalogue.MAXIMUM).isNotSmallerThan(min);
 		
 		final var bigDecimalScale = Calculator.getMax(min.scale(), max.scale());
 		
@@ -41,20 +36,9 @@ public final class ClosedInterval implements IClosedInterval {
 	//constructor
 	public ClosedInterval(final BigDecimal min, final BigDecimal max, final int bigDecimalScale) {
 		
-		Validator
-		.assertThat(min)
-		.thatIsNamed(LowerCaseCatalogue.MINIMUM)
-		.isNotNull();
-		
-		Validator
-		.assertThat(max)
-		.thatIsNamed(LowerCaseCatalogue.MAXIMUM)
-		.isNotSmallerThan(min);
-		
-		Validator
-		.assertThat(bigDecimalScale)
-		.thatIsNamed("big decimal scale")
-		.isPositive();
+		Validator.assertThat(min).thatIsNamed(LowerCaseCatalogue.MINIMUM).isNotNull();
+		Validator.assertThat(max).thatIsNamed(LowerCaseCatalogue.MAXIMUM).isNotSmallerThan(min);
+		Validator.assertThat(bigDecimalScale).thatIsNamed("big decimal scale").isPositive();
 		
 		this.min = min.setScale(bigDecimalScale, RoundingMode.HALF_UP);
 		this.max = max.setScale(bigDecimalScale, RoundingMode.HALF_UP);
@@ -72,8 +56,8 @@ public final class ClosedInterval implements IClosedInterval {
 	
 	//method
 	@Override
-	public boolean contains(final BigDecimal value) {
-		return (value.compareTo(getMin()) >= 0 && value.compareTo(getMax()) <= 0);
+	public boolean containsValue(final BigDecimal value) {
+		return (value.compareTo(min) >= 0 && value.compareTo(max) <= 0);
 	}
 	
 	//method
@@ -84,9 +68,7 @@ public final class ClosedInterval implements IClosedInterval {
 			return false;
 		}
 		
-		final var closedIntervall = (IClosedInterval)object;
-		
-		return (min.equals(closedIntervall.getMin()) && max.equals(closedIntervall.getMax()));
+		return equals((IClosedInterval)object);
 	}
 	
 	//method
@@ -111,14 +93,8 @@ public final class ClosedInterval implements IClosedInterval {
 	
 	//method
 	@Override
-	public ClosedInterval getInBigDecimalScale(final int bigDecimalScale) {
-		return new ClosedInterval(min, max, bigDecimalScale);
-	}
-	
-	//method
-	@Override
 	public BigDecimal getLength() {
-		return getMax().subtract(getMin());
+		return max.subtract(min);
 	}
 
 	//method
@@ -130,7 +106,7 @@ public final class ClosedInterval implements IClosedInterval {
 	//method
 	@Override
 	public BigDecimal getMidPoint() {
-		return getMin().add(getMax()).divide(BigDecimal.valueOf(2.0)).setScale(min.scale());
+		return min.add(max).divide(BigDecimal.valueOf(2.0)).setScale(min.scale());
 	}
 	
 	//method
@@ -147,15 +123,28 @@ public final class ClosedInterval implements IClosedInterval {
 	
 	//method
 	@Override
-	public boolean intersects(final IClosedInterval closedInterval) {
+	public ClosedInterval inBigDecimalScale(final int bigDecimalScale) {
+		return new ClosedInterval(min, max, bigDecimalScale);
+	}
+	
+	//method
+	@Override
+	public boolean intersectsWith(final IClosedInterval closedInterval) {
 		return 
-		(getMax().compareTo(closedInterval.getMin()) > 0)
-		&& (getMin().compareTo(closedInterval.getMax()) > 0);
+		max.compareTo(closedInterval.getMin()) > 0
+		&& min.compareTo(closedInterval.getMax()) > 0;
 	}
 	
 	//method
 	@Override
 	public String toString() {
 		return ("[" + min + ", " + max + "]");
+	}
+	
+	//method
+	private boolean equals(final IClosedInterval closedInterval) {
+		return 
+		min.equals(closedInterval.getMin())
+		&& max.equals(closedInterval.getMax());
 	}
 }
