@@ -2,6 +2,7 @@
 package ch.nolix.nolixtest;
 
 //own imports
+import ch.nolix.businesstest.BusinessTestPool;
 import ch.nolix.core.testing.basetest.TestPool;
 import ch.nolix.coretest.CoreTestPool;
 import ch.nolix.elementtest.ElementTestPool;
@@ -27,6 +28,7 @@ public final class NolixTestPool extends TestPool {
 			new CoreTestPool(),
 			new ElementTestPool(),
 			new SystemTestPool(),
+			new BusinessTestPool(),
 			new TemplatesTestPool(),
 			new NolixLicensesTestPool()
 		);

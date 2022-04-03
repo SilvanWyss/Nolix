@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemtest.dynamicmathtest;
+package ch.nolix.businesstest.dynamicmathtest;
 
 //Java imports
 import java.math.BigDecimal;

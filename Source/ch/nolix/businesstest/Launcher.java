@@ -1,12 +1,12 @@
 //package declaration
-package ch.nolix.systemtest.dynamicmathtest;
+package ch.nolix.businesstest;
 
 //class
 public final class Launcher {
 	
 	//main method
 	public static void main(String[] args) {
-		new DynamicMathTestPool().run();
+		new BusinessTestPool().run();
 	}
 	
 	//constructor
