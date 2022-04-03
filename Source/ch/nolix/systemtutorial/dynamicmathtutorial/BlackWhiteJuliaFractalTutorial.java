@@ -1,5 +1,6 @@
 package ch.nolix.systemtutorial.dynamicmathtutorial;
 
+import ch.nolix.business.dynamicmath.DynamicMathImplRegistrator;
 //own imports
 import ch.nolix.businessapi.dynamicmathapi.IComplexNumber;
 import ch.nolix.businessapi.dynamicmathapi.IComplexNumberFactory;
@@ -9,7 +10,6 @@ import ch.nolix.core.provider.implprovider.GlobalImplProvider;
 import ch.nolix.element.gui.base.Frame;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.widget.ImageWidget;
-import ch.nolix.system.dynamicmath.DynamicMathImplRegistrator;
 
 public final class BlackWhiteJuliaFractalTutorial {
 	

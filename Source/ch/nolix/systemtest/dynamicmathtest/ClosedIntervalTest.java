@@ -4,11 +4,11 @@ package ch.nolix.systemtest.dynamicmathtest;
 //Java imports
 import java.math.BigDecimal;
 
+import ch.nolix.business.dynamicmath.ClosedInterval;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
-import ch.nolix.system.dynamicmath.ClosedInterval;
 
 //class
 public final class ClosedIntervalTest extends Test {

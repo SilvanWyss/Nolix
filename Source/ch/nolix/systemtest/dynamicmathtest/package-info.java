@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.systemtest.dynamicmathtest} package
- * defines tests for the {@link ch.nolix.system.dynamicmath} package.
+ * defines tests for the {@link ch.nolix.business.dynamicmath} package.
  * 
  * @author Silvan Wyss
  * @date 2019-08-01

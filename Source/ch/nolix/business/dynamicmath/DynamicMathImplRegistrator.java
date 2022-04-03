@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.dynamicmath;
+package ch.nolix.business.dynamicmath;
 
 //own imports
 import ch.nolix.businessapi.dynamicmathapi.IClosedIntervalFactory;

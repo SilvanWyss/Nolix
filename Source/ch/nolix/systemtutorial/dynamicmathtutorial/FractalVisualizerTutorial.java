@@ -1,5 +1,6 @@
 package ch.nolix.systemtutorial.dynamicmathtutorial;
 
+import ch.nolix.business.dynamicmath.FractalBuilder;
 //own imports
 import ch.nolix.core.environment.localcomputer.ShellProvider;
 import ch.nolix.core.programcontrol.processproperty.ProcessingMode;
@@ -15,7 +16,6 @@ import ch.nolix.system.application.guiapplication.BackendGUIClientSession;
 import ch.nolix.system.application.main.Application;
 import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.main.VoidApplicationContext;
-import ch.nolix.system.dynamicmath.FractalBuilder;
 
 public final class FractalVisualizerTutorial {
 	

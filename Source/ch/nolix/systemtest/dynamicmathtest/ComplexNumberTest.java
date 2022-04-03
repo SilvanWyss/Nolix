@@ -4,10 +4,10 @@ package ch.nolix.systemtest.dynamicmathtest;
 //Java imports
 import java.math.BigDecimal;
 
+import ch.nolix.business.dynamicmath.ComplexNumber;
 //own imports
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
-import ch.nolix.system.dynamicmath.ComplexNumber;
 
 //class
 public final class ComplexNumberTest extends Test {

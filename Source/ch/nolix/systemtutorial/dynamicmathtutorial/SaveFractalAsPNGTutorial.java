@@ -1,5 +1,6 @@
 package ch.nolix.systemtutorial.dynamicmathtutorial;
 
+import ch.nolix.business.dynamicmath.DynamicMathImplRegistrator;
 //own imports
 import ch.nolix.businessapi.dynamicmathapi.IFractalBuilder;
 import ch.nolix.core.provider.implprovider.GlobalImplProvider;
@@ -8,7 +9,6 @@ import ch.nolix.element.gui.containerwidget.VerticalStack;
 import ch.nolix.element.gui.widget.Downloader;
 import ch.nolix.element.gui.widget.ImageWidget;
 import ch.nolix.element.gui.widget.Label;
-import ch.nolix.system.dynamicmath.DynamicMathImplRegistrator;
 
 public final class SaveFractalAsPNGTutorial {
 	

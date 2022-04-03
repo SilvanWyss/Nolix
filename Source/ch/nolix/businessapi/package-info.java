@@ -1,7 +1,7 @@
 //package info
 /**
- * The {@link ch.nolix.businessapi} package defines APIs for types that can be persisted in a database.
- * Such types are the most relevant types for business applications.
+ * The {@link ch.nolix.businessapi} package defines APIs for business purpose.
+ * E.g. APIs for calendars or fractals.
  * 
  * @author Silvan Wyss
  * @date 2020-12-01
