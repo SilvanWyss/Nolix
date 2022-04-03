@@ -28,7 +28,6 @@ public final class ClosedInterval implements IClosedInterval {
 		Validator.assertThat(max).thatIsNamed(LowerCaseCatalogue.MAXIMUM).isNotSmallerThan(min);
 		
 		final var bigDecimalScale = Calculator.getMax(min.scale(), max.scale());
-		
 		this.min = min.setScale(bigDecimalScale, RoundingMode.HALF_UP);
 		this.max = max.setScale(bigDecimalScale, RoundingMode.HALF_UP);
 	}

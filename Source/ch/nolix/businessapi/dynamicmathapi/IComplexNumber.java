@@ -17,9 +17,6 @@ public interface IComplexNumber extends Comparable<IComplexNumber> {
 	BigDecimal getImaginaryComponent();
 	
 	//method declaration
-	IComplexNumber getInBigDecimalScale(int bigDecimalScale);
-	
-	//method declaration
 	BigDecimal getMagnitude();
 	
 	//method declaration
@@ -60,6 +57,9 @@ public interface IComplexNumber extends Comparable<IComplexNumber> {
 
 	//method declaration
 	IComplexNumber getSum(IComplexNumber complexNumber);
+	
+	//method declaration
+	IComplexNumber inBigDecimalScale(int bigDecimalScale);
 	
 	//method declaration
 	boolean isPureImaginary();
