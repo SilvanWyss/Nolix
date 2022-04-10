@@ -196,7 +196,7 @@ public final class Fractal implements IFractal {
 	
 	//method
 	@Override
-	public BigDecimal getMinMagnitudeForConvergence() {
+	public BigDecimal getMinMagnitudeForDivergence() {
 		return sequencesMinDivergenceMagnitude;
 	}
 	
@@ -287,8 +287,8 @@ public final class Fractal implements IFractal {
 							z -> sequencesNextValueFunction.getOutput(z, c),
 							IComplexNumber::getSquaredMagnitude
 						)
-						.getConvergenceGrade(
-							getMinMagnitudeForConvergence(),
+						.getIterationCountUntilValueMagnitudeExceedsMaxMagnitude(
+							getMinMagnitudeForDivergence(),
 							getMaxIterationCount()
 						)
 					)

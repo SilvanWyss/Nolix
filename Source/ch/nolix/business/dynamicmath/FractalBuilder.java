@@ -174,7 +174,7 @@ public final class FractalBuilder implements IFractalBuilder {
 	
 	//method
 	@Override
-	public IFractalBuilder setMinMagnitudeForConvergence(final BigDecimal sequencesMinDivergenceMagnitude) {
+	public IFractalBuilder setMinMagnitudeForDivergence(final BigDecimal sequencesMinDivergenceMagnitude) {
 		
 		this.sequencesMinDivergenceMagnitude = sequencesMinDivergenceMagnitude;
 		
@@ -183,8 +183,8 @@ public final class FractalBuilder implements IFractalBuilder {
 	
 	//method
 	@Override
-	public IFractalBuilder setMinMagnitudeForConvergence(final double sequencesMinDivergenceMagnitude) {
-		return setMinMagnitudeForConvergence(BigDecimal.valueOf(sequencesMinDivergenceMagnitude));
+	public IFractalBuilder setMinMagnitudeForDivergence(final double minMagnitudeForDivergence) {
+		return setMinMagnitudeForDivergence(BigDecimal.valueOf(minMagnitudeForDivergence));
 	}
 	
 	//method

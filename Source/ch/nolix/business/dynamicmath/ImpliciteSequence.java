@@ -75,7 +75,10 @@ public final class ImpliciteSequence<N> implements IImplicitSequence<N> {
 	
 	//method
 	@Override
-	public int getConvergenceGrade(final BigDecimal maxMagnitude, final int maxIndex) {	
+	public int getIterationCountUntilValueMagnitudeExceedsMaxMagnitude(
+		final BigDecimal maxMagnitude,
+		final int maxIndex
+	) {	
 		
 		final BigDecimal maxSquaredMagnitude =
 		maxMagnitude.multiply(maxMagnitude).setScale(maxMagnitude.scale(), RoundingMode.HALF_UP);

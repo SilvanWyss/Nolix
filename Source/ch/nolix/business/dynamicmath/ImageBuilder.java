@@ -140,8 +140,8 @@ public final class ImageBuilder implements IImageBuilder {
 						z -> fractal.getNextValueFunction().getOutput(z, c),
 						IComplexNumber::getSquaredMagnitude
 					)
-					.getConvergenceGrade(
-						fractal.getMinMagnitudeForConvergence(),
+					.getIterationCountUntilValueMagnitudeExceedsMaxMagnitude(
+						fractal.getMinMagnitudeForDivergence(),
 						fractal.getMaxIterationCount()
 					)
 				)

@@ -37,8 +37,8 @@ public interface IFractal {
 	BigDecimal getMinImaginaryComponent();
 	
 	//method declaration
-	BigDecimal getMinMagnitudeForConvergence();
-
+	BigDecimal getMinMagnitudeForDivergence();
+	
 	//method declaration
 	BigDecimal getMinRealComponent();
 	

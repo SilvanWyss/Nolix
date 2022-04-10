@@ -36,7 +36,7 @@ public final class CustomFractalTutorial2 {
 				.setWidthInPixel(800)
 				.setStartValuesFunction(c -> new IComplexNumber[]{c})
 				.setNextValueFunctionFor1Predecessor((p, c) -> p.getPower(6).getSum(j))
-				.setMinMagnitudeForConvergence(2.5)
+				.setMinMagnitudeForDivergence(2.5)
 				.setMaxIterationCount(maxIterationCount)
 				.setColorFunction(
 					i -> {

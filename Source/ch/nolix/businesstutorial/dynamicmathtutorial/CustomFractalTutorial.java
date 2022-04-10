@@ -34,7 +34,7 @@ public final class CustomFractalTutorial {
 					GlobalImplProvider.ofInterface(IComplexNumberFactory.class).createInstance().createComplexNumber(0.0, 0.0)
 				)
 				.setNextValueFunctionFor1Predecessor((p, c) -> p.getPower(4).getSum(c))
-				.setMinMagnitudeForConvergence(2.5)
+				.setMinMagnitudeForDivergence(2.5)
 				.setMaxIterationCount(maxIterationCount)
 				.setColorFunction(
 					i -> {

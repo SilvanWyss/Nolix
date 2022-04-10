@@ -36,12 +36,12 @@ public interface IFractalBuilder {
 	
 	//method declaration
 	IFractalBuilder setMaxIterationCount(int maxIterationCount);
-
+	
 	//method declaration
-	IFractalBuilder setMinMagnitudeForConvergence(BigDecimal minMagnitudeForConvergence);
-
+	IFractalBuilder setMinMagnitudeForDivergence(BigDecimal minMagnitudeForDivergence);
+	
 	//method declaration
-	IFractalBuilder setMinMagnitudeForConvergence(double minMagnitudeForConvergence);
+	IFractalBuilder setMinMagnitudeForDivergence(double minMagnitudeForDivergence);
 	
 	//method declaration
 	IFractalBuilder setNextValueFunction(
