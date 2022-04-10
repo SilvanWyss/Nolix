@@ -16,10 +16,16 @@ import ch.nolix.element.gui.color.Color;
 //class
 public final class FractalBuilder implements IFractalBuilder {
 	
-	//constants
+	//constant
 	public static final IClosedInterval DEFAULT_REAL_COMPONENT_INTERVAL = new ClosedInterval(-2.5, 1.0);
+	
+	//constant
 	public static final IClosedInterval DEFAULT_IMAGINARY_COMPONENT_INTERVAL = new ClosedInterval(-1.5, 1.5);
+	
+	//constant
 	public static final int DEFAULT_WIDHT_IN_PIXEL = 500;
+	
+	//constant
 	public static final IComplexNumber DEFAULT_SEQUENCES_START_VALUE = new ComplexNumber(0.0, 0.0);
 	
 	//constant
@@ -27,8 +33,10 @@ public final class FractalBuilder implements IFractalBuilder {
 	DEFAULT_SEQUENCES_NEXT_VALUE_FUNCTION =
 	(z, c) -> z[0].getPower2().getSum(c);
 	
-	//constants
+	//constant
 	public static final double DEFAULT_SEQUENCES_MIN_DIVERGENCE_MAGNITUDE = 2.5;
+	
+	//constant
 	public static final int DEFAULT_SEQUENCE_MAX_ITERATION_COUNT = 100;
 	
 	//constant
@@ -45,24 +53,34 @@ public final class FractalBuilder implements IFractalBuilder {
 	//constant
 	public static final int DEFAULT_BIG_DECIMAL_SCALE = 10;
 	
-	//attributes
+	//attribute
 	private IClosedInterval realComponentInterval = DEFAULT_REAL_COMPONENT_INTERVAL;
+	
+	//attribute
 	private IClosedInterval imaginaryComponentInterval = DEFAULT_IMAGINARY_COMPONENT_INTERVAL;
+	
+	//attribute
 	private int widthInPixel = DEFAULT_WIDHT_IN_PIXEL;
 	
 	//attribute
-	private IElementTakerElementGetter<IComplexNumber, IComplexNumber[]> sequencesStartValuesFunction
-	= c -> new IComplexNumber[] {DEFAULT_SEQUENCES_START_VALUE};
+	private IElementTakerElementGetter<IComplexNumber, IComplexNumber[]> sequencesStartValuesFunction =
+	c -> new IComplexNumber[] {DEFAULT_SEQUENCES_START_VALUE};
 	
 	//attribute
-	private I2ElementTakerElementGetter<IComplexNumber[], IComplexNumber, IComplexNumber>
-	sequencesNextValueFunction =
+	private I2ElementTakerElementGetter<IComplexNumber[], IComplexNumber, IComplexNumber> sequencesNextValueFunction =
 	DEFAULT_SEQUENCES_NEXT_VALUE_FUNCTION;
 	
-	//attributes
-	private BigDecimal sequencesMinDivergenceMagnitude = BigDecimal.valueOf(DEFAULT_SEQUENCES_MIN_DIVERGENCE_MAGNITUDE);
+	//attribute
+	private BigDecimal sequencesMinDivergenceMagnitude =
+	BigDecimal.valueOf(DEFAULT_SEQUENCES_MIN_DIVERGENCE_MAGNITUDE);
+	
+	//attribute
 	private int sequencesMaxIterationCount = DEFAULT_SEQUENCE_MAX_ITERATION_COUNT;
+	
+	//attribute
 	private IIntTakerElementGetter<Color> colorFunction = DEFAULT_COLOR_FUNCTION;
+	
+	//attribute
 	private int bigDecimalScale = DEFAULT_BIG_DECIMAL_SCALE;
 		
 	//method
