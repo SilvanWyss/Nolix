@@ -26,6 +26,9 @@ public interface IFractalBuilder {
 	IFractalBuilder setColorFunction(IIntTakerElementGetter<Color> colorFunction);
 	
 	//method declaration
+	IFractalBuilder setHeightInPixel(final int heightInPixel);
+	
+	//method declaration
 	IFractalBuilder setImaginaryComponentInterval(double min, double max);
 	
 	//method declaration

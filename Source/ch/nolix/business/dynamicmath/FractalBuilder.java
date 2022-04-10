@@ -25,6 +25,9 @@ public final class FractalBuilder implements IFractalBuilder {
 	//constant
 	public static final int DEFAULT_WIDHT_IN_PIXEL = 500;
 	
+	//constnat
+	public static final int DEFAULT_HEIGHT_IN_PIXEL = DEFAULT_WIDHT_IN_PIXEL;
+	
 	//constant
 	public static final IComplexNumber DEFAULT_SEQUENCES_START_VALUE = new ComplexNumber(0.0, 0.0);
 	
@@ -63,6 +66,9 @@ public final class FractalBuilder implements IFractalBuilder {
 	private int widthInPixel = DEFAULT_WIDHT_IN_PIXEL;
 	
 	//attribute
+	private int heightInPixel = DEFAULT_HEIGHT_IN_PIXEL;
+	
+	//attribute
 	private IElementTakerElementGetter<IComplexNumber, IComplexNumber[]> sequencesStartValuesFunction =
 	c -> new IComplexNumber[] {DEFAULT_SEQUENCES_START_VALUE};
 	
@@ -90,6 +96,7 @@ public final class FractalBuilder implements IFractalBuilder {
 			realComponentInterval,
 			imaginaryComponentInterval,
 			widthInPixel,
+			heightInPixel,
 			sequencesStartValuesFunction,
 			sequencesNextValueFunction,
 			sequencesMinDivergenceMagnitude,
@@ -113,6 +120,15 @@ public final class FractalBuilder implements IFractalBuilder {
 	public IFractalBuilder setColorFunction(final IIntTakerElementGetter<Color> colorFunction) {
 		
 		this.colorFunction = colorFunction;
+		
+		return this;
+	}
+	
+	//method
+	@Override
+	public IFractalBuilder setHeightInPixel(final int heightInPixel) {
+		
+		this.heightInPixel = heightInPixel;
 		
 		return this;
 	}

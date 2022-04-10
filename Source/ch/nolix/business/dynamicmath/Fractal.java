@@ -31,6 +31,9 @@ public final class Fractal implements IFractal {
 	private final int widthInPixel;
 	
 	//attribute
+	private final int heightInPixel;
+	
+	//attribute
 	private final IElementTakerElementGetter<IComplexNumber, IComplexNumber[]> sequencesStartValuesFunction;
 	
 	//attribute
@@ -54,6 +57,7 @@ public final class Fractal implements IFractal {
 		final IClosedInterval realComponentInterval,
 		final IClosedInterval imaginaryComponentInterval,
 		final int widthInPixel,
+		final int heightInPixel,
 		final IElementTakerElementGetter<IComplexNumber, IComplexNumber[]> sequencesStartValuesFunction,
 		final I2ElementTakerElementGetter<IComplexNumber[], IComplexNumber, IComplexNumber> sequencesNextValueFunction,
 		final BigDecimal sequencesMinDivergenceMagnitude,
@@ -75,6 +79,11 @@ public final class Fractal implements IFractal {
 		Validator
 		.assertThat(widthInPixel)
 		.thatIsNamed("width per unit")
+		.isPositive();
+		
+		Validator
+		.assertThat(heightInPixel)
+		.thatIsNamed("height per unit")
 		.isPositive();
 		
 		Validator
@@ -110,6 +119,7 @@ public final class Fractal implements IFractal {
 		this.imaginaryComponentInterval = imaginaryComponentInterval.inBigDecimalScale(bigDecimalScale);
 		this.realComponentInterval = realComponentInterval.inBigDecimalScale(bigDecimalScale);
 		this.widthInPixel = widthInPixel;
+		this.heightInPixel = heightInPixel;
 		this.sequencesStartValuesFunction = sequencesStartValuesFunction;
 		this.sequencesNextValueFunction = sequencesNextValueFunction;
 		this.sequencesMinDivergenceMagnitude = sequencesMinDivergenceMagnitude;
@@ -133,12 +143,7 @@ public final class Fractal implements IFractal {
 	//method
 	@Override
 	public int getHeightInPixel() {
-		return
-		imaginaryComponentInterval
-		.getLength()
-		.multiply(BigDecimal.valueOf(getWidthInPixel()))
-		.divide(realComponentInterval.getLength(), RoundingMode.HALF_UP)
-		.intValue();
+		return heightInPixel;
 	}
 	
 	//method
