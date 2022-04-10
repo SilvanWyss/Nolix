@@ -21,20 +21,32 @@ import ch.nolix.element.gui.image.MutableImage;
 //class
 public final class Fractal implements IFractal {
 	
-	//attributes
+	//attribute
 	private final IClosedInterval realComponentInterval;
+	
+	//attribute
 	private final IClosedInterval imaginaryComponentInterval;
+	
+	//attribute
 	private final int widthInPixel;
+	
+	//attribute
 	private final IElementTakerElementGetter<IComplexNumber, IComplexNumber[]> sequencesStartValuesFunction;
 	
 	//attribute
 	private final I2ElementTakerElementGetter<IComplexNumber[], IComplexNumber, IComplexNumber>
 	sequencesNextValueFunction;
 	
-	//attributes
+	//attribute
 	private final BigDecimal sequencesMinDivergenceMagnitude;
+	
+	//attribute
 	private final int sequencesMaxIterationCount;
+	
+	//attribute
 	private final IIntTakerElementGetter<Color> colorFunction;
+	
+	//attribute
 	private final int bigDecimalScale;
 	
 	//constructor
