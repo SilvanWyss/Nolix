@@ -5,7 +5,7 @@ package ch.nolix.businessapi.dynamicmathapi;
 public interface IParametrizedImplicitSequenceCreator<N> {
 	
 	//method declaration
-	ISequence<N> createSequence(N[] startValues);
+	OldISequence<N> createSequence(N[] startValues);
 	
 	//method declaration
 	int getSequencesStartIndex();

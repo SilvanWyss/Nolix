@@ -2,11 +2,11 @@
 package ch.nolix.businessapi.dynamicmathapi;
 
 //interface
-public interface IImplicitSequence<N> extends OldISequence<N> {
+public interface ISequenceDefinedBy2Predecessor<V> {
 	
 	//method declaration
-	int getStartValuesCount();
+	V getFirstValue();
 	
 	//method declaration
-	N[] getStartValues();
+	V getSecondValue();
 }

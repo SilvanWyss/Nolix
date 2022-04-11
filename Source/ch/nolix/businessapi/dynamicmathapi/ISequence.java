@@ -4,24 +4,18 @@ package ch.nolix.businessapi.dynamicmathapi;
 //Java imports
 import java.math.BigDecimal;
 
-//own imports
-import ch.nolix.core.functionapi.IElementTakerElementGetter;
-
 //interface
-public interface ISequence<N> {
+public interface ISequence<V> {
 	
 	//method declaration
-	int getIterationCountUntilValueMagnitudeExceedsMaxMagnitudeOrMinusOne(BigDecimal maxMagnitude, int maxIndex);
+	int getIterationCountUntilValueSquaredMagnitudeExceedsSquaredMaxMagnitudeOrMinusOne(
+		BigDecimal maxMagnitude,
+		int maxIndex
+	);
 	
 	//method declaration
-	BigDecimal getSquaredMagnitude(int index);
+	BigDecimal getSquaredMagnitudeOfValueAt(int index);
 	
 	//method declaration
-	IElementTakerElementGetter<N, BigDecimal> getSquaredMagnitudeFunction();
-	
-	//method declaration
-	int getStartIndex();
-	
-	//method declaration
-	N getValue(int index);
+	V getValueAtIndex(int index);
 }
