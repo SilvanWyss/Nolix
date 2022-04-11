@@ -133,14 +133,14 @@ public final class ImageBuilder implements IImageBuilder {
 			mutableImage.setPixel(
 				x,
 				fractal.getHeightInPixel() - y + 1,
-				fractal.getColor(
+				fractal.getColorForIterationCountWhereValueMagnitudeExceedsMaxMagnitude(
 					new ImpliciteSequence<IComplexNumber>(
 						1,
 						fractal.getStartValues(c),
 						z -> fractal.getNextValueFunction().getOutput(z, c),
 						IComplexNumber::getSquaredMagnitude
 					)
-					.getIterationCountUntilValueMagnitudeExceedsMaxMagnitude(
+					.getIterationCountUntilValueMagnitudeExceedsMaxMagnitudeOrMinusOne(
 						fractal.getMinMagnitudeForDivergence(),
 						fractal.getMaxIterationCount()
 					)

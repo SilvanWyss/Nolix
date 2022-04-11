@@ -11,7 +11,7 @@ import ch.nolix.core.functionapi.IElementTakerElementGetter;
 public interface ISequence<N> {
 	
 	//method declaration
-	int getIterationCountUntilValueMagnitudeExceedsMaxMagnitude(BigDecimal maxMagnitude, int maxIndex);
+	int getIterationCountUntilValueMagnitudeExceedsMaxMagnitudeOrMinusOne(BigDecimal maxMagnitude, int maxIndex);
 	
 	//method declaration
 	BigDecimal getSquaredMagnitude(int index);

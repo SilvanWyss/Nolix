@@ -21,6 +21,9 @@ import ch.nolix.element.gui.image.MutableImage;
 //class
 public final class Fractal implements IFractal {
 	
+	//constant
+	public static final Color CONVERGENCE_COLOR = Color.BLACK;
+	
 	//attribute
 	private final IClosedInterval realComponentInterval;
 	
@@ -136,8 +139,13 @@ public final class Fractal implements IFractal {
 	
 	//method
 	@Override
-	public Color getColor(final int index) {
-		return colorFunction.getOutput(index);
+	public Color getColorForIterationCountWhereValueMagnitudeExceedsMaxMagnitude(final int iterationCount) {
+		
+		if (iterationCount == -1) {
+			return CONVERGENCE_COLOR;
+		}
+		
+		return colorFunction.getOutput(iterationCount);
 	}
 	
 	//method
@@ -280,14 +288,14 @@ public final class Fractal implements IFractal {
 				image.setPixel(
 					x,
 					heightInpixel - y + 1,
-					getColor(
+					getColorForIterationCountWhereValueMagnitudeExceedsMaxMagnitude(
 						new ImpliciteSequence<IComplexNumber>(
 							1,
 							sequencesStartValuesFunction.getOutput(c),
 							z -> sequencesNextValueFunction.getOutput(z, c),
 							IComplexNumber::getSquaredMagnitude
 						)
-						.getIterationCountUntilValueMagnitudeExceedsMaxMagnitude(
+						.getIterationCountUntilValueMagnitudeExceedsMaxMagnitudeOrMinusOne(
 							getMinMagnitudeForDivergence(),
 							getMaxIterationCount()
 						)

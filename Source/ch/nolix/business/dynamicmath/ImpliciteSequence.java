@@ -75,7 +75,7 @@ public final class ImpliciteSequence<N> implements IImplicitSequence<N> {
 	
 	//method
 	@Override
-	public int getIterationCountUntilValueMagnitudeExceedsMaxMagnitude(
+	public int getIterationCountUntilValueMagnitudeExceedsMaxMagnitudeOrMinusOne(
 		final BigDecimal maxMagnitude,
 		final int maxIndex
 	) {	
@@ -89,7 +89,7 @@ public final class ImpliciteSequence<N> implements IImplicitSequence<N> {
 			}
 		}
 		
-		return maxIndex;
+		return -1;
 	}
 	
 	//method

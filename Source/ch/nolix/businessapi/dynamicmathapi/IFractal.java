@@ -16,7 +16,7 @@ public interface IFractal {
 	int getBigDecimalScale();
 	
 	//method declaration
-	Color getColor(int index);
+	Color getColorForIterationCountWhereValueMagnitudeExceedsMaxMagnitude(int iterationCount);
 	
 	//method declaration
 	int getHeightInPixel();
