@@ -66,8 +66,13 @@ abstract class Sequence<V> implements ISequence<V> {
 	protected abstract V calculateValue(int index);
 	
 	//method
+	protected V getValueAtIndexWhenCalculated(final int index) {
+		return valuesAndSquaredMagnitudes.get(index - 1).getRefElement1();
+	}
+	
+	//method
 	private void calculateValuesAndSquaredMagnitudesToIndex(final int index) {
-		for (var i = valuesAndSquaredMagnitudes.size(); i <= index; i++) {
+		for (var i = valuesAndSquaredMagnitudes.size() + 1; i <= index; i++) {
 			
 			final var value = calculateValue(i);
 			final var valueSquaredMagnitude = calculateSquaredMagnitudeForValue(value);

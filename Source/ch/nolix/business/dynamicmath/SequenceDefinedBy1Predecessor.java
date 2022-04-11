@@ -47,6 +47,8 @@ public class SequenceDefinedBy1Predecessor<V> extends Sequence<V> implements ISe
 			return getFirstValue();
 		}
 		
-		return nextValueFunction.getOutput(getValueAtIndex(index - 1));
+		final var predecessor = getValueAtIndexWhenCalculated(index - 1);
+		
+		return nextValueFunction.getOutput(predecessor);
 	}
 }

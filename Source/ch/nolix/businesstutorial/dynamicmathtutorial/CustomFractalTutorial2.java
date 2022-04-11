@@ -1,8 +1,6 @@
 package ch.nolix.businesstutorial.dynamicmathtutorial;
 
 import ch.nolix.business.dynamicmath.DynamicMathImplRegistrator;
-import ch.nolix.businessapi.dynamicmathapi.IComplexNumber;
-import ch.nolix.businessapi.dynamicmathapi.IComplexNumberFactory;
 import ch.nolix.businessapi.dynamicmathapi.IFractalBuilder;
 import ch.nolix.core.programcontrol.sequencer.Sequencer;
 import ch.nolix.core.provider.implprovider.GlobalImplProvider;
@@ -19,8 +17,7 @@ public final class CustomFractalTutorial2 {
 		
 		final var maxIterationCount = 500;
 		
-		final var j =
-		GlobalImplProvider.ofInterface(IComplexNumberFactory.class).createInstance().createComplexNumber(-0.8, 0.15);
+		//TODO: final var j = GlobalImplProvider.ofInterface(IComplexNumberFactory.class).createInstance().createComplexNumber(-0.8, 0.15);
 		
 		//Creates a Frame that shows a realtime-generated image of a Fractal.
 		@SuppressWarnings("resource")
@@ -34,8 +31,8 @@ public final class CustomFractalTutorial2 {
 				.setRealComponentInterval(-1.0, 1.0)
 				.setImaginaryComponentInterval(-1.0, 1.0)
 				.setWidthInPixel(800)
-				.setStartValuesFunction(c -> new IComplexNumber[]{c})
-				.setNextValueFunctionFor1Predecessor((p, c) -> p.getPower(6).getSum(j))
+				//TODO: .setStartValuesFunction(c -> new IComplexNumber[]{c})
+				//TODO: .setNextValueFunctionFor1Predecessor((p, c) -> p.getPower(6).getSum(j))
 				.setMinMagnitudeForDivergence(2.5)
 				.setMaxIterationCount(maxIterationCount)
 				.setColorFunction(

@@ -1,7 +1,6 @@
 package ch.nolix.businesstutorial.dynamicmathtutorial;
 
 import ch.nolix.business.dynamicmath.DynamicMathImplRegistrator;
-import ch.nolix.businessapi.dynamicmathapi.IComplexNumberFactory;
 import ch.nolix.businessapi.dynamicmathapi.IFractalBuilder;
 import ch.nolix.core.programcontrol.sequencer.Sequencer;
 import ch.nolix.core.provider.implprovider.GlobalImplProvider;
@@ -30,10 +29,8 @@ public final class CustomFractalTutorial {
 				.setRealComponentInterval(-2.0, 1.5)
 				.setImaginaryComponentInterval(-1.5, 1.5)
 				.setWidthInPixel(800)
-				.setStartValues(
-					GlobalImplProvider.ofInterface(IComplexNumberFactory.class).createInstance().createComplexNumber(0.0, 0.0)
-				)
-				.setNextValueFunctionFor1Predecessor((p, c) -> p.getPower(4).getSum(c))
+				//TODO: .setStartValues(GlobalImplProvider.ofInterface(IComplexNumberFactory.class).createInstance().createComplexNumber(0.0, 0.0))
+				//TODO: .setNextValueFunctionFor1Predecessor((p, c) -> p.getPower(4).getSum(c))
 				.setMinMagnitudeForDivergence(2.5)
 				.setMaxIterationCount(maxIterationCount)
 				.setColorFunction(

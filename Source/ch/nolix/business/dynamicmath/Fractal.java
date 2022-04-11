@@ -9,9 +9,9 @@ import java.math.RoundingMode;
 import ch.nolix.businessapi.dynamicmathapi.IClosedInterval;
 import ch.nolix.businessapi.dynamicmathapi.IComplexNumber;
 import ch.nolix.businessapi.dynamicmathapi.IFractal;
+import ch.nolix.businessapi.dynamicmathapi.ISequence;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.functionapi.I2ElementTakerElementGetter;
 import ch.nolix.core.functionapi.IElementTakerElementGetter;
 import ch.nolix.core.functionapi.IIntTakerElementGetter;
 import ch.nolix.core.programcontrol.processproperty.ProcessingMode;
@@ -37,11 +37,7 @@ public final class Fractal implements IFractal {
 	private final int heightInPixel;
 	
 	//attribute
-	private final IElementTakerElementGetter<IComplexNumber, IComplexNumber[]> sequencesStartValuesFunction;
-	
-	//attribute
-	private final I2ElementTakerElementGetter<IComplexNumber[], IComplexNumber, IComplexNumber>
-	sequencesNextValueFunction;
+	private final IElementTakerElementGetter<IComplexNumber, ISequence<IComplexNumber>> sequenceCreator;
 	
 	//attribute
 	private final BigDecimal sequencesMinDivergenceMagnitude;
@@ -61,8 +57,7 @@ public final class Fractal implements IFractal {
 		final IClosedInterval imaginaryComponentInterval,
 		final int widthInPixel,
 		final int heightInPixel,
-		final IElementTakerElementGetter<IComplexNumber, IComplexNumber[]> sequencesStartValuesFunction,
-		final I2ElementTakerElementGetter<IComplexNumber[], IComplexNumber, IComplexNumber> sequencesNextValueFunction,
+		final IElementTakerElementGetter<IComplexNumber, ISequence<IComplexNumber>> sequenceCreator,
 		final BigDecimal sequencesMinDivergenceMagnitude,
 		final int sequencesMaxIterationCount,
 		final IIntTakerElementGetter<Color> colorFunction,
@@ -90,13 +85,8 @@ public final class Fractal implements IFractal {
 		.isPositive();
 		
 		Validator
-		.assertThat(sequencesStartValuesFunction)
-		.thatIsNamed("sequences start values function")
-		.isNotNull();
-		
-		Validator
-		.assertThat(sequencesNextValueFunction)
-		.thatIsNamed("sequences next value function")
+		.assertThat(sequenceCreator)
+		.thatIsNamed("sequence creator")
 		.isNotNull();
 		
 		Validator
@@ -123,13 +113,16 @@ public final class Fractal implements IFractal {
 		this.realComponentInterval = realComponentInterval.inBigDecimalScale(bigDecimalScale);
 		this.widthInPixel = widthInPixel;
 		this.heightInPixel = heightInPixel;
-		this.sequencesStartValuesFunction = sequencesStartValuesFunction;
-		this.sequencesNextValueFunction = sequencesNextValueFunction;
+		this.sequenceCreator = sequenceCreator;
 		this.sequencesMinDivergenceMagnitude = sequencesMinDivergenceMagnitude;
 		this.sequencesMaxIterationCount = sequencesMaxIterationCount;
 		this.colorFunction = colorFunction;
 		this.bigDecimalScale = bigDecimalScale;
 	}	
+	
+	public ISequence<IComplexNumber> createSequenceFor(ComplexNumber complexNumber) {
+		return sequenceCreator.getOutput(complexNumber);
+	}
 	
 	//method
 	@Override
@@ -210,19 +203,6 @@ public final class Fractal implements IFractal {
 	
 	//method
 	@Override
-	public I2ElementTakerElementGetter<IComplexNumber[], IComplexNumber, IComplexNumber>
-	getNextValueFunction() {
-		return sequencesNextValueFunction;
-	}
-	
-	//method
-	@Override
-	public IComplexNumber[] getStartValues(final IComplexNumber complexNumber) {
-		return sequencesStartValuesFunction.getOutput(complexNumber);
-	}
-	
-	//method
-	@Override
 	public BigDecimal getUnitsPerPixel() {
 		return realComponentInterval.getLength().divide(BigDecimal.valueOf(widthInPixel), RoundingMode.HALF_UP);
 	}
@@ -272,6 +252,9 @@ public final class Fractal implements IFractal {
 		
 		final var unitsPerPixel = getUnitsPerPixel();
 		
+		final var squaredMinMagnitudeForDivergence =
+		getMinMagnitudeForDivergence().multiply(getMinMagnitudeForDivergence());
+		
 		for (var x = 1; x <= widthInPixel; x++) {
 			
 			for (var y = 1; y <= heightInpixel; y++) {
@@ -285,18 +268,15 @@ public final class Fractal implements IFractal {
 					)
 				);
 				
+				final var sequence = sequenceCreator.getOutput(c);
+								
 				image.setPixel(
 					x,
 					heightInpixel - y + 1,
 					getColorForIterationCountWhereValueMagnitudeExceedsMaxMagnitude(
-						new ImpliciteSequence<IComplexNumber>(
-							1,
-							sequencesStartValuesFunction.getOutput(c),
-							z -> sequencesNextValueFunction.getOutput(z, c),
-							IComplexNumber::getSquaredMagnitude
-						)
-						.getIterationCountUntilValueMagnitudeExceedsMaxMagnitudeOrMinusOne(
-							getMinMagnitudeForDivergence(),
+						sequence
+						.getIterationCountUntilValueSquaredMagnitudeExceedsSquaredMaxMagnitudeOrMinusOne(
+							squaredMinMagnitudeForDivergence,
 							getMaxIterationCount()
 						)
 					)

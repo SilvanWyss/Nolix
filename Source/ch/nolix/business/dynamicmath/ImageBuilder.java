@@ -5,7 +5,6 @@ package ch.nolix.business.dynamicmath;
 import java.math.BigDecimal;
 
 //own imports
-import ch.nolix.businessapi.dynamicmathapi.IComplexNumber;
 import ch.nolix.businessapi.dynamicmathapi.IImageBuilder;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.LinkedList;
@@ -121,6 +120,9 @@ public final class ImageBuilder implements IImageBuilder {
 		final var widthInPixel = fractal.getWidthInPixel();
 		final var unitsPerPixel = fractal.getUnitsPerPixel();
 		
+		final var squaredMinMagnitudeForDivergence =
+		fractal.getMinMagnitudeForDivergence().multiply(fractal.getMinMagnitudeForDivergence());
+		
 		for (var x = 1; x <= widthInPixel; x++) {
 			
 			final var c =
@@ -130,18 +132,14 @@ public final class ImageBuilder implements IImageBuilder {
 				fractal.getBigDecimalScale()	
 			);
 			
+			final var sequence = fractal.createSequenceFor(c);
+			
 			mutableImage.setPixel(
 				x,
 				fractal.getHeightInPixel() - y + 1,
 				fractal.getColorForIterationCountWhereValueMagnitudeExceedsMaxMagnitude(
-					new ImpliciteSequence<IComplexNumber>(
-						1,
-						fractal.getStartValues(c),
-						z -> fractal.getNextValueFunction().getOutput(z, c),
-						IComplexNumber::getSquaredMagnitude
-					)
-					.getIterationCountUntilValueMagnitudeExceedsMaxMagnitudeOrMinusOne(
-						fractal.getMinMagnitudeForDivergence(),
+					sequence.getIterationCountUntilValueSquaredMagnitudeExceedsSquaredMaxMagnitudeOrMinusOne(
+						squaredMinMagnitudeForDivergence,
 						fractal.getMaxIterationCount()
 					)
 				)

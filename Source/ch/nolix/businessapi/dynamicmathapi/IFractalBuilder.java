@@ -5,10 +5,6 @@ package ch.nolix.businessapi.dynamicmathapi;
 import java.math.BigDecimal;
 
 //own imports
-import ch.nolix.core.functionapi.I2ElementTakerElementGetter;
-import ch.nolix.core.functionapi.I3ElementTakerElementGetter;
-import ch.nolix.core.functionapi.I4ElementTakerElementGetter;
-import ch.nolix.core.functionapi.I5ElementTakerElementGetter;
 import ch.nolix.core.functionapi.IElementTakerElementGetter;
 import ch.nolix.core.functionapi.IIntTakerElementGetter;
 import ch.nolix.element.gui.color.Color;
@@ -44,61 +40,14 @@ public interface IFractalBuilder {
 	IFractalBuilder setMinMagnitudeForDivergence(double minMagnitudeForDivergence);
 	
 	//method declaration
-	IFractalBuilder setNextValueFunction(
-		I2ElementTakerElementGetter<IComplexNumber[], IComplexNumber, IComplexNumber> nextValueFunction
-	);
-	
-	//method
-	default IFractalBuilder setNextValueFunctionFor1Predecessor(
-		final I2ElementTakerElementGetter<IComplexNumber, IComplexNumber, IComplexNumber> nextValueFunction
-	) {
-		return setNextValueFunction((p, c) -> nextValueFunction.getOutput(p[0], c));
-	}
-	
-	//method
-	default IFractalBuilder setNextValueFunctionFor2Predecessor(
-		final I3ElementTakerElementGetter<IComplexNumber, IComplexNumber, IComplexNumber, IComplexNumber>
-		nextValueFunction
-	) {
-		return setNextValueFunction((p, c) -> nextValueFunction.getOutput(p[0], p[1], c));
-	}
-	
-	//method
-	default IFractalBuilder setNextValueFunctionFor3Predecessor(
-		final I4ElementTakerElementGetter<IComplexNumber, IComplexNumber, IComplexNumber, IComplexNumber, IComplexNumber>
-		nextValueFunction
-	) {
-		return setNextValueFunction((p, c) -> nextValueFunction.getOutput(p[0], p[1], p[2], c));
-	}
-
-	//method
-	default IFractalBuilder setNextValueFunctionFor4Predecessor(
-		I5ElementTakerElementGetter<
-			IComplexNumber,
-			IComplexNumber,
-			IComplexNumber,
-			IComplexNumber,
-			IComplexNumber,
-			IComplexNumber
-		>
-		nextValueFunction
-	) {
-		return
-		setNextValueFunction((p, z) -> nextValueFunction.getOutput(p[0], p[1], p[2], p[3], z));
-	}
-
-	//method declaration
 	IFractalBuilder setRealComponentInterval(double min, double max);
 
 	//method declaration
 	IFractalBuilder setRealComponentInterval(IClosedInterval realComponentInterval);
-
-	//method declaration
-	IFractalBuilder setStartValues(IComplexNumber... startValues);
 	
 	//method declaration
-	IFractalBuilder setStartValuesFunction(
-		IElementTakerElementGetter<IComplexNumber, IComplexNumber[]> startValuesFunction
+	IFractalBuilder setSequenceCreator(
+		IElementTakerElementGetter<IComplexNumber, ISequence<IComplexNumber>> sequenceCreator
 	);
 	
 	//method declaration

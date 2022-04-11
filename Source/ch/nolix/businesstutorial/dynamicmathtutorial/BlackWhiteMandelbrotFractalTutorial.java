@@ -1,6 +1,8 @@
 package ch.nolix.businesstutorial.dynamicmathtutorial;
 
 import ch.nolix.business.dynamicmath.DynamicMathImplRegistrator;
+import ch.nolix.business.dynamicmath.SequenceDefinedBy1Predecessor;
+import ch.nolix.businessapi.dynamicmathapi.IComplexNumber;
 import ch.nolix.businessapi.dynamicmathapi.IComplexNumberFactory;
 import ch.nolix.businessapi.dynamicmathapi.IFractalBuilder;
 import ch.nolix.core.programcontrol.sequencer.Sequencer;
@@ -16,6 +18,9 @@ public final class BlackWhiteMandelbrotFractalTutorial {
 		//Registers an implementation of the dynamicmathapi at the GlobalImplProvider.
 		new DynamicMathImplRegistrator().registerImplementationTo(GlobalImplProvider.getRefInstance());
 		
+		final var startValue =
+		GlobalImplProvider.ofInterface(IComplexNumberFactory.class).createInstance().createComplexNumber(0.0, 0.0);
+		
 		final var maxIterationCount = 100;
 		
 		//Creates a Frame that shows a realtime-generated image of a Fractal.
@@ -30,10 +35,14 @@ public final class BlackWhiteMandelbrotFractalTutorial {
 				.setRealComponentInterval(-2.5, 1.0)
 				.setImaginaryComponentInterval(-1.5, 1.5)
 				.setWidthInPixel(800)
-				.setStartValues(
-					GlobalImplProvider.ofInterface(IComplexNumberFactory.class).createInstance().createComplexNumber(0.0, 0.0)
+				.setSequenceCreator(
+					c ->
+					new SequenceDefinedBy1Predecessor<>(
+						startValue,
+						p -> p.getPower2().getSum(c),
+						IComplexNumber::getMagnitude
+					)
 				)
-				.setNextValueFunctionFor1Predecessor((p, c) -> p.getPower2().getSum(c))
 				.setMinMagnitudeForDivergence(2.5)
 				.setMaxIterationCount(maxIterationCount)
 				.setColorFunction(

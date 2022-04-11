@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 import ch.nolix.businessapi.dynamicmathapi.IClosedInterval;
 import ch.nolix.businessapi.dynamicmathapi.IComplexNumber;
 import ch.nolix.businessapi.dynamicmathapi.IFractalBuilder;
-import ch.nolix.core.functionapi.I2ElementTakerElementGetter;
+import ch.nolix.businessapi.dynamicmathapi.ISequence;
 import ch.nolix.core.functionapi.IElementTakerElementGetter;
 import ch.nolix.core.functionapi.IIntTakerElementGetter;
 import ch.nolix.element.gui.color.Color;
@@ -25,16 +25,12 @@ public final class FractalBuilder implements IFractalBuilder {
 	//constant
 	public static final int DEFAULT_WIDHT_IN_PIXEL = 500;
 	
-	//constnat
+	//constant
 	public static final int DEFAULT_HEIGHT_IN_PIXEL = DEFAULT_WIDHT_IN_PIXEL;
 	
 	//constant
-	public static final IComplexNumber DEFAULT_SEQUENCES_START_VALUE = new ComplexNumber(0.0, 0.0);
-	
-	//constant
-	public static final I2ElementTakerElementGetter<IComplexNumber[], IComplexNumber, IComplexNumber>
-	DEFAULT_SEQUENCES_NEXT_VALUE_FUNCTION =
-	(z, c) -> z[0].getPower2().getSum(c);
+	public static final IElementTakerElementGetter<IComplexNumber, ISequence<IComplexNumber>> DEFAULT_SEQUENCE_CREATOR =
+	c -> new SequenceDefinedBy1Predecessor<>(c, z -> z.getPower2(), IComplexNumber::getSquaredMagnitude);
 	
 	//constant
 	public static final double DEFAULT_SEQUENCES_MIN_DIVERGENCE_MAGNITUDE = 2.5;
@@ -69,12 +65,8 @@ public final class FractalBuilder implements IFractalBuilder {
 	private int heightInPixel = DEFAULT_HEIGHT_IN_PIXEL;
 	
 	//attribute
-	private IElementTakerElementGetter<IComplexNumber, IComplexNumber[]> sequencesStartValuesFunction =
-	c -> new IComplexNumber[] {DEFAULT_SEQUENCES_START_VALUE};
-	
-	//attribute
-	private I2ElementTakerElementGetter<IComplexNumber[], IComplexNumber, IComplexNumber> sequencesNextValueFunction =
-	DEFAULT_SEQUENCES_NEXT_VALUE_FUNCTION;
+	private IElementTakerElementGetter<IComplexNumber, ISequence<IComplexNumber>> sequenceCreator =
+	DEFAULT_SEQUENCE_CREATOR;
 	
 	//attribute
 	private BigDecimal sequencesMinDivergenceMagnitude =
@@ -97,8 +89,7 @@ public final class FractalBuilder implements IFractalBuilder {
 			imaginaryComponentInterval,
 			widthInPixel,
 			heightInPixel,
-			sequencesStartValuesFunction,
-			sequencesNextValueFunction,
+			sequenceCreator,
 			sequencesMinDivergenceMagnitude,
 			sequencesMaxIterationCount,
 			colorFunction,
@@ -189,28 +180,11 @@ public final class FractalBuilder implements IFractalBuilder {
 	
 	//method
 	@Override
-	public IFractalBuilder setNextValueFunction(
-		final I2ElementTakerElementGetter<IComplexNumber[], IComplexNumber, IComplexNumber>
-		sequenceNextValueFunction
+	public IFractalBuilder setSequenceCreator(
+		final IElementTakerElementGetter<IComplexNumber, ISequence<IComplexNumber>> sequenceCreator
 	) {
 		
-		this.sequencesNextValueFunction = sequenceNextValueFunction;
-		
-		return this;
-	}
-	
-	//method
-	@Override
-	public IFractalBuilder setStartValues(final IComplexNumber... sequencesStartValues) {		
-		return setStartValuesFunction(c -> sequencesStartValues);
-	}
-	
-	//method
-	public IFractalBuilder setStartValuesFunction(
-		IElementTakerElementGetter<IComplexNumber, IComplexNumber[]> sequencesStartValuesFunction
-	) {
-		
-		this.sequencesStartValuesFunction = sequencesStartValuesFunction;
+		this.sequenceCreator = sequenceCreator;
 		
 		return this;
 	}
