@@ -1,12 +1,10 @@
 package ch.nolix.businesstutorial.dynamicmathtutorial;
 
-import ch.nolix.business.dynamicmath.DynamicMathImplRegistrator;
+import ch.nolix.business.dynamicmath.ComplexNumber;
+import ch.nolix.business.dynamicmath.FractalBuilder;
 import ch.nolix.business.dynamicmath.SequenceDefinedBy1Predecessor;
 import ch.nolix.businessapi.dynamicmathapi.IComplexNumber;
-import ch.nolix.businessapi.dynamicmathapi.IComplexNumberFactory;
-import ch.nolix.businessapi.dynamicmathapi.IFractalBuilder;
 import ch.nolix.core.programcontrol.sequencer.Sequencer;
-import ch.nolix.core.provider.implprovider.GlobalImplProvider;
 import ch.nolix.element.gui.base.Frame;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.widget.ImageWidget;
@@ -14,14 +12,6 @@ import ch.nolix.element.gui.widget.ImageWidget;
 public final class BlackWhiteMandelbrotFractalTutorial {
 	
 	public static void main(String[] args) {
-		
-		//Registers an implementation of the dynamicmathapi at the GlobalImplProvider.
-		new DynamicMathImplRegistrator().registerImplementationTo(GlobalImplProvider.getRefInstance());
-		
-		final var startValue =
-		GlobalImplProvider.ofInterface(IComplexNumberFactory.class).createInstance().createComplexNumber(0.0, 0.0);
-		
-		final var maxIterationCount = 100;
 		
 		//Creates a Frame that shows a realtime-generated image of a Fractal.
 		@SuppressWarnings("resource")
@@ -31,30 +21,22 @@ public final class BlackWhiteMandelbrotFractalTutorial {
 		.addLayerOnTop(
 			new ImageWidget()
 			.setImage(
-				GlobalImplProvider.ofInterface(IFractalBuilder.class).createInstance()
-				.setRealComponentInterval(-2.5, 1.0)
+				new FractalBuilder()
+				.setRealComponentInterval(-2.0, 1.0)
 				.setImaginaryComponentInterval(-1.5, 1.5)
-				.setWidthInPixel(800)
+				.setWidthInPixel(500)
+				.setHeightInPixel(500)
 				.setSequenceCreator(
 					c ->
 					new SequenceDefinedBy1Predecessor<>(
-						startValue,
+						new ComplexNumber(0.0, 0.0),
 						p -> p.getPower2().getSum(c),
 						IComplexNumber::getMagnitude
 					)
 				)
 				.setMinMagnitudeForDivergence(2.5)
-				.setMaxIterationCount(maxIterationCount)
-				.setColorFunction(
-					i -> {
-						
-						if (i < maxIterationCount) {
-							return Color.WHITE;
-						}
-						
-						return Color.BLACK;
-					}
-				)
+				.setMaxIterationCount(100)
+				.setColorFunction(i -> Color.WHITE)
 				.setBigDecimalScale(20)
 				.build()
 				.startImageBuild()
