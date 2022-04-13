@@ -27,11 +27,11 @@ public final class BlackWhiteMandelbrotFractalTutorial {
 				.setWidthInPixel(500)
 				.setHeightInPixel(500)
 				.setSequenceCreator(
-					c ->
+					z ->
 					new SequenceDefinedBy1Predecessor<>(
 						new ComplexNumber(0.0, 0.0),
-						p -> p.getPower2().getSum(c),
-						IComplexNumber::getMagnitude
+						p -> p.getPower2().getSum(z),
+						IComplexNumber::getSquaredMagnitude
 					)
 				)
 				.setMinMagnitudeForDivergence(2.5)
