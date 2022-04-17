@@ -39,6 +39,9 @@ public interface IFractalHelper {
 	BigDecimal getPixelCountPerVerticalUnitOf(IFractal fractal);
 	
 	//method declaration
+	BigDecimal getSquaredMinMagnitudeForDivergenceOf(IFractal fractal);
+	
+	//method declaration
 	BigDecimal getUnitsPerHorizontalPixelOf(IFractal fractal);
 	
 	//method declaration

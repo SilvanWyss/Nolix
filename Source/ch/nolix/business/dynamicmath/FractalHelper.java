@@ -80,6 +80,12 @@ public final class FractalHelper implements IFractalHelper {
 	
 	//method
 	@Override
+	public BigDecimal getSquaredMinMagnitudeForDivergenceOf(final IFractal fractal) {
+		return fractal.getMinMagnitudeForDivergence().pow(2);
+	}
+	
+	//method
+	@Override
 	public BigDecimal getUnitsPerHorizontalPixelOf(final IFractal fractal) {
 		return getWidthInUnitsOf(fractal).divide(getWidthInPixelAsBigDecimalOf(fractal), RoundingMode.HALF_UP);
 	}
