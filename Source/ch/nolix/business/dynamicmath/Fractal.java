@@ -158,18 +158,6 @@ public final class Fractal implements IFractal {
 	
 	//method
 	@Override
-	public BigDecimal getPixelCountPerHorizontalUnit() {
-		return BigDecimal.valueOf(widthInPixel).divide(realComponentInterval.getLength());
-	}
-	
-	//method
-	@Override
-	public BigDecimal getPixelCountPerVerticalUnit() {
-		return BigDecimal.valueOf(heightInPixel).divide(imaginaryComponentInterval.getLength());
-	}
-	
-	//method
-	@Override
 	public IClosedInterval getRealComponentInterval() {
 		return realComponentInterval;
 	}

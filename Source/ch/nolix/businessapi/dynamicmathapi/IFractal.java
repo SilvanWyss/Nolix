@@ -30,12 +30,6 @@ public interface IFractal {
 	BigDecimal getMinMagnitudeForDivergence();
 	
 	//method declaration
-	BigDecimal getPixelCountPerHorizontalUnit();
-	
-	//method declaration
-	BigDecimal getPixelCountPerVerticalUnit();
-	
-	//method declaration
 	IClosedInterval getRealComponentInterval();
 	
 	//method declaration
