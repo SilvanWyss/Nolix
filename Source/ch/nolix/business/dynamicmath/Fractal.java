@@ -8,13 +8,10 @@ import java.math.BigDecimal;
 import ch.nolix.businessapi.dynamicmathapi.IClosedInterval;
 import ch.nolix.businessapi.dynamicmathapi.IComplexNumber;
 import ch.nolix.businessapi.dynamicmathapi.IFractal;
-import ch.nolix.businessapi.dynamicmathapi.IFractalHelper;
 import ch.nolix.businessapi.dynamicmathapi.ISequence;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.functionapi.IElementTakerElementGetter;
 import ch.nolix.core.functionapi.IIntTakerElementGetter;
-import ch.nolix.core.programcontrol.processproperty.ProcessingMode;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.image.MutableImage;
 
@@ -23,9 +20,6 @@ public final class Fractal implements IFractal {
 	
 	//constant
 	public static final Color CONVERGENCE_COLOR = Color.BLACK;
-	
-	//static attribute
-	private static final IFractalHelper fractalHelper = new FractalHelper();
 	
 	//attribute
 	private final IClosedInterval realComponentInterval;
@@ -195,65 +189,5 @@ public final class Fractal implements IFractal {
 		imageBuilder.waitUntilIsFinishedSuccessfully();
 		
 		return imageBuilder.getRefImage();
-	}
-	
-	//method
-	public MutableImage toImage(final ProcessingMode processingMode) {
-		switch (processingMode) {
-			case SINGLE_THREADED:
-				return toImageSingleThreaded();
-			case MULTI_THREADED:
-				return toImage();
-			default:
-				throw new InvalidArgumentException(processingMode);
-		}
-	}
-	
-	//method
-	public MutableImage toImageSingleThreaded() {
-				
-		final var heightInpixel = getHeightInPixel();		
-		
-		final var image = MutableImage.withWidthAndHeight(widthInPixel, heightInpixel);
-		
-		final var argument =
-		new ComplexNumber(fractalHelper.getMinXOf(this), fractalHelper.getMinYOf(this), getBigDecimalScale());
-		
-		final var unitsPerHorizontalPixel = fractalHelper.getUnitsPerHorizontalPixelOf(this);
-		final var unitsPerVerticalPixel = fractalHelper.getUnitsPerVerticalPixelOf(this);
-		
-		final var squaredMinMagnitudeForDivergence =
-		getMinMagnitudeForDivergence().multiply(getMinMagnitudeForDivergence());
-		
-		for (var x = 1; x <= widthInPixel; x++) {
-			
-			for (var y = 1; y <= heightInpixel; y++) {
-								
-				final var c =
-				argument.getSum(
-					new ComplexNumber(
-						unitsPerHorizontalPixel.multiply(BigDecimal.valueOf(x - 0.5)),
-						unitsPerVerticalPixel.multiply(BigDecimal.valueOf(y - 0.5)),
-						getBigDecimalScale()
-					)
-				);
-				
-				final var sequence = sequenceCreator.getOutput(c);
-								
-				image.setPixel(
-					x,
-					heightInpixel - y + 1,
-					getColorForIterationCountWhereValueMagnitudeExceedsMaxMagnitude(
-						sequence
-						.getIterationCountUntilValueSquaredMagnitudeExceedsLimitOrMinusOne(
-							squaredMinMagnitudeForDivergence,
-							getMaxIterationCount()
-						)
-					)
-				);
-			}
-		}
-		
-		return image;
 	}
 }

@@ -2,7 +2,6 @@ package ch.nolix.businesstutorial.dynamicmathtutorial;
 
 import ch.nolix.business.dynamicmath.FractalBuilder;
 import ch.nolix.core.environment.localcomputer.ShellProvider;
-import ch.nolix.core.programcontrol.processproperty.ProcessingMode;
 import ch.nolix.core.programcontrol.sequencer.Sequencer;
 import ch.nolix.element.gui.containerwidget.HorizontalStack;
 import ch.nolix.element.gui.containerwidget.VerticalStack;
@@ -95,7 +94,7 @@ public final class FractalVisualizerTutorial {
 		}
 		
 		private void generateImage() {
-			pop(fractalBuilder.build().toImage(ProcessingMode.SINGLE_THREADED).toScaledImage(2));
+			pop(fractalBuilder.build().toImage().toScaledImage(2));
 		}
 	}
 	
