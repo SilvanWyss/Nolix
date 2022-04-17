@@ -12,6 +12,9 @@ import ch.nolix.element.gui.image.MutableImage;
 public interface IFractal {
 	
 	//method declaration
+	ISequence<IComplexNumber> createSequenceFor(IComplexNumber complexNumber);
+	
+	//method declaration
 	int getBigDecimalScale();
 	
 	//method declaration

@@ -123,7 +123,9 @@ public final class Fractal implements IFractal {
 		this.bigDecimalScale = bigDecimalScale;
 	}	
 	
-	public ISequence<IComplexNumber> createSequenceFor(IComplexNumber complexNumber) {
+	//method
+	@Override
+	public ISequence<IComplexNumber> createSequenceFor(final IComplexNumber complexNumber) {
 		return sequenceCreator.getOutput(complexNumber);
 	}
 	
