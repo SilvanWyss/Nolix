@@ -14,6 +14,13 @@ public interface IFractalHelper {
 	BigDecimal getHeightInUnitsOf(IFractal fractal);
 	
 	//method declaration
+	int getIterationCountForComplexNumberUntilValueSquaredMagnitudeExceedsLimitOrMinusOne(
+		IFractal fractal,
+		IComplexNumber complexNumber,
+		BigDecimal limit
+	);
+	
+	//method declaration
 	BigDecimal getMaxXOf(IFractal fractal);
 	
 	//method declaration

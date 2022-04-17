@@ -6,6 +6,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 //own imports
+import ch.nolix.businessapi.dynamicmathapi.IComplexNumber;
 import ch.nolix.businessapi.dynamicmathapi.IFractal;
 import ch.nolix.businessapi.dynamicmathapi.IFractalHelper;
 
@@ -22,6 +23,23 @@ public final class FractalHelper implements IFractalHelper {
 	@Override
 	public BigDecimal getHeightInUnitsOf(final IFractal fractal) {
 		return fractal.getImaginaryComponentInterval().getLength();
+	}
+	
+	//method
+	@Override
+	public int getIterationCountForComplexNumberUntilValueSquaredMagnitudeExceedsLimitOrMinusOne(
+		final IFractal fractal,
+		final IComplexNumber complexNumber,
+		final BigDecimal limit
+	) {
+		
+		final var sequence = fractal.createSequenceFor(complexNumber);
+		
+		return
+		sequence.getIterationCountUntilValueSquaredMagnitudeExceedsLimitOrMinusOne(
+			limit,
+			fractal.getMaxIterationCount()
+		);
 	}
 	
 	//method
