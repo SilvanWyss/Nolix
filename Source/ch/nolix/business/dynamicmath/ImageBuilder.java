@@ -90,10 +90,4 @@ public final class ImageBuilder implements IImageBuilder {
 			throw new InvalidArgumentException(this, "reached timeout before having finished");
 		}
 	}
-	
-	//method
-	@Override
-	public void waitUntilIsFinishedSuccessfully() {
-		futures.forEach(IFuture::waitUntilIsFinishedSuccessfully);
-	}
 }
