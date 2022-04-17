@@ -74,6 +74,18 @@ public final class FractalHelper implements IFractalHelper {
 	
 	//method
 	@Override
+	public BigDecimal getUnitsForHorizontalPixelCount(final IFractal fractal, final double horizontalPixelCount) {
+		return getUnitsPerHorizontalPixelOf(fractal).multiply(BigDecimal.valueOf(horizontalPixelCount));
+	}
+	
+	//method
+	@Override
+	public BigDecimal getUnitsForVerticalPixelCount(final IFractal fractal, final double verticalPixelCount) {
+		return getUnitsPerVerticalPixelOf(fractal).multiply(BigDecimal.valueOf(verticalPixelCount));
+	}
+	
+	//method
+	@Override
 	public BigDecimal getWidthInPixelAsBigDecimalOf(final IFractal fractal) {
 		return BigDecimal.valueOf(fractal.getWidthInPixel());
 	}

@@ -38,6 +38,12 @@ public interface IFractalHelper {
 	BigDecimal getUnitsPerVerticalPixelOf(IFractal fractal);
 	
 	//method declaration
+	BigDecimal getUnitsForHorizontalPixelCount(IFractal fractal, double horizontalPixelCount);
+	
+	//method declaration
+	BigDecimal getUnitsForVerticalPixelCount(IFractal fractal, double verticalPixelCount);
+	
+	//method declaration
 	BigDecimal getWidthInPixelAsBigDecimalOf(IFractal fractal);
 	
 	//method declaration
