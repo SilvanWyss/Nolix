@@ -118,7 +118,8 @@ public final class ImageBuilder implements IImageBuilder {
 	private void fillLine(final int y) {
 		
 		final var widthInPixel = fractal.getWidthInPixel();
-		final var unitsPerPixel = fractal.getUnitsPerPixel();
+		final var unitsPerHorizontalPixel = fractal.getUnitsPerHorizontalPixel();
+		final var unitsPerVerticalPixel = fractal.getUnitsPerVerticalPixel();
 		
 		final var squaredMinMagnitudeForDivergence =
 		fractal.getMinMagnitudeForDivergence().multiply(fractal.getMinMagnitudeForDivergence());
@@ -127,8 +128,8 @@ public final class ImageBuilder implements IImageBuilder {
 			
 			final var c =
 			new ComplexNumber(
-				fractal.getMinRealComponent().add(unitsPerPixel.multiply(BigDecimal.valueOf(x - 1.0))),
-				fractal.getMinImaginaryComponent().add(unitsPerPixel.multiply(BigDecimal.valueOf(y - 1.0))),
+				fractal.getMinRealComponent().add(unitsPerHorizontalPixel.multiply(BigDecimal.valueOf(x - 0.5))),
+				fractal.getMinImaginaryComponent().add(unitsPerVerticalPixel.multiply(BigDecimal.valueOf(y - 0.5))),
 				fractal.getBigDecimalScale()	
 			);
 			

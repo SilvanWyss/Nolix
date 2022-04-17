@@ -42,13 +42,19 @@ public interface IFractal {
 	BigDecimal getMinRealComponent();
 	
 	//method declaration
-	BigDecimal getPixelsPerUnit();
+	BigDecimal getPixelCountPerHorizontalUnit();
+	
+	//method declaration
+	BigDecimal getPixelCountPerVerticalUnit();
 	
 	//method declaration
 	IClosedInterval getRealComponentInterval();
 	
 	//method declaration
-	BigDecimal getUnitsPerPixel();
+	BigDecimal getUnitsPerHorizontalPixel();
+	
+	//method declaration
+	BigDecimal getUnitsPerVerticalPixel();
 	
 	//method declaration
 	int getWidthInPixel();

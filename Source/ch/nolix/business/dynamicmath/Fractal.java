@@ -76,12 +76,12 @@ public final class Fractal implements IFractal {
 		
 		Validator
 		.assertThat(widthInPixel)
-		.thatIsNamed("width per unit")
+		.thatIsNamed("width in pixel")
 		.isPositive();
 		
 		Validator
 		.assertThat(heightInPixel)
-		.thatIsNamed("height per unit")
+		.thatIsNamed("height in pixel")
 		.isPositive();
 		
 		Validator
@@ -179,8 +179,14 @@ public final class Fractal implements IFractal {
 	
 	//method
 	@Override
-	public BigDecimal getPixelsPerUnit() {
+	public BigDecimal getPixelCountPerHorizontalUnit() {
 		return BigDecimal.valueOf(widthInPixel).divide(realComponentInterval.getLength());
+	}
+	
+	//method
+	@Override
+	public BigDecimal getPixelCountPerVerticalUnit() {
+		return BigDecimal.valueOf(heightInPixel).divide(imaginaryComponentInterval.getLength());
 	}
 	
 	//method
@@ -203,8 +209,14 @@ public final class Fractal implements IFractal {
 	
 	//method
 	@Override
-	public BigDecimal getUnitsPerPixel() {
-		return realComponentInterval.getLength().divide(BigDecimal.valueOf(widthInPixel), RoundingMode.HALF_UP);
+	public BigDecimal getUnitsPerHorizontalPixel() {
+		return realComponentInterval.getLength().divide(BigDecimal.valueOf(widthInPixel ), RoundingMode.HALF_UP);
+	}
+	
+	//method
+	@Override
+	public BigDecimal getUnitsPerVerticalPixel() {
+		return imaginaryComponentInterval.getLength().divide(BigDecimal.valueOf(heightInPixel), RoundingMode.HALF_UP);
 	}
 	
 	//method
@@ -250,7 +262,8 @@ public final class Fractal implements IFractal {
 		final var argument
 		= new ComplexNumber(getMinRealComponent(), getMinImaginaryComponent(), getBigDecimalScale());
 		
-		final var unitsPerPixel = getUnitsPerPixel();
+		final var unitsPerHorizontalPixel = getUnitsPerHorizontalPixel();
+		final var unitsPerVerticalPixel = getUnitsPerVerticalPixel();
 		
 		final var squaredMinMagnitudeForDivergence =
 		getMinMagnitudeForDivergence().multiply(getMinMagnitudeForDivergence());
@@ -262,9 +275,9 @@ public final class Fractal implements IFractal {
 				final var c =
 				argument.getSum(
 					new ComplexNumber(
-							unitsPerPixel.multiply(BigDecimal.valueOf(x - 1.0)),
-							unitsPerPixel.multiply(BigDecimal.valueOf(y - 1.0)),
-							getBigDecimalScale()
+						unitsPerHorizontalPixel.multiply(BigDecimal.valueOf(x - 0.5)),
+						unitsPerVerticalPixel.multiply(BigDecimal.valueOf(y - 0.5)),
+						getBigDecimalScale()
 					)
 				);
 				
