@@ -30,13 +30,13 @@ abstract class Sequence<V> implements ISequence<V> {
 	
 	//method
 	@Override
-	public int getIterationCountUntilValueSquaredMagnitudeExceedsSquaredMaxMagnitudeOrMinusOne(
-		final BigDecimal squaredMaxMagnitude,
+	public int getIterationCountUntilValueSquaredMagnitudeExceedsLimitOrMinusOne(
+		final BigDecimal limit,
 		final int maxIterationCount
 	) {
 		
 		for (var i = 1; i <= maxIterationCount; i++) {
-			if (getSquaredMagnitudeOfValueAt(i).compareTo(squaredMaxMagnitude) > 0) {
+			if (getSquaredMagnitudeOfValueAt(i).compareTo(limit) > 0) {
 				return i;
 			}
 		}

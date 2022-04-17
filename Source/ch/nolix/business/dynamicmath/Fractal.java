@@ -245,7 +245,7 @@ public final class Fractal implements IFractal {
 					heightInpixel - y + 1,
 					getColorForIterationCountWhereValueMagnitudeExceedsMaxMagnitude(
 						sequence
-						.getIterationCountUntilValueSquaredMagnitudeExceedsSquaredMaxMagnitudeOrMinusOne(
+						.getIterationCountUntilValueSquaredMagnitudeExceedsLimitOrMinusOne(
 							squaredMinMagnitudeForDivergence,
 							getMaxIterationCount()
 						)

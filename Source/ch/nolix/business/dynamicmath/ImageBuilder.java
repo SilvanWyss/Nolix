@@ -143,7 +143,7 @@ public final class ImageBuilder implements IImageBuilder {
 				x,
 				fractal.getHeightInPixel() - y + 1,
 				fractal.getColorForIterationCountWhereValueMagnitudeExceedsMaxMagnitude(
-					sequence.getIterationCountUntilValueSquaredMagnitudeExceedsSquaredMaxMagnitudeOrMinusOne(
+					sequence.getIterationCountUntilValueSquaredMagnitudeExceedsLimitOrMinusOne(
 						squaredMinMagnitudeForDivergence,
 						fractal.getMaxIterationCount()
 					)
