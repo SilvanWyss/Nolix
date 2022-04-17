@@ -82,7 +82,13 @@ final class FractalVisualizer {
 		final BigDecimal squaredMinMagnitudeForDivergence
 	) {
 		
-		final var color = getColorOfPixel(fractal, squaredMinMagnitudeForDivergence, x - 0.5, y - 0.5);
+		final var color =
+		Color.createAverageFrom(
+			getColorOfPixel(fractal, squaredMinMagnitudeForDivergence, x - 0.75, y - 0.75),
+			getColorOfPixel(fractal, squaredMinMagnitudeForDivergence, x - 0.75, y - 0.25),
+			getColorOfPixel(fractal, squaredMinMagnitudeForDivergence, x - 0.25, y - 0.75),
+			getColorOfPixel(fractal, squaredMinMagnitudeForDivergence, x - 0.25, y - 0.25)
+		);
 		
 		image.setPixel(x, y, color);
 	}
