@@ -5,6 +5,7 @@ package ch.nolix.element.gui.color;
 import ch.nolix.core.constant.StringCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.container.ReadContainer;
 import ch.nolix.core.container.pair.Pair;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
@@ -750,6 +751,37 @@ public final class Color extends Element<Color> {
 	static {
 		WEB_COLORS = new ColorConstantExtractor().getColors();
 		WEB_COLOR_NAMES = new ColorNameConstantExtractor().getColorNames();
+	}
+	
+	//static method
+	public static Color createAverageFrom(final Color... colors) {
+		return createAverageFrom(ReadContainer.forArray(colors));
+	}
+	
+	//static method
+	public static Color createAverageFrom(final IContainer<Color> colors) {
+		
+		final var colorCount = colors.getElementCount();
+		
+		var averageRedValue = 0;
+		var averageGreenValue = 0;
+		var averageBlueValue = 0;
+		var averateAlphaValue = 0;
+		
+		for (final var c : colors) {
+			averageRedValue += c.getRedValue();
+			averageGreenValue += c.getGreenValue();
+			averageBlueValue += c.getBlueValue();
+			averateAlphaValue += c.getAlphaValue();
+		}
+				
+		return
+		new Color(
+			averageRedValue / colorCount,
+			averageGreenValue / colorCount,
+			averageBlueValue / colorCount,
+			averateAlphaValue / colorCount
+		);
 	}
 	
 	//static method
