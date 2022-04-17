@@ -158,30 +158,6 @@ public final class Fractal implements IFractal {
 	
 	//method
 	@Override
-	public BigDecimal getMaxImaginaryComponent() {
-		return imaginaryComponentInterval.getMax();
-	}
-	
-	//method
-	@Override
-	public BigDecimal getMaxRealComponent() {
-		return realComponentInterval.getMax();
-	}
-	
-	//method
-	@Override
-	public BigDecimal getMinImaginaryComponent() {
-		return imaginaryComponentInterval.getMin();
-	}
-	
-	//method
-	@Override
-	public BigDecimal getMinRealComponent() {
-		return realComponentInterval.getMin();
-	}
-	
-	//method
-	@Override
 	public BigDecimal getPixelCountPerHorizontalUnit() {
 		return BigDecimal.valueOf(widthInPixel).divide(realComponentInterval.getLength());
 	}
@@ -250,8 +226,8 @@ public final class Fractal implements IFractal {
 		
 		final var image = MutableImage.withWidthAndHeight(widthInPixel, heightInpixel);
 		
-		final var argument
-		= new ComplexNumber(getMinRealComponent(), getMinImaginaryComponent(), getBigDecimalScale());
+		final var argument =
+		new ComplexNumber(fractalHelper.getMinXOf(this), fractalHelper.getMinYOf(this), getBigDecimalScale());
 		
 		final var unitsPerHorizontalPixel = fractalHelper.getUnitsPerHorizontalPixelOf(this);
 		final var unitsPerVerticalPixel = fractalHelper.getUnitsPerVerticalPixelOf(this);

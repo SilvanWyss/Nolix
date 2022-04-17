@@ -132,8 +132,8 @@ public final class ImageBuilder implements IImageBuilder {
 			
 			final var c =
 			new ComplexNumber(
-				fractal.getMinRealComponent().add(unitsPerHorizontalPixel.multiply(BigDecimal.valueOf(x - 0.5))),
-				fractal.getMinImaginaryComponent().add(unitsPerVerticalPixel.multiply(BigDecimal.valueOf(y - 0.5))),
+				fractalHelper.getMinXOf(fractal).add(unitsPerHorizontalPixel.multiply(BigDecimal.valueOf(x - 0.5))),
+				fractalHelper.getMinYOf(fractal).add(unitsPerVerticalPixel.multiply(BigDecimal.valueOf(y - 0.5))),
 				fractal.getBigDecimalScale()	
 			);
 			

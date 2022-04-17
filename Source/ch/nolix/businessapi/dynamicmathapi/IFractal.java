@@ -24,22 +24,10 @@ public interface IFractal {
 	IClosedInterval getImaginaryComponentInterval();	
 	
 	//method declaration
-	BigDecimal getMaxImaginaryComponent();
-	
-	//method declaration
 	int getMaxIterationCount();
-
-	//method declaration
-	BigDecimal getMaxRealComponent();	
-	
-	//method declaration
-	BigDecimal getMinImaginaryComponent();
 	
 	//method declaration
 	BigDecimal getMinMagnitudeForDivergence();
-	
-	//method declaration
-	BigDecimal getMinRealComponent();
 	
 	//method declaration
 	BigDecimal getPixelCountPerHorizontalUnit();
