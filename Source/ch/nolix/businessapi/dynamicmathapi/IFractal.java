@@ -51,12 +51,6 @@ public interface IFractal {
 	IClosedInterval getRealComponentInterval();
 	
 	//method declaration
-	BigDecimal getUnitsPerHorizontalPixel();
-	
-	//method declaration
-	BigDecimal getUnitsPerVerticalPixel();
-	
-	//method declaration
 	int getWidthInPixel();
 	
 	//method declaration

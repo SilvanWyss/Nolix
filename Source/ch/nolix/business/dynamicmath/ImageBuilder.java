@@ -4,6 +4,7 @@ package ch.nolix.business.dynamicmath;
 //Java imports
 import java.math.BigDecimal;
 
+import ch.nolix.businessapi.dynamicmathapi.IFractalHelper;
 //own imports
 import ch.nolix.businessapi.dynamicmathapi.IImageBuilder;
 import ch.nolix.core.constant.LowerCaseCatalogue;
@@ -22,6 +23,9 @@ public final class ImageBuilder implements IImageBuilder {
 	
 	//constant
 	private static final int LINES_PER_THREAD = 10;
+	
+	//static attribute
+	private static final IFractalHelper fractalHelper = new FractalHelper();
 	
 	//attributes
 	private final Fractal fractal;
@@ -118,8 +122,8 @@ public final class ImageBuilder implements IImageBuilder {
 	private void fillLine(final int y) {
 		
 		final var widthInPixel = fractal.getWidthInPixel();
-		final var unitsPerHorizontalPixel = fractal.getUnitsPerHorizontalPixel();
-		final var unitsPerVerticalPixel = fractal.getUnitsPerVerticalPixel();
+		final var unitsPerHorizontalPixel = fractalHelper.getUnitsPerHorizontalPixelOf(fractal);
+		final var unitsPerVerticalPixel = fractalHelper.getUnitsPerVerticalPixelOf(fractal);
 		
 		final var squaredMinMagnitudeForDivergence =
 		fractal.getMinMagnitudeForDivergence().multiply(fractal.getMinMagnitudeForDivergence());

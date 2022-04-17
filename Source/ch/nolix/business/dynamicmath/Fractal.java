@@ -3,12 +3,12 @@ package ch.nolix.business.dynamicmath;
 
 //Java imports
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 
 //own imports
 import ch.nolix.businessapi.dynamicmathapi.IClosedInterval;
 import ch.nolix.businessapi.dynamicmathapi.IComplexNumber;
 import ch.nolix.businessapi.dynamicmathapi.IFractal;
+import ch.nolix.businessapi.dynamicmathapi.IFractalHelper;
 import ch.nolix.businessapi.dynamicmathapi.ISequence;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
@@ -23,6 +23,9 @@ public final class Fractal implements IFractal {
 	
 	//constant
 	public static final Color CONVERGENCE_COLOR = Color.BLACK;
+	
+	//static attribute
+	private static final IFractalHelper fractalHelper = new FractalHelper();
 	
 	//attribute
 	private final IClosedInterval realComponentInterval;
@@ -209,18 +212,6 @@ public final class Fractal implements IFractal {
 	
 	//method
 	@Override
-	public BigDecimal getUnitsPerHorizontalPixel() {
-		return realComponentInterval.getLength().divide(BigDecimal.valueOf(widthInPixel ), RoundingMode.HALF_UP);
-	}
-	
-	//method
-	@Override
-	public BigDecimal getUnitsPerVerticalPixel() {
-		return imaginaryComponentInterval.getLength().divide(BigDecimal.valueOf(heightInPixel), RoundingMode.HALF_UP);
-	}
-	
-	//method
-	@Override
 	public int getWidthInPixel() {
 		return widthInPixel;
 	}
@@ -262,8 +253,8 @@ public final class Fractal implements IFractal {
 		final var argument
 		= new ComplexNumber(getMinRealComponent(), getMinImaginaryComponent(), getBigDecimalScale());
 		
-		final var unitsPerHorizontalPixel = getUnitsPerHorizontalPixel();
-		final var unitsPerVerticalPixel = getUnitsPerVerticalPixel();
+		final var unitsPerHorizontalPixel = fractalHelper.getUnitsPerHorizontalPixelOf(this);
+		final var unitsPerVerticalPixel = fractalHelper.getUnitsPerVerticalPixelOf(this);
 		
 		final var squaredMinMagnitudeForDivergence =
 		getMinMagnitudeForDivergence().multiply(getMinMagnitudeForDivergence());
