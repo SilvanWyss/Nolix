@@ -30,24 +30,17 @@ public final class FractalBuilder implements IFractalBuilder {
 	
 	//constant
 	public static final IElementTakerElementGetter<IComplexNumber, ISequence<IComplexNumber>> DEFAULT_SEQUENCE_CREATOR =
-	c -> new SequenceDefinedBy1Predecessor<>(c, IComplexNumber::getPower2, IComplexNumber::getSquaredMagnitude);
+	z -> new SequenceDefinedBy1Predecessor<>(z, p -> p.getPower2().getSum(z), IComplexNumber::getSquaredMagnitude);
 	
 	//constant
-	public static final double DEFAULT_SEQUENCES_MIN_DIVERGENCE_MAGNITUDE = 2.5;
+	public static final double DEFAULT_SEQUENCES_MIN_DIVERGENCE_MAGNITUDE = 10.0;
 	
 	//constant
-	public static final int DEFAULT_SEQUENCE_MAX_ITERATION_COUNT = 100;
+	public static final int DEFAULT_SEQUENCE_MAX_ITERATION_COUNT = 50;
 	
 	//constant
 	public static final IIntTakerElementGetter<Color> DEFAULT_COLOR_FUNCTION =
-	i -> {
-		
-		if (i < DEFAULT_SEQUENCE_MAX_ITERATION_COUNT) {
-			return Color.withRedValueAndGreenValueAndBlueValue(0, 0, (10 * i) % Color.MAX_COLOR_COMPONENT);
-		}
-		
-		return Color.BLACK;
-	};
+	i ->  Color.withRedValueAndGreenValueAndBlueValue(0, 0, (10 * i) % Color.MAX_COLOR_COMPONENT);
 	
 	//constant
 	public static final int DEFAULT_BIG_DECIMAL_SCALE = 10;
