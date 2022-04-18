@@ -34,10 +34,10 @@ public final class BlackWhiteMandelbrotFractalTutorial {
 						IComplexNumber::getSquaredMagnitude
 					)
 				)
-				.setMinMagnitudeForDivergence(2.5)
-				.setMaxIterationCount(100)
+				.setMinMagnitudeForDivergence(10.0)
+				.setMaxIterationCount(50)
 				.setColorFunction(i -> Color.WHITE)
-				.setBigDecimalScale(20)
+				.setBigDecimalScale(10)
 				.build()
 				.startImageBuild()
 				.getRefImage()
