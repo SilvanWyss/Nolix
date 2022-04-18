@@ -22,7 +22,7 @@ public final class JuliaFractalTutorial {
 			new ImageWidget()
 			.setImage(
 				new FractalBuilder()
-				.setRealComponentInterval(-2.0, 2.0)
+				.setRealComponentInterval(-1.5, 1.5)
 				.setImaginaryComponentInterval(-1.5, 1.5)
 				.setWidthInPixel(500)
 				.setHeightInPixel(500)
