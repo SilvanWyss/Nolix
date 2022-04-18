@@ -9,16 +9,15 @@ public final class ComplexSequenceTutorial {
 	
 	public static void main(String[] args) {
 		
-		final var c = new ComplexNumber(0.0, 1.0);
-		
-		final var sequence =
+		final var complexSequence =
 		new SequenceDefinedBy1Predecessor<>(
 			new ComplexNumber(0.0, 0.0),
-			p -> p.getPower2().getSum(c),
+			p -> p.getPower2().getSum(new ComplexNumber(0.0, 1.0)),
 			IComplexNumber::getSquaredMagnitude
 		);
 		
-		final IIntTaker printFunction = (int i) -> System.out.println("a(" + i + ") = " + sequence.getValueAtIndex(i));
+		final IIntTaker printFunction =
+		(int i) -> System.out.println("a(" + i + ") = " + complexSequence.getValueAtIndex(i));
 		
 		printFunction.run(1);
 		printFunction.run(2);
