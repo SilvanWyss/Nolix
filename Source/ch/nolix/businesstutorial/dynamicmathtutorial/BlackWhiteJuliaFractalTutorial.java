@@ -33,10 +33,10 @@ public final class BlackWhiteJuliaFractalTutorial {
 						p -> p.getPower2().getSum(new ComplexNumber(-0.8, 0.15)),
 						IComplexNumber::getSquaredMagnitude)
 					)
-				.setMinMagnitudeForDivergence(2.5)
-				.setMaxIterationCount(100)
+				.setMinMagnitudeForDivergence(10.0)
+				.setMaxIterationCount(50)
 				.setColorFunction(i -> Color.WHITE)
-				.setBigDecimalScale(20)
+				.setBigDecimalScale(10)
 				.build()
 				.startImageBuild()
 				.getRefImage()
