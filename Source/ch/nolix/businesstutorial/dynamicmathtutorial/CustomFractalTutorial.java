@@ -37,6 +37,7 @@ public final class CustomFractalTutorial {
 				.setMinMagnitudeForDivergence(10.0)
 				.setMaxIterationCount(50)
 				.setColorFunction(
+					i -> Color.withRedValueAndGreenValueAndBlueValue((2 * i) % 256, (10 * i) % 256, (3 * i) % 256)
 				)
 				.setBigDecimalScale(10)
 				.build()
