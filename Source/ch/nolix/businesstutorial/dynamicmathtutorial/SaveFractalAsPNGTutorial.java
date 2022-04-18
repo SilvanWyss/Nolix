@@ -1,8 +1,6 @@
 package ch.nolix.businesstutorial.dynamicmathtutorial;
 
-import ch.nolix.business.dynamicmath.DynamicMathImplRegistrator;
-import ch.nolix.businessapi.dynamicmathapi.IFractalBuilder;
-import ch.nolix.core.provider.implprovider.GlobalImplProvider;
+import ch.nolix.business.dynamicmath.FractalBuilder;
 import ch.nolix.element.gui.base.Frame;
 import ch.nolix.element.gui.containerwidget.VerticalStack;
 import ch.nolix.element.gui.widget.Downloader;
@@ -13,9 +11,6 @@ public final class SaveFractalAsPNGTutorial {
 	
 	public static void main(String[] args) {
 		
-		//Registers an implementation of the dynamicmathapi at the GlobalImplProvider.
-		new DynamicMathImplRegistrator().registerImplementationTo(GlobalImplProvider.getRefInstance());
-		
 		//Creates a Frame.
 		@SuppressWarnings("resource")
 		final var frame =
@@ -24,9 +19,9 @@ public final class SaveFractalAsPNGTutorial {
 		.addLayerOnTop(new Label().setText("Please wait..."));
 		
 		//Creates an Image of a Fractal.
-		final var image = GlobalImplProvider.ofInterface(IFractalBuilder.class).createInstance().build().toImage();
+		final var image = new FractalBuilder().build().toImage();
 		
-		//Lets the Frame show the Image.
+		//Adds the Image to the Frame.
 		frame.addLayerOnTop(
 			new VerticalStack()
 			.add(
