@@ -1229,11 +1229,14 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	private void noteResizeWhenHasBorderWidget(int viewAreaWidth, int viewAreaHeight) {
 		
 		//Gets the root Widget of the current Layer as BorderWidget.
-		final var borderWidget = rootWidget.as(BorderWidget.class);
+		final var rootBorderWidget = rootWidget.as(BorderWidget.class);
 		
-		//Handles the case that the borderWidget has activated automatic size.
-		if (borderWidget.hasAutomaticSize()) {
-			borderWidget.setProposalWidth(viewAreaWidth).setProposalHeight(viewAreaHeight);
+		//Sets max width and max height to the root BorderWidget.
+		rootBorderWidget.setMaxWidth(viewAreaWidth).setMaxHeight(viewAreaHeight);
+		
+		//Handles the case that the root BorderWidget has activated automatic size.
+		if (rootBorderWidget.hasAutomaticSize()) {
+			rootBorderWidget.setProposalWidth(viewAreaWidth).setProposalHeight(viewAreaHeight);
 		}
 	}
 	
