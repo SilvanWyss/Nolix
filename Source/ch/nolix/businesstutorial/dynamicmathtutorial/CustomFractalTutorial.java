@@ -34,12 +34,11 @@ public final class CustomFractalTutorial {
 						IComplexNumber::getSquaredMagnitude
 					)
 				)
-				.setMinMagnitudeForDivergence(2.5)
-				.setMaxIterationCount(100)
+				.setMinMagnitudeForDivergence(10.0)
+				.setMaxIterationCount(50)
 				.setColorFunction(
-					i -> Color.withRedValueAndGreenValueAndBlueValue(i % 256, (10 * i) % 256, (2 * i) % 256)
 				)
-				.setBigDecimalScale(20)
+				.setBigDecimalScale(10)
 				.build()
 				.startImageBuild()
 				.getRefImage()
