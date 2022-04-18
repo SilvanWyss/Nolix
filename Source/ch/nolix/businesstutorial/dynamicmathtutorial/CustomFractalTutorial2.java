@@ -27,7 +27,8 @@ public final class CustomFractalTutorial2 {
 				.setWidthInPixel(500)
 				.setHeightInPixel(500)
 				.setSequenceCreator(
-					z -> new SequenceDefinedBy1Predecessor<>(
+					z ->
+					new SequenceDefinedBy1Predecessor<>(
 						z,
 						p -> p.getPower(6).getSum(new ComplexNumber(-0.8, 0.15)),
 						IComplexNumber::getSquaredMagnitude
