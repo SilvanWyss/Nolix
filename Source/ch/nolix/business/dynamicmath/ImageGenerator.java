@@ -1,13 +1,21 @@
 //package declaration
 package ch.nolix.business.dynamicmath;
 
+//Java import
+import java.math.BigDecimal;
+
 //own imports
+import ch.nolix.businessapi.dynamicmathapi.IComplexNumber;
+import ch.nolix.businessapi.dynamicmathapi.IFractal;
+import ch.nolix.businessapi.dynamicmathapi.IFractalHelper;
 import ch.nolix.businessapi.dynamicmathapi.IImageGenerator;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.IContainer;
+import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.math.Calculator;
 import ch.nolix.core.programcontrol.futureapi.IFuture;
 import ch.nolix.core.programcontrol.jobpool.JobPool;
 import ch.nolix.core.programcontrol.sequencer.Sequencer;
@@ -18,24 +26,36 @@ import ch.nolix.element.gui.image.MutableImage;
 public final class ImageGenerator implements IImageGenerator {
 	
 	//constant
-	private static final int LINES_PER_THREAD = 10;
+	private static final int IMAGE_ROWS_PER_THREAD = 10;
 	
-	//attributes
+	//static attribute
+	private static final IFractalHelper fractalHelper = new FractalHelper();
+	
+	//attribute
+	private final IFractal fractal;
+	
+	//attribute
+	private final BigDecimal squaredMinMagnitudeForDivergence;
+	
+	//attribute
 	private final MutableImage image;
-	private final JobPool jobPool = new JobPool();
 	
 	//multi-attribute
 	private final IContainer<IFuture> futures;
 	
 	//constructor
-	public ImageGenerator(final Fractal fractal) {
+	public ImageGenerator(final IFractal fractal) {
 		
 		Validator.assertThat(fractal).thatIsNamed(Fractal.class).isNotNull();		
+		
+		this.fractal = fractal;
+		
+		squaredMinMagnitudeForDivergence = fractalHelper.getSquaredMinMagnitudeForDivergenceOf(fractal);
 		
 		image =
 		MutableImage.withWidthAndHeightAndColor(fractal.getWidthInPixel(), fractal.getHeightInPixel(), Color.WHITE);
 		
-		futures = new FractalVisualizer().startFillImage(image, fractal, jobPool, LINES_PER_THREAD);
+		futures = startFillImageAndGetFutures();
 	}
 	
 	//method
@@ -89,5 +109,78 @@ public final class ImageGenerator implements IImageGenerator {
 		if (!isFinished()) {
 			throw new InvalidArgumentException(this, "reached timeout before having finished");
 		}
+	}
+	
+	//method
+	private void fillImageRow(final int y) {
+		for (var x = 1; x <= image.getWidth(); x++) {
+			fillImagePixel(x, y);
+		}
+	}
+	
+	//method
+	private void fillImageRows(final int startImageRow, final int endImageRow) {
+		for (var y = startImageRow; y <= endImageRow; y++) {
+			fillImageRow(y);
+		}
+	}
+	
+	//method
+	private void fillImagePixel(final int x, final int y) {
+		
+		final var color =
+		Color.createAverageFrom(
+			getColorOfPixel(x - 0.75, y - 0.75),
+			getColorOfPixel(x - 0.75, y - 0.25),
+			getColorOfPixel(x - 0.25, y - 0.75),
+			getColorOfPixel(x - 0.25, y - 0.25)
+		);
+		
+		image.setPixel(x, y, color);
+	}
+	
+	//method
+	private Color getColorOfPixel(final double x, final double y) {
+		
+		final var z = getComplexNumberOfPixel(x, y);
+		
+		final var iterationCount =
+		fractalHelper.getIterationCountForComplexNumberUntilValueSquaredMagnitudeExceedsLimitOrMinusOne(
+			fractal,
+			z,
+			squaredMinMagnitudeForDivergence
+		);
+		
+		return fractal.getColorForIterationCountWhereValueMagnitudeExceedsMaxMagnitude(iterationCount);
+	}
+	
+	//method
+	private IComplexNumber getComplexNumberOfPixel(final double x, final double y) {
+		return
+		new ComplexNumber(
+			fractalHelper.getMinXOf(fractal).add(fractalHelper.getUnitsForHorizontalPixelCount(fractal, x)),
+			fractalHelper.getMinYOf(fractal).add(fractalHelper.getUnitsForVerticalPixelCount(fractal, y))
+		);
+	}
+	
+	//method
+	private LinkedList<IFuture> startFillImageAndGetFutures() {
+		
+		final var lFutures = new LinkedList<IFuture>();
+		
+		final var jobPool = new JobPool();
+		
+		final var heightInpixel = fractal.getHeightInPixel();		
+		for (var y = 1; y < heightInpixel; y += IMAGE_ROWS_PER_THREAD) {
+			
+			final var startImageRow = y;
+			final var endImageRow = Calculator.getMin(heightInpixel, y + IMAGE_ROWS_PER_THREAD - 1);
+			
+			lFutures.addAtEnd(
+				jobPool.enqueue(() -> fillImageRows(startImageRow, endImageRow))
+			);
+		}
+		
+		return lFutures;
 	}
 }
