@@ -177,8 +177,8 @@ public final class Fractal implements IFractal {
 	}
 	
 	//method
-	public ImageBuilder startImageBuild() {
-		return new ImageBuilder(this);
+	public ImageGenerator startImageBuild() {
+		return new ImageGenerator(this);
 	}
 	
 	//method

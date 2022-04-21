@@ -15,7 +15,7 @@ import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.image.MutableImage;
 
 //class
-public final class ImageBuilder implements IImageBuilder {
+public final class ImageGenerator implements IImageBuilder {
 	
 	//constant
 	private static final int LINES_PER_THREAD = 10;
@@ -28,7 +28,7 @@ public final class ImageBuilder implements IImageBuilder {
 	private final LinkedList<IFuture> futures = new LinkedList<>();
 	
 	//constructor
-	public ImageBuilder(final Fractal fractal) {
+	public ImageGenerator(final Fractal fractal) {
 		
 		Validator.assertThat(fractal).thatIsNamed(Fractal.class).isNotNull();		
 		
