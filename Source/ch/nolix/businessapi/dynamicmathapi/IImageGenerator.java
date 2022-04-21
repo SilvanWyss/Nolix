@@ -6,7 +6,7 @@ import ch.nolix.core.programcontrol.futureapi.IFuture;
 import ch.nolix.element.gui.image.MutableImage;
 
 //interface
-public interface IImageBuilder extends IFuture {
+public interface IImageGenerator extends IFuture {
 	
 	//method declaration
 	MutableImage getRefImage();

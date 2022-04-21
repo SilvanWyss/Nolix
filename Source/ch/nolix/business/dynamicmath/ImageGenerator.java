@@ -2,7 +2,7 @@
 package ch.nolix.business.dynamicmath;
 
 //own imports
-import ch.nolix.businessapi.dynamicmathapi.IImageBuilder;
+import ch.nolix.businessapi.dynamicmathapi.IImageGenerator;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -15,7 +15,7 @@ import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.image.MutableImage;
 
 //class
-public final class ImageGenerator implements IImageBuilder {
+public final class ImageGenerator implements IImageGenerator {
 	
 	//constant
 	private static final int LINES_PER_THREAD = 10;
