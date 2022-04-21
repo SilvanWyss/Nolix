@@ -8,7 +8,6 @@ import java.math.BigDecimal;
 import ch.nolix.businessapi.dynamicmathapi.IComplexNumber;
 import ch.nolix.businessapi.dynamicmathapi.IFractal;
 import ch.nolix.businessapi.dynamicmathapi.IFractalHelper;
-import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.math.Calculator;
@@ -24,7 +23,7 @@ final class FractalVisualizer {
 	private static final IFractalHelper fractalHelper = new FractalHelper();
 	
 	//method
-	public IContainer<IFuture> startFillImage(
+	public LinkedList<IFuture> startFillImage(
 		final MutableImage image,
 		final IFractal fractal,
 		final JobPool jobPool,

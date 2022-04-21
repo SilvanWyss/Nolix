@@ -4,7 +4,7 @@ package ch.nolix.business.dynamicmath;
 //own imports
 import ch.nolix.businessapi.dynamicmathapi.IImageBuilder;
 import ch.nolix.core.constant.LowerCaseCatalogue;
-import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.container.IContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
@@ -25,7 +25,7 @@ public final class ImageGenerator implements IImageBuilder {
 	private final JobPool jobPool = new JobPool();
 	
 	//multi-attribute
-	private final LinkedList<IFuture> futures = new LinkedList<>();
+	private final IContainer<IFuture> futures;
 	
 	//constructor
 	public ImageGenerator(final Fractal fractal) {
@@ -35,7 +35,7 @@ public final class ImageGenerator implements IImageBuilder {
 		image =
 		MutableImage.withWidthAndHeightAndColor(fractal.getWidthInPixel(), fractal.getHeightInPixel(), Color.WHITE);
 		
-		new FractalVisualizer().startFillImage(image, fractal, jobPool, LINES_PER_THREAD);
+		futures = new FractalVisualizer().startFillImage(image, fractal, jobPool, LINES_PER_THREAD);
 	}
 	
 	//method
@@ -66,7 +66,7 @@ public final class ImageGenerator implements IImageBuilder {
 	//method
 	@Override
 	public boolean isFinished() {
-		return !jobPool.containsWaitingJobs();
+		return futures.containsOnly(IFuture::isFinished);
 	}
 	
 	//method
