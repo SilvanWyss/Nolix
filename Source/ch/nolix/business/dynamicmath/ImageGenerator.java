@@ -145,11 +145,7 @@ public final class ImageGenerator implements IImageGenerator {
 		final var z = getComplexNumberOfPixel(x, y);
 		
 		final var iterationCount =
-		fractalHelper.getIterationCountForComplexNumberUntilValueSquaredMagnitudeExceedsLimitOrMinusOne(
-			fractal,
-			z,
-			squaredMinMagnitudeForDivergence
-		);
+		getIterationCountForComplexNumberUntilValueSquaredMagnitudeExceedsLimitOrMinusOne(z);
 		
 		return fractal.getColorForIterationCountWhereValueMagnitudeExceedsMaxMagnitude(iterationCount);
 	}
@@ -160,6 +156,18 @@ public final class ImageGenerator implements IImageGenerator {
 		new ComplexNumber(
 			fractalHelper.getMinXOf(fractal).add(fractalHelper.getUnitsForHorizontalPixelCount(fractal, x)),
 			fractalHelper.getMinYOf(fractal).add(fractalHelper.getUnitsForVerticalPixelCount(fractal, y))
+		);
+	}
+	
+	//method
+	private int getIterationCountForComplexNumberUntilValueSquaredMagnitudeExceedsLimitOrMinusOne(
+		final IComplexNumber complexNumber
+	) {
+		return
+		fractalHelper.getIterationCountForComplexNumberUntilValueSquaredMagnitudeExceedsLimitOrMinusOne(
+			fractal,
+			complexNumber,
+			squaredMinMagnitudeForDivergence
 		);
 	}
 	
