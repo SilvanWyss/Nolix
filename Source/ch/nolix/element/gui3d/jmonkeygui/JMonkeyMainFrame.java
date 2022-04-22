@@ -377,9 +377,6 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 		simpleApplication
 		.getViewPort()
 		.setBackgroundColor(JMonkeyColorHelper.createColorRGBA(getBackgroundColor()));
-				
-		//Calls method of the base class.
-		super.refresh();
 	}
 	
 	//method
