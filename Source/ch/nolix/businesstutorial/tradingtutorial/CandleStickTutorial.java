@@ -1,12 +1,12 @@
-package ch.nolix.elementtutorial.tradingtutorial;
+package ch.nolix.businesstutorial.tradingtutorial;
 
+import ch.nolix.business.trading.CandleStick;
+import ch.nolix.business.trading.NYSEProductSymbolCatalogue;
+import ch.nolix.business.trading.QuandlDataProvider;
+import ch.nolix.business.trading.VolumeCandleStick;
 //own imports
 import ch.nolix.core.container.SequencePattern;
 import ch.nolix.element.time.base.Time;
-import ch.nolix.element.trading.CandleStick;
-import ch.nolix.element.trading.NYSEProductSymbolCatalogue;
-import ch.nolix.element.trading.QuandlDataProvider;
-import ch.nolix.element.trading.VolumeCandleStick;
 
 /**
  * The {@link CandleStickTutorial} is a tutorial for {@link CandleStick}s.

@@ -1,9 +1,9 @@
-package ch.nolix.elementtutorial.tradingtutorial;
+package ch.nolix.businesstutorial.tradingtutorial;
 
+import ch.nolix.business.trading.NYSEProductSymbolCatalogue;
+import ch.nolix.business.trading.QuandlDataProvider;
 //own imports
 import ch.nolix.element.time.base.Time;
-import ch.nolix.element.trading.NYSEProductSymbolCatalogue;
-import ch.nolix.element.trading.QuandlDataProvider;
 
 /**
  * The {@link DataProviderTutorial} is a tutorial for {@link QuandlDataProvider}.

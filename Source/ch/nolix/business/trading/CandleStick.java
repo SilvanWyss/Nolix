@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.trading;
+package ch.nolix.business.trading;
 
 //own imports
 import ch.nolix.core.constant.PascalCaseCatalogue;

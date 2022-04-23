@@ -11,7 +11,6 @@ import ch.nolix.elementtest.guitest.containerwidgettest.ContainerWidgetTestPool;
 import ch.nolix.elementtest.guitest.imagetest.ImageTestPool;
 import ch.nolix.elementtest.guitest.widgettest.WidgetTestPool;
 import ch.nolix.elementtest.timetest.TimeTestPool;
-import ch.nolix.elementtest.tradingtest.TradingTestPool;
 
 //class
 /**
@@ -33,7 +32,6 @@ public final class ElementTestPool extends TestPool {
 			new ImageTestPool(),
 			new GUITestPool(),
 			new TimeTestPool(),
-			new TradingTestPool(),
 			new WidgetTestPool()
 		);
 	}

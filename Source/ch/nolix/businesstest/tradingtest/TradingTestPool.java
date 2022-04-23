@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.elementtest.tradingtest;
+package ch.nolix.businesstest.tradingtest;
 
 //own imports
 import ch.nolix.core.testing.basetest.TestPool;
