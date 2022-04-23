@@ -1,12 +1,12 @@
 //package declaration
-package ch.nolix.elementapi.guiapi.baseapi;
+package ch.nolix.systemapi.guiapi.baseapi;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.functionapi.I2ElementTaker;
 import ch.nolix.core.functionapi.IAction;
 import ch.nolix.core.functionapi.IElementTaker;
-import ch.nolix.elementapi.guiapi.inputapi.Key;
+import ch.nolix.systemapi.guiapi.inputapi.Key;
 
 //interface
 public interface IInputActionManager<IAM extends IInputActionManager<IAM>> {

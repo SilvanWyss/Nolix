@@ -17,10 +17,10 @@ import ch.nolix.element.gui.color.ColorGradient;
 import ch.nolix.element.gui.image.MutableImage;
 import ch.nolix.element.gui.input.IResizableInputTaker;
 import ch.nolix.element.gui.textformat.TextFormat;
-import ch.nolix.elementapi.baseapi.IConfigurableElement;
-import ch.nolix.elementapi.guiapi.inputapi.Key;
-import ch.nolix.elementapi.guiapi.painterapi.IPainter;
 import ch.nolix.system.application.baseguiapplication.PaintRun;
+import ch.nolix.systemapi.elementapi.IConfigurableElement;
+import ch.nolix.systemapi.guiapi.inputapi.Key;
+import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 
 //class
 public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {

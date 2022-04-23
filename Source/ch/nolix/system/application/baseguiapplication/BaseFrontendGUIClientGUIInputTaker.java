@@ -13,8 +13,8 @@ import ch.nolix.element.gui.input.KeyInputType;
 import ch.nolix.element.gui.input.MouseInput;
 import ch.nolix.element.gui.input.MouseInputType;
 import ch.nolix.element.gui.input.ResizeInput;
-import ch.nolix.elementapi.guiapi.inputapi.IInput;
-import ch.nolix.elementapi.guiapi.inputapi.Key;
+import ch.nolix.systemapi.guiapi.inputapi.IInput;
+import ch.nolix.systemapi.guiapi.inputapi.Key;
 
 //class
 /**

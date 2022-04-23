@@ -12,8 +12,8 @@ import ch.nolix.element.gui.color.ColorGradient;
 import ch.nolix.element.gui.input.IResizableInputTaker;
 import ch.nolix.element.gui.textformat.Font;
 import ch.nolix.element.gui.textformat.TextFormat;
-import ch.nolix.elementapi.guiapi.inputapi.Key;
 import ch.nolix.system.application.baseguiapplication.PaintRun;
+import ch.nolix.systemapi.guiapi.inputapi.Key;
 
 /**
  * The {@link CanvasFrameTutorial} is a tutorial for {@link CanvasFrame}s.

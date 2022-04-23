@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.element.gui.base;
 
-import ch.nolix.elementapi.baseapi.IElement;
+import ch.nolix.systemapi.elementapi.IElement;
 
 //class
 /**

@@ -12,7 +12,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.element.elementenum.UniDirection;
-import ch.nolix.elementapi.baseapi.IElement;
+import ch.nolix.systemapi.elementapi.IElement;
 
 //class
 /**

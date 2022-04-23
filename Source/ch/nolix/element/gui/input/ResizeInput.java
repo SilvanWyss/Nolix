@@ -9,7 +9,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.element.base.MutableElement;
 import ch.nolix.element.base.Value;
-import ch.nolix.elementapi.guiapi.inputapi.IInput;
+import ch.nolix.systemapi.guiapi.inputapi.IInput;
 
 //class
 public final class ResizeInput extends MutableElement<ResizeInput> implements IInput<ResizeInput> {

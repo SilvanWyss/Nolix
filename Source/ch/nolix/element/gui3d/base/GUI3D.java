@@ -30,10 +30,10 @@ import ch.nolix.element.gui.base.LocalFrontEndWriter;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.image.IImage;
 import ch.nolix.element.gui.image.Image;
-import ch.nolix.elementapi.baseapi.IConfigurableElement;
-import ch.nolix.elementapi.guiapi.baseapi.IBaseGUI;
-import ch.nolix.elementapi.guiapi.baseapi.IFrontEndReader;
-import ch.nolix.elementapi.guiapi.baseapi.IFrontEndWriter;
+import ch.nolix.systemapi.elementapi.IConfigurableElement;
+import ch.nolix.systemapi.guiapi.baseapi.IBaseGUI;
+import ch.nolix.systemapi.guiapi.baseapi.IFrontEndReader;
+import ch.nolix.systemapi.guiapi.baseapi.IFrontEndWriter;
 
 //class
 /**

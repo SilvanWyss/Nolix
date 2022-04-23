@@ -3,7 +3,7 @@ package ch.nolix.element.gui.input;
 
 //own imports
 import ch.nolix.element.elementfactory.ElementFactory;
-import ch.nolix.elementapi.guiapi.inputapi.IInput;
+import ch.nolix.systemapi.guiapi.inputapi.IInput;
 
 //class
 public final class InputFactory extends ElementFactory<IInput<?>> {

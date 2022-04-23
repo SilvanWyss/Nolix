@@ -19,8 +19,8 @@ import ch.nolix.element.gui.image.IImage;
 import ch.nolix.element.gui.image.Image;
 import ch.nolix.element.gui.image.ImageApplication;
 import ch.nolix.element.gui.image.MutableImage;
-import ch.nolix.elementapi.guiapi.inputapi.Key;
-import ch.nolix.elementapi.guiapi.painterapi.IPainter;
+import ch.nolix.systemapi.guiapi.inputapi.Key;
+import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 
 //class
 public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> implements IWidgetGUI<InnerGUI> {

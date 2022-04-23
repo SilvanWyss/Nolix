@@ -8,8 +8,8 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.functionapi.IElementGetter;
 import ch.nolix.element.gui.base.CursorIcon;
 import ch.nolix.element.gui.color.Color;
-import ch.nolix.elementapi.guiapi.inputapi.Key;
-import ch.nolix.elementapi.guiapi.painterapi.IPainter;
+import ch.nolix.systemapi.guiapi.inputapi.Key;
+import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 
 //class
 public final class Downloader extends TextLineWidget<Downloader, DownloaderLook> {

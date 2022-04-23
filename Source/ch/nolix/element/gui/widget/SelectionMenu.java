@@ -5,7 +5,7 @@ package ch.nolix.element.gui.widget;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.containerwidget.VerticalStack;
-import ch.nolix.elementapi.guiapi.painterapi.IPainter;
+import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 
 //class
 public final class SelectionMenu extends ItemMenu<SelectionMenu> {

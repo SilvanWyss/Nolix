@@ -25,13 +25,13 @@ import ch.nolix.element.gui.image.Image;
 import ch.nolix.element.gui.image.MutableImage;
 import ch.nolix.element.gui.input.IResizableInputTaker;
 import ch.nolix.element.gui.inputdevice.KeyBoard;
-import ch.nolix.elementapi.guiapi.baseapi.IBaseGUI;
-import ch.nolix.elementapi.guiapi.baseapi.IFrontEndReader;
-import ch.nolix.elementapi.guiapi.baseapi.IFrontEndWriter;
-import ch.nolix.elementapi.guiapi.inputapi.Key;
-import ch.nolix.elementapi.guiapi.inputdeviceapi.IKeyBoard;
-import ch.nolix.elementapi.guiapi.inputdeviceapi.IMutableKeyBoard;
-import ch.nolix.elementapi.guiapi.painterapi.IPainter;
+import ch.nolix.systemapi.guiapi.baseapi.IBaseGUI;
+import ch.nolix.systemapi.guiapi.baseapi.IFrontEndReader;
+import ch.nolix.systemapi.guiapi.baseapi.IFrontEndWriter;
+import ch.nolix.systemapi.guiapi.inputapi.Key;
+import ch.nolix.systemapi.guiapi.inputdeviceapi.IKeyBoard;
+import ch.nolix.systemapi.guiapi.inputdeviceapi.IMutableKeyBoard;
+import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 
 //class
 /**

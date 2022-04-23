@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.elementapi.baseapi;
+package ch.nolix.systemapi.elementapi;
 
 //own imports
 import ch.nolix.core.container.LinkedList;

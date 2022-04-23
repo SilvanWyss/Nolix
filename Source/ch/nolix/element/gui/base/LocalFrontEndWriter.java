@@ -9,7 +9,7 @@ import ch.nolix.core.environment.filesystem.FileSystemAccessor;
 import ch.nolix.core.environment.localcomputer.PopupWindowProvider;
 import ch.nolix.core.environment.localcomputer.ShellProvider;
 import ch.nolix.core.programcontrol.processproperty.WriteMode;
-import ch.nolix.elementapi.guiapi.baseapi.IFrontEndWriter;
+import ch.nolix.systemapi.guiapi.baseapi.IFrontEndWriter;
 
 //class
 public final class LocalFrontEndWriter implements IFrontEndWriter {

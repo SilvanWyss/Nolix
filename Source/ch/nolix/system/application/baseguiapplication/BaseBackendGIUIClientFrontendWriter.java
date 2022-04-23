@@ -3,7 +3,7 @@ package ch.nolix.system.application.baseguiapplication;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.elementapi.guiapi.baseapi.IFrontEndWriter;
+import ch.nolix.systemapi.guiapi.baseapi.IFrontEndWriter;
 
 //class
 final class BaseBackendGIUIClientFrontendWriter implements IFrontEndWriter {

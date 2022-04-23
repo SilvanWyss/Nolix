@@ -10,7 +10,7 @@ import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.functionapi.IElementTakerElementGetter;
-import ch.nolix.elementapi.baseapi.IMutableElement;
+import ch.nolix.systemapi.elementapi.IMutableElement;
 
 //class
 final class OneTypeElementFactory<E> {

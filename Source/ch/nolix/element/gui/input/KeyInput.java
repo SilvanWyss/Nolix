@@ -8,8 +8,8 @@ import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.element.base.MutableElement;
 import ch.nolix.element.base.Value;
-import ch.nolix.elementapi.guiapi.inputapi.IInput;
-import ch.nolix.elementapi.guiapi.inputapi.Key;
+import ch.nolix.systemapi.guiapi.inputapi.IInput;
+import ch.nolix.systemapi.guiapi.inputapi.Key;
 
 //class
 public final class KeyInput extends MutableElement<KeyInput> implements IInput<KeyInput> {

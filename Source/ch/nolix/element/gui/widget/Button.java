@@ -9,8 +9,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.element.base.MutableOptionalValue;
 import ch.nolix.element.elementenum.ContentPosition;
 import ch.nolix.element.gui.color.Color;
-import ch.nolix.elementapi.guiapi.inputapi.Key;
-import ch.nolix.elementapi.guiapi.painterapi.IPainter;
+import ch.nolix.systemapi.guiapi.inputapi.Key;
+import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 
 //class
 /**

@@ -23,7 +23,7 @@ import ch.nolix.element.gui3d.shape.Cylinder;
 import ch.nolix.element.gui3d.shape.MultiShape;
 import ch.nolix.element.gui3d.shape.Pyramid;
 import ch.nolix.element.gui3d.shape.Sphere;
-import ch.nolix.elementapi.guiapi.inputapi.Key;
+import ch.nolix.systemapi.guiapi.inputapi.Key;
 
 //class
 /**

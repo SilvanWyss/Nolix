@@ -17,8 +17,8 @@ import ch.nolix.element.gui.widget.BorderWidget;
 import ch.nolix.element.gui.widget.TextBoxLook;
 import ch.nolix.element.gui.widget.TextLineWidget;
 import ch.nolix.element.gui.widget.TextMode;
-import ch.nolix.elementapi.guiapi.inputapi.Key;
-import ch.nolix.elementapi.guiapi.painterapi.IPainter;
+import ch.nolix.systemapi.guiapi.inputapi.Key;
+import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 
 //class
 /**

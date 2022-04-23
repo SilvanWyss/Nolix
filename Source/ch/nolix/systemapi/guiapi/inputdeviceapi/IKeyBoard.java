@@ -1,7 +1,7 @@
 //package declaration
-package ch.nolix.elementapi.guiapi.inputdeviceapi;
+package ch.nolix.systemapi.guiapi.inputdeviceapi;
 
-import ch.nolix.elementapi.guiapi.inputapi.Key;
+import ch.nolix.systemapi.guiapi.inputapi.Key;
 
 //interface
 public interface IKeyBoard {

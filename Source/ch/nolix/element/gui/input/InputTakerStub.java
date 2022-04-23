@@ -3,8 +3,8 @@ package ch.nolix.element.gui.input;
 
 //own imports
 import ch.nolix.element.elementenum.RotationDirection;
-import ch.nolix.elementapi.guiapi.inputapi.IInputTaker;
-import ch.nolix.elementapi.guiapi.inputapi.Key;
+import ch.nolix.systemapi.guiapi.inputapi.IInputTaker;
+import ch.nolix.systemapi.guiapi.inputapi.Key;
 
 //class
 public class InputTakerStub implements IInputTaker {

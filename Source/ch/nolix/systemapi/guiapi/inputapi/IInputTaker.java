@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.elementapi.guiapi.inputapi;
+package ch.nolix.systemapi.guiapi.inputapi;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;

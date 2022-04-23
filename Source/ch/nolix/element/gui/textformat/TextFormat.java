@@ -17,7 +17,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentExcep
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.element.gui.color.Color;
-import ch.nolix.elementapi.baseapi.IElement;
+import ch.nolix.systemapi.elementapi.IElement;
 
 //class
 /**

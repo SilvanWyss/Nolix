@@ -13,7 +13,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.elementapi.baseapi.IRespondingMutableElement;
+import ch.nolix.systemapi.elementapi.IRespondingMutableElement;
 
 //class
 public abstract class FormatElement<FE extends FormatElement<FE, S>, S extends Enum<S>>

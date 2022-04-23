@@ -10,8 +10,8 @@ import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.image.ImageApplication;
 import ch.nolix.element.gui.image.MutableImage;
 import ch.nolix.element.gui.widget.Widget;
-import ch.nolix.elementapi.baseapi.IConfigurableElement;
-import ch.nolix.elementapi.guiapi.baseapi.IBaseGUI;
+import ch.nolix.systemapi.elementapi.IConfigurableElement;
+import ch.nolix.systemapi.guiapi.baseapi.IBaseGUI;
 
 //interface
 public interface IWidgetGUI<WG extends IWidgetGUI<WG>> extends Clearable,  IBaseGUI<WG>, IConfigurableElement<WG>{

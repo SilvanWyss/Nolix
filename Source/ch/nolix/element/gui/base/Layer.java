@@ -35,11 +35,11 @@ import ch.nolix.element.gui.image.ImageApplication;
 import ch.nolix.element.gui.input.IResizableInputTaker;
 import ch.nolix.element.gui.widget.BorderWidget;
 import ch.nolix.element.gui.widget.Widget;
-import ch.nolix.elementapi.baseapi.IConfigurableElement;
-import ch.nolix.elementapi.guiapi.baseapi.IOccupiableCanvasInputActionManager;
-import ch.nolix.elementapi.guiapi.inputapi.IInputTaker;
-import ch.nolix.elementapi.guiapi.inputapi.Key;
-import ch.nolix.elementapi.guiapi.painterapi.IPainter;
+import ch.nolix.systemapi.elementapi.IConfigurableElement;
+import ch.nolix.systemapi.guiapi.baseapi.IOccupiableCanvasInputActionManager;
+import ch.nolix.systemapi.guiapi.inputapi.IInputTaker;
+import ch.nolix.systemapi.guiapi.inputapi.Key;
+import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 
 //class
 /**

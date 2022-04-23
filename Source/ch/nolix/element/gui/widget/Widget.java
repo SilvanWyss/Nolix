@@ -28,14 +28,14 @@ import ch.nolix.element.gui.base.GUI;
 import ch.nolix.element.gui.base.Layer;
 import ch.nolix.element.gui.base.WidgetGUI;
 import ch.nolix.element.gui.color.Color;
-import ch.nolix.elementapi.baseapi.IConfigurableElement;
-import ch.nolix.elementapi.guiapi.baseapi.IFrontEndReader;
-import ch.nolix.elementapi.guiapi.baseapi.IFrontEndWriter;
-import ch.nolix.elementapi.guiapi.baseapi.IInputActionManager;
-import ch.nolix.elementapi.guiapi.inputapi.IInputTaker;
-import ch.nolix.elementapi.guiapi.inputapi.Key;
-import ch.nolix.elementapi.guiapi.inputdeviceapi.IKeyBoard;
-import ch.nolix.elementapi.guiapi.painterapi.IPainter;
+import ch.nolix.systemapi.elementapi.IConfigurableElement;
+import ch.nolix.systemapi.guiapi.baseapi.IFrontEndReader;
+import ch.nolix.systemapi.guiapi.baseapi.IFrontEndWriter;
+import ch.nolix.systemapi.guiapi.baseapi.IInputActionManager;
+import ch.nolix.systemapi.guiapi.inputapi.IInputTaker;
+import ch.nolix.systemapi.guiapi.inputapi.Key;
+import ch.nolix.systemapi.guiapi.inputdeviceapi.IKeyBoard;
+import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 
 //class
 /**

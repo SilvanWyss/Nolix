@@ -11,7 +11,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentExcep
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.math.Calculator;
 import ch.nolix.element.time.base.Time;
-import ch.nolix.elementapi.baseapi.IElement;
+import ch.nolix.systemapi.elementapi.IElement;
 
 //class
 /**

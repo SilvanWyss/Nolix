@@ -7,7 +7,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.math.Calculator;
 import ch.nolix.core.rasterapi.Rectangular;
-import ch.nolix.elementapi.guiapi.painterapi.IPainter;
+import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 
 //class
 /**

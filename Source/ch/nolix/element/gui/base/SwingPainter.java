@@ -13,7 +13,7 @@ import ch.nolix.element.gui.color.Color;
 import ch.nolix.element.gui.color.ColorGradient;
 import ch.nolix.element.gui.image.MutableImage;
 import ch.nolix.element.gui.textformat.TextFormat;
-import ch.nolix.elementapi.guiapi.painterapi.IPainter;
+import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 
 //class
 public final class SwingPainter implements IPainter {
