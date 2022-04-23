@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.element.time.calendarapi;
+package ch.nolix.systemapi.timeapi.calendarapi;
 
 //own imports
 import ch.nolix.core.attributeapi.mutablemandatoryattributeapi.IMutableSubjectHolder;

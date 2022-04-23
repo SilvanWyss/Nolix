@@ -8,8 +8,8 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.element.base.MutableElement;
 import ch.nolix.element.base.MutableValue;
 import ch.nolix.element.time.base.Time;
-import ch.nolix.element.time.calendarapi.IAppointment;
 import ch.nolix.element.time.timevalidator.TimeValidator;
+import ch.nolix.systemapi.timeapi.calendarapi.IAppointment;
 
 //class
 public final class Appointment extends MutableElement<Appointment> implements IAppointment<Appointment> {
