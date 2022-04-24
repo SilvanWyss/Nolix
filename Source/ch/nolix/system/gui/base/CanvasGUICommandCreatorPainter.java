@@ -12,6 +12,7 @@ import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.color.ColorGradient;
 import ch.nolix.system.gui.image.MutableImage;
 import ch.nolix.system.gui.textformat.TextFormat;
+import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 
 //class
@@ -22,18 +23,18 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 	
 	//attributes
 	private final CanvasGUIPainterPool bottom;
-	private final CachingContainer<MutableImage> imageCachingContainer;
+	private final CachingContainer<IImage<?>> imageCachingContainer;
 	private final int index;
 	
 	//constructor
-	public CanvasGUICommandCreatorPainter(final CachingContainer<MutableImage> imageCachingContainer) {
+	public CanvasGUICommandCreatorPainter(final CachingContainer<IImage<?>> imageCachingContainer) {
 		this(new CanvasGUIPainterPool(), imageCachingContainer);
 	}
 	
 	//constructor
 	private CanvasGUICommandCreatorPainter(
 		final CanvasGUIPainterPool bottom,
-		final CachingContainer<MutableImage> imageCachingContainer
+		final CachingContainer<IImage<?>> imageCachingContainer
 	) {
 		this.bottom = bottom;
 		this.imageCachingContainer = imageCachingContainer;
@@ -86,7 +87,7 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 	
 	//method
 	@Override
-	public MutableImage getImageById(final String id) {
+	public IImage<?> getImageById(final String id) {
 		return imageCachingContainer.getRefById(id);
 	}
 	
@@ -150,7 +151,7 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 	
 	//method
 	@Override
-	public void paintImage(final MutableImage mutableImage) {
+	public void paintImage(final IImage<?> mutableImage) {
 		appendPaintCommand(
 			CanvasGUICommandProtocol.PAINT_IMAGE_BY_ID
 			+ '('
@@ -161,7 +162,7 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 	
 	//method
 	@Override
-	public void paintImage(final MutableImage mutableImage, final int width, final int height) {
+	public void paintImage(final IImage<?> mutableImage, final int width, final int height) {
 		appendPaintCommand(
 			CanvasGUICommandProtocol.PAINT_IMAGE_BY_ID
 			+ '('
@@ -291,7 +292,7 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 	}
 	
 	//method
-	private String registerImageIfNotRegisteredAndGetId(final MutableImage mutableImage) {
+	private String registerImageIfNotRegisteredAndGetId(final IImage<?> mutableImage) {
 		
 		final var idContainer = imageCachingContainer.getOptionalIdOf(mutableImage);
 		

@@ -5,6 +5,7 @@ import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.color.ColorGradient;
 import ch.nolix.system.gui.image.MutableImage;
 import ch.nolix.system.gui.textformat.TextFormat;
+import ch.nolix.systemapi.guiapi.imageapi.IImage;
 
 //interface
 /**
@@ -57,7 +58,7 @@ public interface IPainter {
 	 * @param id
 	 * @return the {@link MutableImage} with the given id from the current {@link IPainter}.
 	 */
-	MutableImage getImageById(String id);
+	IImage<?> getImageById(String id);
 	
 	//method declaration
 	/**
@@ -105,7 +106,7 @@ public interface IPainter {
 	 * 
 	 * @param mutableImage
 	 */
-	void paintImage(MutableImage mutableImage);
+	void paintImage(IImage<?> mutableImage);
 	
 	//method declaration
 	/**
@@ -115,7 +116,7 @@ public interface IPainter {
 	 * @param width
 	 * @param height
 	 */
-	void paintImage(MutableImage mutableImage, int width, int height);
+	void paintImage(IImage<?> mutableImage, int width, int height);
 	
 	//method declaration
 	/**

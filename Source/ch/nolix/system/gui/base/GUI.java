@@ -21,7 +21,6 @@ import ch.nolix.system.element.MutableValue;
 import ch.nolix.system.elementenum.RotationDirection;
 import ch.nolix.system.gui.framevisualizer.FrameVisualizer;
 import ch.nolix.system.gui.image.Image;
-import ch.nolix.system.gui.image.MutableImage;
 import ch.nolix.system.gui.input.IResizableInputTaker;
 import ch.nolix.system.gui.inputdevice.KeyBoard;
 import ch.nolix.systemapi.guiapi.baseapi.IBaseGUI;
@@ -109,7 +108,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	private final CloseController closeController = new CloseController(this);
 	private IFrontEndReader frontEndReader = new LocalFrontEndReader();
 	private IFrontEndWriter frontEndWriter = new LocalFrontEndWriter();
-	private final CachingContainer<MutableImage> imageCache = new CachingContainer<>();
+	private final CachingContainer<IImage<?>> imageCache = new CachingContainer<>();
 	private final KeyBoard keyBoard = new KeyBoard();
 	private boolean viewAreaSizeHasChangedSinceLastRecalculation = true;
 	
@@ -242,7 +241,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	/**
 	 * @return the image cache of the current {@link GUI}.
 	 */
-	public final CachingContainer<MutableImage> getRefImageCache() {
+	public final CachingContainer<IImage<?>> getRefImageCache() {
 		return imageCache;
 	}
 	

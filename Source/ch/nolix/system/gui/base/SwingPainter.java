@@ -13,6 +13,7 @@ import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.color.ColorGradient;
 import ch.nolix.system.gui.image.MutableImage;
 import ch.nolix.system.gui.textformat.TextFormat;
+import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 
 //class
@@ -22,14 +23,14 @@ public final class SwingPainter implements IPainter {
 	public static final TextFormat DEFAULT_TEXT_FORMAT = new TextFormat();
 	
 	//attributes
-	private final CachingContainer<MutableImage> imageCache;
+	private final CachingContainer<IImage<?>> imageCache;
 	private final Graphics graphics;
 	
 	//optional attribute
 	private ColorGradient colorGradient;
 	
 	//constructor
-	public SwingPainter(final CachingContainer<MutableImage> imageCache, final Graphics graphics) {
+	public SwingPainter(final CachingContainer<IImage<?>> imageCache, final Graphics graphics) {
 		
 		Validator.assertThat(imageCache).thatIsNamed("image cache").isNotNull();
 		Validator.assertThat(graphics).thatIsNamed(Graphics.class).isNotNull();
@@ -79,7 +80,7 @@ public final class SwingPainter implements IPainter {
 	
 	//method
 	@Override
-	public MutableImage getImageById(final String id) {
+	public IImage<?> getImageById(final String id) {
 		return imageCache.getRefById(id);
 	}
 	
@@ -130,13 +131,13 @@ public final class SwingPainter implements IPainter {
 	
 	//method
 	@Override
-	public void paintImage(final MutableImage mutableImage) {
+	public void paintImage(final IImage<?> mutableImage) {
 		graphics.drawImage(mutableImage.toBufferedImage(), 0, 0, null);
 	}
 	
 	//method
 	@Override
-	public void paintImage(final MutableImage mutableImage, final int width, final int height) {
+	public void paintImage(final IImage<?> mutableImage, final int width, final int height) {
 		graphics.drawImage(mutableImage.toBufferedImage(), 0, 0, width, height, null);
 	}
 	
