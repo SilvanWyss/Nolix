@@ -3,7 +3,7 @@ package ch.nolix.systemapi.rawdataapi.dataadapterapi;
 
 //own imports
 import ch.nolix.core.skillapi.IMultiTimeChangeSaver;
-import ch.nolix.element.time.base.Time;
+import ch.nolix.system.time.base.Time;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDTO;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordDTO;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordUpdateDTO;

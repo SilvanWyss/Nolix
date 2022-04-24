@@ -1,9 +1,8 @@
 package ch.nolix.elementtutorial.guitutorial.basetutorial;
 
-//own imports
-import ch.nolix.element.gui.base.Frame;
-import ch.nolix.element.gui.image.MutableImage;
-import ch.nolix.element.gui.image.ImageApplication;
+import ch.nolix.system.gui.base.Frame;
+import ch.nolix.system.gui.image.ImageApplication;
+import ch.nolix.system.gui.image.MutableImage;
 
 /**
  * The {@link FrameBackgroundImageTutorial} is a tutorial for a {@link Frame}s.

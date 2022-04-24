@@ -4,8 +4,8 @@ package ch.nolix.elementtest.guitest.widgettest;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.testing.basetest.TestCase;
-import ch.nolix.element.gui.widget.Button;
-import ch.nolix.element.gui.widget.ButtonRole;
+import ch.nolix.system.gui.widget.Button;
+import ch.nolix.system.gui.widget.ButtonRole;
 
 //class
 public final class ButtonTest extends BorderWidgetTest<Button> {

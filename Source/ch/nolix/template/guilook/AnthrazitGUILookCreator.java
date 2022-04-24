@@ -1,21 +1,20 @@
 //package declaration
 package ch.nolix.template.guilook;
 
-//own imports
-import ch.nolix.element.configuration.DeepConfiguration;
-import ch.nolix.element.gui.base.LayerRole;
-import ch.nolix.element.gui.color.Color;
-import ch.nolix.element.gui.containerwidget.ContainerRole;
-import ch.nolix.element.gui.containerwidget.Grid;
-import ch.nolix.element.gui.widget.BorderWidget;
-import ch.nolix.element.gui.widget.Button;
-import ch.nolix.element.gui.widget.CheckBox;
-import ch.nolix.element.gui.widget.Console;
-import ch.nolix.element.gui.widget.Downloader;
-import ch.nolix.element.gui.widget.LabelRole;
-import ch.nolix.element.gui.widget.Widget;
-import ch.nolix.element.gui.widget.ItemMenu;
-import ch.nolix.element.configuration.Configuration;
+import ch.nolix.system.configuration.Configuration;
+import ch.nolix.system.configuration.DeepConfiguration;
+import ch.nolix.system.gui.base.LayerRole;
+import ch.nolix.system.gui.color.Color;
+import ch.nolix.system.gui.containerwidget.ContainerRole;
+import ch.nolix.system.gui.containerwidget.Grid;
+import ch.nolix.system.gui.widget.BorderWidget;
+import ch.nolix.system.gui.widget.Button;
+import ch.nolix.system.gui.widget.CheckBox;
+import ch.nolix.system.gui.widget.Console;
+import ch.nolix.system.gui.widget.Downloader;
+import ch.nolix.system.gui.widget.ItemMenu;
+import ch.nolix.system.gui.widget.LabelRole;
+import ch.nolix.system.gui.widget.Widget;
 
 //class
 public final class AnthrazitGUILookCreator {

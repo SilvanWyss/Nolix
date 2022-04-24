@@ -4,9 +4,9 @@ package ch.nolix.system.databaseapplication.propertybinder;
 //own imports
 import ch.nolix.core.container.SingleContainer;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.element.gui.widget.Label;
-import ch.nolix.element.gui.widget.LabelRole;
-import ch.nolix.element.gui.widget.Widget;
+import ch.nolix.system.gui.widget.Label;
+import ch.nolix.system.gui.widget.LabelRole;
+import ch.nolix.system.gui.widget.Widget;
 import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
 
 //class

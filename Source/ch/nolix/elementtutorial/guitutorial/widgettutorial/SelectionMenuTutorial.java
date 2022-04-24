@@ -1,8 +1,7 @@
 package ch.nolix.elementtutorial.guitutorial.widgettutorial;
 
-//own imports
-import ch.nolix.element.gui.base.Frame;
-import ch.nolix.element.gui.widget.SelectionMenu;
+import ch.nolix.system.gui.base.Frame;
+import ch.nolix.system.gui.widget.SelectionMenu;
 
 /**
  * The {@link SelectionMenuTutorial} is a tutorial for {@link SelectionMenu}s.

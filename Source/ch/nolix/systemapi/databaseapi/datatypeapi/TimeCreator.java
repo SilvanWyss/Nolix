@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.databaseapi.datatypeapi;
 
-//own imports
-import ch.nolix.element.time.base.Time;
+import ch.nolix.system.time.base.Time;
 
 //class
 final class TimeCreator implements IValueCreator<Time> {

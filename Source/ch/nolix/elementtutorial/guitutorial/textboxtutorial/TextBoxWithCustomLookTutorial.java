@@ -1,10 +1,9 @@
 package ch.nolix.elementtutorial.guitutorial.textboxtutorial;
 
-//own imports
-import ch.nolix.element.gui.base.Frame;
-import ch.nolix.element.gui.color.Color;
-import ch.nolix.element.gui.textbox.TextBox;
-import ch.nolix.element.gui.widget.WidgetLookState;
+import ch.nolix.system.gui.base.Frame;
+import ch.nolix.system.gui.color.Color;
+import ch.nolix.system.gui.textbox.TextBox;
+import ch.nolix.system.gui.widget.WidgetLookState;
 
 /**
  * The {@link TextBoxWithCustomLookTutorial} is a tutorial for {@link TextBox}s.

@@ -7,7 +7,7 @@ import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.sql.SQLCollector;
 import ch.nolix.core.sql.SQLConnection;
 import ch.nolix.core.sql.SQLConnectionPool;
-import ch.nolix.element.time.base.Time;
+import ch.nolix.system.time.base.Time;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaWriter;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;

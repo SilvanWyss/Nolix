@@ -16,12 +16,12 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.sequencer.Sequencer;
-import ch.nolix.element.gui.base.GUI;
-import ch.nolix.element.gui.base.IWidgetGUI;
-import ch.nolix.element.gui.base.InvisibleGUI;
-import ch.nolix.element.gui.input.InputFactory;
-import ch.nolix.element.gui.input.MouseInput;
 import ch.nolix.system.application.main.BackendClient;
+import ch.nolix.system.gui.base.GUI;
+import ch.nolix.system.gui.base.IWidgetGUI;
+import ch.nolix.system.gui.base.InvisibleGUI;
+import ch.nolix.system.gui.input.InputFactory;
+import ch.nolix.system.gui.input.MouseInput;
 import ch.nolix.systemapi.guiapi.inputapi.IInput;
 
 //class

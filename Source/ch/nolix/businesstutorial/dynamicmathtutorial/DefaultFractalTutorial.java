@@ -1,8 +1,8 @@
 package ch.nolix.businesstutorial.dynamicmathtutorial;
 
 import ch.nolix.business.dynamicmath.FractalBuilder;
-import ch.nolix.element.gui.base.Frame;
-import ch.nolix.element.gui.widget.ImageWidget;
+import ch.nolix.system.gui.base.Frame;
+import ch.nolix.system.gui.widget.ImageWidget;
 
 public final class DefaultFractalTutorial {
 	

@@ -4,7 +4,7 @@ package ch.nolix.systemapi.rawdataapi.dataadapterapi;
 //own imports
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.programcontrol.groupcloseable.GroupCloseable;
-import ch.nolix.element.time.base.Time;
+import ch.nolix.system.time.base.Time;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedRecordDTO;
 
 //interface

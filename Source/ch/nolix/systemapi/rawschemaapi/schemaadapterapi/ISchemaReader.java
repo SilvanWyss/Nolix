@@ -4,7 +4,7 @@ package ch.nolix.systemapi.rawschemaapi.schemaadapterapi;
 //own imports
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.programcontrol.groupcloseable.GroupCloseable;
-import ch.nolix.element.time.base.Time;
+import ch.nolix.system.time.base.Time;
 import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDTO;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDTO;

@@ -1,0 +1,60 @@
+//package declaration
+package ch.nolix.system.gui3d.shape;
+
+//own imports
+import ch.nolix.core.constant.LowerCaseCatalogue;
+import ch.nolix.core.constant.PascalCaseCatalogue;
+import ch.nolix.core.document.node.BaseNode;
+import ch.nolix.core.document.node.Node;
+import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.system.element.MutableValue;
+import ch.nolix.system.gui3d.base.AtomicShape;
+
+//class
+public abstract class Prisma<P extends Prisma<P>> extends AtomicShape<P> {
+	
+	//constant
+	public static final double DEFAULT_HEIGHT = 1.0;
+	
+	//attribute
+	private final MutableValue<Double> height =
+	new MutableValue<>(
+		PascalCaseCatalogue.HEIGHT,
+		DEFAULT_HEIGHT,
+		this::setHeight,
+		BaseNode::getOneAttributeAsDouble,
+		Node::withAttribute
+	);
+	
+	//method
+	public final double getHeight() {
+		return height.getValue();
+	}
+	
+	//method
+	public final float getHeightAsFloat() {
+		return (float)getHeight();
+	}
+	
+	//method
+	public final P setHeight(final double height) {
+		
+		Validator.assertThat(height).thatIsNamed(LowerCaseCatalogue.HEIGHT).isPositive();
+		
+		this.height.setValue(height);
+		
+		return asConcrete();
+	}
+	
+	//method declaration
+	protected abstract void resetPrisma();
+	
+	//method
+	@Override
+	protected final void resetShape() {
+		
+		setHeight(DEFAULT_HEIGHT);
+		
+		resetPrisma();
+	}
+}

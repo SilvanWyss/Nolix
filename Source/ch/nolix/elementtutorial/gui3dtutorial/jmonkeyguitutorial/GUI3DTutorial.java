@@ -1,9 +1,8 @@
 package ch.nolix.elementtutorial.gui3dtutorial.jmonkeyguitutorial;
 
-//own imports
-import ch.nolix.element.gui.color.Color;
-import ch.nolix.element.gui3d.jmonkeygui.JMonkeyMainFrame;
-import ch.nolix.element.gui3d.shape.Sphere;
+import ch.nolix.system.gui.color.Color;
+import ch.nolix.system.gui3d.jmonkeygui.JMonkeyMainFrame;
+import ch.nolix.system.gui3d.shape.Sphere;
 
 /**
  * The 3D GUI tutorial is a tutorial for the 3D GUI class.

@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 //own imports
 import ch.nolix.core.functionapi.IElementTakerElementGetter;
 import ch.nolix.core.functionapi.IIntTakerElementGetter;
-import ch.nolix.element.gui.color.Color;
+import ch.nolix.system.gui.color.Color;
 
 //interface
 public interface IFractalBuilder {

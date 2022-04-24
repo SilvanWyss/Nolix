@@ -3,7 +3,6 @@ package ch.nolix.system.sqlrawschema.schemawriter;
 
 //own imports
 import ch.nolix.core.container.LinkedList;
-import ch.nolix.element.time.base.Time;
 import ch.nolix.system.sqlrawschema.columntable.ColumnTableColumn;
 import ch.nolix.system.sqlrawschema.columntable.ParametrizedPropertyTypeRecordMapper;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabaseProperty;
@@ -11,6 +10,7 @@ import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertySystem
 import ch.nolix.system.sqlrawschema.structure.SystemDataTable;
 import ch.nolix.system.sqlrawschema.tabletable.TableTableColumn;
 import ch.nolix.system.sqlrawschema.tabletable.TableTableRecordMapper;
+import ch.nolix.system.time.base.Time;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDTO;

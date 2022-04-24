@@ -1,11 +1,10 @@
 package ch.nolix.elementtutorial.guitutorial.widgettutorial;
 
-//own imports
-import ch.nolix.element.gui.base.Frame;
-import ch.nolix.element.gui.containerwidget.HorizontalStack;
-import ch.nolix.element.gui.widget.InnerGUI;
-import ch.nolix.element.gui.widget.Label;
-import ch.nolix.element.gui.widget.WidgetLookState;
+import ch.nolix.system.gui.base.Frame;
+import ch.nolix.system.gui.containerwidget.HorizontalStack;
+import ch.nolix.system.gui.widget.InnerGUI;
+import ch.nolix.system.gui.widget.Label;
+import ch.nolix.system.gui.widget.WidgetLookState;
 
 /**
  * The {@link InnerGUITutorial} is a tutorial for {@link InnerGUI}s.

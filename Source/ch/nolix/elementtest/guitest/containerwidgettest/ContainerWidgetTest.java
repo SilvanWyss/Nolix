@@ -3,10 +3,10 @@ package ch.nolix.elementtest.guitest.containerwidgettest;
 
 //own imports
 import ch.nolix.core.testing.basetest.TestCase;
-import ch.nolix.element.gui.containerwidget.ContainerWidget;
-import ch.nolix.element.gui.widget.Area;
-import ch.nolix.element.gui.widget.Widget;
 import ch.nolix.elementtest.guitest.widgettest.BorderWidgetTest;
+import ch.nolix.system.gui.containerwidget.ContainerWidget;
+import ch.nolix.system.gui.widget.Area;
+import ch.nolix.system.gui.widget.Widget;
 
 //class
 public abstract class ContainerWidgetTest<CW extends ContainerWidget<CW, ?>> extends BorderWidgetTest<CW> {

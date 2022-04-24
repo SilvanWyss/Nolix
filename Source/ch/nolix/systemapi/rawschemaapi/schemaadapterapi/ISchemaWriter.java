@@ -3,7 +3,7 @@ package ch.nolix.systemapi.rawschemaapi.schemaadapterapi;
 
 //own imports
 import ch.nolix.core.skillapi.IMultiTimeChangeSaver;
-import ch.nolix.element.time.base.Time;
+import ch.nolix.system.time.base.Time;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDTO;

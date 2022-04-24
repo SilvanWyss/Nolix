@@ -1,11 +1,10 @@
 package ch.nolix.elementtutorial.guitutorial.containerwidgettutorial;
 
-//own imports
-import ch.nolix.element.gui.base.Frame;
-import ch.nolix.element.gui.color.Color;
-import ch.nolix.element.gui.containerwidget.TabContainer;
-import ch.nolix.element.gui.widget.Area;
-import ch.nolix.element.gui.widget.WidgetLookState;
+import ch.nolix.system.gui.base.Frame;
+import ch.nolix.system.gui.color.Color;
+import ch.nolix.system.gui.containerwidget.TabContainer;
+import ch.nolix.system.gui.widget.Area;
+import ch.nolix.system.gui.widget.WidgetLookState;
 
 /**
  * The {@link TabContainerTutorial} is a tutorial for {@link TabContainer}s.

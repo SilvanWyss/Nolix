@@ -5,7 +5,7 @@ package ch.nolix.system.rawdata.dataadapter;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
-import ch.nolix.element.time.base.Time;
+import ch.nolix.system.time.base.Time;
 import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataAdapter;
 import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataReader;
 import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataWriter;

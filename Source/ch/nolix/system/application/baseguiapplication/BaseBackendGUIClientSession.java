@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.system.application.baseguiapplication;
 
-//own imports
-import ch.nolix.element.gui.base.IWidgetGUI;
-import ch.nolix.element.gui.base.InvisibleGUI;
 import ch.nolix.system.application.main.Session;
+import ch.nolix.system.gui.base.IWidgetGUI;
+import ch.nolix.system.gui.base.InvisibleGUI;
 
 //class
 public abstract class BaseBackendGUIClientSession<

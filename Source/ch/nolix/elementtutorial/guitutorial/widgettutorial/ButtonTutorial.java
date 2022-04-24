@@ -1,9 +1,8 @@
 package ch.nolix.elementtutorial.guitutorial.widgettutorial;
 
-//own imports
-import ch.nolix.element.gui.base.Frame;
-import ch.nolix.element.gui.color.Color;
-import ch.nolix.element.gui.widget.Button;
+import ch.nolix.system.gui.base.Frame;
+import ch.nolix.system.gui.color.Color;
+import ch.nolix.system.gui.widget.Button;
 
 /**
  * The {@link ButtonTutorial} is a tutorial for {@link Button}s.

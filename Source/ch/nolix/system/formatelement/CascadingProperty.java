@@ -1,0 +1,105 @@
+//package declaration
+package ch.nolix.system.formatelement;
+
+//own imports
+import ch.nolix.core.constant.LowerCaseCatalogue;
+import ch.nolix.core.document.node.BaseNode;
+import ch.nolix.core.document.node.Node;
+import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.functionapi.I2ElementTaker;
+import ch.nolix.core.functionapi.IElementTakerElementGetter;
+
+//class
+public final class CascadingProperty<S extends Enum<S>, V> extends MaterializedProperty<S, V> {
+	
+	//attribute
+	private final V defaultValue;
+	
+	//optional attribute
+	private CascadingProperty<S, V> parentProperty;
+	
+	//constructor
+	public CascadingProperty(
+		final String name,
+		final Class<S> stateClass,
+		final IElementTakerElementGetter<BaseNode, V> valueCreator,
+		final IElementTakerElementGetter<V, Node> specificationCreator,
+		final V defaultValue
+	) {
+		
+		super(name, stateClass, valueCreator, specificationCreator);
+		
+		Validator.assertThat(defaultValue).thatIsNamed(LowerCaseCatalogue.DEFAULT_VALUE).isNotNull();
+		
+		this.defaultValue = defaultValue;
+	}
+	
+	//constructor
+	public CascadingProperty(
+		final String name,
+		final Class<S> stateClass,
+		final IElementTakerElementGetter<BaseNode, V> valueCreator,
+		final IElementTakerElementGetter<V, Node> specificationCreator,
+		final I2ElementTaker<S, V> setterMethod,
+		final V defaultValue
+	) {
+		
+		super(name, stateClass, valueCreator, specificationCreator, setterMethod);
+		
+		Validator.assertThat(defaultValue).thatIsNamed(LowerCaseCatalogue.DEFAULT_VALUE).isNotNull();
+		
+		this.defaultValue = defaultValue;
+	}
+	
+	//method
+	@Override
+	protected V getValueWhenHasState(final State<S> state) {
+		
+		final var stateProperty = stateProperties[state.getIndex()];
+		if (stateProperty.hasValueOrIsEmpty()) {
+			return stateProperty.getValue();
+		}
+		
+		final var baseStateProperty = getRefBaseStateProperty();
+		if (baseStateProperty.hasValueOrIsEmpty()) {
+			return baseStateProperty.getValue();
+		}
+		
+		if (hasParentProperty()) {
+			return parentProperty.getValueWhenHasState(state);
+		}
+		
+		return defaultValue;
+	}
+	
+	//method
+	@Override
+	protected boolean hasValueWhenHasState(final State<S> state) {
+		
+		final var stateProperty = stateProperties[state.getIndex()];
+		if (stateProperty.hasValueOrIsEmpty()) {
+			return stateProperty.hasValue();
+		}
+		
+		final var baseStateProperty = getRefBaseStateProperty();
+		if (baseStateProperty.hasValueOrIsEmpty()) {
+			return baseStateProperty.hasValue();
+		}
+		
+		return hasParentProperty() && parentProperty.hasValueWhenHasState(state);
+	}
+		
+	//method
+	@SuppressWarnings("unchecked")
+	void setParentProperty(final CascadingProperty<S, ?> parentProperty) {
+		
+		Validator.assertThat(parentProperty).thatIsNamed("parent property").isNotNull();
+		
+		this.parentProperty = (CascadingProperty<S, V>)parentProperty;
+	}
+	
+	//method
+	private boolean hasParentProperty() {
+		return (parentProperty != null);
+	}
+}

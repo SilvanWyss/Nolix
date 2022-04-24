@@ -1,21 +1,20 @@
 package ch.nolix.templatetutorial.guilooktutorial;
 
-//own imports
-import ch.nolix.element.gui.base.Frame;
-import ch.nolix.element.gui.containerwidget.ContainerRole;
-import ch.nolix.element.gui.containerwidget.Grid;
-import ch.nolix.element.gui.containerwidget.HorizontalStack;
-import ch.nolix.element.gui.containerwidget.VerticalStack;
-import ch.nolix.element.gui.dialog.InfoDialogCreator;
-import ch.nolix.element.gui.textbox.TextBox;
-import ch.nolix.element.gui.widget.Button;
-import ch.nolix.element.gui.widget.CheckBox;
-import ch.nolix.element.gui.widget.Console;
-import ch.nolix.element.gui.widget.Downloader;
-import ch.nolix.element.gui.widget.DropdownMenu;
-import ch.nolix.element.gui.widget.Label;
-import ch.nolix.element.gui.widget.LabelRole;
-import ch.nolix.element.gui.widget.SelectionMenu;
+import ch.nolix.system.gui.base.Frame;
+import ch.nolix.system.gui.containerwidget.ContainerRole;
+import ch.nolix.system.gui.containerwidget.Grid;
+import ch.nolix.system.gui.containerwidget.HorizontalStack;
+import ch.nolix.system.gui.containerwidget.VerticalStack;
+import ch.nolix.system.gui.dialog.InfoDialogCreator;
+import ch.nolix.system.gui.textbox.TextBox;
+import ch.nolix.system.gui.widget.Button;
+import ch.nolix.system.gui.widget.CheckBox;
+import ch.nolix.system.gui.widget.Console;
+import ch.nolix.system.gui.widget.Downloader;
+import ch.nolix.system.gui.widget.DropdownMenu;
+import ch.nolix.system.gui.widget.Label;
+import ch.nolix.system.gui.widget.LabelRole;
+import ch.nolix.system.gui.widget.SelectionMenu;
 import ch.nolix.template.guilook.AnthrazitGUILookCreator;
 
 public final class GUILooksTutorial {

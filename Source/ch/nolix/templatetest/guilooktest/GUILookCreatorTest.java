@@ -5,21 +5,21 @@ package ch.nolix.templatetest.guilooktest;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.ObjectTest;
-import ch.nolix.element.configuration.Configuration;
-import ch.nolix.element.gui.base.InvisibleGUI;
-import ch.nolix.element.gui.containerwidget.VerticalStack;
-import ch.nolix.element.gui.textbox.TextBox;
-import ch.nolix.element.gui.widget.Area;
-import ch.nolix.element.gui.widget.Button;
-import ch.nolix.element.gui.widget.Console;
-import ch.nolix.element.gui.widget.Downloader;
-import ch.nolix.element.gui.widget.HorizontalLine;
-import ch.nolix.element.gui.widget.ImageWidget;
-import ch.nolix.element.gui.widget.Label;
-import ch.nolix.element.gui.widget.SelectionMenu;
-import ch.nolix.element.gui.widget.Uploader;
-import ch.nolix.element.gui.widget.VerticalLine;
-import ch.nolix.element.gui.widget.Widget;
+import ch.nolix.system.configuration.Configuration;
+import ch.nolix.system.gui.base.InvisibleGUI;
+import ch.nolix.system.gui.containerwidget.VerticalStack;
+import ch.nolix.system.gui.textbox.TextBox;
+import ch.nolix.system.gui.widget.Area;
+import ch.nolix.system.gui.widget.Button;
+import ch.nolix.system.gui.widget.Console;
+import ch.nolix.system.gui.widget.Downloader;
+import ch.nolix.system.gui.widget.HorizontalLine;
+import ch.nolix.system.gui.widget.ImageWidget;
+import ch.nolix.system.gui.widget.Label;
+import ch.nolix.system.gui.widget.SelectionMenu;
+import ch.nolix.system.gui.widget.Uploader;
+import ch.nolix.system.gui.widget.VerticalLine;
+import ch.nolix.system.gui.widget.Widget;
 
 //class
 public abstract class GUILookCreatorTest extends ObjectTest<Configuration> {

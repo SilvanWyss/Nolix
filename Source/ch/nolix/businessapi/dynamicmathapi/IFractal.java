@@ -4,9 +4,8 @@ package ch.nolix.businessapi.dynamicmathapi;
 //Java imports
 import java.math.BigDecimal;
 
-//own imports
-import ch.nolix.element.gui.color.Color;
-import ch.nolix.element.gui.image.MutableImage;
+import ch.nolix.system.gui.color.Color;
+import ch.nolix.system.gui.image.MutableImage;
 
 //interface
 public interface IFractal {

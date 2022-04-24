@@ -5,7 +5,7 @@ package ch.nolix.system.sqlrawschema.schemawriter;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.requestapi.ChangeRequestable;
 import ch.nolix.core.sql.SQLCollector;
-import ch.nolix.element.time.base.Time;
+import ch.nolix.system.time.base.Time;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDTO;

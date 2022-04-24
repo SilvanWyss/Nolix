@@ -1,11 +1,10 @@
 package ch.nolix.elementtutorial.guitutorial.basetutorial;
 
-//own imports
-import ch.nolix.element.elementenum.ExtendedContentPosition;
-import ch.nolix.element.gui.base.Frame;
-import ch.nolix.element.gui.base.Layer;
-import ch.nolix.element.gui.widget.Label;
-import ch.nolix.element.gui.widget.WidgetLookState;
+import ch.nolix.system.elementenum.ExtendedContentPosition;
+import ch.nolix.system.gui.base.Frame;
+import ch.nolix.system.gui.base.Layer;
+import ch.nolix.system.gui.widget.Label;
+import ch.nolix.system.gui.widget.WidgetLookState;
 
 /**
  * The {@link CursorPositionTutorial} is a tutorial for {@link Frame}s.

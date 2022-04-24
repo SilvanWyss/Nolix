@@ -3,8 +3,8 @@ package ch.nolix.elementtest.guitest.widgettest;
 
 //own imports
 import ch.nolix.core.testing.basetest.TestCase;
-import ch.nolix.element.gui.color.Color;
-import ch.nolix.element.gui.widget.Area;
+import ch.nolix.system.gui.color.Color;
+import ch.nolix.system.gui.widget.Area;
 
 //class
 /**

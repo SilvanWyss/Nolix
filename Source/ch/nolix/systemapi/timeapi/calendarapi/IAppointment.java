@@ -3,7 +3,7 @@ package ch.nolix.systemapi.timeapi.calendarapi;
 
 //own imports
 import ch.nolix.core.attributeapi.mutablemandatoryattributeapi.IMutableSubjectHolder;
-import ch.nolix.element.time.base.Time;
+import ch.nolix.system.time.base.Time;
 
 //interface
 public interface IAppointment<A extends IAppointment<A>> extends IMutableSubjectHolder<A> {

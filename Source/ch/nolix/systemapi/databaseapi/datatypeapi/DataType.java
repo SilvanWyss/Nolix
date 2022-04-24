@@ -10,7 +10,7 @@ import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.element.time.base.Time;
+import ch.nolix.system.time.base.Time;
 
 //enum
 public enum DataType {

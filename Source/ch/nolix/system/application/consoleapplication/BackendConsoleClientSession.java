@@ -3,12 +3,12 @@ package ch.nolix.system.application.consoleapplication;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.element.configuration.Configuration;
-import ch.nolix.element.gui.base.WidgetIdCatalogue;
-import ch.nolix.element.gui.containerwidget.ContainerRole;
-import ch.nolix.element.gui.containerwidget.VerticalStack;
-import ch.nolix.element.gui.widget.Console;
 import ch.nolix.system.application.baseguiapplication.BaseBackendGUIClientSession;
+import ch.nolix.system.configuration.Configuration;
+import ch.nolix.system.gui.base.WidgetIdCatalogue;
+import ch.nolix.system.gui.containerwidget.ContainerRole;
+import ch.nolix.system.gui.containerwidget.VerticalStack;
+import ch.nolix.system.gui.widget.Console;
 import ch.nolix.template.consoleclientlook.GreyBlueConsoleClientLookCreator;
 
 //class

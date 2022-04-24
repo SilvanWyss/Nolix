@@ -1,11 +1,11 @@
 package ch.nolix.businesstutorial.dynamicmathtutorial;
 
 import ch.nolix.business.dynamicmath.FractalBuilder;
-import ch.nolix.element.gui.base.Frame;
-import ch.nolix.element.gui.containerwidget.VerticalStack;
-import ch.nolix.element.gui.widget.Downloader;
-import ch.nolix.element.gui.widget.ImageWidget;
-import ch.nolix.element.gui.widget.Label;
+import ch.nolix.system.gui.base.Frame;
+import ch.nolix.system.gui.containerwidget.VerticalStack;
+import ch.nolix.system.gui.widget.Downloader;
+import ch.nolix.system.gui.widget.ImageWidget;
+import ch.nolix.system.gui.widget.Label;
 
 public final class SaveFractalAsPNGTutorial {
 	

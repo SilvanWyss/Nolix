@@ -3,11 +3,11 @@ package ch.nolix.elementtest.guitest.containerwidgettest;
 
 //own imports
 import ch.nolix.core.testing.basetest.TestCase;
-import ch.nolix.element.gui.containerwidget.VerticalStack;
-import ch.nolix.element.gui.textbox.TextBox;
-import ch.nolix.element.gui.widget.Button;
-import ch.nolix.element.gui.widget.Label;
-import ch.nolix.element.gui.widget.Widget;
+import ch.nolix.system.gui.containerwidget.VerticalStack;
+import ch.nolix.system.gui.textbox.TextBox;
+import ch.nolix.system.gui.widget.Button;
+import ch.nolix.system.gui.widget.Label;
+import ch.nolix.system.gui.widget.Widget;
 
 //class
 /**

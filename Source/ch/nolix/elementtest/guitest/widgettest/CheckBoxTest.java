@@ -3,7 +3,7 @@ package ch.nolix.elementtest.guitest.widgettest;
 
 //own imports
 import ch.nolix.core.testing.basetest.TestCase;
-import ch.nolix.element.gui.widget.CheckBox;
+import ch.nolix.system.gui.widget.CheckBox;
 
 //class
 /**

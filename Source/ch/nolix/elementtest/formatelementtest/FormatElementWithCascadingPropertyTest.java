@@ -4,9 +4,9 @@ package ch.nolix.elementtest.formatelementtest;
 //own imports
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
-import ch.nolix.element.formatelement.CascadingProperty;
-import ch.nolix.element.formatelement.FormatElement;
-import ch.nolix.element.gui.color.Color;
+import ch.nolix.system.formatelement.CascadingProperty;
+import ch.nolix.system.formatelement.FormatElement;
+import ch.nolix.system.gui.color.Color;
 
 //class
 public final class FormatElementWithCascadingPropertyTest extends Test {

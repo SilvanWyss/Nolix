@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.elementtest.guitest.containerwidgettest;
 
-//own imports
-import ch.nolix.element.gui.containerwidget.AligningContainer;
-import ch.nolix.element.gui.widget.Widget;
+import ch.nolix.system.gui.containerwidget.AligningContainer;
+import ch.nolix.system.gui.widget.Widget;
 
 //class
 public final class AligningContainerTest extends ContainerWidgetTest<AligningContainer> {

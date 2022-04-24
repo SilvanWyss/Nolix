@@ -3,10 +3,10 @@ package ch.nolix.elementtest.guitest.containerwidgettest;
 
 //own imports
 import ch.nolix.core.testing.basetest.TestCase;
-import ch.nolix.element.gui.containerwidget.Accordion;
-import ch.nolix.element.gui.containerwidget.AccordionExpansionBehavior;
-import ch.nolix.element.gui.containerwidget.AccordionTab;
-import ch.nolix.element.gui.widget.Widget;
+import ch.nolix.system.gui.containerwidget.Accordion;
+import ch.nolix.system.gui.containerwidget.AccordionExpansionBehavior;
+import ch.nolix.system.gui.containerwidget.AccordionTab;
+import ch.nolix.system.gui.widget.Widget;
 
 //class
 /**

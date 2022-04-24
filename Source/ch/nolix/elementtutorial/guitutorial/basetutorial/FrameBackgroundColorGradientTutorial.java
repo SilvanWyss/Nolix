@@ -1,9 +1,8 @@
 package ch.nolix.elementtutorial.guitutorial.basetutorial;
 
-//own imports
-import ch.nolix.element.gui.base.Frame;
-import ch.nolix.element.gui.color.Color;
-import ch.nolix.element.gui.color.ColorGradient;
+import ch.nolix.system.gui.base.Frame;
+import ch.nolix.system.gui.color.Color;
+import ch.nolix.system.gui.color.ColorGradient;
 
 /**
  * The {@link FrameBackgroundColorGradientTutorial} is a tutorial for a {@link Frame}s.

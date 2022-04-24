@@ -1,11 +1,10 @@
 //package declaration
 package ch.nolix.systemapi.guiapi.painterapi;
 
-//own imports
-import ch.nolix.element.gui.color.Color;
-import ch.nolix.element.gui.color.ColorGradient;
-import ch.nolix.element.gui.image.MutableImage;
-import ch.nolix.element.gui.textformat.TextFormat;
+import ch.nolix.system.gui.color.Color;
+import ch.nolix.system.gui.color.ColorGradient;
+import ch.nolix.system.gui.image.MutableImage;
+import ch.nolix.system.gui.textformat.TextFormat;
 
 //interface
 /**

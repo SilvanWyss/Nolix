@@ -6,13 +6,13 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.functionapi.IElementTaker;
 import ch.nolix.core.functionapi.IIntGetter;
-import ch.nolix.element.elementenum.RotationDirection;
-import ch.nolix.element.gui.input.IResizableInputTaker;
-import ch.nolix.element.gui.input.KeyInput;
-import ch.nolix.element.gui.input.KeyInputType;
-import ch.nolix.element.gui.input.MouseInput;
-import ch.nolix.element.gui.input.MouseInputType;
-import ch.nolix.element.gui.input.ResizeInput;
+import ch.nolix.system.elementenum.RotationDirection;
+import ch.nolix.system.gui.input.IResizableInputTaker;
+import ch.nolix.system.gui.input.KeyInput;
+import ch.nolix.system.gui.input.KeyInputType;
+import ch.nolix.system.gui.input.MouseInput;
+import ch.nolix.system.gui.input.MouseInputType;
+import ch.nolix.system.gui.input.ResizeInput;
 import ch.nolix.systemapi.guiapi.inputapi.IInput;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 

@@ -3,12 +3,12 @@ package ch.nolix.systemtutorial.applicationtutorial.guiclienttutorial;
 //own imports
 import ch.nolix.core.environment.localcomputer.ShellProvider;
 import ch.nolix.core.programcontrol.sequencer.Sequencer;
-import ch.nolix.element.gui.widget.Label;
-import ch.nolix.element.gui.widget.WidgetLookState;
 import ch.nolix.system.application.guiapplication.BackendGUIClientSession;
 import ch.nolix.system.application.guiapplication.FrontendGUIClient;
 import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.main.VoidApplicationContext;
+import ch.nolix.system.gui.widget.Label;
+import ch.nolix.system.gui.widget.WidgetLookState;
 
 public final class HelloWorldGUITutorial {
 	

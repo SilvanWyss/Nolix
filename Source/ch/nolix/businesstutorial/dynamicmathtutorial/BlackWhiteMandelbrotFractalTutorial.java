@@ -5,9 +5,9 @@ import ch.nolix.business.dynamicmath.FractalBuilder;
 import ch.nolix.business.dynamicmath.SequenceDefinedBy1Predecessor;
 import ch.nolix.businessapi.dynamicmathapi.IComplexNumber;
 import ch.nolix.core.programcontrol.sequencer.Sequencer;
-import ch.nolix.element.gui.base.Frame;
-import ch.nolix.element.gui.color.Color;
-import ch.nolix.element.gui.widget.ImageWidget;
+import ch.nolix.system.gui.base.Frame;
+import ch.nolix.system.gui.color.Color;
+import ch.nolix.system.gui.widget.ImageWidget;
 
 public final class BlackWhiteMandelbrotFractalTutorial {
 	

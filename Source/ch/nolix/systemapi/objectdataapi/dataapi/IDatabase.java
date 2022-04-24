@@ -3,7 +3,7 @@ package ch.nolix.systemapi.objectdataapi.dataapi;
 
 //own imports
 import ch.nolix.core.container.IContainer;
-import ch.nolix.element.time.base.Time;
+import ch.nolix.system.time.base.Time;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.IDatabaseObject;
 
 //interface

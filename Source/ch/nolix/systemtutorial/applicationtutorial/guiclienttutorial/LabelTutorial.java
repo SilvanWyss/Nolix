@@ -3,15 +3,15 @@ package ch.nolix.systemtutorial.applicationtutorial.guiclienttutorial;
 //own imports
 import ch.nolix.core.environment.localcomputer.ShellProvider;
 import ch.nolix.core.programcontrol.sequencer.Sequencer;
-import ch.nolix.element.gui.color.Color;
-import ch.nolix.element.gui.containerwidget.HorizontalStack;
-import ch.nolix.element.gui.widget.Label;
-import ch.nolix.element.gui.widget.WidgetLookState;
-import ch.nolix.element.time.base.Time;
 import ch.nolix.system.application.guiapplication.BackendGUIClientSession;
 import ch.nolix.system.application.guiapplication.FrontendGUIClient;
 import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.main.VoidApplicationContext;
+import ch.nolix.system.gui.color.Color;
+import ch.nolix.system.gui.containerwidget.HorizontalStack;
+import ch.nolix.system.gui.widget.Label;
+import ch.nolix.system.gui.widget.WidgetLookState;
+import ch.nolix.system.time.base.Time;
 
 public final class LabelTutorial {
 	

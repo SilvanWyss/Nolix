@@ -1,8 +1,7 @@
 package ch.nolix.elementtutorial.guitutorial.widgettutorial;
 
-//own imports
-import ch.nolix.element.gui.base.Frame;
-import ch.nolix.element.gui.widget.DropdownMenu;
+import ch.nolix.system.gui.base.Frame;
+import ch.nolix.system.gui.widget.DropdownMenu;
 
 /**
  * The {@link DropdownMenuTutorial} is a tutorial for {@link DropdownMenu}s.

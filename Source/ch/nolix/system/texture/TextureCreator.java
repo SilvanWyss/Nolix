@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.texture;
 
-//own imports
-import ch.nolix.element.gui.image.MutableImage;
+import ch.nolix.system.gui.image.MutableImage;
 
 //class
 public abstract class TextureCreator {

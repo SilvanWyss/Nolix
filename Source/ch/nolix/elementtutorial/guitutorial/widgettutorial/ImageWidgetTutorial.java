@@ -1,9 +1,8 @@
 package ch.nolix.elementtutorial.guitutorial.widgettutorial;
 
-//own imports
-import ch.nolix.element.gui.base.Frame;
-import ch.nolix.element.gui.image.MutableImage;
-import ch.nolix.element.gui.widget.ImageWidget;
+import ch.nolix.system.gui.base.Frame;
+import ch.nolix.system.gui.image.MutableImage;
+import ch.nolix.system.gui.widget.ImageWidget;
 
 /**
  * The {@link ImageWidgetTutorial} is a tutorial for {@link ImageWidget}s.

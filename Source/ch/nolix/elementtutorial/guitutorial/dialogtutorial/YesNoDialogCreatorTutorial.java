@@ -1,14 +1,13 @@
 package ch.nolix.elementtutorial.guitutorial.dialogtutorial;
 
-//own imports
-import ch.nolix.element.configuration.DeepConfiguration;
-import ch.nolix.element.configuration.Configuration;
-import ch.nolix.element.gui.base.Frame;
-import ch.nolix.element.gui.containerwidget.ContainerRole;
-import ch.nolix.element.gui.dialog.YesNoDialogCreator;
-import ch.nolix.element.gui.widget.Button;
-import ch.nolix.element.gui.widget.ButtonRole;
-import ch.nolix.element.gui.widget.LabelRole;
+import ch.nolix.system.configuration.Configuration;
+import ch.nolix.system.configuration.DeepConfiguration;
+import ch.nolix.system.gui.base.Frame;
+import ch.nolix.system.gui.containerwidget.ContainerRole;
+import ch.nolix.system.gui.dialog.YesNoDialogCreator;
+import ch.nolix.system.gui.widget.Button;
+import ch.nolix.system.gui.widget.ButtonRole;
+import ch.nolix.system.gui.widget.LabelRole;
 
 public final class YesNoDialogCreatorTutorial {
 	

@@ -2,12 +2,12 @@ package ch.nolix.elementtutorial.guitutorial.widgettutorial;
 
 //own imports
 import ch.nolix.core.programcontrol.sequencer.Sequencer;
-import ch.nolix.element.gui.base.Frame;
-import ch.nolix.element.gui.color.Color;
-import ch.nolix.element.gui.containerwidget.HorizontalStack;
-import ch.nolix.element.gui.widget.Label;
-import ch.nolix.element.gui.widget.WidgetLookState;
-import ch.nolix.element.time.base.Time;
+import ch.nolix.system.gui.base.Frame;
+import ch.nolix.system.gui.color.Color;
+import ch.nolix.system.gui.containerwidget.HorizontalStack;
+import ch.nolix.system.gui.widget.Label;
+import ch.nolix.system.gui.widget.WidgetLookState;
+import ch.nolix.system.time.base.Time;
 
 /**
  * The {@link TimeLabelTutorial} is a tutorial for {@link Label}s.

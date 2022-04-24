@@ -4,8 +4,8 @@ package ch.nolix.elementtest.guitest.widgettest;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.testing.basetest.TestCase;
-import ch.nolix.element.gui.widget.BorderWidget;
-import ch.nolix.element.gui.widget.WidgetLookState;
+import ch.nolix.system.gui.widget.BorderWidget;
+import ch.nolix.system.gui.widget.WidgetLookState;
 
 //class
 /**

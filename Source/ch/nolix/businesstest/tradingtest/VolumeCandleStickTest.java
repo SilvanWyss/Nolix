@@ -5,7 +5,7 @@ import ch.nolix.business.trading.VolumeCandleStick;
 //own imports
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
-import ch.nolix.element.time.base.Time;
+import ch.nolix.system.time.base.Time;
 
 //class
 /**

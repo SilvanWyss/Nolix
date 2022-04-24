@@ -6,7 +6,7 @@ import ch.nolix.business.trading.QuandlDataProvider;
 import ch.nolix.business.trading.VolumeCandleStick;
 //own imports
 import ch.nolix.core.container.SequencePattern;
-import ch.nolix.element.time.base.Time;
+import ch.nolix.system.time.base.Time;
 
 /**
  * The {@link CandleStickTutorial} is a tutorial for {@link CandleStick}s.

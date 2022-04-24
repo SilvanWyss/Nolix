@@ -3,9 +3,9 @@ package ch.nolix.systemapi.guiapi.inputapi;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.element.elementenum.RotationDirection;
-import ch.nolix.element.gui.input.KeyInput;
-import ch.nolix.element.gui.input.MouseInput;
+import ch.nolix.system.elementenum.RotationDirection;
+import ch.nolix.system.gui.input.KeyInput;
+import ch.nolix.system.gui.input.MouseInput;
 
 //interface
 /**

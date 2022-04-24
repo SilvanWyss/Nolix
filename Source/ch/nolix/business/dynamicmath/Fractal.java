@@ -12,8 +12,8 @@ import ch.nolix.businessapi.dynamicmathapi.ISequence;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.functionapi.IElementTakerElementGetter;
 import ch.nolix.core.functionapi.IIntTakerElementGetter;
-import ch.nolix.element.gui.color.Color;
-import ch.nolix.element.gui.image.MutableImage;
+import ch.nolix.system.gui.color.Color;
+import ch.nolix.system.gui.image.MutableImage;
 
 //class
 public final class Fractal implements IFractal {
