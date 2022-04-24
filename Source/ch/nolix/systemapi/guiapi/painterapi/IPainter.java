@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.systemapi.guiapi.painterapi;
 
+//own imports
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.color.ColorGradient;
-import ch.nolix.system.gui.image.MutableImage;
 import ch.nolix.system.gui.textformat.TextFormat;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
 
@@ -191,7 +191,7 @@ public interface IPainter {
 	 * @param id
 	 * @param mutableImage
 	 */
-	void registerImageAtId(String id, MutableImage mutableImage);
+	void registerImageAtId(String id, IImage<?> mutableImage);
 	
 	//method declaration
 	/**

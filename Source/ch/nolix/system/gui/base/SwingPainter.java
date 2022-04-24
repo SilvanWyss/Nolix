@@ -11,7 +11,6 @@ import ch.nolix.core.caching.CachingContainer;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.color.ColorGradient;
-import ch.nolix.system.gui.image.MutableImage;
 import ch.nolix.system.gui.textformat.TextFormat;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
@@ -171,7 +170,7 @@ public final class SwingPainter implements IPainter {
 	
 	//method
 	@Override
-	public void registerImageAtId(final String id, final MutableImage mutableImage) {
+	public void registerImageAtId(final String id, final IImage<?> mutableImage) {
 		
 		if (imageCache.containsWithId(id)) {
 			return;

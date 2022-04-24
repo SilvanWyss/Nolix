@@ -10,7 +10,6 @@ import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.independent.independenthelper.CentralArrayHelper;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.color.ColorGradient;
-import ch.nolix.system.gui.image.MutableImage;
 import ch.nolix.system.gui.textformat.TextFormat;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
@@ -231,7 +230,7 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 	
 	//method
 	@Override
-	public void registerImageAtId(final String id, final MutableImage mutableImage) {
+	public void registerImageAtId(final String id, final IImage<?> mutableImage) {
 		
 		if (imageCachingContainer.containsWithId(id)) {
 			return;
