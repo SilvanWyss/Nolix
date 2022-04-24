@@ -17,7 +17,7 @@ public final class CustomFractalTutorial2 {
 		@SuppressWarnings("resource")
 		final var frame =
 		new Frame()
-		.setTitle("Custom Fractal Tutorial 2")
+		.setTitle("Custom Fractal Tutorial")
 		.addLayerOnTop(
 			new ImageWidget()
 			.setImage(

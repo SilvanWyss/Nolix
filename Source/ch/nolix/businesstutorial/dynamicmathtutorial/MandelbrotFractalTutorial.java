@@ -17,7 +17,7 @@ public final class MandelbrotFractalTutorial {
 		@SuppressWarnings("resource")
 		final var frame =
 		new Frame()
-		.setTitle("Black White Mandelrbrot Fractal tutorial")
+		.setTitle("Black White Mandelrbrot Fractal Tutorial")
 		.addLayerOnTop(
 			new ImageWidget()
 			.setImage(

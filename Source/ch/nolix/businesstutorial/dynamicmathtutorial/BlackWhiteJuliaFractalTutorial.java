@@ -17,7 +17,7 @@ public final class BlackWhiteJuliaFractalTutorial {
 		@SuppressWarnings("resource")
 		final var frame =
 		new Frame()
-		.setTitle("Black White Julia Fractal tutorial")
+		.setTitle("Black White Julia Fractal Tutorial")
 		.addLayerOnTop(
 			new ImageWidget()
 			.setImage(

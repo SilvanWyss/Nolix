@@ -11,7 +11,7 @@ public final class DefaultFractalTutorial {
 		
 		//Creates a Frame that shows a realtime-generated image of a Fractal.
 		new Frame()
-		.setTitle("Default Fractal tutorial")
+		.setTitle("Default Fractal Tutorial")
 		.addLayerOnTop(
 			new ImageWidget().setImage(new FractalBuilder().build().toImage())
 		);
