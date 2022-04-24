@@ -9,6 +9,7 @@ import ch.nolix.system.element.MutableElement;
 import ch.nolix.system.element.MutableOptionalValue;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.color.ColorGradient;
+import ch.nolix.systemapi.guiapi.imageapi.ImageApplication;
 
 //class
 public final class Background extends MutableElement<Background> {

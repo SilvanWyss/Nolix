@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.gui.image;
+package ch.nolix.systemapi.guiapi.imageapi;
 
 //own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;

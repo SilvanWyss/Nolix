@@ -28,12 +28,12 @@ import ch.nolix.system.gui.base.GUIIconCatalogue;
 import ch.nolix.system.gui.base.LocalFrontEndReader;
 import ch.nolix.system.gui.base.LocalFrontEndWriter;
 import ch.nolix.system.gui.color.Color;
-import ch.nolix.system.gui.image.IImage;
 import ch.nolix.system.gui.image.Image;
 import ch.nolix.systemapi.elementapi.IConfigurableElement;
 import ch.nolix.systemapi.guiapi.baseapi.IBaseGUI;
 import ch.nolix.systemapi.guiapi.baseapi.IFrontEndReader;
 import ch.nolix.systemapi.guiapi.baseapi.IFrontEndWriter;
+import ch.nolix.systemapi.guiapi.imageapi.IImage;
 
 //class
 /**

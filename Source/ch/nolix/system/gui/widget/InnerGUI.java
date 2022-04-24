@@ -15,10 +15,10 @@ import ch.nolix.system.gui.base.InvisibleGUI;
 import ch.nolix.system.gui.base.Layer;
 import ch.nolix.system.gui.base.WidgetGUI;
 import ch.nolix.system.gui.color.Color;
-import ch.nolix.system.gui.image.IImage;
 import ch.nolix.system.gui.image.Image;
-import ch.nolix.system.gui.image.ImageApplication;
 import ch.nolix.system.gui.image.MutableImage;
+import ch.nolix.systemapi.guiapi.imageapi.IImage;
+import ch.nolix.systemapi.guiapi.imageapi.ImageApplication;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 

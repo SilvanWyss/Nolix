@@ -11,8 +11,8 @@ import ch.nolix.system.formatelement.NonCascadingProperty;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.color.ColorGradient;
 import ch.nolix.system.gui.image.Background;
-import ch.nolix.system.gui.image.ImageApplication;
 import ch.nolix.system.gui.image.MutableImage;
+import ch.nolix.systemapi.guiapi.imageapi.ImageApplication;
 
 //class
 public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extends WidgetLook<BWL> {

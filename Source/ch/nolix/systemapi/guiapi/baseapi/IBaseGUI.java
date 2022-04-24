@@ -7,9 +7,9 @@ import ch.nolix.core.programcontrol.groupcloseable.GroupCloseable;
 import ch.nolix.core.rasterapi.Rectangular;
 import ch.nolix.core.skillapi.Refreshable;
 import ch.nolix.system.gui.base.CursorIcon;
-import ch.nolix.system.gui.image.IImage;
 import ch.nolix.system.gui.image.Image;
 import ch.nolix.system.gui.input.IResizableInputTaker;
+import ch.nolix.systemapi.guiapi.imageapi.IImage;
 
 //interface
 /**

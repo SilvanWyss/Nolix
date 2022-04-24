@@ -28,7 +28,6 @@ import ch.nolix.system.gui.containerwidget.HorizontalStack;
 import ch.nolix.system.gui.containerwidget.SingleContainer;
 import ch.nolix.system.gui.containerwidget.TabContainer;
 import ch.nolix.system.gui.containerwidget.VerticalStack;
-import ch.nolix.system.gui.image.ImageApplication;
 import ch.nolix.system.gui.image.MutableImage;
 import ch.nolix.system.gui.input.IResizableInputTaker;
 import ch.nolix.system.gui.textbox.TextBox;
@@ -46,6 +45,7 @@ import ch.nolix.system.gui.widget.Uploader;
 import ch.nolix.system.gui.widget.VerticalLine;
 import ch.nolix.system.gui.widget.Widget;
 import ch.nolix.systemapi.elementapi.IConfigurableElement;
+import ch.nolix.systemapi.guiapi.imageapi.ImageApplication;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 

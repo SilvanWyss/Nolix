@@ -13,6 +13,7 @@ import ch.nolix.core.environment.runningjar.RunningJar;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.system.gui.base.Element;
 import ch.nolix.system.gui.color.Color;
+import ch.nolix.systemapi.guiapi.imageapi.IImage;
 
 //class
 public final class Image extends Element<Image> implements IImage<Image> {
