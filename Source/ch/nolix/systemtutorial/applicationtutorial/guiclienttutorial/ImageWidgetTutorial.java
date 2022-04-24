@@ -22,7 +22,7 @@ public final class ImageWidgetTutorial {
 			//Creates an Image.
 			final var image =
 			MutableImage.fromResource(
-				"ch/nolix/elementtutorial/guitutorial/widgettutorial/resource/Singer_Building.jpg"
+				"ch/nolix/systemtutorial/guitutorial/widgettutorial/resource/Singer_Building.jpg"
 			);
 			
 			//Creates an ImageWidget with the Image.
