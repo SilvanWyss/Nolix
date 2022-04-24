@@ -38,7 +38,7 @@ public interface IFractal {
 	int getWidthInPixel();
 	
 	//method declaration
-	IImageGenerator startImageBuild();
+	IImageGenerator startImageGeneration();
 	
 	//method declaration
 	MutableImage toImage();

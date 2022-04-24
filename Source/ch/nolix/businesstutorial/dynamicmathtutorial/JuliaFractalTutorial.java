@@ -41,7 +41,7 @@ public final class JuliaFractalTutorial {
 				)
 				.setBigDecimalScale(10)
 				.build()
-				.startImageBuild()
+				.startImageGeneration()
 				.getRefImage()
 			)
 		);

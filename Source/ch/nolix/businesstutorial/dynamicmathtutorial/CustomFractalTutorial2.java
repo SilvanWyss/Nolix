@@ -41,7 +41,7 @@ public final class CustomFractalTutorial2 {
 				)
 				.setBigDecimalScale(10)
 				.build()
-				.startImageBuild()
+				.startImageGeneration()
 				.getRefImage()
 			)
 		);

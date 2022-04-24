@@ -38,7 +38,7 @@ public final class BlackWhiteJuliaFractalTutorial {
 				.setColorFunction(i -> Color.WHITE)
 				.setBigDecimalScale(10)
 				.build()
-				.startImageBuild()
+				.startImageGeneration()
 				.getRefImage()
 			)
 		);

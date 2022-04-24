@@ -39,7 +39,7 @@ public final class BlackWhiteMandelbrotFractalTutorial {
 				.setColorFunction(i -> Color.WHITE)
 				.setBigDecimalScale(10)
 				.build()
-				.startImageBuild()
+				.startImageGeneration()
 				.getRefImage()
 			)
 		);

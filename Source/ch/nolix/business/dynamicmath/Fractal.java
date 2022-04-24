@@ -177,7 +177,7 @@ public final class Fractal implements IFractal {
 	}
 	
 	//method
-	public ImageGenerator startImageBuild() {
+	public ImageGenerator startImageGeneration() {
 		return new ImageGenerator(this);
 	}
 	
@@ -185,7 +185,7 @@ public final class Fractal implements IFractal {
 	@Override
 	public MutableImage toImage() {
 		
-		final var imageBuilder = startImageBuild();
+		final var imageBuilder = startImageGeneration();
 		imageBuilder.waitUntilIsFinishedSuccessfully();
 		
 		return imageBuilder.getRefImage();

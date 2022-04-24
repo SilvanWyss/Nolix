@@ -41,7 +41,7 @@ public final class MandelbrotFractalTutorial {
 				)
 				.setBigDecimalScale(10)
 				.build()
-				.startImageBuild()
+				.startImageGeneration()
 				.getRefImage()
 			)
 		);
