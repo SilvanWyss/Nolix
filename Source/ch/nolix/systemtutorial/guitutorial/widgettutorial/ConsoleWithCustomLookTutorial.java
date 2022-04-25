@@ -40,7 +40,7 @@ public final class ConsoleWithCustomLookTutorial {
 		);
 		
 		//Adds the Console to the Frame.
-		frame.addLayerOnTop(console);
+		frame.pushLayer(console);
 	}
 	
 	/**

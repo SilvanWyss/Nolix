@@ -28,14 +28,14 @@ public final class UploadImageDialogCreatorTutorial {
 		//Create a ImageWidget.
 		final var imageWidget = new ImageWidget().setImage(image);
 		
-		frame.addLayerOnTop(
+		frame.pushLayer(
 			new VerticalStack()
 			.add(
 				imageWidget,
 				new Button()
 				.setText("Change image")
 				.setLeftMouseButtonPressAction(
-					() -> frame.addLayerOnTop(createImageDialogForImageWidget(imageWidget))
+					() -> frame.pushLayer(createImageDialogForImageWidget(imageWidget))
 				)
 			)
 		);

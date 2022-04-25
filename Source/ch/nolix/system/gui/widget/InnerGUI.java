@@ -49,18 +49,18 @@ public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> impleme
 	
 	//method
 	@Override
-	public InnerGUI addLayerOnTop(final Layer layer) {
+	public InnerGUI pushLayer(final Layer layer) {
 		
-		internalGUI.addLayerOnTop(layer);
+		internalGUI.pushLayer(layer);
 		
 		return this;
 	}
 	
 	//method
 	@Override
-	public InnerGUI addLayerOnTop(final Widget<?, ?> rootWidget) {
+	public InnerGUI pushLayer(final Widget<?, ?> rootWidget) {
 		
-		internalGUI.addLayerOnTop(rootWidget);
+		internalGUI.pushLayer(rootWidget);
 		
 		return this;
 	}

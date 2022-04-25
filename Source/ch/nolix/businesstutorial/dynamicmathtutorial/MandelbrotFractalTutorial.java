@@ -18,7 +18,7 @@ public final class MandelbrotFractalTutorial {
 		final var frame =
 		new Frame()
 		.setTitle("Black White Mandelrbrot Fractal Tutorial")
-		.addLayerOnTop(
+		.pushLayer(
 			new ImageWidget()
 			.setImage(
 				new FractalBuilder()

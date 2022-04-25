@@ -47,7 +47,7 @@ public final class CursorPositionTutorial {
 		);
 		
 		//Adds the Layer to the Frame.
-		frame.addLayerOnTop(layer);
+		frame.pushLayer(layer);
 	}
 	
 	/**

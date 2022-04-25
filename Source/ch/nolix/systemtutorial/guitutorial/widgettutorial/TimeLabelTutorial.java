@@ -50,7 +50,7 @@ public final class TimeLabelTutorial {
 		mainHorizontalStack.setElementMargin(50);
 		
 		//Adds the mainHorizontalStack to the Frame.
-		frame.addLayerOnTop(mainHorizontalStack);
+		frame.pushLayer(mainHorizontalStack);
 		
 		//Starts a background job that updates constantly the text of the clockLabel.
 		Sequencer

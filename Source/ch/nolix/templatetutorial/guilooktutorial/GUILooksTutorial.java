@@ -30,7 +30,7 @@ public final class GUILooksTutorial {
 		//Creates a Frame with the SelectionMenu and several other Widgets.
 		new Frame()
 		.setTitle("GUILooks tutorial")
-		.addLayerOnTop(
+		.pushLayer(
 			new VerticalStack()
 			.setRole(ContainerRole.OVERALL_CONTAINTER)
 			.add(
@@ -52,7 +52,7 @@ public final class GUILooksTutorial {
 						.setText("Action")
 						.setLeftMouseButtonPressAction(
 							b -> 
-							b.getParentGUI().addLayerOnTop(
+							b.getParentGUI().pushLayer(
 								new InfoDialogCreator().createInfoDialogWithInfo("Button pressed!")
 							)
 						)

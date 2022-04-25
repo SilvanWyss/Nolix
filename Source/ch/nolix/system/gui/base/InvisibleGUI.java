@@ -21,7 +21,7 @@ public class InvisibleGUI extends WidgetGUI<InvisibleGUI> {
 		
 		this();
 		
-		addLayerOnTop(rootWidget);
+		pushLayer(rootWidget);
 	}
 	
 	//method

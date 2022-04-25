@@ -52,7 +52,7 @@ public final class DropdownMenuTutorial {
 			);
 			
 			//Adds the DropdownMenu to the GUI of the current MainSession.
-			getRefGUI().addLayerOnTop(dropdownMenu);
+			getRefGUI().pushLayer(dropdownMenu);
 		}
 	}
 	

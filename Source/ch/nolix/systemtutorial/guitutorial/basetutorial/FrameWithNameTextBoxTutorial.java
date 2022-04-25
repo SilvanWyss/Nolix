@@ -43,7 +43,7 @@ public final class FrameWithNameTextBoxTutorial {
 		final var returnButton = new Button().setText("Ok");
 		
 		//Assembles the Frame, Layers and Widgets.
-		frame.addLayerOnTop(layer1);
+		frame.pushLayer(layer1);
 		layer1.setRootWidget(layer1VerticalStack);
 		layer1VerticalStack.add(welcomeLabel, nameTextBox, confirmButton);
 		layer2.setRootWidget(layer2AligningContainer);
@@ -60,7 +60,7 @@ public final class FrameWithNameTextBoxTutorial {
 					nameLabel.setText("Hi " + nameTextBox.getText() + "!");
 				}
 				
-				b.getParentGUI().addLayerOnTop(layer2);
+				b.getParentGUI().pushLayer(layer2);
 			}
 		);
 		

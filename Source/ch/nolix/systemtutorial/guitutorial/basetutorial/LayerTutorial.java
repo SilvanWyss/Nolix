@@ -55,10 +55,10 @@ public final class LayerTutorial {
 		//Creates showButton.
 		final var showButton = new Button()
 		.setText("Show")
-		.setLeftMouseButtonReleaseAction(() -> frame.addLayerOnTop(dialogLayer));
+		.setLeftMouseButtonReleaseAction(() -> frame.pushLayer(dialogLayer));
 		
 		//Adds the showButton to the Frame.
-		frame.addLayerOnTop(ExtendedContentPosition.CENTER, showButton);
+		frame.pushLayer(ExtendedContentPosition.CENTER, showButton);
 	}
 	
 	/**

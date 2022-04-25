@@ -183,7 +183,7 @@ extends BaseBackendGUIClientSession<BackendConsoleClient<AC>, AC> {
 	protected final void initializeBaseBackGUIClientSession() {
 		
 		getRefGUI()
-		.addLayerOnTop(
+		.pushLayer(
 			new VerticalStack()
 			.add(infoPanel, console)
 			.setRole(ContainerRole.MAINT_CONTAINER)

@@ -43,10 +43,10 @@ public final class LayerTutorial2 {
 		.setTextColorForState(WidgetLookState.BASE, Color.BLACK);
 		
 		//Adds a new layer with labelA to the Frame.
-		frame.addLayerOnTop(ExtendedContentPosition.CENTER, labelA);
+		frame.pushLayer(ExtendedContentPosition.CENTER, labelA);
 		
 		//Adds a new layer with labelB to the Frame.
-		frame.addLayerOnTop(ExtendedContentPosition.CENTER, labelB);
+		frame.pushLayer(ExtendedContentPosition.CENTER, labelB);
 	}
 	
 	/**

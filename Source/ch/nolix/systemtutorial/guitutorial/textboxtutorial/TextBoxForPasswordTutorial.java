@@ -28,7 +28,7 @@ public final class TextBoxForPasswordTutorial {
 		final var textBox = new TextBox().setTextMode(TextMode.SECRET);
 		
 		//Adds the TextBox to the Frame.
-		frame.addLayerOnTop(textBox);
+		frame.pushLayer(textBox);
 	}
 	
 	/**

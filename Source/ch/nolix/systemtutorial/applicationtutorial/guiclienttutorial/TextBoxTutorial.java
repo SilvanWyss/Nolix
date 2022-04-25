@@ -52,7 +52,7 @@ public final class TextBoxTutorial {
 			);
 			
 			//Adds the TextBox to the GUI of the current MainSession.
-			getRefGUI().addLayerOnTop(textBox);
+			getRefGUI().pushLayer(textBox);
 		}
 	}
 	

@@ -20,7 +20,7 @@ public final class AligningContainerWithAutomaticSizeTutorial {
 		
 		new Frame()
 		.setTitle("AligningContainer with automatic size tutorial")
-		.addLayerOnTop(
+		.pushLayer(
 			new AligningContainer()
 			.setOnTop(label)
 			.setOnBottomLeft(

@@ -166,7 +166,7 @@ public final class DropdownMenu extends ItemMenu<DropdownMenu> {
 		}
 		
 		//Adds the expandedDropdownMenu on the top of the GUI of the current DropdownMenu.
-		getParentGUI().addLayerOnTop(
+		getParentGUI().pushLayer(
 			new Layer()
 			.setConfigurationNotAllowed()
 			.setFreeContentPosition(

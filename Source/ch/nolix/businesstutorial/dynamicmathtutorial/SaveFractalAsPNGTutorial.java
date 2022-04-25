@@ -16,13 +16,13 @@ public final class SaveFractalAsPNGTutorial {
 		final var frame =
 		new Frame()
 		.setTitle("Save Fractal as PNG Tutorial")
-		.addLayerOnTop(new Label().setText("Please wait..."));
+		.pushLayer(new Label().setText("Please wait..."));
 		
 		//Creates an Image of a Fractal.
 		final var image = new FractalBuilder().build().toImage();
 		
 		//Adds the Image to the Frame.
-		frame.addLayerOnTop(
+		frame.pushLayer(
 			new VerticalStack()
 			.add(
 				new Downloader()

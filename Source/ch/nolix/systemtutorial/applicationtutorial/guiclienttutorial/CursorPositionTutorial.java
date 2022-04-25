@@ -52,7 +52,7 @@ public final class CursorPositionTutorial {
 			layer.setMouseMoveAction(this::updateCursorPosition);
 			
 			//Adds the Layer to the GUI of the current MainSession.
-			getRefGUI().addLayerOnTop(layer);	
+			getRefGUI().pushLayer(layer);	
 		}
 		
 		private void updateCursorPosition() {

@@ -17,16 +17,16 @@ import ch.nolix.systemapi.guiapi.imageapi.ImageApplication;
 public interface IWidgetGUI<WG extends IWidgetGUI<WG>> extends Clearable,  IBaseGUI<WG>, IConfigurableElement<WG>{
 	
 	//method declaration
-	WG addLayerOnTop(Layer layer);
-	
-	//method declaration
-	WG addLayerOnTop(Widget<?, ?> rootWidget);
-	
-	//method declaration
 	IContainer<ChainedNode> getPaintCommands();
 	
 	//method declaration
 	<W extends Widget<?, ?>> W getRefWidgetById(String id);
+	
+	//method declaration
+	WG pushLayer(Layer layer);
+	
+	//method declaration
+	WG pushLayer(Widget<?, ?> rootWidget);
 	
 	//method declaration
 	WG setBackgroundColor(Color backgroundColor);

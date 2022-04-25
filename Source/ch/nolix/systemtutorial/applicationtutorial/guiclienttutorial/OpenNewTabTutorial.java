@@ -47,7 +47,7 @@ public final class OpenNewTabTutorial {
 			button.getRefLook().setTextColorForState(WidgetLookState.BASE, Color.BLUE);
 			
 			//Adds the Button to the GUI of the current MainSession.
-			getRefGUI().addLayerOnTop(button);
+			getRefGUI().pushLayer(button);
 		}
 		
 		//method

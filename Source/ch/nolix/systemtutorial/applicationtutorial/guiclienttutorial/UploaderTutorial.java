@@ -34,7 +34,7 @@ public class UploaderTutorial {
 		
 		@Override
 		protected void initializeBaseBackGUIClientSession() {
-			getRefGUI().addLayerOnTop(new Uploader());
+			getRefGUI().pushLayer(new Uploader());
 		}
 	}
 }

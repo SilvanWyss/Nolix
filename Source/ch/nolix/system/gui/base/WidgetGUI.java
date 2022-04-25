@@ -176,7 +176,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	private final MultiValue<Layer> layers =
 	new MultiValue<>(
 		PascalCaseCatalogue.LAYER,
-		this::addLayerOnTop,
+		this::pushLayer,
 		Layer::fromSpecification,
 		Layer::getSpecification
 	);
@@ -267,61 +267,6 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 		super(visibility, inputTaker);
 				
 		initializeBackground();
-	}
-	
-	//method
-	/**
-	 * Adds a new {@link Layer} on the top of the current {@link WidgetGUI}.
-	 * The {@link Layer} will have the given contentPosition and rootWidget.
-	 * 
-	 * @param contentPosition
-	 * @param rootWidget
-	 * @return the current {@link WidgetGUI}.
-	 * @throws ArgumentIsNullException if the given contentPosition is null.
-	 * @throws ArgumentIsNullException if the given rootWidget is null.
-	 */
-	public final WG addLayerOnTop(final ExtendedContentPosition contentPosition, final Widget<?, ?> rootWidget) {		
-		return addLayerOnTop(new Layer().setContentPosition(contentPosition).setRootWidget(rootWidget));
-	}
-	
-	//method
-	/**
-	 * Adds the given layer on the top of the current {@link WidgetGUI}.
-	 * Sets the root {@link Widget} of the given layer focused if the given layer contains a root {@link Widget}.
-	 * 
-	 * @param layer
-	 * @return the current {@link WidgetGUI}.
-	 * @throws ArgumentIsNullException if the given layer is null.
-	 */
-	public final WG addLayerOnTop(final Layer layer) {
-		
-		//Asserts that the given layer is not null.
-		Validator.assertThat(layer).thatIsNamed(LowerCaseCatalogue.LAYER).isNotNull();
-		
-		layer.setParentGUI(this);
-		layers.add(layer);
-		topLayer = layer;
-		
-		if (layer.containsAny()) {
-			layer.getRefRootWidget().setFocused();
-		}
-		
-		updateFromConfiguration();
-		
-		return asConcrete();
-	}
-	
-	//method
-	/**
-	 * Adds a new {@link Layer} on the top of the current {@link WidgetGUI}.
-	 * The {@link Layer} will have the given rootWidget.
-	 * 
-	 * @param rootWidget
-	 * @return the current {@link IWidgetGUI}.
-	 * @throws ArgumentIsNullException if the given rootWidget is null.
-	 */
-	public final WG addLayerOnTop(final Widget<?, ?> rootWidget) {		
-		return addLayerOnTop(new Layer().setRootWidget(rootWidget));
 	}
 	
 	//method
@@ -487,6 +432,73 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	public final void paint(final IPainter painter) {
 		background.paint(painter);
 		layers.forEach(l -> l.paint(painter));
+	}
+	
+	//method
+	/**
+	 * Pushes a new {@link Layer} on the top of the current {@link WidgetGUI}.
+	 * The created {@link Layer} will have the given contentPosition and rootWidget.
+	 * Sets the given root {@link Widget} focused.
+	 * 
+	 * @param contentPosition
+	 * @param rootWidget
+	 * @return the current {@link WidgetGUI}.
+	 * @throws ArgumentIsNullException if the given contentPosition is null.
+	 * @throws ArgumentIsNullException if the given rootWidget is null.
+	 */
+	public final WG pushLayer(final ExtendedContentPosition contentPosition, final Widget<?, ?> rootWidget) {		
+		return
+		pushLayer(
+			new Layer()
+			.setContentPosition(contentPosition)
+			.setRootWidget(rootWidget)
+		);
+	}
+	
+	//method
+	/**
+	 * Pushes the given {@link Layer} on the top of the current {@link WidgetGUI}.
+	 * 
+	 * Sets the root {@link Widget} of the given {@link Layer} focused if
+	 * the given {@link Layer} contains a root {@link Widget}.
+	 * 
+	 * @param layer
+	 * @return the current {@link WidgetGUI}.
+	 * @throws ArgumentIsNullException if the given layer is null.
+	 */
+	public final WG pushLayer(final Layer layer) {
+		
+		Validator.assertThat(layer).thatIsNamed(LowerCaseCatalogue.LAYER).isNotNull();
+		
+		layer.setParentGUI(this);
+		layers.add(layer);
+		topLayer = layer;
+		
+		if (layer.containsAny()) {
+			layer.getRefRootWidget().setFocused();
+		}
+		
+		updateFromConfiguration();
+		
+		return asConcrete();
+	}
+	
+	//method
+	/**
+	 * Pushes a new {@link Layer} on the top of the current {@link WidgetGUI}.
+	 * The {@link Layer} will have the given root {@link Widget}.
+	 * Sets the given root {@link Widget} focused.
+	 * 
+	 * @param rootWidget
+	 * @return the current {@link IWidgetGUI}.
+	 * @throws ArgumentIsNullException if the given rootWidget is null.
+	 */
+	public final WG pushLayer(final Widget<?, ?> rootWidget) {		
+		return
+		pushLayer(
+			new Layer()
+			.setRootWidget(rootWidget)
+		);
 	}
 	
 	//method

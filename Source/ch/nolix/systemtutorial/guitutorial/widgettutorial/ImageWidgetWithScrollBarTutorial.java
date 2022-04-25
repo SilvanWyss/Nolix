@@ -46,7 +46,7 @@ public final class ImageWidgetWithScrollBarTutorial {
 		);
 		
 		//Adds the ImageWidget to the Frame.
-		frame.addLayerOnTop(imageWidget);
+		frame.pushLayer(imageWidget);
 	}
 	
 	/**
