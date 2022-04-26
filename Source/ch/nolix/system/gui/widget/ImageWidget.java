@@ -8,6 +8,7 @@ import ch.nolix.core.skillapi.Clearable;
 import ch.nolix.system.element.MutableOptionalValue;
 import ch.nolix.system.elementenum.RotationDirection;
 import ch.nolix.system.gui.image.MutableImage;
+import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 
@@ -52,6 +53,11 @@ public final class ImageWidget extends BorderWidget<ImageWidget, ImageWidgetLook
 	@Override
 	public boolean isEmpty() {
 		return !image.hasValue();
+	}
+	
+	//method
+	public ImageWidget setImage(final IImage<?> image) {
+		return setImage(MutableImage.fromAnyImage(image));
 	}
 	
 	//method
