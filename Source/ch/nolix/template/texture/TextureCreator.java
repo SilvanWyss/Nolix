@@ -61,4 +61,27 @@ final class TextureCreator {
 		
 		return texture.toImmutableImage();
 	}
+
+	//method
+	public IImage<?> createWhiteMarbleTexture() {
+		
+		final var texture = MutableImage.withWidthAndHeight(16, 16);
+		
+		final var color1 = Color.fromValue(0x282820);
+		final var color2 = Color.fromValue(0x888880);
+		final var color3 = Color.fromValue(0xF8F8F0);
+		for (var x = 1; x <= texture.getWidth(); x++) {
+			for (var y = 1; y <= texture.getHeight(); y++) {							
+				if (x == (y / 2) + (x / 5) || x == (y / 4) + (x / 4) + 8 || (x % 11 == (y - 2) % 7)) {
+					texture.setPixel(x, y, color1);
+				} else if (((texture.getWidth() - x) % 5) == (y % 3)) {
+					texture.setPixel(x, y, color2);
+				} else {
+					texture.setPixel(x, y, color3);
+				}
+			}
+		}
+		
+		return texture.toImmutableImage();
+	}
 }
