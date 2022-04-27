@@ -50,11 +50,11 @@ public final class AnthrazitGUILookCreator {
 		.setSelectorType(BorderWidget.class)
 		.addAttachingAttribute(
 			"BaseScrollBarColor(0x101010)",
-			"BaseScrollCursorColor(0x000000)",
 			"BaseScrollBarHoverColor(0x101010)",
-			"BaseHoverScrollCursorHoverColor(0xE0E000)",
 			"BaseScrollBarMoveColor(0x101010)",
-			"BaseScrollCursorMoveColor(0xE0E000)"
+			"BaseScrollCursorColor(0x404040)",
+			"BaseScrollCursorMoveColor(0xE0E000)",
+			"BaseHoverScrollCursorHoverColor(0xE0E000)"
 		);
 	}
 	
@@ -182,6 +182,7 @@ public final class AnthrazitGUILookCreator {
 		new DeepConfiguration()
 		.setSelectorType("TextBox")
 		.addAttachingAttribute(
+			"ProposalWidth(200)",
 			"BaseBackground(Color(0x101010))",
 			"BasePadding(5)"
 		);
