@@ -111,7 +111,14 @@ public final class FrameVisualizer implements IVisualizer {
 		//This is important that key events are handled.
 		panel.setFocusable(true);
 		panel.requestFocus();
-				
+		
+		/* 
+		 * The initial view area size must be set to the GUI when the GUI is initialized.
+		 * Normally, the view area size of a GUI is set on a resize event only.
+		 * On the creation of a GUI, there does not occur a resize event, what is correct.
+		 */
+		parentGUI.noteResize(getViewAreaWidth(), getViewAreaHeight());
+		
 		parentGUI.refresh();
 	}
 	
