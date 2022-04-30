@@ -147,6 +147,11 @@ public abstract class BaseBackendGUIClient<
 	}
 	
 	//method
+	final void internalRunOnCounterpart(final ChainedNode command) {
+		runOnCounterpart(command);
+	}
+	
+	//method
 	final void internalRunOnCounterpart(final Iterable<ChainedNode> commands) {
 		runOnCounterpart(commands);
 	}
