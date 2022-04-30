@@ -33,7 +33,7 @@ public final class DropdownMenuTutorial {
 	private static final class MainSession extends BackendGUIClientSession<VoidApplicationContext> {
 		
 		@Override
-		protected void initializeBaseBackGUIClientSession() {
+		protected void initialize() {
 			
 			//Creates a DropdownMenu.
 			final var dropdownMenu =

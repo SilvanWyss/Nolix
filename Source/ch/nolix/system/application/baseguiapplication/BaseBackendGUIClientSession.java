@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.application.baseguiapplication;
 
+//own imports
 import ch.nolix.system.application.main.Session;
 import ch.nolix.system.gui.base.IWidgetGUI;
 import ch.nolix.system.gui.base.InvisibleGUI;
@@ -15,12 +16,7 @@ public abstract class BaseBackendGUIClientSession<
 	private final InvisibleGUI mGUI = new InvisibleGUI();
 	
 	//method
-	protected final IWidgetGUI<?> getRefGUI() {
-		return mGUI;
-	}
-	
-	//method
-	protected final void initialize() {
+	protected final void fullInitialize() {
 		
 		/*
 		 * Important:
@@ -37,18 +33,23 @@ public abstract class BaseBackendGUIClientSession<
 			new BaseBackendGIUIClientFrontendWriter(getParentClient())
 		);
 		
-		initializeBaseBackGUIClientSession();
+		initialize();
 		
 		mGUI.recalculate();
 	}
 	
 	//method
-	protected final void initializeForFirstTime() {
-		getParentClient().createCloseDependencyTo(mGUI);
+	protected final IWidgetGUI<?> getRefGUI() {
+		return mGUI;
 	}
 	
 	//method declaration
-	protected abstract void initializeBaseBackGUIClientSession();
+	protected abstract void initialize();
+	
+	//method
+	protected final void initializeForFirstTime() {
+		getParentClient().createCloseDependencyTo(mGUI);
+	}
 	
 	//method
 	@Override

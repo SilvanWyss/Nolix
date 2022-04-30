@@ -33,7 +33,7 @@ public class UploaderTutorial {
 	private static final class MainSession extends BackendGUIClientSession<VoidApplicationContext> {
 		
 		@Override
-		protected void initializeBaseBackGUIClientSession() {
+		protected void initialize() {
 			getRefGUI().pushLayer(new Uploader());
 		}
 	}

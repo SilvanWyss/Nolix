@@ -38,7 +38,7 @@ public final class LabelTutorial {
 		
 		@Override
 		@SuppressWarnings("resource")
-		protected void initializeBaseBackGUIClientSession() {
+		protected void initialize() {
 						
 			//Creates clockCaptionLabel.
 			final var clockCaptionLabel = new Label().setText("Time:");

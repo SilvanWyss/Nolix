@@ -180,7 +180,7 @@ extends BaseBackendGUIClientSession<BackendConsoleClient<AC>, AC> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void initializeBaseBackGUIClientSession() {
+	protected final void initialize() {
 		
 		getRefGUI()
 		.pushLayer(

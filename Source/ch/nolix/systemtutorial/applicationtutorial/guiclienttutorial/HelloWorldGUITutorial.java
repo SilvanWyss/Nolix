@@ -34,7 +34,7 @@ public final class HelloWorldGUITutorial {
 	private static final class MainSession extends BackendGUIClientSession<VoidApplicationContext> {
 		
 		@Override
-		protected void initializeBaseBackGUIClientSession() {
+		protected void initialize() {
 			
 			//Creates Label.
 			final var label = new Label().setText("Hello World");

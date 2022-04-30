@@ -17,7 +17,7 @@ public final class ImageWidgetTutorial {
 	private static final class MainSession extends BackendGUIClientSession<VoidApplicationContext> {
 		
 		@Override
-		protected void initializeBaseBackGUIClientSession() {
+		protected void initialize() {
 			
 			//Creates an Image.
 			final var image =

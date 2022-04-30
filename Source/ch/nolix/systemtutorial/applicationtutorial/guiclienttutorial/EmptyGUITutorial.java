@@ -32,7 +32,7 @@ public final class EmptyGUITutorial {
 	private static final class MainSession extends BackendGUIClientSession<VoidApplicationContext> {
 		
 		@Override
-		protected void initializeBaseBackGUIClientSession() {}
+		protected void initialize() {}
 	}
 	
 	private EmptyGUITutorial() {}

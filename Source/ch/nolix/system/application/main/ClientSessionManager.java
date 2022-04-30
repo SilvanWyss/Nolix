@@ -162,7 +162,7 @@ final class ClientSessionManager<
 		
 		//Check if the Client is open because it can be closed before.
 		if (parentClient.isOpen()) {
-			session.initialize();
+			session.fullInitialize();
 		}
 		
 		//Check if the Client is open because it can be closed before.

@@ -38,7 +38,7 @@ public final class CursorPositionTutorial {
 		private final Label cursorPositionLabel = new Label();
 		
 		@Override
-		protected void initializeBaseBackGUIClientSession() {
+		protected void initialize() {
 									
 			//Configures the look of the cursorPositionLabel.
 			cursorPositionLabel.onLook(l -> l.setPaddingForState(WidgetLookState.BASE, 5));

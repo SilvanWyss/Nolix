@@ -147,7 +147,7 @@ public abstract class Session<
 	/**
 	 * Initializes the current {@link Session}.
 	 */
-	protected abstract void initialize();
+	protected abstract void fullInitialize();
 	
 	//method declaration
 	/**

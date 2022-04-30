@@ -35,7 +35,7 @@ public final class TextBoxTutorial {
 	private static final class MainSession extends BackendGUIClientSession<VoidApplicationContext> {
 		
 		@Override
-		protected void initializeBaseBackGUIClientSession() {
+		protected void initialize() {
 			
 			//Creates a TextBox.
 			final var textBox = new TextBox();

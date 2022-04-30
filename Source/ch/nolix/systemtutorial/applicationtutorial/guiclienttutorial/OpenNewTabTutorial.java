@@ -35,7 +35,7 @@ public final class OpenNewTabTutorial {
 	private static final class MainSession extends BackendGUIClientSession<VoidApplicationContext> {
 		
 		@Override
-		protected void initializeBaseBackGUIClientSession() {
+		protected void initialize() {
 			
 			//Creates a Button.
 			final var button =
