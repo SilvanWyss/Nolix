@@ -13,9 +13,13 @@ import ch.nolix.system.gui.image.Image;
 //class
 final class BaseBackendGUIClientGUIUpdateCommandCreator {
 	
-	//optional attributes
+	//optional attribute
 	private String latestTitle;
+	
+	//optional attribute
 	private Image latestIcon;
+	
+	//optional attribute
 	private CursorIcon latestCursorIcon;
 	
 	//multi attribute
