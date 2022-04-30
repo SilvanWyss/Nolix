@@ -20,9 +20,13 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 	//constant
 	public static final TextFormat DEFAULT_TEXT_FORMAT = new TextFormat();
 	
-	//attributes
+	//attribute
 	private final CanvasGUIPainterPool bottom;
+	
+	//attribute
 	private final CachingContainer<IImage<?>> imageCachingContainer;
+	
+	//attribute
 	private final int index;
 	
 	//constructor
