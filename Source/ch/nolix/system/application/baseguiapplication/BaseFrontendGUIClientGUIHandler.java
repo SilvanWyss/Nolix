@@ -9,6 +9,7 @@ import ch.nolix.system.gui.base.CanvasFrame;
 import ch.nolix.system.gui.base.CursorIcon;
 import ch.nolix.system.gui.base.GUI;
 import ch.nolix.system.gui.image.Image;
+import ch.nolix.system.gui.image.MutableImage;
 
 //class
 final class BaseFrontendGUIClientGUIHandler {
@@ -39,6 +40,14 @@ final class BaseFrontendGUIClientGUIHandler {
 	//method
 	public void runGUICommand(ChainedNode pGUICommand) {
 		switch (pGUICommand.getHeader()) {
+			case CommandProtocol.REGISTER_IMAGE:
+				
+				final var id = pGUICommand.getAttributeAt(1).getHeader();
+				final var image = MutableImage.fromSpecification(pGUICommand.getAttributeAt(2).toNode());
+				
+				mGUI.getRefImageCache().registerAtId(id, image);
+				
+				break;
 			case CommandProtocol.SET_TITLE:
 				mGUI.setTitle(pGUICommand.getOneAttributeAsString());
 				mGUI.refresh();

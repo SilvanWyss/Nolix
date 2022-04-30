@@ -143,9 +143,15 @@ public final class SwingPainter implements IPainter {
 	//method
 	@Override
 	public void paintImageById(final String id) {
-		
-		//Calls other method.
-		paintImage(getImageById(id));
+		/*
+		 * Although the register image command will be sent to a client before a painting image by id command,
+		 * the painting command could arrive and processed first, because the processing of the register image command
+		 * lasts longer.
+		 * ->An image is painted by id only if the current SwingPainter has registered an image for the given id yet.
+		 */
+		if (imageCache.containsWithId(id)) {
+			paintImage(getImageById(id));
+		}
 	}
 	
 	//method
@@ -166,17 +172,6 @@ public final class SwingPainter implements IPainter {
 	@Override
 	public void paintText(final String text, final TextFormat textFormat, final int maxTextWidth) {
 		textFormat.paintSwingText(graphics, text, maxTextWidth);
-	}
-	
-	//method
-	@Override
-	public void registerImageAtId(final String id, final IImage<?> mutableImage) {
-		
-		if (imageCache.containsWithId(id)) {
-			return;
-		}
-		
-		imageCache.registerAtId(id, mutableImage);
 	}
 	
 	//method

@@ -2133,7 +2133,6 @@ define("Element/CanvasGUI/CanvasGUICommandProtocol", ["require", "exports"], fun
     CanvasGUICommandProtocol.PAINT_IMAGE = 'PaintImage';
     CanvasGUICommandProtocol.PAINT_IMAGE_BY_ID = 'PaintImageById';
     CanvasGUICommandProtocol.PAINT_TEXT = 'PaintText';
-    CanvasGUICommandProtocol.REGISTER_IMAGE = 'RegisterImage';
     CanvasGUICommandProtocol.SET_COLOR = 'SetColor';
     CanvasGUICommandProtocol.TRANSLATE = 'Translate';
     exports.CanvasGUICommandProtocol = CanvasGUICommandProtocol;
@@ -2474,11 +2473,6 @@ define("Element/CanvasGUI/CanvasGUIGlobalPainter", ["require", "exports", "Eleme
             this.canvasRenderingContext.clip();
             this.canvasRenderingContext.beginPath();
         }
-        registerImageAtId(id, image) {
-            if (!this.imageCache.containsWithId(id)) {
-                this.imageCache.registerAtId(id, image);
-            }
-        }
         setColor(color) {
             this.canvasRenderingContext.fillStyle = color.getHTMLCode();
         }
@@ -2601,9 +2595,6 @@ define("Element/CanvasGUI/CanvasGUIPainter", ["require", "exports", "Element/Can
             this.pushClipArea();
             this.globalPainter.paintTextWithTextFormatAndMaxLength(this.getXPositionOnViewArea(), this.getYPositionOnViewArea(), text, textFormat, maxLength);
             this.popClipArea();
-        }
-        registerImageAtId(id, image) {
-            this.globalPainter.registerImageAtId(id, image);
         }
         setColor(color) {
             this.globalPainter.setColor(color);
@@ -2884,7 +2875,7 @@ define("Element/CanvasGUI/PaintProcess", ["require", "exports", "Common/Containe
     }
     exports.PaintProcess = PaintProcess;
 });
-define("Element/CanvasGUI/CanvasGUI", ["require", "exports", "Common/Caching/CachingContainer", "Element/CanvasGUI/CanvasGUICommandProtocol", "Element/CanvasGUI/CanvasGUIObjectProtocol", "Element/CanvasGUI/CanvasGUIPainter", "Element/Color/Color", "Element/Graphic/Image", "Element/Input/KeyMapper", "Common/Container/LinkedList", "Element/CanvasGUI/PaintProcess", "Common/Pair/Pair", "Common/Enum/RotationDirectionMapper", "Element/TextFormat/TextFormat", "Common/Container/SingleContainer"], function (require, exports, CachingContainer_1, CanvasGUICommandProtocol_1, CanvasGUIObjectProtocol_1, CanvasGUIPainter_1, Color_4, Image_1, KeyMapper_1, LinkedList_9, PaintProcess_1, Pair_2, RotationDirectionMapper_1, TextFormat_2, SingleContainer_2) {
+define("Element/CanvasGUI/CanvasGUI", ["require", "exports", "Common/Caching/CachingContainer", "Element/CanvasGUI/CanvasGUICommandProtocol", "Element/CanvasGUI/CanvasGUIObjectProtocol", "Element/CanvasGUI/CanvasGUIPainter", "Element/Color/Color", "Element/Input/KeyMapper", "Common/Container/LinkedList", "Element/CanvasGUI/PaintProcess", "Common/Pair/Pair", "Common/Enum/RotationDirectionMapper", "Element/TextFormat/TextFormat", "Common/Container/SingleContainer"], function (require, exports, CachingContainer_1, CanvasGUICommandProtocol_1, CanvasGUIObjectProtocol_1, CanvasGUIPainter_1, Color_4, KeyMapper_1, LinkedList_9, PaintProcess_1, Pair_2, RotationDirectionMapper_1, TextFormat_2, SingleContainer_2) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class CanvasGUI {
@@ -3030,6 +3021,11 @@ define("Element/CanvasGUI/CanvasGUI", ["require", "exports", "Common/Caching/Cac
             this.paintBackground(painter);
             new PaintProcess_1.PaintProcess(painter, this.paintCommands);
         }
+        registerImageAtId(id, image) {
+            if (!this.imageCache.containsWithId(id)) {
+                this.imageCache.registerAtId(id, image);
+            }
+        }
         reset() {
             this.setTitle(CanvasGUI.DEFAULT_TITLE);
             this.cursorXPositionOnViewArea = 0;
@@ -3121,8 +3117,6 @@ define("Element/CanvasGUI/CanvasGUI", ["require", "exports", "Common/Caching/Cac
                     return this.createPaintImageByIdCommand(painterIndex, textualPaintCommand);
                 case CanvasGUICommandProtocol_1.CanvasGUICommandProtocol.PAINT_TEXT:
                     return this.createPaintTextCommand(painterIndex, textualPaintCommand);
-                case CanvasGUICommandProtocol_1.CanvasGUICommandProtocol.REGISTER_IMAGE:
-                    return this.createRegisterImageCommand(painterIndex, textualPaintCommand);
                 case CanvasGUICommandProtocol_1.CanvasGUICommandProtocol.SET_COLOR:
                     return this.createSetColorCommand(painterIndex, textualPaintCommand);
                 case CanvasGUICommandProtocol_1.CanvasGUICommandProtocol.TRANSLATE:
@@ -3176,11 +3170,6 @@ define("Element/CanvasGUI/CanvasGUI", ["require", "exports", "Common/Caching/Cac
                 default:
                     throw new Error('The given textualPaintTextCommand is not valid.');
             }
-        }
-        createRegisterImageCommand(painterIndex, textualRegisterImageCommand) {
-            const id = textualRegisterImageCommand.getAttributeAt(1).getHeader();
-            const image = Image_1.Image.fromSpecification(textualRegisterImageCommand.getAttributeAt(2).toNode());
-            return pp => pp.getRefPainterByIndex(painterIndex).registerImageAtId(id, image);
         }
         createSetColorCommand(painterIndex, textualSetColorCommand) {
             const color = Color_4.Color.fromSpecification(textualSetColorCommand.getOneAttributeAsNode());
@@ -3548,6 +3537,7 @@ define("System/FrontCanvasGUIClient/FrontCanvasGUIClientCommandProtocol", ["requ
     FrontCanvasGUIClientCommandProtocol.NOTE_INPUT = 'NoteInput';
     FrontCanvasGUIClientCommandProtocol.OPEN_NEW_TAB = 'OpenNewTab';
     FrontCanvasGUIClientCommandProtocol.RECEIVE_OPTIONAL_FILE = 'ReceiveOptionalFile';
+    FrontCanvasGUIClientCommandProtocol.REGISTER_IMAGE = 'RegisterImage';
     FrontCanvasGUIClientCommandProtocol.SEND_OPTIONAL_FILE = 'SendOptionalFile';
     FrontCanvasGUIClientCommandProtocol.SET_CURSOR_ICON = 'SetCursorIcon';
     FrontCanvasGUIClientCommandProtocol.SET_ICON = 'SetIcon';
@@ -3567,7 +3557,7 @@ define("System/FrontCanvasGUIClient/FrontCanvasGUIClientObjectProtocol", ["requi
     FrontCanvasGUIClientObjectProtocol.VIEW_AREA_SIZE = 'ViewAreaSize';
     exports.FrontCanvasGUIClientObjectProtocol = FrontCanvasGUIClientObjectProtocol;
 });
-define("System/FrontCanvasGUIClient/GUIHandler", ["require", "exports", "Element/CanvasGUI/CanvasGUI", "Element/CursorIcon/CursorIcon", "System/FrontCanvasGUIClient/FrontCanvasGUIClientCommandProtocol", "System/FrontCanvasGUIClient/FrontCanvasGUIClientObjectProtocol", "Element/Graphic/Image"], function (require, exports, CanvasGUI_1, CursorIcon_1, FrontCanvasGUIClientCommandProtocol_1, FrontCanvasGUIClientObjectProtocol_1, Image_2) {
+define("System/FrontCanvasGUIClient/GUIHandler", ["require", "exports", "Element/CanvasGUI/CanvasGUI", "Element/CursorIcon/CursorIcon", "System/FrontCanvasGUIClient/FrontCanvasGUIClientCommandProtocol", "System/FrontCanvasGUIClient/FrontCanvasGUIClientObjectProtocol", "Element/Graphic/Image"], function (require, exports, CanvasGUI_1, CursorIcon_1, FrontCanvasGUIClientCommandProtocol_1, FrontCanvasGUIClientObjectProtocol_1, Image_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class GUIHandler {
@@ -3600,14 +3590,22 @@ define("System/FrontCanvasGUIClient/GUIHandler", ["require", "exports", "Element
         openNewTabWithURL(pURL) {
             this.mGUI.openNewTabWithURL(pURL);
         }
+        registerImageAtId(id, image) {
+            this.mGUI.registerImageAtId(id, image);
+        }
         runGUICommand(pGUICommand) {
             switch (pGUICommand.getHeader()) {
+                case FrontCanvasGUIClientCommandProtocol_1.FrontCanvasGUIClientCommandProtocol.REGISTER_IMAGE:
+                    const id = pGUICommand.getAttributeAt(1).getHeader();
+                    const image = Image_1.Image.fromSpecification(pGUICommand.getAttributeAt(2).toNode());
+                    this.registerImageAtId(id, image);
+                    break;
                 case FrontCanvasGUIClientCommandProtocol_1.FrontCanvasGUIClientCommandProtocol.SET_TITLE:
                     this.mGUI.setTitle(pGUICommand.getOneAttributeAsString());
                     this.mGUI.refresh();
                     break;
                 case FrontCanvasGUIClientCommandProtocol_1.FrontCanvasGUIClientCommandProtocol.SET_ICON:
-                    this.mGUI.setIcon(Image_2.Image.fromSpecification(pGUICommand.getOneAttributeAsNode()));
+                    this.mGUI.setIcon(Image_1.Image.fromSpecification(pGUICommand.getOneAttributeAsNode()));
                     this.mGUI.refresh();
                     break;
                 case FrontCanvasGUIClientCommandProtocol_1.FrontCanvasGUIClientCommandProtocol.SET_CURSOR_ICON:

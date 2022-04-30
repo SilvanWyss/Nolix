@@ -6,12 +6,18 @@ import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.document.node.Node;
+import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.functionapi.I2ElementTaker;
 import ch.nolix.system.gui.base.CursorIcon;
 import ch.nolix.system.gui.base.IWidgetGUI;
 import ch.nolix.system.gui.image.Image;
+import ch.nolix.systemapi.guiapi.imageapi.IImage;
 
 //class
 final class BaseBackendGUIClientGUIUpdateCommandCreator {
+	
+	//attribute
+	private final I2ElementTaker<String, IImage<?>> imageRegistrator;
 	
 	//optional attribute
 	private String latestTitle;
@@ -24,6 +30,13 @@ final class BaseBackendGUIClientGUIUpdateCommandCreator {
 	
 	//multi attribute
 	private IContainer<ChainedNode> latestPaintCommands = new LinkedList<>();
+	
+	public BaseBackendGUIClientGUIUpdateCommandCreator(final I2ElementTaker<String, IImage<?>> imageRegistrator) {
+		
+		Validator.assertThat(imageRegistrator).thatIsNamed("image registrator").isNotNull();
+		
+		this.imageRegistrator = imageRegistrator;
+	}
 	
 	//method
 	public LinkedList<ChainedNode> createUpdateCommandsFor(final IWidgetGUI<?> widgetGUI) {
@@ -96,7 +109,7 @@ final class BaseBackendGUIClientGUIUpdateCommandCreator {
 		final IWidgetGUI<?> widgetGUI
 	) {
 		
-		final var paintCommands = widgetGUI.getPaintCommands();
+		final var paintCommands = widgetGUI.getPaintCommands(imageRegistrator);
 		
 		if (!nodesEqual(paintCommands, latestPaintCommands)) {
 			list.addAtEnd(createUpdatePaintCommands(paintCommands));

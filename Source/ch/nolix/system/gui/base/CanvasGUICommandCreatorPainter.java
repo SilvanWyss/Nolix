@@ -4,9 +4,9 @@ package ch.nolix.system.gui.base;
 //own imports
 import ch.nolix.core.attributeapi.mandatoryattributeapi.Indexed;
 import ch.nolix.core.caching.CachingContainer;
-import ch.nolix.core.constant.PascalCaseCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.document.chainednode.ChainedNode;
+import ch.nolix.core.functionapi.I2ElementTaker;
 import ch.nolix.core.independent.independenthelper.CentralArrayHelper;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.color.ColorGradient;
@@ -30,8 +30,11 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 	private final int index;
 	
 	//constructor
-	public CanvasGUICommandCreatorPainter(final CachingContainer<IImage<?>> imageCachingContainer) {
-		this(new CanvasGUIPainterPool(), imageCachingContainer);
+	public CanvasGUICommandCreatorPainter(
+		final CachingContainer<IImage<?>> imageCachingContainer,
+		final I2ElementTaker<String, IImage<?>> imageRegistrator
+	) {
+		this(new CanvasGUIPainterPool(imageRegistrator), imageCachingContainer);
 	}
 	
 	//constructor
@@ -234,28 +237,6 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 	
 	//method
 	@Override
-	public void registerImageAtId(final String id, final IImage<?> mutableImage) {
-		
-		if (imageCachingContainer.containsWithId(id)) {
-			return;
-		}
-		
-		imageCachingContainer.registerAtId(id, mutableImage);
-		
-		appendPaintCommand(
-			CanvasGUICommandProtocol.REGISTER_IMAGE
-			+ "("
-			+ PascalCaseCatalogue.ID
-			+ "("
-			+ id
-			+ "),"
-			+ mutableImage.getSpecification()
-			+ ")"
-		);
-	}
-	
-	//method
-	@Override
 	public void setColor(final Color color) {
 		appendPaintCommand(
 			CanvasGUICommandProtocol.SET_COLOR
@@ -303,14 +284,7 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 			
 			final var id = imageCachingContainer.registerAndGetId(mutableImage);
 			
-			appendPaintCommand(
-				CanvasGUICommandProtocol.REGISTER_IMAGE
-				+ "("
-				+ id
-				+ ","
-				+ mutableImage.getSpecification()
-				+ ")"
-			);
+			bottom.registerImage(id, mutableImage);
 			
 			return id;
 		}

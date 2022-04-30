@@ -186,15 +186,6 @@ public interface IPainter {
 	
 	//method declaration
 	/**
-	 * Lets the current {@link IPainter} register the given image at the given id.
-	 * 
-	 * @param id
-	 * @param mutableImage
-	 */
-	void registerImageAtId(String id, IImage<?> mutableImage);
-	
-	//method declaration
-	/**
 	 * Sets the color of the current {@link IPainter}.
 	 * 
 	 * @param color

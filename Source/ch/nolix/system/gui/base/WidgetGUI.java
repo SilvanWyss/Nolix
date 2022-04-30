@@ -13,6 +13,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.functionapi.I2ElementTaker;
 import ch.nolix.core.programcontrol.processproperty.ChangeState;
 import ch.nolix.core.state.Visibility;
 import ch.nolix.system.element.CatchingProperty;
@@ -45,6 +46,7 @@ import ch.nolix.system.gui.widget.Uploader;
 import ch.nolix.system.gui.widget.VerticalLine;
 import ch.nolix.system.gui.widget.Widget;
 import ch.nolix.systemapi.elementapi.IConfigurableElement;
+import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.imageapi.ImageApplication;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
@@ -352,11 +354,13 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	
 	//method
 	/**
+	 * @param imageRegistrator
 	 * @return the painter commands of the current {@link WidgetGUI}.
 	 */
-	public final IContainer<ChainedNode> getPaintCommands() {
+	@Override
+	public final IContainer<ChainedNode> getPaintCommands(final I2ElementTaker<String, IImage<?>> imageRegistrator) {
 		
-		final var painter = new CanvasGUICommandCreatorPainter(getRefImageCache());
+		final var painter = new CanvasGUICommandCreatorPainter(getRefImageCache(), imageRegistrator);
 		paint(painter);
 		
 		return painter.getCommands();

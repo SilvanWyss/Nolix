@@ -5,6 +5,9 @@ package ch.nolix.system.gui.base;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.chainednode.ChainedNode;
+import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.functionapi.I2ElementTaker;
+import ch.nolix.systemapi.guiapi.imageapi.IImage;
 
 //class
 final class CanvasGUIPainterPool {
@@ -12,8 +15,19 @@ final class CanvasGUIPainterPool {
 	//attribute
 	private int nextIndex = 1;
 	
+	//attribute
+	private final I2ElementTaker<String, IImage<?>> imageRegistrator;
+	
 	//multi-attribute
 	private final LinkedList<ChainedNode> paintCommands = new LinkedList<>();
+	
+	//constructor
+	public CanvasGUIPainterPool(final I2ElementTaker<String, IImage<?>> imageRegistrator) {
+		
+		Validator.assertThat(imageRegistrator).thatIsNamed("image registrator").isNotNull();
+		
+		this.imageRegistrator = imageRegistrator;
+	}
 	
 	//method
 	public void appendPaintCommand(final CanvasGUICommandCreatorPainter browserGUIPainter,	final String command) {
@@ -38,5 +52,10 @@ final class CanvasGUIPainterPool {
 	public int getNextIndexAndUpdateNextIndex() {
 		nextIndex++;
 		return (nextIndex - 1);
+	}
+	
+	//method
+	public void registerImage(final String imageId, final IImage<?> image) {
+		imageRegistrator.run(imageId, image);
 	}
 }

@@ -15,7 +15,6 @@ import ch.nolix.system.element.MutableValue;
 import ch.nolix.system.elementenum.RotationDirection;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.color.ColorGradient;
-import ch.nolix.system.gui.image.MutableImage;
 import ch.nolix.system.gui.input.IResizableInputTaker;
 import ch.nolix.system.gui.textformat.TextFormat;
 import ch.nolix.systemapi.elementapi.IConfigurableElement;
@@ -234,8 +233,6 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 				return createPaintImageByIdCommand(painterIndex, paintCommand);
 			case CanvasGUICommandProtocol.PAINT_TEXT:
 				return createPaintTextCommand(painterIndex, paintCommand);
-			case CanvasGUICommandProtocol.REGISTER_IMAGE:
-				return createRegisterImageCommand(painterIndex, paintCommand);
 			case CanvasGUICommandProtocol.SET_COLOR:
 				return createSetColorCommand(painterIndex, paintCommand);
 			case CanvasGUICommandProtocol.SET_COLOR_GRADIENT:
@@ -340,18 +337,6 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 			default:
 				throw new InvalidArgumentException("paint text command", paintTextCommand,"is not valid");
 		}
-	}
-	
-	//method
-	private IElementTaker<PaintRun> createRegisterImageCommand(
-		final int painterIndex,
-		final ChainedNode registerImageCommand
-	) {
-		
-		final var id = registerImageCommand.getAttributeAt(1).toString();
-		final var image = MutableImage.fromSpecification(registerImageCommand.getAttributeAt(2).toNode());
-		
-		return pr -> pr.getRefPainterByIndex(painterIndex).registerImageAtId(id, image);
 	}
 	
 	//method
