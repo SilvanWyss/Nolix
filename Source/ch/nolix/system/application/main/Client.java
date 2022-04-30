@@ -75,7 +75,10 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable, IFl
 	 */
 	@Override
 	public final boolean isClosed() {
-		return getRefEndPoint().isClosed();
+		/*
+		 * The end point of the current Client can be requested only when the current Client is connected.
+		 */
+		return (isConnected() && getRefEndPoint().isClosed());
 	}
 	
 	//method declaration
