@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.container;
+package ch.nolix.core.container.readcontainer;
 
 //Java imports
 import java.util.Iterator;

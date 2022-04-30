@@ -3,7 +3,7 @@ package ch.nolix.business.trading;
 
 //own imports
 import ch.nolix.core.container.IContainer;
-import ch.nolix.core.container.ReadContainer;
+import ch.nolix.core.container.readcontainer.ReadContainer;
 
 //class
 /**
