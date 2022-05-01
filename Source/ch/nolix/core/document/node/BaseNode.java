@@ -46,15 +46,29 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * @return an escape {@link String} for the given string.
 	 */
 	public static String getEscapeStringFor(final String string) {
-		return
-		string
 		
-		//It is essential to replace the dollar symbol at first.
-		.replace(String.valueOf(CharacterCatalogue.DOLLAR), DOLLAR_SYMBOL_CODE)
+		final var stringBuilder = new StringBuilder();
 		
-		.replace(String.valueOf(CharacterCatalogue.COMMA), COMMA_CODE)
-		.replace(String.valueOf(CharacterCatalogue.OPEN_BRACKET), OPEN_BRACKET_CODE)
-		.replace(String.valueOf(CharacterCatalogue.CLOSED_BRACKET), CLOSED_BRACKET_CODE);
+		for (var i = 0; i < string.length(); i++) {
+			switch (string.charAt(i)) {
+				case CharacterCatalogue.COMMA:
+					stringBuilder.append(COMMA_CODE);
+					break;
+				case CharacterCatalogue.DOLLAR:
+					stringBuilder.append(DOLLAR_SYMBOL_CODE);
+					break;
+				case CharacterCatalogue.OPEN_BRACKET:
+					stringBuilder.append(OPEN_BRACKET_CODE);
+					break;
+				case CharacterCatalogue.CLOSED_BRACKET:
+					stringBuilder.append(CLOSED_BRACKET_CODE);
+					break;
+				default:
+					stringBuilder.append(string.charAt(i));
+			}
+		}
+		
+		return stringBuilder.toString();
 	}
 	
 	//static method
