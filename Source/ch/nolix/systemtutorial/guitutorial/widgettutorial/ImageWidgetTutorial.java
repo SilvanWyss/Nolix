@@ -26,7 +26,7 @@ public final class ImageWidgetTutorial {
 		
 		//Creates an image from resource.
 		final var image =
-		MutableImage.fromResource("ch/nolix/elementTutorial/guitutorial/widgetTutorial/resource/Singer_Building.jpg");
+		MutableImage.fromResource("ch/nolix/systemtutorial/guitutorial/widgetTutorial/resource/Singer_Building.jpg");
 		
 		//Creates an ImageWidget with the image.
 		final var imageWidget = new ImageWidget().setImage(image);
