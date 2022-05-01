@@ -60,6 +60,19 @@ abstract class SingleValue<V> extends BaseValue<V> {
 	
 	//method
 	/**
+	 * @return a new specification of the current {@link SingleValue}.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link SingleValue} does not have a value
+	 */
+	public final Node getSpecification() {
+		
+		final var specification = specificationCreator.getOutput(getValue());
+		specification.setHeader(getName());
+		
+		return specification;
+	}
+	
+	//method
+	/**
 	 * @return the value of the current {@link SingleValue}.
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link SingleValue} does not have a value.
 	 */
@@ -117,15 +130,11 @@ abstract class SingleValue<V> extends BaseValue<V> {
 	@Override
 	protected final void fillUpAttributesInto(final LinkedList<Node> list) {
 		
-		//Handles the case that the current SingleProperty has a value.
-		if (value != null) {
+		//Handles the case that the current SingleValue has a value.
+		if (hasValue()) {
 			
-			//Creates a specification from the current value.
-			final var specification = specificationCreator.getOutput(value);
-			specification.setHeader(getName());
-			
-			//Adds the specification to the given list.
-			list.addAtEnd(specification);
+			//Adds the specification of the current SingleValue to the given list.
+			list.addAtEnd(getSpecification());
 		}
 	}
 	
