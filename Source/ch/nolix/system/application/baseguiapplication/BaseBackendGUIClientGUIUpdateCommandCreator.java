@@ -31,6 +31,7 @@ final class BaseBackendGUIClientGUIUpdateCommandCreator {
 	//multi attribute
 	private IContainer<ChainedNode> latestPaintCommands = new LinkedList<>();
 	
+	//constructor
 	public BaseBackendGUIClientGUIUpdateCommandCreator(final I2ElementTaker<String, IImage<?>> imageRegistrator) {
 		
 		Validator.assertThat(imageRegistrator).thatIsNamed("image registrator").isNotNull();
