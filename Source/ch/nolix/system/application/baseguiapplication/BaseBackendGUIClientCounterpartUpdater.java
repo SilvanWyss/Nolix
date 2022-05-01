@@ -43,7 +43,7 @@ final class BaseBackendGUIClientCounterpartUpdater {
 				ChainedNode.withHeaderAndAttributesFromNodes(
 					CommandProtocol.REGISTER_IMAGE,
 					Node.withHeader(imageId),
-					image.getSpecification()
+					image.getCompressedSpecification()
 				)
 			)
 		);

@@ -85,6 +85,12 @@ public final class Image extends Element<Image> implements IImage<Image> {
 	
 	//method
 	@Override
+	public Node getCompressedSpecification() {
+		return internalImage.getCompressedSpecification();
+	}
+	
+	//method
+	@Override
 	public int getHeight() {
 		return internalImage.getHeight();
 	}
@@ -151,6 +157,12 @@ public final class Image extends Element<Image> implements IImage<Image> {
 	
 	//method
 	@Override
+	public String toJPGString() {
+		return internalImage.toJPGString();
+	}
+	
+	//method
+	@Override
 	public MutableImage toLeftRotatedImage() {
 		return internalImage.toLeftRotatedImage();
 	}
@@ -164,6 +176,12 @@ public final class Image extends Element<Image> implements IImage<Image> {
 	@Override
 	public byte[] toPNG() {
 		return internalImage.toPNG();
+	}
+	
+	//method
+	@Override
+	public String toPNGString() {
+		return internalImage.toPNGString();
 	}
 	
 	//method

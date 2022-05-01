@@ -2273,90 +2273,17 @@ define("Element/TextFormat/Font", ["require", "exports", "Common/Constant/FontCo
     }
     exports.Font = Font;
 });
-define("Element/Graphic/Image", ["require", "exports", "Element/Color/Color", "Element/Base/Element", "Common/Container/Matrix", "Common/Node/Node", "Common/Constant/PascalCaseNameCatalogue"], function (require, exports, Color_1, Element_1, Matrix_1, Node_4, PascalCaseNameCatalogue_1) {
+define("Element/Graphic/IImage", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    class Image extends Element_1.Element {
-        constructor(pixels) {
-            super();
-            this.pixels = pixels;
-        }
-        static fromSpecification(specification) {
-            const pixels = new Matrix_1.Matrix();
-            const width = specification.getRefFirstAttributeWithHeader(PascalCaseNameCatalogue_1.PascalCaseNameCatalogue.WIDTH).getOneAttributeAsNumber();
-            var row = new Array();
-            var i = 1;
-            for (const a of specification.getRefFirstAttributeWithHeader(Image.PIXEL_ARRAY_HEADER).getRefAttributes()) {
-                row.push(Color_1.Color.fromSpecification(Node_4.Node.withAttribute(a)));
-                i++;
-                if (i > width) {
-                    pixels.addRow(row);
-                    row = new Array();
-                    i = 1;
-                }
-            }
-            return new Image(pixels);
-        }
-        getAttributes() {
-            throw new Error("Method not implemented.");
-        }
-        getHeight() {
-            return this.pixels.getRowCount();
-        }
-        getPixelAtIndex(index) {
-            return this.pixels.getRefAt(index);
-        }
-        getPixelAtPosition(xPosition, yPosition) {
-            return this.pixels.getRefAtRowAndColumn(xPosition, yPosition);
-        }
-        getSizeInPixel() {
-            return (this.getWidth() * this.getHeight());
-        }
-        getType() {
-            return Image.TYPE_HEADER;
-        }
-        getWidth() {
-            return this.pixels.getColumnCount();
-        }
-        toCanvas() {
-            this.generateCanvasIfNeeded();
-            return this.canvas;
-        }
-        generateCanvasIfNeeded() {
-            if (this.generatingCanvasIsNeeded()) {
-                this.generateCanvasWhenNeeded();
-            }
-        }
-        generateCanvasWhenNeeded() {
-            const width = this.getWidth();
-            const height = this.getHeight();
-            this.canvas = document.createElement('canvas');
-            this.canvas.width = width;
-            this.canvas.height = height;
-            const context = this.canvas.getContext('2d');
-            for (var rowIndex = 1; rowIndex <= height; rowIndex++) {
-                for (var columnIndex = 1; columnIndex <= width; columnIndex++) {
-                    const pixel = this.getPixelAtPosition(rowIndex, columnIndex);
-                    context.fillStyle = pixel.getHTMLCode();
-                    context.fillRect(columnIndex - 1, rowIndex - 1, 1, 1);
-                }
-            }
-        }
-        generatingCanvasIsNeeded() {
-            return (this.canvas === undefined);
-        }
-    }
-    Image.TYPE_HEADER = 'Image';
-    Image.PIXEL_ARRAY_HEADER = 'PixelArray';
-    exports.Image = Image;
 });
-define("Element/TextFormat/TextFormat", ["require", "exports", "Element/Color/Color", "Element/TextFormat/Font"], function (require, exports, Color_2, Font_1) {
+define("Element/TextFormat/TextFormat", ["require", "exports", "Element/Color/Color", "Element/TextFormat/Font"], function (require, exports, Color_1, Font_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class TextFormat {
         static fromSpecification(specification) {
             const attributes = specification.getRefAttributes();
-            return new TextFormat(Font_1.Font.fromSpecification(attributes.getRefAt(1)), attributes.getRefAt(4).getOneAttributeAsNumber(), Color_2.Color.fromSpecification(attributes.getRefAt(5)));
+            return new TextFormat(Font_1.Font.fromSpecification(attributes.getRefAt(1)), attributes.getRefAt(4).getOneAttributeAsNumber(), Color_1.Color.fromSpecification(attributes.getRefAt(5)));
         }
         constructor(textFont, textSize, textColor) {
             if (textFont === null) {
@@ -2399,7 +2326,7 @@ define("Element/TextFormat/TextFormat", ["require", "exports", "Element/Color/Co
     }
     exports.TextFormat = TextFormat;
 });
-define("Element/CanvasGUI/CanvasGUIGlobalPainter", ["require", "exports", "Element/Color/Color", "Element/TextFormat/Font", "Element/TextFormat/FontType", "Element/TextFormat/TextFormat"], function (require, exports, Color_3, Font_2, FontType_2, TextFormat_1) {
+define("Element/CanvasGUI/CanvasGUIGlobalPainter", ["require", "exports", "Element/Color/Color", "Element/TextFormat/Font", "Element/TextFormat/FontType", "Element/TextFormat/TextFormat"], function (require, exports, Color_2, Font_2, FontType_2, TextFormat_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class CanvasGUIGlobalPainter {
@@ -2479,7 +2406,7 @@ define("Element/CanvasGUI/CanvasGUIGlobalPainter", ["require", "exports", "Eleme
     }
     CanvasGUIGlobalPainter.DEFAULT_TEXT_FONT_TYPE = FontType_2.FontType.Verdana;
     CanvasGUIGlobalPainter.DEFAULT_TEXT_SIZE = 10;
-    CanvasGUIGlobalPainter.DEFAULT_TEXT_COLOR = Color_3.Color.BLACK;
+    CanvasGUIGlobalPainter.DEFAULT_TEXT_COLOR = Color_2.Color.BLACK;
     CanvasGUIGlobalPainter.DEFAULT_TEXT_FORMAT = new TextFormat_1.TextFormat(new Font_2.Font(CanvasGUIGlobalPainter.DEFAULT_TEXT_FONT_TYPE), CanvasGUIGlobalPainter.DEFAULT_TEXT_SIZE, CanvasGUIGlobalPainter.DEFAULT_TEXT_COLOR);
     exports.CanvasGUIGlobalPainter = CanvasGUIGlobalPainter;
 });
@@ -2875,7 +2802,7 @@ define("Element/CanvasGUI/PaintProcess", ["require", "exports", "Common/Containe
     }
     exports.PaintProcess = PaintProcess;
 });
-define("Element/CanvasGUI/CanvasGUI", ["require", "exports", "Common/Caching/CachingContainer", "Element/CanvasGUI/CanvasGUICommandProtocol", "Element/CanvasGUI/CanvasGUIObjectProtocol", "Element/CanvasGUI/CanvasGUIPainter", "Element/Color/Color", "Element/Input/KeyMapper", "Common/Container/LinkedList", "Element/CanvasGUI/PaintProcess", "Common/Pair/Pair", "Common/Enum/RotationDirectionMapper", "Element/TextFormat/TextFormat", "Common/Container/SingleContainer"], function (require, exports, CachingContainer_1, CanvasGUICommandProtocol_1, CanvasGUIObjectProtocol_1, CanvasGUIPainter_1, Color_4, KeyMapper_1, LinkedList_9, PaintProcess_1, Pair_2, RotationDirectionMapper_1, TextFormat_2, SingleContainer_2) {
+define("Element/CanvasGUI/CanvasGUI", ["require", "exports", "Common/Caching/CachingContainer", "Element/CanvasGUI/CanvasGUICommandProtocol", "Element/CanvasGUI/CanvasGUIObjectProtocol", "Element/CanvasGUI/CanvasGUIPainter", "Element/Color/Color", "Element/Input/KeyMapper", "Common/Container/LinkedList", "Element/CanvasGUI/PaintProcess", "Common/Pair/Pair", "Common/Enum/RotationDirectionMapper", "Element/TextFormat/TextFormat", "Common/Container/SingleContainer"], function (require, exports, CachingContainer_1, CanvasGUICommandProtocol_1, CanvasGUIObjectProtocol_1, CanvasGUIPainter_1, Color_3, KeyMapper_1, LinkedList_9, PaintProcess_1, Pair_2, RotationDirectionMapper_1, TextFormat_2, SingleContainer_2) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class CanvasGUI {
@@ -3172,7 +3099,7 @@ define("Element/CanvasGUI/CanvasGUI", ["require", "exports", "Common/Caching/Cac
             }
         }
         createSetColorCommand(painterIndex, textualSetColorCommand) {
-            const color = Color_4.Color.fromSpecification(textualSetColorCommand.getOneAttributeAsNode());
+            const color = Color_3.Color.fromSpecification(textualSetColorCommand.getOneAttributeAsNode());
             return pp => pp.getRefPainterByIndex(painterIndex).setColor(color);
         }
         createTranslateCommand(painterIndex, translateCommand) {
@@ -3251,10 +3178,134 @@ define("Element/CanvasGUI/CanvasGUI", ["require", "exports", "Common/Caching/Cac
         }
     }
     CanvasGUI.DEFAULT_TITLE = 'GUI';
-    CanvasGUI.BACKGROUND_COLOR = Color_4.Color.WHITE;
+    CanvasGUI.BACKGROUND_COLOR = Color_3.Color.WHITE;
     CanvasGUI.MONITOR_PIXELS_PER_MODEL_PIXEL = 2;
     CanvasGUI.MODEL_PIXELS_PER_MONITOR_PIXEL = 1 / CanvasGUI.MONITOR_PIXELS_PER_MODEL_PIXEL;
     exports.CanvasGUI = CanvasGUI;
+});
+define("Element/Graphic/CanvasImage", ["require", "exports", "Common/Constant/PascalCaseNameCatalogue"], function (require, exports, PascalCaseNameCatalogue_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    class CanvasImage {
+        static fromSpecification(specification) {
+            const width = specification.getRefFirstAttributeWithHeader(PascalCaseNameCatalogue_1.PascalCaseNameCatalogue.WIDTH).getOneAttributeAsNumber();
+            const height = specification.getRefFirstAttributeWithHeader(PascalCaseNameCatalogue_1.PascalCaseNameCatalogue.HEIGHT).getOneAttributeAsNumber();
+            const lJPGString = specification.getRefFirstAttributeWithHeader('JPGString').getOneAttributeHeader();
+            const image = document.createElement('img');
+            image.width = width;
+            image.height = height;
+            image.src = 'data:image/jpeg;base64,' + lJPGString;
+            const canvas = document.createElement('canvas');
+            canvas.width = width;
+            canvas.height = height;
+            canvas.getContext('2d').drawImage(image, 0, 0, width, height);
+            return new CanvasImage(width, height, canvas);
+        }
+        constructor(width, height, canvas) {
+            if (width < 1) {
+                throw new Error('The given width is not positive.');
+            }
+            if (height < 1) {
+                throw new Error('The given height is not positive.');
+            }
+            if (canvas === null) {
+                throw new Error('The given canvas is null.');
+            }
+            if (canvas === undefined) {
+                throw new Error('The given canvas is undefined.');
+            }
+            this.width = width;
+            this.height = height;
+            this.canvas = canvas;
+        }
+        getHeight() {
+            return this.height;
+        }
+        getWidth() {
+            return this.width;
+        }
+        toCanvas() {
+            return this.canvas;
+        }
+    }
+    exports.CanvasImage = CanvasImage;
+});
+define("Element/Graphic/Image", ["require", "exports", "Element/Color/Color", "Element/Base/Element", "Common/Container/Matrix", "Common/Node/Node", "Common/Constant/PascalCaseNameCatalogue"], function (require, exports, Color_4, Element_1, Matrix_1, Node_4, PascalCaseNameCatalogue_2) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    class Image extends Element_1.Element {
+        constructor(pixels) {
+            super();
+            this.pixels = pixels;
+        }
+        static fromSpecification(specification) {
+            const pixels = new Matrix_1.Matrix();
+            const width = specification.getRefFirstAttributeWithHeader(PascalCaseNameCatalogue_2.PascalCaseNameCatalogue.WIDTH).getOneAttributeAsNumber();
+            var row = new Array();
+            var i = 1;
+            for (const a of specification.getRefFirstAttributeWithHeader(Image.PIXEL_ARRAY_HEADER).getRefAttributes()) {
+                row.push(Color_4.Color.fromSpecification(Node_4.Node.withAttribute(a)));
+                i++;
+                if (i > width) {
+                    pixels.addRow(row);
+                    row = new Array();
+                    i = 1;
+                }
+            }
+            return new Image(pixels);
+        }
+        getAttributes() {
+            throw new Error("Method not implemented.");
+        }
+        getHeight() {
+            return this.pixels.getRowCount();
+        }
+        getPixelAtIndex(index) {
+            return this.pixels.getRefAt(index);
+        }
+        getPixelAtPosition(xPosition, yPosition) {
+            return this.pixels.getRefAtRowAndColumn(xPosition, yPosition);
+        }
+        getSizeInPixel() {
+            return (this.getWidth() * this.getHeight());
+        }
+        getType() {
+            return Image.TYPE_HEADER;
+        }
+        getWidth() {
+            return this.pixels.getColumnCount();
+        }
+        toCanvas() {
+            this.generateCanvasIfNeeded();
+            return this.canvas;
+        }
+        generateCanvasIfNeeded() {
+            if (this.generatingCanvasIsNeeded()) {
+                this.generateCanvasWhenNeeded();
+            }
+        }
+        generateCanvasWhenNeeded() {
+            const width = this.getWidth();
+            const height = this.getHeight();
+            this.canvas = document.createElement('canvas');
+            this.canvas.width = width;
+            this.canvas.height = height;
+            const context = this.canvas.getContext('2d');
+            for (var rowIndex = 1; rowIndex <= height; rowIndex++) {
+                for (var columnIndex = 1; columnIndex <= width; columnIndex++) {
+                    const pixel = this.getPixelAtPosition(rowIndex, columnIndex);
+                    context.fillStyle = pixel.getHTMLCode();
+                    context.fillRect(columnIndex - 1, rowIndex - 1, 1, 1);
+                }
+            }
+        }
+        generatingCanvasIsNeeded() {
+            return (this.canvas === undefined);
+        }
+    }
+    Image.TYPE_HEADER = 'Image';
+    Image.PIXEL_ARRAY_HEADER = 'PixelArray';
+    exports.Image = Image;
 });
 define("Element/Input/Input", ["require", "exports", "Element/Base/Element"], function (require, exports, Element_2) {
     "use strict";
@@ -3328,7 +3379,7 @@ define("Element/Input/MouseInputType", ["require", "exports"], function (require
         MouseInputType[MouseInputType["BackwardMouseWheelRotationStep"] = 11] = "BackwardMouseWheelRotationStep";
     })(MouseInputType = exports.MouseInputType || (exports.MouseInputType = {}));
 });
-define("Element/Input/MouseInput", ["require", "exports", "Element/Input/Input", "Common/Container/LinkedList", "Element/Input/MouseInputType", "Common/Node/Node", "Common/Constant/PascalCaseNameCatalogue"], function (require, exports, Input_2, LinkedList_11, MouseInputType_1, Node_6, PascalCaseNameCatalogue_2) {
+define("Element/Input/MouseInput", ["require", "exports", "Element/Input/Input", "Common/Container/LinkedList", "Element/Input/MouseInputType", "Common/Node/Node", "Common/Constant/PascalCaseNameCatalogue"], function (require, exports, Input_2, LinkedList_11, MouseInputType_1, Node_6, PascalCaseNameCatalogue_3) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class MouseInput extends Input_2.Input {
@@ -3375,7 +3426,7 @@ define("Element/Input/MouseInput", ["require", "exports", "Element/Input/Input",
             return this.mouseInputType;
         }
         getCursorPositionSpecification() {
-            const sizeSpecification = Node_6.Node.withHeader(PascalCaseNameCatalogue_2.PascalCaseNameCatalogue.CURSOR_POSITION);
+            const sizeSpecification = Node_6.Node.withHeader(PascalCaseNameCatalogue_3.PascalCaseNameCatalogue.CURSOR_POSITION);
             sizeSpecification.addAttributeFromNumber(this.cursorXPosition);
             sizeSpecification.addAttributeFromNumber(this.cursorYPosition);
             return sizeSpecification;
@@ -3404,7 +3455,7 @@ define("Element/Input/MouseInputTypeMapper", ["require", "exports", "Element/Inp
     }
     exports.MouseInputTypeMapper = MouseInputTypeMapper;
 });
-define("Element/Input/ResizeInput", ["require", "exports", "Element/Input/Input", "Common/Container/LinkedList", "Common/Node/Node", "Common/Constant/PascalCaseNameCatalogue"], function (require, exports, Input_3, LinkedList_12, Node_7, PascalCaseNameCatalogue_3) {
+define("Element/Input/ResizeInput", ["require", "exports", "Element/Input/Input", "Common/Container/LinkedList", "Common/Node/Node", "Common/Constant/PascalCaseNameCatalogue"], function (require, exports, Input_3, LinkedList_12, Node_7, PascalCaseNameCatalogue_4) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class ResizeInput extends Input_3.Input {
@@ -3444,7 +3495,7 @@ define("Element/Input/ResizeInput", ["require", "exports", "Element/Input/Input"
             return this.viewAreaWidth;
         }
         getSizeSpecification() {
-            const sizeSpecification = Node_7.Node.withHeader(PascalCaseNameCatalogue_3.PascalCaseNameCatalogue.SIZE);
+            const sizeSpecification = Node_7.Node.withHeader(PascalCaseNameCatalogue_4.PascalCaseNameCatalogue.SIZE);
             sizeSpecification.addAttributeFromNumber(this.viewAreaWidth);
             sizeSpecification.addAttributeFromNumber(this.viewAreaHeight);
             return sizeSpecification;
@@ -3557,7 +3608,7 @@ define("System/FrontCanvasGUIClient/FrontCanvasGUIClientObjectProtocol", ["requi
     FrontCanvasGUIClientObjectProtocol.VIEW_AREA_SIZE = 'ViewAreaSize';
     exports.FrontCanvasGUIClientObjectProtocol = FrontCanvasGUIClientObjectProtocol;
 });
-define("System/FrontCanvasGUIClient/GUIHandler", ["require", "exports", "Element/CanvasGUI/CanvasGUI", "Element/CursorIcon/CursorIcon", "System/FrontCanvasGUIClient/FrontCanvasGUIClientCommandProtocol", "System/FrontCanvasGUIClient/FrontCanvasGUIClientObjectProtocol", "Element/Graphic/Image"], function (require, exports, CanvasGUI_1, CursorIcon_1, FrontCanvasGUIClientCommandProtocol_1, FrontCanvasGUIClientObjectProtocol_1, Image_1) {
+define("System/FrontCanvasGUIClient/GUIHandler", ["require", "exports", "Element/CanvasGUI/CanvasGUI", "Element/Graphic/CanvasImage", "Element/CursorIcon/CursorIcon", "System/FrontCanvasGUIClient/FrontCanvasGUIClientCommandProtocol", "System/FrontCanvasGUIClient/FrontCanvasGUIClientObjectProtocol", "Element/Graphic/Image"], function (require, exports, CanvasGUI_1, CanvasImage_1, CursorIcon_1, FrontCanvasGUIClientCommandProtocol_1, FrontCanvasGUIClientObjectProtocol_1, Image_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class GUIHandler {
@@ -3597,7 +3648,7 @@ define("System/FrontCanvasGUIClient/GUIHandler", ["require", "exports", "Element
             switch (pGUICommand.getHeader()) {
                 case FrontCanvasGUIClientCommandProtocol_1.FrontCanvasGUIClientCommandProtocol.REGISTER_IMAGE:
                     const id = pGUICommand.getAttributeAt(1).getHeader();
-                    const image = Image_1.Image.fromSpecification(pGUICommand.getAttributeAt(2).toNode());
+                    const image = CanvasImage_1.CanvasImage.fromSpecification(pGUICommand.getAttributeAt(2).toNode());
                     this.registerImageAtId(id, image);
                     break;
                 case FrontCanvasGUIClientCommandProtocol_1.FrontCanvasGUIClientCommandProtocol.SET_TITLE:

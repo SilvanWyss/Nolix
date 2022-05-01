@@ -6,6 +6,7 @@ import java.awt.image.BufferedImage;
 
 //own imports
 import ch.nolix.core.container.matrix.Matrix;
+import ch.nolix.core.document.node.Node;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.systemapi.elementapi.IElement;
 
@@ -23,6 +24,9 @@ public interface IImage<I extends IImage<I>> extends IElement<I> {
 	
 	//method declaration
 	Color getBottomRightPixel();
+	
+	//method declaration
+	Node getCompressedSpecification();
 	
 	//method declaration
 	int getHeight();
@@ -58,10 +62,16 @@ public interface IImage<I extends IImage<I>> extends IElement<I> {
 	byte[] toJPG();
 	
 	//method declaration
+	String toJPGString();
+	
+	//method declaration
 	IMutableImage<?> toLeftRotatedImage();
 	
 	//method declaration
 	byte[] toPNG();
+	
+	//method declaration
+	String toPNGString();
 	
 	//method declaration
 	IMutableImage<?> toRepeatedImage(int width, int height);

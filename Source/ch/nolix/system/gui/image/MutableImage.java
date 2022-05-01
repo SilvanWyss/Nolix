@@ -6,6 +6,7 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.util.Base64;
 import javax.imageio.ImageIO;
 
 //own imports
@@ -32,6 +33,9 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 	
 	//constant
 	private static final String PIXEL_ARRAY_HEADER = "PixelArray";
+	
+	//constant
+	private static final String JPG_STRING = "JPGString";
 	
 	//static method
 	public static MutableImage fromAnyImage(final IImage<?> image) {
@@ -82,10 +86,17 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 	//static method
 	public static MutableImage fromSpecification(final BaseNode specification) {
 		
+		if (specification.containsAttributeWithHeader(JPG_STRING)) {
+			
+			final var lJPGString = specification.getRefFirstAttribute(JPG_STRING).getOneAttributeHeader();
+			
+			return fromBytes(Base64.getDecoder().decode(lJPGString.substring(lJPGString.indexOf(',') + 1)));
+		}
+		
 		final var image =
 		MutableImage.withWidthAndHeight(
-			specification.getRefFirstAttribute(a -> a.hasHeader(PascalCaseCatalogue.WIDTH)).getOneAttributeAsInt(),
-			specification.getRefFirstAttribute(a -> a.hasHeader(PascalCaseCatalogue.HEIGHT)).getOneAttributeAsInt()
+			specification.getRefFirstAttribute(PascalCaseCatalogue.WIDTH).getOneAttributeAsInt(),
+			specification.getRefFirstAttribute(PascalCaseCatalogue.HEIGHT).getOneAttributeAsInt()
 		);
 		image.setPixelArray(specification.getRefFirstAttribute(a -> a.hasHeader(PIXEL_ARRAY_HEADER)));
 		
@@ -186,6 +197,18 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 	@Override
 	public Color getBottomRightPixel() {
 		return getPixel(getWidth(), getHeight());
+	}
+	
+	//method
+	@Override
+	public Node getCompressedSpecification() {
+		return
+		Node.withHeaderAndAttribute(
+			getSpecificationHeader(),
+			width.getSpecification(),
+			height.getSpecification(),
+			Node.withHeaderAndAttribute(JPG_STRING, Node.withHeader(toJPGString()))
+		);
 	}
 	
 	//method
@@ -336,7 +359,23 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 	//method
 	@Override
 	public byte[] toJPG() {
-		return toBytes("jpg");
+		
+		final var byteArrayOutputStream = new ByteArrayOutputStream();
+		
+		try {
+			
+			ImageIO.write(createJPGBufferedImage(), "jpg", byteArrayOutputStream);
+			
+			return byteArrayOutputStream.toByteArray();
+		} catch (final IOException pIOException) {
+			throw new WrapperException(pIOException);
+		}
+	}
+	
+	//method
+	@Override
+	public String toJPGString() {
+		return Base64.getEncoder().encodeToString(toJPG());
 	}
 	
 	//method
@@ -348,7 +387,23 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 	//method
 	@Override
 	public byte[] toPNG() {
-		return toBytes("png");
+		
+		final var byteArrayOutputStream = new ByteArrayOutputStream();
+		
+		try {
+			
+			ImageIO.write(toBufferedImage(), "png", byteArrayOutputStream);
+			
+			return byteArrayOutputStream.toByteArray();
+		} catch (final IOException pIOException) {
+			throw new WrapperException(pIOException);
+		}
+	}
+	
+	//method
+	@Override
+	public String toPNGString() {
+		return Base64.getEncoder().encodeToString(toPNG());
 	}
 	
 	//method
@@ -445,6 +500,22 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 	}
 	
 	//method
+	private BufferedImage createJPGBufferedImage() {
+		
+		final var lBufferedImage =	new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_RGB);
+		for (var y = 0; y < getHeight(); y++) {
+			for (var x = 0; x < getWidth(); x++) {
+				
+				final var pixel = pixels.getRefAt(y + 1, x + 1);
+				
+				lBufferedImage.setRGB(x, y, pixel.toAlphaRedGreenBlueValue());
+			}
+		}
+		
+		return lBufferedImage;
+	}
+	
+	//method
 	private Node createPixelArraySpecification() {
 		
 		final var lPixelArraySpecification = Node.withHeader(PIXEL_ARRAY_HEADER);
@@ -497,18 +568,5 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 		Validator.assertThat(width).thatIsNamed(LowerCaseCatalogue.WIDTH).isPositive();
 		
 		this.width.setValue(width);
-	}
-	
-	//method
-	private byte[] toBytes(final String fileFormat) {
-		
-		final var byteArrayOutputStream = new ByteArrayOutputStream();
-		
-		try {
-			ImageIO.write(toBufferedImage(), fileFormat, byteArrayOutputStream);
-			return byteArrayOutputStream.toByteArray();
-		} catch (final IOException pIOException) {
-			throw new WrapperException(pIOException);
-		}
 	}
 }
