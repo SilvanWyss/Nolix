@@ -9,13 +9,13 @@ import ch.nolix.core.testing.basetest.TestPool;
  * @author Silvan Wyss
  * @date 2018-09-01
  */
-public final class CommonTypeHelpersTestPool extends TestPool {
+public final class CommonTypeHelperTestPool extends TestPool {
 	
 	//constructor
 	/**
-	 * Creates a new {@link CommonTypeHelpersTestPool}.
+	 * Creates a new {@link CommonTypeHelperTestPool}.
 	 */
-	public CommonTypeHelpersTestPool() {
+	public CommonTypeHelperTestPool() {
 		super(
 			CharacterHelperTest.class,
 			StringHelperTest.class

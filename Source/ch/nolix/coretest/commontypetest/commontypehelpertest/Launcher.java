@@ -12,12 +12,12 @@ public final class Launcher {
 
 	//main method
 	/**
-	 * Creates a new {@link CommonTypeHelpersTestPool} and runs it.
+	 * Creates a new {@link CommonTypeHelperTestPool} and runs it.
 	 * 
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		new CommonTypeHelpersTestPool().run();
+		new CommonTypeHelperTestPool().run();
 	}
 	
 	//constructor
