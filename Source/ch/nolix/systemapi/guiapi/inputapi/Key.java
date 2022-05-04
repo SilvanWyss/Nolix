@@ -373,7 +373,7 @@ public enum Key implements IElement<Key> {
 	
 	//static method
 	public static Key fromSpecification(final BaseNode specification) {
-		return valueOf(GlobalStringHelper.toCapitalSnakeCase(specification.getOneAttributeHeader()));
+		return valueOf(GlobalStringHelper.toUpperSnakeCase(specification.getOneAttributeHeader()));
 	}
 	
 	//method

@@ -173,15 +173,6 @@ public final class GlobalStringHelper {
 	//static method
 	/**
 	 * @param string
-	 * @return a new {@link String} in capital snake case for the given string.
-	 */
-	public static String toCapitalSnakeCase(final String string) {
-		return new CapitalSnakeCaseCreator().toCapitalSnakeCase(string);
-	}
-	
-	//static method
-	/**
-	 * @param string
 	 * @return the double the given string represents.
 	 * @throws InvalidArgumentException if the given string does not represent a double.
 	 */
@@ -258,6 +249,15 @@ public final class GlobalStringHelper {
 		}
 		
 		return toLongFromNonNegativeHexaDecimal(string.substring(startIndex));
+	}
+	
+	//static method
+	/**
+	 * @param string
+	 * @return a new {@link String} in capital snake case for the given string.
+	 */
+	public static String toUpperSnakeCase(final String string) {
+		return new CapitalSnakeCaseCreator().toCapitalSnakeCase(string);
 	}
 	
 	//static method

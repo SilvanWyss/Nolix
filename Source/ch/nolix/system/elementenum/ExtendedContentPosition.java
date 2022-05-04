@@ -34,7 +34,7 @@ public enum ExtendedContentPosition implements IElement<ExtendedContentPosition>
 	 * if the given specification does not represent a {@link ExtendedContentPosition}.
 	 */
 	public static ExtendedContentPosition fromSpecification(final BaseNode specification) {
-		return valueOf(GlobalStringHelper.toCapitalSnakeCase(specification.getOneAttributeHeader()));
+		return valueOf(GlobalStringHelper.toUpperSnakeCase(specification.getOneAttributeHeader()));
 	}
 	
 	//method

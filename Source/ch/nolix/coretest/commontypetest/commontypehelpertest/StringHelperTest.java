@@ -53,7 +53,7 @@ public class StringHelperTest extends Test {
 	public void testCase_toCapitalSnakeCase_1A() {
 		
 		//execution
-		final var result = GlobalStringHelper.toCapitalSnakeCase("Zebra");
+		final var result = GlobalStringHelper.toUpperSnakeCase("Zebra");
 		
 		//verification
 		expect(result).isEqualTo("ZEBRA");
@@ -64,7 +64,7 @@ public class StringHelperTest extends Test {
 	public void testCase_toCapitalSnakeCase_1B() {
 		
 		//execution
-		final var result = GlobalStringHelper.toCapitalSnakeCase("zebra");
+		final var result = GlobalStringHelper.toUpperSnakeCase("zebra");
 		
 		//verification
 		expect(result).isEqualTo("ZEBRA");
@@ -75,7 +75,7 @@ public class StringHelperTest extends Test {
 	public void testCase_toCapitalSnakeCase_1C() {
 		
 		//execution
-		final var result = GlobalStringHelper.toCapitalSnakeCase("ZEBRA");
+		final var result = GlobalStringHelper.toUpperSnakeCase("ZEBRA");
 		
 		//verification
 		expect(result).isEqualTo("ZEBRA");
@@ -86,7 +86,7 @@ public class StringHelperTest extends Test {
 	public void testCase_toCapitalSnakeCase_2A() {
 		
 		//execution
-		final var result = GlobalStringHelper.toCapitalSnakeCase("Cursor_Icon");
+		final var result = GlobalStringHelper.toUpperSnakeCase("Cursor_Icon");
 		
 		//verification
 		expect(result).isEqualTo("CURSOR_ICON");
@@ -97,7 +97,7 @@ public class StringHelperTest extends Test {
 	public void testCase_toCapitalSnakeCase_2B() {
 		
 		//execution
-		final var result = GlobalStringHelper.toCapitalSnakeCase("cursor_icon");
+		final var result = GlobalStringHelper.toUpperSnakeCase("cursor_icon");
 		
 		//verification
 		expect(result).isEqualTo("CURSOR_ICON");
@@ -108,7 +108,7 @@ public class StringHelperTest extends Test {
 	public void testCase_toCapitalSnakeCase_2C() {
 		
 		//execution
-		final var result = GlobalStringHelper.toCapitalSnakeCase("CURSOR_ICON");
+		final var result = GlobalStringHelper.toUpperSnakeCase("CURSOR_ICON");
 		
 		//verification
 		expect(result).isEqualTo("CURSOR_ICON");
@@ -119,7 +119,7 @@ public class StringHelperTest extends Test {
 	public void testCase_toCapitalSnakeCase_whenStringIsEmpty() {
 		
 		//execution
-		final var result = GlobalStringHelper.toCapitalSnakeCase("");
+		final var result = GlobalStringHelper.toUpperSnakeCase("");
 		
 		//verification
 		expect(result).isEqualTo("");

@@ -15,7 +15,7 @@ public enum ImageApplication implements IElement<ImageApplication> {
 	
 	//static method
 	public static ImageApplication fromSpecification(final BaseNode specification) {
-		return valueOf(GlobalStringHelper.toCapitalSnakeCase(specification.getOneAttributeHeader()));
+		return valueOf(GlobalStringHelper.toUpperSnakeCase(specification.getOneAttributeHeader()));
 	}
 	
 	//method

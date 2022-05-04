@@ -17,7 +17,7 @@ public enum LayerRole implements IElement<LayerRole> {
 	
 	//static method
 	public static LayerRole fromSpecification(final BaseNode specification) {
-		return valueOf(GlobalStringHelper.toCapitalSnakeCase(specification.getOneAttributeHeader()));
+		return valueOf(GlobalStringHelper.toUpperSnakeCase(specification.getOneAttributeHeader()));
 	}
 	
 	//method

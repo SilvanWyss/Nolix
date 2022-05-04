@@ -32,7 +32,7 @@ public enum LabelRole implements IElement<LabelRole> {
 	public static LabelRole fromSpecification(
 		final BaseNode specification
 	) {
-		return valueOf(GlobalStringHelper.toCapitalSnakeCase(specification.getOneAttributeHeader()));
+		return valueOf(GlobalStringHelper.toUpperSnakeCase(specification.getOneAttributeHeader()));
 	}
 	
 	//method

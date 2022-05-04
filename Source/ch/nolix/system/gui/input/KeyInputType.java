@@ -16,7 +16,7 @@ public enum KeyInputType implements IElement<KeyInputType> {
 	
 	//static method
 	public static KeyInputType fromSpecification(final BaseNode specification) {
-		return valueOf(GlobalStringHelper.toCapitalSnakeCase(specification.getOneAttributeHeader()));
+		return valueOf(GlobalStringHelper.toUpperSnakeCase(specification.getOneAttributeHeader()));
 	}
 	
 	//method

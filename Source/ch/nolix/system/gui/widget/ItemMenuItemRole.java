@@ -15,7 +15,7 @@ public enum ItemMenuItemRole implements IElement<ItemMenuItemRole> {
 	
 	//static method
 	public static ItemMenuItemRole fromSpecification(final BaseNode specification) {
-		return valueOf(GlobalStringHelper.toCapitalSnakeCase(specification.getOneAttributeHeader()));
+		return valueOf(GlobalStringHelper.toUpperSnakeCase(specification.getOneAttributeHeader()));
 	}
 	
 	//method

@@ -25,7 +25,7 @@ public enum RotationDirection implements IElement<RotationDirection> {
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
 	public static RotationDirection fromSpecification(final BaseNode specification) {
-		return valueOf(GlobalStringHelper.toCapitalSnakeCase(specification.getOneAttributeHeader()));
+		return valueOf(GlobalStringHelper.toUpperSnakeCase(specification.getOneAttributeHeader()));
 	}
 	
 	//method
