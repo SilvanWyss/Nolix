@@ -9,6 +9,6 @@ public final class DynamicMathTestPool extends TestPool {
 	
 	//constructor
 	public DynamicMathTestPool() {
-		super(ClosedIntervalTest.class,	ComplexNumberTest.class);
+		super(ClosedIntervalTest.class,	ComplexNumberTest.class, SequenceDefinedBy1PredecessorTest.class);
 	}
 }
