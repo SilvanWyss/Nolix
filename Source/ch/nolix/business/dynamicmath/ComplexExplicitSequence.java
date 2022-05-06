@@ -10,13 +10,13 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.functionapi.IIntTakerElementGetter;
 
 //class
-public final class ExplicitSequence extends Sequence<IComplexNumber> {
+public final class ComplexExplicitSequence extends Sequence<IComplexNumber> {
 	
 	//attribute
 	private final IIntTakerElementGetter<IComplexNumber> valueFunction;
 	
 	//constructor
-	public ExplicitSequence(final IIntTakerElementGetter<IComplexNumber> valueFunction) {
+	public ComplexExplicitSequence(final IIntTakerElementGetter<IComplexNumber> valueFunction) {
 		
 		Validator.assertThat(valueFunction).thatIsNamed("value function").isNotNull();
 		
