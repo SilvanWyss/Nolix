@@ -1,19 +1,20 @@
-/*
- * file:	Timer.java
- * author:	Silvan Wyss
- * month:	2016-06
- * lines:	10
- */
-
 //package declaration
 package ch.nolix.core.time;
 
 //class
+/**
+ * @author Silvan Wyss
+ * @date 2016-06-30
+ */
 public final class Timer {
-
-	//attributes
+	
+	//attribute
 	private long runMiliseconds;
+	
+	//attribute
 	private boolean running;
+	
+	//attribute
 	private long lastStartTimeInMilliseconds;
 	
 	//method
