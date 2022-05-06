@@ -4,27 +4,27 @@ package ch.nolix.business.dynamicmath;
 import java.math.BigDecimal;
 
 //own imports
+import ch.nolix.businessapi.dynamicmathapi.IComplexNumber;
 import ch.nolix.businessapi.dynamicmathapi.ISequenceDefinedBy1Predecessor;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.functionapi.IElementTakerElementGetter;
 
 //class
-public class SequenceDefinedBy1Predecessor<V> extends Sequence<V> implements ISequenceDefinedBy1Predecessor<V> {
+public final class ComplexSequenceDefinedBy1Predecessor
+extends Sequence<IComplexNumber>
+implements ISequenceDefinedBy1Predecessor<IComplexNumber> {
 	
 	//attribute
-	private final V firstValue;
+	private final IComplexNumber firstValue;
 	
 	//attribute
-	private final IElementTakerElementGetter<V, V> nextValueFunction;
+	private final IElementTakerElementGetter<IComplexNumber, IComplexNumber> nextValueFunction;
 	
 	//constructor
-	public SequenceDefinedBy1Predecessor(
-		final V firstValue,
-		final IElementTakerElementGetter<V, V> nextValueFunction,
-		final IElementTakerElementGetter<V, BigDecimal> squaredMagnitudeFunction
+	public ComplexSequenceDefinedBy1Predecessor(
+		final IComplexNumber firstValue,
+		final IElementTakerElementGetter<IComplexNumber, IComplexNumber> nextValueFunction
 	) {
-		
-		super(squaredMagnitudeFunction);
 		
 		Validator.assertThat(firstValue).thatIsNamed("first value").isNotNull();
 		Validator.assertThat(nextValueFunction).thatIsNamed("next value function").isNotNull();
@@ -35,13 +35,19 @@ public class SequenceDefinedBy1Predecessor<V> extends Sequence<V> implements ISe
 	
 	//method
 	@Override
-	public V getFirstValue() {
+	public IComplexNumber getFirstValue() {
 		return firstValue;
 	}
 	
 	//method
 	@Override
-	protected V calculateValue(final int index) {
+	protected BigDecimal calculateSquaredMagnitudeForValue(final IComplexNumber value) {
+		return value.getSquaredMagnitude();
+	}
+	
+	//method
+	@Override
+	protected IComplexNumber calculateValue(final int index) {
 		
 		if (index == 1) {
 			return getFirstValue();

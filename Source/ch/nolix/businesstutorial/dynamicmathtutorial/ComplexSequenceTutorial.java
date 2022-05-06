@@ -1,8 +1,7 @@
 package ch.nolix.businesstutorial.dynamicmathtutorial;
 
 import ch.nolix.business.dynamicmath.ComplexNumber;
-import ch.nolix.business.dynamicmath.SequenceDefinedBy1Predecessor;
-import ch.nolix.businessapi.dynamicmathapi.IComplexNumber;
+import ch.nolix.business.dynamicmath.ComplexSequenceDefinedBy1Predecessor;
 import ch.nolix.core.functionapi.IIntTaker;
 
 public final class ComplexSequenceTutorial {
@@ -10,10 +9,9 @@ public final class ComplexSequenceTutorial {
 	public static void main(String[] args) {
 		
 		final var complexSequence =
-		new SequenceDefinedBy1Predecessor<>(
+		new ComplexSequenceDefinedBy1Predecessor(
 			new ComplexNumber(0.0, 0.0),
-			p -> p.getPower2().getSum(new ComplexNumber(0.0, 1.0)),
-			IComplexNumber::getSquaredMagnitude
+			p -> p.getPower2().getSum(new ComplexNumber(0.0, 1.0))
 		);
 		
 		final IIntTaker printFunction =

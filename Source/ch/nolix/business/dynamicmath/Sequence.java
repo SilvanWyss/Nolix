@@ -8,25 +8,12 @@ import java.util.ArrayList;
 //own imports
 import ch.nolix.businessapi.dynamicmathapi.ISequence;
 import ch.nolix.core.container.pair.Pair;
-import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.functionapi.IElementTakerElementGetter;
 
 //class
 abstract class Sequence<V> implements ISequence<V> {
 	
-	//attribute
-	private final IElementTakerElementGetter<V, BigDecimal> squaredMagnitudeFunction;
-	
 	//multi-attribute
 	private final ArrayList<Pair<V, BigDecimal>> valuesAndSquaredMagnitudes = new ArrayList<>();
-	
-	//constructor
-	public Sequence(final IElementTakerElementGetter<V, BigDecimal> squaredMagnitudeFunction) {
-		
-		Validator.assertThat(squaredMagnitudeFunction).thatIsNamed("squared magnitude function").isNotNull();
-		
-		this.squaredMagnitudeFunction = squaredMagnitudeFunction;
-	}
 	
 	//method
 	@Override
@@ -63,6 +50,9 @@ abstract class Sequence<V> implements ISequence<V> {
 	}
 	
 	//method declaration
+	protected abstract BigDecimal calculateSquaredMagnitudeForValue(V value);
+	
+	//method declaration
 	protected abstract V calculateValue(int index);
 	
 	//method
@@ -79,10 +69,5 @@ abstract class Sequence<V> implements ISequence<V> {
 			
 			valuesAndSquaredMagnitudes.add(new Pair<>(value, valueSquaredMagnitude));
 		}
-	}
-	
-	//method
-	private BigDecimal calculateSquaredMagnitudeForValue(final V value) {
-		return squaredMagnitudeFunction.getOutput(value);
 	}
 }

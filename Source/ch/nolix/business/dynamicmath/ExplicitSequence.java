@@ -5,23 +5,18 @@ package ch.nolix.business.dynamicmath;
 import java.math.BigDecimal;
 
 //own imports
+import ch.nolix.businessapi.dynamicmathapi.IComplexNumber;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.functionapi.IElementTakerElementGetter;
 import ch.nolix.core.functionapi.IIntTakerElementGetter;
 
 //class
-public final class ExplicitSequence<V> extends Sequence<V> {
+public final class ExplicitSequence extends Sequence<IComplexNumber> {
 	
 	//attribute
-	private final IIntTakerElementGetter<V> valueFunction;
+	private final IIntTakerElementGetter<IComplexNumber> valueFunction;
 	
 	//constructor
-	public ExplicitSequence(
-		final IIntTakerElementGetter<V> valueFunction,
-		final IElementTakerElementGetter<V, BigDecimal> squaredMagnitudeFunction
-	) {
-		
-		super(squaredMagnitudeFunction);
+	public ExplicitSequence(final IIntTakerElementGetter<IComplexNumber> valueFunction) {
 		
 		Validator.assertThat(valueFunction).thatIsNamed("value function").isNotNull();
 		
@@ -30,7 +25,13 @@ public final class ExplicitSequence<V> extends Sequence<V> {
 	
 	//method
 	@Override
-	protected V calculateValue(final int index) {
+	protected BigDecimal calculateSquaredMagnitudeForValue(final IComplexNumber value) {
+		return value.getSquaredMagnitude();
+	}
+	
+	//method
+	@Override
+	protected IComplexNumber calculateValue(final int index) {
 		return valueFunction.getOutput(index);
 	}
 }

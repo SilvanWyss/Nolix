@@ -30,7 +30,7 @@ public final class FractalBuilder implements IFractalBuilder {
 	
 	//constant
 	public static final IElementTakerElementGetter<IComplexNumber, ISequence<IComplexNumber>> DEFAULT_SEQUENCE_CREATOR =
-	z -> new SequenceDefinedBy1Predecessor<>(z, p -> p.getPower2().getSum(z), IComplexNumber::getSquaredMagnitude);
+	z -> new ComplexSequenceDefinedBy1Predecessor(z, p -> p.getPower2().getSum(z));
 	
 	//constant
 	public static final double DEFAULT_SEQUENCES_MIN_DIVERGENCE_MAGNITUDE = 10.0;

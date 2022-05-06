@@ -2,8 +2,7 @@ package ch.nolix.businesstutorial.dynamicmathtutorial;
 
 import ch.nolix.business.dynamicmath.ComplexNumber;
 import ch.nolix.business.dynamicmath.FractalBuilder;
-import ch.nolix.business.dynamicmath.SequenceDefinedBy1Predecessor;
-import ch.nolix.businessapi.dynamicmathapi.IComplexNumber;
+import ch.nolix.business.dynamicmath.ComplexSequenceDefinedBy1Predecessor;
 import ch.nolix.core.programcontrol.sequencer.Sequencer;
 import ch.nolix.system.gui.base.Frame;
 import ch.nolix.system.gui.color.Color;
@@ -28,10 +27,9 @@ public final class JuliaFractalTutorial {
 				.setHeightInPixel(500)
 				.setSequenceCreator(
 					z ->
-					new SequenceDefinedBy1Predecessor<>(
+					new ComplexSequenceDefinedBy1Predecessor(
 						z,
-						p -> p.getPower2().getSum(new ComplexNumber(-0.8, 0.15)),
-						IComplexNumber::getSquaredMagnitude
+						p -> p.getPower2().getSum(new ComplexNumber(-0.8, 0.15))
 					)
 				)
 				.setMinMagnitudeForDivergence(10.0)
