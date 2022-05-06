@@ -4,13 +4,49 @@ package ch.nolix.businesstest.dynamicmathtest;
 //Java imports
 import java.math.BigDecimal;
 
-import ch.nolix.business.dynamicmath.ComplexNumber;
 //own imports
+import ch.nolix.business.dynamicmath.ComplexNumber;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 
 //class
 public final class ComplexNumberTest extends Test {
+	
+	//method
+	@TestCase
+	public void testCase_creation_1A() {
+		
+		//execution
+		final var result = new ComplexNumber(0.0, 0.0);
+		
+		//verification
+		expect(result.getRealComponent().doubleValue()).isEqualTo(0.0);
+		expect(result.getImaginaryComponent().doubleValue()).isEqualTo(0.0);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_creation_1B() {
+		
+		//execution
+		final var result = new ComplexNumber(1.0, 0.0);
+		
+		//verification
+		expect(result.getRealComponent().doubleValue()).isEqualTo(1.0);
+		expect(result.getImaginaryComponent().doubleValue()).isEqualTo(0.0);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_creation_1C() {
+		
+		//execution
+		final var result = new ComplexNumber(0.0, 1.0);
+		
+		//verification
+		expect(result.getRealComponent().doubleValue()).isEqualTo(0.0);
+		expect(result.getImaginaryComponent().doubleValue()).isEqualTo(1.0);
+	}
 	
 	//method
 	@TestCase
@@ -158,9 +194,11 @@ public final class ComplexNumberTest extends Test {
 	public void testCase_getProduct_1A() {
 		
 		//parameter definition
-		final var testUnit = new ComplexNumber(0.0, 0.0);
 		final var factor = new ComplexNumber(0.0, 0.0);
 		
+		//setup
+		final var testUnit = new ComplexNumber(0.0, 0.0);
+				
 		//execution
 		final var result = testUnit.getProduct(factor);
 		
@@ -173,14 +211,73 @@ public final class ComplexNumberTest extends Test {
 	public void testCase_getProduct_1B() {
 		
 		//parameter definition
-		final var testUnit = new ComplexNumber(1.0, 1.0);
 		final var factor = new ComplexNumber(0.0, 0.0);
+		
+		//setup
+		final var testUnit = new ComplexNumber(1.0, 1.0);
 		
 		//execution
 		final var result = testUnit.getProduct(factor);
 		
 		//verification
 		expect(result).isEqualTo(new ComplexNumber(0.0, 0.0));	
+	}
+	
+	//method
+	@TestCase
+	public void testCase_getSum_1A() {
+		
+		//setup
+		final var testUnit = new ComplexNumber(-1.0, -1.0);
+		
+		//execution & verification
+		expect(testUnit.getSum(new ComplexNumber(-1.0, -1.0))).isEqualTo(new ComplexNumber(-2.0, -2.0));
+		expect(testUnit.getSum(new ComplexNumber(-1.0, 0.0))).isEqualTo(new ComplexNumber(-2.0, -1.0));
+		expect(testUnit.getSum(new ComplexNumber(-1.0, 1.0))).isEqualTo(new ComplexNumber(-2.0, 0.0));
+		expect(testUnit.getSum(new ComplexNumber(0.0, -1.0))).isEqualTo(new ComplexNumber(-1.0, -2.0));
+		expect(testUnit.getSum(new ComplexNumber(0.0, 0.0))).isEqualTo(new ComplexNumber(-1.0, -1.0));
+		expect(testUnit.getSum(new ComplexNumber(0.0, 1.0))).isEqualTo(new ComplexNumber(-1.0, 0.0));
+		expect(testUnit.getSum(new ComplexNumber(1.0, -1.0))).isEqualTo(new ComplexNumber(0.0, -2.0));
+		expect(testUnit.getSum(new ComplexNumber(1.0, 0.0))).isEqualTo(new ComplexNumber(0.0, -1.0));
+		expect(testUnit.getSum(new ComplexNumber(1.0, 1.0))).isEqualTo(new ComplexNumber(0.0, 0.0));
+	}
+	
+	//method
+	@TestCase
+	public void testCase_getSum_1B() {
+		
+		//setup
+		final var testUnit = new ComplexNumber(0.0, 0.0);
+		
+		//execution & verification
+		expect(testUnit.getSum(new ComplexNumber(-1.0, -1.0))).isEqualTo(new ComplexNumber(-1.0, -1.0));
+		expect(testUnit.getSum(new ComplexNumber(-1.0, 0.0))).isEqualTo(new ComplexNumber(-1.0, 0.0));
+		expect(testUnit.getSum(new ComplexNumber(-1.0, 1.0))).isEqualTo(new ComplexNumber(-1.0, 1.0));
+		expect(testUnit.getSum(new ComplexNumber(0.0, -1.0))).isEqualTo(new ComplexNumber(0.0, -1.0));
+		expect(testUnit.getSum(new ComplexNumber(0.0, 0.0))).isEqualTo(new ComplexNumber(0.0, 0.0));
+		expect(testUnit.getSum(new ComplexNumber(0.0, 1.0))).isEqualTo(new ComplexNumber(0.0, 1.0));
+		expect(testUnit.getSum(new ComplexNumber(1.0, -1.0))).isEqualTo(new ComplexNumber(1.0, -1.0));
+		expect(testUnit.getSum(new ComplexNumber(1.0, 0.0))).isEqualTo(new ComplexNumber(1.0, 0.0));
+		expect(testUnit.getSum(new ComplexNumber(1.0, 1.0))).isEqualTo(new ComplexNumber(1.0, 1.0));
+	}
+	
+	//method
+	@TestCase
+	public void testCase_getSum_1C() {
+		
+		//setup
+		final var testUnit = new ComplexNumber(1.0, 1.0);
+		
+		//execution & verification
+		expect(testUnit.getSum(new ComplexNumber(-1.0, -1.0))).isEqualTo(new ComplexNumber(0.0, 0.0));
+		expect(testUnit.getSum(new ComplexNumber(-1.0, 0.0))).isEqualTo(new ComplexNumber(0.0, 1.0));
+		expect(testUnit.getSum(new ComplexNumber(-1.0, 1.0))).isEqualTo(new ComplexNumber(0.0, 2.0));
+		expect(testUnit.getSum(new ComplexNumber(0.0, -1.0))).isEqualTo(new ComplexNumber(1.0, 0.0));
+		expect(testUnit.getSum(new ComplexNumber(0.0, 0.0))).isEqualTo(new ComplexNumber(1.0, 1.0));
+		expect(testUnit.getSum(new ComplexNumber(0.0, 1.0))).isEqualTo(new ComplexNumber(1.0, 2.0));
+		expect(testUnit.getSum(new ComplexNumber(1.0, -1.0))).isEqualTo(new ComplexNumber(2.0, 0.0));
+		expect(testUnit.getSum(new ComplexNumber(1.0, 0.0))).isEqualTo(new ComplexNumber(2.0, 1.0));
+		expect(testUnit.getSum(new ComplexNumber(1.0, 1.0))).isEqualTo(new ComplexNumber(2.0, 2.0));
 	}
 	
 	//method
