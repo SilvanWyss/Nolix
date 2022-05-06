@@ -10,6 +10,7 @@ import ch.nolix.core.testing.test.Test;
 public final class BankAccountTest extends Test {
 	
 	//method
+	@TestCase
 	public void testCase_creation() {
 		
 		//execution
