@@ -8,7 +8,7 @@ import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 
 //class
-public final class SequenceDefinedBy1PredecessorTest extends Test {
+public final class ComplexSequenceDefinedBy1PredecessorTest extends Test {
 	
 	//method
 	@TestCase
