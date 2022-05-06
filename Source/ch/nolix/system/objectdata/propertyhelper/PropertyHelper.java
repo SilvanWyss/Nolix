@@ -13,7 +13,10 @@ import ch.nolix.core.reflectionhelper.GlobalReflectionHelper;
 import ch.nolix.system.database.databaseobjecthelper.DatabaseObjectHelper;
 import ch.nolix.systemapi.databaseapi.cardinalityapi.BaseCardinality;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
+import ch.nolix.systemapi.objectdataapi.dataapi.IMultiValue;
+import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalValue;
 import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
+import ch.nolix.systemapi.objectdataapi.dataapi.IValue;
 import ch.nolix.systemapi.objectdataapi.propertyhelperapi.IPropertyHelper;
 
 //class
@@ -102,8 +105,47 @@ public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHel
 	}
 	
 	//method
+	private Class<?> getDataTypeWhenDoesNotBelongToEntity(IMultiValue<?, ?> multiValue) {
+		
+		if (multiValue.isEmpty()) {
+			throw new InvalidArgumentException(multiValue, "cannot know its data type");
+		}
+		
+		return multiValue.getRefFirst().getClass();
+	}
+	
+	//method
+	private Class<?> getDataTypeWhenDoesNotBelongToEntity(IOptionalValue<?, ?> optionalValue) {
+		
+		if (optionalValue.isEmpty()) {
+			throw new InvalidArgumentException(optionalValue, "cannot know its data type");
+		}
+		
+		return optionalValue.getRefValue().getClass();
+	}
+	
+	//method
+	private Class<?> getDataTypeWhenDoesNotBelongToEntity(final IValue<?, ?> value) {
+		
+		if (value.isEmpty()) {
+			throw new InvalidArgumentException(value, "cannot know its data type");
+		}
+		
+		return value.getRefValue().getClass();
+	}
+	
+	//method
 	private Class<?> getDataTypeWhenIsBaseValue(final IProperty<?> property) {
 		
+		if (!property.belongsToEntity()) {
+			return getDataTypeWhenIsBaseValueAndDoesNotBelongToEntity(property);
+		}
+		
+		return getDataTypeWhenIsBaseValueAndBelongsToEntity(property);
+	}
+	
+	//method
+	private Class<?> getDataTypeWhenIsBaseValueAndBelongsToEntity(final IProperty<?> property) {
 		final var propertyParentEntity = property.getParentEntity();
 		
 		final var propertyField = GlobalReflectionHelper.getRefField(propertyParentEntity, property);
@@ -113,5 +155,19 @@ public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHel
 		final var typeArguments = propertyDeclaredType.getActualTypeArguments();
 		
 		return (Class<?>)typeArguments[typeArguments.length - 1];
+	}
+
+	//method
+	private Class<?> getDataTypeWhenIsBaseValueAndDoesNotBelongToEntity(final IProperty<?> property) {
+		switch (property.getType()) {
+			case VALUE:
+				return getDataTypeWhenDoesNotBelongToEntity((IValue<?, ?>)property);
+			case OPTIONAL_VALUE:
+				return getDataTypeWhenDoesNotBelongToEntity((IOptionalValue<?, ?>)property);
+			case MULTI_VALUE:
+				return getDataTypeWhenDoesNotBelongToEntity((IMultiValue<?, ?>)property);
+			default:
+				throw new InvalidArgumentException(property, "is not a base value");
+		}
 	}
 }
