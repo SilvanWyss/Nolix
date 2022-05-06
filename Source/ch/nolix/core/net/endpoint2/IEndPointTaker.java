@@ -1,10 +1,3 @@
-/*
- * file:	IAlphaEndPointTaker.java
- * author:	Silvan Wyss
- * month:	2016-05
- * lines:	20
- */
-
 //package declaration
 package ch.nolix.core.net.endpoint2;
 
@@ -13,13 +6,13 @@ import ch.nolix.core.attributeapi.mandatoryattributeapi.Named;
 
 //interface
 /**
- * A alpha end point taker takes alpha end points.
+ * A {@link IEndPointTaker} takes {@link EndPoint}s.
  */
 public interface IEndPointTaker extends Named {
-
+	
 	//method declaration
 	/**
-	 * Takes the given alpha end point.
+	 * Lets the current {@link IEndPointTaker} take the given {@link EndPoint}.
 	 * 
 	 * @param endPoint
 	 */
