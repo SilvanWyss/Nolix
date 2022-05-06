@@ -2,7 +2,7 @@
 package ch.nolix.businessapi.dynamicmathapi;
 
 //interface
-public interface ISequenceDefinedBy2Predecessor<V> {
+public interface ISequenceDefinedBy2Predecessor<V> extends ISequence<V> {
 	
 	//method declaration
 	V getFirstValue();

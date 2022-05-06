@@ -5,12 +5,12 @@ package ch.nolix.business.dynamicmath;
 import java.math.BigDecimal;
 
 //own imports
-import ch.nolix.businessapi.dynamicmathapi.ISequenceDefinedBy1Predecessor;
+import ch.nolix.businessapi.dynamicmathapi.ISequenceDefinedBy2Predecessor;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.functionapi.IElementTakerElementGetter;
 
 //class
-public class SequenceDefinedBy2Predecessor<V> extends Sequence<V> implements ISequenceDefinedBy1Predecessor<V> {
+public class SequenceDefinedBy2Predecessor<V> extends Sequence<V> implements ISequenceDefinedBy2Predecessor<V> {
 	
 	//attribute
 	private final V firstValue;
@@ -47,6 +47,7 @@ public class SequenceDefinedBy2Predecessor<V> extends Sequence<V> implements ISe
 	}
 	
 	//method
+	@Override
 	public V getSecondValue() {
 		return secondValue;
 	}
