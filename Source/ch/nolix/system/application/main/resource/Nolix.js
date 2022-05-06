@@ -2950,6 +2950,7 @@ define("Element/CanvasGUI/CanvasGUI", ["require", "exports", "Common/Caching/Cac
         }
         registerImageAtId(id, image) {
             if (!this.imageCache.containsWithId(id)) {
+                console.log('The current CanvasGUI registers the image with the id \'' + id + '\'');
                 this.imageCache.registerAtId(id, image);
             }
         }
@@ -3187,18 +3188,21 @@ define("Element/Graphic/CanvasImage", ["require", "exports", "Common/Constant/Pa
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class CanvasImage {
-        static fromSpecification(specification) {
+        static fromSpecification(specification, refresh) {
             const width = specification.getRefFirstAttributeWithHeader(PascalCaseNameCatalogue_1.PascalCaseNameCatalogue.WIDTH).getOneAttributeAsNumber();
             const height = specification.getRefFirstAttributeWithHeader(PascalCaseNameCatalogue_1.PascalCaseNameCatalogue.HEIGHT).getOneAttributeAsNumber();
             const lJPGString = specification.getRefFirstAttributeWithHeader('JPGString').getOneAttributeHeader();
             const image = document.createElement('img');
             image.width = width;
             image.height = height;
-            image.src = 'data:image/jpeg;base64,' + lJPGString;
             const canvas = document.createElement('canvas');
             canvas.width = width;
             canvas.height = height;
-            canvas.getContext('2d').drawImage(image, 0, 0, width, height);
+            image.onload = function () {
+                canvas.getContext('2d').drawImage(image, 0, 0, width, height);
+                refresh();
+            };
+            image.src = 'data:image/jpeg;base64,' + lJPGString;
             return new CanvasImage(width, height, canvas);
         }
         constructor(width, height, canvas) {
@@ -3648,7 +3652,7 @@ define("System/FrontCanvasGUIClient/GUIHandler", ["require", "exports", "Element
             switch (pGUICommand.getHeader()) {
                 case FrontCanvasGUIClientCommandProtocol_1.FrontCanvasGUIClientCommandProtocol.REGISTER_IMAGE:
                     const id = pGUICommand.getAttributeAt(1).getHeader();
-                    const image = CanvasImage_1.CanvasImage.fromSpecification(pGUICommand.getAttributeAt(2).toNode());
+                    const image = CanvasImage_1.CanvasImage.fromSpecification(pGUICommand.getAttributeAt(2).toNode(), () => { return this.mGUI.refresh(); });
                     this.registerImageAtId(id, image);
                     break;
                 case FrontCanvasGUIClientCommandProtocol_1.FrontCanvasGUIClientCommandProtocol.SET_TITLE:
@@ -3793,14 +3797,15 @@ define("System/FrontCanvasGUIClient/FrontCanvasGUIClient", ["require", "exports"
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class FrontCanvasGUIClient {
-        static withIpAndNumberAndWindow(ip, port, window) {
-            return new FrontCanvasGUIClient(ip, port, SingleContainer_3.SingleContainer.EMPTY_CONTAINER, window);
-        }
         constructor(ip, port, optionalTarget, window) {
+            this.ready = false;
             this.mGUIHandler =
                 new GUIHandler_1.GUIHandler(window, new PerformanceFilterInputTaker_1.PerformanceFilterInputTaker(new FrontCanvasGUIClientInputTaker_1.FrontCanvasGUIClientInputTaker(i => this.noteInputOnCounterpart(i), () => this.getCursorXPositionOnViewArea(), () => this.getCursorYPositionOnViewArea())));
             this.endPoint = new NetEndPoint5_1.NetEndPoint5(ip, port, optionalTarget);
             this.endPoint.setReceiverController(new ReceiverController_1.ReceiverController(c => this.run(c), r => this.getData(r)));
+        }
+        static withIpAndNumberAndWindow(ip, port, window) {
+            return new FrontCanvasGUIClient(ip, port, SingleContainer_3.SingleContainer.EMPTY_CONTAINER, window);
         }
         getCursorXPositionOnViewArea() {
             return this.mGUIHandler.getCursorXPositionOnViewArea();
@@ -3809,7 +3814,9 @@ define("System/FrontCanvasGUIClient/FrontCanvasGUIClient", ["require", "exports"
             return this.mGUIHandler.getCursorYPositionOnViewArea();
         }
         noteInputOnCounterpart(input) {
-            this.runOnConunterpart(ChainedNode_2.ChainedNode.withHeaderAndAttributeFromNode(FrontCanvasGUIClientCommandProtocol_2.FrontCanvasGUIClientCommandProtocol.NOTE_INPUT, input.getSpecification()));
+            if (this.ready) {
+                this.runOnConunterpart(ChainedNode_2.ChainedNode.withHeaderAndAttributeFromNode(FrontCanvasGUIClientCommandProtocol_2.FrontCanvasGUIClientCommandProtocol.NOTE_INPUT, input.getSpecification()));
+            }
         }
         getData(request) {
             switch (request.getHeader()) {
@@ -3841,6 +3848,7 @@ define("System/FrontCanvasGUIClient/FrontCanvasGUIClient", ["require", "exports"
                 default:
                     throw new Error('The given command is not valid.');
             }
+            this.ready = true;
         }
         openNewTabWithURL(pURL) {
             this.mGUIHandler.openNewTabWithURL(pURL);
