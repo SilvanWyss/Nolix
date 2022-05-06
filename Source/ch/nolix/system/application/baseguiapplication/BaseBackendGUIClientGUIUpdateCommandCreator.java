@@ -6,8 +6,6 @@ import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.document.node.Node;
-import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.functionapi.I2ElementTaker;
 import ch.nolix.system.gui.base.CursorIcon;
 import ch.nolix.system.gui.base.IWidgetGUI;
 import ch.nolix.system.gui.image.Image;
@@ -15,9 +13,6 @@ import ch.nolix.systemapi.guiapi.imageapi.IImage;
 
 //class
 final class BaseBackendGUIClientGUIUpdateCommandCreator {
-	
-	//attribute
-	private final I2ElementTaker<String, IImage<?>> imageRegistrator;
 	
 	//optional attribute
 	private String latestTitle;
@@ -30,14 +25,6 @@ final class BaseBackendGUIClientGUIUpdateCommandCreator {
 	
 	//multi attribute
 	private IContainer<ChainedNode> latestPaintCommands = new LinkedList<>();
-	
-	//constructor
-	public BaseBackendGUIClientGUIUpdateCommandCreator(final I2ElementTaker<String, IImage<?>> imageRegistrator) {
-		
-		Validator.assertThat(imageRegistrator).thatIsNamed("image registrator").isNotNull();
-		
-		this.imageRegistrator = imageRegistrator;
-	}
 	
 	//method
 	public LinkedList<ChainedNode> createUpdateCommandsFor(final IWidgetGUI<?> widgetGUI) {
@@ -110,12 +97,31 @@ final class BaseBackendGUIClientGUIUpdateCommandCreator {
 		final IWidgetGUI<?> widgetGUI
 	) {
 		
-		final var paintCommands = widgetGUI.getPaintCommands(imageRegistrator);
+		final var imageRegistrationCommands = new LinkedList<ChainedNode>();
+		final var paintingCommands =
+		widgetGUI.getPaintCommands(
+			(id, im) -> imageRegistrationCommands.addAtEnd(createRegisterImageCommand(id, im))
+		);
+		final var paintCommands = imageRegistrationCommands;
+		paintCommands.addAtEnd(createUpdatePaintCommands(paintingCommands));
 		
 		if (!nodesEqual(paintCommands, latestPaintCommands)) {
-			list.addAtEnd(createUpdatePaintCommands(paintCommands));
+			list.addAtEnd(paintCommands);
 			latestPaintCommands = paintCommands;
 		}
+	}
+	
+	//method
+	private ChainedNode createRegisterImageCommand(final String imageId, final IImage<?> image) {
+		return
+		ChainedNode.withHeaderAndNextNode(
+			ObjectProtocol.GUI,
+			ChainedNode.withHeaderAndAttributesFromNodes(
+				CommandProtocol.REGISTER_IMAGE,
+				Node.withHeader(imageId),
+				image.getCompressedSpecification()
+			)
+		);
 	}
 	
 	//method
