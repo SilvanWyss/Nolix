@@ -42,11 +42,10 @@ public final class IntOrPercentageHolder implements IElement<IntOrPercentageHold
 		final var attribute = specification.getOneAttributeHeader();
 		
 		if (attribute.endsWith("%")) {
-			return
-			new IntOrPercentageHolder(GlobalStringHelper.toDouble(attribute.substring(0, attribute.length() - 2)));
+			return withPercentage(0.01 * Double.valueOf(attribute.substring(0, attribute.length() - 1)));
 		}
 		
-		return new IntOrPercentageHolder(GlobalStringHelper.toInt(attribute));
+		return withIntValue(GlobalStringHelper.toInt(attribute));
 	}
 	
 	//static method
