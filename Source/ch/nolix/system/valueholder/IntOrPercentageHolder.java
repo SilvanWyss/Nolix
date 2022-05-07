@@ -111,7 +111,7 @@ public final class IntOrPercentageHolder implements IElement<IntOrPercentageHold
 	 */
 	public int getIntValue() {
 		
-		assertIntHasValue();
+		assertHasIntValue();
 		
 		return intValue;
 	}
@@ -175,7 +175,7 @@ public final class IntOrPercentageHolder implements IElement<IntOrPercentageHold
 	 * @throws ArgumentDoesNotHaveAttributeException if
 	 * the current {@link IntOrPercentageHolder} does not have an integer value.
 	 */
-	private void assertIntHasValue() {
+	private void assertHasIntValue() {
 		if (!hasIntValue()) {
 			throw new ArgumentDoesNotHaveAttributeException(this, "integer value");
 		}
