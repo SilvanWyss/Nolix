@@ -157,6 +157,20 @@ public final class IntOrPercentageHolder implements IElement<IntOrPercentageHold
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
+	/**
+	 * @return true if the current {@link IntOrPercentageHolder} has a positive integer value or a positive percentage.
+	 */
+	public boolean isPositive() {
+		
+		if (hasIntValue) {
+			return (intValue > 0);
+		}
+		
+		return (percentage > 0.0);
+	}
+	
+	//method
 	/**
 	 * @throws ArgumentDoesNotHaveAttributeException if
 	 * the current {@link IntOrPercentageHolder} does not have an integer value.
