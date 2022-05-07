@@ -131,7 +131,7 @@ public final class IntOrPercentageHolder implements IElement<IntOrPercentageHold
 	
 	//method
 	//For a better performance, this implementation does not use all comfortable methods.
-	public int getValueInRelationToHundrerPercentValue(final int hundredPercentValue) {
+	public int getValueInRelationToHundredPercentValue(final int hundredPercentValue) {
 		
 		if (hasIntValue) {
 			return intValue;
