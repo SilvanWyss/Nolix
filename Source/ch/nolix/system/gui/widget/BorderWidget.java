@@ -14,6 +14,8 @@ import ch.nolix.system.element.MutableValue;
 import ch.nolix.system.elementenum.ContentPosition;
 import ch.nolix.system.elementenum.RotationDirection;
 import ch.nolix.system.gui.base.CursorIcon;
+import ch.nolix.system.valueholder.IntOrPercentageHolder;
+import ch.nolix.system.valueholder.IntOrPercentageHolderValidator;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 
@@ -153,21 +155,19 @@ extends Widget<BW, BWL> {
 	);
 	
 	//attribute
-	private final MutableOptionalValue<Integer> proposalWidth =
-	new MutableOptionalValue<>(
+	private final MutableOptionalValue<IntOrPercentageHolder> proposalWidth =
+	MutableOptionalValue.forElement(
 		PROPOSAL_WIDTH_HEADER,
 		this::setProposalWidth,
-		BaseNode::getOneAttributeAsInt,
-		Node::withAttribute
+		IntOrPercentageHolder::fromSpecification
 	);
 	
 	//attribute
-	private final MutableOptionalValue<Integer> proposalHeight =
-	new MutableOptionalValue<>(
+	private final MutableOptionalValue<IntOrPercentageHolder> proposalHeight =
+	MutableOptionalValue.forElement(
 		PROPOSAL_HEIGHT_HEADER,
 		this::setProposalHeight,
-		BaseNode::getOneAttributeAsInt,
-		Node::withAttribute
+		IntOrPercentageHolder::fromSpecification
 	);
 	
 	//attribute
@@ -391,7 +391,12 @@ extends Widget<BW, BWL> {
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BorderWidget} does not have a proposal height.
 	 */
 	public final int getProposalHeight() {
-		return proposalHeight.getValue();
+		
+		if (belongsToGUI()) {
+			return proposalHeight.getValue().getValueInRelationToHundredPercentValue(getParentGUI().getViewAreaHeight());
+		}
+		
+		return proposalHeight.getValue().getIntValue();
 	}
 	
 	//method
@@ -400,7 +405,12 @@ extends Widget<BW, BWL> {
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BorderWidget} does not have a proposal width.
 	 */
 	public final int getProposalWidth() {
-		return proposalWidth.getValue();
+		
+		if (belongsToGUI()) {
+			return proposalWidth.getValue().getValueInRelationToHundredPercentValue(getParentGUI().getViewAreaWidth());
+		}
+		
+		return proposalWidth.getValue().getIntValue();
 	}
 	
 	//method
@@ -796,14 +806,28 @@ extends Widget<BW, BWL> {
 	 * 
 	 * @param proposalHeight
 	 * @return the current {@link BorderWidget}.
-	 * @throws NonPositiveArgumentException if the given proposal height is not positive.
+	 * @throws InvalidArgumentException if the given proposal height is not positive.
 	 */
 	public final BW setProposalHeight(final int proposalHeight) {
 		
-		Validator.assertThat(proposalHeight).thatIsNamed("proposal height").isPositive();
+		setProposalHeight(IntOrPercentageHolder.withIntValue(proposalHeight));
+				
+		return asConcrete();
+	}
+	
+	//method
+	/**
+	 * Sets the proposal height of the current {@link BorderWidget} in percent of the GUI view area height.
+	 * 
+	 * @param proposalHeightInPercentOfGUIViewAreaHeight
+	 * @return the current {@link BorderWidget}.
+	 * @throws InvalidArgumentException if the given proposalHeightInPercentOfGUIViewAreaHeight is not positive.
+	 */
+	public final BW setProposalHeightInPercentOfGUIViewAreaHeight(
+		final double proposalHeightInPercentOfGUIViewAreaHeight
+	) {
 		
-		this.proposalHeight.setValue(proposalHeight);
-		setShowAreaYPositionOnScrolledArea(0);
+		setProposalHeight(IntOrPercentageHolder.withPercentage(proposalHeightInPercentOfGUIViewAreaHeight));
 		
 		return asConcrete();
 	}
@@ -814,14 +838,28 @@ extends Widget<BW, BWL> {
 	 * 
 	 * @param proposalWidth
 	 * @return the current {@link BorderWidget}.
-	 * @throws NonPositiveArgumentException if the given proposal width is not positive.
+	 * @throws InvalidArgumentException if the given proposal width is not positive.
 	 */
 	public final BW setProposalWidth(final int proposalWidth) {
 		
-		Validator.assertThat(proposalWidth).thatIsNamed("proposal width").isPositive();
+		setProposalWidth(IntOrPercentageHolder.withIntValue(proposalWidth));
+				
+		return asConcrete();
+	}
+	
+	//method
+	/**
+	 * Sets the proposal width of the current {@link BorderWidget} in percent of the GUI view area width.
+	 * 
+	 * @param proposalWidthInPercentOfGUIViewAreaWidth
+	 * @return the current {@link BorderWidget}.
+	 * @throws InvalidArgumentException if the given proposalWidthInPercentOfGUIViewAreaWidth is not positive.
+	 */
+	public final BW setProposalWidthInPercentOfGUIViewAreaWidth(
+		final double proposalWidthInPercentOfGUIViewAreaWidth
+	) {
 		
-		this.proposalWidth.setValue(proposalWidth);
-		setShowAreaYPositionOnScrolledArea(0);
+		setProposalWidth(IntOrPercentageHolder.withPercentage(proposalWidthInPercentOfGUIViewAreaWidth));
 		
 		return asConcrete();
 	}
@@ -1372,5 +1410,21 @@ extends Widget<BW, BWL> {
 	//method
 	private boolean anyScrollBarIsVisible() {
 		return (verticalScrollBar.isVisible() || horizontalScrollBar.isVisible());
+	}
+	
+	//method
+	private void setProposalHeight(final IntOrPercentageHolder proposalHeight) {
+		
+		IntOrPercentageHolderValidator.INSTANCE.assertIsPositive(proposalHeight);
+		
+		this.proposalHeight.setValue(proposalHeight);
+	}
+	
+	//method
+	private void setProposalWidth(final IntOrPercentageHolder proposalWidth) {
+		
+		IntOrPercentageHolderValidator.INSTANCE.assertIsPositive(proposalWidth);
+		
+		this.proposalWidth.setValue(proposalWidth);
 	}
 }
