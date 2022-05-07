@@ -14,13 +14,13 @@ import ch.nolix.systemapi.elementapi.IElement;
 
 //class
 /**
- * A {@link ValueOrPercentageHolder} stores either a value or a percentage.
- * A {@link ValueOrPercentageHolder} is not mutable.
+ * A {@link IntOrPercentageHolder} stores either a value or a percentage.
+ * A {@link IntOrPercentageHolder} is not mutable.
  *  
  * @author Silvan Wyss
  * @date 2018-03-25
  */
-public final class ValueOrPercentageHolder implements IElement<ValueOrPercentageHolder> {
+public final class IntOrPercentageHolder implements IElement<IntOrPercentageHolder> {
 	
 	//attributes
 	private final boolean hasValue;
@@ -30,31 +30,31 @@ public final class ValueOrPercentageHolder implements IElement<ValueOrPercentage
 	//static method
 	/**
 	 * @param specification
-	 * @return a new {@link ValueOrPercentageHolder}
+	 * @return a new {@link IntOrPercentageHolder}
 	 * from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static ValueOrPercentageHolder fromSpecification(final BaseNode specification) {
+	public static IntOrPercentageHolder fromSpecification(final BaseNode specification) {
 		
 		final var attribute = specification.getOneAttributeHeader();
 		
 		//Handles the case that the given specification specifies a ValueOrPercentageHolder with a percentage.
 		if (attribute.endsWith("%")) {
-			return new ValueOrPercentageHolder(GlobalStringHelper.toDouble(attribute.substring(0, attribute.length() - 2)));
+			return new IntOrPercentageHolder(GlobalStringHelper.toDouble(attribute.substring(0, attribute.length() - 2)));
 		}
 		
 		//Handles the case that the given specification specifies a ValueOrPercentageHolder with a value.
-		return new ValueOrPercentageHolder(GlobalStringHelper.toInt(attribute));
+		return new IntOrPercentageHolder(GlobalStringHelper.toInt(attribute));
 	}
 	
 	//constructor
 	/**
-	 * Creates a new {@link ValueOrPercentageHolder}
+	 * Creates a new {@link IntOrPercentageHolder}
 	 * with the given value.
 	 * 
 	 * @param value
 	 */
-	public ValueOrPercentageHolder(final int value) {
+	public IntOrPercentageHolder(final int value) {
 		
 		hasValue = true;
 		
@@ -64,11 +64,11 @@ public final class ValueOrPercentageHolder implements IElement<ValueOrPercentage
 	
 	//constructor
 	/**
-	 * Creates a new {@link ValueOrPercentageHolder} with the given percentage.
+	 * Creates a new {@link IntOrPercentageHolder} with the given percentage.
 	 * 
 	 * @param percentage
 	 */
-	public ValueOrPercentageHolder(final double percentage) {
+	public IntOrPercentageHolder(final double percentage) {
 		
 		hasValue = false;
 		
@@ -96,7 +96,7 @@ public final class ValueOrPercentageHolder implements IElement<ValueOrPercentage
 	/**
 	 * @return the value of this percentage holder.
 	 * @throws ArgumentDoesNotHaveAttributeException
-	 * if the current {@link ValueOrPercentageHolder} does not have a value.
+	 * if the current {@link IntOrPercentageHolder} does not have a value.
 	 */
 	public int getValue() {
 		
@@ -112,7 +112,7 @@ public final class ValueOrPercentageHolder implements IElement<ValueOrPercentage
 	/**
 	 * @return the percentage of this percentage holder.
 	 * @throws ArgumentDoesNotHaveAttributeException
-	 * if the current {@link ValueOrPercentageHolder} does not have a percentage.
+	 * if the current {@link IntOrPercentageHolder} does not have a percentage.
 	 */
 	public double getPercentage() {
 		
@@ -126,7 +126,7 @@ public final class ValueOrPercentageHolder implements IElement<ValueOrPercentage
 	
 	//method
 	/**
-	 * @return true if the current {@link ValueOrPercentageHolder} has a percentage.
+	 * @return true if the current {@link IntOrPercentageHolder} has a percentage.
 	 */
 	public boolean hasPercentage() {
 		return !hasValue();
@@ -134,7 +134,7 @@ public final class ValueOrPercentageHolder implements IElement<ValueOrPercentage
 	
 	//method
 	/**
-	 * @return true if the current {@link ValueOrPercentageHolder} has a value.
+	 * @return true if the current {@link IntOrPercentageHolder} has a value.
 	 */
 	public boolean hasValue() {
 		return hasValue;
