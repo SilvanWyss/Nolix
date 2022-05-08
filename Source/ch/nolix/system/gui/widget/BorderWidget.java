@@ -7,7 +7,6 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.math.Calculator;
 import ch.nolix.system.element.MutableOptionalValue;
 import ch.nolix.system.element.MutableValue;
@@ -135,21 +134,19 @@ extends Widget<BW, BWL> {
 	);
 	
 	//attribute
-	private final MutableOptionalValue<Integer> maxWidth =
-	new MutableOptionalValue<>(
+	private final MutableOptionalValue<IntOrPercentageHolder> maxWidth =
+	MutableOptionalValue.forElement(
 		MAX_WIDTH_HEADER,
 		this::setMaxWidth,
-		BaseNode::getOneAttributeAsInt,
-		Node::withAttribute
+		IntOrPercentageHolder::fromSpecification
 	);
 	
 	//attribute
-	private final MutableOptionalValue<Integer> maxHeight =
-	new MutableOptionalValue<>(
+	private final MutableOptionalValue<IntOrPercentageHolder> maxHeight =
+	MutableOptionalValue.forElement(
 		MAX_HEIGHT_HEADER,
 		this::setMaxHeight,
-		BaseNode::getOneAttributeAsInt,
-		Node::withAttribute
+		IntOrPercentageHolder::fromSpecification
 	);
 	
 	//attribute
@@ -247,6 +244,28 @@ extends Widget<BW, BWL> {
 		this.automaticSize.setValue(false);
 		
 		return asConcrete();
+	}
+	
+	//method
+	/**
+	 * A {@link BorderWidget} can always define a max height, but can calculate it only when
+	 * the {@link BorderWidget} has all the required input parameters.
+	 * 
+	 * @return true if the current {@link BorderWidget} defines a max height.
+	 */
+	public final boolean definesMaxHeight() {
+		return maxHeight.hasValue();
+	}
+	
+	//method
+	/**
+	 * A {@link BorderWidget} can always define a max width, but can calculate it only when
+	 * the {@link BorderWidget} has all the required input parameters.
+	 * 
+	 * @return true if the current {@link BorderWidget} defines a max width.
+	 */
+	public final boolean definesMaxWidth() {
+		return maxWidth.hasValue();
 	}
 	
 	//method
@@ -381,7 +400,12 @@ extends Widget<BW, BWL> {
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BorderWidget} does not have a max height.
 	 */
 	public final int getMaxHeight() {
-		return maxHeight.getValue();
+		
+		if (maxHeight.getValue().hasIntValue()) {
+			return maxHeight.getValue().getIntValue();
+		}
+		
+		return maxHeight.getValue().getValueInRelationToHundredPercentValue(getParentGUI().getViewAreaHeight());
 	}
 	
 	//method
@@ -390,7 +414,12 @@ extends Widget<BW, BWL> {
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BorderWidget} does not have a max width.
 	 */
 	public final int getMaxWidth() {
-		return maxWidth.getValue();
+		
+		if (maxWidth.getValue().hasIntValue()) {
+			return maxWidth.getValue().getIntValue();
+		}
+		
+		return maxWidth.getValue().getValueInRelationToHundredPercentValue(getParentGUI().getViewAreaWidth());
 	}
 	
 	//method
@@ -400,11 +429,11 @@ extends Widget<BW, BWL> {
 	 */
 	public final int getMinHeight() {
 		
-		if (belongsToGUI()) {
-			return minHeight.getValue().getValueInRelationToHundredPercentValue(getParentGUI().getViewAreaHeight());
+		if (minHeight.getValue().hasIntValue()) {
+			return minHeight.getValue().getIntValue();
 		}
 		
-		return minHeight.getValue().getIntValue();
+		return minHeight.getValue().getValueInRelationToHundredPercentValue(getParentGUI().getViewAreaHeight());
 	}
 	
 	//method
@@ -414,11 +443,11 @@ extends Widget<BW, BWL> {
 	 */
 	public final int getMinWidth() {
 		
-		if (belongsToGUI()) {
-			return minWidth.getValue().getValueInRelationToHundredPercentValue(getParentGUI().getViewAreaWidth());
+		if (maxWidth.getValue().hasIntValue()) {
+			return minWidth.getValue().getIntValue();
 		}
 		
-		return minWidth.getValue().getIntValue();
+		return minWidth.getValue().getValueInRelationToHundredPercentValue(getParentGUI().getViewAreaWidth());
 	}
 	
 	//method
@@ -444,11 +473,11 @@ extends Widget<BW, BWL> {
 	 */
 	public final int getProposalHeight() {
 		
-		if (belongsToGUI()) {
-			return proposalHeight.getValue().getValueInRelationToHundredPercentValue(getParentGUI().getViewAreaHeight());
+		if (proposalHeight.getValue().hasIntValue()) {
+			return proposalHeight.getValue().getIntValue();
 		}
 		
-		return proposalHeight.getValue().getIntValue();
+		return proposalHeight.getValue().getValueInRelationToHundredPercentValue(getParentGUI().getViewAreaHeight());
 	}
 	
 	//method
@@ -458,11 +487,11 @@ extends Widget<BW, BWL> {
 	 */
 	public final int getProposalWidth() {
 		
-		if (belongsToGUI()) {
-			return proposalWidth.getValue().getValueInRelationToHundredPercentValue(getParentGUI().getViewAreaWidth());
+		if (proposalWidth.getValue().hasIntValue()) {
+			return proposalWidth.getValue().getIntValue();
 		}
 		
-		return proposalWidth.getValue().getIntValue();
+		return proposalWidth.getValue().getValueInRelationToHundredPercentValue(getParentGUI().getViewAreaWidth());
 	}
 	
 	//method
@@ -590,7 +619,9 @@ extends Widget<BW, BWL> {
 	 * @return true if the current {@link BorderWidget} has a max width.
 	 */
 	public final boolean hasMaxWidth() {
-		return maxWidth.hasValue();
+		return
+		definesMaxWidth()
+		&& (maxWidth.getValue().hasIntValue() || belongsToGUI());
 	}
 	
 	//method
@@ -799,14 +830,26 @@ extends Widget<BW, BWL> {
 	 * 
 	 * @param maxHeight
 	 * @return the current {@link BorderWidget}.
-	 * @throws NonPositiveArgumentException if the given max height is not positive.
+	 * @throws NonPositiveArgumentException if the given maxHeight is not positive.
 	 */
 	public final BW setMaxHeight(final int maxHeight) {
 		
-		Validator.assertThat(maxHeight).thatIsNamed("max height").isPositive();
+		setMaxHeight(IntOrPercentageHolder.withIntValue(maxHeight));
 		
-		this.maxHeight.setValue(maxHeight);
-		setShowAreaYPositionOnScrolledArea(0);
+		return asConcrete();
+	}
+	
+	//method
+	/**
+	 * Sets the max height of the current {@link BorderWidget} in percent of the GUI view area height.
+	 * 
+	 * @param maxHeightInPercentOfGUIViewAreaHeight
+	 * @return the current {@link BorderWidget}.
+	 * @throws NonPositiveArgumentException if the given maxHeightInPercentOfGUIViewAreaHeight is not positive.
+	 */
+	public final BW setMaxHeightInPercentOfGUIViewAreaHeight(final double maxHeightInPercentOfGUIViewAreaHeight) {
+		
+		setMaxWidth(IntOrPercentageHolder.withPercentage(maxHeightInPercentOfGUIViewAreaHeight));
 		
 		return asConcrete();
 	}
@@ -817,14 +860,26 @@ extends Widget<BW, BWL> {
 	 * 
 	 * @param maxWidth
 	 * @return the current {@link BorderWidget}.
-	 * @throws NonPositiveArgumentException if the given max width is not positive.
+	 * @throws InvalidArgumentException if the given maxWidth is not positive.
 	 */
 	public final BW setMaxWidth(final int maxWidth) {
 		
-		Validator.assertThat(maxWidth).thatIsNamed("max width").isPositive();
+		setMaxWidth(IntOrPercentageHolder.withIntValue(maxWidth));
 		
-		this.maxWidth.setValue(maxWidth);
-		setShowAreaYPositionOnScrolledArea(0);
+		return asConcrete();
+	}
+	
+	//method
+	/**
+	 * Sets the max width of the current {@link BorderWidget} in percent of the GUI view area width.
+	 * 
+	 * @param maxWidthInPercentOfGUIViewAreaWidth
+	 * @return the current {@link BorderWidget}.
+	 * @throws InvalidArgumentException if the given maxWidthInPercentOfGUIViewAreaWidth is not positive.
+	 */
+	public final BW setMaxWidthInPercentOfGUIViewAreaWidth(final double maxWidthInPercentOfGUIViewAreaWidth) {
+		
+		setMaxWidth(IntOrPercentageHolder.withPercentage(maxWidthInPercentOfGUIViewAreaWidth));
 		
 		return asConcrete();
 	}
@@ -845,20 +900,6 @@ extends Widget<BW, BWL> {
 	
 	//method
 	/**
-	 * Sets the min width of the current {@link BorderWidget}.
-	 * 
-	 * @param minWidth
-	 * @return the current {@link BorderWidget}.
-	 */
-	public final BW setMinWidth(final int minWidth) {
-		
-		setMinWidth(IntOrPercentageHolder.withIntValue(minWidth));
-		
-		return asConcrete();
-	}
-	
-	//method
-	/**
 	 * Sets the min height of the current {@link BorderWidget} in percent of the GUI view area height.
 	 * 
 	 * @param minHeightInPercentOfGUIViewAreaHeight
@@ -867,6 +908,20 @@ extends Widget<BW, BWL> {
 	public final BW setMinHeightInPercentOfGUIViewAreaHeight(final double minHeightInPercentOfGUIViewAreaHeight) {
 		
 		setMinWidth(IntOrPercentageHolder.withPercentage(minHeightInPercentOfGUIViewAreaHeight));
+		
+		return asConcrete();
+	}
+	
+	//method
+	/**
+	 * Sets the min width of the current {@link BorderWidget}.
+	 * 
+	 * @param minWidth
+	 * @return the current {@link BorderWidget}.
+	 */
+	public final BW setMinWidth(final int minWidth) {
+		
+		setMinWidth(IntOrPercentageHolder.withIntValue(minWidth));
 		
 		return asConcrete();
 	}
@@ -1498,7 +1553,25 @@ extends Widget<BW, BWL> {
 	}
 	
 	//method
-	public void setMinHeight(final IntOrPercentageHolder minHeight) {
+	private void setMaxHeight(final IntOrPercentageHolder maxHeight) {
+		
+		IntOrPercentageHolderValidator.INSTANCE.assertIsPositive(maxHeight);
+		
+		this.maxHeight.setValue(maxHeight);
+		setShowAreaYPositionOnScrolledArea(0);
+	}
+	
+	//method
+	private void setMaxWidth(final IntOrPercentageHolder maxWidth) {
+		
+		IntOrPercentageHolderValidator.INSTANCE.assertIsPositive(maxWidth);
+		
+		this.maxWidth.setValue(maxWidth);
+		setShowAreaXPositionOnScrolledArea(0);
+	}
+	
+	//method
+	private void setMinHeight(final IntOrPercentageHolder minHeight) {
 		this.minHeight.setValue(minHeight);
 		setShowAreaYPositionOnScrolledArea(0);
 	}
