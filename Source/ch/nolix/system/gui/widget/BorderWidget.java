@@ -443,7 +443,7 @@ extends Widget<BW, BWL> {
 	 */
 	public final int getMinWidth() {
 		
-		if (maxWidth.getValue().hasIntValue()) {
+		if (minWidth.getValue().hasIntValue()) {
 			return minWidth.getValue().getIntValue();
 		}
 		
