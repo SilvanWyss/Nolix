@@ -119,21 +119,19 @@ extends Widget<BW, BWL> {
 	);
 	
 	//attribute
-	private final MutableOptionalValue<Integer> minWidth =
-	new MutableOptionalValue<>(
+	private final MutableOptionalValue<IntOrPercentageHolder> minWidth =
+	MutableOptionalValue.forElement(
 		MIN_WIDTH_HEADER,
 		this::setMinWidth,
-		BaseNode::getOneAttributeAsInt,
-		Node::withAttribute
+		IntOrPercentageHolder::fromSpecification
 	);
 	
 	//attribute
-	private final MutableOptionalValue<Integer> minHeight =
-	new MutableOptionalValue<>(
+	private final MutableOptionalValue<IntOrPercentageHolder> minHeight =
+	MutableOptionalValue.forElement(
 		MIN_HEIGHT_HEADER,
 		this::setMinHeight,
-		BaseNode::getOneAttributeAsInt,
-		Node::withAttribute
+		IntOrPercentageHolder::fromSpecification
 	);
 	
 	//attribute
@@ -253,6 +251,28 @@ extends Widget<BW, BWL> {
 	
 	//method
 	/**
+	 * A {@link BorderWidget} can always define a min height, but can calculate it only when
+	 * the {@link BorderWidget} has all the required input parameters.
+	 * 
+	 * @return true if the current {@link BorderWidget} defines a min height.
+	 */
+	public final boolean definesMinHeight() {
+		return minHeight.hasValue();
+	}
+	
+	//method
+	/**
+	 * A {@link BorderWidget} can always define a min width, but can calculate it only when
+	 * the {@link BorderWidget} has all the required input parameters.
+	 * 
+	 * @return true if the current {@link BorderWidget} defines a min width.
+	 */
+	public final boolean definesMinWidth() {
+		return minWidth.hasValue();
+	}
+	
+	//method
+	/**
 	 * A {@link BorderWidget} can always define a proposal height, but can calculate it only when
 	 * the {@link BorderWidget} has all the required input parameters.
 	 * 
@@ -327,7 +347,7 @@ extends Widget<BW, BWL> {
 	/**
 	 * @return the horizontal scroll bar of the current {@link BorderWidget}.
 	 */
-	public BorderWidgetHorizontalScrollBar<BWL> getHorizontalScrollBar() {
+	public final BorderWidgetHorizontalScrollBar<BWL> getHorizontalScrollBar() {
 		return horizontalScrollBar;
 	}
 	
@@ -335,7 +355,7 @@ extends Widget<BW, BWL> {
 	/**
 	 * @return the horizontal scroll bar cursor of the current {@link BorderWidget}.
 	 */
-	public BorderWidgetHorizontalScrollBarCursor<BWL> getHorizontalScrollBarCursor() {
+	public final BorderWidgetHorizontalScrollBarCursor<BWL> getHorizontalScrollBarCursor() {
 		return horizontalScrollBarCursor;
 	}
 	
@@ -343,7 +363,7 @@ extends Widget<BW, BWL> {
 	/**
 	 * @return the inter scroll bar area of the current {@link BorderWidget}.
 	 */
-	public BorderWidgetInterScrollBarArea<BWL> getInterScrollBarArea() {
+	public final BorderWidgetInterScrollBarArea<BWL> getInterScrollBarArea() {
 		return interScrollBarArea;
 	}
 	
@@ -367,7 +387,7 @@ extends Widget<BW, BWL> {
 	//method
 	/**
 	 * @return the max width of the current {@link BorderWidget}.
-	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BorderWidget} does not have a max widt.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BorderWidget} does not have a max width.
 	 */
 	public final int getMaxWidth() {
 		return maxWidth.getValue();
@@ -379,7 +399,12 @@ extends Widget<BW, BWL> {
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BorderWidget} does not have a min height.
 	 */
 	public final int getMinHeight() {
-		return minHeight.getValue();
+		
+		if (belongsToGUI()) {
+			return minHeight.getValue().getValueInRelationToHundredPercentValue(getParentGUI().getViewAreaHeight());
+		}
+		
+		return minHeight.getValue().getIntValue();
 	}
 	
 	//method
@@ -388,7 +413,12 @@ extends Widget<BW, BWL> {
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BorderWidget} does not have a min width.
 	 */
 	public final int getMinWidth() {
-		return minWidth.getValue();
+		
+		if (belongsToGUI()) {
+			return minWidth.getValue().getValueInRelationToHundredPercentValue(getParentGUI().getViewAreaWidth());
+		}
+		
+		return minWidth.getValue().getIntValue();
 	}
 	
 	//method
@@ -519,7 +549,7 @@ extends Widget<BW, BWL> {
 	/**
 	 * @return the vertical scroll bar of the current {@link BorderWidget}.
 	 */
-	public BorderWidgetVerticalScrollBar<BWL> getVerticalScrollBar() {
+	public final BorderWidgetVerticalScrollBar<BWL> getVerticalScrollBar() {
 		return verticalScrollBar;
 	}
 	
@@ -527,7 +557,7 @@ extends Widget<BW, BWL> {
 	/**
 	 * @return the vertical scroll bar cursor of the current {@link BorderWidget}.
 	 */
-	public BorderWidgetVerticalScrollBarCursor<BWL> getVerticalScrollBarCursor() {
+	public final BorderWidgetVerticalScrollBarCursor<BWL> getVerticalScrollBarCursor() {
 		return verticalScrollBarCursor;
 	}
 	
@@ -576,7 +606,9 @@ extends Widget<BW, BWL> {
 	 * @return true if the current {@link BorderWidget} has a min width.
 	 */
 	public final boolean hasMinWidth() {
-		return minWidth.hasValue();
+		return
+		definesMinWidth()
+		&& (minWidth.getValue().hasIntValue() || belongsToGUI());
 	}
 	
 	//method
@@ -806,8 +838,7 @@ extends Widget<BW, BWL> {
 	 */
 	public final BW setMinHeight(final int minHeight) {
 		
-		this.minHeight.setValue(minHeight);
-		setShowAreaYPositionOnScrolledArea(0);
+		setMinHeight(IntOrPercentageHolder.withIntValue(minHeight));
 		
 		return asConcrete();
 	}
@@ -821,8 +852,35 @@ extends Widget<BW, BWL> {
 	 */
 	public final BW setMinWidth(final int minWidth) {
 		
-		this.minWidth.setValue(minWidth);
-		setShowAreaYPositionOnScrolledArea(0);
+		setMinWidth(IntOrPercentageHolder.withIntValue(minWidth));
+		
+		return asConcrete();
+	}
+	
+	//method
+	/**
+	 * Sets the min height of the current {@link BorderWidget} in percent of the GUI view area height.
+	 * 
+	 * @param minHeightInPercentOfGUIViewAreaHeight
+	 * @return the current {@link BorderWidget}.
+	 */
+	public final BW setMinHeightInPercentOfGUIViewAreaHeight(final double minHeightInPercentOfGUIViewAreaHeight) {
+		
+		setMinWidth(IntOrPercentageHolder.withPercentage(minHeightInPercentOfGUIViewAreaHeight));
+		
+		return asConcrete();
+	}
+	
+	//method
+	/**
+	 * Sets the min width of the current {@link BorderWidget} in percent of the GUI view area width.
+	 * 
+	 * @param minWidthInPercentOfGUIViewAreaWidth
+	 * @return the current {@link BorderWidget}.
+	 */
+	public final BW setMinWidthInPercentOfGUIViewAreaWidth(final double minWidthInPercentOfGUIViewAreaWidth) {
+		
+		setMinWidth(IntOrPercentageHolder.withPercentage(minWidthInPercentOfGUIViewAreaWidth));
 		
 		return asConcrete();
 	}
@@ -833,7 +891,7 @@ extends Widget<BW, BWL> {
 	 * 
 	 * @param proposalHeight
 	 * @return the current {@link BorderWidget}.
-	 * @throws InvalidArgumentException if the given proposal height is not positive.
+	 * @throws InvalidArgumentException if the given proposalHeight is not positive.
 	 */
 	public final BW setProposalHeight(final int proposalHeight) {
 		
@@ -1204,7 +1262,7 @@ extends Widget<BW, BWL> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteMouseWheelClickOnSelfWhenEnabled() {
+	protected final void noteMouseWheelClickOnSelfWhenEnabled() {
 		if (showAreaIsUnderCursor() && getContentArea().isUnderCursor()) {
 			noteMouseWheelClickOnContentAreaWhenEnabled();
 		}
@@ -1222,7 +1280,7 @@ extends Widget<BW, BWL> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteMouseWheelPressOnSelfWhenEnabled() {
+	protected final void noteMouseWheelPressOnSelfWhenEnabled() {
 		if (showAreaIsUnderCursor() && getContentArea().isUnderCursor()) {
 			noteMouseWheelPressOnContentAreaWhenEnabled();
 		}
@@ -1240,7 +1298,7 @@ extends Widget<BW, BWL> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteMouseWheelReleaseOnSelfWhenEnabled() {
+	protected final void noteMouseWheelReleaseOnSelfWhenEnabled() {
 		if (showAreaIsUnderCursor() && getContentArea().isUnderCursor()) {
 			noteMouseWheelReleaseOnContentAreaWhenEnabled();
 		}
@@ -1349,7 +1407,7 @@ extends Widget<BW, BWL> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected boolean paintsWidgetsForPaintingAPriori() {
+	protected final boolean paintsWidgetsForPaintingAPriori() {
 		return false;
 	}
 	
@@ -1376,7 +1434,7 @@ extends Widget<BW, BWL> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected boolean redirectsInputsToShownWidgets() {
+	protected final boolean redirectsInputsToShownWidgets() {
 		return (isEnabled() && (showAreaIsUnderCursor() || !anyScrollBarIsVisible()));
 	}
 	
@@ -1437,6 +1495,18 @@ extends Widget<BW, BWL> {
 	//method
 	private boolean anyScrollBarIsVisible() {
 		return (verticalScrollBar.isVisible() || horizontalScrollBar.isVisible());
+	}
+	
+	//method
+	public void setMinHeight(final IntOrPercentageHolder minHeight) {
+		this.minHeight.setValue(minHeight);
+		setShowAreaYPositionOnScrolledArea(0);
+	}
+	
+	//method
+	private void setMinWidth(final IntOrPercentageHolder minWidth) {
+		this.minWidth.setValue(minWidth);
+		setShowAreaXPositionOnScrolledArea(0);
 	}
 	
 	//method
