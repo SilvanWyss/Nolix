@@ -253,6 +253,28 @@ extends Widget<BW, BWL> {
 	
 	//method
 	/**
+	 * A {@link BorderWidget} can always define a proposal height, but can calculate it only when
+	 * the {@link BorderWidget} has all the required input parameters.
+	 * 
+	 * @return true if the current {@link BorderWidget} defines a proposal height.
+	 */
+	public final boolean definesProposalHeight() {
+		return proposalHeight.hasValue();
+	}
+	
+	//method
+	/**
+	 * A {@link BorderWidget} can always define a proposal width, but can calculate it only when
+	 * the {@link BorderWidget} has all the required input parameters.
+	 * 
+	 * @return true if the current {@link BorderWidget} defines a proposal width.
+	 */
+	public final boolean definesProposalWidth() {
+		return proposalWidth.hasValue();
+	}
+	
+	//method
+	/**
 	 * {@inheritDoc}
 	 */
 	@Override
@@ -557,11 +579,14 @@ extends Widget<BW, BWL> {
 		return minWidth.hasValue();
 	}
 	
+	//method
 	/**
 	 * @return true if the current {@link BorderWidget} has a proposal height.
 	 */
 	public final boolean hasProposalHeight() {
-		return proposalHeight.hasValue();
+		return
+		definesProposalHeight()
+		&& (proposalHeight.getValue().hasIntValue() || belongsToGUI());
 	}
 	
 	//method
@@ -569,7 +594,9 @@ extends Widget<BW, BWL> {
 	 * @return true if the current {@link BorderWidget} has a proposal width.
 	 */
 	public final boolean hasProposalWidth() {
-		return proposalWidth.hasValue();
+		return
+		definesProposalWidth()
+		&& (proposalWidth.getValue().hasIntValue() || belongsToGUI());
 	}
 	
 	//method
@@ -1418,6 +1445,7 @@ extends Widget<BW, BWL> {
 		IntOrPercentageHolderValidator.INSTANCE.assertIsPositive(proposalHeight);
 		
 		this.proposalHeight.setValue(proposalHeight);
+		setShowAreaYPositionOnScrolledArea(0);
 	}
 	
 	//method
@@ -1426,5 +1454,6 @@ extends Widget<BW, BWL> {
 		IntOrPercentageHolderValidator.INSTANCE.assertIsPositive(proposalWidth);
 		
 		this.proposalWidth.setValue(proposalWidth);
+		setShowAreaXPositionOnScrolledArea(0);
 	}
 }
