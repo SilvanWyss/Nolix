@@ -42,6 +42,26 @@ public final class MutableValue<V> extends SingleValue<V> {
 	 * @param name
 	 * @param defaultValue
 	 * @param setterMethod
+	 * @return a new {@link MutableValue} that will
+	 * store a {@link Double} and have the given name, defaultValue and setterMethod.
+	 * @throws ArgumentIsNullException if the given name is null.
+	 * @throws InvalidArgumentException if the given name is blank.
+	 * @throws ArgumentIsNullException if the given setterMethod is null.
+	 */
+	public static MutableValue<Double> forDouble(
+		final String name,
+		final double defaultValue,
+		final IElementTaker<Double> setterMethod
+	) {
+		return
+		new MutableValue<>(name, defaultValue, setterMethod, BaseNode::getOneAttributeAsDouble, Node::withAttribute);
+	}
+	
+	//static method
+	/**
+	 * @param name
+	 * @param defaultValue
+	 * @param setterMethod
 	 * @return a new {@link MutableValue}
 	 * that will store a {@link Integer} and have the given name, defaultValue and setterMethod.
 	 * @throws ArgumentIsNullException if the given name is null.
