@@ -2,8 +2,9 @@
 package ch.nolix.systemtest.guitest.widgettest;
 
 //own imports
-import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.testing.basetest.TestCase;
+import ch.nolix.system.gui.base.InvisibleGUI;
 import ch.nolix.system.gui.widget.BorderWidget;
 import ch.nolix.system.gui.widget.WidgetLookState;
 
@@ -135,6 +136,39 @@ public abstract class BorderWidgetTest<BW extends BorderWidget<BW, ?>> extends W
 		
 		//verification
 		expect(result).isEqualTo(targetProposalHeight);
+	}
+	
+	//method
+	@TestCase
+	public final void testCase_getMinWidth_whenSetMinWidthInPercentOfGUIViewAreaWidthAndBelongsToGUI() {
+		try (final var invisibleGUI = new InvisibleGUI()) {
+		
+			//setup
+			final var testUnit = createTestUnit();
+			testUnit.setMinWidthInPercentOfGUIViewAreaWidth(0.9);
+			invisibleGUI.pushLayer(testUnit);
+			invisibleGUI.noteResize(1000, 800);
+			
+			//execution
+			final var result = testUnit.getWidth();
+			
+			//verification
+			expect(result).isEqualTo(900);
+		}
+	}
+	
+	//method
+	@TestCase
+	public final void testCase_getMinWidth_whenSetMinWidthInPercentOfGUIViewAreaWidthAndDoesNotBelongToGUI() {
+				
+		//setup
+		final var testUnit = createTestUnit();
+		testUnit.setMinWidthInPercentOfGUIViewAreaWidth(0.9);
+		
+		//execution & verification
+		expectRunning(testUnit::getMinWidth)
+		.throwsException()
+		.ofType(InvalidArgumentException.class);
 	}
 	
 	//method
@@ -308,8 +342,7 @@ public abstract class BorderWidgetTest<BW extends BorderWidget<BW, ?>> extends W
 		//execution & verification
 		expectRunning(() -> testUnit.setMaxWidth(-100))
 		.throwsException()
-		.ofType(NonPositiveArgumentException.class)
-		.withMessage("The given max width '-100' is not positive.");
+		.ofType(InvalidArgumentException.class);
 	}
 	
 	//method
@@ -364,7 +397,6 @@ public abstract class BorderWidgetTest<BW extends BorderWidget<BW, ?>> extends W
 		//execution & verification
 		expectRunning(() -> testUnit.setProposalWidth(-100))
 		.throwsException()
-		.ofType(NonPositiveArgumentException.class)
-		.withMessage("The given proposal width '-100' is not positive.");
+		.ofType(InvalidArgumentException.class);
 	}
 }
