@@ -55,16 +55,28 @@ import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 public final class Layer extends ConfigurableElement<Layer>
 implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInputTaker, Recalculable {
 	
-	//constants
+	//constant
 	public static final CursorIcon DEFAULT_CURSOR_ICON = CursorIcon.ARROW;
+	
+	//constant
 	public static final ExtendedContentPosition DEFAULT_CONTENT_POSITION = ExtendedContentPosition.TOP;
+	
+	//constant
 	public static final boolean DEFAULT_CONFIGURATION_ALLOW_STATE = true;
 	
-	//constants
+	//constant
 	private static final String BACKGROUND_HEADER = "Background";
+	
+	//constant
 	private static final String CONTENT_POSITION_HEADER = "ContentPosition";
+	
+	//constant
 	private static final String FREE_CONTENT_POSITION_HEADER = "FreeContentPosition";
+	
+	//constant
 	private static final String ROOT_WIDGET_HEADER = "RootWidget";
+	
+	//constant
 	private static final String CONFIGURATION_ALLOWED_FLAG_HEADER = "ConfigurationAllowed";
 		
 	//static method
@@ -125,14 +137,23 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 		DEFAULT_CONFIGURATION_ALLOW_STATE,
 		this::setConfigurationAllowedFlag
 	);
-	//attributes
+	
+	//attribute
 	private int cursorXPosition;
+	
+	//attribute
 	private int cursorYPosition;
 	
-	//attributes
+	//attribute
 	private boolean notedLeftMouseButtonPress;
+	
+	//attribute
 	private boolean notedRightMouseButtonPress;
+	
+	//attribute
 	private boolean notedMouseWheelPress;
+	
+	//attribute
 	private boolean notedKeyPress;
 	
 	//optional attribute
@@ -157,17 +178,37 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 		w -> Node.withAttribute(w.getSpecification())
 	);
 	
-	//optional attributes
+	//optional attribute
 	private I2ElementTaker<Layer, Key> keyDownAction;
+	
+	//optional attribute
 	private IElementTaker<Layer> mouseMoveAction;
+	
+	//optional attribute
 	private IElementTaker<Layer> leftMouseButtonClickAction;
+	
+	//optional attribute
 	private IElementTaker<Layer> leftMouseButtonPressAction;
+	
+	//optional attribute
 	private IElementTaker<Layer> leftMouseButtonReleaseAction;
+	
+	//optional attribute
 	private IElementTaker<Layer> rightMouseButtonClickAction;
+	
+	//optional attribute
 	private IElementTaker<Layer> rightMouseButtonPressAction;
+	
+	//optional attribute
 	private IElementTaker<Layer> rightMouseButtonReleaseAction;
+	
+	//optional attribute
 	private IElementTaker<Layer> mouseWheelClickAction;
+	
+	//optional attribute
 	private IElementTaker<Layer> mouseWheelPressAction;
+	
+	//optional attribute
 	private IElementTaker<Layer> mouseWheelReleaseAction;
 	
 	//method
