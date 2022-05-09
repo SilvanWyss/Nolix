@@ -34,6 +34,19 @@ public final class OptionalValue<V> extends SingleValue<V> {
 	/**
 	 * @param name
 	 * @param setterMethod
+	 * @return a new {@link OptionalValue} that will store a {@link Double} and have the given name and setterMethod.
+	 * @throws ArgumentIsNullException if the given name is null.
+	 * @throws InvalidArgumentException if the given name is blank.
+	 * @throws ArgumentIsNullException if the given setterMethod is null.
+	 */
+	public static OptionalValue<Double> forDouble(final String name, final IElementTaker<Double> setterMethod) {
+		return new OptionalValue<>(name, setterMethod, BaseNode::getOneAttributeAsDouble, Node::withAttribute);
+	}
+	
+	//static method
+	/**
+	 * @param name
+	 * @param setterMethod
 	 * @return a new {@link OptionalValue} that will store a {@link Integer} and have the given name and setterMethod.
 	 * @throws ArgumentIsNullException if the given name is null.
 	 * @throws InvalidArgumentException if the given name is blank.
