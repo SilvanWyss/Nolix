@@ -480,6 +480,18 @@ public final class ChainedNode implements OptionalHeadered {
 	
 	//method
 	/**
+	 * @return a {@link Double} representation of the one attribute of the current {@link ChainedNode}.
+	 * @throws EmptyArgumentException if the current {@link ChainedNode} does not contain an attribute.
+	 * @throws InvalidArgumentException if the current {@link ChainedNode} contains several attributes.
+	 * @throws UnrepresentingArgumentException if
+	 * the one attribute of the current {@link ChainedNode} does not represent a {@link Double}.
+	 */
+	public double getOneAttributeAsDouble() {
+		return getOneAttribute().toDouble();
+	}
+	
+	//method
+	/**
 	 * @return a {@link Integer} representation of the one attribute of the current {@link ChainedNode}.
 	 * @throws EmptyArgumentException if the current {@link ChainedNode} does not contain an attribute.
 	 * @throws InvalidArgumentException if the current {@link ChainedNode} contains several attributes.
@@ -535,6 +547,21 @@ public final class ChainedNode implements OptionalHeadered {
 	 */
 	public boolean hasNextNode() {
 		return (nextNode != null);
+	}
+	
+	//method
+	/**
+	 * @return a {@link Double} representation of the current {@link ChainedNode}.
+	 * @throws UnrepresentingArgumentException if the current {@link ChainedNode} does not represent a {@link Double}.
+	 */
+	public double toDouble() {
+		
+		//Asserts that the current ChainedNode can represent a Double.
+		if (header == null || attributes.containsAny()) {
+			throw new UnrepresentingArgumentException(this, Integer.class);
+		}
+		
+		return Double.valueOf(header);
 	}
 	
 	//method
