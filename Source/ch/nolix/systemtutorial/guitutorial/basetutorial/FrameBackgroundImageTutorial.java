@@ -24,7 +24,7 @@ public final class FrameBackgroundImageTutorial {
 		@SuppressWarnings("resource")
 		final var frame = new Frame().setTitle("Frame background image tutorial");
 		
-		//Creates an Image from file.
+		//Loads an Image.
 		final var image =
 		MutableImage.fromResource("ch/nolix/systemTutorial/guiTutorial/basetutorial/resource/Pilatus.jpg");
 		

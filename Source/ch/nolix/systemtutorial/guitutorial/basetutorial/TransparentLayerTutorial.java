@@ -29,7 +29,7 @@ public final class TransparentLayerTutorial {
 		@SuppressWarnings("resource")
 		final var frame = new Frame().setTitle("Transparent Layer Tutorial");
 		
-		//Creates an Image from file and sets it as background to the Frame.
+		//Loads an Image and sets it as background to the Frame.
 		frame.setBackgroundImage(
 			MutableImage.fromResource("ch/nolix/systemTutorial/guiTutorial/basetutorial/resource/Pilatus.jpg"),
 			ImageApplication.SCALE_TO_FRAME
@@ -53,7 +53,7 @@ public final class TransparentLayerTutorial {
 					.setTextColorForState(WidgetLookState.BASE, Color.WHITE)
 				)
 			)
-		);		
+		);
 	}
 	
 	/**

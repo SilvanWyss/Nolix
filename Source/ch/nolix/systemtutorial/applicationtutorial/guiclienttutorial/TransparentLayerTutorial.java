@@ -7,35 +7,49 @@ import ch.nolix.system.application.guiapplication.BackendGUIClientSession;
 import ch.nolix.system.application.guiapplication.FrontendGUIClient;
 import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.main.VoidApplicationContext;
+import ch.nolix.system.elementenum.ExtendedContentPosition;
+import ch.nolix.system.gui.base.Layer;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.image.MutableImage;
-import ch.nolix.system.gui.widget.ImageWidget;
+import ch.nolix.system.gui.widget.Label;
 import ch.nolix.system.gui.widget.WidgetLookState;
+import ch.nolix.systemapi.guiapi.imageapi.ImageApplication;
 
-public final class ImageWidgetTutorial {
+public final class TransparentLayerTutorial {
 	
 	private static final class MainSession extends BackendGUIClientSession<VoidApplicationContext> {
 		
 		@Override
 		protected void initialize() {
 			
-			//Loads an Image.
-			final var image =
-			MutableImage.fromResource(
-				"ch/nolix/systemtutorial/guitutorial/widgettutorial/resource/Singer_Building.jpg"
+			//Loads an Image and sets it as background to the GUI of the current MainSession.
+			getRefGUI().setBackgroundImage(
+				MutableImage.fromResource("ch/nolix/systemTutorial/guiTutorial/basetutorial/resource/Pilatus.jpg"),
+				ImageApplication.SCALE_TO_FRAME
 			);
-			
-			//Creates an ImageWidget with the Image.
-			final var imageWidget = new ImageWidget().setImage(image);
-			
-			//Configures the look of the ImageWidget.
-			imageWidget.getRefLook()
-			.setBorderThicknessForState(WidgetLookState.BASE, 5)
-			.setBackgroundColorForState(WidgetLookState.BASE, Color.LAVENDER)
-			.setPaddingForState(WidgetLookState.BASE, 5);
-			
-			//Adds the ImageWidget to the GUI of the current MainSession.
-			getRefGUI().pushLayer(imageWidget);
+						
+			/*
+			 * Creates a transparent Layer with a bar, that is basically black, and
+			 * adds it to the GUI of the current MainSession.
+			 */
+			getRefGUI().pushLayer(
+				new Layer()
+				.setOpacityPercentage(0.8)
+				.setContentPosition(ExtendedContentPosition.BOTTOM)
+				.setRootWidget(
+					new Label()
+					.setText("Nolix")
+					.setMinWidthInPercentOfGUIViewAreaWidth(1.0)
+					.onLook(
+						l ->
+						l
+						.setBackgroundColorForState(WidgetLookState.BASE, Color.BLACK)
+						.setPaddingForState(WidgetLookState.BASE, 50)
+						.setTextSizeForState(WidgetLookState.BASE, 100)
+						.setTextColorForState(WidgetLookState.BASE, Color.WHITE)
+					)
+				)
+			);
 		}
 	}
 	
@@ -46,7 +60,7 @@ public final class ImageWidgetTutorial {
 		final var server = Server.forDefaultPort();
 		
 		//Adds a default Application to the NetServer.
-		server.addDefaultApplication("ImageWidget tutorial", MainSession.class, VoidApplicationContext.INSTANCE);
+		server.addDefaultApplication("Transparent Layer Tutorial", MainSession.class, VoidApplicationContext.INSTANCE);
 		
 		//Creates a FrontGUIClient that will connect to the Server.
 		new FrontendGUIClient();
@@ -58,5 +72,5 @@ public final class ImageWidgetTutorial {
 		Sequencer.asSoonAsNoMore(server::hasClientConnected).runInBackground(server::close);
 	}
 	
-	private ImageWidgetTutorial() {}
+	private TransparentLayerTutorial() {}
 }
