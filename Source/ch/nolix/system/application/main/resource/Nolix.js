@@ -1,4 +1,4 @@
-define("Common/Container/Container", ["require", "exports"], function (require, exports) {
+define("Core/Container/Container", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class Container {
@@ -83,7 +83,7 @@ define("Common/Container/Container", ["require", "exports"], function (require, 
     }
     exports.Container = Container;
 });
-define("Common/Container/LinkedListNode", ["require", "exports"], function (require, exports) {
+define("Core/Container/LinkedListNode", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class LinkedListNode {
@@ -129,7 +129,7 @@ define("Common/Container/LinkedListNode", ["require", "exports"], function (requ
     }
     exports.LinkedListNode = LinkedListNode;
 });
-define("Common/Container/LinkedListIterator", ["require", "exports"], function (require, exports) {
+define("Core/Container/LinkedListIterator", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class LinkedListIterator {
@@ -156,7 +156,7 @@ define("Common/Container/LinkedListIterator", ["require", "exports"], function (
     }
     exports.LinkedListIterator = LinkedListIterator;
 });
-define("Common/Container/LinkedList", ["require", "exports", "Common/Container/Container", "Common/Container/LinkedListIterator", "Common/Container/LinkedListNode"], function (require, exports, Container_1, LinkedListIterator_1, LinkedListNode_1) {
+define("Core/Container/LinkedList", ["require", "exports", "Core/Container/Container", "Core/Container/LinkedListIterator", "Core/Container/LinkedListNode"], function (require, exports, Container_1, LinkedListIterator_1, LinkedListNode_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class LinkedList extends Container_1.Container {
@@ -330,7 +330,7 @@ define("Common/Container/LinkedList", ["require", "exports", "Common/Container/C
     }
     exports.LinkedList = LinkedList;
 });
-define("Common/BaseTest/BaseTest", ["require", "exports", "Common/Container/LinkedList"], function (require, exports, LinkedList_1) {
+define("Core/BaseTest/BaseTest", ["require", "exports", "Core/Container/LinkedList"], function (require, exports, LinkedList_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class BaseTest {
@@ -388,7 +388,7 @@ define("Common/BaseTest/BaseTest", ["require", "exports", "Common/Container/Link
     }
     exports.BaseTest = BaseTest;
 });
-define("Common/Pair/Pair", ["require", "exports"], function (require, exports) {
+define("Core/Pair/Pair", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class Pair {
@@ -417,7 +417,7 @@ define("Common/Pair/Pair", ["require", "exports"], function (require, exports) {
     }
     exports.Pair = Pair;
 });
-define("Common/Caching/CachingContainer", ["require", "exports", "Common/Container/LinkedList", "Common/Pair/Pair"], function (require, exports, LinkedList_2, Pair_1) {
+define("Core/Caching/CachingContainer", ["require", "exports", "Core/Container/LinkedList", "Core/Pair/Pair"], function (require, exports, LinkedList_2, Pair_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class CachingContainer {
@@ -467,7 +467,7 @@ define("Common/Caching/CachingContainer", ["require", "exports", "Common/Contain
     }
     exports.CachingContainer = CachingContainer;
 });
-define("Common/Node/Node", ["require", "exports", "Common/Container/LinkedList"], function (require, exports, LinkedList_3) {
+define("Core/Node/Node", ["require", "exports", "Core/Container/LinkedList"], function (require, exports, LinkedList_3) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class Node {
@@ -699,7 +699,7 @@ define("Common/Node/Node", ["require", "exports", "Common/Container/LinkedList"]
     Node.CLOSED_BRACKET_CODE = '$C';
     exports.Node = Node;
 });
-define("Common/Constant/StringCatalogue", ["require", "exports"], function (require, exports) {
+define("Core/Constant/StringCatalogue", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class StringCatalogue {
@@ -710,7 +710,7 @@ define("Common/Constant/StringCatalogue", ["require", "exports"], function (requ
     StringCatalogue.HEXADECIMAL_PREFIX = '0x';
     exports.StringCatalogue = StringCatalogue;
 });
-define("Common/ChainedNode/Task", ["require", "exports"], function (require, exports) {
+define("Core/ChainedNode/Task", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var Task;
@@ -720,7 +720,7 @@ define("Common/ChainedNode/Task", ["require", "exports"], function (require, exp
         Task[Task["READ_NEXT_NODE"] = 2] = "READ_NEXT_NODE";
     })(Task = exports.Task || (exports.Task = {}));
 });
-define("Common/ChainedNode/ChainedNode", ["require", "exports", "Common/Container/LinkedList", "Common/Node/Node", "Common/Constant/StringCatalogue", "Common/ChainedNode/Task"], function (require, exports, LinkedList_4, Node_1, StringCatalogue_1, Task_1) {
+define("Core/ChainedNode/ChainedNode", ["require", "exports", "Core/Container/LinkedList", "Core/Node/Node", "Core/Constant/StringCatalogue", "Core/ChainedNode/Task"], function (require, exports, LinkedList_4, Node_1, StringCatalogue_1, Task_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class ChainedNode {
@@ -1044,7 +1044,7 @@ define("Common/ChainedNode/ChainedNode", ["require", "exports", "Common/Containe
     ChainedNode.CLOSED_BRACKET_CODE = '$C';
     exports.ChainedNode = ChainedNode;
 });
-define("Common/CommonTypeHelper/StringHelper", ["require", "exports"], function (require, exports) {
+define("Core/CommonTypeHelper/StringHelper", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class StringHelper {
@@ -1061,7 +1061,7 @@ define("Common/CommonTypeHelper/StringHelper", ["require", "exports"], function 
     }
     exports.StringHelper = StringHelper;
 });
-define("Common/Constant/FontCodeCatalogue", ["require", "exports"], function (require, exports) {
+define("Core/Constant/FontCodeCatalogue", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class FontCodeCatalogue {
@@ -1077,7 +1077,7 @@ define("Common/Constant/FontCodeCatalogue", ["require", "exports"], function (re
     FontCodeCatalogue.VERDANA = 'Verdana';
     exports.FontCodeCatalogue = FontCodeCatalogue;
 });
-define("Common/Constant/PascalCaseNameCatalogue", ["require", "exports"], function (require, exports) {
+define("Core/Constant/PascalCaseNameCatalogue", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class PascalCaseNameCatalogue {
@@ -1089,7 +1089,7 @@ define("Common/Constant/PascalCaseNameCatalogue", ["require", "exports"], functi
     PascalCaseNameCatalogue.WIDTH = 'Width';
     exports.PascalCaseNameCatalogue = PascalCaseNameCatalogue;
 });
-define("Common/Container/MatrixIterator", ["require", "exports"], function (require, exports) {
+define("Core/Container/MatrixIterator", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class MatrixIterator {
@@ -1116,7 +1116,7 @@ define("Common/Container/MatrixIterator", ["require", "exports"], function (requ
     }
     exports.MatrixIterator = MatrixIterator;
 });
-define("Common/Container/Matrix", ["require", "exports", "Common/Container/Container", "Common/Container/MatrixIterator"], function (require, exports, Container_2, MatrixIterator_1) {
+define("Core/Container/Matrix", ["require", "exports", "Core/Container/Container", "Core/Container/MatrixIterator"], function (require, exports, Container_2, MatrixIterator_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class Matrix extends Container_2.Container {
@@ -1266,7 +1266,7 @@ define("Common/Container/Matrix", ["require", "exports", "Common/Container/Conta
     }
     exports.Matrix = Matrix;
 });
-define("Common/Container/SingleContainer", ["require", "exports"], function (require, exports) {
+define("Core/Container/SingleContainer", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class SingleContainer {
@@ -1304,7 +1304,7 @@ define("Common/Container/SingleContainer", ["require", "exports"], function (req
     SingleContainer.EMPTY_CONTAINER = new SingleContainer(undefined);
     exports.SingleContainer = SingleContainer;
 });
-define("Common/EndPoint2/NetEndPoint2", ["require", "exports"], function (require, exports) {
+define("Core/EndPoint2/NetEndPoint2", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class NetEndPoint2 {
@@ -1398,7 +1398,7 @@ define("Common/EndPoint2/NetEndPoint2", ["require", "exports"], function (requir
     NetEndPoint2.CLEAR_TARGET_MESSAGE_PREFIX = 'A';
     exports.NetEndPoint2 = NetEndPoint2;
 });
-define("Common/EndPoint3/MessageRole", ["require", "exports"], function (require, exports) {
+define("Core/EndPoint3/MessageRole", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var MessageRole;
@@ -1409,7 +1409,7 @@ define("Common/EndPoint3/MessageRole", ["require", "exports"], function (require
         MessageRole[MessageRole["ERROR_MESSAGE"] = 3] = "ERROR_MESSAGE";
     })(MessageRole = exports.MessageRole || (exports.MessageRole = {}));
 });
-define("Common/EndPoint3/Package", ["require", "exports", "Common/EndPoint3/MessageRole"], function (require, exports, MessageRole_1) {
+define("Core/EndPoint3/Package", ["require", "exports", "Core/EndPoint3/MessageRole"], function (require, exports, MessageRole_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class Package {
@@ -1500,7 +1500,7 @@ define("Common/EndPoint3/Package", ["require", "exports", "Common/EndPoint3/Mess
     Package.INDEX_STRING_LENGTH = 8;
     exports.Package = Package;
 });
-define("Common/EndPoint3/NetEndPoint3", ["require", "exports", "Common/Container/LinkedList", "Common/EndPoint3/MessageRole", "Common/EndPoint2/NetEndPoint2", "Common/EndPoint3/Package"], function (require, exports, LinkedList_5, MessageRole_2, NetEndPoint2_1, Package_1) {
+define("Core/EndPoint3/NetEndPoint3", ["require", "exports", "Core/Container/LinkedList", "Core/EndPoint3/MessageRole", "Core/EndPoint2/NetEndPoint2", "Core/EndPoint3/Package"], function (require, exports, LinkedList_5, MessageRole_2, NetEndPoint2_1, Package_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class NetEndPoint3 {
@@ -1579,11 +1579,11 @@ define("Common/EndPoint3/NetEndPoint3", ["require", "exports", "Common/Container
     NetEndPoint3.TIMEOUT_IN_MILLISECONDS = 5000;
     exports.NetEndPoint3 = NetEndPoint3;
 });
-define("Common/EndPoint5/IDataProviderController", ["require", "exports"], function (require, exports) {
+define("Core/EndPoint5/IDataProviderController", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
 });
-define("Common/EndPoint5/NetEndPoint5Protocol", ["require", "exports"], function (require, exports) {
+define("Core/EndPoint5/NetEndPoint5Protocol", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class NetEndPoint5Protocol {
@@ -1595,7 +1595,7 @@ define("Common/EndPoint5/NetEndPoint5Protocol", ["require", "exports"], function
     NetEndPoint5Protocol.ERROR_HEADER = "Error";
     exports.NetEndPoint5Protocol = NetEndPoint5Protocol;
 });
-define("Common/EndPoint5/NetEndPoint5", ["require", "exports", "Common/ChainedNode/ChainedNode", "Common/Node/Node", "Common/Container/LinkedList", "Common/EndPoint3/NetEndPoint3", "Common/EndPoint5/NetEndPoint5Protocol"], function (require, exports, ChainedNode_1, Node_2, LinkedList_6, NetEndPoint3_1, NetEndPoint5Protocol_1) {
+define("Core/EndPoint5/NetEndPoint5", ["require", "exports", "Core/ChainedNode/ChainedNode", "Core/Node/Node", "Core/Container/LinkedList", "Core/EndPoint3/NetEndPoint3", "Core/EndPoint5/NetEndPoint5Protocol"], function (require, exports, ChainedNode_1, Node_2, LinkedList_6, NetEndPoint3_1, NetEndPoint5Protocol_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class NetEndPoint5 {
@@ -1669,7 +1669,7 @@ define("Common/EndPoint5/NetEndPoint5", ["require", "exports", "Common/ChainedNo
     }
     exports.NetEndPoint5 = NetEndPoint5;
 });
-define("Common/Enum/RotationDirection", ["require", "exports"], function (require, exports) {
+define("Core/Enum/RotationDirection", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var RotationDirection;
@@ -1678,7 +1678,7 @@ define("Common/Enum/RotationDirection", ["require", "exports"], function (requir
         RotationDirection[RotationDirection["Backward"] = 1] = "Backward";
     })(RotationDirection = exports.RotationDirection || (exports.RotationDirection = {}));
 });
-define("Common/Enum/RotationDirectionMapper", ["require", "exports", "Common/Enum/RotationDirection"], function (require, exports, RotationDirection_1) {
+define("Core/Enum/RotationDirectionMapper", ["require", "exports", "Core/Enum/RotationDirection"], function (require, exports, RotationDirection_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class RotationDirectionMapper {
@@ -1689,7 +1689,7 @@ define("Common/Enum/RotationDirectionMapper", ["require", "exports", "Common/Enu
     }
     exports.RotationDirectionMapper = RotationDirectionMapper;
 });
-define("Common/Math/CentralCalculator", ["require", "exports"], function (require, exports) {
+define("Core/Math/CentralCalculator", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class CentralCalculator {
@@ -1733,7 +1733,7 @@ define("Common/Math/CentralCalculator", ["require", "exports"], function (requir
     }
     exports.CentralCalculator = CentralCalculator;
 });
-define("Common/Raster/TopLeftPositionedRectangle", ["require", "exports"], function (require, exports) {
+define("Core/Raster/TopLeftPositionedRectangle", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class TopLeftPositionedRectangle {
@@ -1794,7 +1794,7 @@ define("Common/Raster/TopLeftPositionedRectangle", ["require", "exports"], funct
     }
     exports.TopLeftPositionedRectangle = TopLeftPositionedRectangle;
 });
-define("Common/Test/NumberMediator", ["require", "exports", "Common/Test/Mediator"], function (require, exports, Mediator_1) {
+define("Core/Test/NumberMediator", ["require", "exports", "Core/Test/Mediator"], function (require, exports, Mediator_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class NumberMediator extends Mediator_1.Mediator {
@@ -1804,7 +1804,7 @@ define("Common/Test/NumberMediator", ["require", "exports", "Common/Test/Mediato
     }
     exports.NumberMediator = NumberMediator;
 });
-define("Common/Test/StringMediator", ["require", "exports", "Common/Test/Mediator"], function (require, exports, Mediator_2) {
+define("Core/Test/StringMediator", ["require", "exports", "Core/Test/Mediator"], function (require, exports, Mediator_2) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class StringMediator extends Mediator_2.Mediator {
@@ -1819,7 +1819,7 @@ define("Common/Test/StringMediator", ["require", "exports", "Common/Test/Mediato
     }
     exports.StringMediator = StringMediator;
 });
-define("Common/Test/Test", ["require", "exports", "Common/BaseTest/BaseTest", "Common/Test/FunctionMediator", "Common/Test/Mediator", "Common/Test/NumberMediator", "Common/Test/StringMediator"], function (require, exports, BaseTest_1, FunctionMediator_1, Mediator_3, NumberMediator_1, StringMediator_1) {
+define("Core/Test/Test", ["require", "exports", "Core/BaseTest/BaseTest", "Core/Test/FunctionMediator", "Core/Test/Mediator", "Core/Test/NumberMediator", "Core/Test/StringMediator"], function (require, exports, BaseTest_1, FunctionMediator_1, Mediator_3, NumberMediator_1, StringMediator_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class Test extends BaseTest_1.BaseTest {
@@ -1851,7 +1851,7 @@ define("Common/Test/Test", ["require", "exports", "Common/BaseTest/BaseTest", "C
     }
     exports.Test = Test;
 });
-define("Common/Test/Mediator", ["require", "exports"], function (require, exports) {
+define("Core/Test/Mediator", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class Mediator {
@@ -1907,7 +1907,7 @@ define("Common/Test/Mediator", ["require", "exports"], function (require, export
     }
     exports.Mediator = Mediator;
 });
-define("Common/Test/ThrownErrorMediator", ["require", "exports"], function (require, exports) {
+define("Core/Test/ThrownErrorMediator", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class ThrownErrorMediator {
@@ -1945,7 +1945,7 @@ define("Common/Test/ThrownErrorMediator", ["require", "exports"], function (requ
     }
     exports.ThrownErrorMediator = ThrownErrorMediator;
 });
-define("Common/Test/FunctionMediator", ["require", "exports", "Common/Test/Mediator", "Common/Test/ThrownErrorMediator"], function (require, exports, Mediator_4, ThrownErrorMediator_1) {
+define("Core/Test/FunctionMediator", ["require", "exports", "Core/Test/Mediator", "Core/Test/ThrownErrorMediator"], function (require, exports, Mediator_4, ThrownErrorMediator_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class FunctionMediator extends Mediator_4.Mediator {
@@ -1972,7 +1972,7 @@ define("Common/Test/FunctionMediator", ["require", "exports", "Common/Test/Media
     }
     exports.FunctionMediator = FunctionMediator;
 });
-define("Common/Test/TestPool", ["require", "exports", "Common/Container/LinkedList"], function (require, exports, LinkedList_7) {
+define("Core/Test/TestPool", ["require", "exports", "Core/Container/LinkedList"], function (require, exports, LinkedList_7) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class TestPool {
@@ -2002,23 +2002,7 @@ define("Common/Test/TestPool", ["require", "exports", "Common/Container/LinkedLi
     }
     exports.TestPool = TestPool;
 });
-define("Element/Base/Element", ["require", "exports", "Common/Node/Node"], function (require, exports, Node_3) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    class Element {
-        getSpecification() {
-            return this.getSpecificationAs(this.getType());
-        }
-        getSpecificationAs(type) {
-            return Node_3.Node.withHeaderAndAttributes(type, this.getAttributes());
-        }
-        toString() {
-            return this.getSpecification().toString();
-        }
-    }
-    exports.Element = Element;
-});
-define("Element/Input/Key", ["require", "exports"], function (require, exports) {
+define("System/Input/Key", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var Key;
@@ -2120,11 +2104,11 @@ define("Element/Input/Key", ["require", "exports"], function (require, exports) 
         Key[Key["WINDOWS"] = 94] = "WINDOWS";
     })(Key = exports.Key || (exports.Key = {}));
 });
-define("Element/BaseGUI_API/IInputTaker", ["require", "exports"], function (require, exports) {
+define("System/BaseGUI_API/IInputTaker", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
 });
-define("Element/CanvasGUI/CanvasGUICommandProtocol", ["require", "exports"], function (require, exports) {
+define("System/CanvasGUI/CanvasGUICommandProtocol", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class CanvasGUICommandProtocol {
@@ -2134,10 +2118,11 @@ define("Element/CanvasGUI/CanvasGUICommandProtocol", ["require", "exports"], fun
     CanvasGUICommandProtocol.PAINT_IMAGE_BY_ID = 'PaintImageById';
     CanvasGUICommandProtocol.PAINT_TEXT = 'PaintText';
     CanvasGUICommandProtocol.SET_COLOR = 'SetColor';
+    CanvasGUICommandProtocol.SET_OPACITY_PERCENTAGE = "SetOpacityPercentage";
     CanvasGUICommandProtocol.TRANSLATE = 'Translate';
     exports.CanvasGUICommandProtocol = CanvasGUICommandProtocol;
 });
-define("Element/CanvasGUI/CanvasGUIObjectProtocol", ["require", "exports"], function (require, exports) {
+define("System/CanvasGUI/CanvasGUIObjectProtocol", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class CanvasGUIObjectProtocol {
@@ -2145,7 +2130,7 @@ define("Element/CanvasGUI/CanvasGUIObjectProtocol", ["require", "exports"], func
     CanvasGUIObjectProtocol.CREATE_PAINTER = 'CreatePainter';
     exports.CanvasGUIObjectProtocol = CanvasGUIObjectProtocol;
 });
-define("Element/Color/Color", ["require", "exports"], function (require, exports) {
+define("System/Color/Color", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class Color {
@@ -2216,7 +2201,7 @@ define("Element/Color/Color", ["require", "exports"], function (require, exports
     Color.WHITE = new Color(255, 255, 255, 255);
     exports.Color = Color;
 });
-define("Element/TextFormat/FontType", ["require", "exports"], function (require, exports) {
+define("System/TextFormat/FontType", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var FontType;
@@ -2231,7 +2216,7 @@ define("Element/TextFormat/FontType", ["require", "exports"], function (require,
         FontType[FontType["Verdana"] = 7] = "Verdana";
     })(FontType = exports.FontType || (exports.FontType = {}));
 });
-define("Element/TextFormat/Font", ["require", "exports", "Common/Constant/FontCodeCatalogue", "Element/TextFormat/FontType"], function (require, exports, FontCodeCatalogue_1, FontType_1) {
+define("System/TextFormat/Font", ["require", "exports", "Core/Constant/FontCodeCatalogue", "System/TextFormat/FontType"], function (require, exports, FontCodeCatalogue_1, FontType_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class Font {
@@ -2273,11 +2258,11 @@ define("Element/TextFormat/Font", ["require", "exports", "Common/Constant/FontCo
     }
     exports.Font = Font;
 });
-define("Element/Graphic/IImage", ["require", "exports"], function (require, exports) {
+define("System/Graphic/IImage", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
 });
-define("Element/TextFormat/TextFormat", ["require", "exports", "Element/Color/Color", "Element/TextFormat/Font"], function (require, exports, Color_1, Font_1) {
+define("System/TextFormat/TextFormat", ["require", "exports", "System/Color/Color", "System/TextFormat/Font"], function (require, exports, Color_1, Font_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class TextFormat {
@@ -2326,7 +2311,7 @@ define("Element/TextFormat/TextFormat", ["require", "exports", "Element/Color/Co
     }
     exports.TextFormat = TextFormat;
 });
-define("Element/CanvasGUI/CanvasGUIGlobalPainter", ["require", "exports", "Element/Color/Color", "Element/TextFormat/Font", "Element/TextFormat/FontType", "Element/TextFormat/TextFormat"], function (require, exports, Color_2, Font_2, FontType_2, TextFormat_1) {
+define("System/CanvasGUI/CanvasGUIGlobalPainter", ["require", "exports", "System/Color/Color", "System/TextFormat/Font", "System/TextFormat/FontType", "System/TextFormat/TextFormat"], function (require, exports, Color_2, Font_2, FontType_2, TextFormat_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class CanvasGUIGlobalPainter {
@@ -2403,6 +2388,15 @@ define("Element/CanvasGUI/CanvasGUIGlobalPainter", ["require", "exports", "Eleme
         setColor(color) {
             this.canvasRenderingContext.fillStyle = color.getHTMLCode();
         }
+        setOpacityPercentage(opacityPercentage) {
+            if (opacityPercentage < 0.0) {
+                throw new Error('The given opacityPercentage is negative.');
+            }
+            if (opacityPercentage > 1.0) {
+                throw new Error('The given opacityPercentage is bigger than 1.0.');
+            }
+            this.canvasRenderingContext.globalAlpha = opacityPercentage;
+        }
     }
     CanvasGUIGlobalPainter.DEFAULT_TEXT_FONT_TYPE = FontType_2.FontType.Verdana;
     CanvasGUIGlobalPainter.DEFAULT_TEXT_SIZE = 10;
@@ -2410,11 +2404,11 @@ define("Element/CanvasGUI/CanvasGUIGlobalPainter", ["require", "exports", "Eleme
     CanvasGUIGlobalPainter.DEFAULT_TEXT_FORMAT = new TextFormat_1.TextFormat(new Font_2.Font(CanvasGUIGlobalPainter.DEFAULT_TEXT_FONT_TYPE), CanvasGUIGlobalPainter.DEFAULT_TEXT_SIZE, CanvasGUIGlobalPainter.DEFAULT_TEXT_COLOR);
     exports.CanvasGUIGlobalPainter = CanvasGUIGlobalPainter;
 });
-define("Element/PainterAPI/IPainter", ["require", "exports"], function (require, exports) {
+define("System/PainterAPI/IPainter", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
 });
-define("Element/CanvasGUI/CanvasGUIPainter", ["require", "exports", "Element/CanvasGUI/CanvasGUIGlobalPainter", "Common/Math/CentralCalculator", "Common/Container/SingleContainer", "Common/Raster/TopLeftPositionedRectangle"], function (require, exports, CanvasGUIGlobalPainter_1, CentralCalculator_1, SingleContainer_1, TopLeftPositionedRectangle_1) {
+define("System/CanvasGUI/CanvasGUIPainter", ["require", "exports", "System/CanvasGUI/CanvasGUIGlobalPainter", "Core/Math/CentralCalculator", "Core/Container/SingleContainer", "Core/Raster/TopLeftPositionedRectangle"], function (require, exports, CanvasGUIGlobalPainter_1, CentralCalculator_1, SingleContainer_1, TopLeftPositionedRectangle_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class CanvasGUIPainter {
@@ -2526,6 +2520,9 @@ define("Element/CanvasGUI/CanvasGUIPainter", ["require", "exports", "Element/Can
         setColor(color) {
             this.globalPainter.setColor(color);
         }
+        setOpacityPercentage(opacityPercentage) {
+            this.globalPainter.setOpacityPercentage(opacityPercentage);
+        }
         translate(xTranslation, yTranslation) {
             this.pushClipArea();
             this.xPosition += xTranslation;
@@ -2557,7 +2554,7 @@ define("Element/CanvasGUI/CanvasGUIPainter", ["require", "exports", "Element/Can
     }
     exports.CanvasGUIPainter = CanvasGUIPainter;
 });
-define("Element/CursorIcon/CursorIconType", ["require", "exports"], function (require, exports) {
+define("System/CursorIcon/CursorIconType", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var CursorIconType;
@@ -2570,7 +2567,7 @@ define("Element/CursorIcon/CursorIconType", ["require", "exports"], function (re
         CursorIconType[CursorIconType["Wait"] = 5] = "Wait";
     })(CursorIconType = exports.CursorIconType || (exports.CursorIconType = {}));
 });
-define("Element/CursorIcon/CursorIcon", ["require", "exports", "Element/CursorIcon/CursorIconType"], function (require, exports, CursorIconType_1) {
+define("System/CursorIcon/CursorIcon", ["require", "exports", "System/CursorIcon/CursorIconType"], function (require, exports, CursorIconType_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class CursorIcon {
@@ -2608,7 +2605,7 @@ define("Element/CursorIcon/CursorIcon", ["require", "exports", "Element/CursorIc
     }
     exports.CursorIcon = CursorIcon;
 });
-define("Element/Input/KeyMapper", ["require", "exports", "Element/Input/Key"], function (require, exports, Key_1) {
+define("System/Input/KeyMapper", ["require", "exports", "System/Input/Key"], function (require, exports, Key_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class KeyMapper {
@@ -2784,7 +2781,7 @@ define("Element/Input/KeyMapper", ["require", "exports", "Element/Input/Key"], f
     }
     exports.KeyMapper = KeyMapper;
 });
-define("Element/CanvasGUI/PaintProcess", ["require", "exports", "Common/Container/LinkedList"], function (require, exports, LinkedList_8) {
+define("System/CanvasGUI/PaintProcess", ["require", "exports", "Core/Container/LinkedList"], function (require, exports, LinkedList_8) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class PaintProcess {
@@ -2802,7 +2799,7 @@ define("Element/CanvasGUI/PaintProcess", ["require", "exports", "Common/Containe
     }
     exports.PaintProcess = PaintProcess;
 });
-define("Element/CanvasGUI/CanvasGUI", ["require", "exports", "Common/Caching/CachingContainer", "Element/CanvasGUI/CanvasGUICommandProtocol", "Element/CanvasGUI/CanvasGUIObjectProtocol", "Element/CanvasGUI/CanvasGUIPainter", "Element/Color/Color", "Element/Input/KeyMapper", "Common/Container/LinkedList", "Element/CanvasGUI/PaintProcess", "Common/Pair/Pair", "Common/Enum/RotationDirectionMapper", "Element/TextFormat/TextFormat", "Common/Container/SingleContainer"], function (require, exports, CachingContainer_1, CanvasGUICommandProtocol_1, CanvasGUIObjectProtocol_1, CanvasGUIPainter_1, Color_3, KeyMapper_1, LinkedList_9, PaintProcess_1, Pair_2, RotationDirectionMapper_1, TextFormat_2, SingleContainer_2) {
+define("System/CanvasGUI/CanvasGUI", ["require", "exports", "Core/Caching/CachingContainer", "System/CanvasGUI/CanvasGUICommandProtocol", "System/CanvasGUI/CanvasGUIObjectProtocol", "System/CanvasGUI/CanvasGUIPainter", "System/Color/Color", "System/Input/KeyMapper", "Core/Container/LinkedList", "System/CanvasGUI/PaintProcess", "Core/Pair/Pair", "Core/Enum/RotationDirectionMapper", "System/TextFormat/TextFormat", "Core/Container/SingleContainer"], function (require, exports, CachingContainer_1, CanvasGUICommandProtocol_1, CanvasGUIObjectProtocol_1, CanvasGUIPainter_1, Color_3, KeyMapper_1, LinkedList_9, PaintProcess_1, Pair_2, RotationDirectionMapper_1, TextFormat_2, SingleContainer_2) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class CanvasGUI {
@@ -3047,6 +3044,8 @@ define("Element/CanvasGUI/CanvasGUI", ["require", "exports", "Common/Caching/Cac
                     return this.createPaintTextCommand(painterIndex, textualPaintCommand);
                 case CanvasGUICommandProtocol_1.CanvasGUICommandProtocol.SET_COLOR:
                     return this.createSetColorCommand(painterIndex, textualPaintCommand);
+                case CanvasGUICommandProtocol_1.CanvasGUICommandProtocol.SET_OPACITY_PERCENTAGE:
+                    return this.createSetOpacityPercentageCommand(painterIndex, textualPaintCommand);
                 case CanvasGUICommandProtocol_1.CanvasGUICommandProtocol.TRANSLATE:
                     return this.createTranslateCommand(painterIndex, textualPaintCommand);
                 default:
@@ -3102,6 +3101,10 @@ define("Element/CanvasGUI/CanvasGUI", ["require", "exports", "Common/Caching/Cac
         createSetColorCommand(painterIndex, textualSetColorCommand) {
             const color = Color_3.Color.fromSpecification(textualSetColorCommand.getOneAttributeAsNode());
             return pp => pp.getRefPainterByIndex(painterIndex).setColor(color);
+        }
+        createSetOpacityPercentageCommand(painterIndex, textualSetOpacityPercentageCommand) {
+            const opacityPercentage = textualSetOpacityPercentageCommand.getOneAttributeAsNumber();
+            return pp => pp.getRefPainterByIndex(painterIndex).setOpacityPercentage(opacityPercentage);
         }
         createTranslateCommand(painterIndex, translateCommand) {
             const attributes = translateCommand.getAttributes();
@@ -3184,141 +3187,30 @@ define("Element/CanvasGUI/CanvasGUI", ["require", "exports", "Common/Caching/Cac
     CanvasGUI.MODEL_PIXELS_PER_MONITOR_PIXEL = 1 / CanvasGUI.MONITOR_PIXELS_PER_MODEL_PIXEL;
     exports.CanvasGUI = CanvasGUI;
 });
-define("Element/Graphic/CanvasImage", ["require", "exports", "Common/Constant/PascalCaseNameCatalogue"], function (require, exports, PascalCaseNameCatalogue_1) {
+define("System/Element/Element", ["require", "exports", "Core/Node/Node"], function (require, exports, Node_3) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    class CanvasImage {
-        static fromSpecification(specification, refresh) {
-            const width = specification.getRefFirstAttributeWithHeader(PascalCaseNameCatalogue_1.PascalCaseNameCatalogue.WIDTH).getOneAttributeAsNumber();
-            const height = specification.getRefFirstAttributeWithHeader(PascalCaseNameCatalogue_1.PascalCaseNameCatalogue.HEIGHT).getOneAttributeAsNumber();
-            const lJPGString = specification.getRefFirstAttributeWithHeader('JPGString').getOneAttributeHeader();
-            const image = document.createElement('img');
-            image.width = width;
-            image.height = height;
-            const canvas = document.createElement('canvas');
-            canvas.width = width;
-            canvas.height = height;
-            image.onload = function () {
-                canvas.getContext('2d').drawImage(image, 0, 0, width, height);
-                refresh();
-            };
-            image.src = 'data:image/jpeg;base64,' + lJPGString;
-            return new CanvasImage(width, height, canvas);
+    class Element {
+        getSpecification() {
+            return this.getSpecificationAs(this.getType());
         }
-        constructor(width, height, canvas) {
-            if (width < 1) {
-                throw new Error('The given width is not positive.');
-            }
-            if (height < 1) {
-                throw new Error('The given height is not positive.');
-            }
-            if (canvas === null) {
-                throw new Error('The given canvas is null.');
-            }
-            if (canvas === undefined) {
-                throw new Error('The given canvas is undefined.');
-            }
-            this.width = width;
-            this.height = height;
-            this.canvas = canvas;
+        getSpecificationAs(type) {
+            return Node_3.Node.withHeaderAndAttributes(type, this.getAttributes());
         }
-        getHeight() {
-            return this.height;
-        }
-        getWidth() {
-            return this.width;
-        }
-        toCanvas() {
-            return this.canvas;
+        toString() {
+            return this.getSpecification().toString();
         }
     }
-    exports.CanvasImage = CanvasImage;
+    exports.Element = Element;
 });
-define("Element/Graphic/Image", ["require", "exports", "Element/Color/Color", "Element/Base/Element", "Common/Container/Matrix", "Common/Node/Node", "Common/Constant/PascalCaseNameCatalogue"], function (require, exports, Color_4, Element_1, Matrix_1, Node_4, PascalCaseNameCatalogue_2) {
+define("System/Input/Input", ["require", "exports", "System/Element/Element"], function (require, exports, Element_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    class Image extends Element_1.Element {
-        constructor(pixels) {
-            super();
-            this.pixels = pixels;
-        }
-        static fromSpecification(specification) {
-            const pixels = new Matrix_1.Matrix();
-            const width = specification.getRefFirstAttributeWithHeader(PascalCaseNameCatalogue_2.PascalCaseNameCatalogue.WIDTH).getOneAttributeAsNumber();
-            var row = new Array();
-            var i = 1;
-            for (const a of specification.getRefFirstAttributeWithHeader(Image.PIXEL_ARRAY_HEADER).getRefAttributes()) {
-                row.push(Color_4.Color.fromSpecification(Node_4.Node.withAttribute(a)));
-                i++;
-                if (i > width) {
-                    pixels.addRow(row);
-                    row = new Array();
-                    i = 1;
-                }
-            }
-            return new Image(pixels);
-        }
-        getAttributes() {
-            throw new Error("Method not implemented.");
-        }
-        getHeight() {
-            return this.pixels.getRowCount();
-        }
-        getPixelAtIndex(index) {
-            return this.pixels.getRefAt(index);
-        }
-        getPixelAtPosition(xPosition, yPosition) {
-            return this.pixels.getRefAtRowAndColumn(xPosition, yPosition);
-        }
-        getSizeInPixel() {
-            return (this.getWidth() * this.getHeight());
-        }
-        getType() {
-            return Image.TYPE_HEADER;
-        }
-        getWidth() {
-            return this.pixels.getColumnCount();
-        }
-        toCanvas() {
-            this.generateCanvasIfNeeded();
-            return this.canvas;
-        }
-        generateCanvasIfNeeded() {
-            if (this.generatingCanvasIsNeeded()) {
-                this.generateCanvasWhenNeeded();
-            }
-        }
-        generateCanvasWhenNeeded() {
-            const width = this.getWidth();
-            const height = this.getHeight();
-            this.canvas = document.createElement('canvas');
-            this.canvas.width = width;
-            this.canvas.height = height;
-            const context = this.canvas.getContext('2d');
-            for (var rowIndex = 1; rowIndex <= height; rowIndex++) {
-                for (var columnIndex = 1; columnIndex <= width; columnIndex++) {
-                    const pixel = this.getPixelAtPosition(rowIndex, columnIndex);
-                    context.fillStyle = pixel.getHTMLCode();
-                    context.fillRect(columnIndex - 1, rowIndex - 1, 1, 1);
-                }
-            }
-        }
-        generatingCanvasIsNeeded() {
-            return (this.canvas === undefined);
-        }
-    }
-    Image.TYPE_HEADER = 'Image';
-    Image.PIXEL_ARRAY_HEADER = 'PixelArray';
-    exports.Image = Image;
-});
-define("Element/Input/Input", ["require", "exports", "Element/Base/Element"], function (require, exports, Element_2) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    class Input extends Element_2.Element {
+    class Input extends Element_1.Element {
     }
     exports.Input = Input;
 });
-define("Element/Input/KeyInputType", ["require", "exports"], function (require, exports) {
+define("System/Input/KeyInputType", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var KeyInputType;
@@ -3328,7 +3220,7 @@ define("Element/Input/KeyInputType", ["require", "exports"], function (require, 
         KeyInputType[KeyInputType["Typing"] = 2] = "Typing";
     })(KeyInputType = exports.KeyInputType || (exports.KeyInputType = {}));
 });
-define("Element/Input/KeyInput", ["require", "exports", "Element/Input/Input", "Element/Input/Key", "Element/Input/KeyInputType", "Common/Container/LinkedList", "Common/Node/Node"], function (require, exports, Input_1, Key_2, KeyInputType_1, LinkedList_10, Node_5) {
+define("System/Input/KeyInput", ["require", "exports", "System/Input/Input", "System/Input/Key", "System/Input/KeyInputType", "Core/Container/LinkedList", "Core/Node/Node"], function (require, exports, Input_1, Key_2, KeyInputType_1, LinkedList_10, Node_4) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class KeyInput extends Input_1.Input {
@@ -3351,8 +3243,8 @@ define("Element/Input/KeyInput", ["require", "exports", "Element/Input/Input", "
         }
         getAttributes() {
             const attributes = new LinkedList_10.LinkedList();
-            attributes.addAtEnd(Node_5.Node.withHeaderAndAttribute(KeyInput.KEY_HEADER, Node_5.Node.withHeader(Key_2.Key[this.key])));
-            attributes.addAtEnd(Node_5.Node.withHeaderAndAttribute(KeyInput.INPUT_TYPE_HEADER, Node_5.Node.withHeader(KeyInputType_1.KeyInputType[this.inputType])));
+            attributes.addAtEnd(Node_4.Node.withHeaderAndAttribute(KeyInput.KEY_HEADER, Node_4.Node.withHeader(Key_2.Key[this.key])));
+            attributes.addAtEnd(Node_4.Node.withHeaderAndAttribute(KeyInput.INPUT_TYPE_HEADER, Node_4.Node.withHeader(KeyInputType_1.KeyInputType[this.inputType])));
             return attributes;
         }
         getType() {
@@ -3364,7 +3256,7 @@ define("Element/Input/KeyInput", ["require", "exports", "Element/Input/Input", "
     KeyInput.INPUT_TYPE_HEADER = 'InputType';
     exports.KeyInput = KeyInput;
 });
-define("Element/Input/MouseInputType", ["require", "exports"], function (require, exports) {
+define("System/Input/MouseInputType", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var MouseInputType;
@@ -3383,7 +3275,7 @@ define("Element/Input/MouseInputType", ["require", "exports"], function (require
         MouseInputType[MouseInputType["BackwardMouseWheelRotationStep"] = 11] = "BackwardMouseWheelRotationStep";
     })(MouseInputType = exports.MouseInputType || (exports.MouseInputType = {}));
 });
-define("Element/Input/MouseInput", ["require", "exports", "Element/Input/Input", "Common/Container/LinkedList", "Element/Input/MouseInputType", "Common/Node/Node", "Common/Constant/PascalCaseNameCatalogue"], function (require, exports, Input_2, LinkedList_11, MouseInputType_1, Node_6, PascalCaseNameCatalogue_3) {
+define("System/Input/MouseInput", ["require", "exports", "System/Input/Input", "Core/Container/LinkedList", "System/Input/MouseInputType", "Core/Node/Node", "Core/Constant/PascalCaseNameCatalogue"], function (require, exports, Input_2, LinkedList_11, MouseInputType_1, Node_5, PascalCaseNameCatalogue_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class MouseInput extends Input_2.Input {
@@ -3430,20 +3322,20 @@ define("Element/Input/MouseInput", ["require", "exports", "Element/Input/Input",
             return this.mouseInputType;
         }
         getCursorPositionSpecification() {
-            const sizeSpecification = Node_6.Node.withHeader(PascalCaseNameCatalogue_3.PascalCaseNameCatalogue.CURSOR_POSITION);
+            const sizeSpecification = Node_5.Node.withHeader(PascalCaseNameCatalogue_1.PascalCaseNameCatalogue.CURSOR_POSITION);
             sizeSpecification.addAttributeFromNumber(this.cursorXPosition);
             sizeSpecification.addAttributeFromNumber(this.cursorYPosition);
             return sizeSpecification;
         }
         getInputTypeSpecification() {
-            return Node_6.Node.withHeaderAndAttribute(MouseInput.INPUT_TYPE_HEADER, Node_6.Node.withHeader(MouseInputType_1.MouseInputType[this.mouseInputType]));
+            return Node_5.Node.withHeaderAndAttribute(MouseInput.INPUT_TYPE_HEADER, Node_5.Node.withHeader(MouseInputType_1.MouseInputType[this.mouseInputType]));
         }
     }
     MouseInput.TYPE_NAME = 'MouseInput';
     MouseInput.INPUT_TYPE_HEADER = 'InputType';
     exports.MouseInput = MouseInput;
 });
-define("Element/Input/MouseInputTypeMapper", ["require", "exports", "Element/Input/MouseInputType", "Common/Enum/RotationDirection"], function (require, exports, MouseInputType_2, RotationDirection_2) {
+define("System/Input/MouseInputTypeMapper", ["require", "exports", "System/Input/MouseInputType", "Core/Enum/RotationDirection"], function (require, exports, MouseInputType_2, RotationDirection_2) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class MouseInputTypeMapper {
@@ -3459,7 +3351,7 @@ define("Element/Input/MouseInputTypeMapper", ["require", "exports", "Element/Inp
     }
     exports.MouseInputTypeMapper = MouseInputTypeMapper;
 });
-define("Element/Input/ResizeInput", ["require", "exports", "Element/Input/Input", "Common/Container/LinkedList", "Common/Node/Node", "Common/Constant/PascalCaseNameCatalogue"], function (require, exports, Input_3, LinkedList_12, Node_7, PascalCaseNameCatalogue_4) {
+define("System/Input/ResizeInput", ["require", "exports", "System/Input/Input", "Core/Container/LinkedList", "Core/Node/Node", "Core/Constant/PascalCaseNameCatalogue"], function (require, exports, Input_3, LinkedList_12, Node_6, PascalCaseNameCatalogue_2) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class ResizeInput extends Input_3.Input {
@@ -3499,7 +3391,7 @@ define("Element/Input/ResizeInput", ["require", "exports", "Element/Input/Input"
             return this.viewAreaWidth;
         }
         getSizeSpecification() {
-            const sizeSpecification = Node_7.Node.withHeader(PascalCaseNameCatalogue_4.PascalCaseNameCatalogue.SIZE);
+            const sizeSpecification = Node_6.Node.withHeader(PascalCaseNameCatalogue_2.PascalCaseNameCatalogue.SIZE);
             sizeSpecification.addAttributeFromNumber(this.viewAreaWidth);
             sizeSpecification.addAttributeFromNumber(this.viewAreaHeight);
             return sizeSpecification;
@@ -3508,7 +3400,7 @@ define("Element/Input/ResizeInput", ["require", "exports", "Element/Input/Input"
     ResizeInput.TYPE_NAME = 'ResizeInput';
     exports.ResizeInput = ResizeInput;
 });
-define("System/FrontCanvasGUIClient/FrontCanvasGUIClientInputTaker", ["require", "exports", "Element/Input/KeyInput", "Element/Input/KeyInputType", "Element/Input/MouseInput", "Element/Input/MouseInputType", "Element/Input/MouseInputTypeMapper", "Element/Input/ResizeInput"], function (require, exports, KeyInput_1, KeyInputType_2, MouseInput_1, MouseInputType_3, MouseInputTypeMapper_1, ResizeInput_1) {
+define("System/FrontCanvasGUIClient/FrontCanvasGUIClientInputTaker", ["require", "exports", "System/Input/KeyInput", "System/Input/KeyInputType", "System/Input/MouseInput", "System/Input/MouseInputType", "System/Input/MouseInputTypeMapper", "System/Input/ResizeInput"], function (require, exports, KeyInput_1, KeyInputType_2, MouseInput_1, MouseInputType_3, MouseInputTypeMapper_1, ResizeInput_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class FrontCanvasGUIClientInputTaker {
@@ -3612,7 +3504,134 @@ define("System/FrontCanvasGUIClient/FrontCanvasGUIClientObjectProtocol", ["requi
     FrontCanvasGUIClientObjectProtocol.VIEW_AREA_SIZE = 'ViewAreaSize';
     exports.FrontCanvasGUIClientObjectProtocol = FrontCanvasGUIClientObjectProtocol;
 });
-define("System/FrontCanvasGUIClient/GUIHandler", ["require", "exports", "Element/CanvasGUI/CanvasGUI", "Element/Graphic/CanvasImage", "Element/CursorIcon/CursorIcon", "System/FrontCanvasGUIClient/FrontCanvasGUIClientCommandProtocol", "System/FrontCanvasGUIClient/FrontCanvasGUIClientObjectProtocol", "Element/Graphic/Image"], function (require, exports, CanvasGUI_1, CanvasImage_1, CursorIcon_1, FrontCanvasGUIClientCommandProtocol_1, FrontCanvasGUIClientObjectProtocol_1, Image_1) {
+define("System/Graphic/CanvasImage", ["require", "exports", "Core/Constant/PascalCaseNameCatalogue"], function (require, exports, PascalCaseNameCatalogue_3) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    class CanvasImage {
+        static fromSpecification(specification, refresh) {
+            const width = specification.getRefFirstAttributeWithHeader(PascalCaseNameCatalogue_3.PascalCaseNameCatalogue.WIDTH).getOneAttributeAsNumber();
+            const height = specification.getRefFirstAttributeWithHeader(PascalCaseNameCatalogue_3.PascalCaseNameCatalogue.HEIGHT).getOneAttributeAsNumber();
+            const lJPGString = specification.getRefFirstAttributeWithHeader('JPGString').getOneAttributeHeader();
+            const image = document.createElement('img');
+            image.width = width;
+            image.height = height;
+            const canvas = document.createElement('canvas');
+            canvas.width = width;
+            canvas.height = height;
+            image.onload = function () {
+                canvas.getContext('2d').drawImage(image, 0, 0, width, height);
+                refresh();
+            };
+            image.src = 'data:image/jpeg;base64,' + lJPGString;
+            return new CanvasImage(width, height, canvas);
+        }
+        constructor(width, height, canvas) {
+            if (width < 1) {
+                throw new Error('The given width is not positive.');
+            }
+            if (height < 1) {
+                throw new Error('The given height is not positive.');
+            }
+            if (canvas === null) {
+                throw new Error('The given canvas is null.');
+            }
+            if (canvas === undefined) {
+                throw new Error('The given canvas is undefined.');
+            }
+            this.width = width;
+            this.height = height;
+            this.canvas = canvas;
+        }
+        getHeight() {
+            return this.height;
+        }
+        getWidth() {
+            return this.width;
+        }
+        toCanvas() {
+            return this.canvas;
+        }
+    }
+    exports.CanvasImage = CanvasImage;
+});
+define("System/Graphic/Image", ["require", "exports", "System/Color/Color", "System/Element/Element", "Core/Container/Matrix", "Core/Node/Node", "Core/Constant/PascalCaseNameCatalogue"], function (require, exports, Color_4, Element_2, Matrix_1, Node_7, PascalCaseNameCatalogue_4) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    class Image extends Element_2.Element {
+        constructor(pixels) {
+            super();
+            this.pixels = pixels;
+        }
+        static fromSpecification(specification) {
+            const pixels = new Matrix_1.Matrix();
+            const width = specification.getRefFirstAttributeWithHeader(PascalCaseNameCatalogue_4.PascalCaseNameCatalogue.WIDTH).getOneAttributeAsNumber();
+            var row = new Array();
+            var i = 1;
+            for (const a of specification.getRefFirstAttributeWithHeader(Image.PIXEL_ARRAY_HEADER).getRefAttributes()) {
+                row.push(Color_4.Color.fromSpecification(Node_7.Node.withAttribute(a)));
+                i++;
+                if (i > width) {
+                    pixels.addRow(row);
+                    row = new Array();
+                    i = 1;
+                }
+            }
+            return new Image(pixels);
+        }
+        getAttributes() {
+            throw new Error("Method not implemented.");
+        }
+        getHeight() {
+            return this.pixels.getRowCount();
+        }
+        getPixelAtIndex(index) {
+            return this.pixels.getRefAt(index);
+        }
+        getPixelAtPosition(xPosition, yPosition) {
+            return this.pixels.getRefAtRowAndColumn(xPosition, yPosition);
+        }
+        getSizeInPixel() {
+            return (this.getWidth() * this.getHeight());
+        }
+        getType() {
+            return Image.TYPE_HEADER;
+        }
+        getWidth() {
+            return this.pixels.getColumnCount();
+        }
+        toCanvas() {
+            this.generateCanvasIfNeeded();
+            return this.canvas;
+        }
+        generateCanvasIfNeeded() {
+            if (this.generatingCanvasIsNeeded()) {
+                this.generateCanvasWhenNeeded();
+            }
+        }
+        generateCanvasWhenNeeded() {
+            const width = this.getWidth();
+            const height = this.getHeight();
+            this.canvas = document.createElement('canvas');
+            this.canvas.width = width;
+            this.canvas.height = height;
+            const context = this.canvas.getContext('2d');
+            for (var rowIndex = 1; rowIndex <= height; rowIndex++) {
+                for (var columnIndex = 1; columnIndex <= width; columnIndex++) {
+                    const pixel = this.getPixelAtPosition(rowIndex, columnIndex);
+                    context.fillStyle = pixel.getHTMLCode();
+                    context.fillRect(columnIndex - 1, rowIndex - 1, 1, 1);
+                }
+            }
+        }
+        generatingCanvasIsNeeded() {
+            return (this.canvas === undefined);
+        }
+    }
+    Image.TYPE_HEADER = 'Image';
+    Image.PIXEL_ARRAY_HEADER = 'PixelArray';
+    exports.Image = Image;
+});
+define("System/FrontCanvasGUIClient/GUIHandler", ["require", "exports", "System/CanvasGUI/CanvasGUI", "System/Graphic/CanvasImage", "System/CursorIcon/CursorIcon", "System/FrontCanvasGUIClient/FrontCanvasGUIClientCommandProtocol", "System/FrontCanvasGUIClient/FrontCanvasGUIClientObjectProtocol", "System/Graphic/Image"], function (require, exports, CanvasGUI_1, CanvasImage_1, CursorIcon_1, FrontCanvasGUIClientCommandProtocol_1, FrontCanvasGUIClientObjectProtocol_1, Image_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class GUIHandler {
@@ -3680,7 +3699,7 @@ define("System/FrontCanvasGUIClient/GUIHandler", ["require", "exports", "Element
     }
     exports.GUIHandler = GUIHandler;
 });
-define("System/PerformanceFilterInputTaker/PerformanceFilterInputTaker", ["require", "exports", "Element/Input/MouseInput", "Element/Input/MouseInputType"], function (require, exports, MouseInput_2, MouseInputType_4) {
+define("System/PerformanceFilterInputTaker/PerformanceFilterInputTaker", ["require", "exports", "System/Input/MouseInput", "System/Input/MouseInputType"], function (require, exports, MouseInput_2, MouseInputType_4) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class PerformanceFilterInputTaker {
@@ -3793,7 +3812,7 @@ define("System/FrontCanvasGUIClient/ReceiverController", ["require", "exports"],
     }
     exports.ReceiverController = ReceiverController;
 });
-define("System/FrontCanvasGUIClient/FrontCanvasGUIClient", ["require", "exports", "Common/ChainedNode/ChainedNode", "System/FrontCanvasGUIClient/FrontCanvasGUIClientInputTaker", "System/FrontCanvasGUIClient/FrontCanvasGUIClientCommandProtocol", "System/FrontCanvasGUIClient/FrontCanvasGUIClientObjectProtocol", "System/FrontCanvasGUIClient/GUIHandler", "Common/EndPoint5/NetEndPoint5", "Common/Node/Node", "System/PerformanceFilterInputTaker/PerformanceFilterInputTaker", "System/FrontCanvasGUIClient/ReceiverController", "Common/Container/SingleContainer"], function (require, exports, ChainedNode_2, FrontCanvasGUIClientInputTaker_1, FrontCanvasGUIClientCommandProtocol_2, FrontCanvasGUIClientObjectProtocol_2, GUIHandler_1, NetEndPoint5_1, Node_8, PerformanceFilterInputTaker_1, ReceiverController_1, SingleContainer_3) {
+define("System/FrontCanvasGUIClient/FrontCanvasGUIClient", ["require", "exports", "Core/ChainedNode/ChainedNode", "System/FrontCanvasGUIClient/FrontCanvasGUIClientInputTaker", "System/FrontCanvasGUIClient/FrontCanvasGUIClientCommandProtocol", "System/FrontCanvasGUIClient/FrontCanvasGUIClientObjectProtocol", "System/FrontCanvasGUIClient/GUIHandler", "Core/EndPoint5/NetEndPoint5", "Core/Node/Node", "System/PerformanceFilterInputTaker/PerformanceFilterInputTaker", "System/FrontCanvasGUIClient/ReceiverController", "Core/Container/SingleContainer"], function (require, exports, ChainedNode_2, FrontCanvasGUIClientInputTaker_1, FrontCanvasGUIClientCommandProtocol_2, FrontCanvasGUIClientObjectProtocol_2, GUIHandler_1, NetEndPoint5_1, Node_8, PerformanceFilterInputTaker_1, ReceiverController_1, SingleContainer_3) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class FrontCanvasGUIClient {

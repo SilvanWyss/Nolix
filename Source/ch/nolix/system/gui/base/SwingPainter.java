@@ -195,6 +195,9 @@ public final class SwingPainter implements IPainter {
 	//method
 	@Override
 	public void setOpacityPercentage(final double opacityPercentage) {
+		
+		Validator.assertThat(opacityPercentage).thatIsNamed("opacity percentage").isBetween(0.0, 1.0);
+		
 		graphics.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, (float)opacityPercentage));
 	}
 	

@@ -237,6 +237,8 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 				return createSetColorCommand(painterIndex, paintCommand);
 			case CanvasGUICommandProtocol.SET_COLOR_GRADIENT:
 				return createSetColorGradientCommand(painterIndex, paintCommand);
+			case CanvasGUICommandProtocol.SET_OPACITY_PERCENTAGE:
+				return createSetOpacityPercentageCommand(painterIndex, paintCommand);
 			case CanvasGUICommandProtocol.TRANSLATE:
 				return createTranslateCommand(painterIndex, paintCommand);
 			default:
@@ -356,6 +358,17 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 		final var colorGradient = ColorGradient.fromSpecification(setColorGradientCommand.getOneAttributeAsNode());
 		
 		return pr -> pr.getRefPainterByIndex(painterIndex).setColorGradient(colorGradient);
+	}
+	
+	//method
+	private IElementTaker<PaintRun> createSetOpacityPercentageCommand(
+		final int painterIndex,
+		final ChainedNode textualSetOpacityPercentageCommand
+	) {
+		
+		final var opacityPercentage = textualSetOpacityPercentageCommand.getOneAttributeAsDouble();
+		
+		return pr -> pr.getRefPainterByIndex(painterIndex).setOpacityPercentage(opacityPercentage);
 	}
 	
 	//method

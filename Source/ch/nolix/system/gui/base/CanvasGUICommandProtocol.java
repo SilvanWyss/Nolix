@@ -12,6 +12,7 @@ final class CanvasGUICommandProtocol {
 	public static final String PAINT_TEXT = "PaintText";
 	public static final String SET_COLOR = "SetColor";
 	public static final String SET_COLOR_GRADIENT = "SetColorGradient";
+	public static final String SET_OPACITY_PERCENTAGE = "SetOpacityPercentage";
 	public static final String TRANSLATE = "Translate";
 	
 	//constructor
