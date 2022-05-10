@@ -2,6 +2,7 @@
 package ch.nolix.system.gui.base;
 
 //Java imports
+import java.awt.AlphaComposite;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
@@ -23,13 +24,13 @@ public final class SwingPainter implements IPainter {
 	
 	//attributes
 	private final CachingContainer<IImage<?>> imageCache;
-	private final Graphics graphics;
+	private final Graphics2D graphics;
 	
 	//optional attribute
 	private ColorGradient colorGradient;
 	
 	//constructor
-	public SwingPainter(final CachingContainer<IImage<?>> imageCache, final Graphics graphics) {
+	public SwingPainter(final CachingContainer<IImage<?>> imageCache, final Graphics2D graphics) {
 		
 		Validator.assertThat(imageCache).thatIsNamed("image cache").isNotNull();
 		Validator.assertThat(graphics).thatIsNamed(Graphics.class).isNotNull();
@@ -37,7 +38,7 @@ public final class SwingPainter implements IPainter {
 		this.imageCache = imageCache;
 		this.graphics = graphics;
 		
-		((Graphics2D)graphics).setRenderingHint(
+		graphics.setRenderingHint(
 			RenderingHints.KEY_ANTIALIASING,
 			RenderingHints.VALUE_ANTIALIAS_ON
 		);
@@ -48,7 +49,7 @@ public final class SwingPainter implements IPainter {
 	public IPainter createPainter(final int xTranslation, final int yTranslation) {
 		final var lGraphics = graphics.create();
 		lGraphics.translate(xTranslation, yTranslation);
-		return new SwingPainter(imageCache, lGraphics);
+		return new SwingPainter(imageCache, (Graphics2D)lGraphics);
 	}
 	
 	//method
@@ -62,6 +63,7 @@ public final class SwingPainter implements IPainter {
 		return
 		new SwingPainter(
 			imageCache,
+			(Graphics2D)
 			graphics.create(
 				xTranslation,
 				yTranslation,
@@ -188,6 +190,12 @@ public final class SwingPainter implements IPainter {
 		Validator.assertThat(colorGradient).thatIsNamed(ColorGradient.class).isNotNull();
 		
 		this.colorGradient = colorGradient;
+	}
+	
+	//method
+	@Override
+	public void setOpacityPercentage(final double opacityPercentage) {
+		graphics.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, (float)opacityPercentage));
 	}
 	
 	//method

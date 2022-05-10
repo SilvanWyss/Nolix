@@ -259,6 +259,12 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 	
 	//method
 	@Override
+	public void setOpacityPercentage(final double opacityPercentage) {
+		//TODO: Implement.
+	}
+	
+	//method
+	@Override
 	public void translate(final int xTranslation, final int yTranslation) {
 		appendPaintCommand(
 			CanvasGUICommandProtocol.TRANSLATE

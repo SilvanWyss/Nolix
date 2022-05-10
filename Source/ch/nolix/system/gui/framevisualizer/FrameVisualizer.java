@@ -4,6 +4,7 @@ package ch.nolix.system.gui.framevisualizer;
 //Java imports
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
@@ -64,7 +65,7 @@ public final class FrameVisualizer implements IVisualizer {
 			super.paintComponent(graphics);
 			
 			//Creates swing painter.
-			FrameVisualizer.this.parentGUI.paint(new SwingPainter(parentGUI.getRefImageCache(), graphics));
+			FrameVisualizer.this.parentGUI.paint(new SwingPainter(parentGUI.getRefImageCache(), (Graphics2D)graphics));
 		}
 		
 		//method
