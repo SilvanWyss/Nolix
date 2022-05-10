@@ -434,8 +434,8 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 */
 	@Override
 	public final void paint(final IPainter painter) {
-		background.paint(painter);
-		layers.forEach(l -> l.paint(painter));
+		background.paint(painter.createPainter());
+		layers.forEach(l -> l.paint(painter.createPainter()));
 	}
 	
 	//method

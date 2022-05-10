@@ -56,6 +56,9 @@ public final class Layer extends ConfigurableElement<Layer>
 implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInputTaker, Recalculable {
 	
 	//constant
+	public static final double DEFAULT_OPACITY_PERCENTAGE = 1.0;
+	
+	//constant
 	public static final CursorIcon DEFAULT_CURSOR_ICON = CursorIcon.ARROW;
 	
 	//constant
@@ -63,6 +66,9 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	
 	//constant
 	public static final boolean DEFAULT_CONFIGURATION_ALLOW_STATE = true;
+	
+	//constant
+	private static final String OPACITY_PERCENTAGE = "OpacityPercentage";
 	
 	//constant
 	private static final String BACKGROUND_HEADER = "Background";
@@ -100,6 +106,14 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 		this::setRole,
 		LayerRole::fromSpecification,
 		LayerRole::getSpecification
+	);
+	
+	//attribute
+	private final MutableValue<Double> opacityPercentage =
+	MutableValue.forDouble(
+		OPACITY_PERCENTAGE,
+		DEFAULT_OPACITY_PERCENTAGE,
+		this::setOpacityPercentage
 	);
 	
 	//attribute
@@ -329,6 +343,14 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	}
 	
 	//method
+	/**
+	 * @return the opacity percentage of the current {@link Layer}.
+	 */
+	public double getOpacityPercentage() {
+		return opacityPercentage.getValue();
+	}
+	
+	//method
 	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * @return the {@link WidgetGUI} the current {@link Layer} belongs to.
@@ -461,6 +483,14 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 */
 	public boolean hasBackgroundImage() {
 		return (hasBackground() && background.getValue().isImage());
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link Layer} has a full opacity.
+	 */
+	public boolean hasFullOpacity() {
+		return (getOpacityPercentage() == 1.0);
 	}
 	
 	//method
@@ -786,6 +816,8 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 */
 	public void paint(final IPainter painter) {
 		
+		painter.setOpacityPercentage(getOpacityPercentage());
+		
 		//Paints the background of the current Layer.
 		paintBackground(painter);
 		
@@ -1096,6 +1128,22 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 		Validator.assertThat(mouseWheelReleaseAction).thatIsNamed("mouse wheel release action").isNotNull();
 		
 		this.mouseWheelReleaseAction = mouseWheelReleaseAction;
+		
+		return this;
+	}
+	
+	//method
+	/**
+	 * Sets the opacity percentage of the current {@link Layer}.
+	 * 
+	 * @param opacityPercentage
+	 * @return the current {@link Layer}.
+	 */
+	public Layer setOpacityPercentage(final double opacityPercentage) {
+		
+		Validator.assertThat(opacityPercentage).thatIsNamed("opacity percentage").isBetween(0.0, 1.0);
+		
+		this.opacityPercentage.setValue(opacityPercentage);
 		
 		return this;
 	}
