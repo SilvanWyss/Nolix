@@ -26,7 +26,16 @@ public class ExtendedStringMediator extends StringMediator {
 		//Calls constructor of the base class.
 		super(value);
 	}
-
+	
+	//method
+	/**
+	 * @param type
+	 * @return a new {@link StringMediator} for the argument of the current {@link ExtendedStringMediator}.
+	 */
+	public final StringMediator thatIsNamed(final Class<?> type) {
+		return new StringMediator(type.getSimpleName(), getRefArgument());
+	}
+	
 	//method
 	/**
 	 * @param argumentName
