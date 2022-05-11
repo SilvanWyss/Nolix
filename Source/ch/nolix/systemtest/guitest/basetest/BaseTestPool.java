@@ -9,6 +9,6 @@ public final class BaseTestPool extends TestPool {
 	
 	//constructor
 	public BaseTestPool() {
-		super(FrameTest.class, InvisibleGUITest.class);
+		super(FrameTest.class, InvisibleGUITest.class, LayerTest.class);
 	}
 }
