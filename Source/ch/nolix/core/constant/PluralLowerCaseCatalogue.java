@@ -127,6 +127,7 @@ public final class PluralLowerCaseCatalogue {
 	public static final String NOUNS = "nouns";
 	public static final String NUMBERS = "numbers";
 	public static final String OBJECTS = "objects";
+	public static final String OPACITIES = "opacities";
 	public static final String OPCODES = "opcodes";
 	public static final String OUTPUTS = "outputs";
 	public static final String OUTPUT_FUNCTIONS = "output functions";

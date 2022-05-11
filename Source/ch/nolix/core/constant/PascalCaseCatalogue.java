@@ -127,6 +127,7 @@ public final class PascalCaseCatalogue {
 	public static final String NOUN = "Noun";
 	public static final String NUMBER = "Number";
 	public static final String OBJECT = "Object";
+	public static final String OPACITY = "Opacity";
 	public static final String OPCODE = "Opcode";
 	public static final String OUTPUT = "Output";
 	public static final String OUTPUT_FUNCTION = "OutputFunction";

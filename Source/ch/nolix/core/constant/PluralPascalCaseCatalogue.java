@@ -127,6 +127,7 @@ public final class PluralPascalCaseCatalogue {
 	public static final String NOUNS = "Nouns";
 	public static final String NUMBERS = "Numbers";
 	public static final String OBJECTS = "Objects";
+	public static final String OPACITIES = "Opacities";
 	public static final String OPCODES = "Opcodes";
 	public static final String OUTPUTS = "Outputs";
 	public static final String OUTPUT_FUNCTIONS = "OutputFunctions";
