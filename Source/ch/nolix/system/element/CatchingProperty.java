@@ -14,9 +14,13 @@ import ch.nolix.core.functionapi.IElementTakerElementGetter;
 //class
 public final class CatchingProperty<V> extends Property implements Named {
 	
-	//attributes
+	//attribute
 	private final String name;
+	
+	//attribute
 	private final IElementTaker<V> setter;
+	
+	//attribute
 	private final IElementTakerElementGetter<BaseNode, V> valueCreator;
 	
 	//constructor
