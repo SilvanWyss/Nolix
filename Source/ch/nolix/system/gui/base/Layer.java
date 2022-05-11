@@ -21,6 +21,7 @@ import ch.nolix.core.skillapi.Clearable;
 import ch.nolix.core.skillapi.Recalculable;
 import ch.nolix.system.configuration.ConfigurableElement;
 import ch.nolix.system.discretegeometry.Discrete2DPoint;
+import ch.nolix.system.element.CatchingProperty;
 import ch.nolix.system.element.MutableOptionalValue;
 import ch.nolix.system.element.MutableOptionalValueExtractor;
 import ch.nolix.system.element.MutableValue;
@@ -114,6 +115,15 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 		OPACITY_PERCENTAGE,
 		DEFAULT_OPACITY_PERCENTAGE,
 		this::setOpacityPercentage
+	);
+	
+	//attribute
+	@SuppressWarnings("unused")
+	private final CatchingProperty<String> opacity =
+	new CatchingProperty<>(
+		PascalCaseCatalogue.OPACITY,
+		this::setOpacityFromString,
+		BaseNode::getOneAttributeHeader
 	);
 	
 	//attribute
@@ -1413,6 +1423,20 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	//method
 	private void setFreeContentPosition_(final int xFreeContentPosition, final int yFreeContentPosition) {
 		optionalFreeContentPosition.setValue(new Discrete2DPoint(xFreeContentPosition, yFreeContentPosition));
+	}
+	
+	//method
+	private void setOpacityFromString(final String string) {
+		
+		Validator.assertThat(string).thatIsNamed(String.class).isNotNull();
+		
+		if (!string.endsWith("%")) {
+			throw new InvalidArgumentException(string, "does not end with '%' symbol");
+		}
+		
+		final var lOpacityPercentage = (Double.valueOf(string.substring(0, string.length() - 1)) / 100);
+		
+		setOpacityPercentage(lOpacityPercentage);
 	}
 	
 	//method
