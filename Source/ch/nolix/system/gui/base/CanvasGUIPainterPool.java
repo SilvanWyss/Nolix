@@ -58,4 +58,9 @@ final class CanvasGUIPainterPool {
 	public void registerImage(final String imageId, final IImage<?> image) {
 		imageRegistrator.run(imageId, image);
 	}
+	
+	//method
+	LinkedList<ChainedNode> internalGetRefPaintCommands() {
+		return paintCommands;
+	}
 }

@@ -5,6 +5,7 @@ package ch.nolix.system.gui.base;
 import ch.nolix.core.attributeapi.mandatoryattributeapi.Indexed;
 import ch.nolix.core.caching.CachingContainer;
 import ch.nolix.core.container.IContainer;
+import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.functionapi.I2ElementTaker;
@@ -284,6 +285,11 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 			+ yTranslation
 			+ ')'
 		);
+	}
+	
+	//method
+	LinkedList<ChainedNode> internalGetRefPaintCommands() {
+		return bottom.internalGetRefPaintCommands();
 	}
 	
 	//method

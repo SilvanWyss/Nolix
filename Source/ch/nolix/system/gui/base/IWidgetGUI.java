@@ -2,7 +2,7 @@
 package ch.nolix.system.gui.base;
 
 //own imports
-import ch.nolix.core.container.IContainer;
+import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.functionapi.I2ElementTaker;
 import ch.nolix.core.skillapi.Clearable;
@@ -19,7 +19,7 @@ import ch.nolix.systemapi.guiapi.imageapi.ImageApplication;
 public interface IWidgetGUI<WG extends IWidgetGUI<WG>> extends Clearable,  IBaseGUI<WG>, IConfigurableElement<WG>{
 	
 	//method declaration
-	IContainer<ChainedNode> getPaintCommands(I2ElementTaker<String, IImage<?>> imageRegistrator);
+	LinkedList<ChainedNode> getPaintCommands(I2ElementTaker<String, IImage<?>> imageRegistrator);
 	
 	//method declaration
 	<W extends Widget<?, ?>> W getRefWidgetById(String id);

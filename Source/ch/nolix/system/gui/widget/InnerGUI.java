@@ -3,7 +3,6 @@ package ch.nolix.system.gui.widget;
 
 //own imports
 import ch.nolix.core.constant.PascalCaseCatalogue;
-import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.functionapi.I2ElementTaker;
@@ -92,7 +91,7 @@ public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> impleme
 	
 	//method
 	@Override
-	public IContainer<ChainedNode> getPaintCommands(final I2ElementTaker<String, IImage<?>> imageRegistrator) {
+	public LinkedList<ChainedNode> getPaintCommands(final I2ElementTaker<String, IImage<?>> imageRegistrator) {
 		return internalGUI.getPaintCommands(imageRegistrator);
 	}
 	
