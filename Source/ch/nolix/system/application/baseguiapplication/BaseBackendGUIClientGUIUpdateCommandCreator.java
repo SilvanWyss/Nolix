@@ -24,7 +24,7 @@ final class BaseBackendGUIClientGUIUpdateCommandCreator {
 	private CursorIcon latestCursorIcon;
 	
 	//multi attribute
-	private IContainer<ChainedNode> latestPaintCommands = new LinkedList<>();
+	private IContainer<ChainedNode> latestImageRegistrationCommandsAndPaintCommands = new LinkedList<>();
 	
 	//method
 	public LinkedList<ChainedNode> createUpdateCommandsFor(final IWidgetGUI<?> widgetGUI) {
@@ -92,7 +92,7 @@ final class BaseBackendGUIClientGUIUpdateCommandCreator {
 		}
 	}
 	
-	private void fillUpPotentialUpdatePaintCommandsInto(
+	private void fillUpUpdatedImageRegistrationCommandsAndPaintCommandsInto(
 		final LinkedList<ChainedNode> list,
 		final IWidgetGUI<?> widgetGUI
 	) {
@@ -105,9 +105,9 @@ final class BaseBackendGUIClientGUIUpdateCommandCreator {
 		final var paintCommands = imageRegistrationCommands;
 		paintCommands.addAtEnd(createUpdatePaintCommands(paintingCommands));
 		
-		if (!nodesEqual(paintCommands, latestPaintCommands)) {
+		if (!nodesEqual(paintCommands, latestImageRegistrationCommandsAndPaintCommands)) {
 			list.addAtEnd(paintCommands);
-			latestPaintCommands = paintCommands;
+			latestImageRegistrationCommandsAndPaintCommands = paintCommands;
 		}
 	}
 	
@@ -140,7 +140,7 @@ final class BaseBackendGUIClientGUIUpdateCommandCreator {
 		fillUpPotentialUpdateTitleCommandInto(list, widgetGUI);
 		fillUpPotentialUpdateIconCommandInto(list, widgetGUI);
 		fillUpPotentialUpdateCursorIconCommandInto(list, widgetGUI);
-		fillUpPotentialUpdatePaintCommandsInto(list, widgetGUI);
+		fillUpUpdatedImageRegistrationCommandsAndPaintCommandsInto(list, widgetGUI);
 	}
 	
 	//method
