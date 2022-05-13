@@ -140,7 +140,7 @@ public abstract class BorderWidgetTest<BW extends BorderWidget<BW, ?>> extends W
 	
 	//method
 	@TestCase
-	public final void testCase_getMinWidth_whenSetMinWidthInPercentOfGUIViewAreaWidthAndBelongsToGUI() {
+	public final void testCase_getMinWidth_whenHasSetMinWidthInPercentOfGUIViewAreaWidthAndBelongsToGUI() {
 		try (final var invisibleGUI = new InvisibleGUI()) {
 		
 			//setup
@@ -150,7 +150,7 @@ public abstract class BorderWidgetTest<BW extends BorderWidget<BW, ?>> extends W
 			invisibleGUI.noteResize(1000, 800);
 			
 			//execution
-			final var result = testUnit.getWidth();
+			final var result = testUnit.getMinWidth();
 			
 			//verification
 			expect(result).isEqualTo(900);
@@ -159,7 +159,7 @@ public abstract class BorderWidgetTest<BW extends BorderWidget<BW, ?>> extends W
 	
 	//method
 	@TestCase
-	public final void testCase_getMinWidth_whenSetMinWidthInPercentOfGUIViewAreaWidthAndDoesNotBelongToGUI() {
+	public final void testCase_getMinWidth_whenHasSetMinWidthInPercentOfGUIViewAreaWidthAndDoesNotBelongToGUI() {
 				
 		//setup
 		final var testUnit = createTestUnit();
