@@ -5,7 +5,6 @@ package ch.nolix.core.container;
 import ch.nolix.core.constant.CharacterCatalogue;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.constant.PluralLowerCaseCatalogue;
-import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
@@ -16,6 +15,7 @@ import ch.nolix.core.functionapi.IElementTaker;
 import ch.nolix.core.functionapi.IElementTakerBooleanGetter;
 import ch.nolix.core.functionapi.IElementTakerComparableGetter;
 import ch.nolix.core.functionapi.IElementTakerElementGetter;
+import ch.nolix.core.independent.independenthelper.IterableHelper;
 import ch.nolix.core.skillapi.Clearable;
 
 //class
@@ -143,31 +143,42 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	 * 
 	 * @param elements
 	 * @param <E2> is the type of the given elements.
-	 * @throws ArgumentIsNullException if the given element container is null.
+	 * @throws ArgumentIsNullException if the given elements is null.
 	 * @throws ArgumentIsNullException if one of the given elements is null.
 	 */
 	public <E2 extends E> void addAtBegin(final Iterable<E2> elements) {
 		
 		//Asserts that the given elements is not null.
-		Validator.assertThat(elements).thatIsNamed("element container").isNotNull();
+		Validator.assertThat(elements).thatIsNamed(PluralLowerCaseCatalogue.ELEMENTS).isNotNull();
 		
 		//Handles the case that the given elements is not empty.
-		if (ReadContainer.forIterable(elements).isEmpty()) {
+		if (!IterableHelper.isEmpty(elements)) {
 			
-			final var preNode = new LinkedListNode<E>(null);
+			final var newFirstNode = new LinkedListNode<E>(elements.iterator().next());
 			
-			var iterator = preNode;
-			for (final E e: elements) {
-				iterator.setElement(e);
-				iterator.setNextNode(new LinkedListNode<E>(null));
-				iterator = iterator.getNextNode();
+			LinkedListNode<E> node = null;
+			
+			for (final var e : elements) {
+				
+				if (node == null) {
+					node = newFirstNode;
+				} else {
+					final var currentNode = new LinkedListNode<E>(e);
+					node.setNextNode(currentNode);
+					node = currentNode;
+				}
+				
 				elementCount++;
 			}
 			
-			this.firstNode = preNode.getNextNode();
+			if (firstNode != null) {
+				node.setNextNode(firstNode);
+			}
+			
+			this.firstNode = newFirstNode;
 			
 			if (lastNode == null) {
-				lastNode = iterator;
+				lastNode = node;
 			}
 		}
 	}
