@@ -21,6 +21,63 @@ public final class LinkedListTest extends Test {
 	
 	//method
 	@TestCase
+	public void testCase_addAtBegin() {
+		
+		//setup
+		final var testUnit = LinkedList.withElements("a1", "a2", "a3", "a4");
+		final var list = LinkedList.withElements("b1", "b2");
+		
+		//execution
+		testUnit.addAtBegin(list);
+		
+		//verification
+		expect(testUnit.getElementCount()).isEqualTo(6);
+		expect(testUnit.getRefAt(1)).isEqualTo("b1");
+		expect(testUnit.getRefAt(2)).isEqualTo("b2");
+		expect(testUnit.getRefAt(3)).isEqualTo("a1");
+		expect(testUnit.getRefAt(4)).isEqualTo("a2");
+		expect(testUnit.getRefAt(5)).isEqualTo("a3");
+		expect(testUnit.getRefAt(6)).isEqualTo("a4");
+	}
+	
+	//method
+	@TestCase
+	public void testCase_addAtBegin_whenGivenListIsEmpty() {
+		
+		//setup
+		final var testUnit = LinkedList.withElements("a1", "a2", "a3", "a4");
+		final var list = new LinkedList<String>();
+		
+		//execution
+		testUnit.addAtBegin(list);
+		
+		//verification
+		expect(testUnit.getElementCount()).isEqualTo(4);
+		expect(testUnit.getRefAt(1)).isEqualTo("a1");
+		expect(testUnit.getRefAt(2)).isEqualTo("a2");
+		expect(testUnit.getRefAt(3)).isEqualTo("a3");
+		expect(testUnit.getRefAt(4)).isEqualTo("a4");
+	}
+	
+	//method
+	@TestCase
+	public void testCase_addAtBegin_whenIsEmpty() {
+		
+		//setup
+		final var testUnit = new LinkedList<String>();
+		final var list = LinkedList.withElements("b1", "b2");
+		
+		//execution
+		testUnit.addAtBegin(list);
+		
+		//verification
+		expect(testUnit.getElementCount()).isEqualTo(2);
+		expect(testUnit.getRefAt(1)).isEqualTo("b1");
+		expect(testUnit.getRefAt(2)).isEqualTo("b2");
+	}
+	
+	//method
+	@TestCase
 	public void testCase_addAtBegin_whenTheGivenElementIsNull() {
 		
 		//setup
