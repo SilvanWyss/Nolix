@@ -21,7 +21,7 @@ public abstract class BorderWidgetTest<BW extends BorderWidget<BW, ?>> extends W
 	
 	//method
 	@TestCase
-	public void test_containsPointRelatively_whenBottomLeftPixelIsGiven() {
+	public void testCase_containsPointRelatively_whenBottomLeftPixelIsGiven() {
 		
 		//setup
 		final var testUnit = createTestUnit();
@@ -36,7 +36,7 @@ public abstract class BorderWidgetTest<BW extends BorderWidget<BW, ?>> extends W
 	
 	//method
 	@TestCase
-	public void test_containsPointRelatively_whenBottomRightPixelIsGiven() {
+	public void testCase_containsPointRelatively_whenBottomRightPixelIsGiven() {
 		
 		//setup
 		final var testUnit = createTestUnit();
@@ -51,7 +51,7 @@ public abstract class BorderWidgetTest<BW extends BorderWidget<BW, ?>> extends W
 	
 	//method
 	@TestCase
-	public void test_containsPointRelatively_whenTopLeftPixelIsGiven() {
+	public void testCase_containsPointRelatively_whenTopLeftPixelIsGiven() {
 		
 		//setup
 		final var testUnit = createTestUnit();
@@ -66,7 +66,7 @@ public abstract class BorderWidgetTest<BW extends BorderWidget<BW, ?>> extends W
 	
 	//method
 	@TestCase
-	public void test_containsPointRelatively_whenTopRightPixelIsGiven() {
+	public void testCase_containsPointRelatively_whenTopRightPixelIsGiven() {
 		
 		//setup
 		final var testUnit = createTestUnit();
