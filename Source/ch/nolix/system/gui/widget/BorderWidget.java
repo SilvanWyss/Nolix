@@ -851,7 +851,7 @@ extends Widget<BW, BWL> {
 	 */
 	public final BW setMaxHeightInPercentOfGUIViewAreaHeight(final double maxHeightInPercentOfGUIViewAreaHeight) {
 		
-		setMaxWidth(IntOrPercentageHolder.withPercentage(maxHeightInPercentOfGUIViewAreaHeight));
+		setMaxHeight(IntOrPercentageHolder.withPercentage(maxHeightInPercentOfGUIViewAreaHeight));
 		
 		return asConcrete();
 	}
