@@ -629,7 +629,9 @@ extends Widget<BW, BWL> {
 	 * @return true if the current {@link BorderWidget} has a min height.
 	 */	
 	public final boolean hasMinHeight() {
-		return minHeight.hasValue();
+		return
+		definesMinHeight()
+		&& (minHeight.getValue().hasIntValue() || belongsToGUI());
 	}
 	
 	//method
