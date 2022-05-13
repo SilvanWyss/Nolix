@@ -53,11 +53,14 @@ final class BaseBackendGUIClientGUIUpdateCommandCreator {
 	}
 	
 	//method
-	private ChainedNode createUpdatePaintCommands(final IContainer<ChainedNode> paintCommands) {
+	private ChainedNode createGUISetPaintCommandsCommand(final IContainer<ChainedNode> paintCommands) {
 		return
 		ChainedNode.withHeaderAndNextNode(
 			ObjectProtocol.GUI,
-			ChainedNode.withHeaderAndAttributes(CommandProtocol.SET_PAINT_COMMANDS,	paintCommands)
+			ChainedNode.withHeaderAndAttributes(
+				CommandProtocol.SET_PAINT_COMMANDS,
+				paintCommands
+			)
 		);
 	}
 	
@@ -98,16 +101,17 @@ final class BaseBackendGUIClientGUIUpdateCommandCreator {
 	) {
 		
 		final var imageRegistrationCommands = new LinkedList<ChainedNode>();
-		final var paintingCommands =
+		final var paintCommands =
 		widgetGUI.getPaintCommands(
 			(id, im) -> imageRegistrationCommands.addAtEnd(createRegisterImageCommand(id, im))
 		);
-		final var paintCommands = imageRegistrationCommands;
-		paintCommands.addAtEnd(createUpdatePaintCommands(paintingCommands));
+		final var imageRegistrationAndPaintCommands = new LinkedList<ChainedNode>();
+		imageRegistrationAndPaintCommands.addAtEnd(imageRegistrationCommands);
+		imageRegistrationAndPaintCommands.addAtEnd(createGUISetPaintCommandsCommand(paintCommands));
 		
-		if (!nodesEqual(paintCommands, latestImageRegistrationCommandsAndPaintCommands)) {
-			list.addAtEnd(paintCommands);
-			latestImageRegistrationCommandsAndPaintCommands = paintCommands;
+		if (!nodesEqual(imageRegistrationAndPaintCommands, latestImageRegistrationCommandsAndPaintCommands)) {
+			list.addAtEnd(imageRegistrationAndPaintCommands);
+			latestImageRegistrationCommandsAndPaintCommands = imageRegistrationAndPaintCommands;
 		}
 	}
 	
