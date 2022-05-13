@@ -140,6 +140,39 @@ public abstract class BorderWidgetTest<BW extends BorderWidget<BW, ?>> extends W
 	
 	//method
 	@TestCase
+	public final void testCase_getMinHeight_whenHasSetMinHeightInPercentOfGUIViewAreaHeightAndBelongsToGUI() {
+		try (final var invisibleGUI = new InvisibleGUI()) {
+		
+			//setup
+			final var testUnit = createTestUnit();
+			testUnit.setMinHeightInPercentOfGUIViewAreaHeight(0.9);
+			invisibleGUI.pushLayer(testUnit);
+			invisibleGUI.noteResize(1000, 800);
+			
+			//execution
+			final var result = testUnit.getMinHeight();
+			
+			//verification
+			expect(result).isEqualTo(720);
+		}
+	}
+
+	//method
+	@TestCase
+	public final void testCase_getMinHeight_whenHasSetMinHeightInPercentOfGUIViewAreaHeightAndDoesNotBelongToGUI() {
+				
+		//setup
+		final var testUnit = createTestUnit();
+		testUnit.setMinHeightInPercentOfGUIViewAreaHeight(0.9);
+		
+		//execution & verification
+		expectRunning(testUnit::getMinHeight)
+		.throwsException()
+		.ofType(InvalidArgumentException.class);
+	}
+
+	//method
+	@TestCase
 	public final void testCase_getMinWidth_whenHasSetMinWidthInPercentOfGUIViewAreaWidthAndBelongsToGUI() {
 		try (final var invisibleGUI = new InvisibleGUI()) {
 		
