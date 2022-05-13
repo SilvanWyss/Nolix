@@ -907,7 +907,7 @@ extends Widget<BW, BWL> {
 	 */
 	public final BW setMinHeightInPercentOfGUIViewAreaHeight(final double minHeightInPercentOfGUIViewAreaHeight) {
 		
-		setMinWidth(IntOrPercentageHolder.withPercentage(minHeightInPercentOfGUIViewAreaHeight));
+		setMinHeight(IntOrPercentageHolder.withPercentage(minHeightInPercentOfGUIViewAreaHeight));
 		
 		return asConcrete();
 	}
