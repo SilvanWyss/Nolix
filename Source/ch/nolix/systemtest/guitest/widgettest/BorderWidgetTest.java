@@ -5,6 +5,7 @@ package ch.nolix.systemtest.guitest.widgettest;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.system.gui.base.InvisibleGUI;
+import ch.nolix.system.gui.containerwidget.SingleContainer;
 import ch.nolix.system.gui.widget.BorderWidget;
 import ch.nolix.system.gui.widget.WidgetLookState;
 
@@ -140,6 +141,72 @@ public abstract class BorderWidgetTest<BW extends BorderWidget<BW, ?>> extends W
 	
 	//method
 	@TestCase
+	public final void testCase_getMaxHeight_whenHasSetMaxHeightInPercentOfGUIViewAreaHeightAndBelongsToGUI() {
+		try (final var invisibleGUI = new InvisibleGUI()) {
+		
+			//setup
+			final var testUnit = createTestUnit();
+			testUnit.setMaxHeightInPercentOfGUIViewAreaHeight(0.9);
+			invisibleGUI.pushLayer(new SingleContainer().setWidget(testUnit));
+			invisibleGUI.noteResize(1000, 800);
+			
+			//execution
+			final var result = testUnit.getMaxHeight();
+			
+			//verification
+			expect(result).isEqualTo(720);
+		}
+	}
+	
+	//method
+	@TestCase
+	public final void testCase_getMaxHeight_whenHasSetMaxHeightInPercentOfGUIViewAreaHeightAndDoesNotBelongToGUI() {
+				
+		//setup
+		final var testUnit = createTestUnit();
+		testUnit.setMaxHeightInPercentOfGUIViewAreaHeight(0.9);
+		
+		//execution & verification
+		expectRunning(testUnit::getMaxHeight)
+		.throwsException()
+		.ofType(InvalidArgumentException.class);
+	}
+	
+	//method
+	@TestCase
+	public final void testCase_getMaxWidth_whenHasSetMaxWidthInPercentOfGUIViewAreaWidthAndBelongsToGUI() {
+		try (final var invisibleGUI = new InvisibleGUI()) {
+		
+			//setup
+			final var testUnit = createTestUnit();
+			testUnit.setMaxWidthInPercentOfGUIViewAreaWidth(0.9);
+			invisibleGUI.pushLayer(new SingleContainer().setWidget(testUnit));
+			invisibleGUI.noteResize(1000, 800);
+			
+			//execution
+			final var result = testUnit.getMaxWidth();
+			
+			//verification
+			expect(result).isEqualTo(900);
+		}
+	}
+	
+	//method
+	@TestCase
+	public final void testCase_getMaxWidth_whenHasSetMaxWidthInPercentOfGUIViewAreaWidthAndDoesNotBelongToGUI() {
+				
+		//setup
+		final var testUnit = createTestUnit();
+		testUnit.setMaxWidthInPercentOfGUIViewAreaWidth(0.9);
+		
+		//execution & verification
+		expectRunning(testUnit::getMaxWidth)
+		.throwsException()
+		.ofType(InvalidArgumentException.class);
+	}
+	
+	//method
+	@TestCase
 	public final void testCase_getMinHeight_whenHasSetMinHeightInPercentOfGUIViewAreaHeightAndBelongsToGUI() {
 		try (final var invisibleGUI = new InvisibleGUI()) {
 		
@@ -156,7 +223,7 @@ public abstract class BorderWidgetTest<BW extends BorderWidget<BW, ?>> extends W
 			expect(result).isEqualTo(720);
 		}
 	}
-
+	
 	//method
 	@TestCase
 	public final void testCase_getMinHeight_whenHasSetMinHeightInPercentOfGUIViewAreaHeightAndDoesNotBelongToGUI() {
