@@ -11,7 +11,7 @@ import ch.nolix.core.net.targetapi.IServerTarget;
 public final class ServerTarget implements IServerTarget {
 	
 	//static method
-	public ServerTarget forIpOrAddressNameAndPort(final String ipOrAddressName, final int port) {
+	public static ServerTarget forIpOrAddressNameAndPort(final String ipOrAddressName, final int port) {
 		return new ServerTarget(ipOrAddressName, port);
 	}
 	
