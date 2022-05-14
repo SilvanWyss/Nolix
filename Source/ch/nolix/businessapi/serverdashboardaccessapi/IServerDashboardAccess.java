@@ -8,5 +8,5 @@ import ch.nolix.core.container.IContainer;
 public interface IServerDashboardAccess {
 	
 	//method declaration
-	IContainer<IApplicationSheet> getApplicationSheets();
+	IContainer<IApplicationSheet> getGUIApplicationSheets();
 }
