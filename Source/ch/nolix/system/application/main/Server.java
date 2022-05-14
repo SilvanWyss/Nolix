@@ -5,6 +5,8 @@ package ch.nolix.system.application.main;
 import ch.nolix.core.environment.localcomputer.LocalComputer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.net.endpoint3.EndPoint;
+import ch.nolix.core.net.target.ServerTarget;
+import ch.nolix.core.net.targetapi.IServerTarget;
 
 //class
 /**
@@ -52,11 +54,27 @@ public final class Server extends BaseServer {
 		internalServer =
 		new ch.nolix.core.net.endpoint3.Server(
 			port,
-			new ServerHTTPMessage(LocalComputer.getLANIP(), port).toString()
+			new ServerHTTPMessage(getIp(), port).toString()
 		);
 		
 		//Creates a close dependency between the current Server and its internalServer.
 		createCloseDependencyTo(internalServer);
+	}
+	
+	//method
+	/**
+	 * @return the current {@link Server} as {@link IServerTarget}.
+	 */
+	public IServerTarget asTarget() {
+		return ServerTarget.forIpOrAddressNameAndPort(getIp(), getPort());
+	}
+	
+	//method
+	/**
+	 * @return the Ip of the current {@link Server}.
+	 */
+	public String getIp() {
+		return LocalComputer.getLANIP();
 	}
 	
 	//method
