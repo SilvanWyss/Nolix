@@ -3823,8 +3823,33 @@ define("System/FrontCanvasGUIClient/FrontCanvasGUIClient", ["require", "exports"
             this.endPoint = new NetEndPoint5_1.NetEndPoint5(ip, port, optionalTarget);
             this.endPoint.setReceiverController(new ReceiverController_1.ReceiverController(c => this.run(c), r => this.getData(r)));
         }
-        static withIpAndNumberAndWindow(ip, port, window) {
+        static getOptionalTargetApplicationFromURL() {
+            const lURL = this.getURLWithoutSlashAtEnd();
+            const lURLParts = lURL.split('//')[1].split('/');
+            switch (lURLParts.length) {
+                case 1:
+                    return SingleContainer_3.SingleContainer.withoutElement();
+                case 2:
+                    return SingleContainer_3.SingleContainer.withElement(lURLParts[1].replace('_', ' '));
+                default:
+                    throw new Error('The given URL \'' + lURL + '\' is not valid.');
+            }
+        }
+        static getURLWithoutSlashAtEnd() {
+            const lURL = window.location.href;
+            if (lURL.endsWith('/')) {
+                return lURL.substring(0, lURL.length - 1);
+            }
+            return lURL;
+        }
+        static toIpAndPortUsingWindow(ip, port, window) {
             return new FrontCanvasGUIClient(ip, port, SingleContainer_3.SingleContainer.EMPTY_CONTAINER, window);
+        }
+        static toIpAndPortAndApplicationUsingWindow(ip, port, application, window) {
+            return new FrontCanvasGUIClient(ip, port, SingleContainer_3.SingleContainer.withElement(application), window);
+        }
+        static toIpAndPortAndApplicationFromURLUsingWindow(ip, port, window) {
+            return new FrontCanvasGUIClient(ip, port, this.getOptionalTargetApplicationFromURL(), window);
         }
         getCursorXPositionOnViewArea() {
             return this.mGUIHandler.getCursorXPositionOnViewArea();

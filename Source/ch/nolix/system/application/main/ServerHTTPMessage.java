@@ -77,7 +77,7 @@ final class ServerHTTPMessage {
 		return
 		"<script>\n"
 		+ "require(['System/FrontCanvasGUIClient/FrontCanvasGUIClient'], function (FrontCanvasGUIClient_) {"
-		+ "var client = FrontCanvasGUIClient_.FrontCanvasGUIClient.withIpAndNumberAndWindow("
+		+ "var client = FrontCanvasGUIClient_.FrontCanvasGUIClient.toIpAndPortAndApplicationFromURLUsingWindow("
 		+ getServerIpInQuotes() + ", "
 		+ getServerPort() + ", "
 		+ "window);"
