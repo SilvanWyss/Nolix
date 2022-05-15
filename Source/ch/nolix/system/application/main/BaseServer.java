@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.application.main;
 
+import ch.nolix.core.container.IContainer;
 //own imports
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -154,6 +155,14 @@ public abstract class BaseServer implements GroupCloseable {
 	 */
 	public final Application<?, ?> getRefApplicationByName(final String name) {
 		return applications.getRefFirst(a -> a.hasName(name));
+	}
+	
+	//method
+	/**
+	 * @return the {@link Application}s of the current {@link BaseServer}.
+	 */
+	public final IContainer<Application<?, ?>> getRefApplications() {
+		return applications;
 	}
 	
 	//method
