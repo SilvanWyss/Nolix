@@ -2,15 +2,20 @@
 package ch.nolix.systemapi.applicationapi.guiapplicationapi;
 
 //own imports
-import ch.nolix.core.container.SingleContainer;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
 
 //interface
 public interface IGUIApplicationContext {
 	
 	//method declaration
-	SingleContainer<String> getOptionalApplicationDescription();
+	String getApplicationDescription();
 	
 	//method declaration
-	SingleContainer<IImage<?>> getOptionalApplicationLogo();
+	IImage<?> getApplicationLogo();
+	
+	//method declaration
+	boolean hasApplicationDescription();
+	
+	//method declaration
+	boolean hasApplicationLogo();
 }
