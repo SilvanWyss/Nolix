@@ -525,21 +525,25 @@ extends Widget<BW, BWL> {
 	 */
 	public final int getTargetHeight() {
 		
-		var targetHeight = -1;
+		var hasTargetHeight = false;
+		var targetHeight = 0;
 		
 		if (hasProposalHeight()) {
+			hasTargetHeight = true;
 			targetHeight = getProposalHeight();
 		}
 		
-		if (hasMinHeight() && getMinHeight() > targetHeight) {
+		if (hasMinHeight() && (getMinHeight() > targetHeight || !hasTargetHeight)) {
+			hasTargetHeight = true;
 			targetHeight = getMinHeight();
 		}
 		
-		if (hasMaxHeight() && getMaxHeight() < targetHeight) {
+		if (hasMaxHeight() && (getMaxHeight() < targetHeight || !hasTargetHeight)) {
+			hasTargetHeight = true;
 			targetHeight = getMaxHeight();
 		}
 		
-		if (targetHeight == -1) {
+		if (!hasTargetHeight) {
 			throw new ArgumentDoesNotHaveAttributeException(this, "target height");
 		}
 		
@@ -553,21 +557,25 @@ extends Widget<BW, BWL> {
 	 */
 	public final int getTargetWidth() {
 		
-		var targetWidth = -1;
+		var hasTargetWidth = false;
+		var targetWidth = 0;
 		
 		if (hasProposalWidth()) {
+			hasTargetWidth = true;
 			targetWidth = getProposalWidth();
 		}
 		
-		if (hasMinWidth() && getMinWidth() > targetWidth) {
+		if (hasMinWidth() && (getMinWidth() > targetWidth || !hasTargetWidth)) {
+			hasTargetWidth = true;
 			targetWidth = getMinWidth();
 		}
 		
-		if (hasMaxWidth() && getMaxWidth() < targetWidth) {
+		if (hasMaxWidth() && (getMaxWidth() < targetWidth || !hasTargetWidth)) {
+			hasTargetWidth = true;
 			targetWidth = getMaxWidth();
 		}
 		
-		if (targetWidth == -1) {
+		if (!hasTargetWidth) {
 			throw new ArgumentDoesNotHaveAttributeException(this, "target width");
 		}
 		
