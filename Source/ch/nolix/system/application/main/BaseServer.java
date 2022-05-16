@@ -75,9 +75,9 @@ public abstract class BaseServer implements GroupCloseable {
 	 * a {@link Application} with the given name.
 	 * @throws ArgumentIsNullException if the given initialSessionClass is null.
 	 */
-	public final <BC extends BackendClient<BC, AC>, AC> void addApplication(
+	public final <S extends Session<BC, AC>, BC extends BackendClient<BC, AC>, AC> void addApplication(
 		final String name,
-		final Class<Session<BC, AC>> initialSessionClass,
+		final Class<S> initialSessionClass,
 		final AC applicationContext
 	) {
 		
