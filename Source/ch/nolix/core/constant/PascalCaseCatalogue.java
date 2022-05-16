@@ -13,6 +13,7 @@ public final class PascalCaseCatalogue {
 	//constants
 	public static final String AGE = "Age";
 	public static final String AMOUNT = "Amount";
+	public static final String APPLICATION = "Application";
 	public static final String APPOINTMENT = "Appointment";
 	public static final String ARRAY = "Array";
 	public static final String ATTRIBUTE = "Attribute";

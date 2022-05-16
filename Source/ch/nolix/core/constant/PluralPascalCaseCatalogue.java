@@ -13,6 +13,7 @@ public final class PluralPascalCaseCatalogue {
 	//constants
 	public static final String AGES = "Ages";
 	public static final String AMOUNTS = "Amounts";
+	public static final String APPLICATIONS = "Applications";
 	public static final String APPOINTMENTS = "Appointments";
 	public static final String ARRAYS = "Arrays";
 	public static final String ATTRIBUTES = "Attributes";

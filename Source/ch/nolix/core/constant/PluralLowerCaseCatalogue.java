@@ -13,6 +13,7 @@ public final class PluralLowerCaseCatalogue {
 	//constants
 	public static final String AGES = "ages";
 	public static final String AMOUNTS = "amounts";
+	public static final String APPLICATIONS = "applications";
 	public static final String APPOINTMENTS = "appointments";
 	public static final String ARRAYS = "arrays";
 	public static final String ATTRIBUTES = "attributes";

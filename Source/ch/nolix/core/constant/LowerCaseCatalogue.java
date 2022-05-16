@@ -13,6 +13,7 @@ public final class LowerCaseCatalogue {
 	//constants
 	public static final String AGE = "age";
 	public static final String AMOUNT = "amount";
+	public static final String APPLICATION = "application";
 	public static final String APPOINTMENT = "appointment";
 	public static final String ARRAY = "array";
 	public static final String ATTRIBUTE = "attribute";
