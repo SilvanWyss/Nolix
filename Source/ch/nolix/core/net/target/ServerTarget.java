@@ -8,7 +8,7 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.net.targetapi.IServerTarget;
 
 //class
-public final class ServerTarget implements IServerTarget {
+public class ServerTarget implements IServerTarget {
 	
 	//static method
 	public static ServerTarget forIpOrAddressNameAndPort(final String ipOrAddressName, final int port) {
@@ -22,7 +22,7 @@ public final class ServerTarget implements IServerTarget {
 	private final int port;
 	
 	//constructor
-	private ServerTarget(final String ipOrAddressName, final int port) {
+	protected ServerTarget(final String ipOrAddressName, final int port) {
 		
 		Validator.assertThat(ipOrAddressName).thatIsNamed("ip or address name").isNotBlank();
 		
@@ -36,13 +36,13 @@ public final class ServerTarget implements IServerTarget {
 	
 	//method
 	@Override
-	public String getIpOrAddressName() {
+	public final String getIpOrAddressName() {
 		return ipOrAddressName;
 	}
 	
 	//method
 	@Override
-	public int getPort() {
+	public final int getPort() {
 		return port;
 	}
 }
