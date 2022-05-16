@@ -51,4 +51,26 @@ public interface TopLeftPositionedRecangular extends Rectangular, TopLeftPositio
 		&& relativeXPosition < getWidth()
 		&& relativeYPosition < getHeight();
 	}
+	
+	//method
+	/**
+	 * The bottom y-position of a {@link TopLeftPositionedRecangular} is
+	 * the y-position of the bottom border of the {@link TopLeftPositionedRecangular}.
+	 * 
+	 * @return the bottom y-position of the current {@link TopLeftPositionedRecangular}.
+	 */
+	default int getBottomYPosition() {
+		return (getYPosition() + getHeight());
+	}
+	
+	//method
+	/**
+	 * The right x-position of a {@link TopLeftPositionedRecangular} is
+	 * the x-position of the right border of the {@link TopLeftPositionedRecangular}.
+	 * 
+	 * @return the right x-position of the current {@link TopLeftPositionedRecangular}.
+	 */
+	default int getRightXPosition() {
+		return (getXPosition() + getWidth());
+	}
 }
