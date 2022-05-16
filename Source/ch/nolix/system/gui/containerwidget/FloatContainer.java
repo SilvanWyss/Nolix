@@ -106,12 +106,7 @@ public final class FloatContainer extends ContainerWidget<FloatContainer, FloatC
 	//method
 	@Override
 	protected int getNaturalContentAreaWidth() {
-		
-		if (isEmpty()) {
-			return 0;
-		}
-		
-		return (widgets.getRefLast().getXPosition()	+ widgets.getRefLast().getWidth());
+		return widgets.getMaxIntOrZero(Widget::getRightXPosition);
 	}
 	
 	//method
@@ -178,7 +173,7 @@ public final class FloatContainer extends ContainerWidget<FloatContainer, FloatC
 	@Override
 	protected void recalculateBorderWidget() {
 		
-		final var contentAreaWidth = getNaturalContentAreaWidth();
+		final var contentAreaWidth = getTargetWidth();
 		final var widgetMargin = getRefLook().getElementMargin();
 		
 		var y = 0;

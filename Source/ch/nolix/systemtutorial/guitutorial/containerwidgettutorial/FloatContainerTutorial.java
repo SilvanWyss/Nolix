@@ -36,23 +36,30 @@ public final class FloatContainerTutorial {
 			new Label().setText("C"),
 			new Label().setText("D"),
 			new Label().setText("E"),
-			new Label().setText("F")
+			new Label().setText("F"),
+			new Label().setText("G"),
+			new Label().setText("H")
 		);
 		
 		//Configures the look of the FloatContainer.
-		floatContainer.onLook(
+		floatContainer
+		.setMaxWidth(1000)
+		.onLook(
 			l ->
 			l
 			.setBorderThicknessForState(WidgetLookState.BASE, 5)
 			.setBackgroundColorForState(WidgetLookState.BASE, Color.LAVENDER)
 			.setPaddingForState(WidgetLookState.BASE, 20)
+			.setElementMarginForState(WidgetLookState.BASE, 10)
 		);
 		
 		//Configures the look of the child Widgets of the FloatContainer.
+		var index = 1;
 		for (final var cw : floatContainer.getChildWidgets()) {
+			
 			cw
 			.as(Label.class)
-			.setProposalWidth(220)
+			.setProposalWidth(100 + (index % 3) * 50)
 			.setProposalHeight(100)
 			.setContentPosition(ContentPosition.CENTER)
 			.onLook(
@@ -61,6 +68,8 @@ public final class FloatContainerTutorial {
 				.setBackgroundColorForState(WidgetLookState.BASE, Color.BLUE)
 				.setTextSizeForState(WidgetLookState.BASE, 50)
 			);
+			
+			index++;
 		}
 		
 		//Adds the FloatContainer to the frame.
