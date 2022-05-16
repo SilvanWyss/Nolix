@@ -5,7 +5,9 @@ package ch.nolix.business.serverdashboardaccess;
 import ch.nolix.businessapi.serverdashboardaccessapi.IApplicationSheet;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.net.target.ApplicationTarget;
 import ch.nolix.core.net.target.ServerTarget;
+import ch.nolix.core.net.targetapi.IApplicationTarget;
 import ch.nolix.core.net.targetapi.IServerTarget;
 import ch.nolix.system.application.guiapplication.BackendGUIClient;
 import ch.nolix.system.application.main.Application;
@@ -116,6 +118,17 @@ public final class ApplicationSheet implements IApplicationSheet {
 	@Override
 	public IServerTarget getServer() {
 		return serverTarget;
+	}
+	
+	//method
+	@Override
+	public IApplicationTarget getApplicationTarget() {
+		return
+		ApplicationTarget.forIpOrAddressNameAndPortAndApplicationName(
+			getServer().getIpOrAddressName(),
+			getServer().getPort(),
+			getApplicationName()
+		);
 	}
 	
 	//method
