@@ -30,7 +30,7 @@ public abstract class ConsoleClientLookCreatorTest extends ObjectTest<Configurat
 		return
 		new InvisibleGUI(
 			new VerticalStack()
-			.setRole(ContainerRole.MAINT_CONTAINER)
+			.setRole(ContainerRole.MAIN_CONTENT_CONTAINER)
 			.add(
 				new Console()
 				.setId("InfoPanel"),

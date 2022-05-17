@@ -41,7 +41,7 @@ public final class GUILooksTutorial {
 				.add(
 					selectionMenu,
 					new Grid()
-					.setRole(ContainerRole.MAINT_CONTAINER)
+					.setRole(ContainerRole.MAIN_CONTENT_CONTAINER)
 					.setWidget(1, 1, "Checkbox")
 					.setWidget(1, 2, new CheckBox())
 					.setWidget(2, 1, "Button")
