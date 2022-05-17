@@ -15,7 +15,7 @@ import ch.nolix.systemapi.elementapi.IElement;
  */
 public enum ContainerRole implements IElement<ContainerRole> {
 	OVERALL_CONTAINTER,
-	MAINT_CONTAINER,
+	MAIN_CONTENT_CONTAINER,
 	DIALOG_CONTAINER,
 	TITLE_CONTAINER;
 	

@@ -186,7 +186,7 @@ extends BaseBackendGUIClientSession<BackendConsoleClient<AC>, AC> {
 		.pushLayer(
 			new VerticalStack()
 			.add(infoPanel, console)
-			.setRole(ContainerRole.MAINT_CONTAINER)
+			.setRole(ContainerRole.MAIN_CONTENT_CONTAINER)
 		)
 		.setConfiguration(new GreyBlueConsoleClientLookCreator().createConsoleClientLook());
 		

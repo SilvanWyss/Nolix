@@ -23,7 +23,7 @@ public final class BlackRedConsoleClientLookCreator {
 		.addAttachingAttribute("BackgroundColor(Black)")
 		.addConfiguration(
 			new DeepConfiguration()
-			.addSelectorRole(ContainerRole.MAINT_CONTAINER)
+			.addSelectorRole(ContainerRole.MAIN_CONTENT_CONTAINER)
 			.addAttachingAttribute(
 				"ElementMargin(20)"
 			),

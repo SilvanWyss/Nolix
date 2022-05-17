@@ -23,7 +23,7 @@ public final class BlackGreenConsoleClientLookCreator {
 		.addAttachingAttribute("BackgroundColor(0x080F08)")
 		.addConfiguration(
 			new DeepConfiguration()
-			.addSelectorRole(ContainerRole.MAINT_CONTAINER)
+			.addSelectorRole(ContainerRole.MAIN_CONTENT_CONTAINER)
 			.addAttachingAttribute(
 				"BaseBackground(ColorGradient(Vertical,0x40C040,0x102010))",	
 				"BaseLeftPadding(30)",
