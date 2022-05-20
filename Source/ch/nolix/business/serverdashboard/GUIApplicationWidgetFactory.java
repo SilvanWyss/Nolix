@@ -17,7 +17,14 @@ import ch.nolix.systemapi.guiapi.imageapi.IImage;
 final class GUIApplicationWidgetFactory {
 	
 	//constant
-	public static final IImage<?> DEFAULT_LOGO = MutableImage.withWidthAndHeightAndColor(200, 150, Color.GREY);
+	public static final int LOGO_IMAGE_WIDTH = 200;
+	
+	//constant
+	public static final int LOGO_IMAGE_HEIGHT = 150;
+	
+	//constant
+	public static final IImage<?> DEFAULT_LOGO =
+	MutableImage.withWidthAndHeightAndColor(LOGO_IMAGE_WIDTH, LOGO_IMAGE_HEIGHT, Color.GREY);
 	
 	//static attribute
 	public static final GUIApplicationWidgetFactory INSTANCE = new GUIApplicationWidgetFactory();
@@ -76,8 +83,8 @@ final class GUIApplicationWidgetFactory {
 		if (!pGUIApplicationSheet.hasApplicationLogo()) {
 			return DEFAULT_LOGO;
 		}
-			
-		return pGUIApplicationSheet.getApplicationLogo();
+		
+		return pGUIApplicationSheet.getApplicationLogo().asWithWidthAndHeight(LOGO_IMAGE_WIDTH, LOGO_IMAGE_HEIGHT);
 	}
 	
 	//method
