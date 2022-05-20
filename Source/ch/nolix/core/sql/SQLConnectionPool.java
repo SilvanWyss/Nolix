@@ -5,6 +5,7 @@ package ch.nolix.core.sql;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.constant.PortCatalogue;
 import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.programcontrol.groupcloseable.GroupCloseable;
@@ -136,6 +137,12 @@ public final class SQLConnectionPool implements GroupCloseable, ISQLDatabaseTarg
 	//method
 	public void takeBackSQLConnection(final SQLConnection pSQLConnection) {
 		mSQLConnections.getRefFirst(sqlc -> sqlc.contains(pSQLConnection)).setAvailable();
+	}
+	
+	//method
+	@Override
+	public String toURL() {
+		throw new ArgumentDoesNotSupportMethodException(this, "toURL");
 	}
 	
 	//method

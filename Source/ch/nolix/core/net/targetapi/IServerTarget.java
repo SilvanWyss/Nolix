@@ -9,4 +9,7 @@ public interface IServerTarget {
 	
 	//method declaration
 	int getPort();
+	
+	//method declaration
+	String toURL();
 }

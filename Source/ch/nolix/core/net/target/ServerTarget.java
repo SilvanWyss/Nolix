@@ -45,4 +45,10 @@ public class ServerTarget implements IServerTarget {
 	public final int getPort() {
 		return port;
 	}
+	
+	//method
+	@Override
+	public String toURL() {
+		return (getIpOrAddressName() + ":" + getPort());	
+	}
 }

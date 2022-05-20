@@ -6,7 +6,7 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.net.targetapi.IApplicationTarget;
 
 //class
-public class ApplicationTarget extends ServerTarget implements IApplicationTarget {
+public final class ApplicationTarget extends ServerTarget implements IApplicationTarget {
 	
 	//static method
 	public static ApplicationTarget forIpOrAddressNameAndPortAndApplicationName(
@@ -21,7 +21,7 @@ public class ApplicationTarget extends ServerTarget implements IApplicationTarge
 	private final String applicationName;
 	
 	//constructor
-	protected ApplicationTarget(final String ipOrAddressName, final int port, final String applicationName) {
+	private ApplicationTarget(final String ipOrAddressName, final int port, final String applicationName) {
 		
 		super(ipOrAddressName, port);
 		
@@ -32,8 +32,13 @@ public class ApplicationTarget extends ServerTarget implements IApplicationTarge
 	
 	//method
 	@Override
-	public final String getApplicationName() {
+	public String getApplicationName() {
 		return applicationName;
 	}
-
+	
+	//method
+	@Override
+	public String toURL() {
+		return (super.toURL() + "/" + getApplicationName());
+	}
 }
