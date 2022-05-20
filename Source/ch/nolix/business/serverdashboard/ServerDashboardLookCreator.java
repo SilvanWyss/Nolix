@@ -37,7 +37,7 @@ public final class ServerDashboardLookCreator {
 		return
 		new DeepConfiguration()
 		.setSelectorType(ImageWidget.class)
-		.addAttachingAttribute("CursorIcon(Hand)");
+		.addAttachingAttribute("CursorIcon(Hand)", "BaseOpacity(75%)", "HoverOpacity(25%)");
 	}
 	
 	//method
