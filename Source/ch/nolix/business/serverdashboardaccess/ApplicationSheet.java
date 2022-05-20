@@ -24,7 +24,7 @@ public final class ApplicationSheet implements IApplicationSheet {
 		final Server server
 	) {
 		
-		if (pGUIApplication.getRefContext().getClass().isAssignableFrom(IGUIApplicationContext.class)) {
+		if (IGUIApplicationContext.class.isInstance(pGUIApplication.getRefContext())) {
 			return
 			new ApplicationSheet(
 				pGUIApplication.getName(),
@@ -67,9 +67,9 @@ public final class ApplicationSheet implements IApplicationSheet {
 		}
 		
 		if (!pGUIApplicationContext.hasApplicationDescription()) {
-			applicationDescription = pGUIApplicationContext.getApplicationDescription();
-		} else {
 			applicationDescription = null;
+		} else {
+			applicationDescription = pGUIApplicationContext.getApplicationDescription();
 		}
 		
 		this.serverTarget =serverTarget;
