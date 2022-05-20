@@ -15,6 +15,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.net.targetapi.IApplicationTarget;
 import ch.nolix.core.programcontrol.sequencer.Sequencer;
 import ch.nolix.system.application.main.BackendClient;
 import ch.nolix.system.gui.base.GUI;
@@ -142,6 +143,16 @@ public abstract class BaseBackendGUIClient<
 					ObjectProtocol.URL,
 					ChainedNode.withHeader(pURL)
 				)
+			)
+		);
+	}
+	
+	//method
+	final void internalRedirectTo(final IApplicationTarget applicationTarget) {
+		runOnCounterpart(
+			ChainedNode.withHeaderAndAttribute(
+				CommandProtocol.REDIRECT,
+				ChainedNode.withHeader(applicationTarget.toURL())
 			)
 		);
 	}

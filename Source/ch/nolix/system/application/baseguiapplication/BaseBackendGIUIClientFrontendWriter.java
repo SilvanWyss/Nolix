@@ -3,6 +3,7 @@ package ch.nolix.system.application.baseguiapplication;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.net.targetapi.IApplicationTarget;
 import ch.nolix.systemapi.guiapi.baseapi.IFrontEndWriter;
 
 //class
@@ -23,6 +24,12 @@ final class BaseBackendGIUIClientFrontendWriter implements IFrontEndWriter {
 	@Override
 	public void openNewTabWithURL(final String pURL) {
 		parentBackendGUIClient.internalOpenNewTabOnCounterpartWithURL(pURL);	
+	}
+	
+	//method
+	@Override
+	public void redirectTo(final IApplicationTarget applicationTarget) {
+		parentBackendGUIClient.internalRedirectTo(applicationTarget);
 	}
 	
 	//method

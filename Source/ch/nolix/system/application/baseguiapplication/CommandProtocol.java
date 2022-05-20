@@ -9,6 +9,7 @@ final class CommandProtocol {
 	public static final String NOTE_INPUT = "NoteInput";
 	public static final String OPEN_NEW_TAB = "OpenNewTab";
 	public static final String RECEIVE_OPTIONAL_FILE = "ReceiveOptionalFile";
+	public static final String REDIRECT = "Redirect";
 	public static final String REGISTER_IMAGE = "RegisterImage";
 	public static final String RESET = "Reset";
 	public static final String SAVE_FILE = "SaveFile";

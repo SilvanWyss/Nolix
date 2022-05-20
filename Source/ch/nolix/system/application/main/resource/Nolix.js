@@ -2938,6 +2938,13 @@ define("System/CanvasGUI/CanvasGUI", ["require", "exports", "Core/Caching/Cachin
             console.log('The current CanvasGUI opens a new tab with the URL \'' + pURL + '\'');
             this.window.open(pURL, '_blank');
         }
+        redirectTo(pURL) {
+            if (!pURL.startsWith('http://')) {
+                pURL = 'http://' + pURL;
+            }
+            console.log('The current CanvasGUI redirects to \'' + pURL + '\'');
+            this.window.open(pURL, '_self');
+        }
         refresh() {
             console.log('The current CanvasGUI refreshes.');
             this.canvasRenderingContext2D.clearRect(0, 0, this.getViewAreaWidth(), this.getViewAreaHeight());
@@ -3484,6 +3491,7 @@ define("System/FrontCanvasGUIClient/FrontCanvasGUIClientCommandProtocol", ["requ
     FrontCanvasGUIClientCommandProtocol.NOTE_INPUT = 'NoteInput';
     FrontCanvasGUIClientCommandProtocol.OPEN_NEW_TAB = 'OpenNewTab';
     FrontCanvasGUIClientCommandProtocol.RECEIVE_OPTIONAL_FILE = 'ReceiveOptionalFile';
+    FrontCanvasGUIClientCommandProtocol.REDIRECT = "Redirect";
     FrontCanvasGUIClientCommandProtocol.REGISTER_IMAGE = 'RegisterImage';
     FrontCanvasGUIClientCommandProtocol.SEND_OPTIONAL_FILE = 'SendOptionalFile';
     FrontCanvasGUIClientCommandProtocol.SET_CURSOR_ICON = 'SetCursorIcon';
@@ -3663,6 +3671,9 @@ define("System/FrontCanvasGUIClient/GUIHandler", ["require", "exports", "System/
         }
         openNewTabWithURL(pURL) {
             this.mGUI.openNewTabWithURL(pURL);
+        }
+        redirectTo(pURL) {
+            this.mGUI.redirectTo(pURL);
         }
         registerImageAtId(id, image) {
             this.mGUI.registerImageAtId(id, image);
@@ -3886,6 +3897,9 @@ define("System/FrontCanvasGUIClient/FrontCanvasGUIClient", ["require", "exports"
                 case FrontCanvasGUIClientCommandProtocol_2.FrontCanvasGUIClientCommandProtocol.OPEN_NEW_TAB:
                     this.runOpenNewTabCommand(command);
                     break;
+                case FrontCanvasGUIClientCommandProtocol_2.FrontCanvasGUIClientCommandProtocol.REDIRECT:
+                    this.runRedirectCommand(command);
+                    break;
                 case FrontCanvasGUIClientCommandProtocol_2.FrontCanvasGUIClientCommandProtocol.SEND_OPTIONAL_FILE:
                     this.mGUIHandler.getOptionalFile(fileContainer => this.sendOptionalFile(fileContainer));
                     break;
@@ -3896,6 +3910,9 @@ define("System/FrontCanvasGUIClient/FrontCanvasGUIClient", ["require", "exports"
         }
         openNewTabWithURL(pURL) {
             this.mGUIHandler.openNewTabWithURL(pURL);
+        }
+        redirectTo(pURL) {
+            this.mGUIHandler.redirectTo(pURL);
         }
         runOnConunterpart(command) {
             if (this.endPoint !== undefined) {
@@ -3909,6 +3926,9 @@ define("System/FrontCanvasGUIClient/FrontCanvasGUIClient", ["require", "exports"
                 .getOneAttribute()
                 .getHeader();
             this.openNewTabWithURL(lURL);
+        }
+        runRedirectCommand(redirectCommand) {
+            this.redirectTo(redirectCommand.getOneAttribute().getHeader());
         }
         sendOptionalFile(fileContainer) {
             if (fileContainer.isEmpty()) {

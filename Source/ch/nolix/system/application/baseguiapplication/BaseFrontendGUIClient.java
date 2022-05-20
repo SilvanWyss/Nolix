@@ -74,6 +74,9 @@ extends FrontendClient<BFGUIC> {
 			case CommandProtocol.OPEN_NEW_TAB:
 				runOpenNewTabCommand(command);
 				break;
+			case CommandProtocol.REDIRECT:
+				runRedirectCommand(command);
+				break;
 			case CommandProtocol.SAVE_FILE:
 				saveFile(command.getOneAttributeAsString().getBytes(StandardCharsets.UTF_8));
 				break;
@@ -151,6 +154,11 @@ extends FrontendClient<BFGUIC> {
 	}
 	
 	//method
+	private void redirectTo(final String pURL) {
+		mGUIHandler.getRefGUI().onFrontEnd().openNewTabWithURL(pURL);
+	}
+	
+	//method
 	/**
 	 * Lets the current {@link BaseFrontendGUIClient} run the given openNewTabCommand.
 	 * 
@@ -161,6 +169,11 @@ extends FrontendClient<BFGUIC> {
 		final var lURL = getURLFromOpenNewTabCommand(openNewTabCommand);
 		
 		openNewTabWithURL(lURL);
+	}
+	
+	//method
+	private void runRedirectCommand(final ChainedNode redirectCommand) {
+		redirectTo(redirectCommand.getOneAttributeHeader());		
 	}
 	
 	//method

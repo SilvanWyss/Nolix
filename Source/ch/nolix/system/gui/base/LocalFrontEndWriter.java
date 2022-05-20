@@ -8,6 +8,8 @@ import javax.swing.JFileChooser;
 import ch.nolix.core.environment.filesystem.FileSystemAccessor;
 import ch.nolix.core.environment.localcomputer.PopupWindowProvider;
 import ch.nolix.core.environment.localcomputer.ShellProvider;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
+import ch.nolix.core.net.targetapi.IApplicationTarget;
 import ch.nolix.core.programcontrol.processproperty.WriteMode;
 import ch.nolix.systemapi.guiapi.baseapi.IFrontEndWriter;
 
@@ -18,6 +20,12 @@ public final class LocalFrontEndWriter implements IFrontEndWriter {
 	@Override
 	public void openNewTabWithURL(final String pURL) {
 		ShellProvider.startDefaultWebBrowserOpeningURL(pURL);
+	}
+	
+	//method
+	@Override
+	public void redirectTo(final IApplicationTarget applicationTarget) {
+		throw new ArgumentDoesNotSupportMethodException(this, "redirectTo");
 	}
 	
 	//method
