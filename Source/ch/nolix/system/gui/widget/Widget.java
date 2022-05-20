@@ -1945,7 +1945,7 @@ TopLeftPositionedRecangular {
 	private void paintRecursivelyUsingPositionedPainter(final IPainter painter) {
 		
 		paintRecursivelyUsingPositionedPainterWhenNotDisabled(painter);
-				
+		
 		//Handles the case that the current widget is disabled and would grey out.
 		if (isDisabled() && greysOutWhenDisabled()) {
 			paintCoverUsingPositionedPainter(painter);	
@@ -1961,7 +1961,9 @@ TopLeftPositionedRecangular {
 	 */
 	private void paintRecursivelyUsingPositionedPainterWhenNotDisabled(final IPainter painter) {
 		
-		paint(painter, getRefLook());
+		final var lLook = getRefLook();
+		painter.setOpacityPercentage(lLook.getOpacity());
+		paint(painter, lLook);
 		
 		if (paintsWidgetsForPaintingAPriori()) {
 			getRefWidgetsForPainting().forEach(w -> w.paintRecursively(painter));
