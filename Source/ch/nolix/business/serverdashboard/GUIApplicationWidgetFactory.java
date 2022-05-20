@@ -3,7 +3,6 @@ package ch.nolix.business.serverdashboard;
 
 //own imports
 import ch.nolix.businessapi.serverdashboardaccessapi.IApplicationSheet;
-import ch.nolix.core.net.targetapi.IApplicationTarget;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.containerwidget.VerticalStack;
 import ch.nolix.system.gui.image.MutableImage;
@@ -63,18 +62,9 @@ final class GUIApplicationWidgetFactory {
 			i
 			.getParentGUI()
 			.onFrontEnd()
-			.openNewTabWithURL(getURL(pGUIApplicationSheet.getApplicationTarget())))
+			.redirectTo(pGUIApplicationSheet.getApplicationTarget())
+		)
 		.setImage(getApplicationLogoOrDefaultLogo(pGUIApplicationSheet));
-	}
-	
-	//method
-	private String getURL(final IApplicationTarget applicationTarget) {
-		return
-		applicationTarget.getIpOrAddressName()
-		+ ":"
-		+ applicationTarget.getPort()
-		+ "/"
-		+ applicationTarget.getApplicationName();
 	}
 	
 	//method
