@@ -1962,7 +1962,14 @@ TopLeftPositionedRecangular {
 	private void paintRecursivelyUsingPositionedPainterWhenNotDisabled(final IPainter painter) {
 		
 		final var lLook = getRefLook();
-		painter.setOpacityPercentage(lLook.getOpacity());
+		
+		//TODO: Make IPaitner smarter to avoid this implementation.
+		if (!belongsToGUI()) {
+			painter.setOpacityPercentage(lLook.getOpacity());
+		} else {
+			painter.setOpacityPercentage(getParentLayer().getOpacityPercentage() * lLook.getOpacity());
+		}
+		
 		paint(painter, lLook);
 		
 		if (paintsWidgetsForPaintingAPriori()) {
