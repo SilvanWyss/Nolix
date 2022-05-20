@@ -18,7 +18,7 @@ public class GUIApplicationContext implements IGUIApplicationContext {
 	
 	//method
 	@Override
-	public String getApplicationDescription() {
+	public final String getApplicationDescription() {
 
 		assertHasApplicationDescription();
 		
@@ -27,7 +27,7 @@ public class GUIApplicationContext implements IGUIApplicationContext {
 	
 	//method
 	@Override
-	public IImage<?> getApplicationLogo() {
+	public final IImage<?> getApplicationLogo() {
 		
 		assertHasApplicationLogo();
 		
@@ -36,30 +36,34 @@ public class GUIApplicationContext implements IGUIApplicationContext {
 	
 	//method
 	@Override
-	public boolean hasApplicationDescription() {
+	public final boolean hasApplicationDescription() {
 		return (applicationDescription != null);
 	}
 	
 	//method
 	@Override
-	public boolean hasApplicationLogo() {
+	public final boolean hasApplicationLogo() {
 		return (applicationLogo != null);
 	}
 	
 	//method
-	public void setApplicationDescription(final String applicationDescription) {
+	public final GUIApplicationContext setApplicationDescription(final String applicationDescription) {
 		
 		Validator.assertThat(applicationDescription).thatIsNamed("application description").isNotBlank();
 		
 		this.applicationDescription = applicationDescription;
+		
+		return this;
 	}
 	
 	//method
-	public void setApplicationLogo(final IImage<?> applicationLogo) {
+	public final GUIApplicationContext setApplicationLogo(final IImage<?> applicationLogo) {
 		
 		Validator.assertThat(applicationLogo).thatIsNamed("application logo").isNotNull();
 		
 		this.applicationLogo = applicationLogo;
+		
+		return this;
 	}
 	
 	//method
