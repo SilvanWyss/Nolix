@@ -34,7 +34,7 @@ public final class LabelTutorial {
 		Sequencer.asSoonAsNoMore(server::hasClientConnected).runInBackground(server::close);
 	}
 	
-	private static final class MainSession extends BackendGUIClientSession<VoidApplicationContext> {
+	public static final class MainSession extends BackendGUIClientSession<VoidApplicationContext> {
 		
 		@Override
 		@SuppressWarnings("resource")

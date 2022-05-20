@@ -33,7 +33,7 @@ public final class CursorPositionTutorial {
 		Sequencer.asSoonAsNoMore(netServer::hasClientConnected).runInBackground(netServer::close);
 	}
 	
-	private static final class MainSession extends BackendGUIClientSession<VoidApplicationContext> {
+	public static final class MainSession extends BackendGUIClientSession<VoidApplicationContext> {
 		
 		private final Label cursorPositionLabel = new Label();
 		
