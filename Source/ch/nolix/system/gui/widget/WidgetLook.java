@@ -15,16 +15,28 @@ import ch.nolix.system.gui.textformat.Font;
 //class
 public abstract class WidgetLook<WL extends WidgetLook<WL>> extends FormatElement<WL, WidgetLookState> {
 	
-	//constants
+	//constant
 	public static final Font DEFAULT_FONT = Font.ARIAL;
+	
+	//constant
 	public static final boolean DEFAULT_BOLD_TEXT_FLAG = false;
+	
+	//constant
 	public static final int DEAULT_TEXT_SIZE = 20;
+	
+	//constant
 	public static final Color DEFAULT_TEXT_COLOR = Color.BLACK;
 	
-	//constants
+	//constant
 	private static final String FONT_HEADER = PascalCaseCatalogue.FONT;
+	
+	//constant
 	private static final String BOLD_TEXT_FLAG_HEADER = "BoldTextag";
+	
+	//constant
 	private static final String TEXT_SIZE_HEADER = PascalCaseCatalogue.TEXT_SIZE;
+	
+	//constant
 	private static final String TEXT_COLOR_HEADER = "TextColor";
 	
 	//attribute
