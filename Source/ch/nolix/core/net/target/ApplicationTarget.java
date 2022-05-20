@@ -39,6 +39,6 @@ public final class ApplicationTarget extends ServerTarget implements IApplicatio
 	//method
 	@Override
 	public String toURL() {
-		return (super.toURL() + "/" + getApplicationName());
+		return (super.toURL() + "/" + getApplicationName().replace(" ", "_"));
 	}
 }
