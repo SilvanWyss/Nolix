@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.testing.test;
+package ch.nolix.core.testing.validation;
 
 //own imports
 import ch.nolix.core.commontype.commontypewrapper.ByteWrapper;
@@ -12,7 +12,7 @@ public final class ByteMediator extends Mediator {
 	private final byte value;
 	
 	//constructor
-	ByteMediator(final IElementTaker<String> expectationErrorTaker, final byte value) {
+	public ByteMediator(final IElementTaker<String> expectationErrorTaker, final byte value) {
 		
 		super(expectationErrorTaker);
 		

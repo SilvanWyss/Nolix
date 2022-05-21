@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.testing.test;
+package ch.nolix.core.testing.validation;
 
 //own imports
 import ch.nolix.core.functionapi.IElementTaker;
@@ -9,7 +9,7 @@ import ch.nolix.core.independent.independenthelper.IterableHelper;
 public final class ContainerMediator<E> extends ValueMediator<Iterable<E>> {
 	
 	//constructor
-	ContainerMediator(final IElementTaker<String> expectationErrorTaker, final Iterable<E> container) {
+	public ContainerMediator(final IElementTaker<String> expectationErrorTaker, final Iterable<E> container) {
 		super(expectationErrorTaker, container);
 	}
 	

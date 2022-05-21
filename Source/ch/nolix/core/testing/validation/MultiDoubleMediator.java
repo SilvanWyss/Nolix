@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.testing.test;
+package ch.nolix.core.testing.validation;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -25,7 +25,7 @@ public final class MultiDoubleMediator extends Mediator {
 	 * @param expectationErrorTaker
 	 * @param values
 	 */
-	MultiDoubleMediator(final IElementTaker<String> expectationErrorTaker, final double[] values) {
+	public MultiDoubleMediator(final IElementTaker<String> expectationErrorTaker, final double[] values) {
 		
 		//Calls other constructor.
 		this(expectationErrorTaker, CentralArrayHelper.createIterable(values));
@@ -39,7 +39,7 @@ public final class MultiDoubleMediator extends Mediator {
 	 * @param values
 	 * @throws ArgumentIsNullException if the given test is null.
 	 */
-	MultiDoubleMediator(final IElementTaker<String> expectationErrorTaker, final Iterable<Double> values) {
+	public MultiDoubleMediator(final IElementTaker<String> expectationErrorTaker, final Iterable<Double> values) {
 		
 		//Calls constructor of the base class.
 		super(expectationErrorTaker);

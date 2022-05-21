@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.testing.test;
+package ch.nolix.core.testing.validation;
 
 //own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
@@ -24,7 +24,7 @@ public class StringMediator extends ValueMediator<String> {
 	 * @param value
 	 * @throws ArgumentIsNullException if the given test is null.
 	 */
-	StringMediator(final IElementTaker<String> expectationErrorTaker, final String value) {
+	public StringMediator(final IElementTaker<String> expectationErrorTaker, final String value) {
 		
 		//Calls constructor of the base class.
 		super(expectationErrorTaker, value);

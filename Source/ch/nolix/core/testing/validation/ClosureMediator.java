@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.testing.test;
+package ch.nolix.core.testing.validation;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -27,7 +27,7 @@ public final class ClosureMediator extends Mediator {
 	 * @throws ArgumentIsNullException if the given test is null.
 	 * @throws ArgumentIsNullException if the given closure is null.
 	 */
-	ClosureMediator(final IElementTaker<String> expectationErrorTaker, final IAction closure) {
+	public ClosureMediator(final IElementTaker<String> expectationErrorTaker, final IAction closure) {
 		
 		//Calls constructor of the base class.
 		super(expectationErrorTaker);

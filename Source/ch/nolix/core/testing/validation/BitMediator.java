@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.testing.test;
+package ch.nolix.core.testing.validation;
 
 //own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
@@ -13,7 +13,7 @@ public final class BitMediator extends Mediator {
 	private final boolean bit;
 	
 	//constructor
-	BitMediator(final IElementTaker<String> expectationErrorTaker, final boolean bit) {
+	public BitMediator(final IElementTaker<String> expectationErrorTaker, final boolean bit) {
 		
 		super(expectationErrorTaker);
 		

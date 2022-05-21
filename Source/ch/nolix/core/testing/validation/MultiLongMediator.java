@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.testing.test;
+package ch.nolix.core.testing.validation;
 
 //own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
@@ -29,7 +29,7 @@ public final class MultiLongMediator extends Mediator {
 	 * @param values
 	 * @throws ArgumentIsNullException if the given test is null.
 	 */
-	MultiLongMediator(final IElementTaker<String> expectationErrorTaker, final int[] values) {
+	public MultiLongMediator(final IElementTaker<String> expectationErrorTaker, final int[] values) {
 		
 		//Calls constructor of the base class.
 		super(expectationErrorTaker);
@@ -52,7 +52,7 @@ public final class MultiLongMediator extends Mediator {
 	 * @param values
 	 * @throws ArgumentIsNullException if the given test is null.
 	 */
-	MultiLongMediator(final IElementTaker<String> expectationErrorTaker, final Iterable<Long> values) {
+	public MultiLongMediator(final IElementTaker<String> expectationErrorTaker, final Iterable<Long> values) {
 		
 		//Calls constructor of the base class.
 		super(expectationErrorTaker);

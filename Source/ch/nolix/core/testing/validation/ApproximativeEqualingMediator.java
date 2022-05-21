@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.testing.test;
+package ch.nolix.core.testing.validation;
 
 //own imports
 import ch.nolix.core.environment.nolixenvironment.NolixEnvironment;
@@ -26,7 +26,7 @@ public final class ApproximativeEqualingMediator extends ValueMediator<Approxima
 	 * @param value
 	 * @throws ArgumentIsNullException if the given test is null.
 	 */
-	ApproximativeEqualingMediator(
+	public ApproximativeEqualingMediator(
 		final IElementTaker<String> expectationErrorTaker,
 		final ApproximativeEqualing value
 	) {
