@@ -181,8 +181,17 @@ public abstract class BaseBackendGUIClient<
 	/**
 	 * Updates the counterpart of the current {@link BaseBackendGUIClient}.
 	 */
-	final void updateCounterpart() {
+	final void updateCounterpart() {	
+		
+		/*
+		 * TODO: Fix this.
+		 * A refresh resp. a recalculation of the GUI is required twice instead of 1 time.
+		 * If there is done 1 refresh only, the GUI will show up empty on the frontend client as long as
+		 * the user does not make a device input.
+		 */
 		getRefGUI().refresh();
+		getRefGUI().refresh();
+		
 		counterpartUpdater.updateCounterpart();
 	}
 	
