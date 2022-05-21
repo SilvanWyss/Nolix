@@ -3,12 +3,11 @@ package ch.nolix.core.attributeapi.mandatoryattributeapi;
 
 //interface
 /**
-* A {@link ITextHolder} has a text.
-* 
-* @author Silvan Wyss
-* @date 2021-06-19
-* @lines 50
-*/
+ * A {@link ITextHolder} has a text.
+ * 
+ * @author Silvan Wyss
+ * @date 2021-06-19
+ */
 public interface ITextHolder {
 	
 	//method declaration

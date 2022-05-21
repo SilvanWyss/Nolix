@@ -8,12 +8,11 @@ import ch.nolix.core.functionapi.IElementTaker;
 
 //class
 /**
-* A {@link ExtendedThrownExceptionMediator} is not mutable.
-* 
-* @author Silvan Wyss
-* @date 2018-12-09
-* @lines 80
-*/
+ * A {@link ExtendedThrownExceptionMediator} is not mutable.
+ * 
+ * @author Silvan Wyss
+ * @date 2018-12-09
+ */
 public final class ExtendedThrownExceptionMediator extends ThrownExceptionMediator {
 	
 	//constructor

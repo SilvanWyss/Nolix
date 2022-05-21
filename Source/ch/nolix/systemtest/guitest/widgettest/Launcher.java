@@ -3,12 +3,11 @@ package ch.nolix.systemtest.guitest.widgettest;
 
 //class
 /**
-* Of the {@link Launcher} an instance cannot be created.
-* 
-* @author Silvan Wyss
-* @date 2019-05-19
-* @lines 30
-*/
+ * Of the {@link Launcher} an instance cannot be created.
+ * 
+ * @author Silvan Wyss
+ * @date 2019-05-19
+ */
 public final class Launcher {
 	
 	//main method

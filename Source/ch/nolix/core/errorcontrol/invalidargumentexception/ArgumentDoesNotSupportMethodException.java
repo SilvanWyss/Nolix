@@ -3,15 +3,14 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 
 //class
 /**
-* A {@link ArgumentDoesNotSupportMethodException} is a {@link InvalidArgumentException}
-* that is supposed to be thrown when an argument does not support a called method.
-* 
-* A {@link ArgumentDoesNotSupportMethodException} is not mutable.
-* 
-* @author Silvan Wyss
-* @date 2019-02-03
-* @lines 50
-*/
+ * A {@link ArgumentDoesNotSupportMethodException} is a {@link InvalidArgumentException}
+ * that is supposed to be thrown when an argument does not support a called method.
+ * 
+ * A {@link ArgumentDoesNotSupportMethodException} is not mutable.
+ * 
+ * @author Silvan Wyss
+ * @date 2019-02-03
+ */
 @SuppressWarnings("serial")
 public final class ArgumentDoesNotSupportMethodException extends InvalidArgumentException {
 	

@@ -3,12 +3,11 @@ package ch.nolix.core.requestapi;
 
 //interface
 /**
-* A {@link ContainsElementByStringIdRequestable} can be asked if it contains an element with a given id.
-* 
-* @author Silvan Wyss
-* @date 2016-01-01
-* @lines 20
-*/
+ * A {@link ContainsElementByStringIdRequestable} can be asked if it contains an element with a given id.
+ * 
+ * @author Silvan Wyss
+ * @date 2016-01-01
+ */
 public interface ContainsElementByStringIdRequestable {
 	
 	//method declaration

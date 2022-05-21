@@ -9,12 +9,11 @@ import ch.nolix.system.time.base.Time;
 
 //class
 /**
-* A {@link VolumeCandleStickTest} is a test for {@link VolumeCandleStick}s
-* 
-* @author Silvan Wyss
-* @date 2021-02-27
-* @lines 80
-*/
+ * A {@link VolumeCandleStickTest} is a test for {@link VolumeCandleStick}s
+ * 
+ * @author Silvan Wyss
+ * @date 2021-02-27
+ */
 public final class VolumeCandleStickTest extends Test {
 	
 	//method

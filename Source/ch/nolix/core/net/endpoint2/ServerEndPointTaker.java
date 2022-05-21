@@ -9,10 +9,9 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 
 //class
 /**
-* @author Silvan Wyss
-* @date 2016-06-01
-* @lines 50
-*/
+ * @author Silvan Wyss
+ * @date 2016-06-01
+ */
 final class ServerEndPointTaker implements ch.nolix.core.net.endpoint.IEndPointTaker {
 	
 	//attributes

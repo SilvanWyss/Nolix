@@ -7,13 +7,12 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentExceptio
 
 //class
 /**
-* An extended container mediator is not mutable.
-* 
-* @author Silvan Wyss
-* @date 2017-11-12
-* @lines 50
-* @param <E> is the type of the elements of the argument of an extended container mediator.
-*/
+ * An extended container mediator is not mutable.
+ * 
+ * @author Silvan Wyss
+ * @date 2017-11-12
+ * @param <E> is the type of the elements of the argument of an extended container mediator.
+ */
 public class ExtendedContainerMediator<E> extends ContainerMediator<E> {
 
 	//constructor

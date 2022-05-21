@@ -3,16 +3,15 @@ package ch.nolix.core.functionapi;
 
 //functional interface
 /**
-* A {@link I3ElementTakerElementGetter} has a method that takes 3 elements and returns an element.
-* 
-* @author Silvan Wyss
-* @date 2019-03-03
-* @lines 20
-* @param <E1> is the type of the first element a {@link IElementTakerLongGetter} takes.
-* @param <E2> is the type of the second element a {@link IElementTakerLongGetter} takes.
-* @param <E3> is the type of the third element a {@link IElementTakerLongGetter} takes.
-* @param <E4> is the type of the element a {@link IElementTakerLongGetter} returns.
-*/
+ * A {@link I3ElementTakerElementGetter} has a method that takes 3 elements and returns an element.
+ * 
+ * @author Silvan Wyss
+ * @date 2019-03-03
+ * @param <E1> is the type of the first element a {@link IElementTakerLongGetter} takes.
+ * @param <E2> is the type of the second element a {@link IElementTakerLongGetter} takes.
+ * @param <E3> is the type of the third element a {@link IElementTakerLongGetter} takes.
+ * @param <E4> is the type of the element a {@link IElementTakerLongGetter} returns.
+ */
 @FunctionalInterface
 public interface I3ElementTakerElementGetter<E1, E2, E3, E4> {
 

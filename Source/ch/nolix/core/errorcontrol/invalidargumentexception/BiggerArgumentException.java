@@ -3,13 +3,12 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 
 //class
 /**
-* A {@link BiggerArgumentException} is a {@link InvalidArgumentException}
-* that is supposed to be thrown when an argument is undesirably bigger than a given limit.
-* 
-* @author Silvan Wyss
-* @date 2016-03-01
-* @lines 80
-*/
+ * A {@link BiggerArgumentException} is a {@link InvalidArgumentException}
+ * that is supposed to be thrown when an argument is undesirably bigger than a given limit.
+ * 
+ * @author Silvan Wyss
+ * @date 2016-03-01
+ */
 @SuppressWarnings("serial")
 public final class BiggerArgumentException extends InvalidArgumentException {
 

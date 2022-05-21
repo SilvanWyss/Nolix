@@ -3,12 +3,11 @@ package ch.nolix.core.requestapi;
 
 //interface
 /**
-* A {@link MutabilityRequestable} can be asked if it is mutable.
-* 
-* @author Silvan Wyss
-* @date 2021-03-19
-* @lines 20
-*/
+ * A {@link MutabilityRequestable} can be asked if it is mutable.
+ * 
+ * @author Silvan Wyss
+ * @date 2021-03-19
+ */
 public interface MutabilityRequestable {
 	
 	//method

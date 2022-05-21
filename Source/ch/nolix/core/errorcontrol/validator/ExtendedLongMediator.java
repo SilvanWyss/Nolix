@@ -7,12 +7,11 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentExceptio
 
 //class
 /**
-* An extended long mediator is not mutable.
-* 
-* @author Silvan Wyss
-* @date 2017-11-12
-* @lines 40
-*/
+ * An extended long mediator is not mutable.
+ * 
+ * @author Silvan Wyss
+ * @date 2017-11-12
+ */
 public class ExtendedLongMediator extends LongMediator {
 
 	//constructor

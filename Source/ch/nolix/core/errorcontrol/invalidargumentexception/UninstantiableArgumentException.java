@@ -3,13 +3,12 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 
 //class
 /**
-* A {@link UninstantiableArgumentException} is a {@link InvalidArgumentException}
-* that is supposed to be thrown when a given class was undesirably tried to be instantiated.
-* 
-* @author Silvan Wyss
-* @date 2019-03-02
-* @lines 40
-*/
+ * A {@link UninstantiableArgumentException} is a {@link InvalidArgumentException}
+ * that is supposed to be thrown when a given class was undesirably tried to be instantiated.
+ * 
+ * @author Silvan Wyss
+ * @date 2019-03-02
+ */
 @SuppressWarnings("serial")
 public final class UninstantiableArgumentException extends InvalidArgumentException {
 	

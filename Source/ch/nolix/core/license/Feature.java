@@ -7,12 +7,11 @@ import ch.nolix.core.container.IContainer;
 
 //class
 /**
-* A {@link Feature} can be required for certain functionalities.
-* 
-* @author Silvan Wyss
-* @date 2019-11-16
-* @lines 30
-*/
+ * A {@link Feature} can be required for certain functionalities.
+ * 
+ * @author Silvan Wyss
+ * @date 2019-11-16
+ */
 public abstract class Feature implements Named {
 	
 	//method declaration

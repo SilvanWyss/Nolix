@@ -3,12 +3,11 @@ package ch.nolix.core.requestapi;
 
 //interface
 /**
-* A {@link MandatoryRequestable} can be asked if it is mandatory.
-* 
-* @author Silvan Wyss
-* @date 2021-12-26
-* @lines 20
-*/
+ * A {@link MandatoryRequestable} can be asked if it is mandatory.
+ * 
+ * @author Silvan Wyss
+ * @date 2021-12-26
+ */
 public interface MandatoryRequestable {
 	
 	//method declaration

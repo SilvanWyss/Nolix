@@ -3,12 +3,11 @@ package ch.nolix.core.attributeapi.mandatoryattributeapi;
 
 //interface
 /**
-* A {@link Titled} has a title.
-* 
-* @author Silvan Wyss
-* @date 2019-07-26
-* @lines 10
-*/
+ * A {@link Titled} has a title.
+ * 
+ * @author Silvan Wyss
+ * @date 2019-07-26
+ */
 public interface Titled {
 	
 	//method declaration

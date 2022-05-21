@@ -3,13 +3,12 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 
 //class
 /**
-* A {@link UnconnectedArgumentException} is a {@link InvalidArgumentException}
-* that is supposed to be thrown when a given argument is undesirable not connected.
-* 
-* @author Silvan Wyss
-* @date 2020-07-24
-* @lines 30
-*/
+ * A {@link UnconnectedArgumentException} is a {@link InvalidArgumentException}
+ * that is supposed to be thrown when a given argument is undesirable not connected.
+ * 
+ * @author Silvan Wyss
+ * @date 2020-07-24
+ */
 @SuppressWarnings("serial")
 public final class UnconnectedArgumentException extends InvalidArgumentException {
 	

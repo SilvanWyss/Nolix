@@ -11,14 +11,13 @@ import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 
 //class
 /**
-* A {@link BorderWidgetHorizontalScrollBarCursor} does not store or mutate data.
-* 
-* @author Silvan Wyss
-* @date 2020-02-03
-* @lines 200
-* @param <BWL> is the type of the {@link BorderWidgetLook}
-* of the {@link BorderWidget} a {@link BorderWidgetHorizontalScrollBarCursor} belongs to.
-*/
+ * A {@link BorderWidgetHorizontalScrollBarCursor} does not store or mutate data.
+ * 
+ * @author Silvan Wyss
+ * @date 2020-02-03
+ * @param <BWL> is the type of the {@link BorderWidgetLook}
+ * of the {@link BorderWidget} a {@link BorderWidgetHorizontalScrollBarCursor} belongs to.
+ */
 public final class BorderWidgetHorizontalScrollBarCursor<BWL extends BorderWidgetLook<BWL>>
 implements HoverableByCursor {
 	

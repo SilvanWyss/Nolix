@@ -14,11 +14,10 @@ import ch.nolix.core.requestapi.MutabilityRequestable;
 
 //class
 /**
-* @author Silvan Wyss
-* @date 2017-10-29
-* @lines 90
-* @param <V> is the type of the values of a {@link BaseValue}.
-*/
+ * @author Silvan Wyss
+ * @date 2017-10-29
+ * @param <V> is the type of the values of a {@link BaseValue}.
+ */
 public abstract class BaseValue<V> extends Property implements MutabilityRequestable, Named {
 	
 	//attributes

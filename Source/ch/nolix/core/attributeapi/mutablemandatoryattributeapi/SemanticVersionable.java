@@ -10,13 +10,12 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 
 //interface
 /**
-* A {@link SemanticVersionable} is a {@link SemanticVersioned} whose semantic version can be set programmatically.
-* 
-* @author Silvan Wyss
-* @date 2020-03-30
-* @lines 50
-* @param <SV> is the type of a {@link SemanticVersionable}.
-*/
+ * A {@link SemanticVersionable} is a {@link SemanticVersioned} whose semantic version can be set programmatically.
+ * 
+ * @author Silvan Wyss
+ * @date 2020-03-30
+ * @param <SV> is the type of a {@link SemanticVersionable}.
+ */
 public interface SemanticVersionable<SV extends SemanticVersionable<SV>> extends SemanticVersioned {
 	
 	//method declaration

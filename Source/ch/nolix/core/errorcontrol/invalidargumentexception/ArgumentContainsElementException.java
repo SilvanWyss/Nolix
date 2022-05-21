@@ -6,13 +6,12 @@ import ch.nolix.core.constant.LowerCaseCatalogue;
 
 //class
 /**
-* A {@link ArgumentContainsElementException} is a {@link InvalidArgumentException} that
-* is supposed to be thrown when an argument contains undesirably a given element.
-* 
-* @author Silvan Wyss
-* @date 2021-07-15
-* @lines 40
-*/
+ * A {@link ArgumentContainsElementException} is a {@link InvalidArgumentException} that
+ * is supposed to be thrown when an argument contains undesirably a given element.
+ * 
+ * @author Silvan Wyss
+ * @date 2021-07-15
+ */
 @SuppressWarnings("serial")
 public final class ArgumentContainsElementException extends InvalidArgumentException {
 	

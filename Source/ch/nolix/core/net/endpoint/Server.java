@@ -15,19 +15,18 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 
 //class
 /**
-* A {@link Server} is a {@link BaseServer} that listens to {@link BaseNetEndPoint} on a specific port.
-* 
-* A {@link Server} supports the WebSocket protocol and can communicate with a WebSocket.
+ * A {@link Server} is a {@link BaseServer} that listens to {@link BaseNetEndPoint} on a specific port.
+ * 
+ * A {@link Server} supports the WebSocket protocol and can communicate with a WebSocket.
  * The WebSocket protocol is complicated. Because:
  * -A WebSocket requires a HTTP handshake.
  * -A WebSocket puts its messages in frames that need to be encoded awkwardly.
  * -A WebSocket sends messages, that belong together, in separate lines.
  * The WebSocket protocol was designed this way because of security reasons.
-* 
-* @author Silvan Wyss
-* @date 2016-01-01
-* @lines 170
-*/
+ * 
+ * @author Silvan Wyss
+ * @date 2016-01-01
+ */
 public final class Server extends BaseServer {
 	
 	//constant
