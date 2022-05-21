@@ -5,6 +5,7 @@ package ch.nolix.core.testing.test;
 import ch.nolix.core.environment.nolixenvironment.NolixEnvironment;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
+import ch.nolix.core.functionapi.IElementTaker;
 import ch.nolix.core.requestapi.ApproximativeEqualing;
 
 //class
@@ -21,16 +22,16 @@ public final class ApproximativeEqualingMediator extends ValueMediator<Approxima
 	 * Creates a new approximative equaling mediator
 	 * that belongs to the given test and is for the given value.
 	 * 
-	 * @param test
+	 * @param expectationErrorTaker
 	 * @param value
 	 * @throws ArgumentIsNullException if the given test is null.
 	 */
 	ApproximativeEqualingMediator(
-		final Test test,
+		final IElementTaker<String> expectationErrorTaker,
 		final ApproximativeEqualing value
 	) {
 		//Calls constructor of the base class.
-		super(test, value);
+		super(expectationErrorTaker, value);
 	}
 	
 	//method
@@ -43,7 +44,7 @@ public final class ApproximativeEqualingMediator extends ValueMediator<Approxima
 	public ApproximativeEqualingDeviationMediator withDefaultMaxDeviation() {
 		return
 		new ApproximativeEqualingDeviationMediator(
-			getRefTest(),
+			getRefExpectationErrorTaker(),
 			getRefValue(),
 			NolixEnvironment.DEFAULT_MAX_DEVIATION
 		);
@@ -60,7 +61,7 @@ public final class ApproximativeEqualingMediator extends ValueMediator<Approxima
 	 */
 	public ApproximativeEqualingDeviationMediator withMaxDeviation(final double maxDeviation) {
 		return new ApproximativeEqualingDeviationMediator(
-			getRefTest(),
+			getRefExpectationErrorTaker(),
 			getRefValue(),
 			maxDeviation
 		);

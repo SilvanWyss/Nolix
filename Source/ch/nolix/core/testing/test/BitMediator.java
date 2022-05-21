@@ -4,6 +4,7 @@ package ch.nolix.core.testing.test;
 //own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.functionapi.IElementTaker;
 
 //class
 public final class BitMediator extends Mediator {
@@ -12,17 +13,17 @@ public final class BitMediator extends Mediator {
 	private final boolean bit;
 	
 	//constructor
-	BitMediator(final Test parentTest, final boolean bit) {
+	BitMediator(final IElementTaker<String> expectationErrorTaker, final boolean bit) {
 		
-		super(parentTest);
+		super(expectationErrorTaker);
 		
 		this.bit = bit;
 	}
 	
 	//constructor
-	public BitMediator(final Test parentTest, final int bit) {
+	public BitMediator(final IElementTaker<String> expectationErrorTaker, final int bit) {
 		
-		super(parentTest);
+		super(expectationErrorTaker);
 		
 		switch (bit) {
 			case 0:

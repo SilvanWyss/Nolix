@@ -3,6 +3,7 @@ package ch.nolix.core.testing.test;
 
 //own imports
 import ch.nolix.core.commontype.commontypewrapper.ByteWrapper;
+import ch.nolix.core.functionapi.IElementTaker;
 
 //class
 public final class ByteMediator extends Mediator {
@@ -11,9 +12,9 @@ public final class ByteMediator extends Mediator {
 	private final byte value;
 	
 	//constructor
-	ByteMediator(final Test parentTest, final byte value) {
+	ByteMediator(final IElementTaker<String> expectationErrorTaker, final byte value) {
 		
-		super(parentTest);
+		super(expectationErrorTaker);
 		
 		this.value = value;
 	}

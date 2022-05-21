@@ -5,6 +5,7 @@ package ch.nolix.core.testing.test;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.core.functionapi.IElementTaker;
 
 //class
 /**
@@ -26,13 +27,13 @@ public abstract class ThrownExceptionMediator extends Mediator {
 	/**
 	 * Creates a new {@link ThrownExceptionMediator} that will belong to the given test.
 	 * 
-	 * @param test
+	 * @param expectationErrorTaker
 	 * @throws ArgumentIsNullException if the given test is null.
 	 */
-	ThrownExceptionMediator(final Test test) {
+	ThrownExceptionMediator(final IElementTaker<String> expectationErrorTaker) {
 		
 		//Calls constructor of the base class.
-		super(test);
+		super(expectationErrorTaker);
 		
 		//Clears the exception of the current thrown exception mediator.
 		exception = null;
@@ -43,15 +44,15 @@ public abstract class ThrownExceptionMediator extends Mediator {
 	 * Creates a new {@link ThrownExceptionMediator}
 	 * that will belong to the given test and is for the given exception.
 	 * 
-	 * @param test
+	 * @param expectationErrorTaker
 	 * @param exception
 	 * @throws ArgumentIsNullException if the given test is null.
 	 * @throws ArgumentIsNullException if the given exception is null.
 	 */
-	ThrownExceptionMediator(final Test test, final Throwable exception) {
+	ThrownExceptionMediator(final IElementTaker<String> expectationErrorTaker, final Throwable exception) {
 		
 		//Calls constructor of the base class.
-		super(test);
+		super(expectationErrorTaker);
 		
 		//Asserts that the given exception is not null.
 		if (exception == null) {

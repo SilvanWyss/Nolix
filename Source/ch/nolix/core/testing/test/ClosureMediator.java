@@ -4,6 +4,7 @@ package ch.nolix.core.testing.test;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.functionapi.IAction;
+import ch.nolix.core.functionapi.IElementTaker;
 
 //class
 /**
@@ -21,15 +22,15 @@ public final class ClosureMediator extends Mediator {
 	/**
 	 * Creates a new {@link ClosureMediator} that belongs to the given test and is for the given closure.
 	 * 
-	 * @param test
+	 * @param expectationErrorTaker
 	 * @param closure
 	 * @throws ArgumentIsNullException if the given test is null.
 	 * @throws ArgumentIsNullException if the given closure is null.
 	 */
-	ClosureMediator(final Test test, final IAction closure) {
+	ClosureMediator(final IElementTaker<String> expectationErrorTaker, final IAction closure) {
 		
 		//Calls constructor of the base class.
-		super(test);
+		super(expectationErrorTaker);
 		
 		//Asserts that the given closure is not null.
 		if (closure == null) {
@@ -50,9 +51,9 @@ public final class ClosureMediator extends Mediator {
 		try {
 			closure.run();
 			addCurrentTestCaseError("An exception was expected, but any exception was thrown.");
-			return new ExtendedThrownExceptionMediator(getRefTest());
+			return new ExtendedThrownExceptionMediator(getRefExpectationErrorTaker());
 		} catch (final Throwable exception) {
-			return new ExtendedThrownExceptionMediator(getRefTest(), exception);
+			return new ExtendedThrownExceptionMediator(getRefExpectationErrorTaker(), exception);
 		}
 	}
 	

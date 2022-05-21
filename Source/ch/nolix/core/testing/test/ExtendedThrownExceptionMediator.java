@@ -4,6 +4,7 @@ package ch.nolix.core.testing.test;
 //own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.core.functionapi.IElementTaker;
 
 //class
 /**
@@ -20,13 +21,13 @@ public final class ExtendedThrownExceptionMediator extends ThrownExceptionMediat
 	 * Creates a new {@link ExtendedThrownExceptionMediator}
 	 * that will belong to the given test.
 	 * 
-	 * @param test
+	 * @param expectationErrorTaker
 	 * @throws ArgumentIsNullException if the given test is null.
 	 */
-	ExtendedThrownExceptionMediator(final Test test) {
+	ExtendedThrownExceptionMediator(final IElementTaker<String> expectationErrorTaker) {
 
 		//Calls constructor of the base class.
-		super(test);
+		super(expectationErrorTaker);
 	}
 	
 	//constructor
@@ -34,15 +35,15 @@ public final class ExtendedThrownExceptionMediator extends ThrownExceptionMediat
 	 * Creates a new {@link ExtendedThrownExceptionMediator}
 	 * that will belong to the given test and is for the given exception.
 	 * 
-	 * @param test
+	 * @param expectationErrorTaker
 	 * @param exception
 	 * @throws ArgumentIsNullException if the given test is null.
 	 * @throws ArgumentIsNullException if the given exception is null.
 	 */
-	ExtendedThrownExceptionMediator(final Test test, final Throwable exception) {
+	ExtendedThrownExceptionMediator(final IElementTaker<String> expectationErrorTaker, final Throwable exception) {
 		
 		//Calls constructor of the base class.
-		super(test, exception);
+		super(expectationErrorTaker, exception);
 	}
 	
 	//method
@@ -67,7 +68,7 @@ public final class ExtendedThrownExceptionMediator extends ThrownExceptionMediat
 		//Handles the case that the current extended thrown exception mediator
 		//does not have an exception.
 		if (!hasException()) {
-			return new ExtendedThrownExceptionMediator(getRefTest());
+			return new ExtendedThrownExceptionMediator(getRefExpectationErrorTaker());
 		}
 		
 		//Handles the case that the current extended thrown exception mediator has an exception.
@@ -82,6 +83,6 @@ public final class ExtendedThrownExceptionMediator extends ThrownExceptionMediat
 				);
 			}
 			
-			return new ExtendedThrownExceptionMediator(getRefTest(), getException());
+			return new ExtendedThrownExceptionMediator(getRefExpectationErrorTaker(), getException());
 	}
 }

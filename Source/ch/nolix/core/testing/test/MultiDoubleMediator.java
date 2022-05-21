@@ -3,6 +3,7 @@ package ch.nolix.core.testing.test;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.core.functionapi.IElementTaker;
 import ch.nolix.core.independent.independenthelper.CentralArrayHelper;
 
 //class
@@ -21,27 +22,27 @@ public final class MultiDoubleMediator extends Mediator {
 	/**
 	 * Creates a new {@link MultiDoubleMediator} that will belong to the given test and is for the given values.
 	 * 
-	 * @param test
+	 * @param expectationErrorTaker
 	 * @param values
 	 */
-	MultiDoubleMediator(final Test test, final double[] values) {
+	MultiDoubleMediator(final IElementTaker<String> expectationErrorTaker, final double[] values) {
 		
 		//Calls other constructor.
-		this(test, CentralArrayHelper.createIterable(values));
+		this(expectationErrorTaker, CentralArrayHelper.createIterable(values));
 	}
 
 	//constructor
 	/**
 	 * Creates a new {@link MultiDoubleMediator} that will belong to the given test and is for the given values.
 	 * 
-	 * @param test
+	 * @param expectationErrorTaker
 	 * @param values
 	 * @throws ArgumentIsNullException if the given test is null.
 	 */
-	MultiDoubleMediator(final Test test, final Iterable<Double> values) {
+	MultiDoubleMediator(final IElementTaker<String> expectationErrorTaker, final Iterable<Double> values) {
 		
 		//Calls constructor of the base class.
-		super(test);
+		super(expectationErrorTaker);
 		
 		//Sets the values of the current MultiDoubleMediator.
 		this.values = values;

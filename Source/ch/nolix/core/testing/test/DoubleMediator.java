@@ -6,6 +6,7 @@ import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonBiggerArgumentException;
+import ch.nolix.core.functionapi.IElementTaker;
 import ch.nolix.core.functionapi.IElementTakerBooleanGetter;
 
 //class
@@ -24,14 +25,14 @@ public final class DoubleMediator extends Mediator {
 	/**
 	 * Creates a new double mediator that belongs to the given test and is for the given value.
 	 * 
-	 * @param test
+	 * @param expectationErrorTaker
 	 * @param value
 	 * @throws ArgumentIsNullException if the given test is null.
 	 */
-	DoubleMediator(final Test test, final double value) {
+	DoubleMediator(final IElementTaker<String> expectationErrorTaker, final double value) {
 		
 		//Calls constructor of the base class.
-		super(test);
+		super(expectationErrorTaker);
 
 		//Sets the value of this double mediator.
 		this.value = value;
@@ -246,7 +247,7 @@ public final class DoubleMediator extends Mediator {
 	 * and has a default max deviation.
 	 */
 	public DoubleDeviationMediator withDefaultMaxDeviation() {
-		return new DoubleDeviationMediator(getRefTest(), value);
+		return new DoubleDeviationMediator(getRefExpectationErrorTaker(), value);
 	}
 	
 	//method
@@ -259,6 +260,6 @@ public final class DoubleMediator extends Mediator {
 	 * @throws NegativeArgumentException if the given max deviation is negative.
 	 */
 	public DoubleDeviationMediator withMaxDeviation(final double maxDeviation) {
-		return new DoubleDeviationMediator(getRefTest(), value, maxDeviation);
+		return new DoubleDeviationMediator(getRefExpectationErrorTaker(), value, maxDeviation);
 	}
 }

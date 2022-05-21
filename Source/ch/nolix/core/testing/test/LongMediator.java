@@ -6,6 +6,7 @@ import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonBiggerArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
+import ch.nolix.core.functionapi.IElementTaker;
 import ch.nolix.core.functionapi.IElementTakerBooleanGetter;
 
 //class
@@ -24,13 +25,13 @@ public final class LongMediator extends Mediator {
 	/**
 	 * Creates a new long mediator that belongs to the given test and is for the given value.
 	 * 
-	 * @param test
+	 * @param expectationErrorTaker
 	 * @param value
 	 */
-	LongMediator(final Test test, final long value) {
+	LongMediator(final IElementTaker<String> expectationErrorTaker, final long value) {
 		
 		//Calls constructor of the base class.
-		super(test);
+		super(expectationErrorTaker);
 		
 		//Sets the value of this long mediator.
 		this.value = value;

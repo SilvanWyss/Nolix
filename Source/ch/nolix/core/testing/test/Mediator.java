@@ -4,7 +4,7 @@ package ch.nolix.core.testing.test;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.testing.basetest.TestAccessor;
+import ch.nolix.core.functionapi.IElementTaker;
 
 //class
 /**
@@ -12,26 +12,26 @@ import ch.nolix.core.testing.basetest.TestAccessor;
  * @date 2017-01-08
  */
 public abstract class Mediator {
-
+	
 	//attribute
-	private final Test test;
+	private final IElementTaker<String> expectationErrorTaker;
 	
 	//constructor
 	/**
-	 * Creates a new mediator that belongs to the given test.
+	 * Creates a new {@link Mediator} with the given expectationError.
 	 * 
-	 * @param test
-	 * @throws ArgumentIsNullException if the given test is null.
+	 * @param expectationErrorTaker
+	 * @throws ArgumentIsNullException if the given expectationErrorTaker is null.
 	 */
-	Mediator(final Test test) {
+	Mediator(final IElementTaker<String> expectationErrorTaker) {
 		
-		//Asserts that the given test is not null.
-		if (test == null) {
-			throw new ArgumentIsNullException("test");
+		//Asserts that the given expectationErrorTaker is not null.
+		if (expectationErrorTaker == null) {
+			throw new ArgumentIsNullException("expectation error taker");
 		}
 		
-		//Sets the test of this mediator.
-		this.test = test;
+		//Sets the expectationErrorTaker of the current Mediator.
+		this.expectationErrorTaker = expectationErrorTaker;
 	}
 	
 	//method
@@ -59,14 +59,14 @@ public abstract class Mediator {
 	 * @param error
 	 */
 	protected final void addCurrentTestCaseError(final String error) {
-		new TestAccessor(test).addExpectationError(error);
+		expectationErrorTaker.run(error);
 	}
 	
 	//method
 	/**
-	 * @return the test this mediator belongs to.
+	 * @return the expectationErrorTaker of the current {@link Mediator}.
 	 */
-	protected final Test getRefTest() {
-		return test;
+	protected final IElementTaker<String> getRefExpectationErrorTaker() {
+		return expectationErrorTaker;
 	}
 }

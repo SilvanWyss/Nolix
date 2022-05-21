@@ -5,6 +5,7 @@ package ch.nolix.core.testing.test;
 import ch.nolix.core.environment.nolixenvironment.NolixEnvironment;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
+import ch.nolix.core.functionapi.IElementTaker;
 import ch.nolix.core.requestapi.ApproximativeEqualing;
 
 //class
@@ -25,17 +26,17 @@ public final class ApproximativeEqualingDeviationMediator extends Mediator {
 	 * Creates a new approximative equaling deviation mediator
 	 * that belongs to the given test and is for the given value and has a default max deviation.
 	 * 
-	 * @param test
+	 * @param expectationErrorTaker
 	 * @param value
 	 * @throws ArgumentIsNullException if the given test is null.
 	 */
 	ApproximativeEqualingDeviationMediator(
-		final Test test,
+		final IElementTaker<String> expectationErrorTaker,
 		final ApproximativeEqualing value
 	) {
 		
 		//Calls other constructor.
-		this(test, value, NolixEnvironment.DEFAULT_MAX_DEVIATION);
+		this(expectationErrorTaker, value, NolixEnvironment.DEFAULT_MAX_DEVIATION);
 	}
 	
 	//constructor
@@ -43,20 +44,20 @@ public final class ApproximativeEqualingDeviationMediator extends Mediator {
 	 * Creates a new approximative equaling deviation mediator
 	 * that belongs to the given test and is for the given value and has the given max deviation.
 	 * 
-	 * @param test
+	 * @param expectationErrorTaker
 	 * @param value
 	 * @param maxDeviation
 	 * @throws ArgumentIsNullException if the given test is null.
 	 * @throws NegativeArgumentException if the given max deviation is negative.
 	 */
 	ApproximativeEqualingDeviationMediator(
-		final Test test,
+		final IElementTaker<String> expectationErrorTaker,
 		final ApproximativeEqualing value,
 		final double maxDeviation
 	) {
 		
 		//Calls constructor of the base class.
-		super(test);
+		super(expectationErrorTaker);
 		
 		//Asserts that the given max deviation is not negative.
 		if (maxDeviation < 0) {

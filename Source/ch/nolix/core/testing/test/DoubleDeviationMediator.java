@@ -5,6 +5,7 @@ package ch.nolix.core.testing.test;
 import ch.nolix.core.environment.nolixenvironment.NolixEnvironment;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
+import ch.nolix.core.functionapi.IElementTaker;
 
 //class
 /**
@@ -26,14 +27,14 @@ public final class DoubleDeviationMediator extends Mediator {
 	 * and is for the given value
 	 * and has a default max deviation.
 	 * 
-	 * @param test
+	 * @param expectationErrorTaker
 	 * @param value
 	 * @throws ArgumentIsNullException if the given test is null.
 	 */
-	DoubleDeviationMediator(final Test test, final double value) {
+	DoubleDeviationMediator(final IElementTaker<String> expectationErrorTaker, final double value) {
 		
 		//Calls other constructor.
-		this(test, value, NolixEnvironment.DEFAULT_MAX_DEVIATION);
+		this(expectationErrorTaker, value, NolixEnvironment.DEFAULT_MAX_DEVIATION);
 	}
 	
 	//constructor
@@ -43,19 +44,19 @@ public final class DoubleDeviationMediator extends Mediator {
 	 * and is for the given value
 	 * and has the given default maxDeviation.
 	 * 
-	 * @param test
+	 * @param expectationErrorTaker
 	 * @param value
 	 * @param maxDeviation
 	 * @throws ArgumentIsNullException if the given test is null.
 	 * @throws NegativeArgumentException if the given maxDeviation is negative.
 	 */
 	DoubleDeviationMediator(
-		final Test test,
+		final IElementTaker<String> expectationErrorTaker,
 		final double value,
 		final double maxDeviation
 	) {
 		//Calls constructor of the base class.
-		super(test);
+		super(expectationErrorTaker);
 		
 		//Asserts that the given max deviation is not negative.
 		if (maxDeviation < 0) {

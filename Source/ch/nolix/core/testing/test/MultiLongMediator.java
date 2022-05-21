@@ -6,6 +6,7 @@ import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonBiggerArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
+import ch.nolix.core.functionapi.IElementTaker;
 import ch.nolix.core.independent.independenthelper.CentralArrayHelper;
 
 //class
@@ -24,14 +25,14 @@ public final class MultiLongMediator extends Mediator {
 	/**
 	 * Creates a new multi long mediator that belongs to the given test and is for the given values.
 	 * 
-	 * @param test
+	 * @param expectationErrorTaker
 	 * @param values
 	 * @throws ArgumentIsNullException if the given test is null.
 	 */
-	MultiLongMediator(final Test test, final int[] values) {
+	MultiLongMediator(final IElementTaker<String> expectationErrorTaker, final int[] values) {
 		
 		//Calls constructor of the base class.
-		super(test);
+		super(expectationErrorTaker);
 		
 		//Handles the case that the given values is null.
 		if (values == null) {
@@ -47,14 +48,14 @@ public final class MultiLongMediator extends Mediator {
 	/**
 	 * Creates a new multi long mediator that belongs to the given test and is for the given values.
 	 * 
-	 * @param test
+	 * @param expectationErrorTaker
 	 * @param values
 	 * @throws ArgumentIsNullException if the given test is null.
 	 */
-	MultiLongMediator(final Test test, final Iterable<Long> values) {
+	MultiLongMediator(final IElementTaker<String> expectationErrorTaker, final Iterable<Long> values) {
 		
 		//Calls constructor of the base class.
-		super(test);
+		super(expectationErrorTaker);
 
 		//Sets the values of this multi long mediator.
 		this.values = values;
@@ -64,14 +65,14 @@ public final class MultiLongMediator extends Mediator {
 	/**
 	 * Creates a new multi long mediator that belongs to the given test and is for the given values.
 	 * 
-	 * @param test
+	 * @param expectationErrorTaker
 	 * @param values
 	 * @throws ArgumentIsNullException if the given test is null.
 	 */
-	MultiLongMediator(final Test test, final long[] values) {
+	MultiLongMediator(final IElementTaker<String> expectationErrorTaker, final long[] values) {
 		
 		//Calls constructor of the base class.
-		super(test);
+		super(expectationErrorTaker);
 		
 		//Handles the case that the given values is null.
 		if (values == null) {

@@ -2,14 +2,15 @@
 package ch.nolix.core.testing.test;
 
 //own imports
+import ch.nolix.core.functionapi.IElementTaker;
 import ch.nolix.core.independent.independenthelper.IterableHelper;
 
 //class
 public final class ContainerMediator<E> extends ValueMediator<Iterable<E>> {
 	
 	//constructor
-	ContainerMediator(final Test parentTest, final Iterable<E> container) {
-		super(parentTest, container);
+	ContainerMediator(final IElementTaker<String> expectationErrorTaker, final Iterable<E> container) {
+		super(expectationErrorTaker, container);
 	}
 	
 	//method
@@ -23,7 +24,7 @@ public final class ContainerMediator<E> extends ValueMediator<Iterable<E>> {
 	
 	//method
 	public void isNotEmpty() {
-		if (getRefTest() == null) {
+		if (getRefValue() == null) {
 			expectIsNotEmptyWhenIsNull();
 		} else {
 			expectIsNotEmptyWhenIsNotNull();

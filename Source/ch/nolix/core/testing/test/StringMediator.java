@@ -5,6 +5,7 @@ package ch.nolix.core.testing.test;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
+import ch.nolix.core.functionapi.IElementTaker;
 
 //class
 /**
@@ -19,14 +20,14 @@ public class StringMediator extends ValueMediator<String> {
 	/**
 	 * Creates a new string mediator that belongs to the given test and is for the given value.
 	 * 
-	 * @param test
+	 * @param expectationErrorTaker
 	 * @param value
 	 * @throws ArgumentIsNullException if the given test is null.
 	 */
-	StringMediator(final Test test, final String value) {
+	StringMediator(final IElementTaker<String> expectationErrorTaker, final String value) {
 		
 		//Calls constructor of the base class.
-		super(test, value);
+		super(expectationErrorTaker, value);
 	}
 	
 	//method

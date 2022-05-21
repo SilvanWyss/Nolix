@@ -4,6 +4,7 @@ package ch.nolix.core.testing.test;
 //own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.core.functionapi.IElementTaker;
 import ch.nolix.core.functionapi.IElementTakerBooleanGetter;
 
 //class
@@ -23,14 +24,14 @@ public class ValueMediator<V> extends Mediator {
 	/**
 	 * Creates a new value mediator that belongs to the given test and is for the given value.
 	 * 
-	 * @param test
+	 * @param expectationErrorTaker
 	 * @param value
 	 * @throws ArgumentIsNullException if the given test is null.
 	 */
-	public ValueMediator(final Test test, final V value) {
+	public ValueMediator(final IElementTaker<String> expectationErrorTaker, final V value) {
 		
 		//Calls constructor of the base class.
-		super(test);
+		super(expectationErrorTaker);
 		
 		//Sets the value of this value mediator.
 		this.value = value;
