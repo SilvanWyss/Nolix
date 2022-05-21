@@ -7,7 +7,6 @@ import java.util.ArrayList;
 //own imports
 import ch.nolix.core.functionapi.IAction;
 import ch.nolix.core.requestapi.ApproximativeEqualing;
-import ch.nolix.core.testing.basetest.TestAccessor;
 import ch.nolix.core.testing.validation.ApproximativeEqualingMediator;
 import ch.nolix.core.testing.validation.BitMediator;
 import ch.nolix.core.testing.validation.ByteMediator;
@@ -35,7 +34,7 @@ public abstract class Test extends ch.nolix.core.testing.basetest.BaseTest {
 	 * @return a new approximative equaling mediator that belongs to this test and has the given value.
 	 */
 	protected final ApproximativeEqualingMediator expect(final ApproximativeEqualing value) {
-		return new ApproximativeEqualingMediator(this::takeExpectionError, value);
+		return new ApproximativeEqualingMediator(this::addExpectationError, value);
 	}
 	
 	//method
@@ -48,7 +47,7 @@ public abstract class Test extends ch.nolix.core.testing.basetest.BaseTest {
 		
 		//Handles the case that the given value is false.
 		if (!value) {
-			new TestAccessor(this).addExpectationError("True was expected, but false was received.");
+			addExpectationError("True was expected, but false was received.");
 		}
 	}
 	
@@ -62,7 +61,7 @@ public abstract class Test extends ch.nolix.core.testing.basetest.BaseTest {
 		
 		//Handles the case that the given values is null.
 		if (values == null) {
-			new TestAccessor(this).addExpectationError("True values were expected, but null was received.");
+			addExpectationError("True values were expected, but null was received.");
 		}
 		
 		//Handles the case that the given values is not null.
@@ -73,8 +72,7 @@ public abstract class Test extends ch.nolix.core.testing.basetest.BaseTest {
 				
 				//Handles the case that the current value is false.
 				if (!b) {
-					new TestAccessor(this)
-					.addExpectationError("True values were expected, but the " + index + "th value is false.");
+					addExpectationError("True values were expected, but the " + index + "th value is false.");
 				}
 				
 				//Increments index.
@@ -88,7 +86,7 @@ public abstract class Test extends ch.nolix.core.testing.basetest.BaseTest {
 	 * @return a new {@link ByteMediator} for the given value.
 	 */
 	public final ByteMediator expect(final byte value) {
-		return new ByteMediator(this::takeExpectionError, value);
+		return new ByteMediator(this::addExpectationError, value);
 	}
 	
 	//method
@@ -97,7 +95,7 @@ public abstract class Test extends ch.nolix.core.testing.basetest.BaseTest {
 	 * @return a new double mediator that belongs to this test and is for the given value.
 	 */
 	protected final DoubleMediator expect(final double value) {
-		return new DoubleMediator(this::takeExpectionError, value);
+		return new DoubleMediator(this::addExpectationError, value);
 	}
 		
 	//method
@@ -106,7 +104,7 @@ public abstract class Test extends ch.nolix.core.testing.basetest.BaseTest {
 	 * @return a new double mediator that belongs to this test and is for the given value.
 	 */
 	protected final DoubleMediator expect(final Double value) {
-		return new DoubleMediator(this::takeExpectionError, value);
+		return new DoubleMediator(this::addExpectationError, value);
 	}
 
 	//method
@@ -115,7 +113,7 @@ public abstract class Test extends ch.nolix.core.testing.basetest.BaseTest {
 	 * @return a new long mediator that belongs to this test and is for the given value.
 	 */
 	protected final LongMediator expect(final int value) {
-		return new LongMediator(this::takeExpectionError, value);
+		return new LongMediator(this::addExpectationError, value);
 	}
 	
 	//method
@@ -124,7 +122,7 @@ public abstract class Test extends ch.nolix.core.testing.basetest.BaseTest {
 	 * @return a new long mediator that belongs to this test and is for the given value.
 	 */
 	protected final LongMediator expect(final Integer value) {
-		return new LongMediator(this::takeExpectionError, value);
+		return new LongMediator(this::addExpectationError, value);
 	}
 	
 	//method
@@ -134,7 +132,7 @@ public abstract class Test extends ch.nolix.core.testing.basetest.BaseTest {
 	 * @return a new container mediator that belongs to this test and is for the given container.
 	 */
 	protected final <E> ContainerMediator<E> expect(final Iterable<E> container) {
-		return new ContainerMediator<>(this::takeExpectionError, container);
+		return new ContainerMediator<>(this::addExpectationError, container);
 	}
 	
 	//method
@@ -143,7 +141,7 @@ public abstract class Test extends ch.nolix.core.testing.basetest.BaseTest {
 	 * @return a new long mediator that belongs to this test and is for the given value.
 	 */
 	protected final LongMediator expect(final long value) {
-		return new LongMediator(this::takeExpectionError, value);
+		return new LongMediator(this::addExpectationError, value);
 	}
 	
 	//method
@@ -152,7 +150,7 @@ public abstract class Test extends ch.nolix.core.testing.basetest.BaseTest {
 	 * @return a new long mediator that belongs to this test and is for the given value.
 	 */
 	protected final LongMediator expect(final Long value) {
-		return new LongMediator(this::takeExpectionError, value);
+		return new LongMediator(this::addExpectationError, value);
 	}
 	
 	//method
@@ -162,7 +160,7 @@ public abstract class Test extends ch.nolix.core.testing.basetest.BaseTest {
 	 * @return a new object mediator that belongs to this test and has the given value.
 	 */
 	protected final <V> ValueMediator<V> expect(final V value) {
-		return new ValueMediator<>(this::takeExpectionError, value);
+		return new ValueMediator<>(this::addExpectationError, value);
 	}
 	
 	//method
@@ -171,7 +169,7 @@ public abstract class Test extends ch.nolix.core.testing.basetest.BaseTest {
 	 * @return a new string mediator that belongs to this nolix test and has the given value.
 	 */
 	protected final StringMediator expect(final String value) {
-		return new StringMediator(this::takeExpectionError, value);
+		return new StringMediator(this::addExpectationError, value);
 	}
 
 	//method
@@ -184,7 +182,7 @@ public abstract class Test extends ch.nolix.core.testing.basetest.BaseTest {
 		
 		//Handles the case that the given value is true.
 		if (value) {
-			new TestAccessor(this).addExpectationError("False was expected, but true was received.");
+			addExpectationError("False was expected, but true was received.");
 		}
 	}
 	
@@ -198,7 +196,7 @@ public abstract class Test extends ch.nolix.core.testing.basetest.BaseTest {
 		
 		//Handles the case that the given values is null.
 		if (values == null) {
-			new TestAccessor(this).addExpectationError("False values were expected, but null was received.");
+			addExpectationError("False values were expected, but null was received.");
 		}
 		
 		//Handles the case that the given values is not null.
@@ -209,8 +207,7 @@ public abstract class Test extends ch.nolix.core.testing.basetest.BaseTest {
 				
 				//Handles the case that the current value is false.
 				if (v) {
-					new TestAccessor(this)
-					.addExpectationError("False values were expected, but the " + index + "th value is true.");
+					addExpectationError("False values were expected, but the " + index + "th value is true.");
 				}
 				
 				//Increments index.
@@ -224,7 +221,7 @@ public abstract class Test extends ch.nolix.core.testing.basetest.BaseTest {
 	 * @return a new closure mediator that belongs to this test and is for the given closure.
 	 */
 	protected final ClosureMediator expectRunning(final IAction closure) {
-		return new ClosureMediator(this::takeExpectionError, closure);
+		return new ClosureMediator(this::addExpectationError, closure);
 	}
 	
 	//method
@@ -233,7 +230,7 @@ public abstract class Test extends ch.nolix.core.testing.basetest.BaseTest {
 	 * @return a new {@link BitMediator} that belongs to the current {@link Test} and is for the given bit.
 	 */
 	protected final BitMediator expectTheBit(final boolean bit) {
-		return new BitMediator(this::takeExpectionError, bit);
+		return new BitMediator(this::addExpectationError, bit);
 	}
 	
 	//method
@@ -242,7 +239,7 @@ public abstract class Test extends ch.nolix.core.testing.basetest.BaseTest {
 	 * @return a new {@link BitMediator} that belongs to the current {@link Test} and is for the given bit.
 	 */
 	protected final BitMediator expectTheBit(final int bit) {
-		return new BitMediator(this::takeExpectionError, bit);
+		return new BitMediator(this::addExpectationError, bit);
 	}
 	
 	//method
@@ -251,7 +248,7 @@ public abstract class Test extends ch.nolix.core.testing.basetest.BaseTest {
 	 * @return a new multi double mediator that belongs to this test and is for the given values.
 	 */
 	protected final MultiDoubleMediator expectTheDoubles(final double... values) {
-		return new MultiDoubleMediator(this::takeExpectionError, values);
+		return new MultiDoubleMediator(this::addExpectationError, values);
 	}
 	
 	//method
@@ -260,7 +257,7 @@ public abstract class Test extends ch.nolix.core.testing.basetest.BaseTest {
 	 * @return a new multi double mediator that belongs to this test and is for the given values.
 	 */
 	protected final MultiDoubleMediator expectTheDoubles(Iterable<Double> values) {
-		return new MultiDoubleMediator(this::takeExpectionError, values);
+		return new MultiDoubleMediator(this::addExpectationError, values);
 	}
 	
 	//method
@@ -269,7 +266,7 @@ public abstract class Test extends ch.nolix.core.testing.basetest.BaseTest {
 	 * @return a new multi long mediator that belongs to this test and is for the given values.
 	 */
 	protected final MultiLongMediator expectTheInts(final int... values) {
-		return new MultiLongMediator(this::takeExpectionError, values);
+		return new MultiLongMediator(this::addExpectationError, values);
 	}
 	
 	//method
@@ -278,7 +275,7 @@ public abstract class Test extends ch.nolix.core.testing.basetest.BaseTest {
 	 * @return a new long container mediator that belongs to this test and has the given values.
 	 */
 	protected final MultiLongMediator expectTheLongs(final Iterable<Long> values) {
-		return new MultiLongMediator(this::takeExpectionError, values);
+		return new MultiLongMediator(this::addExpectationError, values);
 	}
 	
 	//method
@@ -295,11 +292,5 @@ public abstract class Test extends ch.nolix.core.testing.basetest.BaseTest {
 		}
 		
 		return expectTheLongs(longArrayList);
-	}
-	
-	//TODO: Improve this method.
-	//method
-	private void takeExpectionError(final String expectationError) {
-		new TestAccessor(this).addExpectationError(expectationError);
 	}
 }
