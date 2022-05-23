@@ -1,6 +1,7 @@
 package ch.nolix.templatetutorial.texturetutorial;
 
 import ch.nolix.system.gui.base.Frame;
+import ch.nolix.system.gui.containerwidget.FloatContainer;
 import ch.nolix.system.gui.containerwidget.VerticalStack;
 import ch.nolix.system.gui.widget.ImageWidget;
 import ch.nolix.system.gui.widget.Label;
@@ -22,8 +23,12 @@ public final class TextureCatalogueTutorial {
 		new Frame()
 		.setTitle("TextureCatalogue Tutorial")
 		.pushLayer(
-			new VerticalStack()
-			.add(
+			new FloatContainer()
+			.setProposalWidth(1000)
+			.onLook(
+				l -> l.setPaddingForState(WidgetLookState.BASE, 20).setElementMarginForState(WidgetLookState.BASE, 20)
+			)
+			.addWidget(
 				new VerticalStack()
 				.add(
 					new Label()
@@ -53,8 +58,6 @@ public final class TextureCatalogueTutorial {
 					.setImage(whiteMarbleTexture)
 				)
 			)
-			.setElementMargin(10)
-			.onLook(l -> l.setPaddingForState(WidgetLookState.BASE, 20))
 		);
 	}
 }
