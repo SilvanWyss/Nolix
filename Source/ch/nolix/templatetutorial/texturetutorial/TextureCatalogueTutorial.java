@@ -14,6 +14,7 @@ public final class TextureCatalogueTutorial {
 		
 		//Creates textures.
 		final var concreteTexture = TextureCatalogue.CONCRETE_TEXTURE.toScaledImage(10);
+		final var fireWoodTexture = TextureCatalogue.FIR_WOOD_TEXTURE.toScaledImage(10);
 		final var juteTexture = TextureCatalogue.JUTE_TEXTURE.toScaledImage(10);
 		final var whiteMarbleTexture = TextureCatalogue.WHITE_MARBLE_TEXTURE.toScaledImage(10);
 		
@@ -29,6 +30,13 @@ public final class TextureCatalogueTutorial {
 					.setText("Concrete"),
 					new ImageWidget()
 					.setImage(concreteTexture)
+				),
+				new VerticalStack()
+				.add(
+					new Label()
+					.setText("Fir Wood"),
+					new ImageWidget()
+					.setImage(fireWoodTexture)
 				),
 				new VerticalStack()
 				.add(

@@ -23,6 +23,7 @@ final class TextureCreator {
 		final var color1 = Color.fromValue(0x808080);
 		final var color2 = Color.fromValue(0xC0C0C0);
 		final var color3 = Color.fromValue(0xA0A0A0);
+		
 		for (var x = 1; x <= texture.getWidth(); x++) {
 			for (var y = 1; y <= texture.getHeight(); y++) {
 				
@@ -40,6 +41,30 @@ final class TextureCreator {
 	}
 	
 	//method
+	public IImage<?> createFirWoodTexture() {
+		
+		final var texture = MutableImage.withWidthAndHeight(16, 16);
+		
+		final var mainColor = Color.fromValue(0xE0D0B0);
+		final var darkerStripeColor = Color.fromValue(0xC0B080);
+		final var knotholeColor = Color.fromValue(0x807060);
+		
+		for (var x = 1; x <= texture.getWidth(); x++) {
+			for (var y = 1; y <= texture.getHeight(); y++) {
+				if ((x + y % 2) % 10 == 2 && y % 5 == 0) {
+					texture.setPixel(x, y, knotholeColor);
+				} else if ((y + (x / (10 + y / 10))) % (3 + y / 10) == 0) {
+					texture.setPixel(x, y, darkerStripeColor);
+				} else {
+					texture.setPixel(x, y, mainColor);
+				}
+			}
+		}
+		
+		return texture;
+	}
+	
+	//method
 	public IImage<?> createJuteTexture() {
 		
 		final var texture = MutableImage.withWidthAndHeight(16, 16);
@@ -47,6 +72,7 @@ final class TextureCreator {
 		final var color1 = Color.fromValue(0xC0C0A0);
 		final var color2 = Color.fromValue(0x808060);
 		final var color3 = Color.fromValue(0xA0A080);
+		
 		for (var x = 1; x <= texture.getWidth(); x++) {
 			for (var y = 1; y <= texture.getHeight(); y++) {							
 				if ((x * y) % 3 == (x + y) % 2) {
@@ -70,6 +96,7 @@ final class TextureCreator {
 		final var color1 = Color.fromValue(0x282820);
 		final var color2 = Color.fromValue(0x888880);
 		final var color3 = Color.fromValue(0xF8F8F0);
+		
 		for (var x = 1; x <= texture.getWidth(); x++) {
 			for (var y = 1; y <= texture.getHeight(); y++) {							
 				if (x == (y / 2) + (x / 5) || x == (y / 4) + (x / 4) + 8 || (x % 11 == (y - 2) % 7)) {
