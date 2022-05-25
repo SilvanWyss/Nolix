@@ -17,73 +17,18 @@ public final class MatrixTest extends Test {
 	
 	//method
 	@TestCase
-	public void loopTest_createIdendityMatrix() {
-				
-		//parameter definition
-		final var n = 100;
-		
-		//test loop
-		for (var i = 1; i <= n; i++) {
-			
-			//execution
-			final var matrix = Matrix.createIdendityMatrix(i);
-			
-			//verification
-			expect(matrix.getRowCount()).isEqualTo(i);
-			expect(matrix.getColumnCount()).isEqualTo(i);
-		}
-	}
-	
-	//method
-	@TestCase
-	public void loopTest_getRank() {
-		
-		//parameter definition
-		final var n = 10;
-		
-		//test loop
-		for (var i = 1; i <= n; i++) {
-			
-			//setup
-			final var matrix = Matrix.createIdendityMatrix(i);
-			
-			//execution & verification
-			expect(matrix.getRank()).isEqualTo(i);
-		}
-	}
-	
-	//method
-	@TestCase
-	public void loop_testGetTrace() {
-		
-		//parameter definition
-		final var n = 100;
-		
-		//test loop
-		for (var i = 1; i <= n; i++) {
-			
-			//setup
-			final var matrix = Matrix.createIdendityMatrix(i);
-			
-			//execution & verification
-			expect(matrix.getTrace()).isEqualTo(i);
-		}
-	}
-
-	//method
-	@TestCase
 	public void testCase_add() {
 		
 		//setup
-		final var matrix1 = new Matrix(2, 3).setValues(1.0, 1.0, 1.0, 2.0, 2.0, 2.0);
-		final var matrix2 = new Matrix(2, 3).setValues(5.0, 5.0, 5.0, 6.0, 6, 6.0);
+		final var testUnit = new Matrix(2, 3).setValues(1.0, 1.0, 1.0, 2.0, 2.0, 2.0);
+		final var matrix = new Matrix(2, 3).setValues(5.0, 5.0, 5.0, 6.0, 6, 6.0);
 		
 		//execution
-		final var sum = matrix1.getSum(matrix2);
+		final var result = testUnit.getSum(matrix);
 		
 		//verification
-		final Matrix expectedMatrix = new Matrix(2, 3).setValues(6.0, 6.0, 6.0, 8.0, 8.0, 8.0);
-		expect(sum).isEqualTo(expectedMatrix);
+		final var expectedResult = new Matrix(2, 3).setValues(6.0, 6.0, 6.0, 8.0, 8.0, 8.0);
+		expect(result).isEqualTo(expectedResult);
 	}
 	
 	//method
@@ -91,59 +36,90 @@ public final class MatrixTest extends Test {
 	public void testCase_appendAtRight() {
 		
 		//setup
-		final var matrix1 = new Matrix(2, 2).setValues(1.0, 1.0, 2.0, 2.0);
-		final var matrix2 = new Matrix(2, 2).setValues(5.0, 5.0, 6.0, 6.0);
-
+		final var testUnit = new Matrix(2, 2).setValues(1.0, 1.0, 2.0, 2.0);
+		final var matrix = new Matrix(2, 2).setValues(5.0, 5.0, 6.0, 6.0);
+		
 		//execution
-		matrix1.appendAtRight(matrix2);
+		testUnit.appendAtRight(matrix);
 		
 		//verification
-		final var expectedMatrix = new Matrix(2, 4).setValues(1.0, 1.0, 5.0, 5.0, 2.0, 2.0, 6.0, 6.0);
-		expect(matrix1).isEqualTo(expectedMatrix);
+		final var expectedResult = new Matrix(2, 4).setValues(1.0, 1.0, 5.0, 5.0, 2.0, 2.0, 6.0, 6.0);
+		expect(testUnit).isEqualTo(expectedResult);
 	}
 	
 	//method
 	@TestCase
-	public void testCase_getInverse_1() {
+	public void testCase_createIdendityMatrix() {
 		
-		//setup
-		final var matrix = new Matrix(2).setValues(1.0, 2.0, 3.0, 4.0);
+		//parameter definition
+		final var n = 100;
 		
-		//execution
-		final Matrix inverse = matrix.getInverse();
-		
-		//verification
-		expect(matrix.getProduct(inverse)).isEqualTo(Matrix.createIdendityMatrix(2));
+		//test loop
+		for (var k = 1; k <= n; k++) {
+			
+			//execution
+			final var result = Matrix.createIdendityMatrix(k);
+			
+			//verification
+			expect(result.getRowCount()).isEqualTo(k);
+			expect(result.getColumnCount()).isEqualTo(k);
+			for (var i = 1; i <= k; i++) {
+				for (var j = 1; j <= k; j++) {
+					if (i != j) {
+						expect(result.getValue(i, j)).isEqualTo(0.0);
+					} else {
+						expect(result.getValue(i, j)).isEqualTo(1.0);
+					}
+				}
+			}
+		}
 	}
 	
 	//method
 	@TestCase
-	public void testCase_getInverse_2() {
+	public void testCase_getInverse_whenMatrixIs2x2Matrix() {
 		
 		//setup
-		final var matrix = new Matrix(3).setValues(2.0, 6.0, 4.0, 1.0, 5.0, 9.0, 3.0, 7.0, 8.0);
+		final var testUnit = new Matrix(2, 2).setValues(1.0, 2.0, 3.0, 4.0);
+		
+		//execution
+		final var result = testUnit.getInverse();
+		
+		//verification
+		final var expectedResult = new Matrix(2, 2).setValues(1.0, 0.0, 0.0, 1.0);
+		expect(testUnit.getProduct(result)).isEqualTo(expectedResult);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_getInverse_whenMatrixIs3x3Matrix() {
+		
+		//setup
+		final var testUnit = new Matrix(3, 3).setValues(2.0, 6.0, 4.0, 1.0, 5.0, 9.0, 3.0, 7.0, 8.0);
 			
 		//execution
-		final var inverse = matrix.getInverse();
-
+		final var result = testUnit.getInverse();
+		
 		//verification
-		expect(matrix.getProduct(inverse)).withDefaultMaxDeviation().isEqualTo(Matrix.createIdendityMatrix(3));
+		final var expectedResult = new Matrix(3, 3).setValues(1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0);
+		expect(testUnit.getProduct(result)).withDefaultMaxDeviation().isEqualTo(expectedResult);
 	}
 	
 	//method
 	@TestCase
-	public void testCase_getInverse_3() {
+	public void testCase_getInverse_whenMatrixIs4x4Matrix() {
 		
 		//setup
-		final var matrix =
-		new Matrix(4)
-		.setValues(3.0, 1.0, 7.0, 3.0, 5.0, 9.0, 8.0, 7.0, 8.0, 6.0, 8.0, 4.0, 5.0, 9.0, 3.0, 2.0);
+		final var testUnit =
+		new Matrix(4, 4).setValues(3.0, 1.0, 7.0, 3.0, 5.0, 9.0, 8.0, 7.0, 8.0, 6.0, 8.0, 4.0, 5.0, 9.0, 3.0, 2.0);
 		
 		//execution
-		final var inverse = matrix.getInverse();
-
+		final var result = testUnit.getInverse();
+		
 		//verification
-		expect(matrix.getProduct(inverse)).withDefaultMaxDeviation().isEqualTo(Matrix.createIdendityMatrix(4));
+		final var expectedResult =
+		new Matrix(4, 4).setValues(1.0, 0.0, 0.0, 0.0,	0.0, 1.0, 0.0, 0.0,	0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0);
+		expect(testUnit.getProduct(result)).withDefaultMaxDeviation().isEqualTo(expectedResult);
 	}
 	
 	//method
@@ -151,152 +127,218 @@ public final class MatrixTest extends Test {
 	public void testCase_getProduct() {
 		
 		//setup
-		final var matrix1 = new Matrix(2, 3).setValues(1, 1, 1, 2, 2, 2);
-		final var matrix2 = new Matrix(3, 2).setValues(1, 1, 2, 2, 3, 3);
+		final var testUnit = new Matrix(2, 3).setValues(1, 1, 1, 2, 2, 2);
+		final var matrix = new Matrix(3, 2).setValues(1, 1, 2, 2, 3, 3);
 		
 		//execution
-		final Matrix product = matrix1.getProduct(matrix2);
+		final var result = testUnit.getProduct(matrix);
 		
 		//verification
 		final Matrix expectedProduct = new Matrix(2, 2).setValues(6, 6, 12, 12);
-		expect(product).isEqualTo(expectedProduct);
+		expect(result).isEqualTo(expectedProduct);
 	}
 	
 	//method
 	@TestCase
-	public void testCase_getSolutionAsExtendedMatrix_1() {
+	public void testCase_getRank_whenMatrixIsIdentityMatrix() {
 		
-		//setup
-		final var matrix = new Matrix(2, 3).setValues(4.0, 4.0, 30.0, 0.0, 2.0, 10.0);
-
-		//execution
-		final double[] solution = matrix.getSolutionAsExtendedMatrix();
+		//parameter definition
+		final var n = 10;
 		
-		//verification
-		expect(solution.length).isEqualTo(2);
-		expect(solution[0]).isEqualTo(2.5);
-		expect(solution[1]).isEqualTo(5.0);
+		//test loop
+		for (var k = 1; k <= n; k++) {
+			
+			//setup
+			final var testUnit = Matrix.createIdendityMatrix(k);
+			
+			//execution
+			final var result = testUnit.getRank();			
+			
+			//verification
+			expect(result).isEqualTo(k);
+		}
 	}
 	
 	//method
 	@TestCase
-	public void testCase_getSolutionAsExtendedMatrix_2() {
+	public void testCase_getSolutionAsExtendedMatrix_whenMatrixIs2x3Matrix() {
 		
 		//setup
-		final var matrix = new Matrix(3, 4).setValues(1.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 1.0, 1.0);
-		
-		//execution
-		final double[] solution = matrix.getSolutionAsExtendedMatrix();
-		
-		//verification
-		expect(solution.length).isEqualTo(3);
-		expect(solution[0]).isEqualTo(1.0);
-		expect(solution[1]).isEqualTo(1.0);
-		expect(solution[2]).isEqualTo(1.0);
-	}
-	
-	//method
-	@TestCase
-	public void testCase_getTransposed() {
-		
-		//setup
-		final var matrix = new Matrix(4, 3).setValues(20.0, 10.0, 1.0, 10.0, 20.0, 1.0, 20.0, 10.0, 1.0, 10.0, 20.0 ,1.0);
+		final var testUnit = new Matrix(2, 3).setValues(4.0, 4.0, 30.0, 0.0, 2.0, 10.0);
 		
 		//execution
-		final var transposed = matrix.getTransposed();
+		final var result = testUnit.getSolutionAsExtendedMatrix();
 		
 		//verification
-		final var expectedTransposed =
-		new Matrix(3, 4)
-		.setValues(20.0, 10.0, 20.0, 10.0, 10.0, 20.0, 10.0, 20.0, 1.0, 1.0, 1.0, 1.0);
-		expect(transposed).isEqualTo(expectedTransposed);
+		expect(result.length).isEqualTo(2);
+		expect(result[0]).isEqualTo(2.5);
+		expect(result[1]).isEqualTo(5.0);
 	}
 	
 	//method
 	@TestCase
-	public void testCase_toString_1() {
+	public void testCase_getSolutionAsExtendedMatrix_whenMatrixIs3x4Matrix() {
 		
 		//setup
-		final var matrix = new Matrix(1);
-
-		//execution & verification
-		expect(matrix.toString()).isEqualTo("[0]");
+		final var testUnit = new Matrix(3, 4).setValues(1.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 1.0, 1.0);
+		
+		//execution
+		final var result = testUnit.getSolutionAsExtendedMatrix();
+		
+		//verification
+		expect(result.length).isEqualTo(3);
+		expect(result[0]).isEqualTo(1.0);
+		expect(result[1]).isEqualTo(1.0);
+		expect(result[2]).isEqualTo(1.0);
 	}
 	
 	//method
 	@TestCase
-	public void testCase_toString_2() {
+	public void testCase_getTrace_whenMatrixIsIdentityMatrix() {
 		
-		//setup
-		final var matrix = new Matrix(2);
-
-		//execution & verification
-		expect(matrix.toString()).isEqualTo("[0,0;0,0]");
+		//parameter definition
+		final var n = 100;
+		
+		//test loop
+		for (var k = 1; k <= n; k++) {
+			
+			//setup
+			final var testUnit = Matrix.createIdendityMatrix(k);
+			
+			//execution
+			final var result = testUnit.getTrace();
+			
+			//verification
+			expect(result).isEqualTo(k);
+		}
 	}
 	
 	//method
 	@TestCase
-	public void testCase_toString_3() {
+	public void testCase_getTransposed_whenGivenMatrixIs4x3Matrix() {
 		
 		//setup
-		final var matrix = new Matrix(3);
-
-		//execution & verification
-		expect(matrix.toString()).isEqualTo("[0,0,0;0,0,0;0,0,0]");
+		final var testUnit =
+		new Matrix(4, 3).setValues(20.0, 10.0, 1.0, 10.0, 20.0, 1.0, 20.0, 10.0, 1.0, 10.0, 20.0 ,1.0);
+		
+		//execution
+		final var result = testUnit.getTransposed();
+		
+		//verification
+		final var expectedResult =
+		new Matrix(3, 4).setValues(20.0, 10.0, 20.0, 10.0, 10.0, 20.0, 10.0, 20.0, 1.0, 1.0, 1.0, 1.0);
+		expect(result).isEqualTo(expectedResult);
 	}
 	
 	//method
 	@TestCase
-	public void testCase_toString_4() {
+	public void testCase_toString_whenMatrixIs1x1IdentityMatrix() {
 		
 		//setup
-		final var matrix = new Matrix(4);
+		final var testUnit = Matrix.createIdendityMatrix(1);
 		
-		//execution & verification
-		expect(matrix.toString()).isEqualTo("[0,0,0,0;0,0,0,0;0,0,0,0;0,0,0,0]");
+		//execution
+		final var result = testUnit.toString();
+		
+		//execution
+		expect(result).isEqualTo("[1]");
 	}
 	
 	//method
 	@TestCase
-	public void testCase_toString_5() {
+	public void testCase_toString_whenMatrixIs2x2IdentityMatrix() {
 		
 		//setup
-		final var matrix = Matrix.createIdendityMatrix(1);
+		final var testUnit = Matrix.createIdendityMatrix(2);
 		
-		//execution & verification
-		expect(matrix.toString()).isEqualTo("[1]");
+		//execution
+		final var result = testUnit.toString();
+		
+		//execution
+		expect(result).isEqualTo("[1,0;0,1]");
 	}
 	
 	//method
 	@TestCase
-	public void testCase_toString_6() {
+	public void testCase_toString_whenMatrixIs3x3IdentityMatrix() {
 		
 		//setup
-		final var matrix = Matrix.createIdendityMatrix(2);
+		final var testUnit = Matrix.createIdendityMatrix(3);
 		
-		//execution & verification
-		expect(matrix.toString()).isEqualTo("[1,0;0,1]");
+		//execution
+		final var result = testUnit.toString();
+		
+		//execution
+		expect(result).isEqualTo("[1,0,0;0,1,0;0,0,1]");
 	}
 	
 	//method
 	@TestCase
-	public void testCase_toString_7() {
+	public void testCase_toString_whenMatrixIs4x4IdentityMatrix() {
 		
 		//setup
-		final var matrix = Matrix.createIdendityMatrix(3);
-				
-		//execution & verification
-		expect(matrix.toString()).isEqualTo("[1,0,0;0,1,0;0,0,1]");
+		final var testUnit = Matrix.createIdendityMatrix(4);
+		
+		//execution
+		final var result = testUnit.toString();
+		
+		//execution
+		expect(result).isEqualTo("[1,0,0,0;0,1,0,0;0,0,1,0;0,0,0,1]");
 	}
 	
 	//method
 	@TestCase
-	public void testCase_toString_8() {
+	public void testCase_toString_whenMatrixIs1x1Matrix() {
 		
 		//setup
-		final var matrix = Matrix.createIdendityMatrix(4);
-				
-		//execution & verification
-		expect(matrix.toString()).isEqualTo("[1,0,0,0;0,1,0,0;0,0,1,0;0,0,0,1]");
+		final var testUnit = new Matrix(1, 1);
+		
+		//execution
+		final var result = testUnit.toString();
+		
+		//execution
+		expect(result).isEqualTo("[0]");
+	}
+	
+	//method
+	@TestCase
+	public void testCase_toString_whenMatrixIs2x2Matrix() {
+		
+		//setup
+		final var testUnit = new Matrix(2, 2);
+		
+		//execution
+		final var result = testUnit.toString();
+		
+		//execution
+		expect(result).isEqualTo("[0,0;0,0]");
+	}
+	
+	//method
+	@TestCase
+	public void testCase_toString_whenMatrixIs3x3Matrix() {
+		
+		//setup
+		final var testUnit = new Matrix(3, 3);
+		
+		//execution
+		final var result = testUnit.toString();
+		
+		//execution
+		expect(result).isEqualTo("[0,0,0;0,0,0;0,0,0]");
+	}
+	
+	//method
+	@TestCase
+	public void testCase_toString_whenMatrixIs4x4Matrix() {
+		
+		//setup
+		final var testUnit = new Matrix(4, 4);
+		
+		//execution
+		final var result = testUnit.toString();
+		
+		//execution
+		expect(result).isEqualTo("[0,0,0,0;0,0,0,0;0,0,0,0;0,0,0,0]");
 	}
 }
