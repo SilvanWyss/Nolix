@@ -2,7 +2,7 @@
 package ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi;
 
 //own imports
-import ch.nolix.core.language.EnglishNounHelper;
+import ch.nolix.core.language.GlobalEnglishNounHelper;
 
 //interface
 /**
@@ -24,7 +24,7 @@ public interface Named {
 	 * @return the plural of the name of the current {@link Named}.
 	 */
 	default String getNameInPlural() {
-		return EnglishNounHelper.getPlural(getName());
+		return GlobalEnglishNounHelper.getPlural(getName());
 	}
 	
 	//method

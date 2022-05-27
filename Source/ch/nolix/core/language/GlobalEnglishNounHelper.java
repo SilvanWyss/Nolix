@@ -6,7 +6,7 @@ import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //class
-public final class EnglishNounHelper {
+public final class GlobalEnglishNounHelper {
 	
 	//static method
 	public static String getPlural(final String noun) {
@@ -66,5 +66,5 @@ public final class EnglishNounHelper {
 	}
 	
 	//constructor
-	private EnglishNounHelper() {}
+	private GlobalEnglishNounHelper() {}
 }

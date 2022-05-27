@@ -2,7 +2,7 @@
 package ch.nolix.core.skilluniversalapi;
 
 //own imports
-import ch.nolix.core.language.EnglishNounHelper;
+import ch.nolix.core.language.GlobalEnglishNounHelper;
 
 //interface
 /**
@@ -26,7 +26,7 @@ public interface TypeRequestable {
 	 * @return the plural of the type of the current {@link TypeRequestable}.
 	 */
 	default String getTypeInPlural() {
-		return EnglishNounHelper.getPlural(getType());
+		return GlobalEnglishNounHelper.getPlural(getType());
 	}
 	
 	//method
