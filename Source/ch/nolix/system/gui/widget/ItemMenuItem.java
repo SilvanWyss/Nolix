@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.gui.widget;
 
-//own imports
-import ch.nolix.core.attributeapi.optionalattributeapi.OptionalIdentifiedByString;
+import ch.nolix.core.attributeuniversalapi.optionalattributeuniversalapi.OptionalIdentifiedByString;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.constant.PascalCaseCatalogue;
 import ch.nolix.core.document.node.BaseNode;

@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.guiapi.baseapi;
 
-//own imports
-import ch.nolix.core.attributeapi.mutablemandatoryattributeapi.Titleble;
+import ch.nolix.core.attributeuniversalapi.mutablemandatoryattributeuniversalapi.Titleble;
 import ch.nolix.core.programcontrol.groupcloseable.GroupCloseable;
 import ch.nolix.core.rasterapi.Rectangular;
 import ch.nolix.core.skillapi.Refreshable;

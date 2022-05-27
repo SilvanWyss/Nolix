@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.system.formatelement;
 
-//own imports
-import ch.nolix.core.attributeapi.mandatoryattributeapi.Indexed;
-import ch.nolix.core.attributeapi.mandatoryattributeapi.Prefixed;
+import ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi.Indexed;
+import ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi.Prefixed;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.validator.Validator;
 

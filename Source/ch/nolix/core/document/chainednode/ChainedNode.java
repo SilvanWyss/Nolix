@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.core.document.chainednode;
 
-//own imports
-import ch.nolix.core.attributeapi.optionalattributeapi.OptionalHeadered;
+import ch.nolix.core.attributeuniversalapi.optionalattributeuniversalapi.OptionalHeadered;
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.constant.CharacterCatalogue;
 import ch.nolix.core.constant.LowerCaseCatalogue;

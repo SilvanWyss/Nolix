@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.core.document.node;
 
-//own imports
-import ch.nolix.core.attributeapi.mutableoptionalattributeapi.OptionalHeaderable;
+import ch.nolix.core.attributeuniversalapi.mutableoptionalattributeuniversalapi.OptionalHeaderable;
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.constant.CharacterCatalogue;
 import ch.nolix.core.constant.LowerCaseCatalogue;

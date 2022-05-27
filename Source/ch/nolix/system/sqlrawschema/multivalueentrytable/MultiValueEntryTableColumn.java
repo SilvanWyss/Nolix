@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlrawschema.multivalueentrytable;
 
-//own imports
-import ch.nolix.core.attributeapi.mandatoryattributeapi.FullNamed;
+import ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi.FullNamed;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.constant.PascalCaseCatalogue;
 import ch.nolix.core.constant.StringCatalogue;

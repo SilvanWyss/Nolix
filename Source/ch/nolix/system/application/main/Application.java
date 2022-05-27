@@ -5,9 +5,8 @@ package ch.nolix.system.application.main;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
-//own imports
-import ch.nolix.core.attributeapi.mandatoryattributeapi.IContextOwner;
-import ch.nolix.core.attributeapi.mandatoryattributeapi.Named;
+import ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi.IContextOwner;
+import ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi.Named;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;

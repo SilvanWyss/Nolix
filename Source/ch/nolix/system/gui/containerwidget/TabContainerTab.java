@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.gui.containerwidget;
 
-//own imports
-import ch.nolix.core.attributeapi.mutablemandatoryattributeapi.Headerable;
+import ch.nolix.core.attributeuniversalapi.mutablemandatoryattributeuniversalapi.Headerable;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.constant.PascalCaseCatalogue;
 import ch.nolix.core.document.node.BaseNode;

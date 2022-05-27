@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.gui.base;
 
-//own imports
-import ch.nolix.core.attributeapi.mandatoryattributeapi.Indexed;
+import ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi.Indexed;
 import ch.nolix.core.caching.CachingContainer;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;

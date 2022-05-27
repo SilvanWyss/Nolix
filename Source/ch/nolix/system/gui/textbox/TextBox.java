@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.gui.textbox;
 
-//own imports
-import ch.nolix.core.attributeapi.mutablemandatoryattributeapi.IMutableTextHolder;
+import ch.nolix.core.attributeuniversalapi.mutablemandatoryattributeuniversalapi.IMutableTextHolder;
 import ch.nolix.core.constant.PascalCaseCatalogue;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.functionapi.IAction;

@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.core.document.xml;
 
-//own imports
-import ch.nolix.core.attributeapi.mutableoptionalattributeapi.OptionalNamable;
-import ch.nolix.core.attributeapi.mutableoptionalattributeapi.OptionalValueable;
+import ch.nolix.core.attributeuniversalapi.mutableoptionalattributeuniversalapi.OptionalNamable;
+import ch.nolix.core.attributeuniversalapi.mutableoptionalattributeuniversalapi.OptionalValueable;
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.constant.CharacterCatalogue;
 import ch.nolix.core.constant.LowerCaseCatalogue;
