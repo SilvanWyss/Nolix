@@ -11,7 +11,7 @@ import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.functionapi.IElementTaker;
+import ch.nolix.core.functionuniversalapi.IElementTaker;
 import ch.nolix.system.element.MultiValue;
 import ch.nolix.system.element.MutableValue;
 import ch.nolix.system.element.SubElement;

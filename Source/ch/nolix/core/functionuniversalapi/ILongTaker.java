@@ -1,15 +1,15 @@
 //package declaration
-package ch.nolix.core.functionapi;
+package ch.nolix.core.functionuniversalapi;
 
 //functional interface
 /**
- * A {@link IIntTaker} has a method that takes an int.
+ * A {@link ILongTaker} has a method that takes a long.
  * 
  * @author Silvan Wyss
- * @date 2018-08-26
+ * @date 2016-10-01
  */
 @FunctionalInterface
-public interface IIntTaker {
+public interface ILongTaker {
 	
 	//method declaration
 	/**
@@ -17,5 +17,5 @@ public interface IIntTaker {
 	 * 
 	 * @param value
 	 */
-	void run(int value);
+	void run(long value);
 }

@@ -3,7 +3,7 @@ package ch.nolix.system.gui.dialog;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.functionapi.IAction;
+import ch.nolix.core.functionuniversalapi.IAction;
 import ch.nolix.system.gui.base.Layer;
 import ch.nolix.system.gui.base.LayerRole;
 import ch.nolix.system.gui.containerwidget.AligningContainer;

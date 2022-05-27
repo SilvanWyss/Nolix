@@ -13,8 +13,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.functionapi.IElementTaker;
-import ch.nolix.core.functionapi.IElementTakerElementGetter;
+import ch.nolix.core.functionuniversalapi.IElementTaker;
+import ch.nolix.core.functionuniversalapi.IElementTakerElementGetter;
 import ch.nolix.core.skillapi.Clearable;
 
 //class

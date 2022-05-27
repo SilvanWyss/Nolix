@@ -3,7 +3,7 @@ package ch.nolix.system.objectdata.propertyflyweight;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.functionapi.IAction;
+import ch.nolix.core.functionuniversalapi.IAction;
 import ch.nolix.systemapi.objectdataapi.dataflyweightapi.IPropertyFlyWeight;
 
 //class

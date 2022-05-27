@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.functionapi;
+package ch.nolix.core.functionuniversalapi;
 
 //own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;

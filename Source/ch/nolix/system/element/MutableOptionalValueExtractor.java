@@ -7,10 +7,10 @@ import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.functionapi.IBooleanGetter;
-import ch.nolix.core.functionapi.IElementGetter;
-import ch.nolix.core.functionapi.IElementTaker;
-import ch.nolix.core.functionapi.IElementTakerElementGetter;
+import ch.nolix.core.functionuniversalapi.IBooleanGetter;
+import ch.nolix.core.functionuniversalapi.IElementGetter;
+import ch.nolix.core.functionuniversalapi.IElementTaker;
+import ch.nolix.core.functionuniversalapi.IElementTakerElementGetter;
 
 //class
 public final class MutableOptionalValueExtractor<V> extends Property {

@@ -3,7 +3,7 @@ package ch.nolix.systemtutorial.guitutorial.basetutorial;
 //own imports
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
-import ch.nolix.core.functionapi.IElementTaker;
+import ch.nolix.core.functionuniversalapi.IElementTaker;
 import ch.nolix.system.application.baseguiapplication.PaintRun;
 import ch.nolix.system.elementenum.RotationDirection;
 import ch.nolix.system.elementenum.UniDirection;

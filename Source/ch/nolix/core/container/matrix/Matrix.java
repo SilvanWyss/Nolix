@@ -12,7 +12,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.BiggerArgumentExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.functionapi.IElementTakerElementGetter;
+import ch.nolix.core.functionuniversalapi.IElementTakerElementGetter;
 import ch.nolix.core.skillapi.Clearable;
 
 //class

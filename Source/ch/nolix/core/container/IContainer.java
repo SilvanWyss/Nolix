@@ -19,16 +19,16 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentEx
 import ch.nolix.core.errorcontrol.invalidargumentexception.SmallerArgumentException;
 import ch.nolix.core.errorcontrol.logger.Logger;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.functionapi.I2ElementTakerBooleanGetter;
-import ch.nolix.core.functionapi.IElementTaker;
-import ch.nolix.core.functionapi.IElementTakerBooleanGetter;
-import ch.nolix.core.functionapi.IElementTakerByteGetter;
-import ch.nolix.core.functionapi.IElementTakerCharGetter;
-import ch.nolix.core.functionapi.IElementTakerComparableGetter;
-import ch.nolix.core.functionapi.IElementTakerDoubleGetter;
-import ch.nolix.core.functionapi.IElementTakerElementGetter;
-import ch.nolix.core.functionapi.IElementTakerIntGetter;
-import ch.nolix.core.functionapi.IElementTakerLongGetter;
+import ch.nolix.core.functionuniversalapi.I2ElementTakerBooleanGetter;
+import ch.nolix.core.functionuniversalapi.IElementTaker;
+import ch.nolix.core.functionuniversalapi.IElementTakerBooleanGetter;
+import ch.nolix.core.functionuniversalapi.IElementTakerByteGetter;
+import ch.nolix.core.functionuniversalapi.IElementTakerCharGetter;
+import ch.nolix.core.functionuniversalapi.IElementTakerComparableGetter;
+import ch.nolix.core.functionuniversalapi.IElementTakerDoubleGetter;
+import ch.nolix.core.functionuniversalapi.IElementTakerElementGetter;
+import ch.nolix.core.functionuniversalapi.IElementTakerIntGetter;
+import ch.nolix.core.functionuniversalapi.IElementTakerLongGetter;
 
 //interface
 /**

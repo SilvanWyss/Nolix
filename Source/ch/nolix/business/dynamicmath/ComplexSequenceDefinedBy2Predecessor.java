@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 import ch.nolix.businessapi.dynamicmathapi.IComplexNumber;
 import ch.nolix.businessapi.dynamicmathapi.ISequenceDefinedBy2Predecessor;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.functionapi.I2ElementTakerElementGetter;
+import ch.nolix.core.functionuniversalapi.I2ElementTakerElementGetter;
 
 //class
 public final class ComplexSequenceDefinedBy2Predecessor

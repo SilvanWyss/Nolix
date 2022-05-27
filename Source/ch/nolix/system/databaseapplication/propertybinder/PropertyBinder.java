@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.databaseapplication.propertybinder;
 
-//own imports
-import ch.nolix.core.functionapi.IAction;
+import ch.nolix.core.functionuniversalapi.IAction;
 import ch.nolix.system.gui.widget.Widget;
 import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
 

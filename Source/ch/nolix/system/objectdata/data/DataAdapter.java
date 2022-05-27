@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.objectdata.data;
 
-//own imports
-import ch.nolix.core.functionapi.IElementGetter;
+import ch.nolix.core.functionuniversalapi.IElementGetter;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.system.objectdata.datahelper.DatabaseHelper;
 import ch.nolix.system.objectschema.parametrizedpropertytype.SchemaImplementation;

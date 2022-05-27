@@ -7,7 +7,7 @@ import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.functionapi.IElementTaker;
+import ch.nolix.core.functionuniversalapi.IElementTaker;
 import ch.nolix.core.programcontrol.processproperty.ChangeState;
 import ch.nolix.core.state.Visibility;
 import ch.nolix.system.application.baseguiapplication.PaintRun;

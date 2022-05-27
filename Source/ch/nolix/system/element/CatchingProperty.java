@@ -7,8 +7,8 @@ import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.functionapi.IElementTaker;
-import ch.nolix.core.functionapi.IElementTakerElementGetter;
+import ch.nolix.core.functionuniversalapi.IElementTaker;
+import ch.nolix.core.functionuniversalapi.IElementTakerElementGetter;
 
 //class
 public final class CatchingProperty<V> extends Property implements Named {

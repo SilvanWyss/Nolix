@@ -3,9 +3,9 @@ package ch.nolix.systemapi.guiapi.baseapi;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.functionapi.I2ElementTaker;
-import ch.nolix.core.functionapi.IAction;
-import ch.nolix.core.functionapi.IElementTaker;
+import ch.nolix.core.functionuniversalapi.I2ElementTaker;
+import ch.nolix.core.functionuniversalapi.IAction;
+import ch.nolix.core.functionuniversalapi.IElementTaker;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 
 //interface

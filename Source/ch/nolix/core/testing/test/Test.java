@@ -4,8 +4,7 @@ package ch.nolix.core.testing.test;
 //Java imports
 import java.util.ArrayList;
 
-//own imports
-import ch.nolix.core.functionapi.IAction;
+import ch.nolix.core.functionuniversalapi.IAction;
 import ch.nolix.core.requestapi.ApproximativeEqualing;
 import ch.nolix.core.testing.validation.ApproximativeEqualingMediator;
 import ch.nolix.core.testing.validation.BitMediator;

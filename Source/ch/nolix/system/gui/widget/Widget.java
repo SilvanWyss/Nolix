@@ -13,8 +13,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.functionapi.I2ElementTaker;
-import ch.nolix.core.functionapi.IElementTaker;
+import ch.nolix.core.functionuniversalapi.I2ElementTaker;
+import ch.nolix.core.functionuniversalapi.IElementTaker;
 import ch.nolix.core.rasterapi.TopLeftPositionedRecangular;
 import ch.nolix.core.requestapi.EnablingRequestable;
 import ch.nolix.core.requestapi.ExpansionRequestable;

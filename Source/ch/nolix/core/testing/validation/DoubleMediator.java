@@ -6,8 +6,8 @@ import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonBiggerArgumentException;
-import ch.nolix.core.functionapi.IElementTaker;
-import ch.nolix.core.functionapi.IElementTakerBooleanGetter;
+import ch.nolix.core.functionuniversalapi.IElementTaker;
+import ch.nolix.core.functionuniversalapi.IElementTakerBooleanGetter;
 
 //class
 /**

@@ -3,7 +3,7 @@ package ch.nolix.core.testing.validation;
 
 //own imports
 import ch.nolix.core.commontype.commontypewrapper.ByteWrapper;
-import ch.nolix.core.functionapi.IElementTaker;
+import ch.nolix.core.functionuniversalapi.IElementTaker;
 
 //class
 public final class ByteMediator extends Mediator {

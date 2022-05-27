@@ -3,7 +3,7 @@ package ch.nolix.system.elementfactory;
 
 //own imports
 import ch.nolix.core.document.node.BaseNode;
-import ch.nolix.core.functionapi.IElementTakerElementGetter;
+import ch.nolix.core.functionuniversalapi.IElementTakerElementGetter;
 import ch.nolix.systemapi.elementapi.IMutableElement;
 
 //class

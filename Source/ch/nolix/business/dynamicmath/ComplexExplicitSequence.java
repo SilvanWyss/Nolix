@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 //own imports
 import ch.nolix.businessapi.dynamicmathapi.IComplexNumber;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.functionapi.IIntTakerElementGetter;
+import ch.nolix.core.functionuniversalapi.IIntTakerElementGetter;
 
 //class
 public final class ComplexExplicitSequence extends Sequence<IComplexNumber> {

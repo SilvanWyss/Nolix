@@ -14,8 +14,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.functionapi.I2ElementTaker;
-import ch.nolix.core.functionapi.IElementTaker;
+import ch.nolix.core.functionuniversalapi.I2ElementTaker;
+import ch.nolix.core.functionuniversalapi.IElementTaker;
 import ch.nolix.core.math.Calculator;
 import ch.nolix.core.skillapi.Clearable;
 import ch.nolix.core.skillapi.Recalculable;

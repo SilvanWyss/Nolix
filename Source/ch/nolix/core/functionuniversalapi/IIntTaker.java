@@ -1,15 +1,15 @@
 //package declaration
-package ch.nolix.core.functionapi;
+package ch.nolix.core.functionuniversalapi;
 
 //functional interface
 /**
- * A {@link IBooleanTaker} has a method that takes a boolean.
+ * A {@link IIntTaker} has a method that takes an int.
  * 
  * @author Silvan Wyss
- * @date 2018-09-01
+ * @date 2018-08-26
  */
 @FunctionalInterface
-public interface IBooleanTaker {
+public interface IIntTaker {
 	
 	//method declaration
 	/**
@@ -17,5 +17,5 @@ public interface IBooleanTaker {
 	 * 
 	 * @param value
 	 */
-	void run(boolean value);
+	void run(int value);
 }

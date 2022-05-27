@@ -3,8 +3,8 @@ package ch.nolix.core.caching;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.functionapi.IBooleanGetter;
-import ch.nolix.core.functionapi.IElementGetter;
+import ch.nolix.core.functionuniversalapi.IBooleanGetter;
+import ch.nolix.core.functionuniversalapi.IElementGetter;
 import ch.nolix.core.skillapi.Refreshable;
 
 //class

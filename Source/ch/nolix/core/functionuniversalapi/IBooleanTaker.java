@@ -1,15 +1,15 @@
 //package declaration
-package ch.nolix.core.functionapi;
+package ch.nolix.core.functionuniversalapi;
 
 //functional interface
 /**
- * A {@link ILongTaker} has a method that takes a long.
+ * A {@link IBooleanTaker} has a method that takes a boolean.
  * 
  * @author Silvan Wyss
- * @date 2016-10-01
+ * @date 2018-09-01
  */
 @FunctionalInterface
-public interface ILongTaker {
+public interface IBooleanTaker {
 	
 	//method declaration
 	/**
@@ -17,5 +17,5 @@ public interface ILongTaker {
 	 * 
 	 * @param value
 	 */
-	void run(long value);
+	void run(boolean value);
 }

@@ -4,7 +4,7 @@ package ch.nolix.system.gui.base;
 //own imports
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.chainednode.ChainedNode;
-import ch.nolix.core.functionapi.I2ElementTaker;
+import ch.nolix.core.functionuniversalapi.I2ElementTaker;
 import ch.nolix.core.skillapi.Clearable;
 import ch.nolix.system.configuration.Configuration;
 import ch.nolix.system.gui.color.Color;

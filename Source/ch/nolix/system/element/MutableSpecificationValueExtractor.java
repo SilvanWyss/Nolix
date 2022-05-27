@@ -7,8 +7,8 @@ import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.functionapi.IElementGetter;
-import ch.nolix.core.functionapi.IElementTaker;
+import ch.nolix.core.functionuniversalapi.IElementGetter;
+import ch.nolix.core.functionuniversalapi.IElementTaker;
 
 //class
 public final class MutableSpecificationValueExtractor extends Property {

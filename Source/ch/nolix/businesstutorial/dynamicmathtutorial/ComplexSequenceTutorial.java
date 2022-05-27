@@ -2,7 +2,7 @@ package ch.nolix.businesstutorial.dynamicmathtutorial;
 
 import ch.nolix.business.dynamicmath.ComplexNumber;
 import ch.nolix.business.dynamicmath.ComplexSequenceDefinedBy1Predecessor;
-import ch.nolix.core.functionapi.IIntTaker;
+import ch.nolix.core.functionuniversalapi.IIntTaker;
 
 public final class ComplexSequenceTutorial {
 	

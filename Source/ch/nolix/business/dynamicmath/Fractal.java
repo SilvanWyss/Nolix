@@ -10,8 +10,8 @@ import ch.nolix.businessapi.dynamicmathapi.IComplexNumber;
 import ch.nolix.businessapi.dynamicmathapi.IFractal;
 import ch.nolix.businessapi.dynamicmathapi.ISequence;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.functionapi.IElementTakerElementGetter;
-import ch.nolix.core.functionapi.IIntTakerElementGetter;
+import ch.nolix.core.functionuniversalapi.IElementTakerElementGetter;
+import ch.nolix.core.functionuniversalapi.IIntTakerElementGetter;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.image.MutableImage;
 

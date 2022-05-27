@@ -3,7 +3,7 @@ package ch.nolix.system.gui.widget;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.functionapi.IElementTaker;
+import ch.nolix.core.functionuniversalapi.IElementTaker;
 import ch.nolix.core.programcontrol.sequencer.Sequencer;
 import ch.nolix.system.elementenum.ContentPosition;
 import ch.nolix.system.gui.base.CursorIcon;

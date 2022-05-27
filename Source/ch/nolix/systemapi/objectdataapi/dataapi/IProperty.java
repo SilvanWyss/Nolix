@@ -2,7 +2,7 @@
 package ch.nolix.systemapi.objectdataapi.dataapi;
 
 import ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi.Named;
-import ch.nolix.core.functionapi.IAction;
+import ch.nolix.core.functionuniversalapi.IAction;
 import ch.nolix.core.requestapi.EmptinessRequestable;
 import ch.nolix.core.requestapi.MandatoryRequestable;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.IDatabaseObject;

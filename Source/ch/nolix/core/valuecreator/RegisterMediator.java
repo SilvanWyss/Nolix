@@ -3,7 +3,7 @@ package ch.nolix.core.valuecreator;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.functionapi.IElementTakerElementGetter;
+import ch.nolix.core.functionuniversalapi.IElementTakerElementGetter;
 
 //class
 public final class RegisterMediator<S, V> {

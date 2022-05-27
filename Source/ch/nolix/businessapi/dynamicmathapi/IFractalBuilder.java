@@ -4,9 +4,8 @@ package ch.nolix.businessapi.dynamicmathapi;
 //Java imports
 import java.math.BigDecimal;
 
-//own imports
-import ch.nolix.core.functionapi.IElementTakerElementGetter;
-import ch.nolix.core.functionapi.IIntTakerElementGetter;
+import ch.nolix.core.functionuniversalapi.IElementTakerElementGetter;
+import ch.nolix.core.functionuniversalapi.IIntTakerElementGetter;
 import ch.nolix.system.gui.color.Color;
 
 //interface

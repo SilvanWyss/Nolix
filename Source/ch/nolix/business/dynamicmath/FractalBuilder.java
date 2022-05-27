@@ -9,8 +9,8 @@ import ch.nolix.businessapi.dynamicmathapi.IClosedInterval;
 import ch.nolix.businessapi.dynamicmathapi.IComplexNumber;
 import ch.nolix.businessapi.dynamicmathapi.IFractalBuilder;
 import ch.nolix.businessapi.dynamicmathapi.ISequence;
-import ch.nolix.core.functionapi.IElementTakerElementGetter;
-import ch.nolix.core.functionapi.IIntTakerElementGetter;
+import ch.nolix.core.functionuniversalapi.IElementTakerElementGetter;
+import ch.nolix.core.functionuniversalapi.IIntTakerElementGetter;
 import ch.nolix.system.gui.color.Color;
 
 //class

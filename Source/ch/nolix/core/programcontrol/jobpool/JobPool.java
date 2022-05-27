@@ -5,7 +5,7 @@ package ch.nolix.core.programcontrol.jobpool;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.container.SingleContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.functionapi.IAction;
+import ch.nolix.core.functionuniversalapi.IAction;
 import ch.nolix.core.programcontrol.futureapi.IFuture;
 
 //class

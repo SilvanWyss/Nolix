@@ -7,8 +7,8 @@ import java.nio.charset.StandardCharsets;
 
 //own imports
 import ch.nolix.core.container.LinkedList;
-import ch.nolix.core.functionapi.IBooleanGetter;
-import ch.nolix.core.functionapi.IElementTaker;
+import ch.nolix.core.functionuniversalapi.IBooleanGetter;
+import ch.nolix.core.functionuniversalapi.IElementTaker;
 
 //class
 public final class WebSocketCompleteMessage {

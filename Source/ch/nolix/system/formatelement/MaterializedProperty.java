@@ -10,8 +10,8 @@ import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.functionapi.I2ElementTaker;
-import ch.nolix.core.functionapi.IElementTakerElementGetter;
+import ch.nolix.core.functionuniversalapi.I2ElementTaker;
+import ch.nolix.core.functionuniversalapi.IElementTakerElementGetter;
 
 //class
 public abstract class MaterializedProperty<S extends Enum<S>, V> extends Property<S> {
