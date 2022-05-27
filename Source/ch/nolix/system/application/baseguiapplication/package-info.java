@@ -1,6 +1,7 @@
 //package info
 /**
- * The {@link ch.nolix.system.application.consoleapplication} package defines a base front GUI client and a base back GUI client.
+ * The {@link ch.nolix.system.application.baseguiapplication} package defines
+ * a base frontend GUI client and a base backend GUI client.
  * 
  * @author Silvan Wyss
  * @date 2019-08-01

@@ -1,6 +1,6 @@
 //package info
 /**
- * The {@link ch.nolix.system.application.consoleapplication} package defines GUI {@link Client}s.
+ * The {@link ch.nolix.system.application.guiapplication} package defines GUI {@link Client}s.
  * 
  * @author Silvan Wyss
  * @date 2019-08-01
