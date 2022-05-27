@@ -5,7 +5,7 @@ package ch.nolix.systemapi.elementapi;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.skillapi.Resettable;
+import ch.nolix.core.skilluniversalapi.Resettable;
 
 //interface
 /**

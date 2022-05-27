@@ -12,7 +12,7 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.functionuniversalapi.IAction;
 import ch.nolix.core.functionuniversalapi.IElementTaker;
 import ch.nolix.core.math.Calculator;
-import ch.nolix.core.skillapi.Clearable;
+import ch.nolix.core.skilluniversalapi.Clearable;
 import ch.nolix.system.element.MultiValue;
 import ch.nolix.system.element.SubElement;
 import ch.nolix.system.elementenum.RotationDirection;

@@ -10,7 +10,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.skillapi.Clearable;
+import ch.nolix.core.skilluniversalapi.Clearable;
 import ch.nolix.system.element.MutableElement;
 import ch.nolix.system.element.MutableValue;
 import ch.nolix.system.elementenum.ContentPosition;

@@ -16,7 +16,7 @@ import ch.nolix.core.functionuniversalapi.IElementTakerBooleanGetter;
 import ch.nolix.core.functionuniversalapi.IElementTakerComparableGetter;
 import ch.nolix.core.functionuniversalapi.IElementTakerElementGetter;
 import ch.nolix.core.independent.independenthelper.IterableHelper;
-import ch.nolix.core.skillapi.Clearable;
+import ch.nolix.core.skilluniversalapi.Clearable;
 
 //class
 /**

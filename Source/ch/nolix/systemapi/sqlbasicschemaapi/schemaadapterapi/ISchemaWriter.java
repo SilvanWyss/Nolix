@@ -3,7 +3,7 @@ package ch.nolix.systemapi.sqlbasicschemaapi.schemaadapterapi;
 
 //own imports
 import ch.nolix.core.container.IContainer;
-import ch.nolix.core.skillapi.IMultiTimeChangeSaver;
+import ch.nolix.core.skilluniversalapi.IMultiTimeChangeSaver;
 import ch.nolix.systemapi.sqlbasicschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.systemapi.sqlbasicschemaapi.schemadtoapi.ITableDTO;
 

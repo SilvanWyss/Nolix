@@ -5,7 +5,7 @@ package ch.nolix.system.gui.containerwidget;
 import ch.nolix.core.constant.PascalCaseCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.skillapi.Clearable;
+import ch.nolix.core.skilluniversalapi.Clearable;
 import ch.nolix.system.element.MutableOptionalValue;
 import ch.nolix.system.gui.widget.BorderWidget;
 import ch.nolix.system.gui.widget.BorderWidgetLook;

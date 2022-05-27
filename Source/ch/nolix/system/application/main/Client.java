@@ -9,10 +9,10 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnconnectedArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.generalskillapi.IFluentObject;
 import ch.nolix.core.net.endpoint3.EndPoint;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.programcontrol.groupcloseable.GroupCloseable;
+import ch.nolix.core.skilluniversalapi.IFluentObject;
 
 //class
 /**

@@ -19,7 +19,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentExceptio
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
-import ch.nolix.core.skillapi.Clearable;
+import ch.nolix.core.skilluniversalapi.Clearable;
 import ch.nolix.system.configuration.ConfigurationElement;
 import ch.nolix.system.element.MutableOptionalSpecificationValueExtractor;
 import ch.nolix.system.element.MutableValue;

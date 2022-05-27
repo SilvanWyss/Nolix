@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.generalskillapi;
+package ch.nolix.core.skilluniversalapi;
 
 //own imports
 import ch.nolix.core.container.LinkedList;

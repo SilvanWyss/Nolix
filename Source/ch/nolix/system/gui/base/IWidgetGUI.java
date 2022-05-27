@@ -5,7 +5,7 @@ package ch.nolix.system.gui.base;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.functionuniversalapi.I2ElementTaker;
-import ch.nolix.core.skillapi.Clearable;
+import ch.nolix.core.skilluniversalapi.Clearable;
 import ch.nolix.system.configuration.Configuration;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.image.MutableImage;

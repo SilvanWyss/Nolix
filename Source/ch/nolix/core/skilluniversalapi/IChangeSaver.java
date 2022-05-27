@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.skillapi;
+package ch.nolix.core.skilluniversalapi;
 
 //own imports
 import ch.nolix.core.requestapi.ChangeRequestable;

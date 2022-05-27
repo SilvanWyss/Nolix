@@ -5,8 +5,8 @@ import ch.nolix.core.attributeuniversalapi.mutableoptionalattributeuniversalapi.
 import ch.nolix.core.attributeuniversalapi.mutableoptionalattributeuniversalapi.OptionalTokenable;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
-import ch.nolix.core.generalskillapi.TypeRequestable;
 import ch.nolix.core.requestapi.ContainsElementByStringIdRequestable;
+import ch.nolix.core.skilluniversalapi.TypeRequestable;
 
 //interface
 /**

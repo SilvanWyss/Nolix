@@ -5,7 +5,7 @@ package ch.nolix.core.sql;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.skillapi.Clearable;
+import ch.nolix.core.skilluniversalapi.Clearable;
 
 //class
 public final class SQLCollector implements Clearable {

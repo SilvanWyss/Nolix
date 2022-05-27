@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.objectdataapi.dataadapterapi;
 
-//own imports
-import ch.nolix.core.skillapi.IMultiTimeChangeSaver;
+import ch.nolix.core.skilluniversalapi.IMultiTimeChangeSaver;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 

@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.objectschemaapi.schemaadapterapi;
 
-//own imports
-import ch.nolix.core.skillapi.IChangeSaver;
+import ch.nolix.core.skilluniversalapi.IChangeSaver;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IDatabaseEngine;
 
 //interface

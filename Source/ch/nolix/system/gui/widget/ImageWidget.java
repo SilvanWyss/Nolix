@@ -4,7 +4,7 @@ package ch.nolix.system.gui.widget;
 //own imports
 import ch.nolix.core.constant.PascalCaseCatalogue;
 import ch.nolix.core.container.LinkedList;
-import ch.nolix.core.skillapi.Clearable;
+import ch.nolix.core.skilluniversalapi.Clearable;
 import ch.nolix.system.element.MutableOptionalValue;
 import ch.nolix.system.elementenum.RotationDirection;
 import ch.nolix.system.gui.image.MutableImage;

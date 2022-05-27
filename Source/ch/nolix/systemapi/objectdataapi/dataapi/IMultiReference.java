@@ -3,7 +3,7 @@ package ch.nolix.systemapi.objectdataapi.dataapi;
 
 //own imports
 import ch.nolix.core.container.IContainer;
-import ch.nolix.core.skillapi.Clearable;
+import ch.nolix.core.skilluniversalapi.Clearable;
 
 //interface
 public interface IMultiReference<

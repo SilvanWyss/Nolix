@@ -4,7 +4,7 @@ package ch.nolix.core.programcontrol.worker;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.programcontrol.sequencer.Sequencer;
-import ch.nolix.core.skillapi.Startable;
+import ch.nolix.core.skilluniversalapi.Startable;
 
 //class
 public abstract class Worker implements Startable {

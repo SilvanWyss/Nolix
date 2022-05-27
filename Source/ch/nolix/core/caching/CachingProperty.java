@@ -5,7 +5,7 @@ package ch.nolix.core.caching;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.functionuniversalapi.IBooleanGetter;
 import ch.nolix.core.functionuniversalapi.IElementGetter;
-import ch.nolix.core.skillapi.Refreshable;
+import ch.nolix.core.skilluniversalapi.Refreshable;
 
 //class
 public final class CachingProperty<V> implements Refreshable {

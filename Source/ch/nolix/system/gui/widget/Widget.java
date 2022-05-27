@@ -18,7 +18,7 @@ import ch.nolix.core.functionuniversalapi.IElementTaker;
 import ch.nolix.core.rasterapi.TopLeftPositionedRecangular;
 import ch.nolix.core.requestapi.EnablingRequestable;
 import ch.nolix.core.requestapi.ExpansionRequestable;
-import ch.nolix.core.skillapi.Recalculable;
+import ch.nolix.core.skilluniversalapi.Recalculable;
 import ch.nolix.system.configuration.ConfigurableElement;
 import ch.nolix.system.element.ExtensionElement;
 import ch.nolix.system.element.MutableValueExtractor;

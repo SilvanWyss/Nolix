@@ -14,7 +14,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.functionuniversalapi.IElementTakerBooleanGetter;
-import ch.nolix.core.generalskillapi.ISmartObject;
+import ch.nolix.core.skilluniversalapi.ISmartObject;
 
 //class
 /**

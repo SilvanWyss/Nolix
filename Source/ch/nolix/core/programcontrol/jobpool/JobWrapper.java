@@ -8,7 +8,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.functionuniversalapi.IAction;
 import ch.nolix.core.programcontrol.sequencer.Sequencer;
-import ch.nolix.core.skillapi.Runnable;
+import ch.nolix.core.skilluniversalapi.Runnable;
 
 //class
 final class JobWrapper implements Runnable {

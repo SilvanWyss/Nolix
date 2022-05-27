@@ -14,7 +14,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.programcontrol.processproperty.ChangeState;
-import ch.nolix.core.skillapi.Recalculable;
+import ch.nolix.core.skilluniversalapi.Recalculable;
 import ch.nolix.core.state.Visibility;
 import ch.nolix.system.configuration.ConfigurationElement;
 import ch.nolix.system.element.MutableValue;
