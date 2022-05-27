@@ -6,7 +6,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.rasterapi.Rectangular;
+import ch.nolix.core.griduniversalapi.Rectangular;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 
 //class

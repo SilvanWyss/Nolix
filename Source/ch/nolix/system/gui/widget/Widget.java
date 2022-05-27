@@ -15,7 +15,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.functionuniversalapi.I2ElementTaker;
 import ch.nolix.core.functionuniversalapi.IElementTaker;
-import ch.nolix.core.rasterapi.TopLeftPositionedRecangular;
+import ch.nolix.core.griduniversalapi.TopLeftPositionedRecangular;
 import ch.nolix.core.requestapi.EnablingRequestable;
 import ch.nolix.core.requestapi.ExpansionRequestable;
 import ch.nolix.core.skilluniversalapi.Recalculable;

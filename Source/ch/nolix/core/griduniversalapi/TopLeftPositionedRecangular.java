@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.rasterapi;
+package ch.nolix.core.griduniversalapi;
 
 //interface
 /**

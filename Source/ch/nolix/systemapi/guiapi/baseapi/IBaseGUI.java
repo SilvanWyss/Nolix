@@ -2,8 +2,8 @@
 package ch.nolix.systemapi.guiapi.baseapi;
 
 import ch.nolix.core.attributeuniversalapi.mutablemandatoryattributeuniversalapi.Titleble;
+import ch.nolix.core.griduniversalapi.Rectangular;
 import ch.nolix.core.programcontrol.groupcloseable.GroupCloseable;
-import ch.nolix.core.rasterapi.Rectangular;
 import ch.nolix.core.skilluniversalapi.Refreshable;
 import ch.nolix.system.gui.base.CursorIcon;
 import ch.nolix.system.gui.image.Image;

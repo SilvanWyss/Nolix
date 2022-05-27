@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.guiapi.baseapi;
 
-//own imports
-import ch.nolix.core.rasterapi.TopLeftPositionedRecangular;
+import ch.nolix.core.griduniversalapi.TopLeftPositionedRecangular;
 
 //interface
 public interface HoverableByCursor extends TopLeftPositionedRecangular {
