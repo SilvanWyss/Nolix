@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.incrementapi;
+package ch.nolix.core.incrementuniversalapi;
 
 //own imports
 import ch.nolix.core.container.LinkedList;

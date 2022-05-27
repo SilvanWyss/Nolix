@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.incrementapi;
+package ch.nolix.core.incrementuniversalapi;
 
 //interface
 public interface Incrementing<V> {
