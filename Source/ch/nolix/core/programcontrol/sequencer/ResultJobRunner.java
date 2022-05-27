@@ -6,7 +6,7 @@ import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.logger.Logger;
+import ch.nolix.core.errorcontrol.logger.GlobalLogger;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.functionuniversalapi.IElementGetter;
 
@@ -124,7 +124,7 @@ final class ResultJobRunner<R> extends Thread {
 			result = resultJob.getOutput();
 		} catch (final Throwable lError) {
 			error = lError;
-			Logger.logError(lError);
+			GlobalLogger.logError(lError);
 		} finally {
 			running = false;
 		}

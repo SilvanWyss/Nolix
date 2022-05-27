@@ -5,7 +5,7 @@ package ch.nolix.core.errorcontrol.logger;
 import ch.nolix.core.independent.independentcontainer.List;
 
 //class
-public final class Logger {
+public final class GlobalLogger {
 	
 	//static attributes
 	private static boolean active = true;
@@ -54,7 +54,7 @@ public final class Logger {
 	public static void logError(final Throwable error) {
 		if (active) {
 			
-			synchronized (Logger.class) {
+			synchronized (GlobalLogger.class) {
 				if (logWorker == null) {
 					logWorker = new LogWorker();
 				}
@@ -72,7 +72,7 @@ public final class Logger {
 	public static void logError(final String error) {
 		if (active) {
 			
-			synchronized (Logger.class) {
+			synchronized (GlobalLogger.class) {
 				if (logWorker == null) {
 					logWorker = new LogWorker();
 				}
@@ -95,7 +95,7 @@ public final class Logger {
 	) {
 		if (active) {
 			
-			synchronized (Logger.class) {
+			synchronized (GlobalLogger.class) {
 				if (logWorker == null) {
 					logWorker = new LogWorker();
 				}
@@ -118,7 +118,7 @@ public final class Logger {
 	) {
 		if (active) {
 			
-			synchronized (Logger.class) {
+			synchronized (GlobalLogger.class) {
 				if (logWorker == null) {
 					logWorker = new LogWorker();
 				}
@@ -137,7 +137,7 @@ public final class Logger {
 	public static void logFatalError(final String fatalError) {
 		if (active) {
 			
-			synchronized (Logger.class) {
+			synchronized (GlobalLogger.class) {
 				if (logWorker == null) {
 					logWorker = new LogWorker();
 				}
@@ -156,7 +156,7 @@ public final class Logger {
 	public static void logInfo(final String info) {
 		if (active) {
 			
-			synchronized (Logger.class) {
+			synchronized (GlobalLogger.class) {
 				if (logWorker == null) {
 					logWorker = new LogWorker();
 				}
@@ -175,7 +175,7 @@ public final class Logger {
 	public static void logInfo(final String valueName, final double value) {
 		if (active) {
 			
-			synchronized (Logger.class) {
+			synchronized (GlobalLogger.class) {
 				if (logWorker == null) {
 					logWorker = new LogWorker();
 				}
@@ -194,7 +194,7 @@ public final class Logger {
 	public static void logInfo(final String valueName, final long value) {
 		if (active) {
 			
-			synchronized (Logger.class) {
+			synchronized (GlobalLogger.class) {
 				if (logWorker == null) {
 					logWorker = new LogWorker();
 				}
@@ -213,7 +213,7 @@ public final class Logger {
 	public static void logWarning(final String warning) {
 		if (active) {
 			
-			synchronized (Logger.class) {
+			synchronized (GlobalLogger.class) {
 				if (logWorker == null) {
 					logWorker = new LogWorker();
 				}
@@ -241,5 +241,5 @@ public final class Logger {
 	}
 	
 	//constructor
-	private Logger() {}
+	private GlobalLogger() {}
 }

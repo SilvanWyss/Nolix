@@ -16,7 +16,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeE
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.logger.Logger;
+import ch.nolix.core.errorcontrol.logger.GlobalLogger;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.net.controlleruniversalapi.IDataProviderController;
 import ch.nolix.core.programcontrol.groupcloseable.GroupCloseable;
@@ -272,7 +272,7 @@ public class NetEndPoint extends EndPoint {
 			return receiveAndGetReply(ChainedNode.fromString(message));
 		} catch (final Exception exception) {
 			
-			Logger.logError(exception);
+			GlobalLogger.logError(exception);
 			
 			if (exception.getMessage() == null) {
 				return Protocol.ERROR_HEADER;

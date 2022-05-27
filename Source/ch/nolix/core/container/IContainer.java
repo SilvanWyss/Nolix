@@ -17,7 +17,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentExceptio
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.SmallerArgumentException;
-import ch.nolix.core.errorcontrol.logger.Logger;
+import ch.nolix.core.errorcontrol.logger.GlobalLogger;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.functionuniversalapi.I2ElementTakerBooleanGetter;
 import ch.nolix.core.functionuniversalapi.IElementTaker;
@@ -454,7 +454,7 @@ public interface IContainer<E> extends Iterable<E> {
 			try {
 				action.run(e);
 			} catch (final Exception exception) {
-				Logger.logError(exception);
+				GlobalLogger.logError(exception);
 			}
 		}
 	}

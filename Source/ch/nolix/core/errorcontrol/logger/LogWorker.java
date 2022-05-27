@@ -28,7 +28,7 @@ final class LogWorker extends Thread {
 		while (active) {
 			if (containsLogEntries()) {
 				idle = false;
-				Logger.takeLogEntry(getAndRemoveNextLogEntry());
+				GlobalLogger.takeLogEntry(getAndRemoveNextLogEntry());
 			} else {
 				
 				if (!idle) {
@@ -42,7 +42,7 @@ final class LogWorker extends Thread {
 			}
 		}
 		
-		Logger.removeLogWorker();
+		GlobalLogger.removeLogWorker();
 	}
 	
 	//method

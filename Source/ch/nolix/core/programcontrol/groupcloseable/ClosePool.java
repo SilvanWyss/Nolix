@@ -8,7 +8,7 @@ import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.logger.Logger;
+import ch.nolix.core.errorcontrol.logger.GlobalLogger;
 import ch.nolix.core.errorcontrol.validator.Validator;
 
 //class
@@ -149,7 +149,7 @@ final class ClosePool {
 		try {
 			closeableElement.noteClose();
 		} catch (final Exception exception) {
-			Logger.logError(exception);
+			GlobalLogger.logError(exception);
 		}
 	}
 	
