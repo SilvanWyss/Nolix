@@ -7,6 +7,7 @@ import ch.nolix.core.caching.CachingContainer;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.container.SingleContainer;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.I2ElementTaker;
@@ -18,35 +19,53 @@ import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 
 //class
-final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
+final class CanvasGUICommandCreatorPainter extends BasePainter implements Indexed {
 	
 	//constant
 	public static final TextFormat DEFAULT_TEXT_FORMAT = new TextFormat();
+	
+	//static method
+	public static CanvasGUICommandCreatorPainter withImageCacheAndImageRegistrator(
+		final CachingContainer<IImage<?>> imageCache,
+		final I2ElementTaker<String, IImage<?>> imageRegistrator
+	) {
+		return
+		new CanvasGUICommandCreatorPainter(
+			new SingleContainer<>(),
+			new CanvasGUIPainterPool(imageRegistrator),
+			imageCache
+		);
+	}
+	
+	//static method
+	public static CanvasGUICommandCreatorPainter withParentPainterAndBottomAndImageCache(
+		final CanvasGUICommandCreatorPainter parentPainter,
+		final CanvasGUIPainterPool bottom,
+		final CachingContainer<IImage<?>> imageCache
+	) {
+		return new CanvasGUICommandCreatorPainter(new SingleContainer<>(parentPainter), bottom, imageCache);
+	}
 	
 	//attribute
 	private final CanvasGUIPainterPool bottom;
 	
 	//attribute
-	private final CachingContainer<IImage<?>> imageCachingContainer;
+	private final CachingContainer<IImage<?>> imageCache;
 	
 	//attribute
 	private final int index;
 	
 	//constructor
-	public CanvasGUICommandCreatorPainter(
-		final CachingContainer<IImage<?>> imageCachingContainer,
-		final I2ElementTaker<String, IImage<?>> imageRegistrator
-	) {
-		this(new CanvasGUIPainterPool(imageRegistrator), imageCachingContainer);
-	}
-	
-	//constructor
 	private CanvasGUICommandCreatorPainter(
+		final SingleContainer<IPainter> parentPainterContainer,
 		final CanvasGUIPainterPool bottom,
-		final CachingContainer<IImage<?>> imageCachingContainer
+		final CachingContainer<IImage<?>> imageCache
 	) {
+		
+		super(parentPainterContainer);
+		
 		this.bottom = bottom;
-		this.imageCachingContainer = imageCachingContainer;
+		this.imageCache = imageCache;
 		this.index = bottom.getNextIndexAndUpdateNextIndex();
 	}
 	
@@ -54,7 +73,7 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 	@Override
 	public CanvasGUICommandCreatorPainter createPainter(final int xTranslation,	final int yTranslation) {
 		
-		final var painter = new CanvasGUICommandCreatorPainter(bottom, imageCachingContainer);
+		final var painter = withParentPainterAndBottomAndImageCache(this, bottom, imageCache);
 		
 		appendPaintCommand(
 			CanvasGUICommandProtocol.CREATE_PAINTER
@@ -76,7 +95,8 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 		final int paintAreaWidth,
 		final int paintAreaHeight
 	) {
-		final var painter = new CanvasGUICommandCreatorPainter(bottom, imageCachingContainer);
+		
+		final var painter = withParentPainterAndBottomAndImageCache(this, bottom, imageCache);
 		
 		appendPaintCommand(
 			CanvasGUICommandProtocol.CREATE_PAINTER
@@ -97,7 +117,7 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 	//method
 	@Override
 	public IImage<?> getImageById(final String id) {
-		return imageCachingContainer.getRefById(id);
+		return imageCache.getRefById(id);
 	}
 	
 	//method
@@ -301,11 +321,11 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 	//method
 	private String registerImageIfNotRegisteredAndGetId(final IImage<?> mutableImage) {
 		
-		final var idContainer = imageCachingContainer.getOptionalIdOf(mutableImage);
+		final var idContainer = imageCache.getOptionalIdOf(mutableImage);
 		
 		if (idContainer.isEmpty()) {
 			
-			final var id = imageCachingContainer.registerAndGetId(mutableImage);
+			final var id = imageCache.registerAndGetId(mutableImage);
 			
 			bottom.registerImage(id, mutableImage);
 			

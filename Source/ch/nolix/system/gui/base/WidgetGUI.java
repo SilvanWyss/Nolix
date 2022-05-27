@@ -360,7 +360,8 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	@Override
 	public final LinkedList<ChainedNode> getPaintCommands(final I2ElementTaker<String, IImage<?>> imageRegistrator) {
 		
-		final var painter = new CanvasGUICommandCreatorPainter(getRefImageCache(), imageRegistrator);
+		final var painter =
+		CanvasGUICommandCreatorPainter.withImageCacheAndImageRegistrator(getRefImageCache(), imageRegistrator);
 		
 		paint(painter);
 		

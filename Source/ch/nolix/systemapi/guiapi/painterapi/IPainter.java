@@ -47,6 +47,12 @@ public interface IPainter {
 	
 	//method declaration
 	/**
+	 * @return true if the current {@link IPainter} descents from another {@link IPainter}.
+	 */
+	boolean descendsFromOtherPainter();
+	
+	//method declaration
+	/**
 	 * @return the default {@link TextFormat} of the current {@link IPainter}.
 	 */
 	TextFormat getDefaultTextFormat();
@@ -57,6 +63,13 @@ public interface IPainter {
 	 * @return the {@link MutableImage} with the given id from the current {@link IPainter}.
 	 */
 	IImage<?> getImageById(String id);
+	
+	//method declaration
+	/**
+	 * @return the {@linker IPainter} the current {@link IPainter} descends from.
+	 * @throws Exception if the current {link IPainter} does not descend from another {@link IPainter}.
+	 */
+	IPainter getParentPainter();
 	
 	//method declaration
 	/**

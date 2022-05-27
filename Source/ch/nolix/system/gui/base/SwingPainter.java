@@ -10,6 +10,7 @@ import java.awt.RenderingHints;
 //own imports
 import ch.nolix.core.caching.CachingContainer;
 import ch.nolix.core.constant.LowerCaseCatalogue;
+import ch.nolix.core.container.SingleContainer;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.color.ColorGradient;
@@ -18,8 +19,8 @@ import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 
 //class
-public final class SwingPainter implements IPainter {
-			
+public final class SwingPainter extends BasePainter {
+	
 	//constant
 	public static final TextFormat DEFAULT_TEXT_FORMAT = new TextFormat();
 	
@@ -28,7 +29,16 @@ public final class SwingPainter implements IPainter {
 		final CachingContainer<IImage<?>> imageCache,
 		final Graphics2D graphics
 	) {
-		return new SwingPainter(imageCache, graphics);
+		return new SwingPainter(new SingleContainer<>(), imageCache, graphics);
+	}
+	
+	//static method
+	public static SwingPainter withParentPainterAndImageCacheAndGraphics(
+		final SwingPainter parentPainter,
+		final CachingContainer<IImage<?>> imageCache,
+		final Graphics2D graphics
+	) {
+		return new SwingPainter(new SingleContainer<>(parentPainter), imageCache, graphics);
 	}
 	
 	//attribute
@@ -41,7 +51,13 @@ public final class SwingPainter implements IPainter {
 	private ColorGradient colorGradient;
 	
 	//constructor
-	private SwingPainter(final CachingContainer<IImage<?>> imageCache, final Graphics2D graphics) {
+	private SwingPainter(
+		final SingleContainer<IPainter> parentPainterContainer,
+		final CachingContainer<IImage<?>> imageCache,
+		final Graphics2D graphics
+	) {
+		
+		super(parentPainterContainer);
 		
 		GlobalValidator.assertThat(imageCache).thatIsNamed("image cache").isNotNull();
 		GlobalValidator.assertThat(graphics).thatIsNamed(Graphics.class).isNotNull();
@@ -60,7 +76,7 @@ public final class SwingPainter implements IPainter {
 	public IPainter createPainter(final int xTranslation, final int yTranslation) {
 		final var lGraphics = graphics.create();
 		lGraphics.translate(xTranslation, yTranslation);
-		return new SwingPainter(imageCache, (Graphics2D)lGraphics);
+		return SwingPainter.withImageCacheAndGraphics(imageCache, (Graphics2D)lGraphics);
 	}
 	
 	//method
@@ -72,7 +88,8 @@ public final class SwingPainter implements IPainter {
 			final int paintAreaHeight
 	) {
 		return
-		new SwingPainter(
+		withParentPainterAndImageCacheAndGraphics(
+			this,
 			imageCache,
 			(Graphics2D)
 			graphics.create(
