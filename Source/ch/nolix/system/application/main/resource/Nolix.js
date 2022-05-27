@@ -2412,10 +2412,9 @@ define("System/CanvasGUI/CanvasGUIPainter", ["require", "exports", "System/Canva
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class CanvasGUIPainter {
-        static createPainterFor(imageCache, canvasRenderingContext) {
-            return new CanvasGUIPainter(0, 0, SingleContainer_1.SingleContainer.withoutElement(), new CanvasGUIGlobalPainter_1.CanvasGUIGlobalPainter(imageCache, canvasRenderingContext), SingleContainer_1.SingleContainer.EMPTY_CONTAINER);
-        }
         constructor(xPosition, yPosition, optionalClipAreaOnViewArea, globalPainter, parentPainterContainer) {
+            this.DEFAULT_OPACITY = 1.0;
+            this.opacity = this.DEFAULT_OPACITY;
             if (xPosition === null) {
                 throw new Error('The given xPosition is null.');
             }
@@ -2442,6 +2441,9 @@ define("System/CanvasGUI/CanvasGUIPainter", ["require", "exports", "System/Canva
                 this.clipAreaOnViewArea = optionalClipAreaOnViewArea.getRefElement();
             }
         }
+        static createPainterFor(imageCache, canvasRenderingContext) {
+            return new CanvasGUIPainter(0, 0, SingleContainer_1.SingleContainer.withoutElement(), new CanvasGUIGlobalPainter_1.CanvasGUIGlobalPainter(imageCache, canvasRenderingContext), SingleContainer_1.SingleContainer.EMPTY_CONTAINER);
+        }
         createPainter() {
             return new CanvasGUIPainter(0, 0, this.getOptionalClipAreaOnViewArea(), this.globalPainter, SingleContainer_1.SingleContainer.withElement(this));
         }
@@ -2453,6 +2455,18 @@ define("System/CanvasGUI/CanvasGUIPainter", ["require", "exports", "System/Canva
                 return this.createPainterWithTranslationAndPaintAreaWhenDoesNotHaveClipArea(xTranslation, yTranslation, clipAreaWidth, clipAreaHeight);
             }
             return this.createPainterWithTranslationAndPaintAreaWhenHasClipArea(xTranslation, yTranslation, clipAreaWidth, clipAreaHeight);
+        }
+        descendsFromOtherPainter() {
+            return (this.parentPainter !== undefined);
+        }
+        getEffectiveOpacity() {
+            if (!this.descendsFromOtherPainter()) {
+                return this.getOpacity();
+            }
+            return (this.parentPainter.getEffectiveOpacity() * this.getOpacity());
+        }
+        getOpacity() {
+            return this.opacity;
         }
         getOptionalClipAreaOnViewArea() {
             return (this.hasClipArea() ? SingleContainer_1.SingleContainer.withElement(this.clipAreaOnViewArea) : SingleContainer_1.SingleContainer.withoutElement());
@@ -2521,13 +2535,23 @@ define("System/CanvasGUI/CanvasGUIPainter", ["require", "exports", "System/Canva
             this.globalPainter.setColor(color);
         }
         setOpacityPercentage(opacityPercentage) {
-            this.globalPainter.setOpacityPercentage(opacityPercentage);
+            if (opacityPercentage < 0.0) {
+                throw new Error('The given opacityPercentage is negative.');
+            }
+            if (opacityPercentage > 1.0) {
+                throw new Error('The given opacityPercentage is bigger than 1.0.');
+            }
+            this.opacity = opacityPercentage;
+            this.applyOpacity();
         }
         translate(xTranslation, yTranslation) {
             this.pushClipArea();
             this.xPosition += xTranslation;
             this.yPosition += yTranslation;
             this.popClipArea();
+        }
+        applyOpacity() {
+            this.globalPainter.setOpacityPercentage(this.getEffectiveOpacity());
         }
         createPainterWithTranslationAndPaintAreaWhenDoesNotHaveClipArea(xTranslation, yTranslation, clipAreaWidth, clipAreaHeight) {
             return new CanvasGUIPainter(xTranslation, yTranslation, SingleContainer_1.SingleContainer.withElement(new TopLeftPositionedRectangle_1.TopLeftPositionedRectangle(this.getXPositionOnViewArea() + xTranslation, this.getYPositionOnViewArea() + yTranslation, clipAreaWidth, clipAreaHeight)), this.globalPainter, SingleContainer_1.SingleContainer.withElement(this));

@@ -22,6 +22,9 @@ import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 public final class SwingPainter extends BasePainter {
 	
 	//constant
+	public static final double DEFAULT_OPACITY = 1.0;
+	
+	//constant
 	public static final TextFormat DEFAULT_TEXT_FORMAT = new TextFormat();
 	
 	//static method
@@ -40,6 +43,9 @@ public final class SwingPainter extends BasePainter {
 	) {
 		return new SwingPainter(new SingleContainer<>(parentPainter), imageCache, graphics);
 	}
+	
+	//attribute
+	private double opacity = DEFAULT_OPACITY;
 	
 	//attribute
 	private final CachingContainer<IImage<?>> imageCache;
@@ -111,6 +117,12 @@ public final class SwingPainter extends BasePainter {
 	@Override
 	public IImage<?> getImageById(final String id) {
 		return imageCache.getRefById(id);
+	}
+	
+	//method
+	@Override
+	public double getOpacity() {
+		return opacity;
 	}
 	
 	//method
@@ -226,13 +238,20 @@ public final class SwingPainter extends BasePainter {
 		
 		GlobalValidator.assertThat(opacity).thatIsNamed(LowerCaseCatalogue.OPACITY).isBetween(0.0, 1.0);
 		
-		graphics.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, (float)opacity));
+		this.opacity = opacity;
+		
+		applyEffectiveOpacity();
 	}
 	
 	//method
 	@Override
 	public void translate(final int xTranslation, final int yTranslation) {
 		graphics.translate(xTranslation, yTranslation);
+	}
+	
+	//method
+	private void applyEffectiveOpacity() {
+		graphics.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, (float)getEffectiveOpacity()));
 	}
 	
 	//method

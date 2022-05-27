@@ -56,6 +56,15 @@ public interface IPainter {
 	 * @return the default {@link TextFormat} of the current {@link IPainter}.
 	 */
 	TextFormat getDefaultTextFormat();
+		
+	//method declaration
+	/**
+	 * The effective opacity of a {@link IPainter} is
+	 * the opacity of the {@link IPainter} multiplied with the opacity of its parent {@link IPainter}.
+	 * 
+	 * @return the effective opacity of the current {@link IPainter}.
+	 */
+	double getEffectiveOpacity();
 	
 	//method declaration
 	/**
@@ -63,6 +72,12 @@ public interface IPainter {
 	 * @return the {@link MutableImage} with the given id from the current {@link IPainter}.
 	 */
 	IImage<?> getImageById(String id);
+	
+	//method declaration
+	/**
+	 * @return the opacity of the current {@link IPainter}.
+	 */
+	double getOpacity();
 	
 	//method declaration
 	/**

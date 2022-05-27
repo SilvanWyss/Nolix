@@ -1963,12 +1963,7 @@ TopLeftPositionedRecangular {
 		
 		final var lLook = getRefLook();
 		
-		//TODO: Make IPaitner smarter to avoid this implementation.
-		if (!belongsToGUI()) {
-			painter.setOpacity(lLook.getOpacity());
-		} else {
-			painter.setOpacity(getParentLayer().getOpacityPercentage() * lLook.getOpacity());
-		}
+		painter.setOpacity(lLook.getOpacity());
 		
 		paint(painter, lLook);
 		

@@ -9,6 +9,7 @@ import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.container.SingleContainer;
 import ch.nolix.core.document.chainednode.ChainedNode;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.I2ElementTaker;
 import ch.nolix.core.independent.independenthelper.CentralArrayHelper;
@@ -135,6 +136,12 @@ final class CanvasGUICommandCreatorPainter extends BasePainter implements Indexe
 	@Override
 	public TextFormat getDefaultTextFormat() {
 		return DEFAULT_TEXT_FORMAT;
+	}
+	
+	//method
+	@Override
+	public double getOpacity() {
+		throw new ArgumentDoesNotSupportMethodException(this, "getOpacity");
 	}
 	
 	//method

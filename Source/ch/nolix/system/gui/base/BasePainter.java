@@ -29,6 +29,17 @@ public abstract class BasePainter implements IPainter {
 	
 	//method
 	@Override
+	public double getEffectiveOpacity() {
+		
+		if (!descendsFromOtherPainter()) {
+			return getOpacity();
+		}
+		
+		return (getParentPainter().getEffectiveOpacity() * getOpacity());
+	}
+	
+	//method
+	@Override
 	public IPainter getParentPainter() {
 		
 		assertDescendsFromOtherPainter();
