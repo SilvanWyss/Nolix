@@ -3,7 +3,7 @@ package ch.nolix.core.net.target;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.net.targetapi.IApplicationTarget;
+import ch.nolix.core.net.targetuniversalapi.IApplicationTarget;
 
 //class
 public final class ApplicationTarget extends ServerTarget implements IApplicationTarget {

@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.core.sql;
 
-//own imports
-import ch.nolix.core.net.targetapi.IDatabaseTarget;
+import ch.nolix.core.net.targetuniversalapi.IDatabaseTarget;
 
 //interface
 public interface ISQLDatabaseTarget extends IDatabaseTarget {

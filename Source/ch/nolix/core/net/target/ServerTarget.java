@@ -5,7 +5,7 @@ package ch.nolix.core.net.target;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.constant.PortCatalogue;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.net.targetapi.IServerTarget;
+import ch.nolix.core.net.targetuniversalapi.IServerTarget;
 
 //class
 public class ServerTarget implements IServerTarget {

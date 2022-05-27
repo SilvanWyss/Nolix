@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.guiapi.baseapi;
 
-//own imports
-import ch.nolix.core.net.targetapi.IApplicationTarget;
+import ch.nolix.core.net.targetuniversalapi.IApplicationTarget;
 
 //interface
 public interface IFrontEndWriter {

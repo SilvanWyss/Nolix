@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.net.targetapi;
+package ch.nolix.core.net.targetuniversalapi;
 
 //interface
 public interface IAuthenticationServerTarget extends IServerTarget {

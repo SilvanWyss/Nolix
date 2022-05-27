@@ -15,7 +15,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.net.targetapi.IApplicationTarget;
+import ch.nolix.core.net.targetuniversalapi.IApplicationTarget;
 import ch.nolix.core.programcontrol.sequencer.Sequencer;
 import ch.nolix.system.application.main.BackendClient;
 import ch.nolix.system.gui.base.GUI;
