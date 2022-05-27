@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.net.controllerapi;
+package ch.nolix.core.net.controlleruniversalapi;
 
 //interface
 /**

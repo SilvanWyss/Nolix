@@ -9,7 +9,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.net.controllerapi.IDataProviderController;
+import ch.nolix.core.net.controlleruniversalapi.IDataProviderController;
 
 //class
 /**

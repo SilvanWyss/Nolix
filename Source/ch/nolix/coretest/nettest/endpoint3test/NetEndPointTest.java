@@ -4,7 +4,7 @@ package ch.nolix.coretest.nettest.endpoint3test;
 //own imports
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.document.node.Node;
-import ch.nolix.core.net.controllerapi.IDataProviderController;
+import ch.nolix.core.net.controlleruniversalapi.IDataProviderController;
 import ch.nolix.core.net.endpoint3.EndPoint;
 import ch.nolix.core.net.endpoint3.IEndPointTaker;
 import ch.nolix.core.net.endpoint3.NetEndPoint;

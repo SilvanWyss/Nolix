@@ -6,7 +6,7 @@ import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.net.controllerapi.IDataProviderController;
+import ch.nolix.core.net.controlleruniversalapi.IDataProviderController;
 import ch.nolix.core.net.endpoint3.EndPoint;
 
 //class

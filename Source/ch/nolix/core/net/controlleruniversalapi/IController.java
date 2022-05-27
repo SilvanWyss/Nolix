@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.net.controllerapi;
+package ch.nolix.core.net.controlleruniversalapi;
 
 //own imports
 import ch.nolix.core.document.chainednode.ChainedNode;
