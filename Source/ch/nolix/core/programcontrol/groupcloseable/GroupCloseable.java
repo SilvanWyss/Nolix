@@ -5,7 +5,7 @@ package ch.nolix.core.programcontrol.groupcloseable;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.requestapi.CloseStateRequestable;
+import ch.nolix.core.requestuniversalapi.CloseStateRequestable;
 
 //interface
 /**

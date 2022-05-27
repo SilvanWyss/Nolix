@@ -9,7 +9,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.functionuniversalapi.IElementTakerElementGetter;
-import ch.nolix.core.requestapi.MutabilityRequestable;
+import ch.nolix.core.requestuniversalapi.MutabilityRequestable;
 
 //class
 /**

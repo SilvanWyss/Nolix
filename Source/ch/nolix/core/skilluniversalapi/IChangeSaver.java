@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.core.skilluniversalapi;
 
-//own imports
-import ch.nolix.core.requestapi.ChangeRequestable;
+import ch.nolix.core.requestuniversalapi.ChangeRequestable;
 
 //interface
 /**

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.requestapi;
+package ch.nolix.core.requestuniversalapi;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;

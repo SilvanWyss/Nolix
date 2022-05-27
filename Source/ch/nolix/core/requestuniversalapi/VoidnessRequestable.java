@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.requestapi;
+package ch.nolix.core.requestuniversalapi;
 
 //interface
 /**

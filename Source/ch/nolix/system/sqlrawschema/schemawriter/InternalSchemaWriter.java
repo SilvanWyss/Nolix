@@ -4,7 +4,7 @@ package ch.nolix.system.sqlrawschema.schemawriter;
 //own imports
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.requestapi.ChangeRequestable;
+import ch.nolix.core.requestuniversalapi.ChangeRequestable;
 import ch.nolix.system.sqlrawschema.structure.TableType;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDTO;

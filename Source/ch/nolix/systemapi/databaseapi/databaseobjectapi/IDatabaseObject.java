@@ -1,8 +1,7 @@
 //package
 package ch.nolix.systemapi.databaseapi.databaseobjectapi;
 
-//own imports
-import ch.nolix.core.requestapi.CloseStateRequestable;
+import ch.nolix.core.requestuniversalapi.CloseStateRequestable;
 
 //interface
 public interface IDatabaseObject extends CloseStateRequestable, DeletionRequestable {

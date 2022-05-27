@@ -6,7 +6,7 @@ import ch.nolix.core.environment.nolixenvironment.NolixEnvironment;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.functionuniversalapi.IElementTaker;
-import ch.nolix.core.requestapi.ApproximativeEqualing;
+import ch.nolix.core.requestuniversalapi.ApproximativeEqualing;
 
 //class
 /**

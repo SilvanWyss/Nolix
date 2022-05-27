@@ -5,7 +5,7 @@ package ch.nolix.core.testing.test;
 import java.util.ArrayList;
 
 import ch.nolix.core.functionuniversalapi.IAction;
-import ch.nolix.core.requestapi.ApproximativeEqualing;
+import ch.nolix.core.requestuniversalapi.ApproximativeEqualing;
 import ch.nolix.core.testing.validation.ApproximativeEqualingMediator;
 import ch.nolix.core.testing.validation.BitMediator;
 import ch.nolix.core.testing.validation.ByteMediator;
