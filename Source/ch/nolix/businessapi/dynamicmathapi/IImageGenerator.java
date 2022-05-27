@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.businessapi.dynamicmathapi;
 
-//own imports
-import ch.nolix.core.programcontrol.futureapi.IFuture;
+import ch.nolix.core.programcontrol.futureuniversalapi.IFuture;
 import ch.nolix.system.gui.image.MutableImage;
 
 //interface

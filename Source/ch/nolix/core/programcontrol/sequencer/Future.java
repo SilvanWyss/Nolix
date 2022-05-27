@@ -5,7 +5,7 @@ package ch.nolix.core.programcontrol.sequencer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.programcontrol.futureapi.IFuture;
+import ch.nolix.core.programcontrol.futureuniversalapi.IFuture;
 
 //class
 /**

@@ -7,7 +7,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentExcep
 import ch.nolix.core.functionuniversalapi.IAction;
 import ch.nolix.core.functionuniversalapi.IBooleanGetter;
 import ch.nolix.core.functionuniversalapi.IElementGetter;
-import ch.nolix.core.programcontrol.futureapi.IFuture;
+import ch.nolix.core.programcontrol.futureuniversalapi.IFuture;
 
 //class
 /**
