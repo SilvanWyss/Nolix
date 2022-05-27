@@ -18,19 +18,29 @@ import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 
 //class
 public final class SwingPainter implements IPainter {
-	
+			
 	//constant
 	public static final TextFormat DEFAULT_TEXT_FORMAT = new TextFormat();
 	
-	//attributes
+	//static method
+	public static SwingPainter withImageCacheAndGraphics(
+		final CachingContainer<IImage<?>> imageCache,
+		final Graphics2D graphics
+	) {
+		return new SwingPainter(imageCache, graphics);
+	}
+	
+	//attribute
 	private final CachingContainer<IImage<?>> imageCache;
+	
+	//attribute
 	private final Graphics2D graphics;
 	
 	//optional attribute
 	private ColorGradient colorGradient;
 	
 	//constructor
-	public SwingPainter(final CachingContainer<IImage<?>> imageCache, final Graphics2D graphics) {
+	private SwingPainter(final CachingContainer<IImage<?>> imageCache, final Graphics2D graphics) {
 		
 		GlobalValidator.assertThat(imageCache).thatIsNamed("image cache").isNotNull();
 		GlobalValidator.assertThat(graphics).thatIsNamed(Graphics.class).isNotNull();

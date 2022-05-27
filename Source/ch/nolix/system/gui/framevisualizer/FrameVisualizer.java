@@ -55,17 +55,21 @@ public final class FrameVisualizer implements IVisualizer {
 		@Override
 		public void paintComponent(final Graphics graphics) {
 			
-			//Paints the title of the current frame.
+			//Paints the title of the frame.
 			frame.setTitle(parentGUI.getTitle());
 			
-			//Updates the icon of the frame if needed.
+			//Updates the icon of the Frame if needed.
 			updateIconIfNeededTo(frame);
 			
 			//Calls method of the base class.
 			super.paintComponent(graphics);
 			
-			//Creates swing painter.
-			FrameVisualizer.this.parentGUI.paint(new SwingPainter(parentGUI.getRefImageCache(), (Graphics2D)graphics));
+			//Creates painter.
+			final var painter =
+			SwingPainter.withImageCacheAndGraphics(parentGUI.getRefImageCache(), (Graphics2D)graphics);
+			
+			//Paints the view area of the frame
+			FrameVisualizer.this.parentGUI.paint(painter);
 		}
 		
 		//method
