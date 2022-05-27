@@ -26,8 +26,7 @@ public interface IPainter {
 	/**
 	 * @param xTranslation
 	 * @param yTranslation
-	 * @return a new {@link IPainter} from the current {@link IPainter}
-	 * with the given translation.
+	 * @return a new {@link IPainter} from the current {@link IPainter} with the given translation.
 	 */
 	IPainter createPainter(int xTranslation, int yTranslation);
 	
@@ -37,8 +36,7 @@ public interface IPainter {
 	 * @param yTranslation
 	 * @param paintAreaWidth
 	 * @param paintAreaHeight
-	 * @return a new {@link IPainter} from the current {@link IPainter}
-	 * with the given translation and paint area.
+	 * @return a new {@link IPainter} from the current {@link IPainter} with the given translation and paint area.
 	 */
 	IPainter createPainter(
 		int xTranslation,
@@ -151,7 +149,6 @@ public interface IPainter {
 	//method
 	/**
 	 * Lets the current {@link IPainter} paint the given text.
-	 * 
 	 * Only the first part of the given text, that is not longer than the given maxWidth, will be painted.
 	 * 
 	 * @param text
@@ -175,7 +172,6 @@ public interface IPainter {
 	//method declaration
 	/**
 	 * Lets the current {@link IPainter} paint the given text using the given textFormat.
-	 * 
 	 * Only the first part of the given text, that is not longer than the given maxWidth, will be painted.
 	 * 
 	 * @param text
@@ -210,7 +206,7 @@ public interface IPainter {
 	
 	//method declaration
 	/**
-	 * Translates the current {@link IPainter}.
+	 * Translates the current {@link IPainter} by the given translation.
 	 * 
 	 * @param xTranslation
 	 * @param yTranslation
@@ -219,7 +215,7 @@ public interface IPainter {
 	
 	//method
 	/**
-	 * Translates the current {@link IPainter} horizontally.
+	 * Translates the current {@link IPainter} horizontally by the given xTranslation.
 	 * 
 	 * @param xTranslation
 	 */
@@ -229,7 +225,7 @@ public interface IPainter {
 	
 	//method
 	/**
-	 * Translates the current {@link IPainter} vertically.
+	 * Translates the current {@link IPainter} vertically by the given yTranslation.
 	 * 
 	 * @param yTranslation
 	 */
