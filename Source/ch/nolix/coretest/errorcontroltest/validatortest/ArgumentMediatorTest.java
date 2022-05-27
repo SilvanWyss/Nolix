@@ -3,7 +3,7 @@ package ch.nolix.coretest.errorcontroltest.validatortest;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 
@@ -18,7 +18,7 @@ public final class ArgumentMediatorTest extends Test {
 		final var object = "Hocos pocus";
 		
 		//execution & verification
-		expectRunning(() -> Validator.assertThat(object).isNotNull())
+		expectRunning(() -> GlobalValidator.assertThat(object).isNotNull())
 		.doesNotThrowException();
 	}
 	
@@ -30,7 +30,7 @@ public final class ArgumentMediatorTest extends Test {
 		final Object object = null;
 		
 		//execution & verification
-		expectRunning(() -> Validator.assertThat(object).isNotNull())
+		expectRunning(() -> GlobalValidator.assertThat(object).isNotNull())
 		.throwsException()
 		.ofType(ArgumentIsNullException.class)
 		.withMessage("The given argument is null.");
@@ -44,7 +44,7 @@ public final class ArgumentMediatorTest extends Test {
 		final Object object = null;
 		
 		//execution & verification
-		expectRunning(() -> Validator.assertThat(object).thatIsNamed("test object").isNotNull())
+		expectRunning(() -> GlobalValidator.assertThat(object).thatIsNamed("test object").isNotNull())
 		.throwsException()
 		.ofType(ArgumentIsNullException.class)
 		.withMessage("The given test object is null.");
@@ -58,7 +58,7 @@ public final class ArgumentMediatorTest extends Test {
 		final Object object = null;
 		
 		//execution & verification
-		expectRunning(() -> Validator.assertThat(object).thatIsNamed(Object.class).isNotNull())
+		expectRunning(() -> GlobalValidator.assertThat(object).thatIsNamed(Object.class).isNotNull())
 		.throwsException()
 		.ofType(ArgumentIsNullException.class)
 		.withMessage("The given Object is null.");

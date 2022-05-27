@@ -4,7 +4,7 @@ package ch.nolix.system.sqlbasicschema.schemadto;
 //own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.IContainer;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.systemapi.sqlbasicschemaapi.schemadtoapi.IDatabaseDTO;
 import ch.nolix.systemapi.sqlbasicschemaapi.schemadtoapi.ITableDTO;
 
@@ -20,7 +20,7 @@ public final class DatabaseDTO implements IDatabaseDTO {
 	//constructor
 	public DatabaseDTO(final String name,  final IContainer<ITableDTO> tables) {
 		
-		Validator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotNull();
+		GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotNull();
 		
 		this.name = name;
 		this.tables = tables.toList();

@@ -1,10 +1,10 @@
 package ch.nolix.coretutorial.validatortutorial;
 
 //own imports
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 /**
- * The {@link StringValidationTutorial} is a tutorial for the {@link Validator}.
+ * The {@link StringValidationTutorial} is a tutorial for the {@link GlobalValidator}.
  * 
  * @author Silvan
  * @date 2017-03-05
@@ -12,21 +12,21 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 public final class StringValidationTutorial {
 	
 	/**
-	 * Lets the {@link Validator} validate the maximum length of a {@link String}.
+	 * Lets the {@link GlobalValidator} validate the maximum length of a {@link String}.
 	 * 
 	 * @param args 
 	 */
 	public static void main(String[] args) {
 		
 		//Lets the validator validate that the string 'Hello World!' is not null and not empty.
-		Validator.assertThat("Hello World!").isNotEmpty();
+		GlobalValidator.assertThat("Hello World!").isNotEmpty();
 		
 		//Lets the validator validate that he string 'Hello World!' has the max length 20.
-		Validator.assertThat("Hello World!").isNotLongerThan(12);
+		GlobalValidator.assertThat("Hello World!").isNotLongerThan(12);
 	}
 	
 	/**
-	 * Prevents that an instance of the {@link Validator} can be created.
+	 * Prevents that an instance of the {@link GlobalValidator} can be created.
 	 */
 	private StringValidationTutorial() {}
 }

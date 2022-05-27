@@ -9,7 +9,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.logger.GlobalLogger;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //class
 /**
@@ -47,7 +47,7 @@ final class ClosePool {
 	public void add(final GroupCloseable element) {
 		
 		//Asserts that the given element is not null.
-		Validator.assertThat(element).thatIsNamed(LowerCaseCatalogue.ELEMENT).isNotNull();
+		GlobalValidator.assertThat(element).thatIsNamed(LowerCaseCatalogue.ELEMENT).isNotNull();
 		
 		//Asserts that the current ClosePool is open.
 		assertIsOpen();

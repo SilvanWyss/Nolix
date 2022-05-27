@@ -3,7 +3,7 @@ package ch.nolix.core.sql;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //class
 final class SQLConnectionWrapper implements AutoCloseable {
@@ -22,8 +22,8 @@ final class SQLConnectionWrapper implements AutoCloseable {
 	//constructor
 	private SQLConnectionWrapper(final SQLConnection pSQLConnection) {
 		
-		Validator.assertThat(pSQLConnection).thatIsNamed(SQLConnection.class).isNotNull();
-		Validator.assertThat(pSQLConnection).thatIsNamed(SQLConnection.class).fulfills(SQLConnection::isOpen);
+		GlobalValidator.assertThat(pSQLConnection).thatIsNamed(SQLConnection.class).isNotNull();
+		GlobalValidator.assertThat(pSQLConnection).thatIsNamed(SQLConnection.class).fulfills(SQLConnection::isOpen);
 		
 		mSQLConnection = pSQLConnection;
 	}

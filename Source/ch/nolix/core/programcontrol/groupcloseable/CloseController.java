@@ -6,7 +6,7 @@ import ch.nolix.core.container.IContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //class
 /**
@@ -88,7 +88,7 @@ public final class CloseController {
 	void internalSetParentClosePool(final ClosePool parentClosePool) {
 		
 		//Asserts that the given parentClosePool is not null.
-		Validator.assertThat(parentClosePool).thatIsNamed("parent ClosePool").isNotNull();
+		GlobalValidator.assertThat(parentClosePool).thatIsNamed("parent ClosePool").isNotNull();
 		
 		//Sets the parentClosePool of the current CloseController.
 		this.parentClosePool = parentClosePool;

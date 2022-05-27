@@ -5,7 +5,7 @@ import ch.nolix.core.builder.base.ArgumentCapturer;
 import ch.nolix.core.builder.base.BaseArgumentCapturer;
 import ch.nolix.core.builder.base.TerminalArgumentCapturer;
 import ch.nolix.core.constant.LowerCaseCatalogue;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 public final class CarModelBuilderTutorial {
 	
@@ -31,11 +31,11 @@ public final class CarModelBuilderTutorial {
 		
 		private CarModel(final String name, final int weightInKilogram, final int topSpeedInKilometersPerHour) {
 			
-			Validator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
+			GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
 			
-			Validator.assertThat(weightInKilogram).thatIsNamed("weight in kilogram").isPositive();
+			GlobalValidator.assertThat(weightInKilogram).thatIsNamed("weight in kilogram").isPositive();
 			
-			Validator
+			GlobalValidator
 			.assertThat(topSpeedInKilometersPerHour)
 			.thatIsNamed("top speed in kilometers per hour")
 			.isPositive();

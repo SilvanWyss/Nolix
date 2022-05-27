@@ -3,7 +3,7 @@ package ch.nolix.system.objectschema.parametrizedpropertytype;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.objectschema.schemadto.BaseParametrizedReferenceTypeDTO;
 import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseParametrizedBackReferenceType;
@@ -25,7 +25,7 @@ implements IBaseParametrizedReferenceType<SchemaImplementation> {
 		
 		super(DataType.STRING);
 		
-		Validator.assertThat(referencedTable).thatIsNamed("referenced table").isNotNull();
+		GlobalValidator.assertThat(referencedTable).thatIsNamed("referenced table").isNotNull();
 		
 		this.referencedTable = referencedTable;
 	}

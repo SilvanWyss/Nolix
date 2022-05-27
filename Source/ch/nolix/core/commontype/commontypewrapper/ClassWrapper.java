@@ -8,7 +8,7 @@ import java.lang.reflect.InvocationTargetException;
 //own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //class
 public final class ClassWrapper<T> {
@@ -19,7 +19,7 @@ public final class ClassWrapper<T> {
 	//constructor
 	public ClassWrapper(final Class<T> pClass) {
 		
-		Validator.assertThat(pClass).thatIsNamed(LowerCaseCatalogue.CLASS).isNotNull();
+		GlobalValidator.assertThat(pClass).thatIsNamed(LowerCaseCatalogue.CLASS).isNotNull();
 		
 		mClass = pClass;
 	}

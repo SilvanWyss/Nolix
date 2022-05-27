@@ -5,7 +5,7 @@ package ch.nolix.core.builder.argumentcapturer;
 import ch.nolix.core.builder.base.ArgumentCapturer;
 import ch.nolix.core.builder.base.BaseArgumentCapturer;
 import ch.nolix.core.constant.LowerCaseCatalogue;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //class
 public class AndLoginPasswordCapturer<NAC extends BaseArgumentCapturer<?>> extends ArgumentCapturer<String, NAC> {
@@ -18,7 +18,7 @@ public class AndLoginPasswordCapturer<NAC extends BaseArgumentCapturer<?>> exten
 	//method
 	public final NAC andLoginPassword(final String loginPassword) {
 		
-		Validator.assertThat(loginPassword).thatIsNamed(LowerCaseCatalogue.LOGIN_PASSWORD).isNotBlank();
+		GlobalValidator.assertThat(loginPassword).thatIsNamed(LowerCaseCatalogue.LOGIN_PASSWORD).isNotBlank();
 		
 		return setArgumentAndGetRefNextArgumentCapturer(loginPassword);
 	}

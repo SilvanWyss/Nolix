@@ -2,7 +2,7 @@
 package ch.nolix.core.valuecreator;
 
 //own imports
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IElementTakerElementGetter;
 
 //class
@@ -15,8 +15,8 @@ public final class RegisterMediator<S, V> {
 	//constructor
 	RegisterMediator(final ValueCreator<S> parentValueCreator, final Class<V> valueClass) {
 		
-		Validator.assertThat(parentValueCreator).thatIsNamed("parent value creator").isNotNull();
-		Validator.assertThat(valueClass).thatIsNamed("value Class").isNotNull();
+		GlobalValidator.assertThat(parentValueCreator).thatIsNamed("parent value creator").isNotNull();
+		GlobalValidator.assertThat(valueClass).thatIsNamed("value Class").isNotNull();
 		
 		this.parentValueCreator = parentValueCreator;
 		this.valueClass = valueClass;

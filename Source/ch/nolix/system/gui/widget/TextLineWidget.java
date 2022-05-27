@@ -6,7 +6,7 @@ import ch.nolix.core.constant.PascalCaseCatalogue;
 import ch.nolix.core.constant.StringCatalogue;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IAction;
 import ch.nolix.core.functionuniversalapi.IElementTaker;
 import ch.nolix.system.element.MutableValue;
@@ -105,7 +105,7 @@ extends BorderWidget<TLW, TLWL> {
 	 */
 	public final TLW setNoteTextUpdateAction(final IElementTaker<String> noteTextUpdateAction) {
 		
-		Validator.assertThat(noteTextUpdateAction).thatIsNamed("note text update action").isNotNull();
+		GlobalValidator.assertThat(noteTextUpdateAction).thatIsNamed("note text update action").isNotNull();
 		
 		this.noteTextUpdateAction = noteTextUpdateAction;
 		

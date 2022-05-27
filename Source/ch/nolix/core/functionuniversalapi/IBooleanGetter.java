@@ -4,7 +4,7 @@ package ch.nolix.core.functionuniversalapi;
 //own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //functional interface
 /**
@@ -26,7 +26,7 @@ public interface IBooleanGetter {
 	static IBooleanGetter createNegator(final IBooleanGetter condition) {
 		
 		//Asserts that the given condition is not null.
-		Validator.assertThat(condition).thatIsNamed(LowerCaseCatalogue.CONDITION).isNotNull();
+		GlobalValidator.assertThat(condition).thatIsNamed(LowerCaseCatalogue.CONDITION).isNotNull();
 		
 		return (() -> !condition.getOutput());
 	}

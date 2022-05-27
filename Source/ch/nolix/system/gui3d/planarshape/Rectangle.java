@@ -6,7 +6,7 @@ import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.element.MutableValue;
 import ch.nolix.system.gui3d.base.AtomicShape;
 
@@ -108,7 +108,7 @@ public final class Rectangle extends AtomicShape<Rectangle> {
 	 */
 	public Rectangle setXLength(final double xLength) {
 		
-		Validator.assertThat(xLength).thatIsNamed("x length").isNotNegative();
+		GlobalValidator.assertThat(xLength).thatIsNamed("x length").isNotNegative();
 		
 		this.xLength.setValue(xLength);
 		
@@ -125,7 +125,7 @@ public final class Rectangle extends AtomicShape<Rectangle> {
 	 */
 	public Rectangle setYLength(final double yLength) {
 		
-		Validator.assertThat(yLength).thatIsNamed("y length").isNotNegative();
+		GlobalValidator.assertThat(yLength).thatIsNamed("y length").isNotNegative();
 		
 		this.yLength.setValue(yLength);
 		

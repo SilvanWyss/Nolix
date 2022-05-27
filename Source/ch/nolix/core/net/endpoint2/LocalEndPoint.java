@@ -6,7 +6,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //class
 /**
@@ -96,7 +96,7 @@ public final class LocalEndPoint extends EndPoint {
 		requestedConnection = false;
 		
 		//Asserts that the given counter part is not null.
-		Validator.assertThat(counterPart).thatIsNamed("counterpart").isNotNull();
+		GlobalValidator.assertThat(counterPart).thatIsNamed("counterpart").isNotNull();
 		
 		//Sets the counter part of this local end point.
 		this.counterpart = counterPart;
@@ -121,13 +121,13 @@ public final class LocalEndPoint extends EndPoint {
 		requestedConnection = false;
 		
 		//Asserts that the given counter part is not null.
-		Validator.assertThat(counterpart).thatIsNamed("counterpart").isNotNull();
+		GlobalValidator.assertThat(counterpart).thatIsNamed("counterpart").isNotNull();
 		
 		//Sets the counter part of this local end point.
 		this.counterpart = counterpart;
 		
 		//Asserts that the given target is not null or empty.
-		Validator.assertThat(target).thatIsNamed("target").isNotEmpty();
+		GlobalValidator.assertThat(target).thatIsNamed("target").isNotEmpty();
 		
 		//Sets the target of this local end point.
 		this.target = target;

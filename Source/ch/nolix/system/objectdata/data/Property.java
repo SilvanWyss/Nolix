@@ -3,7 +3,7 @@ package ch.nolix.system.objectdata.data;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IAction;
 import ch.nolix.core.reflectionhelper.GlobalReflectionHelper;
 import ch.nolix.system.objectdata.propertyflyweight.PropertyFlyWeight;
@@ -136,7 +136,7 @@ public abstract class Property implements IProperty<DataImplementation> {
 	//method
 	final void internalSetParentColumn(final IColumn<DataImplementation> parentColumn) {
 		
-		Validator.assertThat(parentColumn).thatIsNamed("parent column").isNotNull();
+		GlobalValidator.assertThat(parentColumn).thatIsNamed("parent column").isNotNull();
 		
 		this.parentColumn = parentColumn;
 	}
@@ -150,7 +150,7 @@ public abstract class Property implements IProperty<DataImplementation> {
 	//method
 	final void internalSetParentEntity(final BaseEntity parentEntity) {
 		
-		Validator.assertThat(parentEntity).thatIsNamed("parent entity").isNotNull();
+		GlobalValidator.assertThat(parentEntity).thatIsNamed("parent entity").isNotNull();
 		propertyHelper.assertDoesNotBelongToEntity(this);
 		
 		this.parentEntity = parentEntity;

@@ -9,7 +9,7 @@ import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.constant.StringCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.objectdata.propertyhelper.MultiReferenceHelper;
 import ch.nolix.system.sqlrawdata.datadto.ContentFieldDTO;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
@@ -135,7 +135,7 @@ implements IMultiReference<DataImplementation, E> {
 	//method
 	@Override
 	void internalSetOrClearDirectlyFromContent(final Object content) {
-		Validator.assertThat(content).thatIsNamed(LowerCaseCatalogue.CONTENT).isNull();
+		GlobalValidator.assertThat(content).thatIsNamed(LowerCaseCatalogue.CONTENT).isNull();
 	}
 	
 	//method

@@ -6,7 +6,7 @@ import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IElementTaker;
 import ch.nolix.core.functionuniversalapi.IElementTakerElementGetter;
 
@@ -29,9 +29,9 @@ public final class CatchingProperty<V> extends Property implements Named {
 		final IElementTakerElementGetter<BaseNode, V> valueCreator
 	) {
 		
-		Validator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
-		Validator.assertThat(setter).thatIsNamed("setter").isNotNull();
-		Validator.assertThat(valueCreator).thatIsNamed("value creator").isNotNull();
+		GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
+		GlobalValidator.assertThat(setter).thatIsNamed("setter").isNotNull();
+		GlobalValidator.assertThat(valueCreator).thatIsNamed("value creator").isNotNull();
 		
 		this.name = name;
 		this.setter = setter;

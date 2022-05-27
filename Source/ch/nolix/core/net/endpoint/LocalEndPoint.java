@@ -5,7 +5,7 @@ package ch.nolix.core.net.endpoint;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.processproperty.ConnectionOrigin;
 
 //class
@@ -92,7 +92,7 @@ public final class LocalEndPoint extends EndPoint {
 		super(ConnectionOrigin.ACCEPTED_CONNECTION);
 		
 		//Asserts that the given counterpart is not null.
-		Validator.assertThat(counterpart).thatIsNamed("counterpart").isNotNull();
+		GlobalValidator.assertThat(counterpart).thatIsNamed("counterpart").isNotNull();
 		
 		//Creates a close dependency from the current LocalEndPoint to the given counterpart.
 		createCloseDependencyTo(counterpart);
@@ -146,7 +146,7 @@ public final class LocalEndPoint extends EndPoint {
 	public void send(final String message) {
 		
 		//Asserts that the given message is not null.
-		Validator.assertThat(message).thatIsNamed("message").isNotNull();
+		GlobalValidator.assertThat(message).thatIsNamed("message").isNotNull();
 		
 		//Asserts that this local end point is open.
 		assertIsOpen();

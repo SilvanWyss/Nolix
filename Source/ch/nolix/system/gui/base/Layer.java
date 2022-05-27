@@ -13,7 +13,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelong
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.I2ElementTaker;
 import ch.nolix.core.functionuniversalapi.IElementTaker;
 import ch.nolix.core.math.Calculator;
@@ -995,7 +995,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	public Layer setKeyDownAction(final I2ElementTaker<Layer, Key> keyDownAction) {
 		
 		//Asserts that the given customCursorIcon is not null.
-		Validator.assertThat(keyDownAction).thatIsNamed("continuous key press action").isNotNull();
+		GlobalValidator.assertThat(keyDownAction).thatIsNamed("continuous key press action").isNotNull();
 		
 		this.keyDownAction = keyDownAction;
 		
@@ -1028,7 +1028,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	@Override
 	public Layer setLeftMouseButtonClickAction(final IElementTaker<Layer> leftMouseButtonClickAction) {
 		
-		Validator.assertThat(leftMouseButtonPressAction).thatIsNamed("left mouse button click action").isNotNull();
+		GlobalValidator.assertThat(leftMouseButtonPressAction).thatIsNamed("left mouse button click action").isNotNull();
 		
 		this.leftMouseButtonClickAction = leftMouseButtonClickAction;
 		
@@ -1045,7 +1045,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 */
 	public Layer setLeftMouseButtonPressAction(final IElementTaker<Layer> leftMouseButtonPressAction) {
 		
-		Validator.assertThat(leftMouseButtonPressAction).thatIsNamed("left mouse button press action").isNotNull();
+		GlobalValidator.assertThat(leftMouseButtonPressAction).thatIsNamed("left mouse button press action").isNotNull();
 		
 		this.leftMouseButtonPressAction = leftMouseButtonPressAction;
 		
@@ -1063,7 +1063,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	@Override
 	public Layer setLeftMouseButtonReleaseAction(IElementTaker<Layer> leftMouseButtonReleaseAction) {
 		
-		Validator.assertThat(leftMouseButtonReleaseAction).thatIsNamed("left mouse button release action").isNotNull();
+		GlobalValidator.assertThat(leftMouseButtonReleaseAction).thatIsNamed("left mouse button release action").isNotNull();
 		
 		this.leftMouseButtonReleaseAction = leftMouseButtonReleaseAction;
 		
@@ -1081,7 +1081,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	@Override
 	public Layer setMouseMoveAction(final IElementTaker<Layer> mouseMoveAction) {
 		
-		Validator.assertThat(mouseMoveAction).thatIsNamed("mouse move action").isNotNull();
+		GlobalValidator.assertThat(mouseMoveAction).thatIsNamed("mouse move action").isNotNull();
 		
 		this.mouseMoveAction = mouseMoveAction;
 		
@@ -1099,7 +1099,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	@Override
 	public Layer setMouseWheelClickAction(IElementTaker<Layer> mouseWheelClickAction) {
 		
-		Validator.assertThat(mouseWheelClickAction).thatIsNamed("mouse wheel click action").isNotNull();
+		GlobalValidator.assertThat(mouseWheelClickAction).thatIsNamed("mouse wheel click action").isNotNull();
 		
 		this.mouseWheelClickAction = mouseWheelClickAction;
 		
@@ -1117,7 +1117,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	@Override
 	public Layer setMouseWheelPressAction(IElementTaker<Layer> mouseWheelPressAction) {
 		
-		Validator.assertThat(mouseWheelPressAction).thatIsNamed("mouse wheel press action").isNotNull();
+		GlobalValidator.assertThat(mouseWheelPressAction).thatIsNamed("mouse wheel press action").isNotNull();
 		
 		this.mouseWheelPressAction = mouseWheelPressAction;
 		
@@ -1135,7 +1135,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	@Override
 	public Layer setMouseWheelReleaseAction(IElementTaker<Layer> mouseWheelReleaseAction) {
 		
-		Validator.assertThat(mouseWheelReleaseAction).thatIsNamed("mouse wheel release action").isNotNull();
+		GlobalValidator.assertThat(mouseWheelReleaseAction).thatIsNamed("mouse wheel release action").isNotNull();
 		
 		this.mouseWheelReleaseAction = mouseWheelReleaseAction;
 		
@@ -1151,7 +1151,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 */
 	public Layer setOpacityPercentage(final double opacityPercentage) {
 		
-		Validator.assertThat(opacityPercentage).thatIsNamed("opacity percentage").isBetween(0.0, 1.0);
+		GlobalValidator.assertThat(opacityPercentage).thatIsNamed("opacity percentage").isBetween(0.0, 1.0);
 		
 		this.opacityPercentage.setValue(opacityPercentage);
 		
@@ -1169,7 +1169,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	@Override
 	public Layer setRightMouseButtonClickAction(IElementTaker<Layer> rightMouseButtonClickAction) {
 		
-		Validator.assertThat(rightMouseButtonClickAction).thatIsNamed("right mouse button click action").isNotNull();
+		GlobalValidator.assertThat(rightMouseButtonClickAction).thatIsNamed("right mouse button click action").isNotNull();
 		
 		this.rightMouseButtonClickAction = rightMouseButtonClickAction;
 		
@@ -1187,7 +1187,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	@Override
 	public Layer setRightMouseButtonPressAction(IElementTaker<Layer> rightMouseButtonPressAction) {
 		
-		Validator.assertThat(rightMouseButtonPressAction).thatIsNamed("right mouse button press action").isNotNull();
+		GlobalValidator.assertThat(rightMouseButtonPressAction).thatIsNamed("right mouse button press action").isNotNull();
 		
 		this.rightMouseButtonPressAction = rightMouseButtonPressAction;
 		
@@ -1205,7 +1205,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	@Override
 	public Layer setRightMouseButtonReleaseAction(IElementTaker<Layer> rightMouseButtonReleaseAction) {
 		
-		Validator.assertThat(rightMouseButtonReleaseAction).thatIsNamed("right mouse button release action").isNotNull();
+		GlobalValidator.assertThat(rightMouseButtonReleaseAction).thatIsNamed("right mouse button release action").isNotNull();
 		
 		this.rightMouseButtonReleaseAction = rightMouseButtonReleaseAction;
 		
@@ -1239,7 +1239,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 */
 	public Layer setRootWidget(final Widget<?, ?> rootWidget) {
 		
-		Validator.assertThat(rootWidget).thatIsNamed("root Widget").isNotNull();
+		GlobalValidator.assertThat(rootWidget).thatIsNamed("root Widget").isNotNull();
 		
 		rootWidget.setParent(this);
 		this.rootWidget = rootWidget;
@@ -1267,7 +1267,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 */
 	void setParentGUI(final WidgetGUI<?> parentGUI) {
 		
-		Validator.assertThat(parentGUI).thatIsNamed("parent GUI").isNotNull();
+		GlobalValidator.assertThat(parentGUI).thatIsNamed("parent GUI").isNotNull();
 		
 		//Asserts that the current Layer does not belong to another GUI.
 		if (this.parentGUI != null && this.parentGUI != parentGUI) {
@@ -1428,7 +1428,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	//method
 	private void setOpacityFromString(final String string) {
 		
-		Validator.assertThat(string).thatIsNamed(String.class).isNotNull();
+		GlobalValidator.assertThat(string).thatIsNamed(String.class).isNotNull();
 		
 		if (!string.endsWith("%")) {
 			throw new InvalidArgumentException(string, "does not end with '%' symbol");

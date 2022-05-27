@@ -3,7 +3,7 @@ package ch.nolix.core.demo;
 
 //own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //class
 public final class Cat {
@@ -14,7 +14,7 @@ public final class Cat {
 	//constructor
 	public Cat(final String name) {
 		
-		Validator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
+		GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
 		
 		this.name = name;
 	}

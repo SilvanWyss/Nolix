@@ -4,7 +4,7 @@ package ch.nolix.systemapi.databaseapi.propertytypeapi;
 //own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.document.node.BaseNode;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.systemapi.databaseapi.cardinalityapi.Cardinality;
 
 //enum
@@ -33,8 +33,8 @@ public enum PropertyType {
 	//constructor
 	PropertyType(final BasePropertyType baseType, final Cardinality cardinality) {
 		
-		Validator.assertThat(baseType).thatIsNamed(LowerCaseCatalogue.BASE_TYPE).isNotNull();
-		Validator.assertThat(cardinality).thatIsNamed(Cardinality.class).isNotNull();
+		GlobalValidator.assertThat(baseType).thatIsNamed(LowerCaseCatalogue.BASE_TYPE).isNotNull();
+		GlobalValidator.assertThat(cardinality).thatIsNamed(Cardinality.class).isNotNull();
 		
 		this.baseType = baseType;
 		this.cardinality = cardinality;

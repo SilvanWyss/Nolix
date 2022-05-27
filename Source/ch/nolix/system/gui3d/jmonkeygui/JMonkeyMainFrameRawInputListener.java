@@ -13,7 +13,7 @@ import com.jme3.input.event.TouchEvent;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //class
 /**
@@ -39,7 +39,7 @@ final class JMonkeyMainFrameRawInputListener implements RawInputListener {
 	public JMonkeyMainFrameRawInputListener(final JMonkeyMainFrame pJMonkeyMainFrame) {
 		
 		//Asserts that the given pJMonkeyMainFrame is not null.
-		Validator.assertThat(pJMonkeyMainFrame).isOfType(JMonkeyMainFrame.class);
+		GlobalValidator.assertThat(pJMonkeyMainFrame).isOfType(JMonkeyMainFrame.class);
 		
 		//Sets the mJMonkeyMainFrame of the current JMonkeyMainFrameRawInputListener.
 		this.mJMonkeyMainFrame = pJMonkeyMainFrame;

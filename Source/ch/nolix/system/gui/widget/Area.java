@@ -8,7 +8,7 @@ import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.element.MutableOptionalValue;
 import ch.nolix.system.element.MutableValue;
 import ch.nolix.system.elementenum.RotationDirection;
@@ -120,7 +120,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	 */
 	public Area setHeight(final int height) {
 		
-		Validator.assertThat(height).thatIsNamed(LowerCaseCatalogue.HEIGHT).isPositive();
+		GlobalValidator.assertThat(height).thatIsNamed(LowerCaseCatalogue.HEIGHT).isPositive();
 		
 		this.height.setValue(height);
 		
@@ -155,7 +155,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	 */
 	public Area setWidth(final int width) {
 		
-		Validator.assertThat(width).thatIsNamed(LowerCaseCatalogue.WIDTH).isPositive();
+		GlobalValidator.assertThat(width).thatIsNamed(LowerCaseCatalogue.WIDTH).isPositive();
 		
 		this.width.setValue(width);
 		

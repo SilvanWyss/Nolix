@@ -7,7 +7,7 @@ import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.configuration.ConfigurableElement;
 import ch.nolix.system.element.MutableValueExtractor;
 import ch.nolix.system.geometry.Point2D;
@@ -176,7 +176,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	public final S setGUI(GUI3D<?> pGUI) {
 		
 		//Asserts that the given GUI is not null.
-		Validator.assertThat(pGUI).thatIsNamed("GUI").isNotNull();
+		GlobalValidator.assertThat(pGUI).thatIsNamed("GUI").isNotNull();
 		
 		//Asserts that the current Shape does not belong already to a GUI.
 		if (belongsToAGUI()) {
@@ -217,7 +217,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	public final S setPosition(final Point3D position) {
 		
 		//Asserts that the given position is not null.
-		Validator.assertThat(position).thatIsNamed("position").isNotNull();
+		GlobalValidator.assertThat(position).thatIsNamed("position").isNotNull();
 		
 		//Sets the position of this frame.
 		this.position = position;

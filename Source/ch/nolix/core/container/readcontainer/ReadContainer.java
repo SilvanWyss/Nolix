@@ -10,7 +10,7 @@ import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //class
 /**
@@ -112,7 +112,7 @@ public final class ReadContainer<E> implements IContainer<E> {
 	private <E2 extends E> ReadContainer(final IContainer<E2> container) {
 		
 		//Asserts that the given container is not null.
-		Validator.assertThat(container).thatIsNamed(LowerCaseCatalogue.CONTAINER).isNotNull();
+		GlobalValidator.assertThat(container).thatIsNamed(LowerCaseCatalogue.CONTAINER).isNotNull();
 		
 		//Sets the container of the current ReadContainer.
 		this.container = (IContainer<E>)container;

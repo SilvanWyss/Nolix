@@ -4,7 +4,7 @@ package ch.nolix.core.programcontrol.sequencer;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IAction;
 import ch.nolix.core.functionuniversalapi.IBooleanGetter;
 
@@ -33,7 +33,7 @@ public final class AsLongAsMediator {
 	AsLongAsMediator(final IBooleanGetter condition) {
 		
 		//Asserts that the given condition is not null.
-		Validator.assertThat(condition).thatIsNamed("condition").isNotNull();
+		GlobalValidator.assertThat(condition).thatIsNamed("condition").isNotNull();
 		
 		maxRunCount = null;
 		this.condition = condition;

@@ -7,7 +7,7 @@ import java.util.Iterator;
 //own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //class
 final class GapMatrixIterator<E> implements Iterator<E> {
@@ -22,7 +22,7 @@ final class GapMatrixIterator<E> implements Iterator<E> {
 	//constructor
 	public GapMatrixIterator(final GapMatrix<E> parentGapMatrix) {
 		
-		Validator.assertThat(parentGapMatrix).thatIsNamed("parent GapMatrix").isNotNull();
+		GlobalValidator.assertThat(parentGapMatrix).thatIsNamed("parent GapMatrix").isNotNull();
 		
 		this.parentGapMatrix = parentGapMatrix;
 		rowCount = parentGapMatrix.getRowCount();

@@ -4,7 +4,7 @@ package ch.nolix.core.math;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsZeroException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //class
 /**
@@ -46,7 +46,7 @@ public final class QuadraticFunction {
 	public QuadraticFunction(final double a, final double b, final double c) {
 		
 		//Asserts that the given a is not 0.0.
-		Validator.assertThat(a).thatIsNamed("a").isNotZero();
+		GlobalValidator.assertThat(a).thatIsNamed("a").isNotZero();
 		
 		this.a = a;
 		this.b = b;

@@ -4,7 +4,7 @@ package ch.nolix.core.container;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IElementTakerBooleanGetter;
 import ch.nolix.core.programcontrol.sequencer.Sequencer;
 
@@ -33,10 +33,10 @@ public final class SequencePatternNextMediator<E> {
 	SequencePatternNextMediator(final SequencePattern<E> sequencePattern, final int count) {
 		
 		//Asserts that the given sequencePattern is not null.
-		Validator.assertThat(sequencePattern).thatIsNamed(SequencePattern.class).isNotNull();
+		GlobalValidator.assertThat(sequencePattern).thatIsNamed(SequencePattern.class).isNotNull();
 		
 		//Asserts that the given count is not negative.
-		Validator.assertThat(count).thatIsNamed("count").isNotNegative();
+		GlobalValidator.assertThat(count).thatIsNamed("count").isNotNegative();
 		
 		//Sets the sequencePattern and the count of the current SequencePatternNextMediator.
 		this.sequencePattern = sequencePattern;

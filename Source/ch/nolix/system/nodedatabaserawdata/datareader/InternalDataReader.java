@@ -4,7 +4,7 @@ package ch.nolix.system.nodedatabaserawdata.datareader;
 //own imports
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.nodedatabaserawdata.structure.TableNodeSearcher;
 import ch.nolix.system.nodedatabaserawschema.structure.DatabaseNodeSearcher;
 import ch.nolix.system.nodedatabaserawschema.structure.DatabasePropertiesNodeSearcher;
@@ -39,7 +39,7 @@ public final class InternalDataReader {
 	//constructor
 	public InternalDataReader(final BaseNode databaseNode) {
 		
-		Validator.assertThat(databaseNode).thatIsNamed("database node").isNotNull();
+		GlobalValidator.assertThat(databaseNode).thatIsNamed("database node").isNotNull();
 		
 		this.databaseNode = databaseNode;
 	}

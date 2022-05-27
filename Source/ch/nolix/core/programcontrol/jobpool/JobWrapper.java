@@ -5,7 +5,7 @@ package ch.nolix.core.programcontrol.jobpool;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IAction;
 import ch.nolix.core.programcontrol.sequencer.Sequencer;
 import ch.nolix.core.skilluniversalapi.Runnable;
@@ -24,7 +24,7 @@ final class JobWrapper implements Runnable {
 	//constructor
 	public JobWrapper(final IAction job) {
 		
-		Validator.assertThat(job).thatIsNamed(LowerCaseCatalogue.JOB).isNotNull();
+		GlobalValidator.assertThat(job).thatIsNamed(LowerCaseCatalogue.JOB).isNotNull();
 		
 		this.job = job;
 	}

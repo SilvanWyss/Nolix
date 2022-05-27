@@ -11,7 +11,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.BiggerArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.SmallerArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //class
 /**
@@ -48,12 +48,12 @@ public final class SubContainer<E> implements IContainer<E> {
 	 */
 	public SubContainer(final IContainer<E> container, final int startIndex, final int endIndex) {
 		
-		Validator.assertThat(container).thatIsNamed(LowerCaseCatalogue.CONTAINER).isNotNull();
-		Validator.assertThat(startIndex).thatIsNamed(LowerCaseCatalogue.START_INDEX).isPositive();
-		Validator.assertThat(endIndex).thatIsNamed(LowerCaseCatalogue.END_INDEX).isPositive();
-		Validator.assertThat(endIndex).thatIsNamed(LowerCaseCatalogue.END_INDEX).isBiggerThanOrEquals(startIndex);
+		GlobalValidator.assertThat(container).thatIsNamed(LowerCaseCatalogue.CONTAINER).isNotNull();
+		GlobalValidator.assertThat(startIndex).thatIsNamed(LowerCaseCatalogue.START_INDEX).isPositive();
+		GlobalValidator.assertThat(endIndex).thatIsNamed(LowerCaseCatalogue.END_INDEX).isPositive();
+		GlobalValidator.assertThat(endIndex).thatIsNamed(LowerCaseCatalogue.END_INDEX).isBiggerThanOrEquals(startIndex);
 		
-		Validator
+		GlobalValidator
 		.assertThat(endIndex)
 		.thatIsNamed(LowerCaseCatalogue.END_INDEX)
 		.isNotBiggerThan(container.getElementCount());
@@ -79,8 +79,8 @@ public final class SubContainer<E> implements IContainer<E> {
 	@Override
 	public E getRefAt(final int index) {
 		
-		Validator.assertThat(index).thatIsNamed(LowerCaseCatalogue.INDEX).isPositive();
-		Validator.assertThat(index).thatIsNamed(LowerCaseCatalogue.INDEX).isNotBiggerThan(getElementCount());
+		GlobalValidator.assertThat(index).thatIsNamed(LowerCaseCatalogue.INDEX).isPositive();
+		GlobalValidator.assertThat(index).thatIsNamed(LowerCaseCatalogue.INDEX).isNotBiggerThan(getElementCount());
 		
 		return container.getRefAt(startIndex + index - 1);
 	}

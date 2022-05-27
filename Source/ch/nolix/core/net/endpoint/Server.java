@@ -11,7 +11,7 @@ import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //class
 /**
@@ -87,10 +87,10 @@ public final class Server extends BaseServer {
 	public Server(final int port, final String HTTPMessage) {
 			
 		//Asserts that the given port is in [0,65535]. 
-		Validator.assertThat(port).isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
+		GlobalValidator.assertThat(port).isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
 		
 		//Asserts that the given HTTP message is not null or blank.
-		Validator.assertThat(HTTPMessage).thatIsNamed("HTTP message").isNotBlank();
+		GlobalValidator.assertThat(HTTPMessage).thatIsNamed("HTTP message").isNotBlank();
 		
 		//Sets the port of the current NetServer.
 		this.port = port;

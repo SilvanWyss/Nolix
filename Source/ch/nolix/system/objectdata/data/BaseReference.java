@@ -2,7 +2,7 @@
 package ch.nolix.system.objectdata.data;
 
 //own imports
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.systemapi.objectdataapi.dataapi.IBaseReference;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
@@ -20,7 +20,7 @@ implements IBaseReference<DataImplementation, E> {
 	//constructor
 	public BaseReference(final String referencedTableName) {
 		
-		Validator.assertThat(referencedTableName).thatIsNamed("referenced table name").isNotBlank();
+		GlobalValidator.assertThat(referencedTableName).thatIsNamed("referenced table name").isNotBlank();
 		
 		this.referencedTableName = referencedTableName;
 	}

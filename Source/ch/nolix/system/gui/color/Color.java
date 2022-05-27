@@ -12,7 +12,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.gui.base.Element;
 
 //class
@@ -840,7 +840,7 @@ public final class Color extends Element<Color> {
 	public static Color fromValue(long value) {
 		
 		//Asserts that the given value is a true color value.
-		Validator.assertThat(value).isBetween(MIN_COLOR_INT, MAX_COLOR_INT);
+		GlobalValidator.assertThat(value).isBetween(MIN_COLOR_INT, MAX_COLOR_INT);
 		
 		var alphaValue = DEFAULT_ALPHA_VALUE;
 		
@@ -1014,22 +1014,22 @@ public final class Color extends Element<Color> {
 	 */
 	private Color(final int redValue, final int greenValue, final int blueValue, final int alphaValue) {
 		
-		Validator
+		GlobalValidator
 		.assertThat(redValue)
 		.thatIsNamed("red value")
 		.isBetween(MIN_COLOR_COMPONENT, MAX_COLOR_COMPONENT);
 		
-		Validator
+		GlobalValidator
 		.assertThat(greenValue)
 		.thatIsNamed("green value")
 		.isBetween(MIN_COLOR_COMPONENT, MAX_COLOR_COMPONENT);
 		
-		Validator
+		GlobalValidator
 		.assertThat(blueValue)
 		.thatIsNamed("blue value")
 		.isBetween(MIN_COLOR_COMPONENT, MAX_COLOR_COMPONENT);
 		
-		Validator
+		GlobalValidator
 		.assertThat(blueValue)
 		.thatIsNamed("alpha value")
 		.isBetween(MIN_COLOR_COMPONENT, MAX_COLOR_COMPONENT);
@@ -1047,7 +1047,7 @@ public final class Color extends Element<Color> {
 	 */
 	public Color asWithAlphaValue(final double alphaValue) {
 		
-		Validator.assertThat(alphaValue).thatIsNamed("alpha value").isBetween(0.0, 1.0);
+		GlobalValidator.assertThat(alphaValue).thatIsNamed("alpha value").isBetween(0.0, 1.0);
 		
 		return withRedValueAndGreenValueAndBlueValueAndAlphaValue(
 			getRedValue(),

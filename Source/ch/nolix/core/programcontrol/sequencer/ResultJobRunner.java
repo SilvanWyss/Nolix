@@ -7,7 +7,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.logger.GlobalLogger;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IElementGetter;
 
 //class
@@ -37,7 +37,7 @@ final class ResultJobRunner<R> extends Thread {
 	public ResultJobRunner(final IElementGetter<R> resultJob) {
 		
 		//Asserts that the given resultJob is not null.
-		Validator.assertThat(resultJob).thatIsNamed("result job").isNotNull();
+		GlobalValidator.assertThat(resultJob).thatIsNamed("result job").isNotNull();
 		
 		//Sets the resultJob of the current ResultJobRunner.
 		this.resultJob = resultJob;

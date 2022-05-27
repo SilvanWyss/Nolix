@@ -8,7 +8,7 @@ import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IElementTaker;
 import ch.nolix.system.element.MutableElement;
 import ch.nolix.system.element.MutableValue;
@@ -97,7 +97,7 @@ public final class ItemMenuItem extends MutableElement<ItemMenuItem> implements 
 		
 		this(text);
 		
-		Validator.assertThat(selectCommand).thatIsNamed("select command").isNotNull();
+		GlobalValidator.assertThat(selectCommand).thatIsNamed("select command").isNotNull();
 		
 		this.selectCommand = selectCommand;
 	}
@@ -223,7 +223,7 @@ public final class ItemMenuItem extends MutableElement<ItemMenuItem> implements 
 	//method
 	void setParentMenu(final ItemMenu<?> parentMenu) {
 		
-		Validator.assertThat(parentMenu).thatIsNamed("parent menu").isNotNull();
+		GlobalValidator.assertThat(parentMenu).thatIsNamed("parent menu").isNotNull();
 		assertDoesNotBelonToMenu();
 		
 		this.parentMenu = parentMenu;
@@ -272,7 +272,7 @@ public final class ItemMenuItem extends MutableElement<ItemMenuItem> implements 
 	//method
 	private void setId(final String id) {
 		
-		Validator.assertThat(id).thatIsNamed(LowerCaseCatalogue.ID).isNotBlank();
+		GlobalValidator.assertThat(id).thatIsNamed(LowerCaseCatalogue.ID).isNotBlank();
 		
 		this.id.setValue(id);
 	}

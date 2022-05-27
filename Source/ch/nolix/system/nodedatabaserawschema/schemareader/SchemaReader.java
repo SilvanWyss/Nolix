@@ -4,7 +4,7 @@ package ch.nolix.system.nodedatabaserawschema.schemareader;
 //own imports
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.system.nodedatabaserawschema.structure.ColumnNodeSearcher;
 import ch.nolix.system.nodedatabaserawschema.structure.DatabaseNodeSearcher;
@@ -50,7 +50,7 @@ public final class SchemaReader implements ISchemaReader {
 	//constructor
 	public SchemaReader(final BaseNode databaseNode) {
 		
-		Validator.assertThat(databaseNode).thatIsNamed("database Node").isNotNull();
+		GlobalValidator.assertThat(databaseNode).thatIsNamed("database Node").isNotNull();
 		
 		this.databaseNode = databaseNode;
 	}

@@ -4,7 +4,7 @@ package ch.nolix.coretest.errorcontroltest.validatortest;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 
@@ -18,7 +18,7 @@ public final class StringMediatorTest extends Test {
 		//setup
 		final var string = "Hocus pocus";
 		
-		expectRunning(() -> Validator.assertThat(string).hasLength(200))
+		expectRunning(() -> GlobalValidator.assertThat(string).hasLength(200))
 		.throwsException()
 		.ofType(InvalidArgumentException.class)
 		.withMessage("The given argument 'Hocus pocus' does not have the length 200.");
@@ -31,7 +31,7 @@ public final class StringMediatorTest extends Test {
 		//setup
 		final var string = "Hocus pocus";
 		
-		expectRunning(() -> Validator.assertThat(string).hasLength(11))
+		expectRunning(() -> GlobalValidator.assertThat(string).hasLength(11))
 		.doesNotThrowException();
 	}
 	
@@ -43,7 +43,7 @@ public final class StringMediatorTest extends Test {
 		final var string = " ";
 		
 		//execution & verification
-		expectRunning(() -> Validator.assertThat(string).isNotBlank())
+		expectRunning(() -> GlobalValidator.assertThat(string).isNotBlank())
 		.throwsException()
 		.ofType(InvalidArgumentException.class)
 		.withMessage("The given argument is blank.");
@@ -57,7 +57,7 @@ public final class StringMediatorTest extends Test {
 		final var string = "Hocus pocus";
 		
 		//execution & verification
-		expectRunning(() -> Validator.assertThat(string).isNotBlank())
+		expectRunning(() -> GlobalValidator.assertThat(string).isNotBlank())
 		.doesNotThrowException();
 	}
 	
@@ -69,7 +69,7 @@ public final class StringMediatorTest extends Test {
 		final var string = "";
 		
 		//execution & verification
-		expectRunning(() -> Validator.assertThat(string).isNotEmpty())
+		expectRunning(() -> GlobalValidator.assertThat(string).isNotEmpty())
 		.throwsException()
 		.ofType(EmptyArgumentException.class)
 		.withMessage("The given argument is empty.");
@@ -83,7 +83,7 @@ public final class StringMediatorTest extends Test {
 		final var string = "Hocus pocus";
 		
 		//execution & verification
-		expectRunning(() -> Validator.assertThat(string).isNotEmpty())
+		expectRunning(() -> GlobalValidator.assertThat(string).isNotEmpty())
 		.doesNotThrowException();
 	}
 }

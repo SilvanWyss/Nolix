@@ -7,7 +7,7 @@ import java.awt.event.WindowListener;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.gui.base.GUI;
 
 //class
@@ -31,7 +31,7 @@ final class FrameVisualizerCloseListener implements WindowListener {
 	public FrameVisualizerCloseListener(final GUI<?> frameVisualizer) {
 		
 		//Asserts that the given frame is not null.
-		Validator.assertThat(frameVisualizer).isOfType(GUI.class);
+		GlobalValidator.assertThat(frameVisualizer).isOfType(GUI.class);
 		
 		//Sets the frame of this frame close listener.
 		this.frameVisualizer = frameVisualizer;

@@ -5,7 +5,7 @@ package ch.nolix.core.document.data;
 import java.nio.charset.StandardCharsets;
 
 //own imports
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //class
 public final class BinaryObject {
@@ -26,7 +26,7 @@ public final class BinaryObject {
 	//constructor
 	private BinaryObject(final byte[] bytes) {
 		
-		Validator.assertThat(bytes).thatIsNamed("bytes").isNotNull();
+		GlobalValidator.assertThat(bytes).thatIsNamed("bytes").isNotNull();
 		
 		this.bytes = bytes;
 	}

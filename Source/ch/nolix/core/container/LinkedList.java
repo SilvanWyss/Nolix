@@ -10,7 +10,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IElementTaker;
 import ch.nolix.core.functionuniversalapi.IElementTakerBooleanGetter;
 import ch.nolix.core.functionuniversalapi.IElementTakerComparableGetter;
@@ -128,7 +128,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	public void addAtBegin(final E... elements) {
 		
 		//Asserts that the given elements is not null.
-		Validator.assertThat(elements).thatIsNamed(PluralLowerCaseCatalogue.ELEMENTS).isNotNull();
+		GlobalValidator.assertThat(elements).thatIsNamed(PluralLowerCaseCatalogue.ELEMENTS).isNotNull();
 		
 		//Iterates the given elements.
 		for (final var e : elements) {
@@ -149,7 +149,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	public <E2 extends E> void addAtBegin(final Iterable<E2> elements) {
 		
 		//Asserts that the given elements is not null.
-		Validator.assertThat(elements).thatIsNamed(PluralLowerCaseCatalogue.ELEMENTS).isNotNull();
+		GlobalValidator.assertThat(elements).thatIsNamed(PluralLowerCaseCatalogue.ELEMENTS).isNotNull();
 		
 		//Handles the case that the given elements is not empty.
 		if (!IterableHelper.isEmpty(elements)) {
@@ -281,7 +281,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	public void addAtEnd(final E... elements) {
 		
 		//Asserts that the given element container is not null.
-		Validator.assertThat(elements).thatIsNamed("element container").isNotNull();
+		GlobalValidator.assertThat(elements).thatIsNamed("element container").isNotNull();
 		
 		//Iterates the given elements.
 		for (final E e: elements) {
@@ -541,7 +541,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	public E getRefAt(final int index) {
 		
 		//Asserts that the given index is positive.
-		Validator.assertThat(index).thatIsNamed(LowerCaseCatalogue.INDEX).isPositive();
+		GlobalValidator.assertThat(index).thatIsNamed(LowerCaseCatalogue.INDEX).isPositive();
 		
 		//Iterates the current LinkedList.
 		var i = 1;
@@ -1109,7 +1109,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	private void removeNextNode(final LinkedListNode<E> node) {
 		
 		//Asserts that the given node is not null.
-		Validator.assertThat(node).thatIsNamed(LowerCaseCatalogue.NODE).isNotNull();
+		GlobalValidator.assertThat(node).thatIsNamed(LowerCaseCatalogue.NODE).isNotNull();
 		
 		final var nextNode = node.getNextNode();
 		

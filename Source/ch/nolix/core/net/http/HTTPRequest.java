@@ -4,7 +4,7 @@ package ch.nolix.core.net.http;
 //own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.IContainer;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //class
 public final class HTTPRequest {
@@ -29,7 +29,7 @@ public final class HTTPRequest {
 	//constructor
 	public HTTPRequest(final String content) {
 		
-		Validator.assertThat(content).thatIsNamed(LowerCaseCatalogue.CONTENT).isNotBlank();
+		GlobalValidator.assertThat(content).thatIsNamed(LowerCaseCatalogue.CONTENT).isNotBlank();
 		
 		this.content = content;
 	}

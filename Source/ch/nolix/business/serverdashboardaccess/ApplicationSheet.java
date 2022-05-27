@@ -4,7 +4,7 @@ package ch.nolix.business.serverdashboardaccess;
 //own imports
 import ch.nolix.businessapi.serverdashboardaccessapi.IApplicationSheet;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.target.ApplicationTarget;
 import ch.nolix.core.net.target.ServerTarget;
 import ch.nolix.core.net.targetuniversalapi.IApplicationTarget;
@@ -55,8 +55,8 @@ public final class ApplicationSheet implements IApplicationSheet {
 		final IServerTarget serverTarget
 	) {
 		
-		Validator.assertThat(applicationName).thatIsNamed("application name").isNotBlank();
-		Validator.assertThat(serverTarget).thatIsNamed(ServerTarget.class).isNotNull();
+		GlobalValidator.assertThat(applicationName).thatIsNamed("application name").isNotBlank();
+		GlobalValidator.assertThat(serverTarget).thatIsNamed(ServerTarget.class).isNotNull();
 		
 		this.applicationName = applicationName;
 		
@@ -81,8 +81,8 @@ public final class ApplicationSheet implements IApplicationSheet {
 		final IServerTarget serverTarget
 	) {
 		
-		Validator.assertThat(applicationName).thatIsNamed("application name").isNotBlank();
-		Validator.assertThat(serverTarget).thatIsNamed(ServerTarget.class).isNotNull();
+		GlobalValidator.assertThat(applicationName).thatIsNamed("application name").isNotBlank();
+		GlobalValidator.assertThat(serverTarget).thatIsNamed(ServerTarget.class).isNotNull();
 		
 		this.applicationName = applicationName;
 		applicationLogo = null;

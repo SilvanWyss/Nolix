@@ -8,7 +8,7 @@ import java.util.Iterator;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //class
 /**
@@ -43,7 +43,7 @@ final class ArrayReadContainerIterator<E> implements Iterator<E> {
 	public ArrayReadContainerIterator(final E[] array) {
 		
 		//Asserts that the given array is not null.
-		Validator
+		GlobalValidator
 		.assertThat(array)
 		.thatIsNamed(LowerCaseCatalogue.ARRAY)
 		.isNotNull();

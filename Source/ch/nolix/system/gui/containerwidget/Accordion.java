@@ -10,7 +10,7 @@ import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IElementTaker;
 import ch.nolix.system.element.MultiValue;
 import ch.nolix.system.element.MutableValue;
@@ -80,7 +80,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	 */
 	public Accordion addTab(final AccordionTab tab) {
 		
-		Validator.assertThat(tab).thatIsNamed(LowerCaseCatalogue.TAB).isNotNull();
+		GlobalValidator.assertThat(tab).thatIsNamed(LowerCaseCatalogue.TAB).isNotNull();
 		
 		tab.setParentAccordion(this);
 		tabs.add(tab);
@@ -104,7 +104,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	 */
 	public Accordion addTab(final AccordionTab... tabs) {
 		
-		Validator.assertThat(tabs).thatIsNamed(PluralLowerCaseCatalogue.TABS).isNotNull();
+		GlobalValidator.assertThat(tabs).thatIsNamed(PluralLowerCaseCatalogue.TABS).isNotNull();
 		
 		return addTabs(ReadContainer.forArray(tabs));
 	}
@@ -132,7 +132,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	 */
 	public Accordion addTabs(final Iterable<AccordionTab> tabs) {
 		
-		Validator.assertThat(tabs).thatIsNamed(PluralLowerCaseCatalogue.TABS).isNotNull();
+		GlobalValidator.assertThat(tabs).thatIsNamed(PluralLowerCaseCatalogue.TABS).isNotNull();
 		
 		tabs.forEach(this::addTab);
 		

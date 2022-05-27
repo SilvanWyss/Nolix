@@ -9,7 +9,7 @@ import java.util.Base64;
 
 //own imports
 import ch.nolix.core.errorcontrol.exception.WrapperException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //class
 public final class WebSocketHandShakeResponse {
@@ -25,7 +25,7 @@ public final class WebSocketHandShakeResponse {
 	//constructor
 	public WebSocketHandShakeResponse(final String secWebSocketKey) {
 				
-		Validator.assertThat(secWebSocketKey).thatIsNamed("sec web socket key").isNotNull();
+		GlobalValidator.assertThat(secWebSocketKey).thatIsNamed("sec web socket key").isNotNull();
 		
 		this.secWebSocketKey = secWebSocketKey;
 		

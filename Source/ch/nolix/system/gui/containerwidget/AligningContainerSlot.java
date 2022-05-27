@@ -5,7 +5,7 @@ package ch.nolix.system.gui.containerwidget;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.skilluniversalapi.Clearable;
 import ch.nolix.system.gui.widget.Widget;
 
@@ -85,7 +85,7 @@ final class AligningContainerSlot implements Clearable {
 	//method
 	public void setWidget(final Widget<?, ?> widget) {
 		
-		Validator.assertThat(widget).thatIsNamed(Widget.class).isNotNull();
+		GlobalValidator.assertThat(widget).thatIsNamed(Widget.class).isNotNull();
 		
 		this.widget = widget;
 	}

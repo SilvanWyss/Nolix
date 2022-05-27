@@ -3,7 +3,7 @@ package ch.nolix.system.databaseapplication.propertybinder;
 
 //own imports
 import ch.nolix.core.container.SingleContainer;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.gui.widget.Label;
 import ch.nolix.system.gui.widget.LabelRole;
 import ch.nolix.system.gui.widget.Widget;
@@ -23,8 +23,8 @@ public final class PropertyBinding {
 	//constructors
 	public PropertyBinding(final IProperty<?> property, final Widget<?, ?> widget) {
 		
-		Validator.assertThat(property).thatIsNamed(IProperty.class).isNotNull();
-		Validator.assertThat(widget).thatIsNamed(Widget.class).isNotNull();
+		GlobalValidator.assertThat(property).thatIsNamed(IProperty.class).isNotNull();
+		GlobalValidator.assertThat(widget).thatIsNamed(Widget.class).isNotNull();
 		
 		this.property = property;
 		this.widget = widget;
@@ -72,7 +72,7 @@ public final class PropertyBinding {
 	//method
 	void setCurrentError(final Throwable currentError) {
 		
-		Validator.assertThat(currentError).thatIsNamed("current error").isNotNull();
+		GlobalValidator.assertThat(currentError).thatIsNamed("current error").isNotNull();
 		
 		this.currentError = currentError;
 		updateErrorLabelFrom(currentError);

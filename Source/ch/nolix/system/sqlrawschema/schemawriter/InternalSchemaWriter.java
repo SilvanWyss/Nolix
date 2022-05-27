@@ -3,7 +3,7 @@ package ch.nolix.system.sqlrawschema.schemawriter;
 
 //own imports
 import ch.nolix.core.container.IContainer;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.requestuniversalapi.ChangeRequestable;
 import ch.nolix.system.sqlrawschema.structure.TableType;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDTO;
@@ -22,7 +22,7 @@ final class InternalSchemaWriter implements ChangeRequestable {
 	//constructor
 	public InternalSchemaWriter(final ISchemaWriter pSQLSchemaWriter) {
 		
-		Validator.assertThat(pSQLSchemaWriter).thatIsNamed(ISchemaWriter.class).isNotNull();
+		GlobalValidator.assertThat(pSQLSchemaWriter).thatIsNamed(ISchemaWriter.class).isNotNull();
 		
 		this.mSQLSchemaWriter = pSQLSchemaWriter;
 	}

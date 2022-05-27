@@ -3,7 +3,7 @@ package ch.nolix.core.programcontrol.sequencer;
 
 //own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IAction;
 import ch.nolix.core.functionuniversalapi.IBooleanGetter;
 
@@ -16,7 +16,7 @@ public final class AsSoonAsMediator {
 	//constructor
 	AsSoonAsMediator(final IBooleanGetter condition) {
 		
-		Validator.assertThat(condition).thatIsNamed(LowerCaseCatalogue.CONDITION).isNotNull();
+		GlobalValidator.assertThat(condition).thatIsNamed(LowerCaseCatalogue.CONDITION).isNotNull();
 		
 		this.condition = condition;
 	}
@@ -24,7 +24,7 @@ public final class AsSoonAsMediator {
 	//method
 	public Future runInBackground(final IAction job) {
 		
-		Validator.assertThat(job).thatIsNamed(LowerCaseCatalogue.JOB).isNotNull();
+		GlobalValidator.assertThat(job).thatIsNamed(LowerCaseCatalogue.JOB).isNotNull();
 		
 		return new Future(new JobRunner(() -> runAsSoonAsConditionIsFulfilled(job), 1));
 	}
@@ -32,7 +32,7 @@ public final class AsSoonAsMediator {
 	//method
 	private void runAsSoonAsConditionIsFulfilled(final IAction job) {
 		
-		Validator.assertThat(job).thatIsNamed(LowerCaseCatalogue.JOB).isNotNull();
+		GlobalValidator.assertThat(job).thatIsNamed(LowerCaseCatalogue.JOB).isNotNull();
 		
 		Sequencer.waitUntil(condition);
 		

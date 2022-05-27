@@ -2,7 +2,7 @@
 package ch.nolix.system.gui.dialog;
 
 //own imports
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IElementTaker;
 import ch.nolix.system.gui.base.Layer;
 import ch.nolix.system.gui.base.LayerRole;
@@ -41,8 +41,8 @@ public final class UploadImageDialogCreator {
 		final IElementTaker<MutableImage> imageTaker
 	) {
 		
-		Validator.assertThat(imageWidget).thatIsNamed(ImageWidget.class).isNotNull();
-		Validator.assertThat(imageTaker).thatIsNamed("image taker").isNotNull();
+		GlobalValidator.assertThat(imageWidget).thatIsNamed(ImageWidget.class).isNotNull();
+		GlobalValidator.assertThat(imageTaker).thatIsNamed("image taker").isNotNull();
 		
 		return
 		new Layer()

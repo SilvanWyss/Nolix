@@ -3,7 +3,7 @@ package ch.nolix.core.usercontrol;
 
 //own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //class
 public final class Credential {
@@ -20,8 +20,8 @@ public final class Credential {
 	//constructor
 	Credential(final String loginName, final String password) {
 		
-		Validator.assertThat(loginName).thatIsNamed(LowerCaseCatalogue.LOGIN_NAME).isNotBlank();
-		Validator.assertThat(password).thatIsNamed(LowerCaseCatalogue.PASSWORD).isNotBlank();
+		GlobalValidator.assertThat(loginName).thatIsNamed(LowerCaseCatalogue.LOGIN_NAME).isNotBlank();
+		GlobalValidator.assertThat(password).thatIsNamed(LowerCaseCatalogue.PASSWORD).isNotBlank();
 		
 		this.loginName = loginName;
 		this.password = password;

@@ -4,7 +4,7 @@ package ch.nolix.system.formatelement;
 import ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi.Indexed;
 import ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi.Prefixed;
 import ch.nolix.core.constant.LowerCaseCatalogue;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //class
 final class State<S extends Enum<S>> implements Indexed, Prefixed {
@@ -26,9 +26,9 @@ final class State<S extends Enum<S>> implements Indexed, Prefixed {
 	//constructor
 	private State(final String prefix, final int index, final S enumValue) {
 		
-		Validator.assertThat(prefix).thatIsNamed(LowerCaseCatalogue.PREFIX).isNotBlank();
-		Validator.assertThat(index).thatIsNamed(LowerCaseCatalogue.INDEX).isNotNegative();
-		Validator.assertThat(enumValue).thatIsNamed("enum value").isNotNull();
+		GlobalValidator.assertThat(prefix).thatIsNamed(LowerCaseCatalogue.PREFIX).isNotBlank();
+		GlobalValidator.assertThat(index).thatIsNamed(LowerCaseCatalogue.INDEX).isNotNegative();
+		GlobalValidator.assertThat(enumValue).thatIsNamed("enum value").isNotNull();
 		
 		this.prefix = prefix;
 		this.index = index;

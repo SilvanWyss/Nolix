@@ -8,7 +8,7 @@ import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.data.GlobalIdCreator;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedPropertyType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedValueType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.SchemaImplementation;
@@ -82,7 +82,7 @@ public final class Column extends SchemaObject implements IColumn<SchemaImplemen
 		final IParametrizedPropertyType<SchemaImplementation, ?> parametrizedPropertyType
 	) {
 		
-		Validator.assertThat(id).thatIsNamed(LowerCaseCatalogue.ID).isNotBlank();
+		GlobalValidator.assertThat(id).thatIsNamed(LowerCaseCatalogue.ID).isNotBlank();
 		
 		this.id = id;
 		setName(name);

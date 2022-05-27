@@ -8,7 +8,7 @@ import java.lang.reflect.InvocationTargetException;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IElementTakerElementGetter;
 import ch.nolix.systemapi.elementapi.IMutableElement;
 
@@ -53,8 +53,8 @@ final class OneTypeElementFactory<E> {
 	//constructor
 	public OneTypeElementFactory(final Class<E> elementClass, final IElementTakerElementGetter<BaseNode, E> creator) {
 		
-		Validator.assertThat(elementClass).thatIsNamed("element class").isNotNull();
-		Validator.assertThat(creator).thatIsNamed(LowerCaseCatalogue.CREATOR).isNotNull();
+		GlobalValidator.assertThat(elementClass).thatIsNamed("element class").isNotNull();
+		GlobalValidator.assertThat(creator).thatIsNamed(LowerCaseCatalogue.CREATOR).isNotNull();
 		
 		this.elementClass = elementClass;
 		this.creator = creator;

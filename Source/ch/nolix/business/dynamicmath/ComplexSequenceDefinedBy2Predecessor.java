@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 //own imports
 import ch.nolix.businessapi.dynamicmathapi.IComplexNumber;
 import ch.nolix.businessapi.dynamicmathapi.ISequenceDefinedBy2Predecessor;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.I2ElementTakerElementGetter;
 
 //class
@@ -31,9 +31,9 @@ implements ISequenceDefinedBy2Predecessor<IComplexNumber> {
 		I2ElementTakerElementGetter<IComplexNumber, IComplexNumber, IComplexNumber> nextValueFunction
 	) {
 		
-		Validator.assertThat(firstValue).thatIsNamed("first value").isNotNull();
-		Validator.assertThat(secondValue).thatIsNamed("second value").isNotNull();
-		Validator.assertThat(nextValueFunction).thatIsNamed("next value function").isNotNull();
+		GlobalValidator.assertThat(firstValue).thatIsNamed("first value").isNotNull();
+		GlobalValidator.assertThat(secondValue).thatIsNamed("second value").isNotNull();
+		GlobalValidator.assertThat(nextValueFunction).thatIsNamed("next value function").isNotNull();
 		
 		this.firstValue = firstValue;
 		this.secondValue = secondValue;

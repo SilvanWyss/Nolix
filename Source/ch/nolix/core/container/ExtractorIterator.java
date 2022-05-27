@@ -6,7 +6,7 @@ import java.util.Iterator;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IElementTakerElementGetter;
 
 //class
@@ -42,7 +42,7 @@ final class ExtractorIterator<E, E2> implements Iterator<E2> {
 	 */
 	private ExtractorIterator(final IContainer<E> container, final IElementTakerElementGetter<E, E2> extractor) {
 		
-		Validator.assertThat(extractor).thatIsNamed("extractor").isNotNull();
+		GlobalValidator.assertThat(extractor).thatIsNamed("extractor").isNotNull();
 		
 		internalIterator = container.iterator();
 		this.extractor = extractor;

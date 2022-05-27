@@ -7,7 +7,7 @@ import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IElementGetter;
 import ch.nolix.core.functionuniversalapi.IElementTaker;
 
@@ -26,9 +26,9 @@ public final class MultiSpecificationValueExtractor extends Property {
 		final IElementGetter<IContainer<Node>> getter
 	) {
 		
-		Validator.assertThat(name).thatIsNamed(PascalCaseCatalogue.NAME).isNotBlank();
-		Validator.assertThat(adder).thatIsNamed("adder").isNotNull();
-		Validator.assertThat(getter).thatIsNamed("getter").isNotNull();
+		GlobalValidator.assertThat(name).thatIsNamed(PascalCaseCatalogue.NAME).isNotBlank();
+		GlobalValidator.assertThat(adder).thatIsNamed("adder").isNotNull();
+		GlobalValidator.assertThat(getter).thatIsNamed("getter").isNotNull();
 				
 		this.name = name;
 		this.adder = adder;

@@ -2,7 +2,7 @@
 package ch.nolix.system.application.baseguiapplication;
 
 //own imports
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.targetuniversalapi.IApplicationTarget;
 import ch.nolix.systemapi.guiapi.baseapi.IFrontEndWriter;
 
@@ -15,7 +15,7 @@ final class BaseBackendGIUIClientFrontendWriter implements IFrontEndWriter {
 	//constructor
 	public BaseBackendGIUIClientFrontendWriter(final BaseBackendGUIClient<?, ?> parentBackendGUIClient) {
 		
-		Validator.assertThat(parentBackendGUIClient).thatIsNamed("parent backend GUI client").isNotNull();
+		GlobalValidator.assertThat(parentBackendGUIClient).thatIsNamed("parent backend GUI client").isNotNull();
 		
 		this.parentBackendGUIClient = parentBackendGUIClient;
 	}

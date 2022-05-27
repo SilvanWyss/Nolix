@@ -6,7 +6,7 @@ import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.constant.PascalCaseCatalogue;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.formatelement.CascadingProperty;
 import ch.nolix.system.formatelement.FormatElement;
 import ch.nolix.system.formatelement.NonCascadingProperty;
@@ -169,7 +169,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends FormatElemen
 	//method
 	public final WL setOpacityForState(final WidgetLookState state, final double opacity) {
 		
-		Validator.assertThat(opacity).thatIsNamed(LowerCaseCatalogue.OPACITY).isBetween(0.0, 1.0);
+		GlobalValidator.assertThat(opacity).thatIsNamed(LowerCaseCatalogue.OPACITY).isBetween(0.0, 1.0);
 		
 		this.opacity.setValueForState(state, opacity);
 		
@@ -187,7 +187,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends FormatElemen
 	//method
 	public final WL setTextSizeForState(final WidgetLookState state, final int textSize) {
 		
-		Validator.assertThat(textSize).thatIsNamed(LowerCaseCatalogue.TEXT_SIZE).isPositive();
+		GlobalValidator.assertThat(textSize).thatIsNamed(LowerCaseCatalogue.TEXT_SIZE).isPositive();
 		
 		this.textSize.setValueForState(state, textSize);
 		
@@ -202,7 +202,7 @@ public abstract class WidgetLook<WL extends WidgetLook<WL>> extends FormatElemen
 	//method
 	private double getOpacityFromString(final String string) {
 		
-		Validator.assertThat(string).thatIsNamed(String.class).isNotNull();
+		GlobalValidator.assertThat(string).thatIsNamed(String.class).isNotNull();
 		
 		if (!string.endsWith("%")) {
 			return Double.valueOf(string);

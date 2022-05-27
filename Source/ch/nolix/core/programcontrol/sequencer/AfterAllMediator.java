@@ -6,7 +6,7 @@ import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IAction;
 import ch.nolix.core.functionuniversalapi.IBooleanGetter;
 
@@ -37,8 +37,8 @@ public final class AfterAllMediator {
 	 */
 	AfterAllMediator(final IBooleanGetter condition, final int timeIntervalInMilliseconds) {
 		
-		Validator.assertThat(condition).thatIsNamed(LowerCaseCatalogue.CONDITION).isNotNull();
-		Validator.assertThat(timeIntervalInMilliseconds).thatIsNamed("time interval in milliseconds").isNotNegative();
+		GlobalValidator.assertThat(condition).thatIsNamed(LowerCaseCatalogue.CONDITION).isNotNull();
+		GlobalValidator.assertThat(timeIntervalInMilliseconds).thatIsNamed("time interval in milliseconds").isNotNegative();
 		
 		maxRunCount = null;
 		this.condition = condition;
@@ -62,9 +62,9 @@ public final class AfterAllMediator {
 		final int timeIntervalInMilliseconds
 	) {
 		
-		Validator.assertThat(maxRunCount).thatIsNamed("max run count").isNotNegative();
-		Validator.assertThat(condition).thatIsNamed("condition").isNotNull();
-		Validator.assertThat(timeIntervalInMilliseconds).thatIsNamed("time interval in milliseconds").isNotNegative();
+		GlobalValidator.assertThat(maxRunCount).thatIsNamed("max run count").isNotNegative();
+		GlobalValidator.assertThat(condition).thatIsNamed("condition").isNotNull();
+		GlobalValidator.assertThat(timeIntervalInMilliseconds).thatIsNamed("time interval in milliseconds").isNotNegative();
 		
 		this.maxRunCount = maxRunCount;
 		this.condition = condition;

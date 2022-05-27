@@ -6,7 +6,7 @@ import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.element.MutableOptionalValue;
 import ch.nolix.systemapi.elementapi.IConfigurableElement;
 
@@ -105,7 +105,7 @@ public final class DeepConfiguration extends BaseConfiguration<DeepConfiguration
 	public void setMaxSelectorLevel(final int maxSelectorLevel) {
 		
 		//Asserts that the given maxSelectorLevel is positive.
-		Validator.assertThat(maxSelectorLevel).thatIsNamed("max selector level").isPositive();
+		GlobalValidator.assertThat(maxSelectorLevel).thatIsNamed("max selector level").isPositive();
 				
 		this.maxSelectorLevel.setValue(maxSelectorLevel);
 	}

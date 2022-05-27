@@ -11,7 +11,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.programcontrol.processproperty.ChangeState;
 import ch.nolix.core.skilluniversalapi.Recalculable;
@@ -128,8 +128,8 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	 */
 	public GUI(final IVisualizer visualizer, final IResizableInputTaker inputTaker) {
 				
-		Validator.assertThat(visualizer).thatIsNamed(LowerCaseCatalogue.VISUALIZER).isNotNull();
-		Validator.assertThat(inputTaker).thatIsNamed("input taker").isNotNull();
+		GlobalValidator.assertThat(visualizer).thatIsNamed(LowerCaseCatalogue.VISUALIZER).isNotNull();
+		GlobalValidator.assertThat(inputTaker).thatIsNamed("input taker").isNotNull();
 		
 		this.visualizer = visualizer;
 		this.inputTaker = inputTaker;
@@ -146,8 +146,8 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	 */
 	public GUI(final Visibility visibility, final IResizableInputTaker inputTaker) {
 		
-		Validator.assertThat(visibility).thatIsNamed(Visibility.class).isNotNull();
-		Validator.assertThat(inputTaker).thatIsNamed("input taker").isNotNull();
+		GlobalValidator.assertThat(visibility).thatIsNamed(Visibility.class).isNotNull();
+		GlobalValidator.assertThat(inputTaker).thatIsNamed("input taker").isNotNull();
 		
 		if (visibility == Visibility.INVISIBLE) {
 			visualizer = null;
@@ -168,7 +168,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	 */
 	public GUI(final IVisualizer visualizer) {
 		
-		Validator.assertThat(visualizer).thatIsNamed(LowerCaseCatalogue.VISUALIZER).isNotNull();
+		GlobalValidator.assertThat(visualizer).thatIsNamed(LowerCaseCatalogue.VISUALIZER).isNotNull();
 		
 		this.inputTaker = null;
 		this.visualizer = visualizer;
@@ -576,8 +576,8 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 		final IFrontEndWriter frontEndWriter
 	) {
 		
-		Validator.assertThat(frontEndReader).thatIsNamed(IFrontEndReader.class).isNotNull();
-		Validator.assertThat(frontEndWriter).thatIsNamed(IFrontEndWriter.class).isNotNull();
+		GlobalValidator.assertThat(frontEndReader).thatIsNamed(IFrontEndReader.class).isNotNull();
+		GlobalValidator.assertThat(frontEndWriter).thatIsNamed(IFrontEndWriter.class).isNotNull();
 		
 		this.frontEndReader = frontEndReader;
 		this.frontEndWriter = frontEndWriter;
@@ -607,7 +607,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	@Override
 	public final G setTitle(final String title) {
 		
-		Validator.assertThat(title).thatIsNamed(LowerCaseCatalogue.TITLE).isNotBlank();
+		GlobalValidator.assertThat(title).thatIsNamed(LowerCaseCatalogue.TITLE).isNotBlank();
 		
 		this.title.setValue(title);
 		
@@ -746,8 +746,8 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	//method
 	private void setViewAreaSize(final int viewAreaWidth, final int viewAreaHeight) {
 		
-		Validator.assertThat(viewAreaWidth).thatIsNamed("view area width").isNotNegative();
-		Validator.assertThat(viewAreaHeight).thatIsNamed("view area height").isNotNegative();
+		GlobalValidator.assertThat(viewAreaWidth).thatIsNamed("view area width").isNotNegative();
+		GlobalValidator.assertThat(viewAreaHeight).thatIsNamed("view area height").isNotNegative();
 		
 		this.viewAreaSize.setValue(new IntPair(viewAreaWidth, viewAreaHeight));
 		viewAreaSizeHasChangedSinceLastRecalculation = true;

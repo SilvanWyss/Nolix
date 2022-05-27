@@ -16,7 +16,7 @@ import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.processproperty.ConnectionOrigin;
 import ch.nolix.core.programcontrol.processproperty.TargetInfoState;
 
@@ -82,7 +82,7 @@ public final class NetEndPoint extends BaseNetEndPoint {
 		
 		super(ConnectionOrigin.REQUESTED_CONNECTION, TargetInfoState.RECEIVED_TARGET_INFO);
 		
-		Validator
+		GlobalValidator
 		.assertThat(port)
 		.thatIsNamed(LowerCaseCatalogue.PORT)
 		.isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
@@ -115,7 +115,7 @@ public final class NetEndPoint extends BaseNetEndPoint {
 		
 		super(ConnectionOrigin.REQUESTED_CONNECTION, target);
 		
-		Validator
+		GlobalValidator
 		.assertThat(port)
 		.thatIsNamed(LowerCaseCatalogue.PORT)
 		.isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
@@ -152,9 +152,9 @@ public final class NetEndPoint extends BaseNetEndPoint {
 		
 		super(ConnectionOrigin.ACCEPTED_CONNECTION, TargetInfoState.RECEIVED_TARGET_INFO);
 		
-		Validator.assertThat(socket).thatIsNamed(Socket.class).isNotNull();
-		Validator.assertThat(socketInputStream).thatIsNamed("socket input stream").isNotNull();
-		Validator.assertThat(socketOutputStream).thatIsNamed("socket output stream").isNotNull();
+		GlobalValidator.assertThat(socket).thatIsNamed(Socket.class).isNotNull();
+		GlobalValidator.assertThat(socketInputStream).thatIsNamed("socket input stream").isNotNull();
+		GlobalValidator.assertThat(socketOutputStream).thatIsNamed("socket output stream").isNotNull();
 		
 		this.socket = socket;
 		this.socketInputStream = socketInputStream;
@@ -187,9 +187,9 @@ public final class NetEndPoint extends BaseNetEndPoint {
 		
 		super(ConnectionOrigin.ACCEPTED_CONNECTION, target);
 		
-		Validator.assertThat(socket).thatIsNamed(Socket.class).isNotNull();
-		Validator.assertThat(socketInputStream).thatIsNamed("socket input stream").isNotNull();
-		Validator.assertThat(socketOutputStream).thatIsNamed("socket output stream").isNotNull();
+		GlobalValidator.assertThat(socket).thatIsNamed(Socket.class).isNotNull();
+		GlobalValidator.assertThat(socketInputStream).thatIsNamed("socket input stream").isNotNull();
+		GlobalValidator.assertThat(socketOutputStream).thatIsNamed("socket output stream").isNotNull();
 		
 		this.socket = socket;
 		this.socketInputStream = socketInputStream;

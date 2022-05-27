@@ -9,7 +9,7 @@ import ch.nolix.core.constant.CharacterCatalogue;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //class
 /**
@@ -43,7 +43,7 @@ final class ArrayReadContainer<E> implements IContainer<E> {
 	public ArrayReadContainer(final E[] array) {
 		
 		//Asserts that the given array is not null.
-		Validator
+		GlobalValidator
 		.assertThat(array)
 		.thatIsNamed(LowerCaseCatalogue.ARRAY)
 		.isNotNull();
@@ -68,8 +68,8 @@ final class ArrayReadContainer<E> implements IContainer<E> {
 	@Override
 	public E getRefAt(final int index) {
 		
-		Validator.assertThat(index).thatIsNamed(LowerCaseCatalogue.INDEX).isPositive();
-		Validator.assertThat(index).thatIsNamed(LowerCaseCatalogue.INDEX).isNotBiggerThan(getElementCount());
+		GlobalValidator.assertThat(index).thatIsNamed(LowerCaseCatalogue.INDEX).isPositive();
+		GlobalValidator.assertThat(index).thatIsNamed(LowerCaseCatalogue.INDEX).isNotBiggerThan(getElementCount());
 		
 		return array[index - 1];
 	}

@@ -7,7 +7,7 @@ import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.data.GlobalIdCreator;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.objectschema.flatschemadto.FlatTableDTO;
 import ch.nolix.system.objectschema.parametrizedpropertytype.SchemaImplementation;
 import ch.nolix.system.objectschema.schemadto.SaveStampConfigurationDTO;
@@ -63,7 +63,7 @@ public final class Table extends SchemaObject implements ITable<SchemaImplementa
 	//constructor
 	public Table(final String id, final String name) {
 		
-		Validator.assertThat(id).thatIsNamed(LowerCaseCatalogue.ID).isNotBlank();
+		GlobalValidator.assertThat(id).thatIsNamed(LowerCaseCatalogue.ID).isNotBlank();
 		
 		this.id = id;
 		setName(name);
@@ -190,7 +190,7 @@ public final class Table extends SchemaObject implements ITable<SchemaImplementa
 	//method
 	void setParentDatabase(final Database parentDatabase) {
 		
-		Validator.assertThat(parentDatabase).thatIsNamed("parent database").isNotNull();
+		GlobalValidator.assertThat(parentDatabase).thatIsNamed("parent database").isNotNull();
 		tableHelper.assertDoesNotBelongToDatabase(this);
 		
 		this.parentDatabase = parentDatabase;

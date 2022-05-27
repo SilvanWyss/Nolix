@@ -2,7 +2,7 @@
 package ch.nolix.system.sqlrawschema.structure;
 
 //own imports
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //enum
 public enum TableType {
@@ -16,7 +16,7 @@ public enum TableType {
 	//constructor
 	TableType(final String namePrefix) {
 		
-		Validator.assertThat(namePrefix).thatIsNamed("name prefix").isNotBlank();
+		GlobalValidator.assertThat(namePrefix).thatIsNamed("name prefix").isNotBlank();
 		
 		this.namePrefix = namePrefix;
 	}

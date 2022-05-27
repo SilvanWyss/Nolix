@@ -9,7 +9,7 @@ import ch.nolix.core.environment.nolixenvironment.NolixEnvironment;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.controlleruniversalapi.IDataProviderController;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.programcontrol.groupcloseable.GroupCloseable;
@@ -178,7 +178,7 @@ public abstract class EndPoint implements GroupCloseable, IDataProviderControlle
 	public final void setReceiverController(final IDataProviderController receiverController) {
 		
 		//Asserts that the given receiverController is not null.
-		Validator.assertThat(receiverController).thatIsNamed("receiver controller").isNotNull();
+		GlobalValidator.assertThat(receiverController).thatIsNamed("receiver controller").isNotNull();
 		
 		//Sets the receiver controller of the current EndPoint.
 		this.receiverController = receiverController;

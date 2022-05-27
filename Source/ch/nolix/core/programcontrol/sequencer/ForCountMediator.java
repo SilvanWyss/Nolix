@@ -3,7 +3,7 @@ package ch.nolix.core.programcontrol.sequencer;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IAction;
 import ch.nolix.core.functionuniversalapi.IIntTaker;
 
@@ -29,7 +29,7 @@ public final class ForCountMediator {
 	ForCountMediator(final int maxRunCount) {
 		
 		//Asserts that the given max run count is not negative.
-		Validator.assertThat(maxRunCount).thatIsNamed("max run count").isNotNegative();
+		GlobalValidator.assertThat(maxRunCount).thatIsNamed("max run count").isNotNegative();
 		
 		//Sets the max run count of this for count mediator.
 		this.maxRunCount = maxRunCount;

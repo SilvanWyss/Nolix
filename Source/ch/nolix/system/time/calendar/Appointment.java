@@ -4,7 +4,7 @@ package ch.nolix.system.time.calendar;
 //own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.constant.PascalCaseCatalogue;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.element.MutableElement;
 import ch.nolix.system.element.MutableValue;
 import ch.nolix.system.time.base.Time;
@@ -103,7 +103,7 @@ public final class Appointment extends MutableElement<Appointment> implements IA
 	@Override
 	public Appointment setSubject(final String subject) {
 		
-		Validator.assertThat(subject).thatIsNamed(LowerCaseCatalogue.SUBJECT).isNotBlank();
+		GlobalValidator.assertThat(subject).thatIsNamed(LowerCaseCatalogue.SUBJECT).isNotBlank();
 		
 		this.subject.setValue(subject);
 		

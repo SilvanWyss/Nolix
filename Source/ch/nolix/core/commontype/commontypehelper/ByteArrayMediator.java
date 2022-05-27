@@ -2,7 +2,7 @@
 package ch.nolix.core.commontype.commontypehelper;
 
 //own imports
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //class
 public final class ByteArrayMediator {
@@ -13,7 +13,7 @@ public final class ByteArrayMediator {
 	//constructor
 	ByteArrayMediator(final byte[] byteArray) {
 		
-		Validator.assertThat(byteArray).thatIsNamed("byte array").isNotNull();
+		GlobalValidator.assertThat(byteArray).thatIsNamed("byte array").isNotNull();
 		
 		this.byteArray = byteArray;
 	}

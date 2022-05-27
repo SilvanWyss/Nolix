@@ -5,7 +5,7 @@ package ch.nolix.system.gui.base;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.chainednode.ChainedNode;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.I2ElementTaker;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
 
@@ -24,7 +24,7 @@ final class CanvasGUIPainterPool {
 	//constructor
 	public CanvasGUIPainterPool(final I2ElementTaker<String, IImage<?>> imageRegistrator) {
 		
-		Validator.assertThat(imageRegistrator).thatIsNamed("image registrator").isNotNull();
+		GlobalValidator.assertThat(imageRegistrator).thatIsNamed("image registrator").isNotNull();
 		
 		this.imageRegistrator = imageRegistrator;
 	}

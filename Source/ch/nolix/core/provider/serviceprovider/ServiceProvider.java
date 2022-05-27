@@ -7,7 +7,7 @@ import java.util.HashMap;
 //own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.processproperty.WriteMode;
 
 //class
@@ -43,8 +43,8 @@ public final class ServiceProvider {
 	//method
 	public <I, S extends I> void register(final Class<I> pInterface, final S service, final WriteMode writeMode) {
 		
-		Validator.assertThat(pInterface).thatIsNamed(LowerCaseCatalogue.INTERFACE).isNotNull();
-		Validator.assertThat(service).thatIsNamed(LowerCaseCatalogue.SERVICE).isNotNull();
+		GlobalValidator.assertThat(pInterface).thatIsNamed(LowerCaseCatalogue.INTERFACE).isNotNull();
+		GlobalValidator.assertThat(service).thatIsNamed(LowerCaseCatalogue.SERVICE).isNotNull();
 		
 		switch (writeMode) {
 			case THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY:

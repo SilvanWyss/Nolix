@@ -12,7 +12,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IElementTakerBooleanGetter;
 import ch.nolix.core.skilluniversalapi.ISmartObject;
 
@@ -48,7 +48,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	 */
 	public static Node fromIntPair(final IntPair intPair) {
 		
-		Validator.assertThat(intPair).thatIsNamed(IntPair.class).isNotNull();
+		GlobalValidator.assertThat(intPair).thatIsNamed(IntPair.class).isNotNull();
 		
 		return withAttribute(intPair.getValue1(), intPair.getValue2());
 	}
@@ -639,7 +639,7 @@ public final class Node extends BaseNode implements ISmartObject<Node> {
 	public Node setHeader(final String header) {
 		
 		//Asserts that the given header is not null or blank.
-		Validator.assertThat(header).thatIsNamed(LowerCaseCatalogue.HEADER).isNotBlank();
+		GlobalValidator.assertThat(header).thatIsNamed(LowerCaseCatalogue.HEADER).isNotBlank();
 		
 		//Sets the header of the current Node.
 		this.header = header;

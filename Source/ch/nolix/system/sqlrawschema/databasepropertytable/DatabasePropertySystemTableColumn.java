@@ -4,7 +4,7 @@ package ch.nolix.system.sqlrawschema.databasepropertytable;
 import ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi.Labeled;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.constant.PascalCaseCatalogue;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //class
 public enum DatabasePropertySystemTableColumn implements Labeled {
@@ -20,7 +20,7 @@ public enum DatabasePropertySystemTableColumn implements Labeled {
 	//constructor
 	DatabasePropertySystemTableColumn(final String label) {
 		
-		Validator.assertThat(label).thatIsNamed(LowerCaseCatalogue.LABEL).isNotBlank();
+		GlobalValidator.assertThat(label).thatIsNamed(LowerCaseCatalogue.LABEL).isNotBlank();
 		
 		this.label = label;
 	}

@@ -3,7 +3,7 @@ package ch.nolix.system.sqlbasicschema.schemaadapter;
 
 //own imports
 import ch.nolix.core.container.IContainer;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.sql.SQLCollector;
 import ch.nolix.core.sql.SQLConnection;
@@ -47,7 +47,7 @@ public final class SchemaWriter implements ISchemaWriter {
 		final ISchemaStatementCreator schemaStatementCreator
 	) {
 		
-		Validator.assertThat(schemaStatementCreator).thatIsNamed(ISchemaStatementCreator.class).isNotNull();
+		GlobalValidator.assertThat(schemaStatementCreator).thatIsNamed(ISchemaStatementCreator.class).isNotNull();
 		
 		mSQLConnection = pSQLConnection;
 		this.schemaStatementCreator = schemaStatementCreator;

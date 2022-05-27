@@ -4,7 +4,7 @@ package ch.nolix.system.nodedatabaserawdata.datawriter;
 //own imports
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.document.node.BaseNode;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.system.time.base.Time;
 import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataWriter;
@@ -28,7 +28,7 @@ public final class DataWriter implements IDataWriter {
 	//constructor
 	public DataWriter(final BaseNode nodeDatabase, final IContainer<ITableInfo> tableInfos) {
 		
-		Validator.assertThat(tableInfos).thatIsNamed("table definitions").isNotNull();
+		GlobalValidator.assertThat(tableInfos).thatIsNamed("table definitions").isNotNull();
 		
 		internalDataWriter = new InternalDataWriter(nodeDatabase);
 		this.tableInfos = tableInfos;		

@@ -5,7 +5,7 @@ package ch.nolix.system.nodedatabaserawdata.datareader;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.system.time.base.Time;
 import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataReader;
@@ -27,8 +27,8 @@ public final class DataReader implements IDataReader {
 	//constructor
 	public DataReader(final BaseNode databaseNode, final IContainer<ITableInfo> tableInfos) {
 		
-		Validator.assertThat(tableInfos).thatIsNamed("table definitions").isNotNull();
-		Validator.assertThat(tableInfos).thatIsNamed("table definitions").isNotNull();
+		GlobalValidator.assertThat(tableInfos).thatIsNamed("table definitions").isNotNull();
+		GlobalValidator.assertThat(tableInfos).thatIsNamed("table definitions").isNotNull();
 		
 		internalDataReader = new InternalDataReader(databaseNode);
 		this.tableInfos = tableInfos;

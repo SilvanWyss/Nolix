@@ -12,7 +12,7 @@ import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.systemapi.elementapi.IRespondingMutableElement;
 
 //class
@@ -35,7 +35,7 @@ implements IRespondingMutableElement<FE> {
 	//constructor
 	public FormatElement(final S baseState) {
 		
-		Validator.assertThat(baseState).thatIsNamed("base state").isNotNull();
+		GlobalValidator.assertThat(baseState).thatIsNamed("base state").isNotNull();
 		
 		availableStates = new StateExtractor<S>().createtStatesFromState(baseState);
 		this.baseState = availableStates.getRefFirst(s -> s.hasEnumValue(baseState));
@@ -91,7 +91,7 @@ implements IRespondingMutableElement<FE> {
 	//method
 	protected final <FE2 extends FormatElement<FE2, S>> void internalAddChild(final FE2 child) {
 		
-		Validator.assertThat(child).thatIsNamed(LowerCaseCatalogue.CHILD).isNotNull();
+		GlobalValidator.assertThat(child).thatIsNamed(LowerCaseCatalogue.CHILD).isNotNull();
 		
 		child.setParent(this);
 	}
@@ -99,7 +99,7 @@ implements IRespondingMutableElement<FE> {
 	//method
 	protected final void internalSwitchToState(final S state) {
 		
-		Validator.assertThat(state).thatIsNamed(LowerCaseCatalogue.STATE).isNotNull();
+		GlobalValidator.assertThat(state).thatIsNamed(LowerCaseCatalogue.STATE).isNotNull();
 		
 		currentState = availableStates.getRefFirst(s -> s.hasEnumValue(state));
 	}
@@ -148,7 +148,7 @@ implements IRespondingMutableElement<FE> {
 			cp.setParentProperty(parentCascadingProperties.removeAndGetRefFirst(pp -> pp.hasSameNameAs(cp)));
 		}
 		
-		Validator.assertThat(parentCascadingProperties).thatIsNamed("remaining parent cascading properties").isEmpty();
+		GlobalValidator.assertThat(parentCascadingProperties).thatIsNamed("remaining parent cascading properties").isEmpty();
 	}
 	
 	//method
@@ -200,7 +200,7 @@ implements IRespondingMutableElement<FE> {
 			@SuppressWarnings("unchecked")
 			final var property = (Property<S>)(field.get(this));
 			
-			Validator.assertThat(property).isOfType(Property.class);
+			GlobalValidator.assertThat(property).isOfType(Property.class);
 			
 			return property;
 		} catch (final IllegalAccessException illegalAccessException) {

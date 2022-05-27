@@ -3,7 +3,7 @@ package ch.nolix.system.gui.dialog;
 
 //own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.gui.base.Layer;
 import ch.nolix.system.gui.base.LayerRole;
 import ch.nolix.system.gui.containerwidget.AligningContainer;
@@ -19,7 +19,7 @@ public final class ErrorDialogCreator {
 	//static method
 	private static String getErrorMessageOf(final Exception exception) {
 		
-		Validator.assertThat(exception).thatIsNamed(Exception.class).isNotNull();
+		GlobalValidator.assertThat(exception).thatIsNamed(Exception.class).isNotNull();
 		
 		final var exceptionName = exception.getClass().getSimpleName();
 		
@@ -34,7 +34,7 @@ public final class ErrorDialogCreator {
 	//method
 	public Layer createWithErrorMessage(final String errorMessage) {
 		
-		Validator.assertThat(errorMessage).thatIsNamed(LowerCaseCatalogue.ERROR_MESSAGE).isNotBlank();
+		GlobalValidator.assertThat(errorMessage).thatIsNamed(LowerCaseCatalogue.ERROR_MESSAGE).isNotBlank();
 		
 		return
 		new Layer()

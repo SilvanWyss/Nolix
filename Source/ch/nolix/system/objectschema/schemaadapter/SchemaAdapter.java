@@ -3,7 +3,7 @@ package ch.nolix.system.objectschema.schemaadapter;
 
 //own imports
 import ch.nolix.core.container.IContainer;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.system.objectschema.parametrizedpropertytype.SchemaImplementation;
 import ch.nolix.system.objectschema.schema.Database;
@@ -37,7 +37,7 @@ public abstract class SchemaAdapter implements ISchemaAdapter<SchemaImplementati
 		final ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter rawSchemaAdapter
 	) {
 		
-		Validator
+		GlobalValidator
 		.assertThat(rawSchemaAdapter)
 		.thatIsNamed(ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter.class)
 		.isNotNull();

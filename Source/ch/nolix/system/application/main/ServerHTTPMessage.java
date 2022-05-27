@@ -3,7 +3,7 @@ package ch.nolix.system.application.main;
 
 //own imports
 import ch.nolix.core.environment.runningjar.RunningJar;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.application.main.resource.ResourcePathCatalogue;
 
 //class
@@ -20,8 +20,8 @@ final class ServerHTTPMessage {
 	//constructor
 	public ServerHTTPMessage(final String serverIP, final int serverPort) {
 		
-		Validator.assertThat(serverIP).thatIsNamed("server IP").isNotBlank();
-		Validator.assertThat(serverPort).thatIsNamed("server port").isBetween(0, 65535);
+		GlobalValidator.assertThat(serverIP).thatIsNamed("server IP").isNotBlank();
+		GlobalValidator.assertThat(serverPort).thatIsNamed("server port").isBetween(0, 65535);
 		
 		this.serverIP = serverIP;
 		this.serverPort = serverPort;

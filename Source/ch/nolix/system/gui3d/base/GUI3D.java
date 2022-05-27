@@ -17,7 +17,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.skilluniversalapi.Clearable;
 import ch.nolix.system.configuration.ConfigurationElement;
@@ -116,10 +116,10 @@ public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G> 
 	public final G addShapeClass(final Class<?> shapeClass, IShapeRenderer<?, ?, ?> shapeRenderer) {
 		
 		//Asserts that the given shape class is not null.
-		Validator.assertThat(shapeClass).thatIsNamed("shape class").isNotNull();
+		GlobalValidator.assertThat(shapeClass).thatIsNamed("shape class").isNotNull();
 		
 		//Asserts that the given shape renderer is not null.
-		Validator.assertThat(shapeRenderer).thatIsNamed("shape renderer").isNotNull();
+		GlobalValidator.assertThat(shapeRenderer).thatIsNamed("shape renderer").isNotNull();
 		
 		//Asserts that the current {@link _3D_GUI} does not contain already
 		//a shape class with the same name as the given shape class.
@@ -350,7 +350,7 @@ public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G> 
 	public final G setTitle(final String title) {
 		
 		//Asserts that the given title is not blank.
-		Validator.assertThat(title).thatIsNamed(LowerCaseCatalogue.TITLE).isNotBlank();
+		GlobalValidator.assertThat(title).thatIsNamed(LowerCaseCatalogue.TITLE).isNotBlank();
 		
 		//Sets the title of the current 3D_GUI.
 		this.title.setValue(title);

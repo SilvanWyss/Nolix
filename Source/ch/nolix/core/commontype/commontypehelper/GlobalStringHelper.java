@@ -9,7 +9,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.sequencer.Sequencer;
 
 //class
@@ -34,10 +34,10 @@ public final class GlobalStringHelper {
 	public static String createStringWithLength(final String string, final int length) {
 		
 		//Asserts that the given string is not null.
-		Validator.assertThat(string).isNotNull();
+		GlobalValidator.assertThat(string).isNotNull();
 		
 		//Asserts that the given length is not negative.
-		Validator.assertThat(length).thatIsNamed("length").isNotNegative();
+		GlobalValidator.assertThat(length).thatIsNamed("length").isNotNegative();
 		
 		//Asserts that the given string is not longer than the given length.
 		if (string.length() > length) {
@@ -76,7 +76,7 @@ public final class GlobalStringHelper {
 	public static String createTabulators(final int tabulatorCount) {
 		
 		//Asserts that the given tabulatorCount is not negative.
-		Validator.assertThat(tabulatorCount).thatIsNamed("tabulator count").isNotNegative();
+		GlobalValidator.assertThat(tabulatorCount).thatIsNamed("tabulator count").isNotNegative();
 		
 		final var stringBuilder = new StringBuilder();
 		
@@ -213,7 +213,7 @@ public final class GlobalStringHelper {
 	public static long toLong(final String string) {
 		
 		//Asserts that the given string is not null or empty.
-		Validator.assertThat(string).isNotEmpty();
+		GlobalValidator.assertThat(string).isNotEmpty();
 		
 		var startIndex = 0;
 		

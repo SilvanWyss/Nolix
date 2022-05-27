@@ -3,7 +3,7 @@ package ch.nolix.system.application.baseguiapplication;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IElementTaker;
 import ch.nolix.core.functionuniversalapi.IIntGetter;
 import ch.nolix.system.elementenum.RotationDirection;
@@ -46,14 +46,14 @@ final class BaseFrontendGUIClientGUIInputTaker implements IResizableInputTaker {
 		final IIntGetter cursorYPositionOnViewAreaGetter
 	) {
 		
-		Validator.assertThat(inputTaker).thatIsNamed("input taker").isNotNull();
+		GlobalValidator.assertThat(inputTaker).thatIsNamed("input taker").isNotNull();
 		
-		Validator
+		GlobalValidator
 		.assertThat(cursorXPositionOnViewAreaGetter)
 		.thatIsNamed("cursor x-position on view area getter")
 		.isNotNull();
 		
-		Validator
+		GlobalValidator
 		.assertThat(cursorYPositionOnViewAreaGetter)
 		.thatIsNamed("cursor y-position on view area getter")
 		.isNotNull();

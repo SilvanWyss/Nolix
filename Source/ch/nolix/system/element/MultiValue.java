@@ -12,7 +12,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IElementTaker;
 import ch.nolix.core.functionuniversalapi.IElementTakerElementGetter;
 import ch.nolix.core.skilluniversalapi.Clearable;
@@ -82,7 +82,7 @@ public final class MultiValue<V> extends BaseValue<V> implements Clearable, ICon
 		super(name, valueCreator, specificationCreator);
 		
 		//Asserts that the given adderMethod is not null.
-		Validator.assertThat(adderMethod).thatIsNamed("adder method").isNotNull();
+		GlobalValidator.assertThat(adderMethod).thatIsNamed("adder method").isNotNull();
 		
 		//Sets the adderMethod of the current MultiProperty.
 		this.adderMethod = adderMethod;

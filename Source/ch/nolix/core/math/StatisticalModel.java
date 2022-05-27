@@ -4,7 +4,7 @@ package ch.nolix.core.math;
 //own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.LinkedList;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //class
 /**
@@ -23,8 +23,8 @@ public abstract class StatisticalModel {
 	//constructor
 	public StatisticalModel(final int backStepsCount, final double[] inputValues) {
 				
-		Validator.assertThat(inputValues).thatIsNamed("input values").isNotEmpty();
-		Validator.assertThat(backStepsCount).thatIsNamed("back step count").isBetween(1, inputValues.length);
+		GlobalValidator.assertThat(inputValues).thatIsNamed("input values").isNotEmpty();
+		GlobalValidator.assertThat(backStepsCount).thatIsNamed("back step count").isBetween(1, inputValues.length);
 		
 		this.backStepCount = backStepsCount;
 		this.inputValues = inputValues.clone();
@@ -43,7 +43,7 @@ public abstract class StatisticalModel {
 	//method
 	public final double getForecast(final int index) {
 		
-		Validator.assertThat(index).thatIsNamed("index").isPositive();
+		GlobalValidator.assertThat(index).thatIsNamed("index").isPositive();
 		
 		while (forecasts.getElementCount() < index) {
 			forecasts.addAtEnd(calculateNextValue());
@@ -63,9 +63,9 @@ public abstract class StatisticalModel {
 	//method
 	protected final double getValueFromBack(final int index) {
 		
-		Validator.assertThat(index).thatIsNamed(LowerCaseCatalogue.INDEX).isPositive();
+		GlobalValidator.assertThat(index).thatIsNamed(LowerCaseCatalogue.INDEX).isPositive();
 		
-		Validator
+		GlobalValidator
 		.assertThat(index)
 		.thatIsNamed(LowerCaseCatalogue.INDEX)
 		.isNotBiggerThan(inputValues.length + forecasts.getElementCount());

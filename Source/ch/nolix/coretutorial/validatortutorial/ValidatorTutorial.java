@@ -4,10 +4,10 @@ package ch.nolix.coretutorial.validatortutorial;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 /**
- * The {@link ValidatorTutorial} is a tutorial for the {@link Validator}.
+ * The {@link ValidatorTutorial} is a tutorial for the {@link GlobalValidator}.
  * Of the {@link ValidatorTutorial} an instance cannot be created.
  * 
  * @author Silvan Wys
@@ -33,10 +33,10 @@ public final class ValidatorTutorial {
 	private static void printAmount(final String productName, final int amount) {
 		
 		//Asserts that the given productName is not null or empty.
-		Validator.assertThat(productName).thatIsNamed("product name").isNotEmpty();
+		GlobalValidator.assertThat(productName).thatIsNamed("product name").isNotEmpty();
 		
 		//Asserts that the given amount is not negative.
-		Validator.assertThat(amount).thatIsNamed("amount").isNotNegative();
+		GlobalValidator.assertThat(amount).thatIsNamed("amount").isNotNegative();
 		
 		System.out.println(productName + ": " + amount + " pieces");
 	}

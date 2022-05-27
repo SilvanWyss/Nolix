@@ -3,7 +3,7 @@ package ch.nolix.core.math;
 
 //own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //class
 public final class IntRoundingWithModeMediator {
@@ -15,7 +15,7 @@ public final class IntRoundingWithModeMediator {
 	//class
 	IntRoundingWithModeMediator(final int value, final RoundingMode roundingMode) {
 		
-		Validator
+		GlobalValidator
 		.assertThat(roundingMode)
 		.thatIsNamed("rounding mode")
 		.isNotNull();
@@ -27,7 +27,7 @@ public final class IntRoundingWithModeMediator {
 	//method
 	public int toNext(final int step) {
 		
-		Validator.assertThat(step).thatIsNamed(LowerCaseCatalogue.STEP).isPositive();
+		GlobalValidator.assertThat(step).thatIsNamed(LowerCaseCatalogue.STEP).isPositive();
 		
 		final var rest = value % step;
 		

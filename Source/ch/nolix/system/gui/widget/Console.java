@@ -9,7 +9,7 @@ import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.skilluniversalapi.Clearable;
 import ch.nolix.system.element.MultiValue;
 import ch.nolix.system.element.MutableValue;
@@ -806,7 +806,7 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	private void setSecretEditLine(final String secretEditLine) {
 		
 		//Asserts that the given secret edit line is not null.
-		Validator
+		GlobalValidator
 		.assertThat(secretEditLine)
 		.thatIsNamed("secret edit line")
 		.isNotNull();

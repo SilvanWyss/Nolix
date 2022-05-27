@@ -7,7 +7,7 @@ import java.util.HashMap;
 //own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.processproperty.WriteMode;
 import ch.nolix.core.provider.implproviderapi.IImplProvider;
 import ch.nolix.core.provider.implproviderapi.IImplProviderMediator;
@@ -49,8 +49,8 @@ public final class ImplProvider implements IImplProvider {
 		final WriteMode writeMode
 	) {
 		
-		Validator.assertThat(pInterface).thatIsNamed(LowerCaseCatalogue.INTERFACE).isInterface();
-		Validator.assertThat(implementation).thatIsNamed("implementation").isImplementing(pInterface);
+		GlobalValidator.assertThat(pInterface).thatIsNamed(LowerCaseCatalogue.INTERFACE).isInterface();
+		GlobalValidator.assertThat(implementation).thatIsNamed("implementation").isImplementing(pInterface);
 		
 		switch (writeMode) {
 			case THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY:

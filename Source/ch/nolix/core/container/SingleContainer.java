@@ -5,7 +5,7 @@ package ch.nolix.core.container;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //class
 /**
@@ -39,7 +39,7 @@ public final class SingleContainer<E> implements IContainer<E> {
 	public SingleContainer(final E element) {
 		
 		//Asserts that the given element is not null.
-		Validator.assertThat(element).thatIsNamed(LowerCaseCatalogue.ELEMENT).isNotNull();
+		GlobalValidator.assertThat(element).thatIsNamed(LowerCaseCatalogue.ELEMENT).isNotNull();
 		
 		//Sets the element of the current SingleContainer.
 		this.element = element;
@@ -70,7 +70,7 @@ public final class SingleContainer<E> implements IContainer<E> {
 	@Override
 	public E getRefAt(final int index) {
 		
-		Validator.assertThat(index).thatIsNamed(LowerCaseCatalogue.INDEX).isEqualTo(1);
+		GlobalValidator.assertThat(index).thatIsNamed(LowerCaseCatalogue.INDEX).isEqualTo(1);
 		
 		return getRefElement();
 	}

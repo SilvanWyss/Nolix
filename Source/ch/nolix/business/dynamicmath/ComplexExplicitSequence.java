@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 
 //own imports
 import ch.nolix.businessapi.dynamicmathapi.IComplexNumber;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IIntTakerElementGetter;
 
 //class
@@ -18,7 +18,7 @@ public final class ComplexExplicitSequence extends Sequence<IComplexNumber> {
 	//constructor
 	public ComplexExplicitSequence(final IIntTakerElementGetter<IComplexNumber> valueFunction) {
 		
-		Validator.assertThat(valueFunction).thatIsNamed("value function").isNotNull();
+		GlobalValidator.assertThat(valueFunction).thatIsNamed("value function").isNotNull();
 		
 		this.valueFunction = valueFunction;
 	}

@@ -9,7 +9,7 @@ import java.math.RoundingMode;
 //own imports
 import ch.nolix.businessapi.dynamicmathapi.IComplexNumber;
 import ch.nolix.core.constant.LowerCaseCatalogue;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.math.Calculator;
 
 //class
@@ -24,8 +24,8 @@ public final class ComplexNumber implements IComplexNumber {
 	//constructor
 	public ComplexNumber(final BigDecimal realComponent, final BigDecimal imaginaryComponent) {
 		
-		Validator.assertThat(realComponent).thatIsNamed("real component").isNotNull();
-		Validator.assertThat(imaginaryComponent).thatIsNamed("imaginary component").isNotNull();
+		GlobalValidator.assertThat(realComponent).thatIsNamed("real component").isNotNull();
+		GlobalValidator.assertThat(imaginaryComponent).thatIsNamed("imaginary component").isNotNull();
 		
 		final var bigDecimalScale = Calculator.getMax(realComponent.scale(), imaginaryComponent.scale(), 10);
 		this.realComponent = realComponent.setScale(bigDecimalScale, RoundingMode.HALF_UP);
@@ -39,9 +39,9 @@ public final class ComplexNumber implements IComplexNumber {
 		final int bigDecimalScale
 	) {
 		
-		Validator.assertThat(realComponent).thatIsNamed("real component").isNotNull();
-		Validator.assertThat(imaginaryComponent).thatIsNamed("imaginary component").isNotNull();
-		Validator.assertThat(bigDecimalScale).thatIsNamed("big decimal scale").isPositive();
+		GlobalValidator.assertThat(realComponent).thatIsNamed("real component").isNotNull();
+		GlobalValidator.assertThat(imaginaryComponent).thatIsNamed("imaginary component").isNotNull();
+		GlobalValidator.assertThat(bigDecimalScale).thatIsNamed("big decimal scale").isPositive();
 		
 		this.realComponent = realComponent.setScale(bigDecimalScale, RoundingMode.HALF_UP);
 		this.imaginaryComponent = imaginaryComponent.setScale(bigDecimalScale, RoundingMode.HALF_UP);
@@ -63,7 +63,7 @@ public final class ComplexNumber implements IComplexNumber {
 	//constructor
 	public ComplexNumber(final double realComponent, final double imaginaryComponent, final int bigDecimalScale) {
 		
-		Validator.assertThat(bigDecimalScale).thatIsNamed("big decimal scale").isPositive();
+		GlobalValidator.assertThat(bigDecimalScale).thatIsNamed("big decimal scale").isPositive();
 		
 		this.realComponent = BigDecimal.valueOf(realComponent).setScale(bigDecimalScale, RoundingMode.HALF_UP);
 		
@@ -75,7 +75,7 @@ public final class ComplexNumber implements IComplexNumber {
 	@Override
 	public int compareTo(final IComplexNumber complexNumber) {
 		
-		Validator.assertThat(complexNumber).thatIsNamed("complex number").isNotNull();
+		GlobalValidator.assertThat(complexNumber).thatIsNamed("complex number").isNotNull();
 		
 		return getMagnitude().compareTo(complexNumber.getMagnitude());
 	}
@@ -124,7 +124,7 @@ public final class ComplexNumber implements IComplexNumber {
 	@Override
 	public ComplexNumber getPower(final int exponent) {
 		
-		Validator.assertThat(exponent).thatIsNamed(LowerCaseCatalogue.EXPONENT).isPositive();
+		GlobalValidator.assertThat(exponent).thatIsNamed(LowerCaseCatalogue.EXPONENT).isPositive();
 		
 		var complexNumber = this;		
 		for (var i = 2; i <= exponent; i++) {

@@ -4,7 +4,7 @@ package ch.nolix.core.net.endpoint2;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IElementTakerElementGetter;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.programcontrol.groupcloseable.GroupCloseable;
@@ -81,7 +81,7 @@ public abstract class EndPoint implements GroupCloseable {
 	public void setReplier(final IElementTakerElementGetter<String, String> replier) {
 		
 		//Asserts that the given replier is not null.
-		Validator.assertThat(replier).thatIsNamed("replier").isNotNull();
+		GlobalValidator.assertThat(replier).thatIsNamed("replier").isNotNull();
 		
 		//Sets the replier of this end point.
 		this.replier = replier;

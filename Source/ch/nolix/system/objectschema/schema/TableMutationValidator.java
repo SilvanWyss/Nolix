@@ -3,7 +3,7 @@ package ch.nolix.system.objectschema.schema;
 
 //own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.objectschema.parametrizedpropertytype.BaseParametrizedBackReferenceType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.BaseParametrizedReferenceType;
 import ch.nolix.system.objectschema.schemahelper.ColumnHelper;
@@ -66,6 +66,6 @@ final class TableMutationValidator {
 			databaseHelper.assertDoesNotContainTableWithGivenName(table.getParentDatabase(), name);
 		}
 		
-		Validator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
+		GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
 	}
 }

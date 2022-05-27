@@ -5,7 +5,7 @@ package ch.nolix.system.gui.widget;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.griduniversalapi.Rectangular;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 
@@ -36,7 +36,7 @@ public final class BorderWidgetExtendedContentArea<BWL extends BorderWidgetLook<
 	BorderWidgetExtendedContentArea(final BorderWidget<?, BWL> parentBorderWidget) {
 		
 		//Asserts that the given parentBorderWidget is not null.
-		Validator.assertThat(parentBorderWidget).thatIsNamed("parent BorderWidget").isNotNull();
+		GlobalValidator.assertThat(parentBorderWidget).thatIsNamed("parent BorderWidget").isNotNull();
 		
 		//Sets the parentBorderWidget of the current BorderWidgetExtendedArea.
 		this.parentBorderWidget = parentBorderWidget;

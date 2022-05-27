@@ -18,7 +18,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.SmallerArgumentException;
 import ch.nolix.core.errorcontrol.logger.GlobalLogger;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.I2ElementTakerBooleanGetter;
 import ch.nolix.core.functionuniversalapi.IElementTaker;
 import ch.nolix.core.functionuniversalapi.IElementTakerBooleanGetter;
@@ -2040,7 +2040,7 @@ public interface IContainer<E> extends Iterable<E> {
 	default String toString(final String separator) {
 		
 		//Asserts that the given separator is not null.
-		Validator
+		GlobalValidator
 		.assertThat(separator)
 		.thatIsNamed(LowerCaseCatalogue.SEPARATOR)
 		.isNotNull();
@@ -2157,7 +2157,7 @@ public interface IContainer<E> extends Iterable<E> {
 		final var elementCount = getElementCount();
 		
 		//Asserts that the given n is positive.
-		Validator.assertThat(n).thatIsNamed("n").isPositive();
+		GlobalValidator.assertThat(n).thatIsNamed("n").isPositive();
 		
 		//Handles the case that the current IContainer contains less than n elements.
 		if (n < elementCount) {
@@ -2199,7 +2199,7 @@ public interface IContainer<E> extends Iterable<E> {
 		final var elementCount = getElementCount();
 		
 		//Asserts that the given n is positive.
-		Validator.assertThat(n).thatIsNamed("n").isPositive();
+		GlobalValidator.assertThat(n).thatIsNamed("n").isPositive();
 		
 		//Handles the case that the current IContainer contains less than n elements.
 		if (n < elementCount) {

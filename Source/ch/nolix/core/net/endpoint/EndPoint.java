@@ -8,7 +8,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IElementTaker;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.programcontrol.groupcloseable.GroupCloseable;
@@ -42,7 +42,7 @@ public abstract class EndPoint implements GroupCloseable {
 	 */
 	EndPoint(final ConnectionOrigin connectionOrigin) {
 		
-		Validator.assertThat(connectionOrigin).thatIsNamed(ConnectionOrigin.class).isNotNull();
+		GlobalValidator.assertThat(connectionOrigin).thatIsNamed(ConnectionOrigin.class).isNotNull();
 		
 		requestedConnection = connectionOrigin == ConnectionOrigin.REQUESTED_CONNECTION;
 	}
@@ -59,7 +59,7 @@ public abstract class EndPoint implements GroupCloseable {
 	 */
 	EndPoint(final ConnectionOrigin connectionOrigin, final String target) {
 		
-		Validator.assertThat(connectionOrigin).thatIsNamed(ConnectionOrigin.class).isNotNull();
+		GlobalValidator.assertThat(connectionOrigin).thatIsNamed(ConnectionOrigin.class).isNotNull();
 		
 		requestedConnection = connectionOrigin == ConnectionOrigin.REQUESTED_CONNECTION;
 		setTarget(target);
@@ -151,7 +151,7 @@ public abstract class EndPoint implements GroupCloseable {
 	public final void setReceiver(final IElementTaker<String> receiver) {
 		
 		//Asserts that the given receiver is not null.
-		Validator.assertThat(receiver).thatIsNamed(LowerCaseCatalogue.RECEIVER).isNotNull();
+		GlobalValidator.assertThat(receiver).thatIsNamed(LowerCaseCatalogue.RECEIVER).isNotNull();
 		
 		//Asserts that the current EndPoint is open.
 		assertIsOpen();
@@ -200,7 +200,7 @@ public abstract class EndPoint implements GroupCloseable {
 	protected final void setTarget(final String target) {
 		
 		//Asserts that the given target is not null or blank.
-		Validator.assertThat(target).thatIsNamed(LowerCaseCatalogue.TARGET).isNotBlank();
+		GlobalValidator.assertThat(target).thatIsNamed(LowerCaseCatalogue.TARGET).isNotBlank();
 		
 		//Asserts that the current net EndPoint is open.
 		assertIsOpen();

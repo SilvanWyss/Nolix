@@ -9,7 +9,7 @@ import java.util.Iterator;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.skilluniversalapi.Clearable;
 
 //class
@@ -28,8 +28,8 @@ public final class GapMatrix<E> implements Clearable, IContainer<E> {
 	//constructor
 	public GapMatrix(final int rowCount, final int columnCount) {
 		
-		Validator.assertThat(rowCount).thatIsNamed(LowerCaseCatalogue.ROW_COUNT).isNotNegative();
-		Validator.assertThat(columnCount).thatIsNamed(LowerCaseCatalogue.COLUMN_COUNT).isNotNegative();
+		GlobalValidator.assertThat(rowCount).thatIsNamed(LowerCaseCatalogue.ROW_COUNT).isNotNegative();
+		GlobalValidator.assertThat(columnCount).thatIsNamed(LowerCaseCatalogue.COLUMN_COUNT).isNotNegative();
 		
 		rows = new Object[rowCount][columnCount];
 		this.columnCount = columnCount;
@@ -136,7 +136,7 @@ public final class GapMatrix<E> implements Clearable, IContainer<E> {
 	//method
 	public void insert(final int rowIndex, final int columnIndex, final E element) {
 		
-		Validator.assertThat(element).thatIsNamed(LowerCaseCatalogue.ELEMENT).isNotNull();
+		GlobalValidator.assertThat(element).thatIsNamed(LowerCaseCatalogue.ELEMENT).isNotNull();
 		
 		assertCanContainElementAt(rowIndex, columnIndex);
 		
@@ -161,22 +161,22 @@ public final class GapMatrix<E> implements Clearable, IContainer<E> {
 	//method
 	private void assertCanContainElementAt(final int rowIndex, final int columnIndex) {
 		
-		Validator
+		GlobalValidator
 		.assertThat(rowIndex)
 		.thatIsNamed(LowerCaseCatalogue.ROW_INDEX)
 		.isPositive();
 		
-		Validator
+		GlobalValidator
 		.assertThat(rowIndex)
 		.thatIsNamed(LowerCaseCatalogue.ROW_INDEX)
 		.isNotBiggerThan(getRowCount());
 		
-		Validator
+		GlobalValidator
 		.assertThat(columnIndex)
 		.thatIsNamed(LowerCaseCatalogue.COLUMN_INDEX)
 		.isPositive();
 		
-		Validator
+		GlobalValidator
 		.assertThat(columnIndex)
 		.thatIsNamed(LowerCaseCatalogue.COLUMN_INDEX)
 		.isNotBiggerThan(getColumnCount());

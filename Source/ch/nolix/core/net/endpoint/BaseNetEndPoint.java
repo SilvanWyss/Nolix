@@ -5,7 +5,7 @@ package ch.nolix.core.net.endpoint;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.processproperty.ConnectionOrigin;
 import ch.nolix.core.programcontrol.processproperty.TargetInfoState;
 import ch.nolix.core.programcontrol.sequencer.Sequencer;
@@ -43,7 +43,7 @@ public abstract class BaseNetEndPoint extends EndPoint {
 		super(connectionOrigin);
 		
 		//Asserts that the given targetInfoState is not null.
-		Validator.assertThat(targetInfoState).thatIsNamed(TargetInfoState.class).isNotNull();
+		GlobalValidator.assertThat(targetInfoState).thatIsNamed(TargetInfoState.class).isNotNull();
 		
 		if (targetInfoState == TargetInfoState.RECEIVED_TARGET_INFO) {
 			confirmReceivedTargetInfo();
@@ -208,7 +208,7 @@ public abstract class BaseNetEndPoint extends EndPoint {
 				receiveMessage(rawMessage.substring(1));
 				break;
 			case NetEndPointProtocol.CLOSE_PREFIX:
-				Validator.assertThat(rawMessage).thatIsNamed(RAW_MESSAGE_VARIABLE_NAME).hasLength(1);
+				GlobalValidator.assertThat(rawMessage).thatIsNamed(RAW_MESSAGE_VARIABLE_NAME).hasLength(1);
 				close();
 				break;
 			default:

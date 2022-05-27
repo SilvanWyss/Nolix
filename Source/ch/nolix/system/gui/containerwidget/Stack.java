@@ -10,7 +10,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.element.MultiValueExtractor;
 import ch.nolix.system.element.MutableOptionalValue;
 import ch.nolix.system.elementenum.RotationDirection;
@@ -69,7 +69,7 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	public final S add(final Widget<?, ?> widget) {
 		
 		//Asserts that the given widget is not null.
-		Validator.assertThat(widget).isOfType(Widget.class);
+		GlobalValidator.assertThat(widget).isOfType(Widget.class);
 		
 		widgets.addAtEnd(widget);
 		
@@ -170,7 +170,7 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	 */
 	public final S setElementMargin(final int elementMargin) {
 		
-		Validator.assertThat(elementMargin).thatIsNamed("element margin").isNotNegative();
+		GlobalValidator.assertThat(elementMargin).thatIsNamed("element margin").isNotNegative();
 		
 		this.elementMargin.setValue(elementMargin);
 		

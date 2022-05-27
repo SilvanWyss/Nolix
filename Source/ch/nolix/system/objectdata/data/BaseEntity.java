@@ -7,7 +7,7 @@ import ch.nolix.core.container.IContainer;
 import ch.nolix.core.data.GlobalIdCreator;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.DeletedArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.objectdata.datahelper.EntityHelper;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.DatabaseObjectState;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
@@ -176,7 +176,7 @@ public abstract class BaseEntity implements IEntity<DataImplementation> {
 	//method
 	final void internalSetId(final String id) {
 		
-		Validator.assertThat(id).thatIsNamed(LowerCaseCatalogue.ID).isNotBlank();
+		GlobalValidator.assertThat(id).thatIsNamed(LowerCaseCatalogue.ID).isNotBlank();
 		
 		this.id = id;
 	}
@@ -192,7 +192,7 @@ public abstract class BaseEntity implements IEntity<DataImplementation> {
 	//method
 	final void internalSetParentTable(final ITable<DataImplementation, IEntity<DataImplementation>> parentTable) {
 		
-		Validator.assertThat(parentTable).thatIsNamed("parent table").isNotNull();
+		GlobalValidator.assertThat(parentTable).thatIsNamed("parent table").isNotNull();
 		
 		this.parentTable = parentTable;
 		
@@ -202,7 +202,7 @@ public abstract class BaseEntity implements IEntity<DataImplementation> {
 	//method
 	final void internalSetSaveStamp(final String saveStamp) {
 		
-		Validator.assertThat(saveStamp).thatIsNamed(LowerCaseCatalogue.SAVE_STAMP).isNotNull();
+		GlobalValidator.assertThat(saveStamp).thatIsNamed(LowerCaseCatalogue.SAVE_STAMP).isNotNull();
 		
 		this.saveStamp = saveStamp;
 	}

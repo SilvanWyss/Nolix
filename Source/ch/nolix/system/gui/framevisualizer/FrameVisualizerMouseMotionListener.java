@@ -6,7 +6,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 
 //own imports
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.sequencer.Sequencer;
 import ch.nolix.system.gui.base.GUI;
 
@@ -20,7 +20,7 @@ public final class FrameVisualizerMouseMotionListener implements MouseMotionList
 	//constructor
 	public FrameVisualizerMouseMotionListener(final GUI<?> frameVisualizer) {
 		
-		Validator.assertThat(frameVisualizer).isOfType(FrameVisualizer.class);
+		GlobalValidator.assertThat(frameVisualizer).isOfType(FrameVisualizer.class);
 		
 		this.mGUI = frameVisualizer;
 	}

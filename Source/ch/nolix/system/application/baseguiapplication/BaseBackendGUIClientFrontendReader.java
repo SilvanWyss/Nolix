@@ -5,7 +5,7 @@ package ch.nolix.system.application.baseguiapplication;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.container.SingleContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.systemapi.guiapi.baseapi.IFrontEndReader;
 
 //class
@@ -17,7 +17,7 @@ final class BaseBackendGUIClientFrontendReader implements IFrontEndReader {
 	//constructor
 	public BaseBackendGUIClientFrontendReader(final BaseBackendGUIClient<?, ?> parentBackGUIClient) {
 		
-		Validator.assertThat(parentBackGUIClient).thatIsNamed("parent BackGUIClient").isNotNull();
+		GlobalValidator.assertThat(parentBackGUIClient).thatIsNamed("parent BackGUIClient").isNotNull();
 		
 		this.parentBackGUIClient = parentBackGUIClient;
 	}

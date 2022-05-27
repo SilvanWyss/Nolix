@@ -20,7 +20,7 @@ import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.environment.runningjar.RunningJar;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.element.MutableElement;
 import ch.nolix.system.element.MutableSpecificationValueExtractor;
 import ch.nolix.system.element.Value;
@@ -121,9 +121,9 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 	//static method
 	public static MutableImage withWidthAndHeightAndColor(final int width, final int height, final Color color) {
 		
-		Validator.assertThat(width).thatIsNamed(LowerCaseCatalogue.WIDTH).isPositive();
-		Validator.assertThat(height).thatIsNamed(LowerCaseCatalogue.HEIGHT).isPositive();
-		Validator.assertThat(color).thatIsNamed(Color.class).isNotNull();
+		GlobalValidator.assertThat(width).thatIsNamed(LowerCaseCatalogue.WIDTH).isPositive();
+		GlobalValidator.assertThat(height).thatIsNamed(LowerCaseCatalogue.HEIGHT).isPositive();
+		GlobalValidator.assertThat(color).thatIsNamed(Color.class).isNotNull();
 		
 		var pixels = new Matrix<Color>();
 		
@@ -244,10 +244,10 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 	@Override
 	public MutableImage getSection(final int xPosition, final int yPosition, final int width, final int height) {
 		
-		Validator.assertThat(xPosition).thatIsNamed("x-position").isPositive();
-		Validator.assertThat(xPosition).thatIsNamed("y-position").isPositive();
-		Validator.assertThat(width).thatIsNamed(LowerCaseCatalogue.WIDTH).isBetween(0, getWidth() - xPosition + 1);
-		Validator.assertThat(height).thatIsNamed(LowerCaseCatalogue.WIDTH).isBetween(0, getHeight() - yPosition + 1);
+		GlobalValidator.assertThat(xPosition).thatIsNamed("x-position").isPositive();
+		GlobalValidator.assertThat(xPosition).thatIsNamed("y-position").isPositive();
+		GlobalValidator.assertThat(width).thatIsNamed(LowerCaseCatalogue.WIDTH).isBetween(0, getWidth() - xPosition + 1);
+		GlobalValidator.assertThat(height).thatIsNamed(LowerCaseCatalogue.WIDTH).isBetween(0, getHeight() - yPosition + 1);
 		
 		final var section = MutableImage.withWidthAndHeight(width, height);
 		for (var i = 1; i <= width; i++) {
@@ -314,7 +314,7 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 		
 		final var lPixelArray = pixelArray.getRefAttributes();
 		
-		Validator.assertThat(lPixelArray.getElementCount()).thatIsNamed("number of pixels").isEqualTo(getPixelCount());
+		GlobalValidator.assertThat(lPixelArray.getElementCount()).thatIsNamed("number of pixels").isEqualTo(getPixelCount());
 		
 		deletePixelArraySpecificationAndBufferedImage();
 		
@@ -330,7 +330,7 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 		
 		final var lPixelArray = ReadContainer.forIterable(pixelArray);
 		
-		Validator.assertThat(lPixelArray.getElementCount()).thatIsNamed("number of pixels").isEqualTo(getPixelCount());
+		GlobalValidator.assertThat(lPixelArray.getElementCount()).thatIsNamed("number of pixels").isEqualTo(getPixelCount());
 				
 		deletePixelArraySpecificationAndBufferedImage();
 		
@@ -435,7 +435,7 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 	@Override
 	public MutableImage toScaledImage(final double factor) {
 		
-		Validator.assertThat(factor).thatIsNamed(LowerCaseCatalogue.FACTOR).isPositive();
+		GlobalValidator.assertThat(factor).thatIsNamed(LowerCaseCatalogue.FACTOR).isPositive();
 		
 		return toScaledImage(factor, factor);
 	}
@@ -444,8 +444,8 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 	@Override
 	public MutableImage toScaledImage(final double widthFactor, final double heightFactor) {
 		
-		Validator.assertThat(widthFactor).thatIsNamed("width factor").isPositive();
-		Validator.assertThat(heightFactor).thatIsNamed("height factor").isPositive();
+		GlobalValidator.assertThat(widthFactor).thatIsNamed("width factor").isPositive();
+		GlobalValidator.assertThat(heightFactor).thatIsNamed("height factor").isPositive();
 		
 		final var image = MutableImage.withWidthAndHeight((int)(widthFactor * getWidth()), (int)(heightFactor * getHeight()));
 		final var reziprocalWidthFactor = 1.0 / widthFactor;
@@ -557,7 +557,7 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 	//method
 	private void setHeight(final int height) {
 		
-		Validator.assertThat(height).thatIsNamed(LowerCaseCatalogue.HEIGHT).isPositive();
+		GlobalValidator.assertThat(height).thatIsNamed(LowerCaseCatalogue.HEIGHT).isPositive();
 		
 		this.height.setValue(height);
 	}
@@ -565,7 +565,7 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 	//method
 	private void setWidth(final int width) {
 		
-		Validator.assertThat(width).thatIsNamed(LowerCaseCatalogue.WIDTH).isPositive();
+		GlobalValidator.assertThat(width).thatIsNamed(LowerCaseCatalogue.WIDTH).isPositive();
 		
 		this.width.setValue(width);
 	}

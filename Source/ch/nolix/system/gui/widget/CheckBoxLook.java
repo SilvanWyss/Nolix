@@ -5,7 +5,7 @@ package ch.nolix.system.gui.widget;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.formatelement.NonCascadingProperty;
 
 //class
@@ -41,7 +41,7 @@ public final class CheckBoxLook extends BorderWidgetLook<CheckBoxLook> {
 	//method
 	public CheckBoxLook setLineThicknessForState(final WidgetLookState state, final int lineThickness) {
 		
-		Validator.assertThat(lineThickness).thatIsNamed(LowerCaseCatalogue.LINE_THICKNESS).isNotNegative();
+		GlobalValidator.assertThat(lineThickness).thatIsNamed(LowerCaseCatalogue.LINE_THICKNESS).isNotNegative();
 		
 		this.lineThickness.setValueForState(state, lineThickness);
 		

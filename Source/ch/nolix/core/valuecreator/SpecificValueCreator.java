@@ -3,7 +3,7 @@ package ch.nolix.core.valuecreator;
 
 //own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IElementTakerElementGetter;
 
 //class
@@ -17,8 +17,8 @@ public final class SpecificValueCreator<S, V> {
 	//constructor
 	public SpecificValueCreator(final Class<V> valueClass, final IElementTakerElementGetter<S, V> creator) {
 		
-		Validator.assertThat(valueClass).thatIsNamed("value Class").isNotNull();
-		Validator.assertThat(creator).thatIsNamed(LowerCaseCatalogue.CREATOR).isNotNull();
+		GlobalValidator.assertThat(valueClass).thatIsNamed("value Class").isNotNull();
+		GlobalValidator.assertThat(creator).thatIsNamed(LowerCaseCatalogue.CREATOR).isNotNull();
 		
 		this.valueClass = valueClass;
 		this.creator = creator;

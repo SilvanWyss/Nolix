@@ -2,7 +2,7 @@
 package ch.nolix.core.net.endpoint;
 
 //own imports
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.websocket.WebSocketCompleteMessage;
 import ch.nolix.core.programcontrol.worker.Worker;
 
@@ -15,7 +15,7 @@ final class WebEndPointMessageListener extends Worker {
 	//constructor
 	public WebEndPointMessageListener(final WebEndPoint parentWebEndPoint) {
 		
-		Validator.assertThat(parentWebEndPoint).thatIsNamed("parent WebEndPoint").isNotNull();
+		GlobalValidator.assertThat(parentWebEndPoint).thatIsNamed("parent WebEndPoint").isNotNull();
 		
 		this.parentWebEndPoint = parentWebEndPoint;
 	}

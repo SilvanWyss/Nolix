@@ -7,7 +7,7 @@ import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.constant.PluralLowerCaseCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.objectdata.datahelper.EntityHelper;
 import ch.nolix.system.objectdata.datahelper.TableHelper;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.DatabaseObjectState;
@@ -75,10 +75,10 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 		final Class<E> entityClass
 	) {
 		
-		Validator.assertThat(parentDatabase).thatIsNamed("parent Database").isNotNull();
-		Validator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
-		Validator.assertThat(id).thatIsNamed(LowerCaseCatalogue.ID).isNotBlank();
-		Validator.assertThat(entityClass).thatIsNamed("entity class").isNotNull();
+		GlobalValidator.assertThat(parentDatabase).thatIsNamed("parent Database").isNotNull();
+		GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
+		GlobalValidator.assertThat(id).thatIsNamed(LowerCaseCatalogue.ID).isNotBlank();
+		GlobalValidator.assertThat(entityClass).thatIsNamed("entity class").isNotNull();
 		
 		this.parentDatabase = parentDatabase;
 		this.name = name;
@@ -211,7 +211,7 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 	//method
 	void internalSetColumns(final IContainer<IColumn<DataImplementation>> columns) {
 		
-		Validator.assertThat(columns).thatIsNamed(PluralLowerCaseCatalogue.COLUMNS).isNotNull();
+		GlobalValidator.assertThat(columns).thatIsNamed(PluralLowerCaseCatalogue.COLUMNS).isNotNull();
 		
 		this.columns = columns;
 	}

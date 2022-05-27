@@ -13,7 +13,7 @@ import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.endpoint3.EndPoint;
 import ch.nolix.core.programcontrol.sequencer.Sequencer;
 import ch.nolix.core.reflectionhelper.GlobalClassHelper;
@@ -65,9 +65,9 @@ public class Application<
 		final C context
 	) {
 		
-		Validator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
-		Validator.assertThat(initialSessionClass).thatIsNamed("initial session class").isNotNull();
-		Validator.assertThat(context).thatIsNamed(LowerCaseCatalogue.CONTEXT).isNotNull();
+		GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
+		GlobalValidator.assertThat(initialSessionClass).thatIsNamed("initial session class").isNotNull();
+		GlobalValidator.assertThat(context).thatIsNamed(LowerCaseCatalogue.CONTEXT).isNotNull();
 		
 		this.name = name;
 		this.initialSessionClass = (Class<Session<BC, C>>)initialSessionClass;

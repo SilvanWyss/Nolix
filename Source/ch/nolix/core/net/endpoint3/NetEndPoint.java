@@ -17,7 +17,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.logger.GlobalLogger;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.controlleruniversalapi.IDataProviderController;
 import ch.nolix.core.programcontrol.groupcloseable.GroupCloseable;
 
@@ -118,7 +118,7 @@ public class NetEndPoint extends EndPoint {
 	NetEndPoint(final ch.nolix.core.net.endpoint2.EndPoint internalNetEndPoint) {
 		
 		//Asserts that the given netEndPoint is not null.
-		Validator.assertThat(internalNetEndPoint).isOfType(ch.nolix.core.net.endpoint2.NetEndPoint.class);
+		GlobalValidator.assertThat(internalNetEndPoint).isOfType(ch.nolix.core.net.endpoint2.NetEndPoint.class);
 		
 		//Sets the internalNetEndPoint of the current NetEndPoint.
 		this.internalNetEndPoint = internalNetEndPoint;

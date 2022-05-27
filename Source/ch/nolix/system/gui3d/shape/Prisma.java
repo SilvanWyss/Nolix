@@ -6,7 +6,7 @@ import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.constant.PascalCaseCatalogue;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.element.MutableValue;
 import ch.nolix.system.gui3d.base.AtomicShape;
 
@@ -39,7 +39,7 @@ public abstract class Prisma<P extends Prisma<P>> extends AtomicShape<P> {
 	//method
 	public final P setHeight(final double height) {
 		
-		Validator.assertThat(height).thatIsNamed(LowerCaseCatalogue.HEIGHT).isPositive();
+		GlobalValidator.assertThat(height).thatIsNamed(LowerCaseCatalogue.HEIGHT).isPositive();
 		
 		this.height.setValue(height);
 		

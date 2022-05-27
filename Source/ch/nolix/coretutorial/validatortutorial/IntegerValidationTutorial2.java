@@ -1,7 +1,7 @@
 package ch.nolix.coretutorial.validatortutorial;
 
 //own imports
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 /**
  * This class is a tutorial how the zeta validator validates an integer.
@@ -20,10 +20,10 @@ public final class IntegerValidationTutorial2 {
 	public static void main(String[] args) {
 
 		//Supposes that 5 is positive, what makes that the zeta validator does not complain.
-		Validator.assertThat(5).thatIsNamed("size").isPositive();
+		GlobalValidator.assertThat(5).thatIsNamed("size").isPositive();
 		
 		//Supposes that 5 is negative, what makes that the zeta validator throws a NegativeArgumentException.
-		Validator.assertThat(5).thatIsNamed("size").isNegative();
+		GlobalValidator.assertThat(5).thatIsNamed("size").isNegative();
 	}
 	
 	/**

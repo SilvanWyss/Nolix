@@ -8,7 +8,7 @@ import java.util.Iterator;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //class
 /**
@@ -32,7 +32,7 @@ final class MatrixIterator<E> implements Iterator<E> {
 	public MatrixIterator(final Matrix<E> parentMatrix) {
 		
 		//Asserts that the given parent matrix is not null.
-		Validator
+		GlobalValidator
 		.assertThat(parentMatrix)
 		.thatIsNamed("parent matrix")
 		.isNotNull();

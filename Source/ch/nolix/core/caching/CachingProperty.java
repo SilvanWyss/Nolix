@@ -2,7 +2,7 @@
 package ch.nolix.core.caching;
 
 //own imports
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IBooleanGetter;
 import ch.nolix.core.functionuniversalapi.IElementGetter;
 import ch.nolix.core.skilluniversalapi.Refreshable;
@@ -20,7 +20,7 @@ public final class CachingProperty<V> implements Refreshable {
 	//constructor
 	public CachingProperty(final IElementGetter<V> valueCreator) {
 		
-		Validator.assertThat(valueCreator).thatIsNamed("value creator").isNotNull();
+		GlobalValidator.assertThat(valueCreator).thatIsNamed("value creator").isNotNull();
 		
 		this.valueCreator = valueCreator;
 		needToRefreshFunction = null;
@@ -29,8 +29,8 @@ public final class CachingProperty<V> implements Refreshable {
 	//constructor
 	public CachingProperty(final IElementGetter<V> valueCreator, final IBooleanGetter needToRefreshFunction) {
 		
-		Validator.assertThat(valueCreator).thatIsNamed("value creator").isNotNull();
-		Validator.assertThat(needToRefreshFunction).thatIsNamed("need-to-refresh-function").isNotNull();
+		GlobalValidator.assertThat(valueCreator).thatIsNamed("value creator").isNotNull();
+		GlobalValidator.assertThat(needToRefreshFunction).thatIsNamed("need-to-refresh-function").isNotNull();
 		
 		this.valueCreator = valueCreator;
 		this.needToRefreshFunction = needToRefreshFunction;

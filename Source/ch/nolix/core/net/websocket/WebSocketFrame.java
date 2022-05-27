@@ -12,7 +12,7 @@ import ch.nolix.core.commontype.commontypehelper.GlobalArrayHelper;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnsupportedCaseException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //class
 public final class WebSocketFrame {
@@ -46,7 +46,7 @@ public final class WebSocketFrame {
 		final byte[] payload
 	) {
 		
-		Validator.assertThat(payload).thatIsNamed("payload").isNotNull();
+		GlobalValidator.assertThat(payload).thatIsNamed("payload").isNotNull();
 		
 		firstNibble =
 		new WebSocketFrameFirstNibble(

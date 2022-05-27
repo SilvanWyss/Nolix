@@ -5,7 +5,7 @@ package ch.nolix.core.container.matrix;
 import ch.nolix.core.constant.CharacterCatalogue;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.IContainer;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //class
 public final class MatrixColumn<E> implements IContainer<E> {
@@ -17,12 +17,12 @@ public final class MatrixColumn<E> implements IContainer<E> {
 	//constructor
 	MatrixColumn(final Matrix<E> parentMatrix, final int columnIndex) {
 		
-		Validator
+		GlobalValidator
 		.assertThat(parentMatrix)
 		.thatIsNamed("parent matrix")
 		.isNotNull();
 		
-		Validator
+		GlobalValidator
 		.assertThat(columnIndex)
 		.thatIsNamed(LowerCaseCatalogue.COLUMN_INDEX)
 		.isPositive();

@@ -2,7 +2,7 @@
 package ch.nolix.systemapi.guiapi.baseapi;
 
 //own imports
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IAction;
 import ch.nolix.core.functionuniversalapi.IElementTaker;
 import ch.nolix.core.hoveruniversalapi.IOccupiableHoverableCanvas;
@@ -16,7 +16,7 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 		final IElementTaker<OCIAM> leftMouseButtonClickAction
 	) {
 		
-		Validator.assertThat(leftMouseButtonClickAction).thatIsNamed("left mouse button click action").isNotNull();
+		GlobalValidator.assertThat(leftMouseButtonClickAction).thatIsNamed("left mouse button click action").isNotNull();
 		
 		return
 		setLeftMouseButtonClickAction(
@@ -31,7 +31,7 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 	//method
 	default OCIAM setLeftMouseButtonPressActionOnFreeArea(final IAction leftMouseButtonPressAction) {
 		
-		Validator.assertThat(leftMouseButtonPressAction).thatIsNamed("left mouse button press action").isNotNull();
+		GlobalValidator.assertThat(leftMouseButtonPressAction).thatIsNamed("left mouse button press action").isNotNull();
 		
 		return setLeftMouseButtonPressActionOnFreeArea(ociam -> leftMouseButtonPressAction.run());
 	}
@@ -41,7 +41,7 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 		final IElementTaker<OCIAM> leftMouseButtonPressAction
 	) {
 		
-		Validator.assertThat(leftMouseButtonPressAction).thatIsNamed("left mouse button press action").isNotNull();
+		GlobalValidator.assertThat(leftMouseButtonPressAction).thatIsNamed("left mouse button press action").isNotNull();
 		
 		return
 		setLeftMouseButtonPressAction(
@@ -58,7 +58,7 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 		final IElementTaker<OCIAM> leftMouseButtonReleaseAction
 	) {
 		
-		Validator.assertThat(leftMouseButtonReleaseAction).thatIsNamed("left mouse button release action").isNotNull();
+		GlobalValidator.assertThat(leftMouseButtonReleaseAction).thatIsNamed("left mouse button release action").isNotNull();
 		
 		return
 		setLeftMouseButtonReleaseAction(
@@ -73,7 +73,7 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 	//method
 	default OCIAM setMouseMoveActionOnFreeArea(final IElementTaker<OCIAM> mouseMoveAction) {
 		
-		Validator.assertThat(mouseMoveAction).thatIsNamed("mouse move action").isNotNull();
+		GlobalValidator.assertThat(mouseMoveAction).thatIsNamed("mouse move action").isNotNull();
 		
 		return
 		setMouseMoveAction(
@@ -90,7 +90,7 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 		final IElementTaker<OCIAM> mouseWheelClickAction
 	) {
 		
-		Validator.assertThat(mouseWheelClickAction).thatIsNamed("mouse wheel click action").isNotNull();
+		GlobalValidator.assertThat(mouseWheelClickAction).thatIsNamed("mouse wheel click action").isNotNull();
 		
 		return
 		setMouseWheelClickAction(
@@ -107,7 +107,7 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 		final IElementTaker<OCIAM> mouseWheelPressAction
 	) {
 		
-		Validator.assertThat(mouseWheelPressAction).thatIsNamed("mouse wheel press action").isNotNull();
+		GlobalValidator.assertThat(mouseWheelPressAction).thatIsNamed("mouse wheel press action").isNotNull();
 		
 		return
 		setMouseWheelPressAction(
@@ -124,7 +124,7 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 		final IElementTaker<OCIAM> mouseWheelReleaseAction
 	) {
 		
-		Validator.assertThat(mouseWheelReleaseAction).thatIsNamed("mouse wheel release action").isNotNull();
+		GlobalValidator.assertThat(mouseWheelReleaseAction).thatIsNamed("mouse wheel release action").isNotNull();
 		
 		return
 		setMouseWheelReleaseAction(
@@ -141,7 +141,7 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 		final IElementTaker<OCIAM> rightMouseButtonClickAction
 	) {
 		
-		Validator.assertThat(rightMouseButtonClickAction).thatIsNamed("right mouse button click action").isNotNull();
+		GlobalValidator.assertThat(rightMouseButtonClickAction).thatIsNamed("right mouse button click action").isNotNull();
 		
 		return
 		setRightMouseButtonClickAction(
@@ -158,7 +158,7 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 		final IElementTaker<OCIAM> rightMouseButtonPressAction
 	) {
 		
-		Validator.assertThat(rightMouseButtonPressAction).thatIsNamed("right mouse button press action").isNotNull();
+		GlobalValidator.assertThat(rightMouseButtonPressAction).thatIsNamed("right mouse button press action").isNotNull();
 		
 		return
 		setRightMouseButtonPressAction(
@@ -175,7 +175,7 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 		final IElementTaker<OCIAM> rightMouseButtonReleaseAction
 	) {
 		
-		Validator.assertThat(rightMouseButtonReleaseAction).thatIsNamed("right mouse button release action").isNotNull();
+		GlobalValidator.assertThat(rightMouseButtonReleaseAction).thatIsNamed("right mouse button release action").isNotNull();
 		
 		return
 		setRightMouseButtonReleaseAction(

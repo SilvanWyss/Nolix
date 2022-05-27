@@ -3,7 +3,7 @@ package ch.nolix.system.gui.widget;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.gui.base.Layer;
 import ch.nolix.system.gui.base.WidgetGUI;
 
@@ -17,8 +17,8 @@ public final class WidgetParent {
 	//constructor
 	WidgetParent(final Layer layer, final Widget<?, ?> childWidget) {
 		
-		Validator.assertThat(layer).thatIsNamed(Layer.class).isNotNull();
-		Validator.assertThat(childWidget).thatIsNamed("child Widget").isNotNull();
+		GlobalValidator.assertThat(layer).thatIsNamed(Layer.class).isNotNull();
+		GlobalValidator.assertThat(childWidget).thatIsNamed("child Widget").isNotNull();
 		
 		this.layer = layer;
 		widget = null;
@@ -27,8 +27,8 @@ public final class WidgetParent {
 	//constructor
 	WidgetParent(final Widget<?, ?> widget, final Widget<?, ?> childWidget) {
 		
-		Validator.assertThat(widget).thatIsNamed(Widget.class).isNotNull();
-		Validator.assertThat(childWidget).thatIsNamed("child Widget").isNotNull();
+		GlobalValidator.assertThat(widget).thatIsNamed(Widget.class).isNotNull();
+		GlobalValidator.assertThat(childWidget).thatIsNamed("child Widget").isNotNull();
 		
 		layer = null;
 		this.widget = widget;

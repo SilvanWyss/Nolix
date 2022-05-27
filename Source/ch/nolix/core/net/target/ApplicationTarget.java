@@ -2,7 +2,7 @@
 package ch.nolix.core.net.target;
 
 //own imports
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.targetuniversalapi.IApplicationTarget;
 
 //class
@@ -25,7 +25,7 @@ public final class ApplicationTarget extends ServerTarget implements IApplicatio
 		
 		super(ipOrAddressName, port);
 		
-		Validator.assertThat(applicationName).thatIsNamed("application name").isNotBlank();
+		GlobalValidator.assertThat(applicationName).thatIsNamed("application name").isNotBlank();
 		
 		this.applicationName = applicationName;
 	}

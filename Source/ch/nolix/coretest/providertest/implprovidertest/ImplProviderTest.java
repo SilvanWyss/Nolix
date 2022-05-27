@@ -3,7 +3,7 @@ package ch.nolix.coretest.providertest.implprovidertest;
 
 //own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.provider.implprovider.ImplProvider;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
@@ -34,7 +34,7 @@ public final class ImplProviderTest extends Test {
 		@SuppressWarnings("unused")
 		public Cat(String name) {
 			
-			Validator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
+			GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
 			
 			this.name = name;
 		}

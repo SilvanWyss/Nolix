@@ -15,7 +15,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.systemapi.elementapi.IElement;
 
@@ -160,13 +160,13 @@ public final class TextFormat implements IElement<TextFormat> {
 	) {
 		
 		//Asserts that the given font is not null.
-		Validator.assertThat(font).isOfType(Font.class);
+		GlobalValidator.assertThat(font).isOfType(Font.class);
 		
 		//Asserts that the given text size is positive.
-		Validator.assertThat(textSize).thatIsNamed("text size").isPositive();
+		GlobalValidator.assertThat(textSize).thatIsNamed("text size").isPositive();
 		
 		//Asserts that the given text color is not null.
-		Validator.assertThat(textColor).thatIsNamed(TEXT_COLOR_HEADER).isNotNull();
+		GlobalValidator.assertThat(textColor).thatIsNamed(TEXT_COLOR_HEADER).isNotNull();
 		
 		this.font = font;
 		this.bold = bold;
@@ -269,7 +269,7 @@ public final class TextFormat implements IElement<TextFormat> {
 	public String getFirstPart(String text, final int maxWidth, final boolean attachEllipsis) {
 		
 		//Asserts that the given max width is not negative.
-		Validator.assertThat(maxWidth).thatIsNamed("max width").isNotNegative();
+		GlobalValidator.assertThat(maxWidth).thatIsNamed("max width").isNotNegative();
 		
 		//Handles the case that the given text is null.
 		if (text == null) {

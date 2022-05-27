@@ -2,7 +2,7 @@
 package ch.nolix.core.programcontrol.jobpool;
 
 //own imports
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //class
 final class Worker extends Thread {
@@ -13,7 +13,7 @@ final class Worker extends Thread {
 	//constructor
 	public Worker(final JobPool parentJobPool) {
 		
-		Validator.assertThat(parentJobPool).thatIsNamed("parent job bool");
+		GlobalValidator.assertThat(parentJobPool).thatIsNamed("parent job bool");
 		
 		this.parentJobPool = parentJobPool;
 	

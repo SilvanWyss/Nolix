@@ -17,7 +17,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.http.HTTPRequest;
 import ch.nolix.core.net.websocket.WebSocketHandShakeRequest;
 import ch.nolix.core.programcontrol.worker.Worker;
@@ -34,8 +34,8 @@ final class NetServerSocketProcessor extends Worker {
 	//constructor
 	public NetServerSocketProcessor(final Server parentNetServer, final Socket socket) {
 		
-		Validator.assertThat(parentNetServer).thatIsNamed("parent NetServer").isNotNull();
-		Validator.assertThat(socket).thatIsNamed(Socket.class).isNotNull();
+		GlobalValidator.assertThat(parentNetServer).thatIsNamed("parent NetServer").isNotNull();
+		GlobalValidator.assertThat(socket).thatIsNamed(Socket.class).isNotNull();
 				
 		this.parentNetServer = parentNetServer;
 		this.socket = socket;

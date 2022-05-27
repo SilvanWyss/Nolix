@@ -5,7 +5,7 @@ package ch.nolix.core.builder.base;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IElementGetter;
 
 //class
@@ -37,7 +37,7 @@ public abstract class TerminalArgumentCapturer<
 	@SuppressWarnings("unchecked")
 	protected final void setBuilder(final IElementGetter<?> builder) {
 		
-		Validator.assertThat(builder).thatIsNamed(LowerCaseCatalogue.BUILDER).isNotNull();
+		GlobalValidator.assertThat(builder).thatIsNamed(LowerCaseCatalogue.BUILDER).isNotNull();
 		
 		assertDoesNotHaveBuilder();
 		

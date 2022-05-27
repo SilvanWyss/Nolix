@@ -3,7 +3,7 @@ package ch.nolix.core.demo;
 
 //own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //class
 public final class CarModel {
@@ -17,8 +17,8 @@ public final class CarModel {
 	//constructor
 	public CarModel(final String name, final int topSpeedInKilometerPerHour) {
 		
-		Validator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
-		Validator.assertThat(topSpeedInKilometerPerHour).thatIsNamed("top speed in kilometer per hour").isPositive();
+		GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
+		GlobalValidator.assertThat(topSpeedInKilometerPerHour).thatIsNamed("top speed in kilometer per hour").isPositive();
 		
 		this.name = name;
 		this.topSpeedInKilometerPerHour = topSpeedInKilometerPerHour;

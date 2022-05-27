@@ -7,7 +7,7 @@ import ch.nolix.core.constant.PascalCaseCatalogue;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.element.MutableValue;
 import ch.nolix.system.gui3d.base.AtomicShape;
 
@@ -82,7 +82,7 @@ public final class Sphere extends AtomicShape<Sphere> {
 	public Sphere setDiameter(final double diameter) {
 		
 		//Asserts that the given diameter is positive.
-		Validator.assertThat(diameter).thatIsNamed("diameter").isPositive();
+		GlobalValidator.assertThat(diameter).thatIsNamed("diameter").isPositive();
 		
 		return setRadius(0.5 * diameter);
 	}
@@ -97,7 +97,7 @@ public final class Sphere extends AtomicShape<Sphere> {
 	 */
 	public Sphere setRadius(final double radius) {
 		
-		Validator.assertThat(radius).thatIsNamed(LowerCaseCatalogue.RADIUS).isPositive();
+		GlobalValidator.assertThat(radius).thatIsNamed(LowerCaseCatalogue.RADIUS).isPositive();
 		
 		this.radius.setValue(radius);
 		

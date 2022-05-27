@@ -6,7 +6,7 @@ import ch.nolix.core.builder.base.ArgumentCapturer;
 import ch.nolix.core.builder.base.BaseArgumentCapturer;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.constant.PortCatalogue;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //class
 public class AndPortCapturer<NAC extends BaseArgumentCapturer<?>> extends ArgumentCapturer<Integer, NAC> {
@@ -19,7 +19,7 @@ public class AndPortCapturer<NAC extends BaseArgumentCapturer<?>> extends Argume
 		
 		super(nextArgumentCapturer);
 		
-		Validator
+		GlobalValidator
 		.assertThat(defaultPort)
 		.thatIsNamed("default port")
 		.isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
@@ -35,7 +35,7 @@ public class AndPortCapturer<NAC extends BaseArgumentCapturer<?>> extends Argume
 	//method
 	public final NAC andPort(final int port) {
 		
-		Validator
+		GlobalValidator
 		.assertThat(port)
 		.thatIsNamed(LowerCaseCatalogue.PORT)
 		.isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);

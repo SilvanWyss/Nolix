@@ -5,7 +5,7 @@ import ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi.Named;
 import ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi.Valued;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.constant.StringCatalogue;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //class
 public final class XMLAttribute implements Named, Valued<XMLAttribute, String> {
@@ -22,8 +22,8 @@ public final class XMLAttribute implements Named, Valued<XMLAttribute, String> {
 	//constructor
 	public XMLAttribute(final String name, final String value) {
 		
-		Validator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
-		Validator.assertThat(value).thatIsNamed(LowerCaseCatalogue.VALUE).isNotNull();
+		GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
+		GlobalValidator.assertThat(value).thatIsNamed(LowerCaseCatalogue.VALUE).isNotNull();
 		
 		this.name = name;
 		this.value = value;

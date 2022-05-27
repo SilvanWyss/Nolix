@@ -9,7 +9,7 @@ import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //class
 final class MultiReadContainer<E> implements IContainer<E> {
@@ -49,7 +49,7 @@ final class MultiReadContainer<E> implements IContainer<E> {
 	@Override
 	public E getRefAt(final int index) {
 		
-		Validator.assertThat(index).thatIsNamed(LowerCaseCatalogue.INDEX).isPositive();
+		GlobalValidator.assertThat(index).thatIsNamed(LowerCaseCatalogue.INDEX).isPositive();
 		
 		var i = 1;
 		for (final var e : this) {

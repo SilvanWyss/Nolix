@@ -5,7 +5,7 @@ import ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi.Semant
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //interface
 /**
@@ -39,11 +39,11 @@ public interface SemanticVersionable<SV extends SemanticVersionable<SV>> extends
 	 */
 	default SV setVersion(final String version) {
 		
-		Validator.assertThat(version).thatIsNamed(LowerCaseCatalogue.VERSION).isNotBlank();
+		GlobalValidator.assertThat(version).thatIsNamed(LowerCaseCatalogue.VERSION).isNotBlank();
 		
 		final var array = version.split(".");
 		
-		Validator.assertThat(array).hasElementCount(3);
+		GlobalValidator.assertThat(array).hasElementCount(3);
 		
 		return setVersion(Integer.valueOf(array[0]), Integer.valueOf(array[1]), Integer.valueOf(array[2]));
 	}

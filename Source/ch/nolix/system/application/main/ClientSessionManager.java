@@ -5,7 +5,7 @@ package ch.nolix.system.application.main;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.sequencer.Sequencer;
 
 //class
@@ -30,7 +30,7 @@ final class ClientSessionManager<
 	public ClientSessionManager(final Client<C> parentClient) {
 		
 		//Asserts that the given parentClient is not null.
-		Validator.assertThat(parentClient).thatIsNamed("parent client").isNotNull();
+		GlobalValidator.assertThat(parentClient).thatIsNamed("parent client").isNotNull();
 		
 		//Sets the parentClient of the current ClientSessionManager.
 		this.parentClient = parentClient;
@@ -84,7 +84,7 @@ final class ClientSessionManager<
 	public void pushSession(final Session<C, AC> session) {
 		
 		//Asserts that the given session is not null.
-		Validator.assertThat(session).isOfType(Session.class);
+		GlobalValidator.assertThat(session).isOfType(Session.class);
 		
 		//Sets the given session to the Client of the current ClientSessionManager.
 		session.setParentClient(parentClient.asConcrete());

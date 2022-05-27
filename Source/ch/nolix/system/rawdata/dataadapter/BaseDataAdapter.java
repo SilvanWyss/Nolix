@@ -3,7 +3,7 @@ package ch.nolix.system.rawdata.dataadapter;
 
 //own imports
 import ch.nolix.core.container.LinkedList;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.system.time.base.Time;
 import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataAdapter;
@@ -29,8 +29,8 @@ public abstract class BaseDataAdapter implements IDataAdapter {
 	//constructor
 	public BaseDataAdapter(final IDataReader dataReader, final IDataWriter dataWriter) {
 		
-		Validator.assertThat(dataReader).thatIsNamed(IDataReader.class).isNotNull();
-		Validator.assertThat(dataWriter).thatIsNamed(IDataWriter.class).isNotNull();
+		GlobalValidator.assertThat(dataReader).thatIsNamed(IDataReader.class).isNotNull();
+		GlobalValidator.assertThat(dataWriter).thatIsNamed(IDataWriter.class).isNotNull();
 		
 		this.dataReader = dataReader;
 		this.dataWriter = dataWriter;

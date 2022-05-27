@@ -3,7 +3,7 @@ package ch.nolix.system.gui.widget;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.math.Calculator;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.systemapi.guiapi.baseapi.HoverableByCursor;
@@ -43,7 +43,7 @@ implements HoverableByCursor {
 	BorderWidgetHorizontalScrollBarCursor(final BorderWidget<?, BWL> parentBorderWidget) {
 		
 		//Asserts that the given parentBorderWidget is not null.
-		Validator.assertThat(parentBorderWidget).thatIsNamed("parent BorderWidget").isNotNull();
+		GlobalValidator.assertThat(parentBorderWidget).thatIsNamed("parent BorderWidget").isNotNull();
 		
 		//Sets the parentBorderWidget of the current BorderWidgetHorizontalScrollBarCursor.
 		this.parentBorderWidget = parentBorderWidget;

@@ -14,7 +14,7 @@ import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.targetuniversalapi.IApplicationTarget;
 import ch.nolix.core.programcontrol.sequencer.Sequencer;
 import ch.nolix.system.application.main.BackendClient;
@@ -345,7 +345,7 @@ public abstract class BaseBackendGUIClient<
 	 */
 	private void receiveOptionalFileFromCounterpart(final SingleContainer<String> optionalFile) {
 		
-		Validator.assertThat(optionalFile).thatIsNamed("optional file").isNotNull();
+		GlobalValidator.assertThat(optionalFile).thatIsNamed("optional file").isNotNull();
 		assertIsWaitingForFileFromCounterpart();
 		
 		isWaitingForFileFromCounterpart = false;

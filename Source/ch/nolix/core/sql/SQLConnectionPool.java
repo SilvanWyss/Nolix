@@ -6,7 +6,7 @@ import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.constant.PortCatalogue;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.programcontrol.groupcloseable.GroupCloseable;
 import ch.nolix.core.usercontrol.Credential;
@@ -56,10 +56,10 @@ public final class SQLConnectionPool implements GroupCloseable, ISQLDatabaseTarg
 		final String loginPassword
 	) {
 		
-		Validator.assertThat(ipOrAddressName).thatIsNamed("ip or address name").isNotBlank();
-		Validator.assertThat(port).thatIsNamed(LowerCaseCatalogue.PORT).isBetween(0, 65_535);
-		Validator.assertThat(databaseName).thatIsNamed("database name").isNotBlank();
-		Validator.assertThat(pSQLDatabaseEngine).thatIsNamed(SQLDatabaseEngine.class).isNotNull();
+		GlobalValidator.assertThat(ipOrAddressName).thatIsNamed("ip or address name").isNotBlank();
+		GlobalValidator.assertThat(port).thatIsNamed(LowerCaseCatalogue.PORT).isBetween(0, 65_535);
+		GlobalValidator.assertThat(databaseName).thatIsNamed("database name").isNotBlank();
+		GlobalValidator.assertThat(pSQLDatabaseEngine).thatIsNamed(SQLDatabaseEngine.class).isNotNull();
 				
 		this.ipOrAddressName = ipOrAddressName;
 		this.port = port;

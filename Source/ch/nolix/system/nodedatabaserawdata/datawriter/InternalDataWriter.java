@@ -4,7 +4,7 @@ package ch.nolix.system.nodedatabaserawdata.datawriter;
 //own imports
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IElementTaker;
 import ch.nolix.system.time.base.Time;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDTO;
@@ -31,7 +31,7 @@ final class InternalDataWriter {
 	//constructor
 	public InternalDataWriter(final BaseNode nodeDatabase) {
 		
-		Validator.assertThat(nodeDatabase).thatIsNamed("node database").isNotNull();
+		GlobalValidator.assertThat(nodeDatabase).thatIsNamed("node database").isNotNull();
 		
 		this.nodeDatabase = nodeDatabase;
 	}

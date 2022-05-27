@@ -2,7 +2,7 @@
 package ch.nolix.system.gui3d.base;
 
 //own imports
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //class
 /**
@@ -21,8 +21,8 @@ public final class ShapeRenderManager<S extends Shape<S>, RO, SRO> {
 	
 	public ShapeRenderManager(final S shape, final IShapeRenderer<S, RO, SRO> shapeRenderer) {
 		
-		Validator.assertThat(shape).isOfType(Shape.class);
-		Validator.assertThat(shapeRenderer).isOfType(IShapeRenderer.class);
+		GlobalValidator.assertThat(shape).isOfType(Shape.class);
+		GlobalValidator.assertThat(shapeRenderer).isOfType(IShapeRenderer.class);
 		
 		this.shape = shape;
 		this.shapeRenderer = shapeRenderer;

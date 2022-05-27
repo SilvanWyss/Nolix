@@ -11,7 +11,7 @@ import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //class
 /**
@@ -46,7 +46,7 @@ final class IterableReadContainer<E> implements IContainer<E> {
 	public <E2 extends E> IterableReadContainer(final Iterable<E2> container) {
 		
 		//Asserts that the given container is not null.
-		Validator
+		GlobalValidator
 		.assertThat(container)
 		.thatIsNamed(LowerCaseCatalogue.CONTAINER)
 		.isNotNull();
@@ -91,7 +91,7 @@ final class IterableReadContainer<E> implements IContainer<E> {
 	public E getRefAt(final int index) {
 		
 		//Asserts that the given index is positive.
-		Validator.assertThat(index).thatIsNamed(LowerCaseCatalogue.INDEX).isPositive();
+		GlobalValidator.assertThat(index).thatIsNamed(LowerCaseCatalogue.INDEX).isPositive();
 		
 		//Iterates the current IterableReadContainer.
 		var i = 1;

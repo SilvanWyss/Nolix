@@ -4,7 +4,7 @@ package ch.nolix.core.programcontrol.sequencer;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.futureuniversalapi.IResultFuture;
 
 //class
@@ -28,7 +28,7 @@ public final class ResultFuture<R> implements IResultFuture<R> {
 	ResultFuture(final ResultJobRunner<R> resultJobRunner) {
 		
 		//Asserts that the given resultJobRunner is not null.
-		Validator.assertThat(resultJobRunner).isOfType(ResultJobRunner.class);
+		GlobalValidator.assertThat(resultJobRunner).isOfType(ResultJobRunner.class);
 		
 		//Sets the resultJobRunner of the current ResultFuture.
 		this.resultJobRunner = resultJobRunner;

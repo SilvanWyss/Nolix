@@ -4,7 +4,7 @@ package ch.nolix.system.application.baseguiapplication;
 //own imports
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IElementTaker;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 
@@ -18,7 +18,7 @@ public final class PaintRun {
 	//constructor
 	public PaintRun(final IPainter painter,	final IContainer<IElementTaker<PaintRun>> paintCommands) {
 		
-		Validator.assertThat(paintCommands).thatIsNamed("paint commands").isNotNull();
+		GlobalValidator.assertThat(paintCommands).thatIsNamed("paint commands").isNotNull();
 		
 		this.paintCommands = paintCommands;
 		addPainter(painter);

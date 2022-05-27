@@ -9,7 +9,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IElementTaker;
 import ch.nolix.core.functionuniversalapi.IElementTakerElementGetter;
 
@@ -52,7 +52,7 @@ abstract class SingleValue<V> extends BaseValue<V> {
 		super(name, valueCreator, specificationCreator);
 		
 		//Asserts that the given setterMethod is not null.
-		Validator.assertThat(setterMethod).thatIsNamed("setter method").isNotNull();
+		GlobalValidator.assertThat(setterMethod).thatIsNamed("setter method").isNotNull();
 		
 		//Sets the setterMethod of the current SingleProperty.
 		this.setterMethod = setterMethod;
@@ -105,7 +105,7 @@ abstract class SingleValue<V> extends BaseValue<V> {
 	public final void setValue(final V value) {
 		
 		//Asserts that the given value is not null.
-		Validator.assertThat(value).thatIsNamed(LowerCaseCatalogue.VALUE).isNotNull();
+		GlobalValidator.assertThat(value).thatIsNamed(LowerCaseCatalogue.VALUE).isNotNull();
 		
 		//Asserts that the current SingleProperty is mutable or does not have already a value.
 		if (!isMutable() && hasValue()) {

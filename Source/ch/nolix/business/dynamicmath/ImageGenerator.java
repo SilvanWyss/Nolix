@@ -14,7 +14,7 @@ import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.math.Calculator;
 import ch.nolix.core.programcontrol.futureuniversalapi.IFuture;
 import ch.nolix.core.programcontrol.jobpool.JobPool;
@@ -46,7 +46,7 @@ public final class ImageGenerator implements IImageGenerator {
 	//constructor
 	public ImageGenerator(final IFractal fractal) {
 		
-		Validator.assertThat(fractal).thatIsNamed(Fractal.class).isNotNull();		
+		GlobalValidator.assertThat(fractal).thatIsNamed(Fractal.class).isNotNull();		
 		
 		this.fractal = fractal;
 		

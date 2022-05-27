@@ -3,7 +3,7 @@ package ch.nolix.system.objectdata.parametrizedpropertytype;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.systemapi.objectdataapi.dataapi.IBaseParametrizedBackReferenceType;
 import ch.nolix.systemapi.objectdataapi.dataapi.IBaseParametrizedReferenceType;
 import ch.nolix.systemapi.objectdataapi.dataapi.IBaseParametrizedValueType;
@@ -25,7 +25,7 @@ implements IBaseParametrizedBackReferenceType<IMPL, C>{
 	//constructor
 	public BaseParametrizedBackReferenceType(final C backReferencedColumn) {
 		
-		Validator.assertThat(backReferencedColumn).thatIsNamed("back referenced column").isNotNull();
+		GlobalValidator.assertThat(backReferencedColumn).thatIsNamed("back referenced column").isNotNull();
 		
 		this.backReferencedColumn = backReferencedColumn;
 	}

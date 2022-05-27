@@ -6,7 +6,7 @@ import ch.nolix.core.constant.PascalCaseCatalogue;
 import ch.nolix.core.container.pair.IntPair;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.element.MutableElement;
 import ch.nolix.system.element.Value;
 import ch.nolix.systemapi.guiapi.inputapi.IInput;
@@ -62,8 +62,8 @@ public final class ResizeInput extends MutableElement<ResizeInput> implements II
 	//method
 	private void setViewAreaSize(final IntPair size) {
 		
-		Validator.assertThat(size.getValue1()).thatIsNamed("view area width").isNotNegative();
-		Validator.assertThat(size.getValue2()).thatIsNamed("view area hegiht").isNotNegative();
+		GlobalValidator.assertThat(size.getValue1()).thatIsNamed("view area width").isNotNegative();
+		GlobalValidator.assertThat(size.getValue2()).thatIsNamed("view area hegiht").isNotNegative();
 		
 		this.size.setValue(size);
 	}

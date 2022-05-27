@@ -6,7 +6,7 @@ import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
 
 //own imports
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.elementenum.RotationDirection;
 import ch.nolix.system.gui.base.GUI;
 
@@ -19,7 +19,7 @@ final class FrameVisualizerMouseWheelListener implements MouseWheelListener {
 	//constructor
 	public FrameVisualizerMouseWheelListener(final GUI<?> parentGUI) {
 		
-		Validator.assertThat(parentGUI).thatIsNamed(GUI.class).isNotNull();
+		GlobalValidator.assertThat(parentGUI).thatIsNamed(GUI.class).isNotNull();
 		
 		this.parentGUI = parentGUI;
 	}

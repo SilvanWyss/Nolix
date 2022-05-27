@@ -3,7 +3,7 @@ package ch.nolix.core.math;
 
 //own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //class
 /**
@@ -65,7 +65,7 @@ public final class ARModel extends StatisticalModel {
 	//method
 	public double getPCoefficient(final int index) {
 	
-		Validator.assertThat(index).thatIsNamed(LowerCaseCatalogue.INDEX).isBetween(1, getPOrder());
+		GlobalValidator.assertThat(index).thatIsNamed(LowerCaseCatalogue.INDEX).isBetween(1, getPOrder());
 		
 		return pCoefficients[index - 1];
 	}

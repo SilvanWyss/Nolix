@@ -2,7 +2,7 @@
 package ch.nolix.system.gui.widget;
 
 //own imports
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.systemapi.guiapi.baseapi.HoverableByCursor;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 
@@ -19,7 +19,7 @@ public final class BorderWidgetInterScrollBarArea<BWL extends BorderWidgetLook<B
 	//constructor
 	BorderWidgetInterScrollBarArea(final BorderWidget<?, BWL> parentBorderWidget) {
 		
-		Validator.assertThat(parentBorderWidget).thatIsNamed("parent BorderWidget").isNotNull();
+		GlobalValidator.assertThat(parentBorderWidget).thatIsNamed("parent BorderWidget").isNotNull();
 		
 		this.parentBorderWidget = parentBorderWidget;
 	}

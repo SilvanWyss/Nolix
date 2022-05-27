@@ -6,7 +6,7 @@ import ch.nolix.core.constant.PascalCaseCatalogue;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IElementGetter;
 import ch.nolix.core.functionuniversalapi.IElementTaker;
 import ch.nolix.core.functionuniversalapi.IElementTakerElementGetter;
@@ -30,11 +30,11 @@ public final class MutableValueExtractor<V> extends Property {
 		final IElementTakerElementGetter<V, Node> specificationCreator
 	) {
 		
-		Validator.assertThat(name).thatIsNamed(PascalCaseCatalogue.NAME).isNotBlank();
-		Validator.assertThat(setter).thatIsNamed("setter").isNotNull();
-		Validator.assertThat(getter).thatIsNamed("getter").isNotNull();
-		Validator.assertThat(valueCreator).thatIsNamed("value creator").isNotNull();
-		Validator.assertThat(specificationCreator).thatIsNamed("specification creator").isNotNull();
+		GlobalValidator.assertThat(name).thatIsNamed(PascalCaseCatalogue.NAME).isNotBlank();
+		GlobalValidator.assertThat(setter).thatIsNamed("setter").isNotNull();
+		GlobalValidator.assertThat(getter).thatIsNamed("getter").isNotNull();
+		GlobalValidator.assertThat(valueCreator).thatIsNamed("value creator").isNotNull();
+		GlobalValidator.assertThat(specificationCreator).thatIsNamed("specification creator").isNotNull();
 		
 		this.name = name;
 		this.setter = setter;

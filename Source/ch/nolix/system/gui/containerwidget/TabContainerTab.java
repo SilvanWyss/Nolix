@@ -9,7 +9,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.skilluniversalapi.Clearable;
 import ch.nolix.system.element.MutableElement;
 import ch.nolix.system.element.MutableValue;
@@ -182,7 +182,7 @@ implements Clearable, Headerable<TabContainerTab> {
 	public TabContainerTab setHeader(final String header) {
 		
 		//Asserts that the given header is not null or blank.
-		Validator.assertThat(header).thatIsNamed(LowerCaseCatalogue.HEADER).isNotBlank();
+		GlobalValidator.assertThat(header).thatIsNamed(LowerCaseCatalogue.HEADER).isNotBlank();
 		
 		//Sets the header of the current TabContainerTab.
 		this.header.setValue(header);
@@ -202,7 +202,7 @@ implements Clearable, Headerable<TabContainerTab> {
 	public TabContainerTab setWidget(final Widget<?, ?> widget) {
 		
 		//Asserts that the given widget is not null.
-		Validator.assertThat(widget).isOfType(Widget.class);
+		GlobalValidator.assertThat(widget).isOfType(Widget.class);
 		
 		//Sets the widget of the current tab container tab.
 		this.widget.setWidget(widget);

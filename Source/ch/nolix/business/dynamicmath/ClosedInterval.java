@@ -9,7 +9,7 @@ import java.math.RoundingMode;
 import ch.nolix.businessapi.dynamicmathapi.IClosedInterval;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.pair.Pair;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.math.Calculator;
 
 //class
@@ -24,8 +24,8 @@ public final class ClosedInterval implements IClosedInterval {
 	//constructor
 	public ClosedInterval(final BigDecimal min, final BigDecimal max) {
 		
-		Validator.assertThat(min).thatIsNamed(LowerCaseCatalogue.MINIMUM).isNotNull();
-		Validator.assertThat(max).thatIsNamed(LowerCaseCatalogue.MAXIMUM).isNotSmallerThan(min);
+		GlobalValidator.assertThat(min).thatIsNamed(LowerCaseCatalogue.MINIMUM).isNotNull();
+		GlobalValidator.assertThat(max).thatIsNamed(LowerCaseCatalogue.MAXIMUM).isNotSmallerThan(min);
 		
 		final var bigDecimalScale = Calculator.getMax(min.scale(), max.scale());
 		this.min = min.setScale(bigDecimalScale, RoundingMode.HALF_UP);
@@ -35,9 +35,9 @@ public final class ClosedInterval implements IClosedInterval {
 	//constructor
 	public ClosedInterval(final BigDecimal min, final BigDecimal max, final int bigDecimalScale) {
 		
-		Validator.assertThat(min).thatIsNamed(LowerCaseCatalogue.MINIMUM).isNotNull();
-		Validator.assertThat(max).thatIsNamed(LowerCaseCatalogue.MAXIMUM).isNotSmallerThan(min);
-		Validator.assertThat(bigDecimalScale).thatIsNamed("big decimal scale").isPositive();
+		GlobalValidator.assertThat(min).thatIsNamed(LowerCaseCatalogue.MINIMUM).isNotNull();
+		GlobalValidator.assertThat(max).thatIsNamed(LowerCaseCatalogue.MAXIMUM).isNotSmallerThan(min);
+		GlobalValidator.assertThat(bigDecimalScale).thatIsNamed("big decimal scale").isPositive();
 		
 		this.min = min.setScale(bigDecimalScale, RoundingMode.HALF_UP);
 		this.max = max.setScale(bigDecimalScale, RoundingMode.HALF_UP);

@@ -5,7 +5,7 @@ package ch.nolix.system.gui.containerwidget;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.constant.PascalCaseCatalogue;
 import ch.nolix.core.document.node.BaseNode;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.skilluniversalapi.Clearable;
 import ch.nolix.system.element.MutableElement;
 import ch.nolix.system.element.Value;
@@ -108,7 +108,7 @@ final class GridCell extends MutableElement<GridCell> implements Clearable {
 	//method
 	private void setColumnIndex(final int columnIndex) {
 	
-		Validator.assertThat(columnIndex).thatIsNamed(LowerCaseCatalogue.COLUMN_INDEX).isPositive();
+		GlobalValidator.assertThat(columnIndex).thatIsNamed(LowerCaseCatalogue.COLUMN_INDEX).isPositive();
 		
 		this.columnIndex.setValue(columnIndex);
 	}
@@ -116,7 +116,7 @@ final class GridCell extends MutableElement<GridCell> implements Clearable {
 	//method
 	private void setRowIndex(final int rowIndex) {
 		
-		Validator.assertThat(rowIndex).thatIsNamed(LowerCaseCatalogue.ROW_INDEX).isPositive();
+		GlobalValidator.assertThat(rowIndex).thatIsNamed(LowerCaseCatalogue.ROW_INDEX).isPositive();
 		
 		this.rowIndex.setValue(rowIndex);
 	}

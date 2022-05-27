@@ -4,7 +4,7 @@ package ch.nolix.core.sql;
 //own imports
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.skilluniversalapi.Clearable;
 
 //class
@@ -16,7 +16,7 @@ public final class SQLCollector implements Clearable {
 	//method
 	public SQLCollector addSQLStatement(final String pSQLstatement) {
 		
-		Validator.assertThat(pSQLstatement)	.thatIsNamed("SQL statement").isNotBlank();
+		GlobalValidator.assertThat(pSQLstatement)	.thatIsNamed("SQL statement").isNotBlank();
 		
 		mSQLStatements.addAtEnd(getSQLStatementWithSemicolonAtEnd(pSQLstatement));
 		

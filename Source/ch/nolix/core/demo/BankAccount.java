@@ -3,7 +3,7 @@ package ch.nolix.core.demo;
 
 //own imports
 import ch.nolix.core.constant.PascalCaseCatalogue;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //class
 public final class BankAccount {
@@ -14,7 +14,7 @@ public final class BankAccount {
 	//method
 	public synchronized void deposit(final int amount) {
 		
-		Validator.assertThat(amount).thatIsNamed(PascalCaseCatalogue.AMOUNT).isPositive();
+		GlobalValidator.assertThat(amount).thatIsNamed(PascalCaseCatalogue.AMOUNT).isPositive();
 		
 		this.amount += amount;
 	}
@@ -27,8 +27,8 @@ public final class BankAccount {
 	//method
 	public synchronized void withdraw(final int amount) {
 		
-		Validator.assertThat(amount).thatIsNamed(PascalCaseCatalogue.AMOUNT).isPositive();
-		Validator.assertThat(amount).thatIsNamed(PascalCaseCatalogue.AMOUNT).isSmallerThanOrEquals(this.amount);
+		GlobalValidator.assertThat(amount).thatIsNamed(PascalCaseCatalogue.AMOUNT).isPositive();
+		GlobalValidator.assertThat(amount).thatIsNamed(PascalCaseCatalogue.AMOUNT).isSmallerThanOrEquals(this.amount);
 		
 		this.amount -= amount;
 	}

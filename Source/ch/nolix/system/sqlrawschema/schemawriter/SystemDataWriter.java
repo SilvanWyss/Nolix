@@ -2,7 +2,7 @@
 package ch.nolix.system.sqlrawschema.schemawriter;
 
 //own imports
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.requestuniversalapi.ChangeRequestable;
 import ch.nolix.core.sql.SQLCollector;
 import ch.nolix.system.time.base.Time;
@@ -23,7 +23,7 @@ final class SystemDataWriter implements ChangeRequestable {
 	//constructor
 	public SystemDataWriter(final SQLCollector pSQLCollector) {
 		
-		Validator.assertThat(pSQLCollector).thatIsNamed(SQLCollector.class).isNotNull();
+		GlobalValidator.assertThat(pSQLCollector).thatIsNamed(SQLCollector.class).isNotNull();
 		
 		mSQLCollector = pSQLCollector;
 	}

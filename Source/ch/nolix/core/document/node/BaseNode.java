@@ -18,7 +18,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentExceptio
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IElementTakerBooleanGetter;
 import ch.nolix.core.programcontrol.processproperty.WriteMode;
 
@@ -154,7 +154,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	public void addPostfixToHeader(final String postfix) {
 		
 		//Asserts that the given postfix is not null or blank.
-		Validator.assertThat(postfix).thatIsNamed(LowerCaseCatalogue.POSTFIX).isNotBlank();
+		GlobalValidator.assertThat(postfix).thatIsNamed(LowerCaseCatalogue.POSTFIX).isNotBlank();
 		
 		//Handles the case that the current Node does not have a header.
 		if (hasHeader()) {
@@ -178,7 +178,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	public void addPrefixToHeader(final String prefix) {
 		
 		//Asserts that the given prefix is not null or blank.
-		Validator.assertThat(prefix).thatIsNamed(LowerCaseCatalogue.PREFIX).isNotBlank();
+		GlobalValidator.assertThat(prefix).thatIsNamed(LowerCaseCatalogue.PREFIX).isNotBlank();
 		
 		//Handles the case that the current BaseNode does not have a header.
 		if (!hasHeader()) {

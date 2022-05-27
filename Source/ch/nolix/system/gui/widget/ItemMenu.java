@@ -8,7 +8,7 @@ import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IAction;
 import ch.nolix.core.functionuniversalapi.IElementTaker;
 import ch.nolix.core.math.Calculator;
@@ -241,7 +241,7 @@ public abstract class ItemMenu<IM extends ItemMenu<IM>> extends BorderWidget<IM,
 	//method
 	public final IM setSelectAction(final IAction selectAction) {
 		
-		Validator.assertThat(selectAction).thatIsNamed("select action").isNotNull();
+		GlobalValidator.assertThat(selectAction).thatIsNamed("select action").isNotNull();
 		
 		return setSelectAction(i -> selectAction.run());
 	}
@@ -249,7 +249,7 @@ public abstract class ItemMenu<IM extends ItemMenu<IM>> extends BorderWidget<IM,
 	//method
 	public final IM setSelectAction(final IElementTaker<ItemMenuItem> selectAction) {
 		
-		Validator.assertThat(selectAction).thatIsNamed("select action").isNotNull();
+		GlobalValidator.assertThat(selectAction).thatIsNamed("select action").isNotNull();
 		
 		this.selectAction = selectAction;
 		

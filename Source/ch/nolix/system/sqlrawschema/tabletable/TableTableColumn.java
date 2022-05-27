@@ -5,7 +5,7 @@ import ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi.FullNa
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.constant.PascalCaseCatalogue;
 import ch.nolix.core.constant.StringCatalogue;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.sqlrawschema.structure.SystemDataTable;
 
 //enum
@@ -22,7 +22,7 @@ public enum TableTableColumn implements FullNamed {
 	//constructor
 	TableTableColumn(final String name) {
 		
-		Validator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
+		GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
 		
 		this.name = name;
 	}

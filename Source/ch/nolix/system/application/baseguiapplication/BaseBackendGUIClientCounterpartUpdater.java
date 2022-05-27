@@ -2,7 +2,7 @@
 package ch.nolix.system.application.baseguiapplication;
 
 //own imports
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //class
 final class BaseBackendGUIClientCounterpartUpdater {
@@ -17,7 +17,7 @@ final class BaseBackendGUIClientCounterpartUpdater {
 	//constructor
 	public BaseBackendGUIClientCounterpartUpdater(final BaseBackendGUIClient<?, ?> parentBackGUIClient) {
 		
-		Validator.assertThat(parentBackGUIClient).thatIsNamed("parent BackGUIClient").isNotNull();
+		GlobalValidator.assertThat(parentBackGUIClient).thatIsNamed("parent BackGUIClient").isNotNull();
 		
 		this.parentBackGUIClient = parentBackGUIClient;
 	}

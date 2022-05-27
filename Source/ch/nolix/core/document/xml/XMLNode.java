@@ -10,7 +10,7 @@ import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //class
 public final class XMLNode implements OptionalNamable<XMLNode>, OptionalValueable<XMLNode, String> {
@@ -180,7 +180,7 @@ public final class XMLNode implements OptionalNamable<XMLNode>, OptionalValueabl
 	@Override
 	public XMLNode setName(final String name) {
 		
-		Validator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
+		GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
 		
 		this.name = name;
 		
@@ -191,7 +191,7 @@ public final class XMLNode implements OptionalNamable<XMLNode>, OptionalValueabl
 	@Override
 	public XMLNode setValue(final String value) {
 		
-		Validator.assertThat(value).isNotEmpty();
+		GlobalValidator.assertThat(value).isNotEmpty();
 		
 		this.value = value;
 		

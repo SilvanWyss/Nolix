@@ -2,7 +2,7 @@
 package ch.nolix.core.builder.base;
 
 //own imports
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IElementGetter;
 
 //class
@@ -17,7 +17,7 @@ public abstract class ArgumentCapturer<
 	//constructor
 	public ArgumentCapturer(final NAC nextArgumentCapturer) {
 		
-		Validator.assertThat(nextArgumentCapturer).thatIsNamed("next argument capturer").isNotNull();
+		GlobalValidator.assertThat(nextArgumentCapturer).thatIsNamed("next argument capturer").isNotNull();
 		
 		this.nextArgumentCapturer = nextArgumentCapturer;
 	}

@@ -2,7 +2,7 @@
 package ch.nolix.core.valuecreator;
 
 //own imports
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //class
 public final class CreateMediator<S, V> {
@@ -13,7 +13,7 @@ public final class CreateMediator<S, V> {
 	//constructor
 	CreateMediator(final SpecificValueCreator<S, V> parentSpecificValueCreator) {
 		
-		Validator.assertThat(parentSpecificValueCreator).thatIsNamed("parent SpecificValueCreator").isNotNull();
+		GlobalValidator.assertThat(parentSpecificValueCreator).thatIsNamed("parent SpecificValueCreator").isNotNull();
 		
 		this.parentSpecificValueCreator = parentSpecificValueCreator;
 	}

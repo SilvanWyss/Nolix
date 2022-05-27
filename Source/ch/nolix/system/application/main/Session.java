@@ -6,7 +6,7 @@ import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.requestuniversalapi.CloseStateRequestable;
 
 //class
@@ -195,7 +195,7 @@ public abstract class Session<
 	final void setParentClient(BC parentClient) {
 		
 		//Asserts that the given client is not null.
-		Validator.assertThat(parentClient).thatIsNamed("parent client").isNotNull();
+		GlobalValidator.assertThat(parentClient).thatIsNamed("parent client").isNotNull();
 		
 		//Asserts that the current session does not belong to a client.
 		assertDoesNotBelongToClient();
@@ -210,7 +210,7 @@ public abstract class Session<
 	//method
 	final void setResult(final Object result) {
 		
-		Validator.assertThat(result).thatIsNamed(LowerCaseCatalogue.RESULT).isNotNull();
+		GlobalValidator.assertThat(result).thatIsNamed(LowerCaseCatalogue.RESULT).isNotNull();
 		
 		this.result = result;
 	}

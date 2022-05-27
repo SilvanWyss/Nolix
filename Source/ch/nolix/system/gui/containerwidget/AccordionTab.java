@@ -9,7 +9,7 @@ import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.skilluniversalapi.Clearable;
 import ch.nolix.system.element.MutableElement;
 import ch.nolix.system.element.MutableValue;
@@ -149,7 +149,7 @@ public final class AccordionTab extends MutableElement<AccordionTab> implements 
 	@Override
 	public AccordionTab setHeader(final String header) {
 		
-		Validator.assertThat(header).thatIsNamed(LowerCaseCatalogue.HEADER).isNotBlank();
+		GlobalValidator.assertThat(header).thatIsNamed(LowerCaseCatalogue.HEADER).isNotBlank();
 		assertDoesNotBelongToAccordion();
 		
 		this.header.setValue(header);
@@ -202,7 +202,7 @@ public final class AccordionTab extends MutableElement<AccordionTab> implements 
 	//method
 	void setParentAccordion(final Accordion parentAccordion) {
 		
-		Validator.assertThat(parentAccordion).thatIsNamed("parent accordion").isNotNull();
+		GlobalValidator.assertThat(parentAccordion).thatIsNamed("parent accordion").isNotNull();
 		
 		this.parentAccordion = parentAccordion;
 	}

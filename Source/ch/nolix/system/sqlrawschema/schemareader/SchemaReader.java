@@ -3,7 +3,7 @@ package ch.nolix.system.sqlrawschema.schemareader;
 
 //own imports
 import ch.nolix.core.container.LinkedList;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.sql.SQLConnection;
 import ch.nolix.core.sql.SQLConnectionPool;
@@ -57,8 +57,8 @@ public final class SchemaReader implements ISchemaReader {
 		final ISchemaAdapter schemaAdapter
 	) {
 		
-		Validator.assertThat(pSQLConnection).thatIsNamed(SQLConnection.class).isNotNull();
-		Validator.assertThat(schemaAdapter).thatIsNamed(ISchemaAdapter.class).isNotNull();
+		GlobalValidator.assertThat(pSQLConnection).thatIsNamed(SQLConnection.class).isNotNull();
+		GlobalValidator.assertThat(schemaAdapter).thatIsNamed(ISchemaAdapter.class).isNotNull();
 		
 		mSQLConnection = pSQLConnection;
 		this.schemaAdapter = schemaAdapter;

@@ -6,7 +6,7 @@ import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.I2ElementTaker;
 import ch.nolix.core.functionuniversalapi.IElementTakerElementGetter;
 
@@ -40,7 +40,7 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends Materializ
 		
 		super(name, stateClass, valueCreator, specificationCreator);
 		
-		Validator.assertThat(defaultValue).thatIsNamed(LowerCaseCatalogue.DEFAULT_VALUE).isNotNull();
+		GlobalValidator.assertThat(defaultValue).thatIsNamed(LowerCaseCatalogue.DEFAULT_VALUE).isNotNull();
 		
 		this.defaultValue = defaultValue;
 	}
@@ -71,7 +71,7 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends Materializ
 		
 		super(name, stateClass, valueCreator, specificationCreator, setterMethod);
 		
-		Validator.assertThat(defaultValue).thatIsNamed(LowerCaseCatalogue.DEFAULT_VALUE).isNotNull();
+		GlobalValidator.assertThat(defaultValue).thatIsNamed(LowerCaseCatalogue.DEFAULT_VALUE).isNotNull();
 		
 		this.defaultValue = defaultValue;
 	}

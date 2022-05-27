@@ -3,7 +3,7 @@ package ch.nolix.system.sqlrawschema.structure;
 
 import ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi.FullNamed;
 import ch.nolix.core.constant.LowerCaseCatalogue;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //enum
 public enum MultiContentTable implements FullNamed {
@@ -20,7 +20,7 @@ public enum MultiContentTable implements FullNamed {
 	//constructor
 	MultiContentTable(final String name) {
 		
-		Validator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
+		GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
 		
 		this.name = name;
 	}

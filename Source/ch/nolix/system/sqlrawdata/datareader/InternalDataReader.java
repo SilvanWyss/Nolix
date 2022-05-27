@@ -4,7 +4,7 @@ package ch.nolix.system.sqlrawdata.datareader;
 //own imports
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.sql.SQLConnection;
 import ch.nolix.system.sqlrawdata.sqlapi.IMultiReferenceQueryCreator;
 import ch.nolix.system.sqlrawdata.sqlapi.IMultiValueQueryCreator;
@@ -43,7 +43,7 @@ final class InternalDataReader {
 		final ISQLSyntaxProvider pSQLSyntaxProvider
 	) {
 		
-		Validator.assertThat(pSQLConnection).thatIsNamed(SQLConnection.class).isNotNull();
+		GlobalValidator.assertThat(pSQLConnection).thatIsNamed(SQLConnection.class).isNotNull();
 		
 		mSQLConnection = pSQLConnection;
 		recordQueryCreator = pSQLSyntaxProvider.getRecordQueryCreator();

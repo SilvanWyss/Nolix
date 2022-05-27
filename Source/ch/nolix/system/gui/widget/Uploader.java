@@ -2,7 +2,7 @@
 package ch.nolix.system.gui.widget;
 
 //own imports
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IElementTaker;
 import ch.nolix.core.programcontrol.sequencer.Sequencer;
 import ch.nolix.system.elementenum.ContentPosition;
@@ -58,7 +58,7 @@ public final class Uploader extends TextLineWidget<Uploader, UploaderLook> {
 	//method
 	public Uploader setFileTaker(final IElementTaker<byte[]> fileTaker) {
 		
-		Validator.assertThat(fileTaker).thatIsNamed("file taker").isNotNull();
+		GlobalValidator.assertThat(fileTaker).thatIsNamed("file taker").isNotNull();
 		
 		this.fileTaker = fileTaker;
 		

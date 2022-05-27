@@ -11,7 +11,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.BiggerArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IElementTakerElementGetter;
 import ch.nolix.core.skilluniversalapi.Clearable;
 
@@ -69,7 +69,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable {
 	public Matrix<E> addColumn(final Iterable<E> elements) {
 		
 		//Asserts that the given elements are not null.
-		Validator.assertThatTheElements(elements).areNotNull();
+		GlobalValidator.assertThatTheElements(elements).areNotNull();
 		
 		final var lElements = ReadContainer.forIterable(elements);
 		
@@ -93,7 +93,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable {
 		} else {
 			
 			//Asserts that as many elements are given as the number of rows of the current matrix.
-			Validator
+			GlobalValidator
 			.assertThat(lElements.getElementCount())
 			.thatIsNamed("number of the given elements")
 			.isEqualTo(getRowCount());
@@ -161,7 +161,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable {
 	public Matrix<E> addRow(final Iterable<E> elements) {
 		
 		//Asserts that the given elements are not null.
-		Validator.assertThatTheElements(elements).areNotNull();
+		GlobalValidator.assertThatTheElements(elements).areNotNull();
 		
 		final var lElements = ReadContainer.forIterable(elements);
 		
@@ -185,7 +185,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable {
 		} else {
 			
 			//Asserts that as many elements are given as the number of columns of the current matrix.
-			Validator
+			GlobalValidator
 			.assertThat(lElements.getElementCount())
 			.thatIsNamed("number of the given elements")
 			.isEqualTo(getColumnCount());
@@ -487,7 +487,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable {
 	public Matrix<E> setAt(final int index, final E element) {
 				
 		//Asserts that the given element is not null.
-		Validator
+		GlobalValidator
 		.assertThat(element)
 		.thatIsNamed(LowerCaseCatalogue.ELEMENT)
 		.isNotNull();
@@ -527,7 +527,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable {
 		assertContainsAt(rowIndex, columnIndex);
 		
 		//Asserts that the given element is not null.
-		Validator
+		GlobalValidator
 		.assertThat(element)
 		.thatIsNamed(LowerCaseCatalogue.ELEMENT)
 		.isNotNull();
@@ -677,12 +677,12 @@ public final class Matrix<E> implements IContainer<E>, Clearable {
 	 */
 	private void assertContainsAt(final int index) {
 		
-		Validator
+		GlobalValidator
 		.assertThat(index)
 		.thatIsNamed(LowerCaseCatalogue.INDEX)
 		.isPositive();
 		
-		Validator
+		GlobalValidator
 		.assertThat(index)
 		.thatIsNamed(LowerCaseCatalogue.INDEX)
 		.isNotBiggerThan(getElementCount());
@@ -701,22 +701,22 @@ public final class Matrix<E> implements IContainer<E>, Clearable {
 	 */
 	private void assertContainsAt(final int rowIndex, final int columnIndex) {
 		
-		Validator
+		GlobalValidator
 		.assertThat(rowIndex)
 		.thatIsNamed(LowerCaseCatalogue.ROW_INDEX)
 		.isPositive();
 		
-		Validator
+		GlobalValidator
 		.assertThat(rowIndex)
 		.thatIsNamed(LowerCaseCatalogue.ROW_INDEX)
 		.isNotBiggerThan(getRowCount());
 		
-		Validator
+		GlobalValidator
 		.assertThat(columnIndex)
 		.thatIsNamed(LowerCaseCatalogue.COLUMN_INDEX)
 		.isPositive();
 		
-		Validator
+		GlobalValidator
 		.assertThat(columnIndex)
 		.thatIsNamed(LowerCaseCatalogue.COLUMN_INDEX)
 		.isNotBiggerThan(getColumnCount());

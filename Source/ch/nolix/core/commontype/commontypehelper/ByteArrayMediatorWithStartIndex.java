@@ -3,7 +3,7 @@ package ch.nolix.core.commontype.commontypehelper;
 
 //own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //class
 public final class ByteArrayMediatorWithStartIndex {
@@ -15,8 +15,8 @@ public final class ByteArrayMediatorWithStartIndex {
 	//constructor
 	ByteArrayMediatorWithStartIndex(final byte[] byteArray, final int startIndex) {
 		
-		Validator.assertThat(byteArray).thatIsNamed("byte array").isNotNull();
-		Validator.assertThat(startIndex).thatIsNamed(LowerCaseCatalogue.START_INDEX).isBetween(0, byteArray.length);
+		GlobalValidator.assertThat(byteArray).thatIsNamed("byte array").isNotNull();
+		GlobalValidator.assertThat(startIndex).thatIsNamed(LowerCaseCatalogue.START_INDEX).isBetween(0, byteArray.length);
 		
 		this.byteArray = byteArray;
 		index = startIndex;

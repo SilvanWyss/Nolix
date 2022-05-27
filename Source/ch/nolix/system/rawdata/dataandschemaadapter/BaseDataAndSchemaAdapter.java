@@ -3,7 +3,7 @@ package ch.nolix.system.rawdata.dataandschemaadapter;
 
 //own imports
 import ch.nolix.core.container.LinkedList;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.system.time.base.Time;
 import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataAdapter;
@@ -35,8 +35,8 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
 		final ISchemaReader schemaReader
 	) {
 		
-		Validator.assertThat(dataAdapter).thatIsNamed(IDataAdapter.class).isNotNull();
-		Validator.assertThat(schemaReader).thatIsNamed(ISchemaReader.class).isNotNull();
+		GlobalValidator.assertThat(dataAdapter).thatIsNamed(IDataAdapter.class).isNotNull();
+		GlobalValidator.assertThat(schemaReader).thatIsNamed(ISchemaReader.class).isNotNull();
 		
 		this.dataAdapter = dataAdapter;
 		this.schemaReader = schemaReader;

@@ -9,7 +9,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.groupcloseable.GroupCloseable;
 
 //class
@@ -115,7 +115,7 @@ public class NetEndPoint extends EndPoint {
 	 */
 	NetEndPoint(final ch.nolix.core.net.endpoint.EndPoint internalEndPoint) {
 		
-		Validator.assertThat(internalEndPoint).thatIsNamed("internal EndPoint").isNotNull();
+		GlobalValidator.assertThat(internalEndPoint).thatIsNamed("internal EndPoint").isNotNull();
 		
 		this.internalEndPoint = internalEndPoint;
 		createCloseDependencyTo(internalEndPoint);

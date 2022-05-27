@@ -10,7 +10,7 @@ import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.systemapi.elementapi.IMutableElement;
 
 //class
@@ -193,7 +193,7 @@ public abstract class MutableElement<ME extends MutableElement<ME>> implements I
 			final var property = (Property)(field.get(this));
 			
 			//Asserts that the corresponding Property is not null.
-			Validator.assertThat(property).isOfType(MutableValue.class);
+			GlobalValidator.assertThat(property).isOfType(MutableValue.class);
 			
 			properties.addAtEnd(property);
 		} catch (final IllegalAccessException illegalAccessException) {

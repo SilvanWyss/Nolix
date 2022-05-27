@@ -8,7 +8,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IElementTakerBooleanGetter;
 
 //class
@@ -34,12 +34,12 @@ public final class SubNode extends BaseNode {
 	SubNode(final FileNode parentFileNode, final Node internalSpecification) {
 		
 		//Asserts that the given simple persistent specification is not null.
-		Validator
+		GlobalValidator
 		.assertThat(parentFileNode)
 		.isOfType(FileNode.class);
 		
 		//Asserts that the given internal specification is not null.
-		Validator.assertThat(internalSpecification)
+		GlobalValidator.assertThat(internalSpecification)
 		.thatIsNamed("internal specification")
 		.isNotNull();
 		

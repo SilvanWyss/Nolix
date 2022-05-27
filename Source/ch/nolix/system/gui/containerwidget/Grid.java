@@ -7,7 +7,7 @@ import ch.nolix.core.constant.PascalCaseCatalogue;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.container.matrix.Matrix;
 import ch.nolix.core.container.matrix.MatrixRow;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.element.MultiValueExtractor;
 import ch.nolix.system.elementenum.RotationDirection;
 import ch.nolix.system.gui.widget.Label;
@@ -388,7 +388,7 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 	//method
 	private void expandColumnsTo(final int columnIndex) {
 		
-		Validator
+		GlobalValidator
 		.assertThat(columnIndex)
 		.thatIsNamed(LowerCaseCatalogue.COLUMN_INDEX)
 		.isPositive();
@@ -412,7 +412,7 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 	//method
 	private void expandRowsTo(final int rowIndex) {
 		
-		Validator
+		GlobalValidator
 		.assertThat(rowIndex)
 		.thatIsNamed(LowerCaseCatalogue.ROW_INDEX)
 		.isPositive();

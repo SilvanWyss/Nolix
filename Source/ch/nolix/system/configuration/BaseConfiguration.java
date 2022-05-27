@@ -9,7 +9,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.element.MultiValue;
 import ch.nolix.system.element.MutableElement;
 import ch.nolix.system.element.MutableOptionalValue;
@@ -203,7 +203,7 @@ public abstract class BaseConfiguration<C extends BaseConfiguration<C>> extends 
 	public final C addSelectorToken(final String selectorToken) {
 		
 		//Asserts that the given selectorToken is not null or blank.
-		Validator.assertThat(selectorToken).thatIsNamed("selectorToken").isNotBlank();
+		GlobalValidator.assertThat(selectorToken).thatIsNamed("selectorToken").isNotBlank();
 				
 		selectorTokens.add(selectorToken);
 		
@@ -448,7 +448,7 @@ public abstract class BaseConfiguration<C extends BaseConfiguration<C>> extends 
 	public final C setSelectorType(final Class<?> selectorType) {
 		
 		//Asserts that the given selectorType is not null.
-		Validator.assertThat(selectorType).thatIsNamed("selector type").isNotNull();
+		GlobalValidator.assertThat(selectorType).thatIsNamed("selector type").isNotNull();
 		
 		return setSelectorType(selectorType.getSimpleName());
 	}
@@ -465,7 +465,7 @@ public abstract class BaseConfiguration<C extends BaseConfiguration<C>> extends 
 	public final C setSelectorType(final String selectorType) {
 		
 		//Asserts that the given selectorType is not null or blank.
-		Validator.assertThat(selectorType).thatIsNamed("selectorType").isNotBlank();
+		GlobalValidator.assertThat(selectorType).thatIsNamed("selectorType").isNotBlank();
 		
 		//Sets the selectorType of the current BaseConfiguration.
 		this.selectorType.setValue(selectorType);

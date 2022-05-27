@@ -3,7 +3,7 @@ package ch.nolix.core.container.pair;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //class
 /**
@@ -33,10 +33,10 @@ public final class Pair<E1, E2> {
 	public Pair(final E1 element1, final E2 element2) {
 		
 		//Asserts that the given element 1 is not null.
-		Validator.assertThat(element1).thatIsNamed("element 1").isNotNull();
+		GlobalValidator.assertThat(element1).thatIsNamed("element 1").isNotNull();
 		
 		//Asserts that the given element 2 is not null.
-		Validator.assertThat(element2).thatIsNamed("element 2").isNotNull();
+		GlobalValidator.assertThat(element2).thatIsNamed("element 2").isNotNull();
 		
 		//Sets the element 1 of the current {@link Pair}.
 		this.element1 = element1;

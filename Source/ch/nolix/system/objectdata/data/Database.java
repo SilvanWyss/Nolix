@@ -4,7 +4,7 @@ package ch.nolix.system.objectdata.data;
 //own imports
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.time.base.Time;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.DatabaseObjectState;
 import ch.nolix.systemapi.objectdataapi.dataapi.IDatabase;
@@ -42,8 +42,8 @@ public final class Database implements IDatabase<DataImplementation> {
 	//constructor
 	private Database(final IDataAndSchemaAdapter dataAndSchemaAdapter, final ISchema<DataImplementation> schema) {
 		
-		Validator.assertThat(dataAndSchemaAdapter).thatIsNamed(IDataAndSchemaAdapter.class).isNotNull();
-		Validator.assertThat(schema).thatIsNamed(ISchema.class).isNotNull();
+		GlobalValidator.assertThat(dataAndSchemaAdapter).thatIsNamed(IDataAndSchemaAdapter.class).isNotNull();
+		GlobalValidator.assertThat(schema).thatIsNamed(ISchema.class).isNotNull();
 		
 		schemaTimestamp = dataAndSchemaAdapter.getSchemaTimestamp();
 		this.dataAndSchemaAdapter = dataAndSchemaAdapter;

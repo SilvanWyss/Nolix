@@ -12,7 +12,7 @@ import ch.nolix.core.constant.IPv4Catalogue;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.constant.PortCatalogue;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //class
 public final class ShellProvider {
@@ -20,7 +20,7 @@ public final class ShellProvider {
 	//static method
 	public static void run(final String command) {
 		
-		Validator
+		GlobalValidator
 		.assertThat(command)
 		.thatIsNamed(LowerCaseCatalogue.COMMAND)
 		.isNotNull();
@@ -64,12 +64,12 @@ public final class ShellProvider {
 	//static method
 	public static void startFirefox(final String url, final int port) {
 		
-		Validator
+		GlobalValidator
 		.assertThat(url)
 		.thatIsNamed(LowerCaseCatalogue.URL)
 		.isNotBlank();
 		
-		Validator
+		GlobalValidator
 		.assertThat(port)
 		.thatIsNamed(LowerCaseCatalogue.PORT)
 		.isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);

@@ -7,7 +7,7 @@ import ch.nolix.core.constant.PascalCaseCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.element.MutableElement;
 import ch.nolix.system.element.MutableOptionalValue;
 import ch.nolix.systemapi.elementapi.IConfigurableElement;
@@ -109,7 +109,7 @@ implements IConfigurableElement<CE> {
 	@Override
 	public final CE setId(final String id) {
 		
-		Validator.assertThat(id).thatIsNamed(LowerCaseCatalogue.ID).isNotBlank();
+		GlobalValidator.assertThat(id).thatIsNamed(LowerCaseCatalogue.ID).isNotBlank();
 		
 		this.id.setValue(id);
 		
@@ -127,7 +127,7 @@ implements IConfigurableElement<CE> {
 	@Override
 	public final CE setToken(final String token) {
 		
-		Validator.assertThat(token).thatIsNamed(LowerCaseCatalogue.TOKEN).isNotBlank();
+		GlobalValidator.assertThat(token).thatIsNamed(LowerCaseCatalogue.TOKEN).isNotBlank();
 		
 		this.token.setValue(token);
 		

@@ -4,7 +4,7 @@ package ch.nolix.system.gui.widget;
 //own imports
 import ch.nolix.core.environment.filesystem.FileAccessor;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IElementGetter;
 import ch.nolix.system.gui.base.CursorIcon;
 import ch.nolix.system.gui.color.Color;
@@ -83,7 +83,7 @@ public final class Downloader extends TextLineWidget<Downloader, DownloaderLook>
 	//method
 	public Downloader setFileProvider(final IElementGetter<byte[]> fileProvider) {
 		
-		Validator
+		GlobalValidator
 		.assertThat(fileProvider)
 		.thatIsNamed("file provider")
 		.isNotNull();

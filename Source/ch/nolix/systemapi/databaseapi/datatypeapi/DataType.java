@@ -9,7 +9,7 @@ import java.math.BigInteger;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.time.base.Time;
 
 //enum
@@ -68,8 +68,8 @@ public enum DataType {
 	//constructor
 	<V> DataType(final Class<V> dataTypeClass, final IValueCreator<V> valueCreator) {
 		
-		Validator.assertThat(dataTypeClass).thatIsNamed("data type class").isNotNull();
-		Validator.assertThat(valueCreator).thatIsNamed(IValueCreator.class).isNotNull();
+		GlobalValidator.assertThat(dataTypeClass).thatIsNamed("data type class").isNotNull();
+		GlobalValidator.assertThat(valueCreator).thatIsNamed(IValueCreator.class).isNotNull();
 		
 		this.dataTypeClass = dataTypeClass;
 		this.valueCreator = valueCreator;

@@ -13,7 +13,7 @@ import ch.nolix.core.constant.IPv4Catalogue;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.programcontrol.groupcloseable.GroupCloseable;
 
@@ -35,8 +35,8 @@ public abstract class SQLConnection implements GroupCloseable {
 	//constructor
 	public SQLConnection(final SQLDatabaseEngine pSQLDatabaseEngine, final Connection connection) {
 		
-		Validator.assertThat(pSQLDatabaseEngine).thatIsNamed(SQLDatabaseEngine.class).isNotNull();
-		Validator.assertThat(connection).thatIsNamed(Connection.class).isNotNull();
+		GlobalValidator.assertThat(pSQLDatabaseEngine).thatIsNamed(SQLDatabaseEngine.class).isNotNull();
+		GlobalValidator.assertThat(connection).thatIsNamed(Connection.class).isNotNull();
 		
 		this.mSQLDatabaseEngine = pSQLDatabaseEngine;
 		this.connection = connection;
@@ -68,7 +68,7 @@ public abstract class SQLConnection implements GroupCloseable {
 		final String userPassword
 	) {
 		
-		Validator.assertThat(pSQLDatabaseEngine).thatIsNamed(SQLDatabaseEngine.class).isNotNull();
+		GlobalValidator.assertThat(pSQLDatabaseEngine).thatIsNamed(SQLDatabaseEngine.class).isNotNull();
 		
 		this.mSQLDatabaseEngine = pSQLDatabaseEngine;
 		
@@ -93,10 +93,10 @@ public abstract class SQLConnection implements GroupCloseable {
 		final SQLConnectionPool parentSQLConnectionPool
 	) {
 		
-		Validator.assertThat(pSQLDatabaseEngine).thatIsNamed(SQLDatabaseEngine.class).isNotNull();
-		Validator.assertThat(parentSQLConnectionPool).thatIsNamed("parent SQLConnectionPool").isNotNull();
+		GlobalValidator.assertThat(pSQLDatabaseEngine).thatIsNamed(SQLDatabaseEngine.class).isNotNull();
+		GlobalValidator.assertThat(parentSQLConnectionPool).thatIsNamed("parent SQLConnectionPool").isNotNull();
 		
-		Validator
+		GlobalValidator
 		.assertThat(parentSQLConnectionPool)
 		.thatIsNamed("parent SQLConnectionPool")
 		.fulfills(SQLConnectionPool::isOpen);

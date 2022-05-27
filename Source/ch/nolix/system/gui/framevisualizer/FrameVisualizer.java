@@ -12,7 +12,7 @@ import javax.swing.WindowConstants;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.gui.base.GUI;
 import ch.nolix.system.gui.base.IVisualizer;
 import ch.nolix.system.gui.base.SwingPainter;
@@ -87,7 +87,7 @@ public final class FrameVisualizer implements IVisualizer {
 	 */
 	public void initialize(GUI<?> parentGUI) {
 		
-		Validator.assertThat(parentGUI).thatIsNamed("parent GUI").isNotNull();
+		GlobalValidator.assertThat(parentGUI).thatIsNamed("parent GUI").isNotNull();
 		assertIsNotInitialized();
 				
 		this.parentGUI = parentGUI;

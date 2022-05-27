@@ -12,7 +12,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsZeroException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //class
 /**
@@ -52,13 +52,13 @@ public final class Polynom {
 	private Polynom(final double[] coefficients) {
 		
 		//Asserts that the given coefficients is not null.
-		Validator.assertThat(coefficients).thatIsNamed(PluralLowerCaseCatalogue.COEFFICIENTS).isNotNull();
+		GlobalValidator.assertThat(coefficients).thatIsNamed(PluralLowerCaseCatalogue.COEFFICIENTS).isNotNull();
 		
 		//Handles the case that the given coefficients is not empty.
 		if (coefficients.length > 0) {
 			
 			//Asserts that the given highest coefficient is not 0.0.
-			Validator.assertThat(coefficients[0]).thatIsNamed("highest coefficient").isNotZero();
+			GlobalValidator.assertThat(coefficients[0]).thatIsNamed("highest coefficient").isNotZero();
 		}
 		
 		//Sets the coefficients of the current Polynom.
@@ -84,7 +84,7 @@ public final class Polynom {
 	public double getCoefficientForDegree(final int degree) {
 		
 		//Asserts that the given degree is between 0 and the degree of the current Polynom.
-		Validator.assertThat(degree).thatIsNamed(LowerCaseCatalogue.DEGREE).isBetween(0, getDegree());
+		GlobalValidator.assertThat(degree).thatIsNamed(LowerCaseCatalogue.DEGREE).isBetween(0, getDegree());
 		
 		return coefficients[coefficients.length - degree - 1];
 	}
@@ -143,7 +143,7 @@ public final class Polynom {
 	 */
 	public Polynom getIntegrated(final int integrationCount) {
 		
-		Validator.assertThat(integrationCount).thatIsNamed("integration count").isNotNegative();
+		GlobalValidator.assertThat(integrationCount).thatIsNamed("integration count").isNotNegative();
 		
 		final var degree = getDegree();
 		final var integratedDegree = degree + integrationCount;
@@ -263,7 +263,7 @@ public final class Polynom {
 	private Polynom calculateDerived(final int deriveCount) {
 		
 		//Asserts that the given derviceCount is not negative.
-		Validator.assertThat(deriveCount).thatIsNamed("derive count").isNotNegative();
+		GlobalValidator.assertThat(deriveCount).thatIsNamed("derive count").isNotNegative();
 		
 		final var degree = getDegree();
 		final var derivedDegree = Calculator.getMax(0, degree - deriveCount);
@@ -320,7 +320,7 @@ public final class Polynom {
 	//method
 	private String toStringWhenIsZeroPolynom(final String parameterSymbol) {
 		
-		Validator.assertThat(parameterSymbol).thatIsNamed("parameter symbol").isNotBlank();
+		GlobalValidator.assertThat(parameterSymbol).thatIsNamed("parameter symbol").isNotBlank();
 		
 		return (parameterSymbol + "->0.0");
 	}
@@ -328,7 +328,7 @@ public final class Polynom {
 	//method
 	private String toStringWhenIsNotZeroPolynom(final String parameterSymbol) {
 		
-		Validator.assertThat(parameterSymbol).thatIsNamed("parameter symbol").isNotBlank();
+		GlobalValidator.assertThat(parameterSymbol).thatIsNamed("parameter symbol").isNotBlank();
 		
 		final var stringBuilder = new StringBuilder();
 		

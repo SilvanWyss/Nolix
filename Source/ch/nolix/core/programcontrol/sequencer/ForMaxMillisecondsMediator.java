@@ -5,7 +5,7 @@ package ch.nolix.core.programcontrol.sequencer;
 import ch.nolix.core.constant.TimeUnitCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IBooleanGetter;
 
 //class
@@ -41,7 +41,7 @@ public final class ForMaxMillisecondsMediator {
 	static ForMaxMillisecondsMediator forMaxSeconds(final int maxDurationInSeconds) {
 		
 		//Asserts that the given maxDurationInSeconds is not negative.
-		Validator.assertThat(maxDurationInSeconds).thatIsNamed("max duration in seconds").isNotNegative();
+		GlobalValidator.assertThat(maxDurationInSeconds).thatIsNamed("max duration in seconds").isNotNegative();
 		
 		//Creates and returns a new ForMaxMillisecondsMediator.
 		return new ForMaxMillisecondsMediator(maxDurationInSeconds * TimeUnitCatalogue.MILLISECONDS_PER_SECOND);
@@ -57,7 +57,7 @@ public final class ForMaxMillisecondsMediator {
 	private ForMaxMillisecondsMediator(final int maxDurationInMilliseconds) {
 		
 		//Asserts that the given maxDurationInMilliseconds is not negative.
-		Validator.assertThat(maxDurationInMilliseconds).thatIsNamed("max duration in milliseconds").isNotNegative();
+		GlobalValidator.assertThat(maxDurationInMilliseconds).thatIsNamed("max duration in milliseconds").isNotNegative();
 		
 		//Sets the maxDurationInMilliseconds of the current ForMaxMillisecondsMediator.
 		this.maxDurationInMilliseconds = maxDurationInMilliseconds;
@@ -75,7 +75,7 @@ public final class ForMaxMillisecondsMediator {
 	public AsLongAsMediator asLongAs(final IBooleanGetter condition) {
 		
 		//Asserts that the given condition is not null.
-		Validator.assertThat(condition).thatIsNamed("condition").isNotNull();
+		GlobalValidator.assertThat(condition).thatIsNamed("condition").isNotNull();
 		
 		final var startTimeInMilliseconds = System.currentTimeMillis();
 		final var endTimeInMilliseconds = startTimeInMilliseconds + maxDurationInMilliseconds;

@@ -2,7 +2,7 @@
 package ch.nolix.system.objectdata.propertyflyweight;
 
 //own imports
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IAction;
 import ch.nolix.systemapi.objectdataapi.dataflyweightapi.IPropertyFlyWeight;
 
@@ -29,7 +29,7 @@ public final class PropertyFlyWeight implements IPropertyFlyWeight {
 	@Override
 	public void setUpdateAction(final IAction updateAction) {
 		
-		Validator.assertThat(updateAction).thatIsNamed("update action").isNotNull();
+		GlobalValidator.assertThat(updateAction).thatIsNamed("update action").isNotNull();
 		
 		this.updateAction = updateAction;
 	}

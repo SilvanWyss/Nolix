@@ -7,7 +7,7 @@ import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IElementTakerElementGetter;
 import ch.nolix.core.requestuniversalapi.MutabilityRequestable;
 
@@ -42,9 +42,9 @@ public abstract class BaseValue<V> extends Property implements MutabilityRequest
 		final IElementTakerElementGetter<V, Node> specificationCreator
 	) {
 		
-		Validator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
-		Validator.assertThat(valueCreator).thatIsNamed("value creator").isNotNull();
-		Validator.assertThat(specificationCreator).thatIsNamed("specificaiton creator").isNotNull();
+		GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
+		GlobalValidator.assertThat(valueCreator).thatIsNamed("value creator").isNotNull();
+		GlobalValidator.assertThat(specificationCreator).thatIsNamed("specificaiton creator").isNotNull();
 		
 		this.name = name;
 		this.valueCreator = valueCreator;

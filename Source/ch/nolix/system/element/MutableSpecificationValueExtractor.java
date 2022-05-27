@@ -6,7 +6,7 @@ import ch.nolix.core.constant.PascalCaseCatalogue;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IElementGetter;
 import ch.nolix.core.functionuniversalapi.IElementTaker;
 
@@ -25,9 +25,9 @@ public final class MutableSpecificationValueExtractor extends Property {
 		final IElementGetter<Node> getter
 	) {
 		
-		Validator.assertThat(name).thatIsNamed(PascalCaseCatalogue.NAME).isNotBlank();
-		Validator.assertThat(setter).thatIsNamed("setter").isNotNull();
-		Validator.assertThat(getter).thatIsNamed("getter").isNotNull();
+		GlobalValidator.assertThat(name).thatIsNamed(PascalCaseCatalogue.NAME).isNotBlank();
+		GlobalValidator.assertThat(setter).thatIsNamed("setter").isNotNull();
+		GlobalValidator.assertThat(getter).thatIsNamed("getter").isNotNull();
 		
 		this.name = name;
 		this.setter = setter;

@@ -4,7 +4,7 @@ package ch.nolix.core.net.target;
 //own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.constant.PortCatalogue;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.targetuniversalapi.IServerTarget;
 
 //class
@@ -24,9 +24,9 @@ public class ServerTarget implements IServerTarget {
 	//constructor
 	protected ServerTarget(final String ipOrAddressName, final int port) {
 		
-		Validator.assertThat(ipOrAddressName).thatIsNamed("ip or address name").isNotBlank();
+		GlobalValidator.assertThat(ipOrAddressName).thatIsNamed("ip or address name").isNotBlank();
 		
-		Validator.assertThat(port)
+		GlobalValidator.assertThat(port)
 		.thatIsNamed(LowerCaseCatalogue.PORT)
 		.isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
 		

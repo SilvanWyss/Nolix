@@ -2,7 +2,7 @@
 package ch.nolix.system.objectschema.parametrizedpropertytype;
 
 //own imports
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IParametrizedPropertyType;
 
@@ -15,7 +15,7 @@ public abstract class ParametrizedPropertyType<DT> implements IParametrizedPrope
 	//constructor
 	public ParametrizedPropertyType(final DataType dataTye) {
 		
-		Validator.assertThat(dataTye).thatIsNamed(DataType.class).isNotNull();
+		GlobalValidator.assertThat(dataTye).thatIsNamed(DataType.class).isNotNull();
 		
 		this.dataType = dataTye;
 	}

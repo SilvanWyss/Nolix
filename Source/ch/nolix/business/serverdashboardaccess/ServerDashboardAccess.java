@@ -5,7 +5,7 @@ package ch.nolix.business.serverdashboardaccess;
 import ch.nolix.businessapi.serverdashboardaccessapi.IApplicationSheet;
 import ch.nolix.businessapi.serverdashboardaccessapi.IServerDashboardAccess;
 import ch.nolix.core.container.IContainer;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.application.guiapplication.BackendGUIClient;
 import ch.nolix.system.application.main.Application;
 import ch.nolix.system.application.main.Server;
@@ -24,7 +24,7 @@ public final class ServerDashboardAccess implements IServerDashboardAccess {
 	//constructor
 	private ServerDashboardAccess(final Server server) {
 		
-		Validator.assertThat(server).thatIsNamed(Server.class).isNotNull();
+		GlobalValidator.assertThat(server).thatIsNamed(Server.class).isNotNull();
 		
 		this.server = server;
 	}

@@ -14,7 +14,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.requestuniversalapi.ApproximativeEqualing;
 
 //class
@@ -84,7 +84,7 @@ public final class Matrix implements ApproximativeEqualing {
 	public static Matrix createRandomMatrix(final int size) {
 		
 		//Asserts that the given size is positive.
-		Validator.assertThat(size).thatIsNamed(LowerCaseCatalogue.SIZE).isPositive();
+		GlobalValidator.assertThat(size).thatIsNamed(LowerCaseCatalogue.SIZE).isPositive();
 		
 		return createRandomMatrix(size, size);
 	}
@@ -127,7 +127,7 @@ public final class Matrix implements ApproximativeEqualing {
 	public Matrix(final int size) {
 		
 		//Asserts that the given size is positive.
-		Validator.assertThat(size).thatIsNamed(LowerCaseCatalogue.SIZE).isPositive();
+		GlobalValidator.assertThat(size).thatIsNamed(LowerCaseCatalogue.SIZE).isPositive();
 		
 		values = new double[size][size];
 	}
@@ -144,10 +144,10 @@ public final class Matrix implements ApproximativeEqualing {
 	public Matrix(final int rowCount, final int columnCount) {
 		
 		//Asserts that the given rowCount is positive.
-		Validator.assertThat(rowCount).thatIsNamed(LowerCaseCatalogue.ROW_COUNT).isPositive();
+		GlobalValidator.assertThat(rowCount).thatIsNamed(LowerCaseCatalogue.ROW_COUNT).isPositive();
 		
 		//Asserts that the given columnCount is positive.
-		Validator.assertThat(columnCount).thatIsNamed(LowerCaseCatalogue.COLUMN_COUNT).isPositive();
+		GlobalValidator.assertThat(columnCount).thatIsNamed(LowerCaseCatalogue.COLUMN_COUNT).isPositive();
 		
 		values = new double[rowCount][columnCount];
 	}
@@ -183,13 +183,13 @@ public final class Matrix implements ApproximativeEqualing {
 	public Matrix add(final Matrix matrix) {
 		
 		//Asserts that the given Matrix has as many rows as the current Matrix.
-		Validator
+		GlobalValidator
 		.assertThat(matrix.getRowCount())
 		.thatIsNamed("number of rows of the given matrix")
 		.isEqualTo(getRowCount());
 		
 		//Asserts that the given Matrix has as many columns as the current Matrix.
-		Validator
+		GlobalValidator
 		.assertThat(matrix.getColumnCount())
 		.thatIsNamed("number of columns of the given matrix")
 		.isEqualTo(getColumnCount());
@@ -217,7 +217,7 @@ public final class Matrix implements ApproximativeEqualing {
 	public Matrix appendAtRight(final Matrix matrix) {
 		
 		//Asserts that the given Matrix has as many rows as the current Matrix.
-		Validator
+		GlobalValidator
 		.assertThat(matrix.getRowCount())
 		.thatIsNamed("number of rows of the given matrix")
 		.isEqualTo(getRowCount());
@@ -252,7 +252,7 @@ public final class Matrix implements ApproximativeEqualing {
 	public Matrix appendRowAtBottom(double... rowValues) {
 		
 		//Asserts that as many row values are given than the number of columns of the current Matrix.
-		Validator.assertThat(rowValues).thatIsNamed("row values").hasElementCount(getColumnCount());
+		GlobalValidator.assertThat(rowValues).thatIsNamed("row values").hasElementCount(getColumnCount());
 		
 		var oldValues = values;
 		values = new double[oldValues.length + 1][oldValues[0].length];
@@ -367,7 +367,7 @@ public final class Matrix implements ApproximativeEqualing {
 	public Matrix getMatrixWithFirstColumns(int columnCount) {
 		
 		//Asserts that the given column count is valid.
-		Validator
+		GlobalValidator
 		.assertThat(columnCount)
 		.thatIsNamed(LowerCaseCatalogue.COLUMN_COUNT)
 		.isBetween(1, getColumnCount());
@@ -392,7 +392,7 @@ public final class Matrix implements ApproximativeEqualing {
 	public Matrix getMatrixWithLastColumns(final int columnCount) {
 		
 		//Asserts that the given column count is valid.
-		Validator
+		GlobalValidator
 		.assertThat(columnCount)
 		.thatIsNamed(LowerCaseCatalogue.COLUMN_COUNT)
 		.isBetween(1, getColumnCount());
@@ -423,13 +423,13 @@ public final class Matrix implements ApproximativeEqualing {
 	public Matrix getMinimalFactorMatrix(final Matrix solutionMatrix) {
 		
 		//Asserts that the given solution Matrix has 1 column.
-		Validator
+		GlobalValidator
 		.assertThat(solutionMatrix.getColumnCount())
 		.thatIsNamed("number of columns of the given soluction matrix")
 		.isEqualTo(1);
 		
 		//Asserts that the given solution Matrix has as many rows as the current Matrix.
-		Validator
+		GlobalValidator
 		.assertThat(solutionMatrix.getRowCount())
 		.thatIsNamed("number of rows of the given solution matrix")
 		.isEqualTo(getRowCount());
@@ -459,7 +459,7 @@ public final class Matrix implements ApproximativeEqualing {
 	public Matrix getProduct(final Matrix matrix) {
 		
 		//Asserts that the given Matrix has as many rows as the number of columns of the current Matrix.
-		Validator
+		GlobalValidator
 		.assertThat(matrix.getRowCount())
 		.thatIsNamed("number of rows of the given matrix")
 		.isEqualTo(getColumnCount());
@@ -612,13 +612,13 @@ public final class Matrix implements ApproximativeEqualing {
 	public double getValue(final int rowIndex, final int columnIndex) {
 		
 		//Asserts that the current Matrix contains a row with the given row index.
-		Validator
+		GlobalValidator
 		.assertThat(rowIndex)
 		.thatIsNamed(LowerCaseCatalogue.ROW_INDEX)
 		.isBetween(1, getRowCount());
 		
 		//Asserts that the current Matrix contains a column with the given column index.
-		Validator
+		GlobalValidator
 		.assertThat(columnIndex)
 		.thatIsNamed(LowerCaseCatalogue.COLUMN_INDEX)
 		.isBetween(1, getColumnCount());
@@ -711,7 +711,7 @@ public final class Matrix implements ApproximativeEqualing {
 	public Matrix multiplyRow(final int rowIndex, final double factor) {
 		
 		//Asserts that the current Matrix contains a row with the given row index.
-		Validator.assertThat(rowIndex).thatIsNamed(LowerCaseCatalogue.ROW_INDEX).isBetween(1, getRowCount());
+		GlobalValidator.assertThat(rowIndex).thatIsNamed(LowerCaseCatalogue.ROW_INDEX).isBetween(1, getRowCount());
 		
 		//Iterates the cells of the row with the given row index.
 		for (var i = 0; i < getColumnCount(); i++) {
@@ -788,13 +788,13 @@ public final class Matrix implements ApproximativeEqualing {
 	public Matrix setValue(final int rowIndex, final int columnIndex, final double value) {
 		
 		//Asserts that the current Matrix contains a row with the given row index.
-		Validator
+		GlobalValidator
 		.assertThat(rowIndex)
 		.thatIsNamed(LowerCaseCatalogue.ROW_INDEX)
 		.isBetween(1, getRowCount());
 		
 		//Asserts that the current Matrix contains a column with the given column index.
-		Validator
+		GlobalValidator
 		.assertThat(columnIndex)
 		.thatIsNamed(LowerCaseCatalogue.COLUMN_INDEX)
 		.isBetween(1, getColumnCount());
@@ -815,7 +815,7 @@ public final class Matrix implements ApproximativeEqualing {
 	public Matrix setValues(final double... values) {
 		
 		//Asserts that as many values are given as the current Matrix contains.
-		Validator.assertThat(values).hasElementCount(getColumnCount() * getRowCount());
+		GlobalValidator.assertThat(values).hasElementCount(getColumnCount() * getRowCount());
 		
 		//Iterates the rows of the current Matrix.
 		for (var i = 0; i < getRowCount(); i++) {
@@ -861,10 +861,10 @@ public final class Matrix implements ApproximativeEqualing {
 	public Matrix swapRows(int row1Index, int row2Index) {
 		
 		//Asserts that the current Matrix has a row with the given row 1 index.
-		Validator.assertThat(row1Index).thatIsNamed(LowerCaseCatalogue.ROW_INDEX).isBetween(1, getRowCount());
+		GlobalValidator.assertThat(row1Index).thatIsNamed(LowerCaseCatalogue.ROW_INDEX).isBetween(1, getRowCount());
 		
 		//Asserts that the current Matrix has a row with the given row 2 index.
-		Validator.assertThat(row2Index).thatIsNamed(LowerCaseCatalogue.ROW_INDEX).isBetween(1, getRowCount());
+		GlobalValidator.assertThat(row2Index).thatIsNamed(LowerCaseCatalogue.ROW_INDEX).isBetween(1, getRowCount());
 		
 		final double[] temp = values[row1Index - 1];
 		values[row1Index - 1] = values[row2Index - 1];

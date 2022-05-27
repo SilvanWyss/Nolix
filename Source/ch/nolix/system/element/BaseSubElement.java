@@ -6,7 +6,7 @@ import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.systemapi.elementapi.IMutableElement;
 
 //class
@@ -22,7 +22,7 @@ public abstract class BaseSubElement<ME extends IMutableElement<ME>> extends Pro
 		final ME internalSubElement
 	) {
 		
-		Validator.assertThat(attributePrefix).thatIsNamed("attribute prefix").isNotBlank();
+		GlobalValidator.assertThat(attributePrefix).thatIsNamed("attribute prefix").isNotBlank();
 		
 		this.attributePrefix = attributePrefix;
 		internalSetSubElement(internalSubElement);
@@ -73,7 +73,7 @@ public abstract class BaseSubElement<ME extends IMutableElement<ME>> extends Pro
 	//method
 	protected final void internalSetSubElement(final ME internalSubElement) {
 		
-		Validator.assertThat(internalSubElement).thatIsNamed("sub element").isNotNull();
+		GlobalValidator.assertThat(internalSubElement).thatIsNamed("sub element").isNotNull();
 		
 		if (this.internalSubElement != null && !isExchangable()) {
 			throw new InvalidArgumentException(this, "is not exchangable");

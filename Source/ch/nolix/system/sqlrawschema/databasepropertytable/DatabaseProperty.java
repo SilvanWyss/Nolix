@@ -3,7 +3,7 @@ package ch.nolix.system.sqlrawschema.databasepropertytable;
 
 import ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi.Labeled;
 import ch.nolix.core.constant.LowerCaseCatalogue;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //class
 public enum DatabaseProperty implements Labeled {
@@ -15,7 +15,7 @@ public enum DatabaseProperty implements Labeled {
 	//constructor
 	DatabaseProperty(final String label) {
 		
-		Validator.assertThat(label).thatIsNamed(LowerCaseCatalogue.LABEL).isNotBlank();
+		GlobalValidator.assertThat(label).thatIsNamed(LowerCaseCatalogue.LABEL).isNotBlank();
 		
 		this.label = label;
 	}

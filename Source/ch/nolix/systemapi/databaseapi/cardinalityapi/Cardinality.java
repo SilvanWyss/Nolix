@@ -2,7 +2,7 @@
 package ch.nolix.systemapi.databaseapi.cardinalityapi;
 
 //own imports
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //enum
 public enum Cardinality {
@@ -16,7 +16,7 @@ public enum Cardinality {
 	//constructor
 	Cardinality(final BaseCardinality baseCardinality) {
 		
-		Validator.assertThat(baseCardinality).thatIsNamed(BaseCardinality.class).isNotNull();
+		GlobalValidator.assertThat(baseCardinality).thatIsNamed(BaseCardinality.class).isNotNull();
 		
 		this.baseCardinality = baseCardinality;
 	}

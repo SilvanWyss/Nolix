@@ -10,7 +10,7 @@ import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.elementenum.UniDirection;
 import ch.nolix.systemapi.elementapi.IElement;
 
@@ -127,13 +127,13 @@ public class ColorGradient implements IElement<ColorGradient> {
 		final Color color2
 	) {
 		//Asserts that the given direction is not null.
-		Validator.assertThat(direction).thatIsNamed("direction").isNotNull();
+		GlobalValidator.assertThat(direction).thatIsNamed("direction").isNotNull();
 		
 		//Asserts that the given color 1 is not null.
-		Validator.assertThat(color1).thatIsNamed("color 1").isNotNull();
+		GlobalValidator.assertThat(color1).thatIsNamed("color 1").isNotNull();
 		
 		//Asserts that the given color 2 is not null.
-		Validator.assertThat(color2).thatIsNamed("color 2").isNotNull();
+		GlobalValidator.assertThat(color2).thatIsNamed("color 2").isNotNull();
 		
 		this.direction = direction;
 		this.color1 = color1;

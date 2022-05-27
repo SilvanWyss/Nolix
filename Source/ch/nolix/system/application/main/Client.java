@@ -8,7 +8,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnconnectedArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.endpoint3.EndPoint;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.programcontrol.groupcloseable.GroupCloseable;
@@ -196,7 +196,7 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable, IFl
 	final void internalSetEndPoint(final EndPoint endPoint) {
 		
 		//Asserts that the given endPoint is not null.
-		Validator.assertThat(endPoint).thatIsNamed(EndPoint.class).isNotNull();
+		GlobalValidator.assertThat(endPoint).thatIsNamed(EndPoint.class).isNotNull();
 		
 		//Asserts that the current Client is not already connected.
 		assertIsNotConnected();

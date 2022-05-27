@@ -2,7 +2,7 @@
 package ch.nolix.core.license;
 
 //own imports
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //class
 public final class AdditionalConditionMediator {
@@ -13,7 +13,7 @@ public final class AdditionalConditionMediator {
 	//constructor
 	AdditionalConditionMediator(final LicenseManager parentLicenseManager) {
 		
-		Validator.assertThat(parentLicenseManager).thatIsNamed("parent LicenseManager").isNotNull();
+		GlobalValidator.assertThat(parentLicenseManager).thatIsNamed("parent LicenseManager").isNotNull();
 		
 		this.parentLicenseManager = parentLicenseManager;
 	}

@@ -4,7 +4,7 @@ package ch.nolix.system.sqlrawdata.datareader;
 //own imports
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.sql.SQLConnection;
 import ch.nolix.core.sql.SQLConnectionPool;
@@ -46,7 +46,7 @@ public final class DataReader implements IDataReader {
 		final ISQLSyntaxProvider pSQLSyntaxProvider
 	) {
 		
-		Validator.assertThat(tableInfos).thatIsNamed("table definitions").isNotNull();
+		GlobalValidator.assertThat(tableInfos).thatIsNamed("table definitions").isNotNull();
 		
 		internalDataReader = new InternalDataReader(databaseName, pSQLConnection, pSQLSyntaxProvider);
 		this.tableInfos = tableInfos;

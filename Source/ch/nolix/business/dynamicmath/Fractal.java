@@ -9,7 +9,7 @@ import ch.nolix.businessapi.dynamicmathapi.IClosedInterval;
 import ch.nolix.businessapi.dynamicmathapi.IComplexNumber;
 import ch.nolix.businessapi.dynamicmathapi.IFractal;
 import ch.nolix.businessapi.dynamicmathapi.ISequence;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IElementTakerElementGetter;
 import ch.nolix.core.functionuniversalapi.IIntTakerElementGetter;
 import ch.nolix.system.gui.color.Color;
@@ -61,47 +61,47 @@ public final class Fractal implements IFractal {
 		final int bigDecimalScale
 	) {
 		
-		Validator
+		GlobalValidator
 		.assertThat(realComponentInterval)
 		.thatIsNamed("real component interval")
 		.isNotNull();
 		
-		Validator
+		GlobalValidator
 		.assertThat(imaginaryComponentInterval)
 		.thatIsNamed("imaginary component interval")
 		.isNotNull();
 		
-		Validator
+		GlobalValidator
 		.assertThat(widthInPixel)
 		.thatIsNamed("width in pixel")
 		.isPositive();
 		
-		Validator
+		GlobalValidator
 		.assertThat(heightInPixel)
 		.thatIsNamed("height in pixel")
 		.isPositive();
 		
-		Validator
+		GlobalValidator
 		.assertThat(sequenceCreator)
 		.thatIsNamed("sequence creator")
 		.isNotNull();
 		
-		Validator
+		GlobalValidator
 		.assertThat(sequencesMinDivergenceMagnitude)
 		.thatIsNamed("sequences min divergence magnitude")
 		.isPositive();
 		
-		Validator
+		GlobalValidator
 		.assertThat(sequencesMaxIterationCount)
 		.thatIsNamed("sequences max iteration count")
 		.isPositive();
 		
-		Validator
+		GlobalValidator
 		.assertThat(colorFunction)
 		.thatIsNamed("color function")
 		.isNotNull();
 		
-		Validator
+		GlobalValidator
 		.assertThat(bigDecimalScale)
 		.thatIsNamed("big decimal scale")
 		.isPositive();

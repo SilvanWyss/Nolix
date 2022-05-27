@@ -5,7 +5,7 @@ package ch.nolix.system.gui3d.shape;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.element.MutableValue;
 import ch.nolix.system.gui3d.base.AtomicShape;
 
@@ -143,7 +143,7 @@ public final class BaseCube extends AtomicShape<BaseCube> {
 	 */
 	public BaseCube setXLength(final double xLength) {
 		
-		Validator.assertThat(xLength).thatIsNamed("x-length").isPositive();
+		GlobalValidator.assertThat(xLength).thatIsNamed("x-length").isPositive();
 		
 		this.xLength.setValue(xLength);
 		
@@ -160,7 +160,7 @@ public final class BaseCube extends AtomicShape<BaseCube> {
 	 */
 	public BaseCube setYLength(final double yLength) {
 		
-		Validator.assertThat(yLength).thatIsNamed("y-length").isPositive();
+		GlobalValidator.assertThat(yLength).thatIsNamed("y-length").isPositive();
 		
 		this.yLength.setValue(yLength);
 		
@@ -177,7 +177,7 @@ public final class BaseCube extends AtomicShape<BaseCube> {
 	 */
 	public BaseCube setZLength(final double zLength) {
 		
-		Validator.assertThat(zLength).thatIsNamed("z-length").isPositive();
+		GlobalValidator.assertThat(zLength).thatIsNamed("z-length").isPositive();
 		
 		this.zLength.setValue((zLength));
 		

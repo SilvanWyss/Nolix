@@ -3,7 +3,7 @@ package ch.nolix.system.sqlbasicschema.flatschemadto;
 
 //own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.systemapi.sqlbasicschemaapi.flatschemadtoapi.IFlatTableDTO;
 
 //class
@@ -15,7 +15,7 @@ public final class FlatTableDTO implements IFlatTableDTO {
 	//constructor
 	public FlatTableDTO(final String name) {
 		
-		Validator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotNull();
+		GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotNull();
 		
 		this.name = name;
 	}

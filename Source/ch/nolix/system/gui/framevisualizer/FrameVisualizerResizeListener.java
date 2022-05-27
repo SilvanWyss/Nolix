@@ -6,7 +6,7 @@ import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
 
 //own imports
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.sequencer.Sequencer;
 import ch.nolix.system.gui.base.GUI;
 
@@ -20,7 +20,7 @@ public class FrameVisualizerResizeListener implements ComponentListener {
 	//constructor
 	public FrameVisualizerResizeListener(GUI<?> mParentGUI) {
 		
-		Validator.assertThat(mParentGUI).thatIsNamed("parent GUI").isNotNull();
+		GlobalValidator.assertThat(mParentGUI).thatIsNamed("parent GUI").isNotNull();
 		
 		this.mParentGUI = mParentGUI;
 	}

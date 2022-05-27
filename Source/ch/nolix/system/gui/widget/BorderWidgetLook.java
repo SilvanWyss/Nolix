@@ -5,7 +5,7 @@ package ch.nolix.system.gui.widget;
 import ch.nolix.core.container.SingleContainer;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.formatelement.ForwardingProperty;
 import ch.nolix.system.formatelement.NonCascadingProperty;
 import ch.nolix.system.gui.color.Color;
@@ -591,7 +591,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	//method
 	public final BWL setBottomBorderThicknessForState(final WidgetLookState state, final int bottomBorderThickness) {
 		
-		Validator.assertThat(bottomBorderThickness).thatIsNamed("bottom border thickness").isNotNegative();
+		GlobalValidator.assertThat(bottomBorderThickness).thatIsNamed("bottom border thickness").isNotNegative();
 		
 		this.bottomBorderThickness.setValueForState(state, bottomBorderThickness);
 		
@@ -601,7 +601,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	//method
 	public final BWL setBottomPaddingForState(final WidgetLookState state, final int bottomPadding) {
 		
-		Validator.assertThat(bottomPadding).thatIsNamed("bottom padding").isNotNegative();
+		GlobalValidator.assertThat(bottomPadding).thatIsNamed("bottom padding").isNotNegative();
 		
 		this.bottomPadding.setValueForState(state, bottomPadding);
 		
@@ -619,7 +619,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	//method
 	public final BWL setLeftBorderThicknessForState(final WidgetLookState state, final int leftBorderThickness) {
 		
-		Validator.assertThat(leftBorderThickness).thatIsNamed("left border thickness").isNotNegative();
+		GlobalValidator.assertThat(leftBorderThickness).thatIsNamed("left border thickness").isNotNegative();
 		
 		this.leftBorderThickness.setValueForState(state, leftBorderThickness);
 		
@@ -629,7 +629,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	//method
 	public final BWL setLeftPaddingForState(final WidgetLookState state, final int leftPadding) {
 		
-		Validator.assertThat(leftPadding).thatIsNamed("left padding").isNotNegative();
+		GlobalValidator.assertThat(leftPadding).thatIsNamed("left padding").isNotNegative();
 		
 		this.leftPadding.setValueForState(state, leftPadding);
 		
@@ -655,7 +655,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	//method
 	public final BWL setRightBorderThicknessForState(final WidgetLookState state, final int rightBorderThickness) {
 		
-		Validator.assertThat(rightBorderThickness).thatIsNamed("right border thickness").isNotNegative();
+		GlobalValidator.assertThat(rightBorderThickness).thatIsNamed("right border thickness").isNotNegative();
 		
 		this.rightBorderThickness.setValueForState(state, rightBorderThickness);
 		
@@ -665,7 +665,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	//method
 	public final BWL setRightPaddingForState(final WidgetLookState state, final int rightPadding) {
 		
-		Validator.assertThat(rightPadding).thatIsNamed("right padding").isNotNegative();
+		GlobalValidator.assertThat(rightPadding).thatIsNamed("right padding").isNotNegative();
 		
 		this.rightPadding.setValueForState(state, rightPadding);
 		
@@ -731,7 +731,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	//method
 	public final BWL setTopBorderThicknessForState(final WidgetLookState state, final int topBorderThickness) {
 		
-		Validator.assertThat(topBorderThickness).thatIsNamed("top border thickness").isNotNegative();
+		GlobalValidator.assertThat(topBorderThickness).thatIsNamed("top border thickness").isNotNegative();
 		
 		this.topBorderThickness.setValueForState(state, topBorderThickness);
 		
@@ -741,7 +741,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	//method
 	public final BWL setTopPaddingForState(final WidgetLookState state, final int topPadding) {
 		
-		Validator.assertThat(topPadding).thatIsNamed("top padding").isNotNegative();
+		GlobalValidator.assertThat(topPadding).thatIsNamed("top padding").isNotNegative();
 		
 		this.topPadding.setValueForState(state, topPadding);
 		

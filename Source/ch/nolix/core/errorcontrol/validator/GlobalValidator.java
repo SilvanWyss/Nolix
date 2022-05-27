@@ -19,7 +19,7 @@ import ch.nolix.core.independent.independenthelper.CentralArrayHelper;
  * @author Silvan Wyss
  * @date 2016-12-01
  */
-public final class Validator {
+public final class GlobalValidator {
 	
 	//static method
 	/**
@@ -279,5 +279,5 @@ public final class Validator {
 	/**
 	 * Avoids that an instance of this class can be created.
 	 */
-	private Validator() {}
+	private GlobalValidator() {}
 }

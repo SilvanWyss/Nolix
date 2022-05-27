@@ -3,7 +3,7 @@ package ch.nolix.core.programcontrol.jobpool;
 
 //own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.futureuniversalapi.IFuture;
 
 //class
@@ -15,7 +15,7 @@ final class Future implements IFuture {
 	//constructor
 	public Future(final JobWrapper jobWrapper) {
 		
-		Validator.assertThat(jobWrapper).thatIsNamed(LowerCaseCatalogue.JOB).isNotNull();
+		GlobalValidator.assertThat(jobWrapper).thatIsNamed(LowerCaseCatalogue.JOB).isNotNull();
 		
 		this.jobWrapper = jobWrapper;
 	}

@@ -12,7 +12,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.I2ElementTaker;
 import ch.nolix.core.programcontrol.processproperty.ChangeState;
 import ch.nolix.core.state.Visibility;
@@ -473,7 +473,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 */
 	public final WG pushLayer(final Layer layer) {
 		
-		Validator.assertThat(layer).thatIsNamed(LowerCaseCatalogue.LAYER).isNotNull();
+		GlobalValidator.assertThat(layer).thatIsNamed(LowerCaseCatalogue.LAYER).isNotNull();
 		
 		layer.setParentGUI(this);
 		layers.add(layer);

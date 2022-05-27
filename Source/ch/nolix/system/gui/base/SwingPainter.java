@@ -9,7 +9,7 @@ import java.awt.RenderingHints;
 
 //own imports
 import ch.nolix.core.caching.CachingContainer;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.color.ColorGradient;
 import ch.nolix.system.gui.textformat.TextFormat;
@@ -32,8 +32,8 @@ public final class SwingPainter implements IPainter {
 	//constructor
 	public SwingPainter(final CachingContainer<IImage<?>> imageCache, final Graphics2D graphics) {
 		
-		Validator.assertThat(imageCache).thatIsNamed("image cache").isNotNull();
-		Validator.assertThat(graphics).thatIsNamed(Graphics.class).isNotNull();
+		GlobalValidator.assertThat(imageCache).thatIsNamed("image cache").isNotNull();
+		GlobalValidator.assertThat(graphics).thatIsNamed(Graphics.class).isNotNull();
 		
 		this.imageCache = imageCache;
 		this.graphics = graphics;
@@ -95,7 +95,7 @@ public final class SwingPainter implements IPainter {
 	@Override
 	public void paintFilledPolygon(final int[] xs, final int[] ys) {
 		
-		Validator
+		GlobalValidator
 		.assertThat(ys)
 		.thatIsNamed("y-points")
 		.hasElementCount(xs.length);
@@ -187,7 +187,7 @@ public final class SwingPainter implements IPainter {
 	@Override
 	public void setColorGradient(final ColorGradient colorGradient) {
 		
-		Validator.assertThat(colorGradient).thatIsNamed(ColorGradient.class).isNotNull();
+		GlobalValidator.assertThat(colorGradient).thatIsNamed(ColorGradient.class).isNotNull();
 		
 		this.colorGradient = colorGradient;
 	}
@@ -196,7 +196,7 @@ public final class SwingPainter implements IPainter {
 	@Override
 	public void setOpacityPercentage(final double opacityPercentage) {
 		
-		Validator.assertThat(opacityPercentage).thatIsNamed("opacity percentage").isBetween(0.0, 1.0);
+		GlobalValidator.assertThat(opacityPercentage).thatIsNamed("opacity percentage").isBetween(0.0, 1.0);
 		
 		graphics.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, (float)opacityPercentage));
 	}

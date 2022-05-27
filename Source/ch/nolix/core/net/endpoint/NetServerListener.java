@@ -7,7 +7,7 @@ import java.net.Socket;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.worker.Worker;
 
 //class
@@ -32,7 +32,7 @@ final class NetServerListener extends Worker {
 	public NetServerListener(final Server parentNetServer) {
 		
 		//Asserts that the given netServer is not null.
-		Validator.assertThat(parentNetServer).thatIsNamed("parent NetServer").isNotNull();
+		GlobalValidator.assertThat(parentNetServer).thatIsNamed("parent NetServer").isNotNull();
 		
 		//Sets the parentNetServer of the current NetServerListener.
 		this.parentNetServer = parentNetServer;

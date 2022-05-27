@@ -6,7 +6,7 @@ import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IElementTaker;
 import ch.nolix.core.skilluniversalapi.Clearable;
 import ch.nolix.system.element.Property;
@@ -24,7 +24,7 @@ public final class MutableOptionalWidgetProperty extends Property implements Cle
 	//constructor
 	public MutableOptionalWidgetProperty(final IElementTaker<Widget<?, ?>> setterMethod) {
 		
-		Validator.assertThat(setterMethod).thatIsNamed("setter method")	.isNotNull();
+		GlobalValidator.assertThat(setterMethod).thatIsNamed("setter method")	.isNotNull();
 		
 		this.setterMethod = setterMethod;
 	}
@@ -52,7 +52,7 @@ public final class MutableOptionalWidgetProperty extends Property implements Cle
 	//method
 	public void setWidget(final Widget<?, ?> widget) {
 		
-		Validator.assertThat(widget).thatIsNamed(Widget.class).isNotNull();
+		GlobalValidator.assertThat(widget).thatIsNamed(Widget.class).isNotNull();
 		
 		this.widget = widget;
 	}

@@ -8,7 +8,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.controlleruniversalapi.IDataProviderController;
 
 //class
@@ -78,7 +78,7 @@ public final class LocalEndPoint extends EndPoint {
 		requestedConnection = false;
 		
 		//Asserts that the given counterpart is not null.
-		Validator.assertThat(counterpart).thatIsNamed("counterpart").isNotNull();
+		GlobalValidator.assertThat(counterpart).thatIsNamed("counterpart").isNotNull();
 		
 		//Sets the counterpart of this local duplex controller.
 		this.counterpart = counterpart;
@@ -107,13 +107,13 @@ public final class LocalEndPoint extends EndPoint {
 		requestedConnection = false;
 		
 		//Asserts that the given counterpart is not null.
-		Validator.assertThat(counterpart).thatIsNamed("counterpart").isNotNull();
+		GlobalValidator.assertThat(counterpart).thatIsNamed("counterpart").isNotNull();
 		
 		//Sets the counterpart of this local duplex controller.
 		this.counterpart = counterpart;
 		
 		//Asserts that the given target is not null or empty.
-		Validator.assertThat(target).thatIsNamed("target").isNotEmpty();
+		GlobalValidator.assertThat(target).thatIsNamed("target").isNotEmpty();
 		
 		//Sets the target of this local duplex controller.
 		this.target = target;

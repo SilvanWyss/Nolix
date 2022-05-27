@@ -6,7 +6,7 @@ import ch.nolix.core.caching.CachingContainer;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.chainednode.ChainedNode;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.I2ElementTaker;
 import ch.nolix.core.independent.independenthelper.CentralArrayHelper;
 import ch.nolix.system.gui.color.Color;
@@ -262,7 +262,7 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 	@Override
 	public void setOpacityPercentage(final double opacityPercentage) {
 		
-		Validator.assertThat(opacityPercentage).thatIsNamed("opacity percentage").isBetween(0.0, 1.0);
+		GlobalValidator.assertThat(opacityPercentage).thatIsNamed("opacity percentage").isBetween(0.0, 1.0);
 		
 		appendPaintCommand(
 			ChainedNode.withHeaderAndAttribute(

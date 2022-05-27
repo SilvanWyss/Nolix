@@ -13,7 +13,7 @@ import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.systemapi.elementapi.IElement;
 
 //class
@@ -76,14 +76,14 @@ public final class Time implements IElement<Time> {
 	public static Time fromString(final String string) {
 				
 		//Asserts that the given string is not null.
-		Validator.assertThat(string).thatIsNamed("string").isNotNull();
+		GlobalValidator.assertThat(string).thatIsNamed("string").isNotNull();
 		
 		final var time = new Time();
 		
 		//Creates array of values of the given string.
 		final String[] array = string.split("-");
 		
-		Validator
+		GlobalValidator
 		.assertThat(array.length)
 		.thatIsNamed("numer of values of '" + string + "'")
 		.isEqualToAny(3, 5, 6, 7);

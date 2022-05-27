@@ -4,7 +4,7 @@ package ch.nolix.core.builder.argumentcapturer;
 //own imports
 import ch.nolix.core.builder.base.ArgumentCapturer;
 import ch.nolix.core.builder.base.BaseArgumentCapturer;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.sql.SQLDatabaseEngine;
 
 //class
@@ -24,7 +24,7 @@ extends ArgumentCapturer<SQLDatabaseEngine, NAC> {
 	//method
 	public final NAC withSQLDatabaseEngine(final SQLDatabaseEngine pSQLDatabaseEngine) {
 		
-		Validator.assertThat(pSQLDatabaseEngine).thatIsNamed(SQLDatabaseEngine.class).isNotNull();
+		GlobalValidator.assertThat(pSQLDatabaseEngine).thatIsNamed(SQLDatabaseEngine.class).isNotNull();
 		
 		return setArgumentAndGetRefNextArgumentCapturer(pSQLDatabaseEngine);
 	}

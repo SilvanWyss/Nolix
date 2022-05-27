@@ -6,7 +6,7 @@ import ch.nolix.core.constant.PascalCaseCatalogue;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IBooleanGetter;
 import ch.nolix.core.functionuniversalapi.IElementGetter;
 import ch.nolix.core.functionuniversalapi.IElementTaker;
@@ -33,12 +33,12 @@ public final class MutableOptionalValueExtractor<V> extends Property {
 		final IElementTakerElementGetter<V, Node> specificationCreator
 	) {
 		
-		Validator.assertThat(name).thatIsNamed(PascalCaseCatalogue.NAME).isNotBlank();
-		Validator.assertThat(setter).thatIsNamed("setter").isNotNull();
-		Validator.assertThat(valuePresenceChecker).thatIsNamed("value presence checker").isNotNull();
-		Validator.assertThat(getter).thatIsNamed("getter").isNotNull();
-		Validator.assertThat(valueCreator).thatIsNamed("value creator").isNotNull();
-		Validator.assertThat(specificationCreator).thatIsNamed("specification creator").isNotNull();
+		GlobalValidator.assertThat(name).thatIsNamed(PascalCaseCatalogue.NAME).isNotBlank();
+		GlobalValidator.assertThat(setter).thatIsNamed("setter").isNotNull();
+		GlobalValidator.assertThat(valuePresenceChecker).thatIsNamed("value presence checker").isNotNull();
+		GlobalValidator.assertThat(getter).thatIsNamed("getter").isNotNull();
+		GlobalValidator.assertThat(valueCreator).thatIsNamed("value creator").isNotNull();
+		GlobalValidator.assertThat(specificationCreator).thatIsNamed("specification creator").isNotNull();
 		
 		this.name = name;
 		this.setter = setter;

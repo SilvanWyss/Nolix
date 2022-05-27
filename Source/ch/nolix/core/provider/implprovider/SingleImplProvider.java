@@ -7,7 +7,7 @@ import java.lang.reflect.InvocationTargetException;
 
 //own imports
 import ch.nolix.core.errorcontrol.exception.WrapperException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.provider.implproviderapi.IImplProviderMediator;
 
 //class
@@ -19,7 +19,7 @@ public final class SingleImplProvider<IM> implements IImplProviderMediator<IM> {
 	//constructor
 	SingleImplProvider(final Class<IM> implementation) {
 		
-		Validator.assertThat(implementation).thatIsNamed("implementation").isNotNull();
+		GlobalValidator.assertThat(implementation).thatIsNamed("implementation").isNotNull();
 		
 		this.implementation = implementation;
 	}

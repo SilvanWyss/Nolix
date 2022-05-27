@@ -5,7 +5,7 @@ package ch.nolix.core.container;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IElementTakerBooleanGetter;
 
 //class
@@ -104,7 +104,7 @@ final class LinkedListNode<E> {
 	public void setElement(final E element) {
 		
 		//Asserts that the given element is not null.
-		Validator
+		GlobalValidator
 		.assertThat(element)
 		.thatIsNamed(LowerCaseCatalogue.ELEMENT)
 		.isNotNull();
@@ -123,7 +123,7 @@ final class LinkedListNode<E> {
 	public void setNextNode(final LinkedListNode<E> nextNode) {
 		
 		//Asserts that the given next node is not null.
-		Validator.assertThat(nextNode).thatIsNamed("next node").isNotNull();
+		GlobalValidator.assertThat(nextNode).thatIsNamed("next node").isNotNull();
 		
 		//Sets the next node of the current list node.
 		this.nextNode = nextNode;

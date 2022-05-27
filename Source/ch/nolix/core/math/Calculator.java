@@ -10,7 +10,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.BiggerArgumentExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //class
 /**
@@ -37,7 +37,7 @@ public final class Calculator {
 	public static LinkedList<FPNPair> createFPNPairs(final double[] xValues, final double[] yValues) {
 		
 		//Asserts that the count of the given yValues equals the count of the given xValues.
-		Validator.assertThat(yValues).thatIsNamed("y-values container").hasSameSizeAs(xValues);
+		GlobalValidator.assertThat(yValues).thatIsNamed("y-values container").hasSameSizeAs(xValues);
 		
 		final var lFPNPairs = new LinkedList<FPNPair>();
 		for (var i = 0; i < xValues.length; i++) {
@@ -72,7 +72,7 @@ public final class Calculator {
 	public static boolean equalsApproximatively(final double value1, final double value2, final double maxDeviation) {
 		
 		//Asserts that the given maxDeviation is not negative.
-		Validator.assertThat(maxDeviation).thatIsNamed("max deviation").isNotNegative();
+		GlobalValidator.assertThat(maxDeviation).thatIsNamed("max deviation").isNotNegative();
 		
 		return (Math.abs(value1 - value2) <= maxDeviation);
 	}
@@ -86,7 +86,7 @@ public final class Calculator {
 	public static double getAverage(final double... values) {
 		
 		//Asserts that the given values is not empty.
-		Validator.assertThat(values).thatIsNamed(PluralLowerCaseCatalogue.VALUES).isNotEmpty();
+		GlobalValidator.assertThat(values).thatIsNamed(PluralLowerCaseCatalogue.VALUES).isNotEmpty();
 		
 		return (getSum(values) / values.length);
 	}
@@ -100,7 +100,7 @@ public final class Calculator {
 	public static double getAverage(final Iterable<Double> values) {
 		
 		//Asserts that the given values is not empty.
-		Validator.assertThat(values).thatIsNamed(PluralLowerCaseCatalogue.VALUES).isNotEmpty();
+		GlobalValidator.assertThat(values).thatIsNamed(PluralLowerCaseCatalogue.VALUES).isNotEmpty();
 		
 		var count = 0;
 		var sum = 0.0;
@@ -121,7 +121,7 @@ public final class Calculator {
 	public static int getAverage(final int... values) {
 		
 		//Asserts that the given values is not empty.
-		Validator.assertThat(values).thatIsNamed(PluralLowerCaseCatalogue.VALUES).isNotEmpty();
+		GlobalValidator.assertThat(values).thatIsNamed(PluralLowerCaseCatalogue.VALUES).isNotEmpty();
 		
 		return (getSum(values) / values.length);
 	}
@@ -135,7 +135,7 @@ public final class Calculator {
 	public static long getAverage(final long... values) {
 		
 		//Asserts that the given values is not empty.
-		Validator.assertThat(values).thatIsNamed(PluralLowerCaseCatalogue.VALUES).isNotEmpty();
+		GlobalValidator.assertThat(values).thatIsNamed(PluralLowerCaseCatalogue.VALUES).isNotEmpty();
 		
 		return (getSum(values) / values.length);
 	}
@@ -165,13 +165,13 @@ public final class Calculator {
 	public static Polynom getFittingPolynom(final int degree, final double[] xValues, final double[] yValues) {
 		
 		//Asserts that the given degree is not negative.
-		Validator.assertThat(degree).thatIsNamed(LowerCaseCatalogue.DEGREE).isNotNegative();
+		GlobalValidator.assertThat(degree).thatIsNamed(LowerCaseCatalogue.DEGREE).isNotNegative();
 		
 		//Asserts that the given degree is not bigger than the count of the given xValues.
-		Validator.assertThat(degree).thatIsNamed(LowerCaseCatalogue.DEGREE).isNotBiggerThan(xValues.length);
+		GlobalValidator.assertThat(degree).thatIsNamed(LowerCaseCatalogue.DEGREE).isNotBiggerThan(xValues.length);
 		
 		//Asserts that the count of the given yValues equals the count of the given xValues.
-		Validator.assertThat(yValues).thatIsNamed("y-values container").hasSameSizeAs(xValues);
+		GlobalValidator.assertThat(yValues).thatIsNamed("y-values container").hasSameSizeAs(xValues);
 		
 		final var factorMatrix = new Matrix(xValues.length, degree + 1);
 		final var xMatrixValues = new double[factorMatrix.getSize()];
@@ -402,7 +402,7 @@ public final class Calculator {
 	public static boolean isApproximatelyOne(final double value, final double maxDeviation) {
 		
 		//Asserts that the given maxDeviation is not negative.
-		Validator.assertThat(maxDeviation).thatIsNamed("max deviation").isNotNegative();
+		GlobalValidator.assertThat(maxDeviation).thatIsNamed("max deviation").isNotNegative();
 		
 		return (Math.abs(value - 1.0) <= maxDeviation);
 	}
@@ -430,7 +430,7 @@ public final class Calculator {
 	public static boolean isApproximatelyZero(final double value, final double maxDeviation) {
 		
 		//Asserts that the given maxDeviation is not negative.
-		Validator.assertThat(maxDeviation).thatIsNamed("max deviation").isNotNegative();
+		GlobalValidator.assertThat(maxDeviation).thatIsNamed("max deviation").isNotNegative();
 		
 		return (Math.abs(value) <= maxDeviation);
 	}

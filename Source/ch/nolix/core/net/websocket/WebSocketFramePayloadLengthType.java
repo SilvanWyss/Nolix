@@ -4,7 +4,7 @@ package ch.nolix.core.net.websocket;
 //own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //enum
 public enum WebSocketFramePayloadLengthType {
@@ -15,7 +15,7 @@ public enum WebSocketFramePayloadLengthType {
 	//static method
 	public static WebSocketFramePayloadLengthType fromCode(final int code) {
 		
-		Validator.assertThat(code).thatIsNamed(LowerCaseCatalogue.CODE).isNotNegative();
+		GlobalValidator.assertThat(code).thatIsNamed(LowerCaseCatalogue.CODE).isNotNegative();
 		
 		if (code < 126) {
 			return BITS_7;
@@ -35,7 +35,7 @@ public enum WebSocketFramePayloadLengthType {
 	//static method
 	public static WebSocketFramePayloadLengthType fromPayloadLength(final long payloadLength) {
 		
-		Validator.assertThat(payloadLength).thatIsNamed("payload length").isNotNegative();
+		GlobalValidator.assertThat(payloadLength).thatIsNamed("payload length").isNotNegative();
 		
 		if (payloadLength < 126) {
 			return BITS_7;

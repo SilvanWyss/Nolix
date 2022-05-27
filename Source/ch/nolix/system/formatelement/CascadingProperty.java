@@ -5,7 +5,7 @@ package ch.nolix.system.formatelement;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.I2ElementTaker;
 import ch.nolix.core.functionuniversalapi.IElementTakerElementGetter;
 
@@ -29,7 +29,7 @@ public final class CascadingProperty<S extends Enum<S>, V> extends MaterializedP
 		
 		super(name, stateClass, valueCreator, specificationCreator);
 		
-		Validator.assertThat(defaultValue).thatIsNamed(LowerCaseCatalogue.DEFAULT_VALUE).isNotNull();
+		GlobalValidator.assertThat(defaultValue).thatIsNamed(LowerCaseCatalogue.DEFAULT_VALUE).isNotNull();
 		
 		this.defaultValue = defaultValue;
 	}
@@ -46,7 +46,7 @@ public final class CascadingProperty<S extends Enum<S>, V> extends MaterializedP
 		
 		super(name, stateClass, valueCreator, specificationCreator, setterMethod);
 		
-		Validator.assertThat(defaultValue).thatIsNamed(LowerCaseCatalogue.DEFAULT_VALUE).isNotNull();
+		GlobalValidator.assertThat(defaultValue).thatIsNamed(LowerCaseCatalogue.DEFAULT_VALUE).isNotNull();
 		
 		this.defaultValue = defaultValue;
 	}
@@ -93,7 +93,7 @@ public final class CascadingProperty<S extends Enum<S>, V> extends MaterializedP
 	@SuppressWarnings("unchecked")
 	void setParentProperty(final CascadingProperty<S, ?> parentProperty) {
 		
-		Validator.assertThat(parentProperty).thatIsNamed("parent property").isNotNull();
+		GlobalValidator.assertThat(parentProperty).thatIsNamed("parent property").isNotNull();
 		
 		this.parentProperty = (CascadingProperty<S, V>)parentProperty;
 	}

@@ -6,7 +6,7 @@ import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.systemapi.elementapi.IRespondingMutableElement;
 
 //class
@@ -43,7 +43,7 @@ public abstract class BaseExtensionElement<E extends IRespondingMutableElement<E
 	//method
 	protected final void internalSetExtensionElement(final E internalExtensionElement) {
 		
-		Validator.assertThat(internalExtensionElement).thatIsNamed("extension element").isNotNull();
+		GlobalValidator.assertThat(internalExtensionElement).thatIsNamed("extension element").isNotNull();
 		
 		if (this.internalExtensionElement != null && !isExchangable()) {
 			throw new InvalidArgumentException(this, "is not exchangable");

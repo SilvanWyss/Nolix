@@ -8,7 +8,7 @@ import java.lang.reflect.InvocationTargetException;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IElementTakerElementGetter;
 
 //interface
@@ -32,7 +32,7 @@ public interface Transformable<T extends Transformable<T>> extends IFluentObject
 	 */
 	default <O, TC extends  IElementTakerElementGetter<T, O>> O to(final Class<TC> transformatorClass) {
 		
-		Validator.assertThat(transformatorClass).thatIsNamed("transformator class").isNotNull();
+		GlobalValidator.assertThat(transformatorClass).thatIsNamed("transformator class").isNotNull();
 		
 		try {
 			return transformatorClass.getConstructor().newInstance().getOutput(asConcrete());
@@ -57,7 +57,7 @@ public interface Transformable<T extends Transformable<T>> extends IFluentObject
 	 */
 	default <O> O to(final IElementTakerElementGetter<T, O> transformator) {
 		
-		Validator.assertThat(transformator).thatIsNamed(LowerCaseCatalogue.TRANSFORMATOR).isNotNull();
+		GlobalValidator.assertThat(transformator).thatIsNamed(LowerCaseCatalogue.TRANSFORMATOR).isNotNull();
 		
 		return transformator.getOutput(asConcrete());
 	}

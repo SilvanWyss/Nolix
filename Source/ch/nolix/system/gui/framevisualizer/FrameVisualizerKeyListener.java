@@ -6,7 +6,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 //own imports
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.gui.base.GUI;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 
@@ -24,7 +24,7 @@ final class FrameVisualizerKeyListener implements KeyListener {
 	public FrameVisualizerKeyListener(final GUI<?> parentFrame) {
 		
 		//Asserts that the given frame is not null.
-		Validator.assertThat(parentFrame).thatIsNamed("parent Frame").isNotNull();
+		GlobalValidator.assertThat(parentFrame).thatIsNamed("parent Frame").isNotNull();
 		
 		//Sets the frame of the current FrameKeyListener.
 		this.parentFrame = parentFrame;

@@ -3,7 +3,7 @@ package ch.nolix.core.container;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IElementTakerElementGetter;
 
 //class
@@ -30,10 +30,10 @@ public final class ListUsingMediator<E> {
 	ListUsingMediator(LinkedList<E> list, IElementTakerElementGetter<Object, E> extractor) {
 		
 		//Asserts that the given list is not null.
-		Validator.assertThat(list).thatIsInstanceOf(LinkedList.class).isNotNull();
+		GlobalValidator.assertThat(list).thatIsInstanceOf(LinkedList.class).isNotNull();
 		
 		//Asserts that the given extractor is not null.
-		Validator.assertThat(extractor).thatIsNamed("extractor").isNotNull();
+		GlobalValidator.assertThat(extractor).thatIsNamed("extractor").isNotNull();
 		
 		//Sets the list of the current ListUsingMediator.
 		this.linkedList = list;

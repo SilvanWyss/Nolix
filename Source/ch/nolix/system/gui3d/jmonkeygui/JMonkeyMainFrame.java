@@ -12,7 +12,7 @@ import com.jme3.system.AppSettings;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IAction;
 import ch.nolix.system.elementenum.RotationDirection;
 import ch.nolix.system.gui3d.base.MainFrame;
@@ -356,7 +356,7 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 	 */
 	private void enqueue(final IAction method) {
 		
-		Validator.assertThat(method).thatIsNamed(LowerCaseCatalogue.METHOD).isNotNull();
+		GlobalValidator.assertThat(method).thatIsNamed(LowerCaseCatalogue.METHOD).isNotNull();
 		
 		simpleApplication.enqueue(method::run);
 	}

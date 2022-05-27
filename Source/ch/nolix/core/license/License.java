@@ -7,7 +7,7 @@ import ch.nolix.core.constant.StringCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnacceptedKeyException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //class
 /**
@@ -105,7 +105,7 @@ public abstract class License implements Named {
 	 */
 	private String getFilteredKey(final String key) {
 		
-		Validator.assertThat(key).thatIsNamed(LowerCaseCatalogue.KEY).isNotNull();
+		GlobalValidator.assertThat(key).thatIsNamed(LowerCaseCatalogue.KEY).isNotNull();
 		
 		return
 		key

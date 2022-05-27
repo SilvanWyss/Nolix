@@ -2,7 +2,7 @@
 package ch.nolix.system.gui.dialog;
 
 //own imports
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IAction;
 import ch.nolix.system.gui.base.Layer;
 import ch.nolix.system.gui.base.LayerRole;
@@ -19,8 +19,8 @@ public final class YesNoDialogCreator {
 	//method
 	public Layer createWithYesNoQuestionAndConfirmAction(final String yesNoQuestion, final IAction confirmAction) {
 		
-		Validator.assertThat(yesNoQuestion).thatIsNamed("yes-no-question").isNotBlank();
-		Validator.assertThat(confirmAction).thatIsNamed("confirm action").isNotNull();
+		GlobalValidator.assertThat(yesNoQuestion).thatIsNamed("yes-no-question").isNotBlank();
+		GlobalValidator.assertThat(confirmAction).thatIsNamed("confirm action").isNotNull();
 		
 		return
 		new Layer()

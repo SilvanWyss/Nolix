@@ -16,7 +16,7 @@ import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.processproperty.WriteMode;
 
 //class
@@ -102,7 +102,7 @@ public final class FileSystemAccessor {
 	public static FileAccessor createFile(final String path, final WriteMode writeMode) {
 		
 		//Asserts that the if given path is not null or empty.
-		Validator.assertThat(path).thatIsNamed(LowerCaseCatalogue.PATH).isNotBlank();
+		GlobalValidator.assertThat(path).thatIsNamed(LowerCaseCatalogue.PATH).isNotBlank();
 		
 		//Creates file.
 		try {

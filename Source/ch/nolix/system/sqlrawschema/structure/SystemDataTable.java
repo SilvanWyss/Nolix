@@ -4,7 +4,7 @@ package ch.nolix.system.sqlrawschema.structure;
 import ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi.FullNamed;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.constant.PascalCaseCatalogue;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //enum
 public enum SystemDataTable implements FullNamed {
@@ -21,7 +21,7 @@ public enum SystemDataTable implements FullNamed {
 	//constructor
 	SystemDataTable(final String name) {
 		
-		Validator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
+		GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
 		
 		this.name = name;
 	}

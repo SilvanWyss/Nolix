@@ -3,7 +3,7 @@ package ch.nolix.system.application.guiapplication;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.systemapi.applicationapi.guiapplicationapi.IGUIApplicationContext;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
 
@@ -49,7 +49,7 @@ public class GUIApplicationContext implements IGUIApplicationContext {
 	//method
 	public final GUIApplicationContext setApplicationDescription(final String applicationDescription) {
 		
-		Validator.assertThat(applicationDescription).thatIsNamed("application description").isNotBlank();
+		GlobalValidator.assertThat(applicationDescription).thatIsNamed("application description").isNotBlank();
 		
 		this.applicationDescription = applicationDescription;
 		
@@ -59,7 +59,7 @@ public class GUIApplicationContext implements IGUIApplicationContext {
 	//method
 	public final GUIApplicationContext setApplicationLogo(final IImage<?> applicationLogo) {
 		
-		Validator.assertThat(applicationLogo).thatIsNamed("application logo").isNotNull();
+		GlobalValidator.assertThat(applicationLogo).thatIsNamed("application logo").isNotNull();
 		
 		this.applicationLogo = applicationLogo;
 		

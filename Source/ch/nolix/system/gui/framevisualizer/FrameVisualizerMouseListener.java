@@ -7,7 +7,7 @@ import java.awt.event.MouseListener;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.gui.base.GUI;
 
 //class
@@ -31,7 +31,7 @@ final class FrameVisualizerMouseListener implements MouseListener {
 	public FrameVisualizerMouseListener(final GUI<?> frameVisualizer) {
 		
 		//Asserts that the given frame is not null.
-		Validator.assertThat(frameVisualizer).isOfType(GUI.class);
+		GlobalValidator.assertThat(frameVisualizer).isOfType(GUI.class);
 		
 		//Sets the frame of this frame mouse listener.
 		this.frameVisualizer = frameVisualizer;

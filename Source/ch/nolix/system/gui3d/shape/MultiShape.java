@@ -6,7 +6,7 @@ import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.gui3d.base.Shape;
 
 //class
@@ -57,7 +57,7 @@ public final class MultiShape extends Shape<MultiShape> {
 	public MultiShape addShape(final Shape<?> shape) {
 		
 		//Asserts that the given shape is not null.
-		Validator.assertThat(shape).isOfType(Shape.class);
+		GlobalValidator.assertThat(shape).isOfType(Shape.class);
 		
 		//Asserts that the given shape belongs not to a GUI.
 		if (shape.belongsToAGUI()) {

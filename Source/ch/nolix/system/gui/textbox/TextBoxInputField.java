@@ -9,7 +9,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.math.Calculator;
 import ch.nolix.system.element.MutableValue;
 import ch.nolix.system.gui.base.CursorIcon;
@@ -422,7 +422,7 @@ final class TextBoxInputField extends TextLineWidget<TextBoxInputField, TextBoxL
 	 */
 	private void setTextCursorPosition(final int textCursorPosition) {
 		
-		Validator.assertThat(textCursorPosition).thatIsNamed("text cursor position").isNotNegative();
+		GlobalValidator.assertThat(textCursorPosition).thatIsNamed("text cursor position").isNotNegative();
 		
 		this.textCursorPosition.setValue(textCursorPosition);
 	}

@@ -5,7 +5,7 @@ package ch.nolix.core.builder.argumentcapturer;
 import ch.nolix.core.builder.base.ArgumentCapturer;
 import ch.nolix.core.builder.base.BaseArgumentCapturer;
 import ch.nolix.core.constant.IPv4Catalogue;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //class
 public class WithIpOrAddressNameCapturer<NAC extends BaseArgumentCapturer<?>> extends ArgumentCapturer<String, NAC> {
@@ -23,7 +23,7 @@ public class WithIpOrAddressNameCapturer<NAC extends BaseArgumentCapturer<?>> ex
 	//method
 	public final NAC withIpOrAddressName(final String ipOrAddressName) {
 		
-		Validator.assertThat(ipOrAddressName).thatIsNamed("ip or address name").isNotBlank();
+		GlobalValidator.assertThat(ipOrAddressName).thatIsNamed("ip or address name").isNotBlank();
 		
 		return setArgumentAndGetRefNextArgumentCapturer(ipOrAddressName);
 	}

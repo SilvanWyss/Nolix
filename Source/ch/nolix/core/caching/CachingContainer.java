@@ -11,7 +11,7 @@ import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.container.SingleContainer;
 import ch.nolix.core.container.pair.Pair;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //class
 public final class CachingContainer<E> implements IContainer<E> {
@@ -73,7 +73,7 @@ public final class CachingContainer<E> implements IContainer<E> {
 	//method
 	public String registerAndGetId(final E element) {
 		
-		Validator.assertThat(element).thatIsNamed(LowerCaseCatalogue.ELEMENT).isNotNull();
+		GlobalValidator.assertThat(element).thatIsNamed(LowerCaseCatalogue.ELEMENT).isNotNull();
 		
 		assertDoesNotContain(element);
 		
@@ -86,8 +86,8 @@ public final class CachingContainer<E> implements IContainer<E> {
 	//method
 	public void registerAtId(final String id, final E element) {
 		
-		Validator.assertThat(id).thatIsNamed(LowerCaseCatalogue.ID).isNotBlank();
-		Validator.assertThat(element).thatIsNamed(LowerCaseCatalogue.ELEMENT).isNotNull();
+		GlobalValidator.assertThat(id).thatIsNamed(LowerCaseCatalogue.ID).isNotBlank();
+		GlobalValidator.assertThat(element).thatIsNamed(LowerCaseCatalogue.ELEMENT).isNotNull();
 		
 		assertDoesNotContainId(id);
 		assertDoesNotContain(element);
@@ -102,7 +102,7 @@ public final class CachingContainer<E> implements IContainer<E> {
 		
 		if (pair == null) {
 			
-			Validator.assertThat(element).thatIsNamed(LowerCaseCatalogue.ELEMENT).isNotNull();
+			GlobalValidator.assertThat(element).thatIsNamed(LowerCaseCatalogue.ELEMENT).isNotNull();
 			
 			final var id = createNextAutoId();
 			elements.addAtEnd(new Pair<>(id, element));
