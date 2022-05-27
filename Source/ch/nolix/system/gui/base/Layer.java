@@ -826,7 +826,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 */
 	public void paint(final IPainter painter) {
 		
-		painter.setOpacityPercentage(getOpacityPercentage());
+		painter.setOpacity(getOpacityPercentage());
 		
 		//Paints the background of the current Layer.
 		paintBackground(painter);

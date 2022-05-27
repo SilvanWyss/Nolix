@@ -1965,9 +1965,9 @@ TopLeftPositionedRecangular {
 		
 		//TODO: Make IPaitner smarter to avoid this implementation.
 		if (!belongsToGUI()) {
-			painter.setOpacityPercentage(lLook.getOpacity());
+			painter.setOpacity(lLook.getOpacity());
 		} else {
-			painter.setOpacityPercentage(getParentLayer().getOpacityPercentage() * lLook.getOpacity());
+			painter.setOpacity(getParentLayer().getOpacityPercentage() * lLook.getOpacity());
 		}
 		
 		paint(painter, lLook);

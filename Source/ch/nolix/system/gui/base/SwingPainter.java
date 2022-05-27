@@ -9,6 +9,7 @@ import java.awt.RenderingHints;
 
 //own imports
 import ch.nolix.core.caching.CachingContainer;
+import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.color.ColorGradient;
@@ -204,11 +205,11 @@ public final class SwingPainter implements IPainter {
 	
 	//method
 	@Override
-	public void setOpacityPercentage(final double opacityPercentage) {
+	public void setOpacity(final double opacity) {
 		
-		GlobalValidator.assertThat(opacityPercentage).thatIsNamed("opacity percentage").isBetween(0.0, 1.0);
+		GlobalValidator.assertThat(opacity).thatIsNamed(LowerCaseCatalogue.OPACITY).isBetween(0.0, 1.0);
 		
-		graphics.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, (float)opacityPercentage));
+		graphics.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, (float)opacity));
 	}
 	
 	//method

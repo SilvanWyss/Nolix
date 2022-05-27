@@ -202,11 +202,11 @@ public interface IPainter {
 	
 	//method declaration
 	/**
-	 * Sets the opacity percentage of the current {@link IPainter}.
+	 * Sets the opacity of the current {@link IPainter}.
 	 * 
-	 * @param opacityPercentage
+	 * @param opacity
 	 */
-	void setOpacityPercentage(double opacityPercentage);
+	void setOpacity(double opacity);
 	
 	//method declaration
 	/**

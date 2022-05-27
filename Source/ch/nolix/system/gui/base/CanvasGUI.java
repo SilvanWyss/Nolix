@@ -368,7 +368,7 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 		
 		final var opacityPercentage = textualSetOpacityPercentageCommand.getOneAttributeAsDouble();
 		
-		return pr -> pr.getRefPainterByIndex(painterIndex).setOpacityPercentage(opacityPercentage);
+		return pr -> pr.getRefPainterByIndex(painterIndex).setOpacity(opacityPercentage);
 	}
 	
 	//method

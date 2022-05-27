@@ -1,8 +1,10 @@
 //package declaration
 package ch.nolix.system.gui.base;
 
+//own imports
 import ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi.Indexed;
 import ch.nolix.core.caching.CachingContainer;
+import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.chainednode.ChainedNode;
@@ -260,14 +262,14 @@ final class CanvasGUICommandCreatorPainter implements Indexed, IPainter {
 	
 	//method
 	@Override
-	public void setOpacityPercentage(final double opacityPercentage) {
+	public void setOpacity(final double opacity) {
 		
-		GlobalValidator.assertThat(opacityPercentage).thatIsNamed("opacity percentage").isBetween(0.0, 1.0);
+		GlobalValidator.assertThat(opacity).thatIsNamed(LowerCaseCatalogue.OPACITY).isBetween(0.0, 1.0);
 		
 		appendPaintCommand(
 			ChainedNode.withHeaderAndAttribute(
 				CanvasGUICommandProtocol.SET_OPACITY_PERCENTAGE,
-				ChainedNode.withHeader(String.valueOf(opacityPercentage))
+				ChainedNode.withHeader(String.valueOf(opacity))
 			)
 			.toString()
 		);
