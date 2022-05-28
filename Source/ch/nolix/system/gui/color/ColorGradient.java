@@ -12,7 +12,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.elementenum.UniDirection;
-import ch.nolix.systemapi.elementuniversalapi.Specified;
+import ch.nolix.systemapi.guiapi.baseapi.colorapi.IColorGradient;
 
 //class
 /**
@@ -22,7 +22,7 @@ import ch.nolix.systemapi.elementuniversalapi.Specified;
  * @author Silvan Wyss
  * @date 2016-08-01
  */
-public class ColorGradient implements Specified {
+public class ColorGradient implements IColorGradient {
 	
 	//constant
 	public static final ColorGradient VERTICAL_BLACK_WHITE_COLOR_GRADIENT =
