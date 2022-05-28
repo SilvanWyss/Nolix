@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.system.gui.input;
 
+import ch.nolix.systemapi.guiapi.inputapi.IResizableInputTaker;
+
 //class
 public final class ResizableInputTakerStub extends InputTakerStub implements IResizableInputTaker {
 	

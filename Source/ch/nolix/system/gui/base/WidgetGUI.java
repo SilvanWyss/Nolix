@@ -30,7 +30,6 @@ import ch.nolix.system.gui.containerwidget.SingleContainer;
 import ch.nolix.system.gui.containerwidget.TabContainer;
 import ch.nolix.system.gui.containerwidget.VerticalStack;
 import ch.nolix.system.gui.image.MutableImage;
-import ch.nolix.system.gui.input.IResizableInputTaker;
 import ch.nolix.system.gui.textbox.TextBox;
 import ch.nolix.system.gui.widget.Area;
 import ch.nolix.system.gui.widget.Button;
@@ -50,6 +49,7 @@ import ch.nolix.systemapi.guiapi.baseapi.CursorIcon;
 import ch.nolix.systemapi.guiapi.baseapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.imageapi.ImageApplication;
+import ch.nolix.systemapi.guiapi.inputapi.IResizableInputTaker;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 

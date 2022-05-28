@@ -15,10 +15,10 @@ import ch.nolix.system.element.MutableValue;
 import ch.nolix.system.elementenum.RotationDirection;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.color.ColorGradient;
-import ch.nolix.system.gui.input.IResizableInputTaker;
 import ch.nolix.system.gui.textformat.TextFormat;
 import ch.nolix.systemapi.elementuniversalapi.IConfigurableElement;
 import ch.nolix.systemapi.guiapi.baseapi.CursorIcon;
+import ch.nolix.systemapi.guiapi.inputapi.IResizableInputTaker;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 

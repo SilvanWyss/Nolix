@@ -7,13 +7,13 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IElementTaker;
 import ch.nolix.core.functionuniversalapi.IIntGetter;
 import ch.nolix.system.elementenum.RotationDirection;
-import ch.nolix.system.gui.input.IResizableInputTaker;
 import ch.nolix.system.gui.input.KeyInput;
 import ch.nolix.system.gui.input.KeyInputType;
 import ch.nolix.system.gui.input.MouseInput;
 import ch.nolix.system.gui.input.MouseInputType;
 import ch.nolix.system.gui.input.ResizeInput;
 import ch.nolix.systemapi.guiapi.inputapi.IInput;
+import ch.nolix.systemapi.guiapi.inputapi.IResizableInputTaker;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 
 //class

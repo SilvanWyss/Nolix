@@ -32,7 +32,6 @@ import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.color.ColorGradient;
 import ch.nolix.system.gui.image.Background;
 import ch.nolix.system.gui.image.MutableImage;
-import ch.nolix.system.gui.input.IResizableInputTaker;
 import ch.nolix.system.gui.widget.BorderWidget;
 import ch.nolix.system.gui.widget.Widget;
 import ch.nolix.systemapi.elementuniversalapi.IConfigurableElement;
@@ -41,6 +40,7 @@ import ch.nolix.systemapi.guiapi.baseapi.IOccupiableCanvasInputActionManager;
 import ch.nolix.systemapi.guiapi.baseapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.imageapi.ImageApplication;
 import ch.nolix.systemapi.guiapi.inputapi.IInputTaker;
+import ch.nolix.systemapi.guiapi.inputapi.IResizableInputTaker;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 

@@ -1,8 +1,7 @@
 //package declaration
-package ch.nolix.system.gui.input;
+package ch.nolix.systemapi.guiapi.inputapi;
 
-import ch.nolix.systemapi.guiapi.inputapi.IInput;
-import ch.nolix.systemapi.guiapi.inputapi.IInputTaker;
+import ch.nolix.system.gui.input.ResizeInput;
 
 //interface
 /**
