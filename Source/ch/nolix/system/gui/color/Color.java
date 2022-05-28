@@ -1051,6 +1051,21 @@ public final class Color implements IColor {
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean equals(final Object object) {
+		
+		if (!(object instanceof Color)) {
+			return false;
+		}
+		
+		final var color = (Color)object;
+		return (toAlphaRedGreenBlueValue() == color.toAlphaRedGreenBlueValue());
+	}
+	
+	//method
+	/**
 	 * @return the alpha value of the current {@link Color}.
 	 */
 	public int getAlphaValue() {
@@ -1276,6 +1291,15 @@ public final class Color implements IColor {
 	 */
 	public boolean hasGreenValue() {
 		return (greenValue > 0);
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public int hashCode() {
+		return getSpecification().hashCode();
 	}
 	
 	//method
