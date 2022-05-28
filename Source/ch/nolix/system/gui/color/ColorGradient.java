@@ -163,40 +163,40 @@ public class ColorGradient implements IElement<ColorGradient> {
 				new GradientPaint(
 					xPosition,
 					yPosition,
-					getColor1().createSwingColor(),
+					getColor1().toSwingColor(),
 					(float)(xPosition + width),
 					yPosition,
-					getColor2().createSwingColor()
+					getColor2().toSwingColor()
 				);
 			case VERTICAL:
 				return
 				new GradientPaint(
 					xPosition,
 					yPosition,
-					getColor1().createSwingColor(),
+					getColor1().toSwingColor(),
 					xPosition,
 					(float)(yPosition + height),
-					getColor2().createSwingColor()
+					getColor2().toSwingColor()
 				);
 			case DIAGONAL_UP:
 				return
 				new GradientPaint(
 					xPosition,
 					yPosition,
-					getColor1().createSwingColor(),
+					getColor1().toSwingColor(),
 					(float)(xPosition + width),
 					(float)(yPosition + height),
-					getColor2().createSwingColor()
+					getColor2().toSwingColor()
 				);
 			case DIAGONAL_DOWN:
 				return
 				new GradientPaint(
 					xPosition,
 					yPosition,
-					getColor2().createSwingColor(),
+					getColor2().toSwingColor(),
 					(float)(xPosition + width),
 					(float)(yPosition + height),
-					getColor1().createSwingColor()
+					getColor1().toSwingColor()
 				);
 			default:
 				

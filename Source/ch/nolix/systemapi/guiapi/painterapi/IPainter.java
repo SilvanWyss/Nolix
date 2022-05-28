@@ -2,9 +2,9 @@
 package ch.nolix.systemapi.guiapi.painterapi;
 
 //own imports
-import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.color.ColorGradient;
 import ch.nolix.system.gui.textformat.TextFormat;
+import ch.nolix.systemapi.guiapi.baseapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
 
 //interface
@@ -214,7 +214,7 @@ public interface IPainter {
 	 * 
 	 * @param color
 	 */
-	void setColor(Color color);
+	void setColor(IColor color);
 	
 	//method declaration
 	/**

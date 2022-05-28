@@ -13,7 +13,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeE
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.system.gui.base.Element;
+import ch.nolix.systemapi.guiapi.baseapi.colorapi.IColor;
 
 //class
 /**
@@ -25,7 +25,7 @@ import ch.nolix.system.gui.base.Element;
  * @author Silvan Wyss
  * @date 2016-01-01
  */
-public final class Color extends Element<Color> {
+public final class Color implements IColor {
 	
 	//constants
 	public static final int ALICE_BLUE_INT = 0xF0F8FF;
@@ -1059,16 +1059,6 @@ public final class Color extends Element<Color> {
 	
 	//method
 	/**
-	 * @return a new {@link java.awt.Color} from the current {@link Color}.
-	 */
-	public java.awt.Color createSwingColor() {
-		
-		//For a better performance, this implementation does not use all comfortable methods.
-		return new java.awt.Color(redValue, greenValue, blueValue, alphaValue);
-	}
-	
-	//method
-	/**
 	 * {@inheritDoc}
 	 */
 	@Override
@@ -1150,15 +1140,15 @@ public final class Color extends Element<Color> {
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * When a {@link Color} is inverted, the alpha value does not change.
 	 * 
 	 * @return a new {@link Color} that is the inverted color of the current {@link Color}.
 	 */
 	public Color getInvertedColor() {
-		
-		//For a better performance, this implementation does not use all comfortable methods.
-		return new Color(
+		return
+		new Color(
 			MAX_COLOR_COMPONENT - redValue,
 			MAX_COLOR_COMPONENT - greenValue,
 			MAX_COLOR_COMPONENT - blueValue,
@@ -1199,42 +1189,38 @@ public final class Color extends Element<Color> {
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * @return the normalized alpha value of the current {@link Color}.
 	 */
 	public double getNormalizedAlphaValue() {
-		
-		//For a better performance, this implementation does not use all comfortable methods.
 		return ((double)alphaValue / 256);
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * @return the normalized blue value of the current {@link Color}.
 	 */
 	public double getNormalizedBlueValue() {
-		
-		//For a better performance, this implementation does not use all comfortable methods.
 		return ((double)blueValue / 256);
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * @return the normalized green value of the current {@link Color}.
 	 */
 	public double getNormalizedGreenValue() {
-		
-		//For a better performance, this implementation does not use all comfortable methods.
 		return ((double)greenValue / 256);
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * @return the normalized red value of the current {@link Color}.
 	 */
 	public double getNormalizedRedValue() {
-		
-		//For a better performance, this implementation does not use all comfortable methods.
 		return ((double)redValue / 256);
 	}
 	
@@ -1247,82 +1233,74 @@ public final class Color extends Element<Color> {
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * @return true if the current {@link Color} has an alpha value.
 	 */
 	public boolean hasAlphaValue() {
-		
-		//For a better performance, this implementation does not use all comfortable methods.
 		return (alphaValue > 0);
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * @return true if the current {@link Color} has a blue value.
 	 */
 	public boolean hasBlueValue() {
-		
-		//For a better performance, this implementation does not use all comfortable methods.
 		return (blueValue > 0);
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * @return true if the current {@link Color} has a full alpha value.
 	 */
 	public boolean hasFullAlphaValue() {
-		
-		//For a better performance, this implementation does not use all comfortable methods.
 		return (alphaValue == MAX_COLOR_COMPONENT);
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * @return true if the current {@link Color} has a full blue value.
 	 */
 	public boolean hasFullBlueValue() {
-		
-		//For a better performance, this implementation does not use all comfortable methods.
 		return (blueValue == MAX_COLOR_COMPONENT);
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * @return true if the current {@link Color} has a full green value.
 	 */
 	public boolean hasFullGreenValue() {
-		
-		//For a better performance, this implementation does not use all comfortable methods.
 		return (greenValue == MAX_COLOR_COMPONENT);
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * @return true if the current {@link Color} has a full red value.
 	 */
 	public boolean hasFullRedValue() {
-		
-		//For a better performance, this implementation does not use all comfortable methods.
 		return (redValue == MAX_COLOR_COMPONENT);
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * @return true if the current {@link Color} has a green value.
 	 */
 	public boolean hasGreenValue() {
-		
-		//For a better performance, this implementation does not use all comfortable methods.
 		return (greenValue > 0);
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * @return true if the current {@link Color} has a red value.
 	 */
 	public boolean hasRedValue() {
-		
-		//For a better performance, this implementation does not use all comfortable methods.
 		return (redValue > 0);
 	}
 	
@@ -1335,13 +1313,21 @@ public final class Color extends Element<Color> {
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * @return a new {@link Color} that is like the current {@link Color} with a full alpha value.
 	 */
 	public Color toColorWithFullAlphaValue() {
-		
-		//For a better performance, this implementation does not use all comfortable methods.
 		return new Color(redValue, greenValue, blueValue);
+	}
+	
+	//method
+	//For a better performance, this implementation does not use all comfortable methods.
+	/**
+	 * {@inheritDoc}
+	 */
+	public java.awt.Color toSwingColor() {
+		return new java.awt.Color(redValue, greenValue, blueValue, alphaValue);
 	}
 	
 	//method

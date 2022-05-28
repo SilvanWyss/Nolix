@@ -12,9 +12,9 @@ import ch.nolix.core.caching.CachingContainer;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.SingleContainer;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.color.ColorGradient;
 import ch.nolix.system.gui.textformat.TextFormat;
+import ch.nolix.systemapi.guiapi.baseapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 
@@ -218,8 +218,8 @@ public final class SwingPainter extends BasePainter {
 	
 	//method
 	@Override
-	public void setColor(final Color color) {
-		graphics.setColor(color.createSwingColor());
+	public void setColor(final IColor color) {
+		graphics.setColor(color.toSwingColor());
 		colorGradient = null;
 	}
 	

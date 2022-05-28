@@ -407,7 +407,7 @@ public final class TextFormat implements IElement<TextFormat> {
 		final String text
 	) {
 		graphics.setFont(swingFont);
-		graphics.setColor(getTextColor().createSwingColor());
+		graphics.setColor(getTextColor().toSwingColor());
 		graphics.drawString(text, xPosition, yPosition + getTextSize());
 	}
 	
