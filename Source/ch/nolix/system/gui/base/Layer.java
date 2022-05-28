@@ -38,6 +38,7 @@ import ch.nolix.system.gui.widget.Widget;
 import ch.nolix.systemapi.elementapi.IConfigurableElement;
 import ch.nolix.systemapi.guiapi.baseapi.CursorIcon;
 import ch.nolix.systemapi.guiapi.baseapi.IOccupiableCanvasInputActionManager;
+import ch.nolix.systemapi.guiapi.baseapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.imageapi.ImageApplication;
 import ch.nolix.systemapi.guiapi.inputapi.IInputTaker;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
@@ -276,7 +277,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * @return the background {@link Color} of the current {@link Layer}.
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@Layer} does not have a background {@link Color}.
 	 */
-	public Color getBackgroundColor() {
+	public IColor getBackgroundColor() {
 		return background.getValue().getColor();
 	}
 	
@@ -890,7 +891,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * @return the current {@link Layer}.
 	 * @throws ArgumentIsNullException if the given backgroundColor is null.
 	 */
-	public Layer setBackgroundColor(final Color backgroundColor) {
+	public Layer setBackgroundColor(final IColor backgroundColor) {
 		
 		final var lBackground = new Background();
 		lBackground.setColor(backgroundColor);
@@ -1206,7 +1207,10 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	@Override
 	public Layer setRightMouseButtonReleaseAction(IElementTaker<Layer> rightMouseButtonReleaseAction) {
 		
-		GlobalValidator.assertThat(rightMouseButtonReleaseAction).thatIsNamed("right mouse button release action").isNotNull();
+		GlobalValidator
+		.assertThat(rightMouseButtonReleaseAction)
+		.thatIsNamed("right mouse button release action")
+		.isNotNull();
 		
 		this.rightMouseButtonReleaseAction = rightMouseButtonReleaseAction;
 		

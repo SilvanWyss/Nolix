@@ -1,11 +1,12 @@
 //package declaration
 package ch.nolix.systemapi.guiapi.imageapi;
 
-import ch.nolix.system.gui.color.Color;
+//own imports
+import ch.nolix.systemapi.guiapi.baseapi.colorapi.IColor;
 
 //interface
 public interface IMutableImage<MI extends IMutableImage<MI>> extends IImage<MI> {
 	
 	//method declaration
-	MI setPixel(int xPosition, int yPosition, Color color);
+	MI setPixel(int xPosition, int yPosition, IColor color);
 }

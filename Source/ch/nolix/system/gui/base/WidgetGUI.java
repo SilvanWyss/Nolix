@@ -47,6 +47,7 @@ import ch.nolix.system.gui.widget.VerticalLine;
 import ch.nolix.system.gui.widget.Widget;
 import ch.nolix.systemapi.elementapi.IConfigurableElement;
 import ch.nolix.systemapi.guiapi.baseapi.CursorIcon;
+import ch.nolix.systemapi.guiapi.baseapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.imageapi.ImageApplication;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
@@ -314,7 +315,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 * @throws ArgumentDoesNotHaveAttributeException if
 	 * the current {@WidgetGUI} does not have a background {@link Color}.
 	 */
-	public final Color getBackgroundColor() {
+	public final IColor getBackgroundColor() {
 		return background.getBackgroundColor();
 	}
 	

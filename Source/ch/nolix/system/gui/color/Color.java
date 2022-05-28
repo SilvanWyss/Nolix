@@ -1042,23 +1042,6 @@ public final class Color implements IColor {
 	
 	//method
 	/**
-	 * @param alphaValue
-	 * @return a new {@link Color} from the current {@link Color} with the given alphaValue.
-	 */
-	public Color asWithAlphaValue(final double alphaValue) {
-		
-		GlobalValidator.assertThat(alphaValue).thatIsNamed("alpha value").isBetween(0.0, 1.0);
-		
-		return withRedValueAndGreenValueAndBlueValueAndAlphaValue(
-			getRedValue(),
-			getGreenValue(),
-			getBlueValue(),
-			(int)(256 * alphaValue)
-		);
-	}
-	
-	//method
-	/**
 	 * {@inheritDoc}
 	 */
 	@Override
@@ -1112,7 +1095,7 @@ public final class Color implements IColor {
 	
 	//method
 	/**
-	 * @return the hexadecimal value of the current {@link Color} always with alpha value.
+	 * {@inheritDoc}
 	 */
 	public String getHexadecimalValueAlwaysWithAlphaValue() {
 		return
@@ -1306,8 +1289,9 @@ public final class Color implements IColor {
 	
 	//method
 	/**
-	 * @return an integer that represents the current {@link Color} in the schema alpha-red-green-blue.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public int toAlphaRedGreenBlueValue() {
 		return ((getAlphaValue() << 24) | (getRedValue() << 16) | (getGreenValue() << 8) | getBlueValue());
 	}
@@ -1350,6 +1334,23 @@ public final class Color implements IColor {
 		65536L * getRedValue()
 		+ 256 * getGreenValue()
 		+ getBlueValue();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public IColor withAlphaValue(final double alphaValue) {
+		
+		GlobalValidator.assertThat(alphaValue).thatIsNamed("alpha value").isBetween(0.0, 1.0);
+		
+		return withRedValueAndGreenValueAndBlueValueAndAlphaValue(
+			getRedValue(),
+			getGreenValue(),
+			getBlueValue(),
+			(int)(256 * alphaValue)
+		);
 	}
 	
 	//method

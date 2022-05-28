@@ -7,8 +7,8 @@ import java.awt.image.BufferedImage;
 //own imports
 import ch.nolix.core.container.matrix.Matrix;
 import ch.nolix.core.document.node.Node;
-import ch.nolix.system.gui.color.Color;
 import ch.nolix.systemapi.elementapi.IElement;
+import ch.nolix.systemapi.guiapi.baseapi.colorapi.IColor;
 
 //interface
 public interface IImage<I extends IImage<I>> extends IElement<I> {
@@ -20,10 +20,10 @@ public interface IImage<I extends IImage<I>> extends IElement<I> {
 	IMutableImage<?> asWithWidthAndHeight(int width, int height);
 	
 	//method declaration
-	Color getBottomLeftPixel();
+	IColor getBottomLeftPixel();
 	
 	//method declaration
-	Color getBottomRightPixel();
+	IColor getBottomRightPixel();
 	
 	//method declaration
 	Node getCompressedSpecification();
@@ -32,22 +32,22 @@ public interface IImage<I extends IImage<I>> extends IElement<I> {
 	int getHeight();
 	
 	//method declaration
-	Color getPixel(int xPosition, int yPosition);
+	IColor getPixel(int xPosition, int yPosition);
 	
 	//method declaration
 	int getPixelCount();
 	
 	//method declaration
-	Matrix<Color> getPixles();
+	Matrix<IColor> getPixles();
 	
 	//method declaration
 	IMutableImage<?> getSection(int xPosition, int yPosition, int width, int height);
 	
 	//method declaration
-	Color getTopLeftPixel();
+	IColor getTopLeftPixel();
 	
 	//method declaration
-	Color getTopRightPixel();
+	IColor getTopRightPixel();
 	
 	//method declaration
 	int getWidth();

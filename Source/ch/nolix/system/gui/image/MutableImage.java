@@ -25,6 +25,7 @@ import ch.nolix.system.element.MutableElement;
 import ch.nolix.system.element.MutableSpecificationValueExtractor;
 import ch.nolix.system.element.Value;
 import ch.nolix.system.gui.color.Color;
+import ch.nolix.systemapi.guiapi.baseapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.imageapi.IMutableImage;
 
@@ -109,7 +110,7 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 	}
 	
 	//static method
-	public static MutableImage withPixels(final Matrix<Color> pixels) {
+	public static MutableImage withPixels(final Matrix<IColor> pixels) {
 		return new MutableImage(pixels.getCopy());
 	}
 	
@@ -125,7 +126,7 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 		GlobalValidator.assertThat(height).thatIsNamed(LowerCaseCatalogue.HEIGHT).isPositive();
 		GlobalValidator.assertThat(color).thatIsNamed(Color.class).isNotNull();
 		
-		var pixels = new Matrix<Color>();
+		var pixels = new Matrix<IColor>();
 		
 		if (width > 0 && height > 0) {
 			
@@ -161,7 +162,7 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 	);
 		
 	//attribute
-	private final Matrix<Color> pixels;
+	private final Matrix<IColor> pixels;
 	
 	//attribute
 	@SuppressWarnings("unused")
@@ -173,7 +174,7 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 	private BufferedImage bufferedImage;
 	
 	//constructor
-	MutableImage(final Matrix<Color> pixels) {
+	MutableImage(final Matrix<IColor> pixels) {
 		
 		setWidth(pixels.getColumnCount());
 		setHeight(pixels.getRowCount());
@@ -189,13 +190,13 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 	
 	//method
 	@Override
-	public Color getBottomLeftPixel() {
+	public IColor getBottomLeftPixel() {
 		return getPixel(1, getHeight());
 	}
 	
 	//method
 	@Override
-	public Color getBottomRightPixel() {
+	public IColor getBottomRightPixel() {
 		return getPixel(getWidth(), getHeight());
 	}
 	
@@ -224,7 +225,7 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 	
 	//method
 	@Override
-	public Color getPixel(final int xPosition, final int yPosition) {
+	public IColor getPixel(final int xPosition, final int yPosition) {
 		return pixels.getRefAt(yPosition, xPosition);
 	}
 	
@@ -236,7 +237,7 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 	
 	//method
 	@Override
-	public Matrix<Color> getPixles() {
+	public Matrix<IColor> getPixles() {
 		return pixels.getCopy();
 	}
 	
@@ -261,13 +262,13 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 	
 	//method
 	@Override
-	public Color getTopLeftPixel() {
+	public IColor getTopLeftPixel() {
 		return getPixel(1, 1);
 	}
 	
 	//method
 	@Override
-	public Color getTopRightPixel() {
+	public IColor getTopRightPixel() {
 		return getPixel(getWidth(), 1);
 	}
 	
@@ -300,7 +301,7 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 	
 	//method
 	@Override
-	public MutableImage setPixel(int xPosition, int yPosition, final Color color) {
+	public MutableImage setPixel(int xPosition, int yPosition, final IColor color) {
 		
 		deletePixelArraySpecificationAndBufferedImage();
 		
@@ -475,9 +476,9 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 	@Override
 	public MutableImage asWithAlphaValue(final double alphaValue) {
 		
-		final var lPixels = new Matrix<Color>();
+		final var lPixels = new Matrix<IColor>();
 		for (final var r : pixels.getRows()) {
-			lPixels.addRow(r.to(p -> p.asWithAlphaValue(alphaValue)));
+			lPixels.addRow(r.to(p -> p.withAlphaValue(alphaValue)));
 		}
 		
 		return new MutableImage(lPixels);

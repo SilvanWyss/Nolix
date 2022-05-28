@@ -12,7 +12,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.environment.runningjar.RunningJar;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.gui.base.Element;
-import ch.nolix.system.gui.color.Color;
+import ch.nolix.systemapi.guiapi.baseapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
 
 //class
@@ -44,7 +44,7 @@ public final class Image extends Element<Image> implements IImage<Image> {
 	}
 	
 	//static method
-	public static Image withPixels(Matrix<Color> pixels) {
+	public static Image withPixels(Matrix<IColor> pixels) {
 		return new Image(MutableImage.withPixels(pixels));
 	}
 	
@@ -73,13 +73,13 @@ public final class Image extends Element<Image> implements IImage<Image> {
 	
 	//method
 	@Override
-	public Color getBottomLeftPixel() {
+	public IColor getBottomLeftPixel() {
 		return internalImage.getBottomLeftPixel();
 	}
 	
 	//method
 	@Override
-	public Color getBottomRightPixel() {
+	public IColor getBottomRightPixel() {
 		return internalImage.getBottomRightPixel();
 	}
 	
@@ -97,7 +97,7 @@ public final class Image extends Element<Image> implements IImage<Image> {
 	
 	//method
 	@Override
-	public Color getPixel(int xPosition, int yPosition) {
+	public IColor getPixel(int xPosition, int yPosition) {
 		return internalImage.getPixel(xPosition, yPosition);
 	}
 	
@@ -109,7 +109,7 @@ public final class Image extends Element<Image> implements IImage<Image> {
 	
 	//method
 	@Override
-	public Matrix<Color> getPixles() {
+	public Matrix<IColor> getPixles() {
 		return internalImage.getPixles();
 	}
 	
@@ -121,13 +121,13 @@ public final class Image extends Element<Image> implements IImage<Image> {
 	
 	//method
 	@Override
-	public Color getTopLeftPixel() {
+	public IColor getTopLeftPixel() {
 		return internalImage.getTopLeftPixel();
 	}
 	
 	//method
 	@Override
-	public Color getTopRightPixel() {
+	public IColor getTopRightPixel() {
 		return internalImage.getTopRightPixel();
 	}
 	

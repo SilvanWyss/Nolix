@@ -9,6 +9,7 @@ import ch.nolix.system.element.MutableElement;
 import ch.nolix.system.element.MutableOptionalValue;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.color.ColorGradient;
+import ch.nolix.systemapi.guiapi.baseapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.imageapi.ImageApplication;
 
 //class
@@ -32,12 +33,12 @@ public final class Background extends MutableElement<Background> {
 	}
 	
 	//attribute
-	private final MutableOptionalValue<Color> color =
+	private final MutableOptionalValue<IColor> color =
 	new MutableOptionalValue<>(
 		COLOR_HEADER,
 		this::setColor,
 		Color::fromSpecification,
-		Color::getSpecification
+		IColor::getSpecification
 	);
 	
 	//attribute
@@ -68,7 +69,7 @@ public final class Background extends MutableElement<Background> {
 	}
 	
 	//method
-	public Color getColor() {
+	public IColor getColor() {
 		return color.getValue();
 	}
 	
@@ -109,7 +110,7 @@ public final class Background extends MutableElement<Background> {
 	}
 	
 	//method
-	public void setColor(final Color color) {
+	public void setColor(final IColor color) {
 		
 		clear();
 		

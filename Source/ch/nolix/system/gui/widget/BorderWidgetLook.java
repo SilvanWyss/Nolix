@@ -12,6 +12,7 @@ import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.color.ColorGradient;
 import ch.nolix.system.gui.image.Background;
 import ch.nolix.system.gui.image.MutableImage;
+import ch.nolix.systemapi.guiapi.baseapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.imageapi.ImageApplication;
 
 //class
@@ -274,7 +275,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	new ForwardingProperty<>(PADDING_HEADER, leftPadding, rightPadding, topPadding, bottomPadding);
 	
 	//method
-	public final Color getBackgroundColor() {
+	public final IColor getBackgroundColor() {
 		return background.getValue().getColor();
 	}
 	
