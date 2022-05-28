@@ -2,7 +2,9 @@
 package ch.nolix.systemapi.elementuniversalapi;
 
 //own imports
+import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.document.node.BaseNode;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 
 //interface
 /**
@@ -28,6 +30,8 @@ public interface IRespondingMutableElement<RME extends IRespondingMutableElement
 	 */
 	@Override
 	default void addOrChangeAttribute(final BaseNode attribute) {
-		addedOrChangedAttribute(attribute);
+		if (!addedOrChangedAttribute(attribute)) {
+			throw new InvalidArgumentException(LowerCaseCatalogue.ATTRIBUTE, attribute, "is not valid");
+		}
 	}
 }
