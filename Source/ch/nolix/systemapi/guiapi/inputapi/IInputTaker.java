@@ -22,11 +22,10 @@ public interface IInputTaker {
 	 * @throws InvalidArgumentException if the given input is not valid.
 	 */
 	default void noteInput(final IInput<?> input) {
-		
 		if (input instanceof MouseInput) {
-			noteMouseInput(input.as(MouseInput.class));
+			noteMouseInput((MouseInput)input);
 		} else if (input instanceof KeyInput) {
-			noteKeyInput(input.as(KeyInput.class));
+			noteKeyInput((KeyInput)input);
 		} else {
 			throw new InvalidArgumentException(input);
 		}
