@@ -14,10 +14,10 @@ import ch.nolix.core.skilluniversalapi.Clearable;
 import ch.nolix.system.element.MutableElement;
 import ch.nolix.system.element.MutableValue;
 import ch.nolix.system.elementenum.ContentPosition;
-import ch.nolix.system.gui.base.CursorIcon;
 import ch.nolix.system.gui.base.MutableOptionalWidgetProperty;
 import ch.nolix.system.gui.widget.Label;
 import ch.nolix.system.gui.widget.Widget;
+import ch.nolix.systemapi.guiapi.baseapi.CursorIcon;
 
 //class
 /**

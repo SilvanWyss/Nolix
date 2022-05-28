@@ -6,10 +6,10 @@ import ch.nolix.core.container.IContainer;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.gui.base.CanvasFrame;
-import ch.nolix.system.gui.base.CursorIcon;
 import ch.nolix.system.gui.base.GUI;
 import ch.nolix.system.gui.image.Image;
 import ch.nolix.system.gui.image.MutableImage;
+import ch.nolix.systemapi.guiapi.baseapi.CursorIcon;
 
 //class
 final class BaseFrontendGUIClientGUIHandler {

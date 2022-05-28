@@ -6,9 +6,9 @@ import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.document.node.Node;
-import ch.nolix.system.gui.base.CursorIcon;
 import ch.nolix.system.gui.base.IWidgetGUI;
 import ch.nolix.system.gui.image.Image;
+import ch.nolix.systemapi.guiapi.baseapi.CursorIcon;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
 
 //class

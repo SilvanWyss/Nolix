@@ -5,7 +5,6 @@ import ch.nolix.core.attributeuniversalapi.mutablemandatoryattributeuniversalapi
 import ch.nolix.core.griduniversalapi.Rectangular;
 import ch.nolix.core.programcontrol.groupcloseable.GroupCloseable;
 import ch.nolix.core.skilluniversalapi.Refreshable;
-import ch.nolix.system.gui.base.CursorIcon;
 import ch.nolix.system.gui.image.Image;
 import ch.nolix.system.gui.input.IResizableInputTaker;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;

@@ -12,9 +12,9 @@ import ch.nolix.system.element.MutableOptionalValue;
 import ch.nolix.system.element.MutableValue;
 import ch.nolix.system.elementenum.ContentPosition;
 import ch.nolix.system.elementenum.RotationDirection;
-import ch.nolix.system.gui.base.CursorIcon;
 import ch.nolix.system.valueholder.IntOrPercentageHolder;
 import ch.nolix.system.valueholder.IntOrPercentageHolderValidator;
+import ch.nolix.systemapi.guiapi.baseapi.CursorIcon;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 

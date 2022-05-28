@@ -12,11 +12,11 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentExcep
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.math.Calculator;
 import ch.nolix.system.element.MutableValue;
-import ch.nolix.system.gui.base.CursorIcon;
 import ch.nolix.system.gui.widget.BorderWidget;
 import ch.nolix.system.gui.widget.TextBoxLook;
 import ch.nolix.system.gui.widget.TextLineWidget;
 import ch.nolix.system.gui.widget.TextMode;
+import ch.nolix.systemapi.guiapi.baseapi.CursorIcon;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 

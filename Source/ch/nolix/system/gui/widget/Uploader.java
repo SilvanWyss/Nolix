@@ -6,8 +6,8 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IElementTaker;
 import ch.nolix.core.programcontrol.sequencer.Sequencer;
 import ch.nolix.system.elementenum.ContentPosition;
-import ch.nolix.system.gui.base.CursorIcon;
 import ch.nolix.system.gui.color.Color;
+import ch.nolix.systemapi.guiapi.baseapi.CursorIcon;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 

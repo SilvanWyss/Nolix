@@ -9,7 +9,6 @@ import ch.nolix.core.functionuniversalapi.IElementTaker;
 import ch.nolix.system.element.ForwardingMutableValue;
 import ch.nolix.system.element.MutableValue;
 import ch.nolix.system.elementenum.RotationDirection;
-import ch.nolix.system.gui.base.CursorIcon;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.containerwidget.HorizontalStack;
 import ch.nolix.system.gui.widget.BorderWidget;
@@ -18,6 +17,7 @@ import ch.nolix.system.gui.widget.TextBoxLook;
 import ch.nolix.system.gui.widget.TextMode;
 import ch.nolix.system.gui.widget.Widget;
 import ch.nolix.system.gui.widget.WidgetLookState;
+import ch.nolix.systemapi.guiapi.baseapi.CursorIcon;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 
