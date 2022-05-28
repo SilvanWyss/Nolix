@@ -3,7 +3,6 @@ package ch.nolix.system.objectdata.propertyhelper;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.system.objectdata.data.MultiValue;
 import ch.nolix.system.sqlrawdata.datadto.ContentFieldDTO;
 import ch.nolix.system.sqlrawdata.datadto.RecordUpdateDTO;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiValue;
@@ -65,7 +64,7 @@ public final class MultiValueHelper extends PropertyHelper implements IMultiValu
 	
 	//method
 	@Override
-	public IRecordUpdateDTO createRecordUpdateDTOForClear(final MultiValue<?> multiValue) {
+	public IRecordUpdateDTO createRecordUpdateDTOForClear(final IMultiValue<?, ?> multiValue) {
 		
 		final var parentEntity = multiValue.getParentEntity();
 		

@@ -2,7 +2,6 @@
 package ch.nolix.systemapi.objectdataapi.propertyhelperapi;
 
 //own imports
-import ch.nolix.system.objectdata.data.MultiValue;
 import ch.nolix.systemapi.objectdataapi.dataapi.IMultiValue;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordUpdateDTO;
 
@@ -25,5 +24,5 @@ public interface IMultiValueHelper extends IPropertyHelper {
 	<V> IRecordUpdateDTO createRecordUpdateDTOForAddedValue(IMultiValue<?, V> multiValue, V addedValue);
 	
 	//method declaration
-	IRecordUpdateDTO createRecordUpdateDTOForClear(MultiValue<?> multiValue);
+	IRecordUpdateDTO createRecordUpdateDTOForClear(IMultiValue<?, ?> multiValue);
 }
