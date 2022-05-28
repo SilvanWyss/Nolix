@@ -18,7 +18,7 @@ import ch.nolix.systemapi.elementapi.IElement;
  * @author Silvan Wyss
  * @date 2016-06-01
  */
-public final class Point2D implements IElement<Point2D> {
+public final class Point2D implements IElement {
 	
 	//constants
 	public static final double DEFAULT_X = 0.0;

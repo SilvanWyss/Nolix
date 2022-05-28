@@ -44,7 +44,7 @@ public final class MutableOptionalValue<V> extends SingleValue<V> {
 	 * @throws ArgumentIsNullException if the given setterMethod is null.
 	 * @throws ArgumentIsNullException if the given valueCreator is null.
 	 */
-	public static <E extends IElement<E>> MutableOptionalValue<E> forElement(
+	public static <E extends IElement> MutableOptionalValue<E> forElement(
 		final String name,
 		final IElementTaker<E> setterMethod,
 		final IElementTakerElementGetter<BaseNode, E> valueCreator

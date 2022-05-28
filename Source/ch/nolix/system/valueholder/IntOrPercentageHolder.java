@@ -20,7 +20,7 @@ import ch.nolix.systemapi.elementapi.IElement;
  * @author Silvan Wyss
  * @date 2018-03-25
  */
-public final class IntOrPercentageHolder implements IElement<IntOrPercentageHolder> {
+public final class IntOrPercentageHolder implements IElement {
 	
 	//attribute
 	private final boolean hasIntValue;

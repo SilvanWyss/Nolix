@@ -14,7 +14,7 @@ import ch.nolix.systemapi.elementapi.IElement;
  * @author Silvan Wyss
  * @date 2019-07-28
  */
-public enum RotationDirection implements IElement<RotationDirection> {
+public enum RotationDirection implements IElement {
 	FORWARD,
 	BACKWARD;
 	

@@ -9,7 +9,7 @@ import ch.nolix.systemapi.elementapi.IElement;
  * @date 2021-06-06
  * @param <E> is the type of a {@link Element}.
  */
-public abstract class Element<E extends Element<E>> implements IElement<E> {
+public abstract class Element<E extends Element<E>> implements IElement {
 	
 	//method
 	/**

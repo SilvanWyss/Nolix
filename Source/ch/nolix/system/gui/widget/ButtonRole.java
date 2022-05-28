@@ -14,7 +14,7 @@ import ch.nolix.systemapi.elementapi.IElement;
  * @author Silvan Wyss
  * @date 2018-05-18
  */
-public enum ButtonRole implements IElement<ButtonRole> {
+public enum ButtonRole implements IElement {
 	ACTION_BUTTON,
 	LINK_BUTTON,
 	CREATE_BUTTON,

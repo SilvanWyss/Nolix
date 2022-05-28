@@ -14,7 +14,7 @@ import ch.nolix.systemapi.elementapi.IElement;
  * @author Silvan Wyss
  * @date 2016-09-01
  */
-public enum ContentPosition implements IElement<ContentPosition> {
+public enum ContentPosition implements IElement {
 	TOP_LEFT,
 	TOP,
 	TOP_RIGHT,

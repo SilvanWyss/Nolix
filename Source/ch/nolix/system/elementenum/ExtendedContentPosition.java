@@ -14,7 +14,7 @@ import ch.nolix.systemapi.elementapi.IElement;
  * @author Silvan Wyss
  * @date 2019-05-18
  */
-public enum ExtendedContentPosition implements IElement<ExtendedContentPosition> {
+public enum ExtendedContentPosition implements IElement {
 	TOP_LEFT,
 	TOP,
 	TOP_RIGHT,

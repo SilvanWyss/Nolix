@@ -9,7 +9,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.systemapi.elementapi.IElement;
 
 //enum
-public enum LayerRole implements IElement<LayerRole> {
+public enum LayerRole implements IElement {
 	BACKGROUND_LAYER,
 	MAIN_LAYER,
 	SUP_LAYER,

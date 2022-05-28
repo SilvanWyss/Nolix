@@ -11,7 +11,7 @@ import ch.nolix.system.elementenum.RotationDirection;
 import ch.nolix.systemapi.elementapi.IElement;
 
 //enum
-public enum MouseInputType implements IElement<MouseInputType> {
+public enum MouseInputType implements IElement {
 	MOUSE_MOVE,
 	LEFT_MOUSE_BUTTON_PRESS,
 	LEFT_MOUSE_BUTTON_RELEASE,

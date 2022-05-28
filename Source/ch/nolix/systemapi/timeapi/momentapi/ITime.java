@@ -5,7 +5,7 @@ package ch.nolix.systemapi.timeapi.momentapi;
 import ch.nolix.systemapi.elementapi.IElement;
 
 //interface
-public interface ITime extends IElement<ITime> {
+public interface ITime extends IElement {
 	
 	//method declaration
 	/**

@@ -9,7 +9,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.systemapi.elementapi.IElement;
 
 //enum
-public enum ImageApplication implements IElement<ImageApplication> {
+public enum ImageApplication implements IElement {
 	SCALE_TO_FRAME,
 	REPEATE;
 	

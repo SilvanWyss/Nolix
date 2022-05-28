@@ -11,7 +11,7 @@ import ch.nolix.systemapi.elementapi.IElement;
 import ch.nolix.systemapi.guiapi.baseapi.colorapi.IColor;
 
 //interface
-public interface IImage<I extends IImage<I>> extends IElement<I> {
+public interface IImage<I extends IImage<I>> extends IElement {
 	
 	//method declaration
 	IColor getBottomLeftPixel();

@@ -9,7 +9,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.systemapi.elementapi.IElement;
 
 //enum
-public enum KeyInputType implements IElement<KeyInputType> {
+public enum KeyInputType implements IElement {
 	PRESS,
 	RELEASE,
 	TYPING;

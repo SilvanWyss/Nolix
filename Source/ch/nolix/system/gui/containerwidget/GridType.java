@@ -9,7 +9,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.systemapi.elementapi.IElement;
 
 //enum
-public enum GridType implements IElement<GridType> {
+public enum GridType implements IElement {
 	INNER_LINES,
 	INNER_AND_OUTER_LINES;
 

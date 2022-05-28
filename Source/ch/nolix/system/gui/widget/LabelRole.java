@@ -13,7 +13,7 @@ import ch.nolix.systemapi.elementapi.IElement;
  * @author Silvan Wyss
  * @date 2016-09-01
  */
-public enum LabelRole implements IElement<LabelRole> {
+public enum LabelRole implements IElement {
 	TITLE,
 	SUB_TITLE,
 	LEVEL1_HEADER,

@@ -17,7 +17,7 @@ import ch.nolix.systemapi.elementapi.IElement;
  * @author Silvan Wyss
  * @date 2017-08-19
  */
-public enum Font implements IElement<Font> {
+public enum Font implements IElement {
 	ARIAL,
 	ARIAL_BLACK,
 	COMIC_SANS_MS,

@@ -16,7 +16,7 @@ import ch.nolix.systemapi.elementapi.IElement;
  * @author Silvan Wyss
  * @date 2017-09-16
  */
-public enum UniDirection implements IElement<UniDirection> {
+public enum UniDirection implements IElement {
 	HORIZONTAL,
 	VERTICAL,
 	DIAGONAL_UP,

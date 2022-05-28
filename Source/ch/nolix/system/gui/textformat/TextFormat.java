@@ -33,7 +33,7 @@ import ch.nolix.systemapi.elementapi.IElement;
  * @author Silvan Wyss
  * @date 2017-08-26
  */
-public final class TextFormat implements IElement<TextFormat> {
+public final class TextFormat implements IElement {
 	
 	//constants
 	public static final Font DEFAULT_TEXT_FONT = Font.VERDANA;

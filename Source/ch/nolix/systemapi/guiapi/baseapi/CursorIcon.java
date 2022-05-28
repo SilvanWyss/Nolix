@@ -18,7 +18,7 @@ import ch.nolix.systemapi.elementapi.IElement;
  * @author Silvan Wyss
  * @date 2016-06-01
  */
-public enum CursorIcon implements IElement<CursorIcon> {
+public enum CursorIcon implements IElement {
 	ARROW,
 	CROSS,
 	EDIT,

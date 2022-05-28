@@ -8,7 +8,7 @@ import java.awt.Color;
 import ch.nolix.systemapi.elementapi.IElement;
 
 //interface
-public interface IColor extends IElement<IColor> {
+public interface IColor extends IElement {
 	
 	//method declaration
 	/**

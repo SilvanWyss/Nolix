@@ -14,9 +14,8 @@ import ch.nolix.core.programcontrol.processproperty.WriteMode;
 /**
  * @author Silvan Wyss
  * @date 2016-01-01
- * @param <E> is the type of a {@link IElement}.
  */
-public interface IElement<E extends IElement<E>> {
+public interface IElement {
 	
 	//method declaration
 	/**

@@ -16,7 +16,7 @@ import ch.nolix.systemapi.elementapi.IElement;
  * @author Silvan Wyss
  * @date 2018-08-13
  */
-public enum AccordionExpansionBehavior implements IElement<AccordionExpansionBehavior> {
+public enum AccordionExpansionBehavior implements IElement {
 	OPEN_ONE_TAB_OR_NONE,
 	OPEN_ONE_TAB,
 	OPEN_SEVERAL_TABS_OR_NONE,

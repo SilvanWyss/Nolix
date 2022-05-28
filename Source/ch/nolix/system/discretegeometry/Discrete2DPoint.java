@@ -15,7 +15,7 @@ import ch.nolix.systemapi.elementapi.IElement;
  * @author Silvan Wyss
  * @date 2019-05-19
  */
-public final class Discrete2DPoint implements IElement<Discrete2DPoint> {
+public final class Discrete2DPoint implements IElement {
 	
 	//static method
 	/**

@@ -12,7 +12,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.systemapi.elementapi.IElement;
 
 //enum
-public enum TextMode implements IElement<TextMode> {
+public enum TextMode implements IElement {
 	NORMAL,
 	SECRET;
 	

@@ -12,7 +12,7 @@ import ch.nolix.systemapi.elementapi.IElement;
  * @author Silvan Wyss
  * @date 2016-05-01
  */
-public enum CaptionPosition implements IElement<CaptionPosition> {
+public enum CaptionPosition implements IElement {
 	LEFT_TOP,
 	LEFT,
 	LEFT_BOTTOM,

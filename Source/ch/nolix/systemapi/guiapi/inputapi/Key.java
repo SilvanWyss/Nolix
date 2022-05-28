@@ -14,7 +14,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumen
 import ch.nolix.systemapi.elementapi.IElement;
 
 //enum
-public enum Key implements IElement<Key> {
+public enum Key implements IElement {
 	A,
 	B,
 	C,

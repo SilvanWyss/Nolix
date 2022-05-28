@@ -9,7 +9,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.systemapi.elementapi.IElement;
 
 //enum
-public enum ItemMenuItemRole implements IElement<ItemMenuItemRole> {
+public enum ItemMenuItemRole implements IElement {
 	NORMAL_ITEM,
 	EMPTY_ITEM;
 	
