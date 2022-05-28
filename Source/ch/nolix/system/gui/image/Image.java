@@ -11,13 +11,12 @@ import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.environment.runningjar.RunningJar;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.system.gui.base.Element;
 import ch.nolix.systemapi.guiapi.baseapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.imageapi.IMutableImage;
 
 //class
-public final class Image extends Element<Image> implements IImage<Image> {
+public final class Image implements IImage<Image> {
 	
 	//static method
 	public static Image fromAnyImage(final IImage<?> image) {
