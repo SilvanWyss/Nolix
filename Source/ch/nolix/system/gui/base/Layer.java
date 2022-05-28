@@ -1333,7 +1333,8 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	private void noteResizeWhenHasBorderWidget(int viewAreaWidth, int viewAreaHeight) {
 		
 		//Gets the root Widget of the current Layer as BorderWidget.
-		final var rootBorderWidget = rootWidget.as(BorderWidget.class);
+		@SuppressWarnings("rawtypes")
+		final var rootBorderWidget = (BorderWidget)rootWidget;
 		
 		//Sets max width and max height to the root BorderWidget.
 		rootBorderWidget.setMaxWidth(viewAreaWidth).setMaxHeight(viewAreaHeight);
@@ -1395,7 +1396,8 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	private void setAutomaticSizeToRootWidgetIfSuitable() {
 		if (rootWidget instanceof BorderWidget) {
 			
-			final var lRootWidget = rootWidget.as(BorderWidget.class);
+			@SuppressWarnings("rawtypes")
+			final var lRootWidget = (BorderWidget)rootWidget;
 			
 			if (parentGUI != null && lRootWidget.hasAutomaticSize()) {
 				

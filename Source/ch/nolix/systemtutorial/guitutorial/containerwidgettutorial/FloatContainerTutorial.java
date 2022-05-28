@@ -57,8 +57,7 @@ public final class FloatContainerTutorial {
 		var index = 1;
 		for (final var cw : floatContainer.getChildWidgets()) {
 			
-			cw
-			.as(Label.class)
+			((Label)cw)
 			.setProposalWidth(100 + (index % 3) * 50)
 			.setProposalHeight(100)
 			.setContentPosition(ContentPosition.CENTER)

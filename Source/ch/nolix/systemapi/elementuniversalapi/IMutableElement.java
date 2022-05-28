@@ -5,7 +5,7 @@ package ch.nolix.systemapi.elementuniversalapi;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.skilluniversalapi.ISmartObject;
+import ch.nolix.core.skilluniversalapi.IFluentObject;
 import ch.nolix.core.skilluniversalapi.Resettable;
 
 //interface
@@ -18,7 +18,7 @@ import ch.nolix.core.skilluniversalapi.Resettable;
  * @date 2017-01-01
  * @param <ME> is the type of a {@link IMutableElement}.
  */
-public interface IMutableElement<ME extends IMutableElement<ME>> extends Specified, ISmartObject<ME>, Resettable {
+public interface IMutableElement<ME extends IMutableElement<ME>> extends IFluentObject<ME>, Resettable, Specified {
 	
 	//method declaration
 	/**
