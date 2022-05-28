@@ -12,7 +12,7 @@ public final class StackLook extends BorderWidgetLook<StackLook> {
 	public static StackLook fromSpecification(final BaseNode specification) {
 		
 		final var stackLook = new StackLook();
-		stackLook.resetFrom(specification);
+		stackLook.resetFromSpecification(specification);
 		
 		return stackLook;
 	}

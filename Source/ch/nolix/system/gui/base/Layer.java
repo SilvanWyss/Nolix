@@ -97,7 +97,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	public static Layer fromSpecification(final BaseNode specification) {
 		
 		final var layer = new Layer();
-		layer.resetFrom(specification);
+		layer.resetFromSpecification(specification);
 		
 		return layer;
 	}

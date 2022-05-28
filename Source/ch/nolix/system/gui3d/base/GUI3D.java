@@ -403,7 +403,7 @@ public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G> 
 	private Shape<?> createShape(final BaseNode specification) {
 		
 		final var shape = createShape(specification.getHeader());
-		shape.resetFrom(specification);
+		shape.resetFromSpecification(specification);
 		
 		return shape;
 	}

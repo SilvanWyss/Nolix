@@ -22,7 +22,7 @@ public final class BorderWidgetScrollBarLook extends MutableElement<BorderWidget
 	public static BorderWidgetScrollBarLook fromSpecification(final BaseNode specification) {
 		
 		final var scrollBarLook = new BorderWidgetScrollBarLook();
-		scrollBarLook.resetFrom(specification);
+		scrollBarLook.resetFromSpecification(specification);
 		
 		return scrollBarLook;
 	}

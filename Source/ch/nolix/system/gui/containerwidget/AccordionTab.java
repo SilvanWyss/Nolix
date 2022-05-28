@@ -33,7 +33,7 @@ public final class AccordionTab extends MutableElement<AccordionTab> implements 
 	public static AccordionTab fromSpecification(final BaseNode specification) {
 		
 		final var tab = new AccordionTab();
-		tab.resetFrom(specification);
+		tab.resetFromSpecification(specification);
 		
 		return tab;
 	}

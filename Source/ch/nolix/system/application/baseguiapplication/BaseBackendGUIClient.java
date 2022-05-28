@@ -361,7 +361,7 @@ public abstract class BaseBackendGUIClient<
 	 * @throws InvalidArgumentException if one of the given attributes is not valid.
 	 */
 	private <BN extends BaseNode> void resetGUI(final IContainer<BN> attributes) {
-		getRefGUI().resetFrom(attributes);
+		getRefGUI().resetFromAttributes(attributes);
 	}
 	
 	//method

@@ -23,7 +23,7 @@ final class GridCell extends MutableElement<GridCell> implements Clearable {
 	public static GridCell fromSpecification(final BaseNode specification) {
 		
 		final var cell = new GridCell();
-		cell.resetFrom(specification);
+		cell.resetFromSpecification(specification);
 		
 		return cell;
 	}

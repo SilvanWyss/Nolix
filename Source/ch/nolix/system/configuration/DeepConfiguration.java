@@ -32,7 +32,7 @@ public final class DeepConfiguration extends BaseConfiguration<DeepConfiguration
 	public static DeepConfiguration fromSpecification(final BaseNode specification) {
 		
 		final var deepConfiguration = new DeepConfiguration();
-		deepConfiguration.resetFrom(specification);
+		deepConfiguration.resetFromSpecification(specification);
 		
 		return deepConfiguration;
 	}

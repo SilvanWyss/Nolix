@@ -27,7 +27,7 @@ public final class Configuration extends BaseConfiguration<Configuration> {
 	public static Configuration fromFile(final String filePath) {
 		
 		final var configuration = new Configuration();
-		configuration.resetFromFile(filePath);
+		configuration.resetFromFileWithFilePath(filePath);
 		
 		return configuration;
 	}
@@ -41,7 +41,7 @@ public final class Configuration extends BaseConfiguration<Configuration> {
 	public static Configuration fromSpecification(final BaseNode specification) {
 		
 		final var configuration = new Configuration();
-		configuration.resetFrom(specification);
+		configuration.resetFromSpecification(specification);
 		
 		return configuration;
 	}

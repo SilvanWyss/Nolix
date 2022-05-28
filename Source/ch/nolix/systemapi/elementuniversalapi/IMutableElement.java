@@ -10,9 +10,9 @@ import ch.nolix.core.skilluniversalapi.Resettable;
 
 //interface
 /**
- * A {@link IMutableElement} is a {@link Specified}:
- * -Whose attributes can be mutated separately.
- * -Whose attributes can be reset together.
+ * A {@link IMutableElement} is a {@link Specified}.
+ * The attributes of a {@link IMutableElement} can be mutated separately.
+ * The attributes of a {@link IMutableElement} can be reset together.
  * 
  * @author Silvan Wyss
  * @date 2017-01-01
@@ -23,7 +23,6 @@ public interface IMutableElement<ME extends IMutableElement<ME>> extends Specifi
 	//method declaration
 	/**
 	 * Adds or changes the given attribute to the current {@link IMutableElement}.
-	 * This method is not fluent.
 	 * 
 	 * @param attribute
 	 */
@@ -32,7 +31,6 @@ public interface IMutableElement<ME extends IMutableElement<ME>> extends Specifi
 	//method
 	/**
 	 * Adds or changes the given attributes to the current {@link IMutableElement}.
-	 * This method is not fluent.
 	 * 
 	 * @param attributes
 	 * @throws InvalidArgumentException if one of the given attributes is not valid.
@@ -47,24 +45,7 @@ public interface IMutableElement<ME extends IMutableElement<ME>> extends Specifi
 	
 	//method
 	/**
-	 * Adds or changes the given attributes to the current {@link IMutableElement}.
-	 * This method is not fluent.
-	 * 
-	 * @param attributes
-	 * @throws InvalidArgumentException if one of the given attributes is not valid.
-	 */
-	default void addOrChangeAttributes(final Iterable<? extends BaseNode> attributes) {
-		
-		//Iterates the given attributes.
-		for (final var a : attributes) {
-			addOrChangeAttribute(a);
-		}
-	}
-	
-	//method
-	/**
 	 * Adds or changes the given attribute to the current {@link IMutableElement}.
-	 * This method is not fluent.
 	 * 
 	 * @param attribute
 	 * @throws InvalidArgumentException if the given attribute is not valid.
@@ -76,7 +57,6 @@ public interface IMutableElement<ME extends IMutableElement<ME>> extends Specifi
 	//method
 	/**
 	 * Adds or changes the given attributes to the current {@link IMutableElement}.
-	 * This method is not fluent.
 	 * 
 	 * @param attributes
 	 * @throws InvalidArgumentException if one of the given attributes is not valid.
@@ -91,13 +71,17 @@ public interface IMutableElement<ME extends IMutableElement<ME>> extends Specifi
 	
 	//method
 	/**
-	 * Resets the current {@link IMutableElement} from the given specification.
+	 * Adds or changes the given attributes to the current {@link IMutableElement}.
 	 * 
-	 * @param specification
-	 * @throws InvalidArgumentException if the given specification is not valid.
+	 * @param attributes
+	 * @throws InvalidArgumentException if one of the given attributes is not valid.
 	 */
-	default void resetFrom(final BaseNode specification) {
-		resetFrom(specification.getRefAttributes());
+	default void addOrChangeAttributes(final Iterable<? extends BaseNode> attributes) {
+		
+		//Iterates the given attributes.
+		for (final var a : attributes) {
+			addOrChangeAttribute(a);
+		}
 	}
 	
 	//method
@@ -108,20 +92,11 @@ public interface IMutableElement<ME extends IMutableElement<ME>> extends Specifi
 	 * @param <BN> is the type of the given attributes.
 	 * @throws InvalidArgumentException if one of the given attributes is not valid.
 	 */
-	default <BN extends BaseNode> void resetFrom(final Iterable<BN> attributes) {
+	default <BN extends BaseNode> void resetFromAttributes(final Iterable<BN> attributes) {
+		
 		reset();
+		
 		addOrChangeAttributes(attributes);
-	}
-	
-	//method
-	/**
-	 * Resets the current {@link IMutableElement} from the given specification.
-	 * 
-	 * @param specification
-	 * @throws InvalidArgumentException if the given specification is not valid.
-	 */
-	default void resetFrom(final String specification) {
-		resetFrom(Node.fromString(specification));
 	}
 	
 	//method
@@ -132,7 +107,29 @@ public interface IMutableElement<ME extends IMutableElement<ME>> extends Specifi
 	 * @throws InvalidArgumentException if the given filePath is not valid.
 	 * @throws InvalidArgumentException if the file with the given filePath does not represent a {@link Node}.
 	 */
-	default void resetFromFile(final String filePath) {
-		resetFrom(Node.fromFile(filePath));
+	default void resetFromFileWithFilePath(final String filePath) {
+		resetFromSpecification(Node.fromFile(filePath));
+	}
+	
+	//method
+	/**
+	 * Resets the current {@link IMutableElement} from the given specification.
+	 * 
+	 * @param specification
+	 * @throws InvalidArgumentException if the given specification is not valid.
+	 */
+	default void resetFromSpecification(final BaseNode specification) {
+		resetFromAttributes(specification.getRefAttributes());
+	}
+	
+	//method
+	/**
+	 * Resets the current {@link IMutableElement} from the given specification.
+	 * 
+	 * @param specification
+	 * @throws InvalidArgumentException if the given specification is not valid.
+	 */
+	default void resetFromSpecification(final String specification) {
+		resetFromSpecification(Node.fromString(specification));
 	}
 }

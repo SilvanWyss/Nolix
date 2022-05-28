@@ -43,7 +43,7 @@ implements Clearable, Headerable<TabContainerTab> {
 	public static TabContainerTab fromSpecification(final BaseNode specification) {
 		
 		final var tab = new TabContainerTab();
-		tab.resetFrom(specification);
+		tab.resetFromSpecification(specification);
 		
 		return tab;
 	}

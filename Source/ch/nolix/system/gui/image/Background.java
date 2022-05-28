@@ -27,7 +27,7 @@ public final class Background extends MutableElement<Background> {
 	public static Background fromSpecification(final BaseNode specification) {
 		
 		final var background = new Background();
-		background.resetFrom(specification);
+		background.resetFromSpecification(specification);
 		
 		return background;
 	}

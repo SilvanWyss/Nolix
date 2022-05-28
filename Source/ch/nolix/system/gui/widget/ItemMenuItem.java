@@ -31,7 +31,7 @@ public final class ItemMenuItem extends MutableElement<ItemMenuItem> implements 
 	public static ItemMenuItem fromSpecification(final BaseNode specification) {
 		
 		final var item = new ItemMenuItem();
-		item.resetFrom(specification);
+		item.resetFromSpecification(specification);
 		
 		return item;
 	}

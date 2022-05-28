@@ -43,7 +43,7 @@ final class OneTypeElementFactory<E> {
 			s -> {
 				
 				final var element = createElementOf(elementClass);
-				element.resetFrom(s);
+				element.resetFromSpecification(s);
 				
 				return (E)element;
 			}

@@ -36,7 +36,7 @@ public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> impleme
 	//attribute
 	@SuppressWarnings("unused")
 	private final MutableSpecificationValueExtractor internalGUIExtractor =
-	new MutableSpecificationValueExtractor(GUI_HEADER,	internalGUI::resetFrom,	internalGUI::getSpecification);
+	new MutableSpecificationValueExtractor(GUI_HEADER,	internalGUI::resetFromSpecification,	internalGUI::getSpecification);
 	
 	//constructor
 	public InnerGUI() {
