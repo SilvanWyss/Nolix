@@ -6,7 +6,7 @@ import ch.nolix.core.commontype.commontypehelper.GlobalDoubleHelper;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.math.Vector;
-import ch.nolix.systemapi.elementapi.Specified;
+import ch.nolix.systemapi.elementuniversalapi.Specified;
 
 //class
 /**

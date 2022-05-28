@@ -27,7 +27,7 @@ import ch.nolix.system.gui.base.GUI;
 import ch.nolix.system.gui.base.Layer;
 import ch.nolix.system.gui.base.WidgetGUI;
 import ch.nolix.system.gui.color.Color;
-import ch.nolix.systemapi.elementapi.IConfigurableElement;
+import ch.nolix.systemapi.elementuniversalapi.IConfigurableElement;
 import ch.nolix.systemapi.guiapi.baseapi.CursorIcon;
 import ch.nolix.systemapi.guiapi.baseapi.IFrontEndReader;
 import ch.nolix.systemapi.guiapi.baseapi.IFrontEndWriter;

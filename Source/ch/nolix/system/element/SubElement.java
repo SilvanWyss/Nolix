@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.element;
 
-import ch.nolix.systemapi.elementapi.IMutableElement;
+import ch.nolix.systemapi.elementuniversalapi.IMutableElement;
 
 //class
 public final class SubElement<ME extends IMutableElement<ME>> extends BaseSubElement<ME> {

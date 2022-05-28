@@ -7,7 +7,7 @@ import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.systemapi.elementapi.IMutableElement;
+import ch.nolix.systemapi.elementuniversalapi.IMutableElement;
 
 //class
 public abstract class BaseSubElement<ME extends IMutableElement<ME>> extends Property {

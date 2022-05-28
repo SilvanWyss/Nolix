@@ -5,7 +5,7 @@ package ch.nolix.system.discretegeometry;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
-import ch.nolix.systemapi.elementapi.Specified;
+import ch.nolix.systemapi.elementuniversalapi.Specified;
 
 //class
 /**

@@ -4,7 +4,7 @@ package ch.nolix.system.elementfactory;
 //own imports
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.functionuniversalapi.IElementTakerElementGetter;
-import ch.nolix.systemapi.elementapi.IMutableElement;
+import ch.nolix.systemapi.elementuniversalapi.IMutableElement;
 
 //class
 public final class MutableElementFactory<E> extends ElementFactory<E> {

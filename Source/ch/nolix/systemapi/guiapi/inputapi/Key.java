@@ -11,7 +11,7 @@ import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
-import ch.nolix.systemapi.elementapi.Specified;
+import ch.nolix.systemapi.elementuniversalapi.Specified;
 
 //enum
 public enum Key implements Specified {

@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.system.formatelement} package defines
- * a cascading formatable {@link ch.nolix.systemapi.elementapi.IMutableElement}.
+ * a cascading formatable {@link ch.nolix.systemapi.elementuniversalapi.IMutableElement}.
  * 
  * @author Silvan Wyss
  * @date 2021-03-26

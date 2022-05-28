@@ -4,8 +4,7 @@ package ch.nolix.systemapi.guiapi.baseapi.colorapi;
 //Java imports
 import java.awt.Color;
 
-//own imports
-import ch.nolix.systemapi.elementapi.Specified;
+import ch.nolix.systemapi.elementuniversalapi.Specified;
 
 //interface
 public interface IColor extends Specified {

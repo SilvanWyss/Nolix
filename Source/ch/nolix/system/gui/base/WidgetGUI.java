@@ -45,7 +45,7 @@ import ch.nolix.system.gui.widget.SelectionMenu;
 import ch.nolix.system.gui.widget.Uploader;
 import ch.nolix.system.gui.widget.VerticalLine;
 import ch.nolix.system.gui.widget.Widget;
-import ch.nolix.systemapi.elementapi.IConfigurableElement;
+import ch.nolix.systemapi.elementuniversalapi.IConfigurableElement;
 import ch.nolix.systemapi.guiapi.baseapi.CursorIcon;
 import ch.nolix.systemapi.guiapi.baseapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
