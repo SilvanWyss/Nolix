@@ -14,7 +14,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IElementTakerBooleanGetter;
-import ch.nolix.core.skilluniversalapi.ISmartObject;
 
 //class
 /**
@@ -23,7 +22,7 @@ import ch.nolix.core.skilluniversalapi.ISmartObject;
  * @author Silvan Wyss
  * @date 2016-01-01
  */
-public final class Node extends BaseNode implements ISmartObject<Node> {
+public final class Node extends BaseNode {
 	
 	//static method
 	/**
