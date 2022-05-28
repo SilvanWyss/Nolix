@@ -17,7 +17,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentExcep
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.gui.color.Color;
-import ch.nolix.systemapi.elementuniversalapi.Specified;
+import ch.nolix.systemapi.guiapi.textformatapi.ITextFormat;
 
 //class
 /**
@@ -33,7 +33,7 @@ import ch.nolix.systemapi.elementuniversalapi.Specified;
  * @author Silvan Wyss
  * @date 2017-08-26
  */
-public final class TextFormat implements Specified {
+public final class TextFormat implements ITextFormat {
 	
 	//constants
 	public static final Font DEFAULT_TEXT_FONT = Font.VERDANA;
@@ -379,11 +379,9 @@ public final class TextFormat implements Specified {
 	
 	//method
 	/**
-	 * Lets the current {@link TextFormat} paint the given text using the given graphics.
-	 * 
-	 * @param graphics
-	 * @param text
+	 * {@inheritDoc}
 	 */
+	@Override
 	public void paintSwingText(final Graphics graphics, final String text) {
 		
 		//Calls other method.
@@ -392,20 +390,10 @@ public final class TextFormat implements Specified {
 	
 	//method
 	/**
-	 * Lets the current {@link TextFormat} paint the given text
-	 * at the given position using the given graphics.
-	 * 
-	 * @param graphics
-	 * @param xPosition
-	 * @param yPosition
-	 * @param text
+	 * {@inheritDoc}
 	 */
-	public void paintSwingText(		
-		final Graphics graphics,
-		final int xPosition,
-		final int yPosition,
-		final String text
-	) {
+	@Override
+	public void paintSwingText(final Graphics graphics,	final int xPosition, final int yPosition, final String text) {
 		graphics.setFont(swingFont);
 		graphics.setColor(getTextColor().toSwingColor());
 		graphics.drawString(text, xPosition, yPosition + getTextSize());
@@ -413,21 +401,10 @@ public final class TextFormat implements Specified {
 	
 	//method
 	/**
-	 * Lets the current {@link TextFormat} paint the given text using the given graphics.
-	 * 
-	 * Only the first part of the given text,
-	 * that is not longer than the given maxWidth, will be painted.
-	 * 
-	 * @param graphics
-	 * @param text
-	 * @param maxWidth
-	 * @throws NegativeArgumentException if the given maxWidth is negative.
+	 * {@inheritDoc}
 	 */
-	public void paintSwingText(
-		final Graphics graphics,
-		final String text,
-		final int maxWidth
-	) {
+	@Override
+	public void paintSwingText(final Graphics graphics, final String text, final int maxWidth) {
 		
 		//Calls other method.
 		paintSwingText(graphics, getFirstPart(text, maxWidth));
@@ -435,18 +412,9 @@ public final class TextFormat implements Specified {
 	
 	//method
 	/**
-	 * Lets the current {@link TextFormat} paint the given text at the given position using the given graphics.
-	 * 
-	 * Only the first part of the given text,
-	 * that is not longer than the given maxWidth, will be painted.
-	 * 
-	 * @param graphics
-	 * @param xPosition
-	 * @param yPosition
-	 * @param maxWidth
-	 * @param text
-	 * @throws NegativeArgumentException if the given maxWidth is negative.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public void paintSwingText(
 		final Graphics graphics,
 		final int xPosition,
