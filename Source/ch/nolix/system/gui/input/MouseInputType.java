@@ -8,10 +8,10 @@ import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.elementenum.RotationDirection;
-import ch.nolix.systemapi.elementapi.IElement;
+import ch.nolix.systemapi.elementapi.Specified;
 
 //enum
-public enum MouseInputType implements IElement {
+public enum MouseInputType implements Specified {
 	MOUSE_MOVE,
 	LEFT_MOUSE_BUTTON_PRESS,
 	LEFT_MOUSE_BUTTON_RELEASE,

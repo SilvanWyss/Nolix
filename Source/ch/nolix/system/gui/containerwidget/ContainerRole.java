@@ -6,14 +6,14 @@ import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
-import ch.nolix.systemapi.elementapi.IElement;
+import ch.nolix.systemapi.elementapi.Specified;
 
 //enum
 /**
  * @author Silvan Wyss
  * @date 2016-09-01
  */
-public enum ContainerRole implements IElement {
+public enum ContainerRole implements Specified {
 	OVERALL_CONTAINTER,
 	MAIN_CONTENT_CONTAINER,
 	DIALOG_CONTAINER,

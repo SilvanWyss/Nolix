@@ -6,7 +6,7 @@ import ch.nolix.core.commontype.commontypehelper.GlobalDoubleHelper;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.math.Vector;
-import ch.nolix.systemapi.elementapi.IElement;
+import ch.nolix.systemapi.elementapi.Specified;
 
 //class
 /**
@@ -18,7 +18,7 @@ import ch.nolix.systemapi.elementapi.IElement;
  * @author Silvan Wyss
  * @date 2016-06-01
  */
-public final class Point2D implements IElement {
+public final class Point2D implements Specified {
 	
 	//constants
 	public static final double DEFAULT_X = 0.0;

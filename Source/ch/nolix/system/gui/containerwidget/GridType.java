@@ -6,10 +6,10 @@ import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
-import ch.nolix.systemapi.elementapi.IElement;
+import ch.nolix.systemapi.elementapi.Specified;
 
 //enum
-public enum GridType implements IElement {
+public enum GridType implements Specified {
 	INNER_LINES,
 	INNER_AND_OUTER_LINES;
 

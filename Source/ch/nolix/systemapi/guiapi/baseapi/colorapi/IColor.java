@@ -5,10 +5,10 @@ package ch.nolix.systemapi.guiapi.baseapi.colorapi;
 import java.awt.Color;
 
 //own imports
-import ch.nolix.systemapi.elementapi.IElement;
+import ch.nolix.systemapi.elementapi.Specified;
 
 //interface
-public interface IColor extends IElement {
+public interface IColor extends Specified {
 	
 	//method declaration
 	/**

@@ -7,7 +7,7 @@ import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.systemapi.elementapi.IElement;
+import ch.nolix.systemapi.elementapi.Specified;
 
 //enum
 /**
@@ -16,7 +16,7 @@ import ch.nolix.systemapi.elementapi.IElement;
  * @author Silvan Wyss
  * @date 2018-08-13
  */
-public enum AccordionExpansionBehavior implements IElement {
+public enum AccordionExpansionBehavior implements Specified {
 	OPEN_ONE_TAB_OR_NONE,
 	OPEN_ONE_TAB,
 	OPEN_SEVERAL_TABS_OR_NONE,

@@ -11,14 +11,14 @@ import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.systemapi.elementapi.IElement;
+import ch.nolix.systemapi.elementapi.Specified;
 
 //enum
 /**
  * @author Silvan Wyss
  * @date 2016-06-01
  */
-public enum CursorIcon implements IElement {
+public enum CursorIcon implements Specified {
 	ARROW,
 	CROSS,
 	EDIT,

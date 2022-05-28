@@ -10,7 +10,7 @@ import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.systemapi.elementapi.IElement;
+import ch.nolix.systemapi.elementapi.Specified;
 
 //class
 /**
@@ -20,7 +20,7 @@ import ch.nolix.systemapi.elementapi.IElement;
  * @author Silvan Wyss
  * @date 2018-03-25
  */
-public final class IntOrPercentageHolder implements IElement {
+public final class IntOrPercentageHolder implements Specified {
 	
 	//attribute
 	private final boolean hasIntValue;

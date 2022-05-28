@@ -17,7 +17,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentExcep
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.gui.color.Color;
-import ch.nolix.systemapi.elementapi.IElement;
+import ch.nolix.systemapi.elementapi.Specified;
 
 //class
 /**
@@ -33,7 +33,7 @@ import ch.nolix.systemapi.elementapi.IElement;
  * @author Silvan Wyss
  * @date 2017-08-26
  */
-public final class TextFormat implements IElement {
+public final class TextFormat implements Specified {
 	
 	//constants
 	public static final Font DEFAULT_TEXT_FONT = Font.VERDANA;

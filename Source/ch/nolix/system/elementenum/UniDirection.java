@@ -6,7 +6,7 @@ import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
-import ch.nolix.systemapi.elementapi.IElement;
+import ch.nolix.systemapi.elementapi.Specified;
 
 //enum
 /**
@@ -16,7 +16,7 @@ import ch.nolix.systemapi.elementapi.IElement;
  * @author Silvan Wyss
  * @date 2017-09-16
  */
-public enum UniDirection implements IElement {
+public enum UniDirection implements Specified {
 	HORIZONTAL,
 	VERTICAL,
 	DIAGONAL_UP,

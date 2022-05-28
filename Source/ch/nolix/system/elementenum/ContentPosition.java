@@ -7,14 +7,14 @@ import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.systemapi.elementapi.IElement;
+import ch.nolix.systemapi.elementapi.Specified;
 
 //enum
 /**
  * @author Silvan Wyss
  * @date 2016-09-01
  */
-public enum ContentPosition implements IElement {
+public enum ContentPosition implements Specified {
 	TOP_LEFT,
 	TOP,
 	TOP_RIGHT,

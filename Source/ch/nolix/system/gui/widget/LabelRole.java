@@ -6,14 +6,14 @@ import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
-import ch.nolix.systemapi.elementapi.IElement;
+import ch.nolix.systemapi.elementapi.Specified;
 
 //enum
 /**
  * @author Silvan Wyss
  * @date 2016-09-01
  */
-public enum LabelRole implements IElement {
+public enum LabelRole implements Specified {
 	TITLE,
 	SUB_TITLE,
 	LEVEL1_HEADER,

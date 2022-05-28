@@ -2,10 +2,10 @@
 package ch.nolix.systemapi.timeapi.momentapi;
 
 //own imports
-import ch.nolix.systemapi.elementapi.IElement;
+import ch.nolix.systemapi.elementapi.Specified;
 
 //interface
-public interface ITime extends IElement {
+public interface ITime extends Specified {
 	
 	//method declaration
 	/**

@@ -10,7 +10,7 @@ import ch.nolix.core.skilluniversalapi.Resettable;
 
 //interface
 /**
- * A {@link IMutableElement} is a {@link IElement}:
+ * A {@link IMutableElement} is a {@link Specified}:
  * -Whose attributes can be mutated separately.
  * -Whose attributes can be reset together.
  * 
@@ -18,7 +18,7 @@ import ch.nolix.core.skilluniversalapi.Resettable;
  * @date 2017-01-01
  * @param <ME> is the type of a {@link IMutableElement}.
  */
-public interface IMutableElement<ME extends IMutableElement<ME>> extends IElement, ISmartObject<ME>, Resettable {
+public interface IMutableElement<ME extends IMutableElement<ME>> extends Specified, ISmartObject<ME>, Resettable {
 	
 	//method declaration
 	/**

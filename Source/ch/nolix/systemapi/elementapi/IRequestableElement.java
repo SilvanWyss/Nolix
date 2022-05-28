@@ -6,13 +6,13 @@ import ch.nolix.core.document.node.BaseNode;
 
 //interface
 /**
- * A {@link IRequestableElement} is a {@link IElement}
+ * A {@link IRequestableElement} is a {@link Specified}
  * that can be requested if it can have an attribute of a given type.
  * 
  * @author Silvan Wyss
  * @date 2019-08-01
  */
-public interface IRequestableElement extends IElement {
+public interface IRequestableElement extends Specified {
 	
 	//method
 	/**

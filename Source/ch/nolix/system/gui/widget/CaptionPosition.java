@@ -5,14 +5,14 @@ package ch.nolix.system.gui.widget;
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.Node;
-import ch.nolix.systemapi.elementapi.IElement;
+import ch.nolix.systemapi.elementapi.Specified;
 
 //enum
 /**
  * @author Silvan Wyss
  * @date 2016-05-01
  */
-public enum CaptionPosition implements IElement {
+public enum CaptionPosition implements Specified {
 	LEFT_TOP,
 	LEFT,
 	LEFT_BOTTOM,

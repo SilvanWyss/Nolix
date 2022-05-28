@@ -7,14 +7,14 @@ import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.systemapi.elementapi.IElement;
+import ch.nolix.systemapi.elementapi.Specified;
 
 //enum
 /**
  * @author Silvan Wyss
  * @date 2018-05-18
  */
-public enum ButtonRole implements IElement {
+public enum ButtonRole implements Specified {
 	ACTION_BUTTON,
 	LINK_BUTTON,
 	CREATE_BUTTON,

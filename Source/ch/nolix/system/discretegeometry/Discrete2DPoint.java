@@ -5,7 +5,7 @@ package ch.nolix.system.discretegeometry;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
-import ch.nolix.systemapi.elementapi.IElement;
+import ch.nolix.systemapi.elementapi.Specified;
 
 //class
 /**
@@ -15,7 +15,7 @@ import ch.nolix.systemapi.elementapi.IElement;
  * @author Silvan Wyss
  * @date 2019-05-19
  */
-public final class Discrete2DPoint implements IElement {
+public final class Discrete2DPoint implements Specified {
 	
 	//static method
 	/**
