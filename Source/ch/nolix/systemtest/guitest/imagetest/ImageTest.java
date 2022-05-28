@@ -103,7 +103,7 @@ public final class ImageTest extends Test {
 		final var height = 50;
 		
 		//setup
-		final var testUnit = MutableImage.withWidthAndHeight(width, height);
+		final var testUnit = MutableImage.withWidthAndHeightAndWhiteColor(width, height);
 		for (var i = 1; i <= width; i++) {
 			testUnit.setPixel(i, 1, Color.RED);
 		}
@@ -130,7 +130,7 @@ public final class ImageTest extends Test {
 		//setup
 		final var testUnit =
 		MutableImage
-		.withWidthAndHeight(2, 2)
+		.withWidthAndHeightAndWhiteColor(2, 2)
 		.setPixel(1, 1, Color.YELLOW)
 		.setPixel(1, 2, Color.RED)
 		.setPixel(2, 1, Color.GREEN)
@@ -155,7 +155,7 @@ public final class ImageTest extends Test {
 		//setup
 		final var testUnit =
 		MutableImage
-		.withWidthAndHeight(2, 2)
+		.withWidthAndHeightAndWhiteColor(2, 2)
 		.setPixel(1, 1, Color.YELLOW)
 		.setPixel(1, 2, Color.RED)
 		.setPixel(2, 1, Color.GREEN)
@@ -192,7 +192,7 @@ public final class ImageTest extends Test {
 		//setup
 		final var testUnit =
 		MutableImage
-		.withWidthAndHeight(2, 2)
+		.withWidthAndHeightAndWhiteColor(2, 2)
 		.setPixel(1, 1, Color.YELLOW)
 		.setPixel(1, 2, Color.RED)
 		.setPixel(2, 1, Color.GREEN)
@@ -217,7 +217,7 @@ public final class ImageTest extends Test {
 		//setup
 		final var testUnit =
 		MutableImage
-		.withWidthAndHeight(2, 2)
+		.withWidthAndHeightAndWhiteColor(2, 2)
 		.setPixel(1, 1, Color.YELLOW)
 		.setPixel(1, 2, Color.RED)
 		.setPixel(2, 1, Color.GREEN)

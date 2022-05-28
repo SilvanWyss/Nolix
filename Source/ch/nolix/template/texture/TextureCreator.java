@@ -18,7 +18,7 @@ final class TextureCreator {
 	//method
 	public IImage<?> createConcreteTexture() {
 		
-		final var texture = MutableImage.withWidthAndHeight(16, 16);
+		final var texture = MutableImage.withWidthAndHeightAndWhiteColor(16, 16);
 		
 		final var color1 = Color.fromValue(0x808080);
 		final var color2 = Color.fromValue(0xC0C0C0);
@@ -43,7 +43,7 @@ final class TextureCreator {
 	//method
 	public IImage<?> createFirWoodTexture() {
 		
-		final var texture = MutableImage.withWidthAndHeight(16, 16);
+		final var texture = MutableImage.withWidthAndHeightAndWhiteColor(16, 16);
 		
 		final var mainColor = Color.fromValue(0xE0D0B0);
 		final var darkerStripeColor = Color.fromValue(0xC0B080);
@@ -67,7 +67,7 @@ final class TextureCreator {
 	//method
 	public IImage<?> createJuteTexture() {
 		
-		final var texture = MutableImage.withWidthAndHeight(16, 16);
+		final var texture = MutableImage.withWidthAndHeightAndWhiteColor(16, 16);
 		
 		final var color1 = Color.fromValue(0xC0C0A0);
 		final var color2 = Color.fromValue(0x808060);
@@ -91,7 +91,7 @@ final class TextureCreator {
 	//method
 	public IImage<?> createWhiteMarbleTexture() {
 		
-		final var texture = MutableImage.withWidthAndHeight(16, 16);
+		final var texture = MutableImage.withWidthAndHeightAndWhiteColor(16, 16);
 		
 		final var color1 = Color.fromValue(0x282820);
 		final var color2 = Color.fromValue(0x888880);

@@ -14,12 +14,6 @@ import ch.nolix.systemapi.guiapi.baseapi.colorapi.IColor;
 public interface IImage<I extends IImage<I>> extends IElement<I> {
 	
 	//method declaration
-	IMutableImage<?> asWithAlphaValue(final double alphaValue);
-	
-	//method declaration
-	IMutableImage<?> asWithWidthAndHeight(int width, int height);
-	
-	//method declaration
 	IColor getBottomLeftPixel();
 	
 	//method declaration
@@ -84,4 +78,10 @@ public interface IImage<I extends IImage<I>> extends IElement<I> {
 	
 	//method declaration
 	IMutableImage<?> toScaledImage(double widthFactor, double heightFactor);
+	
+	//method declaration
+	IMutableImage<?> withAlphaValue(final double alphaValue);
+	
+	//method declaration
+	IMutableImage<?> withWidthAndHeight(int width, int height);
 }

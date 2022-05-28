@@ -74,7 +74,7 @@ final class GUIApplicationWidgetFactory {
 			return DEFAULT_LOGO;
 		}
 		
-		return pGUIApplicationSheet.getApplicationLogo().asWithWidthAndHeight(LOGO_IMAGE_WIDTH, LOGO_IMAGE_HEIGHT);
+		return pGUIApplicationSheet.getApplicationLogo().withWidthAndHeight(LOGO_IMAGE_WIDTH, LOGO_IMAGE_HEIGHT);
 	}
 	
 	//method

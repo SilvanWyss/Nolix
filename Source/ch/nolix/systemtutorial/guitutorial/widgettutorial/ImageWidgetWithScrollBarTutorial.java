@@ -29,7 +29,7 @@ public final class ImageWidgetWithScrollBarTutorial {
 		//Creates an enlarged image from resource.
 		final var image =
 		MutableImage.fromResource("ch/nolix/elementTutorial/guitutorial/widgetTutorial/resource/Singer_Building.jpg")
-		.asWithWidthAndHeight(1000, 1000);
+		.withWidthAndHeight(1000, 1000);
 		
 		//Creates an ImageWidget with the image.
 		final var imageWidget = new ImageWidget().setImage(image);

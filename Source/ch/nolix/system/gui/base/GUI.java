@@ -590,7 +590,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	@Override
 	public final G setIcon(final IImage<?> icon) {
 		
-		this.icon.setValue(Image.fromAnyImage(icon.asWithWidthAndHeight(64, 64)));
+		this.icon.setValue(Image.fromAnyImage(icon.withWidthAndHeight(64, 64)));
 		
 		return asConcrete();
 	}

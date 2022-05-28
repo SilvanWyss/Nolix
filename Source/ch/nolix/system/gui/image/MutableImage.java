@@ -51,7 +51,7 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 	//static method
 	public static MutableImage fromBufferedImage(final BufferedImage bufferedImage) {
 		
-		final var image = MutableImage.withWidthAndHeight(bufferedImage.getWidth(), bufferedImage.getHeight());
+		final var image = MutableImage.withWidthAndHeightAndWhiteColor(bufferedImage.getWidth(), bufferedImage.getHeight());
 		for (var i = 1; i <= image.getWidth(); i++) {
 			for (var j = 1; j <= image.getHeight(); j++) {
 				final var pixel = bufferedImage.getRGB(i - 1, j - 1);
@@ -95,7 +95,7 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 		}
 		
 		final var image =
-		MutableImage.withWidthAndHeight(
+		MutableImage.withWidthAndHeightAndWhiteColor(
 			specification.getRefFirstAttribute(PascalCaseCatalogue.WIDTH).getOneAttributeAsInt(),
 			specification.getRefFirstAttribute(PascalCaseCatalogue.HEIGHT).getOneAttributeAsInt()
 		);
@@ -112,11 +112,6 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 	//static method
 	public static MutableImage withPixels(final Matrix<IColor> pixels) {
 		return new MutableImage(pixels.getCopy());
-	}
-	
-	//static method
-	public static MutableImage withWidthAndHeight(final int width, final int height) {
-		return withWidthAndHeightAndColor(width, height, Color.WHITE);
 	}
 	
 	//static method
@@ -141,6 +136,11 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 		}
 		
 		return new MutableImage(pixels);
+	}
+	
+	//static method
+	public static MutableImage withWidthAndHeightAndWhiteColor(final int width, final int height) {
+		return withWidthAndHeightAndColor(width, height, Color.WHITE);
 	}
 	
 	//attribute
@@ -180,12 +180,6 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 		setHeight(pixels.getRowCount());
 		
 		this.pixels = pixels;
-	}
-	
-	//method
-	@Override
-	public MutableImage asWithWidthAndHeight(final int width, final int height) {
-		return toScaledImage((double)width / getWidth(), (double)height / getHeight());
 	}
 	
 	//method
@@ -250,7 +244,7 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 		GlobalValidator.assertThat(width).thatIsNamed(LowerCaseCatalogue.WIDTH).isBetween(0, getWidth() - xPosition + 1);
 		GlobalValidator.assertThat(height).thatIsNamed(LowerCaseCatalogue.WIDTH).isBetween(0, getHeight() - yPosition + 1);
 		
-		final var section = MutableImage.withWidthAndHeight(width, height);
+		final var section = MutableImage.withWidthAndHeightAndWhiteColor(width, height);
 		for (var i = 1; i <= width; i++) {
 			for (var j = 1; j <= height; j++) {
 				section.setPixel(i, j, getPixel(xPosition + i - 1, yPosition + j - 1));
@@ -412,7 +406,7 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 	@Override
 	public MutableImage toRepeatedImage(final int width, final int height) {
 		
-		final var image = MutableImage.withWidthAndHeight(width, height);
+		final var image = MutableImage.withWidthAndHeightAndWhiteColor(width, height);
 		
 		final var sourceWidth = getWidth();
 		final var sourceHeight = getHeight();
@@ -448,7 +442,12 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 		GlobalValidator.assertThat(widthFactor).thatIsNamed("width factor").isPositive();
 		GlobalValidator.assertThat(heightFactor).thatIsNamed("height factor").isPositive();
 		
-		final var image = MutableImage.withWidthAndHeight((int)(widthFactor * getWidth()), (int)(heightFactor * getHeight()));
+		final var image =
+		MutableImage.withWidthAndHeightAndWhiteColor(
+			(int)(widthFactor * getWidth()),
+			(int)(heightFactor * getHeight())
+		);
+		
 		final var reziprocalWidthFactor = 1.0 / widthFactor;
 		final var reziprocalHeightFactor = 1.0 / heightFactor;
 		
@@ -474,7 +473,7 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 	
 	//method
 	@Override
-	public MutableImage asWithAlphaValue(final double alphaValue) {
+	public IMutableImage<?> withAlphaValue(final double alphaValue) {
 		
 		final var lPixels = new Matrix<IColor>();
 		for (final var r : pixels.getRows()) {
@@ -482,6 +481,12 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 		}
 		
 		return new MutableImage(lPixels);
+	}
+	
+	//method
+	@Override
+	public IMutableImage<?> withWidthAndHeight(final int width, final int height) {
+		return toScaledImage((double)width / getWidth(), (double)height / getHeight());
 	}
 	
 	//method

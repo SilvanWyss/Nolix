@@ -14,6 +14,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.gui.base.Element;
 import ch.nolix.systemapi.guiapi.baseapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
+import ch.nolix.systemapi.guiapi.imageapi.IMutableImage;
 
 //class
 public final class Image extends Element<Image> implements IImage<Image> {
@@ -57,12 +58,6 @@ public final class Image extends Element<Image> implements IImage<Image> {
 		GlobalValidator.assertThat(internalImage).thatIsNamed("internal image").isNotNull();
 		
 		this.internalImage = internalImage;
-	}
-	
-	//method
-	@Override
-	public MutableImage asWithWidthAndHeight(final int width, final int height) {
-		return internalImage.asWithWidthAndHeight(width, height);
 	}
 	
 	//method
@@ -210,7 +205,13 @@ public final class Image extends Element<Image> implements IImage<Image> {
 	
 	//method
 	@Override
-	public MutableImage asWithAlphaValue(final double alphaValue) {
-		return internalImage.asWithAlphaValue(alphaValue);
+	public IMutableImage<?> withAlphaValue(final double alphaValue) {
+		return internalImage.withAlphaValue(alphaValue);
+	}
+	
+	//method
+	@Override
+	public IMutableImage<?> withWidthAndHeight(final int width, final int height) {
+		return internalImage.withWidthAndHeight(width, height);
 	}
 }
