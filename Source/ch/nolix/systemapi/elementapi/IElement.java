@@ -9,7 +9,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.programcontrol.processproperty.WriteMode;
-import ch.nolix.core.skilluniversalapi.ISmartObject;
 
 //interface
 /**
@@ -17,11 +16,11 @@ import ch.nolix.core.skilluniversalapi.ISmartObject;
  * @date 2016-01-01
  * @param <E> is the type of a {@link IElement}.
  */
-public interface IElement<E extends IElement<E>> extends ISmartObject<E> {
+public interface IElement<E extends IElement<E>> {
 	
 	//method declaration
 	/**
-	 * Fills up the attributes into the given list.
+	 * Fills up the attributes of the current {@link IElement} into the given list.
 	 * 
 	 * @param list
 	 */
