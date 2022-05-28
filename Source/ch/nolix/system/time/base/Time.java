@@ -14,7 +14,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.systemapi.elementapi.IElement;
+import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //class
 /**
@@ -31,7 +31,7 @@ import ch.nolix.systemapi.elementapi.IElement;
  * @author Silvan Wyss
  * @date 2016-09-01
  */
-public final class Time implements IElement<Time> {
+public final class Time implements ITime {
 	
 	//constants
 	public static final int DEFAULT_YEAR = 2000;
@@ -382,7 +382,7 @@ public final class Time implements IElement<Time> {
 	
 	//method
 	/**
-	 * @return the milliseconds of the current {@link Time}.
+	 * {@inheritDoc}
 	 */
 	public long getMilliseconds() {
 		return gregorianCalendar.getTimeInMillis();
@@ -607,19 +607,19 @@ public final class Time implements IElement<Time> {
 	
 	//method
 	/**
-	 * @param time
-	 * @return true if the current {@link Time} is after the given time.
+	 * {@inheritDoc}
 	 */
-	public boolean isAfter(final Time time) {
+	@Override
+	public boolean isAfter(final ITime time) {
 		return (getMilliseconds() > time.getMilliseconds());
 	}
 	
 	//method
 	/**
-	 * @param time
-	 * @return true if the current {@link Time} is before the given time.
+	 * {@inheritDoc}
 	 */
-	public boolean isBefore(final Time time) {
+	@Override
+	public boolean isBefore(final ITime time) {
 		return (getMilliseconds() < time.getMilliseconds());
 	}
 	
