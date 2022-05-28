@@ -6,11 +6,17 @@ import java.awt.Graphics;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
-import ch.nolix.system.gui.textformat.TextFormat;
 import ch.nolix.systemapi.elementuniversalapi.Specified;
 
 //interface
 public interface ITextFormat extends Specified {
+	
+	//method declaration
+	/**
+	 * @param text
+	 * @return the width of the given text when the current {@link TextFormat} would be applied to it.
+	 */
+	int getSwingTextWidth(String text);
 	
 	//method declaration
 	/**

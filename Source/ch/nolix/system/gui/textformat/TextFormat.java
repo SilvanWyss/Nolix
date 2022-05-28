@@ -354,9 +354,9 @@ public final class TextFormat implements ITextFormat {
 	
 	//method
 	/**
-	 * @param text
-	 * @return the width of the given text when the current {@link TextFormat} would be applied to it.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public int getSwingTextWidth(final String text) {
 		return canvas.getFontMetrics(swingFont).stringWidth(text);
 	}
