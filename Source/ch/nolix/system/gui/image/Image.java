@@ -23,10 +23,10 @@ public final class Image extends Element<Image> implements IImage<Image> {
 	public static Image fromAnyImage(final IImage<?> image) {
 		
 		if (image instanceof Image) {
-			return image.as(Image.class);
+			return (Image)image;
 		}
 		
-		return new Image(new MutableImage(image.getPixles()));
+		return new Image(MutableImage.fromAnyImage(image));
 	}
 	
 	//static method
