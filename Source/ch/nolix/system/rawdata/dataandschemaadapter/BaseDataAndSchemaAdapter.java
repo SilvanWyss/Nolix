@@ -16,6 +16,7 @@ import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDTO;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaReader;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDTO;
+import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //class
 public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter {
@@ -101,7 +102,7 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
 	
 	//method
 	@Override
-	public final void expectGivenSchemaTimestamp(final Time schemaTimestamp) {
+	public final void expectGivenSchemaTimestamp(final ITime schemaTimestamp) {
 		dataAdapter.expectGivenSchemaTimestamp(schemaTimestamp);
 	}
 	
@@ -119,7 +120,7 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
 	
 	//method
 	@Override
-	public final Time getSchemaTimestamp() {
+	public final ITime getSchemaTimestamp() {
 		return dataAdapter.getSchemaTimestamp();
 	}
 	

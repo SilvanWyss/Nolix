@@ -1,13 +1,14 @@
 //package declaration
 package ch.nolix.system.time.timevalidator;
 
-import ch.nolix.system.time.base.Time;
+//own imports
+import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //class
 public final class ExtendedTimeMediator extends TimeMediator {
 	
 	//constructor
-	ExtendedTimeMediator(final Time argument) {
+	ExtendedTimeMediator(final ITime argument) {
 		super(argument);
 	}
 	

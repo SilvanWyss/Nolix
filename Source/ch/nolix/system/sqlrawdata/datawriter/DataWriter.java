@@ -8,13 +8,13 @@ import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.sql.SQLConnection;
 import ch.nolix.core.sql.SQLConnectionPool;
 import ch.nolix.system.sqlrawdata.sqlapi.ISQLSyntaxProvider;
-import ch.nolix.system.time.base.Time;
 import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataWriter;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDTO;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordDTO;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordUpdateDTO;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
+import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //class
 public final class DataWriter implements IDataWriter {
@@ -118,7 +118,7 @@ public final class DataWriter implements IDataWriter {
 	
 	//method
 	@Override
-	public void expectGivenSchemaTimestamp(final Time schemaTimestamp) {
+	public void expectGivenSchemaTimestamp(final ITime schemaTimestamp) {
 		internalDataWriter.expectGivenSchemaTimestamp(schemaTimestamp);
 	}
 	

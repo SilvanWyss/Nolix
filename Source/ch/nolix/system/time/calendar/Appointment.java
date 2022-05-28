@@ -10,6 +10,7 @@ import ch.nolix.system.element.MutableValue;
 import ch.nolix.system.time.base.Time;
 import ch.nolix.system.time.timevalidator.TimeValidator;
 import ch.nolix.systemapi.timeapi.calendarapi.IAppointment;
+import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //class
 public final class Appointment extends MutableElement<Appointment> implements IAppointment<Appointment> {
@@ -34,34 +35,34 @@ public final class Appointment extends MutableElement<Appointment> implements IA
 	MutableValue.forString(SUBJECT_HEADER, DEFAULT_SUBJECT, this::setSubject);
 	
 	//attribute
-	private final MutableValue<Time> startTime =
+	private final MutableValue<ITime> startTime =
 	new MutableValue<>(
 		START_TIME_HEADER,
 		DEFAULT_START_TIME,
 		this::setStartTime,
 		Time::fromSpecification,
-		Time::getSpecification
+		ITime::getSpecification
 	);
 	
 	//attribute
-	private final MutableValue<Time> endTime =
+	private final MutableValue<ITime> endTime =
 	new MutableValue<>(
 		END_TIME_HEADER,
 		DEFAULT_END_TIME,
 		this::setEndTime,
 		Time::fromSpecification,
-		Time::getSpecification
+		ITime::getSpecification
 	);
 	
 	//method
 	@Override
-	public Time getEndTime() {
+	public ITime getEndTime() {
 		return endTime.getValue();
 	}
 	
 	//method
 	@Override
-	public Time getStartTime() {
+	public ITime getStartTime() {
 		return startTime.getValue();
 	}
 	
@@ -79,7 +80,7 @@ public final class Appointment extends MutableElement<Appointment> implements IA
 	
 	//method
 	@Override
-	public Appointment setEndTime(final Time endTime) {
+	public Appointment setEndTime(final ITime endTime) {
 		
 		TimeValidator.assertThat(endTime).thatIsNamed(LowerCaseCatalogue.END_TIME).isBefore(getEndTime());
 		
@@ -90,7 +91,7 @@ public final class Appointment extends MutableElement<Appointment> implements IA
 	
 	//method
 	@Override
-	public Appointment setStartTime(final Time startTime) {
+	public Appointment setStartTime(final ITime startTime) {
 		
 		TimeValidator.assertThat(startTime).thatIsNamed(LowerCaseCatalogue.START_TIME).isBefore(getEndTime());
 		

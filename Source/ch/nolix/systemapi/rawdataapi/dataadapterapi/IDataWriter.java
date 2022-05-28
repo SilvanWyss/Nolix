@@ -1,11 +1,12 @@
 //package declaration
 package ch.nolix.systemapi.rawdataapi.dataadapterapi;
 
+//own imports
 import ch.nolix.core.skilluniversalapi.IMultiTimeChangeSaver;
-import ch.nolix.system.time.base.Time;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDTO;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordDTO;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordUpdateDTO;
+import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //interface
 /**
@@ -81,7 +82,7 @@ public interface IDataWriter extends IMultiTimeChangeSaver {
 	 * 
 	 * @param schemaTimestamp
 	 */
-	void expectGivenSchemaTimestamp(final Time schemaTimestamp);
+	void expectGivenSchemaTimestamp(final ITime schemaTimestamp);
 	
 	//method declaration
 	/**

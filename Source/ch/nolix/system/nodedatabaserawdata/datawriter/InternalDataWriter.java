@@ -6,12 +6,12 @@ import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IElementTaker;
-import ch.nolix.system.time.base.Time;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDTO;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordDTO;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordUpdateDTO;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
+import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //class
 final class InternalDataWriter {
@@ -95,7 +95,7 @@ final class InternalDataWriter {
 	}
 	
 	//method
-	public void expectGivenSchemaTimestamp(Time schemaTimestamp) {
+	public void expectGivenSchemaTimestamp(ITime schemaTimestamp) {
 		addChangeAction(d -> databaseUpdater.expectGivenSchemaTimestamp(d, schemaTimestamp));
 	}
 	

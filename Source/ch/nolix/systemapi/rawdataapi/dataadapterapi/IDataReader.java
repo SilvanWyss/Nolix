@@ -4,14 +4,14 @@ package ch.nolix.systemapi.rawdataapi.dataadapterapi;
 //own imports
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.programcontrol.groupcloseable.GroupCloseable;
-import ch.nolix.system.time.base.Time;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedRecordDTO;
+import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //interface
 public interface IDataReader extends GroupCloseable {
 	
 	//method
-	Time getSchemaTimestamp();
+	ITime getSchemaTimestamp();
 	
 	//method declaration
 	LinkedList<ILoadedRecordDTO> loadAllRecordsFromTable(String tableName);

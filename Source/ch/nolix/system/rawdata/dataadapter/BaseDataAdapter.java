@@ -5,7 +5,6 @@ package ch.nolix.system.rawdata.dataadapter;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
-import ch.nolix.system.time.base.Time;
 import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataAdapter;
 import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataReader;
 import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataWriter;
@@ -13,6 +12,7 @@ import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDTO;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedRecordDTO;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordDTO;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordUpdateDTO;
+import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //class
 public abstract class BaseDataAdapter implements IDataAdapter {
@@ -89,7 +89,7 @@ public abstract class BaseDataAdapter implements IDataAdapter {
 	
 	//method
 	@Override
-	public final void expectGivenSchemaTimestamp(final Time schemaTimestamp) {
+	public final void expectGivenSchemaTimestamp(final ITime schemaTimestamp) {
 		dataWriter.expectGivenSchemaTimestamp(schemaTimestamp);
 	}
 	
@@ -107,7 +107,7 @@ public abstract class BaseDataAdapter implements IDataAdapter {
 	
 	//method
 	@Override
-	public final Time getSchemaTimestamp() {
+	public final ITime getSchemaTimestamp() {
 		return dataReader.getSchemaTimestamp();
 	}
 	

@@ -10,12 +10,12 @@ import ch.nolix.system.nodedatabaserawdata.structure.EntityNodeSearcher;
 import ch.nolix.system.nodedatabaserawdata.structure.TableNodeSearcher;
 import ch.nolix.system.nodedatabaserawschema.structure.DatabaseNodeSearcher;
 import ch.nolix.system.nodedatabaserawschema.structure.DatabasePropertiesNodeSearcher;
-import ch.nolix.system.time.base.Time;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDTO;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordDTO;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordUpdateDTO;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
+import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //class
 final class DatabaseUpdater {
@@ -138,7 +138,7 @@ final class DatabaseUpdater {
 	}
 	
 	//method
-	public void expectGivenSchemaTimestamp(final BaseNode databaseNode, final Time schemaTimestamp) {
+	public void expectGivenSchemaTimestamp(final BaseNode databaseNode, final ITime schemaTimestamp) {
 		
 		final var databasePropertiesNode =
 		databaseNodeSearcher.getRefDatabasePropertiesNodeFromDatabaseNode(databaseNode);

@@ -5,13 +5,13 @@ package ch.nolix.system.objectdata.data;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.system.time.base.Time;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.DatabaseObjectState;
 import ch.nolix.systemapi.objectdataapi.dataapi.IDatabase;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.ISchema;
 import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
+import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //class
 public final class Database implements IDatabase<DataImplementation> {
@@ -28,7 +28,7 @@ public final class Database implements IDatabase<DataImplementation> {
 	}
 	
 	//attribute
-	private final Time schemaTimestamp;
+	private final ITime schemaTimestamp;
 	
 	//attribute
 	private final IDataAndSchemaAdapter dataAndSchemaAdapter;
@@ -74,7 +74,7 @@ public final class Database implements IDatabase<DataImplementation> {
 	
 	//method
 	@Override
-	public Time getSchemaTimestamp() {
+	public ITime getSchemaTimestamp() {
 		return schemaTimestamp;
 	}
 	

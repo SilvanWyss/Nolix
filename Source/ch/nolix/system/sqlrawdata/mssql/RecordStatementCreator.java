@@ -6,11 +6,11 @@ import ch.nolix.system.sqlrawdata.sqlapi.IRecordStatementCreator;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabaseProperty;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertySystemTableColumn;
 import ch.nolix.system.sqlrawschema.structure.SystemDataTable;
-import ch.nolix.system.time.base.Time;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IContentFieldDTO;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDTO;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordDTO;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordUpdateDTO;
+import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //class
 public final class RecordStatementCreator implements IRecordStatementCreator {
@@ -34,7 +34,7 @@ public final class RecordStatementCreator implements IRecordStatementCreator {
 	
 	//method
 	@Override
-	public String createStatementToExpectGivenSchemaTimestamp(final Time schemaTimestamp) {
+	public String createStatementToExpectGivenSchemaTimestamp(final ITime schemaTimestamp) {
 		return
 		"SELECT "
 		+ DatabasePropertySystemTableColumn.VALUE.getLabel()

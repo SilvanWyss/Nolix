@@ -1,10 +1,11 @@
 //package declaration
 package ch.nolix.system.sqlrawdata.sqlapi;
 
-import ch.nolix.system.time.base.Time;
+//own imports
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDTO;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordDTO;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordUpdateDTO;
+import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //interface
 public interface IRecordStatementCreator {
@@ -13,7 +14,7 @@ public interface IRecordStatementCreator {
 	String createStatementToDeleteRecordFromTable(String tableName, IEntityHeadDTO entity);
 	
 	//method
-	String createStatementToExpectGivenSchemaTimestamp(Time schemaTimestamp);
+	String createStatementToExpectGivenSchemaTimestamp(ITime schemaTimestamp);
 	
 	//method declaration
 	String createStatementToInsertRecordIntoTable(String tableName, IRecordDTO record);

@@ -1,17 +1,18 @@
 //package declaration
 package ch.nolix.systemapi.timeapi.calendarapi;
 
+//own imports
 import ch.nolix.core.attributeuniversalapi.mutablemandatoryattributeuniversalapi.IMutableSubjectHolder;
-import ch.nolix.system.time.base.Time;
+import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //interface
 public interface IAppointment<A extends IAppointment<A>> extends IMutableSubjectHolder<A> {
 	
 	//method declaration
-	Time getEndTime();
+	ITime getEndTime();
 	
 	//method declaration
-	Time getStartTime();
+	ITime getStartTime();
 	
 	//method
 	default boolean isAfter(final IAppointment<?> appointment) {
@@ -19,12 +20,12 @@ public interface IAppointment<A extends IAppointment<A>> extends IMutableSubject
 	}
 	
 	//method
-	default boolean isAfter(final Time time) {
+	default boolean isAfter(final ITime time) {
 		return getStartTime().isAfter(time);
 	}
 	
 	//method
-	default boolean isBefore(final Time time) {
+	default boolean isBefore(final ITime time) {
 		return getEndTime().isBefore(time);
 	}
 	
@@ -34,8 +35,8 @@ public interface IAppointment<A extends IAppointment<A>> extends IMutableSubject
 	}
 	
 	//method declaration
-	A setEndTime(Time endTime);
+	A setEndTime(ITime endTime);
 	
 	//method declaration
-	A setStartTime(Time startTime);
+	A setStartTime(ITime startTime);
 }

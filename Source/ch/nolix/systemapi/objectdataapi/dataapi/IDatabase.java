@@ -3,8 +3,8 @@ package ch.nolix.systemapi.objectdataapi.dataapi;
 
 //own imports
 import ch.nolix.core.container.IContainer;
-import ch.nolix.system.time.base.Time;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.IDatabaseObject;
+import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //interface
 public interface IDatabase<IMPL> extends IDatabaseObject {
@@ -19,7 +19,7 @@ public interface IDatabase<IMPL> extends IDatabaseObject {
 	IContainer<ITable<IMPL, IEntity<IMPL>>> getRefTables();
 	
 	//method declaration
-	Time getSchemaTimestamp();
+	ITime getSchemaTimestamp();
 	
 	//method declaration
 	<E extends IEntity<IMPL>> IDatabase<IMPL> insert(E entity);

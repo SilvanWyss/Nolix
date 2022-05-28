@@ -9,10 +9,10 @@ import ch.nolix.system.sqlrawdata.sqlapi.IMultiReferenceStatementCreator;
 import ch.nolix.system.sqlrawdata.sqlapi.IMultiValueStatementCreator;
 import ch.nolix.system.sqlrawdata.sqlapi.IRecordStatementCreator;
 import ch.nolix.system.sqlrawdata.sqlapi.ISQLSyntaxProvider;
-import ch.nolix.system.time.base.Time;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDTO;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordDTO;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordUpdateDTO;
+import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //class
 public final class InternalDataWriter {
@@ -106,7 +106,7 @@ public final class InternalDataWriter {
 	}
 	
 	//method
-	public void expectGivenSchemaTimestamp(final Time schemaTimestamp) {
+	public void expectGivenSchemaTimestamp(final ITime schemaTimestamp) {
 		mSQLCollector.addSQLStatement(
 			recordStatementCreator.createStatementToExpectGivenSchemaTimestamp(schemaTimestamp)
 		);
