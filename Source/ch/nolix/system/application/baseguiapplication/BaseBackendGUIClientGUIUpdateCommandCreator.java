@@ -7,7 +7,6 @@ import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.system.gui.base.IWidgetGUI;
-import ch.nolix.system.gui.image.Image;
 import ch.nolix.systemapi.guiapi.baseapi.CursorIcon;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
 
@@ -18,7 +17,7 @@ final class BaseBackendGUIClientGUIUpdateCommandCreator {
 	private String latestTitle;
 	
 	//optional attribute
-	private Image latestIcon;
+	private IImage<?> latestIcon;
 	
 	//optional attribute
 	private CursorIcon latestCursorIcon;
@@ -44,7 +43,7 @@ final class BaseBackendGUIClientGUIUpdateCommandCreator {
 		);
 	}
 	
-	private ChainedNode createUpdateIconCommand(Image icon) {
+	private ChainedNode createUpdateIconCommand(IImage<?> icon) {
 		return
 		ChainedNode.withHeaderAndNextNode(
 			ObjectProtocol.GUI,
