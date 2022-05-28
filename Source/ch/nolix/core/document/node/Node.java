@@ -26,6 +26,15 @@ public final class Node extends BaseNode {
 	
 	//static method
 	/**
+	 * @param pEnum
+	 * @return a new {@link Node} from the given pEnum.
+	 */
+	public static Node fromEnum(final Enum<?> pEnum) {
+		return Node.withHeaderAndAttribute(pEnum.getClass().getSimpleName(), pEnum.name());
+	}
+	
+	//static method
+	/**
 	 * @param filePath
 	 * @return a new {@link Node} from the file with the given file path.
 	 * @throws InvalidArgumentException if the given file path is not valid.
