@@ -13,9 +13,9 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSuppor
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.I2ElementTaker;
 import ch.nolix.core.independent.independenthelper.CentralArrayHelper;
-import ch.nolix.system.gui.color.ColorGradient;
 import ch.nolix.system.gui.textformat.TextFormat;
 import ch.nolix.systemapi.guiapi.baseapi.colorapi.IColor;
+import ch.nolix.systemapi.guiapi.baseapi.colorapi.IColorGradient;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 
@@ -278,7 +278,7 @@ final class CanvasGUICommandCreatorPainter extends BasePainter implements Indexe
 
 	//method
 	@Override
-	public void setColorGradient(final ColorGradient colorGradient) {
+	public void setColorGradient(final IColorGradient colorGradient) {
 		appendPaintCommand(
 			CanvasGUICommandProtocol.SET_COLOR_GRADIENT
 			+ '('

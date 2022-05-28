@@ -15,6 +15,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.gui.color.ColorGradient;
 import ch.nolix.system.gui.textformat.TextFormat;
 import ch.nolix.systemapi.guiapi.baseapi.colorapi.IColor;
+import ch.nolix.systemapi.guiapi.baseapi.colorapi.IColorGradient;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 
@@ -54,7 +55,7 @@ public final class SwingPainter extends BasePainter {
 	private final Graphics2D graphics;
 	
 	//optional attribute
-	private ColorGradient colorGradient;
+	private IColorGradient colorGradient;
 	
 	//constructor
 	private SwingPainter(
@@ -225,7 +226,7 @@ public final class SwingPainter extends BasePainter {
 	
 	//method
 	@Override
-	public void setColorGradient(final ColorGradient colorGradient) {
+	public void setColorGradient(final IColorGradient colorGradient) {
 		
 		GlobalValidator.assertThat(colorGradient).thatIsNamed(ColorGradient.class).isNotNull();
 		
