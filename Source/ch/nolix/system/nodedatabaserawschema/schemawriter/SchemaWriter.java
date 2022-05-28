@@ -10,11 +10,11 @@ import ch.nolix.system.nodedatabaserawschema.structure.DatabaseNodeSearcher;
 import ch.nolix.system.nodedatabaserawschema.structure.DatabasePropertiesNodeSearcher;
 import ch.nolix.system.nodedatabaserawschema.structure.SubNodeHeaderCatalogue;
 import ch.nolix.system.nodedatabaserawschema.structure.TableNodeSearcher;
-import ch.nolix.system.time.base.Time;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaWriter;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDTO;
+import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //class
 public final class SchemaWriter implements ISchemaWriter {
@@ -192,7 +192,7 @@ public final class SchemaWriter implements ISchemaWriter {
 	
 	//method
 	@Override
-	public void setSchemaTimestamp(final Time schemaTimestamp) {
+	public void setSchemaTimestamp(final ITime schemaTimestamp) {
 		
 		final var databasePropertiesNode =
 		databaseNodeSearcher.getRefDatabasePropertiesNodeFromDatabaseNode(editedDatabaseNode);

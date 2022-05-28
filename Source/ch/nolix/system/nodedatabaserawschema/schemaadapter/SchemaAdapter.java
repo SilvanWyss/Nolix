@@ -15,6 +15,7 @@ import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDTO;
+import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //class
 public final class SchemaAdapter implements ISchemaAdapter {
@@ -194,7 +195,7 @@ public final class SchemaAdapter implements ISchemaAdapter {
 	
 	//method
 	@Override
-	public void setSchemaTimestamp(final Time schemaTimestamp) {
+	public void setSchemaTimestamp(final ITime schemaTimestamp) {
 		schemaWriter.setSchemaTimestamp(schemaTimestamp);
 	}
 	

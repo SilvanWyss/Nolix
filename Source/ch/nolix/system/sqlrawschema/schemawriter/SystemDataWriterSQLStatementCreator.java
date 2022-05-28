@@ -10,10 +10,10 @@ import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertySystem
 import ch.nolix.system.sqlrawschema.structure.SystemDataTable;
 import ch.nolix.system.sqlrawschema.tabletable.TableTableColumn;
 import ch.nolix.system.sqlrawschema.tabletable.TableTableRecordMapper;
-import ch.nolix.system.time.base.Time;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDTO;
+import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //class
 final class SystemDataWriterSQLStatementCreator {
@@ -168,7 +168,7 @@ final class SystemDataWriterSQLStatementCreator {
 	}
 	
 	//method
-	public String createStatementToSetSchemaTimestamp(Time schemaTimestamp) {
+	public String createStatementToSetSchemaTimestamp(ITime schemaTimestamp) {
 		return
 		"UPDATE "
 		+ SystemDataTable.DATABASE_PROPERTY.getFullName()

@@ -7,12 +7,12 @@ import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.sql.SQLCollector;
 import ch.nolix.core.sql.SQLConnection;
 import ch.nolix.core.sql.SQLConnectionPool;
-import ch.nolix.system.time.base.Time;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaWriter;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDTO;
 import ch.nolix.systemapi.sqlbasicschemaapi.schemaadapterapi.ISchemaAdapter;
+import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //class
 public final class SchemaWriter implements ISchemaWriter {
@@ -155,7 +155,7 @@ public final class SchemaWriter implements ISchemaWriter {
 	
 	//method
 	@Override
-	public void setSchemaTimestamp(final Time schemaTimestamp) {
+	public void setSchemaTimestamp(final ITime schemaTimestamp) {
 		systemDataWriter.setSchemaTimestamp(schemaTimestamp);
 	}
 	

@@ -12,6 +12,7 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDTO;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDTO;
+import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //class
 final class RawSchemaAdapter {
@@ -68,7 +69,7 @@ final class RawSchemaAdapter {
 	}
 	
 	//method
-	public Time loadSchemaTimestamp() {
+	public ITime loadSchemaTimestamp() {
 		return internalRawSchemaAdapter.loadSchemaTimestamp();
 	}
 	

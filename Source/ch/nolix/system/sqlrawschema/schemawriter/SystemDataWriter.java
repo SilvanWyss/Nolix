@@ -5,10 +5,10 @@ package ch.nolix.system.sqlrawschema.schemawriter;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.requestuniversalapi.ChangeRequestable;
 import ch.nolix.core.sql.SQLCollector;
-import ch.nolix.system.time.base.Time;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDTO;
+import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //class
 final class SystemDataWriter implements ChangeRequestable {
@@ -83,7 +83,7 @@ final class SystemDataWriter implements ChangeRequestable {
 	}
 	
 	//method
-	public void setSchemaTimestamp(Time schemaTimestamp) {
+	public void setSchemaTimestamp(ITime schemaTimestamp) {
 		mSQLCollector.addSQLStatement(
 			systemDataWriterSQLStatementCreator.createStatementToSetSchemaTimestamp(schemaTimestamp)
 		);

@@ -5,7 +5,6 @@ package ch.nolix.system.rawdata.dataandschemaadapter;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
-import ch.nolix.system.time.base.Time;
 import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataAdapter;
 import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDTO;
@@ -228,7 +227,7 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
 	
 	//method
 	@Override
-	public final Time loadSchemaTimestamp() {
+	public final ITime loadSchemaTimestamp() {
 		return schemaReader.loadSchemaTimestamp();
 	}
 	
