@@ -18,6 +18,7 @@ import ch.nolix.systemapi.guiapi.baseapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.baseapi.colorapi.IColorGradient;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
+import ch.nolix.systemapi.guiapi.textformatapi.ITextFormat;
 
 //class
 final class CanvasGUICommandCreatorPainter extends BasePainter implements Indexed {
@@ -146,7 +147,7 @@ final class CanvasGUICommandCreatorPainter extends BasePainter implements Indexe
 	
 	//method
 	@Override
-	public int getTextWidth(final String text, final TextFormat textFormat) {
+	public int getTextWidth(final String text, final ITextFormat textFormat) {
 		return textFormat.getSwingTextWidth(text);
 	}
 	
@@ -239,7 +240,7 @@ final class CanvasGUICommandCreatorPainter extends BasePainter implements Indexe
 	
 	//method
 	@Override
-	public void paintText(final String text, final TextFormat textFormat) {
+	public void paintText(final String text, final ITextFormat textFormat) {
 		appendPaintCommand(
 			CanvasGUICommandProtocol.PAINT_TEXT
 			+ '('
@@ -252,7 +253,7 @@ final class CanvasGUICommandCreatorPainter extends BasePainter implements Indexe
 
 	//method
 	@Override
-	public void paintText(final String text, TextFormat textFormat, final int maxTextWidth) {
+	public void paintText(final String text, ITextFormat textFormat, final int maxTextWidth) {
 		appendPaintCommand(
 			CanvasGUICommandProtocol.PAINT_TEXT
 			+ '('

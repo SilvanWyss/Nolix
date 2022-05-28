@@ -2,10 +2,10 @@
 package ch.nolix.systemapi.guiapi.painterapi;
 
 //own imports
-import ch.nolix.system.gui.textformat.TextFormat;
 import ch.nolix.systemapi.guiapi.baseapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.baseapi.colorapi.IColorGradient;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
+import ch.nolix.systemapi.guiapi.textformatapi.ITextFormat;
 
 //interface
 /**
@@ -53,9 +53,9 @@ public interface IPainter {
 	
 	//method declaration
 	/**
-	 * @return the default {@link TextFormat} of the current {@link IPainter}.
+	 * @return the default {@link ITextFormat} of the current {@link IPainter}.
 	 */
-	TextFormat getDefaultTextFormat();
+	ITextFormat getDefaultTextFormat();
 		
 	//method declaration
 	/**
@@ -92,7 +92,7 @@ public interface IPainter {
 	 * @param textFormat
 	 * @return the width of the given text from the current {@link IPainter} using the given textFormat.
 	 */
-	int getTextWidth(String text, TextFormat textFormat);
+	int getTextWidth(String text, ITextFormat textFormat);
 	
 	//method declaration
 	/**
@@ -195,7 +195,7 @@ public interface IPainter {
 	 * @param text
 	 * @param textFormat
 	 */
-	void paintText(String text, TextFormat textFormat);
+	void paintText(String text, ITextFormat textFormat);
 	
 	//method declaration
 	/**
@@ -206,7 +206,7 @@ public interface IPainter {
 	 * @param textFormat
 	 * @param maxWidth
 	 */
-	void paintText(String text, TextFormat textFormat, int maxWidth);
+	void paintText(String text, ITextFormat textFormat, int maxWidth);
 	
 	//method declaration
 	/**

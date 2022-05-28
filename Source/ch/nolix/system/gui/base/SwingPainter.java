@@ -18,6 +18,7 @@ import ch.nolix.systemapi.guiapi.baseapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.baseapi.colorapi.IColorGradient;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
+import ch.nolix.systemapi.guiapi.textformatapi.ITextFormat;
 
 //class
 public final class SwingPainter extends BasePainter {
@@ -128,7 +129,7 @@ public final class SwingPainter extends BasePainter {
 	
 	//method
 	@Override
-	public int getTextWidth(final String text, final TextFormat textFormat) {
+	public int getTextWidth(final String text, final ITextFormat textFormat) {
 		return textFormat.getSwingTextWidth(text);
 	}
 	
@@ -207,13 +208,13 @@ public final class SwingPainter extends BasePainter {
 	
 	//method
 	@Override
-	public void paintText(final String text, final TextFormat textFormat) {
+	public void paintText(final String text, final ITextFormat textFormat) {
 		textFormat.paintSwingText(graphics, text);
 	}
 	
 	//method
 	@Override
-	public void paintText(final String text, final TextFormat textFormat, final int maxTextWidth) {
+	public void paintText(final String text, final ITextFormat textFormat, final int maxTextWidth) {
 		textFormat.paintSwingText(graphics, text, maxTextWidth);
 	}
 	
