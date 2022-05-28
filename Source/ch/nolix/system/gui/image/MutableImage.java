@@ -40,7 +40,7 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 	
 	//static method
 	public static MutableImage fromAnyImage(final IImage<?> image) {
-		return new MutableImage(image.getPixles());
+		return withPixels(image.getPixles());
 	}
 	
 	//static method
