@@ -188,7 +188,7 @@ public final class ColorTest extends Test {
 		final var color = Color.fromString("0x102030");
 		
 		//execution
-		final var specification = color.getSpecificationAs("BackgroundColor");
+		final var specification = color.getSpecificationWithHeader("BackgroundColor");
 		
 		//verification
 		expect(specification.toString()).isEqualTo("BackgroundColor(0x102030)");

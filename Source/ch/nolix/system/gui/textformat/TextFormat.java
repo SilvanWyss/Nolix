@@ -237,11 +237,11 @@ public final class TextFormat implements IElement {
 	@Override
 	public void fillUpAttributesInto(final LinkedList<Node> list) {
 		list.addAtEnd(
-			font.getSpecificationAs(TEXT_FONT_HEADER),
+			font.getSpecificationWithHeader(TEXT_FONT_HEADER),
 			Node.withHeaderAndAttribute(BOLD_FLAG_HEADER, bold),
 			Node.withHeaderAndAttribute(ITALIC_FLAG_HEADER, italic),
 			Node.withHeaderAndAttribute(TEXT_SIZE_HEADER, textSize),
-			textColor.getSpecificationAs(TEXT_COLOR_HEADER)
+			textColor.getSpecificationWithHeader(TEXT_COLOR_HEADER)
 		);
 	}
 	

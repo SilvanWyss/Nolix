@@ -6,9 +6,7 @@ import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.document.xml.XMLNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.programcontrol.processproperty.WriteMode;
 
 //interface
 /**
@@ -43,12 +41,12 @@ public interface IElement {
 	 * @return the specification of the current {@link IElement}.
 	 */
 	default Node getSpecification() {
-		return getSpecificationAs(getSpecificationHeader());
+		return getSpecificationWithHeader(getSpecificationHeader());
 	}
 	
 	//method
 	/**
-	 * @return the header of the specifications of the current {@link IElement}.
+	 * @return the header of the specification of the current {@link IElement}.
 	 */
 	default String getSpecificationHeader() {
 		return getClass().getSimpleName();
@@ -56,13 +54,13 @@ public interface IElement {
 	
 	//method
 	/**
-	 * @param type
-	 * @return the specification of the current {@link IElement} as the given type.
-	 * @throws ArgumentIsNullException if the given type is null.
-	 * @throws InvalidArgumentException if the given type is blank.
+	 * @param header
+	 * @return the specification of the current {@link IElement} with the given header.
+	 * @throws ArgumentIsNullException if the given header is null.
+	 * @throws InvalidArgumentException if the given header is blank.
 	 */
-	default Node getSpecificationAs(final String type) {
-		return Node.withHeaderAndAttributes(type, getAttributes());
+	default Node getSpecificationWithHeader(final String header) {
+		return Node.withHeaderAndAttributes(header, getAttributes());
 	}
 	
 	//method
@@ -75,74 +73,7 @@ public interface IElement {
 	
 	//method
 	/**
-	 * Saves the current {@link IElement} as the given type to the file with the given path.
-	 * 
-	 * @param type
-	 * @param path
-	 * @throws ArgumentIsNullException if the given type is null.
-	 * @throws InvalidArgumentException if the given type is blank.
-	 * @throws ArgumentIsNullException if the given path is null.
-	 * @throws InvalidArgumentException if the given path is blank.
-	 * @throws InvalidArgumentException if there exists already a file system item with the given path.
-	 */
-	default void saveAsTo(final String type, final String path) {
-		
-		//Calls other method.
-		saveAsTo(type, path, WriteMode.THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY);
-	}
-	
-	//method
-	/**
-	 * Saves the current {@link IElement} as the given type to the file with the given path.
-	 * 
-	 * @param type
-	 * @param path
-	 * @param writeMode
-	 * @throws ArgumentIsNullException if the given type is null.
-	 * @throws InvalidArgumentException if the given type is blank.
-	 * @throws ArgumentIsNullException if the given path is null.
-	 * @throws InvalidArgumentException if the given path is blank.
-	 * @throws InvalidArgumentException
-	 * if the given writeMode = {@link WriteMode#THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY}
-	 * and there exists already a file system item with the given path.
-	 */
-	default void saveAsTo(final String type, final String path, final WriteMode writeMode) {
-		getSpecificationAs(type).saveToFile(path, writeMode);
-	}
-	
-	//method
-	/**
-	 * Saves the current {@link IElement} to the file with the given file path.
-	 * 
-	 * @param filePath
-	 * @throws InvalidArgumentException
-	 * if a file system item with the given file path exists already.
-	 */
-	default void saveTo(final String filePath) {
-		
-		//Calls other method.
-		saveTo(filePath, WriteMode.THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY);
-	}
-	
-	//method
-	/**
-	 * Saves the current {@link IElement} to the file with the given path.
-	 * 
-	 * @param path
-	 * @param writeMode
-	 * @throws ArgumentIsNullException if the given path is null.
-	 * @throws InvalidArgumentException if the given path is blank.
-	 * @throws InvalidArgumentException
-	 * if the given writeMode = {@link WriteMode#THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY}
-	 * and there exists already a file system item with the given path.
-	 */
-	default void saveTo(final String path, final WriteMode writeMode) {
-		getSpecification().saveToFile(path, writeMode);
-	}
-	
-	//method
-	/**
-	 * @return a formated string representation of the current {@link IElement}.
+	 * @return a formated {@link String} representation of the current {@link IElement}.
 	 */
 	default String toFormatedString() {
 		return getSpecification().toFormatedString();
@@ -158,12 +89,20 @@ public interface IElement {
 	
 	//method
 	/**
-	 * @return a XML representation of the current {@link IElement} as the given type.
-	 * @param type
-	 * @throws ArgumentIsNullException if the given type is null.
-	 * @throws EmptyArgumentException if the given type is empty.
+	 * @return a XML representation of the current {@link IElement} with the given header.
+	 * @param header
+	 * @throws ArgumentIsNullException if the given header is null.
+	 * @throws InvalidArgumentException if the given header is blank.
 	 */
-	default XMLNode toXMLAs(final String type) {
-		return getSpecificationAs(type).toXML();
+	default XMLNode toXMLWithHeader(final String header) {
+		return getSpecificationWithHeader(header).toXML();
+	}
+	
+	//method
+	/**
+	 * @return a XML representation of the current {@link IElement} without header.
+	 */
+	default XMLNode toXMLWithoutHeader() {
+		return getSpecificationWithoutHeader().toXML();
 	}
 }
