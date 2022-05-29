@@ -175,7 +175,10 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 		final IElementTaker<OCIAM> rightMouseButtonReleaseAction
 	) {
 		
-		GlobalValidator.assertThat(rightMouseButtonReleaseAction).thatIsNamed("right mouse button release action").isNotNull();
+		GlobalValidator
+		.assertThat(rightMouseButtonReleaseAction)
+		.thatIsNamed("right mouse button release action")
+		.isNotNull();
 		
 		return
 		setRightMouseButtonReleaseAction(
