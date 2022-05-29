@@ -124,7 +124,10 @@ public interface IInputActionManager<IAM extends IInputActionManager<IAM>> {
 	//method
 	default IAM setRightMouseButtonReleaseAction(final IAction rightMouseButtonReleaseAction) {
 		
-		GlobalValidator.assertThat(rightMouseButtonReleaseAction).thatIsNamed("right mouse button release action").isNotNull();
+		GlobalValidator
+		.assertThat(rightMouseButtonReleaseAction)
+		.thatIsNamed("right mouse button release action")
+		.isNotNull();
 		
 		return setRightMouseButtonReleaseAction(iam -> rightMouseButtonReleaseAction.run());
 	}
