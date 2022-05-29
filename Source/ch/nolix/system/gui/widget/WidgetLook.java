@@ -12,9 +12,12 @@ import ch.nolix.system.formatelement.FormatElement;
 import ch.nolix.system.formatelement.NonCascadingProperty;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.textformat.Font;
+import ch.nolix.systemapi.guiapi.widgetapi.IWidgetLook;
 
 //class
-public abstract class WidgetLook<WL extends WidgetLook<WL>> extends FormatElement<WL, WidgetLookState> {
+public abstract class WidgetLook<WL extends WidgetLook<WL>>
+extends FormatElement<WL, WidgetLookState>
+implements IWidgetLook<WL> {
 	
 	//constant
 	public static final double DEFAULT_OPACITY = 1.0;

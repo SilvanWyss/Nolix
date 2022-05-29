@@ -35,7 +35,7 @@ Recalculable {
 	int getCursorYPosition();
 	
 	//method declaration
-	IWidget<?> getRefRootWidget();
+	IWidget<?, ?> getRefRootWidget();
 	
 	//method declaration
 	IContainer<Widget<?, ?>> getRefWidgets();

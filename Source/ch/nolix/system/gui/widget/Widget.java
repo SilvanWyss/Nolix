@@ -49,8 +49,9 @@ import ch.nolix.systemapi.guiapi.widgetguiapi.IWidgetGUI;
  * @param <W> is the type of a {@link Widget}.
  * @param <WL> is the type of the {@link WidgetLook} of a {@link Widget}.
  */
-public abstract class Widget<W extends Widget<W, WL>, WL extends WidgetLook<WL>> extends ConfigurableElement<W>
-implements IWidget<W> {
+public abstract class Widget<W extends Widget<W, WL>, WL extends WidgetLook<WL>>
+extends ConfigurableElement<W>
+implements IWidget<W, WL> {
 	
 	//constant
 	public static final CursorIcon DEFAULT_CURSOR_ICON = CursorIcon.ARROW;

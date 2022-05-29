@@ -12,7 +12,10 @@ import ch.nolix.systemapi.guiapi.baseapi.IInputActionManager;
 import ch.nolix.systemapi.guiapi.inputapi.IInputTaker;
 
 //interface
-public interface IWidget<W extends IWidget<W>>
+public interface IWidget<
+	W extends IWidget<W, WL>,
+	WL extends IWidgetLook<WL>
+>
 extends
 EnablingRequestable,
 ExpansionRequestable,
