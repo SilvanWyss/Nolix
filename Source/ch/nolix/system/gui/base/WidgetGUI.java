@@ -336,7 +336,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 * @throws ArgumentDoesNotHaveAttributeException if
 	 * the current {@WidgetGUI} does not have a background {@link MutableImage}.
 	 */
-	public final MutableImage getBackgroundImage() {
+	public final IImage getBackgroundImage() {
 		return background.getBackgroundImage();
 	}
 	

@@ -36,6 +36,7 @@ import ch.nolix.systemapi.elementuniversalapi.IConfigurableElement;
 import ch.nolix.systemapi.guiapi.baseapi.CursorIcon;
 import ch.nolix.systemapi.guiapi.baseapi.IOccupiableCanvasInputActionManager;
 import ch.nolix.systemapi.guiapi.baseapi.colorapi.IColor;
+import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.imageapi.ImageApplication;
 import ch.nolix.systemapi.guiapi.inputapi.IInputTaker;
 import ch.nolix.systemapi.guiapi.inputapi.IResizableInputTaker;
@@ -296,7 +297,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * @return the background {@link MutableImage} of the current {@link Layer}.
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@Layer} does not have a background {@link MutableImage}.
 	 */
-	public MutableImage getBackgroundImage() {
+	public IImage getBackgroundImage() {
 		return background.getValue().getImage();
 	}
 	

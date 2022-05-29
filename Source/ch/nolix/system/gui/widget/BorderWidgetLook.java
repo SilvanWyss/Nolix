@@ -13,6 +13,7 @@ import ch.nolix.system.gui.color.ColorGradient;
 import ch.nolix.system.gui.image.Background;
 import ch.nolix.system.gui.image.MutableImage;
 import ch.nolix.systemapi.guiapi.baseapi.colorapi.IColor;
+import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.imageapi.ImageApplication;
 
 //class
@@ -285,7 +286,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	}
 	
 	//method
-	public final MutableImage getBackgroundImage() {
+	public final IImage getBackgroundImage() {
 		return background.getValue().getImage();
 	}
 	
