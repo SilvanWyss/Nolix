@@ -12,10 +12,10 @@ import ch.nolix.system.element.MutableSpecificationValueExtractor;
 import ch.nolix.system.gui.base.InvisibleGUI;
 import ch.nolix.system.gui.base.Layer;
 import ch.nolix.system.gui.base.WidgetGUI;
-import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.image.Image;
 import ch.nolix.system.gui.image.MutableImage;
 import ch.nolix.systemapi.guiapi.baseapi.IWidgetGUI;
+import ch.nolix.systemapi.guiapi.baseapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.imageapi.ImageApplication;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
@@ -164,7 +164,7 @@ public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> impleme
 	
 	//method
 	@Override
-	public InnerGUI setBackgroundColor(final Color backgroundColor) {
+	public InnerGUI setBackgroundColor(final IColor backgroundColor) {
 		
 		internalGUI.setBackgroundColor(backgroundColor);
 		

@@ -573,7 +573,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 * @return the current {@link WidgetGUI}.
 	 * @throws ArgumentIsNullException if the given backgroundColor is null.
 	 */
-	public final WG setBackgroundColor(final Color backgroundColor) {
+	public final WG setBackgroundColor(final IColor backgroundColor) {
 		
 		background.setBackgroundColor(backgroundColor);
 		
