@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemapi.guiapi.baseapi;
+package ch.nolix.systemapi.guiapi.widgetguiapi;
 
 //own imports
 import ch.nolix.core.container.IContainer;
@@ -7,6 +7,8 @@ import ch.nolix.core.skilluniversalapi.Clearable;
 import ch.nolix.core.skilluniversalapi.Recalculable;
 import ch.nolix.system.gui.widget.Widget;
 import ch.nolix.systemapi.elementapi.configurationapi.IConfigurableElement;
+import ch.nolix.systemapi.guiapi.baseapi.CursorIcon;
+import ch.nolix.systemapi.guiapi.baseapi.IOccupiableCanvasInputActionManager;
 import ch.nolix.systemapi.guiapi.inputapi.IResizableInputTaker;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 

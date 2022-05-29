@@ -7,8 +7,8 @@ import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.systemapi.guiapi.baseapi.CursorIcon;
-import ch.nolix.systemapi.guiapi.baseapi.IWidgetGUI;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
+import ch.nolix.systemapi.guiapi.widgetguiapi.IWidgetGUI;
 
 //class
 final class BaseBackendGUIClientGUIUpdateCommandCreator {

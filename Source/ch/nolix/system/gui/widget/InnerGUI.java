@@ -14,14 +14,14 @@ import ch.nolix.system.gui.base.WidgetGUI;
 import ch.nolix.system.gui.image.Image;
 import ch.nolix.system.gui.image.MutableImage;
 import ch.nolix.systemapi.elementapi.configurationapi.IConfiguration;
-import ch.nolix.systemapi.guiapi.baseapi.ILayer;
-import ch.nolix.systemapi.guiapi.baseapi.IWidgetGUI;
 import ch.nolix.systemapi.guiapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.imageapi.ImageApplication;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
+import ch.nolix.systemapi.guiapi.widgetguiapi.ILayer;
+import ch.nolix.systemapi.guiapi.widgetguiapi.IWidgetGUI;
 
 //class
 public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> implements IWidgetGUI<InnerGUI> {

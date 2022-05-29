@@ -14,7 +14,7 @@ import ch.nolix.system.element.MutableElement;
 import ch.nolix.system.element.MutableValue;
 import ch.nolix.system.element.OptionalValue;
 import ch.nolix.system.element.Value;
-import ch.nolix.systemapi.guiapi.baseapi.IWidgetGUI;
+import ch.nolix.systemapi.guiapi.widgetguiapi.IWidgetGUI;
 
 //class
 public final class ItemMenuItem extends MutableElement<ItemMenuItem> implements OptionalIdentifiedByString {
