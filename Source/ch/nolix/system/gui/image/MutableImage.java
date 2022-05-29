@@ -39,7 +39,7 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 	private static final String JPG_STRING = "JPGString";
 	
 	//static method
-	public static MutableImage fromAnyImage(final IImage<?> image) {
+	public static MutableImage fromAnyImage(final IImage image) {
 		return withPixels(image.getPixles());
 	}
 	

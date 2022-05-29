@@ -12,7 +12,7 @@ public interface IApplicationSheet {
 	String getApplicationDescription();
 	
 	//method declaration
-	IImage<?> getApplicationLogo();
+	IImage getApplicationLogo();
 	
 	//method declaration
 	String getApplicationName();

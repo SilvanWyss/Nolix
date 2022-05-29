@@ -56,7 +56,7 @@ public final class ImageWidget extends BorderWidget<ImageWidget, ImageWidgetLook
 	}
 	
 	//method
-	public ImageWidget setImage(final IImage<?> image) {
+	public ImageWidget setImage(final IImage image) {
 		return setImage(MutableImage.fromAnyImage(image));
 	}
 	

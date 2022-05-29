@@ -16,10 +16,10 @@ import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.imageapi.IMutableImage;
 
 //class
-public final class Image implements IImage<Image> {
+public final class Image implements IImage {
 	
 	//static method
-	public static Image fromAnyImage(final IImage<?> image) {
+	public static Image fromAnyImage(final IImage image) {
 		
 		if (image instanceof Image) {
 			return (Image)image;

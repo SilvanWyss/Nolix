@@ -31,7 +31,7 @@ public final class SwingPainter extends BasePainter {
 	
 	//static method
 	public static SwingPainter withImageCacheAndGraphics(
-		final CachingContainer<IImage<?>> imageCache,
+		final CachingContainer<IImage> imageCache,
 		final Graphics2D graphics
 	) {
 		return new SwingPainter(new SingleContainer<>(), imageCache, graphics);
@@ -40,7 +40,7 @@ public final class SwingPainter extends BasePainter {
 	//static method
 	public static SwingPainter withParentPainterAndImageCacheAndGraphics(
 		final SwingPainter parentPainter,
-		final CachingContainer<IImage<?>> imageCache,
+		final CachingContainer<IImage> imageCache,
 		final Graphics2D graphics
 	) {
 		return new SwingPainter(new SingleContainer<>(parentPainter), imageCache, graphics);
@@ -50,7 +50,7 @@ public final class SwingPainter extends BasePainter {
 	private double opacity = DEFAULT_OPACITY;
 	
 	//attribute
-	private final CachingContainer<IImage<?>> imageCache;
+	private final CachingContainer<IImage> imageCache;
 	
 	//attribute
 	private final Graphics2D graphics;
@@ -61,7 +61,7 @@ public final class SwingPainter extends BasePainter {
 	//constructor
 	private SwingPainter(
 		final SingleContainer<IPainter> parentPainterContainer,
-		final CachingContainer<IImage<?>> imageCache,
+		final CachingContainer<IImage> imageCache,
 		final Graphics2D graphics
 	) {
 		
@@ -117,7 +117,7 @@ public final class SwingPainter extends BasePainter {
 	
 	//method
 	@Override
-	public IImage<?> getImageById(final String id) {
+	public IImage getImageById(final String id) {
 		return imageCache.getRefById(id);
 	}
 	
@@ -174,13 +174,13 @@ public final class SwingPainter extends BasePainter {
 	
 	//method
 	@Override
-	public void paintImage(final IImage<?> mutableImage) {
+	public void paintImage(final IImage mutableImage) {
 		graphics.drawImage(mutableImage.toBufferedImage(), 0, 0, null);
 	}
 	
 	//method
 	@Override
-	public void paintImage(final IImage<?> mutableImage, final int width, final int height) {
+	public void paintImage(final IImage mutableImage, final int width, final int height) {
 		graphics.drawImage(mutableImage.toBufferedImage(), 0, 0, width, height, null);
 	}
 	

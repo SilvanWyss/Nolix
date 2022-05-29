@@ -11,7 +11,7 @@ public interface IGUIApplicationContext {
 	String getApplicationDescription();
 	
 	//method declaration
-	IImage<?> getApplicationLogo();
+	IImage getApplicationLogo();
 	
 	//method declaration
 	boolean hasApplicationDescription();

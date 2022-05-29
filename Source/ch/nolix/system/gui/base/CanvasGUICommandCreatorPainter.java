@@ -28,8 +28,8 @@ final class CanvasGUICommandCreatorPainter extends BasePainter implements Indexe
 	
 	//static method
 	public static CanvasGUICommandCreatorPainter withImageCacheAndImageRegistrator(
-		final CachingContainer<IImage<?>> imageCache,
-		final I2ElementTaker<String, IImage<?>> imageRegistrator
+		final CachingContainer<IImage> imageCache,
+		final I2ElementTaker<String, IImage> imageRegistrator
 	) {
 		return
 		new CanvasGUICommandCreatorPainter(
@@ -43,7 +43,7 @@ final class CanvasGUICommandCreatorPainter extends BasePainter implements Indexe
 	public static CanvasGUICommandCreatorPainter withParentPainterAndBottomAndImageCache(
 		final CanvasGUICommandCreatorPainter parentPainter,
 		final CanvasGUIPainterPool bottom,
-		final CachingContainer<IImage<?>> imageCache
+		final CachingContainer<IImage> imageCache
 	) {
 		return new CanvasGUICommandCreatorPainter(new SingleContainer<>(parentPainter), bottom, imageCache);
 	}
@@ -52,7 +52,7 @@ final class CanvasGUICommandCreatorPainter extends BasePainter implements Indexe
 	private final CanvasGUIPainterPool bottom;
 	
 	//attribute
-	private final CachingContainer<IImage<?>> imageCache;
+	private final CachingContainer<IImage> imageCache;
 	
 	//attribute
 	private final int index;
@@ -61,7 +61,7 @@ final class CanvasGUICommandCreatorPainter extends BasePainter implements Indexe
 	private CanvasGUICommandCreatorPainter(
 		final SingleContainer<IPainter> parentPainterContainer,
 		final CanvasGUIPainterPool bottom,
-		final CachingContainer<IImage<?>> imageCache
+		final CachingContainer<IImage> imageCache
 	) {
 		
 		super(parentPainterContainer);
@@ -118,7 +118,7 @@ final class CanvasGUICommandCreatorPainter extends BasePainter implements Indexe
 	
 	//method
 	@Override
-	public IImage<?> getImageById(final String id) {
+	public IImage getImageById(final String id) {
 		return imageCache.getRefById(id);
 	}
 	
@@ -188,7 +188,7 @@ final class CanvasGUICommandCreatorPainter extends BasePainter implements Indexe
 	
 	//method
 	@Override
-	public void paintImage(final IImage<?> mutableImage) {
+	public void paintImage(final IImage mutableImage) {
 		appendPaintCommand(
 			CanvasGUICommandProtocol.PAINT_IMAGE_BY_ID
 			+ '('
@@ -199,7 +199,7 @@ final class CanvasGUICommandCreatorPainter extends BasePainter implements Indexe
 	
 	//method
 	@Override
-	public void paintImage(final IImage<?> mutableImage, final int width, final int height) {
+	public void paintImage(final IImage mutableImage, final int width, final int height) {
 		appendPaintCommand(
 			CanvasGUICommandProtocol.PAINT_IMAGE_BY_ID
 			+ '('
@@ -327,7 +327,7 @@ final class CanvasGUICommandCreatorPainter extends BasePainter implements Indexe
 	}
 	
 	//method
-	private String registerImageIfNotRegisteredAndGetId(final IImage<?> mutableImage) {
+	private String registerImageIfNotRegisteredAndGetId(final IImage mutableImage) {
 		
 		final var idContainer = imageCache.getOptionalIdOf(mutableImage);
 		

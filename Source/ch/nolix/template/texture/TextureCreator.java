@@ -16,7 +16,7 @@ final class TextureCreator {
 	private TextureCreator() {}
 	
 	//method
-	public IImage<?> createConcreteTexture() {
+	public IImage createConcreteTexture() {
 		
 		final var texture = MutableImage.withWidthAndHeightAndWhiteColor(16, 16);
 		
@@ -41,7 +41,7 @@ final class TextureCreator {
 	}
 	
 	//method
-	public IImage<?> createFirWoodTexture() {
+	public IImage createFirWoodTexture() {
 		
 		final var texture = MutableImage.withWidthAndHeightAndWhiteColor(16, 16);
 		
@@ -65,7 +65,7 @@ final class TextureCreator {
 	}
 	
 	//method
-	public IImage<?> createJuteTexture() {
+	public IImage createJuteTexture() {
 		
 		final var texture = MutableImage.withWidthAndHeightAndWhiteColor(16, 16);
 		
@@ -89,7 +89,7 @@ final class TextureCreator {
 	}
 
 	//method
-	public IImage<?> createWhiteMarbleTexture() {
+	public IImage createWhiteMarbleTexture() {
 		
 		final var texture = MutableImage.withWidthAndHeightAndWhiteColor(16, 16);
 		

@@ -45,7 +45,7 @@ extends GroupCloseable, IResizableInputTaker, Rectangular, Refreshable, Titleble
 	/**
 	 * @return the icon of the current {@link IBaseGUI}.
 	 */
-	IImage<?> getIcon();
+	IImage getIcon();
 	
 	//method declaration
 	/**
@@ -98,5 +98,5 @@ extends GroupCloseable, IResizableInputTaker, Rectangular, Refreshable, Titleble
 	 * @param icon
 	 * @return the current{@link IBaseGUI}.
 	 */
-	G setIcon(final IImage<?> icon);
+	G setIcon(final IImage icon);
 }

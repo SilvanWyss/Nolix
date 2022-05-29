@@ -71,7 +71,7 @@ public interface IPainter {
 	 * @param id
 	 * @return the {@link MutableImage} with the given id from the current {@link IPainter}.
 	 */
-	IImage<?> getImageById(String id);
+	IImage getImageById(String id);
 	
 	//method declaration
 	/**
@@ -132,7 +132,7 @@ public interface IPainter {
 	 * 
 	 * @param mutableImage
 	 */
-	void paintImage(IImage<?> mutableImage);
+	void paintImage(IImage mutableImage);
 	
 	//method declaration
 	/**
@@ -142,7 +142,7 @@ public interface IPainter {
 	 * @param width
 	 * @param height
 	 */
-	void paintImage(IImage<?> mutableImage, int width, int height);
+	void paintImage(IImage mutableImage, int width, int height);
 	
 	//method declaration
 	/**

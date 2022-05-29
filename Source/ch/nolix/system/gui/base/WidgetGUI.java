@@ -361,7 +361,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 * @return the painter commands of the current {@link WidgetGUI}.
 	 */
 	@Override
-	public final LinkedList<ChainedNode> getPaintCommands(final I2ElementTaker<String, IImage<?>> imageRegistrator) {
+	public final LinkedList<ChainedNode> getPaintCommands(final I2ElementTaker<String, IImage> imageRegistrator) {
 		
 		final var painter =
 		CanvasGUICommandCreatorPainter.withImageCacheAndImageRegistrator(getRefImageCache(), imageRegistrator);

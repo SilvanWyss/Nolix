@@ -19,7 +19,7 @@ import ch.nolix.systemapi.guiapi.imageapi.ImageApplication;
 public interface IWidgetGUI<WG extends IWidgetGUI<WG>> extends Clearable,  IBaseGUI<WG>, IConfigurableElement<WG>{
 	
 	//method declaration
-	LinkedList<ChainedNode> getPaintCommands(I2ElementTaker<String, IImage<?>> imageRegistrator);
+	LinkedList<ChainedNode> getPaintCommands(I2ElementTaker<String, IImage> imageRegistrator);
 	
 	//method declaration
 	<W extends Widget<?, ?>> W getRefWidgetById(String id);

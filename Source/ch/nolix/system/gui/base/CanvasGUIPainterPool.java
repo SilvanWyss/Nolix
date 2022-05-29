@@ -16,13 +16,13 @@ final class CanvasGUIPainterPool {
 	private int nextIndex = 1;
 	
 	//attribute
-	private final I2ElementTaker<String, IImage<?>> imageRegistrator;
+	private final I2ElementTaker<String, IImage> imageRegistrator;
 	
 	//multi-attribute
 	private final LinkedList<ChainedNode> paintCommands = new LinkedList<>();
 	
 	//constructor
-	public CanvasGUIPainterPool(final I2ElementTaker<String, IImage<?>> imageRegistrator) {
+	public CanvasGUIPainterPool(final I2ElementTaker<String, IImage> imageRegistrator) {
 		
 		GlobalValidator.assertThat(imageRegistrator).thatIsNamed("image registrator").isNotNull();
 		
@@ -55,7 +55,7 @@ final class CanvasGUIPainterPool {
 	}
 	
 	//method
-	public void registerImage(final String imageId, final IImage<?> image) {
+	public void registerImage(final String imageId, final IImage image) {
 		imageRegistrator.run(imageId, image);
 	}
 	

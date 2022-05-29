@@ -11,7 +11,7 @@ import ch.nolix.systemapi.guiapi.imageapi.IImage;
 public class GUIApplicationContext implements IGUIApplicationContext {
 	
 	//optional attribute
-	private IImage<?> applicationLogo;
+	private IImage applicationLogo;
 	
 	//optional attribute
 	private String applicationDescription;
@@ -27,7 +27,7 @@ public class GUIApplicationContext implements IGUIApplicationContext {
 	
 	//method
 	@Override
-	public final IImage<?> getApplicationLogo() {
+	public final IImage getApplicationLogo() {
 		
 		assertHasApplicationLogo();
 		
@@ -57,7 +57,7 @@ public class GUIApplicationContext implements IGUIApplicationContext {
 	}
 	
 	//method
-	public final GUIApplicationContext setApplicationLogo(final IImage<?> applicationLogo) {
+	public final GUIApplicationContext setApplicationLogo(final IImage applicationLogo) {
 		
 		GlobalValidator.assertThat(applicationLogo).thatIsNamed("application logo").isNotNull();
 		

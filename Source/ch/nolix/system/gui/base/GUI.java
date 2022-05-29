@@ -108,7 +108,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	private final CloseController closeController = new CloseController(this);
 	private IFrontEndReader frontEndReader = new LocalFrontEndReader();
 	private IFrontEndWriter frontEndWriter = new LocalFrontEndWriter();
-	private final CachingContainer<IImage<?>> imageCache = new CachingContainer<>();
+	private final CachingContainer<IImage> imageCache = new CachingContainer<>();
 	private final KeyBoard keyBoard = new KeyBoard();
 	private boolean viewAreaSizeHasChangedSinceLastRecalculation = true;
 	
@@ -241,7 +241,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	/**
 	 * @return the image cache of the current {@link GUI}.
 	 */
-	public final CachingContainer<IImage<?>> getRefImageCache() {
+	public final CachingContainer<IImage> getRefImageCache() {
 		return imageCache;
 	}
 	
@@ -588,7 +588,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final G setIcon(final IImage<?> icon) {
+	public final G setIcon(final IImage icon) {
 		
 		this.icon.setValue(Image.fromAnyImage(icon.withWidthAndHeight(64, 64)));
 		

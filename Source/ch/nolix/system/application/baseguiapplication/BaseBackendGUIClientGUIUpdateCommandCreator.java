@@ -17,7 +17,7 @@ final class BaseBackendGUIClientGUIUpdateCommandCreator {
 	private String latestTitle;
 	
 	//optional attribute
-	private IImage<?> latestIcon;
+	private IImage latestIcon;
 	
 	//optional attribute
 	private CursorIcon latestCursorIcon;
@@ -43,7 +43,7 @@ final class BaseBackendGUIClientGUIUpdateCommandCreator {
 		);
 	}
 	
-	private ChainedNode createUpdateIconCommand(IImage<?> icon) {
+	private ChainedNode createUpdateIconCommand(IImage icon) {
 		return
 		ChainedNode.withHeaderAndNextNode(
 			ObjectProtocol.GUI,
@@ -115,7 +115,7 @@ final class BaseBackendGUIClientGUIUpdateCommandCreator {
 	}
 	
 	//method
-	private ChainedNode createRegisterImageCommand(final String imageId, final IImage<?> image) {
+	private ChainedNode createRegisterImageCommand(final String imageId, final IImage image) {
 		return
 		ChainedNode.withHeaderAndNextNode(
 			ObjectProtocol.GUI,

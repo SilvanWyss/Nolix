@@ -8,16 +8,16 @@ import ch.nolix.systemapi.guiapi.imageapi.IImage;
 public final class TextureCatalogue {
 	
 	//constant
-	public static final IImage<?> CONCRETE_TEXTURE = TextureCreator.INSTANCE.createConcreteTexture();
+	public static final IImage CONCRETE_TEXTURE = TextureCreator.INSTANCE.createConcreteTexture();
 	
 	//constant
-	public static final IImage<?> FIR_WOOD_TEXTURE = TextureCreator.INSTANCE.createFirWoodTexture();
+	public static final IImage FIR_WOOD_TEXTURE = TextureCreator.INSTANCE.createFirWoodTexture();
 	
 	//constant
-	public static final IImage<?> JUTE_TEXTURE = TextureCreator.INSTANCE.createJuteTexture();
+	public static final IImage JUTE_TEXTURE = TextureCreator.INSTANCE.createJuteTexture();
 	
 	//constant
-	public static final IImage<?> WHITE_MARBLE_TEXTURE = TextureCreator.INSTANCE.createWhiteMarbleTexture();
+	public static final IImage WHITE_MARBLE_TEXTURE = TextureCreator.INSTANCE.createWhiteMarbleTexture();
 	
 	//constructor
 	private TextureCatalogue() {}

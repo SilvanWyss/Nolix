@@ -11,7 +11,7 @@ import ch.nolix.systemapi.elementuniversalapi.Specified;
 import ch.nolix.systemapi.guiapi.baseapi.colorapi.IColor;
 
 //interface
-public interface IImage<I extends IImage<I>> extends Specified {
+public interface IImage extends Specified {
 	
 	//method declaration
 	IColor getBottomLeftPixel();
@@ -50,7 +50,7 @@ public interface IImage<I extends IImage<I>> extends Specified {
 	BufferedImage toBufferedImage();
 	
 	//method declaration
-	IImage<?> toImmutableImage();
+	IImage toImmutableImage();
 	
 	//method declaration
 	byte[] toJPG();

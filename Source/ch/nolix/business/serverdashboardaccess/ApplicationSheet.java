@@ -40,7 +40,7 @@ public final class ApplicationSheet implements IApplicationSheet {
 	private final String applicationName;
 	
 	//optional attribute
-	private final IImage<?> applicationLogo;
+	private final IImage applicationLogo;
 	
 	//optional attribute
 	private final String applicationDescription;
@@ -101,7 +101,7 @@ public final class ApplicationSheet implements IApplicationSheet {
 	
 	//method
 	@Override
-	public IImage<?> getApplicationLogo() {
+	public IImage getApplicationLogo() {
 		
 		assertHasApplicationLogo();
 		

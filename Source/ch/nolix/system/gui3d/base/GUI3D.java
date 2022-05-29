@@ -330,7 +330,7 @@ public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G> 
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final G setIcon(final IImage<?> icon) {
+	public final G setIcon(final IImage icon) {
 		
 		this.icon.setValue(Image.fromAnyImage(icon.withWidthAndHeight(64, 64)));
 		

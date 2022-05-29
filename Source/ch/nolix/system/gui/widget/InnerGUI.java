@@ -91,7 +91,7 @@ public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> impleme
 	
 	//method
 	@Override
-	public LinkedList<ChainedNode> getPaintCommands(final I2ElementTaker<String, IImage<?>> imageRegistrator) {
+	public LinkedList<ChainedNode> getPaintCommands(final I2ElementTaker<String, IImage> imageRegistrator) {
 		return internalGUI.getPaintCommands(imageRegistrator);
 	}
 	
@@ -200,7 +200,7 @@ public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> impleme
 	
 	//method
 	@Override
-	public InnerGUI setIcon(final IImage<?> icon) {
+	public InnerGUI setIcon(final IImage icon) {
 		
 		internalGUI.setIcon(icon);
 		iconWidget.setImage(MutableImage.fromAnyImage(icon));

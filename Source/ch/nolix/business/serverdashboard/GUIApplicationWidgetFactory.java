@@ -22,7 +22,7 @@ final class GUIApplicationWidgetFactory {
 	public static final int LOGO_IMAGE_HEIGHT = 150;
 	
 	//constant
-	public static final IImage<?> DEFAULT_LOGO =
+	public static final IImage DEFAULT_LOGO =
 	MutableImage.withWidthAndHeightAndColor(LOGO_IMAGE_WIDTH, LOGO_IMAGE_HEIGHT, Color.GREY);
 	
 	//static attribute
@@ -68,7 +68,7 @@ final class GUIApplicationWidgetFactory {
 	}
 	
 	//method
-	private IImage<?> getApplicationLogoOrDefaultLogo(final IApplicationSheet pGUIApplicationSheet) {
+	private IImage getApplicationLogoOrDefaultLogo(final IApplicationSheet pGUIApplicationSheet) {
 
 		if (!pGUIApplicationSheet.hasApplicationLogo()) {
 			return DEFAULT_LOGO;
