@@ -31,6 +31,7 @@ import ch.nolix.systemapi.guiapi.baseapi.CursorIcon;
 import ch.nolix.systemapi.guiapi.baseapi.IFrontEndReader;
 import ch.nolix.systemapi.guiapi.baseapi.IFrontEndWriter;
 import ch.nolix.systemapi.guiapi.baseapi.IInputActionManager;
+import ch.nolix.systemapi.guiapi.baseapi.IWidgetGUI;
 import ch.nolix.systemapi.guiapi.inputapi.IInputTaker;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.inputdeviceapi.IKeyBoard;
@@ -370,7 +371,7 @@ TopLeftPositionedRecangular {
 	 * @throws ArgumentDoesNotBelongToParentException
 	 * if the current {@link Widget} does not belong to a {@link GUI}.
 	 */
-	public final WidgetGUI<?> getParentGUI() {
+	public final IWidgetGUI<?> getParentGUI() {
 		
 		//Asserts that the current Widget belongs to a GUI.
 		if (parent == null) {
@@ -1372,7 +1373,10 @@ TopLeftPositionedRecangular {
 	@Override
 	public final W setRightMouseButtonReleaseAction(IElementTaker<W> rightMouseButtonReleaseAction) {
 		
-		GlobalValidator.assertThat(rightMouseButtonReleaseAction).thatIsNamed("right mouse button release action").isNotNull();
+		GlobalValidator
+		.assertThat(rightMouseButtonReleaseAction)
+		.thatIsNamed("right mouse button release action")
+		.isNotNull();
 		
 		this.rightMouseButtonReleaseAction = rightMouseButtonReleaseAction;
 		

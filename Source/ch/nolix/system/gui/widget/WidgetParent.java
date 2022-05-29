@@ -5,7 +5,7 @@ package ch.nolix.system.gui.widget;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.gui.base.Layer;
-import ch.nolix.system.gui.base.WidgetGUI;
+import ch.nolix.systemapi.guiapi.baseapi.IWidgetGUI;
 
 //class
 public final class WidgetParent {
@@ -47,7 +47,7 @@ public final class WidgetParent {
 	
 	//method
 	//For a better performance, this implementation does not use all comfortable methods.
-	public WidgetGUI<?> getRefGUI() {
+	public IWidgetGUI<?> getRefGUI() {
 		
 		if (layer != null) {
 			return layer.getParentGUI();

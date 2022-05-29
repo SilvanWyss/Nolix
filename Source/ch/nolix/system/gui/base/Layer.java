@@ -17,8 +17,6 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.I2ElementTaker;
 import ch.nolix.core.functionuniversalapi.IElementTaker;
 import ch.nolix.core.math.Calculator;
-import ch.nolix.core.skilluniversalapi.Clearable;
-import ch.nolix.core.skilluniversalapi.Recalculable;
 import ch.nolix.system.configuration.ConfigurableElement;
 import ch.nolix.system.discretegeometry.Discrete2DPoint;
 import ch.nolix.system.element.CatchingProperty;
@@ -34,12 +32,12 @@ import ch.nolix.system.gui.widget.BorderWidget;
 import ch.nolix.system.gui.widget.Widget;
 import ch.nolix.systemapi.elementapi.configurationapi.IConfigurableElement;
 import ch.nolix.systemapi.guiapi.baseapi.CursorIcon;
-import ch.nolix.systemapi.guiapi.baseapi.IOccupiableCanvasInputActionManager;
+import ch.nolix.systemapi.guiapi.baseapi.ILayer;
+import ch.nolix.systemapi.guiapi.baseapi.IWidgetGUI;
 import ch.nolix.systemapi.guiapi.baseapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.imageapi.ImageApplication;
 import ch.nolix.systemapi.guiapi.inputapi.IInputTaker;
-import ch.nolix.systemapi.guiapi.inputapi.IResizableInputTaker;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
@@ -57,7 +55,7 @@ import ch.nolix.systemapi.guiapi.structureproperty.ExtendedContentPosition;
  * @date 2019-05-18
  */
 public final class Layer extends ConfigurableElement<Layer>
-implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInputTaker, Recalculable {
+implements ILayer<Layer> {
 	
 	//constant
 	public static final double DEFAULT_OPACITY_PERCENTAGE = 1.0;
@@ -188,7 +186,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * The {@link WidgetGUI} the current {@link Layer} belongs to
 	 * if the current {@link Layer} belongs to a {@link WidgetGUI}.
 	 */
-	private WidgetGUI<?> parentGUI;
+	private IWidgetGUI<?> parentGUI;
 	
 	//optional attribute
 	private Widget<?, ?> rootWidget;
@@ -370,7 +368,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * @throws ArgumentDoesNotBelongToParentException
 	 * if the current {@link Layer} does not belong to a {@link WidgetGUI}.
 	 */
-	public WidgetGUI<?> getParentGUI() {
+	public IWidgetGUI<?> getParentGUI() {
 		
 		//Asserts that the current Layer belongs to a GUI.
 		if (parentGUI == null) {
@@ -1271,7 +1269,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * @param parentGUI
 	 * @throws ArgumentIsNullException if the given parentGUI is null.
 	 */
-	void setParentGUI(final WidgetGUI<?> parentGUI) {
+	public void setParentGUI(final IWidgetGUI<?> parentGUI) {
 		
 		GlobalValidator.assertThat(parentGUI).thatIsNamed("parent GUI").isNotNull();
 		

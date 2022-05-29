@@ -3,17 +3,18 @@ package ch.nolix.system.gui.widget;
 
 //own imports
 import ch.nolix.core.constant.PascalCaseCatalogue;
+import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.functionuniversalapi.I2ElementTaker;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.system.element.MutableSpecificationValueExtractor;
 import ch.nolix.system.gui.base.InvisibleGUI;
-import ch.nolix.system.gui.base.Layer;
 import ch.nolix.system.gui.base.WidgetGUI;
 import ch.nolix.system.gui.image.Image;
 import ch.nolix.system.gui.image.MutableImage;
 import ch.nolix.systemapi.elementapi.configurationapi.IConfiguration;
+import ch.nolix.systemapi.guiapi.baseapi.ILayer;
 import ch.nolix.systemapi.guiapi.baseapi.IWidgetGUI;
 import ch.nolix.systemapi.guiapi.baseapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
@@ -49,7 +50,7 @@ public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> impleme
 	
 	//method
 	@Override
-	public InnerGUI pushLayer(final Layer layer) {
+	public InnerGUI pushLayer(final ILayer<?> layer) {
 		
 		internalGUI.pushLayer(layer);
 		
@@ -104,6 +105,12 @@ public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> impleme
 	//method
 	public <W extends Widget<?, ?>> W getRefWidgetById(final String id) {
 		return internalGUI.getRefWidgetById(id);
+	}
+	
+	//method
+	@Override
+	public IContainer<Widget<?, ?>> getRefWidgets() {
+		return internalGUI.getRefWidgets();
 	}
 	
 	//method
@@ -164,6 +171,12 @@ public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> impleme
 	
 	//method
 	@Override
+	public void removeLayer(final ILayer<?> layer) {
+		internalGUI.removeLayer(layer);
+	}
+	
+	//method
+	@Override
 	public InnerGUI setBackgroundColor(final IColor backgroundColor) {
 		
 		internalGUI.setBackgroundColor(backgroundColor);
@@ -216,6 +229,12 @@ public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> impleme
 		titleLabel.setText(title);
 		
 		return this;
+	}
+	
+	//method
+	@Override
+	public boolean viewAreaIsUnderCursor() {
+		return internalGUI.viewAreaIsUnderCursor();
 	}
 	
 	//method

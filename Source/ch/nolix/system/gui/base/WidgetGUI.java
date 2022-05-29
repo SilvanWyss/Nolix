@@ -44,6 +44,7 @@ import ch.nolix.system.gui.widget.VerticalLine;
 import ch.nolix.system.gui.widget.Widget;
 import ch.nolix.systemapi.elementapi.configurationapi.IConfigurableElement;
 import ch.nolix.systemapi.guiapi.baseapi.CursorIcon;
+import ch.nolix.systemapi.guiapi.baseapi.ILayer;
 import ch.nolix.systemapi.guiapi.baseapi.IWidgetGUI;
 import ch.nolix.systemapi.guiapi.baseapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
@@ -178,16 +179,16 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	);
 	
 	//attribute
-	private final MultiValue<Layer> layers =
+	private final MultiValue<ILayer<?>> layers =
 	new MultiValue<>(
 		PascalCaseCatalogue.LAYER,
 		this::pushLayer,
 		Layer::fromSpecification,
-		Layer::getSpecification
+		ILayer::getSpecification
 	);
 	
 	//optional attribute
-	private Layer topLayer;
+	private ILayer<?> topLayer;
 	
 	//constructor
 	/**
@@ -377,14 +378,14 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 */
 	@Override
 	public final IContainer<IConfigurableElement<?>> getSubConfigurables() {
-		return layers.getRefSelected(Layer::allowesConfiguration).asContainerWithElementsOfEvaluatedType();
+		return layers.getRefSelected(ILayer::allowesConfiguration).asContainerWithElementsOfEvaluatedType();
 	}
 	
 	//method
 	/**
 	 * @return the {@link Layer}s of the current {@link WidgetGUI}.
 	 */
-	public final IContainer<Layer> getRefLayers() {
+	public final IContainer<ILayer<?>> getRefLayers() {
 		return layers;
 	}
 	
@@ -406,7 +407,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 * @return the {@link Widget}s of the current {@link WidgetGUI}.
 	 */
 	public final IContainer<Widget<?, ?>> getRefWidgets() {
-		return layers.toFromMany(Layer::getRefWidgets);
+		return layers.toFromMany(ILayer::getRefWidgets);
 	}
 
 	//method
@@ -475,7 +476,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 * @return the current {@link WidgetGUI}.
 	 * @throws ArgumentIsNullException if the given layer is null.
 	 */
-	public final WG pushLayer(final Layer layer) {
+	public final WG pushLayer(final ILayer<?> layer) {
 		
 		GlobalValidator.assertThat(layer).thatIsNamed(LowerCaseCatalogue.LAYER).isNotNull();
 		
@@ -516,7 +517,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 * 
 	 * @param layer
 	 */
-	public final void removeLayer(final Layer layer) {
+	public final void removeLayer(final ILayer<?> layer) {
 		if (!isTopLayer(layer)) {
 			layers.remove(layer);
 		} else {
@@ -646,7 +647,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 * if the current {@link WidgetGUI} contains {@link Layer}s,
 	 * otherwise the background of the current {@link WidgetGUI}.
 	 */
-	protected final Layer getRefTopOrBackgroundLayer() {
+	protected final ILayer<?> getRefTopOrBackgroundLayer() {
 		
 		//Handles the case that the current WidgetGUI does not contain a Layer.
 		if (isEmpty()) {
@@ -819,7 +820,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	@Override
 	protected final void recalculate(ChangeState viewAreaChangeState) {
 		if (viewAreaChangeState == ChangeState.CHANGED) {
-			layers.forEach(Layer::recalculate);
+			layers.forEach(ILayer::recalculate);
 		} else if (topLayer != null) {
 			topLayer.recalculate();
 		}
@@ -839,7 +840,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 * @param layer
 	 * @return true if the given layer is the top {@link Layer} of the current {@link WidgetGUI}.
 	 */
-	private boolean isTopLayer(final Layer layer) {
+	private boolean isTopLayer(final ILayer<?> layer) {
 		return (topLayer == layer);
 	}
 	
