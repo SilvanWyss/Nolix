@@ -6,7 +6,6 @@ import ch.nolix.core.griduniversalapi.TopLeftPositionedRecangular;
 import ch.nolix.core.requestuniversalapi.EnablingRequestable;
 import ch.nolix.core.requestuniversalapi.ExpansionRequestable;
 import ch.nolix.core.skilluniversalapi.Recalculable;
-import ch.nolix.system.gui.widget.Widget;
 import ch.nolix.systemapi.elementapi.configurationapi.IConfigurableElement;
 import ch.nolix.systemapi.guiapi.baseapi.IInputActionManager;
 import ch.nolix.systemapi.guiapi.inputapi.IInputTaker;
@@ -32,4 +31,13 @@ TopLeftPositionedRecangular {
 	 * @return the current {@link Widget}.
 	 */
 	W setFocused();
+	
+	//method declaration
+	/**
+	 * Sets the position of the current {@link IWidget} on its parent.
+	 * 
+	 * @param xPositionOnParent
+	 * @param yPositionOnParent
+	 */
+	void setPositionOnParent(int xPositionOnParent, int yPositionOnParent);
 }

@@ -1305,10 +1305,7 @@ implements IWidget<W, WL> {
 	
 	//method
 	/**
-	 * Sets the position of the current {@link Widget} on its parent.
-	 * 
-	 * @param xPositionOnParent
-	 * @param yPositionOnParent
+	 * {@inheritDoc}
 	 */
 	public final void setPositionOnParent(final int xPositionOnParent,	final int yPositionOnParent) {				
 		this.xPositionOnContentAreaOfParent = xPositionOnParent;
