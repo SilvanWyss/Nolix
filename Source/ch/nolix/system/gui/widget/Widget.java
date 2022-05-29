@@ -1127,10 +1127,9 @@ implements IWidget<W> {
 	
 	//method
 	/**
-	 * Sets the current {@link Widget} focused.
-	 * 
-	 * @return the current {@link Widget}.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public final W setFocused() {
 		
 		focused = true;
