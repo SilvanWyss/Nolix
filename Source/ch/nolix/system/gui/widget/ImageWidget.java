@@ -6,11 +6,11 @@ import ch.nolix.core.constant.PascalCaseCatalogue;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.skilluniversalapi.Clearable;
 import ch.nolix.system.element.MutableOptionalValue;
-import ch.nolix.system.elementenum.RotationDirection;
 import ch.nolix.system.gui.image.MutableImage;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
+import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
 
 //class
 public final class ImageWidget extends BorderWidget<ImageWidget, ImageWidgetLook> implements Clearable {

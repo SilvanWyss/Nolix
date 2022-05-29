@@ -12,7 +12,6 @@ import ch.nolix.core.functionuniversalapi.IElementTaker;
 import ch.nolix.core.math.Calculator;
 import ch.nolix.system.element.MultiValue;
 import ch.nolix.system.element.SubElement;
-import ch.nolix.system.elementenum.RotationDirection;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.widget.Label;
 import ch.nolix.system.gui.widget.LabelLook;
@@ -20,6 +19,7 @@ import ch.nolix.system.gui.widget.Widget;
 import ch.nolix.system.gui.widget.WidgetLookState;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
+import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
 
 //class
 /**

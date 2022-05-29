@@ -7,8 +7,8 @@ import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.system.elementenum.RotationDirection;
 import ch.nolix.systemapi.elementuniversalapi.Specified;
+import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
 
 //enum
 public enum MouseInputType implements Specified {

@@ -13,11 +13,11 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentEx
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.element.MultiValueExtractor;
 import ch.nolix.system.element.MutableOptionalValue;
-import ch.nolix.system.elementenum.RotationDirection;
 import ch.nolix.system.gui.base.WidgetGUI;
 import ch.nolix.system.gui.widget.Widget;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
+import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
 
 //class
 /**

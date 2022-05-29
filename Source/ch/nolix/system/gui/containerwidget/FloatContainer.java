@@ -5,11 +5,11 @@ package ch.nolix.system.gui.containerwidget;
 import ch.nolix.core.constant.PascalCaseCatalogue;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.system.element.MultiValueExtractor;
-import ch.nolix.system.elementenum.RotationDirection;
 import ch.nolix.system.gui.base.WidgetGUI;
 import ch.nolix.system.gui.widget.Widget;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
+import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
 
 //class
 public final class FloatContainer extends ContainerWidget<FloatContainer, FloatContainerLook> {

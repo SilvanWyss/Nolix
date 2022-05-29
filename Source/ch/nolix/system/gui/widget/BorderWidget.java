@@ -10,12 +10,12 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentEx
 import ch.nolix.core.math.Calculator;
 import ch.nolix.system.element.MutableOptionalValue;
 import ch.nolix.system.element.MutableValue;
-import ch.nolix.system.elementenum.RotationDirection;
 import ch.nolix.system.valueholder.IntOrPercentageHolder;
 import ch.nolix.system.valueholder.IntOrPercentageHolderValidator;
 import ch.nolix.systemapi.guiapi.baseapi.CursorIcon;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
+import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
 import ch.nolix.systemapi.guiapi.structureproperty.ContentPosition;
 
 //class

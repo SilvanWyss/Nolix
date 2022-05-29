@@ -5,12 +5,12 @@ package ch.nolix.system.gui.containerwidget;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.math.Calculator;
 import ch.nolix.system.element.MutableOptionalValueExtractor;
-import ch.nolix.system.elementenum.RotationDirection;
 import ch.nolix.system.gui.base.WidgetGUI;
 import ch.nolix.system.gui.widget.Widget;
 import ch.nolix.system.gui.widget.WidgetLookState;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
+import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
 
 //class
 public final class AligningContainer extends ContainerWidget<AligningContainer, AligningContainerLook> {

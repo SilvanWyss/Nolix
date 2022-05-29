@@ -22,7 +22,6 @@ import ch.nolix.core.skilluniversalapi.Recalculable;
 import ch.nolix.system.configuration.ConfigurableElement;
 import ch.nolix.system.element.ExtensionElement;
 import ch.nolix.system.element.MutableValueExtractor;
-import ch.nolix.system.elementenum.RotationDirection;
 import ch.nolix.system.gui.base.GUI;
 import ch.nolix.system.gui.base.Layer;
 import ch.nolix.system.gui.base.WidgetGUI;
@@ -36,6 +35,7 @@ import ch.nolix.systemapi.guiapi.inputapi.IInputTaker;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.inputdeviceapi.IKeyBoard;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
+import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
 
 //class
 /**

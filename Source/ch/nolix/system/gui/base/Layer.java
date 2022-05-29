@@ -26,7 +26,6 @@ import ch.nolix.system.element.MutableOptionalValue;
 import ch.nolix.system.element.MutableOptionalValueExtractor;
 import ch.nolix.system.element.MutableValue;
 import ch.nolix.system.element.OptionalValue;
-import ch.nolix.system.elementenum.RotationDirection;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.color.ColorGradient;
 import ch.nolix.system.gui.image.Background;
@@ -42,6 +41,7 @@ import ch.nolix.systemapi.guiapi.inputapi.IInputTaker;
 import ch.nolix.systemapi.guiapi.inputapi.IResizableInputTaker;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
+import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
 import ch.nolix.systemapi.guiapi.structureproperty.ExtendedContentPosition;
 
 //class

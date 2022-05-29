@@ -7,8 +7,8 @@ import java.awt.event.MouseWheelListener;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.system.elementenum.RotationDirection;
 import ch.nolix.system.gui.base.GUI;
+import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
 
 //class
 final class FrameVisualizerMouseWheelListener implements MouseWheelListener {

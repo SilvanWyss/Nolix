@@ -9,7 +9,6 @@ import ch.nolix.core.functionuniversalapi.I2ElementTaker;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.system.configuration.Configuration;
 import ch.nolix.system.element.MutableSpecificationValueExtractor;
-import ch.nolix.system.elementenum.RotationDirection;
 import ch.nolix.system.gui.base.InvisibleGUI;
 import ch.nolix.system.gui.base.Layer;
 import ch.nolix.system.gui.base.WidgetGUI;
@@ -21,6 +20,7 @@ import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.imageapi.ImageApplication;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
+import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
 
 //class
 public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> implements IWidgetGUI<InnerGUI> {

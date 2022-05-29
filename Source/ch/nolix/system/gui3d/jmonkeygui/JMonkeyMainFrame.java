@@ -14,7 +14,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IAction;
-import ch.nolix.system.elementenum.RotationDirection;
 import ch.nolix.system.gui3d.base.MainFrame;
 import ch.nolix.system.gui3d.base.Shape;
 import ch.nolix.system.gui3d.planarshape.Rectangle;
@@ -24,6 +23,7 @@ import ch.nolix.system.gui3d.shape.MultiShape;
 import ch.nolix.system.gui3d.shape.Pyramid;
 import ch.nolix.system.gui3d.shape.Sphere;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
+import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
 
 //class
 /**

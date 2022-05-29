@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.system.gui.input;
 
-import ch.nolix.system.elementenum.RotationDirection;
 import ch.nolix.systemapi.guiapi.inputapi.IInputTaker;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
+import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
 
 //class
 public class InputTakerStub implements IInputTaker {

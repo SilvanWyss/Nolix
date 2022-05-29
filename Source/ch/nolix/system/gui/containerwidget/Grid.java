@@ -9,12 +9,12 @@ import ch.nolix.core.container.matrix.Matrix;
 import ch.nolix.core.container.matrix.MatrixRow;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.element.MultiValueExtractor;
-import ch.nolix.system.elementenum.RotationDirection;
 import ch.nolix.system.gui.widget.Label;
 import ch.nolix.system.gui.widget.Widget;
 import ch.nolix.system.gui.widget.WidgetLookState;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
+import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
 
 //class
 public final class Grid extends ContainerWidget<Grid, GridLook> {

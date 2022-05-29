@@ -15,8 +15,8 @@ import ch.nolix.core.math.Calculator;
 import ch.nolix.core.skilluniversalapi.Clearable;
 import ch.nolix.system.element.MultiValue;
 import ch.nolix.system.element.SubElement;
-import ch.nolix.system.elementenum.RotationDirection;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
+import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
 
 //class
 public abstract class ItemMenu<IM extends ItemMenu<IM>> extends BorderWidget<IM, ItemMenuLook> implements Clearable {
