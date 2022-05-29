@@ -5,6 +5,7 @@ package ch.nolix.system.configuration;
 import ch.nolix.core.constant.PascalCaseCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.system.element.MutableOptionalValue;
+import ch.nolix.systemapi.elementapi.configurationapi.IConfiguration;
 
 //class
 /**
@@ -20,12 +21,12 @@ public abstract class ConfigurationElement<CE extends ConfigurationElement<CE>> 
 	private static final String CONFIGURATION_HEADER = PascalCaseCatalogue.CONFIGURATION;
 	
 	//attribute
-	private final MutableOptionalValue<Configuration> configuration =
+	private final MutableOptionalValue<IConfiguration> configuration =
 	new MutableOptionalValue<>(
 		CONFIGURATION_HEADER,
 		this::setConfiguration,
 		Configuration::fromSpecification,
-		Configuration::getSpecification
+		IConfiguration::getSpecification
 	);
 	
 	//method
@@ -53,7 +54,7 @@ public abstract class ConfigurationElement<CE extends ConfigurationElement<CE>> 
 	 * @return the current {@link ConfigurationElement}.
 	 * @throws ArgumentIsNullException if the given configuration is null.
 	 */
-	public CE setConfiguration(Configuration configuration) {
+	public CE setConfiguration(IConfiguration configuration) {
 		
 		this.configuration.setValue(configuration);
 		updateFromConfiguration();
@@ -97,7 +98,7 @@ public abstract class ConfigurationElement<CE extends ConfigurationElement<CE>> 
 	/**
 	 * @return the {@link Configuration} of the current {@link ConfigurationElement}.
 	 */
-	private Configuration getRefConfiguration() {
+	private IConfiguration getRefConfiguration() {
 		return configuration.getValue();
 	}
 }

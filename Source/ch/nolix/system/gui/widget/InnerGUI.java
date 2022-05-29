@@ -7,13 +7,13 @@ import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.functionuniversalapi.I2ElementTaker;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
-import ch.nolix.system.configuration.Configuration;
 import ch.nolix.system.element.MutableSpecificationValueExtractor;
 import ch.nolix.system.gui.base.InvisibleGUI;
 import ch.nolix.system.gui.base.Layer;
 import ch.nolix.system.gui.base.WidgetGUI;
 import ch.nolix.system.gui.image.Image;
 import ch.nolix.system.gui.image.MutableImage;
+import ch.nolix.systemapi.elementapi.configurationapi.IConfiguration;
 import ch.nolix.systemapi.guiapi.baseapi.IWidgetGUI;
 import ch.nolix.systemapi.guiapi.baseapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
@@ -191,7 +191,7 @@ public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> impleme
 	
 	//method
 	@Override
-	public InnerGUI setConfiguration(final Configuration configuration) {
+	public InnerGUI setConfiguration(final IConfiguration configuration) {
 		
 		internalGUI.setConfiguration(configuration);
 		

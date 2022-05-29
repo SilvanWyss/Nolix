@@ -6,10 +6,10 @@ import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.functionuniversalapi.I2ElementTaker;
 import ch.nolix.core.skilluniversalapi.Clearable;
-import ch.nolix.system.configuration.Configuration;
 import ch.nolix.system.gui.base.Layer;
 import ch.nolix.system.gui.widget.Widget;
 import ch.nolix.systemapi.elementapi.configurationapi.IConfigurableElement;
+import ch.nolix.systemapi.elementapi.configurationapi.IConfiguration;
 import ch.nolix.systemapi.guiapi.baseapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.imageapi.ImageApplication;
@@ -39,5 +39,5 @@ public interface IWidgetGUI<WG extends IWidgetGUI<WG>> extends Clearable,  IBase
 	WG setBackgroundImage(IImage backgroundImage, ImageApplication imageApplication);
 	
 	//method declaration
-	WG setConfiguration(Configuration configuration);
+	WG setConfiguration(IConfiguration configuration);
 }
