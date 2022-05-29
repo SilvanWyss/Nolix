@@ -6,7 +6,7 @@ import java.awt.Graphics;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
-import ch.nolix.systemapi.elementuniversalapi.Specified;
+import ch.nolix.systemapi.elementuniversalapi.mainuniversalapi.Specified;
 
 //interface
 public interface ITextFormat extends Specified {

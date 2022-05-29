@@ -7,6 +7,7 @@ import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.requestuniversalapi.ContainsElementByStringIdRequestable;
 import ch.nolix.core.skilluniversalapi.TypeRequestable;
+import ch.nolix.systemapi.elementuniversalapi.mainuniversalapi.IMutableElement;
 
 //interface
 /**

@@ -5,7 +5,7 @@ package ch.nolix.system.gui.widget;
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.Node;
-import ch.nolix.systemapi.elementuniversalapi.Specified;
+import ch.nolix.systemapi.elementuniversalapi.mainuniversalapi.Specified;
 
 //enum
 /**

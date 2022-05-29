@@ -11,7 +11,7 @@ import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.systemapi.elementuniversalapi.IMutableElement;
+import ch.nolix.systemapi.elementuniversalapi.mainuniversalapi.IMutableElement;
 
 //class
 /**

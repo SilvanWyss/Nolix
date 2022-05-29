@@ -7,7 +7,7 @@ import java.awt.image.BufferedImage;
 //own imports
 import ch.nolix.core.container.matrix.Matrix;
 import ch.nolix.core.document.node.Node;
-import ch.nolix.systemapi.elementuniversalapi.Specified;
+import ch.nolix.systemapi.elementuniversalapi.mainuniversalapi.Specified;
 import ch.nolix.systemapi.guiapi.baseapi.colorapi.IColor;
 
 //interface
