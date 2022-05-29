@@ -28,7 +28,7 @@ import ch.nolix.system.gui.base.LocalFrontEndReader;
 import ch.nolix.system.gui.base.LocalFrontEndWriter;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.image.Image;
-import ch.nolix.systemapi.elementapi.IConfigurableElement;
+import ch.nolix.systemapi.elementapi.configurationapi.IConfigurableElement;
 import ch.nolix.systemapi.guiapi.baseapi.CursorIcon;
 import ch.nolix.systemapi.guiapi.baseapi.IBaseGUI;
 import ch.nolix.systemapi.guiapi.baseapi.IFrontEndReader;

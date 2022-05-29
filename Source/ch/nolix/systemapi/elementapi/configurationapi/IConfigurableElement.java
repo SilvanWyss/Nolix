@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemapi.elementapi;
+package ch.nolix.systemapi.elementapi.configurationapi;
 
 import ch.nolix.core.attributeuniversalapi.mutableoptionalattributeuniversalapi.OptionalIdentifiableByString;
 import ch.nolix.core.attributeuniversalapi.mutableoptionalattributeuniversalapi.OptionalTokenable;

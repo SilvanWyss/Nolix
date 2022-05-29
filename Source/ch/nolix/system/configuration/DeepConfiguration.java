@@ -8,7 +8,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.element.MutableOptionalValue;
-import ch.nolix.systemapi.elementapi.IConfigurableElement;
+import ch.nolix.systemapi.elementapi.configurationapi.IConfigurableElement;
 
 //class
 /**

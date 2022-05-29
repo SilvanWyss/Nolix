@@ -12,7 +12,7 @@ import ch.nolix.system.configuration.ConfigurableElement;
 import ch.nolix.system.element.MutableValueExtractor;
 import ch.nolix.system.geometry.Point2D;
 import ch.nolix.system.geometry.Point3D;
-import ch.nolix.systemapi.elementapi.IConfigurableElement;
+import ch.nolix.systemapi.elementapi.configurationapi.IConfigurableElement;
 
 //class
 /**
