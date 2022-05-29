@@ -1,12 +1,15 @@
 //package declaration
 package ch.nolix.systemapi.elementapi.configurationapi;
 
+//own imports
+import ch.nolix.systemapi.elementapi.mainuniversalapi.Specified;
+
 //interface
 /**
  * @author Silvan Wyss
  * @date 2022-05-29
  */
-public interface IConfiguration {
+public interface IConfiguration extends Specified {
 	
 	//method
 	/**
