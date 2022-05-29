@@ -54,9 +54,7 @@ public final class Configuration extends BaseConfiguration<Configuration> {
 	
 	//method
 	/**
-	 * Lets this configuration configure the given element.
-	 * 
-	 * @param element
+	 * {@inheritDoc}
 	 */
 	@Override
 	public void configure(final IConfigurableElement<?> element) {

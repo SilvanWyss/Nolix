@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.configuration;
 
+//own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.document.node.BaseNode;
@@ -15,6 +16,7 @@ import ch.nolix.system.element.MutableElement;
 import ch.nolix.system.element.MutableOptionalValue;
 import ch.nolix.system.gui.widget.Widget;
 import ch.nolix.systemapi.elementapi.configurationapi.IConfigurableElement;
+import ch.nolix.systemapi.elementapi.configurationapi.IConfiguration;
 
 //class
 /**
@@ -22,7 +24,9 @@ import ch.nolix.systemapi.elementapi.configurationapi.IConfigurableElement;
  * @date 2016-01-01
  * @param <C> is the type of a {@link BaseConfiguration}.
  */
-public abstract class BaseConfiguration<C extends BaseConfiguration<C>> extends MutableElement<C> {
+public abstract class BaseConfiguration<C extends BaseConfiguration<C>>
+extends MutableElement<C>
+implements IConfiguration {
 	
 	//constants
 	private static final String SELECTOR_TYPE_HEADER = "SelectorType";
@@ -259,14 +263,6 @@ public abstract class BaseConfiguration<C extends BaseConfiguration<C>> extends 
 	public final boolean containsSelectorTokens() {
 		return selectorTokens.containsAny();
 	}
-	
-	//method declaration
-	/**
-	 * Lets the current {@link BaseConfiguration} configure the given element.
-	 * 
-	 * @param element
-	 */
-	public abstract void configure(IConfigurableElement<?> element);
 	
 	//method
 	/**
