@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemapi.elementuniversalapi;
+package ch.nolix.systemapi.elementapi;
 
 import ch.nolix.core.attributeuniversalapi.mutableoptionalattributeuniversalapi.OptionalIdentifiableByString;
 import ch.nolix.core.attributeuniversalapi.mutableoptionalattributeuniversalapi.OptionalTokenable;
@@ -7,7 +7,7 @@ import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.requestuniversalapi.ContainsElementByStringIdRequestable;
 import ch.nolix.core.skilluniversalapi.TypeRequestable;
-import ch.nolix.systemapi.elementuniversalapi.mainuniversalapi.IMutableElement;
+import ch.nolix.systemapi.elementapi.mainuniversalapi.IMutableElement;
 
 //interface
 /**

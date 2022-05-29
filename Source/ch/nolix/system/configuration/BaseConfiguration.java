@@ -14,7 +14,7 @@ import ch.nolix.system.element.MultiValue;
 import ch.nolix.system.element.MutableElement;
 import ch.nolix.system.element.MutableOptionalValue;
 import ch.nolix.system.gui.widget.Widget;
-import ch.nolix.systemapi.elementuniversalapi.IConfigurableElement;
+import ch.nolix.systemapi.elementapi.IConfigurableElement;
 
 //class
 /**

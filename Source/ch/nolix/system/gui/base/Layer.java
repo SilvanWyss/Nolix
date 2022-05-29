@@ -32,7 +32,7 @@ import ch.nolix.system.gui.image.Background;
 import ch.nolix.system.gui.image.MutableImage;
 import ch.nolix.system.gui.widget.BorderWidget;
 import ch.nolix.system.gui.widget.Widget;
-import ch.nolix.systemapi.elementuniversalapi.IConfigurableElement;
+import ch.nolix.systemapi.elementapi.IConfigurableElement;
 import ch.nolix.systemapi.guiapi.baseapi.CursorIcon;
 import ch.nolix.systemapi.guiapi.baseapi.IOccupiableCanvasInputActionManager;
 import ch.nolix.systemapi.guiapi.baseapi.colorapi.IColor;

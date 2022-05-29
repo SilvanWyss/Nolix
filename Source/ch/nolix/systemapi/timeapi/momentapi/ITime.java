@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.timeapi.momentapi;
 
-import ch.nolix.systemapi.elementuniversalapi.mainuniversalapi.Specified;
+import ch.nolix.systemapi.elementapi.mainuniversalapi.Specified;
 
 //interface
 public interface ITime extends Specified {

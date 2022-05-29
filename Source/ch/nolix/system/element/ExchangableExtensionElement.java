@@ -1,7 +1,7 @@
 //package declaraiton
 package ch.nolix.system.element;
 
-import ch.nolix.systemapi.elementuniversalapi.mainuniversalapi.IRespondingMutableElement;
+import ch.nolix.systemapi.elementapi.mainuniversalapi.IRespondingMutableElement;
 
 //class
 public final class ExchangableExtensionElement<E extends IRespondingMutableElement<E>>
