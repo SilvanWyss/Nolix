@@ -19,10 +19,10 @@ import ch.nolix.core.net.targetuniversalapi.IApplicationTarget;
 import ch.nolix.core.programcontrol.sequencer.Sequencer;
 import ch.nolix.system.application.main.BackendClient;
 import ch.nolix.system.gui.base.GUI;
-import ch.nolix.system.gui.base.IWidgetGUI;
 import ch.nolix.system.gui.base.InvisibleGUI;
 import ch.nolix.system.gui.input.InputFactory;
 import ch.nolix.system.gui.input.MouseInput;
+import ch.nolix.systemapi.guiapi.baseapi.IWidgetGUI;
 import ch.nolix.systemapi.guiapi.inputapi.IInput;
 
 //class
