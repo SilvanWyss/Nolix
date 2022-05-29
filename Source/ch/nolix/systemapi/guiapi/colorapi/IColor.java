@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemapi.guiapi.baseapi.colorapi;
+package ch.nolix.systemapi.guiapi.colorapi;
 
 //Java imports
 import java.awt.Color;

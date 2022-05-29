@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.systemapi.guiapi.painterapi;
 
-//own imports
-import ch.nolix.systemapi.guiapi.baseapi.colorapi.IColor;
-import ch.nolix.systemapi.guiapi.baseapi.colorapi.IColorGradient;
+import ch.nolix.systemapi.guiapi.colorapi.IColor;
+import ch.nolix.systemapi.guiapi.colorapi.IColorGradient;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.textformatapi.ITextFormat;
 

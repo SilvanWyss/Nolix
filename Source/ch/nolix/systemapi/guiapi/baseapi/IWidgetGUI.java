@@ -10,7 +10,7 @@ import ch.nolix.core.skilluniversalapi.Clearable;
 import ch.nolix.system.gui.widget.Widget;
 import ch.nolix.systemapi.elementapi.configurationapi.IConfigurableElement;
 import ch.nolix.systemapi.elementapi.configurationapi.IConfiguration;
-import ch.nolix.systemapi.guiapi.baseapi.colorapi.IColor;
+import ch.nolix.systemapi.guiapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.imageapi.ImageApplication;
 import ch.nolix.systemapi.guiapi.inputdeviceapi.IKeyBoard;
