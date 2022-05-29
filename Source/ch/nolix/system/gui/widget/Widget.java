@@ -15,10 +15,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.I2ElementTaker;
 import ch.nolix.core.functionuniversalapi.IElementTaker;
-import ch.nolix.core.griduniversalapi.TopLeftPositionedRecangular;
-import ch.nolix.core.requestuniversalapi.EnablingRequestable;
-import ch.nolix.core.requestuniversalapi.ExpansionRequestable;
-import ch.nolix.core.skilluniversalapi.Recalculable;
 import ch.nolix.system.configuration.ConfigurableElement;
 import ch.nolix.system.element.ExtensionElement;
 import ch.nolix.system.element.MutableValueExtractor;
@@ -30,12 +26,11 @@ import ch.nolix.systemapi.elementapi.configurationapi.IConfigurableElement;
 import ch.nolix.systemapi.guiapi.baseapi.CursorIcon;
 import ch.nolix.systemapi.guiapi.baseapi.IFrontEndReader;
 import ch.nolix.systemapi.guiapi.baseapi.IFrontEndWriter;
-import ch.nolix.systemapi.guiapi.baseapi.IInputActionManager;
-import ch.nolix.systemapi.guiapi.inputapi.IInputTaker;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.inputdeviceapi.IKeyBoard;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
+import ch.nolix.systemapi.guiapi.widgetapi.IWidget;
 import ch.nolix.systemapi.guiapi.widgetguiapi.IWidgetGUI;
 
 //class
@@ -55,13 +50,7 @@ import ch.nolix.systemapi.guiapi.widgetguiapi.IWidgetGUI;
  * @param <WL> is the type of the {@link WidgetLook} of a {@link Widget}.
  */
 public abstract class Widget<W extends Widget<W, WL>, WL extends WidgetLook<WL>> extends ConfigurableElement<W>
-implements
-EnablingRequestable,
-ExpansionRequestable,
-IInputActionManager<W>,
-IInputTaker,
-Recalculable,
-TopLeftPositionedRecangular {
+implements IWidget<W> {
 	
 	//constant
 	public static final CursorIcon DEFAULT_CURSOR_ICON = CursorIcon.ARROW;
