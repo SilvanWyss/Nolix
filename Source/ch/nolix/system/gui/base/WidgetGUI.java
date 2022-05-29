@@ -18,7 +18,6 @@ import ch.nolix.core.programcontrol.processproperty.ChangeState;
 import ch.nolix.core.state.Visibility;
 import ch.nolix.system.element.CatchingProperty;
 import ch.nolix.system.element.MultiValue;
-import ch.nolix.system.elementenum.ExtendedContentPosition;
 import ch.nolix.system.elementenum.RotationDirection;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.color.ColorGradient;
@@ -53,6 +52,7 @@ import ch.nolix.systemapi.guiapi.imageapi.ImageApplication;
 import ch.nolix.systemapi.guiapi.inputapi.IResizableInputTaker;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
+import ch.nolix.systemapi.guiapi.structureproperty.ExtendedContentPosition;
 
 //class
 /**

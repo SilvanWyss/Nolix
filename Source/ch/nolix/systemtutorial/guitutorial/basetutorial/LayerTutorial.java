@@ -1,12 +1,12 @@
 package ch.nolix.systemtutorial.guitutorial.basetutorial;
 
-import ch.nolix.system.elementenum.ExtendedContentPosition;
 import ch.nolix.system.gui.base.Frame;
 import ch.nolix.system.gui.base.Layer;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.containerwidget.VerticalStack;
 import ch.nolix.system.gui.widget.Button;
 import ch.nolix.system.gui.widget.WidgetLookState;
+import ch.nolix.systemapi.guiapi.structureproperty.ExtendedContentPosition;
 
 /**
  * The {@link LayerTutorial} is a tutorial for {@link Layer}s.

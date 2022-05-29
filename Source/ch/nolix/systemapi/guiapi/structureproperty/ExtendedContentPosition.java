@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.elementenum;
+package ch.nolix.systemapi.guiapi.structureproperty;
 
 //own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
@@ -12,9 +12,9 @@ import ch.nolix.systemapi.elementuniversalapi.Specified;
 //enum
 /**
  * @author Silvan Wyss
- * @date 2016-09-01
+ * @date 2019-05-18
  */
-public enum ContentPosition implements Specified {
+public enum ExtendedContentPosition implements Specified {
 	TOP_LEFT,
 	TOP,
 	TOP_RIGHT,
@@ -23,15 +23,17 @@ public enum ContentPosition implements Specified {
 	RIGHT,
 	BOTTOM_LEFT,
 	BOTTOM,
-	BOTTOM_RIGHT;
+	BOTTOM_RIGHT,
+	FREE;
 	
 	//static method
 	/**
 	 * @param specification
-	 * @return a new {@link ContentPosition} from the given specification.
-	 * @throws InvalidArgumentException if the given specification does not represent a {@link ContentPosition}.
+	 * @return a new {@link ExtendedContentPosition} from the given specification.
+	 * @throws InvalidArgumentException
+	 * if the given specification does not represent a {@link ExtendedContentPosition}.
 	 */
-	public static ContentPosition fromSpecification(final BaseNode specification) {
+	public static ExtendedContentPosition fromSpecification(final BaseNode specification) {
 		return valueOf(GlobalStringHelper.toUpperSnakeCase(specification.getOneAttributeHeader()));
 	}
 	

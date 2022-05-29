@@ -11,8 +11,8 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.system.elementenum.UniDirection;
 import ch.nolix.systemapi.guiapi.baseapi.colorapi.IColorGradient;
+import ch.nolix.systemapi.guiapi.structureproperty.UniDirection;
 
 //class
 /**

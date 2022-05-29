@@ -6,7 +6,7 @@ import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
-import ch.nolix.system.elementenum.UniDirection;
+import ch.nolix.systemapi.guiapi.structureproperty.UniDirection;
 
 //class
 /**

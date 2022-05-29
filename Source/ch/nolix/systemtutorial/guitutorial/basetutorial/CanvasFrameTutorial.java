@@ -6,7 +6,6 @@ import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.functionuniversalapi.IElementTaker;
 import ch.nolix.system.application.baseguiapplication.PaintRun;
 import ch.nolix.system.elementenum.RotationDirection;
-import ch.nolix.system.elementenum.UniDirection;
 import ch.nolix.system.gui.base.CanvasFrame;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.color.ColorGradient;
@@ -14,6 +13,7 @@ import ch.nolix.system.gui.textformat.Font;
 import ch.nolix.system.gui.textformat.TextFormat;
 import ch.nolix.systemapi.guiapi.inputapi.IResizableInputTaker;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
+import ch.nolix.systemapi.guiapi.structureproperty.UniDirection;
 
 /**
  * The {@link CanvasFrameTutorial} is a tutorial for {@link CanvasFrame}s.

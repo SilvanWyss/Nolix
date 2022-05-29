@@ -7,10 +7,10 @@ import ch.nolix.core.constant.StringCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.system.element.MutableOptionalValue;
-import ch.nolix.system.elementenum.ContentPosition;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
+import ch.nolix.systemapi.guiapi.structureproperty.ContentPosition;
 
 //class
 /**

@@ -1,6 +1,5 @@
 package ch.nolix.systemtutorial.guitutorial.widgettutorial;
 
-import ch.nolix.system.elementenum.ContentPosition;
 import ch.nolix.system.gui.base.Frame;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.containerwidget.HorizontalStack;
@@ -8,6 +7,7 @@ import ch.nolix.system.gui.containerwidget.VerticalStack;
 import ch.nolix.system.gui.widget.HorizontalLine;
 import ch.nolix.system.gui.widget.Label;
 import ch.nolix.system.gui.widget.WidgetLookState;
+import ch.nolix.systemapi.guiapi.structureproperty.ContentPosition;
 
 /**
  * The {@link HorizontalLineWithCustomLookTutorial} is a tutorial for {@link HorizontalLineTutorial}s.

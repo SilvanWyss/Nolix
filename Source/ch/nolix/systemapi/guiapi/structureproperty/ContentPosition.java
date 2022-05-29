@@ -1,33 +1,37 @@
 //package declaration
-package ch.nolix.system.elementenum;
+package ch.nolix.systemapi.guiapi.structureproperty;
 
 //own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.systemapi.elementuniversalapi.Specified;
 
 //enum
 /**
- * A {@link UniDirection} defines the way between two points of a square.
- * A {@link UniDirection} does not (!) depend on the order of the start point and end point.
- * 
  * @author Silvan Wyss
- * @date 2017-09-16
+ * @date 2016-09-01
  */
-public enum UniDirection implements Specified {
-	HORIZONTAL,
-	VERTICAL,
-	DIAGONAL_UP,
-	DIAGONAL_DOWN;
-
-	//method
+public enum ContentPosition implements Specified {
+	TOP_LEFT,
+	TOP,
+	TOP_RIGHT,
+	LEFT,
+	CENTER,
+	RIGHT,
+	BOTTOM_LEFT,
+	BOTTOM,
+	BOTTOM_RIGHT;
+	
+	//static method
 	/**
 	 * @param specification
-	 * @return a new {@link UniDirection} from the given specification.
+	 * @return a new {@link ContentPosition} from the given specification.
+	 * @throws InvalidArgumentException if the given specification does not represent a {@link ContentPosition}.
 	 */
-	public static UniDirection fromSpecification(final BaseNode specification) {
+	public static ContentPosition fromSpecification(final BaseNode specification) {
 		return valueOf(GlobalStringHelper.toUpperSnakeCase(specification.getOneAttributeHeader()));
 	}
 	

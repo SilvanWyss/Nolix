@@ -4,9 +4,8 @@ package ch.nolix.systemapi.guiapi.baseapi.colorapi;
 //Java imports
 import java.awt.GradientPaint;
 
-//own imports
-import ch.nolix.system.elementenum.UniDirection;
 import ch.nolix.systemapi.elementuniversalapi.Specified;
+import ch.nolix.systemapi.guiapi.structureproperty.UniDirection;
 
 //interface
 public interface IColorGradient extends Specified {
