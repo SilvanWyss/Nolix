@@ -1,9 +1,9 @@
 package ch.nolix.systemtutorial.guitutorial.basetutorial;
 
 import ch.nolix.system.gui.base.Frame;
-import ch.nolix.system.gui.base.Layer;
 import ch.nolix.system.gui.widget.Label;
 import ch.nolix.system.gui.widget.WidgetLookState;
+import ch.nolix.system.gui.widgetgui.Layer;
 import ch.nolix.systemapi.guiapi.structureproperty.ExtendedContentPosition;
 
 /**

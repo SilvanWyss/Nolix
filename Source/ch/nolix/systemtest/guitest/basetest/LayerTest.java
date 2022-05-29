@@ -5,7 +5,7 @@ package ch.nolix.systemtest.guitest.basetest;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
-import ch.nolix.system.gui.base.Layer;
+import ch.nolix.system.gui.widgetgui.Layer;
 
 //class
 public final class LayerTest extends Test {

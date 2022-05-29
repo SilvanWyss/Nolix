@@ -3,6 +3,7 @@ package ch.nolix.system.gui.base;
 
 //own imports
 import ch.nolix.core.state.Visibility;
+import ch.nolix.system.gui.widgetgui.WidgetGUI;
 import ch.nolix.systemapi.guiapi.inputapi.IResizableInputTaker;
 
 //class

@@ -21,7 +21,7 @@ import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 import ch.nolix.systemapi.guiapi.textformatapi.ITextFormat;
 
 //class
-final class CanvasGUICommandCreatorPainter extends BasePainter implements Indexed {
+public final class CanvasGUICommandCreatorPainter extends BasePainter implements Indexed {
 	
 	//constant
 	public static final TextFormat DEFAULT_TEXT_FORMAT = new TextFormat();
@@ -317,7 +317,7 @@ final class CanvasGUICommandCreatorPainter extends BasePainter implements Indexe
 	}
 	
 	//method
-	LinkedList<ChainedNode> internalGetRefPaintCommands() {
+	public LinkedList<ChainedNode> internalGetRefPaintCommands() {
 		return bottom.internalGetRefPaintCommands();
 	}
 	

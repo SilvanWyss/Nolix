@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.gui.base;
+package ch.nolix.system.gui.widgetgui;
 
 //own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
@@ -18,6 +18,9 @@ import ch.nolix.core.programcontrol.processproperty.ChangeState;
 import ch.nolix.core.state.Visibility;
 import ch.nolix.system.element.CatchingProperty;
 import ch.nolix.system.element.MultiValue;
+import ch.nolix.system.gui.base.CanvasGUICommandCreatorPainter;
+import ch.nolix.system.gui.base.GUI;
+import ch.nolix.system.gui.base.IVisualizer;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.color.ColorGradient;
 import ch.nolix.system.gui.containerwidget.Accordion;

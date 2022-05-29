@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.gui.base;
+package ch.nolix.system.gui.widgetgui;
 
 //Java imports
 import java.lang.reflect.InvocationTargetException;

@@ -4,8 +4,8 @@ package ch.nolix.systemtest.guitest.basetest;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.testing.basetest.TestCase;
-import ch.nolix.system.gui.base.Layer;
-import ch.nolix.system.gui.base.WidgetGUI;
+import ch.nolix.system.gui.widgetgui.Layer;
+import ch.nolix.system.gui.widgetgui.WidgetGUI;
 
 //class
 public abstract class WidgetGUITest<WG extends WidgetGUI<WG>> extends GUITest<WG> {

@@ -4,6 +4,7 @@ package ch.nolix.system.gui.base;
 //own imports
 import ch.nolix.core.state.Visibility;
 import ch.nolix.system.gui.widget.Widget;
+import ch.nolix.system.gui.widgetgui.WidgetGUI;
 
 //class
 public class InvisibleGUI extends WidgetGUI<InvisibleGUI> {

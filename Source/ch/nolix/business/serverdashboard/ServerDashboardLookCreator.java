@@ -4,12 +4,12 @@ package ch.nolix.business.serverdashboard;
 //own imports
 import ch.nolix.system.configuration.Configuration;
 import ch.nolix.system.configuration.DeepConfiguration;
-import ch.nolix.system.gui.base.Layer;
 import ch.nolix.system.gui.containerwidget.ContainerRole;
 import ch.nolix.system.gui.containerwidget.FloatContainer;
 import ch.nolix.system.gui.widget.ImageWidget;
 import ch.nolix.system.gui.widget.Label;
 import ch.nolix.system.gui.widget.LabelRole;
+import ch.nolix.system.gui.widgetgui.Layer;
 
 //class
 public final class ServerDashboardLookCreator {

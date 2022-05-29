@@ -11,6 +11,7 @@ import ch.nolix.core.functionuniversalapi.IElementTaker;
 import ch.nolix.core.skilluniversalapi.Clearable;
 import ch.nolix.system.element.Property;
 import ch.nolix.system.gui.widget.Widget;
+import ch.nolix.system.gui.widgetgui.WidgetGUI;
 
 //class
 public final class MutableOptionalWidgetProperty extends Property implements Clearable {

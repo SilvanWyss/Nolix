@@ -4,7 +4,7 @@ package ch.nolix.system.gui.widget;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.system.gui.base.Layer;
+import ch.nolix.system.gui.widgetgui.Layer;
 import ch.nolix.systemapi.guiapi.widgetguiapi.IWidgetGUI;
 
 //class
