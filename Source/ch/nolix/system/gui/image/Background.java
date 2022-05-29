@@ -127,7 +127,7 @@ public final class Background extends MutableElement<Background> {
 	}
 	
 	//method
-	public void setImage(final MutableImage mutableImage, final ImageApplication imageApplication) {
+	public void setImage(final IImage mutableImage, final ImageApplication imageApplication) {
 		setImage(new Pair<>(mutableImage, imageApplication));
 	}
 	

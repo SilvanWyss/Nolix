@@ -932,7 +932,7 @@ implements Clearable, IOccupiableCanvasInputActionManager<Layer>, IResizableInpu
 	 * @throws ArgumentIsNullException if the given backgroundColor is null.
 	 * @throws ArgumentIsNullException if the given imageApplication is null.
 	 */
-	public Layer setBackgroundImage(final MutableImage backgroundImage, final ImageApplication imageApplication) {
+	public Layer setBackgroundImage(final IImage backgroundImage, final ImageApplication imageApplication) {
 		
 		final var lBackground = new Background();
 		lBackground.setImage(backgroundImage, imageApplication);

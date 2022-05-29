@@ -605,7 +605,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 * @return the current {@link WidgetGUI}.
 	 * @throws ArgumentIsNullException if the given backgroundImage is null.
 	 */
-	public final WG setBackgroundImage(final MutableImage backgroundImage) {
+	public final WG setBackgroundImage(final IImage backgroundImage) {
 		return setBackgroundImage(backgroundImage, ImageApplication.SCALE_TO_FRAME);
 	}
 	
@@ -620,7 +620,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 * @throws ArgumentIsNullException if the given backgroundImage is null.
 	 * @throws ArgumentIsNullException if the given imageApplication is null.
 	 */
-	public final WG setBackgroundImage(final MutableImage backgroundImage, final ImageApplication imageApplication) {
+	public final WG setBackgroundImage(final IImage backgroundImage, final ImageApplication imageApplication) {
 		
 		background.setBackgroundImage(backgroundImage, imageApplication);
 		

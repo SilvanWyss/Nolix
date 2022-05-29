@@ -173,7 +173,7 @@ public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> impleme
 	
 	//method
 	@Override
-	public InnerGUI setBackgroundImage(final MutableImage backgroundImage) {
+	public InnerGUI setBackgroundImage(final IImage backgroundImage) {
 		
 		internalGUI.setBackgroundImage(backgroundImage);
 		
@@ -182,7 +182,7 @@ public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> impleme
 	
 	//method
 	@Override
-	public InnerGUI setBackgroundImage(final MutableImage backgroundImage, final ImageApplication imageApplication) {
+	public InnerGUI setBackgroundImage(final IImage backgroundImage, final ImageApplication imageApplication) {
 		
 		internalGUI.setBackgroundImage(backgroundImage, imageApplication);
 		

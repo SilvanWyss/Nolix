@@ -8,7 +8,6 @@ import ch.nolix.core.functionuniversalapi.I2ElementTaker;
 import ch.nolix.core.skilluniversalapi.Clearable;
 import ch.nolix.system.configuration.Configuration;
 import ch.nolix.system.gui.base.Layer;
-import ch.nolix.system.gui.image.MutableImage;
 import ch.nolix.system.gui.widget.Widget;
 import ch.nolix.systemapi.elementuniversalapi.IConfigurableElement;
 import ch.nolix.systemapi.guiapi.baseapi.colorapi.IColor;
@@ -34,10 +33,10 @@ public interface IWidgetGUI<WG extends IWidgetGUI<WG>> extends Clearable,  IBase
 	WG setBackgroundColor(IColor backgroundColor);
 	
 	//method declaration
-	WG setBackgroundImage(MutableImage backgroundImage);
+	WG setBackgroundImage(IImage backgroundImage);
 	
 	//method declaration
-	WG setBackgroundImage(MutableImage backgroundImage, ImageApplication imageApplication);
+	WG setBackgroundImage(IImage backgroundImage, ImageApplication imageApplication);
 	
 	//method declaration
 	WG setConfiguration(Configuration configuration);
