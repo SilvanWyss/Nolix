@@ -52,6 +52,48 @@ TopLeftPositionedRecangular {
 	
 	//method declaration
 	/**
+	 * @return true if the current {@link IWidget} has a left mouse button press action.
+	 */
+	boolean hasLeftMouseButtonPressAction();
+	
+	//method declaration
+	/**
+	 * @return true if the current {@link IWidget} has a left mouse button release action.
+	 */
+	boolean hasLeftMouseButtonReleaseAction();
+	
+	//method declaration
+	/**
+	 * @return true if the current {@link IWidget} has a right mouse button press action.
+	 */
+	boolean hasRightMouseButtonPressAction();
+	
+	//method declaration
+	/**
+	 * @return true if the current {@link IWidget} has a right mouse button release action.
+	 */
+	boolean hasRightMouseButtonReleaseAction();
+	
+	//method declaration
+	/**
+	 * @return true if the current {@link IWidget} is focused.
+	 */
+	boolean isFocused();
+	
+	//method declaration
+	/**
+	 * @return true if the current {@link IWidget} is hovered.
+	 */
+	boolean isHovered();
+	
+	//method declaration
+	/**
+	 * @return true if the current {@link IWidget} is under the cursor.
+	 */
+	boolean isUnderCursor();
+	
+	//method declaration
+	/**
 	 * Sets the current {@link IWidget} focused.
 	 * 
 	 * @return the current {@link IWidget}.

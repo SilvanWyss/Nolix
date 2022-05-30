@@ -527,16 +527,18 @@ implements IWidget<W, WL> {
 	
 	//method
 	/**
-	 * @return true if the current {@link Widget} has a left mouse button press action.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public final boolean hasLeftMouseButtonPressAction() {
 		return (leftMouseButtonPressAction != null);
 	}
 	
 	//method
 	/**
-	 * @return true if the current {@link Widget} has a left mouse button release action.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public final boolean hasLeftMouseButtonReleaseAction() {
 		return (leftMouseButtonReleaseAction != null);
 	}
@@ -583,16 +585,18 @@ implements IWidget<W, WL> {
 	
 	//method
 	/**
-	 * @return true if the current {@link Widget} has a right mouse button press action.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public final boolean hasRightMouseButtonPressAction() {
 		return (rightMouseButtonPressAction != null);
 	}
 	
 	//method
 	/**
-	 * @return true if the current {@link Widget} has a right mouse button release action.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public final boolean hasRightMouseButtonReleaseAction() {
 		return (rightMouseButtonReleaseAction != null);
 	}
@@ -617,16 +621,18 @@ implements IWidget<W, WL> {
 	
 	//method
 	/**
-	 * @return true if the current {@link Widget} is focused.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public final boolean isFocused() {
 		return focused;
 	}
 	
 	//method
 	/**
-	 * @return true if the current {@link Widget} is hovered.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public final boolean isHovered() {
 		return hovered;
 	}
@@ -641,8 +647,9 @@ implements IWidget<W, WL> {
 	
 	//method
 	/**
-	 * @return true if the current {@link Widget} is under the cursor.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public final boolean isUnderCursor() {
 		return containsPointRelatively(cursorXPosition, cursorYPosition);
 	}
