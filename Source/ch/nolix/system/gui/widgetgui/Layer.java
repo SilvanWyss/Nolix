@@ -862,8 +862,9 @@ implements ILayer<Layer> {
 	//method
 	//For a better performance, this implementation does not use all comfortable methods.
 	/**
-	 * Removes the current {@link Layer} from its parent {@link GUI}.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public void removeSelfFromGUI() {
 		if (parentGUI != null) {
 			parentGUI.removeLayer(this);

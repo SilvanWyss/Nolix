@@ -91,4 +91,11 @@ Recalculable {
 	 * @param painter
 	 */
 	void paint(IPainter painter);
+	
+	//method declaration
+	/**
+	 * Removes the current {@link ILayer} from the {@link IWidgetGUI} it belongs to if
+	 * the current {@link ILayer} belongs to a {@link IWidgetGUI}.
+	 */
+	void removeSelfFromGUI();
 }
