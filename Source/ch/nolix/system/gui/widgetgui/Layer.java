@@ -24,7 +24,6 @@ import ch.nolix.system.element.MutableOptionalValue;
 import ch.nolix.system.element.MutableOptionalValueExtractor;
 import ch.nolix.system.element.MutableValue;
 import ch.nolix.system.element.OptionalValue;
-import ch.nolix.system.gui.base.GUI;
 import ch.nolix.system.gui.base.LayerRole;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.color.ColorGradient;
