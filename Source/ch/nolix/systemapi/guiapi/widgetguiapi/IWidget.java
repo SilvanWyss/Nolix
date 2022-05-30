@@ -6,6 +6,8 @@ import ch.nolix.core.griduniversalapi.TopLeftPositionedRecangular;
 import ch.nolix.core.requestuniversalapi.EnablingRequestable;
 import ch.nolix.core.requestuniversalapi.ExpansionRequestable;
 import ch.nolix.core.skilluniversalapi.Recalculable;
+import ch.nolix.system.gui.widget.Widget;
+import ch.nolix.system.gui.widgetgui.WidgetGUI;
 import ch.nolix.systemapi.elementapi.configurationapi.IConfigurableElement;
 import ch.nolix.systemapi.guiapi.baseapi.IInputActionManager;
 import ch.nolix.systemapi.guiapi.inputapi.IInputTaker;
@@ -23,6 +25,12 @@ IInputActionManager<W>,
 IInputTaker,
 Recalculable,
 TopLeftPositionedRecangular {
+	
+	//method declaration
+	/**
+	 * @return true if the current {@link IWidget} belongs to a {@link IWidgetGUI}, directly or indirectly.
+	 */
+	boolean belongsToGUI();
 	
 	//method declaration
 	/**

@@ -175,12 +175,12 @@ implements IWidget<W, WL> {
 	private IElementTaker<W> mouseWheelReleaseAction;
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
-	 * @return true if the current {@link Widget} belongs to a {@link WidgetGUI}, directly or indirectly.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public final boolean belongsToGUI() {
-		
-		//For a better performance, this implementation does not use all comfortable methods.
 		return (parent != null && parent.belongsToGUI());
 	}
 	
