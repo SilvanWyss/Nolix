@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemapi.guiapi.widgetapi;
+package ch.nolix.systemapi.guiapi.widgetguiapi;
 
 //interface
 public interface IWidgetLook<WL extends IWidgetLook<WL>> {

@@ -11,7 +11,6 @@ import ch.nolix.systemapi.guiapi.baseapi.CursorIcon;
 import ch.nolix.systemapi.guiapi.baseapi.IOccupiableCanvasInputActionManager;
 import ch.nolix.systemapi.guiapi.inputapi.IResizableInputTaker;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
-import ch.nolix.systemapi.guiapi.widgetapi.IWidget;
 
 //interface
 public interface ILayer<L extends ILayer<L>>

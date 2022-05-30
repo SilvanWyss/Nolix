@@ -30,7 +30,7 @@ import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.inputdeviceapi.IKeyBoard;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
-import ch.nolix.systemapi.guiapi.widgetapi.IWidget;
+import ch.nolix.systemapi.guiapi.widgetguiapi.IWidget;
 import ch.nolix.systemapi.guiapi.widgetguiapi.IWidgetGUI;
 
 //class

@@ -12,7 +12,7 @@ import ch.nolix.system.formatelement.FormatElement;
 import ch.nolix.system.formatelement.NonCascadingProperty;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.textformat.Font;
-import ch.nolix.systemapi.guiapi.widgetapi.IWidgetLook;
+import ch.nolix.systemapi.guiapi.widgetguiapi.IWidgetLook;
 
 //class
 public abstract class WidgetLook<WL extends WidgetLook<WL>>
