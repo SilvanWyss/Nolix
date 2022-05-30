@@ -250,6 +250,7 @@ implements ILayer<Layer> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public boolean belongsToGUI() {
 		return (parentGUI != null);
 	}
@@ -366,10 +367,9 @@ implements ILayer<Layer> {
 	//method
 	//For a better performance, this implementation does not use all comfortable methods.
 	/**
-	 * @return the {@link WidgetGUI} the current {@link Layer} belongs to.
-	 * @throws ArgumentDoesNotBelongToParentException
-	 * if the current {@link Layer} does not belong to a {@link WidgetGUI}.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public IWidgetGUI<?> getParentGUI() {
 		
 		//Asserts that the current Layer belongs to a GUI.
