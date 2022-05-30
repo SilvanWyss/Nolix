@@ -321,7 +321,7 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 		
 		
 		//Paints the widgets of the current grid.
-		getChildWidgets().forEach(w -> w.paintRecursively(painter));
+		getChildWidgets().forEach(w -> w.paint(painter));
 	}
 	
 	//method

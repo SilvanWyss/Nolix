@@ -230,7 +230,7 @@ public final class BorderWidgetContentArea<BWL extends BorderWidgetLook<BWL>> im
 		
 		parentBorderWidget.paintContentArea(painter.createPainter(), borderWidgetLook);
 		
-		parentBorderWidget.getRefWidgetsForPainting().forEach(cw -> cw.paintRecursively(painter));
+		parentBorderWidget.getRefWidgetsForPainting().forEach(cw -> cw.paint(painter));
 	}
 	
 	//method

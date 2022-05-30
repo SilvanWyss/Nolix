@@ -912,7 +912,7 @@ implements IWidget<W, WL> {
 	 * 
 	 * @param painter
 	 */
-	public final void paintRecursively(final IPainter painter) {
+	public final void paint(final IPainter painter) {
 		paintRecursivelyUsingPositionedPainter(painter.createPainter(getXPosition(), getYPosition()));
 	}
 	
@@ -1965,7 +1965,7 @@ implements IWidget<W, WL> {
 		paint(painter, lLook);
 		
 		if (paintsWidgetsForPaintingAPriori()) {
-			getRefWidgetsForPainting().forEach(w -> w.paintRecursively(painter));
+			getRefWidgetsForPainting().forEach(w -> w.paint(painter));
 		}
 	}
 	

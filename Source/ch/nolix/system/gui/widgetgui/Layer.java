@@ -832,7 +832,7 @@ implements ILayer<Layer> {
 		
 		//Handles the case that the current Layer has a root Widget.
 		if (rootWidget != null) {
-			rootWidget.paintRecursively(painter);
+			rootWidget.paint(painter);
 		}
 	}
 	
