@@ -46,6 +46,13 @@ TopLeftPositionedRecangular {
 	
 	//method declaration
 	/**
+	 * @return the {@link ILayer} the current {@link IWidget} belongs to.
+	 * @throws Exception if the current {@link IWidget} does not belong to a {@link ILayer}.
+	 */
+	ILayer<?> getParentLayer();
+	
+	//method declaration
+	/**
 	 * @return the active {@link IWidgetLook} of the current {@link IWidget}.
 	 */
 	WL getRefActiveLook();

@@ -373,9 +373,9 @@ implements IWidget<W, WL> {
 	
 	//method
 	/**
-	 * @return the {@link Layer} the current {@link Widget} belongs to.
-	 * @throws ArgumentDoesNotBelongToParentException if the current {@link Widget} does not belong to a {@link Layer}.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public final Layer getParentLayer() {
 		return getParent().getRefLayer();
 	}
