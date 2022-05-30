@@ -58,7 +58,7 @@ public final class DropdownMenuWithCustomLookTutorial {
 		);
 		
 		//Adds the DropdownMenu to the Frame.
-		frame.pushLayer(dropdownMenu);
+		frame.pushLayerWithWidget(dropdownMenu);
 	}
 	
 	/**

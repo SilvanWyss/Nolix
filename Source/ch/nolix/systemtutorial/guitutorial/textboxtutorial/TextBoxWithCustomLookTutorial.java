@@ -40,7 +40,7 @@ public final class TextBoxWithCustomLookTutorial {
 		);
 		
 		//Adds the TextBox to the Frame.
-		frame.pushLayer(textBox);
+		frame.pushLayerWithWidget(textBox);
 	}
 	
 	/**

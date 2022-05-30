@@ -30,7 +30,7 @@ public final class GUILooksTutorial {
 		//Creates a Frame with the SelectionMenu and several other Widgets.
 		new Frame()
 		.setTitle("GUILooks tutorial")
-		.pushLayer(
+		.pushLayerWithWidget(
 			new VerticalStack()
 			.setRole(ContainerRole.OVERALL_CONTAINTER)
 			.add(

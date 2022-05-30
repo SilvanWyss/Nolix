@@ -72,7 +72,7 @@ public final class FloatContainerTutorial {
 		}
 		
 		//Adds the FloatContainer to the frame.
-		frame.pushLayer(floatContainer);
+		frame.pushLayerWithWidget(floatContainer);
 	}
 	
 	/**

@@ -17,7 +17,7 @@ public final class CustomFractalTutorial {
 		final var frame =
 		new Frame()
 		.setTitle("Custom Fractal Tutorial")
-		.pushLayer(
+		.pushLayerWithWidget(
 			new ImageWidget()
 			.setImage(
 				new FractalBuilder()

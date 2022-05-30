@@ -42,7 +42,7 @@ public final class ImageWidgetWithBorderTutorial {
 		);
 		
 		//Adds the ImageWidget to the Frame.
-		frame.pushLayer(imageWidget);
+		frame.pushLayerWithWidget(imageWidget);
 	}
 	
 	/**

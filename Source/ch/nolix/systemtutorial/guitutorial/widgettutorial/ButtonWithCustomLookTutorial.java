@@ -52,7 +52,7 @@ public final class ButtonWithCustomLookTutorial {
 		);
 		
 		//Adds the Button to the Frame.
-		frame.pushLayer(button);
+		frame.pushLayerWithWidget(button);
 	}
 	
 	/**

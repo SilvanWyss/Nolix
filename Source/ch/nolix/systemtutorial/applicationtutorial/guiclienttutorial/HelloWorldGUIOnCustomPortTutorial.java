@@ -50,7 +50,7 @@ public final class HelloWorldGUIOnCustomPortTutorial {
 			label.getRefLook().setTextSizeForState(WidgetLookState.BASE, 50);
 			
 			//Adds the Label to the GUI of the current MainSession.
-			getRefGUI().pushLayer(label);
+			getRefGUI().pushLayerWithWidget(label);
 		}
 	}
 	

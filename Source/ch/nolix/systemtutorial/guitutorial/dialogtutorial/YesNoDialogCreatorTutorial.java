@@ -18,7 +18,7 @@ public final class YesNoDialogCreatorTutorial {
 		final var frame = new Frame().setTitle("YesNoDialog tutorial");
 		
 		//Adds a Button, that can open a YesNoDialog, to the Frame.
-		frame.pushLayer(
+		frame.pushLayerWithWidget(
 			new Button()
 			.setText("Quit")
 			.setLeftMouseButtonPressAction(

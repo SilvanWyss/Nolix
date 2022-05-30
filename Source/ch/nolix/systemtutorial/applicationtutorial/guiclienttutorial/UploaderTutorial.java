@@ -34,7 +34,7 @@ public class UploaderTutorial {
 		
 		@Override
 		protected void initialize() {
-			getRefGUI().pushLayer(new Uploader());
+			getRefGUI().pushLayerWithWidget(new Uploader());
 		}
 	}
 }

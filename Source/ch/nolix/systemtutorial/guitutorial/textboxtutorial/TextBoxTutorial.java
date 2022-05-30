@@ -27,7 +27,7 @@ public final class TextBoxTutorial {
 		final var textBox = new TextBox();
 		
 		//Adds the TextBox to the Frame.
-		frame.pushLayer(textBox);
+		frame.pushLayerWithWidget(textBox);
 	}
 	
 	/**

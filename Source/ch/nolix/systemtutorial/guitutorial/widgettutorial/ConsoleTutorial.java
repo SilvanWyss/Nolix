@@ -28,7 +28,7 @@ public final class ConsoleTutorial {
 		console.writeLine("Hello!");
 							
 		//Adds the Console to the Frame.
-		frame.pushLayer(console);
+		frame.pushLayerWithWidget(console);
 	}
 	
 	/**

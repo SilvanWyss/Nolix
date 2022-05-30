@@ -28,7 +28,7 @@ public final class UploadImageDialogCreatorTutorial {
 		//Create a ImageWidget.
 		final var imageWidget = new ImageWidget().setImage(image);
 		
-		frame.pushLayer(
+		frame.pushLayerWithWidget(
 			new VerticalStack()
 			.add(
 				imageWidget,

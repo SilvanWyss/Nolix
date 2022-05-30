@@ -22,7 +22,7 @@ public final class TextureCatalogueTutorial {
 		//Creates a Frame that will show the textures.
 		new Frame()
 		.setTitle("TextureCatalogue Tutorial")
-		.pushLayer(
+		.pushLayerWithWidget(
 			new FloatContainer()
 			.setProposalWidth(1000)
 			.onLook(

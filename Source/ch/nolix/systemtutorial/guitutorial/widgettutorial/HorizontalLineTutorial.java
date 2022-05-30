@@ -38,7 +38,7 @@ public final class HorizontalLineTutorial {
 		);
 		
 		//Adds the VerticalStack to the Frame.
-		frame.pushLayer(verticalStack);
+		frame.pushLayerWithWidget(verticalStack);
 	}
 	
 	/**

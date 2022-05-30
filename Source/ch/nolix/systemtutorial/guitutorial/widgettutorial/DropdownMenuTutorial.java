@@ -40,7 +40,7 @@ public final class DropdownMenuTutorial {
 		);
 		
 		//Adds the DropdownMenu to the Frame.
-		frame.pushLayer(dropdownMenu);
+		frame.pushLayerWithWidget(dropdownMenu);
 	}
 	
 	/**
