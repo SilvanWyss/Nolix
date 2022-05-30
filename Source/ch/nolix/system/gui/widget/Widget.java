@@ -1037,10 +1037,9 @@ implements IWidget<W, WL> {
 	
 	//method
 	/**
-	 * Sets the current {@link Widget} collapsed.
-	 * 
-	 * @return the current {@link Widget}.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public final W setCollapsed() {
 		
 		expanded = false;

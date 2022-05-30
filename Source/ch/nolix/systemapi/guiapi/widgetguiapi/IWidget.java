@@ -94,6 +94,14 @@ TopLeftPositionedRecangular {
 	
 	//method declaration
 	/**
+	 * Sets the current {@link IWidget} collapsed.
+	 * 
+	 * @return the current {@link IWidget}.
+	 */
+	W setCollapsed();
+	
+	//method declaration
+	/**
 	 * Sets the current {@link IWidget} focused.
 	 * 
 	 * @return the current {@link IWidget}.
