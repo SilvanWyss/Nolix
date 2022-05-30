@@ -104,8 +104,10 @@ implements IWidgetLook<WL> {
 	}
 	
 	//method
-	public final <WL2 extends WidgetLook<WL2>> void addChild(final WL2 widgetLook) {
-		internalAddChild(widgetLook);
+	@Override
+	@SuppressWarnings("unchecked")
+	public final <WL2 extends IWidgetLook<WL2>> void addChild(final WL2 widgetLook) {
+		internalAddChild((WL)widgetLook);
 	}
 	
 	//method
