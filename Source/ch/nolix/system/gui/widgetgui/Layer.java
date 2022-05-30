@@ -248,7 +248,7 @@ implements ILayer<Layer> {
 	
 	//method
 	/**
-	 * @return true if the current {@link Layer} belongs to a {@link WidgetGUI}.
+	 * {@inheritDoc}
 	 */
 	public boolean belongsToGUI() {
 		return (parentGUI != null);

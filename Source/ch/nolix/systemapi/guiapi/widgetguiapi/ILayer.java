@@ -34,6 +34,12 @@ Recalculable {
 	 */
 	boolean allowesConfiguration();
 	
+	//method
+	/**
+	 * @return true if the current {@link ILayer} belongs to a {@link IWidgetGUI}.
+	 */
+	boolean belongsToGUI();
+	
 	//method declaration
 	/**
 	 * @return the {@link CursorIcon} of the current {@link ILayer}.
