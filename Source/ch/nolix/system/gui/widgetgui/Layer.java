@@ -1262,10 +1262,7 @@ implements ILayer<Layer> {
 	
 	//method
 	//For a better performance, this implementation does not use all comfortable methods.
-	/**
-	 * {@inheritDoc}
-	 */
-	public void setParentGUI(final IWidgetGUI<?> parentGUI) {
+	void internalSetParentGUI(final IWidgetGUI<?> parentGUI) {
 		
 		GlobalValidator.assertThat(parentGUI).thatIsNamed("parent GUI").isNotNull();
 		

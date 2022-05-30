@@ -78,13 +78,4 @@ Recalculable {
 	 * @param painter
 	 */
 	void paint(IPainter painter);
-	
-	//method declaration
-	/**
-	 * Sets the {@link IWidgetGUI} the current {@link ILayer} will belong to.
-	 * 
-	 * @param parentGUI
-	 * @throws Exception if the given parentGUI is null.
-	 */
-	void setParentGUI(IWidgetGUI<?> parentGUI);
 }

@@ -483,7 +483,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 		
 		GlobalValidator.assertThat(layer).thatIsNamed(LowerCaseCatalogue.LAYER).isNotNull();
 		
-		layer.setParentGUI(this);
+		((Layer)layer).internalSetParentGUI(this);
 		layers.add(layer);
 		topLayer = layer;
 		
@@ -852,6 +852,6 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 * Initializes the background of the current {@link WidgetGUI}.
 	 */
 	private void initializeBackground() {
-		background.setParentGUI(this);
+		background.internalSetParentGUI(this);
 	}
 }
