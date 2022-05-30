@@ -358,10 +358,9 @@ implements IWidget<W, WL> {
 	
 	//method
 	/**
-	 * @return the {@link GUI} the current {@link Widget} belongs to, directly or indirectly.
-	 * @throws ArgumentDoesNotBelongToParentException
-	 * if the current {@link Widget} does not belong to a {@link GUI}.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public final IWidgetGUI<?> getParentGUI() {
 		
 		//Asserts that the current Widget belongs to a GUI.

@@ -6,9 +6,8 @@ import ch.nolix.core.griduniversalapi.TopLeftPositionedRecangular;
 import ch.nolix.core.requestuniversalapi.EnablingRequestable;
 import ch.nolix.core.requestuniversalapi.ExpansionRequestable;
 import ch.nolix.core.skilluniversalapi.Recalculable;
-import ch.nolix.system.gui.widget.Widget;
-import ch.nolix.systemapi.guiapi.baseapi.CursorIcon;
 import ch.nolix.systemapi.elementapi.configurationapi.IConfigurableElement;
+import ch.nolix.systemapi.guiapi.baseapi.CursorIcon;
 import ch.nolix.systemapi.guiapi.baseapi.IInputActionManager;
 import ch.nolix.systemapi.guiapi.inputapi.IInputTaker;
 
@@ -40,9 +39,16 @@ TopLeftPositionedRecangular {
 	
 	//method declaration
 	/**
-	 * Sets the current {@link Widget} focused.
+	 * @return the {@link IWidgetGUI} the current {@link IWidget} belongs to, directly or indirectly.
+	 * @throws Exception if the current {@link IWidget} does not belong to a {@link IWidgetGUI}.
+	 */
+	IWidgetGUI<?> getParentGUI();
+	
+	//method declaration
+	/**
+	 * Sets the current {@link IWidget} focused.
 	 * 
-	 * @return the current {@link Widget}.
+	 * @return the current {@link IWidget}.
 	 */
 	W setFocused();
 	
