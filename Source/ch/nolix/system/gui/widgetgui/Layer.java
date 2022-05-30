@@ -55,8 +55,7 @@ import ch.nolix.systemapi.guiapi.widgetguiapi.IWidgetGUI;
  * @author Silvan Wyss
  * @date 2019-05-18
  */
-public final class Layer extends ConfigurableElement<Layer>
-implements ILayer<Layer> {
+public final class Layer extends ConfigurableElement<Layer> implements ILayer<Layer> {
 	
 	//constant
 	public static final double DEFAULT_OPACITY_PERCENTAGE = 1.0;
