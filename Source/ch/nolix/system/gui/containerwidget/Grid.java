@@ -43,7 +43,7 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 		
 		setMaxWidth(1000);
 		setMaxHeight(500);
-		getRefLook()
+		getRefActiveLook()
 		.setGridTypeForState(WidgetLookState.BASE, GridType.INNER_LINES)
 		.setElementMarginForState(WidgetLookState.BASE, 10);
 	}
@@ -65,7 +65,7 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 		
 		var contentHeight = cells.getRows().getSumByInt(r -> r.getMaxInt(GridCell::getHeight));
 
-			switch (getRefLook().getGridType()) {
+			switch (getRefActiveLook().getGridType()) {
 				case INNER_LINES:
 					contentHeight += (getRowCount() - 1) * getLineThickness();
 					break;
@@ -86,7 +86,7 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 		var contentWidth = cells.getColumns().getSumByInt(c -> c.getMaxInt(GridCell::getWidth));
 		
 	
-			switch (getRefLook().getGridType()) {
+			switch (getRefActiveLook().getGridType()) {
 				case INNER_LINES:
 					contentWidth += (getColumnCount() - 1) * getLineThickness();
 					break;
@@ -104,7 +104,7 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 	//method
 	public int getElementMargin() {
 		
-		final var currentStructure = getRefLook();
+		final var currentStructure = getRefActiveLook();
 		
 		return currentStructure.getElementMargin();
 	}
@@ -122,7 +122,7 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 	//method
 	public boolean hasInnerAndOuterLines() {
 		
-		final var currentStructure = getRefLook();
+		final var currentStructure = getRefActiveLook();
 		
 		return (currentStructure.getGridType() == GridType.INNER_AND_OUTER_LINES);
 	}
@@ -441,6 +441,6 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 	
 	//method
 	private int getLineThicknessWhenHasLines() {
-		return getRefLook().getGridThickness();
+		return getRefActiveLook().getGridThickness();
 	}
 }

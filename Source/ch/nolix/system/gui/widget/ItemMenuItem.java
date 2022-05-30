@@ -216,7 +216,7 @@ public final class ItemMenuItem extends MutableElement<ItemMenuItem> implements 
 		
 	//method
 	void recalculate() {
-		label.getRefLook().setFrom(getRefItemLook());
+		label.getRefActiveLook().setFrom(getRefItemLook());
 		label.recalculate();
 	}
 

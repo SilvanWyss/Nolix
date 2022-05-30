@@ -66,7 +66,7 @@ public final class BorderWidgetBorderedArea<BWL extends BorderWidgetLook<BWL>> i
 	@Override
 	public int getHeight() {
 		
-		final var look = parentBorderWidget.getRefLook();
+		final var look = parentBorderWidget.getRefActiveLook();
 		
 		return
 		parentBorderWidget.getMainArea().getHeight()
@@ -82,7 +82,7 @@ public final class BorderWidgetBorderedArea<BWL extends BorderWidgetLook<BWL>> i
 	 */
 	public int getMaxHeight() {
 		
-		final var look = parentBorderWidget.getRefLook();
+		final var look = parentBorderWidget.getRefActiveLook();
 		
 		return
 		parentBorderWidget.getMainArea().getMaxHeight()
@@ -98,7 +98,7 @@ public final class BorderWidgetBorderedArea<BWL extends BorderWidgetLook<BWL>> i
 	 */
 	public int getMaxWidth() {
 		
-		final var look = parentBorderWidget.getRefLook();
+		final var look = parentBorderWidget.getRefActiveLook();
 		
 		return
 		parentBorderWidget.getMainArea().getMaxWidth()
@@ -114,7 +114,7 @@ public final class BorderWidgetBorderedArea<BWL extends BorderWidgetLook<BWL>> i
 	 */
 	public int getMinHeight() {
 		
-		final var look = parentBorderWidget.getRefLook();
+		final var look = parentBorderWidget.getRefActiveLook();
 		
 		return
 		parentBorderWidget.getMainArea().getMinHeight()
@@ -130,7 +130,7 @@ public final class BorderWidgetBorderedArea<BWL extends BorderWidgetLook<BWL>> i
 	 */
 	public int getMinWidth() {
 		
-		final var look = parentBorderWidget.getRefLook();
+		final var look = parentBorderWidget.getRefActiveLook();
 		
 		return
 		parentBorderWidget.getMainArea().getMinWidth()
@@ -166,7 +166,7 @@ public final class BorderWidgetBorderedArea<BWL extends BorderWidgetLook<BWL>> i
 	 */
 	public int getProposalHeight() {
 		
-		final var look = parentBorderWidget.getRefLook();
+		final var look = parentBorderWidget.getRefActiveLook();
 		
 		return
 		parentBorderWidget.getMainArea().getProposalHeight()
@@ -182,7 +182,7 @@ public final class BorderWidgetBorderedArea<BWL extends BorderWidgetLook<BWL>> i
 	 */
 	public int getProposalWidth() {
 		
-		final var look = parentBorderWidget.getRefLook();
+		final var look = parentBorderWidget.getRefActiveLook();
 		
 		return
 		parentBorderWidget.getMainArea().getProposalWidth()
@@ -198,7 +198,7 @@ public final class BorderWidgetBorderedArea<BWL extends BorderWidgetLook<BWL>> i
 	 */
 	public int getTargetHeight() {
 		
-		final var look = parentBorderWidget.getRefLook();
+		final var look = parentBorderWidget.getRefActiveLook();
 		
 		return
 		parentBorderWidget.getMainArea().getTargetHeight()
@@ -214,7 +214,7 @@ public final class BorderWidgetBorderedArea<BWL extends BorderWidgetLook<BWL>> i
 	 */
 	public int getTargetWidth() {
 		
-		final var look = parentBorderWidget.getRefLook();
+		final var look = parentBorderWidget.getRefActiveLook();
 		
 		return
 		parentBorderWidget.getMainArea().getTargetWidth()
@@ -229,7 +229,7 @@ public final class BorderWidgetBorderedArea<BWL extends BorderWidgetLook<BWL>> i
 	@Override
 	public int getWidth() {
 		
-		final var look = parentBorderWidget.getRefLook();
+		final var look = parentBorderWidget.getRefActiveLook();
 		
 		return
 		parentBorderWidget.getMainArea().getWidth()
@@ -244,7 +244,7 @@ public final class BorderWidgetBorderedArea<BWL extends BorderWidgetLook<BWL>> i
 	 */
 	public int getXPosition() {
 		
-		final var look = parentBorderWidget.getRefLook();
+		final var look = parentBorderWidget.getRefActiveLook();
 		
 		return parentBorderWidget.getMainArea().getXPosition() + look.getLeftBorderThickness();
 	}
@@ -256,7 +256,7 @@ public final class BorderWidgetBorderedArea<BWL extends BorderWidgetLook<BWL>> i
 	 */
 	public int getYPosition() {
 		
-		final var look = parentBorderWidget.getRefLook();
+		final var look = parentBorderWidget.getRefActiveLook();
 		
 		return parentBorderWidget.getMainArea().getYPosition() +  look.getTopBorderThickness();
 	}

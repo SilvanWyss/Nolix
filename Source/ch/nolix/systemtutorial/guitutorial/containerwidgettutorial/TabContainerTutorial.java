@@ -36,7 +36,7 @@ public final class TabContainerTutorial {
 		
 		//Configures the look of the TabContainer.
 		tabContainer
-		.getRefLook()
+		.getRefActiveLook()
 		.setBorderThicknessForState(WidgetLookState.BASE, 5)
 		.setBackgroundColorForState(WidgetLookState.BASE, Color.LAVENDER);
 		

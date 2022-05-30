@@ -110,7 +110,7 @@ public final class BorderWidgetMainArea<BWL extends BorderWidgetLook<BWL>> imple
 	 */
 	public int getNaturalHeight() {
 		
-		final var look = parentBorderWidget.getRefLook();
+		final var look = parentBorderWidget.getRefActiveLook();
 		
 		return
 		parentBorderWidget.getBorderedArea().getNaturalHeight()
@@ -124,7 +124,7 @@ public final class BorderWidgetMainArea<BWL extends BorderWidgetLook<BWL>> imple
 	 */
 	public int getNaturalWidth() {
 		
-		final var look = parentBorderWidget.getRefLook();
+		final var look = parentBorderWidget.getRefActiveLook();
 		
 		return
 		parentBorderWidget.getBorderedArea().getNaturalWidth()

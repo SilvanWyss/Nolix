@@ -404,9 +404,9 @@ implements IWidget<W, WL> {
 	
 	//method
 	/**
-	 * @return the {@link WidgetLook} of the current {@link Widget}.
+	 * @return the active {@link WidgetLook} of the current {@link Widget}.
 	 */
-	public final WL getRefLook() {
+	public final WL getRefActiveLook() {
 		return look.getExtensionElement();
 	}
 	
@@ -892,7 +892,7 @@ implements IWidget<W, WL> {
 	 */
 	public W onLook(final IElementTaker<WL> lookMutator) {
 		
-		lookMutator.run(getRefLook());
+		lookMutator.run(getRefActiveLook());
 		
 		return asConcrete();
 	}
@@ -1022,7 +1022,7 @@ implements IWidget<W, WL> {
 	public final void resetElementConfiguration() {
 		
 		setCustomCursorIcon(DEFAULT_CURSOR_ICON);
-		getRefLook().reset();
+		getRefActiveLook().reset();
 		
 		resetWidgetConfiguration();
 	}
@@ -1951,7 +1951,7 @@ implements IWidget<W, WL> {
 	 */
 	private void paintRecursivelyUsingPositionedPainterWhenNotDisabled(final IPainter painter) {
 		
-		final var lLook = getRefLook();
+		final var lLook = getRefActiveLook();
 		
 		painter.setOpacity(lLook.getOpacity());
 		
@@ -2059,7 +2059,7 @@ implements IWidget<W, WL> {
 		this.parent = parent;
 		
 		if (parent.isWidget()) {
-			parent.getRefWidget().getRefLook().addChild(getRefLook());
+			parent.getRefWidget().getRefActiveLook().addChild(getRefActiveLook());
 		}
 	}
 	
@@ -2068,6 +2068,6 @@ implements IWidget<W, WL> {
 	 * Updates the {@link WidgetLookState} of the {@link WidgetLook} of the current {@link Widget}.
 	 */
 	private void updateLookState() {
-		getRefLook().setState(calculateLookState());
+		getRefActiveLook().setState(calculateLookState());
 	}
 }

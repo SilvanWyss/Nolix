@@ -33,7 +33,7 @@ public final class Uploader extends TextLineWidget<Uploader, UploaderLook> {
 		
 		setContentPosition(ContentPosition.CENTER);
 				
-		getRefLook()
+		getRefActiveLook()
 		.setBackgroundColorForState(WidgetLookState.BASE, DEFAULT_BACKGROUND_COLOR)
 		.setPaddingForState(WidgetLookState.BASE, DEFAULT_PADDING);
 	}

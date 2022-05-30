@@ -441,7 +441,7 @@ public final class TabContainer extends ContainerWidget<TabContainer, TabContain
 	protected void recalculateBorderWidget() {
 		for (final var t : getRefTabs()) {
 			
-			t.getRefMenuItem().getRefLook().setFrom(getRefMenuItemLook());
+			t.getRefMenuItem().getRefActiveLook().setFrom(getRefMenuItemLook());
 			
 			if (t.isSelected() && t.containsAny()) {
 				currentTabContainer.setWidget(t.getRefWidget());
@@ -474,7 +474,7 @@ public final class TabContainer extends ContainerWidget<TabContainer, TabContain
 		currentTabContainer.reset();
 		
 		mainVerticalStack.add(menu, currentTabContainer);
-		getRefLook().addChild(getRefMenuItemLook());
+		getRefActiveLook().addChild(getRefMenuItemLook());
 	}
 	
 	//method

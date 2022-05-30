@@ -494,7 +494,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	protected void resetContainerWidget() {
 		
 		mainVerticalStack.reset();
-		getRefLook().addChild(getRefTabHeaderLook());		
+		getRefActiveLook().addChild(getRefTabHeaderLook());		
 		getRefTabHeaderLook()
 		.setTextColorForState(WidgetLookState.BASE, Color.GREY)
 		.setTextColorForState(WidgetLookState.HOVER, Color.BLACK);

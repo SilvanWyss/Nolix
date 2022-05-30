@@ -45,7 +45,7 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 		setMinWidth(100);
 		setContentPosition(ContentPosition.CENTER);
 		
-		getRefLook()
+		getRefActiveLook()
 		.setBorderThicknessForState(WidgetLookState.BASE, 1)
 		.setBackgroundColorForState(WidgetLookState.BASE, Color.LIGHT_GREY)
 		.setBackgroundColorForState(WidgetLookState.HOVER, Color.DARK_GREY)

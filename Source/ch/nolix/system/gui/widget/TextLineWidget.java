@@ -164,7 +164,7 @@ extends BorderWidget<TLW, TLWL> {
 	 */
 	@Override
 	protected final int getNaturalContentAreaHeight() {
-		return new TextFormat(getRefLook().getTextSize()).getTextHeight();
+		return new TextFormat(getRefActiveLook().getTextSize()).getTextHeight();
 	}
 	
 	//method
@@ -183,7 +183,7 @@ extends BorderWidget<TLW, TLWL> {
 	protected final TextFormat getTextFormat() {
 		
 		//Extracts the of the current TextLineWidget.
-		final var look = getRefLook();
+		final var look = getRefActiveLook();
 		
 		return
 		new TextFormat(

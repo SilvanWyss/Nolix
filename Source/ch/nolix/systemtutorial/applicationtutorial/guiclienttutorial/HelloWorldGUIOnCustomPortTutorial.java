@@ -47,7 +47,7 @@ public final class HelloWorldGUIOnCustomPortTutorial {
 			final var label = new Label().setText("Hello World");
 			
 			//Configures the look of the Label.
-			label.getRefLook().setTextSizeForState(WidgetLookState.BASE, 50);
+			label.getRefActiveLook().setTextSizeForState(WidgetLookState.BASE, 50);
 			
 			//Adds the Label to the GUI of the current MainSession.
 			getRefGUI().pushLayerWithWidget(label);

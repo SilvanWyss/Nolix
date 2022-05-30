@@ -29,7 +29,7 @@ public final class ImageWidgetTutorial {
 			final var imageWidget = new ImageWidget().setImage(image);
 			
 			//Configures the look of the ImageWidget.
-			imageWidget.getRefLook()
+			imageWidget.getRefActiveLook()
 			.setBorderThicknessForState(WidgetLookState.BASE, 5)
 			.setBackgroundColorForState(WidgetLookState.BASE, Color.LAVENDER)
 			.setPaddingForState(WidgetLookState.BASE, 5);

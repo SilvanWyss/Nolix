@@ -186,13 +186,13 @@ public final class BorderWidgetVerticalScrollBar<BWL extends BorderWidgetLook<BW
 	
 	//method
 	private SingleContainer<Color> getOptionalColorWhenVerticalScrollBarCursorIsMoved() {
-		return parentBorderWidget.getRefLook().getOptionalScrollBarMoveColor();
+		return parentBorderWidget.getRefActiveLook().getOptionalScrollBarMoveColor();
 	}
 	
 	//method
 	private SingleContainer<Color> getOptionalColorWhenVerticalScrollBarCursorIsNotMoved() {
 		
-		final var look = parentBorderWidget.getRefLook();
+		final var look = parentBorderWidget.getRefActiveLook();
 		
 		if (!parentBorderWidget.getVerticalScrollBarCursor().isUnderCursor()) {
 			return look.getOptionalScrollBarColor();
