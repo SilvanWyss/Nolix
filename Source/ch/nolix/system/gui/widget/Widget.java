@@ -284,10 +284,11 @@ implements IWidget<W, WL> {
 		return widgets;
 	}
 	
-	//method declaration
+	//method
 	/**
-	 * @return the {@link CursorIcon} of the current {@link Widget}.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public CursorIcon getCursorIcon() {
 		
 		final var widgetContainer = getRefWidgetUnderCursor();

@@ -7,7 +7,7 @@ import ch.nolix.core.requestuniversalapi.EnablingRequestable;
 import ch.nolix.core.requestuniversalapi.ExpansionRequestable;
 import ch.nolix.core.skilluniversalapi.Recalculable;
 import ch.nolix.system.gui.widget.Widget;
-import ch.nolix.system.gui.widgetgui.WidgetGUI;
+import ch.nolix.systemapi.guiapi.baseapi.CursorIcon;
 import ch.nolix.systemapi.elementapi.configurationapi.IConfigurableElement;
 import ch.nolix.systemapi.guiapi.baseapi.IInputActionManager;
 import ch.nolix.systemapi.guiapi.inputapi.IInputTaker;
@@ -31,6 +31,12 @@ TopLeftPositionedRecangular {
 	 * @return true if the current {@link IWidget} belongs to a {@link IWidgetGUI}, directly or indirectly.
 	 */
 	boolean belongsToGUI();
+	
+	//method declaration
+	/**
+	 * @return the {@link CursorIcon} of the current {@link IWidget}.
+	 */
+	CursorIcon getCursorIcon();
 	
 	//method declaration
 	/**
