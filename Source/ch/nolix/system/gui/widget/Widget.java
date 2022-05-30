@@ -404,8 +404,9 @@ implements IWidget<W, WL> {
 	
 	//method
 	/**
-	 * @return the active {@link WidgetLook} of the current {@link Widget}.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public final WL getRefActiveLook() {
 		return look.getExtensionElement();
 	}

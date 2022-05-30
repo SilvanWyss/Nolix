@@ -46,6 +46,12 @@ TopLeftPositionedRecangular {
 	
 	//method declaration
 	/**
+	 * @return the active {@link IWidgetLook} of the current {@link IWidget}.
+	 */
+	WL getRefActiveLook();
+	
+	//method declaration
+	/**
 	 * Sets the current {@link IWidget} focused.
 	 * 
 	 * @return the current {@link IWidget}.
