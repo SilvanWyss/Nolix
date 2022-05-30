@@ -240,7 +240,7 @@ implements ILayer<Layer> {
 	
 	//method
 	/**
-	 * @return true if the current {@link Layer} allows to be configured.
+	 * {@inheritDoc}
 	 */
 	public boolean allowesConfiguration() {
 		return configurationAllowedFlag.getValue();
@@ -328,7 +328,7 @@ implements ILayer<Layer> {
 	//method
 	//For a better performance, this implementation does not use all comfortable methods.
 	/**
-	 * @return the {@link CursorIcon} of the current {@link Layer}.
+	 * {@inheritDoc}
 	 */
 	public CursorIcon getCursorIcon() {
 		
@@ -341,7 +341,7 @@ implements ILayer<Layer> {
 	
 	//method
 	/**
-	 * @return the x-position of the cursor on the current {@link Layer}.
+	 * {@inheritDoc}
 	 */
 	public int getCursorXPosition() {
 		return cursorXPosition;
@@ -349,7 +349,7 @@ implements ILayer<Layer> {
 	
 	//method
 	/**
-	 * @return the y-position of the cursor on the current {@link Layer}.
+	 * {@inheritDoc}
 	 */
 	public int getCursorYPosition() {
 		return cursorYPosition;
@@ -383,8 +383,7 @@ implements ILayer<Layer> {
 	//method
 	//For a better performance, this implementation does not use all comfortable methods.
 	/**
-	 * @return the root {@link Widget} of the current {@link Layer}.
-	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link Layer} does not have a root {@link Widget}.
+	 * {@inheritDoc}
 	 */
 	public Widget<?, ?> getRefRootWidget() {
 		
@@ -399,7 +398,7 @@ implements ILayer<Layer> {
 	//method
 	//For a better performance, this implementation does not use all comfortable methods.
 	/**
-	 * @return the {@link Widget}s of the current {@link Layer} that are supposed to be painted.
+	 * {@inheritDoc}
 	 */
 	public IContainer<Widget<?, ?>> getRefWidgetsForPainting() {
 		
@@ -417,7 +416,7 @@ implements ILayer<Layer> {
 	//method
 	//For a better performance, this implementation does not use all comfortable methods.
 	/**
-	 * @return the {@link Widget}s of the current {@link Layer}.
+	 * {@inheritDoc}
 	 */
 	public IContainer<Widget<?, ?>> getRefWidgets() {
 		
@@ -823,9 +822,7 @@ implements ILayer<Layer> {
 	//method
 	//For a better performance, this implementation does not use all comfortable methods.
 	/**
-	 * Paints the current {@link Layer} using the given painter.
-	 * 
-	 * @param painter
+	 * {@inheritDoc}
 	 */
 	public void paint(final IPainter painter) {
 		
@@ -1266,10 +1263,7 @@ implements ILayer<Layer> {
 	//method
 	//For a better performance, this implementation does not use all comfortable methods.
 	/**
-	 * Sets the {@link GUI} the current {@link Layer} will belong to.
-	 * 
-	 * @param parentGUI
-	 * @throws ArgumentIsNullException if the given parentGUI is null.
+	 * {@inheritDoc}
 	 */
 	public void setParentGUI(final IWidgetGUI<?> parentGUI) {
 		

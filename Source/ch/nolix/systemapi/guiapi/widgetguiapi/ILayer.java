@@ -13,6 +13,13 @@ import ch.nolix.systemapi.guiapi.inputapi.IResizableInputTaker;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 
 //interface
+/**
+ * A {@link ILayer} can have a root {@link IWidget}.
+ * 
+ * @author Silvan Wyss
+ * @date 2022-05-29
+ * @param <L> is the type of a {@link ILayer}.
+ */
 public interface ILayer<L extends ILayer<L>>
 extends
 Clearable,
@@ -22,29 +29,62 @@ IResizableInputTaker,
 Recalculable {
 	
 	//method declaration
+	/**
+	 * @return true if the current {@link ILayer} allows to be configured.
+	 */
 	boolean allowesConfiguration();
 	
 	//method declaration
+	/**
+	 * @return the {@link CursorIcon} of the current {@link ILayer}.
+	 */
 	CursorIcon getCursorIcon();
 	
 	//method declaration
+	/**
+	 * @return the x-position of the cursor on the current {@link ILayer}.
+	 */
 	int getCursorXPosition();
 	
 	//method declaration
+	/**
+	 * @return the y-position of the cursor on the current {@link ILayer}.
+	 */
 	int getCursorYPosition();
 	
 	//method declaration
+	/**
+	 * @return the root {@link Widget} of the current {@link ILayer}.
+	 * @throws Exception if the current {@link ILayer} does not have a root {@link IWidget}.
+	 */
 	IWidget<?, ?> getRefRootWidget();
 	
 	//method declaration
+	/**
+	 * @return the {@link Widget}s of the current {@link ILayer}.
+	 */
 	IContainer<Widget<?, ?>> getRefWidgets();
 	
 	//method declaration
+	/**
+	 * @return the {@link Widget}s of the current {@link ILayer} that are supposed to be painted.
+	 */
 	IContainer<Widget<?, ?>> getRefWidgetsForPainting();
 	
 	//method declaration
+	/**
+	 * Paints the current {@link ILayer} using the given painter.
+	 * 
+	 * @param painter
+	 */
 	void paint(IPainter painter);
 	
 	//method declaration
+	/**
+	 * Sets the {@link IWidgetGUI} the current {@link ILayer} will belong to.
+	 * 
+	 * @param parentGUI
+	 * @throws Exception if the given parentGUI is null.
+	 */
 	void setParentGUI(IWidgetGUI<?> parentGUI);
 }
