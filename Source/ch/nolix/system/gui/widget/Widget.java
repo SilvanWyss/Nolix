@@ -907,11 +907,9 @@ implements IWidget<W, WL> {
 	
 	//method
 	/**
-	 * Paints the current {@link Widget} recursively using the position on its parent and the given painter.
-	 * This method ensures that the given painter has the same position at the end of the painting as the beginning.
-	 * 
-	 * @param painter
+	 * {@inheritDoc}
 	 */
+	@Override
 	public final void paint(final IPainter painter) {
 		paintRecursivelyUsingPositionedPainter(painter.createPainter(getXPosition(), getYPosition()));
 	}

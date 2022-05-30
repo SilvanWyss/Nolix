@@ -10,6 +10,7 @@ import ch.nolix.systemapi.elementapi.configurationapi.IConfigurableElement;
 import ch.nolix.systemapi.guiapi.baseapi.CursorIcon;
 import ch.nolix.systemapi.guiapi.baseapi.IInputActionManager;
 import ch.nolix.systemapi.guiapi.inputapi.IInputTaker;
+import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 
 //interface
 public interface IWidget<
@@ -98,6 +99,17 @@ TopLeftPositionedRecangular {
 	 * @return true if the current {@link IWidget} is under the cursor.
 	 */
 	boolean isUnderCursor();
+	
+	//method declaration
+	/**
+	 * Paints the current {@link IWidget} using
+	 * the position of the current {@link IWidget} on its parent and the given painter.
+	 * Will paint also the child {@link IWidget} of the current {@link IWidget}, that are chosen for painting.
+	 * Ensures that the given painter has the same position at the end of the painting as the beginning.
+	 * 
+	 * @param painter
+	 */
+	void paint(final IPainter painter);
 	
 	//method declaration
 	/**
