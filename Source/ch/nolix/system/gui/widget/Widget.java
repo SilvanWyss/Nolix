@@ -2047,7 +2047,7 @@ implements IWidget<W, WL> {
 	private void setParent(final Widget<?, ?> parentWidget) {
 		setParent(new WidgetParent(parentWidget, this));
 	}
-
+	
 	//method
 	/**
 	 * Sets the parent the current {@link Widget} will belong to.
