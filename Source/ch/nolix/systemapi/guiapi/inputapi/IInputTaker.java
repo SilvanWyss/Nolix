@@ -145,7 +145,7 @@ public interface IInputTaker {
 	 * @param mouseInput
 	 */
 	default void noteMouseInput(final MouseInput mouseInput) {
-		switch (mouseInput.getInputType()) {
+		switch (mouseInput.getMouseInputType()) {
 			case MOUSE_MOVE:
 				noteMouseMove(mouseInput.getCursorXPosition(), mouseInput.getCursorYPosition());
 				break;

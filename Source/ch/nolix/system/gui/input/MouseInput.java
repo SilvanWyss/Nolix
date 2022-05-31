@@ -68,7 +68,7 @@ public final class MouseInput extends MutableElement<MouseInput> implements IInp
 	}
 	
 	//method
-	public MouseInputType getInputType() {
+	public MouseInputType getMouseInputType() {
 		return inputType.getValue();
 	}
 	
