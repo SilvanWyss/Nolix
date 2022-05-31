@@ -60,6 +60,20 @@ TopLeftPositionedRecangular {
 	
 	//method declaration
 	/**
+	 * @return the x-position of the current {@link IWidget} on
+	 * the view area of the parent {@link IWidgetGUI} of the current {@link IWidget}.
+	 */
+	int getXPositionOnGUIViewArea();
+	
+	//method declaration
+	/**
+	 * @return the y-position of the current {@link IWidget} on
+	 * the view area of the parent {@link IWidgetGUI} of the current {@link IWidget}.
+	 */
+	int getYPositionOnGUIViewArea();
+	
+	//method declaration
+	/**
 	 * @return true if the current {@link IWidget} has a left mouse button press action.
 	 */
 	boolean hasLeftMouseButtonPressAction();

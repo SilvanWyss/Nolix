@@ -134,7 +134,7 @@ public final class DropdownMenu extends ItemMenu<DropdownMenu> {
 		//Creates expandedDropdownMenu.
 		expandedDropdownMenu =
 		new SelectionMenu()
-		.setMaxHeight(getParentGUI().getViewAreaHeight() - getYPositionOnGUI() - getHeight())
+		.setMaxHeight(getParentGUI().getViewAreaHeight() - getYPositionOnGUIViewArea() - getHeight())
 		.addItems(getRefItems().to(ItemMenuItem::getText))
 		.setCustomCursorIcon(CursorIcon.EDIT);
 		
@@ -170,8 +170,8 @@ public final class DropdownMenu extends ItemMenu<DropdownMenu> {
 			new Layer()
 			.setConfigurationNotAllowed()
 			.setFreeContentPosition(
-				getXPositionOnGUI() + getWidth() - expandedDropdownMenu.getWidth(),
-				getYPositionOnGUI() + getHeight()
+				getXPositionOnGUIViewArea() + getWidth() - expandedDropdownMenu.getWidth(),
+				getYPositionOnGUIViewArea() + getHeight()
 			)
 			.setRootWidget(expandedDropdownMenu.setFocused())
 			.setLeftMouseButtonPressActionOnFreeArea(this::collapse)

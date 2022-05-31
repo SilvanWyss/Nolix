@@ -213,12 +213,12 @@ implements IWidget<W, WL> {
 	public final boolean containsPointOnGUI(final int xPositionOnGUI, final int yPositionOnGUI) {
 		
 		//For a better performance, this implementation does the cheap comparisons at first.
-		final var thisXPositionOnGUI = getXPositionOnGUI();		
+		final var thisXPositionOnGUI = getXPositionOnGUIViewArea();		
 		if (xPositionOnGUI <= thisXPositionOnGUI || xPositionOnGUI > thisXPositionOnGUI + getWidth()) {
 			return false;
 		}
 		
-		final var thisYPositionOnGUI = getYPositionOnGUI();
+		final var thisYPositionOnGUI = getYPositionOnGUIViewArea();
 		return (yPositionOnGUI > thisYPositionOnGUI && yPositionOnGUI <= thisYPositionOnGUI + getHeight());
 	}
 	
@@ -452,13 +452,13 @@ implements IWidget<W, WL> {
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
-	 * @return the x-position of the current {@link Widget} on the parent of the current {@link Widget}.
+	 * {@inheritDoc}
 	 */
-	public final int getXPositionOnGUI() {
-		
-		//For a better performance, this implementation does not use all comfortable methods.
-		
+	@Override
+	public final int getXPositionOnGUIViewArea() {
+				
 		//Handles the case that the current Widget does not belong to a parent.
 		if (parent == null) {
 			return xPositionOnContentAreaOfParent;
@@ -488,9 +488,10 @@ implements IWidget<W, WL> {
 	//method
 	//For a better performance, this implementation does not use all comfortable methods.
 	/**
-	 * @return the y-position of the current {@link Widget} on the parent of the current {@link Widget}.
+	 * {@inheritDoc}
 	 */
-	public final int getYPositionOnGUI() {
+	@Override
+	public final int getYPositionOnGUIViewArea() {
 				
 		//Handles the case that the current Widget does not belong to a parent.
 		if (parent == null) {

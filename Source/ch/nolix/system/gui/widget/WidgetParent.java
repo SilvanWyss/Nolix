@@ -98,7 +98,7 @@ public final class WidgetParent {
 			return 0; 
 		}
 		
-		return widget.getXPositionOnGUI();
+		return widget.getXPositionOnGUIViewArea();
 	}
 	
 	//method
@@ -109,7 +109,7 @@ public final class WidgetParent {
 			return 0; 
 		}
 		
-		return widget.getYPositionOnGUI();
+		return widget.getYPositionOnGUIViewArea();
 	}
 	
 	//method
