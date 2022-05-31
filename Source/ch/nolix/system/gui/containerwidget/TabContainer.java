@@ -20,6 +20,7 @@ import ch.nolix.system.gui.widget.WidgetLookState;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
+import ch.nolix.systemapi.guiapi.widgetguiapi.IWidget;
 
 //class
 /**
@@ -352,7 +353,7 @@ public final class TabContainer extends ContainerWidget<TabContainer, TabContain
 	 */
 	@Override
 	protected void noteLeftMouseButtonPressOnContentAreaWhenEnabled() {		
-		nextMenuItemLabel = (Label)menu.getChildWidgets().getRefFirstOrNull(Widget::isUnderCursor);
+		nextMenuItemLabel = (Label)menu.getChildWidgets().getRefFirstOrNull(IWidget::isUnderCursor);
 	}
 	
 	//method

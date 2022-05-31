@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.system.gui.widget;
 
+import ch.nolix.systemapi.guiapi.widgetguiapi.IWidget;
+
 //class
 /**
  * @author Silvan Wyss
@@ -33,7 +35,7 @@ public final class VerticalLine extends Line<VerticalLine> {
 		isAskedForLength = true;
 		
 		final var length =
-		getParentWidget().getRefWidgetsForPainting().getMaxIntOrDefaultValue(Widget::getHeight, DEFAULT_LENGTH);
+		getParentWidget().getRefWidgetsForPainting().getMaxIntOrDefaultValue(IWidget::getHeight, DEFAULT_LENGTH);
 		
 		isAskedForLength = false;
 		

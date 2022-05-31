@@ -11,6 +11,7 @@ import ch.nolix.system.gui.widgetgui.WidgetGUI;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
+import ch.nolix.systemapi.guiapi.widgetguiapi.IWidget;
 
 //class
 /**
@@ -36,7 +37,7 @@ public final class SingleContainer extends ContainerWidget<SingleContainer, Sing
 		this::containsAny,
 		this::getRefWidget,
 		WidgetGUI::createWidgetFrom,
-		Widget::getSpecification
+		IWidget::getSpecification
 	);
 	
 	//method

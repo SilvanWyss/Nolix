@@ -248,7 +248,7 @@ implements IWidget<W, WL> {
 	 * @return true if the free view area of the curent {@link Widget} is under the cursor.
 	 */
 	public final boolean freeViewAreaIsUnderCursor() {
-		return (isUnderCursor() && getRefWidgetsForPainting().containsAny(Widget::isUnderCursor));
+		return (isUnderCursor() && getRefWidgetsForPainting().containsAny(IWidget::isUnderCursor));
 	}
 	
 	//method
@@ -716,7 +716,7 @@ implements IWidget<W, WL> {
 			noteLeftMouseButtonClickOnSelfWhenEnabled();
 									
 			if (redirectsInputsToShownWidgets()) {
-				getRefWidgetsForPainting().forEach(Widget::noteLeftMouseButtonClick);
+				getRefWidgetsForPainting().forEach(IWidget::noteLeftMouseButtonClick);
 			}
 		}
 	}
@@ -733,7 +733,7 @@ implements IWidget<W, WL> {
 			noteLeftMouseButtonPressOnSelfWhenEnabled();
 			
 			if (redirectsInputsToShownWidgets()) {
-				getRefWidgetsForPainting().forEach(Widget::noteLeftMouseButtonPress);
+				getRefWidgetsForPainting().forEach(IWidget::noteLeftMouseButtonPress);
 			}
 		}
 	}
@@ -750,7 +750,7 @@ implements IWidget<W, WL> {
 			noteLeftMouseButtonReleaseOnSelfWhenEnabled();
 			
 			if (redirectsInputsToShownWidgets()) {
-				getRefWidgetsForPainting().forEach(Widget::noteLeftMouseButtonRelease);
+				getRefWidgetsForPainting().forEach(IWidget::noteLeftMouseButtonRelease);
 			}
 		}
 	}
@@ -776,7 +776,7 @@ implements IWidget<W, WL> {
 			noteMouseWheelClickOnSelfWhenEnabled();
 			
 			if (redirectsInputsToShownWidgets()) {
-				getRefWidgetsForPainting().forEach(Widget::noteMouseWheelClick);
+				getRefWidgetsForPainting().forEach(IWidget::noteMouseWheelClick);
 			}
 		}
 	}
@@ -792,7 +792,7 @@ implements IWidget<W, WL> {
 			noteMouseWheelPressOnSelfWhenEnabled();
 			
 			if (redirectsInputsToShownWidgets()) {
-				getRefWidgetsForPainting().forEach(Widget::noteMouseWheelPress);
+				getRefWidgetsForPainting().forEach(IWidget::noteMouseWheelPress);
 			}
 		}
 	}
@@ -808,7 +808,7 @@ implements IWidget<W, WL> {
 			noteMouseWheelReleaseOnSelfWhenEnabled();
 			
 			if (redirectsInputsToShownWidgets()) {
-				getRefWidgetsForPainting().forEach(Widget::noteMouseWheelRelease);
+				getRefWidgetsForPainting().forEach(IWidget::noteMouseWheelRelease);
 			}
 		}
 	}
@@ -843,7 +843,7 @@ implements IWidget<W, WL> {
 			noteRightMouseButtonClickOnSelfWhenEnabled();
 		
 			if (redirectsInputsToShownWidgets()) {
-				getRefWidgetsForPainting().forEach(Widget::noteRightMouseButtonClick);
+				getRefWidgetsForPainting().forEach(IWidget::noteRightMouseButtonClick);
 			}
 		}
 	}
@@ -860,7 +860,7 @@ implements IWidget<W, WL> {
 			noteRightMouseButtonPressOnSelfWhenEnabled();
 			
 			if (redirectsInputsToShownWidgets()) {
-				getRefWidgetsForPainting().forEach(Widget::noteRightMouseButtonPress);
+				getRefWidgetsForPainting().forEach(IWidget::noteRightMouseButtonPress);
 			}
 		}
 	}
@@ -877,7 +877,7 @@ implements IWidget<W, WL> {
 			noteRightMouseButtonReleaseOnSelfWhenEnabled();
 			
 			if (redirectsInputsToShownWidgets()) {
-				getRefWidgetsForPainting().forEach(Widget::noteRightMouseButtonRelease);
+				getRefWidgetsForPainting().forEach(IWidget::noteRightMouseButtonRelease);
 			}
 		}
 	}
@@ -925,7 +925,7 @@ implements IWidget<W, WL> {
 		
 		addChildWidgets(widgetsForPainting);
 		
-		widgetsForPainting.forEach(Widget::recalculate);
+		widgetsForPainting.forEach(IWidget::recalculate);
 		recalculateSelf();
 	}
 	
@@ -1758,7 +1758,7 @@ implements IWidget<W, WL> {
 	
 	//method
 	private SingleContainer<Widget<?, ?>> getRefWidgetUnderCursor() {
-		return getRefWidgetsForPainting().getOptionalRefFirst(Widget::isUnderCursor);
+		return getRefWidgetsForPainting().getOptionalRefFirst(IWidget::isUnderCursor);
 	}
 	
 	//method

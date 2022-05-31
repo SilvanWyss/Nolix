@@ -1,7 +1,8 @@
 //package declaration
 package ch.nolix.system.gui.containerwidget;
 
-import ch.nolix.system.gui.widget.Widget;
+//own imports
+import ch.nolix.systemapi.guiapi.widgetguiapi.IWidget;
 
 //class
 /**
@@ -27,7 +28,7 @@ public final class VerticalStack extends Stack<VerticalStack> {
 		
 		final var childWidgets = getChildWidgets();
 		
-		var contentHeight = childWidgets.getSumByInt(Widget::getHeight);
+		var contentHeight = childWidgets.getSumByInt(IWidget::getHeight);
 			
 		//Handles the case that the current VerticalStack is not empty.
 		if (containsAny()) {
@@ -43,7 +44,7 @@ public final class VerticalStack extends Stack<VerticalStack> {
 	 */
 	@Override
 	protected int getNaturalContentAreaWidth() {
-		return getChildWidgets().getMaxIntOrZero(Widget::getWidth);
+		return getChildWidgets().getMaxIntOrZero(IWidget::getWidth);
 	}
 	
 	//method

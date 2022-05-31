@@ -11,6 +11,7 @@ import ch.nolix.system.gui.widgetgui.WidgetGUI;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
+import ch.nolix.systemapi.guiapi.widgetguiapi.IWidget;
 
 //class
 public final class AligningContainer extends ContainerWidget<AligningContainer, AligningContainerLook> {
@@ -46,7 +47,7 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 		this::containsWidgetOnTopLeft,
 		this::getRefTopLeftWidget,
 		WidgetGUI::createWidgetFrom,
-		Widget::getSpecification
+		IWidget::getSpecification
 	);
 	
 	//attribute
@@ -58,7 +59,7 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 		this::containsWidgetOnTop,
 		this::getRefTopWidget,
 		WidgetGUI::createWidgetFrom,
-		Widget::getSpecification
+		IWidget::getSpecification
 	);
 	
 	//attribute
@@ -70,7 +71,7 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 		this::containsWidgetOnTopRight,
 		this::getRefTopRightWidget,
 		WidgetGUI::createWidgetFrom,
-		Widget::getSpecification
+		IWidget::getSpecification
 	);
 	
 	//attribute
@@ -82,7 +83,7 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 		this::containsWidgetOnLeft,
 		this::getRefLeftWidget,
 		WidgetGUI::createWidgetFrom,
-		Widget::getSpecification
+		IWidget::getSpecification
 	);
 	
 	//attribute
@@ -94,7 +95,7 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 		this::containsWidgetOnCenter,
 		this::getRefCenterWidget,
 		WidgetGUI::createWidgetFrom,
-		Widget::getSpecification
+		IWidget::getSpecification
 	);
 	
 	//attribute
@@ -106,7 +107,7 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 		this::containsWidgetOnRight,
 		this::getRefRightWidget,
 		WidgetGUI::createWidgetFrom,
-		Widget::getSpecification
+		IWidget::getSpecification
 	);
 	
 	//attribute
@@ -118,7 +119,7 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 		this::containsWidgetOnBottomLeft,
 		this::getRefBottomLeftWidget,
 		WidgetGUI::createWidgetFrom,
-		Widget::getSpecification
+		IWidget::getSpecification
 	);
 	
 	//attribute
@@ -130,7 +131,7 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 		this::containsWidgetOnBottom,
 		this::getRefBottomWidget,
 		WidgetGUI::createWidgetFrom,
-		Widget::getSpecification
+		IWidget::getSpecification
 	);
 	
 	//attribute
@@ -142,7 +143,7 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 		this::containsWidgetOnBottomRight,
 		this::getRefBottomRightWidget,
 		WidgetGUI::createWidgetFrom,
-		Widget::getSpecification
+		IWidget::getSpecification
 	);
 	
 	//constructor

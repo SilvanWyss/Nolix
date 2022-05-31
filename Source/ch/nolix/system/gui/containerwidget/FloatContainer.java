@@ -10,6 +10,7 @@ import ch.nolix.system.gui.widgetgui.WidgetGUI;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
+import ch.nolix.systemapi.guiapi.widgetguiapi.IWidget;
 
 //class
 public final class FloatContainer extends ContainerWidget<FloatContainer, FloatContainerLook> {
@@ -28,7 +29,7 @@ public final class FloatContainer extends ContainerWidget<FloatContainer, FloatC
 		this::addWidget,
 		this::getChildWidgets,
 		WidgetGUI::createWidgetFrom,
-		Widget::getSpecification
+		IWidget::getSpecification
 	);
 	
 	//constructor
@@ -106,7 +107,7 @@ public final class FloatContainer extends ContainerWidget<FloatContainer, FloatC
 	//method
 	@Override
 	protected int getNaturalContentAreaWidth() {
-		return widgets.getMaxIntOrZero(Widget::getRightXPosition);
+		return widgets.getMaxIntOrZero(IWidget::getRightXPosition);
 	}
 	
 	//method
@@ -185,7 +186,7 @@ public final class FloatContainer extends ContainerWidget<FloatContainer, FloatC
 			
 			if (row.containsAny() && x + widgetMargin + widgetWidth > contentAreaWidth) {
 				x = 0;
-				y += row.getMaxInt(Widget::getHeight) + widgetMargin;
+				y += row.getMaxInt(IWidget::getHeight) + widgetMargin;
 				row.clear();
 			}
 			

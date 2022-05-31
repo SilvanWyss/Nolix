@@ -18,6 +18,7 @@ import ch.nolix.system.gui.widgetgui.WidgetGUI;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
+import ch.nolix.systemapi.guiapi.widgetguiapi.IWidget;
 
 //class
 /**
@@ -53,7 +54,7 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 		this::add,
 		this::getChildWidgets,
 		WidgetGUI::createWidgetFrom,
-		Widget::getSpecification
+		IWidget::getSpecification
 	);
 	
 	//method

@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.system.gui.widget;
 
+import ch.nolix.systemapi.guiapi.widgetguiapi.IWidget;
+
 //class
 /**
  * @author Silvan Wyss
@@ -33,7 +35,7 @@ public final class HorizontalLine extends Line<HorizontalLine> {
 		isAskedForLength = true;
 		
 		final var length =
-		getParentWidget().getRefWidgetsForPainting().getMaxIntOrDefaultValue(Widget::getWidth, DEFAULT_LENGTH);
+		getParentWidget().getRefWidgetsForPainting().getMaxIntOrDefaultValue(IWidget::getWidth, DEFAULT_LENGTH);
 		
 		isAskedForLength = false;
 		
