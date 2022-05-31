@@ -14,6 +14,7 @@ import ch.nolix.system.gui.textformat.TextFormat;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
+import ch.nolix.systemapi.guiapi.widgetguiapi.IWidget;
 
 //class
 /**
@@ -150,7 +151,7 @@ extends BorderWidget<TLW, TLWL> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void fillUpWidgetsForPainting(final LinkedList<Widget<?, ?>> list) {}
+	protected final void fillUpWidgetsForPainting(final LinkedList<IWidget<?, ?>> list) {}
 	
 	//method declaration
 	/**

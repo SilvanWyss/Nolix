@@ -11,6 +11,7 @@ import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
+import ch.nolix.systemapi.guiapi.widgetguiapi.IWidget;
 
 //class
 public final class ImageWidget extends BorderWidget<ImageWidget, ImageWidgetLook> implements Clearable {
@@ -86,7 +87,7 @@ public final class ImageWidget extends BorderWidget<ImageWidget, ImageWidgetLook
 	
 	//method
 	@Override
-	protected void fillUpWidgetsForPainting(final LinkedList<Widget<?, ?>> list) {}
+	protected void fillUpWidgetsForPainting(final LinkedList<IWidget<?, ?>> list) {}
 	
 	//method
 	@Override

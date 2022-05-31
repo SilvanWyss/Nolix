@@ -6,6 +6,7 @@ import ch.nolix.core.container.LinkedList;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.containerwidget.VerticalStack;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
+import ch.nolix.systemapi.guiapi.widgetguiapi.IWidget;
 
 //class
 public final class SelectionMenu extends ItemMenu<SelectionMenu> {
@@ -25,7 +26,7 @@ public final class SelectionMenu extends ItemMenu<SelectionMenu> {
 	
 	//method
 	@Override
-	protected void fillUpWidgetsForPainting(final LinkedList<Widget<?, ?>> list) {
+	protected void fillUpWidgetsForPainting(final LinkedList<IWidget<?, ?>> list) {
 		list.addAtEnd(mainVerticalStack);
 	}
 		

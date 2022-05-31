@@ -281,7 +281,7 @@ public final class TabContainer extends ContainerWidget<TabContainer, TabContain
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void fillUpWidgetsForPainting(final LinkedList<Widget<?, ?>> list) {
+	protected void fillUpWidgetsForPainting(final LinkedList<IWidget<?, ?>> list) {
 		list.addAtEnd(mainVerticalStack);
 	}
 		

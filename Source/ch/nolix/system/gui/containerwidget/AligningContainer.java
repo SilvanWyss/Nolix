@@ -358,8 +358,10 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 	
 	//method
 	@Override
-	protected void fillUpWidgetsForPainting(final LinkedList<Widget<?, ?>> list) {
-		fillUpChildWidgets(list);
+	protected void fillUpWidgetsForPainting(final LinkedList<IWidget<?, ?>> list) {
+		
+		//TODO: Fix this.
+		//fillUpChildWidgets(list);
 	}
 	
 	//method

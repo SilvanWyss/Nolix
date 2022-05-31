@@ -89,7 +89,7 @@ public final class FloatContainer extends ContainerWidget<FloatContainer, FloatC
 	
 	//method
 	@Override
-	protected void fillUpWidgetsForPainting(final LinkedList<Widget<?, ?>> list) {
+	protected void fillUpWidgetsForPainting(final LinkedList<IWidget<?, ?>> list) {
 		list.addAtEnd(widgets);
 	}
 	

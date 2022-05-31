@@ -417,10 +417,11 @@ implements IWidget<W, WL> {
 	 */
 	public final LinkedList<Widget<?, ?>> getRefWidgetsForPainting() {
 		
-		final var widgetsForPainting = new LinkedList<Widget<?, ?>>();
+		final var widgetsForPainting = new LinkedList<IWidget<?, ?>>();
 		fillUpWidgetsForPainting(widgetsForPainting);
 		
-		return widgetsForPainting;
+		//TODO: Fix this.
+		return widgetsForPainting.asContainerWithElementsOfEvaluatedType();
 	}
 	
 	//method
@@ -1435,7 +1436,7 @@ implements IWidget<W, WL> {
 	 * 
 	 * @param list
 	 */
-	protected abstract void fillUpWidgetsForPainting(LinkedList<Widget<?, ?>> list);
+	protected abstract void fillUpWidgetsForPainting(LinkedList<IWidget<?, ?>> list);
 	
 	//method
 	/**

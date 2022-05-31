@@ -21,6 +21,7 @@ import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
 import ch.nolix.systemapi.guiapi.widgetguiapi.ILayer;
+import ch.nolix.systemapi.guiapi.widgetguiapi.IWidget;
 import ch.nolix.systemapi.guiapi.widgetguiapi.IWidgetGUI;
 
 //class
@@ -257,7 +258,7 @@ public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> impleme
 
 	//method
 	@Override
-	protected void fillUpWidgetsForPainting(final LinkedList<Widget<?, ?>> list) {
+	protected void fillUpWidgetsForPainting(final LinkedList<IWidget<?, ?>> list) {
 		list.addAtEnd(titleLabel);
 	}
 	

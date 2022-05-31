@@ -126,7 +126,7 @@ public final class SingleContainer extends ContainerWidget<SingleContainer, Sing
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void fillUpWidgetsForPainting(final LinkedList<Widget<?, ?>> list) {
+	protected void fillUpWidgetsForPainting(final LinkedList<IWidget<?, ?>> list) {
 		
 		//Handles the case that the current single container contains a Widget.
 		if (widget != null) {

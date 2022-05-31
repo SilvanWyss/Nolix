@@ -214,7 +214,7 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void fillUpWidgetsForPainting(final LinkedList<Widget<?, ?>> list) {
+	protected final void fillUpWidgetsForPainting(final LinkedList<IWidget<?, ?>> list) {
 		for (final var w : widgets) {
 			if (w.isExpanded()) {
 				list.addAtEnd(w);
