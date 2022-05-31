@@ -149,4 +149,19 @@ TopLeftPositionedRecangular {
 	 * @param yPositionOnParent
 	 */
 	void setPositionOnParent(int xPositionOnParent, int yPositionOnParent);
+	
+	//method declaration
+	/**
+	 * Lets the current {@link IWidget} note a mouse move.
+	 */
+	void _noteMouseMove();
+	
+	//method declaration
+	/**
+	 * Sets the position of the cursor on the current {@link IWidget}.
+	 * 
+	 * @param cursorXPosition
+	 * @param cursorYPosition
+	 */
+	void _setCursorPosition(int cursorXPosition, int cursorYPosition);
 }

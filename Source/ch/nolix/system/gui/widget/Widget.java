@@ -763,8 +763,8 @@ implements IWidget<W, WL> {
 	 */
 	@Override
 	public final void noteMouseMove(final int cursorXPosition, final int cursorYPosition) {
-		setCursorPosition(cursorXPosition, cursorYPosition);
-		noteMouseMove();
+		_setCursorPosition(cursorXPosition, cursorYPosition);
+		_noteMouseMove();
 	}
 	
 	//method
@@ -1410,6 +1410,44 @@ implements IWidget<W, WL> {
 	 */
 	public abstract boolean showAreaIsUnderCursor();
 	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void _noteMouseMove() {
+		if (isEnabled()) {
+			
+			noteMouseMoveOnSelfWhenEnabled_();
+			noteMouseMoveOnSelfWhenEnabled();
+			
+			if (redirectsInputsToShownWidgets()) {
+				getRefWidgetsForPainting().forEach(IWidget::_noteMouseMove);
+			}
+		}
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void _setCursorPosition(final int cursorXPosition, final int cursorYPosition) {
+		
+		this.cursorXPosition = cursorXPosition;
+		this.cursorYPosition = cursorYPosition;
+				
+		final var cursorXPositionOnScrolledArea = getCursorXPositionOnContentArea();
+		final var cursorYPositionOnScrolledArea = getCursorYPositionOnContentArea();
+		
+		for (final var w : getRefWidgetsForPainting()) {
+			w._setCursorPosition(
+				cursorXPositionOnScrolledArea - w.getXPosition(),
+				cursorYPositionOnScrolledArea - w.getYPosition()
+			);
+		}
+	}
+	
 	//method declaration
 	/**
 	 * @return a new {@link WidgetLook} for the current {@link Widget}.
@@ -1847,22 +1885,6 @@ implements IWidget<W, WL> {
 	
 	//method
 	/**
-	 * Lets the current {@link Widget} note a mouse move.
-	 */
-	private void noteMouseMove() {
-		if (isEnabled()) {
-			
-			noteMouseMoveOnSelfWhenEnabled_();
-			noteMouseMoveOnSelfWhenEnabled();
-			
-			if (redirectsInputsToShownWidgets()) {
-				getRefWidgetsForPainting().forEach(Widget::noteMouseMove);
-			}
-		}
-	}
-	
-	//method
-	/**
 	 * Lets the current {@link Widget} note a mouse move on itself for the case when it is enabled.
 	 */
 	private void noteMouseMoveOnSelfWhenEnabled_() {
@@ -1966,29 +1988,6 @@ implements IWidget<W, WL> {
 		
 		if (paintsWidgetsForPaintingAPriori()) {
 			getRefWidgetsForPainting().forEach(w -> w.paint(painter));
-		}
-	}
-	
-	//method
-	/**
-	 * Sets the position of the cursor on the current {@link Widget} recursively.
-	 * 
-	 * @param cursorXPosition
-	 * @param cursorYPosition
-	 */
-	private void setCursorPosition(final int cursorXPosition, final int cursorYPosition) {
-		
-		this.cursorXPosition = cursorXPosition;
-		this.cursorYPosition = cursorYPosition;
-				
-		final var cursorXPositionOnScrolledArea = getCursorXPositionOnContentArea();
-		final var cursorYPositionOnScrolledArea = getCursorYPositionOnContentArea();
-		
-		for (final var w : getRefWidgetsForPainting()) {
-			w.setCursorPosition(
-				cursorXPositionOnScrolledArea - w.getXPosition(),
-				cursorYPositionOnScrolledArea - w.getYPosition()
-			);
 		}
 	}
 	
