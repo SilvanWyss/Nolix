@@ -8,6 +8,7 @@ import ch.nolix.system.discretegeometry.Discrete2DPoint;
 import ch.nolix.system.element.MutableElement;
 import ch.nolix.system.element.Value;
 import ch.nolix.systemapi.guiapi.inputapi.IInput;
+import ch.nolix.systemapi.guiapi.processproperty.MouseInputType;
 
 //class
 public final class MouseInput extends MutableElement<MouseInput> implements IInput<MouseInput> {

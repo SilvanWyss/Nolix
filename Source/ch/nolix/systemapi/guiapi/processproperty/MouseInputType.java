@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.gui.input;
+package ch.nolix.systemapi.guiapi.processproperty;
 
 //own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
@@ -8,7 +8,6 @@ import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.systemapi.elementapi.mainuniversalapi.Specified;
-import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
 
 //enum
 public enum MouseInputType implements Specified {
