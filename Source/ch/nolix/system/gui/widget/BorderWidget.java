@@ -314,24 +314,6 @@ extends Widget<BW, BWL> {
 	
 	//method
 	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final CursorIcon getCursorIcon() {
-		
-		if (anyScrollBarCursorIsUnderCursor()) {
-			return CursorIcon.HAND;
-		}
-		
-		if (showAreaIsUnderCursor()) {
-			return super.getCursorIcon();
-		}
-		
-		return CursorIcon.ARROW;
-	}
-	
-	//method
-	/**
 	 * @return the bordered area of the current {@link BorderWidget}.
 	 */
 	public final BorderWidgetBorderedArea<BWL> getBorderedArea() {
@@ -348,10 +330,46 @@ extends Widget<BW, BWL> {
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final int getContentAreaXPosition() {
+		return contentArea.getXPosition();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final int getContentAreaYPosition() {
+		return contentArea.getYPosition();
+	}
+	
+	//method
+	/**
 	 * @return the content position of the current {@link BorderWidget}.
 	 */
 	public final ContentPosition getContentPosition() {
 		return contentPosition.getValue();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final CursorIcon getCursorIcon() {
+		
+		if (anyScrollBarCursorIsUnderCursor()) {
+			return CursorIcon.HAND;
+		}
+		
+		if (showAreaIsUnderCursor()) {
+			return super.getCursorIcon();
+		}
+		
+		return CursorIcon.ARROW;
 	}
 	
 	//method
@@ -1078,24 +1096,6 @@ extends Widget<BW, BWL> {
 	 *  is bigger than its natural width resp. natural height.
 	 */
 	protected abstract boolean contentAreaMustBeExpandedToTargetSize();
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected final int getContentAreaXPosition() {
-		return contentArea.getXPosition();
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected final int getContentAreaYPosition() {
-		return contentArea.getYPosition();
-	}
 	
 	//method
 	/**

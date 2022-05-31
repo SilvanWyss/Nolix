@@ -278,6 +278,24 @@ implements IWidget<W, WL> {
 	 * {@inheritDoc}
 	 */
 	@Override
+	public int getContentAreaXPosition() {
+		return 0;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public int getContentAreaYPosition() {
+		return 0;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public CursorIcon getCursorIcon() {
 		
 		final var widgetContainer = getRefWidgetUnderCursor();
@@ -1473,22 +1491,6 @@ implements IWidget<W, WL> {
 	 * @param list
 	 */
 	protected abstract void fillUpWidgetsForPainting(LinkedList<IWidget<?, ?>> list);
-	
-	//method
-	/**
-	 * @return the x-position of the content area of the current {@link Widget} on the current {@link Widget}.
-	 */
-	protected int getContentAreaXPosition() {
-		return 0;
-	}
-	
-	//method
-	/**
-	 * @return the y-position of the content area of the current {@link Widget} on the current {@link Widget}.
-	 */
-	protected int getContentAreaYPosition() {
-		return 0;
-	}
 	
 	//method
 	/**

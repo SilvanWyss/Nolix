@@ -40,6 +40,18 @@ TopLeftPositionedRecangular {
 	 */
 	boolean belongsToGUI();
 	
+	//method
+	/**
+	 * @return the x-position of the content area of the current {@link IWidget} on the current {@link IWidget}.
+	 */
+	int getContentAreaXPosition();
+	
+	//method
+	/**
+	 * @return the x-position of the content area of the current {@link IWidget} on the current {@link IWidget}.
+	 */
+	int getContentAreaYPosition();
+	
 	//method declaration
 	/**
 	 * @return the {@link CursorIcon} of the current {@link IWidget}.
