@@ -7,11 +7,11 @@ import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.system.discretegeometry.Discrete2DPoint;
 import ch.nolix.system.element.MutableElement;
 import ch.nolix.system.element.Value;
-import ch.nolix.systemapi.guiapi.inputapi.IInput;
+import ch.nolix.systemapi.guiapi.inputapi.IMouseInput;
 import ch.nolix.systemapi.guiapi.processproperty.MouseInputType;
 
 //class
-public final class MouseInput extends MutableElement<MouseInput> implements IInput<MouseInput> {
+public final class MouseInput extends MutableElement<MouseInput> implements IMouseInput<MouseInput> {
 	
 	//constant
 	private static final String INPUT_TYPE_HEADER = "InputType";
@@ -58,16 +58,19 @@ public final class MouseInput extends MutableElement<MouseInput> implements IInp
 	}
 	
 	//method
+	@Override
 	public int getCursorXPosition() {
 		return cursorPosition.getValue().getX();
 	}
 	
 	//method
+	@Override
 	public int getCursorYPosition() {
 		return cursorPosition.getValue().getY();
 	}
 	
 	//method
+	@Override
 	public MouseInputType getMouseInputType() {
 		return inputType.getValue();
 	}
