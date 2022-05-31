@@ -2,6 +2,7 @@
 package ch.nolix.systemapi.guiapi.widgetguiapi;
 
 //own imports
+import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.griduniversalapi.TopLeftPositionedRecangular;
 import ch.nolix.core.requestuniversalapi.EnablingRequestable;
 import ch.nolix.core.requestuniversalapi.ExpansionRequestable;
@@ -77,6 +78,12 @@ TopLeftPositionedRecangular {
 	 * @return the active {@link IWidgetLook} of the current {@link IWidget}.
 	 */
 	WL getRefActiveLook();
+	
+	//method declaration
+	/** 
+	 * @return the {@link IWidget}s of the current {@link IWidget} that have to be painted.
+	 */
+	LinkedList<IWidget<?, ?>> getRefWidgetsForPainting();
 	
 	//method declaration
 	/**

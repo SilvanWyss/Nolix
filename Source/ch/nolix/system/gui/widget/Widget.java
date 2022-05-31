@@ -384,7 +384,7 @@ implements IWidget<W, WL> {
 	 * @throws ArgumentDoesNotBelongToParentException
 	 * if the current {@link Widget} does not belong to a {@link Widget}.
 	 */
-	public final Widget<?, ?> getParentWidget() {
+	public final IWidget<?, ?> getParentWidget() {
 		
 		assertBelongsToWidget();
 				
@@ -411,9 +411,10 @@ implements IWidget<W, WL> {
 	
 	//method
 	/** 
-	 * @return the {@link Widget}s of the current {@link Widget} that have to be painted.
+	 * {@inheritDoc}
 	 */
-	public final LinkedList<Widget<?, ?>> getRefWidgetsForPainting() {
+	@Override
+	public final LinkedList<IWidget<?, ?>> getRefWidgetsForPainting() {
 		
 		final var widgetsForPainting = new LinkedList<IWidget<?, ?>>();
 		fillUpWidgetsForPainting(widgetsForPainting);
@@ -1732,7 +1733,7 @@ implements IWidget<W, WL> {
 	 * 
 	 * @param widgets
 	 */
-	private void addChildWidgets(final IContainer<Widget<?, ?>> widgets) {
+	private void addChildWidgets(final IContainer<IWidget<?, ?>> widgets) {
 		widgets.forEach(this::addChildWidget);
 	}
 	
@@ -1786,7 +1787,7 @@ implements IWidget<W, WL> {
 	}
 	
 	//method
-	private SingleContainer<Widget<?, ?>> getRefWidgetUnderCursor() {
+	private SingleContainer<IWidget<?, ?>> getRefWidgetUnderCursor() {
 		return getRefWidgetsForPainting().getOptionalRefFirst(IWidget::isUnderCursor);
 	}
 	

@@ -76,15 +76,14 @@ public final class WidgetParent implements IWidgetParent {
 	//method
 	//For a better performance, this implementation does not use all comfortable methods.
 	@Override
-	public Widget<?, ?> getRefWidget() {
+	public IWidget<?, ?> getRefWidget() {
 		
 		//Asserts that the current WidgetParent is a widget.
 		if (widget == null) {
 			throw new InvalidArgumentException(this, "is not a Widget");
 		}
 		
-		//TODO: Fix this.
-		return (Widget<?, ?>)widget;
+		return widget;
 	}
 	
 	//method
