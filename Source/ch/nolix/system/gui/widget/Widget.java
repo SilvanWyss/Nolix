@@ -323,15 +323,6 @@ implements IWidget<W, WL> {
 	
 	//method
 	/**
-	 * @return the index of the current {@link Widget} on the {@link WidgetGUI} the current {@link Widget} belongs to.
-	 * @throws InvalidArgumentException if the current {@link Widget} does not belong to a {@link WidgetGUI}.
-	 */
-	public final int getIndexOnGUI() {
-		return getParentGUI().getRefWidgets().getIndexOfFirstOccurrenceOf(this);
-	}
-	
-	//method
-	/**
 	 * @return the parent the current {@link Widget} belongs to.
 	 * @throws ArgumentDoesNotBelongToParentException if the current {@link Widget} does not belong to a parent.
 	 */

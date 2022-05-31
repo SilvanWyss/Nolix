@@ -3,7 +3,6 @@ package ch.nolix.system.gui.widget;
 
 //own imports
 import ch.nolix.core.constant.PascalCaseCatalogue;
-import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.functionuniversalapi.I2ElementTaker;
@@ -106,12 +105,6 @@ public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> impleme
 	//method
 	public <W extends Widget<?, ?>> W getRefWidgetById(final String id) {
 		return internalGUI.getRefWidgetById(id);
-	}
-	
-	//method
-	@Override
-	public IContainer<Widget<?, ?>> getRefWidgets() {
-		return internalGUI.getRefWidgets();
 	}
 	
 	//method

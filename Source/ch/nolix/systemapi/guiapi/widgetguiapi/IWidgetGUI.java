@@ -2,7 +2,6 @@
 package ch.nolix.systemapi.guiapi.widgetguiapi;
 
 //own imports
-import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.functionuniversalapi.I2ElementTaker;
@@ -24,12 +23,6 @@ public interface IWidgetGUI<WG extends IWidgetGUI<WG>> extends Clearable,  IBase
 	
 	//method declaration
 	IKeyBoard getRefKeyBoard();
-	
-	//method declaration
-	<W extends Widget<?, ?>> W getRefWidgetById(String id);
-	
-	//method declaration
-	IContainer<Widget<?, ?>> getRefWidgets();
 	
 	//method declaration
 	WG pushLayer(ILayer<?> layer);
