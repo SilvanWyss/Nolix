@@ -414,24 +414,6 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 	//method
 	//For a better performance, this implementation does not use all comfortable methods.
 	/**
-	 * {@inheritDoc}
-	 */
-	public IContainer<Widget<?, ?>> getRefWidgets() {
-		
-		//Handles the case that the current Layer does not have a root Widget.
-		if (rootWidget == null) {
-			return new LinkedList<>();
-		}
-		
-		//Handles the case that the current Layer has a root Widget.
-		final var widgets = rootWidget.getChildWidgets();
-		widgets.addAtEnd(rootWidget);
-		return widgets;
-	}
-	
-	//method
-	//For a better performance, this implementation does not use all comfortable methods.
-	/**
 	 * @return the role of the current {@link Layer}.
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link Layer} does not have a role.
 	 */

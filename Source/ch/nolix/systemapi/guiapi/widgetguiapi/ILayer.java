@@ -74,12 +74,6 @@ Recalculable {
 	
 	//method declaration
 	/**
-	 * @return the {@link IWidget}s of the current {@link ILayer}.
-	 */
-	IContainer<Widget<?, ?>> getRefWidgets();
-	
-	//method declaration
-	/**
 	 * @return the {@link IWidget}s of the current {@link ILayer} that are supposed to be painted.
 	 */
 	IContainer<Widget<?, ?>> getRefWidgetsForPainting();

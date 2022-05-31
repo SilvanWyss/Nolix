@@ -368,27 +368,6 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	
 	//method
 	/**
-	 * @param id
-	 * @param <W> is the type of the returned {@link Widget}.
-	 * @return the {@link Widget} with the given id from the current {@link WidgetGUI}.
-	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link WidgetGUI}
-	 * does not contain a {@link Widget} with the given id.
-	 */
-	@SuppressWarnings("unchecked")
-	public final <W extends Widget<?, ?>> W getRefWidgetById(final String id) {
-		return (W)getRefWidgets().getRefFirst(w -> w.hasId(id));
-	}
-	
-	//method
-	/**
-	 * @return the {@link Widget}s of the current {@link WidgetGUI}.
-	 */
-	public final IContainer<Widget<?, ?>> getRefWidgets() {
-		return layers.toFromMany(ILayer::getRefWidgets);
-	}
-
-	//method
-	/**
 	 * @return the {@link Widget}s, that are for painting, of the current {@link WidgetGUI}.
 	 */
 	public final IContainer<Widget<?, ?>> getRefWidgetsForPainting() {

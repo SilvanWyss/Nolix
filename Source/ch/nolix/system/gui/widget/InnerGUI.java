@@ -103,11 +103,6 @@ public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> impleme
 	}
 	
 	//method
-	public <W extends Widget<?, ?>> W getRefWidgetById(final String id) {
-		return internalGUI.getRefWidgetById(id);
-	}
-	
-	//method
 	@Override
 	public String getTitle() {
 		return internalGUI.getTitle();
