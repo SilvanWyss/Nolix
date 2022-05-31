@@ -172,4 +172,26 @@ TopLeftPositionedRecangular {
 	 * @param cursorYPosition
 	 */
 	void _setCursorPosition(int cursorXPosition, int cursorYPosition);
+	
+	//method declaration
+	/**
+	 * Sets the {@link ILayer} the current {@link IWidget} will belong to.
+	 * 
+	 * @param parentLayer
+	 * @throws Exception if the given parentLayer is null.
+	 * @throws Exception if
+	 * the current {@link IWidget} belongs already to a {@link IWidget} or to another {@link ILayer}.
+	 */
+	void _setParentLayer(ILayer<?> parentLayer);
+	
+	//method declaration
+	/**
+	 * Sets the {@link IWidget} the current {@link IWidget} will belong to.
+	 * 
+	 * @param parentWidget
+	 * @throws Exception if the given parentWidget is null.
+	 * @throws Exception if
+	 * the current {@link IWidget} belongs already to another {@link IWidget} or to a {@link ILayer}.
+	 */
+	void _setParentWidget(IWidget<?, ?> parentWidget);
 }

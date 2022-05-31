@@ -5,6 +5,8 @@ package ch.nolix.system.gui.widget;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.gui.widgetgui.Layer;
+import ch.nolix.systemapi.guiapi.widgetguiapi.ILayer;
+import ch.nolix.systemapi.guiapi.widgetguiapi.IWidget;
 import ch.nolix.systemapi.guiapi.widgetguiapi.IWidgetGUI;
 import ch.nolix.systemapi.guiapi.widgetguiapi.IWidgetParent;
 
@@ -12,11 +14,11 @@ import ch.nolix.systemapi.guiapi.widgetguiapi.IWidgetParent;
 public final class WidgetParent implements IWidgetParent {
 	
 	//optional attributes
-	private final Layer layer;
-	private final Widget<?, ?> widget;
+	private final ILayer<?> layer;
+	private final IWidget<?, ?> widget;
 	
 	//constructor
-	WidgetParent(final Layer layer, final Widget<?, ?> childWidget) {
+	WidgetParent(final ILayer<?> layer, final IWidget<?, ?> childWidget) {
 		
 		GlobalValidator.assertThat(layer).thatIsNamed(Layer.class).isNotNull();
 		GlobalValidator.assertThat(childWidget).thatIsNamed("child Widget").isNotNull();
@@ -26,7 +28,7 @@ public final class WidgetParent implements IWidgetParent {
 	}
 	
 	//constructor
-	WidgetParent(final Widget<?, ?> widget, final Widget<?, ?> childWidget) {
+	WidgetParent(final IWidget<?, ?> widget, final IWidget<?, ?> childWidget) {
 		
 		GlobalValidator.assertThat(widget).thatIsNamed(Widget.class).isNotNull();
 		GlobalValidator.assertThat(childWidget).thatIsNamed("child Widget").isNotNull();
@@ -62,7 +64,7 @@ public final class WidgetParent implements IWidgetParent {
 	//method
 	//For a better performance, this implementation does not use all comfortable methods.
 	@Override
-	public Layer getRefLayer() {
+	public ILayer<?> getRefLayer() {
 		
 		if (layer != null) {
 			return layer;
@@ -81,7 +83,8 @@ public final class WidgetParent implements IWidgetParent {
 			throw new InvalidArgumentException(this, "is not a Widget");
 		}
 		
-		return widget;
+		//TODO: Fix this.
+		return (Widget<?, ?>)widget;
 	}
 	
 	//method

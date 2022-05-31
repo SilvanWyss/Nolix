@@ -30,6 +30,7 @@ import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.inputdeviceapi.IKeyBoard;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
+import ch.nolix.systemapi.guiapi.widgetguiapi.ILayer;
 import ch.nolix.systemapi.guiapi.widgetguiapi.IWidget;
 import ch.nolix.systemapi.guiapi.widgetguiapi.IWidgetGUI;
 
@@ -376,7 +377,7 @@ implements IWidget<W, WL> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final Layer getParentLayer() {
+	public final ILayer<?> getParentLayer() {
 		return getParent().getRefLayer();
 	}
 	
@@ -1448,6 +1449,24 @@ implements IWidget<W, WL> {
 		}
 	}
 	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void _setParentLayer(final ILayer<?> parentLayer) {
+		setParent(new WidgetParent(parentLayer, this));
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void _setParentWidget(final IWidget<?, ?> parentWidget) {
+		setParent(new WidgetParent(parentWidget, this));
+	}
+	
 	//method declaration
 	/**
 	 * @return a new {@link WidgetLook} for the current {@link Widget}.
@@ -1722,8 +1741,8 @@ implements IWidget<W, WL> {
 	 * 
 	 * @param widget
 	 */
-	private void addChildWidget(final Widget<?, ?> widget) {
-		widget.setParent(this);
+	private void addChildWidget(final IWidget<?, ?> widget) {
+		widget._setParentWidget(this);
 	}
 	
 	//method
@@ -2034,18 +2053,6 @@ implements IWidget<W, WL> {
 		} else {
 			setHovered();
 		}
-	}
-	
-	//method
-	/**
-	 * Sets the {@link Widget} the current {@link Widget} will belong to.
-	 * 
-	 * @param parentWidget
-	 * @throws ArgumentIsNullException if the given parentWidget is null.
-	 * @throws InvalidArgumentException if the current {@link Widget} belongs already to a parent.
-	 */
-	private void setParent(final Widget<?, ?> parentWidget) {
-		setParent(new WidgetParent(parentWidget, this));
 	}
 	
 	//method
