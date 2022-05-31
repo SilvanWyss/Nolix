@@ -368,21 +368,6 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	
 	//method
 	/**
-	 * @return the {@link Widget}s, that are for painting, of the current {@link WidgetGUI}.
-	 */
-	public final IContainer<Widget<?, ?>> getRefWidgetsForPainting() {
-		
-		//Handles the case that the current WidgetGUI does not contain a Layer.
-		if (isEmpty()) {
-			return new LinkedList<>();
-		}
-		
-		//Handles the case that the current WidgetGUI contains Layers.
-		return topLayer.getRefWidgetsForPainting();
-	}
-	
-	//method
-	/**
 	 * @return true if the current {@link WidgetGUI} does not contain a {@link Layer}.
 	 */
 	@Override
