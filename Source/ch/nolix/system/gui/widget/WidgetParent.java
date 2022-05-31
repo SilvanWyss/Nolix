@@ -6,9 +6,10 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.gui.widgetgui.Layer;
 import ch.nolix.systemapi.guiapi.widgetguiapi.IWidgetGUI;
+import ch.nolix.systemapi.guiapi.widgetguiapi.IWidgetParent;
 
 //class
-public final class WidgetParent {
+public final class WidgetParent implements IWidgetParent {
 	
 	//optional attributes
 	private final Layer layer;
@@ -36,6 +37,7 @@ public final class WidgetParent {
 	
 	//method
 	//For a better performance, this implementation does not use all comfortable methods.
+	@Override
 	public boolean belongsToGUI() {
 		
 		if (layer != null) {
@@ -47,6 +49,7 @@ public final class WidgetParent {
 	
 	//method
 	//For a better performance, this implementation does not use all comfortable methods.
+	@Override
 	public IWidgetGUI<?> getRefGUI() {
 		
 		if (layer != null) {
@@ -58,6 +61,7 @@ public final class WidgetParent {
 	
 	//method
 	//For a better performance, this implementation does not use all comfortable methods.
+	@Override
 	public Layer getRefLayer() {
 		
 		if (layer != null) {
@@ -69,6 +73,7 @@ public final class WidgetParent {
 	
 	//method
 	//For a better performance, this implementation does not use all comfortable methods.
+	@Override
 	public Widget<?, ?> getRefWidget() {
 		
 		//Asserts that the current WidgetParent is a widget.
@@ -92,6 +97,7 @@ public final class WidgetParent {
 		
 	//method
 	//For a better performance, this implementation does not use all comfortable methods.
+	@Override
 	public int getXPositionOnGUIViewArea() {
 		
 		if (layer != null) {
@@ -103,6 +109,7 @@ public final class WidgetParent {
 	
 	//method
 	//For a better performance, this implementation does not use all comfortable methods.
+	@Override
 	public int getYPositionOnGUIViewArea() {
 		
 		if (layer != null) {
@@ -113,16 +120,19 @@ public final class WidgetParent {
 	}
 	
 	//method
+	@Override
 	public boolean GUIIsClosed() {
 		return (belongsToGUI() && getRefGUI().isClosed());
 	}
 	
 	//method
+	@Override
 	public boolean isLayer() {
 		return (layer != null);
 	}
 	
 	//method
+	@Override
 	public boolean isWidget() {
 		return (widget != null);
 	}
