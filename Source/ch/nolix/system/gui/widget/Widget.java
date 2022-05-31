@@ -419,8 +419,7 @@ implements IWidget<W, WL> {
 		final var widgetsForPainting = new LinkedList<IWidget<?, ?>>();
 		fillUpWidgetsForPainting(widgetsForPainting);
 		
-		//TODO: Fix this.
-		return widgetsForPainting.asContainerWithElementsOfEvaluatedType();
+		return widgetsForPainting;
 	}
 	
 	//method
