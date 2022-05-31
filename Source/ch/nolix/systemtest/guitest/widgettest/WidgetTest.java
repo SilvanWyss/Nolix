@@ -94,7 +94,6 @@ public abstract class WidgetTest<W extends Widget<W, ?>> extends ObjectTest<W> {
 		testUnit.setRightMouseButtonPressAction(FunctionCatalogue::doNothing);
 		testUnit.setRightMouseButtonReleaseAction(FunctionCatalogue::doNothing);
 		testUnit.setFocused();
-		testUnit.setHovered();
 		
 		//setup verification
 		expect(testUnit.hasLeftMouseButtonPressAction());
@@ -102,7 +101,6 @@ public abstract class WidgetTest<W extends Widget<W, ?>> extends ObjectTest<W> {
 		expect(testUnit.hasRightMouseButtonPressAction());
 		expect(testUnit.hasRightMouseButtonReleaseAction());
 		expect(testUnit.isFocused());
-		expect(testUnit.isHovered());
 		
 		//execution
 		testUnit.reset();
@@ -113,6 +111,5 @@ public abstract class WidgetTest<W extends Widget<W, ?>> extends ObjectTest<W> {
 		expectNot(testUnit.hasRightMouseButtonPressAction());
 		expectNot(testUnit.hasRightMouseButtonReleaseAction());
 		expectNot(testUnit.isFocused());
-		expectNot(testUnit.isHovered());
 	}
 }
