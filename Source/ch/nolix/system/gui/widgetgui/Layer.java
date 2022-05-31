@@ -42,6 +42,7 @@ import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
 import ch.nolix.systemapi.guiapi.structureproperty.ExtendedContentPosition;
 import ch.nolix.systemapi.guiapi.widgetguiapi.ILayer;
+import ch.nolix.systemapi.guiapi.widgetguiapi.IWidget;
 import ch.nolix.systemapi.guiapi.widgetguiapi.IWidgetGUI;
 
 //class
@@ -189,11 +190,11 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 	private IWidgetGUI<?> parentGUI;
 	
 	//optional attribute
-	private Widget<?, ?> rootWidget;
+	private IWidget<?, ?> rootWidget;
 	
 	//attribute
 	@SuppressWarnings("unused")
-	private final MutableOptionalValueExtractor<Widget<?, ?>> rootWidgetExtractor =
+	private final MutableOptionalValueExtractor<IWidget<?, ?>> rootWidgetExtractor =
 	new MutableOptionalValueExtractor<>(
 		ROOT_WIDGET_HEADER,
 		this::setRootWidget,
@@ -383,7 +384,7 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 	/**
 	 * {@inheritDoc}
 	 */
-	public Widget<?, ?> getRefRootWidget() {
+	public IWidget<?, ?> getRefRootWidget() {
 		
 		//Asserts that the current Layer has a root Widget.
 		if (rootWidget == null) {
@@ -1203,11 +1204,11 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 	 * @return the current {@link Layer}.
 	 * @throws ArgumentIsNullException if the given rootWidget is null.
 	 */
-	public Layer setRootWidget(final Widget<?, ?> rootWidget) {
+	public Layer setRootWidget(final IWidget<?, ?> rootWidget) {
 		
 		GlobalValidator.assertThat(rootWidget).thatIsNamed("root Widget").isNotNull();
 		
-		rootWidget.setParent(this);
+		rootWidget._setParentLayer(this);
 		this.rootWidget = rootWidget;
 		
 		return this;
@@ -1236,7 +1237,7 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 		
 		//Handles the case that the current Layer has a root Widget.
 		if (rootWidget != null) {
-			rootWidget.setParent(this);
+			rootWidget._setParentLayer(this);
 		}
 		
 		//Sets the parentGUI of the current Layer.

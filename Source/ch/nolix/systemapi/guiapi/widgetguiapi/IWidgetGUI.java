@@ -6,7 +6,6 @@ import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.functionuniversalapi.I2ElementTaker;
 import ch.nolix.core.skilluniversalapi.Clearable;
-import ch.nolix.system.gui.widget.Widget;
 import ch.nolix.systemapi.elementapi.configurationapi.IConfigurableElement;
 import ch.nolix.systemapi.elementapi.configurationapi.IConfiguration;
 import ch.nolix.systemapi.guiapi.baseapi.IBaseGUI;
@@ -28,7 +27,7 @@ public interface IWidgetGUI<WG extends IWidgetGUI<WG>> extends Clearable,  IBase
 	WG pushLayer(ILayer<?> layer);
 	
 	//method declaration
-	WG pushLayerWithWidget(Widget<?, ?> rootWidget);
+	WG pushLayerWithWidget(IWidget<?, ?> rootWidget);
 	
 	//method declaration
 	void removeLayer(ILayer<?> layer);

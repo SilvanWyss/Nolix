@@ -56,6 +56,7 @@ import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
 import ch.nolix.systemapi.guiapi.structureproperty.ExtendedContentPosition;
 import ch.nolix.systemapi.guiapi.widgetguiapi.ILayer;
+import ch.nolix.systemapi.guiapi.widgetguiapi.IWidget;
 import ch.nolix.systemapi.guiapi.widgetguiapi.IWidgetGUI;
 
 //class
@@ -444,7 +445,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 * @return the current {@link IWidgetGUI}.
 	 * @throws ArgumentIsNullException if the given rootWidget is null.
 	 */
-	public final WG pushLayerWithWidget(final Widget<?, ?> rootWidget) {		
+	public final WG pushLayerWithWidget(final IWidget<?, ?> rootWidget) {		
 		return
 		pushLayer(
 			new Layer()
