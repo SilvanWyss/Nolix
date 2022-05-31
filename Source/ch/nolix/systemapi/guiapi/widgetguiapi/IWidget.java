@@ -13,6 +13,14 @@ import ch.nolix.systemapi.guiapi.inputapi.IInputTaker;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 
 //interface
+/**
+ * A {@link IWidget} is an element on a GUI.
+ * 
+ * @author Silvan Wyss
+ * @date 2022-05-29
+ * @param <W> is the type of a {@link IWidget}.
+ * @param <WL> is the type of the {@link IWidgetLook} of a {@link IWidget}.
+ */
 public interface IWidget<
 	W extends IWidget<W, WL>,
 	WL extends IWidgetLook<WL>
