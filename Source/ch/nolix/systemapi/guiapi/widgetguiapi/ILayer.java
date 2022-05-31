@@ -67,20 +67,20 @@ Recalculable {
 	
 	//method declaration
 	/**
-	 * @return the root {@link Widget} of the current {@link ILayer}.
+	 * @return the root {@link IWidget} of the current {@link ILayer}.
 	 * @throws Exception if the current {@link ILayer} does not have a root {@link IWidget}.
 	 */
 	IWidget<?, ?> getRefRootWidget();
 	
 	//method declaration
 	/**
-	 * @return the {@link Widget}s of the current {@link ILayer}.
+	 * @return the {@link IWidget}s of the current {@link ILayer}.
 	 */
 	IContainer<Widget<?, ?>> getRefWidgets();
 	
 	//method declaration
 	/**
-	 * @return the {@link Widget}s of the current {@link ILayer} that are supposed to be painted.
+	 * @return the {@link IWidget}s of the current {@link ILayer} that are supposed to be painted.
 	 */
 	IContainer<Widget<?, ?>> getRefWidgetsForPainting();
 	
