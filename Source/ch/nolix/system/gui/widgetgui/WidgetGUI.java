@@ -277,33 +277,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 				
 		initializeBackground();
 	}
-	
-	//method
-	/**
-	 * Adds or changes the given attributes to the {@link Widget}s of the current {@link GUI}.
-	 * 
-	 * @param attributes
-	 * @param <BN> is the type of the given attributes.
-	 * @return the current {@link GUI}.
-	 * @throws InvalidArgumentException if the given attributes are not valid.
-	 */
-	public final <BN extends BaseNode> WG addOrChangeAttributesOfWidgets(final IContainer<IContainer<BN>> attributes) {
 		
-		final var iterator = attributes.iterator();
-		
-		getRefWidgets().forEach(w -> w.addOrChangeAttributes(iterator.next()));
-		
-		if (iterator.hasNext()) {
-			throw new InvalidArgumentException(
-				"attributes",
-				attributes,
-				"contains more than " + getRefWidgets().getElementCount() + " Widgets"
-			);
-		}
-		
-		return asConcrete();
-	}
-	
 	//method
 	/**
 	 * Removes the root {@link Widget} of the current GUI.
