@@ -83,7 +83,7 @@ public final class ImageWidget extends BorderWidget<ImageWidget, ImageWidgetLook
 	
 	//method
 	@Override
-	protected void fillUpChildWidgets(final LinkedList<Widget<?, ?>> list) {}
+	protected void fillUpChildWidgets(final LinkedList<IWidget<?, ?>> list) {}
 	
 	//method
 	@Override

@@ -264,7 +264,7 @@ public final class TabContainer extends ContainerWidget<TabContainer, TabContain
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void fillUpChildWidgets(final LinkedList<Widget<?, ?>> list) {
+	protected void fillUpChildWidgets(final LinkedList<IWidget<?, ?>> list) {
 		
 		//Iterates the tabs of the current TabContainer.
 		for (final var t: getRefTabs()) {

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.gui.textbox;
 
+//own imports
 import ch.nolix.core.attributeuniversalapi.mutablemandatoryattributeuniversalapi.IMutableTextHolder;
 import ch.nolix.core.constant.PascalCaseCatalogue;
 import ch.nolix.core.container.LinkedList;
@@ -14,7 +15,6 @@ import ch.nolix.system.gui.widget.BorderWidget;
 import ch.nolix.system.gui.widget.Button;
 import ch.nolix.system.gui.widget.TextBoxLook;
 import ch.nolix.system.gui.widget.TextMode;
-import ch.nolix.system.gui.widget.Widget;
 import ch.nolix.system.gui.widget.WidgetLookState;
 import ch.nolix.systemapi.guiapi.baseapi.CursorIcon;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
@@ -214,7 +214,7 @@ public final class TextBox extends BorderWidget<TextBox, TextBoxLook> implements
 	
 	//method
 	@Override
-	protected void fillUpChildWidgets(final LinkedList<Widget<?, ?>> list) {}
+	protected void fillUpChildWidgets(final LinkedList<IWidget<?, ?>> list) {}
 	
 	//method
 	@Override

@@ -19,11 +19,11 @@ public final class FloatContainer extends ContainerWidget<FloatContainer, FloatC
 	private static final String CHILD_HEADER = PascalCaseCatalogue.CHILD;
 	
 	//multi-attribute
-	private final LinkedList<Widget<?, ?>> widgets = new LinkedList<>();
+	private final LinkedList<IWidget<?, ?>> widgets = new LinkedList<>();
 	
 	//attribute
 	@SuppressWarnings("unused")
-	private final MultiValueExtractor<Widget<?, ?>> widgetsExtractor =
+	private final MultiValueExtractor<IWidget<?, ?>> widgetsExtractor =
 	new MultiValueExtractor<>(
 		CHILD_HEADER,
 		this::addWidget,
@@ -38,7 +38,7 @@ public final class FloatContainer extends ContainerWidget<FloatContainer, FloatC
 	}
 	
 	//method
-	public FloatContainer addWidget(final Widget<?, ?> widget) {
+	public FloatContainer addWidget(final IWidget<?, ?> widget) {
 		
 		widgets.addAtEndRegardingSingularity(widget);
 		
@@ -83,7 +83,7 @@ public final class FloatContainer extends ContainerWidget<FloatContainer, FloatC
 	
 	//method
 	@Override
-	protected void fillUpChildWidgets(final LinkedList<Widget<?, ?>> list) {
+	protected void fillUpChildWidgets(final LinkedList<IWidget<?, ?>> list) {
 		list.addAtEnd(widgets);
 	}
 	
@@ -179,7 +179,7 @@ public final class FloatContainer extends ContainerWidget<FloatContainer, FloatC
 		
 		var y = 0;
 		var x = 0;
-		final var row = new LinkedList<Widget<?, ?>>();
+		final var row = new LinkedList<IWidget<?, ?>>();
 		for (final var w : widgets) {
 			
 			final var widgetWidth = w.getWidth();

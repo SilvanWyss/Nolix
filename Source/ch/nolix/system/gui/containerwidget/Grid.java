@@ -155,7 +155,7 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 	
 	//method
 	@Override
-	protected void fillUpChildWidgets(final LinkedList<Widget<?, ?>> list) {
+	protected void fillUpChildWidgets(final LinkedList<IWidget<?, ?>> list) {
 		for (final var c : cells) {
 			if (c.containsAny()) {
 				list.addAtEnd(c.getRefWidget());

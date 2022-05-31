@@ -8,6 +8,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentExceptio
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.skilluniversalapi.Clearable;
 import ch.nolix.system.gui.widget.Widget;
+import ch.nolix.systemapi.guiapi.widgetguiapi.IWidget;
 
 //class
 final class AligningContainerSlot implements Clearable {
@@ -23,7 +24,7 @@ final class AligningContainerSlot implements Clearable {
 	
 	//method
 	//For a better performance, this implementation does not use all comfortable methods.
-	public void fillUpWidgetInto(final LinkedList<Widget<?, ?>> list) {
+	public void fillUpWidgetInto(final LinkedList<IWidget<?, ?>> list) {
 		if (widget != null) {
 			list.addAtEnd(widget);
 		}

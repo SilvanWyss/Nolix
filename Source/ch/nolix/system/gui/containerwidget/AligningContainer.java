@@ -344,7 +344,7 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 	
 	//method
 	@Override
-	protected void fillUpChildWidgets(final LinkedList<Widget<?, ?>> list) {
+	protected void fillUpChildWidgets(final LinkedList<IWidget<?, ?>> list) {
 		topLeftSlot.fillUpWidgetInto(list);
 		topSlot.fillUpWidgetInto(list);
 		topRightSlot.fillUpWidgetInto(list);
@@ -359,9 +359,7 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 	//method
 	@Override
 	protected void fillUpWidgetsForPainting(final LinkedList<IWidget<?, ?>> list) {
-		
-		//TODO: Fix this.
-		//fillUpChildWidgets(list);
+		fillUpChildWidgets(list);
 	}
 	
 	//method

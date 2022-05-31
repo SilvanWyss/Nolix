@@ -265,9 +265,9 @@ implements IWidget<W, WL> {
 	/** 
 	 * @return the child {@link Widget}s of the current {@link Widget}.
 	 */
-	public final LinkedList<Widget<?, ?>> getChildWidgets() {
+	public final LinkedList<IWidget<?, ?>> getChildWidgets() {
 		
-		final var childWidgets = new LinkedList<Widget<?, ?>>();
+		final var childWidgets = new LinkedList<IWidget<?, ?>>();
 		fillUpChildWidgets(childWidgets);
 		
 		return childWidgets;
@@ -1479,7 +1479,7 @@ implements IWidget<W, WL> {
 	 * 
 	 * @param list
 	 */
-	protected abstract void fillUpChildWidgets(LinkedList<Widget<?, ?>> list);
+	protected abstract void fillUpChildWidgets(LinkedList<IWidget<?, ?>> list);
 	
 	//method declaration
 	/**

@@ -17,6 +17,7 @@ import ch.nolix.system.element.MultiValue;
 import ch.nolix.system.element.SubElement;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
+import ch.nolix.systemapi.guiapi.widgetguiapi.IWidget;
 
 //class
 public abstract class ItemMenu<IM extends ItemMenu<IM>> extends BorderWidget<IM, ItemMenuLook> implements Clearable {
@@ -279,7 +280,7 @@ public abstract class ItemMenu<IM extends ItemMenu<IM>> extends BorderWidget<IM,
 	
 	//method
 	@Override
-	protected final void fillUpChildWidgets(final LinkedList<Widget<?, ?>> list) {}
+	protected final void fillUpChildWidgets(final LinkedList<IWidget<?, ?>> list) {}
 	
 	//method
 	protected final IContainer<Label> getRefItemLabels() {

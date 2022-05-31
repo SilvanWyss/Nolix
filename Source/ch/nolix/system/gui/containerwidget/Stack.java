@@ -44,11 +44,11 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	);
 	
 	//multi-attribute
-	private final LinkedList<Widget<?, ?>> widgets = new LinkedList<>();
+	private final LinkedList<IWidget<?, ?>> widgets = new LinkedList<>();
 	
 	//attribute
 	@SuppressWarnings("unused")
-	private final MultiValueExtractor<Widget<?, ?>> widgetsExtractor =
+	private final MultiValueExtractor<IWidget<?, ?>> widgetsExtractor =
 	new MultiValueExtractor<>(
 		CHILD_HEADER,
 		this::add,
@@ -67,7 +67,7 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	 * @throws InvalidArgumentException
 	 * if the given widget belongs to another GUI than the current {@link Stack}.
 	 */
-	public final S add(final Widget<?, ?> widget) {
+	public final S add(final IWidget<?, ?> widget) {
 		
 		//Asserts that the given widget is not null.
 		GlobalValidator.assertThat(widget).isOfType(Widget.class);
@@ -201,7 +201,7 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void fillUpChildWidgets(final LinkedList<Widget<?, ?>> list) {
+	protected final void fillUpChildWidgets(final LinkedList<IWidget<?, ?>> list) {
 		for (final var w : widgets) {
 			if (w.isEnabled()) {
 				list.addAtEnd(w);

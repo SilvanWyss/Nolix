@@ -138,7 +138,7 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void fillUpChildWidgets(final LinkedList<Widget<?, ?>> list) {}
+	protected final void fillUpChildWidgets(final LinkedList<IWidget<?, ?>> list) {}
 	
 	//method
 	/**
