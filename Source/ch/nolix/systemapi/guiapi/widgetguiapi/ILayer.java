@@ -2,10 +2,8 @@
 package ch.nolix.systemapi.guiapi.widgetguiapi;
 
 //own imports
-import ch.nolix.core.container.IContainer;
 import ch.nolix.core.skilluniversalapi.Clearable;
 import ch.nolix.core.skilluniversalapi.Recalculable;
-import ch.nolix.system.gui.widget.Widget;
 import ch.nolix.systemapi.elementapi.configurationapi.IConfigurableElement;
 import ch.nolix.systemapi.guiapi.baseapi.CursorIcon;
 import ch.nolix.systemapi.guiapi.baseapi.IOccupiableCanvasInputActionManager;
@@ -71,13 +69,7 @@ Recalculable {
 	 * @throws Exception if the current {@link ILayer} does not have a root {@link IWidget}.
 	 */
 	IWidget<?, ?> getRefRootWidget();
-	
-	//method declaration
-	/**
-	 * @return the {@link IWidget}s of the current {@link ILayer} that are supposed to be painted.
-	 */
-	IContainer<Widget<?, ?>> getRefWidgetsForPainting();
-	
+		
 	//method declaration
 	/**
 	 * Paints the current {@link ILayer} using the given painter.

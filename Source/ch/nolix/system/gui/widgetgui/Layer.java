@@ -392,25 +392,7 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 		
 		return rootWidget;
 	}
-	
-	//method
-	//For a better performance, this implementation does not use all comfortable methods.
-	/**
-	 * {@inheritDoc}
-	 */
-	public IContainer<Widget<?, ?>> getRefWidgetsForPainting() {
 		
-		//Handles the case that the current Layer does not have a root Widget.
-		if (rootWidget == null) {
-			return new LinkedList<>();
-		}
-		
-		//Handles the case that the current Layer has a root Widget.
-		final var widgetsForPainting = rootWidget.getRefWidgetsForPainting();
-		widgetsForPainting.addAtBegin(rootWidget);
-		return widgetsForPainting;
-	}
-	
 	//method
 	//For a better performance, this implementation does not use all comfortable methods.
 	/**
