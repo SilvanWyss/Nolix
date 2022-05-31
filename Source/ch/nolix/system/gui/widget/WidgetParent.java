@@ -92,7 +92,7 @@ public final class WidgetParent {
 		
 	//method
 	//For a better performance, this implementation does not use all comfortable methods.
-	public int getXPositionOnGUI() {
+	public int getXPositionOnGUIViewArea() {
 		
 		if (layer != null) {
 			return 0; 
@@ -103,7 +103,7 @@ public final class WidgetParent {
 	
 	//method
 	//For a better performance, this implementation does not use all comfortable methods.
-	public int getYPositionOnGUI() {
+	public int getYPositionOnGUIViewArea() {
 		
 		if (layer != null) {
 			return 0; 

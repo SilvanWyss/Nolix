@@ -467,12 +467,12 @@ implements IWidget<W, WL> {
 		
 		//Handles the case that the parent of the current Widget is a Layer.
 		if (parent.isLayer()) {
-			return parent.getXPositionOnGUI() + xPositionOnContentAreaOfParent;
+			return parent.getXPositionOnGUIViewArea() + xPositionOnContentAreaOfParent;
 		}
 		
 		//Handles the case that the parent of the current Widget is a Widget.
 		return
-		parent.getXPositionOnGUI()
+		parent.getXPositionOnGUIViewArea()
 		+ parent.getRefWidget().getContentAreaXPosition()
 		+ xPositionOnContentAreaOfParent;
 	}
@@ -501,12 +501,12 @@ implements IWidget<W, WL> {
 		
 		//Handles the case that the parent of the current Widget is a Layer.
 		if (parent.isLayer()) {
-			return parent.getYPositionOnGUI() + yPositionOnContentAreaOfParent;
+			return parent.getYPositionOnGUIViewArea() + yPositionOnContentAreaOfParent;
 		}
 		
 		//Handles the case that the parent of the current Widget is a Widget.
 		return
-		parent.getYPositionOnGUI()
+		parent.getYPositionOnGUIViewArea()
 		+ parent.getRefWidget().getContentAreaYPosition()
 		+ yPositionOnContentAreaOfParent;
 	}
