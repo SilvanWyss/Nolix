@@ -274,18 +274,6 @@ implements IWidget<W, WL> {
 	}
 	
 	//method
-	/** 
-	 * @return the child {@link Widget}s of the current {@link Widget} recursively.
-	 */
-	public final LinkedList<Widget<?, ?>> getChildWidgetsRecursively() {
-		
-		final var widgets = new LinkedList<Widget<?, ?>>();
-		fillUpChildWidgetsRecursively(widgets);
-		
-		return widgets;
-	}
-	
-	//method
 	/**
 	 * {@inheritDoc}
 	 */
@@ -1802,17 +1790,6 @@ implements IWidget<W, WL> {
 		
 		//Handles the case that the current Widget is expanded.
 		return getWidthWhenExpanded();
-	}
-	
-	//method
-	/**
-	 * Fills up recursively the child {@link Widget}s of the current {@link Widget} into the given list.
-	 * 
-	 * @param list
-	 */
-	private void fillUpChildWidgetsRecursively(final LinkedList<Widget<?, ?>> list) {
-		fillUpChildWidgets(list);
-		getChildWidgets().forEach(w -> w.fillUpChildWidgetsRecursively(list));
 	}
 	
 	//method
