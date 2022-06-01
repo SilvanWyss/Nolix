@@ -7,9 +7,9 @@ import ch.nolix.systemapi.guiapi.processproperty.KeyInputType;
 //interface
 public interface IKeyInput<KI extends IKeyInput<KI>> extends IInput<KI> {
 	
-	//method
+	//method declaration
 	Key getKey();
 	
-	//method
+	//method declaration
 	KeyInputType getKeyInputType();
 }
