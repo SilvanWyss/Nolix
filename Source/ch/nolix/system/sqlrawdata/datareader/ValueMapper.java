@@ -7,7 +7,6 @@ import java.math.BigInteger;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.system.time.base.Time;
 import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
 
@@ -42,8 +41,6 @@ public final class ValueMapper {
 				return Boolean.valueOf(string);
 			case STRING:
 				return string;
-			case TIME:
-				return Time.fromString(string);
 			default:
 				throw new InvalidArgumentException(dataType);
 		}

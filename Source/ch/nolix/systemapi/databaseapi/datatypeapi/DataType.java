@@ -10,7 +10,6 @@ import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.system.time.base.Time;
 
 //enum
 public enum DataType {
@@ -24,7 +23,6 @@ public enum DataType {
 	DYNAMIC_DECIMAL(BigDecimal.class, new BigDecimalCreator()),
 	BOOLEAN(Boolean.class, new BooleanCreator()),
 	STRING(String.class, new StringCreator()),
-	TIME(Time.class, new TimeCreator()),
 	NODE(Node.class, new NodeCreator());
 	
 	//static method
@@ -50,8 +48,6 @@ public enum DataType {
 				return BOOLEAN;
 			case "String":
 				return STRING;
-			case "Time":
-				return TIME;
 			case "Node":
 				return NODE;
 			default:
