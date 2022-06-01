@@ -1,8 +1,6 @@
 //package declaration
 package ch.nolix.systemapi.guiapi.inputapi;
 
-import ch.nolix.system.gui.input.ResizeInput;
-
 //interface
 /**
  * @author Silvan Wyss
@@ -16,8 +14,8 @@ public interface IResizableInputTaker extends IInputTaker {
 	 */
 	@Override
 	default void noteInput(final IInput<?> input) {
-		if (input instanceof ResizeInput) {
-			noteResizeInput((ResizeInput)input);
+		if (input instanceof IResizeInput) {
+			noteResizeInput((IResizeInput<?>)input);
 		} else {
 			IInputTaker.super.noteInput(input);
 		}
@@ -40,7 +38,7 @@ public interface IResizableInputTaker extends IInputTaker {
 	 * 
 	 * @param resizeInput
 	 */
-	default void noteResizeInput(final ResizeInput resizeInput) {
+	default void noteResizeInput(final IResizeInput<?> resizeInput) {
 		noteResize(resizeInput.getViewAreaWidth(), resizeInput.getViewAreaHeigh());
 	}
 }

@@ -20,9 +20,9 @@ public interface IInputTaker {
 	 * @throws InvalidArgumentException if the given input is not valid.
 	 */
 	default void noteInput(final IInput<?> input) {
-		if (input instanceof IMouseInput<?>) {
+		if (input instanceof IMouseInput) {
 			noteMouseInput((IMouseInput<?>)input);
-		} else if (input instanceof IKeyInput<?>) {
+		} else if (input instanceof IKeyInput) {
 			noteKeyInput((IKeyInput<?>)input);
 		} else {
 			throw new InvalidArgumentException(input);
