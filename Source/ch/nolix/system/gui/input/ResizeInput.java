@@ -9,10 +9,10 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.element.MutableElement;
 import ch.nolix.system.element.Value;
-import ch.nolix.systemapi.guiapi.inputapi.IInput;
+import ch.nolix.systemapi.guiapi.inputapi.IResizeInput;
 
 //class
-public final class ResizeInput extends MutableElement<ResizeInput> implements IInput<ResizeInput> {
+public final class ResizeInput extends MutableElement<ResizeInput> implements IResizeInput<ResizeInput> {
 	
 	//static method
 	public static ResizeInput fromSpecification(final BaseNode specification) {
@@ -41,11 +41,13 @@ public final class ResizeInput extends MutableElement<ResizeInput> implements II
 	}
 	
 	//method
+	@Override
 	public int getViewAreaHeigh() {
 		return size.getValue().getValue2();
 	}
 	
 	//method
+	@Override
 	public int getViewAreaWidth() {
 		return size.getValue().getValue1();
 	}
