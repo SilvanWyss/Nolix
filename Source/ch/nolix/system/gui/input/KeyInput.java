@@ -194,7 +194,7 @@ public final class KeyInput extends MutableElement<KeyInput> implements IInput<K
 	}
 	
 	//method
-	public KeyInputType getInputType() {
+	public KeyInputType getKeyInputType() {
 		return inputType.getValue();
 	}
 	

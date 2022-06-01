@@ -38,7 +38,7 @@ public interface IInputTaker {
 	 * @param keyInput
 	 */
 	default void noteKeyInput(final KeyInput keyInput) {
-		switch (keyInput.getInputType()) {
+		switch (keyInput.getKeyInputType()) {
 			case PRESS:
 				noteKeyDown(keyInput.getKey());
 				break;
