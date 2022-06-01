@@ -10,6 +10,7 @@ import ch.nolix.system.element.MutableElement;
 import ch.nolix.system.element.Value;
 import ch.nolix.systemapi.guiapi.inputapi.IInput;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
+import ch.nolix.systemapi.guiapi.processproperty.KeyInputType;
 
 //class
 public final class KeyInput extends MutableElement<KeyInput> implements IInput<KeyInput> {

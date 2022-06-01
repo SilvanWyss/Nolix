@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.gui.input;
+package ch.nolix.systemapi.guiapi.processproperty;
 
 //own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
