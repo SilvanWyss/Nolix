@@ -32,7 +32,7 @@ public final class ImageWidgetTutorial {
 		final var imageWidget = new ImageWidget().setImage(image);
 		
 		//Adds the ImageWidget to the Frame.
-		frame.pushLayerWithWidget(imageWidget);
+		frame.pushLayerWithRootWidget(imageWidget);
 	}
 	
 	/**

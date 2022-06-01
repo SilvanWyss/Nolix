@@ -49,7 +49,7 @@ public final class ImageWidgetWithIntermediateSpaceTutorial {
 		);
 		
 		//Adds the ImageWidget to the Frame.
-		frame.pushLayerWithWidget(imageWidget);
+		frame.pushLayerWithRootWidget(imageWidget);
 	}
 	
 	/**

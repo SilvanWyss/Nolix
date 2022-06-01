@@ -51,7 +51,7 @@ public final class DownloaderWithCustomLookTutorial {
 		);
 		
 		//Adds the Downloader to the Frame.
-		frame.pushLayerWithWidget(downloader);
+		frame.pushLayerWithRootWidget(downloader);
 	}
 	
 	/**

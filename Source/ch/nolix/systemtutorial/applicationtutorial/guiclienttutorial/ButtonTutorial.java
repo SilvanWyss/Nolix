@@ -45,7 +45,7 @@ public final class ButtonTutorial {
 			.setLeftMouseButtonPressAction(this::changeBackgroundColor);
 			
 			//Adds the Button to the GUI of the current MainSession.
-			getRefGUI().pushLayerWithWidget(button);
+			getRefGUI().pushLayerWithRootWidget(button);
 		}
 		
 		private void changeBackgroundColor() {

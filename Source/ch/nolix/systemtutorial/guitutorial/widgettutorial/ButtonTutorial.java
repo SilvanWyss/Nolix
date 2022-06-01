@@ -39,7 +39,7 @@ public final class ButtonTutorial {
 		);
 		
 		//Adds the Button to the Frame.
-		frame.pushLayerWithWidget(button);
+		frame.pushLayerWithRootWidget(button);
 	}
 	
 	/**

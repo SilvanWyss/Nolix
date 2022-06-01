@@ -27,7 +27,7 @@ public final class CheckBoxTutorial {
 		final var checkBox = new CheckBox();
 		
 		//Adds the CheckBox to the Frame.
-		frame.pushLayerWithWidget(checkBox);
+		frame.pushLayerWithRootWidget(checkBox);
 	}
 	
 	/**

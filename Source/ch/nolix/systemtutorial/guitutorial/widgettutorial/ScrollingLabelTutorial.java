@@ -42,7 +42,7 @@ public final class ScrollingLabelTutorial {
 		);
 		
 		//Adds the Label to the frame.
-		frame.pushLayerWithWidget(label);
+		frame.pushLayerWithRootWidget(label);
 	}
 	
 	/**

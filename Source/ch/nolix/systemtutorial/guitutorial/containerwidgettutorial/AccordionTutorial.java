@@ -41,7 +41,7 @@ public final class AccordionTutorial {
 		.setBackgroundColorForState(WidgetLookState.BASE, Color.LAVENDER);
 		
 		//Adds the Accordion to the Frame.
-		frame.pushLayerWithWidget(accordion);
+		frame.pushLayerWithRootWidget(accordion);
 	}
 	
 	/**

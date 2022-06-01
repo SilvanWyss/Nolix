@@ -40,7 +40,7 @@ public final class ConsoleWithCustomLookTutorial {
 		);
 		
 		//Adds the Console to the Frame.
-		frame.pushLayerWithWidget(console);
+		frame.pushLayerWithRootWidget(console);
 	}
 	
 	/**

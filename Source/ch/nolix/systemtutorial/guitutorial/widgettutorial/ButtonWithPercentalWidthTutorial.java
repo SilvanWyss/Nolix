@@ -30,7 +30,7 @@ public final class ButtonWithPercentalWidthTutorial {
 		button.setProposalWidthInPercentOfGUIViewAreaWidth(0.5);
 		
 		//Adds the Button to the Frame.
-		frame.pushLayerWithWidget(button);
+		frame.pushLayerWithRootWidget(button);
 	}
 	
 	/**

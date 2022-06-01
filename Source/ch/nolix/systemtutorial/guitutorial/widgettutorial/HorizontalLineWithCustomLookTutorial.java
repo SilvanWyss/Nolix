@@ -53,7 +53,7 @@ public final class HorizontalLineWithCustomLookTutorial {
 		);
 		
 		//Adds the VerticalStack to the Frame.
-		frame.pushLayerWithWidget(verticalStack);
+		frame.pushLayerWithRootWidget(verticalStack);
 	}
 	
 	/**

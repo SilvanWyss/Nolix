@@ -41,7 +41,7 @@ public final class TabContainerTutorial {
 		.setBackgroundColorForState(WidgetLookState.BASE, Color.LAVENDER);
 		
 		//Adds the TabContainer to the Frame.
-		frame.pushLayerWithWidget(tabContainer);
+		frame.pushLayerWithRootWidget(tabContainer);
 	}
 	
 	/**

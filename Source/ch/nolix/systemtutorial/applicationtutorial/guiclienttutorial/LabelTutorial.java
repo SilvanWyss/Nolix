@@ -62,7 +62,7 @@ public final class LabelTutorial {
 			mainHorizontalStack.setElementMargin(50);
 			
 			//Adds the mainHorizontalStack to the GUI of the current MainSession.
-			getRefGUI().pushLayerWithWidget(mainHorizontalStack);
+			getRefGUI().pushLayerWithRootWidget(mainHorizontalStack);
 			
 			//Starts a background job that updates constantly the text of the clockLabel.
 			Sequencer

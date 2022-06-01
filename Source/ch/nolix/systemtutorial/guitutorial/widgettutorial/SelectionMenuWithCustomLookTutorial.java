@@ -61,7 +61,7 @@ public final class SelectionMenuWithCustomLookTutorial {
 		);
 		
 		//Adds the SelectionMenu to the Frame.
-		frame.pushLayerWithWidget(selectionMenu);
+		frame.pushLayerWithRootWidget(selectionMenu);
 	}
 	
 	/**

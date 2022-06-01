@@ -31,7 +31,7 @@ public abstract class WidgetTest<W extends Widget<W, ?>> extends ObjectTest<W> {
 		try (final var invisibleGUI = new InvisibleGUI()) {
 			
 			//execution
-			invisibleGUI.pushLayerWithWidget(testUnit);
+			invisibleGUI.pushLayerWithRootWidget(testUnit);
 			
 			//verification
 			expect(testUnit.belongsToGUI());

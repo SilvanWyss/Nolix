@@ -147,7 +147,7 @@ public abstract class BorderWidgetTest<BW extends BorderWidget<BW, ?>> extends W
 			//setup
 			final var testUnit = createTestUnit();
 			testUnit.setMaxHeightInPercentOfGUIViewAreaHeight(0.9);
-			invisibleGUI.pushLayerWithWidget(new SingleContainer().setWidget(testUnit));
+			invisibleGUI.pushLayerWithRootWidget(new SingleContainer().setWidget(testUnit));
 			invisibleGUI.noteResize(1000, 800);
 			
 			//execution
@@ -180,7 +180,7 @@ public abstract class BorderWidgetTest<BW extends BorderWidget<BW, ?>> extends W
 			//setup
 			final var testUnit = createTestUnit();
 			testUnit.setMaxWidthInPercentOfGUIViewAreaWidth(0.9);
-			invisibleGUI.pushLayerWithWidget(new SingleContainer().setWidget(testUnit));
+			invisibleGUI.pushLayerWithRootWidget(new SingleContainer().setWidget(testUnit));
 			invisibleGUI.noteResize(1000, 800);
 			
 			//execution
@@ -213,7 +213,7 @@ public abstract class BorderWidgetTest<BW extends BorderWidget<BW, ?>> extends W
 			//setup
 			final var testUnit = createTestUnit();
 			testUnit.setMinHeightInPercentOfGUIViewAreaHeight(0.9);
-			invisibleGUI.pushLayerWithWidget(testUnit);
+			invisibleGUI.pushLayerWithRootWidget(testUnit);
 			invisibleGUI.noteResize(1000, 800);
 			
 			//execution
@@ -246,7 +246,7 @@ public abstract class BorderWidgetTest<BW extends BorderWidget<BW, ?>> extends W
 			//setup
 			final var testUnit = createTestUnit();
 			testUnit.setMinWidthInPercentOfGUIViewAreaWidth(0.9);
-			invisibleGUI.pushLayerWithWidget(testUnit);
+			invisibleGUI.pushLayerWithRootWidget(testUnit);
 			invisibleGUI.noteResize(1000, 800);
 			
 			//execution

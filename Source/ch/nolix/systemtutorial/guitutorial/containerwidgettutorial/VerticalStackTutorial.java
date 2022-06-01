@@ -36,7 +36,7 @@ public final class VerticalStackTutorial {
 		verticalStack.add(label1, label2, label3, label4);
 		
 		//Adds the VerticalStack to the Frame.
-		frame.pushLayerWithWidget(verticalStack);
+		frame.pushLayerWithRootWidget(verticalStack);
 	}
 	
 	/**

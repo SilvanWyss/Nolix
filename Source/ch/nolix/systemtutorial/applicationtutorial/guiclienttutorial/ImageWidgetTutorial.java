@@ -35,7 +35,7 @@ public final class ImageWidgetTutorial {
 			.setPaddingForState(WidgetLookState.BASE, 5);
 			
 			//Adds the ImageWidget to the GUI of the current MainSession.
-			getRefGUI().pushLayerWithWidget(imageWidget);
+			getRefGUI().pushLayerWithRootWidget(imageWidget);
 		}
 	}
 	

@@ -39,7 +39,7 @@ public final class DownloaderTutorial {
 		final var downloader = new Downloader().setText("Download file").setFileProvider(new FileAccessor(filePath));
 		
 		//Adds the Downloader to the Frame.
-		frame.pushLayerWithWidget(downloader);
+		frame.pushLayerWithRootWidget(downloader);
 	}
 	
 	/**

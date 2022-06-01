@@ -20,7 +20,7 @@ public final class AligningContainerTutorial {
 		
 		new Frame()
 		.setTitle("AligningContainer tutorial")
-		.pushLayerWithWidget(
+		.pushLayerWithRootWidget(
 			new AligningContainer()
 			.setOnTop(label)
 			.setOnBottomLeft(

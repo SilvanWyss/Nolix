@@ -22,7 +22,7 @@ public class InvisibleGUI extends WidgetGUI<InvisibleGUI> {
 		
 		this();
 		
-		pushLayerWithWidget(rootWidget);
+		pushLayerWithRootWidget(rootWidget);
 	}
 	
 	//method

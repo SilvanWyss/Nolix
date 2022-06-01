@@ -445,7 +445,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 * @return the current {@link IWidgetGUI}.
 	 * @throws ArgumentIsNullException if the given rootWidget is null.
 	 */
-	public final WG pushLayerWithWidget(final IWidget<?, ?> rootWidget) {		
+	public final WG pushLayerWithRootWidget(final IWidget<?, ?> rootWidget) {		
 		return
 		pushLayer(
 			new Layer()

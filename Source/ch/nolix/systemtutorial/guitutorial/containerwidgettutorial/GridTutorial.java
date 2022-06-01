@@ -54,7 +54,7 @@ public final class GridTutorial {
 		);
 		
 		//Adds the Grid to the Frame.
-		frame.pushLayerWithWidget(grid);
+		frame.pushLayerWithRootWidget(grid);
 	}
 	
 	/**

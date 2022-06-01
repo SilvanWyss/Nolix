@@ -27,7 +27,7 @@ public interface IWidgetGUI<WG extends IWidgetGUI<WG>> extends Clearable,  IBase
 	WG pushLayer(ILayer<?> layer);
 	
 	//method declaration
-	WG pushLayerWithWidget(IWidget<?, ?> rootWidget);
+	WG pushLayerWithRootWidget(IWidget<?, ?> rootWidget);
 	
 	//method declaration
 	void removeLayer(ILayer<?> layer);

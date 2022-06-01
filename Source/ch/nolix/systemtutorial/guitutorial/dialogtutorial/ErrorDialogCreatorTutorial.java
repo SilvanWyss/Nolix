@@ -19,7 +19,7 @@ public final class ErrorDialogCreatorTutorial {
 		frame.setTitle("ErrorDialog tutorial");
 		
 		//Adds a Button, that can open an ErrorDialog, to the Frame.
-		frame.pushLayerWithWidget(
+		frame.pushLayerWithRootWidget(
 			new Button()
 			.setText("Fix everything")
 			.setLeftMouseButtonPressAction(

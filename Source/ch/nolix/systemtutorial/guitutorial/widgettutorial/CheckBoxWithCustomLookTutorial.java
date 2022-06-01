@@ -31,7 +31,7 @@ public final class CheckBoxWithCustomLookTutorial {
 		checkBox.onLook(l -> l.setBackgroundColorForState(WidgetLookState.BASE, Color.LAVENDER));
 		
 		//Adds the CheckBox to the Frame.
-		frame.pushLayerWithWidget(checkBox);
+		frame.pushLayerWithRootWidget(checkBox);
 	}
 	
 	/**

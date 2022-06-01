@@ -32,7 +32,7 @@ public abstract class GUILookCreatorTest extends ObjectTest<Configuration> {
 		@SuppressWarnings("resource")
 		final var lGUI =
 		new InvisibleGUI()
-		.pushLayerWithWidget(
+		.pushLayerWithRootWidget(
 			new VerticalStack()
 			.addWidgets(createNonContainerWidgets())
 		);

@@ -42,7 +42,7 @@ public final class SelectionMenuTutorial {
 		);
 						
 		//Adds the SelectionMenu to the Frame.
-		frame.pushLayerWithWidget(selectionMenu);
+		frame.pushLayerWithRootWidget(selectionMenu);
 	}
 	
 	/**

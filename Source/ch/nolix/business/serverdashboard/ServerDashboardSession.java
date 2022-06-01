@@ -18,7 +18,7 @@ final class ServerDashboardSession extends BackendGUIClientSession<IServerDashbo
 	protected void initialize() {
 		getRefGUI()
 		.setConfiguration(ServerDashboardLookCreator.INSTANCE.createServerDashboardLook())
-		.pushLayerWithWidget(createApplicationSetWidget());
+		.pushLayerWithRootWidget(createApplicationSetWidget());
 	}
 	
 	//method

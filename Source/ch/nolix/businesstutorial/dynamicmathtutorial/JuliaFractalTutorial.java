@@ -17,7 +17,7 @@ public final class JuliaFractalTutorial {
 		final var frame =
 		new Frame()
 		.setTitle("Julia Fractal Tutorial")
-		.pushLayerWithWidget(
+		.pushLayerWithRootWidget(
 			new ImageWidget()
 			.setImage(
 				new FractalBuilder()
