@@ -8,12 +8,12 @@ import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.element.MutableElement;
 import ch.nolix.system.element.Value;
-import ch.nolix.systemapi.guiapi.inputapi.IInput;
+import ch.nolix.systemapi.guiapi.inputapi.IKeyInput;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.processproperty.KeyInputType;
 
 //class
-public final class KeyInput extends MutableElement<KeyInput> implements IInput<KeyInput> {
+public final class KeyInput extends MutableElement<KeyInput> implements IKeyInput<KeyInput> {
 	
 	//constant
 	private static final String INPUT_TYPE_HEADER = "InputType";
@@ -195,13 +195,15 @@ public final class KeyInput extends MutableElement<KeyInput> implements IInput<K
 	}
 	
 	//method
-	public KeyInputType getKeyInputType() {
-		return inputType.getValue();
+	@Override
+	public Key getKey() {
+		return key.getValue();
 	}
 	
 	//method
-	public Key getKey() {
-		return key.getValue();
+	@Override
+	public KeyInputType getKeyInputType() {
+		return inputType.getValue();
 	}
 	
 	//method
