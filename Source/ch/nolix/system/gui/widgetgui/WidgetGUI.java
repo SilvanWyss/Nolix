@@ -48,6 +48,7 @@ import ch.nolix.system.gui.widget.Widget;
 import ch.nolix.systemapi.elementapi.configurationapi.IConfigurableElement;
 import ch.nolix.systemapi.guiapi.baseapi.CursorIcon;
 import ch.nolix.systemapi.guiapi.colorapi.IColor;
+import ch.nolix.systemapi.guiapi.colorapi.IColorGradient;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.imageapi.ImageApplication;
 import ch.nolix.systemapi.guiapi.inputapi.IResizableInputTaker;
@@ -305,7 +306,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 * @throws ArgumentDoesNotHaveAttributeException if
 	 * the current {@WidgetGUI} does not have a background {@link ColorGradient}.
 	 */
-	public final ColorGradient getBackgroundColorGradient() {
+	public final IColorGradient getBackgroundColorGradient() {
 		return background.getBackgroundColorGradient();
 	}
 	
@@ -532,7 +533,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 * @return the current {@link WidgetGUI}.
 	 * @throws ArgumentIsNullException if the given backgroundColorGradient is null.
 	 */
-	public final WG setBackgroundColorGradient(final ColorGradient backgroundColorGradient) {
+	public final WG setBackgroundColorGradient(final IColorGradient backgroundColorGradient) {
 		
 		background.setBackgroundColorGradient(backgroundColorGradient);
 		

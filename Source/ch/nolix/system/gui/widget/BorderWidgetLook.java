@@ -13,6 +13,7 @@ import ch.nolix.system.gui.color.ColorGradient;
 import ch.nolix.system.gui.image.Background;
 import ch.nolix.system.gui.image.MutableImage;
 import ch.nolix.systemapi.guiapi.colorapi.IColor;
+import ch.nolix.systemapi.guiapi.colorapi.IColorGradient;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.imageapi.ImageApplication;
 
@@ -281,7 +282,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	}
 	
 	//method
-	public final ColorGradient getBackgroundColorGradient() {
+	public final IColorGradient getBackgroundColorGradient() {
 		return background.getValue().getColorGradient();
 	}
 	

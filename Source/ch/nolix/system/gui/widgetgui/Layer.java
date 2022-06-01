@@ -34,6 +34,7 @@ import ch.nolix.system.gui.widget.Widget;
 import ch.nolix.systemapi.elementapi.configurationapi.IConfigurableElement;
 import ch.nolix.systemapi.guiapi.baseapi.CursorIcon;
 import ch.nolix.systemapi.guiapi.colorapi.IColor;
+import ch.nolix.systemapi.guiapi.colorapi.IColorGradient;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.imageapi.ImageApplication;
 import ch.nolix.systemapi.guiapi.inputapi.IInputTaker;
@@ -288,7 +289,7 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 	 * @throws ArgumentDoesNotHaveAttributeException if
 	 * the current {@Layer} does not have a background {@link ColorGradient}.
 	 */
-	public ColorGradient getBackgroundColorGradient() {
+	public IColorGradient getBackgroundColorGradient() {
 		return background.getValue().getColorGradient();
 	}
 	
@@ -872,7 +873,7 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 	 * @return the current {@link Layer}.
 	 * @throws ArgumentIsNullException if the given backgroundColorGradient is null.
 	 */
-	public Layer setBackgroundColorGradient(final ColorGradient backgroundColorGradient) {
+	public Layer setBackgroundColorGradient(final IColorGradient backgroundColorGradient) {
 		
 		final var lBackground = new Background();
 		lBackground.setColorGradient(backgroundColorGradient);

@@ -10,6 +10,7 @@ import ch.nolix.systemapi.elementapi.configurationapi.IConfigurableElement;
 import ch.nolix.systemapi.elementapi.configurationapi.IConfiguration;
 import ch.nolix.systemapi.guiapi.baseapi.IBaseGUI;
 import ch.nolix.systemapi.guiapi.colorapi.IColor;
+import ch.nolix.systemapi.guiapi.colorapi.IColorGradient;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.imageapi.ImageApplication;
 import ch.nolix.systemapi.guiapi.inputdeviceapi.IKeyBoard;
@@ -34,6 +35,9 @@ public interface IWidgetGUI<WG extends IWidgetGUI<WG>> extends Clearable,  IBase
 	
 	//method declaration
 	WG setBackgroundColor(IColor backgroundColor);
+	
+	//method declaration
+	WG setBackgroundColorGradient(IColorGradient backgroundColorGradient);
 	
 	//method declaration
 	WG setBackgroundImage(IImage backgroundImage);

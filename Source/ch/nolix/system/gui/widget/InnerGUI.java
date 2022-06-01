@@ -14,6 +14,7 @@ import ch.nolix.system.gui.image.MutableImage;
 import ch.nolix.system.gui.widgetgui.WidgetGUI;
 import ch.nolix.systemapi.elementapi.configurationapi.IConfiguration;
 import ch.nolix.systemapi.guiapi.colorapi.IColor;
+import ch.nolix.systemapi.guiapi.colorapi.IColorGradient;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.imageapi.ImageApplication;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
@@ -169,6 +170,15 @@ public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> impleme
 	public InnerGUI setBackgroundColor(final IColor backgroundColor) {
 		
 		internalGUI.setBackgroundColor(backgroundColor);
+		
+		return this;
+	}
+	
+	//method
+	@Override
+	public InnerGUI setBackgroundColorGradient(final IColorGradient backgroundColorGradient) {
+		
+		internalGUI.setBackgroundColorGradient(backgroundColorGradient);
 		
 		return this;
 	}
