@@ -3,8 +3,6 @@ package ch.nolix.systemapi.guiapi.inputapi;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.system.gui.input.KeyInput;
-import ch.nolix.system.gui.input.MouseInput;
 import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
 
 //interface
@@ -22,10 +20,10 @@ public interface IInputTaker {
 	 * @throws InvalidArgumentException if the given input is not valid.
 	 */
 	default void noteInput(final IInput<?> input) {
-		if (input instanceof MouseInput) {
-			noteMouseInput((MouseInput)input);
-		} else if (input instanceof KeyInput) {
-			noteKeyInput((KeyInput)input);
+		if (input instanceof IMouseInput<?>) {
+			noteMouseInput((IMouseInput<?>)input);
+		} else if (input instanceof IKeyInput<?>) {
+			noteKeyInput((IKeyInput<?>)input);
 		} else {
 			throw new InvalidArgumentException(input);
 		}
@@ -37,7 +35,7 @@ public interface IInputTaker {
 	 * 
 	 * @param keyInput
 	 */
-	default void noteKeyInput(final KeyInput keyInput) {
+	default void noteKeyInput(final IKeyInput<?> keyInput) {
 		switch (keyInput.getKeyInputType()) {
 			case PRESS:
 				noteKeyDown(keyInput.getKey());
@@ -144,7 +142,7 @@ public interface IInputTaker {
 	 * 
 	 * @param mouseInput
 	 */
-	default void noteMouseInput(final MouseInput mouseInput) {
+	default void noteMouseInput(final IMouseInput<?> mouseInput) {
 		switch (mouseInput.getMouseInputType()) {
 			case MOUSE_MOVE:
 				noteMouseMove(mouseInput.getCursorXPosition(), mouseInput.getCursorYPosition());
