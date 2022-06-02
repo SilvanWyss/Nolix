@@ -1044,10 +1044,10 @@ define("Core/ChainedNode/ChainedNode", ["require", "exports", "Core/Container/Li
     ChainedNode.CLOSED_BRACKET_CODE = '$C';
     exports.ChainedNode = ChainedNode;
 });
-define("Core/CommonTypeHelper/StringHelper", ["require", "exports"], function (require, exports) {
+define("Core/CommonTypeHelper/GlobalStringHelper", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    class StringHelper {
+    class GlobalStringHelper {
         static createStringOfSpaces(spaceCount) {
             if (spaceCount < 0) {
                 throw new Error('The given space count is negative.');
@@ -1058,8 +1058,15 @@ define("Core/CommonTypeHelper/StringHelper", ["require", "exports"], function (r
             }
             return string;
         }
+        static createStringWithReplacedParts(originalString, searchedString, replacingString) {
+            var string = originalString;
+            while (string.includes(searchedString)) {
+                string = string.replace(searchedString, replacingString);
+            }
+            return string;
+        }
     }
-    exports.StringHelper = StringHelper;
+    exports.GlobalStringHelper = GlobalStringHelper;
 });
 define("Core/Constant/FontCodeCatalogue", ["require", "exports"], function (require, exports) {
     "use strict";
@@ -3847,7 +3854,7 @@ define("System/FrontCanvasGUIClient/ReceiverController", ["require", "exports"],
     }
     exports.ReceiverController = ReceiverController;
 });
-define("System/FrontCanvasGUIClient/FrontCanvasGUIClient", ["require", "exports", "Core/ChainedNode/ChainedNode", "System/FrontCanvasGUIClient/FrontCanvasGUIClientInputTaker", "System/FrontCanvasGUIClient/FrontCanvasGUIClientCommandProtocol", "System/FrontCanvasGUIClient/FrontCanvasGUIClientObjectProtocol", "System/FrontCanvasGUIClient/GUIHandler", "Core/EndPoint5/NetEndPoint5", "Core/Node/Node", "System/PerformanceFilterInputTaker/PerformanceFilterInputTaker", "System/FrontCanvasGUIClient/ReceiverController", "Core/Container/SingleContainer"], function (require, exports, ChainedNode_2, FrontCanvasGUIClientInputTaker_1, FrontCanvasGUIClientCommandProtocol_2, FrontCanvasGUIClientObjectProtocol_2, GUIHandler_1, NetEndPoint5_1, Node_8, PerformanceFilterInputTaker_1, ReceiverController_1, SingleContainer_3) {
+define("System/FrontCanvasGUIClient/FrontCanvasGUIClient", ["require", "exports", "Core/ChainedNode/ChainedNode", "System/FrontCanvasGUIClient/FrontCanvasGUIClientInputTaker", "System/FrontCanvasGUIClient/FrontCanvasGUIClientCommandProtocol", "System/FrontCanvasGUIClient/FrontCanvasGUIClientObjectProtocol", "Core/CommonTypeHelper/GlobalStringHelper", "System/FrontCanvasGUIClient/GUIHandler", "Core/EndPoint5/NetEndPoint5", "Core/Node/Node", "System/PerformanceFilterInputTaker/PerformanceFilterInputTaker", "System/FrontCanvasGUIClient/ReceiverController", "Core/Container/SingleContainer"], function (require, exports, ChainedNode_2, FrontCanvasGUIClientInputTaker_1, FrontCanvasGUIClientCommandProtocol_2, FrontCanvasGUIClientObjectProtocol_2, GlobalStringHelper_1, GUIHandler_1, NetEndPoint5_1, Node_8, PerformanceFilterInputTaker_1, ReceiverController_1, SingleContainer_3) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class FrontCanvasGUIClient {
@@ -3865,7 +3872,8 @@ define("System/FrontCanvasGUIClient/FrontCanvasGUIClient", ["require", "exports"
                 case 1:
                     return SingleContainer_3.SingleContainer.withoutElement();
                 case 2:
-                    return SingleContainer_3.SingleContainer.withElement(lURLParts[1].replace('_', ' '));
+                    const target = GlobalStringHelper_1.GlobalStringHelper.createStringWithReplacedParts(lURLParts[1], '_', ' ');
+                    return SingleContainer_3.SingleContainer.withElement(target);
                 default:
                     throw new Error('The given URL \'' + lURL + '\' is not valid.');
             }
