@@ -220,23 +220,35 @@ public abstract class ItemMenu<IM extends ItemMenu<IM>> extends BorderWidget<IM,
 	}
 	
 	//method
-	public final void selectEmptyItem() {
+	public final IM selectEmptyItem() {
+		
 		getRefEmptyItem().select();
+		
+		return asConcrete();
 	}
 	
 	//method
-	public final void selectFirstItem() {
+	public final IM selectFirstItem() {
+		
 		getRefFirstItem().select();
+		
+		return asConcrete();
 	}
 	
 	//method
-	public final void selectItem(final String item) {
+	public final IM selectItem(final String item) {
+		
 		getRefItems().getRefFirst(i -> i.hasText(item)).select();
+		
+		return asConcrete();
 	}
 		
 	//method
-	public final void selectItemById(final String id) {
+	public final IM selectItemById(final String id) {
+		
 		getRefItems().getRefFirst(i -> i.hasId(id)).select();
+		
+		return asConcrete();
 	}
 	
 	//method
