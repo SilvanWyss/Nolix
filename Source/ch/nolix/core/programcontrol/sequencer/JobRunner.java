@@ -18,6 +18,11 @@ import ch.nolix.core.functionuniversalapi.IBooleanGetter;
  */
 final class JobRunner extends Thread {
 	
+	//static method
+	public static JobRunner forJobs(final IAction... jobs) {
+		return new JobRunner(JobMerger.INSTANCE.createMergedJobForJobs(jobs), 1);
+	}
+	
 	//attributes
 	private final IAction job;
 	private int finishedJobCount;
