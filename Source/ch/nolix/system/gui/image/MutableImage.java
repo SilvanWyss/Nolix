@@ -7,7 +7,9 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.util.Base64;
+import javax.imageio.IIOImage;
 import javax.imageio.ImageIO;
+import javax.imageio.ImageWriteParam;
 
 //own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalBufferedImageHelper;
@@ -356,10 +358,17 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 	public byte[] toJPG() {
 		
 		final var byteArrayOutputStream = new ByteArrayOutputStream();
-		
+		final var imageWriter = ImageIO.getImageWritersByFormatName("jpg").next();
+		final var imageWriteParam = imageWriter.getDefaultWriteParam();
+		imageWriteParam.setCompressionMode(ImageWriteParam.MODE_EXPLICIT);
+		imageWriteParam.setCompressionQuality(1.0F);
+				
 		try {
 			
-			ImageIO.write(createJPGBufferedImage(), "jpg", byteArrayOutputStream);
+			imageWriter.setOutput(ImageIO.createImageOutputStream(byteArrayOutputStream));
+			
+			imageWriter.write(null, new IIOImage(createJPGBufferedImage(), null, null), imageWriteParam);
+			imageWriter.dispose();
 			
 			return byteArrayOutputStream.toByteArray();
 		} catch (final IOException pIOException) {
