@@ -1,8 +1,8 @@
 package ch.nolix.businesstutorial.dynamicmathtutorial;
 
-import ch.nolix.business.dynamicmath.ComplexNumber;
-import ch.nolix.business.dynamicmath.FractalBuilder;
-import ch.nolix.business.dynamicmath.ComplexSequenceDefinedBy1Predecessor;
+import ch.nolix.business.bigdecimalmath.ComplexNumber;
+import ch.nolix.business.bigdecimalmath.ComplexSequenceDefinedBy1Predecessor;
+import ch.nolix.business.bigdecimalmath.FractalBuilder;
 import ch.nolix.core.programcontrol.sequencer.Sequencer;
 import ch.nolix.system.gui.base.Frame;
 import ch.nolix.system.gui.color.Color;

@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.businesstutorial.dynamicmathtutorial} package
- * defines tutorials for the {@link ch.nolix.business.dynamicmath} package.
+ * defines tutorials for the {@link ch.nolix.business.bigdecimalmath} package.
  * 
  * @author Silvan Wyss
  * @date 2019-08-01
