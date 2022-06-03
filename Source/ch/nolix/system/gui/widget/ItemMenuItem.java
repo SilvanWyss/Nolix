@@ -9,6 +9,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.functionuniversalapi.IAction;
 import ch.nolix.core.functionuniversalapi.IElementTaker;
 import ch.nolix.system.element.MutableElement;
 import ch.nolix.system.element.MutableValue;
@@ -90,6 +91,11 @@ public final class ItemMenuItem extends MutableElement<ItemMenuItem> implements 
 	public ItemMenuItem(final String text) {
 		setRole(ItemMenuItemRole.NORMAL_ITEM);
 		setText(text);
+	}
+	
+	//constructor
+	public ItemMenuItem(final String text, final IAction selectCommand) {
+		this(text, i -> selectCommand.run());
 	}
 	
 	//constructor

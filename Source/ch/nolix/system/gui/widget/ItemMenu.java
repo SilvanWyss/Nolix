@@ -62,6 +62,11 @@ public abstract class ItemMenu<IM extends ItemMenu<IM>> extends BorderWidget<IM,
 	}
 	
 	//method
+	public final IM addItem(final String item, final IAction selectAction) {
+		return addItem(new ItemMenuItem(item, selectAction));
+	}
+	
+	//method
 	public final IM addItem(final String item, final IElementTaker<ItemMenuItem> selectAction) {
 		return addItem(new ItemMenuItem(item, selectAction));
 	}
