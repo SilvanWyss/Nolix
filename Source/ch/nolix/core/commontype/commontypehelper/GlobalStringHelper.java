@@ -10,7 +10,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.programcontrol.sequencer.Sequencer;
+import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 
 //class
 /**
@@ -50,7 +50,7 @@ public final class GlobalStringHelper {
 		
 		final StringBuilder stringBuilder = new StringBuilder(string);
 		
-		Sequencer
+		GlobalSequencer
 		.forCount(length - string.length())
 		.run(() -> stringBuilder.append(CharacterCatalogue.SPACE));
 		

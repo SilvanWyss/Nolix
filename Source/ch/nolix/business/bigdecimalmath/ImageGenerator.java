@@ -17,7 +17,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.math.Calculator;
 import ch.nolix.core.programcontrol.futureuniversalapi.IFuture;
 import ch.nolix.core.programcontrol.jobpool.JobPool;
-import ch.nolix.core.programcontrol.sequencer.Sequencer;
+import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.image.MutableImage;
 
@@ -100,7 +100,7 @@ public final class ImageGenerator implements IImageGenerator {
 		
 		final var startTimeInMilliseconds = System.currentTimeMillis();
 		
-		Sequencer.waitAsLongAs(
+		GlobalSequencer.waitAsLongAs(
 			() -> System.currentTimeMillis() - startTimeInMilliseconds < timeoutInMilliseconds
 			&& isRunning()
 		);

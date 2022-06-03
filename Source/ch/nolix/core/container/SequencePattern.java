@@ -8,7 +8,7 @@ import java.util.Iterator;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.functionuniversalapi.IElementTakerBooleanGetter;
-import ch.nolix.core.programcontrol.sequencer.Sequencer;
+import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 
 //class
 /**
@@ -125,7 +125,7 @@ public final class SequencePattern<E> {
 				
 				final var sequence = new LinkedList<E>();
 				final var iterator3 = iterator.getCopy();
-				Sequencer.forCount(getSize()).run(()->sequence.addAtEnd(iterator3.next()));
+				GlobalSequencer.forCount(getSize()).run(()->sequence.addAtEnd(iterator3.next()));
 				
 				//Asserts that the current sequence fulfills the sequence conditions of the current SequencePattern.
 				if (sequenceConditions.containsOnly(sc -> sc.getOutput(sequence))) {

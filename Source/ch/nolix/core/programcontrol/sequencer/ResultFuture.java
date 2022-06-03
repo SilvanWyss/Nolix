@@ -76,7 +76,7 @@ public final class ResultFuture<R> implements IResultFuture<R> {
 	 */
 	@Override
 	public void waitUntilIsFinished() {
-		Sequencer.waitUntil(this::isFinished);
+		GlobalSequencer.waitUntil(this::isFinished);
 	}
 	
 	//method
@@ -88,7 +88,7 @@ public final class ResultFuture<R> implements IResultFuture<R> {
 		
 		final var startTimeInMilliseconds = System.currentTimeMillis();
 		
-		Sequencer.waitAsLongAs(
+		GlobalSequencer.waitAsLongAs(
 			() -> System.currentTimeMillis() - startTimeInMilliseconds < timeoutInMilliseconds
 			&& isRunning()
 		);

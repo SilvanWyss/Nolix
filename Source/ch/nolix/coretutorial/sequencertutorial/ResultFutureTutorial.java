@@ -3,7 +3,7 @@ package ch.nolix.coretutorial.sequencertutorial;
 //own imports
 import ch.nolix.core.math.Matrix;
 import ch.nolix.core.programcontrol.sequencer.ResultFuture;
-import ch.nolix.core.programcontrol.sequencer.Sequencer;
+import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 
 /**
  * The {@link ResultFutureTutorial} is a tutorial for {@link ResultFuture}s.
@@ -23,7 +23,7 @@ public final class ResultFutureTutorial {
 		
 		final var matrix = Matrix.createIdendityMatrix(2000);
 		
-		final var resultFuture = Sequencer.runInBackground(matrix::getRank);
+		final var resultFuture = GlobalSequencer.runInBackground(matrix::getRank);
 		
 		System.out.println("Calculations are done in background.");
 		System.out.println("...");

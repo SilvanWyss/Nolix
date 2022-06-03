@@ -8,7 +8,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.processproperty.ConnectionOrigin;
 import ch.nolix.core.programcontrol.processproperty.TargetInfoState;
-import ch.nolix.core.programcontrol.sequencer.Sequencer;
+import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 
 //class
 /**
@@ -131,7 +131,7 @@ public abstract class BaseNetEndPoint extends EndPoint {
 	 * @param rawMessage
 	 */
 	final void receiveRawMessageInBackground(final String rawMessage) {
-		Sequencer.runInBackground(() -> receiveRawMessage(rawMessage));
+		GlobalSequencer.runInBackground(() -> receiveRawMessage(rawMessage));
 	}
 	
 	//method

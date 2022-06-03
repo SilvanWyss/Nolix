@@ -15,7 +15,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.endpoint3.EndPoint;
-import ch.nolix.core.programcontrol.sequencer.Sequencer;
+import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.core.reflectionhelper.GlobalClassHelper;
 
 //class
@@ -131,7 +131,7 @@ public class Application<
 		final var lClient = ((BC)client);
 		lClient.internalSetParentApplication(this);
 		clients.addAtEnd(lClient);
-		Sequencer.runInBackground(() -> lClient.internalPush(createInitialSession()));
+		GlobalSequencer.runInBackground(() -> lClient.internalPush(createInitialSession()));
 	}
 	
 	//method

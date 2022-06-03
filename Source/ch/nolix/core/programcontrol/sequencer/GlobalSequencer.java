@@ -14,13 +14,13 @@ import ch.nolix.core.programcontrol.jobpool.JobPool;
 
 //class
 /**
- * The {@link Sequencer} provides methods for flow control.
- * Of the {@link Sequencer} an instance cannot be created.
+ * The {@link GlobalSequencer} provides methods for flow control.
+ * Of the {@link GlobalSequencer} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @date 2016-06-01
  */
-public final class Sequencer {
+public final class GlobalSequencer {
 	
 	//static attributes
 	private static final JobPool jobPool = new JobPool();
@@ -221,7 +221,7 @@ public final class Sequencer {
 
 	//constructor
 	/**
-	 * Prevents that an instance of the {@link Sequencer} can be created.
+	 * Prevents that an instance of the {@link GlobalSequencer} can be created.
 	 */
-	private Sequencer() {}
+	private GlobalSequencer() {}
 }

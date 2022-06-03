@@ -16,7 +16,7 @@ import ch.nolix.core.net.websocket.WebSocketFrame;
 import ch.nolix.core.net.websocket.WebSocketFrameOpcodeMeaning;
 import ch.nolix.core.programcontrol.processproperty.ConnectionOrigin;
 import ch.nolix.core.programcontrol.processproperty.TargetInfoState;
-import ch.nolix.core.programcontrol.sequencer.Sequencer;
+import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 
 //class
 final class WebEndPoint extends BaseNetEndPoint {
@@ -131,7 +131,7 @@ final class WebEndPoint extends BaseNetEndPoint {
 	//method
 	private void waitToTargetInfo() {
 		
-		Sequencer
+		GlobalSequencer
 		.forMaxMilliseconds(NolixEnvironment.DEFAULT_CONNECT_AND_DISCONNECT_TIMEOUT_IN_MILLISECONDS)
 		.waitUntil(this::hasTargetInfo);
 		

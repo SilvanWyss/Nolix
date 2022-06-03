@@ -74,7 +74,7 @@ public final class Future implements IFuture {
 	 */
 	@Override
 	public void waitUntilIsFinished() {
-		Sequencer.waitUntil(this::isFinished);
+		GlobalSequencer.waitUntil(this::isFinished);
 	}
 	
 	//method
@@ -86,7 +86,7 @@ public final class Future implements IFuture {
 		
 		final var startTimeInMilliseconds = System.currentTimeMillis();
 		
-		Sequencer.asLongAs(
+		GlobalSequencer.asLongAs(
 			() -> System.currentTimeMillis() - startTimeInMilliseconds < timeoutInMilliseconds
 			&& isRunning()
 		);

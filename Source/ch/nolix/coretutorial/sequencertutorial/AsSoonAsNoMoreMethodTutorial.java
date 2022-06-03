@@ -2,7 +2,7 @@ package ch.nolix.coretutorial.sequencertutorial;
 
 //own imports
 import ch.nolix.core.container.LinkedList;
-import ch.nolix.core.programcontrol.sequencer.Sequencer;
+import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 
 public final class AsSoonAsNoMoreMethodTutorial {
 	
@@ -10,7 +10,7 @@ public final class AsSoonAsNoMoreMethodTutorial {
 		
 		final var cats = LinkedList.withElements("Garfield", "Simba", "Smokey");
 		
-		Sequencer
+		GlobalSequencer
 		.asSoonAsNoMore(cats::containsAny)
 		.runInBackground(() -> System.out.println("Couch is not scratched anymore!"));
 		

@@ -2,7 +2,7 @@ package ch.nolix.systemtutorial.applicationtutorial.guiclienttutorial;
 
 //own imports
 import ch.nolix.core.environment.localcomputer.ShellProvider;
-import ch.nolix.core.programcontrol.sequencer.Sequencer;
+import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.system.application.guiapplication.BackendGUIClientSession;
 import ch.nolix.system.application.guiapplication.FrontendGUIClient;
 import ch.nolix.system.application.main.Server;
@@ -69,7 +69,7 @@ public final class TransparentLayerTutorial {
 		ShellProvider.startFirefoxOpeningLoopBackAddress();
 		
 		//Closes the Server as soon as it does not have a client connected any more.
-		Sequencer.asSoonAsNoMore(server::hasClientConnected).runInBackground(server::close);
+		GlobalSequencer.asSoonAsNoMore(server::hasClientConnected).runInBackground(server::close);
 	}
 	
 	private TransparentLayerTutorial() {}

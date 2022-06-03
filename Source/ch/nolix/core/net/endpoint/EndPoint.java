@@ -13,7 +13,7 @@ import ch.nolix.core.functionuniversalapi.IElementTaker;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.programcontrol.groupcloseable.GroupCloseable;
 import ch.nolix.core.programcontrol.processproperty.ConnectionOrigin;
-import ch.nolix.core.programcontrol.sequencer.Sequencer;
+import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 
 //class
 /**
@@ -179,7 +179,7 @@ public abstract class EndPoint implements GroupCloseable {
 			return receiver;
 		}
 		
-		Sequencer
+		GlobalSequencer
 		.forMaxMilliseconds(NolixEnvironment.DEFAULT_CONNECT_AND_DISCONNECT_TIMEOUT_IN_MILLISECONDS)
 		.waitUntil(this::hasReceiver);
 		

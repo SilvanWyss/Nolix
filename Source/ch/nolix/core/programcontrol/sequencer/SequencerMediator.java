@@ -23,7 +23,7 @@ public final class SequencerMediator {
 	 * @throws ArgumentIsNullException if the given condition is null.
 	 */
 	public AsLongAsMediator asLongAs(final IBooleanGetter condition) {
-		return Sequencer.asLongAs(condition);
+		return GlobalSequencer.asLongAs(condition);
 	}
 	
 	//method
@@ -33,7 +33,7 @@ public final class SequencerMediator {
 	 * @throws ArgumentIsNullException if the given condition is null.
 	 */
 	public AsSoonAsMediator asSoonAs(final IBooleanGetter condition) {
-		return Sequencer.asSoonAs(condition);
+		return GlobalSequencer.asSoonAs(condition);
 	}
 	
 	//method
@@ -43,7 +43,7 @@ public final class SequencerMediator {
 	 * @throws ArgumentIsNullException if the given condition is null.
 	 */
 	public AsSoonAsMediator asSoonAsNoMore(final IBooleanGetter condition) {
-		return Sequencer.asSoonAsNoMore(condition);
+		return GlobalSequencer.asSoonAsNoMore(condition);
 	}
 	
 	//method
@@ -55,7 +55,7 @@ public final class SequencerMediator {
 	 * @throws ArgumentIsNullException if the given job is null.
 	 */
 	public IFuture enqueue(final IAction job) {
-		return Sequencer.enqueue(job);
+		return GlobalSequencer.enqueue(job);
 	}
 	
 	//method
@@ -65,7 +65,7 @@ public final class SequencerMediator {
 	 * @throws NegativeArgumentException if the given max run count is negative.
 	 */
 	public ForCountMediator forCount(final int maxRunCount) {
-		return Sequencer.forCount(maxRunCount);
+		return GlobalSequencer.forCount(maxRunCount);
 	}
 	
 	//method
@@ -75,7 +75,7 @@ public final class SequencerMediator {
 	 * @throws NegativeArgumentException if the given maxDurationInMilliseconds is negative.
 	 */
 	public ForMaxMillisecondsMediator forMaxMilliseconds(final int maxDurationInMilliseconds) {
-		return Sequencer.forMaxMilliseconds(maxDurationInMilliseconds);
+		return GlobalSequencer.forMaxMilliseconds(maxDurationInMilliseconds);
 	}
 	
 	//method
@@ -85,7 +85,7 @@ public final class SequencerMediator {
 	 * @throws NegativeArgumentException if the given maxDurationInSeconds is negative.
 	 */
 	public ForMaxMillisecondsMediator forMaxSeconds(final int maxDurationInSeconds) {
-		return Sequencer.forMaxSeconds(maxDurationInSeconds);
+		return GlobalSequencer.forMaxSeconds(maxDurationInSeconds);
 	}
 	
 	//method
@@ -97,7 +97,7 @@ public final class SequencerMediator {
 	 * @throws ArgumentIsNullException if the given job is null.
 	 */
 	public Future runInBackground(final IAction job) {
-		return Sequencer.runInBackground(job);
+		return GlobalSequencer.runInBackground(job);
 	}
 	
 	//method
@@ -111,7 +111,7 @@ public final class SequencerMediator {
 	 * @throws ArgumentIsNullException if the given result job is null.
 	 */
 	public <R> ResultFuture<R> runInBackground(final IElementGetter<R> resultJob) {
-		return Sequencer.runInBackground(resultJob);
+		return GlobalSequencer.runInBackground(resultJob);
 	}
 	
 	//method
@@ -121,7 +121,7 @@ public final class SequencerMediator {
 	 * @throws ArgumentIsNullException if the given condition is null.
 	 */
 	public AsLongAsMediator until(final IBooleanGetter condition) {
-		return Sequencer.until(condition);
+		return GlobalSequencer.until(condition);
 	}
 	
 	//method
@@ -132,7 +132,7 @@ public final class SequencerMediator {
 	 * @throws ArgumentIsNullException if the given condition is null.
 	 */
 	public void waitAsLongAs(final IBooleanGetter condition) {
-		Sequencer.waitAsLongAs(condition);
+		GlobalSequencer.waitAsLongAs(condition);
 	}
 	
 	//method
@@ -140,7 +140,7 @@ public final class SequencerMediator {
 	 * Waits for a second.
 	 */
 	public void waitForASecond() {
-		Sequencer.waitForASecond();
+		GlobalSequencer.waitForASecond();
 	}
 	
 	//method
@@ -151,7 +151,7 @@ public final class SequencerMediator {
 	 * @throws NegativeArgumentException if the given durationInMilliseconds is negative.
 	 */
 	public void waitForMilliseconds(final int durationInMilliseconds) {
-		Sequencer.waitForMilliseconds(durationInMilliseconds);
+		GlobalSequencer.waitForMilliseconds(durationInMilliseconds);
 	}
 	
 	//method
@@ -162,7 +162,7 @@ public final class SequencerMediator {
 	 * @throws NegativeArgumentException if the given durationInSeconds is negative.
 	 */
 	public void waitForSeconds(final int durationInSeconds) {
-		Sequencer.waitForSeconds(durationInSeconds);
+		GlobalSequencer.waitForSeconds(durationInSeconds);
 	}
 	
 	//method
@@ -173,6 +173,6 @@ public final class SequencerMediator {
 	 * @throws ArgumentIsNullException if the given condition is null.
 	 */
 	public void waitUntil(final IBooleanGetter condition) {
-		Sequencer.waitUntil(condition);
+		GlobalSequencer.waitUntil(condition);
 	}
 }

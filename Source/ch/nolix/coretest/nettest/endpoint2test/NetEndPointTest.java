@@ -6,7 +6,7 @@ import ch.nolix.core.net.endpoint2.EndPoint;
 import ch.nolix.core.net.endpoint2.IEndPointTaker;
 import ch.nolix.core.net.endpoint2.NetEndPoint;
 import ch.nolix.core.net.endpoint2.Server;
-import ch.nolix.core.programcontrol.sequencer.Sequencer;
+import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 
@@ -65,7 +65,7 @@ public final class NetEndPointTest extends Test {
 			expectRunning(
 				() -> {
 					try (final var result = new NetEndPoint(port)) {
-						Sequencer.waitForMilliseconds(500);
+						GlobalSequencer.waitForMilliseconds(500);
 					}
 				}
 			)

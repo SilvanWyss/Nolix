@@ -4,7 +4,7 @@ package ch.nolix.system.gui.widget;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IElementTaker;
-import ch.nolix.core.programcontrol.sequencer.Sequencer;
+import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.systemapi.guiapi.baseapi.CursorIcon;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
@@ -93,7 +93,7 @@ public final class Uploader extends TextLineWidget<Uploader, UploaderLook> {
 		
 		isHandlingLeftMouseButtonPress = true;
 		
-		Sequencer.runInBackground(this::uploadFile);
+		GlobalSequencer.runInBackground(this::uploadFile);
 	}
 	
 	//method

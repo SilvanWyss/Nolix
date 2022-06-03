@@ -7,7 +7,7 @@ import java.awt.event.ComponentListener;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.programcontrol.sequencer.Sequencer;
+import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.system.gui.base.GUI;
 
 //class
@@ -39,7 +39,7 @@ public class FrameVisualizerResizeListener implements ComponentListener {
 		
 		//This is important because events can be fired before the GUI is created completely.
 		if (isNew) {
-			Sequencer.waitForMilliseconds(200);
+			GlobalSequencer.waitForMilliseconds(200);
 			isNew = false;
 		}
 		

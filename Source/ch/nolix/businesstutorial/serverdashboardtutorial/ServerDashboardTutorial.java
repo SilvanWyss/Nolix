@@ -2,7 +2,7 @@ package ch.nolix.businesstutorial.serverdashboardtutorial;
 
 import ch.nolix.business.serverdashboard.ServerDashboard;
 import ch.nolix.core.environment.localcomputer.ShellProvider;
-import ch.nolix.core.programcontrol.sequencer.Sequencer;
+import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.system.application.guiapplication.BackendGUIClientSession;
 import ch.nolix.system.application.guiapplication.FrontendGUIClient;
 import ch.nolix.system.application.guiapplication.GUIApplicationContext;
@@ -53,7 +53,7 @@ public final class ServerDashboardTutorial {
 		ShellProvider.startFirefoxOpeningLoopBackAddress();
 		
 		//Closes the Server as soon as it does not have a client connected any more.
-		Sequencer.asSoonAsNoMore(server::hasClientConnected).runInBackground(server::close);
+		GlobalSequencer.asSoonAsNoMore(server::hasClientConnected).runInBackground(server::close);
 	}
 	
 	private static final class HelloWorldSession extends BackendGUIClientSession<GUIApplicationContext> {

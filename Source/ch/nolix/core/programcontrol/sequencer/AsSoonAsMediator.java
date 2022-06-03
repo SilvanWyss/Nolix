@@ -34,7 +34,7 @@ public final class AsSoonAsMediator {
 		
 		GlobalValidator.assertThat(job).thatIsNamed(LowerCaseCatalogue.JOB).isNotNull();
 		
-		Sequencer.waitUntil(condition);
+		GlobalSequencer.waitUntil(condition);
 		
 		job.run();
 	}

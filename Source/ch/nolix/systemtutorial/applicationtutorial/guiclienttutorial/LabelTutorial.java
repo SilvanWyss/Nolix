@@ -2,7 +2,7 @@ package ch.nolix.systemtutorial.applicationtutorial.guiclienttutorial;
 
 //own imports
 import ch.nolix.core.environment.localcomputer.ShellProvider;
-import ch.nolix.core.programcontrol.sequencer.Sequencer;
+import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.system.application.guiapplication.BackendGUIClientSession;
 import ch.nolix.system.application.guiapplication.FrontendGUIClient;
 import ch.nolix.system.application.main.Server;
@@ -31,7 +31,7 @@ public final class LabelTutorial {
 		ShellProvider.startFirefoxOpeningLoopBackAddress();
 		
 		//Closes the NetServer as soon as it does not have a client connected any more.
-		Sequencer.asSoonAsNoMore(server::hasClientConnected).runInBackground(server::close);
+		GlobalSequencer.asSoonAsNoMore(server::hasClientConnected).runInBackground(server::close);
 	}
 	
 	public static final class MainSession extends BackendGUIClientSession<VoidApplicationContext> {
@@ -65,7 +65,7 @@ public final class LabelTutorial {
 			getRefGUI().pushLayerWithRootWidget(mainHorizontalStack);
 			
 			//Starts a background job that updates constantly the text of the clockLabel.
-			Sequencer
+			GlobalSequencer
 			.asLongAs(getRefGUI()::isOpen)
 			.afterAllMilliseconds(100)
 			.runInBackground(

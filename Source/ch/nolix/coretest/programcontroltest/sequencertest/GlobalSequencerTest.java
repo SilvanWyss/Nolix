@@ -3,7 +3,7 @@ package ch.nolix.coretest.programcontroltest.sequencertest;
 
 //own imports
 import ch.nolix.core.programcontrol.sequencer.ResultFuture;
-import ch.nolix.core.programcontrol.sequencer.Sequencer;
+import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 
@@ -15,7 +15,7 @@ import ch.nolix.core.testing.test.Test;
  * @author Silvan Wyss
  * @date 2017-11-18
  */
-public final class SequencerTest extends Test {
+public final class GlobalSequencerTest extends Test {
 
 	//method
 	@TestCase
@@ -23,7 +23,7 @@ public final class SequencerTest extends Test {
 				
 		//execution
 			final ResultFuture<Integer> resultFuture
-			= Sequencer.runInBackground(() -> 2 * 3 * 4 * 5);
+			= GlobalSequencer.runInBackground(() -> 2 * 3 * 4 * 5);
 			
 			resultFuture.waitUntilIsFinished();
 		

@@ -2,7 +2,7 @@ package ch.nolix.systemtutorial.applicationtutorial.guiclienttutorial;
 
 //own imports
 import ch.nolix.core.environment.localcomputer.ShellProvider;
-import ch.nolix.core.programcontrol.sequencer.Sequencer;
+import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.system.application.guiapplication.BackendGUIClientSession;
 import ch.nolix.system.application.guiapplication.FrontendGUIClient;
 import ch.nolix.system.application.main.Server;
@@ -30,7 +30,7 @@ public final class CursorPositionTutorial {
 		ShellProvider.startFirefoxOpeningLoopBackAddress();
 		
 		//Closes the NetServer as soon as it does not have a client connected any more.
-		Sequencer.asSoonAsNoMore(netServer::hasClientConnected).runInBackground(netServer::close);
+		GlobalSequencer.asSoonAsNoMore(netServer::hasClientConnected).runInBackground(netServer::close);
 	}
 	
 	public static final class MainSession extends BackendGUIClientSession<VoidApplicationContext> {

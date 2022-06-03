@@ -6,7 +6,7 @@ import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.programcontrol.sequencer.Sequencer;
+import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 
 //class
 final class ClientSessionManager<
@@ -59,7 +59,7 @@ final class ClientSessionManager<
 	//method
 	public Session<C, AC> getRefCurrentSession() {
 		
-		Sequencer
+		GlobalSequencer
 		.forMaxMilliseconds(MAX_WAIT_TIME_FOR_SESSION_IN_MILLISECONDS)
 		.waitUntil(this::containsCurrentSession);
 		
@@ -103,7 +103,7 @@ final class ClientSessionManager<
 		
 		pushSession(session);
 		
-		Sequencer.waitUntil(() -> (parentClient.isClosed() || !session.belongsToClient()));
+		GlobalSequencer.waitUntil(() -> (parentClient.isClosed() || !session.belongsToClient()));
 		
 		parentClient.assertIsOpen();
 		

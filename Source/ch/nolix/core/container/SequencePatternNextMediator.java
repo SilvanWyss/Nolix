@@ -6,7 +6,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IElementTakerBooleanGetter;
-import ch.nolix.core.programcontrol.sequencer.Sequencer;
+import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 
 //class
 /**
@@ -70,7 +70,7 @@ public final class SequencePatternNextMediator<E> {
 	 */
 	public SequencePattern<E> addCondition(final IElementTakerBooleanGetter<E> condition) {
 		
-		Sequencer.forCount(count).run(() -> sequencePattern.addConditionForNext(condition));
+		GlobalSequencer.forCount(count).run(() -> sequencePattern.addConditionForNext(condition));
 		
 		return sequencePattern;
 	}

@@ -1,7 +1,7 @@
 package ch.nolix.systemtutorial.guitutorial.widgettutorial;
 
 //own imports
-import ch.nolix.core.programcontrol.sequencer.Sequencer;
+import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.system.gui.base.Frame;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.containerwidget.HorizontalStack;
@@ -53,7 +53,7 @@ public final class TimeLabelTutorial {
 		frame.pushLayerWithRootWidget(mainHorizontalStack);
 		
 		//Starts a background job that updates constantly the text of the clockLabel.
-		Sequencer
+		GlobalSequencer
 		.asLongAs(frame::isOpen)
 		.afterAllMilliseconds(100)
 		.runInBackground(

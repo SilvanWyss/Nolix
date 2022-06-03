@@ -7,7 +7,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IAction;
-import ch.nolix.core.programcontrol.sequencer.Sequencer;
+import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.core.skilluniversalapi.Runnable;
 
 //class
@@ -78,7 +78,7 @@ final class JobWrapper implements Runnable {
 	
 	//method
 	public void waitUntilIsFinished() {
-		Sequencer.waitUntil(this::isFinished);
+		GlobalSequencer.waitUntil(this::isFinished);
 	}
 	
 	//method
@@ -86,7 +86,7 @@ final class JobWrapper implements Runnable {
 		
 		final var startTimeInMilliseconds = System.currentTimeMillis();
 		
-		Sequencer.waitAsLongAs(
+		GlobalSequencer.waitAsLongAs(
 			() -> System.currentTimeMillis() - startTimeInMilliseconds < timeoutInMilliseconds	&& !isFinished()
 		);
 		
