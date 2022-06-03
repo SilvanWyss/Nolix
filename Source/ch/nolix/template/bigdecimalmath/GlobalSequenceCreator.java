@@ -1,0 +1,38 @@
+//package declaration
+package ch.nolix.template.bigdecimalmath;
+
+//own imports
+import ch.nolix.business.bigdecimalmath.ComplexNumber;
+import ch.nolix.business.bigdecimalmath.ComplexSequenceDefinedBy1Predecessor;
+import ch.nolix.businessapi.bigdecimalmathapi.IComplexNumber;
+import ch.nolix.businessapi.bigdecimalmathapi.ISequenceDefinedBy1Predecessor;
+
+//class
+public final class GlobalSequenceCreator {
+	
+	//static method
+	public static ISequenceDefinedBy1Predecessor<IComplexNumber> createMandelbrotSequenceForIncrement(
+		final IComplexNumber increment
+	) {
+		return
+		new ComplexSequenceDefinedBy1Predecessor(
+			new ComplexNumber(0.0, 0.0, increment.getBigDecimalScale()),
+			z -> z.getPower2().getSum(increment)
+		);
+	}
+	
+	//static method
+	public static ISequenceDefinedBy1Predecessor<IComplexNumber> createMandelbrotSequenceForStartValueAndIncrement(
+		final IComplexNumber startValue,
+		final IComplexNumber increment
+	) {
+		return
+		new ComplexSequenceDefinedBy1Predecessor(
+			startValue,
+			z -> z.getPower2().getSum(increment)
+		);
+	}
+	
+	//constructor
+	private GlobalSequenceCreator() {}
+}
