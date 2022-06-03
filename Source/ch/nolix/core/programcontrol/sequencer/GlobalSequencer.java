@@ -112,6 +112,17 @@ public final class GlobalSequencer {
 	
 	//static method
 	/**
+	 * Runs the given jobs in background in the given order.
+	 * 
+	 * @param jobs
+	 * @return a new {@link IFuture} for the running of the given jobs.
+	 */
+	public static IFuture runInBackgroundAndOrder(final IAction... jobs) {
+		return new Future(JobRunner.forJobs(jobs));
+	}
+	
+	//static method
+	/**
 	 * Runs the given result job in background.
 	 * A result job is a job that returns a result.
 	 * 
