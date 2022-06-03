@@ -34,7 +34,10 @@ public final class FloatContainer extends ContainerWidget<FloatContainer, FloatC
 	
 	//constructor
 	public FloatContainer() {
+		
 		reset();
+		
+		setMinWidth(100);
 	}
 	
 	//method
