@@ -15,6 +15,9 @@ public interface IFractalBuilder {
 	IFractal build();
 	
 	//method declaration
+	int getMaxIterationCount();
+	
+	//method declaration
 	IFractalBuilder setBigDecimalScale(int bigDecumalScale);
 	
 	//method declaration
