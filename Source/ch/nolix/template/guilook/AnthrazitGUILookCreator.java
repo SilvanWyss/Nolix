@@ -19,6 +19,12 @@ import ch.nolix.system.gui.widget.Widget;
 //class
 public final class AnthrazitGUILookCreator {
 	
+	//static attribute
+	public static final AnthrazitGUILookCreator INSTANCE = new AnthrazitGUILookCreator();
+	
+	//constructor
+	private AnthrazitGUILookCreator() {}
+	
 	//method
 	public Configuration createGUILook() {
 		return

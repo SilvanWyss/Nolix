@@ -25,7 +25,10 @@ public final class GUILooksTutorial {
 		//Creates a SelectionMenu.
 		final var selectionMenu =
 		new SelectionMenu()
-		.addItem("Anthrazit", i -> i.getParentGUI().setConfiguration(new AnthrazitGUILookCreator().createGUILook()));
+		.addItem(
+			"Anthrazit",
+			i -> i.getParentGUI().setConfiguration(AnthrazitGUILookCreator.INSTANCE.createGUILook())
+		);
 		
 		//Creates a Frame with the SelectionMenu and several other Widgets.
 		new Frame()
