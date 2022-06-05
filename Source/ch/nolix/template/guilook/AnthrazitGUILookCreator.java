@@ -42,7 +42,7 @@ public final class AnthrazitGUILookCreator {
 			createLevel2HeaderLook(),
 			createCheckboxLook(),
 			createButtonLook(),
-			createDownoaderLook(),
+			createDownloaderLook(),
 			createTextBoxLook(),
 			createTextItemMenuLook(),	
 			createConsoleLook()
@@ -123,7 +123,7 @@ public final class AnthrazitGUILookCreator {
 	}
 	
 	//method
-	private DeepConfiguration createDownoaderLook() {
+	private DeepConfiguration createDownloaderLook() {
 		return
 		new DeepConfiguration()
 		.setSelectorType(Downloader.class)
