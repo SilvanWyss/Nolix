@@ -44,7 +44,7 @@ public final class AnthrazitGUILookCreator {
 			createButtonLook(),
 			createDownloaderLook(),
 			createTextBoxLook(),
-			createTextItemMenuLook(),	
+			createItemMenuLook(),	
 			createConsoleLook()
 		);
 	}
@@ -195,7 +195,7 @@ public final class AnthrazitGUILookCreator {
 	}
 	
 	//method
-	private DeepConfiguration createTextItemMenuLook() {
+	private DeepConfiguration createItemMenuLook() {
 		return
 		new DeepConfiguration()
 		.setSelectorType(ItemMenu.class)
