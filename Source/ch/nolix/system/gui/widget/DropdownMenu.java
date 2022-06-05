@@ -99,7 +99,7 @@ public final class DropdownMenu extends ItemMenu<DropdownMenu> {
 	//method
 	@Override
 	protected void recalculateItemMenu() {
-		selectedItemLabel.setMinWidth(calculateSelectedItemLabelWidth());
+		selectedItemLabel.setMinWidth(calculateSelectedItemLabelMinWidth());
 	}
 	
 	//method
@@ -114,13 +114,22 @@ public final class DropdownMenu extends ItemMenu<DropdownMenu> {
 	}
 	
 	//method
-	private int calculateSelectedItemLabelWidth() {
+	private int calculateSelectedItemLabelMinWidth() {
 		
 		if (isEmpty()) {
-			return 100;
+			
+			if (!hasMinWidth() && !hasProposalWidth()) {
+				return 100;
+			}
+			
+			return (getTargetWidth() - expandButton.getWidth());
 		}
 		
-		return getRefItemLabels().getRefFirst().getMinWidth();
+		if (!hasMinWidth() && !hasProposalWidth()) {
+			return getRefItemLabels().getRefFirst().getMinWidth();
+		}
+		
+		return (getTargetWidth() - expandButton.getWidth());
 	}
 	
 	//method
