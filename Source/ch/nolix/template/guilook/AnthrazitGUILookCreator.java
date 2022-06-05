@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.template.guilook;
 
+//own imports
+import ch.nolix.core.container.Stack;
 import ch.nolix.system.configuration.Configuration;
 import ch.nolix.system.configuration.DeepConfiguration;
 import ch.nolix.system.gui.base.LayerRole;
@@ -37,6 +39,7 @@ public final class AnthrazitGUILookCreator {
 			createDialogLook(),
 			createDialogContainerLook(),
 			createGridLook(),
+			createStackLook(),
 			createTitleLook(),
 			createLevel1HeaderLook(),
 			createLevel2HeaderLook(),
@@ -44,7 +47,7 @@ public final class AnthrazitGUILookCreator {
 			createButtonLook(),
 			createDownloaderLook(),
 			createTextBoxLook(),
-			createItemMenuLook(),	
+			createItemMenuLook(),
 			createConsoleLook()
 		);
 	}
@@ -117,8 +120,7 @@ public final class AnthrazitGUILookCreator {
 		.addAttachingAttribute(
 			"BaseBackground(Color(0x202020))",
 			"BasePadding(50)",
-			"ContentPosition(Top)",
-			"ElementMargin(100)"
+			"ContentPosition(Top)"
 		);
 	}
 	
@@ -145,6 +147,18 @@ public final class AnthrazitGUILookCreator {
 		new DeepConfiguration()
 		.setSelectorType(Grid.class)
 		.addAttachingAttribute("BaseElementMargin(10)");
+	}
+	
+	//method
+	private DeepConfiguration createItemMenuLook() {
+		return
+		new DeepConfiguration()
+		.setSelectorType(ItemMenu.class)
+		.addAttachingAttribute(
+			"MinWidth(200)",
+			"MaxHeight(200)",
+			"BaseBackground(Color(0x101010))"
+		);
 	}
 	
 	//method
@@ -182,6 +196,13 @@ public final class AnthrazitGUILookCreator {
 		);
 	}
 	
+	private DeepConfiguration createStackLook() {
+		return
+		new DeepConfiguration()
+		.setSelectorType(Stack.class)
+		.addAttachingAttribute("ElementMargin(10)");
+	}
+	
 	//method
 	private DeepConfiguration createTextBoxLook() {
 		return
@@ -191,18 +212,6 @@ public final class AnthrazitGUILookCreator {
 			"ProposalWidth(200)",
 			"BaseBackground(Color(0x101010))",
 			"BasePadding(5)"
-		);
-	}
-	
-	//method
-	private DeepConfiguration createItemMenuLook() {
-		return
-		new DeepConfiguration()
-		.setSelectorType(ItemMenu.class)
-		.addAttachingAttribute(
-			"MinWidth(200)",
-			"MaxHeight(200)",
-			"BaseBackground(Color(0x101010))"
 		);
 	}
 	
