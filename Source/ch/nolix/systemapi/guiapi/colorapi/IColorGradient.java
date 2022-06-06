@@ -5,7 +5,7 @@ package ch.nolix.systemapi.guiapi.colorapi;
 import java.awt.GradientPaint;
 
 import ch.nolix.systemapi.elementapi.mainuniversalapi.Specified;
-import ch.nolix.systemapi.guiapi.structureproperty.UniDirection;
+import ch.nolix.systemapi.guiapi.structureproperty.DirectionInRectangle;
 
 //interface
 public interface IColorGradient extends Specified {
@@ -37,5 +37,5 @@ public interface IColorGradient extends Specified {
 	/**
 	 * @return the direction of the current {@link IColorGradient}.
 	 */
-	UniDirection getDirection();
+	DirectionInRectangle getDirection();
 }

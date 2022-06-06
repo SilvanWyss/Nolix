@@ -10,13 +10,13 @@ import ch.nolix.systemapi.elementapi.mainuniversalapi.Specified;
 
 //enum
 /**
- * A {@link UniDirection} defines the way between two points of a square.
- * A {@link UniDirection} does not (!) depend on the order of the start point and end point.
+ * A {@link DirectionInRectangle} defines the way between two points of a square.
+ * A {@link DirectionInRectangle} does not (!) depend on the order of the start point and end point.
  * 
  * @author Silvan Wyss
  * @date 2017-09-16
  */
-public enum UniDirection implements Specified {
+public enum DirectionInRectangle implements Specified {
 	HORIZONTAL,
 	VERTICAL,
 	DIAGONAL_UP,
@@ -25,9 +25,9 @@ public enum UniDirection implements Specified {
 	//method
 	/**
 	 * @param specification
-	 * @return a new {@link UniDirection} from the given specification.
+	 * @return a new {@link DirectionInRectangle} from the given specification.
 	 */
-	public static UniDirection fromSpecification(final BaseNode specification) {
+	public static DirectionInRectangle fromSpecification(final BaseNode specification) {
 		return valueOf(GlobalStringHelper.toUpperSnakeCase(specification.getOneAttributeHeader()));
 	}
 	

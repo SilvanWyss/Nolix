@@ -12,11 +12,11 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.systemapi.guiapi.colorapi.IColorGradient;
-import ch.nolix.systemapi.guiapi.structureproperty.UniDirection;
+import ch.nolix.systemapi.guiapi.structureproperty.DirectionInRectangle;
 
 //class
 /**
- * A {@link ColorGradient} specifies 2 {@link Color}s and a {@link UniDirection}.
+ * A {@link ColorGradient} specifies 2 {@link Color}s and a {@link DirectionInRectangle}.
  * A {@link ColorGradient} is not mutable.
  * 
  * @author Silvan Wyss
@@ -26,14 +26,14 @@ public class ColorGradient implements IColorGradient {
 	
 	//constant
 	public static final ColorGradient VERTICAL_BLACK_WHITE_COLOR_GRADIENT =
-	new ColorGradient(UniDirection.VERTICAL, Color.BLACK, Color.WHITE);
+	new ColorGradient(DirectionInRectangle.VERTICAL, Color.BLACK, Color.WHITE);
 	
 	//constant
 	public static final ColorGradient VERTICAL_RED_WHITE_COLOR_GRADIENT =
-	new ColorGradient(UniDirection.VERTICAL, Color.RED, Color.WHITE);
+	new ColorGradient(DirectionInRectangle.VERTICAL, Color.RED, Color.WHITE);
 	
 	//constants
-	public static final UniDirection DEFAULT_DIRECTION = UniDirection.VERTICAL;
+	public static final DirectionInRectangle DEFAULT_DIRECTION = DirectionInRectangle.VERTICAL;
 	public static final Color DEFAULT_COLOR1 = Color.BLACK;
 	public static final Color DEFAULT_COLOR2 = Color.WHITE;
 
@@ -61,14 +61,14 @@ public class ColorGradient implements IColorGradient {
 		color2Specification.addAttribute(attributes.getRefAt(3));
 		
 		return new ColorGradient(
-			UniDirection.fromSpecification(directionSpecification),
+			DirectionInRectangle.fromSpecification(directionSpecification),
 			Color.fromSpecification(color1Specification),
 			Color.fromSpecification(color2Specification)
 		);
 	}
 	
 	//attributes
-	private final UniDirection direction;
+	private final DirectionInRectangle direction;
 	private final Color color1;
 	private final Color color2;
 	
@@ -104,7 +104,7 @@ public class ColorGradient implements IColorGradient {
 	 * @param direction
 	 * @throws ArgumentIsNullException if the given direction is null.
 	 */
-	public ColorGradient(final UniDirection direction) {
+	public ColorGradient(final DirectionInRectangle direction) {
 		
 		//Calls other constructor.
 		this(direction, DEFAULT_COLOR1, DEFAULT_COLOR2);
@@ -122,7 +122,7 @@ public class ColorGradient implements IColorGradient {
 	 * @throws ArgumentIsNullException if the given color 2 is null.
 	 */
 	public ColorGradient(
-		final UniDirection direction,
+		final DirectionInRectangle direction,
 		final Color color1,
 		final Color color2
 	) {
@@ -237,7 +237,7 @@ public class ColorGradient implements IColorGradient {
 	/**
 	 * @return the direction of the current {@link ColorGradient}.
 	 */
-	public UniDirection getDirection() {
+	public DirectionInRectangle getDirection() {
 		return direction;
 	}
 }

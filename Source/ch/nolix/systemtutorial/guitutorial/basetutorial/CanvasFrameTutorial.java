@@ -13,7 +13,7 @@ import ch.nolix.system.gui.textformat.TextFormat;
 import ch.nolix.systemapi.guiapi.inputapi.IResizableInputTaker;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
-import ch.nolix.systemapi.guiapi.structureproperty.UniDirection;
+import ch.nolix.systemapi.guiapi.structureproperty.DirectionInRectangle;
 
 /**
  * The {@link CanvasFrameTutorial} is a tutorial for {@link CanvasFrame}s.
@@ -41,7 +41,7 @@ public final class CanvasFrameTutorial {
 		LinkedList.withElements(
 			pr -> {
 				final var painter = pr.getRefPainterByIndex(1);
-				painter.setColorGradient(new ColorGradient(UniDirection.VERTICAL, Color.BLUE, Color.MIDNIGHT_BLUE));
+				painter.setColorGradient(new ColorGradient(DirectionInRectangle.VERTICAL, Color.BLUE, Color.MIDNIGHT_BLUE));
 				painter.paintFilledRectangle(canvasFrame.getViewAreaWidth(), canvasFrame.getViewAreaHeight());
 				painter.translate(100, 100);
 				painter.paintText("Nolix", new TextFormat(Font.ARIAL, false, true, 100, Color.SILVER));
