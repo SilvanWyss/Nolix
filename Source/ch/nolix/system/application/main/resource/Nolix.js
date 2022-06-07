@@ -802,6 +802,9 @@ define("Core/Document/Node/Node", ["require", "exports", "Core/Container/LinkedL
         getOneAttributeHeader() {
             return this.getRefOneAttribute().getHeader();
         }
+        getRefAttributeAtIndex(index) {
+            return this.attributes.getRefAt(index);
+        }
         getRefAttributes() {
             return this.attributes;
         }
@@ -2432,6 +2435,7 @@ define("System/GUI/CanvasGUI/CanvasGUICommandProtocol", ["require", "exports"], 
     CanvasGUICommandProtocol.PAINT_IMAGE_BY_ID = 'PaintImageById';
     CanvasGUICommandProtocol.PAINT_TEXT = 'PaintText';
     CanvasGUICommandProtocol.SET_COLOR = 'SetColor';
+    CanvasGUICommandProtocol.SET_COLOR_GRADIENT = 'SetColorGradient';
     CanvasGUICommandProtocol.SET_OPACITY_PERCENTAGE = "SetOpacityPercentage";
     CanvasGUICommandProtocol.TRANSLATE = 'Translate';
     exports.CanvasGUICommandProtocol = CanvasGUICommandProtocol;
@@ -2515,6 +2519,73 @@ define("System/GUI/Color/Color", ["require", "exports"], function (require, expo
     Color.WHITE = new Color(255, 255, 255, 255);
     exports.Color = Color;
 });
+define("SystemAPI/GUIAPI/StructureProperty/DirectionInRectangle", ["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    var DirectionInRectangle;
+    (function (DirectionInRectangle) {
+        DirectionInRectangle[DirectionInRectangle["HORIZONTAL"] = 0] = "HORIZONTAL";
+        DirectionInRectangle[DirectionInRectangle["VERTICAL"] = 1] = "VERTICAL";
+        DirectionInRectangle[DirectionInRectangle["DIAGONAL_UP"] = 2] = "DIAGONAL_UP";
+        DirectionInRectangle[DirectionInRectangle["DIAGONAL_DOWN"] = 3] = "DIAGONAL_DOWN";
+    })(DirectionInRectangle = exports.DirectionInRectangle || (exports.DirectionInRectangle = {}));
+});
+define("System/GUI/StructureProperty/DirectionInRectangleMapper", ["require", "exports", "SystemAPI/GUIAPI/StructureProperty/DirectionInRectangle"], function (require, exports, DirectionInRectangle_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    class DirectionInRectangleMapper {
+        static createDirectionInRectangleMapperFromSpecification(specification) {
+            return DirectionInRectangle_1.DirectionInRectangle[specification.getOneAttributeHeader()];
+        }
+        constructor() { }
+    }
+    exports.DirectionInRectangleMapper = DirectionInRectangleMapper;
+});
+define("System/GUI/Color/ColorGradient", ["require", "exports", "System/GUI/Color/Color", "SystemAPI/GUIAPI/StructureProperty/DirectionInRectangle"], function (require, exports, Color_1, DirectionInRectangle_2) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    class ColorGradient {
+        static fromSpecification(specification) {
+            return new ColorGradient(DirectionInRectangle_2.DirectionInRectangle[specification.getRefAttributeAtIndex(1).getHeader()], Color_1.Color.fromString(specification.getRefAttributeAtIndex(2).getHeader()), Color_1.Color.fromString(specification.getRefAttributeAtIndex(3).getHeader()));
+        }
+        static withDirectionAndColor1AndColor2(direction, color1, color2) {
+            return new ColorGradient(direction, color1, color2);
+        }
+        constructor(direction, color1, color2) {
+            if (direction === null) {
+                throw new Error('The given direction is null.');
+            }
+            if (direction === undefined) {
+                throw new Error('The given direction is undefined.');
+            }
+            if (color1 === null) {
+                throw new Error('The given color1 is null.');
+            }
+            if (color1 === undefined) {
+                throw new Error('The given color1 is undefined.');
+            }
+            if (color2 === null) {
+                throw new Error('The given color2 is null.');
+            }
+            if (color2 === undefined) {
+                throw new Error('The given color2 is undefined.');
+            }
+            this.direction = direction;
+            this.color1 = color1;
+            this.color2 = color2;
+        }
+        getColor1() {
+            return this.color1;
+        }
+        getColor2() {
+            return this.color2;
+        }
+        getDirection() {
+            return this.direction;
+        }
+    }
+    exports.ColorGradient = ColorGradient;
+});
 define("System/GUI/TextFormat/FontType", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
@@ -2576,13 +2647,13 @@ define("System/GUI/Graphic/IImage", ["require", "exports"], function (require, e
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
 });
-define("System/GUI/TextFormat/TextFormat", ["require", "exports", "System/GUI/Color/Color", "System/GUI/TextFormat/Font"], function (require, exports, Color_1, Font_1) {
+define("System/GUI/TextFormat/TextFormat", ["require", "exports", "System/GUI/Color/Color", "System/GUI/TextFormat/Font"], function (require, exports, Color_2, Font_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class TextFormat {
         static fromSpecification(specification) {
             const attributes = specification.getRefAttributes();
-            return new TextFormat(Font_1.Font.fromSpecification(attributes.getRefAt(1)), attributes.getRefAt(4).getOneAttributeAsNumber(), Color_1.Color.fromSpecification(attributes.getRefAt(5)));
+            return new TextFormat(Font_1.Font.fromSpecification(attributes.getRefAt(1)), attributes.getRefAt(4).getOneAttributeAsNumber(), Color_2.Color.fromSpecification(attributes.getRefAt(5)));
         }
         constructor(textFont, textSize, textColor) {
             if (textFont === null) {
@@ -2625,7 +2696,7 @@ define("System/GUI/TextFormat/TextFormat", ["require", "exports", "System/GUI/Co
     }
     exports.TextFormat = TextFormat;
 });
-define("System/GUI/CanvasGUI/CanvasGUIGlobalPainter", ["require", "exports", "System/GUI/Color/Color", "System/GUI/TextFormat/Font", "System/GUI/TextFormat/FontType", "System/GUI/TextFormat/TextFormat"], function (require, exports, Color_2, Font_2, FontType_2, TextFormat_1) {
+define("System/GUI/CanvasGUI/CanvasGUIGlobalPainter", ["require", "exports", "System/GUI/Color/Color", "SystemAPI/GUIAPI/StructureProperty/DirectionInRectangle", "System/GUI/TextFormat/Font", "System/GUI/TextFormat/FontType", "System/GUI/TextFormat/TextFormat"], function (require, exports, Color_3, DirectionInRectangle_3, Font_2, FontType_2, TextFormat_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class CanvasGUIGlobalPainter {
@@ -2649,6 +2720,10 @@ define("System/GUI/CanvasGUI/CanvasGUIGlobalPainter", ["require", "exports", "Sy
             return (this.currentClipArea === clipArea);
         }
         paintFilledRectangle(xPosition, yPosition, width, height) {
+            this.canvasRenderingContext.fillRect(xPosition, yPosition, width, height);
+        }
+        paintFilledRectangleWithColorGradient(xPosition, yPosition, width, height, colorGradient) {
+            this.canvasRenderingContext.fillStyle = this.createLinearGradient(xPosition, yPosition, width, height, colorGradient);
             this.canvasRenderingContext.fillRect(xPosition, yPosition, width, height);
         }
         paintImage(xPosition, yPosition, image) {
@@ -2711,10 +2786,28 @@ define("System/GUI/CanvasGUI/CanvasGUIGlobalPainter", ["require", "exports", "Sy
             }
             this.canvasRenderingContext.globalAlpha = opacityPercentage;
         }
+        createLinearGradient(xPosition, yPosition, width, height, colorGradient) {
+            const linearGradient = this.createLinearGradientForDirectionInRectangle(xPosition, yPosition, width, height, colorGradient.getDirection());
+            linearGradient.addColorStop(0, colorGradient.getColor1().getHTMLCode());
+            linearGradient.addColorStop(1, colorGradient.getColor2().getHTMLCode());
+            return linearGradient;
+        }
+        createLinearGradientForDirectionInRectangle(xPosition, yPosition, width, height, directionInRectangle) {
+            switch (directionInRectangle) {
+                case DirectionInRectangle_3.DirectionInRectangle.VERTICAL:
+                    return this.canvasRenderingContext.createLinearGradient(xPosition, yPosition, xPosition, yPosition + height);
+                case DirectionInRectangle_3.DirectionInRectangle.HORIZONTAL:
+                    return this.canvasRenderingContext.createLinearGradient(xPosition, yPosition, xPosition + width, yPosition);
+                case DirectionInRectangle_3.DirectionInRectangle.DIAGONAL_DOWN:
+                    return this.canvasRenderingContext.createLinearGradient(xPosition, yPosition, xPosition + width, yPosition + height);
+                case DirectionInRectangle_3.DirectionInRectangle.DIAGONAL_UP:
+                    return this.canvasRenderingContext.createLinearGradient(xPosition, yPosition + height, xPosition + width, yPosition);
+            }
+        }
     }
     CanvasGUIGlobalPainter.DEFAULT_TEXT_FONT_TYPE = FontType_2.FontType.Verdana;
     CanvasGUIGlobalPainter.DEFAULT_TEXT_SIZE = 10;
-    CanvasGUIGlobalPainter.DEFAULT_TEXT_COLOR = Color_2.Color.BLACK;
+    CanvasGUIGlobalPainter.DEFAULT_TEXT_COLOR = Color_3.Color.BLACK;
     CanvasGUIGlobalPainter.DEFAULT_TEXT_FORMAT = new TextFormat_1.TextFormat(new Font_2.Font(CanvasGUIGlobalPainter.DEFAULT_TEXT_FONT_TYPE), CanvasGUIGlobalPainter.DEFAULT_TEXT_SIZE, CanvasGUIGlobalPainter.DEFAULT_TEXT_COLOR);
     exports.CanvasGUIGlobalPainter = CanvasGUIGlobalPainter;
 });
@@ -2801,13 +2894,16 @@ define("System/GUI/CanvasGUI/CanvasGUIPainter", ["require", "exports", "System/G
             return (this.clipAreaOnViewArea !== undefined);
         }
         paintFilledRectangle(width, height) {
-            this.pushClipArea();
-            this.globalPainter.paintFilledRectangle(this.getXPositionOnViewArea(), this.getYPositionOnViewArea(), width, height);
-            this.popClipArea();
+            this.paintFilledRectangleAtPosition(0, 0, this.getXPositionOnViewArea(), this.getYPositionOnViewArea());
         }
         paintFilledRectangleAtPosition(xPosition, yPosition, width, height) {
             this.pushClipArea();
-            this.globalPainter.paintFilledRectangle(this.getXPositionOnViewArea() + xPosition, this.getYPositionOnViewArea() + yPosition, width, height);
+            if (!this.hasColorGradient()) {
+                this.globalPainter.paintFilledRectangle(this.getXPositionOnViewArea() + xPosition, this.getYPositionOnViewArea() + yPosition, width, height);
+            }
+            else {
+                this.globalPainter.paintFilledRectangleWithColorGradient(this.getXPositionOnViewArea() + xPosition, this.getYPositionOnViewArea() + yPosition, width, height, this.colorGradient);
+            }
             this.popClipArea();
         }
         paintImage(image) {
@@ -2846,7 +2942,11 @@ define("System/GUI/CanvasGUI/CanvasGUIPainter", ["require", "exports", "System/G
             this.popClipArea();
         }
         setColor(color) {
+            this.colorGradient = undefined;
             this.globalPainter.setColor(color);
+        }
+        setColorGradient(colorGradient) {
+            this.colorGradient = colorGradient;
         }
         setOpacityPercentage(opacityPercentage) {
             if (opacityPercentage < 0.0) {
@@ -2878,6 +2978,9 @@ define("System/GUI/CanvasGUI/CanvasGUIPainter", ["require", "exports", "System/G
             const clipAreaOnViewAreaWidth = CentralCalculator_1.CentralCalculator.getMax(0, clipAreaOnViewAreaRightXPosition - clipAreaOnViewAreaXPosition);
             const clipAreaOnViewAreaHeight = CentralCalculator_1.CentralCalculator.getMax(0, clipAreaOnViewAreaBottomPosition - clipAreaOnViewAreaYPosition);
             return new CanvasGUIPainter(xTranslation, yTranslation, SingleContainer_1.SingleContainer.withElement(new TopLeftPositionedRectangle_1.TopLeftPositionedRectangle(clipAreaOnViewAreaXPosition, clipAreaOnViewAreaYPosition, clipAreaOnViewAreaWidth, clipAreaOnViewAreaHeight)), this.globalPainter, SingleContainer_1.SingleContainer.withElement(this));
+        }
+        hasColorGradient() {
+            return (this.colorGradient !== undefined);
         }
         popClipArea() {
             if (this.hasClipArea() && this.globalPainter.hasGivenClipArea(this.clipAreaOnViewArea)) {
@@ -3148,7 +3251,7 @@ define("System/GUI/ProcessProperty/RotationDirectionMapper", ["require", "export
     }
     exports.RotationDirectionMapper = RotationDirectionMapper;
 });
-define("System/GUI/CanvasGUI/CanvasGUI", ["require", "exports", "Core/Container/Caching/CachingContainer", "System/GUI/CanvasGUI/CanvasGUICommandProtocol", "System/GUI/CanvasGUI/CanvasGUIObjectProtocol", "System/GUI/CanvasGUI/CanvasGUIPainter", "System/GUI/Color/Color", "System/GUI/Input/KeyMapper", "Core/Container/LinkedList", "System/GUI/CanvasGUI/PaintProcess", "Core/Container/Pair/Pair", "System/GUI/ProcessProperty/RotationDirectionMapper", "System/GUI/TextFormat/TextFormat", "Core/Container/SingleContainer"], function (require, exports, CachingContainer_1, CanvasGUICommandProtocol_1, CanvasGUIObjectProtocol_1, CanvasGUIPainter_1, Color_3, KeyMapper_1, LinkedList_12, PaintProcess_1, Pair_2, RotationDirectionMapper_1, TextFormat_2, SingleContainer_2) {
+define("System/GUI/CanvasGUI/CanvasGUI", ["require", "exports", "Core/Container/Caching/CachingContainer", "System/GUI/CanvasGUI/CanvasGUICommandProtocol", "System/GUI/CanvasGUI/CanvasGUIObjectProtocol", "System/GUI/CanvasGUI/CanvasGUIPainter", "System/GUI/Color/Color", "System/GUI/Color/ColorGradient", "System/GUI/Input/KeyMapper", "Core/Container/LinkedList", "System/GUI/CanvasGUI/PaintProcess", "Core/Container/Pair/Pair", "System/GUI/ProcessProperty/RotationDirectionMapper", "System/GUI/TextFormat/TextFormat", "Core/Container/SingleContainer"], function (require, exports, CachingContainer_1, CanvasGUICommandProtocol_1, CanvasGUIObjectProtocol_1, CanvasGUIPainter_1, Color_4, ColorGradient_1, KeyMapper_1, LinkedList_12, PaintProcess_1, Pair_2, RotationDirectionMapper_1, TextFormat_2, SingleContainer_2) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class CanvasGUI {
@@ -3400,6 +3503,8 @@ define("System/GUI/CanvasGUI/CanvasGUI", ["require", "exports", "Core/Container/
                     return this.createPaintTextCommand(painterIndex, textualPaintCommand);
                 case CanvasGUICommandProtocol_1.CanvasGUICommandProtocol.SET_COLOR:
                     return this.createSetColorCommand(painterIndex, textualPaintCommand);
+                case CanvasGUICommandProtocol_1.CanvasGUICommandProtocol.SET_COLOR_GRADIENT:
+                    return this.createSetColorGradientCommand(painterIndex, textualPaintCommand);
                 case CanvasGUICommandProtocol_1.CanvasGUICommandProtocol.SET_OPACITY_PERCENTAGE:
                     return this.createSetOpacityPercentageCommand(painterIndex, textualPaintCommand);
                 case CanvasGUICommandProtocol_1.CanvasGUICommandProtocol.TRANSLATE:
@@ -3455,8 +3560,12 @@ define("System/GUI/CanvasGUI/CanvasGUI", ["require", "exports", "Core/Container/
             }
         }
         createSetColorCommand(painterIndex, textualSetColorCommand) {
-            const color = Color_3.Color.fromSpecification(textualSetColorCommand.getOneAttributeAsNode());
+            const color = Color_4.Color.fromSpecification(textualSetColorCommand.getOneAttributeAsNode());
             return pp => pp.getRefPainterByIndex(painterIndex).setColor(color);
+        }
+        createSetColorGradientCommand(painterIndex, textualSetColorGradientCommand) {
+            const colorGradient = ColorGradient_1.ColorGradient.fromSpecification(textualSetColorGradientCommand.getOneAttributeAsNode());
+            return pp => pp.getRefPainterByIndex(painterIndex).setColorGradient(colorGradient);
         }
         createSetOpacityPercentageCommand(painterIndex, textualSetOpacityPercentageCommand) {
             const opacityPercentage = textualSetOpacityPercentageCommand.getOneAttributeAsNumber();
@@ -3538,7 +3647,7 @@ define("System/GUI/CanvasGUI/CanvasGUI", ["require", "exports", "Core/Container/
         }
     }
     CanvasGUI.DEFAULT_TITLE = 'GUI';
-    CanvasGUI.BACKGROUND_COLOR = Color_3.Color.WHITE;
+    CanvasGUI.BACKGROUND_COLOR = Color_4.Color.WHITE;
     CanvasGUI.MONITOR_PIXELS_PER_MODEL_PIXEL = 2;
     CanvasGUI.MODEL_PIXELS_PER_MONITOR_PIXEL = 1 / CanvasGUI.MONITOR_PIXELS_PER_MODEL_PIXEL;
     exports.CanvasGUI = CanvasGUI;
@@ -3593,7 +3702,7 @@ define("System/GUI/Graphic/CanvasImage", ["require", "exports", "Core/Constant/P
     }
     exports.CanvasImage = CanvasImage;
 });
-define("System/GUI/Graphic/Image", ["require", "exports", "System/GUI/Color/Color", "System/Element/Element", "Core/Container/Matrix/Matrix", "Core/Document/Node/Node", "Core/Constant/PascalCaseNameCatalogue"], function (require, exports, Color_4, Element_2, Matrix_1, Node_7, PascalCaseNameCatalogue_4) {
+define("System/GUI/Graphic/Image", ["require", "exports", "System/GUI/Color/Color", "System/Element/Element", "Core/Container/Matrix/Matrix", "Core/Document/Node/Node", "Core/Constant/PascalCaseNameCatalogue"], function (require, exports, Color_5, Element_2, Matrix_1, Node_7, PascalCaseNameCatalogue_4) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class Image extends Element_2.Element {
@@ -3607,7 +3716,7 @@ define("System/GUI/Graphic/Image", ["require", "exports", "System/GUI/Color/Colo
             var row = new Array();
             var i = 1;
             for (const a of specification.getRefFirstAttributeWithHeader(Image.PIXEL_ARRAY_HEADER).getRefAttributes()) {
-                row.push(Color_4.Color.fromSpecification(Node_7.Node.withAttribute(a)));
+                row.push(Color_5.Color.fromSpecification(Node_7.Node.withAttribute(a)));
                 i++;
                 if (i > width) {
                     pixels.addRow(row);
