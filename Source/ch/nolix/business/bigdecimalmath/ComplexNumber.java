@@ -6,12 +6,19 @@ import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
 
+//own imports
 import ch.nolix.businessapi.bigdecimalmathapi.IComplexNumber;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.math.Calculator;
 
 //class
+/**
+ * A {@link ComplexNumber} is not mutable. 
+ * 
+ * @author Silvan Wyss
+ * @date 2019-02-19
+ */
 public final class ComplexNumber implements IComplexNumber {
 	
 	//attribute
