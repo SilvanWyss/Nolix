@@ -15,6 +15,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
+import ch.nolix.systemapi.timeapi.timestructure.Weekday;
 
 //class
 /**
@@ -523,6 +524,29 @@ public final class Time implements ITime {
 	 */
 	public int getSecondOfMinute() {
 		return gregorianCalendar.get(Calendar.SECOND);
+	}
+	
+	//method
+	@Override
+	public Weekday getWeekday() {
+		switch (gregorianCalendar.get(Calendar.DAY_OF_WEEK)) {
+			case 1:
+				return Weekday.MONDAY;
+			case 2:
+				return Weekday.TUESDAY;
+			case 3:
+				return Weekday.WEDNESDAY;
+			case 4:
+				return Weekday.THURSDAY;
+			case 5:
+				return Weekday.FRIDAY;
+			case 6:
+				return Weekday.SATURDAY;
+			case 7:
+				return Weekday.SUNDAY;
+			default:
+				throw new InvalidArgumentException(gregorianCalendar);
+		}
 	}
 	
 	//method

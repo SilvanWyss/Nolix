@@ -1,7 +1,9 @@
 //package declaration
 package ch.nolix.systemapi.timeapi.momentapi;
 
+//own imports
 import ch.nolix.systemapi.elementapi.mainuniversalapi.Specified;
+import ch.nolix.systemapi.timeapi.timestructure.Weekday;
 
 //interface
 public interface ITime extends Specified {
@@ -11,6 +13,12 @@ public interface ITime extends Specified {
 	 * @return the milliseconds of the current {@link ITime}.
 	 */
 	long getMilliseconds();
+	
+	//method declaration
+	/**
+	 * @return the weekday of the current {@link ITime}.
+	 */
+	Weekday getWeekday();
 	
 	//method declaration
 	/**
