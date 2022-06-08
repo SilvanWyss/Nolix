@@ -5,6 +5,7 @@ package ch.nolix.systemtest.timetest;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 import ch.nolix.system.time.base.Time;
+import ch.nolix.systemapi.timeapi.timestructure.Weekday;
 
 //class
 /**
@@ -20,7 +21,7 @@ public final class TimeTest extends Test {
 	public void testCase_getDay() {
 		
 		//setup
-		final var time =
+		final var testUnit =
 		Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHourAndSecondOfMinuteAndMillisecondOfSecond(
 			2020,
 			1,
@@ -32,7 +33,7 @@ public final class TimeTest extends Test {
 		);
 		
 		//execution
-		final Time result = time.getDay();
+		final Time result = testUnit.getDay();
 		
 		//verification
 		expect(result.getYearAsInt()).isEqualTo(2020);
@@ -42,6 +43,48 @@ public final class TimeTest extends Test {
 		expect(result.getMinuteOfHour()).isEqualTo(0);
 		expect(result.getSecondOfMinute()).isEqualTo(0);
 		expect(result.getMillisecondOfSecond()).isEqualTo(0);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_getWeekday_whenIs2020_01_01() {
+		
+		//setup
+		final var testUnit = Time.withYearAndMonthOfYearAndDayOfMonth(2020, 1, 1);
+		
+		//execution
+		final var result = testUnit.getWeekday();
+		
+		//verification
+		expect(result).isEqualTo(Weekday.WEDNESDAY);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_getWeekday_whenIs2020_01_02() {
+		
+		//setup
+		final var testUnit = Time.withYearAndMonthOfYearAndDayOfMonth(2020, 1, 2);
+		
+		//execution
+		final var result = testUnit.getWeekday();
+		
+		//verification
+		expect(result).isEqualTo(Weekday.THURSDAY);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_getWeekday_whenIs2020_01_03() {
+		
+		//setup
+		final var testUnit = Time.withYearAndMonthOfYearAndDayOfMonth(2020, 1, 3);
+		
+		//execution
+		final var result = testUnit.getWeekday();
+		
+		//verification
+		expect(result).isEqualTo(Weekday.FRIDAY);
 	}
 	
 	//method
