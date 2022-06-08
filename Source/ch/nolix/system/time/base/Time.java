@@ -2,17 +2,18 @@
 package ch.nolix.system.time.base;
 
 //Java imports
-import java.util.Calendar;
-import java.util.GregorianCalendar;
+import java.time.Year;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 
 //own imports
-import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.constant.TimeUnitCatalogue;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 import ch.nolix.systemapi.timeapi.timestructure.Weekday;
@@ -20,42 +21,47 @@ import ch.nolix.systemapi.timeapi.timestructure.Weekday;
 //class
 /**
  * {@link Time} stores a point in time with a precision of 1 millisecond.
- * 
- * {@link Time} stores a point in time according to the Gregorian calendar.
- * Since the Gregorian calendar is not proleptic a {@link Time} can only store a point in time after 1600-01-01 00:00:000.
- * Not proleptic means that the Greogioan calender does officially not allow
- * calculations backwards behind the point of its release, that was in 1582.
- * 
- * {@link Time} is not mutable.
- * Technically, a {@link Time} is a wrapper around JDK's {@link GregorianCalendar}.
+ * A {@link Time} is not mutable.
+ * Technically, a {@link Time} is a wrapper around a JDK's {@link ZonedDateTime}.
  * 
  * @author Silvan Wyss
  * @date 2016-09-01
  */
 public final class Time implements ITime {
 	
-	//constants
+	//constant
 	public static final int DEFAULT_YEAR = 2000;
+	
+	//constant
 	public static final int DEFAULT_MONTH_OF_YEAR = 1;
+	
+	//constant
 	public static final int DEFAULT_DAY_OF_MONTH = 1;
+	
+	//constant
 	public static final int DEFAULT_HOUR_OF_DAY = 0;
+	
+	//constant
 	public static final int DEFAULT_MINUTE_OF_HOUR = 0;
+	
+	//constant
 	public static final int DEFAULT_SECOND_OF_MINUTE = 0;
+	
+	//constant
 	public static final int DEFAULT_MILLISECOND_OF_SECOND = 0;
 	
+	//constant
+	private static final Time DEFAULT_TIME = new Time();
+	
 	//attribute
-	private final GregorianCalendar gregorianCalendar = new GregorianCalendar();
+	private final ZonedDateTime zonedDateTime;
 	
 	//static method
 	/**
 	 * @return a new {@link Time} that represents the current time on the machine it is created on.
 	 */
 	public static Time fromCurrentTime() {
-		
-		final var time = new Time();
-		time.gregorianCalendar.setTimeInMillis(new GregorianCalendar().getTimeInMillis());
-		
-		return time;
+		return new Time(ZonedDateTime.now());
 	}
 	
 	//static method
@@ -79,45 +85,47 @@ public final class Time implements ITime {
 		//Asserts that the given string is not null.
 		GlobalValidator.assertThat(string).thatIsNamed("string").isNotNull();
 		
-		final var time = new Time();
-		
 		//Creates array of values of the given string.
 		final String[] array = string.split("-");
 		
-		GlobalValidator
-		.assertThat(array.length)
-		.thatIsNamed("numer of values of '" + string + "'")
-		.isEqualToAny(3, 5, 6, 7);
-		
-		if (array.length >= 3) {
-			time.setYear(GlobalStringHelper.toInt(array[0]));
-			time.setMonthOfYear(GlobalStringHelper.toInt(array[1]));
-			time.setDayOfMonth(GlobalStringHelper.toInt(array[2]));
+		//Enumerates the length of the array.
+		switch (array.length) {
+			case 3:
+				return withYearAndMonthOfYearAndDayOfMonth(
+					Integer.valueOf(array[0]),
+					Integer.valueOf(array[1]),
+					Integer.valueOf(array[2])
+				);
+			case 5:
+				return withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHour(
+					Integer.valueOf(array[0]),
+					Integer.valueOf(array[1]),
+					Integer.valueOf(array[2]),
+					Integer.valueOf(array[3]),
+					Integer.valueOf(array[4])
+				);
+			case 6:
+				return withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHourAndSecondOfMinute(
+					Integer.valueOf(array[0]),
+					Integer.valueOf(array[1]),
+					Integer.valueOf(array[2]),
+					Integer.valueOf(array[3]),
+					Integer.valueOf(array[4]),
+					Integer.valueOf(array[5])
+				);
+			case 7:
+				return withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHourAndSecondOfMinuteAndMillisecondOfSecond(
+					Integer.valueOf(array[0]),
+					Integer.valueOf(array[1]),
+					Integer.valueOf(array[2]),
+					Integer.valueOf(array[3]),
+					Integer.valueOf(array[4]),
+					Integer.valueOf(array[5]),
+					Integer.valueOf(array[6])
+				);
+			default:
+				throw new UnrepresentingArgumentException(string, Time.class);
 		}
-		if (array.length >= 5) {
-			time.setMinuteOfHour(GlobalStringHelper.toInt(array[4]));
-		}
-		if (array.length >= 6) {
-			time.setSecondOfMinute(GlobalStringHelper.toInt(array[5]));
-		}
-		if (array.length >= 7) {
-			time.setMillisecondOfSecond(GlobalStringHelper.toInt(array[6]));
-		}
-		
-		return time;
-	}
-	
-	//static method
-	/**
-	 * @param unixTimeStamp
-	 * @return a new {@link Time} from the given unixTimeStamp.
-	 */
-	public static Time fromUnixTimeStamp(final long unixTimeStamp) {
-		
-		final var time = new Time();
-		time.gregorianCalendar.setTimeInMillis(1000 * unixTimeStamp);
-		
-		return time;
 	}
 	
 	//static method
@@ -126,11 +134,7 @@ public final class Time implements ITime {
 	 * @return a new {@link Time} with the given year.
 	 */
 	public static Time withYear(final int year) {
-		
-		final var time = new Time();
-		time.setYear(year);
-		
-		return time;
+		return new Time(DEFAULT_TIME.zonedDateTime.withYear(year));
 	}
 	
 	//static method
@@ -140,12 +144,7 @@ public final class Time implements ITime {
 	 * @return a new {@link Time} with the given year and monthOfYear.
 	 */
 	public static Time withYearAndMonthOfYear(final int year, final int monthOfYear) {
-		
-		final var time = new Time();
-		time.setYear(year);
-		time.setMonthOfYear(monthOfYear);
-		
-		return time;
+		return new Time(DEFAULT_TIME.zonedDateTime.withYear(year).withMonth(monthOfYear));
 	}
 	
 	//static method
@@ -160,13 +159,7 @@ public final class Time implements ITime {
 		final int monthOfYear,
 		final int dayOfMonth
 	) {
-		
-		final var time = new Time();
-		time.setYear(year);
-		time.setMonthOfYear(monthOfYear);
-		time.setDayOfMonth(dayOfMonth);
-		
-		return time;
+		return new Time(DEFAULT_TIME.zonedDateTime.withYear(year).withMonth(monthOfYear).withDayOfMonth(dayOfMonth));
 	}
 	
 	//static method
@@ -183,14 +176,15 @@ public final class Time implements ITime {
 		final int dayOfMonth,
 		final int hourOfDay
 	) {
-		
-		final var time = new Time();
-		time.setYear(year);
-		time.setMonthOfYear(monthOfYear);
-		time.setDayOfMonth(dayOfMonth);
-		time.setHourOfDay(hourOfDay);
-		
-		return time;
+		return
+		new Time(
+			DEFAULT_TIME
+			.zonedDateTime
+			.withYear(year)
+			.withMonth(monthOfYear)
+			.withDayOfMonth(dayOfMonth)
+			.withHour(hourOfDay)
+		);
 	}
 	
 	//static method
@@ -209,15 +203,16 @@ public final class Time implements ITime {
 		final int hourOfDay,
 		final int minuteOfHour
 	) {
-		
-		final var time = new Time();
-		time.setYear(year);
-		time.setMonthOfYear(monthOfYear);
-		time.setDayOfMonth(dayOfMonth);
-		time.setHourOfDay(hourOfDay);
-		time.setMinuteOfHour(minuteOfHour);
-		
-		return time;
+		return
+		new Time(
+			DEFAULT_TIME
+			.zonedDateTime
+			.withYear(year)
+			.withMonth(monthOfYear)
+			.withDayOfMonth(dayOfMonth)
+			.withHour(hourOfDay)
+			.withMinute(minuteOfHour)
+		);
 	}
 	
 	//static method
@@ -239,16 +234,17 @@ public final class Time implements ITime {
 		final int minuteOfHour,
 		final int secondOfMinute
 	) {
-		
-		final var time = new Time();
-		time.setYear(year);
-		time.setMonthOfYear(monthOfYear);
-		time.setDayOfMonth(dayOfMonth);
-		time.setHourOfDay(hourOfDay);
-		time.setMinuteOfHour(minuteOfHour);
-		time.setSecondOfMinute(secondOfMinute);
-		
-		return time;
+		return
+		new Time(
+			DEFAULT_TIME
+			.zonedDateTime
+			.withYear(year)
+			.withMonth(monthOfYear)
+			.withDayOfMonth(dayOfMonth)
+			.withHour(hourOfDay)
+			.withMinute(minuteOfHour)
+			.withSecond(secondOfMinute)
+		);
 	}
 	
 	//static method
@@ -273,17 +269,18 @@ public final class Time implements ITime {
 		final int secondOfMinute,
 		final int millisecondOfSecond
 	) {
-		
-		final var time = new Time();
-		time.setYear(year);
-		time.setMonthOfYear(monthOfYear);
-		time.setDayOfMonth(dayOfMonth);
-		time.setHourOfDay(hourOfDay);
-		time.setMinuteOfHour(minuteOfHour);
-		time.setSecondOfMinute(secondOfMinute);
-		time.setMillisecondOfSecond(millisecondOfSecond);
-		
-		return time;
+		return
+		new Time(
+			DEFAULT_TIME
+			.zonedDateTime
+			.withYear(year)
+			.withMonth(monthOfYear)
+			.withDayOfMonth(dayOfMonth)
+			.withHour(hourOfDay)
+			.withMinute(minuteOfHour)
+			.withSecond(secondOfMinute)
+			.withNano(1000 * millisecondOfSecond)
+		);
 	}
 	
 	//constructor
@@ -291,8 +288,22 @@ public final class Time implements ITime {
 	 * Creates a new {@link Time} with default values.
 	 */
 	private Time() {
-		gregorianCalendar.setLenient(true);
-		reset();
+		this(
+			ZonedDateTime.of(
+				DEFAULT_YEAR,
+				DEFAULT_MONTH_OF_YEAR,
+				DEFAULT_DAY_OF_MONTH,
+				DEFAULT_HOUR_OF_DAY,
+				DEFAULT_MINUTE_OF_HOUR,
+				DEFAULT_SECOND_OF_MINUTE,
+				1000 * DEFAULT_MILLISECOND_OF_SECOND,
+				ZoneId.systemDefault()
+			)
+		);
+	}
+	
+	private Time(final ZonedDateTime zonedDateTime) {
+		this.zonedDateTime = zonedDateTime;
 	}
 	
 	//method
@@ -345,7 +356,7 @@ public final class Time implements ITime {
 	 * @return the day of the month of the current {@link Time}.
 	 */
 	public int getDayOfMonth() {
-		return gregorianCalendar.get(Calendar.DAY_OF_MONTH);
+		return zonedDateTime.getDayOfMonth();
 	}
 	
 	//method
@@ -378,7 +389,7 @@ public final class Time implements ITime {
 	 * @return the hour of the month of the current {@link Time}.
 	 */
 	public int getHourOfDay() {
-		return gregorianCalendar.get(Calendar.HOUR_OF_DAY);
+		return zonedDateTime.getHour();
 	}
 	
 	//method
@@ -386,7 +397,7 @@ public final class Time implements ITime {
 	 * {@inheritDoc}
 	 */
 	public long getMilliseconds() {
-		return gregorianCalendar.getTimeInMillis();
+		return zonedDateTime.toInstant().toEpochMilli();
 	}
 	
 	//method
@@ -394,7 +405,7 @@ public final class Time implements ITime {
 	 * @return the millisecond of the second of the current {@link Time}.
 	 */
 	public int getMillisecondOfSecond() {
-		return gregorianCalendar.get(Calendar.MILLISECOND);
+		return (1000 * zonedDateTime.getNano());
 	}
 	
 	//method
@@ -428,7 +439,7 @@ public final class Time implements ITime {
 	 * @return the minute of the hour of the current {@link Time}.
 	 */
 	public int getMinuteOfHour() {
-		return gregorianCalendar.get(Calendar.MINUTE);
+		return zonedDateTime.getMinute();
 	}
 	
 	//method
@@ -444,7 +455,7 @@ public final class Time implements ITime {
 	 * @return the month of the year of the current {@link Time}.
 	 */
 	public int getMonthOfYear() {
-		return (gregorianCalendar.get(Calendar.MONTH) + 1);
+		return zonedDateTime.getMonth().getValue();
 	}
 		
 	//method
@@ -523,30 +534,13 @@ public final class Time implements ITime {
 	 * @return the second of the minute of the current {@link Time}.
 	 */
 	public int getSecondOfMinute() {
-		return gregorianCalendar.get(Calendar.SECOND);
+		return zonedDateTime.getSecond();
 	}
 	
 	//method
 	@Override
 	public Weekday getWeekday() {
-		switch (gregorianCalendar.get(Calendar.DAY_OF_WEEK)) {
-			case 1:
-				return Weekday.MONDAY;
-			case 2:
-				return Weekday.TUESDAY;
-			case 3:
-				return Weekday.WEDNESDAY;
-			case 4:
-				return Weekday.THURSDAY;
-			case 5:
-				return Weekday.FRIDAY;
-			case 6:
-				return Weekday.SATURDAY;
-			case 7:
-				return Weekday.SUNDAY;
-			default:
-				throw new InvalidArgumentException(gregorianCalendar);
-		}
+		return Weekday.fromDayOfWeek(zonedDateTime.getDayOfWeek());
 	}
 	
 	//method
@@ -555,9 +549,7 @@ public final class Time implements ITime {
 	 * @return a new {@link Time} with the given days added or subtracted to the current {@link Time}.
 	 */
 	public Time getWithAddedOrSubtractedDays(final int days) {
-		final Time time = getCopy();
-		time.addDays(days);
-		return time;
+		return new Time(zonedDateTime.plusDays(days));
 	}
 	
 	//method
@@ -566,9 +558,7 @@ public final class Time implements ITime {
 	 * @return a new {@link Time} with the given hours added or subtracted to the current {@link Time}.
 	 */
 	public Time getWithAddedOrSubtractedHours(final int hours) {
-		final Time time = getCopy();
-		time.addHours(hours);
-		return time;
+		return new Time(zonedDateTime.plusHours(hours));
 	}
 	
 	//method
@@ -577,9 +567,7 @@ public final class Time implements ITime {
 	 * @return a new {@link Time} with the given milliseconds added or subtracted to the current {@link Time}.
 	 */
 	public Time getWithAddedOrSubtractedMilliseconds(final int milliseconds) {
-		final Time time = getCopy();
-		time.addMilliseconds(milliseconds);
-		return time;
+		return new Time(zonedDateTime.plusNanos(1000L * milliseconds));
 	}
 	
 	//method
@@ -588,9 +576,7 @@ public final class Time implements ITime {
 	 * @return a new {@link Time} with the given minutes added or subtracted to the current {@link Time}.
 	 */
 	public Time getWithAddedOrSubtractedMinutes(final int minutes) {
-		final Time time = getCopy();
-		time.addMinutes(minutes);
-		return time;
+		return new Time(zonedDateTime.plusMinutes(minutes));
 	}
 	
 	//method
@@ -599,9 +585,7 @@ public final class Time implements ITime {
 	 * @return a new {@link Time} with the given seconds added or subtracted to the current {@link Time}.
 	 */
 	public Time getWithAddedOrSubtractedSeconds(final int seconds) {
-		final Time time = getCopy();
-		time.addSeconds(seconds);
-		return time;
+		return new Time(zonedDateTime.plusSeconds(seconds));
 	}
 	
 	//method
@@ -617,7 +601,7 @@ public final class Time implements ITime {
 	 * @return the year of the current {@link Time}.
 	 */
 	public int getYearAsInt() {
-		return gregorianCalendar.get(Calendar.YEAR);
+		return zonedDateTime.getYear();
 	}
 	
 	//method
@@ -652,7 +636,7 @@ public final class Time implements ITime {
 	 * @return true if the current {@link Time} is in a leap year.
 	 */
 	public boolean isInLeapYear() {
-		return gregorianCalendar.isLeapYear(getYearAsInt());
+		return Year.isLeap(getYearAsInt());
 	}
 	
 	//method
@@ -662,149 +646,5 @@ public final class Time implements ITime {
 	@Override
 	public String toString() {
 		return getSpecification().toString();
-	}
-	
-	//method
-	/**
-	 * Adds the given days to the current {@link Time}.
-	 * 
-	 * @param days
-	 */
-	private void addDays(final int days) {
-		addMilliseconds(TimeUnitCatalogue.MILLISECONDS_PER_DAY * days);
-	}
-	
-	//method
-	/**
-	 * Adds the given hours to the current {@link Time}.
-	 * 
-	 * @param hours
-	 */
-	private void addHours(final int hours) {
-		addMilliseconds(TimeUnitCatalogue.MILLISECONDS_PER_HOUR * hours);
-	}
-	
-	//method
-	/**
-	 * Adds the given milliseconds to the current {@link Time}.
-	 * 
-	 * @param milliseconds
-	 */
-	private void addMilliseconds(final int milliseconds) {
-		gregorianCalendar.setTimeInMillis(getMilliseconds() + milliseconds);
-	}
-
-	//method
-	/**
-	 * Adds the given minutes to the current {@link Time}.
-	 * 
-	 * @param minutes
-	 */
-	private void addMinutes(final int minutes) {
-		addMilliseconds(TimeUnitCatalogue.MILLISECONDS_PER_MINUTE * minutes);
-	}
-	
-	//method
-	/**
-	 * Adds the given seconds to the current {@link Time}.
-	 * 
-	 * @param seconds
-	 */
-	private void addSeconds(final int seconds) {
-		addMilliseconds(TimeUnitCatalogue.MILLISECONDS_PER_SECOND * seconds);
-	}
-	
-	//method
-	/**
-	 * @return a copy of the current {@link Time}.
-	 */
-	private Time getCopy() {
-		final Time time = new Time();
-		time.gregorianCalendar.setTimeInMillis(this.gregorianCalendar.getTimeInMillis());
-		return time;
-	}
-	
-	//method
-	/**
-	 * Resets the current {@link Time}.
-	 */
-	private void reset() {
-		setYear(DEFAULT_YEAR);
-		setMonthOfYear(DEFAULT_MONTH_OF_YEAR);
-		setDayOfMonth(DEFAULT_DAY_OF_MONTH);
-		setHourOfDay(DEFAULT_HOUR_OF_DAY);
-		setMinuteOfHour(DEFAULT_MINUTE_OF_HOUR);
-		setSecondOfMinute(DEFAULT_SECOND_OF_MINUTE);
-		setMillisecondOfSecond(DEFAULT_MILLISECOND_OF_SECOND);
-	}
-	
-	//method
-	/**
-	 * Sets the day of the month of the current {@link Time}.
-	 * 
-	 * @param dayOfMonth
-	 */
-	private void setDayOfMonth(final int dayOfMonth) {
-		gregorianCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-	}
-	
-	//method
-	/**
-	 * Sets the hour of the day of the current {@link Time}.
-	 * 
-	 * @param hourOfDay
-	 */
-	private void setHourOfDay(final int hourOfDay) {
-		gregorianCalendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
-	}
-	
-	//method
-	/**
-	 * Sets the millisecond of the second of the current {@link Time}.
-	 * 
-	 * @param millisecondOfSecond
-	 */
-	private void setMillisecondOfSecond(final int millisecondOfSecond) {
-		gregorianCalendar.set(Calendar.MILLISECOND, millisecondOfSecond);
-	}
-	
-	//method
-	/**
-	 * Sets the minute of the hour of the current {@link Time}
-	 * 
-	 * @param minuteOfHour
-	 */
-	private void setMinuteOfHour(final int minuteOfHour) {
-		gregorianCalendar.set(Calendar.MINUTE, minuteOfHour);
-	}
-	
-	//method
-	/**
-	 * Sets the month of the year of the current {@link Time}.
-	 * 
-	 * @param monthOfYear
-	 */
-	private void setMonthOfYear(final int monthOfYear) {
-		gregorianCalendar.set(Calendar.MONTH, monthOfYear - 1);
-	}
-	
-	//method
-	/**
-	 * Sets the second of the minute of the current {@link Time}.
-	 * 
-	 * @param secondOfMinute
-	 */
-	private void setSecondOfMinute(final int secondOfMinute) {
-		gregorianCalendar.set(Calendar.SECOND, secondOfMinute);
-	}
-	
-	//method
-	/**
-	 * Sets the year of the current {@link Time}.
-	 * 
-	 * @param year
-	 */
-	private void setYear(final int year) {
-		gregorianCalendar.set(Calendar.YEAR, year);
 	}
 }
