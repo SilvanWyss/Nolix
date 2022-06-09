@@ -29,7 +29,7 @@ public final class Column extends SchemaObject implements IColumn<SchemaImplemen
 	
 	//constant
 	private static final ParametrizedPropertyType<?> INITIAL_PROPERTY_TYPE =
-	new ParametrizedValueType<>(DataType.INTEGER_4);
+	new ParametrizedValueType<>(DataType.INTEGER_4BYTE);
 	
 	//static attribute
 	private static final ParametrizedPropertyTypeMapper parametrizedPropertyTypeMapper =

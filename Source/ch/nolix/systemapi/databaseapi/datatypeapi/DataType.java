@@ -1,55 +1,41 @@
 //package declaration
 package ch.nolix.systemapi.databaseapi.datatypeapi;
 
-//Java imports
-import java.math.BigDecimal;
-import java.math.BigInteger;
-
 //own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
-import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //enum
 public enum DataType {
-	INTEGER_1(Byte.class, new ByteCreator()),
-	INTEGER_2(Short.class, new ShortCreator()),
-	INTEGER_4(Integer.class, new IntegerCreator()),
-	INTEGER_8(Long.class, new LongCreator()),
-	FLOATING_POINT_NUMBER_4(Float.class, new FloatCreator()),
-	FLOATING_POINT_NUMBER_8(Double.class, new DoubleCreator()),
-	DYNAMIC_INTEGER(BigInteger.class, new BigIntegerCreator()),
-	DYNAMIC_DECIMAL(BigDecimal.class, new BigDecimalCreator()),
+	INTEGER_1BYTE(Byte.class, new ByteCreator()),
+	INTEGER_2BYTE(Short.class, new ShortCreator()),
+	INTEGER_4BYTE(Integer.class, new IntegerCreator()),
+	INTEGER_8BYTE(Long.class, new LongCreator()),
+	FLOATING_POINT_NUMBER_4BYTE(Float.class, new FloatCreator()),
+	FLOATING_POINT_NUMBER_8BYTE(Double.class, new DoubleCreator()),
 	BOOLEAN(Boolean.class, new BooleanCreator()),
-	STRING(String.class, new StringCreator()),
-	NODE(Node.class, new NodeCreator());
+	STRING(String.class, new StringCreator());
 	
 	//static method
 	public static DataType forType(final Class<?> type) {
 		switch (type.getSimpleName()) {
 			case "Byte":
-				return INTEGER_1;
+				return INTEGER_1BYTE;
 			case "Short":
-				return INTEGER_2;
+				return INTEGER_2BYTE;
 			case "Integer":
-				return INTEGER_4;
+				return INTEGER_4BYTE;
 			case "Long":
-				return INTEGER_8;
+				return INTEGER_8BYTE;
 			case "Float":
-				return FLOATING_POINT_NUMBER_4;
+				return FLOATING_POINT_NUMBER_4BYTE;
 			case "Double":
-				return FLOATING_POINT_NUMBER_8;
-			case "BigInteger":
-				return DYNAMIC_INTEGER;
-			case "BigDecimal":
-				return DYNAMIC_DECIMAL;
+				return FLOATING_POINT_NUMBER_8BYTE;
 			case "Boolean":
 				return BOOLEAN;
 			case "String":
 				return STRING;
-			case "Node":
-				return NODE;
 			default:
 				throw new UnrepresentingArgumentException(LowerCaseCatalogue.TYPE, type, DataType.class);
 		}

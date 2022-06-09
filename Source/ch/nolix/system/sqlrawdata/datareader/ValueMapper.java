@@ -1,10 +1,6 @@
 //package declaration
 package ch.nolix.system.sqlrawdata.datareader;
 
-//Java imports
-import java.math.BigDecimal;
-import java.math.BigInteger;
-
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
@@ -21,22 +17,18 @@ public final class ValueMapper {
 	//method
 	private Object createValueFromString(final String string, final DataType dataType) {
 		switch (dataType) {
-			case INTEGER_1:
+			case INTEGER_1BYTE:
 				return Byte.valueOf(string);
-			case INTEGER_2:
+			case INTEGER_2BYTE:
 				return Short.valueOf(string);
-			case INTEGER_4:
+			case INTEGER_4BYTE:
 				return Integer.valueOf(string);
-			case INTEGER_8:
+			case INTEGER_8BYTE:
 				return Long.valueOf(string);
-			case FLOATING_POINT_NUMBER_4:
+			case FLOATING_POINT_NUMBER_4BYTE:
 				return Float.valueOf(string);
-			case FLOATING_POINT_NUMBER_8:
+			case FLOATING_POINT_NUMBER_8BYTE:
 				return Double.valueOf(string);
-			case DYNAMIC_DECIMAL:
-				return new BigDecimal(string);
-			case DYNAMIC_INTEGER:
-				return new BigInteger(string);
 			case BOOLEAN:
 				return Boolean.valueOf(string);
 			case STRING:

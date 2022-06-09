@@ -21,7 +21,7 @@ public final class NodeSchemaAdapterTutorial {
 			final var cityTable =
 			new Table("City")
 			.addColumn(new Column("Name", new ParametrizedValueType<>(DataType.STRING)))
-			.addColumn(new Column("Population", new ParametrizedValueType<>(DataType.INTEGER_4)));
+			.addColumn(new Column("Population", new ParametrizedValueType<>(DataType.INTEGER_4BYTE)));
 			
 			final var countryTable = 
 			new Table("Country").addColumn(new Column("Name", new ParametrizedValueType<>(DataType.STRING)));
