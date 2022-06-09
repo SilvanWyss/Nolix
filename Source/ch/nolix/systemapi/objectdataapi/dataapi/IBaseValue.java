@@ -5,4 +5,5 @@ package ch.nolix.systemapi.objectdataapi.dataapi;
 public interface IBaseValue<
 	IMPL,
 	V
-> extends IProperty<IMPL> {}
+>
+extends IProperty<IMPL> {}
