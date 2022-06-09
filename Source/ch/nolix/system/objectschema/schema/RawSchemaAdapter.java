@@ -89,7 +89,7 @@ final class RawSchemaAdapter {
 	
 	public void setColumnParametrizedPropertyType(
 		final IColumn<SchemaImplementation> column,
-		final IParametrizedPropertyType<SchemaImplementation, ?> parametrizedPropertyType
+		final IParametrizedPropertyType<SchemaImplementation> parametrizedPropertyType
 	) {
 		internalRawSchemaAdapter.setColumnParametrizedPropertyType(
 			column.getId(),

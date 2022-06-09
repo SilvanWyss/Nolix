@@ -14,7 +14,7 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
 
 //class
-public abstract class BaseParametrizedReferenceType extends ParametrizedPropertyType<String>
+public abstract class BaseParametrizedReferenceType extends ParametrizedPropertyType
 implements IBaseParametrizedReferenceType<SchemaImplementation> {
 	
 	//attribute

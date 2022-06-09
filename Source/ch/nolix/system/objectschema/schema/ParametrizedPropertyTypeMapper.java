@@ -24,7 +24,7 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO
 public final class ParametrizedPropertyTypeMapper {
 	
 	//method
-	public ParametrizedPropertyType<?> createParametrizedPropertyTypeFromDTO(
+	public ParametrizedPropertyType createParametrizedPropertyTypeFromDTO(
 		final IParametrizedPropertyTypeDTO parametrizedPropertyType,
 		final IContainer<ITable<SchemaImplementation>> tables
 	) {

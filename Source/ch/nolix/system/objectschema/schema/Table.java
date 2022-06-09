@@ -88,7 +88,7 @@ public final class Table extends SchemaObject implements ITable<SchemaImplementa
 	@Override
 	public Table createColumnWithNameAndParametrizedPropertyType( 
 		final String name,
-		final IParametrizedPropertyType<SchemaImplementation, ?> parametrizedPropertyType
+		final IParametrizedPropertyType<SchemaImplementation> parametrizedPropertyType
 	) {
 		return addColumn(new Column(name, parametrizedPropertyType));
 	}

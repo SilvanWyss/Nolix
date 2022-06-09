@@ -36,7 +36,7 @@ public final class ParametrizedPropertyTypeMapper implements IParametrizedProper
 	
 	//method
 	@Override
-	public IParametrizedPropertyType<SchemaImplementation, ?>
+	public IParametrizedPropertyType<SchemaImplementation>
 	createParametrizedPropertyTypeFromGivenPropertyUsingGivenReferencableTables(
 		final IProperty<?> property,
 		final IContainer<ITable<SchemaImplementation>> referencableTables

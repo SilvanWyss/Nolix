@@ -42,7 +42,7 @@ final class ColumnMutationExecutor {
 	//method
 	public void setParametrizedPropertyTypeToColumn(
 		final Column column,
-		final IParametrizedPropertyType<SchemaImplementation, ?> parametrizedPropertyType
+		final IParametrizedPropertyType<SchemaImplementation> parametrizedPropertyType
 	) {
 		
 		column.setParametrizedPropertyTypeAttribute(parametrizedPropertyType);

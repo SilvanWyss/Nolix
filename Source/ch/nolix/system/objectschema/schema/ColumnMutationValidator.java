@@ -49,7 +49,7 @@ final class ColumnMutationValidator {
 	//method
 	public void assertCanSetParametrizedPropertyTypeToColumn(
 		final Column column,
-		final IParametrizedPropertyType<SchemaImplementation, ?> parametrizedPropertyType
+		final IParametrizedPropertyType<SchemaImplementation> parametrizedPropertyType
 	) {
 		
 		column.assertIsOpen();

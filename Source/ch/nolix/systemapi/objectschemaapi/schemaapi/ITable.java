@@ -26,7 +26,7 @@ Namable<ITable<IMPL>> {
 	//method declaration
 	ITable<IMPL> createColumnWithNameAndParametrizedPropertyType(
 		String name,
-		IParametrizedPropertyType<IMPL, ?> parametrizedPropertyType
+		IParametrizedPropertyType<IMPL> parametrizedPropertyType
 	);
 	
 	//method declaration

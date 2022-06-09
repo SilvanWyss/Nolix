@@ -28,7 +28,7 @@ public final class Column extends SchemaObject implements IColumn<SchemaImplemen
 	private static final String INITIAL_HEADER = StringCatalogue.DEFAULT_STRING;
 	
 	//constant
-	private static final ParametrizedPropertyType<?> INITIAL_PROPERTY_TYPE =
+	private static final ParametrizedPropertyType INITIAL_PROPERTY_TYPE =
 	new ParametrizedValueType<>(DataType.INTEGER_4BYTE);
 	
 	//static attribute
@@ -62,7 +62,7 @@ public final class Column extends SchemaObject implements IColumn<SchemaImplemen
 	private String name = INITIAL_HEADER;
 	
 	//attribute
-	private IParametrizedPropertyType<SchemaImplementation, ?> parametrizedPropertyType = INITIAL_PROPERTY_TYPE;
+	private IParametrizedPropertyType<SchemaImplementation> parametrizedPropertyType = INITIAL_PROPERTY_TYPE;
 	
 	//optional attributes
 	private Table parentTable;
@@ -70,7 +70,7 @@ public final class Column extends SchemaObject implements IColumn<SchemaImplemen
 	//constructor
 	public Column(
 		final String name,
-		final IParametrizedPropertyType<SchemaImplementation, ?> parametrizedPropertyType
+		final IParametrizedPropertyType<SchemaImplementation> parametrizedPropertyType
 	) {
 		this(GlobalIdCreator.createIdOf10HexadecimalCharacters(), name, parametrizedPropertyType);
 	}
@@ -79,7 +79,7 @@ public final class Column extends SchemaObject implements IColumn<SchemaImplemen
 	private Column(
 		final String id,
 		final String name,
-		final IParametrizedPropertyType<SchemaImplementation, ?> parametrizedPropertyType
+		final IParametrizedPropertyType<SchemaImplementation> parametrizedPropertyType
 	) {
 		
 		GlobalValidator.assertThat(id).thatIsNamed(LowerCaseCatalogue.ID).isNotBlank();
@@ -116,7 +116,7 @@ public final class Column extends SchemaObject implements IColumn<SchemaImplemen
 	
 	//method
 	@Override
-	public IParametrizedPropertyType<SchemaImplementation, ?> getParametrizedPropertyType() {
+	public IParametrizedPropertyType<SchemaImplementation> getParametrizedPropertyType() {
 		return parametrizedPropertyType;
 	}
 		
@@ -159,7 +159,7 @@ public final class Column extends SchemaObject implements IColumn<SchemaImplemen
 	//method
 	@Override
 	public Column setParametrizedPropertyType(
-		final IParametrizedPropertyType<SchemaImplementation, ?> parametrizedPropertyType
+		final IParametrizedPropertyType<SchemaImplementation> parametrizedPropertyType
 	) {
 		
 		mutationValidator.assertCanSetParametrizedPropertyTypeToColumn(this, parametrizedPropertyType);
@@ -213,7 +213,7 @@ public final class Column extends SchemaObject implements IColumn<SchemaImplemen
 	
 	//method
 	void setParametrizedPropertyTypeAttribute(
-		final IParametrizedPropertyType<SchemaImplementation, ?> parametrizedPropertyType
+		final IParametrizedPropertyType<SchemaImplementation> parametrizedPropertyType
 	) {
 		this.parametrizedPropertyType = parametrizedPropertyType;
 	}
