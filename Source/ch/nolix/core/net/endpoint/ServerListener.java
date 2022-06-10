@@ -34,7 +34,7 @@ final class ServerListener extends Worker {
 		//Asserts that the given parentServer is not null.
 		GlobalValidator.assertThat(parentServer).thatIsNamed("parent server").isNotNull();
 		
-		//Sets the parentServer of the current NetServerListener.
+		//Sets the parentServer of the current ServerListener.
 		this.parentServer = parentServer;
 	}
 	
