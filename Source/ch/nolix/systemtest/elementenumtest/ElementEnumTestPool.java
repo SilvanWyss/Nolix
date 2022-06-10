@@ -16,6 +16,6 @@ public final class ElementEnumTestPool extends TestPool {
 	 * Creates a new {@link ElementEnumTestPool}.
 	 */
 	public ElementEnumTestPool() {
-		super(UniDirectionTest.class);
+		super(DirectionInRectangleTest.class);
 	}
 }

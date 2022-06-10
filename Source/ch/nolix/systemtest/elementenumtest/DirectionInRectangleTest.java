@@ -10,12 +10,12 @@ import ch.nolix.systemapi.guiapi.structureproperty.DirectionInRectangle;
 
 //class
 /**
- * A {@link UniDirectionTest} is a test for {@link DirectionInRectangle}s.
+ * A {@link DirectionInRectangleTest} is a test for {@link DirectionInRectangle}s.
  * 
  * @author Silvan Wyss
  * @date 2017-09-16
  */
-public final class UniDirectionTest extends Test {
+public final class DirectionInRectangleTest extends Test {
 	
 	//method
 	@TestCase
