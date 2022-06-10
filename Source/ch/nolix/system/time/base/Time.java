@@ -406,7 +406,7 @@ public final class Time implements ITime {
 	 * @return the millisecond of the second of the current {@link Time}.
 	 */
 	public int getMillisecondOfSecond() {
-		return (1000 * zonedDateTime.getNano());
+		return (zonedDateTime.getNano() / 1_000_000);
 	}
 	
 	//method
