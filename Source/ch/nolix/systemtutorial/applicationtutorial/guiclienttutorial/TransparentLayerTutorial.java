@@ -1,6 +1,5 @@
 package ch.nolix.systemtutorial.applicationtutorial.guiclienttutorial;
 
-//own imports
 import ch.nolix.core.environment.localcomputer.ShellProvider;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.system.application.guiapplication.BackendGUIClientSession;
@@ -59,13 +58,13 @@ public final class TransparentLayerTutorial {
 		//Creates a Server.
 		final var server = Server.forDefaultPort();
 		
-		//Adds a default Application to the NetServer.
+		//Adds a default Application to the Server.
 		server.addDefaultApplication("Transparent Layer Tutorial", MainSession.class, VoidApplicationContext.INSTANCE);
 		
 		//Creates a FrontGUIClient that will connect to the Server.
 		new FrontendGUIClient();
 		
-		//Starts a web browser that will connect to the NetServer.
+		//Starts a web browser that will connect to the Server.
 		ShellProvider.startFirefoxOpeningLoopBackAddress();
 		
 		//Closes the Server as soon as it does not have a client connected any more.
