@@ -1,6 +1,5 @@
 package ch.nolix.systemtutorial.applicationtutorial.guiclienttutorial;
 
-//own imports
 import ch.nolix.core.environment.localcomputer.ShellProvider;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.system.application.guiapplication.BackendGUIClientSession;
@@ -16,20 +15,20 @@ public final class TextBoxTutorial {
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		
-		//Creates a NetServer.
-		final var netServer = Server.forDefaultPort();
+		//Creates a Server.
+		final var server = Server.forDefaultPort();
 		
-		//Adds a default Application to the NetServer.
-		netServer.addDefaultApplication("TextBox tutorial", MainSession.class, VoidApplicationContext.INSTANCE);
+		//Adds a default Application to the Server.
+		server.addDefaultApplication("TextBox tutorial", MainSession.class, VoidApplicationContext.INSTANCE);
 		
-		//Creates a FrontGUIClient that will connect to the NetServer.
+		//Creates a FrontGUIClient that will connect to the Server.
 		new FrontendGUIClient();
 		
-		//Starts a web browser that will connect to the NetServer.
+		//Starts a web browser that will connect to the Server.
 		ShellProvider.startFirefoxOpeningLoopBackAddress();
 		
-		//Closes the NetServer as soon as it does not have a client connected any more.
-		GlobalSequencer.asSoonAsNoMore(netServer::hasClientConnected).runInBackground(netServer::close);
+		//Closes the Server as soon as it does not have a client connected any more.
+		GlobalSequencer.asSoonAsNoMore(server::hasClientConnected).runInBackground(server::close);
 	}
 	
 	private static final class MainSession extends BackendGUIClientSession<VoidApplicationContext> {
