@@ -17,16 +17,16 @@ public final class NetServerTest extends Test {
 		final var port = 50000;
 		
 		//setup
-		final var netServer = new Server(port);
+		final var server = new Server(port);
 		
 		//setup verification
-		expect(netServer.getPort()).isEqualTo(port);
-		expect(netServer.isOpen());
+		expect(server.getPort()).isEqualTo(port);
+		expect(server.isOpen());
 		
 		//execution & verification
-		expectRunning(netServer::close).doesNotThrowException();
+		expectRunning(server::close).doesNotThrowException();
 		
 		//verification
-		expect(netServer.isClosed());
+		expect(server.isClosed());
 	}
 }
