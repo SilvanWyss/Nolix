@@ -74,7 +74,7 @@ public final class TimeLabelTutorial {
 	 */
 	private static String getCurrentTimeText() {
 		
-		final var currentTime = Time.fromCurrentTime();
+		final var currentTime = Time.ofNow();
 		
 		return
 		String.format(

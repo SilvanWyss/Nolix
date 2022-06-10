@@ -58,14 +58,6 @@ public final class Time implements ITime {
 	
 	//static method
 	/**
-	 * @return a new {@link Time} that represents the current time on the machine it is created on.
-	 */
-	public static Time fromCurrentTime() {
-		return new Time(ZonedDateTime.now());
-	}
-	
-	//static method
-	/**
 	 * @param specification
 	 * @return a new {@link Time} from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
@@ -126,6 +118,14 @@ public final class Time implements ITime {
 			default:
 				throw new UnrepresentingArgumentException(string, Time.class);
 		}
+	}
+	
+	//static method
+	/**
+	 * @return a new {@link Time} that represents the current time on the local computer.
+	 */
+	public static Time ofNow() {
+		return new Time(ZonedDateTime.now());
 	}
 	
 	//static method

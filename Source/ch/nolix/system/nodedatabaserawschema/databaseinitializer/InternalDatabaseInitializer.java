@@ -27,7 +27,7 @@ final class InternalDatabaseInitializer {
 		return
 		Node.withHeaderAndAttribute(
 			SubNodeHeaderCatalogue.SCHEMA_TIMESTAMP,
-			Time.fromCurrentTime().getSpecification().getRefOneAttribute()
+			Time.ofNow().getSpecification().getRefOneAttribute()
 		);
 	}
 }

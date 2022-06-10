@@ -83,7 +83,7 @@ public final class LabelTutorial {
 		private String getCurrentTimeAsText() {
 			
 			//Gets the current time.
-			final var currentTime = Time.fromCurrentTime();
+			final var currentTime = Time.ofNow();
 			
 			//Returns the current time as text.
 			return
