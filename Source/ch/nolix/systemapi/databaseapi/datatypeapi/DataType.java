@@ -3,6 +3,7 @@ package ch.nolix.systemapi.databaseapi.datatypeapi;
 
 //own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
+import ch.nolix.core.document.data.BinaryObject;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
@@ -15,7 +16,8 @@ public enum DataType {
 	FLOATING_POINT_NUMBER_4BYTE(Float.class, new FloatCreator()),
 	FLOATING_POINT_NUMBER_8BYTE(Double.class, new DoubleCreator()),
 	BOOLEAN(Boolean.class, new BooleanCreator()),
-	STRING(String.class, new StringCreator());
+	STRING(String.class, new StringCreator()),
+	BINARY_OBJECT(BinaryObject.class, new BinaryObjectCreator());
 	
 	//static method
 	public static DataType forType(final Class<?> type) {
