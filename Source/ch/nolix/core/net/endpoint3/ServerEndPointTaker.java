@@ -20,7 +20,7 @@ final class ServerEndPointTaker implements ch.nolix.core.net.endpoint2.IEndPoint
 	
 	//constructor
 	/**
-	 * Creates a new {@NetServerEndPointTaker} that will belong to the given parentServer.
+	 * Creates a new {@ServerEndPointTaker} that will belong to the given parentServer.
 	 * 
 	 * @param name
 	 * @param parentServer
