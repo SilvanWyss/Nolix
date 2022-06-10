@@ -317,7 +317,7 @@ public final class Time implements ITime {
 			Node.fromString(String.format(
 				"%04d-%02d-%02d-%02d-%02d-%02d-%03d",
 				getYearAsInt(),
-				getMonthOfYear(),
+				getMonthOfYearAsInt(),
 				getDayOfMonth(),
 				getHourOfDay(),
 				getMinuteOfHour(),
