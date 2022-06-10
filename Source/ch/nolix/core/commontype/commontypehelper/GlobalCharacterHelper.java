@@ -7,16 +7,18 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 
 //class
 /**
- * This class provides methods to handle characters.
- * Of this class an instance cannot be created.
+ * The {@link GlobalCharacterHelper} provides methods to handle characters.
+ * Of the {@link GlobalCharacterHelper} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
  */
 public final class GlobalCharacterHelper {
 	
-	//articles
+	//constant
 	private static final String ARTICLE_A = "a";
+	
+	//constant
 	private static final String ARTICLE_AN = "an";
 	
 	//static method
@@ -27,7 +29,7 @@ public final class GlobalCharacterHelper {
 	 */
 	public static String getArticle(final char letter) {
 		
-		//Handles the case that the given letter is not valid.
+		//Asserts that the given letter is valid.
 		if (
 			letter < 65
 			|| (letter > 90 && letter < 97)
@@ -74,7 +76,7 @@ public final class GlobalCharacterHelper {
 	
 	//constructor
 	/**
-	 * Avoids that an instance of this class can be created.
+	 * Prevents that an instance of the {@link GlobalCharacterHelper} can be created.
 	 */
 	private GlobalCharacterHelper() {}
 }
