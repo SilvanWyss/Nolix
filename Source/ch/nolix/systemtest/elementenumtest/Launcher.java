@@ -3,16 +3,16 @@ package ch.nolix.systemtest.elementenumtest;
 
 //class
 /**
- * Of this class an instance cannot be created.
+ * Of the {@link Launcher} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @date 2017-09-16
  */
 public final class Launcher {
-
+	
 	//main method
 	/**
-	 * Creates a new enum test pool and runs it.
+	 * Creates a new {@link ElementEnumTestPool} and runs it.
 	 * 
 	 * @param args
 	 */
@@ -22,7 +22,7 @@ public final class Launcher {
 	
 	//constructor
 	/**
-	 * Avoids that an instance of this class can be created.
+	 * Prevents that an instance of the {@link Launcher} can be created.
 	 */
 	private Launcher() {}
 }
