@@ -12,9 +12,8 @@ import ch.nolix.core.independent.independenthelper.CentralArrayHelper;
 
 //class
 /**
- * The validator provides functions to validate arguments.
- * Methods are called on objects, functions are called independently.
- * Of this class an instance cannot be created.
+ * The {@link GlobalValidator} provides methods to validate arguments.
+ * Of the {@link GlobalValidator} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @date 2016-12-01
@@ -25,7 +24,7 @@ public final class GlobalValidator {
 	/**
 	 * @param argument
 	 * @param <A> is the type of the given argument.
-	 * @return a new argument mediator for given argument.
+	 * @return a new {@link ExtendedArgumentMediator} for given argument.
 	 */
 	public static <A> ExtendedArgumentMediator<A> assertThat(final A argument) {
 		return new ExtendedArgumentMediator<>(argument);
@@ -35,7 +34,7 @@ public final class GlobalValidator {
 	/**
 	 * @param argument
 	 * @param <A> is the type of the elements of the given argument.
-	 * @return a new extended container mediator for the given argument.
+	 * @return a new {@link ExtendedContainerMediator} for the given argument.
 	 */
 	public static <A> ExtendedContainerMediator<A> assertThat(final A[] argument) {
 		return new ExtendedContainerMediator<>(argument);
@@ -72,7 +71,7 @@ public final class GlobalValidator {
 	//static method
 	/**
 	 * @param argument
-	 * @return a new extended double mediator for the given argument.
+	 * @return a new {@link ExtendedDoubleMediator} for the given argument.
 	 */
 	public static ExtendedDoubleMediator assertThat(final double argument) {
 		return new ExtendedDoubleMediator(argument);
@@ -81,7 +80,7 @@ public final class GlobalValidator {
 	//static method
 	/**
 	 * @param argument
-	 * @return a new extended container mediator for the given argument.
+	 * @return a new {@link ExtendedContainerMediator} for the given argument.
 	 */
 	public static ExtendedContainerMediator<Double> assertThat(final double[] argument) {
 		
@@ -98,7 +97,7 @@ public final class GlobalValidator {
 	//static method
 	/**
 	 * @param argument
-	 * @return a new extended long mediator for the given argument.
+	 * @return a new {@link ExtendedLongMediator} for the given argument.
 	 */
 	public static ExtendedLongMediator assertThat(final int argument) {
 		return new ExtendedLongMediator(argument);
@@ -107,7 +106,7 @@ public final class GlobalValidator {
 	//static method
 	/**
 	 * @param argument
-	 * @return a new extended container mediator for the given argument.
+	 * @return a new {@link ExtendedContainerMediator} for the given argument.
 	 */
 	public static ExtendedContainerMediator<Long> assertThat(final int[] argument) {
 		
@@ -125,7 +124,7 @@ public final class GlobalValidator {
 	/**
 	 * @param argument
 	 * @param <A> is the type of the elements of the given argument.
-	 * @return a new extended container mediator for the given argument.
+	 * @return a new {@link ExtendedContainerMediator} for the given argument.
 	 */
 	public static <A> ExtendedContainerMediator<A> assertThat(final Iterable<A> argument) {
 		return new ExtendedContainerMediator<>(argument);
@@ -134,7 +133,7 @@ public final class GlobalValidator {
 	//static method
 	/**
 	 * @param argument
-	 * @return a new extended long mediator for the given argument.
+	 * @return a new {@link ExtendedLongMediator} for the given argument.
 	 */
 	public static ExtendedLongMediator assertThat(final long argument) {
 		return new ExtendedLongMediator(argument);
@@ -143,7 +142,7 @@ public final class GlobalValidator {
 	//static method
 	/**
 	 * @param argument
-	 * @return a new extended container mediator for the given argument.
+	 * @return a new {@link ExtendedContainerMediator} for the given argument.
 	 */
 	public static ExtendedContainerMediator<Long> assertThat(final long[] argument) {
 		
@@ -169,7 +168,7 @@ public final class GlobalValidator {
 	//static method
 	/**
 	 * @param argument
-	 * @return a new extended string mediator for the given argument.
+	 * @return a new {@link ExtendedStringMediator} for the given argument.
 	 */
 	public static ExtendedStringMediator assertThat(final String argument) {
 		return new ExtendedStringMediator(argument);
@@ -178,7 +177,7 @@ public final class GlobalValidator {
 	//static method
 	/**
 	 * @param argument
-	 * @return a new extended container mediator for the given argument.
+	 * @return a new {@link ExtendedContainerMediator} for the given argument.
 	 */
 	public static ExtendedContainerMediator<String> assertThat(final String[] argument) {
 		return new ExtendedContainerMediator<>(argument);
@@ -196,7 +195,7 @@ public final class GlobalValidator {
 	//static method
 	/**
 	 * @param arguments
-	 * @return a new multi double mediator for the given arguments.
+	 * @return a new {@link MultiDoubleMediator} for the given arguments.
 	 * @throws ArgumentIsNullException if the given arguments is null.
 	 */
 	public static MultiDoubleMediator assertThatTheDoubles(final double... arguments) {
@@ -206,7 +205,7 @@ public final class GlobalValidator {
 	//static method
 	/**
 	 * @param arguments
-	 * @return a new multi double mediator for the given arguments.
+	 * @return a new {@link MultiDoubleMediator} for the given arguments.
 	 * @throws ArgumentIsNullException if the given arguments is null.
 	 */
 	public static MultiDoubleMediator assertThatTheDoubles(final Iterable<Double> arguments) {
@@ -217,7 +216,7 @@ public final class GlobalValidator {
 	/**
 	 * @param arguments
 	 * @param <E> is the type of the given arguments.
-	 * @return a new multi argument mediator for the given arguments.
+	 * @return a new {@link MultiArgumentMediator} for the given arguments.
 	 * @throws ArgumentIsNullException if the given arguments is null.
 	 */
 	public static <E> MultiArgumentMediator<E> assertThatTheElements(final E[] arguments) {
@@ -228,7 +227,7 @@ public final class GlobalValidator {
 	/**
 	 * @param arguments
 	 * @param <E> is the type of the given arguments.
-	 * @return a new multi argument mediator for the given arguments.
+	 * @return a new {@link MultiArgumentMediator} for the given arguments.
 	 * @throws ArgumentIsNullException if the given arguments is null.
 	 */
 	public static <E> MultiArgumentMediator<E> assertThatTheElements(final Iterable<E> arguments) {
@@ -238,7 +237,7 @@ public final class GlobalValidator {
 	//static method
 	/**
 	 * @param arguments
-	 * @return a new multi long mediator for the given arguments.
+	 * @return a new {@link MultiLongMediator} for the given arguments.
 	 * @throws ArgumentIsNullException if the given arguments is null.
 	 */
 	public static MultiLongMediator assertThatTheLongs(final long... arguments) {
@@ -248,7 +247,7 @@ public final class GlobalValidator {
 	//static method
 	/**
 	 * @param arguments
-	 * @return a new multi long mediator for the given arguments.
+	 * @return a new {@link MultiLongMediator} for the given arguments.
 	 * @throws ArgumentIsNullException if the given arguments is null.
 	 */
 	public static MultiLongMediator assertThatTheLongs(final Iterable<Long> arguments) {
@@ -258,7 +257,7 @@ public final class GlobalValidator {
 	//static method
 	/**
 	 * @param arguments
-	 * @return a new multi string mediator for the given arguments.
+	 * @return a new {@link MultiStringMediator} for the given arguments.
 	 * @throws ArgumentIsNullException if the given arguments is null.
 	 */
 	public static MultiStringMediator assertThatTheStrings(final String... arguments) {
@@ -268,7 +267,7 @@ public final class GlobalValidator {
 	//static method
 	/**
 	 * @param arguments
-	 * @return a new string container mediator for the given arguments.
+	 * @return a new {@link MultiStringMediator} for the given arguments.
 	 * @throws ArgumentIsNullException if the given arguments is null.
 	 */
 	public static MultiStringMediator assertThatTheStrings(final Iterable<String> arguments) {
@@ -277,7 +276,7 @@ public final class GlobalValidator {
 	
 	//constructor
 	/**
-	 * Avoids that an instance of this class can be created.
+	 * Prevents that an instance of the {@link GlobalValidator} can be created.
 	 */
 	private GlobalValidator() {}
 }
