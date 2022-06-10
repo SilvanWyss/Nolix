@@ -92,25 +92,25 @@ public final class Server extends BaseServer {
 		//Asserts that the given HTTP message is not null or blank.
 		GlobalValidator.assertThat(HTTPMessage).thatIsNamed("HTTP message").isNotBlank();
 		
-		//Sets the port of the current NetServer.
+		//Sets the port of the current Server.
 		this.port = port;
 		
-		//Sets the HTTP message of the current NetServer.
+		//Sets the HTTP message of the current Server.
 		this.mHTTPMessage = HTTPMessage;
 		
 		try {
 			
-			//Creates the serverSocket of the current NetServer.
+			//Creates the serverSocket of the current Server.
 			serverSocket = new ServerSocket(getPort());
 			
-			//This is important that the address of the current NetServer
+			//This is important that the address of the current Server
 			//can be reused immediately when the current NetSever is closed.
 			serverSocket.setReuseAddress(true);
 		} catch (final IOException pIOException) {
 			throw new WrapperException(pIOException);
 		}
 		
-		//Creates and starts a NetServerListener for the current NetServer.
+		//Creates and starts a ServerListener for the current Server.
 		new ServerListener(this).start();
 	}
 	
