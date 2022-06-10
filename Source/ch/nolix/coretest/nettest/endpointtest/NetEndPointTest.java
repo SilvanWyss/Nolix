@@ -51,10 +51,10 @@ public final class NetEndPointTest extends Test {
 		final var port = 50000;
 		
 		//setup
-		try (final var netServer = new Server(port)) {
+		try (final var server = new Server(port)) {
 			
 			//setup
-			netServer.addDefaultEndPointTaker(new TestEndPointTaker());
+			server.addDefaultEndPointTaker(new TestEndPointTaker());
 			
 			//execution & verification
 			expectRunning(
@@ -77,11 +77,11 @@ public final class NetEndPointTest extends Test {
 		//parameter definition
 		final var port = 50000;
 		
-		try (final var netServer = new Server(port)) {
+		try (final var server = new Server(port)) {
 			
 			//setup
 			final var endPointTaker = new TestEndPointTaker();
-			netServer.addDefaultEndPointTaker(endPointTaker);
+			server.addDefaultEndPointTaker(endPointTaker);
 			
 			try (final var testUnit = new NetEndPoint(port)) {
 				
