@@ -16,6 +16,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
+import ch.nolix.systemapi.timeapi.timestructure.Month;
 import ch.nolix.systemapi.timeapi.timestructure.Weekday;
 
 //class
@@ -346,7 +347,7 @@ public final class Time implements ITime {
 		return
 		Time.withYearAndMonthOfYearAndDayOfMonth(
 			getYearAsInt(),			
-			getMonthOfYear(),
+			getMonthOfYearAsInt(),
 			getDayOfMonth()
 		);
 	}
@@ -378,7 +379,7 @@ public final class Time implements ITime {
 		return
 		Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDay(
 			getYearAsInt(),			
-			getMonthOfYear(),
+			getMonthOfYearAsInt(),
 			getDayOfMonth(),
 			getHourOfDay()
 		);
@@ -427,7 +428,7 @@ public final class Time implements ITime {
 		return
 		Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHour(
 			getYearAsInt(),
-			getMonthOfYear(),
+			getMonthOfYearAsInt(),
 			getDayOfMonth(),
 			getHourOfDay(),
 			getMinuteOfHour()
@@ -447,14 +448,23 @@ public final class Time implements ITime {
 	 * @return the month of the current {@link Time}.
 	 */
 	public Time getMonth() {
-		return Time.withYearAndMonthOfYear(getYearAsInt(), getMonthOfYear());
+		return Time.withYearAndMonthOfYear(getYearAsInt(), getMonthOfYearAsInt());
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Month getMonthOfYear() {
+		return Month.fromJavaMonth(zonedDateTime.getMonth());
 	}
 	
 	//method
 	/**
 	 * @return the month of the year of the current {@link Time}.
 	 */
-	public int getMonthOfYear() {
+	public int getMonthOfYearAsInt() {
 		return zonedDateTime.getMonth().getValue();
 	}
 		
@@ -489,8 +499,8 @@ public final class Time implements ITime {
 	public Time getNextMonth() {
 		
 		//Handles the case that the month of the year of the current {@link Time} is not December.
-		if (getMonthOfYear() < 12) {
-			return Time.withYearAndMonthOfYear(getYearAsInt(), getMonthOfYear() + 1);
+		if (getMonthOfYearAsInt() < 12) {
+			return Time.withYearAndMonthOfYear(getYearAsInt(), getMonthOfYearAsInt() + 1);
 		}
 		
 		//Handles the case that the month of the year of the current {@link Time} is December.
@@ -521,7 +531,7 @@ public final class Time implements ITime {
 		return
 		Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHourAndSecondOfMinute(
 			getYearAsInt(),
-			getMonthOfYear(),
+			getMonthOfYearAsInt(),
 			getDayOfMonth(),
 			getHourOfDay(),
 			getMinuteOfHour(),

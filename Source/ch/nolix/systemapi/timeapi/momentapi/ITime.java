@@ -3,6 +3,7 @@ package ch.nolix.systemapi.timeapi.momentapi;
 
 //own imports
 import ch.nolix.systemapi.elementapi.mainuniversalapi.Specified;
+import ch.nolix.systemapi.timeapi.timestructure.Month;
 import ch.nolix.systemapi.timeapi.timestructure.Weekday;
 
 //interface
@@ -13,6 +14,12 @@ public interface ITime extends Specified {
 	 * @return the milliseconds of the current {@link ITime}.
 	 */
 	long getMilliseconds();
+	
+	//method declaration
+	/**
+	 * @return the month of the year of the current {@link ITime}.
+	 */
+	Month getMonthOfYear();
 	
 	//method declaration
 	/**

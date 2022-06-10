@@ -37,7 +37,7 @@ public final class TimeTest extends Test {
 		
 		//verification
 		expect(result.getYearAsInt()).isEqualTo(2020);
-		expect(result.getMonthOfYear()).isEqualTo(1);
+		expect(result.getMonthOfYearAsInt()).isEqualTo(1);
 		expect(result.getDayOfMonth()).isEqualTo(2);
 		expect(result.getHourOfDay()).isEqualTo(0);
 		expect(result.getMinuteOfHour()).isEqualTo(0);
@@ -107,7 +107,7 @@ public final class TimeTest extends Test {
 					
 					//verification
 					expect(result.getYearAsInt()).isEqualTo(y);
-					expect(result.getMonthOfYear()).isEqualTo(m);
+					expect(result.getMonthOfYearAsInt()).isEqualTo(m);
 					expect(result.getDayOfMonth()).isEqualTo(d);
 				}
 			}
@@ -128,7 +128,7 @@ public final class TimeTest extends Test {
 				
 				//verification
 				expect(result.getYearAsInt()).isEqualTo(2000);
-				expect(result.getMonthOfYear()).isEqualTo(1);
+				expect(result.getMonthOfYearAsInt()).isEqualTo(1);
 				expect(result.getDayOfMonth()).isEqualTo(1);
 				expect(result.getHourOfDay()).isEqualTo(h);
 				expect(result.getMinuteOfHour()).isEqualTo(m);
