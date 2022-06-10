@@ -20,22 +20,22 @@ import ch.nolix.core.programcontrol.worker.Worker;
 final class NetServerListener extends Worker {
 	
 	//attribute
-	private final Server parentNetServer;
+	private final Server parentServer;
 	
 	//constructor
 	/**
-	 * Creates a new {@link NetServerListener} that will belong to the given parentNetServer.
+	 * Creates a new {@link NetServerListener} that will belong to the given parentServer.
 	 * 
-	 * @param parentNetServer
-	 * @throws ArgumentIsNullException if the given parentNetServer is null.
+	 * @param parentServer
+	 * @throws ArgumentIsNullException if the given parentServer is null.
 	 */
-	public NetServerListener(final Server parentNetServer) {
+	public NetServerListener(final Server parentServer) {
 		
-		//Asserts that the given netServer is not null.
-		GlobalValidator.assertThat(parentNetServer).thatIsNamed("parent NetServer").isNotNull();
+		//Asserts that the given parentServer is not null.
+		GlobalValidator.assertThat(parentServer).thatIsNamed("parent server").isNotNull();
 		
-		//Sets the parentNetServer of the current NetServerListener.
-		this.parentNetServer = parentNetServer;
+		//Sets the parentServer of the current NetServerListener.
+		this.parentServer = parentServer;
 	}
 	
 	//method
@@ -43,7 +43,7 @@ final class NetServerListener extends Worker {
 	 * @return true if the current {@link NetServerListener} is open.
 	 */
 	public boolean isOpen() {
-		return parentNetServer.isOpen();
+		return parentServer.isOpen();
 	}
 	
 	//method
@@ -55,11 +55,11 @@ final class NetServerListener extends Worker {
 	protected void run() {
 		try {
 			while (isOpen()) {
-				final Socket socket = parentNetServer.getRefServerSocket().accept();
+				final Socket socket = parentServer.getRefServerSocket().accept();
 				takeSocket(socket);
 			}
 		} catch (final IOException exception) {
-			parentNetServer.close();
+			parentServer.close();
 		}
 	}
 	
@@ -70,6 +70,6 @@ final class NetServerListener extends Worker {
 	 * @param socket
 	 */
 	private void takeSocket(final Socket socket) {
-		new NetServerSocketProcessor(parentNetServer, socket).start();
+		new NetServerSocketProcessor(parentServer, socket).start();
 	}
 }
