@@ -30,7 +30,7 @@ public final class UploadImageDialogCreatorTutorial {
 		
 		frame.pushLayerWithRootWidget(
 			new VerticalStack()
-			.add(
+			.addWidget(
 				imageWidget,
 				new Button()
 				.setText("Change image")

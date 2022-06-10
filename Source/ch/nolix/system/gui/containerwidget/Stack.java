@@ -30,8 +30,10 @@ import ch.nolix.systemapi.guiapi.widgetguiapi.IWidget;
  */
 public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, StackLook> {
 	
-	//constants
+	//constant
 	private static final String ELEMENT_MARGIN_HEADER = "ElementMargin";
+	
+	//constant
 	private static final String CHILD_HEADER = PascalCaseCatalogue.CHILD;
 	
 	//attribute
@@ -51,7 +53,7 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	private final MultiValueExtractor<IWidget<?, ?>> widgetsExtractor =
 	new MultiValueExtractor<>(
 		CHILD_HEADER,
-		this::add,
+		this::addWidget,
 		this::getChildWidgets,
 		WidgetGUI::createWidgetFrom,
 		IWidget::getSpecification
@@ -67,7 +69,7 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	 * @throws InvalidArgumentException
 	 * if the given widget belongs to another GUI than the current {@link Stack}.
 	 */
-	public final S add(final IWidget<?, ?> widget) {
+	public final S addWidget(final IWidget<?, ?> widget) {
 		
 		//Asserts that the given widget is not null.
 		GlobalValidator.assertThat(widget).isOfType(Widget.class);
@@ -87,7 +89,7 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	 * @throws InvalidArgumentException
 	 * if one of the given widgets belongs to another GUI than the current {@link Stack}.
 	 */
-	public final S add(final Widget<?, ?>... widgets) {
+	public final S addWidget(final Widget<?, ?>... widgets) {
 		return addWidgets(ReadContainer.forArray(widgets));
 	}
 	
@@ -104,7 +106,7 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	 */
 	public final <W extends Widget<?, ?>> S addWidgets(final Iterable<W> widgets) {
 		
-		widgets.forEach(this::add);
+		widgets.forEach(this::addWidget);
 		
 		return asConcrete();
 	}

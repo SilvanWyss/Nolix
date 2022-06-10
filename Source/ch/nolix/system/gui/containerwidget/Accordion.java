@@ -85,7 +85,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 		
 		tab.setParentAccordion(this);
 		tabs.add(tab);
-		mainVerticalStack.add(tab.getRefMainVerticalStack());
+		mainVerticalStack.addWidget(tab.getRefMainVerticalStack());
 		
 		if (mustExpandAtLeastOneTabWhenNotEmpty() && getTabCount() < 2) {
 			tab.expand();

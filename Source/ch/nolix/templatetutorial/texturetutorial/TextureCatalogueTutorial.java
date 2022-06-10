@@ -30,28 +30,28 @@ public final class TextureCatalogueTutorial {
 			)
 			.addWidget(
 				new VerticalStack()
-				.add(
+				.addWidget(
 					new Label()
 					.setText("Concrete"),
 					new ImageWidget()
 					.setImage(concreteTexture)
 				),
 				new VerticalStack()
-				.add(
+				.addWidget(
 					new Label()
 					.setText("Fir Wood"),
 					new ImageWidget()
 					.setImage(fireWoodTexture)
 				),
 				new VerticalStack()
-				.add(
+				.addWidget(
 					new Label()
 					.setText("Jute"),
 					new ImageWidget()
 					.setImage(juteTexture)
 				),
 				new VerticalStack()
-				.add(
+				.addWidget(
 					new Label()
 					.setText("White Marble"),
 					new ImageWidget()

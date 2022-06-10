@@ -36,13 +36,13 @@ final class GUIApplicationWidgetFactory {
 		
 		final var guiApplicationVerticalStack =
 		new VerticalStack()
-		.add(
+		.addWidget(
 			createApplicationNameLabel(pGUIApplicationSheet),
 			createLogoImageWidget(pGUIApplicationSheet)
 		);
 		
 		if (pGUIApplicationSheet.hasApplicationDescription()) {
-			guiApplicationVerticalStack.add(createApplicationDescriptionLabel(pGUIApplicationSheet));
+			guiApplicationVerticalStack.addWidget(createApplicationDescriptionLabel(pGUIApplicationSheet));
 		}
 		
 		return guiApplicationVerticalStack;

@@ -33,7 +33,7 @@ public final class VerticalStackTutorial {
 		final var label4 = new Button().setText("D");
 		
 		//Adds the Buttons to the VerticalStack.
-		verticalStack.add(label1, label2, label3, label4);
+		verticalStack.addWidget(label1, label2, label3, label4);
 		
 		//Adds the VerticalStack to the Frame.
 		frame.pushLayerWithRootWidget(verticalStack);

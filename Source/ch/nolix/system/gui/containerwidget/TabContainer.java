@@ -88,7 +88,7 @@ public final class TabContainer extends ContainerWidget<TabContainer, TabContain
 		
 		//Adds the given tab to the current TabContainer.
 		tabs.add(tab);
-		menu.add(tab.getRefMenuItem());
+		menu.addWidget(tab.getRefMenuItem());
 		
 		//Selects the given tab if its the first tab of the current TabContainer.
 		if (getRefTabs().containsOne()) {
@@ -474,7 +474,7 @@ public final class TabContainer extends ContainerWidget<TabContainer, TabContain
 		
 		currentTabContainer.reset();
 		
-		mainVerticalStack.add(menu, currentTabContainer);
+		mainVerticalStack.addWidget(menu, currentTabContainer);
 		getRefActiveLook().addChild(getRefMenuItemLook());
 	}
 	

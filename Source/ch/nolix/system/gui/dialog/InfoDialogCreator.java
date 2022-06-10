@@ -25,7 +25,7 @@ public final class InfoDialogCreator {
 		.setRootWidget(
 			new VerticalStack()
 			.setRole(ContainerRole.DIALOG_CONTAINER)
-			.add(
+			.addWidget(
 				new Label()
 				.setText(info),
 				new Button()

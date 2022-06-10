@@ -41,7 +41,7 @@ public final class InnerGUITutorial {
 		.pushLayerWithRootWidget(new Label().setText("B").onLook(l -> l.setTextSizeForState(WidgetLookState.BASE, 100)));
 		
 		//Adds the InnerGUIs to the Frame.
-		frame.pushLayerWithRootWidget(new HorizontalStack().add(innerGUI1, innerGUI2));
+		frame.pushLayerWithRootWidget(new HorizontalStack().addWidget(innerGUI1, innerGUI2));
 	}
 	
 	/**

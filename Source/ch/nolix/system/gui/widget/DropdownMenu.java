@@ -109,7 +109,7 @@ public final class DropdownMenu extends ItemMenu<DropdownMenu> {
 		selectedItemLabel.reset();
 		expandButton.reset();
 		
-		mainHorizontalStack.add(selectedItemLabel, expandButton);
+		mainHorizontalStack.addWidget(selectedItemLabel, expandButton);
 		expandButton.setText(" v ").setLeftMouseButtonReleaseAction(this::expand);
 	}
 	

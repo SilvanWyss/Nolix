@@ -37,7 +37,7 @@ public final class VerticalStackTest extends ContainerWidgetTest<VerticalStack> 
 		//setup
 		final var verticalStack =
 		new VerticalStack()
-		.add(
+		.addWidget(
 			new Label(),
 			new Button(),
 			new TextBox()
@@ -56,7 +56,7 @@ public final class VerticalStackTest extends ContainerWidgetTest<VerticalStack> 
 	//method
 	@Override
 	protected void addWidgetToContainerWidget(final VerticalStack verticalStack, final Widget<?, ?> widget) {
-		verticalStack.add(widget);
+		verticalStack.addWidget(widget);
 	}
 	
 	//method

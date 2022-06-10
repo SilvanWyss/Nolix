@@ -56,7 +56,7 @@ public final class InnerGUIWithCustomLookTutorial {
 		);
 		
 		//Adds the InnerGUIs to the Frame.
-		frame.pushLayerWithRootWidget(new HorizontalStack().add(innerGUI1, innerGUI2));
+		frame.pushLayerWithRootWidget(new HorizontalStack().addWidget(innerGUI1, innerGUI2));
 	}
 	
 	/**

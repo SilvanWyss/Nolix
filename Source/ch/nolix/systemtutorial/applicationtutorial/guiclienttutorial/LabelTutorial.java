@@ -56,7 +56,7 @@ public final class LabelTutorial {
 			.setTextSizeForState(WidgetLookState.BASE, 50);
 			
 			//Creates mainHorizontalStack.
-			final var mainHorizontalStack = new HorizontalStack().add(clockCaptionLabel, clockLabel);
+			final var mainHorizontalStack = new HorizontalStack().addWidget(clockCaptionLabel, clockLabel);
 			
 			//Configures the look of the mainHorizontalStack.
 			mainHorizontalStack.setElementMargin(50);
