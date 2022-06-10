@@ -35,6 +35,7 @@ enum CharacterType {
 			case 'V':
 			case 'W':
 			case 'X':
+			case 'Y':
 			case 'Z':
 			case 'Ä':
 			case 'Ö':
