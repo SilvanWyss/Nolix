@@ -17,9 +17,13 @@ import ch.nolix.core.constant.CharacterCatalogue;
  */
 public final class PopupWindowProvider {
 	
-	//constants
+	//constant
 	private static final String ERROR_WINDOW_TITLE = "Error";
+	
+	//constant
 	private static final String MESSAGE_WINDOW_TITLE = "Message";
+	
+	//constant
 	private static final String REQUEST_WINDOW_TITLE = "Request";
 
 	//static method
@@ -124,7 +128,7 @@ public final class PopupWindowProvider {
 	
 	//constructor
 	/**
-	 * Avoids that an instance of this class can be created.
+	 * Prevents that an instance of the {@link PopupWindowProvider} can be created.
 	 */
 	private PopupWindowProvider() {}
 }
