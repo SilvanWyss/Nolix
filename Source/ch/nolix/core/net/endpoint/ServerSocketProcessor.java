@@ -23,7 +23,7 @@ import ch.nolix.core.net.websocket.WebSocketHandShakeRequest;
 import ch.nolix.core.programcontrol.worker.Worker;
 
 //class
-final class NetServerSocketProcessor extends Worker {
+final class ServerSocketProcessor extends Worker {
 	
 	//attributes
 	private final Server parentNetServer;
@@ -32,7 +32,7 @@ final class NetServerSocketProcessor extends Worker {
 	private final OutputStream socketOutputStream;
 	
 	//constructor
-	public NetServerSocketProcessor(final Server parentNetServer, final Socket socket) {
+	public ServerSocketProcessor(final Server parentNetServer, final Socket socket) {
 		
 		GlobalValidator.assertThat(parentNetServer).thatIsNamed("parent NetServer").isNotNull();
 		GlobalValidator.assertThat(socket).thatIsNamed(Socket.class).isNotNull();

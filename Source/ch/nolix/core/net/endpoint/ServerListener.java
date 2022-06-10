@@ -70,6 +70,6 @@ final class ServerListener extends Worker {
 	 * @param socket
 	 */
 	private void takeSocket(final Socket socket) {
-		new NetServerSocketProcessor(parentServer, socket).start();
+		new ServerSocketProcessor(parentServer, socket).start();
 	}
 }
