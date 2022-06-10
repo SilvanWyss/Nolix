@@ -12,24 +12,24 @@ import ch.nolix.core.programcontrol.worker.Worker;
 
 //class
 /**
- * A {@link NetServerListener} listens to {@link NetEndPoint}s for a {@link Server}.
+ * A {@link ServerListener} listens to {@link NetEndPoint}s for a {@link Server}.
  *  
  * @author Silvan Wyss
  * @date 2017-05-06
  */
-final class NetServerListener extends Worker {
+final class ServerListener extends Worker {
 	
 	//attribute
 	private final Server parentServer;
 	
 	//constructor
 	/**
-	 * Creates a new {@link NetServerListener} that will belong to the given parentServer.
+	 * Creates a new {@link ServerListener} that will belong to the given parentServer.
 	 * 
 	 * @param parentServer
 	 * @throws ArgumentIsNullException if the given parentServer is null.
 	 */
-	public NetServerListener(final Server parentServer) {
+	public ServerListener(final Server parentServer) {
 		
 		//Asserts that the given parentServer is not null.
 		GlobalValidator.assertThat(parentServer).thatIsNamed("parent server").isNotNull();
@@ -40,7 +40,7 @@ final class NetServerListener extends Worker {
 	
 	//method
 	/**
-	 * @return true if the current {@link NetServerListener} is open.
+	 * @return true if the current {@link ServerListener} is open.
 	 */
 	public boolean isOpen() {
 		return parentServer.isOpen();
@@ -48,8 +48,8 @@ final class NetServerListener extends Worker {
 	
 	//method
 	/**
-	 * Runs the current {@link NetServerListener}.
-	 * Will close the {@link Server}, the current {@link NetServerListener} belongs to, when an error occurs.
+	 * Runs the current {@link ServerListener}.
+	 * Will close the {@link Server}, the current {@link ServerListener} belongs to, when an error occurs.
 	 */
 	@Override
 	protected void run() {
@@ -65,7 +65,7 @@ final class NetServerListener extends Worker {
 	
 	//method
 	/**
-	 * Lets the current {@link NetServerListener} take the given socket.
+	 * Lets the current {@link ServerListener} take the given socket.
 	 * 
 	 * @param socket
 	 */

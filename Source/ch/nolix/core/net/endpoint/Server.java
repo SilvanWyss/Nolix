@@ -111,7 +111,7 @@ public final class Server extends BaseServer {
 		}
 		
 		//Creates and starts a NetServerListener for the current NetServer.
-		new NetServerListener(this).start();
+		new ServerListener(this).start();
 	}
 	
 	//constructor
