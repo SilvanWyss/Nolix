@@ -2,7 +2,6 @@
 package ch.nolix.systemtest.elementenumtest;
 
 //own imports
-import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
@@ -21,31 +20,28 @@ public final class DirectionInRectangleTest extends Test {
 	@TestCase
 	public void testCase_getAttributes() {
 		
+		//setup
+		final var testUnit = DirectionInRectangle.HORIZONTAL;
+		
 		//execution
-		final LinkedList<Node> attributes
-		= DirectionInRectangle.HORIZONTAL.getAttributes();
+		final var result = testUnit.getAttributes();
 		
 		//verification
-			expect(attributes.getElementCount()).isEqualTo(1);
-			
-			expect(attributes.getRefOne())
-			.isEqualTo(Node.fromString("Horizontal"));
-	}
-
-	//method
-	@TestCase
-	public void testCase_getSpecification() {
-		
-		//execution & verification
-		expect(DirectionInRectangle.HORIZONTAL.getSpecification())
-		.isEqualTo(Node.fromString("UniDirection(Horizontal)"));
+		expect(result.getElementCount()).isEqualTo(1);
+		expect(result.getRefOne()).isEqualTo(Node.fromString("HORIZONTAL"));
 	}
 	
 	//method
 	@TestCase
-	public void testCase_toString() {
+	public void testCase_getSpecification() {
 		
-		//execution & verification
-		expect(DirectionInRectangle.HORIZONTAL.toString()).isEqualTo("HORIZONTAL");
+		//setup
+		final var testUnit = DirectionInRectangle.HORIZONTAL;
+		
+		//execution
+		final var result = testUnit.getSpecification();
+		
+		//verification
+		expect(result).isEqualTo(Node.fromString("DirectionInRectangle(HORIZONTAL)"));
 	}
 }
