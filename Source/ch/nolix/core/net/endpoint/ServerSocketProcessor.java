@@ -26,18 +26,18 @@ import ch.nolix.core.programcontrol.worker.Worker;
 final class ServerSocketProcessor extends Worker {
 	
 	//attributes
-	private final Server parentNetServer;
+	private final Server parentServer;
 	private final Socket socket;
 	private final InputStream socketInputStream;
 	private final OutputStream socketOutputStream;
 	
 	//constructor
-	public ServerSocketProcessor(final Server parentNetServer, final Socket socket) {
+	public ServerSocketProcessor(final Server parentServer, final Socket socket) {
 		
-		GlobalValidator.assertThat(parentNetServer).thatIsNamed("parent NetServer").isNotNull();
+		GlobalValidator.assertThat(parentServer).thatIsNamed("parent server").isNotNull();
 		GlobalValidator.assertThat(socket).thatIsNamed(Socket.class).isNotNull();
 				
-		this.parentNetServer = parentNetServer;
+		this.parentServer = parentServer;
 		this.socket = socket;
 		try {
 			socketInputStream = socket.getInputStream();
@@ -57,7 +57,7 @@ final class ServerSocketProcessor extends Worker {
 			if (netEndPoint.isEmpty()) {
 				closeSocket();
 			} else {
-				parentNetServer.takeEndPoint(netEndPoint.getRefElement());
+				parentServer.takeEndPoint(netEndPoint.getRefElement());
 			}
 		} catch (final Exception exception) {
 			
@@ -105,7 +105,7 @@ final class ServerSocketProcessor extends Worker {
 				}
 				
 				if (HTTPRequest.canBe(lines)) {
-					sendRawMessage(parentNetServer.getHTTPMessage());
+					sendRawMessage(parentServer.getHTTPMessage());
 					return new SingleContainer<>();
 				}
 				
