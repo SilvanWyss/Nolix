@@ -52,6 +52,7 @@ public class Application<
 	 * @param name
 	 * @param initialSessionClass
 	 * @param context
+	 * @param <S> is the type of the given initalSessionClass.
 	 * @throws ArgumentIsNullException if the given name is null.
 	 * @throws InvalidArgumentException if the given name is blak.
 	 * @throws ArgumentIsNullException if the given clientClass is null.
