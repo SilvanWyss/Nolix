@@ -1,6 +1,5 @@
 package ch.nolix.systemtutorial.applicationtutorial.guiclienttutorial;
 
-//own imports
 import ch.nolix.core.environment.localcomputer.ShellProvider;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.system.application.guiapplication.BackendGUIClientSession;
@@ -18,24 +17,24 @@ public final class HelloWorldGUIOnCustomPortTutorial {
 		//Defines port.
 		final var port = 50000;
 		
-		//Creates a NetServers.
-		final var netServer = Server.forPort(port);
+		//Creates a Server.
+		final var server = Server.forPort(port);
 		
-		//Adds a default Application to the NetServer.
-		netServer.addDefaultApplication(
+		//Adds a default Application to the Server.
+		server.addDefaultApplication(
 			"Hello World GUI on custom port tutorial",
 			MainSession.class,
 			VoidApplicationContext.INSTANCE
 		);
 		
-		//Creates a FrontGUIClient that will connect to the NetServer.
+		//Creates a FrontGUIClient that will connect to the Server.
 		new FrontendGUIClient(port);
 		
-		//Starts a web browser that will connect to the NetServer.
+		//Starts a web browser that will connect to the Server.
 		ShellProvider.startFirefoxOpeningLoopBackAddress(port);
 		
-		//Closes the NetServer as soon as it does not have a client connected any more.
-		GlobalSequencer.asSoonAsNoMore(netServer::hasClientConnected).runInBackground(netServer::close);
+		//Closes the Server as soon as it does not have a client connected any more.
+		GlobalSequencer.asSoonAsNoMore(server::hasClientConnected).runInBackground(server::close);
 	}
 	
 	private static final class MainSession extends BackendGUIClientSession<VoidApplicationContext> {
