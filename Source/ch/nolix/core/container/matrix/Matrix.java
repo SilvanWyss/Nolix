@@ -9,6 +9,7 @@ import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.BiggerArgumentException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -280,7 +281,13 @@ public final class Matrix<E> implements IContainer<E>, Clearable {
 		//Asserts that the current matrix contains an element at the given index.
 		assertContainsAt(index);
 		
-		return ((index - 1) % getColumnCount() + 1);
+		final var columnCount = getColumnCount();
+		
+		if (columnCount == 0) {
+			throw new EmptyArgumentException(this);
+		}
+		
+		return ((index - 1) % columnCount + 1);
 	}
 	
 	//method
@@ -413,7 +420,13 @@ public final class Matrix<E> implements IContainer<E>, Clearable {
 		//Asserts that the current matrix contains an element at the given index.
 		assertContainsAt(index);
 		
-		return ((index - 1) / getColumnCount() + 1);
+		final var columnCount = getColumnCount();
+		
+		if (columnCount == 0) {
+			throw new EmptyArgumentException(this);
+		}
+		
+		return ((index - 1) / columnCount + 1);
 	}
 	
 	//method
