@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.system.application.main;
 
-import ch.nolix.core.container.IContainer;
 //own imports
+import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -62,6 +62,7 @@ public abstract class BaseServer implements GroupCloseable {
 		}
 	}
 	
+	//method
 	/**
 	 * Adds a new {@link Application} with the given name, initialSessionClass and applicationContext to
 	 * the current {@link BaseServer}.
@@ -69,6 +70,9 @@ public abstract class BaseServer implements GroupCloseable {
 	 * @param name
 	 * @param initialSessionClass
 	 * @param applicationContext
+	 * @param <S> is the type of the given initialSessionClass.
+	 * @param <BC> is the type of the {@link BackendClient} of the given initialSessionClass.
+	 * @param <AC> is the type of the given applicationContext.
 	 * @throws ArgumentIsNullException if the given name is null.
 	 * @throws InvalidArgumentException if the given name is blank.
 	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already
@@ -91,6 +95,8 @@ public abstract class BaseServer implements GroupCloseable {
 	 * A default {@link Application} takes all {@link Client}s that do not have a target.
 	 * 
 	 * @param defaultApplication
+	 * @param <BC> is the type of the {@link BackendClient} of the given defaultApplication.
+	 * @param <AC> is the type of the context of the given defaultApplication.
 	 * @throws ArgumentIsNullException if the given defaultApplication is null.
 	 * @throws InvalidArgumentException if the current {@link BaseServer}
 	 * contains already a {@link Application} with the same name as the given defaultApplication.
@@ -111,6 +117,9 @@ public abstract class BaseServer implements GroupCloseable {
 	 * @param name
 	 * @param initialSessionClass
 	 * @param applicationContext
+	 * @param <S> is the type of the given initialSessionClass.
+	 * @param <BC> is the type of the {@link BackendClient} of the given initialSessionClass.
+	 * @param <AC> is the type of the given applicationContext.
 	 * @throws ArgumentIsNullException if the given name is null.
 	 * @throws InvalidArgumentException if the given name is blank.
 	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already
