@@ -164,7 +164,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 				elementCount++;
 			}
 			
-			if (firstNode != null) {
+			if (node != null && firstNode != null) {
 				node.setNextNode(firstNode);
 			}
 			
