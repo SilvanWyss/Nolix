@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.guiapi.painterapi;
 
+//own imports
 import ch.nolix.systemapi.guiapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.colorapi.IColorGradient;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
@@ -68,7 +69,7 @@ public interface IPainter {
 	//method declaration
 	/**
 	 * @param id
-	 * @return the {@link MutableImage} with the given id from the current {@link IPainter}.
+	 * @return the {@link IImage} with the given id from the current {@link IPainter}.
 	 */
 	IImage getImageById(String id);
 	
@@ -81,7 +82,7 @@ public interface IPainter {
 	//method declaration
 	/**
 	 * @return the {@linker IPainter} the current {@link IPainter} descends from.
-	 * @throws Exception if the current {link IPainter} does not descend from another {@link IPainter}.
+	 * @throws RuntimeException if the current {link IPainter} does not descend from another {@link IPainter}.
 	 */
 	IPainter getParentPainter();
 	
