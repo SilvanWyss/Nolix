@@ -99,14 +99,15 @@ public final class Calculator {
 	 */
 	public static double getAverage(final Iterable<Double> values) {
 		
-		//Asserts that the given values is not empty.
-		GlobalValidator.assertThat(values).thatIsNamed(PluralLowerCaseCatalogue.VALUES).isNotEmpty();
-		
 		var count = 0;
 		var sum = 0.0;
 		for (final var v : values) {
 			count++;
 			sum += v;
+		}
+		
+		if (count == 0) {
+			throw new EmptyArgumentException(PluralLowerCaseCatalogue.VALUES, values);
 		}
 		
 		return (sum / count);
