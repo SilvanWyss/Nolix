@@ -31,7 +31,7 @@ extends FrontendClient<BFGUIC> {
 	//method
 	/**
 	 * Lets the counterpart of the current {@link BaseFrontendGUIClient} note the given input.
-	 * Does nothing if the current {@link BaseFrontedGUIClient} is closed or not connected.
+	 * Does nothing if the current {@link BaseFrontendGUIClient} is closed or not connected.
 	 * 
 	 * @param input
 	 */
