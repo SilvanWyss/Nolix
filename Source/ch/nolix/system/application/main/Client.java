@@ -65,7 +65,7 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable, IFl
 	
 	//method declaration
 	/**
-	 * @return true if the current {@link Clinet} is a backend {@link Client}.
+	 * @return true if the current {@link Client} is a backend {@link Client}.
 	 */
 	public abstract boolean isBackendClient();
 	
@@ -83,7 +83,7 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable, IFl
 	
 	//method declaration
 	/**
-	 * @return true if the current {@link Clinet} is a frontend {@link Client}.
+	 * @return true if the current {@link Client} is a frontend {@link Client}.
 	 */
 	public abstract boolean isFrontendClient();
 	
