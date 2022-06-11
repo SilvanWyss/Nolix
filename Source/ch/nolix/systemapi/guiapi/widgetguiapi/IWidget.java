@@ -62,14 +62,14 @@ TopLeftPositionedRecangular {
 	//method declaration
 	/**
 	 * @return the {@link IWidgetGUI} the current {@link IWidget} belongs to, directly or indirectly.
-	 * @throws Exception if the current {@link IWidget} does not belong to a {@link IWidgetGUI}.
+	 * @throws RuntimeException if the current {@link IWidget} does not belong to a {@link IWidgetGUI}.
 	 */
 	IWidgetGUI<?> getParentGUI();
 	
 	//method declaration
 	/**
 	 * @return the {@link ILayer} the current {@link IWidget} belongs to.
-	 * @throws Exception if the current {@link IWidget} does not belong to a {@link ILayer}.
+	 * @throws RuntimeException if the current {@link IWidget} does not belong to a {@link ILayer}.
 	 */
 	ILayer<?> getParentLayer();
 	
@@ -197,8 +197,8 @@ TopLeftPositionedRecangular {
 	 * Sets the {@link ILayer} the current {@link IWidget} will belong to.
 	 * 
 	 * @param parentLayer
-	 * @throws Exception if the given parentLayer is null.
-	 * @throws Exception if
+	 * @throws RuntimeException if the given parentLayer is null.
+	 * @throws RuntimeException if
 	 * the current {@link IWidget} belongs already to a {@link IWidget} or to another {@link ILayer}.
 	 */
 	void _setParentLayer(ILayer<?> parentLayer);
@@ -208,8 +208,8 @@ TopLeftPositionedRecangular {
 	 * Sets the {@link IWidget} the current {@link IWidget} will belong to.
 	 * 
 	 * @param parentWidget
-	 * @throws Exception if the given parentWidget is null.
-	 * @throws Exception if
+	 * @throws RuntimeException if the given parentWidget is null.
+	 * @throws RuntimeException if
 	 * the current {@link IWidget} belongs already to another {@link IWidget} or to a {@link ILayer}.
 	 */
 	void _setParentWidget(IWidget<?, ?> parentWidget);
