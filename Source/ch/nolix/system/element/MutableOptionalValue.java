@@ -37,6 +37,7 @@ public final class MutableOptionalValue<V> extends SingleValue<V> {
 	 * @param name
 	 * @param setterMethod
 	 * @param valueCreator
+	 * @param <E> is the type of the value of the created {@link MutableOptionalValue}.
 	 * @return a new {@link MutableOptionalValue} that will
 	 * store a {@link Specified} and have the given name, setterMethod and valueCreator.
 	 * @throws ArgumentIsNullException if the given name is null.
