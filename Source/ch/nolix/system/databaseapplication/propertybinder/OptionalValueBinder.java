@@ -13,7 +13,9 @@ public class OptionalValueBinder extends PropertyBinder<IOptionalValue<?, ?>, Te
 	protected void addSelectionOptionsToWidgetForProperty(
 		final TextBox widget,
 		final IOptionalValue<?, ?> optionalValue
-	) {}
+	) {
+		//Does nothing.
+	}
 	
 	//method
 	@Override

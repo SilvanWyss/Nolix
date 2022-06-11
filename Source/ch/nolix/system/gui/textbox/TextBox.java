@@ -214,7 +214,9 @@ public final class TextBox extends BorderWidget<TextBox, TextBoxLook> implements
 	
 	//method
 	@Override
-	protected void fillUpChildWidgets(final LinkedList<IWidget<?, ?>> list) {}
+	protected void fillUpChildWidgets(final LinkedList<IWidget<?, ?>> list) {
+		//Does nothing.
+	}
 	
 	//method
 	@Override
@@ -236,62 +238,92 @@ public final class TextBox extends BorderWidget<TextBox, TextBoxLook> implements
 	
 	//method
 	@Override
-	protected void noteKeyDownOnSelfWhenFocused(final Key key) {}
+	protected void noteKeyDownOnSelfWhenFocused(final Key key) {
+		//Does nothing.
+	}
 	
 	//method
 	@Override
-	protected void noteKeyReleaseOnSelfWhenFocused(final Key key) {}
+	protected void noteKeyReleaseOnSelfWhenFocused(final Key key) {
+		//Does nothing.
+	}
 	
 	@Override
-	protected void noteKeyTypingOnSelfWhenFocused(final Key key) {}
-	
-	//method
-	@Override
-	protected void noteLeftMouseButtonClickOnContentAreaWhenEnabled() {}
-	
-	//method
-	@Override
-	protected void noteLeftMouseButtonPressOnContentAreaWhenEnabled() {}
+	protected void noteKeyTypingOnSelfWhenFocused(final Key key) {
+		//Does nothing.
+	}
 	
 	//method
 	@Override
-	protected void noteLeftMouseButtonReleaseOnContentAreaWhenEnabled() {}
+	protected void noteLeftMouseButtonClickOnContentAreaWhenEnabled() {
+		//Does nothing.
+	}
 	
 	//method
 	@Override
-	protected void noteMouseMoveOnContentAreaWhenEnabled() {}
+	protected void noteLeftMouseButtonPressOnContentAreaWhenEnabled() {
+		//Does nothing.
+	}
 	
 	//method
 	@Override
-	protected void noteMouseWheelClickOnContentAreaWhenEnabled() {}
+	protected void noteLeftMouseButtonReleaseOnContentAreaWhenEnabled() {
+		//Does nothing.
+	}
 	
 	//method
 	@Override
-	protected void noteMouseWheelPressOnContentAreaWhenEnabled() {}
+	protected void noteMouseMoveOnContentAreaWhenEnabled() {
+		//Does nothing.
+	}
 	
 	//method
 	@Override
-	protected void noteMouseWheelReleaseOnContentAreaWhenEnabled() {}
+	protected void noteMouseWheelClickOnContentAreaWhenEnabled() {
+		//Does nothing.
+	}
 	
 	//method
 	@Override
-	protected void noteMouseWheelRotationStepOnBorderWidgetWhenFocused(final RotationDirection rotationDirection) {}
+	protected void noteMouseWheelPressOnContentAreaWhenEnabled() {
+		//Does nothing.
+	}
 	
 	//method
 	@Override
-	protected void noteRightMouseButtonClickOnContentAreaWhenEnabled() {}
+	protected void noteMouseWheelReleaseOnContentAreaWhenEnabled() {
+		//Does nothing.
+	}
 	
 	//method
 	@Override
-	protected void noteRightMouseButtonPressOnContentAreaWhenEnabled() {}
+	protected void noteMouseWheelRotationStepOnBorderWidgetWhenFocused(final RotationDirection rotationDirection) {
+		//Does nothing.
+	}
 	
 	//method
 	@Override
-	protected void noteRightMouseButtonReleaseOnContentAreaWhenEnabled() {}
+	protected void noteRightMouseButtonClickOnContentAreaWhenEnabled() {
+		//Does nothing.
+	}
 	
 	//method
 	@Override
-	protected void paintContentArea(final IPainter painter, final TextBoxLook textBoxLook) {}
+	protected void noteRightMouseButtonPressOnContentAreaWhenEnabled() {
+		//Does nothing.
+	}
+	
+	//method
+	@Override
+	protected void noteRightMouseButtonReleaseOnContentAreaWhenEnabled() {
+		//Does nothing.
+	}
+	
+	//method
+	@Override
+	protected void paintContentArea(final IPainter painter, final TextBoxLook textBoxLook) {
+		//Does nothing.
+	}
 	
 	//method
 	@Override
@@ -322,7 +354,9 @@ public final class TextBox extends BorderWidget<TextBox, TextBoxLook> implements
 	
 	//method
 	@Override
-	protected void resetBorderWidgetConfiguration() {}
+	protected void resetBorderWidgetConfiguration() {
+		//Does nothing.
+	}
 	
 	//method
 	private void setCoverTextWhenSecretTextModeFlag(final boolean coverTextWhenSecretTextModeFlag) {

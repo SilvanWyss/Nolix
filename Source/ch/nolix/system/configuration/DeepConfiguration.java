@@ -45,7 +45,9 @@ public final class DeepConfiguration extends BaseConfiguration<DeepConfiguration
 	/**
 	 * Creates a new {@link DeepConfiguration}.
 	 */
-	public DeepConfiguration() {}
+	public DeepConfiguration() {
+		//Does nothing.
+	}
 	
 	//method
 	/**

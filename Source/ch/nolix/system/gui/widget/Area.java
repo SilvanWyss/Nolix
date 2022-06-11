@@ -186,14 +186,18 @@ public final class Area extends Widget<Area, AreaLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void fillUpChildWidgets(final LinkedList<IWidget<?, ?>> list) {}
+	protected void fillUpChildWidgets(final LinkedList<IWidget<?, ?>> list) {
+		//Does nothing.
+	}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void fillUpWidgetsForPainting(final LinkedList<IWidget<?, ?>> list) {}
+	protected void fillUpWidgetsForPainting(final LinkedList<IWidget<?, ?>> list) {
+		//Does nothing.
+	}
 	
 	//method
 	/**
@@ -218,98 +222,126 @@ public final class Area extends Widget<Area, AreaLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteKeyDownOnSelfWhenFocused(final Key key) {}
+	protected void noteKeyDownOnSelfWhenFocused(final Key key) {
+		//Does nothing.
+	}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteKeyReleaseOnSelfWhenFocused(final Key key) {}
+	protected void noteKeyReleaseOnSelfWhenFocused(final Key key) {
+		//Does nothing.
+	}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteKeyTypingOnSelfWhenFocused(final Key key) {}
+	protected void noteKeyTypingOnSelfWhenFocused(final Key key) {
+		//Does nothing.
+	}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteLeftMouseButtonClickOnSelfWhenEnabled() {}
+	protected void noteLeftMouseButtonClickOnSelfWhenEnabled() {
+		//Does nothing.
+	}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteLeftMouseButtonPressOnSelfWhenEnabled() {}
+	protected void noteLeftMouseButtonPressOnSelfWhenEnabled() {
+		//Does nothing.
+	}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteLeftMouseButtonReleaseOnSelfWhenEnabled() {}
+	protected void noteLeftMouseButtonReleaseOnSelfWhenEnabled() {
+		//Does nothing.
+	}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteMouseMoveOnSelfWhenEnabled() {}
+	protected void noteMouseMoveOnSelfWhenEnabled() {
+		//Does nothing.
+	}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteMouseWheelClickOnSelfWhenEnabled() {}
+	protected void noteMouseWheelClickOnSelfWhenEnabled() {
+		//Does nothing.
+	}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteMouseWheelPressOnSelfWhenEnabled() {}
+	protected void noteMouseWheelPressOnSelfWhenEnabled() {
+		//Does nothing.
+	}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteMouseWheelReleaseOnSelfWhenEnabled() {}
+	protected void noteMouseWheelReleaseOnSelfWhenEnabled() {
+		//Does nothing.
+	}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteMouseWheelRotationStepOnSelfWhenFocused(final RotationDirection rotationDirection) {}
+	protected void noteMouseWheelRotationStepOnSelfWhenFocused(final RotationDirection rotationDirection) {
+		//Does nothing.
+	}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteRightMouseButtonClickOnSelfWhenEnabled() {}
+	protected void noteRightMouseButtonClickOnSelfWhenEnabled() {
+		//Does nothing.
+	}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteRightMouseButtonPressOnSelfWhenEnabled() {}
+	protected void noteRightMouseButtonPressOnSelfWhenEnabled() {
+		//Does nothing.
+	}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteRightMouseButtonReleaseOnSelfWhenEnabled() {}
+	protected void noteRightMouseButtonReleaseOnSelfWhenEnabled() {
+		//Does nothing.
+	}
 	
 	//method
 	/**
@@ -330,7 +362,9 @@ public final class Area extends Widget<Area, AreaLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void recalculateWidgetSelf() {}
+	protected void recalculateWidgetSelf() {
+		//Does nothing.
+	}
 	
 	//method
 	/**
@@ -350,5 +384,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void resetWidget() {}
+	protected void resetWidget() {
+		//Does nothing.
+	}
 }

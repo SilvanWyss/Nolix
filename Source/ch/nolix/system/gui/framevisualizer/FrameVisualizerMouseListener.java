@@ -39,15 +39,21 @@ final class FrameVisualizerMouseListener implements MouseListener {
 
 	//method
 	@Override
-	public void mouseClicked(final MouseEvent mouseEvent) {}
+	public void mouseClicked(final MouseEvent mouseEvent) {
+		//Does nothing.
+	}
 
 	//method
 	@Override
-	public void mouseEntered(final MouseEvent mouseEvent) {}
+	public void mouseEntered(final MouseEvent mouseEvent) {
+		//Does nothing.
+	}
 
 	//method
 	@Override
-	public void mouseExited(final MouseEvent mouseEvent0) {}
+	public void mouseExited(final MouseEvent mouseEvent0) {
+		//Does nothing.
+	}
 
 	//method
 	@Override

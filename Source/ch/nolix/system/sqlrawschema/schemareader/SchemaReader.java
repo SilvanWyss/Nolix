@@ -161,7 +161,9 @@ public final class SchemaReader implements ISchemaReader {
 	
 	//method
 	@Override
-	public void noteClose() {}
+	public void noteClose() {
+		//Does nothing.
+	}
 	
 	//method
 	private ITableDTO loadTable(final IFlatTableDTO flatTable) {

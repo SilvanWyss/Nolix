@@ -13,5 +13,7 @@ public final class LocalServer extends BaseServer {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void noteClose() {}
+	public void noteClose() {
+		//Does nothing.
+	}
 }

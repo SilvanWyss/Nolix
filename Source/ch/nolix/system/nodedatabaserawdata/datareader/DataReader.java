@@ -96,7 +96,9 @@ public final class DataReader implements IDataReader {
 	
 	//method
 	@Override
-	public void noteClose() {}
+	public void noteClose() {
+		//Does nothing.
+	}
 	
 	//method
 	@Override

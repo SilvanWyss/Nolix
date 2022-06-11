@@ -230,7 +230,9 @@ public final class Column extends SchemaObject implements IColumn<SchemaImplemen
 	
 	//method
 	@Override
-	protected void noteClose() {}
+	protected void noteClose() {
+		//Does nothing.
+	}
 	
 	//method
 	private IContainer<IColumn<SchemaImplementation>> getRefBackReferencingColumnsWhenIsReferenceColumn() {

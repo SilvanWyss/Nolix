@@ -135,7 +135,9 @@ public final class SchemaWriter implements ISchemaWriter {
 	
 	//method
 	@Override
-	public void noteClose() {}
+	public void noteClose() {
+		//Does nothing.
+	}
 	
 	//method
 	@Override

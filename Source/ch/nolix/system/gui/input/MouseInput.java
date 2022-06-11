@@ -77,7 +77,9 @@ public final class MouseInput extends MutableElement<MouseInput> implements IMou
 	
 	//method
 	@Override
-	public void reset() {}
+	public void reset() {
+		//Does nothing.
+	}
 	
 	//method
 	private void setCursorPosition(final Discrete2DPoint cursorPosition) {

@@ -95,7 +95,9 @@ final class SchemaReader implements ISchemaReader {
 	
 	//method
 	@Override
-	public void noteClose() {}
+	public void noteClose() {
+		//Does nothing.
+	}
 	
 	//method
 	@Override

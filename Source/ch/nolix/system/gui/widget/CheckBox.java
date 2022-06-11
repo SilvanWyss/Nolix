@@ -91,14 +91,18 @@ public final class CheckBox extends BorderWidget<CheckBox, CheckBoxLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void fillUpChildWidgets(final LinkedList<IWidget<?, ?>> list) {}
+	protected void fillUpChildWidgets(final LinkedList<IWidget<?, ?>> list) {
+		//Does nothing.
+	}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void fillUpWidgetsForPainting(final LinkedList<IWidget<?, ?>> list) {}
+	protected void fillUpWidgetsForPainting(final LinkedList<IWidget<?, ?>> list) {
+		//Does nothing.
+	}
 	
 	//method
 	/**
@@ -123,28 +127,36 @@ public final class CheckBox extends BorderWidget<CheckBox, CheckBoxLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteKeyDownOnSelfWhenFocused(final Key key) {}
+	protected void noteKeyDownOnSelfWhenFocused(final Key key) {
+		//Does nothing.
+	}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteKeyReleaseOnSelfWhenFocused(final Key key) {}
+	protected void noteKeyReleaseOnSelfWhenFocused(final Key key) {
+		//Does nothing.
+	}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteKeyTypingOnSelfWhenFocused(final Key key) {}
+	protected void noteKeyTypingOnSelfWhenFocused(final Key key) {
+		//Does nothing.
+	}
 		
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteLeftMouseButtonClickOnContentAreaWhenEnabled() {}
+	protected void noteLeftMouseButtonClickOnContentAreaWhenEnabled() {
+		//Does nothing.
+	}
 	
 	//method
 	/**
@@ -160,63 +172,81 @@ public final class CheckBox extends BorderWidget<CheckBox, CheckBoxLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteLeftMouseButtonReleaseOnContentAreaWhenEnabled() {}
+	protected void noteLeftMouseButtonReleaseOnContentAreaWhenEnabled() {
+		//Does nothing.
+	}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteMouseMoveOnContentAreaWhenEnabled() {}
+	protected void noteMouseMoveOnContentAreaWhenEnabled() {
+		//Does nothing.
+	}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteMouseWheelClickOnContentAreaWhenEnabled() {}
+	protected void noteMouseWheelClickOnContentAreaWhenEnabled() {
+		//Does nothing.
+	}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteMouseWheelPressOnContentAreaWhenEnabled() {}
+	protected void noteMouseWheelPressOnContentAreaWhenEnabled() {
+		//Does nothing.
+	}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteMouseWheelReleaseOnContentAreaWhenEnabled() {}
+	protected void noteMouseWheelReleaseOnContentAreaWhenEnabled() {
+		//Does nothing.
+	}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteMouseWheelRotationStepOnBorderWidgetWhenFocused(final RotationDirection rotationDirection) {}
+	protected void noteMouseWheelRotationStepOnBorderWidgetWhenFocused(final RotationDirection rotationDirection) {
+		//Does nothing.
+	}
 		
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteRightMouseButtonClickOnContentAreaWhenEnabled() {}
+	protected void noteRightMouseButtonClickOnContentAreaWhenEnabled() {
+		//Does nothing.
+	}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteRightMouseButtonPressOnContentAreaWhenEnabled() {}
+	protected void noteRightMouseButtonPressOnContentAreaWhenEnabled() {
+		//Does nothing.
+	}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteRightMouseButtonReleaseOnContentAreaWhenEnabled() {}
+	protected void noteRightMouseButtonReleaseOnContentAreaWhenEnabled() {
+		//Does nothing.
+	}
 	
 	//method
 	/**
@@ -280,14 +310,18 @@ public final class CheckBox extends BorderWidget<CheckBox, CheckBoxLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void recalculateBorderWidget() {}
+	protected void recalculateBorderWidget() {
+		//Does nothing.
+	}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void resetBorderWidgetConfiguration() {}
+	protected void resetBorderWidgetConfiguration() {
+		//Does nothing.
+	}
 	
 	//method
 	/**

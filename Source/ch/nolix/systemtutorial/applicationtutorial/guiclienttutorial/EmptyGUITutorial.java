@@ -31,7 +31,9 @@ public final class EmptyGUITutorial {
 	private static final class MainSession extends BackendGUIClientSession<VoidApplicationContext> {
 		
 		@Override
-		protected void initialize() {}
+		protected void initialize() {
+			//Does nothing.
+		}
 	}
 	
 	private EmptyGUITutorial() {}

@@ -504,14 +504,18 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void fillUpChildWidgets(final LinkedList<IWidget<?, ?>> list) {}
+	protected void fillUpChildWidgets(final LinkedList<IWidget<?, ?>> list) {
+		//Does nothing.
+	}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void fillUpWidgetsForPainting(final LinkedList<IWidget<?, ?>> list) {}
+	protected void fillUpWidgetsForPainting(final LinkedList<IWidget<?, ?>> list) {
+		//Does nothing.
+	}
 	
 	//method
 	/**
@@ -597,91 +601,117 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteKeyReleaseOnSelfWhenFocused(final Key key) {}
+	protected void noteKeyReleaseOnSelfWhenFocused(final Key key) {
+		//Does nothing.
+	}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteKeyTypingOnSelfWhenFocused(final Key key) {}
+	protected void noteKeyTypingOnSelfWhenFocused(final Key key) {
+		//Does nothing.
+	}
 		
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteLeftMouseButtonClickOnContentAreaWhenEnabled() {}
+	protected void noteLeftMouseButtonClickOnContentAreaWhenEnabled() {
+		//Does nothing.
+	}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteLeftMouseButtonPressOnContentAreaWhenEnabled() {}
+	protected void noteLeftMouseButtonPressOnContentAreaWhenEnabled() {
+		//Does nothing.
+	}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteLeftMouseButtonReleaseOnContentAreaWhenEnabled() {}
+	protected void noteLeftMouseButtonReleaseOnContentAreaWhenEnabled() {
+		//Does nothing.
+	}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteMouseMoveOnContentAreaWhenEnabled() {}
+	protected void noteMouseMoveOnContentAreaWhenEnabled() {
+		//Does nothing.
+	}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteMouseWheelClickOnContentAreaWhenEnabled() {}
+	protected void noteMouseWheelClickOnContentAreaWhenEnabled() {
+		//Does nothing.
+	}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteMouseWheelPressOnContentAreaWhenEnabled() {}
+	protected void noteMouseWheelPressOnContentAreaWhenEnabled() {
+		//Does nothing.
+	}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteMouseWheelReleaseOnContentAreaWhenEnabled() {}
+	protected void noteMouseWheelReleaseOnContentAreaWhenEnabled() {
+		//Does nothing.
+	}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteMouseWheelRotationStepOnBorderWidgetWhenFocused(final RotationDirection rotationDirection) {}
+	protected void noteMouseWheelRotationStepOnBorderWidgetWhenFocused(final RotationDirection rotationDirection) {
+		//Does nothing.
+	}
 		
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteRightMouseButtonClickOnContentAreaWhenEnabled() {}
+	protected void noteRightMouseButtonClickOnContentAreaWhenEnabled() {
+		//Does nothing.
+	}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteRightMouseButtonPressOnContentAreaWhenEnabled() {}
+	protected void noteRightMouseButtonPressOnContentAreaWhenEnabled() {
+		//Does nothing.
+	}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteRightMouseButtonReleaseOnContentAreaWhenEnabled() {}
+	protected void noteRightMouseButtonReleaseOnContentAreaWhenEnabled() {
+		//Does nothing.
+	}
 	
 	//method
 	/**
@@ -722,7 +752,9 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void recalculateBorderWidget() {}
+	protected void recalculateBorderWidget() {
+		//Does nothing.
+	}
 	
 	//method
 	/**
@@ -739,7 +771,9 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void resetBorderWidget() {}
+	protected void resetBorderWidget() {
+		//Does nothing.
+	}
 	
 	//method
 	private TextFormat getFont() {

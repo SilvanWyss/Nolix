@@ -50,7 +50,9 @@ public final class Configuration extends BaseConfiguration<Configuration> {
 	/**
 	 * Creates a new configuration with default attributes.
 	 */
-	public Configuration() {}
+	public Configuration() {
+		//Does nothing.
+	}
 	
 	//method
 	/**
@@ -74,5 +76,7 @@ public final class Configuration extends BaseConfiguration<Configuration> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void resetBaseConfiguration() {}
+	protected void resetBaseConfiguration() {
+		//Does nothing.
+	}
 }

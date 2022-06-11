@@ -85,13 +85,6 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	private LinkedListNode<E> firstNode;
 	private LinkedListNode<E> lastNode;
 	
-	//constructor
-	/**
-	 * Creates a new {@link LinkedList} that is empty.
-	 * The complexity of this implementation is O(1).
-	 */
-	public LinkedList() {}
-	
 	//method
 	/**
 	 * Adds the given element at the begin of the current {@link LinkedList}.

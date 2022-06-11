@@ -27,7 +27,9 @@ public final class FunctionCatalogue {
 	/**
 	 * Does nothing.
 	 */
-	public static void doNothing() {}
+	public static void doNothing() {
+		//Does nothing.
+	}
 	
 	//static method
 	/**

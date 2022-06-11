@@ -18,7 +18,7 @@ public class FrameVisualizerResizeListener implements ComponentListener {
 	private boolean isNew = true;
 	
 	//constructor
-	public FrameVisualizerResizeListener(GUI<?> mParentGUI) {
+	public FrameVisualizerResizeListener(final GUI<?> mParentGUI) {
 		
 		GlobalValidator.assertThat(mParentGUI).thatIsNamed("parent GUI").isNotNull();
 		
@@ -27,15 +27,19 @@ public class FrameVisualizerResizeListener implements ComponentListener {
 	
 	//method
 	@Override
-	public void componentHidden(ComponentEvent arg0) {}
+	public void componentHidden(final ComponentEvent arg0) {
+		//Does nothing.
+	}
 	
 	//method
 	@Override
-	public void componentMoved(ComponentEvent arg0) {}
+	public void componentMoved(final ComponentEvent arg0) {
+		//Does nothing.
+	}
 	
 	//method
 	@Override
-	public void componentResized(ComponentEvent arg0) {
+	public void componentResized(final ComponentEvent arg0) {
 		
 		//This is important because events can be fired before the GUI is created completely.
 		if (isNew) {
@@ -51,5 +55,7 @@ public class FrameVisualizerResizeListener implements ComponentListener {
 	
 	//method
 	@Override
-	public void componentShown(ComponentEvent arg0) {}
+	public void componentShown(final ComponentEvent arg0) {
+		//Does nothing.
+	}
 }

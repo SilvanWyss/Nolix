@@ -130,40 +130,52 @@ public final class Label extends TextLineWidget<Label, LabelLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteKeyDownOnSelfWhenFocused(final Key key) {}
+	protected void noteKeyDownOnSelfWhenFocused(final Key key) {
+		//Does nothing.
+	}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteLeftMouseButtonPressOnContentAreaWhenEnabled() {}
+	protected void noteLeftMouseButtonPressOnContentAreaWhenEnabled() {
+		//Does nothing.
+	}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteLeftMouseButtonReleaseOnContentAreaWhenEnabled() {}
+	protected void noteLeftMouseButtonReleaseOnContentAreaWhenEnabled() {
+		//Does nothing.
+	}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void paintTextLineWidgetContentArea(final IPainter painter, final LabelLook textLineWidgetLook) {}
+	protected void paintTextLineWidgetContentArea(final IPainter painter, final LabelLook textLineWidgetLook) {
+		//Does nothing.
+	}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void resetBorderWidgetConfiguration() {}
+	protected void resetBorderWidgetConfiguration() {
+		//Does nothing.
+	}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void resetTextLineWidget() {}
+	protected void resetTextLineWidget() {
+		//Does nothing.
+	}
 }

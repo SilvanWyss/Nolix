@@ -54,7 +54,9 @@ public final class ResizeInput extends MutableElement<ResizeInput> implements IR
 	
 	//method
 	@Override
-	public void reset() {}
+	public void reset() {
+		//Does nothing.
+	}
 	
 	//method
 	private void setViewAreaSize(final int viewAreaWidth, final int viewAreaHeight) {

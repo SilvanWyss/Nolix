@@ -58,5 +58,7 @@ public final class CatchingProperty<V> extends Property implements Named {
 	
 	//method
 	@Override
-	protected void fillUpAttributesInto(final LinkedList<Node> list) {}
+	protected void fillUpAttributesInto(final LinkedList<Node> list) {
+		//Does nothing.
+	}
 }

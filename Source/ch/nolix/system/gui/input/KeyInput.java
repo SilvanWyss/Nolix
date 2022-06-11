@@ -208,7 +208,9 @@ public final class KeyInput extends MutableElement<KeyInput> implements IKeyInpu
 	
 	//method
 	@Override
-	public void reset() {}
+	public void reset() {
+		//Does nothing.
+	}
 	
 	//method
 	private void setInputType(final KeyInputType inputType) {

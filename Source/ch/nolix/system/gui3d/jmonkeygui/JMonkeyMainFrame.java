@@ -227,43 +227,27 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void noteKeyDown(final Key key) {}
+	public void noteKeyDown(final Key key) {
+		//Does nothing.
+	}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void noteKeyRelease(final Key key) {}
+	public void noteKeyRelease(final Key key) {
+		//Does nothing.
+	}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void noteKeyTyping(final Key key) {}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	//method
-	@Override
-	public void noteLeftMouseButtonClick() {}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void noteLeftMouseButtonPress() {}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void noteLeftMouseButtonRelease() {}
+	public void noteKeyTyping(final Key key) {
+		//Does nothing.
+	}
 	
 	//method
 	/**
@@ -271,7 +255,27 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 	 */
 	//method
 	@Override
-	public void noteMouseMove(final int cursorXPositionOnViewArea, final int cursorYPositionOnViewArea) {}
+	public void noteLeftMouseButtonClick() {
+		//Does nothing.
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void noteLeftMouseButtonPress() {
+		//Does nothing.
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void noteLeftMouseButtonRelease() {
+		//Does nothing.
+	}
 	
 	//method
 	/**
@@ -279,56 +283,82 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 	 */
 	//method
 	@Override
-	public void noteMouseWheelClick() {}
+	public void noteMouseMove(final int cursorXPositionOnViewArea, final int cursorYPositionOnViewArea) {
+		//Does nothing.
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	//method
+	@Override
+	public void noteMouseWheelClick() {
+		//Does nothing.
+	}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void noteMouseWheelPress() {}
+	public void noteMouseWheelPress() {
+		//Does nothing.
+	}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void noteMouseWheelRelease() {}
+	public void noteMouseWheelRelease() {
+		//Does nothing.
+	}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void noteMouseWheelRotationStep(final RotationDirection rotationDirection) {}
+	public void noteMouseWheelRotationStep(final RotationDirection rotationDirection) {
+		//Does nothing.
+	}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void noteResize(final int viewAreaWidth, final int viewAreaHeight) {}
+	public void noteResize(final int viewAreaWidth, final int viewAreaHeight) {
+		//Does nothing.
+	}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void noteRightMouseButtonClick() {}
+	public void noteRightMouseButtonClick() {
+		//Does nothing.
+	}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void noteRightMouseButtonPress() {}
+	public void noteRightMouseButtonPress() {
+		//Does nothing.
+	}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void noteRightMouseButtonRelease() {}
+	public void noteRightMouseButtonRelease() {
+		//Does nothing.
+	}
 		
 	//method
 	/**

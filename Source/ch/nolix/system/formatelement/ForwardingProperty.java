@@ -39,15 +39,21 @@ public final class ForwardingProperty<S extends Enum<S>, V> extends Property<S>{
 	
 	//method
 	@Override
-	protected void fillUpValuesSpecificationInto(LinkedList<Node> list) {}
+	protected void fillUpValuesSpecificationInto(LinkedList<Node> list) {
+		//Does nothing.
+	}
 	
 	//method
 	@Override
-	protected void setFrom(Property<S> property) {}
+	protected void setFrom(Property<S> property) {
+		//Does nothing.
+	}
 	
 	//method
 	@Override
-	protected void setUndefined() {}
+	protected void setUndefined() {
+		//Does nothing.
+	}
 	
 	@Override
 	protected void setValueFromSpecification(final BaseNode specification) {

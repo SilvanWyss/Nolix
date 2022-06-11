@@ -85,7 +85,9 @@ public final class Uploader extends TextLineWidget<Uploader, UploaderLook> {
 	
 	//method
 	@Override
-	protected void noteKeyDownOnSelfWhenFocused(final Key key) {}
+	protected void noteKeyDownOnSelfWhenFocused(final Key key) {
+		//Does nothing.
+	}
 	
 	//method
 	@Override
@@ -98,15 +100,21 @@ public final class Uploader extends TextLineWidget<Uploader, UploaderLook> {
 	
 	//method
 	@Override
-	protected void noteLeftMouseButtonReleaseOnContentAreaWhenEnabled() {}
+	protected void noteLeftMouseButtonReleaseOnContentAreaWhenEnabled() {
+		//Does nothing.
+	}
 	
 	//method
 	@Override
-	protected void paintTextLineWidgetContentArea(final IPainter painter, final UploaderLook uploaderLook) {}
+	protected void paintTextLineWidgetContentArea(final IPainter painter, final UploaderLook uploaderLook) {
+		//Does nothing.
+	}
 	
 	//method
 	@Override
-	protected void resetBorderWidgetConfiguration() {}
+	protected void resetBorderWidgetConfiguration() {
+		//Does nothing.
+	}
 	
 	//method
 	@Override

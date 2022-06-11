@@ -39,11 +39,15 @@ final class FrameVisualizerCloseListener implements WindowListener {
 	
 	//method
 	@Override
-	public void windowActivated(final WindowEvent windowEvent) {}
+	public void windowActivated(final WindowEvent windowEvent) {
+		//Does nothing.
+	}
 
 	//method
 	@Override
-	public void windowClosed(final WindowEvent windowEvent) {}
+	public void windowClosed(final WindowEvent windowEvent) {
+		//Does nothing.
+	}
 		
 	//method
 	@Override
@@ -53,17 +57,25 @@ final class FrameVisualizerCloseListener implements WindowListener {
 
 	//method
 	@Override
-	public void windowDeactivated(final WindowEvent windowEvent) {}
+	public void windowDeactivated(final WindowEvent windowEvent) {
+		//Does nothing.
+	}
 
 	// method
 	@Override
-	public void windowDeiconified(final WindowEvent windowEvent) {}
+	public void windowDeiconified(final WindowEvent windowEvent) {
+		//Does nothing.
+	}
 
 	//method
 	@Override
-	public void windowIconified(final WindowEvent windowEvent) {}
+	public void windowIconified(final WindowEvent windowEvent) {
+		//Does nothing.
+	}
 
 	//method
 	@Override
-	public void windowOpened(final WindowEvent windowEvent) {}
+	public void windowOpened(final WindowEvent windowEvent) {
+		//Does nothing.
+	}
 }

@@ -67,18 +67,24 @@ public final class SelectionMenu extends ItemMenu<SelectionMenu> {
 	
 	//method
 	@Override
-	protected void noteSelectItem2(final ItemMenuItem item) {}
+	protected void noteSelectItem2(final ItemMenuItem item) {
+		//Does nothing.
+	}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void paintContentArea(final IPainter painter, final ItemMenuLook itemMenuLook) {}
+	protected void paintContentArea(final IPainter painter, final ItemMenuLook itemMenuLook) {
+		//Does nothing.
+	}
 	
 	//method
 	@Override
-	protected void recalculateItemMenu() {}
+	protected void recalculateItemMenu() {
+		//Does nothing.
+	}
 	
 	//method
 	@Override

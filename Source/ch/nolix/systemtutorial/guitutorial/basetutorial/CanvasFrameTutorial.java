@@ -58,49 +58,79 @@ public final class CanvasFrameTutorial {
 	private static class InputTaker implements IResizableInputTaker {
 		
 		@Override
-		public void noteKeyDown(final Key key) {}
+		public void noteKeyDown(final Key key) {
+			//Does nothing.
+		}
 		
 		@Override
-		public void noteKeyRelease(final Key key) {}
+		public void noteKeyRelease(final Key key) {
+			//Does nothing.
+		}
 		
 		@Override
-		public void noteKeyTyping(final Key key) {}
+		public void noteKeyTyping(final Key key) {
+			//Does nothing.
+		}
 		
 		@Override
-		public void noteLeftMouseButtonClick() {}
+		public void noteLeftMouseButtonClick() {
+			//Does nothing.
+		}
 		
 		@Override
-		public void noteLeftMouseButtonPress() {}
+		public void noteLeftMouseButtonPress() {
+			//Does nothing.
+		}
 		
 		@Override
-		public void noteLeftMouseButtonRelease() {}
+		public void noteLeftMouseButtonRelease() {
+			//Does nothing.
+		}
 		
 		@Override
-		public void noteMouseMove(final int cursorXPositionOnViewArea, final int cursorYPositionOnViewArea) {}
+		public void noteMouseMove(final int cursorXPositionOnViewArea, final int cursorYPositionOnViewArea) {
+			//Does nothing.
+		}
 		
 		@Override
-		public void noteMouseWheelClick() {}
+		public void noteMouseWheelClick() {
+			//Does nothing.
+		}
 		
 		@Override
-		public void noteMouseWheelPress() {}
+		public void noteMouseWheelPress() {
+			//Does nothing.
+		}
 		
 		@Override
-		public void noteMouseWheelRelease() {}
+		public void noteMouseWheelRelease() {
+			//Does nothing.
+		}
 		
 		@Override
-		public void noteMouseWheelRotationStep(final RotationDirection rotationDirection) {}
+		public void noteMouseWheelRotationStep(final RotationDirection rotationDirection) {
+			//Does nothing.
+		}
 		
 		@Override
-		public void noteResize(final int viewAreaWidth, final int viewAreaHeight) {}
+		public void noteResize(final int viewAreaWidth, final int viewAreaHeight) {
+			//Does nothing.
+		}
 		
 		@Override
-		public void noteRightMouseButtonClick() {}
+		public void noteRightMouseButtonClick() {
+			//Does nothing.
+		}
 			
 		@Override
-		public void noteRightMouseButtonPress() {}
+		public void noteRightMouseButtonPress() {
+			//Does nothing.
+		}
 		
 		@Override
-		public void noteRightMouseButtonRelease() {}
+		public void noteRightMouseButtonRelease() {
+			//Does nothing.
+		}
 	}
 	
 	/**

@@ -147,7 +147,9 @@ public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> impleme
 	
 	//method
 	@Override
-	public void noteClose() {}
+	public void noteClose() {
+		//Does nothing.
+	}
 	
 	//method
 	@Override
@@ -157,7 +159,9 @@ public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> impleme
 	
 	//method
 	@Override
-	public void refresh() {}
+	public void refresh() {
+		//Does nothing.
+	}
 	
 	//method
 	@Override
@@ -280,11 +284,15 @@ public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> impleme
 	
 	//method
 	@Override
-	protected void noteKeyReleaseOnSelfWhenFocused(final Key key) {}
+	protected void noteKeyReleaseOnSelfWhenFocused(final Key key) {
+		//Does nothing.
+	}
 	
 	//method
 	@Override
-	protected void noteKeyTypingOnSelfWhenFocused(final Key key) {}
+	protected void noteKeyTypingOnSelfWhenFocused(final Key key) {
+		//Does nothing.
+	}
 		
 	//method
 	@Override
@@ -330,7 +338,9 @@ public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> impleme
 	
 	//method
 	@Override
-	protected void noteMouseWheelRotationStepOnBorderWidgetWhenFocused(final RotationDirection rotationDirection) {}
+	protected void noteMouseWheelRotationStepOnBorderWidgetWhenFocused(final RotationDirection rotationDirection) {
+		//Does nothing.
+	}
 		
 	//method
 	@Override
@@ -370,7 +380,9 @@ public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> impleme
 	
 	//method
 	@Override
-	protected void resetBorderWidgetConfiguration() {}
+	protected void resetBorderWidgetConfiguration() {
+		//Does nothing.
+	}
 	
 	//method
 	@Override

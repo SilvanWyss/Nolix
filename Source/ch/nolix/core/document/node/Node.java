@@ -503,12 +503,6 @@ public final class Node extends BaseNode {
 	//multi-attribute
 	private final LinkedList<Node> attributes = new LinkedList<>();
 	
-	//constructor
-	/**
-	 * Creates a new {@link Node}.
-	 */
-	public Node() {}
-	
 	//method
 	/**
 	 * {@inheritDoc}

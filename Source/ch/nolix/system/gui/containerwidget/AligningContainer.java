@@ -384,63 +384,93 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 	
 	//method
 	@Override
-	protected void noteKeyDownOnSelfWhenFocused(final Key key) {}
+	protected void noteKeyDownOnSelfWhenFocused(final Key key) {
+		//Does nothing.
+	}
 	
 	//method
 	@Override
-	protected void noteKeyReleaseOnSelfWhenFocused(final Key key) {}
+	protected void noteKeyReleaseOnSelfWhenFocused(final Key key) {
+		//Does nothing.
+	}
 	
 	//method
 	@Override
-	protected void noteKeyTypingOnSelfWhenFocused(final Key key) {}
+	protected void noteKeyTypingOnSelfWhenFocused(final Key key) {
+		//Does nothing.
+	}
 		
 	//method
 	@Override
-	protected void noteLeftMouseButtonClickOnContentAreaWhenEnabled() {}
+	protected void noteLeftMouseButtonClickOnContentAreaWhenEnabled() {
+		//Does nothing.
+	}
 	
 	//method
 	@Override
-	protected void noteLeftMouseButtonPressOnContentAreaWhenEnabled() {}
+	protected void noteLeftMouseButtonPressOnContentAreaWhenEnabled() {
+		//Does nothing.
+	}
 	
 	//method
 	@Override
-	protected void noteLeftMouseButtonReleaseOnContentAreaWhenEnabled() {}
+	protected void noteLeftMouseButtonReleaseOnContentAreaWhenEnabled() {
+		//Does nothing.
+	}
 	
 	//method
 	@Override
-	protected void noteMouseMoveOnContentAreaWhenEnabled() {}
+	protected void noteMouseMoveOnContentAreaWhenEnabled() {
+		//Does nothing.
+	}
 	
 	//method
 	@Override
-	protected void noteMouseWheelClickOnContentAreaWhenEnabled() {}
+	protected void noteMouseWheelClickOnContentAreaWhenEnabled() {
+		//Does nothing.
+	}
 	
 	//method
 	@Override
-	protected void noteMouseWheelPressOnContentAreaWhenEnabled() {}
+	protected void noteMouseWheelPressOnContentAreaWhenEnabled() {
+		//Does nothing.
+	}
 	
 	//method
 	@Override
-	protected void noteMouseWheelReleaseOnContentAreaWhenEnabled() {}
+	protected void noteMouseWheelReleaseOnContentAreaWhenEnabled() {
+		//Does nothing.
+	}
 	
 	//method
 	@Override
-	protected void noteMouseWheelRotationStepOnBorderWidgetWhenFocused(final RotationDirection rotationDirection) {}
+	protected void noteMouseWheelRotationStepOnBorderWidgetWhenFocused(final RotationDirection rotationDirection) {
+		//Does nothing.
+	}
 		
 	//method
 	@Override
-	protected void noteRightMouseButtonClickOnContentAreaWhenEnabled() {}
+	protected void noteRightMouseButtonClickOnContentAreaWhenEnabled() {
+		//Does nothing.
+	}
 	
 	//method
 	@Override
-	protected void noteRightMouseButtonPressOnContentAreaWhenEnabled() {}
+	protected void noteRightMouseButtonPressOnContentAreaWhenEnabled() {
+		//Does nothing.
+	}
 	
 	//method
 	@Override
-	protected void noteRightMouseButtonReleaseOnContentAreaWhenEnabled() {}
+	protected void noteRightMouseButtonReleaseOnContentAreaWhenEnabled() {
+		//Does nothing.
+	}
 	
 	//method
 	@Override
-	protected void paintContentArea(final IPainter painter, final AligningContainerLook aligningContainerLook) {}
+	protected void paintContentArea(final IPainter painter, final AligningContainerLook aligningContainerLook) {
+		//Does nothing.
+	}
 	
 	//method
 	@Override
@@ -500,9 +530,13 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 	
 	//method
 	@Override
-	protected void resetBorderWidgetConfiguration() {}
+	protected void resetBorderWidgetConfiguration() {
+		//Does nothing.
+	}
 	
 	//method
 	@Override
-	protected void resetContainerWidget() {}
+	protected void resetContainerWidget() {
+		//Does nothing.
+	}
 }

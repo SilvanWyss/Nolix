@@ -236,7 +236,9 @@ final class TextBoxInputField extends TextLineWidget<TextBoxInputField, TextBoxL
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteLeftMouseButtonReleaseOnContentAreaWhenEnabled() {}
+	protected void noteLeftMouseButtonReleaseOnContentAreaWhenEnabled() {
+		//Does nothing.
+	}
 	
 	//method
 	/**

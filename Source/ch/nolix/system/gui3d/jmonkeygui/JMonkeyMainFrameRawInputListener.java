@@ -47,19 +47,27 @@ final class JMonkeyMainFrameRawInputListener implements RawInputListener {
 	
 	//method
 	@Override
-	public void beginInput() {}
+	public void beginInput() {
+		//Does nothing.
+	}
 	
 	//method
 	@Override
-	public void endInput() {}
+	public void endInput() {
+		//Does nothing.
+	}
 	
 	//method
 	@Override
-	public void onJoyAxisEvent(JoyAxisEvent joyAxisEvent) {}
+	public void onJoyAxisEvent(JoyAxisEvent joyAxisEvent) {
+		//Does nothing.
+	}
 	
 	//method
 	@Override
-	public void onJoyButtonEvent(JoyButtonEvent joyButtonEvent) {}
+	public void onJoyButtonEvent(JoyButtonEvent joyButtonEvent) {
+		//Does nothing.
+	}
 	
 	//method
 	@Override
@@ -113,9 +121,13 @@ final class JMonkeyMainFrameRawInputListener implements RawInputListener {
 	
 	//method
 	@Override
-	public void onMouseMotionEvent(final MouseMotionEvent mouseMotionEvent) {}
+	public void onMouseMotionEvent(final MouseMotionEvent mouseMotionEvent) {
+		//Does nothing.
+	}
 	
 	//method
 	@Override
-	public void onTouchEvent(final TouchEvent touchEvent) {}
+	public void onTouchEvent(final TouchEvent touchEvent) {
+		//Does nothing.
+	}
 }

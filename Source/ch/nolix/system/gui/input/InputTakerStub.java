@@ -10,57 +10,85 @@ public class InputTakerStub implements IInputTaker {
 	
 	//method
 	@Override
-	public void noteKeyDown(final Key key) {}
+	public void noteKeyDown(final Key key) {
+		//Does nothing.
+	}
 	
 	//method
 	@Override
-	public void noteKeyRelease(final Key key) {}
+	public void noteKeyRelease(final Key key) {
+		//Does nothing.
+	}
 	
 	//method
 	@Override
-	public void noteKeyTyping(final Key key) {}
+	public void noteKeyTyping(final Key key) {
+		//Does nothing.
+	}
 	
 	//method
 	@Override
-	public void noteLeftMouseButtonClick() {}
+	public void noteLeftMouseButtonClick() {
+		//Does nothing.
+	}
 	
 	//method
 	@Override
-	public void noteLeftMouseButtonPress() {}
+	public void noteLeftMouseButtonPress() {
+		//Does nothing.
+	}
 	
 	//method
 	@Override
-	public void noteLeftMouseButtonRelease() {}
+	public void noteLeftMouseButtonRelease() {
+		//Does nothing.
+	}
 	
 	//method
 	@Override
-	public void noteMouseMove(final int cursorXPositionOnViewArea, final int cursorYPositionOnViewArea) {}
+	public void noteMouseMove(final int cursorXPositionOnViewArea, final int cursorYPositionOnViewArea) {
+		//Does nothing.
+	}
 	
 	//method
 	@Override
-	public void noteMouseWheelClick() {}
+	public void noteMouseWheelClick() {
+		//Does nothing.
+	}
 	
 	//method
 	@Override
-	public void noteMouseWheelPress() {}
+	public void noteMouseWheelPress() {
+		//Does nothing.
+	}
 	
 	//method
 	@Override
-	public void noteMouseWheelRelease() {}
+	public void noteMouseWheelRelease() {
+		//Does nothing.
+	}
 	
 	//method
 	@Override
-	public void noteMouseWheelRotationStep(final RotationDirection rotationDirection) {}
+	public void noteMouseWheelRotationStep(final RotationDirection rotationDirection) {
+		//Does nothing.
+	}
 	
 	//method
 	@Override
-	public void noteRightMouseButtonClick() {}
+	public void noteRightMouseButtonClick() {
+		//Does nothing.
+	}
 	
 	//method
 	@Override
-	public void noteRightMouseButtonPress() {}
+	public void noteRightMouseButtonPress() {
+		//Does nothing.
+	}
 	
 	//method
 	@Override
-	public void noteRightMouseButtonRelease() {}
+	public void noteRightMouseButtonRelease() {
+		//Does nothing.
+	}
 }

@@ -74,7 +74,9 @@ public final class DropdownMenu extends ItemMenu<DropdownMenu> {
 	
 	//method
 	@Override
-	protected void noteAddItem(final ItemMenuItem item) {}
+	protected void noteAddItem(final ItemMenuItem item) {
+		//Does nothing.
+	}
 
 	//method
 	@Override
@@ -84,7 +86,9 @@ public final class DropdownMenu extends ItemMenu<DropdownMenu> {
 	
 	//method
 	@Override
-	protected void noteLeftMouseButtonPressOnContentAreaWhenEnabled() {}
+	protected void noteLeftMouseButtonPressOnContentAreaWhenEnabled() {
+		//Does nothing.
+	}
 	
 	//method
 	@Override
@@ -94,7 +98,9 @@ public final class DropdownMenu extends ItemMenu<DropdownMenu> {
 	
 	//method
 	@Override
-	protected void paintContentArea(final IPainter painter, final ItemMenuLook itemMenuLook) {}
+	protected void paintContentArea(final IPainter painter, final ItemMenuLook itemMenuLook) {
+		//Does nothing.
+	}
 	
 	//method
 	@Override

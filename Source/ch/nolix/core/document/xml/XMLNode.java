@@ -23,9 +23,6 @@ public final class XMLNode implements OptionalNamable<XMLNode>, OptionalValueabl
 	private final LinkedList<XMLAttribute> attributes = new LinkedList<>();
 	private final LinkedList<XMLNode> childNodes = new LinkedList<>();
 	
-	//constructor
-	public XMLNode() {}
-		
 	//method
 	public XMLNode addAttribute(final String name, final String value) {
 		return addAttribute(new XMLAttribute(name, value));

@@ -23,7 +23,9 @@ public final class VoidPropertyFlyWeight implements IPropertyFlyWeight {
 	
 	//method
 	@Override
-	public void noteUpdate() {}
+	public void noteUpdate() {
+		//Does nothing.
+	}
 	
 	//method
 	@Override

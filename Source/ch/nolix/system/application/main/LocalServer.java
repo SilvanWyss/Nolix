@@ -13,12 +13,16 @@ public final class LocalServer extends BaseServer {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteAddedApplication(Application<?, ?> application) {}
+	protected void noteAddedApplication(Application<?, ?> application) {
+		//Does nothing.
+	}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteAddedDefaultApplication(Application<?, ?> defaultApplication2) {}
+	protected void noteAddedDefaultApplication(Application<?, ?> defaultApplication2) {
+		//Does nothing.
+	}
 }

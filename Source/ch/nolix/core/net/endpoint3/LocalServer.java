@@ -13,12 +13,16 @@ public final class LocalServer extends BaseServer {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteAddedDefaultEndPointTaker(final IEndPointTaker defaultEndPointTaker) {}
+	protected void noteAddedDefaultEndPointTaker(final IEndPointTaker defaultEndPointTaker) {
+		//Does nothing.
+	}
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteAddedEndPointTaker(final IEndPointTaker endPointTaker) {}
+	protected void noteAddedEndPointTaker(final IEndPointTaker endPointTaker) {
+		//Does nothing.
+	}
 }
