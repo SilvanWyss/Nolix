@@ -7,6 +7,7 @@ import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.application.baseguiapplication.BaseBackendGUIClient;
+import ch.nolix.system.application.main.Application;
 
 //class
 /**
