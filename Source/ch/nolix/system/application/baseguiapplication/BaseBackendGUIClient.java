@@ -17,6 +17,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.targetuniversalapi.IApplicationTarget;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
+import ch.nolix.system.application.main.Application;
 import ch.nolix.system.application.main.BackendClient;
 import ch.nolix.system.gui.base.GUI;
 import ch.nolix.system.gui.base.InvisibleGUI;
