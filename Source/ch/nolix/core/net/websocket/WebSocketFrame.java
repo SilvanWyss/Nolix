@@ -90,7 +90,7 @@ public final class WebSocketFrame {
 			
 			payload = inputStream.readNBytes((int)getPayloadLength());
 			
-			if (masksPayload()) {
+			if (maskingKey != null) {
 				for (var i = 0; i < payload.length; i++) {
 					payload[i] = ((byte)(payload[i] ^ maskingKey[i & 0x3]));
 				}
