@@ -5,7 +5,9 @@ package ch.nolix.system.objectschema.schemahelper;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.database.databaseobjecthelper.DatabaseObjectHelper;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IDatabase;
@@ -39,6 +41,11 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 	@Override
 	public void assertCanAddGivenTable(final IDatabase<?> database, final ITable<?> table) {
 		if (!canAddGivenTable(database, table)) {
+			
+			if (table == null) {
+				throw new ArgumentIsNullException(LowerCaseCatalogue.TABLE);
+			}
+			
 			throw new InvalidArgumentException(database, "cannot add the given table '" + table.getName() + "'");
 		}
 	}
