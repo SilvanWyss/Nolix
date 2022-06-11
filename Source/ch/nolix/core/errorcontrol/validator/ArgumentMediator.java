@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.core.errorcontrol.validator;
 
+//Java imports
+import java.util.Objects;
+
 //own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNotNullException;
@@ -83,7 +86,7 @@ public class ArgumentMediator<A> extends Mediator {
 	public final void isEqualTo(final A object) {
 		
 		//Asserts that the argument of the current ArgumentMediator equals the given object.
-		if ((argument == null && object != null) || !argument.equals(object)) {
+		if (!Objects.equals(getRefArgument(), object)) {
 			throw new UnequalArgumentException(argument, object);
 		}
 	}
@@ -110,7 +113,7 @@ public class ArgumentMediator<A> extends Mediator {
 	public final void isNotEqualTo(final A object) {
 		
 		//Asserts that the argument of the current ArgumentMediator does not equal the given object.
-		if ((argument == null && object == null) || argument.equals(object)) {
+		if (Objects.equals(getRefArgument(), object)) {
 			throw new EqualArgumentException(argument, object);
 		}
 	}
