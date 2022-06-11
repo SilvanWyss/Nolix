@@ -6,6 +6,8 @@ import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.math.Calculator;
 import ch.nolix.system.element.MutableOptionalValue;
@@ -873,7 +875,7 @@ extends Widget<BW, BWL> {
 	 * 
 	 * @param maxHeightInPercentOfGUIViewAreaHeight
 	 * @return the current {@link BorderWidget}.
-	 * @throws NonPositiveArgumentException if the given maxHeightInPercentOfGUIViewAreaHeight is not positive.
+	 * @throws NegativeArgumentException if the given maxHeightInPercentOfGUIViewAreaHeight is negative.
 	 */
 	public final BW setMaxHeightInPercentOfGUIViewAreaHeight(final double maxHeightInPercentOfGUIViewAreaHeight) {
 		
@@ -903,7 +905,7 @@ extends Widget<BW, BWL> {
 	 * 
 	 * @param maxWidthInPercentOfGUIViewAreaWidth
 	 * @return the current {@link BorderWidget}.
-	 * @throws InvalidArgumentException if the given maxWidthInPercentOfGUIViewAreaWidth is not positive.
+	 * @throws NegativeArgumentException if the given maxWidthInPercentOfGUIViewAreaWidth is negative.
 	 */
 	public final BW setMaxWidthInPercentOfGUIViewAreaWidth(final double maxWidthInPercentOfGUIViewAreaWidth) {
 		
@@ -932,6 +934,7 @@ extends Widget<BW, BWL> {
 	 * 
 	 * @param minHeightInPercentOfGUIViewAreaHeight
 	 * @return the current {@link BorderWidget}.
+	 * @throws NegativeArgumentException if the given minHeightInPercentOfGUIViewAreaHeight is negative.
 	 */
 	public final BW setMinHeightInPercentOfGUIViewAreaHeight(final double minHeightInPercentOfGUIViewAreaHeight) {
 		
@@ -960,6 +963,7 @@ extends Widget<BW, BWL> {
 	 * 
 	 * @param minWidthInPercentOfGUIViewAreaWidth
 	 * @return the current {@link BorderWidget}.
+	 * @throws NegativeArgumentException if the given minWidthInPercentOfGUIViewAreaWidth is negative.
 	 */
 	public final BW setMinWidthInPercentOfGUIViewAreaWidth(final double minWidthInPercentOfGUIViewAreaWidth) {
 		
@@ -989,7 +993,7 @@ extends Widget<BW, BWL> {
 	 * 
 	 * @param proposalHeightInPercentOfGUIViewAreaHeight
 	 * @return the current {@link BorderWidget}.
-	 * @throws InvalidArgumentException if the given proposalHeightInPercentOfGUIViewAreaHeight is not positive.
+	 * @throws NegativeArgumentException if the given proposalHeightInPercentOfGUIViewAreaHeight is negative.
 	 */
 	public final BW setProposalHeightInPercentOfGUIViewAreaHeight(
 		final double proposalHeightInPercentOfGUIViewAreaHeight
@@ -1006,7 +1010,7 @@ extends Widget<BW, BWL> {
 	 * 
 	 * @param proposalWidth
 	 * @return the current {@link BorderWidget}.
-	 * @throws InvalidArgumentException if the given proposal width is not positive.
+	 * @throws InvalidArgumentException if the given proposalWidth is not positive.
 	 */
 	public final BW setProposalWidth(final int proposalWidth) {
 		
@@ -1021,7 +1025,7 @@ extends Widget<BW, BWL> {
 	 * 
 	 * @param proposalWidthInPercentOfGUIViewAreaWidth
 	 * @return the current {@link BorderWidget}.
-	 * @throws InvalidArgumentException if the given proposalWidthInPercentOfGUIViewAreaWidth is not positive.
+	 * @throws NegativeArgumentException if the given proposalWidthInPercentOfGUIViewAreaWidth is negative.
 	 */
 	public final BW setProposalWidthInPercentOfGUIViewAreaWidth(
 		final double proposalWidthInPercentOfGUIViewAreaWidth

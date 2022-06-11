@@ -10,6 +10,8 @@ import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.systemapi.elementapi.mainuniversalapi.Specified;
 
 //class
@@ -61,6 +63,7 @@ public final class IntOrPercentageHolder implements Specified {
 	/**
 	 * @param percentage
 	 * @return a new {@link IntOrPercentageHolder} with the given percentage.
+	 * @throws NegativeArgumentException if the given percentage is negative.
 	 */
 	public static IntOrPercentageHolder withPercentage(final double percentage) {
 		return new IntOrPercentageHolder(percentage);
@@ -83,8 +86,12 @@ public final class IntOrPercentageHolder implements Specified {
 	 * Creates a new {@link IntOrPercentageHolder} with the given percentage.
 	 * 
 	 * @param percentage
+	 * @throws NegativeArgumentException if the given percentage is negative.
 	 */
 	private IntOrPercentageHolder(final double percentage) {
+		
+		GlobalValidator.assertThat(percentage).thatIsNamed(LowerCaseCatalogue.PERCENTAGE).isNotNegative();
+		
 		hasIntValue = false;
 		intValue = 0;
 		this.percentage = percentage;
