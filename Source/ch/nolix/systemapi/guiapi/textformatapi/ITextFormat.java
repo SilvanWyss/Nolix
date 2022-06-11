@@ -14,7 +14,7 @@ public interface ITextFormat extends Specified {
 	//method declaration
 	/**
 	 * @param text
-	 * @return the width of the given text when the current {@link TextFormat} would be applied to it.
+	 * @return the width of the given text when the current {@link ITextFormat} would be applied to it.
 	 */
 	int getSwingTextWidth(String text);
 	
@@ -31,7 +31,7 @@ public interface ITextFormat extends Specified {
 	
 	//method declaration
 	/**
-	 * Lets the current {@link TextFormat} paint the given text at the given position using the given graphics.
+	 * Lets the current {@link ITextFormat} paint the given text at the given position using the given graphics.
 	 * Will paint only the first part of the given text, that is not longer than the given maxWidth.
 	 * 
 	 * @param graphics
