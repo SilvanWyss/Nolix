@@ -30,6 +30,7 @@ public final class FrontendGUIClient extends BaseFrontendGUIClient<FrontendGUICl
 	 * Creates a new {@link FrontendGUIClient} that will connect to the given application.
 	 * 
 	 * @param application
+	 * @param <AC> is the type of the context of the given application.
 	 * @throws ArgumentIsNullException if the given application is null.
 	 */
 	public <AC> FrontendGUIClient(final Application<BackendGUIClient<AC>, AC> application) {
