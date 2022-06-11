@@ -59,14 +59,14 @@ Recalculable {
 	//method declaration
 	/**
 	 * @return the {@link IWidgetGUI} the current {@link ILayer} belongs to.
-	 * @throws Exception if the current {@link ILayer} does not belong to a {@link IWidgetGUI}.
+	 * @throws RuntimeException if the current {@link ILayer} does not belong to a {@link IWidgetGUI}.
 	 */
 	IWidgetGUI<?> getParentGUI();
 	
 	//method declaration
 	/**
 	 * @return the root {@link IWidget} of the current {@link ILayer}.
-	 * @throws Exception if the current {@link ILayer} does not have a root {@link IWidget}.
+	 * @throws RuntimeException if the current {@link ILayer} does not have a root {@link IWidget}.
 	 */
 	IWidget<?, ?> getRefRootWidget();
 		
