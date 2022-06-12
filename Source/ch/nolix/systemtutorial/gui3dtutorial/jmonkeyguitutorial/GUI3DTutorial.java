@@ -30,7 +30,7 @@ public final class GUI3DTutorial {
 	}
 	
 	/**
-	 * Avoids that an instance of this class can be created.
+	 * Prevents that an instance of the {@link GUI3DTutorial} can be created.
 	 */
 	private GUI3DTutorial() {}
 }

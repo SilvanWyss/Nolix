@@ -447,7 +447,7 @@ public final class Calculator {
 	
 	//constructor
 	/**
-	 * Avoids that an instance of this class can be instantiated.
+	 * Prevents that an instance of the {@link Calculator} can be created.
 	 */
 	private Calculator() {}
 }

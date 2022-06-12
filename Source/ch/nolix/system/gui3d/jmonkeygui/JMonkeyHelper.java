@@ -24,7 +24,7 @@ public final class JMonkeyHelper {
 
 	//constructor
 	/**
-	 * Avoids that an instance of this class can be created.
+	 * Prevents that an instance of the {@link JMonkeyHelper} can be created.
 	 */
 	private JMonkeyHelper() {}
 }

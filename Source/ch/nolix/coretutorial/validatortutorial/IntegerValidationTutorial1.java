@@ -26,7 +26,7 @@ public final class IntegerValidationTutorial1 {
 	}
 	
 	/**
-	 * Avoids that an instance of this class can be created.
+	 * Prevents that an instance of the {@link IntegerValidationTutorial} can be created.
 	 */
 	private IntegerValidationTutorial1() {}
 }

@@ -39,7 +39,7 @@ public final class IterableHelper {
 	
 	//constructor
 	/**
-	 * Avoids that an instance of this class can be created.
+	 * Prevents that an instance of the {@link IterableHelper} can be created.
 	 */
 	private IterableHelper() {}
 }
