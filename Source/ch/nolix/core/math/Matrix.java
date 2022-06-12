@@ -1108,7 +1108,7 @@ public final class Matrix implements ApproximativeEqualing {
 	//method
 	/** 
 	 * @param lineIndex
-	 * @return true if the line with the given index of this {@link Matrix}
+	 * @return true if the line with the given index of the current {@link Matrix}
 	 * allows to the current {@link Matrix} to be a identity {@link Matrix}.
 	 */
 	private boolean canBeLineInIdentityMatrix(final int lineIndex) {

@@ -48,7 +48,7 @@ public final class SequencePatternNextMediator<E> {
 	 * Adds a blank condition for the next elements
 	 * of the sequences of the {@link SequencePattern} of the current {@link SequencePatternNextMediator}.
 	 * 
-	 * @return the sequence pattern of this {@link SequencePatternNextMediator}.
+	 * @return the sequence pattern of the current {@link SequencePatternNextMediator}.
 	 */
 	public SequencePattern<E> addBlank() {
 		

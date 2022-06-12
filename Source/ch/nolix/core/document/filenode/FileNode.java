@@ -196,7 +196,7 @@ public final class FileNode extends BaseNode {
 	
 	//method
 	/**
-	 * Sets the header of this {@link FileNode}.
+	 * Sets the header of the current {@link FileNode}.
 	 * 
 	 * @param header
 	 * @return the current {@link FileNode}.

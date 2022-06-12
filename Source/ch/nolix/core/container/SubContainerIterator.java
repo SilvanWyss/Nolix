@@ -63,7 +63,7 @@ final class SubContainerIterator<E> implements Iterator<E> {
 
 	//method
 	/**
-	 * @return the next element of this {@link SubContainerIterator}.
+	 * @return the next element of the current {@link SubContainerIterator}.
 	 * @throws ArgumentDoesNotHaveAttributeException
 	 * if the current {@link SubContainerIterator} does not have a next element.
 	 */

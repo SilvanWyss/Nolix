@@ -47,7 +47,7 @@ public final class Pair<E1, E2> {
 	
 	//method
 	/**
-	 * @return the element 1 of this {@link Pair}.
+	 * @return the element 1 of the current {@link Pair}.
 	 */
 	public E1 getRefElement1() {
 		return element1;
@@ -55,7 +55,7 @@ public final class Pair<E1, E2> {
 	
 	//method
 	/**
-	 * @return the element 2 of this {@link Pair}.
+	 * @return the element 2 of the current {@link Pair}.
 	 */
 	public E2 getRefElement2() {
 		return element2;
@@ -81,7 +81,7 @@ public final class Pair<E1, E2> {
 	
 	//method
 	/**
-	 * @return a {@link String} representation of this {@link Pair}.
+	 * @return a {@link String} representation of the current {@link Pair}.
 	 */
 	@Override
 	public String toString() {
