@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemtest.elementenumtest;
+package ch.nolix.systemtest.guitest.structurepropertytest;
 
 //own imports
 import ch.nolix.core.testing.basetest.TestPool;
@@ -9,13 +9,13 @@ import ch.nolix.core.testing.basetest.TestPool;
  * @author Silvan Wyss
  * @date 2017-09-16
  */
-public final class ElementEnumTestPool extends TestPool {
-
+public final class StructurePropertyTestPool extends TestPool {
+	
 	//constructor
 	/**
-	 * Creates a new {@link ElementEnumTestPool}.
+	 * Creates a new {@link StructurePropertyTestPool}.
 	 */
-	public ElementEnumTestPool() {
+	public StructurePropertyTestPool() {
 		super(DirectionInRectangleTest.class);
 	}
 }

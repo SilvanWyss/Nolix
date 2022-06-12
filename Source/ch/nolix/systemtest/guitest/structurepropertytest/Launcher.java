@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemtest.elementenumtest;
+package ch.nolix.systemtest.guitest.structurepropertytest;
 
 //class
 /**
@@ -12,12 +12,12 @@ public final class Launcher {
 	
 	//main method
 	/**
-	 * Creates a new {@link ElementEnumTestPool} and runs it.
+	 * Creates a new {@link StructurePropertyTestPool} and runs it.
 	 * 
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		new ElementEnumTestPool().run();
+		new StructurePropertyTestPool().run();
 	}
 	
 	//constructor

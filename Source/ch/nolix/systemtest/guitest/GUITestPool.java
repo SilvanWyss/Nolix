@@ -7,6 +7,7 @@ import ch.nolix.systemtest.guitest.basetest.BaseTestPool;
 import ch.nolix.systemtest.guitest.colortest.ColorTestPool;
 import ch.nolix.systemtest.guitest.containerwidgettest.ContainerWidgetTestPool;
 import ch.nolix.systemtest.guitest.imagetest.ImageTestPool;
+import ch.nolix.systemtest.guitest.structurepropertytest.StructurePropertyTestPool;
 import ch.nolix.systemtest.guitest.widgettest.WidgetTestPool;
 
 //class
@@ -19,6 +20,7 @@ public final class GUITestPool extends TestPool {
 			new ColorTestPool(),
 			new ContainerWidgetTestPool(),
 			new ImageTestPool(),
+			new StructurePropertyTestPool(),
 			new WidgetTestPool()
 		);
 	}
