@@ -40,7 +40,7 @@ final class OneTypeElementFactory<E> {
 	public <ME extends IMutableElement<ME>> OneTypeElementFactory(final Class<ME> elementClass) {
 		this(
 			(Class<E>)elementClass,
-			s -> {
+			(final BaseNode s) -> {
 				
 				final var element = createElementOf(elementClass);
 				element.resetFromSpecification(s);

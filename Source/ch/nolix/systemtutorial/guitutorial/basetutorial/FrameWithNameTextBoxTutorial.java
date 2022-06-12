@@ -52,7 +52,7 @@ public final class FrameWithNameTextBoxTutorial {
 		//Sets actions to the Buttons.
 		returnButton.setLeftMouseButtonPressAction(b -> b.getParentLayer().removeSelfFromGUI());
 		confirmButton.setLeftMouseButtonPressAction(
-			b -> {
+			(final Button b) -> {
 				
 				if (nameTextBox.getText().isBlank()) {
 					nameLabel.setText("Please enter a name.");

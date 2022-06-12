@@ -98,7 +98,7 @@ extends Widget<BW, BWL> {
 	new MutableValue<>(
 		AUTOMATIC_SIZE_HEADER,
 		DEFAULT_AUTOMATIC_SIZE_STATE,
-		as -> {
+		(final Boolean as) -> {
 			if (as.booleanValue()) {
 				activateAutomaticSize();
 			} else {

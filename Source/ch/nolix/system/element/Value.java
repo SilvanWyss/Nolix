@@ -57,7 +57,8 @@ public final class Value<V> extends SingleValue<V> {
 			name,
 			setterMethod,
 			s -> s.getRefOneAttribute().getHeaderOrEmptyString(),
-			s -> {
+			(final String s) -> {
+				
 				if (s.isEmpty()) {
 					return new Node();
 				}

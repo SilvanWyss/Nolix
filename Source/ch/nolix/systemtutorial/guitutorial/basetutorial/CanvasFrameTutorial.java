@@ -39,7 +39,7 @@ public final class CanvasFrameTutorial {
 		@SuppressWarnings("unchecked")
 		final IContainer<IElementTaker<PaintRun>> paintCommands =
 		LinkedList.withElements(
-			pr -> {
+			(final PaintRun pr) -> {
 				final var painter = pr.getRefPainterByIndex(1);
 				painter.setColorGradient(new ColorGradient(DirectionInRectangle.VERTICAL, Color.BLUE, Color.MIDNIGHT_BLUE));
 				painter.paintFilledRectangle(canvasFrame.getViewAreaWidth(), canvasFrame.getViewAreaHeight());

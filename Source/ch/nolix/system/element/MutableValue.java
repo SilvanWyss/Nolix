@@ -99,7 +99,8 @@ public final class MutableValue<V> extends SingleValue<V> {
 			defaultValue,
 			setterMethod,
 			s -> s.getRefOneAttribute().getHeaderOrEmptyString(),
-			s -> {
+			(final String s) -> {
+				
 				if (s.isEmpty()) {
 					return new Node();
 				}

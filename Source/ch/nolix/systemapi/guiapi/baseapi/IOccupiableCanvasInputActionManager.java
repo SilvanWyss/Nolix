@@ -20,7 +20,7 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 		
 		return
 		setLeftMouseButtonClickAction(
-			ociam -> {
+			(final OCIAM ociam) -> {
 				if (freeAreaIsUnderCursor()) {
 					leftMouseButtonClickAction.run(ociam);
 				}
@@ -45,7 +45,7 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 		
 		return
 		setLeftMouseButtonPressAction(
-			ociam -> {
+			(final OCIAM ociam) -> {
 				if (freeAreaIsUnderCursor()) {
 					leftMouseButtonPressAction.run(ociam);
 				}
@@ -62,7 +62,7 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 		
 		return
 		setLeftMouseButtonReleaseAction(
-			ociam ->  {
+			(final OCIAM ociam) -> {
 				if (freeAreaIsUnderCursor()) {
 					leftMouseButtonReleaseAction.run(ociam);
 				}
@@ -77,7 +77,7 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 		
 		return
 		setMouseMoveAction(
-			ociam -> {
+			(final OCIAM ociam) -> {
 				if (freeAreaIsUnderCursor()) {
 					mouseMoveAction.run(ociam);
 				}
@@ -94,7 +94,7 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 		
 		return
 		setMouseWheelClickAction(
-			ociam -> {
+			(final OCIAM ociam) -> {
 				if (freeAreaIsUnderCursor()) {
 					mouseWheelClickAction.run(ociam);
 				}
@@ -111,7 +111,7 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 		
 		return
 		setMouseWheelPressAction(
-			ociam -> {
+			(final OCIAM ociam) -> {
 				if (freeAreaIsUnderCursor()) {
 					mouseWheelPressAction.run(ociam);
 				}
@@ -128,7 +128,7 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 		
 		return
 		setMouseWheelReleaseAction(
-			ociam ->  {
+			(final OCIAM ociam) -> {
 				if (freeAreaIsUnderCursor()) {
 					mouseWheelReleaseAction.run(ociam);
 				}
@@ -145,7 +145,7 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 		
 		return
 		setRightMouseButtonClickAction(
-			ociam -> {
+			(final OCIAM ociam) -> {
 				if (freeAreaIsUnderCursor()) {
 					rightMouseButtonClickAction.run(ociam);
 				}
@@ -162,7 +162,7 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 		
 		return
 		setRightMouseButtonPressAction(
-			ociam -> {
+			(final OCIAM ociam) -> {
 				if (freeAreaIsUnderCursor()) {
 					rightMouseButtonPressAction.run(ociam);
 				}
@@ -182,7 +182,7 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 		
 		return
 		setRightMouseButtonReleaseAction(
-			ociam ->  {
+			(final OCIAM ociam) -> {
 				if (freeAreaIsUnderCursor()) {
 					rightMouseButtonReleaseAction.run(ociam);
 				}

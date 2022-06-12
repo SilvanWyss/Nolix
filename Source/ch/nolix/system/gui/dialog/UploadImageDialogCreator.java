@@ -63,7 +63,7 @@ public final class UploadImageDialogCreator {
 					.setRole(ButtonRole.CONFIRM_BUTTON)
 					.setText("Select")
 					.setLeftMouseButtonPressAction(
-						b -> {
+						(final Button b) -> {
 							
 							b.getParentLayer().removeSelfFromGUI();
 							

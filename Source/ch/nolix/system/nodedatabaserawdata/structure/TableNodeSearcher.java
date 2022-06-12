@@ -58,7 +58,7 @@ public final class TableNodeSearcher {
 	) {
 		return
 		tableNode.containsAttribute(
-			a -> {
+			(final BaseNode a) -> {
 				
 				if (!a.hasHeader(SubNodeHeaderCatalogue.RECORD)) {
 					return false;

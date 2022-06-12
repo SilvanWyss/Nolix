@@ -44,7 +44,7 @@ public final class YesNoDialogCreator {
 				.setRole(ButtonRole.CONFIRM_BUTTON)
 				.setText("Yes")
 				.setLeftMouseButtonPressAction(
-					b -> {
+					(final Button b) -> {
 						b.getParentLayer().removeSelfFromGUI();
 						confirmAction.run();
 					}

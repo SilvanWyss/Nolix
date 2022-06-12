@@ -194,7 +194,8 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 		
 		switch (attributes.getElementCount()) {
 			case 2:
-				return pr -> {
+				return
+				(final PaintRun pr) -> {
 					
 					final var painter =
 					pr.getRefPainterByIndex(painterIndex).createPainter(xTranslation, yTranslation);
@@ -207,7 +208,7 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 				final var paintAreaHeight = attributes.getRefAt(4).toInt();
 				
 				return
-				pr -> {
+				(final PaintRun pr) -> {
 					
 					final var painter = pr.getRefPainterByIndex(painterIndex).createPainter(
 						xTranslation,
