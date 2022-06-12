@@ -996,7 +996,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	/**
 	 * The complexity of this implementation is O(n) if the current {@link LinkedList} contains n elements.
 	 * 
-	 * @return a string representation of the current {@link LinkedList}.
+	 * @return a {@link String} representation of the current {@link LinkedList}.
 	 */
 	@Override
 	public String toString() {

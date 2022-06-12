@@ -2023,7 +2023,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param separator
-	 * @return a String representation the current {@link IContainer} using the given separator.
+	 * @return a {@link String} representation the current {@link IContainer} using the given separator.
 	 */
 	default String toString(final char separator) {
 		return toString(String.valueOf(separator));
@@ -2034,7 +2034,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param separator
-	 * @return a String representation of the current {@link IContainer} using the given separator.
+	 * @return a {@link String} representation of the current {@link IContainer} using the given separator.
 	 * @throws ArgumentIsNullException if the given separator is null.
 	 */
 	default String toString(final String separator) {

@@ -172,7 +172,7 @@ public final class CentralArrayHelper {
 	//method
 	/**
 	 * @param values
-	 * @return a string representation of the given values.
+	 * @return a {@link String} representation of the given values.
 	 * @throws IllegalArgumentException if the given values is null.
 	 */
 	public static String createString(final double[] values) {
@@ -199,7 +199,7 @@ public final class CentralArrayHelper {
 	//static method
 	/**
 	 * @param values
-	 * @return a string representation of the given values.
+	 * @return a {@link String} representation of the given values.
 	 * @throws IllegalArgumentException if the given values is null.
 	 */
 	public static String createString(final int[] values) {
@@ -226,7 +226,7 @@ public final class CentralArrayHelper {
 	//method
 	/**
 	 * @param values
-	 * @return a string representation of the given values.
+	 * @return a {@link String} representation of the given values.
 	 * @throws IllegalArgumentException if the given values is null.
 	 */
 	public static String createString(final long[] values) {

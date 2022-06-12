@@ -653,7 +653,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable {
 	 * -The current {@link Matrix} contains n elements.
 	 * -The toString method of the elements of the current {@link Matrix} has a complexity of O(1).
 	 * 
-	 * @return a string representation of the current {@link Matrix}.
+	 * @return a {@link String} representation of the current {@link Matrix}.
 	 */
 	@Override
 	public String toString() {

@@ -88,7 +88,7 @@ final class ArrayReadContainer<E> implements IContainer<E> {
 	 * The complexity of this implementation is O(n).
 	 * if the current {@link ArrayReadContainer} contains n elements.
 	 * 
-	 * @return a String representation of the current {@link ArrayReadContainer}.
+	 * @return a {@link String} representation of the current {@link ArrayReadContainer}.
 	 */
 	@Override
 	public String toString() {

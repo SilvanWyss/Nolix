@@ -1041,7 +1041,7 @@ public final class Matrix implements ApproximativeEqualing {
 	
 	//method
 	/**
-	 * @return a string representation of this object
+	 * @return a {@link String} representation of this object
 	 */
 	@Override
 	public String toString() {

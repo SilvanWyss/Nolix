@@ -81,7 +81,7 @@ public final class Pair<E1, E2> {
 	
 	//method
 	/**
-	 * @return a string representation of this {@link Pair}.
+	 * @return a {@link String} representation of this {@link Pair}.
 	 */
 	@Override
 	public String toString() {

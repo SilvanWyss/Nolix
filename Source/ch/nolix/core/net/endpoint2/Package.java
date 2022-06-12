@@ -62,7 +62,7 @@ final class Package extends ch.nolix.core.net.messaging.IndexedPackage<String> {
 	
 	//method
 	/**
-	 * @return a string representation of this zeta package.
+	 * @return a {@link String} representation of this zeta package.
 	 */
 	@Override
 	public String toString() {

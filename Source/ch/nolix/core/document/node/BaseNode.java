@@ -483,7 +483,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	//method
 	/**
 	 * @param header
-	 * @return a string representation
+	 * @return a {@link String} representation
 	 * of the one attribute of the first attribute with the given header of the current {@link Node}.
 	 */
 	public String getRefOneAttributeOfFirstAttributeAsString(String header) {
@@ -691,7 +691,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	
 	//method
 	/**
-	 * @return a formated string representation of the current {@link BaseNode}.
+	 * @return a formated {@link String} representation of the current {@link BaseNode}.
 	 */
 	public String toFormatedString() {
 		return toFormatedString(0);
@@ -732,7 +732,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	
 	//method
 	/**
-	 * @return a string representation of the current {@link BaseNode}.
+	 * @return a {@link String} representation of the current {@link BaseNode}.
 	 */
 	@Override
 	public String toString() {
@@ -847,7 +847,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	//method
 	/**
 	 * @param leadingTabulators
-	 * @return a formated string representation of the current {@link BaseNode}
+	 * @return a formated {@link String} representation of the current {@link BaseNode}
 	 * with as many leading tabulators as the given leading tabulator count says.
 	 */
 	private String toFormatedString(final int leadingTabulators) {
