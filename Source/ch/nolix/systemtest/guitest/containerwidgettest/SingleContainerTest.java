@@ -8,12 +8,6 @@ import ch.nolix.system.gui.widget.Label;
 import ch.nolix.system.gui.widget.Widget;
 
 //class
-/**
- * The {@link SingleContainerTest} is a test for {@link SingleContainer}.
- * 
- * @author Silvan Wyss
- * @date 2019-01-01
- */
 public class SingleContainerTest extends ContainerWidgetTest<SingleContainer> {
 	
 	//method

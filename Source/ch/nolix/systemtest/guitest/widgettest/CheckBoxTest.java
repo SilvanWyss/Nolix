@@ -6,12 +6,6 @@ import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.system.gui.widget.CheckBox;
 
 //class
-/**
- * A {@link CheckBoxTest} is a test for {@link CheckBox}.
- * 
- * @author Silvan Wyss
- * @date 2017-03-12
- */
 public final class CheckBoxTest extends WidgetTest<CheckBox> {
 	
 	//method

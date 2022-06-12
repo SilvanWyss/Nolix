@@ -7,12 +7,6 @@ import ch.nolix.core.testing.test.Test;
 import ch.nolix.system.gui.color.Color;
 
 //class
-/**
- * A {@link ColorTest} is a test for {@link Color}s.
- * 
- * @author Silvan Wyss
- * @date 2016-01-01
- */
 public final class ColorTest extends Test {
 	
 	//method

@@ -7,12 +7,6 @@ import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.widget.Area;
 
 //class
-/**
- * A {@link AreaTest} is a test for {@link Area}.
- * 
- * @author Silvan Wyss
- * @date 2016-07-01
- */
 public final class AreaTest extends WidgetTest<Area> {
 	
 	//method

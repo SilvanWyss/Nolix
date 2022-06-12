@@ -7,12 +7,6 @@ import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 
 //class
-/**
- * A {@link CalculatorTest} is a {@link Test} for the {@link Calculator}.
- * 
- * @author Silvan Wyss
- * @date 2016-09-01
- */
 public final class CalculatorTest extends Test {
 	
 	//method

@@ -10,13 +10,6 @@ import ch.nolix.system.gui.widget.BorderWidget;
 import ch.nolix.system.gui.widget.WidgetLookState;
 
 //class
-/**
- * A {@link BorderWidgetTest} is a test for {@link BorderWidget}s.
- * 
- * @author Silvan Wyss
- * @date 2018-12-11
- * @param <BW> is the type of the {@link BorderWidget}s of a {@link BorderWidgetTest}.
- */
 public abstract class BorderWidgetTest<BW extends BorderWidget<BW, ?>> extends WidgetTest<BW> {
 	
 	//method

@@ -10,12 +10,6 @@ import ch.nolix.system.gui.widget.Label;
 import ch.nolix.system.gui.widget.Widget;
 
 //class
-/**
- * A {@link VerticalStackTest} is a test for {@link VerticalStack}.
- * 
- * @author Silvan Wyss
- * @date 2016-07-01
- */
 public final class VerticalStackTest extends ContainerWidgetTest<VerticalStack> {
 	
 	//method

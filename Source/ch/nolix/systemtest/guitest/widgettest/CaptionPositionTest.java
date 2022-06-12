@@ -7,12 +7,6 @@ import ch.nolix.core.testing.test.Test;
 import ch.nolix.system.gui.widget.CaptionPosition;
 
 //class
-/**
- * A {@link CaptionPositionTest} is a test for {@link CaptionPosition}.
- * 
- * @author Silvan Wyss
- * @date 2019-01-01
- */
 public final class CaptionPositionTest extends Test {
 	
 	//method

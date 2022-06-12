@@ -9,12 +9,6 @@ import ch.nolix.system.gui.containerwidget.AccordionTab;
 import ch.nolix.system.gui.widget.Widget;
 
 //class
-/**
- * A {@link AccordionTest} is a test for {@link Accordion}.
- * 
- * @author Silvan Wyss
- * @date 2018-09-11
- */
 public final class AccordionTest extends ContainerWidgetTest<Accordion> {
 	
 	//method

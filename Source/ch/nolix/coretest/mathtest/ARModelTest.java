@@ -7,12 +7,6 @@ import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 
 //class
-/**
- * A {@link ARModelTest} is a test for {@link ARModel}s.
- * 
- * @author Silvan Wyss
- * @date 2016-08-01
- */
 public final class ARModelTest extends Test {
 
 	//method

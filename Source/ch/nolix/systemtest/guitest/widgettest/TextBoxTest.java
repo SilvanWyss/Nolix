@@ -6,12 +6,6 @@ import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.system.gui.textbox.TextBox;
 
 //class
-/**
- * A {@link TextBoxTest} is a test for {@link TextBox}.
- * 
- * @author Silvan Wyss
- * @date 2016-09-01
- */
 public class TextBoxTest extends BorderWidgetTest<TextBox> {
 	
 	//method

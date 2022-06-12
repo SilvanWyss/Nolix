@@ -9,13 +9,6 @@ import ch.nolix.system.gui.base.InvisibleGUI;
 import ch.nolix.system.gui.widget.Widget;
 
 //class
-/**
- * A {@link WidgetTest} is a test for {@link Widget}s.
- * 
- * @author Silvan Wyss
- * @date 2018-09-11
- * @param <W> is the type of the {@link Widget}s of a {@link WidgetTest}.
- */
 public abstract class WidgetTest<W extends Widget<W, ?>> extends ObjectTest<W> {
 	
 	//method

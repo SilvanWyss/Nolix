@@ -8,13 +8,6 @@ import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 
 //class
-/** 
- * A sequencer test is a test for the sequencer class.
- * A sequencer test is not mutable.
- * 
- * @author Silvan Wyss
- * @date 2017-11-18
- */
 public final class GlobalSequencerTest extends Test {
 
 	//method

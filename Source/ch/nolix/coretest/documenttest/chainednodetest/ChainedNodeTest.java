@@ -8,12 +8,6 @@ import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 
 //class
-/**
- * A {@link ChainedNodeTest} is a test for {@link ChainedNode}s.
- * 
- * @author Silvan Wyss
- * @date 2016-01-01
- */
 public final class ChainedNodeTest extends Test {
 	
 	//method

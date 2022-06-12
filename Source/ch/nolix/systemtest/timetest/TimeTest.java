@@ -8,12 +8,6 @@ import ch.nolix.system.time.base.Time;
 import ch.nolix.systemapi.timeapi.timestructure.Weekday;
 
 //class
-/**
- * A {@link TimeTest} is a test for {@link Time}s.
- * 
- * @author Silvan Wyss
- * @date 2017-02-04
- */
 public final class TimeTest extends Test {
 	
 	//method

@@ -14,12 +14,6 @@ import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 
 //class
-/**
- * A {@link NetEndPointTest} is a test for {@link NetEndPoint}s.
- * 
- * @author Silvan Wyss
- * @date 2016-10-01
- */
 public final class NetEndPointTest extends Test {
 	
 	//static class

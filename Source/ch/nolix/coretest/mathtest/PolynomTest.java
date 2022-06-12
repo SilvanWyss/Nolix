@@ -7,12 +7,6 @@ import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 
 //class
-/**
- * A {@link PolynomTest} is a test for {@link Polynom}s.
- * 
- * @author Silvan Wyss
- * @date 2016-06-01
- */
 public final class PolynomTest extends Test {
 	
 	//method

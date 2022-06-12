@@ -8,12 +8,6 @@ import ch.nolix.system.gui.widget.Label;
 import ch.nolix.system.gui.widget.WidgetLookState;
 
 //class
-/**
- * A {@link LabelTest} is a test for {@link Label}s.
- * 
- * @author Silvan Wyss
- * @date 2016-01-01
- */
 public final class LabelTest extends BorderWidgetTest<Label> {
 	
 	//method

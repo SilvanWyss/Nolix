@@ -7,12 +7,6 @@ import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 
 //class
-/**
- * A {@link MatrixTest} is a test for {@link Matrix}es.
- * 
- * @author Silvan Wyss
- * @date 2016-07-01
- */
 public final class MatrixTest extends Test {
 	
 	//method

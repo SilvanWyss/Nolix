@@ -11,12 +11,6 @@ import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 
 //class
-/**
- * A {@link LinkedListTest} is a test for {@link LinkedList}s.
- * 
- * @author Silvan Wyss
- * @date 2016-01-01
- */
 public final class LinkedListTest extends Test {
 	
 	//method
