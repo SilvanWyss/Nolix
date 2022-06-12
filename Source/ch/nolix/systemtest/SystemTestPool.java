@@ -6,7 +6,6 @@ import ch.nolix.core.testing.basetest.TestPool;
 import ch.nolix.systemtest.databaseapplicationtest.DatabaseApplicationTestPool;
 import ch.nolix.systemtest.formatelementtest.FormatElementTestPool;
 import ch.nolix.systemtest.guitest.GUITestPool;
-import ch.nolix.systemtest.guitest.structurepropertytest.StructurePropertyTestPool;
 import ch.nolix.systemtest.objectdatatest.ObjectDataTestPool;
 import ch.nolix.systemtest.objectschematest.ObjectSchemaTestPool;
 import ch.nolix.systemtest.timetest.TimeTestPool;
