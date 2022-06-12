@@ -49,7 +49,7 @@ import ch.nolix.systemapi.guiapi.widgetguiapi.IWidgetGUI;
 //class
 /**
  * A {@link Layer} can have:
- * -a background {@link Color} or background {@ColorGradient}
+ * -a background {@link Color} or background {@link ColorGradient}
  * -a root {@link Widget}
  * 
  * A {@link Layer} can belong to a {@link WidgetGUI}.
@@ -277,7 +277,8 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 	//method
 	/**
 	 * @return the background {@link Color} of the current {@link Layer}.
-	 * @throws ArgumentDoesNotHaveAttributeException if the current {@Layer} does not have a background {@link Color}.
+	 * @throws ArgumentDoesNotHaveAttributeException if
+	 * the current {@link Layer} does not have a background {@link Color}.
 	 */
 	public IColor getBackgroundColor() {
 		return background.getValue().getColor();
@@ -287,7 +288,7 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 	/**
 	 * @return the background {@link ColorGradient} of the current {@link Layer}.
 	 * @throws ArgumentDoesNotHaveAttributeException if
-	 * the current {@Layer} does not have a background {@link ColorGradient}.
+	 * the current {@link Layer} does not have a background {@link ColorGradient}.
 	 */
 	public IColorGradient getBackgroundColorGradient() {
 		return background.getValue().getColorGradient();
@@ -296,7 +297,7 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 	//method
 	/**
 	 * @return the background {@link MutableImage} of the current {@link Layer}.
-	 * @throws ArgumentDoesNotHaveAttributeException if the current {@Layer} does not have a background {@link MutableImage}.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link Layer} does not have a background {@link MutableImage}.
 	 */
 	public IImage getBackgroundImage() {
 		return background.getValue().getImage();

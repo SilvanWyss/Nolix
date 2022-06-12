@@ -4,7 +4,7 @@ package ch.nolix.core.skilluniversalapi;
 //interface
 /**
  * A {@link Recalculable} can be recalculated.
- * This means that the state of a {@Recalculable} can (!) be updated after several parameters have been reset.
+ * This means that the state of a {@link Recalculable} can (!) be updated after several parameters have been reset.
  * 
  * There is a difference between a {@link Recalculable} and a {@link Refreshable}.
  * 

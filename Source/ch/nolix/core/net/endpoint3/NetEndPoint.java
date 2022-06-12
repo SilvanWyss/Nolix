@@ -26,7 +26,7 @@ import ch.nolix.core.programcontrol.groupcloseable.GroupCloseable;
  * A {@link NetEndPoint} can interact with another {@link NetEndPoint}.
  * 
  * @author Silvan Wyss
- * @ate 2016-01-01
+ * @date 2016-01-01
  */
 public class NetEndPoint extends EndPoint {
 	

@@ -53,7 +53,7 @@ public final class Future implements IFuture {
 	
 	//method
 	/**
-	 * @return the number of finished jobs of the current {@IFuture}.
+	 * @return the number of finished jobs of the current {@link IFuture}.
 	 */
 	public int getFinishedJobCount() {
 		return jobRunner.getFinishedJobCount();

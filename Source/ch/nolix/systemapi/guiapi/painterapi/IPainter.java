@@ -81,7 +81,7 @@ public interface IPainter {
 	
 	//method declaration
 	/**
-	 * @return the {@linker IPainter} the current {@link IPainter} descends from.
+	 * @return the {@link IPainter} the current {@link IPainter} descends from.
 	 * @throws RuntimeException if the current {link IPainter} does not descend from another {@link IPainter}.
 	 */
 	IPainter getParentPainter();

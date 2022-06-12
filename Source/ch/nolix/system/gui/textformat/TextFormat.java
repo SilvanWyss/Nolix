@@ -363,7 +363,7 @@ public final class TextFormat implements ITextFormat {
 	
 	//method
 	/**
-	 * @return true if the current {@TextFormat} is bold.
+	 * @return true if the current {@link TextFormat} is bold.
 	 */
 	public boolean isBold() {
 		return bold;
@@ -371,7 +371,7 @@ public final class TextFormat implements ITextFormat {
 	
 	//method
 	/**
-	 * @return true if the current {@TextFormat} is italic.
+	 * @return true if the current {@link TextFormat} is italic.
 	 */
 	public boolean isItalic() {
 		return italic;

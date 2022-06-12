@@ -294,7 +294,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	/**
 	 * @return the background {@link Color} of the current {@link WidgetGUI}.
 	 * @throws ArgumentDoesNotHaveAttributeException if
-	 * the current {@WidgetGUI} does not have a background {@link Color}.
+	 * the current {@link WidgetGUI} does not have a background {@link Color}.
 	 */
 	public final IColor getBackgroundColor() {
 		return background.getBackgroundColor();
@@ -304,7 +304,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	/**
 	 * @return the background {@link ColorGradient} of the current {@link WidgetGUI}.
 	 * @throws ArgumentDoesNotHaveAttributeException if
-	 * the current {@WidgetGUI} does not have a background {@link ColorGradient}.
+	 * the current {@link WidgetGUI} does not have a background {@link ColorGradient}.
 	 */
 	public final IColorGradient getBackgroundColorGradient() {
 		return background.getBackgroundColorGradient();
@@ -314,7 +314,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	/**
 	 * @return the background {@link MutableImage} of the current {@link WidgetGUI}.
 	 * @throws ArgumentDoesNotHaveAttributeException if
-	 * the current {@WidgetGUI} does not have a background {@link MutableImage}.
+	 * the current {@link WidgetGUI} does not have a background {@link MutableImage}.
 	 */
 	public final IImage getBackgroundImage() {
 		return background.getBackgroundImage();
