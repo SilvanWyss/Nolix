@@ -69,7 +69,7 @@ final class BaseFrontendGUIClientGUIInputTaker implements IResizableInputTaker {
 	 */
 	@Override
 	public void noteKeyDown(final Key key) {
-		inputTaker.run(new KeyInput(key, KeyInputType.PRESS));
+		inputTaker.run(KeyInput.withKeyAndInputType(key, KeyInputType.PRESS));
 	}
 	
 	//method
@@ -78,7 +78,7 @@ final class BaseFrontendGUIClientGUIInputTaker implements IResizableInputTaker {
 	 */
 	@Override
 	public void noteKeyRelease(final Key key) {
-		inputTaker.run(new KeyInput(key, KeyInputType.RELEASE));
+		inputTaker.run(KeyInput.withKeyAndInputType(key, KeyInputType.RELEASE));
 	}
 	
 	//method
@@ -87,7 +87,7 @@ final class BaseFrontendGUIClientGUIInputTaker implements IResizableInputTaker {
 	 */
 	@Override
 	public void noteKeyTyping(Key key) {
-		inputTaker.run(new KeyInput(key, KeyInputType.TYPING));
+		inputTaker.run(KeyInput.withKeyAndInputType(key, KeyInputType.TYPING));
 	}
 	
 	//method

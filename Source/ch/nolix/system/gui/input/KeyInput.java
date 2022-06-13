@@ -3,17 +3,17 @@ package ch.nolix.system.gui.input;
 
 //own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
-import ch.nolix.core.constant.PascalCaseCatalogue;
+import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
+import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.system.element.MutableElement;
-import ch.nolix.system.element.Value;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.systemapi.guiapi.inputapi.IKeyInput;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.processproperty.KeyInputType;
 
 //class
-public final class KeyInput extends MutableElement<KeyInput> implements IKeyInput<KeyInput> {
+public final class KeyInput implements IKeyInput<KeyInput> {
 	
 	//constant
 	private static final String INPUT_TYPE_HEADER = "InputType";
@@ -159,10 +159,15 @@ public final class KeyInput extends MutableElement<KeyInput> implements IKeyInpu
 	//static method
 	public static KeyInput fromSpecification(final BaseNode specification) {
 		return
-		new KeyInput(
+		withKeyAndInputType(
 			Key.fromSpecification(specification.getRefAttributeAt(1)),
 			KeyInputType.fromSpecification(specification.getRefAttributeAt(2))
 		);
+	}
+	
+	//static method
+	public static KeyInput withKeyAndInputType(final Key key, final KeyInputType inputType) {
+		return new KeyInput(key, inputType);
 	}
 	
 	//static method
@@ -176,49 +181,36 @@ public final class KeyInput extends MutableElement<KeyInput> implements IKeyInpu
 	}
 	
 	//attribute
-	private final Value<Key> key =
-	new Value<>(PascalCaseCatalogue.KEY, this::setKey, Key::fromSpecification, Key::getSpecification);
+	private final Key key;
 	
 	//attribute
-	private final Value<KeyInputType> inputType =
-	new Value<>(
-		INPUT_TYPE_HEADER,
-		this::setInputType,
-		KeyInputType::fromSpecification,
-		KeyInputType::getSpecification
-	);
+	private final KeyInputType inputType;
 	
 	//constructor
-	public KeyInput(final Key key, final KeyInputType inputType) {
-		setKey(key);
-		setInputType(inputType);
+	private KeyInput(final Key key, final KeyInputType inputType) {
+		
+		GlobalValidator.assertThat(key).thatIsNamed(LowerCaseCatalogue.KEY).isNotNull();
+		GlobalValidator.assertThat(inputType).thatIsNamed("input type").isNotNull();
+		
+		this.key = key;
+		this.inputType = inputType;
+	}
+	
+	//method
+	@Override
+	public void fillUpAttributesInto(final LinkedList<Node> list) {
+		list.addAtEnd(key.getSpecification(), inputType.getSpecificationWithHeader(INPUT_TYPE_HEADER));
 	}
 	
 	//method
 	@Override
 	public Key getKey() {
-		return key.getValue();
+		return key;
 	}
 	
 	//method
 	@Override
 	public KeyInputType getKeyInputType() {
-		return inputType.getValue();
-	}
-	
-	//method
-	@Override
-	public void reset() {
-		//Does nothing.
-	}
-	
-	//method
-	private void setInputType(final KeyInputType inputType) {
-		this.inputType.setValue(inputType);
-	}
-	
-	//method
-	private void setKey(final Key key) {
-		this.key.setValue(key);
+		return inputType;
 	}
 }
