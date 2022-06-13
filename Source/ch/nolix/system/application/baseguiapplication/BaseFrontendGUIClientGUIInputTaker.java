@@ -97,10 +97,10 @@ final class BaseFrontendGUIClientGUIInputTaker implements IResizableInputTaker {
 	@Override
 	public void noteLeftMouseButtonClick() {
 		inputTaker.run(
-			new MouseInput(
-					MouseInputType.LEFT_MOUSE_BUTTON_CLICK,
+			MouseInput.withCursorPositionAndInputType(
 				cursorXPositionOnViewAreaGetter.getOutput(),
-				cursorYPositionOnViewAreaGetter.getOutput()
+				cursorYPositionOnViewAreaGetter.getOutput(),
+				MouseInputType.LEFT_MOUSE_BUTTON_CLICK
 			)
 		);
 	}
@@ -112,10 +112,10 @@ final class BaseFrontendGUIClientGUIInputTaker implements IResizableInputTaker {
 	@Override
 	public void noteLeftMouseButtonPress() {
 		inputTaker.run(
-			new MouseInput(
-					MouseInputType.LEFT_MOUSE_BUTTON_PRESS,
+			MouseInput.withCursorPositionAndInputType(
 				cursorXPositionOnViewAreaGetter.getOutput(),
-				cursorYPositionOnViewAreaGetter.getOutput()
+				cursorYPositionOnViewAreaGetter.getOutput(),
+				MouseInputType.LEFT_MOUSE_BUTTON_PRESS
 			)
 		);	
 	}
@@ -127,10 +127,10 @@ final class BaseFrontendGUIClientGUIInputTaker implements IResizableInputTaker {
 	@Override
 	public void noteLeftMouseButtonRelease() {
 		inputTaker.run(
-			new MouseInput(
-					MouseInputType.LEFT_MOUSE_BUTTON_RELEASE,
+			MouseInput.withCursorPositionAndInputType(
 				cursorXPositionOnViewAreaGetter.getOutput(),
-				cursorYPositionOnViewAreaGetter.getOutput()
+				cursorYPositionOnViewAreaGetter.getOutput(),
+				MouseInputType.LEFT_MOUSE_BUTTON_RELEASE
 			)
 		);
 	}
@@ -142,7 +142,11 @@ final class BaseFrontendGUIClientGUIInputTaker implements IResizableInputTaker {
 	@Override
 	public void noteMouseMove(final int cursorXPositionOnViewArea, final int cursorYPositionOnViewArea) {
 		inputTaker.run(
-			new MouseInput(MouseInputType.MOUSE_MOVE, cursorXPositionOnViewArea, cursorYPositionOnViewArea)
+			MouseInput.withCursorPositionAndInputType(
+				cursorXPositionOnViewArea,
+				cursorYPositionOnViewArea,
+				MouseInputType.MOUSE_MOVE
+			)
 		);
 	}
 	
@@ -153,10 +157,10 @@ final class BaseFrontendGUIClientGUIInputTaker implements IResizableInputTaker {
 	@Override
 	public void noteMouseWheelClick() {
 		inputTaker.run(
-			new MouseInput(
-					MouseInputType.MOUSE_WHEEL_CLICK,
+			MouseInput.withCursorPositionAndInputType(
 				cursorXPositionOnViewAreaGetter.getOutput(),
-				cursorYPositionOnViewAreaGetter.getOutput()
+				cursorYPositionOnViewAreaGetter.getOutput(),
+				MouseInputType.MOUSE_WHEEL_CLICK
 			)
 		);
 	}
@@ -168,10 +172,10 @@ final class BaseFrontendGUIClientGUIInputTaker implements IResizableInputTaker {
 	@Override
 	public void noteMouseWheelPress() {
 		inputTaker.run(
-			new MouseInput(
-					MouseInputType.MOUSE_WHEEL_PRESS,
+			MouseInput.withCursorPositionAndInputType(
 				cursorXPositionOnViewAreaGetter.getOutput(),
-				cursorYPositionOnViewAreaGetter.getOutput()
+				cursorYPositionOnViewAreaGetter.getOutput(),
+				MouseInputType.MOUSE_WHEEL_PRESS
 			)
 		);
 	}
@@ -183,10 +187,10 @@ final class BaseFrontendGUIClientGUIInputTaker implements IResizableInputTaker {
 	@Override
 	public void noteMouseWheelRelease() {
 		inputTaker.run(
-			new MouseInput(
-					MouseInputType.MOUSE_WHEEL_RELEASE,
+			MouseInput.withCursorPositionAndInputType(
 				cursorXPositionOnViewAreaGetter.getOutput(),
-				cursorYPositionOnViewAreaGetter.getOutput()
+				cursorYPositionOnViewAreaGetter.getOutput(),
+				MouseInputType.MOUSE_WHEEL_RELEASE
 			)
 		);
 	}
@@ -198,10 +202,10 @@ final class BaseFrontendGUIClientGUIInputTaker implements IResizableInputTaker {
 	@Override
 	public void noteMouseWheelRotationStep(final RotationDirection rotationDirection) {
 		inputTaker.run(
-			new MouseInput(
-				MouseInputType.createMouseWheelRotationStepFrom(rotationDirection),
+			MouseInput.withCursorPositionAndInputType(
 				cursorXPositionOnViewAreaGetter.getOutput(),
-				cursorYPositionOnViewAreaGetter.getOutput()
+				cursorYPositionOnViewAreaGetter.getOutput(),
+				MouseInputType.createMouseWheelRotationStepFrom(rotationDirection)
 			)
 		);	
 	}
@@ -222,10 +226,10 @@ final class BaseFrontendGUIClientGUIInputTaker implements IResizableInputTaker {
 	@Override
 	public void noteRightMouseButtonClick() {
 		inputTaker.run(
-			new MouseInput(
-					MouseInputType.RIGHT_MOUSE_BUTTON_CLICK,
+			MouseInput.withCursorPositionAndInputType(
 				cursorXPositionOnViewAreaGetter.getOutput(),
-				cursorYPositionOnViewAreaGetter.getOutput()
+				cursorYPositionOnViewAreaGetter.getOutput(),
+				MouseInputType.RIGHT_MOUSE_BUTTON_CLICK
 			)
 		);
 	}
@@ -237,10 +241,10 @@ final class BaseFrontendGUIClientGUIInputTaker implements IResizableInputTaker {
 	@Override
 	public void noteRightMouseButtonPress() {
 		inputTaker.run(
-			new MouseInput(
-					MouseInputType.RIGHT_MOUSE_BUTTON_PRESS,
+			MouseInput.withCursorPositionAndInputType(
 				cursorXPositionOnViewAreaGetter.getOutput(),
-				cursorYPositionOnViewAreaGetter.getOutput()
+				cursorYPositionOnViewAreaGetter.getOutput(),
+				MouseInputType.RIGHT_MOUSE_BUTTON_PRESS
 			)
 		);	
 	}
@@ -252,10 +256,10 @@ final class BaseFrontendGUIClientGUIInputTaker implements IResizableInputTaker {
 	@Override
 	public void noteRightMouseButtonRelease() {
 		inputTaker.run(
-			new MouseInput(
-					MouseInputType.RIGHT_MOUSE_BUTTON_RELEASE,
+			MouseInput.withCursorPositionAndInputType(
 				cursorXPositionOnViewAreaGetter.getOutput(),
-				cursorYPositionOnViewAreaGetter.getOutput()
+				cursorYPositionOnViewAreaGetter.getOutput(),
+				MouseInputType.RIGHT_MOUSE_BUTTON_RELEASE
 			)
 		);
 	}

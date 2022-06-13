@@ -2,16 +2,21 @@
 package ch.nolix.system.gui.input;
 
 //own imports
+import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.constant.PascalCaseCatalogue;
+import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
+import ch.nolix.core.document.node.Node;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.discretegeometry.Discrete2DPoint;
-import ch.nolix.system.element.MutableElement;
-import ch.nolix.system.element.Value;
 import ch.nolix.systemapi.guiapi.inputapi.IMouseInput;
 import ch.nolix.systemapi.guiapi.processproperty.MouseInputType;
 
 //class
-public final class MouseInput extends MutableElement<MouseInput> implements IMouseInput<MouseInput> {
+public final class MouseInput implements IMouseInput<MouseInput> {
+	
+	//constant
+	private static final String CURSOR_POSITION_HEADER = PascalCaseCatalogue.CURSOR_POSITION;
 	
 	//constant
 	private static final String INPUT_TYPE_HEADER = "InputType";
@@ -19,80 +24,71 @@ public final class MouseInput extends MutableElement<MouseInput> implements IMou
 	//static method
 	public static MouseInput fromSpecification(final BaseNode specification) {
 		return
-		new MouseInput(
-			MouseInputType.fromSpecification(specification.getRefFirstAttribute(INPUT_TYPE_HEADER)),
+		withCursorPositionAndInputType(
 			Discrete2DPoint.fromSpecification(
-				specification.getRefFirstAttribute(PascalCaseCatalogue.CURSOR_POSITION)
-			)
+				specification.getRefFirstAttribute(CURSOR_POSITION_HEADER)
+			),
+			MouseInputType.fromSpecification(specification.getRefFirstAttribute(INPUT_TYPE_HEADER))
 		);
 	}
 	
-	//attribute
-	private final Value<MouseInputType> inputType =
-	new Value<>(
-		INPUT_TYPE_HEADER,
-		this::setInputType,
-		MouseInputType::fromSpecification,
-		MouseInputType::getSpecification
-	);
-	
-	//attribute
-	private final Value<Discrete2DPoint> cursorPosition =
-	new Value<>(
-		PascalCaseCatalogue.CURSOR_POSITION,
-		this::setCursorPosition,
-		Discrete2DPoint::fromSpecification,
-		Discrete2DPoint::getSpecification
-	);
-	
-	//constructor
-	public MouseInput(final MouseInputType inputType, final int cursorXPosition, final int cursorYPosition) {
-		setInputType(inputType);
-		setCursorPosition(cursorXPosition, cursorYPosition);
+	//static method
+	public static MouseInput withCursorPositionAndInputType(
+		final Discrete2DPoint cursorPosition,
+		final MouseInputType inputType
+	) {
+		return new MouseInput(cursorPosition, inputType);
 	}
 	
+	//static method
+	public static MouseInput withCursorPositionAndInputType(
+		final int cursorXPosition,
+		final int cursorYPosition,
+		final MouseInputType inputType
+	) {
+		return withCursorPositionAndInputType(new Discrete2DPoint(cursorXPosition, cursorYPosition), inputType);
+	}
+	
+	//attribute
+	private final Discrete2DPoint cursorPosition;
+	
+	//attribute
+	private final MouseInputType inputType;
+	
 	//constructor
-	private MouseInput(final MouseInputType inputType, final Discrete2DPoint cursorPosition) {
-		setInputType(inputType);
-		setCursorPosition(cursorPosition);
+	private MouseInput(final Discrete2DPoint cursorPosition, final MouseInputType inputType) {
+		
+		GlobalValidator.assertThat(inputType).thatIsNamed("input type").isNotNull();
+		GlobalValidator.assertThat(cursorPosition).thatIsNamed(LowerCaseCatalogue.CURSOR_POSITION).isNotNull();
+		
+		this.cursorPosition = cursorPosition;
+		this.inputType = inputType;
+	}
+	
+	//method
+	@Override
+	public void fillUpAttributesInto(final LinkedList<Node> list) {
+		list.addAtEnd(
+			cursorPosition.getSpecificationWithHeader(CURSOR_POSITION_HEADER),
+			inputType.getSpecificationWithHeader(INPUT_TYPE_HEADER)
+		);
 	}
 	
 	//method
 	@Override
 	public int getCursorXPosition() {
-		return cursorPosition.getValue().getX();
+		return cursorPosition.getX();
 	}
 	
 	//method
 	@Override
 	public int getCursorYPosition() {
-		return cursorPosition.getValue().getY();
+		return cursorPosition.getY();
 	}
 	
 	//method
 	@Override
 	public MouseInputType getMouseInputType() {
-		return inputType.getValue();
-	}
-	
-	//method
-	@Override
-	public void reset() {
-		//Does nothing.
-	}
-	
-	//method
-	private void setCursorPosition(final Discrete2DPoint cursorPosition) {
-		this.cursorPosition.setValue(cursorPosition);
-	}
-	
-	//method
-	private void setCursorPosition(final int cursorXPosition, final int cursorYPosition) {
-		cursorPosition.setValue(new Discrete2DPoint(cursorXPosition, cursorYPosition));
-	}
-	
-	//method
-	private void setInputType(final MouseInputType inputType) {
-		this.inputType.setValue(inputType);
+		return inputType;
 	}
 }
