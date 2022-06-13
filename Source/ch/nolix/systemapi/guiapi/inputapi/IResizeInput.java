@@ -5,7 +5,7 @@ package ch.nolix.systemapi.guiapi.inputapi;
 public interface IResizeInput<RI extends IResizeInput<RI>> extends IInput<RI> {
 	
 	//method declaration
-	int getViewAreaHeigh();
+	int getViewAreaHeight();
 	
 	//method declaration
 	int getViewAreaWidth();

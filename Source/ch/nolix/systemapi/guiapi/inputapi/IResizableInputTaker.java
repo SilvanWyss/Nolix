@@ -39,6 +39,6 @@ public interface IResizableInputTaker extends IInputTaker {
 	 * @param resizeInput
 	 */
 	default void noteResizeInput(final IResizeInput<?> resizeInput) {
-		noteResize(resizeInput.getViewAreaWidth(), resizeInput.getViewAreaHeigh());
+		noteResize(resizeInput.getViewAreaWidth(), resizeInput.getViewAreaHeight());
 	}
 }

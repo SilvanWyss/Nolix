@@ -2,17 +2,20 @@
 package ch.nolix.system.gui.input;
 
 //own imports
+import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.constant.PascalCaseCatalogue;
+import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.container.pair.IntPair;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.system.element.MutableElement;
-import ch.nolix.system.element.Value;
 import ch.nolix.systemapi.guiapi.inputapi.IResizeInput;
 
 //class
-public final class ResizeInput extends MutableElement<ResizeInput> implements IResizeInput<ResizeInput> {
+public final class ResizeInput implements IResizeInput<ResizeInput> {
+	
+	//constant
+	private static final String SIZE_HEADER = PascalCaseCatalogue.SIZE;
 	
 	//static method
 	public static ResizeInput fromSpecification(final BaseNode specification) {
@@ -20,55 +23,58 @@ public final class ResizeInput extends MutableElement<ResizeInput> implements IR
 		final var sizeSpecification = specification.getRefOneAttribute();
 		
 		return
-		new ResizeInput(
+		withViewAreaWidthAndViewAreaHeight(
 			sizeSpecification.getRefAttributeAt(1).toInt(),
 			sizeSpecification.getRefAttributeAt(2).toInt()
 		);
 	}
 	
+	//static method
+	public static ResizeInput withSize(final IntPair size) {
+		return new ResizeInput(size);
+	}
+	
+	//static method
+	public static ResizeInput withViewAreaWidthAndViewAreaHeight(final int viewAreaWidth, final int viewAreaHeight) {
+		return new ResizeInput(new IntPair(viewAreaWidth, viewAreaHeight));
+	}
+			
 	//attribute
-	private final Value<IntPair> size =
-	new Value<>(
-		PascalCaseCatalogue.SIZE,
-		this::setViewAreaSize,
-		s -> new IntPair(s.getRefAttributeAt(1).toInt(), s.getRefAttributeAt(2).toInt()),
-		ip -> Node.withAttribute(ip.getValue1(), ip.getValue2())
-	);
+	private final IntPair size;
 	
 	//constructor
-	public ResizeInput(final int viewAreaWidth, final int viewAreaHeight) {
-		setViewAreaSize(viewAreaWidth, viewAreaHeight);
+	private ResizeInput(final IntPair size) {
+		
+		GlobalValidator.assertThat(size).thatIsNamed(LowerCaseCatalogue.SIZE).isNotNull();
+		GlobalValidator.assertThat(size.getValue1()).thatIsNamed("view area width").isNotNegative();
+		GlobalValidator.assertThat(size.getValue2()).thatIsNamed("view area hegiht").isNotNegative();
+		
+		this.size = size;
 	}
 	
 	//method
 	@Override
-	public int getViewAreaHeigh() {
-		return size.getValue().getValue2();
+	public void fillUpAttributesInto(final LinkedList<Node> list) {
+		
+		final var sizeSpecification =
+		Node.withHeaderAndAttribute(
+			SIZE_HEADER,
+			Node.withHeader(getViewAreaWidth()),
+			Node.withHeader(getViewAreaHeight())
+		);
+		
+		list.addAtEnd(sizeSpecification);
+	}
+	
+	//method
+	@Override
+	public int getViewAreaHeight() {
+		return size.getValue2();
 	}
 	
 	//method
 	@Override
 	public int getViewAreaWidth() {
-		return size.getValue().getValue1();
-	}
-	
-	//method
-	@Override
-	public void reset() {
-		//Does nothing.
-	}
-	
-	//method
-	private void setViewAreaSize(final int viewAreaWidth, final int viewAreaHeight) {
-		setViewAreaSize(new IntPair(viewAreaWidth, viewAreaHeight));
-	}
-	
-	//method
-	private void setViewAreaSize(final IntPair size) {
-		
-		GlobalValidator.assertThat(size.getValue1()).thatIsNamed("view area width").isNotNegative();
-		GlobalValidator.assertThat(size.getValue2()).thatIsNamed("view area hegiht").isNotNegative();
-		
-		this.size.setValue(size);
+		return size.getValue1();
 	}
 }

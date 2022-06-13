@@ -216,7 +216,7 @@ final class BaseFrontendGUIClientGUIInputTaker implements IResizableInputTaker {
 	 */
 	@Override
 	public void noteResize(final int viewAreaWidth, final int viewAreaHeight) {
-		inputTaker.run(new ResizeInput(viewAreaWidth, viewAreaHeight));
+		inputTaker.run(ResizeInput.withViewAreaWidthAndViewAreaHeight(viewAreaWidth, viewAreaHeight));
 	}
 	
 	//method
