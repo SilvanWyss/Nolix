@@ -3,6 +3,7 @@ package ch.nolix.coretest.nettest;
 
 //own imports
 import ch.nolix.core.testing.basetest.TestPool;
+import ch.nolix.coretest.nettest.websockettest.WebSocketTestPool;
 
 //class
 public final class NetTestPool extends TestPool {
@@ -12,7 +13,8 @@ public final class NetTestPool extends TestPool {
 		super(
 			new ch.nolix.coretest.nettest.endpointtest.EndPointTestPool(),
 			new ch.nolix.coretest.nettest.endpoint2test.EndPointTestPool(),
-			new ch.nolix.coretest.nettest.endpoint3test.EndPointTestPool()
+			new ch.nolix.coretest.nettest.endpoint3test.EndPointTestPool(),
+			new WebSocketTestPool()
 		);
 	}
 }
