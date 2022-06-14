@@ -7,8 +7,7 @@ import com.jme3.math.Quaternion;
 import com.jme3.math.Vector3f;
 import com.jme3.scene.Geometry;
 
-//own imports
-import ch.nolix.core.constant.NumberCatalogue;
+import ch.nolix.core.math.NumberCatalogue;
 import ch.nolix.system.gui3d.shape.Cylinder;
 
 //class
