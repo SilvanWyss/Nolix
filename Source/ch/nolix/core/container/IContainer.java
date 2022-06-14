@@ -4,10 +4,10 @@ package ch.nolix.core.container;
 //Java imports
 import java.util.Random;
 
+import ch.nolix.core.commontype.constant.StringCatalogue;
 //own imports
 import ch.nolix.core.constant.FunctionCatalogue;
 import ch.nolix.core.constant.LowerCaseCatalogue;
-import ch.nolix.core.constant.StringCatalogue;
 import ch.nolix.core.container.pair.Pair;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;

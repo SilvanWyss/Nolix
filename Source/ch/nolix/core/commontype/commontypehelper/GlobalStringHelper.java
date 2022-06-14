@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.core.commontype.commontypehelper;
 
-//own imports
-import ch.nolix.core.constant.CharacterCatalogue;
+import ch.nolix.core.commontype.constant.CharacterCatalogue;
+import ch.nolix.core.commontype.constant.StringCatalogue;
 import ch.nolix.core.constant.LowerCaseCatalogue;
-import ch.nolix.core.constant.StringCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;

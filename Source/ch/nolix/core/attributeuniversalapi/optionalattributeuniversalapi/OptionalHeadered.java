@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.core.attributeuniversalapi.optionalattributeuniversalapi;
 
-//own imports
-import ch.nolix.core.constant.StringCatalogue;
+import ch.nolix.core.commontype.constant.StringCatalogue;
 
 //interface
 /**

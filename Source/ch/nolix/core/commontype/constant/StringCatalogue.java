@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.constant;
+package ch.nolix.core.commontype.constant;
 
 //class
 /**

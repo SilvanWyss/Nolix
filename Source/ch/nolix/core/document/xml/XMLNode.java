@@ -4,7 +4,7 @@ package ch.nolix.core.document.xml;
 import ch.nolix.core.attributeuniversalapi.mutableoptionalattributeuniversalapi.OptionalNamable;
 import ch.nolix.core.attributeuniversalapi.mutableoptionalattributeuniversalapi.OptionalValueable;
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
-import ch.nolix.core.constant.CharacterCatalogue;
+import ch.nolix.core.commontype.constant.CharacterCatalogue;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;

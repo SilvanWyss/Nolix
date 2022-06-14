@@ -4,10 +4,10 @@ package ch.nolix.system.gui3d.base;
 //Java imports
 import java.lang.reflect.InvocationTargetException;
 
+import ch.nolix.core.commontype.constant.StringCatalogue;
 //own imports
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.constant.PascalCaseCatalogue;
-import ch.nolix.core.constant.StringCatalogue;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.container.pair.Pair;
 import ch.nolix.core.container.readcontainer.ReadContainer;

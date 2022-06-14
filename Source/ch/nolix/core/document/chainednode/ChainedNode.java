@@ -3,7 +3,7 @@ package ch.nolix.core.document.chainednode;
 
 import ch.nolix.core.attributeuniversalapi.optionalattributeuniversalapi.OptionalHeadered;
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
-import ch.nolix.core.constant.CharacterCatalogue;
+import ch.nolix.core.commontype.constant.CharacterCatalogue;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;

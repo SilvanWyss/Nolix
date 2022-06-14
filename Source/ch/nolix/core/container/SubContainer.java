@@ -4,8 +4,7 @@ package ch.nolix.core.container;
 //Java imports
 import java.util.Iterator;
 
-//own imports
-import ch.nolix.core.constant.CharacterCatalogue;
+import ch.nolix.core.commontype.constant.CharacterCatalogue;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.BiggerArgumentException;

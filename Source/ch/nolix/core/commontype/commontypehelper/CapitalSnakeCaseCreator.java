@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.core.commontype.commontypehelper;
 
-//own imports
-import ch.nolix.core.constant.CharacterCatalogue;
-import ch.nolix.core.constant.StringCatalogue;
+import ch.nolix.core.commontype.constant.CharacterCatalogue;
+import ch.nolix.core.commontype.constant.StringCatalogue;
 
 //class
 final class CapitalSnakeCaseCreator {

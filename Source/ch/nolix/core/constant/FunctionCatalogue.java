@@ -4,6 +4,8 @@ package ch.nolix.core.constant;
 //Java imports
 import java.util.Objects;
 
+import ch.nolix.core.commontype.constant.StringCatalogue;
+
 //class
 /**
  * Of the {@link FunctionCatalogue} an instance cannot be created.

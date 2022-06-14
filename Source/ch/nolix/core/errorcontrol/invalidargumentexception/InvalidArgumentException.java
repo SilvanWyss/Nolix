@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
-//own imports
-import ch.nolix.core.constant.CharacterCatalogue;
+import ch.nolix.core.commontype.constant.CharacterCatalogue;
 
 //class
 /**

@@ -2,9 +2,9 @@
 package ch.nolix.system.gui.containerwidget;
 
 import ch.nolix.core.attributeuniversalapi.mutablemandatoryattributeuniversalapi.Headerable;
+import ch.nolix.core.commontype.constant.StringCatalogue;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.constant.PascalCaseCatalogue;
-import ch.nolix.core.constant.StringCatalogue;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;

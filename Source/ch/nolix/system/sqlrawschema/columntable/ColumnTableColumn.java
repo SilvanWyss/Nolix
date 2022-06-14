@@ -2,9 +2,9 @@
 package ch.nolix.system.sqlrawschema.columntable;
 
 import ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi.FullNamed;
+import ch.nolix.core.commontype.constant.StringCatalogue;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.constant.PascalCaseCatalogue;
-import ch.nolix.core.constant.StringCatalogue;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.sqlrawschema.structure.SystemDataTable;
 

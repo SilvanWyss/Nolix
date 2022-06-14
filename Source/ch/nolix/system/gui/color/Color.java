@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.gui.color;
 
-//own imports
-import ch.nolix.core.constant.StringCatalogue;
+import ch.nolix.core.commontype.constant.StringCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.container.pair.Pair;

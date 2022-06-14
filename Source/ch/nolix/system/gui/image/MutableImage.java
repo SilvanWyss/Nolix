@@ -13,9 +13,9 @@ import javax.imageio.ImageWriteParam;
 
 //own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalBufferedImageHelper;
+import ch.nolix.core.commontype.constant.StringCatalogue;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.constant.PascalCaseCatalogue;
-import ch.nolix.core.constant.StringCatalogue;
 import ch.nolix.core.container.matrix.Matrix;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.document.node.BaseNode;

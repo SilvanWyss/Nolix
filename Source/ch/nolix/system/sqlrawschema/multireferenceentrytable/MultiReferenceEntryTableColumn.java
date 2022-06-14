@@ -2,8 +2,8 @@
 package ch.nolix.system.sqlrawschema.multireferenceentrytable;
 
 import ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi.FullNamed;
+import ch.nolix.core.commontype.constant.StringCatalogue;
 import ch.nolix.core.constant.LowerCaseCatalogue;
-import ch.nolix.core.constant.StringCatalogue;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.sqlrawschema.structure.MultiContentTable;
 
