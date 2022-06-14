@@ -1,12 +1,11 @@
 //package declaration
 package ch.nolix.core.programcontrol.sequencer;
 
-//own imports
-import ch.nolix.core.constant.TimeUnitCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IBooleanGetter;
+import ch.nolix.core.time.TimeUnitCatalogue;
 
 //class
 /**

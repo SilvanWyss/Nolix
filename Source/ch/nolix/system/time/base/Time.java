@@ -6,8 +6,6 @@ import java.time.Year;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 
-//own imports
-import ch.nolix.core.constant.TimeUnitCatalogue;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
@@ -15,6 +13,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.time.TimeUnitCatalogue;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 import ch.nolix.systemapi.timeapi.timestructure.Month;
 import ch.nolix.systemapi.timeapi.timestructure.Weekday;
