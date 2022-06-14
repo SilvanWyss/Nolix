@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.document.data;
+package ch.nolix.core.data;
 
 //Java imports
 import java.nio.charset.StandardCharsets;

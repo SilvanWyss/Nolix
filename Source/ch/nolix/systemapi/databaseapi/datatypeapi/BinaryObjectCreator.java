@@ -4,8 +4,7 @@ package ch.nolix.systemapi.databaseapi.datatypeapi;
 //Java imports
 import java.util.Base64;
 
-//own imports
-import ch.nolix.core.document.data.BinaryObject;
+import ch.nolix.core.data.BinaryObject;
 
 //class
 final class BinaryObjectCreator implements IValueCreator<BinaryObject> {
