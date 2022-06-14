@@ -5,16 +5,17 @@ package ch.nolix.core.caching;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IBooleanGetter;
 import ch.nolix.core.functionuniversalapi.IElementGetter;
-import ch.nolix.core.skilluniversalapi.Refreshable;
 
 //class
-public final class CachingProperty<V> implements Refreshable {
+public final class CachingProperty<V> {
 	
 	//attribute
 	private final IElementGetter<V> valueCreator;
 	
-	//optional attributes
+	//optional attribute
 	private final IBooleanGetter needToRefreshFunction;
+	
+	//optional attribute
 	private V value;
 	
 	//constructor
@@ -45,8 +46,7 @@ public final class CachingProperty<V> implements Refreshable {
 	}
 	
 	//method
-	@Override
-	public void refresh() {
+	private void refresh() {
 		value = valueCreator.getOutput();
 	}
 	
