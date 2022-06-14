@@ -8,7 +8,7 @@ import java.lang.reflect.Field;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.container.pair.Pair;
-import ch.nolix.core.reflectionhelper.GlobalFieldHelper;
+import ch.nolix.core.reflection.GlobalFieldHelper;
 
 //class
 public final class ColorNameConstantExtractor {

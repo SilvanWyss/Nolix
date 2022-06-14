@@ -16,7 +16,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.endpoint3.EndPoint;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
-import ch.nolix.core.reflectionhelper.GlobalClassHelper;
+import ch.nolix.core.reflection.GlobalClassHelper;
 
 //class
 /**

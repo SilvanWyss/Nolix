@@ -5,7 +5,7 @@ package ch.nolix.coretest.constanttest;
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.constant.PluralLowerCaseCatalogue;
 import ch.nolix.core.container.LinkedList;
-import ch.nolix.core.reflectionhelper.GlobalClassHelper;
+import ch.nolix.core.reflection.GlobalClassHelper;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 
