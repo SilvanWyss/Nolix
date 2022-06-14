@@ -5,7 +5,7 @@ package ch.nolix.systemapi.guiapi.baseapi;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IAction;
 import ch.nolix.core.functionuniversalapi.IElementTaker;
-import ch.nolix.core.hoveruniversalapi.IOccupiableHoverableCanvas;
+import ch.nolix.systemapi.guiapi.universalcanvasapi.IOccupiableHoverableCanvas;
 
 //interface
 public interface IOccupiableCanvasInputActionManager<OCIAM extends IOccupiableCanvasInputActionManager<OCIAM>>
