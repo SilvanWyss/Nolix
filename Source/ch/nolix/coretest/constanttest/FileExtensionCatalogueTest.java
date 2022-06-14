@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.coretest.constanttest;
 
-//own imports
-import ch.nolix.core.constant.FileExtensionCatalogue;
+import ch.nolix.core.environment.filesystem.FileExtensionCatalogue;
 import ch.nolix.core.reflectionhelper.GlobalClassHelper;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
