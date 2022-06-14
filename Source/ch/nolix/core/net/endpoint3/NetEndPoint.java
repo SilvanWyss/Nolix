@@ -1,8 +1,6 @@
 //package declaration
 package ch.nolix.core.net.endpoint3;
 
-//own imports
-import ch.nolix.core.constant.IPv6Catalogue;
 import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.container.readcontainer.ReadContainer;
@@ -18,6 +16,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentExceptio
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.logger.GlobalLogger;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.net.constant.IPv6Catalogue;
 import ch.nolix.core.net.controlleruniversalapi.IDataProviderController;
 import ch.nolix.core.programcontrol.groupcloseable.GroupCloseable;
 

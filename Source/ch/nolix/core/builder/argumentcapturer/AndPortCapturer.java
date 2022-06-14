@@ -5,8 +5,8 @@ package ch.nolix.core.builder.argumentcapturer;
 import ch.nolix.core.builder.base.ArgumentCapturer;
 import ch.nolix.core.builder.base.BaseArgumentCapturer;
 import ch.nolix.core.constant.LowerCaseCatalogue;
-import ch.nolix.core.constant.PortCatalogue;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.net.constant.PortCatalogue;
 
 //class
 public class AndPortCapturer<NAC extends BaseArgumentCapturer<?>> extends ArgumentCapturer<Integer, NAC> {

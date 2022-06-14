@@ -4,8 +4,8 @@ package ch.nolix.core.builder.argumentcapturer;
 //own imports
 import ch.nolix.core.builder.base.ArgumentCapturer;
 import ch.nolix.core.builder.base.BaseArgumentCapturer;
-import ch.nolix.core.constant.IPv4Catalogue;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.net.constant.IPv4Catalogue;
 
 //class
 public class WithIpOrAddressNameCapturer<NAC extends BaseArgumentCapturer<?>> extends ArgumentCapturer<String, NAC> {

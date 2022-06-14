@@ -7,7 +7,7 @@ import ch.nolix.core.builder.argumentcapturer.AndPortCapturer;
 import ch.nolix.core.builder.argumentcapturer.ToDatabaseNameCapturer;
 import ch.nolix.core.builder.argumentcapturer.UsingLoginNameCapturer;
 import ch.nolix.core.builder.terminalargumentcapturer.AndSchemaTerminalCapturer;
-import ch.nolix.core.constant.PortCatalogue;
+import ch.nolix.core.net.constant.PortCatalogue;
 import ch.nolix.system.objectdata.data.DataImplementation;
 import ch.nolix.systemapi.objectdataapi.dataapi.ISchema;
 

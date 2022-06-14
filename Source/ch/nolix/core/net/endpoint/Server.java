@@ -5,13 +5,12 @@ package ch.nolix.core.net.endpoint;
 import java.io.IOException;
 import java.net.ServerSocket;
 
-//own imports
-import ch.nolix.core.constant.PortCatalogue;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.net.constant.PortCatalogue;
 
 //class
 /**
