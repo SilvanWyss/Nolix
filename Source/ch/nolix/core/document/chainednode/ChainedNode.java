@@ -730,10 +730,17 @@ public final class ChainedNode implements OptionalHeadered {
 	 * @return true if the current {@link ChainedNode} equals the given chainedNode.
 	 */
 	private boolean equals(final ChainedNode chainedNode) {
-		
-		if (!hasSameHeaderAs(chainedNode)) {
-			return false;
-		}
+		return
+		canEqualBecauseOfHeader(chainedNode)
+		&& canEqualBecauseOfAttributes(chainedNode);
+	}
+	
+	//method
+	/**
+	 * @param chainedNode
+	 * @return true if the current {@link ChainedNode} can equal the given chainedNode because of the attributes.
+	 */
+	private boolean canEqualBecauseOfAttributes(final ChainedNode chainedNode) {
 		
 		if (getAttributeCount() != chainedNode.getAttributeCount()) {
 			return false;
@@ -763,6 +770,20 @@ public final class ChainedNode implements OptionalHeadered {
 		}
 		
 		return true;
+	}
+	
+	//method
+	/**
+	 * @param chainedNode
+	 * @return true if the current {@link ChainedNode} can equal the given chainedNode because of the header.
+	 */
+	private boolean canEqualBecauseOfHeader(final ChainedNode chainedNode) {
+		
+		if (!hasHeader()) {
+			return !chainedNode.hasHeader();
+		}
+		
+		return hasSameHeaderAs(chainedNode);
 	}
 	
 	//method
