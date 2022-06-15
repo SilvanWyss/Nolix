@@ -550,6 +550,16 @@ public final class ChainedNode implements OptionalHeadered {
 	
 	//method
 	/**
+	 * @return true if the current {@link ChainedNode} does not have a header and does not contains attributes.
+	 */
+	public boolean isBlank() {
+		return
+		!hasHeader()
+		&& !containsAttributes();
+	}
+	
+	//method
+	/**
 	 * @return a {@link Double} representation of the current {@link ChainedNode}.
 	 * @throws UnrepresentingArgumentException if the current {@link ChainedNode} does not represent a {@link Double}.
 	 */
