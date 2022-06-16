@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coretest.constanttest;
+package ch.nolix.coretest.commontypetest.constanttest;
 
 import ch.nolix.core.commontype.constant.StringCatalogue;
 import ch.nolix.core.reflection.GlobalClassHelper;

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coretest.constanttest;
+package ch.nolix.coretest.commontypetest.constanttest;
 
 //class
 public final class Launcher {
