@@ -3,12 +3,44 @@ package ch.nolix.coretest.documenttest.chainednodetest;
 
 //own imports
 import ch.nolix.core.document.chainednode.ChainedNode;
+import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 
 //class
 public final class ChainedNodeCreationTest extends Test {
+	
+	//method
+	@TestCase
+	public void testCase_fromNode_whenNodeIsBlank() {
+		
+		//setup
+		final var node = new Node();
+		
+		//setup verification
+		expect(node.isBlank());
+		
+		//execution
+		final var result = ChainedNode.fromNode(node);
+		
+		//verification
+		expect(result).hasStringRepresentation("");
+	}
+	
+	//method
+	@TestCase
+	public void testCase_fromNode_whenNodeHasHeaderOnly() {
+		
+		//setup
+		final var node = Node.withHeader("a");
+		
+		//execution
+		final var result = ChainedNode.fromNode(node);
+		
+		//verification
+		expect(result).hasStringRepresentation("a");
+	}
 	
 	//method
 	@TestCase
