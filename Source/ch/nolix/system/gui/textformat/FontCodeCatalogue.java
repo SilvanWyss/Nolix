@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.constant;
+package ch.nolix.system.gui.textformat;
 
 //class
 /**
@@ -8,7 +8,7 @@ package ch.nolix.core.constant;
  * @author Silvan Wyss
  * @date 2020-08-02
  */
-public final class FontCodeCatalogue {
+final class FontCodeCatalogue {
 	
 	//constants
     public static final String ARIAL = "Arial";
