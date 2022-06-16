@@ -5,7 +5,6 @@ package ch.nolix.coretest;
 import ch.nolix.core.testing.basetest.TestPool;
 import ch.nolix.coretest.cachingtest.CachingTestPool;
 import ch.nolix.coretest.commontypetest.CommonTypeTestPool;
-import ch.nolix.coretest.commontypetest.constanttest.ConstantTestPool;
 import ch.nolix.coretest.containertest.ContainerTestPool;
 import ch.nolix.coretest.demotest.DemoTestPool;
 import ch.nolix.coretest.documenttest.DocumentTestPool;
@@ -32,7 +31,6 @@ public final class CoreTestPool extends TestPool {
 		super(
 			new CachingTestPool(),
 			new CommonTypeTestPool(),
-			new ConstantTestPool(),
 			new ContainerTestPool(),
 			new DemoTestPool(),
 			new DocumentTestPool(),
