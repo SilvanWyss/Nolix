@@ -9,6 +9,6 @@ public final class ChainedNodeTestPool extends TestPool {
 	
 	//constructor
 	public ChainedNodeTestPool() {
-		super(ChainedNodeTest.class);
+		super(ChainedNodeCreationTest.class, ChainedNodeTest.class);
 	}
 }
