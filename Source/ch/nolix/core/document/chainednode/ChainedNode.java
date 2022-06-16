@@ -4,7 +4,6 @@ package ch.nolix.core.document.chainednode;
 import ch.nolix.core.attributeuniversalapi.optionalattributeuniversalapi.OptionalHeadered;
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.commontype.constant.CharacterCatalogue;
-import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
@@ -15,6 +14,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentExceptio
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
+import ch.nolix.core.name.LowerCaseCatalogue;
 
 //class
 /**

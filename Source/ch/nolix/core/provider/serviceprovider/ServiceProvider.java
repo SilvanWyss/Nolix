@@ -4,10 +4,9 @@ package ch.nolix.core.provider.serviceprovider;
 //Java imports
 import java.util.HashMap;
 
-//own imports
-import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.name.LowerCaseCatalogue;
 import ch.nolix.core.programcontrol.processproperty.WriteMode;
 
 //class

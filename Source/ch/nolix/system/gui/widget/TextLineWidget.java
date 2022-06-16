@@ -2,13 +2,12 @@
 package ch.nolix.system.gui.widget;
 
 import ch.nolix.core.commontype.constant.StringCatalogue;
-//own imports
-import ch.nolix.core.constant.PascalCaseCatalogue;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IAction;
 import ch.nolix.core.functionuniversalapi.IElementTaker;
+import ch.nolix.core.name.PascalCaseCatalogue;
 import ch.nolix.system.element.MutableValue;
 import ch.nolix.system.gui.textformat.TextFormat;
 import ch.nolix.systemapi.guiapi.inputapi.Key;

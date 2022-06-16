@@ -2,7 +2,6 @@
 package ch.nolix.core.container.matrix;
 
 import ch.nolix.core.commontype.constant.CharacterCatalogue;
-import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.container.readcontainer.ReadContainer;
@@ -13,6 +12,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentEx
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IElementTakerElementGetter;
+import ch.nolix.core.name.LowerCaseCatalogue;
 import ch.nolix.core.skilluniversalapi.Clearable;
 
 //class

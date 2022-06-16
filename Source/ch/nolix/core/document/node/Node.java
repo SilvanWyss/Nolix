@@ -3,7 +3,6 @@ package ch.nolix.core.document.node;
 
 //own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalBooleanHelper;
-import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.container.pair.IntPair;
@@ -14,6 +13,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IElementTakerBooleanGetter;
+import ch.nolix.core.name.LowerCaseCatalogue;
 
 //class
 /**

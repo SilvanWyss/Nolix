@@ -1,11 +1,10 @@
 //package declaration
 package ch.nolix.system.gui.containerwidget;
 
-//own imports
-import ch.nolix.core.constant.LowerCaseCatalogue;
-import ch.nolix.core.constant.PascalCaseCatalogue;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.name.LowerCaseCatalogue;
+import ch.nolix.core.name.PascalCaseCatalogue;
 import ch.nolix.core.skilluniversalapi.Clearable;
 import ch.nolix.system.element.MutableElement;
 import ch.nolix.system.element.Value;

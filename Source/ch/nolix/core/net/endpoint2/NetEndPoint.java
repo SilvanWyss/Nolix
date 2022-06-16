@@ -1,8 +1,6 @@
 //package declaration
 package ch.nolix.core.net.endpoint2;
 
-//own imports
-import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.exception.GeneralException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -10,6 +8,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.name.LowerCaseCatalogue;
 import ch.nolix.core.programcontrol.groupcloseable.GroupCloseable;
 
 //class

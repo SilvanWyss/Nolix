@@ -1,11 +1,10 @@
 //package declaration
 package ch.nolix.systemapi.databaseapi.datatypeapi;
 
-//own imports
-import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.data.BinaryObject;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.name.LowerCaseCatalogue;
 
 //enum
 public enum DataType {

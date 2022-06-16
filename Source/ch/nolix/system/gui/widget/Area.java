@@ -1,14 +1,13 @@
 //package declaration
 package ch.nolix.system.gui.widget;
 
-//own imports
-import ch.nolix.core.constant.LowerCaseCatalogue;
-import ch.nolix.core.constant.PascalCaseCatalogue;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.name.LowerCaseCatalogue;
+import ch.nolix.core.name.PascalCaseCatalogue;
 import ch.nolix.system.element.MutableOptionalValue;
 import ch.nolix.system.element.MutableValue;
 import ch.nolix.system.gui.color.Color;

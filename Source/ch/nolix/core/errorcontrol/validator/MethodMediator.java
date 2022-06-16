@@ -5,11 +5,10 @@ package ch.nolix.core.errorcontrol.validator;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 
-//own imports
-import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.name.LowerCaseCatalogue;
 
 //class
 public class MethodMediator extends ArgumentMediator<Method> {

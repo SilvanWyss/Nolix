@@ -1,8 +1,6 @@
 //package declaration
 package ch.nolix.system.element;
 
-//own imports
-import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
@@ -12,6 +10,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IElementTaker;
 import ch.nolix.core.functionuniversalapi.IElementTakerElementGetter;
+import ch.nolix.core.name.LowerCaseCatalogue;
 
 //class
 /**

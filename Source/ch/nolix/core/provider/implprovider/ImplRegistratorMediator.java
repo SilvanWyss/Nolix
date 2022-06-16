@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.core.provider.implprovider;
 
-//own imports
-import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.name.LowerCaseCatalogue;
 import ch.nolix.core.programcontrol.processproperty.WriteMode;
 import ch.nolix.core.provider.implproviderapi.IImplRegistratorMediator;
 

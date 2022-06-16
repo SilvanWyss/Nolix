@@ -5,11 +5,10 @@ package ch.nolix.system.objectdata.data;
 import java.util.Iterator;
 
 import ch.nolix.core.commontype.constant.StringCatalogue;
-//own imports
-import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.name.LowerCaseCatalogue;
 import ch.nolix.system.objectdata.propertyhelper.MultiReferenceHelper;
 import ch.nolix.system.sqlrawdata.datadto.ContentFieldDTO;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;

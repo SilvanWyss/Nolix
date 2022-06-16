@@ -6,7 +6,6 @@ import java.util.Random;
 
 //own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalDoubleHelper;
-import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.environment.nolixenvironment.NolixEnvironment;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
@@ -15,6 +14,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentEx
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.name.LowerCaseCatalogue;
 import ch.nolix.core.requestuniversalapi.ApproximativeEqualing;
 
 //class

@@ -1,11 +1,10 @@
 //package declaration
 package ch.nolix.core.sql;
 
-//own imports
-import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.name.LowerCaseCatalogue;
 import ch.nolix.core.net.constant.PortCatalogue;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.programcontrol.groupcloseable.GroupCloseable;

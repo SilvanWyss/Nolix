@@ -4,8 +4,8 @@ package ch.nolix.coretutorial.buildertutorial.basetutorial;
 import ch.nolix.core.builder.base.ArgumentCapturer;
 import ch.nolix.core.builder.base.BaseArgumentCapturer;
 import ch.nolix.core.builder.base.TerminalArgumentCapturer;
-import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.name.LowerCaseCatalogue;
 
 public final class CarModelBuilderTutorial {
 	

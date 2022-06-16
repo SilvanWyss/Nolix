@@ -1,13 +1,12 @@
 //package declaration
 package ch.nolix.system.gui3d.base;
 
-//own imports
-import ch.nolix.core.constant.PascalCaseCatalogue;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.name.PascalCaseCatalogue;
 import ch.nolix.system.configuration.ConfigurableElement;
 import ch.nolix.system.element.MutableValueExtractor;
 import ch.nolix.system.geometry.Point2D;

@@ -6,10 +6,10 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 import ch.nolix.businessapi.bigdecimalmathapi.IClosedInterval;
-import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.pair.Pair;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.math.Calculator;
+import ch.nolix.core.name.LowerCaseCatalogue;
 
 //class
 public final class ClosedInterval implements IClosedInterval {

@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.systemapi.databaseapi.propertytypeapi;
 
-//own imports
-import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.name.LowerCaseCatalogue;
 import ch.nolix.systemapi.databaseapi.cardinalityapi.Cardinality;
 
 //enum

@@ -1,8 +1,6 @@
 //package declaration
 package ch.nolix.system.element;
 
-//own imports
-import ch.nolix.core.constant.PascalCaseCatalogue;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
@@ -11,6 +9,7 @@ import ch.nolix.core.functionuniversalapi.IBooleanGetter;
 import ch.nolix.core.functionuniversalapi.IElementGetter;
 import ch.nolix.core.functionuniversalapi.IElementTaker;
 import ch.nolix.core.functionuniversalapi.IElementTakerElementGetter;
+import ch.nolix.core.name.PascalCaseCatalogue;
 
 //class
 public final class MutableOptionalValueExtractor<V> extends Property {

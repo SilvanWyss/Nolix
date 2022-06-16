@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
-//own imports
-import ch.nolix.core.constant.LowerCaseCatalogue;
+import ch.nolix.core.name.LowerCaseCatalogue;
 
 //class
 /**

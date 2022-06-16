@@ -2,9 +2,9 @@
 package ch.nolix.core.container.matrix;
 
 import ch.nolix.core.commontype.constant.CharacterCatalogue;
-import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.name.LowerCaseCatalogue;
 
 //class
 public final class MatrixColumn<E> implements IContainer<E> {

@@ -5,12 +5,12 @@ import ch.nolix.core.attributeuniversalapi.mutableoptionalattributeuniversalapi.
 import ch.nolix.core.attributeuniversalapi.mutableoptionalattributeuniversalapi.OptionalValueable;
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.commontype.constant.CharacterCatalogue;
-import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.name.LowerCaseCatalogue;
 
 //class
 public final class XMLNode implements OptionalNamable<XMLNode>, OptionalValueable<XMLNode, String> {

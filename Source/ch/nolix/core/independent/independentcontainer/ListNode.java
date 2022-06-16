@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.core.independent.independentcontainer;
 
-//own imports
-import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.core.name.LowerCaseCatalogue;
 
 //class
 final class ListNode<E> {

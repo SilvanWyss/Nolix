@@ -8,9 +8,9 @@ import java.math.RoundingMode;
 
 //own imports
 import ch.nolix.businessapi.bigdecimalmathapi.IComplexNumber;
-import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.math.Calculator;
+import ch.nolix.core.name.LowerCaseCatalogue;
 
 //class
 /**

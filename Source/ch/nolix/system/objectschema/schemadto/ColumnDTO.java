@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.system.objectschema.schemadto;
 
-//own imports
-import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.core.name.LowerCaseCatalogue;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
 

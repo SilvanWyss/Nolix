@@ -1,11 +1,10 @@
 //package declaration
 package ch.nolix.core.programcontrol.sequencer;
 
-//own imports
-import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IAction;
 import ch.nolix.core.functionuniversalapi.IBooleanGetter;
+import ch.nolix.core.name.LowerCaseCatalogue;
 
 //class
 public final class AsSoonAsMediator {

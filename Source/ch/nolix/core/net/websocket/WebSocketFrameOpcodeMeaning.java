@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.core.net.websocket;
 
-//own imports
-import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.name.LowerCaseCatalogue;
 
 //enum
 public enum WebSocketFrameOpcodeMeaning {

@@ -2,7 +2,6 @@
 package ch.nolix.system.element;
 
 import ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi.Named;
-import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
@@ -10,6 +9,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IElementGetter;
 import ch.nolix.core.functionuniversalapi.IElementTaker;
 import ch.nolix.core.functionuniversalapi.IElementTakerElementGetter;
+import ch.nolix.core.name.LowerCaseCatalogue;
 
 //class
 public final class ForwardingMutableValue<V> extends Property implements Named {

@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.system.gui.dialog;
 
-//own imports
-import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.name.LowerCaseCatalogue;
 import ch.nolix.system.gui.base.LayerRole;
 import ch.nolix.system.gui.containerwidget.AligningContainer;
 import ch.nolix.system.gui.containerwidget.ContainerRole;

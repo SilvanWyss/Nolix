@@ -8,12 +8,11 @@ import com.jme3.math.ColorRGBA;
 import com.jme3.math.Vector3f;
 import com.jme3.system.AppSettings;
 
-//own imports
-import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IAction;
+import ch.nolix.core.name.LowerCaseCatalogue;
 import ch.nolix.system.gui3d.base.MainFrame;
 import ch.nolix.system.gui3d.base.Shape;
 import ch.nolix.system.gui3d.planarshape.Rectangle;

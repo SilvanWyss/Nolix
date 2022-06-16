@@ -3,11 +3,11 @@ package ch.nolix.system.objectdata.data;
 
 //own imports
 import ch.nolix.core.caching.CachingProperty;
-import ch.nolix.core.constant.LowerCaseCatalogue;
-import ch.nolix.core.constant.PluralLowerCaseCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.name.LowerCaseCatalogue;
+import ch.nolix.core.name.PluralLowerCaseCatalogue;
 import ch.nolix.system.objectdata.datahelper.EntityHelper;
 import ch.nolix.system.objectdata.datahelper.TableHelper;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.DatabaseObjectState;

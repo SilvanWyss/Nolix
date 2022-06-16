@@ -9,9 +9,9 @@ import java.awt.RenderingHints;
 
 //own imports
 import ch.nolix.core.caching.CachingContainer;
-import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.SingleContainer;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.name.LowerCaseCatalogue;
 import ch.nolix.system.gui.color.ColorGradient;
 import ch.nolix.system.gui.textformat.TextFormat;
 import ch.nolix.systemapi.guiapi.colorapi.IColor;

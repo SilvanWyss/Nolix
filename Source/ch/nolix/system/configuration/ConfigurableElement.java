@@ -1,13 +1,12 @@
 //package declaration
 package ch.nolix.system.configuration;
 
-//own imports
-import ch.nolix.core.constant.LowerCaseCatalogue;
-import ch.nolix.core.constant.PascalCaseCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.name.LowerCaseCatalogue;
+import ch.nolix.core.name.PascalCaseCatalogue;
 import ch.nolix.system.element.MutableElement;
 import ch.nolix.system.element.MutableOptionalValue;
 import ch.nolix.systemapi.elementapi.configurationapi.IConfigurableElement;

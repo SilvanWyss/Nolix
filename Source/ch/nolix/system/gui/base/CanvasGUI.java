@@ -1,13 +1,12 @@
 //package declaration
 package ch.nolix.system.gui.base;
 
-//own imports
-import ch.nolix.core.constant.PascalCaseCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.functionuniversalapi.IElementTaker;
+import ch.nolix.core.name.PascalCaseCatalogue;
 import ch.nolix.core.programcontrol.processproperty.ChangeState;
 import ch.nolix.core.stateproperty.Visibility;
 import ch.nolix.system.application.baseguiapplication.PaintRun;

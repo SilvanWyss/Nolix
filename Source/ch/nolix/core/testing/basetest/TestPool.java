@@ -1,11 +1,10 @@
 //package declaration
 package ch.nolix.core.testing.basetest;
 
-//own imports
-import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.independent.independentcontainer.List;
+import ch.nolix.core.name.LowerCaseCatalogue;
 import ch.nolix.core.skilluniversalapi.Runnable;
 
 //class

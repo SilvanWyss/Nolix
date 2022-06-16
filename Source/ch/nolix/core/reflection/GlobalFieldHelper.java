@@ -5,11 +5,10 @@ package ch.nolix.core.reflection;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
-//own imports
-import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.name.LowerCaseCatalogue;
 
 //class
 public final class GlobalFieldHelper {

@@ -3,11 +3,11 @@ package ch.nolix.core.license;
 
 import ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi.Named;
 import ch.nolix.core.commontype.constant.StringCatalogue;
-import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnacceptedKeyException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.name.LowerCaseCatalogue;
 
 //class
 /**

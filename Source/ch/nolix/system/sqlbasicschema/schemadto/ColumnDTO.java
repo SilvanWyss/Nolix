@@ -1,12 +1,11 @@
 //package declaration
 package ch.nolix.system.sqlbasicschema.schemadto;
 
-//own imports
-import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.name.LowerCaseCatalogue;
 import ch.nolix.systemapi.sqlbasicschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.systemapi.sqlbasicschemaapi.schemadtoapi.IConstraintDTO;
 import ch.nolix.systemapi.sqlbasicschemaapi.schemadtoapi.IDataTypeDTO;

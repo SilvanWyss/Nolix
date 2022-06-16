@@ -10,7 +10,6 @@ import java.nio.charset.StandardCharsets;
 
 //own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalInputStreamHelper;
-import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.container.SingleContainer;
 import ch.nolix.core.document.node.Node;
@@ -18,6 +17,7 @@ import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.name.LowerCaseCatalogue;
 import ch.nolix.core.net.http.HTTPRequest;
 import ch.nolix.core.net.websocket.WebSocketHandShakeRequest;
 import ch.nolix.core.programcontrol.worker.Worker;

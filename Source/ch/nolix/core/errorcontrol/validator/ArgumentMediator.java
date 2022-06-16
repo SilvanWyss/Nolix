@@ -4,14 +4,13 @@ package ch.nolix.core.errorcontrol.validator;
 //Java imports
 import java.util.Objects;
 
-//own imports
-import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNotNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EqualArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentException;
 import ch.nolix.core.functionuniversalapi.IElementTakerBooleanGetter;
+import ch.nolix.core.name.LowerCaseCatalogue;
 
 //class
 /**

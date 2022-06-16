@@ -2,9 +2,9 @@
 package ch.nolix.system.sqlrawschema.databasepropertytable;
 
 import ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi.Labeled;
-import ch.nolix.core.constant.LowerCaseCatalogue;
-import ch.nolix.core.constant.PascalCaseCatalogue;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.name.LowerCaseCatalogue;
+import ch.nolix.core.name.PascalCaseCatalogue;
 
 //class
 public enum DatabasePropertySystemTableColumn implements Labeled {

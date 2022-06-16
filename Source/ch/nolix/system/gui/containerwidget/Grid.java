@@ -1,13 +1,12 @@
 //package declaration
 package ch.nolix.system.gui.containerwidget;
 
-//own imports
-import ch.nolix.core.constant.LowerCaseCatalogue;
-import ch.nolix.core.constant.PascalCaseCatalogue;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.container.matrix.Matrix;
 import ch.nolix.core.container.matrix.MatrixRow;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.name.LowerCaseCatalogue;
+import ch.nolix.core.name.PascalCaseCatalogue;
 import ch.nolix.system.element.MultiValueExtractor;
 import ch.nolix.system.gui.widget.Label;
 import ch.nolix.system.gui.widget.Widget;

@@ -3,8 +3,8 @@ package ch.nolix.coretest.constanttest;
 
 //own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
-import ch.nolix.core.constant.PluralPascalCaseCatalogue;
 import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.name.PluralPascalCaseCatalogue;
 import ch.nolix.core.reflection.GlobalClassHelper;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;

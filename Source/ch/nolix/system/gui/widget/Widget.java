@@ -1,8 +1,6 @@
 //package declaration
 package ch.nolix.system.gui.widget;
 
-//own imports
-import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.container.SingleContainer;
@@ -15,6 +13,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.I2ElementTaker;
 import ch.nolix.core.functionuniversalapi.IElementTaker;
+import ch.nolix.core.name.LowerCaseCatalogue;
 import ch.nolix.system.configuration.ConfigurableElement;
 import ch.nolix.system.element.ExtensionElement;
 import ch.nolix.system.element.MutableValueExtractor;

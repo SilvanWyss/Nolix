@@ -1,9 +1,6 @@
 //package declaration
 package ch.nolix.core.math;
 
-//own imports
-import ch.nolix.core.constant.LowerCaseCatalogue;
-import ch.nolix.core.constant.PluralLowerCaseCatalogue;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.container.pair.FPNPair;
 import ch.nolix.core.errorcontrol.invalidargumentexception.BiggerArgumentException;
@@ -11,6 +8,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentExceptio
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.name.LowerCaseCatalogue;
+import ch.nolix.core.name.PluralLowerCaseCatalogue;
 
 //class
 /**

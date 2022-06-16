@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.core.demo;
 
-//own imports
-import ch.nolix.core.constant.PascalCaseCatalogue;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.name.PascalCaseCatalogue;
 
 //class
 public final class BankAccount {

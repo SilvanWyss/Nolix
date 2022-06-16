@@ -4,14 +4,13 @@ package ch.nolix.core.caching;
 //Java imports
 import java.util.Iterator;
 
-//own imports
-import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.container.SingleContainer;
 import ch.nolix.core.container.pair.Pair;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.name.LowerCaseCatalogue;
 
 //class
 public final class CachingContainer<E> implements IContainer<E> {

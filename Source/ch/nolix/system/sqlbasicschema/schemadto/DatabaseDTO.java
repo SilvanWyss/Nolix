@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.system.sqlbasicschema.schemadto;
 
-//own imports
-import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.name.LowerCaseCatalogue;
 import ch.nolix.systemapi.sqlbasicschemaapi.schemadtoapi.IDatabaseDTO;
 import ch.nolix.systemapi.sqlbasicschemaapi.schemadtoapi.ITableDTO;
 

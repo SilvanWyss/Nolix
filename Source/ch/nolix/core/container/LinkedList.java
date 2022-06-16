@@ -2,8 +2,6 @@
 package ch.nolix.core.container;
 
 import ch.nolix.core.commontype.constant.CharacterCatalogue;
-import ch.nolix.core.constant.LowerCaseCatalogue;
-import ch.nolix.core.constant.PluralLowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
@@ -15,6 +13,8 @@ import ch.nolix.core.functionuniversalapi.IElementTakerBooleanGetter;
 import ch.nolix.core.functionuniversalapi.IElementTakerComparableGetter;
 import ch.nolix.core.functionuniversalapi.IElementTakerElementGetter;
 import ch.nolix.core.independent.independenthelper.IterableHelper;
+import ch.nolix.core.name.LowerCaseCatalogue;
+import ch.nolix.core.name.PluralLowerCaseCatalogue;
 import ch.nolix.core.skilluniversalapi.Clearable;
 
 //class

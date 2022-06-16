@@ -1,11 +1,10 @@
 //package declaration
 package ch.nolix.core.programcontrol.sequencer;
 
-//own imports
-import ch.nolix.core.constant.PluralLowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IAction;
+import ch.nolix.core.name.PluralLowerCaseCatalogue;
 
 //class
 public final class JobMerger {

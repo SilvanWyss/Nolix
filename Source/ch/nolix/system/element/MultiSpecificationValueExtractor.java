@@ -1,8 +1,6 @@
 //package declaration
 package ch.nolix.system.element;
 
-//own imports
-import ch.nolix.core.constant.PascalCaseCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
@@ -10,6 +8,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IElementGetter;
 import ch.nolix.core.functionuniversalapi.IElementTaker;
+import ch.nolix.core.name.PascalCaseCatalogue;
 
 //class
 public final class MultiSpecificationValueExtractor extends Property {

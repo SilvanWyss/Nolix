@@ -3,7 +3,6 @@ package ch.nolix.system.formatelement;
 
 //own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
-import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.container.SingleContainer;
 import ch.nolix.core.document.node.BaseNode;
@@ -12,6 +11,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.I2ElementTaker;
 import ch.nolix.core.functionuniversalapi.IElementTakerElementGetter;
+import ch.nolix.core.name.LowerCaseCatalogue;
 
 //class
 public abstract class MaterializedProperty<S extends Enum<S>, V> extends Property<S> {

@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.system.sqlrawschema.schemawriter;
 
-//own imports
-import ch.nolix.core.constant.PascalCaseCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.name.PascalCaseCatalogue;
 import ch.nolix.system.sqlbasicschema.schemadto.ColumnDTO;
 import ch.nolix.system.sqlbasicschema.schemadto.TableDTO;
 import ch.nolix.system.sqlrawschema.structure.SQLDatatypeCatalogue;

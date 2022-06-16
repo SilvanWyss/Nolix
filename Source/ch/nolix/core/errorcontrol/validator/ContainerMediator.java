@@ -4,8 +4,6 @@ package ch.nolix.core.errorcontrol.validator;
 //Java imports
 import java.util.Iterator;
 
-//own imports
-import ch.nolix.core.constant.LowerCaseCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -13,6 +11,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentExcep
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonEmptyArgumentException;
 import ch.nolix.core.functionuniversalapi.IElementTakerBooleanGetter;
 import ch.nolix.core.independent.independentcontainer.ArrayReadContainer;
+import ch.nolix.core.name.LowerCaseCatalogue;
 
 //class
 /**
