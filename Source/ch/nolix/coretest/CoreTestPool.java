@@ -8,6 +8,7 @@ import ch.nolix.coretest.commontypetest.CommonTypeTestPool;
 import ch.nolix.coretest.containertest.ContainerTestPool;
 import ch.nolix.coretest.demotest.DemoTestPool;
 import ch.nolix.coretest.documenttest.DocumentTestPool;
+import ch.nolix.coretest.environmenttest.EnvironmentTestPool;
 import ch.nolix.coretest.errorcontroltest.ErrorControlTestPool;
 import ch.nolix.coretest.licensetest.LicenseTestPool;
 import ch.nolix.coretest.mathtest.MathTestPool;
@@ -34,6 +35,7 @@ public final class CoreTestPool extends TestPool {
 			new ContainerTestPool(),
 			new DemoTestPool(),
 			new DocumentTestPool(),
+			new EnvironmentTestPool(),
 			new ErrorControlTestPool(),
 			new LicenseTestPool(),
 			new MathTestPool(),
