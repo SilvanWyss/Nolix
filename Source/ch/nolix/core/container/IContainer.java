@@ -5,8 +5,6 @@ package ch.nolix.core.container;
 import java.util.Random;
 
 import ch.nolix.core.commontype.constant.StringCatalogue;
-//own imports
-import ch.nolix.core.constant.FunctionCatalogue;
 import ch.nolix.core.container.pair.Pair;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -18,6 +16,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentEx
 import ch.nolix.core.errorcontrol.invalidargumentexception.SmallerArgumentException;
 import ch.nolix.core.errorcontrol.logger.GlobalLogger;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.function.FunctionCatalogue;
 import ch.nolix.core.functionuniversalapi.I2ElementTakerBooleanGetter;
 import ch.nolix.core.functionuniversalapi.IElementTaker;
 import ch.nolix.core.functionuniversalapi.IElementTakerBooleanGetter;

@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemtest.guitest.widgettest;
 
-//own imports
-import ch.nolix.core.constant.FunctionCatalogue;
+import ch.nolix.core.function.FunctionCatalogue;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.ObjectTest;
 import ch.nolix.system.gui.base.InvisibleGUI;
