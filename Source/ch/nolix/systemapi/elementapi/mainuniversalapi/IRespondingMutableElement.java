@@ -3,7 +3,7 @@ package ch.nolix.systemapi.elementapi.mainuniversalapi;
 
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.name.LowerCaseCatalogue;
+import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
 //interface
 /**

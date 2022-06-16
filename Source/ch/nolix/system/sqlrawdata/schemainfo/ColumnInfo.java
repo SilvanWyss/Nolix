@@ -3,7 +3,7 @@ package ch.nolix.system.sqlrawdata.schemainfo;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
-import ch.nolix.core.name.LowerCaseCatalogue;
+import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;

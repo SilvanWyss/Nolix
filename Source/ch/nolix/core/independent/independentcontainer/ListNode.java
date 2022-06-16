@@ -2,7 +2,7 @@
 package ch.nolix.core.independent.independentcontainer;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.name.LowerCaseCatalogue;
+import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
 //class
 final class ListNode<E> {

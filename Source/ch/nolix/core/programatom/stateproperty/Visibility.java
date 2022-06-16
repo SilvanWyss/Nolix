@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.stateproperty;
+package ch.nolix.core.programatom.stateproperty;
 
 //enum
 public enum Visibility {

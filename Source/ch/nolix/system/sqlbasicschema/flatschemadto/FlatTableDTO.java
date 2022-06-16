@@ -2,7 +2,7 @@
 package ch.nolix.system.sqlbasicschema.flatschemadto;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.name.LowerCaseCatalogue;
+import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.systemapi.sqlbasicschemaapi.flatschemadtoapi.IFlatTableDTO;
 
 //class

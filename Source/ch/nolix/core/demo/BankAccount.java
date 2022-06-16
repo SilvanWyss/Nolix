@@ -2,7 +2,7 @@
 package ch.nolix.core.demo;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.name.PascalCaseCatalogue;
+import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 
 //class
 public final class BankAccount {

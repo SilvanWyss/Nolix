@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.name;
+package ch.nolix.core.programatom.name;
 
 //class
 /**

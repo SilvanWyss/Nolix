@@ -3,7 +3,7 @@ package ch.nolix.core.testing.basetest;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.name.LowerCaseCatalogue;
+import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
 //class
 public final class Error {

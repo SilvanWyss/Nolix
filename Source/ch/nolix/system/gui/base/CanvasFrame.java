@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.gui.base;
 
-import ch.nolix.core.stateproperty.Visibility;
+import ch.nolix.core.programatom.stateproperty.Visibility;
 import ch.nolix.systemapi.guiapi.inputapi.IResizableInputTaker;
 
 //class

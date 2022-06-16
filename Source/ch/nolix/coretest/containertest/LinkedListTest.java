@@ -5,7 +5,7 @@ import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.container.SequencePattern;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
-import ch.nolix.core.function.FunctionCatalogue;
+import ch.nolix.core.programatom.function.FunctionCatalogue;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 

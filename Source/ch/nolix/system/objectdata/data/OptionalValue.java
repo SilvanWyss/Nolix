@@ -2,7 +2,7 @@
 package ch.nolix.system.objectdata.data;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.name.LowerCaseCatalogue;
+import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.system.objectdata.propertyhelper.OptionalValueHelper;
 import ch.nolix.system.sqlrawdata.datadto.ContentFieldDTO;
 import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;

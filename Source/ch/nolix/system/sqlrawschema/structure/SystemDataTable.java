@@ -3,8 +3,8 @@ package ch.nolix.system.sqlrawschema.structure;
 
 import ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi.FullNamed;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.name.LowerCaseCatalogue;
-import ch.nolix.core.name.PascalCaseCatalogue;
+import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 
 //enum
 public enum SystemDataTable implements FullNamed {

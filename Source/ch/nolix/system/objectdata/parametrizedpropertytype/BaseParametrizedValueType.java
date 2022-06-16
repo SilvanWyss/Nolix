@@ -3,7 +3,7 @@ package ch.nolix.system.objectdata.parametrizedpropertytype;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.name.LowerCaseCatalogue;
+import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.systemapi.objectdataapi.dataapi.IBaseParametrizedBackReferenceType;
 import ch.nolix.systemapi.objectdataapi.dataapi.IBaseParametrizedReferenceType;
 import ch.nolix.systemapi.objectdataapi.dataapi.IBaseParametrizedValueType;

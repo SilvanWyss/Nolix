@@ -2,7 +2,7 @@
 package ch.nolix.coretest.providertest.implprovidertest;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.name.LowerCaseCatalogue;
+import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.provider.implprovider.ImplProvider;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;

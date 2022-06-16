@@ -10,7 +10,7 @@ import java.math.RoundingMode;
 import ch.nolix.businessapi.bigdecimalmathapi.IComplexNumber;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.math.Calculator;
-import ch.nolix.core.name.LowerCaseCatalogue;
+import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
 //class
 /**

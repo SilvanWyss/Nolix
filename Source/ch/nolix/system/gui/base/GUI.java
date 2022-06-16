@@ -10,12 +10,12 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.name.LowerCaseCatalogue;
-import ch.nolix.core.name.PascalCaseCatalogue;
+import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.core.programatom.name.PascalCaseCatalogue;
+import ch.nolix.core.programatom.stateproperty.Visibility;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.programcontrol.processproperty.ChangeState;
 import ch.nolix.core.skilluniversalapi.Recalculable;
-import ch.nolix.core.stateproperty.Visibility;
 import ch.nolix.system.configuration.ConfigurationElement;
 import ch.nolix.system.element.MutableValue;
 import ch.nolix.system.gui.framevisualizer.FrameVisualizer;

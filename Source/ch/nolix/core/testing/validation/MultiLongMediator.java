@@ -6,7 +6,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NonBiggerArgumentExce
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.functionuniversalapi.IElementTaker;
 import ch.nolix.core.independent.independenthelper.CentralArrayHelper;
-import ch.nolix.core.name.LowerCaseCatalogue;
+import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
 //class
 /**

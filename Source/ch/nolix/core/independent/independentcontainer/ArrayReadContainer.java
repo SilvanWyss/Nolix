@@ -5,7 +5,7 @@ package ch.nolix.core.independent.independentcontainer;
 import java.util.Iterator;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.name.LowerCaseCatalogue;
+import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
 //class
 public final class ArrayReadContainer<E> implements Iterable<E> {

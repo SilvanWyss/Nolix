@@ -8,7 +8,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IBooleanGetter;
 import ch.nolix.core.functionuniversalapi.IElementGetter;
 import ch.nolix.core.functionuniversalapi.IElementTaker;
-import ch.nolix.core.name.PascalCaseCatalogue;
+import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 
 //class
 public final class MutableOptionalSpecificationValueExtractor extends Property {

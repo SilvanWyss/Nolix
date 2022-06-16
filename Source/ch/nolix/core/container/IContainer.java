@@ -16,7 +16,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentEx
 import ch.nolix.core.errorcontrol.invalidargumentexception.SmallerArgumentException;
 import ch.nolix.core.errorcontrol.logger.GlobalLogger;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.function.FunctionCatalogue;
 import ch.nolix.core.functionuniversalapi.I2ElementTakerBooleanGetter;
 import ch.nolix.core.functionuniversalapi.IElementTaker;
 import ch.nolix.core.functionuniversalapi.IElementTakerBooleanGetter;
@@ -27,7 +26,8 @@ import ch.nolix.core.functionuniversalapi.IElementTakerDoubleGetter;
 import ch.nolix.core.functionuniversalapi.IElementTakerElementGetter;
 import ch.nolix.core.functionuniversalapi.IElementTakerIntGetter;
 import ch.nolix.core.functionuniversalapi.IElementTakerLongGetter;
-import ch.nolix.core.name.LowerCaseCatalogue;
+import ch.nolix.core.programatom.function.FunctionCatalogue;
+import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
 //interface
 /**

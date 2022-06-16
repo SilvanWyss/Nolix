@@ -4,7 +4,7 @@ package ch.nolix.coretest.constanttest;
 //own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.container.LinkedList;
-import ch.nolix.core.name.PascalCaseCatalogue;
+import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.core.reflection.GlobalClassHelper;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;

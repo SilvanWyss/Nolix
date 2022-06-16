@@ -3,7 +3,7 @@ package ch.nolix.system.sqlrawschema.structure;
 
 import ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi.FullNamed;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.name.LowerCaseCatalogue;
+import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
 //enum
 public enum MultiContentTable implements FullNamed {

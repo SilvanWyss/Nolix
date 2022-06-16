@@ -4,7 +4,7 @@ package ch.nolix.system.application.guiapplication;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.name.LowerCaseCatalogue;
+import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.system.application.baseguiapplication.BaseBackendGUIClient;
 import ch.nolix.system.application.main.Application;
 

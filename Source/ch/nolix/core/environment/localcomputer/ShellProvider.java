@@ -9,9 +9,9 @@ import java.net.URISyntaxException;
 
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.name.LowerCaseCatalogue;
 import ch.nolix.core.net.constant.IPv4Catalogue;
 import ch.nolix.core.net.constant.PortCatalogue;
+import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
 //class
 public final class ShellProvider {

@@ -9,7 +9,7 @@ import ch.nolix.businessapi.bigdecimalmathapi.IClosedInterval;
 import ch.nolix.core.container.pair.Pair;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.math.Calculator;
-import ch.nolix.core.name.LowerCaseCatalogue;
+import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
 //class
 public final class ClosedInterval implements IClosedInterval {

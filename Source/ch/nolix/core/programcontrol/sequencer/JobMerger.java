@@ -4,7 +4,7 @@ package ch.nolix.core.programcontrol.sequencer;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IAction;
-import ch.nolix.core.name.PluralLowerCaseCatalogue;
+import ch.nolix.core.programatom.name.PluralLowerCaseCatalogue;
 
 //class
 public final class JobMerger {

@@ -4,7 +4,7 @@ package ch.nolix.systemapi.databaseapi.datatypeapi;
 import ch.nolix.core.data.BinaryObject;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.name.LowerCaseCatalogue;
+import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
 //enum
 public enum DataType {

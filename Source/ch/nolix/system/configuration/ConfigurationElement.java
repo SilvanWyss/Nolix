@@ -2,7 +2,7 @@
 package ch.nolix.system.configuration;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.name.PascalCaseCatalogue;
+import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.system.element.MutableOptionalValue;
 import ch.nolix.systemapi.elementapi.configurationapi.IConfiguration;
 

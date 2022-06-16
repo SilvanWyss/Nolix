@@ -13,8 +13,8 @@ import ch.nolix.core.functionuniversalapi.IElementTakerBooleanGetter;
 import ch.nolix.core.functionuniversalapi.IElementTakerComparableGetter;
 import ch.nolix.core.functionuniversalapi.IElementTakerElementGetter;
 import ch.nolix.core.independent.independenthelper.IterableHelper;
-import ch.nolix.core.name.LowerCaseCatalogue;
-import ch.nolix.core.name.PluralLowerCaseCatalogue;
+import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.core.programatom.name.PluralLowerCaseCatalogue;
 import ch.nolix.core.skilluniversalapi.Clearable;
 
 //class

@@ -10,7 +10,7 @@ import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.environment.localcomputer.PopupWindowProvider;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.name.LowerCaseCatalogue;
+import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.system.application.main.FrontendClient;
 import ch.nolix.system.gui.base.GUI;
 import ch.nolix.systemapi.guiapi.inputapi.IInput;

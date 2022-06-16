@@ -4,7 +4,7 @@ package ch.nolix.core.builder.terminalargumentcapturer;
 //own imports
 import ch.nolix.core.builder.base.TerminalArgumentCapturer;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.name.LowerCaseCatalogue;
+import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
 //class
 public final class AndLoginPasswordTerminalCapturer<O> extends TerminalArgumentCapturer<String, O> {

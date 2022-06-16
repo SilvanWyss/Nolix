@@ -13,9 +13,9 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.name.LowerCaseCatalogue;
 import ch.nolix.core.net.constant.IPv6Catalogue;
 import ch.nolix.core.net.constant.PortCatalogue;
+import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programcontrol.processproperty.ConnectionOrigin;
 import ch.nolix.core.programcontrol.processproperty.TargetInfoState;
 
