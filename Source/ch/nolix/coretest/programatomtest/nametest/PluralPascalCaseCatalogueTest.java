@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coretest.constanttest;
+package ch.nolix.coretest.programatomtest.nametest;
 
 //own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;

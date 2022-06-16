@@ -13,6 +13,7 @@ import ch.nolix.coretest.errorcontroltest.ErrorControlTestPool;
 import ch.nolix.coretest.licensetest.LicenseTestPool;
 import ch.nolix.coretest.mathtest.MathTestPool;
 import ch.nolix.coretest.nettest.NetTestPool;
+import ch.nolix.coretest.programatomtest.ProgramAtomTestPool;
 import ch.nolix.coretest.programcontroltest.ProgramControlTestPool;
 import ch.nolix.coretest.providertest.ProviderTestPool;
 
@@ -39,6 +40,7 @@ public final class CoreTestPool extends TestPool {
 			new LicenseTestPool(),
 			new MathTestPool(),
 			new NetTestPool(),
+			new ProgramAtomTestPool(),
 			new ProgramControlTestPool(),
 			new ProviderTestPool()
 		);
