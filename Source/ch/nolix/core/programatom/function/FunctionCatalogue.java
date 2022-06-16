@@ -4,6 +4,7 @@ package ch.nolix.core.programatom.function;
 //Java imports
 import java.util.Objects;
 
+//own imports
 import ch.nolix.core.commontype.constant.StringCatalogue;
 
 //class
@@ -14,7 +15,7 @@ import ch.nolix.core.commontype.constant.StringCatalogue;
  * @date 2017-01-01
  */
 public final class FunctionCatalogue {
-		
+	
 	//static method
 	/**
 	 * @param object1
@@ -108,7 +109,7 @@ public final class FunctionCatalogue {
 	 * @param object
 	 * @return the type of the given object.
 	 */
-	public static Class<?> getType(final Object object) {
+	public static Class<?> getTypeOf(final Object object) {
 		return object.getClass();
 	}
 	
