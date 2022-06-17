@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.system.objectdata.data;
 
-//Java imports
-import java.util.Iterator;
-
+//own imports
 import ch.nolix.core.commontype.constant.StringCatalogue;
+import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
@@ -50,20 +49,11 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<Dat
 	
 	//method
 	@Override
-	public int getElementCount() {
+	public IContainer<V> getRefValues() {
 		
 		loadValuesIfNotLoaded();
 		
-		return values.getElementCount();
-	}
-	
-	//method
-	@Override
-	public V getRefAt(final int index) {
-		
-		loadValuesIfNotLoaded();
-		
-		return values.getRefAt(index);
+		return values;
 	}
 	
 	//method
@@ -74,17 +64,14 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<Dat
 	
 	//method
 	@Override
-	public boolean isMandatory() {
-		return false;
+	public boolean isEmpty() {
+		return getRefValues().isEmpty();
 	}
 	
 	//method
 	@Override
-	public Iterator<V> iterator() {
-		
-		loadValuesIfNotLoaded();
-		
-		return values.iterator();
+	public boolean isMandatory() {
+		return false;
 	}
 	
 	//method

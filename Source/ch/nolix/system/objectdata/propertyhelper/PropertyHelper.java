@@ -111,7 +111,7 @@ public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHel
 			throw new InvalidArgumentException(multiValue, "cannot know its data type");
 		}
 		
-		return multiValue.getRefFirst().getClass();
+		return multiValue.getRefValues().getRefFirst().getClass();
 	}
 	
 	//method

@@ -9,20 +9,11 @@ import ch.nolix.core.skilluniversalapi.Clearable;
 public interface IMultiValue<
 	IMPL,
 	V
-> extends Clearable, IBaseValue<IMPL, V>, IContainer<V> {
+> extends Clearable, IBaseValue<IMPL, V> {
 	
 	//method declaration
 	void addValue(V value);
 	
-	//method
-	@Override
-	default boolean containsAny() {
-		return IContainer.super.containsAny();
-	}
-	
-	//method
-	@Override
-	default boolean isEmpty() {
-		return IContainer.super.isEmpty();
-	}
+	//method declaration
+	IContainer<V> getRefValues();
 }
