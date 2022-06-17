@@ -28,6 +28,7 @@ import ch.nolix.core.functionuniversalapi.IElementTakerDoubleGetter;
 import ch.nolix.core.functionuniversalapi.IElementTakerElementGetter;
 import ch.nolix.core.functionuniversalapi.IElementTakerIntGetter;
 import ch.nolix.core.functionuniversalapi.IElementTakerLongGetter;
+import ch.nolix.core.independent.independenthelper.IterableHelper;
 import ch.nolix.core.programatom.function.FunctionCatalogue;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
@@ -243,8 +244,14 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @param container
 	 * @return true if the current {@link Container} contains as many elements as the given container.
 	 */
-	public final boolean containsAsManyAs(final ch.nolix.core.containerapi.IContainer<E> container) {
+	public final boolean containsAsManyAs(final IContainer<?> container) {
 		return (getElementCount() == container.getElementCount());
+	}
+	
+	//method
+	@Override
+	public boolean containsAsManyAs(Iterable<?> container) {
+		return (getElementCount() == IterableHelper.getElementCount(container));
 	}
 	
 	//method
@@ -254,7 +261,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @param container
 	 * @return true if the current {@link Container} contains less elements than the given container.
 	 */
-	public final boolean containsLessThan(final ch.nolix.core.containerapi.IContainer<?> container) {
+	public final boolean containsLessThan(final IContainer<?> container) {
 		return (getElementCount() < container.getElementCount());
 	}
 	
@@ -266,7 +273,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @return true if the current {@link Container} contains less elements than the given container.
 	 */
 	public final boolean containsLessThan(final Iterable<?> container) {
-		return containsLessThan(ReadContainer.forIterable(container));
+		return (getElementCount() < IterableHelper.getElementCount(container));
 	}
 	
 	//method
@@ -276,7 +283,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @param container
 	 * @return true if the current {@link Container} contains more elements than the given container.
 	 */
-	public final boolean containsMoreThan(final ch.nolix.core.containerapi.IContainer<?> container) {
+	public final boolean containsMoreThan(final IContainer<?> container) {
 		return (getElementCount() > container.getElementCount());
 	}
 	
@@ -288,7 +295,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @return true if the current {@link Container} contains more elements than the given container.
 	 */
 	public final boolean containsMoreThan(final Iterable<?> container) {
-		return containsMoreThan(ReadContainer.forIterable(container));
+		return (getElementCount() > IterableHelper.getElementCount(container));
 	}
 	
 	//method
@@ -1941,7 +1948,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @return a new {@link LinkedList} with the elements of the {@link Container}
 	 * the given extractor extracts from the elements of the current {@link Container}.
 	 */
-	public final <E2> LinkedList<E2> toFromMany(final IElementTakerElementGetter<E, ch.nolix.core.containerapi.IContainer<E2>> extractor) {
+	public final <E2> LinkedList<E2> toFromMany(final IElementTakerElementGetter<E, IContainer<E2>> extractor) {
 		final var list = new LinkedList<E2>();
 		forEach(e -> list.addAtEnd(extractor.getOutput(e)));
 		return list;
