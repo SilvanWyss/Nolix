@@ -2,13 +2,13 @@
 package ch.nolix.template.guilook;
 
 //own imports
-import ch.nolix.core.container.Stack;
 import ch.nolix.system.configuration.Configuration;
 import ch.nolix.system.configuration.DeepConfiguration;
 import ch.nolix.system.gui.base.LayerRole;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.containerwidget.ContainerRole;
 import ch.nolix.system.gui.containerwidget.Grid;
+import ch.nolix.system.gui.containerwidget.Stack;
 import ch.nolix.system.gui.widget.BorderWidget;
 import ch.nolix.system.gui.widget.Button;
 import ch.nolix.system.gui.widget.CheckBox;
