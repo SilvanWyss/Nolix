@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+//own imports
+import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
@@ -207,7 +209,7 @@ public abstract class SQLConnection implements GroupCloseable {
 	}
 	
 	//method
-	public final LinkedList<String> getRecordsAsStrings(final String pSQLQuery) {
+	public final IContainer<String> getRecordsAsStrings(final String pSQLQuery) {
 		return getRecords(pSQLQuery).toStrings();
 	}
 	

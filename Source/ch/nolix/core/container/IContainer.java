@@ -1502,7 +1502,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return a new {@link LinkedList} with the elements the given selectors selects from the current {@link IContainer}.
 	 */
 	@SuppressWarnings("unchecked")
-	default LinkedList<E> getRefSelected(final IElementTakerBooleanGetter<E>... selectors) {
+	default IContainer<E> getRefSelected(final IElementTakerBooleanGetter<E>... selectors) {
 		
 		//Creates list.
 		final var list = new LinkedList<E>();
@@ -1554,7 +1554,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * the given selectors selects not (!) from the current {@link IContainer}.
 	 */
 	@SuppressWarnings("unchecked")
-	default LinkedList<E> getRefUnselected(final IElementTakerBooleanGetter<E>... selectors) {
+	default IContainer<E> getRefUnselected(final IElementTakerBooleanGetter<E>... selectors) {
 		
 		//Creates list.
 		final var list = new LinkedList<E>();
@@ -2090,7 +2090,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return a new {@link LinkedList}
 	 * with the Strings that represent the elements of the current {@link IContainer}.
 	 */
-	default LinkedList<String> toStrings() {
+	default IContainer<String> toStrings() {
 		return to(E::toString);
 	}
 	
