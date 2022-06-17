@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.container;
 
+//own imports
 import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
@@ -10,7 +11,7 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
 //class
 /**
- * A {@link SingleContainer} is a {@link Container} that is empty or stores 1 element.
+ * A {@link SingleContainer} is either empty or stores 1 element.
  * A {@link SingleContainer} is not mutable.
  * 
  * @author Silvan Wyss
@@ -44,15 +45,6 @@ public final class SingleContainer<E> extends Container<E> {
 		
 		//Sets the element of the current SingleContainer.
 		this.element = element;
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public SingleContainerIterator<E> iterator() {
-		return new SingleContainerIterator<>(element);
 	}
 	
 	//method
@@ -110,6 +102,15 @@ public final class SingleContainer<E> extends Container<E> {
 		return getRefElement();
 	}
 	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public SingleContainerIterator<E> iterator() {
+		return new SingleContainerIterator<>(element);
+	}
+
 	//method
 	/**
 	 * {@inheritDoc}
