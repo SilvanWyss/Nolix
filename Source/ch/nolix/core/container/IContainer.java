@@ -4,6 +4,7 @@ package ch.nolix.core.container;
 //Java imports
 import java.util.Random;
 
+//own imports
 import ch.nolix.core.commontype.constant.StringCatalogue;
 import ch.nolix.core.container.pair.Pair;
 import ch.nolix.core.container.readcontainer.ReadContainer;
@@ -38,7 +39,7 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
  * @date 2016-01-01
  * @param <E> is the type of the elements a {@link IContainer} can store.
  */
-public interface IContainer<E> extends Iterable<E> {
+public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	
 	//method
 	/**
@@ -241,7 +242,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param container
 	 * @return true if the current {@link IContainer} contains as many elements as the given container.
 	 */
-	default boolean containsAsManyAs(final IContainer<E> container) {
+	default boolean containsAsManyAs(final ch.nolix.core.containerapi.IContainer<E> container) {
 		return (getElementCount() == container.getElementCount());
 	}
 	
@@ -252,7 +253,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param container
 	 * @return true if the current {@link IContainer} contains less elements than the given container.
 	 */
-	default boolean containsLessThan(final IContainer<?> container) {
+	default boolean containsLessThan(final ch.nolix.core.containerapi.IContainer<?> container) {
 		return (getElementCount() < container.getElementCount());
 	}
 	
@@ -274,7 +275,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param container
 	 * @return true if the current {@link IContainer} contains more elements than the given container.
 	 */
-	default boolean containsMoreThan(final IContainer<?> container) {
+	default boolean containsMoreThan(final ch.nolix.core.containerapi.IContainer<?> container) {
 		return (getElementCount() > container.getElementCount());
 	}
 	
@@ -1941,7 +1942,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return a new {@link LinkedList} with the elements of the {@link IContainer}
 	 * the given extractor extracts from the elements of the current {@link IContainer}.
 	 */
-	default <E2> LinkedList<E2> toFromMany(final IElementTakerElementGetter<E, IContainer<E2>> extractor) {
+	default <E2> LinkedList<E2> toFromMany(final IElementTakerElementGetter<E, ch.nolix.core.containerapi.IContainer<E2>> extractor) {
 		final var list = new LinkedList<E2>();
 		forEach(e -> list.addAtEnd(extractor.getOutput(e)));
 		return list;
