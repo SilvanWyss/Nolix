@@ -8,6 +8,8 @@ import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
+//own imports
+import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
@@ -274,7 +276,7 @@ public final class FileSystemAccessor {
 	 * @return new {@link FileAccessor}s for the files in the folder with the given path,
 	 * that have the given extension.
 	 */
-	public static LinkedList<FileAccessor> getFileAccessors(final String path, final String extension) {
+	public static IContainer<FileAccessor> getFileAccessors(final String path, final String extension) {
 		return getFileAccessors(path).getRefSelected(fa -> fa.hasExtension(extension));
 	}
 	

@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.core.environment.filesystem;
 
+//own imports
+import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
@@ -104,7 +106,7 @@ public final class FolderAccessor extends FileSystemItemAccessor {
 	 * @return a new {@link FileAccessor}s for the files in the folder of the current {@link FolderAccessor},
 	 * that have the given extension.
 	 */
-	public LinkedList<FileAccessor> getFileAccessors(final String extension) {
+	public IContainer<FileAccessor> getFileAccessors(final String extension) {
 		return FileSystemAccessor.getFileAccessors(getPath(), extension);
 	}
 	
@@ -115,7 +117,7 @@ public final class FolderAccessor extends FileSystemItemAccessor {
 	 * for the files in the folder of the current {@link FolderAccessor},
 	 * that have the given extension, recursively.
 	 */
-	public LinkedList<FileAccessor> getFileAccessorsRecursively(final String extension) {
+	public IContainer<FileAccessor> getFileAccessorsRecursively(final String extension) {
 		return
 		getFileAccessorsRecursively()
 		.getRefSelected(fa -> fa.hasExtension(extension));

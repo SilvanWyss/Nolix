@@ -703,7 +703,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	 * @param selector
 	 */
 	public void removeAll(final IElementTakerBooleanGetter<E> selector) {
-		final LinkedList<E> list = getRefSelected(e -> !selector.getOutput(e));
+		final var list = getRefSelected(e -> !selector.getOutput(e));
 		clear();
 		addAtEnd(list);
 	}

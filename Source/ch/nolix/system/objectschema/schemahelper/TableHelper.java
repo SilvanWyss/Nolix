@@ -3,7 +3,6 @@ package ch.nolix.system.objectschema.schemahelper;
 
 //own imports
 import ch.nolix.core.container.IContainer;
-import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentContainsElementException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
@@ -120,7 +119,7 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
 	
 	//method
 	@Override
-	public <IMPL> LinkedList<IColumn<IMPL>> getRefBackReferencingColumns(final ITable<IMPL> table) {
+	public <IMPL> IContainer<IColumn<IMPL>> getRefBackReferencingColumns(final ITable<IMPL> table) {
 		
 		if (!table.belongsToDatabase()) {
 			return getRefBackReferencingColumnsWhenDoesNotBelongToDatabase(table);
@@ -131,7 +130,7 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
 	
 	//method
 	@Override
-	public <IMPL> LinkedList<IColumn<IMPL>> getRefReferencingColumns(final ITable<IMPL> table) {
+	public <IMPL> IContainer<IColumn<IMPL>> getRefReferencingColumns(final ITable<IMPL> table) {
 		
 		if (!table.belongsToDatabase()) {
 			return getRefReferencingColumnsWhenDoesNotBelongToDatabase(table);
@@ -149,7 +148,7 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
 	}
 	
 	//method
-	private <IMPL> LinkedList<IColumn<IMPL>> getRefBackReferencingColumnsWhenBelongsToDatabase(
+	private <IMPL> IContainer<IColumn<IMPL>> getRefBackReferencingColumnsWhenBelongsToDatabase(
 		final ITable<IMPL> table
 	) {
 		
@@ -162,7 +161,7 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
 	}
 	
 	//method
-	private <IMPL> LinkedList<IColumn<IMPL>> getRefBackReferencingColumnsWhenDoesNotBelongToDatabase(
+	private <IMPL> IContainer<IColumn<IMPL>> getRefBackReferencingColumnsWhenDoesNotBelongToDatabase(
 		final ITable<IMPL> table
 	) {
 		
@@ -172,7 +171,7 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
 	}
 	
 	//method
-	private <IMPL> LinkedList<IColumn<IMPL>> getRefReferencingColumnsWhenBelongsToDatabase(final ITable<IMPL> table) {
+	private <IMPL> IContainer<IColumn<IMPL>> getRefReferencingColumnsWhenBelongsToDatabase(final ITable<IMPL> table) {
 		return
 		table
 		.getParentDatabase()
@@ -182,7 +181,7 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
 	}
 	
 	//method
-	private <IMPL> LinkedList<IColumn<IMPL>> getRefReferencingColumnsWhenDoesNotBelongToDatabase(
+	private <IMPL> IContainer<IColumn<IMPL>> getRefReferencingColumnsWhenDoesNotBelongToDatabase(
 		final ITable<IMPL> table
 	) {
 		return table.getRefColumns().getRefSelected(c -> columnHelper.referencesGivenTable(c, table));

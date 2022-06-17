@@ -3,7 +3,6 @@ package ch.nolix.systemapi.objectschemaapi.schemahelperapi;
 
 //own imports
 import ch.nolix.core.container.IContainer;
-import ch.nolix.core.container.LinkedList;
 import ch.nolix.systemapi.databaseapi.databaseobjecthelperapi.IDatabaseObjectHelper;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
@@ -48,10 +47,10 @@ public interface ITableHelper extends IDatabaseObjectHelper {
 	<IMPL> IContainer<IColumn<IMPL>> getRefBackReferenceColumns(ITable<IMPL> table);
 	
 	//method declaration
-	<IMPL> LinkedList<IColumn<IMPL>> getRefBackReferencingColumns(ITable<IMPL> table);
+	<IMPL> IContainer<IColumn<IMPL>> getRefBackReferencingColumns(ITable<IMPL> table);
 	
 	//method declaration
-	<IMPL> LinkedList<IColumn<IMPL>> getRefReferencingColumns(ITable<IMPL> table);
+	<IMPL> IContainer<IColumn<IMPL>> getRefReferencingColumns(ITable<IMPL> table);
 	
 	//method declaration
 	boolean isReferenced(ITable<?> table);

@@ -1475,7 +1475,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return a new {@link LinkedList} with the elements
 	 * the given selector selects from the current {@link IContainer}.
 	 */
-	default LinkedList<E> getRefSelected(final IElementTakerBooleanGetter<E> selector) {
+	default IContainer<E> getRefSelected(final IElementTakerBooleanGetter<E> selector) {
 		
 		//Creates list.
 		final var list = new LinkedList<E>();
@@ -1539,7 +1539,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return a new {@link LinkedList} with the elements
 	 * the given selector selects not (!) from the current {@link IContainer}.
 	 */
-	default LinkedList<E> getRefUnselected(final IElementTakerBooleanGetter<E> selector) {
+	default IContainer<E> getRefUnselected(final IElementTakerBooleanGetter<E> selector) {
 		return getRefSelected(e -> !selector.getOutput(e));
 	}
 	
