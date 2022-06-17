@@ -1398,6 +1398,17 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	default E getRefLast() {
+		
+		//TODO: Implement this method better.
+		return getRefAt(getElementCount());
+	}
+	
+	//method
+	/**
 	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
 	 * 
 	 * @param type

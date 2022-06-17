@@ -551,7 +551,14 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return the first element the given selector selects from the current@link IContainer or null.
 	 */
 	E getRefFirstOrNull(IElementTakerBooleanGetter<E> selector);
-		
+	
+	//method declaration
+	/**
+	 * @return the last element of the current {@link IContainer}.
+	 *  @throws EmptyArgumentException if the current@link IContainer is empty.
+	 */
+	E getRefLast();
+	
 	//method declaration
 	/**
 	 * @param type
