@@ -2,7 +2,7 @@
 package ch.nolix.system.gui.widget;
 
 import ch.nolix.core.containerapi.IContainer;
-import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;

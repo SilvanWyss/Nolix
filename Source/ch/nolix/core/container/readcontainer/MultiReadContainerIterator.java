@@ -4,7 +4,7 @@ package ch.nolix.core.container.readcontainer;
 //Java imports
 import java.util.Iterator;
 
-import ch.nolix.core.container.Container;
+import ch.nolix.core.container.main.Container;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 

@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.system.nodedatabaserawdata.datareader;
 
+import ch.nolix.core.container.main.LinkedList;
 //own imports
 import ch.nolix.core.containerapi.IContainer;
-import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.system.nodedatabaserawschema.structure.TableNodeSearcher;
 import ch.nolix.system.sqlrawdata.schemainfo.TableInfo;

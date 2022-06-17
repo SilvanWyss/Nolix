@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.gui.widget;
 
-//own imports
-import ch.nolix.core.container.SingleContainer;
+import ch.nolix.core.container.main.SingleContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.gui.color.Color;

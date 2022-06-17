@@ -2,7 +2,7 @@
 package ch.nolix.system.gui.widget;
 
 import ch.nolix.core.commontype.constant.StringCatalogue;
-import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IAction;

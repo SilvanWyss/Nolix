@@ -3,7 +3,7 @@ package ch.nolix.system.gui.textbox;
 
 //own imports
 import ch.nolix.core.attributeuniversalapi.mutablemandatoryattributeuniversalapi.IMutableTextHolder;
-import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.functionuniversalapi.IAction;
 import ch.nolix.core.functionuniversalapi.IElementTaker;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;

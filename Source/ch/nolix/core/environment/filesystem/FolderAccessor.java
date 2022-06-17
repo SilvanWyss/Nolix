@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.core.environment.filesystem;
 
+import ch.nolix.core.container.main.LinkedList;
 //own imports
 import ch.nolix.core.containerapi.IContainer;
-import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 

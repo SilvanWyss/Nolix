@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.system.application.baseguiapplication;
 
-//own imports
-import ch.nolix.core.container.LinkedList;
-import ch.nolix.core.container.SingleContainer;
+import ch.nolix.core.container.main.LinkedList;
+import ch.nolix.core.container.main.SingleContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.systemapi.guiapi.baseapi.IFrontEndReader;

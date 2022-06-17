@@ -7,7 +7,7 @@ import java.awt.Graphics;
 
 import ch.nolix.core.commontype.constant.CharacterCatalogue;
 import ch.nolix.core.commontype.constant.StringCatalogue;
-import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;

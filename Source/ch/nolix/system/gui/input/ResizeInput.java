@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.gui.input;
 
-import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.container.pair.IntPair;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;

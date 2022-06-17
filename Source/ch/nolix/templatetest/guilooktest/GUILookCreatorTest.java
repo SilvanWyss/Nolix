@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.templatetest.guilooktest;
 
-//own imports
-import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.ObjectTest;
 import ch.nolix.system.configuration.Configuration;

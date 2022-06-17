@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.guiapi.widgetguiapi;
 
-//own imports
-import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.griduniversalapi.TopLeftPositionedRecangular;
 import ch.nolix.core.requestuniversalapi.EnablingRequestable;
 import ch.nolix.core.requestuniversalapi.ExpansionRequestable;

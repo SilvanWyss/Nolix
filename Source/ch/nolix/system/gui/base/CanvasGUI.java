@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.system.gui.base;
 
+import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.containerapi.IContainer;
-import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.functionuniversalapi.IElementTaker;

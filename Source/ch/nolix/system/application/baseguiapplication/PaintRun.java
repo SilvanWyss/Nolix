@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.system.application.baseguiapplication;
 
+import ch.nolix.core.container.main.LinkedList;
 //own imports
 import ch.nolix.core.containerapi.IContainer;
-import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IElementTaker;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;

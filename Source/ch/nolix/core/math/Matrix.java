@@ -6,7 +6,7 @@ import java.util.Random;
 
 //own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalDoubleHelper;
-import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.environment.nolixenvironment.NolixEnvironment;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;

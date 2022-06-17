@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.gui.widget;
 
-//own imports
-import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.math.Calculator;
 import ch.nolix.system.element.MutableValue;
 import ch.nolix.systemapi.guiapi.inputapi.Key;

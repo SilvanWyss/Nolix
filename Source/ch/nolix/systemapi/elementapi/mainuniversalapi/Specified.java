@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.elementapi.mainuniversalapi;
 
-//own imports
-import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.document.xml.XMLNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;

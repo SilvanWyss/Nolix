@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.core.net.endpoint3;
 
-import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.environment.nolixenvironment.NolixEnvironment;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;

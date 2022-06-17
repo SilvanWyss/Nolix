@@ -5,7 +5,7 @@ package ch.nolix.system.application.baseguiapplication;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 
-import ch.nolix.core.container.SingleContainer;
+import ch.nolix.core.container.main.SingleContainer;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.environment.localcomputer.PopupWindowProvider;

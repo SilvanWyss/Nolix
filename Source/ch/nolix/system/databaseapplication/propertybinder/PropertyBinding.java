@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.databaseapplication.propertybinder;
 
-//own imports
-import ch.nolix.core.container.SingleContainer;
+import ch.nolix.core.container.main.SingleContainer;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.gui.widget.Label;
 import ch.nolix.system.gui.widget.LabelRole;

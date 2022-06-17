@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.gui.base;
 
-//own imports
-import ch.nolix.core.container.SingleContainer;
+import ch.nolix.core.container.main.SingleContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 

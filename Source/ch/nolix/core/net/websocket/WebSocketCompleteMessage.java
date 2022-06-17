@@ -5,8 +5,7 @@ package ch.nolix.core.net.websocket;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 
-//own imports
-import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.functionuniversalapi.IBooleanGetter;
 import ch.nolix.core.functionuniversalapi.IElementTaker;
 

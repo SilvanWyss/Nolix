@@ -4,8 +4,7 @@ package ch.nolix.system.gui.color;
 //Java imports
 import java.lang.reflect.Field;
 
-//own imports
-import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.container.pair.Pair;
 import ch.nolix.core.reflection.GlobalFieldHelper;
 

@@ -3,7 +3,7 @@ package ch.nolix.system.gui.color;
 
 import ch.nolix.core.commontype.constant.StringCatalogue;
 import ch.nolix.core.containerapi.IContainer;
-import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.container.pair.Pair;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.document.node.BaseNode;

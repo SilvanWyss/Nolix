@@ -9,7 +9,7 @@ import java.awt.RenderingHints;
 
 //own imports
 import ch.nolix.core.caching.CachingContainer;
-import ch.nolix.core.container.SingleContainer;
+import ch.nolix.core.container.main.SingleContainer;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.system.gui.color.ColorGradient;

@@ -4,7 +4,7 @@ package ch.nolix.system.gui.widgetgui;
 //Java imports
 import java.lang.reflect.InvocationTargetException;
 
-import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;

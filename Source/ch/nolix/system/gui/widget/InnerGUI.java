@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.gui.widget;
 
-import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.functionuniversalapi.I2ElementTaker;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;

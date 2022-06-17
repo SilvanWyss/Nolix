@@ -2,8 +2,8 @@
 package ch.nolix.core.container.matrix;
 
 import ch.nolix.core.commontype.constant.CharacterCatalogue;
-import ch.nolix.core.container.Container;
-import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.container.main.Container;
+import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;

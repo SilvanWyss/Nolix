@@ -4,9 +4,9 @@ package ch.nolix.core.reflection;
 //Java imports
 import java.lang.reflect.Constructor;
 
+import ch.nolix.core.container.main.LinkedList;
 //own imports
 import ch.nolix.core.containerapi.IContainer;
-import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 
 //class

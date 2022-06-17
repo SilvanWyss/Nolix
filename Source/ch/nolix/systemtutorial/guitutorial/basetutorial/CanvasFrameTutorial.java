@@ -1,8 +1,8 @@
 package ch.nolix.systemtutorial.guitutorial.basetutorial;
 
+import ch.nolix.core.container.main.LinkedList;
 //own imports
 import ch.nolix.core.containerapi.IContainer;
-import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.functionuniversalapi.IElementTaker;
 import ch.nolix.system.application.baseguiapplication.PaintRun;
 import ch.nolix.system.gui.base.CanvasFrame;

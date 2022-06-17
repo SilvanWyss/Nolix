@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.coretest.containertest;
 
-import ch.nolix.core.container.LinkedList;
-import ch.nolix.core.container.SequencePattern;
+import ch.nolix.core.container.main.LinkedList;
+import ch.nolix.core.container.main.SequencePattern;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.programatom.function.FunctionCatalogue;

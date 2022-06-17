@@ -5,8 +5,8 @@ package ch.nolix.core.container.readcontainer;
 import java.util.Iterator;
 
 import ch.nolix.core.commontype.constant.CharacterCatalogue;
-import ch.nolix.core.container.Container;
-import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.container.main.Container;
+import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;

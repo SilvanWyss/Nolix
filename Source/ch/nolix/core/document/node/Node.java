@@ -4,7 +4,7 @@ package ch.nolix.core.document.node;
 //own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalBooleanHelper;
 import ch.nolix.core.containerapi.IContainer;
-import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.container.pair.IntPair;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
