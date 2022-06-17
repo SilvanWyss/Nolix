@@ -11,7 +11,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
 //class
-final class MultiReadContainer<E> implements Container<E> {
+final class MultiReadContainer<E> extends Container<E> {
 	
 	//attribute
 	private final LinkedList<Container<E>> containers = new LinkedList<>();

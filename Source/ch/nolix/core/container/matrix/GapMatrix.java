@@ -12,7 +12,7 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.skilluniversalapi.Clearable;
 
 //class
-public final class GapMatrix<E> implements Clearable, Container<E> {
+public final class GapMatrix<E> extends Container<E> implements Clearable {
 	
 	//attributes
 	private int columnCount;
@@ -61,12 +61,6 @@ public final class GapMatrix<E> implements Clearable, Container<E> {
 		rows = new Object[0][];
 		columnCount = 0;
 		elementCount = 0;
-	}
-	
-	//method
-	@Override
-	public boolean containsAny() {
-		return (elementCount > 0);
 	}
 	
 	//method
@@ -144,12 +138,6 @@ public final class GapMatrix<E> implements Clearable, Container<E> {
 		}
 		
 		rows[rowIndex - 1][columnIndex - 1] = element;
-	}
-	
-	//method
-	@Override
-	public boolean isEmpty() {
-		return (elementCount == 0);
 	}
 	
 	//method

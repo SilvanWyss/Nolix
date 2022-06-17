@@ -15,7 +15,7 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
  * @date 2020-01-11
  * @param <E> is the type of the element of a {@link SingleContainer}.
  */
-public final class SingleContainer<E> implements Container<E> {
+public final class SingleContainer<E> extends Container<E> {
 	
 	//optional attribute
 	private final E element;
@@ -49,17 +49,8 @@ public final class SingleContainer<E> implements Container<E> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean isEmpty() {
-		return (element == null);
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	public SingleContainerIterator<E> iterator() {
-		return new SingleContainerIterator<>(this);
+		return new SingleContainerIterator<>(element);
 	}
 	
 	//method

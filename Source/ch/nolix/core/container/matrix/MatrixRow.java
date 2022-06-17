@@ -7,7 +7,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
 //class
-public final class MatrixRow<E> implements Container<E> {
+public final class MatrixRow<E> extends Container<E> {
 
 	//attributes
 	private final Matrix<E> parentMatrix;

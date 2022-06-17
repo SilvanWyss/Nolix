@@ -24,7 +24,7 @@ import ch.nolix.core.skilluniversalapi.Clearable;
  * @date 2016-08-01
  * @param <E> is the type of the elements of a {@link Matrix}.
  */
-public final class Matrix<E> implements Container<E>, Clearable {
+public final class Matrix<E> extends Container<E> implements Clearable {
 
 	//multi-attribute
 	private Object[][] elements = new Object[0][0];
@@ -222,19 +222,6 @@ public final class Matrix<E> implements Container<E>, Clearable {
 	@Override
 	public void clear() {
 		elements = new Object[0][0];
-	}
-	
-	//method
-	/**
-	 * The complexity of this implementation is O(1).
-	 * 
-	 * @return true if the current {@link Matrix} contains any element.
-	 */
-	@Override
-	public boolean containsAny() {
-		
-		//Calls the default method of the suitable interface.
-		return Container.super.containsAny();
 	}
 	
 	//method
@@ -460,7 +447,7 @@ public final class Matrix<E> implements Container<E>, Clearable {
 		//Handles the case that the current {@link Matrix} is not empty.
 		return elements.length;
 	}
-		
+	
 	//method
 	/**
 	 * The complexity of this implementation is O(1).

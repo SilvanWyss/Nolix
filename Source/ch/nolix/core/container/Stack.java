@@ -5,7 +5,7 @@ package ch.nolix.core.container;
 import java.util.Iterator;
 
 //class
-public final class Stack<E> implements Container<E> {
+public final class Stack<E> extends Container<E> {
 
 	//attribute
 	private final LinkedList<E> linkedList = new LinkedList<>();
@@ -28,11 +28,6 @@ public final class Stack<E> implements Container<E> {
 	@Override
 	public E getRefAt(final int index) {
 		return linkedList.getRefAt(index);
-	}
-	
-	//method
-	public E getRefLast() {
-		return linkedList.getRefLast();
 	}
 	
 	//method

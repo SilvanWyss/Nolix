@@ -8,6 +8,7 @@ import java.util.Random;
 import ch.nolix.core.commontype.constant.StringCatalogue;
 import ch.nolix.core.container.pair.Pair;
 import ch.nolix.core.container.readcontainer.ReadContainer;
+import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.BiggerArgumentException;
@@ -39,7 +40,7 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
  * @date 2016-01-01
  * @param <E> is the type of the elements a {@link Container} can store.
  */
-public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
+public abstract class Container<E> implements IContainer<E> {
 	
 	//method
 	/**
@@ -49,7 +50,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @return the current {@link Container} as a {@link Container} with elements of the evaluated type.
 	 */
 	@SuppressWarnings("unchecked")
-	default <E2> Container<E2> asContainerWithElementsOfEvaluatedType() {
+	public final <E2> Container<E2> asContainerWithElementsOfEvaluatedType() {
 		return (Container<E2>)this;
 	}
 	
@@ -60,7 +61,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @param element
 	 * @return true if the current {@link Container} contains the given element.
 	 */
-	default boolean contains(final Object element) {
+	public final boolean contains(final Object element) {
 		
 		//Iterates the current IContainer.
 		for (final var e : this) {
@@ -83,7 +84,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @param elements
 	 * @return true if the current {@link Container} contains all of the given elements.
 	 */
-	default boolean containsAll(final Iterable<Object> elements) {
+	public final boolean containsAll(final Iterable<Object> elements) {
 		
 		//Iterates the given elements.
 		for (final var e : elements) {
@@ -106,7 +107,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @param elements
 	 * @return true if the current {@link Container} contains all the given elements.
 	 */
-	default boolean containsAll(final Object... elements) {
+	public final boolean containsAll(final Object... elements) {
 		
 		//Iterates the given elements.
 		for (final var e : elements) {
@@ -126,7 +127,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * 
 	 * @return true if the current {@link Container} contains any element.
 	 */
-	default boolean containsAny() {
+	public final boolean containsAny() {
 		return iterator().hasNext();
 	}
 	
@@ -137,7 +138,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @param selector
 	 * @return true if the current {@link Container} contains an element the given selector selects.
 	 */
-	default boolean containsAny(final IElementTakerBooleanGetter<E> selector) {
+	public final boolean containsAny(final IElementTakerBooleanGetter<E> selector) {
 		
 		//Iterates the current IContainer.
 		for (final var e : this) {
@@ -159,7 +160,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @return true if the current {@link Container}
 	 * contains at least 2 elements the given selector selects together.
 	 */
-	default boolean containsAny(final I2ElementTakerBooleanGetter<E> selector) {
+	public final boolean containsAny(final I2ElementTakerBooleanGetter<E> selector) {
 		
 		//Iterates the current IContainer.
 		for (final var e : this) {
@@ -186,7 +187,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @param elements
 	 * @return true if the current {@link Container} contains any of the given elements.
 	 */
-	default boolean containsAny(final Object... elements) {
+	public final boolean containsAny(final Object... elements) {
 		
 		//Iterates the given elements.
 		for (final var e : elements) {
@@ -208,7 +209,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @return true if the current {@link Container}
 	 * contains an element that equals the given given element.
 	 */
-	default boolean containsAnyEqualing(final Object element) {
+	public final boolean containsAnyEqualing(final Object element) {
 		return containsAny(e -> e.equals(element));
 	}
 	
@@ -221,7 +222,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @param elements
 	 * @return true if the current {@link Container} contains any of the given elements.
 	 */
-	default boolean containsAnyFrom(final Iterable<?> elements) {
+	public final boolean containsAnyFrom(final Iterable<?> elements) {
 		
 		//Iterates the given elements.
 		for (final var e : elements) {
@@ -242,7 +243,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @param container
 	 * @return true if the current {@link Container} contains as many elements as the given container.
 	 */
-	default boolean containsAsManyAs(final ch.nolix.core.containerapi.IContainer<E> container) {
+	public final boolean containsAsManyAs(final ch.nolix.core.containerapi.IContainer<E> container) {
 		return (getElementCount() == container.getElementCount());
 	}
 	
@@ -253,7 +254,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @param container
 	 * @return true if the current {@link Container} contains less elements than the given container.
 	 */
-	default boolean containsLessThan(final ch.nolix.core.containerapi.IContainer<?> container) {
+	public final boolean containsLessThan(final ch.nolix.core.containerapi.IContainer<?> container) {
 		return (getElementCount() < container.getElementCount());
 	}
 	
@@ -264,7 +265,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @param container
 	 * @return true if the current {@link Container} contains less elements than the given container.
 	 */
-	default boolean containsLessThan(final Iterable<?> container) {
+	public final boolean containsLessThan(final Iterable<?> container) {
 		return containsLessThan(ReadContainer.forIterable(container));
 	}
 	
@@ -275,7 +276,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @param container
 	 * @return true if the current {@link Container} contains more elements than the given container.
 	 */
-	default boolean containsMoreThan(final ch.nolix.core.containerapi.IContainer<?> container) {
+	public final boolean containsMoreThan(final ch.nolix.core.containerapi.IContainer<?> container) {
 		return (getElementCount() > container.getElementCount());
 	}
 	
@@ -286,7 +287,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @param container
 	 * @return true if the current {@link Container} contains more elements than the given container.
 	 */
-	default boolean containsMoreThan(final Iterable<?> container) {
+	public final boolean containsMoreThan(final Iterable<?> container) {
 		return containsMoreThan(ReadContainer.forIterable(container));
 	}
 	
@@ -297,7 +298,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @param selector
 	 * @return true if the current {@link Container} does not contain an element the given selector selects.
 	 */
-	default boolean containsNone(final IElementTakerBooleanGetter<E> selector) {
+	public final boolean containsNone(final IElementTakerBooleanGetter<E> selector) {
 		return !containsAny(selector::getOutput);
 	}
 	
@@ -310,7 +311,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @param elements
 	 * @return true if the current {@link Container} contains none of the given elements.
 	 */
-	default boolean containsNone(final Object... elements) {
+	public final boolean containsNone(final Object... elements) {
 		
 		//Iterates the given elements.
 		for (final var e : elements) {
@@ -331,7 +332,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @param element
 	 * @return true if the current {@link Container} contains the given element exactly 1 time.
 	 */
-	default boolean containsOnce(final E element) {
+	public final boolean containsOnce(final E element) {
 		
 		var found = false;
 		
@@ -359,7 +360,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * 
 	 * @return true if the current {@link Container} contains exactly 1 element.
 	 */
-	default boolean containsOne() {
+	public final boolean containsOne() {
 		
 		final var iterator = iterator();
 		
@@ -381,7 +382,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @return true if the current {@link Container}
 	 * contains exactly 1 element the given selector selects.
 	 */
-	default boolean containsOne(final IElementTakerBooleanGetter<E> selector) {
+	public final boolean containsOne(final IElementTakerBooleanGetter<E> selector) {
 		
 		var found = false;
 		
@@ -411,7 +412,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @return true if the current {@link Container}
 	 * contains exactly 1 element that equals the given element.
 	 */
-	default boolean containsOneEqualing(final E element) {
+	public final boolean containsOneEqualing(final E element) {
 		return containsOne(e -> e.equals(element));
 	}
 	
@@ -424,7 +425,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @param selector
 	 * @return true if the current {@link Container} contains only elements the given selector selects.
 	 */
-	default boolean containsOnly(final IElementTakerBooleanGetter<E> selector) {
+	public final boolean containsOnly(final IElementTakerBooleanGetter<E> selector) {
 
 		//Iterates the current IContainer.
 		for (final var e : this) {
@@ -447,7 +448,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * 
 	 * @param action
 	 */
-	default void forEachWithContinuing(final IElementTaker<E> action) {
+	public final void forEachWithContinuing(final IElementTaker<E> action) {
 		
 		//Iterates the current IContainer.
 		for (final var e : this) {
@@ -469,7 +470,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @throws SmallerArgumentException
 	 * if the current {@link Container} contains less element than the value of the given start index.
 	 */
-	default Container<E> from(final int startIndex) {
+	public final Container<E> from(final int startIndex) {
 		return new SubContainer<>(this, startIndex, getElementCount());
 	}
 	
@@ -488,7 +489,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @throws BiggerArgumentException
 	 * if the given end index is bigger than the number of elements of the current {@link Container}.
 	 */
-	default Container<E> fromUntil(final int startIndex, final int endIndex) {
+	public final Container<E> fromUntil(final int startIndex, final int endIndex) {
 		return new SubContainer<>(this, startIndex, endIndex);
 	}
 	
@@ -501,7 +502,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * the given double norm returns from the elements of the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
-	default double getAverageByDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
+	public final double getAverageByDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
 		
 		//Asserts that the current IContainer is not empty.
 		if (isEmpty()) {
@@ -520,7 +521,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * the given int norm returns from the elements of the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
-	default double getAverageByInt(final IElementTakerIntGetter<E> intNorm) {
+	public final double getAverageByInt(final IElementTakerIntGetter<E> intNorm) {
 		
 		//Asserts that the current IContainer is not empty.
 		if (isEmpty()) {
@@ -539,7 +540,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * the given long norm returns from the elements of the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
-	default double getAverageByLong(final IElementTakerLongGetter<E> longNorm) {
+	public final double getAverageByLong(final IElementTakerLongGetter<E> longNorm) {
 		
 		//Asserts that the current IContainer is not empty.
 		if (isEmpty()) {
@@ -556,7 +557,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @param selector
 	 * @return the number of elements the given selector selects from the current {@link Container}.
 	 */
-	default int getCount(final IElementTakerBooleanGetter<E> selector) {
+	public final int getCount(final IElementTakerBooleanGetter<E> selector) {
 		
 		var elementCount = 0;
 		
@@ -579,7 +580,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @param element
 	 * @return the number how many times the current {@link Container} contains the given element.
 	 */
-	default int getCount(final Object element) {
+	public final int getCount(final Object element) {
 		
 		var elementCount = 0;
 		
@@ -595,12 +596,6 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 		return elementCount;
 	}
 	
-	//method declaration
-	/**
-	 * @return the number of elements of the current {@link Container}.
-	 */
-	int getElementCount();
-	
 	//method
 	/**
 	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
@@ -610,7 +605,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @throws InvalidArgumentException if
 	 * the current {@link Container} does not contain an element the given selector selects.
 	 */
-	default int getIndexOfFirst(final IElementTakerBooleanGetter<E> selector) {
+	public final int getIndexOfFirst(final IElementTakerBooleanGetter<E> selector) {
 		
 		//Iterates the current IContainer.
 		var index = 1;
@@ -637,7 +632,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @throws InvalidArgumentException if
 	 * the current {@link Container} does not contain an element that equals the given element.
 	 */
-	default int getIndexOfFirstEqualElement(final E element) {
+	public final int getIndexOfFirstEqualElement(final E element) {
 		
 		//Iterates the current IContainer.
 		var index = 1;
@@ -663,7 +658,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @return the index of the given element in the current {@link Container}.
 	 * @throws InvalidArgumentException if the current {@link Container} does not contain the given element.
 	 */
-	default int getIndexOfFirstOccurrenceOf(final E element) {
+	public final int getIndexOfFirstOccurrenceOf(final E element) {
 		
 		//Iterates the current IContainer.
 		var index = 1;
@@ -691,7 +686,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
 	@SuppressWarnings("unchecked")
-	default <E2> E2 getMax(final IElementTakerComparableGetter<E, E2> norm) {
+	public final <E2> E2 getMax(final IElementTakerComparableGetter<E, E2> norm) {
 		return (E2)(norm.getValue(getRefByMax(norm)));
 	}
 	
@@ -704,7 +699,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * the given double norm returns from the elements of the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
-	default double getMaxDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
+	public final double getMaxDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
 		return doubleNorm.getOutput(getRefByMaxDouble(doubleNorm));
 	}
 	
@@ -717,7 +712,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * the given int norm returns from the elements of the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
-	default int getMaxInt(final IElementTakerIntGetter<E> intNorm) {
+	public final int getMaxInt(final IElementTakerIntGetter<E> intNorm) {
 		return intNorm.getOutput(getRefByMaxInt(intNorm));
 	}
 	
@@ -730,7 +725,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @return the biggest value the given intNorm returns from the elements of the current {@link Container}
 	 * if the current {@link Container} contains elements, otherwise the given defaultValue.
 	 */
-	default int getMaxIntOrDefaultValue(final IElementTakerIntGetter<E> intNorm, final int defaultValue) {
+	public final int getMaxIntOrDefaultValue(final IElementTakerIntGetter<E> intNorm, final int defaultValue) {
 		
 		//Handles the case that the current IContainer is empty.
 		if (isEmpty()) {
@@ -749,7 +744,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @return the biggest value the given intNorm returns from the elements of the current {@link Container}
 	 * if the current {@link Container} contains elements, otherwise 0.
 	 */
-	default int getMaxIntOrZero(final IElementTakerIntGetter<E> intNorm) {
+	public final int getMaxIntOrZero(final IElementTakerIntGetter<E> intNorm) {
 		return getMaxIntOrDefaultValue(intNorm, 0);
 	}
 	
@@ -762,7 +757,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * the given long norm returns from the elements of the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
-	default long getMaxLong(IElementTakerLongGetter<E> longNorm) {
+	public final long getMaxLong(IElementTakerLongGetter<E> longNorm) {
 		return longNorm.getOutput(getRefByMaxLong(longNorm));
 	}
 	
@@ -776,7 +771,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
 	@SuppressWarnings("unchecked")
-	default <E2> E2 getMin(final IElementTakerComparableGetter<E, E2> norm) {
+	public final <E2> E2 getMin(final IElementTakerComparableGetter<E, E2> norm) {
 		return (E2)(norm.getValue(getRefByMin(norm)));
 	}
 	
@@ -789,7 +784,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * the given double norm returns from the elements of the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
-	default double getMinDouble(IElementTakerDoubleGetter<E> doubleNorm) {
+	public final double getMinDouble(IElementTakerDoubleGetter<E> doubleNorm) {
 		return doubleNorm.getOutput(getRefByMinDouble(doubleNorm));
 	}
 	
@@ -802,7 +797,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * the given int norm returns from the elements of the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
-	default int getMinInt(IElementTakerIntGetter<E> intNorm) {
+	public final int getMinInt(IElementTakerIntGetter<E> intNorm) {
 		return intNorm.getOutput(getRefByMinInt(intNorm));
 	}
 	
@@ -815,7 +810,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * the given long norm returns from the elements of the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
-	default long getMinLong(IElementTakerLongGetter<E> longNorm) {
+	public final long getMinLong(IElementTakerLongGetter<E> longNorm) {
 		return longNorm.getOutput(getRefByMinLong(longNorm));
 	}
 	
@@ -828,7 +823,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * in the current {@link Container} if the current {@link Container} contains the given element.
 	 * Otherwise a new empty {@link SingleContainer}.
 	 */
-	default SingleContainer<Integer> getOptionalIndexOfFirst(final E element) {
+	public final SingleContainer<Integer> getOptionalIndexOfFirst(final E element) {
 		
 		//Iterates the current IContainer.
 		var i = 1;
@@ -854,7 +849,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @return either the first element the given selector selects from the current {@link Container}
 	 * or an empty {@link SingleContainer}.
 	 */
-	default SingleContainer<E> getOptionalRefFirst(final IElementTakerBooleanGetter<E> selector) {
+	public final SingleContainer<E> getOptionalRefFirst(final IElementTakerBooleanGetter<E> selector) {
 		
 		//Iterates the current IContainer.
 		for (final var e : this) {
@@ -878,7 +873,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * the given selector selects from the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
-	default double getPercentage(final IElementTakerBooleanGetter<E> selector) {
+	public final double getPercentage(final IElementTakerBooleanGetter<E> selector) {
 		return (100.0 * getRatio(selector));
 	}
 	
@@ -891,7 +886,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @return the range of the values the given double norm returns from the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
-	default double getRangeByDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
+	public final double getRangeByDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
 		
 		//For a better performance, this implementation does not use all comfortable methods.
 			//Calculates the minimum and the maximum
@@ -929,7 +924,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @return the range of the values the given int norm returns from the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
-	default int getRangeByInt(final IElementTakerIntGetter<E> intNorm) {
+	public final int getRangeByInt(final IElementTakerIntGetter<E> intNorm) {
 		
 		//For a better performance, this implementation does not use all comfortable methods.
 			//Calculates the minimum and the maximum
@@ -967,7 +962,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @return the range of the values the given long norm returns from the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
-	default long getRangeByLong(final IElementTakerLongGetter<E> longNorm) {
+	public final long getRangeByLong(final IElementTakerLongGetter<E> longNorm) {
 		
 		//For a better performance, this implementation does not use all comfortable methods.
 			//Calculates the minimum and the maximum
@@ -1005,7 +1000,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * the given selector selects from the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
-	default double getRatio(final IElementTakerBooleanGetter<E> selector) {
+	public final double getRatio(final IElementTakerBooleanGetter<E> selector) {
 		
 		//Asserts that the current IContainer is not empty.
 		if (isEmpty()) {
@@ -1022,7 +1017,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @return a randomly selected element of the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
-	default E getRefAny() {
+	public final E getRefAny() {
 		
 		//Asserts that the current IContainer is not empty.
 		if (isEmpty()) {
@@ -1031,13 +1026,6 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 		
 		return getRefAt(new Random().nextInt(getElementCount()) + 1);
 	}
-	
-	//method declaration
-	/**
-	 * @param index
-	 * @return the element at the given index.
-	 */
-	E getRefAt(int index);
 	
 	//method
 	/**
@@ -1050,7 +1038,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	default <E2> E getRefByMax(final IElementTakerComparableGetter<E, E2> norm) {
+	public final <E2> E getRefByMax(final IElementTakerComparableGetter<E, E2> norm) {
 		
 		var element = getRefFirst();
 		var max = norm.getValue(element);
@@ -1078,7 +1066,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * the given double norm returns from the elements of the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
-	default E getRefByMaxDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
+	public final E getRefByMaxDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
 		
 		var element = getRefFirst();
 		var max = doubleNorm.getOutput(element);
@@ -1106,7 +1094,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * the given int norm returns from the elements of the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
-	default E getRefByMaxInt(final IElementTakerIntGetter<E> intNorm) {
+	public final E getRefByMaxInt(final IElementTakerIntGetter<E> intNorm) {
 		
 		var element = getRefFirst();
 		var max = intNorm.getOutput(element);
@@ -1134,7 +1122,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * the given long norm returns from the elements of the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
-	default E getRefByMaxLong(final IElementTakerLongGetter<E> longNorm) {
+	public final E getRefByMaxLong(final IElementTakerLongGetter<E> longNorm) {
 		
 		var element = getRefFirst();
 		var max = longNorm.getOutput(element);
@@ -1164,7 +1152,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	default <E2> E getRefByMin(final IElementTakerComparableGetter<E, E2> norm) {
+	public final <E2> E getRefByMin(final IElementTakerComparableGetter<E, E2> norm) {
 		
 		var element = getRefFirst();
 		var min = norm.getValue(element);
@@ -1192,7 +1180,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * the given double norm returns from the elements of the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
-	default E getRefByMinDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
+	public final E getRefByMinDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
 		
 		var element = getRefFirst();
 		var min = doubleNorm.getOutput(element);
@@ -1220,7 +1208,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * the given int norm returns from the elements of the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
-	default E getRefByMinInt(final IElementTakerIntGetter<E> intNorm) {
+	public final E getRefByMinInt(final IElementTakerIntGetter<E> intNorm) {
 		
 		var element = getRefFirst();
 		var min = intNorm.getOutput(element);
@@ -1248,7 +1236,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * the given long norm returns from the elements of the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
-	default E getRefByMinLong(IElementTakerLongGetter<E> longNorm) {
+	public final E getRefByMinLong(IElementTakerLongGetter<E> longNorm) {
 		
 		var element = getRefFirst();
 		var min = longNorm.getOutput(element);
@@ -1274,7 +1262,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @return the first element of the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
-	default E getRefFirst() {
+	public final E getRefFirst() {
 		
 		//Asserts that the current IContainer is not empty.
 		if (isEmpty()) {
@@ -1293,7 +1281,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @throws ArgumentDoesNotHaveAttributeException
 	 * if the current {@link Container} does not contain an element the given selector selects.
 	 */
-	default E getRefFirst(final IElementTakerBooleanGetter<E> selector) {
+	public final E getRefFirst(final IElementTakerBooleanGetter<E> selector) {
 		
 		//Iterates the current IContainer.
 		for (final var e : this) {
@@ -1316,7 +1304,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @throws InvalidArgumentException if the current {@link Container}
 	 * does not contain a 2 elements the given selector selects together.
 	 */
-	default Pair<E, E> getRefFirst(final I2ElementTakerBooleanGetter<E> selector) {
+	public final Pair<E, E> getRefFirst(final I2ElementTakerBooleanGetter<E> selector) {
 
 		//Iterates the current IContainer.
 		for (final var e : this) {
@@ -1341,7 +1329,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * 
 	 * @return the first element of the current {@link Container} or null.
 	 */
-	default E getRefFirstOrNull() {
+	public final E getRefFirstOrNull() {
 		
 		//Handles the case that this list is empty.
 		if (isEmpty()) {
@@ -1359,7 +1347,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @param selector
 	 * @return the first element the given selector selects from the current {@link Container} or null.
 	 */
-	default E getRefFirstOrNull(final IElementTakerBooleanGetter<E> selector) {
+	public final E getRefFirstOrNull(final IElementTakerBooleanGetter<E> selector) {
 		
 		//Iterates the current IContainer.
 		for (final var e : this) {
@@ -1381,7 +1369,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @return the first 2 elements of the current {@link Container}
 	 * the given selector selects together or null.
 	 */
-	default Pair<E, E> getRefFirstOrNull(final I2ElementTakerBooleanGetter<E> selector) {
+	public final Pair<E, E> getRefFirstOrNull(final I2ElementTakerBooleanGetter<E> selector) {
 
 		//Iterates the current IContainer.
 		for (final var e : this) {
@@ -1401,7 +1389,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	default E getRefLast() {
+	public E getRefLast() {
 		
 		//TODO: Implement this method better.
 		return getRefAt(getElementCount());
@@ -1417,7 +1405,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * with the elements from the current {@link Container} that are of the given type.
 	 */
 	@SuppressWarnings("unchecked")
-	default <E2 extends E> LinkedList<E2> getRefOfType(final Class<E2> type) {
+	public final <E2 extends E> LinkedList<E2> getRefOfType(final Class<E2> type) {
 		return (LinkedList<E2>)getRefSelected(e -> type.isAssignableFrom(e.getClass()));
 	}
 	
@@ -1427,7 +1415,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 * @throws InvalidArgumentException if the current {@link Container} contains several elements.
 	 */
-	default E getRefOne() {
+	public final E getRefOne() {
 		
 		//Asserts that the current IContainer contains exactly 1 element.
 		if (isEmpty()) {
@@ -1449,7 +1437,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @throws InvalidArgumentException
 	 * if the given selector does not select an element or selects several elements from the current {@link Container}.
 	 */
-	default E getRefOne(final IElementTakerBooleanGetter<E> selector) {
+	public final E getRefOne(final IElementTakerBooleanGetter<E> selector) {
 		
 		E element = null;
 		
@@ -1487,7 +1475,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @return a new {@link LinkedList} with the elements
 	 * the given selector selects from the current {@link Container}.
 	 */
-	default Container<E> getRefSelected(final IElementTakerBooleanGetter<E> selector) {
+	public final Container<E> getRefSelected(final IElementTakerBooleanGetter<E> selector) {
 		
 		//Creates list.
 		final var list = new LinkedList<E>();
@@ -1514,7 +1502,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @return a new {@link LinkedList} with the elements the given selectors selects from the current {@link Container}.
 	 */
 	@SuppressWarnings("unchecked")
-	default Container<E> getRefSelected(final IElementTakerBooleanGetter<E>... selectors) {
+	public final Container<E> getRefSelected(final IElementTakerBooleanGetter<E>... selectors) {
 		
 		//Creates list.
 		final var list = new LinkedList<E>();
@@ -1551,7 +1539,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @return a new {@link LinkedList} with the elements
 	 * the given selector selects not (!) from the current {@link Container}.
 	 */
-	default Container<E> getRefUnselected(final IElementTakerBooleanGetter<E> selector) {
+	public final Container<E> getRefUnselected(final IElementTakerBooleanGetter<E> selector) {
 		return getRefSelected(e -> !selector.getOutput(e));
 	}
 	
@@ -1566,7 +1554,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * the given selectors selects not (!) from the current {@link Container}.
 	 */
 	@SuppressWarnings("unchecked")
-	default Container<E> getRefUnselected(final IElementTakerBooleanGetter<E>... selectors) {
+	public final Container<E> getRefUnselected(final IElementTakerBooleanGetter<E>... selectors) {
 		
 		//Creates list.
 		final var list = new LinkedList<E>();
@@ -1604,7 +1592,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * the given double norm returns from the elements of the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
-	default double getStandardDeviationByDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
+	public final double getStandardDeviationByDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
 		return Math.sqrt(getVarianceByDouble(doubleNorm));
 	}
 	
@@ -1617,7 +1605,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * the given int norm returns from the elements of the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
-	default double getStandardDeviationByInt(final IElementTakerIntGetter<E> intNorm) {
+	public final double getStandardDeviationByInt(final IElementTakerIntGetter<E> intNorm) {
 		return Math.sqrt(getVarianceByInt(intNorm));
 	}
 	
@@ -1630,7 +1618,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * the given long norm returns from the elements of the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
-	default double getStandardDeviationByInt(final IElementTakerLongGetter<E> longNorm) {
+	public final double getStandardDeviationByInt(final IElementTakerLongGetter<E> longNorm) {
 		return Math.sqrt(getVarianceByLong(longNorm));
 	}
 	
@@ -1642,7 +1630,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @return the sum of the values
 	 * the given double norm returns from the elements of the current {@link Container}.
 	 */
-	default double getSumByDoubleNorm(final IElementTakerDoubleGetter<E> doubleNorm) {
+	public final double getSumByDoubleNorm(final IElementTakerDoubleGetter<E> doubleNorm) {
 		
 		var sum = 0.0;
 		
@@ -1662,7 +1650,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @return the sum of the values
 	 * the given int norm returns from the element of the current {@link Container}.
 	 */
-	default int getSumByInt(final IElementTakerIntGetter<E> intNorm) {
+	public final int getSumByInt(final IElementTakerIntGetter<E> intNorm) {
 		
 		var sum = 0;
 		
@@ -1682,7 +1670,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @return the sum of the values
 	 * the given long norm returns from the elements of the current {@link Container}.
 	 */
-	default long getSumByLong(final IElementTakerLongGetter<E> longNorm) {
+	public final long getSumByLong(final IElementTakerLongGetter<E> longNorm) {
 		
 		var sum = 0;
 		
@@ -1703,7 +1691,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * the given double norm returns from the elements of the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
-	default double getVarianceByDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
+	public final double getVarianceByDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
 		
 		var sum = 0.0;
 		final var average = getAverageByDouble(doubleNorm);
@@ -1725,7 +1713,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * the given int norm returns from the elements of the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
-	default double getVarianceByInt(final IElementTakerIntGetter<E> intNorm) {
+	public final double getVarianceByInt(final IElementTakerIntGetter<E> intNorm) {
 		
 		var sum = 0.0;
 		final var average = getAverageByInt(intNorm);
@@ -1747,7 +1735,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * the given long norm returns from the elements of the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
-	default double getVarianceByLong(final IElementTakerLongGetter<E> longNorm) {
+	public final double getVarianceByLong(final IElementTakerLongGetter<E> longNorm) {
 		
 		var sum = 0.0;
 		final var average = getAverageByLong(longNorm);
@@ -1766,7 +1754,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * 
 	 * @return true if the current {@link Container} does not contain an element.
 	 */
-	default boolean isEmpty() {
+	public boolean isEmpty() {
 		return !iterator().hasNext();
 	}
 	
@@ -1779,7 +1767,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @return true if the current {@link Container} is ordered according to the given norm.
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	default <E2> boolean isOrdered(final IElementTakerComparableGetter<E, E2> norm) {
+	public final <E2> boolean isOrdered(final IElementTakerComparableGetter<E, E2> norm) {
 		
 		//Iterates the current IContainer.
 		E previous = null;
@@ -1810,7 +1798,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * the elements the given extractor extracts from the elements from the current {@link Container}.
 	 * @throws ArgumentIsNullException if the given extractor is null.
 	 */
-	default <E2> ExtractorIterator<E, E2> iterator(final IElementTakerElementGetter<E, E2> extractor) {
+	public final <E2> ExtractorIterator<E, E2> iterator(final IElementTakerElementGetter<E, E2> extractor) {
 		return ExtractorIterator.forContainerWithExtractor(this, extractor);
 	}
 	
@@ -1823,7 +1811,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @return a new {@link LinkedList} with the elements
 	 * the given extractor extracts from the elements of the current {@link Container}.
 	 */
-	default <E2> Container<E2> to(final IElementTakerElementGetter<E, E2> extractor) {
+	public final <E2> Container<E2> to(final IElementTakerElementGetter<E, E2> extractor) {
 		final var list = new LinkedList<E2>();
 		forEach(e -> list.addAtEnd(extractor.getOutput(e)));
 		return list;
@@ -1835,7 +1823,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * 
 	 * @return a new array with the elements of the current {@link Container}.
 	 */
-	default Object[] toArray() {
+	public final Object[] toArray() {
 		
 		//Creates array.
 		final var array = new Object[getElementCount()];
@@ -1860,7 +1848,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * the given extractor extracts from the elements of the current {@link Container}.
 	 */
 	@SuppressWarnings("unchecked")
-	default <E2> E2[] toArray(final IElementTakerElementGetter<E, E2> extractor) {
+	public final <E2> E2[] toArray(final IElementTakerElementGetter<E, E2> extractor) {
 		
 		//Creates array.
 		final var array = (E2[])(new Object[getElementCount()]);
@@ -1883,7 +1871,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @return a new array with the values
 	 * the given byte norm returns from the elements of the current {@link Container}.
 	 */
-	default byte[] toByteArray(final IElementTakerByteGetter<E> byteNorm) {
+	public final byte[] toByteArray(final IElementTakerByteGetter<E> byteNorm) {
 		
 		//Creates array.
 		final var array = new byte[getElementCount()];
@@ -1906,7 +1894,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @return a new array with the values
 	 * the given charNorm returns from the elements of the current {@link Container}.
 	 */
-	default char[] toCharArray(final IElementTakerCharGetter<E> charNorm) {
+	public final char[] toCharArray(final IElementTakerCharGetter<E> charNorm) {
 		
 		//Creates array.
 		final var array = new char[getElementCount()];
@@ -1929,7 +1917,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @return a new array with the values
 	 * the given double norm returns from the elements of the current {@link Container}.
 	 */
-	default double[] toDoubleArray(final IElementTakerDoubleGetter<E> doubleNorm) {
+	public final double[] toDoubleArray(final IElementTakerDoubleGetter<E> doubleNorm) {
 		
 		//Creates array.
 		final var array = new double[getElementCount()];
@@ -1953,7 +1941,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @return a new {@link LinkedList} with the elements of the {@link Container}
 	 * the given extractor extracts from the elements of the current {@link Container}.
 	 */
-	default <E2> LinkedList<E2> toFromMany(final IElementTakerElementGetter<E, ch.nolix.core.containerapi.IContainer<E2>> extractor) {
+	public final <E2> LinkedList<E2> toFromMany(final IElementTakerElementGetter<E, ch.nolix.core.containerapi.IContainer<E2>> extractor) {
 		final var list = new LinkedList<E2>();
 		forEach(e -> list.addAtEnd(extractor.getOutput(e)));
 		return list;
@@ -1967,7 +1955,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @return a new array with the values
 	 * the given int norm returns from the elements of the current {@link Container}.
 	 */
-	default int[] toIntArray(final IElementTakerIntGetter<E> intNorm) {
+	public final int[] toIntArray(final IElementTakerIntGetter<E> intNorm) {
 		
 		//Creates array.
 		final var array = new int[getElementCount()];
@@ -1988,7 +1976,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * 
 	 * @return a new {@link LinkedList} with the elements from the current {@link Container}.
 	 */
-	default Container<E> toList() {
+	public final Container<E> toList() {
 		return to(FunctionCatalogue::getSelf);
 	}
 	
@@ -2000,7 +1988,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @return a new array with the values
 	 * the given long norm returns from the elements of the current {@link Container}.
 	 */
-	default long[] toLongArray(final IElementTakerLongGetter<E> longNorm) {
+	public final long[] toLongArray(final IElementTakerLongGetter<E> longNorm) {
 
 		//Creates the array.
 		final var array = new long[getElementCount()];
@@ -2015,6 +2003,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 		return array;
 	}
 	
+	//TODO: Fix the method constellation.
 	//method
 	/**
 	 * This implementation uses the merge sort algorithm.
@@ -2025,7 +2014,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @return a new {@link LinkedList} with the elements of the current {@link Container}
 	 * ordered from the smallest to the biggest element according to the given norm.
 	 */
-	default <E2> LinkedList<E> toOrderedList(final IElementTakerComparableGetter<E, E2> norm) {
+	public <E2> LinkedList<E> toOrderedList(final IElementTakerComparableGetter<E, E2> norm) {
 		return toList().toOrderedList(norm);
 	}
 	
@@ -2036,7 +2025,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @param separator
 	 * @return a {@link String} representation the current {@link Container} using the given separator.
 	 */
-	default String toString(final char separator) {
+	public final String toString(final char separator) {
 		return toString(String.valueOf(separator));
 	}
 	
@@ -2048,7 +2037,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @return a {@link String} representation of the current {@link Container} using the given separator.
 	 * @throws ArgumentIsNullException if the given separator is null.
 	 */
-	default String toString(final String separator) {
+	public final String toString(final String separator) {
 		
 		//Asserts that the given separator is not null.
 		GlobalValidator
@@ -2081,7 +2070,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * 
 	 * @return a new array with the Strings that represent the elements of the current {@link Container}.
 	 */
-	default String[] toStringArray() {
+	public final String[] toStringArray() {
 		
 		final var stringArray = new String[getElementCount()];
 		
@@ -2102,7 +2091,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @return a new {@link LinkedList}
 	 * with the Strings that represent the elements of the current {@link Container}.
 	 */
-	default Container<String> toStrings() {
+	public final Container<String> toStrings() {
 		return to(E::toString);
 	}
 	
@@ -2115,7 +2104,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * with the elements to the given end index.
 	 * @throws NonPositiveArgumentException if the given end index is not positive.
 	 */
-	default Container<E> until(final int endIndex) {
+	public final Container<E> until(final int endIndex) {
 		return new SubContainer<>(this, 1, endIndex);
 	}
 	
@@ -2126,7 +2115,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @return a new sub container of the current {@link Container} without the first element.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
-	default Container<E> withoutFirst() {
+	public final Container<E> withoutFirst() {
 		
 		if (isEmpty()) {
 			throw new EmptyArgumentException(this);
@@ -2143,7 +2132,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @return a new sub {@link Container} from the current {@link Container} without
 	 * the first occurrence of the given element.
 	 */
-	default Container<E> withoutFirst(final E element) {
+	public final Container<E> withoutFirst(final E element) {
 		
 		final var indexContainer = getOptionalIndexOfFirst(element);
 		
@@ -2163,7 +2152,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @return a new sub container of the current {@link Container} without the first n elements.
 	 * @throws NonPositiveArgumentException if the given n is not positive.
 	 */
-	default Container<E> withoutFirst(final int n) {
+	public final Container<E> withoutFirst(final int n) {
 		
 		final var elementCount = getElementCount();
 		
@@ -2186,7 +2175,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * @return a new sub container of the current {@link Container} without the last element.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
-	default Container<E> withoutLast() {
+	public final Container<E> withoutLast() {
 		
 		//Asserts that the current IContainer is not empty.
 		if (isEmpty()) {
@@ -2205,7 +2194,7 @@ public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	 * without the last n elements of the current {@link Container}.
 	 * @throws NonPositiveArgumentException if the given n is not positive.
 	 */
-	default Container<E> withoutLast(final int n) {
+	public final Container<E> withoutLast(final int n) {
 		
 		final var elementCount = getElementCount();
 		

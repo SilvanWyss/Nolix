@@ -24,7 +24,7 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
  * @date 2017-08-27
  * @param <E> is the type of the elements of a {@link SubContainer}.
  */
-public final class SubContainer<E> implements Container<E> {
+public final class SubContainer<E> extends Container<E> {
 
 	//attributes
 	private final Container<E> container;

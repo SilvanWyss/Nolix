@@ -26,7 +26,7 @@ import ch.nolix.core.skilluniversalapi.Clearable;
  * @date 2016-01-01
  * @param <E> is the type of the elements of a {@link LinkedList}.
  */
-public final class LinkedList<E> implements Clearable, Container<E> {
+public final class LinkedList<E> extends Container<E> implements Clearable {
 	
 	//static method
 	/**
@@ -372,16 +372,6 @@ public final class LinkedList<E> implements Clearable, Container<E> {
 	
 	//method
 	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	@SuppressWarnings("unchecked")
-	public <E2> LinkedList<E2> asContainerWithElementsOfEvaluatedType() {
-		return (LinkedList<E2>)this;
-	}
-	
-	//method
-	/**
 	 * Removes all elements of the current {@link LinkedList}.
 	 * The complexity of this implementation is O(n) when the current {@link LinkedList} contains n elements.
 	 */
@@ -402,17 +392,6 @@ public final class LinkedList<E> implements Clearable, Container<E> {
 			lastNode = null;
 			elementCount = 0;
 		}
-	}
-	
-	//method
-	/**
-	 * @return true if the current {@link LinkedList} contains any element.
-	 */
-	@Override
-	public boolean containsAny() {
-		
-		//Calls the default method of the required interface.
-		return Container.super.containsAny();
 	}
 	
 	//method
@@ -549,7 +528,7 @@ public final class LinkedList<E> implements Clearable, Container<E> {
 		
 		throw new ArgumentDoesNotHaveAttributeException(this, "element at " + index);
 	}
-		
+	
 	//method
 	/**
 	 * The complexity of this implementation is O(1).
@@ -642,17 +621,6 @@ public final class LinkedList<E> implements Clearable, Container<E> {
 	@Override
 	public int hashCode() {
 		return toString().hashCode();
-	}
-	
-	//method
-	/**
-	 * @return true if the current {@link LinkedList} is empty
-	 */
-	@Override
-	public boolean isEmpty() {
-		
-		//Calls the method of the desired interface of the current list.
-		return Container.super.isEmpty();
 	}
 	
 	//method
@@ -983,10 +951,6 @@ public final class LinkedList<E> implements Clearable, Container<E> {
 	}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	public <E2> LinkedList<E> toOrderedList(final IElementTakerComparableGetter<E, E2> norm) {
 		return getOrderedSubList(1, getElementCount(), norm);
 	}

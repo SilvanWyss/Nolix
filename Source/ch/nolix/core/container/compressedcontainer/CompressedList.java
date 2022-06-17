@@ -11,7 +11,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentEx
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
 //class
-public final class CompressedList<E> implements Container<E> {
+public final class CompressedList<E> extends Container<E> {
 	
 	//attribute
 	private int elementCount;

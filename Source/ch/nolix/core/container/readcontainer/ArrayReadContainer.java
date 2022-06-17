@@ -16,7 +16,7 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
  * @date 2017-11-26
  * @param <E> is the type of the elements of a {@link ArrayReadContainer}.
  */
-final class ArrayReadContainer<E> implements Container<E> {
+final class ArrayReadContainer<E> extends Container<E> {
 	
 	//attribute
 	private final E[] array;

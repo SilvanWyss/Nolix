@@ -13,7 +13,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
 //class
-public final class CachingContainer<E> implements Container<E> {
+public final class CachingContainer<E> extends Container<E> {
 	
 	//constant
 	private static final String AUTO_ID_PREFIX = "Z";
