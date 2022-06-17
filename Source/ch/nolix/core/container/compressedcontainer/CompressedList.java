@@ -10,6 +10,7 @@ import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IElementTakerComparableGetter;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
@@ -81,6 +82,18 @@ public final class CompressedList<E> extends Container<E> {
 		}
 		
 		throw new ArgumentDoesNotHaveAttributeException(this, "element at " + index);
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public E getRefLast() {
+		
+		GlobalValidator.assertThat(this).isNotEmpty();
+		
+		return lastNode.getRefElement();
 	}
 	
 	//method

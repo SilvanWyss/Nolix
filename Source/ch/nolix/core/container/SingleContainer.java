@@ -56,6 +56,23 @@ public final class SingleContainer<E> extends Container<E> {
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public int getElementCount() {
+		
+		//Handles the case that the current SingleContainer is empty.
+		if (element == null) {
+			return 0;
+		}
+		
+		//Handles the case that the current SingleContainer contains an element.
+		return 1;
+	}
+	
+	//method
 	/**
 	 * {@inheritDoc}
 	 */
@@ -85,20 +102,12 @@ public final class SingleContainer<E> extends Container<E> {
 	}
 	
 	//method
-	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public int getElementCount() {
-		
-		//Handles the case that the current SingleContainer is empty.
-		if (element == null) {
-			return 0;
-		}
-		
-		//Handles the case that the current SingleContainer contains an element.
-		return 1;
+	public E getRefLast() {
+		return getRefElement();
 	}
 	
 	//method

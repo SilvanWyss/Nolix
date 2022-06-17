@@ -168,6 +168,15 @@ public final class ReadContainer<E> extends Container<E> {
 	 * {@inheritDoc}
 	 */
 	@Override
+	public E getRefLast() {
+		return container.getRefLast();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public int hashCode() {
 		return toString().hashCode();
 	}

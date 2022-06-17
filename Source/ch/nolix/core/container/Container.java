@@ -1393,17 +1393,6 @@ public abstract class Container<E> implements IContainer<E> {
 	
 	//method
 	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public E getRefLast() {
-		
-		//TODO: Implement this method better.
-		return getRefAt(getElementCount());
-	}
-	
-	//method
-	/**
 	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param type

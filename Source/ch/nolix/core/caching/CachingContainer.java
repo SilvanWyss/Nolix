@@ -67,6 +67,12 @@ public final class CachingContainer<E> extends Container<E> {
 	
 	//method
 	@Override
+	public E getRefLast() {
+		return elements.getRefLast().getRefElement2();
+	}
+	
+	//method
+	@Override
 	public Iterator<E> iterator() {
 		return new CachingContainerIterator<>(elements.iterator());
 	}

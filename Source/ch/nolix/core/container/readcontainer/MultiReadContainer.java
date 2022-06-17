@@ -66,6 +66,15 @@ final class MultiReadContainer<E> extends Container<E> {
 	}
 	
 	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public E getRefLast() {
+		return containers.getRefLast().getRefLast();
+	}
+	
+	//method
 	@Override
 	public <E2> IContainer<E> toOrderedList(final IElementTakerComparableGetter<E, E2> norm) {
 		return LinkedList.fromIterable(this).toOrderedList(norm);

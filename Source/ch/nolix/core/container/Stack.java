@@ -35,6 +35,12 @@ public final class Stack<E> extends Container<E> {
 	
 	//method
 	@Override
+	public E getRefLast() {
+		return linkedList.getRefLast();
+	}
+	
+	//method
+	@Override
 	public Iterator<E> iterator() {
 		return linkedList.iterator();
 	}

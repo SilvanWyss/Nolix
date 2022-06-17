@@ -91,6 +91,15 @@ public final class SubContainer<E> extends Container<E> {
 	 * {@inheritDoc}
 	 */
 	@Override
+	public E getRefLast() {
+		return getRefAt(getElementCount());
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public Iterator<E> iterator() {
 		return
 		new SubContainerIterator<>(

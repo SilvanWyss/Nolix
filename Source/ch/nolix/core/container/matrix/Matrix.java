@@ -384,6 +384,17 @@ public final class Matrix<E> extends Container<E> implements Clearable {
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	@SuppressWarnings("unchecked")
+	public E getRefLast() {
+		return (E)elements[getRowCount()][getColumnCount()];
+	}
+	
+	//method
 	/**
 	 * @param rowIndex
 	 * @return the row of the current {@link Matrix} at the given row index.

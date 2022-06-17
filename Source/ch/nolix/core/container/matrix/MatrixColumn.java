@@ -49,7 +49,13 @@ public final class MatrixColumn<E> extends Container<E> {
 	public E getRefAt(final int rowIndex) {
 		return parentMatrix.getRefAt(rowIndex, getColumnIndex());
 	}
-
+	
+	//method
+	@Override
+	public E getRefLast() {
+		return parentMatrix.getRefAt(parentMatrix.getRowCount(), getColumnIndex());
+	}
+	
 	//method
 	@Override
 	public MatrixColumnIterator<E> iterator() {

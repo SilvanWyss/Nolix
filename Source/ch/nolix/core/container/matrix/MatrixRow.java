@@ -52,6 +52,12 @@ public final class MatrixRow<E> extends Container<E> {
 	
 	//method
 	@Override
+	public E getRefLast() {
+		return parentMatrix.getRefAt(getRowIndex(), parentMatrix.getColumnCount());
+	}
+	
+	//method
+	@Override
 	public MatrixRowIterator<E> iterator() {
 		return new MatrixRowIterator<>(this);
 	}

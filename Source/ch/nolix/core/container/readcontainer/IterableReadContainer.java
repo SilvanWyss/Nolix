@@ -114,6 +114,15 @@ final class IterableReadContainer<E> extends Container<E> {
 	 * {@inheritDoc}
 	 */
 	@Override
+	public E getRefLast() {
+		return getRefAt(getElementCount());
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public <E2> IContainer<E> toOrderedList(final IElementTakerComparableGetter<E, E2> norm) {
 		return LinkedList.fromIterable(this).toOrderedList(norm);
 	}

@@ -81,6 +81,15 @@ final class ArrayReadContainer<E> extends Container<E> {
 	 * {@inheritDoc}
 	 */
 	@Override
+	public E getRefLast() {
+		return array[getElementCount() - 1];
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public Iterator<E> iterator() {
 		return new ArrayReadContainerIterator<>(array);
 	}

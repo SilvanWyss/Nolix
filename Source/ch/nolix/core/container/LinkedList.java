@@ -536,6 +536,7 @@ public final class LinkedList<E> extends Container<E> implements Clearable {
 	 * @return the last element of the current {@link LinkedList}.
 	 * @throws EmptyArgumentException if the current {@link LinkedList} is empty.
 	 */
+	@Override
 	public E getRefLast() {
 		
 		//Asserts that the current list is not empty.

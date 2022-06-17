@@ -8,6 +8,7 @@ import java.util.Iterator;
 import ch.nolix.core.container.Container;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.containerapi.IContainer;
+import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IElementTakerComparableGetter;
@@ -109,6 +110,28 @@ public final class GapMatrix<E> extends Container<E> implements Clearable {
 		assertContainsAt(rowIndex, columnIndex);
 		
 		return (E)rows[rowIndex - 1][columnIndex - 1];
+	}
+	
+	//method
+	//For a better performance, this implementation does not use all comfortable methods.
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	@SuppressWarnings("unchecked")
+	public E getRefLast() {
+		
+		final var rowCount = getRowCount();
+		
+		for (var rowIndex = rowCount - 1; rowIndex >= 0; rowIndex--) {
+			for (var columnIndex = columnCount - 1; columnIndex >= 0; columnIndex--) {
+				if (rows[rowIndex][columnIndex] != null) {
+					return (E)rows[rowIndex][columnIndex];
+				}
+			}
+		}
+		
+		throw new EmptyArgumentException(this);
 	}
 	
 	//method
