@@ -224,7 +224,10 @@ public final class Table extends SchemaObject implements ITable<SchemaImplementa
 		
 		final var tables = getParentDatabase().getRefTables();
 		
-		columns = LinkedList.fromIterable(internalgetRefRawSchemaAdapter().loadColumnsOfTable(this).to(c -> Column.fromDTO(c, tables)));
+		columns =
+		LinkedList.fromIterable(
+			internalgetRefRawSchemaAdapter().loadColumnsOfTable(this).to(c -> Column.fromDTO(c, tables))
+		);
 		
 		for (final var c : columns) {
 			final var column = (Column)c;
