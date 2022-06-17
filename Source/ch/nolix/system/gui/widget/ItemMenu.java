@@ -162,7 +162,7 @@ public abstract class ItemMenu<IM extends ItemMenu<IM>> extends BorderWidget<IM,
 	
 	//method
 	public final IContainer<ItemMenuItem> getRefItems() {
-		return items;
+		return items.getRefValues();
 	}
 	
 	//method

@@ -225,7 +225,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	 * @return the tabs of the current {@link Accordion}.
 	 */
 	public IContainer<AccordionTab> getRefTabs() {
-		return tabs;
+		return tabs.getRefValues();
 	}
 	
 	//method
@@ -236,7 +236,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	 * @return the number of tabs of the current {@link Accordion}.
 	 */
 	public int getTabCount() {
-		return tabs.getElementCount();
+		return getRefTabs().getElementCount();
 	}
 	
 	//method

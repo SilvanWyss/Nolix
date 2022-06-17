@@ -356,7 +356,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 */
 	@Override
 	public final IContainer<IConfigurableElement<?>> getSubConfigurables() {
-		return layers.getRefSelected(ILayer::allowesConfiguration).asContainerWithElementsOfEvaluatedType();
+		return layers.getRefValues().getRefSelected(ILayer::allowesConfiguration).asContainerWithElementsOfEvaluatedType();
 	}
 	
 	//method
@@ -364,7 +364,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 * @return the {@link Layer}s of the current {@link WidgetGUI}.
 	 */
 	public final IContainer<ILayer<?>> getRefLayers() {
-		return layers;
+		return layers.getRefValues();
 	}
 	
 	//method
@@ -383,7 +383,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	@Override
 	public final void paint(final IPainter painter) {
 		background.paint(painter.createPainter());
-		layers.forEach(l -> l.paint(painter.createPainter()));
+		layers.getRefValues().forEach(l -> l.paint(painter.createPainter()));
 	}
 	
 	//method
@@ -483,13 +483,13 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 		final var previousTopLayer = getRefTopOrBackgroundLayer();
 		
 		//Handles the case that the current WidgetGUI contains 1 layer.
-		if (layers.containsOne()) {
+		if (getRefLayers().containsOne()) {
 			clear();
 			
 		//Handles the case that the current GUI contains several layers.
 		} else {
 			layers.removeLast();
-			topLayer = layers.getRefLast();
+			topLayer = getRefLayers().getRefLast();
 		}
 		
 		getRefTopOrBackgroundLayer().noteMouseMove(
@@ -762,7 +762,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	@Override
 	protected final void recalculate(ChangeState viewAreaChangeState) {
 		if (viewAreaChangeState == ChangeState.CHANGED) {
-			layers.forEach(ILayer::recalculate);
+			getRefLayers().forEach(ILayer::recalculate);
 		} else if (topLayer != null) {
 			topLayer.recalculate();
 		}

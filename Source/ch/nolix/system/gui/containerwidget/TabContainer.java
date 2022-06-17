@@ -197,7 +197,7 @@ public final class TabContainer extends ContainerWidget<TabContainer, TabContain
 	 * @return the tabs of the current {@link TabContainer}.
 	 */
 	public ReadContainer<TabContainerTab> getRefTabs() {
-		return ReadContainer.forIterable(tabs);
+		return ReadContainer.forIterable(tabs.getRefValues());
 	}
 	
 	//method

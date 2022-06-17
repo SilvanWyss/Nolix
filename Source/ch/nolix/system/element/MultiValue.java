@@ -1,9 +1,6 @@
 //package declaration
 package ch.nolix.system.element;
 
-//Java imports
-import java.util.Iterator;
-
 //own imports
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
@@ -23,7 +20,7 @@ import ch.nolix.core.skilluniversalapi.Clearable;
  * @date 2018-03-04
  * @param <V> is the type of the values of a {@link MultiValue}.
  */
-public final class MultiValue<V> extends BaseValue<V> implements Clearable, IContainer<V> {
+public final class MultiValue<V> extends BaseValue<V> implements Clearable {
 	
 	//static method
 	/**
@@ -101,16 +98,7 @@ public final class MultiValue<V> extends BaseValue<V> implements Clearable, ICon
 	
 	//method
 	/**
-	 * @return true if the current {@link MultiValue} contains a value.
-	 */
-	@Override
-	public boolean containsAny() {
-		return Clearable.super.containsAny();
-	}
-	
-	//method
-	/**
-	 * Removes all values of the current {@link MultiValue}.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public void clear() {	
@@ -119,29 +107,10 @@ public final class MultiValue<V> extends BaseValue<V> implements Clearable, ICon
 	
 	//method
 	/**
-	 * {@inheritDoc}
+	 * @return the values of the current {@link MultiValue}.
 	 */
-	@Override
-	public V getRefAt(final int index) {
-		return values.getRefAt(index);
-	}
-	
-	//method
-	/**
-	 * @return the last value of the current {@link MultiValue}.
-	 * @throws EmptyArgumentException if the current {@link MultiValue} is empty.
-	 */
-	public V getRefLast() {
-		return values.getRefLast();
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public int getElementCount() {
-		return values.getElementCount();
+	public IContainer<V> getRefValues() {
+		return values;
 	}
 	
 	//method
@@ -160,15 +129,6 @@ public final class MultiValue<V> extends BaseValue<V> implements Clearable, ICon
 	@Override
 	public boolean isMutable() {
 		return true;
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public Iterator<V> iterator() {
-		return values.iterator();
 	}
 	
 	//method
@@ -224,7 +184,7 @@ public final class MultiValue<V> extends BaseValue<V> implements Clearable, ICon
 	protected void fillUpAttributesInto(final LinkedList<Node> list) {
 		
 		//Iterates the values of the current MultiProperty.
-		for (final var v : this) {
+		for (final var v : getRefValues()) {
 			
 			//Creates a specification from the current value.
 			final var specification = specificationCreator.getOutput(v);

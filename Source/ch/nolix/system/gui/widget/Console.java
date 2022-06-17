@@ -166,7 +166,7 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	 * @return the lines of the current {@link Console}.
 	 */
 	public ReadContainer<String> getLines() {
-		return ReadContainer.forIterable(lines);
+		return ReadContainer.forIterable(lines.getRefValues());
 	}
 	
 	//method
@@ -310,7 +310,7 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 		
 		clearEditLine();
 		
-		final int lineCount = lines.getElementCount();
+		final int lineCount = lines.getRefValues().getElementCount();
 		
 		//This loop suffers from being optimized away by the compiler or the JVM.
 		while (getLines().getElementCount() == lineCount) {
@@ -321,7 +321,7 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 			System.out.flush();
 		}
 		
-		return lines.getRefLast();
+		return lines.getRefValues().getRefLast();
 	}
 	
 	//method

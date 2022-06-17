@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.skilluniversalapi;
 
+//own imports
 import ch.nolix.core.requestuniversalapi.EmptinessRequestable;
 
 //interface

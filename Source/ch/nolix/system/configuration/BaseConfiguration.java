@@ -235,7 +235,7 @@ implements IConfiguration {
 	 * @return true if the current {@link BaseConfiguration} contains the given selectorRole.
 	 */
 	public final boolean containsSelectorRole(final String selectorRole) {
-		return selectorRoles.containsAnyEqualing(selectorRole);
+		return selectorRoles.getRefValues().containsAnyEqualing(selectorRole);
 	}
 	
 	//method
@@ -252,7 +252,7 @@ implements IConfiguration {
 	 * @return true if the current {@link BaseConfiguration} contains the given selectorToken.
 	 */
 	public final boolean containsSelectorToken(final String selectorToken) {
-		return selectorTokens.containsAnyEqualing(selectorToken);
+		return selectorTokens.getRefValues().containsAnyEqualing(selectorToken);
 	}
 	
 	//method
@@ -278,7 +278,7 @@ implements IConfiguration {
 	 * @return the selector roles of the current {@link BaseConfiguration}.
 	 */
 	public final IContainer<String> getSelectorRoles() {
-		return selectorRoles;
+		return selectorRoles.getRefValues();
 	}
 	
 	//method
@@ -286,7 +286,7 @@ implements IConfiguration {
 	 * @return the selector tokens of the current {@link BaseConfiguration}.
 	 */
 	public final IContainer<String> getSelectorTokens() {
-		return selectorTokens;
+		return selectorTokens.getRefValues();
 	}
 	
 	//method
@@ -469,7 +469,7 @@ implements IConfiguration {
 	}
 	
 	protected final IContainer<BaseConfiguration<?>> getRefConfigurations() {
-		return configurations;
+		return configurations.getRefValues();
 	}
 	
 	//method declaration
@@ -487,7 +487,7 @@ implements IConfiguration {
 	 * is not valid for the given element.
 	 */
 	protected final void setAttachingAttributesTo(IConfigurableElement<?> element) {
-		for (final var aa : attachingAttributes) {
+		for (final var aa : attachingAttributes.getRefValues()) {
 			try {
 				element.addOrChangeAttribute(aa);
 			} catch (final Exception exception) {
