@@ -8,14 +8,14 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
 //class
 /**
- * A {@link SingleContainer} is a {@link IContainer} that is empty or stores 1 element.
+ * A {@link SingleContainer} is a {@link Container} that is empty or stores 1 element.
  * A {@link SingleContainer} is not mutable.
  * 
  * @author Silvan Wyss
  * @date 2020-01-11
  * @param <E> is the type of the element of a {@link SingleContainer}.
  */
-public final class SingleContainer<E> implements IContainer<E> {
+public final class SingleContainer<E> implements Container<E> {
 	
 	//optional attribute
 	private final E element;

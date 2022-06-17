@@ -5,14 +5,14 @@ package ch.nolix.core.container.matrix;
 import java.util.Arrays;
 import java.util.Iterator;
 
-import ch.nolix.core.container.IContainer;
+import ch.nolix.core.container.Container;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.skilluniversalapi.Clearable;
 
 //class
-public final class GapMatrix<E> implements Clearable, IContainer<E> {
+public final class GapMatrix<E> implements Clearable, Container<E> {
 	
 	//attributes
 	private int columnCount;

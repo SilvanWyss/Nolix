@@ -26,7 +26,7 @@ final class ExtractorIterator<E, E2> implements Iterator<E2> {
 	 * @throws ArgumentIsNullException if the given extractor is null.
 	 */
 	public static <T, T2> ExtractorIterator<T, T2> forContainerWithExtractor(
-		final IContainer<T> container,
+		final Container<T> container,
 		final IElementTakerElementGetter<T, T2> extractor
 	) {
 		return new ExtractorIterator<>(container, extractor);
@@ -40,7 +40,7 @@ final class ExtractorIterator<E, E2> implements Iterator<E2> {
 	 * @param extractor
 	 * @throws ArgumentIsNullException if the given extractor is null.
 	 */
-	private ExtractorIterator(final IContainer<E> container, final IElementTakerElementGetter<E, E2> extractor) {
+	private ExtractorIterator(final Container<E> container, final IElementTakerElementGetter<E, E2> extractor) {
 		
 		GlobalValidator.assertThat(extractor).thatIsNamed("extractor").isNotNull();
 		

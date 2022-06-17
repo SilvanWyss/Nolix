@@ -5,7 +5,7 @@ package ch.nolix.core.container.readcontainer;
 import java.util.Iterator;
 
 import ch.nolix.core.commontype.constant.CharacterCatalogue;
-import ch.nolix.core.container.IContainer;
+import ch.nolix.core.container.Container;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
@@ -16,7 +16,7 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
  * @date 2017-11-26
  * @param <E> is the type of the elements of a {@link ArrayReadContainer}.
  */
-final class ArrayReadContainer<E> implements IContainer<E> {
+final class ArrayReadContainer<E> implements Container<E> {
 	
 	//attribute
 	private final E[] array;

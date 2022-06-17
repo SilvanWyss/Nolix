@@ -5,7 +5,7 @@ package ch.nolix.core.container;
 import java.util.Iterator;
 
 //class
-public final class Stack<E> implements IContainer<E> {
+public final class Stack<E> implements Container<E> {
 
 	//attribute
 	private final LinkedList<E> linkedList = new LinkedList<>();

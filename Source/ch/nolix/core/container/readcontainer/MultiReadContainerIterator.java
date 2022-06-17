@@ -4,7 +4,7 @@ package ch.nolix.core.container.readcontainer;
 //Java imports
 import java.util.Iterator;
 
-import ch.nolix.core.container.IContainer;
+import ch.nolix.core.container.Container;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
@@ -12,13 +12,13 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 final class MultiReadContainerIterator<E> implements Iterator<E> {
 	
 	//attribute
-	private final Iterator<IContainer<E>> rootIterator;
+	private final Iterator<Container<E>> rootIterator;
 	
 	//optional attribute
 	private Iterator<E> currentIterator;
 	
 	//constructor
-	public MultiReadContainerIterator(final IContainer<IContainer<E>> containers) {
+	public MultiReadContainerIterator(final Container<Container<E>> containers) {
 		
 		rootIterator = containers.iterator();
 		

@@ -2,7 +2,7 @@
 package ch.nolix.core.container.matrix;
 
 import ch.nolix.core.commontype.constant.CharacterCatalogue;
-import ch.nolix.core.container.IContainer;
+import ch.nolix.core.container.Container;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -17,14 +17,14 @@ import ch.nolix.core.skilluniversalapi.Clearable;
 
 //class
 /**
- * A {@link Matrix} is a {@link IContainer} that stores its elements in rows and columns.
+ * A {@link Matrix} is a {@link Container} that stores its elements in rows and columns.
  * A {@link Matrix} is clearable.
  * 
  * @author Silvan Wyss
  * @date 2016-08-01
  * @param <E> is the type of the elements of a {@link Matrix}.
  */
-public final class Matrix<E> implements IContainer<E>, Clearable {
+public final class Matrix<E> implements Container<E>, Clearable {
 
 	//multi-attribute
 	private Object[][] elements = new Object[0][0];
@@ -234,7 +234,7 @@ public final class Matrix<E> implements IContainer<E>, Clearable {
 	public boolean containsAny() {
 		
 		//Calls the default method of the suitable interface.
-		return IContainer.super.containsAny();
+		return Container.super.containsAny();
 	}
 	
 	//method

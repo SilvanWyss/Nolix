@@ -32,33 +32,33 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
 //interface
 /**
- * A {@link IContainer} can store several elements of a certain type.
- * A {@link IContainer} is iterable.
+ * A {@link Container} can store several elements of a certain type.
+ * A {@link Container} is iterable.
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @param <E> is the type of the elements a {@link IContainer} can store.
+ * @param <E> is the type of the elements a {@link Container} can store.
  */
-public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> {
+public interface Container<E> extends ch.nolix.core.containerapi.IContainer<E> {
 	
 	//method
 	/**
 	 * The complexity of this implementation is O(1).
 	 * 
-	 * @param <E2> is the type of the elements of the returned {@link IContainer}.
-	 * @return the current {@link IContainer} as a {@link IContainer} with elements of the evaluated type.
+	 * @param <E2> is the type of the elements of the returned {@link Container}.
+	 * @return the current {@link Container} as a {@link Container} with elements of the evaluated type.
 	 */
 	@SuppressWarnings("unchecked")
-	default <E2> IContainer<E2> asContainerWithElementsOfEvaluatedType() {
-		return (IContainer<E2>)this;
+	default <E2> Container<E2> asContainerWithElementsOfEvaluatedType() {
+		return (Container<E2>)this;
 	}
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param element
-	 * @return true if the current {@link IContainer} contains the given element.
+	 * @return true if the current {@link Container} contains the given element.
 	 */
 	default boolean contains(final Object element) {
 		
@@ -77,11 +77,11 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	//method
 	/**
 	 * The complexity of this implementation is O(m*n) if:
-	 * -The current {@link IContainer} contains m elements.
+	 * -The current {@link Container} contains m elements.
 	 * -n elements are given.
 	 * 
 	 * @param elements
-	 * @return true if the current {@link IContainer} contains all of the given elements.
+	 * @return true if the current {@link Container} contains all of the given elements.
 	 */
 	default boolean containsAll(final Iterable<Object> elements) {
 		
@@ -100,11 +100,11 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	//method
 	/**
 	 * The complexity of this implementation is O(m*n) if:
-	 * -The current {@link IContainer} contains m elements.
+	 * -The current {@link Container} contains m elements.
 	 * -n elements are given.
 	 * 
 	 * @param elements
-	 * @return true if the current {@link IContainer} contains all the given elements.
+	 * @return true if the current {@link Container} contains all the given elements.
 	 */
 	default boolean containsAll(final Object... elements) {
 		
@@ -124,7 +124,7 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	/**
 	 * The complexity of this implementation is O(1).
 	 * 
-	 * @return true if the current {@link IContainer} contains any element.
+	 * @return true if the current {@link Container} contains any element.
 	 */
 	default boolean containsAny() {
 		return iterator().hasNext();
@@ -132,10 +132,10 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param selector
-	 * @return true if the current {@link IContainer} contains an element the given selector selects.
+	 * @return true if the current {@link Container} contains an element the given selector selects.
 	 */
 	default boolean containsAny(final IElementTakerBooleanGetter<E> selector) {
 		
@@ -153,10 +153,10 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n^2) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n^2) if the current {@link Container} contains n elements.
 	 *
 	 * @param selector
-	 * @return true if the current {@link IContainer}
+	 * @return true if the current {@link Container}
 	 * contains at least 2 elements the given selector selects together.
 	 */
 	default boolean containsAny(final I2ElementTakerBooleanGetter<E> selector) {
@@ -180,11 +180,11 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	//method
 	/**
 	 * The complexity of this implementation is O(m*n) if:
-	 * -The current {@link IContainer} contains m elements.
+	 * -The current {@link Container} contains m elements.
 	 * -n elements are given.
 	 * 
 	 * @param elements
-	 * @return true if the current {@link IContainer} contains any of the given elements.
+	 * @return true if the current {@link Container} contains any of the given elements.
 	 */
 	default boolean containsAny(final Object... elements) {
 		
@@ -202,10 +202,10 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param element
-	 * @return true if the current {@link IContainer}
+	 * @return true if the current {@link Container}
 	 * contains an element that equals the given given element.
 	 */
 	default boolean containsAnyEqualing(final Object element) {
@@ -215,11 +215,11 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	//method
 	/**
 	 * The complexity of this implementation is O(m*n) if:
-	 * -The current {@link IContainer} contains m elements.
+	 * -The current {@link Container} contains m elements.
 	 * -n elements are given.
 	 * 
 	 * @param elements
-	 * @return true if the current {@link IContainer} contains any of the given elements.
+	 * @return true if the current {@link Container} contains any of the given elements.
 	 */
 	default boolean containsAnyFrom(final Iterable<?> elements) {
 		
@@ -240,7 +240,7 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	 * The complexity of this implementation is O(1).
 	 * 
 	 * @param container
-	 * @return true if the current {@link IContainer} contains as many elements as the given container.
+	 * @return true if the current {@link Container} contains as many elements as the given container.
 	 */
 	default boolean containsAsManyAs(final ch.nolix.core.containerapi.IContainer<E> container) {
 		return (getElementCount() == container.getElementCount());
@@ -251,7 +251,7 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	 * The complexity of this implementation is O(1).
 	 * 
 	 * @param container
-	 * @return true if the current {@link IContainer} contains less elements than the given container.
+	 * @return true if the current {@link Container} contains less elements than the given container.
 	 */
 	default boolean containsLessThan(final ch.nolix.core.containerapi.IContainer<?> container) {
 		return (getElementCount() < container.getElementCount());
@@ -262,7 +262,7 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	 * The complexity of this implementation is O(1).
 	 * 
 	 * @param container
-	 * @return true if the current {@link IContainer} contains less elements than the given container.
+	 * @return true if the current {@link Container} contains less elements than the given container.
 	 */
 	default boolean containsLessThan(final Iterable<?> container) {
 		return containsLessThan(ReadContainer.forIterable(container));
@@ -273,7 +273,7 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	 * The complexity of this implementation is O(1).
 	 * 
 	 * @param container
-	 * @return true if the current {@link IContainer} contains more elements than the given container.
+	 * @return true if the current {@link Container} contains more elements than the given container.
 	 */
 	default boolean containsMoreThan(final ch.nolix.core.containerapi.IContainer<?> container) {
 		return (getElementCount() > container.getElementCount());
@@ -284,7 +284,7 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	 * The complexity of this implementation is O(1).
 	 * 
 	 * @param container
-	 * @return true if the current {@link IContainer} contains more elements than the given container.
+	 * @return true if the current {@link Container} contains more elements than the given container.
 	 */
 	default boolean containsMoreThan(final Iterable<?> container) {
 		return containsMoreThan(ReadContainer.forIterable(container));
@@ -292,10 +292,10 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param selector
-	 * @return true if the current {@link IContainer} does not contain an element the given selector selects.
+	 * @return true if the current {@link Container} does not contain an element the given selector selects.
 	 */
 	default boolean containsNone(final IElementTakerBooleanGetter<E> selector) {
 		return !containsAny(selector::getOutput);
@@ -304,11 +304,11 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	//method
 	/**
 	 * The complexity of this implementation is O(m*n) if:
-	 * -The current {@link IContainer} contains m elements.
+	 * -The current {@link Container} contains m elements.
 	 * -n elements are given.
 	 * 
 	 * @param elements
-	 * @return true if the current {@link IContainer} contains none of the given elements.
+	 * @return true if the current {@link Container} contains none of the given elements.
 	 */
 	default boolean containsNone(final Object... elements) {
 		
@@ -326,10 +326,10 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param element
-	 * @return true if the current {@link IContainer} contains the given element exactly 1 time.
+	 * @return true if the current {@link Container} contains the given element exactly 1 time.
 	 */
 	default boolean containsOnce(final E element) {
 		
@@ -357,7 +357,7 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	/**
 	 * The complexity of this implementation is O(1).
 	 * 
-	 * @return true if the current {@link IContainer} contains exactly 1 element.
+	 * @return true if the current {@link Container} contains exactly 1 element.
 	 */
 	default boolean containsOne() {
 		
@@ -375,10 +375,10 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param selector
-	 * @return true if the current {@link IContainer}
+	 * @return true if the current {@link Container}
 	 * contains exactly 1 element the given selector selects.
 	 */
 	default boolean containsOne(final IElementTakerBooleanGetter<E> selector) {
@@ -405,10 +405,10 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param element
-	 * @return true if the current {@link IContainer}
+	 * @return true if the current {@link Container}
 	 * contains exactly 1 element that equals the given element.
 	 */
 	default boolean containsOneEqualing(final E element) {
@@ -418,11 +418,11 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	//method
 	/**
 	 * The complexity of this implementation is O(m*n) if:
-	 * -The current {@link IContainer} contains m elements.
+	 * -The current {@link Container} contains m elements.
 	 * -n elements are given.
 	 * 
 	 * @param selector
-	 * @return true if the current {@link IContainer} contains only elements the given selector selects.
+	 * @return true if the current {@link Container} contains only elements the given selector selects.
 	 */
 	default boolean containsOnly(final IElementTakerBooleanGetter<E> selector) {
 
@@ -440,9 +440,9 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
-	 * Lets the elements of the current {@link IContainer} run the given action.
+	 * Lets the elements of the current {@link Container} run the given action.
 	 * Continues always when an error occurs at an element.
 	 * 
 	 * @param action
@@ -464,12 +464,12 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	 * The complexity of this implementation is O(1).
 	 * 
 	 * @param startIndex
-	 * @return a new sub container of the current {@link IContainer} from the given start index.
+	 * @return a new sub container of the current {@link Container} from the given start index.
 	 * @throws NonPositiveArgumentException if the given start index is not positive.
 	 * @throws SmallerArgumentException
-	 * if the current {@link IContainer} contains less element than the value of the given start index.
+	 * if the current {@link Container} contains less element than the value of the given start index.
 	 */
-	default IContainer<E> from(final int startIndex) {
+	default Container<E> from(final int startIndex) {
 		return new SubContainer<>(this, startIndex, getElementCount());
 	}
 	
@@ -479,27 +479,27 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	 * 
 	 * @param startIndex
 	 * @param endIndex
-	 * @return a new sub container of the current {@link IContainer}
+	 * @return a new sub container of the current {@link Container}
 	 * from the given start index to the given end index.
 	 * @throws NonPositiveArgumentException
 	 * if the given start index is not positive.
 	 * @throws SmallerArgumentException
 	 * if the given end index is smaller than the given start index.
 	 * @throws BiggerArgumentException
-	 * if the given end index is bigger than the number of elements of the current {@link IContainer}.
+	 * if the given end index is bigger than the number of elements of the current {@link Container}.
 	 */
-	default IContainer<E> fromUntil(final int startIndex, final int endIndex) {
+	default Container<E> fromUntil(final int startIndex, final int endIndex) {
 		return new SubContainer<>(this, startIndex, endIndex);
 	}
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param doubleNorm
 	 * @return the average of the values
-	 * the given double norm returns from the elements of the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * the given double norm returns from the elements of the current {@link Container}.
+	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
 	default double getAverageByDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
 		
@@ -513,12 +513,12 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param intNorm
 	 * @return the average of the values
-	 * the given int norm returns from the elements of the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * the given int norm returns from the elements of the current {@link Container}.
+	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
 	default double getAverageByInt(final IElementTakerIntGetter<E> intNorm) {
 		
@@ -532,12 +532,12 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param longNorm
 	 * @return the average of the values
-	 * the given long norm returns from the elements of the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * the given long norm returns from the elements of the current {@link Container}.
+	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
 	default double getAverageByLong(final IElementTakerLongGetter<E> longNorm) {
 		
@@ -551,10 +551,10 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param selector
-	 * @return the number of elements the given selector selects from the current {@link IContainer}.
+	 * @return the number of elements the given selector selects from the current {@link Container}.
 	 */
 	default int getCount(final IElementTakerBooleanGetter<E> selector) {
 		
@@ -574,10 +574,10 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param element
-	 * @return the number how many times the current {@link IContainer} contains the given element.
+	 * @return the number how many times the current {@link Container} contains the given element.
 	 */
 	default int getCount(final Object element) {
 		
@@ -597,18 +597,18 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method declaration
 	/**
-	 * @return the number of elements of the current {@link IContainer}.
+	 * @return the number of elements of the current {@link Container}.
 	 */
 	int getElementCount();
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param selector
-	 * @return the index of the first element in the current {@link IContainer} the given selector selects.
+	 * @return the index of the first element in the current {@link Container} the given selector selects.
 	 * @throws InvalidArgumentException if
-	 * the current {@link IContainer} does not contain an element the given selector selects.
+	 * the current {@link Container} does not contain an element the given selector selects.
 	 */
 	default int getIndexOfFirst(final IElementTakerBooleanGetter<E> selector) {
 		
@@ -630,12 +630,12 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param element
-	 * @return the index of the first element in the current {@link IContainer} that equals the given element.
+	 * @return the index of the first element in the current {@link Container} that equals the given element.
 	 * @throws InvalidArgumentException if
-	 * the current {@link IContainer} does not contain an element that equals the given element.
+	 * the current {@link Container} does not contain an element that equals the given element.
 	 */
 	default int getIndexOfFirstEqualElement(final E element) {
 		
@@ -657,11 +657,11 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param element
-	 * @return the index of the given element in the current {@link IContainer}.
-	 * @throws InvalidArgumentException if the current {@link IContainer} does not contain the given element.
+	 * @return the index of the given element in the current {@link Container}.
+	 * @throws InvalidArgumentException if the current {@link Container} does not contain the given element.
 	 */
 	default int getIndexOfFirstOccurrenceOf(final E element) {
 		
@@ -683,12 +683,12 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param norm
 	 * @param <E2> is the type of the elements of the {@link Comparable} the given norm returns.
-	 * @return the biggest value the given norm returns from the elements of the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * @return the biggest value the given norm returns from the elements of the current {@link Container}.
+	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
 	@SuppressWarnings("unchecked")
 	default <E2> E2 getMax(final IElementTakerComparableGetter<E, E2> norm) {
@@ -697,12 +697,12 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param doubleNorm
 	 * @return the biggest value
-	 * the given double norm returns from the elements of the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * the given double norm returns from the elements of the current {@link Container}.
+	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
 	default double getMaxDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
 		return doubleNorm.getOutput(getRefByMaxDouble(doubleNorm));
@@ -710,12 +710,12 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param intNorm
 	 * @return the biggest value
-	 * the given int norm returns from the elements of the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * the given int norm returns from the elements of the current {@link Container}.
+	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
 	default int getMaxInt(final IElementTakerIntGetter<E> intNorm) {
 		return intNorm.getOutput(getRefByMaxInt(intNorm));
@@ -723,12 +723,12 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param intNorm
 	 * @param defaultValue
-	 * @return the biggest value the given intNorm returns from the elements of the current {@link IContainer}
-	 * if the current {@link IContainer} contains elements, otherwise the given defaultValue.
+	 * @return the biggest value the given intNorm returns from the elements of the current {@link Container}
+	 * if the current {@link Container} contains elements, otherwise the given defaultValue.
 	 */
 	default int getMaxIntOrDefaultValue(final IElementTakerIntGetter<E> intNorm, final int defaultValue) {
 		
@@ -743,11 +743,11 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param intNorm
-	 * @return the biggest value the given intNorm returns from the elements of the current {@link IContainer}
-	 * if the current {@link IContainer} contains elements, otherwise 0.
+	 * @return the biggest value the given intNorm returns from the elements of the current {@link Container}
+	 * if the current {@link Container} contains elements, otherwise 0.
 	 */
 	default int getMaxIntOrZero(final IElementTakerIntGetter<E> intNorm) {
 		return getMaxIntOrDefaultValue(intNorm, 0);
@@ -755,12 +755,12 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param longNorm
 	 * @return the biggest value
-	 * the given long norm returns from the elements of the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * the given long norm returns from the elements of the current {@link Container}.
+	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
 	default long getMaxLong(IElementTakerLongGetter<E> longNorm) {
 		return longNorm.getOutput(getRefByMaxLong(longNorm));
@@ -768,12 +768,12 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param norm
 	 * @param <E2> is the type of the elements of the {@link Comparable} the given norm returns.
-	 * @return the smallest value the given norm returns from the elements of the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * @return the smallest value the given norm returns from the elements of the current {@link Container}.
+	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
 	@SuppressWarnings("unchecked")
 	default <E2> E2 getMin(final IElementTakerComparableGetter<E, E2> norm) {
@@ -782,12 +782,12 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param doubleNorm
 	 * @return the smallest value
-	 * the given double norm returns from the elements of the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * the given double norm returns from the elements of the current {@link Container}.
+	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
 	default double getMinDouble(IElementTakerDoubleGetter<E> doubleNorm) {
 		return doubleNorm.getOutput(getRefByMinDouble(doubleNorm));
@@ -795,12 +795,12 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param intNorm
 	 * @return the smallest value
-	 * the given int norm returns from the elements of the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * the given int norm returns from the elements of the current {@link Container}.
+	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
 	default int getMinInt(IElementTakerIntGetter<E> intNorm) {
 		return intNorm.getOutput(getRefByMinInt(intNorm));
@@ -808,12 +808,12 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param longNorm
 	 * @return the smallest value
-	 * the given long norm returns from the elements of the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * the given long norm returns from the elements of the current {@link Container}.
+	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
 	default long getMinLong(IElementTakerLongGetter<E> longNorm) {
 		return longNorm.getOutput(getRefByMinLong(longNorm));
@@ -821,11 +821,11 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param element
 	 * @return a new {@link SingleContainer} with the index of the first occurrence of the given element
-	 * in the current {@link IContainer} if the current {@link IContainer} contains the given element.
+	 * in the current {@link Container} if the current {@link Container} contains the given element.
 	 * Otherwise a new empty {@link SingleContainer}.
 	 */
 	default SingleContainer<Integer> getOptionalIndexOfFirst(final E element) {
@@ -851,7 +851,7 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	 * The complexity of this implementation is O(n).
 	 * 
 	 * @param selector
-	 * @return either the first element the given selector selects from the current {@link IContainer}
+	 * @return either the first element the given selector selects from the current {@link Container}
 	 * or an empty {@link SingleContainer}.
 	 */
 	default SingleContainer<E> getOptionalRefFirst(final IElementTakerBooleanGetter<E> selector) {
@@ -871,12 +871,12 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param selector
 	 * @return the percentage of the number of elements
-	 * the given selector selects from the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * the given selector selects from the current {@link Container}.
+	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
 	default double getPercentage(final IElementTakerBooleanGetter<E> selector) {
 		return (100.0 * getRatio(selector));
@@ -885,11 +885,11 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	//method
 	/**
 	 * The range of some values is the difference between the maximum and the minimum of the values.
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param doubleNorm
-	 * @return the range of the values the given double norm returns from the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * @return the range of the values the given double norm returns from the current {@link Container}.
+	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
 	default double getRangeByDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
 		
@@ -923,11 +923,11 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	//method
 	/**
 	 * The range of some values is the difference between the maximum and the minimum of the values.
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param intNorm
-	 * @return the range of the values the given int norm returns from the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * @return the range of the values the given int norm returns from the current {@link Container}.
+	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
 	default int getRangeByInt(final IElementTakerIntGetter<E> intNorm) {
 		
@@ -961,11 +961,11 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	//method
 	/**
 	 * The range of some values is the difference between the maximum and the minimum of the values.
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param longNorm
-	 * @return the range of the values the given long norm returns from the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * @return the range of the values the given long norm returns from the current {@link Container}.
+	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
 	default long getRangeByLong(final IElementTakerLongGetter<E> longNorm) {
 		
@@ -998,12 +998,12 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param selector
 	 * @return the ratio of the number of elements
-	 * the given selector selects from the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * the given selector selects from the current {@link Container}.
+	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
 	default double getRatio(final IElementTakerBooleanGetter<E> selector) {
 		
@@ -1019,8 +1019,8 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	/**
 	 * The complexity of this implementation is O(1).
 	 * 
-	 * @return a randomly selected element of the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * @return a randomly selected element of the current {@link Container}.
+	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
 	default E getRefAny() {
 		
@@ -1041,13 +1041,13 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param norm
 	 * @param <E2> is the type of the elements of the {@link Comparable} the given norm returns.
 	 * @return the element with the biggest value
-	 * the given norm returns from the elements of the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * the given norm returns from the elements of the current {@link Container}.
+	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	default <E2> E getRefByMax(final IElementTakerComparableGetter<E, E2> norm) {
@@ -1071,12 +1071,12 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param doubleNorm
 	 * @return the element with the biggest value
-	 * the given double norm returns from the elements of the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * the given double norm returns from the elements of the current {@link Container}.
+	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
 	default E getRefByMaxDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
 		
@@ -1099,12 +1099,12 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param intNorm
 	 * @return the element with the biggest value
-	 * the given int norm returns from the elements of the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * the given int norm returns from the elements of the current {@link Container}.
+	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
 	default E getRefByMaxInt(final IElementTakerIntGetter<E> intNorm) {
 		
@@ -1127,12 +1127,12 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param longNorm
 	 * @return the element with the biggest value
-	 * the given long norm returns from the elements of the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * the given long norm returns from the elements of the current {@link Container}.
+	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
 	default E getRefByMaxLong(final IElementTakerLongGetter<E> longNorm) {
 		
@@ -1155,13 +1155,13 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param norm
 	 * @param <E2> is the type of the elements of the {@link Comparable} the given norm returns.
 	 * @return the element with the smallest value
-	 * the given norm returns from the elements of the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * the given norm returns from the elements of the current {@link Container}.
+	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	default <E2> E getRefByMin(final IElementTakerComparableGetter<E, E2> norm) {
@@ -1185,12 +1185,12 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param doubleNorm
 	 * @return the element with the biggest value
-	 * the given double norm returns from the elements of the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * the given double norm returns from the elements of the current {@link Container}.
+	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
 	default E getRefByMinDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
 		
@@ -1213,12 +1213,12 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param intNorm
 	 * @return the element with the biggest value
-	 * the given int norm returns from the elements of the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * the given int norm returns from the elements of the current {@link Container}.
+	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
 	default E getRefByMinInt(final IElementTakerIntGetter<E> intNorm) {
 		
@@ -1241,12 +1241,12 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param longNorm
 	 * @return the element with the smallest value
-	 * the given long norm returns from the elements of the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * the given long norm returns from the elements of the current {@link Container}.
+	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
 	default E getRefByMinLong(IElementTakerLongGetter<E> longNorm) {
 		
@@ -1271,8 +1271,8 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	/**
 	 * The complexity of this implementation is O(1).
 	 * 
-	 * @return the first element of the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * @return the first element of the current {@link Container}.
+	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
 	default E getRefFirst() {
 		
@@ -1286,12 +1286,12 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param selector
-	 * @return the first element the given selector selects from the current {@link IContainer}.
+	 * @return the first element the given selector selects from the current {@link Container}.
 	 * @throws ArgumentDoesNotHaveAttributeException
-	 * if the current {@link IContainer} does not contain an element the given selector selects.
+	 * if the current {@link Container} does not contain an element the given selector selects.
 	 */
 	default E getRefFirst(final IElementTakerBooleanGetter<E> selector) {
 		
@@ -1309,11 +1309,11 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n^2) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n^2) if the current {@link Container} contains n elements.
 	 *
 	 * @param selector
-	 * @return the first 2 elements of the current {@link IContainer} the given selector selects together.
-	 * @throws InvalidArgumentException if the current {@link IContainer}
+	 * @return the first 2 elements of the current {@link Container} the given selector selects together.
+	 * @throws InvalidArgumentException if the current {@link Container}
 	 * does not contain a 2 elements the given selector selects together.
 	 */
 	default Pair<E, E> getRefFirst(final I2ElementTakerBooleanGetter<E> selector) {
@@ -1339,7 +1339,7 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	/**
 	 * The complexity of this implementation is O(1).
 	 * 
-	 * @return the first element of the current {@link IContainer} or null.
+	 * @return the first element of the current {@link Container} or null.
 	 */
 	default E getRefFirstOrNull() {
 		
@@ -1357,7 +1357,7 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	 * The complexity of this implementation is O(1).
 	 * 
 	 * @param selector
-	 * @return the first element the given selector selects from the current {@link IContainer} or null.
+	 * @return the first element the given selector selects from the current {@link Container} or null.
 	 */
 	default E getRefFirstOrNull(final IElementTakerBooleanGetter<E> selector) {
 		
@@ -1375,10 +1375,10 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n^2) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n^2) if the current {@link Container} contains n elements.
 	 *
 	 * @param selector
-	 * @return the first 2 elements of the current {@link IContainer}
+	 * @return the first 2 elements of the current {@link Container}
 	 * the given selector selects together or null.
 	 */
 	default Pair<E, E> getRefFirstOrNull(final I2ElementTakerBooleanGetter<E> selector) {
@@ -1409,12 +1409,12 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param type
 	 * @param <E2> is the type of the elements of the returned {@link LinkedList}.
 	 * @return a new {@link LinkedList}
-	 * with the elements from the current {@link IContainer} that are of the given type.
+	 * with the elements from the current {@link Container} that are of the given type.
 	 */
 	@SuppressWarnings("unchecked")
 	default <E2 extends E> LinkedList<E2> getRefOfType(final Class<E2> type) {
@@ -1423,9 +1423,9 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * @return the one element of the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
-	 * @throws InvalidArgumentException if the current {@link IContainer} contains several elements.
+	 * @return the one element of the current {@link Container}.
+	 * @throws EmptyArgumentException if the current {@link Container} is empty.
+	 * @throws InvalidArgumentException if the current {@link Container} contains several elements.
 	 */
 	default E getRefOne() {
 		
@@ -1442,12 +1442,12 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param selector
-	 * @return the one element the given selector selects from the current {@link IContainer}.
+	 * @return the one element the given selector selects from the current {@link Container}.
 	 * @throws InvalidArgumentException
-	 * if the given selector does not select an element or selects several elements from the current {@link IContainer}.
+	 * if the given selector does not select an element or selects several elements from the current {@link Container}.
 	 */
 	default E getRefOne(final IElementTakerBooleanGetter<E> selector) {
 		
@@ -1481,13 +1481,13 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param selector
 	 * @return a new {@link LinkedList} with the elements
-	 * the given selector selects from the current {@link IContainer}.
+	 * the given selector selects from the current {@link Container}.
 	 */
-	default IContainer<E> getRefSelected(final IElementTakerBooleanGetter<E> selector) {
+	default Container<E> getRefSelected(final IElementTakerBooleanGetter<E> selector) {
 		
 		//Creates list.
 		final var list = new LinkedList<E>();
@@ -1507,14 +1507,14 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	//method
 	/**
 	 * The complexity of this implementation is O(m*n) if:
-	 * -The current {@link IContainer} contains m elements.
+	 * -The current {@link Container} contains m elements.
 	 * -n selectors are given.
 	 * 
 	 * @param selectors
-	 * @return a new {@link LinkedList} with the elements the given selectors selects from the current {@link IContainer}.
+	 * @return a new {@link LinkedList} with the elements the given selectors selects from the current {@link Container}.
 	 */
 	@SuppressWarnings("unchecked")
-	default IContainer<E> getRefSelected(final IElementTakerBooleanGetter<E>... selectors) {
+	default Container<E> getRefSelected(final IElementTakerBooleanGetter<E>... selectors) {
 		
 		//Creates list.
 		final var list = new LinkedList<E>();
@@ -1545,13 +1545,13 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param selector
 	 * @return a new {@link LinkedList} with the elements
-	 * the given selector selects not (!) from the current {@link IContainer}.
+	 * the given selector selects not (!) from the current {@link Container}.
 	 */
-	default IContainer<E> getRefUnselected(final IElementTakerBooleanGetter<E> selector) {
+	default Container<E> getRefUnselected(final IElementTakerBooleanGetter<E> selector) {
 		return getRefSelected(e -> !selector.getOutput(e));
 	}
 	
@@ -1563,10 +1563,10 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	 * 
 	 * @param selectors
 	 * @return a new {@link LinkedList} with the elements
-	 * the given selectors selects not (!) from the current {@link IContainer}.
+	 * the given selectors selects not (!) from the current {@link Container}.
 	 */
 	@SuppressWarnings("unchecked")
-	default IContainer<E> getRefUnselected(final IElementTakerBooleanGetter<E>... selectors) {
+	default Container<E> getRefUnselected(final IElementTakerBooleanGetter<E>... selectors) {
 		
 		//Creates list.
 		final var list = new LinkedList<E>();
@@ -1597,12 +1597,12 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param doubleNorm
 	 * @return the standard deviation of the values
-	 * the given double norm returns from the elements of the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * the given double norm returns from the elements of the current {@link Container}.
+	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
 	default double getStandardDeviationByDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
 		return Math.sqrt(getVarianceByDouble(doubleNorm));
@@ -1610,12 +1610,12 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param intNorm
 	 * @return the standard deviation of the values
-	 * the given int norm returns from the elements of the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * the given int norm returns from the elements of the current {@link Container}.
+	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
 	default double getStandardDeviationByInt(final IElementTakerIntGetter<E> intNorm) {
 		return Math.sqrt(getVarianceByInt(intNorm));
@@ -1623,12 +1623,12 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param longNorm
 	 * @return the standard deviation of the values
-	 * the given long norm returns from the elements of the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * the given long norm returns from the elements of the current {@link Container}.
+	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
 	default double getStandardDeviationByInt(final IElementTakerLongGetter<E> longNorm) {
 		return Math.sqrt(getVarianceByLong(longNorm));
@@ -1636,11 +1636,11 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param doubleNorm
 	 * @return the sum of the values
-	 * the given double norm returns from the elements of the current {@link IContainer}.
+	 * the given double norm returns from the elements of the current {@link Container}.
 	 */
 	default double getSumByDoubleNorm(final IElementTakerDoubleGetter<E> doubleNorm) {
 		
@@ -1656,11 +1656,11 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param intNorm
 	 * @return the sum of the values
-	 * the given int norm returns from the element of the current {@link IContainer}.
+	 * the given int norm returns from the element of the current {@link Container}.
 	 */
 	default int getSumByInt(final IElementTakerIntGetter<E> intNorm) {
 		
@@ -1676,11 +1676,11 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param longNorm
 	 * @return the sum of the values
-	 * the given long norm returns from the elements of the current {@link IContainer}.
+	 * the given long norm returns from the elements of the current {@link Container}.
 	 */
 	default long getSumByLong(final IElementTakerLongGetter<E> longNorm) {
 		
@@ -1696,12 +1696,12 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param doubleNorm
 	 * @return the variance of the values
-	 * the given double norm returns from the elements of the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * the given double norm returns from the elements of the current {@link Container}.
+	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
 	default double getVarianceByDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
 		
@@ -1718,12 +1718,12 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param intNorm
 	 * @return the variance of the values
-	 * the given int norm returns from the elements of the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * the given int norm returns from the elements of the current {@link Container}.
+	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
 	default double getVarianceByInt(final IElementTakerIntGetter<E> intNorm) {
 		
@@ -1740,12 +1740,12 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param longNorm
 	 * @return the variance of the values
-	 * the given long norm returns from the elements of the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * the given long norm returns from the elements of the current {@link Container}.
+	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
 	default double getVarianceByLong(final IElementTakerLongGetter<E> longNorm) {
 		
@@ -1764,7 +1764,7 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	/**
 	 * The complexity of this implementation is O(1).
 	 * 
-	 * @return true if the current {@link IContainer} does not contain an element.
+	 * @return true if the current {@link Container} does not contain an element.
 	 */
 	default boolean isEmpty() {
 		return !iterator().hasNext();
@@ -1772,11 +1772,11 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param norm
 	 * @param <E2> is the type of the elements of the {@link Comparable} the given norm returns.
-	 * @return true if the current {@link IContainer} is ordered according to the given norm.
+	 * @return true if the current {@link Container} is ordered according to the given norm.
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	default <E2> boolean isOrdered(final IElementTakerComparableGetter<E, E2> norm) {
@@ -1806,8 +1806,8 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	 * 
 	 * @param <E2> is the type of the elements of the created {@link ExtractorIterator}.
 	 * @param extractor
-	 * @return a new {@link ExtractorIterator} for the current {@link IContainer} that delivers
-	 * the elements the given extractor extracts from the elements from the current {@link IContainer}.
+	 * @return a new {@link ExtractorIterator} for the current {@link Container} that delivers
+	 * the elements the given extractor extracts from the elements from the current {@link Container}.
 	 * @throws ArgumentIsNullException if the given extractor is null.
 	 */
 	default <E2> ExtractorIterator<E, E2> iterator(final IElementTakerElementGetter<E, E2> extractor) {
@@ -1816,14 +1816,14 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param extractor
 	 * @param <E2> is the type of the elements the given extractor returns.
 	 * @return a new {@link LinkedList} with the elements
-	 * the given extractor extracts from the elements of the current {@link IContainer}.
+	 * the given extractor extracts from the elements of the current {@link Container}.
 	 */
-	default <E2> IContainer<E2> to(final IElementTakerElementGetter<E, E2> extractor) {
+	default <E2> Container<E2> to(final IElementTakerElementGetter<E, E2> extractor) {
 		final var list = new LinkedList<E2>();
 		forEach(e -> list.addAtEnd(extractor.getOutput(e)));
 		return list;
@@ -1831,9 +1831,9 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
-	 * @return a new array with the elements of the current {@link IContainer}.
+	 * @return a new array with the elements of the current {@link Container}.
 	 */
 	default Object[] toArray() {
 		
@@ -1852,12 +1852,12 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param extractor
 	 * @param <E2> is the type of the elements the given extractor returns.
 	 * @return a new array with the elements
-	 * the given extractor extracts from the elements of the current {@link IContainer}.
+	 * the given extractor extracts from the elements of the current {@link Container}.
 	 */
 	@SuppressWarnings("unchecked")
 	default <E2> E2[] toArray(final IElementTakerElementGetter<E, E2> extractor) {
@@ -1877,11 +1877,11 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param byteNorm
 	 * @return a new array with the values
-	 * the given byte norm returns from the elements of the current {@link IContainer}.
+	 * the given byte norm returns from the elements of the current {@link Container}.
 	 */
 	default byte[] toByteArray(final IElementTakerByteGetter<E> byteNorm) {
 		
@@ -1900,11 +1900,11 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param charNorm
 	 * @return a new array with the values
-	 * the given charNorm returns from the elements of the current {@link IContainer}.
+	 * the given charNorm returns from the elements of the current {@link Container}.
 	 */
 	default char[] toCharArray(final IElementTakerCharGetter<E> charNorm) {
 		
@@ -1923,11 +1923,11 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param doubleNorm
 	 * @return a new array with the values
-	 * the given double norm returns from the elements of the current {@link IContainer}.
+	 * the given double norm returns from the elements of the current {@link Container}.
 	 */
 	default double[] toDoubleArray(final IElementTakerDoubleGetter<E> doubleNorm) {
 		
@@ -1946,12 +1946,12 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param extractor
 	 * @param <E2> is the type of the elements the given extractor returns.
-	 * @return a new {@link LinkedList} with the elements of the {@link IContainer}
-	 * the given extractor extracts from the elements of the current {@link IContainer}.
+	 * @return a new {@link LinkedList} with the elements of the {@link Container}
+	 * the given extractor extracts from the elements of the current {@link Container}.
 	 */
 	default <E2> LinkedList<E2> toFromMany(final IElementTakerElementGetter<E, ch.nolix.core.containerapi.IContainer<E2>> extractor) {
 		final var list = new LinkedList<E2>();
@@ -1961,11 +1961,11 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param intNorm
 	 * @return a new array with the values
-	 * the given int norm returns from the elements of the current {@link IContainer}.
+	 * the given int norm returns from the elements of the current {@link Container}.
 	 */
 	default int[] toIntArray(final IElementTakerIntGetter<E> intNorm) {
 		
@@ -1984,21 +1984,21 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
-	 * @return a new {@link LinkedList} with the elements from the current {@link IContainer}.
+	 * @return a new {@link LinkedList} with the elements from the current {@link Container}.
 	 */
-	default IContainer<E> toList() {
+	default Container<E> toList() {
 		return to(FunctionCatalogue::getSelf);
 	}
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param longNorm
 	 * @return a new array with the values
-	 * the given long norm returns from the elements of the current {@link IContainer}.
+	 * the given long norm returns from the elements of the current {@link Container}.
 	 */
 	default long[] toLongArray(final IElementTakerLongGetter<E> longNorm) {
 
@@ -2018,11 +2018,11 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	//method
 	/**
 	 * This implementation uses the merge sort algorithm.
-	 * The complexity of this implementation is O(n*log(n)) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n*log(n)) if the current {@link Container} contains n elements.
 	 * 
 	 * @param norm
 	 * @param <E2> is the type of the elements of the {@link Comparable} the given norm returns.
-	 * @return a new {@link LinkedList} with the elements of the current {@link IContainer}
+	 * @return a new {@link LinkedList} with the elements of the current {@link Container}
 	 * ordered from the smallest to the biggest element according to the given norm.
 	 */
 	default <E2> LinkedList<E> toOrderedList(final IElementTakerComparableGetter<E, E2> norm) {
@@ -2031,10 +2031,10 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param separator
-	 * @return a {@link String} representation the current {@link IContainer} using the given separator.
+	 * @return a {@link String} representation the current {@link Container} using the given separator.
 	 */
 	default String toString(final char separator) {
 		return toString(String.valueOf(separator));
@@ -2042,10 +2042,10 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param separator
-	 * @return a {@link String} representation of the current {@link IContainer} using the given separator.
+	 * @return a {@link String} representation of the current {@link Container} using the given separator.
 	 * @throws ArgumentIsNullException if the given separator is null.
 	 */
 	default String toString(final String separator) {
@@ -2077,9 +2077,9 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
-	 * @return a new array with the Strings that represent the elements of the current {@link IContainer}.
+	 * @return a new array with the Strings that represent the elements of the current {@link Container}.
 	 */
 	default String[] toStringArray() {
 		
@@ -2097,12 +2097,12 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @return a new {@link LinkedList}
-	 * with the Strings that represent the elements of the current {@link IContainer}.
+	 * with the Strings that represent the elements of the current {@link Container}.
 	 */
-	default IContainer<String> toStrings() {
+	default Container<String> toStrings() {
 		return to(E::toString);
 	}
 	
@@ -2111,11 +2111,11 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	 * The complexity of this implementation is O(1).
 	 * 
 	 * @param endIndex
-	 * @return a new sub container of the current {@link IContainer}
+	 * @return a new sub container of the current {@link Container}
 	 * with the elements to the given end index.
 	 * @throws NonPositiveArgumentException if the given end index is not positive.
 	 */
-	default IContainer<E> until(final int endIndex) {
+	default Container<E> until(final int endIndex) {
 		return new SubContainer<>(this, 1, endIndex);
 	}
 	
@@ -2123,10 +2123,10 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	/**
 	 * The complexity of this implementation is O(1).
 	 * 
-	 * @return a new sub container of the current {@link IContainer} without the first element.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * @return a new sub container of the current {@link Container} without the first element.
+	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
-	default IContainer<E> withoutFirst() {
+	default Container<E> withoutFirst() {
 		
 		if (isEmpty()) {
 			throw new EmptyArgumentException(this);
@@ -2137,13 +2137,13 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param element
-	 * @return a new sub {@link IContainer} from the current {@link IContainer} without
+	 * @return a new sub {@link Container} from the current {@link Container} without
 	 * the first occurrence of the given element.
 	 */
-	default IContainer<E> withoutFirst(final E element) {
+	default Container<E> withoutFirst(final E element) {
 		
 		final var indexContainer = getOptionalIndexOfFirst(element);
 		
@@ -2160,10 +2160,10 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	 * The complexity of this implementation is O(1).
 	 * 
 	 * @param n
-	 * @return a new sub container of the current {@link IContainer} without the first n elements.
+	 * @return a new sub container of the current {@link Container} without the first n elements.
 	 * @throws NonPositiveArgumentException if the given n is not positive.
 	 */
-	default IContainer<E> withoutFirst(final int n) {
+	default Container<E> withoutFirst(final int n) {
 		
 		final var elementCount = getElementCount();
 		
@@ -2183,10 +2183,10 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	/**
 	 * The complexity of this implementation is O(1).
 	 * 
-	 * @return a new sub container of the current {@link IContainer} without the last element.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * @return a new sub container of the current {@link Container} without the last element.
+	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
-	default IContainer<E> withoutLast() {
+	default Container<E> withoutLast() {
 		
 		//Asserts that the current IContainer is not empty.
 		if (isEmpty()) {
@@ -2201,11 +2201,11 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	 * The complexity of this implementation is O(1).
 	 * 
 	 * @param n
-	 * @return a new sub container of the current {@link IContainer}
-	 * without the last n elements of the current {@link IContainer}.
+	 * @return a new sub container of the current {@link Container}
+	 * without the last n elements of the current {@link Container}.
 	 * @throws NonPositiveArgumentException if the given n is not positive.
 	 */
-	default IContainer<E> withoutLast(final int n) {
+	default Container<E> withoutLast(final int n) {
 		
 		final var elementCount = getElementCount();
 		

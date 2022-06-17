@@ -4,14 +4,14 @@ package ch.nolix.core.container.compressedcontainer;
 //Java imports
 import java.util.Iterator;
 
-import ch.nolix.core.container.IContainer;
+import ch.nolix.core.container.Container;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
 //class
-public final class CompressedList<E> implements IContainer<E> {
+public final class CompressedList<E> implements Container<E> {
 	
 	//attribute
 	private int elementCount;

@@ -5,7 +5,7 @@ package ch.nolix.core.container.readcontainer;
 import java.util.Iterator;
 
 import ch.nolix.core.commontype.constant.CharacterCatalogue;
-import ch.nolix.core.container.IContainer;
+import ch.nolix.core.container.Container;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -21,7 +21,7 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
  * @date 2017-07-01
  * @param <E> is the type of the elements of a {@link ReadContainer}.
  */
-public final class ReadContainer<E> implements IContainer<E> {
+public final class ReadContainer<E> implements Container<E> {
 	
 	//static method
 	/**
@@ -87,7 +87,7 @@ public final class ReadContainer<E> implements IContainer<E> {
 	}
 	
 	//attribute
-	private final IContainer<E> container;
+	private final Container<E> container;
 	
 	//constructor
 	/**
@@ -108,13 +108,13 @@ public final class ReadContainer<E> implements IContainer<E> {
 	 * @throws ArgumentIsNullException if the given container is null.
 	 */
 	@SuppressWarnings("unchecked")
-	private <E2 extends E> ReadContainer(final IContainer<E2> container) {
+	private <E2 extends E> ReadContainer(final Container<E2> container) {
 		
 		//Asserts that the given container is not null.
 		GlobalValidator.assertThat(container).thatIsNamed(LowerCaseCatalogue.CONTAINER).isNotNull();
 		
 		//Sets the container of the current ReadContainer.
-		this.container = (IContainer<E>)container;
+		this.container = (Container<E>)container;
 	}
 	
 	//method

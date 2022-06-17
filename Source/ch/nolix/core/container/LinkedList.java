@@ -19,14 +19,14 @@ import ch.nolix.core.skilluniversalapi.Clearable;
 
 //class
 /**
- * A {@link LinkedList} is a {@link IContainer} that can add elements at the begin or end.
+ * A {@link LinkedList} is a {@link Container} that can add elements at the begin or end.
  * A {@link LinkedList} is clearable.
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
  * @param <E> is the type of the elements of a {@link LinkedList}.
  */
-public final class LinkedList<E> implements Clearable, IContainer<E> {
+public final class LinkedList<E> implements Clearable, Container<E> {
 	
 	//static method
 	/**
@@ -412,7 +412,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	public boolean containsAny() {
 		
 		//Calls the default method of the required interface.
-		return IContainer.super.containsAny();
+		return Container.super.containsAny();
 	}
 	
 	//method
@@ -461,7 +461,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	 * 
 	 * @return a new list with the elements of the current {@link LinkedList}.
 	 */
-	public IContainer<E> getCopy() {
+	public Container<E> getCopy() {
 		return to(e -> e);
 	}
 	
@@ -521,13 +521,13 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param index
 	 * @return the element at the given index.
 	 * @throws NonPositiveArgumentException if the given index is not positive.
 	 * @throws ArgumentDoesNotHaveAttributeException
-	 * if the current {@link IContainer} does not contain an element at the given index.
+	 * if the current {@link Container} does not contain an element at the given index.
 	 */
 	@Override
 	public E getRefAt(final int index) {
@@ -652,7 +652,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	public boolean isEmpty() {
 		
 		//Calls the method of the desired interface of the current list.
-		return IContainer.super.isEmpty();
+		return Container.super.isEmpty();
 	}
 	
 	//method

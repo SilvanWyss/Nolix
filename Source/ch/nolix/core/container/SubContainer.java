@@ -24,10 +24,10 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
  * @date 2017-08-27
  * @param <E> is the type of the elements of a {@link SubContainer}.
  */
-public final class SubContainer<E> implements IContainer<E> {
+public final class SubContainer<E> implements Container<E> {
 
 	//attributes
-	private final IContainer<E> container;
+	private final Container<E> container;
 	private final int startIndex;
 	private final int endIndex;
 	
@@ -45,7 +45,7 @@ public final class SubContainer<E> implements IContainer<E> {
 	 * @throws BiggerArgumentException
 	 * if the given endIndex is bigger than the number of elements of the given container.
 	 */
-	public SubContainer(final IContainer<E> container, final int startIndex, final int endIndex) {
+	public SubContainer(final Container<E> container, final int startIndex, final int endIndex) {
 		
 		GlobalValidator.assertThat(container).thatIsNamed(LowerCaseCatalogue.CONTAINER).isNotNull();
 		GlobalValidator.assertThat(startIndex).thatIsNamed(LowerCaseCatalogue.START_INDEX).isPositive();

@@ -4,17 +4,17 @@ package ch.nolix.core.container.readcontainer;
 //Java imports
 import java.util.Iterator;
 
-import ch.nolix.core.container.IContainer;
+import ch.nolix.core.container.Container;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
 //class
-final class MultiReadContainer<E> implements IContainer<E> {
+final class MultiReadContainer<E> implements Container<E> {
 	
 	//attribute
-	private final LinkedList<IContainer<E>> containers = new LinkedList<>();
+	private final LinkedList<Container<E>> containers = new LinkedList<>();
 	
 	//constructor
 	@SuppressWarnings("unchecked")
@@ -41,7 +41,7 @@ final class MultiReadContainer<E> implements IContainer<E> {
 	//method
 	@Override
 	public int getElementCount() {
-		return containers.getSumByInt(IContainer::getElementCount);
+		return containers.getSumByInt(Container::getElementCount);
 	}
 	
 	//method

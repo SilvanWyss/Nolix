@@ -4,7 +4,7 @@ package ch.nolix.core.caching;
 //Java imports
 import java.util.Iterator;
 
-import ch.nolix.core.container.IContainer;
+import ch.nolix.core.container.Container;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.container.SingleContainer;
 import ch.nolix.core.container.pair.Pair;
@@ -13,7 +13,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
 //class
-public final class CachingContainer<E> implements IContainer<E> {
+public final class CachingContainer<E> implements Container<E> {
 	
 	//constant
 	private static final String AUTO_ID_PREFIX = "Z";
