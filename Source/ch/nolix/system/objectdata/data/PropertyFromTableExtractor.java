@@ -2,7 +2,7 @@
 package ch.nolix.system.objectdata.data;
 
 //own imports
-import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.container.IContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.systemapi.objectdataapi.dataapi.IColumn;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
@@ -12,7 +12,7 @@ import ch.nolix.systemapi.objectdataapi.dataapi.ITable;
 final class PropertyFromTableExtractor {
 	
 	//method
-	public LinkedList<Property> createPropertiesFromTable(
+	public IContainer<Property> createPropertiesFromTable(
 		final ITable<DataImplementation, IEntity<DataImplementation>> table
 	) {
 		return table.getColumns().to(this::createPropertyFromColumn);

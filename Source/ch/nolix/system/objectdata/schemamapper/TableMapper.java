@@ -2,7 +2,7 @@
 package ch.nolix.system.objectdata.schemamapper;
 
 //own imports
-import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.container.IContainer;
 import ch.nolix.system.objectschema.parametrizedpropertytype.SchemaImplementation;
 import ch.nolix.system.objectschema.schema.Table;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
@@ -18,7 +18,7 @@ public final class TableMapper implements ITableMapper<SchemaImplementation> {
 	private static final IColumnMapper<SchemaImplementation> columnMapper = new ColumnMapper();
 	
 	@Override
-	public LinkedList<ITable<SchemaImplementation>> createTablesFrom(final ISchema<?> schema) {
+	public IContainer<ITable<SchemaImplementation>> createTablesFrom(final ISchema<?> schema) {
 		
 		final var tables = createEmptyTablesFrom(schema);
 		
@@ -36,7 +36,7 @@ public final class TableMapper implements ITableMapper<SchemaImplementation> {
 	}
 	
 	//method
-	private LinkedList<ITable<SchemaImplementation>> createEmptyTablesFrom(final ISchema<?> schema) {
+	private IContainer<ITable<SchemaImplementation>> createEmptyTablesFrom(final ISchema<?> schema) {
 		return schema.getEntityTypesInOrder().to(this::createEmptyTableFrom);
 	}
 	

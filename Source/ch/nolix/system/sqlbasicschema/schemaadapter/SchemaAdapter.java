@@ -3,7 +3,6 @@ package ch.nolix.system.sqlbasicschema.schemaadapter;
 
 //own imports
 import ch.nolix.core.container.IContainer;
-import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.sql.SQLConnectionPool;
 import ch.nolix.systemapi.sqlbasicschemaapi.flatschemadtoapi.IFlatTableDTO;
@@ -109,19 +108,19 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 	
 	//method
 	@Override
-	public final LinkedList<IColumnDTO> loadColumns(final String tableName) {
+	public final IContainer<IColumnDTO> loadColumns(final String tableName) {
 		return schemaReader.loadColumns(tableName);
 	}
 	
 	//method
 	@Override
-	public final LinkedList<IFlatTableDTO> loadFlatTables() {
+	public final IContainer<IFlatTableDTO> loadFlatTables() {
 		return schemaReader.loadFlatTables();
 	}
 	
 	//method
 	@Override
-	public final LinkedList<ITableDTO> loadTables() {
+	public final IContainer<ITableDTO> loadTables() {
 		return schemaReader.loadTables();
 	}
 	

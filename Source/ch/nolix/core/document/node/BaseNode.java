@@ -1,12 +1,12 @@
 //package declaration
 package ch.nolix.core.document.node;
 
+//own imports
 import ch.nolix.core.attributeuniversalapi.mutableoptionalattributeuniversalapi.OptionalHeaderable;
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.commontype.constant.CharacterCatalogue;
 import ch.nolix.core.commontype.constant.StringCatalogue;
 import ch.nolix.core.container.IContainer;
-import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.container.pair.IntPair;
 import ch.nolix.core.document.xml.XMLNode;
 import ch.nolix.core.environment.filesystem.FileAccessor;
@@ -316,7 +316,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	/**
 	 * @return a {@link String} representations of the attributes of the current {@link BaseNode}.
 	 */
-	public LinkedList<String> getAttributesAsStrings() {
+	public IContainer<String> getAttributesAsStrings() {
 		return getRefAttributes().to(BaseNode::toString);
 	}
 	
@@ -346,7 +346,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	/**
 	 * @return the headers of the attributes of the current {@link BaseNode}.
 	 */
-	public LinkedList<String> getHeadersOfAttributes() {
+	public IContainer<String> getHeadersOfAttributes() {
 		return getRefAttributes().to(BaseNode::getHeader);
 	}
 	

@@ -2,7 +2,7 @@
 package ch.nolix.system.nodedatabaserawdata.datareader;
 
 //own imports
-import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.container.IContainer;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.nodedatabaserawdata.structure.TableNodeSearcher;
@@ -54,7 +54,7 @@ public final class InternalDataReader {
 	}
 	
 	//method
-	public LinkedList<ILoadedRecordDTO> loadAllRecordsFromTable(final ITableInfo tableInfo) {
+	public IContainer<ILoadedRecordDTO> loadAllRecordsFromTable(final ITableInfo tableInfo) {
 		
 		final var tableNode =
 		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
@@ -66,7 +66,7 @@ public final class InternalDataReader {
 	}
 	
 	//method
-	public LinkedList<String> loadAllMultiReferenceEntriesForRecord(
+	public IContainer<String> loadAllMultiReferenceEntriesForRecord(
 		final ITableInfo tableInfo,
 		final String entityId,
 		final IColumnInfo multiReferenceColumnInfo
@@ -85,7 +85,7 @@ public final class InternalDataReader {
 	}
 	
 	//method
-	public LinkedList<Object> loadMultiValueEntriesFromRecord(
+	public IContainer<Object> loadMultiValueEntriesFromRecord(
 		final ITableInfo tableInfo,
 		final String entityId,
 		final IColumnInfo multiValueColumnInfo

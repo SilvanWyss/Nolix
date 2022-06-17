@@ -2,7 +2,7 @@
 package ch.nolix.systemapi.rawdataapi.dataadapterapi;
 
 //own imports
-import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.container.IContainer;
 import ch.nolix.core.programcontrol.groupcloseable.GroupCloseable;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedRecordDTO;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
@@ -14,17 +14,17 @@ public interface IDataReader extends GroupCloseable {
 	ITime getSchemaTimestamp();
 	
 	//method declaration
-	LinkedList<ILoadedRecordDTO> loadAllRecordsFromTable(String tableName);
+	IContainer<ILoadedRecordDTO> loadAllRecordsFromTable(String tableName);
 	
 	//method declaration
-	LinkedList<String> loadAllMultiReferenceEntriesForRecord(
+	IContainer<String> loadAllMultiReferenceEntriesForRecord(
 		String tableName,
 		String entityId,
 		String multiReferenceColumnName
 	);
 	
 	//method declaration
-	LinkedList<Object> loadAllMultiValueEntriesFromRecord(
+	IContainer<Object> loadAllMultiValueEntriesFromRecord(
 		String tableName,
 		String entityId,
 		String multiValueColumnName

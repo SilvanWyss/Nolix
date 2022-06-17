@@ -2,7 +2,7 @@
 package ch.nolix.system.objectschema.schema;
 
 //own imports
-import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.container.IContainer;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.objectschema.parametrizedpropertytype.SchemaImplementation;
 import ch.nolix.system.time.base.Time;
@@ -59,12 +59,12 @@ final class RawSchemaAdapter {
 	}
 	
 	//method
-	public LinkedList<IColumnDTO> loadColumnsOfTable(final ITable<SchemaImplementation> table) {
+	public IContainer<IColumnDTO> loadColumnsOfTable(final ITable<SchemaImplementation> table) {
 		return internalRawSchemaAdapter.loadColumnsByTableId(table.getId());
 	}
 	
 	//method
-	public LinkedList<IFlatTableDTO> loadFlatTables() {
+	public IContainer<IFlatTableDTO> loadFlatTables() {
 		return internalRawSchemaAdapter.loadFlatTables();
 	}
 	

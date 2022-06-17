@@ -3,7 +3,6 @@ package ch.nolix.system.objectdata.schemamapper;
 
 //own imports
 import ch.nolix.core.container.IContainer;
-import ch.nolix.core.container.LinkedList;
 import ch.nolix.system.objectschema.parametrizedpropertytype.SchemaImplementation;
 import ch.nolix.system.objectschema.schema.Column;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
@@ -41,7 +40,7 @@ public final class ColumnMapper implements IColumnMapper<SchemaImplementation> {
 	
 	//method
 	@Override
-	public <E extends IEntity<?>> LinkedList<IColumn<SchemaImplementation>>
+	public <E extends IEntity<?>> IContainer<IColumn<SchemaImplementation>>
 	createColumnsFromGivenEntityTypeUsingGivenReferencableTables(
 		final Class<E> entityType,
 		final IContainer<ITable<SchemaImplementation>> referencableTables
@@ -55,7 +54,7 @@ public final class ColumnMapper implements IColumnMapper<SchemaImplementation> {
 	
 	//method
 	@Override
-	public LinkedList<IColumn<SchemaImplementation>> createColumnsFromGivenEntityUsingGivenReferencableTables(
+	public IContainer<IColumn<SchemaImplementation>> createColumnsFromGivenEntityUsingGivenReferencableTables(
 		final IEntity<?> entity,
 		final IContainer<ITable<SchemaImplementation>> referencableTables
 	) {

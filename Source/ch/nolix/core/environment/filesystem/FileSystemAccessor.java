@@ -262,7 +262,7 @@ public final class FileSystemAccessor {
 	 * @param path
 	 * @return new {@link FileAccessor}s for the files in the folder with the given path.
 	 */
-	public static LinkedList<FileAccessor> getFileAccessors(final String path) {
+	public static IContainer<FileAccessor> getFileAccessors(final String path) {
 		return
 		ReadContainer.forArray(new File(path).listFiles())
 		.getRefSelected(File::isFile)
@@ -306,7 +306,7 @@ public final class FileSystemAccessor {
 	 * @return new {@link FileSystemItemAccessor}s
 	 * for the file system items in the folder with the given path.
 	 */
-	public static LinkedList<FileSystemItemAccessor> getFileSystemItemAccessors(final String path) {
+	public static IContainer<FileSystemItemAccessor> getFileSystemItemAccessors(final String path) {
 		return
 		ReadContainer.forArray(new File(path).listFiles())
 		.to(f -> new FileSystemItemAccessor(f.getAbsolutePath()));

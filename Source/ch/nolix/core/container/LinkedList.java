@@ -461,7 +461,7 @@ public final class LinkedList<E> implements Clearable, IContainer<E> {
 	 * 
 	 * @return a new list with the elements of the current {@link LinkedList}.
 	 */
-	public LinkedList<E> getCopy() {
+	public IContainer<E> getCopy() {
 		return to(e -> e);
 	}
 	

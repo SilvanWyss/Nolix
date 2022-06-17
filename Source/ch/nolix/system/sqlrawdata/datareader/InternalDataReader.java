@@ -2,7 +2,7 @@
 package ch.nolix.system.sqlrawdata.datareader;
 
 //own imports
-import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.container.IContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.sql.SQLConnection;
@@ -62,7 +62,7 @@ final class InternalDataReader {
 	}
 	
 	//method
-	public LinkedList<String> loadAllMultiReferenceEntriesForRecord(
+	public IContainer<String> loadAllMultiReferenceEntriesForRecord(
 		final String entityId,
 		final IColumnInfo multiReferenceColumnInfo
 	) {
@@ -78,7 +78,7 @@ final class InternalDataReader {
 	}
 	
 	//method
-	public LinkedList<Object> loadMultiValueEntriesFromRecord(
+	public IContainer<Object> loadMultiValueEntriesFromRecord(
 		final String entityId,
 		final IColumnInfo multiValueColumnInfo
 	) {
@@ -94,7 +94,7 @@ final class InternalDataReader {
 	}
 	
 	//method
-	public LinkedList<ILoadedRecordDTO> loadAllRecordsFromTable(final ITableInfo tableInfo) {
+	public IContainer<ILoadedRecordDTO> loadAllRecordsFromTable(final ITableInfo tableInfo) {
 		return
 		mSQLConnection
 		.getRecords(recordQueryCreator.createQueryToLoadAllRecordsFromTable(tableInfo))

@@ -2,7 +2,7 @@
 package ch.nolix.system.nodedatabaserawschema.schemaadapter;
 
 //own imports
-import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.container.IContainer;
 import ch.nolix.core.document.filenode.FileNode;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
@@ -110,13 +110,13 @@ public final class SchemaAdapter implements ISchemaAdapter {
 	
 	//method
 	@Override
-	public LinkedList<IColumnDTO> loadColumnsByTableId(final String tableId) {
+	public IContainer<IColumnDTO> loadColumnsByTableId(final String tableId) {
 		return schemaReader.loadColumnsByTableId(tableId);
 	}
 	
 	//method
 	@Override
-	public LinkedList<IColumnDTO> loadColumnsByTableName(final String tableName) {
+	public IContainer<IColumnDTO> loadColumnsByTableName(final String tableName) {
 		return schemaReader.loadColumnsByTableName(tableName);
 	}
 	
@@ -134,7 +134,7 @@ public final class SchemaAdapter implements ISchemaAdapter {
 	
 	//method
 	@Override
-	public LinkedList<IFlatTableDTO> loadFlatTables() {
+	public IContainer<IFlatTableDTO> loadFlatTables() {
 		return schemaReader.loadFlatTables();
 	}
 	
@@ -158,7 +158,7 @@ public final class SchemaAdapter implements ISchemaAdapter {
 	
 	//method
 	@Override
-	public LinkedList<ITableDTO> loadTables() {
+	public IContainer<ITableDTO> loadTables() {
 		return schemaReader.loadTables();
 	}
 	

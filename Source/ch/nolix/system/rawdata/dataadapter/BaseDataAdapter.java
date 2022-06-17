@@ -2,7 +2,7 @@
 package ch.nolix.system.rawdata.dataadapter;
 
 //own imports
-import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.container.IContainer;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataAdapter;
@@ -146,7 +146,7 @@ public abstract class BaseDataAdapter implements IDataAdapter {
 	}
 	
 	@Override
-	public final LinkedList<String> loadAllMultiReferenceEntriesForRecord(
+	public final IContainer<String> loadAllMultiReferenceEntriesForRecord(
 		final String tableName,
 		final String entityId,
 		final String multiReferenceColumnName
@@ -156,7 +156,7 @@ public abstract class BaseDataAdapter implements IDataAdapter {
 	
 	//method
 	@Override
-	public final LinkedList<Object> loadAllMultiValueEntriesFromRecord(
+	public final IContainer<Object> loadAllMultiValueEntriesFromRecord(
 		final String tableName,
 		final String entityId,
 		final String multiFieldColumnName
@@ -166,7 +166,7 @@ public abstract class BaseDataAdapter implements IDataAdapter {
 	
 	//method	
 	@Override
-	public final LinkedList<ILoadedRecordDTO> loadAllRecordsFromTable(final String tableName) {
+	public final IContainer<ILoadedRecordDTO> loadAllRecordsFromTable(final String tableName) {
 		return dataReader.loadAllRecordsFromTable(tableName);
 	}
 	

@@ -6,6 +6,7 @@ import java.lang.reflect.InvocationTargetException;
 
 //own imports
 import ch.nolix.core.commontype.commontypewrapper.ClassWrapper;
+import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.environment.filesystem.FolderAccessor;
 import ch.nolix.core.errorcontrol.exception.GeneralException;
@@ -121,7 +122,7 @@ public final class LicenseManager {
 	/**
 	 * @return the types of the licenses of the current {@link LicenseManager}.
 	 */
-	public LinkedList<Class<?>> getLicenseTypes() {
+	public IContainer<Class<?>> getLicenseTypes() {
 		return licenses.to(License::getClass);
 	}
 	

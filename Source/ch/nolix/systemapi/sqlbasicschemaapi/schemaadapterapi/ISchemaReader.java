@@ -2,7 +2,7 @@
 package ch.nolix.systemapi.sqlbasicschemaapi.schemaadapterapi;
 
 //own imports
-import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.container.IContainer;
 import ch.nolix.core.programcontrol.groupcloseable.GroupCloseable;
 import ch.nolix.systemapi.sqlbasicschemaapi.flatschemadtoapi.IFlatTableDTO;
 import ch.nolix.systemapi.sqlbasicschemaapi.schemadtoapi.IColumnDTO;
@@ -15,13 +15,13 @@ public interface ISchemaReader extends GroupCloseable {
 	boolean columnsIsEmpty(String tableName, String columnName);
 	
 	//method declaration
-	LinkedList<IColumnDTO> loadColumns(String tableName);
+	IContainer<IColumnDTO> loadColumns(String tableName);
 	
 	//method declaration
-	LinkedList<IFlatTableDTO> loadFlatTables();
+	IContainer<IFlatTableDTO> loadFlatTables();
 	
 	//method declaration
-	LinkedList<ITableDTO> loadTables();
+	IContainer<ITableDTO> loadTables();
 	
 	//method declaration
 	boolean tableExists(String tableName);

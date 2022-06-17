@@ -3,7 +3,6 @@ package ch.nolix.systemapi.objectdataapi.schemamapperapi;
 
 //own imports
 import ch.nolix.core.container.IContainer;
-import ch.nolix.core.container.LinkedList;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
@@ -19,13 +18,13 @@ public interface IColumnMapper<IMPL> {
 	);
 	
 	//method declaration
-	<E extends IEntity<?>> LinkedList<IColumn<IMPL>> createColumnsFromGivenEntityTypeUsingGivenReferencableTables(
+	<E extends IEntity<?>> IContainer<IColumn<IMPL>> createColumnsFromGivenEntityTypeUsingGivenReferencableTables(
 		Class<E> entityType,
 		IContainer<ITable<IMPL>> referencableTables
 	);
 	
 	//method declaration
-	LinkedList<IColumn<IMPL>> createColumnsFromGivenEntityUsingGivenReferencableTables(
+	IContainer<IColumn<IMPL>> createColumnsFromGivenEntityUsingGivenReferencableTables(
 		IEntity<?> entity,
 		IContainer<ITable<IMPL>> referencableTables
 	);

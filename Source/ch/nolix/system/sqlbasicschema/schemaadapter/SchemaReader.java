@@ -2,7 +2,7 @@
 package ch.nolix.system.sqlbasicschema.schemaadapter;
 
 //own imports
-import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.container.IContainer;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.sql.SQLConnection;
@@ -71,7 +71,7 @@ final class SchemaReader implements ISchemaReader {
 	
 	//method
 	@Override
-	public LinkedList<IColumnDTO> loadColumns(final String tableName) {
+	public IContainer<IColumnDTO> loadColumns(final String tableName) {
 		return
 		mSQLConnection
 		.getRecords(schemaQueryCreator.createQueryToLoadNameAndDataTypeOfColumns(tableName))
@@ -80,7 +80,7 @@ final class SchemaReader implements ISchemaReader {
 	
 	//method
 	@Override
-	public LinkedList<IFlatTableDTO> loadFlatTables() {
+	public IContainer<IFlatTableDTO> loadFlatTables() {
 		return
 		mSQLConnection
 		.getRecordsAsStrings(schemaQueryCreator.createQueryToLoadNameOfTables())
@@ -89,7 +89,7 @@ final class SchemaReader implements ISchemaReader {
 	
 	//method
 	@Override
-	public LinkedList<ITableDTO> loadTables() {
+	public IContainer<ITableDTO> loadTables() {
 		return loadFlatTables().to(t -> new TableDTO(t.getName(), loadColumns(t.getName())));
 	}
 	

@@ -96,7 +96,7 @@ public final class FolderAccessor extends FileSystemItemAccessor {
 	/**
 	 * @return new {@link FileAccessor}s for the files in the folder of the current {@link FolderAccessor}.
 	 */
-	public LinkedList<FileAccessor> getFileAccessors() {
+	public IContainer<FileAccessor> getFileAccessors() {
 		return FileSystemAccessor.getFileAccessors(getPath());
 	}
 	
@@ -136,7 +136,7 @@ public final class FolderAccessor extends FileSystemItemAccessor {
 	 * @return new {@link FileSystemItemAccessor}s to the file system items
 	 * in the folder of the current {@link FolderAccessor}.
 	 */
-	public LinkedList<FileSystemItemAccessor> getFileSystemItemAccessors() {
+	public IContainer<FileSystemItemAccessor> getFileSystemItemAccessors() {
 		return FileSystemAccessor.getFileSystemItemAccessors(getPath());
 	}
 	

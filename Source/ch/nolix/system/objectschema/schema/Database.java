@@ -131,7 +131,7 @@ public final class Database extends SchemaObject implements IDatabase<SchemaImpl
 	//method
 	private void loadTablesFromDatabase() {
 		
-		tables = internalGetRefRawSchemaAdapter().loadFlatTables().to(Table::fromFlatDTO);
+		tables = LinkedList.fromIterable(internalGetRefRawSchemaAdapter().loadFlatTables().to(Table::fromFlatDTO));
 		for (final var t : tables) {
 			final var table = (Table)t;
 			table.internalSetLoaded();

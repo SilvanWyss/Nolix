@@ -2,7 +2,7 @@
 package ch.nolix.system.sqlrawschema.schemaadapter;
 
 //own imports
-import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.container.IContainer;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.sql.SQLConnectionPool;
 import ch.nolix.system.sqlrawschema.databaseinitializer.DatabaseInitializer;
@@ -114,13 +114,13 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 	
 	//method
 	@Override
-	public final LinkedList<IColumnDTO> loadColumnsByTableId(final String tableId) {
+	public final IContainer<IColumnDTO> loadColumnsByTableId(final String tableId) {
 		return rawSchemaReader.loadColumnsByTableId(tableId);
 	}
 	
 	//method
 	@Override
-	public final LinkedList<IColumnDTO> loadColumnsByTableName(final String tableName) {
+	public final IContainer<IColumnDTO> loadColumnsByTableName(final String tableName) {
 		return rawSchemaReader.loadColumnsByTableName(tableName);
 	}
 	
@@ -138,7 +138,7 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 	
 	//method
 	@Override
-	public final LinkedList<IFlatTableDTO> loadFlatTables() {
+	public final IContainer<IFlatTableDTO> loadFlatTables() {
 		return rawSchemaReader.loadFlatTables();
 	}
 	
@@ -162,7 +162,7 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 	
 	//method
 	@Override
-	public final LinkedList<ITableDTO> loadTables() {
+	public final IContainer<ITableDTO> loadTables() {
 		return rawSchemaReader.loadTables();
 	}
 	

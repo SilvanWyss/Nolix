@@ -1812,7 +1812,7 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	 * @return a new {@link LinkedList} with the elements
 	 * the given extractor extracts from the elements of the current {@link IContainer}.
 	 */
-	default <E2> LinkedList<E2> to(final IElementTakerElementGetter<E, E2> extractor) {
+	default <E2> IContainer<E2> to(final IElementTakerElementGetter<E, E2> extractor) {
 		final var list = new LinkedList<E2>();
 		forEach(e -> list.addAtEnd(extractor.getOutput(e)));
 		return list;
@@ -1977,7 +1977,7 @@ public interface IContainer<E> extends ch.nolix.core.containerapi.IContainer<E> 
 	 * 
 	 * @return a new {@link LinkedList} with the elements from the current {@link IContainer}.
 	 */
-	default LinkedList<E> toList() {
+	default IContainer<E> toList() {
 		return to(FunctionCatalogue::getSelf);
 	}
 	

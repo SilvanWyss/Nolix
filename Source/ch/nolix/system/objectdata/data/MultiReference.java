@@ -169,7 +169,7 @@ implements IMultiReference<DataImplementation, E> {
 	}
 	
 	//method
-	private LinkedList<String> loadReferencedEntityIds() {
+	private IContainer<String> loadReferencedEntityIds() {
 		return
 		internalGetRefDataAndSchemaAdapter().loadAllMultiReferenceEntriesForRecord(
 			getParentEntity().getParentTableName(),

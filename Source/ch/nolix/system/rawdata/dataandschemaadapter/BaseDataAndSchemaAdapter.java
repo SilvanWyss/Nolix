@@ -2,7 +2,7 @@
 package ch.nolix.system.rawdata.dataandschemaadapter;
 
 //own imports
-import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.container.IContainer;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataAdapter;
@@ -165,7 +165,7 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
 	
 	//method
 	@Override
-	public final LinkedList<String> loadAllMultiReferenceEntriesForRecord(
+	public final IContainer<String> loadAllMultiReferenceEntriesForRecord(
 		final String tableName,
 		final String entityId,
 		final String multiReferenceColumnName
@@ -175,7 +175,7 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
 	
 	//method
 	@Override
-	public final LinkedList<Object> loadAllMultiValueEntriesFromRecord(
+	public final IContainer<Object> loadAllMultiValueEntriesFromRecord(
 		final String tableName,
 		final String entityId,
 		final String multiFieldColumnName
@@ -185,19 +185,19 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
 	
 	//method	
 	@Override
-	public final LinkedList<ILoadedRecordDTO> loadAllRecordsFromTable(final String tableName) {
+	public final IContainer<ILoadedRecordDTO> loadAllRecordsFromTable(final String tableName) {
 		return dataAdapter.loadAllRecordsFromTable(tableName);
 	}
 	
 	//method
 	@Override
-	public final LinkedList<IColumnDTO> loadColumnsByTableId(final String tableId) {
+	public final IContainer<IColumnDTO> loadColumnsByTableId(final String tableId) {
 		return schemaReader.loadColumnsByTableId(tableId);
 	}
 	
 	//method
 	@Override
-	public final LinkedList<IColumnDTO> loadColumnsByTableName(final String tableName) {
+	public final IContainer<IColumnDTO> loadColumnsByTableName(final String tableName) {
 		return schemaReader.loadColumnsByTableName(tableName);
 	}
 	
@@ -215,7 +215,7 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
 	
 	//method
 	@Override
-	public final LinkedList<IFlatTableDTO> loadFlatTables() {
+	public final IContainer<IFlatTableDTO> loadFlatTables() {
 		return schemaReader.loadFlatTables();
 	}
 	
@@ -245,7 +245,7 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
 	
 	//method
 	@Override
-	public final LinkedList<ITableDTO> loadTables() {
+	public final IContainer<ITableDTO> loadTables() {
 		return schemaReader.loadTables();
 	}
 	

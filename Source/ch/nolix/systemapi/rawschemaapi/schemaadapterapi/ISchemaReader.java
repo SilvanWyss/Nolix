@@ -2,7 +2,7 @@
 package ch.nolix.systemapi.rawschemaapi.schemaadapterapi;
 
 //own imports
-import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.container.IContainer;
 import ch.nolix.core.programcontrol.groupcloseable.GroupCloseable;
 import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDTO;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDTO;
@@ -19,10 +19,10 @@ public interface ISchemaReader extends GroupCloseable {
 	int getTableCount();
 	
 	//method declaration
-	LinkedList<IColumnDTO> loadColumnsByTableName(String tableName);
+	IContainer<IColumnDTO> loadColumnsByTableName(String tableName);
 	
 	//method declaration
-	LinkedList<IColumnDTO> loadColumnsByTableId(String tableId);
+	IContainer<IColumnDTO> loadColumnsByTableId(String tableId);
 	
 	//method declaration
 	IFlatTableDTO loadFlatTableById(String id);
@@ -31,7 +31,7 @@ public interface ISchemaReader extends GroupCloseable {
 	IFlatTableDTO loadFlatTableByName(String name);
 	
 	//method declaration
-	LinkedList<IFlatTableDTO> loadFlatTables();
+	IContainer<IFlatTableDTO> loadFlatTables();
 	
 	//method declaration
 	ITableDTO loadTableById(String id);
@@ -40,7 +40,7 @@ public interface ISchemaReader extends GroupCloseable {
 	ITableDTO loadTableByName(String name);
 	
 	//method declaration
-	LinkedList<ITableDTO> loadTables();
+	IContainer<ITableDTO> loadTables();
 	
 	//method declaration
 	ITime loadSchemaTimestamp();

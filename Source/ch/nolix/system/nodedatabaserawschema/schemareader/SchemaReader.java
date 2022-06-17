@@ -2,7 +2,7 @@
 package ch.nolix.system.nodedatabaserawschema.schemareader;
 
 //own imports
-import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.container.IContainer;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
@@ -80,7 +80,7 @@ public final class SchemaReader implements ISchemaReader {
 	
 	//method
 	@Override
-	public LinkedList<IColumnDTO> loadColumnsByTableId(final String tableId) {
+	public IContainer<IColumnDTO> loadColumnsByTableId(final String tableId) {
 		
 		final var tableNode = databaseNodeSearcher.getRefTableNodeByTableIdFromDatabaseNode(databaseNode, tableId);
 		
@@ -90,7 +90,7 @@ public final class SchemaReader implements ISchemaReader {
 	
 	//method
 	@Override
-	public LinkedList<IColumnDTO> loadColumnsByTableName(final String tableName) {
+	public IContainer<IColumnDTO> loadColumnsByTableName(final String tableName) {
 		
 		final var tableNode = databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableName);
 		
@@ -118,7 +118,7 @@ public final class SchemaReader implements ISchemaReader {
 	
 	//method
 	@Override
-	public LinkedList<IFlatTableDTO> loadFlatTables() {
+	public IContainer<IFlatTableDTO> loadFlatTables() {
 		return
 		databaseNodeSearcher
 		.getRefTableNodesFromDatabaseNode(databaseNode)
@@ -145,7 +145,7 @@ public final class SchemaReader implements ISchemaReader {
 	
 	//method
 	@Override
-	public LinkedList<ITableDTO> loadTables() {
+	public IContainer<ITableDTO> loadTables() {
 		return
 		databaseNodeSearcher
 		.getRefTableNodesFromDatabaseNode(databaseNode)
@@ -172,7 +172,7 @@ public final class SchemaReader implements ISchemaReader {
 	}
 	
 	//method
-	private LinkedList<IColumnDTO> loadColumnsFromTableNode(final BaseNode tableNode) {
+	private IContainer<IColumnDTO> loadColumnsFromTableNode(final BaseNode tableNode) {
 		return
 		tableNodeSearcher.getRefColumnNodesFromTableNode(tableNode).to(columnDTOMapper::createColumnDTOFromColumnNode);
 	}

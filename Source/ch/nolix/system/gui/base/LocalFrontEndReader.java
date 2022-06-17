@@ -13,7 +13,7 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 //own imports
-import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.SingleContainer;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.environment.filesystem.FileAccessor;
@@ -47,7 +47,7 @@ public final class LocalFrontEndReader implements IFrontEndReader {
 	
 	//method
 	@Override
-	public LinkedList<byte[]> getFilesFromClipboard() {
+	public IContainer<byte[]> getFilesFromClipboard() {
 		return getFilePathsFromClipboard().to(FileSystemAccessor::readFileToBytes);
 	}
 	
@@ -75,7 +75,7 @@ public final class LocalFrontEndReader implements IFrontEndReader {
 	}
 	
 	//method
-	private LinkedList<String> getFilePathsFromClipboard() {
+	private IContainer<String> getFilePathsFromClipboard() {
 		try {
 			
 			@SuppressWarnings("unchecked")

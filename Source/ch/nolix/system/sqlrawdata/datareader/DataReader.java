@@ -3,7 +3,6 @@ package ch.nolix.system.sqlrawdata.datareader;
 
 //own imports
 import ch.nolix.core.container.IContainer;
-import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.sql.SQLConnection;
@@ -68,7 +67,7 @@ public final class DataReader implements IDataReader {
 	
 	//method
 	@Override
-	public LinkedList<String> loadAllMultiReferenceEntriesForRecord(
+	public IContainer<String> loadAllMultiReferenceEntriesForRecord(
 		final String tableName,
 		final String entityId,
 		final String multiReferenceColumnName
@@ -81,7 +80,7 @@ public final class DataReader implements IDataReader {
 	
 	//method
 	@Override
-	public LinkedList<Object> loadAllMultiValueEntriesFromRecord(
+	public IContainer<Object> loadAllMultiValueEntriesFromRecord(
 		final String tableName,
 		final String entityId,
 		final String multiValueColumnName
@@ -95,7 +94,7 @@ public final class DataReader implements IDataReader {
 	
 	//method
 	@Override
-	public LinkedList<ILoadedRecordDTO> loadAllRecordsFromTable(final String tableName) {
+	public IContainer<ILoadedRecordDTO> loadAllRecordsFromTable(final String tableName) {
 		return internalDataReader.loadAllRecordsFromTable(getTableInfoByTableName(tableName));
 	}
 

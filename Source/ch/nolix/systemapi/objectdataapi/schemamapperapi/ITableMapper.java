@@ -2,7 +2,7 @@
 package ch.nolix.systemapi.objectdataapi.schemamapperapi;
 
 //own imports
-import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.container.IContainer;
 import ch.nolix.systemapi.objectdataapi.dataapi.ISchema;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
@@ -10,5 +10,5 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 public interface ITableMapper<IMPL> {
 	
 	//method declaration
-	LinkedList<ITable<IMPL>> createTablesFrom(ISchema<?> schema);
+	IContainer<ITable<IMPL>> createTablesFrom(ISchema<?> schema);
 }
