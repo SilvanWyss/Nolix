@@ -1,6 +1,6 @@
 //package info
 /**
- * The {@link ch.nolix.core.containerapi} package declares types containers.
+ * The {@link ch.nolix.core.containerapi} package declares containers.
  * Containers are data structures.
  * 
  * @author Silvan Wyss
