@@ -1,9 +1,7 @@
 //package declaration
 package ch.nolix.system.objectdata.data;
 
-//Java imports
-import java.util.Iterator;
-
+//own imports
 import ch.nolix.core.commontype.constant.StringCatalogue;
 import ch.nolix.core.container.IContainer;
 import ch.nolix.core.container.LinkedList;
@@ -68,14 +66,8 @@ implements IMultiReference<DataImplementation, E> {
 	
 	//method
 	@Override
-	public int getElementCount() {
-		return getReferencedEntityIds().getElementCount();
-	}
-	
-	//method
-	@Override
-	public E getRefAt(final int index) {		
-		return getReferencedTable().getRefEntityById(getIdOfEntityAt(index));
+	public IContainer<E> getReferencedEntities() {
+		return getReferencedEntityIds().to(getReferencedTable()::getRefEntityById);
 	}
 	
 	//method
@@ -95,17 +87,14 @@ implements IMultiReference<DataImplementation, E> {
 	
 	//method
 	@Override
-	public boolean isMandatory() {
-		return false;
+	public boolean isEmpty() {
+		return getReferencedEntityIds().isEmpty();
 	}
 	
 	//method
 	@Override
-	public Iterator<E> iterator() {
-		
-		final var referencedTable = getReferencedTable();
-		
-		return getReferencedEntityIds().iterator(referencedTable::getRefEntityById);
+	public boolean isMandatory() {
+		return false;
 	}
 	
 	//method
@@ -122,7 +111,7 @@ implements IMultiReference<DataImplementation, E> {
 	//method
 	@Override
 	public boolean referencesUninsertedEntity() {
-		return containsOnly(IEntity::belongsToTable);
+		return getReferencedEntities().containsOnly(IEntity::belongsToTable);
 	}
 	
 	//method
@@ -177,11 +166,6 @@ implements IMultiReference<DataImplementation, E> {
 		extractedReferencedEntityIds = true;
 		
 		referencedEntityIds.addAtEnd(loadReferencedEntityIds());
-	}
-	
-	//method
-	private String getIdOfEntityAt(final int index) {
-		return getReferencedEntityIds().getRefAt(index);
 	}
 	
 	//method

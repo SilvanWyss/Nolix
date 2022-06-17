@@ -9,23 +9,14 @@ import ch.nolix.core.skilluniversalapi.Clearable;
 public interface IMultiReference<
 	IMPL,
 	E extends IEntity<IMPL>
-> extends Clearable, IContainer<E>, IBaseReference<IMPL, E> {
+> extends Clearable, IBaseReference<IMPL, E> {
 	
 	//method declaration
 	void addEntity(E entity);
 	
-	//method
-	@Override
-	default boolean containsAny() {
-		return IContainer.super.containsAny();
-	}
+	//method declaration
+	IContainer<E> getReferencedEntities();
 	
 	//method declaration
 	IContainer<String> getReferencedEntityIds();
-	
-	//method
-	@Override
-	default boolean isEmpty() {
-		return IContainer.super.isEmpty();
-	}
 }
