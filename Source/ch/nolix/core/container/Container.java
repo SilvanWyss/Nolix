@@ -2010,21 +2010,6 @@ public abstract class Container<E> implements IContainer<E> {
 		return array;
 	}
 	
-	//TODO: Fix the method constellation.
-	//method
-	/**
-	 * This implementation uses the merge sort algorithm.
-	 * The complexity of this implementation is O(n*log(n)) if the current {@link Container} contains n elements.
-	 * 
-	 * @param norm
-	 * @param <E2> is the type of the elements of the {@link Comparable} the given norm returns.
-	 * @return a new {@link LinkedList} with the elements of the current {@link Container}
-	 * ordered from the smallest to the biggest element according to the given norm.
-	 */
-	public <E2> LinkedList<E> toOrderedList(final IElementTakerComparableGetter<E, E2> norm) {
-		return toList().toOrderedList(norm);
-	}
-	
 	//method
 	/**
 	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.

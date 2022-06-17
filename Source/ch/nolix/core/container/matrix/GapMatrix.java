@@ -6,8 +6,11 @@ import java.util.Arrays;
 import java.util.Iterator;
 
 import ch.nolix.core.container.Container;
+import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.functionuniversalapi.IElementTakerComparableGetter;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.skilluniversalapi.Clearable;
 
@@ -143,6 +146,12 @@ public final class GapMatrix<E> extends Container<E> implements Clearable {
 	//method
 	public Iterator<E> iterator() {
 		return new GapMatrixIterator<>(this);
+	}
+	
+	//method
+	@Override
+	public <E2> IContainer<E> toOrderedList(final IElementTakerComparableGetter<E, E2> norm) {
+		return LinkedList.fromIterable(this).toOrderedList(norm);
 	}
 	
 	//method

@@ -7,8 +7,10 @@ import java.util.Iterator;
 import ch.nolix.core.commontype.constant.CharacterCatalogue;
 import ch.nolix.core.container.Container;
 import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.functionuniversalapi.IElementTakerComparableGetter;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
 //class
@@ -177,6 +179,15 @@ public final class ReadContainer<E> extends Container<E> {
 	@Override
 	public Iterator<E> iterator() {
 		return container.iterator();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public <E2> IContainer<E> toOrderedList(final IElementTakerComparableGetter<E, E2> norm) {
+		return LinkedList.fromIterable(this).toOrderedList(norm);
 	}
 	
 	//method

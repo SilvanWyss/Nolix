@@ -6,8 +6,10 @@ import java.util.Iterator;
 
 import ch.nolix.core.container.Container;
 import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.functionuniversalapi.IElementTakerComparableGetter;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
 //class
@@ -61,5 +63,11 @@ final class MultiReadContainer<E> extends Container<E> {
 		}
 		
 		throw new ArgumentDoesNotHaveAttributeException(this, "element at " + index);
+	}
+	
+	//method
+	@Override
+	public <E2> IContainer<E> toOrderedList(final IElementTakerComparableGetter<E, E2> norm) {
+		return LinkedList.fromIterable(this).toOrderedList(norm);
 	}
 }

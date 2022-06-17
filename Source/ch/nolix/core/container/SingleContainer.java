@@ -1,9 +1,11 @@
 //package declaration
 package ch.nolix.core.container;
 
+import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.functionuniversalapi.IElementTakerComparableGetter;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
 //class
@@ -97,5 +99,14 @@ public final class SingleContainer<E> extends Container<E> {
 		
 		//Handles the case that the current SingleContainer contains an element.
 		return 1;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public <E2> IContainer<E> toOrderedList(final IElementTakerComparableGetter<E, E2> norm) {
+		return LinkedList.fromIterable(this).toOrderedList(norm);
 	}
 }

@@ -4,6 +4,9 @@ package ch.nolix.core.container;
 //Java imports
 import java.util.Iterator;
 
+import ch.nolix.core.containerapi.IContainer;
+import ch.nolix.core.functionuniversalapi.IElementTakerComparableGetter;
+
 //class
 public final class Stack<E> extends Container<E> {
 
@@ -47,5 +50,11 @@ public final class Stack<E> extends Container<E> {
 		linkedList.removeLast();
 		
 		return this;
+	}
+	
+	//method
+	@Override
+	public <E2> IContainer<E> toOrderedList(final IElementTakerComparableGetter<E, E2> norm) {
+		return LinkedList.fromIterable(this).toOrderedList(norm);
 	}
 }

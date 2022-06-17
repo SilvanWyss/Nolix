@@ -5,9 +5,12 @@ package ch.nolix.core.container.compressedcontainer;
 import java.util.Iterator;
 
 import ch.nolix.core.container.Container;
+import ch.nolix.core.container.LinkedList;
+import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
+import ch.nolix.core.functionuniversalapi.IElementTakerComparableGetter;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
 //class
@@ -89,5 +92,11 @@ public final class CompressedList<E> extends Container<E> {
 		}
 		
 		return CompressedListIterator.forCompressedListWithFirstNode(firstNode);
+	}
+	
+	//method
+	@Override
+	public <E2> IContainer<E> toOrderedList(final IElementTakerComparableGetter<E, E2> norm) {
+		return LinkedList.fromIterable(this).toOrderedList(norm);
 	}
 }

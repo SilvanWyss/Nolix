@@ -5,12 +5,14 @@ import ch.nolix.core.commontype.constant.CharacterCatalogue;
 import ch.nolix.core.container.Container;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.container.readcontainer.ReadContainer;
+import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.BiggerArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.functionuniversalapi.IElementTakerComparableGetter;
 import ch.nolix.core.functionuniversalapi.IElementTakerElementGetter;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.skilluniversalapi.Clearable;
@@ -603,6 +605,15 @@ public final class Matrix<E> extends Container<E> implements Clearable {
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public <E2> IContainer<E> toOrderedList(final IElementTakerComparableGetter<E, E2> norm) {
+		return LinkedList.fromIterable(this).toOrderedList(norm);
+	}
+	
+	//method
+	/**
 	 * The complexity of this implementation is O(n)
 	 * if the current {@link Matrix} contains n elements. 
 	 * 
@@ -646,25 +657,25 @@ public final class Matrix<E> extends Container<E> implements Clearable {
 		
 		final var stringBuilder = new StringBuilder();
 		
- //Iterates the rows of the current matrix.
- for (var i = 0; i < getRowCount(); i++) {
- 
- 	if (i > 0) {
- 		stringBuilder.append(CharacterCatalogue.SEMICOLON);
- 	}
- 	
- //Iterates the columns of the current row.
- for (int j = 0; j < getColumnCount(); j++) {
- 	
- 	if (j > 0) {
- 		stringBuilder.append(CharacterCatalogue.COMMA);
- 	}
- 	
- stringBuilder.append(elements[i][j].toString());
- }
- }
- 
- return stringBuilder.toString();
+		//Iterates the rows of the current matrix.
+		for (var i = 0; i < getRowCount(); i++) {
+		
+			if (i > 0) {
+				stringBuilder.append(CharacterCatalogue.SEMICOLON);
+			}
+			
+			//Iterates the columns of the current row.
+			for (int j = 0; j < getColumnCount(); j++) {
+				
+				if (j > 0) {
+					stringBuilder.append(CharacterCatalogue.COMMA);
+				}
+			
+				stringBuilder.append(elements[i][j].toString());
+			}
+		}
+		
+		return stringBuilder.toString();
 	}
 	
 	//method
