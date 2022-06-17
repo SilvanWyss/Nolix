@@ -2,7 +2,7 @@
 package ch.nolix.systemapi.objectdataapi.schemamapperapi;
 
 //own imports
-import ch.nolix.core.container.IContainer;
+import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IParametrizedPropertyType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;

@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlrawdata.datadto;
 
-import ch.nolix.core.container.IContainer;
+import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IContentFieldDTO;

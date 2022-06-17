@@ -2,7 +2,7 @@
 package ch.nolix.system.objectdata.schemamapper;
 
 //own imports
-import ch.nolix.core.container.IContainer;
+import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectdata.propertyhelper.PropertyHelper;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedBackReferenceType;

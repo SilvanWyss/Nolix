@@ -3,7 +3,7 @@ package ch.nolix.systemapi.rawdataapi.schemainfoapi;
 
 //own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
-import ch.nolix.core.container.IContainer;
+import ch.nolix.core.containerapi.IContainer;
 
 //interface
 public interface ITableInfo {

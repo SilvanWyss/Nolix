@@ -7,7 +7,7 @@ import java.lang.reflect.InvocationTargetException;
 
 import ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi.IContextOwner;
 import ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi.Named;
-import ch.nolix.core.container.IContainer;
+import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;

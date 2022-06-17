@@ -4,7 +4,7 @@ package ch.nolix.system.gui.base;
 //own imports
 import ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi.Indexed;
 import ch.nolix.core.caching.CachingContainer;
-import ch.nolix.core.container.IContainer;
+import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.container.SingleContainer;
 import ch.nolix.core.document.chainednode.ChainedNode;

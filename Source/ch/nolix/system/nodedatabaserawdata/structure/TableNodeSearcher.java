@@ -2,7 +2,7 @@
 package ch.nolix.system.nodedatabaserawdata.structure;
 
 //own imports
-import ch.nolix.core.container.IContainer;
+import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.system.nodedatabaserawdata.tabledefinition.FieldIndexCatalogue;
 

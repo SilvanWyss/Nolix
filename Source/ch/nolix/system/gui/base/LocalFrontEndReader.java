@@ -13,7 +13,7 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 //own imports
-import ch.nolix.core.container.IContainer;
+import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.container.SingleContainer;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.environment.filesystem.FileAccessor;

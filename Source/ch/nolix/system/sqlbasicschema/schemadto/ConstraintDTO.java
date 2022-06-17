@@ -2,7 +2,7 @@
 package ch.nolix.system.sqlbasicschema.schemadto;
 
 //own imports
-import ch.nolix.core.container.IContainer;
+import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.systemapi.sqlbasicschemaapi.schemadtoapi.ConstraintType;

@@ -2,7 +2,7 @@
 package ch.nolix.systemapi.sqlbasicschemaapi.schemadtoapi;
 
 //own imports
-import ch.nolix.core.container.IContainer;
+import ch.nolix.core.containerapi.IContainer;
 
 //interface
 public interface ITableDTO {

@@ -8,7 +8,7 @@ import ch.nolix.businessapi.bigdecimalmathapi.IComplexNumber;
 import ch.nolix.businessapi.bigdecimalmathapi.IFractal;
 import ch.nolix.businessapi.bigdecimalmathapi.IFractalHelper;
 import ch.nolix.businessapi.bigdecimalmathapi.IImageGenerator;
-import ch.nolix.core.container.IContainer;
+import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -67,13 +67,13 @@ public final class ImageGenerator implements IImageGenerator {
 	@Override
 	public Throwable getError() {
 		
-		final var futureWithError = futures.getOptionalRefFirst(IFuture::caughtError);
+		final var futureWithError = futures.getRefFirstOrNull(IFuture::caughtError);
 		
-		if (futureWithError.isEmpty()) {
+		if (futureWithError == null) {
 			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.ERROR);
 		}
 		
-		return futureWithError.getRefElement().getError();
+		return futureWithError.getError();
 	}
 	
 	//method

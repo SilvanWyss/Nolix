@@ -4,7 +4,7 @@ package ch.nolix.system.formatelement;
 //Java imports
 import java.lang.reflect.Field;
 
-import ch.nolix.core.container.IContainer;
+import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;

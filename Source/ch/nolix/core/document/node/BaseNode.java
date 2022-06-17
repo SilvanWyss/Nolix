@@ -6,7 +6,7 @@ import ch.nolix.core.attributeuniversalapi.mutableoptionalattributeuniversalapi.
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.commontype.constant.CharacterCatalogue;
 import ch.nolix.core.commontype.constant.StringCatalogue;
-import ch.nolix.core.container.IContainer;
+import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.container.pair.IntPair;
 import ch.nolix.core.document.xml.XMLNode;
 import ch.nolix.core.environment.filesystem.FileAccessor;

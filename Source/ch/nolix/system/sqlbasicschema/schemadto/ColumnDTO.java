@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlbasicschema.schemadto;
 
-import ch.nolix.core.container.IContainer;
+import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -36,7 +36,9 @@ public final class ColumnDTO implements IColumnDTO {
 		
 		this.name = name;
 		this.dataType = dataType;
-		this.constraints = constraints.toList();
+		
+		//TODO: constaints.getCopy()
+		this.constraints = constraints;
 	}
 	
 	//constructor

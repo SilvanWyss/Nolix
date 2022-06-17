@@ -5,7 +5,7 @@ package ch.nolix.core.reflection;
 import java.lang.reflect.Constructor;
 
 //own imports
-import ch.nolix.core.container.IContainer;
+import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 

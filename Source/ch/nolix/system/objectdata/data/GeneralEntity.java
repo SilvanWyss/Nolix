@@ -2,7 +2,7 @@
 package ch.nolix.system.objectdata.data;
 
 //own imports
-import ch.nolix.core.container.IContainer;
+import ch.nolix.core.containerapi.IContainer;
 
 //class
 public final class GeneralEntity extends BaseEntity {

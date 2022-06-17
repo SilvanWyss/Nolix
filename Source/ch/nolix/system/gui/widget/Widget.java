@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.gui.widget;
 
-import ch.nolix.core.container.IContainer;
+import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.container.SingleContainer;
 import ch.nolix.core.document.node.BaseNode;

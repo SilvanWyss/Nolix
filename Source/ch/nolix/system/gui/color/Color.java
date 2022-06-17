@@ -2,7 +2,7 @@
 package ch.nolix.system.gui.color;
 
 import ch.nolix.core.commontype.constant.StringCatalogue;
-import ch.nolix.core.container.IContainer;
+import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.container.LinkedList;
 import ch.nolix.core.container.pair.Pair;
 import ch.nolix.core.container.readcontainer.ReadContainer;
@@ -733,7 +733,7 @@ public final class Color implements IColor {
 	
 	//constants
 	public static final IContainer<Color> WEB_COLORS;
-	public static final IContainer<Pair<String, Color>> WEB_COLOR_NAMES;
+	public static final LinkedList<Pair<String, Color>> WEB_COLOR_NAMES;
 	
 	//constant
 	public static final int DEFAULT_ALPHA_VALUE = 255;

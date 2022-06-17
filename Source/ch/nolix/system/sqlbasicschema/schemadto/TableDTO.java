@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlbasicschema.schemadto;
 
-import ch.nolix.core.container.IContainer;
+import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
@@ -28,7 +28,9 @@ public final class TableDTO implements ITableDTO {
 		GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotNull();
 		
 		this.name = name;
-		this.columns = columns.toList();
+		
+		//TODO: columns.getCopy()
+		this.columns = columns;
 	}
 	
 	//method

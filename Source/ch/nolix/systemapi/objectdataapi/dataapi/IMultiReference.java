@@ -2,7 +2,7 @@
 package ch.nolix.systemapi.objectdataapi.dataapi;
 
 //own imports
-import ch.nolix.core.container.IContainer;
+import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.skilluniversalapi.Clearable;
 
 //interface

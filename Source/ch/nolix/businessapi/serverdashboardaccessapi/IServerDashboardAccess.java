@@ -2,7 +2,7 @@
 package ch.nolix.businessapi.serverdashboardaccessapi;
 
 //own imports
-import ch.nolix.core.container.IContainer;
+import ch.nolix.core.containerapi.IContainer;
 
 //interface
 public interface IServerDashboardAccess {

@@ -2,7 +2,7 @@
 package ch.nolix.systemapi.rawschemaapi.schemaadapterapi;
 
 //own imports
-import ch.nolix.core.container.IContainer;
+import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.programcontrol.groupcloseable.GroupCloseable;
 import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDTO;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDTO;
