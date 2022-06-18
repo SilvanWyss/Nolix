@@ -5,7 +5,7 @@ package ch.nolix.system.gui.widget;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.systemapi.guiapi.mainapi.HoverableByCursor;
+import ch.nolix.systemapi.guiapi.mainapi.HoverableTopLeftPositionedRectangular;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 
 //class
@@ -17,7 +17,7 @@ import ch.nolix.systemapi.guiapi.painterapi.IPainter;
  * @param <BWL>
  * is the type of the {@link BorderWidgetLook} of the {@link BorderWidget} of a {@link BorderWidgetShowArea}.
  */
-public final class BorderWidgetShowArea<BWL extends BorderWidgetLook<BWL>> implements HoverableByCursor {
+public final class BorderWidgetShowArea<BWL extends BorderWidgetLook<BWL>> implements HoverableTopLeftPositionedRectangular {
 	
 	//attribute
 	/**

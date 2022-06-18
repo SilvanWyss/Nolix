@@ -6,7 +6,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.math.Calculator;
 import ch.nolix.system.gui.color.Color;
-import ch.nolix.systemapi.guiapi.mainapi.HoverableByCursor;
+import ch.nolix.systemapi.guiapi.mainapi.HoverableTopLeftPositionedRectangular;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 
 //class
@@ -19,7 +19,7 @@ import ch.nolix.systemapi.guiapi.painterapi.IPainter;
  * of the {@link BorderWidget} a {@link BorderWidgetHorizontalScrollBarCursor} belongs to.
  */
 public final class BorderWidgetHorizontalScrollBarCursor<BWL extends BorderWidgetLook<BWL>>
-implements HoverableByCursor {
+implements HoverableTopLeftPositionedRectangular {
 	
 	//constant
 	public static final int MIN_WIDTH = 10;
@@ -148,7 +148,7 @@ implements HoverableByCursor {
 	 */
 	@Override
 	public boolean isUnderCursor() {
-		return isVisible() && HoverableByCursor.super.isUnderCursor();
+		return isVisible() && HoverableTopLeftPositionedRectangular.super.isUnderCursor();
 	}
 	
 	//method

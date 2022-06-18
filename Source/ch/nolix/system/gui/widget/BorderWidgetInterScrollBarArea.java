@@ -3,11 +3,11 @@ package ch.nolix.system.gui.widget;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.systemapi.guiapi.mainapi.HoverableByCursor;
+import ch.nolix.systemapi.guiapi.mainapi.HoverableTopLeftPositionedRectangular;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 
 //class
-public final class BorderWidgetInterScrollBarArea<BWL extends BorderWidgetLook<BWL>> implements HoverableByCursor {
+public final class BorderWidgetInterScrollBarArea<BWL extends BorderWidgetLook<BWL>> implements HoverableTopLeftPositionedRectangular {
 	
 	//constants
 	public static final int WIDTH_WHEN_VERTICAL_SCROLLBAR_NOT_VISIBLE = 0;
