@@ -10,16 +10,12 @@ public interface ILinePrinter {
 	//method declaration
 	void printErrorLine(final String errorLine);
 	
-	//method
-	default void printErrorLines(final Iterable<String> errorLines) {
-		errorLines.forEach(this::printErrorLine);
-	}
+	//method declaration
+	void printErrorLines(final Iterable<String> errorLines);
 	
 	//method declaration
 	void printInfoLine(final String infoLine);
 	
-	//method
-	default void printInfoLines(final Iterable<String> infoLines) {
-		infoLines.forEach(this::printInfoLine);
-	}
+	//method declaration
+	void printInfoLines(final Iterable<String> infoLines);
 }

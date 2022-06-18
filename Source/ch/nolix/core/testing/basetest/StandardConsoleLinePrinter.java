@@ -39,8 +39,26 @@ public final class StandardConsoleLinePrinter implements ILinePrinter {
 	 * {@inheritDoc}
 	 */
 	@Override
+	public void printErrorLines(final Iterable<String> errorLines) {
+		errorLines.forEach(this::printErrorLine);
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public void printInfoLine(final String infoLine) {
 		System.out.println(infoLine);
 		System.out.flush();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void printInfoLines(final Iterable<String> infoLines) {
+		infoLines.forEach(this::printInfoLine);
 	}
 }
