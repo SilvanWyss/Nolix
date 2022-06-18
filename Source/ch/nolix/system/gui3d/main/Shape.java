@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.gui3d.base;
+package ch.nolix.system.gui3d.main;
 
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;

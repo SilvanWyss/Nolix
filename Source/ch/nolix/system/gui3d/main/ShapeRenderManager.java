@@ -1,5 +1,5 @@
 //class
-package ch.nolix.system.gui3d.base;
+package ch.nolix.system.gui3d.main;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;

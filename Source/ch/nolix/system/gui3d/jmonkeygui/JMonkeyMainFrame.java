@@ -13,8 +13,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentExceptio
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IAction;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-import ch.nolix.system.gui3d.base.MainFrame;
-import ch.nolix.system.gui3d.base.Shape;
+import ch.nolix.system.gui3d.main.MainFrame;
+import ch.nolix.system.gui3d.main.Shape;
 import ch.nolix.system.gui3d.planarshape.Rectangle;
 import ch.nolix.system.gui3d.shape.BaseCube;
 import ch.nolix.system.gui3d.shape.Cylinder;

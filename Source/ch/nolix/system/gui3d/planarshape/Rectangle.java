@@ -8,7 +8,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentExcep
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.element.MutableValue;
-import ch.nolix.system.gui3d.base.AtomicShape;
+import ch.nolix.system.gui3d.main.AtomicShape;
 
 //class
 /**

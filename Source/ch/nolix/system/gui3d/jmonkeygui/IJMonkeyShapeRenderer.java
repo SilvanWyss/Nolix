@@ -4,8 +4,8 @@ package ch.nolix.system.gui3d.jmonkeygui;
 //JMonkey imports
 import com.jme3.scene.Spatial;
 
-import ch.nolix.system.gui3d.base.IShapeRenderer;
-import ch.nolix.system.gui3d.base.Shape;
+import ch.nolix.system.gui3d.main.IShapeRenderer;
+import ch.nolix.system.gui3d.main.Shape;
 
 //interface
 /**

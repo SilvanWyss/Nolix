@@ -6,7 +6,7 @@ import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.system.gui3d.base.Shape;
+import ch.nolix.system.gui3d.main.Shape;
 
 //class
 /**
