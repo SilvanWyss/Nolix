@@ -17,7 +17,7 @@ public interface IResultFuture<R> extends IFuture {
 	 */
 	R getResult();
 	
-	//method
+	//method declaration
 	/**
 	 * Waits until the current {@link IResultFuture} is finished and returns its result.
 	 * 

@@ -27,7 +27,7 @@ public interface IFuture extends FinishRequestable {
 	 */
 	Throwable getError();
 	
-	//method
+	//method declaration
 	/**
 	 * @return true if the current {@link IFuture} is finished successfully.
 	 */
@@ -47,7 +47,7 @@ public interface IFuture extends FinishRequestable {
 	 */
 	void waitUntilIsFinished(final int timeoutInMilliseconds);
 	
-	//method
+	//method declaration
 	/**
 	 * Lets the current {@link IFuture} wait until it is finished successfully.
 	 * 
@@ -55,7 +55,7 @@ public interface IFuture extends FinishRequestable {
 	 */
 	void waitUntilIsFinishedSuccessfully();
 	
-	//method
+	//method declaration
 	/**
 	 * Lets the current {@link IFuture} wait until it is finished successfully within the given timeoutInMilliseconds.
 	 * 
