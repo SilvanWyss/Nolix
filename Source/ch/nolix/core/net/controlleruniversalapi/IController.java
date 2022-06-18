@@ -19,17 +19,11 @@ public interface IController {
 	 */
 	void run(ChainedNode command);
 	
-	//method
+	//method declaration
 	/**
 	 * Lets the current {@link IController} run the given commands.
 	 * 
 	 * @param commands
 	 */
-	default void run(final ChainedNode... commands) {
-		
-		//Iterates the given commands.
-		for (final var c : commands) {
-			run(c);
-		}
-	}
+	void run(final ChainedNode... commands);
 }

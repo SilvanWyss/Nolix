@@ -58,6 +58,14 @@ public final class NetEndPointTest extends Test {
 				public void run(final ChainedNode command) {
 					EndPointTaker.this.setCommand(command);
 				}
+				
+				//method
+				@Override
+				public final void run(final ChainedNode... commands) {
+					for (final var c : commands) {
+						run(c);
+					}
+				}
 			});
 		}
 		

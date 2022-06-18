@@ -149,6 +149,19 @@ public abstract class EndPoint implements GroupCloseable, IDataProviderControlle
 	 * {@inheritDoc}
 	 */
 	@Override
+	public final void run(final ChainedNode... commands) {
+		
+		//Iterates the given commands.
+		for (final var c : commands) {
+			run(c);
+		}
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public final void noteClose() {}
 	
 	//method

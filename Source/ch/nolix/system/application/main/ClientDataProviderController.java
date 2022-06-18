@@ -53,4 +53,17 @@ final class ClientDataProviderController implements IDataProviderController {
 	public void run(final ChainedNode command) {
 		parentClient.runHere(command);
 	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void run(final ChainedNode... commands) {
+		
+		//Iterates the given commands.
+		for (final var c : commands) {
+			parentClient.runHere(c);
+		}
+	}
 }
