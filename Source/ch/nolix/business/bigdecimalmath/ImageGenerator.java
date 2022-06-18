@@ -4,6 +4,7 @@ package ch.nolix.business.bigdecimalmath;
 //Java import
 import java.math.BigDecimal;
 
+//own imports
 import ch.nolix.businessapi.bigdecimalmathapi.IComplexNumber;
 import ch.nolix.businessapi.bigdecimalmathapi.IFractal;
 import ch.nolix.businessapi.bigdecimalmathapi.IFractalHelper;
@@ -15,6 +16,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.math.Calculator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.core.programcontrol.future.BaseFuture;
 import ch.nolix.core.programcontrol.futureuniversalapi.IFuture;
 import ch.nolix.core.programcontrol.jobpool.JobPool;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
@@ -22,7 +24,7 @@ import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.image.MutableImage;
 
 //class
-public final class ImageGenerator implements IImageGenerator {
+public final class ImageGenerator extends BaseFuture implements IImageGenerator {
 	
 	//constant
 	private static final int IMAGE_ROWS_PER_THREAD = 10;

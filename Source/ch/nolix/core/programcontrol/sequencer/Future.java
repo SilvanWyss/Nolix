@@ -5,6 +5,7 @@ package ch.nolix.core.programcontrol.sequencer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.programcontrol.future.BaseFuture;
 import ch.nolix.core.programcontrol.futureuniversalapi.IFuture;
 
 //class
@@ -12,7 +13,7 @@ import ch.nolix.core.programcontrol.futureuniversalapi.IFuture;
  * @author Silvan Wyss
  * @date 2017-05-23
  */
-public final class Future implements IFuture {
+public final class Future extends BaseFuture {
 	
 	//attribute
 	private final JobRunner jobRunner;

@@ -31,9 +31,7 @@ public interface IFuture extends FinishRequestable {
 	/**
 	 * @return true if the current {@link IFuture} is finished successfully.
 	 */
-	default boolean isFinishedSuccessfully() {
-		return (isFinished() && !caughtError());
-	}
+	boolean isFinishedSuccessfully();
 	
 	//method declaration
 	/**
@@ -55,23 +53,7 @@ public interface IFuture extends FinishRequestable {
 	 * 
 	 * @throws InvalidArgumentException if the current {@link IFuture} catches an error.
 	 */
-	default void waitUntilIsFinishedSuccessfully() {
-		
-		waitUntilIsFinished();
-		
-		if (caughtError()) {
-			
-			if (getError().getMessage() == null) {
-				throw new InvalidArgumentException(this, "has caught a '" + getError().getClass().getName() + "'");
-			}
-			
-			throw
-			new InvalidArgumentException(
-				this,
-				"has caught the error '" + getError().getClass().getName() + ": " + getError().getMessage() + "'"
-			);
-		}
-	}
+	void waitUntilIsFinishedSuccessfully();
 	
 	//method
 	/**
@@ -81,21 +63,5 @@ public interface IFuture extends FinishRequestable {
 	 * @throws InvalidArgumentException if the current {@link IFuture} catches an error.
 	 * @throws InvalidArgumentException if the current {@link IFuture} reached the given timeoutInMilliseconds before having finished.
 	 */
-	default void waitUntilIsFinishedSuccessfully(final int timeoutInMilliseconds) {
-		
-		waitUntilIsFinished(timeoutInMilliseconds);
-		
-		if (caughtError()) {
-			
-			if (getError().getMessage() == null || getError().getMessage().isBlank()) {
-				throw new InvalidArgumentException(this, "has caught a '" + getError().getClass().getName() + "'");
-			}
-			
-			throw
-			new InvalidArgumentException(
-				this,
-				"has caught the error '" + getError().getClass().getName() + ": " + getError().getMessage() + "'"
-			);
-		}
-	}
+	void waitUntilIsFinishedSuccessfully(int timeoutInMilliseconds);
 }

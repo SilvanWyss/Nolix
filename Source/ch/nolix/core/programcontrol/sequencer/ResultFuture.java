@@ -5,6 +5,7 @@ package ch.nolix.core.programcontrol.sequencer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.programcontrol.future.BaseFuture;
 import ch.nolix.core.programcontrol.futureuniversalapi.IResultFuture;
 
 //class
@@ -13,7 +14,7 @@ import ch.nolix.core.programcontrol.futureuniversalapi.IResultFuture;
  * @date 2017-09-29
  * @param <R> is the type of the result of a {@link ResultFuture}.
  */
-public final class ResultFuture<R> implements IResultFuture<R> {
+public final class ResultFuture<R> extends BaseFuture implements IResultFuture<R> {
 	
 	//attribute
 	private final ResultJobRunner<R> resultJobRunner;
