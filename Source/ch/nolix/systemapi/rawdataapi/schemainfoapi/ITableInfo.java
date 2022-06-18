@@ -2,16 +2,13 @@
 package ch.nolix.systemapi.rawdataapi.schemainfoapi;
 
 //own imports
-import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.containerapi.IContainer;
 
 //interface
 public interface ITableInfo {
 	
-	//method
-	default IColumnInfo getColumnInfoByColumnName(String columnName) {
-		return getColumnInfos().getRefFirst(cd -> cd.getColumnName().equals(columnName));
-	}
+	//method declaration
+	IColumnInfo getColumnInfoByColumnName(String columnName);
 	
 	//method declaration
 	IContainer<IColumnInfo> getColumnInfos();
@@ -22,8 +19,6 @@ public interface ITableInfo {
 	//method declaration
 	String getTableName();
 	
-	//method
-	default String getTableNameInQuotes() {
-		return GlobalStringHelper.getInQuotes(getTableName());
-	}
+	//method declaration
+	String getTableNameInQuotes();
 }

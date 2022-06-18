@@ -2,6 +2,7 @@
 package ch.nolix.system.sqlrawdata.schemainfo;
 
 //own imports
+import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
@@ -45,6 +46,12 @@ public final class TableInfo implements ITableInfo {
 	
 	//method
 	@Override
+	public IColumnInfo getColumnInfoByColumnName(final String columnName) {
+		return getColumnInfos().getRefFirst(cd -> cd.getColumnName().equals(columnName));
+	}
+	
+	//method
+	@Override
 	public IContainer<IColumnInfo> getColumnInfos() {
 		return columnInfos;
 	}
@@ -59,5 +66,11 @@ public final class TableInfo implements ITableInfo {
 	@Override
 	public String getTableName() {
 		return tableName;
+	}
+	
+	//method
+	@Override
+	public String getTableNameInQuotes() {
+		return GlobalStringHelper.getInQuotes(getTableName());
 	}
 }
