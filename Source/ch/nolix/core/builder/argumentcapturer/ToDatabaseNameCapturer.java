@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.core.builder.argumentcapturer;
 
-//own imports
-import ch.nolix.core.builder.base.ArgumentCapturer;
-import ch.nolix.core.builder.base.BaseArgumentCapturer;
+import ch.nolix.core.builder.main.ArgumentCapturer;
+import ch.nolix.core.builder.main.BaseArgumentCapturer;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 

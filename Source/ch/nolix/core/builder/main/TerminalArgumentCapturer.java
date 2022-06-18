@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.builder.base;
+package ch.nolix.core.builder.main;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;

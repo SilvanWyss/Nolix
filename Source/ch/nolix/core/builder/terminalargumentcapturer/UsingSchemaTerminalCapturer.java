@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.core.builder.terminalargumentcapturer;
 
-//own imports
-import ch.nolix.core.builder.base.TerminalArgumentCapturer;
+import ch.nolix.core.builder.main.TerminalArgumentCapturer;
 
 //class
 public final class UsingSchemaTerminalCapturer<
