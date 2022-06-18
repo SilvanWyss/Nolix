@@ -245,7 +245,7 @@ public final class ItemMenuItem extends MutableElement<ItemMenuItem> implements 
 	//method
 	private void assertDoesNotBelonToMenu() {
 		if (belongsToMenu()) {
-			throw new ArgumentBelongsToParentException(this, ItemMenu.class);
+			throw ArgumentBelongsToParentException.forArgumentAndParent(this, ItemMenu.class);
 		}
 	}
 

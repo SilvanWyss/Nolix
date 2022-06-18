@@ -1233,7 +1233,7 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 		
 		//Asserts that the current Layer does not belong to another GUI.
 		if (this.parentGUI != null && this.parentGUI != parentGUI) {
-			throw new ArgumentBelongsToParentException(this, this.parentGUI);
+			throw ArgumentBelongsToParentException.forArgumentAndParent(this, this.parentGUI);
 		}
 		
 		//Handles the case that the current Layer has a root Widget.

@@ -32,7 +32,7 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
 	@Override
 	public void assertDoesNotBelongToDatabase(final ITable<?> table) {
 		if (table.belongsToDatabase()) {
-			throw new ArgumentBelongsToParentException(table, table.getParentDatabase());
+			throw ArgumentBelongsToParentException.forArgumentAndParent(table, table.getParentDatabase());
 		}
 	}
 	

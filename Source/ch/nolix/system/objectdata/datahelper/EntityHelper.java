@@ -46,7 +46,7 @@ public class EntityHelper extends DatabaseObjectHelper implements IEntityHelper 
 	@Override
 	public final void assertDoesNotBelongToTable(final IEntity<?> entity) {
 		if (entity.belongsToTable()) {
-			throw new ArgumentBelongsToParentException(entity, entity.getParentTable());
+			throw ArgumentBelongsToParentException.forArgumentAndParent(entity, entity.getParentTable());
 		}
 	}
 	

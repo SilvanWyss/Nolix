@@ -28,6 +28,17 @@ public final class ArgumentBelongsToParentException extends InvalidArgumentExcep
 		return parent.getClass().getSimpleName();
 	}
 	
+	//static method
+	/**
+	 * @param argument
+	 * @param parent
+	 * @return a new {@link ArgumentBelongsToParentException} for the given argument that belongs to the given parent.
+	 * @throws IllegalArgumentException if the given parent is null.
+	 */
+	public static ArgumentBelongsToParentException forArgumentAndParent(final Object argument, final Object parent) {
+		return new ArgumentBelongsToParentException(argument, parent);
+	}
+	
 	//constructor
 	/**
 	 * Creates a new {@link ArgumentBelongsToParentException} for the given argument that belongs to the given parent.
@@ -36,7 +47,7 @@ public final class ArgumentBelongsToParentException extends InvalidArgumentExcep
 	 * @param parent
 	 * @throws IllegalArgumentException if the given parent is null.
 	 */
-	public ArgumentBelongsToParentException(final Object argument, final Object parent) {
+	private ArgumentBelongsToParentException(final Object argument, final Object parent) {
 		
 		//Calls constructor of the base class.
 		super(argument, "belongs to a " + getParentName(parent));
