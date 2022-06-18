@@ -1,8 +1,6 @@
 //package declaration
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
-import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-
 //class
 /**
  * A {@link ArgumentDoesNotContainElementException} is a {@link InvalidArgumentException} that
@@ -15,14 +13,14 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 public final class ArgumentDoesNotContainElementException extends InvalidArgumentException {
 	
 	//constant
-	private static final String DEFAULT_ELEMENT_NAME = LowerCaseCatalogue.ELEMENT;
+	private static final String DEFAULT_ELEMENT_NAME = "element";
 	
 	//static method
 	/**
 	 * @param element
-	 * @return an element name for the given element.
+	 * @return the name of the given element.
 	 */
-	private static String getElementName(final Object element) {
+	private static String getNameOfElement(final Object element) {
 		
 		//Handles the case that the given element is null.
 		if (element == null) {
@@ -41,6 +39,6 @@ public final class ArgumentDoesNotContainElementException extends InvalidArgumen
 	 * @param element
 	 */
 	public ArgumentDoesNotContainElementException(final Object argument, final Object element) {
-		super(argument, "does not contain the given " + getElementName(element));
+		super(argument, "does not contain the given " + getNameOfElement(element));
 	}
 }
