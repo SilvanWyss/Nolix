@@ -3,22 +3,22 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 
 //class
 /**
- * A {@link ArgumentBelongsToParentException} is a {@link InvalidArgumentException}
- * that is supposed to be thrown when a given argument belongs undesirably to a parent.
+ * A {@link ArgumentBelongsToParentException} is a {@link InvalidArgumentException} that
+ * is supposed to be thrown when a given argument belongs undesirably to a parent.
  * 
  * @author Silvan Wyss
  * @date 2019-10-01
  */
 @SuppressWarnings("serial")
-public class ArgumentBelongsToParentException extends InvalidArgumentException {
+public final class ArgumentBelongsToParentException extends InvalidArgumentException {
 	
 	//static method
 	/**
 	 * @param parent
-	 * @return a safe type name for the given parent.
+	 * @return the name of the given parent.
 	 * @throws IllegalArgumentException if the given parent is null.
 	 */
-	private static String createSafeTypeName(final Object parent) {
+	private static String getParentName(final Object parent) {
 		
 		//Asserts that the given parent is not null.
 		if (parent == null) {
@@ -39,6 +39,6 @@ public class ArgumentBelongsToParentException extends InvalidArgumentException {
 	public ArgumentBelongsToParentException(final Object argument, final Object parent) {
 		
 		//Calls constructor of the base class.
-		super(argument, "belongs to a " + createSafeTypeName(parent));
+		super(argument, "belongs to a " + getParentName(parent));
 	}
 }
