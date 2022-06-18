@@ -17,6 +17,19 @@ public final class ArgumentDoesNotContainElementException extends InvalidArgumen
 	
 	//static method
 	/**
+	 * @param argument
+	 * @param element
+	 * @return a new {@link ArgumentDoesNotContainElementException} for the given argument and element.
+	 */
+	public static ArgumentDoesNotContainElementException forArgumentAndElement(
+		final Object argument,
+		final Object element
+	) {
+		return new ArgumentDoesNotContainElementException(argument, element);
+	}
+	
+	//static method
+	/**
 	 * @param element
 	 * @return the name of the given element.
 	 */
@@ -38,7 +51,7 @@ public final class ArgumentDoesNotContainElementException extends InvalidArgumen
 	 * @param argument
 	 * @param element
 	 */
-	public ArgumentDoesNotContainElementException(final Object argument, final Object element) {
+	private ArgumentDoesNotContainElementException(final Object argument, final Object element) {
 		super(argument, "does not contain the given " + getNameOfElement(element));
 	}
 }

@@ -24,7 +24,7 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
 	@Override
 	public void assertContainsGivenColumn(final ITable<?> table, final IColumn<?> column) {
 		if (!containsGivenColumn(table, column)) {
-			throw new ArgumentDoesNotContainElementException(table, column);
+			throw ArgumentDoesNotContainElementException.forArgumentAndElement(table, column);
 		}
 	}
 	

@@ -60,7 +60,7 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 	@Override
 	public void assertContainsGivenTable(final IDatabase<?> database, final ITable<?> table) {
 		if (!containsGivenTable(database, table)) {
-			throw new ArgumentDoesNotContainElementException(database, table);
+			throw ArgumentDoesNotContainElementException.forArgumentAndElement(database, table);
 		}
 	}
 	
@@ -99,7 +99,7 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 	@Override
 	public void assertContainsTableWithGivenColumn(final IDatabase<?> database, final IColumn<?> column) {
 		if (!containsTableWithGivenColumn(database, column)) {
-			throw new ArgumentDoesNotContainElementException(this, column);
+			throw ArgumentDoesNotContainElementException.forArgumentAndElement(this, column);
 		}
 	}
 	
