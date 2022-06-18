@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.systemapi.elementapi.configurationapi;
 
+//own imports
 import ch.nolix.core.attributeuniversalapi.mutableoptionalattributeuniversalapi.OptionalIdentifiableByString;
 import ch.nolix.core.attributeuniversalapi.mutableoptionalattributeuniversalapi.OptionalTokenable;
-import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.requestuniversalapi.ContainsElementByStringIdRequestable;
 import ch.nolix.core.skilluniversalapi.TypeRequestable;
@@ -25,33 +25,11 @@ OptionalIdentifiableByString<C>,
 OptionalTokenable<C>,
 TypeRequestable {
 	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	default boolean containsElement(final String id) {
-		return getSubConfigurablesRecursively().containsAny(sc -> sc.hasId(id));
-	}
-	
 	//method declaration
 	/**
 	 * @return the {@link IConfigurableElement}s of the current {@link IConfigurableElement}.
 	 */
 	IContainer<IConfigurableElement<?>> getSubConfigurables();
-	
-	//method
-	/**
-	 * @return the {@link IConfigurableElement}s of the current {@link IConfigurableElement} recursively.
-	 */
-	default IContainer<IConfigurableElement<?>> getSubConfigurablesRecursively() {
-		
-		final var subConfigurables = new LinkedList<IConfigurableElement<?>>();
-		subConfigurables.addAtEnd(getSubConfigurables());
-		subConfigurables.addAtEnd(getSubConfigurables().toFromMany(IConfigurableElement::getSubConfigurablesRecursively));
-		
-		return subConfigurables;
-	}
 	
 	//method declaration
 	/**
