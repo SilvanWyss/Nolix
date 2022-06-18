@@ -81,9 +81,7 @@ extends GroupCloseable, IResizableInputTaker, Rectangular, Refreshable, Titleble
 	 * 
 	 * @param pGUI
 	 */
-	default void noteResizeFrom(final IBaseGUI<?> pGUI) {
-		noteResize(pGUI.getViewAreaWidth(), pGUI.getViewAreaHeight());
-	}
+	void noteResizeFrom(IBaseGUI<?> pGUI);
 	
 	//method declaration
 	/**

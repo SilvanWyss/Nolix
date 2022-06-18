@@ -488,6 +488,15 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	 * {@inheritDoc}
 	 */
 	@Override
+	public final void noteResizeFrom(final IBaseGUI<?> pGUI) {
+		noteResize(pGUI.getViewAreaWidth(), pGUI.getViewAreaHeight());
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public final void noteRightMouseButtonClick() {
 		if (inputTaker != null) {
 			inputTaker.noteRightMouseButtonClick();
