@@ -4,13 +4,22 @@ package ch.nolix.system.gui3d.jmonkeygui;
 //JMonkey imports
 import com.jme3.material.Material;
 import com.jme3.scene.Geometry;
+import com.jme3.scene.Spatial;
 import com.jme3.texture.Texture2D;
 import com.jme3.texture.plugins.AWTLoader;
 
+//own imports
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.system.gui3d.shape.Pyramid;
 
 //class
 final class JMonkeyPyramidRenderer implements IJMonkeyShapeRenderer<Pyramid, Geometry> {
+	
+	//method
+	@Override
+	public void addSubRenderObject(final Geometry renderObject, final Spatial subRenderObject) {
+		throw new ArgumentDoesNotSupportMethodException(this, "addSubRenderObject");
+	}
 	
 	//method
 	@Override
@@ -19,6 +28,12 @@ final class JMonkeyPyramidRenderer implements IJMonkeyShapeRenderer<Pyramid, Geo
 			"Dome",
 			new com.jme3.scene.shape.Dome(2, 4, 1.0F)
 		);
+	}
+	
+	//method
+	@Override
+	public void removeSubRenderObject(final Geometry renderObject, final Spatial subRederObject) {
+		throw new ArgumentDoesNotSupportMethodException(this, "removeSubRenderObject");
 	}
 	
 	//method

@@ -5,6 +5,7 @@ package ch.nolix.system.gui3d.jmonkeygui;
 import com.jme3.scene.Node;
 import com.jme3.scene.Spatial;
 
+//own imports
 import ch.nolix.system.gui3d.shape.MultiShape;
 
 //class
@@ -40,7 +41,13 @@ public final class JMonkeyMultiShapeRenderer implements IJMonkeyShapeRenderer<Mu
 	public Node createRenderObject() {
 		return new Node();
 	}
-
+	
+	//method
+	@Override
+	public void removeSubRenderObject(final Node renderObject, final Spatial subRederObject) {
+		subRederObject.removeFromParent();
+	}
+	
 	//method
 	/**
 	 * 

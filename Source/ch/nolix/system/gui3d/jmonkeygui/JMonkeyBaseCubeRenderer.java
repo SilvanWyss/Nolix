@@ -4,10 +4,13 @@ package ch.nolix.system.gui3d.jmonkeygui;
 //JMonkey imports
 import com.jme3.material.Material;
 import com.jme3.scene.Geometry;
+import com.jme3.scene.Spatial;
 import com.jme3.scene.shape.Box;
 import com.jme3.texture.Texture2D;
 import com.jme3.texture.plugins.AWTLoader;
 
+//own imports
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.system.gui3d.shape.BaseCube;
 
 //class
@@ -24,12 +27,30 @@ public final class JMonkeyBaseCubeRenderer implements IJMonkeyShapeRenderer<Base
 	 * {@inheritDoc}
 	 */
 	@Override
+	public void addSubRenderObject(final Geometry renderObject, final Spatial subRenderObject) {
+		throw new ArgumentDoesNotSupportMethodException(this, "addSubRenderObject");
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public Geometry createRenderObject() {
 		
 		//Creates box.
 		final var box = new Box(1, 1, 1);
 		
 		return new Geometry("Box", box);
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void removeSubRenderObject(final Geometry renderObject, final Spatial subRederObject) {
+		throw new ArgumentDoesNotSupportMethodException(this, "removeSubRenderObject");
 	}
 	
 	//method

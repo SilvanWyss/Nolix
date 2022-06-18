@@ -4,7 +4,10 @@ package ch.nolix.system.gui3d.jmonkeygui;
 //JMonkey imports
 import com.jme3.material.Material;
 import com.jme3.scene.Geometry;
+import com.jme3.scene.Spatial;
 
+//own imports
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.system.gui3d.shape.Sphere;
 
 //class
@@ -15,9 +18,17 @@ import ch.nolix.system.gui3d.shape.Sphere;
  * @author Silvan Wyss
  * @date 2017-11-11
  */
-public final class JMonkeySphereRenderer
-implements IJMonkeyShapeRenderer<Sphere, Geometry> {
-
+public final class JMonkeySphereRenderer implements IJMonkeyShapeRenderer<Sphere, Geometry> {
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void addSubRenderObject(final Geometry renderObject, final Spatial subRenderObject) {
+		throw new ArgumentDoesNotSupportMethodException(this, "addSubRenderObject");
+	}
+	
 	//method
 	/**
 	 * @return a new render object for a sphere from this JMonkey sphere renderer.
@@ -36,10 +47,19 @@ implements IJMonkeyShapeRenderer<Sphere, Geometry> {
 			material.setBoolean("UseMaterialColors", true);
 		
 		//Creates geometry.
- final Geometry geometry = new Geometry("Box", sphere);
- geometry.setMaterial(material);
- 
+		final Geometry geometry = new Geometry("Box", sphere);
+		geometry.setMaterial(material);
+		
 		return geometry;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void removeSubRenderObject(final Geometry renderObject, final Spatial subRederObject) {
+		throw new ArgumentDoesNotSupportMethodException(this, "removeSubRenderObject");
 	}
 
 	//method

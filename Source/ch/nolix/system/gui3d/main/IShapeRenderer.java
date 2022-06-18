@@ -1,9 +1,6 @@
 //package declaration
 package ch.nolix.system.gui3d.main;
 
-//own imports
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
-
 //interface
 /**
  * @author Silvan Wyss
@@ -12,9 +9,13 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSuppor
  * @param <RO> is the type of the render objects a {@link IShapeRenderer} provides.
  * @param <SRO> is the type of the sub render objects of a {@link IShapeRenderer}.
  */
-public interface IShapeRenderer<S extends Shape<S>, RO, SRO> {
+public interface IShapeRenderer<
+	S extends Shape<S>,
+	RO,
+	SRO
+> {
 
-	//method
+	//method declaration
 	/**
 	 * Lets this shape renderer
 	 * add the given sub render object to the given render object.
@@ -22,15 +23,7 @@ public interface IShapeRenderer<S extends Shape<S>, RO, SRO> {
 	 * @param renderObject
 	 * @param subRenderObject
 	 */
-	default void addSubRenderObject(
-		final RO renderObject,
-		final SRO subRenderObject
-	) {
-		throw new ArgumentDoesNotSupportMethodException(
-			this,
-			"add sub render object"
-		);
-	}
+	void addSubRenderObject(final RO renderObject, final SRO subRenderObject);
 	
 	//method declaration
 	/**
@@ -47,7 +40,7 @@ public interface IShapeRenderer<S extends Shape<S>, RO, SRO> {
 	 */
 	void render(final S shape, final RO renderObject);
 	
-	//method
+	//method declaration
 	/**
 	 * Lets this shape renderer
 	 * remove the given sub render object from the given render object.
@@ -55,13 +48,5 @@ public interface IShapeRenderer<S extends Shape<S>, RO, SRO> {
 	 * @param renderObject
 	 * @param subRederObject
 	 */
-	default void removeSubRenderObject(
-		RO renderObject,
-		SRO subRederObject
-	) {
-		throw new ArgumentDoesNotSupportMethodException(
-			this,
-			"remove sub render object"
-		);
-	}
+	void removeSubRenderObject(RO renderObject,	SRO subRederObject);
 }
