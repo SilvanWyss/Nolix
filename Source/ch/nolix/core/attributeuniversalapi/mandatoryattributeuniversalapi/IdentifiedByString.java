@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi;
 
+//own imports
+import ch.nolix.core.programatom.marker.AllowDefaultMethodsAsDesignPattern;
+
 //interface
 /**
  * A {@link IdentifiedByString} has an id that is a {@link String}.
@@ -8,6 +11,7 @@ package ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi;
  * @author Silvan Wyss
  * @date 2019-06-10
  */
+@AllowDefaultMethodsAsDesignPattern
 public interface IdentifiedByString {
 	
 	//method declaration

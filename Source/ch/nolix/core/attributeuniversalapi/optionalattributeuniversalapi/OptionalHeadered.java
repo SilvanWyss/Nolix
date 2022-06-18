@@ -1,7 +1,9 @@
 //package declaration
 package ch.nolix.core.attributeuniversalapi.optionalattributeuniversalapi;
 
+//own imports
 import ch.nolix.core.commontype.constant.StringCatalogue;
+import ch.nolix.core.programatom.marker.AllowDefaultMethodsAsDesignPattern;
 
 //interface
 /**
@@ -10,6 +12,7 @@ import ch.nolix.core.commontype.constant.StringCatalogue;
  * @author Silvan Wyss
  * @date 2020-03-28
  */
+@AllowDefaultMethodsAsDesignPattern
 public interface OptionalHeadered {
 	
 	//method declaration

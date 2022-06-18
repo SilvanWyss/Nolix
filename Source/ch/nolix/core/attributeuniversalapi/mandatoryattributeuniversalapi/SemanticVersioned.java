@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi;
 
+//own imports
+import ch.nolix.core.programatom.marker.AllowDefaultMethodsAsDesignPattern;
+
 //interface
 /**
  * A {@link SemanticVersioned} has a semantic version.
@@ -13,6 +16,7 @@ package ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi;
  * @author Silvan Wyss
  * @date 2019-03-01
  */
+@AllowDefaultMethodsAsDesignPattern
 public interface SemanticVersioned {
 	
 	//method declaration

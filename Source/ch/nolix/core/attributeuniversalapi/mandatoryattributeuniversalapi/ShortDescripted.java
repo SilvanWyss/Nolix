@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi;
 
+//own imports
+import ch.nolix.core.programatom.marker.AllowDefaultMethodsAsDesignPattern;
+
 //interface
 /**
  * A {@link ShortDescripted} has a short description.
@@ -21,6 +24,7 @@ package ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi;
  * @author Silvan Wyss
  * @date 2018-12-01
  */
+@AllowDefaultMethodsAsDesignPattern
 public interface ShortDescripted {
 	
 	//method declaration

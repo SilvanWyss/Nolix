@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi;
 
+//own imports
+import ch.nolix.core.programatom.marker.AllowDefaultMethodsAsDesignPattern;
+
 //interface
 /**
  * A {@link ITextHolder} has a text.
@@ -8,6 +11,7 @@ package ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi;
  * @author Silvan Wyss
  * @date 2021-06-19
  */
+@AllowDefaultMethodsAsDesignPattern
 public interface ITextHolder {
 	
 	//method declaration

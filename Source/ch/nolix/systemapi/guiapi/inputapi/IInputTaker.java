@@ -3,6 +3,7 @@ package ch.nolix.systemapi.guiapi.inputapi;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.programatom.marker.AllowDefaultMethodsAsDesignPattern;
 import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
 
 //interface
@@ -10,6 +11,7 @@ import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
  * @author Silvan
  * @date 2019-08-01
  */
+@AllowDefaultMethodsAsDesignPattern
 public interface IInputTaker {
 	
 	//method

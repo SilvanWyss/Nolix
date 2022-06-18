@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi;
 
+//own imports
+import ch.nolix.core.programatom.marker.AllowDefaultMethodsAsDesignPattern;
+
 //interface
 /**
  * A {@link Titled} has a title.
@@ -8,6 +11,7 @@ package ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi;
  * @author Silvan Wyss
  * @date 2019-07-26
  */
+@AllowDefaultMethodsAsDesignPattern
 public interface Titled {
 	
 	//method declaration

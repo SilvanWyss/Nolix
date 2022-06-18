@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.core.griduniversalapi;
 
+//own imports
+import ch.nolix.core.programatom.marker.AllowDefaultMethodsAsDesignPattern;
+
 //interface
 /**
  * A {@link TopLeftPositioned} knows its top left position.
@@ -9,6 +12,7 @@ package ch.nolix.core.griduniversalapi;
  * @author Silvan Wyss
  * @date 2019-07-28
  */
+@AllowDefaultMethodsAsDesignPattern
 public interface TopLeftPositioned {
 	
 	//method declaration

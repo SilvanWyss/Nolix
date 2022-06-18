@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi;
 
+//own imports
+import ch.nolix.core.programatom.marker.AllowDefaultMethodsAsDesignPattern;
+
 //interface
 /**
  * A {@link IContextOwner} has a context.
@@ -9,6 +12,7 @@ package ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi;
  * @date 2022-03-18
  * @param <C> is the type of the context of a {@link IContextOwner}.
  */
+@AllowDefaultMethodsAsDesignPattern
 public interface IContextOwner<C> {
 	
 	//method declaration

@@ -1,17 +1,20 @@
 //package declaration
 package ch.nolix.systemapi.elementapi.mainuniversalapi;
 
+//own imports
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.document.xml.XMLNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.programatom.marker.AllowDefaultMethodsAsDesignPattern;
 
 //interface
 /**
  * @author Silvan Wyss
  * @date 2016-01-01
  */
+@AllowDefaultMethodsAsDesignPattern
 public interface Specified {
 	
 	//method declaration

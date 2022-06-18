@@ -3,6 +3,7 @@ package ch.nolix.core.requestuniversalapi;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
+import ch.nolix.core.programatom.marker.AllowDefaultMethodsAsDesignPattern;
 
 //interface
 /**
@@ -11,6 +12,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentExcepti
  * @author Silvan Wyss
  * @date 2020-07-01
  */
+@AllowDefaultMethodsAsDesignPattern
 public interface CloseStateRequestable {
 	
 	//method

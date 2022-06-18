@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.core.requestuniversalapi;
 
+//own imports
+import ch.nolix.core.programatom.marker.AllowDefaultMethodsAsDesignPattern;
+
 //interface
 /**
  * A {@link VoidnessRequestable} can be asked if it is void.
@@ -8,6 +11,7 @@ package ch.nolix.core.requestuniversalapi;
  * @author Silvan Wyss
  * @date 2022-03-10
  */
+@AllowDefaultMethodsAsDesignPattern
 public interface VoidnessRequestable {
 	
 	//method

@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.core.attributeuniversalapi.optionalattributeuniversalapi;
 
+//own imports
+import ch.nolix.core.programatom.marker.AllowDefaultMethodsAsDesignPattern;
+
 //interface
 /**
  * A {@link OptionalValued} can have a value.
@@ -9,6 +12,7 @@ package ch.nolix.core.attributeuniversalapi.optionalattributeuniversalapi;
  * @date 2020-03-29
  * @param <V> is the type of the value of a {@link OptionalValued}.
  */
+@AllowDefaultMethodsAsDesignPattern
 public interface OptionalValued<V> {
 	
 	//method declaration

@@ -1,11 +1,15 @@
 //package declaration
 package ch.nolix.systemapi.guiapi.inputapi;
 
+//own imports
+import ch.nolix.core.programatom.marker.AllowDefaultMethodsAsDesignPattern;
+
 //interface
 /**
  * @author Silvan Wyss
  * @date 2020-06-06
  */
+@AllowDefaultMethodsAsDesignPattern
 public interface IResizableInputTaker extends IInputTaker {
 	
 	//method

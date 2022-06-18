@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi;
 
+//own imports
+import ch.nolix.core.programatom.marker.AllowDefaultMethodsAsDesignPattern;
+
 //interface
 /**
  * A {@link Valued} has a value.
@@ -10,6 +13,7 @@ package ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi;
  * @param <VA> is the type of a {@link Valued}.
  * @param <V> is the type of the value of a {@link Valued}.
  */
+@AllowDefaultMethodsAsDesignPattern
 public interface Valued<VA extends Valued<VA, V>, V> {
 	
 	//method declaration

@@ -3,6 +3,7 @@ package ch.nolix.core.requestuniversalapi;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonEmptyArgumentException;
+import ch.nolix.core.programatom.marker.AllowDefaultMethodsAsDesignPattern;
 
 //interface
 /**
@@ -11,6 +12,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NonEmptyArgumentExcep
  * @author Silvan Wyss
  * @date 2020-06-11
  */
+@AllowDefaultMethodsAsDesignPattern
 public interface EmptinessRequestable {
 	
 	//method

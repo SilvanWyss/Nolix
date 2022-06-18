@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.core.requestuniversalapi;
 
+//own imports
+import ch.nolix.core.programatom.marker.AllowDefaultMethodsAsDesignPattern;
+
 //interface
 /**
  * A {@link MutabilityRequestable} can be asked if it is mutable.
@@ -8,6 +11,7 @@ package ch.nolix.core.requestuniversalapi;
  * @author Silvan Wyss
  * @date 2021-03-19
  */
+@AllowDefaultMethodsAsDesignPattern
 public interface MutabilityRequestable {
 	
 	//method

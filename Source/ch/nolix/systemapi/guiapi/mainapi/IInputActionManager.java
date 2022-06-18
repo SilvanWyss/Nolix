@@ -6,9 +6,11 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.I2ElementTaker;
 import ch.nolix.core.functionuniversalapi.IAction;
 import ch.nolix.core.functionuniversalapi.IElementTaker;
+import ch.nolix.core.programatom.marker.AllowDefaultMethodsAsDesignPattern;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 
 //interface
+@AllowDefaultMethodsAsDesignPattern
 public interface IInputActionManager<IAM extends IInputActionManager<IAM>> {
 	
 	//method

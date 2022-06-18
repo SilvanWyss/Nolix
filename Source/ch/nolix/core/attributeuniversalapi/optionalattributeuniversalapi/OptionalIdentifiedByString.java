@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.core.attributeuniversalapi.optionalattributeuniversalapi;
 
+//own imports
+import ch.nolix.core.programatom.marker.AllowDefaultMethodsAsDesignPattern;
+
 //interface
 /**
  * A {@link OptionalIdentifiedByString} can have an id that is a {@link String}.
@@ -8,6 +11,7 @@ package ch.nolix.core.attributeuniversalapi.optionalattributeuniversalapi;
  * @author Silvan Wyss
  * @date 2020-01-05
  */
+@AllowDefaultMethodsAsDesignPattern
 public interface OptionalIdentifiedByString {
 	
 	//method declaration

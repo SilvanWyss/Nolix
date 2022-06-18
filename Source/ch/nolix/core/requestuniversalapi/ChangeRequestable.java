@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.core.requestuniversalapi;
 
+//own imports
+import ch.nolix.core.programatom.marker.AllowDefaultMethodsAsDesignPattern;
+
 //interface
 /**
  * A {@link ChangeRequestable} can be asked if it has uncommitted changes.
@@ -8,6 +11,7 @@ package ch.nolix.core.requestuniversalapi;
  * @author Silvan Wyss
  * @date 2021-02-26
  */
+@AllowDefaultMethodsAsDesignPattern
 public interface ChangeRequestable {
 	
 	//method declaration

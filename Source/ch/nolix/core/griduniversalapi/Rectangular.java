@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.core.griduniversalapi;
 
+//own imports
+import ch.nolix.core.programatom.marker.AllowDefaultMethodsAsDesignPattern;
+
 //interface
 /**
  * A {@link Rectangular} has a discrete, non-negative width and a height.
@@ -8,6 +11,7 @@ package ch.nolix.core.griduniversalapi;
  * @author Silvan Wyss
  * @date 2019-07-28
  */
+@AllowDefaultMethodsAsDesignPattern
 public interface Rectangular {
 	
 	//method

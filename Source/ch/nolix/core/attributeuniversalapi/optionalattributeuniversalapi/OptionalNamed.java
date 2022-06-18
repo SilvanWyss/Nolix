@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.core.attributeuniversalapi.optionalattributeuniversalapi;
 
+//own imports
+import ch.nolix.core.programatom.marker.AllowDefaultMethodsAsDesignPattern;
+
 //interface
 /**
  * A {@link OptionalNamed} can have a name
@@ -8,6 +11,7 @@ package ch.nolix.core.attributeuniversalapi.optionalattributeuniversalapi;
  * @author Silvan Wyss
  * @date 2020-03-29
  */
+@AllowDefaultMethodsAsDesignPattern
 public interface OptionalNamed {
 	
 	//method declaration

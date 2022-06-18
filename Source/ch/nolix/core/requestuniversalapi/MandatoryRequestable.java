@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.core.requestuniversalapi;
 
+//own imports
+import ch.nolix.core.programatom.marker.AllowDefaultMethodsAsDesignPattern;
+
 //interface
 /**
  * A {@link MandatoryRequestable} can be asked if it is mandatory.
@@ -8,6 +11,7 @@ package ch.nolix.core.requestuniversalapi;
  * @author Silvan Wyss
  * @date 2021-12-26
  */
+@AllowDefaultMethodsAsDesignPattern
 public interface MandatoryRequestable {
 	
 	//method declaration

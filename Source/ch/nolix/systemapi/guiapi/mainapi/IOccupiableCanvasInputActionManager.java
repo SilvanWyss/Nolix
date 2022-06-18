@@ -5,9 +5,11 @@ package ch.nolix.systemapi.guiapi.mainapi;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.functionuniversalapi.IAction;
 import ch.nolix.core.functionuniversalapi.IElementTaker;
+import ch.nolix.core.programatom.marker.AllowDefaultMethodsAsDesignPattern;
 import ch.nolix.systemapi.guiapi.universalcanvasapi.IOccupiableHoverableCanvas;
 
 //interface
+@AllowDefaultMethodsAsDesignPattern
 public interface IOccupiableCanvasInputActionManager<OCIAM extends IOccupiableCanvasInputActionManager<OCIAM>>
 extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 	

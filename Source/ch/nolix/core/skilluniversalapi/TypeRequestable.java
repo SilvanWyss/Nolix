@@ -3,6 +3,7 @@ package ch.nolix.core.skilluniversalapi;
 
 //own imports
 import ch.nolix.core.language.GlobalEnglishNounHelper;
+import ch.nolix.core.programatom.marker.AllowDefaultMethodsAsDesignPattern;
 
 //interface
 /**
@@ -11,6 +12,7 @@ import ch.nolix.core.language.GlobalEnglishNounHelper;
  * @author Silvan Wyss
  * @date 2018-11-25
  */
+@AllowDefaultMethodsAsDesignPattern
 public interface TypeRequestable {
 	
 	//method
