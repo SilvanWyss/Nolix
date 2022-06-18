@@ -1,11 +1,8 @@
 //package declaration
 package ch.nolix.core.attributeuniversalapi.mutablemandatoryattributeuniversalapi;
 
+//own imports
 import ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi.SemanticVersioned;
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
 //interface
 /**
@@ -34,17 +31,7 @@ public interface SemanticVersionable<SV extends SemanticVersionable<SV>> extends
 	 * 
 	 * @param version
 	 * @return the current {@link SemanticVersionable}.
-	 * @throws ArgumentIsNullException if the given version is null.
-	 * @throws InvalidArgumentException if the given version is blank.
+	 * @throws RuntimeException if the given version is not valid.
 	 */
-	default SV setVersion(final String version) {
-		
-		GlobalValidator.assertThat(version).thatIsNamed(LowerCaseCatalogue.VERSION).isNotBlank();
-		
-		final var array = version.split(".");
-		
-		GlobalValidator.assertThat(array).hasElementCount(3);
-		
-		return setVersion(Integer.valueOf(array[0]), Integer.valueOf(array[1]), Integer.valueOf(array[2]));
-	}
+	SV setVersion(String version);
 }
