@@ -98,4 +98,16 @@ public final class ResultFuture<R> extends BaseFuture implements IResultFuture<R
 			throw new InvalidArgumentException(this, "reached timeout before having finished");
 		}
 	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public R waitUntilIsFinishedAndGetResult() {
+		
+		waitUntilIsFinished();
+		
+		return getResult();
+	}
 }

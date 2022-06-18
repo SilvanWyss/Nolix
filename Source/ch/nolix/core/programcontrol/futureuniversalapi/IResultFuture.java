@@ -23,10 +23,5 @@ public interface IResultFuture<R> extends IFuture {
 	 * 
 	 * @return the result of the current {@link IResultFuture} after waiting until it is finished.
 	 */
-	default R waitUntilIsFinishedAndGetResult() {
-		
-		waitUntilIsFinished();
-		
-		return getResult();
-	}
+	R waitUntilIsFinishedAndGetResult();
 }
