@@ -9,7 +9,7 @@ import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.system.nodedatabaserawschema.databaseinitializer.DatabaseInitializer;
 import ch.nolix.system.nodedatabaserawschema.schemareader.SchemaReader;
 import ch.nolix.system.nodedatabaserawschema.schemawriter.SchemaWriter;
-import ch.nolix.system.time.base.Time;
+import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDTO;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDTO;

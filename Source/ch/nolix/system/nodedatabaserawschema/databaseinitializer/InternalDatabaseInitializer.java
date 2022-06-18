@@ -5,7 +5,7 @@ package ch.nolix.system.nodedatabaserawschema.databaseinitializer;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.system.nodedatabaserawschema.structure.SubNodeHeaderCatalogue;
-import ch.nolix.system.time.base.Time;
+import ch.nolix.system.time.moment.Time;
 
 //class
 final class InternalDatabaseInitializer {

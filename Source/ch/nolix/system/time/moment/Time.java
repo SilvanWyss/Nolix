@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.time.base;
+package ch.nolix.system.time.moment;
 
 //Java imports
 import java.time.Year;

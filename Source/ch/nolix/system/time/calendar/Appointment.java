@@ -6,7 +6,7 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.system.element.MutableElement;
 import ch.nolix.system.element.MutableValue;
-import ch.nolix.system.time.base.Time;
+import ch.nolix.system.time.moment.Time;
 import ch.nolix.system.time.timevalidator.TimeValidator;
 import ch.nolix.systemapi.timeapi.calendarapi.IAppointment;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;

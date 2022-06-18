@@ -12,7 +12,7 @@ import ch.nolix.system.objectschema.schemadto.TableDTO;
 import ch.nolix.system.sqlrawschema.columntable.ColumnDTOMapper;
 import ch.nolix.system.sqlrawschema.structure.TableType;
 import ch.nolix.system.sqlrawschema.tabletable.TableDTOMapper;
-import ch.nolix.system.time.base.Time;
+import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDTO;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaReader;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDTO;

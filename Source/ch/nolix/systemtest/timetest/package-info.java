@@ -1,6 +1,6 @@
 //package info
 /**
- * The {@link ch.nolix.systemtest.timetest} package defines tests for the {@link ch.nolix.system.time.base} package.
+ * The {@link ch.nolix.systemtest.timetest} package defines tests for the {@link ch.nolix.system.time.moment} package.
  * 
  * @author Silvan Wyss
  * @date 2019-08-01

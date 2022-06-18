@@ -3,7 +3,7 @@ package ch.nolix.system.nodedatabaserawschema.structure;
 
 //own imports
 import ch.nolix.core.document.node.BaseNode;
-import ch.nolix.system.time.base.Time;
+import ch.nolix.system.time.moment.Time;
 
 //class
 public final class DatabasePropertiesNodeSearcher {
