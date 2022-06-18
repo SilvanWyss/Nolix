@@ -14,13 +14,11 @@ import ch.nolix.systemapi.guiapi.textformatapi.ITextFormat;
  */
 public interface IPainter {
 	
-	//method
+	//method declaration
 	/**
 	 * @return a new {@link IPainter} from the current {@link IPainter}.
 	 */
-	default IPainter createPainter() {
-		return createPainter(0, 0);
-	}
+	IPainter createPainter();
 	
 	//method declaration
 	/**
@@ -103,16 +101,14 @@ public interface IPainter {
 	 */
 	void paintFilledPolygon(int[] x, int[] y);
 	
-	//method
+	//method declaration
 	/**
 	 * Lets the current {@link IPainter} paint a filled rectangle with the given width and height.
 	 * 
 	 * @param width
 	 * @param height
 	 */
-	default void paintFilledRectangle(final int width, final int height) {
-		paintFilledRectangle(0, 0, width, height);
-	}
+	void paintFilledRectangle(final int width, final int height);
 	
 	//method declaration
 	/**
@@ -162,19 +158,15 @@ public interface IPainter {
 	 */
 	void paintImageById(String id, int width, int height);
 	
-	//method
+	//method declaration
 	/**
 	 * Lets the current {@link IPainter} paint the given text.
 	 * 
 	 * @param text
 	 */
-	default void paintText(final String text) {
-		
-		//Calls other method.
-		paintText(text, getDefaultTextFormat());
-	}
+	void paintText(final String text);
 	
-	//method
+	//method declaration
 	/**
 	 * Lets the current {@link IPainter} paint the given text.
 	 * Only the first part of the given text, that is not longer than the given maxWidth, will be painted.
@@ -182,11 +174,7 @@ public interface IPainter {
 	 * @param text
 	 * @param maxWidth
 	 */
-	default void paintText(final String text, final int maxWidth) {
-		
-		//Calls other method.
-		paintText(text, getDefaultTextFormat(), maxWidth);
-	}
+	void paintText(final String text, final int maxWidth);
 	
 	//method declaration
 	/**
@@ -241,23 +229,19 @@ public interface IPainter {
 	 */
 	void translate(int xTranslation, int yTranslation);
 	
-	//method
+	//method declaration
 	/**
 	 * Translates the current {@link IPainter} horizontally by the given xTranslation.
 	 * 
 	 * @param xTranslation
 	 */
-	default void translateHorizontally(final int xTranslation) {
-		translate(xTranslation, 0);
-	}
+	void translateHorizontally(final int xTranslation) ;
 	
-	//method
+	//method declaration
 	/**
 	 * Translates the current {@link IPainter} vertically by the given yTranslation.
 	 * 
 	 * @param yTranslation
 	 */
-	default void translateVertically(final int yTranslation) {
-		translate(0, yTranslation);
-	}
+	void translateVertically(final int yTranslation);
 }
