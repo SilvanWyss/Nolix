@@ -6,7 +6,6 @@ import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.programatom.marker.AllowDefaultMethodsAsDesignPattern;
-import ch.nolix.core.skilluniversalapi.IFluentObject;
 import ch.nolix.core.skilluniversalapi.Resettable;
 
 //interface
@@ -20,7 +19,7 @@ import ch.nolix.core.skilluniversalapi.Resettable;
  * @param <ME> is the type of a {@link IMutableElement}.
  */
 @AllowDefaultMethodsAsDesignPattern
-public interface IMutableElement<ME extends IMutableElement<ME>> extends IFluentObject<ME>, Resettable, Specified {
+public interface IMutableElement<ME extends IMutableElement<ME>> extends Resettable, Specified {
 	
 	//method declaration
 	/**

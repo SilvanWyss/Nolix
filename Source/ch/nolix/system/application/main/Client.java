@@ -12,7 +12,6 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.endpoint3.EndPoint;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.programcontrol.groupcloseable.GroupCloseable;
-import ch.nolix.core.skilluniversalapi.IFluentObject;
 
 //class
 /**
@@ -22,7 +21,7 @@ import ch.nolix.core.skilluniversalapi.IFluentObject;
  * @date 2016-01-01
  * @param <C> is the type of a {@link Client}.
  */
-public abstract class Client<C extends Client<C>> implements GroupCloseable, IFluentObject<C> {
+public abstract class Client<C extends Client<C>> implements GroupCloseable {
 	
 	//attribute
 	private final CloseController closeController = new CloseController(this);
@@ -118,6 +117,15 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable, IFl
 	 */
 	@Override
 	public final void noteClose() {}
+	
+	//method
+	/**
+	 * @return the current {@link Client} as concrete {@link Client}.
+	 */
+	@SuppressWarnings("unchecked")
+	protected final C asConcrete() {
+		return (C)this;
+	}
 	
 	//method
 	/**

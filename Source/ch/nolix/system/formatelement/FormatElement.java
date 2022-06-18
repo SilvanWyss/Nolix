@@ -4,6 +4,7 @@ package ch.nolix.system.formatelement;
 //Java imports
 import java.lang.reflect.Field;
 
+//own imports
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.document.node.BaseNode;
@@ -85,6 +86,15 @@ implements IRespondingMutableElement<FE> {
 		for (final var p : getRefProperties()) {
 			p.setFrom(iterator.next());
 		}
+	}
+	
+	//method
+	/**
+	 * @return the current {@link FormatElement} as concrete {@link FormatElement}.
+	 */
+	@SuppressWarnings("unchecked")
+	protected final FE asConcrete() {
+		return (FE)this;
 	}
 	
 	//method

@@ -4,8 +4,8 @@ package ch.nolix.system.element;
 //Java imports
 import java.lang.reflect.Field;
 
-import ch.nolix.core.container.main.LinkedList;
 //own imports
+import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
@@ -96,6 +96,15 @@ public abstract class MutableElement<ME extends MutableElement<ME>> implements I
 	@Override
 	public final String toString() {
 		return getSpecification().toString();
+	}
+	
+	//method
+	/**
+	 * @return the current {@link MutableElement} as concrete {@link MutableElement}.
+	 */
+	@SuppressWarnings("unchecked")
+	protected final ME asConcrete() {
+		return (ME)this;
 	}
 	
 	//method
