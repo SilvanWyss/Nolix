@@ -1,8 +1,10 @@
 //package declaration
 package ch.nolix.systemapi.elementapi.mainuniversalapi;
 
+//own imports
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.programatom.marker.AllowDefaultMethodsAsDesignPattern;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
 //interface
@@ -11,6 +13,7 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
  * @date 2021-04-01
  * @param <RME> is the type of a {@link IRespondingMutableElement}.
  */
+@AllowDefaultMethodsAsDesignPattern
 public interface IRespondingMutableElement<RME extends IRespondingMutableElement<RME>> extends IMutableElement<RME> {
 	
 	//method declaration
