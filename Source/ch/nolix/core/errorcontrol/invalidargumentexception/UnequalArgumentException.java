@@ -23,7 +23,7 @@ public final class UnequalArgumentException extends InvalidArgumentException {
 	public <A> UnequalArgumentException(final A argument, final A expectedValue) {
 		
 		//Calls constructor of the base class.
-		super(argument, "does not equal " + createValidStringRepresentationInProbableQuotes(expectedValue));
+		super(argument, "does not equal " + expectedValue);
 	}
 	
 	//constructor
