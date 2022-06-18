@@ -5,6 +5,7 @@ package ch.nolix.core.programcontrol.groupcloseable;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.programatom.marker.AllowDefaultMethodsAsDesignPattern;
 import ch.nolix.core.requestuniversalapi.CloseStateRequestable;
 
 //interface
@@ -13,6 +14,7 @@ import ch.nolix.core.requestuniversalapi.CloseStateRequestable;
  * @date 2020-07-05
  */
 //own imports
+@AllowDefaultMethodsAsDesignPattern
 public interface GroupCloseable extends AutoCloseable, CloseStateRequestable {
 	
 	//method
