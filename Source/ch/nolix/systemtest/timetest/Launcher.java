@@ -3,16 +3,14 @@ package ch.nolix.systemtest.timetest;
 
 //class
 /**
- * The launcher provides a main method to create and run a core test pool.
- * 
  * @author Silvan Wyss
  * @date 2017-11-14
  */
 public final class Launcher {
-
+	
 	//main method
 	/**
-	 * Creates a new core test pool and runs it.
+	 * Creates a new {@link TimeTestPool} and runs it.
 	 * 
 	 * @param args
 	 */

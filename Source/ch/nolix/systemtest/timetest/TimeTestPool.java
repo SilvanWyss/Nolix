@@ -3,6 +3,7 @@ package ch.nolix.systemtest.timetest;
 
 //own imports
 import ch.nolix.core.testing.basetest.TestPool;
+import ch.nolix.systemtest.timetest.momenttest.MomentTestPool;
 
 //class
 /**
@@ -10,12 +11,12 @@ import ch.nolix.core.testing.basetest.TestPool;
  * @date 2017-11-14
  */
 public final class TimeTestPool extends TestPool {
-
+	
 	//constructor
 	/**
 	 * Creates a new {@link TimeTestPool}.
 	 */
 	public TimeTestPool() {
-		super(TimeTest.class);
+		super(new MomentTestPool());
 	}
 }

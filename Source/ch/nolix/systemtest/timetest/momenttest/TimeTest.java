@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemtest.timetest;
+package ch.nolix.systemtest.timetest.momenttest;
 
 //own imports
 import ch.nolix.core.testing.basetest.TestCase;
