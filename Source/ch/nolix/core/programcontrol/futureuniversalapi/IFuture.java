@@ -3,6 +3,7 @@ package ch.nolix.core.programcontrol.futureuniversalapi;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.requestuniversalapi.FinishRequestable;
 
 //interface
 /**
@@ -12,7 +13,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
  * @author Silvan Wyss
  * @date 2019-04-14
  */
-public interface IFuture {
+public interface IFuture extends FinishRequestable {
 	
 	//method declaration
 	/**
@@ -26,26 +27,12 @@ public interface IFuture {
 	 */
 	Throwable getError();
 	
-	//method declaration
-	/**
-	 * @return true if the current {@link IFuture} is finished.
-	 */
-	boolean isFinished();
-	
 	//method
 	/**
 	 * @return true if the current {@link IFuture} is finished successfully.
 	 */
 	default boolean isFinishedSuccessfully() {
 		return (isFinished() && !caughtError());
-	}
-	
-	//method
-	/**
-	 * @return true if the current {@link IFuture} is running.
-	 */
-	default boolean isRunning() {
-		return !isFinished();
 	}
 	
 	//method declaration
