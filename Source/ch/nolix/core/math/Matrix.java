@@ -7,7 +7,6 @@ import java.util.Random;
 //own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalDoubleHelper;
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.environment.nolixenvironment.NolixEnvironment;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
@@ -15,7 +14,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentExcept
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-import ch.nolix.core.requestuniversalapi.ApproximativeEqualing;
 
 //class
 /**
@@ -30,7 +28,7 @@ import ch.nolix.core.requestuniversalapi.ApproximativeEqualing;
  * @author Silvan Wyss
  * @date 2016-02-01
  */
-public final class Matrix implements ApproximativeEqualing {
+public final class Matrix {
 	
 	//static attribute
 	private static final Random random = new Random();
@@ -279,11 +277,26 @@ public final class Matrix implements ApproximativeEqualing {
 	
 	//method
 	/**
-	 * {@inheritDoc}
+	 * @param matrix
+	 * @param epsilon
+	 * @return true
+	 * if the current {@link Matrix} equals the given matrix with a deviation, that is smaller than the given epsilon.
 	 */
-	@Override
-	public boolean equalsApproximatively(final Object object, final double epsilon) {
-		return (object instanceof Matrix && equalsApproximatively((Matrix)object, epsilon));
+	public boolean equalsApproximatively(final Matrix matrix, final double epsilon) {
+		
+		if (!hasSameSize(matrix)) {
+			return false;
+		}
+		
+		for (var i = 0; i < getRowCount(); i++) {
+			for (var j = 0; j < getColumnCount(); j++) {
+				if (!Calculator.equalsApproximatively(matrix.values[i][j], values[i][j], epsilon)) {
+					return false;
+				}
+			}
+		}
+		
+		return true;
 	}
 	
 	//method
@@ -326,15 +339,6 @@ public final class Matrix implements ApproximativeEqualing {
 		}
 		
 		return columns;
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public double getDefaultMaxDeviation() {
-		return NolixEnvironment.DEFAULT_MAX_DEVIATION;
 	}
 	
 	//method
@@ -1141,30 +1145,6 @@ public final class Matrix implements ApproximativeEqualing {
 		for (var i = 0; i < getRowCount(); i++) {
 			for (var j = 0; j < getColumnCount(); j++) {
 				if (matrix.values[i][j] != values[i][j]) {
-					return false;
-				}
-			}
-		}
-		
-		return true;
-	}
-	
-	//method
-	/**
-	 * @param matrix
-	 * @param epsilon
-	 * @return true if the current {@link Matrix} equals the given matrix with a deviation,
-	 * that is smaller than the given epsilon.
-	 */
-	private boolean equalsApproximatively(final Matrix matrix, final double epsilon) {
-			
-		if (!hasSameSize(matrix)) {
-			return false;
-		}
-		
-		for (var i = 0; i < getRowCount(); i++) {
-			for (var j = 0; j < getColumnCount(); j++) {
-				if (!Calculator.equalsApproximatively(matrix.values[i][j], values[i][j], epsilon)) {
 					return false;
 				}
 			}

@@ -6,15 +6,9 @@ import java.util.ArrayList;
 
 //own imports
 import ch.nolix.core.functionuniversalapi.IAction;
-import ch.nolix.core.requestuniversalapi.ApproximativeEqualing;
 
 //class
 public final class GlobalExaminer {
-	
-	//static method
-	public static ApproximativeEqualingMediator expect(final ApproximativeEqualing value) {
-		return new ApproximativeEqualingMediator(GlobalExaminer::takteExpectationError, value);
-	}
 	
 	//static method
 	public static void expect(final boolean value) {

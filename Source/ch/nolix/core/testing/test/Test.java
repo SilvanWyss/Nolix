@@ -4,9 +4,8 @@ package ch.nolix.core.testing.test;
 //Java imports
 import java.util.ArrayList;
 
+//own imports
 import ch.nolix.core.functionuniversalapi.IAction;
-import ch.nolix.core.requestuniversalapi.ApproximativeEqualing;
-import ch.nolix.core.testing.validation.ApproximativeEqualingMediator;
 import ch.nolix.core.testing.validation.BitMediator;
 import ch.nolix.core.testing.validation.ByteMediator;
 import ch.nolix.core.testing.validation.ClosureMediator;
@@ -26,15 +25,6 @@ import ch.nolix.core.testing.validation.ValueMediator;
  * @date 2016-09-01
  */
 public abstract class Test extends ch.nolix.core.testing.basetest.BaseTest {
-	
-	//method
-	/**
-	 * @param value
-	 * @return a new approximative equaling mediator that belongs to this test and has the given value.
-	 */
-	protected final ApproximativeEqualingMediator expect(final ApproximativeEqualing value) {
-		return new ApproximativeEqualingMediator(this::addExpectationError, value);
-	}
 	
 	//method
 	/**
