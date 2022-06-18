@@ -30,7 +30,7 @@ public final class ArgumentContainsElementException extends InvalidArgumentExcep
 	 * @param element
 	 * @return the name of the given element.
 	 */
-	private static String getElementName(final Object element) {
+	private static String getElementNameOfElement(final Object element) {
 		
 		//Handles the case that the given element is null.
 		if (element == null) {
@@ -49,6 +49,6 @@ public final class ArgumentContainsElementException extends InvalidArgumentExcep
 	 * @param element
 	 */
 	private ArgumentContainsElementException(final Object argument, final Object element) {
-		super(argument, "contains already the given " + getElementName(element));
+		super(argument, "contains already the given " + getElementNameOfElement(element));
 	}
 }
