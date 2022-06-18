@@ -5,7 +5,7 @@ import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.container.main.SingleContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.systemapi.guiapi.baseapi.IFrontEndReader;
+import ch.nolix.systemapi.guiapi.mainapi.IFrontEndReader;
 
 //class
 final class BaseBackendGUIClientFrontendReader implements IFrontEndReader {

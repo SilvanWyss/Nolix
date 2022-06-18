@@ -5,11 +5,11 @@ package ch.nolix.system.application.baseguiapplication;
 import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.system.gui.base.CanvasFrame;
-import ch.nolix.system.gui.base.GUI;
 import ch.nolix.system.gui.image.Image;
 import ch.nolix.system.gui.image.MutableImage;
-import ch.nolix.systemapi.guiapi.baseapi.CursorIcon;
+import ch.nolix.system.gui.main.CanvasFrame;
+import ch.nolix.system.gui.main.GUI;
+import ch.nolix.systemapi.guiapi.mainapi.CursorIcon;
 
 //class
 final class BaseFrontendGUIClientGUIHandler {

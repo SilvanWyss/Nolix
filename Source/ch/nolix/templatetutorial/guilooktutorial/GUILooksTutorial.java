@@ -1,11 +1,11 @@
 package ch.nolix.templatetutorial.guilooktutorial;
 
-import ch.nolix.system.gui.base.Frame;
 import ch.nolix.system.gui.containerwidget.ContainerRole;
 import ch.nolix.system.gui.containerwidget.Grid;
 import ch.nolix.system.gui.containerwidget.HorizontalStack;
 import ch.nolix.system.gui.containerwidget.VerticalStack;
 import ch.nolix.system.gui.dialog.InfoDialogCreator;
+import ch.nolix.system.gui.main.Frame;
 import ch.nolix.system.gui.textbox.TextBox;
 import ch.nolix.system.gui.widget.Button;
 import ch.nolix.system.gui.widget.CheckBox;

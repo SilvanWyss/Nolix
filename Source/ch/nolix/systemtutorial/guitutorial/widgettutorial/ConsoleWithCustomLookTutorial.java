@@ -1,7 +1,7 @@
 package ch.nolix.systemtutorial.guitutorial.widgettutorial;
 
-import ch.nolix.system.gui.base.Frame;
 import ch.nolix.system.gui.color.Color;
+import ch.nolix.system.gui.main.Frame;
 import ch.nolix.system.gui.widget.Console;
 import ch.nolix.system.gui.widget.WidgetLookState;
 

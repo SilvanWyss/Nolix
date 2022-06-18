@@ -8,7 +8,7 @@ import ch.nolix.system.application.guiapplication.FrontendGUIClient;
 import ch.nolix.system.application.guiapplication.GUIApplicationContext;
 import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.main.VoidApplicationContext;
-import ch.nolix.system.gui.base.GUIIconCatalogue;
+import ch.nolix.system.gui.main.GUIIconCatalogue;
 import ch.nolix.system.gui.widget.Label;
 import ch.nolix.system.gui.widget.WidgetLookState;
 

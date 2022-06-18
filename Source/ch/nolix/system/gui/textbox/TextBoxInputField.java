@@ -15,8 +15,8 @@ import ch.nolix.system.gui.widget.BorderWidget;
 import ch.nolix.system.gui.widget.TextBoxLook;
 import ch.nolix.system.gui.widget.TextLineWidget;
 import ch.nolix.system.gui.widget.TextMode;
-import ch.nolix.systemapi.guiapi.baseapi.CursorIcon;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
+import ch.nolix.systemapi.guiapi.mainapi.CursorIcon;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 
 //class

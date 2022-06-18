@@ -1,6 +1,6 @@
 package ch.nolix.systemtutorial.guitutorial.textboxtutorial;
 
-import ch.nolix.system.gui.base.Frame;
+import ch.nolix.system.gui.main.Frame;
 import ch.nolix.system.gui.textbox.TextBox;
 import ch.nolix.system.gui.widget.TextMode;
 

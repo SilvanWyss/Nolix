@@ -1,8 +1,8 @@
 package ch.nolix.businesstutorial.dynamicmathtutorial;
 
 import ch.nolix.business.bigdecimalmath.FractalBuilder;
-import ch.nolix.system.gui.base.Frame;
 import ch.nolix.system.gui.containerwidget.VerticalStack;
+import ch.nolix.system.gui.main.Frame;
 import ch.nolix.system.gui.widget.Downloader;
 import ch.nolix.system.gui.widget.ImageWidget;
 import ch.nolix.system.gui.widget.Label;

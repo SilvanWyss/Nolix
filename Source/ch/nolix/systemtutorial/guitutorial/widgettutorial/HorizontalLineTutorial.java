@@ -1,8 +1,8 @@
 package ch.nolix.systemtutorial.guitutorial.widgettutorial;
 
-import ch.nolix.system.gui.base.Frame;
 import ch.nolix.system.gui.containerwidget.HorizontalStack;
 import ch.nolix.system.gui.containerwidget.VerticalStack;
+import ch.nolix.system.gui.main.Frame;
 import ch.nolix.system.gui.widget.HorizontalLine;
 import ch.nolix.system.gui.widget.Label;
 

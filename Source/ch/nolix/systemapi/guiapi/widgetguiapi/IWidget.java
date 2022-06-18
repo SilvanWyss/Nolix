@@ -7,9 +7,9 @@ import ch.nolix.core.requestuniversalapi.EnablingRequestable;
 import ch.nolix.core.requestuniversalapi.ExpansionRequestable;
 import ch.nolix.core.skilluniversalapi.Recalculable;
 import ch.nolix.systemapi.elementapi.configurationapi.IConfigurableElement;
-import ch.nolix.systemapi.guiapi.baseapi.CursorIcon;
-import ch.nolix.systemapi.guiapi.baseapi.IInputActionManager;
 import ch.nolix.systemapi.guiapi.inputapi.IInputTaker;
+import ch.nolix.systemapi.guiapi.mainapi.CursorIcon;
+import ch.nolix.systemapi.guiapi.mainapi.IInputActionManager;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 
 //interface

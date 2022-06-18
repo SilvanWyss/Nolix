@@ -4,8 +4,8 @@ package ch.nolix.systemtest.guitest.widgettest;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.testing.basetest.TestCase;
-import ch.nolix.system.gui.base.InvisibleGUI;
 import ch.nolix.system.gui.containerwidget.SingleContainer;
+import ch.nolix.system.gui.main.InvisibleGUI;
 import ch.nolix.system.gui.widget.BorderWidget;
 import ch.nolix.system.gui.widget.WidgetLookState;
 

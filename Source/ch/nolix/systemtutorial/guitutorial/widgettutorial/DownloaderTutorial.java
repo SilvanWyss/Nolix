@@ -3,7 +3,7 @@ package ch.nolix.systemtutorial.guitutorial.widgettutorial;
 //own imports
 import ch.nolix.core.environment.filesystem.FileAccessor;
 import ch.nolix.core.environment.filesystem.FileSystemAccessor;
-import ch.nolix.system.gui.base.Frame;
+import ch.nolix.system.gui.main.Frame;
 import ch.nolix.system.gui.widget.Downloader;
 
 /**

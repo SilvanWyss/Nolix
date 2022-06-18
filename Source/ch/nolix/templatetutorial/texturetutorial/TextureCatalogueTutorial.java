@@ -1,8 +1,8 @@
 package ch.nolix.templatetutorial.texturetutorial;
 
-import ch.nolix.system.gui.base.Frame;
 import ch.nolix.system.gui.containerwidget.FloatContainer;
 import ch.nolix.system.gui.containerwidget.VerticalStack;
+import ch.nolix.system.gui.main.Frame;
 import ch.nolix.system.gui.widget.ImageWidget;
 import ch.nolix.system.gui.widget.Label;
 import ch.nolix.system.gui.widget.WidgetLookState;

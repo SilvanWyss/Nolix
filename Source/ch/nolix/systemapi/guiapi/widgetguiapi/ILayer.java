@@ -5,9 +5,9 @@ package ch.nolix.systemapi.guiapi.widgetguiapi;
 import ch.nolix.core.skilluniversalapi.Clearable;
 import ch.nolix.core.skilluniversalapi.Recalculable;
 import ch.nolix.systemapi.elementapi.configurationapi.IConfigurableElement;
-import ch.nolix.systemapi.guiapi.baseapi.CursorIcon;
-import ch.nolix.systemapi.guiapi.baseapi.IOccupiableCanvasInputActionManager;
 import ch.nolix.systemapi.guiapi.inputapi.IResizableInputTaker;
+import ch.nolix.systemapi.guiapi.mainapi.CursorIcon;
+import ch.nolix.systemapi.guiapi.mainapi.IOccupiableCanvasInputActionManager;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 
 //interface

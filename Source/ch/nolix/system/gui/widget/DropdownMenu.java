@@ -5,8 +5,8 @@ import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.containerwidget.HorizontalStack;
 import ch.nolix.system.gui.widgetgui.Layer;
-import ch.nolix.systemapi.guiapi.baseapi.CursorIcon;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
+import ch.nolix.systemapi.guiapi.mainapi.CursorIcon;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 import ch.nolix.systemapi.guiapi.widgetguiapi.IWidget;
 

@@ -3,9 +3,9 @@ package ch.nolix.system.gui.dialog;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-import ch.nolix.system.gui.base.LayerRole;
 import ch.nolix.system.gui.containerwidget.AligningContainer;
 import ch.nolix.system.gui.containerwidget.ContainerRole;
+import ch.nolix.system.gui.main.LayerRole;
 import ch.nolix.system.gui.widget.Button;
 import ch.nolix.system.gui.widget.ButtonRole;
 import ch.nolix.system.gui.widget.Label;

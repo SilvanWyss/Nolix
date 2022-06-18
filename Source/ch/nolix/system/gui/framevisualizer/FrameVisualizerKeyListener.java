@@ -7,7 +7,7 @@ import java.awt.event.KeyListener;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.system.gui.base.GUI;
+import ch.nolix.system.gui.main.GUI;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 
 //class

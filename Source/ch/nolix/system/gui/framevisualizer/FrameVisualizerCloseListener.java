@@ -8,7 +8,7 @@ import java.awt.event.WindowListener;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.system.gui.base.GUI;
+import ch.nolix.system.gui.main.GUI;
 
 //class
 /**

@@ -1,8 +1,8 @@
 package ch.nolix.systemtutorial.guitutorial.containerwidgettutorial;
 
-import ch.nolix.system.gui.base.Frame;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.containerwidget.FloatContainer;
+import ch.nolix.system.gui.main.Frame;
 import ch.nolix.system.gui.widget.Label;
 import ch.nolix.system.gui.widget.WidgetLookState;
 import ch.nolix.systemapi.guiapi.structureproperty.ContentPosition;

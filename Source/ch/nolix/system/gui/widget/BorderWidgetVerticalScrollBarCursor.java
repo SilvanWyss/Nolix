@@ -6,7 +6,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.math.Calculator;
 import ch.nolix.system.gui.color.Color;
-import ch.nolix.systemapi.guiapi.baseapi.HoverableByCursor;
+import ch.nolix.systemapi.guiapi.mainapi.HoverableByCursor;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 
 //class

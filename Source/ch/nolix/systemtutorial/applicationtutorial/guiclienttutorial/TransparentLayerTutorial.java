@@ -23,7 +23,7 @@ public final class TransparentLayerTutorial {
 			
 			//Loads an Image and sets it as background to the GUI of the current MainSession.
 			getRefGUI().setBackgroundImage(
-				MutableImage.fromResource("ch/nolix/systemTutorial/guiTutorial/basetutorial/resource/Pilatus.jpg"),
+				MutableImage.fromResource("ch/nolix/systemTutorial/guiTutorial/maintutorial/resource/Pilatus.jpg"),
 				ImageApplication.SCALE_TO_FRAME
 			);
 						

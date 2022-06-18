@@ -18,10 +18,10 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.system.application.main.Application;
 import ch.nolix.system.application.main.BackendClient;
-import ch.nolix.system.gui.base.GUI;
-import ch.nolix.system.gui.base.InvisibleGUI;
 import ch.nolix.system.gui.input.InputFactory;
 import ch.nolix.system.gui.input.MouseInput;
+import ch.nolix.system.gui.main.GUI;
+import ch.nolix.system.gui.main.InvisibleGUI;
 import ch.nolix.systemapi.guiapi.inputapi.IInput;
 import ch.nolix.systemapi.guiapi.widgetguiapi.IWidgetGUI;
 

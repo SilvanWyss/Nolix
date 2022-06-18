@@ -1,7 +1,7 @@
 package ch.nolix.systemtutorial.guitutorial.widgettutorial;
 
-import ch.nolix.system.gui.base.Frame;
 import ch.nolix.system.gui.image.MutableImage;
+import ch.nolix.system.gui.main.Frame;
 import ch.nolix.system.gui.widget.ImageWidget;
 
 /**

@@ -13,10 +13,10 @@ import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.core.skilluniversalapi.Clearable;
 import ch.nolix.system.element.MutableElement;
 import ch.nolix.system.element.MutableValue;
-import ch.nolix.system.gui.base.MutableOptionalWidgetProperty;
+import ch.nolix.system.gui.main.MutableOptionalWidgetProperty;
 import ch.nolix.system.gui.widget.Label;
 import ch.nolix.system.gui.widget.Widget;
-import ch.nolix.systemapi.guiapi.baseapi.CursorIcon;
+import ch.nolix.systemapi.guiapi.mainapi.CursorIcon;
 import ch.nolix.systemapi.guiapi.structureproperty.ContentPosition;
 
 //class

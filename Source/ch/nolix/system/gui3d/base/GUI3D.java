@@ -22,17 +22,17 @@ import ch.nolix.core.skilluniversalapi.Clearable;
 import ch.nolix.system.configuration.ConfigurationElement;
 import ch.nolix.system.element.MutableOptionalSpecificationValueExtractor;
 import ch.nolix.system.element.MutableValue;
-import ch.nolix.system.gui.base.GUIIconCatalogue;
-import ch.nolix.system.gui.base.LocalFrontEndReader;
-import ch.nolix.system.gui.base.LocalFrontEndWriter;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.image.Image;
+import ch.nolix.system.gui.main.GUIIconCatalogue;
+import ch.nolix.system.gui.main.LocalFrontEndReader;
+import ch.nolix.system.gui.main.LocalFrontEndWriter;
 import ch.nolix.systemapi.elementapi.configurationapi.IConfigurableElement;
-import ch.nolix.systemapi.guiapi.baseapi.CursorIcon;
-import ch.nolix.systemapi.guiapi.baseapi.IBaseGUI;
-import ch.nolix.systemapi.guiapi.baseapi.IFrontEndReader;
-import ch.nolix.systemapi.guiapi.baseapi.IFrontEndWriter;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
+import ch.nolix.systemapi.guiapi.mainapi.CursorIcon;
+import ch.nolix.systemapi.guiapi.mainapi.IBaseGUI;
+import ch.nolix.systemapi.guiapi.mainapi.IFrontEndReader;
+import ch.nolix.systemapi.guiapi.mainapi.IFrontEndWriter;
 
 //class
 /**

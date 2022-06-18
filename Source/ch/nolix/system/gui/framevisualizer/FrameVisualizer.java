@@ -13,10 +13,10 @@ import javax.swing.WindowConstants;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.system.gui.base.GUI;
-import ch.nolix.system.gui.base.IVisualizer;
-import ch.nolix.system.gui.base.SwingPainter;
 import ch.nolix.system.gui.image.Image;
+import ch.nolix.system.gui.main.GUI;
+import ch.nolix.system.gui.main.IVisualizer;
+import ch.nolix.system.gui.main.SwingPainter;
 
 //class
 /**
