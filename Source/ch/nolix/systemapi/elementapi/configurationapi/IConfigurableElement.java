@@ -38,16 +38,11 @@ TypeRequestable {
 	 */
 	boolean hasRole(String role);
 	
-	//method
+	//method declaration
 	/**
 	 * Resets the configuration of the current {@link IConfigurableElement} recursively.
 	 */
-	default void resetConfiguration() {
-		
-		resetElementConfiguration();
-		
-		getSubConfigurables().forEach(IConfigurableElement::resetConfiguration);
-	}
+	void resetConfiguration();
 	
 	//method declaration
 	/**

@@ -114,6 +114,18 @@ implements IConfigurableElement<CE> {
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void resetConfiguration() {
+		
+		resetElementConfiguration();
+		
+		getSubConfigurables().forEach(IConfigurableElement::resetConfiguration);
+	}
+	
+	//method
+	/**
 	 * @param id
 	 * @return the current {@link ConfigurableElement}.
 	 * @throws ArgumentIsNullException if the given id is null.
