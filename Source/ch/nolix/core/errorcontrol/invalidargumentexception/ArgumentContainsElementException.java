@@ -1,12 +1,10 @@
 //package declaration
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
-import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-
 //class
 /**
  * A {@link ArgumentContainsElementException} is a {@link InvalidArgumentException} that
- * is supposed to be thrown when an argument contains undesirably a given element.
+ * is supposed to be thrown when a given argument contains undesirably a given element.
  * 
  * @author Silvan Wyss
  * @date 2021-07-15
@@ -15,12 +13,22 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 public final class ArgumentContainsElementException extends InvalidArgumentException {
 	
 	//constant
-	private static final String DEFAULT_ELEMENT_NAME = LowerCaseCatalogue.ELEMENT;
+	private static final String DEFAULT_ELEMENT_NAME = "element";
+	
+	//static method
+	/**
+	 * @param argument
+	 * @param element
+	 * @return a new {@link ArgumentContainsElementException} for the given argument and element.
+	 */
+	public static ArgumentContainsElementException forArgumentAndElement(final Object argument, final Object element) {
+		return new ArgumentContainsElementException(argument, element);
+	}
 	
 	//static method
 	/**
 	 * @param element
-	 * @return an element name for the given element.
+	 * @return the name of the given element.
 	 */
 	private static String getElementName(final Object element) {
 		
@@ -40,7 +48,7 @@ public final class ArgumentContainsElementException extends InvalidArgumentExcep
 	 * @param argument
 	 * @param element
 	 */
-	public ArgumentContainsElementException(final Object argument, final Object element) {
+	private ArgumentContainsElementException(final Object argument, final Object element) {
 		super(argument, "contains already the given " + getElementName(element));
 	}
 }
