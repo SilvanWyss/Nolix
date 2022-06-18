@@ -50,7 +50,7 @@ public class InvalidArgumentException extends RuntimeException {
 	 * @param argument
 	 * @return a argument name for the given argument.
 	 */
-	private static String getArgumentNameFromArgument(final Object argument) {
+	private static String getNameOfArgument(final Object argument) {
 		
 		//Handles the case that the given argument is null.
 		if (argument == null) {
@@ -97,7 +97,7 @@ public class InvalidArgumentException extends RuntimeException {
 	 * @throws IllegalArgumentException if the given argumentName is null.
 	 * @throws IllegalArgumentException if the given argumentName is blank.
 	 */
-	private static String getValidArgumentNameFromArgumentName(final String argumentName) {
+	private static String getValidArgumentNameOfArgumentName(final String argumentName) {
 		
 		//Asserts that the given argumentName is not null.
 		if (argumentName == null) {
@@ -120,7 +120,7 @@ public class InvalidArgumentException extends RuntimeException {
 	 * @throws IllegalArgumentException if the given error predicate is blank.
 	 * @throws IllegalArgumentException if the given errorPredicate ends with a dot.
 	 */
-	private static String getValidErrorPredicateFromErrorPredicate(final String errorPredicate) {
+	private static String getValidErrorPredicateOfErrorPredicate(final String errorPredicate) {
 		
 		//Asserts that the given errorPredicate is not null.
 		if (errorPredicate == null) {
@@ -158,7 +158,7 @@ public class InvalidArgumentException extends RuntimeException {
 	public InvalidArgumentException(final Object argument) {
 		
 		//Calls other constructor.
-		this(getArgumentNameFromArgument(argument), argument, DEFAULT_ERROR_PREDICATE);
+		this(getNameOfArgument(argument), argument, DEFAULT_ERROR_PREDICATE);
 	}
 	
 	//constructor
@@ -174,7 +174,7 @@ public class InvalidArgumentException extends RuntimeException {
 	public InvalidArgumentException(final Object argument, final String errorPredicate) {
 		
 		//Calls other constructor.
-		this(getArgumentNameFromArgument(argument), argument, errorPredicate);
+		this(getNameOfArgument(argument), argument, errorPredicate);
 	}
 		
 	//constructor
@@ -194,9 +194,9 @@ public class InvalidArgumentException extends RuntimeException {
 		
 		super(
 			"The given "
-			+ getValidArgumentNameFromArgumentName(argumentName)
+			+ getValidArgumentNameOfArgumentName(argumentName)
 			+ getStringRepresentationWithPufferToNextWordsOfArgument(argument)
-			+ getValidErrorPredicateFromErrorPredicate(errorPredicate)
+			+ getValidErrorPredicateOfErrorPredicate(errorPredicate)
 			+ "."
 		);
 		
