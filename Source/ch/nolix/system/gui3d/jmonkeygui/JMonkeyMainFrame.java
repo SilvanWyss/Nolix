@@ -22,6 +22,7 @@ import ch.nolix.system.gui3d.shape.MultiShape;
 import ch.nolix.system.gui3d.shape.Pyramid;
 import ch.nolix.system.gui3d.shape.Sphere;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
+import ch.nolix.systemapi.guiapi.mainapi.IBaseGUI;
 import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
 
 //class
@@ -330,6 +331,15 @@ public final class JMonkeyMainFrame extends MainFrame<JMonkeyMainFrame> {
 	@Override
 	public void noteResize(final int viewAreaWidth, final int viewAreaHeight) {
 		//Does nothing.
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void noteResizeFrom(final IBaseGUI<?> pGUI) {
+		noteResize(pGUI.getViewAreaWidth(), pGUI.getViewAreaHeight());
 	}
 	
 	//method
