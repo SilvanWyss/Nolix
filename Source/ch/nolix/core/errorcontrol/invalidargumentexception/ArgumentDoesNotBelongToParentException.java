@@ -14,6 +14,28 @@ public final class ArgumentDoesNotBelongToParentException extends InvalidArgumen
 	
 	//static method
 	/**
+	 * @param argument
+	 * @return a new {@link ArgumentDoesNotBelongToParentException} for the given argument.
+	 */
+	public static ArgumentDoesNotBelongToParentException forArgument(final Object argument) {
+		return new ArgumentDoesNotBelongToParentException(argument);
+	}
+	
+	//static method
+	/**
+	 * @param argument
+	 * @param parentType
+	 * @return a new {@link ArgumentDoesNotBelongToParentException} for the given argument and parentType.
+	 */
+	public static ArgumentDoesNotBelongToParentException forArgumentAndParentType(
+		final Object argument,
+		final Class<?> parentType
+	) {
+		return new ArgumentDoesNotBelongToParentException(argument, parentType);
+	}
+	
+	//static method
+	/**
 	 * @param parentType
 	 * @return the name of the given parentType.
 	 * @throws IllegalArgumentException if the given parentType is null.
@@ -28,35 +50,13 @@ public final class ArgumentDoesNotBelongToParentException extends InvalidArgumen
 		return parentType.getSimpleName();
 	}
 	
-	//static method
-	/**
-	 * @param parentTypeName
-	 * @return a valid parent type name from the given parentTypeName.
-	 * @throws IllegalArgumentException if the given parentTypeName is null.
-	 * @throws IllegalArgumentException if the given parentTypeName is blank.
-	 */
-	private static String getValidParentTypeNameFromParentTypeName(final String parentTypeName) {
-		
-		//Asserts that the given parentTypeName is not null.
-		if (parentTypeName == null) {
-			throw new IllegalArgumentException("The given parent type name is null.");
-		}
-		
-		//Asserts that the given parentTypeName is not blank.
-		if (parentTypeName.isBlank()) {
-			throw new IllegalArgumentException("The given parent type name is blank.");
-		}
-		
-		return parentTypeName;
-	}
-	
 	//constructor
 	/**
 	 * Creates a new {@link ArgumentDoesNotBelongToParentException} for the given argument.
 	 * 
 	 * @param argument
 	 */
-	public ArgumentDoesNotBelongToParentException(Object argument) {
+	private ArgumentDoesNotBelongToParentException(Object argument) {
 		
 		//Calls constructor of the base class.
 		super(argument, "does not belong to a parent");
@@ -70,24 +70,9 @@ public final class ArgumentDoesNotBelongToParentException extends InvalidArgumen
 	 * @param parentType
 	 * @throws IllegalArgumentException if the given parentType is null.
 	 */
-	public ArgumentDoesNotBelongToParentException(final Object argument, final Class<?> parentType) {
+	private ArgumentDoesNotBelongToParentException(final Object argument, final Class<?> parentType) {
 		
 		//Calls constructor of the base class.
 		super(argument, "does not belong to a " + getNameOfParentType(parentType));
-	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link ArgumentDoesNotBelongToParentException} for the given argument and parentTypeName.
-	 * 
-	 * @param argument
-	 * @param parentTypeName
-	 * @throws IllegalArgumentException if the given parentTypeName is null.
-	 * @throws IllegalArgumentException if the given parentTypeName is blank.
-	 */
-	public ArgumentDoesNotBelongToParentException(final Object argument, final String parentTypeName) {
-		
-		//Calls constructor of the base class.
-		super(argument, "does not belong to a " + getValidParentTypeNameFromParentTypeName(parentTypeName));
 	}
 }

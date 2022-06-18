@@ -347,7 +347,7 @@ implements IWidget<W, WL> {
 		
 		//Asserts that the current Widget belongs to a parent.
 		if (parent == null) {
-			throw new ArgumentDoesNotBelongToParentException(this);
+			throw ArgumentDoesNotBelongToParentException.forArgument(this);
 		}
 		
 		return parent;
@@ -362,7 +362,7 @@ implements IWidget<W, WL> {
 		
 		//Asserts that the current Widget belongs to a GUI.
 		if (parent == null) {
-			throw new ArgumentDoesNotBelongToParentException(this, GUI.class);
+			throw ArgumentDoesNotBelongToParentException.forArgumentAndParentType(this, GUI.class);
 		}
 		
 		return parent.getRefGUI();
@@ -1742,7 +1742,7 @@ implements IWidget<W, WL> {
 	 */
 	private void assertBelongsToWidget() {
 		if (!belongsToWidget()) {
-			throw new ArgumentDoesNotBelongToParentException(this, Widget.class);
+			throw ArgumentDoesNotBelongToParentException.forArgumentAndParentType(this, Widget.class);
 		}
 	}
 	

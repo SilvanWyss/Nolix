@@ -374,7 +374,7 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 		
 		//Asserts that the current Layer belongs to a GUI.
 		if (parentGUI == null) {
-			throw new ArgumentDoesNotBelongToParentException(this, LowerCaseCatalogue.GUI);
+			throw ArgumentDoesNotBelongToParentException.forArgumentAndParentType(this, IWidgetGUI.class);
 		}
 		
 		return parentGUI;

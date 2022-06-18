@@ -25,7 +25,7 @@ public final class ColumnHelper extends DatabaseObjectHelper implements IColumnH
 	@Override
 	public void assertBelongsToTable(final IColumn<?> column) {
 		if (!column.belongsToTable()) {
-			throw new ArgumentDoesNotBelongToParentException(column, ITable.class);
+			throw ArgumentDoesNotBelongToParentException.forArgumentAndParentType(column, ITable.class);
 		}
 	}
 	

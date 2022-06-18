@@ -210,7 +210,7 @@ public final class AccordionTab extends MutableElement<AccordionTab> implements 
 	//method
 	private void assertBelongsToAccordion() {
 		if (!belongsToAccordion()) {
-			throw new ArgumentDoesNotBelongToParentException(this, Accordion.class);
+			throw ArgumentDoesNotBelongToParentException.forArgumentAndParentType(this, Accordion.class);
 		}
 	}
 	

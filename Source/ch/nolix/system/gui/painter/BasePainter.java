@@ -121,7 +121,7 @@ public abstract class BasePainter implements IPainter {
 	//method
 	private void assertDescendsFromOtherPainter() {
 		if (!descendsFromOtherPainter()) {
-			throw new ArgumentDoesNotBelongToParentException(this, IPainter.class);
+			throw ArgumentDoesNotBelongToParentException.forArgumentAndParentType(this, IPainter.class);
 		}
 	}
 }

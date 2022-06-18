@@ -198,7 +198,7 @@ public final class Table extends SchemaObject implements ITable<SchemaImplementa
 	//method
 	private void assertBelongsToDatabase() {
 		if (!belongsToDatabase()) {
-			throw new ArgumentDoesNotBelongToParentException(this, Database.class);
+			throw ArgumentDoesNotBelongToParentException.forArgumentAndParentType(this, Database.class);
 		}
 	}
 	
