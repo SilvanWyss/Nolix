@@ -4,7 +4,7 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 //class
 /**
  * A {@link ArgumentDoesNotContainElementException} is a {@link InvalidArgumentException} that
- * is supposed to be thrown when an argument does undesirably not contain a given element.
+ * is supposed to be thrown when a given argument does undesirably not contain a given element.
  * 
  * @author Silvan Wyss
  * @date 2021-07-15

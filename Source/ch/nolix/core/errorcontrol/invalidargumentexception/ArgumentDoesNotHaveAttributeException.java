@@ -4,7 +4,7 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 //class
 /**
  * A {@link ArgumentDoesNotHaveAttributeException} is a {@link InvalidArgumentException} that
- * is supposed to be thrown when an object does undesirably not have a specific attribute.
+ * is supposed to be thrown when a given argument does undesirably not have a specific attribute.
  * 
  * @author Silvan Wyss
  * @date 2019-01-31

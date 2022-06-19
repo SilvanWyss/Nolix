@@ -4,7 +4,7 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 //class
 /**
  * A {@link ArgumentDoesNotSupportMethodException} is a {@link InvalidArgumentException} that
- * is supposed to be thrown when an argument does not support an invoked method.
+ * is supposed to be thrown when a given argument does undesirably not support an invoked method.
  * 
  * @author Silvan Wyss
  * @date 2019-02-03
