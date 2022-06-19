@@ -2,11 +2,24 @@
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
 //class
+/**
+ * A {@link ArgumentHasAttributeException} is a {@link InvalidArgumentException} that
+ * is supposed to be thrown when a given argument has undesirably a certain attribute.
+ * 
+ * @author Silvan Wyss
+ * @date 2022-01-30
+ */
 @SuppressWarnings("serial")
 public final class ArgumentHasAttributeException extends InvalidArgumentException {
 	
 	//static method
-	private static String createSafeAttributeName(final String attributeName) {
+	/**
+	 * @param attributeName
+	 * @return a valid attribute name of the given attribtueName.
+	 * @throws IllegalArgumentException if the given attributeName is null.
+	 * @throws IllegalArgumentException if the given attributeName is blank.
+	 */
+	private static String getValidttributeNameOfAttributeName(final String attributeName) {
 		
 		//Asserts that the given attributeName is not null.
 		if (attributeName == null) {
@@ -21,28 +34,18 @@ public final class ArgumentHasAttributeException extends InvalidArgumentExceptio
 		return attributeName;
 	}
 	
-	//static method
-	private static String createSafeAttributeType(final Class<?> attributeType) {
-		
-		//Asserts that the given attribute type is not null.
-		if (attributeType == null) {
-			throw new IllegalArgumentException("The given attribute type is null.");
-		}
-		
-		return attributeType.getSimpleName();
-	}
-	
 	//constructor
-	public ArgumentHasAttributeException(final Object argument, final Class<?> attributeType) {
-		
-		//Calls constructor of the base class.
-		super(argument, "has a " + createSafeAttributeType(attributeType));
-	}
-	
-	//constructor
+	/**
+	 * Creates a new {@link ArgumentHasAttributeException} for the given argument and attributeName.
+	 * 
+	 * @param argument
+	 * @param attributeName
+	 * @throws IllegalArgumentException if the given attributeName is null.
+	 * @throws IllegalArgumentException if the given attributeName is blank.
+	 */
 	public ArgumentHasAttributeException(final Object argument, final String attributeName) {
 		
 		//Calls constructor of the base class.
-		super(argument, "has a " + createSafeAttributeName(attributeName));
+		super(argument, "has a " + getValidttributeNameOfAttributeName(attributeName));
 	}
 }
