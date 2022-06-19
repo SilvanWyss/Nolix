@@ -30,6 +30,6 @@ public final class VoidPropertyFlyWeight implements IPropertyFlyWeight {
 	//method
 	@Override
 	public void setUpdateAction(final IAction updateAction) {
-		throw new ArgumentDoesNotSupportMethodException(this, "setUpdateAction");
+		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "setUpdateAction");
 	}
 }

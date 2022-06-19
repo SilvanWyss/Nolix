@@ -33,7 +33,7 @@ implements IBaseParametrizedReferenceType<SchemaImplementation> {
 	//method
 	@Override
 	public final IBaseParametrizedBackReferenceType<SchemaImplementation> asBaseParametrizedBackReferenceType() {
-		throw new ArgumentDoesNotSupportMethodException(this, "asBaseParametrizedBackReferenceType");
+		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParametrizedBackReferenceType");
 	}
 	
 	//method
@@ -45,7 +45,7 @@ implements IBaseParametrizedReferenceType<SchemaImplementation> {
 	//method
 	@Override
 	public final IBaseParametrizedValueType<SchemaImplementation, ?> asBaseParametrizedValueType() {
-		throw new ArgumentDoesNotSupportMethodException(this, "asBaseParametrizedValueType");
+		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParametrizedValueType");
 	}
 	
 	//method

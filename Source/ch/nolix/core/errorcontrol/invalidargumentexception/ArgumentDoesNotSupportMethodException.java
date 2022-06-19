@@ -14,6 +14,21 @@ public final class ArgumentDoesNotSupportMethodException extends InvalidArgument
 	
 	//static method
 	/**
+	 * @param argument
+	 * @param methodName
+	 * @return new {@link ArgumentDoesNotSupportMethodException} for the given argument and methodName.
+	 * @throws IllegalArgumentException if the given methodName is null.
+	 * @throws IllegalArgumentException if the given methodName is blank.
+	 */
+	public static ArgumentDoesNotSupportMethodException forArgumentAndMethodName(
+		final Object argument,
+		final String methodName
+	) {
+		return new ArgumentDoesNotSupportMethodException(argument, methodName);
+	}
+	
+	//static method
+	/**
 	 * @param methodName
 	 * @return a valid method name of the given methodName.
 	 * @throws IllegalArgumentException if the given methodName is null.
@@ -43,7 +58,7 @@ public final class ArgumentDoesNotSupportMethodException extends InvalidArgument
 	 * @throws IllegalArgumentException if the given methodName is null.
 	 * @throws IllegalArgumentException if the given methodName is blank.
 	 */
-	public ArgumentDoesNotSupportMethodException(final Object argument, final String methodName) {
+	private ArgumentDoesNotSupportMethodException(final Object argument, final String methodName) {
 		
 		//Calls constructor of the base class.
 		super(argument, "does not support the " + createValidMethodNameOfMethodName(methodName) + " method");

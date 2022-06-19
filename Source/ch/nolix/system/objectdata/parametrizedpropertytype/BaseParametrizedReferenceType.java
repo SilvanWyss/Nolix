@@ -32,7 +32,7 @@ implements IBaseParametrizedReferenceType<IMPL, E> {
 	//method
 	@Override
 	public final IBaseParametrizedBackReferenceType<IMPL, ?> asBaseParametrizedBackReferenceType() {
-		throw new ArgumentDoesNotSupportMethodException(this, "asBaseParametrizedBackReferenceType");
+		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParametrizedBackReferenceType");
 	}
 	
 	//method
@@ -44,7 +44,7 @@ implements IBaseParametrizedReferenceType<IMPL, E> {
 	//method
 	@Override
 	public final IBaseParametrizedValueType<IMPL, ?> asBaseParametrizedValueType() {
-		throw new ArgumentDoesNotSupportMethodException(this, "asBaseParametrizedValueType");
+		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParametrizedValueType");
 	}
 	
 	//method

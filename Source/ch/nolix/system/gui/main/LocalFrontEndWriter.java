@@ -25,7 +25,7 @@ public final class LocalFrontEndWriter implements IFrontEndWriter {
 	//method
 	@Override
 	public void redirectTo(final IApplicationTarget applicationTarget) {
-		throw new ArgumentDoesNotSupportMethodException(this, "redirectTo");
+		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "redirectTo");
 	}
 	
 	//method

@@ -49,7 +49,7 @@ public abstract class Mediator {
 	//method
 	@Override
 	public int hashCode() {
-		throw new ArgumentDoesNotSupportMethodException(this, "hashCode");
+		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "hashCode");
 	}
 	
 	//method

@@ -19,7 +19,7 @@ public final class JMonkeyCylinderRenderer implements IJMonkeyShapeRenderer<Cyli
 	//method
 	@Override
 	public void addSubRenderObject(final Geometry renderObject, final Spatial subRenderObject) {
-		throw new ArgumentDoesNotSupportMethodException(this, "addSubRenderObject");
+		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "addSubRenderObject");
 	}
 	
 	//method
@@ -34,7 +34,7 @@ public final class JMonkeyCylinderRenderer implements IJMonkeyShapeRenderer<Cyli
 	//method
 	@Override
 	public void removeSubRenderObject(final Geometry renderObject, final Spatial subRederObject) {
-		throw new ArgumentDoesNotSupportMethodException(this, "removeSubRenderObject");
+		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "removeSubRenderObject");
 	}
 	
 	//method

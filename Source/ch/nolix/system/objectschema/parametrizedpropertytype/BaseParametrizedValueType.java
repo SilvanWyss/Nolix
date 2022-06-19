@@ -24,13 +24,13 @@ implements IBaseParametrizedValueType<SchemaImplementation, V> {
 	//method
 	@Override
 	public final IBaseParametrizedBackReferenceType<SchemaImplementation> asBaseParametrizedBackReferenceType() {
-		throw new ArgumentDoesNotSupportMethodException(this, "asBaseParametrizedBackReferenceType");
+		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParametrizedBackReferenceType");
 	}
 	
 	//method
 	@Override
 	public final IBaseParametrizedReferenceType<SchemaImplementation> asBaseParametrizedReferenceType() {
-		throw new ArgumentDoesNotSupportMethodException(this, "asBaseParametrizedReferenceType");
+		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParametrizedReferenceType");
 	}
 	
 	//method

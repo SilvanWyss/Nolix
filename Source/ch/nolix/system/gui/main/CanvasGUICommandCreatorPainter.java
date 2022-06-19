@@ -143,7 +143,7 @@ public final class CanvasGUICommandCreatorPainter extends BasePainter implements
 	//method
 	@Override
 	public double getOpacity() {
-		throw new ArgumentDoesNotSupportMethodException(this, "getOpacity");
+		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "getOpacity");
 	}
 	
 	//method

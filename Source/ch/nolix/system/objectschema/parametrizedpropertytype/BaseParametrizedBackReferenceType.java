@@ -40,13 +40,13 @@ implements IBaseParametrizedBackReferenceType<SchemaImplementation> {
 	//method
 	@Override
 	public final IBaseParametrizedReferenceType<SchemaImplementation> asBaseParametrizedReferenceType() {
-		throw new ArgumentDoesNotSupportMethodException(this, "asBaseParametrizedReferenceType");
+		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParametrizedReferenceType");
 	}
 	
 	//method
 	@Override
 	public final IBaseParametrizedValueType<SchemaImplementation, ?> asBaseParametrizedValueType() {
-		throw new ArgumentDoesNotSupportMethodException(this, "asBaseParametrizedValueType");
+		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParametrizedValueType");
 	}
 	
 	//method

@@ -36,6 +36,6 @@ final class BaseBackendGUIClientFrontendReader implements IFrontEndReader {
 	//method
 	@Override
 	public LinkedList<byte[]> getFilesFromClipboard() {
-		throw new ArgumentDoesNotSupportMethodException(this, "getFilesFromClipboard");
+		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "getFilesFromClipboard");
 	}
 }
