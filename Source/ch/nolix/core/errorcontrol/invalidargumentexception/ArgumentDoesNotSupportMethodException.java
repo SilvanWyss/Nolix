@@ -34,7 +34,7 @@ public final class ArgumentDoesNotSupportMethodException extends InvalidArgument
 	 * @throws IllegalArgumentException if the given methodName is null.
 	 * @throws IllegalArgumentException if the given methodName is blank.
 	 */
-	private static String createValidMethodNameOfMethodName(final String methodName) {
+	private static String getValidMethodNameOfMethodName(final String methodName) {
 		
 		//Asserts that the given methodName is not null.
 		if (methodName == null) {
@@ -61,6 +61,6 @@ public final class ArgumentDoesNotSupportMethodException extends InvalidArgument
 	private ArgumentDoesNotSupportMethodException(final Object argument, final String methodName) {
 		
 		//Calls constructor of the base class.
-		super(argument, "does not support the " + createValidMethodNameOfMethodName(methodName) + " method");
+		super(argument, "does not support the " + getValidMethodNameOfMethodName(methodName) + " method");
 	}
 }
