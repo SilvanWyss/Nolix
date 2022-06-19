@@ -63,7 +63,7 @@ final class ResultJobRunner<R> extends Thread {
 		//Asserts that the current ResultJobRunner has an error.
 		//For a better performance, this implementation does not use all comfortable methods.
 		if (error == null) {
-			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.ERROR);
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.ERROR);
 		}
 		
 		return error;

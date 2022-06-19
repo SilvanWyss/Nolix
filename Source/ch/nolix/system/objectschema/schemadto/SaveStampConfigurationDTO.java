@@ -61,7 +61,7 @@ public final class SaveStampConfigurationDTO implements ISaveStampConfigurationD
 	//method
 	private void assertHasBaseTableName() {
 		if (!hasBaseTableName()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, "base table name");
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "base table name");
 		}
 	}
 	

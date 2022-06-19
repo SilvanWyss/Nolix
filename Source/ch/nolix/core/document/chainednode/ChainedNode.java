@@ -392,7 +392,7 @@ public final class ChainedNode implements OptionalHeadered {
 		
 		//Asserts that the current ChainedNode has a header.
 		if (header == null) {
-			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.HEADER);
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.HEADER);
 		}
 		
 		return getEscapeStringFor(header);
@@ -419,7 +419,7 @@ public final class ChainedNode implements OptionalHeadered {
 		
 		//Asserts that the current ChainedNode has a header.
 		if (header == null) {
-			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.HEADER);
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.HEADER);
 		}
 		
 		return header;
@@ -434,7 +434,7 @@ public final class ChainedNode implements OptionalHeadered {
 		
 		//Asserts that the current ChanedNode has a next node.
 		if (nextNode == null) {
-			throw new ArgumentDoesNotHaveAttributeException(this, NEXT_NODE_VARIABLE_NAME);
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, NEXT_NODE_VARIABLE_NAME);
 		}
 		
 		return nextNode;
@@ -449,7 +449,7 @@ public final class ChainedNode implements OptionalHeadered {
 		
 		//Asserts that the current ChainedNode has a next node.
 		if (nextNode == null) {
-			throw new ArgumentDoesNotHaveAttributeException(this, NEXT_NODE_VARIABLE_NAME);
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, NEXT_NODE_VARIABLE_NAME);
 		}
 		
 		return nextNode.toString();

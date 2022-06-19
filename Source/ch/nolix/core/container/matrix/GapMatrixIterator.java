@@ -52,7 +52,7 @@ final class GapMatrixIterator<E> implements Iterator<E> {
 	//method
 	private void assertHasNextElement() {
 		if (!hasNext()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.NEXT_ELEMENT);
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.NEXT_ELEMENT);
 		}
 	}
 	

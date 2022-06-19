@@ -564,7 +564,7 @@ extends Widget<BW, BWL> {
 		}
 		
 		if (!hasTargetHeight) {
-			throw new ArgumentDoesNotHaveAttributeException(this, "target height");
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "target height");
 		}
 		
 		return targetHeight;
@@ -596,7 +596,7 @@ extends Widget<BW, BWL> {
 		}
 		
 		if (!hasTargetWidth) {
-			throw new ArgumentDoesNotHaveAttributeException(this, "target width");
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "target width");
 		}
 		
 		return targetWidth;

@@ -104,7 +104,7 @@ public abstract class EndPoint implements GroupCloseable {
 			System.out.flush();
 			
 			if (System.currentTimeMillis() - startTimeInMilliseconds > REPLIER_GETTING_DELAY_IN_MILLISECONDS) {
-				throw new ArgumentDoesNotHaveAttributeException(this, "replier");
+				throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "replier");
 			}
 		}
 		

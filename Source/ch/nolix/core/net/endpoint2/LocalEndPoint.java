@@ -167,7 +167,7 @@ public final class LocalEndPoint extends EndPoint {
 		
 		//Asserts that this local end point has a target.
 		if (!hasTarget()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, "target");
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "target");
 		}
 		
 		return target;

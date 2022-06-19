@@ -167,7 +167,7 @@ public final class Downloader extends TextLineWidget<Downloader, DownloaderLook>
 	//method
 	private void supposeHasFileGetter() {
 		if (!hasFileGetter()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, "file getter");
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "file getter");
 		}
 	}
 }

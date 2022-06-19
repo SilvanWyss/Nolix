@@ -38,7 +38,7 @@ final class MultiReadContainerIterator<E> implements Iterator<E> {
 	public E next() {
 		
 		if (!hasNext()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.NEXT_ELEMENT);
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.NEXT_ELEMENT);
 		}
 		
 		final var element = currentIterator.next();

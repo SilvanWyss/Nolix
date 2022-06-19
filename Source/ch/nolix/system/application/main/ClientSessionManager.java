@@ -118,7 +118,7 @@ final class ClientSessionManager<
 	//method
 	private void assertContainsCurrentSession() {
 		if (!containsCurrentSession()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, "current Session");
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "current Session");
 		}
 	}
 	

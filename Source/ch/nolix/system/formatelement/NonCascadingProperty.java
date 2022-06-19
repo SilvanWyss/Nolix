@@ -103,7 +103,7 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends Materializ
 			return defaultValue;
 		}
 		
-		throw new ArgumentDoesNotHaveAttributeException(this, "value for the" + state.getPrefix() + " state");
+		throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "value for the" + state.getPrefix() + " state");
 	}
 	
 	//method

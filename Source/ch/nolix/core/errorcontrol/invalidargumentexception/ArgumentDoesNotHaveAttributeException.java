@@ -12,6 +12,74 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 @SuppressWarnings("serial")
 public final class ArgumentDoesNotHaveAttributeException extends InvalidArgumentException {
 	
+	//constructor
+	/**
+	 * @param argument
+	 * @param attributeName
+	 * @return a new {@link ArgumentDoesNotHaveAttributeException} for the given argument and attributeName.
+	 * @throws IllegalArgumentException if the given attributeName is null.
+	 * @throws IllegalArgumentException if the given attributeName is blank.
+	 */
+	public static ArgumentDoesNotHaveAttributeException forArgumentAndAttributeName(
+		final Object argument,
+		final String attributeName
+	) {
+		return new ArgumentDoesNotHaveAttributeException(argument, attributeName);
+	}
+
+	//static method
+	/**
+	 * @param argument
+	 * @param attributeType
+	 * @return a new {@link ArgumentDoesNotHaveAttributeException} for the given argument and attributeType.
+	 * @throws IllegalArgumentException if the given attributeType is null.
+	 */
+	public static ArgumentDoesNotHaveAttributeException forArgumentAndAttributeType(
+		final Object argument,
+		final Class<?> attributeType
+	) {
+		return new ArgumentDoesNotHaveAttributeException(argument, attributeType);
+	}
+	
+	//constructor
+	/**
+	 * @param argumentName
+	 * @param argument
+	 * @param attributeName
+	 * @return a new {@link ArgumentDoesNotHaveAttributeException} for
+	 * the given argumentName, argument and attributeName.
+	 * @throws IllegalArgumentException if the given argumentName is null.
+	 * @throws IllegalArgumentException if the given argumentName is blank.
+	 * @throws IllegalArgumentException if the given attributeName is null.
+	 * @throws IllegalArgumentException if the given attributeName is blank.
+	 */
+	public static ArgumentDoesNotHaveAttributeException forArgumentNameAndArgumentAndAttributeName(
+		final String argumentName,
+		final Object argument,
+		final String attributeName
+	) {
+		return new ArgumentDoesNotHaveAttributeException(argumentName, argument, attributeName);		
+	}
+	
+	//constructor
+	/**
+	 * @param argumentName
+	 * @param argument
+	 * @param attributeType
+	 * @return a new {@link ArgumentDoesNotHaveAttributeException} for
+	 * the given argumentName, argument and attributeType.
+	 * @throws IllegalArgumentException if the given argumentName is null.
+	 * @throws IllegalArgumentException if the given argumentName is blank.
+	 * @throws IllegalArgumentException if the given attributeType is null.
+	 */
+	public static ArgumentDoesNotHaveAttributeException forArgumentNameAndArgumentAndAttributeType(
+		final String argumentName,
+		final Object argument,
+		final Class<?> attributeType
+	) {
+		return new ArgumentDoesNotHaveAttributeException(argumentName, argument, attributeType);		
+	}
+	
 	//static method
 	/**
 	 * @param attributeType
@@ -58,7 +126,7 @@ public final class ArgumentDoesNotHaveAttributeException extends InvalidArgument
 	 * @param attributeType
 	 * @throws IllegalArgumentException if the given attributeType is null.
 	 */
-	public ArgumentDoesNotHaveAttributeException(final Object argument, final Class<?> attributeType) {
+	private ArgumentDoesNotHaveAttributeException(final Object argument, final Class<?> attributeType) {
 		
 		//Calls constructor of the base class.
 		super(argument, "does not have a " + getNameOfAttributeType(attributeType));
@@ -73,7 +141,7 @@ public final class ArgumentDoesNotHaveAttributeException extends InvalidArgument
 	 * @throws IllegalArgumentException if the given attributeName is null.
 	 * @throws IllegalArgumentException if the given attributeName is blank.
 	 */
-	public ArgumentDoesNotHaveAttributeException(final Object argument, final String attributeName) {
+	private ArgumentDoesNotHaveAttributeException(final Object argument, final String attributeName) {
 		
 		//Calls constructor of the base class.
 		super(argument, "does not have a " + getValidAttributeNameOfAttributeName(attributeName));
@@ -91,7 +159,7 @@ public final class ArgumentDoesNotHaveAttributeException extends InvalidArgument
 	 * @throws IllegalArgumentException if the given argumentName is blank.
 	 * @throws IllegalArgumentException if the given attributeType is null.
 	 */
-	public ArgumentDoesNotHaveAttributeException(
+	private ArgumentDoesNotHaveAttributeException(
 		final String argumentName,
 		final Object argument,
 		final Class<?> attributeType
@@ -114,7 +182,7 @@ public final class ArgumentDoesNotHaveAttributeException extends InvalidArgument
 	 * @throws IllegalArgumentException if the given attributeName is null.
 	 * @throws IllegalArgumentException if the given attributeName is blank.
 	 */
-	public ArgumentDoesNotHaveAttributeException(
+	private ArgumentDoesNotHaveAttributeException(
 		final String argumentName,
 		final Object argument,
 		final String attributeName

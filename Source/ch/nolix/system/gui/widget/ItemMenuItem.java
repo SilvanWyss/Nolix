@@ -238,7 +238,7 @@ public final class ItemMenuItem extends MutableElement<ItemMenuItem> implements 
 	//method
 	private void assertBelongsToMenu() {
 		if (!belongsToMenu()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, "parent item menu");
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "parent item menu");
 		}
 	}
 

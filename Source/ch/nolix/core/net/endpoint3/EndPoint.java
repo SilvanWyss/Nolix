@@ -212,7 +212,7 @@ public abstract class EndPoint implements GroupCloseable, IDataProviderControlle
 		.waitUntil(this::hasReceiverController);
 		
 		if (!hasReceiverController()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.RECEIVER);
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.RECEIVER);
 		}
 		
 		return receiverController;

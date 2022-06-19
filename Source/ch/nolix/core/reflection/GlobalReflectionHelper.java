@@ -37,7 +37,7 @@ public final class GlobalReflectionHelper {
 			lClass = lClass.getSuperclass();
 		}
 		
-		throw new ArgumentDoesNotHaveAttributeException(object, attribute.getClass());
+		throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeType(object, attribute.getClass());
 	}
 	
 	//constructor

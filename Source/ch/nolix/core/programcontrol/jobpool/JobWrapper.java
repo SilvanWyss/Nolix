@@ -37,7 +37,7 @@ final class JobWrapper implements Runnable {
 	public Throwable getError() {
 		
 		if (!caughtError()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.ERROR);
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.ERROR);
 		}
 		
 		return error;

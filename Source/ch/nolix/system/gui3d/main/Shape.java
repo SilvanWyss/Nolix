@@ -356,7 +356,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	 */
 	private void assertHasShapeRenderManager() {
 		if (!hasShapeRenderManager()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, ShapeRenderManager.class);
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeType(this, ShapeRenderManager.class);
 		}
 	}
 }

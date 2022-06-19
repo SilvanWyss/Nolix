@@ -95,7 +95,7 @@ public final class QuadraticFunction {
 		
 		//Asserts that the current quadratic function has a maximum.
 		if (!hasMax()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, "maximum");
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "maximum");
 		}
 		
 		return (-b / (2 * a));
@@ -111,7 +111,7 @@ public final class QuadraticFunction {
 		
 		//Asserts that the current quadratic function has a minimum.
 		if (hasMin()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, "minimum");
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "minimum");
 		}
 		
 		return (-b / (2 * a));

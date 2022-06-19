@@ -535,7 +535,7 @@ public final class Node extends BaseNode {
 		//Asserts that the current Node has a header.
 		//For a better performance, this implementation does not use all comfortable methods.
 		if (header == null) {
-			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.HEADER);
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.HEADER);
 		}
 		
 		return header;

@@ -124,14 +124,14 @@ public final class TestCaseWrapper {
 	//method
 	private void supposeHasCleanup() {
 		if (!hasCleanup()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.CLEANUP);
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.CLEANUP);
 		}
 	}
 	
 	//method
 	private void supposeHasSetup() {
 		if (!hasSetup()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.SETUP);
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.SETUP);
 		}
 	}
 }

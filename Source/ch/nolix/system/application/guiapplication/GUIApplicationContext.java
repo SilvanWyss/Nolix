@@ -69,14 +69,14 @@ public class GUIApplicationContext implements IGUIApplicationContext {
 	//method
 	private void assertHasApplicationDescription() {
 		if (!hasApplicationDescription()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, "application description");
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "application description");
 		}
 	}
 	
 	//method
 	private void assertHasApplicationLogo() {
 		if (!hasApplicationLogo()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, "application logo");
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "application logo");
 		}
 	}
 }

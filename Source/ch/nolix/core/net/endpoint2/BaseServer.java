@@ -163,7 +163,7 @@ public abstract class BaseServer implements GroupCloseable {
 	 */
 	private void assertContainsDefaultEndPointTakter() {
 		if (!containsDefaultEndPointTaker()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, "default end point taker");
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "default end point taker");
 		}
 	}
 	

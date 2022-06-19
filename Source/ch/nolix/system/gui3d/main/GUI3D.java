@@ -201,7 +201,7 @@ public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G> 
 		
 		//Asserts that the current {@link _3D_GUI} has a root shape.
 		if (isEmpty()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, "root shape");
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "root shape");
 		}
 		
 		return rootShape;

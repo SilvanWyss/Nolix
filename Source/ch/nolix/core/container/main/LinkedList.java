@@ -526,7 +526,7 @@ public final class LinkedList<E> extends Container<E> implements Clearable {
 			i++;
 		}
 		
-		throw new ArgumentDoesNotHaveAttributeException(this, "element at " + index);
+		throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "element at " + index);
 	}
 	
 	//method

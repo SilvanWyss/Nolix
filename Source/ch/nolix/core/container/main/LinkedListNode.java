@@ -71,7 +71,7 @@ final class LinkedListNode<E> {
 		
 		//Asserts that the current list node has a next node.
 		if (!hasNextNode()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, "next node");
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "next node");
 		}
 		
 		return nextNode;
@@ -140,7 +140,7 @@ final class LinkedListNode<E> {
 		
 		//Asserts that the current list node has a next node.
 		if (!hasNextNode()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, "next node");
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "next node");
 		}
 				
 		final E lElement = nextNode.getElement();

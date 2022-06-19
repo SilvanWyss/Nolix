@@ -148,7 +148,7 @@ public abstract class ThrownExceptionMediator extends Mediator {
 		//Asserts that the current ThrownExceptionMediator has an exception.
 		//For a better performance, this implementation does not use all comfortable methods.
 		if (exception == null) {
-			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.EXCEPTION);
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.EXCEPTION);
 		}
 		
 		return exception;

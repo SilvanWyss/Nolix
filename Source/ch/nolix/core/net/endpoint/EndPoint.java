@@ -89,7 +89,7 @@ public abstract class EndPoint implements GroupCloseable {
 		
 		//Asserts that the current EndPoint has a target.
 		if (this.target == null) {
-			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.TARGET);
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.TARGET);
 		}
 		
 		return target;
@@ -214,7 +214,7 @@ public abstract class EndPoint implements GroupCloseable {
 	 */
 	private void assertHasReceiver() {
 		if (!hasReceiver()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.RECEIVER);
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.RECEIVER);
 		}
 	}
 }

@@ -146,14 +146,14 @@ public final class ApplicationSheet implements IApplicationSheet {
 	//method
 	private void assertHasApplicationDescription() {
 		if (!hasApplicationDescription()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, "application description");
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "application description");
 		}
 	}
 	
 	//method
 	private void assertHasApplicationLogo() {
 		if (!hasApplicationLogo()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, "application logo");
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "application logo");
 		}
 	}
 }

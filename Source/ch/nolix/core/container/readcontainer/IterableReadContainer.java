@@ -106,7 +106,7 @@ final class IterableReadContainer<E> extends Container<E> {
 			i++;
 		}
 		
-		throw new ArgumentDoesNotHaveAttributeException(this, "element at " + index);
+		throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "element at " + index);
 	}
 	
 	//method

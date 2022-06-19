@@ -39,7 +39,7 @@ final class ArrayReadContainerIterator<E> implements Iterator<E> {
 		
 		//Asserts that the current array read container iterator has a next element.
 		if (!hasNext()) {
-			throw new ArgumentDoesNotHaveAttributeException(
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(
 				this,
 				LowerCaseCatalogue.NEXT_ELEMENT
 			);

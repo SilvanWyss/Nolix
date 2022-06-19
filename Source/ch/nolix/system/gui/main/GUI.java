@@ -655,7 +655,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	protected final IVisualizer getRefVisualizer() {
 		
 		if (visualizer == null) {
-			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.VISUALIZER);
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.VISUALIZER);
 		}
 		
 		return visualizer;

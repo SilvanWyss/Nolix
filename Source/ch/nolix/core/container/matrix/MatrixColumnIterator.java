@@ -46,7 +46,7 @@ final class MatrixColumnIterator<E> implements Iterator<E> {
 	//method
 	private void supposeHasNextElement() {
 		if (!hasNext()) {
-			throw new ArgumentDoesNotHaveAttributeException(
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(
 				this,
 				LowerCaseCatalogue.NEXT_ELEMENT
 			);

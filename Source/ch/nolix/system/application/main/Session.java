@@ -169,7 +169,7 @@ public abstract class Session<
 	final Object getRefResult() {
 		
 		if (result == null) {
-			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.RESULT);
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.RESULT);
 		}
 		
 		return result;

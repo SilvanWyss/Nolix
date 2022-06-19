@@ -56,7 +56,7 @@ final class LinkedListIterator<E> implements Iterator<E> {
 		
 		//Asserts that the current list iterator has a next element.
 		if (!hasNext()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, "next element");
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "next element");
 		}
 		
 		final var element = nextNode.getElement();

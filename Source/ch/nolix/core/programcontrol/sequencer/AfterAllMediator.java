@@ -113,7 +113,7 @@ public final class AfterAllMediator {
 	 */
 	private void assertHasCondition() {
 		if (!hasCondition()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.CONDITION);
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.CONDITION);
 		}
 	}
 	

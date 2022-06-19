@@ -36,7 +36,7 @@ public abstract class BaseArgumentCapturer<A> {
 	//method
 	private void assertHasArgument() {
 		if (!hasArgument()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, "argument");
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "argument");
 		}
 	}
 	

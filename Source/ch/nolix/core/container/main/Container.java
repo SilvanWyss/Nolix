@@ -1299,7 +1299,7 @@ public abstract class Container<E> implements IContainer<E> {
 			}
 		}
 		
-		throw new ArgumentDoesNotHaveAttributeException(this, "element the given selector selects");
+		throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "element the given selector selects");
 	}
 	
 	//method

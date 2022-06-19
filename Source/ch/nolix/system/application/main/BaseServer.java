@@ -276,7 +276,7 @@ public abstract class BaseServer implements GroupCloseable {
 	 */
 	private void assertContainsDefaultApplication() {
 		if (!containsDefaultApplication()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, "default Application");
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "default Application");
 		}
 	}
 	

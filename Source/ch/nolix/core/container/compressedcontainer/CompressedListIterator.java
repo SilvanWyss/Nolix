@@ -68,7 +68,7 @@ final class CompressedListIterator<E> implements Iterator<E> {
 	//method
 	private void assertHasNext() {
 		if (!hasNext()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, "next element");
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "next element");
 		}
 	}
 	

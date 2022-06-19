@@ -33,7 +33,7 @@ final class StateProperty<V> {
 	public V getValue() {
 		
 		if (!defined || value == null) {
-			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.VALUE);
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.VALUE);
 		}
 		
 		return value;

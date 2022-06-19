@@ -72,7 +72,7 @@ public final class ImageGenerator extends BaseFuture implements IImageGenerator 
 		final var futureWithError = futures.getRefFirstOrNull(IFuture::caughtError);
 		
 		if (futureWithError == null) {
-			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.ERROR);
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.ERROR);
 		}
 		
 		return futureWithError.getError();

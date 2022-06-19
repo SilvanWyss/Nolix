@@ -49,7 +49,7 @@ public final class TestCaseRunner extends Thread {
 	public Error getExceptionError() {
 		
 		if (!hasExceptionError()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, "exception error");
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "exception error");
 		}
 		
 		return exceptionError;

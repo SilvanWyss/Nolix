@@ -29,7 +29,7 @@ final class SingleContainerIterator<E> implements Iterator<E> {
 	public E next() {
 		
 		if (!hasNext()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, "next element");
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "next element");
 		}
 		
 		final var temp = element;

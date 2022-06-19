@@ -76,7 +76,7 @@ final class AligningContainerSlot implements Clearable {
 		
 		//For a better performance, this implementation does not use all comfortable methods.
 		if (widget == null) {
-			throw new ArgumentDoesNotHaveAttributeException(this, Widget.class);
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeType(this, Widget.class);
 		}
 		
 		widget.setPositionOnParent(xPositionOnParentContentArea, yPositionOnParentContentArea);

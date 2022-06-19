@@ -111,7 +111,7 @@ public final class XMLNode implements OptionalNamable<XMLNode>, OptionalValueabl
 	public String getName() {
 		
 		if (name == null) {
-			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.NAME);
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.NAME);
 		}
 		
 		return name;
@@ -241,7 +241,7 @@ public final class XMLNode implements OptionalNamable<XMLNode>, OptionalValueabl
 	//method
 	private void supposeHasValue() {
 		if (!hasValue()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.VALUE);
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.VALUE);
 		}
 	}
 	

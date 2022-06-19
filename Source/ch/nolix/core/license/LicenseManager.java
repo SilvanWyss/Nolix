@@ -151,7 +151,7 @@ public final class LicenseManager {
 		
 		//Asserts that the current LicenseManager contains a feature of the given featureType.
 		if (!containsFeature(featureType)) {
-			throw new ArgumentDoesNotHaveAttributeException(this, featureType.getSimpleName());
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, featureType.getSimpleName());
 		}
 		
 		return this;

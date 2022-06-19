@@ -57,7 +57,7 @@ public final class DataTypeDTO implements IDataTypeDTO {
 	//method
 	private void assertHasParameter() {
 		if (!hasParameter()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.PARAMETER);
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.PARAMETER);
 		}
 	}
 }

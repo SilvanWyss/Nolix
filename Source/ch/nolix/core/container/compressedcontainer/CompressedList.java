@@ -81,7 +81,7 @@ public final class CompressedList<E> extends Container<E> {
 			iteratorNode = iteratorNode.getRefNextNode();
 		}
 		
-		throw new ArgumentDoesNotHaveAttributeException(this, "element at " + index);
+		throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "element at " + index);
 	}
 	
 	//method

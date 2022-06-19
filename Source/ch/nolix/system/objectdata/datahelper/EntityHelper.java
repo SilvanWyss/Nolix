@@ -54,7 +54,7 @@ public class EntityHelper extends DatabaseObjectHelper implements IEntityHelper 
 	@Override
 	public final void assertHasSaveStamp(final IEntity<?> entity) {
 		if (!entity.hasSaveStamp()) {
-			throw new ArgumentDoesNotHaveAttributeException(entity, LowerCaseCatalogue.SAVE_STAMP);
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(entity, LowerCaseCatalogue.SAVE_STAMP);
 		}
 	}
 	

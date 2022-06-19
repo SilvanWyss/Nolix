@@ -71,7 +71,7 @@ final class SubContainerIterator<E> implements Iterator<E> {
 		
 		//Asserts that the current @link SubContainerIterator has a next element.
 		if (!hasNext()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.NEXT_ELEMENT);
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.NEXT_ELEMENT);
 		}
 		
 		currentIndex++;

@@ -80,7 +80,7 @@ public final class MutableOptionalWidgetProperty extends Property implements Cle
 	//method
 	private void assertHasWidget() {
 		if (isEmpty()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, Widget.class);
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeType(this, Widget.class);
 		}
 	}
 }

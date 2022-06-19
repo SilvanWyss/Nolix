@@ -389,7 +389,7 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 		
 		//Asserts that the current Layer has a root Widget.
 		if (rootWidget == null) {
-			throw new ArgumentDoesNotHaveAttributeException(this, "root Widget");
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "root Widget");
 		}
 		
 		return rootWidget;
@@ -405,7 +405,7 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 		
 		//Asserts that the current Layer has a role.
 		if (!role.hasValue()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.ROLE);
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.ROLE);
 		}
 		
 		return role.getValue();

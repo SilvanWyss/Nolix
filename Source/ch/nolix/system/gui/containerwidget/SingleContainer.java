@@ -67,7 +67,7 @@ public final class SingleContainer extends ContainerWidget<SingleContainer, Sing
 		//For a better performance, this implementation does not use all comfortable methods.
 			//Asserts that the current single container has a widget.
 			if (widget == null) {
-				throw new ArgumentDoesNotHaveAttributeException(this, Widget.class);
+				throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeType(this, Widget.class);
 			}
 			
 			return widget;

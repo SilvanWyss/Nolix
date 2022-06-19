@@ -184,7 +184,7 @@ public final class IntOrPercentageHolder implements Specified {
 	 */
 	private void assertHasIntValue() {
 		if (!hasIntValue()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, "integer value");
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "integer value");
 		}
 	}
 	
@@ -195,7 +195,7 @@ public final class IntOrPercentageHolder implements Specified {
 	 */
 	private void assertHasPercentage() {
 		if (!hasPercentage()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.PERCENTAGE);
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.PERCENTAGE);
 		}
 	}
 }

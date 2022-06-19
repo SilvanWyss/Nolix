@@ -79,7 +79,12 @@ abstract class SingleValue<V> extends BaseValue<V> {
 		
 		//Asserts that the current SingleProperty has a value.
 		if (value == null) {
-			throw new ArgumentDoesNotHaveAttributeException(getName(), this, LowerCaseCatalogue.VALUE);
+			throw
+			ArgumentDoesNotHaveAttributeException.forArgumentNameAndArgumentAndAttributeName(
+				getName(),
+				this,
+				LowerCaseCatalogue.VALUE
+			);
 		}
 		
 		return value;

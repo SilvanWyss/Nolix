@@ -798,7 +798,7 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 		
 		//Asserts that the current Console has a secret edit line.
 		if (!isReadingSecretLine()) {
-			throw new ArgumentDoesNotHaveAttributeException(this, "secret edit line");
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "secret edit line");
 		}
 		
 		return secretEditLine;

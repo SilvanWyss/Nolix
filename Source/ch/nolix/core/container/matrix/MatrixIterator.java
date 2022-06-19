@@ -75,7 +75,7 @@ final class MatrixIterator<E> implements Iterator<E> {
 		
 		//Asserts that this matrix iterator has a next element.
 		if (!hasNext()) {
-			throw new ArgumentDoesNotHaveAttributeException(
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(
 				this,
 				LowerCaseCatalogue.NEXT_ELEMENT
 			);

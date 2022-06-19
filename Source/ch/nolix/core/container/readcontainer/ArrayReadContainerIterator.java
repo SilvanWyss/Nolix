@@ -72,7 +72,7 @@ final class ArrayReadContainerIterator<E> implements Iterator<E> {
 		//Asserts that the current ArrayReadContainerIterator has a next element.
 		//For a better performance, this implementation does not use all comfortable methods.
 		if (nextElementIndex >= array.length) {
-			throw new ArgumentDoesNotHaveAttributeException(this, LowerCaseCatalogue.NEXT_ELEMENT);
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.NEXT_ELEMENT);
 		}
 		
 		final var element = array[nextElementIndex];
