@@ -26,10 +26,10 @@ public final class ArgumentBelongsToParentException extends InvalidArgumentExcep
 	//static method
 	/**
 	 * @param parent
-	 * @return the name of the given parent.
+	 * @return the name of the type of the given parent.
 	 * @throws IllegalArgumentException if the given parent is null.
 	 */
-	private static String getNameOfParent(final Object parent) {
+	private static String getTypeNameOfParent(final Object parent) {
 		
 		//Asserts that the given parent is not null.
 		if (parent == null) {
@@ -50,6 +50,6 @@ public final class ArgumentBelongsToParentException extends InvalidArgumentExcep
 	private ArgumentBelongsToParentException(final Object argument, final Object parent) {
 		
 		//Calls constructor of the base class.
-		super(argument, "belongs to a " + getNameOfParent(parent));
+		super(argument, "belongs to a " + getTypeNameOfParent(parent));
 	}
 }
