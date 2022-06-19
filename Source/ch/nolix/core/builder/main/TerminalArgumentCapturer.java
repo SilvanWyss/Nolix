@@ -46,7 +46,7 @@ public abstract class TerminalArgumentCapturer<
 	//method
 	private void assertDoesNotHaveBuilder() {
 		if (hasBuilder()) {
-			throw new ArgumentHasAttributeException(this, LowerCaseCatalogue.BUILDER);
+			throw ArgumentHasAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.BUILDER);
 		}
 	}
 	

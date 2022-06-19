@@ -14,6 +14,21 @@ public final class ArgumentHasAttributeException extends InvalidArgumentExceptio
 	
 	//static method
 	/**
+	 * @param argument
+	 * @param attributeName
+	 * @return a new {@link ArgumentHasAttributeException} for the given argument and attributeName.
+	 * @throws IllegalArgumentException if the given attributeName is null.
+	 * @throws IllegalArgumentException if the given attributeName is blank.
+	 */
+	public static ArgumentHasAttributeException forArgumentAndAttributeName(
+		final Object argument,
+		final String attributeName
+	) {
+		return new ArgumentHasAttributeException(argument, attributeName);
+	}
+	
+	//static method
+	/**
 	 * @param attributeName
 	 * @return a valid attribute name of the given attribtueName.
 	 * @throws IllegalArgumentException if the given attributeName is null.
@@ -43,7 +58,7 @@ public final class ArgumentHasAttributeException extends InvalidArgumentExceptio
 	 * @throws IllegalArgumentException if the given attributeName is null.
 	 * @throws IllegalArgumentException if the given attributeName is blank.
 	 */
-	public ArgumentHasAttributeException(final Object argument, final String attributeName) {
+	private ArgumentHasAttributeException(final Object argument, final String attributeName) {
 		
 		//Calls constructor of the base class.
 		super(argument, "has a " + getValidttributeNameOfAttributeName(attributeName));

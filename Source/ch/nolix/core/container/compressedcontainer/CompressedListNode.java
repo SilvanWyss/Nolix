@@ -79,7 +79,7 @@ final class CompressedListNode<E> {
 	//method
 	private void assertDoesNotHaveNextNode() {
 		if (hasNextNode()) {
-			throw new ArgumentHasAttributeException(this, "next node");
+			throw ArgumentHasAttributeException.forArgumentAndAttributeName(this, "next node");
 		}
 	}
 	

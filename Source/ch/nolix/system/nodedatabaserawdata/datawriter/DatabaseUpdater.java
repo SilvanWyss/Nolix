@@ -204,7 +204,7 @@ final class DatabaseUpdater {
 		
 		if (tableNodeSearcher.tableNodeContainsRecordNodeWithGivenId(tableNode, record.getId())) {
 			throw
-			new ArgumentHasAttributeException(
+			ArgumentHasAttributeException.forArgumentAndAttributeName(
 				"table " + tableInfo.getTableNameInQuotes(),
 				"record with the id '" + record.getId() + "'"
 			);

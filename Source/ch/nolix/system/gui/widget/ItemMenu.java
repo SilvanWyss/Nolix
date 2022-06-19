@@ -412,7 +412,7 @@ public abstract class ItemMenu<IM extends ItemMenu<IM>> extends BorderWidget<IM,
 	//method
 	private void assertDoesNotContainEmptyItem() {
 		if (containsEmptyItem()) {
-			throw new ArgumentHasAttributeException(this, "empty item");
+			throw ArgumentHasAttributeException.forArgumentAndAttributeName(this, "empty item");
 		}
 	}
 		
