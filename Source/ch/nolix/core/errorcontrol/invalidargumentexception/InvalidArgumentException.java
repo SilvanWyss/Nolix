@@ -93,7 +93,7 @@ public class InvalidArgumentException extends RuntimeException {
 	//static method
 	/**
 	 * @param argumentName
-	 * @return a valid argument name from the given argumentName.
+	 * @return a valid argument name of the given argumentName.
 	 * @throws IllegalArgumentException if the given argumentName is null.
 	 * @throws IllegalArgumentException if the given argumentName is blank.
 	 */
@@ -115,7 +115,7 @@ public class InvalidArgumentException extends RuntimeException {
 	//static method
 	/**
 	 * @param errorPredicate
-	 * @return an error predicate from the given errorPredicate.
+	 * @return a valid error predicate of the given errorPredicate.
 	 * @throws IllegalArgumentException if the given error predicate is null.
 	 * @throws IllegalArgumentException if the given error predicate is blank.
 	 * @throws IllegalArgumentException if the given errorPredicate ends with a dot.
