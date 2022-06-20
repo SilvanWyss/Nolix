@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.core.independent.independentcontainer;
 
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNotNullException;
+//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
