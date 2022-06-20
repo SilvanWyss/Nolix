@@ -71,7 +71,7 @@ public class DoubleMediator extends Mediator {
 		//Asserts that the argument of this double mediator
 		//is between the given min and max.
 		if (argument < min || argument > max) {
-			throw new ArgumentIsOutOfRangeException(
+			throw ArgumentIsOutOfRangeException.forArgumentNameAndArgumentAndRangeWithMinAndMax(
 				getArgumentName(),
 				argument,
 				min,

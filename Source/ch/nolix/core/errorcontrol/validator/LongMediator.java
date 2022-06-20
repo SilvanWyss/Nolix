@@ -71,7 +71,13 @@ public class LongMediator extends Mediator {
 	 */
 	public void isBetween(final int min, final int max) {
 		if (argument < min || argument > max) {
-			throw new ArgumentIsOutOfRangeException(getArgumentName(), argument, min, max);
+			throw
+			ArgumentIsOutOfRangeException.forArgumentNameAndArgumentAndRangeWithMinAndMax(
+				getArgumentName(),
+				argument,
+				min,
+				max
+			);
 		}
 	}
 	
@@ -84,7 +90,13 @@ public class LongMediator extends Mediator {
 	 */
 	public void isBetween(final long min, final long max) {
 		if (argument < min || argument > max) {
-			throw new ArgumentIsOutOfRangeException(getArgumentName(), argument, min, max);
+			throw
+			ArgumentIsOutOfRangeException.forArgumentNameAndArgumentAndRangeWithMinAndMax(
+				getArgumentName(),
+				argument,
+				min,
+				max
+			);
 		}
 	}
 	
