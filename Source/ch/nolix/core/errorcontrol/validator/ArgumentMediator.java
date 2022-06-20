@@ -137,7 +137,7 @@ public class ArgumentMediator<A> extends Mediator {
 		
 		//Asserts that the argument of the current ArgumentMediator is (!) null.
 		if (argument != null) {
-			throw new ArgumentIsNotNullException(getRefArgument());
+			throw ArgumentIsNotNullException.forArgument(getRefArgument());
 		}
 	}
 	

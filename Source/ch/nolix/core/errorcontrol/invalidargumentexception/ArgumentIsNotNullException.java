@@ -15,15 +15,31 @@ public final class ArgumentIsNotNullException extends InvalidArgumentException {
 	//constant
 	private static final String ERROR_PREDICATE = "is not null";
 	
+	//static method
+	/**
+	 * @param argument
+	 * @return a new {@link ArgumentIsNotNullException} for the given argument.
+	 * @throws IllegalArgumentException if the given argument is null.
+	 */
+	public static ArgumentIsNotNullException forArgument(final Object argument) {
+		return new ArgumentIsNotNullException(argument);
+	}
+	
 	//constructor
 	/**
-	 * Creates a {@link ArgumentIsNotNullException} for the given argument.
+	 * Creates a new {@link ArgumentIsNotNullException} for the given argument.
 	 * 
 	 * @param argument
+	 * @throws IllegalArgumentException if the given argument is null.
 	 */
-	public ArgumentIsNotNullException(final Object argument) {
+	private ArgumentIsNotNullException(final Object argument) {
 		
 		//Calls constructor of the base class.
 		super(argument, ERROR_PREDICATE);
+		
+		//Asserts that the given argument is not null.
+		if  (argument == null) {
+			throw new IllegalArgumentException("The given argument is null.");
+		}
 	}
 }
