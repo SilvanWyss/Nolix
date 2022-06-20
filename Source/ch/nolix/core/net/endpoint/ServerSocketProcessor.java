@@ -122,7 +122,7 @@ final class ServerSocketProcessor extends Worker {
 			final var line = GlobalInputStreamHelper.readLineFrom(inputStream);
 			
 			if (line == null) {
-				throw new ArgumentIsNullException(LowerCaseCatalogue.LINE);
+				throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.LINE);
 			}
 			
 			if (line.isEmpty()) {

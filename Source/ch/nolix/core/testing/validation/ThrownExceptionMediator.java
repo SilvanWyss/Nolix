@@ -55,7 +55,7 @@ public abstract class ThrownExceptionMediator extends Mediator {
 		
 		//Asserts that the given exception is not null.
 		if (exception == null) {
-			throw new ArgumentIsNullException(Exception.class);
+			throw ArgumentIsNullException.forArgumentType(Exception.class);
 		}
 		
 		//Sets the exception of the current thrown exception mediator.
@@ -91,7 +91,7 @@ public abstract class ThrownExceptionMediator extends Mediator {
 		
 		//Asserts that the given message is not null.
 		if (message == null) {
-			throw new ArgumentIsNullException(LowerCaseCatalogue.MESSAGE);
+			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.MESSAGE);
 		}
 		
 		//Handles the case that the current ThrownExceptionMediator has an exception.

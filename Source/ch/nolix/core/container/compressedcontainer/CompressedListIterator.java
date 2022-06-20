@@ -40,7 +40,7 @@ final class CompressedListIterator<E> implements Iterator<E> {
 	private CompressedListIterator(final CompressedListNode<E> firstNode) {
 		
 		if (firstNode == null) {
-			throw new ArgumentIsNullException("first node");
+			throw ArgumentIsNullException.forArgumentName("first node");
 		}
 		
 		currentNode = firstNode;

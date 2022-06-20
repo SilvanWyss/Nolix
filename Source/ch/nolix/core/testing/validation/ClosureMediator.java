@@ -34,7 +34,7 @@ public final class ClosureMediator extends Mediator {
 		
 		//Asserts that the given closure is not null.
 		if (closure == null) {
-			throw new ArgumentIsNullException("closure");
+			throw ArgumentIsNullException.forArgumentName("closure");
 		}
 		
 		//Sets the closure of the current ClosureMediator.

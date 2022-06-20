@@ -37,19 +37,19 @@ public final class ColumnInfo implements IColumnInfo {
 	) {
 		
 		if (columnId == null) {
-			throw new ArgumentIsNullException("column id");
+			throw ArgumentIsNullException.forArgumentName("column id");
 		}
 		
 		if (columnName == null) {
-			throw new ArgumentIsNullException(LowerCaseCatalogue.COLUMN_NAME);
+			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.COLUMN_NAME);
 		}
 		
 		if (columnPropertyType == null) {
-			throw new ArgumentIsNullException("column property type");
+			throw ArgumentIsNullException.forArgumentName("column property type");
 		}
 		
 		if (columnDataType == null) {
-			throw new ArgumentIsNullException("column data type");
+			throw ArgumentIsNullException.forArgumentName("column data type");
 		}
 		
 		if (columnIndexOnEntityNode < 0) {

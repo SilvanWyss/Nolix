@@ -15,7 +15,7 @@ final class HeaderLengthAndTaskAfterHeaderParameter {
 	public HeaderLengthAndTaskAfterHeaderParameter(final int headerLength, final TaskAfterHeader taskAfterHeader) {
 		
 		if (taskAfterHeader == null) {
-			throw new ArgumentIsNullException("task after header");
+			throw ArgumentIsNullException.forArgumentName("task after header");
 		}
 		
 		this.headerLength = headerLength;

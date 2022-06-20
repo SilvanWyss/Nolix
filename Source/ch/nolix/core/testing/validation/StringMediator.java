@@ -105,7 +105,7 @@ public class StringMediator extends ValueMediator<String> {
 		
 		//Asserts that the given sequence is not null.
 		if (sequence == null) {
-			throw new ArgumentIsNullException(LowerCaseCatalogue.SEQUENCE);
+			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.SEQUENCE);
 		}
 		
 		if (getRefValue() == null || !getRefValue().startsWith(sequence)) {

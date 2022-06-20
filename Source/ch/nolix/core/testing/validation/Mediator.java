@@ -27,7 +27,7 @@ public abstract class Mediator {
 		
 		//Asserts that the given expectationErrorTaker is not null.
 		if (expectationErrorTaker == null) {
-			throw new ArgumentIsNullException("expectation error taker");
+			throw ArgumentIsNullException.forArgumentName("expectation error taker");
 		}
 		
 		//Sets the expectationErrorTaker of the current Mediator.

@@ -935,7 +935,7 @@ public final class ChainedNode implements OptionalHeadered {
 		
 		//Asserts that the given header is not null.
 		if (header == null) {
-			throw new ArgumentIsNullException(LowerCaseCatalogue.HEADER);
+			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.HEADER);
 		}
 		
 		//Asserts that the given header is not blank.
@@ -957,7 +957,7 @@ public final class ChainedNode implements OptionalHeadered {
 		
 		//Asserts that the given nextNode is not null.
 		if (nextNode == null) {
-			throw new ArgumentIsNullException(NEXT_NODE_VARIABLE_NAME);
+			throw ArgumentIsNullException.forArgumentName(NEXT_NODE_VARIABLE_NAME);
 		}
 		
 		this.nextNode = nextNode;

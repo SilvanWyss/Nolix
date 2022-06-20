@@ -17,7 +17,7 @@ final class ListNode<E> {
 	public ListNode(final E element) {
 		
 		if (element == null) {
-			throw new ArgumentIsNullException(LowerCaseCatalogue.ELEMENT);
+			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.ELEMENT);
 		}
 		
 		this.element = element;
@@ -52,7 +52,7 @@ final class ListNode<E> {
 	public void setNextNode(final ListNode<E> nextNode) {
 		
 		if (nextNode == null) {
-			throw new ArgumentIsNullException("next node");
+			throw ArgumentIsNullException.forArgumentName("next node");
 		}
 		
 		this.nextNode = nextNode;

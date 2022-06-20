@@ -18,11 +18,11 @@ public final class TableTableRecord {
 	public TableTableRecord(final String idValue, final String nameValue) {
 		
 		if (idValue == null) {
-			throw new ArgumentIsNullException("id value");
+			throw ArgumentIsNullException.forArgumentName("id value");
 		}
 		
 		if (nameValue == null) {
-			throw new ArgumentIsNullException("name value");
+			throw ArgumentIsNullException.forArgumentName("name value");
 		}
 		
 		this.idValue = idValue;

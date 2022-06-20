@@ -36,7 +36,7 @@ public final class TestCaseRunner extends Thread {
 	public TestCaseRunner(final TestCaseWrapper testCaseWrapper) {
 		
 		if (testCaseWrapper == null) {
-			throw new ArgumentIsNullException("test case wrapper");
+			throw ArgumentIsNullException.forArgumentName("test case wrapper");
 		}
 		
 		this.testCaseWrapper = testCaseWrapper;
@@ -111,7 +111,7 @@ public final class TestCaseRunner extends Thread {
 	public void stop(final Error stopReason) {
 		
 		if (stopReason == null) {
-			throw new ArgumentIsNullException("stop reason");
+			throw ArgumentIsNullException.forArgumentName("stop reason");
 		}
 		
 		assertIsNotFinished();

@@ -20,11 +20,11 @@ public final class RecordDTO implements IRecordDTO {
 	public RecordDTO(final String id, final IContainer<IContentFieldDTO> contentFields) {
 		
 		if (id == null) {
-			throw new ArgumentIsNullException(LowerCaseCatalogue.ID);
+			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.ID);
 		}
 		
 		if (contentFields == null) {
-			throw new ArgumentIsNullException("content fields");
+			throw ArgumentIsNullException.forArgumentName("content fields");
 		}
 		
 		this.id = id;

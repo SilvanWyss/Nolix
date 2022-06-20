@@ -60,7 +60,7 @@ public final class ExtendedThrownExceptionMediator extends ThrownExceptionMediat
 		
 		//Asserts that the given type is not null.
 		if (type == null) {
-			throw new ArgumentIsNullException(LowerCaseCatalogue.TYPE);
+			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.TYPE);
 		}
 		
 		//Handles the case that the current extended thrown exception mediator

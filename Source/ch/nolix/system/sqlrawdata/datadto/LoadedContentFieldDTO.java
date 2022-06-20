@@ -18,7 +18,7 @@ public final class LoadedContentFieldDTO implements ILoadedContentFieldDTO {
 	public LoadedContentFieldDTO(final String columnName) {
 		
 		if (columnName == null) {
-			throw new ArgumentIsNullException(LowerCaseCatalogue.COLUMN_NAME);
+			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.COLUMN_NAME);
 		}
 		
 		this.columnName = columnName;
@@ -29,11 +29,11 @@ public final class LoadedContentFieldDTO implements ILoadedContentFieldDTO {
 	public LoadedContentFieldDTO(final String columnName, final Object value) {
 		
 		if (columnName == null) {
-			throw new ArgumentIsNullException(LowerCaseCatalogue.COLUMN_NAME);
+			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.COLUMN_NAME);
 		}
 		
 		if (value == null) {
-			throw new ArgumentIsNullException(LowerCaseCatalogue.VALUE);
+			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.VALUE);
 		}
 		
 		this.columnName = columnName;

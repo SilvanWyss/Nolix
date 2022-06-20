@@ -28,15 +28,15 @@ public final class TableInfo implements ITableInfo {
 	) {
 		
 		if (tableId == null) {
-			throw new ArgumentIsNullException("table id");
+			throw ArgumentIsNullException.forArgumentName("table id");
 		}
 		
 		if (tableName == null) {
-			throw new ArgumentIsNullException("table name");
+			throw ArgumentIsNullException.forArgumentName("table name");
 		}
 		
 		if (columnInfos == null) {
-			throw new ArgumentIsNullException("column definitions");
+			throw ArgumentIsNullException.forArgumentName("column definitions");
 		}
 		
 		this.tableId = tableId;

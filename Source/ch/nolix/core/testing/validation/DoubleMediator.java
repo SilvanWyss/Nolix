@@ -48,7 +48,7 @@ public final class DoubleMediator extends Mediator {
 		
 		//Asserts that the given condition is not null.
 		if (condition == null) {
-			throw new ArgumentIsNullException(LowerCaseCatalogue.CONDITION);
+			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.CONDITION);
 		}
 		
 		if (!condition.getOutput(value)) {

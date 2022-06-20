@@ -25,7 +25,7 @@ public final class Error {
 	public Error(final String errorMessage, final OccurancePlace occurancePlace) {
 		
 		if (errorMessage == null) {
-			throw new ArgumentIsNullException(LowerCaseCatalogue.ERROR_MESSAGE);
+			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.ERROR_MESSAGE);
 		}
 		
 		if (errorMessage.isBlank()) {
@@ -33,7 +33,7 @@ public final class Error {
 		}
 		
 		if (occurancePlace == null) {
-			throw new ArgumentIsNullException("occurance place");
+			throw ArgumentIsNullException.forArgumentName("occurance place");
 		}
 		
 		this.errorMessage = errorMessage;

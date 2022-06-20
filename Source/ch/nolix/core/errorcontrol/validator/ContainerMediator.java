@@ -99,7 +99,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 		
 		//Asserts that the given condition is not null.
 		if (condition == null) {
-			throw new ArgumentIsNullException(LowerCaseCatalogue.CONDITION);
+			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.CONDITION);
 		}
 		
 		//Iterates the elements of the argument of this container mediator.
@@ -187,7 +187,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 		
 		//Asserts that the given array is not null.
 		if (array == null) {
-			throw new ArgumentIsNullException(LowerCaseCatalogue.ARRAY);
+			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.ARRAY);
 		}
 		
 		//Calls other method.

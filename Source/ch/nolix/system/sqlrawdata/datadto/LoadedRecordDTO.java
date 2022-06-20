@@ -25,15 +25,15 @@ public final class LoadedRecordDTO implements ILoadedRecordDTO {
 	) {
 		
 		if (id == null) {
-			throw new ArgumentIsNullException(LowerCaseCatalogue.ID);
+			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.ID);
 		}
 		
 		if (saveStamp == null) {
-			throw new ArgumentIsNullException(LowerCaseCatalogue.SAVE_STAMP);
+			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.SAVE_STAMP);
 		}
 		
 		if (contentFields == null) {
-			throw new ArgumentIsNullException("content fields");
+			throw ArgumentIsNullException.forArgumentName("content fields");
 		}
 		
 		this.id = id;

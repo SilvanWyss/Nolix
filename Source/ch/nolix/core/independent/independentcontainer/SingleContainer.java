@@ -39,7 +39,7 @@ public final class SingleContainer<E> {
 		
 		//Asserts that the given element is not null.
 		if (element == null) {
-			throw new ArgumentIsNullException(LowerCaseCatalogue.ELEMENT);
+			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.ELEMENT);
 		}
 		
 		//Sets the element of the current SingleContainer.

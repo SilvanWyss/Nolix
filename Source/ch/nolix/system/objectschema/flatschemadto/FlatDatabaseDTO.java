@@ -16,7 +16,7 @@ public final class FlatDatabaseDTO implements IFlatDatabaseDTO {
 	public FlatDatabaseDTO(final String name) {
 		
 		if (name == null) {
-			throw new ArgumentIsNullException(LowerCaseCatalogue.NAME);
+			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.NAME);
 		}
 		
 		this.name = name;

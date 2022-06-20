@@ -20,7 +20,7 @@ final class ArrayReadContainerIterator<E> implements Iterator<E> {
 		
 		//Asserts that the given array is not null.
 		if (array == null) {
-			throw new ArgumentIsNullException(LowerCaseCatalogue.ARRAY);
+			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.ARRAY);
 		}
 		
 		//Sets the array of the current array read container iterator.

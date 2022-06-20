@@ -66,9 +66,9 @@ public class ArgumentMediator<A> extends Mediator {
 		
 		//Asserts that the given condition is not null.
 		if (condition == null) {
-			throw new ArgumentIsNullException(LowerCaseCatalogue.CONDITION);
+			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.CONDITION);
 		}
-				
+			
 		//Asserts that the argument of the current ArgumentMediator fulfills the given condition.
 		if (!condition.getOutput(getRefArgument())) {
 			throw
@@ -125,7 +125,7 @@ public class ArgumentMediator<A> extends Mediator {
 		
 		//Asserts that the argument of the current ArgumentMediator is not null.
 		if (argument == null) {
-			throw new ArgumentIsNullException(getArgumentName());
+			throw ArgumentIsNullException.forArgumentName(getArgumentName());
 		}
 	}
 	

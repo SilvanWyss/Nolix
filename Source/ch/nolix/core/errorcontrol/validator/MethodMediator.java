@@ -51,7 +51,7 @@ public class MethodMediator extends ArgumentMediator<Method> {
 	public final <A extends Annotation> MethodMediator hasAnnotation(final Class<A> annotationType) {
 		
 		if (annotationType == null) {
-			throw new ArgumentIsNullException("annotation type");
+			throw ArgumentIsNullException.forArgumentName("annotation type");
 		}
 		
 		isNotNull();
@@ -72,7 +72,7 @@ public class MethodMediator extends ArgumentMediator<Method> {
 	public final MethodMediator hasParametersOfTypeOnly(final Class<String> type) {
 		
 		if (type == null) {
-			throw new ArgumentIsNullException(getArgumentName());
+			throw ArgumentIsNullException.forArgumentName(getArgumentName());
 		}
 		
 		isNotNull();
@@ -95,7 +95,7 @@ public class MethodMediator extends ArgumentMediator<Method> {
 	public final MethodMediator hasReturnType(final Class<Node> returnType) {
 		
 		if (returnType == null) {
-			throw new ArgumentIsNullException("return type");
+			throw ArgumentIsNullException.forArgumentName("return type");
 		}
 		
 		if (getRefArgument().getReturnType() != returnType) {

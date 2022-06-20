@@ -19,11 +19,11 @@ public abstract class ParametrizedPropertyTypeDTO implements IParametrizedProper
 	public ParametrizedPropertyTypeDTO(final PropertyType propertyType, final DataType dataType) {
 		
 		if (propertyType == null) {
-			throw new ArgumentIsNullException(PropertyType.class);
+			throw ArgumentIsNullException.forArgumentType(PropertyType.class);
 		}
 		
 		if (dataType == null) {
-			throw new ArgumentIsNullException(DataType.class);
+			throw ArgumentIsNullException.forArgumentType(DataType.class);
 		}
 		
 		this.propertyType = propertyType;

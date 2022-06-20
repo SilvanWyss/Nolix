@@ -22,11 +22,11 @@ public final class DatabaseDTO implements IDatabaseDTO {
 	public DatabaseDTO(final String name, final IContainer<TableDTO> tables) {
 		
 		if (name == null) {
-			throw new ArgumentIsNullException(LowerCaseCatalogue.NAME);
+			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.NAME);
 		}
 		
 		if (tables == null) {
-			throw new ArgumentIsNullException(PluralLowerCaseCatalogue.TABLES);
+			throw ArgumentIsNullException.forArgumentName(PluralLowerCaseCatalogue.TABLES);
 		}
 		
 		this.name = name;

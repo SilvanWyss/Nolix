@@ -171,7 +171,7 @@ public abstract class TestPool implements Runnable {
 		
 		//Asserts that the given testClass is not null.
 		if (testClass == null) {
-			throw new ArgumentIsNullException(LowerCaseCatalogue.TEST_CLASS);
+			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.TEST_CLASS);
 		}
 		
 		//Asserts that the given testClass is a sub class of BaseTest.
@@ -214,7 +214,7 @@ public abstract class TestPool implements Runnable {
 		
 		//Asserts that the given testPool is not null.
 		if (testPool == null) {
-			throw new ArgumentIsNullException("test pool");
+			throw ArgumentIsNullException.forArgumentName("test pool");
 		}
 		
 		//Asserts that the given test pool does not contain the current TestPool recursively.

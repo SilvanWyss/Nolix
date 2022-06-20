@@ -85,7 +85,7 @@ public class ValueMediator<V> extends Mediator {
 		
 		//Asserts that the given condition is not null.
 		if (condition == null) {
-			throw new ArgumentIsNullException(LowerCaseCatalogue.CONDITION);
+			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.CONDITION);
 		}
 		
 		if (!condition.getOutput(getRefValue())) {
@@ -106,7 +106,7 @@ public class ValueMediator<V> extends Mediator {
 	
 		//Asserts that the given condition is not null.
 		if (condition == null) {
-			throw new ArgumentIsNullException(LowerCaseCatalogue.CONDITION);
+			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.CONDITION);
 		}
 		
 		if (condition.getOutput(getRefValue())) {
@@ -155,7 +155,7 @@ public class ValueMediator<V> extends Mediator {
 	public final void isOfType(final Class<?> type) {
 		
 		if (type == null) {
-			throw new ArgumentIsNullException(LowerCaseCatalogue.TYPE);
+			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.TYPE);
 		}
 		
 		isNotNull();

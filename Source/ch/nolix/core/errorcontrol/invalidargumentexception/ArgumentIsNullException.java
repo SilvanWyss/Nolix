@@ -17,6 +17,27 @@ public final class ArgumentIsNullException extends InvalidArgumentException {
 	
 	//static method
 	/**
+	 * @param argumentName
+	 * @return a new {@link ArgumentIsNullException} for the given argumentName.
+	 * @throws IllegalArgumentException if the given argumentName is null.
+	 * @throws IllegalArgumentException if the given argumentName is blank.
+	 */
+	public static ArgumentIsNullException forArgumentName(final String argumentName) {
+		return new ArgumentIsNullException(argumentName);
+	}
+	
+	//static method
+	/**
+	 * @param argumentType
+	 * @return a new {@link ArgumentIsNullException} for the given argumentType.
+	 * @throws IllegalArgumentException if the given argumentType is null.
+	 */
+	public static ArgumentIsNullException forArgumentType(final Class<?> argumentType) {
+		return new ArgumentIsNullException(argumentType);
+	}
+	
+	//static method
+	/**
 	 * @param argumentType
 	 * @return the name of the given argumentType.
 	 * @throws IllegalArgumentException if the given argumentType is null.
@@ -38,7 +59,7 @@ public final class ArgumentIsNullException extends InvalidArgumentException {
 	 * @param argumentType
 	 * @throws IllegalArgumentException if the given argumentType is null.
 	 */
-	public ArgumentIsNullException(final Class<?> argumentType) {
+	private ArgumentIsNullException(final Class<?> argumentType) {
 		
 		//Calls constructor of the base class.
 		super(getNameOfArgumentType(argumentType), null, ERROR_PREDICATE);
@@ -52,7 +73,7 @@ public final class ArgumentIsNullException extends InvalidArgumentException {
 	 * @throws IllegalArgumentException if the given argumentName is null.
 	 * @throws IllegalArgumentException if the given argumentName is blank.
 	 */
-	public ArgumentIsNullException(final String argumentName) {
+	private ArgumentIsNullException(final String argumentName) {
 		
 		//Calls constructor of the base class.
 		super(argumentName, null, ERROR_PREDICATE);

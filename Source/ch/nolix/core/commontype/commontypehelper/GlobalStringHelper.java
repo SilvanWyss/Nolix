@@ -96,7 +96,7 @@ public final class GlobalStringHelper {
 	public static String getInQuotes(final String string) {
 		
 		if (string == null) {
-			throw new ArgumentIsNullException(LowerCaseCatalogue.STRING);
+			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.STRING);
 		}
 		
 		return ("'" + string + "'");

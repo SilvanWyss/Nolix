@@ -29,19 +29,19 @@ public final class TableDTO implements ITableDTO {
 	) {
 		
 		if (id == null) {
-			throw new ArgumentIsNullException(LowerCaseCatalogue.ID);
+			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.ID);
 		}
 		
 		if (name == null) {
-			throw new ArgumentIsNullException(LowerCaseCatalogue.NAME);
+			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.NAME);
 		}
 		
 		if (saveStampConfiguration == null) {
-			throw new ArgumentIsNullException(ISaveStampConfigurationDTO.class);
+			throw ArgumentIsNullException.forArgumentType(ISaveStampConfigurationDTO.class);
 		}
 		
 		if (columnDTOs == null) {
-			throw new ArgumentIsNullException("column DTOs");
+			throw ArgumentIsNullException.forArgumentName("column DTOs");
 		}
 		
 		this.id = id;

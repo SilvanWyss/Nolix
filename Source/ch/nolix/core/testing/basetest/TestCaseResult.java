@@ -31,7 +31,7 @@ public final class TestCaseResult {
 	) {
 		
 		if (testCase == null) {
-			throw new ArgumentIsNullException(LowerCaseCatalogue.TEST_CASE);
+			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.TEST_CASE);
 		}
 		
 		if (runtimeInMilliseconds < 0) {
@@ -39,7 +39,7 @@ public final class TestCaseResult {
 		}
 		
 		if (expectationErrors == null) {
-			throw new ArgumentIsNullException("expectation errors");
+			throw ArgumentIsNullException.forArgumentName("expectation errors");
 		}
 		
 		this.testCase = testCase;
@@ -57,7 +57,7 @@ public final class TestCaseResult {
 	) {
 		
 		if (testCase == null) {
-			throw new ArgumentIsNullException("test case method");
+			throw ArgumentIsNullException.forArgumentName("test case method");
 		}
 		
 		if (runtimeInMilliseconds < 0) {
@@ -65,11 +65,11 @@ public final class TestCaseResult {
 		}
 		
 		if (expectationErrors == null) {
-			throw new ArgumentIsNullException("expection errors");
+			throw ArgumentIsNullException.forArgumentName("expection errors");
 		}
 		
 		if (exceptionError == null) {
-			throw new ArgumentIsNullException("exception error");
+			throw ArgumentIsNullException.forArgumentName("exception error");
 		}
 		
 		this.testCase = testCase;

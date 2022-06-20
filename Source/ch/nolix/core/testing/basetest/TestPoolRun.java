@@ -22,11 +22,11 @@ public final class TestPoolRun {
 	public TestPoolRun(final TestPool parentTestPool, final ILinePrinter linePrinter) {
 		
 		if (parentTestPool == null) {
-			throw new ArgumentIsNullException("parent TestPool");
+			throw ArgumentIsNullException.forArgumentName("parent TestPool");
 		}
 		
 		if (linePrinter == null) {
-			throw new ArgumentIsNullException("line printer");
+			throw ArgumentIsNullException.forArgumentName("line printer");
 		}
 		
 		this.parentTestPool = parentTestPool;

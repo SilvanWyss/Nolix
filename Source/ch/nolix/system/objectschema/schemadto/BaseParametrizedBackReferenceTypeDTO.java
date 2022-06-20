@@ -31,7 +31,7 @@ implements IBaseParametrizedBackReferenceTypeDTO {
 		}
 		
 		if (backReferencedColumnId == null) {
-			throw new ArgumentIsNullException("back referenced column id");
+			throw ArgumentIsNullException.forArgumentName("back referenced column id");
 		}
 		
 		this.backReferencedColumnId = backReferencedColumnId;

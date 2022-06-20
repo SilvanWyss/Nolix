@@ -42,7 +42,7 @@ abstract class Mediator {
 		
 		//Asserts that the given argumentName is not null.
 		if (argumentName == null) {
-			throw new ArgumentIsNullException("argument name");
+			throw ArgumentIsNullException.forArgumentName("argument name");
 		}
 		
 		//Asserts that the given argumentName is not blank.

@@ -17,7 +17,7 @@ public final class OccurancePlace {
 	public OccurancePlace(final String className, final int lineNumber) {
 		
 		if (className == null) {
-			throw new ArgumentIsNullException("class name");
+			throw ArgumentIsNullException.forArgumentName("class name");
 		}
 		
 		if (className.isBlank()) {

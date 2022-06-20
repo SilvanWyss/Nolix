@@ -60,7 +60,7 @@ final class StateProperty<V> {
 	public void setValue(final V value) {
 		
 		if (value == null) {
-			throw new ArgumentIsNullException(LowerCaseCatalogue.VALUE);
+			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.VALUE);
 		}
 		
 		defined = true;

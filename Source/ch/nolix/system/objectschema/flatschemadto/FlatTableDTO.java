@@ -19,11 +19,11 @@ public final class FlatTableDTO implements IFlatTableDTO {
 	public FlatTableDTO(final String id, final String name) {
 		
 		if (id == null) {
-			throw new ArgumentIsNullException(LowerCaseCatalogue.ID);
+			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.ID);
 		}
 		
 		if (name == null) {
-			throw new ArgumentIsNullException(LowerCaseCatalogue.NAME);
+			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.NAME);
 		}
 		
 		this.id = id;

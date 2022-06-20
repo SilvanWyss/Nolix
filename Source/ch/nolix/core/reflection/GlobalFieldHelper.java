@@ -53,7 +53,7 @@ public final class GlobalFieldHelper {
 	public static boolean isStatic(final Field field) {
 		
 		if (field == null) {
-			throw new ArgumentIsNullException(Field.class);
+			throw ArgumentIsNullException.forArgumentType(Field.class);
 		}
 		
 		return Modifier.isStatic(field.getModifiers());
@@ -63,7 +63,7 @@ public final class GlobalFieldHelper {
 	public static boolean isStaticAndStoresValueOfGivenType(final Field field, final Class<?> type) {
 		
 		if (type == null) {
-			throw new ArgumentIsNullException(LowerCaseCatalogue.TYPE);
+			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.TYPE);
 		}
 		
 		if (!isStatic(field)) {

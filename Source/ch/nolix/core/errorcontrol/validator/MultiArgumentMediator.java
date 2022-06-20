@@ -32,7 +32,7 @@ public class MultiArgumentMediator<A> {
 
 		//Asserts that the given arguments is not null.
 		if (arguments == null) {
-			throw new ArgumentIsNullException("arguments");
+			throw ArgumentIsNullException.forArgumentName("arguments");
 		}
 		
 		//Sets the arguments of this multi argument mediator.
@@ -64,7 +64,7 @@ public class MultiArgumentMediator<A> {
 			
 			//Asserts that the current argument is not null.
 			if (a == null) {
-				throw new ArgumentIsNullException(index + "th argument");
+				throw ArgumentIsNullException.forArgumentName(index + "th argument");
 			}
 			
 			//Increments the index.

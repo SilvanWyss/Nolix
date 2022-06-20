@@ -41,7 +41,7 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 		if (!canAddGivenTable(database, table)) {
 			
 			if (table == null) {
-				throw new ArgumentIsNullException(LowerCaseCatalogue.TABLE);
+				throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.TABLE);
 			}
 			
 			throw new InvalidArgumentException(database, "cannot add the given table '" + table.getName() + "'");

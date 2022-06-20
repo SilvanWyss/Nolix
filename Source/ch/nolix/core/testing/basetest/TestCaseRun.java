@@ -30,7 +30,7 @@ final class TestCaseRun {
 	public TestCaseRun(final TestCaseWrapper testCaseWrapper) {
 		
 		if (testCaseWrapper == null) {
-			throw new ArgumentIsNullException(TestCaseWrapper.class);
+			throw ArgumentIsNullException.forArgumentType(TestCaseWrapper.class);
 		}
 		
 		this.testCaseWrapper = testCaseWrapper;

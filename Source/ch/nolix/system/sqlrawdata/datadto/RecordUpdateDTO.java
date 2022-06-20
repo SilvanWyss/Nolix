@@ -27,15 +27,15 @@ public final class RecordUpdateDTO implements IRecordUpdateDTO {
 	) {
 		
 		if (id == null) {
-			throw new ArgumentIsNullException(LowerCaseCatalogue.ID);
+			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.ID);
 		}
 		
 		if (saveStamp == null) {
-			throw new ArgumentIsNullException(LowerCaseCatalogue.SAVE_STAMP);
+			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.SAVE_STAMP);
 		}
 		
 		if (updatedContentFields == null) {
-			throw new ArgumentIsNullException("updated content fields");
+			throw ArgumentIsNullException.forArgumentName("updated content fields");
 		}
 		
 		this.id = id;

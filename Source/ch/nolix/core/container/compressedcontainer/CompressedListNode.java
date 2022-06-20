@@ -29,7 +29,7 @@ final class CompressedListNode<E> {
 	private CompressedListNode(final E element, final int elementCount) {
 		
 		if (element == null) {
-			throw new ArgumentIsNullException(LowerCaseCatalogue.ELEMENT);
+			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.ELEMENT);
 		}
 		
 		if (elementCount < 1) {

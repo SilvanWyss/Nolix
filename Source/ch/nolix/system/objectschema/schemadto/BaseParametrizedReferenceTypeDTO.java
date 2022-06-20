@@ -24,7 +24,7 @@ implements IBaseParametrizedReferenceTypeDTO {
 		super(propertyType, dataType);
 		
 		if (referencedTableId == null) {
-			throw new ArgumentIsNullException("referenced table id");
+			throw ArgumentIsNullException.forArgumentName("referenced table id");
 		}
 		
 		this.referencedTableId = referencedTableId;

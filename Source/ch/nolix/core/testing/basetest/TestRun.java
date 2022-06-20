@@ -26,11 +26,11 @@ public final class TestRun {
 	public TestRun(final BaseTest parentTest, final ILinePrinter linePrinter) {
 		
 		if (parentTest == null) {
-			throw new ArgumentIsNullException("parent test");
+			throw ArgumentIsNullException.forArgumentName("parent test");
 		}
 		
 		if (linePrinter == null) {
-			throw new ArgumentIsNullException("line printer");
+			throw ArgumentIsNullException.forArgumentName("line printer");
 		}
 		
 		this.parentTest = parentTest;
@@ -119,7 +119,7 @@ public final class TestRun {
 	private void addAndPrintTestCaseResult(final TestCaseResult testCaseResult) {
 		
 		if (testCaseResult == null) {
-			throw new ArgumentIsNullException(TestCaseResult.class);
+			throw ArgumentIsNullException.forArgumentType(TestCaseResult.class);
 		}
 		
 		supposeIsNotFinished();

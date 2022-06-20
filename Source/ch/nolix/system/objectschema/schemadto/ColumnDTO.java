@@ -27,15 +27,15 @@ public final class ColumnDTO implements IColumnDTO {
 	) {
 		
 		if (id == null) {
-			throw new ArgumentIsNullException(LowerCaseCatalogue.ID);
+			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.ID);
 		}
 		
 		if (name == null) {
-			throw new ArgumentIsNullException(LowerCaseCatalogue.HEADER);
+			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.HEADER);
 		}
 		
 		if (parametrizedPropertyTypeDTO == null) {
-			throw new ArgumentIsNullException(IParametrizedPropertyTypeDTO.class);
+			throw ArgumentIsNullException.forArgumentType(IParametrizedPropertyTypeDTO.class);
 		}
 		
 		this.id = id;

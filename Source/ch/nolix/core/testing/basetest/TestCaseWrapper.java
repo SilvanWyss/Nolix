@@ -24,11 +24,11 @@ public final class TestCaseWrapper {
 	public TestCaseWrapper(final BaseTest parentTest, final Method testCase) {
 		
 		if (parentTest == null) {
-			throw new ArgumentIsNullException("parent test");
+			throw ArgumentIsNullException.forArgumentName("parent test");
 		}
 		
 		if (testCase == null) {
-			throw new ArgumentIsNullException(LowerCaseCatalogue.TEST_CASE);
+			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.TEST_CASE);
 		}
 		
 		this.parentTest = parentTest;

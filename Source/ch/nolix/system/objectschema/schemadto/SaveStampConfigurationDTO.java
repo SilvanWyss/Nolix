@@ -21,7 +21,7 @@ public final class SaveStampConfigurationDTO implements ISaveStampConfigurationD
 	public SaveStampConfigurationDTO(final SaveStampStrategy saveStampStrategy) {
 		
 		if (saveStampStrategy == null) {
-			throw new ArgumentIsNullException(SaveStampStrategy.class);
+			throw ArgumentIsNullException.forArgumentType(SaveStampStrategy.class);
 		}
 		
 		this.saveStampStrategy = saveStampStrategy;
@@ -32,11 +32,11 @@ public final class SaveStampConfigurationDTO implements ISaveStampConfigurationD
 	public SaveStampConfigurationDTO(final SaveStampStrategy saveStampStrategy, final String baseTableName) {
 		
 		if (saveStampStrategy == null) {
-			throw new ArgumentIsNullException(SaveStampStrategy.class);
+			throw ArgumentIsNullException.forArgumentType(SaveStampStrategy.class);
 		}
 		
 		if (baseTableName == null) {
-			throw new ArgumentIsNullException("base table name");
+			throw ArgumentIsNullException.forArgumentName("base table name");
 		}
 		
 		this.saveStampStrategy = saveStampStrategy;
