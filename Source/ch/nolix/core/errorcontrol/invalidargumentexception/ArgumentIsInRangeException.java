@@ -12,6 +12,78 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 @SuppressWarnings("serial")
 public final class ArgumentIsInRangeException extends InvalidArgumentException {
 	
+	//static method
+	/** 
+	 * @param argument
+	 * @return a new {@link ArgumentIsInRangeException} for
+	 * the given argument and range defined by the given min and max.
+	 * @param min
+	 * @param max
+	 */
+	public static ArgumentIsInRangeException forArgumentAndRangeWithMinAndMax(
+		final double argument,
+		final double min,
+		final double max
+	) {
+		return new ArgumentIsInRangeException(argument, min, max);
+	}
+	
+	//static method
+	/** 
+	 * @param argument
+	 * @return a new {@link ArgumentIsInRangeException} for
+	 * the given argument and range defined by the given min and max.
+	 * @param min
+	 * @param max
+	 */
+	public static ArgumentIsInRangeException forArgumentAndRangeWithMinAndMax(
+		final long argument,
+		final long min,
+		final long max
+	) {
+		return new ArgumentIsInRangeException(argument, min, max);
+	}
+	
+	//static method
+	/** 
+	 * @param argumentName
+	 * @param argument
+	 * @return a new {@link ArgumentIsInRangeException} for
+	 * the given argumentName, argument and range defined by the given min and max.
+	 * @param min
+	 * @param max
+	 * @throws IllegalArgumentException if the given argument name is null.
+	 * @throws IllegalArgumentException if the given argument name is blank.
+	 */
+	public static ArgumentIsInRangeException forArgumentNameAndArgumentAndRangeWithMinAndMax(
+		final String argumentName,
+		final double argument,
+		final double min,
+		final double max
+	) {
+		return new ArgumentIsInRangeException(argumentName, argument, min, max);
+	}
+	
+	//static method
+	/** 
+	 * @param argumentName
+	 * @param argument
+	 * @return a new {@link ArgumentIsInRangeException} for
+	 * the given argumentName, argument and range defined by the given min and max.
+	 * @param min
+	 * @param max
+	 * @throws IllegalArgumentException if the given argument name is null.
+	 * @throws IllegalArgumentException if the given argument name is blank.
+	 */
+	public static ArgumentIsInRangeException forArgumentNameAndArgumentAndRangeWithMinAndMax(
+		final String argumentName,
+		final long argument,
+		final long min,
+		final long max
+	) {
+		return new ArgumentIsInRangeException(argumentName, argument, min, max);
+	}
+	
 	//constructor
 	/**
 	 * Creates a new {@link ArgumentIsInRangeException} for
@@ -21,7 +93,7 @@ public final class ArgumentIsInRangeException extends InvalidArgumentException {
 	 * @param min
 	 * @param max
 	 */
-	public ArgumentIsInRangeException(final double argument, final double min, final double max) {
+	private ArgumentIsInRangeException(final double argument, final double min, final double max) {
 		
 		//Calls constructor of the base class.
 		super(argument, "is in [" + min + ", " + max + "]");
@@ -36,7 +108,7 @@ public final class ArgumentIsInRangeException extends InvalidArgumentException {
 	 * @param min
 	 * @param max
 	 */
-	public ArgumentIsInRangeException(final long argument, final long min, final long max) {
+	private ArgumentIsInRangeException(final long argument, final long min, final long max) {
 		
 		//Calls constructor of the base class.
 		super(argument, "is in [" + min + ", " + max + "]");
@@ -54,7 +126,7 @@ public final class ArgumentIsInRangeException extends InvalidArgumentException {
 	 * @throws IllegalArgumentException if the given argument name is null.
 	 * @throws IllegalArgumentException if the given argument name is blank.
 	 */
-	public ArgumentIsInRangeException(
+	private ArgumentIsInRangeException(
 		final String argumentName,
 		final double argument,
 		final double min,
@@ -77,7 +149,7 @@ public final class ArgumentIsInRangeException extends InvalidArgumentException {
 	 * @throws IllegalArgumentException if the given argument name is null.
 	 * @throws IllegalArgumentException if the given argument name is blank.
 	 */
-	public ArgumentIsInRangeException(
+	private ArgumentIsInRangeException(
 		final String argumentName,
 		final long argument,
 		final long min,

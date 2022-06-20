@@ -195,7 +195,7 @@ public class LongMediator extends Mediator {
 		//Asserts that the argument of this long mediator
 		//is not between the given min and max.
 		if (argument >= min && argument <= max) {
-			throw new ArgumentIsInRangeException(
+			throw ArgumentIsInRangeException.forArgumentNameAndArgumentAndRangeWithMinAndMax(
 				getArgumentName(),
 				argument,
 				min,
