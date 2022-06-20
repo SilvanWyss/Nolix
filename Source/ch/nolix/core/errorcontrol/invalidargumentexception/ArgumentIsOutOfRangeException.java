@@ -3,10 +3,8 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 
 //class
 /**
- * An out of range exception is an invalid argument exception
- * that is supposed to be thrown when a value is undesired not in a given range.
- * 
- * An out of range exception is not mutable.
+ * A {@link ArgumentIsOutOfRangeException} is a {@link InvalidArgumentException} that
+ * is supposed to be thrown when a given argument is undesirably not in a certain range.
  * 
  * @author Silvan Wyss
  * @date 2016-03-01
@@ -16,37 +14,45 @@ public final class ArgumentIsOutOfRangeException extends InvalidArgumentExceptio
 	
 	//constructor
 	/**
-	 * Creates a new out of range argument exception
-	 * for the given argument and for the range defined by the given min and max.
+	 * Creates a new {@link ArgumentIsOutOfRangeException} for
+	 * the given argument and range defined by the given min and max.
 	 * 
 	 * @param argument
 	 * @param min
 	 * @param max
 	 */
-	public ArgumentIsOutOfRangeException(
-		final double argument,
-		final double min,
-		final double max
-	) {
+	public ArgumentIsOutOfRangeException(final double argument, final double min, final double max) {
+		
 		//Calls constructor of the base class.
-		super(
-			argument,
-			"is not in [" + min + ", " + max + "]"
-		);
+		super(argument, "is not in [" + min + ", " + max + "]");
 	}
 	
 	//constructor
 	/**
-	 * Creates a new out of range argument exception
-	 * for the given argument, that has the given argument name,
-	 * and for the range defined by the given min and max.
+	 * Creates a new {@link ArgumentIsOutOfRangeException} for
+	 * the given argument and range defined by the given min and max.
+	 * 
+	 * @param argument
+	 * @param min
+	 * @param max
+	 */
+	public ArgumentIsOutOfRangeException(final long argument, final long min, final long max) {
+		
+		//Calls constructor of the base class.
+		super(argument, "is not in [" + min + ", " + max + "]");
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link ArgumentIsOutOfRangeException} for
+	 * the given argumentName, argument and range defined by the given min and max.
 	 * 
 	 * @param argumentName
 	 * @param argument
 	 * @param min
 	 * @param max
-	 * @throws IllegalArgumentException if the given argument name is null.
-	 * @throws IllegalArgumentException if the given argument name is empty.
+	 * @throws IllegalArgumentException if the given argumentName is null.
+	 * @throws IllegalArgumentException if the given argumentName is blank.
 	 */
 	public ArgumentIsOutOfRangeException(
 		final String argumentName,
@@ -55,43 +61,20 @@ public final class ArgumentIsOutOfRangeException extends InvalidArgumentExceptio
 		final double max
 	) {
 		//Calls constructor of the base class.
-		super(
-			argumentName,
-			argument,
-			"is not in [" + min + ", " + max + "]"
-		);
+		super(argumentName,	argument, "is not in [" + min + ", " + max + "]");
 	}
-	
+
 	//constructor
 	/**
-	 * Creates a new out of range argument exception
-	 * for the given argument and for the range defined by the given min and max.
-	 * 
-	 * @param argument
-	 * @param min
-	 * @param max
-	 */
-	public ArgumentIsOutOfRangeException(
-		final long argument,
-		final long min,
-		final long max
-	) {
-		//Calls constructor of the base class.
-		super(argument,	"is not in [" + min + ", " + max + "]");
-	}
-	
-	//constructor
-	/**
-	 * Creates a new out of range argument exception
-	 * for the given argument, that has the given argument name,
-	 * and for the range defined by the given min and max.
+	 * Creates a new {@link ArgumentIsOutOfRangeException} for
+	 * the given argumentName, argument and range defined by the given min and max.
 	 * 
 	 * @param argumentName
 	 * @param argument
 	 * @param min
 	 * @param max
-	 * @throws IllegalArgumentException if the given argument name is null.
-	 * @throws IllegalArgumentException if the given argument name is empty.
+	 * @throws IllegalArgumentException if the given argumentName is null.
+	 * @throws IllegalArgumentException if the given argumentName is blank.
 	 */
 	public ArgumentIsOutOfRangeException(
 		final String argumentName,
@@ -99,6 +82,7 @@ public final class ArgumentIsOutOfRangeException extends InvalidArgumentExceptio
 		final long min,
 		final long max
 	) {
+		
 		//Calls constructor of the base class.
 		super(argumentName,	argument, "is not in [" + min + ", " + max + "]");
 	}
