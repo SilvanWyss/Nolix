@@ -4,7 +4,7 @@ package ch.nolix.core.testing.basetest;
 //Java imports
 import java.lang.reflect.Method;
 
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNotNullException;
+//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.independent.independentcontainer.List;
@@ -31,7 +31,7 @@ public final class TestCaseResult {
 	) {
 		
 		if (testCase == null) {
-			throw new ArgumentIsNotNullException(LowerCaseCatalogue.TEST_CASE);
+			throw new ArgumentIsNullException(LowerCaseCatalogue.TEST_CASE);
 		}
 		
 		if (runtimeInMilliseconds < 0) {
@@ -57,7 +57,7 @@ public final class TestCaseResult {
 	) {
 		
 		if (testCase == null) {
-			throw new ArgumentIsNotNullException("test case method");
+			throw new ArgumentIsNullException("test case method");
 		}
 		
 		if (runtimeInMilliseconds < 0) {
