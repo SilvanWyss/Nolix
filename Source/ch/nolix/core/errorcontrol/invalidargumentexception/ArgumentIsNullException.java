@@ -3,8 +3,8 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 
 //class
 /**
- * A {@link ArgumentIsNullException} is a {@link InvalidArgumentException}
- * that is intended to be thrown when an argument is undesired null.
+ * A {@link ArgumentIsNullException} is a {@link InvalidArgumentException} that
+ * is supposed to be thrown when a given argument is undesirably null.
  * 
  * @author Silvan Wyss
  * @date 2016-05-01
@@ -18,12 +18,12 @@ public final class ArgumentIsNullException extends InvalidArgumentException {
 	//static method
 	/**
 	 * @param argumentType
-	 * @return a safe argument name for the given argument type.
-	 * @throws IllegalArgumentException if the given argument type is null.
+	 * @return the name of the given argumentType.
+	 * @throws IllegalArgumentException if the given argumentType is null.
 	 */
-	private static String createSafeArgumentName(final Class<?> argumentType) {
+	private static String getNameOfArgumentType(final Class<?> argumentType) {
 		
-		//Asserts that the given argument type is not null.
+		//Asserts that the given argumentType is not null.
 		if (argumentType == null) {
 			throw new IllegalArgumentException("The given argument type is null.");
 		}
@@ -33,34 +33,24 @@ public final class ArgumentIsNullException extends InvalidArgumentException {
 	
 	//constructor
 	/**
-	 * Creates a new {@link ArgumentIsNullException}.
-	 */
-	public ArgumentIsNullException() {
-		
-		//Calls constructor of the base class.
-		super(null, ERROR_PREDICATE);
-	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link ArgumentIsNullException} for an argument of the given argument type.
+	 * Creates a new {@link ArgumentIsNullException} for the given argumentType.
 	 * 
 	 * @param argumentType
-	 * @throws IllegalArgumentException if the given argument type is null.
+	 * @throws IllegalArgumentException if the given argumentType is null.
 	 */
 	public ArgumentIsNullException(final Class<?> argumentType) {
 		
 		//Calls constructor of the base class.
-		super(createSafeArgumentName(argumentType), null, ERROR_PREDICATE);
+		super(getNameOfArgumentType(argumentType), null, ERROR_PREDICATE);
 	}
 	
 	//constructor
 	/**
-	 * Creates a new null argument name exception for an argument with the given argument name.
+	 * Creates a new {@link ArgumentIsNullException} for the given argumentName.
 	 * 
 	 * @param argumentName
-	 * @throws IllegalArgumentException if the given argument name is null.
-	 * @throws IllegalArgumentException if the given argument name is empty.
+	 * @throws IllegalArgumentException if the given argumentName is null.
+	 * @throws IllegalArgumentException if the given argumentName is blank.
 	 */
 	public ArgumentIsNullException(final String argumentName) {
 		
