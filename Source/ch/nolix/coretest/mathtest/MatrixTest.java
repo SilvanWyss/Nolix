@@ -114,7 +114,7 @@ public final class MatrixTest extends Test {
 		//verification
 		final var expectedResult =
 		new Matrix(4, 4).setValues(1.0, 0.0, 0.0, 0.0,	0.0, 1.0, 0.0, 0.0,	0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0);
-		expect(testUnit.getProduct(result).equalsApproximatively(expectedResult, Calculator.DEFAULT_MAX_DEVIATION));;
+		expect(testUnit.getProduct(result).equalsApproximatively(expectedResult, Calculator.DEFAULT_MAX_DEVIATION));
 	}
 	
 	//method

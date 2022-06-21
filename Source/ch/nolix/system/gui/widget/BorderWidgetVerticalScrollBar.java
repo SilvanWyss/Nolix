@@ -17,7 +17,8 @@ import ch.nolix.systemapi.guiapi.painterapi.IPainter;
  * @param <BWL> is the type of the {@link BorderWidgetLook}
  * of the {@link BorderWidget} a {@link BorderWidgetVerticalScrollBar} belongs to.
  */
-public final class BorderWidgetVerticalScrollBar<BWL extends BorderWidgetLook<BWL>> implements HoverableTopLeftPositionedRectangular {
+public final class BorderWidgetVerticalScrollBar<BWL extends BorderWidgetLook<BWL>>
+implements HoverableTopLeftPositionedRectangular {
 	
 	//constant
 	public static final int THICKNESS = 20;
