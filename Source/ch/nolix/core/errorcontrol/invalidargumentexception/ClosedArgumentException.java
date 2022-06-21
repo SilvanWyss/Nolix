@@ -15,13 +15,22 @@ public final class ClosedArgumentException extends InvalidArgumentException {
 	//constant
 	private static final String ERROR_PREDICATE = "is closed";
 	
+	//static method
+	/**
+	 * @param argument
+	 * @return a new {@link ClosedArgumentException} for the given argument.
+	 */
+	public static ClosedArgumentException forArgument(final Object argument) {
+		return new ClosedArgumentException(argument);
+	}
+	
 	//constructor
 	/**
 	 * Creates a new {@link ClosedArgumentException} for the given argument.
 	 * 
 	 * @param argument
 	 */
-	public ClosedArgumentException(final Object argument) {
+	private ClosedArgumentException(final Object argument) {
 		
 		//Calls constructor of the base class.
 		super(argument, ERROR_PREDICATE);

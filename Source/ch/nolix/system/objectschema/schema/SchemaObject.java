@@ -56,7 +56,7 @@ abstract class SchemaObject implements IDatabaseObject {
 			case DELETED:
 				throw new DeletedArgumentException(this);
 			case CLOSED:
-				throw new ClosedArgumentException(this);
+				throw ClosedArgumentException.forArgument(this);
 		}
 	}
 	
@@ -73,7 +73,7 @@ abstract class SchemaObject implements IDatabaseObject {
 			case DELETED:
 				throw new DeletedArgumentException(this);
 			case CLOSED:
-				throw new ClosedArgumentException(this);
+				throw ClosedArgumentException.forArgument(this);
 		}
 	}
 	
@@ -90,7 +90,7 @@ abstract class SchemaObject implements IDatabaseObject {
 			case DELETED:
 				throw new DeletedArgumentException(this);
 			case CLOSED:
-				throw new ClosedArgumentException(this);
+				throw ClosedArgumentException.forArgument(this);
 		}
 	}
 }

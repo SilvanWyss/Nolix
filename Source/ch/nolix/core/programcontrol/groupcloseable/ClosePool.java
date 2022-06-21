@@ -134,7 +134,7 @@ final class ClosePool {
 		
 		//Asserts that the current ClosePool is open.
 		if (!isOpen()) {
-			throw new ClosedArgumentException(this);
+			throw ClosedArgumentException.forArgument(this);
 		}
 	}
 	

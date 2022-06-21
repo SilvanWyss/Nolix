@@ -1711,7 +1711,7 @@ implements IWidget<W, WL> {
 	 */
 	protected final void supposeGUIIsAlive() {
 		if (belongsToGUI() && parent.GUIIsClosed()) {
-			throw new ClosedArgumentException(getParentGUI());
+			throw ClosedArgumentException.forArgument(getParentGUI());
 		}
 	}
 	

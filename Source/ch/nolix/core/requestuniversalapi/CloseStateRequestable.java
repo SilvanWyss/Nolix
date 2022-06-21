@@ -23,7 +23,7 @@ public interface CloseStateRequestable {
 		
 		//Asserts that the current CloseStateRequestable is open.
 		if (isClosed()) {
-			throw new ClosedArgumentException(this);
+			throw ClosedArgumentException.forArgument(this);
 		}
 	}
 	

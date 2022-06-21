@@ -168,7 +168,7 @@ public abstract class BaseEntity implements IEntity<DataImplementation> {
 			case DELETED:
 				throw new DeletedArgumentException(this);
 			case CLOSED:
-				throw new ClosedArgumentException(this);
+				throw ClosedArgumentException.forArgument(this);
 		}
 	}
 	
