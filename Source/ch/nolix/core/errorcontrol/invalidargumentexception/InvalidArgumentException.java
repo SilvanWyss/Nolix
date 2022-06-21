@@ -188,7 +188,7 @@ public class InvalidArgumentException extends RuntimeException {
 		
 	//constructor
 	/**
-	 * Creates a new {@link InvalidArgumentException} for the given argument, argumentName and errorPredicate.
+	 * Creates a new {@link InvalidArgumentException} for the given argumentName, argument and errorPredicate.
 	 * 
 	 * @param argumentName
 	 * @param argument
