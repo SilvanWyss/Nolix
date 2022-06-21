@@ -58,7 +58,7 @@ public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHel
 	@Override
 	public final void assertKnowsParentColumn(final IProperty<?> property) {
 		if (!property.knowsParentColumn()) {
-			throw new InvalidArgumentException(property, "does not know its parent column");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(property, "does not know its parent column");
 		}
 	}
 	
@@ -108,7 +108,7 @@ public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHel
 	private Class<?> getDataTypeWhenDoesNotBelongToEntity(IMultiValue<?, ?> multiValue) {
 		
 		if (multiValue.isEmpty()) {
-			throw new InvalidArgumentException(multiValue, "cannot know its data type");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(multiValue, "cannot know its data type");
 		}
 		
 		return multiValue.getRefValues().getRefFirst().getClass();
@@ -118,7 +118,7 @@ public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHel
 	private Class<?> getDataTypeWhenDoesNotBelongToEntity(IOptionalValue<?, ?> optionalValue) {
 		
 		if (optionalValue.isEmpty()) {
-			throw new InvalidArgumentException(optionalValue, "cannot know its data type");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(optionalValue, "cannot know its data type");
 		}
 		
 		return optionalValue.getRefValue().getClass();
@@ -128,7 +128,7 @@ public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHel
 	private Class<?> getDataTypeWhenDoesNotBelongToEntity(final IValue<?, ?> value) {
 		
 		if (value.isEmpty()) {
-			throw new InvalidArgumentException(value, "cannot know its data type");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(value, "cannot know its data type");
 		}
 		
 		return value.getRefValue().getClass();
@@ -167,7 +167,7 @@ public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHel
 			case MULTI_VALUE:
 				return getDataTypeWhenDoesNotBelongToEntity((IMultiValue<?, ?>)property);
 			default:
-				throw new InvalidArgumentException(property, "is not a base value");
+				throw InvalidArgumentException.forArgumentAndErrorPredicate(property, "is not a base value");
 		}
 	}
 }

@@ -419,14 +419,14 @@ public abstract class ItemMenu<IM extends ItemMenu<IM>> extends BorderWidget<IM,
 	//method
 	private void assertDoesNotContainItemWithText(final String text) {
 		if (containsItem(text)) {
-			throw new InvalidArgumentException(this, "contains already an item with the text '" + text + "'");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "contains already an item with the text '" + text + "'");
 		}
 	}
 	
 	//method
 	private void assertDoesNotContainItemWithId(final String id) {
 		if (containsItemWithId(id)) {
-			throw new InvalidArgumentException(this, "contains already an item with the id '" + id + "'");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "contains already an item with the id '" + id + "'");
 		}
 	}
 	

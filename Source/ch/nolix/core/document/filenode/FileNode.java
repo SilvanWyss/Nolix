@@ -47,7 +47,7 @@ public final class FileNode extends BaseNode {
 			
 		//Handles the case that there exists file system item with the given filePath that is not a file.
 		} else {
-			throw new InvalidArgumentException(filePath, "is not a file");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(filePath, "is not a file");
 		}
 		
 		internalSpecification = Node.fromFile(filePath);

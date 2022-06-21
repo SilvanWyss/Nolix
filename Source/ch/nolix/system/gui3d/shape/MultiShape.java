@@ -60,7 +60,7 @@ public final class MultiShape extends Shape<MultiShape> {
 		
 		//Asserts that the given shape belongs not to a GUI.
 		if (shape.belongsToAGUI()) {
-			throw new InvalidArgumentException(shape, "belongs already to a GUI");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(shape, "belongs already to a GUI");
 		}
 		
 		//Handles the case that this multi shape belongs to a GUI.

@@ -492,7 +492,7 @@ implements IConfiguration {
 				element.addOrChangeAttribute(aa);
 			} catch (final Exception exception) {
 				throw
-				new InvalidArgumentException(
+				InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 					"attaching attribute",
 					aa,
 					"could not be added to the given " + element.getType() + " '" + element.getSpecification() + "'"
@@ -527,7 +527,7 @@ implements IConfiguration {
 	private void assertDoesNotContainerSelectorRole(String selectorRole) {
 		if (containsSelectorRole(selectorRole)) {
 			throw
-			new InvalidArgumentException(this, "contains already the given selector role '" + selectorRole + "'");
+			InvalidArgumentException.forArgumentAndErrorPredicate(this, "contains already the given selector role '" + selectorRole + "'");
 		}
 	}
 	
@@ -544,7 +544,7 @@ implements IConfiguration {
 			case DeepConfiguration.TYPE_NAME:
 				return DeepConfiguration.fromSpecification(specification);
 			default:
-				throw new InvalidArgumentException(LowerCaseCatalogue.SPECIFICATION, specification, "is not valid");
+				throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(LowerCaseCatalogue.SPECIFICATION, specification, "is not valid");
 		}
 	}
 }

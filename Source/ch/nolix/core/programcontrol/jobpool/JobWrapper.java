@@ -90,7 +90,7 @@ final class JobWrapper implements Runnable {
 		);
 		
 		if (!isFinished()) {
-			throw new InvalidArgumentException(this, "reached timeout before having finished");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "reached timeout before having finished");
 		}
 	}
 	
@@ -98,11 +98,11 @@ final class JobWrapper implements Runnable {
 	private void assertIsFresh() {
 		
 		if (isRunning()) {
-			throw new InvalidArgumentException(this, "is already running");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is already running");
 		}
 		
 		if (isFinished()) {
-			throw new InvalidArgumentException(this, "is already finished");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is already finished");
 		}
 	}
 }

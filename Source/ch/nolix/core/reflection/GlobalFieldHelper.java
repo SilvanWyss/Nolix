@@ -18,7 +18,7 @@ public final class GlobalFieldHelper {
 	public static <V> V getValueFromStaticField(final Field staticField) {
 		
 		if (!isStatic(staticField)) {
-			throw new InvalidArgumentException(staticField, "is not static");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(staticField, "is not static");
 		}
 		
 		try {

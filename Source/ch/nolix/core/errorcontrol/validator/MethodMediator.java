@@ -29,7 +29,7 @@ public class MethodMediator extends ArgumentMediator<Method> {
 		isNotNull();
 		
 		if (getRefArgument().getAnnotations().length != 0) {
-			throw new InvalidArgumentException(getArgumentName(), getRefArgument(), "has annotations");
+			throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(getArgumentName(), getRefArgument(), "has annotations");
 		}
 		
 		return this;
@@ -41,7 +41,7 @@ public class MethodMediator extends ArgumentMediator<Method> {
 		isNotNull();
 		
 		if (getRefArgument().getReturnType() != void.class) {
-			throw new InvalidArgumentException(getArgumentName(), getRefArgument(), "returns something");
+			throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(getArgumentName(), getRefArgument(), "returns something");
 		}
 		
 		return this;
@@ -57,8 +57,8 @@ public class MethodMediator extends ArgumentMediator<Method> {
 		isNotNull();
 		
 		if (getRefArgument().getAnnotation(annotationType) == null) {
-			throw new
-			InvalidArgumentException(
+			throw
+			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 				getArgumentName(),
 				getRefArgument(),
 				"does not have the annotation '" + annotationType.getName() + "'"
@@ -80,7 +80,7 @@ public class MethodMediator extends ArgumentMediator<Method> {
 		for (final var p : getRefArgument().getParameters()) {
 			if (!p.getType().isAssignableFrom(type)) {
 				throw
-				new InvalidArgumentException(
+				InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 					getArgumentName(),
 					getRefArgument(),
 					"has a parameter '" + p.getName() + "', that is not a " + type.getName()
@@ -100,7 +100,7 @@ public class MethodMediator extends ArgumentMediator<Method> {
 		
 		if (getRefArgument().getReturnType() != returnType) {
 			throw
-			new InvalidArgumentException(
+			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 				getArgumentName(),
 				getRefArgument(),
 				"does not have the return type '" + returnType.getName() +  "'"

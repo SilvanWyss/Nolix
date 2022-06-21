@@ -108,7 +108,7 @@ public final class ImageGenerator extends BaseFuture implements IImageGenerator 
 		);
 		
 		if (!isFinished()) {
-			throw new InvalidArgumentException(this, "reached timeout before having finished");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "reached timeout before having finished");
 		}
 	}
 	

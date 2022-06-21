@@ -32,7 +32,7 @@ public enum MouseInputType implements Specified {
 			case BACKWARD:
 				return BACKWARD_MOUSE_WHEEL_ROTATION_STEP;
 			default:
-				throw new InvalidArgumentException("rotation direction", rotationDirection, "is not valid");
+				throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate("rotation direction", rotationDirection, "is not valid");
 		}
 	}
 	

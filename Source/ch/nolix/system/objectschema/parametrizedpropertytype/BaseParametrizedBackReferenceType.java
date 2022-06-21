@@ -80,7 +80,7 @@ implements IBaseParametrizedBackReferenceType<SchemaImplementation> {
 	//method
 	private void assertIsAnyReferenceColumn(IColumn<SchemaImplementation> backReferencedColumn) {
 		if (!isAnyReferenceColumn(backReferencedColumn)) {
-			throw new InvalidArgumentException("back referenced column", backReferencedColumn, "is not any refence column");
+			throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate("back referenced column", backReferencedColumn, "is not any refence column");
 		}
 	}
 	

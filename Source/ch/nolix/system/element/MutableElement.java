@@ -44,7 +44,7 @@ public abstract class MutableElement<ME extends MutableElement<ME>> implements I
 		}
 		
 		//Handles the case that the current Mutable cannot have the given attribute.
-		throw new InvalidArgumentException(this, "cannot not have a " + attribute.getHeader());
+		throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "cannot not have a " + attribute.getHeader());
 	}
 	
 	//method

@@ -179,7 +179,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 		
 		//Asserts that the current Shape does not belong already to a GUI.
 		if (belongsToAGUI()) {
-			throw new InvalidArgumentException(this, "belongs already to a GUI");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "belongs already to a GUI");
 		}
 		
 		this.shapeRenderManager = new ShapeRenderManager(this, pGUI.getShapeRendererFor(this));
@@ -285,7 +285,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	 */
 	protected final void assertBelongsNotToAGUI() {
 		if (belongsToAGUI()) {
-			throw new InvalidArgumentException(this, "belongs to a GUI");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "belongs to a GUI");
 		}
 	}
 	
@@ -295,7 +295,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	 */
 	protected final void assertBelongsToAGUI() {
 		if (!belongsToAGUI()) {
-			throw new InvalidArgumentException(this, "belongs not to a GUI");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "belongs not to a GUI");
 		}
 	}
 	

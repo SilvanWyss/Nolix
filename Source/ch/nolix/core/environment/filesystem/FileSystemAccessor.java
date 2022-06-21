@@ -116,7 +116,7 @@ public final class FileSystemAccessor {
 					case SKIP_WHEN_TARGET_EXISTS_ALREADY:
 						return new FileAccessor(path);
 					case THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY:
-						throw new InvalidArgumentException("file system item",	path, "exists already");		
+						throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate("file system item",	path, "exists already");		
 				}
 			}
 			
@@ -224,7 +224,7 @@ public final class FileSystemAccessor {
 		
 		//Asserts that there does not exist already a file system item with the given path.
 		if (exists(path)) {
-			throw new InvalidArgumentException("file system item",	path, "exists already");
+			throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate("file system item",	path, "exists already");
 		}
 		
 		//Creates folder.
@@ -335,7 +335,7 @@ public final class FileSystemAccessor {
 		
 		//Asserts that there does not exist a folder with the given path.
 		if (isFolder(path)) {
-			throw new InvalidArgumentException(path, "is a folder");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(path, "is a folder");
 		}
 		
 		//Handles the case that there does not exist a file with the given path.
@@ -360,7 +360,7 @@ public final class FileSystemAccessor {
 		
 		//Asserts that there does not exist a folder with the given path.
 		if (isFolder(path)) {
-			throw new InvalidArgumentException(path, "is a folder");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(path, "is a folder");
 		}
 		
 		//Handles the case that there does not exist a file with the given path.

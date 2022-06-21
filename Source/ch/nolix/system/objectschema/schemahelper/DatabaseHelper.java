@@ -31,7 +31,7 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 	@Override
 	public void assertAllBackReferencesAreValid(final IDatabase<?> database) {
 		if (!allBackReferencesAreValid(database)) {
-			throw new InvalidArgumentException(database, "contains invalid back references");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(database, "contains invalid back references");
 		}
 	}
 	
@@ -44,7 +44,7 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 				throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.TABLE);
 			}
 			
-			throw new InvalidArgumentException(database, "cannot add the given table '" + table.getName() + "'");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(database, "cannot add the given table '" + table.getName() + "'");
 		}
 	}
 	
@@ -52,7 +52,7 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 	@Override
 	public void assertCanSetGivenNameToDatabase(final String name) {
 		if (!canSetGivenNameToDatabase(name)) {
-			throw new InvalidArgumentException(LowerCaseCatalogue.NAME, name, "cannot be set to database");
+			throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(LowerCaseCatalogue.NAME, name, "cannot be set to database");
 		}
 	}
 	
@@ -72,7 +72,7 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 	) {
 		if (!containsTableReferencedByGivenColumn(database, column)) {
 			throw
-			new InvalidArgumentException(
+			InvalidArgumentException.forArgumentAndErrorPredicate(
 				database,
 				"does not contain a table that is referenced by the column " + column.getNameInQuotes()
 			);
@@ -87,7 +87,7 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 	) {
 		if (!containsTableWithColumnBackReferencedByGivenColumn(database, column)) {
 			throw
-			new InvalidArgumentException(
+			InvalidArgumentException.forArgumentAndErrorPredicate(
 				this,
 				"does not contain a table with a column that references back the column " + column.getName()
 			);
@@ -107,7 +107,7 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 	@Override
 	public void assertDoesNotContainTableWithGivenName(final IDatabase<?> database, final String name) {
 		if (containsTableWithGivenName(database, name)) {
-			throw new InvalidArgumentException(this, "contains a table with the name '" + name + "'");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "contains a table with the name '" + name + "'");
 		}
 	}
 	

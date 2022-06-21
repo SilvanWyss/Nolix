@@ -176,7 +176,7 @@ public final class Column extends SchemaObject implements IColumn<SchemaImplemen
 	//method
 	void assertIsNotBackReferenced() {
 		if (isBackReferenced()) {
-			throw new InvalidArgumentException(this, "is back referenced");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is back referenced");
 		}
 	}
 	

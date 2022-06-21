@@ -47,7 +47,7 @@ abstract class Mediator {
 		
 		//Asserts that the given argumentName is not blank.
 		if (argumentName.isBlank()) {
-			throw new InvalidArgumentException("argument name", argumentName, "is blank");
+			throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate("argument name", argumentName, "is blank");
 		}
 		
 		//Sets the argumentName of the current Mediator.

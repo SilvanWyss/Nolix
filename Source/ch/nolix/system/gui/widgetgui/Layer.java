@@ -1395,7 +1395,7 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 		GlobalValidator.assertThat(string).thatIsNamed(String.class).isNotNull();
 		
 		if (!string.endsWith("%")) {
-			throw new InvalidArgumentException(string, "does not end with '%' symbol");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(string, "does not end with '%' symbol");
 		}
 		
 		final var lOpacityPercentage = (Double.valueOf(string.substring(0, string.length() - 1)) / 100);

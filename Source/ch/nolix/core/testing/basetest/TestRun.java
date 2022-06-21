@@ -182,21 +182,21 @@ public final class TestRun {
 	//method
 	private void supposeHasNotStarted() {
 		if (hasStarted()) {
-			throw new InvalidArgumentException(this, "started already");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "started already");
 		}
 	}
 	
 	//method
 	private void supposeIsFinished() {
 		if (!isFinished()) {
-			throw new InvalidArgumentException(this, "is not finished");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is not finished");
 		}
 	}
 	
 	//method
 	private void supposeIsNotFinished() {
 		if (isFinished()) {
-			throw new InvalidArgumentException(this, "is already finished");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is already finished");
 		}
 	}
 }

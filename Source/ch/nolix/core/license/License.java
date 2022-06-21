@@ -41,7 +41,7 @@ public abstract class License implements Named {
 	 */
 	public final void assetIsActivated() {
 		if (!isActivated()) {
-			throw new InvalidArgumentException(this, "is not actiaved");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is not actiaved");
 		}
 	}
 	
@@ -94,7 +94,7 @@ public abstract class License implements Named {
 	 */
 	private void assertIsNotActivated() {
 		if (isActivated()) {
-			throw new InvalidArgumentException(this, "is actiaved");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is actiaved");
 		}
 	}
 	

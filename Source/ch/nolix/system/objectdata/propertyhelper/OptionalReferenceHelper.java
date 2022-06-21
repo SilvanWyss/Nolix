@@ -18,7 +18,7 @@ public final class OptionalReferenceHelper extends PropertyHelper implements IOp
 	@Override
 	public void assertCanClear(final IOptionalReference<?, ?> optionalReference) {
 		if (!canClear(optionalReference)) {
-			throw new InvalidArgumentException(optionalReference, "cannot clear");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(optionalReference, "cannot clear");
 		}
 	}
 	
@@ -26,7 +26,7 @@ public final class OptionalReferenceHelper extends PropertyHelper implements IOp
 	@Override
 	public void assertCanSetGivenEntity(final IOptionalReference<?, ?> optionalReference, final IEntity<?> entity) {
 		if (!canSetGivenEntity(optionalReference, entity)) {
-			throw new InvalidArgumentException(optionalReference, "does not reference an entity");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(optionalReference, "does not reference an entity");
 		}
 	}
 	

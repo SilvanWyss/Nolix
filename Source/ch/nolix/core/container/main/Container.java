@@ -627,7 +627,7 @@ public abstract class Container<E> implements IContainer<E> {
 			index++;
 		}
 		
-		throw new InvalidArgumentException(this, "does not contain an element the given selecto selects");
+		throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "does not contain an element the given selecto selects");
 	}
 	
 	//method
@@ -654,7 +654,7 @@ public abstract class Container<E> implements IContainer<E> {
 			index++;
 		}
 		
-		throw new InvalidArgumentException(this, "does not contain an equal element");
+		throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "does not contain an equal element");
 	}
 	
 	//method
@@ -680,7 +680,7 @@ public abstract class Container<E> implements IContainer<E> {
 			index++;
 		}
 		
-		throw new InvalidArgumentException(this, "does not contain the given element");
+		throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "does not contain the given element");
 	}
 	
 	//method
@@ -1324,7 +1324,7 @@ public abstract class Container<E> implements IContainer<E> {
 		}
 		
 		throw
-		new InvalidArgumentException(
+		InvalidArgumentException.forArgumentAndErrorPredicate(
 			this,
 			"does not contain any elements the given selector selects together"
 		);
@@ -1418,7 +1418,7 @@ public abstract class Container<E> implements IContainer<E> {
 			throw EmptyArgumentException.forArgument(this);
 		}
 		if (getElementCount() > 1) {
-			throw new InvalidArgumentException(this, "contains several elements");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "contains several elements");
 		}
 		
 		return iterator().next();
@@ -1443,7 +1443,7 @@ public abstract class Container<E> implements IContainer<E> {
 				
 				if (element != null) {
 					throw
-					new InvalidArgumentException(
+					InvalidArgumentException.forArgumentAndErrorPredicate(
 						this,
 						"contains several elements the given selector selects"
 					);
@@ -1454,7 +1454,7 @@ public abstract class Container<E> implements IContainer<E> {
 		}
 		
 		if (element == null) {
-			throw new InvalidArgumentException(
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(
 				this,
 				"does not contain any element the given selector selects"
 			);

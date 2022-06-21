@@ -535,14 +535,14 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	//method
 	private void assertCanCollapseAllTabs() {
 		if (!canCollapseAllTabs()) {
-			throw new InvalidArgumentException(this, "cannot collapse all tabs");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "cannot collapse all tabs");
 		}
 	}
 	
 	//method
 	private void assertCanExpandAllTabs() {
 		if (!canExpandAllTabs()) {
-			throw new InvalidArgumentException(this, "cannot expand all tabs");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "cannot expand all tabs");
 		}
 	}
 	

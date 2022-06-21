@@ -92,7 +92,7 @@ public final class TestCaseWrapper {
 			if (ReflectionHelper.methodHasAnnotation(m, Cleanup.class)) {
 				
 				if (lCleanup != null) {
-					throw new InvalidArgumentException(parentTest.getClass(), "contains more than 1 cleanup");
+					throw InvalidArgumentException.forArgumentAndErrorPredicate(parentTest.getClass(), "contains more than 1 cleanup");
 				}
 				
 				lCleanup = m;
@@ -111,7 +111,7 @@ public final class TestCaseWrapper {
 			if (ReflectionHelper.methodHasAnnotation(m, Setup.class)) {
 				
 				if (lSetup != null) {
-					throw new InvalidArgumentException(parentTest.getClass(), "contains more than 1 setup");
+					throw InvalidArgumentException.forArgumentAndErrorPredicate(parentTest.getClass(), "contains more than 1 setup");
 				}
 				
 				lSetup = m;

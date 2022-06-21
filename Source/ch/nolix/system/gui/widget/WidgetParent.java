@@ -80,7 +80,7 @@ public final class WidgetParent implements IWidgetParent {
 		
 		//Asserts that the current WidgetParent is a widget.
 		if (widget == null) {
-			throw new InvalidArgumentException(this, "is not a Widget");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is not a Widget");
 		}
 		
 		return widget;

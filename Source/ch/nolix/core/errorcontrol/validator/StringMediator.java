@@ -71,7 +71,7 @@ public class StringMediator extends ArgumentMediator<String> {
 		//Asserts that the argument of the current StringMediator does not have the given length.
 		if (getRefArgument().length() != length) {
 			throw
-			new InvalidArgumentException(
+			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 				getArgumentName(),
 				getRefArgument(),
 				"does not have the length " + length
@@ -91,7 +91,7 @@ public class StringMediator extends ArgumentMediator<String> {
 		
 		//Asserts that the argument of the current StringMediator is blank.
 		if (!getRefArgument().isBlank()) {
-			throw new InvalidArgumentException(getArgumentName(), getRefArgument(), "is not blank");
+			throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(getArgumentName(), getRefArgument(), "is not blank");
 		}
 	}
 	
@@ -140,7 +140,7 @@ public class StringMediator extends ArgumentMediator<String> {
 		//Asserts that the the argument of the current StringMediator is not blank.
 		if (getRefArgument().isBlank()) {
 			throw 
-			new InvalidArgumentException(
+			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 				getArgumentName(),
 				getRefArgument(),
 				"is blank"
@@ -163,7 +163,7 @@ public class StringMediator extends ArgumentMediator<String> {
 		//Asserts that the argument of the current StringMediator is not longer than the given max length says.
 		if (getRefArgument().length() > maxLength) {
 			throw
-			new InvalidArgumentException(
+			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 				getArgumentName(),
 				getRefArgument(),
 				"has the length " + getRefArgument().length() + " and is therefore longer than " + maxLength
@@ -186,7 +186,7 @@ public class StringMediator extends ArgumentMediator<String> {
 		//Asserts that the argument of the current StringMediator is not shorter than the given min length says.
 		if (getRefArgument().length() < minLength) {
 			throw
-			new InvalidArgumentException(
+			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 				getArgumentName(),
 				getRefArgument(),
 				"has the length " + getRefArgument().length() + " and is therefore shorter than " + minLength
@@ -221,7 +221,7 @@ public class StringMediator extends ArgumentMediator<String> {
 		}
 		
 		if (!specifiesProbableDirectoryOnLocalMachine) {
-			throw new InvalidArgumentException(directory,	"is not a probable directory on the local machine");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(directory,	"is not a probable directory on the local machine");
 		}
 	}
 }

@@ -32,7 +32,7 @@ final class PersistenceManager {
 	//method
 	private void assertGivenDatabaseIsReadyForPersistChanges(final Database database) {
 		if (!givenDatabaseIsReadyForPersistChanges(database)) {
-			throw new InvalidArgumentException(database, "is not ready for persist changes");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(database, "is not ready for persist changes");
 		}
 	}
 	

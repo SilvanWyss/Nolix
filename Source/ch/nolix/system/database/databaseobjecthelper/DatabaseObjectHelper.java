@@ -15,7 +15,7 @@ public class DatabaseObjectHelper implements IDatabaseObjectHelper {
 	@Override
 	public final void assertIsLinkedWithRealDatabase(final IDatabaseObject databaseObject) {
 		if (!databaseObject.isLinkedWithRealDatabase()) {
-			throw new InvalidArgumentException(databaseObject, "is not linked with a real database");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(databaseObject, "is not linked with a real database");
 		}
 	}
 	
@@ -23,7 +23,7 @@ public class DatabaseObjectHelper implements IDatabaseObjectHelper {
 	@Override
 	public final void assertIsLoaded(final IDatabaseObject databaseObject) {
 		if (!isLoaded(databaseObject)) {
-			throw new InvalidArgumentException(databaseObject, "is not loaded");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(databaseObject, "is not loaded");
 		}
 	}
 	
@@ -31,7 +31,7 @@ public class DatabaseObjectHelper implements IDatabaseObjectHelper {
 	@Override
 	public final void assertIsNew(final IDatabaseObject databaseObject) {
 		if (!isNew(databaseObject)) {
-			throw new InvalidArgumentException(databaseObject, "is not new");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(databaseObject, "is not new");
 		}
 	}
 	
@@ -47,7 +47,7 @@ public class DatabaseObjectHelper implements IDatabaseObjectHelper {
 	@Override
 	public final void assertIsNotLinkedWithRealDatabase(final IDatabaseObject databaseObject) {
 		if (databaseObject.isLinkedWithRealDatabase()) {
-			throw new InvalidArgumentException(databaseObject, "is linked with a real database");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(databaseObject, "is linked with a real database");
 		}
 	}
 	
@@ -55,7 +55,7 @@ public class DatabaseObjectHelper implements IDatabaseObjectHelper {
 	@Override
 	public final void assertIsNotNew(final IDatabaseObject databaseObject) {
 		if (isNew(databaseObject)) {
-			throw new InvalidArgumentException(databaseObject, "is new");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(databaseObject, "is new");
 		}
 	}
 	

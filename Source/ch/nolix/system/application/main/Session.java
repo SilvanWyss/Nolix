@@ -222,7 +222,7 @@ public abstract class Session<
 		
 		//Asserts that the current {@link Session} belongs to a client.
 		if (!belongsToClient()) {
-			throw new InvalidArgumentException(this, "does not belong to a client");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "does not belong to a client");
 		}
 	}
 	
@@ -234,7 +234,7 @@ public abstract class Session<
 		
 		//Asserts that the current {@link Session} does not belong to a client.
 		if (belongsToClient()) {
-			throw new InvalidArgumentException(this, "belongs to a client");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "belongs to a client");
 		}
 	}
 }

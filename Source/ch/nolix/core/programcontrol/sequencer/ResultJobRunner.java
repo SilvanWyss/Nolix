@@ -78,12 +78,12 @@ final class ResultJobRunner<R> extends Thread {
 		
 		//Asserts that the current ResultJobRunner is finished.
 		if (!isFinished()) {
-			throw new InvalidArgumentException(this, "is not finished");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is not finished");
 		}
 		
 		//Asserts that the current ResultJobRunner has not caught an error.
 		if (caughtError()) {
-			throw new InvalidArgumentException(this, "has caught an error");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "has caught an error");
 		}
 		
 		return result;

@@ -65,7 +65,7 @@ final class BaseFrontendGUIClientGUIHandler {
 				mGUI.refresh();
 				break;
 			default:
-				throw new InvalidArgumentException("GUI command", pGUICommand, "is not valid");
+				throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate("GUI command", pGUICommand, "is not valid");
 		}
 	}
 	

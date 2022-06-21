@@ -16,7 +16,7 @@ public final class MultiValueHelper extends PropertyHelper implements IMultiValu
 	@Override
 	public void assertCanAddGivenValue(final IMultiValue<?, ?> multiValue, final Object value) {
 		if (!canAddGivenValue(multiValue, value)) {
-			throw new InvalidArgumentException(multiValue, "cannot add the given value");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(multiValue, "cannot add the given value");
 		}
 	}
 	
@@ -24,7 +24,7 @@ public final class MultiValueHelper extends PropertyHelper implements IMultiValu
 	@Override
 	public void assertCanClear(final IMultiValue<?, ?> multiValue) {
 		if (!canClear(multiValue)) {
-			throw new InvalidArgumentException(multiValue, "cannot clear");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(multiValue, "cannot clear");
 		}
 	}
 	

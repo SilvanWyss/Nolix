@@ -317,7 +317,7 @@ public class NetEndPoint extends EndPoint {
 			case ERROR_RESPONSE:
 				throw new GeneralException(response.getRefContent());
 			default:
-				throw new InvalidArgumentException(LowerCaseCatalogue.REPLY, response, "is not valid");
+				throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(LowerCaseCatalogue.REPLY, response, "is not valid");
 		}
 	}
 	

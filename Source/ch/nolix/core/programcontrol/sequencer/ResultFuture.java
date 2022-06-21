@@ -95,7 +95,7 @@ public final class ResultFuture<R> extends BaseFuture implements IResultFuture<R
 		);
 		
 		if (!isFinished()) {
-			throw new InvalidArgumentException(this, "reached timeout before having finished");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "reached timeout before having finished");
 		}
 	}
 	

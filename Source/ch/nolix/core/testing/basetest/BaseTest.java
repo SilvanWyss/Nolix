@@ -190,7 +190,7 @@ public abstract class BaseTest {
 			| InvocationTargetException
 			exception
 		) {
-			throw new InvalidArgumentException(this, "could not be copied");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "could not be copied");
 		}
 	}
 	

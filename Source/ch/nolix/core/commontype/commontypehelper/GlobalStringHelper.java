@@ -40,7 +40,7 @@ public final class GlobalStringHelper {
 		
 		//Asserts that the given string is not longer than the given length.
 		if (string.length() > length) {
-			throw new InvalidArgumentException(
+			throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 				LowerCaseCatalogue.STRING,
 				string,
 				"is longer than " + length + " with a length of " + string.length()
@@ -178,7 +178,7 @@ public final class GlobalStringHelper {
 	public static double toDouble(final String string) {
 		
 		if (!string.matches("\\d+.\\d+")) {
-			throw new InvalidArgumentException(string, "does not represent a double");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(string, "does not represent a double");
 		}
 		
 		return Double.valueOf(string);

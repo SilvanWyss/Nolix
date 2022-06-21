@@ -96,7 +96,7 @@ final class WebEndPoint extends BaseNetEndPoint {
 				close();
 				break;
 			default:
-				throw new InvalidArgumentException("control frame", controlFrame, "is not valid");
+				throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate("control frame", controlFrame, "is not valid");
 		}
 	}
 	
@@ -136,7 +136,7 @@ final class WebEndPoint extends BaseNetEndPoint {
 		.waitUntil(this::hasTargetInfo);
 		
 		if (!hasTargetInfo()) {
-			throw new InvalidArgumentException(this, "reached timeout while waiting to target.");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "reached timeout while waiting to target.");
 		}
 	}
 }

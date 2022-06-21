@@ -61,7 +61,7 @@ final class WidgetProvider {
 		//Asserts that the current widget creator cannot already create a widget of the same type as the given widget class.
 		if (canCreateWidgetOf(widgetClass.getSimpleName())) {
 			throw
-			new InvalidArgumentException(
+			InvalidArgumentException.forArgumentAndErrorPredicate(
 				widgetClass,
 				"is invalid because the current "
 				+ getClass().getSimpleName()
@@ -142,7 +142,7 @@ final class WidgetProvider {
 			
 			if (widgetClass == null) {
 				throw
-				new InvalidArgumentException(
+				InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 					LowerCaseCatalogue.TYPE,
 					type,
 					"is invalid because the current "

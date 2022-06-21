@@ -33,7 +33,7 @@ public abstract class Worker implements Startable {
 	//method
 	private void assertIsNotStarted() {
 		if (isStarted()) {
-			throw new InvalidArgumentException(this, "is already started");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is already started");
 		}
 	}
 	

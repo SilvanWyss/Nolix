@@ -41,7 +41,7 @@ public final class Schema implements ISchema<DataImplementation> {
 	//method
 	private void assertContainsDifferentEntityTypesOnly(final IContainer<Class<?>> entityTypes) {
 		if (!containsDifferentEntityTypesOnly(entityTypes)) {
-			throw new InvalidArgumentException(
+			throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 				"list of entity types",
 				entityTypes,
 				"does not contain different entity types only"

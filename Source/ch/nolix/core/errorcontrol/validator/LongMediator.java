@@ -171,7 +171,7 @@ public class LongMediator extends Mediator {
 			}
 		}
 		
-		throw new InvalidArgumentException(
+		throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 			getArgumentName(),
 			argument,
 			"does not equal one of {" + CentralArrayHelper.createString(values) + "}"

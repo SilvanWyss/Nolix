@@ -16,7 +16,7 @@ public final class ValueHelper extends PropertyHelper implements IValueHelper {
 	@Override
 	public void assertCanSetGivenValue(final IValue<?, ?> value, final Object valueToSet) {
 		if (!canSetGivenValue(value, valueToSet)) {
-			throw new InvalidArgumentException(value, "cannot set the given value");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(value, "cannot set the given value");
 		}
 	}
 	

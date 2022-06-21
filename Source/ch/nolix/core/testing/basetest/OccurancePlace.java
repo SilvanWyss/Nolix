@@ -21,7 +21,7 @@ public final class OccurancePlace {
 		}
 		
 		if (className.isBlank()) {
-			throw new InvalidArgumentException("class name", className, "is blank");
+			throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate("class name", className, "is blank");
 		}
 		
 		if (lineNumber < 1) {

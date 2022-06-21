@@ -176,7 +176,7 @@ public abstract class BaseServer implements GroupCloseable {
 	private void assertDoesNotContainEndPointTakerWithName(final String name) {
 		if (containsEndPointTakerWithName(name)) {
 			throw
-			new InvalidArgumentException(this, "contains already an EndPointTaker with the name '" + name + "'");
+			InvalidArgumentException.forArgumentAndErrorPredicate(this, "contains already an EndPointTaker with the name '" + name + "'");
 		}
 	}
 	

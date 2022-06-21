@@ -115,7 +115,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 		
 		if (!found) {
 			throw
-			new InvalidArgumentException(
+			InvalidArgumentException.forArgumentAndErrorPredicate(
 				getRefArgument(),
 				"does not contain element that fulfils the given condition"
 			);
@@ -154,7 +154,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 			//contains not more elements than the given element count says.
 			if (actualElementCount > elementCount) {
 				throw
-				new InvalidArgumentException(
+				InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 					getArgumentName(),
 					getRefArgument(),
 					"contains more than " + elementCount + " elements"
@@ -168,7 +168,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 		//contains not less elements than the given element count says.
 		if (actualElementCount < elementCount) {
 			throw
-			new InvalidArgumentException(
+			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 				getArgumentName(),
 				getRefArgument(),
 				"contains less than " + elementCount + " elements"

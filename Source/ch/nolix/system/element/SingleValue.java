@@ -113,7 +113,7 @@ abstract class SingleValue<V> extends BaseValue<V> {
 		
 		//Asserts that the current SingleProperty is mutable or does not have already a value.
 		if (!isMutable() && hasValue()) {
-			throw new InvalidArgumentException(this, "is not mutable and has already a value");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is not mutable and has already a value");
 		}
 		
 		//Sets the value of the current SingleProperty.

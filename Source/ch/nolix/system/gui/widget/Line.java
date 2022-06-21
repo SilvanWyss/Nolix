@@ -101,7 +101,7 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 		
 		//Checks the given thickness.
 		if (MIN_LENGTH_TO_THICKNESS_RATIO * thickness > getLength()) {
-			throw new InvalidArgumentException(
+			throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 				LowerCaseCatalogue.THICKNESS,
 				thickness,
 				"is bigger than length/"

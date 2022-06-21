@@ -27,7 +27,7 @@ final class ReflectionHelper {
 			
 			return defaultConstructor;
 		} catch (final NoSuchMethodException noSuchMethodException) {
-			throw new InvalidArgumentException(pClass, "does not have a default constructor");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(pClass, "does not have a default constructor");
 		}
 	}
 	

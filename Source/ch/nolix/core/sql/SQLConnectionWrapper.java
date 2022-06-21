@@ -73,7 +73,7 @@ final class SQLConnectionWrapper implements AutoCloseable {
 	//method
 	private void assertIsAvailable() {
 		if (!isAvailable()) {
-			throw new InvalidArgumentException(this, "is not available");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is not available");
 		}
 	}
 }

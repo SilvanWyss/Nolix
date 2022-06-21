@@ -196,7 +196,7 @@ public abstract class BackendClient<
 	 */
 	private void assertDoesNotReferenceParentApplication() {
 		if (referencesParentApplication()) {
-			throw new InvalidArgumentException(this, "references already its parent application");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "references already its parent application");
 		}
 	}
 	
@@ -207,7 +207,7 @@ public abstract class BackendClient<
 	 */
 	private void assertReferencesParentApplication() {
 		if (!referencesParentApplication()) {
-			throw new InvalidArgumentException(this, "does not reference its parent application");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "does not reference its parent application");
 		}
 	}
 	

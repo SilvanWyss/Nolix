@@ -29,7 +29,7 @@ public final class Error {
 		}
 		
 		if (errorMessage.isBlank()) {
-			throw new InvalidArgumentException(LowerCaseCatalogue.ERROR_MESSAGE, errorMessage, "is blank");
+			throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(LowerCaseCatalogue.ERROR_MESSAGE, errorMessage, "is blank");
 		}
 		
 		if (occurancePlace == null) {

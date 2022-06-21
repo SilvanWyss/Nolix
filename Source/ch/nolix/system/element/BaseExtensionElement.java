@@ -45,7 +45,7 @@ public abstract class BaseExtensionElement<E extends IRespondingMutableElement<E
 		GlobalValidator.assertThat(internalExtensionElement).thatIsNamed("extension element").isNotNull();
 		
 		if (this.internalExtensionElement != null && !isExchangable()) {
-			throw new InvalidArgumentException(this, "is not exchangable");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is not exchangable");
 		}
 		
 		this.internalExtensionElement = internalExtensionElement;

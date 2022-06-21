@@ -57,6 +57,42 @@ public class InvalidArgumentException extends RuntimeException {
 	//static method
 	/**
 	 * @param argument
+	 * @param errorPredicate
+	 * @return a new {@link InvalidArgumentException} for the given argument and errorPredicate.
+	 * @throws IllegalArgumentException if the given errorPredicate is null.
+	 * @throws IllegalArgumentException if the given errorPredicate is blank.
+	 * @throws IllegalArgumentException if the given errorPredicate ends with a dot.
+	 */
+	public static InvalidArgumentException forArgumentAndErrorPredicate(
+		final Object argument,
+		final String errorPredicate
+	) {
+		return new InvalidArgumentException(argument, errorPredicate);
+	}
+	
+	//static method
+	/**
+	 * @param argumentName
+	 * @param argument
+	 * @param errorPredicate
+	 * @return a new {@link InvalidArgumentException} for the given argumentName, argument and errorPredicate.
+	 * @throws IllegalArgumentException if the given argumentName is null.
+	 * @throws IllegalArgumentException if the given argumentName is blank.
+	 * @throws IllegalArgumentException if the given errorPredicate is null.
+	 * @throws IllegalArgumentException if the given errorPredicate is blank.
+	 * @throws IllegalArgumentException if the given errorPredicate ends with a dot.
+	 */
+	public static InvalidArgumentException forArgumentNameAndArgumentAndErrorPredicate(
+		final String argumentName,
+		final Object argument,
+		final String errorPredicate
+	) {
+		return InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(argumentName, argument, errorPredicate);
+	}
+		
+	//static method
+	/**
+	 * @param argument
 	 * @return a argument name for the given argument.
 	 */
 	private static String getNameOfArgument(final Object argument) {
@@ -180,7 +216,7 @@ public class InvalidArgumentException extends RuntimeException {
 	 * @throws IllegalArgumentException if the given errorPredicate is blank.
 	 * @throws IllegalArgumentException if the given errorPredicate ends with a dot.
 	 */
-	public InvalidArgumentException(final Object argument, final String errorPredicate) {
+	protected InvalidArgumentException(final Object argument, final String errorPredicate) {
 		
 		//Calls other constructor.
 		this(getNameOfArgument(argument), argument, errorPredicate);
@@ -199,7 +235,7 @@ public class InvalidArgumentException extends RuntimeException {
 	 * @throws IllegalArgumentException if the given errorPredicate is blank.
 	 * @throws IllegalArgumentException if the given errorPredicate ends with a dot.
 	 */
-	public InvalidArgumentException(final String argumentName, final Object argument, final String errorPredicate) {
+	protected InvalidArgumentException(final String argumentName, final Object argument, final String errorPredicate) {
 		
 		super(
 			"The given "

@@ -219,7 +219,7 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 					pr.addPainter(painter);
 				};
 			default:
-				throw new InvalidArgumentException("create painter command", createPainterCommand, "is not valid");
+				throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate("create painter command", createPainterCommand, "is not valid");
 		}
 	}
 	
@@ -243,7 +243,7 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 			case CanvasGUICommandProtocol.TRANSLATE:
 				return createTranslateCommand(painterIndex, paintCommand);
 			default:
-				throw new InvalidArgumentException("painter command",	paintCommand, "is not valid");
+				throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate("painter command",	paintCommand, "is not valid");
 		}
 	}
 	
@@ -283,7 +283,7 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 			
 			default:
 				throw
-				new InvalidArgumentException(
+				InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 					"paint filled rectangle command",
 					paintFilledRectangleCommand,
 					"is not valid"
@@ -310,7 +310,7 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 				
 				return pr -> pr.getRefPainterByIndex(painterIndex).paintImageById(imageId, width, height);
 			default:
-				throw new InvalidArgumentException("paint image command", paintImageCommand, "is not valid");
+				throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate("paint image command", paintImageCommand, "is not valid");
 		}
 	}
 	
@@ -338,7 +338,7 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 				
 				return pr -> pr.getRefPainterByIndex(painterIndex).paintText(text, textFormat2, maxLength);
 			default:
-				throw new InvalidArgumentException("paint text command", paintTextCommand,"is not valid");
+				throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate("paint text command", paintTextCommand,"is not valid");
 		}
 	}
 	

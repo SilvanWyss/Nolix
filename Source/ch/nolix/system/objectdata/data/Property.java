@@ -50,7 +50,7 @@ public abstract class Property implements IProperty<DataImplementation> {
 			return GlobalReflectionHelper.getFieldName(getParentEntity(), this);
 		}
 		
-		throw new InvalidArgumentException(this, "cannot evaluate own name");
+		throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "cannot evaluate own name");
 	}
 	
 	//method

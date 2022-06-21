@@ -33,7 +33,7 @@ public interface IRespondingMutableElement<RME extends IRespondingMutableElement
 	@Override
 	default void addOrChangeAttribute(final BaseNode attribute) {
 		if (!addedOrChangedAttribute(attribute)) {
-			throw new InvalidArgumentException(LowerCaseCatalogue.ATTRIBUTE, attribute, "is not valid");
+			throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(LowerCaseCatalogue.ATTRIBUTE, attribute, "is not valid");
 		}
 	}
 }

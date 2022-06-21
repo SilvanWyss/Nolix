@@ -122,7 +122,7 @@ final class ClosePool {
 		
 		//Asserts that the current ClosePool does not contain the given element.
 		if (contains(element)) {
-			throw new InvalidArgumentException(this, "contains already the given element");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "contains already the given element");
 		}
 	}
 	

@@ -124,21 +124,21 @@ public final class TestCaseRunner extends Thread {
 	//method
 	private void assertHasNotStarted() {
 		if (hasStarted()) {
-			throw new InvalidArgumentException(this, "has started already");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "has started already");
 		}
 	}
 	
 	//method
 	private void assertIsFinished() {
 		if (!isFinished()) {
-			throw new InvalidArgumentException(this, "is not finished");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is not finished");
 		}
 	}
 	
 	//method
 	private void assertIsNotFinished() {
 		if (isFinished()) {
-			throw new InvalidArgumentException(this, "is finished already");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is finished already");
 		}
 	}
 	

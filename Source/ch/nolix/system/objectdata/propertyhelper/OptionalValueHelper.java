@@ -17,7 +17,7 @@ public final class OptionalValueHelper extends PropertyHelper implements IOption
 	@Override
 	public void assertCanSetGivenValue(final IOptionalValue<?, ?> optionalValue, final Object value) {
 		if (!canSetGivenValue(optionalValue, value)) {
-			throw new InvalidArgumentException(optionalValue, "cannot set the given value");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(optionalValue, "cannot set the given value");
 		}
 	}
 	

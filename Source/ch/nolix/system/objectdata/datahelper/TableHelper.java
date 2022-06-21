@@ -21,7 +21,7 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
 	@Override
 	public void assertCanInsertGivenEntity(final ITable<?, ?> table, final IEntity<?> entity) {
 		if (!canInsertGivenEntity(table, entity)) {
-			throw new InvalidArgumentException(entity, "cannot be inserted into the table " + table.getNameInQuotes());
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(entity, "cannot be inserted into the table " + table.getNameInQuotes());
 		}
 	}
 	

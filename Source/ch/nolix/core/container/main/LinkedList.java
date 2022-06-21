@@ -228,7 +228,7 @@ public final class LinkedList<E> extends Container<E> implements Clearable {
 		//Asserts that the current {@link List} contains already the given element.
 		if (contains(element)) {
 			throw
-			new InvalidArgumentException(
+			InvalidArgumentException.forArgumentAndErrorPredicate(
 				element,
 				"is already contained in the current list"
 			);
@@ -361,7 +361,7 @@ public final class LinkedList<E> extends Container<E> implements Clearable {
 		//Asserts that the current {@link List} contains already the given element.
 		if (contains(element)) {
 			throw
-			new InvalidArgumentException(
+			InvalidArgumentException.forArgumentAndErrorPredicate(
 				element,
 				"is already contained in the current list"
 			);
@@ -575,7 +575,7 @@ public final class LinkedList<E> extends Container<E> implements Clearable {
 		
 		//Asserts that the current List contains more than 1 element.
 		if (getElementCount() < 2) {
-			throw new InvalidArgumentException(this, "contains less than 2 elements");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "contains less than 2 elements");
 		}
 		
 		return getRefAt(getElementCount() - 1);
@@ -758,7 +758,7 @@ public final class LinkedList<E> extends Container<E> implements Clearable {
 		//Asserts that the current list is not empty.
 		if (isEmpty()) {
 			throw
-			new InvalidArgumentException(
+			InvalidArgumentException.forArgumentAndErrorPredicate(
 				this,
 				"does not contain such an element"
 			);
@@ -782,7 +782,7 @@ public final class LinkedList<E> extends Container<E> implements Clearable {
 			iterator = nextNode;
 		}
 		
-		throw new InvalidArgumentException(this, "does not contain such an element");
+		throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "does not contain such an element");
 	}
 	
 	//method
@@ -813,7 +813,7 @@ public final class LinkedList<E> extends Container<E> implements Clearable {
 		
 		//Asserts that the current list is not empty.
 		if (isEmpty()) {
-			throw new InvalidArgumentException(this, "does not contain the element '" + element + "'");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "does not contain the element '" + element + "'");
 		}
 		
 		if (firstNode.contains(element)) {
@@ -834,7 +834,7 @@ public final class LinkedList<E> extends Container<E> implements Clearable {
 			iterator = nextNode;
 		}
 		
-		throw new InvalidArgumentException(this, "does not contain the element '" + element + "'");
+		throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "does not contain the element '" + element + "'");
 	}
 		
 	//method
@@ -882,12 +882,12 @@ public final class LinkedList<E> extends Container<E> implements Clearable {
 		//Enumerates the element count of the given element.
 		switch (getCount(element)) {
 			case 0:
-				throw new InvalidArgumentException(this, "does not contain the given elemen");
+				throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "does not contain the given elemen");
 			case 1:
 				removeFirst(element);
 				break;
 			default:
-				throw new InvalidArgumentException(this, "contains the given element several times");
+				throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "contains the given element several times");
 		}
 	}
 	
@@ -906,7 +906,7 @@ public final class LinkedList<E> extends Container<E> implements Clearable {
 		//Asserts that the current list is not empty.
 		if (isEmpty()) {
 			throw
-			new InvalidArgumentException(
+			InvalidArgumentException.forArgumentAndErrorPredicate(
 				this,
 				"does not contain the element '" + element + "'"
 			);
@@ -925,7 +925,7 @@ public final class LinkedList<E> extends Container<E> implements Clearable {
 				continue;
 			}
 			
-			throw new InvalidArgumentException(this, "does not contain the element '" + element + "'");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "does not contain the element '" + element + "'");
 		}
 	}
 	

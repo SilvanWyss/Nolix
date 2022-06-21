@@ -104,7 +104,7 @@ final class TestCaseRun {
 	//method
 	private void assertHasNotStarted() {
 		if (hasStarted()) {
-			throw new InvalidArgumentException(this, "has started already");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "has started already");
 		}
 	}
 	

@@ -209,7 +209,7 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
 			}
 		}
 		
-		throw new InvalidArgumentException(LowerCaseCatalogue.SPECIFICATION, specification, "is not valid");
+		throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(LowerCaseCatalogue.SPECIFICATION, specification, "is not valid");
 	}
 	
 	//method

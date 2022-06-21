@@ -177,7 +177,7 @@ public abstract class TestPool implements Runnable {
 		//Asserts that the given testClass is a sub class of BaseTest.
 		if (!ReflectionHelper.firstIsSubClassOfSecond(testClass, BaseTest.class)) {
 			throw
-			new InvalidArgumentException(
+			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 				LowerCaseCatalogue.TEST_CLASS,
 				testClass,
 				"is not a sub class of " + BaseTest.class.getName()
@@ -186,13 +186,13 @@ public abstract class TestPool implements Runnable {
 		
 		//Asserts that the given testClass is not abstract.
 		if (ReflectionHelper.isAbstract(testClass)) {
-			throw new InvalidArgumentException(LowerCaseCatalogue.TEST_CLASS, testClass, "is abstract");
+			throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(LowerCaseCatalogue.TEST_CLASS, testClass, "is abstract");
 		}
 		
 		//Asserts that the given testClass has a default constructor.
 		if (!ReflectionHelper.hasDefaultConstructor(testClass)) {
 			throw
-			new InvalidArgumentException(
+			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 				LowerCaseCatalogue.TEST_CLASS,
 				testClass,
 				"does not have a default constructor"
@@ -219,7 +219,7 @@ public abstract class TestPool implements Runnable {
 		
 		//Asserts that the given test pool does not contain the current TestPool recursively.
 		if (testPool.containsTestPoolRecursively(this)) {
-			throw new InvalidArgumentException(testPool, "contains recursively " + getName());
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(testPool, "contains recursively " + getName());
 		}
 		
 		testPools.addAtEnd(testPool);

@@ -84,9 +84,9 @@ abstract class SchemaObject implements IDatabaseObject {
 				state = DatabaseObjectState.LOADED;
 				break;
 			case LOADED:
-				throw new InvalidArgumentException(this, "is already loaded");
+				throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is already loaded");
 			case EDITED:
-				throw new InvalidArgumentException(this, "is already edited");
+				throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is already edited");
 			case DELETED:
 				throw DeletedArgumentException.forArgument(this);
 			case CLOSED:

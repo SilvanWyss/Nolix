@@ -32,7 +32,7 @@ public final class BitMediator extends Mediator {
 				this.bit = true;
 				break;
 			default:
-				throw new InvalidArgumentException(LowerCaseCatalogue.BIT, bit, "is not valid");
+				throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(LowerCaseCatalogue.BIT, bit, "is not valid");
 		}
 	}
 	

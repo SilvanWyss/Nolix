@@ -42,7 +42,7 @@ public enum WebSocketFrameOpcodeMeaning {
 			case 0xF:
 				return RESERVED;
 			default:
-				throw new InvalidArgumentException(LowerCaseCatalogue.NUMBER, number, "is not valid");
+				throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(LowerCaseCatalogue.NUMBER, number, "is not valid");
 		}
 	}
 	
@@ -62,7 +62,7 @@ public enum WebSocketFrameOpcodeMeaning {
 			case PONG:
 				return 0xA;
 			case RESERVED:
-				throw new InvalidArgumentException(this, "does not represent a single number");
+				throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "does not represent a single number");
 			default:
 				throw InvalidArgumentException.forArgument(this);
 		}

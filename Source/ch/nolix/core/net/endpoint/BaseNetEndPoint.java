@@ -144,7 +144,7 @@ public abstract class BaseNetEndPoint extends EndPoint {
 		
 		//Asserts that the current BaseNetEndPoint has already a target info.
 		if (hasTargetInfo()) {
-			throw new InvalidArgumentException(this, "has already a target info");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "has already a target info");
 		}
 		
 		hasTargetInfo = true;
@@ -194,7 +194,7 @@ public abstract class BaseNetEndPoint extends EndPoint {
 			case NetEndPointProtocol.MAIN_TARGET_PREFIX:
 				
 				if (!rawMessage.equals(String.valueOf(NetEndPointProtocol.MAIN_TARGET_PREFIX))) {
-					throw new InvalidArgumentException(RAW_MESSAGE_VARIABLE_NAME, rawMessage, "is not valid");
+					throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(RAW_MESSAGE_VARIABLE_NAME, rawMessage, "is not valid");
 				}
 				
 				confirmReceivedTargetInfo();
@@ -212,7 +212,7 @@ public abstract class BaseNetEndPoint extends EndPoint {
 				close();
 				break;
 			default:
-				throw new InvalidArgumentException(RAW_MESSAGE_VARIABLE_NAME, rawMessage, "is not valid");
+				throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(RAW_MESSAGE_VARIABLE_NAME, rawMessage, "is not valid");
 		}
 	}
 }

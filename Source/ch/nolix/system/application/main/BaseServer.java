@@ -288,7 +288,7 @@ public abstract class BaseServer implements GroupCloseable {
 	 */
 	private void assertDoesNotContainApplicationWithName(final String name) {
 		if (containsApplicationWithName(name)) {
-			throw new InvalidArgumentException(this, "contains already an Application with the name '" + name + "'");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "contains already an Application with the name '" + name + "'");
 		}
 	}
 }

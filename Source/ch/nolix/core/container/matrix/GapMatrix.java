@@ -213,7 +213,7 @@ public final class GapMatrix<E> extends Container<E> implements Clearable {
 		
 		if (rows[rowIndex - 1][columnIndex - 1] == null) {
 			throw
-			new InvalidArgumentException("(" + rowIndex + "," + columnIndex + ")", "is no position of an element");
+			InvalidArgumentException.forArgumentAndErrorPredicate("(" + rowIndex + "," + columnIndex + ")", "is no position of an element");
 		}
 	}
 }

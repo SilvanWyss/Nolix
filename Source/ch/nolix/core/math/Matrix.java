@@ -356,7 +356,7 @@ public final class Matrix {
 		.tranformFirstPartToIdentityMatrix();
 		
 		if (matrix.getRowCount() < getRowCount()) {
-			throw new InvalidArgumentException(this, "is not regular");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is not regular");
 		}
 		
 		return matrix.getMatrixWithLastColumns(getColumnCount());
@@ -550,7 +550,7 @@ public final class Matrix {
 		final var matrix = getClone().transformToEquivalentUpperLeftMatrix();
 		
 		if (matrix.getRowCount() != getRowCount()) {
-			throw new InvalidArgumentException(this, "does not have a regular coefficient Matrix");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "does not have a regular coefficient Matrix");
 		}
 		
 		final var solution = new double[getRowCount()];
@@ -952,7 +952,7 @@ public final class Matrix {
 		
 		//Asserts that the current Matrix has not more rows than columns.
 		if (rowCount > getColumnCount()) {
-			throw new InvalidArgumentException(this, "has more rows than columns");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "has more rows than columns");
 		}
 		
 		//Transforms the current Matrix to an equivalent upper left matrix.
@@ -960,14 +960,14 @@ public final class Matrix {
 
 		//Asserts that the current Matrix does not have a linear depending rows.	
 		if (rowCount != getRowCount()) {
-			throw new InvalidArgumentException(this, "has linear depending rows");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "has linear depending rows");
 		}
 		
 		//Iterates the rows of the current Matrix.
 		for (var i = getRowCount() - 1; i >= 0; i--) {
 			
 			if (Calculator.equalsApproximatively(values[i][i], 0.0)) {
-				throw new InvalidArgumentException(this, "has linear depending rows");
+				throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "has linear depending rows");
 			}
 			
 			final var factor = 1 / values[i][i];
@@ -1102,7 +1102,7 @@ public final class Matrix {
 	 */
 	private void assertIsQuadratic() {
 		if (!isQuadratic()) {
-			throw new InvalidArgumentException(
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(
 				this,
 				"is not quadratic"
 			);

@@ -17,7 +17,7 @@ public final class MultiReferenceHelper extends PropertyHelper implements IMulti
 	@Override
 	public void assertCanAddGivenEntity(final IMultiReference<?, ?> multiReference, final IEntity<?> entity) {
 		if (!canAddGivenEntity(multiReference, entity)) {
-			throw new InvalidArgumentException(multiReference, "cannot add the given entity");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(multiReference, "cannot add the given entity");
 		}
 	}
 	
@@ -25,7 +25,7 @@ public final class MultiReferenceHelper extends PropertyHelper implements IMulti
 	@Override
 	public void assertCanClear(final IMultiReference<?, ?> multiReference) {
 		if (!canClear(multiReference)) {
-			throw new InvalidArgumentException(multiReference, "cannot clear");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(multiReference, "cannot clear");
 		}
 	}
 	

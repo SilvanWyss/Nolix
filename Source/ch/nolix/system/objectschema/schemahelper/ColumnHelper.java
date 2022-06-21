@@ -41,7 +41,7 @@ public final class ColumnHelper extends DatabaseObjectHelper implements IColumnH
 	@Override
 	public void assertIsABackReferenceColumn(final IColumn<?> column) {
 		if (!isABackReferenceColumn(column)) {
-			throw new InvalidArgumentException(column, "is not a back reference column");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(column, "is not a back reference column");
 		}
 	}
 	
@@ -49,7 +49,7 @@ public final class ColumnHelper extends DatabaseObjectHelper implements IColumnH
 	@Override
 	public void assertIsAReferenceColumn(final IColumn<?> column) {
 		if (!isAReferenceColumn(column)) {
-			throw new InvalidArgumentException(column, "is not any reference column");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(column, "is not any reference column");
 		}
 	}
 	

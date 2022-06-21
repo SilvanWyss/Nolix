@@ -27,7 +27,7 @@ public class TypeMediator<T> extends ArgumentMediator<Class<T>> {
 		
 		if (!Modifier.isAbstract(getRefArgument().getModifiers())) {
 			throw
-			new InvalidArgumentException(
+			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 				getArgumentName(),
 				getRefArgument(),
 				"is not abstract"
@@ -46,7 +46,7 @@ public class TypeMediator<T> extends ArgumentMediator<Class<T>> {
 			|| getRefArgument().isArray()
 		) {
 			throw
-			new InvalidArgumentException(
+			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 				getArgumentName(),
 				getRefArgument(),
 				"is not a class"
@@ -61,7 +61,7 @@ public class TypeMediator<T> extends ArgumentMediator<Class<T>> {
 		
 		if (!getRefArgument().isEnum()) {
 			throw
-			new InvalidArgumentException(
+			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 				getArgumentName(),
 				getRefArgument(),
 				"is not an enum"
@@ -78,7 +78,7 @@ public class TypeMediator<T> extends ArgumentMediator<Class<T>> {
 		
 		if (!pInterface.isAssignableFrom(getRefArgument())) {
 			throw
-			new InvalidArgumentException(
+			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 				getArgumentName(),
 				getRefArgument(),
 				"does not implement " + pInterface.getName()
@@ -93,7 +93,7 @@ public class TypeMediator<T> extends ArgumentMediator<Class<T>> {
 		
 		if (!getRefArgument().isInterface()) {
 			throw
-			new InvalidArgumentException(
+			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 				getArgumentName(),
 				getRefArgument(),
 				"is not an interface"
@@ -108,7 +108,7 @@ public class TypeMediator<T> extends ArgumentMediator<Class<T>> {
 		
 		if (Modifier.isAbstract(getRefArgument().getModifiers())) {
 			throw
-			new InvalidArgumentException(
+			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 				getArgumentName(),
 				getRefArgument(),
 				"is abstract"
@@ -128,7 +128,7 @@ public class TypeMediator<T> extends ArgumentMediator<Class<T>> {
 			|| getRefArgument().isAssignableFrom(pClass)
 		) {
 			throw
-			new InvalidArgumentException(
+			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 				getArgumentName(),
 				getRefArgument(),
 				"is not a sub class of " + pClass.getName()
@@ -148,7 +148,7 @@ public class TypeMediator<T> extends ArgumentMediator<Class<T>> {
 			|| pClass.isAssignableFrom(getRefArgument())
 		) {
 			throw
-			new InvalidArgumentException(
+			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 				getArgumentName(),
 				getRefArgument(),
 				"is not a super class of " + pClass.getName()

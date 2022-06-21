@@ -127,7 +127,7 @@ public final class List<E> implements Iterable<E> {
 	public void removeFirst(final E element) {
 		
 		if (isEmpty()) {
-			throw new InvalidArgumentException(this, "does not contain the element '" + element + "'");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "does not contain the element '" + element + "'");
 		}
 		
 		if (beginNode.contains(element)) {
@@ -154,7 +154,7 @@ public final class List<E> implements Iterable<E> {
 			iteratorNode = iteratorNode.getRefNextNodeOrNull();
 		}
 		
-		throw new InvalidArgumentException(this, "does not contain the element '" + element + "'");
+		throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "does not contain the element '" + element + "'");
 	}
 	
 	//method

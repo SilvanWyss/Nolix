@@ -23,7 +23,7 @@ public final class ServiceProvider {
 		
 		if (service == null) {
 			throw
-			new InvalidArgumentException(
+			InvalidArgumentException.forArgumentAndErrorPredicate(
 				this,
 				"does not contain a service for the interface '"
 				+ pInterface.getCanonicalName()
@@ -50,7 +50,7 @@ public final class ServiceProvider {
 				
 				if (services.putIfAbsent(pInterface, service) != null) {
 					throw
-					new InvalidArgumentException(
+					InvalidArgumentException.forArgumentAndErrorPredicate(
 						this,
 						"contains already a service with the given interface '"
 						+ pInterface.getCanonicalName()

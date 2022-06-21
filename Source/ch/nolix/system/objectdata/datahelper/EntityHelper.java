@@ -38,7 +38,7 @@ public class EntityHelper extends DatabaseObjectHelper implements IEntityHelper 
 	@Override
 	public final void assertCanBeDeleted(final IEntity<?> entity) {
 		if (!canBeDeleted(entity)) {
-			throw new InvalidArgumentException(entity, "cannot be deleted");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(entity, "cannot be deleted");
 		}
 	}
 	

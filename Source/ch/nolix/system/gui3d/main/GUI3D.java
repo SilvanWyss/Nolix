@@ -123,7 +123,7 @@ public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G> 
 		//Asserts that the current {@link _3D_GUI} does not contain already
 		//a shape class with the same name as the given shape class.
 		if (canCreateShape(shapeClass.getSimpleName())) {
-			throw new InvalidArgumentException(this, "contains already a shape class '" + shapeClass + "'");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "contains already a shape class '" + shapeClass + "'");
 		}
 		
 		shapeClasses.addAtEnd(new Pair<>(shapeClass, shapeRenderer));
@@ -430,7 +430,7 @@ public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G> 
 			| SecurityException
 			exception
 		) {
-			throw new InvalidArgumentException(
+			throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 				LowerCaseCatalogue.TYPE,
 				type,
 				"is not valid because the current " + getType() + " cannot create a '" + type + "' shape"

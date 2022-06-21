@@ -30,7 +30,7 @@ public final class ImplProvider implements IImplProvider {
 		final var singleImplProvider = singleImplProviders.get(pInterface);
 		
 		if (singleImplProvider == null) {
-			throw new InvalidArgumentException(pInterface, "is not registered at the " + getName());
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(pInterface, "is not registered at the " + getName());
 		}
 		
 		return (IImplProviderMediator<IN>)singleImplProvider;
@@ -55,7 +55,7 @@ public final class ImplProvider implements IImplProvider {
 			case THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY:
 				
 				if (singleImplProviders.putIfAbsent(pInterface, new SingleImplProvider<>(implementation)) != null) {
-					throw new InvalidArgumentException(pInterface, "is already registered at the " + getName());
+					throw InvalidArgumentException.forArgumentAndErrorPredicate(pInterface, "is already registered at the " + getName());
 				}
 				
 				break;

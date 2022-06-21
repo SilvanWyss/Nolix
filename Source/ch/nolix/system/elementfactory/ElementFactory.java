@@ -52,7 +52,7 @@ public class ElementFactory<E> {
 	//method
 	private <E2 extends E> void assertCannotCreateElementOf(final Class<E2> type) {
 		if (canCreateElementOf(type)) {
-			throw new InvalidArgumentException(this, "can already create a " + type.getName());
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "can already create a " + type.getName());
 		}
 	}
 
