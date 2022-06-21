@@ -39,7 +39,7 @@ public class DatabaseObjectHelper implements IDatabaseObjectHelper {
 	@Override
 	public final void assertIsNotDeleted(final IDatabaseObject databaseObject) {
 		if (databaseObject.isDeleted()) {
-			throw new DeletedArgumentException(databaseObject);
+			throw DeletedArgumentException.forArgument(databaseObject);
 		}
 	}
 	

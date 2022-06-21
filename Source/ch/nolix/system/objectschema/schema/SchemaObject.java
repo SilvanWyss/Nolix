@@ -54,7 +54,7 @@ abstract class SchemaObject implements IDatabaseObject {
 				state = DatabaseObjectState.DELETED;
 				break;
 			case DELETED:
-				throw new DeletedArgumentException(this);
+				throw DeletedArgumentException.forArgument(this);
 			case CLOSED:
 				throw ClosedArgumentException.forArgument(this);
 		}
@@ -71,7 +71,7 @@ abstract class SchemaObject implements IDatabaseObject {
 			case EDITED:
 				break;
 			case DELETED:
-				throw new DeletedArgumentException(this);
+				throw DeletedArgumentException.forArgument(this);
 			case CLOSED:
 				throw ClosedArgumentException.forArgument(this);
 		}
@@ -88,7 +88,7 @@ abstract class SchemaObject implements IDatabaseObject {
 			case EDITED:
 				throw new InvalidArgumentException(this, "is already edited");
 			case DELETED:
-				throw new DeletedArgumentException(this);
+				throw DeletedArgumentException.forArgument(this);
 			case CLOSED:
 				throw ClosedArgumentException.forArgument(this);
 		}
