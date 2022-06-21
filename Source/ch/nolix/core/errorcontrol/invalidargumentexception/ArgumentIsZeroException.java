@@ -3,7 +3,8 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 
 //class
 /**
- * A zero argument exception is an exception that is intended to be thrown when an argument is undesired zero.
+ * A {@link ArgumentIsZeroException} is a {@link InvalidArgumentException} that
+ * is supposed to be thrown when a given argument is undesirably 0.
  * 
  * @author Silvan Wyss
  * @date 2016-03-01
@@ -14,28 +15,40 @@ public final class ArgumentIsZeroException extends InvalidArgumentException {
 	//constant
 	private static final String ERROR_PREDICATE = "is 0";
 	
-	//constructor
+	//static method
 	/**
-	 * Creates a new zero argument exception for the given argument.
-	 * 
+	 * @param argumentName
 	 * @param argument
+	 * @return a new {@link ArgumentIsZeroException} for the given argumentName and argument.
+	 * @throws IllegalArgumentException if the given argumentName is null.
+	 * @throws IllegalArgumentException if the given argumentName is blank.
 	 */
-	public ArgumentIsZeroException(final long argument) {
-		
-		//Calls constructor of the base class.
-		super(argument, ERROR_PREDICATE);
+	public static ArgumentIsZeroException forAgumentNameAndArgument(final String argumentName, final double argument) {
+		return new ArgumentIsZeroException(argumentName, argument);
+	}
+	
+	//static method
+	/**
+	 * @param argumentName
+	 * @param argument
+	 * @return a new {@link ArgumentIsZeroException} for the given argumentName and argument.
+	 * @throws IllegalArgumentException if the given argumentName is null.
+	 * @throws IllegalArgumentException if the given argumentName is blank.
+	 */
+	public static ArgumentIsZeroException forAgumentNameAndArgument(final String argumentName, final long argument) {
+		return new ArgumentIsZeroException(argumentName, argument);
 	}
 	
 	//constructor
 	/**
-	 * Creates a new zero argument exception for the given argument, that has the given argument name.
+	 * Creates a new {@link ArgumentIsZeroException} for the given argumentName and argument.
 	 * 
 	 * @param argumentName
 	 * @param argument
-	 * @throws IllegalArgumentException if the given argument name is null.
-	 * @throws IllegalArgumentException if the given argument name is empty.
+	 * @throws IllegalArgumentException if the given argumentName is null.
+	 * @throws IllegalArgumentException if the given argumentName is blank.
 	 */
-	public ArgumentIsZeroException(final String argumentName, final double argument) {
+	private ArgumentIsZeroException(final String argumentName, final double argument) {
 		
 		//Calls constructor of the base class.
 		super(argumentName, argument, ERROR_PREDICATE);
@@ -43,14 +56,14 @@ public final class ArgumentIsZeroException extends InvalidArgumentException {
 	
 	//constructor
 	/**
-	 * Creates a new zero argument exception for the given argument, that has the given argument name.
+	 * Creates a new {@link ArgumentIsZeroException} for the given argumentName and argument.
 	 * 
 	 * @param argumentName
 	 * @param argument
-	 * @throws IllegalArgumentException if the given argument name is null.
-	 * @throws IllegalArgumentException if the given argument name is empty.
+	 * @throws IllegalArgumentException if the given argumentName is null.
+	 * @throws IllegalArgumentException if the given argumentName is blank.
 	 */
-	public ArgumentIsZeroException(final String argumentName, final long argument) {
+	private ArgumentIsZeroException(final String argumentName, final long argument) {
 		
 		//Calls constructor of the base class.
 		super(argumentName, argument, ERROR_PREDICATE);
