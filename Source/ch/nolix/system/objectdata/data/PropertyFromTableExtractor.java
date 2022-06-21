@@ -61,7 +61,7 @@ final class PropertyFromTableExtractor {
 			case OPTIONAL_BACK_REFERENCE:
 			case MULTI_BACK_REFERENCE:
 			default:
-				throw new InvalidArgumentException(column);
+				throw InvalidArgumentException.forArgument(column);
 			}
 	}
 	

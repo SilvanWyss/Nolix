@@ -46,7 +46,7 @@ public class ParametrizedPropertyTypeDTOMapper {
 					propertyType
 				);
 			default:
-				throw new InvalidArgumentException(propertyType);
+				throw InvalidArgumentException.forArgument(propertyType);
 		}
 	}
 	

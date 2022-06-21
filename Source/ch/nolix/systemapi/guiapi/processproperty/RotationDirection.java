@@ -51,7 +51,7 @@ public enum RotationDirection implements Specified {
 			case BACKWARD:
 				return -1;
 			default:
-				throw new InvalidArgumentException(this);
+				throw InvalidArgumentException.forArgument(this);
 		}
 	}
 }

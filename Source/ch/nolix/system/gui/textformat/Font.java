@@ -70,7 +70,7 @@ public enum Font implements Specified {
 			case VERDANA:
 				return FontCodeCatalogue.VERDANA;
 			default:
-				throw new InvalidArgumentException(this);
+				throw InvalidArgumentException.forArgument(this);
 		}
 	}
 }

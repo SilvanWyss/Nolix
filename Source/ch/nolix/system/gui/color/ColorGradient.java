@@ -199,7 +199,7 @@ public class ColorGradient implements IColorGradient {
 				);
 			default:
 				
-				throw new InvalidArgumentException(this);
+				throw InvalidArgumentException.forArgument(this);
 		}
 	}
 			

@@ -27,7 +27,7 @@ public final class PropertyBinderFactory {
 			case OPTIONAL_BACK_REFERENCE:
 				return (PropertyBinder<P, ?>)optionalReferenceBinder;
 			default:
-				throw new InvalidArgumentException(property);
+				throw InvalidArgumentException.forArgument(property);
 		}
 	}
 }

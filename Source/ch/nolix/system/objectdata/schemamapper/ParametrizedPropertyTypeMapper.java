@@ -106,7 +106,7 @@ public final class ParametrizedPropertyTypeMapper implements IParametrizedProper
 					.getRefFirst(c -> c.hasName(multiBackReference.getBackReferencedPropertyName()))
 				);
 			default:
-				throw new InvalidArgumentException(property);
+				throw InvalidArgumentException.forArgument(property);
 		}
 	}
 }

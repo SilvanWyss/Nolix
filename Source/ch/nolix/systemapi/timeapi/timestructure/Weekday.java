@@ -38,7 +38,7 @@ public enum Weekday implements Specified {
 			case SUNDAY:
 				return SUNDAY;
 			default:
-				throw new InvalidArgumentException(dayOfWeek);
+				throw InvalidArgumentException.forArgument(dayOfWeek);
 		}
 	}
 	

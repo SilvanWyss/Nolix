@@ -27,7 +27,7 @@ public interface IInputTaker {
 		} else if (input instanceof IKeyInput) {
 			noteKeyInput((IKeyInput<?>)input);
 		} else {
-			throw new InvalidArgumentException(input);
+			throw InvalidArgumentException.forArgument(input);
 		}
 	}
 	

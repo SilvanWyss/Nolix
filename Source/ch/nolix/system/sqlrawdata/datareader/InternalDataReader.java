@@ -135,7 +135,7 @@ final class InternalDataReader {
 				return
 				multiReferenceEntryExistsForGivenColumnAndReferencedEntity(columnInfo.getColumnId(), value);
 			default:
-				throw new InvalidArgumentException(columnInfo.getColumnPropertyType());
+				throw InvalidArgumentException.forArgument(columnInfo.getColumnPropertyType());
 		}
 	}
 	

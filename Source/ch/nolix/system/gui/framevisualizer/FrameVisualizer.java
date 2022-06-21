@@ -220,7 +220,7 @@ public final class FrameVisualizer implements IVisualizer {
 	 */
 	private void assertIsNotInitialized() {
 		if (isInitialized()) {
-			throw new InvalidArgumentException(this);
+			throw InvalidArgumentException.forArgument(this);
 		}
 	}
 	

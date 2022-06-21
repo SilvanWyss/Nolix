@@ -64,7 +64,7 @@ public enum WebSocketFrameOpcodeMeaning {
 			case RESERVED:
 				throw new InvalidArgumentException(this, "does not represent a single number");
 			default:
-				throw new InvalidArgumentException(this);
+				throw InvalidArgumentException.forArgument(this);
 		}
 	}
 }

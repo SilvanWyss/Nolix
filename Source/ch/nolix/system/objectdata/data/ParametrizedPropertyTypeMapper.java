@@ -104,7 +104,7 @@ final class ParametrizedPropertyTypeMapper {
 				
 				return new ParametrizedBackReferenceType<>(backReferencedColumn3);
 			default:
-				throw new InvalidArgumentException(parametrizedPropertyTypeDTO);
+				throw InvalidArgumentException.forArgument(parametrizedPropertyTypeDTO);
 		}
 	}
 }

@@ -966,7 +966,7 @@ public final class Color implements IColor {
 					tempValue = 15;
 					break;
 				default:
-					throw new InvalidArgumentException(string);
+					throw InvalidArgumentException.forArgument(string);
 			}
 			
 			value += tempValue * base;

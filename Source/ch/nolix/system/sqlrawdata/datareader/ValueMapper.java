@@ -34,7 +34,7 @@ public final class ValueMapper {
 			case STRING:
 				return string;
 			default:
-				throw new InvalidArgumentException(dataType);
+				throw InvalidArgumentException.forArgument(dataType);
 		}
 	}
 }

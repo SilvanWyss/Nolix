@@ -23,7 +23,7 @@ public final class ParametrizedPropertyTypeNodeMapper {
 			case BASE_BACK_REFERENCE:
 				return createParametrizedPropertyTypeNodeFrom((IBaseParametrizedBackReferenceTypeDTO)parametrizedPropertyType);
 			default:
-				throw new InvalidArgumentException(parametrizedPropertyType);
+				throw InvalidArgumentException.forArgument(parametrizedPropertyType);
 		}
 	}
 	

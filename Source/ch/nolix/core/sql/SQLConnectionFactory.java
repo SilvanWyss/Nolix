@@ -23,7 +23,7 @@ public final class SQLConnectionFactory {
 			case ORACLE:
 				throw new UnsupportedCaseException(pSQLDatabaseTarget.getSQLDatabaseEngine().toString());
 			default:
-				throw new InvalidArgumentException(pSQLDatabaseTarget.getSQLDatabaseEngine());
+				throw InvalidArgumentException.forArgument(pSQLDatabaseTarget.getSQLDatabaseEngine());
 		}
 	}
 }

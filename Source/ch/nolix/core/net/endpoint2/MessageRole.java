@@ -62,7 +62,7 @@ public enum MessageRole {
 			case ERROR_RESPONSE:
 				return ERROR_RESPONSE_PREFIX;
 			default:
-				throw new InvalidArgumentException(this);
+				throw InvalidArgumentException.forArgument(this);
 		}
 	}
 }

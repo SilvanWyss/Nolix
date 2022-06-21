@@ -25,7 +25,7 @@ final class OccurancePlaceFinder {
 			lClass = lClass.getSuperclass();
 		}
 				
-		throw new InvalidArgumentException("The given stack trace does not occur in the given test class.");
+		throw InvalidArgumentException.forArgument("The given stack trace does not occur in the given test class.");
 	}
 	
 	//method

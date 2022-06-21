@@ -235,7 +235,7 @@ public enum Key implements Specified {
 			case KeyEvent.VK_SPACE:
 				return Key.SPACE;
 			default:
-				throw new InvalidArgumentException(keyEvent);
+				throw InvalidArgumentException.forArgument(keyEvent);
 		}
 	}
 	
@@ -367,7 +367,7 @@ public enum Key implements Specified {
 			case '9':
 				return Key.NUMBER_9;
 			default:
-				throw new InvalidArgumentException(character);
+				throw InvalidArgumentException.forArgument(character);
 		}
 	}
 	

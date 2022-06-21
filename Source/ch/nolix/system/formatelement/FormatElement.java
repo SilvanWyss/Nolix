@@ -145,7 +145,7 @@ implements IRespondingMutableElement<FE> {
 			}
 		}
 		
-		throw new InvalidArgumentException(state);
+		throw InvalidArgumentException.forArgument(state);
 	}
 	
 	//method

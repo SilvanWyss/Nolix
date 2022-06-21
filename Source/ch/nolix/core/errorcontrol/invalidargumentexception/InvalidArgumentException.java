@@ -48,6 +48,15 @@ public class InvalidArgumentException extends RuntimeException {
 	//static method
 	/**
 	 * @param argument
+	 * @return a new {@link InvalidArgumentException} for the given argument.
+	 */
+	public static InvalidArgumentException forArgument(final Object argument) {
+		return new InvalidArgumentException(argument);
+	}
+	
+	//static method
+	/**
+	 * @param argument
 	 * @return a argument name for the given argument.
 	 */
 	private static String getNameOfArgument(final Object argument) {
@@ -155,7 +164,7 @@ public class InvalidArgumentException extends RuntimeException {
 	 * 
 	 * @param argument
 	 */
-	public InvalidArgumentException(final Object argument) {
+	protected InvalidArgumentException(final Object argument) {
 		
 		//Calls other constructor.
 		this(getNameOfArgument(argument), argument, DEFAULT_ERROR_PREDICATE);

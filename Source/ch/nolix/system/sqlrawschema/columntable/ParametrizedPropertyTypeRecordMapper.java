@@ -28,7 +28,7 @@ public final class ParametrizedPropertyTypeRecordMapper {
 					(IBaseParametrizedBackReferenceTypeDTO)parametrizedPropertyType
 				);
 			default:
-				throw new InvalidArgumentException(parametrizedPropertyType);
+				throw InvalidArgumentException.forArgument(parametrizedPropertyType);
 		}
 	}
 	

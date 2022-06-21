@@ -126,7 +126,7 @@ public final class WebSocketFrame {
 			return WebSocketFrameType.DATA_FRAME;
 		}
 		
-		throw new InvalidArgumentException(this);
+		throw InvalidArgumentException.forArgument(this);
 	}
 	
 	//method
@@ -287,7 +287,7 @@ public final class WebSocketFrame {
 			case BITS_64:
 				return calculatePayloadLengthWhenPayloadLengthIs64Bits(inputStream);
 			default:
-				throw new InvalidArgumentException(getPayloadLengthType());
+				throw InvalidArgumentException.forArgument(getPayloadLengthType());
 		}
 	}
 	

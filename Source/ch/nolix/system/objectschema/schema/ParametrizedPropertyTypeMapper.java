@@ -66,7 +66,7 @@ public final class ParametrizedPropertyTypeMapper {
 					getRefBackReferencedColumnFromParametrizedPropertyType(parametrizedPropertyType, tables)
 				);
 			default:
-				throw new InvalidArgumentException(parametrizedPropertyType);
+				throw InvalidArgumentException.forArgument(parametrizedPropertyType);
 		}
 	}
 	

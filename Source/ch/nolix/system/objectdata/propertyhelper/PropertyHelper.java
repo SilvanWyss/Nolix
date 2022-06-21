@@ -80,7 +80,7 @@ public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHel
 			case BASE_BACK_REFERENCE:
 				return String.class;
 			default:
-				throw new InvalidArgumentException(property);
+				throw InvalidArgumentException.forArgument(property);
 		}
 	}
 	

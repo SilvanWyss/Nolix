@@ -81,7 +81,7 @@ final class TextBoxInputField extends TextLineWidget<TextBoxInputField, TextBoxL
 			case SECRET:
 				return getShownTextForSecretTextMode();
 			default:
-				throw new InvalidArgumentException(getTextMode());
+				throw InvalidArgumentException.forArgument(getTextMode());
 		}
 	}
 	

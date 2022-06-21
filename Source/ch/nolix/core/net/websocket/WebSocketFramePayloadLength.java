@@ -44,7 +44,7 @@ public final class WebSocketFramePayloadLength {
 			case BITS_64:
 				return toBytesWhen64Bits();
 			default:
-				throw new InvalidArgumentException(this);
+				throw InvalidArgumentException.forArgument(this);
 		}
 	}
 	

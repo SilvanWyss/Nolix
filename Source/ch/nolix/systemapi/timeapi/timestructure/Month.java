@@ -50,7 +50,7 @@ public enum Month implements Specified {
 			case DECEMBER:
 				return DECEMBER;
 			default:
-				throw new InvalidArgumentException(month);
+				throw InvalidArgumentException.forArgument(month);
 		}
 	}
 	

@@ -177,7 +177,7 @@ public final class BorderWidgetExtendedContentArea<BWL extends BorderWidgetLook<
 				return (parentBorderWidget.getScrolledArea().getWidth() - getWidth());
 		}
 		
-		throw new InvalidArgumentException(this);
+		throw InvalidArgumentException.forArgument(this);
 	}
 	
 	//method
@@ -203,7 +203,7 @@ public final class BorderWidgetExtendedContentArea<BWL extends BorderWidgetLook<
 				return (parentBorderWidget.getScrolledArea().getHeight() - getHeight());
 		}
 		
-		throw new InvalidArgumentException(this);
+		throw InvalidArgumentException.forArgument(this);
 	}
 	
 	//method
