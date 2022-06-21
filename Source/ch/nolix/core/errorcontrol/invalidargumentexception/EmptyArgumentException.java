@@ -3,23 +3,23 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 
 //class
 /**
- * An empty argument exception is an exception that is intended to be thrown when an argument is undesired empty.
+ * A {@link EmptyArgumentException} is a {@link InvalidArgumentException} that
+ * is supposed to be thrown when a given argument is undesirably empty.
  * 
  * @author Silvan Wyss
  * @date 2016-03-01
  */
 @SuppressWarnings("serial")
 public final class EmptyArgumentException extends InvalidArgumentException {
-
+	
 	//constant
 	private static final String ERROR_PREDICATE = "is empty";
 	
 	//constructor
 	/**
-	 * Creates a new empty argument exception for the given argument.
+	 * Creates a new {@link EmptyArgumentException} for the given argument.
 	 * 
 	 * @param argument
-	 * @throws IllegalArgumentException if the given argument is null.
 	 */
 	public EmptyArgumentException(final Object argument) {
 		
@@ -29,11 +29,12 @@ public final class EmptyArgumentException extends InvalidArgumentException {
 	
 	//constructor
 	/**
-	 * Creates a new empty argument exception for an argument that has given argumentName.
+	 * Creates a new {@link EmptyArgumentException} for the given argumentName and argument.
 	 * 
 	 * @param argumentName
 	 * @param argument
 	 * @throws IllegalArgumentException if the given argumentName is null.
+	 * @throws IllegalArgumentException if the given argumentName is blank.
 	 */
 	public EmptyArgumentException(final String argumentName, final Object argument) {
 		
