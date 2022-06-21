@@ -3,8 +3,8 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 
 //class
 /**
- * A {@link ClosedArgumentException} is a {@link InvalidArgumentException}
- * that is supposed to be thrown when an argument is undesirably closed.
+ * A {@link ClosedArgumentException} is a {@link InvalidArgumentException} that
+ * is supposed to be thrown when an argument is undesirably closed.
  * 
  * @author Silvan Wyss
  * @date 2019-01-26
