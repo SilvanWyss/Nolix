@@ -87,7 +87,7 @@ public class InvalidArgumentException extends RuntimeException {
 		final Object argument,
 		final String errorPredicate
 	) {
-		return InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(argumentName, argument, errorPredicate);
+		return new InvalidArgumentException(argumentName, argument, errorPredicate);
 	}
 		
 	//static method
