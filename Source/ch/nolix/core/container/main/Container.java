@@ -513,7 +513,7 @@ public abstract class Container<E> implements IContainer<E> {
 		
 		//Asserts that the current IContainer is not empty.
 		if (isEmpty()) {
-			throw new EmptyArgumentException(this);
+			throw EmptyArgumentException.forArgument(this);
 		}
 		
 		return (getSumByDoubleNorm(doubleNorm) / getElementCount());
@@ -532,7 +532,7 @@ public abstract class Container<E> implements IContainer<E> {
 		
 		//Asserts that the current IContainer is not empty.
 		if (isEmpty()) {
-			throw new EmptyArgumentException(this);
+			throw EmptyArgumentException.forArgument(this);
 		}
 		
 		return (getSumByInt(intNorm) / getElementCount());
@@ -551,7 +551,7 @@ public abstract class Container<E> implements IContainer<E> {
 		
 		//Asserts that the current IContainer is not empty.
 		if (isEmpty()) {
-			throw new EmptyArgumentException(this);
+			throw EmptyArgumentException.forArgument(this);
 		}
 		
 		return (getSumByLong(longNorm) / getElementCount());
@@ -1011,7 +1011,7 @@ public abstract class Container<E> implements IContainer<E> {
 		
 		//Asserts that the current IContainer is not empty.
 		if (isEmpty()) {
-			throw new EmptyArgumentException(this);
+			throw EmptyArgumentException.forArgument(this);
 		}
 		
 		return ((double)getCount(selector) / getElementCount());
@@ -1028,7 +1028,7 @@ public abstract class Container<E> implements IContainer<E> {
 		
 		//Asserts that the current IContainer is not empty.
 		if (isEmpty()) {
-			throw new EmptyArgumentException(this);
+			throw EmptyArgumentException.forArgument(this);
 		}
 		
 		return getRefAt(new Random().nextInt(getElementCount()) + 1);
@@ -1273,7 +1273,7 @@ public abstract class Container<E> implements IContainer<E> {
 		
 		//Asserts that the current IContainer is not empty.
 		if (isEmpty()) {
-			throw new EmptyArgumentException(this);
+			throw EmptyArgumentException.forArgument(this);
 		}
 
 		return iterator().next();
@@ -1415,7 +1415,7 @@ public abstract class Container<E> implements IContainer<E> {
 		
 		//Asserts that the current IContainer contains exactly 1 element.
 		if (isEmpty()) {
-			throw new EmptyArgumentException(this);
+			throw EmptyArgumentException.forArgument(this);
 		}
 		if (getElementCount() > 1) {
 			throw new InvalidArgumentException(this, "contains several elements");
@@ -2099,7 +2099,7 @@ public abstract class Container<E> implements IContainer<E> {
 	public final Container<E> withoutFirst() {
 		
 		if (isEmpty()) {
-			throw new EmptyArgumentException(this);
+			throw EmptyArgumentException.forArgument(this);
 		}
 		
 		return withoutFirst(1);
@@ -2160,7 +2160,7 @@ public abstract class Container<E> implements IContainer<E> {
 		
 		//Asserts that the current IContainer is not empty.
 		if (isEmpty()) {
-			throw new EmptyArgumentException(this);
+			throw EmptyArgumentException.forArgument(this);
 		}
 		
 		return withoutLast(1);

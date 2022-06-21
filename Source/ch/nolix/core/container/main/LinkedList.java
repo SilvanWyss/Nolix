@@ -492,7 +492,7 @@ public final class LinkedList<E> extends Container<E> implements Clearable {
 		
 		//Asserts that the current list is not empty.
 		if (isEmpty()) {
-			throw new EmptyArgumentException(this);
+			throw EmptyArgumentException.forArgument(this);
 		}
 		
 		return ((double)getSequenceCount(sequencePattern) / getElementCount());
@@ -541,7 +541,7 @@ public final class LinkedList<E> extends Container<E> implements Clearable {
 		
 		//Asserts that the current list is not empty.
 		if (isEmpty()) {
-			throw new EmptyArgumentException(this);
+			throw EmptyArgumentException.forArgument(this);
 		}
 		
 		return lastNode.getElement();
@@ -731,7 +731,7 @@ public final class LinkedList<E> extends Container<E> implements Clearable {
 		
 		//Asserts that the current list is not empty.
 		if (isEmpty()) {
-			throw new EmptyArgumentException(this);
+			throw EmptyArgumentException.forArgument(this);
 		}
 		
 		//Handles the case that the current list contains 1 element.
@@ -848,7 +848,7 @@ public final class LinkedList<E> extends Container<E> implements Clearable {
 		
 		//Asserts that the current list is not empty.
 		if (isEmpty()) {
-			throw new EmptyArgumentException(this);
+			throw EmptyArgumentException.forArgument(this);
 		}
 		
 		//Handles the case that the current list contains 1 element.

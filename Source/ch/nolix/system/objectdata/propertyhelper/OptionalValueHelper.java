@@ -25,7 +25,7 @@ public final class OptionalValueHelper extends PropertyHelper implements IOption
 	@Override
 	public void assertHasValue(final IOptionalValue<?, ?> optionalValue) {
 		if (optionalValue.isEmpty()) {
-			throw new EmptyArgumentException(optionalValue);
+			throw EmptyArgumentException.forArgument(optionalValue);
 		}
 	}
 	

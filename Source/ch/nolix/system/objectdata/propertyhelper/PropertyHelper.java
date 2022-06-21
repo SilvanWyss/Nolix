@@ -42,7 +42,7 @@ public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHel
 	@Override
 	public final void assertIsNotEmpty(final IProperty<?> property) {
 		if (property.isEmpty()) {
-			throw new EmptyArgumentException(property);
+			throw EmptyArgumentException.forArgument(property);
 		}
 	}
 	
@@ -50,7 +50,7 @@ public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHel
 	@Override
 	public final void assertIsNotMandatoryAndEmptyBoth(final IProperty<?> property) {
 		if (isMandatoryAndEmptyBoth(property)) {
-			throw new EmptyArgumentException(property);
+			throw EmptyArgumentException.forArgument(property);
 		}
 	}
 	

@@ -477,7 +477,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 		
 		//Asserts that the current WidgetGUI is not empty.
 		if (isEmpty()) {
-			throw new EmptyArgumentException(this);
+			throw EmptyArgumentException.forArgument(this);
 		}
 		
 		final var previousTopLayer = getRefTopOrBackgroundLayer();

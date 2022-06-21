@@ -45,7 +45,7 @@ final class AligningContainerSlot implements Clearable {
 	public Widget<?, ?> getRefWidget() {
 		
 		if (widget == null) {
-			throw new EmptyArgumentException(this);
+			throw EmptyArgumentException.forArgument(this);
 		}
 		
 		return widget;

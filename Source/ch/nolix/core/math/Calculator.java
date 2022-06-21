@@ -106,7 +106,7 @@ public final class Calculator {
 		}
 		
 		if (count == 0) {
-			throw new EmptyArgumentException(PluralLowerCaseCatalogue.VALUES, values);
+			throw EmptyArgumentException.forArgumentNameAndArgument(PluralLowerCaseCatalogue.VALUES, values);
 		}
 		
 		return (sum / count);

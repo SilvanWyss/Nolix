@@ -86,7 +86,7 @@ public final class SingleContainer<E> extends Container<E> {
 		
 		//Asserts that the current SingleContainer is not empty.
 		if (element == null) {
-			throw new EmptyArgumentException(this);
+			throw EmptyArgumentException.forArgument(this);
 		}
 		
 		//Returns the element of the current SingleContainer.

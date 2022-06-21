@@ -34,7 +34,7 @@ public final class OptionalReferenceHelper extends PropertyHelper implements IOp
 	@Override
 	public void assertIsNotEmpty(final IOptionalReference<?, ?> optionalReference) {
 		if (optionalReference.isEmpty()) {
-			throw new EmptyArgumentException(optionalReference);
+			throw EmptyArgumentException.forArgument(optionalReference);
 		}
 	}
 	

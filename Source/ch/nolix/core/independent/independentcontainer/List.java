@@ -160,7 +160,7 @@ public final class List<E> implements Iterable<E> {
 	//method
 	private void supposeIsNotEmpty() {
 		if (isEmpty()) {
-			throw new EmptyArgumentException(this);
+			throw EmptyArgumentException.forArgument(this);
 		}
 	}
 }

@@ -272,7 +272,7 @@ public final class Matrix<E> extends Container<E> implements Clearable {
 		final var columnCount = getColumnCount();
 		
 		if (columnCount == 0) {
-			throw new EmptyArgumentException(this);
+			throw EmptyArgumentException.forArgument(this);
 		}
 		
 		return ((index - 1) % columnCount + 1);
@@ -422,7 +422,7 @@ public final class Matrix<E> extends Container<E> implements Clearable {
 		final var columnCount = getColumnCount();
 		
 		if (columnCount == 0) {
-			throw new EmptyArgumentException(this);
+			throw EmptyArgumentException.forArgument(this);
 		}
 		
 		return ((index - 1) / columnCount + 1);

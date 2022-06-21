@@ -131,7 +131,7 @@ public final class GapMatrix<E> extends Container<E> implements Clearable {
 			}
 		}
 		
-		throw new EmptyArgumentException(this);
+		throw EmptyArgumentException.forArgument(this);
 	}
 	
 	//method

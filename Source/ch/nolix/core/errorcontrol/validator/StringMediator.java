@@ -123,7 +123,7 @@ public class StringMediator extends ArgumentMediator<String> {
 		
 		//Asserts that the argument of the current StringMediator is not empty.
 		if (getRefArgument().isEmpty()) {
-			throw new EmptyArgumentException(getArgumentName(), getRefArgument());
+			throw EmptyArgumentException.forArgumentNameAndArgument(getArgumentName(), getRefArgument());
 		}
 	}
 	

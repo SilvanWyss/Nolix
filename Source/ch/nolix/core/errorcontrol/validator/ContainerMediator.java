@@ -222,7 +222,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 		
 		//Asserts that the argument of this container mediator is not empty.
 		if (IterableHelper.isEmpty(getRefArgument())) {
-			throw new EmptyArgumentException(getRefArgument());
+			throw EmptyArgumentException.forArgument(getRefArgument());
 		}
 	}
 }

@@ -55,7 +55,7 @@ public final class SingleContainer<E> {
 		
 		//Asserts that the current SingleContainer is not empty.
 		if (isEmpty()) {
-			throw new EmptyArgumentException(this);
+			throw EmptyArgumentException.forArgument(this);
 		}
 		
 		//Returns the element of the current SingleContainer.

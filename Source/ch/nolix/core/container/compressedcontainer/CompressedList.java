@@ -61,7 +61,7 @@ public final class CompressedList<E> extends Container<E> {
 		}
 		
 		if (isEmpty()) {
-			throw new EmptyArgumentException(this);
+			throw EmptyArgumentException.forArgument(this);
 		}
 		
 		var iteratorIndex = 1;
