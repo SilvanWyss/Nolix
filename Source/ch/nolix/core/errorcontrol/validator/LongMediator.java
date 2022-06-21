@@ -228,7 +228,7 @@ public class LongMediator extends Mediator {
 		
 		//Asserts that the argument of this long mediator does not equals the given value.
 		if (argument == value) {
-			throw new EqualArgumentException(getArgumentName(), argument, value);
+			throw EqualArgumentException.forArgumentNameAndArgumentAndEqualValue(getArgumentName(), argument, value);
 		}
 		
 		return new TerminalLongMediator(getArgumentName(), argument);

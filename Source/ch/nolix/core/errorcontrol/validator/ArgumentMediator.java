@@ -113,7 +113,7 @@ public class ArgumentMediator<A> extends Mediator {
 		
 		//Asserts that the argument of the current ArgumentMediator does not equal the given object.
 		if (Objects.equals(getRefArgument(), object)) {
-			throw new EqualArgumentException(argument, object);
+			throw EqualArgumentException.forArgumentAndEqualValue(argument, object);
 		}
 	}
 	
