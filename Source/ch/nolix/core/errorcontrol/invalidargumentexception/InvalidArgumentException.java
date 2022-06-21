@@ -125,8 +125,8 @@ public class InvalidArgumentException extends RuntimeException {
 	/**
 	 * @param errorPredicate
 	 * @return a valid error predicate of the given errorPredicate.
-	 * @throws IllegalArgumentException if the given error predicate is null.
-	 * @throws IllegalArgumentException if the given error predicate is blank.
+	 * @throws IllegalArgumentException if the given errorPredicate is null.
+	 * @throws IllegalArgumentException if the given errorPredicate is blank.
 	 * @throws IllegalArgumentException if the given errorPredicate ends with a dot.
 	 */
 	private static String getValidErrorPredicateOfErrorPredicate(final String errorPredicate) {
@@ -172,7 +172,7 @@ public class InvalidArgumentException extends RuntimeException {
 	
 	//constructor
 	/**
-	 * Creates a new {@link InvalidArgumentException} for the given argument and error predicate.
+	 * Creates a new {@link InvalidArgumentException} for the given argument and errorPredicate.
 	 * 
 	 * @param argument
 	 * @param errorPredicate
