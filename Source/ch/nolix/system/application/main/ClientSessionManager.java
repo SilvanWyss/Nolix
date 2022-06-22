@@ -128,7 +128,12 @@ final class ClientSessionManager<
 		assertContainsCurrentSession();
 		
 		if (!currentSessionIsTopSession()) {
-			throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate("current Session", getRefCurrentSession(), "is not the top Session");
+			throw
+			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+				"current Session",
+				getRefCurrentSession(),
+				"is not the top Session"
+			);
 		}
 	}
 	

@@ -162,7 +162,12 @@ public class NetEndPoint extends EndPoint {
 			case Protocol.ERROR_HEADER:
 				throw new GeneralException(reply.getOneAttributeHeader());
 			default:
-				throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(LowerCaseCatalogue.REPLY, reply, "is not valid");
+				throw
+				InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+					LowerCaseCatalogue.REPLY,
+					reply,
+					"is not valid"
+				);
 		}
 	}
 	
@@ -252,7 +257,12 @@ public class NetEndPoint extends EndPoint {
 			case Protocol.ERROR_HEADER:
 				throw new GeneralException(reply.getOneAttributeHeader());
 			default:
-				throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(LowerCaseCatalogue.REPLY, reply, "is not valid");
+				throw
+				InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+					LowerCaseCatalogue.REPLY,
+					reply,
+					"is not valid"
+				);
 		}
 	}
 	
@@ -305,7 +315,12 @@ public class NetEndPoint extends EndPoint {
 			case Protocol.DATA_REQUEST_HEADER:
 				return (Protocol.DATA_HEADER + '(' + receiverController.getData(message.getOneAttribute()) + ')');
 			default:
-				throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(LowerCaseCatalogue.MESSAGE, message, "is not valid");
+				throw
+				InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+					LowerCaseCatalogue.MESSAGE,
+					message,
+					"is not valid"
+				);
 		}
 	}
 }

@@ -940,7 +940,12 @@ public final class ChainedNode implements OptionalHeadered {
 		
 		//Asserts that the given header is not blank.
 		if (header.isBlank()) {
-			throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(LowerCaseCatalogue.HEADER, header, "is blank");
+			throw
+			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+				LowerCaseCatalogue.HEADER,
+				header,
+				"is blank"
+			);
 		}
 		
 		this.header = header;

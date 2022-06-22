@@ -42,7 +42,12 @@ public enum WebSocketFrameOpcodeMeaning {
 			case 0xF:
 				return RESERVED;
 			default:
-				throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(LowerCaseCatalogue.NUMBER, number, "is not valid");
+				throw
+				InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+					LowerCaseCatalogue.NUMBER,
+					number,
+					"is not valid"
+				);
 		}
 	}
 	

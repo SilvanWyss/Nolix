@@ -24,7 +24,11 @@ public final class WebSocketFrame {
 	public static WebSocketFrame createPongFrameFor(final WebSocketFrame pingFrame) {
 		
 		if (!pingFrame.isPingFrame()) {
-			throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate("ping frame", pingFrame, "is actually not a ping frame");
+			throw
+			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+				"ping frame", pingFrame,
+				"is actually not a ping frame"
+			);
 		}
 		
 		return new WebSocketFrame(true, WebSocketFrameOpcodeMeaning.PONG,	false, pingFrame.getPayload());

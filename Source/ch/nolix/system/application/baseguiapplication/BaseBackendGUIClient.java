@@ -83,7 +83,12 @@ public abstract class BaseBackendGUIClient<
 				receiveOptionalFileFromCounterpart(command);
 				break;
 			default:
-				throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(LowerCaseCatalogue.COMMAND, command, "is not valid");
+				throw
+				InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+					LowerCaseCatalogue.COMMAND,
+					command,
+					"is not valid"
+				);
 		}
 	}
 	
@@ -202,7 +207,11 @@ public abstract class BaseBackendGUIClient<
 	 */
 	private void assertIsNotWaitingForFileFromCounterpart() {
 		if (isWaitingForFileFromCounterpart()) {
-			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is already waiting for a file from the counterpart");
+			throw
+			InvalidArgumentException.forArgumentAndErrorPredicate(
+				this,
+				"is already waiting for a file from the counterpart"
+			);
 		}
 	}
 	
@@ -379,7 +388,12 @@ public abstract class BaseBackendGUIClient<
 				resetGUI(lGUICommand.getAttributesAsNodes());
 				break;
 			default:
-				throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate("GUI command", lGUICommand, "is not valid");
+				throw
+				InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+					"GUI command",
+					lGUICommand,
+					"is not valid"
+				);
 		}
 	}
 }

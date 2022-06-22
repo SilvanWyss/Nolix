@@ -18,7 +18,11 @@ public final class DatabaseEngineHelper extends DatabaseObjectHelper implements 
 		final String name
 	) {
 		if (!containsDatabaseWithGivenName(databaseEngine, name)) {
-			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "contains a database with the name '" + name + "'");
+			throw
+			InvalidArgumentException.forArgumentAndErrorPredicate(
+				this,
+				"contains a database with the name '" + name + "'"
+			);
 		}
 	}
 	

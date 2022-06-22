@@ -91,7 +91,12 @@ public class StringMediator extends ArgumentMediator<String> {
 		
 		//Asserts that the argument of the current StringMediator is blank.
 		if (!getRefArgument().isBlank()) {
-			throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(getArgumentName(), getRefArgument(), "is not blank");
+			throw
+			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+				getArgumentName(),
+				getRefArgument(),
+				"is not blank"
+			);
 		}
 	}
 	
@@ -221,7 +226,11 @@ public class StringMediator extends ArgumentMediator<String> {
 		}
 		
 		if (!specifiesProbableDirectoryOnLocalMachine) {
-			throw InvalidArgumentException.forArgumentAndErrorPredicate(directory,	"is not a probable directory on the local machine");
+			throw
+			InvalidArgumentException.forArgumentAndErrorPredicate(
+				directory,
+				"is not a probable directory on the local machine"
+			);
 		}
 	}
 }

@@ -627,7 +627,11 @@ public abstract class Container<E> implements IContainer<E> {
 			index++;
 		}
 		
-		throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "does not contain an element the given selecto selects");
+		throw
+		InvalidArgumentException.forArgumentAndErrorPredicate(
+			this,
+			"does not contain an element the given selecto selects"
+		);
 	}
 	
 	//method

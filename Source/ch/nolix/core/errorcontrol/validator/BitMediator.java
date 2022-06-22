@@ -26,14 +26,24 @@ public class BitMediator extends Mediator {
 	//method
 	public final void isCleared() {
 		if (argument) {
-			throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(getArgumentName(), argument, "is not cleared");
+			throw
+			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+				getArgumentName(),
+				argument,
+				"is not cleared"
+			);
 		}
 	}
 	
 	//method
 	public final void isSet() {
 		if (!argument) {
-			throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(getArgumentName(), argument, "is not set");
+			throw
+			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+				getArgumentName(),
+				argument,
+				"is not set"
+			);
 		}
 	}
 }

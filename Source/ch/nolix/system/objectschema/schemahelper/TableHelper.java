@@ -48,7 +48,11 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
 	@Override
 	public void assertDoesNotContainColumnWithGivenName(final ITable<?> table, final String name) {
 		if (containsColumnWithGivenName(table, name)) {
-			throw InvalidArgumentException.forArgumentAndErrorPredicate(table, "contains already a column with the given name '" + name + "'");
+			throw
+			InvalidArgumentException.forArgumentAndErrorPredicate(
+				table,
+				"contains already a column with the given name '" + name + "'"
+			);
 		}
 	}
 	

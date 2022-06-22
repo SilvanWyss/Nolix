@@ -29,7 +29,12 @@ public class MethodMediator extends ArgumentMediator<Method> {
 		isNotNull();
 		
 		if (getRefArgument().getAnnotations().length != 0) {
-			throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(getArgumentName(), getRefArgument(), "has annotations");
+			throw
+			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+				getArgumentName(),
+				getRefArgument(),
+				"has annotations"
+			);
 		}
 		
 		return this;
@@ -41,7 +46,12 @@ public class MethodMediator extends ArgumentMediator<Method> {
 		isNotNull();
 		
 		if (getRefArgument().getReturnType() != void.class) {
-			throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(getArgumentName(), getRefArgument(), "returns something");
+			throw
+			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+				getArgumentName(),
+				getRefArgument(),
+				"returns something"
+			);
 		}
 		
 		return this;

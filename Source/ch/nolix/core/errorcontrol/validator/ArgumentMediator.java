@@ -72,7 +72,11 @@ public class ArgumentMediator<A> extends Mediator {
 		//Asserts that the argument of the current ArgumentMediator fulfills the given condition.
 		if (!condition.getOutput(getRefArgument())) {
 			throw
-			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(getArgumentName(), getRefArgument(), "does not fulfil the given condition");
+			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+				getArgumentName(),
+				getRefArgument(),
+				"does not fulfil the given condition"
+			);
 		}
 	}
 	
@@ -99,7 +103,12 @@ public class ArgumentMediator<A> extends Mediator {
 		
 		//Asserts that the argument of the current ArgumentMediator is not the given object.
 		if (argument == object) {
-			throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(getArgumentName(), getRefArgument(), "is the given object");
+			throw
+			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+				getArgumentName(),
+				getRefArgument(),
+				"is the given object"
+			);
 		}
 	}
 	
@@ -155,7 +164,12 @@ public class ArgumentMediator<A> extends Mediator {
 		
 		//Asserts that the argument of the current ArgumentMediator is of the given type.
 		if (!getRefArgument().getClass().getClass().isAssignableFrom(type.getClass())) {
-			throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(getArgumentName(), getRefArgument(), "is not a " + type);
+			throw
+			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+				getArgumentName(),
+				getRefArgument(),
+				"is not a " + type
+			);
 		}
 	}
 	

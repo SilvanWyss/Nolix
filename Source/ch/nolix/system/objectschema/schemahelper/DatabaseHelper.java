@@ -44,7 +44,11 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 				throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.TABLE);
 			}
 			
-			throw InvalidArgumentException.forArgumentAndErrorPredicate(database, "cannot add the given table '" + table.getName() + "'");
+			throw
+			InvalidArgumentException.forArgumentAndErrorPredicate(
+				database,
+				"cannot add the given table '" + table.getName() + "'"
+			);
 		}
 	}
 	
@@ -52,7 +56,12 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 	@Override
 	public void assertCanSetGivenNameToDatabase(final String name) {
 		if (!canSetGivenNameToDatabase(name)) {
-			throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(LowerCaseCatalogue.NAME, name, "cannot be set to database");
+			throw
+			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+				LowerCaseCatalogue.NAME,
+				name,
+				"cannot be set to database"
+			);
 		}
 	}
 	

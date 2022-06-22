@@ -34,7 +34,12 @@ public final class GlobalCharacterHelper {
 			|| (letter > 90 && letter < 97)
 			|| letter > 122
 		) {
-			throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(LowerCaseCatalogue.LETTER, letter, "is not valid");
+			throw
+			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+				LowerCaseCatalogue.LETTER,
+				letter,
+				"is not valid"
+			);
 		}
 		
 		//Enumerates the given letter.

@@ -527,7 +527,10 @@ implements IConfiguration {
 	private void assertDoesNotContainerSelectorRole(String selectorRole) {
 		if (containsSelectorRole(selectorRole)) {
 			throw
-			InvalidArgumentException.forArgumentAndErrorPredicate(this, "contains already the given selector role '" + selectorRole + "'");
+			InvalidArgumentException.forArgumentAndErrorPredicate(
+				this,
+				"contains already the given selector role '" + selectorRole + "'"
+			);
 		}
 	}
 	
@@ -544,7 +547,12 @@ implements IConfiguration {
 			case DeepConfiguration.TYPE_NAME:
 				return DeepConfiguration.fromSpecification(specification);
 			default:
-				throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(LowerCaseCatalogue.SPECIFICATION, specification, "is not valid");
+				throw
+				InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+					LowerCaseCatalogue.SPECIFICATION,
+					specification,
+					"is not valid"
+				);
 		}
 	}
 }

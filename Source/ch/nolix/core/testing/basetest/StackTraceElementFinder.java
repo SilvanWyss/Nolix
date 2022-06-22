@@ -44,6 +44,10 @@ final class StackTraceElementFinder {
 			}
 		}
 		
-		throw InvalidArgumentException.forArgumentAndErrorPredicate(method, "is not called the given stackTrace '" + stackTrace + "'");
+		throw
+		InvalidArgumentException.forArgumentAndErrorPredicate(
+			method,
+			"is not called the given stackTrace '" + stackTrace + "'"
+		);
 	}
 }

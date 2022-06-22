@@ -28,7 +28,12 @@ public enum WebSocketFramePayloadLengthType {
 			return BITS_64;
 		}
 		
-		throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(LowerCaseCatalogue.CODE, code, "is not valid");
+		throw
+		InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+			LowerCaseCatalogue.CODE,
+			code,
+			"is not valid"
+		);
 	}
 	
 	//static method

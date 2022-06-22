@@ -17,7 +17,10 @@ public final class IntOrPercentageHolderValidator {
 	public void assertIsPositive(final IntOrPercentageHolder intOrPercentageHolder) {
 		if (!intOrPercentageHolder.isPositive()) {
 			throw
-			InvalidArgumentException.forArgumentAndErrorPredicate(intOrPercentageHolder, "does not have a positiv integer value or percentage");
+			InvalidArgumentException.forArgumentAndErrorPredicate(
+				intOrPercentageHolder,
+				"does not have a positiv integer value or percentage"
+			);
 		}
 	}
 }

@@ -186,7 +186,12 @@ public abstract class TestPool implements Runnable {
 		
 		//Asserts that the given testClass is not abstract.
 		if (ReflectionHelper.isAbstract(testClass)) {
-			throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(LowerCaseCatalogue.TEST_CLASS, testClass, "is abstract");
+			throw
+			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+				LowerCaseCatalogue.TEST_CLASS,
+				testClass,
+				"is abstract"
+			);
 		}
 		
 		//Asserts that the given testClass has a default constructor.

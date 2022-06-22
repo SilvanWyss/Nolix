@@ -129,14 +129,23 @@ public final class CachingContainer<E> extends Container<E> {
 	//method
 	private void assertDoesNotContain(final E element) {
 		if (contains(element)) {
-			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "contains already the given element '" + element + "'");
+			throw
+			InvalidArgumentException.forArgumentAndErrorPredicate(
+				this,
+				"contains already the given element '" + element + "'"
+			);
 		}
 	}
 	
 	//method
 	private void assertDoesNotContainId(final String id) {
 		if (containsWithId(id)) {
-			throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(LowerCaseCatalogue.ID, id, "is already used");
+			throw
+			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+				LowerCaseCatalogue.ID,
+				id,
+				"is already used"
+			);
 		}
 	}
 	

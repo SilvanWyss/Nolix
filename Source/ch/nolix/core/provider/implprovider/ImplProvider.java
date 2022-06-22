@@ -55,7 +55,11 @@ public final class ImplProvider implements IImplProvider {
 			case THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY:
 				
 				if (singleImplProviders.putIfAbsent(pInterface, new SingleImplProvider<>(implementation)) != null) {
-					throw InvalidArgumentException.forArgumentAndErrorPredicate(pInterface, "is already registered at the " + getName());
+					throw
+					InvalidArgumentException.forArgumentAndErrorPredicate(
+						pInterface,
+						"is already registered at the " + getName()
+					);
 				}
 				
 				break;

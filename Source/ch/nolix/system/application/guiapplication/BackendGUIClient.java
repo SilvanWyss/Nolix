@@ -22,6 +22,11 @@ public final class BackendGUIClient<AC> extends BaseBackendGUIClient<BackendGUIC
 	 */
 	@Override
 	protected Node getDataFromHere(final ChainedNode request) {
-		throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(LowerCaseCatalogue.REQUEST, request, "is not valid");
+		throw
+		InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+			LowerCaseCatalogue.REQUEST,
+			request,
+			"is not valid"
+		);
 	}
 }

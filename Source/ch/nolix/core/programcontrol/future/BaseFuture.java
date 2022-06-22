@@ -48,7 +48,11 @@ public abstract class BaseFuture implements IFuture {
 	private void handleError() {
 		
 		if (getError().getMessage() == null || getError().getMessage().isBlank()) {
-			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "has caught a '" + getError().getClass().getName() + "'");
+			throw
+			InvalidArgumentException.forArgumentAndErrorPredicate(
+				this,
+				"has caught a '" + getError().getClass().getName() + "'"
+			);
 		}
 		
 		throw

@@ -123,7 +123,11 @@ public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G> 
 		//Asserts that the current {@link _3D_GUI} does not contain already
 		//a shape class with the same name as the given shape class.
 		if (canCreateShape(shapeClass.getSimpleName())) {
-			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "contains already a shape class '" + shapeClass + "'");
+			throw
+			InvalidArgumentException.forArgumentAndErrorPredicate(
+				this,
+				"contains already a shape class '" + shapeClass + "'"
+			);
 		}
 		
 		shapeClasses.addAtEnd(new Pair<>(shapeClass, shapeRenderer));

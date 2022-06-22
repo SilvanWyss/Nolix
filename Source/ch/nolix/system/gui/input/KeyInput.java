@@ -151,7 +151,12 @@ public final class KeyInput implements IKeyInput<KeyInput> {
 			case ' ':
 				return new KeyInput[] {new KeyInput(Key.SPACE, KeyInputType.TYPING)};
 			default:
-				throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(LowerCaseCatalogue.CHARACTER, character, "is not valid");
+				throw
+				InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+					LowerCaseCatalogue.CHARACTER,
+					character,
+					"is not valid"
+				);
 		}
 	}
 	
