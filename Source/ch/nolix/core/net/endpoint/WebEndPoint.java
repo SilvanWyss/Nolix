@@ -96,12 +96,7 @@ final class WebEndPoint extends BaseNetEndPoint {
 				close();
 				break;
 			default:
-				throw
-				InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-					"control frame",
-					controlFrame,
-					"is not valid"
-				);
+				throw InvalidArgumentException.forArgumentNameAndArgument("control frame", controlFrame);
 		}
 	}
 	

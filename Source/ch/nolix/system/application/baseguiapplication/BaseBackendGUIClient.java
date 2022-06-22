@@ -83,12 +83,7 @@ public abstract class BaseBackendGUIClient<
 				receiveOptionalFileFromCounterpart(command);
 				break;
 			default:
-				throw
-				InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-					LowerCaseCatalogue.COMMAND,
-					command,
-					"is not valid"
-				);
+				throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.COMMAND, command);
 		}
 	}
 	
@@ -334,10 +329,9 @@ public abstract class BaseBackendGUIClient<
 				break;
 			default:
 				throw
-				InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+				InvalidArgumentException.forArgumentNameAndArgument(
 					"receive optional file commoand",
-					receiveOptionalFileCommand,
-					"is not valid"
+					receiveOptionalFileCommand
 				);
 		}
 	}
@@ -388,12 +382,7 @@ public abstract class BaseBackendGUIClient<
 				resetGUI(lGUICommand.getAttributesAsNodes());
 				break;
 			default:
-				throw
-				InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-					"GUI command",
-					lGUICommand,
-					"is not valid"
-				);
+				throw InvalidArgumentException.forArgumentNameAndArgument("GUI command", lGUICommand);
 		}
 	}
 }

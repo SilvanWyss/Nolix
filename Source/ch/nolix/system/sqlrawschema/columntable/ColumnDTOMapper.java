@@ -27,10 +27,9 @@ public final class ColumnDTOMapper {
 				return createColumnDTOForBaseReference(columnSystemTableRecord);
 			default:
 				throw
-				InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+				InvalidArgumentException.forArgumentNameAndArgument(
 					"column system table record",
-					columnSystemTableRecord,
-					"is not valid"
+					columnSystemTableRecord
 				);
 		}
 	}

@@ -548,11 +548,7 @@ implements IConfiguration {
 				return DeepConfiguration.fromSpecification(specification);
 			default:
 				throw
-				InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-					LowerCaseCatalogue.SPECIFICATION,
-					specification,
-					"is not valid"
-				);
+				InvalidArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.SPECIFICATION, specification);
 		}
 	}
 }

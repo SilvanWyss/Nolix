@@ -109,19 +109,9 @@ final class ServerSocketProcessor extends Worker {
 					return new SingleContainer<>();
 				}
 				
-				throw
-				InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-					"first received line",
-					firstReveivedLine,
-					"is not valid"
-				);
+				throw InvalidArgumentException.forArgumentNameAndArgument("first received line", firstReveivedLine);
 			default:
-				throw
-				InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-					"first received line",
-					firstReveivedLine,
-					"is not valid"
-				);
+				throw InvalidArgumentException.forArgumentNameAndArgument("first received line", firstReveivedLine);
 		}
 	}
 	
@@ -158,12 +148,7 @@ final class ServerSocketProcessor extends Worker {
 			return NetEndPointCreationType.WEB_SOCKET_OR_HTTP;
 		}
 		
-		throw
-		InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-			"first received line",
-			firstReceivedLine,
-			"is not valid"
-		);
+		throw InvalidArgumentException.forArgumentNameAndArgument("first received line", firstReceivedLine);
 	}
 	
 	//method

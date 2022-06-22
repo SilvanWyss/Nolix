@@ -54,12 +54,7 @@ extends FrontendClient<BFGUIC> {
 			case CommandProtocol.GET_TEXT_FROM_CLIPBOARD:
 				return Node.withHeader(getRefGUI().fromFrontEnd().getTextFromClipboard());
 			default:
-				throw
-				InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-					LowerCaseCatalogue.REQUEST,
-					request,
-					"is not valid"
-				);
+				throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.REQUEST, request);
 		}
 	}
 	
@@ -91,12 +86,7 @@ extends FrontendClient<BFGUIC> {
 				PopupWindowProvider.showErrorWindow(command.getOneAttributeAsString());
 				break;
 			default:
-				throw
-				InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-					LowerCaseCatalogue.COMMAND,
-					command,
-					"is not valid"
-				);
+				throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.COMMAND, command);
 		}
 	}
 	
@@ -114,12 +104,7 @@ extends FrontendClient<BFGUIC> {
 			case ObjectProtocol.VIEW_AREA_SIZE:
 				return Node.fromIntPair(getRefGUI().getViewAreaSize());
 			default:
-				throw
-				InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-					"GUI data request",
-					pGUIDataRequest,
-					"is not valid"
-				);
+				throw InvalidArgumentException.forArgumentNameAndArgument("GUI data request", pGUIDataRequest);
 		}
 	}
 	

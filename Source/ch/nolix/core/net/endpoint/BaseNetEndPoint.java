@@ -194,12 +194,7 @@ public abstract class BaseNetEndPoint extends EndPoint {
 			case NetEndPointProtocol.MAIN_TARGET_PREFIX:
 				
 				if (!rawMessage.equals(String.valueOf(NetEndPointProtocol.MAIN_TARGET_PREFIX))) {
-					throw
-					InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-						RAW_MESSAGE_VARIABLE_NAME,
-						rawMessage,
-						"is not valid"
-					);
+					throw InvalidArgumentException.forArgumentNameAndArgument(RAW_MESSAGE_VARIABLE_NAME, rawMessage);
 				}
 				
 				confirmReceivedTargetInfo();
@@ -217,12 +212,7 @@ public abstract class BaseNetEndPoint extends EndPoint {
 				close();
 				break;
 			default:
-				throw
-				InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-					RAW_MESSAGE_VARIABLE_NAME,
-					rawMessage,
-					"is not valid"
-				);
+				throw InvalidArgumentException.forArgumentNameAndArgument(RAW_MESSAGE_VARIABLE_NAME, rawMessage);
 		}
 	}
 }
