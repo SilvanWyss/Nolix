@@ -5,7 +5,6 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 /**
  * A {@link NewArgumentException} is a {@link InvalidArgumentException} that
  * is supposed to be thrown when a given argument is undesirably not new.
- * A {@link NewArgumentException} is not mutable.
  * 
  * @author Silvan Wyss
  * @date 2021-07-16
@@ -16,13 +15,22 @@ public final class NewArgumentException extends InvalidArgumentException {
 	//constant
 	private static final String ERROR_PREDICATE = "is new";
 	
+	//static method
+	/**
+	 * @param argument
+	 * @return a new {@link NewArgumentException} for the given argument.
+	 */
+	public static NewArgumentException forArgument(final Object argument) {
+		return new NewArgumentException(argument);
+	}
+	
 	//constructor
 	/**
 	 * Creates a new {@link NewArgumentException} for the given argument.
 	 * 
 	 * @param argument
 	 */
-	public NewArgumentException(final Object argument) {
+	private NewArgumentException(final Object argument) {
 		
 		//Calls constructor of the base class.
 		super(argument, ERROR_PREDICATE);

@@ -48,7 +48,7 @@ abstract class SchemaObject implements IDatabaseObject {
 	final void internalSetDeleted() {
 		switch (getState()) {
 			case NEW:
-				throw new NewArgumentException(this);
+				throw NewArgumentException.forArgument(this);
 			case LOADED:
 			case EDITED:
 				state = DatabaseObjectState.DELETED;
