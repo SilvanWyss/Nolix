@@ -21,7 +21,7 @@ public interface EmptinessRequestable {
 	 */
 	default void assertIsEmpty() {
 		if (containsAny()) {
-			throw new NonEmptyArgumentException(this);
+			throw NonEmptyArgumentException.forArgument(this);
 		}
 	}
 	
