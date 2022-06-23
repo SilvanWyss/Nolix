@@ -94,7 +94,7 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
 			
 			//Asserts that the current arguemnt is negative.
 			if (a > 0) {
-				throw new NonNegativeArgumentException(i + "th argument", a);
+				throw NonNegativeArgumentException.forArgumentNameAndArgument(i + "th argument", a);
 			}
 			
 			//Increments index.
