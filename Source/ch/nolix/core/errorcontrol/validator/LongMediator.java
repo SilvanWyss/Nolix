@@ -12,7 +12,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonNegativeArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.NonSmallerArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.PositiveArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.SmallerArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentException;
@@ -318,14 +317,19 @@ public class LongMediator extends Mediator {
 	/**
 	 * @param value
 	 * @return a new {@link TerminalLongMediator} for the argument of the current {@link LongMediator}.
-	 * @throws NonSmallerArgumentException
+	 * @throws InvalidArgumentException
 	 * if the argument of this long mediator is not smaller than the given value.
 	 */
 	public TerminalLongMediator isSmallerThan(final long value) {
 		
 		//Asserts that the argument of this long mediator is smaller than the given value.
 		if (argument >= value) {
-			throw new NonSmallerArgumentException(getArgumentName(), argument, value);
+			throw
+			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+				getArgumentName(),
+				argument,
+				"is not smaller than " + value
+			);
 		}
 		
 		return new TerminalLongMediator(getArgumentName(), argument);

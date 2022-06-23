@@ -6,7 +6,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonNegativeArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.NonSmallerArgumentException;
 import ch.nolix.core.independent.independenthelper.CentralArrayHelper;
 
 //class
@@ -132,7 +131,7 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
 	/**
 	 * @param value
 	 * @throws ArgumentIsNullException if one of the arguments of this multi double mediator is null.
-	 * @throws NonSmallerArgumentException
+	 * @throws InvalidArgumentException
 	 * if one of the argument of this multi double mediator is not smaller than the given value.
 	 */
 	public void areSmallerThan(final double value) {
@@ -146,7 +145,12 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
 			
 			//Asserts that the current argument is smaller than the given value.
 			if (a >= value) {
-				throw new NonSmallerArgumentException(i + "th argument", a, value);
+				throw
+				InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+					i + "the argument",
+					a,
+					"is not smaller than " + value
+				);
 			}
 			
 			//Increments index.

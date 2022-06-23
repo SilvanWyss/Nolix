@@ -12,7 +12,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonNegativeArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.NonSmallerArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.SmallerArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentException;
 
@@ -220,14 +219,19 @@ public class DoubleMediator extends Mediator {
 	//method
 	/**
 	 * @param value
-	 * @throws NonSmallerArgumentException
+	 * @throws InvalidArgumentException
 	 * if the argument of this double mediator is not smaller than the given value.
 	 */
 	public void isSmallerThan(final double value) {
 		
 		//Asserts that the argument of this double mediator is smaller than the given value.
 		if (argument >= value) {
-			throw new NonSmallerArgumentException(getArgumentName(), argument, value);
+			throw
+			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+				getArgumentName(),
+				argument,
+				"is not smaller than " + value
+			);
 		}
 	}
 	
