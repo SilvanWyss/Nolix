@@ -170,7 +170,7 @@ public final class MultiLongMediator extends Mediator {
 		
 		//Asserts that the given value is positive.
 		if (value < 1) {
-			throw new NonPositiveArgumentException(LowerCaseCatalogue.VALUE, value);
+			throw NonPositiveArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.VALUE, value);
 		}
 		
 		//Handles the case that the given values are null.

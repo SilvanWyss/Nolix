@@ -25,7 +25,7 @@ public final class OccurancePlace {
 		}
 		
 		if (lineNumber < 1) {
-			throw new NonPositiveArgumentException(LowerCaseCatalogue.LINE_NUMBER, lineNumber);
+			throw NonPositiveArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.LINE_NUMBER, lineNumber);
 		}
 		
 		this.className = className;

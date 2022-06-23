@@ -57,7 +57,7 @@ public final class CompressedList<E> extends Container<E> {
 	public E getRefAt(final int index) {
 		
 		if (index < 1) {
-			throw new NonPositiveArgumentException(LowerCaseCatalogue.INDEX, index);
+			throw NonPositiveArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.INDEX, index);
 		}
 		
 		if (isEmpty()) {

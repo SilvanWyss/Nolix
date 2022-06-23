@@ -18,6 +18,51 @@ public final class NonPositiveArgumentException extends InvalidArgumentException
 	//constant
 	private static final String ERROR_PREDICATE = "is not positive";
 	
+	//static method
+	/**
+	 * @param argumentName
+	 * @param argument
+	 * @return a new {@link NonPositiveArgumentException} for the given argumentName and argument.
+	 * @throws IllegalArgumentException if the given argumentName is null.
+	 * @throws IllegalArgumentException if the given argumentName is blank.
+	 */
+	public static NonPositiveArgumentException forArgumentNameAndArgument(
+		final String argumentName,
+		final BigDecimal argument
+	) {
+		return new NonPositiveArgumentException(argumentName, argument);
+	}
+	
+	//static method
+	/**
+	 * @param argumentName
+	 * @param argument
+	 * @return a new {@link NonPositiveArgumentException} for the given argumentName and argument.
+	 * @throws IllegalArgumentException if the given argumentName is null.
+	 * @throws IllegalArgumentException if the given argumentName is blank.
+	 */
+	public static NonPositiveArgumentException forArgumentNameAndArgument(
+		final String argumentName,
+		final double argument
+	) {
+		return new NonPositiveArgumentException(argumentName, argument);
+	}
+	
+	//static method
+	/**
+	 * @param argumentName
+	 * @param argument
+	 * @return a new {@link NonPositiveArgumentException} for the given argumentName and argument.
+	 * @throws IllegalArgumentException if the given argumentName is null.
+	 * @throws IllegalArgumentException if the given argumentName is blank.
+	 */
+	public static NonPositiveArgumentException forArgumentNameAndArgument(
+		final String argumentName,
+		final long argument
+	) {
+		return new NonPositiveArgumentException(argumentName, argument);
+	}
+	
 	//constructor
 	/**
 	 * Creates a new {@link NonPositiveArgumentException} for the given argumentName and argument.
@@ -27,7 +72,7 @@ public final class NonPositiveArgumentException extends InvalidArgumentException
 	 * @throws IllegalArgumentException if the given argumentName is null.
 	 * @throws IllegalArgumentException if the given argumentName is blank.
 	 */
-	public NonPositiveArgumentException(final String argumentName, final BigDecimal argument) {
+	private NonPositiveArgumentException(final String argumentName, final BigDecimal argument) {
 		
 		//Calls constructor of the base class.
 		super(argumentName, argument, ERROR_PREDICATE);
@@ -42,7 +87,7 @@ public final class NonPositiveArgumentException extends InvalidArgumentException
 	 * @throws IllegalArgumentException if the given argumentName is null.
 	 * @throws IllegalArgumentException if the given argumentName is blank.
 	 */
-	public NonPositiveArgumentException(final String argumentName, final double argument) {
+	private NonPositiveArgumentException(final String argumentName, final double argument) {
 		
 		//Calls constructor of the base class.
 		super(argumentName, argument, ERROR_PREDICATE);
@@ -57,7 +102,7 @@ public final class NonPositiveArgumentException extends InvalidArgumentException
 	 * @throws IllegalArgumentException if the given argumentName is null.
 	 * @throws IllegalArgumentException if the given argumentName is blank.
 	 */
-	public NonPositiveArgumentException(final String argumentName, final long argument) {
+	private NonPositiveArgumentException(final String argumentName, final long argument) {
 		
 		//Calls constructor of the base class.
 		super(argumentName, argument, ERROR_PREDICATE);

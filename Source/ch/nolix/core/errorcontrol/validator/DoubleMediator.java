@@ -176,7 +176,7 @@ public class DoubleMediator extends Mediator {
 		
 		//Asserts that the argument of this double mediator is not positive.
 		if (argument <= 0) {
-			throw new NonPositiveArgumentException(getArgumentName(), argument);
+			throw NonPositiveArgumentException.forArgumentNameAndArgument(getArgumentName(), argument);
 		}
 	}
 	
@@ -213,7 +213,7 @@ public class DoubleMediator extends Mediator {
 		
 		//Asserts that the argument of this double mediator is positive.
 		if (argument <= 0) {
-			throw new NonPositiveArgumentException(getArgumentName(), argument);
+			throw NonPositiveArgumentException.forArgumentNameAndArgument(getArgumentName(), argument);
 		}
 	}
 	

@@ -125,7 +125,7 @@ public final class LongMediator extends Mediator {
 		
 		//Asserts that the given value is positive.
 		if (value < 1) {
-			throw new NonPositiveArgumentException(LowerCaseCatalogue.VALUE, value);
+			throw NonPositiveArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.VALUE, value);
 		}
 		
 		if (this.value % value != 0) {

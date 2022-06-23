@@ -50,7 +50,7 @@ public final class MultiLongMediator extends MultiArgumentMediator<Long> {
 			
 			//Asserts that the current argument is positive.
 			if (a <= 0) {
-				throw new NonPositiveArgumentException(index + "th", a);
+				throw NonPositiveArgumentException.forArgumentNameAndArgument(index + "th", a);
 			}
 			
 			//Increments the index.
