@@ -3,14 +3,11 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 
 //Java imports
 import java.math.BigDecimal;
-import java.math.BigInteger;
 
 //class
 /**
- * A {@link NonPositiveArgumentException} is a {@link InvalidArgumentException}
- * that is supposed to be thrown when a given argument is undesirably not positive.
- * 
- * A {@link NonPositiveArgumentException} is not mutable.
+ * A {@link NonPositiveArgumentException} is a {@link InvalidArgumentException} that
+ * is supposed to be thrown when a given argument is undesirably not (!) positive.
  * 
  * @author Silvan Wyss
  * @date 2016-03-01
@@ -23,120 +20,45 @@ public final class NonPositiveArgumentException extends InvalidArgumentException
 	
 	//constructor
 	/**
-	 * Creates a new {@link NonPositiveArgumentException} for the given argument.
-	 * 
-	 * @param argument
-	 */
-	public NonPositiveArgumentException(final BigDecimal argument) {
-		
-		//Calls constructor of the base class.
-		super(argument, ERROR_PREDICATE);
-	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link NonPositiveArgumentException} for the given argument.
-	 * 
-	 * @param argument
-	 */
-	public NonPositiveArgumentException(final BigInteger argument) {
-		
-		//Calls constructor of the base class.
-		super(argument, ERROR_PREDICATE);
-	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link NonPositiveArgumentException} for the given argument.
-	 * 
-	 * @param argument
-	 */
-	public NonPositiveArgumentException(final double argument) {
-		
-		//Calls constructor of the base class.
-		super(argument, ERROR_PREDICATE);
-	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link NonPositiveArgumentException} for the given argument.
-	 * 
-	 * @param argument
-	 */
-	public NonPositiveArgumentException(final long argument) {
-		
-		//Calls constructor of the base class.
-		super(argument, ERROR_PREDICATE);
-	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link NonPositiveArgumentException}
-	 * for the given argument that has the given argument name.
+	 * Creates a new {@link NonPositiveArgumentException} for the given argumentName and argument.
 	 * 
 	 * @param argumentName
 	 * @param argument
-	 * @throws IllegalArgumentException if the given argument name is null.
-	 * @throws IllegalArgumentException if the given argument name is blank.
+	 * @throws IllegalArgumentException if the given argumentName is null.
+	 * @throws IllegalArgumentException if the given argumentName is blank.
 	 */
-	public NonPositiveArgumentException(
-		final String argumentName,
-		final BigDecimal argument
-	) {
+	public NonPositiveArgumentException(final String argumentName, final BigDecimal argument) {
+		
 		//Calls constructor of the base class.
 		super(argumentName, argument, ERROR_PREDICATE);
 	}
 	
 	//constructor
 	/**
-	 * Creates a new {@link NonPositiveArgumentException}
-	 * for the given argument that has the given argument name.
+	 * Creates a new {@link NonPositiveArgumentException} for the given argumentName and argument.
 	 * 
 	 * @param argumentName
 	 * @param argument
-	 * @throws IllegalArgumentException if the given argument name is null.
-	 * @throws IllegalArgumentException if the given argument name is blank.
+	 * @throws IllegalArgumentException if the given argumentName is null.
+	 * @throws IllegalArgumentException if the given argumentName is blank.
 	 */
-	public NonPositiveArgumentException(
-		final String argumentName,
-		final BigInteger argument
-	) {
+	public NonPositiveArgumentException(final String argumentName, final double argument) {
+		
 		//Calls constructor of the base class.
 		super(argumentName, argument, ERROR_PREDICATE);
 	}
 	
 	//constructor
 	/**
-	 * Creates a new {@link NonPositiveArgumentException}
-	 * for the given argument that has the given argument name.
+	 * Creates a new {@link NonPositiveArgumentException} for the given argumentName and argument.
 	 * 
 	 * @param argumentName
 	 * @param argument
-	 * @throws IllegalArgumentException if the given argument name is null.
-	 * @throws IllegalArgumentException if the given argument name is blank.
+	 * @throws IllegalArgumentException if the given argumentName is null.
+	 * @throws IllegalArgumentException if the given argumentName is blank.
 	 */
-	public NonPositiveArgumentException(
-		final String argumentName,
-		final double argument
-	) {
-		//Calls constructor of the base class.
-		super(argumentName, argument, ERROR_PREDICATE);
-	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link NonPositiveArgumentException}
-	 * for the given argument that has the given argument name.
-	 * 
-	 * @param argumentName
-	 * @param argument
-	 * @throws IllegalArgumentException if the given argument name is null.
-	 * @throws IllegalArgumentException if the given argument name is blank.
-	 */
-	public NonPositiveArgumentException(
-		final String argumentName,
-		final long argument
-	) {
+	public NonPositiveArgumentException(final String argumentName, final long argument) {
+		
 		//Calls constructor of the base class.
 		super(argumentName, argument, ERROR_PREDICATE);
 	}
