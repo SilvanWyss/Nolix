@@ -3,7 +3,7 @@ package ch.nolix.core.errorcontrol.validator;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.NonBiggerArgumentException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonNegativeArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonSmallerArgumentException;
@@ -49,7 +49,7 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
 	 * @param value
 	 * @throws ArgumentIsNullException
 	 * if one of the arguments of this multi double mediator is null.
-	 * @throws NonBiggerArgumentException
+	 * @throws InvalidArgumentException
 	 * if one of the arguments of this multi double mediator is not bigger than the given value.
 	 */
 	public void areBiggerThan(final double value) {
@@ -63,7 +63,12 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
 			
 			//Asserts that the current argument is bigger than the given value.
 			if (a <= value) {
-				throw new NonBiggerArgumentException(i + "th argument", a, value);
+				throw
+				InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+					i + "th argument",
+					a,
+					"is not bigger than " + value
+				);
 			}
 			
 			//Increments index.

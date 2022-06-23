@@ -2,7 +2,7 @@
 package ch.nolix.core.testing.validation;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.NonBiggerArgumentException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.functionuniversalapi.IElementTaker;
 import ch.nolix.core.independent.independenthelper.CentralArrayHelper;
@@ -89,13 +89,18 @@ public final class MultiLongMediator extends Mediator {
 	 * 
 	 * @param min
 	 * @param max
-	 * @throws NonBiggerArgumentException if the given max is not bigger than the given min.
+	 * @throws InvalidArgumentException if the given max is not bigger than the given min.
 	 */
 	public void areBetween(final int min, final int max) {
 		
 		//Asserts that the given max is bigger than the given min.
 		if (max <= min) {
-			throw new NonBiggerArgumentException("max", max, min);
+			throw
+			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+				"max",
+				max,
+				"is not bigger than the given min " + min
+			);
 		}
 		
 		//Handles the case that the given values are null.

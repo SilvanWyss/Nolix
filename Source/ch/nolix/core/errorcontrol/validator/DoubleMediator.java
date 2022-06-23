@@ -8,8 +8,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsZeroExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.BiggerArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EqualArgumentException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.NonBiggerArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonNegativeArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonSmallerArgumentException;
@@ -83,14 +83,19 @@ public class DoubleMediator extends Mediator {
 	//method
 	/**
 	 * @param value
-	 * @throws NonBiggerArgumentException
+	 * @throws InvalidArgumentException
 	 * if the argument of this double mediator is not bigger than the given value.
 	 */
 	public void isBiggerThan(final double value) {
 		
 		//Asserts that the argument of this double mediator is bigger than the given value.
 		if (argument <= value) {
-			throw new NonBiggerArgumentException(getArgumentName(), argument, value);
+			throw
+			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+				getArgumentName(),
+				argument,
+				"is not bigger than " + value
+			);
 		}
 	}
 	

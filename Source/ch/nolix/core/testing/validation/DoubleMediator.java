@@ -2,8 +2,8 @@
 package ch.nolix.core.testing.validation;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.NonBiggerArgumentException;
 import ch.nolix.core.functionuniversalapi.IElementTaker;
 import ch.nolix.core.functionuniversalapi.IElementTakerBooleanGetter;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
@@ -62,13 +62,18 @@ public final class DoubleMediator extends Mediator {
 	 * 
 	 * @param min
 	 * @param max
-	 * @throws NonBiggerArgumentException if the given max is not bigger than the given min.
+	 * @throws InvalidArgumentException if the given max is not bigger than the given min.
 	 */
 	public void isBetween(final double min, final double max) {
 		
 		//Asserts that the given max is bigger than the given min.
 		if (max <= min) {
-			throw new NonBiggerArgumentException("max", max, min);
+			throw
+			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+				"max",
+				max,
+				"is not bigger than the given min " + min
+			);
 		}
 		
 		if (value < min || value > max) {
@@ -138,13 +143,18 @@ public final class DoubleMediator extends Mediator {
 	 * 
 	 * @param min
 	 * @param max
-	 * @throws NonBiggerArgumentException if the given max is not bigger than the given min.
+	 * @throws InvalidArgumentException if the given max is not bigger than the given min.
 	 */
 	public void isNotBetween(final double min, final double max) {
 		
 		//Asserts that the given max is bigger than the given min.
 		if (max <= min) {
-			throw new NonBiggerArgumentException("max", max, min);
+			throw
+			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+				"max",
+				max,
+				"is not bigger than the given min " + min
+			);
 		}
 		
 		if (value >= min && value <= max) {
