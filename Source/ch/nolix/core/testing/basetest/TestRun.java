@@ -163,7 +163,7 @@ public final class TestRun {
 	private void setFinished(final int runtimeInMilliseconds) {
 		
 		if (runtimeInMilliseconds < 0) {
-			throw new NegativeArgumentException("runtime in milliseconds", runtimeInMilliseconds);
+			throw NegativeArgumentException.forArgumentNameAndArgument("runtime in milliseconds", runtimeInMilliseconds);
 		}
 		
 		supposeIsNotFinished();

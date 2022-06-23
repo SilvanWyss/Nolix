@@ -54,7 +54,7 @@ public final class ColumnInfo implements IColumnInfo {
 		
 		if (columnIndexOnEntityNode < 0) {
 			throw
-			new NegativeArgumentException(
+			NegativeArgumentException.forArgumentNameAndArgument(
 				"column index on entity node",
 				columnIndexOnEntityNode
 			);

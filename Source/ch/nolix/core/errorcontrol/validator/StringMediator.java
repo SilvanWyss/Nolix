@@ -62,7 +62,7 @@ public class StringMediator extends ArgumentMediator<String> {
 		
 		//Asserts that the given length is not negative.
 		if (length < 0) {
-			throw new NegativeArgumentException(LowerCaseCatalogue.LENGTH, length);
+			throw NegativeArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.LENGTH, length);
 		}
 		
 		//Asserts that the argument of the current StringMediator is not null.

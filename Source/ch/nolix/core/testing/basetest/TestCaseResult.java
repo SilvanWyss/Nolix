@@ -35,7 +35,7 @@ public final class TestCaseResult {
 		}
 		
 		if (runtimeInMilliseconds < 0) {
-			throw new NegativeArgumentException("runtime in milliseconds", runtimeInMilliseconds);
+			throw NegativeArgumentException.forArgumentNameAndArgument("runtime in milliseconds", runtimeInMilliseconds);
 		}
 		
 		if (expectationErrors == null) {
@@ -61,7 +61,7 @@ public final class TestCaseResult {
 		}
 		
 		if (runtimeInMilliseconds < 0) {
-			throw new NegativeArgumentException("runtime in milliseconds", runtimeInMilliseconds);
+			throw NegativeArgumentException.forArgumentNameAndArgument("runtime in milliseconds", runtimeInMilliseconds);
 		}
 		
 		if (expectationErrors == null) {

@@ -133,7 +133,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 		
 		//Asserts that the given element count is not negative.
 		if (elementCount < 0) {
-			throw new NegativeArgumentException(
+			throw NegativeArgumentException.forArgumentNameAndArgument(
 				LowerCaseCatalogue.ELEMENT_COUNT,
 				elementCount
 			);

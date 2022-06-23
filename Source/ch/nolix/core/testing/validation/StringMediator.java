@@ -54,7 +54,7 @@ public class StringMediator extends ValueMediator<String> {
 		
 		//Asserts that the given length is not negative.
 		if (length < 0) {
-			throw new NegativeArgumentException(LowerCaseCatalogue.LENGTH, length);
+			throw NegativeArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.LENGTH, length);
 		}
 		
 		if (getRefValue() == null || getRefValue().length() != length) {
