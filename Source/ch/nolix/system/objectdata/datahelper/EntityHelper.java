@@ -62,7 +62,7 @@ public class EntityHelper extends DatabaseObjectHelper implements IEntityHelper 
 	@Override
 	public final void assertIsNotReferenced(final IEntity<?> entity) {
 		if (isReferenced(entity)) {
-			throw new ReferencedArgumentException(entity);
+			throw ReferencedArgumentException.forArgument(entity);
 		}
 	}
 	

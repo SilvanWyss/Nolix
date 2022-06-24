@@ -60,7 +60,7 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
 	@Override
 	public void assertIsNotReferenced(final ITable<?> table) {
 		if (isReferenced(table)) {
-			throw new ReferencedArgumentException(table);
+			throw ReferencedArgumentException.forArgument(table);
 		}
 	}
 	
