@@ -3,8 +3,8 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 
 //class
 /**
- * A {@link UnrepresentingArgumentException} is a {@link InvalidArgumentException}
- * that is supposed to be thrown when a given argument does undesirable not represent an object of a given type.
+ * A {@link UnrepresentingArgumentException} is a {@link InvalidArgumentException} that
+ * is supposed to be thrown when a given argument does undesirable not represent an object of a certain type.
  * 
  * @author Silvan Wyss
  * @date 2017-03-05
@@ -12,13 +12,35 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 @SuppressWarnings("serial")
 public final class UnrepresentingArgumentException extends InvalidArgumentException {
 	
+	//constant
+	private static final String PRONOUN_A = "a";
+	
+	//constant
+	private static final String PRONOUN_AN = "an";
+	
+	//static method
+	/**
+	 * @param type
+	 * @return the name of the given type.
+	 * @throws IllegalArgumentException if the given type is null.
+	 */
+	private static String getNameOfType(final Class<?> type) {
+		
+		//Asserts that the given type is not null.
+		if (type == null) {
+			throw new IllegalArgumentException("The given type is null.");
+		}
+		
+		return type.getSimpleName();
+	}
+
 	//static method
 	/**
 	 * @param noun
-	 * @return a pronoun for the given noun.
+	 * @return the pronoun for the given noun.
 	 * @throws IllegalArgumentException if the given noun is null or blank.
 	 */
-	private static String getPronoun(final String noun) {
+	private static String getPronounForNoun(final String noun) {
 		
 		//Asserts that the given noun is not null.
 		if (noun == null) {
@@ -42,44 +64,28 @@ public final class UnrepresentingArgumentException extends InvalidArgumentExcept
 			case 'o':
 			case 'U':
 			case 'u':
-				return "an";
+				return PRONOUN_AN;
 			default:
-				return "a";
+				return PRONOUN_A;
 		}
 	}
 	
 	//static method
 	/**
 	 * @param type
-	 * @return a type name for the given type.
+	 * @return the type name with the pronoun for the given type.
 	 * @throws IllegalArgumentException if the given type is null.
 	 */
-	private static String getTypeName(final Class<?> type) {
+	private static String getTypeNameWithPronounOfType(final Class<?> type) {
 		
-		//Asserts that the given type is not null.
-		if (type == null) {
-			throw new IllegalArgumentException("The given type is null.");
-		}
+		final var typeName = getNameOfType(type);
 		
-		return type.getSimpleName();
-	}
-	
-	//static method
-	/**
-	 * @param type
-	 * @return a type name with a suitable pronoun for the given type.
-	 * @throws IllegalArgumentException if the given type is null.
-	 */
-	private static String getTypeNameWithPronoun(final Class<?> type) {
-		
-		final var safeTypeName = getTypeName(type);
-		
-		return (getPronoun(safeTypeName) + " " + safeTypeName);
+		return (getPronounForNoun(typeName) + " " + typeName);
 	}
 	
 	//constructor
 	/**
-	 * Creates a new {@link UnrepresentingArgumentException} for the given argument and the given type.
+	 * Creates a new {@link UnrepresentingArgumentException} for the given argument and type.
 	 * 
 	 * @param argument
 	 * @param type
@@ -88,12 +94,12 @@ public final class UnrepresentingArgumentException extends InvalidArgumentExcept
 	public UnrepresentingArgumentException(final Object argument, final Class<?> type) {
 		
 		//Calls constructor of the base class.
-		super(argument, "does not represent " + getTypeNameWithPronoun(type));
+		super(argument, "does not represent " + getTypeNameWithPronounOfType(type));
 	}
 	
 	//constructor
 	/**
-	 * Creates a new {@link UnrepresentingArgumentException} for the given argumentName, argument and the given type.
+	 * Creates a new {@link UnrepresentingArgumentException} for the given argumentName, argument and type.
 	 * 
 	 * @param argumentName
 	 * @param argument
@@ -105,6 +111,6 @@ public final class UnrepresentingArgumentException extends InvalidArgumentExcept
 	public UnrepresentingArgumentException(final String argumentName, final Object argument, final Class<?> type) {
 		
 		//Calls constructor of the base class.
-		super(argumentName, argument, "does not represent " + getTypeNameWithPronoun(type));
+		super(argumentName, argument, "does not represent " + getTypeNameWithPronounOfType(type));
 	}
 }
