@@ -2,13 +2,6 @@
 package ch.nolix.core.containerapi;
 
 //own imports
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.BiggerArgumentException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.SmallerArgumentException;
 import ch.nolix.core.functionuniversalapi.I2ElementTakerBooleanGetter;
 import ch.nolix.core.functionuniversalapi.IElementTaker;
 import ch.nolix.core.functionuniversalapi.IElementTakerBooleanGetter;
@@ -210,9 +203,9 @@ public interface IContainer<E> extends Iterable<E> {
 	/**
 	 * @param startIndex
 	 * @return a new sub container of the current {@link IContainer} from the given start index.
-	 * @throws NonPositiveArgumentException if the given start index is not positive.
-	 * @throws SmallerArgumentException
-	 * if the current {@link IContainer} contains less element than the value of the given start index.
+	 * @throws RuntimeException if the given start index is not positive.
+	 * @throws RuntimeException if
+	 * the current {@link IContainer} contains less element than the value of the given start index.
 	 */
 	IContainer<E> from(int startIndex);
 	
@@ -222,12 +215,9 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param endIndex
 	 * @return a new sub container of the current {@link IContainer}
 	 * from the given start index to the given end index.
-	 * @throws NonPositiveArgumentException
-	 * if the given start index is not positive.
-	 * @throws SmallerArgumentException
-	 * if the given end index is smaller than the given start index.
-	 * @throws BiggerArgumentException
-	 * if the given end index is bigger than the number of elements of the current {@link IContainer}.
+	 * @throws RuntimeException if the given start index is not positive.
+	 * @throws RuntimeException if the given end index is smaller than the given start index.
+	 * @throws RuntimeException if the given end index is bigger than the number of elements of the current {@link IContainer}.
 	 */
 	IContainer<E> fromUntil(int startIndex, int endIndex);
 	
@@ -236,7 +226,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param doubleNorm
 	 * @return the average of the values
 	 * the given double norm returns from the elements of the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
 	double getAverageByDouble(IElementTakerDoubleGetter<E> doubleNorm);
 	
@@ -245,7 +235,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param intNorm
 	 * @return the average of the values
 	 * the given int norm returns from the elements of the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
 	double getAverageByInt(IElementTakerIntGetter<E> intNorm);
 	
@@ -254,7 +244,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param longNorm
 	 * @return the average of the values
 	 * the given long norm returns from the elements of the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
 	double getAverageByLong(IElementTakerLongGetter<E> longNorm);
 	
@@ -282,8 +272,7 @@ public interface IContainer<E> extends Iterable<E> {
 	/**
 	 * @param selector
 	 * @return the index of the first element in the current {@link IContainer} the given selector selects.
-	 * @throws InvalidArgumentException if
-	 * the current {@link IContainer} does not contain an element the given selector selects.
+	 * @throws RuntimeException if the current {@link IContainer} does not contain an element the given selector selects.
 	 */
 	int getIndexOfFirst(IElementTakerBooleanGetter<E> selector);
 	
@@ -291,7 +280,7 @@ public interface IContainer<E> extends Iterable<E> {
 	/**
 	 * @param element
 	 * @return the index of the first element in the current {@link IContainer} that equals the given element.
-	 * @throws InvalidArgumentException if
+	 * @throws RuntimeException if
 	 * the current {@link IContainer} does not contain an element that equals the given element.
 	 */
 	int getIndexOfFirstEqualElement(E element);
@@ -300,7 +289,7 @@ public interface IContainer<E> extends Iterable<E> {
 	/**
 	 * @param element
 	 * @return the index of the given element in the current {@link IContainer}.
-	 * @throws InvalidArgumentException if the current {@link IContainer} does not contain the given element.
+	 * @throws RuntimeException if the current {@link IContainer} does not contain the given element.
 	 */
 	int getIndexOfFirstOccurrenceOf(E element);
 	
@@ -309,7 +298,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param norm
 	 * @param <E2> is the type of the elements of the {@link Comparable} the given norm returns.
 	 * @return the biggest value the given norm returns from the elements of the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
 	<E2> E2 getMax(final IElementTakerComparableGetter<E, E2> norm);
 	
@@ -318,7 +307,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param doubleNorm
 	 * @return the biggest value
 	 * the given double norm returns from the elements of the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
 	double getMaxDouble(IElementTakerDoubleGetter<E> doubleNorm);
 	
@@ -327,7 +316,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param intNorm
 	 * @return the biggest value
 	 * the given int norm returns from the elements of the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
 	int getMaxInt(IElementTakerIntGetter<E> intNorm);
 	
@@ -353,7 +342,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param longNorm
 	 * @return the biggest value
 	 * the given long norm returns from the elements of the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
 	long getMaxLong(IElementTakerLongGetter<E> longNorm);
 	
@@ -362,7 +351,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param norm
 	 * @param <E2> is the type of the elements of the@link Comparable the given norm returns.
 	 * @return the smallest value the given norm returns from the elements of the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
 	<E2> E2 getMin(IElementTakerComparableGetter<E, E2> norm);
 	
@@ -371,7 +360,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param doubleNorm
 	 * @return the smallest value
 	 * the given double norm returns from the elements of the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
 	double getMinDouble(IElementTakerDoubleGetter<E> doubleNorm);
 	
@@ -380,7 +369,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param intNorm
 	 * @return the smallest value
 	 * the given int norm returns from the elements of the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
 	int getMinInt(IElementTakerIntGetter<E> intNorm);
 	
@@ -389,7 +378,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param longNorm
 	 * @return the smallest value
 	 * the given long norm returns from the elements of the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
 	long getMinLong(IElementTakerLongGetter<E> longNorm);
 	
@@ -398,7 +387,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param selector
 	 * @return the percentage of the number of elements
 	 * the given selector selects from the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
 	double getPercentage(IElementTakerBooleanGetter<E> selector);
 	//method declaration
@@ -407,7 +396,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * 
 	 * @param doubleNorm
 	 * @return the range of the values the given double norm returns from the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
 	double getRangeByDouble(IElementTakerDoubleGetter<E> doubleNorm);
 	
@@ -417,7 +406,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * 
 	 * @param intNorm
 	 * @return the range of the values the given int norm returns from the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
 	int getRangeByInt(IElementTakerIntGetter<E> intNorm);
 	
@@ -427,7 +416,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * 
 	 * @param longNorm
 	 * @return the range of the values the given long norm returns from the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
 	long getRangeByLong(IElementTakerLongGetter<E> longNorm);
 	
@@ -436,7 +425,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param selector
 	 * @return the ratio of the number of elements
 	 * the given selector selects from the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
 	double getRatio(IElementTakerBooleanGetter<E> selector);
 	
@@ -444,7 +433,7 @@ public interface IContainer<E> extends Iterable<E> {
 	//method declaration
 	/**
 	 * @return a randomly selected element of the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
 	E getRefAny();
 	
@@ -461,7 +450,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param <E2> is the type of the elements of the {@link Comparable} the given norm returns.
 	 * @return the element with the biggest value
 	 * the given norm returns from the elements of the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
 	<E2> E getRefByMax(final IElementTakerComparableGetter<E, E2> norm);
 		
@@ -470,7 +459,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param doubleNorm
 	 * @return the element with the biggest value
 	 * the given double norm returns from the elements of the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
 	E getRefByMaxDouble(IElementTakerDoubleGetter<E> doubleNorm);
 	
@@ -480,7 +469,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param intNorm
 	 * @return the element with the biggest value
 	 * the given int norm returns from the elements of the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
 	E getRefByMaxInt(IElementTakerIntGetter<E> intNorm);
 	
@@ -489,7 +478,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param longNorm
 	 * @return the element with the biggest value
 	 * the given long norm returns from the elements of the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
 	E getRefByMaxLong(IElementTakerLongGetter<E> longNorm);
 	
@@ -499,7 +488,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param <E2> is the type of the elements of the {@link Comparable} the given norm returns.
 	 * @return the element with the smallest value
 	 * the given norm returns from the elements of the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
 	<E2> E getRefByMin(final IElementTakerComparableGetter<E, E2> norm);
 	
@@ -508,7 +497,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param doubleNorm
 	 * @return the element with the biggest value
 	 * the given double norm returns from the elements of the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
 	E getRefByMinDouble(IElementTakerDoubleGetter<E> doubleNorm);
 	
@@ -517,7 +506,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param intNorm
 	 * @return the element with the biggest value
 	 * the given int norm returns from the elements of the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
 	E getRefByMinInt(IElementTakerIntGetter<E> intNorm);
 	
@@ -526,14 +515,14 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param longNorm
 	 * @return the element with the smallest value
 	 * the given long norm returns from the elements of the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
 	E getRefByMinLong(IElementTakerLongGetter<E> longNorm);
 	
 	//method declaration
 	/**
 	 * @return the first element of the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
 	E getRefFirst();
 	
@@ -541,8 +530,8 @@ public interface IContainer<E> extends Iterable<E> {
 	/**
 	 * @param selector
 	 * @return the first element the given selector selects from the current {@link IContainer}.
-	 * @throws ArgumentDoesNotHaveAttributeException
-	 * if the current {@link IContainer} does not contain an element the given selector selects.
+	 * @throws RuntimeException if
+	 * the current {@link IContainer} does not contain an element the given selector selects.
 	 */
 	E getRefFirst(IElementTakerBooleanGetter<E> selector);
 	
@@ -562,7 +551,7 @@ public interface IContainer<E> extends Iterable<E> {
 	//method declaration
 	/**
 	 * @return the last element of the current {@link IContainer}.
-	 *  @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 *  @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
 	E getRefLast();
 	
@@ -578,8 +567,8 @@ public interface IContainer<E> extends Iterable<E> {
 	//method declaration
 	/**
 	 * @return the one element of the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
-	 * @throws InvalidArgumentException if the current {@link IContainer} contains several elements.
+	 * @throws RuntimeException if the current {@link IContainer} is empty.
+	 * @throws RuntimeException if the current {@link IContainer} contains several elements.
 	 */
 	E getRefOne();
 	
@@ -587,7 +576,7 @@ public interface IContainer<E> extends Iterable<E> {
 	/**
 	 * @param selector
 	 * @return the one element the given selector selects from the current {@link IContainer}.
-	 * @throws InvalidArgumentException
+	 * @throws RuntimeException
 	 * if the given selector does not select an element or selects several elements from the current {@link IContainer}.
 	 */
 	E getRefOne(IElementTakerBooleanGetter<E> selector);
@@ -630,7 +619,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param doubleNorm
 	 * @return the standard deviation of the values
 	 * the given double norm returns from the elements of the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
 	double getStandardDeviationByDouble(IElementTakerDoubleGetter<E> doubleNorm);
 	
@@ -639,7 +628,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param intNorm
 	 * @return the standard deviation of the values
 	 * the given int norm returns from the elements of the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
 	double getStandardDeviationByInt(IElementTakerIntGetter<E> intNorm);
 	
@@ -648,7 +637,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param longNorm
 	 * @return the standard deviation of the values
 	 * the given long norm returns from the elements of the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
 	double getStandardDeviationByInt(IElementTakerLongGetter<E> longNorm);
 	
@@ -681,7 +670,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param doubleNorm
 	 * @return the variance of the values
 	 * the given double norm returns from the elements of the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
 	double getVarianceByDouble(IElementTakerDoubleGetter<E> doubleNorm);
 	
@@ -690,7 +679,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param intNorm
 	 * @return the variance of the values
 	 * the given int norm returns from the elements of the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
 	double getVarianceByInt(IElementTakerIntGetter<E> intNorm);
 	
@@ -699,7 +688,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param longNorm
 	 * @return the variance of the values
 	 * the given long norm returns from the elements of the current {@link IContainer}.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
 	double getVarianceByLong(IElementTakerLongGetter<E> longNorm);
 	
@@ -810,7 +799,7 @@ public interface IContainer<E> extends Iterable<E> {
 	/**
 	 * @param separator
 	 * @return a@link String representation of the current {@link IContainer} using the given separator.
-	 * @throws ArgumentIsNullException if the given separator is null.
+	 * @throws RuntimeException if the given separator is null.
 	 */
 	String toString(String separator);
 	
@@ -833,14 +822,14 @@ d	 *
 	 * @param endIndex
 	 * @return a new sub container of the current {@link IContainer}
 	 * with the elements to the given end index.
-	 * @throws NonPositiveArgumentException if the given end index is not positive.
+	 * @throws RuntimeException if the given end index is not positive.
 	 */
 	IContainer<E> until(int endIndex);
 	
 	//method declaration
 	/**
 	 * @return a new sub container of the current {@link IContainer} without the first element.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
 	IContainer<E> withoutFirst();
 	
@@ -856,14 +845,14 @@ d	 *
 	/**
 	 * @param n
 	 * @return a new sub container of the current {@link IContainer} without the first n elements.
-	 * @throws NonPositiveArgumentException if the given n is not positive.
+	 * @throws RuntimeException if the given n is not positive.
 	 */
 	IContainer<E> withoutFirst(int n);
 	
 	//method declaration
 	/**
 	 * @return a new sub container of the current {@link IContainer} without the last element.
-	 * @throws EmptyArgumentException if the current {@link IContainer} is empty.
+	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
 	IContainer<E> withoutLast();
 	
@@ -872,7 +861,7 @@ d	 *
 	 * @param n
 	 * @return a new sub container of the current {@link IContainer}
 	 * without the last n elements of the current {@link IContainer}.
-	 * @throws NonPositiveArgumentException if the given n is not positive.
+	 * @throws RuntimeException if the given n is not positive.
 	 */
 	IContainer<E> withoutLast(int n);
 }
