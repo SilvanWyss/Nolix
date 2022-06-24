@@ -12,6 +12,51 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 @SuppressWarnings("serial")
 public final class UnequalArgumentException extends InvalidArgumentException {
 	
+	//static method
+	/**
+	 * @param argument
+	 * @param value
+	 * @param <A> is the type of the given argument.
+	 * @return a new {@link UnequalArgumentException} for the given argument and value.
+	 */
+	public static <A> UnequalArgumentException forArgumentAndValue(final A argument, final A value) {
+		return new UnequalArgumentException(argument, value);
+	}
+	
+	//static method
+	/**
+	 * @param argumentName
+	 * @param argument
+	 * @param value
+	 * @return a new {@link UnequalArgumentException} for the given argumentName, argument and value.
+	 * @throws IllegalArgumentException if the given argumentName is null.
+	 * @throws IllegalArgumentException if the given argumentName is blank.
+	 */
+	public static UnequalArgumentException forArgumentNameAndArgumentAndValue(
+		final String argumentName,
+		final double argument,
+		final double value
+	) {
+		return new UnequalArgumentException(argumentName, argument, value);
+	}
+	
+	//static method
+	/**
+	 * @param argumentName
+	 * @param argument
+	 * @param value
+	 * @return a new {@link UnequalArgumentException} for the given argumentName, argument and value.
+	 * @throws IllegalArgumentException if the given argumentName is null.
+	 * @throws IllegalArgumentException if the given argumentName is blank.
+	 */
+	public static UnequalArgumentException forArgumentNameAndArgumentAndValue(
+		final String argumentName,
+		final long argument,
+		final long value
+	) {
+		return new UnequalArgumentException(argumentName, argument, value);
+	}
+	
 	//constructor
 	/**
 	 * Creates a new {@link UnequalArgumentException} for the given argument and value.
@@ -20,7 +65,7 @@ public final class UnequalArgumentException extends InvalidArgumentException {
 	 * @param value
 	 * @param <A> is the type of the given argument.
 	 */
-	public <A> UnequalArgumentException(final A argument, final A value) {
+	private <A> UnequalArgumentException(final A argument, final A value) {
 		
 		//Calls constructor of the base class.
 		super(argument, "does not equal " + value);
@@ -36,7 +81,7 @@ public final class UnequalArgumentException extends InvalidArgumentException {
 	 * @throws IllegalArgumentException if the given argumentName is null.
 	 * @throws IllegalArgumentException if the given argumentName is blank.
 	 */
-	public UnequalArgumentException(final String argumentName, final double argument, final double value) {
+	private UnequalArgumentException(final String argumentName, final double argument, final double value) {
 		
 		//Calls constructor of the base class.
 		super(argumentName,	argument, "does not equal " + value);
@@ -52,7 +97,7 @@ public final class UnequalArgumentException extends InvalidArgumentException {
 	 * @throws IllegalArgumentException if the given argumentName is null.
 	 * @throws IllegalArgumentException if the given argumentName is blank.
 	 */
-	public UnequalArgumentException(final String argumentName, final long argument, final long value) {
+	private UnequalArgumentException(final String argumentName, final long argument, final long value) {
 		
 		//Calls constructor of the base class.
 		super(argumentName,	argument, "does not equal " + value);

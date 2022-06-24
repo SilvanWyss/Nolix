@@ -108,7 +108,7 @@ public class DoubleMediator extends Mediator {
 		
 		//Asserts that the argument of this double mediator equals the given value.
 		if (argument != value) {
-			throw new UnequalArgumentException(getArgumentName(), argument, value);
+			throw UnequalArgumentException.forArgumentNameAndArgumentAndValue(getArgumentName(), argument, value);
 		}
 	}
 	
