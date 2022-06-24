@@ -38,7 +38,12 @@ public enum DataType {
 			case "String":
 				return STRING;
 			default:
-				throw new UnrepresentingArgumentException(LowerCaseCatalogue.TYPE, type, DataType.class);
+				throw
+				UnrepresentingArgumentException.forArgumentNameAndArgumentAndType(
+					LowerCaseCatalogue.TYPE,
+					type,
+					DataType.class
+				);
 		}
 	}
 	

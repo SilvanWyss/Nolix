@@ -636,7 +636,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 		reset();
 		
 		if (setAndGetEndIndex(string, 0) != string.length() - 1) {
-			throw new UnrepresentingArgumentException(string, Node.class);
+			throw UnrepresentingArgumentException.forArgumentAndType(string, Node.class);
 		}
 	}
 	
@@ -715,7 +715,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 		
 		//Asserts that the current BaseNode contains 2 attributes.
 		if (getAttributeCount() != 2) {
-			throw new UnrepresentingArgumentException(this, IntPair.class);
+			throw UnrepresentingArgumentException.forArgumentAndType(this, IntPair.class);
 		}
 		
 		return new IntPair(getRefAttributeAt(1).toInt(), getRefAttributeAt(2).toInt());
@@ -833,7 +833,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 			}
 		}
 		
-		throw new UnrepresentingArgumentException(substring, Node.class);
+		throw UnrepresentingArgumentException.forArgumentAndType(substring, Node.class);
 	}
 	
 	//method

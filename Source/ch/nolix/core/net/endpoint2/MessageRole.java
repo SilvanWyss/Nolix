@@ -41,7 +41,7 @@ public enum MessageRole {
 			case ERROR_RESPONSE_PREFIX:
 				return ERROR_RESPONSE;
 			default:
-				throw new UnrepresentingArgumentException(prefix, MessageRole.class);
+				throw UnrepresentingArgumentException.forArgumentAndType(prefix, MessageRole.class);
 		}
 	}
 	

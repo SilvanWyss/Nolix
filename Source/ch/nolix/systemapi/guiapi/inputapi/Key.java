@@ -673,7 +673,7 @@ public enum Key implements Specified {
 			case SPACE:
 				return ' ';
 		default:
-			throw new UnrepresentingArgumentException(this, Character.class);				
+			throw UnrepresentingArgumentException.forArgumentAndType(this, Character.class);				
 		}
 	}
 }

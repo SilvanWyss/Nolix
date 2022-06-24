@@ -165,7 +165,7 @@ public final class GlobalStringHelper {
 			case "true":
 				return true;
 			default:
-				throw new UnrepresentingArgumentException(string, Boolean.class);
+				throw UnrepresentingArgumentException.forArgumentAndType(string, Boolean.class);
 		}
 	}
 	
@@ -231,7 +231,7 @@ public final class GlobalStringHelper {
 		}
 		
 		if (string.length() - startIndex > 19) {
-			throw new UnrepresentingArgumentException(string, Long.class);
+			throw UnrepresentingArgumentException.forArgumentAndType(string, Long.class);
 		}
 		
 		if (negative) {
@@ -323,7 +323,7 @@ public final class GlobalStringHelper {
 					number += 9;
 					break;
 				default:
-					throw new UnrepresentingArgumentException(string, Long.class);
+					throw UnrepresentingArgumentException.forArgumentAndType(string, Long.class);
 			}
 		}
 		
@@ -394,7 +394,7 @@ public final class GlobalStringHelper {
 					number += 15;
 					break;
 				default:
-					throw new UnrepresentingArgumentException(string, Long.class);
+					throw UnrepresentingArgumentException.forArgumentAndType(string, Long.class);
 			}
 		}
 		

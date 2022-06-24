@@ -567,7 +567,7 @@ public final class ChainedNode implements OptionalHeadered {
 		
 		//Asserts that the current ChainedNode can represent a Double.
 		if (header == null || attributes.containsAny()) {
-			throw new UnrepresentingArgumentException(this, Integer.class);
+			throw UnrepresentingArgumentException.forArgumentAndType(this, Integer.class);
 		}
 		
 		return Double.valueOf(header);
@@ -582,7 +582,7 @@ public final class ChainedNode implements OptionalHeadered {
 		
 		//Asserts that the current ChainedNode can represent an Integer.
 		if (header == null || attributes.containsAny()) {
-			throw new UnrepresentingArgumentException(this, Integer.class);
+			throw UnrepresentingArgumentException.forArgumentAndType(this, Integer.class);
 		}
 		
 		return GlobalStringHelper.toInt(header);
@@ -601,7 +601,7 @@ public final class ChainedNode implements OptionalHeadered {
 		
 		//Asserts that the current ChainedNode can represent a Node.
 		if (nextNode != null) {
-			throw new UnrepresentingArgumentException(this, Node.class);
+			throw UnrepresentingArgumentException.forArgumentAndType(this, Node.class);
 		}
 		
 		//Creates a Node.
@@ -853,7 +853,7 @@ public final class ChainedNode implements OptionalHeadered {
 		reset();
 		
 		if (setAndGetNextIndex(string, 0) != string.length()) {
-			throw new UnrepresentingArgumentException(string, ChainedNode.class);
+			throw UnrepresentingArgumentException.forArgumentAndType(string, ChainedNode.class);
 		}
 	}
 

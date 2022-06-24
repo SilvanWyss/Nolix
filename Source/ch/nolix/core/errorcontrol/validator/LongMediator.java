@@ -357,7 +357,12 @@ public class LongMediator extends Mediator {
 		
 		//Asserts that the argument of the current LongArgument represents a boolean.
 		if (argument != 0 && argument != 1) {
-			throw new UnrepresentingArgumentException(getArgumentName(), getArgument(), Boolean.class);
+			throw
+			UnrepresentingArgumentException.forArgumentNameAndArgumentAndType(
+				getArgumentName(),
+				getArgument(),
+				Boolean.class
+			);
 		}
 		
 		return new TerminalLongMediator(getArgumentName(), argument);

@@ -809,7 +809,7 @@ public final class Color implements IColor {
 			if (
 				(string.length() != 8 || string.length() != 10)
 				&& !string.substring(0, 2).equals(StringCatalogue.HEXADECIMAL_PREFIX)) {
-				throw new UnrepresentingArgumentException(string, Color.class);
+				throw UnrepresentingArgumentException.forArgumentAndType(string, Color.class);
 			}
 			
 			final var redValue = getColorComponentFrom(string.substring(2, 4));

@@ -116,7 +116,7 @@ public final class Time implements ITime {
 					Integer.valueOf(array[6])
 				);
 			default:
-				throw new UnrepresentingArgumentException(string, Time.class);
+				throw UnrepresentingArgumentException.forArgumentAndType(string, Time.class);
 		}
 	}
 	

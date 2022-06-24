@@ -20,6 +20,35 @@ public final class UnrepresentingArgumentException extends InvalidArgumentExcept
 	
 	//static method
 	/**
+	 * @param argument
+	 * @param type
+	 * @return a new {@link UnrepresentingArgumentException} for the given argument and type.
+	 * @throws IllegalArgumentException if the given type is null.
+	 */
+	public static UnrepresentingArgumentException forArgumentAndType(final Object argument,	final Class<?> type) {
+		return new UnrepresentingArgumentException(argument, type);
+	}
+	
+	//static method
+	/**
+	 * @param argumentName
+	 * @param argument
+	 * @param type
+	 * @return a new {@link UnrepresentingArgumentException} for the given argumentName, argument and type.
+	 * @throws IllegalArgumentException if the given argumentName is null.
+	 * @throws IllegalArgumentException if the given argumentName is blank.
+	 * @throws IllegalArgumentException if the given type is null.
+	 */
+	public static UnrepresentingArgumentException forArgumentNameAndArgumentAndType(
+		final String argumentName,
+		final Object argument,
+		final Class<?> type
+	) {
+		return new UnrepresentingArgumentException(argumentName, argument, type);
+	}
+	
+	//static method
+	/**
 	 * @param type
 	 * @return the name of the given type.
 	 * @throws IllegalArgumentException if the given type is null.
@@ -91,7 +120,7 @@ public final class UnrepresentingArgumentException extends InvalidArgumentExcept
 	 * @param type
 	 * @throws IllegalArgumentException if the given type is null.
 	 */
-	public UnrepresentingArgumentException(final Object argument, final Class<?> type) {
+	private UnrepresentingArgumentException(final Object argument, final Class<?> type) {
 		
 		//Calls constructor of the base class.
 		super(argument, "does not represent " + getTypeNameWithPronounOfType(type));
@@ -108,7 +137,7 @@ public final class UnrepresentingArgumentException extends InvalidArgumentExcept
 	 * @throws IllegalArgumentException if the given argumentName is blank.
 	 * @throws IllegalArgumentException if the given type is null.
 	 */
-	public UnrepresentingArgumentException(final String argumentName, final Object argument, final Class<?> type) {
+	private UnrepresentingArgumentException(final String argumentName, final Object argument, final Class<?> type) {
 		
 		//Calls constructor of the base class.
 		super(argumentName, argument, "does not represent " + getTypeNameWithPronounOfType(type));

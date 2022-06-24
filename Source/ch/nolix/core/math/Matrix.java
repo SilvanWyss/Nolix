@@ -886,7 +886,7 @@ public final class Matrix {
 		
 		//Asserts that the upper left element of the current {@link Matrix} is 0.
 		if (values[0][0] == 0) {
-			throw new UnrepresentingArgumentException(this, Polynom.class);
+			throw UnrepresentingArgumentException.forArgumentAndType(this, Polynom.class);
 		}
 		
 		//Handles the case that the current Matrix consists of 1 row.
@@ -907,7 +907,7 @@ public final class Matrix {
 		}
 		
 		//Handles the case that the current Matrix does not consist of 1 row nor of 1 column.
-		throw new UnrepresentingArgumentException(this, Polynom.class);
+		throw UnrepresentingArgumentException.forArgumentAndType(this, Polynom.class);
 	}
 	
 	//method
@@ -935,7 +935,7 @@ public final class Matrix {
 		}
 		
 		//Handles the case that the current Matrix does not either contain 1 row nor 1 column.
-		throw new UnrepresentingArgumentException(this, Vector.class);
+		throw UnrepresentingArgumentException.forArgumentAndType(this, Vector.class);
 	}
 	
 	//method
