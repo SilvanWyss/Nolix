@@ -1,9 +1,6 @@
 //package declaration
 package ch.nolix.core.attributeuniversalapi.optionalattributeuniversalapi;
 
-//own imports
-import ch.nolix.core.programatom.marker.AllowDefaultMethodsAsDesignPattern;
-
 //interface
 /**
  * A {@link OptionalNamed} can have a name
@@ -11,7 +8,6 @@ import ch.nolix.core.programatom.marker.AllowDefaultMethodsAsDesignPattern;
  * @author Silvan Wyss
  * @date 2020-03-29
  */
-@AllowDefaultMethodsAsDesignPattern
 public interface OptionalNamed {
 	
 	//method declaration
@@ -24,9 +20,7 @@ public interface OptionalNamed {
 	/**
 	 * @return the name of the current {@link OptionalNamed} in quotes.
 	 */
-	default String getNameInQuotes() {
-		return ("'" + getName() + "'");
-	}
+	String getNameInQuotes();
 	
 	//method declaration
 	/**
@@ -39,35 +33,5 @@ public interface OptionalNamed {
 	 * @param name
 	 * @return true if the current {@link OptionalNamed} has the given name.
 	 */
-	default boolean hasName(final String name) {
-		
-		//Handles the case that the current OptionalNamed does not have a name.
-		if (!hasName()) {
-			return false;
-		}
-		
-		//Handles the case that the current OptionalNamed has a name.
-		return getName().equals(name);
-	}
-	
-	//method
-	/**
-	 * @param object
-	 * @return true if the current {@link OptionalNamed} has the same name as the given object.
-	 */
-	default boolean hasSameNameAs(final OptionalNamed object) {
-		
-		//Handles the case that the given object is null.
-		if (object == null) {
-			return false;
-		}
-		
-		//Handles the case that the given object does not have a name.
-		if (!object.hasName()) {
-			return false;
-		}
-		
-		//Handles the case that the given object has a name.
-		return hasName(object.getName());
-	}
+	boolean hasName(final String name);
 }

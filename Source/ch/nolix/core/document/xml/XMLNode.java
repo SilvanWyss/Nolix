@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.document.xml;
 
+//own imports
 import ch.nolix.core.attributeuniversalapi.mutableoptionalattributeuniversalapi.OptionalNamable;
 import ch.nolix.core.attributeuniversalapi.mutableoptionalattributeuniversalapi.OptionalValueable;
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
@@ -42,9 +43,9 @@ public final class XMLNode implements OptionalNamable<XMLNode>, OptionalValueabl
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	public XMLNode addAttributes(final Iterable<XMLAttribute> attributes) {
 		
-		//For a better performance, this implementation does not use all comfortable methods.
 		this.attributes.addAtEnd(attributes);
 		
 		return this;
@@ -118,6 +119,12 @@ public final class XMLNode implements OptionalNamable<XMLNode>, OptionalValueabl
 	}
 	
 	//method
+	@Override
+	public String getNameInQuotes() {
+		return GlobalStringHelper.getInQuotes(getName());
+	}
+	
+	//method
 	public IContainer<XMLNode> getRefChildNodes() {
 		return childNodes;
 	}
@@ -131,6 +138,17 @@ public final class XMLNode implements OptionalNamable<XMLNode>, OptionalValueabl
 	@Override
 	public boolean hasName() {
 		return (name != null);
+	}
+	
+	//method
+	@Override
+	public boolean hasName(final String name) {
+		
+		if (!hasName()) {
+			return false;
+		}
+		
+		return getName().equals(name);
 	}
 	
 	//method
