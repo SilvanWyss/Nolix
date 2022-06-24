@@ -1,11 +1,10 @@
 //package declaration
 package ch.nolix.system.nodedatabaserawdata.datareader;
 
-//own imports
-import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
+import ch.nolix.coreapi.containerapi.IContainer;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataReader;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedRecordDTO;

@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.system.nodedatabaserawschema.structure;
 
-//own imports
-import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.document.node.BaseNode;
+import ch.nolix.coreapi.containerapi.IContainer;
 
 //class
 public class TableNodeSearcher {

@@ -5,9 +5,8 @@ package ch.nolix.system.gui.color;
 import java.lang.reflect.Field;
 
 import ch.nolix.core.container.main.LinkedList;
-//own imports
-import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.reflection.GlobalFieldHelper;
+import ch.nolix.coreapi.containerapi.IContainer;
 
 //class
 final class ColorConstantExtractor {

@@ -1,7 +1,6 @@
 //package declaration
 package ch.nolix.system.gui.widget;
 
-import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
@@ -10,6 +9,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.math.Calculator;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.core.skilluniversalapi.Clearable;
+import ch.nolix.coreapi.containerapi.IContainer;
 import ch.nolix.coreapi.functionuniversalapi.IAction;
 import ch.nolix.coreapi.functionuniversalapi.IElementTaker;
 import ch.nolix.system.element.MultiValue;

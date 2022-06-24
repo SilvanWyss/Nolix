@@ -6,7 +6,6 @@ import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 
 import ch.nolix.core.container.main.SingleContainer;
-import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
@@ -16,6 +15,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.targetuniversalapi.IApplicationTarget;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
+import ch.nolix.coreapi.containerapi.IContainer;
 import ch.nolix.system.application.main.Application;
 import ch.nolix.system.application.main.BackendClient;
 import ch.nolix.system.gui.input.InputFactory;

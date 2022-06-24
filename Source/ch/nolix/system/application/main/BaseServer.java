@@ -2,13 +2,12 @@
 package ch.nolix.system.application.main;
 
 import ch.nolix.core.container.main.LinkedList;
-//own imports
-import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.programcontrol.groupcloseable.GroupCloseable;
+import ch.nolix.coreapi.containerapi.IContainer;
 
 //class
 /**

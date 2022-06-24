@@ -1,7 +1,6 @@
 //package declaration
 package ch.nolix.system.gui.containerwidget;
 
-import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -10,6 +9,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.core.programatom.name.PluralLowerCaseCatalogue;
+import ch.nolix.coreapi.containerapi.IContainer;
 import ch.nolix.coreapi.functionuniversalapi.IElementTaker;
 import ch.nolix.system.element.MultiValue;
 import ch.nolix.system.element.MutableValue;

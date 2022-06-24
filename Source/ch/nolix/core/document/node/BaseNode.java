@@ -6,7 +6,6 @@ import ch.nolix.core.attributeuniversalapi.mutableoptionalattributeuniversalapi.
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.commontype.constant.CharacterCatalogue;
 import ch.nolix.core.commontype.constant.StringCatalogue;
-import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.container.pair.IntPair;
 import ch.nolix.core.document.xml.XMLNode;
 import ch.nolix.core.environment.filesystem.FileAccessor;
@@ -20,6 +19,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumen
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programcontrol.processproperty.WriteMode;
+import ch.nolix.coreapi.containerapi.IContainer;
 import ch.nolix.coreapi.functionuniversalapi.IElementTakerBooleanGetter;
 
 //class

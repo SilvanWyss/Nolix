@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.containerapi;
+package ch.nolix.coreapi.containerapi;
 
 import ch.nolix.coreapi.functionuniversalapi.I2ElementTakerBooleanGetter;
 import ch.nolix.coreapi.functionuniversalapi.IElementTaker;

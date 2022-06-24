@@ -2,11 +2,11 @@
 package ch.nolix.system.objectschema.schema;
 
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.data.GlobalIdCreator;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.coreapi.containerapi.IContainer;
 import ch.nolix.system.objectschema.flatschemadto.FlatTableDTO;
 import ch.nolix.system.objectschema.parametrizedpropertytype.SchemaImplementation;
 import ch.nolix.system.objectschema.schemadto.SaveStampConfigurationDTO;

@@ -2,10 +2,9 @@
 package ch.nolix.system.formatelement;
 
 import ch.nolix.core.container.main.LinkedList;
-//own imports
-import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
+import ch.nolix.coreapi.containerapi.IContainer;
 
 //class
 public final class ForwardingProperty<S extends Enum<S>, V> extends Property<S>{

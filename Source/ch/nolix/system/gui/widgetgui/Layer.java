@@ -2,7 +2,6 @@
 package ch.nolix.system.gui.widgetgui;
 
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
@@ -14,6 +13,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.math.Calculator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
+import ch.nolix.coreapi.containerapi.IContainer;
 import ch.nolix.coreapi.functionuniversalapi.I2ElementTaker;
 import ch.nolix.coreapi.functionuniversalapi.IElementTaker;
 import ch.nolix.system.configuration.ConfigurableElement;

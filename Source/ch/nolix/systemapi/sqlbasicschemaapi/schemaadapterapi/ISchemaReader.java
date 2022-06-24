@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.systemapi.sqlbasicschemaapi.schemaadapterapi;
 
-//own imports
-import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.programcontrol.groupcloseable.GroupCloseable;
+import ch.nolix.coreapi.containerapi.IContainer;
 import ch.nolix.systemapi.sqlbasicschemaapi.flatschemadtoapi.IFlatTableDTO;
 import ch.nolix.systemapi.sqlbasicschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.systemapi.sqlbasicschemaapi.schemadtoapi.ITableDTO;

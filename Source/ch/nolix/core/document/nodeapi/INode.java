@@ -3,7 +3,7 @@ package ch.nolix.core.document.nodeapi;
 
 //own imports
 import ch.nolix.core.attributeuniversalapi.optionalattributeuniversalapi.OptionalHeadered;
-import ch.nolix.core.containerapi.IContainer;
+import ch.nolix.coreapi.containerapi.IContainer;
 
 //interface
 /**

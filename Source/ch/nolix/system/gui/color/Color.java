@@ -2,7 +2,6 @@
 package ch.nolix.system.gui.color;
 
 import ch.nolix.core.commontype.constant.StringCatalogue;
-import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.container.pair.Pair;
 import ch.nolix.core.container.readcontainer.ReadContainer;
@@ -12,6 +11,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeE
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.coreapi.containerapi.IContainer;
 import ch.nolix.systemapi.guiapi.colorapi.IColor;
 
 //class

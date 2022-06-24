@@ -1,12 +1,11 @@
 //package declaration
 package ch.nolix.system.sqlrawschema.schemareader;
 
-//own imports
-import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.sql.SQLConnection;
 import ch.nolix.core.sql.SQLConnectionPool;
+import ch.nolix.coreapi.containerapi.IContainer;
 import ch.nolix.system.objectschema.schemadto.SaveStampConfigurationDTO;
 import ch.nolix.system.objectschema.schemadto.TableDTO;
 import ch.nolix.system.sqlrawschema.columntable.ColumnDTOMapper;

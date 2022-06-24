@@ -5,13 +5,12 @@ package ch.nolix.coretest.licensetest;
 import java.util.Objects;
 
 import ch.nolix.core.container.main.LinkedList;
-//own imports
-import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.license.Feature;
 import ch.nolix.core.license.GlobalLicenseManager;
 import ch.nolix.core.license.License;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
+import ch.nolix.coreapi.containerapi.IContainer;
 
 //class
 public final class GlobalLicenseManagerTest extends Test {

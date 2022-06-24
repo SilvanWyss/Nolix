@@ -2,7 +2,6 @@
 package ch.nolix.system.gui.widgetgui;
 
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -14,6 +13,7 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.core.programatom.stateproperty.Visibility;
 import ch.nolix.core.programcontrol.processproperty.ChangeState;
+import ch.nolix.coreapi.containerapi.IContainer;
 import ch.nolix.coreapi.functionuniversalapi.I2ElementTaker;
 import ch.nolix.system.element.CatchingProperty;
 import ch.nolix.system.element.MultiValue;

@@ -1,7 +1,6 @@
 //package declaration
 package ch.nolix.system.gui.widget;
 
-import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.container.main.SingleContainer;
 import ch.nolix.core.document.node.BaseNode;
@@ -12,6 +11,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.coreapi.containerapi.IContainer;
 import ch.nolix.coreapi.functionuniversalapi.I2ElementTaker;
 import ch.nolix.coreapi.functionuniversalapi.IElementTaker;
 import ch.nolix.system.configuration.ConfigurableElement;

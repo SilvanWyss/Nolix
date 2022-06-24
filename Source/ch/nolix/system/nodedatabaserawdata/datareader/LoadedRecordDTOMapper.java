@@ -2,9 +2,8 @@
 package ch.nolix.system.nodedatabaserawdata.datareader;
 
 import ch.nolix.core.container.main.LinkedList;
-//own imports
-import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.document.node.BaseNode;
+import ch.nolix.coreapi.containerapi.IContainer;
 import ch.nolix.system.nodedatabaserawdata.structure.EntityNodeSearcher;
 import ch.nolix.system.sqlrawdata.datadto.LoadedRecordDTO;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedContentFieldDTO;

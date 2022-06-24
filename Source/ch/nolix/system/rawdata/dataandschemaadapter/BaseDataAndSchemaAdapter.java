@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.system.rawdata.dataandschemaadapter;
 
-//own imports
-import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
+import ch.nolix.coreapi.containerapi.IContainer;
 import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataAdapter;
 import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDTO;

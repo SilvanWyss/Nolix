@@ -3,13 +3,13 @@ package ch.nolix.system.gui.widget;
 
 import ch.nolix.core.commontype.constant.CharacterCatalogue;
 import ch.nolix.core.commontype.constant.StringCatalogue;
-import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.skilluniversalapi.Clearable;
+import ch.nolix.coreapi.containerapi.IContainer;
 import ch.nolix.system.element.MultiValue;
 import ch.nolix.system.element.MutableValue;
 import ch.nolix.system.gui.color.Color;

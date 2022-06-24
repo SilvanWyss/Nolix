@@ -1,11 +1,10 @@
 //package declaration
 package ch.nolix.system.nodedatabaserawschema.schemaadapter;
 
-//own imports
-import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.document.filenode.FileNode;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
+import ch.nolix.coreapi.containerapi.IContainer;
 import ch.nolix.system.nodedatabaserawschema.databaseinitializer.DatabaseInitializer;
 import ch.nolix.system.nodedatabaserawschema.schemareader.SchemaReader;
 import ch.nolix.system.nodedatabaserawschema.schemawriter.SchemaWriter;

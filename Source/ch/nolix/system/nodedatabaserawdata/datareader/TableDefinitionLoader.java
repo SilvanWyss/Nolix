@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.system.nodedatabaserawdata.datareader;
 
-//own imports
-import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.document.node.BaseNode;
+import ch.nolix.coreapi.containerapi.IContainer;
 import ch.nolix.system.nodedatabaserawschema.structure.SubNodeHeaderCatalogue;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
 

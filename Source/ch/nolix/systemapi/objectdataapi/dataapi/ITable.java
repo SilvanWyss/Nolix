@@ -3,7 +3,7 @@ package ch.nolix.systemapi.objectdataapi.dataapi;
 
 import ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi.IdentifiedByString;
 import ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi.Named;
-import ch.nolix.core.containerapi.IContainer;
+import ch.nolix.coreapi.containerapi.IContainer;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.IDatabaseObject;
 
 //interface

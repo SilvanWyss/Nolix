@@ -2,12 +2,12 @@
 package ch.nolix.system.gui.main;
 
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.core.programatom.stateproperty.Visibility;
 import ch.nolix.core.programcontrol.processproperty.ChangeState;
+import ch.nolix.coreapi.containerapi.IContainer;
 import ch.nolix.coreapi.functionuniversalapi.IElementTaker;
 import ch.nolix.system.application.baseguiapplication.PaintRun;
 import ch.nolix.system.element.MutableValue;

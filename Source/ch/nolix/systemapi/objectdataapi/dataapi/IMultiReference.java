@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.systemapi.objectdataapi.dataapi;
 
-//own imports
-import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.skilluniversalapi.Clearable;
+import ch.nolix.coreapi.containerapi.IContainer;
 
 //interface
 public interface IMultiReference<
