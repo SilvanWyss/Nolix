@@ -4,8 +4,8 @@ package ch.nolix.system.application.baseguiapplication;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.functionuniversalapi.IElementTaker;
-import ch.nolix.core.functionuniversalapi.IIntGetter;
+import ch.nolix.coreapi.functionuniversalapi.IElementTaker;
+import ch.nolix.coreapi.functionuniversalapi.IIntGetter;
 import ch.nolix.system.gui.input.KeyInput;
 import ch.nolix.system.gui.input.MouseInput;
 import ch.nolix.system.gui.input.ResizeInput;

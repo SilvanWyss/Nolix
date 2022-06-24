@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.system.gui.dialog;
 
-//own imports
-import ch.nolix.core.functionuniversalapi.IAction;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
+import ch.nolix.coreapi.functionuniversalapi.IAction;
 import ch.nolix.system.gui.containerwidget.ContainerRole;
 import ch.nolix.system.gui.containerwidget.SingleContainer;
 import ch.nolix.system.gui.main.LayerRole;

@@ -4,9 +4,9 @@ package ch.nolix.system.formatelement;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.functionuniversalapi.I2ElementTaker;
-import ch.nolix.core.functionuniversalapi.IElementTakerElementGetter;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.coreapi.functionuniversalapi.I2ElementTaker;
+import ch.nolix.coreapi.functionuniversalapi.IElementTakerElementGetter;
 
 //class
 public final class CascadingProperty<S extends Enum<S>, V> extends MaterializedProperty<S, V> {

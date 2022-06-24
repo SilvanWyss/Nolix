@@ -5,9 +5,9 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.functionuniversalapi.IAction;
-import ch.nolix.core.functionuniversalapi.IBooleanGetter;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.coreapi.functionuniversalapi.IAction;
+import ch.nolix.coreapi.functionuniversalapi.IBooleanGetter;
 
 //class
 /**

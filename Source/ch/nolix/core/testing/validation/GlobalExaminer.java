@@ -4,8 +4,7 @@ package ch.nolix.core.testing.validation;
 //Java imports
 import java.util.ArrayList;
 
-//own imports
-import ch.nolix.core.functionuniversalapi.IAction;
+import ch.nolix.coreapi.functionuniversalapi.IAction;
 
 //class
 public final class GlobalExaminer {

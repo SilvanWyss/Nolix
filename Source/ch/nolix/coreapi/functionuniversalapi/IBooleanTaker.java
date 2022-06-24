@@ -1,15 +1,15 @@
 //package declaration
-package ch.nolix.core.functionuniversalapi;
+package ch.nolix.coreapi.functionuniversalapi;
 
 //functional interface
 /**
- * A {@link IDoubleTaker} has a method that takes a double.
+ * A {@link IBooleanTaker} has a method that takes a boolean.
  * 
  * @author Silvan Wyss
  * @date 2018-09-01
  */
 @FunctionalInterface
-public interface IDoubleTaker {
+public interface IBooleanTaker {
 	
 	//method declaration
 	/**
@@ -17,5 +17,5 @@ public interface IDoubleTaker {
 	 * 
 	 * @param value
 	 */
-	void run(double value);
+	void run(boolean value);
 }

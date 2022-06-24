@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.core.testing.validation;
 
-import ch.nolix.core.functionuniversalapi.IElementTaker;
 import ch.nolix.core.independent.independenthelper.IterableHelper;
+import ch.nolix.coreapi.functionuniversalapi.IElementTaker;
 
 //class
 public final class ContainerMediator<E> extends ValueMediator<Iterable<E>> {

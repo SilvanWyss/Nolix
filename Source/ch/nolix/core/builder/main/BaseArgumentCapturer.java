@@ -3,7 +3,7 @@ package ch.nolix.core.builder.main;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.core.functionuniversalapi.IElementGetter;
+import ch.nolix.coreapi.functionuniversalapi.IElementGetter;
 
 //class
 public abstract class BaseArgumentCapturer<A> {

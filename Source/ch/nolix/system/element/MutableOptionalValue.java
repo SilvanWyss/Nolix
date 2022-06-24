@@ -6,8 +6,8 @@ import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.functionuniversalapi.IElementTaker;
-import ch.nolix.core.functionuniversalapi.IElementTakerElementGetter;
+import ch.nolix.coreapi.functionuniversalapi.IElementTaker;
+import ch.nolix.coreapi.functionuniversalapi.IElementTakerElementGetter;
 import ch.nolix.systemapi.elementapi.mainuniversalapi.Specified;
 
 //class

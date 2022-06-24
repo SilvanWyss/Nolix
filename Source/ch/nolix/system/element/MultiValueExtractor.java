@@ -6,10 +6,10 @@ import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.functionuniversalapi.IElementGetter;
-import ch.nolix.core.functionuniversalapi.IElementTaker;
-import ch.nolix.core.functionuniversalapi.IElementTakerElementGetter;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
+import ch.nolix.coreapi.functionuniversalapi.IElementGetter;
+import ch.nolix.coreapi.functionuniversalapi.IElementTaker;
+import ch.nolix.coreapi.functionuniversalapi.IElementTakerElementGetter;
 
 //class
 public final class MultiValueExtractor<V> extends Property {

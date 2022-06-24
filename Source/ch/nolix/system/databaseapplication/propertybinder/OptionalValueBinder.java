@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.databaseapplication.propertybinder;
 
-import ch.nolix.core.functionuniversalapi.IAction;
+import ch.nolix.coreapi.functionuniversalapi.IAction;
 import ch.nolix.system.gui.textbox.TextBox;
 import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalValue;
 

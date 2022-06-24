@@ -10,11 +10,11 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.functionuniversalapi.I2ElementTaker;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.core.programatom.stateproperty.Visibility;
 import ch.nolix.core.programcontrol.processproperty.ChangeState;
+import ch.nolix.coreapi.functionuniversalapi.I2ElementTaker;
 import ch.nolix.system.element.CatchingProperty;
 import ch.nolix.system.element.MultiValue;
 import ch.nolix.system.gui.color.Color;

@@ -5,7 +5,7 @@ package ch.nolix.core.testing.validation;
 import ch.nolix.core.environment.nolixenvironment.NolixEnvironment;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
-import ch.nolix.core.functionuniversalapi.IElementTaker;
+import ch.nolix.coreapi.functionuniversalapi.IElementTaker;
 
 //class
 /**

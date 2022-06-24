@@ -4,8 +4,6 @@ package ch.nolix.core.testing.test;
 //Java imports
 import java.util.ArrayList;
 
-//own imports
-import ch.nolix.core.functionuniversalapi.IAction;
 import ch.nolix.core.testing.validation.BitMediator;
 import ch.nolix.core.testing.validation.ByteMediator;
 import ch.nolix.core.testing.validation.ClosureMediator;
@@ -16,6 +14,7 @@ import ch.nolix.core.testing.validation.MultiDoubleMediator;
 import ch.nolix.core.testing.validation.MultiLongMediator;
 import ch.nolix.core.testing.validation.StringMediator;
 import ch.nolix.core.testing.validation.ValueMediator;
+import ch.nolix.coreapi.functionuniversalapi.IAction;
 
 //class
 /**

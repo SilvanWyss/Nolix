@@ -4,10 +4,10 @@ package ch.nolix.core.programcontrol.sequencer;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
-import ch.nolix.core.functionuniversalapi.IAction;
-import ch.nolix.core.functionuniversalapi.IBooleanGetter;
-import ch.nolix.core.functionuniversalapi.IElementGetter;
 import ch.nolix.core.programcontrol.futureuniversalapi.IFuture;
+import ch.nolix.coreapi.functionuniversalapi.IAction;
+import ch.nolix.coreapi.functionuniversalapi.IBooleanGetter;
+import ch.nolix.coreapi.functionuniversalapi.IElementGetter;
 
 //class
 /**

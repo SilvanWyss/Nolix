@@ -4,8 +4,8 @@ package ch.nolix.core.programcontrol.sequencer;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.functionuniversalapi.IAction;
-import ch.nolix.core.functionuniversalapi.IIntTaker;
+import ch.nolix.coreapi.functionuniversalapi.IAction;
+import ch.nolix.coreapi.functionuniversalapi.IIntTaker;
 
 //class
 /**

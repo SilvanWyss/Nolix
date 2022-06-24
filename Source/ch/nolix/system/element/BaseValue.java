@@ -7,9 +7,9 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.functionuniversalapi.IElementTakerElementGetter;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.requestuniversalapi.MutabilityRequestable;
+import ch.nolix.coreapi.functionuniversalapi.IElementTakerElementGetter;
 
 //class
 /**

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.functionuniversalapi;
+package ch.nolix.coreapi.functionuniversalapi;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;

@@ -2,8 +2,8 @@
 package ch.nolix.core.testing.validation;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.functionuniversalapi.IElementTaker;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.coreapi.functionuniversalapi.IElementTaker;
 
 //class
 public final class BitMediator extends Mediator {

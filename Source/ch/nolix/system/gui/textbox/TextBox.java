@@ -4,9 +4,9 @@ package ch.nolix.system.gui.textbox;
 //own imports
 import ch.nolix.core.attributeuniversalapi.mutablemandatoryattributeuniversalapi.IMutableTextHolder;
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.functionuniversalapi.IAction;
-import ch.nolix.core.functionuniversalapi.IElementTaker;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
+import ch.nolix.coreapi.functionuniversalapi.IAction;
+import ch.nolix.coreapi.functionuniversalapi.IElementTaker;
 import ch.nolix.system.element.ForwardingMutableValue;
 import ch.nolix.system.element.MutableValue;
 import ch.nolix.system.gui.color.Color;

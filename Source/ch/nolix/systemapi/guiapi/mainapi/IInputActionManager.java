@@ -3,10 +3,10 @@ package ch.nolix.systemapi.guiapi.mainapi;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.functionuniversalapi.I2ElementTaker;
-import ch.nolix.core.functionuniversalapi.IAction;
-import ch.nolix.core.functionuniversalapi.IElementTaker;
 import ch.nolix.core.programatom.marker.AllowDefaultMethodsAsDesignPattern;
+import ch.nolix.coreapi.functionuniversalapi.I2ElementTaker;
+import ch.nolix.coreapi.functionuniversalapi.IAction;
+import ch.nolix.coreapi.functionuniversalapi.IElementTaker;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 
 //interface

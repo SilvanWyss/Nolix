@@ -3,9 +3,9 @@ package ch.nolix.system.gui.widget;
 
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.document.chainednode.ChainedNode;
-import ch.nolix.core.functionuniversalapi.I2ElementTaker;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
+import ch.nolix.coreapi.functionuniversalapi.I2ElementTaker;
 import ch.nolix.system.element.MutableSpecificationValueExtractor;
 import ch.nolix.system.gui.image.Image;
 import ch.nolix.system.gui.image.MutableImage;

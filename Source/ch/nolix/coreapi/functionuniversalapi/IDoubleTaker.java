@@ -1,15 +1,15 @@
 //package declaration
-package ch.nolix.core.functionuniversalapi;
+package ch.nolix.coreapi.functionuniversalapi;
 
 //functional interface
 /**
- * A {@link IIntTaker} has a method that takes an int.
+ * A {@link IDoubleTaker} has a method that takes a double.
  * 
  * @author Silvan Wyss
- * @date 2018-08-26
+ * @date 2018-09-01
  */
 @FunctionalInterface
-public interface IIntTaker {
+public interface IDoubleTaker {
 	
 	//method declaration
 	/**
@@ -17,5 +17,5 @@ public interface IIntTaker {
 	 * 
 	 * @param value
 	 */
-	void run(int value);
+	void run(double value);
 }

@@ -5,10 +5,10 @@ import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.functionuniversalapi.IBooleanGetter;
-import ch.nolix.core.functionuniversalapi.IElementGetter;
-import ch.nolix.core.functionuniversalapi.IElementTaker;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
+import ch.nolix.coreapi.functionuniversalapi.IBooleanGetter;
+import ch.nolix.coreapi.functionuniversalapi.IElementGetter;
+import ch.nolix.coreapi.functionuniversalapi.IElementTaker;
 
 //class
 public final class MutableOptionalSpecificationValueExtractor extends Property {

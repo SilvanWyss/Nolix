@@ -8,14 +8,14 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentExceptio
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.functionuniversalapi.IElementTaker;
-import ch.nolix.core.functionuniversalapi.IElementTakerBooleanGetter;
-import ch.nolix.core.functionuniversalapi.IElementTakerComparableGetter;
-import ch.nolix.core.functionuniversalapi.IElementTakerElementGetter;
 import ch.nolix.core.independent.independenthelper.IterableHelper;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PluralLowerCaseCatalogue;
 import ch.nolix.core.skilluniversalapi.Clearable;
+import ch.nolix.coreapi.functionuniversalapi.IElementTaker;
+import ch.nolix.coreapi.functionuniversalapi.IElementTakerBooleanGetter;
+import ch.nolix.coreapi.functionuniversalapi.IElementTakerComparableGetter;
+import ch.nolix.coreapi.functionuniversalapi.IElementTakerElementGetter;
 
 //class
 /**
