@@ -3,8 +3,8 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 
 //class
 /**
- * A {@link UnequalArgumentException} is a {@link InvalidArgumentException}
- * that is supposed to be thrown when an argument does undesirably not equal an expected value.
+ * A {@link UnequalArgumentException} is a {@link InvalidArgumentException} that
+ * is supposed to be thrown when a given argument does undesirably not equal a certain .
  * 
  * @author Silvan Wyss
  * @date 2017-01-01
@@ -14,81 +14,47 @@ public final class UnequalArgumentException extends InvalidArgumentException {
 	
 	//constructor
 	/**
-	 * Creates a new {@link UnequalArgumentException} for the given argument and the given expectedValue.
+	 * Creates a new {@link UnequalArgumentException} for the given argument and value.
 	 * 
 	 * @param argument
-	 * @param expectedValue
+	 * @param value
 	 * @param <A> is the type of the given argument.
 	 */
-	public <A> UnequalArgumentException(final A argument, final A expectedValue) {
+	public <A> UnequalArgumentException(final A argument, final A value) {
 		
 		//Calls constructor of the base class.
-		super(argument, "does not equal " + expectedValue);
+		super(argument, "does not equal " + value);
 	}
 	
 	//constructor
 	/**
-	 * Creates a new unequal argument exception for the given argument and the given expected value.
-	 * 
-	 * @param argument
-	 * @param expectedValue
-	 */
-	public UnequalArgumentException(final double argument, final double expectedValue) {
-		
-		//Calls constructor of the base class.
-		super(argument, "does not equal " + expectedValue);
-	}
-	
-	//constructor
-	/**
-	 * Creates a new unequal argument exception for the given argument and the given expected value.
-	 * 
-	 * @param argument
-	 * @param expectedValue
-	 */
-	public UnequalArgumentException(final long argument, final long expectedValue) {
-		
-		//Calls constructor of the base class.
-		super(argument, "does not equal " + expectedValue);
-	}
-	
-	//constructor
-	/**
-	 * Creates a new unequal argument exception for the given argument,
-	 * that has the given argument name, and for the given expected value.
+	 * Creates a new {@link UnequalArgumentException} for the given argumentName, argument and value.
 	 * 
 	 * @param argumentName
 	 * @param argument
-	 * @param expectedValue
-	 * @throws IllegalArgumentException if the given argument name is null.
-	 * @throws IllegalArgumentException if the given argument name is empty.
+	 * @param value
+	 * @throws IllegalArgumentException if the given argumentName is null.
+	 * @throws IllegalArgumentException if the given argumentName is blank.
 	 */
-	public UnequalArgumentException(
-		final String argumentName,
-		final double argument,
-		final double expectedValue
-	) {
+	public UnequalArgumentException(final String argumentName, final double argument, final double value) {
+		
 		//Calls constructor of the base class.
-		super(argumentName,	argument, "does not equal " + expectedValue);
+		super(argumentName,	argument, "does not equal " + value);
 	}
 	
 	//constructor
 	/**
-	 * Creates a new unequal argument exception for the given argument,
-	 * that has the given argument name, and for the given expected value.
+	 * Creates a new {@link UnequalArgumentException} for the given argumentName, argument and value.
 	 * 
 	 * @param argumentName
 	 * @param argument
-	 * @param expectedValue
-	 * @throws IllegalArgumentException if the given argument name is null.
-	 * @throws IllegalArgumentException if the given argument name is empty.
+	 * @param value
+	 * @throws IllegalArgumentException if the given argumentName is null.
+	 * @throws IllegalArgumentException if the given argumentName is blank.
 	 */
-	public UnequalArgumentException(
-		final String argumentName,
-		final long argument,
-		final long expectedValue
-	) {
+	public UnequalArgumentException(final String argumentName, final long argument, final long value) {
+		
 		//Calls constructor of the base class.
-		super(argumentName,	argument, "does not equal " + expectedValue);
+		super(argumentName,	argument, "does not equal " + value);
 	}
 }
