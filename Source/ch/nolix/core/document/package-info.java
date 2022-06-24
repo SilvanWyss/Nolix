@@ -1,6 +1,6 @@
 //package info
 /**
- * The {@link ch.nolix.core.document} package defines documents.
+ * The {@link ch.nolix.core.document} package defines document types.
  * 
  * @author Silvan Wyss
  * @date 2021-03-02

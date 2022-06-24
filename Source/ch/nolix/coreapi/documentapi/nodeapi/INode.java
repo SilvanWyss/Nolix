@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.document.nodeapi;
+package ch.nolix.coreapi.documentapi.nodeapi;
 
 //own imports
 import ch.nolix.core.attributeuniversalapi.optionalattributeuniversalapi.OptionalHeadered;
