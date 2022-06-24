@@ -198,6 +198,16 @@ public abstract class EndPoint implements GroupCloseable, IDataProviderControlle
 	
 	//method
 	/**
+	 * @throws ClosedArgumentException if the current {@link EndPoint} is closed.
+	 */
+	protected void assertIsOpen() {
+		if (isClosed()) {
+			throw ClosedArgumentException.forArgument(this);
+		}
+	}
+	
+	//method
+	/**
 	 * @return the receiver controller of the current {@link EndPoint}.
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link EndPoint} does not have a receiver controller.
 	 */

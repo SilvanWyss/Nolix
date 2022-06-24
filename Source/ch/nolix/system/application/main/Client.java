@@ -6,6 +6,7 @@ import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnconnectedArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -191,6 +192,16 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
 	 */
 	protected final void runOnCounterpart(final Iterable<ChainedNode> commands) {
 		getRefEndPoint().run(commands);
+	}
+	
+	//method
+	/**
+	 * @throws ClosedArgumentException if the current {@link Client} is closed.
+	 */
+	void internalAssertIsOpen() {
+		if (isClosed()) {
+			throw ClosedArgumentException.forArgument(this);
+		}
 	}
 		
 	//method

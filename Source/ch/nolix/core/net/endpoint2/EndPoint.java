@@ -4,6 +4,7 @@ package ch.nolix.core.net.endpoint2;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.programcontrol.groupcloseable.GroupCloseable;
@@ -85,6 +86,16 @@ public abstract class EndPoint implements GroupCloseable {
 		
 		//Sets the replier of this end point.
 		this.replier = replier;
+	}
+	
+	//method
+	/**
+	 * @throws ClosedArgumentException if the current {@link EndPoint} is closed.
+	 */
+	protected final void assertIsOpen() {
+		if (isClosed()) {
+			throw ClosedArgumentException.forArgument(this);
+		}
 	}
 	
 	//method

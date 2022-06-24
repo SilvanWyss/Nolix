@@ -2,7 +2,6 @@
 package ch.nolix.core.requestuniversalapi;
 
 //own imports
-import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.coreapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 
 //interface
@@ -14,18 +13,6 @@ import ch.nolix.coreapi.markerapi.AllowDefaultMethodsAsDesignPattern;
  */
 @AllowDefaultMethodsAsDesignPattern
 public interface CloseStateRequestable {
-	
-	//method
-	/**
-	 * @throws ClosedArgumentException if the current {@link CloseStateRequestable} is closed.
-	 */
-	default void assertIsOpen() {
-		
-		//Asserts that the current CloseStateRequestable is open.
-		if (isClosed()) {
-			throw ClosedArgumentException.forArgument(this);
-		}
-	}
 	
 	//method declaration
 	/**

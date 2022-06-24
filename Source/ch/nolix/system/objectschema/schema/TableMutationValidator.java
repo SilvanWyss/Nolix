@@ -23,10 +23,10 @@ final class TableMutationValidator {
 	//method
 	public void assertCanAddColumnToTable(final Table table, final Column column) {
 		
-		table.assertIsOpen();
+		table.internalAssertIsOpen(); //TODO: Move this method to TableHelper.
 		tableHelper.assertDoesNotContainColumnWithGivenName(table, column.getName());
 		
-		column.assertIsOpen();
+		column.internalAssertIsOpen(); //TODO: Move this method to ColumnHelper.
 		columnHelper.assertIsNew(column);
 		
 		if (columnHelper.isAReferenceColumn(column) && table.belongsToDatabase()) {
@@ -50,7 +50,7 @@ final class TableMutationValidator {
 	
 	//method
 	public void assertCanDeleteTable(final Table table) {
-		table.assertIsOpen();
+		table.internalAssertIsOpen();
 		tableHelper.assertIsNotNew(table);
 		tableHelper.assertIsNotDeleted(table);
 		tableHelper.assertIsNotReferenced(table);
@@ -59,7 +59,7 @@ final class TableMutationValidator {
 	//method
 	public void assertCanSetNameToTable(final Table table, final String name) {
 		
-		table.assertIsOpen();
+		table.internalAssertIsOpen();
 		
 		if (table.belongsToDatabase()) {
 			databaseHelper.assertDoesNotContainTableWithGivenName(table.getParentDatabase(), name);

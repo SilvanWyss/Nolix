@@ -104,7 +104,7 @@ final class ClientSessionManager<
 		
 		GlobalSequencer.waitUntil(() -> (parentClient.isClosed() || !session.belongsToClient()));
 		
-		parentClient.assertIsOpen();
+		parentClient.internalAssertIsOpen();
 		
 		return (R)session.getRefResult();
 	}

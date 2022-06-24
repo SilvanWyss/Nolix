@@ -169,6 +169,16 @@ public abstract class EndPoint implements GroupCloseable {
 	
 	//method
 	/**
+	 * @throws ClosedArgumentException if the current {@link EndPoint} is closed.
+	 */
+	protected final void assertIsOpen() {
+		if (isClosed()) {
+			throw ClosedArgumentException.forArgument(this);
+		}
+	}
+	
+	//method
+	/**
 	 * @return the receiver of the current {@link EndPoint}.
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link EndPoint} does not have a receiver.
 	 */
