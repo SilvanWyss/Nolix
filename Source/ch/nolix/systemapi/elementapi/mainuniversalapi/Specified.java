@@ -7,7 +7,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.document.xml.XMLNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.programatom.marker.AllowDefaultMethodsAsDesignPattern;
+import ch.nolix.coreapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 
 //interface
 /**

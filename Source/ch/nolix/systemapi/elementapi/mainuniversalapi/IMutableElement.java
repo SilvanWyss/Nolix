@@ -5,8 +5,8 @@ package ch.nolix.systemapi.elementapi.mainuniversalapi;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.programatom.marker.AllowDefaultMethodsAsDesignPattern;
 import ch.nolix.core.skilluniversalapi.Resettable;
+import ch.nolix.coreapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 
 //interface
 /**

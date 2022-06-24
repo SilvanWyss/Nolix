@@ -3,7 +3,7 @@ package ch.nolix.systemapi.guiapi.mainapi;
 
 //own imports
 import ch.nolix.core.griduniversalapi.TopLeftPositionedRecangular;
-import ch.nolix.core.programatom.marker.AllowDefaultMethodsAsDesignPattern;
+import ch.nolix.coreapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 
 //interface
 @AllowDefaultMethodsAsDesignPattern

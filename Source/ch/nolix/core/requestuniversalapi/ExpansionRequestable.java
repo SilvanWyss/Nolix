@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.core.requestuniversalapi;
 
-//own imports
-import ch.nolix.core.programatom.marker.AllowDefaultMethodsAsDesignPattern;
+import ch.nolix.coreapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 
 //interface
 /**

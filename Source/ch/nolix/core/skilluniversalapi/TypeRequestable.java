@@ -3,7 +3,7 @@ package ch.nolix.core.skilluniversalapi;
 
 //own imports
 import ch.nolix.core.language.GlobalEnglishNounHelper;
-import ch.nolix.core.programatom.marker.AllowDefaultMethodsAsDesignPattern;
+import ch.nolix.coreapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 
 //interface
 /**

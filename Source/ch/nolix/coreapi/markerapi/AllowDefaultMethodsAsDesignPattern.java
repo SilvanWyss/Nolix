@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.programatom.marker;
+package ch.nolix.coreapi.markerapi;
 
 //Java imports
 import java.lang.annotation.ElementType;

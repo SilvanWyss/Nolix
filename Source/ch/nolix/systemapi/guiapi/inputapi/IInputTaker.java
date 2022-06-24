@@ -3,7 +3,7 @@ package ch.nolix.systemapi.guiapi.inputapi;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.programatom.marker.AllowDefaultMethodsAsDesignPattern;
+import ch.nolix.coreapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
 
 //interface

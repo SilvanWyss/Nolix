@@ -5,8 +5,8 @@ package ch.nolix.core.programcontrol.groupcloseable;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.programatom.marker.AllowDefaultMethodsAsDesignPattern;
 import ch.nolix.core.requestuniversalapi.CloseStateRequestable;
+import ch.nolix.coreapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 
 //interface
 /**
