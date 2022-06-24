@@ -3,7 +3,7 @@ package ch.nolix.core.programcontrol.futureuniversalapi;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.requestuniversalapi.FinishRequestable;
+import ch.nolix.coreapi.requestuniversalapi.FinishRequestable;
 
 //interface
 /**

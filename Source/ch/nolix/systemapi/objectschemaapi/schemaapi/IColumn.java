@@ -3,7 +3,7 @@ package ch.nolix.systemapi.objectschemaapi.schemaapi;
 
 import ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi.IdentifiedByString;
 import ch.nolix.core.attributeuniversalapi.mutablemandatoryattributeuniversalapi.Namable;
-import ch.nolix.core.requestuniversalapi.EmptinessRequestable;
+import ch.nolix.coreapi.requestuniversalapi.EmptinessRequestable;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.Deletable;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.IDatabaseObject;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDTO;

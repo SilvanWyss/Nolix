@@ -3,9 +3,9 @@ package ch.nolix.systemapi.guiapi.widgetguiapi;
 
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.griduniversalapi.TopLeftPositionedRecangular;
-import ch.nolix.core.requestuniversalapi.EnablingRequestable;
-import ch.nolix.core.requestuniversalapi.ExpansionRequestable;
 import ch.nolix.core.skilluniversalapi.Recalculable;
+import ch.nolix.coreapi.requestuniversalapi.EnablingRequestable;
+import ch.nolix.coreapi.requestuniversalapi.ExpansionRequestable;
 import ch.nolix.systemapi.elementapi.configurationapi.IConfigurableElement;
 import ch.nolix.systemapi.guiapi.inputapi.IInputTaker;
 import ch.nolix.systemapi.guiapi.mainapi.CursorIcon;

@@ -4,9 +4,9 @@ package ch.nolix.systemapi.elementapi.configurationapi;
 //own imports
 import ch.nolix.core.attributeuniversalapi.mutableoptionalattributeuniversalapi.OptionalIdentifiableByString;
 import ch.nolix.core.attributeuniversalapi.mutableoptionalattributeuniversalapi.OptionalTokenable;
-import ch.nolix.core.requestuniversalapi.ContainsElementByStringIdRequestable;
 import ch.nolix.core.skilluniversalapi.TypeRequestable;
 import ch.nolix.coreapi.containerapi.IContainer;
+import ch.nolix.coreapi.requestuniversalapi.ContainsElementByStringIdRequestable;
 import ch.nolix.systemapi.elementapi.mainuniversalapi.IMutableElement;
 
 //interface
