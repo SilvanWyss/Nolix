@@ -16,7 +16,7 @@ public final class LocalComputer {
 		try {
 			return InetAddress.getLocalHost().getHostAddress();
 		} catch (final UnknownHostException unknownHostException) {
-			throw new WrapperException(unknownHostException);
+			throw WrapperException.forError(unknownHostException);
 		}
 	}
 	

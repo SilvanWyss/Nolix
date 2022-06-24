@@ -19,7 +19,7 @@ public final class GlobalBufferedImageHelper {
 		try {
 			return ImageIO.read(new ByteArrayInputStream(bytes));
 		} catch (final IOException pIOException) {
-			throw new WrapperException(pIOException);
+			throw WrapperException.forError(pIOException);
 		}
 	}
 	
@@ -28,7 +28,7 @@ public final class GlobalBufferedImageHelper {
 		try {
 			return ImageIO.read(new File(filePath));
 		} catch (final IOException pIOException) {
-			throw new WrapperException(pIOException);
+			throw WrapperException.forError(pIOException);
 		}
 	}
 	

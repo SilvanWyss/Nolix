@@ -36,7 +36,7 @@ public final class SingleImplProvider<IM> implements IImplProviderMediator<IM> {
 			| InvocationTargetException
 			exception
 		) {
-			throw new WrapperException(exception);
+			throw WrapperException.forError(exception);
 		}
 	}
 	
@@ -52,7 +52,7 @@ public final class SingleImplProvider<IM> implements IImplProviderMediator<IM> {
 			| InvocationTargetException
 			exception
 		) {
-			throw new WrapperException(exception);
+			throw WrapperException.forError(exception);
 		}
 	}
 	
@@ -65,7 +65,7 @@ public final class SingleImplProvider<IM> implements IImplProviderMediator<IM> {
 			
 			return constructor;
 		} catch (final NoSuchMethodException noSuchMethodException) {
-			throw new WrapperException(noSuchMethodException);
+			throw WrapperException.forError(noSuchMethodException);
 		}
 	}
 	
@@ -78,7 +78,7 @@ public final class SingleImplProvider<IM> implements IImplProviderMediator<IM> {
 			
 			return defaultConstructor;
 		} catch (final NoSuchMethodException noSuchMethodException) {
-			throw new WrapperException(noSuchMethodException);
+			throw WrapperException.forError(noSuchMethodException);
 		}
 	}
 	

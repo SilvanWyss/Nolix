@@ -30,7 +30,7 @@ public final class GlobalClassHelper {
 				try {
 					publicStaticFields.addAtEnd(f.get(null));
 				} catch (final IllegalAccessException illegalAccessException) {
-					throw new WrapperException(illegalAccessException);
+					throw WrapperException.forError(illegalAccessException);
 				}
 			}
 		}
@@ -48,7 +48,7 @@ public final class GlobalClassHelper {
 			
 			return defaultConstructor;
 		} catch (final NoSuchMethodException noSuchMethodException) {
-			throw new WrapperException(noSuchMethodException);
+			throw WrapperException.forError(noSuchMethodException);
 		}
 	}
 	

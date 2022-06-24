@@ -43,7 +43,7 @@ final class ServerSocketProcessor extends Worker {
 			socketInputStream = socket.getInputStream();
 			socketOutputStream = socket.getOutputStream();
 		} catch (final IOException pIOException) {
-			throw new WrapperException(pIOException);
+			throw WrapperException.forError(pIOException);
 		}
 	}
 	
@@ -63,7 +63,7 @@ final class ServerSocketProcessor extends Worker {
 			
 			closeSocket();
 			
-			throw new WrapperException(exception);
+			throw WrapperException.forError(exception);
 		}
 	}
 	
@@ -72,7 +72,7 @@ final class ServerSocketProcessor extends Worker {
 		try {
 			socket.close();
 		} catch (final IOException pIOException) {
-			throw new WrapperException(pIOException);
+			throw WrapperException.forError(pIOException);
 		}
 	}
 	
@@ -157,7 +157,7 @@ final class ServerSocketProcessor extends Worker {
 			socketOutputStream.write(rawMessage.getBytes(StandardCharsets.UTF_8));
 			socketOutputStream.flush();
 		} catch (final IOException pIOException) {
-			throw new WrapperException(pIOException);
+			throw WrapperException.forError(pIOException);
 		}
 	}
 }

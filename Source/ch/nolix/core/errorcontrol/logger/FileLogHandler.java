@@ -39,7 +39,7 @@ public final class FileLogHandler extends LogHandler {
 			try {
 				Files.createFile(lPath);
 			} catch (final IOException pIOException) {
-				throw new WrapperException(pIOException);
+				throw WrapperException.forError(pIOException);
 			}	
 		}
 	}
@@ -54,7 +54,7 @@ public final class FileLogHandler extends LogHandler {
 				StandardOpenOption.APPEND
 			);
 		} catch (final IOException pIOException) {
-			throw new WrapperException(pIOException);
+			throw WrapperException.forError(pIOException);
 		}	
 	}
 }

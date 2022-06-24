@@ -91,7 +91,7 @@ public final class NetEndPoint extends BaseNetEndPoint {
 			socketInputStream = socket.getInputStream();
 			socketOutputStream = socket.getOutputStream();
 		} catch (final IOException pIOException) {
-			throw new WrapperException(pIOException);
+			throw WrapperException.forError(pIOException);
 		}
 		
 		sendTargetMessage();
@@ -124,7 +124,7 @@ public final class NetEndPoint extends BaseNetEndPoint {
 			socketInputStream = socket.getInputStream();
 			socketOutputStream = socket.getOutputStream();
 		} catch (final IOException pIOException) {
-			throw new WrapperException(pIOException);
+			throw WrapperException.forError(pIOException);
 		}
 		
 		sendTargetMessage();
@@ -226,7 +226,7 @@ public final class NetEndPoint extends BaseNetEndPoint {
 				sendRawMessage(NetEndPointProtocol.CLOSE_PREFIX);
 				socket.close();
 			} catch (final IOException pIOException) {
-				throw new WrapperException(pIOException);
+				throw WrapperException.forError(pIOException);
 			}
 		}
 	}
@@ -244,7 +244,7 @@ public final class NetEndPoint extends BaseNetEndPoint {
 			socketOutputStream.write((rawMessage + "\r\n").getBytes(StandardCharsets.UTF_8));
 			socketOutputStream.flush();
 		} catch (final IOException pIOException) {
-			throw new WrapperException(pIOException);
+			throw WrapperException.forError(pIOException);
 		}
 	}
 	

@@ -35,7 +35,7 @@ public final class WebSocketHandShakeResponse {
 			var bytes = messageDigest.digest(secWebSocketKeyAndWebSocketGUID.getBytes(StandardCharsets.UTF_8));
 			secWebSocketAccept = Base64.getEncoder().encodeToString(bytes);
 		} catch (final NoSuchAlgorithmException noSuchAlgorithmException) {
-			throw new WrapperException(noSuchAlgorithmException);
+			throw WrapperException.forError(noSuchAlgorithmException);
 		}
 	}
 	

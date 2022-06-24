@@ -106,7 +106,7 @@ public final class Server extends BaseServer {
 			//can be reused immediately when the current NetSever is closed.
 			serverSocket.setReuseAddress(true);
 		} catch (final IOException pIOException) {
-			throw new WrapperException(pIOException);
+			throw WrapperException.forError(pIOException);
 		}
 		
 		//Creates and starts a ServerListener for the current Server.
@@ -147,7 +147,7 @@ public final class Server extends BaseServer {
 		try {
 			serverSocket.close();
 		} catch (final IOException pIOException) {
-			throw new WrapperException(pIOException);
+			throw WrapperException.forError(pIOException);
 		}
 	}
 	

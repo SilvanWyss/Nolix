@@ -213,7 +213,7 @@ implements IRespondingMutableElement<FE> {
 			
 			return property;
 		} catch (final IllegalAccessException illegalAccessException) {
-			throw new WrapperException(illegalAccessException);
+			throw WrapperException.forError(illegalAccessException);
 		}
 	}
 	

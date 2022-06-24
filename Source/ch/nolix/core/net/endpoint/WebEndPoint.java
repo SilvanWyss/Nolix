@@ -71,7 +71,7 @@ final class WebEndPoint extends BaseNetEndPoint {
 		try {
 			socket.close();
 		} catch (final IOException pIOException) {
-			throw new WrapperException(pIOException);
+			throw WrapperException.forError(pIOException);
 		}
 	}
 	
@@ -114,7 +114,7 @@ final class WebEndPoint extends BaseNetEndPoint {
 			socketOutputStream.write(bytes);
 			socketOutputStream.flush();
 		} catch (final IOException pIOException) {
-			throw new WrapperException(pIOException);
+			throw WrapperException.forError(pIOException);
 		}
 	}
 	

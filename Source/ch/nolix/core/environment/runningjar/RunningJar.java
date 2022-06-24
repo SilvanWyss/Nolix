@@ -24,7 +24,7 @@ public final class RunningJar {
 			}
 			return stringBuilder.toString();
 		} catch (final IOException pIOException) {
-			throw new WrapperException(pIOException);
+			throw WrapperException.forError(pIOException);
 		}
 	}
 	
@@ -34,7 +34,7 @@ public final class RunningJar {
 		try {
 			return inputStream.readAllBytes();
 		} catch (final IOException pIOException) {
-			throw new WrapperException(pIOException);
+			throw WrapperException.forError(pIOException);
 		}
 	}
 	

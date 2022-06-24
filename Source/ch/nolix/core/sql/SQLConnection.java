@@ -78,7 +78,7 @@ public abstract class SQLConnection implements GroupCloseable {
 		try {
 			connection = DriverManager.getConnection("jdbc:sqlserver://" + ip + ':'+ port, userName, userPassword);
 		} catch (final SQLException pSQLException) {
-			throw new WrapperException(pSQLException);
+			throw WrapperException.forError(pSQLException);
 		}
 		
 		parentSQLConnectionPool = null;
@@ -114,7 +114,7 @@ public abstract class SQLConnection implements GroupCloseable {
 				userPassword
 			);
 		} catch (final SQLException pSQLException) {
-			throw new WrapperException(pSQLException);
+			throw WrapperException.forError(pSQLException);
 		}
 		
 		this.parentSQLConnectionPool = parentSQLConnectionPool;
@@ -153,10 +153,10 @@ public abstract class SQLConnection implements GroupCloseable {
 			try {
 				connection.rollback();
 			} catch (final SQLException pSQLException2) {
-				throw new WrapperException(pSQLException2);
+				throw WrapperException.forError(pSQLException2);
 			}
 			
-			throw new WrapperException(pSQLException);
+			throw WrapperException.forError(pSQLException);
 		}
 		
 		return this;
@@ -202,7 +202,7 @@ public abstract class SQLConnection implements GroupCloseable {
 				}
 			}
 		} catch (SQLException pSQLException) {
-			throw new WrapperException(pSQLException);
+			throw WrapperException.forError(pSQLException);
 		}
 		
 		return records;
@@ -240,7 +240,7 @@ public abstract class SQLConnection implements GroupCloseable {
 		try {
 			connection.close();
 		} catch (final SQLException pSQLException) {
-			throw new WrapperException(pSQLException);
+			throw WrapperException.forError(pSQLException);
 		}
 	}
 	
@@ -257,7 +257,7 @@ public abstract class SQLConnection implements GroupCloseable {
 		try {
 			Class.forName(getSQLDatabaseEngineDriverClass());
 		} catch (final ClassNotFoundException classNotFoundException) {
-			throw new WrapperException(classNotFoundException);
+			throw WrapperException.forError(classNotFoundException);
 		}
 	}
 }

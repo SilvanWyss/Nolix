@@ -161,7 +161,7 @@ public class Application<
 			| InvocationTargetException
 			exception
 		) {
-			throw new WrapperException(exception);
+			throw WrapperException.forError(exception);
 		}
 	}
 	

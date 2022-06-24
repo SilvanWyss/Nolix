@@ -72,7 +72,7 @@ final class PropertyFromEntityExtractor {
 		try {
 			list.addAtEnd((Property)field.get(object));
 		} catch (final IllegalArgumentException | IllegalAccessException exception) {
-			throw new WrapperException(exception);
+			throw WrapperException.forError(exception);
 		}
 	}
 }

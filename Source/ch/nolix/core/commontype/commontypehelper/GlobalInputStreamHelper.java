@@ -33,7 +33,7 @@ public final class GlobalInputStreamHelper {
 				bytes.addAtEnd((byte)lByte);
 			}
 		} catch (final IOException pIOException) {
-			throw new WrapperException(pIOException);
+			throw WrapperException.forError(pIOException);
 		}
 	}
 	

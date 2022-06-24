@@ -30,7 +30,7 @@ public final class GlobalReflectionHelper {
 						return f;
 					}
 				} catch (final IllegalArgumentException | IllegalAccessException exception) {
-					throw new WrapperException(exception);
+					throw WrapperException.forError(exception);
 				}
 			}
 			

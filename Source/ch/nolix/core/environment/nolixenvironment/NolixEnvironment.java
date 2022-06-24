@@ -39,7 +39,7 @@ public final class NolixEnvironment {
 			try {
 				Files.createDirectory(lPath);
 			} catch (final IOException pIOException) {
-				throw new WrapperException(pIOException);
+				throw WrapperException.forError(pIOException);
 			}
 		}
 	}

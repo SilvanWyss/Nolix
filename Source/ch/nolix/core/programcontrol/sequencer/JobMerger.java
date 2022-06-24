@@ -30,7 +30,7 @@ public final class JobMerger {
 				jobs[i].run();
 			} catch (final Throwable error) {
 				throw
-				new WrapperException(
+				WrapperException.forErrorMessageAndError(
 					"An error occured by running the " + (i + 1) + "th job of the given " + jobs.length + " jobs.",
 					error
 				);

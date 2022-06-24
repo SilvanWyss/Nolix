@@ -47,7 +47,7 @@ final class Waiter {
 			Thread.sleep(durationInMilliseconds);
 		} catch (final InterruptedException interruptedException) {
 			Thread.currentThread().interrupt();
-			throw new WrapperException(interruptedException);
+			throw WrapperException.forError(interruptedException);
 		}
 	}
 	

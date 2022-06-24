@@ -100,7 +100,7 @@ public final class WebSocketFrame {
 				}
 			}
 		} catch (final IOException pIOException) {
-			throw new WrapperException(pIOException);
+			throw WrapperException.forError(pIOException);
 		}
 	}
 	

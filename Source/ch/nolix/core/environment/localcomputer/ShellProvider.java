@@ -27,7 +27,7 @@ public final class ShellProvider {
 		try {
 			Runtime.getRuntime().exec("cmd.exe /c " + command);
 		} catch (final IOException pIOException) {
-			throw new WrapperException(pIOException);
+			throw WrapperException.forError(pIOException);
 		}
 	}
 	
@@ -46,7 +46,7 @@ public final class ShellProvider {
 		try {
 			Desktop.getDesktop().browse(new URI(pURL));
 		} catch (final IOException | URISyntaxException exception) {
-			throw new WrapperException(exception);
+			throw WrapperException.forError(exception);
 		}
 	}
 	

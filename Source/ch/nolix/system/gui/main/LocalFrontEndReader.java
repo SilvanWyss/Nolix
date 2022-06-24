@@ -39,7 +39,7 @@ public final class LocalFrontEndReader implements IFrontEndReader {
 			| IllegalAccessException
 			| UnsupportedLookAndFeelException
 		exception) {
-			throw new WrapperException(exception);
+			throw WrapperException.forError(exception);
 		}
 		
 		fileChooser = new JFileChooser();
@@ -57,7 +57,7 @@ public final class LocalFrontEndReader implements IFrontEndReader {
 		try {
 			return Toolkit.getDefaultToolkit().getSystemClipboard().getData(DataFlavor.stringFlavor).toString();
 		} catch (final IOException | UnsupportedFlavorException exception) {
-			throw new WrapperException(exception);
+			throw WrapperException.forError(exception);
 		}
 	}
 	
@@ -84,7 +84,7 @@ public final class LocalFrontEndReader implements IFrontEndReader {
 			
 			return ReadContainer.forIterable(files).to(File::getPath);
 		} catch (final IOException | UnsupportedFlavorException exception) {
-			throw new WrapperException(exception);
+			throw WrapperException.forError(exception);
 		}
 	}
 }

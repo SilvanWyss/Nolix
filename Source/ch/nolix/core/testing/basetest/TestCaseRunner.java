@@ -196,7 +196,7 @@ public final class TestCaseRunner extends Thread {
 				errorCreator.createErrorFromInvocationTargetExceptionInInstance(invocationTargetException, testInstance);
 			}
 		} catch (final IllegalAccessException illegalAccessException) {
-			throw new WrapperException(illegalAccessException);
+			throw WrapperException.forError(illegalAccessException);
 		}
 	}
 	
@@ -224,7 +224,7 @@ public final class TestCaseRunner extends Thread {
 				errorCreator.createErrorFromInvocationTargetExceptionInInstance(invocationTargetException, testInstance);
 			}
 		} catch (final IllegalAccessException illegalAccessException) {
-			throw new WrapperException(illegalAccessException);
+			throw WrapperException.forError(illegalAccessException);
 		}
 	}
 	
@@ -238,7 +238,7 @@ public final class TestCaseRunner extends Thread {
 				errorCreator.createErrorFromInvocationTargetExceptionInInstance(invocationTargetException, testInstance);
 			}
 		} catch (final IllegalAccessException illegalAccessException) {
-			throw new WrapperException(illegalAccessException);
+			throw WrapperException.forError(illegalAccessException);
 		}
 	}
 	

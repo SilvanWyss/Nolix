@@ -68,7 +68,7 @@ public final class FileAccessor extends FileSystemItemAccessor {
 			fileOutputStream.write(bytes);
 			fileOutputStream.flush();
 		} catch (final IOException exception) {
-			throw new WrapperException(exception);
+			throw WrapperException.forError(exception);
 		}
 	}
 	
@@ -84,7 +84,7 @@ public final class FileAccessor extends FileSystemItemAccessor {
 			printWriter.print(content.replace("\n", "\r\n"));
 			printWriter.flush();
 		} catch (final IOException exception) {
-			throw new WrapperException(exception);
+			throw WrapperException.forError(exception);
 		}
 	}
 	
@@ -112,7 +112,7 @@ public final class FileAccessor extends FileSystemItemAccessor {
 		try {
 			return Files.readAllBytes(getInternalAccessor().toPath());
 		} catch (final IOException exception) {
-			throw new WrapperException(exception);
+			throw WrapperException.forError(exception);
 		}
 	}
 	
@@ -133,7 +133,7 @@ public final class FileAccessor extends FileSystemItemAccessor {
 				lines.addAtEnd(line);
 			}
 		} catch (final IOException pIOException) {
-			throw new WrapperException(pIOException);
+			throw WrapperException.forError(pIOException);
 		}
 		
 		return lines;

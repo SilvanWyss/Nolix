@@ -35,7 +35,7 @@ public final class ClassWrapper<T> {
 			| InvocationTargetException
 			exception
 		) {
-			throw new WrapperException(exception);
+			throw WrapperException.forError(exception);
 		}
 	}
 	
@@ -44,7 +44,7 @@ public final class ClassWrapper<T> {
 		try {
 			return mClass.getConstructor(parameterTypes);
 		} catch (final NoSuchMethodException | SecurityException exception) {
-			throw new WrapperException(exception);
+			throw WrapperException.forError(exception);
 		}
 	}
 	

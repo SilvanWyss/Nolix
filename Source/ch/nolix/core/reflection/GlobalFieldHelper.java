@@ -25,7 +25,7 @@ public final class GlobalFieldHelper {
 			staticField.setAccessible(true);
 			return (V)staticField.get(null);
 		} catch (final IllegalAccessException illegalAccessException) {
-			throw new WrapperException(illegalAccessException);
+			throw WrapperException.forError(illegalAccessException);
 		}
 	}
 	

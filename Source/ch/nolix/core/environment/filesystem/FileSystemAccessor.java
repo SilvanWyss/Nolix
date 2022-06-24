@@ -45,7 +45,7 @@ public final class FileSystemAccessor {
 		try {
 			return FileSystemAccessor.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath();
 		} catch (final URISyntaxException pURISyntaxException) {
-			throw new WrapperException(pURISyntaxException);
+			throw WrapperException.forError(pURISyntaxException);
 		}
 	}
 	
@@ -59,7 +59,7 @@ public final class FileSystemAccessor {
 		try {
 			Runtime.getRuntime().exec("explorer.exe /select," + path);
 		} catch (final IOException pIOException) {
-			throw new WrapperException(pIOException);
+			throw WrapperException.forError(pIOException);
 		}
 	}
 	
@@ -127,7 +127,7 @@ public final class FileSystemAccessor {
 			
 			return new FileAccessor(path);
 		} catch (final IOException pIOException) {
-			throw new WrapperException(pIOException);
+			throw WrapperException.forError(pIOException);
 		}
 	}
 	
@@ -254,7 +254,7 @@ public final class FileSystemAccessor {
 		try {
 			Files.delete(Path.of(path));
 		} catch (final IOException pIOException) {
-			throw new WrapperException(pIOException);
+			throw WrapperException.forError(pIOException);
 		}
 	}
 	

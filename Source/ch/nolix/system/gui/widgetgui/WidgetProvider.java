@@ -165,7 +165,7 @@ final class WidgetProvider {
 				| NoSuchMethodException
 				| SecurityException exception
 			) {
-				throw new WrapperException(exception);
+				throw WrapperException.forError(exception);
 			}
 	}
 }

@@ -291,7 +291,7 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 		try {
 			ImageIO.write(toBufferedImage(), "PNG", new File(StringCatalogue.EMPTY_STRING));
 		} catch (final IOException pIOException) {
-			throw new WrapperException(pIOException);
+			throw WrapperException.forError(pIOException);
 		}
 	}
 	
@@ -372,7 +372,7 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 			
 			return byteArrayOutputStream.toByteArray();
 		} catch (final IOException pIOException) {
-			throw new WrapperException(pIOException);
+			throw WrapperException.forError(pIOException);
 		}
 	}
 	
@@ -400,7 +400,7 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 			
 			return byteArrayOutputStream.toByteArray();
 		} catch (final IOException pIOException) {
-			throw new WrapperException(pIOException);
+			throw WrapperException.forError(pIOException);
 		}
 	}
 	

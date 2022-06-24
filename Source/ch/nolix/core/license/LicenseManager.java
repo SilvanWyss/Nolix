@@ -104,7 +104,7 @@ public final class LicenseManager {
 			| SecurityException
 			exception
 		) {
-			throw new WrapperException(exception);
+			throw WrapperException.forError(exception);
 		}
 	}
 	

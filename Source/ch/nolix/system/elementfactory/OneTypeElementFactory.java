@@ -26,7 +26,7 @@ final class OneTypeElementFactory<E> {
 			| NoSuchMethodException
 			exception
 		) {
-			throw new WrapperException(exception);
+			throw WrapperException.forError(exception);
 		}
 	}
 	
