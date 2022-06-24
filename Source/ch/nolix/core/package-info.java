@@ -1,6 +1,6 @@
 //package info
 /**
- * The {@link ch.nolix.core} package defines APIs and types for technical purpose.
+ * The {@link ch.nolix.core} package defines types for basic purpose.
  * 
  * @author Silvan Wyss
  * @date 2019-09-01
