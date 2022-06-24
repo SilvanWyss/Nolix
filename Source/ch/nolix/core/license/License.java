@@ -84,7 +84,7 @@ public abstract class License implements Named {
 	 */
 	private void assertAccepts(final String key) {
 		if (!accepts(key)) {
-			throw new UnacceptedKeyException(key);
+			throw UnacceptedKeyException.forKey(key);
 		}
 	}
 	
