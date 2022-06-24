@@ -6,6 +6,7 @@ import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.data.GlobalIdCreator;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.NonEmptyArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedPropertyType;
@@ -171,6 +172,13 @@ public final class Column extends SchemaObject implements IColumn<SchemaImplemen
 	@Override
 	public ColumnDTO toDTO() {
 		return new ColumnDTO(getId(), getName(), getParametrizedPropertyType().toDTO());
+	}
+	
+	//method
+	void assertIsEmpty() {
+		if (containsAny()) {
+			throw NonEmptyArgumentException.forArgument(this);
+		}
 	}
 	
 	//method

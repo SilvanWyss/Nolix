@@ -2,7 +2,6 @@
 package ch.nolix.core.requestuniversalapi;
 
 //own imports
-import ch.nolix.core.errorcontrol.invalidargumentexception.NonEmptyArgumentException;
 import ch.nolix.core.programatom.marker.AllowDefaultMethodsAsDesignPattern;
 
 //interface
@@ -14,16 +13,6 @@ import ch.nolix.core.programatom.marker.AllowDefaultMethodsAsDesignPattern;
  */
 @AllowDefaultMethodsAsDesignPattern
 public interface EmptinessRequestable {
-	
-	//method
-	/**
-	 * @throws NonEmptyArgumentException if the current {@link EmptinessRequestable} is not empty.
-	 */
-	default void assertIsEmpty() {
-		if (containsAny()) {
-			throw NonEmptyArgumentException.forArgument(this);
-		}
-	}
 	
 	//method
 	/**
