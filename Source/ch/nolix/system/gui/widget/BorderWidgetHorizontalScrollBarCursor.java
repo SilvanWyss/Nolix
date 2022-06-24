@@ -4,7 +4,7 @@ package ch.nolix.system.gui.widget;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.math.Calculator;
+import ch.nolix.core.math.GlobalCalculator;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.systemapi.guiapi.mainapi.HoverableTopLeftPositionedRectangular;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
@@ -95,7 +95,7 @@ implements HoverableTopLeftPositionedRectangular {
 	 */
 	@Override
 	public int getWidth() {
-		return Calculator.getMax(MIN_WIDTH, getNaturalWidth());
+		return GlobalCalculator.getMax(MIN_WIDTH, getNaturalWidth());
 	}
 	
 	//method

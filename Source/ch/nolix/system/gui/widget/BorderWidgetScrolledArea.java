@@ -6,7 +6,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.griduniversalapi.Rectangular;
-import ch.nolix.core.math.Calculator;
+import ch.nolix.core.math.GlobalCalculator;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 
 //class
@@ -69,12 +69,12 @@ public final class BorderWidgetScrolledArea<BWL extends BorderWidgetLook<BWL>> i
 		
 		//Handles the case that the BorderWidget of the current BorderWidgetScrolledArea has a proposal height.
 		if (parentBorderWidget.hasProposalHeight()) {
-			scrolledAreaHeight = Calculator.getMax(getProposalHeight(), scrolledAreaHeight);
+			scrolledAreaHeight = GlobalCalculator.getMax(getProposalHeight(), scrolledAreaHeight);
 		}
 		
 		//Handles the case that the BorderWidget of the current BorderWidgetScrolledArea has a mininum height.
 		if (parentBorderWidget.hasMinHeight()) {
-			scrolledAreaHeight = Calculator.getMax(getMinHeight(), scrolledAreaHeight);
+			scrolledAreaHeight = GlobalCalculator.getMax(getMinHeight(), scrolledAreaHeight);
 		}
 		
 		return scrolledAreaHeight;
@@ -167,12 +167,12 @@ public final class BorderWidgetScrolledArea<BWL extends BorderWidgetLook<BWL>> i
 		
 		//Handles the case that the BorderWidget of the current BorderWidgetScrolledArea has a proposal width.
 		if (parentBorderWidget.hasProposalWidth()) {
-			scrolledAreaWidth = Calculator.getMax(getProposalWidth(), scrolledAreaWidth);
+			scrolledAreaWidth = GlobalCalculator.getMax(getProposalWidth(), scrolledAreaWidth);
 		}
 		
 		//Handles the case that the BorderWidget of the current BorderWidgetScrolledArea has a mininum width.
 		if (parentBorderWidget.hasMinWidth()) {
-			scrolledAreaWidth = Calculator.getMax(getMinWidth(), scrolledAreaWidth);
+			scrolledAreaWidth = GlobalCalculator.getMax(getMinWidth(), scrolledAreaWidth);
 		}
 		
 		return scrolledAreaWidth;

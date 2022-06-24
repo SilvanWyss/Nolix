@@ -6,7 +6,7 @@ import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.math.Calculator;
+import ch.nolix.core.math.GlobalCalculator;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.core.skilluniversalapi.Clearable;
 import ch.nolix.coreapi.containerapi.IContainer;
@@ -446,7 +446,7 @@ public abstract class ItemMenu<IM extends ItemMenu<IM>> extends BorderWidget<IM,
 	//method
 	private void recalculateSizes() {
 		final var itemLabels = getRefItemLabels();
-		final var itemWidth = Calculator.getMax(10, itemLabels.getMaxIntOrDefaultValue(Label::getNaturalWidth, 10));
+		final var itemWidth = GlobalCalculator.getMax(10, itemLabels.getMaxIntOrDefaultValue(Label::getNaturalWidth, 10));
 		for (final var il : itemLabels) {
 			il.setMinWidth(itemWidth);
 		}

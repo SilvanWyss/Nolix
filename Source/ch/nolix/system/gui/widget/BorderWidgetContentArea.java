@@ -6,7 +6,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.griduniversalapi.Rectangular;
-import ch.nolix.core.math.Calculator;
+import ch.nolix.core.math.GlobalCalculator;
 import ch.nolix.core.skilluniversalapi.Recalculable;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 
@@ -239,7 +239,7 @@ public final class BorderWidgetContentArea<BWL extends BorderWidgetLook<BWL>> im
 		var lHeight = getNaturalHeight();
 		
 		if (parentBorderWidget.contentAreaMustBeExpandedToTargetSize() && parentBorderWidget.hasTargetHeight()) {
-			lHeight = Calculator.getMax(getTargetHeight(), lHeight);
+			lHeight = GlobalCalculator.getMax(getTargetHeight(), lHeight);
 		}
 		
 		return lHeight;
@@ -261,7 +261,7 @@ public final class BorderWidgetContentArea<BWL extends BorderWidgetLook<BWL>> im
 		var lWidth = getNaturalWidth();
 		
 		if (parentBorderWidget.contentAreaMustBeExpandedToTargetSize() && parentBorderWidget.hasTargetWidth()) {
-			lWidth = Calculator.getMax(getTargetWidth(), lWidth);
+			lWidth = GlobalCalculator.getMax(getTargetWidth(), lWidth);
 		}
 		
 		return lWidth;

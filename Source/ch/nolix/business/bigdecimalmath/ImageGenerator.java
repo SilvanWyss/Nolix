@@ -13,7 +13,7 @@ import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.math.Calculator;
+import ch.nolix.core.math.GlobalCalculator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programcontrol.future.BaseFuture;
 import ch.nolix.core.programcontrol.futureuniversalapi.IFuture;
@@ -183,7 +183,7 @@ public final class ImageGenerator extends BaseFuture implements IImageGenerator 
 		for (var y = 1; y < heightInpixel; y += IMAGE_ROWS_PER_THREAD) {
 			
 			final var startImageRow = y;
-			final var endImageRow = Calculator.getMin(heightInpixel, y + IMAGE_ROWS_PER_THREAD - 1);
+			final var endImageRow = GlobalCalculator.getMin(heightInpixel, y + IMAGE_ROWS_PER_THREAD - 1);
 			
 			lFutures.addAtEnd(
 				jobPool.enqueue(() -> fillImageRows(startImageRow, endImageRow))

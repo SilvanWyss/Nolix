@@ -8,7 +8,7 @@ import java.math.RoundingMode;
 import ch.nolix.businessapi.bigdecimalmathapi.IClosedInterval;
 import ch.nolix.core.container.pair.Pair;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.math.Calculator;
+import ch.nolix.core.math.GlobalCalculator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
 //class
@@ -26,7 +26,7 @@ public final class ClosedInterval implements IClosedInterval {
 		GlobalValidator.assertThat(min).thatIsNamed(LowerCaseCatalogue.MINIMUM).isNotNull();
 		GlobalValidator.assertThat(max).thatIsNamed(LowerCaseCatalogue.MAXIMUM).isNotSmallerThan(min);
 		
-		final var bigDecimalScale = Calculator.getMax(min.scale(), max.scale());
+		final var bigDecimalScale = GlobalCalculator.getMax(min.scale(), max.scale());
 		this.min = min.setScale(bigDecimalScale, RoundingMode.HALF_UP);
 		this.max = max.setScale(bigDecimalScale, RoundingMode.HALF_UP);
 	}

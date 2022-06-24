@@ -2,7 +2,7 @@
 package ch.nolix.system.gui.widget;
 
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.math.Calculator;
+import ch.nolix.core.math.GlobalCalculator;
 import ch.nolix.system.element.MutableValue;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
@@ -274,7 +274,7 @@ public final class CheckBox extends BorderWidget<CheckBox, CheckBoxLook> {
 		//Paints the icon of the current CheckBox if it is checked.
 		if (isChecked()) {
 			
-			final var a = Calculator.getMax(1, (int)(0.75 * t));
+			final var a = GlobalCalculator.getMax(1, (int)(0.75 * t));
 			
 			//Paints the line from the bottom left corner to to the top right corner of the cross.	
 			final int[] bottomLeftToTopRightLineXs = new int[4];

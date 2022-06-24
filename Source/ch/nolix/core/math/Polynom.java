@@ -266,7 +266,7 @@ public final class Polynom {
 		GlobalValidator.assertThat(deriveCount).thatIsNamed("derive count").isNotNegative();
 		
 		final var degree = getDegree();
-		final var derivedDegree = Calculator.getMax(0, degree - deriveCount);
+		final var derivedDegree = GlobalCalculator.getMax(0, degree - deriveCount);
 		
 		final var derivedCoefficients = new double[derivedDegree];
 		for (var i = 0; i < derivedDegree; i++) {

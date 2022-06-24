@@ -1,7 +1,7 @@
 package ch.nolix.systemtutorial.guitutorial.containerwidgettutorial;
 
 //own imports
-import ch.nolix.core.math.Calculator;
+import ch.nolix.core.math.GlobalCalculator;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.containerwidget.AligningContainer;
 import ch.nolix.system.gui.main.Frame;
@@ -30,7 +30,7 @@ public final class AligningContainerWithAutomaticSizeTutorial {
 					() ->
 					label.getRefActiveLook().setTextSizeForState(
 						WidgetLookState.BASE,
-						Calculator.getMax(20, label.getRefActiveLook().getTextSize() - 20)
+						GlobalCalculator.getMax(20, label.getRefActiveLook().getTextSize() - 20)
 					)
 				)
 			)
@@ -41,7 +41,7 @@ public final class AligningContainerWithAutomaticSizeTutorial {
 					() ->
 					label.getRefActiveLook().setTextSizeForState(
 							WidgetLookState.BASE,
-						Calculator.getMin(200, label.getRefActiveLook().getTextSize() + 20)
+						GlobalCalculator.getMin(200, label.getRefActiveLook().getTextSize() + 20)
 					)
 				)
 			)

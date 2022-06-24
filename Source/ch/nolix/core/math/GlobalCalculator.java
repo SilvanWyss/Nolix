@@ -13,12 +13,12 @@ import ch.nolix.core.programatom.name.PluralLowerCaseCatalogue;
 
 //class
 /**
- * The {@link Calculator} provides mathematical functions.
+ * The {@link GlobalCalculator} provides mathematical functions.
  * 
  * @author Silvan Wyss
  * @date 2016-05-01
  */
-public final class Calculator {
+public final class GlobalCalculator {
 	
 	//constant
 	/**
@@ -446,7 +446,7 @@ public final class Calculator {
 	
 	//constructor
 	/**
-	 * Prevents that an instance of the {@link Calculator} can be created.
+	 * Prevents that an instance of the {@link GlobalCalculator} can be created.
 	 */
-	private Calculator() {}
+	private GlobalCalculator() {}
 }

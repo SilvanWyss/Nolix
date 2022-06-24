@@ -10,7 +10,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.math.Calculator;
+import ch.nolix.core.math.GlobalCalculator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.IContainer;
@@ -1418,7 +1418,7 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 				
 				getRefRootWidget().setPositionOnParent(
 					0,
-					Calculator.getMax(0, (getParentGUI().getViewAreaHeight() - getRefRootWidget().getHeight()) / 2)
+					GlobalCalculator.getMax(0, (getParentGUI().getViewAreaHeight() - getRefRootWidget().getHeight()) / 2)
 				);
 				
 				break;
@@ -1426,14 +1426,14 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 				
 				getRefRootWidget().setPositionOnParent(
 					0,
-					Calculator.getMax(0, getParentGUI().getViewAreaHeight() - getRefRootWidget().getHeight())
+					GlobalCalculator.getMax(0, getParentGUI().getViewAreaHeight() - getRefRootWidget().getHeight())
 				);
 				
 				break;
 			case TOP:
 				
 				getRefRootWidget().setPositionOnParent(
-					Calculator.getMax(0, (parentGUI.getViewAreaWidth() - getRefRootWidget().getWidth()) / 2),
+					GlobalCalculator.getMax(0, (parentGUI.getViewAreaWidth() - getRefRootWidget().getWidth()) / 2),
 					0
 				);
 				
@@ -1441,23 +1441,23 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 			case CENTER:
 							
 				getRefRootWidget().setPositionOnParent(
-					Calculator.getMax(0, (parentGUI.getViewAreaWidth() - getRefRootWidget().getWidth()) / 2),
-					Calculator.getMax(0, (parentGUI.getViewAreaHeight() - getRefRootWidget().getHeight()) / 2)
+					GlobalCalculator.getMax(0, (parentGUI.getViewAreaWidth() - getRefRootWidget().getWidth()) / 2),
+					GlobalCalculator.getMax(0, (parentGUI.getViewAreaHeight() - getRefRootWidget().getHeight()) / 2)
 				);
 				
 				break;
 			case BOTTOM:
 				
 				getRefRootWidget().setPositionOnParent(
-					Calculator.getMax(0, (parentGUI.getViewAreaWidth() - getRefRootWidget().getWidth()) / 2),
-					Calculator.getMax(0, parentGUI.getViewAreaHeight() - getRefRootWidget().getHeight())
+					GlobalCalculator.getMax(0, (parentGUI.getViewAreaWidth() - getRefRootWidget().getWidth()) / 2),
+					GlobalCalculator.getMax(0, parentGUI.getViewAreaHeight() - getRefRootWidget().getHeight())
 				);
 				
 				break;
 			case TOP_RIGHT:
 				
 				getRefRootWidget().setPositionOnParent(
-					Calculator.getMax(0, parentGUI.getViewAreaWidth() - getRefRootWidget().getWidth()),
+					GlobalCalculator.getMax(0, parentGUI.getViewAreaWidth() - getRefRootWidget().getWidth()),
 					0
 				);
 				
@@ -1465,16 +1465,16 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 			case RIGHT:
 			
 				getRefRootWidget().setPositionOnParent(
-					Calculator.getMax(0, parentGUI.getViewAreaWidth() - getRefRootWidget().getWidth()),
-					Calculator.getMax(0, (parentGUI.getViewAreaHeight() - getRefRootWidget().getHeight()) / 2)
+					GlobalCalculator.getMax(0, parentGUI.getViewAreaWidth() - getRefRootWidget().getWidth()),
+					GlobalCalculator.getMax(0, (parentGUI.getViewAreaHeight() - getRefRootWidget().getHeight()) / 2)
 				);
 			
 				break;
 			case BOTTOM_RIGHT:
 				
 				getRefRootWidget().setPositionOnParent(
-					Calculator.getMax(0, parentGUI.getViewAreaWidth() - getRefRootWidget().getWidth()),
-					Calculator.getMax(0, parentGUI.getViewAreaHeight() - getRefRootWidget().getHeight())
+					GlobalCalculator.getMax(0, parentGUI.getViewAreaWidth() - getRefRootWidget().getWidth()),
+					GlobalCalculator.getMax(0, parentGUI.getViewAreaHeight() - getRefRootWidget().getHeight())
 				);
 				
 				break;

@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.coretest.mathtest;
 
-import ch.nolix.core.math.Calculator;
+import ch.nolix.core.math.GlobalCalculator;
 //own imports
 import ch.nolix.core.math.Matrix;
 import ch.nolix.core.testing.basetest.TestCase;
@@ -97,7 +97,7 @@ public final class MatrixTest extends Test {
 		
 		//verification
 		final var expectedResult = new Matrix(3, 3).setValues(1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0);
-		expect(testUnit.getProduct(result).equalsApproximatively(expectedResult, Calculator.DEFAULT_MAX_DEVIATION));
+		expect(testUnit.getProduct(result).equalsApproximatively(expectedResult, GlobalCalculator.DEFAULT_MAX_DEVIATION));
 	}
 	
 	//method
@@ -114,7 +114,7 @@ public final class MatrixTest extends Test {
 		//verification
 		final var expectedResult =
 		new Matrix(4, 4).setValues(1.0, 0.0, 0.0, 0.0,	0.0, 1.0, 0.0, 0.0,	0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0);
-		expect(testUnit.getProduct(result).equalsApproximatively(expectedResult, Calculator.DEFAULT_MAX_DEVIATION));
+		expect(testUnit.getProduct(result).equalsApproximatively(expectedResult, GlobalCalculator.DEFAULT_MAX_DEVIATION));
 	}
 	
 	//method

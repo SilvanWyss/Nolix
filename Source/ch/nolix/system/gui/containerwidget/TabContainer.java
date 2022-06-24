@@ -6,7 +6,7 @@ import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.math.Calculator;
+import ch.nolix.core.math.GlobalCalculator;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.functionuniversalapi.IElementTaker;
 import ch.nolix.system.element.MultiValue;
@@ -314,7 +314,7 @@ public final class TabContainer extends ContainerWidget<TabContainer, TabContain
 			
 		//Handles the case that the current TabContainer contains tabs.
 		} else {
-			return Calculator.getMax(menu.getWidth(), getRefTabs().getMaxInt(TabContainerTab::getWidth));
+			return GlobalCalculator.getMax(menu.getWidth(), getRefTabs().getMaxInt(TabContainerTab::getWidth));
 		}
 	}
 	

@@ -290,7 +290,7 @@ public final class Matrix {
 		
 		for (var i = 0; i < getRowCount(); i++) {
 			for (var j = 0; j < getColumnCount(); j++) {
-				if (!Calculator.equalsApproximatively(matrix.values[i][j], values[i][j], epsilon)) {
+				if (!GlobalCalculator.equalsApproximatively(matrix.values[i][j], values[i][j], epsilon)) {
 					return false;
 				}
 			}
@@ -740,7 +740,7 @@ public final class Matrix {
 			var isZeroRow = true;
 			
 			for (double v: r) {
-				if (!Calculator.equalsApproximatively(v, 0.0)) {
+				if (!GlobalCalculator.equalsApproximatively(v, 0.0)) {
 					isZeroRow = false;
 					break;
 				}
@@ -966,7 +966,7 @@ public final class Matrix {
 		//Iterates the rows of the current Matrix.
 		for (var i = getRowCount() - 1; i >= 0; i--) {
 			
-			if (Calculator.equalsApproximatively(values[i][i], 0.0)) {
+			if (GlobalCalculator.equalsApproximatively(values[i][i], 0.0)) {
 				throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "has linear depending rows");
 			}
 			
@@ -1120,10 +1120,10 @@ public final class Matrix {
 		final var columnCount = getColumnCount();
 		for (var j = 0; j < columnCount; j++) {
 			if (lineIndex != j) {
-				if (!Calculator.isApproximatelyZero(values[lineIndex - 1][j])) {
+				if (!GlobalCalculator.isApproximatelyZero(values[lineIndex - 1][j])) {
 					return false;
 				}
-			} else if (!Calculator.isApproximatelyOne(values[lineIndex - 1][j])) {
+			} else if (!GlobalCalculator.isApproximatelyOne(values[lineIndex - 1][j])) {
 				return false;
 			}
 		}

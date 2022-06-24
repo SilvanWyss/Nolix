@@ -18,7 +18,7 @@ public final class MathTestPool extends TestPool {
 	public MathTestPool() {
 		super(
 			ARModelTest.class,
-			CalculatorTest.class,
+			GlobalCalculatorTest.class,
 			MatrixTest.class,
 			PolynomTest.class,
 			QuadraticFunctionTest.class

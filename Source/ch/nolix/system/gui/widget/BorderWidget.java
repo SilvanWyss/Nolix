@@ -9,7 +9,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
-import ch.nolix.core.math.Calculator;
+import ch.nolix.core.math.GlobalCalculator;
 import ch.nolix.system.element.MutableOptionalValue;
 import ch.nolix.system.element.MutableValue;
 import ch.nolix.system.valueholder.IntOrPercentageHolder;
@@ -1046,9 +1046,9 @@ extends Widget<BW, BWL> {
 	public final BW setShowAreaXPositionOnScrolledArea(int showAreaXPositionOnScrolledArea) {
 		
 		showAreaXPositionOnScrolledArea =
-		Calculator.getMin(showAreaXPositionOnScrolledArea,	scrolledArea.getWidth() - showArea.getWidth());
+		GlobalCalculator.getMin(showAreaXPositionOnScrolledArea,	scrolledArea.getWidth() - showArea.getWidth());
 		
-		showAreaXPositionOnScrolledArea = Calculator.getMax(showAreaXPositionOnScrolledArea, 0);
+		showAreaXPositionOnScrolledArea = GlobalCalculator.getMax(showAreaXPositionOnScrolledArea, 0);
 		
 		this.showAreaXPositionOnScrolledArea.setValue(showAreaXPositionOnScrolledArea);
 		
@@ -1065,9 +1065,9 @@ extends Widget<BW, BWL> {
 	public final BW setShowAreaYPositionOnScrolledArea(int showAreaYPositionOnScrolledArea) {
 		
 		showAreaYPositionOnScrolledArea =
-		Calculator.getMin(showAreaYPositionOnScrolledArea,	scrolledArea.getHeight() - showArea.getHeight());
+		GlobalCalculator.getMin(showAreaYPositionOnScrolledArea,	scrolledArea.getHeight() - showArea.getHeight());
 		
-		showAreaYPositionOnScrolledArea = Calculator.getMax(showAreaYPositionOnScrolledArea, 0);
+		showAreaYPositionOnScrolledArea = GlobalCalculator.getMax(showAreaYPositionOnScrolledArea, 0);
 		
 		this.showAreaYPositionOnScrolledArea.setValue(showAreaYPositionOnScrolledArea);
 		
@@ -1117,11 +1117,11 @@ extends Widget<BW, BWL> {
 		}
 		
 		if (hasMinHeight()) {
-			height = Calculator.getMax(getMinHeight(), height);
+			height = GlobalCalculator.getMax(getMinHeight(), height);
 		}
 		
 		if (hasMaxHeight()) {
-			height = Calculator.getMin(getMaxHeight(), height);
+			height = GlobalCalculator.getMin(getMaxHeight(), height);
 		}
 		
 		return height;
@@ -1155,11 +1155,11 @@ extends Widget<BW, BWL> {
 		}
 		
 		if (hasMinWidth()) {
-			width = Calculator.getMax(getMinWidth(), width);
+			width = GlobalCalculator.getMax(getMinWidth(), width);
 		}
 		
 		if (hasMaxWidth()) {
-			width = Calculator.getMin(getMaxWidth(), width);
+			width = GlobalCalculator.getMin(getMaxWidth(), width);
 		}
 		
 		return width;

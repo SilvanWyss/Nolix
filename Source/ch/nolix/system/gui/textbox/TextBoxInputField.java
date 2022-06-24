@@ -9,7 +9,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.math.Calculator;
+import ch.nolix.core.math.GlobalCalculator;
 import ch.nolix.system.element.MutableValue;
 import ch.nolix.system.gui.widget.BorderWidget;
 import ch.nolix.system.gui.widget.TextBoxLook;
@@ -90,7 +90,7 @@ final class TextBoxInputField extends TextLineWidget<TextBoxInputField, TextBoxL
 	 * @return the width of the text cursor of the current {@link TextBoxInputField}.
 	 */
 	public int getTextCursorWidth() {
-		return Calculator.getMax(1, (int)(0.08 * getRefActiveLook().getTextSize()));
+		return GlobalCalculator.getMax(1, (int)(0.08 * getRefActiveLook().getTextSize()));
 	}
 	
 	//method

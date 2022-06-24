@@ -2,7 +2,7 @@
 package ch.nolix.system.gui.containerwidget;
 
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.math.Calculator;
+import ch.nolix.core.math.GlobalCalculator;
 import ch.nolix.system.element.MutableOptionalValueExtractor;
 import ch.nolix.system.gui.widget.Widget;
 import ch.nolix.system.gui.widget.WidgetLookState;
@@ -365,16 +365,16 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 	@Override
 	protected int getNaturalContentAreaHeight() {
 		return
-		Calculator.getMax(topLeftSlot.getHeight(), topSlot.getHeight(), topRightSlot.getHeight())
-		+ Calculator.getMax(leftSlot.getHeight(), centerSlot.getHeight(), rightSlot.getHeight())
-		+ Calculator.getMax(bottomLeftSlot.getHeight(), bottomSlot.getHeight(), bottomRightSlot.getHeight());
+		GlobalCalculator.getMax(topLeftSlot.getHeight(), topSlot.getHeight(), topRightSlot.getHeight())
+		+ GlobalCalculator.getMax(leftSlot.getHeight(), centerSlot.getHeight(), rightSlot.getHeight())
+		+ GlobalCalculator.getMax(bottomLeftSlot.getHeight(), bottomSlot.getHeight(), bottomRightSlot.getHeight());
 	}
 	
 	//method
 	@Override
 	protected int getNaturalContentAreaWidth() {
 		return
-		Calculator.getMax(
+		GlobalCalculator.getMax(
 			topLeftSlot.getWidth() + topSlot.getWidth() + topRightSlot.getWidth(),
 			leftSlot.getWidth() + centerSlot.getWidth() + rightSlot.getWidth(),
 			bottomLeftSlot.getWidth() + bottomSlot.getWidth() + bottomRightSlot.getWidth()
