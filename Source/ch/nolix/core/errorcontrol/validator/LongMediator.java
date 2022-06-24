@@ -133,7 +133,7 @@ public class LongMediator extends Mediator {
 		//Asserts that the argument of this long mediator
 		//is bigger than or equals the given value.
 		if (argument < value) {
-			throw new SmallerArgumentException(getArgumentName(), argument, value);
+			throw SmallerArgumentException.forArgumentNameAndArgumentAndLimit(getArgumentName(), argument, value);
 		}
 		
 		return new TerminalLongMediator(getArgumentName(), argument);

@@ -15,6 +15,42 @@ import java.math.BigDecimal;
 @SuppressWarnings("serial")
 public final class SmallerArgumentException extends InvalidArgumentException {
 	
+	//constructor
+	/**
+	 * @param argumentName
+	 * @param argument
+	 * @param limit
+	 * @return a new {@link SmallerArgumentException} for the given argumentName, argument and limit.
+	 * @throws IllegalArgumentException if the given argumentName is null.
+	 * @throws IllegalArgumentException if the given argumentName is blank.
+	 * @throws IllegalArgumentException if the given limit is null.
+	 */
+	public static SmallerArgumentException forArgumentNameAndArgumentAndLimit(
+		final String argumentName,
+		final BigDecimal argument,
+		final BigDecimal limit
+	) {
+		return new SmallerArgumentException(argumentName, argument, limit);
+	}
+	
+	//constructor
+	/**
+	 * @param argumentName
+	 * @param argument
+	 * @param limit
+	 * @return a new {@link SmallerArgumentException} for the given argumentName, argument and limit.
+	 * @throws IllegalArgumentException if the given argumentName is null.
+	 * @throws IllegalArgumentException if the given argumentName is blank.
+	 * @throws IllegalArgumentException if the given limit is null.
+	 */
+	public static SmallerArgumentException forArgumentNameAndArgumentAndLimit(
+		final String argumentName,
+		final double argument,
+		final double limit
+	) {
+		return new SmallerArgumentException(argumentName, argument, limit);
+	}
+	
 	//static method
 	/**
 	 * @param limit
@@ -41,7 +77,7 @@ public final class SmallerArgumentException extends InvalidArgumentException {
 	 * @throws IllegalArgumentException if the given argumentName is blank.
 	 * @throws IllegalArgumentException if the given limit is null.
 	 */
-	public SmallerArgumentException(final String argumentName, final BigDecimal argument, final BigDecimal limit) {
+	private SmallerArgumentException(final String argumentName, final BigDecimal argument, final BigDecimal limit) {
 		
 		//Calls constructor of the base class.
 		super(argumentName,	argument, "is smaller than " + getValidLimitOfLimit(limit));
@@ -58,7 +94,7 @@ public final class SmallerArgumentException extends InvalidArgumentException {
 	 * @throws IllegalArgumentException if the given argumentName is blank.
 	 * @throws IllegalArgumentException if the given limit is null.
 	 */
-	public SmallerArgumentException(final String argumentName, final double argument, final double limit) {
+	private SmallerArgumentException(final String argumentName, final double argument, final double limit) {
 		
 		//Calls constructor of the base class.
 		super(argumentName,	argument, "is smaller than " + limit);
