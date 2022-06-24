@@ -6,6 +6,11 @@ package ch.nolix.core.errorcontrol.exception;
 public final class GeneralException extends RuntimeException {
 	
 	//static method
+	public static GeneralException withErrorMessage(final String errorMessage) {
+		return new GeneralException(errorMessage);
+	}
+	
+	//static method
 	private static String getValidErroMessageOfErrorMessage(final String errorMessage) {
 		
 		if (errorMessage == null) {
@@ -13,14 +18,14 @@ public final class GeneralException extends RuntimeException {
 		}
 		
 		if (errorMessage.isBlank()) {
-			throw new GeneralException("The given error message is blank.");
+			throw GeneralException.withErrorMessage("The given error message is blank.");
 		}
 		
 		return errorMessage;
 	}
 	
 	//constructor
-	public GeneralException(final String errorMessage) {
+	private GeneralException(final String errorMessage) {
 		super(getValidErroMessageOfErrorMessage(errorMessage));
 	}
 }

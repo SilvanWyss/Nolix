@@ -196,7 +196,7 @@ public final class LicenseManager {
 			.readFile(licenseName + "." + LicenseEnvironment.LICENCSE_FILE_EXTENSION);
 		} catch (final Exception exception) {
 			throw
-			new GeneralException(
+			GeneralException.withErrorMessage(
 				"There does not exist a license file with the key for the License '" + licenseName + "'"
 			);
 		}

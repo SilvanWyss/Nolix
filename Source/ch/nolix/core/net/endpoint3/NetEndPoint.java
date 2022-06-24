@@ -160,7 +160,7 @@ public class NetEndPoint extends EndPoint {
 			case Protocol.DATA_HEADER:
 				return reply.getRefOneAttribute();
 			case Protocol.ERROR_HEADER:
-				throw new GeneralException(reply.getOneAttributeHeader());
+				throw GeneralException.withErrorMessage(reply.getOneAttributeHeader());
 			default:
 				throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.REPLY, reply);
 		}
@@ -250,7 +250,7 @@ public class NetEndPoint extends EndPoint {
 			case Protocol.DONE_HEADER:
 				break;
 			case Protocol.ERROR_HEADER:
-				throw new GeneralException(reply.getOneAttributeHeader());
+				throw GeneralException.withErrorMessage(reply.getOneAttributeHeader());
 			default:
 				throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.REPLY, reply);
 		}

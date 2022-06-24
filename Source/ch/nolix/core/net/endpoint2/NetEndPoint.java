@@ -315,7 +315,7 @@ public class NetEndPoint extends EndPoint {
 			case SUCCESS_RESPONSE:
 				return response.getRefContent();
 			case ERROR_RESPONSE:
-				throw new GeneralException(response.getRefContent());
+				throw GeneralException.withErrorMessage(response.getRefContent());
 			default:
 				throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.REPLY,	response);
 		}

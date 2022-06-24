@@ -22,7 +22,7 @@ public final class DatabaseInitializer {
 			case INITIALIZED:
 				break;
 			case INVALID:
-				throw new GeneralException("The database has a schema that does not suit.");
+				throw GeneralException.withErrorMessage("The database has a schema that does not suit.");
 		}
 	}
 }
