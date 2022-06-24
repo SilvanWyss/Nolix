@@ -269,6 +269,22 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * {@inheritDoc}
 	 */
 	@Override
+	public String getHeaderOrEmptyString() {
+		
+		//Handles the case that current BaseNode does not have a header.
+		if (!hasHeader()) {
+			return StringCatalogue.EMPTY_STRING;
+		}
+		
+		//Handles the case that current BaseNode has a header.
+		return getHeader();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public boolean equals(final Object object) {
 		
 		//Handles the case that the given object is not a BaseNode.
@@ -526,6 +542,22 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 */
 	public BaseNode getRefFirstAttribute(final String header) {
 		return getRefFirstAttribute(a -> a.hasHeader(header));
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean hasHeader(final String header) {
+		
+		//Handles the case that current BaseNode does not have a header.
+		if (!hasHeader()) {
+			return false;
+		}
+		
+		//Handles the case that current BaseNode has a header.
+		return getHeader().equals(header);
 	}
 	
 	//method

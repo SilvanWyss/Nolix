@@ -4,6 +4,7 @@ package ch.nolix.core.document.chainednode;
 import ch.nolix.core.attributeuniversalapi.optionalattributeuniversalapi.OptionalHeadered;
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.commontype.constant.CharacterCatalogue;
+import ch.nolix.core.commontype.constant.StringCatalogue;
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.containerapi.IContainer;
 import ch.nolix.core.document.node.BaseNode;
@@ -427,6 +428,22 @@ public final class ChainedNode implements OptionalHeadered {
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getHeaderOrEmptyString() {
+		
+		//Handles the case that current ChainedNode does not have a header.
+		if (!hasHeader()) {
+			return StringCatalogue.EMPTY_STRING;
+		}
+		
+		//Handles the case that current ChainedNode has a header.
+		return getHeader();
+	}
+	
+	//method
+	/**
 	 * @return the next node of the current {@link ChainedNode}.
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link ChainedNode} does not have a next node.
 	 */
@@ -538,6 +555,22 @@ public final class ChainedNode implements OptionalHeadered {
 	@Override
 	public boolean hasHeader() {
 		return (header != null);
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean hasHeader(final String header) {
+		
+		//Handles the case that current ChainedNode does not have a header.
+		if (!hasHeader()) {
+			return false;
+		}
+		
+		//Handles the case that current ChainedNode has a header.
+		return getHeader().equals(header);
 	}
 	
 	//method
@@ -793,7 +826,7 @@ public final class ChainedNode implements OptionalHeadered {
 			return !chainedNode.hasHeader();
 		}
 		
-		return hasSameHeaderAs(chainedNode);
+		return (chainedNode.hasHeader() && hasHeader(chainedNode.getHeader()));
 	}
 	
 	//method
