@@ -4,6 +4,7 @@ package ch.nolix.core.programcontrol.sequencer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.programatom.function.GlobalFunctionHelper;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programcontrol.futureuniversalapi.IFuture;
 import ch.nolix.core.programcontrol.jobpool.JobPool;
@@ -52,7 +53,7 @@ public final class GlobalSequencer {
 	 * @throws ArgumentIsNullException if the given condition is null.
 	 */
 	public static AsSoonAsMediator asSoonAsNoMore(final IBooleanGetter condition) {
-		return new AsSoonAsMediator(IBooleanGetter.createNegator(condition));
+		return new AsSoonAsMediator(GlobalFunctionHelper.createNegatorForCondition(condition));
 	}
 	
 	//static method
@@ -141,7 +142,7 @@ public final class GlobalSequencer {
 	 * @throws ArgumentIsNullException if the given condition is null.
 	 */
 	public static AsLongAsMediator until(final IBooleanGetter condition) {
-		return new AsLongAsMediator(IBooleanGetter.createNegator(condition));
+		return new AsLongAsMediator(GlobalFunctionHelper.createNegatorForCondition(condition));
 	}
 	
 	//static method

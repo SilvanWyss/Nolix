@@ -4,6 +4,7 @@ package ch.nolix.core.programcontrol.sequencer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.programatom.function.GlobalFunctionHelper;
 import ch.nolix.core.time.TimeUnitCatalogue;
 import ch.nolix.coreapi.functionuniversalapi.IBooleanGetter;
 
@@ -92,7 +93,7 @@ public final class ForMaxMillisecondsMediator {
 	public AsLongAsMediator until(final IBooleanGetter condition) {
 		
 		//Calls other method.
-		return asLongAs(IBooleanGetter.createNegator(condition));
+		return asLongAs(GlobalFunctionHelper.createNegatorForCondition(condition));
 	}
 	
 	//method
@@ -122,6 +123,6 @@ public final class ForMaxMillisecondsMediator {
 	public void waitUntil(final IBooleanGetter condition) {
 		
 		//Calls other method.
-		waitAsLongAs(IBooleanGetter.createNegator(condition));
+		waitAsLongAs(GlobalFunctionHelper.createNegatorForCondition(condition));
 	}
 }
