@@ -89,7 +89,7 @@ public final class WebSocketFrame {
 			}
 			
 			if (payloadLength.getValue() > Integer.MAX_VALUE) {
-				throw new UnsupportedCaseException("The payload is longer than " + Integer.MAX_VALUE);
+				throw UnsupportedCaseException.forCase("The payload is longer than " + Integer.MAX_VALUE + ".");
 			}
 			
 			payload = inputStream.readNBytes((int)getPayloadLength());

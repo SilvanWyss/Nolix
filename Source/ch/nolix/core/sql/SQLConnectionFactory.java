@@ -21,7 +21,7 @@ public final class SQLConnectionFactory {
 				);
 			case MYSQL:
 			case ORACLE:
-				throw new UnsupportedCaseException(pSQLDatabaseTarget.getSQLDatabaseEngine().toString());
+				throw UnsupportedCaseException.forCase(pSQLDatabaseTarget.getSQLDatabaseEngine());
 			default:
 				throw InvalidArgumentException.forArgument(pSQLDatabaseTarget.getSQLDatabaseEngine());
 		}
