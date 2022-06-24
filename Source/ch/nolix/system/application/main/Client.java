@@ -225,7 +225,7 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
 	 */
 	private void assertIsConnected() {
 		if (!isConnected()) {
-			throw new UnconnectedArgumentException(this);
+			throw UnconnectedArgumentException.forArgument(this);
 		}
 	}
 	
