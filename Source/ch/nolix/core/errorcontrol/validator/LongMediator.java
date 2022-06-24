@@ -291,7 +291,7 @@ public class LongMediator extends Mediator {
 		
 		//Asserts that the argument of this long mediator is not positive.
 		if (argument > 0) {
-			throw new PositiveArgumentException(getArgumentName(), argument);
+			throw PositiveArgumentException.forArgumentNameAndArgument(getArgumentName(), argument);
 		}
 		
 		return new TerminalLongMediator(getArgumentName(), argument);
