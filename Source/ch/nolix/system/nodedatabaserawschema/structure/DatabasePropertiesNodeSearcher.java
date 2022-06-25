@@ -18,6 +18,6 @@ public final class DatabasePropertiesNodeSearcher {
 	
 	//method
 	public BaseNode getRefSchemaTimestampNodeFromDatabasePropertiesNode(final BaseNode databasePropertiesNode) {
-		return databasePropertiesNode.getRefFirstAttribute(SubNodeHeaderCatalogue.SCHEMA_TIMESTAMP);
+		return databasePropertiesNode.getRefFirstChildNodeWithHeader(SubNodeHeaderCatalogue.SCHEMA_TIMESTAMP);
 	}
 }

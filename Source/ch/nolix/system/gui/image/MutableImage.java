@@ -91,17 +91,17 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 		
 		if (specification.containsChildNodeWithHeader(JPG_STRING)) {
 			
-			final var lJPGString = specification.getRefFirstAttribute(JPG_STRING).getSingleChildNodeHeader();
+			final var lJPGString = specification.getRefFirstChildNodeWithHeader(JPG_STRING).getSingleChildNodeHeader();
 			
 			return fromBytes(Base64.getDecoder().decode(lJPGString.substring(lJPGString.indexOf(',') + 1)));
 		}
 		
 		final var image =
 		MutableImage.withWidthAndHeightAndWhiteColor(
-			specification.getRefFirstAttribute(PascalCaseCatalogue.WIDTH).getSingleChildNodeAsInt(),
-			specification.getRefFirstAttribute(PascalCaseCatalogue.HEIGHT).getSingleChildNodeAsInt()
+			specification.getRefFirstChildNodeWithHeader(PascalCaseCatalogue.WIDTH).getSingleChildNodeAsInt(),
+			specification.getRefFirstChildNodeWithHeader(PascalCaseCatalogue.HEIGHT).getSingleChildNodeAsInt()
 		);
-		image.setPixelArray(specification.getRefFirstAttribute(a -> a.hasHeader(PIXEL_ARRAY_HEADER)));
+		image.setPixelArray(specification.getRefFirstChildNodeThat(a -> a.hasHeader(PIXEL_ARRAY_HEADER)));
 		
 		return image;
 	}

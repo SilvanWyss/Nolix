@@ -23,8 +23,8 @@ public final class ResizeInput implements IResizeInput<ResizeInput> {
 		
 		return
 		withViewAreaWidthAndViewAreaHeight(
-			sizeSpecification.getRefAttributeAt(1).toInt(),
-			sizeSpecification.getRefAttributeAt(2).toInt()
+			sizeSpecification.getRefChildNodeAt1BasedIndex(1).toInt(),
+			sizeSpecification.getRefChildNodeAt1BasedIndex(2).toInt()
 		);
 	}
 	

@@ -424,7 +424,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * @throws NonPositiveArgumentException if the given index is not positive.
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BaseNode} does not contain an attribute at the given index.
 	 */
-	public BaseNode getRefAttributeAt(final int index) {
+	public BaseNode getRefChildNodeAt1BasedIndex(final int index) {
 		return getRefChildNodes().getRefAt(index);
 	}
 	
@@ -440,8 +440,8 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * @param header
 	 * @return the attributes of the current {@link BaseNode} that have the given header.
 	 */
-	public IContainer<BaseNode> getRefAttributes(final String header) {
-		return getRefAttributes(a -> a.hasHeader(header));
+	public IContainer<BaseNode> getRefChildNodesWithHeader(final String header) {
+		return getRefChildNodesThat(a -> a.hasHeader(header));
 	}
 	
 	//method declaration
@@ -449,20 +449,10 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * @param selector
 	 * @return the attributes the given selector selects from the current {@link BaseNode}.
 	 */
-	public IContainer<BaseNode> getRefAttributes(final IElementTakerBooleanGetter<BaseNode> selector) {
+	public IContainer<BaseNode> getRefChildNodesThat(final IElementTakerBooleanGetter<BaseNode> selector) {
 		return getRefChildNodes().getRefSelected(selector);
 	}
 	
-	//method
-	/**
-	 * @param header
-	 * @return the attributes of the first attribute with the given header
-	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link Node} does not contain an attribute with the given header
-	 */
-	public IContainer<BaseNode> getRefAttributesOfFirstAttribute(String header) {
-		return getRefChildNodes().getRefFirst(a -> a.hasHeader(header)).getRefChildNodes();
-	}
-
 	//method
 	/**
 	 * @return the one attribute of the current {@link Node}
@@ -471,31 +461,6 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 */
 	public BaseNode getRefSingleChildNode() {
 		return getRefChildNodes().getRefOne();
-	}
-	
-	//method
-	/**
-	 * @param header
-	 * @return the one attribute of the first attribute with the given header
-	 * @throws ArgumentDoesNotHaveAttributeException
-	 * if the current {@link Node} does not contain an attribute with the given header.
-	 * @throws EmptyArgumentException
-	 * if the first attribute of the current {@link Node} with the given header does not contain an attribute.
-	 * @throws InvalidArgumentException
-	 * if the first attribute of the current {@link Node} with the given header contains several attributes.
-	 */
-	public BaseNode getRefOneAttributeOfFirstAttribute(String header) {
-		return getRefChildNodes().getRefFirst(a -> a.hasHeader(header)).getRefSingleChildNode();
-	}
-	
-	//method
-	/**
-	 * @param header
-	 * @return a {@link String} representation
-	 * of the one attribute of the first attribute with the given header of the current {@link Node}.
-	 */
-	public String getRefOneAttributeOfFirstAttributeAsString(String header) {
-		return getRefOneAttributeOfFirstAttribute(header).toString();
 	}
 	
 	//method
@@ -514,7 +479,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * @throws ArgumentDoesNotHaveAttributeException if
 	 * the current {@link BaseNode} does not contain an attribute the given selector selects.
 	 */
-	public BaseNode getRefFirstAttribute(IElementTakerBooleanGetter<BaseNode> selector) {
+	public BaseNode getRefFirstChildNodeThat(IElementTakerBooleanGetter<BaseNode> selector) {
 		return getRefChildNodes().getRefFirst(selector);
 	}
 	
@@ -523,7 +488,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * @param selector
 	 * @return the first attribute the given selector selects from the current {@link BaseNode} or null.
 	 */
-	public BaseNode getRefFirstAttributeOrNull(IElementTakerBooleanGetter<BaseNode> selector) {
+	public BaseNode getRefFirstChildNodeThatOrNull(IElementTakerBooleanGetter<BaseNode> selector) {
 		return getRefChildNodes().getRefFirstOrNull(selector);
 	}
 	
@@ -532,8 +497,8 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * @param header
 	 * @return the first attribute of the current {@link BaseNode} with the given header.
 	 */
-	public BaseNode getRefFirstAttribute(final String header) {
-		return getRefFirstAttribute(a -> a.hasHeader(header));
+	public BaseNode getRefFirstChildNodeWithHeader(final String header) {
+		return getRefFirstChildNodeThat(a -> a.hasHeader(header));
 	}
 	
 	//method
@@ -742,7 +707,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 			throw UnrepresentingArgumentException.forArgumentAndType(this, IntPair.class);
 		}
 		
-		return new IntPair(getRefAttributeAt(1).toInt(), getRefAttributeAt(2).toInt());
+		return new IntPair(getRefChildNodeAt1BasedIndex(1).toInt(), getRefChildNodeAt1BasedIndex(2).toInt());
 	}
 	
 	//method

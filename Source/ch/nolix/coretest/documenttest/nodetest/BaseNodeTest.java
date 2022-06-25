@@ -140,9 +140,9 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		testUnit.addChildNode(Node.withHeader("a"), Node.withHeader("b"), Node.withHeader("c"));
 		
 		//execution
-		final var result1 = testUnit.getRefAttributeAt(1);
-		final var result2 = testUnit.getRefAttributeAt(2);
-		final var result3 = testUnit.getRefAttributeAt(3);
+		final var result1 = testUnit.getRefChildNodeAt1BasedIndex(1);
+		final var result2 = testUnit.getRefChildNodeAt1BasedIndex(2);
+		final var result3 = testUnit.getRefChildNodeAt1BasedIndex(3);
 		
 		//verification part 1
 		expect(result1.toString()).isEqualTo("a");
@@ -150,9 +150,9 @@ public abstract class BaseNodeTest extends ObjectTest<BaseNode> {
 		expect(result3.toString()).isEqualTo("c");
 		
 		//verification part 2
-		expectRunning(() -> testUnit.getRefAttributeAt(-1)).throwsException().ofType(NonPositiveArgumentException.class);
-		expectRunning(() -> testUnit.getRefAttributeAt(0)).throwsException().ofType(NonPositiveArgumentException.class);
-		expectRunning(() -> testUnit.getRefAttributeAt(4)).throwsException().ofType(InvalidArgumentException.class);
+		expectRunning(() -> testUnit.getRefChildNodeAt1BasedIndex(-1)).throwsException().ofType(NonPositiveArgumentException.class);
+		expectRunning(() -> testUnit.getRefChildNodeAt1BasedIndex(0)).throwsException().ofType(NonPositiveArgumentException.class);
+		expectRunning(() -> testUnit.getRefChildNodeAt1BasedIndex(4)).throwsException().ofType(InvalidArgumentException.class);
 	}
 	
 	//method

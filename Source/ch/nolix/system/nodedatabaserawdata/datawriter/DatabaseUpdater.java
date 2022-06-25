@@ -51,7 +51,7 @@ final class DatabaseUpdater {
 		
 		final var multiReferenceColumnIndex = multiReferenceColumnInfo.getColumnIndexOnEntityNode();
 		
-		final var multiReferenceColumnNode = entityNode.getRefAttributeAt(multiReferenceColumnIndex);
+		final var multiReferenceColumnNode = entityNode.getRefChildNodeAt1BasedIndex(multiReferenceColumnIndex);
 		
 		multiReferenceColumnNode.removeAttributes();
 	}
@@ -71,7 +71,7 @@ final class DatabaseUpdater {
 		
 		final var multiValueColumnIndex = multiValueColumnInfo.getColumnIndexOnEntityNode();
 		
-		final var multiValueColumnNode = entityNode.getRefAttributeAt(multiValueColumnIndex);
+		final var multiValueColumnNode = entityNode.getRefChildNodeAt1BasedIndex(multiValueColumnIndex);
 		
 		multiValueColumnNode.removeAttributes();
 	}
@@ -92,7 +92,7 @@ final class DatabaseUpdater {
 		
 		final var multiReferenceColumnIndex = multiReferencedColumnInfo.getColumnIndexOnEntityNode();
 		
-		final var multiReferenceColumnNode = entityNode.getRefAttributeAt(multiReferenceColumnIndex);
+		final var multiReferenceColumnNode = entityNode.getRefChildNodeAt1BasedIndex(multiReferenceColumnIndex);
 		
 		multiReferenceColumnNode.removeFirstChildNodeWithHeader(referencedEntityId);
 	}
@@ -113,7 +113,7 @@ final class DatabaseUpdater {
 		
 		final var multiValueColumnIndex = multiValueColumnInfo.getColumnIndexOnEntityNode();
 		
-		final var multiValueColumnNode = entityNode.getRefAttributeAt(multiValueColumnIndex);
+		final var multiValueColumnNode = entityNode.getRefChildNodeAt1BasedIndex(multiValueColumnIndex);
 		
 		multiValueColumnNode.removeFirstChildNodeWithHeader(entry);
 	}
@@ -167,7 +167,7 @@ final class DatabaseUpdater {
 		
 		final var multiReferenceColumnIndex = multiReferenceColumnInfo.getColumnIndexOnEntityNode();
 		
-		final var multiReferenceColumnNode = entityNode.getRefAttributeAt(multiReferenceColumnIndex);
+		final var multiReferenceColumnNode = entityNode.getRefChildNodeAt1BasedIndex(multiReferenceColumnIndex);
 		
 		multiReferenceColumnNode.addChildNode(Node.withHeader(referencedEntityId));
 	}
@@ -188,7 +188,7 @@ final class DatabaseUpdater {
 		
 		final var multiValueColumnIndex = multiValueColumnInfo.getColumnIndexOnEntityNode();
 		
-		final var multiValueColumnNode = entityNode.getRefAttributeAt(multiValueColumnIndex);
+		final var multiValueColumnNode = entityNode.getRefChildNodeAt1BasedIndex(multiValueColumnIndex);
 		
 		multiValueColumnNode.addChildNode(Node.withHeader(entry));
 	}
@@ -262,7 +262,7 @@ final class DatabaseUpdater {
 			
 			final var columnInfo = tableInfo.getColumnInfoByColumnName(ucf.getColumnName());
 			final var columnIndex = columnInfo.getColumnIndexOnEntityNode();
-			final var contentFieldNode = recordNode.getRefAttributeAt(columnIndex);
+			final var contentFieldNode = recordNode.getRefChildNodeAt1BasedIndex(columnIndex);
 						
 			final var value = ucf.getValueAsStringOrNull();
 			if (value == null) {

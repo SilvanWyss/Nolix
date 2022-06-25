@@ -39,7 +39,7 @@ public final class LoadedRecordDTOMapper {
 		final var contentFields = new LinkedList<ILoadedContentFieldDTO>();
 		for (final var ci : tableInfo.getColumnInfos()) {
 			
-			final var contentFieldNode = entityNode.getRefAttributeAt(ci.getColumnIndexOnEntityNode());
+			final var contentFieldNode = entityNode.getRefChildNodeAt1BasedIndex(ci.getColumnIndexOnEntityNode());
 			
 			contentFields.addAtEnd(contentFieldDTOMapper.createContentFieldDTOFromContentFieldNode(contentFieldNode, ci));
 		}

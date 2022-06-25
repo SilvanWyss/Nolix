@@ -78,7 +78,7 @@ public final class InternalDataReader {
 		
 		final var multiReferenceColumnIndex = multiReferenceColumnInfo.getColumnIndexOnEntityNode();
 		
-		final var multiValueNode = entityNode.getRefAttributeAt(multiReferenceColumnIndex);
+		final var multiValueNode = entityNode.getRefChildNodeAt1BasedIndex(multiReferenceColumnIndex);
 		
 		return multiValueNode.getHeadersOfAttributes();
 	}
@@ -97,7 +97,7 @@ public final class InternalDataReader {
 		
 		final var multiValueColumnIndex = multiValueColumnInfo.getColumnIndexOnEntityNode();
 		
-		final var multiValueNode = entityNode.getRefAttributeAt(multiValueColumnIndex);
+		final var multiValueNode = entityNode.getRefChildNodeAt1BasedIndex(multiValueColumnIndex);
 		
 		return
 		multiValueNode

@@ -25,7 +25,7 @@ public final class Discrete2DPoint implements Specified {
 	 */
 	public static Discrete2DPoint fromSpecification(final BaseNode specification) {
 		return
-		new Discrete2DPoint(specification.getRefAttributeAt(1).toInt(), specification.getRefAttributeAt(2).toInt());
+		new Discrete2DPoint(specification.getRefChildNodeAt1BasedIndex(1).toInt(), specification.getRefChildNodeAt1BasedIndex(2).toInt());
 	}
 	
 	//attributes

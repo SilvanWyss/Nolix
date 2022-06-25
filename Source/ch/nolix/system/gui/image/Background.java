@@ -59,8 +59,8 @@ public final class Background extends MutableElement<Background> {
 		this::setImage,
 		s ->
 		new Pair<>(
-			MutableImage.fromSpecification(s.getRefAttributeAt(1)),
-			ImageApplication.fromSpecification(s.getRefAttributeAt(2))
+			MutableImage.fromSpecification(s.getRefChildNodeAt1BasedIndex(1)),
+			ImageApplication.fromSpecification(s.getRefChildNodeAt1BasedIndex(2))
 		),
 		bi -> Node.withAttribute(bi.getRefElement1().getSpecification(), bi.getRefElement2().getSpecification())
 	);

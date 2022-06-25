@@ -23,14 +23,14 @@ public final class DatabaseNodeSearcher {
 	
 	//method
 	public BaseNode getRefDatabasePropertiesNodeFromDatabaseNode(final BaseNode databaseNode) {
-		return databaseNode.getRefFirstAttribute(SubNodeHeaderCatalogue.DATABASE_PROPERTIES);
+		return databaseNode.getRefFirstChildNodeWithHeader(SubNodeHeaderCatalogue.DATABASE_PROPERTIES);
 	}
 	
 	//method
 	public BaseNode getRefTableNodeByTableIdFromDatabaseNode(final BaseNode databaseNode, final String tableId) {
 		return
 		getRefTableNodesFromDatabaseNode(databaseNode).getRefFirst(
-			tsn -> tsn.getRefFirstAttribute(SubNodeHeaderCatalogue.ID).getRefSingleChildNode().hasHeader(tableId)
+			tsn -> tsn.getRefFirstChildNodeWithHeader(SubNodeHeaderCatalogue.ID).getRefSingleChildNode().hasHeader(tableId)
 		);
 	}
 	
@@ -38,13 +38,13 @@ public final class DatabaseNodeSearcher {
 	public BaseNode getRefTableNodeByTableNameFromDatabaseNode(final BaseNode databaseNode, final String tableName) {
 		return
 		getRefTableNodesFromDatabaseNode(databaseNode).getRefFirst(
-			tsn -> tsn.getRefFirstAttribute(SubNodeHeaderCatalogue.NAME).getRefSingleChildNode().hasHeader(tableName)
+			tsn -> tsn.getRefFirstChildNodeWithHeader(SubNodeHeaderCatalogue.NAME).getRefSingleChildNode().hasHeader(tableName)
 		);
 	}
 	
 	//method
 	public IContainer<BaseNode> getRefTableNodesFromDatabaseNode(final BaseNode databaseNode) {
-		return databaseNode.getRefAttributes(SubNodeHeaderCatalogue.TABLE);
+		return databaseNode.getRefChildNodesWithHeader(SubNodeHeaderCatalogue.TABLE);
 	}
 	
 	//method

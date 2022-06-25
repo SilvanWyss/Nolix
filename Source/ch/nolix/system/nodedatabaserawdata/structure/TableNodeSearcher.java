@@ -11,26 +11,26 @@ public final class TableNodeSearcher {
 	//method
 	public BaseNode getRefRecordNodeFromTableNode(final BaseNode tableNode, final String id) {
 		return
-		tableNode.getRefFirstAttribute(
+		tableNode.getRefFirstChildNodeThat(
 			a ->
 			a.hasHeader(SubNodeHeaderCatalogue.RECORD)
-			&& a.getRefAttributeAt(FieldIndexCatalogue.ID_INDEX).hasHeader(id)
+			&& a.getRefChildNodeAt1BasedIndex(FieldIndexCatalogue.ID_INDEX).hasHeader(id)
 		);
 	}
 	
 	//method
 	public BaseNode getRefEntityNodeFromTableNodeOrNull(final BaseNode tableNode, final String id) {
 		return
-		tableNode.getRefFirstAttributeOrNull(
+		tableNode.getRefFirstChildNodeThatOrNull(
 			a ->
 			a.hasHeader(SubNodeHeaderCatalogue.RECORD)
-			&& a.getRefAttributeAt(FieldIndexCatalogue.ID_INDEX).hasHeader(id)
+			&& a.getRefChildNodeAt1BasedIndex(FieldIndexCatalogue.ID_INDEX).hasHeader(id)
 		);
 	}
 	
 	//method
 	public IContainer<BaseNode> getRefRecordNodesFromTableNode(final BaseNode tableNode) {
-		return tableNode.getRefAttributes(SubNodeHeaderCatalogue.RECORD);
+		return tableNode.getRefChildNodesWithHeader(SubNodeHeaderCatalogue.RECORD);
 	}
 	
 	//method
@@ -39,7 +39,7 @@ public final class TableNodeSearcher {
 		tableNode.removeAndGetRefFirstAttribute(
 			a ->
 			a.hasHeader(SubNodeHeaderCatalogue.RECORD)
-			&& a.getRefAttributeAt(FieldIndexCatalogue.ID_INDEX).hasHeader(id)
+			&& a.getRefChildNodeAt1BasedIndex(FieldIndexCatalogue.ID_INDEX).hasHeader(id)
 		);
 	}
 	
@@ -63,7 +63,7 @@ public final class TableNodeSearcher {
 					return false;
 				}
 				
-				final var field = a.getRefAttributeAt(valueIndex);
+				final var field = a.getRefChildNodeAt1BasedIndex(valueIndex);
 				return (field.hasHeader(value) || field.containsChildNodeWithHeader(value));
 			}
 		);
@@ -79,7 +79,7 @@ public final class TableNodeSearcher {
 		tableNode.containsChildNodeThat(
 			a ->
 			a.hasHeader(SubNodeHeaderCatalogue.RECORD)
-			&& a.getRefAttributeAt(valueIndex).hasHeader(header)
+			&& a.getRefChildNodeAt1BasedIndex(valueIndex).hasHeader(header)
 		);
 	}
 }

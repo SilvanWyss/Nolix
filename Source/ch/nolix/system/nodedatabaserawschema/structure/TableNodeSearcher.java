@@ -23,17 +23,17 @@ public class TableNodeSearcher {
 	
 	//method
 	public final IContainer<BaseNode> getRefColumnNodesFromTableNode(final BaseNode tableNode) {
-		return tableNode.getRefAttributes(SubNodeHeaderCatalogue.COLUMN);
+		return tableNode.getRefChildNodesWithHeader(SubNodeHeaderCatalogue.COLUMN);
 	}
 	
 	//method
 	public final BaseNode getRefIdNodeFromTableNode(final BaseNode tableNode) {
-		return tableNode.getRefFirstAttribute(SubNodeHeaderCatalogue.ID);
+		return tableNode.getRefFirstChildNodeWithHeader(SubNodeHeaderCatalogue.ID);
 	}
 	
 	//method
 	public final BaseNode getRefNameNodeFromTableNode(final BaseNode tableNode) {
-		return tableNode.getRefFirstAttribute(SubNodeHeaderCatalogue.NAME);
+		return tableNode.getRefFirstChildNodeWithHeader(SubNodeHeaderCatalogue.NAME);
 	}
 	
 	//method
