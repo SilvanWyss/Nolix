@@ -220,16 +220,8 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	/**
 	 * @return true if the current {@link BaseNode} contains exactly 1 attribute.
 	 */
-	public boolean containsOneAttribute() {
+	public boolean containsOneChildNode() {
 		return getRefChildNodes().containsOne();
-	}
-	
-	//method
-	/**
-	 * @return true if the current {@link BaseNode} contains exactly 1 attribute, that has a header.
-	 */
-	public boolean containsOneAttributeWithHeader() {
-		return (containsOneAttribute() && getRefSingleChildNode().hasHeader());
 	}
 		
 	//method
