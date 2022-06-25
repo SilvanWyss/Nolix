@@ -3,7 +3,7 @@ package ch.nolix.core.attributeuniversalapi.optionalattributeuniversalapi;
 
 //interface
 /**
- * A {@link OptionalNamed} can have a name
+ * A {@link OptionalNamed} can have a name.
  * 
  * @author Silvan Wyss
  * @date 2020-03-29
@@ -16,7 +16,7 @@ public interface OptionalNamed {
 	 */
 	String getName();
 	
-	//method
+	//method declaration
 	/**
 	 * @return the name of the current {@link OptionalNamed} in quotes.
 	 */
@@ -33,5 +33,5 @@ public interface OptionalNamed {
 	 * @param name
 	 * @return true if the current {@link OptionalNamed} has the given name.
 	 */
-	boolean hasName(final String name);
+	boolean hasName(String name);
 }
