@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.coreapi.documentapi.nodeapi;
 
+//own imports
 import ch.nolix.coreapi.attributeuniversalapi.optionalattributeuniversalapi.OptionalHeadered;
 import ch.nolix.coreapi.containerapi.IContainer;
 
@@ -8,7 +9,7 @@ import ch.nolix.coreapi.containerapi.IContainer;
 /**
  * A {@link INode} has the following attributes.
  * -0 or 1 header
- * -an arbitrary number of attributes which are a {@link INode} themselves
+ * -an arbitrary number of child {@link INode}s
  * 
  * A sub type of {@link INode} may be or may be not mutable.
  * 
@@ -20,83 +21,86 @@ public interface INode<N extends INode<N>> extends OptionalHeadered {
 	
 	//method declaration
 	/**
-	 * @return true if the current {@link INode} contains attributes.
+	 * @return true if the current {@link INode} contains child {@link INode}s.
 	 */
-	boolean containsAttributes();
+	boolean containsChildNodes();
 	
 	//method declaration
 	/**
 	 * @param header
-	 * @return true if the current {@link INode} contains an attribute with the given header.
+	 * @return true if the current {@link INode} contains a child {@link INode} with the given header.
 	 */
-	boolean containsAttributeWithHeader(String header);
+	boolean containsChildNodeWithHeader(String header);
 	
 	//method declaration
 	/**
-	 * @return true if the current {@link INode} contains 1 attribute.
+	 * @return true if the current {@link INode} contains 1 child {@link INode}.
 	 */
-	boolean containsOneAttribute();
+	boolean containsOneChildNode();
 		
 	//method declaration
 	/**
-	 * @return the number of attributes of the current {@link INode}.
+	 * @return the number of child {@link INode}s of the current {@link INode}.
 	 */
-	int getAttribtueCount();
+	int getChildNodeCount();
 	
 	//method declaration
 	/**
-	 * @return the attributes of the current {@link INode}.
+	 * @return the child {@link INode}s of the current {@link INode}.
 	 */
-	IContainer<N> getRefAttributes();
+	IContainer<N> getRefChildNodes();
 	
 	//method declaration
 	/**
-	 * @return the single attribute of the current {@link INode}.
+	 * @return the single child {@link INode} of the current {@link INode}.
 	 * @throws RuntimeException if
-	 * the current {@link INode} does not contain attributes or contains several attributes.
+	 * the current {@link INode} does not contain child {@link INode}s or contains several child {@link INode}s.
 	 */
-	N getRefSingleAttribute();
+	N getRefSingleChildNode();
 	
 	//method declaration
 	/**
-	 * @return the double the single attribute of the current {@link INode} represents.
+	 * @return the double the single child {@link INode} of the current {@link INode} represents.
 	 * @throws RuntimeException if
-	 * the current {@link INode} does not contain attributes or contains several attributes.
-	 * @throws RuntimeException if the single attribute of the current {@link INode} does not represent a double.
+	 * the current {@link INode} does not contain child {@link INode}s or contains several child {@link INode}s.
+	 * @throws RuntimeException if
+	 * the single child {@link INode} of the current {@link INode} does not represent a double.
 	 */
-	double getSingleAttributeAsDouble();
+	double getSingleChildNodeAsDouble();
 	
 	//method declaration
 	/**
-	 * @return the int the single attribute of the current {@link INode} represents.
+	 * @return the int the single child {@link INode} of the current {@link INode} represents.
 	 * @throws RuntimeException if
-	 * the current {@link INode} does not contain attributes or contains several attributes.
-	 * @throws RuntimeException if the single attribute of the current {@link INode} does not represent an int.
+	 * the current {@link INode} does not contain child {@link INode}s or contains several child {@link INode}s.
+	 * @throws RuntimeException if
+	 * the single child {@link INode} of the current {@link INode} does not represent an int.
 	 */
-	int getSingleAttributeAsInt();
+	int getSingleChildNodeAsInt();
 	
 	//method declaration
 	/**
-	 * @return the long the single attribute of the current {@link INode} represents.
+	 * @return the long the single child {@link INode} of the current {@link INode} represents.
 	 * @throws RuntimeException if
-	 * the current {@link INode} does not contain attributes or contains several attributes.
-	 * @throws RuntimeException if the single attribute of the current {@link INode} does not represent a long.
+	 * the current {@link INode} does not contain child {@link INode}s or contains several child {@link INode}s.
+	 * @throws RuntimeException if
+	 * the single child {@link INode} of the current {@link INode} does not represent a long.
 	 */
-	int getSingleAttributeAsLong();
+	int getSingleChildNodeAsLong();
 	
 	//method declaration
 	/**
-	 * @return the header of the signle attribute of the current {@link INode}.
+	 * @return the header of the single child {@link INode} of the current {@link INode}.
 	 * @throws RuntimeException if
-	 * the current {@link INode} does not contain attributes or contains several attributes.
-	 * @throws RuntimeException if the single attribute of the current {@link INode} does not have a header.
+	 * the current {@link INode} does not contain child {@link INode}s or contains several child {@link INode}s.
+	 * @throws RuntimeException if the single child {@link INode} of the current {@link INode} does not have a header.
 	 */
-	String getSingleAttributeHeader();
+	String getSingleChildNodeHeader();
 	
 	//method declaration
 	/**
 	 * @return true if the current {@link INode} is blank.
-	 * A {@link INode} that does not have a header and that does not contain attributes is blank.
+	 * A {@link INode}, that does not have a header and that does not contain child {@link INode}s, is blank.
 	 */
 	boolean isBlank();
 	
