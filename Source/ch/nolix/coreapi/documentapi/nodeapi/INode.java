@@ -86,7 +86,7 @@ public interface INode<N extends INode<N>> extends OptionalHeadered {
 	 * @throws RuntimeException if
 	 * the single child {@link INode} of the current {@link INode} does not represent a long.
 	 */
-	int getSingleChildNodeAsLong();
+	long getSingleChildNodeAsLong();
 	
 	//method declaration
 	/**
