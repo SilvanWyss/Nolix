@@ -116,7 +116,7 @@ public interface INode<N extends INode<N>> extends OptionalHeadered {
 	 * @return the double the current {@link INode} represents.
 	 * @throws RuntimeException if the current {@link INode} does not represent a double.
 	 */
-	boolean toDouble();
+	double toDouble();
 	
 	//method declaration
 	/**
