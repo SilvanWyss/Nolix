@@ -3,7 +3,6 @@ package ch.nolix.core.document.xml;
 
 //own imports
 import ch.nolix.core.attributeuniversalapi.mutableoptionalattributeuniversalapi.OptionalNamable;
-import ch.nolix.core.attributeuniversalapi.mutableoptionalattributeuniversalapi.OptionalValueable;
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.commontype.constant.CharacterCatalogue;
 import ch.nolix.core.container.main.LinkedList;
@@ -14,7 +13,7 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.IContainer;
 
 //class
-public final class XMLNode implements OptionalNamable<XMLNode>, OptionalValueable<XMLNode, String> {
+public final class XMLNode implements OptionalNamable<XMLNode> {
 	
 	//optional attribute
 	private String name;
@@ -94,7 +93,6 @@ public final class XMLNode implements OptionalNamable<XMLNode>, OptionalValueabl
 	}
 	
 	//method
-	@Override
 	public String getValue() {
 		
 		supposeHasValue();
@@ -152,7 +150,6 @@ public final class XMLNode implements OptionalNamable<XMLNode>, OptionalValueabl
 	}
 	
 	//method
-	@Override
 	public boolean hasValue() {
 		return (value != null);
 	}
@@ -183,7 +180,6 @@ public final class XMLNode implements OptionalNamable<XMLNode>, OptionalValueabl
 	}
 	
 	//method
-	@Override
 	public XMLNode removeValue() {
 		
 		value = null;
@@ -203,7 +199,6 @@ public final class XMLNode implements OptionalNamable<XMLNode>, OptionalValueabl
 	}
 	
 	//method
-	@Override
 	public XMLNode setValue(final String value) {
 		
 		GlobalValidator.assertThat(value).isNotEmpty();
