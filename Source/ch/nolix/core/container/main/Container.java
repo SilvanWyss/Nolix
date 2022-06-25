@@ -43,6 +43,9 @@ import ch.nolix.coreapi.functionuniversalapi.IElementTakerLongGetter;
  */
 public abstract class Container<E> implements IContainer<E> {
 	
+	//static attribute
+	private static final Random random = new Random();
+	
 	//method
 	/**
 	 * The complexity of this implementation is O(1).
@@ -1035,7 +1038,7 @@ public abstract class Container<E> implements IContainer<E> {
 			throw EmptyArgumentException.forArgument(this);
 		}
 		
-		return getRefAt(new Random().nextInt(getElementCount()) + 1);
+		return getRefAt(random.nextInt(getElementCount()) + 1);
 	}
 	
 	//method
