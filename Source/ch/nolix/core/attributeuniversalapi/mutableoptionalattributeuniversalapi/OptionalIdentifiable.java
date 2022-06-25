@@ -1,17 +1,17 @@
 //package declaration
 package ch.nolix.core.attributeuniversalapi.mutableoptionalattributeuniversalapi;
 
-import ch.nolix.core.attributeuniversalapi.optionalattributeuniversalapi.OptionalIdentified;
+import ch.nolix.core.attributeuniversalapi.optionalattributeuniversalapi.OptionalIdentifiedByLong;
 
 //interface
 /**
- * A {@link OptionalIdentified} is a {@link OptionalIdentified} whose id can be set and removed programmatically.
+ * A {@link OptionalIdentifiedByLong} is a {@link OptionalIdentifiedByLong} whose id can be set and removed programmatically.
  * 
  * @author Silvan Wyss
  * @date 2020-03-29
- * @param <OI> is the type of a {@link OptionalIdentified}.
+ * @param <OI> is the type of a {@link OptionalIdentifiedByLong}.
  */
-public interface OptionalIdentifiable<OI extends OptionalIdentifiable<OI>> extends OptionalIdentified {
+public interface OptionalIdentifiable<OI extends OptionalIdentifiable<OI>> extends OptionalIdentifiedByLong {
 	
 	//method declaration
 	/**
