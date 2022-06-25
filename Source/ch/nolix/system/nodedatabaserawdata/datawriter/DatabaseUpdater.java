@@ -53,7 +53,7 @@ final class DatabaseUpdater {
 		
 		final var multiReferenceColumnNode = entityNode.getRefChildNodeAt1BasedIndex(multiReferenceColumnIndex);
 		
-		multiReferenceColumnNode.removeAttributes();
+		multiReferenceColumnNode.removeChildNodes();
 	}
 	
 	//method
@@ -73,7 +73,7 @@ final class DatabaseUpdater {
 		
 		final var multiValueColumnNode = entityNode.getRefChildNodeAt1BasedIndex(multiValueColumnIndex);
 		
-		multiValueColumnNode.removeAttributes();
+		multiValueColumnNode.removeChildNodes();
 	}
 	
 	//method

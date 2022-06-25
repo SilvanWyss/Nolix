@@ -80,7 +80,7 @@ public final class InternalDataReader {
 		
 		final var multiValueNode = entityNode.getRefChildNodeAt1BasedIndex(multiReferenceColumnIndex);
 		
-		return multiValueNode.getHeadersOfAttributes();
+		return multiValueNode.getChildNodesHeaders();
 	}
 	
 	//method

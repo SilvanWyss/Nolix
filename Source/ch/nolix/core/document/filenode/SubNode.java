@@ -140,9 +140,9 @@ public final class SubNode extends BaseNode {
 	 * the current {@link Node} does not contain an attribute the given selector selects.
 	 */
 	@Override
-	public BaseNode removeAndGetRefFirstAttribute(final IElementTakerBooleanGetter<BaseNode> selector) {
+	public BaseNode removeAndGetRefFirstChildNodeThat(final IElementTakerBooleanGetter<BaseNode> selector) {
 		
-		final var attribute = internalSpecification.removeAndGetRefFirstAttribute(selector::getOutput);
+		final var attribute = internalSpecification.removeAndGetRefFirstChildNodeThat(selector::getOutput);
 		parentFileNode.save();
 		
 		return attribute;
@@ -167,11 +167,11 @@ public final class SubNode extends BaseNode {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void replaceFirstAttributeHavingGivenHeaderWithGivenAttribute(
+	public void replaceFirstChildNodeWithGivenHeaderByGivenChildNode(
 		final String header,
 		final BaseNode attribute
 	) {
-		internalSpecification.replaceFirstAttributeHavingGivenHeaderWithGivenAttribute(header, attribute);
+		internalSpecification.replaceFirstChildNodeWithGivenHeaderByGivenChildNode(header, attribute);
 		parentFileNode.save();
 	}
 	
@@ -194,8 +194,8 @@ public final class SubNode extends BaseNode {
 	}
 
 	@Override
-	public void removeAttributes() {
-		internalSpecification.removeAttributes();
+	public void removeChildNodes() {
+		internalSpecification.removeChildNodes();
 		parentFileNode.save();
 	}
 

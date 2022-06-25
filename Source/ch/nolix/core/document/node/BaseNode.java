@@ -322,39 +322,9 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	
 	//method
 	/**
-	 * @return a {@link String} representations of the attributes of the current {@link BaseNode}.
-	 */
-	public IContainer<String> getAttributesAsStrings() {
-		return getRefChildNodes().to(BaseNode::toString);
-	}
-	
-	//method
-	/**
-	 * @return the integer the first attribute of the current {@link BaseNode} represents.
-	 * @throws InvalidArgumentException if the current {@link BaseNode} does not have attributes.
-	 * @throws InvalidArgumentException
-	 * if the first attribute of the current {@link BaseNode} does not represent an integer.
-	 */
-	public int getFirstAttributeAsInt() {
-		return getRefFirstAttribute().toInt();
-	}
-	
-	//method
-	/**
-	 * @return the long the first attribute of the current {@link BaseNode} represents.
-	 * @throws InvalidArgumentException if the current {@link BaseNode} does not have attributes.
-	 * @throws InvalidArgumentException
-	 * if the first attribute of the current {@link BaseNode} does not represent a long.
-	 */
-	public long getFirstAttributeAsLong() {
-		return getRefFirstAttribute().toLong();
-	}
-	
-	//method
-	/**
 	 * @return the headers of the attributes of the current {@link BaseNode}.
 	 */
-	public IContainer<String> getHeadersOfAttributes() {
+	public IContainer<String> getChildNodesHeaders() {
 		return getRefChildNodes().to(BaseNode::getHeader);
 	}
 	
@@ -465,15 +435,6 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	
 	//method
 	/**
-	 * @return the first attribute of the current {@link BaseNode}.
-	 * @throws EmptyArgumentException if the current {@link BaseNode} does not contain attributes.
-	 */
-	public BaseNode getRefFirstAttribute() {
-		return getRefChildNodes().getRefFirst();
-	}
-	
-	//method
-	/**
 	 * @param selector
 	 * @return the first attribute the given selector selects from the current {@link BaseNode}.
 	 * @throws ArgumentDoesNotHaveAttributeException if
@@ -541,13 +502,13 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * @param selector
 	 * @return the first attribute the given selector selects.
 	 */
-	public abstract BaseNode removeAndGetRefFirstAttribute(IElementTakerBooleanGetter<BaseNode> selector);
+	public abstract BaseNode removeAndGetRefFirstChildNodeThat(IElementTakerBooleanGetter<BaseNode> selector);
 	
 	//method declaration
 	/**
 	 * Removes the attributes of the current {@link BaseNode}.
 	 */
-	public abstract void removeAttributes();
+	public abstract void removeChildNodes();
 	
 	//method declaration
 	/**
@@ -575,7 +536,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * @param header
 	 * @param attribute
 	 */
-	public abstract void replaceFirstAttributeHavingGivenHeaderWithGivenAttribute(String header, BaseNode attribute);
+	public abstract void replaceFirstChildNodeWithGivenHeaderByGivenChildNode(String header, BaseNode attribute);
 	
 	//method
 	/**
@@ -583,7 +544,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 */
 	public void reset() {
 		removeHeader();
-		removeAttributes();
+		removeChildNodes();
 	}
 	
 	//method
@@ -593,8 +554,8 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * @param attributes
 	 * @param <BN> is the type of the given attributes.
 	 */
-	public <BN extends BaseNode> void resetAttributes(final Iterable<BN> attributes) {
-		removeAttributes();
+	public <BN extends BaseNode> void setChildNodes(final Iterable<BN> attributes) {
+		removeChildNodes();
 		addChildNodes(attributes);
 	}
 	

@@ -153,7 +153,7 @@ public final class SchemaWriter implements ISchemaWriter {
 	public void saveChangesAndReset() {
 		try {
 			
-			databaseNode.resetAttributes(editedDatabaseNode.getRefChildNodes());
+			databaseNode.setChildNodes(editedDatabaseNode.getRefChildNodes());
 			
 			saveCount++;
 		} finally {
@@ -184,7 +184,7 @@ public final class SchemaWriter implements ISchemaWriter {
 		
 		final var columnNode = databaseNodeSearcher.getRefColumnNodeByColumnIdFromDatabaseNode(databaseNode, columnId);
 		
-		columnNode.replaceFirstAttributeHavingGivenHeaderWithGivenAttribute(
+		columnNode.replaceFirstChildNodeWithGivenHeaderByGivenChildNode(
 			SubNodeHeaderCatalogue.PARAMETRIZED_PROPERTY_TYPE,
 			parametrizedPropertyTypeNodeMapper.createParametrizedPropertyTypeNodeFrom(parametrizedPropertyType)
 		);

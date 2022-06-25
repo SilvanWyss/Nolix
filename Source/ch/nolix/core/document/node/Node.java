@@ -573,7 +573,7 @@ public final class Node extends BaseNode {
 	 * Removes the attributes of the current {@link Node}.
 	 */
 	@Override
-	public void removeAttributes() {
+	public void removeChildNodes() {
 		attributes.clear();
 	}
 	
@@ -587,7 +587,7 @@ public final class Node extends BaseNode {
 	 * the current {@link Node} does not contain an attribute the given selector selects.
 	 */
 	@Override
-	public BaseNode removeAndGetRefFirstAttribute(final IElementTakerBooleanGetter<BaseNode> selector) {
+	public BaseNode removeAndGetRefFirstChildNodeThat(final IElementTakerBooleanGetter<BaseNode> selector) {
 		return attributes.removeAndGetRefFirst(selector::getOutput);
 	}
 	
@@ -621,7 +621,7 @@ public final class Node extends BaseNode {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void replaceFirstAttributeHavingGivenHeaderWithGivenAttribute(
+	public void replaceFirstChildNodeWithGivenHeaderByGivenChildNode(
 		final String header,
 		final BaseNode attribute
 	) {

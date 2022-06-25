@@ -36,7 +36,7 @@ public final class TableNodeSearcher {
 	//method
 	public BaseNode removeAndGetRefRecordNodeFromTableNode(BaseNode tableNode, String id) {
 		return
-		tableNode.removeAndGetRefFirstAttribute(
+		tableNode.removeAndGetRefFirstChildNodeThat(
 			a ->
 			a.hasHeader(SubNodeHeaderCatalogue.RECORD)
 			&& a.getRefChildNodeAt1BasedIndex(FieldIndexCatalogue.ID_INDEX).hasHeader(id)
