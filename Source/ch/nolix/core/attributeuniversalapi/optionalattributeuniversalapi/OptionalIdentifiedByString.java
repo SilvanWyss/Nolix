@@ -1,8 +1,6 @@
 //package declaration
 package ch.nolix.core.attributeuniversalapi.optionalattributeuniversalapi;
 
-import ch.nolix.coreapi.markerapi.AllowDefaultMethodsAsDesignPattern;
-
 //interface
 /**
  * A {@link OptionalIdentifiedByString} can have an id that is a {@link String}.
@@ -10,7 +8,6 @@ import ch.nolix.coreapi.markerapi.AllowDefaultMethodsAsDesignPattern;
  * @author Silvan Wyss
  * @date 2020-01-05
  */
-@AllowDefaultMethodsAsDesignPattern
 public interface OptionalIdentifiedByString {
 	
 	//method declaration
@@ -19,13 +16,11 @@ public interface OptionalIdentifiedByString {
 	 */
 	String getId();
 	
-	//method
+	//method declaration
 	/**
 	 * @return the id of the current {@link OptionalIdentifiedByString} in quotes.
 	 */
-	default String getIdInQuotes() {
-		return ("'" + getId() + "'");
-	}
+	String getIdInQuotes();
 	
 	//method declaration
 	/**
@@ -33,12 +28,10 @@ public interface OptionalIdentifiedByString {
 	 */
 	boolean hasId();
 	
-	//method
+	//method declaration
 	/**
 	 * @param id
 	 * @return true if the current {@link OptionalIdentifiedByString} has the given id.
 	 */
-	default boolean hasId(final String id) {
-		return (hasId() && getId().equals(id));
-	}
+	boolean hasId(final String id);
 }

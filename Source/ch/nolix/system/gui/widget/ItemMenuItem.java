@@ -2,6 +2,7 @@
 package ch.nolix.system.gui.widget;
 
 import ch.nolix.core.attributeuniversalapi.optionalattributeuniversalapi.OptionalIdentifiedByString;
+import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
@@ -135,6 +136,12 @@ public final class ItemMenuItem extends MutableElement<ItemMenuItem> implements 
 		return id.getValue();
 	}
 	
+	//method
+	@Override
+	public String getIdInQuotes() {
+		return GlobalStringHelper.getInQuotes(getId());
+	}
+	
 	//mehtod
 	public IWidgetGUI<?> getParentGUI() {
 		return getParentMenu().getParentGUI();
@@ -154,6 +161,17 @@ public final class ItemMenuItem extends MutableElement<ItemMenuItem> implements 
 	@Override
 	public boolean hasId() {
 		return id.hasValue();
+	}
+	
+	//method
+	@Override
+	public boolean hasId(final String id) {
+		
+		if (!hasId()) {
+			return false;
+		}
+		
+		return getId().equals(id);
 	}
 	
 	//method

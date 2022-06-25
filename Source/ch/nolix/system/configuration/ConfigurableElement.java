@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.system.configuration;
 
+import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
+//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -58,6 +60,15 @@ implements IConfigurableElement<CE> {
 	 * {@inheritDoc}
 	 */
 	@Override
+	public final String getIdInQuotes() {
+		return GlobalStringHelper.getInQuotes(getId());
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public final String getToken() {
 		return token.getValue();
 	}
@@ -69,6 +80,20 @@ implements IConfigurableElement<CE> {
 	@Override
 	public final boolean hasId() {
 		return id.hasValue();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final boolean hasId(final String id) {
+		
+		if (!hasId()) {
+			return false;
+		}
+		
+		return getId().equals(id);
 	}
 	
 	//method

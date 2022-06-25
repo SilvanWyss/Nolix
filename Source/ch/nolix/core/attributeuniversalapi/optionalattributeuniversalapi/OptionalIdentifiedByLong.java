@@ -16,7 +16,7 @@ public interface OptionalIdentifiedByLong {
 	 */
 	long getId();
 	
-	//method
+	//method declaration
 	/**
 	 * @return the id of the current {@link OptionalIdentifiedByLong} as {@link String}.
 	 */
@@ -34,7 +34,7 @@ public interface OptionalIdentifiedByLong {
 	 */
 	boolean hasId();
 	
-	//method
+	//method declaration
 	/**
 	 * @param id
 	 * @return true if the current {@link OptionalIdentifiedByLong} has the given id.
