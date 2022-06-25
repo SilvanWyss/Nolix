@@ -1,8 +1,6 @@
 //package declaration
 package ch.nolix.core.attributeuniversalapi.optionalattributeuniversalapi;
 
-import ch.nolix.coreapi.markerapi.AllowDefaultMethodsAsDesignPattern;
-
 //interface
 /**
  * A {@link OptionalIdentified} can have an id.
@@ -10,7 +8,6 @@ import ch.nolix.coreapi.markerapi.AllowDefaultMethodsAsDesignPattern;
  * @author Silvan Wyss
  * @date 2019-09-29
  */
-@AllowDefaultMethodsAsDesignPattern
 public interface OptionalIdentified {
 	
 	//method declaration
@@ -23,17 +20,13 @@ public interface OptionalIdentified {
 	/**
 	 * @return the id of the current {@link OptionalIdentified} as {@link String}.
 	 */
-	default String getIdAsString() {
-		return String.valueOf(getId());
-	}
+	String getIdAsString();
 	
 	//method
 	/**
 	 * @return the id of the current {@link OptionalIdentified} in quotes.
 	 */
-	default String getIdInQuotes() {
-		return ("'" + getIdAsString() + "'");
-	}
+	String getIdAsStringInQuotes();
 	
 	//method declaration
 	/**
@@ -46,16 +39,5 @@ public interface OptionalIdentified {
 	 * @param id
 	 * @return true if the current {@link OptionalIdentified} has the given id.
 	 */
-	default boolean hasId(final long id) {
-		return (hasId() && getId() == id);
-	}
-	
-	//method
-	/**
-	 * @param object
-	 * @return true if the current {@link OptionalIdentified} has the same id as the given object.
-	 */
-	default boolean hasSameIdAs(final OptionalIdentified object) {
-		return (object != null && object.hasId() && hasId(object.getId()));
-	}
+	boolean hasId(final long id);
 }
