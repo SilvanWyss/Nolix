@@ -22,7 +22,7 @@ implements IBaseParametrizedBackReferenceType<SchemaImplementation> {
 	private final IColumn<SchemaImplementation> backReferencedColumn;
 	
 	//constructor
-	public BaseParametrizedBackReferenceType(final IColumn<SchemaImplementation> backReferencedColumn) {
+	protected BaseParametrizedBackReferenceType(final IColumn<SchemaImplementation> backReferencedColumn) {
 		
 		super(DataType.STRING);
 		

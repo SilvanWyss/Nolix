@@ -31,7 +31,7 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 	private final CloseController closeController = new CloseController(this);
 	
 	//constructor
-	public SchemaAdapter(
+	protected SchemaAdapter(
 		final String databaseName,
 		final SQLConnectionPool pSQLConnectionPool,
 		final ch.nolix.systemapi.sqlbasicschemaapi.schemaadapterapi.ISchemaAdapter pSQLSchemaAdapter

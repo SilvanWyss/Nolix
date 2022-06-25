@@ -16,7 +16,7 @@ public abstract class Property<S extends Enum<S>> implements Named {
 	protected FormatElement<?, S> parent;
 	
 	//constructor
-	public Property(final String name) {
+	protected Property(final String name) {
 		
 		GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
 				

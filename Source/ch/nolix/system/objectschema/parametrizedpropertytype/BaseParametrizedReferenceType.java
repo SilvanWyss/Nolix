@@ -21,7 +21,7 @@ implements IBaseParametrizedReferenceType<SchemaImplementation> {
 	private final ITable<SchemaImplementation> referencedTable;
 	
 	//constructor
-	public BaseParametrizedReferenceType(final ITable<SchemaImplementation> referencedTable) {
+	protected BaseParametrizedReferenceType(final ITable<SchemaImplementation> referencedTable) {
 		
 		super(DataType.STRING);
 		

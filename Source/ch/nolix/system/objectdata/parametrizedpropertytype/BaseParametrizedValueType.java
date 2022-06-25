@@ -22,7 +22,7 @@ implements IBaseParametrizedValueType<IMPL, V> {
 	private final Class<V> valueType;
 	
 	//constructor
-	public BaseParametrizedValueType(final Class<V> valueType) {
+	protected BaseParametrizedValueType(final Class<V> valueType) {
 		
 		GlobalValidator.assertThat(valueType).thatIsNamed(LowerCaseCatalogue.VALUE_TYPE).isNotNull();
 		

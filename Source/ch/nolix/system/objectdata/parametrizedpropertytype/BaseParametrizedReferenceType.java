@@ -22,7 +22,7 @@ implements IBaseParametrizedReferenceType<IMPL, E> {
 	private final ITable<IMPL, E> referencedTable;
 	
 	//constructor
-	public BaseParametrizedReferenceType(final ITable<IMPL, E> referencedTable) {
+	protected BaseParametrizedReferenceType(final ITable<IMPL, E> referencedTable) {
 		
 		GlobalValidator.assertThat(referencedTable).thatIsNamed("referenced table").isNotNull();
 		

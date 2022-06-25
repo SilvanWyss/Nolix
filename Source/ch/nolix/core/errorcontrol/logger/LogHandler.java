@@ -11,12 +11,12 @@ public abstract class LogHandler {
 	private final HarmLevel minHarmLevel;
 	
 	//constructor
-	public LogHandler() {
+	protected LogHandler() {
 		this(DEFAULT_MIN_HARM_LEVEL);
 	}
 	
 	//constructor
-	public LogHandler(final HarmLevel minHarmLevel) {
+	protected LogHandler(final HarmLevel minHarmLevel) {
 		
 		if (minHarmLevel == null) {
 			throw new IllegalArgumentException("The given min harm level is null.");

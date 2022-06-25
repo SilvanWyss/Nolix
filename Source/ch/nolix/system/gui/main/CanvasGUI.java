@@ -45,12 +45,12 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 	private final LinkedList<IElementTaker<PaintRun>> paintCommands = new LinkedList<>();
 	
 	//constructor
-	public CanvasGUI(final IResizableInputTaker inputTaker, final Visibility visibility) {
+	protected CanvasGUI(final IResizableInputTaker inputTaker, final Visibility visibility) {
 		super(visibility, inputTaker);
 	}
 	
 	//constructor
-	public CanvasGUI(final IResizableInputTaker inputTaker, final IVisualizer visualizer) {
+	protected CanvasGUI(final IResizableInputTaker inputTaker, final IVisualizer visualizer) {
 		super(visualizer, inputTaker);
 	}
 		

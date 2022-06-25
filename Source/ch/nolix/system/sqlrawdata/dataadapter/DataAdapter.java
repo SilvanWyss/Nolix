@@ -18,7 +18,7 @@ public abstract class DataAdapter extends BaseDataAdapter {
 	private static final DatabaseInspector databaseInspector = new DatabaseInspector();
 		
 	//constructor
-	public DataAdapter(
+	protected DataAdapter(
 		final String databaseName,
 		final SQLConnectionPool pSQLConnectionPool,
 		final ISchemaAdapter schemaAdapter,

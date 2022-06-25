@@ -33,7 +33,7 @@ public abstract class SQLConnection implements GroupCloseable {
 	private final SQLConnectionPool parentSQLConnectionPool;
 	
 	//constructor
-	public SQLConnection(final SQLDatabaseEngine pSQLDatabaseEngine, final Connection connection) {
+	protected SQLConnection(final SQLDatabaseEngine pSQLDatabaseEngine, final Connection connection) {
 		
 		GlobalValidator.assertThat(pSQLDatabaseEngine).thatIsNamed(SQLDatabaseEngine.class).isNotNull();
 		GlobalValidator.assertThat(connection).thatIsNamed(Connection.class).isNotNull();
@@ -44,7 +44,7 @@ public abstract class SQLConnection implements GroupCloseable {
 	}
 	
 	//constructor
-	public SQLConnection(
+	protected SQLConnection(
 		final SQLDatabaseEngine pSQLDatabaseEngine,
 		final int port,
 		final String userName,
@@ -60,7 +60,7 @@ public abstract class SQLConnection implements GroupCloseable {
 	}
 	
 	//constructor
-	public SQLConnection(
+	protected SQLConnection(
 		final SQLDatabaseEngine pSQLDatabaseEngine,
 		final String ip,
 		final int port,
@@ -84,7 +84,7 @@ public abstract class SQLConnection implements GroupCloseable {
 	}
 	
 	//constructor
-	public SQLConnection(
+	protected SQLConnection(
 		final SQLDatabaseEngine pSQLDatabaseEngine,
 		final String ip,
 		final int port,

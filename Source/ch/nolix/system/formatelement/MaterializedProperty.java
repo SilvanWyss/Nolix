@@ -31,7 +31,7 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
 	
 	//constructor
 	@SuppressWarnings("unchecked")
-	public MaterializedProperty(
+	protected MaterializedProperty(
 		final String name,
 		final Class<S> stateClass,
 		final IElementTakerElementGetter<BaseNode, V> valueCreator,
@@ -53,7 +53,7 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
 	
 	//constructor
 	@SuppressWarnings("unchecked")
-	public MaterializedProperty(
+	protected MaterializedProperty(
 		final String name,
 		final Class<S> stateClass,
 		final IElementTakerElementGetter<BaseNode, V> valueCreator,

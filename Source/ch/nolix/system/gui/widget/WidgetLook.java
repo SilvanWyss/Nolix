@@ -98,7 +98,7 @@ implements IWidgetLook<WL> {
 	);
 	
 	//constructor
-	public WidgetLook() {
+	protected WidgetLook() {
 		super(WidgetLookState.BASE);
 	}
 	

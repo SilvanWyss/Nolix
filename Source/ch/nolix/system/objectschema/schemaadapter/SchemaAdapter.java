@@ -31,7 +31,7 @@ public abstract class SchemaAdapter implements ISchemaAdapter<SchemaImplementati
 	private int saveCount;
 	
 	//constructor
-	public SchemaAdapter(
+	protected SchemaAdapter(
 		final String databaseName,
 		final ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter rawSchemaAdapter
 	) {

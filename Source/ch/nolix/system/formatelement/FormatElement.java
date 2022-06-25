@@ -33,7 +33,7 @@ implements IRespondingMutableElement<FE> {
 	private IContainer<Property<S>> properties;
 	
 	//constructor
-	public FormatElement(final S baseState) {
+	protected FormatElement(final S baseState) {
 		
 		GlobalValidator.assertThat(baseState).thatIsNamed("base state").isNotNull();
 		

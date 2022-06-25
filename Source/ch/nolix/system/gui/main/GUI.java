@@ -126,7 +126,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	 * @param inputTaker
 	 * @throws ArgumentIsNullException if the given visualizer is null.
 	 */
-	public GUI(final IVisualizer visualizer, final IResizableInputTaker inputTaker) {
+	protected GUI(final IVisualizer visualizer, final IResizableInputTaker inputTaker) {
 				
 		GlobalValidator.assertThat(visualizer).thatIsNamed(LowerCaseCatalogue.VISUALIZER).isNotNull();
 		GlobalValidator.assertThat(inputTaker).thatIsNamed("input taker").isNotNull();
@@ -144,7 +144,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	 * @param visibility
 	 * @param inputTaker
 	 */
-	public GUI(final Visibility visibility, final IResizableInputTaker inputTaker) {
+	protected GUI(final Visibility visibility, final IResizableInputTaker inputTaker) {
 		
 		GlobalValidator.assertThat(visibility).thatIsNamed(Visibility.class).isNotNull();
 		GlobalValidator.assertThat(inputTaker).thatIsNamed("input taker").isNotNull();
@@ -166,7 +166,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	 * @param visualizer
 	 * @throws ArgumentIsNullException if the given visualizer is null.
 	 */
-	public GUI(final IVisualizer visualizer) {
+	protected GUI(final IVisualizer visualizer) {
 		
 		GlobalValidator.assertThat(visualizer).thatIsNamed(LowerCaseCatalogue.VISUALIZER).isNotNull();
 		
@@ -181,7 +181,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	 * 
 	 * @param visibility
 	 */
-	public GUI(final Visibility visibility) {
+	protected GUI(final Visibility visibility) {
 		
 		this.inputTaker = null;
 		

@@ -26,7 +26,7 @@ public abstract class BaseDataAdapter implements IDataAdapter {
 	private final IDataWriter dataWriter;
 	
 	//constructor
-	public BaseDataAdapter(final IDataReader dataReader, final IDataWriter dataWriter) {
+	protected BaseDataAdapter(final IDataReader dataReader, final IDataWriter dataWriter) {
 		
 		GlobalValidator.assertThat(dataReader).thatIsNamed(IDataReader.class).isNotNull();
 		GlobalValidator.assertThat(dataWriter).thatIsNamed(IDataWriter.class).isNotNull();

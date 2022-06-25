@@ -20,7 +20,7 @@ public abstract class StatisticalModel {
 	private final LinkedList<Double>forecasts = new LinkedList<>();
 	
 	//constructor
-	public StatisticalModel(final int backStepsCount, final double[] inputValues) {
+	protected StatisticalModel(final int backStepsCount, final double[] inputValues) {
 				
 		GlobalValidator.assertThat(inputValues).thatIsNamed("input values").isNotEmpty();
 		GlobalValidator.assertThat(backStepsCount).thatIsNamed("back step count").isBetween(1, inputValues.length);

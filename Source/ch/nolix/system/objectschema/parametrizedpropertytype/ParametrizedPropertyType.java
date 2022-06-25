@@ -13,7 +13,7 @@ public abstract class ParametrizedPropertyType implements IParametrizedPropertyT
 	private final DataType dataType;
 	
 	//constructor
-	public ParametrizedPropertyType(final DataType dataTye) {
+	protected ParametrizedPropertyType(final DataType dataTye) {
 		
 		GlobalValidator.assertThat(dataTye).thatIsNamed(DataType.class).isNotNull();
 		

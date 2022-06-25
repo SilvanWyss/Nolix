@@ -35,7 +35,7 @@ public abstract class DataAdapter implements IDataAdapter<DataImplementation> {
 	private int saveCount;
 	
 	//constructor
-	public DataAdapter(
+	protected DataAdapter(
 		final ISchemaAdapter<SchemaImplementation> schemaAdapter,
 		final ISchema<DataImplementation> schema,
 		final IElementGetter<IDataAndSchemaAdapter> dataAndSchemaAdapterCreator

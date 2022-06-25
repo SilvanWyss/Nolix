@@ -17,7 +17,7 @@ public abstract class BasePainter implements IPainter {
 	private final IPainter parentPainter;
 	
 	//constructor
-	public BasePainter(final SingleContainer<IPainter> parentPainterContainer) {
+	protected BasePainter(final SingleContainer<IPainter> parentPainterContainer) {
 		if (parentPainterContainer.isEmpty()) {
 			parentPainter = null;
 		} else {

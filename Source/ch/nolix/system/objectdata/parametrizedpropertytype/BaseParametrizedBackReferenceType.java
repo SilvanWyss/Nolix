@@ -23,7 +23,7 @@ implements IBaseParametrizedBackReferenceType<IMPL, C>{
 	private final C backReferencedColumn;
 	
 	//constructor
-	public BaseParametrizedBackReferenceType(final C backReferencedColumn) {
+	protected BaseParametrizedBackReferenceType(final C backReferencedColumn) {
 		
 		GlobalValidator.assertThat(backReferencedColumn).thatIsNamed("back referenced column").isNotNull();
 		

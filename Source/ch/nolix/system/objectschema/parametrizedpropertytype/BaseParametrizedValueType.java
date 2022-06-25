@@ -17,7 +17,7 @@ public abstract class BaseParametrizedValueType<V> extends ParametrizedPropertyT
 implements IBaseParametrizedValueType<SchemaImplementation, V> {
 	
 	//constructor
-	public BaseParametrizedValueType(final DataType dataType) {
+	protected BaseParametrizedValueType(final DataType dataType) {
 		super(dataType);
 	}
 	

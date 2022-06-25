@@ -40,7 +40,7 @@ abstract class SingleValue<V> extends BaseValue<V> {
 	 * @throws ArgumentIsNullException if the given valueCreator is null.
 	 * @throws ArgumentIsNullException if the given specificationCreator is null.
 	 */
-	public SingleValue(
+	protected SingleValue(
 		final String name,
 		final IElementTaker<V> setterMethod,
 		final IElementTakerElementGetter<BaseNode, V> valueCreator,

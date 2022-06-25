@@ -29,7 +29,7 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
 	private final ISchemaReader schemaReader;
 	
 	//constructor
-	public BaseDataAndSchemaAdapter(
+	protected BaseDataAndSchemaAdapter(
 		final IDataAdapter dataAdapter,
 		final ISchemaReader schemaReader
 	) {

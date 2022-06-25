@@ -15,7 +15,7 @@ public abstract class ArgumentCapturer<
 	private final NAC nextArgumentCapturer;
 	
 	//constructor
-	public ArgumentCapturer(final NAC nextArgumentCapturer) {
+	protected ArgumentCapturer(final NAC nextArgumentCapturer) {
 		
 		GlobalValidator.assertThat(nextArgumentCapturer).thatIsNamed("next argument capturer").isNotNull();
 		

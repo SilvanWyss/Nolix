@@ -28,7 +28,7 @@ public abstract class TestPool implements Runnable {
 	 * {@link TestPool} needs a default constructor is necessary,
 	 * because its other constructors are ambiguous when they are called with empty varargs.
 	 */
-	public TestPool() {}
+	protected TestPool() {}
 	
 	//constructor
 	/**
@@ -40,7 +40,7 @@ public abstract class TestPool implements Runnable {
 	 * @throws InvalidArgumentException if one of the given testClasses is abstract.
 	 * @throws InvalidArgumentException if one of the given testClasses does not contain a default constructor.
 	 */
-	public TestPool(final Class<?>... testClasses) {
+	protected TestPool(final Class<?>... testClasses) {
 		
 		//Iterates the given testClasses.
 		for (final var tc : testClasses) {
@@ -55,7 +55,7 @@ public abstract class TestPool implements Runnable {
 	 * @param testPools
 	 * @throws ArgumentIsNullException if one of the the given testPools is null.
 	 */
-	public TestPool(final TestPool... testPools) {
+	protected TestPool(final TestPool... testPools) {
 		
 		//Iterates the given testPools.
 		for (final var tp : testPools) {

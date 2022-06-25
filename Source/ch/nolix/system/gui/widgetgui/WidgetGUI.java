@@ -203,7 +203,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 * @param inputTaker
 	 * @throws ArgumentIsNullException if the given eventTaker is null.
 	 */
-	public WidgetGUI(final IResizableInputTaker inputTaker) {
+	protected WidgetGUI(final IResizableInputTaker inputTaker) {
 		
 		//Calls constructor of the base class.
 		super(Visibility.VISIBLE, inputTaker);
@@ -219,7 +219,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 * @param visualizer
 	 * @throws ArgumentIsNullException if the given visualizer is null.
 	 */
-	public WidgetGUI(IVisualizer visualizer) {
+	protected WidgetGUI(IVisualizer visualizer) {
 		
 		//Calls constructor of the base class.
 		super(visualizer);
@@ -238,7 +238,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 * @throws ArgumentIsNullException if the given visualizer is null.
 	 * @throws ArgumentIsNullException if the given eventTaker is null.
 	 */
-	public WidgetGUI(IVisualizer visualizer, IResizableInputTaker inputTaker) {
+	protected WidgetGUI(IVisualizer visualizer, IResizableInputTaker inputTaker) {
 		
 		//Calls constructor of the base class.
 		super(visualizer, inputTaker);
@@ -253,7 +253,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 * 
 	 * @param visibility
 	 */
-	public WidgetGUI(final Visibility visibility) {
+	protected WidgetGUI(final Visibility visibility) {
 		
 		//Calls constructor of the base class.
 		super(visibility);
@@ -271,7 +271,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 * @param inputTaker
 	 * @throws ArgumentIsNullException if the given eventTaker is null.
 	 */
-	public WidgetGUI(final Visibility visibility, final IResizableInputTaker inputTaker) {
+	protected WidgetGUI(final Visibility visibility, final IResizableInputTaker inputTaker) {
 		
 		//Calls constructor of the base class.
 		super(visibility, inputTaker);
