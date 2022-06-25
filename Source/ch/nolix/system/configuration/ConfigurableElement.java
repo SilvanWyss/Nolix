@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.system.configuration;
 
-import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 //own imports
+import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -103,6 +103,20 @@ implements IConfigurableElement<CE> {
 	@Override
 	public final boolean hasToken() {
 		return token.hasValue();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final boolean hasToken(final String token) {
+		
+		if (!hasToken()) {
+			return false;
+		}
+		
+		return getToken().equals(token);
 	}
 	
 	//method

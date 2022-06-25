@@ -1,16 +1,13 @@
 //package declaration
 package ch.nolix.core.attributeuniversalapi.optionalattributeuniversalapi;
 
-import ch.nolix.coreapi.markerapi.AllowDefaultMethodsAsDesignPattern;
-
 //interface
 /**
- * A {@link OptionalTokened} can have a token
+ * A {@link OptionalTokened} can have a token.
  * 
  * @author Silvan Wyss
  * @date 2020-03-29
  */
-@AllowDefaultMethodsAsDesignPattern
 public interface OptionalTokened {
 	
 	//method declaration
@@ -25,40 +22,10 @@ public interface OptionalTokened {
 	 */
 	boolean hasToken();
 	
-	//method
-	/**
-	 * @param object
-	 * @return true if current {@link OptionalTokened} has the same token as the given object.
-	 */
-	default boolean hasSameTokenAs(final OptionalTokened object) {
-		
-		//Handles the case that the given object is null.
-		if (object == null) {
-			return false;
-		}
-		
-		//Handles the case that the given object does not have a token.
-		if (!object.hasToken()) {
-			return false;
-		}
-		
-		//Handles the case that the given object has a token.
-		return hasToken(object.getToken());
-	}
-	
-	//method
+	//method declaration
 	/**
 	 * @param token
 	 * @return true if the current {@link OptionalTokened} has the given token.
 	 */
-	default boolean hasToken(final String token) {
-		
-		//Handles the case that the current OptionalTokened does not have a token.
-		if (!hasToken()) {
-			return false;
-		}
-		
-		//Handles the case that the current OptionalTokened has a token.
-		return getToken().equals(token);
-	}
+	boolean hasToken(String token);
 }

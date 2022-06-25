@@ -39,5 +39,5 @@ public interface OptionalIdentifiedByLong {
 	 * @param id
 	 * @return true if the current {@link OptionalIdentifiedByLong} has the given id.
 	 */
-	boolean hasId(final long id);
+	boolean hasId(long id);
 }

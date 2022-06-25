@@ -34,5 +34,5 @@ public interface OptionalHeadered {
 	 * @param header
 	 * @return true if the current {@link OptionalHeadered} has the given header.
 	 */
-	boolean hasHeader(final String header);
+	boolean hasHeader(String header);
 }

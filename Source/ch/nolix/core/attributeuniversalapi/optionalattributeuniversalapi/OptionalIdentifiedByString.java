@@ -33,5 +33,5 @@ public interface OptionalIdentifiedByString {
 	 * @param id
 	 * @return true if the current {@link OptionalIdentifiedByString} has the given id.
 	 */
-	boolean hasId(final String id);
+	boolean hasId(String id);
 }
