@@ -11,7 +11,7 @@ import ch.nolix.core.testing.test.Test;
 public final class ImplProviderTest extends Test {
 	
 	//static interface
-	private static interface ICat {
+	private interface ICat {
 		
 		//method declaration
 		String getName();

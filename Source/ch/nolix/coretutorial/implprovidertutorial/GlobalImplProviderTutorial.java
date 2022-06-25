@@ -5,7 +5,7 @@ import ch.nolix.core.provider.implprovider.GlobalImplProvider;
 
 public final class GlobalImplProviderTutorial {
 	
-	private static interface ICity {
+	private interface ICity {
 		String getName();
 		int getPopulation();
 	}

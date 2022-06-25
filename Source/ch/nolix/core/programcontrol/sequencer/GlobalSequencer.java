@@ -132,7 +132,7 @@ public final class GlobalSequencer {
 	 * @throws ArgumentIsNullException if the given result job is null.
 	 */
 	public static <R> ResultFuture<R> runInBackground(final IElementGetter<R> resultJob) {
-		return new ResultFuture<>(new ResultJobRunner<R>(resultJob));
+		return new ResultFuture<>(new ResultJobRunner<>(resultJob));
 	}
 	
 	//static method

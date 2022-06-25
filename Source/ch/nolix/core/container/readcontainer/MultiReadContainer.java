@@ -22,7 +22,7 @@ final class MultiReadContainer<E> extends Container<E> {
 	@SuppressWarnings("unchecked")
 	public MultiReadContainer(final E[]... arrays) {
 		for (final var a : arrays) {
-			this.containers.addAtEnd(new ArrayReadContainer<E>(a));
+			this.containers.addAtEnd(new ArrayReadContainer<>(a));
 		}
 	}
 	
@@ -30,7 +30,7 @@ final class MultiReadContainer<E> extends Container<E> {
 	@SuppressWarnings("unchecked")
 	public MultiReadContainer(final Iterable<E>... containers) {
 		for (final var c : containers) {
-			this.containers.addAtEnd(new IterableReadContainer<E>(c));
+			this.containers.addAtEnd(new IterableReadContainer<>(c));
 		}
 	}
 	

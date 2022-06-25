@@ -33,7 +33,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 	ContainerMediator(final E[] argument) {
 		
 		//Calls constructor of the base class.
-		super(new ArrayReadContainer<E>(argument));
+		super(new ArrayReadContainer<>(argument));
 	}
 	
 	//constructor
@@ -63,7 +63,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 		final E[] argument) {
 		
 		//Calls constructor of the base class.
-		super(argumentName, new ArrayReadContainer<E>(argument));
+		super(argumentName, new ArrayReadContainer<>(argument));
 	}
 	
 	//constructor

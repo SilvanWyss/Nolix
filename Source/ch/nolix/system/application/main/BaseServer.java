@@ -85,7 +85,7 @@ public abstract class BaseServer implements GroupCloseable {
 	) {
 		
 		//Calls other method.
-		addApplication(new Application<BC, AC>(name, initialSessionClass, applicationContext));
+		addApplication(new Application<>(name, initialSessionClass, applicationContext));
 	}
 	
 	//method

@@ -288,7 +288,7 @@ public final class Matrix<E> extends Container<E> implements Clearable {
 		
 		//Iterates the columns of the current matrix.
 		for (var i = 1; i <= getColumnCount(); i++) {
-			columns.addAtEnd(new MatrixColumn<E>(this, i));
+			columns.addAtEnd(new MatrixColumn<>(this, i));
 		}
 		
 		return columns;
@@ -438,7 +438,7 @@ public final class Matrix<E> extends Container<E> implements Clearable {
 		
 		//Iterates the rows of the current matrix.
 		for (var i = 1; i <= getRowCount(); i++) {
-			rows.addAtEnd(new MatrixRow<E>(this, i));
+			rows.addAtEnd(new MatrixRow<>(this, i));
 		}
 		
 		return rows;
