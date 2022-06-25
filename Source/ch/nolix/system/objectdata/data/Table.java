@@ -223,8 +223,8 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 	
 	//method
 	@SuppressWarnings("unchecked")
-	private E createEntityFrom(ILoadedRecordDTO record) {
-		return (E)entityMapper.createEntityFromRecordForGivenTable(record, (Table<BaseEntity>)this);
+	private E createEntityFrom(ILoadedRecordDTO pRecord) {
+		return (E)entityMapper.createEntityFromRecordForGivenTable(pRecord, (Table<BaseEntity>)this);
 	}
 	
 	//method
@@ -233,9 +233,9 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 	}
 	
 	//method
-	private void insertEntityFromGivenRecordInLocalDataIfNotInserted(ILoadedRecordDTO record) {
-		if (!tableHelper.containsEntityWithGivenIdInLocalData(this, record.getId())) {
-			entitiesInLocalData.addAtEnd(createEntityFrom(record));
+	private void insertEntityFromGivenRecordInLocalDataIfNotInserted(ILoadedRecordDTO pRecord) {
+		if (!tableHelper.containsEntityWithGivenIdInLocalData(this, pRecord.getId())) {
+			entitiesInLocalData.addAtEnd(createEntityFrom(pRecord));
 		}
 	}
 	

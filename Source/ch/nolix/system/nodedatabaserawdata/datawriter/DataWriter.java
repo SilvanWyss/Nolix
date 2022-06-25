@@ -169,8 +169,8 @@ public final class DataWriter implements IDataWriter {
 	
 	//method
 	@Override
-	public void insertRecordIntoTable(final String tableName, final IRecordDTO record) {
-		internalDataWriter.insertRecordIntoTable(getTableInfoByTableName(tableName), record);
+	public void insertRecordIntoTable(final String tableName, final IRecordDTO pRecord) {
+		internalDataWriter.insertRecordIntoTable(getTableInfoByTableName(tableName), pRecord);
 	}
 	
 	//method

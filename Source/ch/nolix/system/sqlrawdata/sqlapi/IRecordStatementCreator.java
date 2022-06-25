@@ -17,7 +17,7 @@ public interface IRecordStatementCreator {
 	String createStatementToExpectGivenSchemaTimestamp(ITime schemaTimestamp);
 	
 	//method declaration
-	String createStatementToInsertRecordIntoTable(String tableName, IRecordDTO record);
+	String createStatementToInsertRecordIntoTable(String tableName, IRecordDTO pRecord);
 	
 	//method declaration
 	String createStatementToSetEntityAsUpdated(String tableName, IEntityHeadDTO entity);

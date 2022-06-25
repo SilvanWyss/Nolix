@@ -113,10 +113,12 @@ public interface IDataWriter extends IMultiTimeChangeSaver {
 	
 	//method declaration
 	/**
+	 * Inserts the given pRecord into the table with the given tableName.
+	 * 
 	 * @param tableName
-	 * @param record
+	 * @param pRecord
 	 */
-	void insertRecordIntoTable(String tableName, IRecordDTO record);
+	void insertRecordIntoTable(String tableName, IRecordDTO pRecord);
 	
 	//method declaration
 	/**

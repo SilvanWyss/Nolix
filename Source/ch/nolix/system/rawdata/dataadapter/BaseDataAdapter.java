@@ -140,8 +140,8 @@ public abstract class BaseDataAdapter implements IDataAdapter {
 	
 	//method
 	@Override
-	public final void insertRecordIntoTable(final String tableName, final IRecordDTO record) {
-		dataWriter.insertRecordIntoTable(tableName, record);
+	public final void insertRecordIntoTable(final String tableName, final IRecordDTO pRecord) {
+		dataWriter.insertRecordIntoTable(tableName, pRecord);
 	}
 	
 	@Override

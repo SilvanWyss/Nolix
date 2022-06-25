@@ -149,9 +149,9 @@ public final class InternalDataWriter {
 	}
 	
 	//method
-	public void insertRecordIntoTable(final String tableName, final IRecordDTO record) {
+	public void insertRecordIntoTable(final String tableName, final IRecordDTO pRecord) {
 		mSQLCollector.addSQLStatement(
-			recordStatementCreator.createStatementToInsertRecordIntoTable(tableName, record)
+			recordStatementCreator.createStatementToInsertRecordIntoTable(tableName, pRecord)
 		);
 	}
 	

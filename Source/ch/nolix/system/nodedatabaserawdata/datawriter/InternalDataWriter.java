@@ -140,8 +140,8 @@ final class InternalDataWriter {
 	}
 	
 	//method
-	public void insertRecordIntoTable(final ITableInfo tableInfo, final IRecordDTO record) {
-		addChangeAction(d -> databaseUpdater.insertRecordIntoTable(d, tableInfo, record));
+	public void insertRecordIntoTable(final ITableInfo tableInfo, final IRecordDTO pRecord) {
+		addChangeAction(d -> databaseUpdater.insertRecordIntoTable(d, tableInfo, pRecord));
 	}
 	
 	//methods

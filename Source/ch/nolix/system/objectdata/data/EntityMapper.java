@@ -16,7 +16,7 @@ final class EntityMapper {
 	//method
 	@SuppressWarnings("unchecked")
 	public <E extends IEntity<DataImplementation>> E createEntityFromRecordForGivenTable(
-		final ILoadedRecordDTO record,
+		final ILoadedRecordDTO pRecord,
 		final ITable<DataImplementation, E> table
 	) {
 		
@@ -25,7 +25,7 @@ final class EntityMapper {
 		final var concreteEntity = (BaseEntity)entity;
 		concreteEntity.internalSetParentTable((ITable<DataImplementation, IEntity<DataImplementation>>)table);
 		concreteEntity.internalSetLoaded();
-		addDataFromRecordToEntity(record, concreteEntity);
+		addDataFromRecordToEntity(pRecord, concreteEntity);
 		
 		return entity;
 	}
@@ -44,12 +44,12 @@ final class EntityMapper {
 	}
 	
 	//method
-	private void addDataFromRecordToEntity(final ILoadedRecordDTO record, final BaseEntity entity) {
+	private void addDataFromRecordToEntity(final ILoadedRecordDTO pRecord, final BaseEntity entity) {
 		
-		entity.internalSetId(record.getId());
-		entity.internalSetSaveStamp(record.getId());
+		entity.internalSetId(pRecord.getId());
+		entity.internalSetSaveStamp(pRecord.getId());
 		
-		for (final var cf : record.getContentFields()) {
+		for (final var cf : pRecord.getContentFields()) {
 			addDataFromContentFieldToEntity(cf, entity);
 		}
 	}
