@@ -20,7 +20,7 @@ public final class NonEmptyArgumentException extends InvalidArgumentException {
 	 * @param argument
 	 * @return a new {@link NonEmptyArgumentException} for the given argument.
 	 */
-	public static NonEmptyArgumentException forArgumentNameAndArgument(final Object argument) {
+	public static NonEmptyArgumentException forArgument(final Object argument) {
 		return new NonEmptyArgumentException(argument);
 	}
 	
