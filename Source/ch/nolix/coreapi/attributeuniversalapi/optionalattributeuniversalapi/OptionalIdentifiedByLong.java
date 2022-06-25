@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.attributeuniversalapi.optionalattributeuniversalapi;
+package ch.nolix.coreapi.attributeuniversalapi.optionalattributeuniversalapi;
 
 //interface
 /**

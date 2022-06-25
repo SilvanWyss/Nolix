@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.coreapi.documentapi.nodeapi;
 
-//own imports
-import ch.nolix.core.attributeuniversalapi.optionalattributeuniversalapi.OptionalHeadered;
+import ch.nolix.coreapi.attributeuniversalapi.optionalattributeuniversalapi.OptionalHeadered;
 import ch.nolix.coreapi.containerapi.IContainer;
 
 //interface

@@ -1,7 +1,6 @@
 //package declaration
 package ch.nolix.core.document.chainednode;
 
-import ch.nolix.core.attributeuniversalapi.optionalattributeuniversalapi.OptionalHeadered;
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.commontype.constant.CharacterCatalogue;
 import ch.nolix.core.commontype.constant.StringCatalogue;
@@ -15,6 +14,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.coreapi.attributeuniversalapi.optionalattributeuniversalapi.OptionalHeadered;
 import ch.nolix.coreapi.containerapi.IContainer;
 
 //class

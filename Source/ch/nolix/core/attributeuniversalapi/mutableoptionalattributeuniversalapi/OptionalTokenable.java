@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.core.attributeuniversalapi.mutableoptionalattributeuniversalapi;
 
-import ch.nolix.core.attributeuniversalapi.optionalattributeuniversalapi.OptionalTokened;
+import ch.nolix.coreapi.attributeuniversalapi.optionalattributeuniversalapi.OptionalTokened;
 
 //interface
 /**

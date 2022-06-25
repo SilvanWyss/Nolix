@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.core.attributeuniversalapi.mutableoptionalattributeuniversalapi;
 
-import ch.nolix.core.attributeuniversalapi.optionalattributeuniversalapi.OptionalIdentifiedByString;
+import ch.nolix.coreapi.attributeuniversalapi.optionalattributeuniversalapi.OptionalIdentifiedByString;
 
 //interface
 /**
