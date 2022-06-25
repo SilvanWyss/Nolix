@@ -24,7 +24,7 @@ public final class ApplicationSheet implements IApplicationSheet {
 		final Server server
 	) {
 		
-		if (IGUIApplicationContext.class.isInstance(pGUIApplication.getRefContext())) {
+		if (pGUIApplication.getRefContext() instanceof IGUIApplicationContext) {
 			return
 			new ApplicationSheet(
 				pGUIApplication.getName(),
