@@ -26,6 +26,9 @@ public interface IDatabaseObjectHelper {
 	void assertIsNotNew(IDatabaseObject databaseObject);
 	
 	//method declaration
+	void assertIsOpen(IDatabaseObject databaseObject);
+	
+	//method declaration
 	boolean isDeleted(IDatabaseObject databaseObject);
 	
 	//method declaration

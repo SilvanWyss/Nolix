@@ -5,7 +5,6 @@ package ch.nolix.system.objectschema.schema;
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.data.GlobalIdCreator;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.IContainer;
@@ -171,13 +170,6 @@ public final class Table extends SchemaObject implements ITable<SchemaImplementa
 	//method
 	void addColumnAttribute(final IColumn<SchemaImplementation> column) {
 		columns.addAtEnd(column);
-	}
-	
-	//method
-	void internalAssertIsOpen() {
-		if (isClosed()) {
-			throw ClosedArgumentException.forArgument(this);
-		}
 	}
 	
 	//method

@@ -4,7 +4,6 @@ package ch.nolix.system.objectschema.schema;
 import ch.nolix.core.commontype.constant.StringCatalogue;
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.data.GlobalIdCreator;
-import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonEmptyArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -197,13 +196,6 @@ public final class Column extends SchemaObject implements IColumn<SchemaImplemen
 		}
 		
 		return getRefBackReferencingColumnsWhenIsReferenceColumn();
-	}
-	
-	//method
-	void internalAssertIsOpen() {
-		if (isClosed()) {
-			throw ClosedArgumentException.forArgument(this);
-		}
 	}
 	
 	//method

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.database.databaseobjecthelper;
 
+import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.DeletedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -56,6 +57,14 @@ public class DatabaseObjectHelper implements IDatabaseObjectHelper {
 	public final void assertIsNotNew(final IDatabaseObject databaseObject) {
 		if (isNew(databaseObject)) {
 			throw InvalidArgumentException.forArgumentAndErrorPredicate(databaseObject, "is new");
+		}
+	}
+	
+	//method
+	@Override
+	public final void assertIsOpen(final IDatabaseObject databaseObject) {
+		if (databaseObject.isClosed()) {
+			throw ClosedArgumentException.forArgument(databaseObject);
 		}
 	}
 	

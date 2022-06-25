@@ -28,7 +28,7 @@ final class ColumnMutationValidator {
 	
 	//method
 	public void assertCanDeleteColumn(final Column column) {			
-		column.internalAssertIsOpen();
+		columnHelper.assertIsOpen(column);
 		columnHelper.assertIsNotDeleted(column);
 		column.assertIsNotBackReferenced();
 	}
@@ -36,7 +36,7 @@ final class ColumnMutationValidator {
 	//method
 	public void assertCanSetNameToColumn(final Column column, final String name) {
 		
-		column.internalAssertIsOpen();
+		columnHelper.assertIsOpen(column);
 		
 		if (column.belongsToTable()) {
 			tableHelper.assertDoesNotContainColumnWithGivenName(column.getParentTable(), name);
@@ -51,7 +51,7 @@ final class ColumnMutationValidator {
 		final IParametrizedPropertyType<SchemaImplementation> parametrizedPropertyType
 	) {
 		
-		column.internalAssertIsOpen();
+		columnHelper.assertIsOpen(column);
 		column.assertIsEmpty();
 		
 		if (
@@ -87,7 +87,7 @@ final class ColumnMutationValidator {
 	//method
 	public void assertCanSetParentTableToColumn(final Column column, final Table parentTable) {
 		
-		column.internalAssertIsOpen();
+		columnHelper.assertIsOpen(column);
 		columnHelper.assertDoesNotBelongToTable(column);
 		
 		tableHelper.assertDoesNotContainGivenColumn(parentTable, column);
