@@ -101,7 +101,7 @@ public final class InternalDataReader {
 		
 		return
 		multiValueNode
-		.getRefAttributes()
+		.getRefChildNodes()
 		.to(a -> valueMapper.createValueFromString(a.getHeader(), multiValueColumnInfo));
 	}
 	

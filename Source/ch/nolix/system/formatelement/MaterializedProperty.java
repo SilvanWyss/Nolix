@@ -248,7 +248,7 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
 	
 	//method
 	private void setValueFromSpecificationToState(final State<S> state, final BaseNode specification) {
-		if (specification.getOneAttributeHeader().equals(NONE_HEADER)) {
+		if (specification.getSingleChildNodeHeader().equals(NONE_HEADER)) {
 			stateProperties[state.getIndex()].setEmpty();
 		} else {
 			setValueForStateUsingSetterMethod(state.getEnumValue(), valueCreator.getOutput(specification));

@@ -17,7 +17,7 @@ public enum LayerRole implements Specified {
 	
 	//static method
 	public static LayerRole fromSpecification(final BaseNode specification) {
-		return valueOf(GlobalStringHelper.toUpperSnakeCase(specification.getOneAttributeHeader()));
+		return valueOf(GlobalStringHelper.toUpperSnakeCase(specification.getSingleChildNodeHeader()));
 	}
 	
 	//method

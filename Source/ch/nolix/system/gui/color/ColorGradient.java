@@ -48,16 +48,16 @@ public class ColorGradient implements IColorGradient {
 		final BaseNode specification
 	) {
 		
-		final var attributes = specification.getRefAttributes();
+		final var attributes = specification.getRefChildNodes();
 		
 		final var directionSpecification = new Node();
-		directionSpecification.addAttribute(attributes.getRefAt(1));
+		directionSpecification.addChildNode(attributes.getRefAt(1));
 		
 		final var color1Specification = new Node();
-		color1Specification.addAttribute(attributes.getRefAt(2));
+		color1Specification.addChildNode(attributes.getRefAt(2));
 		
 		final var color2Specification = new Node();
-		color2Specification.addAttribute(attributes.getRefAt(3));
+		color2Specification.addChildNode(attributes.getRefAt(3));
 		
 		return new ColorGradient(
 			DirectionInRectangle.fromSpecification(directionSpecification),

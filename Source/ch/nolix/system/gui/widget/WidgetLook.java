@@ -50,7 +50,7 @@ implements IWidgetLook<WL> {
 	new NonCascadingProperty<>(
 		PascalCaseCatalogue.OPACITY,
 		WidgetLookState.class,
-		s -> getOpacityFromString(s.getOneAttributeHeader()),
+		s -> getOpacityFromString(s.getSingleChildNodeHeader()),
 		Node::withAttribute,
 		this::setOpacityForState,
 		DEFAULT_OPACITY
@@ -71,7 +71,7 @@ implements IWidgetLook<WL> {
 	new CascadingProperty<>(
 		BOLD_TEXT_FLAG_HEADER,
 		WidgetLookState.class,
-		BaseNode::getOneAttributeAsBoolean,
+		BaseNode::getSingleChildNodeAsBoolean,
 		Node::withAttribute,
 		DEFAULT_BOLD_TEXT_FLAG
 	);
@@ -81,7 +81,7 @@ implements IWidgetLook<WL> {
 	new CascadingProperty<>(
 		TEXT_SIZE_HEADER,
 		WidgetLookState.class,
-		BaseNode::getOneAttributeAsInt,
+		BaseNode::getSingleChildNodeAsInt,
 		Node::withAttribute,
 		this::setTextSizeForState,
 		DEAULT_TEXT_SIZE

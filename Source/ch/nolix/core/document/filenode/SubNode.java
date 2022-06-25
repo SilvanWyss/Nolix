@@ -57,9 +57,9 @@ public final class SubNode extends BaseNode {
 	 * @throws RuntimeException if an error occurs.
 	 */
 	@Override
-	public SubNode addAttribute(final BaseNode attribute) {
+	public SubNode addChildNode(final BaseNode attribute) {
 		
-		internalSpecification.addAttribute(attribute);
+		internalSpecification.addChildNode(attribute);
 		parentFileNode.save();
 		
 		return this;
@@ -70,8 +70,8 @@ public final class SubNode extends BaseNode {
 	 * @return true if this {@link SubNode} contains attributes.
 	 */
 	@Override
-	public boolean containsAttributes() {
-		return internalSpecification.containsAttributes();
+	public boolean containsChildNodes() {
+		return internalSpecification.containsChildNodes();
 	}
 	
 	//method
@@ -79,8 +79,8 @@ public final class SubNode extends BaseNode {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public int getAttributeCount() {
-		return internalSpecification.getAttributeCount();
+	public int getChildNodeCount() {
+		return internalSpecification.getChildNodeCount();
 	}
 	
 	//method
@@ -99,10 +99,10 @@ public final class SubNode extends BaseNode {
 	 * @return the attributes of the current {@link SubNode}
 	 */
 	@Override
-	public ReadContainer<BaseNode> getRefAttributes() {
+	public ReadContainer<BaseNode> getRefChildNodes() {
 		return
 		ReadContainer.forIterable(
-			internalSpecification.getRefAttributes().to(
+			internalSpecification.getRefChildNodes().to(
 				a -> new SubNode(parentFileNode, (Node)a)
 			)
 		);
@@ -115,9 +115,9 @@ public final class SubNode extends BaseNode {
 	 * @throws InvalidArgumentException if this {@link SubNode} contains several attributes.
 	 */
 	@Override
-	public BaseNode getRefOneAttribute() {
+	public BaseNode getRefSingleChildNode() {
 		return new SubNode(
-			parentFileNode, (Node)internalSpecification.getRefOneAttribute()
+			parentFileNode, (Node)internalSpecification.getRefSingleChildNode()
 		);
 	}
 
@@ -157,8 +157,8 @@ public final class SubNode extends BaseNode {
 	 * if this {@link SubNode} does not contain an attribute the given selector selects.
 	 */
 	@Override
-	public void removeFirstAttribute(final IElementTakerBooleanGetter<BaseNode> selector) {
-		internalSpecification.removeFirstAttribute(selector::getOutput);
+	public void removeFirstChildNodeThat(final IElementTakerBooleanGetter<BaseNode> selector) {
+		internalSpecification.removeFirstChildNodeThat(selector::getOutput);
 		parentFileNode.save();
 	}
 	

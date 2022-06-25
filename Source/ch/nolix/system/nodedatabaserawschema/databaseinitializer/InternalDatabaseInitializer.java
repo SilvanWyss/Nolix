@@ -14,7 +14,7 @@ final class InternalDatabaseInitializer {
 	public void initializeDatabase(final BaseNode databaseNode) {
 		databaseNode
 		.setHeader(SubNodeHeaderCatalogue.DATABASE)
-		.addAttribute(createDatabasePropertiesNode());
+		.addChildNode(createDatabasePropertiesNode());
 	}
 	
 	//method
@@ -27,7 +27,7 @@ final class InternalDatabaseInitializer {
 		return
 		Node.withHeaderAndAttribute(
 			SubNodeHeaderCatalogue.SCHEMA_TIMESTAMP,
-			Time.ofNow().getSpecification().getRefOneAttribute()
+			Time.ofNow().getSpecification().getRefSingleChildNode()
 		);
 	}
 }

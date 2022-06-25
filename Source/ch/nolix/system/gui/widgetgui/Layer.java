@@ -125,7 +125,7 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 	new CatchingProperty<>(
 		PascalCaseCatalogue.OPACITY,
 		this::setOpacityFromString,
-		BaseNode::getOneAttributeHeader
+		BaseNode::getSingleChildNodeHeader
 	);
 	
 	//attribute
@@ -200,7 +200,7 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 		this::setRootWidget,
 		this::containsAny,
 		this::getRefRootWidget,
-		s -> WidgetGUI.createWidgetFrom(s.getRefOneAttribute()),
+		s -> WidgetGUI.createWidgetFrom(s.getRefSingleChildNode()),
 		w -> Node.withAttribute(w.getSpecification())
 	);
 	

@@ -52,7 +52,7 @@ public final class ItemMenuItem extends MutableElement<ItemMenuItem> implements 
 	new Value<>(
 		PascalCaseCatalogue.TEXT,
 		this::setText,
-		BaseNode::getOneAttributeHeader,
+		BaseNode::getSingleChildNodeHeader,
 		Node::withAttribute
 	);
 	
@@ -61,7 +61,7 @@ public final class ItemMenuItem extends MutableElement<ItemMenuItem> implements 
 	new OptionalValue<>(
 		PascalCaseCatalogue.ID,
 		this::setId,
-		BaseNode::getOneAttributeHeader,
+		BaseNode::getSingleChildNodeHeader,
 		Node::withAttribute
 	);
 			
@@ -71,7 +71,7 @@ public final class ItemMenuItem extends MutableElement<ItemMenuItem> implements 
 		SELECTION_FLAG_HEADER,
 		DEFAULT_SELECTION_FLAG,
 		this::setSelectionFlag,
-		BaseNode::getOneAttributeAsBoolean,
+		BaseNode::getSingleChildNodeAsBoolean,
 		Node::withAttribute
 	);
 	

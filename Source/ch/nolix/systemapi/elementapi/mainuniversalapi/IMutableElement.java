@@ -120,7 +120,7 @@ public interface IMutableElement<ME extends IMutableElement<ME>> extends Resetta
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
 	default void resetFromSpecification(final BaseNode specification) {
-		resetFromAttributes(specification.getRefAttributes());
+		resetFromAttributes(specification.getRefChildNodes());
 	}
 	
 	//method

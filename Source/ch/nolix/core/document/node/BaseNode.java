@@ -94,7 +94,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * @param attribute
 	 * @return the current {@link BaseNode}
 	 */
-	public abstract BaseNode addAttribute(BaseNode attribute);
+	public abstract BaseNode addChildNode(BaseNode attribute);
 	
 	//method
 	/**
@@ -103,11 +103,11 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * @param attributes
 	 * @return the current {@link BaseNode}
 	 */
-	public BaseNode addAttribute(final BaseNode... attributes) {
+	public BaseNode addChildNode(final BaseNode... attributes) {
 
 		//Iterates the given attributes.
 		for (final var a : attributes) {
-			addAttribute(a);
+			addChildNode(a);
 		}
 
 		return this;
@@ -120,10 +120,10 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * @param attribute
 	 * @throws UnrepresentingArgumentException if the given attribute does not represent a {@link Node}.
 	 */
-	public void addAttribute(final String attribute) {
+	public void addChildNodeFromString(final String attribute) {
 		
 		//Calls other method
-		addAttribute(Node.fromString(attribute));
+		addChildNode(Node.fromString(attribute));
 	}
 	
 	//method
@@ -134,10 +134,10 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * @param <BN> is the type of the given attributes.
 	 * @return the current {@link BaseNode}
 	 */
-	public <BN extends BaseNode> BaseNode addAttributes(final Iterable<BN> attributes) {
+	public <BN extends BaseNode> BaseNode addChildNodes(final Iterable<BN> attributes) {
 		
 		//Iterates the given attributes.
-		attributes.forEach(this::addAttribute);
+		attributes.forEach(this::addChildNode);
 		
 		return this;
 	}
@@ -195,16 +195,16 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * @param selector
 	 * @return true if the current {@link BaseNode} contains an attribute the given selector selects.
 	 */
-	public boolean containsAttribute(final IElementTakerBooleanGetter<BaseNode> selector) {
-		return getRefAttributes().containsAny(selector);
+	public boolean containsChildNodeThat(final IElementTakerBooleanGetter<BaseNode> selector) {
+		return getRefChildNodes().containsAny(selector);
 	}
 	
 	//method
 	/**
 	 * @return true if the current {@link BaseNode} contains attributes.
 	 */
-	public boolean containsAttributes() {
-		return getRefAttributes().containsAny();
+	public boolean containsChildNodes() {
+		return getRefChildNodes().containsAny();
 	}
 	
 	//method
@@ -212,8 +212,8 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * @param header
 	 * @return true if the current {@link BaseNode} contains an attribute with the given header.
 	 */
-	public boolean containsAttributeWithHeader(final String header) {
-		return containsAttribute(a -> a.hasHeader(header));
+	public boolean containsChildNodeWithHeader(final String header) {
+		return containsChildNodeThat(a -> a.hasHeader(header));
 	}
 	
 	//method
@@ -221,7 +221,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * @return true if the current {@link BaseNode} contains exactly 1 attribute.
 	 */
 	public boolean containsOneAttribute() {
-		return getRefAttributes().containsOne();
+		return getRefChildNodes().containsOne();
 	}
 	
 	//method
@@ -229,7 +229,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * @return true if the current {@link BaseNode} contains exactly 1 attribute, that has a header.
 	 */
 	public boolean containsOneAttributeWithHeader() {
-		return (containsOneAttribute() && getRefOneAttribute().hasHeader());
+		return (containsOneAttribute() && getRefSingleChildNode().hasHeader());
 	}
 		
 	//method
@@ -246,8 +246,8 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 		}
 		
 		//Iterates the attributes of the current Node.
-		for (final var a : getRefAttributes()) {
-			copy.addAttribute(a.getCopy());
+		for (final var a : getRefChildNodes()) {
+			copy.addChildNode(a.getCopy());
 		}
 		
 		return copy;
@@ -307,13 +307,13 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 			}
 		}
 		
-		if (getAttributeCount() != baseNode.getAttributeCount()) {
+		if (getChildNodeCount() != baseNode.getChildNodeCount()) {
 			return false;
 		}
 		
 		//Iterates the attributes of the current BaseNode.
-		final var iterator = baseNode.getRefAttributes().iterator();
-		for (final var a : getRefAttributes()) {
+		final var iterator = baseNode.getRefChildNodes().iterator();
+		for (final var a : getRefChildNodes()) {
 			if (!a.equals(iterator.next())) {
 				return false;
 			}
@@ -326,14 +326,14 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	/**
 	 * @return the number of attributes of the current {@link BaseNode}.
 	 */
-	public abstract int getAttributeCount();
+	public abstract int getChildNodeCount();
 	
 	//method
 	/**
 	 * @return a {@link String} representations of the attributes of the current {@link BaseNode}.
 	 */
 	public IContainer<String> getAttributesAsStrings() {
-		return getRefAttributes().to(BaseNode::toString);
+		return getRefChildNodes().to(BaseNode::toString);
 	}
 	
 	//method
@@ -363,7 +363,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * @return the headers of the attributes of the current {@link BaseNode}.
 	 */
 	public IContainer<String> getHeadersOfAttributes() {
-		return getRefAttributes().to(BaseNode::getHeader);
+		return getRefChildNodes().to(BaseNode::getHeader);
 	}
 	
 	//method
@@ -375,8 +375,8 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * if the one attribute of the current {@link BaseNode} does not represent a boolean.
 	 */
 	@SuppressWarnings("all")
-	public boolean getOneAttributeAsBoolean() {
-		return getRefOneAttribute().toBoolean();
+	public boolean getSingleChildNodeAsBoolean() {
+		return getRefSingleChildNode().toBoolean();
 	}
 	
 	//method
@@ -387,8 +387,8 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * @throws InvalidArgumentException
 	 * if the one attribute of the current {@link BaseNode} does not represent a double.
 	 */
-	public double getOneAttributeAsDouble() {
-		return getRefOneAttribute().toDouble();
+	public double getSingleChildNodeAsDouble() {
+		return getRefSingleChildNode().toDouble();
 	}
 	
 	//method
@@ -399,8 +399,8 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * @throws InvalidArgumentException
 	 * if the one attribute of the current {@link BaseNode} does not represent an integer.
 	 */
-	public int getOneAttributeAsInt() {
-		return getRefOneAttribute().toInt();
+	public int getSingleChildNodeAsInt() {
+		return getRefSingleChildNode().toInt();
 	}
 	
 	//method
@@ -411,8 +411,8 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * @throws InvalidArgumentException
 	 * if the one attribute of the current {@link BaseNode} does not represent a long.
 	 */
-	public long getOneAttributeAsLong() {
-		return getRefOneAttribute().toLong();
+	public long getSingleChildNodeAsLong() {
+		return getRefSingleChildNode().toLong();
 	}
 	
 	//method
@@ -421,8 +421,8 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * @throws EmptyArgumentException if the current {@link BaseNode} does not contain attributes.
 	 * @throws InvalidArgumentException if the current {@link BaseNode} contains several attributes.
 	 */
-	public String getOneAttributeHeader() {
-		return getRefOneAttribute().getHeader();
+	public String getSingleChildNodeHeader() {
+		return getRefSingleChildNode().getHeader();
 	}
 	
 	//method declaration
@@ -433,14 +433,14 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BaseNode} does not contain an attribute at the given index.
 	 */
 	public BaseNode getRefAttributeAt(final int index) {
-		return getRefAttributes().getRefAt(index);
+		return getRefChildNodes().getRefAt(index);
 	}
 	
 	//method declaration
 	/**
 	 * @return the attributes of the current {@link BaseNode}.
 	 */
-	public abstract IContainer<BaseNode> getRefAttributes();
+	public abstract IContainer<BaseNode> getRefChildNodes();
 	
 	//method declaration
 	/**
@@ -458,7 +458,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * @return the attributes the given selector selects from the current {@link BaseNode}.
 	 */
 	public IContainer<BaseNode> getRefAttributes(final IElementTakerBooleanGetter<BaseNode> selector) {
-		return getRefAttributes().getRefSelected(selector);
+		return getRefChildNodes().getRefSelected(selector);
 	}
 	
 	//method
@@ -468,7 +468,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link Node} does not contain an attribute with the given header
 	 */
 	public IContainer<BaseNode> getRefAttributesOfFirstAttribute(String header) {
-		return getRefAttributes().getRefFirst(a -> a.hasHeader(header)).getRefAttributes();
+		return getRefChildNodes().getRefFirst(a -> a.hasHeader(header)).getRefChildNodes();
 	}
 
 	//method
@@ -477,8 +477,8 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * @throws EmptyArgumentException if the current {@link Node} is empty.
 	 * @throws InvalidArgumentException if the current {@link Node} contains several attributes.
 	 */
-	public BaseNode getRefOneAttribute() {
-		return getRefAttributes().getRefOne();
+	public BaseNode getRefSingleChildNode() {
+		return getRefChildNodes().getRefOne();
 	}
 	
 	//method
@@ -493,7 +493,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * if the first attribute of the current {@link Node} with the given header contains several attributes.
 	 */
 	public BaseNode getRefOneAttributeOfFirstAttribute(String header) {
-		return getRefAttributes().getRefFirst(a -> a.hasHeader(header)).getRefOneAttribute();
+		return getRefChildNodes().getRefFirst(a -> a.hasHeader(header)).getRefSingleChildNode();
 	}
 	
 	//method
@@ -512,7 +512,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * @throws EmptyArgumentException if the current {@link BaseNode} does not contain attributes.
 	 */
 	public BaseNode getRefFirstAttribute() {
-		return getRefAttributes().getRefFirst();
+		return getRefChildNodes().getRefFirst();
 	}
 	
 	//method
@@ -523,7 +523,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * the current {@link BaseNode} does not contain an attribute the given selector selects.
 	 */
 	public BaseNode getRefFirstAttribute(IElementTakerBooleanGetter<BaseNode> selector) {
-		return getRefAttributes().getRefFirst(selector);
+		return getRefChildNodes().getRefFirst(selector);
 	}
 	
 	//method
@@ -532,7 +532,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * @return the first attribute the given selector selects from the current {@link BaseNode} or null.
 	 */
 	public BaseNode getRefFirstAttributeOrNull(IElementTakerBooleanGetter<BaseNode> selector) {
-		return getRefAttributes().getRefFirstOrNull(selector);
+		return getRefChildNodes().getRefFirstOrNull(selector);
 	}
 	
 	//method
@@ -565,7 +565,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * @return true if the current {@link BaseNode} does not have a header and does not contain attributes.
 	 */
 	public boolean isBlank() {
-		return (!hasHeader() && !containsAttributes());
+		return (!hasHeader() && !containsChildNodes());
 	}
 	
 	//method
@@ -598,7 +598,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * 
 	 * @param selector
 	 */
-	public abstract void removeFirstAttribute(IElementTakerBooleanGetter<BaseNode> selector);
+	public abstract void removeFirstChildNodeThat(IElementTakerBooleanGetter<BaseNode> selector);
 	
 	//method
 	/**
@@ -606,8 +606,8 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 * 
 	 * @param header
 	 */
-	public void removeFirstAttribute(final String header) {
-		removeFirstAttribute(a -> a.hasHeader(header));
+	public void removeFirstChildNodeWithHeader(final String header) {
+		removeFirstChildNodeThat(a -> a.hasHeader(header));
 	}
 	
 	//method declaration
@@ -638,7 +638,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	 */
 	public <BN extends BaseNode> void resetAttributes(final Iterable<BN> attributes) {
 		removeAttributes();
-		addAttributes(attributes);
+		addChildNodes(attributes);
 	}
 	
 	//method
@@ -746,7 +746,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 	public IntPair toIntPair() {
 		
 		//Asserts that the current BaseNode contains 2 attributes.
-		if (getAttributeCount() != 2) {
+		if (getChildNodeCount() != 2) {
 			throw UnrepresentingArgumentException.forArgumentAndType(this, IntPair.class);
 		}
 		
@@ -777,10 +777,10 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 		}
 		
 		//Handles the case that the current specification contains attributes.
-		if (containsAttributes()) {
+		if (containsChildNodes()) {
 			stringBuilder
 			.append(CharacterCatalogue.OPEN_BRACKET)
-			.append(getRefAttributes().toString())
+			.append(getRefChildNodes().toString())
 			.append(CharacterCatalogue.CLOSED_BRACKET);
 		}
 		
@@ -799,10 +799,10 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 		.setName(getHeader());
 		
 		//Iterates the attributes of the current specification.
-		for (final BaseNode a : getRefAttributes()) {
+		for (final BaseNode a : getRefChildNodes()) {
 			
 			//Handles the case that the current attribute does not contain attributes.
-			if (!a.containsAttributes()) {
+			if (!a.containsChildNodes()) {
 				lXMLNode.setValue(a.toString());
 				
 			//Handles the case that the current attribute contains attributes.
@@ -849,7 +849,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 		if (index < substring.length()) {
 			var node = new Node();
 			index = node.setAndGetEndIndex(substring, index + 1) + 1;
-			this.addAttribute(node);
+			this.addChildNode(node);
 		}
 		
 		while (index < substring.length()) {
@@ -857,7 +857,7 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 				case ',':
 					var node = new Node();
 					index = node.setAndGetEndIndex(substring, index + 1) + 1;
-					this.addAttribute(node);
+					this.addChildNode(node);
 					break;
 				case ')':
 					return index;
@@ -894,13 +894,13 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 		}
 		
 		//Handles the case that the current specification contains attributes.
-		if (containsAttributes()) {
+		if (containsChildNodes()) {
 			
 			//Handles the case that all attributes of the current specification do not contain any attributes.
-			if (getRefAttributes().containsNone(BaseNode::containsAttributes)) {
+			if (getRefChildNodes().containsNone(BaseNode::containsChildNodes)) {
 				stringBuilder
 				.append(CharacterCatalogue.OPEN_BRACKET)
-				.append(getRefAttributes().toString())
+				.append(getRefChildNodes().toString())
 				.append(CharacterCatalogue.CLOSED_BRACKET);
 				
 			//Handles the case that the current specification contains attributes with attributes.
@@ -910,9 +910,9 @@ public abstract class BaseNode implements OptionalHeaderable<BaseNode> {
 				.append(CharacterCatalogue.NEW_LINE);
 				
 				//Iterates the attributes of the current specification.
-				final var attributeCount = getAttributeCount();
+				final var attributeCount = getChildNodeCount();
 				var index = 1;
-				for (final BaseNode a : getRefAttributes()) {
+				for (final BaseNode a : getRefChildNodes()) {
 					
 					stringBuilder.append(a.toFormatedString(leadingTabulators + 1));
 					

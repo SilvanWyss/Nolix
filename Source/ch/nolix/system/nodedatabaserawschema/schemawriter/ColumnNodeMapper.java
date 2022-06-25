@@ -20,9 +20,9 @@ public final class ColumnNodeMapper {
 		
 		node
 		.setHeader(SubNodeHeaderCatalogue.COLUMN)
-		.addAttribute(createIdNodeFrom(column))
-		.addAttribute(createNameNodeFrom(column))
-		.addAttribute(createParametrizedPropertyTypeNodeFrom(column));
+		.addChildNode(createIdNodeFrom(column))
+		.addChildNode(createNameNodeFrom(column))
+		.addChildNode(createParametrizedPropertyTypeNodeFrom(column));
 		
 		return node;
 	}

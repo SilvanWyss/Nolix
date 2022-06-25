@@ -67,14 +67,14 @@ public final class TextFormat implements ITextFormat {
 	public static TextFormat fromSpecification(final BaseNode specification) {
 		
 		//Extracts the attributes of the given specification.
-		final var attributes = specification.getRefAttributes();
+		final var attributes = specification.getRefChildNodes();
 		
 		return
 		new TextFormat(
 			Font.fromSpecification(attributes.getRefAt(1)),
-			attributes.getRefAt(2).getOneAttributeAsBoolean(),
-			attributes.getRefAt(3).getOneAttributeAsBoolean(),
-			attributes.getRefAt(4).getOneAttributeAsInt(),
+			attributes.getRefAt(2).getSingleChildNodeAsBoolean(),
+			attributes.getRefAt(3).getSingleChildNodeAsBoolean(),
+			attributes.getRefAt(4).getSingleChildNodeAsInt(),
 			Color.fromSpecification(attributes.getRefAt(5))
 		);
 	}

@@ -56,7 +56,7 @@ public enum Month implements Specified {
 	
 	//static method
 	public Month fromSpecification(final BaseNode specification) {
-		return Month.valueOf(specification.getOneAttributeHeader());
+		return Month.valueOf(specification.getSingleChildNodeHeader());
 	}
 	
 	//method

@@ -29,12 +29,12 @@ final class ColumnDTOMapper {
 	
 	//method
 	private String getIdFromColumnNode(final BaseNode columnNode) {
-		return columnNodeSearcher.getRefIdNodeFromColumnNode(columnNode).getOneAttributeHeader();
+		return columnNodeSearcher.getRefIdNodeFromColumnNode(columnNode).getSingleChildNodeHeader();
 	}
 	
 	//method
 	private String getNameFromColumnNode(final BaseNode columnNode) {
-		return columnNodeSearcher.getRefNameNodeFromColumnNode(columnNode).getOneAttributeHeader();
+		return columnNodeSearcher.getRefNameNodeFromColumnNode(columnNode).getSingleChildNodeHeader();
 	}
 	
 	//method

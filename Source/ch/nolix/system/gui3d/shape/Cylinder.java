@@ -20,7 +20,7 @@ public final class Cylinder extends Prisma<Cylinder> {
 		PascalCaseCatalogue.RADIUS,
 		DEFAULT_RADIUS,
 		this::setRadius,
-		BaseNode::getOneAttributeAsDouble,
+		BaseNode::getSingleChildNodeAsDouble,
 		Node::withAttribute
 	);
 	

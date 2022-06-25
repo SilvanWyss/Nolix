@@ -20,7 +20,7 @@ public enum PropertyType {
 	
 	//static method
 	public static PropertyType fromSpecification(final BaseNode specification) {
-		return valueOf(specification.getOneAttributeHeader());
+		return valueOf(specification.getSingleChildNodeHeader());
 	}
 	
 	//attribute

@@ -89,17 +89,17 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 	//static method
 	public static MutableImage fromSpecification(final BaseNode specification) {
 		
-		if (specification.containsAttributeWithHeader(JPG_STRING)) {
+		if (specification.containsChildNodeWithHeader(JPG_STRING)) {
 			
-			final var lJPGString = specification.getRefFirstAttribute(JPG_STRING).getOneAttributeHeader();
+			final var lJPGString = specification.getRefFirstAttribute(JPG_STRING).getSingleChildNodeHeader();
 			
 			return fromBytes(Base64.getDecoder().decode(lJPGString.substring(lJPGString.indexOf(',') + 1)));
 		}
 		
 		final var image =
 		MutableImage.withWidthAndHeightAndWhiteColor(
-			specification.getRefFirstAttribute(PascalCaseCatalogue.WIDTH).getOneAttributeAsInt(),
-			specification.getRefFirstAttribute(PascalCaseCatalogue.HEIGHT).getOneAttributeAsInt()
+			specification.getRefFirstAttribute(PascalCaseCatalogue.WIDTH).getSingleChildNodeAsInt(),
+			specification.getRefFirstAttribute(PascalCaseCatalogue.HEIGHT).getSingleChildNodeAsInt()
 		);
 		image.setPixelArray(specification.getRefFirstAttribute(a -> a.hasHeader(PIXEL_ARRAY_HEADER)));
 		
@@ -150,7 +150,7 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 	new Value<>(
 		PascalCaseCatalogue.WIDTH,
 		this::setWidth,
-		BaseNode::getOneAttributeAsInt,
+		BaseNode::getSingleChildNodeAsInt,
 		Node::withAttribute
 	);
 	
@@ -159,7 +159,7 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 	new Value<>(
 		PascalCaseCatalogue.HEIGHT,
 		this::setHeight,
-		BaseNode::getOneAttributeAsInt,
+		BaseNode::getSingleChildNodeAsInt,
 		Node::withAttribute
 	);
 		
@@ -309,7 +309,7 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 	//method
 	public void setPixelArray(final BaseNode pixelArray) {
 		
-		final var lPixelArray = pixelArray.getRefAttributes();
+		final var lPixelArray = pixelArray.getRefChildNodes();
 		
 		GlobalValidator.assertThat(lPixelArray.getElementCount()).thatIsNamed("number of pixels").isEqualTo(getPixelCount());
 		
@@ -535,7 +535,7 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 		
 		final var lPixelArraySpecification = Node.withHeader(PIXEL_ARRAY_HEADER);
 		for (final var p : pixels) {
-			lPixelArraySpecification.addAttribute(p.getHexadecimalValueAlwaysWithAlphaValue());
+			lPixelArraySpecification.addChildNodeFromString(p.getHexadecimalValueAlwaysWithAlphaValue());
 		}
 		
 		return lPixelArraySpecification;

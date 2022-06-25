@@ -56,7 +56,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	new NonCascadingProperty<>(
 		LEFT_BORDER_THICKNESS_HEADER,
 		WidgetLookState.class,
-		BaseNode::getOneAttributeAsInt,
+		BaseNode::getSingleChildNodeAsInt,
 		Node::withAttribute,
 		this::setLeftBorderThicknessForState,
 		DEFAULT_BORDER_THICKNESS
@@ -67,7 +67,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	new NonCascadingProperty<>(
 		RIGHT_BORDER_THICKNESS_HEADER,
 		WidgetLookState.class,
-		BaseNode::getOneAttributeAsInt,
+		BaseNode::getSingleChildNodeAsInt,
 		Node::withAttribute,
 		this::setRightBorderThicknessForState,
 		DEFAULT_BORDER_THICKNESS
@@ -78,7 +78,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	new NonCascadingProperty<>(
 		TOP_BORDER_THICKNESS_HEADER,
 		WidgetLookState.class,
-		BaseNode::getOneAttributeAsInt,
+		BaseNode::getSingleChildNodeAsInt,
 		Node::withAttribute,
 		this::setTopBorderThicknessForState,
 		DEFAULT_BORDER_THICKNESS
@@ -89,7 +89,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	new NonCascadingProperty<>(
 		BOTTOM_BORDER_THICKNESS_HEADER,
 		WidgetLookState.class,
-		BaseNode::getOneAttributeAsInt,
+		BaseNode::getSingleChildNodeAsInt,
 		Node::withAttribute,
 		this::setBottomBorderThicknessForState,
 		DEFAULT_BORDER_THICKNESS
@@ -149,7 +149,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	new NonCascadingProperty<>(
 		LEFT_PADDING_HEADER,
 		WidgetLookState.class,
-		BaseNode::getOneAttributeAsInt,
+		BaseNode::getSingleChildNodeAsInt,
 		Node::withAttribute,
 		this::setLeftPaddingForState,
 		DEFAULT_PADDING
@@ -160,7 +160,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	new NonCascadingProperty<>(
 		RIGHT_PADDING_HEADER,
 		WidgetLookState.class,
-		BaseNode::getOneAttributeAsInt,
+		BaseNode::getSingleChildNodeAsInt,
 		Node::withAttribute,
 		this::setRightPaddingForState,
 		DEFAULT_PADDING
@@ -171,7 +171,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	new NonCascadingProperty<>(
 		TOP_PADDING_HEADER,
 		WidgetLookState.class,
-		BaseNode::getOneAttributeAsInt,
+		BaseNode::getSingleChildNodeAsInt,
 		Node::withAttribute,
 		this::setTopPaddingForState,
 		DEFAULT_PADDING
@@ -182,7 +182,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	new NonCascadingProperty<>(
 		BOTTOM_PADDING_HEADER,
 		WidgetLookState.class,
-		BaseNode::getOneAttributeAsInt,
+		BaseNode::getSingleChildNodeAsInt,
 		Node::withAttribute,
 		this::setBottomPaddingForState,
 		DEFAULT_PADDING

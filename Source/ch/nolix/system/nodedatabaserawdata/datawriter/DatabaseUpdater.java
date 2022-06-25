@@ -94,7 +94,7 @@ final class DatabaseUpdater {
 		
 		final var multiReferenceColumnNode = entityNode.getRefAttributeAt(multiReferenceColumnIndex);
 		
-		multiReferenceColumnNode.removeFirstAttribute(referencedEntityId);
+		multiReferenceColumnNode.removeFirstChildNodeWithHeader(referencedEntityId);
 	}
 	
 	//method
@@ -115,7 +115,7 @@ final class DatabaseUpdater {
 		
 		final var multiValueColumnNode = entityNode.getRefAttributeAt(multiValueColumnIndex);
 		
-		multiValueColumnNode.removeFirstAttribute(entry);
+		multiValueColumnNode.removeFirstChildNodeWithHeader(entry);
 	}
 	
 	//method
@@ -169,7 +169,7 @@ final class DatabaseUpdater {
 		
 		final var multiReferenceColumnNode = entityNode.getRefAttributeAt(multiReferenceColumnIndex);
 		
-		multiReferenceColumnNode.addAttribute(Node.withHeader(referencedEntityId));
+		multiReferenceColumnNode.addChildNode(Node.withHeader(referencedEntityId));
 	}
 	
 	//method
@@ -190,7 +190,7 @@ final class DatabaseUpdater {
 		
 		final var multiValueColumnNode = entityNode.getRefAttributeAt(multiValueColumnIndex);
 		
-		multiValueColumnNode.addAttribute(Node.withHeader(entry));
+		multiValueColumnNode.addChildNode(Node.withHeader(entry));
 	}
 	
 	//method
@@ -212,7 +212,7 @@ final class DatabaseUpdater {
 		
 		final var recordNode = entityNodeMapper.createNodeFromRecordWithSaveStamp(tableInfo, pRecord, 0);
 		
-		tableNode.addAttribute(recordNode);
+		tableNode.addChildNode(recordNode);
 	}
 	
 	//method
@@ -227,7 +227,7 @@ final class DatabaseUpdater {
 		}
 		
 		final var saveStampNode = entityNodeSearcher.getRefSaveStampNodeFromRecordNode(entityNode);
-		final var saveStampValueNode = saveStampNode.getRefOneAttribute();
+		final var saveStampValueNode = saveStampNode.getRefSingleChildNode();
 		
 		final var saveStamp = saveStampValueNode.getHeader();
 		if (!saveStamp.equals(entity.getSaveStamp())) {

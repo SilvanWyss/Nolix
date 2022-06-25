@@ -41,7 +41,7 @@ public final class IntOrPercentageHolder implements Specified {
 	 */
 	public static IntOrPercentageHolder fromSpecification(final BaseNode specification) {
 		
-		final var attribute = specification.getOneAttributeHeader();
+		final var attribute = specification.getSingleChildNodeHeader();
 		
 		if (attribute.endsWith("%")) {
 			return withPercentage(0.01 * Double.valueOf(attribute.substring(0, attribute.length() - 1)));

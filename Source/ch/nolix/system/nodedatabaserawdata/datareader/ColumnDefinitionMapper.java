@@ -43,12 +43,12 @@ public final class ColumnDefinitionMapper {
 	
 	//method
 	private String getColumnIdFromColumnNode(final BaseNode columnNode) {
-		return columnNodeSearcher.getRefIdNodeFromColumnNode(columnNode).getOneAttributeHeader();
+		return columnNodeSearcher.getRefIdNodeFromColumnNode(columnNode).getSingleChildNodeHeader();
 	}
 	
 	//method
 	private String getColumnNameFromColumnNode(final BaseNode columnNode) {
-		return columnNodeSearcher.getRefNameNodeFromColumnNode(columnNode).getOneAttributeHeader();
+		return columnNodeSearcher.getRefNameNodeFromColumnNode(columnNode).getSingleChildNodeHeader();
 	}
 	
 	//method
@@ -67,7 +67,7 @@ public final class ColumnDefinitionMapper {
 	
 	//method
 	private DataType getDataTypeFromDataTypeNode(final BaseNode dataTypeNode) {
-		return DataType.valueOf(dataTypeNode.getOneAttributeHeader());
+		return DataType.valueOf(dataTypeNode.getSingleChildNodeHeader());
 	}
 	
 	//method

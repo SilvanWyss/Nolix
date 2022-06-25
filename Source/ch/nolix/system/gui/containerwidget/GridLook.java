@@ -41,7 +41,7 @@ public final class GridLook extends BorderWidgetLook<GridLook> {
 	new NonCascadingProperty<>(
 		GRID_THICKNESS_HEADER,
 		WidgetLookState.class,
-		BaseNode::getOneAttributeAsInt,
+		BaseNode::getSingleChildNodeAsInt,
 		Node::withAttribute,
 		this::setGridThicknessForState,
 		DEFAULT_GRID_THICKNESS
@@ -63,7 +63,7 @@ public final class GridLook extends BorderWidgetLook<GridLook> {
 	new NonCascadingProperty<>(
 		ELEMENT_MARGIN_HEADER,
 		WidgetLookState.class,
-		BaseNode::getOneAttributeAsInt,
+		BaseNode::getSingleChildNodeAsInt,
 		Node::withAttribute,
 		this::setElementMarginForState,
 		DEFAULT_ELEMENT_MARGIN

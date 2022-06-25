@@ -152,7 +152,7 @@ final class InternalDataWriter {
 	//method
 	public void saveChangesAndReset() {
 		try {
-			nodeDatabase.resetAttributes(createNodeDatabaseWithChanges().getRefAttributes());
+			nodeDatabase.resetAttributes(createNodeDatabaseWithChanges().getRefChildNodes());
 			saveCount++;
 		} finally {
 			reset();

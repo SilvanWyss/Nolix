@@ -19,8 +19,8 @@ public final class TableNodeMapper {
 		
 		node
 		.setHeader(SubNodeHeaderCatalogue.TABLE)
-		.addAttribute(createIdNodeFrom(table), createNameNodeFrom(table))
-		.addAttributes(createColumnNodesFrom(table));
+		.addChildNode(createIdNodeFrom(table), createNameNodeFrom(table))
+		.addChildNodes(createColumnNodesFrom(table));
 		
 		return node;
 	}

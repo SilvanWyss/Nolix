@@ -85,7 +85,7 @@ public final class Node extends BaseNode {
 	public static <BN extends BaseNode> Node withAttribute(final BN attribute) {
 		
 		final var node = new Node();
-		node.addAttribute(attribute);
+		node.addChildNode(attribute);
 		
 		return node;
 	}
@@ -100,7 +100,7 @@ public final class Node extends BaseNode {
 	public static <BN extends BaseNode> Node withAttribute(final BN... attributes) {
 		
 		final var node = new Node();
-		node.addAttribute(attributes);
+		node.addChildNode(attributes);
 		
 		return node;
 	}
@@ -113,7 +113,7 @@ public final class Node extends BaseNode {
 	public static Node withAttribute(final boolean attribute) {
 		
 		final var node = new Node();
-		node.addAttribute(Node.withHeader(String.valueOf(attribute)));
+		node.addChildNode(Node.withHeader(String.valueOf(attribute)));
 		
 		return node;
 	}
@@ -127,7 +127,7 @@ public final class Node extends BaseNode {
 		
 		final var node = new Node();
 		for (var a : attributes) {
-			node.addAttribute(Node.withHeader(a));
+			node.addChildNode(Node.withHeader(a));
 		}
 		
 		return node;
@@ -141,7 +141,7 @@ public final class Node extends BaseNode {
 	public static Node withAttribute(final double attribute) {
 		
 		final var node = new Node();
-		node.addAttribute(String.valueOf(attribute));
+		node.addChildNodeFromString(String.valueOf(attribute));
 		
 		return node;
 	}
@@ -155,7 +155,7 @@ public final class Node extends BaseNode {
 		
 		final var node = new Node();
 		for (var a : attributes) {
-			node.addAttribute(Node.withHeader(a));
+			node.addChildNode(Node.withHeader(a));
 		}
 		
 		return node;
@@ -169,7 +169,7 @@ public final class Node extends BaseNode {
 	public static Node withAttribute(final long attribute) {
 		
 		final var node = new Node();
-		node.addAttribute(String.valueOf(attribute));
+		node.addChildNodeFromString(String.valueOf(attribute));
 		
 		return node;
 	}
@@ -183,7 +183,7 @@ public final class Node extends BaseNode {
 		
 		final var node = new Node();
 		for (var a : attributes) {
-			node.addAttribute(Node.withHeader(a));
+			node.addChildNode(Node.withHeader(a));
 		}
 		
 		return node;
@@ -199,7 +199,7 @@ public final class Node extends BaseNode {
 	public static Node withAttribute(final String attribute) {
 		
 		final var node = new Node();
-		node.addAttribute(Node.withHeader(attribute));
+		node.addChildNode(Node.withHeader(attribute));
 		
 		return node;
 	}
@@ -213,7 +213,7 @@ public final class Node extends BaseNode {
 		
 		final var node = new Node();
 		for (var a : attributes) {
-			node.addAttribute(Node.withHeader(a));
+			node.addChildNode(Node.withHeader(a));
 		}
 		
 		return node;
@@ -228,7 +228,7 @@ public final class Node extends BaseNode {
 	public static <BN extends BaseNode> Node withAttributes(final Iterable<BN> attributes) {
 		
 		final var node = new Node();
-		node.addAttributes(attributes);
+		node.addChildNodes(attributes);
 		
 		return node;
 	}
@@ -301,7 +301,7 @@ public final class Node extends BaseNode {
 		
 		final var node = new Node();
 		node.setHeader(header);
-		node.addAttribute(attribute);
+		node.addChildNode(attribute);
 		
 		return node;
 	}
@@ -322,7 +322,7 @@ public final class Node extends BaseNode {
 		final var node = new Node();
 		node.setHeader(header);
 		for (final var a : attributes) {
-			node.addAttribute(a);
+			node.addChildNode(a);
 		}
 		
 		return node;
@@ -340,7 +340,7 @@ public final class Node extends BaseNode {
 		
 		final var node = new Node();
 		node.setHeader(header);
-		node.addAttribute(GlobalBooleanHelper.toString(attribute));
+		node.addChildNodeFromString(GlobalBooleanHelper.toString(attribute));
 		
 		return node;
 	}
@@ -358,7 +358,7 @@ public final class Node extends BaseNode {
 		final var node = new Node();
 		node.setHeader(header);
 		for (final var a : attributes) {
-			node.addAttribute(Node.withHeader(a));
+			node.addChildNode(Node.withHeader(a));
 		}
 		
 		return node;
@@ -376,7 +376,7 @@ public final class Node extends BaseNode {
 		
 		final var node = new Node();
 		node.setHeader(header);
-		node.addAttribute(String.valueOf(attribute));
+		node.addChildNodeFromString(String.valueOf(attribute));
 		
 		return node;
 	}
@@ -394,7 +394,7 @@ public final class Node extends BaseNode {
 		final var node = new Node();
 		node.setHeader(header);
 		for (final var a : attributes) {
-			node.addAttribute(Node.withHeader(a));
+			node.addChildNode(Node.withHeader(a));
 		}
 		
 		return node;
@@ -412,7 +412,7 @@ public final class Node extends BaseNode {
 		
 		final var node = new Node();
 		node.setHeader(header);
-		node.addAttribute(String.valueOf(attribute));
+		node.addChildNodeFromString(String.valueOf(attribute));
 		
 		return node;
 	}
@@ -430,7 +430,7 @@ public final class Node extends BaseNode {
 		final var node = new Node();
 		node.setHeader(header);
 		for (final var a : attributes) {
-			node.addAttribute(Node.withHeader(a));
+			node.addChildNode(Node.withHeader(a));
 		}
 		
 		return node;
@@ -450,7 +450,7 @@ public final class Node extends BaseNode {
 		
 		final var node = new Node();
 		node.setHeader(header);
-		node.addAttribute(attribute);
+		node.addChildNodeFromString(attribute);
 		
 		return node;
 	}
@@ -470,7 +470,7 @@ public final class Node extends BaseNode {
 		final var node = new Node();
 		node.setHeader(header);
 		for (final var a : attributes) {
-			node.addAttribute(a);
+			node.addChildNodeFromString(a);
 		}
 		
 		return node;
@@ -492,7 +492,7 @@ public final class Node extends BaseNode {
 		
 		final var node = new Node();
 		node.setHeader(header);
-		node.addAttributes(attributes);
+		node.addChildNodes(attributes);
 		
 		return node;
 	}
@@ -508,7 +508,7 @@ public final class Node extends BaseNode {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Node addAttribute(final BaseNode attribute) {
+	public Node addChildNode(final BaseNode attribute) {
 		
 		attributes.addAtEnd(attribute.getCopy());
 		
@@ -520,7 +520,7 @@ public final class Node extends BaseNode {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public int getAttributeCount() {
+	public int getChildNodeCount() {
 		return attributes.getElementCount();
 	}
 	
@@ -546,7 +546,7 @@ public final class Node extends BaseNode {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public IContainer<BaseNode> getRefAttributes() {
+	public IContainer<BaseNode> getRefChildNodes() {
 		return ReadContainer.forIterable(attributes).asContainerWithElementsOfEvaluatedType();
 	}
 	
@@ -555,7 +555,7 @@ public final class Node extends BaseNode {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Node getRefOneAttribute() {
+	public Node getRefSingleChildNode() {
 		return attributes.getRefOne();
 	}
 	
@@ -600,7 +600,7 @@ public final class Node extends BaseNode {
 	 * if the current {@link Node} does not contain an attribute the given selector selects.
 	 */
 	@Override
-	public void removeFirstAttribute(final IElementTakerBooleanGetter<BaseNode> selector) {
+	public void removeFirstChildNodeThat(final IElementTakerBooleanGetter<BaseNode> selector) {
 		attributes.removeFirst(selector::getOutput);
 	}
 	

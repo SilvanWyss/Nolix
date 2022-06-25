@@ -180,8 +180,8 @@ public final class SchemaReader implements ISchemaReader {
 	private ITableDTO loadTableFromTableNode(final BaseNode tableNode) {
 		return
 		new TableDTO(
-			tableNodeSearcher.getRefIdNodeFromTableNode(tableNode).getOneAttributeHeader(),
-			tableNodeSearcher.getRefNameNodeFromTableNode(tableNode).getOneAttributeHeader(),
+			tableNodeSearcher.getRefIdNodeFromTableNode(tableNode).getSingleChildNodeHeader(),
+			tableNodeSearcher.getRefNameNodeFromTableNode(tableNode).getSingleChildNodeHeader(),
 			new SaveStampConfigurationDTO(SaveStampStrategy.OWN_SAVE_STAMP),
 			loadColumnsFromTableNode(tableNode)
 		);

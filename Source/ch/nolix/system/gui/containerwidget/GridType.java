@@ -15,7 +15,7 @@ public enum GridType implements Specified {
 
 	//static method
 	public static GridType fromSpecification(final BaseNode specification) {
-		return valueOf(GlobalStringHelper.toUpperSnakeCase(specification.getOneAttributeHeader()));
+		return valueOf(GlobalStringHelper.toUpperSnakeCase(specification.getSingleChildNodeHeader()));
 	}
 	
 	//method

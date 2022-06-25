@@ -34,7 +34,7 @@ public final class MutableValue<V> extends SingleValue<V> {
 		final IElementTaker<Boolean> setterMethod
 	) {
 		return
-		new MutableValue<>(name, defaultValue, setterMethod, BaseNode::getOneAttributeAsBoolean, Node::withAttribute);
+		new MutableValue<>(name, defaultValue, setterMethod, BaseNode::getSingleChildNodeAsBoolean, Node::withAttribute);
 	}
 	
 	//static method
@@ -54,7 +54,7 @@ public final class MutableValue<V> extends SingleValue<V> {
 		final IElementTaker<Double> setterMethod
 	) {
 		return
-		new MutableValue<>(name, defaultValue, setterMethod, BaseNode::getOneAttributeAsDouble, Node::withAttribute);
+		new MutableValue<>(name, defaultValue, setterMethod, BaseNode::getSingleChildNodeAsDouble, Node::withAttribute);
 	}
 	
 	//static method
@@ -74,7 +74,7 @@ public final class MutableValue<V> extends SingleValue<V> {
 		final IElementTaker<Integer> setterMethod
 	) {
 		return
-		new MutableValue<>(name, defaultValue, setterMethod, BaseNode::getOneAttributeAsInt, Node::withAttribute);
+		new MutableValue<>(name, defaultValue, setterMethod, BaseNode::getSingleChildNodeAsInt, Node::withAttribute);
 	}
 	
 	//static method
@@ -98,7 +98,7 @@ public final class MutableValue<V> extends SingleValue<V> {
 			name,
 			defaultValue,
 			setterMethod,
-			s -> s.getRefOneAttribute().getHeaderOrEmptyString(),
+			s -> s.getRefSingleChildNode().getHeaderOrEmptyString(),
 			(final String s) -> {
 				
 				if (s.isEmpty()) {

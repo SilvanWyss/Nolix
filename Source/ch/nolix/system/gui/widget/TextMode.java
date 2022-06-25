@@ -18,7 +18,7 @@ public enum TextMode implements Specified {
 	
 	//static method
 	public static TextMode fromSpecification(final BaseNode specification) {
-		return valueOf(specification.getOneAttributeHeader().toUpperCase(Locale.ENGLISH));
+		return valueOf(specification.getSingleChildNodeHeader().toUpperCase(Locale.ENGLISH));
 	}
 	
 	//method

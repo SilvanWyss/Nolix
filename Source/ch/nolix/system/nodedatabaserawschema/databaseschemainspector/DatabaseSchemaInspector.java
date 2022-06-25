@@ -27,11 +27,11 @@ public final class DatabaseSchemaInspector {
 	private boolean databaseIsInitialized(final BaseNode databaseNode) {
 		return 
 		databaseNode.hasHeader(SubNodeHeaderCatalogue.DATABASE)
-		&& databaseNode.containsAttributeWithHeader(SubNodeHeaderCatalogue.DATABASE_PROPERTIES);
+		&& databaseNode.containsChildNodeWithHeader(SubNodeHeaderCatalogue.DATABASE_PROPERTIES);
 	}
 	
 	//method
 	private boolean databaseIsUnitialized(final BaseNode databaseNode) {
-		return (!databaseNode.hasHeader() && !databaseNode.containsAttributes());
+		return (!databaseNode.hasHeader() && !databaseNode.containsChildNodes());
 	}
 }

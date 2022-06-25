@@ -790,7 +790,7 @@ public final class Color implements IColor {
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
 	public static Color fromSpecification(final BaseNode specification) {
-		return Color.fromString(specification.getOneAttributeHeader());
+		return Color.fromString(specification.getSingleChildNodeHeader());
 	}
 	
 	//static method

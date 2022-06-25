@@ -57,7 +57,7 @@ public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G> 
 		PascalCaseCatalogue.TITLE,
 		DEFAULT_TITLE,
 		this::setTitle,
-		BaseNode::getOneAttributeHeader,
+		BaseNode::getSingleChildNodeHeader,
 		Node::withAttribute
 	);
 	
@@ -92,7 +92,7 @@ public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G> 
 	private final MutableOptionalSpecificationValueExtractor rootShapeExtractor =
 	new MutableOptionalSpecificationValueExtractor(
 		ROOT_SHAPE_HEADER,
-		s -> setRootShape(createShape(s.getRefOneAttribute())),
+		s -> setRootShape(createShape(s.getRefSingleChildNode())),
 		this::containsAny,
 		() -> Node.withAttribute(rootShape.getSpecification())
 	);

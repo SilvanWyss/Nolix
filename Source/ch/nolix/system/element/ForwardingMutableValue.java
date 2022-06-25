@@ -21,7 +21,7 @@ public final class ForwardingMutableValue<V> extends Property implements Named {
 		final IElementGetter<Boolean> getter
 	) {
 		return
-		new ForwardingMutableValue<>(name, setter, getter, BaseNode::getOneAttributeAsBoolean, Node::withAttribute);
+		new ForwardingMutableValue<>(name, setter, getter, BaseNode::getSingleChildNodeAsBoolean, Node::withAttribute);
 	}
 	
 	//static method
@@ -30,7 +30,7 @@ public final class ForwardingMutableValue<V> extends Property implements Named {
 		final IElementTaker<Integer> setter,
 		final IElementGetter<Integer> getter
 	) {
-		return new ForwardingMutableValue<>(name, setter, getter, BaseNode::getOneAttributeAsInt, Node::withAttribute);
+		return new ForwardingMutableValue<>(name, setter, getter, BaseNode::getSingleChildNodeAsInt, Node::withAttribute);
 	}
 	
 	//static method
@@ -44,7 +44,7 @@ public final class ForwardingMutableValue<V> extends Property implements Named {
 			name,
 			setter,
 			getter,
-			s -> s.getRefOneAttribute().getHeaderOrEmptyString(),
+			s -> s.getRefSingleChildNode().getHeaderOrEmptyString(),
 			(final String s) -> {
 				
 				if (s.isEmpty()) {

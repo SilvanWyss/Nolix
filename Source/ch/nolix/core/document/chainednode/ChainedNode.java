@@ -54,7 +54,7 @@ public final class ChainedNode implements OptionalHeadered {
 			chainedNode.setHeader(node.getHeader());
 		}
 		
-		chainedNode.addAttributesFromNodes(node.getRefAttributes());
+		chainedNode.addAttributesFromNodes(node.getRefChildNodes());
 				
 		return chainedNode;
 	}
@@ -647,7 +647,7 @@ public final class ChainedNode implements OptionalHeadered {
 		
 		//Iterates the attributes of the current ChainedNode.
 		for (final var a : attributes) {
-			node.addAttribute(a.toNode());
+			node.addChildNode(a.toNode());
 		}
 		
 		return node;

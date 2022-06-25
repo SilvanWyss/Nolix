@@ -63,7 +63,7 @@ public final class Time implements ITime {
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
 	public static Time fromSpecification(final BaseNode specification) {
-		return fromString(specification.getOneAttributeHeader());
+		return fromString(specification.getSingleChildNodeHeader());
 	}
 	
 	//static method

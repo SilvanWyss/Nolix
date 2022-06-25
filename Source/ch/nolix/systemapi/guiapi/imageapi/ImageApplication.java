@@ -15,7 +15,7 @@ public enum ImageApplication implements Specified {
 	
 	//static method
 	public static ImageApplication fromSpecification(final BaseNode specification) {
-		return valueOf(GlobalStringHelper.toUpperSnakeCase(specification.getOneAttributeHeader()));
+		return valueOf(GlobalStringHelper.toUpperSnakeCase(specification.getSingleChildNodeHeader()));
 	}
 	
 	//method

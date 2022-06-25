@@ -22,7 +22,7 @@ public final class Pyramid extends AtomicShape<Pyramid> {
 		PascalCaseCatalogue.SIDE_LENGTH,
 		DEFAULT_SIDE_LENGTH,
 		this::setSideLength,
-		BaseNode::getOneAttributeAsDouble,
+		BaseNode::getSingleChildNodeAsDouble,
 		Node::withAttribute
 	);
 	
@@ -32,7 +32,7 @@ public final class Pyramid extends AtomicShape<Pyramid> {
 		PascalCaseCatalogue.HEIGHT,
 		DEFAULT_HEIGHT,
 		this::setHeight,
-		BaseNode::getOneAttributeAsDouble,
+		BaseNode::getSingleChildNodeAsDouble,
 		Node::withAttribute
 	);
 	

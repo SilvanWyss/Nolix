@@ -52,7 +52,7 @@ public final class LoadedRecordDTOMapper {
 		
 		final var idNode = entityNodeSearcher.getRefIdNodeFromRecordNode(recordNode);
 		
-		return idNode.getOneAttributeHeader();
+		return idNode.getSingleChildNodeHeader();
 	}
 	
 	//method
@@ -60,6 +60,6 @@ public final class LoadedRecordDTOMapper {
 		
 		final var saveStampNode = entityNodeSearcher.getRefSaveStampNodeFromRecordNode(recordNode);
 		
-		return saveStampNode.getOneAttributeHeader();
+		return saveStampNode.getSingleChildNodeHeader();
 	}
 }

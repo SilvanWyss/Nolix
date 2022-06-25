@@ -74,7 +74,7 @@ public final class SchemaWriter implements ISchemaWriter {
 		final var tableNode =
 		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(editedDatabaseNode, tableName);
 		
-		tableNode.addAttribute(columnNodeMapper.createColumnNodeFrom(column));
+		tableNode.addChildNode(columnNodeMapper.createColumnNodeFrom(column));
 		
 		hasChanges = true;
 	}
@@ -83,7 +83,7 @@ public final class SchemaWriter implements ISchemaWriter {
 	@Override
 	public void addTable(final ITableDTO table) {
 		
-		editedDatabaseNode.addAttribute(tableNodeMapper.createTableNodeFrom(table));
+		editedDatabaseNode.addChildNode(tableNodeMapper.createTableNodeFrom(table));
 		
 		hasChanges = true;
 	}
@@ -93,10 +93,10 @@ public final class SchemaWriter implements ISchemaWriter {
 	public void deleteColumn(final String tableName, final String columnName) {
 		
 		final var tableNode = databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(editedDatabaseNode, tableName);
-		tableNode.removeFirstAttribute(
+		tableNode.removeFirstChildNodeThat(
 			a -> 
 			a.hasHeader(SubNodeHeaderCatalogue.COLUMN)
-			&& columnNodeSearcher.getRefNameNodeFromColumnNode(a).getRefOneAttribute().hasHeader(columnName)
+			&& columnNodeSearcher.getRefNameNodeFromColumnNode(a).getRefSingleChildNode().hasHeader(columnName)
 		);
 		
 		hasChanges = true;
@@ -106,10 +106,10 @@ public final class SchemaWriter implements ISchemaWriter {
 	@Override
 	public void deleteTable(final String tableName) {
 		
-		editedDatabaseNode.removeFirstAttribute(
+		editedDatabaseNode.removeFirstChildNodeThat(
 			a -> 
 			a.hasHeader(SubNodeHeaderCatalogue.TABLE)
-			&&  tableNodeSearcher.getRefNameNodeFromTableNode(a).getRefOneAttribute().hasHeader(tableName)
+			&&  tableNodeSearcher.getRefNameNodeFromTableNode(a).getRefSingleChildNode().hasHeader(tableName)
 		);
 		
 		hasChanges = true;
@@ -153,7 +153,7 @@ public final class SchemaWriter implements ISchemaWriter {
 	public void saveChangesAndReset() {
 		try {
 			
-			databaseNode.resetAttributes(editedDatabaseNode.getRefAttributes());
+			databaseNode.resetAttributes(editedDatabaseNode.getRefChildNodes());
 			
 			saveCount++;
 		} finally {
@@ -202,7 +202,7 @@ public final class SchemaWriter implements ISchemaWriter {
 		final var schemaTimestampNode =
 		databasePropertiesNodeSearcher.getRefSchemaTimestampNodeFromDatabasePropertiesNode(databasePropertiesNode);
 		
-		schemaTimestampNode.getRefOneAttribute().setHeader(schemaTimestamp.getSpecification().getOneAttributeHeader());
+		schemaTimestampNode.getRefSingleChildNode().setHeader(schemaTimestamp.getSpecification().getSingleChildNodeHeader());
 		
 		hasChanges = true;
 	}
@@ -215,7 +215,7 @@ public final class SchemaWriter implements ISchemaWriter {
 		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(editedDatabaseNode, tableName);
 		
 		final var nameNode = tableNodeSearcher.getRefNameNodeFromTableNode(tableNode);
-		nameNode.getRefOneAttribute().setHeader(newTableName);
+		nameNode.getRefSingleChildNode().setHeader(newTableName);
 		
 		hasChanges = true;
 	}

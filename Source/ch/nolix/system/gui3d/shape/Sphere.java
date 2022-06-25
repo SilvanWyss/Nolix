@@ -26,7 +26,7 @@ public final class Sphere extends AtomicShape<Sphere> {
 		PascalCaseCatalogue.RADIUS,
 		DEFAULT_RADIUS,
 		this::setRadius,
-		BaseNode::getOneAttributeAsDouble,
+		BaseNode::getSingleChildNodeAsDouble,
 		 Node::withAttribute
 	);
 	

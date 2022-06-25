@@ -40,7 +40,7 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	new MutableOptionalValue<>(
 		ELEMENT_MARGIN_HEADER,
 		this::setElementMargin,
-		BaseNode::getOneAttributeAsInt,
+		BaseNode::getSingleChildNodeAsInt,
 		Node::withAttribute
 	);
 	

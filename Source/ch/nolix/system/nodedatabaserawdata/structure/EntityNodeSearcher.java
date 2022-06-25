@@ -10,7 +10,7 @@ public final class EntityNodeSearcher {
 	
 	//method
 	public String getEntitySaveStampFromEntityNode(final BaseNode entityNode) {
-		return getRefSaveStampNodeFromRecordNode(entityNode).getOneAttributeHeader();
+		return getRefSaveStampNodeFromRecordNode(entityNode).getSingleChildNodeHeader();
 	}
 	
 	//method

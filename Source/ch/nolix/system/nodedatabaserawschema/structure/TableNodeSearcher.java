@@ -17,7 +17,7 @@ public class TableNodeSearcher {
 	) {
 		return
 		getRefColumnNodesFromTableNode(tableNode).getRefFirst(
-			csn -> columnNodeSearcher.getRefNameNodeFromColumnNode(csn).getRefOneAttribute().hasHeader(columnName)
+			csn -> columnNodeSearcher.getRefNameNodeFromColumnNode(csn).getRefSingleChildNode().hasHeader(columnName)
 		);
 	}
 	
@@ -38,11 +38,11 @@ public class TableNodeSearcher {
 	
 	//method
 	public String getTableIdFromTableNode(final BaseNode tableNode) {
-		return getRefIdNodeFromTableNode(tableNode).getOneAttributeHeader();
+		return getRefIdNodeFromTableNode(tableNode).getSingleChildNodeHeader();
 	}
 	
 	//method
 	public String getTableNameFromTableNode(final BaseNode tableNode) {
-		return getRefNameNodeFromTableNode(tableNode).getOneAttributeHeader();
+		return getRefNameNodeFromTableNode(tableNode).getSingleChildNodeHeader();
 	}
 }

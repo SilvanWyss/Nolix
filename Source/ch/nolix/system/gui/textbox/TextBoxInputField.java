@@ -52,7 +52,7 @@ final class TextBoxInputField extends TextLineWidget<TextBoxInputField, TextBoxL
 		TEXT_CURSOR_POSITION_HEADER,
 		DEFAULT_CURSOR_POSITION,
 		this::setTextCursorPosition,
-		BaseNode::getOneAttributeAsInt,
+		BaseNode::getSingleChildNodeAsInt,
 		Node::withAttribute
 	);
 	

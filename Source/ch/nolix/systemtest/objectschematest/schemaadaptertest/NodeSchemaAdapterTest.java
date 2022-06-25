@@ -29,7 +29,7 @@ public final class NodeSchemaAdapterTest extends Test {
 		
 		//verification part 2
 		expect(database.getHeader()).isEqualTo("Database");
-		expect(database.getAttributeCount()).isEqualTo(1);
+		expect(database.getChildNodeCount()).isEqualTo(1);
 		expect(database.getRefAttributeAt(1).getHeader()).isEqualTo("DatabaseProperties");
 	}
 	
@@ -54,7 +54,7 @@ public final class NodeSchemaAdapterTest extends Test {
 		expect(tableNodes.containsOne());
 		final var tableNode  = tableNodes.getRefFirst();
 		final var nameNode = tableNode.getRefFirstAttribute("Name");
-		expect(nameNode.getOneAttributeHeader()).isEqualTo("MyTable");
+		expect(nameNode.getSingleChildNodeHeader()).isEqualTo("MyTable");
 	}
 	
 	//method

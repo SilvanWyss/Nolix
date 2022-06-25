@@ -121,7 +121,7 @@ final class WidgetProvider {
 	public Widget<?, ?> createWidgetFrom(final BaseNode specification) {
 		
 		final var widget = createWidget(specification.getHeader());
-		widget.addOrChangeAttributes(specification.getRefAttributes());
+		widget.addOrChangeAttributes(specification.getRefChildNodes());
 		
 		return widget;
 	}

@@ -33,7 +33,7 @@ public enum CursorIcon implements Specified {
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
 	public static CursorIcon fromSpecification(final BaseNode specification) {
-		return valueOf(specification.getOneAttributeHeader().toUpperCase(Locale.ENGLISH));
+		return valueOf(specification.getSingleChildNodeHeader().toUpperCase(Locale.ENGLISH));
 	}
 	
 	//method

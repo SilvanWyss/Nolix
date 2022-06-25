@@ -56,7 +56,7 @@ public final class TableNodeSearcher {
 		final String value
 	) {
 		return
-		tableNode.containsAttribute(
+		tableNode.containsChildNodeThat(
 			(final BaseNode a) -> {
 				
 				if (!a.hasHeader(SubNodeHeaderCatalogue.RECORD)) {
@@ -64,7 +64,7 @@ public final class TableNodeSearcher {
 				}
 				
 				final var field = a.getRefAttributeAt(valueIndex);
-				return (field.hasHeader(value) || field.containsAttributeWithHeader(value));
+				return (field.hasHeader(value) || field.containsChildNodeWithHeader(value));
 			}
 		);
 	}
@@ -76,7 +76,7 @@ public final class TableNodeSearcher {
 		final String header
 	) {
 		return
-		tableNode.containsAttribute(
+		tableNode.containsChildNodeThat(
 			a ->
 			a.hasHeader(SubNodeHeaderCatalogue.RECORD)
 			&& a.getRefAttributeAt(valueIndex).hasHeader(header)

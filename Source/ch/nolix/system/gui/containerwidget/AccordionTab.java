@@ -44,7 +44,7 @@ public final class AccordionTab extends MutableElement<AccordionTab> implements 
 		HEADER_HEADER,
 		DEFAULT_HEADER,
 		this::setHeader,
-		BaseNode::getOneAttributeHeader,
+		BaseNode::getSingleChildNodeHeader,
 		h -> Node.withHeaderAndAttribute(PascalCaseCatalogue.HEADER, getHeader())
 	);
 	
@@ -54,7 +54,7 @@ public final class AccordionTab extends MutableElement<AccordionTab> implements 
 		EXPANDED_FLAG_HEADER,
 		DEFAULT_EXPANSION_FLAG,
 		this::setExpansionFlag,
-		BaseNode::getOneAttributeAsBoolean,
+		BaseNode::getSingleChildNodeAsBoolean,
 		Node::withAttribute
 	);
 	

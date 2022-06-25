@@ -26,7 +26,7 @@ public enum DirectionInRectangle implements Specified {
 	 * @return a new {@link DirectionInRectangle} from the given specification.
 	 */
 	public static DirectionInRectangle fromSpecification(final BaseNode specification) {
-		return valueOf(specification.getOneAttributeHeader());
+		return valueOf(specification.getSingleChildNodeHeader());
 	}
 	
 	//method

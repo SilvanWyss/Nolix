@@ -70,7 +70,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 		TITLE_HEADER,
 		DEFAULT_TITLE,
 		this::setTitle,
-		BaseNode::getOneAttributeHeader,
+		BaseNode::getSingleChildNodeHeader,
 		Node::withAttribute
 	);
 	

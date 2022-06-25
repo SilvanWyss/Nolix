@@ -19,7 +19,7 @@ public final class ResizeInput implements IResizeInput<ResizeInput> {
 	//static method
 	public static ResizeInput fromSpecification(final BaseNode specification) {
 		
-		final var sizeSpecification = specification.getRefOneAttribute();
+		final var sizeSpecification = specification.getRefSingleChildNode();
 		
 		return
 		withViewAreaWidthAndViewAreaHeight(

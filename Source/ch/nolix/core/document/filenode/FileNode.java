@@ -57,9 +57,9 @@ public final class FileNode extends BaseNode {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public FileNode addAttribute(final BaseNode attribute) {
+	public FileNode addChildNode(final BaseNode attribute) {
 		
-		internalSpecification.addAttribute(attribute);
+		internalSpecification.addChildNode(attribute);
 		save();
 		
 		return this;
@@ -70,8 +70,8 @@ public final class FileNode extends BaseNode {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean containsAttributes() {
-		return internalSpecification.containsAttributes();
+	public boolean containsChildNodes() {
+		return internalSpecification.containsChildNodes();
 	}
 	
 	//method
@@ -79,8 +79,8 @@ public final class FileNode extends BaseNode {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public int getAttributeCount() {
-		return internalSpecification.getAttributeCount();
+	public int getChildNodeCount() {
+		return internalSpecification.getChildNodeCount();
 	}
 	
 	//method
@@ -98,10 +98,10 @@ public final class FileNode extends BaseNode {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public IContainer<BaseNode> getRefAttributes() {
+	public IContainer<BaseNode> getRefChildNodes() {
 		return
 		ReadContainer.forIterable(
-			internalSpecification.getRefAttributes().to(
+			internalSpecification.getRefChildNodes().to(
 				a -> new SubNode(this, (Node)a)
 			)
 		);
@@ -112,8 +112,8 @@ public final class FileNode extends BaseNode {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public BaseNode getRefOneAttribute() {
-		return new SubNode(this, (Node)internalSpecification.getRefOneAttribute());
+	public BaseNode getRefSingleChildNode() {
+		return new SubNode(this, (Node)internalSpecification.getRefSingleChildNode());
 	}
 	
 	//method
@@ -152,8 +152,8 @@ public final class FileNode extends BaseNode {
 	 * if the current {@link FileNode} does not contain an attribute the given selector selects.
 	 */
 	@Override
-	public void removeFirstAttribute(final IElementTakerBooleanGetter<BaseNode> selector) {
-		internalSpecification.removeFirstAttribute(selector::getOutput);
+	public void removeFirstChildNodeThat(final IElementTakerBooleanGetter<BaseNode> selector) {
+		internalSpecification.removeFirstChildNodeThat(selector::getOutput);
 		save();
 	}
 	

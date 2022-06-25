@@ -21,7 +21,7 @@ public abstract class Prisma<P extends Prisma<P>> extends AtomicShape<P> {
 		PascalCaseCatalogue.HEIGHT,
 		DEFAULT_HEIGHT,
 		this::setHeight,
-		BaseNode::getOneAttributeAsDouble,
+		BaseNode::getSingleChildNodeAsDouble,
 		Node::withAttribute
 	);
 	

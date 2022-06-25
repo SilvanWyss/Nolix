@@ -21,7 +21,7 @@ public final class CheckBoxLook extends BorderWidgetLook<CheckBoxLook> {
 	new NonCascadingProperty<>(
 		DEFAULT_LINE_THICKNESS_HEADER,
 		WidgetLookState.class,
-		BaseNode::getOneAttributeAsInt,
+		BaseNode::getSingleChildNodeAsInt,
 		Node::withAttribute,
 		this::setLineThicknessForState,
 		DEFAULT_LINE_THICKNESS

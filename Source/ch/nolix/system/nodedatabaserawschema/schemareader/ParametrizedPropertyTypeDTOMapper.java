@@ -98,7 +98,7 @@ public class ParametrizedPropertyTypeDTOMapper {
 			parametrizedPropertyTypeNode
 		);
 		
-		return backReferencedColumnNode.getOneAttributeHeader();
+		return backReferencedColumnNode.getSingleChildNodeHeader();
 	}
 	
 	//method
@@ -107,7 +107,7 @@ public class ParametrizedPropertyTypeDTOMapper {
 		final var dataTypeNode =
 		parametrizedPropertyTypeNodeSearcher.getRefDataTypeNodeFromParametriedPropertyTypeNode(parametrizedPropertyTypeNode);
 		
-		return DataType.valueOf(dataTypeNode.getOneAttributeHeader());
+		return DataType.valueOf(dataTypeNode.getSingleChildNodeHeader());
 	}
 	
 	//method
@@ -129,6 +129,6 @@ public class ParametrizedPropertyTypeDTOMapper {
 			parametrizedPropertyTypeNode
 		);
 		
-		return referencedTableIdNode.getOneAttributeHeader();
+		return referencedTableIdNode.getSingleChildNodeHeader();
 	}
 }

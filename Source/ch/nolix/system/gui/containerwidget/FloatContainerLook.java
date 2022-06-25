@@ -22,7 +22,7 @@ public final class FloatContainerLook extends BorderWidgetLook<FloatContainerLoo
 	new NonCascadingProperty<>(
 		ELEMENT_MARGIN_HEADER,
 		WidgetLookState.class,
-		BaseNode::getOneAttributeAsInt,
+		BaseNode::getSingleChildNodeAsInt,
 		Node::withAttribute,
 		this::setElementMarginForState,
 		DEFAULT_ELEMENT_MARGIN

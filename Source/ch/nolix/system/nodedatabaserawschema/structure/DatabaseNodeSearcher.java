@@ -18,7 +18,7 @@ public final class DatabaseNodeSearcher {
 		return
 		getRefTableNodesFromDatabaseNode(databaseNode)
 		.toFromMany(tableNodeSearcher::getRefColumnNodesFromTableNode)
-		.getRefFirst(cn -> columnNodeSearcher.getRefIdNodeFromColumnNode(cn).getRefOneAttribute().hasHeader(columnId));
+		.getRefFirst(cn -> columnNodeSearcher.getRefIdNodeFromColumnNode(cn).getRefSingleChildNode().hasHeader(columnId));
 	}
 	
 	//method
@@ -30,7 +30,7 @@ public final class DatabaseNodeSearcher {
 	public BaseNode getRefTableNodeByTableIdFromDatabaseNode(final BaseNode databaseNode, final String tableId) {
 		return
 		getRefTableNodesFromDatabaseNode(databaseNode).getRefFirst(
-			tsn -> tsn.getRefFirstAttribute(SubNodeHeaderCatalogue.ID).getRefOneAttribute().hasHeader(tableId)
+			tsn -> tsn.getRefFirstAttribute(SubNodeHeaderCatalogue.ID).getRefSingleChildNode().hasHeader(tableId)
 		);
 	}
 	
@@ -38,7 +38,7 @@ public final class DatabaseNodeSearcher {
 	public BaseNode getRefTableNodeByTableNameFromDatabaseNode(final BaseNode databaseNode, final String tableName) {
 		return
 		getRefTableNodesFromDatabaseNode(databaseNode).getRefFirst(
-			tsn -> tsn.getRefFirstAttribute(SubNodeHeaderCatalogue.NAME).getRefOneAttribute().hasHeader(tableName)
+			tsn -> tsn.getRefFirstAttribute(SubNodeHeaderCatalogue.NAME).getRefSingleChildNode().hasHeader(tableName)
 		);
 	}
 	
@@ -49,6 +49,6 @@ public final class DatabaseNodeSearcher {
 	
 	//method
 	public int getTableNodeCount(final BaseNode databaseNode) {
-		return databaseNode.getRefAttributes().getCount(a -> a.hasHeader(SubNodeHeaderCatalogue.TABLE));
+		return databaseNode.getRefChildNodes().getCount(a -> a.hasHeader(SubNodeHeaderCatalogue.TABLE));
 	}
 }

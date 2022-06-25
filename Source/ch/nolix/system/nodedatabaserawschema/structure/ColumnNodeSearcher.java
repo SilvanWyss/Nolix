@@ -9,7 +9,7 @@ public final class ColumnNodeSearcher {
 	
 	//method
 	public boolean columnNodeContainsEntityNode(final BaseNode columnNode) {
-		return columnNode.containsAttributeWithHeader(SubNodeHeaderCatalogue.ENTITY);
+		return columnNode.containsChildNodeWithHeader(SubNodeHeaderCatalogue.ENTITY);
 	}
 	
 	//method

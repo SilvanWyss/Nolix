@@ -33,7 +33,7 @@ public class Point3D implements Specified {
 	 */
 	public static Point3D fromSpecification(final BaseNode specification) {
 		
-		final var attributes = specification.getRefAttributes();
+		final var attributes = specification.getRefChildNodes();
 		
 		return new Point3D(
 			attributes.getRefAt(1).toDouble(),

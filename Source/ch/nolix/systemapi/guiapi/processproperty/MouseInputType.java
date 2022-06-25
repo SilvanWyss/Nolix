@@ -38,7 +38,7 @@ public enum MouseInputType implements Specified {
 	
 	//static method
 	public static MouseInputType fromSpecification(final BaseNode specification) {
-		return valueOf(GlobalStringHelper.toUpperSnakeCase(specification.getOneAttributeHeader()));
+		return valueOf(GlobalStringHelper.toUpperSnakeCase(specification.getSingleChildNodeHeader()));
 	}
 	
 	//method
