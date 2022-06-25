@@ -13,6 +13,25 @@ import ch.nolix.system.gui.widget.WidgetLookState;
 
 public final class ImageWidgetTutorial {
 	
+	@SuppressWarnings("resource")
+	public static void main(String[] args) {
+		
+		//Creates a Server.
+		final var server = Server.forDefaultPort();
+		
+		//Adds a default Application to the Server.
+		server.addDefaultApplication("ImageWidget tutorial", MainSession.class, VoidApplicationContext.INSTANCE);
+		
+		//Creates a FrontGUIClient that will connect to the Server.
+		new FrontendGUIClient();
+		
+		//Starts a web browser that will connect to the Server.
+		ShellProvider.startFirefoxOpeningLoopBackAddress();
+		
+		//Closes the Server as soon as it does not have a client connected any more.
+		GlobalSequencer.asSoonAsNoMore(server::hasClientConnected).runInBackground(server::close);
+	}
+	
 	private static final class MainSession extends BackendGUIClientSession<VoidApplicationContext> {
 		
 		@Override
@@ -36,25 +55,6 @@ public final class ImageWidgetTutorial {
 			//Adds the ImageWidget to the GUI of the current MainSession.
 			getRefGUI().pushLayerWithRootWidget(imageWidget);
 		}
-	}
-	
-	@SuppressWarnings("resource")
-	public static void main(String[] args) {
-		
-		//Creates a Server.
-		final var server = Server.forDefaultPort();
-		
-		//Adds a default Application to the Server.
-		server.addDefaultApplication("ImageWidget tutorial", MainSession.class, VoidApplicationContext.INSTANCE);
-		
-		//Creates a FrontGUIClient that will connect to the Server.
-		new FrontendGUIClient();
-		
-		//Starts a web browser that will connect to the Server.
-		ShellProvider.startFirefoxOpeningLoopBackAddress();
-		
-		//Closes the Server as soon as it does not have a client connected any more.
-		GlobalSequencer.asSoonAsNoMore(server::hasClientConnected).runInBackground(server::close);
 	}
 	
 	private ImageWidgetTutorial() {}
