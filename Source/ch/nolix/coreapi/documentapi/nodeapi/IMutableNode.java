@@ -11,8 +11,9 @@ import ch.nolix.coreapi.functionuniversalapi.IElementTakerBooleanGetter;
  * 
  * @author Silvan Wyss
  * @date 2022-06-25
+ * @param <MN> is the type of a {@link IMutableNode}.
  */
-public interface IMutableNode extends INode<IMutableNode>, OptionalHeaderable<IMutableNode> {
+public interface IMutableNode<MN extends IMutableNode<MN>> extends INode<MN>, OptionalHeaderable<MN> {
 	
 	//method declaration
 	/**
@@ -22,7 +23,7 @@ public interface IMutableNode extends INode<IMutableNode>, OptionalHeaderable<IM
 	 * @return the current {@link IMutableNode}.
 	 * @throws RuntimeException if one of the given childNodes is null.
 	 */
-	IMutableNode addChildNode(INode<?>... childNodes);
+	MN addChildNode(INode<?>... childNodes);
 	
 	//method declaration
 	/**
@@ -32,7 +33,7 @@ public interface IMutableNode extends INode<IMutableNode>, OptionalHeaderable<IM
 	 * @return the current {@link IMutableNode}.
 	 * @throws RuntimeException if one of the given strings does not represent a {@link INode}.
 	 */
-	IMutableNode addChildNodeFromString(String... strings);
+	MN addChildNodeFromString(String... strings);
 	
 	//method declaration
 	/**
@@ -42,7 +43,7 @@ public interface IMutableNode extends INode<IMutableNode>, OptionalHeaderable<IM
 	 * @return the current {@link IMutableNode}.
 	 * @throws RuntimeException if one of the given childNodes is null.
 	 */
-	IMutableNode addChildNodes(Iterable<INode<?>> childNodes);
+	MN addChildNodes(Iterable<INode<?>> childNodes);
 	
 	//method declaration
 	/**
@@ -52,7 +53,7 @@ public interface IMutableNode extends INode<IMutableNode>, OptionalHeaderable<IM
 	 * @return the current {@link IMutableNode}.
 	 * @throws RuntimeException if one of the given strings does not represent a {@link INode}.
 	 */
-	IMutableNode addChildNodesFromStrings(Iterable<String> strings);
+	MN addChildNodesFromStrings(Iterable<String> strings);
 	
 	//method declaration
 	/**
@@ -94,7 +95,7 @@ public interface IMutableNode extends INode<IMutableNode>, OptionalHeaderable<IM
 	 * @throws RuntimeException if
 	 * the current {@link IMutableNode} does not contain a child {@link INode} the given selector selects.
 	 */
-	void removeFirstChildNodeThat(IElementTakerBooleanGetter<IMutableNode> selector);
+	void removeFirstChildNodeThat(IElementTakerBooleanGetter<MN> selector);
 	
 	//method declaration
 	/**
