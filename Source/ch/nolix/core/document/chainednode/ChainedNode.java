@@ -637,20 +637,13 @@ public final class ChainedNode implements OptionalHeadered {
 			throw UnrepresentingArgumentException.forArgumentAndType(this, Node.class);
 		}
 		
-		//Creates a Node.
-		final var node = new Node();
+		//Handles the case that the current ChainedNode does not have a header.
+		if (!hasHeader()) {
+			return Node.withChildNodes(getAttributes().to(ChainedNode::toNode));
+		}
 		
 		//Handles the case that the current ChainedNode has a header.
-		if (header != null) {
-			node.setHeader(header);
-		}
-		
-		//Iterates the attributes of the current ChainedNode.
-		for (final var a : attributes) {
-			node.addChildNode(a.toNode());
-		}
-		
-		return node;
+		return Node.withHeaderAndChildNodes(getHeader(), getAttributes().to(ChainedNode::toNode));
 	}
 	
 	//method
