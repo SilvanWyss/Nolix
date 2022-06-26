@@ -280,12 +280,6 @@ public abstract class BaseNode<T extends BaseNode<T>> implements INode<T>, Optio
 		return true;
 	}
 	
-	//method declaration
-	/**
-	 * @return the number of attributes of the current {@link BaseNode}.
-	 */
-	public abstract int getChildNodeCount();
-	
 	//method
 	/**
 	 * @return the headers of the attributes of the current {@link BaseNode}.
