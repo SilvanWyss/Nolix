@@ -96,7 +96,7 @@ public abstract class BaseNode<T extends BaseNode<T>> implements INode<T>, Optio
 	 * @param attribute
 	 * @return the current {@link BaseNode}
 	 */
-	public abstract BaseNode<?> addChildNode(BaseNode<?> attribute);
+	public abstract BaseNode<?> addChildNode(INode<?> attribute);
 	
 	//method
 	/**
@@ -105,7 +105,7 @@ public abstract class BaseNode<T extends BaseNode<T>> implements INode<T>, Optio
 	 * @param attributes
 	 * @return the current {@link BaseNode}
 	 */
-	public BaseNode<?> addChildNode(final BaseNode<?>... attributes) {
+	public BaseNode<?> addChildNode(final INode<?>... attributes) {
 
 		//Iterates the given attributes.
 		for (final var a : attributes) {
@@ -133,10 +133,10 @@ public abstract class BaseNode<T extends BaseNode<T>> implements INode<T>, Optio
 	 * Adds the given attributes to the current {@link BaseNode}.
 	 * 
 	 * @param attributes
-	 * @param <BN> is the type of the given attributes.
+	 * @param <N> is the type of the given attributes.
 	 * @return the current {@link BaseNode}
 	 */
-	public <BN extends BaseNode<?>> BaseNode<?> addChildNodes(final Iterable<BN> attributes) {
+	public <N extends INode<?>> BaseNode<?> addChildNodes(final Iterable<N> attributes) {
 		
 		//Iterates the given attributes.
 		attributes.forEach(this::addChildNode);
@@ -532,7 +532,7 @@ public abstract class BaseNode<T extends BaseNode<T>> implements INode<T>, Optio
 	 * @param header
 	 * @param attribute
 	 */
-	public abstract void replaceFirstChildNodeWithGivenHeaderByGivenChildNode(String header, BaseNode<?> attribute);
+	public abstract void replaceFirstChildNodeWithGivenHeaderByGivenChildNode(String header, INode<?> attribute);
 	
 	//method
 	/**

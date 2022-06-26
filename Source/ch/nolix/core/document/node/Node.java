@@ -530,9 +530,9 @@ public final class Node extends BaseNode<Node> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Node addChildNode(final BaseNode<?> attribute) {
+	public Node addChildNode(final INode<?> attribute) {
 		
-		attributes.addAtEnd(attribute.getCopy());
+		attributes.addAtEnd(Node.fromNode(attribute));
 		
 		return this;
 	}
@@ -645,9 +645,9 @@ public final class Node extends BaseNode<Node> {
 	@Override
 	public void replaceFirstChildNodeWithGivenHeaderByGivenChildNode(
 		final String header,
-		final BaseNode<?> attribute
+		final INode<?> attribute
 	) {
-		attributes.replaceFirst(a -> a.hasHeader(header), attribute.getCopy());
+		attributes.replaceFirst(a -> a.hasHeader(header), Node.fromNode(attribute));
 	}
 	
 	//method

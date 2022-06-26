@@ -97,7 +97,7 @@ public final class FileNode extends BaseNode<FileNode> {
 	 * @throws RuntimeException if an error occurs.
 	 */
 	@Override
-	public FileNode addChildNode(final BaseNode<?> attribute) {
+	public FileNode addChildNode(final INode<?> attribute) {
 		
 		internalSpecification.addChildNode(attribute);
 		save();
@@ -209,7 +209,7 @@ public final class FileNode extends BaseNode<FileNode> {
 	@Override
 	public void replaceFirstChildNodeWithGivenHeaderByGivenChildNode(
 		final String header,
-		final BaseNode<?> attribute
+		final INode<?> attribute
 	) {
 		internalSpecification.replaceFirstChildNodeWithGivenHeaderByGivenChildNode(header, attribute);
 		save();
