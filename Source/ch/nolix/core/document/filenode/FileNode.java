@@ -1,7 +1,9 @@
 //package declaration
 package ch.nolix.core.document.filenode;
 
+//own imports
 import ch.nolix.core.container.readcontainer.ReadContainer;
+import ch.nolix.core.document.node.BaseMutableNode;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.environment.filesystem.FileAccessor;
@@ -11,7 +13,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionuniversalapi.IElementTakerBooleanGetter;
 
@@ -22,7 +23,7 @@ import ch.nolix.coreapi.functionuniversalapi.IElementTakerBooleanGetter;
  * @author Silvan Wyss
  * @date 2017-07-14
  */
-public final class FileNode extends BaseNode<FileNode> implements IMutableNode<FileNode> {
+public final class FileNode extends BaseMutableNode<FileNode> {
 
 	//attribute
 	private final Node internalSpecification;

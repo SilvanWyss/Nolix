@@ -16,8 +16,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentExceptio
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programcontrol.processproperty.WriteMode;
 import ch.nolix.coreapi.containerapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
@@ -107,54 +105,6 @@ public abstract class BaseNode<T extends BaseNode<T>> implements INode<T>, Optio
 	
 	//method declaration
 	public abstract <N extends INode<?>> T addChildNodes(Iterable<N> childNodes);
-	
-	//method
-	/**
-	 * Adds the given postfix to the header of the current {@link BaseNode}.
-	 * Sets the given postfix as header to the current {@link BaseNode} if it does not have a header.
-	 * 
-	 * @param postfix
-	 * @throws ArgumentIsNullException if the given postfix is null.
-	 * @throws InvalidArgumentException if the given postfix is blank.
-	 */
-	public void addPostfixToHeader(final String postfix) {
-		
-		//Asserts that the given postfix is not null or blank.
-		GlobalValidator.assertThat(postfix).thatIsNamed(LowerCaseCatalogue.POSTFIX).isNotBlank();
-		
-		//Handles the case that the current Node does not have a header.
-		if (hasHeader()) {
-			setHeader(postfix);
-			
-		//Handles the case that the current Node has a header.
-		} else {
-			setHeader(getHeader() + postfix);
-		}
-	}
-	
-	//method
-	/**
-	 * Adds the given prefix to the header of the current {@link BaseNode}.
-	 * Sets the given prefix as header to the current {@link BaseNode} if it does not have a header.
-	 * 
-	 * @param prefix
-	 * @throws ArgumentIsNullException if the given prefix is null.
-	 * @throws InvalidArgumentException if the given prefix is blank.
-	 */
-	public void addPrefixToHeader(final String prefix) {
-		
-		//Asserts that the given prefix is not null or blank.
-		GlobalValidator.assertThat(prefix).thatIsNamed(LowerCaseCatalogue.PREFIX).isNotBlank();
-		
-		//Handles the case that the current BaseNode<?> does not have a header.
-		if (!hasHeader()) {
-			setHeader(prefix);
-			
-		//Handles the case that the current BaseNode<?> has a header.
-		} else {
-			setHeader(prefix + getHeader());
-		}
-	}
 	
 	//method
 	/**
