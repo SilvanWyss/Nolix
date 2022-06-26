@@ -33,7 +33,7 @@ import ch.nolix.coreapi.functionuniversalapi.IElementTakerBooleanGetter;
  * @date 2017-06-24
  * @param <T> is the type of a {@link BaseNode}.
  */
-public abstract class BaseNode<T extends BaseNode<T>> implements INode<T>, OptionalHeaderable<BaseNode<T>> {
+public abstract class BaseNode<T extends BaseNode<T>> implements INode<T>, OptionalHeaderable<T> {
 	
 	//constants
 	public static final String COMMA_CODE = "$M";
