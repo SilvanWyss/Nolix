@@ -18,7 +18,7 @@ final class EntityNodeMapper {
 		final long saveStamp
 	) {
 		return
-		Node.withHeaderAndAttributes(
+		Node.withHeaderAndChildNodes(
 			SubNodeHeaderCatalogue.RECORD,
 			createAttributesFromRecordWithSaveStamp(pRecord, saveStamp, tableInfo)
 		);

@@ -21,7 +21,7 @@ public final class Cylinder extends Prisma<Cylinder> {
 		DEFAULT_RADIUS,
 		this::setRadius,
 		BaseNode::getSingleChildNodeAsDouble,
-		Node::withAttribute
+		Node::withChildNode
 	);
 	
 	//constructor

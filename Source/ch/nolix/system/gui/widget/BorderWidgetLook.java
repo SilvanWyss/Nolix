@@ -57,7 +57,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		LEFT_BORDER_THICKNESS_HEADER,
 		WidgetLookState.class,
 		BaseNode::getSingleChildNodeAsInt,
-		Node::withAttribute,
+		Node::withChildNode,
 		this::setLeftBorderThicknessForState,
 		DEFAULT_BORDER_THICKNESS
 	);
@@ -68,7 +68,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		RIGHT_BORDER_THICKNESS_HEADER,
 		WidgetLookState.class,
 		BaseNode::getSingleChildNodeAsInt,
-		Node::withAttribute,
+		Node::withChildNode,
 		this::setRightBorderThicknessForState,
 		DEFAULT_BORDER_THICKNESS
 	);
@@ -79,7 +79,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		TOP_BORDER_THICKNESS_HEADER,
 		WidgetLookState.class,
 		BaseNode::getSingleChildNodeAsInt,
-		Node::withAttribute,
+		Node::withChildNode,
 		this::setTopBorderThicknessForState,
 		DEFAULT_BORDER_THICKNESS
 	);
@@ -90,7 +90,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		BOTTOM_BORDER_THICKNESS_HEADER,
 		WidgetLookState.class,
 		BaseNode::getSingleChildNodeAsInt,
-		Node::withAttribute,
+		Node::withChildNode,
 		this::setBottomBorderThicknessForState,
 		DEFAULT_BORDER_THICKNESS
 	);
@@ -150,7 +150,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		LEFT_PADDING_HEADER,
 		WidgetLookState.class,
 		BaseNode::getSingleChildNodeAsInt,
-		Node::withAttribute,
+		Node::withChildNode,
 		this::setLeftPaddingForState,
 		DEFAULT_PADDING
 	);
@@ -161,7 +161,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		RIGHT_PADDING_HEADER,
 		WidgetLookState.class,
 		BaseNode::getSingleChildNodeAsInt,
-		Node::withAttribute,
+		Node::withChildNode,
 		this::setRightPaddingForState,
 		DEFAULT_PADDING
 	);
@@ -172,7 +172,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		TOP_PADDING_HEADER,
 		WidgetLookState.class,
 		BaseNode::getSingleChildNodeAsInt,
-		Node::withAttribute,
+		Node::withChildNode,
 		this::setTopPaddingForState,
 		DEFAULT_PADDING
 	);
@@ -183,7 +183,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		BOTTOM_PADDING_HEADER,
 		WidgetLookState.class,
 		BaseNode::getSingleChildNodeAsInt,
-		Node::withAttribute,
+		Node::withChildNode,
 		this::setBottomPaddingForState,
 		DEFAULT_PADDING
 	);

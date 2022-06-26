@@ -29,7 +29,7 @@ public final class MutableOptionalValue<V> extends SingleValue<V> {
 	 * @throws ArgumentIsNullException if the given setterMethod is null.
 	 */
 	public static MutableOptionalValue<Boolean> forBoolean(final String name, final IElementTaker<Boolean> setterMethod) {
-		return new MutableOptionalValue<>(name, setterMethod, BaseNode::getSingleChildNodeAsBoolean, Node::withAttribute);
+		return new MutableOptionalValue<>(name, setterMethod, BaseNode::getSingleChildNodeAsBoolean, Node::withChildNode);
 	}
 	
 	//static method
@@ -64,7 +64,7 @@ public final class MutableOptionalValue<V> extends SingleValue<V> {
 	 * @throws ArgumentIsNullException if the given setterMethod is null.
 	 */
 	public static MutableOptionalValue<Integer> forInt(final String name, final IElementTaker<Integer> setterMethod) {
-		return new MutableOptionalValue<>(name, setterMethod, BaseNode::getSingleChildNodeAsInt, Node::withAttribute);
+		return new MutableOptionalValue<>(name, setterMethod, BaseNode::getSingleChildNodeAsInt, Node::withChildNode);
 	}
 	
 	//static method
@@ -88,7 +88,7 @@ public final class MutableOptionalValue<V> extends SingleValue<V> {
 					return new Node();
 				}
 				
-				return Node.withAttribute(s);
+				return Node.withChildNode(s);
 			}
 		);
 	}

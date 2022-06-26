@@ -32,7 +32,7 @@ public final class Rectangle extends AtomicShape<Rectangle> {
 		DEFAULT_X_LENGTH,
 		this::setXLength,
 		BaseNode::getSingleChildNodeAsDouble,
-		Node::withAttribute
+		Node::withChildNode
 	);
 	
 	//attribute
@@ -42,7 +42,7 @@ public final class Rectangle extends AtomicShape<Rectangle> {
 		DEFAULT_Y_LENGTH,
 		this::setYLength,
 		BaseNode::getSingleChildNodeAsDouble,
-		Node::withAttribute
+		Node::withChildNode
 	);
 	
 	//method

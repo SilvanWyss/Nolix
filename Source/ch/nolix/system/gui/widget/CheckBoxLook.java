@@ -22,7 +22,7 @@ public final class CheckBoxLook extends BorderWidgetLook<CheckBoxLook> {
 		DEFAULT_LINE_THICKNESS_HEADER,
 		WidgetLookState.class,
 		BaseNode::getSingleChildNodeAsInt,
-		Node::withAttribute,
+		Node::withChildNode,
 		this::setLineThicknessForState,
 		DEFAULT_LINE_THICKNESS
 	);

@@ -55,7 +55,7 @@ implements Clearable, Headerable<TabContainerTab> {
 		DEFAULT_HEADER,
 		this::setHeader,
 		BaseNode::getSingleChildNodeHeader,
-		Node::withAttribute
+		Node::withChildNode
 	);
 	
 	//attribute
@@ -65,7 +65,7 @@ implements Clearable, Headerable<TabContainerTab> {
 		DEFAULT_SELECTION_FLAG,
 		this::setSelectionFlag,
 		BaseNode::getSingleChildNodeAsBoolean,
-		Node::withAttribute
+		Node::withChildNode
 	);
 	
 	//attributes

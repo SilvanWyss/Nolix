@@ -32,17 +32,17 @@ public final class ParametrizedPropertyTypeNodeMapper {
 		IBaseParametrizedBackReferenceTypeDTO baseParametrizedBackReferenceType
 	) {
 		return
-		Node.withHeaderAndAttribute(
+		Node.withHeaderAndChildNode(
 			SubNodeHeaderCatalogue.PARAMETRIZED_PROPERTY_TYPE,
-			Node.withHeaderAndAttribute(
+			Node.withHeaderAndChildNode(
 				SubNodeHeaderCatalogue.PROPERTY_TYPE,
 				baseParametrizedBackReferenceType.getPropertyType().toString()
 			),
-			Node.withHeaderAndAttribute(
+			Node.withHeaderAndChildNode(
 				SubNodeHeaderCatalogue.DATA_TYPE,
 				baseParametrizedBackReferenceType.getDataType().name()
 			),
-			Node.withHeaderAndAttribute(
+			Node.withHeaderAndChildNode(
 				SubNodeHeaderCatalogue.BACK_REFERENCED_COLUMN_ID,
 				baseParametrizedBackReferenceType.getBackReferencedColumnId()
 			)
@@ -52,17 +52,17 @@ public final class ParametrizedPropertyTypeNodeMapper {
 	//method
 	private Node createParametrizedPropertyTypeNodeFrom(IBaseParametrizedReferenceTypeDTO baseParametrizedReferenceType) {
 		return
-		Node.withHeaderAndAttribute(
+		Node.withHeaderAndChildNode(
 			SubNodeHeaderCatalogue.PARAMETRIZED_PROPERTY_TYPE,
-			Node.withHeaderAndAttribute(
+			Node.withHeaderAndChildNode(
 				SubNodeHeaderCatalogue.PROPERTY_TYPE,
 				baseParametrizedReferenceType.getPropertyType().toString()
 			),
-			Node.withHeaderAndAttribute(
+			Node.withHeaderAndChildNode(
 				SubNodeHeaderCatalogue.DATA_TYPE,
 				baseParametrizedReferenceType.getDataType().name()
 			),
-			Node.withHeaderAndAttribute(
+			Node.withHeaderAndChildNode(
 				SubNodeHeaderCatalogue.REFERENCED_TABLE_ID,
 				baseParametrizedReferenceType.getReferencedTableId()
 			)
@@ -72,13 +72,13 @@ public final class ParametrizedPropertyTypeNodeMapper {
 	//method
 	private Node createParametrizedPropertyTypeNodeFrom(final IBaseParametrizedValueTypeDTO baseParametrizedValueType) {
 		return
-		Node.withHeaderAndAttribute(
+		Node.withHeaderAndChildNode(
 			SubNodeHeaderCatalogue.PARAMETRIZED_PROPERTY_TYPE,
-			Node.withHeaderAndAttribute(
+			Node.withHeaderAndChildNode(
 				SubNodeHeaderCatalogue.PROPERTY_TYPE,
 				baseParametrizedValueType.getPropertyType().toString()
 			),
-			Node.withHeaderAndAttribute(
+			Node.withHeaderAndChildNode(
 				SubNodeHeaderCatalogue.DATA_TYPE,
 				baseParametrizedValueType.getDataType().name()
 			)

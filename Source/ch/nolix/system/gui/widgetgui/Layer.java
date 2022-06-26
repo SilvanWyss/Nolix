@@ -201,7 +201,7 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 		this::containsAny,
 		this::getRefRootWidget,
 		s -> WidgetGUI.createWidgetFrom(s.getRefSingleChildNode()),
-		w -> Node.withAttribute(w.getSpecification())
+		w -> Node.withChildNode(w.getSpecification())
 	);
 	
 	//optional attribute

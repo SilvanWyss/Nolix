@@ -53,7 +53,7 @@ public final class ItemMenuItem extends MutableElement<ItemMenuItem> implements 
 		PascalCaseCatalogue.TEXT,
 		this::setText,
 		BaseNode::getSingleChildNodeHeader,
-		Node::withAttribute
+		Node::withChildNode
 	);
 	
 	//attribute
@@ -62,7 +62,7 @@ public final class ItemMenuItem extends MutableElement<ItemMenuItem> implements 
 		PascalCaseCatalogue.ID,
 		this::setId,
 		BaseNode::getSingleChildNodeHeader,
-		Node::withAttribute
+		Node::withChildNode
 	);
 			
 	//attribute
@@ -72,7 +72,7 @@ public final class ItemMenuItem extends MutableElement<ItemMenuItem> implements 
 		DEFAULT_SELECTION_FLAG,
 		this::setSelectionFlag,
 		BaseNode::getSingleChildNodeAsBoolean,
-		Node::withAttribute
+		Node::withChildNode
 	);
 	
 	//attribute

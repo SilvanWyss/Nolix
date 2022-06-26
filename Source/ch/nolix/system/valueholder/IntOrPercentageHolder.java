@@ -104,9 +104,9 @@ public final class IntOrPercentageHolder implements Specified {
 	@Override
 	public void fillUpAttributesInto(final LinkedList<Node> list) {
 		if (hasIntValue()) {
-			list.addAtEnd(Node.withHeaderAndAttribute(PascalCaseCatalogue.VALUE, getIntValue()));
+			list.addAtEnd(Node.withHeaderAndChildNode(PascalCaseCatalogue.VALUE, getIntValue()));
 		} else if (hasPercentage()) {
-			list.addAtEnd(Node.withHeaderAndAttribute(PascalCaseCatalogue.PERCENTAGE, getPercentage()));
+			list.addAtEnd(Node.withHeaderAndChildNode(PascalCaseCatalogue.PERCENTAGE, getPercentage()));
 		}
 	}
 	

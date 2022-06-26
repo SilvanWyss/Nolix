@@ -19,13 +19,13 @@ final class InternalDatabaseInitializer {
 	
 	//method
 	private Node createDatabasePropertiesNode() {
-		return Node.withHeaderAndAttribute(SubNodeHeaderCatalogue.DATABASE_PROPERTIES, createSchemaTimestampNode());
+		return Node.withHeaderAndChildNode(SubNodeHeaderCatalogue.DATABASE_PROPERTIES, createSchemaTimestampNode());
 	}
 	
 	//method
 	private Node createSchemaTimestampNode() {
 		return
-		Node.withHeaderAndAttribute(
+		Node.withHeaderAndChildNode(
 			SubNodeHeaderCatalogue.SCHEMA_TIMESTAMP,
 			Time.ofNow().getSpecification().getRefSingleChildNode()
 		);

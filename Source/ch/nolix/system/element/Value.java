@@ -27,7 +27,7 @@ public final class Value<V> extends SingleValue<V> {
 	 * @throws ArgumentIsNullException if the given setterMethod is null.
 	 */
 	public static Value<Boolean> forBoolean(final String name, final IElementTaker<Boolean> setterMethod) {
-		return new Value<>(name, setterMethod, BaseNode::getSingleChildNodeAsBoolean, Node::withAttribute);
+		return new Value<>(name, setterMethod, BaseNode::getSingleChildNodeAsBoolean, Node::withChildNode);
 	}
 	
 	//static method
@@ -40,7 +40,7 @@ public final class Value<V> extends SingleValue<V> {
 	 * @throws ArgumentIsNullException if the given setterMethod is null.
 	 */
 	public static Value<Integer> forInt(final String name, final IElementTaker<Integer> setterMethod) {
-		return new Value<>(name, setterMethod, BaseNode::getSingleChildNodeAsInt, Node::withAttribute);
+		return new Value<>(name, setterMethod, BaseNode::getSingleChildNodeAsInt, Node::withChildNode);
 	}
 	
 	//static method
@@ -63,7 +63,7 @@ public final class Value<V> extends SingleValue<V> {
 					return new Node();
 				}
 				
-				return Node.withAttribute(s);
+				return Node.withChildNode(s);
 			}
 		);
 	}

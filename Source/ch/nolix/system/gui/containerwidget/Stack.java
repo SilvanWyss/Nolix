@@ -41,7 +41,7 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 		ELEMENT_MARGIN_HEADER,
 		this::setElementMargin,
 		BaseNode::getSingleChildNodeAsInt,
-		Node::withAttribute
+		Node::withChildNode
 	);
 	
 	//multi-attribute

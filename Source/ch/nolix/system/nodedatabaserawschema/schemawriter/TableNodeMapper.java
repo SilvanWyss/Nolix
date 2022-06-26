@@ -27,12 +27,12 @@ public final class TableNodeMapper {
 	
 	//method
 	private Node createIdNodeFrom(final ITableDTO table) {
-		return Node.withHeaderAndAttribute(SubNodeHeaderCatalogue.ID, table.getId());
+		return Node.withHeaderAndChildNode(SubNodeHeaderCatalogue.ID, table.getId());
 	}
 	
 	//method
 	private Node createNameNodeFrom(final ITableDTO table) {
-		return Node.withHeaderAndAttribute(SubNodeHeaderCatalogue.NAME, table.getName());
+		return Node.withHeaderAndChildNode(SubNodeHeaderCatalogue.NAME, table.getName());
 	}
 	
 	//method

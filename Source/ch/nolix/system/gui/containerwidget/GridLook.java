@@ -42,7 +42,7 @@ public final class GridLook extends BorderWidgetLook<GridLook> {
 		GRID_THICKNESS_HEADER,
 		WidgetLookState.class,
 		BaseNode::getSingleChildNodeAsInt,
-		Node::withAttribute,
+		Node::withChildNode,
 		this::setGridThicknessForState,
 		DEFAULT_GRID_THICKNESS
 	);
@@ -64,7 +64,7 @@ public final class GridLook extends BorderWidgetLook<GridLook> {
 		ELEMENT_MARGIN_HEADER,
 		WidgetLookState.class,
 		BaseNode::getSingleChildNodeAsInt,
-		Node::withAttribute,
+		Node::withChildNode,
 		this::setElementMarginForState,
 		DEFAULT_ELEMENT_MARGIN
 	);

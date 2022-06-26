@@ -23,7 +23,7 @@ public final class Pyramid extends AtomicShape<Pyramid> {
 		DEFAULT_SIDE_LENGTH,
 		this::setSideLength,
 		BaseNode::getSingleChildNodeAsDouble,
-		Node::withAttribute
+		Node::withChildNode
 	);
 	
 	//attribute
@@ -33,7 +33,7 @@ public final class Pyramid extends AtomicShape<Pyramid> {
 		DEFAULT_HEIGHT,
 		this::setHeight,
 		BaseNode::getSingleChildNodeAsDouble,
-		Node::withAttribute
+		Node::withChildNode
 	);
 	
 	//constructor

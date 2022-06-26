@@ -106,7 +106,7 @@ extends Widget<BW, BWL> {
 			}
 		},
 		BaseNode::getSingleChildNodeAsBoolean,
-		Node::withAttribute
+		Node::withChildNode
 	);
 	
 	//attribute
@@ -174,7 +174,7 @@ extends Widget<BW, BWL> {
 		DEFAULT_SHOW_AREA_X_POSITION_ON_SCROLLED_AREA,
 		this::setShowAreaXPositionOnScrolledArea,
 		BaseNode::getSingleChildNodeAsInt,
-		Node::withAttribute
+		Node::withChildNode
 	);
 	
 	//attribute
@@ -184,7 +184,7 @@ extends Widget<BW, BWL> {
 		DEFAULT_SHOW_AREA_Y_POSITION_ON_SCROLLED_AREA,
 		this::setShowAreaYPositionOnScrolledArea,
 		BaseNode::getSingleChildNodeAsInt,
-		Node::withAttribute
+		Node::withChildNode
 	);
 	
 	//attributes

@@ -62,7 +62,7 @@ public final class Background extends MutableElement<Background> {
 			MutableImage.fromSpecification(s.getRefChildNodeAt1BasedIndex(1)),
 			ImageApplication.fromSpecification(s.getRefChildNodeAt1BasedIndex(2))
 		),
-		bi -> Node.withAttribute(bi.getRefElement1().getSpecification(), bi.getRefElement2().getSpecification())
+		bi -> Node.withChildNode(bi.getRefElement1().getSpecification(), bi.getRefElement2().getSpecification())
 	);
 	
 	//constructor

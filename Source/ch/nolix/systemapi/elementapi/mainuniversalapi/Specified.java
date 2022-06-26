@@ -62,7 +62,7 @@ public interface Specified {
 	 * @throws InvalidArgumentException if the given header is blank.
 	 */
 	default Node getSpecificationWithHeader(final String header) {
-		return Node.withHeaderAndAttributes(header, getAttributes());
+		return Node.withHeaderAndChildNodes(header, getAttributes());
 	}
 	
 	//method
@@ -70,7 +70,7 @@ public interface Specified {
 	 * @return the specification of the current {@link Specified} without header.
 	 */
 	default Node getSpecificationWithoutHeader() {
-		return Node.withAttributes(getAttributes());
+		return Node.withChildNodes(getAttributes());
 	}
 	
 	//method

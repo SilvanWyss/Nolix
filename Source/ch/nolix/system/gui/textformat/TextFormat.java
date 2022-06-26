@@ -237,9 +237,9 @@ public final class TextFormat implements ITextFormat {
 	public void fillUpAttributesInto(final LinkedList<Node> list) {
 		list.addAtEnd(
 			font.getSpecificationWithHeader(TEXT_FONT_HEADER),
-			Node.withHeaderAndAttribute(BOLD_FLAG_HEADER, bold),
-			Node.withHeaderAndAttribute(ITALIC_FLAG_HEADER, italic),
-			Node.withHeaderAndAttribute(TEXT_SIZE_HEADER, textSize),
+			Node.withHeaderAndChildNode(BOLD_FLAG_HEADER, bold),
+			Node.withHeaderAndChildNode(ITALIC_FLAG_HEADER, italic),
+			Node.withHeaderAndChildNode(TEXT_SIZE_HEADER, textSize),
 			textColor.getSpecificationWithHeader(TEXT_COLOR_HEADER)
 		);
 	}

@@ -27,7 +27,7 @@ public final class OptionalValue<V> extends SingleValue<V> {
 	 * @throws ArgumentIsNullException if the given setterMethod is null.
 	 */
 	public static OptionalValue<Boolean> forBoolean(final String name, final IElementTaker<Boolean> setterMethod) {
-		return new OptionalValue<>(name, setterMethod, BaseNode::getSingleChildNodeAsBoolean, Node::withAttribute);
+		return new OptionalValue<>(name, setterMethod, BaseNode::getSingleChildNodeAsBoolean, Node::withChildNode);
 	}
 	
 	//static method
@@ -40,7 +40,7 @@ public final class OptionalValue<V> extends SingleValue<V> {
 	 * @throws ArgumentIsNullException if the given setterMethod is null.
 	 */
 	public static OptionalValue<Double> forDouble(final String name, final IElementTaker<Double> setterMethod) {
-		return new OptionalValue<>(name, setterMethod, BaseNode::getSingleChildNodeAsDouble, Node::withAttribute);
+		return new OptionalValue<>(name, setterMethod, BaseNode::getSingleChildNodeAsDouble, Node::withChildNode);
 	}
 	
 	//static method
@@ -53,7 +53,7 @@ public final class OptionalValue<V> extends SingleValue<V> {
 	 * @throws ArgumentIsNullException if the given setterMethod is null.
 	 */
 	public static OptionalValue<Integer> forInt(final String name, final IElementTaker<Integer> setterMethod) {
-		return new OptionalValue<>(name, setterMethod, BaseNode::getSingleChildNodeAsInt, Node::withAttribute);
+		return new OptionalValue<>(name, setterMethod, BaseNode::getSingleChildNodeAsInt, Node::withChildNode);
 	}
 	
 	//static method
@@ -76,7 +76,7 @@ public final class OptionalValue<V> extends SingleValue<V> {
 					return new Node();
 				}
 				
-				return Node.withAttribute(s);
+				return Node.withChildNode(s);
 			}
 		);
 	}

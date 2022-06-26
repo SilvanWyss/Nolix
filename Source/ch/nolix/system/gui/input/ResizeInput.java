@@ -56,7 +56,7 @@ public final class ResizeInput implements IResizeInput<ResizeInput> {
 	public void fillUpAttributesInto(final LinkedList<Node> list) {
 		
 		final var sizeSpecification =
-		Node.withHeaderAndAttribute(
+		Node.withHeaderAndChildNode(
 			SIZE_HEADER,
 			Node.withHeader(getViewAreaWidth()),
 			Node.withHeader(getViewAreaHeight())

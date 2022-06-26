@@ -31,7 +31,7 @@ public final class Node extends BaseNode<Node> {
 	 * @return a new {@link Node} from the given pEnum.
 	 */
 	public static Node fromEnum(final Enum<?> pEnum) {
-		return Node.withHeaderAndAttribute(pEnum.getClass().getSimpleName(), pEnum.name());
+		return Node.withHeaderAndChildNode(pEnum.getClass().getSimpleName(), pEnum.name());
 	}
 	
 	//static method
@@ -59,7 +59,7 @@ public final class Node extends BaseNode<Node> {
 		
 		GlobalValidator.assertThat(intPair).thatIsNamed(IntPair.class).isNotNull();
 		
-		return withAttribute(intPair.getValue1(), intPair.getValue2());
+		return withChildNode(intPair.getValue1(), intPair.getValue2());
 	}
 	
 	//static method
@@ -104,7 +104,7 @@ public final class Node extends BaseNode<Node> {
 	 * @return a new {@link Node} with the given attribute.
 	 * @throws ArgumentIsNullException if the given attribute is null.
 	 */
-	public static <BN extends BaseNode<?>> Node withAttribute(final BN attribute) {
+	public static <BN extends BaseNode<?>> Node withChildNode(final BN attribute) {
 		
 		final var node = new Node();
 		node.addChildNode(attribute);
@@ -119,7 +119,7 @@ public final class Node extends BaseNode<Node> {
 	 * @return a new {@link Node} with the given attributes.
 	 */
 	@SuppressWarnings("unchecked")
-	public static <BN extends BaseNode<?>> Node withAttribute(final BN... attributes) {
+	public static <BN extends BaseNode<?>> Node withChildNode(final BN... attributes) {
 		
 		final var node = new Node();
 		node.addChildNode(attributes);
@@ -132,7 +132,7 @@ public final class Node extends BaseNode<Node> {
 	 * @param attribute
 	 * @return a new {@link Node} with the given attribute.
 	 */
-	public static Node withAttribute(final boolean attribute) {
+	public static Node withChildNode(final boolean attribute) {
 		
 		final var node = new Node();
 		node.addChildNode(Node.withHeader(String.valueOf(attribute)));
@@ -145,7 +145,7 @@ public final class Node extends BaseNode<Node> {
 	 * @param attributes
 	 * @return a new {@link Node} with the given attributes.
 	 */
-	public static Node withAttribute(final boolean... attributes) {
+	public static Node withChildNode(final boolean... attributes) {
 		
 		final var node = new Node();
 		for (var a : attributes) {
@@ -160,7 +160,7 @@ public final class Node extends BaseNode<Node> {
 	 * @param attribute
 	 * @return a new {@link Node} with the given attribute.
 	 */
-	public static Node withAttribute(final double attribute) {
+	public static Node withChildNode(final double attribute) {
 		
 		final var node = new Node();
 		node.addChildNodeFromString(String.valueOf(attribute));
@@ -173,7 +173,7 @@ public final class Node extends BaseNode<Node> {
 	 * @param attributes
 	 * @return a new {@link Node} with the given attributes.
 	 */
-	public static Node withAttribute(final double... attributes) {
+	public static Node withChildNode(final double... attributes) {
 		
 		final var node = new Node();
 		for (var a : attributes) {
@@ -188,7 +188,7 @@ public final class Node extends BaseNode<Node> {
 	 * @param attribute
 	 * @return a new {@link Node} with the given attribute.
 	 */
-	public static Node withAttribute(final long attribute) {
+	public static Node withChildNode(final long attribute) {
 		
 		final var node = new Node();
 		node.addChildNodeFromString(String.valueOf(attribute));
@@ -201,7 +201,7 @@ public final class Node extends BaseNode<Node> {
 	 * @param attributes
 	 * @return a new {@link Node} with the given attributes.
 	 */
-	public static Node withAttribute(final long... attributes) {
+	public static Node withChildNode(final long... attributes) {
 		
 		final var node = new Node();
 		for (var a : attributes) {
@@ -218,7 +218,7 @@ public final class Node extends BaseNode<Node> {
 	 * @throws ArgumentIsNullException if the given attribute is null.
 	 * @throws InvalidArgumentException with the given attribute.
 	 */
-	public static Node withAttribute(final String attribute) {
+	public static Node withChildNode(final String attribute) {
 		
 		final var node = new Node();
 		node.addChildNode(Node.withHeader(attribute));
@@ -231,7 +231,7 @@ public final class Node extends BaseNode<Node> {
 	 * @param attributes
 	 * @return a new {@link Node} with the given attributes.
 	 */
-	public static Node withAttribute(final String... attributes) {
+	public static Node withChildNode(final String... attributes) {
 		
 		final var node = new Node();
 		for (var a : attributes) {
@@ -247,7 +247,7 @@ public final class Node extends BaseNode<Node> {
 	 * @param <BN> is the type of the given attributes.
 	 * @return a new {@link Node} with the given attributes.
 	 */
-	public static <BN extends BaseNode<?>> Node withAttributes(final Iterable<BN> attributes) {
+	public static <BN extends BaseNode<?>> Node withChildNodes(final Iterable<BN> attributes) {
 		
 		final var node = new Node();
 		node.addChildNodes(attributes);
@@ -319,7 +319,7 @@ public final class Node extends BaseNode<Node> {
 	 * @throws InvalidArgumentException if the given header is blank.
 	 * @throws ArgumentIsNullException if the given attribute is null.
 	 */
-	public static <BN extends BaseNode<?>> Node withHeaderAndAttribute(final String header, final BN attribute) {
+	public static <BN extends BaseNode<?>> Node withHeaderAndChildNode(final String header, final BN attribute) {
 		
 		final var node = new Node();
 		node.setHeader(header);
@@ -339,7 +339,7 @@ public final class Node extends BaseNode<Node> {
 	 * @throws ArgumentIsNullException if one of the given attributes is null.
 	 */
 	@SuppressWarnings("unchecked")
-	public static <BN extends BaseNode<?>> Node withHeaderAndAttribute(final String header, final BN... attributes) {
+	public static <BN extends BaseNode<?>> Node withHeaderAndChildNode(final String header, final BN... attributes) {
 		
 		final var node = new Node();
 		node.setHeader(header);
@@ -358,7 +358,7 @@ public final class Node extends BaseNode<Node> {
 	 * @throws ArgumentIsNullException if the given header is null.
 	 * @throws InvalidArgumentException if the given header is blank.
 	 */
-	public static Node withHeaderAndAttribute(final String header, final boolean attribute) {
+	public static Node withHeaderAndChildNode(final String header, final boolean attribute) {
 		
 		final var node = new Node();
 		node.setHeader(header);
@@ -375,7 +375,7 @@ public final class Node extends BaseNode<Node> {
 	 * @throws ArgumentIsNullException if the given header is null.
 	 * @throws InvalidArgumentException if the given header is blank.
 	 */
-	public static Node withHeaderAndAttribute(final String header, final boolean... attributes) {
+	public static Node withHeaderAndChildNode(final String header, final boolean... attributes) {
 		
 		final var node = new Node();
 		node.setHeader(header);
@@ -394,7 +394,7 @@ public final class Node extends BaseNode<Node> {
 	 * @throws ArgumentIsNullException if the given header is null.
 	 * @throws InvalidArgumentException if the given header is blank.
 	 */
-	public static Node withHeaderAndAttribute(final String header, final double attribute) {
+	public static Node withHeaderAndChildNode(final String header, final double attribute) {
 		
 		final var node = new Node();
 		node.setHeader(header);
@@ -411,7 +411,7 @@ public final class Node extends BaseNode<Node> {
 	 * @throws ArgumentIsNullException if the given header is null.
 	 * @throws InvalidArgumentException if the given header is blank.
 	 */
-	public static Node withHeaderAndAttribute(final String header, final double... attributes) {
+	public static Node withHeaderAndChildNode(final String header, final double... attributes) {
 		
 		final var node = new Node();
 		node.setHeader(header);
@@ -430,7 +430,7 @@ public final class Node extends BaseNode<Node> {
 	 * @throws ArgumentIsNullException if the given header is null.
 	 * @throws InvalidArgumentException if the given header is blank.
 	 */
-	public static Node withHeaderAndAttribute(final String header, final long attribute) {
+	public static Node withHeaderAndChildNode(final String header, final long attribute) {
 		
 		final var node = new Node();
 		node.setHeader(header);
@@ -447,7 +447,7 @@ public final class Node extends BaseNode<Node> {
 	 * @throws ArgumentIsNullException if the given header is null.
 	 * @throws InvalidArgumentException if the given header is blank.
 	 */
-	public static Node withHeaderAndAttribute(final String header, final long... attributes) {
+	public static Node withHeaderAndChildNode(final String header, final long... attributes) {
 		
 		final var node = new Node();
 		node.setHeader(header);
@@ -468,7 +468,7 @@ public final class Node extends BaseNode<Node> {
 	 * @throws ArgumentIsNullException if the given attribute is null.
 	 * @throws InvalidArgumentException if the given attribute is blank.
 	 */
-	public static Node withHeaderAndAttribute(final String header, final String attribute) {
+	public static Node withHeaderAndChildNode(final String header, final String attribute) {
 		
 		final var node = new Node();
 		node.setHeader(header);
@@ -487,7 +487,7 @@ public final class Node extends BaseNode<Node> {
 	 * @throws ArgumentIsNullException if one of the given attributes is null.
 	 * @throws InvalidArgumentException if one of the given attributes is blank.
 	 */
-	public static Node withHeaderAndAttribute(final String header, final String... attributes) {
+	public static Node withHeaderAndChildNode(final String header, final String... attributes) {
 		
 		final var node = new Node();
 		node.setHeader(header);
@@ -507,7 +507,7 @@ public final class Node extends BaseNode<Node> {
 	 * @throws ArgumentIsNullException if the given header is null.
 	 * @throws InvalidArgumentException if the given header is blank.
 	 */
-	public static <BN extends BaseNode<?>> Node withHeaderAndAttributes(
+	public static <BN extends BaseNode<?>> Node withHeaderAndChildNodes(
 		final String header,
 		final Iterable<BN> attributes
 	) {

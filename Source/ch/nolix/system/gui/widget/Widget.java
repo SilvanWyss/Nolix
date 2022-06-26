@@ -96,7 +96,7 @@ implements IWidget<W, WL> {
 		this::setEnabledState,
 		this::isEnabled,
 		BaseNode::toBoolean,
-		Node::withAttribute
+		Node::withChildNode
 	);
 	
 	//attribute
@@ -107,7 +107,7 @@ implements IWidget<W, WL> {
 		this::setExpansionState,
 		this::isExpanded,
 		BaseNode::toBoolean,
-		Node::withAttribute
+		Node::withChildNode
 	);
 	
 	//attribute
@@ -118,7 +118,7 @@ implements IWidget<W, WL> {
 		this::setFocusState,
 		this::isFocused,
 		BaseNode::toBoolean,
-		Node::withAttribute
+		Node::withChildNode
 	);
 	
 	//attribute
@@ -129,7 +129,7 @@ implements IWidget<W, WL> {
 		this::setGreyOutState,
 		this::greysOutWhenDisabled,
 		BaseNode::toBoolean,
-		Node::withAttribute
+		Node::withChildNode
 	);
 	
 	//attribute
@@ -140,7 +140,7 @@ implements IWidget<W, WL> {
 		this::setHoverState,
 		this::isHovered,
 		BaseNode::toBoolean,
-		Node::withAttribute
+		Node::withChildNode
 	);
 	
 	//attributes

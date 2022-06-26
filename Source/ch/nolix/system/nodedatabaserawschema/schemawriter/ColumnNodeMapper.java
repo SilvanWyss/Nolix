@@ -29,12 +29,12 @@ public final class ColumnNodeMapper {
 	
 	//method
 	private Node createIdNodeFrom(final IColumnDTO column) {
-		return Node.withHeaderAndAttribute(SubNodeHeaderCatalogue.ID, column.getId());
+		return Node.withHeaderAndChildNode(SubNodeHeaderCatalogue.ID, column.getId());
 	}
 	
 	//method
 	private Node createNameNodeFrom(final IColumnDTO column) {
-		return Node.withHeaderAndAttribute(SubNodeHeaderCatalogue.NAME, column.getName());
+		return Node.withHeaderAndChildNode(SubNodeHeaderCatalogue.NAME, column.getName());
 	}
 	
 	//method

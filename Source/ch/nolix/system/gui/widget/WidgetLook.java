@@ -51,7 +51,7 @@ implements IWidgetLook<WL> {
 		PascalCaseCatalogue.OPACITY,
 		WidgetLookState.class,
 		s -> getOpacityFromString(s.getSingleChildNodeHeader()),
-		Node::withAttribute,
+		Node::withChildNode,
 		this::setOpacityForState,
 		DEFAULT_OPACITY
 	);
@@ -72,7 +72,7 @@ implements IWidgetLook<WL> {
 		BOLD_TEXT_FLAG_HEADER,
 		WidgetLookState.class,
 		BaseNode::getSingleChildNodeAsBoolean,
-		Node::withAttribute,
+		Node::withChildNode,
 		DEFAULT_BOLD_TEXT_FLAG
 	);
 	
@@ -82,7 +82,7 @@ implements IWidgetLook<WL> {
 		TEXT_SIZE_HEADER,
 		WidgetLookState.class,
 		BaseNode::getSingleChildNodeAsInt,
-		Node::withAttribute,
+		Node::withChildNode,
 		this::setTextSizeForState,
 		DEAULT_TEXT_SIZE
 	);

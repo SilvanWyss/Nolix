@@ -151,7 +151,7 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 		PascalCaseCatalogue.WIDTH,
 		this::setWidth,
 		BaseNode::getSingleChildNodeAsInt,
-		Node::withAttribute
+		Node::withChildNode
 	);
 	
 	//attribute
@@ -160,7 +160,7 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 		PascalCaseCatalogue.HEIGHT,
 		this::setHeight,
 		BaseNode::getSingleChildNodeAsInt,
-		Node::withAttribute
+		Node::withChildNode
 	);
 		
 	//attribute
@@ -200,11 +200,11 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 	@Override
 	public Node getCompressedSpecification() {
 		return
-		Node.withHeaderAndAttribute(
+		Node.withHeaderAndChildNode(
 			getSpecificationHeader(),
 			width.getSpecification(),
 			height.getSpecification(),
-			Node.withHeaderAndAttribute(JPG_STRING, Node.withHeader(toJPGString()))
+			Node.withHeaderAndChildNode(JPG_STRING, Node.withHeader(toJPGString()))
 		);
 	}
 	

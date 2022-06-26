@@ -23,7 +23,7 @@ public final class FloatContainerLook extends BorderWidgetLook<FloatContainerLoo
 		ELEMENT_MARGIN_HEADER,
 		WidgetLookState.class,
 		BaseNode::getSingleChildNodeAsInt,
-		Node::withAttribute,
+		Node::withChildNode,
 		this::setElementMarginForState,
 		DEFAULT_ELEMENT_MARGIN
 	);

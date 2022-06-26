@@ -166,7 +166,7 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
 					break;
 				case NO_VALUE:
 					
-					list.addAtEnd(Node.withHeaderAndAttribute(s.getPrefix() + getName(), NONE_HEADER));
+					list.addAtEnd(Node.withHeaderAndChildNode(s.getPrefix() + getName(), NONE_HEADER));
 						
 					break;
 				case UNDEFINED:

@@ -47,7 +47,7 @@ public abstract class BaseSubElement<ME extends IMutableElement<ME>> extends Pro
 		if (attribute.hasHeader() && attribute.getHeader().startsWith(attributePrefix)) {
 			
 			internalSubElement.addOrChangeAttribute(
-				Node.withHeaderAndAttributes(
+				Node.withHeaderAndChildNodes(
 					attribute.getHeader().substring(attributePrefix.length()),
 					attribute.getRefChildNodes()
 				)
@@ -64,7 +64,7 @@ public abstract class BaseSubElement<ME extends IMutableElement<ME>> extends Pro
 	protected void fillUpAttributesInto(final LinkedList<Node> list) {
 		for (final var a : internalSubElement.getAttributes()) {
 			list.addAtEnd(
-				Node.withHeaderAndAttributes(attributePrefix + a.getHeader(), a.getRefChildNodes())
+				Node.withHeaderAndChildNodes(attributePrefix + a.getHeader(), a.getRefChildNodes())
 			);
 		}
 	}

@@ -27,7 +27,7 @@ public final class Sphere extends AtomicShape<Sphere> {
 		DEFAULT_RADIUS,
 		this::setRadius,
 		BaseNode::getSingleChildNodeAsDouble,
-		 Node::withAttribute
+		 Node::withChildNode
 	);
 	
 	//constructor

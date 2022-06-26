@@ -58,7 +58,7 @@ public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G> 
 		DEFAULT_TITLE,
 		this::setTitle,
 		BaseNode::getSingleChildNodeHeader,
-		Node::withAttribute
+		Node::withChildNode
 	);
 	
 	//attribute
@@ -94,7 +94,7 @@ public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G> 
 		ROOT_SHAPE_HEADER,
 		s -> setRootShape(createShape(s.getRefSingleChildNode())),
 		this::containsAny,
-		() -> Node.withAttribute(rootShape.getSpecification())
+		() -> Node.withChildNode(rootShape.getSpecification())
 	);
 	
 	//multi-attribute

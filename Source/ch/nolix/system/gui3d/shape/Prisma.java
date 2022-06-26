@@ -22,7 +22,7 @@ public abstract class Prisma<P extends Prisma<P>> extends AtomicShape<P> {
 		DEFAULT_HEIGHT,
 		this::setHeight,
 		BaseNode::getSingleChildNodeAsDouble,
-		Node::withAttribute
+		Node::withChildNode
 	);
 	
 	//method
