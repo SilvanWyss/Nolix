@@ -4,6 +4,7 @@ package ch.nolix.coreapi.documentapi.nodeapi;
 //own imports
 import ch.nolix.coreapi.attributeuniversalapi.optionalattributeuniversalapi.OptionalHeadered;
 import ch.nolix.coreapi.containerapi.IContainer;
+import ch.nolix.coreapi.functionuniversalapi.IElementTakerBooleanGetter;
 
 //interface
 /**
@@ -49,6 +50,38 @@ public interface INode<N extends INode<N>> extends OptionalHeadered {
 	 * @return the child {@link INode}s of the current {@link INode}.
 	 */
 	IContainer<N> getRefChildNodes();
+	
+	//method declaration
+	/**
+	 * @param selector
+	 * @return the child {@link INode}s the given selector selects from the current {@link INode}.
+	 */
+	IContainer<N> getRefChildNodesThat(IElementTakerBooleanGetter<N> selector);
+	
+	//method declaration
+	/**
+	 * @param header
+	 * @return the child {@link INode}s with the given header from the current {@link INode}.
+	 */
+	IContainer<N> getRefChildNodesWithHeader(String header);
+	
+	//method declaration
+	/**
+	 * @param selector
+	 * @return the first child {@link INode} the given selector selects from the current {@link INode}.
+	 * @throws RuntimeException if
+	 * the current {@link INode} does not contain a child {@link INode} the given selector selects.
+	 */
+	N getRefFirstChildNodeThat(IElementTakerBooleanGetter<N> selector);
+	
+	//method declaration
+	/**
+	 * @param header
+	 * @return the first child {@link INode} with the given header from the current {@link INode}.
+	 * @throws RuntimeException if
+	 * the current {@link INode} does not contain a child {@link INode} with the given header.
+	 */
+	N getRefFirstChildNodeWithHeader(String header);
 	
 	//method declaration
 	/**
