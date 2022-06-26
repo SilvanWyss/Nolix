@@ -545,7 +545,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @param selector
 	 * @return the first element the given selector selects from the current {@link IContainer} or null.
 	 */
-	E getRefFirstOrNull(IElementTakerBooleanGetter<E> selector);
+	E getRefFirstOrNull(IElementTakerBooleanGetter<? super E> selector);
 	
 	//method declaration
 	/**

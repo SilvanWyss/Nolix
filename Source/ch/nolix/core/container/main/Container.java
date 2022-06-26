@@ -1361,7 +1361,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @param selector
 	 * @return the first element the given selector selects from the current {@link Container} or null.
 	 */
-	public final E getRefFirstOrNull(final IElementTakerBooleanGetter<E> selector) {
+	public final E getRefFirstOrNull(final IElementTakerBooleanGetter<? super E> selector) {
 		
 		//Iterates the current IContainer.
 		for (final var e : this) {
