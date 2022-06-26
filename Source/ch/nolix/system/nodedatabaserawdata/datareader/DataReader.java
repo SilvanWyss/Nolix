@@ -23,7 +23,7 @@ public final class DataReader implements IDataReader {
 	private final IContainer<ITableInfo> tableInfos;
 	
 	//constructor
-	public DataReader(final BaseNode databaseNode, final IContainer<ITableInfo> tableInfos) {
+	public DataReader(final BaseNode<?> databaseNode, final IContainer<ITableInfo> tableInfos) {
 		
 		GlobalValidator.assertThat(tableInfos).thatIsNamed("table definitions").isNotNull();
 		GlobalValidator.assertThat(tableInfos).thatIsNamed("table definitions").isNotNull();

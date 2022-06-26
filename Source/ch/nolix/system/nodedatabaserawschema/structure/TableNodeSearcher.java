@@ -11,8 +11,8 @@ public class TableNodeSearcher {
 	private static final ColumnNodeSearcher columnNodeSearcher = new ColumnNodeSearcher();
 	
 	//method
-	public final BaseNode getRefColumnNodeFromTableNodeByColumnName(
-		final BaseNode tableNode,
+	public final BaseNode<?> getRefColumnNodeFromTableNodeByColumnName(
+		final BaseNode<?> tableNode,
 		final String columnName
 	) {
 		return
@@ -22,27 +22,27 @@ public class TableNodeSearcher {
 	}
 	
 	//method
-	public final IContainer<BaseNode> getRefColumnNodesFromTableNode(final BaseNode tableNode) {
+	public final IContainer<BaseNode<?>> getRefColumnNodesFromTableNode(final BaseNode<?> tableNode) {
 		return tableNode.getRefChildNodesWithHeader(SubNodeHeaderCatalogue.COLUMN);
 	}
 	
 	//method
-	public final BaseNode getRefIdNodeFromTableNode(final BaseNode tableNode) {
+	public final BaseNode<?> getRefIdNodeFromTableNode(final BaseNode<?> tableNode) {
 		return tableNode.getRefFirstChildNodeWithHeader(SubNodeHeaderCatalogue.ID);
 	}
 	
 	//method
-	public final BaseNode getRefNameNodeFromTableNode(final BaseNode tableNode) {
+	public final BaseNode<?> getRefNameNodeFromTableNode(final BaseNode<?> tableNode) {
 		return tableNode.getRefFirstChildNodeWithHeader(SubNodeHeaderCatalogue.NAME);
 	}
 	
 	//method
-	public String getTableIdFromTableNode(final BaseNode tableNode) {
+	public String getTableIdFromTableNode(final BaseNode<?> tableNode) {
 		return getRefIdNodeFromTableNode(tableNode).getSingleChildNodeHeader();
 	}
 	
 	//method
-	public String getTableNameFromTableNode(final BaseNode tableNode) {
+	public String getTableNameFromTableNode(final BaseNode<?> tableNode) {
 		return getRefNameNodeFromTableNode(tableNode).getSingleChildNodeHeader();
 	}
 }

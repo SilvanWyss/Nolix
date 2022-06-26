@@ -77,7 +77,7 @@ implements IConfiguration {
 	 * @return the current {@link BaseConfiguration}.
 	 * @throws ArgumentIsNullException if the given attachingAttribute is null.
 	 */
-	public final C addAttachingAttribute(final BaseNode attachingAttribute) {
+	public final C addAttachingAttribute(final BaseNode<?> attachingAttribute) {
 		
 		attachingAttributes.add(attachingAttribute.getCopy());
 		
@@ -540,7 +540,7 @@ implements IConfiguration {
 	 * @return a new {@link BaseConfiguration} from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	private BaseConfiguration<?> createConfigurationFromSpecification(final BaseNode specification) {
+	private BaseConfiguration<?> createConfigurationFromSpecification(final BaseNode<?> specification) {
 		switch (specification.getHeader()) {
 			case Configuration.TYPE_NAME:
 				return Configuration.fromSpecification(specification);

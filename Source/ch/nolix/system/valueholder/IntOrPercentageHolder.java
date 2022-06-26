@@ -39,7 +39,7 @@ public final class IntOrPercentageHolder implements Specified {
 	 * @return a new {@link IntOrPercentageHolder} from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static IntOrPercentageHolder fromSpecification(final BaseNode specification) {
+	public static IntOrPercentageHolder fromSpecification(final BaseNode<?> specification) {
 		
 		final var attribute = specification.getSingleChildNodeHeader();
 		

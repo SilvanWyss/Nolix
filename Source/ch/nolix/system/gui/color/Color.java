@@ -789,7 +789,7 @@ public final class Color implements IColor {
 	 * @return a new {@link Color} from the given specification
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static Color fromSpecification(final BaseNode specification) {
+	public static Color fromSpecification(final BaseNode<?> specification) {
 		return Color.fromString(specification.getSingleChildNodeHeader());
 	}
 	

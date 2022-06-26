@@ -33,10 +33,10 @@ public final class InternalDataReader {
 	private static final ValueMapper valueMapper = new ValueMapper();
 	
 	//attribute
-	private final BaseNode databaseNode;
+	private final BaseNode<?> databaseNode;
 	
 	//constructor
-	public InternalDataReader(final BaseNode databaseNode) {
+	public InternalDataReader(final BaseNode<?> databaseNode) {
 		
 		GlobalValidator.assertThat(databaseNode).thatIsNamed("database node").isNotNull();
 		

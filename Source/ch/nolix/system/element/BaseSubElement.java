@@ -42,7 +42,7 @@ public abstract class BaseSubElement<ME extends IMutableElement<ME>> extends Pro
 	
 	//method
 	@Override
-	protected final boolean addedOrChangedAttribute(final BaseNode attribute) {
+	protected final boolean addedOrChangedAttribute(final BaseNode<?> attribute) {
 		
 		if (attribute.hasHeader() && attribute.getHeader().startsWith(attributePrefix)) {
 			

@@ -19,7 +19,7 @@ public enum PropertyType {
 	MULTI_BACK_REFERENCE(BasePropertyType.BASE_BACK_REFERENCE, Cardinality.TO_MANY);
 	
 	//static method
-	public static PropertyType fromSpecification(final BaseNode specification) {
+	public static PropertyType fromSpecification(final BaseNode<?> specification) {
 		return valueOf(specification.getSingleChildNodeHeader());
 	}
 	

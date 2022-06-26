@@ -97,7 +97,7 @@ public final class OptionalValue<V> extends SingleValue<V> {
 	public OptionalValue(
 		final String name,
 		final IElementTaker<V> setterMethod,
-		final IElementTakerElementGetter<BaseNode, V> valueCreator,
+		final IElementTakerElementGetter<BaseNode<?>, V> valueCreator,
 		final IElementTakerElementGetter<V, Node> specificationCreator
 	) {
 		

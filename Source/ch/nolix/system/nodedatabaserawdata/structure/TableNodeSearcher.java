@@ -9,7 +9,7 @@ import ch.nolix.system.nodedatabaserawdata.tabledefinition.FieldIndexCatalogue;
 public final class TableNodeSearcher {
 	
 	//method
-	public BaseNode getRefRecordNodeFromTableNode(final BaseNode tableNode, final String id) {
+	public BaseNode<?> getRefRecordNodeFromTableNode(final BaseNode<?> tableNode, final String id) {
 		return
 		tableNode.getRefFirstChildNodeThat(
 			a ->
@@ -19,7 +19,7 @@ public final class TableNodeSearcher {
 	}
 	
 	//method
-	public BaseNode getRefEntityNodeFromTableNodeOrNull(final BaseNode tableNode, final String id) {
+	public BaseNode<?> getRefEntityNodeFromTableNodeOrNull(final BaseNode<?> tableNode, final String id) {
 		return
 		tableNode.getRefFirstChildNodeThatOrNull(
 			a ->
@@ -29,12 +29,12 @@ public final class TableNodeSearcher {
 	}
 	
 	//method
-	public IContainer<BaseNode> getRefRecordNodesFromTableNode(final BaseNode tableNode) {
+	public IContainer<BaseNode<?>> getRefRecordNodesFromTableNode(final BaseNode<?> tableNode) {
 		return tableNode.getRefChildNodesWithHeader(SubNodeHeaderCatalogue.RECORD);
 	}
 	
 	//method
-	public BaseNode removeAndGetRefRecordNodeFromTableNode(BaseNode tableNode, String id) {
+	public BaseNode<?> removeAndGetRefRecordNodeFromTableNode(BaseNode<?> tableNode, String id) {
 		return
 		tableNode.removeAndGetRefFirstChildNodeThat(
 			a ->
@@ -44,20 +44,20 @@ public final class TableNodeSearcher {
 	}
 	
 	//method
-	public boolean tableNodeContainsRecordNodeWithGivenId(final BaseNode tableNode, final String id) {
+	public boolean tableNodeContainsRecordNodeWithGivenId(final BaseNode<?> tableNode, final String id) {
 		return
 		tableNodeContainsRecordNodeWhoseFieldAtGivenIndexHasGivenHeader(tableNode, FieldIndexCatalogue.ID_INDEX, id);
 	}
 	
 	//method
 	public boolean tableNodeContainsRecordNodeWhoseFieldAtGivenIndexContainsGivenValue(
-		final BaseNode tableNode,
+		final BaseNode<?> tableNode,
 		final int valueIndex,
 		final String value
 	) {
 		return
 		tableNode.containsChildNodeThat(
-			(final BaseNode a) -> {
+			(final BaseNode<?> a) -> {
 				
 				if (!a.hasHeader(SubNodeHeaderCatalogue.RECORD)) {
 					return false;
@@ -71,7 +71,7 @@ public final class TableNodeSearcher {
 	
 	//method
 	public boolean tableNodeContainsRecordNodeWhoseFieldAtGivenIndexHasGivenHeader(
-		final BaseNode tableNode,
+		final BaseNode<?> tableNode,
 		final int valueIndex,
 		final String header
 	) {

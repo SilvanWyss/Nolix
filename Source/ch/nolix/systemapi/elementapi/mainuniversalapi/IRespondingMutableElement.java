@@ -24,14 +24,14 @@ public interface IRespondingMutableElement<RME extends IRespondingMutableElement
 	 * @param attribute
 	 * @return true if the given attribute was added or changed to the current {@link IRespondingMutableElement}.
 	 */
-	boolean addedOrChangedAttribute(BaseNode attribute);
+	boolean addedOrChangedAttribute(BaseNode<?> attribute);
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	default void addOrChangeAttribute(final BaseNode attribute) {
+	default void addOrChangeAttribute(final BaseNode<?> attribute) {
 		if (!addedOrChangedAttribute(attribute)) {
 			throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.ATTRIBUTE, attribute);
 		}

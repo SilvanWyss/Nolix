@@ -131,7 +131,7 @@ public final class MutableValue<V> extends SingleValue<V> {
 		final String name,
 		final V defaultValue,
 		final IElementTaker<V> setterMethod,
-		final IElementTakerElementGetter<BaseNode, V> valueCreator,
+		final IElementTakerElementGetter<BaseNode<?>, V> valueCreator,
 		final IElementTakerElementGetter<V, Node> specificationCreator
 	) {
 		

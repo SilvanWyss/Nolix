@@ -17,7 +17,7 @@ public final class ResizeInput implements IResizeInput<ResizeInput> {
 	private static final String SIZE_HEADER = PascalCaseCatalogue.SIZE;
 	
 	//static method
-	public static ResizeInput fromSpecification(final BaseNode specification) {
+	public static ResizeInput fromSpecification(final BaseNode<?> specification) {
 		
 		final var sizeSpecification = specification.getRefSingleChildNode();
 		

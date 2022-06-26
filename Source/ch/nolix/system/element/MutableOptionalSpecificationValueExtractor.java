@@ -15,14 +15,14 @@ public final class MutableOptionalSpecificationValueExtractor extends Property {
 	
 	//attributes
 	private final String name;
-	private final IElementTaker<BaseNode> setter;
+	private final IElementTaker<BaseNode<?>> setter;
 	private final IBooleanGetter valuePresenceChecker;
 	private final IElementGetter<Node> getter;
 	
 	//constructor
 	public MutableOptionalSpecificationValueExtractor(
 		final String name,
-		final IElementTaker<BaseNode> setter,
+		final IElementTaker<BaseNode<?>> setter,
 		final IBooleanGetter valuePresenceChecker,
 		final IElementGetter<Node> getter
 	) {
@@ -45,7 +45,7 @@ public final class MutableOptionalSpecificationValueExtractor extends Property {
 	
 	//method
 	@Override
-	protected boolean addedOrChangedAttribute(final BaseNode attribute) {
+	protected boolean addedOrChangedAttribute(final BaseNode<?> attribute) {
 		
 		if (attribute.hasHeader(getName())) {
 			setter.run(attribute);

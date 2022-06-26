@@ -134,7 +134,7 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
 	 * @return the data the given request requests from the counterpart of the current {@link Client}.
 	 * @throws UnconnectedArgumentException if the current {@link Client} is not connected.
 	 */
-	protected final BaseNode getDataFromCounterpart(final ChainedNode request) {
+	protected final BaseNode<?> getDataFromCounterpart(final ChainedNode request) {
 		return getRefEndPoint().getData(request);
 	}
 	

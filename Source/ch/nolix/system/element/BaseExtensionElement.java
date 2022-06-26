@@ -29,7 +29,7 @@ public abstract class BaseExtensionElement<E extends IRespondingMutableElement<E
 	
 	//method
 	@Override
-	protected final boolean addedOrChangedAttribute(final BaseNode attribute) {
+	protected final boolean addedOrChangedAttribute(final BaseNode<?> attribute) {
 		return internalExtensionElement.addedOrChangedAttribute(attribute);
 	}
 	

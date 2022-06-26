@@ -24,7 +24,7 @@ public enum RotationDirection implements Specified {
 	 * @return a new {@link RotationDirection} from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static RotationDirection fromSpecification(final BaseNode specification) {
+	public static RotationDirection fromSpecification(final BaseNode<?> specification) {
 		return valueOf(GlobalStringHelper.toUpperSnakeCase(specification.getSingleChildNodeHeader()));
 	}
 	

@@ -55,7 +55,7 @@ public final class ForwardingProperty<S extends Enum<S>, V> extends Property<S>{
 	}
 	
 	@Override
-	protected void setValueFromSpecification(final BaseNode specification) {
+	protected void setValueFromSpecification(final BaseNode<?> specification) {
 		for (final var mp : materializedProperties) {
 			mp.setValueFromSpecification(specification);
 		}

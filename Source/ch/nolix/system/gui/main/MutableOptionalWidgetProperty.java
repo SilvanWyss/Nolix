@@ -59,7 +59,7 @@ public final class MutableOptionalWidgetProperty extends Property implements Cle
 	
 	//method
 	@Override
-	protected boolean addedOrChangedAttribute(final BaseNode attribute) {
+	protected boolean addedOrChangedAttribute(final BaseNode<?> attribute) {
 		
 		if (!WidgetGUI.canCreateWidgetFrom(attribute)) {
 			return false;

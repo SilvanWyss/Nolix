@@ -9,7 +9,7 @@ import ch.nolix.system.gui.widget.BorderWidgetLook;
 public final class StackLook extends BorderWidgetLook<StackLook> {
 	
 	//static method
-	public static StackLook fromSpecification(final BaseNode specification) {
+	public static StackLook fromSpecification(final BaseNode<?> specification) {
 		
 		final var stackLook = new StackLook();
 		stackLook.resetFromSpecification(specification);

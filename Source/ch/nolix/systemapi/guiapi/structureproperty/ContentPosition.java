@@ -31,7 +31,7 @@ public enum ContentPosition implements Specified {
 	 * @return a new {@link ContentPosition} from the given specification.
 	 * @throws InvalidArgumentException if the given specification does not represent a {@link ContentPosition}.
 	 */
-	public static ContentPosition fromSpecification(final BaseNode specification) {
+	public static ContentPosition fromSpecification(final BaseNode<?> specification) {
 		return valueOf(GlobalStringHelper.toUpperSnakeCase(specification.getSingleChildNodeHeader()));
 	}
 	

@@ -94,7 +94,7 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 	 * @return a new {@link Layer} from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static Layer fromSpecification(final BaseNode specification) {
+	public static Layer fromSpecification(final BaseNode<?> specification) {
 		
 		final var layer = new Layer();
 		layer.resetFromSpecification(specification);

@@ -84,7 +84,7 @@ public final class Value<V> extends SingleValue<V> {
 	public Value(
 		final String name,
 		final IElementTaker<V> setterMethod,
-		final IElementTakerElementGetter<BaseNode, V> valueCreator,
+		final IElementTakerElementGetter<BaseNode<?>, V> valueCreator,
 		final IElementTakerElementGetter<V, Node> specificationCreator
 	) {
 		

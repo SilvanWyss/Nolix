@@ -19,7 +19,7 @@ public final class LoadedRecordDTOMapper {
 	
 	//method
 	public ILoadedRecordDTO createLoadedRecordDTOFromRecordNode(
-		final BaseNode recordNode,
+		final BaseNode<?> recordNode,
 		final ITableInfo tableInfo
 	) {
 		return
@@ -32,7 +32,7 @@ public final class LoadedRecordDTOMapper {
 	
 	//method
 	private IContainer<ILoadedContentFieldDTO> createContentFieldsFromRecordNode(
-		final BaseNode entityNode,
+		final BaseNode<?> entityNode,
 		final ITableInfo tableInfo
 	) {
 		
@@ -48,7 +48,7 @@ public final class LoadedRecordDTOMapper {
 	}
 	
 	//method
-	private String getIdFromRecordNode(final BaseNode recordNode) {
+	private String getIdFromRecordNode(final BaseNode<?> recordNode) {
 		
 		final var idNode = entityNodeSearcher.getRefIdNodeFromRecordNode(recordNode);
 		
@@ -56,7 +56,7 @@ public final class LoadedRecordDTOMapper {
 	}
 	
 	//method
-	private String getSaveStampFromRecordNode(BaseNode recordNode) {
+	private String getSaveStampFromRecordNode(BaseNode<?> recordNode) {
 		
 		final var saveStampNode = entityNodeSearcher.getRefSaveStampNodeFromRecordNode(recordNode);
 		

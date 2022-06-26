@@ -11,7 +11,7 @@ import ch.nolix.system.time.moment.Time;
 final class InternalDatabaseInitializer {
 	
 	//method
-	public void initializeDatabase(final BaseNode databaseNode) {
+	public void initializeDatabase(final BaseNode<?> databaseNode) {
 		databaseNode
 		.setHeader(SubNodeHeaderCatalogue.DATABASE)
 		.addChildNode(createDatabasePropertiesNode());

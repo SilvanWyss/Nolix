@@ -403,7 +403,7 @@ public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G> 
 	 * @return a new {@link Shape} of the given specification.
 	 * @throws InvalidArgumentException if the current specification is not valid.
 	 */
-	private Shape<?> createShape(final BaseNode specification) {
+	private Shape<?> createShape(final BaseNode<?> specification) {
 		
 		final var shape = createShape(specification.getHeader());
 		shape.resetFromSpecification(specification);

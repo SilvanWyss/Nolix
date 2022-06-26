@@ -9,17 +9,17 @@ import ch.nolix.system.nodedatabaserawdata.tabledefinition.FieldIndexCatalogue;
 public final class EntityNodeSearcher {
 	
 	//method
-	public String getEntitySaveStampFromEntityNode(final BaseNode entityNode) {
+	public String getEntitySaveStampFromEntityNode(final BaseNode<?> entityNode) {
 		return getRefSaveStampNodeFromRecordNode(entityNode).getSingleChildNodeHeader();
 	}
 	
 	//method
-	public BaseNode getRefIdNodeFromRecordNode(final BaseNode recordNode) {
+	public BaseNode<?> getRefIdNodeFromRecordNode(final BaseNode<?> recordNode) {
 		return recordNode.getRefChildNodeAt1BasedIndex(FieldIndexCatalogue.ID_INDEX);
 	}
 	
 	//method
-	public BaseNode getRefSaveStampNodeFromRecordNode(final BaseNode recordNode) {
+	public BaseNode<?> getRefSaveStampNodeFromRecordNode(final BaseNode<?> recordNode) {
 		return recordNode.getRefChildNodeAt1BasedIndex(FieldIndexCatalogue.ID_INDEX);
 	}
 }

@@ -98,7 +98,7 @@ final class WidgetProvider {
 	 * @param specification
 	 * @return true if the current {@link WidgetProvider} can create a {@link Widget} from the given specification.
 	 */
-	public boolean canCreateWidgetFrom(final BaseNode specification) {
+	public boolean canCreateWidgetFrom(final BaseNode<?> specification) {
 		return canCreateWidgetOf(specification.getHeader());
 	}
 	
@@ -118,7 +118,7 @@ final class WidgetProvider {
 	 * @return a new {@link Widget} from the given specification from the current {@link WidgetProvider}.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public Widget<?, ?> createWidgetFrom(final BaseNode specification) {
+	public Widget<?, ?> createWidgetFrom(final BaseNode<?> specification) {
 		
 		final var widget = createWidget(specification.getHeader());
 		widget.addOrChangeAttributes(specification.getRefChildNodes());

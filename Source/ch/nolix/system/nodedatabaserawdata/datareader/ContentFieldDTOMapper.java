@@ -16,7 +16,7 @@ public final class ContentFieldDTOMapper {
 	
 	//method
 	public ILoadedContentFieldDTO createContentFieldDTOFromContentFieldNode(
-		final BaseNode contentFieldNode,
+		final BaseNode<?> contentFieldNode,
 		final IColumnInfo columnInfo
 	) {
 		

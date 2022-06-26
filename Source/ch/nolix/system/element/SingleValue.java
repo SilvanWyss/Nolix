@@ -43,7 +43,7 @@ abstract class SingleValue<V> extends BaseValue<V> {
 	protected SingleValue(
 		final String name,
 		final IElementTaker<V> setterMethod,
-		final IElementTakerElementGetter<BaseNode, V> valueCreator,
+		final IElementTakerElementGetter<BaseNode<?>, V> valueCreator,
 		final IElementTakerElementGetter<V, Node> specificationCreator
 	) {
 		

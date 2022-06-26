@@ -24,7 +24,7 @@ public enum ContainerRole implements Specified {
 	 * @param specification
 	 * @return a new {@link ContainerRole} from the given specification.
 	 */
-	public static ContainerRole fromSpecification(final BaseNode specification) {
+	public static ContainerRole fromSpecification(final BaseNode<?> specification) {
 		return valueOf(GlobalStringHelper.toUpperSnakeCase(specification.getSingleChildNodeHeader()));
 	}
 	

@@ -40,7 +40,7 @@ implements Clearable, Headerable<TabContainerTab> {
 	 * @param specification
 	 * @return a new {@link TabContainerTab} from the given specification.
 	 */
-	public static TabContainerTab fromSpecification(final BaseNode specification) {
+	public static TabContainerTab fromSpecification(final BaseNode<?> specification) {
 		
 		final var tab = new TabContainerTab();
 		tab.resetFromSpecification(specification);

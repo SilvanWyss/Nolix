@@ -43,7 +43,7 @@ public enum Weekday implements Specified {
 	}
 	
 	//static method
-	public static Weekday fromSpecification(final BaseNode specification) {
+	public static Weekday fromSpecification(final BaseNode<?> specification) {
 		return Weekday.valueOf(specification.getSingleChildNodeHeader());
 	}
 	

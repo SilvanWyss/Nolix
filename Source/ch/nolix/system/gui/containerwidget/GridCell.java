@@ -19,7 +19,7 @@ final class GridCell extends MutableElement<GridCell> implements Clearable {
 	private static final String COLUMN_INDEX_HEADER = PascalCaseCatalogue.COLUMN_INDEX;
 	
 	//static method
-	public static GridCell fromSpecification(final BaseNode specification) {
+	public static GridCell fromSpecification(final BaseNode<?> specification) {
 		
 		final var cell = new GridCell();
 		cell.resetFromSpecification(specification);

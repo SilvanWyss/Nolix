@@ -115,7 +115,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 * @param specification
 	 * @return true if a {@link WidgetGUI} can create a {@link Widget} from the given specification.
 	 */
-	public static boolean canCreateWidgetFrom(final BaseNode specification) {
+	public static boolean canCreateWidgetFrom(final BaseNode<?> specification) {
 		return widgetProvider.canCreateWidgetFrom(specification);
 	}
 
@@ -135,7 +135,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 * @return a new {@link Widget} from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static Widget<?, ?> createWidgetFrom(final BaseNode specification) {
+	public static Widget<?, ?> createWidgetFrom(final BaseNode<?> specification) {
 		return widgetProvider.createWidgetFrom(specification);
 	}
 	

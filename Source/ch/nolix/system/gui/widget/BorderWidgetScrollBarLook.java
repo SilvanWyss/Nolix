@@ -19,7 +19,7 @@ public final class BorderWidgetScrollBarLook extends MutableElement<BorderWidget
 	private static final String SCROLL_CURSOR_COLOR_HEADER = "ScrollCursorColor";
 	
 	//static method
-	public static BorderWidgetScrollBarLook fromSpecification(final BaseNode specification) {
+	public static BorderWidgetScrollBarLook fromSpecification(final BaseNode<?> specification) {
 		
 		final var scrollBarLook = new BorderWidgetScrollBarLook();
 		scrollBarLook.resetFromSpecification(specification);

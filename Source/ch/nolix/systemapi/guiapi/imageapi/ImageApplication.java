@@ -14,7 +14,7 @@ public enum ImageApplication implements Specified {
 	REPEATE;
 	
 	//static method
-	public static ImageApplication fromSpecification(final BaseNode specification) {
+	public static ImageApplication fromSpecification(final BaseNode<?> specification) {
 		return valueOf(GlobalStringHelper.toUpperSnakeCase(specification.getSingleChildNodeHeader()));
 	}
 	

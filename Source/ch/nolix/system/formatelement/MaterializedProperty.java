@@ -20,7 +20,7 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
 	private static final String NONE_HEADER = "None";
 	
 	//attributes
-	private final IElementTakerElementGetter<BaseNode, V> valueCreator;
+	private final IElementTakerElementGetter<BaseNode<?>, V> valueCreator;
 	private final IElementTakerElementGetter<V, Node> specificationCreator;
 	
 	//optional attribute
@@ -34,7 +34,7 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
 	protected MaterializedProperty(
 		final String name,
 		final Class<S> stateClass,
-		final IElementTakerElementGetter<BaseNode, V> valueCreator,
+		final IElementTakerElementGetter<BaseNode<?>, V> valueCreator,
 		final IElementTakerElementGetter<V, Node> specificationCreator
 	) {
 		
@@ -56,7 +56,7 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
 	protected MaterializedProperty(
 		final String name,
 		final Class<S> stateClass,
-		final IElementTakerElementGetter<BaseNode, V> valueCreator,
+		final IElementTakerElementGetter<BaseNode<?>, V> valueCreator,
 		final IElementTakerElementGetter<V, Node> specificationCreator,
 		final I2ElementTaker<S, V> setterMethod
 	) {
@@ -200,7 +200,7 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
 	
 	//method
 	@Override
-	protected final void setValueFromSpecification(final BaseNode specification) {
+	protected final void setValueFromSpecification(final BaseNode<?> specification) {
 		
 		for (final var s : parent.getAvailableStates()) {
 			if (GlobalStringHelper.startsWithIgnoringCase(specification.getHeader(), s.getPrefix())) {
@@ -247,7 +247,7 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
 	}
 	
 	//method
-	private void setValueFromSpecificationToState(final State<S> state, final BaseNode specification) {
+	private void setValueFromSpecificationToState(final State<S> state, final BaseNode<?> specification) {
 		if (specification.getSingleChildNodeHeader().equals(NONE_HEADER)) {
 			stateProperties[state.getIndex()].setEmpty();
 		} else {

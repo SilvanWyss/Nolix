@@ -156,7 +156,7 @@ public final class KeyInput implements IKeyInput<KeyInput> {
 	}
 	
 	//static method
-	public static KeyInput fromSpecification(final BaseNode specification) {
+	public static KeyInput fromSpecification(final BaseNode<?> specification) {
 		return
 		withKeyAndInputType(
 			Key.fromSpecification(specification.getRefChildNodeAt1BasedIndex(1)),

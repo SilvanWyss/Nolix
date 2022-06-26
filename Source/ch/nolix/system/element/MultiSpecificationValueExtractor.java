@@ -15,13 +15,13 @@ public final class MultiSpecificationValueExtractor extends Property {
 	
 	//attributes
 	private final String name;
-	private final IElementTaker<BaseNode> adder;
+	private final IElementTaker<BaseNode<?>> adder;
 	private final IElementGetter<IContainer<Node>> getter;
 	
 	//constructor
 	public MultiSpecificationValueExtractor(
 		final String name,
-		final IElementTaker<BaseNode> adder,
+		final IElementTaker<BaseNode<?>> adder,
 		final IElementGetter<IContainer<Node>> getter
 	) {
 		
@@ -41,7 +41,7 @@ public final class MultiSpecificationValueExtractor extends Property {
 	
 	//method
 	@Override
-	protected boolean addedOrChangedAttribute(final BaseNode attribute) {
+	protected boolean addedOrChangedAttribute(final BaseNode<?> attribute) {
 		
 		if (attribute.hasHeader(getName())) {
 			adder.run(attribute);

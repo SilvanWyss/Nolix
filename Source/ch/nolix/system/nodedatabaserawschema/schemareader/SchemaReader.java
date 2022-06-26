@@ -44,10 +44,10 @@ public final class SchemaReader implements ISchemaReader {
 	private final CloseController closeController = new CloseController(this);
 	
 	//attribute
-	private final BaseNode databaseNode;
+	private final BaseNode<?> databaseNode;
 	
 	//constructor
-	public SchemaReader(final BaseNode databaseNode) {
+	public SchemaReader(final BaseNode<?> databaseNode) {
 		
 		GlobalValidator.assertThat(databaseNode).thatIsNamed("database Node").isNotNull();
 		
@@ -171,13 +171,13 @@ public final class SchemaReader implements ISchemaReader {
 	}
 	
 	//method
-	private IContainer<IColumnDTO> loadColumnsFromTableNode(final BaseNode tableNode) {
+	private IContainer<IColumnDTO> loadColumnsFromTableNode(final BaseNode<?> tableNode) {
 		return
 		tableNodeSearcher.getRefColumnNodesFromTableNode(tableNode).to(columnDTOMapper::createColumnDTOFromColumnNode);
 	}
 	
 	//method
-	private ITableDTO loadTableFromTableNode(final BaseNode tableNode) {
+	private ITableDTO loadTableFromTableNode(final BaseNode<?> tableNode) {
 		return
 		new TableDTO(
 			tableNodeSearcher.getRefIdNodeFromTableNode(tableNode).getSingleChildNodeHeader(),

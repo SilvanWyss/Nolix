@@ -12,7 +12,7 @@ import ch.nolix.system.rawdata.dataandschemaadapter.BaseDataAndSchemaAdapter;
 public final class DataAndSchemaAdapter extends BaseDataAndSchemaAdapter {
 	
 	//static method
-	public static DataAndSchemaAdapter forNodeDatabase(final BaseNode nodeDatabase) {
+	public static DataAndSchemaAdapter forNodeDatabase(final BaseNode<?> nodeDatabase) {
 		return new DataAndSchemaAdapter(nodeDatabase);
 	}
 	
@@ -22,7 +22,7 @@ public final class DataAndSchemaAdapter extends BaseDataAndSchemaAdapter {
 	}
 	
 	//constructor
-	private DataAndSchemaAdapter(final BaseNode nodeDatabase) {
+	private DataAndSchemaAdapter(final BaseNode<?> nodeDatabase) {
 		super(DataAdapter.forNodeDatabase(nodeDatabase), SchemaAdapter.forDatabaseNode(nodeDatabase));
 	}
 }

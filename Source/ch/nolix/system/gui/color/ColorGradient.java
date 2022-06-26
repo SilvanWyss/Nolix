@@ -45,7 +45,7 @@ public class ColorGradient implements IColorGradient {
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
 	public static ColorGradient fromSpecification(
-		final BaseNode specification
+		final BaseNode<?> specification
 	) {
 		
 		final var attributes = specification.getRefChildNodes();

@@ -19,7 +19,7 @@ WithNameCapturer<
 > {
 	
 	//constructor
-	public NodeDatabaseDataAdapterBuilder(final BaseNode nodeDatabase) {
+	public NodeDatabaseDataAdapterBuilder(final BaseNode<?> nodeDatabase) {
 		
 		super(new UsingSchemaTerminalCapturer<>());
 		
@@ -27,7 +27,7 @@ WithNameCapturer<
 	}
 	
 	//method
-	private NodeDatabaseDataAdapter build(final BaseNode nodeDatabase) {
+	private NodeDatabaseDataAdapter build(final BaseNode<?> nodeDatabase) {
 		return		
 		new NodeDatabaseDataAdapter(
 			getName(),

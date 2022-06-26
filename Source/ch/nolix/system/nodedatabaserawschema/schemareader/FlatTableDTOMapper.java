@@ -13,7 +13,7 @@ final class FlatTableDTOMapper {
 	private static final TableNodeSearcher tableNodeSearcher = new TableNodeSearcher();
 	
 	//method
-	public FlatTableDTO createFlatTableDTOFromTableNode(final BaseNode tableNode) {
+	public FlatTableDTO createFlatTableDTOFromTableNode(final BaseNode<?> tableNode) {
 		
 		final var id = tableNodeSearcher.getRefIdNodeFromTableNode(tableNode).getSingleChildNodeHeader();
 		final var name = tableNodeSearcher.getRefNameNodeFromTableNode(tableNode).getSingleChildNodeHeader();

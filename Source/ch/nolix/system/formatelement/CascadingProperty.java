@@ -21,7 +21,7 @@ public final class CascadingProperty<S extends Enum<S>, V> extends MaterializedP
 	public CascadingProperty(
 		final String name,
 		final Class<S> stateClass,
-		final IElementTakerElementGetter<BaseNode, V> valueCreator,
+		final IElementTakerElementGetter<BaseNode<?>, V> valueCreator,
 		final IElementTakerElementGetter<V, Node> specificationCreator,
 		final V defaultValue
 	) {
@@ -37,7 +37,7 @@ public final class CascadingProperty<S extends Enum<S>, V> extends MaterializedP
 	public CascadingProperty(
 		final String name,
 		final Class<S> stateClass,
-		final IElementTakerElementGetter<BaseNode, V> valueCreator,
+		final IElementTakerElementGetter<BaseNode<?>, V> valueCreator,
 		final IElementTakerElementGetter<V, Node> specificationCreator,
 		final I2ElementTaker<S, V> setterMethod,
 		final V defaultValue

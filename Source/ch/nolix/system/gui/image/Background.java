@@ -26,7 +26,7 @@ public final class Background extends MutableElement<Background> {
 	private static final String IMAGE_HEADER = "Image";
 	
 	//static method
-	public static Background fromSpecification(final BaseNode specification) {
+	public static Background fromSpecification(final BaseNode<?> specification) {
 		
 		final var background = new Background();
 		background.resetFromSpecification(specification);

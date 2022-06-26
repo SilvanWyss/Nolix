@@ -44,7 +44,7 @@ implements IRespondingMutableElement<FE> {
 	
 	//method
 	@Override
-	public final boolean addedOrChangedAttribute(final BaseNode attribute) {
+	public final boolean addedOrChangedAttribute(final BaseNode<?> attribute) {
 		
 		for (final var p : getRefProperties()) {
 			if (attribute.getHeader().endsWith(p.getName())) {

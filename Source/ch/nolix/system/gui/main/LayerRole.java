@@ -16,7 +16,7 @@ public enum LayerRole implements Specified {
 	DIALOG_LAYER;
 	
 	//static method
-	public static LayerRole fromSpecification(final BaseNode specification) {
+	public static LayerRole fromSpecification(final BaseNode<?> specification) {
 		return valueOf(GlobalStringHelper.toUpperSnakeCase(specification.getSingleChildNodeHeader()));
 	}
 	

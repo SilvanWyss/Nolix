@@ -64,7 +64,7 @@ public final class TextFormat implements ITextFormat {
 	 * @return a new {@link TextFormat} from the given specification
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static TextFormat fromSpecification(final BaseNode specification) {
+	public static TextFormat fromSpecification(final BaseNode<?> specification) {
 		
 		//Extracts the attributes of the given specification.
 		final var attributes = specification.getRefChildNodes();

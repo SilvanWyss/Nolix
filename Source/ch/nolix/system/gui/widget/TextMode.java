@@ -17,7 +17,7 @@ public enum TextMode implements Specified {
 	SECRET;
 	
 	//static method
-	public static TextMode fromSpecification(final BaseNode specification) {
+	public static TextMode fromSpecification(final BaseNode<?> specification) {
 		return valueOf(specification.getSingleChildNodeHeader().toUpperCase(Locale.ENGLISH));
 	}
 	

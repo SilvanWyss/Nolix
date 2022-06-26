@@ -30,7 +30,7 @@ public final class ItemMenuItem extends MutableElement<ItemMenuItem> implements 
 	private static final String SELECTION_FLAG_HEADER = "Selected";
 	
 	//static method
-	public static ItemMenuItem fromSpecification(final BaseNode specification) {
+	public static ItemMenuItem fromSpecification(final BaseNode<?> specification) {
 		
 		final var item = new ItemMenuItem();
 		item.resetFromSpecification(specification);

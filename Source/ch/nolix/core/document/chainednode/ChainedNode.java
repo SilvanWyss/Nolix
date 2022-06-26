@@ -46,7 +46,7 @@ public final class ChainedNode implements OptionalHeadered {
 	 * @param node
 	 * @return a new {@link ChainedNode} from the given node.
 	 */
-	public static ChainedNode fromNode(final BaseNode node) {
+	public static ChainedNode fromNode(final BaseNode<?> node) {
 		
 		final var chainedNode = new ChainedNode();
 		
@@ -117,7 +117,7 @@ public final class ChainedNode implements OptionalHeadered {
 	 * @throws ArgumentIsNullException if one of the given attributes is null.
 	 */
 	@SuppressWarnings("unchecked")
-	public static <BN extends BaseNode> ChainedNode withAttributesFromNodes(final BN... attributes) {
+	public static <BN extends BaseNode<?>> ChainedNode withAttributesFromNodes(final BN... attributes) {
 		
 		final var chainedNode = new ChainedNode();
 		chainedNode.addAttributes(attributes);
@@ -134,7 +134,7 @@ public final class ChainedNode implements OptionalHeadered {
 	 * @return a new {@link ChainedNode} with the given attributes.
 	 * @throws ArgumentIsNullException if one of the given attributes is null.
 	 */
-	public static <BN extends BaseNode> ChainedNode withAttributesFromNodes(final Iterable<BN> attributes) {
+	public static <BN extends BaseNode<?>> ChainedNode withAttributesFromNodes(final Iterable<BN> attributes) {
 		
 		final var chainedNode = new ChainedNode();
 		chainedNode.addAttributesFromNodes(attributes);
@@ -206,7 +206,7 @@ public final class ChainedNode implements OptionalHeadered {
 	 * @throws ArgumentIsNullException if one of the given attributes is null.
 	 */
 	@SuppressWarnings("unchecked")
-	public static <BN extends BaseNode> ChainedNode withHeaderAndAttributesFromNodes(
+	public static <BN extends BaseNode<?>> ChainedNode withHeaderAndAttributesFromNodes(
 		final String header,
 		final BN... attributes
 	) {
@@ -230,7 +230,7 @@ public final class ChainedNode implements OptionalHeadered {
 	 * @throws InvalidArgumentException if the given header is blank.
 	 * @throws ArgumentIsNullException if one of the given attributes is null.
 	 */
-	public static <BN extends BaseNode> ChainedNode withHeaderAndAttributesFromNodes(
+	public static <BN extends BaseNode<?>> ChainedNode withHeaderAndAttributesFromNodes(
 		final String header,
 		final Iterable<BN> attributes
 	) {
@@ -286,7 +286,7 @@ public final class ChainedNode implements OptionalHeadered {
 	 * @throws ArgumentIsNullException if the given header is null.
 	 * @throws InvalidArgumentException if the given header is blank.
 	 */
-	public <BN extends BaseNode> ChainedNode(final String header, final Iterable<BN> attributes) {
+	public <BN extends BaseNode<?>> ChainedNode(final String header, final Iterable<BN> attributes) {
 		setHeader(header);	
 		addAttributesFromNodes(attributes);
 	}
@@ -303,7 +303,7 @@ public final class ChainedNode implements OptionalHeadered {
 	 * @throws InvalidArgumentException if the given header is blank.
 	 * @throws ArgumentIsNullException if the given nextNode is null.
 	 */
-	public <BN extends BaseNode> ChainedNode(
+	public <BN extends BaseNode<?>> ChainedNode(
 		final String header,
 		final Iterable<BN> attributes,
 		final ChainedNode nextNode
@@ -683,7 +683,7 @@ public final class ChainedNode implements OptionalHeadered {
 	 * @param <BN> is the type of the given attributes.
 	 */
 	@SuppressWarnings("unchecked")
-	private <BN extends BaseNode> void addAttributes(final BN... attributes) {
+	private <BN extends BaseNode<?>> void addAttributes(final BN... attributes) {
 		for (final var a : attributes) {
 			this.attributes.addAtEnd(fromNode(a));
 		}
@@ -708,7 +708,7 @@ public final class ChainedNode implements OptionalHeadered {
 	 * @param <BN> is the type of the given attributes.
 	 */
 	@SuppressWarnings("unchecked")
-	private <BN extends BaseNode> void addAttributesFromNodes(final BN... attributes) {
+	private <BN extends BaseNode<?>> void addAttributesFromNodes(final BN... attributes) {
 		for (final var a : attributes) {
 			this.attributes.addAtEnd(fromNode(a));
 		}
@@ -721,7 +721,7 @@ public final class ChainedNode implements OptionalHeadered {
 	 * @param attributes
 	 * @param <BN> is the type of the given attributes.
 	 */
-	private <BN extends BaseNode> void addAttributesFromNodes(final Iterable<BN> attributes) {
+	private <BN extends BaseNode<?>> void addAttributesFromNodes(final Iterable<BN> attributes) {
 		for (final var a : attributes) {
 			this.attributes.addAtEnd(fromNode(a));
 		}

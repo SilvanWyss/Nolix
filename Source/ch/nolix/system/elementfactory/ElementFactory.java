@@ -14,7 +14,7 @@ public class ElementFactory<E> {
 	private final LinkedList<OneTypeElementFactory<?>> oneTypeElementFactories = new LinkedList<>();
 		
 	//method
-	public final boolean canCreateElementFrom(final BaseNode specification) {
+	public final boolean canCreateElementFrom(final BaseNode<?> specification) {
 		return oneTypeElementFactories.containsAny(otef -> otef.canCreateElementFrom(specification));
 	}
 	
@@ -30,7 +30,7 @@ public class ElementFactory<E> {
 	
 	//method
 	@SuppressWarnings("unchecked")
-	public <E2 extends E> E2 createElementFrom(final BaseNode specification) {
+	public <E2 extends E> E2 createElementFrom(final BaseNode<?> specification) {
 		return (E2)getOneTypeElementFactoryFor(specification).createElementFrom(specification);
 	}
 	
@@ -44,7 +44,7 @@ public class ElementFactory<E> {
 	//method
 	protected final <E2 extends E> void registerElementClass_(
 		final Class<E2> elementClass,
-		final IElementTakerElementGetter<BaseNode, E2> creator
+		final IElementTakerElementGetter<BaseNode<?>, E2> creator
 	) {
 		registerOneTypeElementFactory(new OneTypeElementFactory<>(elementClass, creator));
 	}
@@ -57,7 +57,7 @@ public class ElementFactory<E> {
 	}
 
 	//method
-	private OneTypeElementFactory<?> getOneTypeElementFactoryFor(final BaseNode specification) {
+	private OneTypeElementFactory<?> getOneTypeElementFactoryFor(final BaseNode<?> specification) {
 		return getOneTypeElementFactoryFor(specification.getHeader());
 	}
 	

@@ -22,7 +22,7 @@ import ch.nolix.coreapi.functionuniversalapi.IElementTakerBooleanGetter;
  * @author Silvan Wyss
  * @date 2016-01-01
  */
-public final class Node extends BaseNode {
+public final class Node extends BaseNode<Node> {
 	
 	//static method
 	/**
@@ -82,7 +82,7 @@ public final class Node extends BaseNode {
 	 * @return a new {@link Node} with the given attribute.
 	 * @throws ArgumentIsNullException if the given attribute is null.
 	 */
-	public static <BN extends BaseNode> Node withAttribute(final BN attribute) {
+	public static <BN extends BaseNode<?>> Node withAttribute(final BN attribute) {
 		
 		final var node = new Node();
 		node.addChildNode(attribute);
@@ -97,7 +97,7 @@ public final class Node extends BaseNode {
 	 * @return a new {@link Node} with the given attributes.
 	 */
 	@SuppressWarnings("unchecked")
-	public static <BN extends BaseNode> Node withAttribute(final BN... attributes) {
+	public static <BN extends BaseNode<?>> Node withAttribute(final BN... attributes) {
 		
 		final var node = new Node();
 		node.addChildNode(attributes);
@@ -225,7 +225,7 @@ public final class Node extends BaseNode {
 	 * @param <BN> is the type of the given attributes.
 	 * @return a new {@link Node} with the given attributes.
 	 */
-	public static <BN extends BaseNode> Node withAttributes(final Iterable<BN> attributes) {
+	public static <BN extends BaseNode<?>> Node withAttributes(final Iterable<BN> attributes) {
 		
 		final var node = new Node();
 		node.addChildNodes(attributes);
@@ -297,7 +297,7 @@ public final class Node extends BaseNode {
 	 * @throws InvalidArgumentException if the given header is blank.
 	 * @throws ArgumentIsNullException if the given attribute is null.
 	 */
-	public static <BN extends BaseNode> Node withHeaderAndAttribute(final String header, final BN attribute) {
+	public static <BN extends BaseNode<?>> Node withHeaderAndAttribute(final String header, final BN attribute) {
 		
 		final var node = new Node();
 		node.setHeader(header);
@@ -317,7 +317,7 @@ public final class Node extends BaseNode {
 	 * @throws ArgumentIsNullException if one of the given attributes is null.
 	 */
 	@SuppressWarnings("unchecked")
-	public static <BN extends BaseNode> Node withHeaderAndAttribute(final String header, final BN... attributes) {
+	public static <BN extends BaseNode<?>> Node withHeaderAndAttribute(final String header, final BN... attributes) {
 		
 		final var node = new Node();
 		node.setHeader(header);
@@ -485,7 +485,7 @@ public final class Node extends BaseNode {
 	 * @throws ArgumentIsNullException if the given header is null.
 	 * @throws InvalidArgumentException if the given header is blank.
 	 */
-	public static <BN extends BaseNode> Node withHeaderAndAttributes(
+	public static <BN extends BaseNode<?>> Node withHeaderAndAttributes(
 		final String header,
 		final Iterable<BN> attributes
 	) {
@@ -508,7 +508,7 @@ public final class Node extends BaseNode {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Node addChildNode(final BaseNode attribute) {
+	public Node addChildNode(final BaseNode<?> attribute) {
 		
 		attributes.addAtEnd(attribute.getCopy());
 		
@@ -546,7 +546,7 @@ public final class Node extends BaseNode {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public IContainer<BaseNode> getRefChildNodes() {
+	public IContainer<BaseNode<?>> getRefChildNodes() {
 		return ReadContainer.forIterable(attributes).asContainerWithElementsOfEvaluatedType();
 	}
 	
@@ -587,7 +587,7 @@ public final class Node extends BaseNode {
 	 * the current {@link Node} does not contain an attribute the given selector selects.
 	 */
 	@Override
-	public BaseNode removeAndGetRefFirstChildNodeThat(final IElementTakerBooleanGetter<BaseNode> selector) {
+	public BaseNode<?> removeAndGetRefFirstChildNodeThat(final IElementTakerBooleanGetter<BaseNode<?>> selector) {
 		return attributes.removeAndGetRefFirst(selector::getOutput);
 	}
 	
@@ -600,7 +600,7 @@ public final class Node extends BaseNode {
 	 * if the current {@link Node} does not contain an attribute the given selector selects.
 	 */
 	@Override
-	public void removeFirstChildNodeThat(final IElementTakerBooleanGetter<BaseNode> selector) {
+	public void removeFirstChildNodeThat(final IElementTakerBooleanGetter<BaseNode<?>> selector) {
 		attributes.removeFirst(selector::getOutput);
 	}
 	
@@ -623,7 +623,7 @@ public final class Node extends BaseNode {
 	@Override
 	public void replaceFirstChildNodeWithGivenHeaderByGivenChildNode(
 		final String header,
-		final BaseNode attribute
+		final BaseNode<?> attribute
 	) {
 		attributes.replaceFirst(a -> a.hasHeader(header), attribute.getCopy());
 	}

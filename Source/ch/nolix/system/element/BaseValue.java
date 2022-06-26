@@ -21,7 +21,7 @@ public abstract class BaseValue<V> extends Property implements MutabilityRequest
 	
 	//attributes
 	private final String name;
-	private final IElementTakerElementGetter<BaseNode, V> valueCreator;
+	private final IElementTakerElementGetter<BaseNode<?>, V> valueCreator;
 	protected final IElementTakerElementGetter<V, Node> specificationCreator;
 	
 	//constructor
@@ -38,7 +38,7 @@ public abstract class BaseValue<V> extends Property implements MutabilityRequest
 	 */
 	BaseValue(
 		final String name,
-		final IElementTakerElementGetter<BaseNode, V> valueCreator,
+		final IElementTakerElementGetter<BaseNode<?>, V> valueCreator,
 		final IElementTakerElementGetter<V, Node> specificationCreator
 	) {
 		
@@ -67,7 +67,7 @@ public abstract class BaseValue<V> extends Property implements MutabilityRequest
 	 * @param attribute
 	 */
 	@Override
-	protected final boolean addedOrChangedAttribute(final BaseNode attribute) {
+	protected final boolean addedOrChangedAttribute(final BaseNode<?> attribute) {
 		
 		if (attribute.hasHeader(getName())) {
 			addOrChangeValue(valueCreator.getOutput(attribute));

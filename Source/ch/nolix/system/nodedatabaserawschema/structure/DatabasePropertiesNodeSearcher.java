@@ -9,7 +9,7 @@ import ch.nolix.system.time.moment.Time;
 public final class DatabasePropertiesNodeSearcher {
 	
 	//method
-	public Time getSchemaTimestampFromDatabasePropertiesNode(final BaseNode databasePropertiesNode) {
+	public Time getSchemaTimestampFromDatabasePropertiesNode(final BaseNode<?> databasePropertiesNode) {
 		
 		final var schemaTimeStampNode = getRefSchemaTimestampNodeFromDatabasePropertiesNode(databasePropertiesNode);
 		
@@ -17,7 +17,7 @@ public final class DatabasePropertiesNodeSearcher {
 	}
 	
 	//method
-	public BaseNode getRefSchemaTimestampNodeFromDatabasePropertiesNode(final BaseNode databasePropertiesNode) {
+	public BaseNode<?> getRefSchemaTimestampNodeFromDatabasePropertiesNode(final BaseNode<?> databasePropertiesNode) {
 		return databasePropertiesNode.getRefFirstChildNodeWithHeader(SubNodeHeaderCatalogue.SCHEMA_TIMESTAMP);
 	}
 }

@@ -25,7 +25,7 @@ public final class DataWriter implements IDataWriter {
 	private final IContainer<ITableInfo> tableInfos;
 	
 	//constructor
-	public DataWriter(final BaseNode nodeDatabase, final IContainer<ITableInfo> tableInfos) {
+	public DataWriter(final BaseNode<?> nodeDatabase, final IContainer<ITableInfo> tableInfos) {
 		
 		GlobalValidator.assertThat(tableInfos).thatIsNamed("table definitions").isNotNull();
 		

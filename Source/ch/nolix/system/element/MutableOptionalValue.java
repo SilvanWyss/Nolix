@@ -48,7 +48,7 @@ public final class MutableOptionalValue<V> extends SingleValue<V> {
 	public static <E extends Specified> MutableOptionalValue<E> forElement(
 		final String name,
 		final IElementTaker<E> setterMethod,
-		final IElementTakerElementGetter<BaseNode, E> valueCreator
+		final IElementTakerElementGetter<BaseNode<?>, E> valueCreator
 	) {
 		return new MutableOptionalValue<>(name, setterMethod, valueCreator, Specified::getSpecification);
 	}
@@ -110,7 +110,7 @@ public final class MutableOptionalValue<V> extends SingleValue<V> {
 	public MutableOptionalValue(
 		final String name,
 		final IElementTaker<V> setterMethod,
-		final IElementTakerElementGetter<BaseNode, V> valueCreator,
+		final IElementTakerElementGetter<BaseNode<?>, V> valueCreator,
 		final IElementTakerElementGetter<V, Node> specificationCreator
 	) {
 		

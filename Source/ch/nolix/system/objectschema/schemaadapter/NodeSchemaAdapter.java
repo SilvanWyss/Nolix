@@ -10,7 +10,7 @@ import ch.nolix.core.environment.filesystem.FileAccessor;
 public final class NodeSchemaAdapter extends SchemaAdapter {
 	
 	//static method
-	public static NodeSchemaAdapter forDatabaseNode(final String databaseName, final BaseNode databaseNode) {
+	public static NodeSchemaAdapter forDatabaseNode(final String databaseName, final BaseNode<?> databaseNode) {
 		return new NodeSchemaAdapter(databaseName, databaseNode);
 	}
 	
@@ -24,7 +24,7 @@ public final class NodeSchemaAdapter extends SchemaAdapter {
 	}
 	
 	//constructor
-	private NodeSchemaAdapter(final String databaseName, final BaseNode databaseNode) {
+	private NodeSchemaAdapter(final String databaseName, final BaseNode<?> databaseNode) {
 		super(databaseName, ch.nolix.system.nodedatabaserawschema.schemaadapter.SchemaAdapter.forDatabaseNode(databaseNode));
 	}
 }

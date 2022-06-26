@@ -20,13 +20,13 @@ public final class CatchingProperty<V> extends Property implements Named {
 	private final IElementTaker<V> setter;
 	
 	//attribute
-	private final IElementTakerElementGetter<BaseNode, V> valueCreator;
+	private final IElementTakerElementGetter<BaseNode<?>, V> valueCreator;
 	
 	//constructor
 	public CatchingProperty(
 		final String name,
 		final IElementTaker<V> setter,
-		final IElementTakerElementGetter<BaseNode, V> valueCreator
+		final IElementTakerElementGetter<BaseNode<?>, V> valueCreator
 	) {
 		
 		GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
@@ -46,7 +46,7 @@ public final class CatchingProperty<V> extends Property implements Named {
 	
 	//method
 	@Override
-	protected boolean addedOrChangedAttribute(BaseNode attribute) {
+	protected boolean addedOrChangedAttribute(BaseNode<?> attribute) {
 		
 		if (hasName(attribute.getHeader())) {
 			setter.run(valueCreator.getOutput(attribute));

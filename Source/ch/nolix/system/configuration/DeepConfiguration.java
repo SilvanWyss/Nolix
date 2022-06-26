@@ -29,7 +29,7 @@ public final class DeepConfiguration extends BaseConfiguration<DeepConfiguration
 	 * @return a new {@link DeepConfiguration} from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static DeepConfiguration fromSpecification(final BaseNode specification) {
+	public static DeepConfiguration fromSpecification(final BaseNode<?> specification) {
 		
 		final var deepConfiguration = new DeepConfiguration();
 		deepConfiguration.resetFromSpecification(specification);

@@ -30,7 +30,7 @@ public final class AccordionTab extends MutableElement<AccordionTab> implements 
 	private static final String EXPANDED_FLAG_HEADER = "Expanded";
 	
 	//static method
-	public static AccordionTab fromSpecification(final BaseNode specification) {
+	public static AccordionTab fromSpecification(final BaseNode<?> specification) {
 		
 		final var tab = new AccordionTab();
 		tab.resetFromSpecification(specification);

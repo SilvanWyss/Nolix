@@ -20,7 +20,7 @@ import ch.nolix.coreapi.functionuniversalapi.IElementTakerBooleanGetter;
  * @author Silvan Wyss
  * @date 2017-07-14
  */
-public final class FileNode extends BaseNode {
+public final class FileNode extends BaseNode<FileNode> {
 
 	//attributes
 	private final FileAccessor fileAccessor;
@@ -57,7 +57,7 @@ public final class FileNode extends BaseNode {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public FileNode addChildNode(final BaseNode attribute) {
+	public FileNode addChildNode(final BaseNode<?> attribute) {
 		
 		internalSpecification.addChildNode(attribute);
 		save();
@@ -98,7 +98,7 @@ public final class FileNode extends BaseNode {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public IContainer<BaseNode> getRefChildNodes() {
+	public IContainer<BaseNode<?>> getRefChildNodes() {
 		return
 		ReadContainer.forIterable(
 			internalSpecification.getRefChildNodes().to(
@@ -112,7 +112,7 @@ public final class FileNode extends BaseNode {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public BaseNode getRefSingleChildNode() {
+	public BaseNode<?> getRefSingleChildNode() {
 		return new SubNode(this, (Node)internalSpecification.getRefSingleChildNode());
 	}
 	
@@ -135,7 +135,7 @@ public final class FileNode extends BaseNode {
 	 * the current {@link Node} does not contain an attribute the given selector selects.
 	 */
 	@Override
-	public BaseNode removeAndGetRefFirstChildNodeThat(final IElementTakerBooleanGetter<BaseNode> selector) {
+	public BaseNode<?> removeAndGetRefFirstChildNodeThat(final IElementTakerBooleanGetter<BaseNode<?>> selector) {
 		
 		final var attribute = internalSpecification.removeAndGetRefFirstChildNodeThat(selector::getOutput);
 		save();
@@ -152,7 +152,7 @@ public final class FileNode extends BaseNode {
 	 * if the current {@link FileNode} does not contain an attribute the given selector selects.
 	 */
 	@Override
-	public void removeFirstChildNodeThat(final IElementTakerBooleanGetter<BaseNode> selector) {
+	public void removeFirstChildNodeThat(final IElementTakerBooleanGetter<BaseNode<?>> selector) {
 		internalSpecification.removeFirstChildNodeThat(selector::getOutput);
 		save();
 	}
@@ -187,7 +187,7 @@ public final class FileNode extends BaseNode {
 	@Override
 	public void replaceFirstChildNodeWithGivenHeaderByGivenChildNode(
 		final String header,
-		final BaseNode attribute
+		final BaseNode<?> attribute
 	) {
 		internalSpecification.replaceFirstChildNodeWithGivenHeaderByGivenChildNode(header, attribute);
 		save();

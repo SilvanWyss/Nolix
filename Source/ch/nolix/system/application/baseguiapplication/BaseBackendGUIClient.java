@@ -363,7 +363,7 @@ public abstract class BaseBackendGUIClient<
 	 * @param <BN> is the type of the given attributes.
 	 * @throws InvalidArgumentException if one of the given attributes is not valid.
 	 */
-	private <BN extends BaseNode> void resetGUI(final IContainer<BN> attributes) {
+	private <BN extends BaseNode<?>> void resetGUI(final IContainer<BN> attributes) {
 		getRefGUI().resetFromAttributes(attributes);
 	}
 	

@@ -38,7 +38,7 @@ public final class Configuration extends BaseConfiguration<Configuration> {
 	 * @return a new {@link Configuration} from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static Configuration fromSpecification(final BaseNode specification) {
+	public static Configuration fromSpecification(final BaseNode<?> specification) {
 		
 		final var configuration = new Configuration();
 		configuration.resetFromSpecification(specification);

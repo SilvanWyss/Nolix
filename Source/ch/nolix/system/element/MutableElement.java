@@ -32,7 +32,7 @@ public abstract class MutableElement<ME extends MutableElement<ME>> implements I
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
 	@Override
-	public final void addOrChangeAttribute(final BaseNode attribute) {
+	public final void addOrChangeAttribute(final BaseNode<?> attribute) {
 		
 		//Iterates the properties of the current MutableElement.
 		for (final var p : getRefProperties()) {

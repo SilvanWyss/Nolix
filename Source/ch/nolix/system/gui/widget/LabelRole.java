@@ -30,7 +30,7 @@ public enum LabelRole implements Specified {
 	 * @return a new {@link LabelRole} from the given specification.
 	 */
 	public static LabelRole fromSpecification(
-		final BaseNode specification
+		final BaseNode<?> specification
 	) {
 		return valueOf(GlobalStringHelper.toUpperSnakeCase(specification.getSingleChildNodeHeader()));
 	}

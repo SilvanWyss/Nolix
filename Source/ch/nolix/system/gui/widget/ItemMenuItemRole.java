@@ -14,7 +14,7 @@ public enum ItemMenuItemRole implements Specified {
 	EMPTY_ITEM;
 	
 	//static method
-	public static ItemMenuItemRole fromSpecification(final BaseNode specification) {
+	public static ItemMenuItemRole fromSpecification(final BaseNode<?> specification) {
 		return valueOf(GlobalStringHelper.toUpperSnakeCase(specification.getSingleChildNodeHeader()));
 	}
 	

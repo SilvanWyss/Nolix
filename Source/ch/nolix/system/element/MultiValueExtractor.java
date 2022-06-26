@@ -18,7 +18,7 @@ public final class MultiValueExtractor<V> extends Property {
 	private final String name;
 	private final IElementTaker<V> adder;
 	private final IElementGetter<IContainer<V>> getter;
-	private final IElementTakerElementGetter<BaseNode, V> valueCreator;
+	private final IElementTakerElementGetter<BaseNode<?>, V> valueCreator;
 	private final IElementTakerElementGetter<V, Node> specificationCreator;
 	
 	//constructor
@@ -26,7 +26,7 @@ public final class MultiValueExtractor<V> extends Property {
 		final String name,
 		final IElementTaker<V> adder,
 		final IElementGetter<IContainer<V>> getter,
-		final IElementTakerElementGetter<BaseNode, V> valueCreator,
+		final IElementTakerElementGetter<BaseNode<?>, V> valueCreator,
 		final IElementTakerElementGetter<V, Node> specificationCreator
 	) {
 		
@@ -50,7 +50,7 @@ public final class MultiValueExtractor<V> extends Property {
 	
 	//method
 	@Override
-	protected boolean addedOrChangedAttribute(final BaseNode attribute) {
+	protected boolean addedOrChangedAttribute(final BaseNode<?> attribute) {
 		
 		if (attribute.hasHeader(getName())) {
 			adder.run(valueCreator.getOutput(attribute));

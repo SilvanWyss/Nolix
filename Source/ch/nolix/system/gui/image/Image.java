@@ -38,7 +38,7 @@ public final class Image implements IImage {
 	}
 	
 	//static method
-	public static Image fromSpecification(final BaseNode specification) {
+	public static Image fromSpecification(final BaseNode<?> specification) {
 		return new Image(MutableImage.fromSpecification(specification));
 	}
 	

@@ -17,7 +17,7 @@ public final class MutableValueExtractor<V> extends Property {
 	private final String name;
 	private final IElementTaker<V> setter;
 	private final IElementGetter<V> getter;
-	private final IElementTakerElementGetter<BaseNode, V> valueCreator;
+	private final IElementTakerElementGetter<BaseNode<?>, V> valueCreator;
 	private final IElementTakerElementGetter<V, Node> specificationCreator;
 	
 	//constructor
@@ -25,7 +25,7 @@ public final class MutableValueExtractor<V> extends Property {
 		final String name,
 		final IElementTaker<V> setter,
 		final IElementGetter<V> getter,
-		final IElementTakerElementGetter<BaseNode, V> valueCreator,
+		final IElementTakerElementGetter<BaseNode<?>, V> valueCreator,
 		final IElementTakerElementGetter<V, Node> specificationCreator
 	) {
 		
@@ -49,7 +49,7 @@ public final class MutableValueExtractor<V> extends Property {
 	
 	//method
 	@Override
-	protected boolean addedOrChangedAttribute(final BaseNode attribute) {
+	protected boolean addedOrChangedAttribute(final BaseNode<?> attribute) {
 		
 		if (attribute.hasHeader(getName())) {
 			setter.run(valueCreator.getOutput(attribute));

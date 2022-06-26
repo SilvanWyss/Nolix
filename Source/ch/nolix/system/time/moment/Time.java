@@ -62,7 +62,7 @@ public final class Time implements ITime {
 	 * @return a new {@link Time} from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static Time fromSpecification(final BaseNode specification) {
+	public static Time fromSpecification(final BaseNode<?> specification) {
 		return fromString(specification.getSingleChildNodeHeader());
 	}
 	

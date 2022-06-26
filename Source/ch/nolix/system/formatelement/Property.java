@@ -39,7 +39,7 @@ public abstract class Property<S extends Enum<S>> implements Named {
 	protected abstract void setUndefined();
 	
 	//method declaration
-	protected abstract void setValueFromSpecification(BaseNode specification);
+	protected abstract void setValueFromSpecification(BaseNode<?> specification);
 	
 	//method
 	final void setParent(final FormatElement<?, S> parent) {

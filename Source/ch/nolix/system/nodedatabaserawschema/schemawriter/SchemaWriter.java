@@ -49,16 +49,16 @@ public final class SchemaWriter implements ISchemaWriter {
 	private int saveCount;
 	
 	//attribute
-	private final BaseNode databaseNode;
+	private final BaseNode<?> databaseNode;
 	
 	//attribute
-	private BaseNode editedDatabaseNode;
+	private BaseNode<?> editedDatabaseNode;
 	
 	//attribute
 	private boolean hasChanges;
 	
 	//constructor
-	public SchemaWriter(final BaseNode databaseNode) {
+	public SchemaWriter(final BaseNode<?> databaseNode) {
 		
 		GlobalValidator.assertThat(databaseNode).thatIsNamed("database Node").isNotNull();
 		

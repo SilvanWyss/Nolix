@@ -13,7 +13,7 @@ public final class TableDefinitionLoader {
 	private static final TableDefinitionMapper tableDefinitionMapper = new TableDefinitionMapper();
 	
 	//method
-	public IContainer<ITableInfo> loadTableDefinitionsFromDatabaseNode(final BaseNode databaseNode) {
+	public IContainer<ITableInfo> loadTableDefinitionsFromDatabaseNode(final BaseNode<?> databaseNode) {
 		return 
 		databaseNode
 		.getRefChildNodesWithHeader(SubNodeHeaderCatalogue.TABLE)

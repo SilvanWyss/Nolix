@@ -22,7 +22,7 @@ public final class MutableElementFactory<E> extends ElementFactory<E> {
 	//method
 	public MutableElementFactory<E> registerElementClass(
 		final Class<E> elementClass,
-		final IElementTakerElementGetter<BaseNode, E> creator
+		final IElementTakerElementGetter<BaseNode<?>, E> creator
 	) {
 		
 		registerElementClass_(elementClass, creator);

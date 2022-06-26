@@ -13,14 +13,14 @@ import ch.nolix.systemapi.objectdataapi.dataapi.ISchema;
 public final class NodeDatabaseDataAdapter extends DataAdapter {
 	
 	//static method
-	public static NodeDatabaseDataAdapterBuilder forNodeDatabase(final BaseNode nodeDatabase) {
+	public static NodeDatabaseDataAdapterBuilder forNodeDatabase(final BaseNode<?> nodeDatabase) {
 		return new NodeDatabaseDataAdapterBuilder(nodeDatabase);
 	}
 	
 	//constructor
 	NodeDatabaseDataAdapter(
 		final String databaseName,
-		final BaseNode nodeDatabase, 
+		final BaseNode<?> nodeDatabase, 
 		final ISchema<DataImplementation> schema
 	) {
 		super(

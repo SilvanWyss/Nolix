@@ -372,7 +372,7 @@ public enum Key implements Specified {
 	}
 	
 	//static method
-	public static Key fromSpecification(final BaseNode specification) {
+	public static Key fromSpecification(final BaseNode<?> specification) {
 		return valueOf(GlobalStringHelper.toUpperSnakeCase(specification.getSingleChildNodeHeader()));
 	}
 	

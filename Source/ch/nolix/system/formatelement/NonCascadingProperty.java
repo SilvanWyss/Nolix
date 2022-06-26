@@ -19,7 +19,7 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends Materializ
 	public NonCascadingProperty(
 		final String name,
 		final Class<S> stateClass,
-		final IElementTakerElementGetter<BaseNode, V> valueCreator,
+		final IElementTakerElementGetter<BaseNode<?>, V> valueCreator,
 		final IElementTakerElementGetter<V, Node> specificationCreator
 	) {
 		
@@ -32,7 +32,7 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends Materializ
 	public NonCascadingProperty(
 		final String name,
 		final Class<S> stateClass,
-		final IElementTakerElementGetter<BaseNode, V> valueCreator,
+		final IElementTakerElementGetter<BaseNode<?>, V> valueCreator,
 		final IElementTakerElementGetter<V, Node> specificationCreator,
 		final V defaultValue
 	) {
@@ -48,7 +48,7 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends Materializ
 	public NonCascadingProperty(
 		final String name,
 		final Class<S> stateClass,
-		final IElementTakerElementGetter<BaseNode, V> valueCreator,
+		final IElementTakerElementGetter<BaseNode<?>, V> valueCreator,
 		final IElementTakerElementGetter<V, Node> specificationCreator,
 		final I2ElementTaker<S, V> setterMethod
 	) {
@@ -62,7 +62,7 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends Materializ
 	public NonCascadingProperty(
 		final String name,
 		final Class<S> stateClass,
-		final IElementTakerElementGetter<BaseNode, V> valueCreator,
+		final IElementTakerElementGetter<BaseNode<?>, V> valueCreator,
 		final IElementTakerElementGetter<V, Node> specificationCreator,
 		final I2ElementTaker<S, V> setterMethod,
 		final V defaultValue

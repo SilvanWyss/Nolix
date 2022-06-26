@@ -22,13 +22,13 @@ final class InternalDataWriter {
 	private int saveCount;
 	
 	//attribute
-	private final BaseNode nodeDatabase;
+	private final BaseNode<?> nodeDatabase;
 	
 	//multi-attribute
-	private final LinkedList<IElementTaker<BaseNode>> changeActions = new LinkedList<>();
+	private final LinkedList<IElementTaker<BaseNode<?>>> changeActions = new LinkedList<>();
 	
 	//constructor
-	public InternalDataWriter(final BaseNode nodeDatabase) {
+	public InternalDataWriter(final BaseNode<?> nodeDatabase) {
 		
 		GlobalValidator.assertThat(nodeDatabase).thatIsNamed("node database").isNotNull();
 		
@@ -170,12 +170,12 @@ final class InternalDataWriter {
 	}
 	
 	//method
-	private void addChangeAction(final IElementTaker<BaseNode> changeAction) {
+	private void addChangeAction(final IElementTaker<BaseNode<?>> changeAction) {
 		changeActions.addAtEnd(changeAction);
 	}
 	
 	// method
-	private BaseNode createNodeDatabaseWithChanges() {
+	private BaseNode<?> createNodeDatabaseWithChanges() {
 		
 		final var newNodeDatabase = nodeDatabase.getCopy();
 		for (final var ca : changeActions) {

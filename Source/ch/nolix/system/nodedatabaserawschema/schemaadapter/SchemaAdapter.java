@@ -23,7 +23,7 @@ public final class SchemaAdapter implements ISchemaAdapter {
 	private static final DatabaseInitializer databaseInitializer = new DatabaseInitializer();
 	
 	//static method
-	public static SchemaAdapter forDatabaseNode(final BaseNode databaseNode) {
+	public static SchemaAdapter forDatabaseNode(final BaseNode<?> databaseNode) {
 		return new SchemaAdapter(databaseNode);
 	}
 	
@@ -42,7 +42,7 @@ public final class SchemaAdapter implements ISchemaAdapter {
 	private final SchemaWriter schemaWriter;
 	
 	//constructor
-	private SchemaAdapter(final BaseNode databaseNode) {
+	private SchemaAdapter(final BaseNode<?> databaseNode) {
 		
 		databaseInitializer.initializeDatabaseIfNotInitialized(databaseNode);
 		

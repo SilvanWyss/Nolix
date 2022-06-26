@@ -15,7 +15,7 @@ public enum KeyInputType implements Specified {
 	TYPING;
 	
 	//static method
-	public static KeyInputType fromSpecification(final BaseNode specification) {
+	public static KeyInputType fromSpecification(final BaseNode<?> specification) {
 		return valueOf(GlobalStringHelper.toUpperSnakeCase(specification.getSingleChildNodeHeader()));
 	}
 	

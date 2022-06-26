@@ -32,14 +32,14 @@ final class OneTypeElementFactory<E> {
 	
 	//attributes
 	private final Class<E> elementClass;
-	private final IElementTakerElementGetter<BaseNode, E> creator;
+	private final IElementTakerElementGetter<BaseNode<?>, E> creator;
 	
 	//constructor
 	@SuppressWarnings("unchecked")
 	public <ME extends IMutableElement<ME>> OneTypeElementFactory(final Class<ME> elementClass) {
 		this(
 			(Class<E>)elementClass,
-			(final BaseNode s) -> {
+			(final BaseNode<?> s) -> {
 				
 				final var element = createElementOf(elementClass);
 				element.resetFromSpecification(s);
@@ -50,7 +50,7 @@ final class OneTypeElementFactory<E> {
 	}
 	
 	//constructor
-	public OneTypeElementFactory(final Class<E> elementClass, final IElementTakerElementGetter<BaseNode, E> creator) {
+	public OneTypeElementFactory(final Class<E> elementClass, final IElementTakerElementGetter<BaseNode<?>, E> creator) {
 		
 		GlobalValidator.assertThat(elementClass).thatIsNamed("element class").isNotNull();
 		GlobalValidator.assertThat(creator).thatIsNamed(LowerCaseCatalogue.CREATOR).isNotNull();
@@ -60,7 +60,7 @@ final class OneTypeElementFactory<E> {
 	}
 	
 	//method
-	public boolean canCreateElementFrom(final BaseNode specification) {
+	public boolean canCreateElementFrom(final BaseNode<?> specification) {
 		return canCreateElementOf(specification.getHeader());
 	}
 	
@@ -75,7 +75,7 @@ final class OneTypeElementFactory<E> {
 	}
 	
 	//method
-	public E createElementFrom(final BaseNode specification) {
+	public E createElementFrom(final BaseNode<?> specification) {
 		return creator.getOutput(specification);
 	}
 	

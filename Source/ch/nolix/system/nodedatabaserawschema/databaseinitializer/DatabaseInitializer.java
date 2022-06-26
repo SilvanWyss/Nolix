@@ -14,7 +14,7 @@ public final class DatabaseInitializer {
 	private static final InternalDatabaseInitializer internalDatabaseInitializer = new InternalDatabaseInitializer();
 	
 	//method
-	public void initializeDatabaseIfNotInitialized(BaseNode databaseNode) {
+	public void initializeDatabaseIfNotInitialized(BaseNode<?> databaseNode) {
 		switch (databaseSchemaInspector.getDatabaseSchemaState(databaseNode)) {
 			case UNINITIALIZED:
 				internalDatabaseInitializer.initializeDatabase(databaseNode);

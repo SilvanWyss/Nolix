@@ -8,22 +8,22 @@ import ch.nolix.core.document.node.BaseNode;
 public final class ColumnNodeSearcher {
 	
 	//method
-	public boolean columnNodeContainsEntityNode(final BaseNode columnNode) {
+	public boolean columnNodeContainsEntityNode(final BaseNode<?> columnNode) {
 		return columnNode.containsChildNodeWithHeader(SubNodeHeaderCatalogue.ENTITY);
 	}
 	
 	//method
-	public BaseNode getRefIdNodeFromColumnNode(final BaseNode columnNode) {
+	public BaseNode<?> getRefIdNodeFromColumnNode(final BaseNode<?> columnNode) {
 		return columnNode.getRefFirstChildNodeWithHeader(SubNodeHeaderCatalogue.ID);
 	}
 	
 	//method
-	public BaseNode getRefNameNodeFromColumnNode(final BaseNode columnNode) {
+	public BaseNode<?> getRefNameNodeFromColumnNode(final BaseNode<?> columnNode) {
 		return columnNode.getRefFirstChildNodeWithHeader(SubNodeHeaderCatalogue.NAME);
 	}
 	
 	//method
-	public BaseNode getRefParametrizedPropertyTypeNodeFromColumnNode(final BaseNode columnNode) {
+	public BaseNode<?> getRefParametrizedPropertyTypeNodeFromColumnNode(final BaseNode<?> columnNode) {
 		return columnNode.getRefFirstChildNodeWithHeader(SubNodeHeaderCatalogue.PARAMETRIZED_PROPERTY_TYPE);
 	}
 }

@@ -14,7 +14,7 @@ public enum GridType implements Specified {
 	INNER_AND_OUTER_LINES;
 
 	//static method
-	public static GridType fromSpecification(final BaseNode specification) {
+	public static GridType fromSpecification(final BaseNode<?> specification) {
 		return valueOf(GlobalStringHelper.toUpperSnakeCase(specification.getSingleChildNodeHeader()));
 	}
 	

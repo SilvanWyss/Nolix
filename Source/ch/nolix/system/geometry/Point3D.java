@@ -31,7 +31,7 @@ public class Point3D implements Specified {
 	 * @param specification
 	 * @return a new {@link Point3D} from the given specification.
 	 */
-	public static Point3D fromSpecification(final BaseNode specification) {
+	public static Point3D fromSpecification(final BaseNode<?> specification) {
 		
 		final var attributes = specification.getRefChildNodes();
 		

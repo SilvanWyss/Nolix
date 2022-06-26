@@ -87,7 +87,7 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 	}
 	
 	//static method
-	public static MutableImage fromSpecification(final BaseNode specification) {
+	public static MutableImage fromSpecification(final BaseNode<?> specification) {
 		
 		if (specification.containsChildNodeWithHeader(JPG_STRING)) {
 			
@@ -307,7 +307,7 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 	}
 	
 	//method
-	public void setPixelArray(final BaseNode pixelArray) {
+	public void setPixelArray(final BaseNode<?> pixelArray) {
 		
 		final var lPixelArray = pixelArray.getRefChildNodes();
 		

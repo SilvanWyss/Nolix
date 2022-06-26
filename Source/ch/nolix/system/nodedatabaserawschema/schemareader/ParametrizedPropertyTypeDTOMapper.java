@@ -21,7 +21,7 @@ public class ParametrizedPropertyTypeDTOMapper {
 	
 	//method
 	public ParametrizedPropertyTypeDTO createParametrizedProeprtyTypeDTOFromParametrizedPropertyTypeNode(
-		final BaseNode parametrizedPropertyTypeNode
+		final BaseNode<?> parametrizedPropertyTypeNode
 	) {
 		
 		final var propertyType = getPropertyTypeFromParametrizedPropertyTypeNode(parametrizedPropertyTypeNode);
@@ -52,7 +52,7 @@ public class ParametrizedPropertyTypeDTOMapper {
 	
 	//method
 	private ParametrizedPropertyTypeDTO createBaseParametrizedBackReferenceTypeDTOFromParametrizedPropertyTypeNode(
-		final BaseNode parametrizedPropertyTypeNode,
+		final BaseNode<?> parametrizedPropertyTypeNode,
 		final PropertyType propertyType
 	) {
 		return
@@ -65,7 +65,7 @@ public class ParametrizedPropertyTypeDTOMapper {
 	
 	//method
 	private ParametrizedPropertyTypeDTO createBaseParametrizedReferenceTypeDTOFromParametrizedPropertyTypeNode(
-		final BaseNode parametrizedPropertyTypeNode,
+		final BaseNode<?> parametrizedPropertyTypeNode,
 		final PropertyType propertyType
 	) {
 		return
@@ -78,7 +78,7 @@ public class ParametrizedPropertyTypeDTOMapper {
 	
 	//method
 	private BaseParametrizedValueTypeDTO createBaseParametrizedValueTypeDTOFromParametrizedPropertyTypeNode(
-		final BaseNode parametrizedPropertyTypeNode,
+		final BaseNode<?> parametrizedPropertyTypeNode,
 		final PropertyType propertyType
 	) {
 		return
@@ -90,7 +90,7 @@ public class ParametrizedPropertyTypeDTOMapper {
 	
 	//method
 	private String getBackReferencedColumnIdFromParametrizedPropertyTypeNode(
-		final BaseNode parametrizedPropertyTypeNode
+		final BaseNode<?> parametrizedPropertyTypeNode
 	) {
 		
 		final var backReferencedColumnNode =
@@ -102,7 +102,7 @@ public class ParametrizedPropertyTypeDTOMapper {
 	}
 	
 	//method
-	private DataType getDataTypeFromParametrizedPropertyTypeNode(final BaseNode parametrizedPropertyTypeNode) {
+	private DataType getDataTypeFromParametrizedPropertyTypeNode(final BaseNode<?> parametrizedPropertyTypeNode) {
 		
 		final var dataTypeNode =
 		parametrizedPropertyTypeNodeSearcher.getRefDataTypeNodeFromParametriedPropertyTypeNode(parametrizedPropertyTypeNode);
@@ -111,7 +111,7 @@ public class ParametrizedPropertyTypeDTOMapper {
 	}
 	
 	//method
-	private PropertyType getPropertyTypeFromParametrizedPropertyTypeNode(final BaseNode parametrizedPropertyTypeNode) {
+	private PropertyType getPropertyTypeFromParametrizedPropertyTypeNode(final BaseNode<?> parametrizedPropertyTypeNode) {
 		
 		final var propertyTypeNode =
 		parametrizedPropertyTypeNodeSearcher.getRefPropertyTypeNodeFromParametrizedPropertyTypeNode(
@@ -122,7 +122,7 @@ public class ParametrizedPropertyTypeDTOMapper {
 	}
 	
 	//method
-	private String getReferencedTableIdFromParametrizedPropertyTypeNode(final BaseNode parametrizedPropertyTypeNode) {
+	private String getReferencedTableIdFromParametrizedPropertyTypeNode(final BaseNode<?> parametrizedPropertyTypeNode) {
 		
 		final var referencedTableIdNode =
 		parametrizedPropertyTypeNodeSearcher.getRefReferencedTableIdNodeFromParametrizedPropertyTypeNode(

@@ -20,7 +20,7 @@ public final class ColumnDefinitionMapper {
 	
 	//method
 	public IColumnInfo createColumnDefinitionFromColumnNode(
-		final BaseNode columnNode,
+		final BaseNode<?> columnNode,
 		final int columnIndexOnEntityNode
 	) {
 		return
@@ -34,7 +34,7 @@ public final class ColumnDefinitionMapper {
 	}
 	
 	//method
-	private DataType getColumnDataTypeFromColumnNode(final BaseNode columnNode) {
+	private DataType getColumnDataTypeFromColumnNode(final BaseNode<?> columnNode) {
 		return
 		getDataTypeFromParametrizedPropertyTypeNode(
 			columnNodeSearcher.getRefParametrizedPropertyTypeNodeFromColumnNode(columnNode)
@@ -42,17 +42,17 @@ public final class ColumnDefinitionMapper {
 	}
 	
 	//method
-	private String getColumnIdFromColumnNode(final BaseNode columnNode) {
+	private String getColumnIdFromColumnNode(final BaseNode<?> columnNode) {
 		return columnNodeSearcher.getRefIdNodeFromColumnNode(columnNode).getSingleChildNodeHeader();
 	}
 	
 	//method
-	private String getColumnNameFromColumnNode(final BaseNode columnNode) {
+	private String getColumnNameFromColumnNode(final BaseNode<?> columnNode) {
 		return columnNodeSearcher.getRefNameNodeFromColumnNode(columnNode).getSingleChildNodeHeader();
 	}
 	
 	//method
-	private PropertyType getColumnPropertyTypeFromColumnNode(final BaseNode columnNode) {
+	private PropertyType getColumnPropertyTypeFromColumnNode(final BaseNode<?> columnNode) {
 		
 		final var parametrizedPropertyTypeNode =
 		columnNodeSearcher.getRefParametrizedPropertyTypeNodeFromColumnNode(columnNode);
@@ -66,12 +66,12 @@ public final class ColumnDefinitionMapper {
 	}
 	
 	//method
-	private DataType getDataTypeFromDataTypeNode(final BaseNode dataTypeNode) {
+	private DataType getDataTypeFromDataTypeNode(final BaseNode<?> dataTypeNode) {
 		return DataType.valueOf(dataTypeNode.getSingleChildNodeHeader());
 	}
 	
 	//method
-	private DataType getDataTypeFromParametrizedPropertyTypeNode(BaseNode parametrizedPropertyTypeNode) {
+	private DataType getDataTypeFromParametrizedPropertyTypeNode(BaseNode<?> parametrizedPropertyTypeNode) {
 		return
 		getDataTypeFromDataTypeNode(
 			parametrizedPropertyTypeNodeSearcher.getRefDataTypeNodeFromParametriedPropertyTypeNode(parametrizedPropertyTypeNode)

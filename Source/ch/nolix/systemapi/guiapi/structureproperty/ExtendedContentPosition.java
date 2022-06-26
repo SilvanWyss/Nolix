@@ -33,7 +33,7 @@ public enum ExtendedContentPosition implements Specified {
 	 * @throws InvalidArgumentException
 	 * if the given specification does not represent a {@link ExtendedContentPosition}.
 	 */
-	public static ExtendedContentPosition fromSpecification(final BaseNode specification) {
+	public static ExtendedContentPosition fromSpecification(final BaseNode<?> specification) {
 		return valueOf(GlobalStringHelper.toUpperSnakeCase(specification.getSingleChildNodeHeader()));
 	}
 	

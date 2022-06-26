@@ -32,7 +32,7 @@ public enum Font implements Specified {
 	 * @return a new {@link Font} from the given specification.
 	 * @throws InvalidArgumentException if the given specification does not represent a {@link Font}.
 	 */
-	public static Font fromSpecification(final BaseNode specification) {
+	public static Font fromSpecification(final BaseNode<?> specification) {
 		return valueOf(GlobalStringHelper.toUpperSnakeCase(specification.getSingleChildNodeHeader()));
 	}
 	
