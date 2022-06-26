@@ -11,6 +11,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionuniversalapi.IElementTakerBooleanGetter;
 
 //class
@@ -179,7 +180,7 @@ public final class FileNode extends BaseNode<FileNode> {
 	 * the current {@link Node} does not contain an attribute the given selector selects.
 	 */
 	@Override
-	public BaseNode<?> removeAndGetRefFirstChildNodeThat(final IElementTakerBooleanGetter<BaseNode<?>> selector) {
+	public BaseNode<?> removeAndGetRefFirstChildNodeThat(final IElementTakerBooleanGetter<INode<?>> selector) {
 		
 		final var attribute = internalSpecification.removeAndGetRefFirstChildNodeThat(selector::getOutput);
 		save();
@@ -196,7 +197,7 @@ public final class FileNode extends BaseNode<FileNode> {
 	 * if this {@link FileNode} does not contain an attribute the given selector selects.
 	 */
 	@Override
-	public void removeFirstChildNodeThat(final IElementTakerBooleanGetter<BaseNode<?>> selector) {
+	public void removeFirstChildNodeThat(final IElementTakerBooleanGetter<INode<?>> selector) {
 		internalSpecification.removeFirstChildNodeThat(selector::getOutput);
 		save();
 	}

@@ -3,6 +3,7 @@ package ch.nolix.system.nodedatabaserawschema.structure;
 
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.coreapi.containerapi.IContainer;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 
 //class
 public class TableNodeSearcher {
@@ -34,8 +35,10 @@ public class TableNodeSearcher {
 	}
 	
 	//method
-	public final BaseNode<?> getRefNameNodeFromTableNode(final BaseNode<?> tableNode) {
-		return tableNode.getRefFirstChildNodeWithHeader(SubNodeHeaderCatalogue.NAME);
+	public final BaseNode<?> getRefNameNodeFromTableNode(final INode<?> tableNode) {
+		
+		//TODO: Refactor this.
+		return (BaseNode<?>)tableNode.getRefFirstChildNodeWithHeader(SubNodeHeaderCatalogue.NAME);
 	}
 	
 	//method

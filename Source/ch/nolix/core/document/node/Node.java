@@ -13,6 +13,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumen
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.IContainer;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionuniversalapi.IElementTakerBooleanGetter;
 
 //class
@@ -587,7 +588,7 @@ public final class Node extends BaseNode<Node> {
 	 * the current {@link Node} does not contain an attribute the given selector selects.
 	 */
 	@Override
-	public BaseNode<?> removeAndGetRefFirstChildNodeThat(final IElementTakerBooleanGetter<BaseNode<?>> selector) {
+	public BaseNode<?> removeAndGetRefFirstChildNodeThat(final IElementTakerBooleanGetter<INode<?>> selector) {
 		return attributes.removeAndGetRefFirst(selector::getOutput);
 	}
 	
@@ -600,7 +601,7 @@ public final class Node extends BaseNode<Node> {
 	 * if the current {@link Node} does not contain an attribute the given selector selects.
 	 */
 	@Override
-	public void removeFirstChildNodeThat(final IElementTakerBooleanGetter<BaseNode<?>> selector) {
+	public void removeFirstChildNodeThat(final IElementTakerBooleanGetter<INode<?>> selector) {
 		attributes.removeFirst(selector::getOutput);
 	}
 	

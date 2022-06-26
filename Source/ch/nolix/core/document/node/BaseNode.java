@@ -396,7 +396,7 @@ public abstract class BaseNode<T extends BaseNode<T>> implements INode<T>, Optio
 	 * @throws NonPositiveArgumentException if the given index is not positive.
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BaseNode} does not contain an attribute at the given index.
 	 */
-	public BaseNode<?> getRefChildNodeAt1BasedIndex(final int index) {
+	public T getRefChildNodeAt1BasedIndex(final int index) {
 		return getRefChildNodes().getRefAt(index);
 	}
 	
@@ -415,7 +415,7 @@ public abstract class BaseNode<T extends BaseNode<T>> implements INode<T>, Optio
 	 * @param selector
 	 * @return the attributes the given selector selects from the current {@link BaseNode}.
 	 */
-	public IContainer<T> getRefChildNodesThat(final IElementTakerBooleanGetter<T> selector) {
+	public IContainer<T> getRefChildNodesThat(final IElementTakerBooleanGetter<INode<?>> selector) {
 		return getRefChildNodes().getRefSelected(selector);
 	}
 	
@@ -436,7 +436,7 @@ public abstract class BaseNode<T extends BaseNode<T>> implements INode<T>, Optio
 	 * @throws ArgumentDoesNotHaveAttributeException if
 	 * the current {@link BaseNode} does not contain an attribute the given selector selects.
 	 */
-	public T getRefFirstChildNodeThat(IElementTakerBooleanGetter<T> selector) {
+	public T getRefFirstChildNodeThat(IElementTakerBooleanGetter<INode<?>> selector) {
 		return getRefChildNodes().getRefFirst(selector);
 	}
 	
@@ -445,7 +445,7 @@ public abstract class BaseNode<T extends BaseNode<T>> implements INode<T>, Optio
 	 * @param selector
 	 * @return the first attribute the given selector selects from the current {@link BaseNode} or null.
 	 */
-	public T getRefFirstChildNodeThatOrNull(IElementTakerBooleanGetter<T> selector) {
+	public T getRefFirstChildNodeThatOrNull(IElementTakerBooleanGetter<INode<?>> selector) {
 		return getRefChildNodes().getRefFirstOrNull(selector);
 	}
 	
@@ -498,7 +498,7 @@ public abstract class BaseNode<T extends BaseNode<T>> implements INode<T>, Optio
 	 * @param selector
 	 * @return the first attribute the given selector selects.
 	 */
-	public abstract BaseNode<?> removeAndGetRefFirstChildNodeThat(IElementTakerBooleanGetter<BaseNode<?>> selector);
+	public abstract BaseNode<?> removeAndGetRefFirstChildNodeThat(IElementTakerBooleanGetter<INode<?>> selector);
 	
 	//method declaration
 	/**
@@ -512,7 +512,7 @@ public abstract class BaseNode<T extends BaseNode<T>> implements INode<T>, Optio
 	 * 
 	 * @param selector
 	 */
-	public abstract void removeFirstChildNodeThat(IElementTakerBooleanGetter<BaseNode<?>> selector);
+	public abstract void removeFirstChildNodeThat(IElementTakerBooleanGetter<INode<?>> selector);
 	
 	//method
 	/**

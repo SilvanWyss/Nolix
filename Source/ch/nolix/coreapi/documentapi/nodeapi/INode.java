@@ -47,6 +47,16 @@ public interface INode<N extends INode<N>> extends OptionalHeadered {
 	
 	//method declaration
 	/**
+	 * @param p1BasedIndex
+	 * @return the child {@link INode} at the given p1BasedIndex from the current {@link INode}.
+	 * @throws RuntimeException if the given index is not positive.
+	 * @throws RuntimeException if
+	 * the current {@link INode} does not contain a child {@link INode} at the given p1BasedIndex.
+	 */
+	N getRefChildNodeAt1BasedIndex(int p1BasedIndex);
+	
+	//method declaration
+	/**
 	 * @return the child {@link INode}s of the current {@link INode}.
 	 */
 	IContainer<N> getRefChildNodes();
@@ -56,7 +66,7 @@ public interface INode<N extends INode<N>> extends OptionalHeadered {
 	 * @param selector
 	 * @return the child {@link INode}s the given selector selects from the current {@link INode}.
 	 */
-	IContainer<N> getRefChildNodesThat(IElementTakerBooleanGetter<N> selector);
+	IContainer<N> getRefChildNodesThat(IElementTakerBooleanGetter<INode<?>> selector);
 	
 	//method declaration
 	/**
@@ -72,7 +82,7 @@ public interface INode<N extends INode<N>> extends OptionalHeadered {
 	 * @throws RuntimeException if
 	 * the current {@link INode} does not contain a child {@link INode} the given selector selects.
 	 */
-	N getRefFirstChildNodeThat(IElementTakerBooleanGetter<N> selector);
+	N getRefFirstChildNodeThat(IElementTakerBooleanGetter<INode<?>> selector);
 	
 	//method declaration
 	/**
