@@ -90,30 +90,7 @@ public abstract class BaseNode<T extends BaseNode<T>> implements INode<T>, Optio
 	}
 	
 	//method declaration
-	/**
-	 * Adds the given attribute to the current {@link BaseNode}.
-	 * 
-	 * @param attribute
-	 * @return the current {@link BaseNode}
-	 */
-	public abstract BaseNode<?> addChildNode(INode<?> attribute);
-	
-	//method
-	/**
-	 * Adds the given attributes to the current {@link BaseNode}.
-	 * 
-	 * @param attributes
-	 * @return the current {@link BaseNode}
-	 */
-	public BaseNode<?> addChildNode(final INode<?>... attributes) {
-
-		//Iterates the given attributes.
-		for (final var a : attributes) {
-			addChildNode(a);
-		}
-
-		return this;
-	}
+	public abstract T addChildNode(INode<?>... childNodes);
 	
 	//method
 	/**
@@ -128,21 +105,8 @@ public abstract class BaseNode<T extends BaseNode<T>> implements INode<T>, Optio
 		addChildNode(Node.fromString(attribute));
 	}
 	
-	//method
-	/**
-	 * Adds the given attributes to the current {@link BaseNode}.
-	 * 
-	 * @param attributes
-	 * @param <N> is the type of the given attributes.
-	 * @return the current {@link BaseNode}
-	 */
-	public <N extends INode<?>> BaseNode<?> addChildNodes(final Iterable<N> attributes) {
-		
-		//Iterates the given attributes.
-		attributes.forEach(this::addChildNode);
-		
-		return this;
-	}
+	//method declaration
+	public abstract <N extends INode<?>> T addChildNodes(Iterable<N> childNodes);
 	
 	//method
 	/**

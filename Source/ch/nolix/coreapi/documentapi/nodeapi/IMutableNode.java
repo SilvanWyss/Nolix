@@ -41,9 +41,10 @@ public interface IMutableNode<MN extends IMutableNode<MN>> extends INode<MN>, Op
 	 * 
 	 * @param childNodes
 	 * @return the current {@link IMutableNode}.
+	 * @param <N> is the type of the given childNodes.
 	 * @throws RuntimeException if one of the given childNodes is null.
 	 */
-	MN addChildNodes(Iterable<INode<?>> childNodes);
+	<N extends INode<?>> MN addChildNodes(Iterable<N> childNodes);
 	
 	//method declaration
 	/**

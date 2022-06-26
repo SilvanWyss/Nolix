@@ -526,13 +526,42 @@ public final class Node extends BaseNode<Node> {
 	private final LinkedList<Node> attributes = new LinkedList<>();
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public Node addChildNode(final INode<?> attribute) {
+	public Node addChildNode(final INode<?>... childNodes) {
 		
-		attributes.addAtEnd(Node.fromNode(attribute));
+		for (final var cn : childNodes) {
+			attributes.addAtEnd(Node.fromNode(cn));
+		}
+		
+		return this;
+	}
+	
+	//method
+	public Node addChildNodeFromString(final String... strings) {
+		
+		for (final var s : strings) {
+			addChildNode(fromString(s));
+		}
+		
+		return this;
+	}
+	
+	//method
+	@Override
+	public <N extends INode<?>> Node addChildNodes(final Iterable<N> childNodes) {
+		
+		for (final var cn : childNodes) {
+			attributes.addAtEnd(Node.fromNode(cn));
+		}
+		
+		return this;
+	}
+	
+	//method
+	public Node addChildNodesFromStrings(final Iterable<String> strings) {
+		
+		for (final var s : strings) {
+			addChildNodeFromString(s);
+		}
 		
 		return this;
 	}

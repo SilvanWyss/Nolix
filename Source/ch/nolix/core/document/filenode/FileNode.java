@@ -11,6 +11,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionuniversalapi.IElementTakerBooleanGetter;
 
@@ -21,7 +22,7 @@ import ch.nolix.coreapi.functionuniversalapi.IElementTakerBooleanGetter;
  * @author Silvan Wyss
  * @date 2017-07-14
  */
-public final class FileNode extends BaseNode<FileNode> {
+public final class FileNode extends BaseNode<FileNode> implements IMutableNode<FileNode> {
 
 	//attribute
 	private final Node internalSpecification;
@@ -92,19 +93,56 @@ public final class FileNode extends BaseNode<FileNode> {
 	
 	//method
 	/**
-	 * Adds the given attribute to the current {@link FileNode}.
-	 * 
-	 * @throws RuntimeException if an error occurs.
+	 * {@inheritDoc}
 	 */
 	@Override
-	public FileNode addChildNode(final INode<?> attribute) {
+	public FileNode addChildNode(final INode<?>... childNodes) {
 		
-		internalSpecification.addChildNode(attribute);
+		internalSpecification.addChildNode(childNodes);
 		save();
 		
 		return this;
 	}
-
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public FileNode addChildNodeFromString(final String... strings) {
+		
+		internalSpecification.addChildNodeFromString(strings);
+		save();
+		
+		return this;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public <N extends INode<?>> FileNode addChildNodes(final Iterable<N> childNodes) {
+		
+		internalSpecification.addChildNodes(childNodes);
+		save();
+		
+		return this;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public FileNode addChildNodesFromStrings(final Iterable<String> strings) {
+		
+		internalSpecification.addChildNodesFromStrings(strings);
+		save();
+		
+		return this;
+	}
+	
 	//method
 	/**
 	 * @return true if this {@link FileNode} contains attributes.
