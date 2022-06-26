@@ -10,7 +10,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.coreapi.containerapi.IContainer;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.functionuniversalapi.IElementTakerBooleanGetter;
 
 //class
@@ -22,9 +22,14 @@ import ch.nolix.coreapi.functionuniversalapi.IElementTakerBooleanGetter;
  */
 public final class FileNode extends BaseNode<FileNode> {
 
-	//attributes
-	private final FileAccessor fileAccessor;
+	//attribute
 	private final Node internalSpecification;
+	
+	//optional attribute
+	private final FileAccessor fileAccessor;
+	
+	//optional attribute
+	private final FileNode parentFileNode;
 	
 	//constructor
 	/**
@@ -50,11 +55,45 @@ public final class FileNode extends BaseNode<FileNode> {
 		}
 		
 		internalSpecification = Node.fromFile(filePath);
+		
+		parentFileNode = null;
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link FileNode} that:
+	 * -Belongs to the given parentFileNode.
+	 * -Has the given internal specification.
+	 * 
+	 * @param parentFileNode
+	 * @param internalSpecification
+	 */
+	private FileNode(final FileNode parentFileNode, final Node internalSpecification) {
+		
+		//Asserts that the given simple persistent specification is not null.
+		GlobalValidator
+		.assertThat(parentFileNode)
+		.isOfType(FileNode.class);
+		
+		//Asserts that the given internal specification is not null.
+		GlobalValidator.assertThat(internalSpecification)
+		.thatIsNamed("internal specification")
+		.isNotNull();
+		
+		//Sets the simple persistent specification of the current SubNode.
+		this.parentFileNode = parentFileNode;
+		
+		//Sets the internal specification of the current SubNode.
+		this.internalSpecification = internalSpecification;
+		
+		fileAccessor = null;
 	}
 	
 	//method
 	/**
-	 * {@inheritDoc}
+	 * Adds the given attribute to the current {@link FileNode}.
+	 * 
+	 * @throws RuntimeException if an error occurs.
 	 */
 	@Override
 	public FileNode addChildNode(final BaseNode<?> attribute) {
@@ -67,7 +106,7 @@ public final class FileNode extends BaseNode<FileNode> {
 
 	//method
 	/**
-	 * {@inheritDoc}
+	 * @return true if this {@link FileNode} contains attributes.
 	 */
 	@Override
 	public boolean containsChildNodes() {
@@ -85,40 +124,45 @@ public final class FileNode extends BaseNode<FileNode> {
 	
 	//method
 	/**
-	 * @return true if the current {@link FileNode} has a header.
-	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link FileNode} does not have a header.
+	 * @return the header of the current {@link FileNode}.
+	 * @throws ArgumentDoesNotHaveAttributeException if this {@link FileNode}
+	 * does not have a header.
 	 */
 	@Override
 	public String getHeader() {
 		return internalSpecification.getHeader();
 	}
-
+	
 	//method
 	/**
-	 * {@inheritDoc}
+	 * @return the attributes of the current {@link FileNode}
 	 */
 	@Override
-	public IContainer<BaseNode<?>> getRefChildNodes() {
+	public ReadContainer<BaseNode<?>> getRefChildNodes() {
 		return
 		ReadContainer.forIterable(
 			internalSpecification.getRefChildNodes().to(
-				a -> new SubNode(this, (Node)a)
+				a -> new FileNode(getRefRootFileNode(), (Node)a)
 			)
 		);
 	}
-	
+
 	//method
 	/**
-	 * {@inheritDoc}
+	 * @return the one attribute of the current {@link FileNode}.
+	 * @throws EmptyArgumentException if this {@link FileNode} does not contain an attribute.
+	 * @throws InvalidArgumentException if this {@link FileNode} contains several attributes.
 	 */
 	@Override
 	public BaseNode<?> getRefSingleChildNode() {
-		return new SubNode(this, (Node)internalSpecification.getRefSingleChildNode());
+		return new FileNode(
+			getRefRootFileNode(), (Node)internalSpecification.getRefSingleChildNode()
+		);
 	}
-	
+
 	//method
 	/**
-	 * {@inheritDoc}
+	 * @return true if this {@link FileNode} has a header.
 	 */
 	@Override
 	public boolean hasHeader() {
@@ -145,39 +189,16 @@ public final class FileNode extends BaseNode<FileNode> {
 	
 	//method
 	/**
-	 * Removes the first attribute the given selector selects from the current {@link FileNode}.
+	 * Removes the first attribute the given selector selects from this {@link FileNode}.
 	 * 
 	 * @param selector
 	 * @throws InvalidArgumentException
-	 * if the current {@link FileNode} does not contain an attribute the given selector selects.
+	 * if this {@link FileNode} does not contain an attribute the given selector selects.
 	 */
 	@Override
 	public void removeFirstChildNodeThat(final IElementTakerBooleanGetter<BaseNode<?>> selector) {
 		internalSpecification.removeFirstChildNodeThat(selector::getOutput);
 		save();
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void removeChildNodes() {
-		internalSpecification.removeChildNodes();
-		save();
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public FileNode removeHeader() {
-		
-		internalSpecification.removeHeader();
-		save();
-		
-		return this;
 	}
 	
 	//method
@@ -195,9 +216,8 @@ public final class FileNode extends BaseNode<FileNode> {
 	
 	//method
 	/**
-	 * Sets the header of the current {@link FileNode}.
+	 * Sets the given header to the current {@link FileNode}.
 	 * 
-	 * @param header
 	 * @return the current {@link FileNode}.
 	 * @throws ArgumentIsNullException if the given header is null.
 	 * @throws EmptyArgumentException if the given header is empty.
@@ -211,6 +231,46 @@ public final class FileNode extends BaseNode<FileNode> {
 		
 		return this;
 	}
+
+	@Override
+	public void removeChildNodes() {
+		internalSpecification.removeChildNodes();
+		save();
+	}
+
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public FileNode removeHeader() {
+		
+		internalSpecification.removeHeader();
+		save();
+		
+		return this;
+	}
+	
+	//method
+	/**
+	 * @return the root {@link FileNode} of the current {@link FileNode}.
+	 */
+	private FileNode getRefRootFileNode() {
+		
+		if (!isRootFileNode()) {
+			return parentFileNode.getRefRootFileNode();
+		}
+		
+		return this;
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link FileNode} is a root {@link FileNode}.
+	 */
+	private boolean isRootFileNode() {
+		return (fileAccessor != null);
+	}
 	
 	//method
 	/**
@@ -218,7 +278,11 @@ public final class FileNode extends BaseNode<FileNode> {
 	 * 
 	 * @throws RuntimeException if an error occurs.
 	 */
-	void save() {
-		fileAccessor.overwriteFile(internalSpecification.toFormatedString());
+	private void save() {
+		if (!isRootFileNode()) {
+			save();
+		} else {
+			fileAccessor.overwriteFile(internalSpecification.toFormatedString());
+		}
 	}
 }
