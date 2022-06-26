@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.attributeuniversalapi.mutableoptionalattributeuniversalapi;
 
+//own imports
 import ch.nolix.coreapi.attributeuniversalapi.optionalattributeuniversalapi.OptionalHeadered;
 
 //interface
@@ -27,6 +28,8 @@ public interface OptionalHeaderable<OH extends OptionalHeaderable<OH>> extends O
 	 * 
 	 * @param header
 	 * @return the current {@link OptionalHeaderable}.
+	 * @throws RuntimeException if the given header is null.
+	 * @throws RuntimeException if the given header is blank.
 	 */
 	OH setHeader(String header);
 }
