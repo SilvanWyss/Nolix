@@ -186,8 +186,8 @@ public final class MultiValue<V> extends BaseValue<V> implements Clearable {
 		for (final var v : getRefValues()) {
 			
 			//Creates a specification from the current value.
-			final var specification = specificationCreator.getOutput(v);
-			specification.setHeader(getName());
+			final var specification =
+			Node.withHeaderAndChildNodes(getName(), specificationCreator.getOutput(v).getRefChildNodes());
 			
 			//Adds the specification to the given list.
 			list.addAtEnd(specification);
