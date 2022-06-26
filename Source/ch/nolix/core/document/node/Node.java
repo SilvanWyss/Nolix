@@ -64,6 +64,27 @@ public final class Node extends BaseNode<Node> {
 	
 	//static method
 	/**
+	 * @param node
+	 * @return a new {@link Node} from the given {@link INode}.
+	 */
+	public static Node fromNode(final INode<?> node) {
+		
+		//TODO: Return the given Node itself as soon as it was made not mutable.
+		final var newNode = new Node();
+		
+		if (node.hasHeader()) {
+			newNode.setHeader(node.getHeader());
+		}
+		
+		for (final var cn : node.getRefChildNodes()) {
+			newNode.addChildNode(Node.fromNode(cn));
+		}
+		
+		return newNode;
+	}
+	
+	//static method
+	/**
 	 * @param string
 	 * @return a new {@link Node} from the given string.
 	 * @throws UnrepresentingArgumentException if the given string does not represent a {@link Node}.
