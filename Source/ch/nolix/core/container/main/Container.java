@@ -1295,7 +1295,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @throws ArgumentDoesNotHaveAttributeException
 	 * if the current {@link Container} does not contain an element the given selector selects.
 	 */
-	public final E getRefFirst(final IElementTakerBooleanGetter<E> selector) {
+	public final E getRefFirst(final IElementTakerBooleanGetter<? super E> selector) {
 		
 		//Iterates the current IContainer.
 		for (final var e : this) {

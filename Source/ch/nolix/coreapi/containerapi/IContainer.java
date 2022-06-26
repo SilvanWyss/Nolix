@@ -532,7 +532,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @throws RuntimeException if
 	 * the current {@link IContainer} does not contain an element the given selector selects.
 	 */
-	E getRefFirst(IElementTakerBooleanGetter<E> selector);
+	E getRefFirst(IElementTakerBooleanGetter<? super E> selector);
 	
 	//method declaration
 	/**
