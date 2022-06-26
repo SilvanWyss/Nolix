@@ -20,6 +20,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programcontrol.processproperty.WriteMode;
 import ch.nolix.coreapi.containerapi.IContainer;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionuniversalapi.IElementTakerBooleanGetter;
 
 //class
@@ -32,7 +33,7 @@ import ch.nolix.coreapi.functionuniversalapi.IElementTakerBooleanGetter;
  * @date 2017-06-24
  * @param <T> is the type of a {@link BaseNode}.
  */
-public abstract class BaseNode<T> implements OptionalHeaderable<BaseNode<T>> {
+public abstract class BaseNode<T extends BaseNode<T>> implements INode<T>, OptionalHeaderable<BaseNode<T>> {
 	
 	//constants
 	public static final String COMMA_CODE = "$M";
@@ -401,17 +402,11 @@ public abstract class BaseNode<T> implements OptionalHeaderable<BaseNode<T>> {
 	
 	//method declaration
 	/**
-	 * @return the attributes of the current {@link BaseNode}.
-	 */
-	public abstract IContainer<BaseNode<?>> getRefChildNodes();
-	
-	//method declaration
-	/**
 	 * 
 	 * @param header
 	 * @return the attributes of the current {@link BaseNode} that have the given header.
 	 */
-	public IContainer<BaseNode<?>> getRefChildNodesWithHeader(final String header) {
+	public IContainer<T> getRefChildNodesWithHeader(final String header) {
 		return getRefChildNodesThat(a -> a.hasHeader(header));
 	}
 	
@@ -420,7 +415,7 @@ public abstract class BaseNode<T> implements OptionalHeaderable<BaseNode<T>> {
 	 * @param selector
 	 * @return the attributes the given selector selects from the current {@link BaseNode}.
 	 */
-	public IContainer<BaseNode<?>> getRefChildNodesThat(final IElementTakerBooleanGetter<BaseNode<?>> selector) {
+	public IContainer<T> getRefChildNodesThat(final IElementTakerBooleanGetter<T> selector) {
 		return getRefChildNodes().getRefSelected(selector);
 	}
 	
@@ -430,7 +425,7 @@ public abstract class BaseNode<T> implements OptionalHeaderable<BaseNode<T>> {
 	 * @throws EmptyArgumentException if the current {@link Node} is empty.
 	 * @throws InvalidArgumentException if the current {@link Node} contains several attributes.
 	 */
-	public BaseNode<?> getRefSingleChildNode() {
+	public T getRefSingleChildNode() {
 		return getRefChildNodes().getRefOne();
 	}
 	
@@ -441,7 +436,7 @@ public abstract class BaseNode<T> implements OptionalHeaderable<BaseNode<T>> {
 	 * @throws ArgumentDoesNotHaveAttributeException if
 	 * the current {@link BaseNode} does not contain an attribute the given selector selects.
 	 */
-	public BaseNode<?> getRefFirstChildNodeThat(IElementTakerBooleanGetter<BaseNode<?>> selector) {
+	public T getRefFirstChildNodeThat(IElementTakerBooleanGetter<T> selector) {
 		return getRefChildNodes().getRefFirst(selector);
 	}
 	
@@ -450,7 +445,7 @@ public abstract class BaseNode<T> implements OptionalHeaderable<BaseNode<T>> {
 	 * @param selector
 	 * @return the first attribute the given selector selects from the current {@link BaseNode} or null.
 	 */
-	public BaseNode<?> getRefFirstChildNodeThatOrNull(IElementTakerBooleanGetter<BaseNode<?>> selector) {
+	public T getRefFirstChildNodeThatOrNull(IElementTakerBooleanGetter<T> selector) {
 		return getRefChildNodes().getRefFirstOrNull(selector);
 	}
 	
@@ -459,7 +454,7 @@ public abstract class BaseNode<T> implements OptionalHeaderable<BaseNode<T>> {
 	 * @param header
 	 * @return the first attribute of the current {@link BaseNode} with the given header.
 	 */
-	public BaseNode<?> getRefFirstChildNodeWithHeader(final String header) {
+	public T getRefFirstChildNodeWithHeader(final String header) {
 		return getRefFirstChildNodeThat(a -> a.hasHeader(header));
 	}
 	

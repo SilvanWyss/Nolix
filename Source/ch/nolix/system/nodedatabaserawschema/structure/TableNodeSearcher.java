@@ -23,7 +23,9 @@ public class TableNodeSearcher {
 	
 	//method
 	public final IContainer<BaseNode<?>> getRefColumnNodesFromTableNode(final BaseNode<?> tableNode) {
-		return tableNode.getRefChildNodesWithHeader(SubNodeHeaderCatalogue.COLUMN);
+		
+		//TODO: Refactor this.
+		return tableNode.getRefChildNodesWithHeader(SubNodeHeaderCatalogue.COLUMN).asContainerWithElementsOfEvaluatedType();
 	}
 	
 	//method

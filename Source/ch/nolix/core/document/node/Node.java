@@ -546,7 +546,7 @@ public final class Node extends BaseNode<Node> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public IContainer<BaseNode<?>> getRefChildNodes() {
+	public IContainer<Node> getRefChildNodes() {
 		return ReadContainer.forIterable(attributes).asContainerWithElementsOfEvaluatedType();
 	}
 	

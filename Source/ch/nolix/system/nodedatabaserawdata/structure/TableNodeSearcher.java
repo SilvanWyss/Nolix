@@ -30,7 +30,9 @@ public final class TableNodeSearcher {
 	
 	//method
 	public IContainer<BaseNode<?>> getRefRecordNodesFromTableNode(final BaseNode<?> tableNode) {
-		return tableNode.getRefChildNodesWithHeader(SubNodeHeaderCatalogue.RECORD);
+		
+		//TODO: Refactor this.
+		return tableNode.getRefChildNodesWithHeader(SubNodeHeaderCatalogue.RECORD).asContainerWithElementsOfEvaluatedType();
 	}
 	
 	//method

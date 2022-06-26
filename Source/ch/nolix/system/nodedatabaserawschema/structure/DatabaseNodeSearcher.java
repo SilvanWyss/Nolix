@@ -44,7 +44,9 @@ public final class DatabaseNodeSearcher {
 	
 	//method
 	public IContainer<BaseNode<?>> getRefTableNodesFromDatabaseNode(final BaseNode<?> databaseNode) {
-		return databaseNode.getRefChildNodesWithHeader(SubNodeHeaderCatalogue.TABLE);
+		
+		//TODO: Refactor this.
+		return databaseNode.getRefChildNodesWithHeader(SubNodeHeaderCatalogue.TABLE).asContainerWithElementsOfEvaluatedType();
 	}
 	
 	//method

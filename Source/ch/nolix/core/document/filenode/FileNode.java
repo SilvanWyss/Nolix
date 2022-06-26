@@ -138,7 +138,7 @@ public final class FileNode extends BaseNode<FileNode> {
 	 * @return the attributes of the current {@link FileNode}
 	 */
 	@Override
-	public ReadContainer<BaseNode<?>> getRefChildNodes() {
+	public ReadContainer<FileNode> getRefChildNodes() {
 		return
 		ReadContainer.forIterable(
 			internalSpecification.getRefChildNodes().to(
@@ -154,7 +154,7 @@ public final class FileNode extends BaseNode<FileNode> {
 	 * @throws InvalidArgumentException if this {@link FileNode} contains several attributes.
 	 */
 	@Override
-	public BaseNode<?> getRefSingleChildNode() {
+	public FileNode getRefSingleChildNode() {
 		return new FileNode(
 			getRefRootFileNode(), (Node)internalSpecification.getRefSingleChildNode()
 		);
