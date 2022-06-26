@@ -586,7 +586,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return a new@link LinkedList with the elements
 	 * the given selector selects from the current {@link IContainer}.
 	 */
-	IContainer<E> getRefSelected(IElementTakerBooleanGetter<E> selector);
+	IContainer<E> getRefSelected(IElementTakerBooleanGetter<? super E> selector);
 	
 	//method declaration
 	/**

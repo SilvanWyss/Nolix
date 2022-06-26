@@ -1478,7 +1478,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @return a new {@link LinkedList} with the elements
 	 * the given selector selects from the current {@link Container}.
 	 */
-	public final Container<E> getRefSelected(final IElementTakerBooleanGetter<E> selector) {
+	public final Container<E> getRefSelected(final IElementTakerBooleanGetter<? super E> selector) {
 		
 		//Creates list.
 		final var list = new LinkedList<E>();
