@@ -159,9 +159,13 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
 			switch (stateProperty.getAssignmentType()) {
 				case VALUE:
 					
-					list.addAtEnd(
-						specificationCreator.getOutput(stateProperty.getValue()).setHeader(s.getPrefix() + getName())
+					final var valueSpecification =
+					Node.withHeaderAndChildNode(
+						s.getPrefix() + getName(),
+						specificationCreator.getOutput(stateProperty.getValue()).getRefSingleChildNode()
 					);
+					
+					list.addAtEnd(valueSpecification);
 					
 					break;
 				case NO_VALUE:
