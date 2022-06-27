@@ -63,11 +63,8 @@ abstract class SingleValue<V> extends BaseValue<V> {
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link SingleValue} does not have a value
 	 */
 	public final Node getSpecification() {
-		
-		final var specification = specificationCreator.getOutput(getValue());
-		specification.setHeader(getName());
-		
-		return specification;
+		return
+		Node.withHeaderAndChildNodes(getName(), specificationCreator.getOutput(getValue()).getRefChildNodes());
 	}
 	
 	//method
