@@ -4,7 +4,6 @@ package ch.nolix.coretest.documenttest;
 //own imports
 import ch.nolix.core.testing.basetest.TestPool;
 import ch.nolix.coretest.documenttest.chainednodetest.ChainedNodeTestPool;
-import ch.nolix.coretest.documenttest.filenodetest.FileNodeTestPool;
 import ch.nolix.coretest.documenttest.nodetest.NodeTestPool;
 import ch.nolix.coretest.documenttest.xmltest.XMLTestPool;
 
@@ -13,6 +12,6 @@ public final class DocumentTestPool extends TestPool {
 	
 	//constructor
 	public DocumentTestPool() {
-		super(new ChainedNodeTestPool(), new FileNodeTestPool(), new NodeTestPool(), new XMLTestPool());
+		super(new ChainedNodeTestPool(), new NodeTestPool(), new XMLTestPool());
 	}
 }

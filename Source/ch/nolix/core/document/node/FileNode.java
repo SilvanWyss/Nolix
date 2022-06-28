@@ -1,10 +1,8 @@
 //package declaration
-package ch.nolix.core.document.filenode;
+package ch.nolix.core.document.node;
 
 //own imports
 import ch.nolix.core.container.readcontainer.ReadContainer;
-import ch.nolix.core.document.node.BaseMutableNode;
-import ch.nolix.core.document.node.Node;
 import ch.nolix.core.environment.filesystem.FileAccessor;
 import ch.nolix.core.environment.filesystem.FileSystemAccessor;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;

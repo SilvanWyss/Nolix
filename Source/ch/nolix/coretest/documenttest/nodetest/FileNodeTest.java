@@ -1,11 +1,9 @@
 //package declaration
-package ch.nolix.coretest.documenttest.filenodetest;
+package ch.nolix.coretest.documenttest.nodetest;
 
-//own imports
-import ch.nolix.core.document.filenode.FileNode;
+import ch.nolix.core.document.node.FileNode;
 import ch.nolix.core.environment.filesystem.FileSystemAccessor;
 import ch.nolix.core.testing.basetest.Cleanup;
-import ch.nolix.coretest.documenttest.nodetest.BaseMutableNodeTest;
 
 //class
 public final class FileNodeTest extends BaseMutableNodeTest<FileNode> {
