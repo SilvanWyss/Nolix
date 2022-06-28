@@ -4,7 +4,6 @@ package ch.nolix.core.document.filenode;
 //own imports
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.document.node.BaseMutableNode;
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.environment.filesystem.FileAccessor;
 import ch.nolix.core.environment.filesystem.FileSystemAccessor;
@@ -219,12 +218,12 @@ public final class FileNode extends BaseMutableNode<FileNode> {
 	 * the current {@link Node} does not contain an attribute the given selector selects.
 	 */
 	@Override
-	public BaseNode<?> removeAndGetRefFirstChildNodeThat(final IElementTakerBooleanGetter<INode<?>> selector) {
+	public FileNode removeAndGetRefFirstChildNodeThat(final IElementTakerBooleanGetter<INode<?>> selector) {
 		
 		final var attribute = internalSpecification.removeAndGetRefFirstChildNodeThat(selector::getOutput);
 		save();
 		
-		return attribute;
+		return new FileNode(this, attribute);
 	}
 	
 	//method

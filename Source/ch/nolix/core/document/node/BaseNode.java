@@ -409,13 +409,7 @@ public abstract class BaseNode<T extends BaseNode<T>> implements INode<T>, Optio
 	}
 	
 	//method declaration
-	/**
-	 * Removes the first attribute the given selector selects from the current {@link BaseNode}.
-	 * 
-	 * @param selector
-	 * @return the first attribute the given selector selects.
-	 */
-	public abstract BaseNode<?> removeAndGetRefFirstChildNodeThat(IElementTakerBooleanGetter<INode<?>> selector);
+	public abstract T removeAndGetRefFirstChildNodeThat(IElementTakerBooleanGetter<INode<?>> selector);
 	
 	//method declaration
 	/**

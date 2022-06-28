@@ -629,7 +629,7 @@ public final class Node extends BaseNode<Node> {
 	 * the current {@link Node} does not contain an attribute the given selector selects.
 	 */
 	@Override
-	public BaseNode<?> removeAndGetRefFirstChildNodeThat(final IElementTakerBooleanGetter<INode<?>> selector) {
+	public Node removeAndGetRefFirstChildNodeThat(final IElementTakerBooleanGetter<INode<?>> selector) {
 		return attributes.removeAndGetRefFirst(selector::getOutput);
 	}
 	

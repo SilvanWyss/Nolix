@@ -86,13 +86,25 @@ public interface IMutableNode<MN extends IMutableNode<MN>> extends INode<MN>, Op
 	
 	//method declaration
 	/**
+	 * Removes and returns the first child {@link INode} the given selector selects from
+	 * the current {@link IMutableNode}.
+	 * 
+	 * @param selector
+	 * @return the first child {@link INode} the given selector selects from the current {@link IMutableNode}.
+	 * @throws RuntimeException if
+	 * the current {@link IMutableNode} does not contain a child {@link INode} the given selector selects.
+	 */
+	MN removeAndGetRefFirstChildNodeThat(IElementTakerBooleanGetter<INode<?>> selector);
+	
+	//method declaration
+	/**
 	 * Removes the child {@link INode}s from the current {@link IMutableNode}.
 	 */
 	void removeChildNodes();
 	
 	//method declaration
 	/**
-	 * Removes the first child {@link INode}, the given selector selects, from the current {@link IMutableNode}.
+	 * Removes the first child {@link INode} the given selector selects from the current {@link IMutableNode}.
 	 * 
 	 * @param selector
 	 * @throws RuntimeException if
