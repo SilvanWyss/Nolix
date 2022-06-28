@@ -5,10 +5,10 @@ package ch.nolix.coretest.documenttest.filenodetest;
 import ch.nolix.core.document.filenode.FileNode;
 import ch.nolix.core.environment.filesystem.FileSystemAccessor;
 import ch.nolix.core.testing.basetest.Cleanup;
-import ch.nolix.coretest.documenttest.nodetest.BaseNodeTest;
+import ch.nolix.coretest.documenttest.nodetest.BaseMutableNodeTest;
 
 //class
-public final class FileNodeTest extends BaseNodeTest<FileNode> {
+public final class FileNodeTest extends BaseMutableNodeTest<FileNode> {
 	
 	//method
 	@Cleanup
