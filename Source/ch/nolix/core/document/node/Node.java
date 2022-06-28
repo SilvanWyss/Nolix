@@ -660,11 +660,8 @@ public final class Node extends BaseNode<Node> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Node removeHeader() {
-		
+	public void removeHeader() {
 		header = null;
-		
-		return this;
 	}
 	
 	//method

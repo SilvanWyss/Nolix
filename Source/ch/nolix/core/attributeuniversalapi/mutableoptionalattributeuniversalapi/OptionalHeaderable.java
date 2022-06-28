@@ -17,10 +17,8 @@ public interface OptionalHeaderable<OH extends OptionalHeaderable<OH>> extends O
 	//method declaration
 	/**
 	 * Removes the header of current {@link OptionalHeaderable}.
-	 * 
-	 * @return the current {@link OptionalHeaderable}.
 	 */
-	OH removeHeader();
+	void removeHeader();
 	
 	//method declaration
 	/**

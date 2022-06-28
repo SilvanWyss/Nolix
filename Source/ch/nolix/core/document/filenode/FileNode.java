@@ -283,12 +283,11 @@ public final class FileNode extends BaseMutableNode<FileNode> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public FileNode removeHeader() {
+	public void removeHeader() {
 		
 		internalSpecification.removeHeader();
-		save();
 		
-		return this;
+		save();
 	}
 	
 	//method
