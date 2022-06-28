@@ -13,6 +13,12 @@ import ch.nolix.coreapi.functionuniversalapi.IElementTakerBooleanGetter;
 //class
 public final class MutableNode extends BaseMutableNode<MutableNode> {
 	
+	//TODO: Complete.
+	//static method
+	public static MutableNode fromFile(final String filePath) {
+		return fromNode(Node.fromFile(filePath));
+	}
+	
 	//static method
 	/**
 	 * @param node
