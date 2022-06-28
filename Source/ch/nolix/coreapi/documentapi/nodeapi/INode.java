@@ -50,6 +50,11 @@ public interface INode<N extends INode<N>> extends OptionalHeadered {
 	 */
 	int getChildNodeCount();
 	
+	//TODO: Complete.
+	default IContainer<String> getChildNodesHeaders() {
+		return getRefChildNodes().to(INode::getHeader);
+	}
+	
 	//method declaration
 	/**
 	 * @param p1BasedIndex
