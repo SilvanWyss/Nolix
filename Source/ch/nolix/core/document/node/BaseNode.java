@@ -139,7 +139,16 @@ public abstract class BaseNode<T extends BaseNode<T>> implements INode<T>, Optio
 	public boolean containsOneChildNode() {
 		return getRefChildNodes().containsOne();
 	}
-		
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public int getChildNodeCount() {
+		return getRefChildNodes().getElementCount();
+	}
+	
 	//method
 	/**
 	 * @return a new copy of the current {@link BaseNode}.

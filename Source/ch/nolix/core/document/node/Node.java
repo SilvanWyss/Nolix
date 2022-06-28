@@ -568,15 +568,6 @@ public final class Node extends BaseNode<Node> {
 	
 	//method
 	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public int getChildNodeCount() {
-		return attributes.getElementCount();
-	}
-	
-	//method
-	/**
 	 * @return the header of this specification.
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link Node} does not have a header.
 	 */
