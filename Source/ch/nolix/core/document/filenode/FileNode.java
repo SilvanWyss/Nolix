@@ -292,6 +292,15 @@ public final class FileNode extends BaseMutableNode<FileNode> {
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected FileNode asConcrete() {
+		return this;
+	}
+	
+	//method
+	/**
 	 * @return the root {@link FileNode} of the current {@link FileNode}.
 	 */
 	private FileNode getRefRootFileNode() {

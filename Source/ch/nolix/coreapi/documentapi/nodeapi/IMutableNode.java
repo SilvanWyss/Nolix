@@ -64,10 +64,11 @@ public interface IMutableNode<MN extends IMutableNode<MN>> extends INode<MN>, Op
 	 * the current {@link IMutableNode} does not have a header.
 	 * 
 	 * @param postfix
+	 * @return the current {@link IMutableNode}.
 	 * @throws RuntimeException if the given postfix is null.
 	 * @throws RuntimeException if the given postfix is blank.
 	 */
-	void addPostfixToHeader(String postfix);
+	MN addPostfixToHeader(String postfix);
 	
 	//method declaration
 	/**
@@ -77,10 +78,11 @@ public interface IMutableNode<MN extends IMutableNode<MN>> extends INode<MN>, Op
 	 * the current {@link IMutableNode} does not have a header.
 	 * 
 	 * @param prefix
+	 * @return the current {@link IMutableNode}.
 	 * @throws RuntimeException if the given prefix is null.
 	 * @throws RuntimeException if the given prefix is blank.
 	 */
-	void addPrefixToHeader(String prefix);
+	MN addPrefixToHeader(String prefix);
 	
 	//method declaration
 	/**

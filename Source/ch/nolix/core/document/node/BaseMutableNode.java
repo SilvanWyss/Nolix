@@ -14,7 +14,7 @@ public abstract class BaseMutableNode<MN extends BaseMutableNode<MN>> extends Ba
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void addPostfixToHeader(final String postfix) {
+	public final MN addPostfixToHeader(final String postfix) {
 		
 		//Asserts that the given postfix is not blank.
 		GlobalValidator.assertThat(postfix).thatIsNamed(LowerCaseCatalogue.POSTFIX).isNotBlank();
@@ -27,6 +27,8 @@ public abstract class BaseMutableNode<MN extends BaseMutableNode<MN>> extends Ba
 		} else {
 			setHeader(getHeader() + postfix);
 		}
+		
+		return asConcrete();
 	}
 	
 	//method
@@ -34,7 +36,7 @@ public abstract class BaseMutableNode<MN extends BaseMutableNode<MN>> extends Ba
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void addPrefixToHeader(final String prefix) {
+	public final MN addPrefixToHeader(final String prefix) {
 		
 		//Asserts that the given prefix is not blank.
 		GlobalValidator.assertThat(prefix).thatIsNamed(LowerCaseCatalogue.PREFIX).isNotBlank();
@@ -47,5 +49,13 @@ public abstract class BaseMutableNode<MN extends BaseMutableNode<MN>> extends Ba
 		} else {
 			setHeader(prefix + getHeader());
 		}
+		
+		return asConcrete();
 	}
+	
+	//method declaration
+	/**
+	 * @return the current {@link BaseMutableNode}.
+	 */
+	protected abstract MN asConcrete();
 }
