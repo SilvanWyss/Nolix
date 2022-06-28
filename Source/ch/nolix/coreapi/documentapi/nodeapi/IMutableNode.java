@@ -122,6 +122,9 @@ public interface IMutableNode<MN extends IMutableNode<MN>> extends INode<MN>, Op
 	 */
 	void removeFirstChildNodeWithHeader(String header);
 	
+	//TODO: Complete
+	void replaceFirstChildNodeWithGivenHeaderByGivenChildNode(String header, INode<?> attribute);
+	
 	//method declaration
 	/**
 	 * Resets the child {@link INode}s of the current {@link IMutableNode} with the given childNodes.
