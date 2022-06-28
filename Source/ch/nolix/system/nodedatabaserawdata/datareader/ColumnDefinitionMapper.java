@@ -2,7 +2,7 @@
 package ch.nolix.system.nodedatabaserawdata.datareader;
 
 //own imports
-import ch.nolix.core.document.node.BaseNode;
+import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.nodedatabaserawschema.structure.ColumnNodeSearcher;
 import ch.nolix.system.nodedatabaserawschema.structure.ParametrizedPropertyTypeNodeSearcher;
 import ch.nolix.system.sqlrawdata.schemainfo.ColumnInfo;
@@ -20,7 +20,7 @@ public final class ColumnDefinitionMapper {
 	
 	//method
 	public IColumnInfo createColumnDefinitionFromColumnNode(
-		final BaseNode<?> columnNode,
+		final IMutableNode<?> columnNode,
 		final int columnIndexOnEntityNode
 	) {
 		return
@@ -34,7 +34,7 @@ public final class ColumnDefinitionMapper {
 	}
 	
 	//method
-	private DataType getColumnDataTypeFromColumnNode(final BaseNode<?> columnNode) {
+	private DataType getColumnDataTypeFromColumnNode(final IMutableNode<?> columnNode) {
 		return
 		getDataTypeFromParametrizedPropertyTypeNode(
 			columnNodeSearcher.getRefParametrizedPropertyTypeNodeFromColumnNode(columnNode)
@@ -42,17 +42,17 @@ public final class ColumnDefinitionMapper {
 	}
 	
 	//method
-	private String getColumnIdFromColumnNode(final BaseNode<?> columnNode) {
+	private String getColumnIdFromColumnNode(final IMutableNode<?> columnNode) {
 		return columnNodeSearcher.getRefIdNodeFromColumnNode(columnNode).getSingleChildNodeHeader();
 	}
 	
 	//method
-	private String getColumnNameFromColumnNode(final BaseNode<?> columnNode) {
+	private String getColumnNameFromColumnNode(final IMutableNode<?> columnNode) {
 		return columnNodeSearcher.getRefNameNodeFromColumnNode(columnNode).getSingleChildNodeHeader();
 	}
 	
 	//method
-	private PropertyType getColumnPropertyTypeFromColumnNode(final BaseNode<?> columnNode) {
+	private PropertyType getColumnPropertyTypeFromColumnNode(final IMutableNode<?> columnNode) {
 		
 		final var parametrizedPropertyTypeNode =
 		columnNodeSearcher.getRefParametrizedPropertyTypeNodeFromColumnNode(columnNode);
@@ -66,12 +66,12 @@ public final class ColumnDefinitionMapper {
 	}
 	
 	//method
-	private DataType getDataTypeFromDataTypeNode(final BaseNode<?> dataTypeNode) {
+	private DataType getDataTypeFromDataTypeNode(final IMutableNode<?> dataTypeNode) {
 		return DataType.valueOf(dataTypeNode.getSingleChildNodeHeader());
 	}
 	
 	//method
-	private DataType getDataTypeFromParametrizedPropertyTypeNode(BaseNode<?> parametrizedPropertyTypeNode) {
+	private DataType getDataTypeFromParametrizedPropertyTypeNode(IMutableNode<?> parametrizedPropertyTypeNode) {
 		return
 		getDataTypeFromDataTypeNode(
 			parametrizedPropertyTypeNodeSearcher.getRefDataTypeNodeFromParametriedPropertyTypeNode(parametrizedPropertyTypeNode)

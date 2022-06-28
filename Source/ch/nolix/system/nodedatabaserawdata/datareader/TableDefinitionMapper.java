@@ -2,8 +2,8 @@
 package ch.nolix.system.nodedatabaserawdata.datareader;
 
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.coreapi.containerapi.IContainer;
+import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.nodedatabaserawschema.structure.TableNodeSearcher;
 import ch.nolix.system.sqlrawdata.schemainfo.TableInfo;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
@@ -17,7 +17,7 @@ final class TableDefinitionMapper {
 	private static final TableNodeSearcher tableNodeSearcher = new TableNodeSearcher();
 	
 	//method
-	public ITableInfo createTableDefinitionFromTableNode(final BaseNode<?> tableNode) {
+	public ITableInfo createTableDefinitionFromTableNode(final IMutableNode<?> tableNode) {
 		return new TableInfo(
 			getTableIdFromTableNode(tableNode),
 			getTableNameFromTableNode(tableNode),
@@ -26,7 +26,7 @@ final class TableDefinitionMapper {
 	}
 	
 	//method
-	private IContainer<IColumnInfo> getContentColumnDefinitionsFromTableNode(BaseNode<?> tableNode) {
+	private IContainer<IColumnInfo> getContentColumnDefinitionsFromTableNode(IMutableNode<?> tableNode) {
 		
 		final var columnInfos = new LinkedList<IColumnInfo>();
 		var columnIndexOnEntityNode = 2;
@@ -46,17 +46,17 @@ final class TableDefinitionMapper {
 	}
 	
 	//method
-	private IContainer<BaseNode<?>> getRefColumnNodesInOrderFromTableNode(final BaseNode<?> tableNode) {
+	private IContainer<IMutableNode<?>> getRefColumnNodesInOrderFromTableNode(final IMutableNode<?> tableNode) {
 		return tableNodeSearcher.getRefColumnNodesFromTableNode(tableNode);
 	}
 	
 	//method
-	private String getTableIdFromTableNode(final BaseNode<?> tableNode) {
+	private String getTableIdFromTableNode(final IMutableNode<?> tableNode) {
 		return tableNodeSearcher.getTableIdFromTableNode(tableNode);
 	}
 	
 	//method
-	private String getTableNameFromTableNode(final BaseNode<?> tableNode) {
+	private String getTableNameFromTableNode(final IMutableNode<?> tableNode) {
 		return tableNodeSearcher.getTableNameFromTableNode(tableNode);
 	}
 }

@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.system.nodedatabaserawschema.structure;
 
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.coreapi.containerapi.IContainer;
+import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 
 //class
@@ -12,8 +12,8 @@ public class TableNodeSearcher {
 	private static final ColumnNodeSearcher columnNodeSearcher = new ColumnNodeSearcher();
 	
 	//method
-	public final BaseNode<?> getRefColumnNodeFromTableNodeByColumnName(
-		final BaseNode<?> tableNode,
+	public final IMutableNode<?> getRefColumnNodeFromTableNodeByColumnName(
+		final IMutableNode<?> tableNode,
 		final String columnName
 	) {
 		return
@@ -23,31 +23,31 @@ public class TableNodeSearcher {
 	}
 	
 	//method
-	public final IContainer<BaseNode<?>> getRefColumnNodesFromTableNode(final BaseNode<?> tableNode) {
+	public final IContainer<IMutableNode<?>> getRefColumnNodesFromTableNode(final IMutableNode<?> tableNode) {
 		
 		//TODO: Refactor this.
 		return tableNode.getRefChildNodesWithHeader(SubNodeHeaderCatalogue.COLUMN).asContainerWithElementsOfEvaluatedType();
 	}
 	
 	//method
-	public final BaseNode<?> getRefIdNodeFromTableNode(final BaseNode<?> tableNode) {
+	public final IMutableNode<?> getRefIdNodeFromTableNode(final IMutableNode<?> tableNode) {
 		return tableNode.getRefFirstChildNodeWithHeader(SubNodeHeaderCatalogue.ID);
 	}
 	
 	//method
-	public final BaseNode<?> getRefNameNodeFromTableNode(final INode<?> tableNode) {
+	public final IMutableNode<?> getRefNameNodeFromTableNode(final INode<?> tableNode) {
 		
 		//TODO: Refactor this.
-		return (BaseNode<?>)tableNode.getRefFirstChildNodeWithHeader(SubNodeHeaderCatalogue.NAME);
+		return (IMutableNode<?>)tableNode.getRefFirstChildNodeWithHeader(SubNodeHeaderCatalogue.NAME);
 	}
 	
 	//method
-	public String getTableIdFromTableNode(final BaseNode<?> tableNode) {
+	public String getTableIdFromTableNode(final IMutableNode<?> tableNode) {
 		return getRefIdNodeFromTableNode(tableNode).getSingleChildNodeHeader();
 	}
 	
 	//method
-	public String getTableNameFromTableNode(final BaseNode<?> tableNode) {
+	public String getTableNameFromTableNode(final IMutableNode<?> tableNode) {
 		return getRefNameNodeFromTableNode(tableNode).getSingleChildNodeHeader();
 	}
 }

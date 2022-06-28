@@ -2,7 +2,7 @@
 package ch.nolix.systemtest.objectschematest.schemaadaptertest;
 
 //own imports
-import ch.nolix.core.document.node.Node;
+import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 import ch.nolix.system.objectschema.schema.Table;
@@ -16,7 +16,7 @@ public final class NodeSchemaAdapterTest extends Test {
 	public void test_creation() {
 		
 		//setup
-		final var database = new Node();
+		final var database = new MutableNode();
 		
 		//setup verification
 		expect(database.isBlank());
@@ -38,7 +38,7 @@ public final class NodeSchemaAdapterTest extends Test {
 	public void test_addTable_whenSavesChangesAndResets() {
 		
 		//setup
-		final var database = new Node();
+		final var database = new MutableNode();
 		final var testUnit = NodeSchemaAdapter.forDatabaseNode("MyDatabase", database);
 		
 		//execution
@@ -62,7 +62,7 @@ public final class NodeSchemaAdapterTest extends Test {
 	public void test_getSaveCount_whenIsNew() {
 		
 		//setup
-		final var testUnit = NodeSchemaAdapter.forDatabaseNode("MyDatabase", new Node());
+		final var testUnit = NodeSchemaAdapter.forDatabaseNode("MyDatabase", new MutableNode());
 		
 		//execution
 		final var result = testUnit.getSaveCount();
@@ -76,7 +76,7 @@ public final class NodeSchemaAdapterTest extends Test {
 	public void test_getSaveCount_whenSavesChangesAndResetsFor1Times() {
 		
 		//setup
-		final var testUnit = NodeSchemaAdapter.forDatabaseNode("MyDatabase", new Node());
+		final var testUnit = NodeSchemaAdapter.forDatabaseNode("MyDatabase", new MutableNode());
 		testUnit.addTable(new Table("MyTable1"));
 		testUnit.saveChangesAndReset();
 		
@@ -92,7 +92,7 @@ public final class NodeSchemaAdapterTest extends Test {
 	public void test_getSaveCount_whenSavesChangesAndResetsFor2Times() {
 		
 		//setup
-		final var testUnit = NodeSchemaAdapter.forDatabaseNode("MyDatabase", new Node());
+		final var testUnit = NodeSchemaAdapter.forDatabaseNode("MyDatabase", new MutableNode());
 		testUnit.addTable(new Table("MyTable1"));
 		testUnit.saveChangesAndReset();
 		testUnit.addTable(new Table("MyTable2"));

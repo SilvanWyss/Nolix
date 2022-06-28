@@ -2,8 +2,8 @@
 package ch.nolix.system.nodedatabaserawschema.databaseinitializer;
 
 //own imports
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
+import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.nodedatabaserawschema.structure.SubNodeHeaderCatalogue;
 import ch.nolix.system.time.moment.Time;
 
@@ -11,7 +11,7 @@ import ch.nolix.system.time.moment.Time;
 final class InternalDatabaseInitializer {
 	
 	//method
-	public void initializeDatabase(final BaseNode<?> databaseNode) {
+	public void initializeDatabase(final IMutableNode<?> databaseNode) {
 		databaseNode
 		.setHeader(SubNodeHeaderCatalogue.DATABASE)
 		.addChildNode(createDatabasePropertiesNode());

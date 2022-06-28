@@ -2,9 +2,10 @@
 package ch.nolix.system.nodedatabaserawschema.schemawriter;
 
 //own imports
-import ch.nolix.core.document.node.BaseNode;
+import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
+import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.nodedatabaserawschema.structure.ColumnNodeSearcher;
 import ch.nolix.system.nodedatabaserawschema.structure.DatabaseNodeSearcher;
 import ch.nolix.system.nodedatabaserawschema.structure.DatabasePropertiesNodeSearcher;
@@ -49,16 +50,16 @@ public final class SchemaWriter implements ISchemaWriter {
 	private int saveCount;
 	
 	//attribute
-	private final BaseNode<?> databaseNode;
+	private final IMutableNode<?> databaseNode;
 	
 	//attribute
-	private BaseNode<?> editedDatabaseNode;
+	private IMutableNode<?> editedDatabaseNode;
 	
 	//attribute
 	private boolean hasChanges;
 	
 	//constructor
-	public SchemaWriter(final BaseNode<?> databaseNode) {
+	public SchemaWriter(final IMutableNode<?> databaseNode) {
 		
 		GlobalValidator.assertThat(databaseNode).thatIsNamed("database Node").isNotNull();
 		
@@ -143,7 +144,7 @@ public final class SchemaWriter implements ISchemaWriter {
 	@Override
 	public void reset() {
 		
-		editedDatabaseNode = databaseNode.getCopy();
+		editedDatabaseNode = MutableNode.fromNode(databaseNode);
 		
 		hasChanges = false;
 	}

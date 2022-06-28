@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.system.nodedatabaserawdata.datareader;
 
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.IContainer;
+import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.nodedatabaserawdata.structure.TableNodeSearcher;
 import ch.nolix.system.nodedatabaserawschema.structure.DatabaseNodeSearcher;
 import ch.nolix.system.nodedatabaserawschema.structure.DatabasePropertiesNodeSearcher;
@@ -33,10 +33,10 @@ public final class InternalDataReader {
 	private static final ValueMapper valueMapper = new ValueMapper();
 	
 	//attribute
-	private final BaseNode<?> databaseNode;
+	private final IMutableNode<?> databaseNode;
 	
 	//constructor
-	public InternalDataReader(final BaseNode<?> databaseNode) {
+	public InternalDataReader(final IMutableNode<?> databaseNode) {
 		
 		GlobalValidator.assertThat(databaseNode).thatIsNamed("database node").isNotNull();
 		

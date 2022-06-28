@@ -2,7 +2,7 @@
 package ch.nolix.system.nodedatabaserawdata.datareader;
 
 //own imports
-import ch.nolix.core.document.node.BaseNode;
+import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.sqlrawdata.datadto.LoadedContentFieldDTO;
 import ch.nolix.system.sqlrawdata.datareader.ValueMapper;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedContentFieldDTO;
@@ -16,7 +16,7 @@ public final class ContentFieldDTOMapper {
 	
 	//method
 	public ILoadedContentFieldDTO createContentFieldDTOFromContentFieldNode(
-		final BaseNode<?> contentFieldNode,
+		final IMutableNode<?> contentFieldNode,
 		final IColumnInfo columnInfo
 	) {
 		

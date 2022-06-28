@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.system.nodedatabaserawschema.structure;
 
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.coreapi.containerapi.IContainer;
+import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 
 //class
 public final class DatabaseNodeSearcher {
@@ -14,7 +14,7 @@ public final class DatabaseNodeSearcher {
 	private static final ColumnNodeSearcher columnNodeSearcher = new ColumnNodeSearcher();
 	
 	//method
-	public BaseNode<?> getRefColumnNodeByColumnIdFromDatabaseNode(final BaseNode<?> databaseNode, final String columnId) {
+	public IMutableNode<?> getRefColumnNodeByColumnIdFromDatabaseNode(final IMutableNode<?> databaseNode, final String columnId) {
 		return
 		getRefTableNodesFromDatabaseNode(databaseNode)
 		.toFromMany(tableNodeSearcher::getRefColumnNodesFromTableNode)
@@ -22,12 +22,12 @@ public final class DatabaseNodeSearcher {
 	}
 	
 	//method
-	public BaseNode<?> getRefDatabasePropertiesNodeFromDatabaseNode(final BaseNode<?> databaseNode) {
+	public IMutableNode<?> getRefDatabasePropertiesNodeFromDatabaseNode(final IMutableNode<?> databaseNode) {
 		return databaseNode.getRefFirstChildNodeWithHeader(SubNodeHeaderCatalogue.DATABASE_PROPERTIES);
 	}
 	
 	//method
-	public BaseNode<?> getRefTableNodeByTableIdFromDatabaseNode(final BaseNode<?> databaseNode, final String tableId) {
+	public IMutableNode<?> getRefTableNodeByTableIdFromDatabaseNode(final IMutableNode<?> databaseNode, final String tableId) {
 		return
 		getRefTableNodesFromDatabaseNode(databaseNode).getRefFirst(
 			tsn -> tsn.getRefFirstChildNodeWithHeader(SubNodeHeaderCatalogue.ID).getRefSingleChildNode().hasHeader(tableId)
@@ -35,7 +35,7 @@ public final class DatabaseNodeSearcher {
 	}
 	
 	//method
-	public BaseNode<?> getRefTableNodeByTableNameFromDatabaseNode(final BaseNode<?> databaseNode, final String tableName) {
+	public IMutableNode<?> getRefTableNodeByTableNameFromDatabaseNode(final IMutableNode<?> databaseNode, final String tableName) {
 		return
 		getRefTableNodesFromDatabaseNode(databaseNode).getRefFirst(
 			tsn -> tsn.getRefFirstChildNodeWithHeader(SubNodeHeaderCatalogue.NAME).getRefSingleChildNode().hasHeader(tableName)
@@ -43,14 +43,14 @@ public final class DatabaseNodeSearcher {
 	}
 	
 	//method
-	public IContainer<BaseNode<?>> getRefTableNodesFromDatabaseNode(final BaseNode<?> databaseNode) {
+	public IContainer<IMutableNode<?>> getRefTableNodesFromDatabaseNode(final IMutableNode<?> databaseNode) {
 		
 		//TODO: Refactor this.
 		return databaseNode.getRefChildNodesWithHeader(SubNodeHeaderCatalogue.TABLE).asContainerWithElementsOfEvaluatedType();
 	}
 	
 	//method
-	public int getTableNodeCount(final BaseNode<?> databaseNode) {
+	public int getTableNodeCount(final IMutableNode<?> databaseNode) {
 		return databaseNode.getRefChildNodes().getCount(a -> a.hasHeader(SubNodeHeaderCatalogue.TABLE));
 	}
 }

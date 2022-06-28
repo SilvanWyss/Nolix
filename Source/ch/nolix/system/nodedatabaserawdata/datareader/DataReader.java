@@ -1,10 +1,10 @@
 //package declaration
 package ch.nolix.system.nodedatabaserawdata.datareader;
 
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.coreapi.containerapi.IContainer;
+import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataReader;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedRecordDTO;
@@ -23,7 +23,7 @@ public final class DataReader implements IDataReader {
 	private final IContainer<ITableInfo> tableInfos;
 	
 	//constructor
-	public DataReader(final BaseNode<?> databaseNode, final IContainer<ITableInfo> tableInfos) {
+	public DataReader(final IMutableNode<?> databaseNode, final IContainer<ITableInfo> tableInfos) {
 		
 		GlobalValidator.assertThat(tableInfos).thatIsNamed("table definitions").isNotNull();
 		GlobalValidator.assertThat(tableInfos).thatIsNamed("table definitions").isNotNull();

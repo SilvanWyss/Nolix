@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.system.nodedatabaserawdata.dataadapter;
 
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.coreapi.containerapi.IContainer;
+import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.nodedatabaserawdata.datareader.DataReader;
 import ch.nolix.system.nodedatabaserawdata.datareader.TableDefinitionLoader;
 import ch.nolix.system.nodedatabaserawdata.datawriter.DataWriter;
@@ -16,18 +16,18 @@ public final class DataAdapter extends BaseDataAdapter {
 	private static final TableDefinitionLoader tableDefinitionLoader = new TableDefinitionLoader();
 	
 	//static method
-	public static DataAdapter forNodeDatabase(final BaseNode<?> nodeDatabase) {
+	public static DataAdapter forNodeDatabase(final IMutableNode<?> nodeDatabase) {
 		return new DataAdapter(nodeDatabase);
 	}
 	
 	//constructor
-	private DataAdapter(final BaseNode<?> nodeDatabase) {
+	private DataAdapter(final IMutableNode<?> nodeDatabase) {
 		this(nodeDatabase, tableDefinitionLoader.loadTableDefinitionsFromDatabaseNode(nodeDatabase));
 	}
 	
 	//constructor
 	private DataAdapter(
-		final BaseNode<?> nodeDatabase,
+		final IMutableNode<?> nodeDatabase,
 		final IContainer<ITableInfo> tableInfos
 	) {
 		super(

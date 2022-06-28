@@ -1,10 +1,10 @@
 //package declaration
 package ch.nolix.system.nodedatabaserawschema.schemaadapter;
 
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.FileNode;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.coreapi.containerapi.IContainer;
+import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.nodedatabaserawschema.databaseinitializer.DatabaseInitializer;
 import ch.nolix.system.nodedatabaserawschema.schemareader.SchemaReader;
 import ch.nolix.system.nodedatabaserawschema.schemawriter.SchemaWriter;
@@ -23,7 +23,7 @@ public final class SchemaAdapter implements ISchemaAdapter {
 	private static final DatabaseInitializer databaseInitializer = new DatabaseInitializer();
 	
 	//static method
-	public static SchemaAdapter forDatabaseNode(final BaseNode<?> databaseNode) {
+	public static SchemaAdapter forDatabaseNode(final IMutableNode<?> databaseNode) {
 		return new SchemaAdapter(databaseNode);
 	}
 	
@@ -42,7 +42,7 @@ public final class SchemaAdapter implements ISchemaAdapter {
 	private final SchemaWriter schemaWriter;
 	
 	//constructor
-	private SchemaAdapter(final BaseNode<?> databaseNode) {
+	private SchemaAdapter(final IMutableNode<?> databaseNode) {
 		
 		databaseInitializer.initializeDatabaseIfNotInitialized(databaseNode);
 		

@@ -2,8 +2,8 @@
 package ch.nolix.system.nodedatabaserawdata.datareader;
 
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.coreapi.containerapi.IContainer;
+import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.nodedatabaserawdata.structure.EntityNodeSearcher;
 import ch.nolix.system.sqlrawdata.datadto.LoadedRecordDTO;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedContentFieldDTO;
@@ -19,7 +19,7 @@ public final class LoadedRecordDTOMapper {
 	
 	//method
 	public ILoadedRecordDTO createLoadedRecordDTOFromRecordNode(
-		final BaseNode<?> recordNode,
+		final IMutableNode<?> recordNode,
 		final ITableInfo tableInfo
 	) {
 		return
@@ -32,7 +32,7 @@ public final class LoadedRecordDTOMapper {
 	
 	//method
 	private IContainer<ILoadedContentFieldDTO> createContentFieldsFromRecordNode(
-		final BaseNode<?> entityNode,
+		final IMutableNode<?> entityNode,
 		final ITableInfo tableInfo
 	) {
 		
@@ -48,7 +48,7 @@ public final class LoadedRecordDTOMapper {
 	}
 	
 	//method
-	private String getIdFromRecordNode(final BaseNode<?> recordNode) {
+	private String getIdFromRecordNode(final IMutableNode<?> recordNode) {
 		
 		final var idNode = entityNodeSearcher.getRefIdNodeFromRecordNode(recordNode);
 		
@@ -56,7 +56,7 @@ public final class LoadedRecordDTOMapper {
 	}
 	
 	//method
-	private String getSaveStampFromRecordNode(BaseNode<?> recordNode) {
+	private String getSaveStampFromRecordNode(IMutableNode<?> recordNode) {
 		
 		final var saveStampNode = entityNodeSearcher.getRefSaveStampNodeFromRecordNode(recordNode);
 		

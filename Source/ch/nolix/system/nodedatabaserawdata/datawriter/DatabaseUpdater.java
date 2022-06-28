@@ -2,10 +2,10 @@
 package ch.nolix.system.nodedatabaserawdata.datawriter;
 
 //own imports
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.exception.ResourceWasChangedInTheMeanwhileException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
+import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.nodedatabaserawdata.structure.EntityNodeSearcher;
 import ch.nolix.system.nodedatabaserawdata.structure.TableNodeSearcher;
 import ch.nolix.system.nodedatabaserawschema.structure.DatabaseNodeSearcher;
@@ -38,7 +38,7 @@ final class DatabaseUpdater {
 	
 	//method
 	public void deleteEntriesFromMultiReference(
-		final BaseNode<?> databaseNode,
+		final IMutableNode<?> databaseNode,
 		final ITableInfo tableInfo,
 		final String entityId,
 		final IColumnInfo multiReferenceColumnInfo
@@ -58,7 +58,7 @@ final class DatabaseUpdater {
 	
 	//method
 	public void deleteEntriesFromMultiValue(
-		final BaseNode<?> databaseNode,
+		final IMutableNode<?> databaseNode,
 		final ITableInfo tableInfo,
 		final String entityId,
 		final IColumnInfo multiValueColumnInfo
@@ -78,7 +78,7 @@ final class DatabaseUpdater {
 	
 	//method
 	public void deleteEntryFromMultiReference(
-		final BaseNode<?> databaseNode,
+		final IMutableNode<?> databaseNode,
 		final ITableInfo tableInfo,
 		final String entityId,
 		final IColumnInfo multiReferencedColumnInfo,
@@ -99,7 +99,7 @@ final class DatabaseUpdater {
 	
 	//method
 	public void deleteEntryFromMultiValue(
-		final BaseNode<?> databaseNode,
+		final IMutableNode<?> databaseNode,
 		final ITableInfo tableInfo,
 		final String entityId,
 		final IColumnInfo multiValueColumnInfo,
@@ -120,7 +120,7 @@ final class DatabaseUpdater {
 	
 	//method
 	public void deleteRecordFromTable(
-		final BaseNode<?> database,
+		final IMutableNode<?> database,
 		final String tableName,
 		final IEntityHeadDTO entity
 	) {
@@ -138,7 +138,7 @@ final class DatabaseUpdater {
 	}
 	
 	//method
-	public void expectGivenSchemaTimestamp(final BaseNode<?> databaseNode, final ITime schemaTimestamp) {
+	public void expectGivenSchemaTimestamp(final IMutableNode<?> databaseNode, final ITime schemaTimestamp) {
 		
 		final var databasePropertiesNode =
 		databaseNodeSearcher.getRefDatabasePropertiesNodeFromDatabaseNode(databaseNode);
@@ -153,7 +153,7 @@ final class DatabaseUpdater {
 	
 	//method
 	public void insertEntryIntoMultiReference(
-		final BaseNode<?> databaseNode,
+		final IMutableNode<?> databaseNode,
 		final ITableInfo tableInfo,
 		final String entityId,
 		final IColumnInfo multiReferenceColumnInfo,
@@ -174,7 +174,7 @@ final class DatabaseUpdater {
 	
 	//method
 	public void insertEntryIntoMultiValue(
-		final BaseNode<?> databaseNode,
+		final IMutableNode<?> databaseNode,
 		final ITableInfo tableInfo,
 		final String entityId,
 		final IColumnInfo multiValueColumnInfo,
@@ -195,7 +195,7 @@ final class DatabaseUpdater {
 	
 	//method
 	public void insertRecordIntoTable(
-		final BaseNode<?> database,
+		final IMutableNode<?> database,
 		final ITableInfo tableInfo,
 		final IRecordDTO pRecord
 	) {
@@ -216,7 +216,7 @@ final class DatabaseUpdater {
 	}
 	
 	//method
-	public void setEntityAsUpdated(final BaseNode<?> database, final String tableName, final IEntityHeadDTO entity) {
+	public void setEntityAsUpdated(final IMutableNode<?> database, final String tableName, final IEntityHeadDTO entity) {
 		
 		final var tableNode =
 		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(database, tableName);
@@ -239,7 +239,7 @@ final class DatabaseUpdater {
 	
 	//method
 	public void updateRecordOnTable(
-		final BaseNode<?> database,
+		final IMutableNode<?> database,
 		final ITableInfo tableInfo,
 		final IRecordUpdateDTO recordUdate
 	) {
@@ -254,7 +254,7 @@ final class DatabaseUpdater {
 	
 	//method
 	private void updateEntityNode(
-		final BaseNode<?> recordNode,
+		final IMutableNode<?> recordNode,
 		final ITableInfo tableInfo,
 		final IRecordUpdateDTO recordUdate
 	) {

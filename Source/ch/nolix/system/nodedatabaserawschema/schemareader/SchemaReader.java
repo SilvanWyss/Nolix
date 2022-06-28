@@ -1,10 +1,10 @@
 //package declaration
 package ch.nolix.system.nodedatabaserawschema.schemareader;
 
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.coreapi.containerapi.IContainer;
+import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.nodedatabaserawschema.structure.ColumnNodeSearcher;
 import ch.nolix.system.nodedatabaserawschema.structure.DatabaseNodeSearcher;
 import ch.nolix.system.nodedatabaserawschema.structure.DatabasePropertiesNodeSearcher;
@@ -44,10 +44,10 @@ public final class SchemaReader implements ISchemaReader {
 	private final CloseController closeController = new CloseController(this);
 	
 	//attribute
-	private final BaseNode<?> databaseNode;
+	private final IMutableNode<?> databaseNode;
 	
 	//constructor
-	public SchemaReader(final BaseNode<?> databaseNode) {
+	public SchemaReader(final IMutableNode<?> databaseNode) {
 		
 		GlobalValidator.assertThat(databaseNode).thatIsNamed("database Node").isNotNull();
 		
@@ -171,13 +171,13 @@ public final class SchemaReader implements ISchemaReader {
 	}
 	
 	//method
-	private IContainer<IColumnDTO> loadColumnsFromTableNode(final BaseNode<?> tableNode) {
+	private IContainer<IColumnDTO> loadColumnsFromTableNode(final IMutableNode<?> tableNode) {
 		return
 		tableNodeSearcher.getRefColumnNodesFromTableNode(tableNode).to(columnDTOMapper::createColumnDTOFromColumnNode);
 	}
 	
 	//method
-	private ITableDTO loadTableFromTableNode(final BaseNode<?> tableNode) {
+	private ITableDTO loadTableFromTableNode(final IMutableNode<?> tableNode) {
 		return
 		new TableDTO(
 			tableNodeSearcher.getRefIdNodeFromTableNode(tableNode).getSingleChildNodeHeader(),

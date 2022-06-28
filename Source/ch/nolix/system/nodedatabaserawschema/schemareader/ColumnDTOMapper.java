@@ -2,7 +2,7 @@
 package ch.nolix.system.nodedatabaserawschema.schemareader;
 
 //own imports
-import ch.nolix.core.document.node.BaseNode;
+import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.nodedatabaserawschema.structure.ColumnNodeSearcher;
 import ch.nolix.system.objectschema.schemadto.ColumnDTO;
 import ch.nolix.system.objectschema.schemadto.ParametrizedPropertyTypeDTO;
@@ -18,7 +18,7 @@ final class ColumnDTOMapper {
 	new ParametrizedPropertyTypeDTOMapper();
 	
 	//method
-	public ColumnDTO createColumnDTOFromColumnNode(final BaseNode<?> columnNode) {
+	public ColumnDTO createColumnDTOFromColumnNode(final IMutableNode<?> columnNode) {
 		return
 		new ColumnDTO(
 			getIdFromColumnNode(columnNode),
@@ -28,17 +28,17 @@ final class ColumnDTOMapper {
 	}
 	
 	//method
-	private String getIdFromColumnNode(final BaseNode<?> columnNode) {
+	private String getIdFromColumnNode(final IMutableNode<?> columnNode) {
 		return columnNodeSearcher.getRefIdNodeFromColumnNode(columnNode).getSingleChildNodeHeader();
 	}
 	
 	//method
-	private String getNameFromColumnNode(final BaseNode<?> columnNode) {
+	private String getNameFromColumnNode(final IMutableNode<?> columnNode) {
 		return columnNodeSearcher.getRefNameNodeFromColumnNode(columnNode).getSingleChildNodeHeader();
 	}
 	
 	//method
-	private ParametrizedPropertyTypeDTO createParametrizedPropertyTypeFromColumnNode(final BaseNode<?> columnNode) {
+	private ParametrizedPropertyTypeDTO createParametrizedPropertyTypeFromColumnNode(final IMutableNode<?> columnNode) {
 		
 		final var parametrizedPropertyTypeNode =
 		columnNodeSearcher.getRefParametrizedPropertyTypeNodeFromColumnNode(columnNode);

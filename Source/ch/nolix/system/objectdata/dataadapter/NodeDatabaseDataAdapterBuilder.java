@@ -4,7 +4,7 @@ package ch.nolix.system.objectdata.dataadapter;
 //own imports
 import ch.nolix.core.builder.argumentcapturer.WithNameCapturer;
 import ch.nolix.core.builder.terminalargumentcapturer.UsingSchemaTerminalCapturer;
-import ch.nolix.core.document.node.BaseNode;
+import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.objectdata.data.DataImplementation;
 import ch.nolix.systemapi.objectdataapi.dataapi.ISchema;
 
@@ -19,7 +19,7 @@ WithNameCapturer<
 > {
 	
 	//constructor
-	public NodeDatabaseDataAdapterBuilder(final BaseNode<?> nodeDatabase) {
+	public NodeDatabaseDataAdapterBuilder(final IMutableNode<?> nodeDatabase) {
 		
 		super(new UsingSchemaTerminalCapturer<>());
 		
@@ -27,7 +27,7 @@ WithNameCapturer<
 	}
 	
 	//method
-	private NodeDatabaseDataAdapter build(final BaseNode<?> nodeDatabase) {
+	private NodeDatabaseDataAdapter build(final IMutableNode<?> nodeDatabase) {
 		return		
 		new NodeDatabaseDataAdapter(
 			getName(),

@@ -2,14 +2,14 @@
 package ch.nolix.system.nodedatabaserawschema.structure;
 
 //own imports
-import ch.nolix.core.document.node.BaseNode;
+import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.time.moment.Time;
 
 //class
 public final class DatabasePropertiesNodeSearcher {
 	
 	//method
-	public Time getSchemaTimestampFromDatabasePropertiesNode(final BaseNode<?> databasePropertiesNode) {
+	public Time getSchemaTimestampFromDatabasePropertiesNode(final IMutableNode<?> databasePropertiesNode) {
 		
 		final var schemaTimeStampNode = getRefSchemaTimestampNodeFromDatabasePropertiesNode(databasePropertiesNode);
 		
@@ -17,7 +17,7 @@ public final class DatabasePropertiesNodeSearcher {
 	}
 	
 	//method
-	public BaseNode<?> getRefSchemaTimestampNodeFromDatabasePropertiesNode(final BaseNode<?> databasePropertiesNode) {
+	public IMutableNode<?> getRefSchemaTimestampNodeFromDatabasePropertiesNode(final IMutableNode<?> databasePropertiesNode) {
 		return databasePropertiesNode.getRefFirstChildNodeWithHeader(SubNodeHeaderCatalogue.SCHEMA_TIMESTAMP);
 	}
 }

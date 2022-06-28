@@ -2,7 +2,7 @@
 package ch.nolix.system.nodedatabaserawschema.databaseschemainspector;
 
 //own imports
-import ch.nolix.core.document.node.BaseNode;
+import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.nodedatabaserawschema.structure.SubNodeHeaderCatalogue;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.DatabaseSchemaState;
 
@@ -10,7 +10,7 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.DatabaseSchemaState;
 public final class DatabaseSchemaInspector {
 	
 	//method
-	public DatabaseSchemaState getDatabaseSchemaState(final BaseNode<?> databaseNode) {
+	public DatabaseSchemaState getDatabaseSchemaState(final IMutableNode<?> databaseNode) {
 				
 		if (databaseIsInitialized(databaseNode)) {
 			return DatabaseSchemaState.INITIALIZED;
@@ -24,14 +24,14 @@ public final class DatabaseSchemaInspector {
 	}
 	
 	//method
-	private boolean databaseIsInitialized(final BaseNode<?> databaseNode) {
+	private boolean databaseIsInitialized(final IMutableNode<?> databaseNode) {
 		return 
 		databaseNode.hasHeader(SubNodeHeaderCatalogue.DATABASE)
 		&& databaseNode.containsChildNodeWithHeader(SubNodeHeaderCatalogue.DATABASE_PROPERTIES);
 	}
 	
 	//method
-	private boolean databaseIsUnitialized(final BaseNode<?> databaseNode) {
+	private boolean databaseIsUnitialized(final IMutableNode<?> databaseNode) {
 		return (!databaseNode.hasHeader() && !databaseNode.containsChildNodes());
 	}
 }

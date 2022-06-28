@@ -2,15 +2,15 @@
 package ch.nolix.system.nodedatabaserawdata.structure;
 
 //own imports
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.coreapi.containerapi.IContainer;
+import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.nodedatabaserawdata.tabledefinition.FieldIndexCatalogue;
 
 //class
 public final class TableNodeSearcher {
 	
 	//method
-	public BaseNode<?> getRefRecordNodeFromTableNode(final BaseNode<?> tableNode, final String id) {
+	public IMutableNode<?> getRefRecordNodeFromTableNode(final IMutableNode<?> tableNode, final String id) {
 		return
 		tableNode.getRefFirstChildNodeThat(
 			a ->
@@ -20,7 +20,7 @@ public final class TableNodeSearcher {
 	}
 	
 	//method
-	public BaseNode<?> getRefEntityNodeFromTableNodeOrNull(final BaseNode<?> tableNode, final String id) {
+	public IMutableNode<?> getRefEntityNodeFromTableNodeOrNull(final IMutableNode<?> tableNode, final String id) {
 		return
 		tableNode.getRefFirstChildNodeThatOrNull(
 			a ->
@@ -30,14 +30,14 @@ public final class TableNodeSearcher {
 	}
 	
 	//method
-	public IContainer<BaseNode<?>> getRefRecordNodesFromTableNode(final BaseNode<?> tableNode) {
+	public IContainer<IMutableNode<?>> getRefRecordNodesFromTableNode(final IMutableNode<?> tableNode) {
 		
 		//TODO: Refactor this.
 		return tableNode.getRefChildNodesWithHeader(SubNodeHeaderCatalogue.RECORD).asContainerWithElementsOfEvaluatedType();
 	}
 	
 	//method
-	public BaseNode<?> removeAndGetRefRecordNodeFromTableNode(BaseNode<?> tableNode, String id) {
+	public IMutableNode<?> removeAndGetRefRecordNodeFromTableNode(IMutableNode<?> tableNode, String id) {
 		return
 		tableNode.removeAndGetRefFirstChildNodeThat(
 			a ->
@@ -47,14 +47,14 @@ public final class TableNodeSearcher {
 	}
 	
 	//method
-	public boolean tableNodeContainsRecordNodeWithGivenId(final BaseNode<?> tableNode, final String id) {
+	public boolean tableNodeContainsRecordNodeWithGivenId(final IMutableNode<?> tableNode, final String id) {
 		return
 		tableNodeContainsRecordNodeWhoseFieldAtGivenIndexHasGivenHeader(tableNode, FieldIndexCatalogue.ID_INDEX, id);
 	}
 	
 	//method
 	public boolean tableNodeContainsRecordNodeWhoseFieldAtGivenIndexContainsGivenValue(
-		final BaseNode<?> tableNode,
+		final IMutableNode<?> tableNode,
 		final int valueIndex,
 		final String value
 	) {
@@ -74,7 +74,7 @@ public final class TableNodeSearcher {
 	
 	//method
 	public boolean tableNodeContainsRecordNodeWhoseFieldAtGivenIndexHasGivenHeader(
-		final BaseNode<?> tableNode,
+		final IMutableNode<?> tableNode,
 		final int valueIndex,
 		final String header
 	) {

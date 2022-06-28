@@ -2,8 +2,9 @@
 package ch.nolix.system.nodedatabaserawdata.datawriter;
 
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.document.node.BaseNode;
+import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.functionuniversalapi.IElementTaker;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDTO;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordDTO;
@@ -22,13 +23,13 @@ final class InternalDataWriter {
 	private int saveCount;
 	
 	//attribute
-	private final BaseNode<?> nodeDatabase;
+	private final IMutableNode<?> nodeDatabase;
 	
 	//multi-attribute
-	private final LinkedList<IElementTaker<BaseNode<?>>> changeActions = new LinkedList<>();
+	private final LinkedList<IElementTaker<IMutableNode<?>>> changeActions = new LinkedList<>();
 	
 	//constructor
-	public InternalDataWriter(final BaseNode<?> nodeDatabase) {
+	public InternalDataWriter(final IMutableNode<?> nodeDatabase) {
 		
 		GlobalValidator.assertThat(nodeDatabase).thatIsNamed("node database").isNotNull();
 		
@@ -170,14 +171,14 @@ final class InternalDataWriter {
 	}
 	
 	//method
-	private void addChangeAction(final IElementTaker<BaseNode<?>> changeAction) {
+	private void addChangeAction(final IElementTaker<IMutableNode<?>> changeAction) {
 		changeActions.addAtEnd(changeAction);
 	}
 	
 	// method
-	private BaseNode<?> createNodeDatabaseWithChanges() {
+	private IMutableNode<?> createNodeDatabaseWithChanges() {
 		
-		final var newNodeDatabase = nodeDatabase.getCopy();
+		final var newNodeDatabase = MutableNode.fromNode(nodeDatabase);
 		for (final var ca : changeActions) {
 			ca.run(newNodeDatabase);
 		}

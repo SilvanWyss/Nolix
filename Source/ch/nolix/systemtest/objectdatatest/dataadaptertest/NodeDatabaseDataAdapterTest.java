@@ -2,7 +2,7 @@
 package ch.nolix.systemtest.objectdatatest.dataadaptertest;
 
 //own imports
-import ch.nolix.core.document.node.Node;
+import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
@@ -39,7 +39,7 @@ public final class NodeDatabaseDataAdapterTest extends Test {
 	public void testCase_creation() {
 		
 		//setup
-		final var nodeDatabase = new Node();
+		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType();
 		
 		//execution
@@ -55,7 +55,7 @@ public final class NodeDatabaseDataAdapterTest extends Test {
 	public void testCase_insertEntity_whenGivenEntityContainsEmptyButMandatoryProperties() {
 		
 		//setup part 1
-		final var nodeDatabase = new Node();
+		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Person.class);
 		final var testUnit =
 		NodeDatabaseDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
@@ -78,7 +78,7 @@ public final class NodeDatabaseDataAdapterTest extends Test {
 	public void testCase_saveChangesAndReset_whenDoesNotHaveChanges() {
 		
 		//setup
-		final var nodeDatabase = new Node();
+		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(EmptyThing.class);
 		final var testUnit =
 		NodeDatabaseDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
@@ -95,7 +95,7 @@ public final class NodeDatabaseDataAdapterTest extends Test {
 	public void testCase_saveChangesAndReset_whenHasInsertedEmptyEntity() {
 		
 		//setup
-		final var nodeDatabase = new Node();
+		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(EmptyThing.class);
 		final var testUnit =
 		NodeDatabaseDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
@@ -113,7 +113,7 @@ public final class NodeDatabaseDataAdapterTest extends Test {
 	public void testCase_saveChangesAndReset_whenHasInsertedEntity() {
 		
 		//setup part 1
-		final var nodeDatabase = new Node();
+		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Person.class);
 		final var testUnit =
 		NodeDatabaseDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);

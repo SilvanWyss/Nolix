@@ -1,10 +1,10 @@
 //package declaration
 package ch.nolix.system.nodedatabaserawdata.datawriter;
 
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.coreapi.containerapi.IContainer;
+import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataWriter;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDTO;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordDTO;
@@ -25,7 +25,7 @@ public final class DataWriter implements IDataWriter {
 	private final IContainer<ITableInfo> tableInfos;
 	
 	//constructor
-	public DataWriter(final BaseNode<?> nodeDatabase, final IContainer<ITableInfo> tableInfos) {
+	public DataWriter(final IMutableNode<?> nodeDatabase, final IContainer<ITableInfo> tableInfos) {
 		
 		GlobalValidator.assertThat(tableInfos).thatIsNamed("table definitions").isNotNull();
 		

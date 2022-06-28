@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.system.nodedatabaserawdata.dataandschemaadapter;
 
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.FileNode;
+import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.nodedatabaserawdata.dataadapter.DataAdapter;
 import ch.nolix.system.nodedatabaserawschema.schemaadapter.SchemaAdapter;
 import ch.nolix.system.rawdata.dataandschemaadapter.BaseDataAndSchemaAdapter;
@@ -11,7 +11,7 @@ import ch.nolix.system.rawdata.dataandschemaadapter.BaseDataAndSchemaAdapter;
 public final class DataAndSchemaAdapter extends BaseDataAndSchemaAdapter {
 	
 	//static method
-	public static DataAndSchemaAdapter forNodeDatabase(final BaseNode<?> nodeDatabase) {
+	public static DataAndSchemaAdapter forNodeDatabase(final IMutableNode<?> nodeDatabase) {
 		return new DataAndSchemaAdapter(nodeDatabase);
 	}
 	
@@ -21,7 +21,7 @@ public final class DataAndSchemaAdapter extends BaseDataAndSchemaAdapter {
 	}
 	
 	//constructor
-	private DataAndSchemaAdapter(final BaseNode<?> nodeDatabase) {
+	private DataAndSchemaAdapter(final IMutableNode<?> nodeDatabase) {
 		super(DataAdapter.forNodeDatabase(nodeDatabase), SchemaAdapter.forDatabaseNode(nodeDatabase));
 	}
 }

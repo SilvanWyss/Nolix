@@ -1,7 +1,7 @@
 package ch.nolix.systemtutorial.objectschematutorial.schemaadaptertutorial;
 
 //own imports
-import ch.nolix.core.document.node.Node;
+import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedBackReferenceType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedMultiReferenceType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedValueType;
@@ -14,7 +14,7 @@ public final class NodeSchemaAdapterTutorial {
 	
 	public static void main(String[] args) {
 		
-		final var database = new Node();
+		final var database = new MutableNode();
 		
 		try (final var nodeDatabaseSchemaAdapter = NodeSchemaAdapter.forDatabaseNode("CountryDatabase", database)) {
 			

@@ -2,7 +2,7 @@
 package ch.nolix.system.nodedatabaserawschema.schemareader;
 
 //own imports
-import ch.nolix.core.document.node.BaseNode;
+import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.nodedatabaserawschema.structure.TableNodeSearcher;
 import ch.nolix.system.objectschema.flatschemadto.FlatTableDTO;
 
@@ -13,7 +13,7 @@ final class FlatTableDTOMapper {
 	private static final TableNodeSearcher tableNodeSearcher = new TableNodeSearcher();
 	
 	//method
-	public FlatTableDTO createFlatTableDTOFromTableNode(final BaseNode<?> tableNode) {
+	public FlatTableDTO createFlatTableDTOFromTableNode(final IMutableNode<?> tableNode) {
 		
 		final var id = tableNodeSearcher.getRefIdNodeFromTableNode(tableNode).getSingleChildNodeHeader();
 		final var name = tableNodeSearcher.getRefNameNodeFromTableNode(tableNode).getSingleChildNodeHeader();
