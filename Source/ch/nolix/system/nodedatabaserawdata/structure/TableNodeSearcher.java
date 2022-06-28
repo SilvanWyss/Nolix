@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.nodedatabaserawdata.structure;
 
+//own imports
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.coreapi.containerapi.IContainer;
 import ch.nolix.system.nodedatabaserawdata.tabledefinition.FieldIndexCatalogue;
@@ -59,7 +60,7 @@ public final class TableNodeSearcher {
 	) {
 		return
 		tableNode.containsChildNodeThat(
-			(final BaseNode<?> a) -> {
+			(final var a) -> {
 				
 				if (!a.hasHeader(SubNodeHeaderCatalogue.RECORD)) {
 					return false;
