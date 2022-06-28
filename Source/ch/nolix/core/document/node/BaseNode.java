@@ -108,15 +108,6 @@ public abstract class BaseNode<T extends BaseNode<T>> implements INode<T>, Optio
 	
 	//method
 	/**
-	 * @param selector
-	 * @return true if the current {@link BaseNode} contains an attribute the given selector selects.
-	 */
-	public boolean containsChildNodeThat(final IElementTakerBooleanGetter<BaseNode<?>> selector) {
-		return getRefChildNodes().containsAny(selector);
-	}
-	
-	//method
-	/**
 	 * @return true if the current {@link BaseNode} contains attributes.
 	 */
 	public boolean containsChildNodes() {

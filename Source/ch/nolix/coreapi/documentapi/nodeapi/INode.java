@@ -38,6 +38,11 @@ public interface INode<N extends INode<N>> extends OptionalHeadered {
 	 * @return true if the current {@link INode} contains 1 child {@link INode}.
 	 */
 	boolean containsOneChildNode();
+	
+	//TODO: Complete.
+	default boolean containsChildNodeThat(IElementTakerBooleanGetter<INode<?>> selector) {
+		return getRefChildNodes().contains(selector);
+	}
 		
 	//method declaration
 	/**
