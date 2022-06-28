@@ -121,4 +121,14 @@ public interface IMutableNode<MN extends IMutableNode<MN>> extends INode<MN>, Op
 	 * the current {@link IMutableNode} does not contain a child {@link INode} with the given header.
 	 */
 	void removeFirstChildNodeWithHeader(String header);
+	
+	//method declaration
+	/**
+	 * Resets the child {@link INode}s of the current {@link IMutableNode} with the given childNodes.
+	 * 
+	 * @param childNodes
+	 * @return the current {@link IMutableNode}.
+	 * @throws RuntimeException if one of the given childNodes is null.
+	 */
+	MN setChildNodes(Iterable<? extends INode<?>> childNodes);
 }

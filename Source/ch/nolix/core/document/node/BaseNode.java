@@ -445,16 +445,14 @@ public abstract class BaseNode<T extends BaseNode<T>> implements INode<T>, Optio
 		removeChildNodes();
 	}
 	
+	//TODO: Complete.
 	//method
-	/**
-	 * Resets the attributes of the current {@link BaseNode} with the given attributes.
-	 * 
-	 * @param attributes
-	 * @param <BN> is the type of the given attributes.
-	 */
-	public <BN extends BaseNode<?>> void setChildNodes(final Iterable<BN> attributes) {
+	public T setChildNodes(final Iterable<? extends INode<?>> attributes) {
+		
 		removeChildNodes();
 		addChildNodes(attributes);
+		
+		return (T)this;
 	}
 	
 	//method
