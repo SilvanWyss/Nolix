@@ -11,7 +11,7 @@ import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.ObjectTest;
 
 //class
-public abstract class BaseNodeTest extends ObjectTest<BaseNode<?>> {
+public abstract class BaseNodeTest<BN extends BaseNode<BN>> extends ObjectTest<BN> {
 	
 	//TODO: Adjust this test cases.
 	/*

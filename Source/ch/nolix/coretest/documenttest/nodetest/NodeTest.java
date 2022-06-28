@@ -5,7 +5,7 @@ package ch.nolix.coretest.documenttest.nodetest;
 import ch.nolix.core.document.node.Node;
 
 //class
-public final class NodeTest extends BaseNodeTest {
+public final class NodeTest extends BaseNodeTest<Node> {
 	
 	//method
 	@Override

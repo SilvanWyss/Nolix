@@ -8,7 +8,7 @@ import ch.nolix.core.testing.basetest.Cleanup;
 import ch.nolix.coretest.documenttest.nodetest.BaseNodeTest;
 
 //class
-public final class FileNodeTest extends BaseNodeTest {
+public final class FileNodeTest extends BaseNodeTest<FileNode> {
 	
 	//method
 	@Cleanup
