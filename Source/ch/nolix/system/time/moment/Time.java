@@ -6,14 +6,15 @@ import java.time.Year;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 
+//own imports
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.time.TimeUnitCatalogue;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 import ch.nolix.systemapi.timeapi.timestructure.Month;
 import ch.nolix.systemapi.timeapi.timestructure.Weekday;
@@ -62,7 +63,7 @@ public final class Time implements ITime {
 	 * @return a new {@link Time} from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static Time fromSpecification(final BaseNode<?> specification) {
+	public static Time fromSpecification(final INode<?> specification) {
 		return fromString(specification.getSingleChildNodeHeader());
 	}
 	
