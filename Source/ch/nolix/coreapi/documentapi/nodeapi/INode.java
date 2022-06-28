@@ -94,6 +94,11 @@ public interface INode<N extends INode<N>> extends OptionalHeadered {
 	 */
 	N getRefFirstChildNodeThat(IElementTakerBooleanGetter<INode<?>> selector);
 	
+	//TODO: Complete.
+	default N getRefFirstChildNodeThatOrNull(IElementTakerBooleanGetter<INode<?>> selector) {
+		return getRefChildNodes().getRefFirstOrNull(selector);
+	}
+	
 	//method declaration
 	/**
 	 * @param header
