@@ -86,11 +86,7 @@ public final class Node extends BaseNode<Node> {
 	 * @throws UnrepresentingArgumentException if the given string does not represent a {@link Node}.
 	 */
 	public static Node fromString(final String string) {
-		
-		final var node = new Node();
-		node.resetFromString(string);
-		
-		return node;
+		return fromNode(MutableNode.fromString(string));
 	}
 	
 	//static method
