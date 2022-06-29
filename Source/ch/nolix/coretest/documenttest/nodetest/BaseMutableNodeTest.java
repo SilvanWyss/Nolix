@@ -195,8 +195,8 @@ public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extend
 	public void testCase_getRefAttributeAt() {
 		
 		//setup
-		final var testUnit =
-		Node.withChildNode(Node.withHeader("a"), Node.withHeader("b"), Node.withHeader("c"));
+		final var testUnit = createTestUnit();
+		testUnit.addChildNode(Node.withHeader("a"), Node.withHeader("b"), Node.withHeader("c"));
 		
 		//execution
 		final var result1 = testUnit.getRefChildNodeAt1BasedIndex(1);
@@ -279,7 +279,8 @@ public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extend
 	public void testCase_getRefOneAttribute_1A() {
 		
 		//setup
-		final var testUnit = Node.withChildNode(Node.withHeader("a"));
+		final var testUnit = createTestUnit();
+		testUnit.addChildNode(Node.withHeader("a"));
 		
 		//execution
 		final var result = testUnit.getRefSingleChildNode();
@@ -305,7 +306,8 @@ public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extend
 	public void testCase_toString_1() {
 		
 		//setup
-		final var testUnit = Node.withChildNode(Node.withHeader("a"), Node.withHeader("b"), Node.withHeader("c"));
+		final var testUnit = createTestUnit();
+		testUnit.addChildNode(Node.withHeader("a"), Node.withHeader("b"), Node.withHeader("c"));
 		
 		//execution
 		final var result = testUnit.toString();
