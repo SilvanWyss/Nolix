@@ -4,6 +4,7 @@ package ch.nolix.core.document.node;
 //own imports
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.IContainer;
@@ -33,6 +34,20 @@ public final class MutableNode extends BaseMutableNode<MutableNode> {
 		}
 		
 		mutableNode.addChildNodes(node.getRefChildNodes());
+		
+		return mutableNode;
+	}
+	
+	//static method
+	/**
+	 * @param string
+	 * @return a new {@link MutableNode} from the given string.
+	 * @throws UnrepresentingArgumentException if the given string does not represent a {@link MutableNode}.
+	 */
+	public static MutableNode fromString(final String string) {
+		
+		final var mutableNode = new MutableNode();
+		mutableNode.resetFromString(string);
 		
 		return mutableNode;
 	}
