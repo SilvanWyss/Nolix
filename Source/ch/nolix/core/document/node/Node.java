@@ -677,7 +677,7 @@ public final class Node extends BaseNode<Node> {
 	}
 	
 	//TOOD: Delete this method.
-	protected void reset() {
+	public void reset() {
 		removeHeader();
 		removeChildNodes();
 	}

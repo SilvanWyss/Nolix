@@ -427,7 +427,7 @@ public abstract class BaseNode<T extends BaseNode<T>> implements INode<T>, Optio
 	}
 	
 	//method declaration
-	protected abstract void reset();
+	public abstract void reset();
 	
 	//TODO: Complete.
 	//method
