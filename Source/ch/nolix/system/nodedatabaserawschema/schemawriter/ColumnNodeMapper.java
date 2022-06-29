@@ -15,16 +15,13 @@ public final class ColumnNodeMapper {
 	
 	//method
 	public Node createColumnNodeFrom(final IColumnDTO column) {
-		
-		final var node = new Node();
-		
-		node
-		.setHeader(SubNodeHeaderCatalogue.COLUMN)
-		.addChildNode(createIdNodeFrom(column))
-		.addChildNode(createNameNodeFrom(column))
-		.addChildNode(createParametrizedPropertyTypeNodeFrom(column));
-		
-		return node;
+		return
+		Node.withHeaderAndChildNode(
+			SubNodeHeaderCatalogue.COLUMN,
+			createIdNodeFrom(column),
+			createNameNodeFrom(column),
+			createParametrizedPropertyTypeNodeFrom(column)
+		);
 	}
 	
 	//method
