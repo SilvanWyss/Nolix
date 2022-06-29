@@ -1,8 +1,6 @@
 //package declaration
 package ch.nolix.core.document.xml;
 
-//own imports
-import ch.nolix.core.attributeuniversalapi.mutableoptionalattributeuniversalapi.OptionalNamable;
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.commontype.constant.CharacterCatalogue;
 import ch.nolix.core.container.main.LinkedList;
@@ -10,6 +8,7 @@ import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.coreapi.attributeuniversalapi.mutableoptionalattributeuniversalapi.OptionalNamable;
 import ch.nolix.coreapi.containerapi.IContainer;
 
 //class

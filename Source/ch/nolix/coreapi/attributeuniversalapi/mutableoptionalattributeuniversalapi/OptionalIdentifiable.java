@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.attributeuniversalapi.mutableoptionalattributeuniversalapi;
+package ch.nolix.coreapi.attributeuniversalapi.mutableoptionalattributeuniversalapi;
 
 import ch.nolix.coreapi.attributeuniversalapi.optionalattributeuniversalapi.OptionalIdentifiedByLong;
 
