@@ -32,7 +32,7 @@ public final class NodeSchemaAdapterTutorial {
 			
 			nodeDatabaseSchemaAdapter.addTable(cityTable).addTable(countryTable).saveChangesAndReset();
 			
-			System.out.println(database.toFormatedString());
+			System.out.println(database.toFormattedString());
 		}
 	}
 	

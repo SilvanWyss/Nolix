@@ -504,7 +504,7 @@ public abstract class BaseNode<T extends BaseNode<T>> implements INode<T>, Optio
 	 * and there exists already a file system item with the given path.
 	 */
 	public void saveToFile(final String path, final WriteMode writeMode) {
-		FileSystemAccessor.createFile(path, writeMode, toFormatedString());
+		FileSystemAccessor.createFile(path, writeMode, toFormattedString());
 	}
 	
 	//method
@@ -527,10 +527,10 @@ public abstract class BaseNode<T extends BaseNode<T>> implements INode<T>, Optio
 	
 	//method
 	/**
-	 * @return a formated {@link String} representation of the current {@link BaseNode}.
+	 * {@inheritDoc}
 	 */
-	public String toFormatedString() {
-		return toFormatedString(0);
+	public final String toFormattedString() {
+		return toFormattedString(0);
 	}
 	
 	//method
@@ -686,7 +686,7 @@ public abstract class BaseNode<T extends BaseNode<T>> implements INode<T>, Optio
 	 * @return a formated {@link String} representation of the current {@link BaseNode}
 	 * with as many leading tabulators as the given leading tabulator count says.
 	 */
-	private String toFormatedString(final int leadingTabulators) {
+	private String toFormattedString(final int leadingTabulators) {
 		
 		final var stringBuilder = new StringBuilder();
 		
@@ -718,7 +718,7 @@ public abstract class BaseNode<T extends BaseNode<T>> implements INode<T>, Optio
 				var index = 1;
 				for (final BaseNode<?> a : getRefChildNodes()) {
 					
-					stringBuilder.append(a.toFormatedString(leadingTabulators + 1));
+					stringBuilder.append(a.toFormattedString(leadingTabulators + 1));
 					
 					if (index < attributeCount) {
 						stringBuilder.append(CharacterCatalogue.COMMA);

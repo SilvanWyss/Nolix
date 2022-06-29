@@ -178,6 +178,12 @@ public interface INode<N extends INode<N>> extends OptionalHeadered {
 	
 	//method declaration
 	/**
+	 * @return a formatted {@link String} representation of the current {@link INode}.
+	 */
+	String toFormattedString();
+	
+	//method declaration
+	/**
 	 * @return the int the current {@link INode} represents.
 	 * @throws RuntimeException if the current {@link INode} does not represent an int.
 	 */

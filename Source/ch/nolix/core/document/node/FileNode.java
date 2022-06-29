@@ -325,8 +325,7 @@ public final class FileNode extends BaseMutableNode<FileNode> {
 		if (!isRootFileNode()) {
 			save();
 		} else {
-			//TODO: Implement.
-			//fileAccessor.overwriteFile(internalSpecification.toFormatedString());
+			fileAccessor.overwriteFile(internalSpecification.toFormattedString());
 		}
 	}
 }

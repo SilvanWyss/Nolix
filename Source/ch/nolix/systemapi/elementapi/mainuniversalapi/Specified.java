@@ -78,7 +78,7 @@ public interface Specified {
 	 * @return a formated {@link String} representation of the current {@link Specified}.
 	 */
 	default String toFormatedString() {
-		return getSpecification().toFormatedString();
+		return getSpecification().toFormattedString();
 	}
 	
 	//method
