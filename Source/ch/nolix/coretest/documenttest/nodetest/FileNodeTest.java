@@ -11,7 +11,12 @@ public final class FileNodeTest extends BaseMutableNodeTest<FileNode> {
 	//method
 	@Cleanup
 	public void cleanup() {
-		FileSystemAccessor.getFolderOfRunningJarFile().deleteFileSystemItem("fileNode");
+		
+		final var folderOfRunningJar = FileSystemAccessor.getFolderOfRunningJarFile();
+		
+		if (folderOfRunningJar.containsItem("fileNode")) {
+			FileSystemAccessor.getFolderOfRunningJarFile().deleteFileSystemItem("fileNode");
+		}
 	}
 	
 	//method
