@@ -238,7 +238,6 @@ public abstract class BaseNodeTest<BN extends BaseNode<BN>> extends ObjectTest<B
 		
 		//setup
 		final var testUnit = createTestUnit();
-		testUnit.reset();
 		
 		//execution
 		expectRunning(testUnit::getRefSingleChildNode).throwsException().ofType(InvalidArgumentException.class);

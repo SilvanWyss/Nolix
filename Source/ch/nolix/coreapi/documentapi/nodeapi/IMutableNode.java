@@ -136,6 +136,12 @@ public interface IMutableNode<MN extends IMutableNode<MN>> extends INode<MN>, Op
 	
 	//method declaration
 	/**
+	 * Removes the header and child {@link INode}s of the current {@link IMutableNode}.
+	 */
+	void reset();
+	
+	//method declaration
+	/**
 	 * Resets the child {@link INode}s of the current {@link IMutableNode} with the given childNodes.
 	 * 
 	 * @param childNodes

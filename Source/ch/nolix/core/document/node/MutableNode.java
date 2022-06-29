@@ -173,6 +173,16 @@ public final class MutableNode extends BaseMutableNode<MutableNode> {
 	 * {@inheritDoc}
 	 */
 	@Override
+	public void reset() {
+		removeHeader();
+		removeChildNodes();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public MutableNode setHeader(final String header) {
 		
 		GlobalValidator.assertThat(header).thatIsNamed(LowerCaseCatalogue.HEADER).isNotBlank();

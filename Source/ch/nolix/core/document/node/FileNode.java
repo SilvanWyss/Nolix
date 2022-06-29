@@ -239,6 +239,24 @@ public final class FileNode extends BaseMutableNode<FileNode> {
 		save();
 	}
 	
+	@Override
+	public void removeChildNodes() {
+		internalSpecification.removeChildNodes();
+		save();
+	}
+
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void removeHeader() {
+		
+		internalSpecification.removeHeader();
+		
+		save();
+	}
+	
 	//method
 	/**
 	 * {@inheritDoc}
@@ -247,6 +265,16 @@ public final class FileNode extends BaseMutableNode<FileNode> {
 	public void replaceFirstChildNodeWithGivenHeaderByGivenNode(final String header, final INode<?> node) {
 		internalSpecification.replaceFirstChildNodeWithGivenHeaderByGivenNode(header, node);
 		save();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void reset() {
+		removeHeader();
+		removeChildNodes();
 	}
 	
 	//method
@@ -265,24 +293,6 @@ public final class FileNode extends BaseMutableNode<FileNode> {
 		save();
 		
 		return this;
-	}
-
-	@Override
-	public void removeChildNodes() {
-		internalSpecification.removeChildNodes();
-		save();
-	}
-
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void removeHeader() {
-		
-		internalSpecification.removeHeader();
-		
-		save();
 	}
 	
 	//method
