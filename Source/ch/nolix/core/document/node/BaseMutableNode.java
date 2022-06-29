@@ -9,6 +9,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumen
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 
 //class
 public abstract class BaseMutableNode<MN extends BaseMutableNode<MN>> extends BaseNode<MN> implements IMutableNode<MN> {
@@ -83,6 +84,19 @@ public abstract class BaseMutableNode<MN extends BaseMutableNode<MN>> extends Ba
 		if (setAndGetEndIndex(string, 0) != string.length() - 1) {
 			throw UnrepresentingArgumentException.forArgumentAndType(string, Node.class);
 		}
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final MN setChildNodes(final Iterable<? extends INode<?>> attributes) {
+		
+		removeChildNodes();
+		addChildNodes(attributes);
+		
+		return asConcrete();
 	}
 	
 	//method declaration

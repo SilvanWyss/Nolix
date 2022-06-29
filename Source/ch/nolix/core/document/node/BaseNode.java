@@ -428,16 +428,6 @@ public abstract class BaseNode<T extends BaseNode<T>> implements INode<T>, Optio
 	//method declaration
 	public abstract void reset();
 	
-	//TODO: Complete.
-	//method
-	public T setChildNodes(final Iterable<? extends INode<?>> attributes) {
-		
-		removeChildNodes();
-		addChildNodes(attributes);
-		
-		return (T)this;
-	}
-	
 	//method
 	/**
 	 * Saves the current {@link BaseNode} to the file with the given file path.
