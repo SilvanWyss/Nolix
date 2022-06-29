@@ -2,6 +2,7 @@
 package ch.nolix.system.nodedatabaserawschema.schemawriter;
 
 //own imports
+import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.system.nodedatabaserawschema.structure.SubNodeHeaderCatalogue;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDTO;
@@ -15,14 +16,10 @@ public final class TableNodeMapper {
 	//method
 	public Node createTableNodeFrom(final ITableDTO table) {
 		
-		final var node = new Node();
+		final var childNodes = LinkedList.withElements(createIdNodeFrom(table), createNameNodeFrom(table));
+		childNodes.addAtEnd(createColumnNodesFrom(table));
 		
-		node
-		.setHeader(SubNodeHeaderCatalogue.TABLE)
-		.addChildNode(createIdNodeFrom(table), createNameNodeFrom(table))
-		.addChildNodes(createColumnNodesFrom(table));
-		
-		return node;
+		return Node.withHeaderAndChildNodes(SubNodeHeaderCatalogue.TABLE, childNodes);
 	}
 	
 	//method
