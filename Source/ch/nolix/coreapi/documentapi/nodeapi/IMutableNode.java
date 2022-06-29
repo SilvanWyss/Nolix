@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.coreapi.documentapi.nodeapi;
 
+//own imports
 import ch.nolix.coreapi.attributeuniversalapi.mutableoptionalattributeuniversalapi.OptionalHeaderable;
 import ch.nolix.coreapi.functionuniversalapi.IElementTakerBooleanGetter;
 
@@ -138,6 +139,14 @@ public interface IMutableNode<MN extends IMutableNode<MN>> extends INode<MN>, Op
 	 * Removes the header and child {@link INode}s of the current {@link IMutableNode}.
 	 */
 	void reset();
+	
+	//method declaration
+	/**
+	 * Resets the current {@link IMutableNode} from the file with the given file path.
+	 * 
+	 * @param filePath
+	 */
+	void resetFromFile(String filePath);
 	
 	//method declaration
 	/**

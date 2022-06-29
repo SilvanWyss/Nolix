@@ -1,12 +1,12 @@
 //package declaration
 package ch.nolix.core.document.node;
 
+//own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.commontype.constant.CharacterCatalogue;
 import ch.nolix.core.commontype.constant.StringCatalogue;
 import ch.nolix.core.container.pair.IntPair;
 import ch.nolix.core.document.xml.XMLNode;
-import ch.nolix.core.environment.filesystem.FileAccessor;
 import ch.nolix.core.environment.filesystem.FileSystemAccessor;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -436,21 +436,6 @@ public abstract class BaseNode<T extends BaseNode<T>> implements INode<T>, Optio
 		addChildNodes(attributes);
 		
 		return (T)this;
-	}
-	
-	//method
-	/**
-	 * Resets the current {@link BaseNode} from the file with the given file path.
-	 * 
-	 * @param filePath
-	 */
-	public void resetFromFile(final String filePath) {
-		resetFromString(
-			new FileAccessor(filePath)
-			.readFile()
-			.replace(String.valueOf(CharacterCatalogue.TABULATOR), StringCatalogue.EMPTY_STRING)
-			.replace(String.valueOf(CharacterCatalogue.NEW_LINE), StringCatalogue.EMPTY_STRING)
-		);
 	}
 	
 	//method

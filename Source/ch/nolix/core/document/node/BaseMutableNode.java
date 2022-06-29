@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.core.document.node;
 
+import ch.nolix.core.commontype.constant.CharacterCatalogue;
+import ch.nolix.core.commontype.constant.StringCatalogue;
+import ch.nolix.core.environment.filesystem.FileAccessor;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
@@ -51,6 +54,20 @@ public abstract class BaseMutableNode<MN extends BaseMutableNode<MN>> extends Ba
 		}
 		
 		return asConcrete();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void resetFromFile(final String filePath) {
+		resetFromString(
+			new FileAccessor(filePath)
+			.readFile()
+			.replace(String.valueOf(CharacterCatalogue.TABULATOR), StringCatalogue.EMPTY_STRING)
+			.replace(String.valueOf(CharacterCatalogue.NEW_LINE), StringCatalogue.EMPTY_STRING)
+		);
 	}
 	
 	//method declaration
