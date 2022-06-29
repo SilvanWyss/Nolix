@@ -657,18 +657,6 @@ public final class Node extends BaseNode<Node> {
 	
 	//method
 	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void replaceFirstChildNodeWithGivenHeaderByGivenChildNode(
-		final String header,
-		final INode<?> attribute
-	) {
-		attributes.replaceFirst(a -> a.hasHeader(header), Node.fromNode(attribute));
-	}
-	
-	//method
-	/**
 	 * Sets the header of the current {@link Node}.
 	 * 
 	 * @param header

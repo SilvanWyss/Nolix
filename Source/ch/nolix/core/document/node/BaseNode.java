@@ -426,16 +426,6 @@ public abstract class BaseNode<T extends BaseNode<T>> implements INode<T>, Optio
 		removeFirstChildNodeThat(a -> a.hasHeader(header));
 	}
 	
-	//method declaration
-	/**
-	 * Replaces the first attribute of the current {@link BaseNode}, that has the given header, with
-	 * the given attribute.
-	 * 
-	 * @param header
-	 * @param attribute
-	 */
-	public abstract void replaceFirstChildNodeWithGivenHeaderByGivenChildNode(String header, INode<?> attribute);
-	
 	//method
 	/**
 	 * Removes the header and the attributes of the current {@link BaseNode}.

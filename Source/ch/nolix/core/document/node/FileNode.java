@@ -10,6 +10,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionuniversalapi.IElementTakerBooleanGetter;
 
@@ -23,7 +24,7 @@ import ch.nolix.coreapi.functionuniversalapi.IElementTakerBooleanGetter;
 public final class FileNode extends BaseMutableNode<FileNode> {
 
 	//attribute
-	private final Node internalSpecification;
+	private final IMutableNode<?> internalSpecification;
 	
 	//optional attribute
 	private final FileAccessor fileAccessor;
@@ -54,7 +55,7 @@ public final class FileNode extends BaseMutableNode<FileNode> {
 			throw InvalidArgumentException.forArgumentAndErrorPredicate(filePath, "is not a file");
 		}
 		
-		internalSpecification = Node.fromFile(filePath);
+		internalSpecification = MutableNode.fromFile(filePath);
 		
 		parentFileNode = null;
 	}
@@ -68,7 +69,7 @@ public final class FileNode extends BaseMutableNode<FileNode> {
 	 * @param parentFileNode
 	 * @param internalSpecification
 	 */
-	private FileNode(final FileNode parentFileNode, final Node internalSpecification) {
+	private FileNode(final FileNode parentFileNode, final IMutableNode<?> internalSpecification) {
 		
 		//Asserts that the given simple persistent specification is not null.
 		GlobalValidator
@@ -179,7 +180,7 @@ public final class FileNode extends BaseMutableNode<FileNode> {
 		return
 		ReadContainer.forIterable(
 			internalSpecification.getRefChildNodes().to(
-				a -> new FileNode(getRefRootFileNode(), (Node)a)
+				a -> new FileNode(getRefRootFileNode(), (IMutableNode<?>)a)
 			)
 		);
 	}
@@ -193,7 +194,7 @@ public final class FileNode extends BaseMutableNode<FileNode> {
 	@Override
 	public FileNode getRefSingleChildNode() {
 		return new FileNode(
-			getRefRootFileNode(), (Node)internalSpecification.getRefSingleChildNode()
+			getRefRootFileNode(), (IMutableNode<?>)internalSpecification.getRefSingleChildNode()
 		);
 	}
 
@@ -243,11 +244,8 @@ public final class FileNode extends BaseMutableNode<FileNode> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void replaceFirstChildNodeWithGivenHeaderByGivenChildNode(
-		final String header,
-		final INode<?> attribute
-	) {
-		internalSpecification.replaceFirstChildNodeWithGivenHeaderByGivenChildNode(header, attribute);
+	public void replaceFirstChildNodeWithGivenHeaderByGivenNode(final String header, final INode<?> node) {
+		internalSpecification.replaceFirstChildNodeWithGivenHeaderByGivenNode(header, node);
 		save();
 	}
 	
@@ -327,7 +325,8 @@ public final class FileNode extends BaseMutableNode<FileNode> {
 		if (!isRootFileNode()) {
 			save();
 		} else {
-			fileAccessor.overwriteFile(internalSpecification.toFormatedString());
+			//TODO: Implement.
+			//fileAccessor.overwriteFile(internalSpecification.toFormatedString());
 		}
 	}
 }

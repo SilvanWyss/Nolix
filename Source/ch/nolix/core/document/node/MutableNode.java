@@ -164,7 +164,7 @@ public final class MutableNode extends BaseMutableNode<MutableNode> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void replaceFirstChildNodeWithGivenHeaderByGivenChildNode(final String header, final INode<?> childNode) {
+	public void replaceFirstChildNodeWithGivenHeaderByGivenNode(final String header, final INode<?> childNode) {
 		childNodes.replaceFirst(a -> a.hasHeader(header), fromNode(childNode));
 	}
 	
