@@ -142,6 +142,15 @@ public interface IMutableNode<MN extends IMutableNode<MN>> extends INode<MN>, Op
 	
 	//method declaration
 	/**
+	 * Resets the current {@link IMutableNode} from the given string.
+	 * 
+	 * @param string
+	 * @throws RuntimeException if the given string does not represent a {@link IMutableNode}.
+	 */
+	void resetFromString(String string);
+	
+	//method declaration
+	/**
 	 * Resets the child {@link INode}s of the current {@link IMutableNode} with the given childNodes.
 	 * 
 	 * @param childNodes
