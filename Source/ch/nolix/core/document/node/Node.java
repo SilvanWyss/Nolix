@@ -38,15 +38,11 @@ public final class Node extends BaseNode<Node> {
 	/**
 	 * @param filePath
 	 * @return a new {@link Node} from the file with the given file path.
-	 * @throws InvalidArgumentException if the given file path is not valid.
-	 * @throws InvalidArgumentException if the file with the given file path does not represent a {@link Node}.
+	 * @throws InvalidArgumentException if the given filePath is not valid.
+	 * @throws UnrepresentingArgumentException if the file with the given filePath does not represent a {@link Node}.
 	 */
 	public static Node fromFile(final String filePath) {
-		
-		final var node = new Node();
-		node.resetFromFile(filePath);
-		
-		return node;
+		return fromNode(MutableNode.fromFile(filePath));
 	}
 	
 	//static method

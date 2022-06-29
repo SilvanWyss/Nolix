@@ -4,6 +4,7 @@ package ch.nolix.core.document.node;
 //own imports
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
@@ -14,10 +15,19 @@ import ch.nolix.coreapi.functionuniversalapi.IElementTakerBooleanGetter;
 //class
 public final class MutableNode extends BaseMutableNode<MutableNode> {
 	
-	//TODO: Complete.
 	//static method
+	/**
+	 * @param filePath
+	 * @return a new {@link MutableNode} from the file with the given filePath.
+	 * @throws InvalidArgumentException if the given filePath is not valid.
+	 * @throws UnrepresentingArgumentException if the file with the given filePath does not represent a {@link MutableNode}.
+	 */
 	public static MutableNode fromFile(final String filePath) {
-		return fromNode(Node.fromFile(filePath));
+		
+		final var mutableNode = new MutableNode();
+		mutableNode.resetFromFile(filePath);
+		
+		return mutableNode;
 	}
 	
 	//static method
