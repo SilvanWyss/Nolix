@@ -440,22 +440,6 @@ public abstract class BaseNode<T extends BaseNode<T>> implements INode<T>, Optio
 	
 	//method
 	/**
-	 * Resets the current {@link BaseNode} from the given string.
-	 * 
-	 * @param string
-	 * @throws InvalidArgumentException if the given string is not valid.
-	 */
-	public void resetFromString(final String string) {
-		
-		reset();
-		
-		if (setAndGetEndIndex(string, 0) != string.length() - 1) {
-			throw UnrepresentingArgumentException.forArgumentAndType(string, Node.class);
-		}
-	}
-	
-	//method
-	/**
 	 * Saves the current {@link BaseNode} to the file with the given file path.
 	 * 
 	 * @param path
@@ -594,60 +578,6 @@ public abstract class BaseNode<T extends BaseNode<T>> implements INode<T>, Optio
 		}
 		
 		return lXMLNode;
-	}
-	
-	//method
-	int setAndGetEndIndex(final String substring, final int startIndex) {
-		
-		var index = startIndex;
-		
-		var endIndex = -1;
-		while (index < substring.length()) {
-			
-			var character = substring.charAt(index);
-			
-			if (character == '(') {
-				break;
-			} else if (character == ',' || character == ')') {
-				endIndex = index - 1;
-				break;
-			}
-			
-			index++;
-		}
-		
-		if (index > startIndex) {
-			this.setHeader(getOriginStringFromEscapeString(substring.substring(startIndex, index)));
-		}
-		
-		if (index == substring.length()) {
-			return (index - 1);
-		}
-		
-		if (endIndex != -1) {
-			return endIndex;
-		}
-		
-		if (index < substring.length()) {
-			var node = new Node();
-			index = node.setAndGetEndIndex(substring, index + 1) + 1;
-			this.addChildNode(node);
-		}
-		
-		while (index < substring.length()) {
-			switch (substring.charAt(index)) {
-				case ',':
-					var node = new Node();
-					index = node.setAndGetEndIndex(substring, index + 1) + 1;
-					this.addChildNode(node);
-					break;
-				case ')':
-					return index;
-				default:
-			}
-		}
-		
-		throw UnrepresentingArgumentException.forArgumentAndType(substring, Node.class);
 	}
 	
 	//method

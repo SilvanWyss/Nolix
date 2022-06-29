@@ -1,10 +1,11 @@
 //package declaration
 package ch.nolix.core.document.node;
 
+//own imports
 import ch.nolix.core.commontype.constant.CharacterCatalogue;
 import ch.nolix.core.commontype.constant.StringCatalogue;
 import ch.nolix.core.environment.filesystem.FileAccessor;
-//own imports
+import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
@@ -70,9 +71,77 @@ public abstract class BaseMutableNode<MN extends BaseMutableNode<MN>> extends Ba
 		);
 	}
 	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void resetFromString(final String string) {
+		
+		reset();
+		
+		if (setAndGetEndIndex(string, 0) != string.length() - 1) {
+			throw UnrepresentingArgumentException.forArgumentAndType(string, Node.class);
+		}
+	}
+	
 	//method declaration
 	/**
 	 * @return the current {@link BaseMutableNode}.
 	 */
 	protected abstract MN asConcrete();
+	
+	//method
+	protected final int setAndGetEndIndex(final String substring, final int startIndex) {
+		
+		var index = startIndex;
+		
+		var endIndex = -1;
+		while (index < substring.length()) {
+			
+			var character = substring.charAt(index);
+			
+			if (character == '(') {
+				break;
+			} else if (character == ',' || character == ')') {
+				endIndex = index - 1;
+				break;
+			}
+			
+			index++;
+		}
+		
+		if (index > startIndex) {
+			this.setHeader(getOriginStringFromEscapeString(substring.substring(startIndex, index)));
+		}
+		
+		if (index == substring.length()) {
+			return (index - 1);
+		}
+		
+		if (endIndex != -1) {
+			return endIndex;
+		}
+		
+		if (index < substring.length()) {
+			var node = new MutableNode();
+			index = node.setAndGetEndIndex(substring, index + 1) + 1;
+			this.addChildNode(node);
+		}
+		
+		while (index < substring.length()) {
+			switch (substring.charAt(index)) {
+				case ',':
+					var node = new MutableNode();
+					index = node.setAndGetEndIndex(substring, index + 1) + 1;
+					this.addChildNode(node);
+					break;
+				case ')':
+					return index;
+				default:
+			}
+		}
+		
+		throw UnrepresentingArgumentException.forArgumentAndType(substring, Node.class);
+	}
 }
