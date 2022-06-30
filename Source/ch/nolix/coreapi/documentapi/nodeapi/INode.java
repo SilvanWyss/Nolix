@@ -28,6 +28,13 @@ public interface INode<N extends INode<N>> extends OptionalHeadered {
 	
 	//method declaration
 	/**
+	 * @param selector
+	 * @return true if the current {@link INode} contains a child {@link INode} the given selector selects.
+	 */
+	boolean containsChildNodeThat(IElementTakerBooleanGetter<INode<?>> selector);
+	
+	//method declaration
+	/**
 	 * @param header
 	 * @return true if the current {@link INode} contains a child {@link INode} with the given header.
 	 */
@@ -39,21 +46,18 @@ public interface INode<N extends INode<N>> extends OptionalHeadered {
 	 */
 	boolean containsOneChildNode();
 	
-	//TODO: Complete.
-	default boolean containsChildNodeThat(IElementTakerBooleanGetter<INode<?>> selector) {
-		return getRefChildNodes().contains(selector);
-	}
-		
 	//method declaration
 	/**
 	 * @return the number of child {@link INode}s of the current {@link INode}.
 	 */
 	int getChildNodeCount();
 	
-	//TODO: Complete.
-	default IContainer<String> getChildNodesHeaders() {
-		return getRefChildNodes().to(INode::getHeader);
-	}
+	//method declaration
+	/**
+	 * @return the headers of the child {@link INode}s of the current {@link INode}.
+	 * @throws RuntimeException if one of the child {@link INode}s of the current {@link INode} does not have a header.
+	 */
+	IContainer<String> getChildNodesHeaders();
 	
 	//method declaration
 	/**
@@ -94,10 +98,13 @@ public interface INode<N extends INode<N>> extends OptionalHeadered {
 	 */
 	N getRefFirstChildNodeThat(IElementTakerBooleanGetter<INode<?>> selector);
 	
-	//TODO: Complete.
-	default N getRefFirstChildNodeThatOrNull(IElementTakerBooleanGetter<INode<?>> selector) {
-		return getRefChildNodes().getRefFirstOrNull(selector);
-	}
+	//method declaration
+	/**
+	 * @param selector
+	 * @return the first child {@link INode} the given selector selects from the current {@link INode} if
+	 * the given selector selects a child {@link INode} of the current {@link INode}. Otherwise null is returned.
+	 */
+	N getRefFirstChildNodeThatOrNull(IElementTakerBooleanGetter<INode<?>> selector);
 	
 	//method declaration
 	/**

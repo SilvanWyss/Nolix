@@ -115,6 +115,15 @@ public abstract class BaseNode<T extends BaseNode<T>> implements INode<T>, Optio
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean containsChildNodeThat(final IElementTakerBooleanGetter<INode<?>> selector) {
+		return getRefChildNodes().containsAny(selector::getOutput);
+	}
+	
+	//method
+	/**
 	 * @param header
 	 * @return true if the current {@link BaseNode} contains an attribute with the given header.
 	 */
