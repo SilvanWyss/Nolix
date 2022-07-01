@@ -19,7 +19,6 @@ public final class ColorNameConstantExtractor {
 	//multi-attribute
 	private final IContainer<Pair<String, Color>> colorNames = extractAndGetColorNames();
 	
-	//TODO: Do not return a mutable container.
 	//method
 	public IContainer<Pair<String, Color>> getColorNames() {
 		return colorNames;
