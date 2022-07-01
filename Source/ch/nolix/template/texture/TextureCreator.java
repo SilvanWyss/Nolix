@@ -61,7 +61,7 @@ final class TextureCreator {
 			}
 		}
 		
-		return texture;
+		return texture.toImmutableImage();
 	}
 	
 	//method
