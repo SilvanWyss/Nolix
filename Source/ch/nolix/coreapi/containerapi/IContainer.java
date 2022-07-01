@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.coreapi.containerapi;
 
+//own imports
 import ch.nolix.coreapi.functionuniversalapi.I2ElementTakerBooleanGetter;
 import ch.nolix.coreapi.functionuniversalapi.IElementTaker;
 import ch.nolix.coreapi.functionuniversalapi.IElementTakerBooleanGetter;
@@ -23,13 +24,6 @@ import ch.nolix.coreapi.functionuniversalapi.IElementTakerLongGetter;
  * @param <E> is the type of the elements a@link IContainer.
  */
 public interface IContainer<E> extends Iterable<E> {
-	
-	//method declaration
-	/**
-	 * @param <E2> is the type of the elements of the returned@link IContainer.
-	 * @return the current {@link IContainer} as a@link IContainer with elements of the evaluated type.
-	 */
-	<E2> IContainer<E2> asContainerWithElementsOfEvaluatedType();
 	
 	//method declaration
 	/**
@@ -348,7 +342,7 @@ public interface IContainer<E> extends Iterable<E> {
 	//method declaration
 	/**
 	 * @param norm
-	 * @param <E2> is the type of the elements of the@link Comparable the given norm returns.
+	 * @param <E2> is the type of the elements of the {@link Comparable} the given norm returns.
 	 * @return the smallest value the given norm returns from the elements of the current {@link IContainer}.
 	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */

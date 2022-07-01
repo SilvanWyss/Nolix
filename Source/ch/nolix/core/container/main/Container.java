@@ -48,18 +48,6 @@ public abstract class Container<E> implements IContainer<E> {
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(1).
-	 * 
-	 * @param <E2> is the type of the elements of the returned {@link Container}.
-	 * @return the current {@link Container} as a {@link Container} with elements of the evaluated type.
-	 */
-	@SuppressWarnings("unchecked")
-	public final <E2> Container<E2> asContainerWithElementsOfEvaluatedType() {
-		return (Container<E2>)this;
-	}
-	
-	//method
-	/**
 	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param element
