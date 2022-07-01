@@ -156,6 +156,20 @@ public final class FileNode extends BaseMutableNode<FileNode> {
 	 * {@inheritDoc}
 	 */
 	@Override
+	public boolean equals(final Object object) {
+		
+		if (!(object instanceof FileNode)) {
+			return false;
+		}
+		
+		return equalsNode((FileNode)object);
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public int getChildNodeCount() {
 		return internalSpecification.getChildNodeCount();
 	}
@@ -196,6 +210,15 @@ public final class FileNode extends BaseMutableNode<FileNode> {
 		return new FileNode(
 			getRefRootFileNode(), (IMutableNode<?>)internalSpecification.getRefSingleChildNode()
 		);
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public int hashCode() {
+		return toString().hashCode();
 	}
 
 	//method

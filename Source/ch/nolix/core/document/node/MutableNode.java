@@ -129,6 +129,20 @@ public final class MutableNode extends BaseMutableNode<MutableNode> {
 	 * {@inheritDoc}
 	 */
 	@Override
+	public boolean equals(final Object object) {
+		
+		if (!(object instanceof MutableNode)) {
+			return false;
+		}
+		
+		return equalsNode((MutableNode)object);
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public IContainer<MutableNode> getRefChildNodes() {
 		return childNodes;
 	}
@@ -152,6 +166,15 @@ public final class MutableNode extends BaseMutableNode<MutableNode> {
 	@Override
 	public boolean hasHeader() {
 		return (header != null);
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public int hashCode() {
+		return toString().hashCode();
 	}
 	
 	//method

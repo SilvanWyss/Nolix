@@ -31,10 +31,16 @@ import ch.nolix.coreapi.functionuniversalapi.IElementTakerBooleanGetter;
  */
 public abstract class BaseNode<T extends BaseNode<T>> implements INode<T> {
 	
-	//constants
+	//constant
 	public static final String COMMA_CODE = "$M";
+	
+	//constant
 	public static final String DOLLAR_SYMBOL_CODE = "$X";
+	
+	//constant
 	public static final String OPEN_BRACKET_CODE = "$O";
+	
+	//constant
 	public static final String CLOSED_BRACKET_CODE = "$C";
 	
 	//static method
@@ -144,47 +150,7 @@ public abstract class BaseNode<T extends BaseNode<T>> implements INode<T> {
 		return getHeader();
 	}
 	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public boolean equals(final Object object) {
-		
-		//Handles the case that the given object is not a BaseNode.
-		if (!(object instanceof BaseNode)) {
-			return false;
-		}
-		
-		final var baseNode = (BaseNode<?>)object;
-		
-		//Handles the case that the current BaseNode<?> does not have a header.
-		if (!hasHeader()) {
-			if (baseNode.hasHeader()) {
-				return false;
-			}
-			
-		//Handles the case that the current BaseNode<?> has a header.
-		} else {
-			if (!baseNode.hasHeader(getHeader())) {
-				return false;
-			}
-		}
-		
-		if (getChildNodeCount() != baseNode.getChildNodeCount()) {
-			return false;
-		}
-		
-		//Iterates the attributes of the current BaseNode.
-		final var iterator = baseNode.getRefChildNodes().iterator();
-		for (final var a : getRefChildNodes()) {
-			if (!a.equals(iterator.next())) {
-				return false;
-			}
-		}
-		
-		return true;
-	}
+
 	
 	//method
 	/**
@@ -348,15 +314,6 @@ public abstract class BaseNode<T extends BaseNode<T>> implements INode<T> {
 	
 	//method
 	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public int hashCode() {
-		return toString().hashCode();
-	}
-	
-	//method
-	/**
 	 * Saves the current {@link BaseNode} to the file with the given file path.
 	 * 
 	 * @param path
@@ -495,6 +452,37 @@ public abstract class BaseNode<T extends BaseNode<T>> implements INode<T> {
 		}
 		
 		return lXMLNode;
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link BaseNode} equals the given node.
+	 */
+	protected final boolean equalsNode(final BaseNode<?> node) {
+		
+		if (!hasHeader()) {
+			if (node.hasHeader()) {
+				return false;
+			}
+			
+		} else {
+			if (!node.hasHeader(getHeader())) {
+				return false;
+			}
+		}
+		
+		if (getChildNodeCount() != node.getChildNodeCount()) {
+			return false;
+		}
+		
+		final var iterator = node.getRefChildNodes().iterator();
+		for (final var a : getRefChildNodes()) {
+			if (!a.equals(iterator.next())) {
+				return false;
+			}
+		}
+		
+		return true;
 	}
 	
 	//method

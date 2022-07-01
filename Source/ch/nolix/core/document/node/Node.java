@@ -395,6 +395,20 @@ public final class Node extends BaseNode<Node> {
 	}
 	
 	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean equals(final Object object) {
+		
+		if (!(object instanceof Node)) {
+			return false;
+		}
+		
+		return equalsNode((Node)object);
+	}
+	
+	//method
 	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * {@inheritDoc}
@@ -425,6 +439,15 @@ public final class Node extends BaseNode<Node> {
 	@Override
 	public Node getRefSingleChildNode() {
 		return childNodes.getRefOne();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public int hashCode() {
+		return toString().hashCode();
 	}
 	
 	//method
