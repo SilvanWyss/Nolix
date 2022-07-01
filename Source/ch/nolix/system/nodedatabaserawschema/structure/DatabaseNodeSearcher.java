@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.nodedatabaserawschema.structure;
 
+//own imports
 import ch.nolix.coreapi.containerapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 
@@ -14,7 +15,10 @@ public final class DatabaseNodeSearcher {
 	private static final ColumnNodeSearcher columnNodeSearcher = new ColumnNodeSearcher();
 	
 	//method
-	public IMutableNode<?> getRefColumnNodeByColumnIdFromDatabaseNode(final IMutableNode<?> databaseNode, final String columnId) {
+	public IMutableNode<?> getRefColumnNodeByColumnIdFromDatabaseNode(
+		final IMutableNode<?> databaseNode,
+		final String columnId
+	) {
 		return
 		getRefTableNodesFromDatabaseNode(databaseNode)
 		.toFromMany(tableNodeSearcher::getRefColumnNodesFromTableNode)
@@ -27,7 +31,10 @@ public final class DatabaseNodeSearcher {
 	}
 	
 	//method
-	public IMutableNode<?> getRefTableNodeByTableIdFromDatabaseNode(final IMutableNode<?> databaseNode, final String tableId) {
+	public IMutableNode<?> getRefTableNodeByTableIdFromDatabaseNode(
+		final IMutableNode<?> databaseNode,
+		final String tableId
+	) {
 		return
 		getRefTableNodesFromDatabaseNode(databaseNode).getRefFirst(
 			tsn -> tsn.getRefFirstChildNodeWithHeader(SubNodeHeaderCatalogue.ID).getRefSingleChildNode().hasHeader(tableId)
@@ -35,7 +42,10 @@ public final class DatabaseNodeSearcher {
 	}
 	
 	//method
-	public IMutableNode<?> getRefTableNodeByTableNameFromDatabaseNode(final IMutableNode<?> databaseNode, final String tableName) {
+	public IMutableNode<?> getRefTableNodeByTableNameFromDatabaseNode(
+		final IMutableNode<?> databaseNode,
+		final String tableName
+	) {
 		return
 		getRefTableNodesFromDatabaseNode(databaseNode).getRefFirst(
 			tsn -> tsn.getRefFirstChildNodeWithHeader(SubNodeHeaderCatalogue.NAME).getRefSingleChildNode().hasHeader(tableName)
@@ -43,10 +53,8 @@ public final class DatabaseNodeSearcher {
 	}
 	
 	//method
-	public IContainer<IMutableNode<?>> getRefTableNodesFromDatabaseNode(final IMutableNode<?> databaseNode) {
-		
-		//TODO: Refactor this.
-		return databaseNode.getRefChildNodesWithHeader(SubNodeHeaderCatalogue.TABLE).asContainerWithElementsOfEvaluatedType();
+	public IContainer<? extends IMutableNode<?>> getRefTableNodesFromDatabaseNode(final IMutableNode<?> databaseNode) {
+		return databaseNode.getRefChildNodesWithHeader(SubNodeHeaderCatalogue.TABLE);
 	}
 	
 	//method
