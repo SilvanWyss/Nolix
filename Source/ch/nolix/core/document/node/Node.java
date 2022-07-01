@@ -511,11 +511,110 @@ public final class Node extends BaseNode<Node> {
 		return node;
 	}
 	
+	//static method
+	/**
+	 * @param nodes
+	 * @return new {@link Node}s from the given nodes.
+	 * @throws RuntimeException if one of the given nodes is null.
+	 */
+	private static IContainer<Node> createNodesFromNodes(final INode<?>[] nodes) {
+		
+		final var lNodes = new LinkedList<Node>();
+		
+		for (final var n : nodes) {
+			lNodes.addAtEnd(fromNode(n));
+		}
+		
+		return lNodes;
+	}
+	
+	//static method
+	/**
+	 * @param nodes
+	 * @return new {@link Node}s from the given nodes.
+	 * @throws RuntimeException if one of the given nodes is null.
+	 */
+	private static IContainer<Node> createNodesFromNodes(final Iterable<INode<?>> nodes) {
+		
+		final var lNodes = new LinkedList<Node>();
+		
+		for (final var n : nodes) {
+			lNodes.addAtEnd(fromNode(n));
+		}
+		
+		return lNodes;
+	}
+	
+	//static method
+	/**
+	 * @return a valid header from the given header.
+	 * @throws ArgumentIsNullException if the given header is null.
+	 * @throws InvalidArgumentException if the given header is blank.
+	 */
+	private static String getValidHeaderFromHeader(final String header) {
+		
+		GlobalValidator.assertThat(header).thatIsNamed(LowerCaseCatalogue.HEADER).isNotBlank();
+		
+		return header;
+	}
+	
+
+	
 	//optional attribute
 	private String header;
 	
 	//multi-attribute
-	private final LinkedList<Node> attributes = new LinkedList<>();
+	private LinkedList<Node> attributes = new LinkedList<>();
+	
+	//TODO: Replace this constructor by Node.EMPTY_NODE constant.
+	public Node() {}
+	
+	//constructor
+	/**
+	 * Creates a new {@link Node} with the given header.
+	 * 
+	 * @param header
+	 * @throws ArgumentIsNullException if the given header is null.
+	 * @throws InvalidArgumentException if the given header is blank.
+	 */
+	private Node(final String header) {
+		
+		this.header = getValidHeaderFromHeader(header);
+		
+		attributes = new LinkedList<>();
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link Node} with the given header and childNodes.
+	 * 
+	 * @param header
+	 * @param childNodes
+	 * @throws RuntimeException if one of the given childNodes is null.
+	 */
+	private Node(final String header, final INode<?>... childNodes) {
+		
+		this.header = getValidHeaderFromHeader(header);
+		
+		//TODO: Remove cast.
+		attributes = (LinkedList<Node>)createNodesFromNodes(childNodes);
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link Node} with the given header and childNodes.
+	 * 
+	 * @param header
+	 * @param childNodes
+	 * @throws RuntimeException if one of the given childNodes is null.
+	 */
+	private Node(final String header, final Iterable<INode<?>> childNodes) {
+		
+		this.header = getValidHeaderFromHeader(header);
+		
+		//TODO: Remove cast.
+		attributes = (LinkedList<Node>)createNodesFromNodes(childNodes);
+	}
 	
 	//method
 	public Node addChildNode(final INode<?>... childNodes) {
