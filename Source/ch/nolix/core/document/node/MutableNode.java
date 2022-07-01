@@ -89,8 +89,11 @@ public final class MutableNode extends BaseMutableNode<MutableNode> {
 	@Override
 	public MutableNode addChildNodeFromString(final String... strings) {
 		
-		//TODO: Implement.
-		return null;
+		for (final var s : strings) {
+			addChildNode(fromString(s));
+		}
+		
+		return this;
 	}
 	
 	//method
@@ -114,8 +117,11 @@ public final class MutableNode extends BaseMutableNode<MutableNode> {
 	@Override
 	public MutableNode addChildNodesFromStrings(final Iterable<String> strings) {
 		
-		//TODO: Implement.
-		return null;
+		for (final var s : strings) {
+			addChildNode(fromString(s));
+		}
+		
+		return this;
 	}
 	
 	//method
