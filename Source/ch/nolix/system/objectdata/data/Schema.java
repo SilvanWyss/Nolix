@@ -40,7 +40,9 @@ public final class Schema implements ISchema<DataImplementation> {
 	}
 	
 	//method
-	private void assertContainsDifferentEntityTypesOnly(final IContainer<Class<? extends IEntity<DataImplementation>>> entityTypes) {
+	private void assertContainsDifferentEntityTypesOnly(
+		final IContainer<Class<? extends IEntity<DataImplementation>>> entityTypes
+	) {
 		if (!containsDifferentEntityTypesOnly(entityTypes)) {
 			throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 				"list of entity types",
@@ -51,7 +53,9 @@ public final class Schema implements ISchema<DataImplementation> {
 	}
 	
 	//method
-	private boolean containsDifferentEntityTypesOnly(final IContainer<Class<? extends IEntity<DataImplementation>>> entityTypes) {
+	private boolean containsDifferentEntityTypesOnly(
+		final IContainer<Class<? extends IEntity<DataImplementation>>> entityTypes
+	) {
 		
 		for (final var et : entityTypes) {
 			if (entityTypes.getCount(et2 -> et2.getSimpleName().equals(et.getSimpleName())) > 1) {
