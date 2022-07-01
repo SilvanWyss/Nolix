@@ -1251,8 +1251,9 @@ public final class Color implements IColor {
 	//method
 	//For a better performance, this implementation does not use all comfortable methods.
 	/**
-	 * @return true if the current {@link Color} has a full alpha value.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public boolean hasFullAlphaValue() {
 		return (alphaValue == MAX_COLOR_COMPONENT);
 	}

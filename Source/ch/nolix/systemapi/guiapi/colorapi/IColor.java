@@ -4,6 +4,7 @@ package ch.nolix.systemapi.guiapi.colorapi;
 //Java imports
 import java.awt.Color;
 
+//own imports
 import ch.nolix.systemapi.elementapi.mainuniversalapi.Specified;
 
 //interface
@@ -14,6 +15,12 @@ public interface IColor extends Specified {
 	 * @return the hexadecimal value of the current {@link Color} always with alpha value.
 	 */
 	String getHexadecimalValueAlwaysWithAlphaValue();
+	
+	//method declaration
+	/**
+	 * @return true if the current {@link IColor} has a full alpha value.
+	 */
+	boolean hasFullAlphaValue();
 	
 	//method declaration
 	/**
