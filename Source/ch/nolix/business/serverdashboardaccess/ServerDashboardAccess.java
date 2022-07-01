@@ -4,6 +4,7 @@ package ch.nolix.business.serverdashboardaccess;
 //own imports
 import ch.nolix.businessapi.serverdashboardaccessapi.IApplicationSheet;
 import ch.nolix.businessapi.serverdashboardaccessapi.IServerDashboardAccess;
+import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.IContainer;
 import ch.nolix.system.application.guiapplication.BackendGUIClient;
@@ -48,11 +49,15 @@ public final class ServerDashboardAccess implements IServerDashboardAccess {
 	}
 	
 	//method
+	@SuppressWarnings("unchecked")
 	private IContainer<Application<BackendGUIClient<?>, ?>> getRefGUIApplications() {
-		return
-		server
-		.getRefApplications()
-		.getRefSelected(this::applicationIsForBackendGUIClients)
-		.asContainerWithElementsOfEvaluatedType();
+		
+		final var lGUIApplications = new LinkedList<Application<BackendGUIClient<?>, ?>>();
+		
+		for (final var a : server.getRefApplications().getRefSelected(this::applicationIsForBackendGUIClients)) {
+			lGUIApplications.addAtEnd((Application<BackendGUIClient<?>, ?>)a);
+		}
+		
+		return lGUIApplications;
 	}
 }
