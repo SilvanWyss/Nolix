@@ -27,9 +27,9 @@ import ch.nolix.coreapi.functionuniversalapi.IElementTakerBooleanGetter;
  *  
  * @author Silvan Wyss
  * @date 2017-06-24
- * @param <T> is the type of a {@link BaseNode}.
+ * @param <BN> is the type of a {@link BaseNode}.
  */
-public abstract class BaseNode<T extends BaseNode<T>> implements INode<T> {
+public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	
 	//constant
 	public static final String COMMA_CODE = "$M";
@@ -226,7 +226,7 @@ public abstract class BaseNode<T extends BaseNode<T>> implements INode<T> {
 	 * @throws NonPositiveArgumentException if the given index is not positive.
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BaseNode} does not contain an attribute at the given index.
 	 */
-	public T getRefChildNodeAt1BasedIndex(final int index) {
+	public BN getRefChildNodeAt1BasedIndex(final int index) {
 		return getRefChildNodes().getRefAt(index);
 	}
 	
@@ -236,7 +236,7 @@ public abstract class BaseNode<T extends BaseNode<T>> implements INode<T> {
 	 * @param header
 	 * @return the attributes of the current {@link BaseNode} that have the given header.
 	 */
-	public IContainer<T> getRefChildNodesWithHeader(final String header) {
+	public IContainer<BN> getRefChildNodesWithHeader(final String header) {
 		return getRefChildNodesThat(a -> a.hasHeader(header));
 	}
 	
@@ -245,7 +245,7 @@ public abstract class BaseNode<T extends BaseNode<T>> implements INode<T> {
 	 * @param selector
 	 * @return the attributes the given selector selects from the current {@link BaseNode}.
 	 */
-	public IContainer<T> getRefChildNodesThat(final IElementTakerBooleanGetter<INode<?>> selector) {
+	public IContainer<BN> getRefChildNodesThat(final IElementTakerBooleanGetter<INode<?>> selector) {
 		return getRefChildNodes().getRefSelected(selector);
 	}
 	
@@ -255,7 +255,7 @@ public abstract class BaseNode<T extends BaseNode<T>> implements INode<T> {
 	 * @throws EmptyArgumentException if the current {@link Node} is empty.
 	 * @throws InvalidArgumentException if the current {@link Node} contains several attributes.
 	 */
-	public T getRefSingleChildNode() {
+	public BN getRefSingleChildNode() {
 		return getRefChildNodes().getRefOne();
 	}
 	
@@ -266,7 +266,7 @@ public abstract class BaseNode<T extends BaseNode<T>> implements INode<T> {
 	 * @throws ArgumentDoesNotHaveAttributeException if
 	 * the current {@link BaseNode} does not contain an attribute the given selector selects.
 	 */
-	public T getRefFirstChildNodeThat(IElementTakerBooleanGetter<INode<?>> selector) {
+	public BN getRefFirstChildNodeThat(IElementTakerBooleanGetter<INode<?>> selector) {
 		return getRefChildNodes().getRefFirst(selector);
 	}
 	
@@ -275,7 +275,7 @@ public abstract class BaseNode<T extends BaseNode<T>> implements INode<T> {
 	 * @param selector
 	 * @return the first attribute the given selector selects from the current {@link BaseNode} or null.
 	 */
-	public T getRefFirstChildNodeThatOrNull(IElementTakerBooleanGetter<INode<?>> selector) {
+	public BN getRefFirstChildNodeThatOrNull(IElementTakerBooleanGetter<INode<?>> selector) {
 		return getRefChildNodes().getRefFirstOrNull(selector);
 	}
 	
@@ -284,7 +284,7 @@ public abstract class BaseNode<T extends BaseNode<T>> implements INode<T> {
 	 * @param header
 	 * @return the first attribute of the current {@link BaseNode} with the given header.
 	 */
-	public T getRefFirstChildNodeWithHeader(final String header) {
+	public BN getRefFirstChildNodeWithHeader(final String header) {
 		return getRefFirstChildNodeThat(a -> a.hasHeader(header));
 	}
 	
@@ -476,7 +476,7 @@ public abstract class BaseNode<T extends BaseNode<T>> implements INode<T> {
 		}
 		
 		final var iterator = node.getRefChildNodes().iterator();
-		for (final var a : getRefChildNodes()) {
+		for (final BN a : getRefChildNodes()) {
 			if (!a.equals(iterator.next())) {
 				return false;
 			}
