@@ -134,11 +134,10 @@ public final class LinkedList<E> extends Container<E> implements Clearable {
 	 * The complexity of this implementation is O(n) if n elements are given.
 	 * 
 	 * @param elements
-	 * @param <E2> is the type of the given elements.
 	 * @throws ArgumentIsNullException if the given elements is null.
 	 * @throws ArgumentIsNullException if one of the given elements is null.
 	 */
-	public <E2 extends E> void addAtBegin(final Iterable<E2> elements) {
+	public void addAtBegin(final Iterable<E> elements) {
 		
 		//Asserts that the given elements is not null.
 		GlobalValidator.assertThat(elements).thatIsNamed(PluralLowerCaseCatalogue.ELEMENTS).isNotNull();
@@ -287,25 +286,10 @@ public final class LinkedList<E> extends Container<E> implements Clearable {
 	 * The complexity of this implementation is O(n) if n elements are given.
 	 * 
 	 * @param elements
-	 * @param <E2> is the type of the given elements.
 	 * @throws ArgumentIsNullException if one of the given elements is null.
 	 */
-	public <E2 extends E> void addAtEnd(final Iterable<E2> elements) {
+	public void addAtEnd(final Iterable<E> elements) {
 		elements.forEach(this::addAtEnd);
-	}
-	
-	//method
-	/**
-	 * Adds the elements the given extractor extracts from the given elements
-	 * at the end of the current {@link LinkedList}.
-	 * The complexity of this implementation is O(n) if n elements are given.
-	 * 
-	 * @param elements
-	 * @param <E2> is the type of the given elements.
-	 * @param extractor
-	 */
-	public <E2> void addAtEnd(final Iterable<E2> elements,	IElementTakerElementGetter<E2, E> extractor) {
-		elements.forEach(e -> addAtEnd(extractor.getOutput(e)));
 	}
 	
 	//method
@@ -449,19 +433,18 @@ public final class LinkedList<E> extends Container<E> implements Clearable {
 	 * The complexity of this implementation is O(n^2) if the current {@link LinkedList} contains n elements.
 	 * 
 	 * @param norm
-	 * @param <E2> is the type of the elements the given norm returns.
 	 * @return a new list of groups of the elements of the current {@link LinkedList}
 	 * whereas the value of the given norm is equal for all elements of a group.
 	 */
 	@SuppressWarnings("unchecked")
-	public <E2> LinkedList<LinkedList<E>> getGroups(final IElementTakerElementGetter<E, E2> norm) {
+	public LinkedList<LinkedList<E>> getGroups(final IElementTakerElementGetter<E, ?> norm) {
 		
 		final LinkedList<LinkedList<E>> groups = new LinkedList<>();
 		
 		//Iterates the current list.
 		for (final E e : this) {
 			
-			final E2 categoryRepresentator = norm.getOutput(e);
+			final var categoryRepresentator = norm.getOutput(e);
 			
 			final LinkedList<E> group
 			= groups.getRefFirstOrNull(
@@ -794,10 +777,9 @@ public final class LinkedList<E> extends Container<E> implements Clearable {
 	 * -This list contains n elements.
 	 * 
 	 * @param elements
-	 * @param <E2> is the type of the given elements.
 	 * @throws InvalidArgumentException if the current {@link LinkedList} does not contain one of the given elements.
 	 */
-	public <E2> void removeFirst(final Iterable<E2> elements) {
+	public void removeFirst(final Iterable<E> elements) {
 		elements.forEach(this::removeFirst);
 	}
 	
