@@ -16,7 +16,7 @@ public final class ChainedNodeCreationTest extends Test {
 	public void testCase_fromNode_whenNodeIsBlank() {
 		
 		//setup
-		final var node = new Node();
+		final var node = Node.EMPTY_NODE;
 		
 		//setup verification
 		expect(node.isBlank());

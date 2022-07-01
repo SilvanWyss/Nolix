@@ -23,6 +23,9 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
  */
 public final class Node extends BaseNode<Node> {
 	
+	//constant
+	public static final Node EMPTY_NODE = new Node();
+	
 	//static method
 	/**
 	 * @param pEnum
@@ -310,8 +313,8 @@ public final class Node extends BaseNode<Node> {
 	//multi-attribute
 	private final IContainer<Node> childNodes;
 	
-	//TODO: Replace this constructor by Node.EMPTY_NODE constant.
-	public Node() {
+	//constructor
+	private Node() {
 		
 		header = null;
 		

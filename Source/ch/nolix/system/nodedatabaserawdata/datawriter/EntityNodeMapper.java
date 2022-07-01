@@ -43,7 +43,7 @@ final class EntityNodeMapper {
 			
 			final var string = cf.getValueAsStringOrNull();
 			if (string == null) {
-				attributes[index] = new Node();
+				attributes[index] = Node.EMPTY_NODE;
 			} else {
 				attributes[index] =	Node.withHeader(string);
 			}

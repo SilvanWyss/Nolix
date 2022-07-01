@@ -60,7 +60,7 @@ public final class Value<V> extends SingleValue<V> {
 			(final String s) -> {
 				
 				if (s.isEmpty()) {
-					return new Node();
+					return Node.EMPTY_NODE;
 				}
 				
 				return Node.withChildNode(s);
