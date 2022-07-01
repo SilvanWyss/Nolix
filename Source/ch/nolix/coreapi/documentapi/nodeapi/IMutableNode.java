@@ -110,7 +110,7 @@ public interface IMutableNode<MN extends IMutableNode<MN>> extends INode<MN>, Op
 	 * @throws RuntimeException if
 	 * the current {@link IMutableNode} does not contain a child {@link INode} the given selector selects.
 	 */
-	void removeFirstChildNodeThat(IElementTakerBooleanGetter<INode<?>> selector);
+	void removeFirstChildNodeThat(IElementTakerBooleanGetter<? extends INode<?>> selector);
 	
 	//method declaration
 	/**

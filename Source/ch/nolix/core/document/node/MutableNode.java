@@ -171,7 +171,7 @@ public final class MutableNode extends BaseMutableNode<MutableNode> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void removeFirstChildNodeThat(final IElementTakerBooleanGetter<INode<?>> selector) {
+	public void removeFirstChildNodeThat(final IElementTakerBooleanGetter<? extends INode<?>> selector) {
 		childNodes.removeFirst(selector);
 	}
 	

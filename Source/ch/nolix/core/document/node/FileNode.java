@@ -234,8 +234,8 @@ public final class FileNode extends BaseMutableNode<FileNode> {
 	 * if this {@link FileNode} does not contain an attribute the given selector selects.
 	 */
 	@Override
-	public void removeFirstChildNodeThat(final IElementTakerBooleanGetter<INode<?>> selector) {
-		internalSpecification.removeFirstChildNodeThat(selector::getOutput);
+	public void removeFirstChildNodeThat(final IElementTakerBooleanGetter<? extends INode<?>> selector) {
+		internalSpecification.removeFirstChildNodeThat(selector);
 		save();
 	}
 	
