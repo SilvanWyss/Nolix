@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.system.objectschema.schemadto;
 
+import ch.nolix.core.container.main.LinkedList;
+//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PluralLowerCaseCatalogue;
@@ -19,7 +21,7 @@ public final class DatabaseDTO implements IDatabaseDTO {
 	
 	//constructor
 	//For a better performance, this implementation does not use all comfortable methods.
-	public DatabaseDTO(final String name, final IContainer<TableDTO> tables) {
+	public DatabaseDTO(final String name, final IContainer<ITableDTO> tables) {
 		
 		if (name == null) {
 			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.NAME);
@@ -30,7 +32,7 @@ public final class DatabaseDTO implements IDatabaseDTO {
 		}
 		
 		this.name = name;
-		this.tables = tables.asContainerWithElementsOfEvaluatedType();
+		this.tables = LinkedList.fromIterable(tables);
 	}
 	
 	//method
