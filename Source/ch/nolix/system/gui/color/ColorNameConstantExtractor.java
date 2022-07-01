@@ -4,9 +4,11 @@ package ch.nolix.system.gui.color;
 //Java imports
 import java.lang.reflect.Field;
 
+//own imports
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.container.pair.Pair;
 import ch.nolix.core.reflection.GlobalFieldHelper;
+import ch.nolix.coreapi.containerapi.IContainer;
 
 //class
 public final class ColorNameConstantExtractor {
@@ -15,11 +17,11 @@ public final class ColorNameConstantExtractor {
 	private static final String STRING_CONSTANT_POSTFIX = "_STRING";
 	
 	//multi-attribute
-	private final LinkedList<Pair<String, Color>> colorNames = extractAndGetColorNames();
+	private final IContainer<Pair<String, Color>> colorNames = extractAndGetColorNames();
 	
 	//TODO: Do not return a mutable container.
 	//method
-	public LinkedList<Pair<String, Color>> getColorNames() {
+	public IContainer<Pair<String, Color>> getColorNames() {
 		return colorNames;
 	}
 	

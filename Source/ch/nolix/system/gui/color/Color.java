@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.gui.color;
 
+//own imports
 import ch.nolix.core.commontype.constant.StringCatalogue;
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.container.pair.Pair;
@@ -733,7 +734,7 @@ public final class Color implements IColor {
 	
 	//constants
 	public static final IContainer<Color> WEB_COLORS;
-	public static final LinkedList<Pair<String, Color>> WEB_COLOR_NAMES;
+	public static final IContainer<Pair<String, Color>> WEB_COLOR_NAMES;
 	
 	//constant
 	public static final int DEFAULT_ALPHA_VALUE = 255;
@@ -801,10 +802,10 @@ public final class Color implements IColor {
 	 */
 	public static Color fromString(final String string) {
 		
-		final var pair = WEB_COLOR_NAMES.getOptionalRefFirst(p -> p.getRefElement1().equals(string));
+		final var pair = WEB_COLOR_NAMES.getRefFirstOrNull(p -> p.getRefElement1().equals(string));
 		
 		//Handles the case that the given string is not a color name.
-		if (pair.isEmpty()) {
+		if (pair == null) {
 			
 			if (
 				(string.length() != 8 || string.length() != 10)
@@ -827,7 +828,7 @@ public final class Color implements IColor {
 		}
 		
 		//Handles the case that the given value is a color name.
-		return pair.getRefElement().getRefElement2();
+		return pair.getRefElement2();
 	}
 	
 	//static method
