@@ -37,8 +37,7 @@ public final class ColumnDTO implements IColumnDTO {
 		this.name = name;
 		this.dataType = dataType;
 		
-		//TODO: constaints.getCopy()
-		this.constraints = constraints;
+		this.constraints = LinkedList.fromIterable(constraints);
 	}
 	
 	//constructor
