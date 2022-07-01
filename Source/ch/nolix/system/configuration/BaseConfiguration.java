@@ -56,8 +56,8 @@ implements IConfiguration {
 	new MultiValue<>(
 		ATTACHING_ATTRIBUTES_HEADER,
 		this::addAttachingAttribute,
-		BaseNode::getCopy,
-		BaseNode::getCopy
+		Node::fromNode,
+		Node::fromNode
 	);
 	
 	//attribute
@@ -79,7 +79,7 @@ implements IConfiguration {
 	 */
 	public final C addAttachingAttribute(final BaseNode<?> attachingAttribute) {
 		
-		attachingAttributes.add(attachingAttribute.getCopy());
+		attachingAttributes.add(Node.fromNode(attachingAttribute));
 		
 		return asConcrete();
 	}
