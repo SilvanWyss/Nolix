@@ -29,5 +29,5 @@ public interface IEntity<IMPL> extends Deletable, IDatabaseObject, IdentifiedByS
     boolean isReferencedInPersistedData();
     
 	//method declaration
-	IContainer<IProperty<IMPL>> technicalGetRefProperties();
+	IContainer<? extends IProperty<IMPL>> technicalGetRefProperties();
 }

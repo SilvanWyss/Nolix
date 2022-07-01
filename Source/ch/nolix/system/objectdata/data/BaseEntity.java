@@ -130,11 +130,11 @@ public abstract class BaseEntity implements IEntity<DataImplementation> {
 	
 	//method
 	@Override
-	public final IContainer<IProperty<DataImplementation>> technicalGetRefProperties() {
+	public final IContainer<? extends IProperty<DataImplementation>> technicalGetRefProperties() {
 		
 		extractPropertiesIfNotExtracted();
 		
-		return properties.asContainerWithElementsOfEvaluatedType();
+		return properties;
 	}
 	
 	//method
