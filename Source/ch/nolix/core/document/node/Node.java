@@ -2,7 +2,6 @@
 package ch.nolix.core.document.node;
 
 //own imports
-import ch.nolix.core.commontype.commontypehelper.GlobalBooleanHelper;
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.container.pair.IntPair;
 import ch.nolix.core.container.readcontainer.ReadContainer;
@@ -29,13 +28,13 @@ public final class Node extends BaseNode<Node> {
 	 * @return a new {@link Node} from the given pEnum.
 	 */
 	public static Node fromEnum(final Enum<?> pEnum) {
-		return Node.withHeaderAndChildNode(pEnum.getClass().getSimpleName(), pEnum.name());
+		return withHeaderAndChildNode(getTypeNameOfEnum(pEnum), withHeader(pEnum.name()));
 	}
-	
+		
 	//static method
 	/**
 	 * @param filePath
-	 * @return a new {@link Node} from the file with the given file path.
+	 * @return a new {@link Node} from the file with the given filePath.
 	 * @throws InvalidArgumentException if the given filePath is not valid.
 	 * @throws UnrepresentingArgumentException if the file with the given filePath does not represent a {@link Node}.
 	 */
@@ -47,13 +46,9 @@ public final class Node extends BaseNode<Node> {
 	/**
 	 * @param intPair
 	 * @return a new {@link Node} from the given intPair.
-	 * @throws ArgumentIsNullException if the given intPair is null.
 	 */
 	public static Node fromIntPair(final IntPair intPair) {
-		
-		GlobalValidator.assertThat(intPair).thatIsNamed(IntPair.class).isNotNull();
-		
-		return withChildNode(intPair.getValue1(), intPair.getValue2());
+		return withChildNode(withHeader(intPair.getValue1()), withHeader(intPair.getValue2()));
 	}
 	
 	//static method
@@ -63,18 +58,11 @@ public final class Node extends BaseNode<Node> {
 	 */
 	public static Node fromNode(final INode<?> node) {
 		
-		//TODO: Return the given Node itself as soon as it was made not mutable.
-		final var newNode = new Node();
-		
-		if (node.hasHeader()) {
-			newNode.setHeader(node.getHeader());
+		if (!node.hasHeader()) {
+			return withChildNodes(node.getRefChildNodes());
 		}
 		
-		for (final var cn : node.getRefChildNodes()) {
-			newNode.addChildNode(Node.fromNode(cn));
-		}
-		
-		return newNode;
+		return withHeaderAndChildNodes(node.getHeader(), node.getRefChildNodes());
 	}
 	
 	//static method
@@ -89,160 +77,58 @@ public final class Node extends BaseNode<Node> {
 	
 	//static method
 	/**
-	 * @param attribute
-	 * @param <BN> is the type of the given attribute.
-	 * @return a new {@link Node} with the given attribute.
-	 * @throws ArgumentIsNullException if the given attribute is null.
+	 * @param childNode
+	 * @return a new {@link Node} with the given childNode.
 	 */
-	public static <BN extends BaseNode<?>> Node withChildNode(final BN attribute) {
-		
-		final var node = new Node();
-		node.addChildNode(attribute);
-		
-		return node;
+	public static Node withChildNode(final boolean childNode) {
+		return withChildNode(withHeader(childNode));
 	}
 	
 	//static method
 	/**
-	 * @param attributes
-	 * @param <BN> is the type of the given attributes.
-	 * @return a new {@link Node} with the given attributes.
+	 * @param childNode
+	 * @return a new {@link Node} with the given childNode.
 	 */
-	@SuppressWarnings("unchecked")
-	public static <BN extends BaseNode<?>> Node withChildNode(final BN... attributes) {
-		
-		final var node = new Node();
-		node.addChildNode(attributes);
-		
-		return node;
+	public static Node withChildNode(final double childNode) {
+		return withChildNode(withHeader(childNode));
 	}
 	
 	//static method
 	/**
-	 * @param attribute
-	 * @return a new {@link Node} with the given attribute.
+	 * @param childNodes
+	 * @return a new {@link Node} with the given childNodes.
 	 */
-	public static Node withChildNode(final boolean attribute) {
-		
-		final var node = new Node();
-		node.addChildNode(Node.withHeader(String.valueOf(attribute)));
-		
-		return node;
+	public static Node withChildNode(final INode<?>... childNodes) {
+		return new Node(childNodes);
 	}
 	
 	//static method
 	/**
-	 * @param attributes
-	 * @return a new {@link Node} with the given attributes.
+	 * @param childNode
+	 * @return a new {@link Node} with the given childNode.
 	 */
-	public static Node withChildNode(final boolean... attributes) {
-		
-		final var node = new Node();
-		for (var a : attributes) {
-			node.addChildNode(Node.withHeader(a));
-		}
-		
-		return node;
+	public static Node withChildNode(final long childNode) {
+		return withChildNode(withHeader(childNode));
 	}
 	
 	//static method
 	/**
-	 * @param attribute
-	 * @return a new {@link Node} with the given attribute.
+	 * @param childNodes
+	 * @return a new {@link Node} with the given childNodes.
+	 * @throws ArgumentIsNullException if the given header is null.
+	 * @throws InvalidArgumentException if the given header is blank.
 	 */
-	public static Node withChildNode(final double attribute) {
-		
-		final var node = new Node();
-		node.addChildNodeFromString(String.valueOf(attribute));
-		
-		return node;
+	public static Node withChildNode(final String... childNodes) {
+		return withChildNodes(ReadContainer.forArray(childNodes).to(Node::withHeader));
 	}
 	
 	//static method
 	/**
-	 * @param attributes
-	 * @return a new {@link Node} with the given attributes.
+	 * @param childNodes
+	 * @return a new {@link Node} with the given childNodes.
 	 */
-	public static Node withChildNode(final double... attributes) {
-		
-		final var node = new Node();
-		for (var a : attributes) {
-			node.addChildNode(Node.withHeader(a));
-		}
-		
-		return node;
-	}
-	
-	//static method
-	/**
-	 * @param attribute
-	 * @return a new {@link Node} with the given attribute.
-	 */
-	public static Node withChildNode(final long attribute) {
-		
-		final var node = new Node();
-		node.addChildNodeFromString(String.valueOf(attribute));
-		
-		return node;
-	}
-	
-	//static method
-	/**
-	 * @param attributes
-	 * @return a new {@link Node} with the given attributes.
-	 */
-	public static Node withChildNode(final long... attributes) {
-		
-		final var node = new Node();
-		for (var a : attributes) {
-			node.addChildNode(Node.withHeader(a));
-		}
-		
-		return node;
-	}
-	
-	//static method
-	/**
-	 * @param attribute
-	 * @return a new {@link Node} with the given attribute.
-	 * @throws ArgumentIsNullException if the given attribute is null.
-	 * @throws InvalidArgumentException with the given attribute.
-	 */
-	public static Node withChildNode(final String attribute) {
-		
-		final var node = new Node();
-		node.addChildNode(Node.withHeader(attribute));
-		
-		return node;
-	}
-	
-	//static method
-	/**
-	 * @param attributes
-	 * @return a new {@link Node} with the given attributes.
-	 */
-	public static Node withChildNode(final String... attributes) {
-		
-		final var node = new Node();
-		for (var a : attributes) {
-			node.addChildNode(Node.withHeader(a));
-		}
-		
-		return node;
-	}
-	
-	//static method
-	/**
-	 * @param attributes
-	 * @param <BN> is the type of the given attributes.
-	 * @return a new {@link Node} with the given attributes.
-	 */
-	public static <BN extends BaseNode<?>> Node withChildNodes(final Iterable<BN> attributes) {
-		
-		final var node = new Node();
-		node.addChildNodes(attributes);
-		
-		return node;
+	public static Node withChildNodes(final Iterable<? extends INode<?>> childNodes) {
+		return new Node(childNodes);
 	}
 	
 	//static method
@@ -251,11 +137,7 @@ public final class Node extends BaseNode<Node> {
 	 * @return a new {@link Node} with the given header.
 	 */
 	public static Node withHeader(final boolean header) {
-		
-		final var node = new Node();
-		node.setHeader(GlobalBooleanHelper.toString(header));
-		
-		return node;
+		return withHeader(String.valueOf(header));
 	}
 	
 	//static method
@@ -264,11 +146,7 @@ public final class Node extends BaseNode<Node> {
 	 * @return a new {@link Node} with the given header.
 	 */
 	public static Node withHeader(final double header) {
-		
-		final var node = new Node();
-		node.setHeader(String.valueOf(header));
-		
-		return node;
+		return withHeader(String.valueOf(header));
 	}
 	
 	//static method
@@ -277,11 +155,7 @@ public final class Node extends BaseNode<Node> {
 	 * @return a new {@link Node} with the given header.
 	 */
 	public static Node withHeader(final long header) {
-		
-		final var node = new Node();
-		node.setHeader(String.valueOf(header));
-		
-		return node;
+		return withHeader(String.valueOf(header));
 	}
 	
 	//static method
@@ -292,221 +166,81 @@ public final class Node extends BaseNode<Node> {
 	 * @throws InvalidArgumentException if the given header is blank.
 	 */
 	public static Node withHeader(final String header) {
-		
-		final var node = new Node();
-		node.setHeader(header);
-		
-		return node;
+		return new Node(header);
 	}
 	
 	//static method
 	/**
 	 * @param header
-	 * @param attribute
-	 * @param <BN> is the type of the given attributes.
-	 * @return a new {@link Node} with the given header and attribute.
+	 * @param childNode
+	 * @return a new {@link Node} with the given childNode.
 	 * @throws ArgumentIsNullException if the given header is null.
 	 * @throws InvalidArgumentException if the given header is blank.
-	 * @throws ArgumentIsNullException if the given attribute is null.
 	 */
-	public static <BN extends BaseNode<?>> Node withHeaderAndChildNode(final String header, final BN attribute) {
-		
-		final var node = new Node();
-		node.setHeader(header);
-		node.addChildNode(attribute);
-		
-		return node;
+	public static Node withHeaderAndChildNode(final String header, final boolean childNode) {
+		return withHeaderAndChildNode(header, withHeader(childNode));
 	}
 	
 	//static method
 	/**
 	 * @param header
-	 * @param attributes
-	 * @param <BN> is the type of the given attributes.
-	 * @return a new {@link Node} with the given header and attributes.
+	 * @param childNode
+	 * @return a new {@link Node} with the given childNode.
 	 * @throws ArgumentIsNullException if the given header is null.
 	 * @throws InvalidArgumentException if the given header is blank.
-	 * @throws ArgumentIsNullException if one of the given attributes is null.
 	 */
-	@SuppressWarnings("unchecked")
-	public static <BN extends BaseNode<?>> Node withHeaderAndChildNode(final String header, final BN... attributes) {
-		
-		final var node = new Node();
-		node.setHeader(header);
-		for (final var a : attributes) {
-			node.addChildNode(a);
-		}
-		
-		return node;
+	public static Node withHeaderAndChildNode(final String header, final double childNode) {
+		return withHeaderAndChildNode(header, withHeader(childNode));
 	}
 	
 	//static method
 	/**
 	 * @param header
-	 * @param attribute
-	 * @return a new {@link Node} with the given header and attribute.
+	 * @param childNodes
+	 * @return a new {@link Node} with the given header and childNodes.
 	 * @throws ArgumentIsNullException if the given header is null.
 	 * @throws InvalidArgumentException if the given header is blank.
 	 */
-	public static Node withHeaderAndChildNode(final String header, final boolean attribute) {
-		
-		final var node = new Node();
-		node.setHeader(header);
-		node.addChildNodeFromString(GlobalBooleanHelper.toString(attribute));
-		
-		return node;
+	public static Node withHeaderAndChildNode(final String header, final INode<?>... childNodes) {
+		return new Node(header, childNodes);
 	}
 	
 	//static method
 	/**
 	 * @param header
-	 * @param attributes
-	 * @return a new {@link Node} with the given header and attributes.
+	 * @param childNodes
+	 * @return a new {@link Node} with the given childNodes.
 	 * @throws ArgumentIsNullException if the given header is null.
 	 * @throws InvalidArgumentException if the given header is blank.
 	 */
-	public static Node withHeaderAndChildNode(final String header, final boolean... attributes) {
-		
-		final var node = new Node();
-		node.setHeader(header);
-		for (final var a : attributes) {
-			node.addChildNode(Node.withHeader(a));
-		}
-		
-		return node;
+	public static Node withHeaderAndChildNodes(final String header, final Iterable<? extends INode<?>> childNodes) {
+		return new Node(header, childNodes);
 	}
 	
 	//static method
 	/**
 	 * @param header
-	 * @param attribute
-	 * @return a new {@link Node} with the given header and attribute.
+	 * @param childNode
+	 * @return a new {@link Node} with the given childNode.
 	 * @throws ArgumentIsNullException if the given header is null.
 	 * @throws InvalidArgumentException if the given header is blank.
 	 */
-	public static Node withHeaderAndChildNode(final String header, final double attribute) {
-		
-		final var node = new Node();
-		node.setHeader(header);
-		node.addChildNodeFromString(String.valueOf(attribute));
-		
-		return node;
+	public static Node withHeaderAndChildNode(final String header, final long childNode) {
+		return withHeaderAndChildNode(header, withHeader(childNode));
 	}
 	
 	//static method
 	/**
 	 * @param header
-	 * @param attributes
-	 * @return a new {@link Node} with the given header and attributes.
+	 * @param childNodes
+	 * @return a new {@link Node} with the given header and childNodes.
 	 * @throws ArgumentIsNullException if the given header is null.
 	 * @throws InvalidArgumentException if the given header is blank.
+	 * @throws ArgumentIsNullException if one of the given childNodes is null.
+	 * @throws InvalidArgumentException if one of the given childNodes is blank.
 	 */
-	public static Node withHeaderAndChildNode(final String header, final double... attributes) {
-		
-		final var node = new Node();
-		node.setHeader(header);
-		for (final var a : attributes) {
-			node.addChildNode(Node.withHeader(a));
-		}
-		
-		return node;
-	}
-	
-	//static method
-	/**
-	 * @param header
-	 * @param attribute
-	 * @return a new {@link Node} with the given header and attribute.
-	 * @throws ArgumentIsNullException if the given header is null.
-	 * @throws InvalidArgumentException if the given header is blank.
-	 */
-	public static Node withHeaderAndChildNode(final String header, final long attribute) {
-		
-		final var node = new Node();
-		node.setHeader(header);
-		node.addChildNodeFromString(String.valueOf(attribute));
-		
-		return node;
-	}
-	
-	//static method
-	/**
-	 * @param header
-	 * @param attributes
-	 * @return a new {@link Node} with the given header and attributes.
-	 * @throws ArgumentIsNullException if the given header is null.
-	 * @throws InvalidArgumentException if the given header is blank.
-	 */
-	public static Node withHeaderAndChildNode(final String header, final long... attributes) {
-		
-		final var node = new Node();
-		node.setHeader(header);
-		for (final var a : attributes) {
-			node.addChildNode(Node.withHeader(a));
-		}
-		
-		return node;
-	}
-	
-	//static method
-	/**
-	 * @param header
-	 * @param attribute
-	 * @return a new {@link Node} with the given header and attribute.
-	 * @throws ArgumentIsNullException if the given header is null.
-	 * @throws InvalidArgumentException if the given header is blank.
-	 * @throws ArgumentIsNullException if the given attribute is null.
-	 * @throws InvalidArgumentException if the given attribute is blank.
-	 */
-	public static Node withHeaderAndChildNode(final String header, final String attribute) {
-		
-		final var node = new Node();
-		node.setHeader(header);
-		node.addChildNodeFromString(attribute);
-		
-		return node;
-	}
-	
-	//static method
-	/**
-	 * @param header
-	 * @param attributes
-	 * @return a new {@link Node} with the given header and attributes.
-	 * @throws ArgumentIsNullException if the given header is null.
-	 * @throws InvalidArgumentException if the given header is blank.
-	 * @throws ArgumentIsNullException if one of the given attributes is null.
-	 * @throws InvalidArgumentException if one of the given attributes is blank.
-	 */
-	public static Node withHeaderAndChildNode(final String header, final String... attributes) {
-		
-		final var node = new Node();
-		node.setHeader(header);
-		for (final var a : attributes) {
-			node.addChildNodeFromString(a);
-		}
-		
-		return node;
-	}
-	
-	//static method
-	/**
-	 * @param header
-	 * @param attributes
-	 * @param <BN> is the type of the given attributes.
-	 * @return a new {@link Node} with the given attributes.
-	 * @throws ArgumentIsNullException if the given header is null.
-	 * @throws InvalidArgumentException if the given header is blank.
-	 */
-	public static <BN extends BaseNode<?>> Node withHeaderAndChildNodes(
-		final String header,
-		final Iterable<BN> attributes
-	) {
-		
-		final var node = new Node();
-		node.setHeader(header);
-		node.addChildNodes(attributes);
-		
-		return node;
+	public static Node withHeaderAndChildNode(final String header, final String... childNodes) {
+		return withHeaderAndChildNodes(header, ReadContainer.forArray(childNodes).to(Node::withHeader));
 	}
 	
 	//static method
@@ -532,7 +266,7 @@ public final class Node extends BaseNode<Node> {
 	 * @return new {@link Node}s from the given nodes.
 	 * @throws RuntimeException if one of the given nodes is null.
 	 */
-	private static IContainer<Node> createNodesFromNodes(final Iterable<INode<?>> nodes) {
+	private static IContainer<Node> createNodesFromNodes(final Iterable<? extends INode<?>> nodes) {
 		
 		final var lNodes = new LinkedList<Node>();
 		
@@ -541,6 +275,15 @@ public final class Node extends BaseNode<Node> {
 		}
 		
 		return lNodes;
+	}
+	
+	//static method
+	/**
+	 * @param pEnum
+	 * @return the name of the type of the given pEnum.
+	 */
+	private static String getTypeNameOfEnum(final Enum<?> pEnum) {
+		return pEnum.getClass().getSimpleName();
 	}
 	
 	//static method
@@ -556,8 +299,6 @@ public final class Node extends BaseNode<Node> {
 		return header;
 	}
 	
-
-	
 	//optional attribute
 	private String header;
 	
@@ -567,6 +308,34 @@ public final class Node extends BaseNode<Node> {
 	//TODO: Replace this constructor by Node.EMPTY_NODE constant.
 	public Node() {}
 	
+	//constructor
+	/**
+	 * Creates a new {@link Node} with the given childNodes.
+	 * 
+	 * @param childNodes
+	 */
+	private Node(final INode<?>[] childNodes) {
+		
+		header = null;
+		
+		//TODO: Remove cast.
+		this.childNodes = (LinkedList<Node>)createNodesFromNodes(childNodes);
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link Node} with the given childNodes.
+	 * 
+	 * @param childNodes
+	 */
+	private Node(final Iterable<? extends INode<?>> childNodes) {
+		
+		header = null;
+		
+		//TODO: Remove cast.
+		this.childNodes = (LinkedList<Node>)createNodesFromNodes(childNodes);
+	}
+
 	//constructor
 	/**
 	 * Creates a new {@link Node} with the given header.
@@ -588,9 +357,10 @@ public final class Node extends BaseNode<Node> {
 	 * 
 	 * @param header
 	 * @param childNodes
-	 * @throws RuntimeException if one of the given childNodes is null.
+	 * @throws ArgumentIsNullException if the given header is null.
+	 * @throws InvalidArgumentException if the given header is blank.
 	 */
-	private Node(final String header, final INode<?>... childNodes) {
+	private Node(final String header, final INode<?>[] childNodes) {
 		
 		this.header = getValidHeaderFromHeader(header);
 		
@@ -604,9 +374,10 @@ public final class Node extends BaseNode<Node> {
 	 * 
 	 * @param header
 	 * @param childNodes
-	 * @throws RuntimeException if one of the given childNodes is null.
+	 * @throws ArgumentIsNullException if the given header is null.
+	 * @throws InvalidArgumentException if the given header is blank.
 	 */
-	private Node(final String header, final Iterable<INode<?>> childNodes) {
+	private Node(final String header, final Iterable<? extends INode<?>> childNodes) {
 		
 		this.header = getValidHeaderFromHeader(header);
 		
