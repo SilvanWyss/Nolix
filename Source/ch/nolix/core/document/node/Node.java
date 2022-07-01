@@ -310,6 +310,7 @@ public final class Node extends BaseNode<Node> {
 	//optional attribute
 	private final String header;
 	
+	//TODO: Create ImmutableList.
 	//multi-attribute
 	private final IContainer<Node> childNodes;
 	
@@ -429,7 +430,7 @@ public final class Node extends BaseNode<Node> {
 	 */
 	@Override
 	public IContainer<Node> getRefChildNodes() {
-		return ReadContainer.forIterable(childNodes).asContainerWithElementsOfEvaluatedType();
+		return childNodes;
 	}
 	
 	//method
