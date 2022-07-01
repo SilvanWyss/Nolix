@@ -160,8 +160,14 @@ public class ValueMediator<V> extends Mediator {
 		
 		isNotNull();
 		
-		if (!getRefValue().getClass().isAssignableFrom(type)) {
-			addCurrentTestCaseError("");
+		if (!type.isAssignableFrom(getRefValue().getClass())) {
+			addCurrentTestCaseError(
+				"A "
+				+ type.getName()
+				+ " was expected, but a "
+				+ getRefValue().getClass().getName()
+				+ " was received."
+			);
 		}
 	}
 	
