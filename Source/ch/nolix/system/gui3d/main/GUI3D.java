@@ -192,8 +192,8 @@ public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G> 
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final ReadContainer<IConfigurableElement<?>> getSubConfigurables() {
-		return ReadContainer.forIterable(getRefShapes().asContainerWithElementsOfEvaluatedType());
+	public final ReadContainer<? extends IConfigurableElement<?>> getSubConfigurables() {
+		return getRefShapes();
 	}
 	
 	//method

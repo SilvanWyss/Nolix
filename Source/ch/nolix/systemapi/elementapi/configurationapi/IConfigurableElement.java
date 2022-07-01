@@ -28,7 +28,7 @@ TypeRequestable {
 	/**
 	 * @return the {@link IConfigurableElement}s of the current {@link IConfigurableElement}.
 	 */
-	IContainer<IConfigurableElement<?>> getSubConfigurables();
+	IContainer<? extends IConfigurableElement<?>> getSubConfigurables();
 	
 	//method declaration
 	/**

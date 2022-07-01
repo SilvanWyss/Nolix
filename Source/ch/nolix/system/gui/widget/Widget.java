@@ -426,9 +426,8 @@ implements IWidget<W, WL> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public final IContainer<IConfigurableElement<?>> getSubConfigurables() {		
-		return (LinkedList)getChildWidgets();
+	public final IContainer<? extends IConfigurableElement<?>> getSubConfigurables() {		
+		return getChildWidgets();
 	}
 	
 	//method

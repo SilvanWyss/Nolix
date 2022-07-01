@@ -355,8 +355,8 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final IContainer<IConfigurableElement<?>> getSubConfigurables() {
-		return layers.getRefValues().getRefSelected(ILayer::allowesConfiguration).asContainerWithElementsOfEvaluatedType();
+	public final IContainer<? extends IConfigurableElement<?>> getSubConfigurables() {
+		return layers.getRefValues().getRefSelected(ILayer::allowesConfiguration);
 	}
 	
 	//method
