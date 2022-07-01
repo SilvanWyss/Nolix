@@ -532,13 +532,11 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 	
 	//method
 	private Node createPixelArraySpecification() {
-		
-		final var lPixelArraySpecification = Node.withHeader(PIXEL_ARRAY_HEADER);
-		for (final var p : pixels) {
-			lPixelArraySpecification.addChildNodeFromString(p.getHexadecimalValueAlwaysWithAlphaValue());
-		}
-		
-		return lPixelArraySpecification;
+		return
+		Node.withHeaderAndChildNodes(
+			PIXEL_ARRAY_HEADER,
+			pixels.to(p -> Node.withHeader(p.getHexadecimalValueAlwaysWithAlphaValue()))
+		);
 	}
 	
 	//method
