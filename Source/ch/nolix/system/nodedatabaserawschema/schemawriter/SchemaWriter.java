@@ -108,7 +108,7 @@ public final class SchemaWriter implements ISchemaWriter {
 	public void deleteTable(final String tableName) {
 		
 		editedDatabaseNode.removeFirstChildNodeThat(
-			a -> 
+			(final IMutableNode<?> a) -> 
 			a.hasHeader(SubNodeHeaderCatalogue.TABLE)
 			&&  tableNodeSearcher.getRefNameNodeFromTableNode(a).getRefSingleChildNode().hasHeader(tableName)
 		);

@@ -30,10 +30,8 @@ public final class TableNodeSearcher {
 	}
 	
 	//method
-	public IContainer<IMutableNode<?>> getRefRecordNodesFromTableNode(final IMutableNode<?> tableNode) {
-		
-		//TODO: Refactor this.
-		return tableNode.getRefChildNodesWithHeader(SubNodeHeaderCatalogue.RECORD).asContainerWithElementsOfEvaluatedType();
+	public IContainer<? extends IMutableNode<?>> getRefRecordNodesFromTableNode(final IMutableNode<?> tableNode) {
+		return tableNode.getRefChildNodesWithHeader(SubNodeHeaderCatalogue.RECORD);
 	}
 	
 	//method

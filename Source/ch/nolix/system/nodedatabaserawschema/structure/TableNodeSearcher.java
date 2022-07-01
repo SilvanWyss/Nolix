@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.system.nodedatabaserawschema.structure;
 
+//own imports
 import ch.nolix.coreapi.containerapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
-import ch.nolix.coreapi.documentapi.nodeapi.INode;
 
 //class
 public class TableNodeSearcher {
@@ -23,10 +23,8 @@ public class TableNodeSearcher {
 	}
 	
 	//method
-	public final IContainer<IMutableNode<?>> getRefColumnNodesFromTableNode(final IMutableNode<?> tableNode) {
-		
-		//TODO: Refactor this.
-		return tableNode.getRefChildNodesWithHeader(SubNodeHeaderCatalogue.COLUMN).asContainerWithElementsOfEvaluatedType();
+	public final IContainer<? extends IMutableNode<?>> getRefColumnNodesFromTableNode(final IMutableNode<?> tableNode) {
+		return tableNode.getRefChildNodesWithHeader(SubNodeHeaderCatalogue.COLUMN);
 	}
 	
 	//method
@@ -35,10 +33,8 @@ public class TableNodeSearcher {
 	}
 	
 	//method
-	public final IMutableNode<?> getRefNameNodeFromTableNode(final INode<?> tableNode) {
-		
-		//TODO: Refactor this.
-		return (IMutableNode<?>)tableNode.getRefFirstChildNodeWithHeader(SubNodeHeaderCatalogue.NAME);
+	public final IMutableNode<?> getRefNameNodeFromTableNode(final IMutableNode<?> tableNode) {
+		return tableNode.getRefFirstChildNodeWithHeader(SubNodeHeaderCatalogue.NAME);
 	}
 	
 	//method

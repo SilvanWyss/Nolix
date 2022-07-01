@@ -46,7 +46,7 @@ final class TableDefinitionMapper {
 	}
 	
 	//method
-	private IContainer<IMutableNode<?>> getRefColumnNodesInOrderFromTableNode(final IMutableNode<?> tableNode) {
+	private IContainer<? extends IMutableNode<?>> getRefColumnNodesInOrderFromTableNode(final IMutableNode<?> tableNode) {
 		return tableNodeSearcher.getRefColumnNodesFromTableNode(tableNode);
 	}
 	
