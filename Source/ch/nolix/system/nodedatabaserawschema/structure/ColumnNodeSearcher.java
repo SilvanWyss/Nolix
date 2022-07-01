@@ -3,7 +3,6 @@ package ch.nolix.system.nodedatabaserawschema.structure;
 
 //own imports
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
-import ch.nolix.coreapi.documentapi.nodeapi.INode;
 
 //class
 public final class ColumnNodeSearcher {
@@ -19,10 +18,8 @@ public final class ColumnNodeSearcher {
 	}
 	
 	//method
-	public IMutableNode<?> getRefNameNodeFromColumnNode(final INode<?> columnNode) {
-		
-		//TODO: Refactor this.
-		return (IMutableNode<?>)columnNode.getRefFirstChildNodeWithHeader(SubNodeHeaderCatalogue.NAME);
+	public IMutableNode<?> getRefNameNodeFromColumnNode(final IMutableNode<?> columnNode) {
+		return columnNode.getRefFirstChildNodeWithHeader(SubNodeHeaderCatalogue.NAME);
 	}
 	
 	//method
