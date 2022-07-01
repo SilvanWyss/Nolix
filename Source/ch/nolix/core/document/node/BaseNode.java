@@ -15,7 +15,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.programcontrol.processproperty.WriteMode;
-import ch.nolix.coreapi.attributeuniversalapi.mutableoptionalattributeuniversalapi.OptionalHeaderable;
 import ch.nolix.coreapi.containerapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionuniversalapi.IElementTakerBooleanGetter;
@@ -30,7 +29,7 @@ import ch.nolix.coreapi.functionuniversalapi.IElementTakerBooleanGetter;
  * @date 2017-06-24
  * @param <T> is the type of a {@link BaseNode}.
  */
-public abstract class BaseNode<T extends BaseNode<T>> implements INode<T>, OptionalHeaderable<T> {
+public abstract class BaseNode<T extends BaseNode<T>> implements INode<T> {
 	
 	//constants
 	public static final String COMMA_CODE = "$M";
@@ -86,25 +85,6 @@ public abstract class BaseNode<T extends BaseNode<T>> implements INode<T>, Optio
 		.replace(DOLLAR_SYMBOL_CODE, String.valueOf(CharacterCatalogue.DOLLAR));
 	}
 	
-	//method declaration
-	public abstract T addChildNode(INode<?>... childNodes);
-	
-	//method
-	/**
-	 * Adds the given attribute to the current {@link BaseNode}.
-	 * 
-	 * @param attribute
-	 * @throws UnrepresentingArgumentException if the given attribute does not represent a {@link Node}.
-	 */
-	public void addChildNodeFromString(final String attribute) {
-		
-		//Calls other method
-		addChildNode(Node.fromString(attribute));
-	}
-	
-	//method declaration
-	public abstract <N extends INode<?>> T addChildNodes(Iterable<N> childNodes);
-	
 	//method
 	/**
 	 * @return true if the current {@link BaseNode} contains attributes.
@@ -146,38 +126,6 @@ public abstract class BaseNode<T extends BaseNode<T>> implements INode<T>, Optio
 	@Override
 	public int getChildNodeCount() {
 		return getRefChildNodes().getElementCount();
-	}
-	
-	//method
-	/**
-	 * @return a new copy of the current {@link BaseNode}.
-	 */
-	public Node getCopy() {
-		
-		final var copy = new Node();
-		
-		//Handles the case that the current Node has a header.
-		if (hasHeader()) {
-			copy.setHeader(getHeader());
-		}
-		
-		//Iterates the attributes of the current Node.
-		for (final var a : getRefChildNodes()) {
-			copy.addChildNode(a.getCopy());
-		}
-		
-		return copy;
-	}
-	
-	//method
-	/**
-	 * @param header
-	 * @return a new copy of the current {@link BaseNode} with the given header.
-	 * @throws ArgumentIsNullException if the given header is null.
-	 * @throws InvalidArgumentException if the given header is blank.
-	 */
-	public Node getCopyWithHeader(final String header) {
-		return getCopy().setHeader(header);
 	}
 	
 	//method
@@ -406,36 +354,6 @@ public abstract class BaseNode<T extends BaseNode<T>> implements INode<T>, Optio
 	public int hashCode() {
 		return toString().hashCode();
 	}
-	
-	//method declaration
-	public abstract T removeAndGetRefFirstChildNodeThat(IElementTakerBooleanGetter<INode<?>> selector);
-	
-	//method declaration
-	/**
-	 * Removes the attributes of the current {@link BaseNode}.
-	 */
-	public abstract void removeChildNodes();
-	
-	//method declaration
-	/**
-	 * Removes the first attribute the given selector selects from the current {@link BaseNode}.
-	 * 
-	 * @param selector
-	 */
-	public abstract void removeFirstChildNodeThat(IElementTakerBooleanGetter<INode<?>> selector);
-	
-	//method
-	/**
-	 * Removes the first attribute with the given header from the current {@link BaseNode}.
-	 * 
-	 * @param header
-	 */
-	public void removeFirstChildNodeWithHeader(final String header) {
-		removeFirstChildNodeThat(a -> a.hasHeader(header));
-	}
-	
-	//method declaration
-	public abstract void reset();
 	
 	//method
 	/**

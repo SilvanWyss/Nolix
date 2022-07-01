@@ -13,10 +13,11 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.functionuniversalapi.IElementTakerBooleanGetter;
 
 //class
 /**
+ * A {@link Node} is not mutable.
+ * 
  * @author Silvan Wyss
  * @date 2016-01-01
  */
@@ -57,6 +58,10 @@ public final class Node extends BaseNode<Node> {
 	 * @return a new {@link Node} from the given {@link INode}.
 	 */
 	public static Node fromNode(final INode<?> node) {
+		
+		if (node instanceof Node) {
+			return (Node)node;
+		}
 		
 		if (!node.hasHeader()) {
 			return withChildNodes(node.getRefChildNodes());
@@ -300,13 +305,18 @@ public final class Node extends BaseNode<Node> {
 	}
 	
 	//optional attribute
-	private String header;
+	private final String header;
 	
 	//multi-attribute
-	private LinkedList<Node> childNodes = new LinkedList<>();
+	private final IContainer<Node> childNodes;
 	
 	//TODO: Replace this constructor by Node.EMPTY_NODE constant.
-	public Node() {}
+	public Node() {
+		
+		header = null;
+		
+		childNodes = new LinkedList<>();
+	}
 	
 	//constructor
 	/**
@@ -318,8 +328,7 @@ public final class Node extends BaseNode<Node> {
 		
 		header = null;
 		
-		//TODO: Remove cast.
-		this.childNodes = (LinkedList<Node>)createNodesFromNodes(childNodes);
+		this.childNodes = createNodesFromNodes(childNodes);
 	}
 	
 	//constructor
@@ -332,8 +341,7 @@ public final class Node extends BaseNode<Node> {
 		
 		header = null;
 		
-		//TODO: Remove cast.
-		this.childNodes = (LinkedList<Node>)createNodesFromNodes(childNodes);
+		this.childNodes = createNodesFromNodes(childNodes);
 	}
 
 	//constructor
@@ -364,8 +372,7 @@ public final class Node extends BaseNode<Node> {
 		
 		this.header = getValidHeaderFromHeader(header);
 		
-		//TODO: Remove cast.
-		this.childNodes = (LinkedList<Node>)createNodesFromNodes(childNodes);
+		this.childNodes = createNodesFromNodes(childNodes);
 	}
 	
 	//constructor
@@ -381,61 +388,17 @@ public final class Node extends BaseNode<Node> {
 		
 		this.header = getValidHeaderFromHeader(header);
 		
-		//TODO: Remove cast.
-		this.childNodes = (LinkedList<Node>)createNodesFromNodes(childNodes);
+		this.childNodes = createNodesFromNodes(childNodes);
 	}
 	
 	//method
-	public Node addChildNode(final INode<?>... childNodes) {
-		
-		for (final var cn : childNodes) {
-			this.childNodes.addAtEnd(Node.fromNode(cn));
-		}
-		
-		return this;
-	}
-	
-	//method
-	public Node addChildNodeFromString(final String... strings) {
-		
-		for (final var s : strings) {
-			addChildNode(fromString(s));
-		}
-		
-		return this;
-	}
-	
-	//method
-	@Override
-	public <N extends INode<?>> Node addChildNodes(final Iterable<N> childNodes) {
-		
-		for (final var cn : childNodes) {
-			this.childNodes.addAtEnd(Node.fromNode(cn));
-		}
-		
-		return this;
-	}
-	
-	//method
-	public Node addChildNodesFromStrings(final Iterable<String> strings) {
-		
-		for (final var s : strings) {
-			addChildNodeFromString(s);
-		}
-		
-		return this;
-	}
-	
-	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
-	 * @return the header of this specification.
-	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link Node} does not have a header.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public String getHeader() {
 		
-		//Asserts that the current Node has a header.
-		//For a better performance, this implementation does not use all comfortable methods.
 		if (header == null) {
 			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.HEADER);
 		}
@@ -463,82 +426,10 @@ public final class Node extends BaseNode<Node> {
 	
 	//method
 	/**
-	 * @return true if the current {@link Node} has a header
+	 * {@inheritDoc}
 	 */
 	@Override
 	public boolean hasHeader() {
 		return (header != null);
-	}
-	
-	//method
-	/**
-	 * Removes the attributes of the current {@link Node}.
-	 */
-	@Override
-	public void removeChildNodes() {
-		childNodes.clear();
-	}
-	
-	//method
-	/**
-	 * Removes the first attribute the given selector selects from the current {@link Node}.
-	 * 
-	 * @param selector
-	 * @return the first attribute the given selector selects.
-	 * @throws InvalidArgumentException if
-	 * the current {@link Node} does not contain an attribute the given selector selects.
-	 */
-	@Override
-	public Node removeAndGetRefFirstChildNodeThat(final IElementTakerBooleanGetter<INode<?>> selector) {
-		return childNodes.removeAndGetRefFirst(selector::getOutput);
-	}
-	
-	//method
-	/**
-	 * Removes the first attribute the given selector selects from the current {@link Node}.
-	 * 
-	 * @param selector
-	 * @throws InvalidArgumentException
-	 * if the current {@link Node} does not contain an attribute the given selector selects.
-	 */
-	@Override
-	public void removeFirstChildNodeThat(final IElementTakerBooleanGetter<INode<?>> selector) {
-		childNodes.removeFirst(selector::getOutput);
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void removeHeader() {
-		header = null;
-	}
-	
-	//method
-	/**
-	 * Sets the header of the current {@link Node}.
-	 * 
-	 * @param header
-	 * @return the current {@link Node}.
-	 * @throws ArgumentIsNullException if the given header is null.
-	 * @throws InvalidArgumentException if the given header is blank.
-	 */
-	@Override
-	public Node setHeader(final String header) {
-		
-		//Asserts that the given header is not null or blank.
-		GlobalValidator.assertThat(header).thatIsNamed(LowerCaseCatalogue.HEADER).isNotBlank();
-		
-		//Sets the header of the current Node.
-		this.header = header;
-		
-		return this;
-	}
-	
-	//TOOD: Delete this method.
-	public void reset() {
-		removeHeader();
-		removeChildNodes();
 	}
 }

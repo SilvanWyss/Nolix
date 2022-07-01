@@ -180,6 +180,15 @@ public final class MutableNode extends BaseMutableNode<MutableNode> {
 	 * {@inheritDoc}
 	 */
 	@Override
+	public void removeFirstChildNodeWithHeader(String header) {
+		childNodes.removeFirst(cn -> cn.hasHeader(header));
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public void removeHeader() {
 		header = null;
 	}

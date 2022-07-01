@@ -239,6 +239,15 @@ public final class FileNode extends BaseMutableNode<FileNode> {
 		save();
 	}
 	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void removeFirstChildNodeWithHeader(String header) {
+		internalSpecification.removeFirstChildNodeWithHeader(header);
+	}
+	
 	@Override
 	public void removeChildNodes() {
 		internalSpecification.removeChildNodes();
