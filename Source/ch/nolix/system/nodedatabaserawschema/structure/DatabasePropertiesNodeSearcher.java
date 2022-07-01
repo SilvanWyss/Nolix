@@ -17,7 +17,9 @@ public final class DatabasePropertiesNodeSearcher {
 	}
 	
 	//method
-	public IMutableNode<?> getRefSchemaTimestampNodeFromDatabasePropertiesNode(final IMutableNode<?> databasePropertiesNode) {
+	public IMutableNode<?> getRefSchemaTimestampNodeFromDatabasePropertiesNode(
+		final IMutableNode<?> databasePropertiesNode
+	) {
 		return databasePropertiesNode.getRefFirstChildNodeWithHeader(SubNodeHeaderCatalogue.SCHEMA_TIMESTAMP);
 	}
 }

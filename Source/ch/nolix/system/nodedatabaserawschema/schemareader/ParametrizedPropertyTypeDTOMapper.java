@@ -111,7 +111,9 @@ public class ParametrizedPropertyTypeDTOMapper {
 	}
 	
 	//method
-	private PropertyType getPropertyTypeFromParametrizedPropertyTypeNode(final IMutableNode<?> parametrizedPropertyTypeNode) {
+	private PropertyType getPropertyTypeFromParametrizedPropertyTypeNode(
+		final IMutableNode<?> parametrizedPropertyTypeNode
+	) {
 		
 		final var propertyTypeNode =
 		parametrizedPropertyTypeNodeSearcher.getRefPropertyTypeNodeFromParametrizedPropertyTypeNode(
@@ -122,7 +124,9 @@ public class ParametrizedPropertyTypeDTOMapper {
 	}
 	
 	//method
-	private String getReferencedTableIdFromParametrizedPropertyTypeNode(final IMutableNode<?> parametrizedPropertyTypeNode) {
+	private String getReferencedTableIdFromParametrizedPropertyTypeNode(
+		final IMutableNode<?> parametrizedPropertyTypeNode
+	) {
 		
 		final var referencedTableIdNode =
 		parametrizedPropertyTypeNodeSearcher.getRefReferencedTableIdNodeFromParametrizedPropertyTypeNode(

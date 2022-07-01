@@ -209,9 +209,15 @@ public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extend
 		expect(result3.toString()).isEqualTo("c");
 		
 		//verification part 2
-		expectRunning(() -> testUnit.getRefChildNodeAt1BasedIndex(-1)).throwsException().ofType(NonPositiveArgumentException.class);
-		expectRunning(() -> testUnit.getRefChildNodeAt1BasedIndex(0)).throwsException().ofType(NonPositiveArgumentException.class);
-		expectRunning(() -> testUnit.getRefChildNodeAt1BasedIndex(4)).throwsException().ofType(InvalidArgumentException.class);
+		expectRunning(
+			() -> testUnit.getRefChildNodeAt1BasedIndex(-1)).throwsException().ofType(NonPositiveArgumentException.class
+		);
+		expectRunning(
+			() -> testUnit.getRefChildNodeAt1BasedIndex(0)).throwsException().ofType(NonPositiveArgumentException.class
+		);
+		expectRunning(
+			() -> testUnit.getRefChildNodeAt1BasedIndex(4)).throwsException().ofType(InvalidArgumentException.class
+		);
 	}
 	
 	//method
