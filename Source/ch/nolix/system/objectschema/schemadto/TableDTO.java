@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.system.objectschema.schemadto;
 
+//own imports
+import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.IContainer;
@@ -47,7 +49,7 @@ public final class TableDTO implements ITableDTO {
 		this.id = id;
 		this.name = name;
 		this.saveStampConfiguration = saveStampConfiguration;
-		this.columnDTOs = columnDTOs.asContainerWithElementsOfEvaluatedType();
+		this.columnDTOs = LinkedList.fromIterable(columnDTOs);
 	}
 	
 	//method
