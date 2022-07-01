@@ -18,8 +18,6 @@ import ch.nolix.coreapi.functionuniversalapi.IElementTakerBooleanGetter;
 
 //class
 /**
- * A {@link Node} is a {@link BaseNode} that is completely stored in the memory like a common object.
- * 
  * @author Silvan Wyss
  * @date 2016-01-01
  */
@@ -564,7 +562,7 @@ public final class Node extends BaseNode<Node> {
 	private String header;
 	
 	//multi-attribute
-	private LinkedList<Node> attributes = new LinkedList<>();
+	private LinkedList<Node> childNodes = new LinkedList<>();
 	
 	//TODO: Replace this constructor by Node.EMPTY_NODE constant.
 	public Node() {}
@@ -581,7 +579,7 @@ public final class Node extends BaseNode<Node> {
 		
 		this.header = getValidHeaderFromHeader(header);
 		
-		attributes = new LinkedList<>();
+		childNodes = new LinkedList<>();
 	}
 	
 	//constructor
@@ -597,7 +595,7 @@ public final class Node extends BaseNode<Node> {
 		this.header = getValidHeaderFromHeader(header);
 		
 		//TODO: Remove cast.
-		attributes = (LinkedList<Node>)createNodesFromNodes(childNodes);
+		this.childNodes = (LinkedList<Node>)createNodesFromNodes(childNodes);
 	}
 	
 	//constructor
@@ -613,14 +611,14 @@ public final class Node extends BaseNode<Node> {
 		this.header = getValidHeaderFromHeader(header);
 		
 		//TODO: Remove cast.
-		attributes = (LinkedList<Node>)createNodesFromNodes(childNodes);
+		this.childNodes = (LinkedList<Node>)createNodesFromNodes(childNodes);
 	}
 	
 	//method
 	public Node addChildNode(final INode<?>... childNodes) {
 		
 		for (final var cn : childNodes) {
-			attributes.addAtEnd(Node.fromNode(cn));
+			this.childNodes.addAtEnd(Node.fromNode(cn));
 		}
 		
 		return this;
@@ -641,7 +639,7 @@ public final class Node extends BaseNode<Node> {
 	public <N extends INode<?>> Node addChildNodes(final Iterable<N> childNodes) {
 		
 		for (final var cn : childNodes) {
-			attributes.addAtEnd(Node.fromNode(cn));
+			this.childNodes.addAtEnd(Node.fromNode(cn));
 		}
 		
 		return this;
@@ -680,7 +678,7 @@ public final class Node extends BaseNode<Node> {
 	 */
 	@Override
 	public IContainer<Node> getRefChildNodes() {
-		return ReadContainer.forIterable(attributes).asContainerWithElementsOfEvaluatedType();
+		return ReadContainer.forIterable(childNodes).asContainerWithElementsOfEvaluatedType();
 	}
 	
 	//method
@@ -689,7 +687,7 @@ public final class Node extends BaseNode<Node> {
 	 */
 	@Override
 	public Node getRefSingleChildNode() {
-		return attributes.getRefOne();
+		return childNodes.getRefOne();
 	}
 	
 	//method
@@ -707,7 +705,7 @@ public final class Node extends BaseNode<Node> {
 	 */
 	@Override
 	public void removeChildNodes() {
-		attributes.clear();
+		childNodes.clear();
 	}
 	
 	//method
@@ -721,7 +719,7 @@ public final class Node extends BaseNode<Node> {
 	 */
 	@Override
 	public Node removeAndGetRefFirstChildNodeThat(final IElementTakerBooleanGetter<INode<?>> selector) {
-		return attributes.removeAndGetRefFirst(selector::getOutput);
+		return childNodes.removeAndGetRefFirst(selector::getOutput);
 	}
 	
 	//method
@@ -734,7 +732,7 @@ public final class Node extends BaseNode<Node> {
 	 */
 	@Override
 	public void removeFirstChildNodeThat(final IElementTakerBooleanGetter<INode<?>> selector) {
-		attributes.removeFirst(selector::getOutput);
+		childNodes.removeFirst(selector::getOutput);
 	}
 	
 	//method
