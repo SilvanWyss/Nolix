@@ -9,5 +9,5 @@ import ch.nolix.systemapi.objectdataapi.dataapi.ISchema;
 public interface ISchemaHelper {
 	
 	//method declaration
-	<IMPL> Class<IEntity<IMPL>> getEntityTypeByName(ISchema<IMPL> schema, String name);
+	<IMPL> Class<? extends IEntity<IMPL>> getEntityTypeByName(ISchema<IMPL> schema, String name);
 }
