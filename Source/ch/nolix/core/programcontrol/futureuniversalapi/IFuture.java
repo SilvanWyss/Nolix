@@ -2,7 +2,6 @@
 package ch.nolix.core.programcontrol.futureuniversalapi;
 
 //own imports
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.requestuniversalapi.FinishRequestable;
 
 //interface
@@ -51,7 +50,7 @@ public interface IFuture extends FinishRequestable {
 	/**
 	 * Lets the current {@link IFuture} wait until it is finished successfully.
 	 * 
-	 * @throws InvalidArgumentException if the current {@link IFuture} catches an error.
+	 * @throws RuntimeException if the current {@link IFuture} catches an error.
 	 */
 	void waitUntilIsFinishedSuccessfully();
 	
@@ -60,8 +59,9 @@ public interface IFuture extends FinishRequestable {
 	 * Lets the current {@link IFuture} wait until it is finished successfully within the given timeoutInMilliseconds.
 	 * 
 	 * @param timeoutInMilliseconds
-	 * @throws InvalidArgumentException if the current {@link IFuture} catches an error.
-	 * @throws InvalidArgumentException if the current {@link IFuture} reached the given timeoutInMilliseconds before having finished.
+	 * @throws RuntimeException if the current {@link IFuture} catches an error.
+	 * @throws RuntimeException if
+	 * the current {@link IFuture} reached the given timeoutInMilliseconds before having finished.
 	 */
 	void waitUntilIsFinishedSuccessfully(int timeoutInMilliseconds);
 }
