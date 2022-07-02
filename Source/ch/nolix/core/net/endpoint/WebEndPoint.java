@@ -14,9 +14,9 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.websocket.WebSocketFrame;
 import ch.nolix.core.net.websocket.WebSocketFrameOpcodeMeaning;
-import ch.nolix.core.programcontrol.processproperty.ConnectionOrigin;
-import ch.nolix.core.programcontrol.processproperty.TargetInfoState;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
+import ch.nolix.coreapi.programcontrolapi.processproperty.ConnectionOrigin;
+import ch.nolix.coreapi.programcontrolapi.processproperty.TargetInfoState;
 
 //class
 final class WebEndPoint extends BaseNetEndPoint {

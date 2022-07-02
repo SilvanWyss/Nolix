@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.core.provider.implproviderapi;
 
-//own imports
-import ch.nolix.core.programcontrol.processproperty.WriteMode;
+import ch.nolix.coreapi.programcontrolapi.processproperty.WriteMode;
 
 //interface
 public interface IExtendedImplRegistratorMediator<IN> extends IImplRegistratorMediator<IN> {

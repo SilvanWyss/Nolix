@@ -10,7 +10,7 @@ import ch.nolix.core.environment.localcomputer.PopupWindowProvider;
 import ch.nolix.core.environment.localcomputer.ShellProvider;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.net.targetuniversalapi.IApplicationTarget;
-import ch.nolix.core.programcontrol.processproperty.WriteMode;
+import ch.nolix.coreapi.programcontrolapi.processproperty.WriteMode;
 import ch.nolix.systemapi.guiapi.mainapi.IFrontEndWriter;
 
 //class

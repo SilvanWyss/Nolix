@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.programcontrol.processproperty;
+package ch.nolix.coreapi.programcontrolapi.processproperty;
 
 //enum
 /**

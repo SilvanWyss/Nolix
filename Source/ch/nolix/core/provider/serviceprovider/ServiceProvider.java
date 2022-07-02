@@ -7,7 +7,7 @@ import java.util.HashMap;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-import ch.nolix.core.programcontrol.processproperty.WriteMode;
+import ch.nolix.coreapi.programcontrolapi.processproperty.WriteMode;
 
 //class
 public final class ServiceProvider {

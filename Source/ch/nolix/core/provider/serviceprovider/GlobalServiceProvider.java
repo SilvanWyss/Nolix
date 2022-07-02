@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.core.provider.serviceprovider;
 
-//own imports
-import ch.nolix.core.programcontrol.processproperty.WriteMode;
+import ch.nolix.coreapi.programcontrolapi.processproperty.WriteMode;
 
 //class
 public final class GlobalServiceProvider {
