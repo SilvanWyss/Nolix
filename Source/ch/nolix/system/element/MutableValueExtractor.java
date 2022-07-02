@@ -6,6 +6,7 @@ import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionuniversalapi.IElementGetter;
 import ch.nolix.coreapi.functionuniversalapi.IElementTaker;
 import ch.nolix.coreapi.functionuniversalapi.IElementTakerElementGetter;
@@ -61,7 +62,7 @@ public final class MutableValueExtractor<V> extends Property {
 	
 	//method
 	@Override
-	protected void fillUpAttributesInto(final LinkedList<Node> list) {
+	protected void fillUpAttributesInto(final LinkedList<INode<?>> list) {
 		list.addAtEnd(specificationCreator.getOutput(getter.getOutput()));
 	}
 }

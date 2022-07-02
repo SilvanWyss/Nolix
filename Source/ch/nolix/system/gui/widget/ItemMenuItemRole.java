@@ -6,6 +6,7 @@ import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.elementapi.mainuniversalapi.Specified;
 
 //enum
@@ -20,7 +21,7 @@ public enum ItemMenuItemRole implements Specified {
 	
 	//method
 	@Override
-	public final void fillUpAttributesInto(final LinkedList<Node> list) {
+	public final void fillUpAttributesInto(final LinkedList<INode<?>> list) {
 		list.addAtEnd(Node.withHeader(GlobalStringHelper.toPascalCase(toString())));
 	}
 }

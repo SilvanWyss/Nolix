@@ -8,6 +8,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.guiapi.inputapi.IResizeInput;
 
 //class
@@ -53,7 +54,7 @@ public final class ResizeInput implements IResizeInput<ResizeInput> {
 	
 	//method
 	@Override
-	public void fillUpAttributesInto(final LinkedList<Node> list) {
+	public void fillUpAttributesInto(final LinkedList<INode<?>> list) {
 		
 		final var sizeSpecification =
 		Node.withHeaderAndChildNode(

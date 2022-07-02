@@ -10,6 +10,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.guiapi.colorapi.IColorGradient;
 import ch.nolix.systemapi.guiapi.structureproperty.DirectionInRectangle;
 
@@ -203,7 +204,7 @@ public class ColorGradient implements IColorGradient {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void fillUpAttributesInto(final LinkedList<Node> list) {
+	public void fillUpAttributesInto(final LinkedList<INode<?>> list) {
 		list.addAtEnd(
 			Node.withHeader(getDirection().toString()),
 			Node.withHeader(getColor1().getHexadecimalValue()),

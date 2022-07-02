@@ -13,6 +13,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.IContainer;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.guiapi.colorapi.IColor;
 
 //class
@@ -1045,7 +1046,7 @@ public final class Color implements IColor {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void fillUpAttributesInto(final LinkedList<Node> list) {
+	public void fillUpAttributesInto(final LinkedList<INode<?>> list) {
 		list.addAtEnd(Node.fromString(getHexadecimalValue()));
 	}
 	

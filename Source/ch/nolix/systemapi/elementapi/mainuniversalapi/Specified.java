@@ -7,6 +7,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.document.xml.XMLNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 
 //interface
@@ -23,15 +24,15 @@ public interface Specified {
 	 * 
 	 * @param list
 	 */
-	void fillUpAttributesInto(LinkedList<Node> list);
+	void fillUpAttributesInto(LinkedList<INode<?>> list);
 	
 	//method
 	/**
 	 * @return the attributes of the current {@link Specified}.
 	 */
-	default LinkedList<Node> getAttributes() {
+	default LinkedList<INode<?>> getAttributes() {
 		
-		final var attributes = new LinkedList<Node>();
+		final var attributes = new LinkedList<INode<?>>();
 		
 		fillUpAttributesInto(attributes);
 		

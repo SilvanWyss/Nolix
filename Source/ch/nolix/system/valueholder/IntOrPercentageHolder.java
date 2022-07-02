@@ -12,6 +12,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentExcep
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.elementapi.mainuniversalapi.Specified;
 
 //class
@@ -102,7 +103,7 @@ public final class IntOrPercentageHolder implements Specified {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void fillUpAttributesInto(final LinkedList<Node> list) {
+	public void fillUpAttributesInto(final LinkedList<INode<?>> list) {
 		if (hasIntValue()) {
 			list.addAtEnd(Node.withHeaderAndChildNode(PascalCaseCatalogue.VALUE, getIntValue()));
 		} else if (hasPercentage()) {

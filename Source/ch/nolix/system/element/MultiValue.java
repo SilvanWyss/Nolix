@@ -10,6 +10,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.skilluniversalapi.Clearable;
 import ch.nolix.coreapi.containerapi.IContainer;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionuniversalapi.IElementTaker;
 import ch.nolix.coreapi.functionuniversalapi.IElementTakerElementGetter;
 
@@ -180,7 +181,7 @@ public final class MultiValue<V> extends BaseValue<V> implements Clearable {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void fillUpAttributesInto(final LinkedList<Node> list) {
+	protected void fillUpAttributesInto(final LinkedList<INode<?>> list) {
 		
 		//Iterates the values of the current MultiProperty.
 		for (final var v : getRefValues()) {

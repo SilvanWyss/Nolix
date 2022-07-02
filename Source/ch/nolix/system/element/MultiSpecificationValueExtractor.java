@@ -1,12 +1,13 @@
 //package declaration
 package ch.nolix.system.element;
 
+//own imports
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
-import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.IContainer;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionuniversalapi.IElementGetter;
 import ch.nolix.coreapi.functionuniversalapi.IElementTaker;
 
@@ -16,13 +17,13 @@ public final class MultiSpecificationValueExtractor extends Property {
 	//attributes
 	private final String name;
 	private final IElementTaker<BaseNode<?>> adder;
-	private final IElementGetter<IContainer<Node>> getter;
+	private final IElementGetter<IContainer<INode<?>>> getter;
 	
 	//constructor
 	public MultiSpecificationValueExtractor(
 		final String name,
 		final IElementTaker<BaseNode<?>> adder,
-		final IElementGetter<IContainer<Node>> getter
+		final IElementGetter<IContainer<INode<?>>> getter
 	) {
 		
 		GlobalValidator.assertThat(name).thatIsNamed(PascalCaseCatalogue.NAME).isNotBlank();
@@ -53,7 +54,7 @@ public final class MultiSpecificationValueExtractor extends Property {
 	
 	//method
 	@Override
-	protected void fillUpAttributesInto(final LinkedList<Node> list) {
+	protected void fillUpAttributesInto(final LinkedList<INode<?>> list) {
 		list.addAtEnd(getter.getOutput());
 	}
 }

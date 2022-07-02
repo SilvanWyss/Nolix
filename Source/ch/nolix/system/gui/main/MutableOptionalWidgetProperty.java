@@ -1,12 +1,13 @@
 //package declaration
 package ch.nolix.system.gui.main;
 
+//own imports
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
-import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.skilluniversalapi.Clearable;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionuniversalapi.IElementTaker;
 import ch.nolix.system.element.Property;
 import ch.nolix.system.gui.widget.Widget;
@@ -71,7 +72,7 @@ public final class MutableOptionalWidgetProperty extends Property implements Cle
 	
 	//method
 	@Override
-	protected void fillUpAttributesInto(LinkedList<Node> list) {
+	protected void fillUpAttributesInto(LinkedList<INode<?>> list) {
 		if (containsAny()) {
 			list.addAtEnd(getRefWidget().getSpecification());
 		}

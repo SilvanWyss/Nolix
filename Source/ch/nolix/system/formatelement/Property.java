@@ -4,9 +4,9 @@ package ch.nolix.system.formatelement;
 import ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi.Named;
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
-import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 
 //class
 public abstract class Property<S extends Enum<S>> implements Named {
@@ -30,7 +30,7 @@ public abstract class Property<S extends Enum<S>> implements Named {
 	}
 	
 	//method declaration
-	protected abstract void fillUpValuesSpecificationInto(LinkedList<Node> list);
+	protected abstract void fillUpValuesSpecificationInto(LinkedList<INode<?>> list);
 	
 	//method declaration
 	protected abstract void setFrom(Property<S> property);

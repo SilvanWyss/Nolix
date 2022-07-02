@@ -7,6 +7,7 @@ import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.math.Vector;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.elementapi.mainuniversalapi.Specified;
 
 //class
@@ -76,7 +77,7 @@ public class Point3D implements Specified {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void fillUpAttributesInto(final LinkedList<Node> list) {
+	public void fillUpAttributesInto(final LinkedList<INode<?>> list) {
 		list.addAtEnd(
 			Node.withHeader(GlobalDoubleHelper.toString(getX())),
 			Node.withHeader(GlobalDoubleHelper.toString(getY())),

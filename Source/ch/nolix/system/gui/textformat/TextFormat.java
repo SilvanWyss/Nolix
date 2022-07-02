@@ -15,6 +15,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.systemapi.guiapi.textformatapi.ITextFormat;
 
@@ -234,7 +235,7 @@ public final class TextFormat implements ITextFormat {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void fillUpAttributesInto(final LinkedList<Node> list) {
+	public void fillUpAttributesInto(final LinkedList<INode<?>> list) {
 		list.addAtEnd(
 			font.getSpecificationWithHeader(TEXT_FONT_HEADER),
 			Node.withHeaderAndChildNode(BOLD_FLAG_HEADER, bold),

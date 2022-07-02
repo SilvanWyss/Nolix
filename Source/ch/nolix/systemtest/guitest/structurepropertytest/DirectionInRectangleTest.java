@@ -21,7 +21,7 @@ public final class DirectionInRectangleTest extends Test {
 		
 		//verification
 		expect(result.getElementCount()).isEqualTo(1);
-		expect(result.getRefOne()).isEqualTo(Node.fromString("HORIZONTAL"));
+		expect(result.getRefOne()).hasStringRepresentation("HORIZONTAL");
 	}
 	
 	//method
