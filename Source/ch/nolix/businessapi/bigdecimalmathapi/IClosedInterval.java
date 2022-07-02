@@ -5,7 +5,7 @@ package ch.nolix.businessapi.bigdecimalmathapi;
 import java.math.BigDecimal;
 
 //own imports
-import ch.nolix.core.container.pair.Pair;
+import ch.nolix.coreapi.containerapi.IPair;
 
 //interface
 public interface IClosedInterval {
@@ -17,7 +17,7 @@ public interface IClosedInterval {
 	int getBigDecimalScale();
 	
 	//method declaration
-	Pair<IClosedInterval, IClosedInterval> getHalfs();
+	IPair<IClosedInterval, IClosedInterval> getHalfs();
 	
 	//method declaration
 	BigDecimal getLength();
