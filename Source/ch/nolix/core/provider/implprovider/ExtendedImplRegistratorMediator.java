@@ -3,8 +3,8 @@ package ch.nolix.core.provider.implprovider;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-import ch.nolix.core.provider.implproviderapi.IExtendedImplRegistratorMediator;
 import ch.nolix.coreapi.programcontrolapi.processproperty.WriteMode;
+import ch.nolix.coreapi.providerapi.implproviderapi.IExtendedImplRegistratorMediator;
 
 //class
 public final class ExtendedImplRegistratorMediator<IN> implements IExtendedImplRegistratorMediator<IN> {

@@ -7,9 +7,9 @@ import java.util.HashMap;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-import ch.nolix.core.provider.implproviderapi.IImplProvider;
-import ch.nolix.core.provider.implproviderapi.IImplProviderMediator;
 import ch.nolix.coreapi.programcontrolapi.processproperty.WriteMode;
+import ch.nolix.coreapi.providerapi.implproviderapi.IImplProvider;
+import ch.nolix.coreapi.providerapi.implproviderapi.IImplProviderMediator;
 
 //class
 public final class ImplProvider implements IImplProvider {

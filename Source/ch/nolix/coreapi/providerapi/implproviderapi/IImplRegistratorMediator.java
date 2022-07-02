@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.provider.implproviderapi;
+package ch.nolix.coreapi.providerapi.implproviderapi;
 
 //interface
 public interface IImplRegistratorMediator<IN> {
