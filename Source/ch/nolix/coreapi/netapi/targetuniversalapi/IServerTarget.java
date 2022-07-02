@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.net.targetuniversalapi;
+package ch.nolix.coreapi.netapi.targetuniversalapi;
 
 //interface
 public interface IServerTarget {

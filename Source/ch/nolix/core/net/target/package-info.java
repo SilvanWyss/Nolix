@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.core.net.target} package defines
- * some types that are declared {@link ch.nolix.core.net.targetuniversalapi}.
+ * some types that are declared {@link ch.nolix.coreapi.netapi.targetuniversalapi}.
  * 
  * @author Silvan Wyss
  * @date 2022-05-14

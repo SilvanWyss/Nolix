@@ -9,7 +9,7 @@ import ch.nolix.core.environment.filesystem.FileSystemAccessor;
 import ch.nolix.core.environment.localcomputer.PopupWindowProvider;
 import ch.nolix.core.environment.localcomputer.ShellProvider;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
-import ch.nolix.core.net.targetuniversalapi.IApplicationTarget;
+import ch.nolix.coreapi.netapi.targetuniversalapi.IApplicationTarget;
 import ch.nolix.coreapi.programcontrolapi.processproperty.WriteMode;
 import ch.nolix.systemapi.guiapi.mainapi.IFrontEndWriter;
 

@@ -6,7 +6,7 @@ import ch.nolix.core.environment.localcomputer.LocalComputer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.net.endpoint3.EndPoint;
 import ch.nolix.core.net.target.ServerTarget;
-import ch.nolix.core.net.targetuniversalapi.IServerTarget;
+import ch.nolix.coreapi.netapi.targetuniversalapi.IServerTarget;
 
 //class
 /**

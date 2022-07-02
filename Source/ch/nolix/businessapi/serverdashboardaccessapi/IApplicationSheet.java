@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.businessapi.serverdashboardaccessapi;
 
-import ch.nolix.core.net.targetuniversalapi.IApplicationTarget;
-import ch.nolix.core.net.targetuniversalapi.IServerTarget;
+import ch.nolix.coreapi.netapi.targetuniversalapi.IApplicationTarget;
+import ch.nolix.coreapi.netapi.targetuniversalapi.IServerTarget;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
 
 //interface

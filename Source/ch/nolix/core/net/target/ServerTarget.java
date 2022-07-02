@@ -3,8 +3,8 @@ package ch.nolix.core.net.target;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.constant.PortCatalogue;
-import ch.nolix.core.net.targetuniversalapi.IServerTarget;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.coreapi.netapi.targetuniversalapi.IServerTarget;
 
 //class
 public class ServerTarget implements IServerTarget {
