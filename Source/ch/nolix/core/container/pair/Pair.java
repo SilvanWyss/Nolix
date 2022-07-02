@@ -4,6 +4,7 @@ package ch.nolix.core.container.pair;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.coreapi.containerapi.IPair;
 
 //class
 /**
@@ -15,7 +16,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
  * @param <E1> is the type of the element 1 of a {@link Pair}.
  * @param <E2> is the type of the element 2 of a {@link Pair}.
  */
-public final class Pair<E1, E2> {
+public final class Pair<E1, E2> implements IPair<E1, E2> {
 	
 	//attributes
 	private final E1 element1;
@@ -47,16 +48,18 @@ public final class Pair<E1, E2> {
 	
 	//method
 	/**
-	 * @return the element 1 of the current {@link Pair}.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public E1 getRefElement1() {
 		return element1;
 	}
 	
 	//method
 	/**
-	 * @return the element 2 of the current {@link Pair}.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public E2 getRefElement2() {
 		return element2;
 	}
