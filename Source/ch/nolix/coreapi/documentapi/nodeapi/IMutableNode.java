@@ -27,7 +27,7 @@ public interface IMutableNode<MN extends IMutableNode<MN>> extends INode<MN>, Op
 	
 	//method declaration
 	/**
-	 * Adds the child {@INode}s from the given strings the current {@link IMutableNode}.
+	 * Adds the child {@link INode}s from the given strings the current {@link IMutableNode}.
 	 * 
 	 * @param strings
 	 * @return the current {@link IMutableNode}.
@@ -48,7 +48,7 @@ public interface IMutableNode<MN extends IMutableNode<MN>> extends INode<MN>, Op
 	
 	//method declaration
 	/**
-	 * Adds the child {@INode}s from the given strings the current {@link IMutableNode}.
+	 * Adds the child {@link INode}s from the given strings the current {@link IMutableNode}.
 	 * 
 	 * @param strings
 	 * @return the current {@link IMutableNode}.
