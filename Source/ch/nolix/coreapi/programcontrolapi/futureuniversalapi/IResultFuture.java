@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.programcontrol.futureuniversalapi;
+package ch.nolix.coreapi.programcontrolapi.futureuniversalapi;
 
 //interface
 /**

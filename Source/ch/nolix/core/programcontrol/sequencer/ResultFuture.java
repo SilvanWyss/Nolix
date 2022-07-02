@@ -6,7 +6,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.future.BaseFuture;
-import ch.nolix.core.programcontrol.futureuniversalapi.IResultFuture;
+import ch.nolix.coreapi.programcontrolapi.futureuniversalapi.IResultFuture;
 
 //class
 /**
