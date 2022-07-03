@@ -3,13 +3,13 @@ package ch.nolix.system.gui.textbox;
 
 import ch.nolix.core.commontype.constant.CharacterCatalogue;
 import ch.nolix.core.commontype.constant.StringCatalogue;
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.math.GlobalCalculator;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.element.MutableValue;
 import ch.nolix.system.gui.widget.BorderWidget;
 import ch.nolix.system.gui.widget.TextBoxLook;
@@ -52,7 +52,7 @@ final class TextBoxInputField extends TextLineWidget<TextBoxInputField, TextBoxL
 		TEXT_CURSOR_POSITION_HEADER,
 		DEFAULT_CURSOR_POSITION,
 		this::setTextCursorPosition,
-		BaseNode::getSingleChildNodeAsInt,
+		INode::getSingleChildNodeAsInt,
 		Node::withChildNode
 	);
 	

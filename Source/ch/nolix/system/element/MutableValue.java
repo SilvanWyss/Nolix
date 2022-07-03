@@ -6,6 +6,7 @@ import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionuniversalapi.IElementTaker;
 import ch.nolix.coreapi.functionuniversalapi.IElementTakerElementGetter;
 
@@ -34,7 +35,7 @@ public final class MutableValue<V> extends SingleValue<V> {
 		final IElementTaker<Boolean> setterMethod
 	) {
 		return
-		new MutableValue<>(name, defaultValue, setterMethod, BaseNode::getSingleChildNodeAsBoolean, Node::withChildNode);
+		new MutableValue<>(name, defaultValue, setterMethod, INode::getSingleChildNodeAsBoolean, Node::withChildNode);
 	}
 	
 	//static method
@@ -54,7 +55,7 @@ public final class MutableValue<V> extends SingleValue<V> {
 		final IElementTaker<Double> setterMethod
 	) {
 		return
-		new MutableValue<>(name, defaultValue, setterMethod, BaseNode::getSingleChildNodeAsDouble, Node::withChildNode);
+		new MutableValue<>(name, defaultValue, setterMethod, INode::getSingleChildNodeAsDouble, Node::withChildNode);
 	}
 	
 	//static method
@@ -74,7 +75,7 @@ public final class MutableValue<V> extends SingleValue<V> {
 		final IElementTaker<Integer> setterMethod
 	) {
 		return
-		new MutableValue<>(name, defaultValue, setterMethod, BaseNode::getSingleChildNodeAsInt, Node::withChildNode);
+		new MutableValue<>(name, defaultValue, setterMethod, INode::getSingleChildNodeAsInt, Node::withChildNode);
 	}
 	
 	//static method

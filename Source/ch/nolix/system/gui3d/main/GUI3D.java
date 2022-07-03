@@ -19,6 +19,7 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.skilluniversalapi.Clearable;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.configuration.ConfigurationElement;
 import ch.nolix.system.element.MutableOptionalSpecificationValueExtractor;
 import ch.nolix.system.element.MutableValue;
@@ -57,7 +58,7 @@ public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G> 
 		PascalCaseCatalogue.TITLE,
 		DEFAULT_TITLE,
 		this::setTitle,
-		BaseNode::getSingleChildNodeHeader,
+		INode::getSingleChildNodeHeader,
 		Node::withChildNode
 	);
 	

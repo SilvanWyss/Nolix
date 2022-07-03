@@ -4,7 +4,6 @@ package ch.nolix.system.gui.main;
 //own imports
 import ch.nolix.core.caching.CachingContainer;
 import ch.nolix.core.container.pair.IntPair;
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -15,6 +14,7 @@ import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.core.programatom.stateproperty.Visibility;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.skilluniversalapi.Recalculable;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programcontrolapi.processproperty.ChangeState;
 import ch.nolix.system.configuration.ConfigurationElement;
 import ch.nolix.system.element.MutableValue;
@@ -70,7 +70,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 		TITLE_HEADER,
 		DEFAULT_TITLE,
 		this::setTitle,
-		BaseNode::getSingleChildNodeHeader,
+		INode::getSingleChildNodeHeader,
 		Node::withChildNode
 	);
 	
@@ -90,7 +90,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 		VIEW_AREA_SIZE_HEADER,
 		DEFAULT_VIEW_AREA_SIZE,
 		vas -> setViewAreaSize(vas.getValue1(), vas.getValue2()),
-		BaseNode::toIntPair,
+		INode::toIntPair,
 		Node::fromIntPair
 	);
 	
@@ -100,7 +100,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 		CURSOR_POSITION_ON_VIEW_AREA_HEADER,
 		DEFAULT_CURSOR_POSITION_ON_VIEW_AREA,
 		cpova -> setCursorPositionOnViewArea(cpova.getValue1(), cpova.getValue2()),
-		BaseNode::toIntPair,
+		INode::toIntPair,
 		Node::fromIntPair
 	);
 	

@@ -2,9 +2,9 @@
 package ch.nolix.system.gui.widget;
 
 import ch.nolix.core.container.main.SingleContainer;
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.formatelement.ForwardingProperty;
 import ch.nolix.system.formatelement.NonCascadingProperty;
 import ch.nolix.system.gui.color.Color;
@@ -56,7 +56,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	new NonCascadingProperty<>(
 		LEFT_BORDER_THICKNESS_HEADER,
 		WidgetLookState.class,
-		BaseNode::getSingleChildNodeAsInt,
+		INode::getSingleChildNodeAsInt,
 		Node::withChildNode,
 		this::setLeftBorderThicknessForState,
 		DEFAULT_BORDER_THICKNESS
@@ -67,7 +67,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	new NonCascadingProperty<>(
 		RIGHT_BORDER_THICKNESS_HEADER,
 		WidgetLookState.class,
-		BaseNode::getSingleChildNodeAsInt,
+		INode::getSingleChildNodeAsInt,
 		Node::withChildNode,
 		this::setRightBorderThicknessForState,
 		DEFAULT_BORDER_THICKNESS
@@ -78,7 +78,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	new NonCascadingProperty<>(
 		TOP_BORDER_THICKNESS_HEADER,
 		WidgetLookState.class,
-		BaseNode::getSingleChildNodeAsInt,
+		INode::getSingleChildNodeAsInt,
 		Node::withChildNode,
 		this::setTopBorderThicknessForState,
 		DEFAULT_BORDER_THICKNESS
@@ -89,7 +89,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	new NonCascadingProperty<>(
 		BOTTOM_BORDER_THICKNESS_HEADER,
 		WidgetLookState.class,
-		BaseNode::getSingleChildNodeAsInt,
+		INode::getSingleChildNodeAsInt,
 		Node::withChildNode,
 		this::setBottomBorderThicknessForState,
 		DEFAULT_BORDER_THICKNESS
@@ -149,7 +149,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	new NonCascadingProperty<>(
 		LEFT_PADDING_HEADER,
 		WidgetLookState.class,
-		BaseNode::getSingleChildNodeAsInt,
+		INode::getSingleChildNodeAsInt,
 		Node::withChildNode,
 		this::setLeftPaddingForState,
 		DEFAULT_PADDING
@@ -160,7 +160,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	new NonCascadingProperty<>(
 		RIGHT_PADDING_HEADER,
 		WidgetLookState.class,
-		BaseNode::getSingleChildNodeAsInt,
+		INode::getSingleChildNodeAsInt,
 		Node::withChildNode,
 		this::setRightPaddingForState,
 		DEFAULT_PADDING
@@ -171,7 +171,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	new NonCascadingProperty<>(
 		TOP_PADDING_HEADER,
 		WidgetLookState.class,
-		BaseNode::getSingleChildNodeAsInt,
+		INode::getSingleChildNodeAsInt,
 		Node::withChildNode,
 		this::setTopPaddingForState,
 		DEFAULT_PADDING
@@ -182,7 +182,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	new NonCascadingProperty<>(
 		BOTTOM_PADDING_HEADER,
 		WidgetLookState.class,
-		BaseNode::getSingleChildNodeAsInt,
+		INode::getSingleChildNodeAsInt,
 		Node::withChildNode,
 		this::setBottomPaddingForState,
 		DEFAULT_PADDING

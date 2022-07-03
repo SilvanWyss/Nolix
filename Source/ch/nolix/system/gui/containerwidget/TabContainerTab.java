@@ -2,7 +2,6 @@
 package ch.nolix.system.gui.containerwidget;
 
 import ch.nolix.core.attributeuniversalapi.mutablemandatoryattributeuniversalapi.Headerable;
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -55,7 +54,7 @@ implements Clearable, Headerable<TabContainerTab> {
 		HEADER_HEADER,
 		DEFAULT_HEADER,
 		this::setHeader,
-		BaseNode::getSingleChildNodeHeader,
+		INode::getSingleChildNodeHeader,
 		Node::withChildNode
 	);
 	
@@ -65,7 +64,7 @@ implements Clearable, Headerable<TabContainerTab> {
 		SELECTION_FLAG_HEADER,
 		DEFAULT_SELECTION_FLAG,
 		this::setSelectionFlag,
-		BaseNode::getSingleChildNodeAsBoolean,
+		INode::getSingleChildNodeAsBoolean,
 		Node::withChildNode
 	);
 	

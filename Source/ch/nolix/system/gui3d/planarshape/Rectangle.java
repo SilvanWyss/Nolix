@@ -1,12 +1,11 @@
 //package declaration
 package ch.nolix.system.gui3d.planarshape;
 
-//own imports
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.element.MutableValue;
 import ch.nolix.system.gui3d.main.AtomicShape;
 
@@ -31,7 +30,7 @@ public final class Rectangle extends AtomicShape<Rectangle> {
 		X_LENGTH_HEADER,
 		DEFAULT_X_LENGTH,
 		this::setXLength,
-		BaseNode::getSingleChildNodeAsDouble,
+		INode::getSingleChildNodeAsDouble,
 		Node::withChildNode
 	);
 	
@@ -41,7 +40,7 @@ public final class Rectangle extends AtomicShape<Rectangle> {
 		Y_LENGTH_HEADER,
 		DEFAULT_Y_LENGTH,
 		this::setYLength,
-		BaseNode::getSingleChildNodeAsDouble,
+		INode::getSingleChildNodeAsDouble,
 		Node::withChildNode
 	);
 	

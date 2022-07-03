@@ -1,8 +1,6 @@
 //package declaration
 package ch.nolix.system.gui.widget;
 
-//own imports
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -10,6 +8,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.math.GlobalCalculator;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.element.MutableOptionalValue;
 import ch.nolix.system.element.MutableValue;
 import ch.nolix.system.valueholder.IntOrPercentageHolder;
@@ -105,7 +104,7 @@ extends Widget<BW, BWL> {
 				deactivateAutomaticSize();
 			}
 		},
-		BaseNode::getSingleChildNodeAsBoolean,
+		INode::getSingleChildNodeAsBoolean,
 		Node::withChildNode
 	);
 	
@@ -173,7 +172,7 @@ extends Widget<BW, BWL> {
 		SHOW_AREA_X_POSITION_ON_SCROLLED_AREA_HEADER,
 		DEFAULT_SHOW_AREA_X_POSITION_ON_SCROLLED_AREA,
 		this::setShowAreaXPositionOnScrolledArea,
-		BaseNode::getSingleChildNodeAsInt,
+		INode::getSingleChildNodeAsInt,
 		Node::withChildNode
 	);
 	
@@ -183,7 +182,7 @@ extends Widget<BW, BWL> {
 		SHOW_AREA_Y_POSITION_ON_SCROLLED_AREA_HEADER,
 		DEFAULT_SHOW_AREA_Y_POSITION_ON_SCROLLED_AREA,
 		this::setShowAreaYPositionOnScrolledArea,
-		BaseNode::getSingleChildNodeAsInt,
+		INode::getSingleChildNodeAsInt,
 		Node::withChildNode
 	);
 	

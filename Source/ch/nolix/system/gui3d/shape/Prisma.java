@@ -1,11 +1,11 @@
 //package declaration
 package ch.nolix.system.gui3d.shape;
 
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.element.MutableValue;
 import ch.nolix.system.gui3d.main.AtomicShape;
 
@@ -21,7 +21,7 @@ public abstract class Prisma<P extends Prisma<P>> extends AtomicShape<P> {
 		PascalCaseCatalogue.HEIGHT,
 		DEFAULT_HEIGHT,
 		this::setHeight,
-		BaseNode::getSingleChildNodeAsDouble,
+		INode::getSingleChildNodeAsDouble,
 		Node::withChildNode
 	);
 	

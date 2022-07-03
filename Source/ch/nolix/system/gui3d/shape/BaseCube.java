@@ -1,11 +1,10 @@
 //package declaration
 package ch.nolix.system.gui3d.shape;
 
-//own imports
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.element.MutableValue;
 import ch.nolix.system.gui3d.main.AtomicShape;
 
@@ -32,7 +31,7 @@ public final class BaseCube extends AtomicShape<BaseCube> {
 		X_LENGTH_HEADER,
 		DEFAULT_X_LENGTH,
 		this::setXLength,
-		BaseNode::getSingleChildNodeAsDouble,
+		INode::getSingleChildNodeAsDouble,
 		Node::withChildNode
 	);
 	
@@ -42,7 +41,7 @@ public final class BaseCube extends AtomicShape<BaseCube> {
 		Y_LENGTH_HEADER,
 		DEFAULT_Y_LENGTH,
 		this::setYLength,
-		BaseNode::getSingleChildNodeAsDouble,
+		INode::getSingleChildNodeAsDouble,
 		Node::withChildNode
 	);
 	
@@ -52,7 +51,7 @@ public final class BaseCube extends AtomicShape<BaseCube> {
 		Z_LENGTH_HEADER,
 		DEFAULT_Z_LENGTH,
 		this::setZLength,
-		BaseNode::getSingleChildNodeAsDouble,
+		INode::getSingleChildNodeAsDouble,
 		Node::withChildNode
 	);
 	

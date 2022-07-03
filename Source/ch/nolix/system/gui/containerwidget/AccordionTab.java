@@ -3,7 +3,6 @@ package ch.nolix.system.gui.containerwidget;
 
 import ch.nolix.core.attributeuniversalapi.mutablemandatoryattributeuniversalapi.Headerable;
 import ch.nolix.core.commontype.constant.StringCatalogue;
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
@@ -45,7 +44,7 @@ public final class AccordionTab extends MutableElement<AccordionTab> implements 
 		HEADER_HEADER,
 		DEFAULT_HEADER,
 		this::setHeader,
-		BaseNode::getSingleChildNodeHeader,
+		INode::getSingleChildNodeHeader,
 		h -> Node.withHeaderAndChildNode(PascalCaseCatalogue.HEADER, getHeader())
 	);
 	
@@ -55,7 +54,7 @@ public final class AccordionTab extends MutableElement<AccordionTab> implements 
 		EXPANDED_FLAG_HEADER,
 		DEFAULT_EXPANSION_FLAG,
 		this::setExpansionFlag,
-		BaseNode::getSingleChildNodeAsBoolean,
+		INode::getSingleChildNodeAsBoolean,
 		Node::withChildNode
 	);
 	

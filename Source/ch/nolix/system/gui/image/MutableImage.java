@@ -7,6 +7,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.util.Base64;
+
 import javax.imageio.IIOImage;
 import javax.imageio.ImageIO;
 import javax.imageio.ImageWriteParam;
@@ -16,7 +17,6 @@ import ch.nolix.core.commontype.commontypehelper.GlobalBufferedImageHelper;
 import ch.nolix.core.commontype.constant.StringCatalogue;
 import ch.nolix.core.container.matrix.Matrix;
 import ch.nolix.core.container.readcontainer.ReadContainer;
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.environment.runningjar.RunningJar;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
@@ -151,7 +151,7 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 	new Value<>(
 		PascalCaseCatalogue.WIDTH,
 		this::setWidth,
-		BaseNode::getSingleChildNodeAsInt,
+		INode::getSingleChildNodeAsInt,
 		Node::withChildNode
 	);
 	
@@ -160,7 +160,7 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 	new Value<>(
 		PascalCaseCatalogue.HEIGHT,
 		this::setHeight,
-		BaseNode::getSingleChildNodeAsInt,
+		INode::getSingleChildNodeAsInt,
 		Node::withChildNode
 	);
 		

@@ -32,7 +32,7 @@ public final class MultiValue<V> extends BaseValue<V> implements Clearable {
 	 * @throws ArgumentIsNullException if the given adderMethod is null.
 	 */
 	public static MultiValue<Integer> forInts(final String name, final IElementTaker<Integer> adderMethod) {
-		return new MultiValue<>(name, adderMethod, BaseNode::toInt, Node::withHeader);
+		return new MultiValue<>(name, adderMethod, INode::toInt, Node::withHeader);
 	}
 	
 	//static method
@@ -45,7 +45,7 @@ public final class MultiValue<V> extends BaseValue<V> implements Clearable {
 	 * @throws ArgumentIsNullException if the given adderMethod is null.
 	 */
 	public static MultiValue<String> forStrings(final String name, final IElementTaker<String> adderMethod) {
-		return new MultiValue<>(name, adderMethod, BaseNode::getHeader, Node::withHeader);
+		return new MultiValue<>(name, adderMethod, INode::getHeader, Node::withHeader);
 	}
 	
 	//attribute

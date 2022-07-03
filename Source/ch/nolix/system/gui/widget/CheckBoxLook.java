@@ -1,10 +1,10 @@
 //package declaration
 package ch.nolix.system.gui.widget;
 
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.formatelement.NonCascadingProperty;
 
 //class
@@ -21,7 +21,7 @@ public final class CheckBoxLook extends BorderWidgetLook<CheckBoxLook> {
 	new NonCascadingProperty<>(
 		DEFAULT_LINE_THICKNESS_HEADER,
 		WidgetLookState.class,
-		BaseNode::getSingleChildNodeAsInt,
+		INode::getSingleChildNodeAsInt,
 		Node::withChildNode,
 		this::setLineThicknessForState,
 		DEFAULT_LINE_THICKNESS

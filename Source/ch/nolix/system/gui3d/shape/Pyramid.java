@@ -1,11 +1,11 @@
 //package declaration
 package ch.nolix.system.gui3d.shape;
 
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.element.MutableValue;
 import ch.nolix.system.gui3d.main.AtomicShape;
 
@@ -22,7 +22,7 @@ public final class Pyramid extends AtomicShape<Pyramid> {
 		PascalCaseCatalogue.SIDE_LENGTH,
 		DEFAULT_SIDE_LENGTH,
 		this::setSideLength,
-		BaseNode::getSingleChildNodeAsDouble,
+		INode::getSingleChildNodeAsDouble,
 		Node::withChildNode
 	);
 	
@@ -32,7 +32,7 @@ public final class Pyramid extends AtomicShape<Pyramid> {
 		PascalCaseCatalogue.HEIGHT,
 		DEFAULT_HEIGHT,
 		this::setHeight,
-		BaseNode::getSingleChildNodeAsDouble,
+		INode::getSingleChildNodeAsDouble,
 		Node::withChildNode
 	);
 	

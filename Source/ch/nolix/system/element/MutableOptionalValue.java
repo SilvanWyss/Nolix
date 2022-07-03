@@ -6,6 +6,7 @@ import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionuniversalapi.IElementTaker;
 import ch.nolix.coreapi.functionuniversalapi.IElementTakerElementGetter;
 import ch.nolix.systemapi.elementapi.mainuniversalapi.Specified;
@@ -29,7 +30,7 @@ public final class MutableOptionalValue<V> extends SingleValue<V> {
 	 * @throws ArgumentIsNullException if the given setterMethod is null.
 	 */
 	public static MutableOptionalValue<Boolean> forBoolean(final String name, final IElementTaker<Boolean> setterMethod) {
-		return new MutableOptionalValue<>(name, setterMethod, BaseNode::getSingleChildNodeAsBoolean, Node::withChildNode);
+		return new MutableOptionalValue<>(name, setterMethod, INode::getSingleChildNodeAsBoolean, Node::withChildNode);
 	}
 	
 	//static method
@@ -64,7 +65,7 @@ public final class MutableOptionalValue<V> extends SingleValue<V> {
 	 * @throws ArgumentIsNullException if the given setterMethod is null.
 	 */
 	public static MutableOptionalValue<Integer> forInt(final String name, final IElementTaker<Integer> setterMethod) {
-		return new MutableOptionalValue<>(name, setterMethod, BaseNode::getSingleChildNodeAsInt, Node::withChildNode);
+		return new MutableOptionalValue<>(name, setterMethod, INode::getSingleChildNodeAsInt, Node::withChildNode);
 	}
 	
 	//static method

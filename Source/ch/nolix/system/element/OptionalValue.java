@@ -6,6 +6,7 @@ import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionuniversalapi.IElementTaker;
 import ch.nolix.coreapi.functionuniversalapi.IElementTakerElementGetter;
 
@@ -27,7 +28,7 @@ public final class OptionalValue<V> extends SingleValue<V> {
 	 * @throws ArgumentIsNullException if the given setterMethod is null.
 	 */
 	public static OptionalValue<Boolean> forBoolean(final String name, final IElementTaker<Boolean> setterMethod) {
-		return new OptionalValue<>(name, setterMethod, BaseNode::getSingleChildNodeAsBoolean, Node::withChildNode);
+		return new OptionalValue<>(name, setterMethod, INode::getSingleChildNodeAsBoolean, Node::withChildNode);
 	}
 	
 	//static method
@@ -40,7 +41,7 @@ public final class OptionalValue<V> extends SingleValue<V> {
 	 * @throws ArgumentIsNullException if the given setterMethod is null.
 	 */
 	public static OptionalValue<Double> forDouble(final String name, final IElementTaker<Double> setterMethod) {
-		return new OptionalValue<>(name, setterMethod, BaseNode::getSingleChildNodeAsDouble, Node::withChildNode);
+		return new OptionalValue<>(name, setterMethod, INode::getSingleChildNodeAsDouble, Node::withChildNode);
 	}
 	
 	//static method
@@ -53,7 +54,7 @@ public final class OptionalValue<V> extends SingleValue<V> {
 	 * @throws ArgumentIsNullException if the given setterMethod is null.
 	 */
 	public static OptionalValue<Integer> forInt(final String name, final IElementTaker<Integer> setterMethod) {
-		return new OptionalValue<>(name, setterMethod, BaseNode::getSingleChildNodeAsInt, Node::withChildNode);
+		return new OptionalValue<>(name, setterMethod, INode::getSingleChildNodeAsInt, Node::withChildNode);
 	}
 	
 	//static method

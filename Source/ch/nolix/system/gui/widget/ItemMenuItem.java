@@ -2,7 +2,6 @@
 package ch.nolix.system.gui.widget;
 
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -53,7 +52,7 @@ public final class ItemMenuItem extends MutableElement<ItemMenuItem> implements 
 	new Value<>(
 		PascalCaseCatalogue.TEXT,
 		this::setText,
-		BaseNode::getSingleChildNodeHeader,
+		INode::getSingleChildNodeHeader,
 		Node::withChildNode
 	);
 	
@@ -62,7 +61,7 @@ public final class ItemMenuItem extends MutableElement<ItemMenuItem> implements 
 	new OptionalValue<>(
 		PascalCaseCatalogue.ID,
 		this::setId,
-		BaseNode::getSingleChildNodeHeader,
+		INode::getSingleChildNodeHeader,
 		Node::withChildNode
 	);
 			
@@ -72,7 +71,7 @@ public final class ItemMenuItem extends MutableElement<ItemMenuItem> implements 
 		SELECTION_FLAG_HEADER,
 		DEFAULT_SELECTION_FLAG,
 		this::setSelectionFlag,
-		BaseNode::getSingleChildNodeAsBoolean,
+		INode::getSingleChildNodeAsBoolean,
 		Node::withChildNode
 	);
 	

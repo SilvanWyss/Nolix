@@ -157,7 +157,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	 * @return the headers of the attributes of the current {@link BaseNode}.
 	 */
 	public final IContainer<String> getChildNodesHeaders() {
-		return getRefChildNodes().to(BaseNode::getHeader);
+		return getRefChildNodes().to(INode::getHeader);
 	}
 	
 	//method
@@ -509,7 +509,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 		if (containsChildNodes()) {
 			
 			//Handles the case that all attributes of the current specification do not contain any attributes.
-			if (getRefChildNodes().containsNone(BaseNode::containsChildNodes)) {
+			if (getRefChildNodes().containsNone(INode::containsChildNodes)) {
 				stringBuilder
 				.append(CharacterCatalogue.OPEN_BRACKET)
 				.append(getRefChildNodes().toString())

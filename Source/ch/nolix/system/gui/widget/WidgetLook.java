@@ -1,11 +1,11 @@
 //package declaration
 package ch.nolix.system.gui.widget;
 
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.formatelement.CascadingProperty;
 import ch.nolix.system.formatelement.FormatElement;
 import ch.nolix.system.formatelement.NonCascadingProperty;
@@ -71,7 +71,7 @@ implements IWidgetLook<WL> {
 	new CascadingProperty<>(
 		BOLD_TEXT_FLAG_HEADER,
 		WidgetLookState.class,
-		BaseNode::getSingleChildNodeAsBoolean,
+		INode::getSingleChildNodeAsBoolean,
 		Node::withChildNode,
 		DEFAULT_BOLD_TEXT_FLAG
 	);
@@ -81,7 +81,7 @@ implements IWidgetLook<WL> {
 	new CascadingProperty<>(
 		TEXT_SIZE_HEADER,
 		WidgetLookState.class,
-		BaseNode::getSingleChildNodeAsInt,
+		INode::getSingleChildNodeAsInt,
 		Node::withChildNode,
 		this::setTextSizeForState,
 		DEAULT_TEXT_SIZE

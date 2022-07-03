@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.system.gui.containerwidget;
 
-//own imports
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.formatelement.NonCascadingProperty;
 import ch.nolix.system.gui.widget.BorderWidgetLook;
 import ch.nolix.system.gui.widget.WidgetLookState;
@@ -22,7 +21,7 @@ public final class FloatContainerLook extends BorderWidgetLook<FloatContainerLoo
 	new NonCascadingProperty<>(
 		ELEMENT_MARGIN_HEADER,
 		WidgetLookState.class,
-		BaseNode::getSingleChildNodeAsInt,
+		INode::getSingleChildNodeAsInt,
 		Node::withChildNode,
 		this::setElementMarginForState,
 		DEFAULT_ELEMENT_MARGIN

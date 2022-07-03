@@ -1,11 +1,11 @@
 //package declaration
 package ch.nolix.system.gui3d.shape;
 
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.element.MutableValue;
 
 //class
@@ -20,7 +20,7 @@ public final class Cylinder extends Prisma<Cylinder> {
 		PascalCaseCatalogue.RADIUS,
 		DEFAULT_RADIUS,
 		this::setRadius,
-		BaseNode::getSingleChildNodeAsDouble,
+		INode::getSingleChildNodeAsDouble,
 		Node::withChildNode
 	);
 	

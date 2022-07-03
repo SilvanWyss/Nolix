@@ -1,10 +1,10 @@
 //package declaration
 package ch.nolix.system.gui.containerwidget;
 
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.formatelement.NonCascadingProperty;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.widget.BorderWidgetLook;
@@ -41,7 +41,7 @@ public final class GridLook extends BorderWidgetLook<GridLook> {
 	new NonCascadingProperty<>(
 		GRID_THICKNESS_HEADER,
 		WidgetLookState.class,
-		BaseNode::getSingleChildNodeAsInt,
+		INode::getSingleChildNodeAsInt,
 		Node::withChildNode,
 		this::setGridThicknessForState,
 		DEFAULT_GRID_THICKNESS
@@ -63,7 +63,7 @@ public final class GridLook extends BorderWidgetLook<GridLook> {
 	new NonCascadingProperty<>(
 		ELEMENT_MARGIN_HEADER,
 		WidgetLookState.class,
-		BaseNode::getSingleChildNodeAsInt,
+		INode::getSingleChildNodeAsInt,
 		Node::withChildNode,
 		this::setElementMarginForState,
 		DEFAULT_ELEMENT_MARGIN

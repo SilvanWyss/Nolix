@@ -3,7 +3,6 @@ package ch.nolix.system.gui.widget;
 
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.container.main.SingleContainer;
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -12,6 +11,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.IContainer;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionuniversalapi.I2ElementTaker;
 import ch.nolix.coreapi.functionuniversalapi.IElementTaker;
 import ch.nolix.system.configuration.ConfigurableElement;
@@ -95,7 +95,7 @@ implements IWidget<W, WL> {
 		ENABLED_HEADER,
 		this::setEnabledState,
 		this::isEnabled,
-		BaseNode::toBoolean,
+		INode::toBoolean,
 		Node::withChildNode
 	);
 	
@@ -106,7 +106,7 @@ implements IWidget<W, WL> {
 		EXPANDED_HEADER,
 		this::setExpansionState,
 		this::isExpanded,
-		BaseNode::toBoolean,
+		INode::toBoolean,
 		Node::withChildNode
 	);
 	
@@ -117,7 +117,7 @@ implements IWidget<W, WL> {
 		FOCUSED_HEADER,
 		this::setFocusState,
 		this::isFocused,
-		BaseNode::toBoolean,
+		INode::toBoolean,
 		Node::withChildNode
 	);
 	
@@ -128,7 +128,7 @@ implements IWidget<W, WL> {
 		GREY_OUT_WHEN_DISABLED_HEADER,
 		this::setGreyOutState,
 		this::greysOutWhenDisabled,
-		BaseNode::toBoolean,
+		INode::toBoolean,
 		Node::withChildNode
 	);
 	
@@ -139,7 +139,7 @@ implements IWidget<W, WL> {
 		HOVERED_HEADER,
 		this::setHoverState,
 		this::isHovered,
-		BaseNode::toBoolean,
+		INode::toBoolean,
 		Node::withChildNode
 	);
 	

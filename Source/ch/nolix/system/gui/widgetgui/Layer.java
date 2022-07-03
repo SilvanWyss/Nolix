@@ -2,7 +2,6 @@
 package ch.nolix.system.gui.widgetgui;
 
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
@@ -126,7 +125,7 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 	new CatchingProperty<>(
 		PascalCaseCatalogue.OPACITY,
 		this::setOpacityFromString,
-		BaseNode::getSingleChildNodeHeader
+		INode::getSingleChildNodeHeader
 	);
 	
 	//attribute

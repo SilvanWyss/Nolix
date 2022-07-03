@@ -3,13 +3,13 @@ package ch.nolix.system.gui.containerwidget;
 
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.container.readcontainer.ReadContainer;
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.element.MultiValueExtractor;
 import ch.nolix.system.element.MutableOptionalValue;
 import ch.nolix.system.gui.widget.Widget;
@@ -40,7 +40,7 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	new MutableOptionalValue<>(
 		ELEMENT_MARGIN_HEADER,
 		this::setElementMargin,
-		BaseNode::getSingleChildNodeAsInt,
+		INode::getSingleChildNodeAsInt,
 		Node::withChildNode
 	);
 	
