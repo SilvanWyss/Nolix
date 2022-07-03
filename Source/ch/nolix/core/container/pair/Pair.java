@@ -4,7 +4,7 @@ package ch.nolix.core.container.pair;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.containerapi.IPair;
+import ch.nolix.coreapi.containerapi.pairapi.IPair;
 
 //class
 /**
