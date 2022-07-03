@@ -125,6 +125,16 @@ public interface INode<N extends INode<N>> extends OptionalHeadered {
 	
 	//method declaration
 	/**
+	 * @return the boolean the single child {@link INode} of the current {@link INode} represents.
+	 * @throws RuntimeException if
+	 * the current {@link INode} does not contain child {@link INode}s or contains several child {@link INode}s.
+	 * @throws RuntimeException if
+	 * the single child {@link INode} of the current {@link INode} does not represent a boolean.
+	 */
+	boolean getSingleChildNodeAsBoolean();
+	
+	//method declaration
+	/**
 	 * @return the double the single child {@link INode} of the current {@link INode} represents.
 	 * @throws RuntimeException if
 	 * the current {@link INode} does not contain child {@link INode}s or contains several child {@link INode}s.

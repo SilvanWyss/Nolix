@@ -162,13 +162,8 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	
 	//method
 	/**
-	 * @return the boolean the one attribute of the current {@link BaseNode} represents.
-	 * @throws EmptyArgumentException if the current {@link BaseNode} does not contain attributes.
-	 * @throws InvalidArgumentException if the current {@link BaseNode} contains several attributes.
-	 * @throws InvalidArgumentException
-	 * if the one attribute of the current {@link BaseNode} does not represent a boolean.
+	 * {@inheritDoc}
 	 */
-	@SuppressWarnings("all")
 	public boolean getSingleChildNodeAsBoolean() {
 		return getRefSingleChildNode().toBoolean();
 	}
@@ -365,7 +360,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	/**
 	 * {@inheritDoc}
 	 */
-	public final String toFormattedString() {
+	public String toFormattedString() {
 		return toFormattedString(0);
 	}
 	
