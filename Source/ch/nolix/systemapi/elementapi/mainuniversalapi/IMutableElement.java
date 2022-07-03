@@ -78,11 +78,13 @@ public interface IMutableElement<ME extends IMutableElement<ME>> extends Resetta
 	 * @param attributes
 	 * @throws InvalidArgumentException if one of the given attributes is not valid.
 	 */
-	default void addOrChangeAttributes(final Iterable<? extends BaseNode<?>> attributes) {
+	default void addOrChangeAttributes(final Iterable<? extends INode<?>> attributes) {
 		
 		//Iterates the given attributes.
 		for (final var a : attributes) {
-			addOrChangeAttribute(a);
+			
+			//TODO: Refactor.
+			//addOrChangeAttribute(a);
 		}
 	}
 	
@@ -91,10 +93,9 @@ public interface IMutableElement<ME extends IMutableElement<ME>> extends Resetta
 	 * Resets the current {@link IMutableElement} from the given attributes.
 	 * 
 	 * @param attributes
-	 * @param <BN> is the type of the given attributes.
 	 * @throws InvalidArgumentException if one of the given attributes is not valid.
 	 */
-	default <BN extends BaseNode<?>> void resetFromAttributes(final Iterable<BN> attributes) {
+	default void resetFromAttributes(final Iterable<? extends INode<?>> attributes) {
 		
 		reset();
 		
@@ -121,8 +122,7 @@ public interface IMutableElement<ME extends IMutableElement<ME>> extends Resetta
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
 	default void resetFromSpecification(final INode<?> specification) {
-		//TODO: Refactor.
-		//resetFromAttributes(specification.getRefChildNodes());
+		resetFromAttributes(specification.getRefChildNodes());
 	}
 	
 	//method

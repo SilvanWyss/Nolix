@@ -7,7 +7,6 @@ import java.util.Base64;
 
 import ch.nolix.core.container.main.SingleContainer;
 import ch.nolix.core.document.chainednode.ChainedNode;
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -15,6 +14,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.coreapi.containerapi.IContainer;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.netapi.targetuniversalapi.IApplicationTarget;
 import ch.nolix.system.application.main.Application;
 import ch.nolix.system.application.main.BackendClient;
@@ -360,10 +360,9 @@ public abstract class BaseBackendGUIClient<
 	 * Resets the {@link GUI} of the current {@link BaseBackendGUIClient} with the given attributes.
 	 * 
 	 * @param attributes
-	 * @param <BN> is the type of the given attributes.
 	 * @throws InvalidArgumentException if one of the given attributes is not valid.
 	 */
-	private <BN extends BaseNode<?>> void resetGUI(final IContainer<BN> attributes) {
+	private void resetGUI(final IContainer<? extends INode<?>> attributes) {
 		getRefGUI().resetFromAttributes(attributes);
 	}
 	
