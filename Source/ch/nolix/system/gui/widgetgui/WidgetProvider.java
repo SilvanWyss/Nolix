@@ -4,13 +4,14 @@ package ch.nolix.system.gui.widgetgui;
 //Java imports
 import java.lang.reflect.InvocationTargetException;
 
+//own imports
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.gui.widget.Widget;
 
 //class
@@ -98,7 +99,7 @@ final class WidgetProvider {
 	 * @param specification
 	 * @return true if the current {@link WidgetProvider} can create a {@link Widget} from the given specification.
 	 */
-	public boolean canCreateWidgetFrom(final BaseNode<?> specification) {
+	public boolean canCreateWidgetFrom(final INode<?> specification) {
 		return canCreateWidgetOf(specification.getHeader());
 	}
 	
@@ -118,7 +119,7 @@ final class WidgetProvider {
 	 * @return a new {@link Widget} from the given specification from the current {@link WidgetProvider}.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public Widget<?, ?> createWidgetFrom(final BaseNode<?> specification) {
+	public Widget<?, ?> createWidgetFrom(final INode<?> specification) {
 		
 		final var widget = createWidget(specification.getHeader());
 		widget.addOrChangeAttributes(specification.getRefChildNodes());
