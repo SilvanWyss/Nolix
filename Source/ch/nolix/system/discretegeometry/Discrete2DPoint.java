@@ -2,7 +2,6 @@
 package ch.nolix.system.discretegeometry;
 
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.elementapi.mainuniversalapi.Specified;
@@ -24,7 +23,7 @@ public final class Discrete2DPoint implements Specified {
 	 * @param specification
 	 * @return a new {@link Discrete2DPoint} from the given specification.
 	 */
-	public static Discrete2DPoint fromSpecification(final BaseNode<?> specification) {
+	public static Discrete2DPoint fromSpecification(final INode<?> specification) {
 		return
 		new Discrete2DPoint(
 			specification.getRefChildNodeAt1BasedIndex(1).toInt(),

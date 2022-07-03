@@ -2,8 +2,8 @@
 package ch.nolix.system.configuration;
 
 //own imports
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.elementapi.configurationapi.IConfigurableElement;
 
 //class
@@ -38,7 +38,7 @@ public final class Configuration extends BaseConfiguration<Configuration> {
 	 * @return a new {@link Configuration} from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static Configuration fromSpecification(final BaseNode<?> specification) {
+	public static Configuration fromSpecification(final INode<?> specification) {
 		
 		final var configuration = new Configuration();
 		configuration.resetFromSpecification(specification);

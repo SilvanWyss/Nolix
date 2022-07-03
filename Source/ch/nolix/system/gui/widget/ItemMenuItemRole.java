@@ -4,7 +4,6 @@ package ch.nolix.system.gui.widget;
 //own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.elementapi.mainuniversalapi.Specified;
@@ -15,7 +14,7 @@ public enum ItemMenuItemRole implements Specified {
 	EMPTY_ITEM;
 	
 	//static method
-	public static ItemMenuItemRole fromSpecification(final BaseNode<?> specification) {
+	public static ItemMenuItemRole fromSpecification(final INode<?> specification) {
 		return valueOf(GlobalStringHelper.toUpperSnakeCase(specification.getSingleChildNodeHeader()));
 	}
 	

@@ -6,7 +6,6 @@ import ch.nolix.core.commontype.constant.StringCatalogue;
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.container.pair.Pair;
 import ch.nolix.core.container.readcontainer.ReadContainer;
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -791,7 +790,7 @@ public final class Color implements IColor {
 	 * @return a new {@link Color} from the given specification
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static Color fromSpecification(final BaseNode<?> specification) {
+	public static Color fromSpecification(final INode<?> specification) {
 		return Color.fromString(specification.getSingleChildNodeHeader());
 	}
 	

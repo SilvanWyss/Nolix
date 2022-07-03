@@ -8,7 +8,6 @@ import java.awt.Graphics;
 import ch.nolix.core.commontype.constant.CharacterCatalogue;
 import ch.nolix.core.commontype.constant.StringCatalogue;
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -65,7 +64,7 @@ public final class TextFormat implements ITextFormat {
 	 * @return a new {@link TextFormat} from the given specification
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static TextFormat fromSpecification(final BaseNode<?> specification) {
+	public static TextFormat fromSpecification(final INode<?> specification) {
 		
 		//Extracts the attributes of the given specification.
 		final var attributes = specification.getRefChildNodes();
@@ -73,8 +72,8 @@ public final class TextFormat implements ITextFormat {
 		return
 		new TextFormat(
 			Font.fromSpecification(attributes.getRefAt(1)),
-			attributes.getRefAt(2).getSingleChildNodeAsBoolean(),
-			attributes.getRefAt(3).getSingleChildNodeAsBoolean(),
+			//attributes.getRefAt(2).getSingleChildNodeAsBoolean(), //TODO: Implement.
+			//attributes.getRefAt(3).getSingleChildNodeAsBoolean(), //TODO: Implement.
 			attributes.getRefAt(4).getSingleChildNodeAsInt(),
 			Color.fromSpecification(attributes.getRefAt(5))
 		);

@@ -2,7 +2,6 @@
 package ch.nolix.systemapi.guiapi.structureproperty;
 
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.elementapi.mainuniversalapi.Specified;
@@ -26,7 +25,7 @@ public enum DirectionInRectangle implements Specified {
 	 * @param specification
 	 * @return a new {@link DirectionInRectangle} from the given specification.
 	 */
-	public static DirectionInRectangle fromSpecification(final BaseNode<?> specification) {
+	public static DirectionInRectangle fromSpecification(final INode<?> specification) {
 		return valueOf(specification.getSingleChildNodeHeader());
 	}
 	

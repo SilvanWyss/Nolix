@@ -8,7 +8,6 @@ import java.util.Locale;
 //own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
@@ -33,7 +32,7 @@ public enum CursorIcon implements Specified {
 	 * @return a new {@link CursorIcon} from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static CursorIcon fromSpecification(final BaseNode<?> specification) {
+	public static CursorIcon fromSpecification(final INode<?> specification) {
 		return valueOf(specification.getSingleChildNodeHeader().toUpperCase(Locale.ENGLISH));
 	}
 	

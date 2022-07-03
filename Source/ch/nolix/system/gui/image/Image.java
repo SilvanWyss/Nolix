@@ -6,7 +6,6 @@ import java.awt.image.BufferedImage;
 
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.container.matrix.Matrix;
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.environment.runningjar.RunningJar;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -39,7 +38,7 @@ public final class Image implements IImage {
 	}
 	
 	//static method
-	public static Image fromSpecification(final BaseNode<?> specification) {
+	public static Image fromSpecification(final INode<?> specification) {
 		return new Image(MutableImage.fromSpecification(specification));
 	}
 	

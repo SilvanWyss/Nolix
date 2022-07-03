@@ -3,8 +3,8 @@ package ch.nolix.system.gui.image;
 
 //own imports
 import ch.nolix.core.container.pair.Pair;
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.element.MutableElement;
 import ch.nolix.system.element.MutableOptionalValue;
 import ch.nolix.system.gui.color.Color;
@@ -26,7 +26,7 @@ public final class Background extends MutableElement<Background> {
 	private static final String IMAGE_HEADER = "Image";
 	
 	//static method
-	public static Background fromSpecification(final BaseNode<?> specification) {
+	public static Background fromSpecification(final INode<?> specification) {
 		
 		final var background = new Background();
 		background.resetFromSpecification(specification);

@@ -6,6 +6,7 @@ import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.skilluniversalapi.Resettable;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 
 //interface
@@ -119,8 +120,9 @@ public interface IMutableElement<ME extends IMutableElement<ME>> extends Resetta
 	 * @param specification
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	default void resetFromSpecification(final BaseNode<?> specification) {
-		resetFromAttributes(specification.getRefChildNodes());
+	default void resetFromSpecification(final INode<?> specification) {
+		//TODO: Refactor.
+		//resetFromAttributes(specification.getRefChildNodes());
 	}
 	
 	//method

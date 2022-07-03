@@ -4,7 +4,6 @@ package ch.nolix.system.gui.textformat;
 //own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
@@ -33,7 +32,7 @@ public enum Font implements Specified {
 	 * @return a new {@link Font} from the given specification.
 	 * @throws InvalidArgumentException if the given specification does not represent a {@link Font}.
 	 */
-	public static Font fromSpecification(final BaseNode<?> specification) {
+	public static Font fromSpecification(final INode<?> specification) {
 		return valueOf(GlobalStringHelper.toUpperSnakeCase(specification.getSingleChildNodeHeader()));
 	}
 	

@@ -4,7 +4,6 @@ package ch.nolix.systemapi.guiapi.processproperty;
 //own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
@@ -25,7 +24,7 @@ public enum RotationDirection implements Specified {
 	 * @return a new {@link RotationDirection} from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static RotationDirection fromSpecification(final BaseNode<?> specification) {
+	public static RotationDirection fromSpecification(final INode<?> specification) {
 		return valueOf(GlobalStringHelper.toUpperSnakeCase(specification.getSingleChildNodeHeader()));
 	}
 	

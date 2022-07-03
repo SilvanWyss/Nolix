@@ -2,7 +2,6 @@
 package ch.nolix.system.gui.input;
 
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
@@ -156,7 +155,7 @@ public final class KeyInput implements IKeyInput<KeyInput> {
 	}
 	
 	//static method
-	public static KeyInput fromSpecification(final BaseNode<?> specification) {
+	public static KeyInput fromSpecification(final INode<?> specification) {
 		return
 		withKeyAndInputType(
 			Key.fromSpecification(specification.getRefChildNodeAt1BasedIndex(1)),

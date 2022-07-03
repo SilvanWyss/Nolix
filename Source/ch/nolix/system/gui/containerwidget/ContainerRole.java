@@ -4,7 +4,6 @@ package ch.nolix.system.gui.containerwidget;
 //own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.elementapi.mainuniversalapi.Specified;
@@ -25,7 +24,7 @@ public enum ContainerRole implements Specified {
 	 * @param specification
 	 * @return a new {@link ContainerRole} from the given specification.
 	 */
-	public static ContainerRole fromSpecification(final BaseNode<?> specification) {
+	public static ContainerRole fromSpecification(final INode<?> specification) {
 		return valueOf(GlobalStringHelper.toUpperSnakeCase(specification.getSingleChildNodeHeader()));
 	}
 	

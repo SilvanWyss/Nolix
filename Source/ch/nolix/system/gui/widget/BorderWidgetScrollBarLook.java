@@ -2,7 +2,7 @@
 package ch.nolix.system.gui.widget;
 
 //own imports
-import ch.nolix.core.document.node.BaseNode;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.element.MutableElement;
 import ch.nolix.system.element.MutableValue;
 import ch.nolix.system.gui.color.Color;
@@ -19,7 +19,7 @@ public final class BorderWidgetScrollBarLook extends MutableElement<BorderWidget
 	private static final String SCROLL_CURSOR_COLOR_HEADER = "ScrollCursorColor";
 	
 	//static method
-	public static BorderWidgetScrollBarLook fromSpecification(final BaseNode<?> specification) {
+	public static BorderWidgetScrollBarLook fromSpecification(final INode<?> specification) {
 		
 		final var scrollBarLook = new BorderWidgetScrollBarLook();
 		scrollBarLook.resetFromSpecification(specification);

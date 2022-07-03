@@ -3,7 +3,6 @@ package ch.nolix.system.gui.input;
 
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.container.pair.IntPair;
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
@@ -18,7 +17,7 @@ public final class ResizeInput implements IResizeInput<ResizeInput> {
 	private static final String SIZE_HEADER = PascalCaseCatalogue.SIZE;
 	
 	//static method
-	public static ResizeInput fromSpecification(final BaseNode<?> specification) {
+	public static ResizeInput fromSpecification(final INode<?> specification) {
 		
 		final var sizeSpecification = specification.getRefSingleChildNode();
 		

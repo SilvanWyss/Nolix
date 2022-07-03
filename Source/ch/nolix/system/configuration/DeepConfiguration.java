@@ -2,11 +2,11 @@
 package ch.nolix.system.configuration;
 
 //own imports
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.element.MutableOptionalValue;
 import ch.nolix.systemapi.elementapi.configurationapi.IConfigurableElement;
 
@@ -29,7 +29,7 @@ public final class DeepConfiguration extends BaseConfiguration<DeepConfiguration
 	 * @return a new {@link DeepConfiguration} from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static DeepConfiguration fromSpecification(final BaseNode<?> specification) {
+	public static DeepConfiguration fromSpecification(final INode<?> specification) {
 		
 		final var deepConfiguration = new DeepConfiguration();
 		deepConfiguration.resetFromSpecification(specification);

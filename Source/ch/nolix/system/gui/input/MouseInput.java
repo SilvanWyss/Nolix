@@ -2,7 +2,6 @@
 package ch.nolix.system.gui.input;
 
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
@@ -21,7 +20,7 @@ public final class MouseInput implements IMouseInput<MouseInput> {
 	private static final String INPUT_TYPE_HEADER = "InputType";
 	
 	//static method
-	public static MouseInput fromSpecification(final BaseNode<?> specification) {
+	public static MouseInput fromSpecification(final INode<?> specification) {
 		return
 		withCursorPositionAndInputType(
 			Discrete2DPoint.fromSpecification(

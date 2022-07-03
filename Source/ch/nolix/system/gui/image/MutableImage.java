@@ -23,6 +23,7 @@ import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.element.MutableElement;
 import ch.nolix.system.element.MutableSpecificationValueExtractor;
 import ch.nolix.system.element.Value;
@@ -87,7 +88,7 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 	}
 	
 	//static method
-	public static MutableImage fromSpecification(final BaseNode<?> specification) {
+	public static MutableImage fromSpecification(final INode<?> specification) {
 		
 		if (specification.containsChildNodeWithHeader(JPG_STRING)) {
 			
@@ -307,7 +308,7 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 	}
 	
 	//method
-	public void setPixelArray(final BaseNode<?> pixelArray) {
+	public void setPixelArray(final INode<?> pixelArray) {
 		
 		final var lPixelArray = pixelArray.getRefChildNodes();
 		

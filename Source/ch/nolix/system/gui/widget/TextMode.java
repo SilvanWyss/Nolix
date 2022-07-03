@@ -7,7 +7,6 @@ import java.util.Locale;
 //own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.elementapi.mainuniversalapi.Specified;
@@ -18,7 +17,7 @@ public enum TextMode implements Specified {
 	SECRET;
 	
 	//static method
-	public static TextMode fromSpecification(final BaseNode<?> specification) {
+	public static TextMode fromSpecification(final INode<?> specification) {
 		return valueOf(specification.getSingleChildNodeHeader().toUpperCase(Locale.ENGLISH));
 	}
 	

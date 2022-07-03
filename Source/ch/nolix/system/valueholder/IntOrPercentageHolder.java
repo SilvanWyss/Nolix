@@ -4,7 +4,6 @@ package ch.nolix.system.valueholder;
 //own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -40,7 +39,7 @@ public final class IntOrPercentageHolder implements Specified {
 	 * @return a new {@link IntOrPercentageHolder} from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static IntOrPercentageHolder fromSpecification(final BaseNode<?> specification) {
+	public static IntOrPercentageHolder fromSpecification(final INode<?> specification) {
 		
 		final var attribute = specification.getSingleChildNodeHeader();
 		

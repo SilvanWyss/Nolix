@@ -4,7 +4,6 @@ package ch.nolix.system.geometry;
 //own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalDoubleHelper;
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.math.Vector;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
@@ -32,7 +31,7 @@ public class Point3D implements Specified {
 	 * @param specification
 	 * @return a new {@link Point3D} from the given specification.
 	 */
-	public static Point3D fromSpecification(final BaseNode<?> specification) {
+	public static Point3D fromSpecification(final INode<?> specification) {
 		
 		final var attributes = specification.getRefChildNodes();
 		

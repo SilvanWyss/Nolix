@@ -7,7 +7,6 @@ import java.awt.event.KeyEvent;
 //own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
@@ -373,7 +372,7 @@ public enum Key implements Specified {
 	}
 	
 	//static method
-	public static Key fromSpecification(final BaseNode<?> specification) {
+	public static Key fromSpecification(final INode<?> specification) {
 		return valueOf(GlobalStringHelper.toUpperSnakeCase(specification.getSingleChildNodeHeader()));
 	}
 	

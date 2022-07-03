@@ -4,7 +4,6 @@ package ch.nolix.systemapi.guiapi.structureproperty;
 //own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
@@ -34,7 +33,7 @@ public enum ExtendedContentPosition implements Specified {
 	 * @throws InvalidArgumentException
 	 * if the given specification does not represent a {@link ExtendedContentPosition}.
 	 */
-	public static ExtendedContentPosition fromSpecification(final BaseNode<?> specification) {
+	public static ExtendedContentPosition fromSpecification(final INode<?> specification) {
 		return valueOf(GlobalStringHelper.toUpperSnakeCase(specification.getSingleChildNodeHeader()));
 	}
 	

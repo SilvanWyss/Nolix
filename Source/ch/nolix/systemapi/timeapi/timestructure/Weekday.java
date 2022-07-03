@@ -5,7 +5,6 @@ package ch.nolix.systemapi.timeapi.timestructure;
 import java.time.DayOfWeek;
 
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
@@ -44,7 +43,7 @@ public enum Weekday implements Specified {
 	}
 	
 	//static method
-	public static Weekday fromSpecification(final BaseNode<?> specification) {
+	public static Weekday fromSpecification(final INode<?> specification) {
 		return Weekday.valueOf(specification.getSingleChildNodeHeader());
 	}
 	

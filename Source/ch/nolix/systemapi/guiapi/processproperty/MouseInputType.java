@@ -4,7 +4,6 @@ package ch.nolix.systemapi.guiapi.processproperty;
 //own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
@@ -38,7 +37,7 @@ public enum MouseInputType implements Specified {
 	}
 	
 	//static method
-	public static MouseInputType fromSpecification(final BaseNode<?> specification) {
+	public static MouseInputType fromSpecification(final INode<?> specification) {
 		return valueOf(GlobalStringHelper.toUpperSnakeCase(specification.getSingleChildNodeHeader()));
 	}
 	

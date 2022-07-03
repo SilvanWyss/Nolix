@@ -1,11 +1,11 @@
 //package declaration
 package ch.nolix.system.gui.containerwidget;
 
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.core.skilluniversalapi.Clearable;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.element.MutableElement;
 import ch.nolix.system.element.Value;
 import ch.nolix.system.gui.main.MutableOptionalWidgetProperty;
@@ -19,7 +19,7 @@ final class GridCell extends MutableElement<GridCell> implements Clearable {
 	private static final String COLUMN_INDEX_HEADER = PascalCaseCatalogue.COLUMN_INDEX;
 	
 	//static method
-	public static GridCell fromSpecification(final BaseNode<?> specification) {
+	public static GridCell fromSpecification(final INode<?> specification) {
 		
 		final var cell = new GridCell();
 		cell.resetFromSpecification(specification);

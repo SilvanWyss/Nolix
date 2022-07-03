@@ -11,6 +11,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.core.skilluniversalapi.Clearable;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.element.MutableElement;
 import ch.nolix.system.element.MutableValue;
 import ch.nolix.system.gui.main.MutableOptionalWidgetProperty;
@@ -30,7 +31,7 @@ public final class AccordionTab extends MutableElement<AccordionTab> implements 
 	private static final String EXPANDED_FLAG_HEADER = "Expanded";
 	
 	//static method
-	public static AccordionTab fromSpecification(final BaseNode<?> specification) {
+	public static AccordionTab fromSpecification(final INode<?> specification) {
 		
 		final var tab = new AccordionTab();
 		tab.resetFromSpecification(specification);

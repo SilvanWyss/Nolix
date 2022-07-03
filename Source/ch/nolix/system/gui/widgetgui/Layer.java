@@ -14,6 +14,7 @@ import ch.nolix.core.math.GlobalCalculator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.IContainer;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionuniversalapi.I2ElementTaker;
 import ch.nolix.coreapi.functionuniversalapi.IElementTaker;
 import ch.nolix.system.configuration.ConfigurableElement;
@@ -94,7 +95,7 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 	 * @return a new {@link Layer} from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static Layer fromSpecification(final BaseNode<?> specification) {
+	public static Layer fromSpecification(final INode<?> specification) {
 		
 		final var layer = new Layer();
 		layer.resetFromSpecification(specification);

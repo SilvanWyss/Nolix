@@ -4,7 +4,6 @@ package ch.nolix.system.gui.main;
 //own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.elementapi.mainuniversalapi.Specified;
@@ -17,7 +16,7 @@ public enum LayerRole implements Specified {
 	DIALOG_LAYER;
 	
 	//static method
-	public static LayerRole fromSpecification(final BaseNode<?> specification) {
+	public static LayerRole fromSpecification(final INode<?> specification) {
 		return valueOf(GlobalStringHelper.toUpperSnakeCase(specification.getSingleChildNodeHeader()));
 	}
 	

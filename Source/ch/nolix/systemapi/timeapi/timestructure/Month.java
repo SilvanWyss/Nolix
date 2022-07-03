@@ -2,7 +2,6 @@
 package ch.nolix.systemapi.timeapi.timestructure;
 
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
@@ -56,7 +55,7 @@ public enum Month implements Specified {
 	}
 	
 	//static method
-	public Month fromSpecification(final BaseNode<?> specification) {
+	public Month fromSpecification(final INode<?> specification) {
 		return Month.valueOf(specification.getSingleChildNodeHeader());
 	}
 	

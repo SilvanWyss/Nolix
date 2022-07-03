@@ -10,6 +10,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.attributeuniversalapi.optionalattributeuniversalapi.OptionalIdentifiedByString;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionuniversalapi.IAction;
 import ch.nolix.coreapi.functionuniversalapi.IElementTaker;
 import ch.nolix.system.element.MutableElement;
@@ -30,7 +31,7 @@ public final class ItemMenuItem extends MutableElement<ItemMenuItem> implements 
 	private static final String SELECTION_FLAG_HEADER = "Selected";
 	
 	//static method
-	public static ItemMenuItem fromSpecification(final BaseNode<?> specification) {
+	public static ItemMenuItem fromSpecification(final INode<?> specification) {
 		
 		final var item = new ItemMenuItem();
 		item.resetFromSpecification(specification);
