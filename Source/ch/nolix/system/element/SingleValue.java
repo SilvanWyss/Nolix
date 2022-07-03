@@ -2,7 +2,6 @@
 package ch.nolix.system.element;
 
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -44,7 +43,7 @@ abstract class SingleValue<V> extends BaseValue<V> {
 	protected SingleValue(
 		final String name,
 		final IElementTaker<V> setterMethod,
-		final IElementTakerElementGetter<BaseNode<?>, V> valueCreator,
+		final IElementTakerElementGetter<INode<?>, V> valueCreator,
 		final IElementTakerElementGetter<V, Node> specificationCreator
 	) {
 		

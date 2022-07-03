@@ -21,13 +21,13 @@ public final class CatchingProperty<V> extends Property implements Named {
 	private final IElementTaker<V> setter;
 	
 	//attribute
-	private final IElementTakerElementGetter<BaseNode<?>, V> valueCreator;
+	private final IElementTakerElementGetter<INode<?>, V> valueCreator;
 	
 	//constructor
 	public CatchingProperty(
 		final String name,
 		final IElementTaker<V> setter,
-		final IElementTakerElementGetter<BaseNode<?>, V> valueCreator
+		final IElementTakerElementGetter<INode<?>, V> valueCreator
 	) {
 		
 		GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();

@@ -10,6 +10,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.IContainer;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.element.MultiValue;
 import ch.nolix.system.element.MutableElement;
 import ch.nolix.system.element.MutableOptionalValue;
@@ -540,7 +541,7 @@ implements IConfiguration {
 	 * @return a new {@link BaseConfiguration} from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	private BaseConfiguration<?> createConfigurationFromSpecification(final BaseNode<?> specification) {
+	private BaseConfiguration<?> createConfigurationFromSpecification(final INode<?> specification) {
 		switch (specification.getHeader()) {
 			case Configuration.TYPE_NAME:
 				return Configuration.fromSpecification(specification);

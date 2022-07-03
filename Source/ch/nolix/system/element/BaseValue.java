@@ -8,6 +8,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionuniversalapi.IElementTakerElementGetter;
 import ch.nolix.coreapi.requestuniversalapi.MutabilityRequestable;
 
@@ -21,7 +22,7 @@ public abstract class BaseValue<V> extends Property implements MutabilityRequest
 	
 	//attributes
 	private final String name;
-	private final IElementTakerElementGetter<BaseNode<?>, V> valueCreator;
+	private final IElementTakerElementGetter<INode<?>, V> valueCreator;
 	protected final IElementTakerElementGetter<V, Node> specificationCreator;
 	
 	//constructor
@@ -38,7 +39,7 @@ public abstract class BaseValue<V> extends Property implements MutabilityRequest
 	 */
 	BaseValue(
 		final String name,
-		final IElementTakerElementGetter<BaseNode<?>, V> valueCreator,
+		final IElementTakerElementGetter<INode<?>, V> valueCreator,
 		final IElementTakerElementGetter<V, Node> specificationCreator
 	) {
 		

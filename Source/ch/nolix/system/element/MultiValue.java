@@ -2,7 +2,6 @@
 package ch.nolix.system.element;
 
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
@@ -71,7 +70,7 @@ public final class MultiValue<V> extends BaseValue<V> implements Clearable {
 	public MultiValue(
 		final String name,
 		final IElementTaker<V> adderMethod,
-		final IElementTakerElementGetter<BaseNode<?>, V> valueCreator,
+		final IElementTakerElementGetter<INode<?>, V> valueCreator,
 		final IElementTakerElementGetter<V, Node> specificationCreator
 	) {
 		

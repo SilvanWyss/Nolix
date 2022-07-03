@@ -5,7 +5,6 @@ package ch.nolix.system.gui.color;
 import java.awt.GradientPaint;
 
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -45,9 +44,7 @@ public class ColorGradient implements IColorGradient {
 	 * @return a new {@link ColorGradient} from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static ColorGradient fromSpecification(
-		final BaseNode<?> specification
-	) {
+	public static ColorGradient fromSpecification(final INode<?> specification) {
 		
 		final var attributes = specification.getRefChildNodes();
 		

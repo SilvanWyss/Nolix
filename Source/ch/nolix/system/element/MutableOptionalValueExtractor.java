@@ -20,7 +20,7 @@ public final class MutableOptionalValueExtractor<V> extends Property {
 	private final IElementTaker<V> setter;
 	private final IBooleanGetter valuePresenceChecker;
 	private final IElementGetter<V> getter;
-	private final IElementTakerElementGetter<BaseNode<?>, V> valueCreator;
+	private final IElementTakerElementGetter<INode<?>, V> valueCreator;
 	private final IElementTakerElementGetter<V, Node> specificationCreator;
 	
 	//constructor
@@ -29,7 +29,7 @@ public final class MutableOptionalValueExtractor<V> extends Property {
 		final IElementTaker<V> setter,
 		final IBooleanGetter valuePresenceChecker,
 		final IElementGetter<V> getter,
-		final IElementTakerElementGetter<BaseNode<?>, V> valueCreator,
+		final IElementTakerElementGetter<INode<?>, V> valueCreator,
 		final IElementTakerElementGetter<V, Node> specificationCreator
 	) {
 		

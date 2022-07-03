@@ -3,7 +3,6 @@ package ch.nolix.core.document.node;
 
 //own imports
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.container.pair.IntPair;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -12,6 +11,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumen
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.IContainer;
+import ch.nolix.coreapi.containerapi.pairapi.IIntPair;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 
 //class
@@ -51,7 +51,7 @@ public final class Node extends BaseNode<Node> {
 	 * @param intPair
 	 * @return a new {@link Node} from the given intPair.
 	 */
-	public static Node fromIntPair(final IntPair intPair) {
+	public static Node fromIntPair(final IIntPair intPair) {
 		return withChildNode(withHeader(intPair.getValue1()), withHeader(intPair.getValue2()));
 	}
 	

@@ -14,6 +14,7 @@ import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.core.programatom.stateproperty.Visibility;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.skilluniversalapi.Recalculable;
+import ch.nolix.coreapi.containerapi.pairapi.IIntPair;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programcontrolapi.processproperty.ChangeState;
 import ch.nolix.system.configuration.ConfigurationElement;
@@ -85,7 +86,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	);
 	
 	//attribute
-	private final MutableValue<IntPair> viewAreaSize =
+	private final MutableValue<IIntPair> viewAreaSize =
 	new MutableValue<>(
 		VIEW_AREA_SIZE_HEADER,
 		DEFAULT_VIEW_AREA_SIZE,
@@ -95,7 +96,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	);
 	
 	//attribute
-	private final MutableValue<IntPair> cursorPositionOnViewArea =
+	private final MutableValue<IIntPair> cursorPositionOnViewArea =
 	new MutableValue<>(
 		CURSOR_POSITION_ON_VIEW_AREA_HEADER,
 		DEFAULT_CURSOR_POSITION_ON_VIEW_AREA,
@@ -274,7 +275,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	/**
 	 * @return the view area size of the current {@link GUI}.
 	 */
-	public final IntPair getViewAreaSize() {
+	public final IIntPair getViewAreaSize() {
 		return viewAreaSize.getValue();
 	}
 	

@@ -4,6 +4,7 @@ package ch.nolix.system.elementfactory;
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionuniversalapi.IElementTakerElementGetter;
 import ch.nolix.systemapi.elementapi.mainuniversalapi.IMutableElement;
 
@@ -44,7 +45,7 @@ public class ElementFactory<E> {
 	//method
 	protected final <E2 extends E> void registerElementClass_(
 		final Class<E2> elementClass,
-		final IElementTakerElementGetter<BaseNode<?>, E2> creator
+		final IElementTakerElementGetter<INode<?>, E2> creator
 	) {
 		registerOneTypeElementFactory(new OneTypeElementFactory<>(elementClass, creator));
 	}

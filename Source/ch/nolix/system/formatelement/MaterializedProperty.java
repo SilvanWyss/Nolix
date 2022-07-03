@@ -5,7 +5,6 @@ package ch.nolix.system.formatelement;
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.container.main.SingleContainer;
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -21,7 +20,7 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
 	private static final String NONE_HEADER = "None";
 	
 	//attributes
-	private final IElementTakerElementGetter<BaseNode<?>, V> valueCreator;
+	private final IElementTakerElementGetter<INode<?>, V> valueCreator;
 	private final IElementTakerElementGetter<V, Node> specificationCreator;
 	
 	//optional attribute
@@ -35,7 +34,7 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
 	protected MaterializedProperty(
 		final String name,
 		final Class<S> stateClass,
-		final IElementTakerElementGetter<BaseNode<?>, V> valueCreator,
+		final IElementTakerElementGetter<INode<?>, V> valueCreator,
 		final IElementTakerElementGetter<V, Node> specificationCreator
 	) {
 		
@@ -57,7 +56,7 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
 	protected MaterializedProperty(
 		final String name,
 		final Class<S> stateClass,
-		final IElementTakerElementGetter<BaseNode<?>, V> valueCreator,
+		final IElementTakerElementGetter<INode<?>, V> valueCreator,
 		final IElementTakerElementGetter<V, Node> specificationCreator,
 		final I2ElementTaker<S, V> setterMethod
 	) {

@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.elementfactory;
 
-//own imports
-import ch.nolix.core.document.node.BaseNode;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionuniversalapi.IElementTakerElementGetter;
 import ch.nolix.systemapi.elementapi.mainuniversalapi.IMutableElement;
 
@@ -22,7 +21,7 @@ public final class MutableElementFactory<E> extends ElementFactory<E> {
 	//method
 	public MutableElementFactory<E> registerElementClass(
 		final Class<E> elementClass,
-		final IElementTakerElementGetter<BaseNode<?>, E> creator
+		final IElementTakerElementGetter<INode<?>, E> creator
 	) {
 		
 		registerElementClass_(elementClass, creator);

@@ -19,7 +19,7 @@ public final class MultiValueExtractor<V> extends Property {
 	private final String name;
 	private final IElementTaker<V> adder;
 	private final IElementGetter<IContainer<V>> getter;
-	private final IElementTakerElementGetter<BaseNode<?>, V> valueCreator;
+	private final IElementTakerElementGetter<INode<?>, V> valueCreator;
 	private final IElementTakerElementGetter<V, Node> specificationCreator;
 	
 	//constructor
@@ -27,7 +27,7 @@ public final class MultiValueExtractor<V> extends Property {
 		final String name,
 		final IElementTaker<V> adder,
 		final IElementGetter<IContainer<V>> getter,
-		final IElementTakerElementGetter<BaseNode<?>, V> valueCreator,
+		final IElementTakerElementGetter<INode<?>, V> valueCreator,
 		final IElementTakerElementGetter<V, Node> specificationCreator
 	) {
 		

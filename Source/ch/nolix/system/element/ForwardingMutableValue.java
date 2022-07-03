@@ -61,7 +61,7 @@ public final class ForwardingMutableValue<V> extends Property implements Named {
 	private final String name;
 	private final IElementTaker<V> setter;
 	private final IElementGetter<V> getter;
-	private final IElementTakerElementGetter<BaseNode<?>, V> valueCreator;
+	private final IElementTakerElementGetter<INode<?>, V> valueCreator;
 	private final IElementTakerElementGetter<V, Node> specificationCreator;
 	
 	//constructor
@@ -69,7 +69,7 @@ public final class ForwardingMutableValue<V> extends Property implements Named {
 		final String name,
 		final IElementTaker<V> setter,
 		final IElementGetter<V> getter,
-		final IElementTakerElementGetter<BaseNode<?>, V> valueCreator,
+		final IElementTakerElementGetter<INode<?>, V> valueCreator,
 		final IElementTakerElementGetter<V, Node> specificationCreator
 	) {
 		

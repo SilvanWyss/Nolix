@@ -8,6 +8,7 @@ import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionuniversalapi.IElementTakerElementGetter;
 import ch.nolix.systemapi.elementapi.mainuniversalapi.IMutableElement;
 
@@ -32,14 +33,14 @@ final class OneTypeElementFactory<E> {
 	
 	//attributes
 	private final Class<E> elementClass;
-	private final IElementTakerElementGetter<BaseNode<?>, E> creator;
+	private final IElementTakerElementGetter<INode<?>, E> creator;
 	
 	//constructor
 	@SuppressWarnings("unchecked")
 	public <ME extends IMutableElement<ME>> OneTypeElementFactory(final Class<ME> elementClass) {
 		this(
 			(Class<E>)elementClass,
-			(final BaseNode<?> s) -> {
+			(final INode<?> s) -> {
 				
 				final var element = createElementOf(elementClass);
 				element.resetFromSpecification(s);
@@ -50,7 +51,7 @@ final class OneTypeElementFactory<E> {
 	}
 	
 	//constructor
-	public OneTypeElementFactory(final Class<E> elementClass, final IElementTakerElementGetter<BaseNode<?>, E> creator) {
+	public OneTypeElementFactory(final Class<E> elementClass, final IElementTakerElementGetter<INode<?>, E> creator) {
 		
 		GlobalValidator.assertThat(elementClass).thatIsNamed("element class").isNotNull();
 		GlobalValidator.assertThat(creator).thatIsNamed(LowerCaseCatalogue.CREATOR).isNotNull();
