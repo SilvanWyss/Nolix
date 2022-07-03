@@ -144,15 +144,6 @@ public final class FileNode extends BaseMutableNode<FileNode> {
 	
 	//method
 	/**
-	 * @return true if this {@link FileNode} contains attributes.
-	 */
-	@Override
-	public boolean containsChildNodes() {
-		return internalSpecification.containsChildNodes();
-	}
-	
-	//method
-	/**
 	 * {@inheritDoc}
 	 */
 	@Override
@@ -163,15 +154,6 @@ public final class FileNode extends BaseMutableNode<FileNode> {
 		}
 		
 		return equalsNode((FileNode)object);
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public int getChildNodeCount() {
-		return internalSpecification.getChildNodeCount();
 	}
 	
 	//method
@@ -196,19 +178,6 @@ public final class FileNode extends BaseMutableNode<FileNode> {
 			internalSpecification.getRefChildNodes().to(
 				a -> new FileNode(getRefRootFileNode(), (IMutableNode<?>)a)
 			)
-		);
-	}
-
-	//method
-	/**
-	 * @return the one attribute of the current {@link FileNode}.
-	 * @throws EmptyArgumentException if this {@link FileNode} does not contain an attribute.
-	 * @throws InvalidArgumentException if this {@link FileNode} contains several attributes.
-	 */
-	@Override
-	public FileNode getRefSingleChildNode() {
-		return new FileNode(
-			getRefRootFileNode(), (IMutableNode<?>)internalSpecification.getRefSingleChildNode()
 		);
 	}
 	

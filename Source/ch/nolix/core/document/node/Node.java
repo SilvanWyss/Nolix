@@ -438,15 +438,6 @@ public final class Node extends BaseNode<Node> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Node getRefSingleChildNode() {
-		return childNodes.getRefOne();
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	public int hashCode() {
 		return toString().hashCode();
 	}
