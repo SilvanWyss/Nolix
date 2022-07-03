@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.griduniversalapi;
+package ch.nolix.coreapi.geometryapi.griduniversalapi;
 
 import ch.nolix.coreapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 

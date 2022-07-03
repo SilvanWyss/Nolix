@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.gui.main;
 
-import ch.nolix.core.griduniversalapi.Rectangular;
+import ch.nolix.coreapi.geometryapi.griduniversalapi.Rectangular;
 
 //interface
 public interface IVisualizer extends Rectangular {

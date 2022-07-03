@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.guiapi.mainapi;
 
-//own imports
-import ch.nolix.core.griduniversalapi.TopLeftPositionedRecangular;
+import ch.nolix.coreapi.geometryapi.griduniversalapi.TopLeftPositionedRecangular;
 import ch.nolix.coreapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 
 //interface

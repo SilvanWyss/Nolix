@@ -5,8 +5,8 @@ package ch.nolix.system.gui.widget;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.griduniversalapi.Rectangular;
 import ch.nolix.core.math.GlobalCalculator;
+import ch.nolix.coreapi.geometryapi.griduniversalapi.Rectangular;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 
 //class
