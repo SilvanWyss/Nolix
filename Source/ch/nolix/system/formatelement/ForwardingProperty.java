@@ -2,7 +2,6 @@
 package ch.nolix.system.formatelement;
 
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.coreapi.containerapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 
@@ -55,7 +54,7 @@ public final class ForwardingProperty<S extends Enum<S>, V> extends Property<S>{
 	}
 	
 	@Override
-	protected void setValueFromSpecification(final BaseNode<?> specification) {
+	protected void setValueFromSpecification(final INode<?> specification) {
 		for (final var mp : materializedProperties) {
 			mp.setValueFromSpecification(specification);
 		}

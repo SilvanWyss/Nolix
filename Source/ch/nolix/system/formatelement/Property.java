@@ -3,7 +3,6 @@ package ch.nolix.system.formatelement;
 
 import ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi.Named;
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
@@ -39,7 +38,7 @@ public abstract class Property<S extends Enum<S>> implements Named {
 	protected abstract void setUndefined();
 	
 	//method declaration
-	protected abstract void setValueFromSpecification(BaseNode<?> specification);
+	protected abstract void setValueFromSpecification(INode<?> specification);
 	
 	//method
 	final void setParent(final FormatElement<?, S> parent) {

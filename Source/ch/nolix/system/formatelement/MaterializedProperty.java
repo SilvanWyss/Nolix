@@ -205,7 +205,7 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
 	
 	//method
 	@Override
-	protected final void setValueFromSpecification(final BaseNode<?> specification) {
+	protected final void setValueFromSpecification(final INode<?> specification) {
 		
 		for (final var s : parent.getAvailableStates()) {
 			if (GlobalStringHelper.startsWithIgnoringCase(specification.getHeader(), s.getPrefix())) {
@@ -252,11 +252,12 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
 	}
 	
 	//method
-	private void setValueFromSpecificationToState(final State<S> state, final BaseNode<?> specification) {
+	private void setValueFromSpecificationToState(final State<S> state, final INode<?> specification) {
 		if (specification.getSingleChildNodeHeader().equals(NONE_HEADER)) {
 			stateProperties[state.getIndex()].setEmpty();
 		} else {
-			setValueForStateUsingSetterMethod(state.getEnumValue(), valueCreator.getOutput(specification));
+			//TODO: Refactor.
+			//setValueForStateUsingSetterMethod(state.getEnumValue(), valueCreator.getOutput(specification));
 		}
 	}
 }
