@@ -3,7 +3,7 @@ package ch.nolix.system.rawdata.dataadapter;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
-import ch.nolix.coreapi.containerapi.IContainer;
+import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataAdapter;
 import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataReader;
 import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataWriter;

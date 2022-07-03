@@ -2,7 +2,7 @@
 package ch.nolix.system.objectdata.data;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.coreapi.containerapi.IContainer;
+import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.system.objectdata.parametrizedpropertytype.ParametrizedBackReferenceType;
 import ch.nolix.system.objectdata.parametrizedpropertytype.ParametrizedMultiReferenceType;
 import ch.nolix.system.objectdata.parametrizedpropertytype.ParametrizedMultiValueType;

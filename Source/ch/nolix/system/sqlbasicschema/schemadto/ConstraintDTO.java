@@ -3,7 +3,7 @@ package ch.nolix.system.sqlbasicschema.schemadto;
 
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.containerapi.IContainer;
+import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.systemapi.sqlbasicschemaapi.schemadtoapi.ConstraintType;
 import ch.nolix.systemapi.sqlbasicschemaapi.schemadtoapi.IConstraintDTO;
 

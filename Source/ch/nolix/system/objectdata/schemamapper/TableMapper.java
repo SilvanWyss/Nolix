@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.objectdata.schemamapper;
 
-import ch.nolix.coreapi.containerapi.IContainer;
+import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.system.objectschema.parametrizedpropertytype.SchemaImplementation;
 import ch.nolix.system.objectschema.schema.Table;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;

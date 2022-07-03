@@ -2,7 +2,7 @@
 package ch.nolix.system.formatelement;
 
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.coreapi.containerapi.IContainer;
+import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 
 //class

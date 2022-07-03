@@ -4,7 +4,7 @@ package ch.nolix.business.serverdashboard;
 //own imports
 import ch.nolix.businessapi.serverdashboardaccessapi.IApplicationSheet;
 import ch.nolix.businessapi.serverdashboardaccessapi.IServerDashboardAccess;
-import ch.nolix.coreapi.containerapi.IContainer;
+import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.system.application.guiapplication.BackendGUIClientSession;
 import ch.nolix.system.gui.containerwidget.ContainerRole;
 import ch.nolix.system.gui.containerwidget.FloatContainer;

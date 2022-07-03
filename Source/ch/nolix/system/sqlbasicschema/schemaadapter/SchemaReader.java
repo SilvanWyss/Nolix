@@ -5,7 +5,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.sql.SQLConnection;
 import ch.nolix.core.sql.SQLConnectionPool;
-import ch.nolix.coreapi.containerapi.IContainer;
+import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.system.sqlbasicschema.flatschemadto.FlatTableDTO;
 import ch.nolix.system.sqlbasicschema.schemadto.ColumnDTO;
 import ch.nolix.system.sqlbasicschema.schemadto.DataTypeDTO;

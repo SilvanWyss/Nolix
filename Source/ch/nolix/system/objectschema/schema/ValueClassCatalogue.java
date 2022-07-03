@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.document.node.Node;
-import ch.nolix.coreapi.containerapi.IContainer;
+import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 
 //class
 public final class ValueClassCatalogue {

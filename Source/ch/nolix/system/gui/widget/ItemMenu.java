@@ -9,7 +9,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.math.GlobalCalculator;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.core.skilluniversalapi.Clearable;
-import ch.nolix.coreapi.containerapi.IContainer;
+import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.functionuniversalapi.IAction;
 import ch.nolix.coreapi.functionuniversalapi.IElementTaker;
 import ch.nolix.system.element.MultiValue;

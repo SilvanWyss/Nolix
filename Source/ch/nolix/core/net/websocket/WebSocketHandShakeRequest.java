@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.core.net.websocket;
 
-import ch.nolix.coreapi.containerapi.IContainer;
+import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 
 //class
 public final class WebSocketHandShakeRequest {

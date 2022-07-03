@@ -2,7 +2,7 @@
 package ch.nolix.system.nodedatabaserawdata.datareader;
 
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.coreapi.containerapi.IContainer;
+import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.nodedatabaserawschema.structure.TableNodeSearcher;
 import ch.nolix.system.sqlrawdata.schemainfo.TableInfo;

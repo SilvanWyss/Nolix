@@ -4,7 +4,7 @@ package ch.nolix.systemapi.elementapi.configurationapi;
 import ch.nolix.core.skilluniversalapi.TypeRequestable;
 import ch.nolix.coreapi.attributeuniversalapi.mutableoptionalattributeuniversalapi.OptionalIdentifiableByString;
 import ch.nolix.coreapi.attributeuniversalapi.mutableoptionalattributeuniversalapi.OptionalTokenable;
-import ch.nolix.coreapi.containerapi.IContainer;
+import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.requestuniversalapi.ContainsElementByStringIdRequestable;
 import ch.nolix.systemapi.elementapi.mainuniversalapi.IMutableElement;
 
