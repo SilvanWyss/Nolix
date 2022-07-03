@@ -1,10 +1,10 @@
 //package declaration
 package ch.nolix.coreapi.documentapi.nodeapi;
 
-import ch.nolix.core.container.pair.IntPair;
 //own imports
 import ch.nolix.coreapi.attributeuniversalapi.optionalattributeuniversalapi.OptionalHeadered;
 import ch.nolix.coreapi.containerapi.IContainer;
+import ch.nolix.coreapi.containerapi.pairapi.IIntPair;
 import ch.nolix.coreapi.functionuniversalapi.IElementTakerBooleanGetter;
 
 //interface
@@ -207,10 +207,12 @@ public interface INode<N extends INode<N>> extends OptionalHeadered {
 	 */
 	int toInt();
 	
-	//TODO: Complete.
-	default IntPair toIntPair() {
-		return new IntPair(getRefChildNodeAt1BasedIndex(1).toInt(), getRefChildNodeAt1BasedIndex(2).toInt());
-	}
+	//method declaration
+	/**
+	 * @return the {@link IIntPair} the current {@link INode} represents.
+	 * @throws RuntimeException if the current {@link INode} does not represent a {@link IIntPair}.
+	 */
+	IIntPair toIntPair();
 	
 	//method declaration
 	/**

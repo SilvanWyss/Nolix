@@ -375,12 +375,11 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	
 	//method
 	/**
-	 * @return the {@link IntPair} the current {@link BaseNode} represents.
-	 * @throws UnrepresentingArgumentException if the current {@link BaseNode} does not represent a {@link IntPair}.
+	 * {@inheritDoc}
 	 */
 	public final IntPair toIntPair() {
 		
-		//Asserts that the current BaseNode<?> contains 2 attributes.
+		//Asserts that the current BaseNode contains 2 attributes.
 		if (getChildNodeCount() != 2) {
 			throw UnrepresentingArgumentException.forArgumentAndType(this, IntPair.class);
 		}
