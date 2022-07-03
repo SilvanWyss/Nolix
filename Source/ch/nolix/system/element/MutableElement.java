@@ -6,7 +6,6 @@ import java.lang.reflect.Field;
 
 //own imports
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.IContainer;
@@ -32,7 +31,7 @@ public abstract class MutableElement<ME extends MutableElement<ME>> implements I
 	 * @throws InvalidArgumentException if the given attribute is not valid.
 	 */
 	@Override
-	public final void addOrChangeAttribute(final BaseNode<?> attribute) {
+	public final void addOrChangeAttribute(final INode<?> attribute) {
 		
 		//Iterates the properties of the current MutableElement.
 		for (final var p : getRefProperties()) {

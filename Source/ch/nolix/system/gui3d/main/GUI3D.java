@@ -8,7 +8,6 @@ import ch.nolix.core.commontype.constant.StringCatalogue;
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.container.pair.Pair;
 import ch.nolix.core.container.readcontainer.ReadContainer;
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -404,7 +403,7 @@ public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G> 
 	 * @return a new {@link Shape} of the given specification.
 	 * @throws InvalidArgumentException if the current specification is not valid.
 	 */
-	private Shape<?> createShape(final BaseNode<?> specification) {
+	private Shape<?> createShape(final INode<?> specification) {
 		
 		final var shape = createShape(specification.getHeader());
 		shape.resetFromSpecification(specification);

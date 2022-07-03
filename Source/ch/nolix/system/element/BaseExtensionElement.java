@@ -3,7 +3,6 @@ package ch.nolix.system.element;
 
 //own imports
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
@@ -30,7 +29,7 @@ public abstract class BaseExtensionElement<E extends IRespondingMutableElement<E
 	
 	//method
 	@Override
-	protected final boolean addedOrChangedAttribute(final BaseNode<?> attribute) {
+	protected final boolean addedOrChangedAttribute(final INode<?> attribute) {
 		return internalExtensionElement.addedOrChangedAttribute(attribute);
 	}
 	

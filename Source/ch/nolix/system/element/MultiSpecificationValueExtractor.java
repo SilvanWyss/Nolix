@@ -3,7 +3,6 @@ package ch.nolix.system.element;
 
 //own imports
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.IContainer;
@@ -16,13 +15,13 @@ public final class MultiSpecificationValueExtractor extends Property {
 	
 	//attributes
 	private final String name;
-	private final IElementTaker<BaseNode<?>> adder;
+	private final IElementTaker<INode<?>> adder;
 	private final IElementGetter<IContainer<INode<?>>> getter;
 	
 	//constructor
 	public MultiSpecificationValueExtractor(
 		final String name,
-		final IElementTaker<BaseNode<?>> adder,
+		final IElementTaker<INode<?>> adder,
 		final IElementGetter<IContainer<INode<?>>> getter
 	) {
 		
@@ -42,7 +41,7 @@ public final class MultiSpecificationValueExtractor extends Property {
 	
 	//method
 	@Override
-	protected boolean addedOrChangedAttribute(final BaseNode<?> attribute) {
+	protected boolean addedOrChangedAttribute(final INode<?> attribute) {
 		
 		if (attribute.hasHeader(getName())) {
 			adder.run(attribute);

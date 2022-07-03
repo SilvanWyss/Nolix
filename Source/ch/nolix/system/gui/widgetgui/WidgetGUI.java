@@ -3,7 +3,6 @@ package ch.nolix.system.gui.widgetgui;
 
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.document.chainednode.ChainedNode;
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
@@ -116,7 +115,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 * @param specification
 	 * @return true if a {@link WidgetGUI} can create a {@link Widget} from the given specification.
 	 */
-	public static boolean canCreateWidgetFrom(final BaseNode<?> specification) {
+	public static boolean canCreateWidgetFrom(final INode<?> specification) {
 		return widgetProvider.canCreateWidgetFrom(specification);
 	}
 

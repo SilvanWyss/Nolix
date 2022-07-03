@@ -2,7 +2,6 @@
 package ch.nolix.system.element;
 
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
@@ -51,7 +50,7 @@ public final class MultiValueExtractor<V> extends Property {
 	
 	//method
 	@Override
-	protected boolean addedOrChangedAttribute(final BaseNode<?> attribute) {
+	protected boolean addedOrChangedAttribute(final INode<?> attribute) {
 		
 		if (attribute.hasHeader(getName())) {
 			adder.run(valueCreator.getOutput(attribute));

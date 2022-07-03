@@ -2,7 +2,6 @@
 package ch.nolix.system.element;
 
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -43,7 +42,7 @@ public abstract class BaseSubElement<ME extends IMutableElement<ME>> extends Pro
 	
 	//method
 	@Override
-	protected final boolean addedOrChangedAttribute(final BaseNode<?> attribute) {
+	protected final boolean addedOrChangedAttribute(final INode<?> attribute) {
 		
 		if (attribute.hasHeader() && attribute.getHeader().startsWith(attributePrefix)) {
 			

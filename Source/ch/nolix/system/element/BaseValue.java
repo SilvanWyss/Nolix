@@ -2,7 +2,6 @@
 package ch.nolix.system.element;
 
 import ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi.Named;
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -68,7 +67,7 @@ public abstract class BaseValue<V> extends Property implements MutabilityRequest
 	 * @param attribute
 	 */
 	@Override
-	protected final boolean addedOrChangedAttribute(final BaseNode<?> attribute) {
+	protected final boolean addedOrChangedAttribute(final INode<?> attribute) {
 		
 		if (attribute.hasHeader(getName())) {
 			addOrChangeValue(valueCreator.getOutput(attribute));

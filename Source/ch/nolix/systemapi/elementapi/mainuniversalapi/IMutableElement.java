@@ -1,8 +1,6 @@
 //package declaration
 package ch.nolix.systemapi.elementapi.mainuniversalapi;
 
-//own imports
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.skilluniversalapi.Resettable;
@@ -28,7 +26,7 @@ public interface IMutableElement<ME extends IMutableElement<ME>> extends Resetta
 	 * 
 	 * @param attribute
 	 */
-	void addOrChangeAttribute(BaseNode<?> attribute);
+	void addOrChangeAttribute(INode<?> attribute);
 	
 	//method
 	/**
@@ -37,7 +35,7 @@ public interface IMutableElement<ME extends IMutableElement<ME>> extends Resetta
 	 * @param attributes
 	 * @throws InvalidArgumentException if one of the given attributes is not valid.
 	 */
-	default void addOrChangeAttribute(final BaseNode<?>... attributes) {
+	default void addOrChangeAttribute(final INode<?>... attributes) {
 		
 		//Iterates the given attributes.
 		for (final var a : attributes) {
@@ -82,9 +80,7 @@ public interface IMutableElement<ME extends IMutableElement<ME>> extends Resetta
 		
 		//Iterates the given attributes.
 		for (final var a : attributes) {
-			
-			//TODO: Refactor.
-			//addOrChangeAttribute(a);
+			addOrChangeAttribute(a);
 		}
 	}
 	

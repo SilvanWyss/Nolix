@@ -2,7 +2,6 @@
 package ch.nolix.system.element;
 
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
@@ -15,13 +14,13 @@ public final class MutableSpecificationValueExtractor extends Property {
 	
 	//attributes
 	private final String name;
-	private final IElementTaker<BaseNode<?>> setter;
+	private final IElementTaker<INode<?>> setter;
 	private final IElementGetter<Node> getter;
 	
 	//constructor
 	public MutableSpecificationValueExtractor(
 		final String name,
-		final IElementTaker<BaseNode<?>> setter,
+		final IElementTaker<INode<?>> setter,
 		final IElementGetter<Node> getter
 	) {
 		
@@ -41,7 +40,7 @@ public final class MutableSpecificationValueExtractor extends Property {
 	
 	//method
 	@Override
-	protected boolean addedOrChangedAttribute(final BaseNode<?> attribute) {
+	protected boolean addedOrChangedAttribute(final INode<?> attribute) {
 		
 		if (attribute.hasHeader(getName())) {
 			setter.run(attribute);

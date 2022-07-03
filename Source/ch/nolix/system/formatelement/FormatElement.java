@@ -6,7 +6,6 @@ import java.lang.reflect.Field;
 
 //own imports
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -44,7 +43,7 @@ implements IRespondingMutableElement<FE> {
 	
 	//method
 	@Override
-	public final boolean addedOrChangedAttribute(final BaseNode<?> attribute) {
+	public final boolean addedOrChangedAttribute(final INode<?> attribute) {
 		
 		for (final var p : getRefProperties()) {
 			if (attribute.getHeader().endsWith(p.getName())) {

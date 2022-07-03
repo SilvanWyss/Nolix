@@ -3,7 +3,6 @@ package ch.nolix.system.gui.main;
 
 //own imports
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.skilluniversalapi.Clearable;
@@ -60,7 +59,7 @@ public final class MutableOptionalWidgetProperty extends Property implements Cle
 	
 	//method
 	@Override
-	protected boolean addedOrChangedAttribute(final BaseNode<?> attribute) {
+	protected boolean addedOrChangedAttribute(final INode<?> attribute) {
 		
 		if (!WidgetGUI.canCreateWidgetFrom(attribute)) {
 			return false;

@@ -255,8 +255,7 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
 		if (specification.getSingleChildNodeHeader().equals(NONE_HEADER)) {
 			stateProperties[state.getIndex()].setEmpty();
 		} else {
-			//TODO: Refactor.
-			//setValueForStateUsingSetterMethod(state.getEnumValue(), valueCreator.getOutput(specification));
+			setValueForStateUsingSetterMethod(state.getEnumValue(), valueCreator.getOutput(specification));
 		}
 	}
 }
