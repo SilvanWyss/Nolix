@@ -72,8 +72,8 @@ public final class TextFormat implements ITextFormat {
 		return
 		new TextFormat(
 			Font.fromSpecification(attributes.getRefAt(1)),
-			//attributes.getRefAt(2).getSingleChildNodeAsBoolean(), //TODO: Implement.
-			//attributes.getRefAt(3).getSingleChildNodeAsBoolean(), //TODO: Implement.
+			attributes.getRefAt(2).getSingleChildNodeAsBoolean(),
+			attributes.getRefAt(3).getSingleChildNodeAsBoolean(),
 			attributes.getRefAt(4).getSingleChildNodeAsInt(),
 			Color.fromSpecification(attributes.getRefAt(5))
 		);
