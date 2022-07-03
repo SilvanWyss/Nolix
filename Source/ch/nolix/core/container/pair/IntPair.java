@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.core.container.pair;
 
+//own imports
+import ch.nolix.coreapi.containerapi.pairapi.IIntPair;
+
 //class
 /**
  * A {@link IntPair} contains 2 ints.
@@ -9,7 +12,7 @@ package ch.nolix.core.container.pair;
  * @author Silvan Wyss
  * @date 2020-05-30
  */
-public final class IntPair {
+public final class IntPair implements IIntPair {
 	
 	//constant
 	public static final int DEFAULT_VALUE = 0;
@@ -61,16 +64,18 @@ public final class IntPair {
 	
 	//method
 	/**
-	 * @return value 1 of the current {@link IntPair}.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public int getValue1() {
 		return value1;
 	}
 	
 	//method
 	/**
-	 * @return value 2 of the current {@link IntPair}.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public int getValue2() {
 		return value2;
 	}
