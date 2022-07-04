@@ -4,14 +4,10 @@ package ch.nolix.systemapi.timeapi.timestructure;
 //Java imports
 import java.time.DayOfWeek;
 
-import ch.nolix.core.document.node.Node;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.systemapi.elementapi.mainuniversalapi.Specified;
 
 //enum
-public enum Weekday implements Specified {
+public enum Weekday {
 	MONDAY,
 	TUESDAY,
 	WEDNESDAY,
@@ -38,18 +34,12 @@ public enum Weekday implements Specified {
 			case SUNDAY:
 				return SUNDAY;
 			default:
-				throw InvalidArgumentException.forArgument(dayOfWeek);
+				throw new IllegalArgumentException("The given day of week '" + dayOfWeek + "' is not valid.");
 		}
 	}
 	
 	//static method
 	public static Weekday fromSpecification(final INode<?> specification) {
 		return Weekday.valueOf(specification.getSingleChildNodeHeader());
-	}
-	
-	//method
-	@Override
-	public void fillUpAttributesInto(final IMutableList<INode<?>> list) {
-		list.addAtEnd(Node.withHeader(name()));
 	}
 }
