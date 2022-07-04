@@ -12,6 +12,7 @@ import ch.nolix.core.independent.independenthelper.IterableHelper;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PluralLowerCaseCatalogue;
 import ch.nolix.core.skilluniversalapi.Clearable;
+import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.functionuniversalapi.IElementTaker;
 import ch.nolix.coreapi.functionuniversalapi.IElementTakerBooleanGetter;
 import ch.nolix.coreapi.functionuniversalapi.IElementTakerComparableGetter;
@@ -26,7 +27,7 @@ import ch.nolix.coreapi.functionuniversalapi.IElementTakerElementGetter;
  * @date 2016-01-01
  * @param <E> is the type of the elements of a {@link LinkedList}.
  */
-public final class LinkedList<E> extends Container<E> implements Clearable {
+public final class LinkedList<E> extends Container<E> implements Clearable, IMutableList<E> {
 	
 	//static method
 	/**
@@ -244,6 +245,7 @@ public final class LinkedList<E> extends Container<E> implements Clearable {
 	 * @param element
 	 * @throws ArgumentIsNullException if the given element is null.
 	 */
+	@Override
 	public void addAtEnd(final E element) {
 		
 		//Creates new node.
@@ -288,6 +290,7 @@ public final class LinkedList<E> extends Container<E> implements Clearable {
 	 * @param elements
 	 * @throws ArgumentIsNullException if one of the given elements is null.
 	 */
+	@Override
 	public void addAtEnd(final Iterable<E> elements) {
 		elements.forEach(this::addAtEnd);
 	}
