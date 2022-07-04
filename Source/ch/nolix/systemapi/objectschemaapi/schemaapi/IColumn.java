@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.systemapi.objectschemaapi.schemaapi;
 
-import ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi.IdentifiedByString;
 import ch.nolix.core.attributeuniversalapi.mutablemandatoryattributeuniversalapi.Namable;
+import ch.nolix.coreapi.attributeuniversalapi.mandatoryattributeuniversalapi.IdentifiedByString;
 import ch.nolix.coreapi.requestuniversalapi.EmptinessRequestable;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.Deletable;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.IDatabaseObject;

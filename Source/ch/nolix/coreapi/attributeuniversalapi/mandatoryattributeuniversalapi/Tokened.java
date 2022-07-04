@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi;
+package ch.nolix.coreapi.attributeuniversalapi.mandatoryattributeuniversalapi;
 
 import ch.nolix.coreapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 

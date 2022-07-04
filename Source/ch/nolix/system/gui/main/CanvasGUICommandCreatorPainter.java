@@ -1,8 +1,6 @@
 //package declaration
 package ch.nolix.system.gui.main;
 
-//own imports
-import ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi.Indexed;
 import ch.nolix.core.caching.CachingContainer;
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.container.main.SingleContainer;
@@ -11,6 +9,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSuppor
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.independent.independenthelper.CentralArrayHelper;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.coreapi.attributeuniversalapi.mandatoryattributeuniversalapi.Indexed;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.functionuniversalapi.I2ElementTaker;
 import ch.nolix.system.gui.painter.BasePainter;

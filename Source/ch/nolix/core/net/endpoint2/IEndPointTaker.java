@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.core.net.endpoint2;
 
-import ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi.Named;
+import ch.nolix.coreapi.attributeuniversalapi.mandatoryattributeuniversalapi.Named;
 
 //interface
 /**

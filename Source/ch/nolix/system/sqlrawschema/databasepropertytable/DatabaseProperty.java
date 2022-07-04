@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.system.sqlrawschema.databasepropertytable;
 
-import ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi.Labeled;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.coreapi.attributeuniversalapi.mandatoryattributeuniversalapi.Labeled;
 
 //class
 public enum DatabaseProperty implements Labeled {

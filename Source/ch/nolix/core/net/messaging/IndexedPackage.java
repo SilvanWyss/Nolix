@@ -1,10 +1,10 @@
 //package declaration
 package ch.nolix.core.net.messaging;
 
-import ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi.Indexed;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.coreapi.attributeuniversalapi.mandatoryattributeuniversalapi.Indexed;
 
 //class
 /**

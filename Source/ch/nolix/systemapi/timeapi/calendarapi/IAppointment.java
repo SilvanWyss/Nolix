@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.timeapi.calendarapi;
 
-//own imports
-import ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi.ISubjectHolder;
+import ch.nolix.coreapi.attributeuniversalapi.mandatoryattributeuniversalapi.ISubjectHolder;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //interface

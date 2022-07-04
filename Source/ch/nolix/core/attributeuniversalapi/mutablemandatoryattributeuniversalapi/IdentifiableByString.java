@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.core.attributeuniversalapi.mutablemandatoryattributeuniversalapi;
 
-import ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi.IdentifiedByString;
+import ch.nolix.coreapi.attributeuniversalapi.mandatoryattributeuniversalapi.IdentifiedByString;
 
 //interface
 /**

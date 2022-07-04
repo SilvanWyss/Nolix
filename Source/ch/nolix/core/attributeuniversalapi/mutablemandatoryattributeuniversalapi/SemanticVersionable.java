@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.core.attributeuniversalapi.mutablemandatoryattributeuniversalapi;
 
-//own imports
-import ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi.SemanticVersioned;
+import ch.nolix.coreapi.attributeuniversalapi.mandatoryattributeuniversalapi.SemanticVersioned;
 
 //interface
 /**

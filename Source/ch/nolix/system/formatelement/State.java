@@ -1,10 +1,10 @@
 //package declaration
 package ch.nolix.system.formatelement;
 
-import ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi.Indexed;
-import ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi.Prefixed;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.coreapi.attributeuniversalapi.mandatoryattributeuniversalapi.Indexed;
+import ch.nolix.coreapi.attributeuniversalapi.mandatoryattributeuniversalapi.Prefixed;
 
 //class
 final class State<S extends Enum<S>> implements Indexed, Prefixed {
