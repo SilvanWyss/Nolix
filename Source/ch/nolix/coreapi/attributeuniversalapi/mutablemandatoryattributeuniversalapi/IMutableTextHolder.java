@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.attributeuniversalapi.mutablemandatoryattributeuniversalapi;
+package ch.nolix.coreapi.attributeuniversalapi.mutablemandatoryattributeuniversalapi;
 
 import ch.nolix.coreapi.attributeuniversalapi.mandatoryattributeuniversalapi.ITextHolder;
 
