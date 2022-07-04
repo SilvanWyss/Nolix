@@ -57,7 +57,7 @@ public abstract class BaseBackendGUIClient<
 	 */
 	public final void showErrorMessageOnCounterpart(final String errorMessage) {
 		runOnCounterpart(
-			ChainedNode.withHeaderAndAttributesFromNodes(CommandProtocol.SHOW_ERROR_MESSAGE, Node.withHeader(errorMessage))
+			ChainedNode.withHeaderAndChildNodesFromNodes(CommandProtocol.SHOW_ERROR_MESSAGE, Node.withHeader(errorMessage))
 		);
 	}
 	
@@ -77,7 +77,7 @@ public abstract class BaseBackendGUIClient<
 				runGUICommand(command.getNextNode());
 				break;
 			case CommandProtocol.NOTE_INPUT:
-				noteInput(InputFactory.INSTANCE.createElementFrom(command.getOneAttributeAsNode()));				
+				noteInput(InputFactory.INSTANCE.createElementFrom(command.getSingleChildNodeAsNode()));				
 				break;
 			case CommandProtocol.RECEIVE_OPTIONAL_FILE:
 				receiveOptionalFileFromCounterpart(command);
@@ -137,9 +137,9 @@ public abstract class BaseBackendGUIClient<
 	//method
 	final void internalOpenNewTabOnCounterpartWithURL(final String pURL) {
 		runOnCounterpart(
-			ChainedNode.withHeaderAndAttribute(
+			ChainedNode.withHeaderAndChildNode(
 				CommandProtocol.OPEN_NEW_TAB,
-				ChainedNode.withHeaderAndAttribute(
+				ChainedNode.withHeaderAndChildNode(
 					ObjectProtocol.URL,
 					ChainedNode.withHeader(pURL)
 				)
@@ -150,7 +150,7 @@ public abstract class BaseBackendGUIClient<
 	//method
 	final void internalRedirectTo(final IApplicationTarget applicationTarget) {
 		runOnCounterpart(
-			ChainedNode.withHeaderAndAttribute(
+			ChainedNode.withHeaderAndChildNode(
 				CommandProtocol.REDIRECT,
 				ChainedNode.withHeader(applicationTarget.toURL())
 			)
@@ -170,7 +170,7 @@ public abstract class BaseBackendGUIClient<
 	//method
 	final void saveFileOnCounterpart(final byte[] content) {
 		runOnCounterpart(
-			ChainedNode.withHeaderAndAttributesFromNodes(
+			ChainedNode.withHeaderAndChildNodesFromNodes(
 				CommandProtocol.SAVE_FILE,
 				Node.withHeader(new String(content, StandardCharsets.UTF_8))
 			)
@@ -318,13 +318,13 @@ public abstract class BaseBackendGUIClient<
 	
 	//method
 	private void receiveOptionalFileFromCounterpart(final ChainedNode receiveOptionalFileCommand) {
-		switch (receiveOptionalFileCommand.getAttributeCount()) {
+		switch (receiveOptionalFileCommand.getChildNodeCount()) {
 			case 0:
 				receiveOptionalFileFromCounterpart(new SingleContainer<>());
 				break;
 			case 1:
 				receiveOptionalFileFromCounterpart(
-					new SingleContainer<>(receiveOptionalFileCommand.getOneAttribute().getHeader())
+					new SingleContainer<>(receiveOptionalFileCommand.getSingleChildNode().getHeader())
 				);
 				break;
 			default:
@@ -378,7 +378,7 @@ public abstract class BaseBackendGUIClient<
 		//Enumerates the header of the given GUICommand.
 		switch (lGUICommand.getHeader()) {
 			case CommandProtocol.RESET:
-				resetGUI(lGUICommand.getAttributesAsNodes());
+				resetGUI(lGUICommand.getChildNodesAsNodes());
 				break;
 			default:
 				throw InvalidArgumentException.forArgumentNameAndArgument("GUI command", lGUICommand);

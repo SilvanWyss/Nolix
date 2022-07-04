@@ -62,7 +62,7 @@ public final class ChainedNode implements OptionalHeadered {
 			chainedNode.setHeader(node.getHeader());
 		}
 		
-		chainedNode.addAttributesFromNodes(node.getRefChildNodes());
+		chainedNode.addChildNodesFromNodes(node.getRefChildNodes());
 				
 		return chainedNode;
 	}
@@ -125,10 +125,10 @@ public final class ChainedNode implements OptionalHeadered {
 	 * @throws ArgumentIsNullException if one of the given attributes is null.
 	 */
 	@SuppressWarnings("unchecked")
-	public static <BN extends BaseNode<?>> ChainedNode withAttributesFromNodes(final BN... attributes) {
+	public static <BN extends BaseNode<?>> ChainedNode withChildNodesFromNodes(final BN... attributes) {
 		
 		final var chainedNode = new ChainedNode();
-		chainedNode.addAttributes(attributes);
+		chainedNode.addChildNode(attributes);
 		
 		return chainedNode;
 	}
@@ -142,10 +142,10 @@ public final class ChainedNode implements OptionalHeadered {
 	 * @return a new {@link ChainedNode} with the given attributes.
 	 * @throws ArgumentIsNullException if one of the given attributes is null.
 	 */
-	public static <BN extends BaseNode<?>> ChainedNode withAttributesFromNodes(final Iterable<BN> attributes) {
+	public static <BN extends BaseNode<?>> ChainedNode withChildNodesFromNodes(final Iterable<BN> attributes) {
 		
 		final var chainedNode = new ChainedNode();
-		chainedNode.addAttributesFromNodes(attributes);
+		chainedNode.addChildNodesFromNodes(attributes);
 		
 		return chainedNode;
 	}
@@ -174,11 +174,11 @@ public final class ChainedNode implements OptionalHeadered {
 	 * @throws InvalidArgumentException if the given header is blank.
 	 * @throws ArgumentIsNullException if the given attribute is null.
 	 */
-	public static ChainedNode withHeaderAndAttribute(final String header, final ChainedNode attribute) {
+	public static ChainedNode withHeaderAndChildNode(final String header, final ChainedNode attribute) {
 		
 		final var chainedNode = new ChainedNode();
 		chainedNode.setHeader(header);
-		chainedNode.addAttribute(attribute);
+		chainedNode.addChildNode(attribute);
 		
 		return chainedNode;
 	}
@@ -192,11 +192,11 @@ public final class ChainedNode implements OptionalHeadered {
 	 * @throws InvalidArgumentException if the given header is blank.
 	 * @throws ArgumentIsNullException if one of the given attribute is null.
 	 */
-	public static ChainedNode withHeaderAndAttributes(final String header, final Iterable<ChainedNode> attributes) {
+	public static ChainedNode withHeaderAndChildNodes(final String header, final Iterable<ChainedNode> attributes) {
 		
 		final var chainedNode = new ChainedNode();
 		chainedNode.setHeader(header);
-		chainedNode.addAttributes(attributes);
+		chainedNode.addChildNodes(attributes);
 		
 		return chainedNode;
 	}
@@ -214,14 +214,14 @@ public final class ChainedNode implements OptionalHeadered {
 	 * @throws ArgumentIsNullException if one of the given attributes is null.
 	 */
 	@SuppressWarnings("unchecked")
-	public static <BN extends BaseNode<?>> ChainedNode withHeaderAndAttributesFromNodes(
+	public static <BN extends BaseNode<?>> ChainedNode withHeaderAndChildNodesFromNodes(
 		final String header,
 		final BN... attributes
 	) {
 		
 		final var chainedNode = new ChainedNode();
 		chainedNode.setHeader(header);
-		chainedNode.addAttributesFromNodes(attributes);
+		chainedNode.addChildNodesFromNodes(attributes);
 		
 		return chainedNode;
 	}
@@ -238,14 +238,14 @@ public final class ChainedNode implements OptionalHeadered {
 	 * @throws InvalidArgumentException if the given header is blank.
 	 * @throws ArgumentIsNullException if one of the given attributes is null.
 	 */
-	public static <BN extends BaseNode<?>> ChainedNode withHeaderAndAttributesFromNodes(
+	public static <BN extends BaseNode<?>> ChainedNode withHeaderAndChildNodesFromNodes(
 		final String header,
 		final Iterable<BN> attributes
 	) {
 		
 		final var chainedNode = new ChainedNode();
 		chainedNode.setHeader(header);
-		chainedNode.addAttributesFromNodes(attributes);
+		chainedNode.addChildNodesFromNodes(attributes);
 		
 		return chainedNode;
 	}
@@ -296,7 +296,7 @@ public final class ChainedNode implements OptionalHeadered {
 	 */
 	public <BN extends BaseNode<?>> ChainedNode(final String header, final Iterable<BN> attributes) {
 		setHeader(header);	
-		addAttributesFromNodes(attributes);
+		addChildNodesFromNodes(attributes);
 	}
 	
 	//constructor
@@ -317,7 +317,7 @@ public final class ChainedNode implements OptionalHeadered {
 		final ChainedNode nextNode
 	) {
 		setHeader(header);	
-		addAttributesFromNodes(attributes);
+		addChildNodesFromNodes(attributes);
 		setNextNode(nextNode);
 	}
 	
@@ -342,7 +342,7 @@ public final class ChainedNode implements OptionalHeadered {
 	/**
 	 * @return the number of attributes of the current {@link ChainedNode}.
 	 */
-	public int getAttributeCount() {
+	public int getChildNodeCount() {
 		return childNodes.getElementCount();
 	}
 	
@@ -354,7 +354,7 @@ public final class ChainedNode implements OptionalHeadered {
 	 * @throws ArgumentDoesNotHaveAttributeException
 	 * if the current {@link ChainedNode} does not contain an attribute at the given index.
 	 */
-	public ChainedNode getAttributeAt(final int index) {
+	public ChainedNode getChildNodeAt1BasedIndex(final int index) {
 		return childNodes.getRefAt(index);
 	}
 
@@ -362,7 +362,7 @@ public final class ChainedNode implements OptionalHeadered {
 	/**
 	 * @return the attributes of the current {@link ChainedNode}.
 	 */
-	public IContainer<ChainedNode> getAttributes() {
+	public IContainer<ChainedNode> getChildNodes() {
 		return childNodes;
 	}
 	
@@ -372,7 +372,7 @@ public final class ChainedNode implements OptionalHeadered {
 	 * @throws UnrepresentingArgumentException
 	 * if one of the attributes of the current {@link ChainedNode} does not represent a {@link Node}.
 	 */
-	public IContainer<Node> getAttributesAsNodes() {
+	public IContainer<Node> getChildNodesAsNodes() {
 		return childNodes.to(ChainedNode::toNode);
 	}
 
@@ -380,7 +380,7 @@ public final class ChainedNode implements OptionalHeadered {
 	/**
 	 * @return a {@link String} representation of the attributes of the current {@link ChainedNode}.
 	 */
-	public String getAttributesAsString() {
+	public String getChildNodesAsString() {
 		return childNodes.toString();
 	}
 	
@@ -388,7 +388,7 @@ public final class ChainedNode implements OptionalHeadered {
 	/**
 	 * @return the {@link String} representations of the attributes of the current {@link ChainedNode}.
 	 */
-	public IContainer<String> getAttributesAsStrings() {
+	public IContainer<String> getChildNodesAsStrings() {
 		return childNodes.toStrings();
 	}
 	
@@ -414,8 +414,8 @@ public final class ChainedNode implements OptionalHeadered {
 	 * @throws ArgumentDoesNotHaveAttributeException if
 	 * the current {@link ChainedNode} does not contain an attribute with the given header.
 	 */
-	public ChainedNode getFirstAttributeWithHeader(final String header) {
-		return getAttributes().getRefFirst(a -> a.hasHeader(header));
+	public ChainedNode getFirstChildNodeWithHeader(final String header) {
+		return getChildNodes().getRefFirst(a -> a.hasHeader(header));
 	}
 	
 	//method
@@ -486,7 +486,7 @@ public final class ChainedNode implements OptionalHeadered {
 	 * @throws EmptyArgumentException if the current {@link ChainedNode} does not contain an attribute.
 	 * @throws InvalidArgumentException if the current {@link ChainedNode} contains several attributes.
 	 */
-	public ChainedNode getOneAttribute() {
+	public ChainedNode getSingleChildNode() {
 		return childNodes.getRefOne();
 	}
 	
@@ -498,8 +498,8 @@ public final class ChainedNode implements OptionalHeadered {
 	 * @throws ArgumentDoesNotHaveAttributeException if
 	 * the one attribute of the current {@link ChainedNode} does not have a header.
 	 */
-	public String getOneAttributeHeader() {
-		return getOneAttribute().getHeader();
+	public String getSingleChildNodeHeader() {
+		return getSingleChildNode().getHeader();
 	}
 	
 	//method
@@ -510,8 +510,8 @@ public final class ChainedNode implements OptionalHeadered {
 	 * @throws UnrepresentingArgumentException if
 	 * the one attribute of the current {@link ChainedNode} does not represent a {@link Double}.
 	 */
-	public double getOneAttributeAsDouble() {
-		return getOneAttribute().toDouble();
+	public double getSingleChildNodeAsDouble() {
+		return getSingleChildNode().toDouble();
 	}
 	
 	//method
@@ -522,8 +522,8 @@ public final class ChainedNode implements OptionalHeadered {
 	 * @throws UnrepresentingArgumentException
 	 * if the one attribute of the current {@link ChainedNode} does not represent a {@link Integer}.
 	 */
-	public int getOneAttributeAsInt() {
-		return getOneAttribute().toInt();
+	public int getSingleChildNodeAsInt() {
+		return getSingleChildNode().toInt();
 	}
 	
 	//method
@@ -534,8 +534,8 @@ public final class ChainedNode implements OptionalHeadered {
 	 * @throws UnrepresentingArgumentException
 	 * if the one attribute of the current {@link ChainedNode} does not represent a {@link Node}.
 	 */
-	public Node getOneAttributeAsNode() {
-		return getOneAttribute().toNode();
+	public Node getSingleChildNodeAsNode() {
+		return getSingleChildNode().toNode();
 	}
 	
 	//method
@@ -544,8 +544,8 @@ public final class ChainedNode implements OptionalHeadered {
 	 * @throws EmptyArgumentException if the current {@link ChainedNode} does not contain an attribute.
 	 * @throws InvalidArgumentException if the current {@link ChainedNode} contains several attributes.
 	 */
-	public String getOneAttributeAsString() {
-		return getOneAttribute().toString();
+	public String getSingleChildNodeAsString() {
+		return getSingleChildNode().toString();
 	}
 	
 	//method
@@ -647,11 +647,11 @@ public final class ChainedNode implements OptionalHeadered {
 		
 		//Handles the case that the current ChainedNode does not have a header.
 		if (!hasHeader()) {
-			return Node.withChildNodes(getAttributes().to(ChainedNode::toNode));
+			return Node.withChildNodes(getChildNodes().to(ChainedNode::toNode));
 		}
 		
 		//Handles the case that the current ChainedNode has a header.
-		return Node.withHeaderAndChildNodes(getHeader(), getAttributes().to(ChainedNode::toNode));
+		return Node.withHeaderAndChildNodes(getHeader(), getChildNodes().to(ChainedNode::toNode));
 	}
 	
 	//method
@@ -672,7 +672,7 @@ public final class ChainedNode implements OptionalHeadered {
 	 * @param attribute
 	 * @throws ArgumentIsNullException if the given attribute is null.
 	 */
-	private void addAttribute(final ChainedNode attribute) {
+	private void addChildNode(final ChainedNode attribute) {
 		childNodes.addAtEnd(attribute);
 	}
 	
@@ -684,7 +684,7 @@ public final class ChainedNode implements OptionalHeadered {
 	 * @param <BN> is the type of the given attributes.
 	 */
 	@SuppressWarnings("unchecked")
-	private <BN extends BaseNode<?>> void addAttributes(final BN... attributes) {
+	private <BN extends BaseNode<?>> void addChildNode(final BN... attributes) {
 		for (final var a : attributes) {
 			this.childNodes.addAtEnd(fromNode(a));
 		}
@@ -697,8 +697,8 @@ public final class ChainedNode implements OptionalHeadered {
 	 * @param attributes
 	 * @throws ArgumentIsNullException if one of the given attribute is null.
 	 */
-	private void addAttributes(final Iterable<ChainedNode> attributes) {
-		attributes.forEach(this::addAttribute);
+	private void addChildNodes(final Iterable<ChainedNode> attributes) {
+		attributes.forEach(this::addChildNode);
 	}
 	
 	//method
@@ -709,7 +709,7 @@ public final class ChainedNode implements OptionalHeadered {
 	 * @param <BN> is the type of the given attributes.
 	 */
 	@SuppressWarnings("unchecked")
-	private <BN extends BaseNode<?>> void addAttributesFromNodes(final BN... attributes) {
+	private <BN extends BaseNode<?>> void addChildNodesFromNodes(final BN... attributes) {
 		for (final var a : attributes) {
 			this.childNodes.addAtEnd(fromNode(a));
 		}
@@ -722,7 +722,7 @@ public final class ChainedNode implements OptionalHeadered {
 	 * @param attributes
 	 * @param <BN> is the type of the given attributes.
 	 */
-	private <BN extends BaseNode<?>> void addAttributesFromNodes(final Iterable<BN> attributes) {
+	private <BN extends BaseNode<?>> void addChildNodesFromNodes(final Iterable<BN> attributes) {
 		for (final var a : attributes) {
 			this.childNodes.addAtEnd(fromNode(a));
 		}
@@ -776,7 +776,7 @@ public final class ChainedNode implements OptionalHeadered {
 	private boolean equals(final ChainedNode chainedNode) {
 		return
 		canEqualBecauseOfHeader(chainedNode)
-		&& canEqualBecauseOfAttributes(chainedNode);
+		&& canEqualBecauseOfChildNodes(chainedNode);
 	}
 	
 	//method
@@ -784,16 +784,16 @@ public final class ChainedNode implements OptionalHeadered {
 	 * @param chainedNode
 	 * @return true if the current {@link ChainedNode} can equal the given chainedNode because of the attributes.
 	 */
-	private boolean canEqualBecauseOfAttributes(final ChainedNode chainedNode) {
+	private boolean canEqualBecauseOfChildNodes(final ChainedNode chainedNode) {
 		
-		if (getAttributeCount() != chainedNode.getAttributeCount()) {
+		if (getChildNodeCount() != chainedNode.getChildNodeCount()) {
 			return false;
 		}
 		
 		var i = 1;
-		for (final var a : getAttributes()) {
+		for (final var a : getChildNodes()) {
 			
-			if (!a.equals(chainedNode.getAttributeAt(i))) {
+			if (!a.equals(chainedNode.getChildNodeAt1BasedIndex(i))) {
 				return false;
 			}
 			

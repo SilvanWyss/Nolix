@@ -297,13 +297,13 @@ public class NetEndPoint extends EndPoint {
 		switch (message.getHeader()) {
 			case Protocol.COMMANDS_HEADER:
 				
-				for (final var a : message.getAttributes()) {
+				for (final var a : message.getChildNodes()) {
 					receiverController.run(a);
 				}
 				
 				return Protocol.DONE_HEADER;
 			case Protocol.DATA_REQUEST_HEADER:
-				return (Protocol.DATA_HEADER + '(' + receiverController.getData(message.getOneAttribute()) + ')');
+				return (Protocol.DATA_HEADER + '(' + receiverController.getData(message.getSingleChildNode()) + ')');
 			default:
 				throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.MESSAGE, message);
 		}

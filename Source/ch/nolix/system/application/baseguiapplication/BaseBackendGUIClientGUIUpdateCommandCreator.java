@@ -38,7 +38,7 @@ final class BaseBackendGUIClientGUIUpdateCommandCreator {
 		return
 		ChainedNode.withHeaderAndNextNode(
 			ObjectProtocol.GUI,
-			ChainedNode.withHeaderAndAttributesFromNodes(CommandProtocol.SET_CURSOR_ICON, cursorIcon.getSpecification())
+			ChainedNode.withHeaderAndChildNodesFromNodes(CommandProtocol.SET_CURSOR_ICON, cursorIcon.getSpecification())
 		);
 	}
 	
@@ -46,7 +46,7 @@ final class BaseBackendGUIClientGUIUpdateCommandCreator {
 		return
 		ChainedNode.withHeaderAndNextNode(
 			ObjectProtocol.GUI,
-			ChainedNode.withHeaderAndAttributesFromNodes(CommandProtocol.SET_ICON, icon.getSpecification())
+			ChainedNode.withHeaderAndChildNodesFromNodes(CommandProtocol.SET_ICON, icon.getSpecification())
 		);
 	}
 	
@@ -55,7 +55,7 @@ final class BaseBackendGUIClientGUIUpdateCommandCreator {
 		return
 		ChainedNode.withHeaderAndNextNode(
 			ObjectProtocol.GUI,
-			ChainedNode.withHeaderAndAttributes(
+			ChainedNode.withHeaderAndChildNodes(
 				CommandProtocol.SET_PAINT_COMMANDS,
 				paintCommands
 			)
@@ -67,7 +67,7 @@ final class BaseBackendGUIClientGUIUpdateCommandCreator {
 		return
 		ChainedNode.withHeaderAndNextNode(
 			ObjectProtocol.GUI,
-			ChainedNode.withHeaderAndAttributesFromNodes(CommandProtocol.SET_TITLE, Node.withHeader(title))
+			ChainedNode.withHeaderAndChildNodesFromNodes(CommandProtocol.SET_TITLE, Node.withHeader(title))
 		);
 	}
 	
@@ -118,7 +118,7 @@ final class BaseBackendGUIClientGUIUpdateCommandCreator {
 		return
 		ChainedNode.withHeaderAndNextNode(
 			ObjectProtocol.GUI,
-			ChainedNode.withHeaderAndAttributesFromNodes(
+			ChainedNode.withHeaderAndChildNodesFromNodes(
 				CommandProtocol.REGISTER_IMAGE,
 				Node.withHeader(imageId),
 				image.getCompressedSpecification()

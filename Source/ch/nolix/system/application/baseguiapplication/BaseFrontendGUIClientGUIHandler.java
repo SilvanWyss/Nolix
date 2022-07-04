@@ -41,26 +41,26 @@ final class BaseFrontendGUIClientGUIHandler {
 		switch (pGUICommand.getHeader()) {
 			case CommandProtocol.REGISTER_IMAGE:
 				
-				final var id = pGUICommand.getAttributeAt(1).getHeader();
-				final var image = MutableImage.fromSpecification(pGUICommand.getAttributeAt(2).toNode());
+				final var id = pGUICommand.getChildNodeAt1BasedIndex(1).getHeader();
+				final var image = MutableImage.fromSpecification(pGUICommand.getChildNodeAt1BasedIndex(2).toNode());
 				
 				mGUI.getRefImageCache().registerAtId(id, image);
 				
 				break;
 			case CommandProtocol.SET_TITLE:
-				mGUI.setTitle(pGUICommand.getOneAttributeAsString());
+				mGUI.setTitle(pGUICommand.getSingleChildNodeAsString());
 				mGUI.refresh();
 				break;
 			case CommandProtocol.SET_ICON:
-				mGUI.setIcon(Image.fromSpecification(pGUICommand.getOneAttributeAsNode()));
+				mGUI.setIcon(Image.fromSpecification(pGUICommand.getSingleChildNodeAsNode()));
 				mGUI.refresh();
 				break;
 			case CommandProtocol.SET_CURSOR_ICON:
-				mGUI.setCursorIcon(CursorIcon.fromSpecification(pGUICommand.getOneAttributeAsNode()));
+				mGUI.setCursorIcon(CursorIcon.fromSpecification(pGUICommand.getSingleChildNodeAsNode()));
 				mGUI.refresh();
 				break;
 			case CommandProtocol.SET_PAINT_COMMANDS:
-				setPaintCommands(pGUICommand.getAttributes());
+				setPaintCommands(pGUICommand.getChildNodes());
 				mGUI.refresh();
 				break;
 			default:

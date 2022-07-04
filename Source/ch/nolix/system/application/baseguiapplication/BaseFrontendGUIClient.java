@@ -77,13 +77,13 @@ extends FrontendClient<BFGUIC> {
 				runRedirectCommand(command);
 				break;
 			case CommandProtocol.SAVE_FILE:
-				saveFile(command.getOneAttributeAsString().getBytes(StandardCharsets.UTF_8));
+				saveFile(command.getSingleChildNodeAsString().getBytes(StandardCharsets.UTF_8));
 				break;
 			case CommandProtocol.SEND_OPTIONAL_FILE:
 				sendOptionalFile();
 				break;
 			case CommandProtocol.SHOW_ERROR_MESSAGE:
-				PopupWindowProvider.showErrorWindow(command.getOneAttributeAsString());
+				PopupWindowProvider.showErrorWindow(command.getSingleChildNodeAsString());
 				break;
 			default:
 				throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.COMMAND, command);
@@ -118,7 +118,7 @@ extends FrontendClient<BFGUIC> {
 	
 	//method
 	private String getURLFromOpenNewTabCommand(final ChainedNode openNewTabCommand) {
-		return openNewTabCommand.getFirstAttributeWithHeader(ObjectProtocol.URL).getOneAttributeHeader();
+		return openNewTabCommand.getFirstChildNodeWithHeader(ObjectProtocol.URL).getSingleChildNodeHeader();
 	}
 	
 	//method
@@ -130,7 +130,7 @@ extends FrontendClient<BFGUIC> {
 	 */
 	private void noteInputOnCounterpartWhenIsOpenAndConnected(final IInput<?> input) {
 		runOnCounterpart(
-			ChainedNode.withHeaderAndAttributesFromNodes(CommandProtocol.NOTE_INPUT, input.getSpecification())
+			ChainedNode.withHeaderAndChildNodesFromNodes(CommandProtocol.NOTE_INPUT, input.getSpecification())
 		);
 	}
 
@@ -172,7 +172,7 @@ extends FrontendClient<BFGUIC> {
 	
 	//method
 	private void runRedirectCommand(final ChainedNode redirectCommand) {
-		redirectTo(redirectCommand.getOneAttributeHeader());		
+		redirectTo(redirectCommand.getSingleChildNodeHeader());		
 	}
 	
 	//method
@@ -200,7 +200,7 @@ extends FrontendClient<BFGUIC> {
 		final var fileBytes = fileContainer.getRefElement();
 		final var fileString = Base64.getEncoder().encodeToString(fileBytes);
 		runOnCounterpart(
-			ChainedNode.withHeaderAndAttribute(
+			ChainedNode.withHeaderAndChildNode(
 				CommandProtocol.RECEIVE_OPTIONAL_FILE,
 				ChainedNode.withHeader(fileString)
 			)

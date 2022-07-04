@@ -51,7 +51,7 @@ public final class ChainedNodeTest extends Test {
 		expectNot(testUnit.containsAttributes());
 		
 		//execution & verification
-		expectRunning(testUnit::getOneAttributeAsInt)
+		expectRunning(testUnit::getSingleChildNodeAsInt)
 		.throwsException()
 		.ofType(EmptyArgumentException.class);
 	}
@@ -64,10 +64,10 @@ public final class ChainedNodeTest extends Test {
 		final var testUnit = ChainedNode.fromString("a(b)");
 		
 		//setup verification
-		expect(testUnit.getAttributeCount()).isEqualTo(1);
+		expect(testUnit.getChildNodeCount()).isEqualTo(1);
 		
 		//execution & verification
-		expectRunning(testUnit::getOneAttributeAsInt)
+		expectRunning(testUnit::getSingleChildNodeAsInt)
 		.throwsException()
 		.ofType(UnrepresentingArgumentException.class);
 	}
@@ -80,10 +80,10 @@ public final class ChainedNodeTest extends Test {
 		final var testUnit = ChainedNode.fromString("a(10)");
 		
 		//setup verification
-		expect(testUnit.getAttributeCount()).isEqualTo(1);
+		expect(testUnit.getChildNodeCount()).isEqualTo(1);
 		
 		//execution
-		final var result = testUnit.getOneAttributeAsInt();
+		final var result = testUnit.getSingleChildNodeAsInt();
 		
 		//verification
 		expect(result).isEqualTo(10);
@@ -97,10 +97,10 @@ public final class ChainedNodeTest extends Test {
 		final var testUnit = ChainedNode.fromString("a(10, 20)");
 		
 		//setup verification
-		expect(testUnit.getAttributeCount()).isEqualTo(2);
+		expect(testUnit.getChildNodeCount()).isEqualTo(2);
 		
 		//execution & verification
-		expectRunning(testUnit::getOneAttributeAsInt)
+		expectRunning(testUnit::getSingleChildNodeAsInt)
 		.throwsException()
 		.ofType(InvalidArgumentException.class);
 	}

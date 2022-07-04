@@ -186,7 +186,7 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 		final ChainedNode createPainterCommand
 	) {
 		
-		final var attributes = createPainterCommand.getAttributesAsNodes();
+		final var attributes = createPainterCommand.getChildNodesAsNodes();
 		
 		final var xTranslation = attributes.getRefAt(1).toInt();
 		final var yTranslation = attributes.getRefAt(2).toInt();
@@ -251,7 +251,7 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 	//method
 	private IElementTaker<PaintRun> createPaintCommand(final ChainedNode paintCommand) {
 		
-		final var painterIndex = paintCommand.getOneAttributeAsInt();
+		final var painterIndex = paintCommand.getSingleChildNodeAsInt();
 		
 		return createPaintCommand(painterIndex, paintCommand.getNextNode());
 	}
@@ -262,7 +262,7 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 		final ChainedNode paintFilledRectangleCommand
 	) {
 		
-		final var attributes = paintFilledRectangleCommand.getAttributesAsNodes();
+		final var attributes = paintFilledRectangleCommand.getChildNodesAsNodes();
 		
 		switch (attributes.getElementCount()) {
 			case 2:
@@ -297,7 +297,7 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 		final ChainedNode paintImageCommand
 	) {
 		
-		final var attributes = paintImageCommand.getAttributesAsNodes();
+		final var attributes = paintImageCommand.getChildNodesAsNodes();
 		final var imageId = attributes.getRefAt(1).toString();
 		
 		switch (attributes.getElementCount()) {
@@ -320,7 +320,7 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 		final ChainedNode paintTextCommand
 	) {
 		
-		final var attributes = paintTextCommand.getAttributesAsNodes();
+		final var attributes = paintTextCommand.getChildNodesAsNodes();
 		final var text = attributes.getRefAt(1).getHeaderOrEmptyString();
 		
 		switch (attributes.getElementCount()) {
@@ -345,7 +345,7 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 	//method
 	private IElementTaker<PaintRun> createSetColorCommand(final int painterIndex, final ChainedNode setColorCommand) {
 		
-		final var color = Color.fromSpecification(setColorCommand.getOneAttributeAsNode());
+		final var color = Color.fromSpecification(setColorCommand.getSingleChildNodeAsNode());
 		
 		return pr -> pr.getRefPainterByIndex(painterIndex).setColor(color);
 	}
@@ -356,7 +356,7 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 		final ChainedNode setColorGradientCommand
 	) {
 		
-		final var colorGradient = ColorGradient.fromSpecification(setColorGradientCommand.getOneAttributeAsNode());
+		final var colorGradient = ColorGradient.fromSpecification(setColorGradientCommand.getSingleChildNodeAsNode());
 		
 		return pr -> pr.getRefPainterByIndex(painterIndex).setColorGradient(colorGradient);
 	}
@@ -367,7 +367,7 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 		final ChainedNode textualSetOpacityPercentageCommand
 	) {
 		
-		final var opacityPercentage = textualSetOpacityPercentageCommand.getOneAttributeAsDouble();
+		final var opacityPercentage = textualSetOpacityPercentageCommand.getSingleChildNodeAsDouble();
 		
 		return pr -> pr.getRefPainterByIndex(painterIndex).setOpacity(opacityPercentage);
 	}
@@ -375,7 +375,7 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 	//method
 	private IElementTaker<PaintRun> createTranslateCommand(final int painterIndex, final ChainedNode translateCommand) {
 		
-		final var attributes = translateCommand.getAttributesAsNodes();
+		final var attributes = translateCommand.getChildNodesAsNodes();
 		final var xTranslation = attributes.getRefAt(1).toInt();
 		final var yTranslation = attributes.getRefAt(2).toInt();
 		

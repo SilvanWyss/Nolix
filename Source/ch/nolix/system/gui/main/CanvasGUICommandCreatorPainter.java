@@ -296,7 +296,7 @@ public final class CanvasGUICommandCreatorPainter extends BasePainter implements
 		GlobalValidator.assertThat(opacity).thatIsNamed(LowerCaseCatalogue.OPACITY).isBetween(0.0, 1.0);
 		
 		appendPaintCommand(
-			ChainedNode.withHeaderAndAttribute(
+			ChainedNode.withHeaderAndChildNode(
 				CanvasGUICommandProtocol.SET_OPACITY_PERCENTAGE,
 				ChainedNode.withHeader(String.valueOf(opacity))
 			)
