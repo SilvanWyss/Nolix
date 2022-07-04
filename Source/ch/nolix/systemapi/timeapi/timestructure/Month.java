@@ -1,14 +1,10 @@
 //package declaration
 package ch.nolix.systemapi.timeapi.timestructure;
 
-import ch.nolix.core.document.node.Node;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.systemapi.elementapi.mainuniversalapi.Specified;
 
 //enum
-public enum Month implements Specified {
+public enum Month {
 	JANUARY,
 	FEBRUARY,
 	MARCH,
@@ -50,18 +46,12 @@ public enum Month implements Specified {
 			case DECEMBER:
 				return DECEMBER;
 			default:
-				throw InvalidArgumentException.forArgument(month);
+				throw new IllegalArgumentException("The given month '" + month + "' is not valid.");
 		}
 	}
 	
 	//static method
 	public Month fromSpecification(final INode<?> specification) {
 		return Month.valueOf(specification.getSingleChildNodeHeader());
-	}
-	
-	//method
-	@Override
-	public void fillUpAttributesInto(final IMutableList<INode<?>> list) {
-		list.addAtEnd(Node.withHeader(name()));
 	}
 }
