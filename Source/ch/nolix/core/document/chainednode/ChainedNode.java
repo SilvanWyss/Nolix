@@ -19,10 +19,10 @@ import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 
 //class
 /**
- * A {@link ChainedNode} can have:
- * -1 header
- * -several attributes which are {@link ChainedNode}s
- * -a next node which is a {@link ChainedNode}
+ * A {@link ChainedNode} has the following attributes.
+ * -0 or 1 header
+ * -an arbitrary number of child {@link ChainedNode}s
+ * -0 or 1 next {@link ChainedNode}
  * 
  * A {@link ChainedNode} is not mutable.
  * 
@@ -31,11 +31,19 @@ import ch.nolix.coreapi.containerapi.mainapi.IContainer;
  */
 public final class ChainedNode implements OptionalHeadered {
 	
-	//constants
+	//constant
 	public static final String DOT_CODE = "$D";
+	
+	//constant
 	public static final String COMMA_CODE = "$M";
+	
+	//constant
 	public static final String DOLLAR_SYMBOL_CODE = "$X";
+	
+	//constant
 	public static final String OPEN_BRACKET_CODE = "$O";
+	
+	//constant
 	public static final String CLOSED_BRACKET_CODE = "$C";
 	
 	//constant
@@ -265,7 +273,7 @@ public final class ChainedNode implements OptionalHeadered {
 	private ChainedNode nextNode;
 	
 	//multi-attribute
-	private final LinkedList<ChainedNode> attributes = new LinkedList<>();
+	private final LinkedList<ChainedNode> childNodes = new LinkedList<>();
 	
 	//constructor
 	/**
@@ -318,7 +326,7 @@ public final class ChainedNode implements OptionalHeadered {
 	 * @return true if the current {@link ChainedNode} contains attributes.
 	 */
 	public boolean containsAttributes() {
-		return attributes.containsAny();
+		return childNodes.containsAny();
 	}
 	
 	//method
@@ -335,7 +343,7 @@ public final class ChainedNode implements OptionalHeadered {
 	 * @return the number of attributes of the current {@link ChainedNode}.
 	 */
 	public int getAttributeCount() {
-		return attributes.getElementCount();
+		return childNodes.getElementCount();
 	}
 	
 	//method
@@ -347,7 +355,7 @@ public final class ChainedNode implements OptionalHeadered {
 	 * if the current {@link ChainedNode} does not contain an attribute at the given index.
 	 */
 	public ChainedNode getAttributeAt(final int index) {
-		return attributes.getRefAt(index);
+		return childNodes.getRefAt(index);
 	}
 
 	//method
@@ -355,7 +363,7 @@ public final class ChainedNode implements OptionalHeadered {
 	 * @return the attributes of the current {@link ChainedNode}.
 	 */
 	public IContainer<ChainedNode> getAttributes() {
-		return attributes;
+		return childNodes;
 	}
 	
 	//method
@@ -365,7 +373,7 @@ public final class ChainedNode implements OptionalHeadered {
 	 * if one of the attributes of the current {@link ChainedNode} does not represent a {@link Node}.
 	 */
 	public IContainer<Node> getAttributesAsNodes() {
-		return attributes.to(ChainedNode::toNode);
+		return childNodes.to(ChainedNode::toNode);
 	}
 
 	//method
@@ -373,7 +381,7 @@ public final class ChainedNode implements OptionalHeadered {
 	 * @return a {@link String} representation of the attributes of the current {@link ChainedNode}.
 	 */
 	public String getAttributesAsString() {
-		return attributes.toString();
+		return childNodes.toString();
 	}
 	
 	//method
@@ -381,7 +389,7 @@ public final class ChainedNode implements OptionalHeadered {
 	 * @return the {@link String} representations of the attributes of the current {@link ChainedNode}.
 	 */
 	public IContainer<String> getAttributesAsStrings() {
-		return attributes.toStrings();
+		return childNodes.toStrings();
 	}
 	
 	//method
@@ -479,7 +487,7 @@ public final class ChainedNode implements OptionalHeadered {
 	 * @throws InvalidArgumentException if the current {@link ChainedNode} contains several attributes.
 	 */
 	public ChainedNode getOneAttribute() {
-		return attributes.getRefOne();
+		return childNodes.getRefOne();
 	}
 	
 	//method
@@ -599,7 +607,7 @@ public final class ChainedNode implements OptionalHeadered {
 	public double toDouble() {
 		
 		//Asserts that the current ChainedNode can represent a Double.
-		if (header == null || attributes.containsAny()) {
+		if (header == null || childNodes.containsAny()) {
 			throw UnrepresentingArgumentException.forArgumentAndType(this, Integer.class);
 		}
 		
@@ -614,7 +622,7 @@ public final class ChainedNode implements OptionalHeadered {
 	public int toInt() {
 		
 		//Asserts that the current ChainedNode can represent an Integer.
-		if (header == null || attributes.containsAny()) {
+		if (header == null || childNodes.containsAny()) {
 			throw UnrepresentingArgumentException.forArgumentAndType(this, Integer.class);
 		}
 		
@@ -665,7 +673,7 @@ public final class ChainedNode implements OptionalHeadered {
 	 * @throws ArgumentIsNullException if the given attribute is null.
 	 */
 	private void addAttribute(final ChainedNode attribute) {
-		attributes.addAtEnd(attribute);
+		childNodes.addAtEnd(attribute);
 	}
 	
 	//method
@@ -678,7 +686,7 @@ public final class ChainedNode implements OptionalHeadered {
 	@SuppressWarnings("unchecked")
 	private <BN extends BaseNode<?>> void addAttributes(final BN... attributes) {
 		for (final var a : attributes) {
-			this.attributes.addAtEnd(fromNode(a));
+			this.childNodes.addAtEnd(fromNode(a));
 		}
 	}
 	
@@ -703,7 +711,7 @@ public final class ChainedNode implements OptionalHeadered {
 	@SuppressWarnings("unchecked")
 	private <BN extends BaseNode<?>> void addAttributesFromNodes(final BN... attributes) {
 		for (final var a : attributes) {
-			this.attributes.addAtEnd(fromNode(a));
+			this.childNodes.addAtEnd(fromNode(a));
 		}
 	}
 	
@@ -716,7 +724,7 @@ public final class ChainedNode implements OptionalHeadered {
 	 */
 	private <BN extends BaseNode<?>> void addAttributesFromNodes(final Iterable<BN> attributes) {
 		for (final var a : attributes) {
-			this.attributes.addAtEnd(fromNode(a));
+			this.childNodes.addAtEnd(fromNode(a));
 		}
 	}
 	
@@ -734,12 +742,12 @@ public final class ChainedNode implements OptionalHeadered {
 		}
 		
 		//Handles the case that the current ChainedNode contains attributes.
-		if (attributes.containsAny()) {
+		if (childNodes.containsAny()) {
 			
 			stringBuilder.append("(");
 			
 			boolean atBegin = true;
-			for (final var a : attributes) {
+			for (final var a : childNodes) {
 				
 				if (atBegin) {
 					atBegin = false;
@@ -863,7 +871,7 @@ public final class ChainedNode implements OptionalHeadered {
 	 */
 	private void reset() {
 		header = null;
-		attributes.clear();
+		childNodes.clear();
 		nextNode = null;
 	}
 	
@@ -913,7 +921,7 @@ public final class ChainedNode implements OptionalHeadered {
 				
 				final var node = new ChainedNode();
 				nextIndex = node.setAndGetNextIndex(string, nextIndex);
-				this.attributes.addAtEnd(node);
+				this.childNodes.addAtEnd(node);
 				
 				while (nextIndex < string.length()) {
 					
@@ -922,7 +930,7 @@ public final class ChainedNode implements OptionalHeadered {
 					if (character == ',') {
 						final var node2 = new ChainedNode();
 						nextIndex = node2.setAndGetNextIndex(string, nextIndex + 1);
-						this.attributes.addAtEnd(node2);
+						this.childNodes.addAtEnd(node2);
 					} else if (character == ')') {
 						nextIndex++;
 						break;
