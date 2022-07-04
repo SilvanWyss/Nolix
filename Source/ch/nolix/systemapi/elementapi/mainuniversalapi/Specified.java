@@ -7,6 +7,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.document.xml.XMLNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 
@@ -24,7 +25,7 @@ public interface Specified {
 	 * 
 	 * @param list
 	 */
-	void fillUpAttributesInto(LinkedList<INode<?>> list);
+	void fillUpAttributesInto(IMutableList<INode<?>> list);
 	
 	//method
 	/**

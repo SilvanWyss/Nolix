@@ -9,6 +9,7 @@ import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.elementapi.mainuniversalapi.IMutableElement;
 
@@ -69,7 +70,7 @@ public abstract class MutableElement<ME extends MutableElement<ME>> implements I
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void fillUpAttributesInto(final LinkedList<INode<?>> list) {
+	public final void fillUpAttributesInto(final IMutableList<INode<?>> list) {
 		
 		//Iterates the properties of the current MutableElement.
 		for (final var p : getRefProperties()) {

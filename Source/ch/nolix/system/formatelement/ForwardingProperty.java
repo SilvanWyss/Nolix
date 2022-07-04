@@ -3,6 +3,7 @@ package ch.nolix.system.formatelement;
 
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 
 //class
@@ -37,7 +38,7 @@ public final class ForwardingProperty<S extends Enum<S>, V> extends Property<S>{
 	
 	//method
 	@Override
-	protected void fillUpValuesSpecificationInto(LinkedList<INode<?>> list) {
+	protected void fillUpValuesSpecificationInto(IMutableList<INode<?>> list) {
 		//Does nothing.
 	}
 	

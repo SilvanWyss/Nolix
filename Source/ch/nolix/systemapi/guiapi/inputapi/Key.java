@@ -6,10 +6,10 @@ import java.awt.event.KeyEvent;
 
 //own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
-import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
+import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.elementapi.mainuniversalapi.Specified;
 
@@ -378,7 +378,7 @@ public enum Key implements Specified {
 	
 	//method
 	@Override
-	public void fillUpAttributesInto(final LinkedList<INode<?>> list) {
+	public void fillUpAttributesInto(final IMutableList<INode<?>> list) {
 		list.addAtEnd(Node.withHeader(GlobalStringHelper.toPascalCase(toString())));
 	}
 	

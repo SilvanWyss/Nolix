@@ -4,9 +4,9 @@ package ch.nolix.systemapi.timeapi.timestructure;
 //Java imports
 import java.time.DayOfWeek;
 
-import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.elementapi.mainuniversalapi.Specified;
 
@@ -49,7 +49,7 @@ public enum Weekday implements Specified {
 	
 	//method
 	@Override
-	public void fillUpAttributesInto(final LinkedList<INode<?>> list) {
+	public void fillUpAttributesInto(final IMutableList<INode<?>> list) {
 		list.addAtEnd(Node.withHeader(name()));
 	}
 }

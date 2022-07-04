@@ -1,11 +1,11 @@
 //package declaration
 package ch.nolix.system.element;
 
-import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionuniversalapi.IElementGetter;
 import ch.nolix.coreapi.functionuniversalapi.IElementTaker;
@@ -62,7 +62,7 @@ public final class MultiValueExtractor<V> extends Property {
 	
 	//method
 	@Override
-	protected void fillUpAttributesInto(final LinkedList<INode<?>> list) {
+	protected void fillUpAttributesInto(final IMutableList<INode<?>> list) {
 		for (final var v : getter.getOutput()) {
 			list.addAtEnd(specificationCreator.getOutput(v));
 		}

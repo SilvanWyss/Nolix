@@ -3,12 +3,12 @@ package ch.nolix.system.formatelement;
 
 //own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
-import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.container.main.SingleContainer;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionuniversalapi.I2ElementTaker;
 import ch.nolix.coreapi.functionuniversalapi.IElementTakerElementGetter;
@@ -151,7 +151,7 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
 	
 	//method
 	@Override
-	protected final void fillUpValuesSpecificationInto(final LinkedList<INode<?>> list) {
+	protected final void fillUpValuesSpecificationInto(final IMutableList<INode<?>> list) {
 		for (final var s : parent.getAvailableStates()) {
 			
 			final var stateProperty = stateProperties[s.getIndex()];

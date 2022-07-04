@@ -1,10 +1,10 @@
 //package declaration
 package ch.nolix.system.gui.input;
 
-import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.guiapi.inputapi.IKeyInput;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
@@ -196,7 +196,7 @@ public final class KeyInput implements IKeyInput<KeyInput> {
 	
 	//method
 	@Override
-	public void fillUpAttributesInto(final LinkedList<INode<?>> list) {
+	public void fillUpAttributesInto(final IMutableList<INode<?>> list) {
 		list.addAtEnd(key.getSpecification(), inputType.getSpecificationWithHeader(INPUT_TYPE_HEADER));
 	}
 	

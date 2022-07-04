@@ -4,11 +4,11 @@ package ch.nolix.system.gui.color;
 //Java imports
 import java.awt.GradientPaint;
 
-import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.guiapi.colorapi.IColorGradient;
 import ch.nolix.systemapi.guiapi.structureproperty.DirectionInRectangle;
@@ -201,7 +201,7 @@ public class ColorGradient implements IColorGradient {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void fillUpAttributesInto(final LinkedList<INode<?>> list) {
+	public void fillUpAttributesInto(final IMutableList<INode<?>> list) {
 		list.addAtEnd(
 			Node.withHeader(getDirection().toString()),
 			Node.withHeader(getColor1().getHexadecimalValue()),

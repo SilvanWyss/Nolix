@@ -1,13 +1,13 @@
 //package declaration
 package ch.nolix.system.element;
 
-import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionuniversalapi.IElementTaker;
 import ch.nolix.coreapi.functionuniversalapi.IElementTakerElementGetter;
@@ -129,7 +129,7 @@ abstract class SingleValue<V> extends BaseValue<V> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void fillUpAttributesInto(final LinkedList<INode<?>> list) {
+	protected final void fillUpAttributesInto(final IMutableList<INode<?>> list) {
 		
 		//Handles the case that the current SingleValue has a value.
 		if (hasValue()) {

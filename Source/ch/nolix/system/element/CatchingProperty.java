@@ -3,9 +3,9 @@ package ch.nolix.system.element;
 
 //own imports
 import ch.nolix.core.attributeuniversalapi.mandatoryattributeuniversalapi.Named;
-import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionuniversalapi.IElementTaker;
 import ch.nolix.coreapi.functionuniversalapi.IElementTakerElementGetter;
@@ -58,7 +58,7 @@ public final class CatchingProperty<V> extends Property implements Named {
 	
 	//method
 	@Override
-	protected void fillUpAttributesInto(final LinkedList<INode<?>> list) {
+	protected void fillUpAttributesInto(final IMutableList<INode<?>> list) {
 		//Does nothing.
 	}
 }

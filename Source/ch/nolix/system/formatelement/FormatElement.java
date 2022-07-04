@@ -11,6 +11,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.elementapi.mainuniversalapi.IRespondingMutableElement;
 
@@ -57,7 +58,7 @@ implements IRespondingMutableElement<FE> {
 	
 	//method
 	@Override
-	public final void fillUpAttributesInto(final LinkedList<INode<?>> list) {
+	public final void fillUpAttributesInto(final IMutableList<INode<?>> list) {
 		for (final var p : getRefProperties()) {
 			p.fillUpValuesSpecificationInto(list);
 		}

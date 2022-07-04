@@ -7,13 +7,13 @@ import java.awt.Graphics;
 
 import ch.nolix.core.commontype.constant.CharacterCatalogue;
 import ch.nolix.core.commontype.constant.StringCatalogue;
-import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.systemapi.guiapi.textformatapi.ITextFormat;
@@ -234,7 +234,7 @@ public final class TextFormat implements ITextFormat {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void fillUpAttributesInto(final LinkedList<INode<?>> list) {
+	public void fillUpAttributesInto(final IMutableList<INode<?>> list) {
 		list.addAtEnd(
 			font.getSpecificationWithHeader(TEXT_FONT_HEADER),
 			Node.withHeaderAndChildNode(BOLD_FLAG_HEADER, bold),
