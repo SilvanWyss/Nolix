@@ -11,12 +11,13 @@ public interface IMutableList<E> extends IContainer<E> {
 	
 	//method declaration
 	/**
-	 * Adds the given element at the end of the current {@link IMutableList}.
+	 * Adds the given elements at the end of the current {@link IMutableList}.
 	 * 
-	 * @param element
-	 * @throws RuntimeException if the given element is null.
+	 * @param elements
+	 * @throws RuntimeException if one of the given elements is null.
 	 */
-	void addAtEnd(E element);
+	@SuppressWarnings("unchecked")
+	void addAtEnd(E... elements);
 	
 	//method declaration
 	/**

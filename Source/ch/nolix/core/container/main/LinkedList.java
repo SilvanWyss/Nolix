@@ -245,7 +245,6 @@ public final class LinkedList<E> extends Container<E> implements Clearable, IMut
 	 * @param element
 	 * @throws ArgumentIsNullException if the given element is null.
 	 */
-	@Override
 	public void addAtEnd(final E element) {
 		
 		//Creates new node.
@@ -270,6 +269,7 @@ public final class LinkedList<E> extends Container<E> implements Clearable, IMut
 	 * @throws ArgumentIsNullException if the given element container is null.
 	 * @throws ArgumentIsNullException if one of the given elements is null.
 	 */
+	@Override
 	@SuppressWarnings("unchecked")
 	public void addAtEnd(final E... elements) {
 		
