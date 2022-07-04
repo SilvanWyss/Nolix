@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.time.calendar;
 
+import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
@@ -70,6 +71,12 @@ public final class Appointment extends MutableElement<Appointment> implements IM
 	@Override
 	public String getSubject() {
 		return subject.getValue();
+	}
+	
+	//method
+	@Override
+	public String getSubjectInQuotes() {
+		return GlobalStringHelper.getInQuotes(getSubject());
 	}
 	
 	//method
