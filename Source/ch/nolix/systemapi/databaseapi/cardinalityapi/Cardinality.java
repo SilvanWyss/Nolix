@@ -1,9 +1,6 @@
 //package declaration
 package ch.nolix.systemapi.databaseapi.cardinalityapi;
 
-//own imports
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-
 //enum
 public enum Cardinality {
 	TO_ONE(BaseCardinality.SINGLE),
@@ -16,7 +13,9 @@ public enum Cardinality {
 	//constructor
 	Cardinality(final BaseCardinality baseCardinality) {
 		
-		GlobalValidator.assertThat(baseCardinality).thatIsNamed(BaseCardinality.class).isNotNull();
+		if (baseCardinality == null) {
+			throw new IllegalArgumentException("The given base cardinality is null.");
+		}
 		
 		this.baseCardinality = baseCardinality;
 	}
