@@ -2,7 +2,6 @@
 package ch.nolix.coreapi.attributeuniversalapi.mandatoryattributeuniversalapi;
 
 //own imports
-import ch.nolix.core.language.GlobalEnglishNounHelper;
 import ch.nolix.coreapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 
 //interface
@@ -20,14 +19,6 @@ public interface Named {
 	 * @return the name of the current {@link Named}.
 	 */
 	String getName();
-	
-	//method
-	/**
-	 * @return the plural of the name of the current {@link Named}.
-	 */
-	default String getNameInPlural() {
-		return GlobalEnglishNounHelper.getPlural(getName());
-	}
 	
 	//method
 	/**
