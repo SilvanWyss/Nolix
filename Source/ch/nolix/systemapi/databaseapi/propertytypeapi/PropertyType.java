@@ -1,8 +1,6 @@
 //package declaration
 package ch.nolix.systemapi.databaseapi.propertytypeapi;
 
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.databaseapi.cardinalityapi.Cardinality;
 
@@ -32,8 +30,13 @@ public enum PropertyType {
 	//constructor
 	PropertyType(final BasePropertyType baseType, final Cardinality cardinality) {
 		
-		GlobalValidator.assertThat(baseType).thatIsNamed(LowerCaseCatalogue.BASE_TYPE).isNotNull();
-		GlobalValidator.assertThat(cardinality).thatIsNamed(Cardinality.class).isNotNull();
+		if (baseType == null) {
+			throw new IllegalArgumentException("The given base type is null.");
+		}
+		
+		if (cardinality == null) {
+			throw new IllegalArgumentException("The given cardinality is null.");
+		}
 		
 		this.baseType = baseType;
 		this.cardinality = cardinality;
