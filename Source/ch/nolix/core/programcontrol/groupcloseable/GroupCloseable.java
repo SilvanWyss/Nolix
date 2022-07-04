@@ -22,7 +22,7 @@ public interface GroupCloseable extends AutoCloseable, CloseStateRequestable {
 	 * Closes the current {@link GroupCloseable}.
 	 */
 	default void close() {
-		getRefCloseController().internalClose();
+		getRefCloseController().closeAll();
 	}
 	
 	//method

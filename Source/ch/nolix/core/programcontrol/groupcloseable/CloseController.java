@@ -2,17 +2,16 @@
 package ch.nolix.core.programcontrol.groupcloseable;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.ICloseController;
 
 //class
 /**
  * @author Silvan Wyss
  * @date 2020-07-05
  */
-public final class CloseController {
+public final class CloseController implements ICloseController {
 	
 	//attribute
 	private ClosePool parentClosePool;
@@ -30,25 +29,19 @@ public final class CloseController {
 	
 	//method
 	/**
-	 * Adds a close dependency between the current {@link CloseController} and the given element.
-	 * 
-	 * When a {@link CloseController} is closed all of its close dependencies will be closed too and vice versa.
-	 * 
-	 * @param element
-	 * @throws ArgumentIsNullException if the given element is null.
-	 * @throws ClosedArgumentException if the current {@link CloseController} is closed.
-	 * @throws InvalidArgumentException
-	 * if the current {@link CloseController} has already a close dependency to the given element.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public void createCloseDependencyTo(GroupCloseable element) {
 		parentClosePool.add(element);
 	}
 	
 	//method
 	/**
-	 * Closes the current {@link CloseController}.
+	 * {@inheritDoc}
 	 */
-	void internalClose() {
+	@Override
+	public void closeAll() {
 		parentClosePool.close();
 	}
 	
