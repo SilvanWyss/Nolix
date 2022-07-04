@@ -6,7 +6,7 @@ import java.awt.image.BufferedImage;
 
 //own imports
 import ch.nolix.core.container.matrix.Matrix;
-import ch.nolix.core.document.node.Node;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.elementapi.mainuniversalapi.Specified;
 import ch.nolix.systemapi.guiapi.colorapi.IColor;
 
@@ -20,7 +20,7 @@ public interface IImage extends Specified {
 	IColor getBottomRightPixel();
 	
 	//method declaration
-	Node getCompressedSpecification();
+	INode<?> getCompressedSpecification();
 	
 	//method declaration
 	int getHeight();
