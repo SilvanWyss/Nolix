@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.coreapi.functionapi.mutationuniversalapi;
 
-import ch.nolix.coreapi.requestuniversalapi.EmptinessRequestable;
+import ch.nolix.coreapi.functionapi.requestuniversalapi.EmptinessRequestable;
 
 //interface
 /**

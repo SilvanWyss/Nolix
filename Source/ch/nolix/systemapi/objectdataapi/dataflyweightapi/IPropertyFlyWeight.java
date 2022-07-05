@@ -2,7 +2,7 @@
 package ch.nolix.systemapi.objectdataapi.dataflyweightapi;
 
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
-import ch.nolix.coreapi.requestuniversalapi.VoidnessRequestable;
+import ch.nolix.coreapi.functionapi.requestuniversalapi.VoidnessRequestable;
 
 //class
 public interface IPropertyFlyWeight extends VoidnessRequestable {

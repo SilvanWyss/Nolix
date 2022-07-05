@@ -4,7 +4,7 @@ package ch.nolix.system.sqlrawschema.schemawriter;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.sql.SQLCollector;
-import ch.nolix.coreapi.requestuniversalapi.ChangeRequestable;
+import ch.nolix.coreapi.functionapi.requestuniversalapi.ChangeRequestable;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDTO;

@@ -3,7 +3,7 @@ package ch.nolix.system.sqlrawschema.schemawriter;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
-import ch.nolix.coreapi.requestuniversalapi.ChangeRequestable;
+import ch.nolix.coreapi.functionapi.requestuniversalapi.ChangeRequestable;
 import ch.nolix.system.sqlrawschema.structure.TableType;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDTO;

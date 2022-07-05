@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.coreapi.programcontrolapi.resourcecontrolapi;
 
+import ch.nolix.coreapi.functionapi.requestuniversalapi.CloseStateRequestable;
 //own imports
 import ch.nolix.coreapi.markerapi.AllowDefaultMethodsAsDesignPattern;
-import ch.nolix.coreapi.requestuniversalapi.CloseStateRequestable;
 
 //interface
 /**

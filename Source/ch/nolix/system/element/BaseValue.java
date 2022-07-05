@@ -9,7 +9,7 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.Named;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
-import ch.nolix.coreapi.requestuniversalapi.MutabilityRequestable;
+import ch.nolix.coreapi.functionapi.requestuniversalapi.MutabilityRequestable;
 
 //class
 /**
