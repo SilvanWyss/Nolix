@@ -1,10 +1,8 @@
 //package declaration
 package ch.nolix.systemapi.guiapi.structureproperty;
 
-import ch.nolix.core.document.node.Node;
-import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
+//own imports
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.systemapi.elementapi.mainuniversalapi.Specified;
 
 //enum
 /**
@@ -14,27 +12,19 @@ import ch.nolix.systemapi.elementapi.mainuniversalapi.Specified;
  * @author Silvan Wyss
  * @date 2017-09-16
  */
-public enum DirectionInRectangle implements Specified {
+public enum DirectionInRectangle {
 	HORIZONTAL,
 	VERTICAL,
 	DIAGONAL_UP,
 	DIAGONAL_DOWN;
-
+	
 	//method
 	/**
 	 * @param specification
 	 * @return a new {@link DirectionInRectangle} from the given specification.
+	 * @throws RuntimeException if the given specification does not represent a {@link DirectionInRectangle}.
 	 */
 	public static DirectionInRectangle fromSpecification(final INode<?> specification) {
 		return valueOf(specification.getSingleChildNodeHeader());
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void fillUpAttributesInto(final IMutableList<INode<?>> list) {
-		list.addAtEnd(Node.withHeader(name()));
 	}
 }

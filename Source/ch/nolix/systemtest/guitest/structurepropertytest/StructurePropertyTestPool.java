@@ -15,7 +15,5 @@ public final class StructurePropertyTestPool extends TestPool {
 	/**
 	 * Creates a new {@link StructurePropertyTestPool}.
 	 */
-	public StructurePropertyTestPool() {
-		super(DirectionInRectangleTest.class);
-	}
+	public StructurePropertyTestPool() {}
 }
