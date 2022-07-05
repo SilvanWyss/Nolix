@@ -190,7 +190,7 @@ public final class ChainedNode implements IChainedNode {
 	 * @throws InvalidArgumentException if the given header is blank.
 	 * @throws ArgumentIsNullException if one of the given attribute is null.
 	 */
-	public static ChainedNode withHeaderAndChildNodes(final String header, final Iterable<ChainedNode> attributes) {
+	public static ChainedNode withHeaderAndChildNodes(final String header, final Iterable<? extends IChainedNode> attributes) {
 		
 		final var chainedNode = new ChainedNode();
 		chainedNode.setHeader(header);
@@ -258,6 +258,32 @@ public final class ChainedNode implements IChainedNode {
 		chainedNode.setNextNode(nextNode);
 		
 		return chainedNode;
+	}
+	
+	//static method
+	/**
+	 * @param chainedNode
+	 * @return a {@link ChainedNode} from the given chainedNode.
+	 */
+	private static ChainedNode fromChainedNode(final IChainedNode chainedNode) {
+		
+		if (chainedNode instanceof ChainedNode) {
+			return (ChainedNode)chainedNode;
+		}
+		
+		final var newChainedNode = new ChainedNode();
+		
+		if (chainedNode.hasHeader()) {
+			newChainedNode.setHeader(chainedNode.getHeader());
+		}
+		
+		newChainedNode.addChildNodes(chainedNode.getChildNodes());
+		
+		if (chainedNode.hasNextNode()) {
+			newChainedNode.setNextNode(chainedNode.getNextNode());
+		}
+		
+		return newChainedNode;
 	}
 	
 	//optional attributes
@@ -662,8 +688,12 @@ public final class ChainedNode implements IChainedNode {
 	 * @param attribute
 	 * @throws ArgumentIsNullException if the given attribute is null.
 	 */
-	private void addChildNode(final ChainedNode attribute) {
-		childNodes.addAtEnd(attribute);
+	private void addChildNode(final IChainedNode attribute) {
+		if (attribute instanceof ChainedNode) {
+			childNodes.addAtEnd((ChainedNode)attribute);
+		} else {
+			childNodes.addAtEnd(fromChainedNode(attribute));
+		}
 	}
 	
 	//method
@@ -685,7 +715,7 @@ public final class ChainedNode implements IChainedNode {
 	 * @param attributes
 	 * @throws ArgumentIsNullException if one of the given attribute is null.
 	 */
-	private void addChildNodes(final Iterable<ChainedNode> attributes) {
+	private void addChildNodes(final Iterable<? extends IChainedNode> attributes) {
 		attributes.forEach(this::addChildNode);
 	}
 	
@@ -977,14 +1007,18 @@ public final class ChainedNode implements IChainedNode {
 	 * @param nextNode
 	 * @throws ArgumentIsNullException if the given nextNode is null.
 	 */
-	private void setNextNode(final ChainedNode nextNode) {
+	private void setNextNode(final IChainedNode nextNode) {
 		
 		//Asserts that the given nextNode is not null.
 		if (nextNode == null) {
 			throw ArgumentIsNullException.forArgumentName(NEXT_NODE_VARIABLE_NAME);
 		}
 		
-		this.nextNode = nextNode;
+		if (nextNode instanceof ChainedNode) {
+			this.nextNode = (ChainedNode)nextNode;
+		} else {
+			this.nextNode = fromChainedNode(nextNode);
+		}
 	}
 	
 	//method
