@@ -5,7 +5,6 @@ package ch.nolix.systemapi.guiapi.textformatapi;
 import java.awt.Graphics;
 
 //own imports
-import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.systemapi.elementapi.mainuniversalapi.Specified;
 
 //interface
@@ -39,7 +38,7 @@ public interface ITextFormat extends Specified {
 	 * @param yPosition
 	 * @param maxWidth
 	 * @param text
-	 * @throws NegativeArgumentException if the given maxWidth is negative.
+	 * @throws RuntimeException if the given maxWidth is negative.
 	 */
 	void paintSwingText(Graphics graphics, int xPosition, int yPosition, String text, int maxWidth);
 	
