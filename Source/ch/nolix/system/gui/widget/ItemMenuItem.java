@@ -8,7 +8,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
-import ch.nolix.coreapi.attributeuniversalapi.optionalattributeuniversalapi.OptionalIdentifiedByString;
+import ch.nolix.coreapi.attributeapi.optionalattributeuniversalapi.OptionalIdentifiedByString;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionuniversalapi.IAction;
 import ch.nolix.coreapi.functionuniversalapi.IElementTaker;

@@ -8,7 +8,7 @@ import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-import ch.nolix.coreapi.attributeuniversalapi.mutableoptionalattributeuniversalapi.OptionalNamable;
+import ch.nolix.coreapi.attributeapi.mutableoptionalattributeuniversalapi.OptionalNamable;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 
 //class

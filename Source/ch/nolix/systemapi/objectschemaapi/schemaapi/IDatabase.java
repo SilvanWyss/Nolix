@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.objectschemaapi.schemaapi;
 
-import ch.nolix.coreapi.attributeuniversalapi.mandatoryattributeuniversalapi.Named;
+import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.Named;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.IDatabaseObject;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter;

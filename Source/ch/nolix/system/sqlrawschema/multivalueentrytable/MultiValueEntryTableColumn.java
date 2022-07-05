@@ -5,7 +5,7 @@ import ch.nolix.core.commontype.constant.StringCatalogue;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
-import ch.nolix.coreapi.attributeuniversalapi.mandatoryattributeuniversalapi.FullNamed;
+import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.FullNamed;
 import ch.nolix.system.sqlrawschema.structure.MultiContentTable;
 
 //enum

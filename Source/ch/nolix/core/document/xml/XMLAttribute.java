@@ -4,8 +4,8 @@ package ch.nolix.core.document.xml;
 import ch.nolix.core.commontype.constant.StringCatalogue;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-import ch.nolix.coreapi.attributeuniversalapi.mandatoryattributeuniversalapi.Named;
-import ch.nolix.coreapi.attributeuniversalapi.mandatoryattributeuniversalapi.Valued;
+import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.Named;
+import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.Valued;
 
 //class
 public final class XMLAttribute implements Named, Valued<XMLAttribute, String> {

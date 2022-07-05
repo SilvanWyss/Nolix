@@ -2,7 +2,7 @@
 package ch.nolix.systemapi.guiapi.mainapi;
 
 import ch.nolix.core.skilluniversalapi.Refreshable;
-import ch.nolix.coreapi.attributeuniversalapi.mutablemandatoryattributeuniversalapi.Titleble;
+import ch.nolix.coreapi.attributeapi.mutablemandatoryattributeuniversalapi.Titleble;
 import ch.nolix.coreapi.geometryapi.griduniversalapi.Rectangular;
 import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
