@@ -5,6 +5,7 @@ import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.mainapi.CursorIcon;
 import ch.nolix.systemapi.guiapi.widgetguiapi.IWidgetGUI;
@@ -51,7 +52,7 @@ final class BaseBackendGUIClientGUIUpdateCommandCreator {
 	}
 	
 	//method
-	private ChainedNode createGUISetPaintCommandsCommand(final IContainer<ChainedNode> paintCommands) {
+	private ChainedNode createGUISetPaintCommandsCommand(final IContainer<? extends IChainedNode> paintCommands) {
 		return
 		ChainedNode.withHeaderAndNextNode(
 			ObjectProtocol.GUI,

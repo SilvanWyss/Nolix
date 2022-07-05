@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.systemapi.guiapi.widgetguiapi;
 
-import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.document.chainednode.ChainedNode;
+import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.I2ElementTaker;
 import ch.nolix.coreapi.functionapi.mutationuniversalapi.Clearable;
 import ch.nolix.systemapi.elementapi.configurationapi.IConfigurableElement;
@@ -18,7 +18,7 @@ import ch.nolix.systemapi.guiapi.mainapi.IBaseGUI;
 public interface IWidgetGUI<WG extends IWidgetGUI<WG>> extends Clearable,  IBaseGUI<WG>, IConfigurableElement<WG>{
 	
 	//method declaration
-	LinkedList<ChainedNode> getPaintCommands(I2ElementTaker<String, IImage> imageRegistrator);
+	IContainer<? extends IChainedNode> getPaintCommands(I2ElementTaker<String, IImage> imageRegistrator);
 	
 	//method declaration
 	IKeyBoard getRefKeyBoard();
