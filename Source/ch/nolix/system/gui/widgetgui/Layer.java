@@ -144,7 +144,7 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 		DEFAULT_CONTENT_POSITION,
 		this::setContentPosition,
 		ExtendedContentPosition::fromSpecification,
-		ExtendedContentPosition::getSpecification
+		Node::fromEnum
 	);
 	
 	//attribute
