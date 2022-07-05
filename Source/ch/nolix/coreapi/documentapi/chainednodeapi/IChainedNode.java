@@ -1,0 +1,94 @@
+//package declaration
+package ch.nolix.coreapi.documentapi.chainednodeapi;
+
+//own imports
+import ch.nolix.coreapi.attributeapi.optionalattributeuniversalapi.OptionalHeadered;
+import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
+
+//interface
+public interface IChainedNode extends OptionalHeadered {
+	
+	//method declaration
+	/**
+	 * @param p1BasedIndex
+	 * @return the child node of the current {@link IChainedNode} at the given p1BasedIndex .
+	 * @throws RuntimeException if
+	 * the current {@link IChainedNode} does not contain a child node at the given p1BasedIndex.
+	 */
+	IChainedNode getChildNodeAt1BasedIndex(int p1BasedIndex);
+	
+	//method declaration
+	/**
+	 * @return the number of child nodes of the current {@link IChainedNode}.
+	 */
+	int getChildNodeCount();
+	
+	//method declaration
+	/**
+	 * @return the child nodes of the current {@link IChainedNode}.
+	 */
+	IContainer<IChainedNode> getChildNodes();
+	
+	//method declaration
+	/**
+	 * @param header
+	 * @return the first child node with the given header from the current {@link IChainedNode}.
+	 * @throws RuntimeException if
+	 * the current {@link IChainedNode} does not contain a child node with the given header.
+	 */
+	IChainedNode getFirstChildNodeWithHeader(String header);
+	
+	//method declaration
+	/**
+	 * @return the next node of the current {@link IChainedNode}.
+	 * @throws RuntimeException if the current {@link IChainedNode} does not have a next node.
+	 */
+	IChainedNode getNextNode();
+	
+	//method declaration
+	/**
+	 * @return the single child node of the current {@link IChainedNode}.
+	 * @throws RuntimeException if
+	 * the current {@link IChainedNode} does not contain child nodes or contains several child nodes.
+	 */
+	IChainedNode getSingleChildNode();
+	
+	//method declaration
+	/**
+	 * @return true if the current {@link IChainedNode} has a next node.
+	 */
+	boolean hasNextNode();
+	
+	//method declaration
+	/**
+	 * @return true if the current {@link IChainedNode} does not have a header, does not contain child nodes and
+	 * does not have a next node.
+	 */
+	boolean isBlank();
+	
+	//method declaration
+	/**
+	 * @return the double the current {@link IChainedNode} represents.
+	 * @throws RuntimeException if the current {@link IChainedNode} does not represent a double.
+	 */
+	double toDouble();
+	
+	//method declaration
+	/**
+	 * @return the int the current {@link IChainedNode} represents.
+	 * @throws RuntimeException if the current {@link IChainedNode} does not represent an int.
+	 */
+	int toInt();
+	
+	//method declaration
+	/**
+	 * A {@link IChainedNode} represents a {@link INode} if:
+	 * -The {@link IChainedNode} does not have a next node.
+	 * -Each child nodes of the {@link IChainedNode} represents a {@link INode}.
+	 * 
+	 * @return a {@link INode} representation of the current {@link IChainedNode}.
+	 * @throws RuntimeException if the current {@link IChainedNode} does not represent a {@link INode}.
+	 */
+	INode<?> toNode();
+}
