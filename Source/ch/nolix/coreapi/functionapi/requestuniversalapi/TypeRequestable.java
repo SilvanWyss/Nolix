@@ -2,7 +2,6 @@
 package ch.nolix.coreapi.functionapi.requestuniversalapi;
 
 //own imports
-import ch.nolix.core.language.GlobalEnglishNounHelper;
 import ch.nolix.coreapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 
 //interface
@@ -21,14 +20,6 @@ public interface TypeRequestable {
 	 */
 	default String getType() {
 		return getClass().getSimpleName();
-	}
-	
-	//method
-	/**
-	 * @return the plural of the type of the current {@link TypeRequestable}.
-	 */
-	default String getTypeInPlural() {
-		return GlobalEnglishNounHelper.getPlural(getType());
 	}
 	
 	//method
