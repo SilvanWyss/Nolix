@@ -1,10 +1,10 @@
 //package declaration
 package ch.nolix.systemapi.guiapi.mainapi;
 
-import ch.nolix.core.programcontrol.groupcloseable.GroupCloseable;
 import ch.nolix.core.skilluniversalapi.Refreshable;
 import ch.nolix.coreapi.attributeuniversalapi.mutablemandatoryattributeuniversalapi.Titleble;
 import ch.nolix.coreapi.geometryapi.griduniversalapi.Rectangular;
+import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.inputapi.IResizableInputTaker;
 

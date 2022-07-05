@@ -12,7 +12,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.UnconnectedArgumentEx
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.endpoint3.EndPoint;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
-import ch.nolix.core.programcontrol.groupcloseable.GroupCloseable;
+import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 
 //class
 /**

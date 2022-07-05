@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.core.skilluniversalapi;
 
-//own imports
-import ch.nolix.core.programcontrol.groupcloseable.GroupCloseable;
+import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 import ch.nolix.coreapi.requestuniversalapi.ChangeRequestable;
 
 //interface

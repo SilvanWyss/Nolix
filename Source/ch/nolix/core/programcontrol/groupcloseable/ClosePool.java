@@ -9,6 +9,7 @@ import ch.nolix.core.errorcontrol.logger.GlobalLogger;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 
 //class
 /**
@@ -55,8 +56,11 @@ final class ClosePool {
 		assertDoesNotContain(element);
 		
 		//Create close dependencies to the given element.
-		final var additionalElements = element.getRefCloseController().internalGetRefCloseDependencies();
-		additionalElements.forEach(ae -> ae.getRefCloseController().internalSetParentClosePool(this));
+		final var additionalElements = element.getRefCloseController().getRefElements();
+		
+		//TODO: Refactor.
+		additionalElements.forEach(ae -> ((CloseController)ae.getRefCloseController()).internalSetParentClosePool(this));
+		
 		elements.addAtEnd(additionalElements);
 	}
 	

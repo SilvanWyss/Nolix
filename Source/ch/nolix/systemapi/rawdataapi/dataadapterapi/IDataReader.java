@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.systemapi.rawdataapi.dataadapterapi;
 
-import ch.nolix.core.programcontrol.groupcloseable.GroupCloseable;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedRecordDTO;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 

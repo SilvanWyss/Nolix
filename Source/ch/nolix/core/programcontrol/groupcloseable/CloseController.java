@@ -4,6 +4,7 @@ package ch.nolix.core.programcontrol.groupcloseable;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.ICloseController;
 
 //class
@@ -32,7 +33,7 @@ public final class CloseController implements ICloseController {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void createCloseDependencyTo(GroupCloseable element) {
+	public void createCloseDependencyTo(final GroupCloseable element) {
 		parentClosePool.add(element);
 	}
 	
@@ -47,17 +48,19 @@ public final class CloseController implements ICloseController {
 	
 	//method
 	/**
-	 * @return the close dependencies of the current {@link CloseController}.
+	 * {@inheritDoc}
 	 */
-	IContainer<GroupCloseable> internalGetRefCloseDependencies() {
+	@Override
+	public IContainer<GroupCloseable> getRefElements() {
 		return parentClosePool.getRefElements();
 	}
 	
 	//method
 	/**
-	 * @return true if the current {@link CloseController} is closed.
+	 * {@inheritDoc}
 	 */
-	boolean internalIsClosed() {
+	@Override
+	public boolean hasClosed() {
 		return parentClosePool.isClosed();
 	}
 	
