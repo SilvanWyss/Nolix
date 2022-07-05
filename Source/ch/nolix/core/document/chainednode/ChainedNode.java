@@ -95,7 +95,7 @@ public final class ChainedNode implements IChainedNode {
 		.replace(String.valueOf(CharacterCatalogue.DOLLAR), DOLLAR_SYMBOL_CODE)
 		
 		.replace(String.valueOf(CharacterCatalogue.DOT), DOT_CODE)
-		.replace(String.valueOf(CharacterCatalogue.COMMA), Node.COMMA_CODE)
+		.replace(String.valueOf(CharacterCatalogue.COMMA), COMMA_CODE)
 		.replace(String.valueOf(CharacterCatalogue.OPEN_BRACKET), OPEN_BRACKET_CODE)
 		.replace(String.valueOf(CharacterCatalogue.CLOSED_BRACKET), CLOSED_BRACKET_CODE);
 	}
@@ -190,7 +190,10 @@ public final class ChainedNode implements IChainedNode {
 	 * @throws InvalidArgumentException if the given header is blank.
 	 * @throws ArgumentIsNullException if one of the given attribute is null.
 	 */
-	public static ChainedNode withHeaderAndChildNodes(final String header, final Iterable<? extends IChainedNode> attributes) {
+	public static ChainedNode withHeaderAndChildNodes(
+		final String header,
+		final Iterable<? extends IChainedNode> attributes
+	) {
 		
 		final var chainedNode = new ChainedNode();
 		chainedNode.setHeader(header);
