@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.skilluniversalapi;
+package ch.nolix.coreapi.functionapi.mutationuniversalapi;
 
 import ch.nolix.coreapi.requestuniversalapi.ChangeRequestable;
 

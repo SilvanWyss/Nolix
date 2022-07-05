@@ -3,8 +3,8 @@ package ch.nolix.systemapi.guiapi.widgetguiapi;
 
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.document.chainednode.ChainedNode;
-import ch.nolix.core.skilluniversalapi.Clearable;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.I2ElementTaker;
+import ch.nolix.coreapi.functionapi.mutationuniversalapi.Clearable;
 import ch.nolix.systemapi.elementapi.configurationapi.IConfigurableElement;
 import ch.nolix.systemapi.elementapi.configurationapi.IConfiguration;
 import ch.nolix.systemapi.guiapi.colorapi.IColor;

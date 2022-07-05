@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.systemapi.guiapi.widgetguiapi;
 
-//own imports
-import ch.nolix.core.skilluniversalapi.Clearable;
-import ch.nolix.core.skilluniversalapi.Recalculable;
+import ch.nolix.coreapi.functionapi.mutationuniversalapi.Clearable;
+import ch.nolix.coreapi.functionapi.mutationuniversalapi.Recalculable;
 import ch.nolix.systemapi.elementapi.configurationapi.IConfigurableElement;
 import ch.nolix.systemapi.guiapi.inputapi.IResizableInputTaker;
 import ch.nolix.systemapi.guiapi.mainapi.CursorIcon;

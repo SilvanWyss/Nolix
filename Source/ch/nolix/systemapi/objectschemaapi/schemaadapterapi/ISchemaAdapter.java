@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.systemapi.objectschemaapi.schemaadapterapi;
 
-import ch.nolix.core.skilluniversalapi.IMultiTimeChangeSaver;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.functionapi.mutationuniversalapi.IMultiTimeChangeSaver;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
 //interface

@@ -2,7 +2,7 @@
 package ch.nolix.systemapi.guiapi.widgetguiapi;
 
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.skilluniversalapi.Recalculable;
+import ch.nolix.coreapi.functionapi.mutationuniversalapi.Recalculable;
 import ch.nolix.coreapi.geometryapi.griduniversalapi.TopLeftPositionedRecangular;
 import ch.nolix.coreapi.requestuniversalapi.EnablingRequestable;
 import ch.nolix.coreapi.requestuniversalapi.ExpansionRequestable;

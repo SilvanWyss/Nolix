@@ -3,7 +3,7 @@ package ch.nolix.system.gui.widget;
 
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
-import ch.nolix.core.skilluniversalapi.Clearable;
+import ch.nolix.coreapi.functionapi.mutationuniversalapi.Clearable;
 import ch.nolix.system.element.MutableOptionalValue;
 import ch.nolix.system.gui.image.MutableImage;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;

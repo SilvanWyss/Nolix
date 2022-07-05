@@ -3,8 +3,8 @@ package ch.nolix.systemapi.elementapi.mainuniversalapi;
 
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.skilluniversalapi.Resettable;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
+import ch.nolix.coreapi.functionapi.mutationuniversalapi.Resettable;
 import ch.nolix.coreapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 
 //interface
