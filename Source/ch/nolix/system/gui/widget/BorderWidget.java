@@ -115,7 +115,7 @@ extends Widget<BW, BWL> {
 		DEFAULT_CONTENT_POSITION,
 		this::setContentPosition,
 		ContentPosition::fromSpecification,
-		ContentPosition::getSpecification
+		Node::fromEnum
 	);
 	
 	//attribute

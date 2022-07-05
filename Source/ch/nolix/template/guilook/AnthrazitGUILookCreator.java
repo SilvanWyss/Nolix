@@ -75,7 +75,7 @@ public final class AnthrazitGUILookCreator {
 		.addAttachingAttribute(
 			"MinWidth(200)",
 			"CursorIcon(Hand)",
-			"ContentPosition(Center)",
+			"ContentPosition(CENTER)",
 			"BaseLeftPadding(5)",
 			"BaseRightPadding(5)",
 			"BaseBackground(Color(0x101010))",
@@ -132,7 +132,7 @@ public final class AnthrazitGUILookCreator {
 		.addAttachingAttribute(
 			"MinWidth(200)",
 			"CursorIcon(Hand)",
-			"ContentPosition(Center)",
+			"ContentPosition(CENTER)",
 			"BaseLeftPadding(5)",
 			"BaseRightPadding(5)",
 			"BaseBackground(Color(0x101010))",
