@@ -28,7 +28,7 @@ public interface IChainedNode extends OptionalHeadered {
 	/**
 	 * @return the child nodes of the current {@link IChainedNode}.
 	 */
-	IContainer<IChainedNode> getChildNodes();
+	IContainer<? extends IChainedNode> getChildNodes();
 	
 	//method declaration
 	/**

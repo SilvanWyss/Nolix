@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.document.chainednode;
 
+//own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.commontype.constant.CharacterCatalogue;
 import ch.nolix.core.commontype.constant.StringCatalogue;
@@ -13,8 +14,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-import ch.nolix.coreapi.attributeapi.optionalattributeuniversalapi.OptionalHeadered;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 
 //class
@@ -29,7 +30,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
  * @author Silvan Wyss
  * @date 2016-01-01
  */
-public final class ChainedNode implements OptionalHeadered {
+public final class ChainedNode implements IChainedNode {
 	
 	//constant
 	public static final String DOT_CODE = "$D";
