@@ -1,11 +1,11 @@
 //package declaration
 package ch.nolix.systemapi.elementapi.configurationapi;
 
-import ch.nolix.core.skilluniversalapi.TypeRequestable;
 import ch.nolix.coreapi.attributeapi.mutableoptionalattributeuniversalapi.OptionalIdentifiableByString;
 import ch.nolix.coreapi.attributeapi.mutableoptionalattributeuniversalapi.OptionalTokenable;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.functionapi.requestuniversalapi.ContainsElementByStringIdRequestable;
+import ch.nolix.coreapi.functionapi.requestuniversalapi.TypeRequestable;
 import ch.nolix.systemapi.elementapi.mainuniversalapi.IMutableElement;
 
 //interface

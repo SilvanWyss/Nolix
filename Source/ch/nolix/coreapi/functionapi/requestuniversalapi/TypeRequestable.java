@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.skilluniversalapi;
+package ch.nolix.coreapi.functionapi.requestuniversalapi;
 
 //own imports
 import ch.nolix.core.language.GlobalEnglishNounHelper;
