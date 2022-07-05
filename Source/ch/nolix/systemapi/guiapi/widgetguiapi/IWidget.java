@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.guiapi.widgetguiapi;
 
-import ch.nolix.core.container.main.LinkedList;
+import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.functionapi.mutationuniversalapi.Recalculable;
 import ch.nolix.coreapi.functionapi.requestuniversalapi.EnablingRequestable;
 import ch.nolix.coreapi.functionapi.requestuniversalapi.ExpansionRequestable;
@@ -82,7 +82,7 @@ TopLeftPositionedRecangular {
 	/** 
 	 * @return the {@link IWidget}s of the current {@link IWidget} that have to be painted.
 	 */
-	LinkedList<IWidget<?, ?>> getRefWidgetsForPainting();
+	IContainer<IWidget<?, ?>> getRefWidgetsForPainting();
 	
 	//method declaration
 	/**
