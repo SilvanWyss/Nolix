@@ -291,7 +291,7 @@ public final class LinkedList<E> extends Container<E> implements Clearable, IMut
 	 * @throws ArgumentIsNullException if one of the given elements is null.
 	 */
 	@Override
-	public void addAtEnd(final Iterable<E> elements) {
+	public void addAtEnd(final Iterable<? extends E> elements) {
 		elements.forEach(this::addAtEnd);
 	}
 	

@@ -27,5 +27,5 @@ public interface IMutableList<E> extends IContainer<E> {
 	 * @param elements
 	 * @throws RuntimeException if one of the given elements is null.
 	 */
-	void addAtEnd(Iterable<E> elements);
+	void addAtEnd(Iterable<? extends E> elements);
 }
