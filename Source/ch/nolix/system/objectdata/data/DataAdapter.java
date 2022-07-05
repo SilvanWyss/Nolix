@@ -2,7 +2,7 @@
 package ch.nolix.system.objectdata.data;
 
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
-import ch.nolix.coreapi.functionuniversalapi.IElementGetter;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementGetter;
 import ch.nolix.system.objectdata.datahelper.DatabaseHelper;
 import ch.nolix.system.objectschema.parametrizedpropertytype.SchemaImplementation;
 import ch.nolix.systemapi.objectdataapi.dataadapterapi.IDataAdapter;

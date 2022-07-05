@@ -5,8 +5,8 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.functionuniversalapi.I2ElementTaker;
-import ch.nolix.coreapi.functionuniversalapi.IElementTakerElementGetter;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.I2ElementTaker;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 
 //class
 public final class CascadingProperty<S extends Enum<S>, V> extends MaterializedProperty<S, V> {

@@ -6,8 +6,8 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.Named;
 import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.functionuniversalapi.IElementTaker;
-import ch.nolix.coreapi.functionuniversalapi.IElementTakerElementGetter;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 
 //class
 public final class CatchingProperty<V> extends Property implements Named {

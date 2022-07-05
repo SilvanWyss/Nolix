@@ -13,10 +13,10 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PluralLowerCaseCatalogue;
 import ch.nolix.core.skilluniversalapi.Clearable;
 import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
-import ch.nolix.coreapi.functionuniversalapi.IElementTaker;
-import ch.nolix.coreapi.functionuniversalapi.IElementTakerBooleanGetter;
-import ch.nolix.coreapi.functionuniversalapi.IElementTakerComparableGetter;
-import ch.nolix.coreapi.functionuniversalapi.IElementTakerElementGetter;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerComparableGetter;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 
 //class
 /**

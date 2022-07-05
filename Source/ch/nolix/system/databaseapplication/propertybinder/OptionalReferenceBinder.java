@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.databaseapplication.propertybinder;
 
-import ch.nolix.coreapi.functionuniversalapi.IAction;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.system.gui.widget.DropdownMenu;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalReference;

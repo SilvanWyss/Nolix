@@ -4,7 +4,7 @@ package ch.nolix.core.testing.validation;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.coreapi.functionuniversalapi.IElementTaker;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 
 //class
 /**

@@ -13,7 +13,7 @@ import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.core.programatom.stateproperty.Visibility;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.functionuniversalapi.I2ElementTaker;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.I2ElementTaker;
 import ch.nolix.coreapi.programcontrolapi.processproperty.ChangeState;
 import ch.nolix.system.element.CatchingProperty;
 import ch.nolix.system.element.MultiValue;

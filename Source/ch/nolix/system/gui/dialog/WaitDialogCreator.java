@@ -2,7 +2,7 @@
 package ch.nolix.system.gui.dialog;
 
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
-import ch.nolix.coreapi.functionuniversalapi.IAction;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.system.gui.containerwidget.ContainerRole;
 import ch.nolix.system.gui.containerwidget.SingleContainer;
 import ch.nolix.system.gui.main.LayerRole;

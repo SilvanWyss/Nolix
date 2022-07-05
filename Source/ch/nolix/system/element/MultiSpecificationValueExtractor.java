@@ -6,8 +6,8 @@ import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.functionuniversalapi.IElementGetter;
-import ch.nolix.coreapi.functionuniversalapi.IElementTaker;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementGetter;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 
 //class
 public final class MultiSpecificationValueExtractor extends Property {

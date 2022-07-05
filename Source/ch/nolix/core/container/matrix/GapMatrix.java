@@ -13,7 +13,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.skilluniversalapi.Clearable;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
-import ch.nolix.coreapi.functionuniversalapi.IElementTakerComparableGetter;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerComparableGetter;
 
 //class
 public final class GapMatrix<E> extends Container<E> implements Clearable {

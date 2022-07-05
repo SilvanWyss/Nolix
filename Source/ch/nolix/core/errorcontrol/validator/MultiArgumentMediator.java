@@ -5,7 +5,7 @@ package ch.nolix.core.errorcontrol.validator;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.independent.independenthelper.CentralArrayHelper;
-import ch.nolix.coreapi.functionuniversalapi.IElementTakerBooleanGetter;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;
 
 //class
 /**

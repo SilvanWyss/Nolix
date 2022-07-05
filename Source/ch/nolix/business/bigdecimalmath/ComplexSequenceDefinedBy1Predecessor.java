@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 import ch.nolix.businessapi.bigdecimalmathapi.IComplexNumber;
 import ch.nolix.businessapi.bigdecimalmathapi.ISequenceDefinedBy1Predecessor;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.functionuniversalapi.IElementTakerElementGetter;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 
 //class
 public final class ComplexSequenceDefinedBy1Predecessor

@@ -3,8 +3,8 @@ package ch.nolix.core.testing.validation;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-import ch.nolix.coreapi.functionuniversalapi.IElementTaker;
-import ch.nolix.coreapi.functionuniversalapi.IElementTakerBooleanGetter;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;
 
 //class
 /**

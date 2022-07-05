@@ -5,7 +5,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-import ch.nolix.coreapi.functionuniversalapi.IElementGetter;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementGetter;
 
 //class
 public abstract class TerminalArgumentCapturer<

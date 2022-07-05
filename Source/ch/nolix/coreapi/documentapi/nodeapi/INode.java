@@ -4,7 +4,7 @@ package ch.nolix.coreapi.documentapi.nodeapi;
 import ch.nolix.coreapi.attributeapi.optionalattributeuniversalapi.OptionalHeadered;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.containerapi.pairapi.IIntPair;
-import ch.nolix.coreapi.functionuniversalapi.IElementTakerBooleanGetter;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;
 
 //interface
 /**

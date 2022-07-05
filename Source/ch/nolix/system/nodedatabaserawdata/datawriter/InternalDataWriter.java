@@ -5,7 +5,7 @@ import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
-import ch.nolix.coreapi.functionuniversalapi.IElementTaker;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDTO;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordDTO;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordUpdateDTO;

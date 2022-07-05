@@ -3,8 +3,8 @@ package ch.nolix.core.caching;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.functionuniversalapi.IBooleanGetter;
-import ch.nolix.coreapi.functionuniversalapi.IElementGetter;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IBooleanGetter;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementGetter;
 
 //class
 public final class CachingProperty<V> {

@@ -6,7 +6,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentExcep
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.function.GlobalFunctionHelper;
 import ch.nolix.core.time.TimeUnitCatalogue;
-import ch.nolix.coreapi.functionuniversalapi.IBooleanGetter;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IBooleanGetter;
 
 //class
 /**

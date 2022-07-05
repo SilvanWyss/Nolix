@@ -11,7 +11,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
-import ch.nolix.coreapi.functionuniversalapi.IElementTakerComparableGetter;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerComparableGetter;
 
 //class
 /**

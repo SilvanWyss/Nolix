@@ -10,7 +10,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
-import ch.nolix.coreapi.functionuniversalapi.IElementTaker;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.coreapi.programcontrolapi.processproperty.ConnectionOrigin;
 import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 

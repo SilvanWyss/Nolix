@@ -11,7 +11,7 @@ import ch.nolix.core.independent.independenthelper.CentralArrayHelper;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.Indexed;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
-import ch.nolix.coreapi.functionuniversalapi.I2ElementTaker;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.I2ElementTaker;
 import ch.nolix.system.gui.painter.BasePainter;
 import ch.nolix.system.gui.textformat.TextFormat;
 import ch.nolix.systemapi.guiapi.colorapi.IColor;

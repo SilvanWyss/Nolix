@@ -5,8 +5,8 @@ package ch.nolix.core.programcontrol.sequencer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.functionuniversalapi.IAction;
-import ch.nolix.coreapi.functionuniversalapi.IBooleanGetter;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IBooleanGetter;
 
 //class
 /**

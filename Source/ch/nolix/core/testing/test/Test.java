@@ -14,7 +14,7 @@ import ch.nolix.core.testing.validation.MultiDoubleMediator;
 import ch.nolix.core.testing.validation.MultiLongMediator;
 import ch.nolix.core.testing.validation.StringMediator;
 import ch.nolix.core.testing.validation.ValueMediator;
-import ch.nolix.coreapi.functionuniversalapi.IAction;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 
 //class
 /**

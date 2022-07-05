@@ -8,7 +8,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.math.GlobalCalculator;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
-import ch.nolix.coreapi.functionuniversalapi.IElementTaker;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.system.element.MultiValue;
 import ch.nolix.system.element.SubElement;
 import ch.nolix.system.gui.color.Color;

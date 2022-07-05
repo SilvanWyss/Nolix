@@ -2,7 +2,7 @@
 package ch.nolix.system.elementfactory;
 
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.functionuniversalapi.IElementTakerElementGetter;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 import ch.nolix.systemapi.elementapi.mainuniversalapi.IMutableElement;
 
 //class

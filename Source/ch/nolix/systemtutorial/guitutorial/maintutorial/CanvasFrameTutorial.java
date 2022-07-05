@@ -2,7 +2,7 @@ package ch.nolix.systemtutorial.guitutorial.maintutorial;
 
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
-import ch.nolix.coreapi.functionuniversalapi.IElementTaker;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.system.application.baseguiapplication.PaintRun;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.color.ColorGradient;

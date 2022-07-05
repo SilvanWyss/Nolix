@@ -5,7 +5,7 @@ import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
-import ch.nolix.coreapi.functionuniversalapi.I2ElementTaker;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.I2ElementTaker;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
 
 //class

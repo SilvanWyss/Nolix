@@ -5,7 +5,7 @@ package ch.nolix.system.gui.widget;
 import ch.nolix.core.environment.filesystem.FileAccessor;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.functionuniversalapi.IElementGetter;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementGetter;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.mainapi.CursorIcon;

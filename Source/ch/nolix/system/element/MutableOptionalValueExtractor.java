@@ -6,10 +6,10 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.functionuniversalapi.IBooleanGetter;
-import ch.nolix.coreapi.functionuniversalapi.IElementGetter;
-import ch.nolix.coreapi.functionuniversalapi.IElementTaker;
-import ch.nolix.coreapi.functionuniversalapi.IElementTakerElementGetter;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IBooleanGetter;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementGetter;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 
 //class
 public final class MutableOptionalValueExtractor<V> extends Property {

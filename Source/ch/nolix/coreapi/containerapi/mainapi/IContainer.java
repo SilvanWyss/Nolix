@@ -1,17 +1,16 @@
 //package declaration
 package ch.nolix.coreapi.containerapi.mainapi;
 
-//own imports
-import ch.nolix.coreapi.functionuniversalapi.I2ElementTakerBooleanGetter;
-import ch.nolix.coreapi.functionuniversalapi.IElementTaker;
-import ch.nolix.coreapi.functionuniversalapi.IElementTakerBooleanGetter;
-import ch.nolix.coreapi.functionuniversalapi.IElementTakerByteGetter;
-import ch.nolix.coreapi.functionuniversalapi.IElementTakerCharGetter;
-import ch.nolix.coreapi.functionuniversalapi.IElementTakerComparableGetter;
-import ch.nolix.coreapi.functionuniversalapi.IElementTakerDoubleGetter;
-import ch.nolix.coreapi.functionuniversalapi.IElementTakerElementGetter;
-import ch.nolix.coreapi.functionuniversalapi.IElementTakerIntGetter;
-import ch.nolix.coreapi.functionuniversalapi.IElementTakerLongGetter;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.I2ElementTakerBooleanGetter;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerByteGetter;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerCharGetter;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerComparableGetter;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerDoubleGetter;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerIntGetter;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerLongGetter;
 
 //interface
 /**

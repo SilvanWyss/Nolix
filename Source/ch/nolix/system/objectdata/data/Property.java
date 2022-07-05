@@ -5,7 +5,7 @@ package ch.nolix.system.objectdata.data;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.reflection.GlobalReflectionHelper;
-import ch.nolix.coreapi.functionuniversalapi.IAction;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.system.objectdata.propertyflyweight.PropertyFlyWeight;
 import ch.nolix.system.objectdata.propertyflyweight.VoidPropertyFlyWeight;
 import ch.nolix.system.objectdata.propertyhelper.PropertyHelper;

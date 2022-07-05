@@ -2,7 +2,7 @@
 package ch.nolix.coreapi.documentapi.nodeapi;
 
 import ch.nolix.coreapi.attributeapi.mutableoptionalattributeuniversalapi.OptionalHeaderable;
-import ch.nolix.coreapi.functionuniversalapi.IElementTakerBooleanGetter;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;
 
 //interface
 /**

@@ -2,7 +2,7 @@
 package ch.nolix.core.testing.validation;
 
 import ch.nolix.core.independent.independenthelper.IterableHelper;
-import ch.nolix.coreapi.functionuniversalapi.IElementTaker;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 
 //class
 public final class ContainerMediator<E> extends ValueMediator<Iterable<E>> {
