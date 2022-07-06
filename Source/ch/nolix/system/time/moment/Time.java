@@ -6,12 +6,14 @@ import java.time.Year;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 
+import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.time.TimeUnitCatalogue;
+import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
@@ -336,6 +338,20 @@ public final class Time implements ITime {
 		
 		final var time = (Time)object;
 		return getSpecification().equals(time.getSpecification());
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public IContainer<INode<?>> getAttributes() {
+		
+		final var attributes = new LinkedList<INode<?>>();
+		
+		fillUpAttributesInto(attributes);
+		
+		return attributes;
 	}
 	
 	//method

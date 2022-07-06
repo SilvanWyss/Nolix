@@ -1,11 +1,13 @@
 //package declaration
 package ch.nolix.system.gui.input;
 
+import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.container.pair.IntPair;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
+import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.guiapi.inputapi.IResizeInput;
@@ -63,6 +65,17 @@ public final class ResizeInput implements IResizeInput<ResizeInput> {
 		);
 		
 		list.addAtEnd(sizeSpecification);
+	}
+	
+	//method
+	@Override
+	public IContainer<INode<?>> getAttributes() {
+		
+		final var attributes = new LinkedList<INode<?>>();
+		
+		fillUpAttributesInto(attributes);
+		
+		return attributes;
 	}
 	
 	//method

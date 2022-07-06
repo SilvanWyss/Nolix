@@ -3,6 +3,7 @@ package ch.nolix.system.gui.color;
 
 //own imports
 import ch.nolix.core.commontype.constant.StringCatalogue;
+import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.container.pair.Pair;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.document.node.Node;
@@ -1070,6 +1071,20 @@ public final class Color implements IColor {
 	 */
 	public int getAlphaValue() {
 		return alphaValue;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public IContainer<INode<?>> getAttributes() {
+		
+		final var attributes = new LinkedList<INode<?>>();
+		
+		fillUpAttributesInto(attributes);
+		
+		return attributes;
 	}
 	
 	//method

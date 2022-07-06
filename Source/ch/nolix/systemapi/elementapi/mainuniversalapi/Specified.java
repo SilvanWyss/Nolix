@@ -2,11 +2,11 @@
 package ch.nolix.systemapi.elementapi.mainuniversalapi;
 
 //own imports
-import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.document.xml.XMLNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.markerapi.AllowDefaultMethodsAsDesignPattern;
@@ -31,14 +31,7 @@ public interface Specified {
 	/**
 	 * @return the attributes of the current {@link Specified}.
 	 */
-	default LinkedList<INode<?>> getAttributes() {
-		
-		final var attributes = new LinkedList<INode<?>>();
-		
-		fillUpAttributesInto(attributes);
-		
-		return attributes;
-	}
+	IContainer<INode<?>> getAttributes();
 	
 	//method
 	/**

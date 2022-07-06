@@ -3,8 +3,10 @@ package ch.nolix.system.geometry;
 
 //own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalDoubleHelper;
+import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.math.Vector;
+import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.elementapi.mainuniversalapi.Specified;
@@ -61,6 +63,20 @@ public final class Point2D implements Specified {
 			Node.withHeader(GlobalDoubleHelper.toString(getX())),
 			Node.withHeader(GlobalDoubleHelper.toString(getY()))
 		);
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public IContainer<INode<?>> getAttributes() {
+		
+		final var attributes = new LinkedList<INode<?>>();
+		
+		fillUpAttributesInto(attributes);
+		
+		return attributes;
 	}
 	
 	//method

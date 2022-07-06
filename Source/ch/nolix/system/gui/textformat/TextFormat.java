@@ -7,12 +7,14 @@ import java.awt.Graphics;
 
 import ch.nolix.core.commontype.constant.CharacterCatalogue;
 import ch.nolix.core.commontype.constant.StringCatalogue;
+import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.gui.color.Color;
@@ -242,6 +244,20 @@ public final class TextFormat implements ITextFormat {
 			Node.withHeaderAndChildNode(TEXT_SIZE_HEADER, textSize),
 			textColor.getSpecificationWithHeader(TEXT_COLOR_HEADER)
 		);
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public IContainer<INode<?>> getAttributes() {
+		
+		final var attributes = new LinkedList<INode<?>>();
+		
+		fillUpAttributesInto(attributes);
+		
+		return attributes;
 	}
 	
 	//method

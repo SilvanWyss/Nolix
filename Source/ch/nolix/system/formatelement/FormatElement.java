@@ -84,6 +84,17 @@ implements IRespondingMutableElement<FE> {
 	}
 	
 	//method
+	@Override
+	public final IContainer<INode<?>> getAttributes() {
+		
+		final var attributes = new LinkedList<INode<?>>();
+		
+		fillUpAttributesInto(attributes);
+		
+		return attributes;
+	}
+	
+	//method
 	public final S getBaseState() {
 		return baseState.getEnumValue();
 	}

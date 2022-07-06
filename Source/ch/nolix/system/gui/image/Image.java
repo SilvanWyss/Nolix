@@ -4,10 +4,12 @@ package ch.nolix.system.gui.image;
 //Java imports
 import java.awt.image.BufferedImage;
 
+import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.container.matrix.Matrix;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.environment.runningjar.RunningJar;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.guiapi.colorapi.IColor;
@@ -62,6 +64,17 @@ public final class Image implements IImage {
 	@Override
 	public void fillUpAttributesInto(IMutableList<INode<?>> list) {
 		internalImage.fillUpAttributesInto(list);
+	}
+	
+	//method
+	@Override
+	public IContainer<INode<?>> getAttributes() {
+		
+		final var attributes = new LinkedList<INode<?>>();
+		
+		fillUpAttributesInto(attributes);
+		
+		return attributes;
 	}
 	
 	//method

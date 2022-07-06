@@ -99,6 +99,20 @@ public abstract class MutableElement<ME extends MutableElement<ME>> implements I
 	 * {@inheritDoc}
 	 */
 	@Override
+	public final IContainer<INode<?>> getAttributes() {
+		
+		final var attributes = new LinkedList<INode<?>>();
+		
+		fillUpAttributesInto(attributes);
+		
+		return attributes;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public final int hashCode() {
 		return getSpecification().hashCode();
 	}
