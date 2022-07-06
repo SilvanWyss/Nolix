@@ -2,7 +2,6 @@
 package ch.nolix.systemapi.guiapi.mainapi;
 
 //own imports
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.I2ElementTaker;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
@@ -16,7 +15,9 @@ public interface IInputActionManager<IAM extends IInputActionManager<IAM>> {
 	//method
 	default IAM setKeyDownAction(final IElementTaker<Key> keyDownAction) {
 		
-		GlobalValidator.assertThat(keyDownAction).thatIsNamed("continuous key press action").isNotNull();
+		if (keyDownAction == null) {
+			throw new IllegalArgumentException("continuous key press action");
+		}
 		
 		return setKeyDownAction((iam, k) -> keyDownAction.run(k));
 	}
@@ -27,7 +28,9 @@ public interface IInputActionManager<IAM extends IInputActionManager<IAM>> {
 	//method
 	default IAM setLeftMouseButtonClickAction(final IAction leftMouseButtonClickAction) {
 		
-		GlobalValidator.assertThat(leftMouseButtonClickAction).thatIsNamed("left mouse button click action").isNotNull();
+		if (leftMouseButtonClickAction == null) {
+			throw new IllegalArgumentException("left mouse button click action");
+		}
 		
 		return setLeftMouseButtonClickAction(iam -> leftMouseButtonClickAction.run());
 	}
@@ -38,7 +41,9 @@ public interface IInputActionManager<IAM extends IInputActionManager<IAM>> {
 	//method
 	default IAM setLeftMouseButtonPressAction(final IAction leftMouseButtonPressAction) {
 		
-		GlobalValidator.assertThat(leftMouseButtonPressAction).thatIsNamed("left mouse button press action").isNotNull();
+		if (leftMouseButtonPressAction == null) {
+			throw new IllegalArgumentException("left mouse button press action");
+		}
 		
 		return setLeftMouseButtonPressAction(iam -> leftMouseButtonPressAction.run());
 	}
@@ -49,7 +54,9 @@ public interface IInputActionManager<IAM extends IInputActionManager<IAM>> {
 	//method
 	default IAM setLeftMouseButtonReleaseAction(final IAction leftMouseButtonReleaseAction) {
 		
-		GlobalValidator.assertThat(leftMouseButtonReleaseAction).thatIsNamed("left mouse button release action").isNotNull();
+		if (leftMouseButtonReleaseAction == null) {
+			throw new IllegalArgumentException("left mouse button release action");
+		}
 		
 		return setLeftMouseButtonReleaseAction(iam -> leftMouseButtonReleaseAction.run());
 	}
@@ -60,7 +67,9 @@ public interface IInputActionManager<IAM extends IInputActionManager<IAM>> {
 	//method
 	default IAM setMouseMoveAction(final IAction mouseMoveAction) {
 		
-		GlobalValidator.assertThat(mouseMoveAction).thatIsNamed("mouse move action").isNotNull();
+		if (mouseMoveAction == null) {
+			throw new IllegalArgumentException("mouse move action");
+		}
 		
 		return setMouseMoveAction(iam -> mouseMoveAction.run());
 	}
@@ -71,7 +80,9 @@ public interface IInputActionManager<IAM extends IInputActionManager<IAM>> {
 	//method
 	default IAM setMouseWheelClickAction(final IAction mouseWheelClickAction) {
 		
-		GlobalValidator.assertThat(mouseWheelClickAction).thatIsNamed("mouse wheel click action").isNotNull();
+		if (mouseWheelClickAction == null) {
+			throw new IllegalArgumentException("mouse wheel click action");
+		}
 		
 		return setMouseWheelClickAction(iam -> mouseWheelClickAction.run());
 	}
@@ -82,7 +93,9 @@ public interface IInputActionManager<IAM extends IInputActionManager<IAM>> {
 	//method
 	default IAM setMouseWheelPressAction(final IAction mouseWheelPressAction) {
 		
-		GlobalValidator.assertThat(mouseWheelPressAction).thatIsNamed("mouse wheel press action").isNotNull();
+		if (mouseWheelPressAction == null) {
+			throw new IllegalArgumentException("mouse wheel press action");
+		}
 		
 		return setMouseWheelPressAction(iam -> mouseWheelPressAction.run());
 	}
@@ -93,7 +106,9 @@ public interface IInputActionManager<IAM extends IInputActionManager<IAM>> {
 	//method
 	default IAM setMouseWheelReleaseAction(final IAction mouseWheelReleaseAction) {
 		
-		GlobalValidator.assertThat(mouseWheelReleaseAction).thatIsNamed("mouse wheel release action").isNotNull();
+		if (mouseWheelReleaseAction == null) {
+			throw new IllegalArgumentException("mouse wheel release action");
+		}
 		
 		return setMouseWheelReleaseAction(iam -> mouseWheelReleaseAction.run());
 	}
@@ -104,7 +119,9 @@ public interface IInputActionManager<IAM extends IInputActionManager<IAM>> {
 	//method
 	default IAM setRightMouseButtonClickAction(final IAction rightMouseButtonClickAction) {
 		
-		GlobalValidator.assertThat(rightMouseButtonClickAction).thatIsNamed("right mouse button click action").isNotNull();
+		if (rightMouseButtonClickAction == null) {
+			throw new IllegalArgumentException("right mouse button click action");
+		}
 		
 		return setRightMouseButtonClickAction(iam -> rightMouseButtonClickAction.run());
 	}
@@ -115,7 +132,9 @@ public interface IInputActionManager<IAM extends IInputActionManager<IAM>> {
 	//method
 	default IAM setRightMouseButtonPressAction(final IAction rightMouseButtonPressAction) {
 		
-		GlobalValidator.assertThat(rightMouseButtonPressAction).thatIsNamed("right mouse button press action").isNotNull();
+		if (rightMouseButtonPressAction == null) {
+			throw new IllegalArgumentException("right mouse button press action");
+		}
 		
 		return setRightMouseButtonPressAction(iam -> rightMouseButtonPressAction.run());
 	}
@@ -126,10 +145,9 @@ public interface IInputActionManager<IAM extends IInputActionManager<IAM>> {
 	//method
 	default IAM setRightMouseButtonReleaseAction(final IAction rightMouseButtonReleaseAction) {
 		
-		GlobalValidator
-		.assertThat(rightMouseButtonReleaseAction)
-		.thatIsNamed("right mouse button release action")
-		.isNotNull();
+		if (rightMouseButtonReleaseAction == null) {
+			throw new IllegalArgumentException("right mouse button release action");
+		}
 		
 		return setRightMouseButtonReleaseAction(iam -> rightMouseButtonReleaseAction.run());
 	}
