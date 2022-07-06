@@ -44,7 +44,7 @@ abstract class SingleValue<V> extends BaseValue<V> {
 		final String name,
 		final IElementTaker<V> setterMethod,
 		final IElementTakerElementGetter<INode<?>, V> valueCreator,
-		final IElementTakerElementGetter<V, Node> specificationCreator
+		final IElementTakerElementGetter<V, INode<?>> specificationCreator
 	) {
 		
 		//Calls constructor of the base class.

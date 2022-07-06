@@ -72,7 +72,7 @@ public final class MultiValue<V> extends BaseValue<V> implements Clearable {
 		final String name,
 		final IElementTaker<V> adderMethod,
 		final IElementTakerElementGetter<INode<?>, V> valueCreator,
-		final IElementTakerElementGetter<V, Node> specificationCreator
+		final IElementTakerElementGetter<V, INode<?>> specificationCreator
 	) {
 		
 		//Calls constructor of the base class

@@ -61,7 +61,7 @@ public final class ForwardingMutableValue<V> extends Property implements Named {
 	private final IElementTaker<V> setter;
 	private final IElementGetter<V> getter;
 	private final IElementTakerElementGetter<INode<?>, V> valueCreator;
-	private final IElementTakerElementGetter<V, Node> specificationCreator;
+	private final IElementTakerElementGetter<V, INode<?>> specificationCreator;
 	
 	//constructor
 	public ForwardingMutableValue(
@@ -69,7 +69,7 @@ public final class ForwardingMutableValue<V> extends Property implements Named {
 		final IElementTaker<V> setter,
 		final IElementGetter<V> getter,
 		final IElementTakerElementGetter<INode<?>, V> valueCreator,
-		final IElementTakerElementGetter<V, Node> specificationCreator
+		final IElementTakerElementGetter<V, INode<?>> specificationCreator
 	) {
 		
 		GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();

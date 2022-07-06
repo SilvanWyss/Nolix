@@ -131,7 +131,7 @@ public final class MutableValue<V> extends SingleValue<V> {
 		final V defaultValue,
 		final IElementTaker<V> setterMethod,
 		final IElementTakerElementGetter<INode<?>, V> valueCreator,
-		final IElementTakerElementGetter<V, Node> specificationCreator
+		final IElementTakerElementGetter<V, INode<?>> specificationCreator
 	) {
 		
 		//Calls constructor of the base class.

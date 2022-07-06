@@ -21,7 +21,7 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
 	
 	//attributes
 	private final IElementTakerElementGetter<INode<?>, V> valueCreator;
-	private final IElementTakerElementGetter<V, Node> specificationCreator;
+	private final IElementTakerElementGetter<V, INode<?>> specificationCreator;
 	
 	//optional attribute
 	private final I2ElementTaker<S, V> setterMethod;
@@ -35,7 +35,7 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
 		final String name,
 		final Class<S> stateClass,
 		final IElementTakerElementGetter<INode<?>, V> valueCreator,
-		final IElementTakerElementGetter<V, Node> specificationCreator
+		final IElementTakerElementGetter<V, INode<?>> specificationCreator
 	) {
 		
 		super(name);
@@ -57,7 +57,7 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
 		final String name,
 		final Class<S> stateClass,
 		final IElementTakerElementGetter<INode<?>, V> valueCreator,
-		final IElementTakerElementGetter<V, Node> specificationCreator,
+		final IElementTakerElementGetter<V, INode<?>> specificationCreator,
 		final I2ElementTaker<S, V> setterMethod
 	) {
 		

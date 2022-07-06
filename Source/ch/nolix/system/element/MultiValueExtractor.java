@@ -1,7 +1,6 @@
 //package declaration
 package ch.nolix.system.element;
 
-import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
@@ -19,7 +18,7 @@ public final class MultiValueExtractor<V> extends Property {
 	private final IElementTaker<V> adder;
 	private final IElementGetter<IContainer<V>> getter;
 	private final IElementTakerElementGetter<INode<?>, V> valueCreator;
-	private final IElementTakerElementGetter<V, Node> specificationCreator;
+	private final IElementTakerElementGetter<V, INode<?>> specificationCreator;
 	
 	//constructor
 	public MultiValueExtractor(
@@ -27,7 +26,7 @@ public final class MultiValueExtractor<V> extends Property {
 		final IElementTaker<V> adder,
 		final IElementGetter<IContainer<V>> getter,
 		final IElementTakerElementGetter<INode<?>, V> valueCreator,
-		final IElementTakerElementGetter<V, Node> specificationCreator
+		final IElementTakerElementGetter<V, INode<?>> specificationCreator
 	) {
 		
 		GlobalValidator.assertThat(name).thatIsNamed(PascalCaseCatalogue.NAME).isNotBlank();

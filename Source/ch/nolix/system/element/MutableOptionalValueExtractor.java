@@ -1,7 +1,6 @@
 //package declaration
 package ch.nolix.system.element;
 
-import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
@@ -20,7 +19,7 @@ public final class MutableOptionalValueExtractor<V> extends Property {
 	private final IBooleanGetter valuePresenceChecker;
 	private final IElementGetter<V> getter;
 	private final IElementTakerElementGetter<INode<?>, V> valueCreator;
-	private final IElementTakerElementGetter<V, Node> specificationCreator;
+	private final IElementTakerElementGetter<V, INode<?>> specificationCreator;
 	
 	//constructor
 	public MutableOptionalValueExtractor(
@@ -29,7 +28,7 @@ public final class MutableOptionalValueExtractor<V> extends Property {
 		final IBooleanGetter valuePresenceChecker,
 		final IElementGetter<V> getter,
 		final IElementTakerElementGetter<INode<?>, V> valueCreator,
-		final IElementTakerElementGetter<V, Node> specificationCreator
+		final IElementTakerElementGetter<V, INode<?>> specificationCreator
 	) {
 		
 		GlobalValidator.assertThat(name).thatIsNamed(PascalCaseCatalogue.NAME).isNotBlank();

@@ -1,7 +1,6 @@
 //package declaration
 package ch.nolix.system.formatelement;
 
-import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
@@ -22,7 +21,7 @@ public final class CascadingProperty<S extends Enum<S>, V> extends MaterializedP
 		final String name,
 		final Class<S> stateClass,
 		final IElementTakerElementGetter<INode<?>, V> valueCreator,
-		final IElementTakerElementGetter<V, Node> specificationCreator,
+		final IElementTakerElementGetter<V, INode<?>> specificationCreator,
 		final V defaultValue
 	) {
 		
@@ -38,7 +37,7 @@ public final class CascadingProperty<S extends Enum<S>, V> extends MaterializedP
 		final String name,
 		final Class<S> stateClass,
 		final IElementTakerElementGetter<INode<?>, V> valueCreator,
-		final IElementTakerElementGetter<V, Node> specificationCreator,
+		final IElementTakerElementGetter<V, INode<?>> specificationCreator,
 		final I2ElementTaker<S, V> setterMethod,
 		final V defaultValue
 	) {

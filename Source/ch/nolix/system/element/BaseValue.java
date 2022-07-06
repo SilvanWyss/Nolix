@@ -1,7 +1,6 @@
 //package declaration
 package ch.nolix.system.element;
 
-import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -22,7 +21,7 @@ public abstract class BaseValue<V> extends Property implements MutabilityRequest
 	//attributes
 	private final String name;
 	private final IElementTakerElementGetter<INode<?>, V> valueCreator;
-	protected final IElementTakerElementGetter<V, Node> specificationCreator;
+	protected final IElementTakerElementGetter<V, INode<?>> specificationCreator;
 	
 	//constructor
 	/**
@@ -39,7 +38,7 @@ public abstract class BaseValue<V> extends Property implements MutabilityRequest
 	BaseValue(
 		final String name,
 		final IElementTakerElementGetter<INode<?>, V> valueCreator,
-		final IElementTakerElementGetter<V, Node> specificationCreator
+		final IElementTakerElementGetter<V, INode<?>> specificationCreator
 	) {
 		
 		GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
