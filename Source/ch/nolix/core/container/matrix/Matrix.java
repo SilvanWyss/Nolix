@@ -13,6 +13,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentExcept
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.containerapi.matrixapi.IMatrix;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerComparableGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 import ch.nolix.coreapi.functionapi.mutationuniversalapi.Clearable;
@@ -26,7 +27,7 @@ import ch.nolix.coreapi.functionapi.mutationuniversalapi.Clearable;
  * @date 2016-08-01
  * @param <E> is the type of the elements of a {@link Matrix}.
  */
-public final class Matrix<E> extends Container<E> implements Clearable {
+public final class Matrix<E> extends Container<E> implements Clearable, IMatrix<E> {
 
 	//multi-attribute
 	private Object[][] elements = new Object[0][0];
@@ -490,13 +491,12 @@ public final class Matrix<E> extends Container<E> implements Clearable {
 	 * 
 	 * @param index
 	 * @param element
-	 * @return the current {@link Matrix}.
 	 * @throws NonPositiveArgumentException if the given index is not positive.
 	 * @throws BiggerArgumentException
 	 * if the given index is bigger than the number of elements of the current {@link Matrix}.
 	 * @throws ArgumentIsNullException if the given element is null.
 	 */
-	public Matrix<E> setAt(final int index, final E element) {
+	public void setAt(final int index, final E element) {
 				
 		//Asserts that the given element is not null.
 		GlobalValidator
@@ -506,8 +506,6 @@ public final class Matrix<E> extends Container<E> implements Clearable {
 		
 		//Sets the given element at the given index to the current matrix.
 		elements[getRowIndexOf(index) - 1][getColumnIndexOf(index) - 1] = element;
-				
-		return this;
 	}
 	
 	//method
@@ -520,7 +518,6 @@ public final class Matrix<E> extends Container<E> implements Clearable {
 	 * @param rowIndex
 	 * @param columnIndex
 	 * @param element
-	 * @return the current {@link Matrix}.
 	 * @throws NonPositiveArgumentException if the given row index is not positive.
 	 * @throws BiggerArgumentException
 	 * if the given row index is bigger than the number of rows of the current {@link Matrix}.
@@ -529,7 +526,7 @@ public final class Matrix<E> extends Container<E> implements Clearable {
 	 * if the given column index is bigger than the number of columns of the current {@link Matrix}.
 	 * @throws ArgumentIsNullException if the given element is null.
 	 */
-	public Matrix<E> setAt(
+	public void setAt(
 		final int rowIndex,
 		final int columnIndex,
 		final E element
@@ -545,8 +542,6 @@ public final class Matrix<E> extends Container<E> implements Clearable {
 		.isNotNull();
 		
 		elements[rowIndex - 1][columnIndex - 1] = element;
-		
-		return this;
 	}
 	
 	//method
