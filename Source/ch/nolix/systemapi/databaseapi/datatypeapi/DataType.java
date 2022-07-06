@@ -1,7 +1,8 @@
 //package declaration
 package ch.nolix.systemapi.databaseapi.datatypeapi;
 
-import ch.nolix.core.data.BinaryObject;
+//own imports
+import ch.nolix.coreapi.dataapi.IBinaryObject;
 
 //enum
 public enum DataType {
@@ -13,7 +14,7 @@ public enum DataType {
 	FLOATING_POINT_NUMBER_8BYTE(Double.class),
 	BOOLEAN(Boolean.class),
 	STRING(String.class),
-	BINARY_OBJECT(BinaryObject.class);
+	BINARY_OBJECT(IBinaryObject.class);
 	
 	//static method
 	public static DataType forType(final Class<?> type) {
