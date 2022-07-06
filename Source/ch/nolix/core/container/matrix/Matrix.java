@@ -282,7 +282,7 @@ public final class Matrix<E> extends Container<E> implements Clearable {
 	/**
 	 * @return the columns of the current {@link Matrix}.
 	 */
-	public LinkedList<MatrixColumn<E>> getColumns() {
+	public IContainer<MatrixColumn<E>> getColumns() {
 		
 		final var columns = new LinkedList<MatrixColumn<E>>();
 		
@@ -432,7 +432,7 @@ public final class Matrix<E> extends Container<E> implements Clearable {
 	/**
 	 * @return the rows of the current {@link Matrix}.
 	 */
-	public LinkedList<MatrixRow<E>> getRows() {
+	public IContainer<MatrixRow<E>> getRows() {
 		
 		final var rows = new LinkedList<MatrixRow<E>>();
 		
