@@ -2181,18 +2181,18 @@ define("System/GUI/Input/MouseInputType", ["require", "exports"], function (requ
     Object.defineProperty(exports, "__esModule", { value: true });
     var MouseInputType;
     (function (MouseInputType) {
-        MouseInputType[MouseInputType["MouseMove"] = 0] = "MouseMove";
-        MouseInputType[MouseInputType["LeftMouseButtonPress"] = 1] = "LeftMouseButtonPress";
-        MouseInputType[MouseInputType["LeftMouseButtonRelease"] = 2] = "LeftMouseButtonRelease";
-        MouseInputType[MouseInputType["LeftMouseButtonClick"] = 3] = "LeftMouseButtonClick";
-        MouseInputType[MouseInputType["RightMouseButtonPress"] = 4] = "RightMouseButtonPress";
-        MouseInputType[MouseInputType["RightMouseButtonRelease"] = 5] = "RightMouseButtonRelease";
-        MouseInputType[MouseInputType["RightMouseButtonClick"] = 6] = "RightMouseButtonClick";
-        MouseInputType[MouseInputType["MouseWheelPress"] = 7] = "MouseWheelPress";
-        MouseInputType[MouseInputType["MouseWheelRelease"] = 8] = "MouseWheelRelease";
-        MouseInputType[MouseInputType["MouseWheelClick"] = 9] = "MouseWheelClick";
-        MouseInputType[MouseInputType["ForwardMouseWheelRotationStep"] = 10] = "ForwardMouseWheelRotationStep";
-        MouseInputType[MouseInputType["BackwardMouseWheelRotationStep"] = 11] = "BackwardMouseWheelRotationStep";
+        MouseInputType[MouseInputType["MOUSE_MOVE"] = 0] = "MOUSE_MOVE";
+        MouseInputType[MouseInputType["LEFT_MOUSE_BUTTON_PRESS"] = 1] = "LEFT_MOUSE_BUTTON_PRESS";
+        MouseInputType[MouseInputType["LEFT_MOUSE_BUTTON_RELEASE"] = 2] = "LEFT_MOUSE_BUTTON_RELEASE";
+        MouseInputType[MouseInputType["LEFT_MOUSE_BUTTON_CLICK"] = 3] = "LEFT_MOUSE_BUTTON_CLICK";
+        MouseInputType[MouseInputType["RIGHT_MOUSE_BUTTON_PRESS"] = 4] = "RIGHT_MOUSE_BUTTON_PRESS";
+        MouseInputType[MouseInputType["RIGHT_MOUSE_BUTTON_RELEASE"] = 5] = "RIGHT_MOUSE_BUTTON_RELEASE";
+        MouseInputType[MouseInputType["RIGHT_MOUSE_BUTTON_CLICK"] = 6] = "RIGHT_MOUSE_BUTTON_CLICK";
+        MouseInputType[MouseInputType["MOUSE_WHEEL_PRESS"] = 7] = "MOUSE_WHEEL_PRESS";
+        MouseInputType[MouseInputType["MOUSE_WHEEL_RELEASE"] = 8] = "MOUSE_WHEEL_RELEASE";
+        MouseInputType[MouseInputType["MOUSE_WHEEL_CLICK"] = 9] = "MOUSE_WHEEL_CLICK";
+        MouseInputType[MouseInputType["FORWARD_MOUSE_WHEEL_ROTATION_STEP"] = 10] = "FORWARD_MOUSE_WHEEL_ROTATION_STEP";
+        MouseInputType[MouseInputType["BACKWARD_MOUSE_WHEEL_ROTATION_STEP"] = 11] = "BACKWARD_MOUSE_WHEEL_ROTATION_STEP";
     })(MouseInputType = exports.MouseInputType || (exports.MouseInputType = {}));
 });
 define("System/GUI/Input/MouseInput", ["require", "exports", "System/GUI/Input/Input", "Core/Container/LinkedList", "System/GUI/Input/MouseInputType", "Core/Document/Node/Node", "Core/Constant/PascalCaseNameCatalogue"], function (require, exports, Input_2, LinkedList_9, MouseInputType_1, Node_5, PascalCaseNameCatalogue_1) {
@@ -2262,9 +2262,9 @@ define("System/GUI/Input/MouseInputTypeMapper", ["require", "exports", "System/G
         static createMouseInputTypeFromRotationDirection(rotationDirection) {
             switch (rotationDirection) {
                 case RotationDirection_1.RotationDirection.Forward:
-                    return MouseInputType_2.MouseInputType.ForwardMouseWheelRotationStep;
+                    return MouseInputType_2.MouseInputType.FORWARD_MOUSE_WHEEL_ROTATION_STEP;
                 case RotationDirection_1.RotationDirection.Backward:
-                    return MouseInputType_2.MouseInputType.BackwardMouseWheelRotationStep;
+                    return MouseInputType_2.MouseInputType.BACKWARD_MOUSE_WHEEL_ROTATION_STEP;
             }
         }
         constructor() { }
@@ -2357,25 +2357,25 @@ define("System/Application/GUIApplication/FrontCanvasGUIClientInputTaker", ["req
             this.inputTaker(new KeyInput_1.KeyInput(key, KeyInputType_2.KeyInputType.Typing));
         }
         noteLeftMouseButtonClick() {
-            this.inputTaker(new MouseInput_1.MouseInput(MouseInputType_3.MouseInputType.LeftMouseButtonClick, this.cursorXPositionOnViewAreaGetter(), this.cursorYPositionOnViewAreaGetter()));
+            this.inputTaker(new MouseInput_1.MouseInput(MouseInputType_3.MouseInputType.LEFT_MOUSE_BUTTON_CLICK, this.cursorXPositionOnViewAreaGetter(), this.cursorYPositionOnViewAreaGetter()));
         }
         noteLeftMouseButtonPress() {
-            this.inputTaker(new MouseInput_1.MouseInput(MouseInputType_3.MouseInputType.LeftMouseButtonPress, this.cursorXPositionOnViewAreaGetter(), this.cursorYPositionOnViewAreaGetter()));
+            this.inputTaker(new MouseInput_1.MouseInput(MouseInputType_3.MouseInputType.LEFT_MOUSE_BUTTON_PRESS, this.cursorXPositionOnViewAreaGetter(), this.cursorYPositionOnViewAreaGetter()));
         }
         noteLeftMouseButtonRelease() {
-            this.inputTaker(new MouseInput_1.MouseInput(MouseInputType_3.MouseInputType.LeftMouseButtonRelease, this.cursorXPositionOnViewAreaGetter(), this.cursorYPositionOnViewAreaGetter()));
+            this.inputTaker(new MouseInput_1.MouseInput(MouseInputType_3.MouseInputType.LEFT_MOUSE_BUTTON_RELEASE, this.cursorXPositionOnViewAreaGetter(), this.cursorYPositionOnViewAreaGetter()));
         }
         noteMouseMove(cursorXPositionOnViewArea, cursorYPositionOnViewArea) {
-            this.inputTaker(new MouseInput_1.MouseInput(MouseInputType_3.MouseInputType.MouseMove, cursorXPositionOnViewArea, cursorYPositionOnViewArea));
+            this.inputTaker(new MouseInput_1.MouseInput(MouseInputType_3.MouseInputType.MOUSE_MOVE, cursorXPositionOnViewArea, cursorYPositionOnViewArea));
         }
         noteMouseWheelClick() {
-            this.inputTaker(new MouseInput_1.MouseInput(MouseInputType_3.MouseInputType.MouseWheelClick, this.cursorXPositionOnViewAreaGetter(), this.cursorYPositionOnViewAreaGetter()));
+            this.inputTaker(new MouseInput_1.MouseInput(MouseInputType_3.MouseInputType.MOUSE_WHEEL_CLICK, this.cursorXPositionOnViewAreaGetter(), this.cursorYPositionOnViewAreaGetter()));
         }
         noteMouseWheelPress() {
-            this.inputTaker(new MouseInput_1.MouseInput(MouseInputType_3.MouseInputType.MouseWheelPress, this.cursorXPositionOnViewAreaGetter(), this.cursorYPositionOnViewAreaGetter()));
+            this.inputTaker(new MouseInput_1.MouseInput(MouseInputType_3.MouseInputType.MOUSE_WHEEL_PRESS, this.cursorXPositionOnViewAreaGetter(), this.cursorYPositionOnViewAreaGetter()));
         }
         noteMouseWheelRelease() {
-            this.inputTaker(new MouseInput_1.MouseInput(MouseInputType_3.MouseInputType.MouseWheelRelease, this.cursorXPositionOnViewAreaGetter(), this.cursorYPositionOnViewAreaGetter()));
+            this.inputTaker(new MouseInput_1.MouseInput(MouseInputType_3.MouseInputType.MOUSE_WHEEL_RELEASE, this.cursorXPositionOnViewAreaGetter(), this.cursorYPositionOnViewAreaGetter()));
         }
         noteMouseWheelRotationStep(rotationDirection) {
             this.inputTaker(new MouseInput_1.MouseInput(MouseInputTypeMapper_1.MouseInputTypeMapper.createMouseInputTypeFromRotationDirection(rotationDirection), this.cursorXPositionOnViewAreaGetter(), this.cursorYPositionOnViewAreaGetter()));
@@ -2384,13 +2384,13 @@ define("System/Application/GUIApplication/FrontCanvasGUIClientInputTaker", ["req
             this.inputTaker(new ResizeInput_1.ResizeInput(viewAreaWidth, viewAreaHeight));
         }
         noteRightMouseButtonClick() {
-            this.inputTaker(new MouseInput_1.MouseInput(MouseInputType_3.MouseInputType.RightMouseButtonClick, this.cursorXPositionOnViewAreaGetter(), this.cursorYPositionOnViewAreaGetter()));
+            this.inputTaker(new MouseInput_1.MouseInput(MouseInputType_3.MouseInputType.RIGHT_MOUSE_BUTTON_CLICK, this.cursorXPositionOnViewAreaGetter(), this.cursorYPositionOnViewAreaGetter()));
         }
         noteRightMouseButtonPress() {
-            this.inputTaker(new MouseInput_1.MouseInput(MouseInputType_3.MouseInputType.RightMouseButtonPress, this.cursorXPositionOnViewAreaGetter(), this.cursorYPositionOnViewAreaGetter()));
+            this.inputTaker(new MouseInput_1.MouseInput(MouseInputType_3.MouseInputType.RIGHT_MOUSE_BUTTON_PRESS, this.cursorXPositionOnViewAreaGetter(), this.cursorYPositionOnViewAreaGetter()));
         }
         noteRightMouseButtonRelease() {
-            this.inputTaker(new MouseInput_1.MouseInput(MouseInputType_3.MouseInputType.RightMouseButtonRelease, this.cursorXPositionOnViewAreaGetter(), this.cursorYPositionOnViewAreaGetter()));
+            this.inputTaker(new MouseInput_1.MouseInput(MouseInputType_3.MouseInputType.RIGHT_MOUSE_BUTTON_RELEASE, this.cursorXPositionOnViewAreaGetter(), this.cursorYPositionOnViewAreaGetter()));
         }
     }
     exports.FrontCanvasGUIClientInputTaker = FrontCanvasGUIClientInputTaker;
@@ -2530,23 +2530,12 @@ define("SystemAPI/GUIAPI/StructureProperty/DirectionInRectangle", ["require", "e
         DirectionInRectangle[DirectionInRectangle["DIAGONAL_DOWN"] = 3] = "DIAGONAL_DOWN";
     })(DirectionInRectangle = exports.DirectionInRectangle || (exports.DirectionInRectangle = {}));
 });
-define("System/GUI/StructureProperty/DirectionInRectangleMapper", ["require", "exports", "SystemAPI/GUIAPI/StructureProperty/DirectionInRectangle"], function (require, exports, DirectionInRectangle_1) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    class DirectionInRectangleMapper {
-        static createDirectionInRectangleMapperFromSpecification(specification) {
-            return DirectionInRectangle_1.DirectionInRectangle[specification.getOneAttributeHeader()];
-        }
-        constructor() { }
-    }
-    exports.DirectionInRectangleMapper = DirectionInRectangleMapper;
-});
-define("System/GUI/Color/ColorGradient", ["require", "exports", "System/GUI/Color/Color", "SystemAPI/GUIAPI/StructureProperty/DirectionInRectangle"], function (require, exports, Color_1, DirectionInRectangle_2) {
+define("System/GUI/Color/ColorGradient", ["require", "exports", "System/GUI/Color/Color", "SystemAPI/GUIAPI/StructureProperty/DirectionInRectangle"], function (require, exports, Color_1, DirectionInRectangle_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class ColorGradient {
         static fromSpecification(specification) {
-            return new ColorGradient(DirectionInRectangle_2.DirectionInRectangle[specification.getRefAttributeAtIndex(1).getHeader()], Color_1.Color.fromString(specification.getRefAttributeAtIndex(2).getHeader()), Color_1.Color.fromString(specification.getRefAttributeAtIndex(3).getHeader()));
+            return new ColorGradient(DirectionInRectangle_1.DirectionInRectangle[specification.getRefAttributeAtIndex(1).getHeader()], Color_1.Color.fromString(specification.getRefAttributeAtIndex(2).getHeader()), Color_1.Color.fromString(specification.getRefAttributeAtIndex(3).getHeader()));
         }
         static withDirectionAndColor1AndColor2(direction, color1, color2) {
             return new ColorGradient(direction, color1, color2);
@@ -2696,7 +2685,7 @@ define("System/GUI/TextFormat/TextFormat", ["require", "exports", "System/GUI/Co
     }
     exports.TextFormat = TextFormat;
 });
-define("System/GUI/CanvasGUI/CanvasGUIGlobalPainter", ["require", "exports", "System/GUI/Color/Color", "SystemAPI/GUIAPI/StructureProperty/DirectionInRectangle", "System/GUI/TextFormat/Font", "System/GUI/TextFormat/FontType", "System/GUI/TextFormat/TextFormat"], function (require, exports, Color_3, DirectionInRectangle_3, Font_2, FontType_2, TextFormat_1) {
+define("System/GUI/CanvasGUI/CanvasGUIGlobalPainter", ["require", "exports", "System/GUI/Color/Color", "SystemAPI/GUIAPI/StructureProperty/DirectionInRectangle", "System/GUI/TextFormat/Font", "System/GUI/TextFormat/FontType", "System/GUI/TextFormat/TextFormat"], function (require, exports, Color_3, DirectionInRectangle_2, Font_2, FontType_2, TextFormat_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class CanvasGUIGlobalPainter {
@@ -2794,13 +2783,13 @@ define("System/GUI/CanvasGUI/CanvasGUIGlobalPainter", ["require", "exports", "Sy
         }
         createLinearGradientForDirectionInRectangle(xPosition, yPosition, width, height, directionInRectangle) {
             switch (directionInRectangle) {
-                case DirectionInRectangle_3.DirectionInRectangle.VERTICAL:
+                case DirectionInRectangle_2.DirectionInRectangle.VERTICAL:
                     return this.canvasRenderingContext.createLinearGradient(xPosition, yPosition, xPosition, yPosition + height);
-                case DirectionInRectangle_3.DirectionInRectangle.HORIZONTAL:
+                case DirectionInRectangle_2.DirectionInRectangle.HORIZONTAL:
                     return this.canvasRenderingContext.createLinearGradient(xPosition, yPosition, xPosition + width, yPosition);
-                case DirectionInRectangle_3.DirectionInRectangle.DIAGONAL_DOWN:
+                case DirectionInRectangle_2.DirectionInRectangle.DIAGONAL_DOWN:
                     return this.canvasRenderingContext.createLinearGradient(xPosition, yPosition, xPosition + width, yPosition + height);
-                case DirectionInRectangle_3.DirectionInRectangle.DIAGONAL_UP:
+                case DirectionInRectangle_2.DirectionInRectangle.DIAGONAL_UP:
                     return this.canvasRenderingContext.createLinearGradient(xPosition, yPosition + height, xPosition + width, yPosition);
             }
         }
@@ -3892,7 +3881,7 @@ define("System/GUI/Input/PerformanceFilterInputTaker", ["require", "exports", "S
             }
             else {
                 this.latestSkippedInput =
-                    new MouseInput_2.MouseInput(MouseInputType_4.MouseInputType.MouseMove, cursorXPositionOnViewArea, cursorYPositionOnViewArea);
+                    new MouseInput_2.MouseInput(MouseInputType_4.MouseInputType.MOUSE_MOVE, cursorXPositionOnViewArea, cursorYPositionOnViewArea);
             }
         }
         noteMouseWheelClick() {
@@ -4081,4 +4070,15 @@ define("System/Application/GUIApplication/FrontCanvasGUIClient", ["require", "ex
         }
     }
     exports.FrontCanvasGUIClient = FrontCanvasGUIClient;
+});
+define("System/GUI/StructureProperty/DirectionInRectangleMapper", ["require", "exports", "SystemAPI/GUIAPI/StructureProperty/DirectionInRectangle"], function (require, exports, DirectionInRectangle_3) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    class DirectionInRectangleMapper {
+        static createDirectionInRectangleMapperFromSpecification(specification) {
+            return DirectionInRectangle_3.DirectionInRectangle[specification.getOneAttributeHeader()];
+        }
+        constructor() { }
+    }
+    exports.DirectionInRectangleMapper = DirectionInRectangleMapper;
 });
