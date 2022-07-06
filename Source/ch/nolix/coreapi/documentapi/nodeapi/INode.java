@@ -1,9 +1,11 @@
 //package declaration
 package ch.nolix.coreapi.documentapi.nodeapi;
 
+//own imports
 import ch.nolix.coreapi.attributeapi.optionalattributeuniversalapi.OptionalHeadered;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.containerapi.pairapi.IIntPair;
+import ch.nolix.coreapi.documentapi.xmlapi.IXMLNode;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;
 
 //interface
@@ -219,4 +221,10 @@ public interface INode<N extends INode<N>> extends OptionalHeadered {
 	 * @throws RuntimeException if the current {@link INode} does not represent a long.
 	 */
 	long toLong();
+	
+	//method
+	/**
+	 * @return a {@link IXMLNode} representation of the current {@link INode}.
+	 */
+	IXMLNode<?> toXML();
 }

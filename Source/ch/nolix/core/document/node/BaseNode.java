@@ -423,8 +423,9 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	
 	//method
 	/**
-	 * @return a {@link XMLNode} representation of the current {@link BaseNode}.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public final XMLNode toXML() {
 		
 		//Creates an XMLNode.
