@@ -2,21 +2,18 @@
 package ch.nolix.systemapi.databaseapi.datatypeapi;
 
 import ch.nolix.core.data.BinaryObject;
-import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
 //enum
 public enum DataType {
-	INTEGER_1BYTE(Byte.class, new ByteCreator()),
-	INTEGER_2BYTE(Short.class, new ShortCreator()),
-	INTEGER_4BYTE(Integer.class, new IntegerCreator()),
-	INTEGER_8BYTE(Long.class, new LongCreator()),
-	FLOATING_POINT_NUMBER_4BYTE(Float.class, new FloatCreator()),
-	FLOATING_POINT_NUMBER_8BYTE(Double.class, new DoubleCreator()),
-	BOOLEAN(Boolean.class, new BooleanCreator()),
-	STRING(String.class, new StringCreator()),
-	BINARY_OBJECT(BinaryObject.class, new BinaryObjectCreator());
+	INTEGER_1BYTE(Byte.class),
+	INTEGER_2BYTE(Short.class),
+	INTEGER_4BYTE(Integer.class),
+	INTEGER_8BYTE(Long.class),
+	FLOATING_POINT_NUMBER_4BYTE(Float.class),
+	FLOATING_POINT_NUMBER_8BYTE(Double.class),
+	BOOLEAN(Boolean.class),
+	STRING(String.class),
+	BINARY_OBJECT(BinaryObject.class);
 	
 	//static method
 	public static DataType forType(final Class<?> type) {
@@ -38,34 +35,21 @@ public enum DataType {
 			case "String":
 				return STRING;
 			default:
-				throw
-				UnrepresentingArgumentException.forArgumentNameAndArgumentAndType(
-					LowerCaseCatalogue.TYPE,
-					type,
-					DataType.class
-				);
+				throw new IllegalArgumentException("The given type does not represent a DataType.");
 		}
 	}
 	
 	//attribute
 	private final Class<?> dataTypeClass;
 	
-	//attribute
-	private final IValueCreator<?> valueCreator;
-	
 	//constructor
-	<V> DataType(final Class<V> dataTypeClass, final IValueCreator<V> valueCreator) {
+	<V> DataType(final Class<V> dataTypeClass) {
 		
-		GlobalValidator.assertThat(dataTypeClass).thatIsNamed("data type class").isNotNull();
-		GlobalValidator.assertThat(valueCreator).thatIsNamed(IValueCreator.class).isNotNull();
+		if (dataTypeClass == null) {
+			throw new IllegalArgumentException("The given data type class is null.");
+		}
 		
 		this.dataTypeClass = dataTypeClass;
-		this.valueCreator = valueCreator;
-	}
-	
-	//method
-	public Object createValueFromString(final String string) {
-		return valueCreator.createValueFromString(string);
 	}
 	
 	//method
