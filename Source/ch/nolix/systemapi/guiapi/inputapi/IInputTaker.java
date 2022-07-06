@@ -2,7 +2,6 @@
 package ch.nolix.systemapi.guiapi.inputapi;
 
 //own imports
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
 
@@ -19,7 +18,7 @@ public interface IInputTaker {
 	 * Lets the current {@link IInputTaker} note the given input.
 	 * 
 	 * @param input
-	 * @throws InvalidArgumentException if the given input is not valid.
+	 * @throws RuntimeException if the given input is not valid.
 	 */
 	default void noteInput(final IInput<?> input) {
 		if (input instanceof IMouseInput) {
@@ -27,7 +26,7 @@ public interface IInputTaker {
 		} else if (input instanceof IKeyInput) {
 			noteKeyInput((IKeyInput<?>)input);
 		} else {
-			throw InvalidArgumentException.forArgument(input);
+			throw new IllegalArgumentException("The given input is neither a IMouseInput nor a IKeyInput.");
 		}
 	}
 	
