@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.gui.input;
 
+import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
@@ -68,7 +69,7 @@ public final class MouseInput implements IMouseInput<MouseInput> {
 	public void fillUpAttributesInto(final IMutableList<INode<?>> list) {
 		list.addAtEnd(
 			cursorPosition.getSpecificationWithHeader(CURSOR_POSITION_HEADER),
-			inputType.getSpecificationWithHeader(INPUT_TYPE_HEADER)
+			Node.withHeaderAndChildNode(INPUT_TYPE_HEADER, inputType.name())
 		);
 	}
 	

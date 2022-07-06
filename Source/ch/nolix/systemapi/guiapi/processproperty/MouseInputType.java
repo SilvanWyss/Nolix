@@ -2,15 +2,10 @@
 package ch.nolix.systemapi.guiapi.processproperty;
 
 //own imports
-import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
-import ch.nolix.core.document.node.Node;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.systemapi.elementapi.mainuniversalapi.Specified;
 
 //enum
-public enum MouseInputType implements Specified {
+public enum MouseInputType {
 	MOUSE_MOVE,
 	LEFT_MOUSE_BUTTON_PRESS,
 	LEFT_MOUSE_BUTTON_RELEASE,
@@ -32,18 +27,12 @@ public enum MouseInputType implements Specified {
 			case BACKWARD:
 				return BACKWARD_MOUSE_WHEEL_ROTATION_STEP;
 			default:
-				throw InvalidArgumentException.forArgumentNameAndArgument("rotation direction", rotationDirection);
+				throw new IllegalArgumentException("The given rotation direction is not valid.");
 		}
 	}
 	
 	//static method
 	public static MouseInputType fromSpecification(final INode<?> specification) {
-		return valueOf(GlobalStringHelper.toUpperSnakeCase(specification.getSingleChildNodeHeader()));
-	}
-	
-	//method
-	@Override
-	public void fillUpAttributesInto(final IMutableList<INode<?>> list) {
-		list.addAtEnd(Node.withHeader(GlobalStringHelper.toPascalCase(toString())));
+		return valueOf(specification.getSingleChildNodeHeader());
 	}
 }
