@@ -1,7 +1,6 @@
 //package declaration
 package ch.nolix.system.element;
 
-import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
@@ -15,13 +14,13 @@ public final class MutableSpecificationValueExtractor extends Property {
 	//attributes
 	private final String name;
 	private final IElementTaker<INode<?>> setter;
-	private final IElementGetter<Node> getter;
+	private final IElementGetter<INode<?>> getter;
 	
 	//constructor
 	public MutableSpecificationValueExtractor(
 		final String name,
 		final IElementTaker<INode<?>> setter,
-		final IElementGetter<Node> getter
+		final IElementGetter<INode<?>> getter
 	) {
 		
 		GlobalValidator.assertThat(name).thatIsNamed(PascalCaseCatalogue.NAME).isNotBlank();

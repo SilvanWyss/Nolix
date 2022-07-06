@@ -3,12 +3,10 @@ package ch.nolix.systemapi.elementapi.mainuniversalapi;
 
 //own imports
 import ch.nolix.core.document.node.Node;
-import ch.nolix.core.document.xml.XMLNode;
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
+import ch.nolix.coreapi.documentapi.xmlapi.IXMLNode;
 import ch.nolix.coreapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 
 //interface
@@ -37,7 +35,7 @@ public interface Specified {
 	/**
 	 * @return the specification of the current {@link Specified}.
 	 */
-	default Node getSpecification() {
+	default INode<?> getSpecification() {
 		return getSpecificationWithHeader(getSpecificationHeader());
 	}
 	
@@ -53,19 +51,11 @@ public interface Specified {
 	/**
 	 * @param header
 	 * @return the specification of the current {@link Specified} with the given header.
-	 * @throws ArgumentIsNullException if the given header is null.
-	 * @throws InvalidArgumentException if the given header is blank.
+	 * @throws RuntimeException if the given header is null.
+	 * @throws RuntimeException if the given header is blank.
 	 */
-	default Node getSpecificationWithHeader(final String header) {
+	default INode<?> getSpecificationWithHeader(final String header) {
 		return Node.withHeaderAndChildNodes(header, getAttributes());
-	}
-	
-	//method
-	/**
-	 * @return the specification of the current {@link Specified} without header.
-	 */
-	default Node getSpecificationWithoutHeader() {
-		return Node.withChildNodes(getAttributes());
 	}
 	
 	//method
@@ -80,7 +70,7 @@ public interface Specified {
 	/**
 	 * @return a XML representation of the current {@link Specified}.
 	 */
-	default XMLNode toXML() {
+	default IXMLNode<?> toXML() {
 		return getSpecification().toXML();
 	}
 	
@@ -88,18 +78,10 @@ public interface Specified {
 	/**
 	 * @return a XML representation of the current {@link Specified} with the given header.
 	 * @param header
-	 * @throws ArgumentIsNullException if the given header is null.
-	 * @throws InvalidArgumentException if the given header is blank.
+	 * @throws RuntimeException if the given header is null.
+	 * @throws RuntimeException if the given header is blank.
 	 */
-	default XMLNode toXMLWithHeader(final String header) {
+	default IXMLNode<?> toXMLWithHeader(final String header) {
 		return getSpecificationWithHeader(header).toXML();
-	}
-	
-	//method
-	/**
-	 * @return a XML representation of the current {@link Specified} without header.
-	 */
-	default XMLNode toXMLWithoutHeader() {
-		return getSpecificationWithoutHeader().toXML();
 	}
 }
