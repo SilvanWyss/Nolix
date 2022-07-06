@@ -69,6 +69,14 @@ implements IRespondingMutableElement<FE> {
 	
 	//method
 	@Override
+	public final void addOrChangeAttribute(final INode<?> attribute) {
+		if (!addedOrChangedAttribute(attribute)) {
+			throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.ATTRIBUTE, attribute);
+		}
+	}
+	
+	//method
+	@Override
 	public final void fillUpAttributesInto(final IMutableList<INode<?>> list) {
 		for (final var p : getRefProperties()) {
 			p.fillUpValuesSpecificationInto(list);
