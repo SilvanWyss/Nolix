@@ -2,7 +2,6 @@
 package ch.nolix.systemapi.guiapi.mainapi;
 
 //own imports
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.coreapi.markerapi.AllowDefaultMethodsAsDesignPattern;
@@ -18,7 +17,9 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 		final IElementTaker<OCIAM> leftMouseButtonClickAction
 	) {
 		
-		GlobalValidator.assertThat(leftMouseButtonClickAction).thatIsNamed("left mouse button click action").isNotNull();
+		if (leftMouseButtonClickAction == null) {
+			throw new IllegalArgumentException("left mouse button click action");
+		}
 		
 		return
 		setLeftMouseButtonClickAction(
@@ -33,7 +34,9 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 	//method
 	default OCIAM setLeftMouseButtonPressActionOnFreeArea(final IAction leftMouseButtonPressAction) {
 		
-		GlobalValidator.assertThat(leftMouseButtonPressAction).thatIsNamed("left mouse button press action").isNotNull();
+		if (leftMouseButtonPressAction == null) {
+			throw new IllegalArgumentException("left mouse button press action");
+		}
 		
 		return setLeftMouseButtonPressActionOnFreeArea(ociam -> leftMouseButtonPressAction.run());
 	}
@@ -43,7 +46,9 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 		final IElementTaker<OCIAM> leftMouseButtonPressAction
 	) {
 		
-		GlobalValidator.assertThat(leftMouseButtonPressAction).thatIsNamed("left mouse button press action").isNotNull();
+		if (leftMouseButtonPressAction == null) {
+			throw new IllegalArgumentException("left mouse button press action");
+		}
 		
 		return
 		setLeftMouseButtonPressAction(
@@ -60,7 +65,9 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 		final IElementTaker<OCIAM> leftMouseButtonReleaseAction
 	) {
 		
-		GlobalValidator.assertThat(leftMouseButtonReleaseAction).thatIsNamed("left mouse button release action").isNotNull();
+		if (leftMouseButtonReleaseAction == null) {
+			throw new IllegalArgumentException("left mouse button release action");
+		}
 		
 		return
 		setLeftMouseButtonReleaseAction(
@@ -75,7 +82,9 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 	//method
 	default OCIAM setMouseMoveActionOnFreeArea(final IElementTaker<OCIAM> mouseMoveAction) {
 		
-		GlobalValidator.assertThat(mouseMoveAction).thatIsNamed("mouse move action").isNotNull();
+		if (mouseMoveAction == null) {
+			throw new IllegalArgumentException("mouse move action");
+		}
 		
 		return
 		setMouseMoveAction(
@@ -92,7 +101,9 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 		final IElementTaker<OCIAM> mouseWheelClickAction
 	) {
 		
-		GlobalValidator.assertThat(mouseWheelClickAction).thatIsNamed("mouse wheel click action").isNotNull();
+		if (mouseWheelClickAction == null) {
+			throw new IllegalArgumentException("mouse wheel click action");
+		}
 		
 		return
 		setMouseWheelClickAction(
@@ -109,7 +120,9 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 		final IElementTaker<OCIAM> mouseWheelPressAction
 	) {
 		
-		GlobalValidator.assertThat(mouseWheelPressAction).thatIsNamed("mouse wheel press action").isNotNull();
+		if (mouseWheelPressAction == null) {
+			throw new IllegalArgumentException("mouse wheel press action");
+		}
 		
 		return
 		setMouseWheelPressAction(
@@ -126,7 +139,9 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 		final IElementTaker<OCIAM> mouseWheelReleaseAction
 	) {
 		
-		GlobalValidator.assertThat(mouseWheelReleaseAction).thatIsNamed("mouse wheel release action").isNotNull();
+		if (mouseWheelReleaseAction == null) {
+			throw new IllegalArgumentException("mouse wheel release action");
+		}
 		
 		return
 		setMouseWheelReleaseAction(
@@ -143,7 +158,9 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 		final IElementTaker<OCIAM> rightMouseButtonClickAction
 	) {
 		
-		GlobalValidator.assertThat(rightMouseButtonClickAction).thatIsNamed("right mouse button click action").isNotNull();
+		if (rightMouseButtonClickAction == null) {
+			throw new IllegalArgumentException("right mouse button click action");
+		}
 		
 		return
 		setRightMouseButtonClickAction(
@@ -160,7 +177,9 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 		final IElementTaker<OCIAM> rightMouseButtonPressAction
 	) {
 		
-		GlobalValidator.assertThat(rightMouseButtonPressAction).thatIsNamed("right mouse button press action").isNotNull();
+		if (rightMouseButtonPressAction == null) {
+			throw new IllegalArgumentException("right mouse button press action");
+		}
 		
 		return
 		setRightMouseButtonPressAction(
@@ -176,11 +195,10 @@ extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 	default OCIAM setRightMouseButtonReleaseActionOnFreeArea(
 		final IElementTaker<OCIAM> rightMouseButtonReleaseAction
 	) {
-		
-		GlobalValidator
-		.assertThat(rightMouseButtonReleaseAction)
-		.thatIsNamed("right mouse button release action")
-		.isNotNull();
+				
+		if (rightMouseButtonReleaseAction == null) {
+			throw new IllegalArgumentException("right mouse button release action");
+		}
 		
 		return
 		setRightMouseButtonReleaseAction(
