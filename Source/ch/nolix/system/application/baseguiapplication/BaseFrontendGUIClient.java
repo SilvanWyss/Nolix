@@ -5,12 +5,12 @@ package ch.nolix.system.application.baseguiapplication;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 
-import ch.nolix.core.container.main.SingleContainer;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.environment.localcomputer.PopupWindowProvider;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.coreapi.containerapi.mainapi.ISingleContainer;
 import ch.nolix.system.application.main.FrontendClient;
 import ch.nolix.system.gui.main.GUI;
 import ch.nolix.systemapi.guiapi.inputapi.IInput;
@@ -148,7 +148,7 @@ extends FrontendClient<BFGUIC> {
 	/**
 	 * @return a file from the current {@link BaseFrontendGUIClient}.
 	 */
-	private SingleContainer<byte[]> readFileToBytes() {
+	private ISingleContainer<byte[]> readFileToBytes() {
 		return getRefGUI().fromFrontEnd().readFileToBytes();
 	}
 	
