@@ -64,7 +64,11 @@ public final class Value<V> extends BaseValue<V> implements IValue<DataImplement
 	public void setValueFromStringRepresentation(final String string) {
 		
 		@SuppressWarnings("unchecked")
-		final var value = (V)DataType.forType(valueHelper.getDataType(this)).createValueFromString(string);
+		final var value =
+		(V)ValueCreator.INSTANCE.createValueOfDataTypeFromString(
+			DataType.forType(valueHelper.getDataType(this)),
+			string
+		);
 		
 		setValue(value);
 	}
