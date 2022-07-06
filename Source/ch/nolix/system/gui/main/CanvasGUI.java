@@ -3,6 +3,7 @@ package ch.nolix.system.gui.main;
 
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.document.chainednode.ChainedNode;
+import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.core.programatom.stateproperty.Visibility;
@@ -38,7 +39,7 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 		DEFAULT_CURSOR_ICON,
 		this::setCursorIcon,
 		CursorIcon::fromSpecification,
-		CursorIcon::getSpecification
+		Node::fromEnum
 	);
 		
 	//multi-attribute

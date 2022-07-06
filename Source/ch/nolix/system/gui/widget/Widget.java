@@ -78,7 +78,7 @@ implements IWidget<W, WL> {
 		this::setCustomCursorIcon,
 		this::getCustomCursorIcon,
 		CursorIcon::fromSpecification,
-		CursorIcon::getSpecification
+		Node::fromEnum
 	);	
 	
 	//attributes

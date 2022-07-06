@@ -39,7 +39,7 @@ final class BaseBackendGUIClientGUIUpdateCommandCreator {
 		return
 		ChainedNode.withHeaderAndNextNode(
 			ObjectProtocol.GUI,
-			ChainedNode.withHeaderAndChildNodesFromNodes(CommandProtocol.SET_CURSOR_ICON, cursorIcon.getSpecification())
+			ChainedNode.withHeaderAndChildNodesFromNodes(CommandProtocol.SET_CURSOR_ICON, Node.fromEnum(cursorIcon))
 		);
 	}
 	
