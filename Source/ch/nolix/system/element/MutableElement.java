@@ -6,6 +6,7 @@ import java.lang.reflect.Field;
 
 //own imports
 import ch.nolix.core.container.main.LinkedList;
+import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
@@ -52,6 +53,19 @@ public abstract class MutableElement<ME extends MutableElement<ME>> implements I
 	 * {@inheritDoc}
 	 */
 	@Override
+	public final void addOrChangeAttribute(final String... attributes) {
+		
+		//Iterates the given attributes.
+		for (final var a : attributes) {
+			addOrChangeAttribute(Node.fromString(a));
+		}
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public final boolean equals(final Object object) {
 		
 		if (object == null) {
@@ -87,6 +101,17 @@ public abstract class MutableElement<ME extends MutableElement<ME>> implements I
 	@Override
 	public final int hashCode() {
 		return getSpecification().hashCode();
+	}
+	
+	//method
+	/**
+	 * Resets the current {@link MutableElement} from the file with the given filePath.
+	 * 
+	 * @param filePath
+	 * @throws InvalidArgumentException if the given filePath is not valid.
+	 */
+	public final void resetFromFileWithFilePath(final String filePath) {
+		resetFromSpecification(Node.fromFile(filePath));
 	}
 	
 	//method

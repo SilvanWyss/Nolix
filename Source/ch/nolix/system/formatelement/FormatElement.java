@@ -6,6 +6,7 @@ import java.lang.reflect.Field;
 
 //own imports
 import ch.nolix.core.container.main.LinkedList;
+import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -54,6 +55,16 @@ implements IRespondingMutableElement<FE> {
 		}
 		
 		return false;
+	}
+	
+	//method
+	@Override
+	public final void addOrChangeAttribute(final String... attributes) {
+		
+		//Iterates the given attributes.
+		for (final var a : attributes) {
+			addOrChangeAttribute(Node.fromString(a));
+		}
 	}
 	
 	//method

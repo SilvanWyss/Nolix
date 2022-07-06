@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.elementapi.mainuniversalapi;
 
-import ch.nolix.core.document.node.Node;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+//own imports
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionapi.mutationuniversalapi.Resettable;
 import ch.nolix.coreapi.markerapi.AllowDefaultMethodsAsDesignPattern;
@@ -33,7 +32,7 @@ public interface IMutableElement<ME extends IMutableElement<ME>> extends Resetta
 	 * Adds or changes the given attributes to the current {@link IMutableElement}.
 	 * 
 	 * @param attributes
-	 * @throws InvalidArgumentException if one of the given attributes is not valid.
+	 * @throws RuntimeException if one of the given attributes is not valid.
 	 */
 	default void addOrChangeAttribute(final INode<?>... attributes) {
 		
@@ -45,36 +44,19 @@ public interface IMutableElement<ME extends IMutableElement<ME>> extends Resetta
 	
 	//method
 	/**
-	 * Adds or changes the given attribute to the current {@link IMutableElement}.
+	 * Adds or changes the given attributes to the current {@link IMutableElement}.
 	 * 
-	 * @param attribute
-	 * @throws InvalidArgumentException if the given attribute is not valid.
+	 * @param attributes
+	 * @throws RuntimeException if one of the given attributes is not valid.
 	 */
-	default void addOrChangeAttribute(final String attribute) {
-		addOrChangeAttribute(Node.fromString(attribute));
-	}
+	void addOrChangeAttribute(final String... attributes);
 	
 	//method
 	/**
 	 * Adds or changes the given attributes to the current {@link IMutableElement}.
 	 * 
 	 * @param attributes
-	 * @throws InvalidArgumentException if one of the given attributes is not valid.
-	 */
-	default void addOrChangeAttribute(final String... attributes) {
-		
-		//Iterates the given attributes.
-		for (final var a : attributes) {
-			addOrChangeAttribute(a);
-		}
-	}
-	
-	//method
-	/**
-	 * Adds or changes the given attributes to the current {@link IMutableElement}.
-	 * 
-	 * @param attributes
-	 * @throws InvalidArgumentException if one of the given attributes is not valid.
+	 * @throws RuntimeException if one of the given attributes is not valid.
 	 */
 	default void addOrChangeAttributes(final Iterable<? extends INode<?>> attributes) {
 		
@@ -89,7 +71,7 @@ public interface IMutableElement<ME extends IMutableElement<ME>> extends Resetta
 	 * Resets the current {@link IMutableElement} from the given attributes.
 	 * 
 	 * @param attributes
-	 * @throws InvalidArgumentException if one of the given attributes is not valid.
+	 * @throws RuntimeException if one of the given attributes is not valid.
 	 */
 	default void resetFromAttributes(final Iterable<? extends INode<?>> attributes) {
 		
@@ -97,38 +79,15 @@ public interface IMutableElement<ME extends IMutableElement<ME>> extends Resetta
 		
 		addOrChangeAttributes(attributes);
 	}
-	
-	//method
-	/**
-	 * Resets the current {@link IMutableElement} from the file with the given filePath.
-	 * 
-	 * @param filePath
-	 * @throws InvalidArgumentException if the given filePath is not valid.
-	 * @throws InvalidArgumentException if the file with the given filePath does not represent a {@link Node}.
-	 */
-	default void resetFromFileWithFilePath(final String filePath) {
-		resetFromSpecification(Node.fromFile(filePath));
-	}
-	
+		
 	//method
 	/**
 	 * Resets the current {@link IMutableElement} from the given specification.
 	 * 
 	 * @param specification
-	 * @throws InvalidArgumentException if the given specification is not valid.
+	 * @throws RuntimeException if the given specification is not valid.
 	 */
 	default void resetFromSpecification(final INode<?> specification) {
 		resetFromAttributes(specification.getRefChildNodes());
-	}
-	
-	//method
-	/**
-	 * Resets the current {@link IMutableElement} from the given specification.
-	 * 
-	 * @param specification
-	 * @throws InvalidArgumentException if the given specification is not valid.
-	 */
-	default void resetFromSpecification(final String specification) {
-		resetFromSpecification(Node.fromString(specification));
 	}
 }
