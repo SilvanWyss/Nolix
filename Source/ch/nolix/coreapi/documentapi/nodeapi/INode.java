@@ -24,6 +24,15 @@ public interface INode<N extends INode<N>> extends OptionalHeadered {
 	
 	//method declaration
 	/**
+	 * @param header
+	 * @return a new {@link INode} that is a copy of the current {@link INode} with the given header.
+	 * @throws RuntimeException if the given header is null.
+	 * @throws RuntimeException if the given header is blank.
+	 */
+	INode<?> asWithHeader(String header);
+	
+	//method declaration
+	/**
 	 * @return true if the current {@link INode} contains child {@link INode}s.
 	 */
 	boolean containsChildNodes();

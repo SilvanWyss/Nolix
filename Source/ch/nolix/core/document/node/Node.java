@@ -400,6 +400,15 @@ public final class Node extends BaseNode<Node> {
 	 * {@inheritDoc}
 	 */
 	@Override
+	public INode<?> asWithHeader(String header) {
+		return withHeaderAndChildNodes(header, getRefChildNodes());
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public boolean equals(final Object object) {
 		
 		if (!(object instanceof Node)) {

@@ -147,6 +147,15 @@ public final class FileNode extends BaseMutableNode<FileNode> {
 	 * {@inheritDoc}
 	 */
 	@Override
+	public INode<?> asWithHeader(String header) {
+		return Node.withHeaderAndChildNodes(header, getRefChildNodes());
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public boolean equals(final Object object) {
 		
 		if (!(object instanceof FileNode)) {

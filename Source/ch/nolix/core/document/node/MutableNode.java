@@ -129,6 +129,15 @@ public final class MutableNode extends BaseMutableNode<MutableNode> {
 	 * {@inheritDoc}
 	 */
 	@Override
+	public INode<?> asWithHeader(String header) {
+		return Node.withHeaderAndChildNodes(header, getRefChildNodes());
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public boolean equals(final Object object) {
 		
 		if (!(object instanceof MutableNode)) {
