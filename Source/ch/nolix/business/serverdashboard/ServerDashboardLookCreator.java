@@ -54,7 +54,7 @@ public final class ServerDashboardLookCreator {
 		return
 		new DeepConfiguration()
 		.setSelectorType(Layer.class)
-		.addAttachingAttribute("ContentPosition(Top)");
+		.addAttachingAttribute("ContentPosition(TOP)");
 	}
 	
 	//method
