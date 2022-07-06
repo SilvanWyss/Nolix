@@ -23,6 +23,7 @@ import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
+import ch.nolix.coreapi.containerapi.matrixapi.IMatrix;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.element.MutableElement;
 import ch.nolix.system.element.MutableSpecificationValueExtractor;
@@ -113,8 +114,8 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 	}
 	
 	//static method
-	public static MutableImage withPixels(final Matrix<IColor> pixels) {
-		return new MutableImage(pixels.getCopy());
+	public static MutableImage withPixels(final IMatrix<IColor> pixels) {
+		return new MutableImage(Matrix.fromMatrix(pixels));
 	}
 	
 	//static method

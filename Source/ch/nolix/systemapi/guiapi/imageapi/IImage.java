@@ -5,7 +5,7 @@ package ch.nolix.systemapi.guiapi.imageapi;
 import java.awt.image.BufferedImage;
 
 //own imports
-import ch.nolix.core.container.matrix.Matrix;
+import ch.nolix.coreapi.containerapi.matrixapi.IMatrix;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.elementapi.mainuniversalapi.Specified;
 import ch.nolix.systemapi.guiapi.colorapi.IColor;
@@ -32,7 +32,7 @@ public interface IImage extends Specified {
 	int getPixelCount();
 	
 	//method declaration
-	Matrix<IColor> getPixles();
+	IMatrix<IColor> getPixles();
 	
 	//method declaration
 	IMutableImage<?> getSection(int xPosition, int yPosition, int width, int height);
