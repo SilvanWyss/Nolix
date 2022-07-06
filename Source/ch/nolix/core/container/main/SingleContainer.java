@@ -1,11 +1,13 @@
 //package declaration
 package ch.nolix.core.container.main;
 
+//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.containerapi.mainapi.ISingleContainer;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerComparableGetter;
 
 //class
@@ -17,7 +19,7 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerComparableGe
  * @date 2020-01-11
  * @param <E> is the type of the element of a {@link SingleContainer}.
  */
-public final class SingleContainer<E> extends Container<E> {
+public final class SingleContainer<E> extends Container<E> implements ISingleContainer<E> {
 	
 	//optional attribute
 	private final E element;
