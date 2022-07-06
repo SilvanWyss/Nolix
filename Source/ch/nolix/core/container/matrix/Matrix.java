@@ -28,7 +28,24 @@ import ch.nolix.coreapi.functionapi.mutationuniversalapi.Clearable;
  * @param <E> is the type of the elements of a {@link Matrix}.
  */
 public final class Matrix<E> extends Container<E> implements Clearable, IMatrix<E> {
-
+	
+	//static method
+	/**
+	 * @param matrix
+	 * @param <E2> is the type of the elements of the given matrix.
+	 * @return a new {@link Matrix} with the size and elements of the given matrix.
+	 */
+	public static <E2> Matrix<E2> fromMatrix(final IMatrix<E2> matrix) {
+		
+		final var newMatrix = new Matrix<E2>();
+		
+		for (final var r : matrix.getRows()) {
+			newMatrix.addRow(r);
+		}
+		
+		return newMatrix;
+	}
+	
 	//multi-attribute
 	private Object[][] elements = new Object[0][0];
 	
