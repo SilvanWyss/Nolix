@@ -5,16 +5,10 @@ package ch.nolix.systemapi.guiapi.inputapi;
 import java.awt.event.KeyEvent;
 
 //own imports
-import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
-import ch.nolix.core.document.node.Node;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
-import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.systemapi.elementapi.mainuniversalapi.Specified;
 
 //enum
-public enum Key implements Specified {
+public enum Key {
 	A,
 	B,
 	C,
@@ -235,7 +229,7 @@ public enum Key implements Specified {
 			case KeyEvent.VK_SPACE:
 				return Key.SPACE;
 			default:
-				throw InvalidArgumentException.forArgument(keyEvent);
+				throw new IllegalArgumentException("The given key event does not represent a Key.");
 		}
 	}
 	
@@ -367,19 +361,13 @@ public enum Key implements Specified {
 			case '9':
 				return Key.NUMBER_9;
 			default:
-				throw InvalidArgumentException.forArgument(character);
+				throw new IllegalArgumentException("The given char is not a character.");
 		}
 	}
 	
 	//static method
 	public static Key fromSpecification(final INode<?> specification) {
-		return valueOf(GlobalStringHelper.toUpperSnakeCase(specification.getSingleChildNodeHeader()));
-	}
-	
-	//method
-	@Override
-	public void fillUpAttributesInto(final IMutableList<INode<?>> list) {
-		list.addAtEnd(Node.withHeader(GlobalStringHelper.toPascalCase(toString())));
+		return valueOf(specification.getSingleChildNodeHeader());
 	}
 	
 	//method
@@ -673,7 +661,7 @@ public enum Key implements Specified {
 			case SPACE:
 				return ' ';
 		default:
-			throw UnrepresentingArgumentException.forArgumentAndType(this, Character.class);				
+			throw new IllegalArgumentException("The current Key is not a non-number character.");			
 		}
 	}
 }
