@@ -2099,8 +2099,8 @@ define("SystemAPI/GUIAPI/ProcessProperty/RotationDirection", ["require", "export
     Object.defineProperty(exports, "__esModule", { value: true });
     var RotationDirection;
     (function (RotationDirection) {
-        RotationDirection[RotationDirection["Forward"] = 0] = "Forward";
-        RotationDirection[RotationDirection["Backward"] = 1] = "Backward";
+        RotationDirection[RotationDirection["FORWARD"] = 0] = "FORWARD";
+        RotationDirection[RotationDirection["BACKWARD"] = 1] = "BACKWARD";
     })(RotationDirection = exports.RotationDirection || (exports.RotationDirection = {}));
 });
 define("SystemAPI/GUIAPI/InputAPI/IInputTaker", ["require", "exports"], function (require, exports) {
@@ -2261,9 +2261,9 @@ define("System/GUI/Input/MouseInputTypeMapper", ["require", "exports", "System/G
     class MouseInputTypeMapper {
         static createMouseInputTypeFromRotationDirection(rotationDirection) {
             switch (rotationDirection) {
-                case RotationDirection_1.RotationDirection.Forward:
+                case RotationDirection_1.RotationDirection.FORWARD:
                     return MouseInputType_2.MouseInputType.FORWARD_MOUSE_WHEEL_ROTATION_STEP;
-                case RotationDirection_1.RotationDirection.Backward:
+                case RotationDirection_1.RotationDirection.BACKWARD:
                     return MouseInputType_2.MouseInputType.BACKWARD_MOUSE_WHEEL_ROTATION_STEP;
             }
         }
@@ -3234,7 +3234,7 @@ define("System/GUI/ProcessProperty/RotationDirectionMapper", ["require", "export
     Object.defineProperty(exports, "__esModule", { value: true });
     class RotationDirectionMapper {
         static createRotationDirectionFromWheelEvent(wheelEvent) {
-            return (wheelEvent.deltaY > 0 ? RotationDirection_2.RotationDirection.Forward : RotationDirection_2.RotationDirection.Backward);
+            return (wheelEvent.deltaY > 0 ? RotationDirection_2.RotationDirection.FORWARD : RotationDirection_2.RotationDirection.BACKWARD);
         }
         constructor() { }
     }

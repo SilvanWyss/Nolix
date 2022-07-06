@@ -2,19 +2,14 @@
 package ch.nolix.systemapi.guiapi.processproperty;
 
 //own imports
-import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
-import ch.nolix.core.document.node.Node;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.systemapi.elementapi.mainuniversalapi.Specified;
 
 //enum
 /**
  * @author Silvan Wyss
  * @date 2019-07-28
  */
-public enum RotationDirection implements Specified {
+public enum RotationDirection {
 	FORWARD,
 	BACKWARD;
 	
@@ -22,24 +17,16 @@ public enum RotationDirection implements Specified {
 	/**
 	 * @param specification
 	 * @return a new {@link RotationDirection} from the given specification.
-	 * @throws InvalidArgumentException if the given specification is not valid.
+	 * @throws RuntimeException if the given specification does not represent a {@link RotationDirection}.
 	 */
 	public static RotationDirection fromSpecification(final INode<?> specification) {
-		return valueOf(GlobalStringHelper.toUpperSnakeCase(specification.getSingleChildNodeHeader()));
+		return valueOf(specification.getSingleChildNodeHeader());
 	}
 	
 	//method
 	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void fillUpAttributesInto(final IMutableList<INode<?>> list) {
-		list.addAtEnd(Node.withHeader(GlobalStringHelper.toPascalCase(toString())));
-	}
-	
-	//method
-	/**
-	 * @return 1 if the current {@link RotationDirection} is {@link RotationDirection#FORWARD},
+	 * @return an int representation of the current {@link RotationDirection}.
+	 * 1 if the current {@link RotationDirection} is {@link RotationDirection#FORWARD},
 	 * -1 if the current {@link RotationDirection} is {@link RotationDirection#BACKWARD}.
 	 */
 	public int toInt() {
@@ -51,7 +38,7 @@ public enum RotationDirection implements Specified {
 			case BACKWARD:
 				return -1;
 			default:
-				throw InvalidArgumentException.forArgument(this);
+				throw new IllegalArgumentException("The current RotationDirection is not valid.");
 		}
 	}
 }
