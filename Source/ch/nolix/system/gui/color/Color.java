@@ -754,12 +754,12 @@ public final class Color implements IColor {
 	}
 	
 	//static method
-	public static Color createAverageFrom(final Color... colors) {
+	public static Color createAverageFrom(final IColor... colors) {
 		return createAverageFrom(ReadContainer.forArray(colors));
 	}
 	
 	//static method
-	public static Color createAverageFrom(final IContainer<Color> colors) {
+	public static Color createAverageFrom(final IContainer<IColor> colors) {
 		
 		final var colorCount = colors.getElementCount();
 		

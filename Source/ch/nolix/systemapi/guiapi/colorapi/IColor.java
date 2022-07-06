@@ -12,9 +12,33 @@ public interface IColor extends Specified {
 	
 	//method declaration
 	/**
+	 * @return the alpha value of the current {@link IColor}.
+	 */
+	int getAlphaValue();
+	
+	//method declaration
+	/**
+	 * @return the blue value of the current {@link IColor}.
+	 */
+	int getBlueValue();
+	
+	//method declaration
+	/**
 	 * @return the hexadecimal value of the current {@link Color} always with alpha value.
 	 */
 	String getHexadecimalValueAlwaysWithAlphaValue();
+	
+	//method declaration
+	/**
+	 * @return the green value of the current {@link IColor}.
+	 */
+	int getGreenValue();
+	
+	//method declaration
+	/**
+	 * @return the red value of the current {@link IColor}.
+	 */
+	int getRedValue();
 	
 	//method declaration
 	/**
