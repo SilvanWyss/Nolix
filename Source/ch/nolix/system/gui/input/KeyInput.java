@@ -198,7 +198,7 @@ public final class KeyInput implements IKeyInput<KeyInput> {
 	//method
 	@Override
 	public void fillUpAttributesInto(final IMutableList<INode<?>> list) {
-		list.addAtEnd(Node.fromEnum(key), inputType.getSpecificationWithHeader(INPUT_TYPE_HEADER));
+		list.addAtEnd(Node.fromEnum(key), Node.withHeaderAndChildNode(INPUT_TYPE_HEADER, inputType.name()));
 	}
 	
 	//method
