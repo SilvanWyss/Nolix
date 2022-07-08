@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.nodedatabaserawdata.datawriter;
 
+//own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;

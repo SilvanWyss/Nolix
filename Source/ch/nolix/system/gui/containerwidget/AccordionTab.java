@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.gui.containerwidget;
 
+//own imports
 import ch.nolix.core.commontype.constant.StringCatalogue;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;

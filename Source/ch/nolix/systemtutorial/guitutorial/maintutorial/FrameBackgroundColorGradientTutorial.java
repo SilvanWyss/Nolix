@@ -1,5 +1,6 @@
 package ch.nolix.systemtutorial.guitutorial.maintutorial;
 
+//own imports
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.color.ColorGradient;
 import ch.nolix.system.gui.main.Frame;

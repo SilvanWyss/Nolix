@@ -4,6 +4,7 @@ package ch.nolix.system.gui3d.jmonkeygui;
 //JMonkey imports
 import com.jme3.math.ColorRGBA;
 
+//own imports
 import ch.nolix.system.gui.color.Color;
 
 //class

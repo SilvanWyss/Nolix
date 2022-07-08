@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.application.baseguiapplication;
 
+//own imports
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;

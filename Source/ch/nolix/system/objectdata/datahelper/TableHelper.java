@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.objectdata.datahelper;
 
+//own imports
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;

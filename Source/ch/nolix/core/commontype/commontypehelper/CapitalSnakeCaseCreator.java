@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.commontype.commontypehelper;
 
+//own imports
 import ch.nolix.core.commontype.constant.CharacterCatalogue;
 import ch.nolix.core.commontype.constant.StringCatalogue;
 

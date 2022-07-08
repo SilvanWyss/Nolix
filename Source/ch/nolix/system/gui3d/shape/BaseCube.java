@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.gui3d.shape;
 
+//own imports
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;

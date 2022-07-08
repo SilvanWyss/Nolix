@@ -4,6 +4,7 @@ package ch.nolix.system.gui3d.main;
 //Java imports
 import java.awt.image.BufferedImage;
 
+//own imports
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;

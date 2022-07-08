@@ -1,5 +1,6 @@
 package ch.nolix.systemtutorial.guitutorial.dialogtutorial;
 
+//own imports
 import ch.nolix.system.configuration.Configuration;
 import ch.nolix.system.configuration.DeepConfiguration;
 import ch.nolix.system.gui.containerwidget.ContainerRole;

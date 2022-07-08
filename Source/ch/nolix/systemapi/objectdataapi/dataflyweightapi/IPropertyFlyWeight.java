@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.objectdataapi.dataflyweightapi;
 
+//own imports
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.functionapi.requestuniversalapi.VoidnessRequestable;
 

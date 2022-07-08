@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.gui.containerwidget;
 
+//own imports
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.system.element.mutableelement.MultiValueExtractor;

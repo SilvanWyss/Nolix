@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.databaseapi.propertytypeapi;
 
+//own imports
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.databaseapi.cardinalityapi.Cardinality;
 

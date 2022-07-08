@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.net.endpoint3;
 
+//own imports
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;

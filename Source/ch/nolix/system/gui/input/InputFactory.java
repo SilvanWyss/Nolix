@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.gui.input;
 
+//own imports
 import ch.nolix.system.elementfactory.ElementFactory;
 import ch.nolix.systemapi.guiapi.inputapi.IInput;
 

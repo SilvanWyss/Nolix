@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.application.baseguiapplication;
 
+//own imports
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.container.main.SingleContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;

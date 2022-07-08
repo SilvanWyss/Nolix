@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.objectdata.parametrizedpropertytype;
 
+//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.application.guiapplication;
 
+//own imports
 import ch.nolix.system.application.baseguiapplication.BaseBackendGUIClientSession;
 
 //class

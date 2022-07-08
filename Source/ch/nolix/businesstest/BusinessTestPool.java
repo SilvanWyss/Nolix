@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.businesstest;
 
+//own imports
 import ch.nolix.businesstest.bigdecimalmathtest.BigDecimalMathTestPool;
 import ch.nolix.core.testing.basetest.TestPool;
 

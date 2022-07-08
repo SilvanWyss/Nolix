@@ -4,6 +4,7 @@ package ch.nolix.core.testing.test;
 //Java imports
 import java.util.ArrayList;
 
+//own imports
 import ch.nolix.core.testing.validation.BitMediator;
 import ch.nolix.core.testing.validation.ByteMediator;
 import ch.nolix.core.testing.validation.ClosureMediator;

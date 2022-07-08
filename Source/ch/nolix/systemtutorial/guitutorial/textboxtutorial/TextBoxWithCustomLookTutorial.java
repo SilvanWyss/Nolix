@@ -1,5 +1,6 @@
 package ch.nolix.systemtutorial.guitutorial.textboxtutorial;
 
+//own imports
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.main.Frame;
 import ch.nolix.system.gui.textbox.TextBox;

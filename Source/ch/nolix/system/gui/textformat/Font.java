@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.gui.textformat;
 
+//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlrawdata.datadto;
 
+//own imports
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;

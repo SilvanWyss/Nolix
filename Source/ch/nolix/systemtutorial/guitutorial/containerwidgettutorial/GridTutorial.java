@@ -1,5 +1,6 @@
 package ch.nolix.systemtutorial.guitutorial.containerwidgettutorial;
 
+//own imports
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.containerwidget.Grid;
 import ch.nolix.system.gui.containerwidget.GridType;

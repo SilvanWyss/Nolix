@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.provider.implprovider;
 
+//own imports
 import ch.nolix.coreapi.providerapi.implproviderapi.IImplProvider;
 import ch.nolix.coreapi.providerapi.implproviderapi.IImplProviderMediator;
 

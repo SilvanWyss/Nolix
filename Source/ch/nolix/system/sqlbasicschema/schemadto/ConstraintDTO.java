@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlbasicschema.schemadto;
 
+//own imports
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;

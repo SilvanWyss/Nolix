@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.objectdata.dataadapter;
 
+//own imports
 import ch.nolix.core.net.constant.IPv4Catalogue;
 import ch.nolix.core.sql.SQLConnectionPool;
 import ch.nolix.core.sql.SQLDatabaseEngine;

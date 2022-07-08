@@ -4,6 +4,7 @@ package ch.nolix.business.bigdecimalmath;
 //Java imports
 import java.math.BigDecimal;
 
+//own imports
 import ch.nolix.businessapi.bigdecimalmathapi.IClosedIntervalFactory;
 
 //class

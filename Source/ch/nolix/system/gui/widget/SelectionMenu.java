@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.gui.widget;
 
+//own imports
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.containerwidget.VerticalStack;

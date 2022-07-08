@@ -4,6 +4,7 @@ package ch.nolix.businesstest.bigdecimalmathtest;
 //Java imports
 import java.math.BigDecimal;
 
+//own imports
 import ch.nolix.business.bigdecimalmath.ClosedInterval;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;

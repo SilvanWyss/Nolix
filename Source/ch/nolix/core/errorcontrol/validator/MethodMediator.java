@@ -5,6 +5,7 @@ package ch.nolix.core.errorcontrol.validator;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 
+//own imports
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;

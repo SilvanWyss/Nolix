@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.testing.validation;
 
+//own imports
 import ch.nolix.core.independent.independenthelper.IterableHelper;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 

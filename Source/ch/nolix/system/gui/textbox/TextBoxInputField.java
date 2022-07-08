@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.gui.textbox;
 
+//own imports
 import ch.nolix.core.commontype.constant.CharacterCatalogue;
 import ch.nolix.core.commontype.constant.StringCatalogue;
 import ch.nolix.core.document.node.Node;

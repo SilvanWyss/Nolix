@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.application.baseguiapplication;
 
+//own imports
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.document.node.Node;

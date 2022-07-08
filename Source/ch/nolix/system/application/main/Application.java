@@ -5,6 +5,7 @@ package ch.nolix.system.application.main;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
+//own imports
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;

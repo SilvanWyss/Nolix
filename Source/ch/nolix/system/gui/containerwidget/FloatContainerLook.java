@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.gui.containerwidget;
 
+//own imports
 import ch.nolix.core.document.node.Node;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.formatelement.NonCascadingProperty;

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.builder.terminalargumentcapturer;
 
+//own imports
 import ch.nolix.core.builder.main.TerminalArgumentCapturer;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.gui.widget;
 
+//own imports
 import ch.nolix.systemapi.guiapi.widgetguiapi.IWidget;
 
 //class

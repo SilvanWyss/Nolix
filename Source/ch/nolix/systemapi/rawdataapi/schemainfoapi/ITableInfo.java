@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.rawdataapi.schemainfoapi;
 
+//own imports
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 
 //interface

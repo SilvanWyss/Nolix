@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.coreapi.containerapi.mainapi;
 
+//own imports
 import ch.nolix.coreapi.functionapi.genericfunctionapi.I2ElementTakerBooleanGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;

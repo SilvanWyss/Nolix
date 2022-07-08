@@ -4,6 +4,7 @@ package ch.nolix.core.caching;
 //Java imports
 import java.util.Iterator;
 
+//own imports
 import ch.nolix.core.container.main.Container;
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.container.main.SingleContainer;

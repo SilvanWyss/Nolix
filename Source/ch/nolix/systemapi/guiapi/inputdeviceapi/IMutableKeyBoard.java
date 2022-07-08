@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.guiapi.inputdeviceapi;
 
+//own imports
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 
 //interface

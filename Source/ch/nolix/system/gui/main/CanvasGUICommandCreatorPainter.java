@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.gui.main;
 
+//own imports
 import ch.nolix.core.caching.CachingContainer;
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.container.main.SingleContainer;

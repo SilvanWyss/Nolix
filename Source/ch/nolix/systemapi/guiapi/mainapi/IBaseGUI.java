@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.guiapi.mainapi;
 
+//own imports
 import ch.nolix.coreapi.attributeapi.mutablemandatoryattributeuniversalapi.Titleble;
 import ch.nolix.coreapi.functionapi.mutationuniversalapi.Refreshable;
 import ch.nolix.coreapi.geometryapi.griduniversalapi.Rectangular;

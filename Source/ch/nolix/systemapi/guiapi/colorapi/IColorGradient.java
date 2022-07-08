@@ -4,6 +4,7 @@ package ch.nolix.systemapi.guiapi.colorapi;
 //Java imports
 import java.awt.GradientPaint;
 
+//own imports
 import ch.nolix.systemapi.elementapi.mainuniversalapi.Specified;
 import ch.nolix.systemapi.guiapi.structureproperty.DirectionInRectangle;
 

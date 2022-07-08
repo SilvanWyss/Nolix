@@ -4,6 +4,7 @@ package ch.nolix.systemapi.timeapi.timestructure;
 //Java imports
 import java.time.DayOfWeek;
 
+//own imports
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 
 //enum

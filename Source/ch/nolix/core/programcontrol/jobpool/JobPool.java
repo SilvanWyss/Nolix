@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.programcontrol.jobpool;
 
+//own imports
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.container.main.SingleContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;

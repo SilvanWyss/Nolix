@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.gui.inputdevice;
 
+//own imports
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.inputdeviceapi.IMutableKeyBoard;

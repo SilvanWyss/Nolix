@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemtest.guitest.containerwidgettest;
 
+//own imports
 import ch.nolix.system.gui.containerwidget.AligningContainer;
 import ch.nolix.system.gui.widget.Widget;
 

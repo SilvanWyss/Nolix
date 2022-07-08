@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.objectdata.schemamapper;
 
+//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.system.objectdata.propertyhelper.PropertyHelper;

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.element.mutableelement;
 
+//own imports
 import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 

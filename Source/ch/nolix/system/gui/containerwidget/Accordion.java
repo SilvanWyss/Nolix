@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.gui.containerwidget;
 
+//own imports
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.document.node.Node;

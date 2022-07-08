@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.gui.input;
 
+//own imports
 import ch.nolix.systemapi.guiapi.inputapi.IInputTaker;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;

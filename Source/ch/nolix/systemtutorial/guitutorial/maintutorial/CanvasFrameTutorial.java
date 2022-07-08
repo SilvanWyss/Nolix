@@ -1,5 +1,6 @@
 package ch.nolix.systemtutorial.guitutorial.maintutorial;
 
+//own imports
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;

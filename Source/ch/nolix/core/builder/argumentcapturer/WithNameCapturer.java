@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.builder.argumentcapturer;
 
+//own imports
 import ch.nolix.core.builder.main.ArgumentCapturer;
 import ch.nolix.core.builder.main.BaseArgumentCapturer;
 

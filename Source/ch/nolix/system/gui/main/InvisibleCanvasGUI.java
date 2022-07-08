@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.gui.main;
 
+//own imports
 import ch.nolix.core.programatom.stateproperty.Visibility;
 import ch.nolix.systemapi.guiapi.inputapi.IResizableInputTaker;
 

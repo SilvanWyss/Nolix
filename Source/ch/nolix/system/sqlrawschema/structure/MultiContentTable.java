@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlrawschema.structure;
 
+//own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.FullNamed;

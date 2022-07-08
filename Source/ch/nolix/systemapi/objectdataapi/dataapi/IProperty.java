@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.objectdataapi.dataapi;
 
+//own imports
 import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.Named;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.functionapi.requestuniversalapi.EmptinessRequestable;

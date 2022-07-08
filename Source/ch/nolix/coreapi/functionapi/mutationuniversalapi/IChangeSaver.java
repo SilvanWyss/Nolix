@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.coreapi.functionapi.mutationuniversalapi;
 
+//own imports
 import ch.nolix.coreapi.functionapi.requestuniversalapi.ChangeRequestable;
 
 //interface

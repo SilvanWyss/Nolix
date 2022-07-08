@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.guiapi.widgetguiapi;
 
+//own imports
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.functionapi.mutationuniversalapi.Recalculable;
 import ch.nolix.coreapi.functionapi.requestuniversalapi.EnablingRequestable;

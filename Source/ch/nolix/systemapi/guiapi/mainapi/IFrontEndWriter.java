@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.guiapi.mainapi;
 
+//own imports
 import ch.nolix.coreapi.netapi.targetuniversalapi.IApplicationTarget;
 
 //interface

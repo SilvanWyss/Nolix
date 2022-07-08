@@ -1,5 +1,6 @@
 package ch.nolix.templatetutorial.texturetutorial;
 
+//own imports
 import ch.nolix.system.gui.containerwidget.FloatContainer;
 import ch.nolix.system.gui.containerwidget.VerticalStack;
 import ch.nolix.system.gui.main.Frame;

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.objectschema.schemadto;
 
+//own imports
 import ch.nolix.core.container.main.LinkedList;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;

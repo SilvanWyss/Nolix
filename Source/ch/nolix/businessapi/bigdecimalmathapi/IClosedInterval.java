@@ -4,6 +4,7 @@ package ch.nolix.businessapi.bigdecimalmathapi;
 //Java imports
 import java.math.BigDecimal;
 
+//own imports
 import ch.nolix.coreapi.containerapi.pairapi.IPair;
 
 //interface

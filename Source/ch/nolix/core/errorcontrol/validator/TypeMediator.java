@@ -4,6 +4,7 @@ package ch.nolix.core.errorcontrol.validator;
 //Java imports
 import java.lang.reflect.Modifier;
 
+//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
