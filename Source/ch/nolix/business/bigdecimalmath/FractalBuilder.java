@@ -12,6 +12,7 @@ import ch.nolix.businessapi.bigdecimalmathapi.ISequence;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IIntTakerElementGetter;
 import ch.nolix.system.gui.color.Color;
+import ch.nolix.systemapi.guiapi.colorapi.IColor;
 
 //class
 public final class FractalBuilder implements IFractalBuilder {
@@ -39,7 +40,7 @@ public final class FractalBuilder implements IFractalBuilder {
 	public static final int DEFAULT_SEQUENCE_MAX_ITERATION_COUNT = 50;
 	
 	//constant
-	public static final IIntTakerElementGetter<Color> DEFAULT_COLOR_FUNCTION =
+	public static final IIntTakerElementGetter<IColor> DEFAULT_COLOR_FUNCTION =
 	i ->  Color.withRedValueAndGreenValueAndBlueValue(0, 0, (10 * i) % Color.MAX_COLOR_COMPONENT);
 	
 	//constant
@@ -69,7 +70,7 @@ public final class FractalBuilder implements IFractalBuilder {
 	private int sequencesMaxIterationCount = DEFAULT_SEQUENCE_MAX_ITERATION_COUNT;
 	
 	//attribute
-	private IIntTakerElementGetter<Color> colorFunction = DEFAULT_COLOR_FUNCTION;
+	private IIntTakerElementGetter<IColor> colorFunction = DEFAULT_COLOR_FUNCTION;
 	
 	//attribute
 	private int bigDecimalScale = DEFAULT_BIG_DECIMAL_SCALE;
@@ -107,7 +108,7 @@ public final class FractalBuilder implements IFractalBuilder {
 	
 	//method
 	@Override
-	public IFractalBuilder setColorFunction(final IIntTakerElementGetter<Color> colorFunction) {
+	public IFractalBuilder setColorFunction(final IIntTakerElementGetter<IColor> colorFunction) {
 		
 		this.colorFunction = colorFunction;
 		

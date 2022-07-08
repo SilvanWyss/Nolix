@@ -13,6 +13,7 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGette
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IIntTakerElementGetter;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.image.MutableImage;
+import ch.nolix.systemapi.guiapi.colorapi.IColor;
 
 //class
 public final class Fractal implements IFractal {
@@ -42,7 +43,7 @@ public final class Fractal implements IFractal {
 	private final int sequencesMaxIterationCount;
 	
 	//attribute
-	private final IIntTakerElementGetter<Color> colorFunction;
+	private final IIntTakerElementGetter<IColor> colorFunction;
 	
 	//attribute
 	private final int bigDecimalScale;
@@ -56,7 +57,7 @@ public final class Fractal implements IFractal {
 		final IElementTakerElementGetter<IComplexNumber, ISequence<IComplexNumber>> sequenceCreator,
 		final BigDecimal sequencesMinDivergenceMagnitude,
 		final int sequencesMaxIterationCount,
-		final IIntTakerElementGetter<Color> colorFunction,
+		final IIntTakerElementGetter<IColor> colorFunction,
 		final int bigDecimalScale
 	) {
 		
@@ -130,7 +131,7 @@ public final class Fractal implements IFractal {
 	
 	//method
 	@Override
-	public Color getColorForIterationCountWhereValueMagnitudeExceedsMaxMagnitude(final int iterationCount) {
+	public IColor getColorForIterationCountWhereValueMagnitudeExceedsMaxMagnitude(final int iterationCount) {
 		
 		if (iterationCount == -1) {
 			return CONVERGENCE_COLOR;

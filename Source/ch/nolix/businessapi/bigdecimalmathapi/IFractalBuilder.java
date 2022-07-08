@@ -4,9 +4,10 @@ package ch.nolix.businessapi.bigdecimalmathapi;
 //Java imports
 import java.math.BigDecimal;
 
+//own imports
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IIntTakerElementGetter;
-import ch.nolix.system.gui.color.Color;
+import ch.nolix.systemapi.guiapi.colorapi.IColor;
 
 //interface
 public interface IFractalBuilder {
@@ -21,7 +22,7 @@ public interface IFractalBuilder {
 	IFractalBuilder setBigDecimalScale(int bigDecumalScale);
 	
 	//method declaration
-	IFractalBuilder setColorFunction(IIntTakerElementGetter<Color> colorFunction);
+	IFractalBuilder setColorFunction(IIntTakerElementGetter<IColor> colorFunction);
 	
 	//method declaration
 	IFractalBuilder setHeightInPixel(final int heightInPixel);
