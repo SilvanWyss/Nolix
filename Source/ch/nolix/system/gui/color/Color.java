@@ -13,6 +13,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumen
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
+import ch.nolix.system.element.main.Element;
 import ch.nolix.systemapi.guiapi.colorapi.IColor;
 
 //class
@@ -25,7 +26,7 @@ import ch.nolix.systemapi.guiapi.colorapi.IColor;
  * @author Silvan Wyss
  * @date 2016-01-01
  */
-public final class Color implements IColor {
+public final class Color extends Element implements IColor {
 	
 	//constants
 	public static final int ALICE_BLUE_INT = 0xF0F8FF;
@@ -1042,21 +1043,6 @@ public final class Color implements IColor {
 	
 	//method
 	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public boolean equals(final Object object) {
-		
-		if (!(object instanceof Color)) {
-			return false;
-		}
-		
-		final var color = (Color)object;
-		return (toAlphaRedGreenBlueValue() == color.toAlphaRedGreenBlueValue());
-	}
-	
-	//method
-	/**
 	 * @return the alpha value of the current {@link Color}.
 	 */
 	public int getAlphaValue() {
@@ -1292,15 +1278,6 @@ public final class Color implements IColor {
 	 */
 	public boolean hasGreenValue() {
 		return (greenValue > 0);
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public int hashCode() {
-		return getSpecification().hashCode();
 	}
 	
 	//method
