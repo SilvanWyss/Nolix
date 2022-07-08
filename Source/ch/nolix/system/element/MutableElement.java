@@ -103,7 +103,12 @@ public abstract class MutableElement<ME extends MutableElement<ME>> implements I
 		
 		final var attributes = new LinkedList<INode<?>>();
 		
-		fillUpAttributesInto(attributes);
+		//Iterates the properties of the current MutableElement.
+		for (final var p : getRefProperties()) {
+			
+			//Fills up the attributes of the current Property.
+			p.fillUpAttributesInto(attributes);
+		}
 		
 		return attributes;
 	}
