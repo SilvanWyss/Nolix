@@ -1,7 +1,9 @@
 //package declaration
 package ch.nolix.system.gui.widget;
 
+//own imports
 import ch.nolix.core.commontype.constant.StringCatalogue;
+import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
@@ -30,7 +32,7 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 		ROLE_HEADER,
 		this::setRole,
 		ButtonRole::fromSpecification,
-		ButtonRole::getSpecification
+		Node::fromEnum
 	);
 	
 	//constructor
