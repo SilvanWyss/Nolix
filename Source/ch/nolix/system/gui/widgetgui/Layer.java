@@ -108,7 +108,7 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 		PascalCaseCatalogue.ROLE,
 		this::setRole,
 		LayerRole::fromSpecification,
-		LayerRole::getSpecification
+		Node::fromEnum
 	);
 	
 	//attribute
