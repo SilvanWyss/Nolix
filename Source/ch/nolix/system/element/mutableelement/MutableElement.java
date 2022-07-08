@@ -11,6 +11,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
+import ch.nolix.system.element.main.Element;
 import ch.nolix.systemapi.elementapi.mainuniversalapi.IMutableElement;
 
 //class
@@ -19,7 +20,7 @@ import ch.nolix.systemapi.elementapi.mainuniversalapi.IMutableElement;
  * @date 2017-10-29
  * @param <ME> is the type of a {@link MutableElement}.
  */
-public abstract class MutableElement<ME extends MutableElement<ME>> implements IMutableElement<ME> {
+public abstract class MutableElement<ME extends MutableElement<ME>> extends Element implements IMutableElement<ME> {
 	
 	//multi-attribute
 	private LinkedList<Property> properties;
@@ -65,24 +66,6 @@ public abstract class MutableElement<ME extends MutableElement<ME>> implements I
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final boolean equals(final Object object) {
-		
-		if (object == null) {
-			return false;
-		}		
-		
-		if (getClass() != object.getClass()) {
-			return false;
-		}
-		
-		return equals((MutableElement<?>)object);
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	public final IContainer<INode<?>> getAttributes() {
 		
 		final var attributes = new LinkedList<INode<?>>();
@@ -99,15 +82,6 @@ public abstract class MutableElement<ME extends MutableElement<ME>> implements I
 	
 	//method
 	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final int hashCode() {
-		return getSpecification().hashCode();
-	}
-	
-	//method
-	/**
 	 * Resets the current {@link MutableElement} from the file with the given filePath.
 	 * 
 	 * @param filePath
@@ -115,15 +89,6 @@ public abstract class MutableElement<ME extends MutableElement<ME>> implements I
 	 */
 	public final void resetFromFileWithFilePath(final String filePath) {
 		resetFromSpecification(Node.fromFile(filePath));
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final String toString() {
-		return getSpecification().toString();
 	}
 	
 	//method
@@ -149,15 +114,6 @@ public abstract class MutableElement<ME extends MutableElement<ME>> implements I
 		}
 		
 		throw new IllegalAccessError(message);
-	}
-	
-	//method
-	/**
-	 * @param mutableElement
-	 * @return true if the current {@link MutableElement} equals the given mutableElement.
-	 */
-	private boolean equals(final MutableElement<?> mutableElement) {
-		return getSpecification().equals(mutableElement.getSpecification());
 	}
 	
 	//method
