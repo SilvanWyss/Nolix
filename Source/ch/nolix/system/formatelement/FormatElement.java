@@ -89,7 +89,9 @@ implements IRespondingMutableElement<FE> {
 		
 		final var attributes = new LinkedList<INode<?>>();
 		
-		fillUpAttributesInto(attributes);
+		for (final var p : getRefProperties()) {
+			p.fillUpValuesSpecificationInto(attributes);
+		}
 		
 		return attributes;
 	}
