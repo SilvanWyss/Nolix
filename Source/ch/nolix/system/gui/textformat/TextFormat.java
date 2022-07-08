@@ -5,6 +5,7 @@ package ch.nolix.system.gui.textformat;
 import java.awt.Canvas;
 import java.awt.Graphics;
 
+//own imports
 import ch.nolix.core.commontype.constant.CharacterCatalogue;
 import ch.nolix.core.commontype.constant.StringCatalogue;
 import ch.nolix.core.container.main.LinkedList;
@@ -16,6 +17,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentEx
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
+import ch.nolix.system.element.main.Element;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.systemapi.guiapi.textformatapi.ITextFormat;
 
@@ -33,7 +35,7 @@ import ch.nolix.systemapi.guiapi.textformatapi.ITextFormat;
  * @author Silvan Wyss
  * @date 2017-08-26
  */
-public final class TextFormat implements ITextFormat {
+public final class TextFormat extends Element implements ITextFormat {
 	
 	//constants
 	public static final Font DEFAULT_TEXT_FONT = Font.VERDANA;
