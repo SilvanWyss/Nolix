@@ -5,6 +5,7 @@ package ch.nolix.core.container.immutablelist;
 import java.util.Iterator;
 
 //own imports
+import ch.nolix.core.commontype.constant.CharacterCatalogue;
 import ch.nolix.core.container.main.ArrayIterator;
 import ch.nolix.core.container.main.Container;
 import ch.nolix.core.container.readcontainer.ReadContainer;
@@ -122,5 +123,14 @@ public final class ImmutableList<E> extends Container<E> {
 	@Override
 	public <E2> IContainer<E> toOrderedList(final IElementTakerComparableGetter<E, E2> norm) {
 		return ReadContainer.forIterable(this).toOrderedList(norm);
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String toString() {
+		return toString(CharacterCatalogue.COMMA);
 	}
 }
