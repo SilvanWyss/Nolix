@@ -13,7 +13,7 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.systemapi.elementapi.mainuniversalapi.Specified;
+import ch.nolix.system.element.main.Element;
 
 //class
 /**
@@ -23,7 +23,7 @@ import ch.nolix.systemapi.elementapi.mainuniversalapi.Specified;
  * @author Silvan Wyss
  * @date 2018-03-25
  */
-public final class IntOrPercentageHolder implements Specified {
+public final class IntOrPercentageHolder extends Element {
 	
 	//attribute
 	private final boolean hasIntValue;
