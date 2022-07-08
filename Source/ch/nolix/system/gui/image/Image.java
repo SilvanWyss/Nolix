@@ -4,18 +4,20 @@ package ch.nolix.system.gui.image;
 //Java imports
 import java.awt.image.BufferedImage;
 
+//own imports
 import ch.nolix.core.container.matrix.Matrix;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.environment.runningjar.RunningJar;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
+import ch.nolix.system.element.main.Element;
 import ch.nolix.systemapi.guiapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.imageapi.IMutableImage;
 
 //class
-public final class Image implements IImage {
+public final class Image extends Element implements IImage {
 	
 	//static method
 	public static Image fromAnyImage(final IImage image) {
