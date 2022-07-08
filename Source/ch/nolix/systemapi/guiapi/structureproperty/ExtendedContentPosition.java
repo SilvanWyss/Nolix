@@ -25,7 +25,7 @@ public enum ExtendedContentPosition {
 	/**
 	 * @param specification
 	 * @return a new {@link ExtendedContentPosition} from the given specification.
-	 * @throws RuntimeException* if the given specification does not represent a {@link ExtendedContentPosition}.
+	 * @throws RuntimeException if the given specification does not represent a {@link ExtendedContentPosition}.
 	 */
 	public static ExtendedContentPosition fromSpecification(final INode<?> specification) {
 		return valueOf(specification.getSingleChildNodeHeader());
