@@ -2,6 +2,7 @@
 package ch.nolix.core.document.node;
 
 //own imports
+import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -310,16 +311,15 @@ public final class Node extends BaseNode<Node> {
 	//optional attribute
 	private final String header;
 	
-	//TODO: Create ImmutableList.
 	//multi-attribute
-	private final IContainer<Node> childNodes;
+	private final ImmutableList<Node> childNodes;
 	
 	//constructor
 	private Node() {
 		
 		header = null;
 		
-		childNodes = new LinkedList<>();
+		childNodes = ImmutableList.forIterable(new LinkedList<>());
 	}
 	
 	//constructor
@@ -332,7 +332,7 @@ public final class Node extends BaseNode<Node> {
 		
 		header = null;
 		
-		this.childNodes = createNodesFromNodes(childNodes);
+		this.childNodes = ImmutableList.forIterable(createNodesFromNodes(childNodes));
 	}
 	
 	//constructor
@@ -345,7 +345,7 @@ public final class Node extends BaseNode<Node> {
 		
 		header = null;
 		
-		this.childNodes = createNodesFromNodes(childNodes);
+		this.childNodes = ImmutableList.forIterable(createNodesFromNodes(childNodes));
 	}
 
 	//constructor
@@ -360,7 +360,7 @@ public final class Node extends BaseNode<Node> {
 		
 		this.header = getValidHeaderFromHeader(header);
 		
-		childNodes = new LinkedList<>();
+		childNodes = new ImmutableList<>();
 	}
 	
 	//constructor
@@ -376,7 +376,7 @@ public final class Node extends BaseNode<Node> {
 		
 		this.header = getValidHeaderFromHeader(header);
 		
-		this.childNodes = createNodesFromNodes(childNodes);
+		this.childNodes = ImmutableList.forIterable(createNodesFromNodes(childNodes));
 	}
 	
 	//constructor
@@ -392,7 +392,7 @@ public final class Node extends BaseNode<Node> {
 		
 		this.header = getValidHeaderFromHeader(header);
 		
-		this.childNodes = createNodesFromNodes(childNodes);
+		this.childNodes = ImmutableList.forIterable(createNodesFromNodes(childNodes));
 	}
 	
 	//method
