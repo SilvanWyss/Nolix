@@ -9,7 +9,6 @@ import ch.nolix.core.math.Vector;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.element.main.Element;
-import ch.nolix.systemapi.elementapi.mainuniversalapi.Specified;
 
 //class
 /**
@@ -21,7 +20,7 @@ import ch.nolix.systemapi.elementapi.mainuniversalapi.Specified;
  * @author Silvan Wyss
  * @date 2016-06-01
  */
-public final class Point2D extends Element implements Specified {
+public final class Point2D extends Element {
 	
 	//constants
 	public static final double DEFAULT_X = 0.0;
