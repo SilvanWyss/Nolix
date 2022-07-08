@@ -78,12 +78,11 @@ public final class MouseInput implements IMouseInput<MouseInput> {
 	//method
 	@Override
 	public IContainer<INode<?>> getAttributes() {
-		
-		final var attributes = new LinkedList<INode<?>>();
-		
-		fillUpAttributesInto(attributes);
-		
-		return attributes;
+		return
+		LinkedList.withElements(
+			cursorPosition.getSpecificationWithHeader(CURSOR_POSITION_HEADER),
+			Node.withHeaderAndChildNode(INPUT_TYPE_HEADER, inputType.name())
+		);
 	}
 	
 	//method

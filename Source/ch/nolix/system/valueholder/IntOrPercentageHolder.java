@@ -121,7 +121,11 @@ public final class IntOrPercentageHolder implements Specified {
 		
 		final var attributes = new LinkedList<INode<?>>();
 		
-		fillUpAttributesInto(attributes);
+		if (hasIntValue()) {
+			attributes.addAtEnd(Node.withHeaderAndChildNode(PascalCaseCatalogue.VALUE, getIntValue()));
+		} else if (hasPercentage()) {
+			attributes.addAtEnd(Node.withHeaderAndChildNode(PascalCaseCatalogue.PERCENTAGE, getPercentage()));
+		}
 		
 		return attributes;
 	}

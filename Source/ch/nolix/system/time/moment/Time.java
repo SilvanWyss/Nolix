@@ -346,12 +346,19 @@ public final class Time implements ITime {
 	 */
 	@Override
 	public IContainer<INode<?>> getAttributes() {
-		
-		final var attributes = new LinkedList<INode<?>>();
-		
-		fillUpAttributesInto(attributes);
-		
-		return attributes;
+		return
+		LinkedList.withElements(
+			Node.fromString(String.format(
+				"%04d-%02d-%02d-%02d-%02d-%02d-%03d",
+				getYearAsInt(),
+				getMonthOfYearAsInt(),
+				getDayOfMonth(),
+				getHourOfDay(),
+				getMinuteOfHour(),
+				getSecondOfMinute(),
+				getMillisecondOfSecond()
+			))
+		);
 	}
 	
 	//method

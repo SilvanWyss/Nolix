@@ -64,12 +64,7 @@ public final class Discrete2DPoint implements Specified {
 	 */
 	@Override
 	public IContainer<INode<?>> getAttributes() {
-		
-		final var attributes = new LinkedList<INode<?>>();
-		
-		fillUpAttributesInto(attributes);
-		
-		return attributes;
+		return LinkedList.withElements(Node.withHeader(x), Node.withHeader(y));
 	}
 	
 	//method

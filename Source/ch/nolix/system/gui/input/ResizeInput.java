@@ -70,12 +70,14 @@ public final class ResizeInput implements IResizeInput<ResizeInput> {
 	//method
 	@Override
 	public IContainer<INode<?>> getAttributes() {
-		
-		final var attributes = new LinkedList<INode<?>>();
-		
-		fillUpAttributesInto(attributes);
-		
-		return attributes;
+		return
+		LinkedList.withElements(
+			Node.withHeaderAndChildNode(
+				SIZE_HEADER,
+				Node.withHeader(getViewAreaWidth()),
+				Node.withHeader(getViewAreaHeight())
+			)
+		);
 	}
 	
 	//method

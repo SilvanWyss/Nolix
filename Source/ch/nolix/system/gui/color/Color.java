@@ -1079,12 +1079,7 @@ public final class Color implements IColor {
 	 */
 	@Override
 	public IContainer<INode<?>> getAttributes() {
-		
-		final var attributes = new LinkedList<INode<?>>();
-		
-		fillUpAttributesInto(attributes);
-		
-		return attributes;
+		return LinkedList.withElements(Node.fromString(getHexadecimalValue()));
 	}
 	
 	//method

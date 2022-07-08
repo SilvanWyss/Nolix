@@ -206,12 +206,11 @@ public final class KeyInput implements IKeyInput<KeyInput> {
 	//method
 	@Override
 	public IContainer<INode<?>> getAttributes() {
-		
-		final var attributes = new LinkedList<INode<?>>();
-		
-		fillUpAttributesInto(attributes);
-		
-		return attributes;
+		return
+		LinkedList.withElements(
+			Node.fromEnum(key),
+			Node.withHeaderAndChildNode(INPUT_TYPE_HEADER, inputType.name())
+		);
 	}
 	
 	//method

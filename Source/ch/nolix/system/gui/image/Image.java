@@ -69,12 +69,7 @@ public final class Image implements IImage {
 	//method
 	@Override
 	public IContainer<INode<?>> getAttributes() {
-		
-		final var attributes = new LinkedList<INode<?>>();
-		
-		fillUpAttributesInto(attributes);
-		
-		return attributes;
+		return internalImage.getAttributes();
 	}
 	
 	//method

@@ -92,12 +92,12 @@ public class Point3D implements Specified {
 	 */
 	@Override
 	public IContainer<INode<?>> getAttributes() {
-		
-		final var attributes = new LinkedList<INode<?>>();
-		
-		fillUpAttributesInto(attributes);
-		
-		return attributes;
+		return
+		LinkedList.withElements(
+			Node.withHeader(GlobalDoubleHelper.toString(getX())),
+			Node.withHeader(GlobalDoubleHelper.toString(getY())),
+			Node.withHeader(GlobalDoubleHelper.toString(getZ()))
+		);
 	}
 	
 	//method

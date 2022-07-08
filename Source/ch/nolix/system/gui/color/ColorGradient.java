@@ -217,12 +217,12 @@ public class ColorGradient implements IColorGradient {
 	 */
 	@Override
 	public IContainer<INode<?>> getAttributes() {
-		
-		final var attributes = new LinkedList<INode<?>>();
-		
-		fillUpAttributesInto(attributes);
-		
-		return attributes;
+		return
+		LinkedList.withElements(
+			Node.withHeader(getDirection().toString()),
+			Node.withHeader(getColor1().getHexadecimalValue()),
+			Node.withHeader(getColor2().getHexadecimalValue())
+		);
 	}
 	
 	//method

@@ -252,12 +252,14 @@ public final class TextFormat implements ITextFormat {
 	 */
 	@Override
 	public IContainer<INode<?>> getAttributes() {
-		
-		final var attributes = new LinkedList<INode<?>>();
-		
-		fillUpAttributesInto(attributes);
-		
-		return attributes;
+		return
+		LinkedList.withElements(
+			Node.fromEnum(font).asWithHeader(TEXT_FONT_HEADER),
+			Node.withHeaderAndChildNode(BOLD_FLAG_HEADER, bold),
+			Node.withHeaderAndChildNode(ITALIC_FLAG_HEADER, italic),
+			Node.withHeaderAndChildNode(TEXT_SIZE_HEADER, textSize),
+			textColor.getSpecificationWithHeader(TEXT_COLOR_HEADER)
+		);
 	}
 	
 	//method
