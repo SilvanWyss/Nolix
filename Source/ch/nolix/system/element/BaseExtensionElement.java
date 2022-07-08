@@ -35,7 +35,7 @@ public abstract class BaseExtensionElement<E extends IRespondingMutableElement<E
 	//method
 	@Override
 	protected final void fillUpAttributesInto(IMutableList<INode<?>> list) {
-		internalExtensionElement.fillUpAttributesInto(list);
+		list.addAtEnd(internalExtensionElement.getAttributes());
 	}
 	
 	//method
