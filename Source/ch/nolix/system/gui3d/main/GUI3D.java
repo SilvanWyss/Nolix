@@ -83,7 +83,7 @@ public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G> 
 	);
 	
 	//attribute
-	private final CloseController closeController = new CloseController(this);
+	private final CloseController closeController = CloseController.forElement(this);
 	
 	//optional element
 	private Shape<?> rootShape;

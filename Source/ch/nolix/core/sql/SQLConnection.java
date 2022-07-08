@@ -28,7 +28,7 @@ public abstract class SQLConnection implements GroupCloseable {
 	private final Connection connection;
 	
 	//attribute
-	private final CloseController closeController = new CloseController(this);
+	private final CloseController closeController = CloseController.forElement(this);
 	
 	//optional attribute
 	private final SQLConnectionPool parentSQLConnectionPool;

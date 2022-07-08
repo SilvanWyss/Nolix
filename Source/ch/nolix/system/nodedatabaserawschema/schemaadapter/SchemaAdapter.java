@@ -34,7 +34,7 @@ public final class SchemaAdapter implements ISchemaAdapter {
 	}
 	
 	//attribute
-	private final CloseController closeController = new CloseController(this);
+	private final CloseController closeController = CloseController.forElement(this);
 	
 	//attribute
 	private final SchemaReader schemaReader;

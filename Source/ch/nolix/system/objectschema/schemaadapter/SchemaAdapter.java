@@ -20,7 +20,7 @@ public abstract class SchemaAdapter implements ISchemaAdapter<SchemaImplementati
 	private static final IDatabaseHelper databaseHelper = new DatabaseHelper();
 	
 	//attribute
-	private final CloseController closeController = new CloseController(this);
+	private final CloseController closeController = CloseController.forElement(this);
 	
 	//attribute
 	private IDatabase<SchemaImplementation> database;

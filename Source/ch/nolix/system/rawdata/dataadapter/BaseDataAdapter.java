@@ -18,7 +18,7 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 public abstract class BaseDataAdapter implements IDataAdapter {
 	
 	//attribute
-	private final CloseController closeController = new CloseController(this);
+	private final CloseController closeController = CloseController.forElement(this);
 	
 	//attribute
 	private final IDataReader dataReader;

@@ -36,7 +36,7 @@ final class SchemaReader implements ISchemaReader {
 	private final ISchemaQueryCreator schemaQueryCreator;
 	
 	//attribute
-	private final CloseController closeController = new CloseController(this);
+	private final CloseController closeController = CloseController.forElement(this);
 	
 	//constructor
 	private SchemaReader(

@@ -29,7 +29,7 @@ public final class DataReader implements IDataReader {
 	}
 		
 	//attribute
-	private final CloseController closeController = new CloseController(this);
+	private final CloseController closeController = CloseController.forElement(this);
 	
 	//attribute
 	private final InternalDataReader internalDataReader;

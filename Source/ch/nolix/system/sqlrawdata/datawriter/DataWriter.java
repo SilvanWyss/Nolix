@@ -30,7 +30,7 @@ public final class DataWriter implements IDataWriter {
 	}
 	
 	//attribute
-	private final CloseController closeController = new CloseController(this);
+	private final CloseController closeController = CloseController.forElement(this);
 	
 	//attribute
 	private final InternalDataWriter internalDataWriter;

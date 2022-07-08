@@ -42,7 +42,7 @@ public final class SchemaReader implements ISchemaReader {
 	}
 	
 	//attribute
-	private final CloseController closeController = new CloseController(this);
+	private final CloseController closeController = CloseController.forElement(this);
 	
 	//attribute
 	private final SQLConnection mSQLConnection;

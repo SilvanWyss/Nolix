@@ -32,7 +32,7 @@ public final class SchemaWriter implements ISchemaWriter {
 	}
 	
 	//attribute
-	private final CloseController closeController = new CloseController(this);
+	private final CloseController closeController = CloseController.forElement(this);
 	
 	//attribute
 	private int saveCount;

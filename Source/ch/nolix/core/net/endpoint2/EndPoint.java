@@ -24,7 +24,7 @@ public abstract class EndPoint implements GroupCloseable {
 	private static final long REPLIER_GETTING_DELAY_IN_MILLISECONDS = 5000;
 	
 	//attribute
-	private final CloseController closeController = new CloseController(this);
+	private final CloseController closeController = CloseController.forElement(this);
 	
 	//optional attribute
 	private IElementTakerElementGetter<String, String> replier;

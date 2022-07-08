@@ -42,7 +42,7 @@ public final class SchemaReader implements ISchemaReader {
 	private static final ColumnDTOMapper columnDTOMapper = new ColumnDTOMapper();
 	
 	//attribute
-	private final CloseController closeController = new CloseController(this);
+	private final CloseController closeController = CloseController.forElement(this);
 	
 	//attribute
 	private final IMutableNode<?> databaseNode;

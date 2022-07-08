@@ -29,7 +29,7 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 	private final SchemaWriter rawSchemaWriter;
 	
 	//attribute
-	private final CloseController closeController = new CloseController(this);
+	private final CloseController closeController = CloseController.forElement(this);
 	
 	//constructor
 	protected SchemaAdapter(

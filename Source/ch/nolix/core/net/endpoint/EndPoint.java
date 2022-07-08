@@ -27,7 +27,7 @@ public abstract class EndPoint implements GroupCloseable {
 	
 	//attributes
 	private final boolean requestedConnection;
-	private final CloseController closeController = new CloseController(this);
+	private final CloseController closeController = CloseController.forElement(this);
 	
 	//optional attributes
 	private String target;

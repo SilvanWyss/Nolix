@@ -41,7 +41,7 @@ public final class SQLConnectionPool implements GroupCloseable, ISQLDatabaseTarg
 	private final Credential credential;
 	
 	//attribute
-	private final CloseController closeController = new CloseController(this);
+	private final CloseController closeController = CloseController.forElement(this);
 	
 	//multi-attribute
 	private final LinkedList<SQLConnectionWrapper> mSQLConnections = new LinkedList<>();

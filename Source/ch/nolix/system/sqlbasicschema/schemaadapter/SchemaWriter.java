@@ -38,7 +38,7 @@ public final class SchemaWriter implements ISchemaWriter {
 	private final ISchemaStatementCreator schemaStatementCreator;
 	
 	//attribute
-	private final CloseController closeController = new CloseController(this);
+	private final CloseController closeController = CloseController.forElement(this);
 	
 	//constructor
 	private SchemaWriter(

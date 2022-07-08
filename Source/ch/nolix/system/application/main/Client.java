@@ -25,7 +25,7 @@ import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 public abstract class Client<C extends Client<C>> implements GroupCloseable {
 	
 	//attribute
-	private final CloseController closeController = new CloseController(this);
+	private final CloseController closeController = CloseController.forElement(this);
 	
 	//optional attribute
 	private EndPoint endPoint;

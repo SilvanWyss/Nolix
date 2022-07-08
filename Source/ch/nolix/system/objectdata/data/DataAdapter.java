@@ -27,7 +27,7 @@ public abstract class DataAdapter implements IDataAdapter<DataImplementation> {
 	private static final PersistenceManager persistenceManager = new PersistenceManager();
 	
 	//attribute
-	private final CloseController closeController = new CloseController(this);
+	private final CloseController closeController = CloseController.forElement(this);
 	
 	//attribute
 	private final Database database;
