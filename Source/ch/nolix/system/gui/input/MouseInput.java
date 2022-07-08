@@ -7,7 +7,6 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
-import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.discretegeometry.Discrete2DPoint;
 import ch.nolix.systemapi.guiapi.inputapi.IMouseInput;
@@ -64,15 +63,6 @@ public final class MouseInput implements IMouseInput<MouseInput> {
 		
 		this.cursorPosition = cursorPosition;
 		this.inputType = inputType;
-	}
-	
-	//method
-	@Override
-	public void fillUpAttributesInto(final IMutableList<INode<?>> list) {
-		list.addAtEnd(
-			cursorPosition.getSpecificationWithHeader(CURSOR_POSITION_HEADER),
-			Node.withHeaderAndChildNode(INPUT_TYPE_HEADER, inputType.name())
-		);
 	}
 	
 	//method

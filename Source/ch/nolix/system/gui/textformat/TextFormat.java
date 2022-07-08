@@ -15,7 +15,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentExcep
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
-import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.systemapi.guiapi.textformatapi.ITextFormat;
@@ -229,21 +228,6 @@ public final class TextFormat implements ITextFormat {
 		
 		//Calls other constructor.
 		this(DEFAULT_TEXT_FONT, false, false, textSize, DEFAULT_TEXT_COLOR);
-	}
-		
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void fillUpAttributesInto(final IMutableList<INode<?>> list) {
-		list.addAtEnd(
-			Node.fromEnum(font).asWithHeader(TEXT_FONT_HEADER),
-			Node.withHeaderAndChildNode(BOLD_FLAG_HEADER, bold),
-			Node.withHeaderAndChildNode(ITALIC_FLAG_HEADER, italic),
-			Node.withHeaderAndChildNode(TEXT_SIZE_HEADER, textSize),
-			textColor.getSpecificationWithHeader(TEXT_COLOR_HEADER)
-		);
 	}
 	
 	//method

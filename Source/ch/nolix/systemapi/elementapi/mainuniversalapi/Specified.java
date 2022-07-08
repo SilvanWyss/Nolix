@@ -4,7 +4,6 @@ package ch.nolix.systemapi.elementapi.mainuniversalapi;
 //own imports
 import ch.nolix.core.document.node.Node;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
-import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.documentapi.xmlapi.IXMLNode;
 import ch.nolix.coreapi.markerapi.AllowDefaultMethodsAsDesignPattern;
@@ -16,14 +15,6 @@ import ch.nolix.coreapi.markerapi.AllowDefaultMethodsAsDesignPattern;
  */
 @AllowDefaultMethodsAsDesignPattern
 public interface Specified {
-	
-	//method declaration
-	/**
-	 * Fills up the attributes of the current {@link Specified} into the given list.
-	 * 
-	 * @param list
-	 */
-	void fillUpAttributesInto(IMutableList<INode<?>> list);
 	
 	//method
 	/**

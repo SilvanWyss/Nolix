@@ -8,7 +8,6 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
-import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.guiapi.inputapi.IResizeInput;
 
@@ -51,20 +50,6 @@ public final class ResizeInput implements IResizeInput<ResizeInput> {
 		GlobalValidator.assertThat(size.getValue2()).thatIsNamed("view area hegiht").isNotNegative();
 		
 		this.size = size;
-	}
-	
-	//method
-	@Override
-	public void fillUpAttributesInto(final IMutableList<INode<?>> list) {
-		
-		final var sizeSpecification =
-		Node.withHeaderAndChildNode(
-			SIZE_HEADER,
-			Node.withHeader(getViewAreaWidth()),
-			Node.withHeader(getViewAreaHeight())
-		);
-		
-		list.addAtEnd(sizeSpecification);
 	}
 	
 	//method

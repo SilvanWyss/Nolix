@@ -12,7 +12,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
-import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.guiapi.colorapi.IColor;
 
@@ -1039,15 +1038,6 @@ public final class Color implements IColor {
 		this.greenValue = (short)greenValue;
 		this.blueValue = (short)blueValue;
 		this.alphaValue = (short)alphaValue;
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void fillUpAttributesInto(final IMutableList<INode<?>> list) {
-		list.addAtEnd(Node.fromString(getHexadecimalValue()));
 	}
 	
 	//method

@@ -4,7 +4,6 @@ package ch.nolix.system.discretegeometry;
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
-import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.elementapi.mainuniversalapi.Specified;
 
@@ -47,15 +46,6 @@ public final class Discrete2DPoint implements Specified {
 	public Discrete2DPoint(final int x, final int y) {
 		this.x = x;
 		this.y = y;
-	}
-		
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void fillUpAttributesInto(final IMutableList<INode<?>> list) {
-		list.addAtEnd(Node.withHeader(x), Node.withHeader(y));
 	}
 	
 	//method

@@ -12,7 +12,6 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
-import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.elementapi.mainuniversalapi.Specified;
 
@@ -97,19 +96,6 @@ public final class IntOrPercentageHolder implements Specified {
 		hasIntValue = false;
 		intValue = 0;
 		this.percentage = percentage;
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void fillUpAttributesInto(final IMutableList<INode<?>> list) {
-		if (hasIntValue()) {
-			list.addAtEnd(Node.withHeaderAndChildNode(PascalCaseCatalogue.VALUE, getIntValue()));
-		} else if (hasPercentage()) {
-			list.addAtEnd(Node.withHeaderAndChildNode(PascalCaseCatalogue.PERCENTAGE, getPercentage()));
-		}
 	}
 	
 	//method

@@ -7,7 +7,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
-import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.guiapi.inputapi.IKeyInput;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
@@ -195,12 +194,6 @@ public final class KeyInput implements IKeyInput<KeyInput> {
 		
 		this.key = key;
 		this.inputType = inputType;
-	}
-	
-	//method
-	@Override
-	public void fillUpAttributesInto(final IMutableList<INode<?>> list) {
-		list.addAtEnd(Node.fromEnum(key), Node.withHeaderAndChildNode(INPUT_TYPE_HEADER, inputType.name()));
 	}
 	
 	//method

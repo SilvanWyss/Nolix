@@ -9,7 +9,6 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.environment.runningjar.RunningJar;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
-import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.guiapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
@@ -57,12 +56,6 @@ public final class Image implements IImage {
 		GlobalValidator.assertThat(internalImage).thatIsNamed("internal image").isNotNull();
 		
 		this.internalImage = internalImage;
-	}
-	
-	//method
-	@Override
-	public void fillUpAttributesInto(IMutableList<INode<?>> list) {
-		internalImage.fillUpAttributesInto(list);
 	}
 	
 	//method

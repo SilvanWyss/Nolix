@@ -7,7 +7,6 @@ import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.math.Vector;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
-import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.elementapi.mainuniversalapi.Specified;
 
@@ -71,19 +70,6 @@ public class Point3D implements Specified {
 		this.x = x;
 		this.y = y;
 		this.z = z;
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void fillUpAttributesInto(final IMutableList<INode<?>> list) {
-		list.addAtEnd(
-			Node.withHeader(GlobalDoubleHelper.toString(getX())),
-			Node.withHeader(GlobalDoubleHelper.toString(getY())),
-			Node.withHeader(GlobalDoubleHelper.toString(getZ()))
-		);
 	}
 	
 	//method

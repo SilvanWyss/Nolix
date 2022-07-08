@@ -10,7 +10,6 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
-import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.elementapi.mainuniversalapi.IMutableElement;
 
@@ -77,21 +76,6 @@ public abstract class MutableElement<ME extends MutableElement<ME>> implements I
 		}
 		
 		return equals((MutableElement<?>)object);
-	}
-		
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final void fillUpAttributesInto(final IMutableList<INode<?>> list) {
-		
-		//Iterates the properties of the current MutableElement.
-		for (final var p : getRefProperties()) {
-			
-			//Fills up the attribute info of the current Property into the given list.
-			p.fillUpAttributesInto(list);
-		}
 	}
 	
 	//method
