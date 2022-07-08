@@ -238,7 +238,7 @@ public final class TextFormat implements ITextFormat {
 	@Override
 	public void fillUpAttributesInto(final IMutableList<INode<?>> list) {
 		list.addAtEnd(
-			font.getSpecificationWithHeader(TEXT_FONT_HEADER),
+			Node.fromEnum(font).asWithHeader(TEXT_FONT_HEADER),
 			Node.withHeaderAndChildNode(BOLD_FLAG_HEADER, bold),
 			Node.withHeaderAndChildNode(ITALIC_FLAG_HEADER, italic),
 			Node.withHeaderAndChildNode(TEXT_SIZE_HEADER, textSize),

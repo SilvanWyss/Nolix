@@ -62,7 +62,7 @@ implements IWidgetLook<WL> {
 		FONT_HEADER,
 		WidgetLookState.class,
 		Font::fromSpecification,
-		Font::getSpecification,
+		Node::fromEnum,
 		DEFAULT_FONT
 	);
 	
