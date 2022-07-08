@@ -2,6 +2,7 @@
 package ch.nolix.system.gui.textbox;
 
 import ch.nolix.core.container.main.LinkedList;
+import ch.nolix.core.document.node.Node;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.attributeapi.mutablemandatoryattributeuniversalapi.IMutableTextHolder;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
@@ -51,7 +52,7 @@ public final class TextBox extends BorderWidget<TextBox, TextBoxLook> implements
 		DEFAULT_TEXT_MODE,
 		this::setTextMode,
 		TextMode::fromSpecification,
-		TextMode::getSpecification
+		Node::fromEnum
 	);
 	
 	//attribute

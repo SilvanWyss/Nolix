@@ -43,7 +43,7 @@ final class TextBoxInputField extends TextLineWidget<TextBoxInputField, TextBoxL
 		DEFAULT_TEXT_MODE,
 		this::setTextMode,
 		TextMode::fromSpecification,
-		TextMode::getSpecification
+		Node::fromEnum
 	);
 	
 	//attribute
