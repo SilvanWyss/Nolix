@@ -44,7 +44,7 @@ public final class ItemMenuItem extends MutableElement<ItemMenuItem> implements 
 		ROLE_HEADER,
 		this::setRole,
 		ItemMenuItemRole::fromSpecification,
-		ItemMenuItemRole::getSpecification
+		Node::fromEnum
 	);
 	
 	//attribute
