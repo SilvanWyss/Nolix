@@ -3,6 +3,7 @@ package ch.nolix.system.gui.containerwidget;
 
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.container.readcontainer.ReadContainer;
+import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -47,7 +48,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 		DEFAULT_EXPANSION_BEHAVIOR,
 		this::setExpansionBehavior,
 		AccordionExpansionBehavior::fromSpecification,
-		AccordionExpansionBehavior::getSpecification
+		Node::fromEnum
 	);
 	
 	//attribute
