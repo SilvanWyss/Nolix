@@ -234,7 +234,7 @@ public final class AnthrazitGUILookCreator {
 		new DeepConfiguration()
 		.setSelectorType(Widget.class)
 		.addAttachingAttribute(
-			"BaseFont(Verdana)",
+			"BaseFont(VERDANA)",
 			"BaseTextSize(20)",
 			"BaseTextColor(0xF0F0F0)"
 		);
