@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.element;
+package ch.nolix.system.element.mutableelement;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;

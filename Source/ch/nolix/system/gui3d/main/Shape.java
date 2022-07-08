@@ -9,7 +9,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.system.configuration.ConfigurableElement;
-import ch.nolix.system.element.MutableValueExtractor;
+import ch.nolix.system.element.mutableelement.MutableValueExtractor;
 import ch.nolix.system.geometry.Point2D;
 import ch.nolix.system.geometry.Point3D;
 import ch.nolix.systemapi.elementapi.configurationapi.IConfigurableElement;

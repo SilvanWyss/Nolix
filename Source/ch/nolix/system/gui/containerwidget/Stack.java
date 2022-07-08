@@ -10,8 +10,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentEx
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.system.element.MultiValueExtractor;
-import ch.nolix.system.element.MutableOptionalValue;
+import ch.nolix.system.element.mutableelement.MultiValueExtractor;
+import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 import ch.nolix.system.gui.widget.Widget;
 import ch.nolix.system.gui.widgetgui.WidgetGUI;
 import ch.nolix.systemapi.guiapi.inputapi.Key;

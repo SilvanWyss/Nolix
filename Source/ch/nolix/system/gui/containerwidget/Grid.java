@@ -7,7 +7,7 @@ import ch.nolix.core.container.matrix.MatrixRow;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
-import ch.nolix.system.element.MultiValueExtractor;
+import ch.nolix.system.element.mutableelement.MultiValueExtractor;
 import ch.nolix.system.gui.widget.Label;
 import ch.nolix.system.gui.widget.Widget;
 import ch.nolix.system.gui.widget.WidgetLookState;

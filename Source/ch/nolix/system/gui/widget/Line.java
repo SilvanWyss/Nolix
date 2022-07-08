@@ -6,7 +6,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
-import ch.nolix.system.element.MutableValue;
+import ch.nolix.system.element.mutableelement.MutableValue;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;

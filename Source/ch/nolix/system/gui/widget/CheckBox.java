@@ -3,7 +3,7 @@ package ch.nolix.system.gui.widget;
 
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.math.GlobalCalculator;
-import ch.nolix.system.element.MutableValue;
+import ch.nolix.system.element.mutableelement.MutableValue;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;

@@ -3,8 +3,8 @@ package ch.nolix.system.gui.widget;
 
 //own imports
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.system.element.MutableElement;
-import ch.nolix.system.element.MutableValue;
+import ch.nolix.system.element.mutableelement.MutableElement;
+import ch.nolix.system.element.mutableelement.MutableValue;
 import ch.nolix.system.gui.color.Color;
 
 //class

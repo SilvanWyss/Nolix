@@ -5,7 +5,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.system.element.MutableValue;
+import ch.nolix.system.element.mutableelement.MutableValue;
 import ch.nolix.system.gui3d.main.AtomicShape;
 
 //class

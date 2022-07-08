@@ -8,7 +8,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
-import ch.nolix.system.element.MutableValue;
+import ch.nolix.system.element.mutableelement.MutableValue;
 import ch.nolix.system.gui.textformat.TextFormat;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;

@@ -4,7 +4,7 @@ package ch.nolix.system.gui.containerwidget;
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.system.element.MutableOptionalValueExtractor;
+import ch.nolix.system.element.mutableelement.MutableOptionalValueExtractor;
 import ch.nolix.system.gui.widget.Widget;
 import ch.nolix.system.gui.widgetgui.WidgetGUI;
 import ch.nolix.systemapi.guiapi.inputapi.Key;

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.element;
+package ch.nolix.system.element.mutableelement;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
@@ -8,38 +8,29 @@ import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 
 //class
-public final class MultiValueExtractor<V> extends Property {
+public final class MultiSpecificationValueExtractor extends Property {
 	
 	//attributes
 	private final String name;
-	private final IElementTaker<V> adder;
-	private final IElementGetter<IContainer<V>> getter;
-	private final IElementTakerElementGetter<INode<?>, V> valueCreator;
-	private final IElementTakerElementGetter<V, INode<?>> specificationCreator;
+	private final IElementTaker<INode<?>> adder;
+	private final IElementGetter<IContainer<INode<?>>> getter;
 	
 	//constructor
-	public MultiValueExtractor(
+	public MultiSpecificationValueExtractor(
 		final String name,
-		final IElementTaker<V> adder,
-		final IElementGetter<IContainer<V>> getter,
-		final IElementTakerElementGetter<INode<?>, V> valueCreator,
-		final IElementTakerElementGetter<V, INode<?>> specificationCreator
+		final IElementTaker<INode<?>> adder,
+		final IElementGetter<IContainer<INode<?>>> getter
 	) {
 		
 		GlobalValidator.assertThat(name).thatIsNamed(PascalCaseCatalogue.NAME).isNotBlank();
 		GlobalValidator.assertThat(adder).thatIsNamed("adder").isNotNull();
 		GlobalValidator.assertThat(getter).thatIsNamed("getter").isNotNull();
-		GlobalValidator.assertThat(valueCreator).thatIsNamed("value creator").isNotNull();
-		GlobalValidator.assertThat(specificationCreator).thatIsNamed("specification creator").isNotNull();
-		
+				
 		this.name = name;
 		this.adder = adder;
 		this.getter = getter;
-		this.valueCreator = valueCreator;
-		this.specificationCreator = specificationCreator;
 	}
 	
 	//method
@@ -52,7 +43,7 @@ public final class MultiValueExtractor<V> extends Property {
 	protected boolean addedOrChangedAttribute(final INode<?> attribute) {
 		
 		if (attribute.hasHeader(getName())) {
-			adder.run(valueCreator.getOutput(attribute));
+			adder.run(attribute);
 			return true;
 		}
 		
@@ -62,8 +53,6 @@ public final class MultiValueExtractor<V> extends Property {
 	//method
 	@Override
 	protected void fillUpAttributesInto(final IMutableList<INode<?>> list) {
-		for (final var v : getter.getOutput()) {
-			list.addAtEnd(specificationCreator.getOutput(v));
-		}
+		list.addAtEnd(getter.getOutput());
 	}
 }

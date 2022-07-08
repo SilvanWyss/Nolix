@@ -6,8 +6,8 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionapi.mutationuniversalapi.Clearable;
-import ch.nolix.system.element.MutableElement;
-import ch.nolix.system.element.Value;
+import ch.nolix.system.element.mutableelement.MutableElement;
+import ch.nolix.system.element.mutableelement.Value;
 import ch.nolix.system.gui.main.MutableOptionalWidgetProperty;
 import ch.nolix.system.gui.widget.Widget;
 

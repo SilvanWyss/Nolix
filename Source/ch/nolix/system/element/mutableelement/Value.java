@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.element;
+package ch.nolix.system.element.mutableelement;
 
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -12,60 +12,47 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGette
 /**
  * @author Silvan Wyss
  * @date 2018-03-01
- * @param <V> is the type of the value of a {@link OptionalValue}.
+ * @param <V> is the type of the value of a {@link Value}.
  */
-public final class OptionalValue<V> extends SingleValue<V> {
+public final class Value<V> extends SingleValue<V> {
 	
 	//static method
 	/**
 	 * @param name
 	 * @param setterMethod
-	 * @return a new {@link OptionalValue} that will store a {@link Boolean} and have the given name and setterMethod.
+	 * @return a new {@link Value} that will store a {@link Boolean} and have the given name and setterMethod.
 	 * @throws ArgumentIsNullException if the given name is null.
 	 * @throws InvalidArgumentException if the given name is blank.
 	 * @throws ArgumentIsNullException if the given setterMethod is null.
 	 */
-	public static OptionalValue<Boolean> forBoolean(final String name, final IElementTaker<Boolean> setterMethod) {
-		return new OptionalValue<>(name, setterMethod, INode::getSingleChildNodeAsBoolean, Node::withChildNode);
+	public static Value<Boolean> forBoolean(final String name, final IElementTaker<Boolean> setterMethod) {
+		return new Value<>(name, setterMethod, INode::getSingleChildNodeAsBoolean, Node::withChildNode);
 	}
 	
 	//static method
 	/**
 	 * @param name
 	 * @param setterMethod
-	 * @return a new {@link OptionalValue} that will store a {@link Double} and have the given name and setterMethod.
+	 * @return a new {@link Value} that will store a {@link Integer} and have the given name and setterMethod.
 	 * @throws ArgumentIsNullException if the given name is null.
 	 * @throws InvalidArgumentException if the given name is blank.
 	 * @throws ArgumentIsNullException if the given setterMethod is null.
 	 */
-	public static OptionalValue<Double> forDouble(final String name, final IElementTaker<Double> setterMethod) {
-		return new OptionalValue<>(name, setterMethod, INode::getSingleChildNodeAsDouble, Node::withChildNode);
+	public static Value<Integer> forInt(final String name, final IElementTaker<Integer> setterMethod) {
+		return new Value<>(name, setterMethod, INode::getSingleChildNodeAsInt, Node::withChildNode);
 	}
 	
 	//static method
 	/**
 	 * @param name
 	 * @param setterMethod
-	 * @return a new {@link OptionalValue} that will store a {@link Integer} and have the given name and setterMethod.
+	 * @return a new {@link Value} that will store a {@link String} and have the given name and setterMethod.
 	 * @throws ArgumentIsNullException if the given name is null.
 	 * @throws InvalidArgumentException if the given name is blank.
 	 * @throws ArgumentIsNullException if the given setterMethod is null.
 	 */
-	public static OptionalValue<Integer> forInt(final String name, final IElementTaker<Integer> setterMethod) {
-		return new OptionalValue<>(name, setterMethod, INode::getSingleChildNodeAsInt, Node::withChildNode);
-	}
-	
-	//static method
-	/**
-	 * @param name
-	 * @param setterMethod
-	 * @return a new {@link OptionalValue} that will store a {@link String} and have the given name and setterMethod.
-	 * @throws ArgumentIsNullException if the given name is null.
-	 * @throws InvalidArgumentException if the given name is blank.
-	 * @throws ArgumentIsNullException if the given setterMethod is null.
-	 */
-	public static OptionalValue<String> forString(final String name, final IElementTaker<String> setterMethod) {
-		return new OptionalValue<>(
+	public static Value<String> forString(final String name, final IElementTaker<String> setterMethod) {
+		return new Value<>(
 			name,
 			setterMethod,
 			s -> s.getRefSingleChildNode().getHeaderOrEmptyString(),
@@ -82,18 +69,18 @@ public final class OptionalValue<V> extends SingleValue<V> {
 	
 	//constructor
 	/**
-	 * Creates a new {@link OptionalValue} with the given name, setterMethod, valueCreator and specificationCreator.
+	 * Creates a new {@link Value} with the given name, setterMethod, valueCreator and specificationCreator.
 	 * 
 	 * @param name
 	 * @param setterMethod
 	 * @param valueCreator
 	 * @param specificationCreator
 	 * @throws ArgumentIsNullException if the given name is null.
-	 * @throws InvalidArgumentException if the given name is blank.
+	 * @throws InvalidArgumentException if the given setterMethod is blank.
 	 * @throws ArgumentIsNullException if the given valueCreator is null.
 	 * @throws ArgumentIsNullException if the given specificationCreator is null.
 	 */
-	public OptionalValue(
+	public Value(
 		final String name,
 		final IElementTaker<V> setterMethod,
 		final IElementTakerElementGetter<INode<?>, V> valueCreator,

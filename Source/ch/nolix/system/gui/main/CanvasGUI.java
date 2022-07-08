@@ -11,7 +11,7 @@ import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.coreapi.programcontrolapi.processproperty.ChangeState;
 import ch.nolix.system.application.baseguiapplication.PaintRun;
-import ch.nolix.system.element.MutableValue;
+import ch.nolix.system.element.mutableelement.MutableValue;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.color.ColorGradient;
 import ch.nolix.system.gui.textformat.TextFormat;

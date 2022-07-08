@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.element;
+package ch.nolix.system.element.mutableelement;
 
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.document.node.Node;

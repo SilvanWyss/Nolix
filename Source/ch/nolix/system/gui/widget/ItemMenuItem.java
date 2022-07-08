@@ -12,10 +12,10 @@ import ch.nolix.coreapi.attributeapi.optionalattributeuniversalapi.OptionalIdent
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
-import ch.nolix.system.element.MutableElement;
-import ch.nolix.system.element.MutableValue;
-import ch.nolix.system.element.OptionalValue;
-import ch.nolix.system.element.Value;
+import ch.nolix.system.element.mutableelement.MutableElement;
+import ch.nolix.system.element.mutableelement.MutableValue;
+import ch.nolix.system.element.mutableelement.OptionalValue;
+import ch.nolix.system.element.mutableelement.Value;
 import ch.nolix.systemapi.guiapi.widgetguiapi.IWidgetGUI;
 
 //class

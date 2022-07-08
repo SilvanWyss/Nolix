@@ -10,8 +10,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.functionapi.mutationuniversalapi.Clearable;
-import ch.nolix.system.element.MultiValue;
-import ch.nolix.system.element.MutableValue;
+import ch.nolix.system.element.mutableelement.MultiValue;
+import ch.nolix.system.element.mutableelement.MutableValue;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.textformat.Font;
 import ch.nolix.system.gui.textformat.TextFormat;

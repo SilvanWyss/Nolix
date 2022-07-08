@@ -8,8 +8,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentEx
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
-import ch.nolix.system.element.MutableOptionalValue;
-import ch.nolix.system.element.MutableValue;
+import ch.nolix.system.element.mutableelement.MutableOptionalValue;
+import ch.nolix.system.element.mutableelement.MutableValue;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;

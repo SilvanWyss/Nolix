@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.element;
+package ch.nolix.system.element.mutableelement;
 
 import ch.nolix.systemapi.elementapi.mainuniversalapi.IRespondingMutableElement;
 

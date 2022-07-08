@@ -18,7 +18,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionapi.mutationuniversalapi.Recalculable;
 import ch.nolix.coreapi.programcontrolapi.processproperty.ChangeState;
 import ch.nolix.system.configuration.ConfigurationElement;
-import ch.nolix.system.element.MutableValue;
+import ch.nolix.system.element.mutableelement.MutableValue;
 import ch.nolix.system.gui.framevisualizer.FrameVisualizer;
 import ch.nolix.system.gui.image.Image;
 import ch.nolix.system.gui.inputdevice.KeyBoard;

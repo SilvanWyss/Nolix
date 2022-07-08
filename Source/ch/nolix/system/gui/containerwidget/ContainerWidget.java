@@ -6,7 +6,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.functionapi.mutationuniversalapi.Clearable;
-import ch.nolix.system.element.MutableOptionalValue;
+import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 import ch.nolix.system.gui.widget.BorderWidget;
 import ch.nolix.system.gui.widget.BorderWidgetLook;
 import ch.nolix.system.gui.widget.Widget;

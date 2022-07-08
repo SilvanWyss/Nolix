@@ -3,7 +3,7 @@ package ch.nolix.system.gui.containerwidget;
 
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.math.GlobalCalculator;
-import ch.nolix.system.element.MutableOptionalValueExtractor;
+import ch.nolix.system.element.mutableelement.MutableOptionalValueExtractor;
 import ch.nolix.system.gui.widget.Widget;
 import ch.nolix.system.gui.widget.WidgetLookState;
 import ch.nolix.system.gui.widgetgui.WidgetGUI;

@@ -3,7 +3,7 @@ package ch.nolix.system.configuration;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
-import ch.nolix.system.element.MutableOptionalValue;
+import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 import ch.nolix.systemapi.elementapi.configurationapi.IConfiguration;
 
 //class

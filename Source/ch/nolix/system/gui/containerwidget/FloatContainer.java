@@ -3,7 +3,7 @@ package ch.nolix.system.gui.containerwidget;
 
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
-import ch.nolix.system.element.MultiValueExtractor;
+import ch.nolix.system.element.mutableelement.MultiValueExtractor;
 import ch.nolix.system.gui.widget.Widget;
 import ch.nolix.system.gui.widgetgui.WidgetGUI;
 import ch.nolix.systemapi.guiapi.inputapi.Key;

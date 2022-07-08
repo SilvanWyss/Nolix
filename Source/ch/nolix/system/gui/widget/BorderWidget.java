@@ -9,8 +9,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentExcep
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.math.GlobalCalculator;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.system.element.MutableOptionalValue;
-import ch.nolix.system.element.MutableValue;
+import ch.nolix.system.element.mutableelement.MutableOptionalValue;
+import ch.nolix.system.element.mutableelement.MutableValue;
 import ch.nolix.system.valueholder.IntOrPercentageHolder;
 import ch.nolix.system.valueholder.IntOrPercentageHolderValidator;
 import ch.nolix.systemapi.guiapi.inputapi.Key;

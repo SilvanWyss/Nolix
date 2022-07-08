@@ -7,7 +7,7 @@ import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.coreapi.functionapi.mutationuniversalapi.Clearable;
-import ch.nolix.system.element.Property;
+import ch.nolix.system.element.mutableelement.Property;
 import ch.nolix.system.gui.widget.Widget;
 import ch.nolix.system.gui.widgetgui.WidgetGUI;
 

@@ -9,8 +9,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.math.GlobalCalculator;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
-import ch.nolix.system.element.MultiValue;
-import ch.nolix.system.element.SubElement;
+import ch.nolix.system.element.mutableelement.MultiValue;
+import ch.nolix.system.element.mutableelement.SubElement;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.widget.Label;
 import ch.nolix.system.gui.widget.LabelLook;

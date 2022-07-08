@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.element;
+package ch.nolix.system.element.mutableelement;
 
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
