@@ -5,9 +5,11 @@ package ch.nolix.core.programcontrol.groupcloseable;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.programcontrolapi.processproperty.CloseState;
 import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.ICloseController;
 
+//TODO: Beautify.
 //class
 /**
  * @author Silvan Wyss
@@ -35,7 +37,14 @@ public final class CloseController implements ICloseController {
 	 */
 	@Override
 	public void createCloseDependencyTo(final GroupCloseable element) {
-		parentClosePool.add(element);
+		
+		final var elementsToAdd = element.getRefCloseController().getRefElements();
+		
+		for (final var e : elementsToAdd) {
+			((CloseController)e.getRefCloseController()).internalSetParentClosePool(parentClosePool);
+		}
+		
+		parentClosePool.addElements(elementsToAdd);
 	}
 	
 	//method
@@ -44,7 +53,7 @@ public final class CloseController implements ICloseController {
 	 */
 	@Override
 	public void closeAll() {
-		parentClosePool.close();
+		parentClosePool.closeElementsIfStateIsOpen();
 	}
 	
 	//method
@@ -62,7 +71,7 @@ public final class CloseController implements ICloseController {
 	 */
 	@Override
 	public boolean hasClosed() {
-		return parentClosePool.isClosed();
+		return (parentClosePool.getState() == CloseState.CLOSED);
 	}
 	
 	//method
@@ -71,7 +80,7 @@ public final class CloseController implements ICloseController {
 	 * @return true if the current {@link CloseController} has a close dependency to the given element.
 	 */
 	boolean internalHasCloseDependencyTo(final GroupCloseable element) {
-		return parentClosePool.contains(element);
+		return parentClosePool.getRefElements().contains(element);
 	}
 	
 	//method.
