@@ -22,6 +22,7 @@ import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.programcontrolapi.futureuniversalapi.IFuture;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.image.MutableImage;
+import ch.nolix.systemapi.guiapi.colorapi.IColor;
 
 //class
 public final class ImageGenerator extends BaseFuture implements IImageGenerator {
@@ -141,7 +142,7 @@ public final class ImageGenerator extends BaseFuture implements IImageGenerator 
 	}
 	
 	//method
-	private Color getColorOfPixel(final double x, final double y) {
+	private IColor getColorOfPixel(final double x, final double y) {
 		
 		final var z = getComplexNumberOfPixel(x, y);
 		

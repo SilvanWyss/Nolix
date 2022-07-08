@@ -4,8 +4,9 @@ package ch.nolix.businessapi.bigdecimalmathapi;
 //Java imports
 import java.math.BigDecimal;
 
-import ch.nolix.system.gui.color.Color;
-import ch.nolix.system.gui.image.MutableImage;
+//own imports
+import ch.nolix.systemapi.guiapi.colorapi.IColor;
+import ch.nolix.systemapi.guiapi.imageapi.IMutableImage;
 
 //interface
 public interface IFractal {
@@ -17,7 +18,7 @@ public interface IFractal {
 	int getBigDecimalScale();
 	
 	//method declaration
-	Color getColorForIterationCountWhereValueMagnitudeExceedsMaxMagnitude(int iterationCount);
+	IColor getColorForIterationCountWhereValueMagnitudeExceedsMaxMagnitude(int iterationCount);
 	
 	//method declaration
 	int getHeightInPixel();
@@ -41,5 +42,5 @@ public interface IFractal {
 	IImageGenerator startImageGeneration();
 	
 	//method declaration
-	MutableImage toImage();
+	IMutableImage<?> toImage();
 }
