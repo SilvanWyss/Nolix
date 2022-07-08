@@ -8,6 +8,7 @@ import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.programcontrolapi.processproperty.CloseState;
 import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.ICloseController;
+import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.IClosePool;
 
 //TODO: Beautify.
 //class
@@ -28,7 +29,7 @@ public final class CloseController implements ICloseController {
 	}
 	
 	//attribute
-	private ClosePool parentClosePool;
+	private IClosePool parentClosePool;
 	
 	//constructor
 	/**
@@ -51,7 +52,7 @@ public final class CloseController implements ICloseController {
 		final var elementsToAdd = element.getRefCloseController().getRefElements();
 		
 		for (final var e : elementsToAdd) {
-			((CloseController)e.getRefCloseController()).internalSetParentClosePool(parentClosePool);
+			e.getRefCloseController().setParentClosePool(parentClosePool);
 		}
 		
 		parentClosePool.addElements(elementsToAdd);
@@ -95,12 +96,9 @@ public final class CloseController implements ICloseController {
 	
 	//method.
 	/**
-	 * Sets the {@link ClosePool} the current {@link CloseController} will belong to.
-	 * 
-	 * @param parentClosePool
-	 * @throws ArgumentIsNullException if the given parentClosePool is null.
+	 * {@inheritDoc}
 	 */
-	void internalSetParentClosePool(final ClosePool parentClosePool) {
+	public void setParentClosePool(final IClosePool parentClosePool) {
 		
 		//Asserts that the given parentClosePool is not null.
 		GlobalValidator.assertThat(parentClosePool).thatIsNamed("parent ClosePool").isNotNull();
