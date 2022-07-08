@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.gui.input;
 
+//own imports
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.container.pair.IntPair;
 import ch.nolix.core.document.node.Node;
@@ -9,10 +10,11 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
+import ch.nolix.system.element.main.Element;
 import ch.nolix.systemapi.guiapi.inputapi.IResizeInput;
 
 //class
-public final class ResizeInput implements IResizeInput<ResizeInput> {
+public final class ResizeInput extends Element implements IResizeInput<ResizeInput> {
 	
 	//constant
 	private static final String SIZE_HEADER = PascalCaseCatalogue.SIZE;
