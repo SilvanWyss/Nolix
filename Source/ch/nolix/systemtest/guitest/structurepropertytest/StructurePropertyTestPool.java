@@ -15,5 +15,7 @@ public final class StructurePropertyTestPool extends TestPool {
 	/**
 	 * Creates a new {@link StructurePropertyTestPool}.
 	 */
-	public StructurePropertyTestPool() {}
+	public StructurePropertyTestPool() {
+		super(ContentPositionTest.class);
+	}
 }
