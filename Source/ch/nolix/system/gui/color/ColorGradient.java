@@ -4,6 +4,7 @@ package ch.nolix.system.gui.color;
 //Java imports
 import java.awt.GradientPaint;
 
+//own imports
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -11,6 +12,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
+import ch.nolix.system.element.main.Element;
 import ch.nolix.systemapi.guiapi.colorapi.IColorGradient;
 import ch.nolix.systemapi.guiapi.structureproperty.DirectionInRectangle;
 
@@ -22,7 +24,7 @@ import ch.nolix.systemapi.guiapi.structureproperty.DirectionInRectangle;
  * @author Silvan Wyss
  * @date 2016-08-01
  */
-public class ColorGradient implements IColorGradient {
+public class ColorGradient extends Element implements IColorGradient {
 	
 	//constant
 	public static final ColorGradient VERTICAL_BLACK_WHITE_COLOR_GRADIENT =
