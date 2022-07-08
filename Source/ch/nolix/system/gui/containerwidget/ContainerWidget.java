@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.gui.containerwidget;
 
+import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
@@ -31,7 +32,7 @@ extends BorderWidget<CW, BWS> implements Clearable {
 		ROLE_HEADER,
 		this::setRole,
 		ContainerRole::fromSpecification,
-		ContainerRole::getSpecification
+		Node::fromEnum
 	);
 	
 	//method

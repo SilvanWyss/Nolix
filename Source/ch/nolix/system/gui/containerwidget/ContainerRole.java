@@ -1,21 +1,15 @@
 //package declaration
 package ch.nolix.system.gui.containerwidget;
 
-//own imports
-import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
-import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.document.node.Node;
-import ch.nolix.coreapi.containerapi.mainapi.IContainer;
-import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.systemapi.elementapi.mainuniversalapi.Specified;
 
 //enum
 /**
  * @author Silvan Wyss
  * @date 2016-09-01
  */
-public enum ContainerRole implements Specified {
+public enum ContainerRole {
 	OVERALL_CONTAINTER,
 	MAIN_CONTENT_CONTAINER,
 	DIALOG_CONTAINER,
@@ -25,31 +19,9 @@ public enum ContainerRole implements Specified {
 	/**
 	 * @param specification
 	 * @return a new {@link ContainerRole} from the given specification.
+	 * @throws InvalidArgumentException if the given specification does not represent a {@link ContainerRole}.
 	 */
 	public static ContainerRole fromSpecification(final INode<?> specification) {
-		return valueOf(GlobalStringHelper.toUpperSnakeCase(specification.getSingleChildNodeHeader()));
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void fillUpAttributesInto(final IMutableList<INode<?>> list) {
-		list.addAtEnd(Node.withHeader(GlobalStringHelper.toPascalCase(toString())));
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public IContainer<INode<?>> getAttributes() {
-		
-		final var attributes = new LinkedList<INode<?>>();
-		
-		fillUpAttributesInto(attributes);
-		
-		return attributes;
+		return valueOf(specification.getSingleChildNodeHeader());
 	}
 }
