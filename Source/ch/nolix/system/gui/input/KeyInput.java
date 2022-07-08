@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.gui.input;
 
+//own imports
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -8,12 +9,13 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
+import ch.nolix.system.element.main.Element;
 import ch.nolix.systemapi.guiapi.inputapi.IKeyInput;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.processproperty.KeyInputType;
 
 //class
-public final class KeyInput implements IKeyInput<KeyInput> {
+public final class KeyInput extends Element implements IKeyInput<KeyInput> {
 	
 	//constant
 	private static final String INPUT_TYPE_HEADER = "InputType";
