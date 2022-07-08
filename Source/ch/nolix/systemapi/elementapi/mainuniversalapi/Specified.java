@@ -2,7 +2,6 @@
 package ch.nolix.systemapi.elementapi.mainuniversalapi;
 
 //own imports
-import ch.nolix.core.document.node.Node;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.documentapi.xmlapi.IXMLNode;
@@ -26,9 +25,7 @@ public interface Specified {
 	/**
 	 * @return the specification of the current {@link Specified}.
 	 */
-	default INode<?> getSpecification() {
-		return getSpecificationWithHeader(getSpecificationHeader());
-	}
+	INode<?> getSpecification();
 	
 	//method
 	/**
@@ -46,7 +43,7 @@ public interface Specified {
 	 * @throws RuntimeException if the given header is blank.
 	 */
 	default INode<?> getSpecificationWithHeader(final String header) {
-		return Node.withHeaderAndChildNodes(header, getAttributes());
+		return getSpecification().asWithHeader(header);
 	}
 	
 	//method
