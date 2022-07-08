@@ -4,13 +4,11 @@ package ch.nolix.core.programcontrol.groupcloseable;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.programcontrolapi.processproperty.CloseState;
 import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.ICloseController;
 import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.IClosePool;
 
-//TODO: Beautify.
 //class
 /**
  * @author Silvan Wyss
@@ -47,9 +45,18 @@ public final class CloseController implements ICloseController {
 	 * {@inheritDoc}
 	 */
 	@Override
+	public void close() {
+		parentClosePool.closeElementsIfStateIsOpen();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public void createCloseDependencyTo(final GroupCloseable element) {
 		
-		final var elementsToAdd = element.getRefCloseController().getRefElements();
+		final var elementsToAdd = element.getRefCloseController().getParentClosePool().getRefElements();
 		
 		for (final var e : elementsToAdd) {
 			e.getRefCloseController().setParentClosePool(parentClosePool);
@@ -63,17 +70,8 @@ public final class CloseController implements ICloseController {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void closeAll() {
-		parentClosePool.closeElementsIfStateIsOpen();
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public IContainer<GroupCloseable> getRefElements() {
-		return parentClosePool.getRefElements();
+	public IClosePool getParentClosePool() {
+		return parentClosePool;
 	}
 	
 	//method
@@ -83,15 +81,6 @@ public final class CloseController implements ICloseController {
 	@Override
 	public boolean hasClosed() {
 		return (parentClosePool.getState() == CloseState.CLOSED);
-	}
-	
-	//method
-	/**
-	 * @param element
-	 * @return true if the current {@link CloseController} has a close dependency to the given element.
-	 */
-	boolean internalHasCloseDependencyTo(final GroupCloseable element) {
-		return parentClosePool.getRefElements().contains(element);
 	}
 	
 	//method.

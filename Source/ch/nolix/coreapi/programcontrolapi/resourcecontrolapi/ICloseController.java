@@ -1,9 +1,6 @@
 //package declaration
 package ch.nolix.coreapi.programcontrolapi.resourcecontrolapi;
 
-//own imports
-import ch.nolix.coreapi.containerapi.mainapi.IContainer;
-
 //interface
 /**
  * @author Silvan Wyss
@@ -15,7 +12,7 @@ public interface ICloseController {
 	/**
 	 * Closes all elements of the current {@link ICloseController}.
 	 */
-	void closeAll();
+	void close();
 	
 	//method declaration
 	/**
@@ -29,9 +26,9 @@ public interface ICloseController {
 	
 	//method declaration
 	/**
-	 * @return the elements of the current {@link ICloseController}.
+	 * @return the parent {@link IClosePool} of the current {@link ICloseController}.
 	 */
-	IContainer<GroupCloseable> getRefElements();
+	IClosePool getParentClosePool();
 	
 	//method declaration
 	/**

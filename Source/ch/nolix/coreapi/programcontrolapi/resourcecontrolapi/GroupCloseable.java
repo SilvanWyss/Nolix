@@ -3,7 +3,6 @@ package ch.nolix.coreapi.programcontrolapi.resourcecontrolapi;
 
 //own imports
 import ch.nolix.coreapi.functionapi.requestuniversalapi.CloseStateRequestable;
-//own imports
 import ch.nolix.coreapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 
 //interface
@@ -21,7 +20,7 @@ public interface GroupCloseable extends AutoCloseable, CloseStateRequestable {
 	 */
 	@Override
 	default void close() {
-		getRefCloseController().closeAll();
+		getRefCloseController().close();
 	}
 	
 	//method
