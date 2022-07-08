@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.gui.input;
 
+//own imports
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -9,11 +10,12 @@ import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.discretegeometry.Discrete2DPoint;
+import ch.nolix.system.element.main.Element;
 import ch.nolix.systemapi.guiapi.inputapi.IMouseInput;
 import ch.nolix.systemapi.guiapi.processproperty.MouseInputType;
 
 //class
-public final class MouseInput implements IMouseInput<MouseInput> {
+public final class MouseInput extends Element implements IMouseInput<MouseInput> {
 	
 	//constant
 	private static final String CURSOR_POSITION_HEADER = PascalCaseCatalogue.CURSOR_POSITION;
