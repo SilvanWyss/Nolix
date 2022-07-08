@@ -89,24 +89,24 @@ final class IterableReadContainer<E> extends Container<E> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public E getRefAt(final int index) {
+	public E getRefAt1BasedIndex(final int p1BasedIndex) {
 		
 		//Asserts that the given index is positive.
-		GlobalValidator.assertThat(index).thatIsNamed(LowerCaseCatalogue.INDEX).isPositive();
+		GlobalValidator.assertThat(p1BasedIndex).thatIsNamed(LowerCaseCatalogue.INDEX).isPositive();
 		
 		//Iterates the current IterableReadContainer.
 		var i = 1;
 		for (final var e : this) {
 			
 			//Asserts that the current index is the given index.
-			if (i == index) {
+			if (i == p1BasedIndex) {
 				return e;
 			}
 			
 			i++;
 		}
 		
-		throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "element at " + index);
+		throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "element at " + p1BasedIndex);
 	}
 	
 	//method
@@ -115,7 +115,7 @@ final class IterableReadContainer<E> extends Container<E> {
 	 */
 	@Override
 	public E getRefLast() {
-		return getRefAt(getElementCount());
+		return getRefAt1BasedIndex(getElementCount());
 	}
 	
 	//method

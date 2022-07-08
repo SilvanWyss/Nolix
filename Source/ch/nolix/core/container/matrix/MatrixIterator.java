@@ -61,7 +61,7 @@ final class MatrixIterator<E> implements Iterator<E> {
 		//Asserts that this matrix iterator has a next element.
 		supposeHasNextElement();
 		
-		final var element = parentMatrix.getRefAt(nextElementIndex);
+		final var element = parentMatrix.getRefAt1BasedIndex(nextElementIndex);
 		nextElementIndex++;
 		return element;
 	}

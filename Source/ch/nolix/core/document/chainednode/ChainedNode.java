@@ -374,7 +374,7 @@ public final class ChainedNode implements IChainedNode {
 	 * if the current {@link ChainedNode} does not contain an attribute at the given index.
 	 */
 	public ChainedNode getChildNodeAt1BasedIndex(final int index) {
-		return childNodes.getRefAt(index);
+		return childNodes.getRefAt1BasedIndex(index);
 	}
 
 	//method

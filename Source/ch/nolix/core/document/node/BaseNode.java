@@ -222,7 +222,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BaseNode} does not contain an attribute at the given index.
 	 */
 	public final BN getRefChildNodeAt1BasedIndex(final int index) {
-		return getRefChildNodes().getRefAt(index);
+		return getRefChildNodes().getRefAt1BasedIndex(index);
 	}
 	
 	//method declaration

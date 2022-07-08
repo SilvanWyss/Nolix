@@ -37,9 +37,9 @@ public class Point3D extends Element {
 		final var attributes = specification.getRefChildNodes();
 		
 		return new Point3D(
-			attributes.getRefAt(1).toDouble(),
-			attributes.getRefAt(2).toDouble(),
-			attributes.getRefAt(3).toDouble()
+			attributes.getRefAt1BasedIndex(1).toDouble(),
+			attributes.getRefAt1BasedIndex(2).toDouble(),
+			attributes.getRefAt1BasedIndex(3).toDouble()
 		);
 	}
 	

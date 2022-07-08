@@ -74,11 +74,11 @@ public final class TextFormat extends Element implements ITextFormat {
 		
 		return
 		new TextFormat(
-			Font.fromSpecification(attributes.getRefAt(1)),
-			attributes.getRefAt(2).getSingleChildNodeAsBoolean(),
-			attributes.getRefAt(3).getSingleChildNodeAsBoolean(),
-			attributes.getRefAt(4).getSingleChildNodeAsInt(),
-			Color.fromSpecification(attributes.getRefAt(5))
+			Font.fromSpecification(attributes.getRefAt1BasedIndex(1)),
+			attributes.getRefAt1BasedIndex(2).getSingleChildNodeAsBoolean(),
+			attributes.getRefAt1BasedIndex(3).getSingleChildNodeAsBoolean(),
+			attributes.getRefAt1BasedIndex(4).getSingleChildNodeAsInt(),
+			Color.fromSpecification(attributes.getRefAt1BasedIndex(5))
 		);
 	}
 	

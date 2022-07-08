@@ -32,7 +32,7 @@ public final class PaintRun {
 	
 	//method
 	public IPainter getRefPainterByIndex(final int index) {
-		return painters.getRefAt(index);
+		return painters.getRefAt1BasedIndex(index);
 	}
 	
 	//method

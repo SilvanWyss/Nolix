@@ -54,10 +54,10 @@ public final class CompressedList<E> extends Container<E> {
 	//method
 	//For a better performance, this implementation does not use all comfortable methods.
 	@Override
-	public E getRefAt(final int index) {
+	public E getRefAt1BasedIndex(final int p1BasedIndex) {
 		
-		if (index < 1) {
-			throw NonPositiveArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.INDEX, index);
+		if (p1BasedIndex < 1) {
+			throw NonPositiveArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.INDEX, p1BasedIndex);
 		}
 		
 		if (isEmpty()) {
@@ -70,7 +70,7 @@ public final class CompressedList<E> extends Container<E> {
 			
 			iteratorIndex += iteratorNode.getElementCount();
 			
-			if (iteratorIndex > index) {
+			if (iteratorIndex > p1BasedIndex) {
 				return iteratorNode.getRefElement();
 			}
 			
@@ -81,7 +81,7 @@ public final class CompressedList<E> extends Container<E> {
 			iteratorNode = iteratorNode.getRefNextNode();
 		}
 		
-		throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "element at " + index);
+		throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "element at " + p1BasedIndex);
 	}
 	
 	//method

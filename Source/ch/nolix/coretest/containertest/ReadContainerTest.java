@@ -48,15 +48,15 @@ public final class ReadContainerTest extends Test {
 		final var readContainer = ReadContainer.forArrays(array1, array2, array3);
 		
 		//verification
-		expect(readContainer.getRefAt(1)).isEqualTo("apple");
-		expect(readContainer.getRefAt(2)).isEqualTo("banana");
-		expect(readContainer.getRefAt(3)).isEqualTo("cerish");
-		expect(readContainer.getRefAt(4)).isEqualTo("elephant");
-		expect(readContainer.getRefAt(5)).isEqualTo("lion");
-		expect(readContainer.getRefAt(6)).isEqualTo("monkey");
-		expect(readContainer.getRefAt(7)).isEqualTo("flower");
-		expect(readContainer.getRefAt(8)).isEqualTo("tree");
-		expect(readContainer.getRefAt(9)).isEqualTo("palm");
+		expect(readContainer.getRefAt1BasedIndex(1)).isEqualTo("apple");
+		expect(readContainer.getRefAt1BasedIndex(2)).isEqualTo("banana");
+		expect(readContainer.getRefAt1BasedIndex(3)).isEqualTo("cerish");
+		expect(readContainer.getRefAt1BasedIndex(4)).isEqualTo("elephant");
+		expect(readContainer.getRefAt1BasedIndex(5)).isEqualTo("lion");
+		expect(readContainer.getRefAt1BasedIndex(6)).isEqualTo("monkey");
+		expect(readContainer.getRefAt1BasedIndex(7)).isEqualTo("flower");
+		expect(readContainer.getRefAt1BasedIndex(8)).isEqualTo("tree");
+		expect(readContainer.getRefAt1BasedIndex(9)).isEqualTo("palm");
 	}
 	
 	//method

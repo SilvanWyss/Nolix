@@ -189,8 +189,8 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 		
 		final var attributes = createPainterCommand.getChildNodesAsNodes();
 		
-		final var xTranslation = attributes.getRefAt(1).toInt();
-		final var yTranslation = attributes.getRefAt(2).toInt();
+		final var xTranslation = attributes.getRefAt1BasedIndex(1).toInt();
+		final var yTranslation = attributes.getRefAt1BasedIndex(2).toInt();
 		
 		switch (attributes.getElementCount()) {
 			case 2:
@@ -204,8 +204,8 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 				};
 			case 4:
 				
-				final var paintAreaWidth = attributes.getRefAt(3).toInt();
-				final var paintAreaHeight = attributes.getRefAt(4).toInt();
+				final var paintAreaWidth = attributes.getRefAt1BasedIndex(3).toInt();
+				final var paintAreaHeight = attributes.getRefAt1BasedIndex(4).toInt();
 				
 				return
 				(final PaintRun pr) -> {
@@ -268,16 +268,16 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 		switch (attributes.getElementCount()) {
 			case 2:
 				
-				final var width = attributes.getRefAt(1).toInt();
-				final var height = attributes.getRefAt(2).toInt();
+				final var width = attributes.getRefAt1BasedIndex(1).toInt();
+				final var height = attributes.getRefAt1BasedIndex(2).toInt();
 				
 				return pr -> pr.getRefPainterByIndex(painterIndex).paintFilledRectangle(width, height);
 			case 4:
 				
-				final var xPosition = attributes.getRefAt(1).toInt();
-				final var yPosition = attributes.getRefAt(2).toInt();
-				final var width2 = attributes.getRefAt(3).toInt();
-				final var height2 = attributes.getRefAt(4).toInt();
+				final var xPosition = attributes.getRefAt1BasedIndex(1).toInt();
+				final var yPosition = attributes.getRefAt1BasedIndex(2).toInt();
+				final var width2 = attributes.getRefAt1BasedIndex(3).toInt();
+				final var height2 = attributes.getRefAt1BasedIndex(4).toInt();
 				
 				return
 				painting ->
@@ -299,15 +299,15 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 	) {
 		
 		final var attributes = paintImageCommand.getChildNodesAsNodes();
-		final var imageId = attributes.getRefAt(1).toString();
+		final var imageId = attributes.getRefAt1BasedIndex(1).toString();
 		
 		switch (attributes.getElementCount()) {
 			case 1:	
 				return pr -> pr.getRefPainterByIndex(painterIndex).paintImageById(imageId);
 			case 3:
 				
-				final var width = attributes.getRefAt(2).toInt();
-				final var height = attributes.getRefAt(3).toInt();
+				final var width = attributes.getRefAt1BasedIndex(2).toInt();
+				final var height = attributes.getRefAt1BasedIndex(3).toInt();
 				
 				return pr -> pr.getRefPainterByIndex(painterIndex).paintImageById(imageId, width, height);
 			default:
@@ -322,20 +322,20 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 	) {
 		
 		final var attributes = paintTextCommand.getChildNodesAsNodes();
-		final var text = attributes.getRefAt(1).getHeaderOrEmptyString();
+		final var text = attributes.getRefAt1BasedIndex(1).getHeaderOrEmptyString();
 		
 		switch (attributes.getElementCount()) {
 			case 1:
 				return pr -> pr.getRefPainterByIndex(painterIndex).paintText(text);
 			case 2:
 					
-				final var textFormat = TextFormat.fromSpecification(attributes.getRefAt(2));
+				final var textFormat = TextFormat.fromSpecification(attributes.getRefAt1BasedIndex(2));
 				
 				return pr -> pr.getRefPainterByIndex(painterIndex).paintText(text, textFormat);
 			case 3:
 				
-				final var textFormat2 = TextFormat.fromSpecification(attributes.getRefAt(2));
-				final var maxLength = attributes.getRefAt(3).toInt();
+				final var textFormat2 = TextFormat.fromSpecification(attributes.getRefAt1BasedIndex(2));
+				final var maxLength = attributes.getRefAt1BasedIndex(3).toInt();
 				
 				return pr -> pr.getRefPainterByIndex(painterIndex).paintText(text, textFormat2, maxLength);
 			default:
@@ -377,8 +377,8 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 	private IElementTaker<PaintRun> createTranslateCommand(final int painterIndex, final ChainedNode translateCommand) {
 		
 		final var attributes = translateCommand.getChildNodesAsNodes();
-		final var xTranslation = attributes.getRefAt(1).toInt();
-		final var yTranslation = attributes.getRefAt(2).toInt();
+		final var xTranslation = attributes.getRefAt1BasedIndex(1).toInt();
+		final var yTranslation = attributes.getRefAt1BasedIndex(2).toInt();
 		
 		return pr -> pr.getRefPainterByIndex(painterIndex).translate(xTranslation, yTranslation);
 	}

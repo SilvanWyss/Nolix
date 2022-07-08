@@ -48,7 +48,7 @@ public abstract class StatisticalModel {
 			forecasts.addAtEnd(calculateNextValue());
 		}
 		
-		return forecasts.getRefAt(index);
+		return forecasts.getRefAt1BasedIndex(index);
 	}
 	
 	//method declaration
@@ -73,6 +73,6 @@ public abstract class StatisticalModel {
 			return inputValues[getInputValuesCount() + forecasts.getElementCount() - index];
 		}
 		
-		return forecasts.getRefAt(forecasts.getElementCount() - index + 1);
+		return forecasts.getRefAt1BasedIndex(forecasts.getElementCount() - index + 1);
 	}
 }

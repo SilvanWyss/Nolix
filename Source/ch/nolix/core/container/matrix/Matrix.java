@@ -373,8 +373,8 @@ public final class Matrix<E> extends Container<E> implements Clearable, IMatrix<
 	 * if the given index is bigger than the number of elements of the current {@link Matrix}.
 	 */
 	@Override
-	public E getRefAt(final int index) {
-		return getRefAt(getRowIndexOf(index), getColumnIndexOf(index));
+	public E getRefAt1BasedIndex(final int p1BasedIndex) {
+		return getRefAt(getRowIndexOf(p1BasedIndex), getColumnIndexOf(p1BasedIndex));
 	}
 	
 	//method

@@ -99,8 +99,8 @@ public final class GapMatrix<E> extends Container<E> implements Clearable {
 	
 	//method
 	@Override
-	public E getRefAt(final int index) {
-		return getRefAt(getRowIndexOf(index), getColumnIndexOf(index));
+	public E getRefAt1BasedIndex(final int p1BasedIndex) {
+		return getRefAt(getRowIndexOf(p1BasedIndex), getColumnIndexOf(p1BasedIndex));
 	}
 	
 	//method

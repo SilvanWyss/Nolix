@@ -56,8 +56,8 @@ public final class CachingContainer<E> extends Container<E> {
 	
 	//method
 	@Override
-	public E getRefAt(final int index) {
-		return elements.getRefAt(index).getRefElement2();
+	public E getRefAt1BasedIndex(final int p1BasedIndex) {
+		return elements.getRefAt1BasedIndex(p1BasedIndex).getRefElement2();
 	}
 	
 	//method

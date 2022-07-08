@@ -488,31 +488,31 @@ public final class LinkedList<E> extends Container<E> implements Clearable, IMut
 	/**
 	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
-	 * @param index
+	 * @param p1BasedIndex
 	 * @return the element at the given index.
 	 * @throws NonPositiveArgumentException if the given index is not positive.
 	 * @throws ArgumentDoesNotHaveAttributeException
 	 * if the current {@link Container} does not contain an element at the given index.
 	 */
 	@Override
-	public E getRefAt(final int index) {
+	public E getRefAt1BasedIndex(final int p1BasedIndex) {
 		
 		//Asserts that the given index is positive.
-		GlobalValidator.assertThat(index).thatIsNamed(LowerCaseCatalogue.INDEX).isPositive();
+		GlobalValidator.assertThat(p1BasedIndex).thatIsNamed(LowerCaseCatalogue.INDEX).isPositive();
 		
 		//Iterates the current LinkedList.
 		var i = 1;
 		for (final var e : this) {
 			
 			//Asserts that the current index is the given index.
-			if (i == index) {
+			if (i == p1BasedIndex) {
 				return e;
 			}
 			
 			i++;
 		}
 		
-		throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "element at " + index);
+		throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "element at " + p1BasedIndex);
 	}
 	
 	//method
@@ -564,7 +564,7 @@ public final class LinkedList<E> extends Container<E> implements Clearable, IMut
 			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "contains less than 2 elements");
 		}
 		
-		return getRefAt(getElementCount() - 1);
+		return getRefAt1BasedIndex(getElementCount() - 1);
 	}
 	
 	//method

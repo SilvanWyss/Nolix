@@ -48,21 +48,21 @@ final class MultiReadContainer<E> extends Container<E> {
 	
 	//method
 	@Override
-	public E getRefAt(final int index) {
+	public E getRefAt1BasedIndex(final int p1BasedIndex) {
 		
-		GlobalValidator.assertThat(index).thatIsNamed(LowerCaseCatalogue.INDEX).isPositive();
+		GlobalValidator.assertThat(p1BasedIndex).thatIsNamed(LowerCaseCatalogue.INDEX).isPositive();
 		
 		var i = 1;
 		for (final var e : this) {
 			
-			if (i == index) {
+			if (i == p1BasedIndex) {
 				return e;
 			}
 			
 			i++;
 		}
 		
-		throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "element at " + index);
+		throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "element at " + p1BasedIndex);
 	}
 	
 	//method

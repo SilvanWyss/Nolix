@@ -1026,7 +1026,7 @@ public abstract class Container<E> implements IContainer<E> {
 			throw EmptyArgumentException.forArgument(this);
 		}
 		
-		return getRefAt(random.nextInt(getElementCount()) + 1);
+		return getRefAt1BasedIndex(random.nextInt(getElementCount()) + 1);
 	}
 	
 	//method

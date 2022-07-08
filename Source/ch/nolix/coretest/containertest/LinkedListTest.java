@@ -25,12 +25,12 @@ public final class LinkedListTest extends Test {
 		
 		//verification
 		expect(testUnit.getElementCount()).isEqualTo(6);
-		expect(testUnit.getRefAt(1)).isEqualTo("b1");
-		expect(testUnit.getRefAt(2)).isEqualTo("b2");
-		expect(testUnit.getRefAt(3)).isEqualTo("a1");
-		expect(testUnit.getRefAt(4)).isEqualTo("a2");
-		expect(testUnit.getRefAt(5)).isEqualTo("a3");
-		expect(testUnit.getRefAt(6)).isEqualTo("a4");
+		expect(testUnit.getRefAt1BasedIndex(1)).isEqualTo("b1");
+		expect(testUnit.getRefAt1BasedIndex(2)).isEqualTo("b2");
+		expect(testUnit.getRefAt1BasedIndex(3)).isEqualTo("a1");
+		expect(testUnit.getRefAt1BasedIndex(4)).isEqualTo("a2");
+		expect(testUnit.getRefAt1BasedIndex(5)).isEqualTo("a3");
+		expect(testUnit.getRefAt1BasedIndex(6)).isEqualTo("a4");
 	}
 	
 	//method
@@ -46,10 +46,10 @@ public final class LinkedListTest extends Test {
 		
 		//verification
 		expect(testUnit.getElementCount()).isEqualTo(4);
-		expect(testUnit.getRefAt(1)).isEqualTo("a1");
-		expect(testUnit.getRefAt(2)).isEqualTo("a2");
-		expect(testUnit.getRefAt(3)).isEqualTo("a3");
-		expect(testUnit.getRefAt(4)).isEqualTo("a4");
+		expect(testUnit.getRefAt1BasedIndex(1)).isEqualTo("a1");
+		expect(testUnit.getRefAt1BasedIndex(2)).isEqualTo("a2");
+		expect(testUnit.getRefAt1BasedIndex(3)).isEqualTo("a3");
+		expect(testUnit.getRefAt1BasedIndex(4)).isEqualTo("a4");
 	}
 	
 	//method
@@ -65,8 +65,8 @@ public final class LinkedListTest extends Test {
 		
 		//verification
 		expect(testUnit.getElementCount()).isEqualTo(2);
-		expect(testUnit.getRefAt(1)).isEqualTo("b1");
-		expect(testUnit.getRefAt(2)).isEqualTo("b2");
+		expect(testUnit.getRefAt1BasedIndex(1)).isEqualTo("b1");
+		expect(testUnit.getRefAt1BasedIndex(2)).isEqualTo("b2");
 	}
 	
 	//method
@@ -295,7 +295,7 @@ public final class LinkedListTest extends Test {
 		//verification
 		expect(list.getElementCount()).isEqualTo(6);
 		for (var i = 1; i <= 6; i++) {
-			expect(testUnit.getRefAt(i)).isEqualTo(list.getRefAt(i));
+			expect(testUnit.getRefAt1BasedIndex(i)).isEqualTo(list.getRefAt1BasedIndex(i));
 		}
 	}
 	
@@ -311,9 +311,9 @@ public final class LinkedListTest extends Test {
 		
 		//verification
 		expect(result.getElementCount()).isEqualTo(3);
-		expect(result.getRefAt(1)).isEqualTo("xxxx");
-		expect(result.getRefAt(2)).isEqualTo("xxxxx");
-		expect(result.getRefAt(3)).isEqualTo("xxxxxx");
+		expect(result.getRefAt1BasedIndex(1)).isEqualTo("xxxx");
+		expect(result.getRefAt1BasedIndex(2)).isEqualTo("xxxxx");
+		expect(result.getRefAt1BasedIndex(3)).isEqualTo("xxxxxx");
 	}
 	
 	//method
@@ -518,9 +518,9 @@ public final class LinkedListTest extends Test {
 		
 		//verification
 		expect(result.getElementCount()).isEqualTo(3);
-		expect(result.getRefAt(1)).isEqualTo("x");
-		expect(result.getRefAt(2)).isEqualTo("xx");
-		expect(result.getRefAt(3)).isEqualTo("xxx");
+		expect(result.getRefAt1BasedIndex(1)).isEqualTo("x");
+		expect(result.getRefAt1BasedIndex(2)).isEqualTo("xx");
+		expect(result.getRefAt1BasedIndex(3)).isEqualTo("xxx");
 	}
 	
 	//method
@@ -557,7 +557,7 @@ public final class LinkedListTest extends Test {
 			
 			for (final var e : result) {
 				expect(e.getElementCount()).isEqualTo(2);
-				expect(e.getRefAt(1)).isEqualTo("x");
+				expect(e.getRefAt1BasedIndex(1)).isEqualTo("x");
 			}
 	}
 		
@@ -597,8 +597,8 @@ public final class LinkedListTest extends Test {
 		expect(result.getElementCount()).isEqualTo(4);
 		for (final var e : result) {
 			expect(e.getElementCount()).isEqualTo(2);
-			expect(e.getRefAt(1)).isEqualTo("x");
-			expect(e.getRefAt(2)).isEqualTo("xxxx");
+			expect(e.getRefAt1BasedIndex(1)).isEqualTo("x");
+			expect(e.getRefAt1BasedIndex(2)).isEqualTo("xxxx");
 		}
 	}
 	
@@ -691,12 +691,12 @@ public final class LinkedListTest extends Test {
 		
 		//verification
 		expect(result.getElementCount()).isEqualTo(6);
-		expect(result.getRefAt(1)).isEqualTo("x");
-		expect(result.getRefAt(2)).isEqualTo("xx");
-		expect(result.getRefAt(3)).isEqualTo("xxx");
-		expect(result.getRefAt(4)).isEqualTo("xxxx");
-		expect(result.getRefAt(5)).isEqualTo("xxxxx");
-		expect(result.getRefAt(6)).isEqualTo("xxxxxx");
+		expect(result.getRefAt1BasedIndex(1)).isEqualTo("x");
+		expect(result.getRefAt1BasedIndex(2)).isEqualTo("xx");
+		expect(result.getRefAt1BasedIndex(3)).isEqualTo("xxx");
+		expect(result.getRefAt1BasedIndex(4)).isEqualTo("xxxx");
+		expect(result.getRefAt1BasedIndex(5)).isEqualTo("xxxxx");
+		expect(result.getRefAt1BasedIndex(6)).isEqualTo("xxxxxx");
 	}
 	
 	//method
@@ -711,12 +711,12 @@ public final class LinkedListTest extends Test {
 		
 		//verification
 		expect(result.getElementCount()).isEqualTo(6);
-		expect(result.getRefAt(1)).isEqualTo("elephant");
-		expect(result.getRefAt(2)).isEqualTo("jaguar");
-		expect(result.getRefAt(3)).isEqualTo("lion");
-		expect(result.getRefAt(4)).isEqualTo("python");
-		expect(result.getRefAt(5)).isEqualTo("shark");
-		expect(result.getRefAt(6)).isEqualTo("zebra");
+		expect(result.getRefAt1BasedIndex(1)).isEqualTo("elephant");
+		expect(result.getRefAt1BasedIndex(2)).isEqualTo("jaguar");
+		expect(result.getRefAt1BasedIndex(3)).isEqualTo("lion");
+		expect(result.getRefAt1BasedIndex(4)).isEqualTo("python");
+		expect(result.getRefAt1BasedIndex(5)).isEqualTo("shark");
+		expect(result.getRefAt1BasedIndex(6)).isEqualTo("zebra");
 	}
 	
 	//method
@@ -806,10 +806,10 @@ public final class LinkedListTest extends Test {
 		
 		//verification
 		expect(result.getElementCount()).isEqualTo(5);
-		expect(result.getRefAt(1)).isEqualTo("xx");
-		expect(result.getRefAt(2)).isEqualTo("xxx");
-		expect(result.getRefAt(3)).isEqualTo("xxxx");
-		expect(result.getRefAt(4)).isEqualTo("xxxxx");
-		expect(result.getRefAt(5)).isEqualTo("xxxxxx");
+		expect(result.getRefAt1BasedIndex(1)).isEqualTo("xx");
+		expect(result.getRefAt1BasedIndex(2)).isEqualTo("xxx");
+		expect(result.getRefAt1BasedIndex(3)).isEqualTo("xxxx");
+		expect(result.getRefAt1BasedIndex(4)).isEqualTo("xxxxx");
+		expect(result.getRefAt1BasedIndex(5)).isEqualTo("xxxxxx");
 	}
 }

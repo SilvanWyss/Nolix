@@ -38,7 +38,7 @@ final class MatrixRowIterator<E> implements Iterator<E> {
 		
 		supposeHasNextElement();
 		
-		final var element = parentMatrixRow.getRefAt(nextElementColumnIndex);
+		final var element = parentMatrixRow.getRefAt1BasedIndex(nextElementColumnIndex);
 		nextElementColumnIndex++;
 		return element;
 	}

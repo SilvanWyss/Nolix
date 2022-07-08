@@ -78,12 +78,12 @@ public final class SubContainer<E> extends Container<E> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public E getRefAt(final int index) {
+	public E getRefAt1BasedIndex(final int p1BasedIndex) {
 		
-		GlobalValidator.assertThat(index).thatIsNamed(LowerCaseCatalogue.INDEX).isPositive();
-		GlobalValidator.assertThat(index).thatIsNamed(LowerCaseCatalogue.INDEX).isNotBiggerThan(getElementCount());
+		GlobalValidator.assertThat(p1BasedIndex).thatIsNamed(LowerCaseCatalogue.INDEX).isPositive();
+		GlobalValidator.assertThat(p1BasedIndex).thatIsNamed(LowerCaseCatalogue.INDEX).isNotBiggerThan(getElementCount());
 		
-		return container.getRefAt(startIndex + index - 1);
+		return container.getRefAt1BasedIndex(startIndex + p1BasedIndex - 1);
 	}
 	
 	//method
@@ -92,7 +92,7 @@ public final class SubContainer<E> extends Container<E> {
 	 */
 	@Override
 	public E getRefLast() {
-		return getRefAt(getElementCount());
+		return getRefAt1BasedIndex(getElementCount());
 	}
 	
 	//method

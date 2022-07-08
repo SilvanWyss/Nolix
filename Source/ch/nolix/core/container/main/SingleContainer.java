@@ -70,9 +70,9 @@ public final class SingleContainer<E> extends Container<E> implements ISingleCon
 	 * {@inheritDoc}
 	 */
 	@Override
-	public E getRefAt(final int index) {
+	public E getRefAt1BasedIndex(final int p1BasedIndex) {
 		
-		GlobalValidator.assertThat(index).thatIsNamed(LowerCaseCatalogue.INDEX).isEqualTo(1);
+		GlobalValidator.assertThat(p1BasedIndex).thatIsNamed(LowerCaseCatalogue.INDEX).isEqualTo(1);
 		
 		return getRefElement();
 	}

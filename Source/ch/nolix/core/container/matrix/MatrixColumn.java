@@ -46,7 +46,7 @@ public final class MatrixColumn<E> extends Container<E> {
 	
 	//method
 	@Override
-	public E getRefAt(final int rowIndex) {
+	public E getRefAt1BasedIndex(final int rowIndex) {
 		return parentMatrix.getRefAt(rowIndex, getColumnIndex());
 	}
 	

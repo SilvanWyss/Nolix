@@ -431,10 +431,11 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method declaration declaration
 	/**
-	 * @param index
-	 * @return the element at the given index.
+	 * @param p1BasedIndex
+	 * @return the element at the given p1BasedIndex.
+	 * @throws RuntimeException if the current {@link IContainer} does not contain an element at the given p1BasedIndex.
 	 */
-	E getRefAt(int index);
+	E getRefAt1BasedIndex(int p1BasedIndex);
 	
 	//method
 	/**
