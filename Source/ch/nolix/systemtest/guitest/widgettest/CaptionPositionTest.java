@@ -11,48 +11,6 @@ public final class CaptionPositionTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_getSpecification() {
-		
-		//execution & verification
-			expect(CaptionPosition.LEFT_TOP.getSpecification().toString())
-			.isEqualTo("CaptionPosition(LeftTop)");
-			
-			expect(CaptionPosition.LEFT.getSpecification().toString())
-			.isEqualTo("CaptionPosition(Left)");
-			
-			expect(CaptionPosition.LEFT_BOTTOM.getSpecification().toString())
-			.isEqualTo("CaptionPosition(LeftBottom)");
-			
-			expect(CaptionPosition.RIGHT_TOP.getSpecification().toString())
-			.isEqualTo("CaptionPosition(RightTop)");
-			
-			expect(CaptionPosition.RIGHT.getSpecification().toString())
-			.isEqualTo("CaptionPosition(Right)");
-			
-			expect(CaptionPosition.RIGHT_BOTTOM.getSpecification().toString())
-			.isEqualTo("CaptionPosition(RightBottom)");
-			
-			expect(CaptionPosition.TOP_LEFT.getSpecification().toString())
-			.isEqualTo("CaptionPosition(TopLeft)");
-			
-			expect(CaptionPosition.TOP.getSpecification().toString())
-			.isEqualTo("CaptionPosition(Top)");
-			
-			expect(CaptionPosition.TOP_RIGHT.getSpecification().toString())
-			.isEqualTo("CaptionPosition(TopRight)");
-			
-			expect(CaptionPosition.BOTTOM_LEFT.getSpecification().toString())
-			.isEqualTo("CaptionPosition(BottomLeft)");
-			
-			expect(CaptionPosition.BOTTOM.getSpecification().toString())
-			.isEqualTo("CaptionPosition(Bottom)");
-			
-			expect(CaptionPosition.BOTTOM_RIGHT.getSpecification().toString())
-			.isEqualTo("CaptionPosition(BottomRight)");
-	}
-	
-	//method
-	@TestCase
 	public void testCase_toString() {
 		
 		//execution & verification
