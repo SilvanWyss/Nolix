@@ -2,6 +2,7 @@
 package ch.nolix.system.gui.widget;
 
 import ch.nolix.core.commontype.constant.StringCatalogue;
+import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
@@ -28,7 +29,7 @@ public final class Label extends TextLineWidget<Label, LabelLook> {
 		LABEL_ROLE_HEADER,
 		this::setRole,
 		LabelRole::fromSpecification,
-		LabelRole::getSpecification
+		Node::fromEnum
 	);
 	
 	//constructor
