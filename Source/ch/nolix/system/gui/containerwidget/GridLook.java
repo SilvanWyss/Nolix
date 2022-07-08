@@ -31,7 +31,7 @@ public final class GridLook extends BorderWidgetLook<GridLook> {
 		GRID_TYPE_HEADER,
 		WidgetLookState.class,
 		GridType::fromSpecification,
-		GridType::getSpecification,
+		Node::fromEnum,
 		this::setGridTypeForState,
 		DEFAULT_GRID_TYPE
 	);
