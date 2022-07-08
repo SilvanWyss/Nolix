@@ -6,6 +6,7 @@ import java.time.Year;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 
+//own imports
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -15,6 +16,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.time.TimeUnitCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
+import ch.nolix.system.element.main.Element;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 import ch.nolix.systemapi.timeapi.timestructure.Month;
 import ch.nolix.systemapi.timeapi.timestructure.Weekday;
@@ -28,7 +30,7 @@ import ch.nolix.systemapi.timeapi.timestructure.Weekday;
  * @author Silvan Wyss
  * @date 2016-09-01
  */
-public final class Time implements ITime {
+public final class Time extends Element implements ITime {
 	
 	//constant
 	public static final int DEFAULT_YEAR = 2000;
@@ -305,18 +307,6 @@ public final class Time implements ITime {
 	
 	private Time(final ZonedDateTime zonedDateTime) {
 		this.zonedDateTime = zonedDateTime;
-	}
-	
-	//method
-	@Override
-	public boolean equals(final Object object) {
-		
-		if (!(object instanceof Time)) {
-			return false;
-		}
-		
-		final var time = (Time)object;
-		return getSpecification().equals(time.getSpecification());
 	}
 	
 	//method
@@ -620,15 +610,6 @@ public final class Time implements ITime {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public int hashCode() {
-		return getSpecification().hashCode();
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	public boolean isAfter(final ITime time) {
 		return (getMilliseconds() > time.getMilliseconds());
 	}
@@ -648,14 +629,5 @@ public final class Time implements ITime {
 	 */
 	public boolean isInLeapYear() {
 		return Year.isLeap(getYearAsInt());
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public String toString() {
-		return getSpecification().toString();
 	}
 }
