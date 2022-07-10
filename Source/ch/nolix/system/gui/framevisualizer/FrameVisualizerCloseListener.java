@@ -6,27 +6,16 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
 //own imports
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.systemapi.guiapi.mainapi.IBaseGUI;
 
 //class
-/**
- * @author Silvan Wyss
- * @date 2016-01-01
- */
 final class FrameVisualizerCloseListener implements WindowListener {
 	
 	//attribute
 	private final IBaseGUI<?> parentGUI;
 	
 	//constructor
-	/**
-	 * Creates a new {@link FrameVisualizerCloseListener} that will belong to the given parentGUI.
-	 * 
-	 * @param parentGUI
-	 * @throws ArgumentIsNullException if the given parentGUI.
-	 */
 	public FrameVisualizerCloseListener(final IBaseGUI<?> parentGUI) {
 		
 		GlobalValidator.assertThat(parentGUI).thatIsNamed("parent GUI").isNotNull();
