@@ -5,8 +5,8 @@ package ch.nolix.systemtest.guitest.widgettest;
 import ch.nolix.core.programatom.function.FunctionCatalogue;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.ObjectTest;
-import ch.nolix.system.gui.main.InvisibleGUI;
 import ch.nolix.system.gui.widget.Widget;
+import ch.nolix.system.gui.widgetgui.InvisibleGUI;
 
 //class
 public abstract class WidgetTest<W extends Widget<W, ?>> extends ObjectTest<W> {

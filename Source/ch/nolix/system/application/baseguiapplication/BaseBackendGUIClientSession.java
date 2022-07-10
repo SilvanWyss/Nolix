@@ -3,7 +3,7 @@ package ch.nolix.system.application.baseguiapplication;
 
 //own imports
 import ch.nolix.system.application.main.Session;
-import ch.nolix.system.gui.main.InvisibleGUI;
+import ch.nolix.system.gui.widgetgui.InvisibleGUI;
 import ch.nolix.systemapi.guiapi.widgetguiapi.IWidgetGUI;
 
 //class

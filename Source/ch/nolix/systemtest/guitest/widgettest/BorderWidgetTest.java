@@ -5,9 +5,9 @@ package ch.nolix.systemtest.guitest.widgettest;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.system.gui.containerwidget.SingleContainer;
-import ch.nolix.system.gui.main.InvisibleGUI;
 import ch.nolix.system.gui.widget.BorderWidget;
 import ch.nolix.system.gui.widget.WidgetLookState;
+import ch.nolix.system.gui.widgetgui.InvisibleGUI;
 
 //class
 public abstract class BorderWidgetTest<BW extends BorderWidget<BW, ?>> extends WidgetTest<BW> {

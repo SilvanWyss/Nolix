@@ -3,7 +3,7 @@ package ch.nolix.systemtest.guitest.maintest;
 
 //own imports
 import ch.nolix.core.testing.basetest.TestCase;
-import ch.nolix.system.gui.main.InvisibleGUI;
+import ch.nolix.system.gui.widgetgui.InvisibleGUI;
 
 //class
 public final class InvisibleGUITest extends WidgetGUITest<InvisibleGUI> {

@@ -22,7 +22,7 @@ import ch.nolix.system.application.main.BackendClient;
 import ch.nolix.system.gui.input.InputFactory;
 import ch.nolix.system.gui.input.MouseInput;
 import ch.nolix.system.gui.main.GUI;
-import ch.nolix.system.gui.main.InvisibleGUI;
+import ch.nolix.system.gui.widgetgui.InvisibleGUI;
 import ch.nolix.systemapi.guiapi.inputapi.IInput;
 import ch.nolix.systemapi.guiapi.widgetguiapi.IWidgetGUI;
 

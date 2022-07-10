@@ -10,7 +10,7 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.I2ElementTaker;
 import ch.nolix.system.element.mutableelement.MutableSpecificationValueExtractor;
 import ch.nolix.system.gui.image.Image;
 import ch.nolix.system.gui.image.MutableImage;
-import ch.nolix.system.gui.main.InvisibleGUI;
+import ch.nolix.system.gui.widgetgui.InvisibleGUI;
 import ch.nolix.system.gui.widgetgui.WidgetGUI;
 import ch.nolix.systemapi.elementapi.configurationapi.IConfiguration;
 import ch.nolix.systemapi.guiapi.colorapi.IColor;

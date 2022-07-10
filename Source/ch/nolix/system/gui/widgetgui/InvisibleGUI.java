@@ -1,10 +1,9 @@
 //package declaration
-package ch.nolix.system.gui.main;
+package ch.nolix.system.gui.widgetgui;
 
 //own imports
 import ch.nolix.core.programatom.stateproperty.Visibility;
 import ch.nolix.system.gui.widget.Widget;
-import ch.nolix.system.gui.widgetgui.WidgetGUI;
 
 //class
 public class InvisibleGUI extends WidgetGUI<InvisibleGUI> {
