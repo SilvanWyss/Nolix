@@ -8,7 +8,7 @@ import java.awt.event.WindowListener;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.system.gui.main.GUI;
+import ch.nolix.systemapi.guiapi.mainapi.IBaseGUI;
 
 //class
 /**
@@ -16,25 +16,24 @@ import ch.nolix.system.gui.main.GUI;
  * @date 2016-01-01
  */
 final class FrameVisualizerCloseListener implements WindowListener {
-
+	
 	//attribute
-	//frame this frame close listener belongs to.
-	private GUI<?> frameVisualizer;
+	private final IBaseGUI<?> parentGUI;
 	
 	//constructor
 	/**
-	 * Creates a new frame close listener that belongs to the given frame.
+	 * Creates a new {@link FrameVisualizerCloseListener} that will belong to the given parentGUI.
 	 * 
-	 * @param frameVisualizer
-	 * @throws ArgumentIsNullException if the given frame is null.
+	 * @param parentGUI
+	 * @throws ArgumentIsNullException if the given parentGUI.
 	 */
-	public FrameVisualizerCloseListener(final GUI<?> frameVisualizer) {
+	public FrameVisualizerCloseListener(final IBaseGUI<?> parentGUI) {
 		
 		//Asserts that the given frame is not null.
-		GlobalValidator.assertThat(frameVisualizer).isOfType(GUI.class);
+		GlobalValidator.assertThat(parentGUI).thatIsNamed("parent GUI").isNotNull();
 		
 		//Sets the frame of this frame close listener.
-		this.frameVisualizer = frameVisualizer;
+		this.parentGUI = parentGUI;
 	}
 	
 	//method
@@ -42,7 +41,7 @@ final class FrameVisualizerCloseListener implements WindowListener {
 	public void windowActivated(final WindowEvent windowEvent) {
 		//Does nothing.
 	}
-
+	
 	//method
 	@Override
 	public void windowClosed(final WindowEvent windowEvent) {
@@ -52,27 +51,27 @@ final class FrameVisualizerCloseListener implements WindowListener {
 	//method
 	@Override
 	public void windowClosing(final WindowEvent windowEvent) {
-		frameVisualizer.close();
+		parentGUI.close();
 	}
-
+	
 	//method
 	@Override
 	public void windowDeactivated(final WindowEvent windowEvent) {
 		//Does nothing.
 	}
-
+	
 	// method
 	@Override
 	public void windowDeiconified(final WindowEvent windowEvent) {
 		//Does nothing.
 	}
-
+	
 	//method
 	@Override
 	public void windowIconified(final WindowEvent windowEvent) {
 		//Does nothing.
 	}
-
+	
 	//method
 	@Override
 	public void windowOpened(final WindowEvent windowEvent) {
