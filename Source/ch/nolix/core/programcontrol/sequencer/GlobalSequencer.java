@@ -54,7 +54,7 @@ public final class GlobalSequencer {
 	 * @throws ArgumentIsNullException if the given condition is null.
 	 */
 	public static AsSoonAsMediator asSoonAsNoMore(final IBooleanGetter condition) {
-		return new AsSoonAsMediator(GlobalFunctionHelper.createNegatorForCondition(condition));
+		return new AsSoonAsMediator(GlobalFunctionHelper.createNegatorFor(condition));
 	}
 	
 	//static method
@@ -143,7 +143,7 @@ public final class GlobalSequencer {
 	 * @throws ArgumentIsNullException if the given condition is null.
 	 */
 	public static AsLongAsMediator until(final IBooleanGetter condition) {
-		return new AsLongAsMediator(GlobalFunctionHelper.createNegatorForCondition(condition));
+		return new AsLongAsMediator(GlobalFunctionHelper.createNegatorFor(condition));
 	}
 	
 	//static method

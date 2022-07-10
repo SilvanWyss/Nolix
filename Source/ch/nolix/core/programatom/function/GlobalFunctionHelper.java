@@ -10,7 +10,7 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IBooleanGetter;
 public final class GlobalFunctionHelper {
 	
 	//static method
-	public static IBooleanGetter createNegatorForCondition(final IBooleanGetter condition) {
+	public static IBooleanGetter createNegatorFor(final IBooleanGetter condition) {
 		
 		GlobalValidator.assertThat(condition).thatIsNamed(LowerCaseCatalogue.CONDITION).isNotNull();
 		
