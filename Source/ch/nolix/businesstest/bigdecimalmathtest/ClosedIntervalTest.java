@@ -6,7 +6,6 @@ import java.math.BigDecimal;
 
 //own imports
 import ch.nolix.business.bigdecimalmath.ClosedInterval;
-//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
@@ -16,7 +15,93 @@ public final class ClosedIntervalTest extends Test {
 	
 	//method
 	@TestCase
+	public void testCase_containsValue_whenNullIsGiven() {
+		
+		//setup
+		final var testUnit = new ClosedInterval(0.0, 1.0);
+		
+		//execution
+		final var result = testUnit.containsValue(null);
+		
+		//verification
+		expectNot(result);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_containsValue_whenMinIsGiven() {
+		
+		//setup
+		final var testUnit = new ClosedInterval(0.0, 1.0);
+		
+		//execution
+		final var result = testUnit.containsValue(BigDecimal.valueOf(0.0));
+		
+		//verification
+		expect(result);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_containsValue_whenMaxIsGiven() {
+		
+		//setup
+		final var testUnit = new ClosedInterval(0.0, 1.0);
+		
+		//execution
+		final var result = testUnit.containsValue(BigDecimal.valueOf(1.0));
+		
+		//verification
+		expect(result);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_containsValue_whenMidpointIsGiven() {
+		
+		//setup
+		final var testUnit = new ClosedInterval(0.0, 1.0);
+		
+		//execution
+		final var result = testUnit.containsValue(BigDecimal.valueOf(0.5));
+		
+		//verification
+		expect(result);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_containsValue_whenSmallerValueIsGiven() {
+		
+		//setup
+		final var testUnit = new ClosedInterval(0.0, 1.0);
+		
+		//execution
+		final var result = testUnit.containsValue(BigDecimal.valueOf(-1.0));
+		
+		//verification
+		expectNot(result);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_containsValue_whenBiggerValueIsGiven() {
+		
+		//setup
+		final var testUnit = new ClosedInterval(0.0, 1.0);
+		
+		//execution
+		final var result = testUnit.containsValue(BigDecimal.valueOf(2.0));
+		
+		//verification
+		expectNot(result);
+	}
+	
+	//method
+	@TestCase
 	public void testCase_creation_whenTheGivenMinIsNull() {
+		
+		//execution & verification
 		expectRunning(() -> new ClosedInterval(null, BigDecimal.valueOf(1.0)))
 		.throwsException()
 		.ofType(ArgumentIsNullException.class)
@@ -26,10 +111,54 @@ public final class ClosedIntervalTest extends Test {
 	//method
 	@TestCase
 	public void testCase_creation_whenTheGivenMaxIsNull() {
+		
+		//execution & verification
 		expectRunning(() -> new ClosedInterval(BigDecimal.valueOf(1.0), null))
 		.throwsException()
 		.ofType(ArgumentIsNullException.class)
 		.withMessage("The given maximum is null.");
+	}
+	
+	//method
+	@TestCase
+	public void testCase_equals_whenNullIsGiven() {
+		
+		//setup
+		final var testUnit = new ClosedInterval(0.0, 1.0);
+		
+		//execution
+		final var result = testUnit.equals(null);
+		
+		//verification
+		expectNot(result);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_equals_whenUnequalClosedIntervalIsGiven() {
+		
+		//setup
+		final var testUnit = new ClosedInterval(0.0, 1.0);
+		
+		//execution
+		final var result = testUnit.equals(new ClosedInterval(-1.0, 0.0));
+		
+		//verification
+		expectNot(result);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_equals_whenEqualClosedIntervalIsGiven() {
+		
+		//setup
+		final var testUnit = new ClosedInterval(0.0, 1.0);
+		
+		//execution
+		final var result = testUnit.equals(new ClosedInterval(0.0, 1.0));
+		
+		//verification
+		expect(result);
 	}
 	
 	//method
