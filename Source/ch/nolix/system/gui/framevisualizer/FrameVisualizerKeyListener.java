@@ -7,39 +7,33 @@ import java.awt.event.KeyListener;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.system.gui.main.GUI;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
+import ch.nolix.systemapi.guiapi.mainapi.IBaseGUI;
 
 //class
-/**
- * @author Silvan Wyss
- * @date 2016-01-01
- */
 final class FrameVisualizerKeyListener implements KeyListener {
 	
 	//attribute
-	private final GUI<?> parentFrame;
+	private final IBaseGUI<?> parentGUI;
 	
 	//constructor
-	public FrameVisualizerKeyListener(final GUI<?> parentFrame) {
+	public FrameVisualizerKeyListener(final IBaseGUI<?> parentFrame) {
 		
-		//Asserts that the given frame is not null.
 		GlobalValidator.assertThat(parentFrame).thatIsNamed("parent Frame").isNotNull();
 		
-		//Sets the frame of the current FrameKeyListener.
-		this.parentFrame = parentFrame;
+		this.parentGUI = parentFrame;
 	}
 	
 	//method
 	@Override
 	public void keyPressed(final KeyEvent keyEvent) {
-		parentFrame.noteKeyDown(Key.fromAWTKeyEvent(keyEvent));
+		parentGUI.noteKeyDown(Key.fromAWTKeyEvent(keyEvent));
 	}
 	
 	//method
 	@Override
 	public void keyReleased(final KeyEvent keyEvent) {
-		parentFrame.noteKeyRelease(Key.fromAWTKeyEvent(keyEvent));
+		parentGUI.noteKeyRelease(Key.fromAWTKeyEvent(keyEvent));
 	}
 	
 	//method
@@ -53,7 +47,7 @@ final class FrameVisualizerKeyListener implements KeyListener {
 		 */
 		final var character = keyEvent.getKeyChar();
 		if  (Character.isAlphabetic(character) || Character.isDigit(character)) {
-			parentFrame.noteKeyTyping(Key.fromCharacter(character));
+			parentGUI.noteKeyTyping(Key.fromCharacter(character));
 		}
 	}
 }

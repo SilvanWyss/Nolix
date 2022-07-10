@@ -29,10 +29,8 @@ final class FrameVisualizerCloseListener implements WindowListener {
 	 */
 	public FrameVisualizerCloseListener(final IBaseGUI<?> parentGUI) {
 		
-		//Asserts that the given frame is not null.
 		GlobalValidator.assertThat(parentGUI).thatIsNamed("parent GUI").isNotNull();
 		
-		//Sets the frame of this frame close listener.
 		this.parentGUI = parentGUI;
 	}
 	
