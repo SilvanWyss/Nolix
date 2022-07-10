@@ -56,7 +56,10 @@ public final class ClosedInterval implements IClosedInterval {
 	//method
 	@Override
 	public boolean containsValue(final BigDecimal value) {
-		return (value.compareTo(min) >= 0 && value.compareTo(max) <= 0);
+		return
+		value != null
+		&& value.compareTo(min) >= 0
+		&& value.compareTo(max) <= 0;
 	}
 	
 	//method
