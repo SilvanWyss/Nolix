@@ -6,8 +6,8 @@ import ch.nolix.business.bigdecimalmath.ComplexSequenceDefinedBy1Predecessor;
 import ch.nolix.business.bigdecimalmath.FractalBuilder;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.system.gui.color.Color;
-import ch.nolix.system.gui.main.Frame;
 import ch.nolix.system.gui.widget.ImageWidget;
+import ch.nolix.system.gui.widgetgui.Frame;
 
 public final class CustomFractalTutorial2 {
 	

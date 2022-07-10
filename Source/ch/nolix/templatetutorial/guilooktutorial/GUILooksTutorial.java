@@ -6,7 +6,6 @@ import ch.nolix.system.gui.containerwidget.Grid;
 import ch.nolix.system.gui.containerwidget.HorizontalStack;
 import ch.nolix.system.gui.containerwidget.VerticalStack;
 import ch.nolix.system.gui.dialog.InfoDialogCreator;
-import ch.nolix.system.gui.main.Frame;
 import ch.nolix.system.gui.textbox.TextBox;
 import ch.nolix.system.gui.widget.Button;
 import ch.nolix.system.gui.widget.CheckBox;
@@ -16,6 +15,7 @@ import ch.nolix.system.gui.widget.DropdownMenu;
 import ch.nolix.system.gui.widget.Label;
 import ch.nolix.system.gui.widget.LabelRole;
 import ch.nolix.system.gui.widget.SelectionMenu;
+import ch.nolix.system.gui.widgetgui.Frame;
 import ch.nolix.template.guilook.AnthrazitGUILookCreator;
 
 public final class GUILooksTutorial {

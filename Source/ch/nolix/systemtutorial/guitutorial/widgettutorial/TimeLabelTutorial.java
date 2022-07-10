@@ -4,9 +4,9 @@ package ch.nolix.systemtutorial.guitutorial.widgettutorial;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.containerwidget.HorizontalStack;
-import ch.nolix.system.gui.main.Frame;
 import ch.nolix.system.gui.widget.Label;
 import ch.nolix.system.gui.widget.WidgetLookState;
+import ch.nolix.system.gui.widgetgui.Frame;
 import ch.nolix.system.time.moment.Time;
 
 /**

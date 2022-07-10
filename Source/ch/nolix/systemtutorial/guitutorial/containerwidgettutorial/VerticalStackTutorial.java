@@ -2,8 +2,8 @@ package ch.nolix.systemtutorial.guitutorial.containerwidgettutorial;
 
 //own imports
 import ch.nolix.system.gui.containerwidget.VerticalStack;
-import ch.nolix.system.gui.main.Frame;
 import ch.nolix.system.gui.widget.Button;
+import ch.nolix.system.gui.widgetgui.Frame;
 
 /**
  * The {@link VerticalStackTutorial} is a tutorial for {@link VerticalStack}s.

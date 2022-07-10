@@ -3,9 +3,9 @@ package ch.nolix.systemtutorial.guitutorial.widgettutorial;
 //own imports
 import ch.nolix.system.gui.containerwidget.HorizontalStack;
 import ch.nolix.system.gui.containerwidget.VerticalStack;
-import ch.nolix.system.gui.main.Frame;
 import ch.nolix.system.gui.widget.HorizontalLine;
 import ch.nolix.system.gui.widget.Label;
+import ch.nolix.system.gui.widgetgui.Frame;
 
 /**
  * The {@link HorizontalLineTutorial} is a tutorial for {@link HorizontalLineTutorial}s.

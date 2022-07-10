@@ -1,8 +1,7 @@
 package ch.nolix.systemtutorial.guitutorial.widgettutorial;
 
-//own imports
-import ch.nolix.system.gui.main.Frame;
 import ch.nolix.system.gui.widget.Console;
+import ch.nolix.system.gui.widgetgui.Frame;
 
 /**
  * The {@link ConsoleTutorial} is a tutorial for {@link Console}s.

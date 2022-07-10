@@ -2,10 +2,10 @@ package ch.nolix.systemtutorial.guitutorial.widgettutorial;
 
 //own imports
 import ch.nolix.system.gui.color.Color;
-import ch.nolix.system.gui.main.Frame;
 import ch.nolix.system.gui.widget.BorderWidget;
 import ch.nolix.system.gui.widget.Label;
 import ch.nolix.system.gui.widget.WidgetLookState;
+import ch.nolix.system.gui.widgetgui.Frame;
 
 /**
  * The {@link ScrollingLabelTutorial} is a tutorial for the scroll feature of {@link BorderWidget}s.

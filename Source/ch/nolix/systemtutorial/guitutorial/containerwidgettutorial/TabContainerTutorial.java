@@ -3,9 +3,9 @@ package ch.nolix.systemtutorial.guitutorial.containerwidgettutorial;
 //own imports
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.containerwidget.TabContainer;
-import ch.nolix.system.gui.main.Frame;
 import ch.nolix.system.gui.widget.Area;
 import ch.nolix.system.gui.widget.WidgetLookState;
+import ch.nolix.system.gui.widgetgui.Frame;
 
 /**
  * The {@link TabContainerTutorial} is a tutorial for {@link TabContainer}s.

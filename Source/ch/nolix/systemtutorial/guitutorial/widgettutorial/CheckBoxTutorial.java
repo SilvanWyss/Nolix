@@ -1,8 +1,7 @@
 package ch.nolix.systemtutorial.guitutorial.widgettutorial;
 
-//own imports
-import ch.nolix.system.gui.main.Frame;
 import ch.nolix.system.gui.widget.CheckBox;
+import ch.nolix.system.gui.widgetgui.Frame;
 
 /**
  * The {@link CheckBoxTutorial} is a tutorial for {@link CheckBox}s.

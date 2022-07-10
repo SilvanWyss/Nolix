@@ -1,7 +1,6 @@
 package ch.nolix.systemtutorial.guitutorial.maintutorial;
 
-//own imports
-import ch.nolix.system.gui.main.Frame;
+import ch.nolix.system.gui.widgetgui.Frame;
 
 /**
  * The {@link EmptyFrameTutorial} is a tutorial for a {@link Frame}s.

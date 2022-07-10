@@ -3,9 +3,9 @@ package ch.nolix.systemtutorial.guitutorial.widgettutorial;
 //own imports
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.image.MutableImage;
-import ch.nolix.system.gui.main.Frame;
 import ch.nolix.system.gui.widget.ImageWidget;
 import ch.nolix.system.gui.widget.WidgetLookState;
+import ch.nolix.system.gui.widgetgui.Frame;
 
 /**
  * The {@link ImageWidgetWithBorderTutorial} is a tutorial for {@link ImageWidget}s.

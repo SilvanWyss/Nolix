@@ -3,9 +3,9 @@ package ch.nolix.systemtutorial.guitutorial.containerwidgettutorial;
 //own imports
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.containerwidget.Accordion;
-import ch.nolix.system.gui.main.Frame;
 import ch.nolix.system.gui.widget.Area;
 import ch.nolix.system.gui.widget.WidgetLookState;
+import ch.nolix.system.gui.widgetgui.Frame;
 
 /**
  * The {@link AccordionTutorial} is a tutorial for {@link Accordion}s.

@@ -3,10 +3,10 @@ package ch.nolix.systemtutorial.guitutorial.widgettutorial;
 //own imports
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.containerwidget.HorizontalStack;
-import ch.nolix.system.gui.main.Frame;
 import ch.nolix.system.gui.widget.InnerGUI;
 import ch.nolix.system.gui.widget.Label;
 import ch.nolix.system.gui.widget.WidgetLookState;
+import ch.nolix.system.gui.widgetgui.Frame;
 
 /**
  * The {@link InnerGUIWithCustomLookTutorial} is a tutorial for {@link InnerGUI}s.

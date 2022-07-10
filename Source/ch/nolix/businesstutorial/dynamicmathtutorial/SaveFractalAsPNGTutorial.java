@@ -3,10 +3,10 @@ package ch.nolix.businesstutorial.dynamicmathtutorial;
 //own imports
 import ch.nolix.business.bigdecimalmath.FractalBuilder;
 import ch.nolix.system.gui.containerwidget.VerticalStack;
-import ch.nolix.system.gui.main.Frame;
 import ch.nolix.system.gui.widget.Downloader;
 import ch.nolix.system.gui.widget.ImageWidget;
 import ch.nolix.system.gui.widget.Label;
+import ch.nolix.system.gui.widgetgui.Frame;
 
 public final class SaveFractalAsPNGTutorial {
 	

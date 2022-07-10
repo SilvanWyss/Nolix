@@ -2,7 +2,7 @@ package ch.nolix.systemtutorial.guitutorial.maintutorial;
 
 //own imports
 import ch.nolix.system.gui.image.MutableImage;
-import ch.nolix.system.gui.main.Frame;
+import ch.nolix.system.gui.widgetgui.Frame;
 import ch.nolix.systemapi.guiapi.imageapi.ImageApplication;
 
 /**

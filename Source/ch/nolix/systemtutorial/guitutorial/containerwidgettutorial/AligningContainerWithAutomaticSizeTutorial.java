@@ -4,10 +4,10 @@ package ch.nolix.systemtutorial.guitutorial.containerwidgettutorial;
 import ch.nolix.core.math.GlobalCalculator;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.containerwidget.AligningContainer;
-import ch.nolix.system.gui.main.Frame;
 import ch.nolix.system.gui.widget.Button;
 import ch.nolix.system.gui.widget.Label;
 import ch.nolix.system.gui.widget.WidgetLookState;
+import ch.nolix.system.gui.widgetgui.Frame;
 
 public final class AligningContainerWithAutomaticSizeTutorial {
 	
