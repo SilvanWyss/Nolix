@@ -44,6 +44,28 @@ public final class FunctionCatalogueTest extends Test {
 	
 	//method
 	@TestCase
+	public void testCase_getStringOf_whenIntIsGiven() {
+		
+		//execution
+		final var result = FunctionCatalogue.getStringOf(2500);
+		
+		//verification
+		expect(result).isEqualTo("2500");
+	}
+	
+	//method
+	@TestCase
+	public void testCase_getStringOf_whenStringIsGiven() {
+		
+		//execution
+		final var result = FunctionCatalogue.getStringOf("Lorem ipsum");
+		
+		//verification
+		expect(result).isEqualTo("Lorem ipsum");
+	}
+		
+	//method
+	@TestCase
 	public void testCase_getTrue() {
 		
 		//execution
@@ -51,5 +73,38 @@ public final class FunctionCatalogueTest extends Test {
 		
 		//verification
 		expect(result);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_getTypeOf_whenIntIsGiven() {
+		
+		//execution
+		final var result = FunctionCatalogue.getTypeOf(2500);
+		
+		//verification
+		expect(result).isSameAs(Integer.class);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_getTypeOf_whenStringIsGiven() {
+		
+		//execution
+		final var result = FunctionCatalogue.getTypeOf("");
+		
+		//verification
+		expect(result).isSameAs(String.class);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_getZero() {
+		
+		//execution
+		final var result = FunctionCatalogue.getZero();
+		
+		//verification
+		expect(result).isEqualTo(0);
 	}
 }
