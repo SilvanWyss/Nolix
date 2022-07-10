@@ -87,7 +87,7 @@ public final class FunctionCatalogue {
 	 * @param object
 	 * @return the {@link String} of the given object.
 	 */
-	public static String getString(final Object object) {
+	public static String getStringOf(final Object object) {
 		
 		if (object == null) {
 			return StringCatalogue.NULL_HEADER;
