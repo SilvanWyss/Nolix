@@ -19,7 +19,7 @@ import ch.nolix.coreapi.functionapi.mutationuniversalapi.Recalculable;
 import ch.nolix.coreapi.programcontrolapi.processproperty.ChangeState;
 import ch.nolix.system.configuration.ConfigurationElement;
 import ch.nolix.system.element.mutableelement.MutableValue;
-import ch.nolix.system.gui.framevisualizer.FrameVisualizer;
+import ch.nolix.system.gui.guivisualizer.GUIVisualizer;
 import ch.nolix.system.gui.image.Image;
 import ch.nolix.system.gui.inputdevice.KeyBoard;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
@@ -153,7 +153,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 		if (visibility == Visibility.INVISIBLE) {
 			visualizer = null;
 		} else {
-			visualizer = new FrameVisualizer();
+			visualizer = new GUIVisualizer();
 		}
 		
 		this.inputTaker = inputTaker;
@@ -189,7 +189,7 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 		if (visibility == Visibility.INVISIBLE) {
 			visualizer = null;
 		} else {
-			visualizer = new FrameVisualizer();
+			visualizer = new GUIVisualizer();
 		}
 	}
 	

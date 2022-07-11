@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.gui.framevisualizer;
+package ch.nolix.system.gui.guivisualizer;
 
 //Java imports
 import java.awt.event.WindowEvent;
@@ -10,13 +10,13 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.systemapi.guiapi.mainapi.IBaseGUI;
 
 //class
-final class FrameVisualizerCloseListener implements WindowListener {
+final class GUIVisualizerCloseListener implements WindowListener {
 	
 	//attribute
 	private final IBaseGUI<?> parentGUI;
 	
 	//constructor
-	public FrameVisualizerCloseListener(final IBaseGUI<?> parentGUI) {
+	public GUIVisualizerCloseListener(final IBaseGUI<?> parentGUI) {
 		
 		GlobalValidator.assertThat(parentGUI).thatIsNamed("parent GUI").isNotNull();
 		

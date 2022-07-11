@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.gui.framevisualizer;
+package ch.nolix.system.gui.guivisualizer;
 
 //Java imports
 import java.awt.event.MouseWheelEvent;
@@ -11,13 +11,13 @@ import ch.nolix.systemapi.guiapi.mainapi.IBaseGUI;
 import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
 
 //class
-final class FrameVisualizerMouseWheelListener implements MouseWheelListener {
+final class GUIVisualizerMouseWheelListener implements MouseWheelListener {
 	
 	//attribute
 	private final IBaseGUI<?> parentGUI;
 	
 	//constructor
-	public FrameVisualizerMouseWheelListener(final IBaseGUI<?> parentGUI) {
+	public GUIVisualizerMouseWheelListener(final IBaseGUI<?> parentGUI) {
 		
 		GlobalValidator.assertThat(parentGUI).thatIsNamed("parent GUI").isNotNull();
 		

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.gui.framevisualizer;
+package ch.nolix.system.gui.guivisualizer;
 
 //Java imports
 import java.awt.event.ComponentEvent;
@@ -11,7 +11,7 @@ import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.systemapi.guiapi.mainapi.IBaseGUI;
 
 //class
-final class FrameVisualizerResizeListener implements ComponentListener {
+final class GUIVisualizerResizeListener implements ComponentListener {
 	
 	//attribute
 	private boolean isNew = true;
@@ -20,7 +20,7 @@ final class FrameVisualizerResizeListener implements ComponentListener {
 	private IBaseGUI<?> parentGUI;
 	
 	//constructor
-	public FrameVisualizerResizeListener(final IBaseGUI<?> parentGUI) {
+	public GUIVisualizerResizeListener(final IBaseGUI<?> parentGUI) {
 		
 		GlobalValidator.assertThat(parentGUI).thatIsNamed("parent GUI").isNotNull();
 		

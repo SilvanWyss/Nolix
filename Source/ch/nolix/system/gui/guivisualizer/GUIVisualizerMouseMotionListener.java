@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.gui.framevisualizer;
+package ch.nolix.system.gui.guivisualizer;
 
 //Java imports
 import java.awt.event.MouseEvent;
@@ -11,7 +11,7 @@ import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.systemapi.guiapi.mainapi.IBaseGUI;
 
 //class
-final class FrameVisualizerMouseMotionListener implements MouseMotionListener {
+final class GUIVisualizerMouseMotionListener implements MouseMotionListener {
 	
 	//attribute
 	private boolean isNew = true;
@@ -20,7 +20,7 @@ final class FrameVisualizerMouseMotionListener implements MouseMotionListener {
 	private final IBaseGUI<?> parentGUI;
 		
 	//constructor
-	public FrameVisualizerMouseMotionListener(final IBaseGUI<?> parentGUI) {
+	public GUIVisualizerMouseMotionListener(final IBaseGUI<?> parentGUI) {
 		
 		GlobalValidator.assertThat(parentGUI).thatIsNamed("parent GUI").isNotNull();
 		

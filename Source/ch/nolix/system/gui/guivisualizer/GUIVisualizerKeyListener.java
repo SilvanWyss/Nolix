@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.gui.framevisualizer;
+package ch.nolix.system.gui.guivisualizer;
 
 //Java imports
 import java.awt.event.KeyEvent;
@@ -11,13 +11,13 @@ import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.mainapi.IBaseGUI;
 
 //class
-final class FrameVisualizerKeyListener implements KeyListener {
+final class GUIVisualizerKeyListener implements KeyListener {
 	
 	//attribute
 	private final IBaseGUI<?> parentGUI;
 	
 	//constructor
-	public FrameVisualizerKeyListener(final IBaseGUI<?> parentFrame) {
+	public GUIVisualizerKeyListener(final IBaseGUI<?> parentFrame) {
 		
 		GlobalValidator.assertThat(parentFrame).thatIsNamed("parent Frame").isNotNull();
 		
