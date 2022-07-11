@@ -4,7 +4,7 @@ package ch.nolix.system.gui.widget;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.system.gui.widgetgui.Layer;
+import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.systemapi.guiapi.widgetguiapi.ILayer;
 import ch.nolix.systemapi.guiapi.widgetguiapi.IWidget;
 import ch.nolix.systemapi.guiapi.widgetguiapi.IWidgetGUI;
@@ -20,7 +20,7 @@ public final class WidgetParent implements IWidgetParent {
 	//constructor
 	WidgetParent(final ILayer<?> layer, final IWidget<?, ?> childWidget) {
 		
-		GlobalValidator.assertThat(layer).thatIsNamed(Layer.class).isNotNull();
+		GlobalValidator.assertThat(layer).thatIsNamed(LowerCaseCatalogue.LAYER).isNotNull();
 		GlobalValidator.assertThat(childWidget).thatIsNamed("child Widget").isNotNull();
 		
 		this.layer = layer;
