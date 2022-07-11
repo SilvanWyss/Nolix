@@ -16,7 +16,7 @@ import ch.nolix.systemapi.guiapi.inputdeviceapi.IKeyBoard;
 import ch.nolix.systemapi.guiapi.mainapi.IBaseGUI;
 
 //interface
-public interface IWidgetGUI<WG extends IWidgetGUI<WG>> extends Clearable,  IBaseGUI<WG>, IConfigurableElement<WG>{
+public interface IWidgetGUI<WG extends IWidgetGUI<WG>> extends Clearable, IBaseGUI<WG>, IConfigurableElement<WG>{
 	
 	//method declaration
 	IContainer<? extends IChainedNode> getPaintCommands(I2ElementTaker<String, IImage> imageRegistrator);
