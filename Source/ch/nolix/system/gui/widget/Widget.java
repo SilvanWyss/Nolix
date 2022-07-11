@@ -19,9 +19,6 @@ import ch.nolix.system.configuration.ConfigurableElement;
 import ch.nolix.system.element.mutableelement.ExtensionElement;
 import ch.nolix.system.element.mutableelement.MutableValueExtractor;
 import ch.nolix.system.gui.color.Color;
-import ch.nolix.system.gui.main.GUI;
-import ch.nolix.system.gui.widgetgui.Layer;
-import ch.nolix.system.gui.widgetgui.WidgetGUI;
 import ch.nolix.systemapi.elementapi.configurationapi.IConfigurableElement;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.inputdeviceapi.IKeyBoard;
@@ -36,7 +33,7 @@ import ch.nolix.systemapi.guiapi.widgetguiapi.IWidgetGUI;
 
 //class
 /**
- * A {@link Widget} is an element on a {@link WidgetGUI}.
+ * A {@link Widget} is an element on a {@link IWidgetGUI}.
  * A {@link Widget} determines its width and height.
  * A {@link Widget} is a {@link ConfigurableElement}.
  * 
@@ -187,7 +184,7 @@ implements IWidget<W, WL> {
 	
 	//method
 	/**
-	 * @return true if the current {@link Widget} belongs directly to a {@link WidgetGUI} or another {@link Widget}.
+	 * @return true if the current {@link Widget} belongs directly to a {@link IWidgetGUI} or another {@link Widget}.
 	 */
 	public final boolean belongsToParent() {
 		return (parent != null);
@@ -208,8 +205,8 @@ implements IWidget<W, WL> {
 	 * @param xPositionOnGUI
 	 * @param yPositionOnGUI
 	 * @return true if the current {@link Widget} contains the point, that has:
-	 * -the given x-position on the {@link WidgetGUI} the current {@link Widget} belongs to
-	 * -the given y-position on the {@link WidgetGUI} the current {@link Widget} belongs to
+	 * -the given x-position on the {@link IWidgetGUI} the current {@link Widget} belongs to
+	 * -the given y-position on the {@link IWidgetGUI} the current {@link Widget} belongs to
 	 */
 	public final boolean containsPointOnGUI(final int xPositionOnGUI, final int yPositionOnGUI) {
 		
@@ -254,8 +251,9 @@ implements IWidget<W, WL> {
 	
 	//method
 	/**
-	 * @return the {@link IFrontEndReader} of the parent {@link GUI} of the current {@link Widget}.
-	 * @throws ArgumentDoesNotBelongToParentException if the current {@link Widget} does not belong to a {@link GUI}.
+	 * @return the {@link IFrontEndReader} of the parent {@link IWidgetGUI} of the current {@link Widget}.
+	 * @throws ArgumentDoesNotBelongToParentException if
+	 * the current {@link Widget} does not belong to a {@link IWidgetGUI}.
 	 */
 	public IFrontEndReader fromFrontEnd() {
 		return getParentGUI().fromFrontEnd();
@@ -363,7 +361,7 @@ implements IWidget<W, WL> {
 		
 		//Asserts that the current Widget belongs to a GUI.
 		if (parent == null) {
-			throw ArgumentDoesNotBelongToParentException.forArgumentAndParentType(this, GUI.class);
+			throw ArgumentDoesNotBelongToParentException.forArgumentAndParentType(this, IWidgetGUI.class);
 		}
 		
 		return parent.getRefGUI();
@@ -393,8 +391,9 @@ implements IWidget<W, WL> {
 	
 	//method
 	/**
-	 * @return the {@link IKeyBoard} of the {@link GUI} the current {@link Widget} belongs to.
-	 * @throws ArgumentDoesNotBelongToParentException if the current {@link Widget} does not belong to a {@link GUI}.
+	 * @return the {@link IKeyBoard} of the {@link IWidgetGUI} the current {@link Widget} belongs to.
+	 * @throws ArgumentDoesNotBelongToParentException if
+	 * the current {@link Widget} does not belong to a {@link IWidgetGUI}.
 	 */
 	public final IKeyBoard getRefKeyBoard() {
 		return getParentGUI().getRefKeyBoard();
@@ -638,7 +637,7 @@ implements IWidget<W, WL> {
 	
 	//method
 	/**
-	 * @return true if the current {@link Widget} is a root {@link Widget} on a {@link Layer}.
+	 * @return true if the current {@link Widget} is a root {@link Widget} on a {@link ILayer}.
 	 */
 	public final boolean isRootWidgetOnLayer() {
 		return (parent != null && parent.isLayer());
@@ -883,8 +882,9 @@ implements IWidget<W, WL> {
 	
 	//method
 	/**
-	 * @return the {@link IFrontEndWriter} of the parent {@link GUI} of the current {@link Widget}.
-	 * @throws ArgumentDoesNotBelongToParentException if the current {@link Widget} does not belong to a {@link GUI}.
+	 * @return the {@link IFrontEndWriter} of the parent {@link IWidgetGUI} of the current {@link Widget}.
+	 * @throws ArgumentDoesNotBelongToParentException if
+	 * the current {@link Widget} does not belong to a {@link IWidgetGUI}.
 	 */
 	public IFrontEndWriter onFrontEnd() {
 		return getParentGUI().onFrontEnd();
@@ -1297,13 +1297,13 @@ implements IWidget<W, WL> {
 	
 	//method
 	/**
-	 * Sets the {@link Layer} the current {@link Widget} will belong.
+	 * Sets the {@link ILayer} the current {@link Widget} will belong.
 	 * 
 	 * @param parentLayer
 	 * @throws ArgumentIsNullException if the given parentLayer is null.
 	 * @throws InvalidArgumentException if the current {@link Widget} belongs already to a parent.
 	 */
-	public final void setParent(final Layer parentLayer) {
+	public final void setParent(final ILayer<?> parentLayer) {
 		setParent(new WidgetParent(parentLayer, this));
 	}
 	
