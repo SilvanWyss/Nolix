@@ -7,19 +7,19 @@ import java.awt.event.MouseWheelListener;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.system.gui.main.GUI;
+import ch.nolix.systemapi.guiapi.mainapi.IBaseGUI;
 import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
 
 //class
 final class FrameVisualizerMouseWheelListener implements MouseWheelListener {
 	
 	//attribute
-	private final GUI<?> parentGUI;
+	private final IBaseGUI<?> parentGUI;
 	
 	//constructor
-	public FrameVisualizerMouseWheelListener(final GUI<?> parentGUI) {
+	public FrameVisualizerMouseWheelListener(final IBaseGUI<?> parentGUI) {
 		
-		GlobalValidator.assertThat(parentGUI).thatIsNamed(GUI.class).isNotNull();
+		GlobalValidator.assertThat(parentGUI).thatIsNamed("parent GUI").isNotNull();
 		
 		this.parentGUI = parentGUI;
 	}
