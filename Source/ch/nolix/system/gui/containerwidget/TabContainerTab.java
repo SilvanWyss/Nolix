@@ -14,9 +14,9 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionapi.mutationuniversalapi.Clearable;
 import ch.nolix.system.element.mutableelement.MutableElement;
 import ch.nolix.system.element.mutableelement.MutableValue;
-import ch.nolix.system.gui.main.MutableOptionalWidgetProperty;
 import ch.nolix.system.gui.widget.Label;
 import ch.nolix.system.gui.widget.Widget;
+import ch.nolix.system.gui.widgetgui.MutableOptionalWidgetProperty;
 import ch.nolix.systemapi.guiapi.mainapi.CursorIcon;
 import ch.nolix.systemapi.guiapi.structureproperty.ContentPosition;
 

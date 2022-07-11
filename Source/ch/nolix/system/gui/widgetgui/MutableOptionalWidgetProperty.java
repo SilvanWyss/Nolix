@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.gui.main;
+package ch.nolix.system.gui.widgetgui;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -10,7 +10,6 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.coreapi.functionapi.mutationuniversalapi.Clearable;
 import ch.nolix.system.element.mutableelement.Property;
 import ch.nolix.system.gui.widget.Widget;
-import ch.nolix.system.gui.widgetgui.WidgetGUI;
 
 //class
 public final class MutableOptionalWidgetProperty extends Property implements Clearable {
