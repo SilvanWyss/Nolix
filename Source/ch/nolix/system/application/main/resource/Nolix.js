@@ -2135,9 +2135,9 @@ define("System/GUI/Input/KeyInputType", ["require", "exports"], function (requir
     Object.defineProperty(exports, "__esModule", { value: true });
     var KeyInputType;
     (function (KeyInputType) {
-        KeyInputType[KeyInputType["Press"] = 0] = "Press";
-        KeyInputType[KeyInputType["Release"] = 1] = "Release";
-        KeyInputType[KeyInputType["Typing"] = 2] = "Typing";
+        KeyInputType[KeyInputType["PRESS"] = 0] = "PRESS";
+        KeyInputType[KeyInputType["RELEASE"] = 1] = "RELEASE";
+        KeyInputType[KeyInputType["TYPING"] = 2] = "TYPING";
     })(KeyInputType = exports.KeyInputType || (exports.KeyInputType = {}));
 });
 define("System/GUI/Input/KeyInput", ["require", "exports", "System/GUI/Input/Input", "System/GUI/Input/Key", "System/GUI/Input/KeyInputType", "Core/Container/LinkedList", "Core/Document/Node/Node"], function (require, exports, Input_1, Key_1, KeyInputType_1, LinkedList_8, Node_4) {
@@ -2348,13 +2348,13 @@ define("System/Application/GUIApplication/FrontCanvasGUIClientInputTaker", ["req
             this.cursorYPositionOnViewAreaGetter = cursorYPositionOnViewAreaGetter;
         }
         noteKeyPress(key) {
-            this.inputTaker(new KeyInput_1.KeyInput(key, KeyInputType_2.KeyInputType.Press));
+            this.inputTaker(new KeyInput_1.KeyInput(key, KeyInputType_2.KeyInputType.PRESS));
         }
         noteKeyRelease(key) {
-            this.inputTaker(new KeyInput_1.KeyInput(key, KeyInputType_2.KeyInputType.Release));
+            this.inputTaker(new KeyInput_1.KeyInput(key, KeyInputType_2.KeyInputType.RELEASE));
         }
         noteKeyTyping(key) {
-            this.inputTaker(new KeyInput_1.KeyInput(key, KeyInputType_2.KeyInputType.Typing));
+            this.inputTaker(new KeyInput_1.KeyInput(key, KeyInputType_2.KeyInputType.TYPING));
         }
         noteLeftMouseButtonClick() {
             this.inputTaker(new MouseInput_1.MouseInput(MouseInputType_3.MouseInputType.LEFT_MOUSE_BUTTON_CLICK, this.cursorXPositionOnViewAreaGetter(), this.cursorYPositionOnViewAreaGetter()));
@@ -2580,14 +2580,14 @@ define("System/GUI/TextFormat/FontType", ["require", "exports"], function (requi
     Object.defineProperty(exports, "__esModule", { value: true });
     var FontType;
     (function (FontType) {
-        FontType[FontType["Arial"] = 0] = "Arial";
-        FontType[FontType["ArialBlack"] = 1] = "ArialBlack";
-        FontType[FontType["ComicSansMS"] = 2] = "ComicSansMS";
-        FontType[FontType["Impact"] = 3] = "Impact";
-        FontType[FontType["LucidaConsole"] = 4] = "LucidaConsole";
-        FontType[FontType["Papyrus"] = 5] = "Papyrus";
-        FontType[FontType["Tahoma"] = 6] = "Tahoma";
-        FontType[FontType["Verdana"] = 7] = "Verdana";
+        FontType[FontType["ARIAL"] = 0] = "ARIAL";
+        FontType[FontType["ARIAL_BLACK"] = 1] = "ARIAL_BLACK";
+        FontType[FontType["COMIC_SANS_MS"] = 2] = "COMIC_SANS_MS";
+        FontType[FontType["IMPACT"] = 3] = "IMPACT";
+        FontType[FontType["LUCIDA_CONSOLE"] = 4] = "LUCIDA_CONSOLE";
+        FontType[FontType["PAPYRUS"] = 5] = "PAPYRUS";
+        FontType[FontType["TAHOMA"] = 6] = "TAHOMA";
+        FontType[FontType["VERDANA"] = 7] = "VERDANA";
     })(FontType = exports.FontType || (exports.FontType = {}));
 });
 define("System/GUI/TextFormat/Font", ["require", "exports", "Core/Constant/FontCodeCatalogue", "System/GUI/TextFormat/FontType"], function (require, exports, FontCodeCatalogue_1, FontType_1) {
@@ -2608,21 +2608,21 @@ define("System/GUI/TextFormat/Font", ["require", "exports", "Core/Constant/FontC
         }
         getCode() {
             switch (this.fontType) {
-                case FontType_1.FontType.Arial:
+                case FontType_1.FontType.ARIAL:
                     return FontCodeCatalogue_1.FontCodeCatalogue.ARIAL;
-                case FontType_1.FontType.ArialBlack:
+                case FontType_1.FontType.ARIAL_BLACK:
                     return FontCodeCatalogue_1.FontCodeCatalogue.ARIAL_BLACK;
-                case FontType_1.FontType.ComicSansMS:
+                case FontType_1.FontType.COMIC_SANS_MS:
                     return FontCodeCatalogue_1.FontCodeCatalogue.COMIC_SANS_MS;
-                case FontType_1.FontType.Impact:
+                case FontType_1.FontType.IMPACT:
                     return FontCodeCatalogue_1.FontCodeCatalogue.IMPACT;
-                case FontType_1.FontType.LucidaConsole:
+                case FontType_1.FontType.LUCIDA_CONSOLE:
                     return FontCodeCatalogue_1.FontCodeCatalogue.LUCIDA_CONSOLE;
-                case FontType_1.FontType.Papyrus:
+                case FontType_1.FontType.PAPYRUS:
                     return FontCodeCatalogue_1.FontCodeCatalogue.PAPYRUS;
-                case FontType_1.FontType.Tahoma:
+                case FontType_1.FontType.TAHOMA:
                     return FontCodeCatalogue_1.FontCodeCatalogue.TAHOMA;
-                case FontType_1.FontType.Verdana:
+                case FontType_1.FontType.VERDANA:
                     return FontCodeCatalogue_1.FontCodeCatalogue.VERDANA;
             }
         }
@@ -2794,7 +2794,7 @@ define("System/GUI/CanvasGUI/CanvasGUIGlobalPainter", ["require", "exports", "Sy
             }
         }
     }
-    CanvasGUIGlobalPainter.DEFAULT_TEXT_FONT_TYPE = FontType_2.FontType.Verdana;
+    CanvasGUIGlobalPainter.DEFAULT_TEXT_FONT_TYPE = FontType_2.FontType.VERDANA;
     CanvasGUIGlobalPainter.DEFAULT_TEXT_SIZE = 10;
     CanvasGUIGlobalPainter.DEFAULT_TEXT_COLOR = Color_3.Color.BLACK;
     CanvasGUIGlobalPainter.DEFAULT_TEXT_FORMAT = new TextFormat_1.TextFormat(new Font_2.Font(CanvasGUIGlobalPainter.DEFAULT_TEXT_FONT_TYPE), CanvasGUIGlobalPainter.DEFAULT_TEXT_SIZE, CanvasGUIGlobalPainter.DEFAULT_TEXT_COLOR);
