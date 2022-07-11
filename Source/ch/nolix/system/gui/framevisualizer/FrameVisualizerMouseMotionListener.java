@@ -8,21 +8,23 @@ import java.awt.event.MouseMotionListener;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
-import ch.nolix.system.gui.main.GUI;
+import ch.nolix.systemapi.guiapi.mainapi.IBaseGUI;
 
 //class
 public final class FrameVisualizerMouseMotionListener implements MouseMotionListener {
 	
 	//attribute
-	private final GUI<?> mGUI;
 	private boolean isNew = true;
 	
+	//attribute
+	private final IBaseGUI<?> parentGUI;
+		
 	//constructor
-	public FrameVisualizerMouseMotionListener(final GUI<?> frameVisualizer) {
+	public FrameVisualizerMouseMotionListener(final IBaseGUI<?> parentGUI) {
 		
-		GlobalValidator.assertThat(frameVisualizer).isOfType(FrameVisualizer.class);
+		GlobalValidator.assertThat(parentGUI).thatIsNamed("parent GUI").isNotNull();
 		
-		this.mGUI = frameVisualizer;
+		this.parentGUI = parentGUI;
 	}
 	
 	//method
@@ -35,12 +37,12 @@ public final class FrameVisualizerMouseMotionListener implements MouseMotionList
 			isNew = false;
 		}
 		
-		mGUI.noteMouseMove(mouseEvent.getX(), mouseEvent.getY());
+		parentGUI.noteMouseMove(mouseEvent.getX(), mouseEvent.getY());
 	}
 	
 	//method
 	@Override
 	public void mouseDragged(final MouseEvent mouseEvent) {
-		mGUI.noteMouseMove(mouseEvent.getX(), mouseEvent.getY());
+		parentGUI.noteMouseMove(mouseEvent.getX(), mouseEvent.getY());
 	}
 }
