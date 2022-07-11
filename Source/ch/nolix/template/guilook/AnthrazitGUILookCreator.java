@@ -8,7 +8,6 @@ import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.containerwidget.ContainerRole;
 import ch.nolix.system.gui.containerwidget.Grid;
 import ch.nolix.system.gui.containerwidget.Stack;
-import ch.nolix.system.gui.main.LayerRole;
 import ch.nolix.system.gui.widget.BorderWidget;
 import ch.nolix.system.gui.widget.Button;
 import ch.nolix.system.gui.widget.CheckBox;
@@ -17,6 +16,7 @@ import ch.nolix.system.gui.widget.Downloader;
 import ch.nolix.system.gui.widget.ItemMenu;
 import ch.nolix.system.gui.widget.LabelRole;
 import ch.nolix.system.gui.widget.Widget;
+import ch.nolix.system.gui.widgetgui.LayerRole;
 
 //class
 public final class AnthrazitGUILookCreator {

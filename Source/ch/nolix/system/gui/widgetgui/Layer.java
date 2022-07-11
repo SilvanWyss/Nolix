@@ -28,7 +28,6 @@ import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.color.ColorGradient;
 import ch.nolix.system.gui.image.Background;
 import ch.nolix.system.gui.image.MutableImage;
-import ch.nolix.system.gui.main.LayerRole;
 import ch.nolix.system.gui.widget.BorderWidget;
 import ch.nolix.system.gui.widget.Widget;
 import ch.nolix.systemapi.elementapi.configurationapi.IConfigurableElement;
