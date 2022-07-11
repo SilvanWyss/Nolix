@@ -11,7 +11,7 @@ import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.systemapi.guiapi.mainapi.IBaseGUI;
 
 //class
-public final class FrameVisualizerMouseMotionListener implements MouseMotionListener {
+final class FrameVisualizerMouseMotionListener implements MouseMotionListener {
 	
 	//attribute
 	private boolean isNew = true;

@@ -8,38 +8,40 @@ import java.awt.event.ComponentListener;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
-import ch.nolix.system.gui.main.GUI;
+import ch.nolix.systemapi.guiapi.mainapi.IBaseGUI;
 
 //class
-public class FrameVisualizerResizeListener implements ComponentListener {
+final class FrameVisualizerResizeListener implements ComponentListener {
 	
-	//attributes
-	private GUI<?> mParentGUI;
+	//attribute
 	private boolean isNew = true;
 	
+	//attribute
+	private IBaseGUI<?> parentGUI;
+	
 	//constructor
-	public FrameVisualizerResizeListener(final GUI<?> mParentGUI) {
+	public FrameVisualizerResizeListener(final IBaseGUI<?> parentGUI) {
 		
-		GlobalValidator.assertThat(mParentGUI).thatIsNamed("parent GUI").isNotNull();
+		GlobalValidator.assertThat(parentGUI).thatIsNamed("parent GUI").isNotNull();
 		
-		this.mParentGUI = mParentGUI;
+		this.parentGUI = parentGUI;
 	}
 	
 	//method
 	@Override
-	public void componentHidden(final ComponentEvent arg0) {
+	public void componentHidden(final ComponentEvent componentEvent) {
 		//Does nothing.
 	}
 	
 	//method
 	@Override
-	public void componentMoved(final ComponentEvent arg0) {
+	public void componentMoved(final ComponentEvent componentEvent) {
 		//Does nothing.
 	}
 	
 	//method
 	@Override
-	public void componentResized(final ComponentEvent arg0) {
+	public void componentResized(final ComponentEvent componentEvent) {
 		
 		//This is important because events can be fired before the GUI is created completely.
 		if (isNew) {
@@ -47,15 +49,15 @@ public class FrameVisualizerResizeListener implements ComponentListener {
 			isNew = false;
 		}
 		
-		this.mParentGUI.noteResize(
-			arg0.getComponent().getWidth(),
-			arg0.getComponent().getHeight()
+		this.parentGUI.noteResize(
+			componentEvent.getComponent().getWidth(),
+			componentEvent.getComponent().getHeight()
 		);
 	}
 	
 	//method
 	@Override
-	public void componentShown(final ComponentEvent arg0) {
+	public void componentShown(final ComponentEvent componentEvent) {
 		//Does nothing.
 	}
 }
