@@ -111,6 +111,15 @@ public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> impleme
 	}
 	
 	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final String getTitleInQuotes() {
+		return internalGUI.getTitleInQuotes();
+	}
+	
+	//method
 	@Override
 	public int getViewAreaHeight() {
 		return internalGUI.getViewAreaHeight();

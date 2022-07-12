@@ -3,6 +3,7 @@ package ch.nolix.system.gui.main;
 
 //own imports
 import ch.nolix.core.caching.CachingContainer;
+import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.container.pair.IntPair;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -261,6 +262,15 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	@Override
 	public final String getTitle() {
 		return title.getValue();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final String getTitleInQuotes() {
+		return GlobalStringHelper.getInQuotes(getTitle());
 	}
 	
 	//method

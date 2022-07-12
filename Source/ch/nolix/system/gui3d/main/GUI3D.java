@@ -5,6 +5,7 @@ package ch.nolix.system.gui3d.main;
 import java.lang.reflect.InvocationTargetException;
 
 //own imports
+import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.commontype.constant.StringCatalogue;
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.container.pair.Pair;
@@ -227,6 +228,15 @@ public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G> 
 	 */
 	public final String getTitle() {
 		return title.getValue();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final String getTitleInQuotes() {
+		return GlobalStringHelper.getInQuotes(getTitle());
 	}
 	
 	//method
