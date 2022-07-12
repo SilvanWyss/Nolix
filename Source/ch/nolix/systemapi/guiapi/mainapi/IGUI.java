@@ -13,89 +13,89 @@ import ch.nolix.systemapi.guiapi.inputapi.IResizableInputTaker;
 /**
  * @author Silvan Wyss
  * @date 2019-08-01
- * @param <G> is the type of a {@link IBaseGUI}.
+ * @param <G> is the type of a {@link IGUI}.
  */
-public interface IBaseGUI<G extends IBaseGUI<G>>
+public interface IGUI<G extends IGUI<G>>
 extends GroupCloseable, IResizableInputTaker, Rectangular, Refreshable, Titleble<G> {
 	
 	//method declaration
 	/**
-	 * @return the {@link IFrontEndReader} of the current {@link IBaseGUI}.
+	 * @return the {@link IFrontEndReader} of the current {@link IGUI}.
 	 */
 	IFrontEndReader fromFrontEnd();
 	
 	//method declaration
 	/**
-	 * @return the cursor icon on the current {@link IBaseGUI}.
+	 * @return the cursor icon on the current {@link IGUI}.
 	 */
 	CursorIcon getCursorIcon();
 	
 	//method declaration
 	/**
-	 * @return the x-position of the cursor on the view area of the current {@link IBaseGUI}.
+	 * @return the x-position of the cursor on the view area of the current {@link IGUI}.
 	 */
 	int getCursorXPositionOnViewArea();
 	
 	//method declaration
 	/**
-	 * @return the y-position of the cursor on the view area of the current {@link IBaseGUI}.
+	 * @return the y-position of the cursor on the view area of the current {@link IGUI}.
 	 */
 	int getCursorYPositionOnViewArea();
 	
 	//method declaration
 	/**
-	 * @return the icon of the current {@link IBaseGUI}.
+	 * @return the icon of the current {@link IGUI}.
 	 */
 	IImage getIcon();
 	
 	//method declaration
 	/**
-	 * @return the height of the view area of the current {@link IBaseGUI}.
+	 * @return the height of the view area of the current {@link IGUI}.
 	 */
 	int getViewAreaHeight();
 	
 	//method declaration
 	/**
-	 * @return the width of the view area of the current {@link IBaseGUI}.
+	 * @return the width of the view area of the current {@link IGUI}.
 	 */
 	int getViewAreaWidth();
 	
 	//method declaration
 	/**
-	 * A root {@link IBaseGUI} is a {@link IBaseGUI} that not contained in another {@link IBaseGUI}.
+	 * A root {@link IGUI} is a {@link IGUI} that not contained in another {@link IGUI}.
 	 * 
-	 * @return true if the current {@link IBaseGUI} is a root {@link IBaseGUI}.
+	 * @return true if the current {@link IGUI} is a root {@link IGUI}.
 	 */
 	boolean isRootGUI();
 	
 	//method declaration
 	/**
 	 * 
-	 * @return true if the current {@link IBaseGUI} is visible.
+	 * @return true if the current {@link IGUI} is visible.
 	 */
 	boolean isVisible();
 	
 	//method
 	/**
-	 * Lets the current {@link IBaseGUI} note a resize.
-	 * The size of the view area of the current {@link IBaseGUI} will be the size of the view area of the given pGUI.
+	 * Lets the current {@link IGUI} note a resize.
+	 * The size of the view area of the current {@link IGUI} will be the size of the view area of the given pGUI.
 	 * 
 	 * @param pGUI
 	 */
-	void noteResizeFrom(IBaseGUI<?> pGUI);
+	void noteResizeFrom(IGUI<?> pGUI);
 	
 	//method declaration
 	/**
-	 * @return the {@link IFrontEndWriter} of the current {@link IBaseGUI}.
+	 * @return the {@link IFrontEndWriter} of the current {@link IGUI}.
 	 */
 	IFrontEndWriter onFrontEnd();
 	
 	//method
 	/**
-	 * Sets the icon of the current{@link IBaseGUI}.
+	 * Sets the icon of the current{@link IGUI}.
 	 * 
 	 * @param icon
-	 * @return the current{@link IBaseGUI}.
+	 * @return the current{@link IGUI}.
 	 */
 	G setIcon(final IImage icon);
 }

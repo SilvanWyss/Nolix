@@ -18,7 +18,7 @@ import ch.nolix.systemapi.guiapi.colorapi.IColorGradient;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.imageapi.ImageApplication;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
-import ch.nolix.systemapi.guiapi.mainapi.IBaseGUI;
+import ch.nolix.systemapi.guiapi.mainapi.IGUI;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
 import ch.nolix.systemapi.guiapi.widgetguiapi.ILayer;
@@ -160,7 +160,7 @@ public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> impleme
 	
 	//method
 	@Override
-	public void noteResizeFrom(final IBaseGUI<?> pGUI) {
+	public void noteResizeFrom(final IGUI<?> pGUI) {
 		noteResize(pGUI.getViewAreaWidth(), pGUI.getViewAreaHeight());
 	}
 	

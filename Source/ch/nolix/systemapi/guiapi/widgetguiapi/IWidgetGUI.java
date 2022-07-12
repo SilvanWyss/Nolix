@@ -13,10 +13,10 @@ import ch.nolix.systemapi.guiapi.colorapi.IColorGradient;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.imageapi.ImageApplication;
 import ch.nolix.systemapi.guiapi.inputdeviceapi.IKeyBoard;
-import ch.nolix.systemapi.guiapi.mainapi.IBaseGUI;
+import ch.nolix.systemapi.guiapi.mainapi.IGUI;
 
 //interface
-public interface IWidgetGUI<WG extends IWidgetGUI<WG>> extends Clearable, IBaseGUI<WG>, IConfigurableElement<WG>{
+public interface IWidgetGUI<WG extends IWidgetGUI<WG>> extends Clearable, IGUI<WG>, IConfigurableElement<WG>{
 	
 	//method declaration
 	IContainer<? extends IChainedNode> getPaintCommands(I2ElementTaker<String, IImage> imageRegistrator);

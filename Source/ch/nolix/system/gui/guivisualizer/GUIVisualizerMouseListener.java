@@ -7,16 +7,16 @@ import java.awt.event.MouseListener;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.systemapi.guiapi.mainapi.IBaseGUI;
+import ch.nolix.systemapi.guiapi.mainapi.IGUI;
 
 //class
 final class GUIVisualizerMouseListener implements MouseListener {
 	
 	//attribute
-	private final IBaseGUI<?> parentGUI;
+	private final IGUI<?> parentGUI;
 	
 	//constructor
-	public GUIVisualizerMouseListener(final IBaseGUI<?> parentGUI) {
+	public GUIVisualizerMouseListener(final IGUI<?> parentGUI) {
 		
 		GlobalValidator.assertThat(parentGUI).thatIsNamed("parent GUI").isNotNull();
 		
