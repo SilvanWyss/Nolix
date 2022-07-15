@@ -510,7 +510,7 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void noteKeyDown(final Key key) {
+	public void noteKeyPress(final Key key) {
 		
 		notedKeyPress = true;
 		
@@ -521,7 +521,7 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 		
 		//Handles the case that the current Layer has a root Widget.
 		if (rootWidget != null) {
-			rootWidget.noteKeyDown(key);
+			rootWidget.noteKeyPress(key);
 		}
 	}
 	

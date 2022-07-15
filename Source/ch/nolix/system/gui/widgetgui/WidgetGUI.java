@@ -608,7 +608,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	@Override
 	protected final void noteKeyDownWhenDoesNotHaveInputTaker(final Key key) {
 		getRefKeyBoardForMutating().noteKeyDown(key);
-		getRefTopOrBackgroundLayer().noteKeyDown(key);
+		getRefTopOrBackgroundLayer().noteKeyPress(key);
 		refresh();
 	}
 	

@@ -27,7 +27,7 @@ final class GUIVisualizerKeyListener implements KeyListener {
 	//method
 	@Override
 	public void keyPressed(final KeyEvent keyEvent) {
-		parentGUI.noteKeyDown(Key.fromAWTKeyEvent(keyEvent));
+		parentGUI.noteKeyPress(Key.fromAWTKeyEvent(keyEvent));
 	}
 	
 	//method

@@ -331,9 +331,9 @@ public abstract class GUI<G extends GUI<G>> extends ConfigurationElement<G> impl
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void noteKeyDown(final Key key) {
+	public final void noteKeyPress(final Key key) {
 		if (inputTaker != null) {
-			inputTaker.noteKeyDown(key);
+			inputTaker.noteKeyPress(key);
 		} else {
 			noteKeyDownWhenDoesNotHaveInputTaker(key);
 		}

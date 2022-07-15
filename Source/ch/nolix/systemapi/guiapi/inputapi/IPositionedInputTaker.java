@@ -39,7 +39,7 @@ public interface IPositionedInputTaker {
 	default void noteKeyInput(final IKeyInput<?> keyInput) {
 		switch (keyInput.getKeyInputType()) {
 			case PRESS:
-				noteKeyDown(keyInput.getKey());
+				noteKeyPress(keyInput.getKey());
 				break;
 			case RELEASE:
 				noteKeyRelease(keyInput.getKey());
@@ -56,7 +56,7 @@ public interface IPositionedInputTaker {
 	 * 
 	 * @param key
 	 */
-	void noteKeyDown(Key key);
+	void noteKeyPress(Key key);
 	
 	//method declaration
 	/**

@@ -76,7 +76,7 @@ final class JMonkeyMainFrameRawInputListener implements RawInputListener {
 		final var key = keyMapper.getKeyFrom(keyInputEvent);
 		
 		if (keyInputEvent.isPressed()) {
-			mJMonkeyMainFrame.noteKeyDown(key);
+			mJMonkeyMainFrame.noteKeyPress(key);
 		} else if (keyInputEvent.isReleased()) {
 			mJMonkeyMainFrame.noteKeyRelease(key);
 		}

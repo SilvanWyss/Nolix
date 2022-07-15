@@ -58,7 +58,7 @@ public final class CanvasFrameTutorial {
 	private static class InputTaker implements IResizableInputTaker {
 		
 		@Override
-		public void noteKeyDown(final Key key) {
+		public void noteKeyPress(final Key key) {
 			//Does nothing.
 		}
 		

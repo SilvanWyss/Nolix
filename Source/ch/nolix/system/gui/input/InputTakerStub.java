@@ -11,7 +11,7 @@ public class InputTakerStub implements IPositionedInputTaker {
 	
 	//method
 	@Override
-	public void noteKeyDown(final Key key) {
+	public void noteKeyPress(final Key key) {
 		//Does nothing.
 	}
 	

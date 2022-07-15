@@ -657,7 +657,7 @@ implements IWidget<W, WL> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void noteKeyDown(final Key key) {
+	public final void noteKeyPress(final Key key) {
 		if (isEnabled()) {
 			
 			noteKeyDownOnSelfWhenEnabled_(key);
@@ -666,7 +666,7 @@ implements IWidget<W, WL> {
 				noteKeyDownOnSelfWhenFocused(key);
 			}	
 			
-			getRefWidgetsForPainting().forEach(w -> w.noteKeyDown(key));
+			getRefWidgetsForPainting().forEach(w -> w.noteKeyPress(key));
 		}
 	}
 	
