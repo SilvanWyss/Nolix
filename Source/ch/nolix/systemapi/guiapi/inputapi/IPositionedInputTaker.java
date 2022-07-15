@@ -11,7 +11,7 @@ import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
  * @date 2019-08-01
  */
 @AllowDefaultMethodsAsDesignPattern
-public interface IPositionedInputTaker {
+public interface IPositionedInputTaker extends IInputTaker {
 	
 	//method
 	/**
@@ -52,30 +52,6 @@ public interface IPositionedInputTaker {
 	
 	//method declaration
 	/**
-	 * Lets the current {@link IPositionedInputTaker} note a key press.
-	 * 
-	 * @param key
-	 */
-	void noteKeyPress(Key key);
-	
-	//method declaration
-	/**
-	 * Lets the current {@link IPositionedInputTaker} note a key release.
-	 * 
-	 * @param key
-	 */
-	void noteKeyRelease(Key key);
-	
-	//method declaration
-	/**
-	 * Lets the current {@link IPositionedInputTaker} note a key typing.
-	 * 
-	 * @param key
-	 */
-	void noteKeyTyping(Key key);
-	
-	//method declaration
-	/**
 	 * Lets the current {@link IPositionedInputTaker} note a left mouse button click.
 	 */
 	void noteLeftMouseButtonClick();
@@ -95,12 +71,6 @@ public interface IPositionedInputTaker {
 		noteLeftMouseButtonClick();
 	}
 	
-	//method declaration
-	/**
-	 * Lets the current {@link IPositionedInputTaker} note a left mouse button press.
-	 */
-	void noteLeftMouseButtonPress();
-	
 	//method
 	/**
 	 * Lets the current {@link IPositionedInputTaker} note a left mouse button press at the given position.
@@ -115,12 +85,6 @@ public interface IPositionedInputTaker {
 		noteMouseMove(cursorXPositionOnViewArea, cursorYPositionOnViewArea);
 		noteLeftMouseButtonPress();
 	}
-	
-	//method declaration
-	/**
-	 * Lets the current {@link IPositionedInputTaker} note a left mouse button release.
-	 */
-	void noteLeftMouseButtonRelease();
 	
 	//method
 	/**
@@ -215,12 +179,6 @@ public interface IPositionedInputTaker {
 		noteMouseWheelClick();
 	}
 	
-	//method declaration
-	/**
-	 * Lets the current {@link IPositionedInputTaker} note a mouse wheel press.
-	 */
-	void noteMouseWheelPress();
-	
 	//method
 	/**
 	 * Lets the current {@link IPositionedInputTaker} note a mouse wheel press at the given position.
@@ -235,12 +193,6 @@ public interface IPositionedInputTaker {
 		noteMouseMove(cursorXPositionOnViewArea, cursorYPositionOnViewArea);
 		noteMouseWheelPress();
 	}
-	
-	//method declaration
-	/**
-	 * Lets the current {@link IPositionedInputTaker} note a mouse wheel release.
-	 */
-	void noteMouseWheelRelease();
 	
 	//method
 	/**
@@ -286,12 +238,6 @@ public interface IPositionedInputTaker {
 		noteRightMouseButtonClick();
 	}
 	
-	//method declaration
-	/**
-	 * Lets the current {@link IPositionedInputTaker} note a right mouse button press.
-	 */
-	void noteRightMouseButtonPress();
-	
 	//method
 	/**
 	 * Lets the current {@link IPositionedInputTaker} note a right mouse button press at the given position.
@@ -306,12 +252,6 @@ public interface IPositionedInputTaker {
 		noteMouseMove(cursorXPositionOnViewArea, cursorYPositionOnViewArea);
 		noteRightMouseButtonPress();
 	}
-	
-	//method declaration
-	/**
-	 * Lets the current {@link IPositionedInputTaker} note a right mouse button release.
-	 */
-	void noteRightMouseButtonRelease();
 	
 	//method
 	/**
