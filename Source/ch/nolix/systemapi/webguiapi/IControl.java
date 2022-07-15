@@ -13,7 +13,13 @@ public interface IControl<C extends IControl<C>> extends IConfigurableElement<C>
 	boolean belongsToGUI();
 	
 	//method declaration
+	boolean belongsToLayer();
+	
+	//method declaration
 	CursorIcon getCursorIcon();
+	
+	//method declaration
+	ILayer<?> getParentLayer();
 	
 	//method declaration
 	IWebGUI<?> getParentGUI();
