@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemapi.webguiapi;
+package ch.nolix.systemapi.webguiapi.mainapi;
 
 //own imports
 import ch.nolix.coreapi.attributeapi.mutablemandatoryattributeuniversalapi.Titleble;
