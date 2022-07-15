@@ -19,11 +19,11 @@ public interface IControl<C extends IControl<C>> extends IConfigurableElement<C>
 	CursorIcon getCursorIcon();
 	
 	//method declaration
-	ILayer<?> getParentLayer();
-	
-	//method declaration
 	IWebGUI<?> getParentGUI();
 	
+	//method declaration
+	ILayer<?> getParentLayer();
+		
 	//method declaration
 	C setCursorIcon(CursorIcon cursorIcon);
 }
