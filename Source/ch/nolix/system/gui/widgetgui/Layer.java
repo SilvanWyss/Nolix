@@ -35,7 +35,7 @@ import ch.nolix.systemapi.guiapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.colorapi.IColorGradient;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.imageapi.ImageApplication;
-import ch.nolix.systemapi.guiapi.inputapi.IInputTaker;
+import ch.nolix.systemapi.guiapi.inputapi.IPositionedInputTaker;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.mainapi.CursorIcon;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
@@ -528,7 +528,7 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 	//method
 	//For a better performance, this implementation does not use all comfortable methods.
 	/**
-	 * Lets the current {@link IInputTaker} note a key release if
+	 * Lets the current {@link IPositionedInputTaker} note a key release if
 	 * the current {@link Layer} noted already a key press.
 	 * 
 	 * @param key
@@ -603,7 +603,7 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 	//method
 	//For a better performance, this implementation does not use all comfortable methods.
 	/**
-	 * Lets the current {@link IInputTaker} note a left mouse button release if
+	 * Lets the current {@link IPositionedInputTaker} note a left mouse button release if
 	 * the current {@link Layer} noted already a left mouse button press.
 	 */
 	@Override
@@ -686,7 +686,7 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 	//method
 	//For a better performance, this implementation does not use all comfortable methods.
 	/**
-	 * Lets the current {@link IInputTaker} note a mouse wheel release if
+	 * Lets the current {@link IPositionedInputTaker} note a mouse wheel release if
 	 * the current {@link Layer} noted already a mouse wheel press.
 	 */
 	@Override
@@ -771,7 +771,7 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 	//method
 	//For a better performance, this implementation does not use all comfortable methods.
 	/**
-	 * Lets the current {@link IInputTaker} note a right mouse button release if
+	 * Lets the current {@link IPositionedInputTaker} note a right mouse button release if
 	 * the current {@link Layer} noted already a right mouse button press.
 	 */
 	@Override

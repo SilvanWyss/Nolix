@@ -10,7 +10,7 @@ import ch.nolix.coreapi.markerapi.AllowDefaultMethodsAsDesignPattern;
  * @date 2020-06-06
  */
 @AllowDefaultMethodsAsDesignPattern
-public interface IResizableInputTaker extends IInputTaker {
+public interface IResizableInputTaker extends IPositionedInputTaker {
 	
 	//method
 	/**
@@ -21,7 +21,7 @@ public interface IResizableInputTaker extends IInputTaker {
 		if (input instanceof IResizeInput) {
 			noteResizeInput((IResizeInput<?>)input);
 		} else {
-			IInputTaker.super.noteInput(input);
+			IPositionedInputTaker.super.noteInput(input);
 		}
 	}
 	

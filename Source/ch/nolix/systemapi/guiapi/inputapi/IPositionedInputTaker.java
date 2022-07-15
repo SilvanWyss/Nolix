@@ -11,11 +11,11 @@ import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
  * @date 2019-08-01
  */
 @AllowDefaultMethodsAsDesignPattern
-public interface IInputTaker {
+public interface IPositionedInputTaker {
 	
 	//method
 	/**
-	 * Lets the current {@link IInputTaker} note the given input.
+	 * Lets the current {@link IPositionedInputTaker} note the given input.
 	 * 
 	 * @param input
 	 * @throws RuntimeException if the given input is not valid.
@@ -32,7 +32,7 @@ public interface IInputTaker {
 	
 	//method
 	/**
-	 * Lets the current {@link IInputTaker} note the given keyInput.
+	 * Lets the current {@link IPositionedInputTaker} note the given keyInput.
 	 * 
 	 * @param keyInput
 	 */
@@ -52,7 +52,7 @@ public interface IInputTaker {
 	
 	//method declaration
 	/**
-	 * Lets the current {@link IInputTaker} note a key press.
+	 * Lets the current {@link IPositionedInputTaker} note a key press.
 	 * 
 	 * @param key
 	 */
@@ -60,7 +60,7 @@ public interface IInputTaker {
 	
 	//method declaration
 	/**
-	 * Lets the current {@link IInputTaker} note a key release.
+	 * Lets the current {@link IPositionedInputTaker} note a key release.
 	 * 
 	 * @param key
 	 */
@@ -68,7 +68,7 @@ public interface IInputTaker {
 	
 	//method declaration
 	/**
-	 * Lets the current {@link IInputTaker} note a key typing.
+	 * Lets the current {@link IPositionedInputTaker} note a key typing.
 	 * 
 	 * @param key
 	 */
@@ -76,13 +76,13 @@ public interface IInputTaker {
 	
 	//method declaration
 	/**
-	 * Lets the current {@link IInputTaker} note a left mouse button click.
+	 * Lets the current {@link IPositionedInputTaker} note a left mouse button click.
 	 */
 	void noteLeftMouseButtonClick();
 	
 	//method
 	/**
-	 * Lets the current {@link IInputTaker} note a left mouse button click at the given position.
+	 * Lets the current {@link IPositionedInputTaker} note a left mouse button click at the given position.
 	 * 
 	 * @param cursorXPositionOnViewArea
 	 * @param cursorYPositionOnViewArea
@@ -97,13 +97,13 @@ public interface IInputTaker {
 	
 	//method declaration
 	/**
-	 * Lets the current {@link IInputTaker} note a left mouse button press.
+	 * Lets the current {@link IPositionedInputTaker} note a left mouse button press.
 	 */
 	void noteLeftMouseButtonPress();
 	
 	//method
 	/**
-	 * Lets the current {@link IInputTaker} note a left mouse button press at the given position.
+	 * Lets the current {@link IPositionedInputTaker} note a left mouse button press at the given position.
 	 * 
 	 * @param cursorXPositionOnViewArea
 	 * @param cursorYPositionOnViewArea
@@ -118,13 +118,13 @@ public interface IInputTaker {
 	
 	//method declaration
 	/**
-	 * Lets the current {@link IInputTaker} note a left mouse button release.
+	 * Lets the current {@link IPositionedInputTaker} note a left mouse button release.
 	 */
 	void noteLeftMouseButtonRelease();
 	
 	//method
 	/**
-	 * Lets the current {@link IInputTaker} note a left mouse button release at the given position.
+	 * Lets the current {@link IPositionedInputTaker} note a left mouse button release at the given position.
 	 * 
 	 * @param cursorXPositionOnViewArea
 	 * @param cursorYPositionOnViewArea
@@ -139,7 +139,7 @@ public interface IInputTaker {
 	
 	//method
 	/**
-	 * Lets the current {@link IInputTaker} note the given mouseInput.
+	 * Lets the current {@link IPositionedInputTaker} note the given mouseInput.
 	 * 
 	 * @param mouseInput
 	 */
@@ -186,7 +186,7 @@ public interface IInputTaker {
 	
 	//method declaration
 	/**
-	 * Lets the current {@link IInputTaker} note a mouse move.
+	 * Lets the current {@link IPositionedInputTaker} note a mouse move.
 	 * The given cursorXPositionOnViewArea and cursorYPositionOnViewArea are the new position of the cursor.
 	 * 
 	 * @param cursorXPositionOnViewArea
@@ -196,13 +196,13 @@ public interface IInputTaker {
 	
 	//method declaration
 	/**
-	 * Lets the current {@link IInputTaker} note a mouse wheel clcik.
+	 * Lets the current {@link IPositionedInputTaker} note a mouse wheel clcik.
 	 */
 	void noteMouseWheelClick();
 	
 	//method
 	/**
-	 * Lets the current {@link IInputTaker} note a mouse wheel click at the given position.
+	 * Lets the current {@link IPositionedInputTaker} note a mouse wheel click at the given position.
 	 * 
 	 * @param cursorXPositionOnViewArea
 	 * @param cursorYPositionOnViewArea
@@ -217,13 +217,13 @@ public interface IInputTaker {
 	
 	//method declaration
 	/**
-	 * Lets the current {@link IInputTaker} note a mouse wheel press.
+	 * Lets the current {@link IPositionedInputTaker} note a mouse wheel press.
 	 */
 	void noteMouseWheelPress();
 	
 	//method
 	/**
-	 * Lets the current {@link IInputTaker} note a mouse wheel press at the given position.
+	 * Lets the current {@link IPositionedInputTaker} note a mouse wheel press at the given position.
 	 * 
 	 * @param cursorXPositionOnViewArea
 	 * @param cursorYPositionOnViewArea
@@ -238,13 +238,13 @@ public interface IInputTaker {
 	
 	//method declaration
 	/**
-	 * Lets the current {@link IInputTaker} note a mouse wheel release.
+	 * Lets the current {@link IPositionedInputTaker} note a mouse wheel release.
 	 */
 	void noteMouseWheelRelease();
 	
 	//method
 	/**
-	 * Lets the current {@link IInputTaker} note a mouse wheel release at the given position.
+	 * Lets the current {@link IPositionedInputTaker} note a mouse wheel release at the given position.
 	 * 
 	 * @param cursorXPositionOnViewArea
 	 * @param cursorYPositionOnViewArea
@@ -259,7 +259,7 @@ public interface IInputTaker {
 	
 	//method declaration
 	/**
-	 * Lets the current {@link IInputTaker} note a mouse wheel rotation step.
+	 * Lets the current {@link IPositionedInputTaker} note a mouse wheel rotation step.
 	 * 
 	 * @param rotationDirection
 	 */
@@ -267,13 +267,13 @@ public interface IInputTaker {
 	
 	//method declaration
 	/**
-	 * Lets the current {@link IInputTaker} note a right mouse button click.
+	 * Lets the current {@link IPositionedInputTaker} note a right mouse button click.
 	 */
 	void noteRightMouseButtonClick();
 	
 	//method
 	/**
-	 * Lets the current {@link IInputTaker} note a right mouse button click at the given position.
+	 * Lets the current {@link IPositionedInputTaker} note a right mouse button click at the given position.
 	 * 
 	 * @param cursorXPositionOnViewArea
 	 * @param cursorYPositionOnViewArea
@@ -288,13 +288,13 @@ public interface IInputTaker {
 	
 	//method declaration
 	/**
-	 * Lets the current {@link IInputTaker} note a right mouse button press.
+	 * Lets the current {@link IPositionedInputTaker} note a right mouse button press.
 	 */
 	void noteRightMouseButtonPress();
 	
 	//method
 	/**
-	 * Lets the current {@link IInputTaker} note a right mouse button press at the given position.
+	 * Lets the current {@link IPositionedInputTaker} note a right mouse button press at the given position.
 	 * 
 	 * @param cursorXPositionOnViewArea
 	 * @param cursorYPositionOnViewArea
@@ -309,13 +309,13 @@ public interface IInputTaker {
 	
 	//method declaration
 	/**
-	 * Lets the current {@link IInputTaker} note a right mouse button release.
+	 * Lets the current {@link IPositionedInputTaker} note a right mouse button release.
 	 */
 	void noteRightMouseButtonRelease();
 	
 	//method
 	/**
-	 * Lets the current {@link IInputTaker} note a right mouse button release at the given position.
+	 * Lets the current {@link IPositionedInputTaker} note a right mouse button release at the given position.
 	 * 
 	 * @param cursorXPositionOnViewArea
 	 * @param cursorYPositionOnViewArea
