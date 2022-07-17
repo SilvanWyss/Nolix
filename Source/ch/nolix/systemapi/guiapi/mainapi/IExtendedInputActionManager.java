@@ -10,7 +10,7 @@ import ch.nolix.systemapi.guiapi.inputapi.Key;
 
 //interface
 @AllowDefaultMethodsAsDesignPattern
-public interface IInputActionManager<IAM extends IInputActionManager<IAM>> {
+public interface IExtendedInputActionManager<IAM extends IExtendedInputActionManager<IAM>> {
 	
 	//method
 	default IAM setKeyDownAction(final IElementTaker<Key> keyDownAction) {

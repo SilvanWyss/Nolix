@@ -10,7 +10,7 @@ import ch.nolix.coreapi.geometryapi.griduniversalapi.TopLeftPositionedRecangular
 import ch.nolix.systemapi.elementapi.configurationapi.IConfigurableElement;
 import ch.nolix.systemapi.guiapi.inputapi.IPositionedInputTaker;
 import ch.nolix.systemapi.guiapi.mainapi.CursorIcon;
-import ch.nolix.systemapi.guiapi.mainapi.IInputActionManager;
+import ch.nolix.systemapi.guiapi.mainapi.IExtendedInputActionManager;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 
 //interface
@@ -30,7 +30,7 @@ extends
 EnablingRequestable,
 ExpansionRequestable,
 IConfigurableElement<W>,
-IInputActionManager<W>,
+IExtendedInputActionManager<W>,
 IPositionedInputTaker,
 Recalculable,
 TopLeftPositionedRecangular {

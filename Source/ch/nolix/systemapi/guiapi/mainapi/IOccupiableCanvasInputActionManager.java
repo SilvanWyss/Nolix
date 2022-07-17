@@ -10,7 +10,7 @@ import ch.nolix.systemapi.guiapi.universalcanvasapi.IOccupiableHoverableCanvas;
 //interface
 @AllowDefaultMethodsAsDesignPattern
 public interface IOccupiableCanvasInputActionManager<OCIAM extends IOccupiableCanvasInputActionManager<OCIAM>>
-extends IInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
+extends IExtendedInputActionManager<OCIAM>, IOccupiableHoverableCanvas {
 	
 	//method
 	default OCIAM setLeftMouseButtonClickActionOnFreeArea(
