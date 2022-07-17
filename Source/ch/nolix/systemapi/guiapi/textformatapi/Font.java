@@ -1,8 +1,7 @@
 //package declaration
-package ch.nolix.system.gui.textformat;
+package ch.nolix.systemapi.guiapi.textformatapi;
 
 //own imports
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 
 //enum
@@ -26,7 +25,7 @@ public enum Font {
 	/**
 	 * @param specification
 	 * @return a new {@link Font} from the given specification.
-	 * @throws InvalidArgumentException if the given specification does not represent a {@link Font}.
+	 * @throws RuntimeException if the given specification does not represent a {@link Font}.
 	 */
 	public static Font fromSpecification(final INode<?> specification) {
 		return valueOf(specification.getSingleChildNodeHeader());
@@ -57,7 +56,7 @@ public enum Font {
 			case VERDANA:
 				return FontCodeCatalogue.VERDANA;
 			default:
-				throw InvalidArgumentException.forArgument(this);
+				throw new RuntimeException("The current Font is not valid.");
 		}
 	}
 }

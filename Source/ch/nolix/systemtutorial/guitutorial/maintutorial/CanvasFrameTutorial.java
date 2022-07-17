@@ -8,12 +8,12 @@ import ch.nolix.system.application.baseguiapplication.PaintRun;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.color.ColorGradient;
 import ch.nolix.system.gui.main.CanvasFrame;
-import ch.nolix.system.gui.textformat.Font;
 import ch.nolix.system.gui.textformat.TextFormat;
 import ch.nolix.systemapi.guiapi.inputapi.IResizableInputTaker;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
 import ch.nolix.systemapi.guiapi.structureproperty.DirectionInRectangle;
+import ch.nolix.systemapi.guiapi.textformatapi.Font;
 
 /**
  * The {@link CanvasFrameTutorial} is a tutorial for {@link CanvasFrame}s.
