@@ -5,9 +5,24 @@ package ch.nolix.coreapi.documentapi.chainednodeapi;
 import ch.nolix.coreapi.attributeapi.optionalattributeuniversalapi.OptionalHeadered;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
+import ch.nolix.coreapi.functionapi.requestuniversalapi.BlanknessRequestable;
 
 //interface
-public interface IChainedNode extends OptionalHeadered {
+/**
+ * A {@link IChainedNode} has the following attributes.
+ * -0 or 1 header
+ * -an arbitrary number of child {@link IChainedNode}s
+ * -0 or 1 next {@link IChainedNode}
+ * 
+ * A {@link IChainedNode} that
+ * does not have a header, does not contain attributes and does not have a next {@link IChainedNode} is blank.
+ * 
+ * A {@link IChainedNode} is not mutable.
+ * 
+ * @author Silvan Wyss
+ * @date 2016-01-01
+ */
+public interface IChainedNode extends BlanknessRequestable, OptionalHeadered {
 	
 	//method declaration
 	/**
@@ -59,13 +74,6 @@ public interface IChainedNode extends OptionalHeadered {
 	 * @return true if the current {@link IChainedNode} has a next node.
 	 */
 	boolean hasNextNode();
-	
-	//method declaration
-	/**
-	 * @return true if the current {@link IChainedNode} does not have a header, does not contain child nodes and
-	 * does not have a next node.
-	 */
-	boolean isBlank();
 	
 	//method declaration
 	/**

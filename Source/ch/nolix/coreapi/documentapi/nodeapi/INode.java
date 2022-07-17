@@ -7,6 +7,7 @@ import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.containerapi.pairapi.IIntPair;
 import ch.nolix.coreapi.documentapi.xmlapi.IXMLNode;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;
+import ch.nolix.coreapi.functionapi.requestuniversalapi.BlanknessRequestable;
 
 //interface
 /**
@@ -14,13 +15,15 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGette
  * -0 or 1 header
  * -an arbitrary number of child {@link INode}s
  * 
+ * A {@link INode} that does not have a header and does not contains attributes is blank.
+ * 
  * A sub type of {@link INode} may be or may be not mutable.
  * 
  * @author Silvan Wyss
  * @date 2022-06-24
  * @param <N> is the type of a {@link INode}.
  */
-public interface INode<N extends INode<N>> extends OptionalHeadered {
+public interface INode<N extends INode<N>> extends BlanknessRequestable, OptionalHeadered {
 	
 	//method declaration
 	/**
@@ -182,14 +185,7 @@ public interface INode<N extends INode<N>> extends OptionalHeadered {
 	 * @throws RuntimeException if the single child {@link INode} of the current {@link INode} does not have a header.
 	 */
 	String getSingleChildNodeHeader();
-	
-	//method declaration
-	/**
-	 * @return true if the current {@link INode} is blank.
-	 * A {@link INode}, that does not have a header and that does not contain child {@link INode}s, is blank.
-	 */
-	boolean isBlank();
-	
+		
 	//method declaration
 	/**
 	 * @return the boolean the current {@link INode} represents.
