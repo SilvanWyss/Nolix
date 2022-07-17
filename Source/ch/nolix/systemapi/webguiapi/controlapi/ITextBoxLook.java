@@ -1,7 +1,8 @@
 //package declaration
 package ch.nolix.systemapi.webguiapi.controlapi;
 
-import ch.nolix.systemapi.guiapi.controllookapi.IControlLook;
+//own imports
+import ch.nolix.systemapi.guiapi.controllookapi.IBorderControlLook;
 
 //interface
-public interface ITextBoxLook extends IControlLook<ITextBoxLook> {}
+public interface ITextBoxLook extends IBorderControlLook<ITextBoxLook> {}
