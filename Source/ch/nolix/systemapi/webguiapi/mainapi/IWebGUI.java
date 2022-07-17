@@ -16,6 +16,9 @@ public interface IWebGUI<WGUI extends IWebGUI<WGUI>> extends ICanvas<WGUI>, Titl
 	IFrontEndReader fromFrontEnd();
 	
 	//method declaration
+	IWebGUIContent getContent();
+	
+	//method declaration
 	IImage getIcon();
 	
 	//method declaration
