@@ -192,7 +192,7 @@ public final class DropdownMenu extends ItemMenu<DropdownMenu> {
 			)
 			.setRootWidget(expandedDropdownMenu.setFocused())
 			.setLeftMouseButtonPressActionOnFreeArea(this::collapse)
-			.setKeyDownAction(this::noteKeyDownWhenExpanded)
+			.setKeyPressAction(this::noteKeyDownWhenExpanded)
 		);
 	}
 	

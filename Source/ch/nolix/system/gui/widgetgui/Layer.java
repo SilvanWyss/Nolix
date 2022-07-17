@@ -957,7 +957,7 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 	 * @return the current {@link Layer}.
 	 * @throws ArgumentIsNullException if the given keyDownAction is null.
 	 */
-	public Layer setKeyDownAction(final I2ElementTaker<Layer, Key> keyDownAction) {
+	public Layer setKeyPressAction(final I2ElementTaker<Layer, Key> keyDownAction) {
 		
 		//Asserts that the given customCursorIcon is not null.
 		GlobalValidator.assertThat(keyDownAction).thatIsNamed("continuous key press action").isNotNull();

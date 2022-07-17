@@ -1060,7 +1060,7 @@ implements IWidget<W, WL> {
 	 * @throws ArgumentIsNullException if the given keyDownAction is null.
 	 */
 	@Override
-	public final W setKeyDownAction(final I2ElementTaker<W, Key> keyDownAction) {
+	public final W setKeyPressAction(final I2ElementTaker<W, Key> keyDownAction) {
 		
 		//Asserts that the given customCursorIcon is not null.
 		GlobalValidator.assertThat(keyDownAction).thatIsNamed("continuous key press action").isNotNull();
