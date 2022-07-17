@@ -20,7 +20,7 @@ public final class InvalidArgumentExceptionTest extends Test {
 		expect(result.getArgumentName()).isEqualTo("argument");
 		expect(result.getRefArgument()).isNull();
 		expect(result.getErrorPredicate()).isEqualTo("is not valid");
-		expect(result.getMessage()).isEqualTo("The given argument is not valid.");;
+		expect(result.getMessage()).isEqualTo("The given argument is not valid.");
 	}
 	
 	@TestCase

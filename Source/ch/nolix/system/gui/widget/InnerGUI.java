@@ -115,7 +115,7 @@ public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> impleme
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final String getTitleInQuotes() {
+	public String getTitleInQuotes() {
 		return internalGUI.getTitleInQuotes();
 	}
 	
