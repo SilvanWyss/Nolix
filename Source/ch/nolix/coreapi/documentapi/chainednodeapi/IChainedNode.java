@@ -20,7 +20,7 @@ import ch.nolix.coreapi.functionapi.requestuniversalapi.BlanknessRequestable;
  * A {@link IChainedNode} is not mutable.
  * 
  * @author Silvan Wyss
- * @date 2016-01-01
+ * @date 2022-07-05
  */
 public interface IChainedNode extends BlanknessRequestable, OptionalHeadered {
 	
