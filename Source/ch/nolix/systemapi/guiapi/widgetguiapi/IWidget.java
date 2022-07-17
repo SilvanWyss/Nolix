@@ -75,9 +75,9 @@ TopLeftPositionedRecangular {
 	
 	//method declaration
 	/**
-	 * @return the active {@link IWidgetLook} of the current {@link IWidget}.
+	 * @return the look of the current {@link IWidget}.
 	 */
-	WL getRefActiveLook();
+	WL getRefLook();
 	
 	//method declaration
 	/** 

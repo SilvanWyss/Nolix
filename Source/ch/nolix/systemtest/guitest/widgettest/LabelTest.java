@@ -18,10 +18,10 @@ public final class LabelTest extends BorderWidgetTest<Label> {
 		final var testUnit = new Label();
 		
 		//execution
-		testUnit.getRefActiveLook().setTextColorForState(ControlState.BASE, Color.BLUE);
+		testUnit.getRefLook().setTextColorForState(ControlState.BASE, Color.BLUE);
 		
 		//verification
-		expect(testUnit.getRefActiveLook().getTextColor()).isEqualTo(Color.BLUE);
+		expect(testUnit.getRefLook().getTextColor()).isEqualTo(Color.BLUE);
 	}
 		
 	//method
@@ -32,10 +32,10 @@ public final class LabelTest extends BorderWidgetTest<Label> {
 		final var testUnit = new Label();
 		
 		//execution
-		testUnit.getRefActiveLook().setTextSizeForState(ControlState.BASE, 25);
+		testUnit.getRefLook().setTextSizeForState(ControlState.BASE, 25);
 		
 		//verification
-		expect(testUnit.getRefActiveLook().getTextSize()).isEqualTo(25);
+		expect(testUnit.getRefLook().getTextSize()).isEqualTo(25);
 	}
 	
 	//method

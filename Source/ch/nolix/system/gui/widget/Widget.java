@@ -405,7 +405,7 @@ implements IWidget<W, WL> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final WL getRefActiveLook() {
+	public final WL getRefLook() {
 		return look.getExtensionElement();
 	}
 	
@@ -900,7 +900,7 @@ implements IWidget<W, WL> {
 	 */
 	public W onLook(final IElementTaker<WL> lookMutator) {
 		
-		lookMutator.run(getRefActiveLook());
+		lookMutator.run(getRefLook());
 		
 		return asConcrete();
 	}
@@ -1028,7 +1028,7 @@ implements IWidget<W, WL> {
 	public final void resetElementConfiguration() {
 		
 		setCustomCursorIcon(DEFAULT_CURSOR_ICON);
-		getRefActiveLook().reset();
+		getRefLook().reset();
 		
 		resetWidgetConfiguration();
 	}
@@ -1969,7 +1969,7 @@ implements IWidget<W, WL> {
 	 */
 	private void paintRecursivelyUsingPositionedPainterWhenNotDisabled(final IPainter painter) {
 		
-		final var lLook = getRefActiveLook();
+		final var lLook = getRefLook();
 		
 		painter.setOpacity(lLook.getOpacity());
 		
@@ -2042,7 +2042,7 @@ implements IWidget<W, WL> {
 		this.parent = parent;
 		
 		if (parent.isWidget()) {
-			parent.getRefWidget().getRefActiveLook().addChild(getRefActiveLook());
+			parent.getRefWidget().getRefLook().addChild(getRefLook());
 		}
 	}
 	
@@ -2051,6 +2051,6 @@ implements IWidget<W, WL> {
 	 * Updates the {@link ControlState} of the {@link WidgetLook} of the current {@link Widget}.
 	 */
 	private void updateLookState() {
-		getRefActiveLook().setState(calculateLookState());
+		getRefLook().setState(calculateLookState());
 	}
 }

@@ -28,7 +28,7 @@ public final class DropdownMenu extends ItemMenu<DropdownMenu> {
 		
 		reset();
 		
-		getRefActiveLook().setBorderThicknessForState(ControlState.BASE, 1);
+		getRefLook().setBorderThicknessForState(ControlState.BASE, 1);
 		getRefItemLook().setBackgroundColorForState(ControlState.HOVER, Color.LIGHT_GREY);
 		getRefSelectedItemLook().setBackgroundColorForState(ControlState.BASE, Color.GREY);
 	}
@@ -167,10 +167,10 @@ public final class DropdownMenu extends ItemMenu<DropdownMenu> {
 		expandedDropdownMenu.setSelectAction(this::selectItemAndCollapseWhenMenuIsExpandedAndContainsSelectedItem);
 		
 		//Configures the look of the expandedDropdownMenu.
-		expandedDropdownMenu.getRefActiveLook().setFrom(getRefActiveLook());
+		expandedDropdownMenu.getRefLook().setFrom(getRefLook());
 		expandedDropdownMenu.getRefItemLook().setFrom(getRefItemLook());
 		expandedDropdownMenu.getRefSelectedItemLook().setFrom(getRefSelectedItemLook());
-		expandedDropdownMenu.getRefActiveLook().setBorderThicknessForState(ControlState.BASE, 1);
+		expandedDropdownMenu.getRefLook().setBorderThicknessForState(ControlState.BASE, 1);
 		
 		//Recalculates the expandedDropdownMenu again twice.
 		expandedDropdownMenu.recalculate();

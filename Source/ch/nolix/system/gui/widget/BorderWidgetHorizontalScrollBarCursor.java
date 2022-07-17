@@ -174,13 +174,13 @@ implements HoverableTopLeftPositionedRectangular {
 	
 	//method
 	private Color getColorWhenIsMoved() {
-		return parentBorderWidget.getRefActiveLook().getScrollCursorMoveColor();
+		return parentBorderWidget.getRefLook().getScrollCursorMoveColor();
 	}
 	
 	//method
 	private Color getColorWhenIsNotMoved() {
 		
-		final var look = parentBorderWidget.getRefActiveLook();
+		final var look = parentBorderWidget.getRefLook();
 		
 		if (!isUnderCursor()) {
 			return look.getScrollCursorColor();

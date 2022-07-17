@@ -65,7 +65,7 @@ public final class BorderWidgetExtendedContentArea<BWL extends BorderWidgetLook<
 	@Override
 	public int getHeight() {
 		
-		final var look = parentBorderWidget.getRefActiveLook();
+		final var look = parentBorderWidget.getRefLook();
 		
 		return
 		parentBorderWidget.getContentArea().getHeight()
@@ -79,7 +79,7 @@ public final class BorderWidgetExtendedContentArea<BWL extends BorderWidgetLook<
 	 */
 	public int getNaturalHeight() {
 		
-		final var look = parentBorderWidget.getRefActiveLook();
+		final var look = parentBorderWidget.getRefLook();
 		
 		return
 		parentBorderWidget.getContentArea().getNaturalHeight()
@@ -93,7 +93,7 @@ public final class BorderWidgetExtendedContentArea<BWL extends BorderWidgetLook<
 	 */
 	public int getNaturalWidth() {
 		
-		final var look = parentBorderWidget.getRefActiveLook();
+		final var look = parentBorderWidget.getRefLook();
 		
 		return
 		parentBorderWidget.getContentArea().getNaturalWidth()
@@ -128,7 +128,7 @@ public final class BorderWidgetExtendedContentArea<BWL extends BorderWidgetLook<
 	@Override
 	public int getWidth() {
 		
-		final var look = parentBorderWidget.getRefActiveLook();
+		final var look = parentBorderWidget.getRefLook();
 		
 		return
 		parentBorderWidget.getContentArea().getWidth()

@@ -208,7 +208,7 @@ public final class FloatContainer extends ContainerWidget<FloatContainer, FloatC
 	protected void recalculateBorderWidget() {
 		
 		final var contentAreaWidth = getTargetWidth();
-		final var widgetMargin = getRefActiveLook().getElementMargin();
+		final var widgetMargin = getRefLook().getElementMargin();
 		
 		var y = 0;
 		var x = 0;

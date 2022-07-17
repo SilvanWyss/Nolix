@@ -44,14 +44,14 @@ public final class LabelTutorial {
 			final var clockCaptionLabel = new Label().setText("Time:");
 			
 			//Configures the look of the clockCaptionLabel.
-			clockCaptionLabel.getRefActiveLook().setTextSizeForState(ControlState.BASE, 50);
+			clockCaptionLabel.getRefLook().setTextSizeForState(ControlState.BASE, 50);
 			
 			//Creates clockLabel.
 			final var clockLabel = new Label();
 			
 			//Configures the look of the clockLabel.
 			clockLabel
-			.getRefActiveLook()
+			.getRefLook()
 			.setBackgroundColorForState(ControlState.BASE, Color.YELLOW)
 			.setTextSizeForState(ControlState.BASE, 50);
 			

@@ -20,7 +20,7 @@ public final class SelectionMenu extends ItemMenu<SelectionMenu> {
 		
 		reset();
 		
-		getRefActiveLook().setBorderThicknessForState(ControlState.BASE, 1);
+		getRefLook().setBorderThicknessForState(ControlState.BASE, 1);
 		getRefItemLook().setBackgroundColorForState(ControlState.HOVER, Color.LIGHT_GREY);
 		getRefSelectedItemLook().setBackgroundColorForState(ControlState.BASE, Color.GREY);
 	}

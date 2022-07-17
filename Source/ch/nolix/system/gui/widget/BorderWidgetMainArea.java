@@ -111,7 +111,7 @@ implements HoverableTopLeftPositionedRectangular {
 	 */
 	public int getNaturalHeight() {
 		
-		final var look = parentBorderWidget.getRefActiveLook();
+		final var look = parentBorderWidget.getRefLook();
 		
 		return
 		parentBorderWidget.getBorderedArea().getNaturalHeight()
@@ -125,7 +125,7 @@ implements HoverableTopLeftPositionedRectangular {
 	 */
 	public int getNaturalWidth() {
 		
-		final var look = parentBorderWidget.getRefActiveLook();
+		final var look = parentBorderWidget.getRefLook();
 		
 		return
 		parentBorderWidget.getBorderedArea().getNaturalWidth()

@@ -91,7 +91,7 @@ final class TextBoxInputField extends TextLineWidget<TextBoxInputField, TextBoxL
 	 * @return the width of the text cursor of the current {@link TextBoxInputField}.
 	 */
 	public int getTextCursorWidth() {
-		return GlobalCalculator.getMax(1, (int)(0.08 * getRefActiveLook().getTextSize()));
+		return GlobalCalculator.getMax(1, (int)(0.08 * getRefLook().getTextSize()));
 	}
 	
 	//method

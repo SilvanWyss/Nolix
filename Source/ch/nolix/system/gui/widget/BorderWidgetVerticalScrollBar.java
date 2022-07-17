@@ -187,13 +187,13 @@ implements HoverableTopLeftPositionedRectangular {
 	
 	//method
 	private SingleContainer<Color> getOptionalColorWhenVerticalScrollBarCursorIsMoved() {
-		return parentBorderWidget.getRefActiveLook().getOptionalScrollBarMoveColor();
+		return parentBorderWidget.getRefLook().getOptionalScrollBarMoveColor();
 	}
 	
 	//method
 	private SingleContainer<Color> getOptionalColorWhenVerticalScrollBarCursorIsNotMoved() {
 		
-		final var look = parentBorderWidget.getRefActiveLook();
+		final var look = parentBorderWidget.getRefLook();
 		
 		if (!parentBorderWidget.getVerticalScrollBarCursor().isUnderCursor()) {
 			return look.getOptionalScrollBarColor();

@@ -30,7 +30,7 @@ public final class Downloader extends TextLineWidget<Downloader, DownloaderLook>
 		
 		reset();
 				
-		getRefActiveLook()
+		getRefLook()
 		.setTextColorForState(ControlState.BASE, Color.DARK_BLUE)
 		.setTextColorForState(ControlState.HOVER, Color.BLUE);
 	}

@@ -84,7 +84,7 @@ public final class BorderWidgetContentArea<BWL extends BorderWidgetLook<BWL>> im
 	 */
 	public int getTargetHeight() {
 		
-		final var look = parentBorderWidget.getRefActiveLook();
+		final var look = parentBorderWidget.getRefLook();
 		
 		return
 		parentBorderWidget.getExtendedContentArea().getTargetHeight()
@@ -100,7 +100,7 @@ public final class BorderWidgetContentArea<BWL extends BorderWidgetLook<BWL>> im
 	 */
 	public int getTargetWidth() {
 		
-		final var look = parentBorderWidget.getRefActiveLook();
+		final var look = parentBorderWidget.getRefLook();
 		
 		return
 		parentBorderWidget.getExtendedContentArea().getTargetWidth()
@@ -155,7 +155,7 @@ public final class BorderWidgetContentArea<BWL extends BorderWidgetLook<BWL>> im
 	 * on the {@link BorderWidgetExtendedContentArea} of the {@link BorderWidget} it belongs to.
 	 */
 	public int getXPositionOnExtendedContentArea() {
-		return parentBorderWidget.getRefActiveLook().getLeftPadding();
+		return parentBorderWidget.getRefLook().getLeftPadding();
 	}
 	
 	//method
@@ -166,7 +166,7 @@ public final class BorderWidgetContentArea<BWL extends BorderWidgetLook<BWL>> im
 	public int getXPositionOnScrolledArea() {
 		return
 		parentBorderWidget.getExtendedContentArea().getXPositionOnScrolledArea()
-		+ parentBorderWidget.getRefActiveLook().getLeftPadding();
+		+ parentBorderWidget.getRefLook().getLeftPadding();
 	}
 	
 	//method
@@ -175,7 +175,7 @@ public final class BorderWidgetContentArea<BWL extends BorderWidgetLook<BWL>> im
 	 * on the {@link BorderWidgetExtendedContentArea} of the {@link BorderWidget} it belongs to.
 	 */
 	public int getYPositionOnExtendedContentArea() {
-		return parentBorderWidget.getRefActiveLook().getTopPadding();
+		return parentBorderWidget.getRefLook().getTopPadding();
 	}
 	
 	//method
@@ -186,7 +186,7 @@ public final class BorderWidgetContentArea<BWL extends BorderWidgetLook<BWL>> im
 	public int getYPositionOnScrolledArea() {
 		return
 		parentBorderWidget.getExtendedContentArea().getYPositionOnScrolledArea()
-		+ parentBorderWidget.getRefActiveLook().getTopPadding();
+		+ parentBorderWidget.getRefLook().getTopPadding();
 	}
 	
 	//method

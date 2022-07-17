@@ -86,7 +86,7 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 		setProposalWidth(500);
 		setProposalHeight(200);
 		
-		getRefActiveLook()
+		getRefLook()
 		.setBackgroundColorForState(ControlState.BASE, Color.WHITE_SMOKE)
 		.setPaddingForState(ControlState.BASE, 10);
 		
@@ -525,7 +525,7 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	@Override
 	protected int getNaturalContentAreaHeight() {
 		
-		final var look = getRefActiveLook();
+		final var look = getRefLook();
 		
 		var contentAreaHeight =
 		getLines().getElementCount() * look.getTextSize();
@@ -764,7 +764,7 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	@Override
 	protected void resetBorderWidgetConfiguration() {
 		setCustomCursorIcon(CursorIcon.EDIT);
-		getRefActiveLook().setFontForState(ControlState.BASE, Font.LUCIDA_CONSOLE);
+		getRefLook().setFontForState(ControlState.BASE, Font.LUCIDA_CONSOLE);
 	}
 	
 	//method
@@ -779,7 +779,7 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	//method
 	private TextFormat getFont() {
 		
-		final var look = getRefActiveLook();
+		final var look = getRefLook();
 		
 		return
 		new TextFormat(

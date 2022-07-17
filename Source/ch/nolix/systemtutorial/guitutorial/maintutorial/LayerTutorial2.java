@@ -34,12 +34,12 @@ public final class LayerTutorial2 {
 		final var labelB = new Label().setText("B");
 		
 		//Configures the look of labelA.
-		labelA.getRefActiveLook()
+		labelA.getRefLook()
 		.setTextSizeForState(ControlState.BASE, 500)
 		.setTextColorForState(ControlState.BASE, Color.GREY);
 		
 		//Configures the look of labelB.
-		labelB.getRefActiveLook()
+		labelB.getRefLook()
 		.setTextSizeForState(ControlState.BASE, 400)
 		.setTextColorForState(ControlState.BASE, Color.BLACK);
 		

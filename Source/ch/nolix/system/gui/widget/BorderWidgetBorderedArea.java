@@ -67,7 +67,7 @@ implements HoverableTopLeftPositionedRectangular {
 	@Override
 	public int getHeight() {
 		
-		final var look = parentBorderWidget.getRefActiveLook();
+		final var look = parentBorderWidget.getRefLook();
 		
 		return
 		parentBorderWidget.getMainArea().getHeight()
@@ -83,7 +83,7 @@ implements HoverableTopLeftPositionedRectangular {
 	 */
 	public int getMaxHeight() {
 		
-		final var look = parentBorderWidget.getRefActiveLook();
+		final var look = parentBorderWidget.getRefLook();
 		
 		return
 		parentBorderWidget.getMainArea().getMaxHeight()
@@ -99,7 +99,7 @@ implements HoverableTopLeftPositionedRectangular {
 	 */
 	public int getMaxWidth() {
 		
-		final var look = parentBorderWidget.getRefActiveLook();
+		final var look = parentBorderWidget.getRefLook();
 		
 		return
 		parentBorderWidget.getMainArea().getMaxWidth()
@@ -115,7 +115,7 @@ implements HoverableTopLeftPositionedRectangular {
 	 */
 	public int getMinHeight() {
 		
-		final var look = parentBorderWidget.getRefActiveLook();
+		final var look = parentBorderWidget.getRefLook();
 		
 		return
 		parentBorderWidget.getMainArea().getMinHeight()
@@ -131,7 +131,7 @@ implements HoverableTopLeftPositionedRectangular {
 	 */
 	public int getMinWidth() {
 		
-		final var look = parentBorderWidget.getRefActiveLook();
+		final var look = parentBorderWidget.getRefLook();
 		
 		return
 		parentBorderWidget.getMainArea().getMinWidth()
@@ -167,7 +167,7 @@ implements HoverableTopLeftPositionedRectangular {
 	 */
 	public int getProposalHeight() {
 		
-		final var look = parentBorderWidget.getRefActiveLook();
+		final var look = parentBorderWidget.getRefLook();
 		
 		return
 		parentBorderWidget.getMainArea().getProposalHeight()
@@ -183,7 +183,7 @@ implements HoverableTopLeftPositionedRectangular {
 	 */
 	public int getProposalWidth() {
 		
-		final var look = parentBorderWidget.getRefActiveLook();
+		final var look = parentBorderWidget.getRefLook();
 		
 		return
 		parentBorderWidget.getMainArea().getProposalWidth()
@@ -199,7 +199,7 @@ implements HoverableTopLeftPositionedRectangular {
 	 */
 	public int getTargetHeight() {
 		
-		final var look = parentBorderWidget.getRefActiveLook();
+		final var look = parentBorderWidget.getRefLook();
 		
 		return
 		parentBorderWidget.getMainArea().getTargetHeight()
@@ -215,7 +215,7 @@ implements HoverableTopLeftPositionedRectangular {
 	 */
 	public int getTargetWidth() {
 		
-		final var look = parentBorderWidget.getRefActiveLook();
+		final var look = parentBorderWidget.getRefLook();
 		
 		return
 		parentBorderWidget.getMainArea().getTargetWidth()
@@ -230,7 +230,7 @@ implements HoverableTopLeftPositionedRectangular {
 	@Override
 	public int getWidth() {
 		
-		final var look = parentBorderWidget.getRefActiveLook();
+		final var look = parentBorderWidget.getRefLook();
 		
 		return
 		parentBorderWidget.getMainArea().getWidth()
@@ -245,7 +245,7 @@ implements HoverableTopLeftPositionedRectangular {
 	 */
 	public int getXPosition() {
 		
-		final var look = parentBorderWidget.getRefActiveLook();
+		final var look = parentBorderWidget.getRefLook();
 		
 		return parentBorderWidget.getMainArea().getXPosition() + look.getLeftBorderThickness();
 	}
@@ -257,7 +257,7 @@ implements HoverableTopLeftPositionedRectangular {
 	 */
 	public int getYPosition() {
 		
-		final var look = parentBorderWidget.getRefActiveLook();
+		final var look = parentBorderWidget.getRefLook();
 		
 		return parentBorderWidget.getMainArea().getYPosition() +  look.getTopBorderThickness();
 	}
