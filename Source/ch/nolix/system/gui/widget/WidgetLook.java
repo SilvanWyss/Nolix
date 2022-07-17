@@ -12,11 +12,12 @@ import ch.nolix.system.formatelement.FormatElement;
 import ch.nolix.system.formatelement.NonCascadingProperty;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.textformat.Font;
+import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 import ch.nolix.systemapi.guiapi.widgetguiapi.IWidgetLook;
 
 //class
 public abstract class WidgetLook<WL extends WidgetLook<WL>>
-extends FormatElement<WL, WidgetLookState>
+extends FormatElement<WL, ControlState>
 implements IWidgetLook<WL> {
 	
 	//constant
@@ -47,10 +48,10 @@ implements IWidgetLook<WL> {
 	private static final String TEXT_COLOR_HEADER = "TextColor";
 	
 	//attribute
-	private final NonCascadingProperty<WidgetLookState, Double> opacity =
+	private final NonCascadingProperty<ControlState, Double> opacity =
 	new NonCascadingProperty<>(
 		PascalCaseCatalogue.OPACITY,
-		WidgetLookState.class,
+		ControlState.class,
 		s -> getOpacityFromString(s.getSingleChildNodeHeader()),
 		Node::withChildNode,
 		this::setOpacityForState,
@@ -58,30 +59,30 @@ implements IWidgetLook<WL> {
 	);
 	
 	//attribute
-	private final CascadingProperty<WidgetLookState, Font> font =
+	private final CascadingProperty<ControlState, Font> font =
 	new CascadingProperty<>(
 		FONT_HEADER,
-		WidgetLookState.class,
+		ControlState.class,
 		Font::fromSpecification,
 		Node::fromEnum,
 		DEFAULT_FONT
 	);
 	
 	//attribute
-	private final CascadingProperty<WidgetLookState, Boolean> boldTextFlag =
+	private final CascadingProperty<ControlState, Boolean> boldTextFlag =
 	new CascadingProperty<>(
 		BOLD_TEXT_FLAG_HEADER,
-		WidgetLookState.class,
+		ControlState.class,
 		INode::getSingleChildNodeAsBoolean,
 		Node::withChildNode,
 		DEFAULT_BOLD_TEXT_FLAG
 	);
 	
 	//attribute
-	private final CascadingProperty<WidgetLookState, Integer> textSize =
+	private final CascadingProperty<ControlState, Integer> textSize =
 	new CascadingProperty<>(
 		TEXT_SIZE_HEADER,
-		WidgetLookState.class,
+		ControlState.class,
 		INode::getSingleChildNodeAsInt,
 		Node::withChildNode,
 		this::setTextSizeForState,
@@ -89,10 +90,10 @@ implements IWidgetLook<WL> {
 	);
 	
 	//attribute
-	private final CascadingProperty<WidgetLookState, Color> textColor =
+	private final CascadingProperty<ControlState, Color> textColor =
 	new CascadingProperty<>(
 		TEXT_COLOR_HEADER,
-		WidgetLookState.class,
+		ControlState.class,
 		Color::fromSpecification,
 		Color::getSpecification,
 		DEFAULT_TEXT_COLOR
@@ -100,7 +101,7 @@ implements IWidgetLook<WL> {
 	
 	//constructor
 	protected WidgetLook() {
-		super(WidgetLookState.BASE);
+		super(ControlState.BASE);
 	}
 	
 	//method
@@ -156,7 +157,7 @@ implements IWidgetLook<WL> {
 	}
 	
 	//method
-	public final WL setBoldTextFlagForState(final WidgetLookState state, final boolean boldTextFlag) {
+	public final WL setBoldTextFlagForState(final ControlState state, final boolean boldTextFlag) {
 		
 		this.boldTextFlag.setValueForState(state, boldTextFlag);
 		
@@ -164,7 +165,7 @@ implements IWidgetLook<WL> {
 	}
 	
 	//method
-	public final WL setFontForState(final WidgetLookState state, final Font font) {
+	public final WL setFontForState(final ControlState state, final Font font) {
 		
 		this.font.setValueForState(state, font);
 		
@@ -172,7 +173,7 @@ implements IWidgetLook<WL> {
 	}
 	
 	//method
-	public final WL setOpacityForState(final WidgetLookState state, final double opacity) {
+	public final WL setOpacityForState(final ControlState state, final double opacity) {
 		
 		GlobalValidator.assertThat(opacity).thatIsNamed(LowerCaseCatalogue.OPACITY).isBetween(0.0, 1.0);
 		
@@ -182,7 +183,7 @@ implements IWidgetLook<WL> {
 	}
 	
 	//method
-	public final WL setTextColorForState(final WidgetLookState state, final Color textColor) {
+	public final WL setTextColorForState(final ControlState state, final Color textColor) {
 		
 		this.textColor.setValueForState(state, textColor);
 		
@@ -190,7 +191,7 @@ implements IWidgetLook<WL> {
 	}
 	
 	//method
-	public final WL setTextSizeForState(final WidgetLookState state, final int textSize) {
+	public final WL setTextSizeForState(final ControlState state, final int textSize) {
 		
 		GlobalValidator.assertThat(textSize).thatIsNamed(LowerCaseCatalogue.TEXT_SIZE).isPositive();
 		
@@ -200,7 +201,7 @@ implements IWidgetLook<WL> {
 	}
 	
 	//method
-	final void setState(final WidgetLookState state) {
+	final void setState(final ControlState state) {
 		internalSwitchToState(state);
 	}
 	

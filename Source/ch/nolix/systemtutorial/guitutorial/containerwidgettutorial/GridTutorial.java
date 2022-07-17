@@ -6,8 +6,8 @@ import ch.nolix.system.gui.containerwidget.Grid;
 import ch.nolix.system.gui.containerwidget.GridType;
 import ch.nolix.system.gui.widget.Area;
 import ch.nolix.system.gui.widget.Label;
-import ch.nolix.system.gui.widget.WidgetLookState;
 import ch.nolix.system.gui.widgetgui.Frame;
+import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 
 /**
  * The {@link GridTutorial} is a tutorial for {@link Grid}s.
@@ -47,11 +47,11 @@ public final class GridTutorial {
 		grid.onLook(
 			l ->
 			l
-			.setBorderThicknessForState(WidgetLookState.BASE, 5)
-			.setBackgroundColorForState(WidgetLookState.BASE, Color.LAVENDER)
-			.setPaddingForState(WidgetLookState.BASE, 20)
-			.setGridTypeForState(WidgetLookState.BASE, GridType.INNER_LINES)
-			.setElementMarginForState(WidgetLookState.BASE, 10)
+			.setBorderThicknessForState(ControlState.BASE, 5)
+			.setBackgroundColorForState(ControlState.BASE, Color.LAVENDER)
+			.setPaddingForState(ControlState.BASE, 20)
+			.setGridTypeForState(ControlState.BASE, GridType.INNER_LINES)
+			.setElementMarginForState(ControlState.BASE, 10)
 		);
 		
 		//Adds the Grid to the Frame.

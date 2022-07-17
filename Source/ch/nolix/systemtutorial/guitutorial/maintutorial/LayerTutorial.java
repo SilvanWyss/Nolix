@@ -4,10 +4,10 @@ package ch.nolix.systemtutorial.guitutorial.maintutorial;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.containerwidget.VerticalStack;
 import ch.nolix.system.gui.widget.Button;
-import ch.nolix.system.gui.widget.WidgetLookState;
 import ch.nolix.system.gui.widgetgui.Frame;
 import ch.nolix.system.gui.widgetgui.Layer;
 import ch.nolix.systemapi.guiapi.structureproperty.ExtendedContentPosition;
+import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 
 /**
  * The {@link LayerTutorial} is a tutorial for {@link Layer}s.
@@ -44,12 +44,12 @@ public final class LayerTutorial {
 			.onLook(
 				l ->
 				l
-				.setBorderThicknessForState(WidgetLookState.BASE, 5)
-				.setBackgroundColorForState(WidgetLookState.BASE,Color.WHITE)
-				.setLeftPaddingForState(WidgetLookState.BASE,200)
-				.setRightPaddingForState(WidgetLookState.BASE,200)
-				.setTopPaddingForState(WidgetLookState.BASE,200)
-				.setBottomPaddingForState(WidgetLookState.BASE,5)
+				.setBorderThicknessForState(ControlState.BASE, 5)
+				.setBackgroundColorForState(ControlState.BASE,Color.WHITE)
+				.setLeftPaddingForState(ControlState.BASE,200)
+				.setRightPaddingForState(ControlState.BASE,200)
+				.setTopPaddingForState(ControlState.BASE,200)
+				.setBottomPaddingForState(ControlState.BASE,5)
 			)
 		);
 		

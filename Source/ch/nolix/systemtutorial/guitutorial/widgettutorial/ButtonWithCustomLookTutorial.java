@@ -3,9 +3,9 @@ package ch.nolix.systemtutorial.guitutorial.widgettutorial;
 //own imports
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.widget.Button;
-import ch.nolix.system.gui.widget.WidgetLookState;
 import ch.nolix.system.gui.widgetgui.Frame;
 import ch.nolix.systemapi.guiapi.mainapi.CursorIcon;
+import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 
 /**
  * The {@link ButtonWithCustomLookTutorial} is a tutorial for {@link Button}s.
@@ -47,9 +47,9 @@ public final class ButtonWithCustomLookTutorial {
 		.onLook(
 			l ->
 			l
-			.setBackgroundColorForState(WidgetLookState.BASE, Color.LAVENDER)
-			.setBackgroundColorForState(WidgetLookState.HOVER, Color.SKY_BLUE)
-			.setPaddingForState(WidgetLookState.BASE, 10)
+			.setBackgroundColorForState(ControlState.BASE, Color.LAVENDER)
+			.setBackgroundColorForState(ControlState.HOVER, Color.SKY_BLUE)
+			.setPaddingForState(ControlState.BASE, 10)
 		);
 		
 		//Adds the Button to the Frame.

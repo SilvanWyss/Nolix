@@ -3,8 +3,8 @@ package ch.nolix.systemtutorial.guitutorial.widgettutorial;
 //own imports
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.widget.CheckBox;
-import ch.nolix.system.gui.widget.WidgetLookState;
 import ch.nolix.system.gui.widgetgui.Frame;
+import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 
 /**
  * The {@link CheckBoxWithCustomLookTutorial} is a tutorial for {@link CheckBox}s.
@@ -29,7 +29,7 @@ public final class CheckBoxWithCustomLookTutorial {
 		final var checkBox = new CheckBox();
 		
 		//Configures the look of the CheckBox.
-		checkBox.onLook(l -> l.setBackgroundColorForState(WidgetLookState.BASE, Color.LAVENDER));
+		checkBox.onLook(l -> l.setBackgroundColorForState(ControlState.BASE, Color.LAVENDER));
 		
 		//Adds the CheckBox to the Frame.
 		frame.pushLayerWithRootWidget(checkBox);

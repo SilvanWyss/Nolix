@@ -8,7 +8,7 @@ import ch.nolix.system.application.guiapplication.FrontendGUIClient;
 import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.main.VoidApplicationContext;
 import ch.nolix.system.gui.widget.Label;
-import ch.nolix.system.gui.widget.WidgetLookState;
+import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 
 public final class HelloWorldGUIOnCustomPortTutorial {
 	
@@ -47,7 +47,7 @@ public final class HelloWorldGUIOnCustomPortTutorial {
 			final var label = new Label().setText("Hello World");
 			
 			//Configures the look of the Label.
-			label.getRefActiveLook().setTextSizeForState(WidgetLookState.BASE, 50);
+			label.getRefActiveLook().setTextSizeForState(ControlState.BASE, 50);
 			
 			//Adds the Label to the GUI of the current MainSession.
 			getRefGUI().pushLayerWithRootWidget(label);

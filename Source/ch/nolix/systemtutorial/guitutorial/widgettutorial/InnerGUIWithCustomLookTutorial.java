@@ -5,8 +5,8 @@ import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.containerwidget.HorizontalStack;
 import ch.nolix.system.gui.widget.InnerGUI;
 import ch.nolix.system.gui.widget.Label;
-import ch.nolix.system.gui.widget.WidgetLookState;
 import ch.nolix.system.gui.widgetgui.Frame;
+import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 
 /**
  * The {@link InnerGUIWithCustomLookTutorial} is a tutorial for {@link InnerGUI}s.
@@ -33,27 +33,27 @@ public final class InnerGUIWithCustomLookTutorial {
 		final var innerGUI1 =
 		new InnerGUI()
 		.setTitle("Inner GUI 1")
-		.pushLayerWithRootWidget(new Label().setText("A").onLook(l -> l.setTextSizeForState(WidgetLookState.BASE, 100)));
+		.pushLayerWithRootWidget(new Label().setText("A").onLook(l -> l.setTextSizeForState(ControlState.BASE, 100)));
 		
 		//Creates a second InnerGUI.
 		@SuppressWarnings("resource")
 		final var innerGUI2 =
 		new InnerGUI()
 		.setTitle("Inner GUI 2")
-		.pushLayerWithRootWidget(new Label().setText("B").onLook(l -> l.setTextSizeForState(WidgetLookState.BASE, 100)));
+		.pushLayerWithRootWidget(new Label().setText("B").onLook(l -> l.setTextSizeForState(ControlState.BASE, 100)));
 		
 		//Configures the look of the InnerGUIs.
 		innerGUI1.onLook(
 			l ->
 			l
-			.setBorderThicknessForState(WidgetLookState.BASE, 1)
-			.setBackgroundColorForState(WidgetLookState.BASE, Color.LAVENDER)
+			.setBorderThicknessForState(ControlState.BASE, 1)
+			.setBackgroundColorForState(ControlState.BASE, Color.LAVENDER)
 		);
 		innerGUI2.onLook(
 			l ->
 			l
-			.setBorderThicknessForState(WidgetLookState.BASE, 1)
-			.setBackgroundColorForState(WidgetLookState.BASE, Color.LAVENDER)
+			.setBorderThicknessForState(ControlState.BASE, 1)
+			.setBackgroundColorForState(ControlState.BASE, Color.LAVENDER)
 		);
 		
 		//Adds the InnerGUIs to the Frame.

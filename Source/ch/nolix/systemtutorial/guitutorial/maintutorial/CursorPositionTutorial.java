@@ -1,10 +1,10 @@
 package ch.nolix.systemtutorial.guitutorial.maintutorial;
 
 import ch.nolix.system.gui.widget.Label;
-import ch.nolix.system.gui.widget.WidgetLookState;
 import ch.nolix.system.gui.widgetgui.Frame;
 import ch.nolix.system.gui.widgetgui.Layer;
 import ch.nolix.systemapi.guiapi.structureproperty.ExtendedContentPosition;
+import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 
 /**
  * The {@link CursorPositionTutorial} is a tutorial for {@link Frame}s.
@@ -30,7 +30,7 @@ public final class CursorPositionTutorial {
 		final var cursorPositionLabel = new Label();
 		
 		//Configures the look of the cursorPositionLabel.
-		cursorPositionLabel.onLook(l -> l.setPaddingForState(WidgetLookState.BASE, 5));
+		cursorPositionLabel.onLook(l -> l.setPaddingForState(ControlState.BASE, 5));
 		
 		//Creates Layer.
 		final var layer =

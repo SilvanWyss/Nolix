@@ -9,7 +9,7 @@ import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.main.VoidApplicationContext;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.textbox.TextBox;
-import ch.nolix.system.gui.widget.WidgetLookState;
+import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 
 public final class TextBoxTutorial {
 	
@@ -46,9 +46,9 @@ public final class TextBoxTutorial {
 			.onLook(
 				l ->
 				l
-				.setBorderThicknessForState(WidgetLookState.BASE, 5)
-				.setBackgroundColorForState(WidgetLookState.BASE, Color.LAVENDER)
-				.setPaddingForState(WidgetLookState.BASE, 5)
+				.setBorderThicknessForState(ControlState.BASE, 5)
+				.setBackgroundColorForState(ControlState.BASE, Color.LAVENDER)
+				.setPaddingForState(ControlState.BASE, 5)
 			);
 			
 			//Adds the TextBox to the GUI of the current MainSession.

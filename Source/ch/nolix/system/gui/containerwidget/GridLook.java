@@ -9,7 +9,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.formatelement.NonCascadingProperty;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.widget.BorderWidgetLook;
-import ch.nolix.system.gui.widget.WidgetLookState;
+import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 
 //class
 public final class GridLook extends BorderWidgetLook<GridLook> {
@@ -27,10 +27,10 @@ public final class GridLook extends BorderWidgetLook<GridLook> {
 	private static final String ELEMENT_MARGIN_HEADER = "ElementMargin";
 	
 	//attribute
-	private final NonCascadingProperty<WidgetLookState, GridType> gridType =
+	private final NonCascadingProperty<ControlState, GridType> gridType =
 	new NonCascadingProperty<>(
 		GRID_TYPE_HEADER,
-		WidgetLookState.class,
+		ControlState.class,
 		GridType::fromSpecification,
 		Node::fromEnum,
 		this::setGridTypeForState,
@@ -38,10 +38,10 @@ public final class GridLook extends BorderWidgetLook<GridLook> {
 	);
 	
 	//attribute
-	private final NonCascadingProperty<WidgetLookState, Integer> gridThickness =
+	private final NonCascadingProperty<ControlState, Integer> gridThickness =
 	new NonCascadingProperty<>(
 		GRID_THICKNESS_HEADER,
-		WidgetLookState.class,
+		ControlState.class,
 		INode::getSingleChildNodeAsInt,
 		Node::withChildNode,
 		this::setGridThicknessForState,
@@ -49,10 +49,10 @@ public final class GridLook extends BorderWidgetLook<GridLook> {
 	);
 	
 	//attribute
-	private final NonCascadingProperty<WidgetLookState, Color> gridColor =
+	private final NonCascadingProperty<ControlState, Color> gridColor =
 	new NonCascadingProperty<>(
 		GRID_COLOR_HEADER,
-		WidgetLookState.class,
+		ControlState.class,
 		Color::fromSpecification,
 		Color::getSpecification,
 		this::setGridColorForState,
@@ -60,10 +60,10 @@ public final class GridLook extends BorderWidgetLook<GridLook> {
 	);
 	
 	//attribute
-	private final NonCascadingProperty<WidgetLookState, Integer> elementMargin =
+	private final NonCascadingProperty<ControlState, Integer> elementMargin =
 	new NonCascadingProperty<>(
 		ELEMENT_MARGIN_HEADER,
-		WidgetLookState.class,
+		ControlState.class,
 		INode::getSingleChildNodeAsInt,
 		Node::withChildNode,
 		this::setElementMarginForState,
@@ -111,7 +111,7 @@ public final class GridLook extends BorderWidgetLook<GridLook> {
 	}
 	
 	//method
-	public GridLook setGridColorForState(final WidgetLookState state, final Color gridColor) {
+	public GridLook setGridColorForState(final ControlState state, final Color gridColor) {
 		
 		this.gridColor.setValueForState(state, gridColor);
 		
@@ -119,7 +119,7 @@ public final class GridLook extends BorderWidgetLook<GridLook> {
 	}
 	
 	//method
-	public GridLook setElementMarginForState(final WidgetLookState state, final int elementMargin) {
+	public GridLook setElementMarginForState(final ControlState state, final int elementMargin) {
 		
 		GlobalValidator.assertThat(elementMargin).thatIsNamed(LowerCaseCatalogue.ELEMENT_MARGIN).isNotNegative();
 		
@@ -129,7 +129,7 @@ public final class GridLook extends BorderWidgetLook<GridLook> {
 	}
 	
 	//method
-	public GridLook setGridThicknessForState(final WidgetLookState state, final int gridThickness) {
+	public GridLook setGridThicknessForState(final ControlState state, final int gridThickness) {
 		
 		GlobalValidator.assertThat(gridThickness).thatIsNamed("grid thickness").isNotNegative();
 		
@@ -139,7 +139,7 @@ public final class GridLook extends BorderWidgetLook<GridLook> {
 	}
 	
 	//method
-	public GridLook setGridTypeForState(final WidgetLookState state, final GridType gridType) {
+	public GridLook setGridTypeForState(final ControlState state, final GridType gridType) {
 		
 		this.gridType.setValueForState(state, gridType);
 		

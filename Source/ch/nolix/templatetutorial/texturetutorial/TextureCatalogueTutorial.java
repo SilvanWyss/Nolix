@@ -5,8 +5,8 @@ import ch.nolix.system.gui.containerwidget.FloatContainer;
 import ch.nolix.system.gui.containerwidget.VerticalStack;
 import ch.nolix.system.gui.widget.ImageWidget;
 import ch.nolix.system.gui.widget.Label;
-import ch.nolix.system.gui.widget.WidgetLookState;
 import ch.nolix.system.gui.widgetgui.Frame;
+import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 import ch.nolix.template.texture.TextureCatalogue;
 
 public final class TextureCatalogueTutorial {
@@ -27,7 +27,7 @@ public final class TextureCatalogueTutorial {
 			new FloatContainer()
 			.setProposalWidth(1000)
 			.onLook(
-				l -> l.setPaddingForState(WidgetLookState.BASE, 20).setElementMarginForState(WidgetLookState.BASE, 20)
+				l -> l.setPaddingForState(ControlState.BASE, 20).setElementMarginForState(ControlState.BASE, 20)
 			)
 			.addWidget(
 				new VerticalStack()

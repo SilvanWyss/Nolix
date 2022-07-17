@@ -11,7 +11,7 @@ import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.main.VoidApplicationContext;
 import ch.nolix.system.gui.main.GUIIconCatalogue;
 import ch.nolix.system.gui.widget.Label;
-import ch.nolix.system.gui.widget.WidgetLookState;
+import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 
 public final class ServerDashboardTutorial {
 	
@@ -66,7 +66,7 @@ public final class ServerDashboardTutorial {
 			final var label = new Label().setText("Hello World");
 			
 			//Configures the look of the Label.
-			label.onLook(l -> l.setTextSizeForState(WidgetLookState.BASE, 50));
+			label.onLook(l -> l.setTextSizeForState(ControlState.BASE, 50));
 			
 			//Adds the Label to the GUI of the current MainSession.
 			getRefGUI().pushLayerWithRootWidget(label);

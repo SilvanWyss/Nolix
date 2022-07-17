@@ -8,9 +8,9 @@ import ch.nolix.system.application.guiapplication.FrontendGUIClient;
 import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.main.VoidApplicationContext;
 import ch.nolix.system.gui.widget.Label;
-import ch.nolix.system.gui.widget.WidgetLookState;
 import ch.nolix.system.gui.widgetgui.Layer;
 import ch.nolix.systemapi.guiapi.structureproperty.ExtendedContentPosition;
+import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 
 public final class CursorPositionTutorial {
 	
@@ -41,7 +41,7 @@ public final class CursorPositionTutorial {
 		protected void initialize() {
 									
 			//Configures the look of the cursorPositionLabel.
-			cursorPositionLabel.onLook(l -> l.setPaddingForState(WidgetLookState.BASE, 5));
+			cursorPositionLabel.onLook(l -> l.setPaddingForState(ControlState.BASE, 5));
 			
 			//Creates Layer.
 			final var layer = new Layer()

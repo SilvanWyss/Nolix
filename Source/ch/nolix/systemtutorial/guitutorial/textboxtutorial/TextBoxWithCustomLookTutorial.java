@@ -3,8 +3,8 @@ package ch.nolix.systemtutorial.guitutorial.textboxtutorial;
 //own imports
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.textbox.TextBox;
-import ch.nolix.system.gui.widget.WidgetLookState;
 import ch.nolix.system.gui.widgetgui.Frame;
+import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 
 /**
  * The {@link TextBoxWithCustomLookTutorial} is a tutorial for {@link TextBox}s.
@@ -35,9 +35,9 @@ public final class TextBoxWithCustomLookTutorial {
 		.onLook(
 			l ->
 			l
-			.setBorderThicknessForState(WidgetLookState.BASE, 1)
-			.setBackgroundColorForState(WidgetLookState.BASE, Color.LAVENDER)
-			.setPaddingForState(WidgetLookState.BASE, 5)
+			.setBorderThicknessForState(ControlState.BASE, 1)
+			.setBackgroundColorForState(ControlState.BASE, Color.LAVENDER)
+			.setPaddingForState(ControlState.BASE, 5)
 		);
 		
 		//Adds the TextBox to the Frame.

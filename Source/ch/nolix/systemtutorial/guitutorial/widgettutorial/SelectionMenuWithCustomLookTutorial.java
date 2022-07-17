@@ -3,8 +3,8 @@ package ch.nolix.systemtutorial.guitutorial.widgettutorial;
 //own imports
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.widget.SelectionMenu;
-import ch.nolix.system.gui.widget.WidgetLookState;
 import ch.nolix.system.gui.widgetgui.Frame;
+import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 
 /**
  * The {@link SelectionMenuWithCustomLookTutorial} is a tutorial for {@link SelectionMenu}s.
@@ -47,18 +47,18 @@ public final class SelectionMenuWithCustomLookTutorial {
 		//Configures the look of the SelectionMenu.
 		selectionMenu
 		.setMaxHeight(200)
-		.onLook(l -> l.setBackgroundColorForState(WidgetLookState.BASE, Color.LAVENDER))
+		.onLook(l -> l.setBackgroundColorForState(ControlState.BASE, Color.LAVENDER))
 		.onItemLook(
 			il ->
 			il
-			.setPaddingForState(WidgetLookState.BASE, 10)
-			.setBackgroundColorForState(WidgetLookState.HOVER, Color.SKY_BLUE)
+			.setPaddingForState(ControlState.BASE, 10)
+			.setBackgroundColorForState(ControlState.HOVER, Color.SKY_BLUE)
 		)
 		.onSelectedItemLook(
 			sil ->
 			sil
-			.setPaddingForState(WidgetLookState.BASE, 10)
-			.setBackgroundColorForState(WidgetLookState.BASE, Color.BLUE)
+			.setPaddingForState(ControlState.BASE, 10)
+			.setBackgroundColorForState(ControlState.BASE, Color.BLUE)
 		);
 		
 		//Adds the SelectionMenu to the Frame.

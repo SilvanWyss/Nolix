@@ -9,6 +9,7 @@ import ch.nolix.system.gui.widgetgui.Layer;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.mainapi.CursorIcon;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
+import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 import ch.nolix.systemapi.guiapi.widgetguiapi.IWidget;
 
 //class
@@ -27,9 +28,9 @@ public final class DropdownMenu extends ItemMenu<DropdownMenu> {
 		
 		reset();
 		
-		getRefActiveLook().setBorderThicknessForState(WidgetLookState.BASE, 1);
-		getRefItemLook().setBackgroundColorForState(WidgetLookState.HOVER, Color.LIGHT_GREY);
-		getRefSelectedItemLook().setBackgroundColorForState(WidgetLookState.BASE, Color.GREY);
+		getRefActiveLook().setBorderThicknessForState(ControlState.BASE, 1);
+		getRefItemLook().setBackgroundColorForState(ControlState.HOVER, Color.LIGHT_GREY);
+		getRefSelectedItemLook().setBackgroundColorForState(ControlState.BASE, Color.GREY);
 	}
 	
 	//method
@@ -169,7 +170,7 @@ public final class DropdownMenu extends ItemMenu<DropdownMenu> {
 		expandedDropdownMenu.getRefActiveLook().setFrom(getRefActiveLook());
 		expandedDropdownMenu.getRefItemLook().setFrom(getRefItemLook());
 		expandedDropdownMenu.getRefSelectedItemLook().setFrom(getRefSelectedItemLook());
-		expandedDropdownMenu.getRefActiveLook().setBorderThicknessForState(WidgetLookState.BASE, 1);
+		expandedDropdownMenu.getRefActiveLook().setBorderThicknessForState(ControlState.BASE, 1);
 		
 		//Recalculates the expandedDropdownMenu again twice.
 		expandedDropdownMenu.recalculate();

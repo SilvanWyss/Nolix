@@ -1,11 +1,13 @@
 //package declaration
 package ch.nolix.system.gui.widget;
 
+import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
+
 //class
 final class WidgetLookStateCalculator {
 	
 	//method
-	public WidgetLookState calculateLookStateFor(final Widget<?, ?> widget) {
+	public ControlState calculateLookStateFor(final Widget<?, ?> widget) {
 		
 		if (!widget.isFocused()) {
 			return calculateLookStateForUnfocusedWidget(widget);
@@ -15,22 +17,22 @@ final class WidgetLookStateCalculator {
 	}
 	
 	//method
-	private WidgetLookState calculateLookStateForFocusedWidget(final Widget<?, ?> widget) {
+	private ControlState calculateLookStateForFocusedWidget(final Widget<?, ?> widget) {
 		
 		if (!widget.isHovered()) {
-			return WidgetLookState.FOCUS;
+			return ControlState.FOCUS;
 		}
 		
-		return WidgetLookState.HOVER;
+		return ControlState.HOVER;
 	}
 	
 	//method
-	private WidgetLookState calculateLookStateForUnfocusedWidget(final Widget<?, ?> widget) {
+	private ControlState calculateLookStateForUnfocusedWidget(final Widget<?, ?> widget) {
 		
 		if (!widget.isHovered()) {
-			return WidgetLookState.BASE;
+			return ControlState.BASE;
 		}
 		
-		return WidgetLookState.HOVER;
+		return ControlState.HOVER;
 	}
 }

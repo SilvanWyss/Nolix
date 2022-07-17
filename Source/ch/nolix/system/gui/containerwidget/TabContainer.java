@@ -16,10 +16,10 @@ import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.widget.Label;
 import ch.nolix.system.gui.widget.LabelLook;
 import ch.nolix.system.gui.widget.Widget;
-import ch.nolix.system.gui.widget.WidgetLookState;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
+import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 import ch.nolix.systemapi.guiapi.widgetguiapi.IWidget;
 
 //class
@@ -485,7 +485,7 @@ public final class TabContainer extends ContainerWidget<TabContainer, TabContain
 		
 		getRefMenuItemLook().reset();
 		
-		getRefMenuItemLook().setBackgroundColorForState(WidgetLookState.HOVER, Color.LIGHT_GREY);
+		getRefMenuItemLook().setBackgroundColorForState(ControlState.HOVER, Color.LIGHT_GREY);
 	}
 	
 	//method

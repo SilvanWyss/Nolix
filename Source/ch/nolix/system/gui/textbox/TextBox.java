@@ -16,11 +16,11 @@ import ch.nolix.system.gui.widget.BorderWidget;
 import ch.nolix.system.gui.widget.Button;
 import ch.nolix.system.gui.widget.TextBoxLook;
 import ch.nolix.system.gui.widget.TextMode;
-import ch.nolix.system.gui.widget.WidgetLookState;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.mainapi.CursorIcon;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
+import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 import ch.nolix.systemapi.guiapi.widgetguiapi.IWidget;
 
 //class
@@ -94,8 +94,8 @@ public final class TextBox extends BorderWidget<TextBox, TextBoxLook> implements
 		setProposalWidth(200);
 		onLook(
 			l ->
-			l.setBorderThicknessForState(WidgetLookState.BASE, 1)
-			.setBackgroundColorForState(WidgetLookState.BASE, Color.WHITE)
+			l.setBorderThicknessForState(ControlState.BASE, 1)
+			.setBackgroundColorForState(ControlState.BASE, Color.WHITE)
 		);
 	}
 	

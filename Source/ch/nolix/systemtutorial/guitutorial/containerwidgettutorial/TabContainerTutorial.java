@@ -4,8 +4,8 @@ package ch.nolix.systemtutorial.guitutorial.containerwidgettutorial;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.containerwidget.TabContainer;
 import ch.nolix.system.gui.widget.Area;
-import ch.nolix.system.gui.widget.WidgetLookState;
 import ch.nolix.system.gui.widgetgui.Frame;
+import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 
 /**
  * The {@link TabContainerTutorial} is a tutorial for {@link TabContainer}s.
@@ -38,8 +38,8 @@ public final class TabContainerTutorial {
 		//Configures the look of the TabContainer.
 		tabContainer
 		.getRefActiveLook()
-		.setBorderThicknessForState(WidgetLookState.BASE, 5)
-		.setBackgroundColorForState(WidgetLookState.BASE, Color.LAVENDER);
+		.setBorderThicknessForState(ControlState.BASE, 5)
+		.setBackgroundColorForState(ControlState.BASE, Color.LAVENDER);
 		
 		//Adds the TabContainer to the Frame.
 		frame.pushLayerWithRootWidget(tabContainer);

@@ -11,10 +11,10 @@ import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.system.element.mutableelement.MultiValueExtractor;
 import ch.nolix.system.gui.widget.Label;
 import ch.nolix.system.gui.widget.Widget;
-import ch.nolix.system.gui.widget.WidgetLookState;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
+import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 import ch.nolix.systemapi.guiapi.widgetguiapi.IWidget;
 
 //class
@@ -45,8 +45,8 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 		setMaxWidth(1000);
 		setMaxHeight(500);
 		getRefActiveLook()
-		.setGridTypeForState(WidgetLookState.BASE, GridType.INNER_LINES)
-		.setElementMarginForState(WidgetLookState.BASE, 10);
+		.setGridTypeForState(ControlState.BASE, GridType.INNER_LINES)
+		.setElementMarginForState(ControlState.BASE, 10);
 	}
 	
 	//method

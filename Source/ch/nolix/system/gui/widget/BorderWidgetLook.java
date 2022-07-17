@@ -16,6 +16,7 @@ import ch.nolix.systemapi.guiapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.colorapi.IColorGradient;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.imageapi.ImageApplication;
+import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 
 //class
 public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extends WidgetLook<BWL> {
@@ -53,10 +54,10 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	private static final String PADDING_HEADER = "Padding";
 	
 	//attribute
-	private final NonCascadingProperty<WidgetLookState, Integer> leftBorderThickness =
+	private final NonCascadingProperty<ControlState, Integer> leftBorderThickness =
 	new NonCascadingProperty<>(
 		LEFT_BORDER_THICKNESS_HEADER,
-		WidgetLookState.class,
+		ControlState.class,
 		INode::getSingleChildNodeAsInt,
 		Node::withChildNode,
 		this::setLeftBorderThicknessForState,
@@ -64,10 +65,10 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	);
 	
 	//attribute
-	private final NonCascadingProperty<WidgetLookState, Integer> rightBorderThickness =
+	private final NonCascadingProperty<ControlState, Integer> rightBorderThickness =
 	new NonCascadingProperty<>(
 		RIGHT_BORDER_THICKNESS_HEADER,
-		WidgetLookState.class,
+		ControlState.class,
 		INode::getSingleChildNodeAsInt,
 		Node::withChildNode,
 		this::setRightBorderThicknessForState,
@@ -75,10 +76,10 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	);
 	
 	//attribute
-	private final NonCascadingProperty<WidgetLookState, Integer> topBorderThickness =
+	private final NonCascadingProperty<ControlState, Integer> topBorderThickness =
 	new NonCascadingProperty<>(
 		TOP_BORDER_THICKNESS_HEADER,
-		WidgetLookState.class,
+		ControlState.class,
 		INode::getSingleChildNodeAsInt,
 		Node::withChildNode,
 		this::setTopBorderThicknessForState,
@@ -86,10 +87,10 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	);
 	
 	//attribute
-	private final NonCascadingProperty<WidgetLookState, Integer> bottomBorderThickness =
+	private final NonCascadingProperty<ControlState, Integer> bottomBorderThickness =
 	new NonCascadingProperty<>(
 		BOTTOM_BORDER_THICKNESS_HEADER,
-		WidgetLookState.class,
+		ControlState.class,
 		INode::getSingleChildNodeAsInt,
 		Node::withChildNode,
 		this::setBottomBorderThicknessForState,
@@ -97,59 +98,59 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	);
 	
 	//attribute
-	private final NonCascadingProperty<WidgetLookState, Color> leftBorderColor =
+	private final NonCascadingProperty<ControlState, Color> leftBorderColor =
 	new NonCascadingProperty<>(
 		LEFT_BORDER_COLOR_HEADER,
-		WidgetLookState.class,
+		ControlState.class,
 		Color::fromSpecification,
 		Color::getSpecification,
 		DEFAULT_BORDER_COLOR
 	);
 	
 	//attribute
-	private final NonCascadingProperty<WidgetLookState, Color> rightBorderColor =
+	private final NonCascadingProperty<ControlState, Color> rightBorderColor =
 	new NonCascadingProperty<>(
 		RIGHT_BORDER_COLOR_HEADER,
-		WidgetLookState.class,
+		ControlState.class,
 		Color::fromSpecification,
 		Color::getSpecification,
 		DEFAULT_BORDER_COLOR
 	);
 	
 	//attribute
-	private final NonCascadingProperty<WidgetLookState, Color> topBorderColor =
+	private final NonCascadingProperty<ControlState, Color> topBorderColor =
 	new NonCascadingProperty<>(
 		TOP_BORDER_COLOR_HEADER,
-		WidgetLookState.class,
+		ControlState.class,
 		Color::fromSpecification,
 		Color::getSpecification,
 		DEFAULT_BORDER_COLOR
 	);
 	
 	//attribute
-	private final NonCascadingProperty<WidgetLookState, Color> bottomBorderColor =
+	private final NonCascadingProperty<ControlState, Color> bottomBorderColor =
 	new NonCascadingProperty<>(
 		BOTTOM_BORDER_COLOR_HEADER,
-		WidgetLookState.class,
+		ControlState.class,
 		Color::fromSpecification,
 		Color::getSpecification,
 		DEFAULT_BORDER_COLOR
 	);
 	
 	//attribute
-	private final NonCascadingProperty<WidgetLookState, Background> background =
+	private final NonCascadingProperty<ControlState, Background> background =
 	new NonCascadingProperty<>(
 		BACKGROUND_HEADER,
-		WidgetLookState.class,
+		ControlState.class,
 		Background::fromSpecification,
 		Background::getSpecification
 	);
 	
 	//attribute
-	private final NonCascadingProperty<WidgetLookState, Integer> leftPadding =
+	private final NonCascadingProperty<ControlState, Integer> leftPadding =
 	new NonCascadingProperty<>(
 		LEFT_PADDING_HEADER,
-		WidgetLookState.class,
+		ControlState.class,
 		INode::getSingleChildNodeAsInt,
 		Node::withChildNode,
 		this::setLeftPaddingForState,
@@ -157,10 +158,10 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	);
 	
 	//attribute
-	private final NonCascadingProperty<WidgetLookState, Integer> rightPadding =
+	private final NonCascadingProperty<ControlState, Integer> rightPadding =
 	new NonCascadingProperty<>(
 		RIGHT_PADDING_HEADER,
-		WidgetLookState.class,
+		ControlState.class,
 		INode::getSingleChildNodeAsInt,
 		Node::withChildNode,
 		this::setRightPaddingForState,
@@ -168,10 +169,10 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	);
 	
 	//attribute
-	private final NonCascadingProperty<WidgetLookState, Integer> topPadding =
+	private final NonCascadingProperty<ControlState, Integer> topPadding =
 	new NonCascadingProperty<>(
 		TOP_PADDING_HEADER,
-		WidgetLookState.class,
+		ControlState.class,
 		INode::getSingleChildNodeAsInt,
 		Node::withChildNode,
 		this::setTopPaddingForState,
@@ -179,10 +180,10 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	);
 	
 	//attribute
-	private final NonCascadingProperty<WidgetLookState, Integer> bottomPadding =
+	private final NonCascadingProperty<ControlState, Integer> bottomPadding =
 	new NonCascadingProperty<>(
 		BOTTOM_PADDING_HEADER,
-		WidgetLookState.class,
+		ControlState.class,
 		INode::getSingleChildNodeAsInt,
 		Node::withChildNode,
 		this::setBottomPaddingForState,
@@ -190,40 +191,40 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	);
 	
 	//attribute
-	private final NonCascadingProperty<WidgetLookState, Color> scrollBarColor =
+	private final NonCascadingProperty<ControlState, Color> scrollBarColor =
 	new NonCascadingProperty<>(
 		SCROLL_BAR_COLOR_HEADER,
-		WidgetLookState.class,
+		ControlState.class,
 		Color::fromSpecification,
 		Color::getSpecification,
 		this::setScrollBarColorForState
 	);
 	
 	//attribute
-	private final NonCascadingProperty<WidgetLookState, Color> scrollBarHoverColor =
+	private final NonCascadingProperty<ControlState, Color> scrollBarHoverColor =
 	new NonCascadingProperty<>(
 		SCROLL_BAR_HOVER_COLOR_HEADER,
-		WidgetLookState.class,
+		ControlState.class,
 		Color::fromSpecification,
 		Color::getSpecification,
 		this::setScrollBarHoverColorForState
 	);
 	
 	//attribute
-	private final NonCascadingProperty<WidgetLookState, Color> scrollBarMoveColor =
+	private final NonCascadingProperty<ControlState, Color> scrollBarMoveColor =
 	new NonCascadingProperty<>(
 		SCROLL_BAR_MOVE_COLOR_HEADER,
-		WidgetLookState.class,
+		ControlState.class,
 		Color::fromSpecification,
 		Color::getSpecification,
 		this::setScrollBarMoveColorForState
 	);
 	
 	//attribute
-	private final NonCascadingProperty<WidgetLookState, Color> scrollCursorColor =
+	private final NonCascadingProperty<ControlState, Color> scrollCursorColor =
 	new NonCascadingProperty<>(
 		SCROLL_CURSOR_COLOR_HEADER,
-		WidgetLookState.class,
+		ControlState.class,
 		Color::fromSpecification,
 		Color::getSpecification,
 		this::setScrollCursorColorForState,
@@ -231,10 +232,10 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	);
 	
 	//attribute
-	private final NonCascadingProperty<WidgetLookState, Color> scrollCursorHoverColor =
+	private final NonCascadingProperty<ControlState, Color> scrollCursorHoverColor =
 	new NonCascadingProperty<>(
 		SCROLL_CURSOR_HOVER_COLOR_HEADER,
-		WidgetLookState.class,
+		ControlState.class,
 		Color::fromSpecification,
 		Color::getSpecification,
 		this::setScrollCursorHoverColorForState,
@@ -242,10 +243,10 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	);
 	
 	//attribute
-	private final NonCascadingProperty<WidgetLookState, Color> scrollCursorMoveColor =
+	private final NonCascadingProperty<ControlState, Color> scrollCursorMoveColor =
 	new NonCascadingProperty<>(
 		SCROLL_CURSOR_MOVE_COLOR_HEADER,
-		WidgetLookState.class,
+		ControlState.class,
 		Color::fromSpecification,
 		Color::getSpecification,
 		this::setScrollCursorMoveColorForState,
@@ -253,7 +254,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	);
 	
 	//attribute
-	private final ForwardingProperty<WidgetLookState, Integer> borderThickness =
+	private final ForwardingProperty<ControlState, Integer> borderThickness =
 	new ForwardingProperty<>(
 		BORDER_THICKNESS_HEADER,
 		leftBorderThickness,
@@ -263,7 +264,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	);
 	
 	//attribute
-	private final ForwardingProperty<WidgetLookState, Color> borderColor =
+	private final ForwardingProperty<ControlState, Color> borderColor =
 	new ForwardingProperty<>(
 		BORDER_COLOR_HEADER,
 		leftBorderColor,
@@ -273,7 +274,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	);
 	
 	//attribute
-	private final ForwardingProperty<WidgetLookState, Integer> padding =
+	private final ForwardingProperty<ControlState, Integer> padding =
 	new ForwardingProperty<>(PADDING_HEADER, leftPadding, rightPadding, topPadding, bottomPadding);
 	
 	//method
@@ -528,7 +529,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	}
 	
 	//method
-	public final BWL setBackgroundColorForState(final WidgetLookState state, final Color backgroundColor) {
+	public final BWL setBackgroundColorForState(final ControlState state, final Color backgroundColor) {
 		
 		final var lBackground = new Background();
 		lBackground.setColor(backgroundColor);
@@ -540,7 +541,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	public final BWL setBackgroundColorGradientForState(
-		final WidgetLookState state,
+		final ControlState state,
 		final ColorGradient backgroundColorGradient
 	) {
 		
@@ -554,7 +555,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	
 	//method
 	public final BWL setBackgroundImageForState(
-		final WidgetLookState state,
+		final ControlState state,
 		final MutableImage backgroundImage,
 		final ImageApplication imageApplication
 	) {
@@ -568,7 +569,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	}
 	
 	//method
-	public final BWL setBorderColorForState(final WidgetLookState state, final Color borderColor) {
+	public final BWL setBorderColorForState(final ControlState state, final Color borderColor) {
 		
 		this.borderColor.setValueForState(state, borderColor);
 		
@@ -576,7 +577,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	}
 	
 	//method
-	public final BWL setBorderThicknessForState(final WidgetLookState state, final int borderThickness) {
+	public final BWL setBorderThicknessForState(final ControlState state, final int borderThickness) {
 		
 		this.borderThickness.setValueForState(state, borderThickness);
 		
@@ -584,7 +585,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	}
 	
 	//method
-	public final BWL setBottomBorderColorForState(final WidgetLookState state, final Color bottomBorderColor) {
+	public final BWL setBottomBorderColorForState(final ControlState state, final Color bottomBorderColor) {
 		
 		this.bottomBorderColor.setValueForState(state, bottomBorderColor);
 		
@@ -592,7 +593,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	}
 	
 	//method
-	public final BWL setBottomBorderThicknessForState(final WidgetLookState state, final int bottomBorderThickness) {
+	public final BWL setBottomBorderThicknessForState(final ControlState state, final int bottomBorderThickness) {
 		
 		GlobalValidator.assertThat(bottomBorderThickness).thatIsNamed("bottom border thickness").isNotNegative();
 		
@@ -602,7 +603,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	}
 	
 	//method
-	public final BWL setBottomPaddingForState(final WidgetLookState state, final int bottomPadding) {
+	public final BWL setBottomPaddingForState(final ControlState state, final int bottomPadding) {
 		
 		GlobalValidator.assertThat(bottomPadding).thatIsNamed("bottom padding").isNotNegative();
 		
@@ -612,7 +613,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	}
 	
 	//method
-	public final BWL setLeftBorderColorForState(final WidgetLookState state, final Color leftBorderColor) {
+	public final BWL setLeftBorderColorForState(final ControlState state, final Color leftBorderColor) {
 		
 		this.leftBorderColor.setValueForState(state, leftBorderColor);
 		
@@ -620,7 +621,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	}
 	
 	//method
-	public final BWL setLeftBorderThicknessForState(final WidgetLookState state, final int leftBorderThickness) {
+	public final BWL setLeftBorderThicknessForState(final ControlState state, final int leftBorderThickness) {
 		
 		GlobalValidator.assertThat(leftBorderThickness).thatIsNamed("left border thickness").isNotNegative();
 		
@@ -630,7 +631,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	}
 	
 	//method
-	public final BWL setLeftPaddingForState(final WidgetLookState state, final int leftPadding) {
+	public final BWL setLeftPaddingForState(final ControlState state, final int leftPadding) {
 		
 		GlobalValidator.assertThat(leftPadding).thatIsNamed("left padding").isNotNegative();
 		
@@ -640,7 +641,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	}
 	
 	//method
-	public final BWL setPaddingForState(final WidgetLookState state, final int padding) {
+	public final BWL setPaddingForState(final ControlState state, final int padding) {
 		
 		this.padding.setValueForState(state, padding);
 		
@@ -648,7 +649,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	}
 	
 	//method
-	public final BWL setRightBorderColorForState(final WidgetLookState state, final Color rightBorderColor) {
+	public final BWL setRightBorderColorForState(final ControlState state, final Color rightBorderColor) {
 		
 		this.rightBorderColor.setValueForState(state, rightBorderColor);
 		
@@ -656,7 +657,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	}
 	
 	//method
-	public final BWL setRightBorderThicknessForState(final WidgetLookState state, final int rightBorderThickness) {
+	public final BWL setRightBorderThicknessForState(final ControlState state, final int rightBorderThickness) {
 		
 		GlobalValidator.assertThat(rightBorderThickness).thatIsNamed("right border thickness").isNotNegative();
 		
@@ -666,7 +667,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	}
 	
 	//method
-	public final BWL setRightPaddingForState(final WidgetLookState state, final int rightPadding) {
+	public final BWL setRightPaddingForState(final ControlState state, final int rightPadding) {
 		
 		GlobalValidator.assertThat(rightPadding).thatIsNamed("right padding").isNotNegative();
 		
@@ -676,7 +677,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	}
 	
 	//method
-	public final BWL setScrollBarColorForState(final WidgetLookState state, final Color scrollBarColor) {
+	public final BWL setScrollBarColorForState(final ControlState state, final Color scrollBarColor) {
 		
 		this.scrollBarColor.setValueForState(state, scrollBarColor);
 		
@@ -684,7 +685,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	}
 	
 	//method
-	public final BWL setScrollBarHoverColorForState(final WidgetLookState state, final Color scrollBarHoverColor) {
+	public final BWL setScrollBarHoverColorForState(final ControlState state, final Color scrollBarHoverColor) {
 		
 		this.scrollBarHoverColor.setValueForState(state, scrollBarHoverColor);
 		
@@ -692,7 +693,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	}
 	
 	//method
-	public final BWL setScrollBarMoveColorForState(final WidgetLookState state, final Color scrollBarMoveColor) {
+	public final BWL setScrollBarMoveColorForState(final ControlState state, final Color scrollBarMoveColor) {
 		
 		this.scrollBarMoveColor.setValueForState(state, scrollBarMoveColor);
 		
@@ -700,7 +701,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	}
 	
 	//method
-	public final BWL setScrollCursorColorForState(final WidgetLookState state, final Color scrollCursorColor) {
+	public final BWL setScrollCursorColorForState(final ControlState state, final Color scrollCursorColor) {
 		
 		this.scrollCursorColor.setValueForState(state, scrollCursorColor);
 		
@@ -708,7 +709,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	}
 	
 	//method
-	public final BWL setScrollCursorHoverColorForState(final WidgetLookState state, final Color scrollCursorHoverColor) {
+	public final BWL setScrollCursorHoverColorForState(final ControlState state, final Color scrollCursorHoverColor) {
 		
 		this.scrollCursorHoverColor.setValueForState(state, scrollCursorHoverColor);
 		
@@ -716,7 +717,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	}
 	
 	//method
-	public final BWL setScrollCursorMoveColorForState(final WidgetLookState state, final Color scrollCursorMoveColor) {
+	public final BWL setScrollCursorMoveColorForState(final ControlState state, final Color scrollCursorMoveColor) {
 		
 		this.scrollCursorMoveColor.setValueForState(state, scrollCursorMoveColor);
 		
@@ -724,7 +725,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	}
 	
 	//method
-	public final BWL setTopBorderColorForState(final WidgetLookState state, final Color topBorderColor) {
+	public final BWL setTopBorderColorForState(final ControlState state, final Color topBorderColor) {
 		
 		this.topBorderColor.setValueForState(state, topBorderColor);
 		
@@ -732,7 +733,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	}
 	
 	//method
-	public final BWL setTopBorderThicknessForState(final WidgetLookState state, final int topBorderThickness) {
+	public final BWL setTopBorderThicknessForState(final ControlState state, final int topBorderThickness) {
 		
 		GlobalValidator.assertThat(topBorderThickness).thatIsNamed("top border thickness").isNotNegative();
 		
@@ -742,7 +743,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	}
 	
 	//method
-	public final BWL setTopPaddingForState(final WidgetLookState state, final int topPadding) {
+	public final BWL setTopPaddingForState(final ControlState state, final int topPadding) {
 		
 		GlobalValidator.assertThat(topPadding).thatIsNamed("top padding").isNotNegative();
 		

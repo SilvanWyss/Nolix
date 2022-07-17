@@ -5,7 +5,7 @@ package ch.nolix.systemtest.guitest.widgettest;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.widget.Label;
-import ch.nolix.system.gui.widget.WidgetLookState;
+import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 
 //class
 public final class LabelTest extends BorderWidgetTest<Label> {
@@ -18,7 +18,7 @@ public final class LabelTest extends BorderWidgetTest<Label> {
 		final var testUnit = new Label();
 		
 		//execution
-		testUnit.getRefActiveLook().setTextColorForState(WidgetLookState.BASE, Color.BLUE);
+		testUnit.getRefActiveLook().setTextColorForState(ControlState.BASE, Color.BLUE);
 		
 		//verification
 		expect(testUnit.getRefActiveLook().getTextColor()).isEqualTo(Color.BLUE);
@@ -32,7 +32,7 @@ public final class LabelTest extends BorderWidgetTest<Label> {
 		final var testUnit = new Label();
 		
 		//execution
-		testUnit.getRefActiveLook().setTextSizeForState(WidgetLookState.BASE, 25);
+		testUnit.getRefActiveLook().setTextSizeForState(ControlState.BASE, 25);
 		
 		//verification
 		expect(testUnit.getRefActiveLook().getTextSize()).isEqualTo(25);

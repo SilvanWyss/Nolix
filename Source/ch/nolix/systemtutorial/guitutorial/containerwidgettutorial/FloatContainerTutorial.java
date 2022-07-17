@@ -4,9 +4,9 @@ package ch.nolix.systemtutorial.guitutorial.containerwidgettutorial;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.containerwidget.FloatContainer;
 import ch.nolix.system.gui.widget.Label;
-import ch.nolix.system.gui.widget.WidgetLookState;
 import ch.nolix.system.gui.widgetgui.Frame;
 import ch.nolix.systemapi.guiapi.structureproperty.ContentPosition;
+import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 
 /**
  * The {@link FloatContainerTutorial} is a tutorial for {@link FloatContainer}s.
@@ -48,10 +48,10 @@ public final class FloatContainerTutorial {
 		.onLook(
 			l ->
 			l
-			.setBorderThicknessForState(WidgetLookState.BASE, 5)
-			.setBackgroundColorForState(WidgetLookState.BASE, Color.LAVENDER)
-			.setPaddingForState(WidgetLookState.BASE, 20)
-			.setElementMarginForState(WidgetLookState.BASE, 10)
+			.setBorderThicknessForState(ControlState.BASE, 5)
+			.setBackgroundColorForState(ControlState.BASE, Color.LAVENDER)
+			.setPaddingForState(ControlState.BASE, 20)
+			.setElementMarginForState(ControlState.BASE, 10)
 		);
 		
 		//Configures the look of the child Widgets of the FloatContainer.
@@ -65,8 +65,8 @@ public final class FloatContainerTutorial {
 			.onLook(
 				l ->
 				l
-				.setBackgroundColorForState(WidgetLookState.BASE, Color.BLUE)
-				.setTextSizeForState(WidgetLookState.BASE, 50)
+				.setBackgroundColorForState(ControlState.BASE, Color.BLUE)
+				.setTextSizeForState(ControlState.BASE, 50)
 			);
 			
 			index++;

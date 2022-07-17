@@ -4,8 +4,8 @@ package ch.nolix.systemtutorial.guitutorial.widgettutorial;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.widget.BorderWidget;
 import ch.nolix.system.gui.widget.Label;
-import ch.nolix.system.gui.widget.WidgetLookState;
 import ch.nolix.system.gui.widgetgui.Frame;
+import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 
 /**
  * The {@link ScrollingLabelTutorial} is a tutorial for the scroll feature of {@link BorderWidget}s.
@@ -37,9 +37,9 @@ public final class ScrollingLabelTutorial {
 		.onLook(
 			l ->
 			l
-			.setBorderThicknessForState(WidgetLookState.BASE, 5)
-			.setBackgroundColorForState(WidgetLookState.BASE, Color.LAVENDER)
-			.setTextSizeForState(WidgetLookState.BASE, 500)
+			.setBorderThicknessForState(ControlState.BASE, 5)
+			.setBackgroundColorForState(ControlState.BASE, Color.LAVENDER)
+			.setTextSizeForState(ControlState.BASE, 500)
 		);
 		
 		//Adds the Label to the frame.

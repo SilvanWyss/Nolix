@@ -10,7 +10,7 @@ import ch.nolix.system.application.main.VoidApplicationContext;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.image.MutableImage;
 import ch.nolix.system.gui.widget.ImageWidget;
-import ch.nolix.system.gui.widget.WidgetLookState;
+import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 
 public final class ImageWidgetTutorial {
 	
@@ -49,9 +49,9 @@ public final class ImageWidgetTutorial {
 			
 			//Configures the look of the ImageWidget.
 			imageWidget.getRefActiveLook()
-			.setBorderThicknessForState(WidgetLookState.BASE, 5)
-			.setBackgroundColorForState(WidgetLookState.BASE, Color.LAVENDER)
-			.setPaddingForState(WidgetLookState.BASE, 5);
+			.setBorderThicknessForState(ControlState.BASE, 5)
+			.setBackgroundColorForState(ControlState.BASE, Color.LAVENDER)
+			.setPaddingForState(ControlState.BASE, 5);
 			
 			//Adds the ImageWidget to the GUI of the current MainSession.
 			getRefGUI().pushLayerWithRootWidget(imageWidget);

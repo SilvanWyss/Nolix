@@ -27,6 +27,7 @@ import ch.nolix.systemapi.guiapi.mainapi.IFrontEndReader;
 import ch.nolix.systemapi.guiapi.mainapi.IFrontEndWriter;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
+import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 import ch.nolix.systemapi.guiapi.widgetguiapi.ILayer;
 import ch.nolix.systemapi.guiapi.widgetguiapi.IWidget;
 import ch.nolix.systemapi.guiapi.widgetguiapi.IWidgetGUI;
@@ -1748,9 +1749,9 @@ implements IWidget<W, WL> {
 	
 	//method
 	/**
-	 * @return the newly calculated {@link WidgetLookState} of the {@link WidgetLook} of the current {@link Widget}.
+	 * @return the newly calculated {@link ControlState} of the {@link WidgetLook} of the current {@link Widget}.
 	 */
-	private WidgetLookState calculateLookState() {
+	private ControlState calculateLookState() {
 		return widgetLookStateCalculator.calculateLookStateFor(this);
 	}
 	
@@ -2047,7 +2048,7 @@ implements IWidget<W, WL> {
 	
 	//method
 	/**
-	 * Updates the {@link WidgetLookState} of the {@link WidgetLook} of the current {@link Widget}.
+	 * Updates the {@link ControlState} of the {@link WidgetLook} of the current {@link Widget}.
 	 */
 	private void updateLookState() {
 		getRefActiveLook().setState(calculateLookState());

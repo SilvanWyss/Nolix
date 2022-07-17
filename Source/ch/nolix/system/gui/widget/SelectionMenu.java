@@ -6,6 +6,7 @@ import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.containerwidget.VerticalStack;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
+import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 import ch.nolix.systemapi.guiapi.widgetguiapi.IWidget;
 
 //class
@@ -19,9 +20,9 @@ public final class SelectionMenu extends ItemMenu<SelectionMenu> {
 		
 		reset();
 		
-		getRefActiveLook().setBorderThicknessForState(WidgetLookState.BASE, 1);
-		getRefItemLook().setBackgroundColorForState(WidgetLookState.HOVER, Color.LIGHT_GREY);
-		getRefSelectedItemLook().setBackgroundColorForState(WidgetLookState.BASE, Color.GREY);
+		getRefActiveLook().setBorderThicknessForState(ControlState.BASE, 1);
+		getRefItemLook().setBackgroundColorForState(ControlState.HOVER, Color.LIGHT_GREY);
+		getRefSelectedItemLook().setBackgroundColorForState(ControlState.BASE, Color.GREY);
 	}
 	
 	//method

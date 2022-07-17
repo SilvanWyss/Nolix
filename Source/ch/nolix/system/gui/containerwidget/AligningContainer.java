@@ -6,11 +6,11 @@ import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.math.GlobalCalculator;
 import ch.nolix.system.element.mutableelement.MutableOptionalValueExtractor;
 import ch.nolix.system.gui.widget.Widget;
-import ch.nolix.system.gui.widget.WidgetLookState;
 import ch.nolix.system.gui.widgetgui.WidgetGUI;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
+import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 import ch.nolix.systemapi.guiapi.widgetguiapi.IWidget;
 
 //class
@@ -151,7 +151,7 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 		
 		reset();
 		
-		getRefActiveLook().setPaddingForState(WidgetLookState.BASE, 10);
+		getRefActiveLook().setPaddingForState(ControlState.BASE, 10);
 	}
 		
 	//method

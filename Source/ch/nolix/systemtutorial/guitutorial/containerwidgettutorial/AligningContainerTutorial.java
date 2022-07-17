@@ -6,8 +6,8 @@ import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.containerwidget.AligningContainer;
 import ch.nolix.system.gui.widget.Button;
 import ch.nolix.system.gui.widget.Label;
-import ch.nolix.system.gui.widget.WidgetLookState;
 import ch.nolix.system.gui.widgetgui.Frame;
+import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 
 public final class AligningContainerTutorial {
 	
@@ -16,7 +16,7 @@ public final class AligningContainerTutorial {
 		
 		final var label = new Label().setText("X");
 		
-		label.getRefActiveLook().setTextSizeForState(WidgetLookState.BASE, 100);
+		label.getRefActiveLook().setTextSizeForState(ControlState.BASE, 100);
 		
 		new Frame()
 		.setTitle("AligningContainer tutorial")
@@ -29,7 +29,7 @@ public final class AligningContainerTutorial {
 				.setLeftMouseButtonPressAction(
 					() ->
 					label.getRefActiveLook().setTextSizeForState(
-						WidgetLookState.BASE,
+						ControlState.BASE,
 						GlobalCalculator.getMax(20, label.getRefActiveLook().getTextSize() - 20)
 					)
 				)
@@ -40,14 +40,14 @@ public final class AligningContainerTutorial {
 				.setLeftMouseButtonPressAction(
 					() ->
 					label.getRefActiveLook().setTextSizeForState(
-						WidgetLookState.BASE,
+						ControlState.BASE,
 						GlobalCalculator.getMin(200, label.getRefActiveLook().getTextSize() + 20)
 					)
 				)
 			)
 			.setProposalHeight(500)
 			.setProposalWidth(500)
-			.onLook(l -> l.setBackgroundColorForState(WidgetLookState.BASE, Color.LAVENDER))
+			.onLook(l -> l.setBackgroundColorForState(ControlState.BASE, Color.LAVENDER))
 		);
 	}
 	

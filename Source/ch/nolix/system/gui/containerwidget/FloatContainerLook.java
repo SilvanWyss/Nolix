@@ -6,7 +6,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.formatelement.NonCascadingProperty;
 import ch.nolix.system.gui.widget.BorderWidgetLook;
-import ch.nolix.system.gui.widget.WidgetLookState;
+import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 
 //class
 public final class FloatContainerLook extends BorderWidgetLook<FloatContainerLook> {
@@ -18,10 +18,10 @@ public final class FloatContainerLook extends BorderWidgetLook<FloatContainerLoo
 	private static final String ELEMENT_MARGIN_HEADER = "ElementMargin";
 	
 	//attribute
-	private final NonCascadingProperty<WidgetLookState, Integer> elementMargin =
+	private final NonCascadingProperty<ControlState, Integer> elementMargin =
 	new NonCascadingProperty<>(
 		ELEMENT_MARGIN_HEADER,
-		WidgetLookState.class,
+		ControlState.class,
 		INode::getSingleChildNodeAsInt,
 		Node::withChildNode,
 		this::setElementMarginForState,
@@ -39,7 +39,7 @@ public final class FloatContainerLook extends BorderWidgetLook<FloatContainerLoo
 	}
 	
 	//method
-	public FloatContainerLook setElementMarginForState(final WidgetLookState state, final int elementMargin) {
+	public FloatContainerLook setElementMarginForState(final ControlState state, final int elementMargin) {
 		
 		this.elementMargin.setValueForState(state, elementMargin);
 		

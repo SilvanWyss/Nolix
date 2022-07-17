@@ -20,6 +20,7 @@ import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.mainapi.CursorIcon;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
+import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 import ch.nolix.systemapi.guiapi.widgetguiapi.IWidget;
 
 //class
@@ -86,8 +87,8 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 		setProposalHeight(200);
 		
 		getRefActiveLook()
-		.setBackgroundColorForState(WidgetLookState.BASE, Color.WHITE_SMOKE)
-		.setPaddingForState(WidgetLookState.BASE, 10);
+		.setBackgroundColorForState(ControlState.BASE, Color.WHITE_SMOKE)
+		.setPaddingForState(ControlState.BASE, 10);
 		
 		recalculate();
 	}
@@ -763,7 +764,7 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	@Override
 	protected void resetBorderWidgetConfiguration() {
 		setCustomCursorIcon(CursorIcon.EDIT);
-		getRefActiveLook().setFontForState(WidgetLookState.BASE, Font.LUCIDA_CONSOLE);
+		getRefActiveLook().setFontForState(ControlState.BASE, Font.LUCIDA_CONSOLE);
 	}
 	
 	//method

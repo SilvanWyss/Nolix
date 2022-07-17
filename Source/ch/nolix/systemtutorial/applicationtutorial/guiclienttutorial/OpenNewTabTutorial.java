@@ -9,7 +9,7 @@ import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.main.VoidApplicationContext;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.widget.Button;
-import ch.nolix.system.gui.widget.WidgetLookState;
+import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 
 public final class OpenNewTabTutorial {
 	
@@ -44,7 +44,7 @@ public final class OpenNewTabTutorial {
 			.setLeftMouseButtonPressAction(this::openWebsite);
 			
 			//Configures the look of the Button.
-			button.getRefActiveLook().setTextColorForState(WidgetLookState.BASE, Color.BLUE);
+			button.getRefActiveLook().setTextColorForState(ControlState.BASE, Color.BLUE);
 			
 			//Adds the Button to the GUI of the current MainSession.
 			getRefGUI().pushLayerWithRootWidget(button);

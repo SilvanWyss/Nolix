@@ -3,8 +3,8 @@ package ch.nolix.systemtutorial.guitutorial.widgettutorial;
 //own imports
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.widget.Console;
-import ch.nolix.system.gui.widget.WidgetLookState;
 import ch.nolix.system.gui.widgetgui.Frame;
+import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 
 /**
  * The {@link ConsoleWithCustomLookTutorial} is a tutorial for {@link Console}s.
@@ -35,9 +35,9 @@ public final class ConsoleWithCustomLookTutorial {
 		.onLook(
 			l ->
 			l
-			.setBorderThicknessForState(WidgetLookState.BASE, 1)
-			.setBackgroundColorForState(WidgetLookState.BASE, Color.LAVENDER)
-			.setPaddingForState(WidgetLookState.BASE, 10)
+			.setBorderThicknessForState(ControlState.BASE, 1)
+			.setBackgroundColorForState(ControlState.BASE, Color.LAVENDER)
+			.setPaddingForState(ControlState.BASE, 10)
 		);
 		
 		//Adds the Console to the Frame.

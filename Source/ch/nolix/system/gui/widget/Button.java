@@ -12,6 +12,7 @@ import ch.nolix.system.gui.color.Color;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 import ch.nolix.systemapi.guiapi.structureproperty.ContentPosition;
+import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 
 //class
 /**
@@ -47,11 +48,11 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 		setContentPosition(ContentPosition.CENTER);
 		
 		getRefActiveLook()
-		.setBorderThicknessForState(WidgetLookState.BASE, 1)
-		.setBackgroundColorForState(WidgetLookState.BASE, Color.LIGHT_GREY)
-		.setBackgroundColorForState(WidgetLookState.HOVER, Color.DARK_GREY)
-		.setLeftPaddingForState(WidgetLookState.BASE,10)
-		.setRightPaddingForState(WidgetLookState.BASE, 10);
+		.setBorderThicknessForState(ControlState.BASE, 1)
+		.setBackgroundColorForState(ControlState.BASE, Color.LIGHT_GREY)
+		.setBackgroundColorForState(ControlState.HOVER, Color.DARK_GREY)
+		.setLeftPaddingForState(ControlState.BASE,10)
+		.setRightPaddingForState(ControlState.BASE, 10);
 	}
 	
 	//method

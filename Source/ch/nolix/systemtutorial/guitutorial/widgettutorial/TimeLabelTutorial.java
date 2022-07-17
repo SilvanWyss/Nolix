@@ -5,9 +5,9 @@ import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.containerwidget.HorizontalStack;
 import ch.nolix.system.gui.widget.Label;
-import ch.nolix.system.gui.widget.WidgetLookState;
 import ch.nolix.system.gui.widgetgui.Frame;
 import ch.nolix.system.time.moment.Time;
+import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 
 /**
  * The {@link TimeLabelTutorial} is a tutorial for {@link Label}s.
@@ -33,15 +33,15 @@ public final class TimeLabelTutorial {
 		final var clockCaptionLabel = new Label().setText("Time:");
 		
 		//Configures the look of the clockCaptionLabel.
-		clockCaptionLabel.getRefActiveLook().setTextSizeForState(WidgetLookState.BASE, 50);
+		clockCaptionLabel.getRefActiveLook().setTextSizeForState(ControlState.BASE, 50);
 		
 		//Creates clockLabel.
 		final var clockLabel = new Label();
 		
 		//Configures the look of the clockLabel.
 		clockLabel.getRefActiveLook()
-		.setBackgroundColorForState(WidgetLookState.BASE, Color.YELLOW)
-		.setTextSizeForState(WidgetLookState.BASE, 50);
+		.setBackgroundColorForState(ControlState.BASE, Color.YELLOW)
+		.setTextSizeForState(ControlState.BASE, 50);
 		
 		//Creates mainHorizontalStack.
 		final var mainHorizontalStack = new HorizontalStack().addWidget(clockCaptionLabel, clockLabel);

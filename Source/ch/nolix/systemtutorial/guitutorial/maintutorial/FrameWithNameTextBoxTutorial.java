@@ -7,11 +7,11 @@ import ch.nolix.system.gui.containerwidget.VerticalStack;
 import ch.nolix.system.gui.textbox.TextBox;
 import ch.nolix.system.gui.widget.Button;
 import ch.nolix.system.gui.widget.Label;
-import ch.nolix.system.gui.widget.WidgetLookState;
 import ch.nolix.system.gui.widgetgui.Frame;
 import ch.nolix.system.gui.widgetgui.Layer;
 import ch.nolix.systemapi.guiapi.mainapi.CursorIcon;
 import ch.nolix.systemapi.guiapi.structureproperty.ExtendedContentPosition;
+import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 
 /**
  * The {@link FrameWithNameTextBoxTutorial} is a tutorial for
@@ -76,10 +76,10 @@ public final class FrameWithNameTextBoxTutorial {
 		.onLook(
 			l ->
 			l
-			.setBorderThicknessForState(WidgetLookState.BASE, 5)
-			.setBorderColorForState(WidgetLookState.BASE,Color.NAVY)
-			.setBackgroundColorForState(WidgetLookState.BASE, Color.WHITE)
-			.setPaddingForState(WidgetLookState.BASE, 10)
+			.setBorderThicknessForState(ControlState.BASE, 5)
+			.setBorderColorForState(ControlState.BASE,Color.NAVY)
+			.setBackgroundColorForState(ControlState.BASE, Color.WHITE)
+			.setPaddingForState(ControlState.BASE, 10)
 		);
 		returnButton.setCustomCursorIcon(CursorIcon.HAND);
 	}

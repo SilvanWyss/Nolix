@@ -10,10 +10,10 @@ import ch.nolix.system.application.main.VoidApplicationContext;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.image.MutableImage;
 import ch.nolix.system.gui.widget.Label;
-import ch.nolix.system.gui.widget.WidgetLookState;
 import ch.nolix.system.gui.widgetgui.Layer;
 import ch.nolix.systemapi.guiapi.imageapi.ImageApplication;
 import ch.nolix.systemapi.guiapi.structureproperty.ExtendedContentPosition;
+import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 
 public final class TransparentLayerTutorial {
 	
@@ -43,10 +43,10 @@ public final class TransparentLayerTutorial {
 					.onLook(
 						l ->
 						l
-						.setBackgroundColorForState(WidgetLookState.BASE, Color.BLACK)
-						.setPaddingForState(WidgetLookState.BASE, 50)
-						.setTextSizeForState(WidgetLookState.BASE, 100)
-						.setTextColorForState(WidgetLookState.BASE, Color.WHITE)
+						.setBackgroundColorForState(ControlState.BASE, Color.BLACK)
+						.setPaddingForState(ControlState.BASE, 50)
+						.setTextSizeForState(ControlState.BASE, 100)
+						.setTextColorForState(ControlState.BASE, Color.WHITE)
 					)
 				)
 			);

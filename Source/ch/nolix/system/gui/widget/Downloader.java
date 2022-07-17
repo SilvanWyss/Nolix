@@ -10,6 +10,7 @@ import ch.nolix.system.gui.color.Color;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.mainapi.CursorIcon;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
+import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 
 //class
 public final class Downloader extends TextLineWidget<Downloader, DownloaderLook> {
@@ -30,8 +31,8 @@ public final class Downloader extends TextLineWidget<Downloader, DownloaderLook>
 		reset();
 				
 		getRefActiveLook()
-		.setTextColorForState(WidgetLookState.BASE, Color.DARK_BLUE)
-		.setTextColorForState(WidgetLookState.HOVER, Color.BLUE);
+		.setTextColorForState(ControlState.BASE, Color.DARK_BLUE)
+		.setTextColorForState(ControlState.HOVER, Color.BLUE);
 	}
 	
 	//method

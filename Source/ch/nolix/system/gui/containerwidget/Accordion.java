@@ -18,10 +18,10 @@ import ch.nolix.system.element.mutableelement.MutableValue;
 import ch.nolix.system.element.mutableelement.SubElement;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.widget.Widget;
-import ch.nolix.system.gui.widget.WidgetLookState;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
+import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 import ch.nolix.systemapi.guiapi.widgetguiapi.IWidget;
 
 //class
@@ -528,8 +528,8 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 		mainVerticalStack.reset();
 		getRefActiveLook().addChild(getRefTabHeaderLook());		
 		getRefTabHeaderLook()
-		.setTextColorForState(WidgetLookState.BASE, Color.GREY)
-		.setTextColorForState(WidgetLookState.HOVER, Color.BLACK);
+		.setTextColorForState(ControlState.BASE, Color.GREY)
+		.setTextColorForState(ControlState.HOVER, Color.BLACK);
 		
 		setExpansionBehavior(DEFAULT_EXPANSION_BEHAVIOR);
 	}

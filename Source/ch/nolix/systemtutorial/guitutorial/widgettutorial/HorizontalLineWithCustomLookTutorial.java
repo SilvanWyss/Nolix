@@ -6,9 +6,9 @@ import ch.nolix.system.gui.containerwidget.HorizontalStack;
 import ch.nolix.system.gui.containerwidget.VerticalStack;
 import ch.nolix.system.gui.widget.HorizontalLine;
 import ch.nolix.system.gui.widget.Label;
-import ch.nolix.system.gui.widget.WidgetLookState;
 import ch.nolix.system.gui.widgetgui.Frame;
 import ch.nolix.systemapi.guiapi.structureproperty.ContentPosition;
+import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 
 /**
  * The {@link HorizontalLineWithCustomLookTutorial} is a tutorial for {@link HorizontalLineTutorial}s.
@@ -48,9 +48,9 @@ public final class HorizontalLineWithCustomLookTutorial {
 		.onLook(
 			l ->
 			l
-			.setBorderThicknessForState(WidgetLookState.BASE, 1)
-			.setBackgroundColorForState(WidgetLookState.BASE, Color.LAVENDER)
-			.setPaddingForState(WidgetLookState.BASE, 50)
+			.setBorderThicknessForState(ControlState.BASE, 1)
+			.setBackgroundColorForState(ControlState.BASE, Color.LAVENDER)
+			.setPaddingForState(ControlState.BASE, 50)
 		);
 		
 		//Adds the VerticalStack to the Frame.

@@ -3,10 +3,10 @@ package ch.nolix.systemtutorial.guitutorial.maintutorial;
 //own imports
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.widget.Label;
-import ch.nolix.system.gui.widget.WidgetLookState;
 import ch.nolix.system.gui.widgetgui.Frame;
 import ch.nolix.system.gui.widgetgui.Layer;
 import ch.nolix.systemapi.guiapi.structureproperty.ExtendedContentPosition;
+import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 
 /**
  * The {@link LayerTutorial2} is a tutorial for {@link Layer}s.
@@ -35,13 +35,13 @@ public final class LayerTutorial2 {
 		
 		//Configures the look of labelA.
 		labelA.getRefActiveLook()
-		.setTextSizeForState(WidgetLookState.BASE, 500)
-		.setTextColorForState(WidgetLookState.BASE, Color.GREY);
+		.setTextSizeForState(ControlState.BASE, 500)
+		.setTextColorForState(ControlState.BASE, Color.GREY);
 		
 		//Configures the look of labelB.
 		labelB.getRefActiveLook()
-		.setTextSizeForState(WidgetLookState.BASE, 400)
-		.setTextColorForState(WidgetLookState.BASE, Color.BLACK);
+		.setTextSizeForState(ControlState.BASE, 400)
+		.setTextColorForState(ControlState.BASE, Color.BLACK);
 		
 		//Adds a new layer with labelA to the Frame.
 		frame.pushLayer(ExtendedContentPosition.CENTER, labelA);

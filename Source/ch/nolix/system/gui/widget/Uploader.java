@@ -10,6 +10,7 @@ import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.mainapi.CursorIcon;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 import ch.nolix.systemapi.guiapi.structureproperty.ContentPosition;
+import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 
 //class
 public final class Uploader extends TextLineWidget<Uploader, UploaderLook> {
@@ -34,8 +35,8 @@ public final class Uploader extends TextLineWidget<Uploader, UploaderLook> {
 		setContentPosition(ContentPosition.CENTER);
 				
 		getRefActiveLook()
-		.setBackgroundColorForState(WidgetLookState.BASE, DEFAULT_BACKGROUND_COLOR)
-		.setPaddingForState(WidgetLookState.BASE, DEFAULT_PADDING);
+		.setBackgroundColorForState(ControlState.BASE, DEFAULT_BACKGROUND_COLOR)
+		.setPaddingForState(ControlState.BASE, DEFAULT_PADDING);
 	}
 	
 	//method

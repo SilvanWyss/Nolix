@@ -6,8 +6,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.system.gui.containerwidget.SingleContainer;
 import ch.nolix.system.gui.widget.BorderWidget;
-import ch.nolix.system.gui.widget.WidgetLookState;
 import ch.nolix.system.gui.widgetgui.InvisibleGUI;
+import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 
 //class
 public abstract class BorderWidgetTest<BW extends BorderWidget<BW, ?>> extends WidgetTest<BW> {
@@ -81,7 +81,7 @@ public abstract class BorderWidgetTest<BW extends BorderWidget<BW, ?>> extends W
 		
 		//setup
 		final var testUnit = createTestUnit();
-		testUnit.getRefActiveLook().setTopBorderThicknessForState(WidgetLookState.BASE, topBorderThickness);
+		testUnit.getRefActiveLook().setTopBorderThicknessForState(ControlState.BASE, topBorderThickness);
 		testUnit.getRefActiveLook().removeBottomBorderThicknesses();
 		testUnit.recalculate();
 		
@@ -273,7 +273,7 @@ public abstract class BorderWidgetTest<BW extends BorderWidget<BW, ?>> extends W
 		
 		//setup
 		final var testUnit = createTestUnit();
-		testUnit.getRefActiveLook().setLeftBorderThicknessForState(WidgetLookState.BASE, leftBorderThickenss);
+		testUnit.getRefActiveLook().setLeftBorderThicknessForState(ControlState.BASE, leftBorderThickenss);
 		testUnit.getRefActiveLook().removeRightBorderThicknesses();
 		testUnit.recalculate();
 		

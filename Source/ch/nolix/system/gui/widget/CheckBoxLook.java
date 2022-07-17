@@ -7,6 +7,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.formatelement.NonCascadingProperty;
+import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 
 //class
 public final class CheckBoxLook extends BorderWidgetLook<CheckBoxLook> {
@@ -18,10 +19,10 @@ public final class CheckBoxLook extends BorderWidgetLook<CheckBoxLook> {
 	private static final String DEFAULT_LINE_THICKNESS_HEADER = "LineThickness";
 	
 	//attribute
-	private final NonCascadingProperty<WidgetLookState, Integer> lineThickness =
+	private final NonCascadingProperty<ControlState, Integer> lineThickness =
 	new NonCascadingProperty<>(
 		DEFAULT_LINE_THICKNESS_HEADER,
-		WidgetLookState.class,
+		ControlState.class,
 		INode::getSingleChildNodeAsInt,
 		Node::withChildNode,
 		this::setLineThicknessForState,
@@ -39,7 +40,7 @@ public final class CheckBoxLook extends BorderWidgetLook<CheckBoxLook> {
 	}
 	
 	//method
-	public CheckBoxLook setLineThicknessForState(final WidgetLookState state, final int lineThickness) {
+	public CheckBoxLook setLineThicknessForState(final ControlState state, final int lineThickness) {
 		
 		GlobalValidator.assertThat(lineThickness).thatIsNamed(LowerCaseCatalogue.LINE_THICKNESS).isNotNegative();
 		

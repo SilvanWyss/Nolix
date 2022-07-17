@@ -4,8 +4,8 @@ package ch.nolix.systemtutorial.guitutorial.containerwidgettutorial;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.containerwidget.Accordion;
 import ch.nolix.system.gui.widget.Area;
-import ch.nolix.system.gui.widget.WidgetLookState;
 import ch.nolix.system.gui.widgetgui.Frame;
+import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 
 /**
  * The {@link AccordionTutorial} is a tutorial for {@link Accordion}s.
@@ -38,8 +38,8 @@ public final class AccordionTutorial {
 		//Configures the look of the Accordion.
 		accordion
 		.getRefActiveLook()
-		.setBorderThicknessForState(WidgetLookState.BASE, 5)
-		.setBackgroundColorForState(WidgetLookState.BASE, Color.LAVENDER);
+		.setBorderThicknessForState(ControlState.BASE, 5)
+		.setBackgroundColorForState(ControlState.BASE, Color.LAVENDER);
 		
 		//Adds the Accordion to the Frame.
 		frame.pushLayerWithRootWidget(accordion);
