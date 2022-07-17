@@ -31,7 +31,7 @@ public interface IWebGUI<WGUI extends IWebGUI<WGUI>> extends ICanvas<WGUI>, Titl
 	WGUI pushLayer(ILayer<?> layer);
 	
 	//method declaration
-	WGUI pushLayerWithRootControl(IControl<?> rootControl);
+	WGUI pushLayerWithRootControl(IControl<?, ?> rootControl);
 	
 	//method declaration
 	void removeLayer(ILayer<?> layer);

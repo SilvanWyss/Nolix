@@ -7,7 +7,11 @@ import ch.nolix.systemapi.guiapi.inputapi.IInputTaker;
 import ch.nolix.systemapi.guiapi.mainapi.CursorIcon;
 
 //interface
-public interface IControl<C extends IControl<C>> extends IConfigurableElement<C>, IInputTaker {
+public interface IControl<
+	C extends IControl<C, CL>,
+	CL extends IControlLook<CL>
+>
+extends IConfigurableElement<C>, IInputTaker {
 	
 	//method declaration
 	boolean belongsToGUI();
@@ -23,7 +27,10 @@ public interface IControl<C extends IControl<C>> extends IConfigurableElement<C>
 	
 	//method declaration
 	ILayer<?> getParentLayer();
-		
+	
+	//method declaration
+	CL getRefLook();
+	
 	//method declaration
 	C setCursorIcon(CursorIcon cursorIcon);
 }
