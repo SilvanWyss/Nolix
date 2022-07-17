@@ -1,8 +1,8 @@
 package ch.nolix.systemtutorial.guitutorial.textboxtutorial;
 
 import ch.nolix.system.gui.textbox.TextBox;
-import ch.nolix.system.gui.widget.TextMode;
 import ch.nolix.system.gui.widgetgui.Frame;
+import ch.nolix.systemapi.guiapi.processproperty.TextMode;
 
 /**
  * The {@link TextBoxForPasswordTutorial} is a tutorial for {@link TextBox}s.

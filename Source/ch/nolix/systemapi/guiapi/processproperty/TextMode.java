@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.gui.widget;
+package ch.nolix.systemapi.guiapi.processproperty;
 
 //own imports
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
