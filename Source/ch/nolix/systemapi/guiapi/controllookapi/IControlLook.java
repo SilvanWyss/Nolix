@@ -2,7 +2,6 @@
 package ch.nolix.systemapi.guiapi.controllookapi;
 
 //own imports
-import ch.nolix.system.gui.color.Color;
 import ch.nolix.systemapi.elementapi.mainuniversalapi.IRespondingMutableElement;
 import ch.nolix.systemapi.guiapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.textformatapi.Font;
@@ -21,7 +20,7 @@ public interface IControlLook<CL extends IControlLook<CL>> extends IRespondingMu
 	double getOpacity();
 	
 	//method declaration
-	Color getTextColor();
+	IColor getTextColor();
 	
 	//method declaration
 	int getTextSize();
