@@ -1,8 +1,7 @@
 //package declaration
-package ch.nolix.system.gui.widget;
+package ch.nolix.systemapi.guiapi.controlrole;
 
 //own imports
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 
 //enum
@@ -23,7 +22,7 @@ public enum ButtonRole {
 	/**
 	 * @param specification
 	 * @return a new {@link ButtonRole} from the given specification.
-	 * @throws InvalidArgumentException if the given specification does nor represent {@link ButtonRole}.
+	 * @throws RuntimeException if the given specification does nor represent {@link ButtonRole}.
 	 */
 	public static ButtonRole fromSpecification(final INode<?> specification) {
 		return valueOf(specification.getSingleChildNodeHeader());

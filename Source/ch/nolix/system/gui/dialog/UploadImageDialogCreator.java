@@ -9,11 +9,11 @@ import ch.nolix.system.gui.containerwidget.HorizontalStack;
 import ch.nolix.system.gui.containerwidget.VerticalStack;
 import ch.nolix.system.gui.image.MutableImage;
 import ch.nolix.system.gui.widget.Button;
-import ch.nolix.system.gui.widget.ButtonRole;
 import ch.nolix.system.gui.widget.ImageWidget;
 import ch.nolix.system.gui.widget.Uploader;
 import ch.nolix.system.gui.widgetgui.Layer;
 import ch.nolix.system.gui.widgetgui.LayerRole;
+import ch.nolix.systemapi.guiapi.controlrole.ButtonRole;
 
 //class
 public final class UploadImageDialogCreator {
