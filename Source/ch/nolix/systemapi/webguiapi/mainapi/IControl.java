@@ -3,6 +3,7 @@ package ch.nolix.systemapi.webguiapi.mainapi;
 
 //own imports
 import ch.nolix.systemapi.elementapi.configurationapi.IConfigurableElement;
+import ch.nolix.systemapi.guiapi.controllookapi.IControlLook;
 import ch.nolix.systemapi.guiapi.inputapi.IInputTaker;
 import ch.nolix.systemapi.guiapi.mainapi.CursorIcon;
 

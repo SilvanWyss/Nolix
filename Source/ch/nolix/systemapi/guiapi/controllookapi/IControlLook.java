@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemapi.webguiapi.mainapi;
+package ch.nolix.systemapi.guiapi.controllookapi;
 
 //own imports
 import ch.nolix.system.gui.color.Color;
