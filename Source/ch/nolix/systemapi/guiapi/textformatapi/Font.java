@@ -56,7 +56,7 @@ public enum Font {
 			case VERDANA:
 				return FontCodeCatalogue.VERDANA;
 			default:
-				throw new RuntimeException("The current Font is not valid.");
+				throw new IllegalArgumentException("The current Font is not valid.");
 		}
 	}
 }
