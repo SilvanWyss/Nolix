@@ -11,5 +11,5 @@ public interface ILabel extends IControl<ILabel, ILabelLook> {
 	String getText();
 	
 	//method declaration
-	ITextBox setText(String text);
+	ITextbox setText(String text);
 }

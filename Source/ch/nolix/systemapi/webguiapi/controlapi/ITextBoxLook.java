@@ -5,4 +5,4 @@ package ch.nolix.systemapi.webguiapi.controlapi;
 import ch.nolix.systemapi.guiapi.controllookapi.IBorderControlLook;
 
 //interface
-public interface ITextBoxLook extends IBorderControlLook<ITextBoxLook> {}
+public interface ITextboxLook extends IBorderControlLook<ITextboxLook> {}
