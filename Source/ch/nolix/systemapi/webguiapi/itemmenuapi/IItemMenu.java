@@ -9,7 +9,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 //interface
 public interface IItemMenu<
 	IM extends IItemMenu<IM, IMI, IML>,
-	IMI extends IItemMenuItem<IMI>,
+	IMI extends IItemMenuItem,
 	IML extends IItemMenuLook<IML>
 > 
 extends Clearable, IControl<IM, IML> {

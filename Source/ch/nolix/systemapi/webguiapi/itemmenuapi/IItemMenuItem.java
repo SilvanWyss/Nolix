@@ -7,8 +7,7 @@ import ch.nolix.coreapi.functionapi.requestuniversalapi.BlanknessRequestable;
 import ch.nolix.systemapi.guiapi.processapi.Selectable;
 
 //interface
-public interface IItemMenuItem<IMI extends IItemMenuItem<IMI>>
-extends BlanknessRequestable, IdentifiedByString, Selectable<IMI> {
+public interface IItemMenuItem extends BlanknessRequestable, IdentifiedByString, Selectable {
 	
 	//method declaration
 	boolean belongsToMenu();

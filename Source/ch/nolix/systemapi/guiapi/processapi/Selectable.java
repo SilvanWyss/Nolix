@@ -2,11 +2,11 @@
 package ch.nolix.systemapi.guiapi.processapi;
 
 //interface
-public interface Selectable<S extends Selectable<S>> extends SelectionRequestable {
+public interface Selectable extends SelectionRequestable {
 	
 	//method declaration
-	S select();
+	void select();
 	
 	//method declaration
-	S unselect();
+	void unselect();
 }
