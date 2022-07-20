@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coreapi.cachingapi;
+package ch.nolix.coreapi.programstructureapi.cachingapi;
 
 //own imports
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;

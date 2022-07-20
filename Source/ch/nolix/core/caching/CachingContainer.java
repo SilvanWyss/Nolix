@@ -12,9 +12,9 @@ import ch.nolix.core.container.pair.Pair;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-import ch.nolix.coreapi.cachingapi.ICachingContainer;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerComparableGetter;
+import ch.nolix.coreapi.programstructureapi.cachingapi.ICachingContainer;
 
 //class
 public final class CachingContainer<E> extends Container<E> implements ICachingContainer<E> {
