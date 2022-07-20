@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemapi.guiapi.canvasapi;
+package ch.nolix.systemapi.guiapi.canvasuniversalapi;
 
 //own imports
 import ch.nolix.systemapi.guiapi.colorapi.IColor;
