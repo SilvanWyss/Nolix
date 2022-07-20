@@ -12,6 +12,7 @@ import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.I2ElementTaker;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
+import ch.nolix.systemapi.elementapi.multistateelementapi.ValueStoringState;
 
 //class
 public abstract class MaterializedProperty<S extends Enum<S>, V> extends Property<S> {
@@ -76,7 +77,7 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
 	}
 	
 	//method
-	public final AssignmentType getAssignmentTypeForState(final S state) {
+	public final ValueStoringState getAssignmentTypeForState(final S state) {
 		return stateProperties[(getStateOf(state).getIndex())].getAssignmentType();
 	}
 	
@@ -157,7 +158,7 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
 			final var stateProperty = stateProperties[s.getIndex()];
 			
 			switch (stateProperty.getAssignmentType()) {
-				case VALUE:
+				case STORING_VALUE:
 					
 					final var valueSpecification =
 					Node.withHeaderAndChildNode(
@@ -168,12 +169,12 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
 					list.addAtEnd(valueSpecification);
 					
 					break;
-				case NO_VALUE:
+				case DEFINING_EMPTY:
 					
 					list.addAtEnd(Node.withHeaderAndChildNode(s.getPrefix() + getName(), NONE_HEADER));
 						
 					break;
-				case UNDEFINED:
+				case FORWARDING:
 					break;
 				
 			}
@@ -227,13 +228,13 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
 	private void setFrom(final MaterializedProperty<S, V> materializedProperty) {
 		for (var i = 0; i < stateProperties.length; i++) {
 			switch (materializedProperty.stateProperties[i].getAssignmentType()) {
-				case VALUE:
+				case STORING_VALUE:
 					stateProperties[i].setValue((V)materializedProperty.stateProperties[i].getValue());
 					break;
-				case NO_VALUE:
+				case DEFINING_EMPTY:
 					stateProperties[i].setEmpty();
 					break;
-				case UNDEFINED:
+				case FORWARDING:
 					stateProperties[i].setUndefined();
 					break;
 			}

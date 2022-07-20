@@ -5,6 +5,7 @@ package ch.nolix.system.element.multistateelement;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.systemapi.elementapi.multistateelementapi.ValueStoringState;
 
 //class
 final class StateProperty<V> {
@@ -16,17 +17,17 @@ final class StateProperty<V> {
 	private V value;
 	
 	//method
-	public AssignmentType getAssignmentType() {
+	public ValueStoringState getAssignmentType() {
 		
 		if (!hasValueOrIsEmpty()) {
-			return AssignmentType.UNDEFINED;
+			return ValueStoringState.FORWARDING;
 		}
 		
 		if (!hasValue()) {
-			return AssignmentType.NO_VALUE;
+			return ValueStoringState.DEFINING_EMPTY;
 		}
 		
-		return AssignmentType.VALUE;
+		return ValueStoringState.STORING_VALUE;
 	}
 	
 	//method
