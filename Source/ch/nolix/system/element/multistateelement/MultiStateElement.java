@@ -14,24 +14,31 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.element.main.Element;
-import ch.nolix.systemapi.elementapi.mainuniversalapi.IRespondingMutableElement;
+import ch.nolix.systemapi.elementapi.multistateelementapi.IMultiStateElement;
 
 //class
-public abstract class MultiStateElement<FE extends MultiStateElement<FE, S>, S extends Enum<S>>
+public abstract class MultiStateElement<
+	FE extends MultiStateElement<FE, S>,
+	S extends Enum<S>
+>
 extends Element
-implements IRespondingMutableElement<FE> {
+implements IMultiStateElement<FE, S> {
 	
 	//static method
 	private static boolean fieldStoresProperty(final Field field) {
 		return Property.class.isAssignableFrom(field.getType());
 	}
 	
-	//attributes
+	//attribute
 	private final State<S> baseState;
+	
+	//attribute
 	private State<S> currentState;
 	
-	//multi-attributes
+	//multi-attribute
 	private final IContainer<State<S>> availableStates;
+	
+	//multi-attribute
 	private IContainer<Property<S>> properties;
 	
 	//constructor
