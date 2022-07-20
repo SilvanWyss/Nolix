@@ -130,19 +130,19 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
 	
 	//method
 	public final boolean hasValueOrIsEmptyForState(final S state) {
-		return stateProperties[getStateOf(state).getIndex()].hasValueOrIsEmpty();
+		return stateProperties[getStateOf(state).getIndex()].hasValueOrDefinesEmpty();
 	}
 	
 	//method
 	public void setUndefined() {
 		for (final var sp : stateProperties) {
-			sp.setUndefined();
+			sp.setForwarding();
 		}
 	}
 	
 	//method
 	public void setUndefinedForState(final S state) {
-		stateProperties[getStateOf(state).getIndex()].setUndefined();
+		stateProperties[getStateOf(state).getIndex()].setForwarding();
 	}
 	
 	//method
@@ -235,7 +235,7 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
 					stateProperties[i].setEmpty();
 					break;
 				case FORWARDING:
-					stateProperties[i].setUndefined();
+					stateProperties[i].setForwarding();
 					break;
 			}
 		}

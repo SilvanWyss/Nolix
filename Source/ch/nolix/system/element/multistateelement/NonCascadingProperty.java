@@ -90,12 +90,12 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends Materializ
 	protected V getValueWhenHasState(final State<S> state) {
 		
 		final var stateProperty = stateProperties[state.getIndex()];
-		if (stateProperty.hasValueOrIsEmpty()) {
+		if (stateProperty.hasValueOrDefinesEmpty()) {
 			return stateProperty.getValue();
 		}
 		
 		final var baseStateProperty = getRefBaseStateProperty();
-		if (baseStateProperty.hasValueOrIsEmpty()) {
+		if (baseStateProperty.hasValueOrDefinesEmpty()) {
 			return baseStateProperty.getValue();
 		}
 		
@@ -115,12 +115,12 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends Materializ
 	protected boolean hasValueWhenHasState(final State<S> state) {
 		
 		final var stateProperty = stateProperties[state.getIndex()];
-		if (stateProperty.hasValueOrIsEmpty()) {
+		if (stateProperty.hasValueOrDefinesEmpty()) {
 			return stateProperty.hasValue();
 		}
 		
 		final var baseStateProperty = getRefBaseStateProperty();
-		if (baseStateProperty.hasValueOrIsEmpty()) {
+		if (baseStateProperty.hasValueOrDefinesEmpty()) {
 			return baseStateProperty.hasValue();
 		}
 		

@@ -11,7 +11,7 @@ import ch.nolix.systemapi.elementapi.multistateelementapi.ValueStoringState;
 final class StateProperty<V> {
 	
 	//attribute
-	private boolean defined;
+	private boolean hasValueOrDefinesEmpty;
 	
 	//optional attribute
 	private V value;
@@ -19,7 +19,7 @@ final class StateProperty<V> {
 	//method
 	public ValueStoringState getAssignmentType() {
 		
-		if (!hasValueOrIsEmpty()) {
+		if (!hasValueOrDefinesEmpty()) {
 			return ValueStoringState.FORWARDING;
 		}
 		
@@ -34,7 +34,7 @@ final class StateProperty<V> {
 	//For a better performance, this implementation does not use all comfortable methods.
 	public V getValue() {
 		
-		if (!defined || value == null) {
+		if (!hasValueOrDefinesEmpty || value == null) {
 			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.VALUE);
 		}
 		
@@ -47,13 +47,19 @@ final class StateProperty<V> {
 	}
 	
 	//method
-	public boolean hasValueOrIsEmpty() {
-		return defined;
+	public boolean hasValueOrDefinesEmpty() {
+		return hasValueOrDefinesEmpty;
 	}
 	
 	//method
 	public void setEmpty() {
-		defined = true;
+		hasValueOrDefinesEmpty = true;
+		value = null;
+	}
+	
+	//method
+	public void setForwarding() {
+		hasValueOrDefinesEmpty = false;
 		value = null;
 	}
 	
@@ -65,13 +71,7 @@ final class StateProperty<V> {
 			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.VALUE);
 		}
 		
-		defined = true;
+		hasValueOrDefinesEmpty = true;
 		this.value = value;
-	}
-	
-	//method
-	public void setUndefined() {
-		defined = false;
-		value = null;
 	}
 }
