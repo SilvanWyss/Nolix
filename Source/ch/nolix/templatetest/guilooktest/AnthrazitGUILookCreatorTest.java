@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.templatetest.guilooktest;
 
-//own imports
-import ch.nolix.system.configuration.Configuration;
+import ch.nolix.system.element.configuration.Configuration;
 import ch.nolix.template.guilook.AnthrazitGUILookCreator;
 
 //class

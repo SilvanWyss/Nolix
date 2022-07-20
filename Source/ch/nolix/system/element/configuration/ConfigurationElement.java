@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.configuration;
+package ch.nolix.system.element.configuration;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;

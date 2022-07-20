@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.template.guilook;
 
-//own imports
-import ch.nolix.system.configuration.Configuration;
-import ch.nolix.system.configuration.DeepConfiguration;
+import ch.nolix.system.element.configuration.Configuration;
+import ch.nolix.system.element.configuration.DeepConfiguration;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.containerwidget.ContainerRole;
 import ch.nolix.system.gui.containerwidget.Grid;

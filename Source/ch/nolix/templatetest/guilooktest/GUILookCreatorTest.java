@@ -5,7 +5,7 @@ package ch.nolix.templatetest.guilooktest;
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.ObjectTest;
-import ch.nolix.system.configuration.Configuration;
+import ch.nolix.system.element.configuration.Configuration;
 import ch.nolix.system.gui.containerwidget.VerticalStack;
 import ch.nolix.system.gui.textbox.TextBox;
 import ch.nolix.system.gui.widget.Area;

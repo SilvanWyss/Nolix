@@ -21,7 +21,7 @@ import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionapi.mutationuniversalapi.Clearable;
-import ch.nolix.system.configuration.ConfigurationElement;
+import ch.nolix.system.element.configuration.ConfigurationElement;
 import ch.nolix.system.element.mutableelement.MutableOptionalSpecificationValueExtractor;
 import ch.nolix.system.element.mutableelement.MutableValue;
 import ch.nolix.system.gui.color.Color;

@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.business.serverdashboard;
 
-//own imports
-import ch.nolix.system.configuration.Configuration;
-import ch.nolix.system.configuration.DeepConfiguration;
+import ch.nolix.system.element.configuration.Configuration;
+import ch.nolix.system.element.configuration.DeepConfiguration;
 import ch.nolix.system.gui.containerwidget.ContainerRole;
 import ch.nolix.system.gui.containerwidget.FloatContainer;
 import ch.nolix.system.gui.widget.ImageWidget;
