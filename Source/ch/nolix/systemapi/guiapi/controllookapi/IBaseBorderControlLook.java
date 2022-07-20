@@ -9,85 +9,85 @@ import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 public interface IBaseBorderControlLook<BCL extends IBaseBorderControlLook<BCL>> {
 	
 	//method declaration
-	boolean hasBottomBorderColor();
+	IColor getBottomBorderColor();
 	
 	//method declaration
-	boolean hasBottomBorderThickness();
+	int getBottomBorderThickness();
 	
 	//method declaration
-	boolean hasBottomPadding();
+	int getBottomPadding();
 	
 	//method declaration
-	boolean hasLeftBorderColor();
+	IColor getLeftBorderColor();
 	
 	//method declaration
-	boolean hasLeftBorderThickness();
+	int getLeftBorderThickness();
 	
 	//method declaration
-	boolean hasLeftPadding();
+	int getLeftPadding();
 	
 	//method declaration
-	boolean hasRightBorderColor();
+	IColor getRightBorderColor();
 	
 	//method declaration
-	boolean hasRightBorderThickness();
+	int getRightBorderThickness();
 	
 	//method declaration
-	boolean hasRightPadding();
+	int getRightPadding();
 	
 	//method declaration
-	boolean hasTopBorderColor();
+	IColor getTopBorderColor();
 	
 	//method declaration
-	boolean hasTopBorderThickness();
+	int getTopBorderThickness();
 	
 	//method declaration
-	boolean hasTopPadding();
+	int getTopPadding();
 	
 	//method declaration
-	void removeBorderColor();
+	void removeCustomBorderColors();
 	
 	//method declaration
-	void removeBorderThickness();
+	void removeCustomBorderThicknesses();
 	
 	//method declaration
-	void removeBottomBorderColor();
+	void removeCustomBottomBorderColors();
 	
 	//method declaration
-	void removeBottomBorderThickness();
+	void removeCustomBottomBorderThicknesses();
 	
 	//method declaration
-	void removeBottomPadding();
+	void removeCustomBottomPaddings();
 	
 	//method declaration
-	void removeLeftBorderColor();
+	void removeCustomLeftBorderColors();
 	
 	//method declaration
-	void removeLeftBorderThickness();
+	void removeCustomLeftBorderThicknesses();
 	
 	//method declaration
-	void removeLeftPadding();
+	void removeCustomLeftPaddings();
 	
 	//method declaration
-	void removePadding();
+	void removeCustomPaddings();
 	
 	//method declaration
-	void removeRightBorderColor();
+	void removeCustomRightBorderColors();
 	
 	//method declaration
-	void removeRightBorderThickness();
+	void removeCustomRightBorderThicknesses();
 	
 	//method declaration
-	void removeRightPadding();
+	void removeCustomRightPaddings();
 	
 	//method declaration
-	void removeTopBorderColor();
+	void removeCustomTopBorderColors();
 	
 	//method declaration
-	void removeTopBorderThickness();
+	void removeCustomTopBorderThicknesses();
 	
 	//method declaration
-	void removeTopPadding();
+	void removeCustomTopPaddings();
 	
 	//method declaration
 	BCL setBorderColorForState(ControlState state, IColor borderColor);
