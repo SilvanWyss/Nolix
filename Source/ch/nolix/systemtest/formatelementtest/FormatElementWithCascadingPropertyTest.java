@@ -4,9 +4,9 @@ package ch.nolix.systemtest.formatelementtest;
 //own imports
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
+import ch.nolix.system.element.multistateelement.CascadingProperty;
+import ch.nolix.system.element.multistateelement.MultiStateElement;
 import ch.nolix.system.gui.color.Color;
-import ch.nolix.system.multistateelement.CascadingProperty;
-import ch.nolix.system.multistateelement.MultiStateElement;
 
 //class
 public final class FormatElementWithCascadingPropertyTest extends Test {

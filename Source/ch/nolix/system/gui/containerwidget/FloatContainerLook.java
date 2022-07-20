@@ -4,8 +4,8 @@ package ch.nolix.system.gui.containerwidget;
 //own imports
 import ch.nolix.core.document.node.Node;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
+import ch.nolix.system.element.multistateelement.NonCascadingProperty;
 import ch.nolix.system.gui.widget.BorderWidgetLook;
-import ch.nolix.system.multistateelement.NonCascadingProperty;
 import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 
 //class
