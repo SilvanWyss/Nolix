@@ -5,7 +5,7 @@ package ch.nolix.systemapi.elementapi.mainuniversalapi;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.documentapi.xmlapi.IXMLNode;
-import ch.nolix.coreapi.markerapi.AllowDefaultMethodsAsDesignPattern;
+import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 
 //interface
 /**

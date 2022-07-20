@@ -5,7 +5,7 @@ package ch.nolix.systemapi.guiapi.mainapi;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.I2ElementTaker;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
-import ch.nolix.coreapi.markerapi.AllowDefaultMethodsAsDesignPattern;
+import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 
 //interface

@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.guiapi.inputapi;
 
-//own imports
-import ch.nolix.coreapi.markerapi.AllowDefaultMethodsAsDesignPattern;
+import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
 
 //interface

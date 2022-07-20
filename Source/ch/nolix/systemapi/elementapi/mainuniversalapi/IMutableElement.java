@@ -4,7 +4,7 @@ package ch.nolix.systemapi.elementapi.mainuniversalapi;
 //own imports
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionapi.mutationuniversalapi.Resettable;
-import ch.nolix.coreapi.markerapi.AllowDefaultMethodsAsDesignPattern;
+import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 
 //interface
 /**

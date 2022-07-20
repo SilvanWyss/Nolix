@@ -4,7 +4,7 @@ package ch.nolix.systemapi.guiapi.mainapi;
 //own imports
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
-import ch.nolix.coreapi.markerapi.AllowDefaultMethodsAsDesignPattern;
+import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 
 //interface
 @AllowDefaultMethodsAsDesignPattern
