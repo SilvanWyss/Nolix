@@ -26,16 +26,16 @@ public interface IControlLook<CL extends IControlLook<CL>> extends IRespondingMu
 	int getTextSize();
 	
 	//method declaration
-	void removeBoldTextFlags();
+	void removeCustomBoldTextFlags();
 	
 	//method declaration
-	void removeFonts();
+	void removeCustomFonts();
 	
 	//method declaration
-	void removeTextColors();
+	void removeCustomTextColors();
 	
 	//method declaration
-	void removeTextSizes();
+	void removecCustomTextSizes();
 	
 	//method declaration
 	CL setBoldTextFlagForState(ControlState state, boolean boldTextFlag);
