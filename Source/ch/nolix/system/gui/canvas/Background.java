@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.gui.image;
+package ch.nolix.system.gui.canvas;
 
 //own imports
 import ch.nolix.core.container.pair.Pair;
@@ -9,6 +9,7 @@ import ch.nolix.system.element.mutableelement.MutableElement;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.color.ColorGradient;
+import ch.nolix.system.gui.image.MutableImage;
 import ch.nolix.systemapi.guiapi.canvasapi.IBackground;
 import ch.nolix.systemapi.guiapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.colorapi.IColorGradient;
