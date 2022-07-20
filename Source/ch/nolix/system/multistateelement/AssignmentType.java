@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.formatelement;
+package ch.nolix.system.multistateelement;
 
 //enum
 public enum AssignmentType {

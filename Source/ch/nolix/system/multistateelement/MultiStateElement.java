@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.formatelement;
+package ch.nolix.system.multistateelement;
 
 //Java imports
 import java.lang.reflect.Field;
@@ -17,7 +17,7 @@ import ch.nolix.system.element.main.Element;
 import ch.nolix.systemapi.elementapi.mainuniversalapi.IRespondingMutableElement;
 
 //class
-public abstract class FormatElement<FE extends FormatElement<FE, S>, S extends Enum<S>>
+public abstract class MultiStateElement<FE extends MultiStateElement<FE, S>, S extends Enum<S>>
 extends Element
 implements IRespondingMutableElement<FE> {
 	
@@ -35,7 +35,7 @@ implements IRespondingMutableElement<FE> {
 	private IContainer<Property<S>> properties;
 	
 	//constructor
-	protected FormatElement(final S baseState) {
+	protected MultiStateElement(final S baseState) {
 		
 		GlobalValidator.assertThat(baseState).thatIsNamed("base state").isNotNull();
 		
@@ -115,7 +115,7 @@ implements IRespondingMutableElement<FE> {
 	
 	//method
 	/**
-	 * @return the current {@link FormatElement} as concrete {@link FormatElement}.
+	 * @return the current {@link MultiStateElement} as concrete {@link MultiStateElement}.
 	 */
 	@SuppressWarnings("unchecked")
 	protected final FE asConcrete() {
@@ -123,7 +123,7 @@ implements IRespondingMutableElement<FE> {
 	}
 	
 	//method
-	protected final <FE2 extends FormatElement<FE2, S>> void internalAddChild(final FE2 child) {
+	protected final <FE2 extends MultiStateElement<FE2, S>> void internalAddChild(final FE2 child) {
 		
 		GlobalValidator.assertThat(child).thatIsNamed(LowerCaseCatalogue.CHILD).isNotNull();
 		
@@ -174,7 +174,7 @@ implements IRespondingMutableElement<FE> {
 	}
 	
 	//method
-	final void setParent(final FormatElement<?, S> parentElement) {
+	final void setParent(final MultiStateElement<?, S> parentElement) {
 		
 		final var parentCascadingProperties = LinkedList.fromIterable(parentElement.getRefCascadingProperties());
 		

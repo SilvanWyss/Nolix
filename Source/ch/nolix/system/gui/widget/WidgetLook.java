@@ -7,17 +7,17 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.system.formatelement.CascadingProperty;
-import ch.nolix.system.formatelement.FormatElement;
-import ch.nolix.system.formatelement.NonCascadingProperty;
 import ch.nolix.system.gui.color.Color;
+import ch.nolix.system.multistateelement.CascadingProperty;
+import ch.nolix.system.multistateelement.MultiStateElement;
+import ch.nolix.system.multistateelement.NonCascadingProperty;
 import ch.nolix.systemapi.guiapi.textformatapi.Font;
 import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 import ch.nolix.systemapi.guiapi.widgetguiapi.IWidgetLook;
 
 //class
 public abstract class WidgetLook<WL extends WidgetLook<WL>>
-extends FormatElement<WL, ControlState>
+extends MultiStateElement<WL, ControlState>
 implements IWidgetLook<WL> {
 	
 	//constant

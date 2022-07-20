@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.formatelement;
+package ch.nolix.system.multistateelement;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -13,7 +13,7 @@ public abstract class Property<S extends Enum<S>> implements Named {
 	
 	//attributes
 	private final String name;
-	protected FormatElement<?, S> parent;
+	protected MultiStateElement<?, S> parent;
 	
 	//constructor
 	protected Property(final String name) {
@@ -42,7 +42,7 @@ public abstract class Property<S extends Enum<S>> implements Named {
 	protected abstract void setValueFromSpecification(INode<?> specification);
 	
 	//method
-	final void setParent(final FormatElement<?, S> parent) {
+	final void setParent(final MultiStateElement<?, S> parent) {
 		
 		GlobalValidator.assertThat(parent).thatIsNamed(LowerCaseCatalogue.PARENT).isNotNull();
 		

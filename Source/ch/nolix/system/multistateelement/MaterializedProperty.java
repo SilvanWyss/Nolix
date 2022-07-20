@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.formatelement;
+package ch.nolix.system.multistateelement;
 
 //own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
