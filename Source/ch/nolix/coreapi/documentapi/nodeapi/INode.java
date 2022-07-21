@@ -105,6 +105,13 @@ public interface INode<N extends INode<N>> extends BlanknessRequestable, Optiona
 	
 	//method declaration
 	/**
+	 * @return the first child {@link INode} from the current {@link INode}.
+	 * @throws RuntimeException if the current {@link INode} does not contain child {@link INode}s.
+	 */
+	N getRefFirstChildNode();
+	
+	//method declaration
+	/**
 	 * @param selector
 	 * @return the first child {@link INode} the given selector selects from the current {@link INode}.
 	 * @throws RuntimeException if

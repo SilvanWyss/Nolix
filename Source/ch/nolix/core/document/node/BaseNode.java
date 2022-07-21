@@ -160,60 +160,6 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 		return getRefChildNodes().to(INode::getHeader);
 	}
 	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	public final boolean getSingleChildNodeAsBoolean() {
-		return getRefSingleChildNode().toBoolean();
-	}
-	
-	//method
-	/**
-	 * @return the double the one attribute of the current {@link BaseNode} represents.
-	 * @throws EmptyArgumentException if the current {@link BaseNode} does not contain attributes.
-	 * @throws InvalidArgumentException if the current {@link BaseNode} contains several attributes.
-	 * @throws InvalidArgumentException
-	 * if the one attribute of the current {@link BaseNode} does not represent a double.
-	 */
-	public final double getSingleChildNodeAsDouble() {
-		return getRefSingleChildNode().toDouble();
-	}
-	
-	//method
-	/**
-	 * @return the integer the one attribute of the current {@link BaseNode} represents.
-	 * @throws EmptyArgumentException if the current {@link BaseNode} does not contain attributes.
-	 * @throws InvalidArgumentException if the current {@link BaseNode} contains several attributes.
-	 * @throws InvalidArgumentException
-	 * if the one attribute of the current {@link BaseNode} does not represent an integer.
-	 */
-	public final int getSingleChildNodeAsInt() {
-		return getRefSingleChildNode().toInt();
-	}
-	
-	//method
-	/**
-	 * @return the long the one attribute of the current {@link BaseNode} represents.
-	 * @throws EmptyArgumentException if the current {@link BaseNode} does not contain attributes.
-	 * @throws InvalidArgumentException if the current {@link BaseNode} contains several attributes.
-	 * @throws InvalidArgumentException
-	 * if the one attribute of the current {@link BaseNode} does not represent a long.
-	 */
-	public final long getSingleChildNodeAsLong() {
-		return getRefSingleChildNode().toLong();
-	}
-	
-	//method
-	/**
-	 * @return the header of the one attribute of the current {@link BaseNode}.
-	 * @throws EmptyArgumentException if the current {@link BaseNode} does not contain attributes.
-	 * @throws InvalidArgumentException if the current {@link BaseNode} contains several attributes.
-	 */
-	public final String getSingleChildNodeHeader() {
-		return getRefSingleChildNode().getHeader();
-	}
-	
 	//method declaration
 	/**
 	 * @param index
@@ -242,6 +188,15 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	 */
 	public final IContainer<BN> getRefChildNodesThat(final IElementTakerBooleanGetter<INode<?>> selector) {
 		return getRefChildNodes().getRefSelected(selector);
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final BN getRefFirstChildNode() {
+		return getRefChildNodes().getRefFirst();
 	}
 	
 	//method
@@ -283,6 +238,60 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 		return getRefFirstChildNodeThat(a -> a.hasHeader(header));
 	}
 	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	public final boolean getSingleChildNodeAsBoolean() {
+		return getRefSingleChildNode().toBoolean();
+	}
+
+	//method
+	/**
+	 * @return the double the one attribute of the current {@link BaseNode} represents.
+	 * @throws EmptyArgumentException if the current {@link BaseNode} does not contain attributes.
+	 * @throws InvalidArgumentException if the current {@link BaseNode} contains several attributes.
+	 * @throws InvalidArgumentException
+	 * if the one attribute of the current {@link BaseNode} does not represent a double.
+	 */
+	public final double getSingleChildNodeAsDouble() {
+		return getRefSingleChildNode().toDouble();
+	}
+
+	//method
+	/**
+	 * @return the integer the one attribute of the current {@link BaseNode} represents.
+	 * @throws EmptyArgumentException if the current {@link BaseNode} does not contain attributes.
+	 * @throws InvalidArgumentException if the current {@link BaseNode} contains several attributes.
+	 * @throws InvalidArgumentException
+	 * if the one attribute of the current {@link BaseNode} does not represent an integer.
+	 */
+	public final int getSingleChildNodeAsInt() {
+		return getRefSingleChildNode().toInt();
+	}
+
+	//method
+	/**
+	 * @return the long the one attribute of the current {@link BaseNode} represents.
+	 * @throws EmptyArgumentException if the current {@link BaseNode} does not contain attributes.
+	 * @throws InvalidArgumentException if the current {@link BaseNode} contains several attributes.
+	 * @throws InvalidArgumentException
+	 * if the one attribute of the current {@link BaseNode} does not represent a long.
+	 */
+	public final long getSingleChildNodeAsLong() {
+		return getRefSingleChildNode().toLong();
+	}
+
+	//method
+	/**
+	 * @return the header of the one attribute of the current {@link BaseNode}.
+	 * @throws EmptyArgumentException if the current {@link BaseNode} does not contain attributes.
+	 * @throws InvalidArgumentException if the current {@link BaseNode} contains several attributes.
+	 */
+	public final String getSingleChildNodeHeader() {
+		return getRefSingleChildNode().getHeader();
+	}
+
 	//method
 	/**
 	 * {@inheritDoc}
