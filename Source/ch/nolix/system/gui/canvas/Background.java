@@ -2,14 +2,19 @@
 package ch.nolix.system.gui.canvas;
 
 //own imports
-import ch.nolix.core.container.pair.Pair;
+import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.document.node.Node;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.system.element.mutableelement.MutableElement;
-import ch.nolix.system.element.mutableelement.MutableOptionalValue;
+import ch.nolix.system.element.main.Element;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.color.ColorGradient;
-import ch.nolix.system.gui.image.MutableImage;
+import ch.nolix.system.gui.image.Image;
 import ch.nolix.systemapi.guiapi.canvasuniversalapi.IBackground;
 import ch.nolix.systemapi.guiapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.colorapi.IColorGradient;
@@ -18,7 +23,7 @@ import ch.nolix.systemapi.guiapi.imageapi.ImageApplication;
 import ch.nolix.systemapi.guiapi.structureproperty.BackgroundType;
 
 //class
-public final class Background extends MutableElement<Background> implements IBackground {
+public final class Background extends Element implements IBackground {
 	
 	//constant
 	public static final Color DEFAULT_COLOR = Color.WHITE;
@@ -38,66 +43,138 @@ public final class Background extends MutableElement<Background> implements IBac
 	//static method
 	public static Background fromSpecification(final INode<?> specification) {
 		
-		final var background = new Background();
-		background.resetFromSpecification(specification);
+		final var childNode = specification.getRefFirstChildNode();
 		
-		return background;
+		switch (childNode.getHeader()) {
+			case COLOR_HEADER:
+				return withColor(Color.fromSpecification(childNode));
+			case COLOR_GRADIENT_HEADER:
+				return withColorGradient(ColorGradient.fromSpecification(childNode));
+			case IMAGE_HEADER:				
+				return
+				withImageAndImageApplication(
+					Image.fromSpecification(specification.getRefChildNodeAt1BasedIndex(1)),
+					ImageApplication.fromSpecification(specification.getRefChildNodeAt1BasedIndex(2))
+				);
+			default:
+				throw
+				UnrepresentingArgumentException.forArgumentNameAndArgumentAndType(
+					LowerCaseCatalogue.SPECIFICATION,
+					specification,
+					Background.class
+				);
+		}
+	}
+	
+	//static method
+	public static Background withColor(final IColor color) {
+		return new Background(color);
+	}
+	
+	//static method
+	public static Background withColorGradient(final IColorGradient colorGradient) {
+		return new Background(colorGradient);
+	}
+	
+	//static method
+	public static Background withImageAndImageApplication(
+		final IImage image,
+		final ImageApplication imageApplication
+	) {
+		return new Background(image, imageApplication);
 	}
 	
 	//attribute
-	private final MutableOptionalValue<IColor> color =
-	new MutableOptionalValue<>(
-		COLOR_HEADER,
-		this::setColor,
-		Color::fromSpecification,
-		IColor::getSpecification
-	);
+	private final IColor color;
 	
 	//attribute
-	private final MutableOptionalValue<IColorGradient> colorGradient =
-	new MutableOptionalValue<>(
-		COLOR_GRADIENT_HEADER,
-		this::setColorGradient,
-		ColorGradient::fromSpecification,
-		IColorGradient::getSpecification
-	);
+	private final IColorGradient colorGradient;
 	
 	//attribute
-	private final MutableOptionalValue<Pair<IImage, ImageApplication>> mutableImage =
-	new MutableOptionalValue<>(
-		IMAGE_HEADER,
-		this::setImage,
-		s ->
-		new Pair<>(
-			MutableImage.fromSpecification(s.getRefChildNodeAt1BasedIndex(1)),
-			ImageApplication.fromSpecification(s.getRefChildNodeAt1BasedIndex(2))
-		),
-		bi -> Node.withChildNode(bi.getRefElement1().getSpecification(), Node.fromEnum(bi.getRefElement2()))
-	);
+	private final IImage image;
+	
+	//attribute
+	private final ImageApplication imageApplication;
 	
 	//constructor
-	public Background() {
-		reset();
+	private Background(final IColor color) {
+		
+		GlobalValidator.assertThat(color).thatIsNamed(IColor.class).isNotNull();
+		
+		this.color = color;
+		colorGradient = null;
+		image = null;
+		imageApplication = null;
+	}
+	
+	//constructor
+	private Background(final IColorGradient colorGradient) {
+		
+		GlobalValidator.assertThat(colorGradient).thatIsNamed(IColorGradient.class).isNotNull();
+		
+		color = null;
+		this.colorGradient = colorGradient;
+		image = null;
+		imageApplication = null;
+	}
+	
+	//constructor
+	private Background(final IImage image, final ImageApplication imageApplication) {
+		
+		GlobalValidator.assertThat(image).thatIsNamed(IImage.class).isNotNull();
+		GlobalValidator.assertThat(imageApplication).thatIsNamed(ImageApplication.class).isNotNull();
+		
+		color = null;
+		colorGradient = null;
+		this.image = image;
+		this.imageApplication = imageApplication;
+	}
+	
+	//method
+	@Override
+	public IContainer<INode<?>> getAttributes() {
+		switch (getType()) {
+			case COLOR:
+				return LinkedList.withElements(getColor().getSpecification());
+			case COLOR_GRADIENT:
+				return LinkedList.withElements(getColorGradient().getSpecification());
+			case IMAGE:
+				return LinkedList.withElements(getImage().getSpecification(), Node.fromEnum(getImageApplication()));
+			default:
+				throw InvalidArgumentException.forArgument(this);
+		}
 	}
 	
 	//method
 	public IColor getColor() {
-		return color.getValue();
+		
+		assertIsColor();
+		
+		return color;
 	}
 	
 	//method
 	public IColorGradient getColorGradient() {
-		return colorGradient.getValue();
+		
+		assertIsColorGradient();
+		
+		return colorGradient;
 	}
 	
 	//method
 	public IImage getImage() {
-		return mutableImage.getValue().getRefElement1();
+		
+		assertIsImage();
+		
+		return image;
 	}
 	
 	//method
 	public ImageApplication getImageApplication() {
-		return mutableImage.getValue().getRefElement2();
+		
+		assertIsImage();
+		
+		return imageApplication;
 	}
 	
 	//method
@@ -117,69 +194,38 @@ public final class Background extends MutableElement<Background> implements IBac
 	
 	//method
 	public boolean isColor() {
-		return color.hasValue();
+		return (color != null);
 	}
 	
 	//method
 	public boolean isColorGradient() {
-		return colorGradient.hasValue();
+		return (colorGradient != null);
 	}
 	
 	//method
 	public boolean isImage() {
-		return mutableImage.hasValue();
-	}
-		
-	//method
-	@Override
-	public void reset() {
-		setColor(DEFAULT_COLOR);
+		return (image != null);
 	}
 	
 	//method
-	public IBackground setColor(final IColor color) {
+	private void assertIsColor() {
+		if (!isColor()) {
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeType(this, IColor.class);
+		}
 		
-		clear();
-		this.color.setValue(color);
-		
-		return this;
 	}
 	
 	//method
-	public IBackground setColorGradient(final IColorGradient backgroundColorGradient) {
-		
-		clear();
-		this.colorGradient.setValue(backgroundColorGradient);
-		
-		return this;
+	private void assertIsColorGradient() {
+		if (!isColorGradient()) {
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeType(this, IColorGradient.class);
+		}
 	}
 	
 	//method
-	@Override
-	public IBackground setImage(final IImage image) {
-		return setImage(image, DEFAULT_IMAGE_APPLICATION);
-	}
-	
-	//method
-	public IBackground setImage(final IImage image, final ImageApplication imageApplication) {
-		
-		setImage(new Pair<>(image, imageApplication));
-		
-		return this;
-	}
-	
-	//method
-	private void clear() {
-		color.clear();
-		colorGradient.clear();
-		mutableImage.clear();
-	}
-	
-	//method
-	private void setImage(final Pair<IImage, ImageApplication> backgroundImage) {
-		
-		clear();
-		
-		this.mutableImage.setValue(backgroundImage);
+	private void assertIsImage() {
+		if (!isImage()) {
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeType(this, IImage.class);
+		}
 	}
 }

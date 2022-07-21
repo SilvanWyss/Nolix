@@ -856,10 +856,7 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 	 */
 	public Layer setBackgroundColor(final IColor backgroundColor) {
 		
-		final var lBackground = new Background();
-		lBackground.setColor(backgroundColor);
-		
-		setBackground(lBackground);
+		setBackground(Background.withColor(backgroundColor));
 		
 		return this;
 	}
@@ -875,10 +872,7 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 	 */
 	public Layer setBackgroundColorGradient(final IColorGradient backgroundColorGradient) {
 		
-		final var lBackground = new Background();
-		lBackground.setColorGradient(backgroundColorGradient);
-		
-		setBackground(lBackground);
+		setBackground(Background.withColorGradient(backgroundColorGradient));
 		
 		return this;
 	}
@@ -896,10 +890,7 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 	 */
 	public Layer setBackgroundImage(final IImage backgroundImage, final ImageApplication imageApplication) {
 		
-		final var lBackground = new Background();
-		lBackground.setImage(backgroundImage, imageApplication);
-		
-		setBackground(lBackground);
+		setBackground(Background.withImageAndImageApplication(backgroundImage, imageApplication));
 		
 		return this;
 	}

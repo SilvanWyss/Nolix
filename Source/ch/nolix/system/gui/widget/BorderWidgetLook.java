@@ -531,10 +531,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	//method
 	public final BWL setBackgroundColorForState(final ControlState state, final Color backgroundColor) {
 		
-		final var lBackground = new Background();
-		lBackground.setColor(backgroundColor);
-		
-		this.background.setValueForState(state, lBackground);
+		this.background.setValueForState(state, Background.withColor(backgroundColor));
 		
 		return asConcrete();
 	}
@@ -545,10 +542,7 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 		final ColorGradient backgroundColorGradient
 	) {
 		
-		final var lBackground = new Background();
-		lBackground.setColorGradient(backgroundColorGradient);
-		
-		this.background.setValueForState(state, lBackground);
+		this.background.setValueForState(state, Background.withColorGradient(backgroundColorGradient));
 		
 		return asConcrete();
 	}
@@ -556,14 +550,14 @@ public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extend
 	//method
 	public final BWL setBackgroundImageForState(
 		final ControlState state,
-		final MutableImage backgroundImage,
+		final IImage backgroundImage,
 		final ImageApplication imageApplication
 	) {
 		
-		final var lBackground = new Background();
-		lBackground.setImage(backgroundImage, imageApplication);
-		
-		this.background.setValueForState(state, lBackground);
+		this.background.setValueForState(
+			state,
+			Background.withImageAndImageApplication(backgroundImage, imageApplication)
+		);
 		
 		return asConcrete();
 	}
