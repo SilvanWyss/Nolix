@@ -12,5 +12,8 @@ public interface ILinearContainerLook<LCL extends ILinearContainerLook<LCL>> ext
 	int getControlMargin();
 	
 	//method declaration
+	void removeCustomControlMargins();
+	
+	//method declaration
 	LCL setControlMarginForState(ControlState state, int controlMargin);
 }
