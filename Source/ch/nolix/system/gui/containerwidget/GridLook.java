@@ -9,6 +9,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.element.multistateelement.NonCascadingProperty;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.widget.BorderWidgetLook;
+import ch.nolix.system.gui.widgetgui.GridType;
 import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 
 //class

@@ -3,10 +3,10 @@ package ch.nolix.systemtutorial.guitutorial.containerwidgettutorial;
 //own imports
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.containerwidget.Grid;
-import ch.nolix.system.gui.containerwidget.GridType;
 import ch.nolix.system.gui.widget.Area;
 import ch.nolix.system.gui.widget.Label;
 import ch.nolix.system.gui.widgetgui.Frame;
+import ch.nolix.system.gui.widgetgui.GridType;
 import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 
 /**

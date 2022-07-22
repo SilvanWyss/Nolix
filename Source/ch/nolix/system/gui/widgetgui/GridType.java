@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.gui.containerwidget;
+package ch.nolix.system.gui.widgetgui;
 
 //own imports
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
