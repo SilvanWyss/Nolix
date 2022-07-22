@@ -2,13 +2,15 @@
 package ch.nolix.systemapi.webguiapi.mainapi;
 
 //own imports
+import ch.nolix.coreapi.documentapi.htmlapi.HTMLElementTransformable;
 import ch.nolix.coreapi.functionapi.mutationuniversalapi.Clearable;
 import ch.nolix.systemapi.elementapi.configurationapi.IConfigurableElement;
 import ch.nolix.systemapi.guiapi.canvasuniversalapi.ICanvas;
 import ch.nolix.systemapi.guiapi.inputapi.IInputTaker;
 
 //interface
-public interface ILayer<L extends ILayer<L>> extends Clearable, ICanvas<L>, IConfigurableElement<L>, IInputTaker {
+public interface ILayer<L extends ILayer<L>>
+extends Clearable, HTMLElementTransformable, ICanvas<L>, IConfigurableElement<L>, IInputTaker {
 	
 	//method declaration
 	boolean belongsToGUI();
