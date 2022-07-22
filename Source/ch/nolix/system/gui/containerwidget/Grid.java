@@ -73,6 +73,8 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 				case INNER_AND_OUTER_LINES:
 					contentHeight += (getRowCount() + 1) * getLineThickness();
 					break;
+				case NO_LINES:
+					break;
 			}
 		
 		contentHeight += getRowCount() * 2 * getElementMargin();
@@ -86,16 +88,16 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 		
 		var contentWidth = cells.getColumns().getSumByInt(c -> c.getMaxInt(GridCell::getWidth));
 		
-	
-			switch (getRefLook().getGridType()) {
-				case INNER_LINES:
-					contentWidth += (getColumnCount() - 1) * getLineThickness();
-					break;
-				case INNER_AND_OUTER_LINES:
-					contentWidth += (getColumnCount() + 1) * getLineThickness();
-					break;
-			}
-		
+		switch (getRefLook().getGridType()) {
+			case INNER_LINES:
+				contentWidth += (getColumnCount() - 1) * getLineThickness();
+				break;
+			case INNER_AND_OUTER_LINES:
+				contentWidth += (getColumnCount() + 1) * getLineThickness();
+				break;
+			case NO_LINES:
+				break;
+		}
 		
 		contentWidth += getColumnCount() * 2 * getElementMargin();
 		
