@@ -2,11 +2,10 @@
 package ch.nolix.systemapi.webguiapi.containerapi;
 
 //own imports
-import ch.nolix.coreapi.functionapi.mutationuniversalapi.Clearable;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //interface
-public interface IGridContainer extends Clearable, IControl<IGridContainer, IGridContainerLook> {
+public interface IGridContainer extends IContainer<IGridContainer, IGridContainerLook> {
 	
 	//method declaration
 	int getColumnCount();
