@@ -2,6 +2,7 @@
 package ch.nolix.systemapi.webguiapi.mainapi;
 
 //own imports
+import ch.nolix.coreapi.documentapi.htmlapi.HTMLElementTransformable;
 import ch.nolix.systemapi.elementapi.configurationapi.IConfigurableElement;
 import ch.nolix.systemapi.guiapi.controllookapi.IControlLook;
 import ch.nolix.systemapi.guiapi.inputapi.IInputTaker;
@@ -12,7 +13,7 @@ public interface IControl<
 	C extends IControl<C, CL>,
 	CL extends IControlLook<CL>
 >
-extends IConfigurableElement<C>, IInputTaker {
+extends HTMLElementTransformable, IConfigurableElement<C>, IInputTaker {
 	
 	//method declaration
 	boolean belongsToGUI();
