@@ -431,7 +431,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 			layer.getRefRootWidget().setFocused();
 		}
 		
-		updateFromConfiguration();
+		applyConfigurationIfHasConfiguration();
 		
 		return asConcrete();
 	}
@@ -576,10 +576,10 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void updateFromConfiguration() {
+	public final void applyConfigurationIfHasConfiguration() {
 		
 		//Calls method of the base class.
-		super.updateFromConfiguration();
+		super.applyConfigurationIfHasConfiguration();
 		
 		refresh();
 	}

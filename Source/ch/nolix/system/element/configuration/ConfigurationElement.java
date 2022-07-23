@@ -2,10 +2,10 @@
 package ch.nolix.system.element.configuration;
 
 //own imports
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 import ch.nolix.systemapi.elementapi.configurationapi.IConfiguration;
+import ch.nolix.systemapi.elementapi.configurationapi.IConfigurationElement;
 
 //class
 /**
@@ -15,7 +15,9 @@ import ch.nolix.systemapi.elementapi.configurationapi.IConfiguration;
  * @date 2016-05-01
  * @param <CE> is the type of a {@link ConfigurationElement}.
  */
-public abstract class ConfigurationElement<CE extends ConfigurationElement<CE>> extends ConfigurableElement<CE> {
+public abstract class ConfigurationElement<CE extends ConfigurationElement<CE>>
+extends ConfigurableElement<CE>
+implements IConfigurationElement<CE> {
 	
 	//constant
 	private static final String CONFIGURATION_HEADER = PascalCaseCatalogue.CONFIGURATION;
@@ -31,48 +33,48 @@ public abstract class ConfigurationElement<CE extends ConfigurationElement<CE>> 
 	
 	//method
 	/**
-	 * @return true if the current {@link ConfigurationElement} has a {@link Configuration}.
+	 * {@inheritDoc}
 	 */
-	public final boolean hasConfiguration() {
-		return configuration.hasValue();
-	}
-	
-	//method
-	/**
-	 * Removes the {@link Configuration} of the current {@link ConfigurationElement}.
-	 */
-	public void removeConfiguration() {
-		configuration.clear();
-		resetConfiguration();
-	}
-	
-	//method
-	/**
-	 * Sets the {@link Configuration} of the current {@link ConfigurationElement}.
-	 * 
-	 * @param configuration
-	 * @return the current {@link ConfigurationElement}.
-	 * @throws ArgumentIsNullException if the given configuration is null.
-	 */
-	public CE setConfiguration(IConfiguration configuration) {
-		
-		this.configuration.setValue(configuration);
-		updateFromConfiguration();
-		
-		return asConcrete();
-	}
-	
-	//method
-	/**
-	 * Updates the current {@link Configuration} from its {@link Configuration}.
-	 */
-	public void updateFromConfiguration() {
+	@Override
+	public void applyConfigurationIfHasConfiguration() {
 		
 		//Handles the case that the current ConfigurationElement has a Configuration.
 		if (hasConfiguration()) {
 			resetConfiguration();
 			getRefConfiguration().configure(this);
 		}
+	}
+
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final boolean hasConfiguration() {
+		return configuration.hasValue();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void removeConfiguration() {
+		configuration.clear();
+		resetConfiguration();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public CE setConfiguration(IConfiguration configuration) {
+		
+		this.configuration.setValue(configuration);
+		applyConfigurationIfHasConfiguration();
+		
+		return asConcrete();
 	}
 	
 	//method
