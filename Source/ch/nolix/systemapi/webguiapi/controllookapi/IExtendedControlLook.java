@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemapi.guiapi.controllookapi;
+package ch.nolix.systemapi.webguiapi.controllookapi;
 
 //interface
 public interface IExtendedControlLook<ECL extends IExtendedControlLook<ECL>>

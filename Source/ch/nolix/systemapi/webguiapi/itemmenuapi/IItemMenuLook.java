@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.webguiapi.itemmenuapi;
 
-//own imports
-import ch.nolix.systemapi.guiapi.controllookapi.IExtendedControlLook;
+import ch.nolix.systemapi.webguiapi.controllookapi.IExtendedControlLook;
 
 //interface
 public interface IItemMenuLook<IML extends IItemMenuLook<IML>> extends IExtendedControlLook<IML> {}

@@ -4,7 +4,7 @@ package ch.nolix.systemapi.webguiapi.containerapi;
 //own imports
 import ch.nolix.coreapi.functionapi.mutationuniversalapi.Clearable;
 import ch.nolix.system.gui.containerwidget.ContainerRole;
-import ch.nolix.systemapi.guiapi.controllookapi.IExtendedControlLook;
+import ch.nolix.systemapi.webguiapi.controllookapi.IExtendedControlLook;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //interface

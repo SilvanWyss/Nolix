@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.webguiapi.controlapi;
 
-//own imports
-import ch.nolix.systemapi.guiapi.controllookapi.IControlLook;
+import ch.nolix.systemapi.webguiapi.controllookapi.IControlLook;
 
 //interface
 public interface IButtonLook extends IControlLook<IButtonLook> {}
