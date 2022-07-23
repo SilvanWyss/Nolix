@@ -9,10 +9,10 @@ import ch.nolix.coreapi.documentapi.keyvalueapi.IKeyValuePair;
 public interface IHTMLElement<E extends IHTMLElement<E, KVP>, KVP extends IKeyValuePair<String, String>> {
 	
 	//method declaration
-	IContainer<KVP> getAttributes();
+	IContainer<KVP> getRefAttributes();
 	
 	//method declaration
-	IContainer<E> getChildElements();
+	IContainer<E> getRefChildElements();
 	
 	//method declaration
 	String getType();
