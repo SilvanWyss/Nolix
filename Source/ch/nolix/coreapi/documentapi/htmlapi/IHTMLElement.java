@@ -3,16 +3,21 @@ package ch.nolix.coreapi.documentapi.htmlapi;
 
 //own imports
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
-import ch.nolix.coreapi.documentapi.keyvalueapi.IKeyValuePair;
 
 //interface
-public interface IHTMLElement<E extends IHTMLElement<E, KVP>, KVP extends IKeyValuePair<String, String>> {
+public interface IHTMLElement<CE extends IHTMLElement<CE, A>, A extends IHTMLAttribute> {
 	
 	//method declaration
-	IContainer<KVP> getRefAttributes();
+	boolean containsAttributes();
 	
 	//method declaration
-	IContainer<E> getRefChildElements();
+	boolean containsChildElements();
+	
+	//method declaration
+	IContainer<A> getRefAttributes();
+	
+	//method declaration
+	IContainer<CE> getRefChildElements();
 	
 	//method declaration
 	String getType();
