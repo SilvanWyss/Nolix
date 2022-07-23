@@ -8,7 +8,7 @@ import ch.nolix.system.gui.widget.Button;
 import ch.nolix.system.gui.widget.Label;
 import ch.nolix.system.gui.widgetgui.Layer;
 import ch.nolix.system.gui.widgetgui.LayerRole;
-import ch.nolix.systemapi.guiapi.controlproperty.ContainerRole;
+import ch.nolix.systemapi.guiapi.containercontrolproperty.ContainerRole;
 import ch.nolix.systemapi.guiapi.controlrole.ButtonRole;
 
 //class

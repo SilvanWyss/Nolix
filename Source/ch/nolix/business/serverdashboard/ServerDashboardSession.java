@@ -8,7 +8,7 @@ import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.system.application.guiapplication.BackendGUIClientSession;
 import ch.nolix.system.gui.containerwidget.FloatContainer;
 import ch.nolix.system.gui.widget.Widget;
-import ch.nolix.systemapi.guiapi.controlproperty.ContainerRole;
+import ch.nolix.systemapi.guiapi.containercontrolproperty.ContainerRole;
 
 //class
 final class ServerDashboardSession extends BackendGUIClientSession<IServerDashboardAccess> {

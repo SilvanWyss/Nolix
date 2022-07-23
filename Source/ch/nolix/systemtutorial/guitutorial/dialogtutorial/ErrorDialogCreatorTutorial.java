@@ -5,7 +5,7 @@ import ch.nolix.system.element.configuration.DeepConfiguration;
 import ch.nolix.system.gui.dialog.ErrorDialogCreator;
 import ch.nolix.system.gui.widget.Button;
 import ch.nolix.system.gui.widgetgui.Frame;
-import ch.nolix.systemapi.guiapi.controlproperty.ContainerRole;
+import ch.nolix.systemapi.guiapi.containercontrolproperty.ContainerRole;
 
 public final class ErrorDialogCreatorTutorial {
 	

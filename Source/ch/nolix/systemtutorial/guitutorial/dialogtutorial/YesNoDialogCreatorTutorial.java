@@ -6,7 +6,7 @@ import ch.nolix.system.gui.dialog.YesNoDialogCreator;
 import ch.nolix.system.gui.widget.Button;
 import ch.nolix.system.gui.widget.LabelRole;
 import ch.nolix.system.gui.widgetgui.Frame;
-import ch.nolix.systemapi.guiapi.controlproperty.ContainerRole;
+import ch.nolix.systemapi.guiapi.containercontrolproperty.ContainerRole;
 import ch.nolix.systemapi.guiapi.controlrole.ButtonRole;
 
 public final class YesNoDialogCreatorTutorial {

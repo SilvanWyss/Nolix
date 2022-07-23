@@ -11,7 +11,7 @@ import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 import ch.nolix.system.gui.widget.BorderWidget;
 import ch.nolix.system.gui.widget.BorderWidgetLook;
 import ch.nolix.system.gui.widget.Widget;
-import ch.nolix.systemapi.guiapi.controlproperty.ContainerRole;
+import ch.nolix.systemapi.guiapi.containercontrolproperty.ContainerRole;
 
 //class
 /**

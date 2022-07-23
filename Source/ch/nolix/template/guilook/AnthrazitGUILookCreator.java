@@ -15,7 +15,7 @@ import ch.nolix.system.gui.widget.ItemMenu;
 import ch.nolix.system.gui.widget.LabelRole;
 import ch.nolix.system.gui.widget.Widget;
 import ch.nolix.system.gui.widgetgui.LayerRole;
-import ch.nolix.systemapi.guiapi.controlproperty.ContainerRole;
+import ch.nolix.systemapi.guiapi.containercontrolproperty.ContainerRole;
 
 //class
 public final class AnthrazitGUILookCreator {

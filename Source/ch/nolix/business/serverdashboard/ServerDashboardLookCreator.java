@@ -8,7 +8,7 @@ import ch.nolix.system.gui.widget.ImageWidget;
 import ch.nolix.system.gui.widget.Label;
 import ch.nolix.system.gui.widget.LabelRole;
 import ch.nolix.system.gui.widgetgui.Layer;
-import ch.nolix.systemapi.guiapi.controlproperty.ContainerRole;
+import ch.nolix.systemapi.guiapi.containercontrolproperty.ContainerRole;
 
 //class
 public final class ServerDashboardLookCreator {
