@@ -4,9 +4,9 @@ package ch.nolix.systemtest.guitest.containerwidgettest;
 //own imports
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.system.gui.containerwidget.Accordion;
-import ch.nolix.system.gui.containerwidget.AccordionExpansionBehavior;
 import ch.nolix.system.gui.containerwidget.AccordionTab;
 import ch.nolix.system.gui.widget.Widget;
+import ch.nolix.systemapi.guiapi.controlproperty.TabExpansionBehavior;
 
 //class
 public final class AccordionTest extends ContainerWidgetTest<Accordion> {
@@ -18,7 +18,7 @@ public final class AccordionTest extends ContainerWidgetTest<Accordion> {
 		//setup
 			final var accordion =
 			new Accordion()
-			.setExpansionBehavior(AccordionExpansionBehavior.OPEN_ONE_TAB);
+			.setExpansionBehavior(TabExpansionBehavior.OPEN_ONE_TAB);
 			
 			final var tab1 = new AccordionTab();
 		
@@ -57,7 +57,7 @@ public final class AccordionTest extends ContainerWidgetTest<Accordion> {
 		//setup
 			final var accordion =
 			new Accordion()
-			.setExpansionBehavior(AccordionExpansionBehavior.OPEN_ONE_TAB_OR_NONE);
+			.setExpansionBehavior(TabExpansionBehavior.OPEN_ONE_TAB_OR_NONE);
 			
 			final var tab1 = new AccordionTab();
 			final var tab2 = new AccordionTab();

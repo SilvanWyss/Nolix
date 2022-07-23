@@ -18,6 +18,7 @@ import ch.nolix.system.element.mutableelement.MutableValue;
 import ch.nolix.system.element.mutableelement.SubElement;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.widget.Widget;
+import ch.nolix.systemapi.guiapi.controlproperty.TabExpansionBehavior;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
@@ -32,7 +33,7 @@ import ch.nolix.systemapi.guiapi.widgetguiapi.IWidget;
 public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	
 	//constant
-	public static final AccordionExpansionBehavior DEFAULT_EXPANSION_BEHAVIOR = AccordionExpansionBehavior.OPEN_ONE_TAB;
+	public static final TabExpansionBehavior DEFAULT_EXPANSION_BEHAVIOR = TabExpansionBehavior.OPEN_ONE_TAB;
 	
 	//constants
 	private static final String EXPANSION_BEHAVIOUR_HEADER = "ExpansionBehavior";
@@ -43,12 +44,12 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	private final VerticalStack mainVerticalStack = new VerticalStack();
 	
 	//attribute
-	private final MutableValue<AccordionExpansionBehavior> expansionBehavior =
+	private final MutableValue<TabExpansionBehavior> expansionBehavior =
 	new MutableValue<>(
 		EXPANSION_BEHAVIOUR_HEADER,
 		DEFAULT_EXPANSION_BEHAVIOR,
 		this::setExpansionBehavior,
-		AccordionExpansionBehavior::fromSpecification,
+		TabExpansionBehavior::fromSpecification,
 		Node::fromEnum
 	);
 	
@@ -210,7 +211,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	/**
 	 * @return the expansion behavior of the current {@link Accordion}.
 	 */
-	public AccordionExpansionBehavior getExpansionBehavior() {
+	public TabExpansionBehavior getExpansionBehavior() {
 		return expansionBehavior.getValue();
 	}
 		
@@ -296,7 +297,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	 * @return the current {@link Accordion}.
 	 * @throws ArgumentIsNullException if the given expansionBehavior is null.
 	 */
-	public Accordion setExpansionBehavior(final AccordionExpansionBehavior expansionBehavior) {
+	public Accordion setExpansionBehavior(final TabExpansionBehavior expansionBehavior) {
 		
 		this.expansionBehavior.setValue(expansionBehavior);
 		
