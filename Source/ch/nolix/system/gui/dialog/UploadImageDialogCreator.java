@@ -4,7 +4,6 @@ package ch.nolix.system.gui.dialog;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
-import ch.nolix.system.gui.containerwidget.ContainerRole;
 import ch.nolix.system.gui.containerwidget.HorizontalStack;
 import ch.nolix.system.gui.containerwidget.VerticalStack;
 import ch.nolix.system.gui.image.MutableImage;
@@ -13,6 +12,7 @@ import ch.nolix.system.gui.widget.ImageWidget;
 import ch.nolix.system.gui.widget.Uploader;
 import ch.nolix.system.gui.widgetgui.Layer;
 import ch.nolix.system.gui.widgetgui.LayerRole;
+import ch.nolix.systemapi.guiapi.controlproperty.ContainerRole;
 import ch.nolix.systemapi.guiapi.controlrole.ButtonRole;
 
 //class

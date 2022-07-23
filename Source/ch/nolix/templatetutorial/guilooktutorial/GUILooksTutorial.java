@@ -1,7 +1,5 @@
 package ch.nolix.templatetutorial.guilooktutorial;
 
-//own imports
-import ch.nolix.system.gui.containerwidget.ContainerRole;
 import ch.nolix.system.gui.containerwidget.Grid;
 import ch.nolix.system.gui.containerwidget.HorizontalStack;
 import ch.nolix.system.gui.containerwidget.VerticalStack;
@@ -16,6 +14,7 @@ import ch.nolix.system.gui.widget.Label;
 import ch.nolix.system.gui.widget.LabelRole;
 import ch.nolix.system.gui.widget.SelectionMenu;
 import ch.nolix.system.gui.widgetgui.Frame;
+import ch.nolix.systemapi.guiapi.controlproperty.ContainerRole;
 import ch.nolix.template.guilook.AnthrazitGUILookCreator;
 
 public final class GUILooksTutorial {

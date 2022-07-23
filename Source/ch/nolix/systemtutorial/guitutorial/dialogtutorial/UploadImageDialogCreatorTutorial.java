@@ -2,7 +2,6 @@ package ch.nolix.systemtutorial.guitutorial.dialogtutorial;
 
 import ch.nolix.system.element.configuration.Configuration;
 import ch.nolix.system.element.configuration.DeepConfiguration;
-import ch.nolix.system.gui.containerwidget.ContainerRole;
 import ch.nolix.system.gui.containerwidget.VerticalStack;
 import ch.nolix.system.gui.dialog.UploadImageDialogCreator;
 import ch.nolix.system.gui.image.MutableImage;
@@ -11,6 +10,7 @@ import ch.nolix.system.gui.widget.ImageWidget;
 import ch.nolix.system.gui.widget.Uploader;
 import ch.nolix.system.gui.widgetgui.Frame;
 import ch.nolix.system.gui.widgetgui.Layer;
+import ch.nolix.systemapi.guiapi.controlproperty.ContainerRole;
 import ch.nolix.systemapi.guiapi.controlrole.ButtonRole;
 
 public final class UploadImageDialogCreatorTutorial {

@@ -11,7 +11,7 @@ import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.system.element.mutableelement.MultiValueExtractor;
 import ch.nolix.system.gui.widget.Label;
 import ch.nolix.system.gui.widget.Widget;
-import ch.nolix.system.gui.widgetgui.GridType;
+import ch.nolix.systemapi.guiapi.controlproperty.GridType;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;

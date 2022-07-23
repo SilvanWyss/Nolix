@@ -5,12 +5,12 @@ package ch.nolix.system.gui.dialog;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.system.gui.containerwidget.AligningContainer;
-import ch.nolix.system.gui.containerwidget.ContainerRole;
 import ch.nolix.system.gui.widget.Button;
 import ch.nolix.system.gui.widget.Label;
 import ch.nolix.system.gui.widget.LabelRole;
 import ch.nolix.system.gui.widgetgui.Layer;
 import ch.nolix.system.gui.widgetgui.LayerRole;
+import ch.nolix.systemapi.guiapi.controlproperty.ContainerRole;
 import ch.nolix.systemapi.guiapi.controlrole.ButtonRole;
 
 //class

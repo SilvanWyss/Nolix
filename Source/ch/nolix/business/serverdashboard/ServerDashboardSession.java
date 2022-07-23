@@ -6,9 +6,9 @@ import ch.nolix.businessapi.serverdashboardaccessapi.IApplicationSheet;
 import ch.nolix.businessapi.serverdashboardaccessapi.IServerDashboardAccess;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.system.application.guiapplication.BackendGUIClientSession;
-import ch.nolix.system.gui.containerwidget.ContainerRole;
 import ch.nolix.system.gui.containerwidget.FloatContainer;
 import ch.nolix.system.gui.widget.Widget;
+import ch.nolix.systemapi.guiapi.controlproperty.ContainerRole;
 
 //class
 final class ServerDashboardSession extends BackendGUIClientSession<IServerDashboardAccess> {

@@ -4,7 +4,6 @@ package ch.nolix.template.guilook;
 import ch.nolix.system.element.configuration.Configuration;
 import ch.nolix.system.element.configuration.DeepConfiguration;
 import ch.nolix.system.gui.color.Color;
-import ch.nolix.system.gui.containerwidget.ContainerRole;
 import ch.nolix.system.gui.containerwidget.Grid;
 import ch.nolix.system.gui.containerwidget.Stack;
 import ch.nolix.system.gui.widget.BorderWidget;
@@ -16,6 +15,7 @@ import ch.nolix.system.gui.widget.ItemMenu;
 import ch.nolix.system.gui.widget.LabelRole;
 import ch.nolix.system.gui.widget.Widget;
 import ch.nolix.system.gui.widgetgui.LayerRole;
+import ch.nolix.systemapi.guiapi.controlproperty.ContainerRole;
 
 //class
 public final class AnthrazitGUILookCreator {

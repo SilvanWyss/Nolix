@@ -3,12 +3,12 @@ package ch.nolix.business.serverdashboard;
 
 import ch.nolix.system.element.configuration.Configuration;
 import ch.nolix.system.element.configuration.DeepConfiguration;
-import ch.nolix.system.gui.containerwidget.ContainerRole;
 import ch.nolix.system.gui.containerwidget.FloatContainer;
 import ch.nolix.system.gui.widget.ImageWidget;
 import ch.nolix.system.gui.widget.Label;
 import ch.nolix.system.gui.widget.LabelRole;
 import ch.nolix.system.gui.widgetgui.Layer;
+import ch.nolix.systemapi.guiapi.controlproperty.ContainerRole;
 
 //class
 public final class ServerDashboardLookCreator {
