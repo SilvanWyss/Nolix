@@ -91,6 +91,22 @@ public final class GlobalStringHelper {
 	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * @param string
+	 * @return the given string in parentheses.
+	 * @throws ArgumentIsNullException if the given string is null.
+	 */
+	public static String getInParantheses(final String string) {
+		
+		if (string == null) {
+			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.STRING);
+		}
+		
+		return ("(" + string + ")");
+	}
+	
+	//static method
+	//For a better performance, this implementation does not use all comfortable methods.
+	/**
+	 * @param string
 	 * @return the given string in quotes
 	 * @throws ArgumentIsNullException if the given string is null.
 	 */

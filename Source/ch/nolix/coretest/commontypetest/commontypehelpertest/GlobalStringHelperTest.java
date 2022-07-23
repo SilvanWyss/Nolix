@@ -44,6 +44,28 @@ public final class GlobalStringHelperTest extends Test {
 	
 	//method
 	@TestCase
+	public void testCase_getInParantheses_whenGivenStringIsEmpty() {
+		
+		//execution
+		final var result = GlobalStringHelper.getInParantheses("");
+		
+		//verification
+		expect(result).isEqualTo("()");
+	}
+	
+	//method
+	@TestCase
+	public void testCase_getInParantheses_whenGivenStringIsNotEmpty() {
+		
+		//execution
+		final var result = GlobalStringHelper.getInParantheses("Zebra");
+		
+		//verification
+		expect(result).isEqualTo("(Zebra)");
+	}
+	
+	//method
+	@TestCase
 	public void testCase_getInQuotes_whenGivenStringIsEmpty() {
 		
 		//execution
