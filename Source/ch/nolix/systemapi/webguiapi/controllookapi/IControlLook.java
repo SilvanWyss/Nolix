@@ -11,21 +11,6 @@ import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 public interface IControlLook<CL extends IControlLook<CL>> extends IRespondingMutableElement<CL> {
 	
 	//method declaration
-	boolean getBoldTextFlag();
-	
-	//method declaration
-	Font getFont();
-	
-	//method declaration
-	double getOpacity();
-	
-	//method declaration
-	IColor getTextColor();
-	
-	//method declaration
-	int getTextSize();
-	
-	//method declaration
 	void removeCustomBoldTextFlags();
 	
 	//method declaration

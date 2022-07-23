@@ -9,9 +9,6 @@ import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 public interface IBackgroundControlLook<BCL extends IBackgroundControlLook<BCL>> {
 	
 	//method declaration
-	IBackground getBackground();
-	
-	//method declaration
 	void removeCustomBackgrounds();
 	
 	//method declaration

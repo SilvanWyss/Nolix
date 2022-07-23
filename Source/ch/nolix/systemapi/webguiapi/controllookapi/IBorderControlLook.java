@@ -9,42 +9,6 @@ import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 public interface IBorderControlLook<BCL extends IBorderControlLook<BCL>> {
 	
 	//method declaration
-	IColor getBottomBorderColor();
-	
-	//method declaration
-	int getBottomBorderThickness();
-	
-	//method declaration
-	int getBottomPadding();
-	
-	//method declaration
-	IColor getLeftBorderColor();
-	
-	//method declaration
-	int getLeftBorderThickness();
-	
-	//method declaration
-	int getLeftPadding();
-	
-	//method declaration
-	IColor getRightBorderColor();
-	
-	//method declaration
-	int getRightBorderThickness();
-	
-	//method declaration
-	int getRightPadding();
-	
-	//method declaration
-	IColor getTopBorderColor();
-	
-	//method declaration
-	int getTopBorderThickness();
-	
-	//method declaration
-	int getTopPadding();
-	
-	//method declaration
 	void removeCustomBorderColors();
 	
 	//method declaration

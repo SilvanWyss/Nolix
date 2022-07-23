@@ -10,18 +10,6 @@ import ch.nolix.systemapi.webguiapi.controllookapi.IExtendedControlLook;
 public interface IGridContainerLook extends IExtendedControlLook<IGridContainerLook> {
 	
 	//method declaration
-	int getControlMargin();
-	
-	//method declaration
-	IColor getGridColor();
-	
-	//method declaration
-	int getGridThickness();
-	
-	//method declaration
-	GridType getGridType();
-	
-	//method declaration
 	void removeCustomControlMargins();
 	
 	//method declaration
