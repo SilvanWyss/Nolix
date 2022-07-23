@@ -38,8 +38,8 @@ extends ch.nolix.systemapi.webguiapi.containerapi.IContainer<ITabContainer, ITab
 	ITabContainer onHeaderLook(IElementTaker<ILabelLook> headerLookEditor);
 	
 	//method declaration
-	ITabContainer selectFirstTab();
+	void selectFirstTab();
 	
 	//method declaration
-	ITabContainer selectTabByHeader(String header);
+	void selectTabByHeader(String header);
 }
