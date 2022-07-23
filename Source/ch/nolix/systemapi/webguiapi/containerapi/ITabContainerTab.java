@@ -12,4 +12,7 @@ public interface ITabContainerTab extends Headerable<Headered>, IRootControlOwne
 	
 	//method declaration
 	boolean belongsToTabContainer();
+	
+	//method declaration
+	ITabContainer getParentTabContainer();
 }
