@@ -2,11 +2,11 @@
 package ch.nolix.coreapi.documentapi.keyvalueapi;
 
 //interface
-public interface IKeyValuePair {
+public interface IKeyValuePair<K, V> {
 	
 	//method declaration
-	String getKey();
+	K getKey();
 	
 	//method declaration
-	String getValue();
+	V getValue();
 }
