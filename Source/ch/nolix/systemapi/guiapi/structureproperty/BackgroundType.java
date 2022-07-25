@@ -12,7 +12,8 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 public enum BackgroundType {
 	COLOR,
 	COLOR_GRADIENT,
-	IMAGE;
+	IMAGE,
+	TRANSPARENT;
 	
 	//static method
 	/**
