@@ -27,6 +27,9 @@ public interface ICanvas<C extends ICanvas<C>> {
 	BackgroundType getBackgroundtype();
 	
 	//method declaration
+	void removeBackground();
+	
+	//method declaration
 	C setBackgroundColor(IColor backgroundColor);
 	
 	//method declaration
@@ -37,7 +40,4 @@ public interface ICanvas<C extends ICanvas<C>> {
 	
 	//method declaration
 	C setBackgroundImage(IImage backgroundImage, ImageApplication imageApplication);
-	
-	//method declaration
-	C setTransparentBackground();
 }
