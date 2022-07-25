@@ -17,6 +17,7 @@ public final class LowerCaseCatalogue {
 	public static final String APPOINTMENT = "appointment";
 	public static final String ARRAY = "array";
 	public static final String ATTRIBUTE = "attribute";
+	public static final String BACKGROUND = "background";
 	public static final String BACKGROUND_COLOR = "background color";
 	public static final String BASE_TYPE = "base type";
 	public static final String BIT = "bit";
