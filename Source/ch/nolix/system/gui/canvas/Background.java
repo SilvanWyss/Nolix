@@ -74,6 +74,11 @@ public final class Background extends Element implements IBackground {
 	}
 	
 	//static method
+	public static Background withImage(final IImage image) {
+		return withImageAndImageApplication(image, DEFAULT_IMAGE_APPLICATION);
+	}
+	
+	//static method
 	public static Background withImageAndImageApplication(
 		final IImage image,
 		final ImageApplication imageApplication
