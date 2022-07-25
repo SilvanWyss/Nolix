@@ -37,4 +37,7 @@ public interface ICanvas<C extends ICanvas<C>> {
 	
 	//method declaration
 	C setBackgroundImage(IImage backgroundImage, ImageApplication imageApplication);
+	
+	//method declaration
+	C setTransparentBackground();
 }
