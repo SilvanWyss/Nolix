@@ -44,6 +44,7 @@ import ch.nolix.systemapi.guiapi.structureproperty.ExtendedContentPosition;
 import ch.nolix.systemapi.guiapi.widgetguiapi.ILayer;
 import ch.nolix.systemapi.guiapi.widgetguiapi.IWidget;
 import ch.nolix.systemapi.guiapi.widgetguiapi.IWidgetGUI;
+import ch.nolix.systemapi.guiapi.widgetguiapi.LayerRole;
 
 //class
 /**
