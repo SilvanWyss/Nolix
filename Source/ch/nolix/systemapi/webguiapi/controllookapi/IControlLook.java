@@ -17,22 +17,25 @@ public interface IControlLook<CL extends IControlLook<CL>> extends IRespondingMu
 	void removeCustomFonts();
 	
 	//method declaration
+	void removeCustomOpacities();
+	
+	//method declaration
 	void removeCustomTextColors();
 	
 	//method declaration
-	void removecCustomTextSizes();
+	void removeCustomTextSizes();
 	
 	//method declaration
 	CL setBoldTextFlagForState(ControlState state, boolean boldTextFlag);
 	
 	//method declaration
-	CL setFontFotState(ControlState state, Font font);
+	CL setFontForState(ControlState state, Font font);
 	
 	//method declaration
-	CL setOpacityFotState(ControlState state, double opacity);
+	CL setOpacityForState(ControlState state, double opacity);
 	
 	//method declaration
-	CL setTextColororState(ControlState state, IColor textColor);
+	CL setTextColorForState(ControlState state, IColor textColor);
 	
 	//method declaration
 	CL setTextSizeForState(ControlState state, int textSize);
