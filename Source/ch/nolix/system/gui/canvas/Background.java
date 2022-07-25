@@ -26,9 +26,6 @@ import ch.nolix.systemapi.guiapi.structureproperty.BackgroundType;
 public final class Background extends Element implements IBackground {
 	
 	//constant
-	public static final Color DEFAULT_COLOR = Color.WHITE;
-	
-	//constant
 	public static final ImageApplication DEFAULT_IMAGE_APPLICATION = ImageApplication.SCALE_TO_FRAME;
 	
 	//constant
