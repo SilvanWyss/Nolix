@@ -8,7 +8,6 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 public enum LayerRole {
 	BACKGROUND_LAYER,
 	MAIN_LAYER,
-	SUP_LAYER,
 	DIALOG_LAYER;
 	
 	//static method
