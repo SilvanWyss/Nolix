@@ -24,7 +24,7 @@ public interface ICanvas<C extends ICanvas<C>> {
 	ImageApplication getBackgroundImageApplication();
 	
 	//method declaration
-	BackgroundType getBackgroundtype();
+	BackgroundType getBackgroundType();
 	
 	//method declaration
 	void removeBackground();
