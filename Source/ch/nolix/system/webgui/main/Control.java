@@ -42,7 +42,7 @@ implements IControl<C, CL> {
 	private final ExtensionElement<CL> look = new ExtensionElement<>(createLook());
 	
 	//optional attribute
-	private ILayer<?> parentLayer;
+	private ILayer parentLayer;
 	
 	//method
 	@Override
@@ -70,7 +70,7 @@ implements IControl<C, CL> {
 	
 	//method
 	@Override
-	public final ILayer<?> getParentLayer() {
+	public final ILayer getParentLayer() {
 		
 		assertBelongsToLayer();
 		
@@ -94,6 +94,14 @@ implements IControl<C, CL> {
 	
 	//method declaration
 	protected abstract CL createLook();
+	
+	//method
+	final void internalRemoveParentLayer() {
+		
+		assertBelongsToLayer();
+		
+		parentLayer = null;
+	}
 	
 	//method
 	private void assertBelongsToLayer() {

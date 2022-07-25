@@ -24,22 +24,22 @@ extends ICanvas<WGUI>, IConfigurationElement<WGUI>, Titleble<WGUI> {
 	IImage getIcon();
 	
 	//method declaration
-	IContainer<ILayer<?>> getRefLayers();
+	IContainer<ILayer> getRefLayers();
 	
 	//method declaration
-	ILayer<?> getRefTopLayer();
+	ILayer getRefTopLayer();
 	
 	//method declaration
 	IFrontEndWriter onFrontEnd();
 	
 	//method declaration
-	WGUI pushLayer(ILayer<?> layer);
+	WGUI pushLayer(ILayer layer);
 	
 	//method declaration
 	WGUI pushLayerWithRootControl(IControl<?, ?> rootControl);
 	
 	//method declaration
-	void removeLayer(ILayer<?> layer);
+	void removeLayer(ILayer layer);
 	
 	//method declaration
 	WGUI setIcon(IImage icon);

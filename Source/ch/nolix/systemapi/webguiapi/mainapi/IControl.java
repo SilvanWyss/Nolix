@@ -28,7 +28,7 @@ extends HTMLElementTransformable, IConfigurableElement<C>, IInputTaker {
 	IWebGUI<?> getParentGUI();
 	
 	//method declaration
-	ILayer<?> getParentLayer();
+	ILayer getParentLayer();
 	
 	//method declaration
 	CL getRefLook();

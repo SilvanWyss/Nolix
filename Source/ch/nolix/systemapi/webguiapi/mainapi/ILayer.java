@@ -9,8 +9,13 @@ import ch.nolix.systemapi.guiapi.inputapi.IInputTaker;
 import ch.nolix.systemapi.guiapi.widgetguiapi.LayerRole;
 
 //interface
-public interface ILayer<L extends ILayer<L>>
-extends HTMLElementTransformable, ICanvas<L>, IConfigurableElement<L>, IInputTaker, IRootControlOwner<L> {
+public interface ILayer
+extends
+HTMLElementTransformable,
+ICanvas<ILayer>,
+IConfigurableElement<ILayer>,
+IInputTaker,
+IRootControlOwner<ILayer> {
 	
 	//method declaration
 	boolean belongsToGUI();
@@ -28,5 +33,5 @@ extends HTMLElementTransformable, ICanvas<L>, IConfigurableElement<L>, IInputTak
 	void removeSelfFromGUI();
 	
 	//method declaration
-	L setRole(LayerRole role);
+	ILayer setRole(LayerRole role);
 }
