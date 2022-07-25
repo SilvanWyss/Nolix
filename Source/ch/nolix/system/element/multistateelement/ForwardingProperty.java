@@ -31,6 +31,11 @@ public final class ForwardingProperty<S extends Enum<S>, V> extends Property<S>{
 	}
 	
 	//method
+	public void setUndefined() {
+		materializedProperties.forEach(MaterializedProperty::setUndefined);
+	}
+	
+	//method
 	public void setValueForState(final S state, final V value) {
 		for (final var mp : materializedProperties) {
 			mp.setValueForState(state, value);
@@ -46,12 +51,6 @@ public final class ForwardingProperty<S extends Enum<S>, V> extends Property<S>{
 	//method
 	@Override
 	protected void setFrom(Property<S> property) {
-		//Does nothing.
-	}
-	
-	//method
-	@Override
-	protected void setUndefined() {
 		//Does nothing.
 	}
 	
