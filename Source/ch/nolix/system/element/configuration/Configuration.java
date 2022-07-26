@@ -65,7 +65,7 @@ public final class Configuration extends BaseConfiguration<Configuration> {
 			
 			setAttachingAttributesTo(element);
 			
-			final var elements = element.getSubConfigurables();
+			final var elements = element.getRefChildConfigurableElements();
 			final var configurations = getRefConfigurations();
 			elements.forEach(e -> configurations.forEach(c -> c.configure(e)));
 		}

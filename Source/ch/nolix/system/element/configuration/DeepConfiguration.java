@@ -57,7 +57,7 @@ public final class DeepConfiguration extends BaseConfiguration<DeepConfiguration
 	public void configure(IConfigurableElement<?> element) {
 		if (!hasMaxSelectorLevel()) {
 
-			final var elements = element.getSubConfigurables();
+			final var elements = element.getRefChildConfigurableElements();
 			
 			if (selects(element)) {
 				final var configurations = getRefConfigurations();
@@ -131,7 +131,7 @@ public final class DeepConfiguration extends BaseConfiguration<DeepConfiguration
 	private void configure(IConfigurableElement<?> element, int level) {
 		if (level > 0) {
 			
-			final var elements = element.getSubConfigurables();
+			final var elements = element.getRefChildConfigurableElements();
 			
 			if (selects(element)) {
 				

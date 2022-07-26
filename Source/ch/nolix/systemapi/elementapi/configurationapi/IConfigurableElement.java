@@ -27,9 +27,9 @@ TypeRequestable {
 	
 	//method declaration
 	/**
-	 * @return the {@link IConfigurableElement}s of the current {@link IConfigurableElement}.
+	 * @return the child {@link IConfigurableElement}s of the current {@link IConfigurableElement}.
 	 */
-	IContainer<? extends IConfigurableElement<?>> getSubConfigurables();
+	IContainer<? extends IConfigurableElement<?>> getRefChildConfigurableElements();
 	
 	//method declaration
 	/**
@@ -40,13 +40,14 @@ TypeRequestable {
 	
 	//method declaration
 	/**
-	 * Resets the configuration of the current {@link IConfigurableElement} recursively.
+	 * Resets the configuration of the current {@link IConfigurableElement} and
+	 * the configuration of the child {@link IConfigurableElement}s of the current {@link IConfigurableElement}.
 	 */
 	void resetConfiguration();
 	
 	//method declaration
 	/**
-	 * Resets the configuration of the current {@link IConfigurableElement}.
+	 * Resets the own configuration of the current {@link IConfigurableElement}.
 	 */
-	void resetElementConfiguration();
+	void resetOwnConfiguration();
 }

@@ -194,7 +194,7 @@ public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G> 
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final ReadContainer<? extends IConfigurableElement<?>> getSubConfigurables() {
+	public final ReadContainer<? extends IConfigurableElement<?>> getRefChildConfigurableElements() {
 		return getRefShapes();
 	}
 	
@@ -299,7 +299,7 @@ public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G> 
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void resetElementConfiguration() {
+	public final void resetOwnConfiguration() {
 		setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
 	}
 	

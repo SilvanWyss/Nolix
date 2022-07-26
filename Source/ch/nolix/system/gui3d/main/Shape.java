@@ -71,7 +71,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	 * @return the configurable elements of the current {@link Shape}.
 	 */
 	@Override
-	public final IContainer<? extends IConfigurableElement<?>> getSubConfigurables() {
+	public final IContainer<? extends IConfigurableElement<?>> getRefChildConfigurableElements() {
 		return getRefShapes();
 	}
 	

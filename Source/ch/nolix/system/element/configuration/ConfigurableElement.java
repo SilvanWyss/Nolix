@@ -39,7 +39,7 @@ implements IConfigurableElement<CE> {
 	@Override
 	public final boolean containsElement(final String id) {
 		
-		final var subConfiguratbles = getSubConfigurables();
+		final var subConfiguratbles = getRefChildConfigurableElements();
 		
 		return 
 		subConfiguratbles.containsAny(sc -> sc.hasId(id))
@@ -158,9 +158,9 @@ implements IConfigurableElement<CE> {
 	@Override
 	public final void resetConfiguration() {
 		
-		resetElementConfiguration();
+		resetOwnConfiguration();
 		
-		getSubConfigurables().forEach(IConfigurableElement::resetConfiguration);
+		getRefChildConfigurableElements().forEach(IConfigurableElement::resetConfiguration);
 	}
 	
 	//method

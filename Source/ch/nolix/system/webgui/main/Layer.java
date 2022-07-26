@@ -137,7 +137,7 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 	}
 	
 	@Override
-	public IContainer<? extends IConfigurableElement<?>> getSubConfigurables() {
+	public IContainer<? extends IConfigurableElement<?>> getRefChildConfigurableElements() {
 		//TODO: Implement.
 		return null;
 	}
@@ -229,7 +229,7 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 	
 	//method
 	@Override
-	public void resetElementConfiguration() {
+	public void resetOwnConfiguration() {
 		//TODO: Implement.
 	}
 	

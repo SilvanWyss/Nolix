@@ -356,7 +356,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final IContainer<? extends IConfigurableElement<?>> getSubConfigurables() {
+	public final IContainer<? extends IConfigurableElement<?>> getRefChildConfigurableElements() {
 		return layers.getRefValues().getRefSelected(ILayer::allowesConfiguration);
 	}
 	
@@ -504,7 +504,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void resetElementConfiguration() {
+	public final void resetOwnConfiguration() {
 		setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
 	}
 	

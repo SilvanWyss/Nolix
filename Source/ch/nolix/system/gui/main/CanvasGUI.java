@@ -64,7 +64,7 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 	
 	//method
 	@Override
-	public final IContainer<IConfigurableElement<?>> getSubConfigurables() {
+	public final IContainer<IConfigurableElement<?>> getRefChildConfigurableElements() {
 		return new LinkedList<>();
 	}
 	
@@ -75,7 +75,7 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 	
 	//method
 	@Override
-	public void resetElementConfiguration() {
+	public void resetOwnConfiguration() {
 		setCursorIcon(DEFAULT_CURSOR_ICON);
 	}
 	

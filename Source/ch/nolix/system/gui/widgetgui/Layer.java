@@ -418,7 +418,7 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 	 * {@inheritDoc}
 	 */
 	@Override
-	public IContainer<IConfigurableElement<?>> getSubConfigurables() {
+	public IContainer<IConfigurableElement<?>> getRefChildConfigurableElements() {
 		
 		final var configurables = new LinkedList<IConfigurableElement<?>>();
 		
@@ -842,7 +842,7 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void resetElementConfiguration() {
+	public void resetOwnConfiguration() {
 		setContentPosition(DEFAULT_CONTENT_POSITION);
 	}
 	

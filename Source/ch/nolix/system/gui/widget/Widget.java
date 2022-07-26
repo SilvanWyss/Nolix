@@ -427,7 +427,7 @@ implements IWidget<W, WL> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final IContainer<? extends IConfigurableElement<?>> getSubConfigurables() {		
+	public final IContainer<? extends IConfigurableElement<?>> getRefChildConfigurableElements() {		
 		return getChildWidgets();
 	}
 	
@@ -1025,7 +1025,7 @@ implements IWidget<W, WL> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void resetElementConfiguration() {
+	public final void resetOwnConfiguration() {
 		
 		setCustomCursorIcon(DEFAULT_CURSOR_ICON);
 		getRefLook().reset();
