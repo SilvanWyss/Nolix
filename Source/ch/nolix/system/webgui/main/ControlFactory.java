@@ -5,6 +5,7 @@ package ch.nolix.system.webgui.main;
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.reflection.GlobalClassHelper;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 
 //class
 final class ControlFactory {
@@ -15,6 +16,16 @@ final class ControlFactory {
 	//method
 	public boolean canCreateControlOfType(final String type) {
 		return containsControlClassWithName(type);
+	}
+	
+	//method
+	public Control<?, ?> createControlFromSpecification(final INode<?> specification) {
+		
+		final var control = createControlOfType(specification.getHeader());
+		
+		control.resetFromSpecification(specification);
+		
+		return control;
 	}
 	
 	//method
