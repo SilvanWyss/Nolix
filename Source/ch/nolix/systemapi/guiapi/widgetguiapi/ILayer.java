@@ -61,7 +61,7 @@ Recalculable {
 	 * @return the {@link IWidgetGUI} the current {@link ILayer} belongs to.
 	 * @throws RuntimeException if the current {@link ILayer} does not belong to a {@link IWidgetGUI}.
 	 */
-	IWidgetGUI<?> getParentGUI();
+	IWidgetGUI<?> getRefParentGUI();
 	
 	//method declaration
 	/**

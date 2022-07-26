@@ -371,7 +371,7 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 	 * {@inheritDoc}
 	 */
 	@Override
-	public IWidgetGUI<?> getParentGUI() {
+	public IWidgetGUI<?> getRefParentGUI() {
 		
 		//Asserts that the current Layer belongs to a GUI.
 		if (parentGUI == null) {
@@ -502,7 +502,7 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 	 */
 	@Override
 	public boolean isUnderCursor() {
-		return getParentGUI().viewAreaIsUnderCursor();
+		return getRefParentGUI().viewAreaIsUnderCursor();
 	}
 	
 	//method
@@ -1410,7 +1410,7 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 				
 				getRefRootWidget().setPositionOnParent(
 					0,
-					GlobalCalculator.getMax(0, (getParentGUI().getViewAreaHeight() - getRefRootWidget().getHeight()) / 2)
+					GlobalCalculator.getMax(0, (getRefParentGUI().getViewAreaHeight() - getRefRootWidget().getHeight()) / 2)
 				);
 				
 				break;
@@ -1418,7 +1418,7 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 				
 				getRefRootWidget().setPositionOnParent(
 					0,
-					GlobalCalculator.getMax(0, getParentGUI().getViewAreaHeight() - getRefRootWidget().getHeight())
+					GlobalCalculator.getMax(0, getRefParentGUI().getViewAreaHeight() - getRefRootWidget().getHeight())
 				);
 				
 				break;

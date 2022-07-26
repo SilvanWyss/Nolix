@@ -55,7 +55,7 @@ public final class WidgetParent implements IWidgetParent {
 	public IWidgetGUI<?> getRefGUI() {
 		
 		if (layer != null) {
-			return layer.getParentGUI();
+			return layer.getRefParentGUI();
 		}
 		
 		return widget.getParentGUI();

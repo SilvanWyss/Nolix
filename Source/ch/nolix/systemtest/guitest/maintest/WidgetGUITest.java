@@ -35,7 +35,7 @@ public abstract class WidgetGUITest<WG extends WidgetGUI<WG>> extends GUITest<WG
 			
 			//verification
 			expect(testUnit.getRefLayers().getElementCount()).isEqualTo(1);
-			expect(layer.getParentGUI()).isSameAs(testUnit);
+			expect(layer.getRefParentGUI()).isSameAs(testUnit);
 		}
 	}
 	
