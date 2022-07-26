@@ -65,7 +65,7 @@ implements IControl<C, CL> {
 	//method
 	@Override
 	public final IWebGUI<?> getParentGUI() {
-		return getParentLayer().getParentGUI();
+		return getParentLayer().getRefParentGUI();
 	}
 	
 	//method

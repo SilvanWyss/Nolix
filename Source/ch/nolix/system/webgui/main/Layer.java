@@ -117,7 +117,7 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 	
 	//method
 	@Override
-	public IWebGUI<?> getParentGUI() {
+	public IWebGUI<?> getRefParentGUI() {
 		
 		assertBelongsToGUI();
 		
@@ -223,7 +223,7 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 	//method
 	@Override
 	public void removeSelfFromGUI() {
-		getParentGUI().removeLayer(this);
+		getRefParentGUI().removeLayer(this);
 		parentGUI = null;
 	}
 	

@@ -21,7 +21,7 @@ IRootControlOwner<L> {
 	boolean belongsToGUI();
 	
 	//method declaration
-	IWebGUI<?> getParentGUI();
+	IWebGUI<?> getRefParentGUI();
 	
 	//method declaration
 	LayerRole getRole();
