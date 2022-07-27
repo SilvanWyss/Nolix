@@ -5,7 +5,7 @@ package ch.nolix.system.webgui.main;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
-import ch.nolix.system.element.base.OptionalIdentifiableOptionalTokenableElement;
+import ch.nolix.system.element.base.ConfigurableElement;
 import ch.nolix.system.element.mutableelement.ExtensionElement;
 import ch.nolix.system.element.mutableelement.MutableValue;
 import ch.nolix.systemapi.guiapi.mainapi.CursorIcon;
@@ -19,7 +19,7 @@ public abstract class Control<
 	C extends Control<C, CL>,
 	CL extends IControlLook<CL>
 >
-extends OptionalIdentifiableOptionalTokenableElement<C>
+extends ConfigurableElement<C>
 implements IControl<C, CL> {
 	
 	//constant

@@ -32,9 +32,9 @@ import ch.nolix.system.gui.main.LocalFrontEndWriter;
 import ch.nolix.systemapi.elementapi.configurationapi.IConfigurableElement;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.mainapi.CursorIcon;
-import ch.nolix.systemapi.guiapi.mainapi.IGUI;
 import ch.nolix.systemapi.guiapi.mainapi.IFrontEndReader;
 import ch.nolix.systemapi.guiapi.mainapi.IFrontEndWriter;
+import ch.nolix.systemapi.guiapi.mainapi.IGUI;
 
 //class
 /**

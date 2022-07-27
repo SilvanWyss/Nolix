@@ -9,7 +9,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
-import ch.nolix.system.element.base.OptionalIdentifiableOptionalTokenableElement;
+import ch.nolix.system.element.base.ConfigurableElement;
 import ch.nolix.system.element.mutableelement.MutableValueExtractor;
 import ch.nolix.system.geometry.Point2D;
 import ch.nolix.system.geometry.Point3D;
@@ -24,9 +24,7 @@ import ch.nolix.systemapi.elementapi.configurationapi.IConfigurableElement;
  * @date 2017-11-11
  * @param <S> is the type of a {@link Shape}.
  */
-public abstract class Shape<S extends Shape<S>>
-extends OptionalIdentifiableOptionalTokenableElement<S>
-implements IConfigurableElement<S> {
+public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	
 	//constant
 	public static final Point3D DEFAULT_POSITION = new Point3D(0.0, 0.0, 0.0);

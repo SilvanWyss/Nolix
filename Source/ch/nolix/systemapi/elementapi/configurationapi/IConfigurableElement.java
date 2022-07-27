@@ -48,16 +48,10 @@ public interface IConfigurableElement<C extends IConfigurableElement<C>> extends
 	 */
 	void resetConfiguration();
 	
-	//TODO: Create new ConfigurableElement.
 	//method declaration
 	/**
 	 * Resets the configuration of the current {@link IConfigurableElement} and
 	 * the configuration of the child {@link IConfigurableElement}s of the current {@link IConfigurableElement}.
 	 */
-	default void resetConfigurationRecursively() {
-		
-		resetConfiguration();
-		
-		getRefChildConfigurableElements().forEach(IConfigurableElement::resetConfigurationRecursively);
-	}
+	void resetConfigurationRecursively();
 }

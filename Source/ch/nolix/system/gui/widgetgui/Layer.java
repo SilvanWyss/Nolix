@@ -18,7 +18,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.I2ElementTaker;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.system.discretegeometry.Discrete2DPoint;
-import ch.nolix.system.element.base.OptionalIdentifiableOptionalTokenableElement;
+import ch.nolix.system.element.base.ConfigurableElement;
 import ch.nolix.system.element.mutableelement.CatchingProperty;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 import ch.nolix.system.element.mutableelement.MutableOptionalValueExtractor;
@@ -57,7 +57,7 @@ import ch.nolix.systemapi.guiapi.widgetguiapi.LayerRole;
  * @author Silvan Wyss
  * @date 2019-05-18
  */
-public final class Layer extends OptionalIdentifiableOptionalTokenableElement<Layer> implements ILayer<Layer> {
+public final class Layer extends ConfigurableElement<Layer> implements ILayer<Layer> {
 	
 	//constant
 	public static final double DEFAULT_OPACITY_PERCENTAGE = 1.0;
