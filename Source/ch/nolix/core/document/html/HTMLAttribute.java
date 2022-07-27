@@ -9,7 +9,7 @@ import ch.nolix.coreapi.documentapi.htmlapi.IHTMLAttribute;
 public final class HTMLAttribute implements IHTMLAttribute {
 	
 	//static method
-	public HTMLAttribute withNameAndValue(final String name, final String value) {
+	public static HTMLAttribute withNameAndValue(final String name, final String value) {
 		return new HTMLAttribute(name, value);
 	}
 	
