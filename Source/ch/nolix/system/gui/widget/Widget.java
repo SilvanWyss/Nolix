@@ -15,6 +15,7 @@ import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.I2ElementTaker;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
+import ch.nolix.system.element.base.OptionalIdentifiableOptionalTokenableElement;
 import ch.nolix.system.element.configuration.ConfigurableElement;
 import ch.nolix.system.element.mutableelement.ExtensionElement;
 import ch.nolix.system.element.mutableelement.MutableValueExtractor;
@@ -49,7 +50,7 @@ import ch.nolix.systemapi.guiapi.widgetguiapi.IWidgetGUI;
  * @param <WL> is the type of the {@link WidgetLook} of a {@link Widget}.
  */
 public abstract class Widget<W extends Widget<W, WL>, WL extends WidgetLook<WL>>
-extends ConfigurableElement<W>
+extends OptionalIdentifiableOptionalTokenableElement<W>
 implements IWidget<W, WL> {
 	
 	//constant
@@ -1681,7 +1682,9 @@ implements IWidget<W, WL> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void resetConfigurableElement() {
+	protected final void resetElement() {
+		
+		resetConfiguration();
 		
 		removeGreyOutWhenDisabled();
 		
