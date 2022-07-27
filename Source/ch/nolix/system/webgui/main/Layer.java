@@ -2,6 +2,7 @@
 package ch.nolix.system.webgui.main;
 
 //own imports
+import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
@@ -9,7 +10,6 @@ import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.documentapi.htmlapi.IHTMLElement;
 import ch.nolix.system.element.base.ConfigurableElement;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
-import ch.nolix.system.element.mutableelement.OptionalValue;
 import ch.nolix.system.gui.canvas.Background;
 import ch.nolix.systemapi.elementapi.configurationapi.IConfigurableElement;
 import ch.nolix.systemapi.guiapi.canvasuniversalapi.IBackground;
@@ -37,8 +37,8 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 	private static final String ROOT_CONTROL_HEADER = "RootControl";
 	
 	//attribute
-	private final OptionalValue<LayerRole> role =
-	new OptionalValue<>(
+	private final MutableOptionalValue<LayerRole> role =
+	new MutableOptionalValue<>(
 		ROLE_HEADER,
 		this::setRole,
 		LayerRole::fromSpecification,
@@ -136,10 +136,17 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 		return role.getValue();
 	}
 	
+	//method
 	@Override
 	public IContainer<? extends IConfigurableElement<?>> getRefChildConfigurableElements() {
-		//TODO: Implement.
-		return null;
+		
+		final var childConfigurableElements = new LinkedList<IControl<?, ?>>();
+		
+		if (containsAny()) {
+			childConfigurableElements.addAtEnd(getRefRootControl());
+		}
+		
+		return childConfigurableElements;
 	}
 	
 	//method
@@ -221,6 +228,11 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 	}
 	
 	//method
+	public void removeRole() {
+		role.clear();
+	}
+	
+	//method
 	@Override
 	public void removeSelfFromGUI() {
 		getRefParentGUI().removeLayer(this);
@@ -293,13 +305,14 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 	//method
 	@Override
 	protected void resetConfigurableElement() {
-		//TODO: Implement.
+		removeRole();
+		clear();
 	}
 	
 	//method
 	@Override
 	protected void resetConfiguration() {
-		//TODO: Implement.
+		removeBackground();
 	}
 	
 	//method
