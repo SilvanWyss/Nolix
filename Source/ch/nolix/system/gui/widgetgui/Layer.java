@@ -1212,10 +1212,7 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void resetElement() {
-		
-		resetConfigurationRecursively();
-		
+	protected void resetConfigurableElement() {
 		setConfigurationAllowed();
 		clear();
 	}

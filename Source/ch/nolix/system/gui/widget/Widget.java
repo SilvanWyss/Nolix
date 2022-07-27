@@ -1682,9 +1682,7 @@ implements IWidget<W, WL> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void resetElement() {
-		
-		resetConfigurationRecursively();
+	protected final void resetConfigurableElement() {
 		
 		removeGreyOutWhenDisabled();
 		

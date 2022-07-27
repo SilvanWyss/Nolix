@@ -83,13 +83,10 @@ implements IConfigurationElement<CE> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void resetElement() {
-		
-		resetConfigurationRecursively();
+	protected final void resetConfigurableElement() {
 		
 		removeConfiguration();
-		resetConfigurationRecursively();
-		
+				
 		resetConfigurationElement();
 	}
 	

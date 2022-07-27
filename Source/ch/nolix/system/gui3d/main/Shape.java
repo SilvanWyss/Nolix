@@ -339,7 +339,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void resetElement() {
+	protected final void resetConfigurableElement() {
 		
 		setPosition(DEFAULT_POSITION);
 		

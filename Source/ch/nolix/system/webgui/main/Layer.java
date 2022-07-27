@@ -292,13 +292,13 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 	
 	//method
 	@Override
-	protected void resetConfiguration() {
+	protected void resetConfigurableElement() {
 		//TODO: Implement.
 	}
 	
 	//method
 	@Override
-	protected void resetElement() {
+	protected void resetConfiguration() {
 		//TODO: Implement.
 	}
 	

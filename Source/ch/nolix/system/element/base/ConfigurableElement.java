@@ -19,5 +19,17 @@ implements IConfigurableElement<CE> {
 	}
 	
 	//method declaration
+	protected abstract void resetConfigurableElement();
+	
+	//method declaration
 	protected abstract void resetConfiguration();
+	
+	//method
+	@Override
+	protected final void resetElement() {
+		
+		resetConfigurationRecursively();
+		
+		resetConfigurableElement();
+	}
 }
