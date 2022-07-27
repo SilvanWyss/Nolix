@@ -7,7 +7,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelong
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.documentapi.htmlapi.IHTMLElement;
-import ch.nolix.system.element.configuration.ConfigurableElement;
+import ch.nolix.system.element.base.OptionalIdentifiableOptionalTokenableElement;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 import ch.nolix.system.element.mutableelement.OptionalValue;
 import ch.nolix.system.gui.canvas.Background;
@@ -25,7 +25,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGUI;
 
 //class
-public final class Layer extends ConfigurableElement<Layer> implements ILayer<Layer> {
+public final class Layer extends OptionalIdentifiableOptionalTokenableElement<Layer> implements ILayer<Layer> {
 	
 	//constant
 	private static final String ROLE_HEADER = PascalCaseCatalogue.ROLE;
@@ -298,7 +298,7 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 	
 	//method
 	@Override
-	protected void resetConfigurableElement() {
+	protected void resetElement() {
 		//TODO: Implement.
 	}
 	
