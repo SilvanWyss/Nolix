@@ -25,6 +25,20 @@ OptionalIdentifiableByString<C>,
 OptionalTokenable<C>,
 TypeRequestable {
 	
+	//TODO: Create new ConfigurableElement.
+	//method declaration
+	/**
+	 * {@inheritDoc}
+	 */
+	default boolean containsElement(final String id) {
+		
+		final var childConfigurableElements = getRefChildConfigurableElements();
+		
+		return 
+		childConfigurableElements.containsAny(e -> e.hasId(id))
+		|| childConfigurableElements.containsAny(e -> e.containsElement(id));
+	}
+	
 	//method declaration
 	/**
 	 * @return the child {@link IConfigurableElement}s of the current {@link IConfigurableElement}.
@@ -38,12 +52,18 @@ TypeRequestable {
 	 */
 	boolean hasRole(String role);
 	
+	//TODO: Create new ConfigurableElement.
 	//method declaration
 	/**
 	 * Resets the configuration of the current {@link IConfigurableElement} and
 	 * the configuration of the child {@link IConfigurableElement}s of the current {@link IConfigurableElement}.
 	 */
-	void resetConfiguration();
+	default void resetConfiguration() {
+		
+		resetOwnConfiguration();
+		
+		getRefChildConfigurableElements().forEach(IConfigurableElement::resetConfiguration);
+	}
 	
 	//method declaration
 	/**
