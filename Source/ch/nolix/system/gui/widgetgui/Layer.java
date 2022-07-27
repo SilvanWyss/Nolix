@@ -842,7 +842,7 @@ public final class Layer extends OptionalIdentifiableOptionalTokenableElement<La
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void resetOwnConfiguration() {
+	public void resetConfiguration() {
 		setContentPosition(DEFAULT_CONTENT_POSITION);
 	}
 	
@@ -1214,7 +1214,7 @@ public final class Layer extends OptionalIdentifiableOptionalTokenableElement<La
 	@Override
 	protected void resetElement() {
 		
-		resetConfiguration();
+		resetConfigurationRecursively();
 		
 		setConfigurationAllowed();
 		clear();

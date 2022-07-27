@@ -299,7 +299,7 @@ public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G> 
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void resetOwnConfiguration() {
+	public final void resetConfiguration() {
 		setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
 	}
 	

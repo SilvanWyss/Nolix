@@ -156,7 +156,7 @@ public final class MultiShape extends Shape<MultiShape> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void resetOwnConfiguration() {
+	public void resetConfiguration() {
 		//Does nothing.
 	}
 	

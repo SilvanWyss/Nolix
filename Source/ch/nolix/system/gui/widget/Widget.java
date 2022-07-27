@@ -1024,7 +1024,7 @@ implements IWidget<W, WL> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void resetOwnConfiguration() {
+	public final void resetConfiguration() {
 		
 		setCustomCursorIcon(DEFAULT_CURSOR_ICON);
 		getRefLook().reset();
@@ -1682,7 +1682,7 @@ implements IWidget<W, WL> {
 	@Override
 	protected final void resetElement() {
 		
-		resetConfiguration();
+		resetConfigurationRecursively();
 		
 		removeGreyOutWhenDisabled();
 		

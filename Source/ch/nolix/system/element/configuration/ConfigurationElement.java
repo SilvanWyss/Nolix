@@ -41,7 +41,7 @@ implements IConfigurationElement<CE> {
 		
 		//Handles the case that the current ConfigurationElement has a Configuration.
 		if (hasConfiguration()) {
-			resetConfiguration();
+			resetConfigurationRecursively();
 			getRefConfiguration().configure(this);
 		}
 	}
@@ -62,7 +62,7 @@ implements IConfigurationElement<CE> {
 	@Override
 	public final void removeConfiguration() {
 		configuration.clear();
-		resetConfiguration();
+		resetConfigurationRecursively();
 	}
 	
 	//method
@@ -85,10 +85,10 @@ implements IConfigurationElement<CE> {
 	@Override
 	protected final void resetElement() {
 		
-		resetConfiguration();
+		resetConfigurationRecursively();
 		
 		removeConfiguration();
-		resetConfiguration();
+		resetConfigurationRecursively();
 		
 		resetConfigurationElement();
 	}

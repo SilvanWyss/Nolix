@@ -42,22 +42,22 @@ public interface IConfigurableElement<C extends IConfigurableElement<C>> extends
 	 */
 	boolean hasToken(String token);
 	
+	//method declaration
+	/**
+	 * Resets the own configuration of the current {@link IConfigurableElement}.
+	 */
+	void resetConfiguration();
+	
 	//TODO: Create new ConfigurableElement.
 	//method declaration
 	/**
 	 * Resets the configuration of the current {@link IConfigurableElement} and
 	 * the configuration of the child {@link IConfigurableElement}s of the current {@link IConfigurableElement}.
 	 */
-	default void resetConfiguration() {
+	default void resetConfigurationRecursively() {
 		
-		resetOwnConfiguration();
+		resetConfiguration();
 		
-		getRefChildConfigurableElements().forEach(IConfigurableElement::resetConfiguration);
+		getRefChildConfigurableElements().forEach(IConfigurableElement::resetConfigurationRecursively);
 	}
-	
-	//method declaration
-	/**
-	 * Resets the own configuration of the current {@link IConfigurableElement}.
-	 */
-	void resetOwnConfiguration();
 }

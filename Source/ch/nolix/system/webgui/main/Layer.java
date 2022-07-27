@@ -229,7 +229,7 @@ public final class Layer extends OptionalIdentifiableOptionalTokenableElement<La
 	
 	//method
 	@Override
-	public void resetOwnConfiguration() {
+	public void resetConfiguration() {
 		//TODO: Implement.
 	}
 	
