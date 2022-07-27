@@ -16,7 +16,6 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.I2ElementTaker;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.system.element.base.OptionalIdentifiableOptionalTokenableElement;
-import ch.nolix.system.element.configuration.ConfigurableElement;
 import ch.nolix.system.element.mutableelement.ExtensionElement;
 import ch.nolix.system.element.mutableelement.MutableValueExtractor;
 import ch.nolix.system.gui.color.Color;
@@ -37,7 +36,6 @@ import ch.nolix.systemapi.guiapi.widgetguiapi.IWidgetGUI;
 /**
  * A {@link Widget} is an element on a {@link IWidgetGUI}.
  * A {@link Widget} determines its width and height.
- * A {@link Widget} is a {@link ConfigurableElement}.
  * 
  * A class always defines (not just declares!) the required methods for its defined attributes.
  * A {@link Widget} makes the following exceptions for this rule.
