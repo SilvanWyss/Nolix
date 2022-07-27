@@ -3,6 +3,7 @@ package ch.nolix.system.element.configuration;
 
 //own imports
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
+import ch.nolix.system.element.base.OptionalIdentifiableOptionalTokenableElement;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 import ch.nolix.systemapi.elementapi.configurationapi.IConfiguration;
 import ch.nolix.systemapi.elementapi.configurationapi.IConfigurationElement;
@@ -16,7 +17,7 @@ import ch.nolix.systemapi.elementapi.configurationapi.IConfigurationElement;
  * @param <CE> is the type of a {@link ConfigurationElement}.
  */
 public abstract class ConfigurationElement<CE extends ConfigurationElement<CE>>
-extends ConfigurableElement<CE>
+extends OptionalIdentifiableOptionalTokenableElement<CE>
 implements IConfigurationElement<CE> {
 	
 	//constant
@@ -82,7 +83,9 @@ implements IConfigurationElement<CE> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void resetConfigurableElement() {
+	protected final void resetElement() {
+		
+		resetConfiguration();
 		
 		removeConfiguration();
 		resetConfiguration();
