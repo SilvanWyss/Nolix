@@ -17,4 +17,7 @@ implements IConfigurableElement<CE> {
 		
 		getRefChildConfigurableElements().forEach(IConfigurableElement::resetConfigurationRecursively);
 	}
+	
+	//method declaration
+	protected abstract void resetConfiguration();
 }

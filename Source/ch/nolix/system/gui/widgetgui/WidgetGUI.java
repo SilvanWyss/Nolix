@@ -504,7 +504,8 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void resetConfiguration() {
+	protected
+	final void resetConfiguration() {
 		setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
 	}
 	

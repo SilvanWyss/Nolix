@@ -228,12 +228,6 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 	}
 	
 	//method
-	@Override
-	public void resetConfiguration() {
-		//TODO: Implement.
-	}
-	
-	//method
 	public Layer setBackground(final IBackground background) {
 		
 		this.background.setValue(background);
@@ -294,6 +288,12 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 	@Override
 	public String toHTMLString() {
 		return toHTMLElement().toString();
+	}
+	
+	//method
+	@Override
+	protected void resetConfiguration() {
+		//TODO: Implement.
 	}
 	
 	//method

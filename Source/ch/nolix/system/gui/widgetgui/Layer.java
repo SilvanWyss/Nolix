@@ -842,7 +842,7 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void resetConfiguration() {
+	protected void resetConfiguration() {
 		setContentPosition(DEFAULT_CONTENT_POSITION);
 	}
 	

@@ -1025,7 +1025,8 @@ implements IWidget<W, WL> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void resetConfiguration() {
+	protected
+	final void resetConfiguration() {
 		
 		setCustomCursorIcon(DEFAULT_CURSOR_ICON);
 		getRefLook().reset();

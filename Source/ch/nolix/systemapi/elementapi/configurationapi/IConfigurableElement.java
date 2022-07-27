@@ -44,12 +44,6 @@ public interface IConfigurableElement<C extends IConfigurableElement<C>> extends
 	
 	//method declaration
 	/**
-	 * Resets the own configuration of the current {@link IConfigurableElement}.
-	 */
-	void resetConfiguration();
-	
-	//method declaration
-	/**
 	 * Resets the configuration of the current {@link IConfigurableElement} and
 	 * the configuration of the child {@link IConfigurableElement}s of the current {@link IConfigurableElement}.
 	 */
