@@ -37,20 +37,6 @@ implements IConfigurableElement<CE> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final boolean containsElement(final String id) {
-		
-		final var subConfiguratbles = getRefChildConfigurableElements();
-		
-		return 
-		subConfiguratbles.containsAny(sc -> sc.hasId(id))
-		||subConfiguratbles.containsAny(sc -> sc.containsElement(id));
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	public final String getId() {
 		return id.getValue();
 	}

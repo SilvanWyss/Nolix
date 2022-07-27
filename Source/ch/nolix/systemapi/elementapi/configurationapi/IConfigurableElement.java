@@ -5,7 +5,6 @@ package ch.nolix.systemapi.elementapi.configurationapi;
 import ch.nolix.coreapi.attributeapi.mutableoptionalattributeuniversalapi.OptionalIdentifiableByString;
 import ch.nolix.coreapi.attributeapi.mutableoptionalattributeuniversalapi.OptionalTokenable;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
-import ch.nolix.coreapi.functionapi.requestuniversalapi.ContainsElementByStringIdRequestable;
 import ch.nolix.coreapi.functionapi.requestuniversalapi.TypeRequestable;
 import ch.nolix.systemapi.elementapi.mainuniversalapi.IMutableElement;
 
@@ -18,26 +17,7 @@ import ch.nolix.systemapi.elementapi.mainuniversalapi.IMutableElement;
  * @param <C> is the type of a {@link IConfigurableElement}.
  */
 public interface IConfigurableElement<C extends IConfigurableElement<C>>
-extends
-ContainsElementByStringIdRequestable,
-IMutableElement<C>,
-OptionalIdentifiableByString<C>,
-OptionalTokenable<C>,
-TypeRequestable {
-	
-	//TODO: Create new ConfigurableElement.
-	//method declaration
-	/**
-	 * {@inheritDoc}
-	 */
-	default boolean containsElement(final String id) {
-		
-		final var childConfigurableElements = getRefChildConfigurableElements();
-		
-		return 
-		childConfigurableElements.containsAny(e -> e.hasId(id))
-		|| childConfigurableElements.containsAny(e -> e.containsElement(id));
-	}
+extends IMutableElement<C>, OptionalIdentifiableByString<C>, OptionalTokenable<C>, TypeRequestable {
 	
 	//method declaration
 	/**
