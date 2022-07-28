@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.webgui.main;
+package ch.nolix.system.webgui.helper;
 
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
@@ -13,7 +13,7 @@ import ch.nolix.coreapi.documentapi.htmlapi.IHTMLElement;
 import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
 
 //class
-final class LayerHTMLHelper {
+public final class LayerHTMLHelper {
 	
 	//static attribute
 	public static final LayerHTMLHelper INSTANCE = new LayerHTMLHelper();

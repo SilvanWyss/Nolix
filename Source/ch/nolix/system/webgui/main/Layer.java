@@ -11,6 +11,7 @@ import ch.nolix.coreapi.documentapi.htmlapi.IHTMLElement;
 import ch.nolix.system.element.base.ConfigurableElement;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 import ch.nolix.system.gui.canvas.Background;
+import ch.nolix.system.webgui.helper.LayerHTMLHelper;
 import ch.nolix.systemapi.elementapi.configurationapi.IConfigurableElement;
 import ch.nolix.systemapi.guiapi.canvasuniversalapi.IBackground;
 import ch.nolix.systemapi.guiapi.colorapi.IColor;
