@@ -1,0 +1,49 @@
+//package declaration
+package ch.nolix.system.webgui.main;
+
+//own imports
+import ch.nolix.core.document.html.HTMLElement;
+import ch.nolix.core.document.html.HTMLElementTypeCatalogue;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.documentapi.htmlapi.IHTMLElement;
+import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
+import ch.nolix.systemapi.webguiapi.mainapi.IWebGUI;
+import ch.nolix.systemapi.webguiapi.mainapi.IWebGUIContent;
+
+//class
+final class WebGUIContent implements IWebGUIContent {
+	
+	//static method
+	public static WebGUIContent forParentWebGUI(final IWebGUI<?> parentWebGUI) {
+		return new WebGUIContent(parentWebGUI);
+	}
+	
+	//attribute
+	private final IWebGUI<?> parentWebGUI;
+	
+	//constructor
+	private WebGUIContent(final IWebGUI<?> parentWebGUI) {
+		
+		GlobalValidator.assertThat(parentWebGUI).thatIsNamed("parent web GUI").isNotNull();
+		
+		this.parentWebGUI = parentWebGUI;
+	}
+	
+	//method
+	@Override
+	public IHTMLElement<?, ?> toHTMLElement() {
+		return HTMLElement.withTypeAndChildElements(HTMLElementTypeCatalogue.DIV, getHTMLChildElements());
+	}
+	
+	//method
+	@Override
+	public String toHTMLString() {
+		return toHTMLElement().toString();
+	}
+	
+	//method
+	private IContainer<IHTMLElement<?, ?>> getHTMLChildElements() {
+		return parentWebGUI.getRefLayers().to(ILayer::toHTMLElement);
+	}
+}

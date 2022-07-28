@@ -1,0 +1,304 @@
+//package declaration
+package ch.nolix.system.webgui.main;
+
+//own imports
+import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
+import ch.nolix.core.document.node.Node;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.core.programatom.name.PascalCaseCatalogue;
+import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
+import ch.nolix.system.element.configuration.ConfigurationElement;
+import ch.nolix.system.element.mutableelement.MultiValue;
+import ch.nolix.system.element.mutableelement.MutableOptionalValue;
+import ch.nolix.system.element.mutableelement.MutableValue;
+import ch.nolix.system.gui.canvas.Background;
+import ch.nolix.system.gui.color.Color;
+import ch.nolix.system.gui.image.Image;
+import ch.nolix.system.gui.main.GUIIconCatalogue;
+import ch.nolix.systemapi.elementapi.configurationapi.IConfigurableElement;
+import ch.nolix.systemapi.guiapi.canvasuniversalapi.IBackground;
+import ch.nolix.systemapi.guiapi.colorapi.IColor;
+import ch.nolix.systemapi.guiapi.colorapi.IColorGradient;
+import ch.nolix.systemapi.guiapi.imageapi.IImage;
+import ch.nolix.systemapi.guiapi.imageapi.ImageApplication;
+import ch.nolix.systemapi.guiapi.mainapi.IFrontEndReader;
+import ch.nolix.systemapi.guiapi.mainapi.IFrontEndWriter;
+import ch.nolix.systemapi.guiapi.structureproperty.BackgroundType;
+import ch.nolix.systemapi.webguiapi.mainapi.IControl;
+import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
+import ch.nolix.systemapi.webguiapi.mainapi.IWebGUI;
+import ch.nolix.systemapi.webguiapi.mainapi.IWebGUIContent;
+
+//class
+public final class WebGUI extends ConfigurationElement<WebGUI> implements IWebGUI<WebGUI> {
+	
+	//constant
+	public static final String DEFAULT_TITLE = PascalCaseCatalogue.GUI;
+	
+	//constant
+	public static final Image DEFAULT_ICON = GUIIconCatalogue.NOLIX_ICON;
+	
+	//constant
+	public static final Color DEFAULT_BACKGROUND_COLOR = Color.WHITE;
+	
+	//constant
+	private static final String TITLE_HEADER = PascalCaseCatalogue.TITLE;
+	
+	//constant
+	private static final String ICON_HEADER = PascalCaseCatalogue.ICON;
+	
+	//constant
+	private static final String BACKGROUND_HEADER = PascalCaseCatalogue.BACKGROUND;
+	
+	//constant
+	private static final String LAYER_HEADER = PascalCaseCatalogue.LAYER;
+	
+	//attribute
+	private final MutableValue<String> title =
+	new MutableValue<>(
+		TITLE_HEADER,
+		DEFAULT_TITLE,
+		this::setTitle,
+		INode::getSingleChildNodeHeader,
+		Node::withChildNode
+	);
+	
+	//attribute
+	private final MutableValue<Image> icon =
+	new MutableValue<>(
+		ICON_HEADER,
+		DEFAULT_ICON,
+		this::setIcon,
+		Image::fromSpecification,
+		Image::getSpecification
+	);
+	
+	//attribute
+	private final MutableOptionalValue<IBackground> background =
+	new MutableOptionalValue<>(
+		BACKGROUND_HEADER,
+		this::setBackground,
+		Background::fromSpecification,
+		IBackground::getSpecification
+	);
+	
+	//attribute
+	private final MultiValue<ILayer<?>> layers =
+	new MultiValue<>(
+		LAYER_HEADER,
+		this::pushLayer,
+		Layer::fromSpecification,
+		ILayer::getSpecification
+	);
+	
+	//constructor
+	public WebGUI() {
+		setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
+	}
+	
+	//method
+	@Override
+	public void clear() {
+		layers.clear();
+	}
+	
+	//method
+	@Override
+	public IFrontEndReader fromFrontEnd() {
+		//TODO: Implement.
+		return null;
+	}
+	
+	//method
+	public IBackground getBackground() {
+		return background.getValue();
+	}
+	
+	//method
+	@Override
+	public IColor getBackgroundColor() {
+		return getBackground().getColor();
+	}
+	
+	//method
+	@Override
+	public IColorGradient getBackgroundColorGradient() {
+		return getBackground().getColorGradient();
+	}
+	
+	//method
+	@Override
+	public IImage getBackgroundImage() {
+		return getBackground().getImage();
+	}
+	
+	//method
+	@Override
+	public ImageApplication getBackgroundImageApplication() {
+		return getBackground().getImageApplication();
+	}
+	
+	//method
+	@Override
+	public BackgroundType getBackgroundType() {
+		return getBackground().getType();
+	}
+	
+	//method
+	@Override
+	public IWebGUIContent getContent() {
+		return WebGUIContent.forParentWebGUI(this);
+	}
+	
+	//method
+	@Override
+	public IImage getIcon() {
+		return icon.getValue();
+	}
+	
+	//method
+	@Override
+	public IContainer<? extends IConfigurableElement<?>> getRefChildConfigurableElements() {
+		return getRefLayers();
+	}
+
+	//method
+	@Override
+	public IContainer<ILayer<?>> getRefLayers() {
+		return layers.getRefValues();
+	}
+	
+	//method
+	@Override
+	public ILayer<?> getRefTopLayer() {
+		return getRefLayers().getRefLast();
+	}
+	
+	//method
+	@Override
+	public String getTitle() {
+		return title.getValue();
+	}
+	
+	//method
+	@Override
+	public String getTitleInQuotes() {
+		return GlobalStringHelper.getInQuotes(getTitle());
+	}
+	
+	//method
+	@Override
+	public boolean hasRole(final String role) {
+		return false;
+	}
+	
+	//method
+	@Override
+	public boolean isEmpty() {
+		return getRefLayers().isEmpty();
+	}
+	
+	//method
+	@Override
+	public IFrontEndWriter onFrontEnd() {
+		//TODO: Implement.
+		return null;
+	}
+	
+	//method
+	@Override
+	public WebGUI pushLayer(final ILayer<?> layer) {
+		
+		layers.add(layer);
+		
+		return this;
+	}
+	
+	//method
+	@Override
+	public WebGUI pushLayerWithRootControl(final IControl<?, ?> rootControl) {
+		return pushLayer(new Layer().setRootControl(rootControl));
+	}
+	
+	//method
+	@Override
+	public void removeBackground() {
+		background.clear();
+	}
+	
+	//method
+	@Override
+	public void removeLayer(final ILayer<?> layer) {
+		layers.remove(layer);
+	}
+	
+	//method
+	public WebGUI setBackground(final IBackground background) {
+		
+		this.background.setValue(background);
+		
+		return this;
+	}
+	
+	//method
+	@Override
+	public WebGUI setBackgroundColor(final IColor backgroundColor) {
+		return setBackground(Background.withColor(backgroundColor));
+	}
+	
+	//method
+	@Override
+	public WebGUI setBackgroundColorGradient(final IColorGradient backgroundColorGradient) {
+		return setBackground(Background.withColorGradient(backgroundColorGradient));
+	}
+	
+	//method
+	@Override
+	public WebGUI setBackgroundImage(final IImage backgroundImage) {
+		return setBackground(Background.withImage(backgroundImage));
+	}
+	
+	//method
+	@Override
+	public WebGUI setBackgroundImage(final IImage backgroundImage, final ImageApplication imageApplication) {
+		return setBackground(Background.withImageAndImageApplication(backgroundImage, imageApplication));
+	}
+	
+	//method
+	@Override
+	public WebGUI setIcon(final IImage icon) {
+		
+		this.icon.setValue(Image.fromAnyImage(icon));
+		
+		return this;
+	}
+	
+	//method
+	@Override
+	public WebGUI setTitle(final String title) {
+		
+		GlobalValidator.assertThat(title).thatIsNamed(LowerCaseCatalogue.TITLE).isNotBlank();
+		
+		this.title.setValue(title);
+		
+		return this;
+	}
+	
+	//method
+	@Override
+	protected void resetConfigurationElement() {
+		
+		setTitle(DEFAULT_TITLE);
+		setIcon(DEFAULT_ICON);
+		
+		clear();
+	}
+	
+	//method
+	@Override
+	protected void resetConfiguration() {
+		setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
+	}
+}
