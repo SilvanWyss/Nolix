@@ -11,13 +11,13 @@ import ch.nolix.coreapi.documentapi.htmlapi.IHTMLElement;
 import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
 
 //class
-final class LayerHelper {
+final class LayerHTMLHelper {
 	
 	//static attribute
-	public static final LayerHelper INSTANCE = new LayerHelper();
+	public static final LayerHTMLHelper INSTANCE = new LayerHTMLHelper();
 	
 	//constructor
-	private LayerHelper() {}
+	private LayerHTMLHelper() {}
 	
 	//method
 	public IContainer<IHTMLElement<?, ?>> getHTMLChildElementsOfLayer(final ILayer<?> layer) {
