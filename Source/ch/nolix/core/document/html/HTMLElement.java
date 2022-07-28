@@ -6,21 +6,40 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.documentapi.htmlapi.IHTMLAttribute;
 import ch.nolix.coreapi.documentapi.htmlapi.IHTMLElement;
 
 //class
 public final class HTMLElement implements IHTMLElement<HTMLElement, HTMLAttribute> {
 	
 	//static method
-	public static HTMLElement withTypeAndAttributes(final String type, final IContainer<HTMLAttribute> attributes) {
+	public static HTMLElement fromHTMLElement(final IHTMLElement<?, ?> pHTMLElement) {
+		
+		if (pHTMLElement instanceof HTMLElement) {
+			return (HTMLElement)pHTMLElement;
+		}
+		
+		return
+		withTypeAndAttributesAndChildElements(
+			pHTMLElement.getType(),
+			pHTMLElement.getRefAttributes(),
+			pHTMLElement.getRefChildElements()
+		);
+	}
+	
+	//static method
+	public static HTMLElement withTypeAndAttributes(
+		final String type,
+		final IContainer<? extends IHTMLAttribute> attributes
+	) {
 		return new HTMLElement(type, attributes, new ImmutableList<>());
 	}
 	
 	//static method
 	public static HTMLElement withTypeAndAttributesAndChildElements(
 		final String type,
-		final IContainer<HTMLAttribute> attributes,
-		final IContainer<HTMLElement> childElements
+		final IContainer<? extends IHTMLAttribute> attributes,
+		final IContainer<? extends IHTMLElement<?, ?>> childElements
 	) {
 		return new HTMLElement(type, attributes, childElements);
 	}
@@ -28,7 +47,7 @@ public final class HTMLElement implements IHTMLElement<HTMLElement, HTMLAttribut
 	//static method
 	public static HTMLElement withTypeAndChildElements(
 		final String type,
-		final IContainer<HTMLElement> childElements
+		final IContainer<? extends IHTMLElement<?, ?>> childElements
 	) {
 		return new HTMLElement(type, new ImmutableList<>(), childElements);
 	}
@@ -37,23 +56,23 @@ public final class HTMLElement implements IHTMLElement<HTMLElement, HTMLAttribut
 	private final String type;
 	
 	//multi-attribute
-	private final ImmutableList<HTMLAttribute> attributes;
+	private final IContainer<HTMLAttribute> attributes;
 	
 	//multi attribute
-	private final ImmutableList<HTMLElement> childElements;
+	private final IContainer<HTMLElement> childElements;
 	
 	//constructor
 	private HTMLElement(
 		final String type,
-		final IContainer<HTMLAttribute> attributes,
-		final IContainer<HTMLElement> childElements
+		final IContainer<? extends IHTMLAttribute> attributes,
+		final IContainer<? extends IHTMLElement<?, ?>> childElements
 	) {
 		
 		GlobalValidator.assertThat(type).thatIsNamed(LowerCaseCatalogue.TYPE).isNotBlank();
 		
 		this.type = type;
-		this.childElements = ImmutableList.forIterable(childElements);
-		this.attributes = ImmutableList.forIterable(attributes);
+		this.childElements = childElements.to(HTMLElement::fromHTMLElement);
+		this.attributes = attributes.to(HTMLAttribute::fromHTMLAttribute);
 	}
 	
 	//method
