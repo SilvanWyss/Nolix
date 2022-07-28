@@ -9,6 +9,16 @@ import ch.nolix.coreapi.documentapi.htmlapi.IHTMLAttribute;
 public final class HTMLAttribute implements IHTMLAttribute {
 	
 	//static method
+	public static HTMLAttribute fromHTMLAttribute(final IHTMLAttribute pHTMLAttribute) {
+		
+		if (pHTMLAttribute instanceof HTMLAttribute) {
+			return (HTMLAttribute)pHTMLAttribute;
+		}
+		
+		return withNameAndValue(pHTMLAttribute.getName(), pHTMLAttribute.getValue());
+	}
+	
+	//static method
 	public static HTMLAttribute withNameAndValue(final String name, final String value) {
 		return new HTMLAttribute(name, value);
 	}
