@@ -292,8 +292,7 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 	//method
 	@Override
 	public IHTMLElement<?, ?> toHTMLElement() {
-		//TODO: Implement.
-		return null;
+		return LayerHTMLHelper.INSTANCE.getHTMLElementOfLayer(this);
 	}
 	
 	//method

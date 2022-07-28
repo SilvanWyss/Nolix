@@ -5,6 +5,8 @@ package ch.nolix.system.webgui.main;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.document.html.HTMLAttribute;
 import ch.nolix.core.document.html.HTMLAttributeNameCatalogue;
+import ch.nolix.core.document.html.HTMLElement;
+import ch.nolix.core.document.html.HTMLElementTypeCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.documentapi.htmlapi.IHTMLAttribute;
 import ch.nolix.coreapi.documentapi.htmlapi.IHTMLElement;
@@ -19,6 +21,10 @@ final class LayerHTMLHelper {
 	//constructor
 	private LayerHTMLHelper() {}
 	
+	public IContainer<IHTMLAttribute> getHTMLAttributesOfLayer(final ILayer<?> layer) {
+		return ImmutableList.withElements(getZIndexHTMLAttributeOfLayer(layer));
+	}
+	
 	//method
 	public IContainer<IHTMLElement<?, ?>> getHTMLChildElementsOfLayer(final ILayer<?> layer) {
 		
@@ -27,6 +33,16 @@ final class LayerHTMLHelper {
 		}
 		
 		return ImmutableList.withElements(layer.getRefRootControl().toHTMLElement());
+	}
+	
+	//method
+	public IHTMLElement<?, ?> getHTMLElementOfLayer(final ILayer<?> layer) {
+		return
+		HTMLElement.withTypeAndAttributesAndChildElements(
+			HTMLElementTypeCatalogue.DIV,
+			getHTMLAttributesOfLayer(layer),
+			getHTMLChildElementsOfLayer(layer)
+		);
 	}
 	
 	//method
