@@ -52,6 +52,12 @@ implements IControl<C, CS> {
 	
 	//method
 	@Override
+	public boolean belongsToLayer() {
+		return (parentLayer != null);
+	}
+	
+	//method
+	@Override
 	public final CursorIcon getCursorIcon() {
 		return cursorIcon.getValue();
 	}
