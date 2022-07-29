@@ -29,7 +29,7 @@ public final class TextBoxWithCustomLookTutorial {
 		//Creates a TextBox.
 		final var textBox = new TextBox();
 		
-		//Configures the look of the TextBox.
+		//Configures the style of the TextBox.
 		textBox
 		.setProposalWidth(200)
 		.onStyle(

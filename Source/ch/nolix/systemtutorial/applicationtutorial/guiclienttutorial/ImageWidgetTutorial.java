@@ -47,7 +47,7 @@ public final class ImageWidgetTutorial {
 			//Creates an ImageWidget with the Image.
 			final var imageWidget = new ImageWidget().setImage(image);
 			
-			//Configures the look of the ImageWidget.
+			//Configures the style of the ImageWidget.
 			imageWidget.getRefStyle()
 			.setBorderThicknessForState(ControlState.BASE, 5)
 			.setBackgroundColorForState(ControlState.BASE, Color.LAVENDER)

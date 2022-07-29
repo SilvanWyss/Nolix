@@ -65,7 +65,7 @@ public final class FrameWithNameTextBoxTutorial {
 			}
 		);
 		
-		//Configures the Look of the Frame, Layers and Widgets.
+		//Configures the style of the Frame, Layers and Widgets.
 		layer1.setBackgroundColor(Color.LAVENDER);
 		layer1VerticalStack.setElementMargin(10);
 		confirmButton.setCustomCursorIcon(CursorIcon.HAND);

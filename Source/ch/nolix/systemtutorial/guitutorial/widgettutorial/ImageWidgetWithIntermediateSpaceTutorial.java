@@ -36,7 +36,7 @@ public final class ImageWidgetWithIntermediateSpaceTutorial {
 		//Creates an ImageWidget with the image.
 		final var imageWidget = new ImageWidget().setImage(image);
 		
-		//Configures the look of the ImageWidget.
+		//Configures the style of the ImageWidget.
 		imageWidget
 		.setMinWidth(500)
 		.setMinHeight(500)

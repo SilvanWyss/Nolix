@@ -41,7 +41,7 @@ public final class HorizontalLineWithCustomLookTutorial {
 			new Label().setText("quis nostrud exercitation")
 		);
 		
-		//Configures the look of the VerticalStack.
+		//Configures the style of the VerticalStack.
 		verticalStack
 		.setContentPosition(ContentPosition.TOP)
 		.setElementMargin(50)

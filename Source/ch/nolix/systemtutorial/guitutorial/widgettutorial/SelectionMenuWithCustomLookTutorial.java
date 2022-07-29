@@ -44,7 +44,7 @@ public final class SelectionMenuWithCustomLookTutorial {
 			"Richard David Precht"
 		);
 		
-		//Configures the look of the SelectionMenu.
+		//Configures the style of the SelectionMenu.
 		selectionMenu
 		.setMaxHeight(200)
 		.onStyle(l -> l.setBackgroundColorForState(ControlState.BASE, Color.LAVENDER))

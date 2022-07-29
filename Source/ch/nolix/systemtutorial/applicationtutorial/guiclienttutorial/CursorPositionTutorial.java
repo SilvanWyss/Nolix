@@ -40,7 +40,7 @@ public final class CursorPositionTutorial {
 		@Override
 		protected void initialize() {
 									
-			//Configures the look of the cursorPositionLabel.
+			//Configures the style of the cursorPositionLabel.
 			cursorPositionLabel.onStyle(l -> l.setPaddingForState(ControlState.BASE, 5));
 			
 			//Creates Layer.

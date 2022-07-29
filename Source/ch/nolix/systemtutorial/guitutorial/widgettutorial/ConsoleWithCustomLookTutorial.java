@@ -30,7 +30,7 @@ public final class ConsoleWithCustomLookTutorial {
 		final var console =	new Console();
 		console.writeLine("Hello!");
 		
-		//Configures the look of the Console.
+		//Configures the style of the Console.
 		console
 		.onStyle(
 			l ->

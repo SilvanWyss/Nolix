@@ -35,7 +35,7 @@ public final class ImageWidgetWithScrollBarTutorial {
 		//Creates an ImageWidget with the image.
 		final var imageWidget = new ImageWidget().setImage(image);
 		
-		//Configures the look of the ImageWidget.
+		//Configures the style of the ImageWidget.
 		imageWidget
 		.setMaxWidth(500)
 		.setMaxHeight(500)

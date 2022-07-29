@@ -35,7 +35,7 @@ public final class TabContainerTutorial {
 		.addTab("C", new Area().setSize(400,  200).setBackgroundColor(Color.PINK))
 		.addTab("D", new Area().setSize(350,  200).setBackgroundColor(Color.ORANGE));
 		
-		//Configures the look of the TabContainer.
+		//Configures the style of the TabContainer.
 		tabContainer
 		.getRefStyle()
 		.setBorderThicknessForState(ControlState.BASE, 5)

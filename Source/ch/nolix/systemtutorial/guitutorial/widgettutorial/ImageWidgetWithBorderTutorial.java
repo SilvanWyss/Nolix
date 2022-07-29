@@ -34,7 +34,7 @@ public final class ImageWidgetWithBorderTutorial {
 		//Creates an ImageWidget with the image.
 		final var imageWidget = new ImageWidget().setImage(image);
 		
-		//Configures the look of the ImageWidget.
+		//Configures the style of the ImageWidget.
 		imageWidget.onStyle(
 			l ->
 			l

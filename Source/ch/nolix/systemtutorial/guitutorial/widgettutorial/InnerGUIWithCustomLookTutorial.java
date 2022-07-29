@@ -42,7 +42,7 @@ public final class InnerGUIWithCustomLookTutorial {
 		.setTitle("Inner GUI 2")
 		.pushLayerWithRootWidget(new Label().setText("B").onStyle(l -> l.setTextSizeForState(ControlState.BASE, 100)));
 		
-		//Configures the look of the InnerGUIs.
+		//Configures the style of the InnerGUIs.
 		innerGUI1.onStyle(
 			l ->
 			l

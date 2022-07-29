@@ -166,7 +166,7 @@ public final class DropdownMenu extends ItemMenu<DropdownMenu> {
 		//Sets the select action of the expandedDropdownMenu.
 		expandedDropdownMenu.setSelectAction(this::selectItemAndCollapseWhenMenuIsExpandedAndContainsSelectedItem);
 		
-		//Configures the look of the expandedDropdownMenu.
+		//Configures the style of the expandedDropdownMenu.
 		expandedDropdownMenu.getRefStyle().setFrom(getRefStyle());
 		expandedDropdownMenu.getRefItemLook().setFrom(getRefItemLook());
 		expandedDropdownMenu.getRefSelectedItemLook().setFrom(getRefSelectedItemLook());

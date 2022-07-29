@@ -41,7 +41,7 @@ public final class DownloaderWithCustomLookTutorial {
 		//Creates a Downloader.
 		final var downloader = new Downloader().setText("Download file").setFileProvider(new FileAccessor(filePath));
 		
-		//Configures the look of the Downloader.
+		//Configures the style of the Downloader.
 		downloader.onStyle(
 			l ->
 			l

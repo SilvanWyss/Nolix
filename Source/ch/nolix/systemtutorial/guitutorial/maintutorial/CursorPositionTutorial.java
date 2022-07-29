@@ -29,7 +29,7 @@ public final class CursorPositionTutorial {
 		//Creates cursorPositionLabel.
 		final var cursorPositionLabel = new Label();
 		
-		//Configures the look of the cursorPositionLabel.
+		//Configures the style of the cursorPositionLabel.
 		cursorPositionLabel.onStyle(l -> l.setPaddingForState(ControlState.BASE, 5));
 		
 		//Creates Layer.

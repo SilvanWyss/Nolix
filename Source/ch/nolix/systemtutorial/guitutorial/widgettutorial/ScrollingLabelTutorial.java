@@ -30,7 +30,7 @@ public final class ScrollingLabelTutorial {
 		//Creates a Label.
 		final var label = new Label().setText("PLATON");
 		
-		//Configures the look of the Label.
+		//Configures the style of the Label.
 		label
 		.setMaxWidth(1000)
 		.setMaxHeight(500)

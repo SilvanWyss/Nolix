@@ -42,7 +42,7 @@ public final class FloatContainerTutorial {
 			new Label().setText("H")
 		);
 		
-		//Configures the look of the FloatContainer.
+		//Configures the style of the FloatContainer.
 		floatContainer
 		.setMaxWidth(1000)
 		.onStyle(
@@ -54,7 +54,7 @@ public final class FloatContainerTutorial {
 			.setElementMarginForState(ControlState.BASE, 10)
 		);
 		
-		//Configures the look of the child Widgets of the FloatContainer.
+		//Configures the style of the child Widgets of the FloatContainer.
 		var index = 1;
 		for (final var cw : floatContainer.getChildWidgets()) {
 			

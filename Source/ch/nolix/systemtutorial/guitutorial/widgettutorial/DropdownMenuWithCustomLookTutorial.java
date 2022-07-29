@@ -42,7 +42,7 @@ public final class DropdownMenuWithCustomLookTutorial {
 			"Theodor W. Adorno"
 		);
 		
-		//Configures the look of the DropdownMenu.
+		//Configures the style of the DropdownMenu.
 		dropdownMenu
 		.onStyle(l -> l.setBackgroundColorForState(ControlState.BASE, Color.LAVENDER))
 		.onItemLook(

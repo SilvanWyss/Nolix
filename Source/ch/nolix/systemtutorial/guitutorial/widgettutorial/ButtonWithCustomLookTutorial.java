@@ -41,7 +41,7 @@ public final class ButtonWithCustomLookTutorial {
 			}
 		);
 		
-		//Configures the look of the Button.
+		//Configures the style of the Button.
 		button
 		.setCustomCursorIcon(CursorIcon.HAND)
 		.onStyle(

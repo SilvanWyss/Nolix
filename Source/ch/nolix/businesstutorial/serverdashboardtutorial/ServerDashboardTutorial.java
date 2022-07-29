@@ -65,7 +65,7 @@ public final class ServerDashboardTutorial {
 			//Creates Label.
 			final var label = new Label().setText("Hello World");
 			
-			//Configures the look of the Label.
+			//Configures the style of the Label.
 			label.onStyle(l -> l.setTextSizeForState(ControlState.BASE, 50));
 			
 			//Adds the Label to the GUI of the current MainSession.

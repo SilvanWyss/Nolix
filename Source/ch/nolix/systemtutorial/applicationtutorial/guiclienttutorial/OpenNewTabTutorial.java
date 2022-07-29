@@ -43,7 +43,7 @@ public final class OpenNewTabTutorial {
 			.setText("www.nolix.ch")
 			.setLeftMouseButtonPressAction(this::openWebsite);
 			
-			//Configures the look of the Button.
+			//Configures the style of the Button.
 			button.getRefStyle().setTextColorForState(ControlState.BASE, Color.BLUE);
 			
 			//Adds the Button to the GUI of the current MainSession.

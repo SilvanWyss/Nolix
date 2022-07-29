@@ -35,7 +35,7 @@ public final class AccordionTutorial {
 		.addTab("C", new Area().setSize(400,  200).setBackgroundColor(Color.PINK))
 		.addTab("D", new Area().setSize(350,  200).setBackgroundColor(Color.ORANGE));
 		
-		//Configures the look of the Accordion.
+		//Configures the style of the Accordion.
 		accordion
 		.getRefStyle()
 		.setBorderThicknessForState(ControlState.BASE, 5)

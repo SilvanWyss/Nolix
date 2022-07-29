@@ -43,13 +43,13 @@ public final class LabelTutorial {
 			//Creates clockCaptionLabel.
 			final var clockCaptionLabel = new Label().setText("Time:");
 			
-			//Configures the look of the clockCaptionLabel.
+			//Configures the style of the clockCaptionLabel.
 			clockCaptionLabel.getRefStyle().setTextSizeForState(ControlState.BASE, 50);
 			
 			//Creates clockLabel.
 			final var clockLabel = new Label();
 			
-			//Configures the look of the clockLabel.
+			//Configures the style of the clockLabel.
 			clockLabel
 			.getRefStyle()
 			.setBackgroundColorForState(ControlState.BASE, Color.YELLOW)
@@ -58,7 +58,7 @@ public final class LabelTutorial {
 			//Creates mainHorizontalStack.
 			final var mainHorizontalStack = new HorizontalStack().addWidget(clockCaptionLabel, clockLabel);
 			
-			//Configures the look of the mainHorizontalStack.
+			//Configures the style of the mainHorizontalStack.
 			mainHorizontalStack.setElementMargin(50);
 			
 			//Adds the mainHorizontalStack to the GUI of the current MainSession.
