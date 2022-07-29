@@ -4,10 +4,10 @@ package ch.nolix.systemapi.webguiapi.containerapi;
 import ch.nolix.systemapi.guiapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.controlproperty.GridType;
 import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
-import ch.nolix.systemapi.webguiapi.controllookapi.IExtendedControlLook;
+import ch.nolix.systemapi.webguiapi.controlstyleapi.IExtendedControlStyle;
 
 //interface
-public interface IGridContainerLook extends IExtendedControlLook<IGridContainerLook> {
+public interface IGridContainerStyle extends IExtendedControlStyle<IGridContainerStyle> {
 	
 	//method declaration
 	void removeCustomControlMargins();
@@ -22,14 +22,14 @@ public interface IGridContainerLook extends IExtendedControlLook<IGridContainerL
 	void removeCustomGridTypes();
 	
 	//method declaration
-	IGridContainerLook setControlMarginForState(ControlState state, int controlMargin);
+	IGridContainerStyle setControlMarginForState(ControlState state, int controlMargin);
 	
 	//method declaration
-	IGridContainerLook setGridColorForState(ControlState state, IColor gridColor);
+	IGridContainerStyle setGridColorForState(ControlState state, IColor gridColor);
 	
 	//method declaration
-	IGridContainerLook setGridThicknessForState(ControlState state, int gridThickness);
+	IGridContainerStyle setGridThicknessForState(ControlState state, int gridThickness);
 	
 	//method declaration
-	IGridContainerLook setGridTypeForState(ControlState state, GridType gridType);
+	IGridContainerStyle setGridTypeForState(ControlState state, GridType gridType);
 }

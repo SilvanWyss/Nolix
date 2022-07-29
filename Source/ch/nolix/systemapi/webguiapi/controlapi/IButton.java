@@ -7,7 +7,7 @@ import ch.nolix.systemapi.guiapi.controlrole.ButtonRole;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //interface
-public interface IButton extends IControl<IButton, IButtonLook> {
+public interface IButton extends IControl<IButton, IButtonStyle> {
 	
 	//method declaration
 	ButtonRole getRole();

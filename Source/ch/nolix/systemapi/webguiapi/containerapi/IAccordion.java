@@ -7,7 +7,7 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.systemapi.guiapi.controlproperty.TabExpansionBehavior;
 
 //interface
-public interface IAccordion extends ch.nolix.systemapi.webguiapi.containerapi.IContainer<IAccordion, IAccordionLook> {
+public interface IAccordion extends ch.nolix.systemapi.webguiapi.containerapi.IContainer<IAccordion, IAccordionStyle> {
 	
 	//method declaration
 	IAccordion addTab(IAccordionTab... tabs);
@@ -22,7 +22,7 @@ public interface IAccordion extends ch.nolix.systemapi.webguiapi.containerapi.IC
 	void expandTabByHeader(String header);
 	
 	//method declaration
-	ILinearContainerLook<?> getHeaderLook();
+	ILinearContainerStyle<?> getHeaderStyle();
 	
 	//method declaration
 	IAccordionTab getRefTabByHeader(String header);
@@ -37,7 +37,7 @@ public interface IAccordion extends ch.nolix.systemapi.webguiapi.containerapi.IC
 	TabExpansionBehavior getTabExpansionBehavior();
 	
 	//method declaration
-	ILinearContainerLook<?> onHeaderLook(IElementTaker<ILinearContainerLook<?>> headerLookEditor);
+	ILinearContainerStyle<?> onHeaderStyle(IElementTaker<ILinearContainerStyle<?>> headerStyleEditor);
 		
 	//method declaration
 	IAccordion setTabExpansionBehaviour(TabExpansionBehavior tabExpansionBehavior);

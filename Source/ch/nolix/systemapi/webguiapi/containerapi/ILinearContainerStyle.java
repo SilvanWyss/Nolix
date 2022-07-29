@@ -2,10 +2,10 @@
 package ch.nolix.systemapi.webguiapi.containerapi;
 
 import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
-import ch.nolix.systemapi.webguiapi.controllookapi.IExtendedControlLook;
+import ch.nolix.systemapi.webguiapi.controlstyleapi.IExtendedControlStyle;
 
 //interface
-public interface ILinearContainerLook<LCL extends ILinearContainerLook<LCL>> extends IExtendedControlLook<LCL> {
+public interface ILinearContainerStyle<LCL extends ILinearContainerStyle<LCL>> extends IExtendedControlStyle<LCL> {
 	
 	//method declaration
 	int getControlMargin();

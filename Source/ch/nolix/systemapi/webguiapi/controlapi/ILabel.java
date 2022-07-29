@@ -5,7 +5,7 @@ package ch.nolix.systemapi.webguiapi.controlapi;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //interface
-public interface ILabel extends IControl<ILabel, ILabelLook> {
+public interface ILabel extends IControl<ILabel, ILabelStyle> {
 	
 	//method declaration
 	String getText();

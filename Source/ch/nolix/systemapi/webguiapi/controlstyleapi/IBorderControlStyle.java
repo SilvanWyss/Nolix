@@ -1,12 +1,12 @@
 //package declaration
-package ch.nolix.systemapi.webguiapi.controllookapi;
+package ch.nolix.systemapi.webguiapi.controlstyleapi;
 
 //own imports
 import ch.nolix.systemapi.guiapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 
 //interface
-public interface IBorderControlLook<BCL extends IBorderControlLook<BCL>> {
+public interface IBorderControlStyle<BCS extends IBorderControlStyle<BCS>> {
 	
 	//method declaration
 	void removeCustomBorderColors();
@@ -54,47 +54,47 @@ public interface IBorderControlLook<BCL extends IBorderControlLook<BCL>> {
 	void removeCustomTopPaddings();
 	
 	//method declaration
-	BCL setBorderColorForState(ControlState state, IColor borderColor);
+	BCS setBorderColorForState(ControlState state, IColor borderColor);
 	
 	//method declaration
-	BCL setBorderThicknessForState(ControlState state, int borderThickness);
+	BCS setBorderThicknessForState(ControlState state, int borderThickness);
 	
 	//method declaration
-	BCL setPaddingForState(ControlState state, int padding);
+	BCS setPaddingForState(ControlState state, int padding);
 	
 	//method declaration
-	BCL setBottomBorderColorForState(ControlState state, IColor bottomBorderColor);
+	BCS setBottomBorderColorForState(ControlState state, IColor bottomBorderColor);
 	
 	//method declaration
-	BCL setBottomBorderThicknessForState(ControlState state, int bottomBorderThickness);
+	BCS setBottomBorderThicknessForState(ControlState state, int bottomBorderThickness);
 	
 	//method declaration
-	BCL setBottomPaddingForState(ControlState state, int bottomPadding);
+	BCS setBottomPaddingForState(ControlState state, int bottomPadding);
 	
 	//method declaration
-	BCL setLeftBorderColorForState(ControlState state, IColor leftBorderColor);
+	BCS setLeftBorderColorForState(ControlState state, IColor leftBorderColor);
 	
 	//method declaration
-	BCL setLeftBorderThicknessForState(ControlState state, int leftBorderThickness);
+	BCS setLeftBorderThicknessForState(ControlState state, int leftBorderThickness);
 	
 	//method declaration
-	BCL setLeftPaddingForState(ControlState state, int leftPadding);
+	BCS setLeftPaddingForState(ControlState state, int leftPadding);
 	
 	//method declaration
-	BCL setRightBorderColorForState(ControlState state, IColor rightBorderColor);
+	BCS setRightBorderColorForState(ControlState state, IColor rightBorderColor);
 	
 	//method declaration
-	BCL setRightBorderThicknessForState(ControlState state, int rightBorderThickness);
+	BCS setRightBorderThicknessForState(ControlState state, int rightBorderThickness);
 	
 	//method declaration
-	BCL setRightPaddingForState(ControlState state, int rightPadding);
+	BCS setRightPaddingForState(ControlState state, int rightPadding);
 	
 	//method declaration
-	BCL setTopBorderColorForState(ControlState state, IColor topBorderColor);
+	BCS setTopBorderColorForState(ControlState state, IColor topBorderColor);
 	
 	//method declaration
-	BCL setTopBorderThicknessForState(ControlState state, int topBorderThickness);
+	BCS setTopBorderThicknessForState(ControlState state, int topBorderThickness);
 	
 	//method declaration
-	BCL setTopPaddingForState(ControlState state, int topPadding);
+	BCS setTopPaddingForState(ControlState state, int topPadding);
 }

@@ -5,7 +5,7 @@ package ch.nolix.systemapi.webguiapi.controlapi;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //interface
-public interface ICheckbox extends IControl<ICheckbox, ICheckboxLook> {
+public interface ICheckbox extends IControl<ICheckbox, ICheckboxStyle> {
 	
 	//method declaration
 	ICheckbox check();

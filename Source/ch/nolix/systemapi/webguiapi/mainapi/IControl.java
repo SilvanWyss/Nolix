@@ -6,12 +6,12 @@ import ch.nolix.coreapi.documentapi.htmlapi.HTMLElementTransformable;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 import ch.nolix.systemapi.guiapi.inputapi.IInputTaker;
 import ch.nolix.systemapi.guiapi.mainapi.CursorIcon;
-import ch.nolix.systemapi.webguiapi.controllookapi.IControlLook;
+import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
 
 //interface
 public interface IControl<
 	C extends IControl<C, CL>,
-	CL extends IControlLook<CL>
+	CL extends IControlStyle<CL>
 >
 extends HTMLElementTransformable, IStylableElement<C>, IInputTaker {
 	
@@ -31,7 +31,7 @@ extends HTMLElementTransformable, IStylableElement<C>, IInputTaker {
 	ILayer<?> getParentLayer();
 	
 	//method declaration
-	CL getRefLook();
+	CL getRefStyle();
 	
 	//method declaration
 	C setCursorIcon(CursorIcon cursorIcon);

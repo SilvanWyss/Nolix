@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.webgui.controllook;
+package ch.nolix.system.webgui.controlstyle;
 
 //own imports
 import ch.nolix.core.document.node.Node;
@@ -15,12 +15,12 @@ import ch.nolix.systemapi.guiapi.colorapi.IColorGradient;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.imageapi.ImageApplication;
 import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
-import ch.nolix.systemapi.webguiapi.controllookapi.IExtendedControlLook;
+import ch.nolix.systemapi.webguiapi.controlstyleapi.IExtendedControlStyle;
 
 //class
-public abstract class ExtendedControlLook<ECL extends ExtendedControlLook<ECL>>
-extends ControlLook<ECL>
-implements IExtendedControlLook<ECL> {
+public abstract class ExtendedControlStyle<ECS extends ExtendedControlStyle<ECS>>
+extends ControlStyle<ECS>
+implements IExtendedControlStyle<ECS> {
 	
 	//constant
 	public static final int DEFAULT_BORDER_THICKNESS = 0;
@@ -344,13 +344,13 @@ implements IExtendedControlLook<ECL> {
 		
 	//method
 	@Override
-	public final ECL setBackgroundColorForState(final ControlState state, final IColor backgroundColor) {
+	public final ECS setBackgroundColorForState(final ControlState state, final IColor backgroundColor) {
 		return setBackgroundForState(state, Background.withColor(backgroundColor));
 	}
 	
 	//method
 	@Override
-	public final ECL setBackgroundColorGradientForState(
+	public final ECS setBackgroundColorGradientForState(
 		final ControlState state,
 		final IColorGradient backgroundColorGradient
 	) {
@@ -358,7 +358,7 @@ implements IExtendedControlLook<ECL> {
 	}
 	
 	@Override
-	public ECL setBackgroundForState(ControlState state, IBackground background) {
+	public ECS setBackgroundForState(ControlState state, IBackground background) {
 		
 		this.background.setValueForState(state, background);
 		
@@ -367,7 +367,7 @@ implements IExtendedControlLook<ECL> {
 	
 	//method
 	@Override
-	public final ECL setBackgroundImageForState(
+	public final ECS setBackgroundImageForState(
 		final ControlState state,
 		final IImage backgroundImage,
 		final ImageApplication imageApplication
@@ -380,7 +380,7 @@ implements IExtendedControlLook<ECL> {
 	
 	//method
 	@Override
-	public final ECL setBorderColorForState(final ControlState state, final IColor borderColor) {
+	public final ECS setBorderColorForState(final ControlState state, final IColor borderColor) {
 		
 		this.borderColor.setValueForState(state, borderColor);
 		
@@ -389,7 +389,7 @@ implements IExtendedControlLook<ECL> {
 	
 	//method
 	@Override
-	public final ECL setBorderThicknessForState(final ControlState state, final int borderThickness) {
+	public final ECS setBorderThicknessForState(final ControlState state, final int borderThickness) {
 		
 		this.borderThickness.setValueForState(state, borderThickness);
 		
@@ -398,7 +398,7 @@ implements IExtendedControlLook<ECL> {
 	
 	//method
 	@Override
-	public final ECL setBottomBorderColorForState(final ControlState state, final IColor bottomBorderColor) {
+	public final ECS setBottomBorderColorForState(final ControlState state, final IColor bottomBorderColor) {
 		
 		this.bottomBorderColor.setValueForState(state, bottomBorderColor);
 		
@@ -407,7 +407,7 @@ implements IExtendedControlLook<ECL> {
 	
 	//method
 	@Override
-	public final ECL setBottomBorderThicknessForState(final ControlState state, final int bottomBorderThickness) {
+	public final ECS setBottomBorderThicknessForState(final ControlState state, final int bottomBorderThickness) {
 		
 		GlobalValidator.assertThat(bottomBorderThickness).thatIsNamed("bottom border thickness").isNotNegative();
 		
@@ -418,7 +418,7 @@ implements IExtendedControlLook<ECL> {
 	
 	//method
 	@Override
-	public final ECL setBottomPaddingForState(final ControlState state, final int bottomPadding) {
+	public final ECS setBottomPaddingForState(final ControlState state, final int bottomPadding) {
 		
 		GlobalValidator.assertThat(bottomPadding).thatIsNamed("bottom padding").isNotNegative();
 		
@@ -429,7 +429,7 @@ implements IExtendedControlLook<ECL> {
 	
 	//method
 	@Override
-	public final ECL setLeftBorderColorForState(final ControlState state, final IColor leftBorderColor) {
+	public final ECS setLeftBorderColorForState(final ControlState state, final IColor leftBorderColor) {
 		
 		this.leftBorderColor.setValueForState(state, leftBorderColor);
 		
@@ -438,7 +438,7 @@ implements IExtendedControlLook<ECL> {
 	
 	//method
 	@Override
-	public final ECL setLeftBorderThicknessForState(final ControlState state, final int leftBorderThickness) {
+	public final ECS setLeftBorderThicknessForState(final ControlState state, final int leftBorderThickness) {
 		
 		GlobalValidator.assertThat(leftBorderThickness).thatIsNamed("left border thickness").isNotNegative();
 		
@@ -449,7 +449,7 @@ implements IExtendedControlLook<ECL> {
 	
 	//method
 	@Override
-	public final ECL setLeftPaddingForState(final ControlState state, final int leftPadding) {
+	public final ECS setLeftPaddingForState(final ControlState state, final int leftPadding) {
 		
 		GlobalValidator.assertThat(leftPadding).thatIsNamed("left padding").isNotNegative();
 		
@@ -460,7 +460,7 @@ implements IExtendedControlLook<ECL> {
 	
 	//method
 	@Override
-	public final ECL setPaddingForState(final ControlState state, final int padding) {
+	public final ECS setPaddingForState(final ControlState state, final int padding) {
 		
 		this.padding.setValueForState(state, padding);
 		
@@ -469,7 +469,7 @@ implements IExtendedControlLook<ECL> {
 	
 	//method
 	@Override
-	public final ECL setRightBorderColorForState(final ControlState state, final IColor rightBorderColor) {
+	public final ECS setRightBorderColorForState(final ControlState state, final IColor rightBorderColor) {
 		
 		this.rightBorderColor.setValueForState(state, rightBorderColor);
 		
@@ -478,7 +478,7 @@ implements IExtendedControlLook<ECL> {
 	
 	//method
 	@Override
-	public final ECL setRightBorderThicknessForState(final ControlState state, final int rightBorderThickness) {
+	public final ECS setRightBorderThicknessForState(final ControlState state, final int rightBorderThickness) {
 		
 		GlobalValidator.assertThat(rightBorderThickness).thatIsNamed("right border thickness").isNotNegative();
 		
@@ -489,7 +489,7 @@ implements IExtendedControlLook<ECL> {
 	
 	//method
 	@Override
-	public final ECL setRightPaddingForState(final ControlState state, final int rightPadding) {
+	public final ECS setRightPaddingForState(final ControlState state, final int rightPadding) {
 		
 		GlobalValidator.assertThat(rightPadding).thatIsNamed("right padding").isNotNegative();
 		
@@ -500,7 +500,7 @@ implements IExtendedControlLook<ECL> {
 		
 	//method
 	@Override
-	public final ECL setTopBorderColorForState(final ControlState state, final IColor topBorderColor) {
+	public final ECS setTopBorderColorForState(final ControlState state, final IColor topBorderColor) {
 		
 		this.topBorderColor.setValueForState(state, topBorderColor);
 		
@@ -509,7 +509,7 @@ implements IExtendedControlLook<ECL> {
 	
 	//method
 	@Override
-	public final ECL setTopBorderThicknessForState(final ControlState state, final int topBorderThickness) {
+	public final ECS setTopBorderThicknessForState(final ControlState state, final int topBorderThickness) {
 		
 		GlobalValidator.assertThat(topBorderThickness).thatIsNamed("top border thickness").isNotNegative();
 		
@@ -520,7 +520,7 @@ implements IExtendedControlLook<ECL> {
 	
 	//method
 	@Override
-	public final ECL setTopPaddingForState(final ControlState state, final int topPadding) {
+	public final ECS setTopPaddingForState(final ControlState state, final int topPadding) {
 		
 		GlobalValidator.assertThat(topPadding).thatIsNamed("top padding").isNotNegative();
 		

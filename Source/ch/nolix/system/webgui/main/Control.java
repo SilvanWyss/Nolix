@@ -9,18 +9,18 @@ import ch.nolix.system.element.base.StylableElement;
 import ch.nolix.system.element.mutableelement.ExtensionElement;
 import ch.nolix.system.element.mutableelement.MutableValue;
 import ch.nolix.systemapi.guiapi.mainapi.CursorIcon;
-import ch.nolix.systemapi.webguiapi.controllookapi.IControlLook;
+import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGUI;
 
 //class
 public abstract class Control<
-	C extends Control<C, CL>,
-	CL extends IControlLook<CL>
+	C extends Control<C, CS>,
+	CS extends IControlStyle<CS>
 >
 extends StylableElement<C>
-implements IControl<C, CL> {
+implements IControl<C, CS> {
 	
 	//constant
 	public static final CursorIcon DEFAULT_CURSOR_ICON = CursorIcon.ARROW;
@@ -39,7 +39,7 @@ implements IControl<C, CL> {
 	);
 	
 	//attribute
-	private final ExtensionElement<CL> look = new ExtensionElement<>(createLook());
+	private final ExtensionElement<CS> style = new ExtensionElement<>(createStyle());
 	
 	//optional attribute
 	private ILayer<?> parentLayer;
@@ -58,8 +58,8 @@ implements IControl<C, CL> {
 	
 	//method
 	@Override
-	public final CL getRefLook() {
-		return look.getExtensionElement();
+	public final CS getRefStyle() {
+		return style.getExtensionElement();
 	}
 	
 	//method
@@ -93,7 +93,7 @@ implements IControl<C, CL> {
 	}
 	
 	//method declaration
-	protected abstract CL createLook();
+	protected abstract CS createStyle();
 	
 	//method
 	final void internalRemoveParentLayer() {

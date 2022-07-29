@@ -6,7 +6,7 @@ import ch.nolix.systemapi.guiapi.processproperty.TextMode;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //interface
-public interface ITextbox extends IControl<ITextbox, ITextboxLook> {
+public interface ITextbox extends IControl<ITextbox, ITextboxStyle> {
 	
 	//method declaration
 	void emptyText();

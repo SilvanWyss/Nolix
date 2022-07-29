@@ -4,11 +4,11 @@ package ch.nolix.systemapi.webguiapi.containerapi;
 //own imports
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
-import ch.nolix.systemapi.webguiapi.controlapi.ILabelLook;
+import ch.nolix.systemapi.webguiapi.controlapi.ILabelStyle;
 
 //interface
 public interface ITabContainer
-extends ch.nolix.systemapi.webguiapi.containerapi.IContainer<ITabContainer, ITabContainerLook> {
+extends ch.nolix.systemapi.webguiapi.containerapi.IContainer<ITabContainer, ITabContainerStyle> {
 	
 	//method declaration
 	ITabContainer addTab(ITabContainerTab... tabs);
@@ -20,7 +20,7 @@ extends ch.nolix.systemapi.webguiapi.containerapi.IContainer<ITabContainer, ITab
 	boolean containsSelectedTab();
 	
 	//method declaration
-	ILabelLook getRefHeaderLook();
+	ILabelStyle getRefHeaderStyle();
 	
 	//method declaration
 	ITabContainerTab getRefSelectedTab();
@@ -35,7 +35,7 @@ extends ch.nolix.systemapi.webguiapi.containerapi.IContainer<ITabContainer, ITab
 	int getTabCount();
 	
 	//method declaration
-	ITabContainer onHeaderLook(IElementTaker<ILabelLook> headerLookEditor);
+	ITabContainer onHeaderStyle(IElementTaker<ILabelStyle> headerStyleEditor);
 	
 	//method declaration
 	void selectFirstTab();

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemapi.webguiapi.controllookapi;
+package ch.nolix.systemapi.webguiapi.controlstyleapi;
 
 //own imports
 import ch.nolix.systemapi.elementapi.mainuniversalapi.IRespondingMutableElement;
@@ -8,7 +8,7 @@ import ch.nolix.systemapi.guiapi.textformatapi.Font;
 import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 
 //interface
-public interface IControlLook<CL extends IControlLook<CL>> extends IRespondingMutableElement<CL> {
+public interface IControlStyle<CS extends IControlStyle<CS>> extends IRespondingMutableElement<CS> {
 	
 	//method declaration
 	void removeCustomBoldTextFlags();
@@ -26,17 +26,17 @@ public interface IControlLook<CL extends IControlLook<CL>> extends IRespondingMu
 	void removeCustomTextSizes();
 	
 	//method declaration
-	CL setBoldTextFlagForState(ControlState state, boolean boldTextFlag);
+	CS setBoldTextFlagForState(ControlState state, boolean boldTextFlag);
 	
 	//method declaration
-	CL setFontForState(ControlState state, Font font);
+	CS setFontForState(ControlState state, Font font);
 	
 	//method declaration
-	CL setOpacityForState(ControlState state, double opacity);
+	CS setOpacityForState(ControlState state, double opacity);
 	
 	//method declaration
-	CL setTextColorForState(ControlState state, IColor textColor);
+	CS setTextColorForState(ControlState state, IColor textColor);
 	
 	//method declaration
-	CL setTextSizeForState(ControlState state, int textSize);
+	CS setTextSizeForState(ControlState state, int textSize);
 }

@@ -8,7 +8,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 //interface
 public interface ILinearContainer<
 	LC extends ILinearContainer<LC, LCL>,
-	LCL extends ILinearContainerLook<LCL>
+	LCL extends ILinearContainerStyle<LCL>
 >
 extends ch.nolix.systemapi.webguiapi.containerapi.IContainer<LC, LCL> {
 	

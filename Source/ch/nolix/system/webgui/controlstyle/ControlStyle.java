@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.webgui.controllook;
+package ch.nolix.system.webgui.controlstyle;
 
 //own imports
 import ch.nolix.core.document.node.Node;
@@ -14,12 +14,12 @@ import ch.nolix.system.gui.color.Color;
 import ch.nolix.systemapi.guiapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.textformatapi.Font;
 import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
-import ch.nolix.systemapi.webguiapi.controllookapi.IControlLook;
+import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
 
 //class
-public abstract class ControlLook<CL extends ControlLook<CL>>
-extends MultiStateElement<CL, ControlState>
-implements IControlLook<CL> {
+public abstract class ControlStyle<CS extends ControlStyle<CS>>
+extends MultiStateElement<CS, ControlState>
+implements IControlStyle<CS> {
 
 	//constant
 	public static final double DEFAULT_OPACITY = 1.0;
@@ -104,7 +104,7 @@ implements IControlLook<CL> {
 	);
 	
 	//constructor
-	protected ControlLook() {
+	protected ControlStyle() {
 		super(ControlState.BASE);
 	}
 	
@@ -140,7 +140,7 @@ implements IControlLook<CL> {
 	
 	//method
 	@Override
-	public final CL setBoldTextFlagForState(final ControlState state, final boolean boldTextFlag) {
+	public final CS setBoldTextFlagForState(final ControlState state, final boolean boldTextFlag) {
 		
 		this.boldTextFlag.setValueForState(state, boldTextFlag);
 		
@@ -149,7 +149,7 @@ implements IControlLook<CL> {
 	
 	//method
 	@Override
-	public final CL setFontForState(final ControlState state, final Font font) {
+	public final CS setFontForState(final ControlState state, final Font font) {
 		
 		this.font.setValueForState(state, font);
 		
@@ -158,7 +158,7 @@ implements IControlLook<CL> {
 	
 	//method
 	@Override
-	public final CL setOpacityForState(final ControlState state, final double opacity) {
+	public final CS setOpacityForState(final ControlState state, final double opacity) {
 		
 		GlobalValidator.assertThat(opacity).thatIsNamed(LowerCaseCatalogue.OPACITY).isBetween(0.0, 1.0);
 		
@@ -169,7 +169,7 @@ implements IControlLook<CL> {
 	
 	//method
 	@Override
-	public final CL setTextColorForState(final ControlState state, final IColor textColor) {
+	public final CS setTextColorForState(final ControlState state, final IColor textColor) {
 		
 		this.textColor.setValueForState(state, textColor);
 		
@@ -178,7 +178,7 @@ implements IControlLook<CL> {
 	
 	//method
 	@Override
-	public final CL setTextSizeForState(final ControlState state, final int textSize) {
+	public final CS setTextSizeForState(final ControlState state, final int textSize) {
 		
 		GlobalValidator.assertThat(textSize).thatIsNamed(LowerCaseCatalogue.TEXT_SIZE).isPositive();
 		

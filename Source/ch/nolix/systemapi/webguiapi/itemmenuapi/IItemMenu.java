@@ -10,11 +10,11 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //interface
 public interface IItemMenu<
-	IM extends IItemMenu<IM, IMI, IML>,
+	IM extends IItemMenu<IM, IMI, IMS>,
 	IMI extends IItemMenuItem,
-	IML extends IItemMenuLook<IML>
+	IMS extends IItemMenuStyle<IMS>
 > 
-extends Clearable, IControl<IM, IML> {
+extends Clearable, IControl<IM, IMS> {
 	
 	//method declaration
 	IM addItem(@SuppressWarnings("unchecked")IMI... items);

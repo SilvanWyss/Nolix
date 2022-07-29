@@ -5,7 +5,7 @@ package ch.nolix.systemapi.webguiapi.containerapi;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //interface
-public interface IGridContainer extends IContainer<IGridContainer, IGridContainerLook> {
+public interface IGridContainer extends IContainer<IGridContainer, IGridContainerStyle> {
 	
 	//method declaration
 	int getColumnCount();

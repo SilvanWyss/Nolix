@@ -4,15 +4,15 @@ package ch.nolix.systemapi.webguiapi.containerapi;
 //own imports
 import ch.nolix.coreapi.functionapi.mutationuniversalapi.Clearable;
 import ch.nolix.systemapi.guiapi.containercontrolproperty.ContainerRole;
-import ch.nolix.systemapi.webguiapi.controllookapi.IExtendedControlLook;
+import ch.nolix.systemapi.webguiapi.controlstyleapi.IExtendedControlStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //interface
 public interface IContainer<
-	C extends IContainer<C, ECL>,
-	ECL extends IExtendedControlLook<ECL>
+	C extends IContainer<C, ECS>,
+	ECS extends IExtendedControlStyle<ECS>
 >
-extends Clearable, IControl<C, ECL> {
+extends Clearable, IControl<C, ECS> {
 		
 	//method declaration
 	ContainerRole getRole();
