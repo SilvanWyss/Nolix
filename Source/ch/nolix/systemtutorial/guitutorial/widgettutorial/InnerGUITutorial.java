@@ -32,14 +32,14 @@ public final class InnerGUITutorial {
 		final var innerGUI1 =
 		new InnerGUI()
 		.setTitle("Inner GUI 1")
-		.pushLayerWithRootWidget(new Label().setText("A").onLook(l -> l.setTextSizeForState(ControlState.BASE, 100)));
+		.pushLayerWithRootWidget(new Label().setText("A").onStyle(l -> l.setTextSizeForState(ControlState.BASE, 100)));
 		
 		//Creates a second InnerGUI.
 		@SuppressWarnings("resource")
 		final var innerGUI2 =
 		new InnerGUI()
 		.setTitle("Inner GUI 2")
-		.pushLayerWithRootWidget(new Label().setText("B").onLook(l -> l.setTextSizeForState(ControlState.BASE, 100)));
+		.pushLayerWithRootWidget(new Label().setText("B").onStyle(l -> l.setTextSizeForState(ControlState.BASE, 100)));
 		
 		//Adds the InnerGUIs to the Frame.
 		frame.pushLayerWithRootWidget(new HorizontalStack().addWidget(innerGUI1, innerGUI2));

@@ -47,7 +47,7 @@ public final class SelectionMenuWithCustomLookTutorial {
 		//Configures the look of the SelectionMenu.
 		selectionMenu
 		.setMaxHeight(200)
-		.onLook(l -> l.setBackgroundColorForState(ControlState.BASE, Color.LAVENDER))
+		.onStyle(l -> l.setBackgroundColorForState(ControlState.BASE, Color.LAVENDER))
 		.onItemLook(
 			il ->
 			il

@@ -46,7 +46,7 @@ public final class AligningContainerWithAutomaticSizeTutorial {
 				)
 			)
 			.activateAutomaticSize()
-			.onLook(l -> l.setBackgroundColorForState(ControlState.BASE, Color.LAVENDER))
+			.onStyle(l -> l.setBackgroundColorForState(ControlState.BASE, Color.LAVENDER))
 		);
 	}
 	

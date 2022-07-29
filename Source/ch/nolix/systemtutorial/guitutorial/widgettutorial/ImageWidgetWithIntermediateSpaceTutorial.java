@@ -41,7 +41,7 @@ public final class ImageWidgetWithIntermediateSpaceTutorial {
 		.setMinWidth(500)
 		.setMinHeight(500)
 		.setContentPosition(ContentPosition.LEFT)
-		.onLook(
+		.onStyle(
 			l ->
 			l
 			.setBorderThicknessForState(ControlState.BASE, 2)

@@ -893,14 +893,14 @@ implements IWidget<W, WL> {
 	
 	//method
 	/**
-	 * Lets the given lookMutator access the look of the current {@link Widget}.
+	 * Lets the given styleEditor access the style of the current {@link Widget}.
 	 * 
-	 * @param lookMutator
+	 * @param styleEditor
 	 * @return the current {@link Widget}.
 	 */
-	public W onLook(final IElementTaker<WL> lookMutator) {
+	public final W onStyle(final IElementTaker<WL> styleEditor) {
 		
-		lookMutator.run(getRefStyle());
+		styleEditor.run(getRefStyle());
 		
 		return asConcrete();
 	}

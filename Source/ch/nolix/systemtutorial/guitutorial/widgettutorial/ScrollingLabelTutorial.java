@@ -34,7 +34,7 @@ public final class ScrollingLabelTutorial {
 		label
 		.setMaxWidth(1000)
 		.setMaxHeight(500)
-		.onLook(
+		.onStyle(
 			l ->
 			l
 			.setBorderThicknessForState(ControlState.BASE, 5)

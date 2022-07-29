@@ -29,7 +29,7 @@ public final class CheckBoxWithCustomLookTutorial {
 		final var checkBox = new CheckBox();
 		
 		//Configures the look of the CheckBox.
-		checkBox.onLook(l -> l.setBackgroundColorForState(ControlState.BASE, Color.LAVENDER));
+		checkBox.onStyle(l -> l.setBackgroundColorForState(ControlState.BASE, Color.LAVENDER));
 		
 		//Adds the CheckBox to the Frame.
 		frame.pushLayerWithRootWidget(checkBox);

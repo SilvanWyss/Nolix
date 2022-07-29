@@ -45,7 +45,7 @@ public final class FloatContainerTutorial {
 		//Configures the look of the FloatContainer.
 		floatContainer
 		.setMaxWidth(1000)
-		.onLook(
+		.onStyle(
 			l ->
 			l
 			.setBorderThicknessForState(ControlState.BASE, 5)
@@ -62,7 +62,7 @@ public final class FloatContainerTutorial {
 			.setProposalWidth(100 + (index % 3) * 50)
 			.setProposalHeight(100)
 			.setContentPosition(ContentPosition.CENTER)
-			.onLook(
+			.onStyle(
 				l ->
 				l
 				.setBackgroundColorForState(ControlState.BASE, Color.BLUE)

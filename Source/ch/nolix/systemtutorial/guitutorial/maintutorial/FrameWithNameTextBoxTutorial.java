@@ -73,7 +73,7 @@ public final class FrameWithNameTextBoxTutorial {
 		layer2AligningContainer
 		.setMinWidth(500)
 		.setMinHeight(200)
-		.onLook(
+		.onStyle(
 			l ->
 			l
 			.setBorderThicknessForState(ControlState.BASE, 5)

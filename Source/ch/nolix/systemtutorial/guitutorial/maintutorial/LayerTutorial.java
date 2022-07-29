@@ -41,7 +41,7 @@ public final class LayerTutorial {
 				.setText("Close")
 				.setLeftMouseButtonReleaseAction(frame::removeTopLayer)
 			)
-			.onLook(
+			.onStyle(
 				l ->
 				l
 				.setBorderThicknessForState(ControlState.BASE, 5)

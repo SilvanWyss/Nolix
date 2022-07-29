@@ -44,7 +44,7 @@ public final class GridTutorial {
 		.setWidget(4, 3, new Area().setSize(200, 100).setBackgroundColor(Color.BLUE));
 		
 		//Configures the look of the Grid.
-		grid.onLook(
+		grid.onStyle(
 			l ->
 			l
 			.setBorderThicknessForState(ControlState.BASE, 5)

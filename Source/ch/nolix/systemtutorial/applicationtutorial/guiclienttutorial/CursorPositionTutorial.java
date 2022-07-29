@@ -41,7 +41,7 @@ public final class CursorPositionTutorial {
 		protected void initialize() {
 									
 			//Configures the look of the cursorPositionLabel.
-			cursorPositionLabel.onLook(l -> l.setPaddingForState(ControlState.BASE, 5));
+			cursorPositionLabel.onStyle(l -> l.setPaddingForState(ControlState.BASE, 5));
 			
 			//Creates Layer.
 			final var layer = new Layer()

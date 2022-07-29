@@ -45,7 +45,7 @@ public final class TransparentLayerTutorial {
 				new Label()
 				.setText("Nolix")
 				.setMinWidthInPercentOfGUIViewAreaWidth(1.0)
-				.onLook(
+				.onStyle(
 					l ->
 					l
 					.setBackgroundColorForState(ControlState.BASE, Color.BLACK)

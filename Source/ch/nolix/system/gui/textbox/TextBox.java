@@ -92,7 +92,7 @@ public final class TextBox extends BorderWidget<TextBox, TextBoxStyle> implement
 		
 		setCustomCursorIcon(CursorIcon.EDIT);
 		setProposalWidth(200);
-		onLook(
+		onStyle(
 			l ->
 			l.setBorderThicknessForState(ControlState.BASE, 1)
 			.setBackgroundColorForState(ControlState.BASE, Color.WHITE)

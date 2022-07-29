@@ -39,7 +39,7 @@ public final class ImageWidgetWithScrollBarTutorial {
 		imageWidget
 		.setMaxWidth(500)
 		.setMaxHeight(500)
-		.onLook(
+		.onStyle(
 			l ->
 			l
 			.setBorderThicknessForState(ControlState.BASE, 2)

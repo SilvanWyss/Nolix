@@ -45,7 +45,7 @@ public final class HorizontalLineWithCustomLookTutorial {
 		verticalStack
 		.setContentPosition(ContentPosition.TOP)
 		.setElementMargin(50)
-		.onLook(
+		.onStyle(
 			l ->
 			l
 			.setBorderThicknessForState(ControlState.BASE, 1)

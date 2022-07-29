@@ -44,7 +44,7 @@ public final class DropdownMenuWithCustomLookTutorial {
 		
 		//Configures the look of the DropdownMenu.
 		dropdownMenu
-		.onLook(l -> l.setBackgroundColorForState(ControlState.BASE, Color.LAVENDER))
+		.onStyle(l -> l.setBackgroundColorForState(ControlState.BASE, Color.LAVENDER))
 		.onItemLook(
 			il ->
 			il

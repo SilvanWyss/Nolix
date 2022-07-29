@@ -26,7 +26,7 @@ public final class TextureCatalogueTutorial {
 		.pushLayerWithRootWidget(
 			new FloatContainer()
 			.setProposalWidth(1000)
-			.onLook(
+			.onStyle(
 				l -> l.setPaddingForState(ControlState.BASE, 20).setElementMarginForState(ControlState.BASE, 20)
 			)
 			.addWidget(

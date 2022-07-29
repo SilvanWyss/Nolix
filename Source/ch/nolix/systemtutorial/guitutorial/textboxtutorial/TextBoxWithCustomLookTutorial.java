@@ -32,7 +32,7 @@ public final class TextBoxWithCustomLookTutorial {
 		//Configures the look of the TextBox.
 		textBox
 		.setProposalWidth(200)
-		.onLook(
+		.onStyle(
 			l ->
 			l
 			.setBorderThicknessForState(ControlState.BASE, 1)

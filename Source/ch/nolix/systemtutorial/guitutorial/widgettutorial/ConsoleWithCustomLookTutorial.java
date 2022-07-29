@@ -32,7 +32,7 @@ public final class ConsoleWithCustomLookTutorial {
 		
 		//Configures the look of the Console.
 		console
-		.onLook(
+		.onStyle(
 			l ->
 			l
 			.setBorderThicknessForState(ControlState.BASE, 1)

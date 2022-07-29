@@ -66,7 +66,7 @@ public final class ServerDashboardTutorial {
 			final var label = new Label().setText("Hello World");
 			
 			//Configures the look of the Label.
-			label.onLook(l -> l.setTextSizeForState(ControlState.BASE, 50));
+			label.onStyle(l -> l.setTextSizeForState(ControlState.BASE, 50));
 			
 			//Adds the Label to the GUI of the current MainSession.
 			getRefGUI().pushLayerWithRootWidget(label);

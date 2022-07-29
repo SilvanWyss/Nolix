@@ -35,7 +35,7 @@ public final class ImageWidgetWithBorderTutorial {
 		final var imageWidget = new ImageWidget().setImage(image);
 		
 		//Configures the look of the ImageWidget.
-		imageWidget.onLook(
+		imageWidget.onStyle(
 			l ->
 			l
 			.setBorderThicknessForState(ControlState.BASE, 2)

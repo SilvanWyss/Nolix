@@ -42,7 +42,7 @@ public final class DownloaderWithCustomLookTutorial {
 		final var downloader = new Downloader().setText("Download file").setFileProvider(new FileAccessor(filePath));
 		
 		//Configures the look of the Downloader.
-		downloader.onLook(
+		downloader.onStyle(
 			l ->
 			l
 			.setBorderThicknessForState(ControlState.BASE, 1)
