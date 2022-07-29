@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.element.base;
 
-//own imports
-import ch.nolix.systemapi.elementapi.configurationapi.IStylableElement;
+import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 
 //class
 public abstract class StylableElement<SE extends StylableElement<SE>>

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.element.configuration;
+package ch.nolix.system.element.style;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -8,14 +8,14 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentEx
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
-import ch.nolix.systemapi.elementapi.configurationapi.IStylableElement;
+import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 
 //class
 /**
  * @author Silvan Wyss
  * @date 2016-01-01
  */
-public final class DeepConfiguration extends BaseConfiguration<DeepConfiguration> {
+public final class DeepStyle extends BaseStyle<DeepStyle> {
 	
 	//constant
 	public static final String TYPE_NAME = "DeepConfiguration";
@@ -26,12 +26,12 @@ public final class DeepConfiguration extends BaseConfiguration<DeepConfiguration
 	//static method
 	/**
 	 * @param specification
-	 * @return a new {@link DeepConfiguration} from the given specification.
+	 * @return a new {@link DeepStyle} from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static DeepConfiguration fromSpecification(final INode<?> specification) {
+	public static DeepStyle fromSpecification(final INode<?> specification) {
 		
-		final var deepConfiguration = new DeepConfiguration();
+		final var deepConfiguration = new DeepStyle();
 		deepConfiguration.resetFromSpecification(specification);
 		
 		return deepConfiguration;
@@ -43,9 +43,9 @@ public final class DeepConfiguration extends BaseConfiguration<DeepConfiguration
 	
 	//constructor
 	/**
-	 * Creates a new {@link DeepConfiguration}.
+	 * Creates a new {@link DeepStyle}.
 	 */
-	public DeepConfiguration() {
+	public DeepStyle() {
 		//Does nothing.
 	}
 	
@@ -54,7 +54,7 @@ public final class DeepConfiguration extends BaseConfiguration<DeepConfiguration
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void configure(IStylableElement<?> element) {
+	public void styleElement(IStylableElement<?> element) {
 		if (!hasMaxSelectorLevel()) {
 
 			final var elements = element.getRefChildStylableElements();
@@ -62,10 +62,10 @@ public final class DeepConfiguration extends BaseConfiguration<DeepConfiguration
 			if (selects(element)) {
 				final var configurations = getRefConfigurations();
 				setAttachingAttributesTo(element);
-				elements.forEach(e -> configurations.forEach(c -> c.configure(e)));
+				elements.forEach(e -> configurations.forEach(c -> c.styleElement(e)));
 			}
 				
-			elements.forEach(this::configure);
+			elements.forEach(this::styleElement);
 		} else {
 			configure(element, getMaxSelectorLevel());
 		}
@@ -73,9 +73,9 @@ public final class DeepConfiguration extends BaseConfiguration<DeepConfiguration
 	
 	//method
 	/**
-	 * @return the max selector level of the current {@link DeepConfiguration}.
+	 * @return the max selector level of the current {@link DeepStyle}.
 	 * @throws ArgumentDoesNotHaveAttributeException
-	 * if the current {@link DeepConfiguration} does not have a max selector level.
+	 * if the current {@link DeepStyle} does not have a max selector level.
 	 */
 	public int getMaxSelectorLevel() {
 		return maxSelectorLevel.getValue();
@@ -83,7 +83,7 @@ public final class DeepConfiguration extends BaseConfiguration<DeepConfiguration
 	
 	//method
 	/**
-	 * @return true if the current {@link DeepConfiguration} has a max selector level.
+	 * @return true if the current {@link DeepStyle} has a max selector level.
 	 */
 	public boolean hasMaxSelectorLevel() {
 		return maxSelectorLevel.hasValue();
@@ -91,7 +91,7 @@ public final class DeepConfiguration extends BaseConfiguration<DeepConfiguration
 	
 	//method
 	/**
-	 * Removes the max selector level of the current {@link DeepConfiguration}.
+	 * Removes the max selector level of the current {@link DeepStyle}.
 	 */
 	public void removeMaxSelectorLevel() {
 		maxSelectorLevel.clear();
@@ -99,7 +99,7 @@ public final class DeepConfiguration extends BaseConfiguration<DeepConfiguration
 	
 	//method
 	/**
-	 * Sets the max selector level of the current {@link DeepConfiguration}.
+	 * Sets the max selector level of the current {@link DeepStyle}.
 	 * 
 	 * @param maxSelectorLevel
 	 * @throws NonPositiveArgumentException if the given max selector level is not positive.
@@ -123,7 +123,7 @@ public final class DeepConfiguration extends BaseConfiguration<DeepConfiguration
 		
 	//method
 	/**
-	 * Lets the current {@link DeepConfiguration} configure the given element recursively to the given level.
+	 * Lets the current {@link DeepStyle} configure the given element recursively to the given level.
 	 * 
 	 * @param element
 	 * @param level
@@ -138,7 +138,7 @@ public final class DeepConfiguration extends BaseConfiguration<DeepConfiguration
 				setAttachingAttributesTo(element);
 				
 				final var configurations = getRefConfigurations();
-				elements.forEach(e -> configurations.forEach(c -> c.configure(e)));
+				elements.forEach(e -> configurations.forEach(c -> c.styleElement(e)));
 			}
 				
 			elements.forEach(e -> configure(e, level - 1));

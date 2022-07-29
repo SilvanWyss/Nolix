@@ -3,7 +3,7 @@ package ch.nolix.systemapi.webguiapi.mainapi;
 
 //own imports
 import ch.nolix.coreapi.documentapi.htmlapi.HTMLElementTransformable;
-import ch.nolix.systemapi.elementapi.configurationapi.IStylableElement;
+import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 import ch.nolix.systemapi.guiapi.inputapi.IInputTaker;
 import ch.nolix.systemapi.guiapi.mainapi.CursorIcon;
 import ch.nolix.systemapi.webguiapi.controllookapi.IControlLook;

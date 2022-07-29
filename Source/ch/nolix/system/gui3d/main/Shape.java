@@ -13,7 +13,7 @@ import ch.nolix.system.element.base.StylableElement;
 import ch.nolix.system.element.mutableelement.MutableValueExtractor;
 import ch.nolix.system.geometry.Point2D;
 import ch.nolix.system.geometry.Point3D;
-import ch.nolix.systemapi.elementapi.configurationapi.IStylableElement;
+import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 
 //class
 /**

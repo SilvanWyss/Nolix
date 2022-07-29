@@ -13,7 +13,7 @@ import ch.nolix.system.element.base.StylableElement;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 import ch.nolix.system.gui.canvas.Background;
 import ch.nolix.system.webgui.helper.LayerHTMLHelper;
-import ch.nolix.systemapi.elementapi.configurationapi.IStylableElement;
+import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 import ch.nolix.systemapi.guiapi.canvasuniversalapi.IBackground;
 import ch.nolix.systemapi.guiapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.colorapi.IColorGradient;

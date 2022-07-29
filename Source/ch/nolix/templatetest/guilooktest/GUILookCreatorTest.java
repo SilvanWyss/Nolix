@@ -5,7 +5,7 @@ package ch.nolix.templatetest.guilooktest;
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.ObjectTest;
-import ch.nolix.system.element.configuration.Configuration;
+import ch.nolix.system.element.style.Style;
 import ch.nolix.system.gui.containerwidget.VerticalStack;
 import ch.nolix.system.gui.textbox.TextBox;
 import ch.nolix.system.gui.widget.Area;
@@ -22,7 +22,7 @@ import ch.nolix.system.gui.widget.Widget;
 import ch.nolix.system.gui.widgetgui.InvisibleGUI;
 
 //class
-public abstract class GUILookCreatorTest extends ObjectTest<Configuration> {
+public abstract class GUILookCreatorTest extends ObjectTest<Style> {
 	
 	//method
 	@TestCase
@@ -38,7 +38,7 @@ public abstract class GUILookCreatorTest extends ObjectTest<Configuration> {
 		);
 		
 		//execution & verification
-		expectRunning(() -> createTestUnit().configure(lGUI)).doesNotThrowException();
+		expectRunning(() -> createTestUnit().styleElement(lGUI)).doesNotThrowException();
 	}
 	
 	//method
@@ -49,7 +49,7 @@ public abstract class GUILookCreatorTest extends ObjectTest<Configuration> {
 		final var lGUI = new InvisibleGUI();
 		
 		//execution & verification
-		expectRunning(() -> createTestUnit().configure(lGUI)).doesNotThrowException();
+		expectRunning(() -> createTestUnit().styleElement(lGUI)).doesNotThrowException();
 	}
 	
 	//method

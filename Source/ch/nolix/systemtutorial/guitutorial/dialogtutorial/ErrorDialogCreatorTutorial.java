@@ -1,7 +1,7 @@
 package ch.nolix.systemtutorial.guitutorial.dialogtutorial;
 
-import ch.nolix.system.element.configuration.Configuration;
-import ch.nolix.system.element.configuration.DeepConfiguration;
+import ch.nolix.system.element.style.Style;
+import ch.nolix.system.element.style.DeepStyle;
 import ch.nolix.system.gui.dialog.ErrorDialogCreator;
 import ch.nolix.system.gui.widget.Button;
 import ch.nolix.system.gui.widgetgui.Frame;
@@ -31,10 +31,10 @@ public final class ErrorDialogCreatorTutorial {
 		);
 		
 		//Creates a Configuration and sets it to the Frame.
-		frame.setConfiguration(
-			new Configuration()
+		frame.setStyle(
+			new Style()
 			.addConfiguration(
-				new DeepConfiguration()
+				new DeepStyle()
 				.setSelectorType(Button.class)
 				.addAttachingAttribute(
 					"MinWidth(500)",
@@ -44,7 +44,7 @@ public final class ErrorDialogCreatorTutorial {
 					"HoverBackground(Color(Blue))",
 					"BaseTextSize(30)"
 				),
-				new DeepConfiguration()
+				new DeepStyle()
 				.addSelectorRole(ContainerRole.DIALOG_CONTAINER)
 				.addAttachingAttribute("ProposalHeight(200)", "BaseBackground(Color(Salmon))", "ContentPosition(Center)")
 			)

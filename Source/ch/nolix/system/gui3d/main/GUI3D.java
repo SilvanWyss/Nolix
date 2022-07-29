@@ -21,15 +21,15 @@ import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionapi.mutationuniversalapi.Clearable;
-import ch.nolix.system.element.configuration.ConfigurationElement;
 import ch.nolix.system.element.mutableelement.MutableOptionalSpecificationValueExtractor;
 import ch.nolix.system.element.mutableelement.MutableValue;
+import ch.nolix.system.element.style.StyleElement;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.image.Image;
 import ch.nolix.system.gui.main.GUIIconCatalogue;
 import ch.nolix.system.gui.main.LocalFrontEndReader;
 import ch.nolix.system.gui.main.LocalFrontEndWriter;
-import ch.nolix.systemapi.elementapi.configurationapi.IStylableElement;
+import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.mainapi.CursorIcon;
 import ch.nolix.systemapi.guiapi.mainapi.IFrontEndReader;
@@ -42,7 +42,7 @@ import ch.nolix.systemapi.guiapi.mainapi.IGUI;
  * @date 2017-11-11
  * @param <G> is the type of a {@link GUI3D}.
  */
-public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G> implements Clearable, IGUI<G> {
+public abstract class GUI3D<G extends GUI3D<G>> extends StyleElement<G> implements Clearable, IGUI<G> {
 	
 	//constants
 	public static final String DEFAULT_TITLE = StringCatalogue.DEFAULT_STRING;

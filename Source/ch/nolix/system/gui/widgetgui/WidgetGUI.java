@@ -45,7 +45,7 @@ import ch.nolix.system.gui.widget.SelectionMenu;
 import ch.nolix.system.gui.widget.Uploader;
 import ch.nolix.system.gui.widget.VerticalLine;
 import ch.nolix.system.gui.widget.Widget;
-import ch.nolix.systemapi.elementapi.configurationapi.IStylableElement;
+import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 import ch.nolix.systemapi.guiapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.colorapi.IColorGradient;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
@@ -431,7 +431,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 			layer.getRefRootWidget().setFocused();
 		}
 		
-		applyConfigurationIfHasConfiguration();
+		applyStyleIfHasStyle();
 		
 		return asConcrete();
 	}
@@ -577,10 +577,10 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void applyConfigurationIfHasConfiguration() {
+	public final void applyStyleIfHasStyle() {
 		
 		//Calls method of the base class.
-		super.applyConfigurationIfHasConfiguration();
+		super.applyStyleIfHasStyle();
 		
 		refresh();
 	}

@@ -1,7 +1,7 @@
 package ch.nolix.systemtutorial.guitutorial.dialogtutorial;
 
-import ch.nolix.system.element.configuration.Configuration;
-import ch.nolix.system.element.configuration.DeepConfiguration;
+import ch.nolix.system.element.style.Style;
+import ch.nolix.system.element.style.DeepStyle;
 import ch.nolix.system.gui.containerwidget.VerticalStack;
 import ch.nolix.system.gui.dialog.UploadImageDialogCreator;
 import ch.nolix.system.gui.image.MutableImage;
@@ -40,10 +40,10 @@ public final class UploadImageDialogCreatorTutorial {
 			)
 		);
 		
-		frame.setConfiguration(
-			new Configuration()
+		frame.setStyle(
+			new Style()
 			.addConfiguration(
-				new DeepConfiguration()
+				new DeepStyle()
 				.setSelectorType(Button.class)
 				.addAttachingAttribute(
 					"ProposalWidth(500)",
@@ -53,7 +53,7 @@ public final class UploadImageDialogCreatorTutorial {
 					"HoverBackground(Color(Blue))",
 					"BaseTextSize(30)"
 				),
-				new DeepConfiguration()
+				new DeepStyle()
 				.setSelectorType(ImageWidget.class)
 				.addAttachingAttribute(
 					"ProposalWidth(500)",
@@ -62,10 +62,10 @@ public final class UploadImageDialogCreatorTutorial {
 					"BasePadding(10)",
 					"ContentPosition(Center)"
 				),
-				new DeepConfiguration()
+				new DeepStyle()
 				.addSelectorRole(ContainerRole.DIALOG_CONTAINER)
 				.addAttachingAttribute("ContentPosition(Center)"),
-				new DeepConfiguration()
+				new DeepStyle()
 				.setSelectorType(Uploader.class)
 				.addAttachingAttribute(
 					"ProposalWidth(500)",
@@ -74,14 +74,14 @@ public final class UploadImageDialogCreatorTutorial {
 					"BaseBackground(Color(Gainsboro))",
 					"ContentPosition(Center)"
 				),
-				new DeepConfiguration()
+				new DeepStyle()
 				.addSelectorRole(ButtonRole.CONFIRM_BUTTON)
 				.addAttachingAttribute(
 					"ProposalWidth(250)",
 					"BaseBackground(Color(LightGreen))",
 					"HoverBackground(Color(Green))"
 				),
-				new DeepConfiguration()
+				new DeepStyle()
 				.addSelectorRole(ButtonRole.CANCEL_BUTTON)
 				.addAttachingAttribute("ProposalWidth(250)", "BaseBackground(Color(Salmon))", "HoverBackground(Color(Red))")
 				

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemapi.elementapi.configurationapi;
+package ch.nolix.systemapi.elementapi.styleapi;
 
 //own imports
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;

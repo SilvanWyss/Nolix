@@ -7,7 +7,7 @@ import ch.nolix.coreapi.functionapi.mutationuniversalapi.Recalculable;
 import ch.nolix.coreapi.functionapi.requestuniversalapi.EnablingRequestable;
 import ch.nolix.coreapi.functionapi.requestuniversalapi.ExpansionRequestable;
 import ch.nolix.coreapi.geometryapi.griduniversalapi.TopLeftPositionedRecangular;
-import ch.nolix.systemapi.elementapi.configurationapi.IStylableElement;
+import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 import ch.nolix.systemapi.guiapi.inputapi.IPositionedInputTaker;
 import ch.nolix.systemapi.guiapi.mainapi.CursorIcon;
 import ch.nolix.systemapi.guiapi.mainapi.IExtendedInputActionManager;

@@ -6,8 +6,8 @@ import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.I2ElementTaker;
 import ch.nolix.coreapi.functionapi.mutationuniversalapi.Clearable;
-import ch.nolix.systemapi.elementapi.configurationapi.IStylableElement;
-import ch.nolix.systemapi.elementapi.configurationapi.IConfiguration;
+import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
+import ch.nolix.systemapi.elementapi.styleapi.IStyle;
 import ch.nolix.systemapi.guiapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.colorapi.IColorGradient;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
@@ -46,7 +46,7 @@ public interface IWidgetGUI<WG extends IWidgetGUI<WG>> extends Clearable, IGUI<W
 	WG setBackgroundImage(IImage backgroundImage, ImageApplication imageApplication);
 	
 	//method declaration
-	WG setConfiguration(IConfiguration configuration);
+	WG setStyle(IStyle style);
 	
 	//method declaration
 	boolean viewAreaIsUnderCursor();

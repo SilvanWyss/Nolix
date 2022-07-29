@@ -1,7 +1,7 @@
 package ch.nolix.systemtutorial.guitutorial.dialogtutorial;
 
-import ch.nolix.system.element.configuration.Configuration;
-import ch.nolix.system.element.configuration.DeepConfiguration;
+import ch.nolix.system.element.style.Style;
+import ch.nolix.system.element.style.DeepStyle;
 import ch.nolix.system.gui.dialog.YesNoDialogCreator;
 import ch.nolix.system.gui.widget.Button;
 import ch.nolix.system.gui.widget.LabelRole;
@@ -30,10 +30,10 @@ public final class YesNoDialogCreatorTutorial {
 		);
 		
 		//Creates a Configuration and sets it to the Frame.
-		frame.setConfiguration(
-			new Configuration()
+		frame.setStyle(
+			new Style()
 			.addConfiguration(
-				new DeepConfiguration()
+				new DeepStyle()
 				.setSelectorType(Button.class)
 				.addAttachingAttribute(
 					"MinWidth(200)",
@@ -43,7 +43,7 @@ public final class YesNoDialogCreatorTutorial {
 					"HoverBackground(Color(Blue))",
 					"BaseTextSize(30)"
 				),
-				new DeepConfiguration()
+				new DeepStyle()
 				.addSelectorRole(ContainerRole.DIALOG_CONTAINER)
 				.addAttachingAttribute(
 					"ProposalHeight(200)",
@@ -51,12 +51,12 @@ public final class YesNoDialogCreatorTutorial {
 					"ContentPosition(Center)"
 				)
 				.addConfiguration(
-					new DeepConfiguration()
+					new DeepStyle()
 					.addSelectorRole(LabelRole.MAIN_TEXT),
-					new DeepConfiguration()
+					new DeepStyle()
 					.addSelectorRole(ButtonRole.CONFIRM_BUTTON)
 					.addAttachingAttribute("BaseBackground(Color(LightGreen))", "HoverBackground(Color(Green))"),
-					new DeepConfiguration()
+					new DeepStyle()
 					.addSelectorRole(ButtonRole.CANCEL_BUTTON)
 					.addAttachingAttribute(
 						"CursorIcon(Hand)",

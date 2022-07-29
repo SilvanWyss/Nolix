@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.business.serverdashboard;
 
-import ch.nolix.system.element.configuration.Configuration;
-import ch.nolix.system.element.configuration.DeepConfiguration;
+import ch.nolix.system.element.style.Style;
+import ch.nolix.system.element.style.DeepStyle;
 import ch.nolix.system.gui.containerwidget.FloatContainer;
 import ch.nolix.system.gui.widget.ImageWidget;
 import ch.nolix.system.gui.widget.Label;
@@ -20,9 +20,9 @@ public final class ServerDashboardLookCreator {
 	private ServerDashboardLookCreator() {}
 	
 	//method
-	public Configuration createServerDashboardLook() {
+	public Style createServerDashboardLook() {
 		return
-		new Configuration()
+		new Style()
 		.addConfiguration(
 			createLayerLook(),
 			createMainContentFloatContainerLook(),
@@ -32,34 +32,34 @@ public final class ServerDashboardLookCreator {
 	}
 	
 	//method
-	private DeepConfiguration createImageWidgetLook() {
+	private DeepStyle createImageWidgetLook() {
 		return
-		new DeepConfiguration()
+		new DeepStyle()
 		.setSelectorType(ImageWidget.class)
 		.addAttachingAttribute("CursorIcon(Hand)", "BaseOpacity(75%)", "HoverOpacity(25%)");
 	}
 	
 	//method
-	private DeepConfiguration createMainContentFloatContainerLook() {
+	private DeepStyle createMainContentFloatContainerLook() {
 		return
-		new DeepConfiguration()
+		new DeepStyle()
 		.setSelectorType(FloatContainer.class)
 		.addSelectorRole(ContainerRole.MAIN_CONTENT_CONTAINER)
 		.addAttachingAttribute("ProposalWidth(80%)", "BaseTopPadding(50)", "BaseElementMargin(50)");
 	}
 	
 	//method
-	private DeepConfiguration createLayerLook() {
+	private DeepStyle createLayerLook() {
 		return
-		new DeepConfiguration()
+		new DeepStyle()
 		.setSelectorType(Layer.class)
 		.addAttachingAttribute("ContentPosition(TOP)");
 	}
 	
 	//method
-	private DeepConfiguration createLevel1HeaderLabelLook() {
+	private DeepStyle createLevel1HeaderLabelLook() {
 		return
-		new DeepConfiguration()
+		new DeepStyle()
 		.setSelectorType(Label.class)
 		.addSelectorRole(LabelRole.LEVEL1_HEADER)
 		.addAttachingAttribute("BaseTextSize(20)");

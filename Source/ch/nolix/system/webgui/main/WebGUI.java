@@ -9,15 +9,15 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.system.element.configuration.ConfigurationElement;
 import ch.nolix.system.element.mutableelement.MultiValue;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 import ch.nolix.system.element.mutableelement.MutableValue;
+import ch.nolix.system.element.style.StyleElement;
 import ch.nolix.system.gui.canvas.Background;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.image.Image;
 import ch.nolix.system.gui.main.GUIIconCatalogue;
-import ch.nolix.systemapi.elementapi.configurationapi.IStylableElement;
+import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 import ch.nolix.systemapi.guiapi.canvasuniversalapi.IBackground;
 import ch.nolix.systemapi.guiapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.colorapi.IColorGradient;
@@ -32,7 +32,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.IWebGUI;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGUIContent;
 
 //class
-public final class WebGUI extends ConfigurationElement<WebGUI> implements IWebGUI<WebGUI> {
+public final class WebGUI extends StyleElement<WebGUI> implements IWebGUI<WebGUI> {
 	
 	//constant
 	public static final String DEFAULT_TITLE = PascalCaseCatalogue.GUI;

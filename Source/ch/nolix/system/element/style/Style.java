@@ -1,17 +1,17 @@
 //package declaration
-package ch.nolix.system.element.configuration;
+package ch.nolix.system.element.style;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.systemapi.elementapi.configurationapi.IStylableElement;
+import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 
 //class
 /**
  * @author Silvan Wyss
  * @date 2016-02-01
  */
-public final class Configuration extends BaseConfiguration<Configuration> {
+public final class Style extends BaseStyle<Style> {
 
 	//constant
 	public static final String TYPE_NAME = "StandardConfiguration";
@@ -24,9 +24,9 @@ public final class Configuration extends BaseConfiguration<Configuration> {
 	 * @throws InvalidArgumentException
 	 * if the file with the given file path does not represent a standard configuration.
 	 */
-	public static Configuration fromFile(final String filePath) {
+	public static Style fromFile(final String filePath) {
 		
-		final var configuration = new Configuration();
+		final var configuration = new Style();
 		configuration.resetFromFileWithFilePath(filePath);
 		
 		return configuration;
@@ -35,12 +35,12 @@ public final class Configuration extends BaseConfiguration<Configuration> {
 	//static method
 	/**
 	 * @param specification
-	 * @return a new {@link Configuration} from the given specification.
+	 * @return a new {@link Style} from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static Configuration fromSpecification(final INode<?> specification) {
+	public static Style fromSpecification(final INode<?> specification) {
 		
-		final var configuration = new Configuration();
+		final var configuration = new Style();
 		configuration.resetFromSpecification(specification);
 		
 		return configuration;
@@ -50,7 +50,7 @@ public final class Configuration extends BaseConfiguration<Configuration> {
 	/**
 	 * Creates a new configuration with default attributes.
 	 */
-	public Configuration() {
+	public Style() {
 		//Does nothing.
 	}
 	
@@ -59,7 +59,7 @@ public final class Configuration extends BaseConfiguration<Configuration> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void configure(final IStylableElement<?> element) {
+	public void styleElement(final IStylableElement<?> element) {
 		
 		if (selects(element)) {
 			
@@ -67,7 +67,7 @@ public final class Configuration extends BaseConfiguration<Configuration> {
 			
 			final var elements = element.getRefChildStylableElements();
 			final var configurations = getRefConfigurations();
-			elements.forEach(e -> configurations.forEach(c -> c.configure(e)));
+			elements.forEach(e -> configurations.forEach(c -> c.styleElement(e)));
 		}
 	}
 	

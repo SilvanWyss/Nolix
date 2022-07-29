@@ -1,6 +1,6 @@
 //package info
 /**
- * The {@link ch.nolix.system.element.configuration} package defines container widgets.
+ * The {@link ch.nolix.system.element.style} package defines container widgets.
  * 
  * @author Silvan Wyss
  * @date 2019-07-21

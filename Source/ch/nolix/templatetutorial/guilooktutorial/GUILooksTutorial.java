@@ -27,7 +27,7 @@ public final class GUILooksTutorial {
 		new SelectionMenu()
 		.addItem(
 			"Anthrazit",
-			i -> i.getParentGUI().setConfiguration(AnthrazitGUILookCreator.INSTANCE.createGUILook())
+			i -> i.getParentGUI().setStyle(AnthrazitGUILookCreator.INSTANCE.createGUILook())
 		);
 		
 		//Creates a Frame with the SelectionMenu and several other Widgets.

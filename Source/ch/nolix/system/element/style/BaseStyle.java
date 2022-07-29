@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.element.configuration;
+package ch.nolix.system.element.style;
 
 //own imports
 import ch.nolix.core.document.node.BaseNode;
@@ -16,18 +16,18 @@ import ch.nolix.system.element.mutableelement.MultiValue;
 import ch.nolix.system.element.mutableelement.MutableElement;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 import ch.nolix.system.gui.widget.Widget;
-import ch.nolix.systemapi.elementapi.configurationapi.IStylableElement;
-import ch.nolix.systemapi.elementapi.configurationapi.IConfiguration;
+import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
+import ch.nolix.systemapi.elementapi.styleapi.IStyle;
 
 //class
 /**
  * @author Silvan Wyss
  * @date 2016-01-01
- * @param <C> is the type of a {@link BaseConfiguration}.
+ * @param <C> is the type of a {@link BaseStyle}.
  */
-public abstract class BaseConfiguration<C extends BaseConfiguration<C>>
+public abstract class BaseStyle<C extends BaseStyle<C>>
 extends MutableElement<C>
-implements IConfiguration {
+implements IStyle {
 	
 	//constants
 	private static final String SELECTOR_TYPE_HEADER = "SelectorType";
@@ -63,20 +63,20 @@ implements IConfiguration {
 	);
 	
 	//attribute
-	private final MultiValue<BaseConfiguration<?>> configurations =
+	private final MultiValue<BaseStyle<?>> configurations =
 	new MultiValue<>(
 		CONFIGURATIONS_HEADER,
 		this::addConfiguration,
 		this::createConfigurationFromSpecification,
-		BaseConfiguration::getSpecification
+		BaseStyle::getSpecification
 	);
 	
 	//method
 	/**
-	 * Adds the given attachingAttribute to the current {@link BaseConfiguration}.
+	 * Adds the given attachingAttribute to the current {@link BaseStyle}.
 	 * 
 	 * @param attachingAttribute
-	 * @return the current {@link BaseConfiguration}.
+	 * @return the current {@link BaseStyle}.
 	 * @throws ArgumentIsNullException if the given attachingAttribute is null.
 	 */
 	public final C addAttachingAttribute(final BaseNode<?> attachingAttribute) {
@@ -88,10 +88,10 @@ implements IConfiguration {
 	
 	//method
 	/**
-	 * Adds the given attachingAttributee to the current {@link BaseConfiguration}.
+	 * Adds the given attachingAttributee to the current {@link BaseStyle}.
 	 * 
 	 * @param attachingAttribute
-	 * @return the current {@link BaseConfiguration}
+	 * @return the current {@link BaseStyle}
 	 * @throws InvalidArgumentException if the given attachingAttribute does not represent a {@link Node}.
 	 */
 	public final C addAttachingAttribute(final String attachingAttribute) {
@@ -100,10 +100,10 @@ implements IConfiguration {
 	
 	//method
 	/**
-	 * Adds the given attachingAttributes to the current {@link BaseConfiguration}.
+	 * Adds the given attachingAttributes to the current {@link BaseStyle}.
 	 * 
 	 * @param attachingAttributes
-	 * @return the current {@link BaseConfiguration}.
+	 * @return the current {@link BaseStyle}.
 	 * @throws InvalidArgumentException if one of the given attaching attributes does not represent a {@link Node}.
 	 */
 	public final C addAttachingAttribute(final String... attachingAttributes) {
@@ -118,13 +118,13 @@ implements IConfiguration {
 	
 	//method
 	/**
-	 * Adds the given configuration to the current {@link BaseConfiguration}.
+	 * Adds the given configuration to the current {@link BaseStyle}.
 	 * 
 	 * @param configuration
-	 * @return the current {@link BaseConfiguration}.
+	 * @return the current {@link BaseStyle}.
 	 * @throws ArgumentIsNullException if the given configuration is null.
 	 */
-	public final C addConfiguration(final BaseConfiguration<?> configuration) {
+	public final C addConfiguration(final BaseStyle<?> configuration) {
 		
 		configurations.add(configuration);
 		
@@ -133,13 +133,13 @@ implements IConfiguration {
 	
 	//method
 	/**
-	 * Adds the given configurations to the current {@link BaseConfiguration}.
+	 * Adds the given configurations to the current {@link BaseStyle}.
 	 * 
 	 * @param configurations
-	 * @return the current {@link BaseConfiguration}.
+	 * @return the current {@link BaseStyle}.
 	 * @throws ArgumentIsNullException if one of the given configurations is null.
 	 */
-	public final C addConfiguration(final BaseConfiguration<?>...configurations) {
+	public final C addConfiguration(final BaseStyle<?>...configurations) {
 		
 		for (final var c : configurations) {
 			addConfiguration(c);
@@ -150,11 +150,11 @@ implements IConfiguration {
 	
 	//method
 	/**
-	 * Adds the given selector role to the current {@link BaseConfiguration}.
+	 * Adds the given selector role to the current {@link BaseStyle}.
 	 * 
 	 * @param selectorRole
-	 * @return the current {@link BaseConfiguration}.
-	 * @throws InvalidArgumentException if the current {@link BaseConfiguration} contains already the given selector role.
+	 * @return the current {@link BaseStyle}.
+	 * @throws InvalidArgumentException if the current {@link BaseStyle} contains already the given selector role.
 	 */
 	public final C addSelectorRole(final Enum<?> selectorRole) {
 		
@@ -165,11 +165,11 @@ implements IConfiguration {
 	
 	//method
 	/**
-	 * Adds the given selector roles to the current {@link BaseConfiguration}.
+	 * Adds the given selector roles to the current {@link BaseStyle}.
 	 * 
 	 * @param selectorRoles
-	 * @return the current {@link BaseConfiguration}.
-	 * @throws InvalidArgumentException if the current {@link BaseConfiguration} contains already one of the given selector role.
+	 * @return the current {@link BaseStyle}.
+	 * @throws InvalidArgumentException if the current {@link BaseStyle} contains already one of the given selector role.
 	 */
 	public final C addSelectorRole(final Enum<?>... selectorRoles) {
 		
@@ -183,11 +183,11 @@ implements IConfiguration {
 	
 	//method
 	/**
-	 * Adds the given selector roles to the current {@link BaseConfiguration}.
+	 * Adds the given selector roles to the current {@link BaseStyle}.
 	 * 
 	 * @param selectorRoles
-	 * @return the current {@link BaseConfiguration}.
-	 * @throws InvalidArgumentException if the current {@link BaseConfiguration} contains already one of the given selector role.
+	 * @return the current {@link BaseStyle}.
+	 * @throws InvalidArgumentException if the current {@link BaseStyle} contains already one of the given selector role.
 	 */
 	public final C addSelectorRoles(final Iterable<Enum<?>> selectorRoles) {
 		
@@ -198,10 +198,10 @@ implements IConfiguration {
 	
 	//method
 	/**
-	 * Adds the given selectorToken to the current {@link BaseConfiguration}.
+	 * Adds the given selectorToken to the current {@link BaseStyle}.
 	 * 
 	 * @param selectorToken
-	 * @return the current {@link BaseConfiguration}.
+	 * @return the current {@link BaseStyle}.
 	 * @throws ArgumentIsNullException if the given selectorToken is null.
 	 * @throws InvalidArgumentException if the given selectorToken is blank.
 	 */
@@ -217,7 +217,7 @@ implements IConfiguration {
 	
 	//method
 	/**
-	 * Removes the selector roles from the current {@link BaseConfiguration}.
+	 * Removes the selector roles from the current {@link BaseStyle}.
 	 */
 	public final void clearSelectorRoles() {
 		selectorRoles.clear();
@@ -225,7 +225,7 @@ implements IConfiguration {
 
 	//method
 	/**
-	 * Removes the selector tokens from the current {@link BaseConfiguration}.
+	 * Removes the selector tokens from the current {@link BaseStyle}.
 	 */
 	public final void clearSelectorTokens() {
 		selectorTokens.clear();
@@ -234,7 +234,7 @@ implements IConfiguration {
 	//method
 	/**
 	 * @param selectorRole
-	 * @return true if the current {@link BaseConfiguration} contains the given selectorRole.
+	 * @return true if the current {@link BaseStyle} contains the given selectorRole.
 	 */
 	public final boolean containsSelectorRole(final String selectorRole) {
 		return selectorRoles.getRefValues().containsAnyEqualing(selectorRole);
@@ -242,7 +242,7 @@ implements IConfiguration {
 	
 	//method
 	/**
-	 * @return true if the current {@link BaseConfiguration} contains selector roles.
+	 * @return true if the current {@link BaseStyle} contains selector roles.
 	 */
 	public final boolean containsSelectorRoles() {
 		return selectorRoles.containsAny();
@@ -251,7 +251,7 @@ implements IConfiguration {
 	//method
 	/**
 	 * @param selectorToken
-	 * @return true if the current {@link BaseConfiguration} contains the given selectorToken.
+	 * @return true if the current {@link BaseStyle} contains the given selectorToken.
 	 */
 	public final boolean containsSelectorToken(final String selectorToken) {
 		return selectorTokens.getRefValues().containsAnyEqualing(selectorToken);
@@ -259,7 +259,7 @@ implements IConfiguration {
 	
 	//method
 	/**
-	 * @return true if the current {@link BaseConfiguration} contains selector tokens.
+	 * @return true if the current {@link BaseStyle} contains selector tokens.
 	 */
 	public final boolean containsSelectorTokens() {
 		return selectorTokens.containsAny();
@@ -267,9 +267,9 @@ implements IConfiguration {
 	
 	//method
 	/**
-	 * @return the selector id of the current {@link BaseConfiguration}.
+	 * @return the selector id of the current {@link BaseStyle}.
 	 * @throws ArgumentDoesNotHaveAttributeException if
-	 * the current {@link BaseConfiguration} does not have a selector id.
+	 * the current {@link BaseStyle} does not have a selector id.
 	 */
 	public final String getSelectorId() {
 		return selectorId.getValue();
@@ -277,7 +277,7 @@ implements IConfiguration {
 	
 	//method
 	/**
-	 * @return the selector roles of the current {@link BaseConfiguration}.
+	 * @return the selector roles of the current {@link BaseStyle}.
 	 */
 	public final IContainer<String> getSelectorRoles() {
 		return selectorRoles.getRefValues();
@@ -285,7 +285,7 @@ implements IConfiguration {
 	
 	//method
 	/**
-	 * @return the selector tokens of the current {@link BaseConfiguration}.
+	 * @return the selector tokens of the current {@link BaseStyle}.
 	 */
 	public final IContainer<String> getSelectorTokens() {
 		return selectorTokens.getRefValues();
@@ -293,9 +293,9 @@ implements IConfiguration {
 	
 	//method
 	/**
-	 * @return the selector type of the current {@link BaseConfiguration}.
+	 * @return the selector type of the current {@link BaseStyle}.
 	 * @throws ArgumentDoesNotHaveAttributeException if
-	 * the current {@link BaseConfiguration} does not have a selector type.
+	 * the current {@link BaseStyle} does not have a selector type.
 	 */
 	public final String getSelectorType() {
 		return selectorType.getValue();
@@ -303,7 +303,7 @@ implements IConfiguration {
 	
 	//method
 	/**
-	 * @return true if the current {@link BaseConfiguration} has attaching attributes.
+	 * @return true if the current {@link BaseStyle} has attaching attributes.
 	 */
 	public final boolean hasAttachingAttributes() {
 		return attachingAttributes.containsAny();
@@ -311,7 +311,7 @@ implements IConfiguration {
 	
 	//method
 	/**
-	 * @return true if the current {@link BaseConfiguration} has a selector id.
+	 * @return true if the current {@link BaseStyle} has a selector id.
 	 */
 	public final boolean hasSelectorId() {
 		return selectorId.hasValue();
@@ -320,7 +320,7 @@ implements IConfiguration {
 	//method
 	/**
 	 * @param selectorId
-	 * @return true if the current {@link BaseConfiguration} has the given selector id.
+	 * @return true if the current {@link BaseStyle} has the given selector id.
 	 */
 	public final boolean hasSelectorId(final String selectorId) {
 		
@@ -335,7 +335,7 @@ implements IConfiguration {
 	
 	//method
 	/**
-	 * @return true if the current {@link BaseConfiguration} has a selector type.
+	 * @return true if the current {@link BaseStyle} has a selector type.
 	 */
 	public final boolean hasSelectorType() {
 		return selectorType.hasValue();
@@ -344,7 +344,7 @@ implements IConfiguration {
 	//method
 	/**
 	 * @param selectorType
-	 * @return true if the current {@link BaseConfiguration} has the given selector type.
+	 * @return true if the current {@link BaseStyle} has the given selector type.
 	 */
 	public final boolean hasSelectorType(final String selectorType) {
 		
@@ -359,7 +359,7 @@ implements IConfiguration {
 	
 	//method
 	/**
-	 * Removes the selector id from the current {@link BaseConfiguration}.
+	 * Removes the selector id from the current {@link BaseStyle}.
 	 */
 	public final void removeSelectorId() {
 		selectorId.clear();
@@ -367,7 +367,7 @@ implements IConfiguration {
 	
 	//method
 	/**
-	 * Removes the selector type from the current {@link BaseConfiguration}.
+	 * Removes the selector type from the current {@link BaseStyle}.
 	 */
 	public final void removeSelectorType() {
 		selectorType.clear();
@@ -394,7 +394,7 @@ implements IConfiguration {
 	//method
 	/**
 	 * @param element
-	 * @return true if the current {@link BaseConfiguration} selects the given element.
+	 * @return true if the current {@link BaseStyle} selects the given element.
 	 */
 	public final boolean selects(IStylableElement<?> element) {
 		
@@ -419,10 +419,10 @@ implements IConfiguration {
 	
 	//method
 	/**
-	 * Sets the selector id of the current {@link BaseConfiguration}.
+	 * Sets the selector id of the current {@link BaseStyle}.
 	 * 
 	 * @param selectorId
-	 * @return the current {@link BaseConfiguration}.
+	 * @return the current {@link BaseStyle}.
 	 * @throws ArgumentIsNullException if the given selector id is null.
 	 * @throws InvalidArgumentException if the given selector id is blank.
 	 */
@@ -436,10 +436,10 @@ implements IConfiguration {
 	
 	//method
 	/**
-	 * Sets the selector type of the current {@link BaseConfiguration}.
+	 * Sets the selector type of the current {@link BaseStyle}.
 	 * 
 	 * @param selectorType
-	 * @return the current {@link BaseConfiguration}.
+	 * @return the current {@link BaseStyle}.
 	 * @throws ArgumentIsNullException if the given selectorType is null.
 	 */
 	public final C setSelectorType(final Class<?> selectorType) {
@@ -452,10 +452,10 @@ implements IConfiguration {
 	
 	//method
 	/**
-	 * Sets the selectorType of the current {@link BaseConfiguration}.
+	 * Sets the selectorType of the current {@link BaseStyle}.
 	 * 
 	 * @param selectorType
-	 * @return the current {@link BaseConfiguration}.
+	 * @return the current {@link BaseStyle}.
 	 * @throws ArgumentIsNullException if the given type selectorType is null.
 	 * @throws InvalidArgumentException if the given selectorType is blank.
 	 */
@@ -470,7 +470,7 @@ implements IConfiguration {
 		return asConcrete();
 	}
 	
-	protected final IContainer<BaseConfiguration<?>> getRefConfigurations() {
+	protected final IContainer<BaseStyle<?>> getRefConfigurations() {
 		return configurations.getRefValues();
 	}
 	
@@ -482,10 +482,10 @@ implements IConfiguration {
 
 	//method
 	/**
-	 * Sets the attaching attributes of the current {@link BaseConfiguration} to the given element.
+	 * Sets the attaching attributes of the current {@link BaseStyle} to the given element.
 	 * 
 	 * @param element
-	 * @throws InvalidArgumentException if an attaching attribute of the current {@link BaseConfiguration}
+	 * @throws InvalidArgumentException if an attaching attribute of the current {@link BaseStyle}
 	 * is not valid for the given element.
 	 */
 	protected final void setAttachingAttributesTo(IStylableElement<?> element) {
@@ -505,12 +505,12 @@ implements IConfiguration {
 	
 	//method
 	/**
-	 * Adds the given selector role to the current {@link BaseConfiguration}.
+	 * Adds the given selector role to the current {@link BaseStyle}.
 	 * 
 	 * @param selectorRole
 	 * @throws EmptyArgumentException if the given selectorRole is blank.
 	 * @throws InvalidArgumentException if
-	 * the current {@link BaseConfiguration} contains already the given selectorRole.
+	 * the current {@link BaseStyle} contains already the given selectorRole.
 	 */
 	private void addSelectorRole(final String selectorRole) {
 		
@@ -524,7 +524,7 @@ implements IConfiguration {
 	/**
 	 * @param selectorRole
 	 * @throws InvalidArgumentException if
-	 * the current {@link BaseConfiguration} contains already the given selectorRole.
+	 * the current {@link BaseStyle} contains already the given selectorRole.
 	 */
 	private void assertDoesNotContainerSelectorRole(String selectorRole) {
 		if (containsSelectorRole(selectorRole)) {
@@ -539,15 +539,15 @@ implements IConfiguration {
 	//method
 	/**
 	 * @param specification
-	 * @return a new {@link BaseConfiguration} from the given specification.
+	 * @return a new {@link BaseStyle} from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	private BaseConfiguration<?> createConfigurationFromSpecification(final INode<?> specification) {
+	private BaseStyle<?> createConfigurationFromSpecification(final INode<?> specification) {
 		switch (specification.getHeader()) {
-			case Configuration.TYPE_NAME:
-				return Configuration.fromSpecification(specification);
-			case DeepConfiguration.TYPE_NAME:
-				return DeepConfiguration.fromSpecification(specification);
+			case Style.TYPE_NAME:
+				return Style.fromSpecification(specification);
+			case DeepStyle.TYPE_NAME:
+				return DeepStyle.fromSpecification(specification);
 			default:
 				throw
 				InvalidArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.SPECIFICATION, specification);

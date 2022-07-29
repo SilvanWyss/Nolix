@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.template.guilook;
 
-import ch.nolix.system.element.configuration.Configuration;
-import ch.nolix.system.element.configuration.DeepConfiguration;
+import ch.nolix.system.element.style.Style;
+import ch.nolix.system.element.style.DeepStyle;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.containerwidget.Grid;
 import ch.nolix.system.gui.containerwidget.Stack;
@@ -27,9 +27,9 @@ public final class AnthrazitGUILookCreator {
 	private AnthrazitGUILookCreator() {}
 	
 	//method
-	public Configuration createGUILook() {
+	public Style createGUILook() {
 		return
-		new Configuration()
+		new Style()
 		.addAttachingAttribute("BackgroundColor(0x101010)")
 		.addConfiguration(
 			createWidgetLook(),
@@ -52,9 +52,9 @@ public final class AnthrazitGUILookCreator {
 	}
 	
 	//method
-	private DeepConfiguration createBorderWidgetLook() {
+	private DeepStyle createBorderWidgetLook() {
 		return
-		new DeepConfiguration()
+		new DeepStyle()
 		.setSelectorType(BorderWidget.class)
 		.addAttachingAttribute(
 			"BaseScrollBarColor(0x101010)",
@@ -67,9 +67,9 @@ public final class AnthrazitGUILookCreator {
 	}
 	
 	//method
-	private DeepConfiguration createButtonLook() {
+	private DeepStyle createButtonLook() {
 		return
-		new DeepConfiguration()
+		new DeepStyle()
 		.setSelectorType(Button.class)
 		.addAttachingAttribute(
 			"MinWidth(200)",
@@ -84,9 +84,9 @@ public final class AnthrazitGUILookCreator {
 	}
 	
 	//method
-	private DeepConfiguration createCheckboxLook() {
+	private DeepStyle createCheckboxLook() {
 		return
-		new DeepConfiguration()
+		new DeepStyle()
 		.setSelectorType(CheckBox.class)
 		.addAttachingAttribute(
 			"CursorIcon(Hand)",
@@ -96,25 +96,25 @@ public final class AnthrazitGUILookCreator {
 	}
 	
 	//method
-	private DeepConfiguration createConsoleLook() {
+	private DeepStyle createConsoleLook() {
 		return
-		new DeepConfiguration()
+		new DeepStyle()
 		.setSelectorType(Console.class)
 		.addAttachingAttribute("BaseBackground(Color(0x101010))");
 	}
 	
 	//method
-	private DeepConfiguration createDialogLook() {
+	private DeepStyle createDialogLook() {
 		return
-		new DeepConfiguration()
+		new DeepStyle()
 		.addSelectorRole(LayerRole.DIALOG_LAYER)
 		.addAttachingAttribute("Background(Color(" + Color.fromString("0x101010F0").getHexadecimalValue() + "))");
 	}
 	
 	//method
-	private DeepConfiguration createDialogContainerLook() {
+	private DeepStyle createDialogContainerLook() {
 		return
-		new DeepConfiguration()
+		new DeepStyle()
 		.addSelectorRole(ContainerRole.DIALOG_CONTAINER)
 		.addAttachingAttribute(
 			"BaseBackground(Color(0x202020))",
@@ -124,9 +124,9 @@ public final class AnthrazitGUILookCreator {
 	}
 	
 	//method
-	private DeepConfiguration createDownloaderLook() {
+	private DeepStyle createDownloaderLook() {
 		return
-		new DeepConfiguration()
+		new DeepStyle()
 		.setSelectorType(Downloader.class)
 		.addAttachingAttribute(
 			"MinWidth(200)",
@@ -141,17 +141,17 @@ public final class AnthrazitGUILookCreator {
 	}
 	
 	//method
-	private DeepConfiguration createGridLook() {
+	private DeepStyle createGridLook() {
 		return
-		new DeepConfiguration()
+		new DeepStyle()
 		.setSelectorType(Grid.class)
 		.addAttachingAttribute("BaseElementMargin(10)");
 	}
 	
 	//method
-	private DeepConfiguration createItemMenuLook() {
+	private DeepStyle createItemMenuLook() {
 		return
-		new DeepConfiguration()
+		new DeepStyle()
 		.setSelectorType(ItemMenu.class)
 		.addAttachingAttribute(
 			"MinWidth(200)",
@@ -161,9 +161,9 @@ public final class AnthrazitGUILookCreator {
 	}
 	
 	//method
-	private DeepConfiguration createLevel1HeaderLook() {
+	private DeepStyle createLevel1HeaderLook() {
 		return
-		new DeepConfiguration()
+		new DeepStyle()
 		.addSelectorRole(LabelRole.LEVEL1_HEADER)
 		.addAttachingAttribute(
 			"BaseTextSize(30)",
@@ -172,9 +172,9 @@ public final class AnthrazitGUILookCreator {
 	}
 	
 	//method
-	private DeepConfiguration createLevel2HeaderLook() {
+	private DeepStyle createLevel2HeaderLook() {
 		return
-		new DeepConfiguration()
+		new DeepStyle()
 		.addSelectorRole(LabelRole.LEVEL1_HEADER)
 		.addAttachingAttribute(
 			"BaseTextSize(20)",
@@ -183,9 +183,9 @@ public final class AnthrazitGUILookCreator {
 	}
 	
 	//method
-	private DeepConfiguration createOverallContainerLook() {
+	private DeepStyle createOverallContainerLook() {
 		return
-		new DeepConfiguration()
+		new DeepStyle()
 		.addSelectorRole(ContainerRole.OVERALL_CONTAINTER)
 		.addAttachingAttribute(
 			"ProposalWidth(1000)",
@@ -195,17 +195,17 @@ public final class AnthrazitGUILookCreator {
 		);
 	}
 	
-	private DeepConfiguration createStackLook() {
+	private DeepStyle createStackLook() {
 		return
-		new DeepConfiguration()
+		new DeepStyle()
 		.setSelectorType(Stack.class)
 		.addAttachingAttribute("ElementMargin(10)");
 	}
 	
 	//method
-	private DeepConfiguration createTextBoxLook() {
+	private DeepStyle createTextBoxLook() {
 		return
-		new DeepConfiguration()
+		new DeepStyle()
 		.setSelectorType("TextBox")
 		.addAttachingAttribute(
 			"ProposalWidth(200)",
@@ -215,9 +215,9 @@ public final class AnthrazitGUILookCreator {
 	}
 	
 	//method
-	private DeepConfiguration createTitleLook() {
+	private DeepStyle createTitleLook() {
 		return
-		new DeepConfiguration()
+		new DeepStyle()
 		.addSelectorRole(LabelRole.TITLE)
 		.addAttachingAttribute(
 			"BaseTopPadding(20)",
@@ -228,9 +228,9 @@ public final class AnthrazitGUILookCreator {
 	}
 	
 	//method
-	private DeepConfiguration createWidgetLook() {
+	private DeepStyle createWidgetLook() {
 		return
-		new DeepConfiguration()
+		new DeepStyle()
 		.setSelectorType(Widget.class)
 		.addAttachingAttribute(
 			"BaseFont(VERDANA)",
