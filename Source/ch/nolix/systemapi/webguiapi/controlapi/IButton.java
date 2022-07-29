@@ -3,6 +3,7 @@ package ch.nolix.systemapi.webguiapi.controlapi;
 
 //own imports
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.systemapi.guiapi.controlrole.ButtonRole;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
@@ -28,7 +29,13 @@ public interface IButton<
 	B setLeftMouseButtonPressAction(IAction leftMouseButtonPressAction);
 	
 	//method declaration
+	B setLeftMouseButtonPressAction(IElementTaker<IButton<?, ?>> leftMouseButtonPressAction);
+	
+	//method declaration
 	B setLeftMouseButtonRelaseAction(IAction leftMouseButtonReleaseAction);
+	
+	//method declaration
+	B setLeftMouseButtonRelaseAction(IElementTaker<IButton<?, ?>> leftMouseButtonReleaseAction);
 	
 	//method declaration
 	B setRole(ButtonRole role);
