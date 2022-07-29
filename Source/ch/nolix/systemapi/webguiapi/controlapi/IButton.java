@@ -7,7 +7,10 @@ import ch.nolix.systemapi.guiapi.controlrole.ButtonRole;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //interface
-public interface IButton extends IControl<IButton, IButtonStyle> {
+public interface IButton<
+	B extends IButton<B, BS>,
+	BS extends IButtonStyle<BS>
+> extends IControl<B, BS> {
 	
 	//method declaration
 	ButtonRole getRole();
@@ -22,14 +25,14 @@ public interface IButton extends IControl<IButton, IButtonStyle> {
 	void removeRole();
 	
 	//method declaration
-	IButton setLeftMouseButtonPressAction(IAction leftMouseButtonPressAction);
+	B setLeftMouseButtonPressAction(IAction leftMouseButtonPressAction);
 	
 	//method declaration
-	IButton setLeftMouseButtonRelaseAction(IAction leftMouseButtonReleaseAction);
+	B setLeftMouseButtonRelaseAction(IAction leftMouseButtonReleaseAction);
 	
 	//method declaration
-	IButton setRole(ButtonRole buttonRole);
+	B setRole(ButtonRole buttonRole);
 	
 	//method declaration
-	IButton setText(String text);
+	B setText(String text);
 }

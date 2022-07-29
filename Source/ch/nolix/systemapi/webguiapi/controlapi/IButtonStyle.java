@@ -1,7 +1,8 @@
 //package declaration
 package ch.nolix.systemapi.webguiapi.controlapi;
 
+//own imports
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
 
 //interface
-public interface IButtonStyle extends IControlStyle<IButtonStyle> {}
+public interface IButtonStyle<BS extends IButtonStyle<BS>> extends IControlStyle<BS> {}
