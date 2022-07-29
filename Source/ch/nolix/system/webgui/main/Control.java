@@ -101,6 +101,15 @@ implements IControl<C, CS> {
 	//method declaration
 	protected abstract CS createStyle();
 	
+	//method declaration
+	protected abstract void resetControl();
+	
+	//method
+	@Override
+	protected final void resetStylableElement() {
+		resetControl();
+	}
+	
 	//method
 	@Override
 	protected final void resetStyle() {
