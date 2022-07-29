@@ -102,6 +102,13 @@ implements IControl<C, CS> {
 	protected abstract CS createStyle();
 	
 	//method
+	@Override
+	protected final void resetStyle() {
+		setCursorIcon(DEFAULT_CURSOR_ICON);
+		getRefStyle().reset();
+	}
+	
+	//method
 	final void internalRemoveParentLayer() {
 		
 		assertBelongsToLayer();
