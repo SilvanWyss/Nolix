@@ -15,12 +15,12 @@ import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.I2ElementTaker;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
-import ch.nolix.system.element.base.ConfigurableElement;
+import ch.nolix.system.element.base.StylableElement;
 import ch.nolix.system.element.mutableelement.ExtensionElement;
 import ch.nolix.system.element.mutableelement.MutableValueExtractor;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.widgetgui.WidgetGUI;
-import ch.nolix.systemapi.elementapi.configurationapi.IConfigurableElement;
+import ch.nolix.systemapi.elementapi.configurationapi.IStylableElement;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.inputdeviceapi.IKeyBoard;
 import ch.nolix.systemapi.guiapi.mainapi.CursorIcon;
@@ -49,7 +49,7 @@ import ch.nolix.systemapi.guiapi.widgetguiapi.IWidgetGUI;
  * @param <WL> is the type of the {@link WidgetLook} of a {@link Widget}.
  */
 public abstract class Widget<W extends Widget<W, WL>, WL extends WidgetLook<WL>>
-extends ConfigurableElement<W>
+extends StylableElement<W>
 implements IWidget<W, WL> {
 	
 	//constant
@@ -427,7 +427,7 @@ implements IWidget<W, WL> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final IContainer<? extends IConfigurableElement<?>> getRefChildConfigurableElements() {		
+	public final IContainer<? extends IStylableElement<?>> getRefChildStylableElements() {		
 		return getChildWidgets();
 	}
 	
@@ -1026,7 +1026,7 @@ implements IWidget<W, WL> {
 	 */
 	@Override
 	protected
-	final void resetConfiguration() {
+	final void resetStyle() {
 		
 		setCustomCursorIcon(DEFAULT_CURSOR_ICON);
 		getRefLook().reset();
@@ -1682,7 +1682,7 @@ implements IWidget<W, WL> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void resetConfigurableElement() {
+	protected final void resetStylableElement() {
 		
 		removeGreyOutWhenDisabled();
 		

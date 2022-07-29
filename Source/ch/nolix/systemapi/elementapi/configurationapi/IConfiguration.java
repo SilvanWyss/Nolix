@@ -17,5 +17,5 @@ public interface IConfiguration extends Specified {
 	 * 
 	 * @param element
 	 */
-	void configure(IConfigurableElement<?> element);
+	void configure(IStylableElement<?> element);
 }

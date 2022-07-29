@@ -45,7 +45,7 @@ import ch.nolix.system.gui.widget.SelectionMenu;
 import ch.nolix.system.gui.widget.Uploader;
 import ch.nolix.system.gui.widget.VerticalLine;
 import ch.nolix.system.gui.widget.Widget;
-import ch.nolix.systemapi.elementapi.configurationapi.IConfigurableElement;
+import ch.nolix.systemapi.elementapi.configurationapi.IStylableElement;
 import ch.nolix.systemapi.guiapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.colorapi.IColorGradient;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
@@ -356,7 +356,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final IContainer<? extends IConfigurableElement<?>> getRefChildConfigurableElements() {
+	public final IContainer<? extends IStylableElement<?>> getRefChildStylableElements() {
 		return layers.getRefValues().getRefSelected(ILayer::allowesConfiguration);
 	}
 	
@@ -505,7 +505,7 @@ public abstract class WidgetGUI<WG extends WidgetGUI<WG>> extends GUI<WG> implem
 	 */
 	@Override
 	protected
-	final void resetConfiguration() {
+	final void resetStyle() {
 		setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
 	}
 	

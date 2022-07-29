@@ -9,11 +9,11 @@ import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.documentapi.htmlapi.IHTMLElement;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.system.element.base.ConfigurableElement;
+import ch.nolix.system.element.base.StylableElement;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 import ch.nolix.system.gui.canvas.Background;
 import ch.nolix.system.webgui.helper.LayerHTMLHelper;
-import ch.nolix.systemapi.elementapi.configurationapi.IConfigurableElement;
+import ch.nolix.systemapi.elementapi.configurationapi.IStylableElement;
 import ch.nolix.systemapi.guiapi.canvasuniversalapi.IBackground;
 import ch.nolix.systemapi.guiapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.colorapi.IColorGradient;
@@ -27,7 +27,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGUI;
 
 //class
-public final class Layer extends ConfigurableElement<Layer> implements ILayer<Layer> {
+public final class Layer extends StylableElement<Layer> implements ILayer<Layer> {
 	
 	//static method
 	public static Layer fromSpecification(final INode<?> specification) {
@@ -149,7 +149,7 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 	
 	//method
 	@Override
-	public IContainer<? extends IConfigurableElement<?>> getRefChildConfigurableElements() {
+	public IContainer<? extends IStylableElement<?>> getRefChildStylableElements() {
 		
 		final var childConfigurableElements = new LinkedList<IControl<?, ?>>();
 		
@@ -314,14 +314,14 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 	
 	//method
 	@Override
-	protected void resetConfigurableElement() {
+	protected void resetStylableElement() {
 		removeRole();
 		clear();
 	}
 	
 	//method
 	@Override
-	protected void resetConfiguration() {
+	protected void resetStyle() {
 		removeBackground();
 	}
 	

@@ -16,7 +16,7 @@ import ch.nolix.system.element.mutableelement.MultiValue;
 import ch.nolix.system.element.mutableelement.MutableElement;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 import ch.nolix.system.gui.widget.Widget;
-import ch.nolix.systemapi.elementapi.configurationapi.IConfigurableElement;
+import ch.nolix.systemapi.elementapi.configurationapi.IStylableElement;
 import ch.nolix.systemapi.elementapi.configurationapi.IConfiguration;
 
 //class
@@ -396,7 +396,7 @@ implements IConfiguration {
 	 * @param element
 	 * @return true if the current {@link BaseConfiguration} selects the given element.
 	 */
-	public final boolean selects(IConfigurableElement<?> element) {
+	public final boolean selects(IStylableElement<?> element) {
 		
 		//Handles the case that the current BaseConfiguration has a selector id.
 		if (hasSelectorId() && !element.hasId(getSelectorId())) {
@@ -488,7 +488,7 @@ implements IConfiguration {
 	 * @throws InvalidArgumentException if an attaching attribute of the current {@link BaseConfiguration}
 	 * is not valid for the given element.
 	 */
-	protected final void setAttachingAttributesTo(IConfigurableElement<?> element) {
+	protected final void setAttachingAttributesTo(IStylableElement<?> element) {
 		for (final var aa : attachingAttributes.getRefValues()) {
 			try {
 				element.addOrChangeAttribute(aa);

@@ -4,7 +4,7 @@ package ch.nolix.system.element.configuration;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.systemapi.elementapi.configurationapi.IConfigurableElement;
+import ch.nolix.systemapi.elementapi.configurationapi.IStylableElement;
 
 //class
 /**
@@ -59,13 +59,13 @@ public final class Configuration extends BaseConfiguration<Configuration> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void configure(final IConfigurableElement<?> element) {
+	public void configure(final IStylableElement<?> element) {
 		
 		if (selects(element)) {
 			
 			setAttachingAttributesTo(element);
 			
-			final var elements = element.getRefChildConfigurableElements();
+			final var elements = element.getRefChildStylableElements();
 			final var configurations = getRefConfigurations();
 			elements.forEach(e -> configurations.forEach(c -> c.configure(e)));
 		}

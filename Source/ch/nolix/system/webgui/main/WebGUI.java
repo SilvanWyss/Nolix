@@ -17,7 +17,7 @@ import ch.nolix.system.gui.canvas.Background;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.image.Image;
 import ch.nolix.system.gui.main.GUIIconCatalogue;
-import ch.nolix.systemapi.elementapi.configurationapi.IConfigurableElement;
+import ch.nolix.systemapi.elementapi.configurationapi.IStylableElement;
 import ch.nolix.systemapi.guiapi.canvasuniversalapi.IBackground;
 import ch.nolix.systemapi.guiapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.colorapi.IColorGradient;
@@ -160,7 +160,7 @@ public final class WebGUI extends ConfigurationElement<WebGUI> implements IWebGU
 	
 	//method
 	@Override
-	public IContainer<? extends IConfigurableElement<?>> getRefChildConfigurableElements() {
+	public IContainer<? extends IStylableElement<?>> getRefChildStylableElements() {
 		return getRefLayers();
 	}
 
@@ -298,7 +298,7 @@ public final class WebGUI extends ConfigurationElement<WebGUI> implements IWebGU
 	
 	//method
 	@Override
-	protected void resetConfiguration() {
+	protected void resetStyle() {
 		setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
 	}
 }

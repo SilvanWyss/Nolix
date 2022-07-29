@@ -9,7 +9,7 @@ package ch.nolix.systemapi.elementapi.configurationapi;
  * @date 2022-07-23
  * @param <CE> is the type of a {@link IConfigurationElement}.
  */
-public interface IConfigurationElement<CE extends IConfigurationElement<CE>> extends IConfigurableElement<CE> {
+public interface IConfigurationElement<CE extends IConfigurationElement<CE>> extends IStylableElement<CE> {
 	
 	//method declaration
 	/**

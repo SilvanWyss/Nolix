@@ -8,7 +8,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentEx
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
-import ch.nolix.systemapi.elementapi.configurationapi.IConfigurableElement;
+import ch.nolix.systemapi.elementapi.configurationapi.IStylableElement;
 
 //class
 /**
@@ -54,10 +54,10 @@ public final class DeepConfiguration extends BaseConfiguration<DeepConfiguration
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void configure(IConfigurableElement<?> element) {
+	public void configure(IStylableElement<?> element) {
 		if (!hasMaxSelectorLevel()) {
 
-			final var elements = element.getRefChildConfigurableElements();
+			final var elements = element.getRefChildStylableElements();
 			
 			if (selects(element)) {
 				final var configurations = getRefConfigurations();
@@ -128,10 +128,10 @@ public final class DeepConfiguration extends BaseConfiguration<DeepConfiguration
 	 * @param element
 	 * @param level
 	 */
-	private void configure(IConfigurableElement<?> element, int level) {
+	private void configure(IStylableElement<?> element, int level) {
 		if (level > 0) {
 			
-			final var elements = element.getRefChildConfigurableElements();
+			final var elements = element.getRefChildStylableElements();
 			
 			if (selects(element)) {
 				

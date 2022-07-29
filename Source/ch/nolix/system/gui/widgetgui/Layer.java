@@ -18,7 +18,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.I2ElementTaker;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.system.discretegeometry.Discrete2DPoint;
-import ch.nolix.system.element.base.ConfigurableElement;
+import ch.nolix.system.element.base.StylableElement;
 import ch.nolix.system.element.mutableelement.CatchingProperty;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 import ch.nolix.system.element.mutableelement.MutableOptionalValueExtractor;
@@ -30,7 +30,7 @@ import ch.nolix.system.gui.color.ColorGradient;
 import ch.nolix.system.gui.image.MutableImage;
 import ch.nolix.system.gui.widget.BorderWidget;
 import ch.nolix.system.gui.widget.Widget;
-import ch.nolix.systemapi.elementapi.configurationapi.IConfigurableElement;
+import ch.nolix.systemapi.elementapi.configurationapi.IStylableElement;
 import ch.nolix.systemapi.guiapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.colorapi.IColorGradient;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
@@ -57,7 +57,7 @@ import ch.nolix.systemapi.guiapi.widgetguiapi.LayerRole;
  * @author Silvan Wyss
  * @date 2019-05-18
  */
-public final class Layer extends ConfigurableElement<Layer> implements ILayer<Layer> {
+public final class Layer extends StylableElement<Layer> implements ILayer<Layer> {
 	
 	//constant
 	public static final double DEFAULT_OPACITY_PERCENTAGE = 1.0;
@@ -418,9 +418,9 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 	 * {@inheritDoc}
 	 */
 	@Override
-	public IContainer<IConfigurableElement<?>> getRefChildConfigurableElements() {
+	public IContainer<IStylableElement<?>> getRefChildStylableElements() {
 		
-		final var configurables = new LinkedList<IConfigurableElement<?>>();
+		final var configurables = new LinkedList<IStylableElement<?>>();
 		
 		//Handles the case that the current Layer has a root Widget.
 		if (rootWidget != null) {
@@ -842,7 +842,7 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void resetConfiguration() {
+	protected void resetStyle() {
 		setContentPosition(DEFAULT_CONTENT_POSITION);
 	}
 	
@@ -1212,7 +1212,7 @@ public final class Layer extends ConfigurableElement<Layer> implements ILayer<La
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void resetConfigurableElement() {
+	protected void resetStylableElement() {
 		setConfigurationAllowed();
 		clear();
 	}

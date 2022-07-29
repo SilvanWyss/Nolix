@@ -9,11 +9,11 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
-import ch.nolix.system.element.base.ConfigurableElement;
+import ch.nolix.system.element.base.StylableElement;
 import ch.nolix.system.element.mutableelement.MutableValueExtractor;
 import ch.nolix.system.geometry.Point2D;
 import ch.nolix.system.geometry.Point3D;
-import ch.nolix.systemapi.elementapi.configurationapi.IConfigurableElement;
+import ch.nolix.systemapi.elementapi.configurationapi.IStylableElement;
 
 //class
 /**
@@ -24,7 +24,7 @@ import ch.nolix.systemapi.elementapi.configurationapi.IConfigurableElement;
  * @date 2017-11-11
  * @param <S> is the type of a {@link Shape}.
  */
-public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
+public abstract class Shape<S extends Shape<S>> extends StylableElement<S> {
 	
 	//constant
 	public static final Point3D DEFAULT_POSITION = new Point3D(0.0, 0.0, 0.0);
@@ -71,7 +71,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	 * @return the configurable elements of the current {@link Shape}.
 	 */
 	@Override
-	public final IContainer<? extends IConfigurableElement<?>> getRefChildConfigurableElements() {
+	public final IContainer<? extends IStylableElement<?>> getRefChildStylableElements() {
 		return getRefShapes();
 	}
 	
@@ -339,7 +339,7 @@ public abstract class Shape<S extends Shape<S>> extends ConfigurableElement<S> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void resetConfigurableElement() {
+	protected final void resetStylableElement() {
 		
 		setPosition(DEFAULT_POSITION);
 		

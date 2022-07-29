@@ -13,7 +13,7 @@ import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 
 //class
 public abstract class OptionalIdentifiableOptionalTokenableElement<
-	E extends ConfigurableElement<E>
+	E extends StylableElement<E>
 >
 extends MutableElement<E>
 implements OptionalIdentifiableByString<E>, OptionalTokenable<E> {

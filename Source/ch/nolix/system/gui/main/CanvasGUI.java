@@ -16,7 +16,7 @@ import ch.nolix.system.element.mutableelement.MutableValue;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.color.ColorGradient;
 import ch.nolix.system.gui.textformat.TextFormat;
-import ch.nolix.systemapi.elementapi.configurationapi.IConfigurableElement;
+import ch.nolix.systemapi.elementapi.configurationapi.IStylableElement;
 import ch.nolix.systemapi.guiapi.inputapi.IResizableInputTaker;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.mainapi.CursorIcon;
@@ -64,7 +64,7 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 	
 	//method
 	@Override
-	public final IContainer<IConfigurableElement<?>> getRefChildConfigurableElements() {
+	public final IContainer<IStylableElement<?>> getRefChildStylableElements() {
 		return new LinkedList<>();
 	}
 	
@@ -75,7 +75,7 @@ public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {
 	
 	//method
 	@Override
-	protected void resetConfiguration() {
+	protected void resetStyle() {
 		setCursorIcon(DEFAULT_CURSOR_ICON);
 	}
 	

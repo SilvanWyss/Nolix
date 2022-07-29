@@ -109,7 +109,7 @@ public abstract class AtomicShape<BS extends AtomicShape<BS>> extends Shape<BS> 
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void resetConfiguration() {
+	protected void resetStyle() {
 		setDefaultColor(DEFAULT_COLOR);
 		removeDefaultTexture();
 	}

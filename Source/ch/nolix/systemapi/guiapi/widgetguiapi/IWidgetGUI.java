@@ -6,7 +6,7 @@ import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.I2ElementTaker;
 import ch.nolix.coreapi.functionapi.mutationuniversalapi.Clearable;
-import ch.nolix.systemapi.elementapi.configurationapi.IConfigurableElement;
+import ch.nolix.systemapi.elementapi.configurationapi.IStylableElement;
 import ch.nolix.systemapi.elementapi.configurationapi.IConfiguration;
 import ch.nolix.systemapi.guiapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.colorapi.IColorGradient;
@@ -16,7 +16,7 @@ import ch.nolix.systemapi.guiapi.inputdeviceapi.IKeyBoard;
 import ch.nolix.systemapi.guiapi.mainapi.IGUI;
 
 //interface
-public interface IWidgetGUI<WG extends IWidgetGUI<WG>> extends Clearable, IGUI<WG>, IConfigurableElement<WG>{
+public interface IWidgetGUI<WG extends IWidgetGUI<WG>> extends Clearable, IGUI<WG>, IStylableElement<WG>{
 	
 	//method declaration
 	IContainer<? extends IChainedNode> getPaintCommands(I2ElementTaker<String, IImage> imageRegistrator);

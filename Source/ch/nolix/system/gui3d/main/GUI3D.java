@@ -29,7 +29,7 @@ import ch.nolix.system.gui.image.Image;
 import ch.nolix.system.gui.main.GUIIconCatalogue;
 import ch.nolix.system.gui.main.LocalFrontEndReader;
 import ch.nolix.system.gui.main.LocalFrontEndWriter;
-import ch.nolix.systemapi.elementapi.configurationapi.IConfigurableElement;
+import ch.nolix.systemapi.elementapi.configurationapi.IStylableElement;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.mainapi.CursorIcon;
 import ch.nolix.systemapi.guiapi.mainapi.IFrontEndReader;
@@ -194,7 +194,7 @@ public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G> 
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final ReadContainer<? extends IConfigurableElement<?>> getRefChildConfigurableElements() {
+	public final ReadContainer<? extends IStylableElement<?>> getRefChildStylableElements() {
 		return getRefShapes();
 	}
 	
@@ -300,7 +300,7 @@ public abstract class GUI3D<G extends GUI3D<G>> extends ConfigurationElement<G> 
 	 */
 	@Override
 	protected
-	final void resetConfiguration() {
+	final void resetStyle() {
 		setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
 	}
 	
