@@ -1,4 +1,4 @@
-package ch.nolix.templatetutorial.guilooktutorial;
+package ch.nolix.templatetutorial.guistyletutorial;
 
 import ch.nolix.system.gui.containerwidget.Grid;
 import ch.nolix.system.gui.containerwidget.HorizontalStack;
@@ -15,9 +15,9 @@ import ch.nolix.system.gui.widget.LabelRole;
 import ch.nolix.system.gui.widget.SelectionMenu;
 import ch.nolix.system.gui.widgetgui.Frame;
 import ch.nolix.systemapi.guiapi.containercontrolproperty.ContainerRole;
-import ch.nolix.template.guilook.AnthrazitGUILookCreator;
+import ch.nolix.template.guistyle.AnthrazitGUIStyleCreator;
 
-public final class GUILooksTutorial {
+public final class GUIStyleTutorial {
 	
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
@@ -27,12 +27,12 @@ public final class GUILooksTutorial {
 		new SelectionMenu()
 		.addItem(
 			"Anthrazit",
-			i -> i.getParentGUI().setStyle(AnthrazitGUILookCreator.INSTANCE.createGUILook())
+			i -> i.getParentGUI().setStyle(AnthrazitGUIStyleCreator.INSTANCE.createGUIStyle())
 		);
 		
 		//Creates a Frame with the SelectionMenu and several other Widgets.
 		new Frame()
-		.setTitle("GUILooks tutorial")
+		.setTitle("GUI style tutorial")
 		.pushLayerWithRootWidget(
 			new VerticalStack()
 			.setRole(ContainerRole.OVERALL_CONTAINTER)
@@ -75,5 +75,5 @@ public final class GUILooksTutorial {
 		selectionMenu.selectFirstItem();
 	}
 	
-	private GUILooksTutorial() {}
+	private GUIStyleTutorial() {}
 }

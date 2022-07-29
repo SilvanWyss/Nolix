@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.templatetest.guilooktest;
+package ch.nolix.templatetest.guistyletest;
 
 //own imports
 import ch.nolix.core.container.main.LinkedList;
@@ -22,7 +22,7 @@ import ch.nolix.system.gui.widget.Widget;
 import ch.nolix.system.gui.widgetgui.InvisibleGUI;
 
 //class
-public abstract class GUILookCreatorTest extends ObjectTest<Style> {
+public abstract class GUIStyleCreatorTest extends ObjectTest<Style> {
 	
 	//method
 	@TestCase

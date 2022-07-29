@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.template.guilook;
+package ch.nolix.template.guistyle;
 
 import ch.nolix.system.element.style.Style;
 import ch.nolix.system.element.style.DeepStyle;
@@ -18,41 +18,41 @@ import ch.nolix.systemapi.guiapi.containercontrolproperty.ContainerRole;
 import ch.nolix.systemapi.guiapi.widgetguiapi.LayerRole;
 
 //class
-public final class AnthrazitGUILookCreator {
+public final class AnthrazitGUIStyleCreator {
 	
 	//static attribute
-	public static final AnthrazitGUILookCreator INSTANCE = new AnthrazitGUILookCreator();
+	public static final AnthrazitGUIStyleCreator INSTANCE = new AnthrazitGUIStyleCreator();
 	
 	//constructor
-	private AnthrazitGUILookCreator() {}
+	private AnthrazitGUIStyleCreator() {}
 	
 	//method
-	public Style createGUILook() {
+	public Style createGUIStyle() {
 		return
 		new Style()
 		.addAttachingAttribute("BackgroundColor(0x101010)")
 		.addConfiguration(
-			createWidgetLook(),
-			createBorderWidgetLook(),
-			createOverallContainerLook(),
-			createDialogLook(),
-			createDialogContainerLook(),
-			createGridLook(),
-			createStackLook(),
-			createTitleLook(),
-			createLevel1HeaderLook(),
-			createLevel2HeaderLook(),
-			createCheckboxLook(),
-			createButtonLook(),
-			createDownloaderLook(),
-			createTextBoxLook(),
-			createItemMenuLook(),
-			createConsoleLook()
+			createWidgetStyle(),
+			createBorderWidgetStyle(),
+			createOverallContainerStyle(),
+			createDialogStyle(),
+			createDialogContainerStyle(),
+			createGridStyle(),
+			createStackStyle(),
+			createTitleStyle(),
+			createLevel1HeaderStyle(),
+			createLevel2HeaderStyle(),
+			createCheckboxStyle(),
+			createButtonStyle(),
+			createDownloaderStyle(),
+			createTextBoxStyle(),
+			createItemMenuStyle(),
+			createConsoleStyle()
 		);
 	}
 	
 	//method
-	private DeepStyle createBorderWidgetLook() {
+	private DeepStyle createBorderWidgetStyle() {
 		return
 		new DeepStyle()
 		.setSelectorType(BorderWidget.class)
@@ -67,7 +67,7 @@ public final class AnthrazitGUILookCreator {
 	}
 	
 	//method
-	private DeepStyle createButtonLook() {
+	private DeepStyle createButtonStyle() {
 		return
 		new DeepStyle()
 		.setSelectorType(Button.class)
@@ -84,7 +84,7 @@ public final class AnthrazitGUILookCreator {
 	}
 	
 	//method
-	private DeepStyle createCheckboxLook() {
+	private DeepStyle createCheckboxStyle() {
 		return
 		new DeepStyle()
 		.setSelectorType(CheckBox.class)
@@ -96,7 +96,7 @@ public final class AnthrazitGUILookCreator {
 	}
 	
 	//method
-	private DeepStyle createConsoleLook() {
+	private DeepStyle createConsoleStyle() {
 		return
 		new DeepStyle()
 		.setSelectorType(Console.class)
@@ -104,7 +104,7 @@ public final class AnthrazitGUILookCreator {
 	}
 	
 	//method
-	private DeepStyle createDialogLook() {
+	private DeepStyle createDialogStyle() {
 		return
 		new DeepStyle()
 		.addSelectorRole(LayerRole.DIALOG_LAYER)
@@ -112,7 +112,7 @@ public final class AnthrazitGUILookCreator {
 	}
 	
 	//method
-	private DeepStyle createDialogContainerLook() {
+	private DeepStyle createDialogContainerStyle() {
 		return
 		new DeepStyle()
 		.addSelectorRole(ContainerRole.DIALOG_CONTAINER)
@@ -124,7 +124,7 @@ public final class AnthrazitGUILookCreator {
 	}
 	
 	//method
-	private DeepStyle createDownloaderLook() {
+	private DeepStyle createDownloaderStyle() {
 		return
 		new DeepStyle()
 		.setSelectorType(Downloader.class)
@@ -141,7 +141,7 @@ public final class AnthrazitGUILookCreator {
 	}
 	
 	//method
-	private DeepStyle createGridLook() {
+	private DeepStyle createGridStyle() {
 		return
 		new DeepStyle()
 		.setSelectorType(Grid.class)
@@ -149,7 +149,7 @@ public final class AnthrazitGUILookCreator {
 	}
 	
 	//method
-	private DeepStyle createItemMenuLook() {
+	private DeepStyle createItemMenuStyle() {
 		return
 		new DeepStyle()
 		.setSelectorType(ItemMenu.class)
@@ -161,7 +161,7 @@ public final class AnthrazitGUILookCreator {
 	}
 	
 	//method
-	private DeepStyle createLevel1HeaderLook() {
+	private DeepStyle createLevel1HeaderStyle() {
 		return
 		new DeepStyle()
 		.addSelectorRole(LabelRole.LEVEL1_HEADER)
@@ -172,7 +172,7 @@ public final class AnthrazitGUILookCreator {
 	}
 	
 	//method
-	private DeepStyle createLevel2HeaderLook() {
+	private DeepStyle createLevel2HeaderStyle() {
 		return
 		new DeepStyle()
 		.addSelectorRole(LabelRole.LEVEL1_HEADER)
@@ -183,7 +183,7 @@ public final class AnthrazitGUILookCreator {
 	}
 	
 	//method
-	private DeepStyle createOverallContainerLook() {
+	private DeepStyle createOverallContainerStyle() {
 		return
 		new DeepStyle()
 		.addSelectorRole(ContainerRole.OVERALL_CONTAINTER)
@@ -195,7 +195,7 @@ public final class AnthrazitGUILookCreator {
 		);
 	}
 	
-	private DeepStyle createStackLook() {
+	private DeepStyle createStackStyle() {
 		return
 		new DeepStyle()
 		.setSelectorType(Stack.class)
@@ -203,7 +203,7 @@ public final class AnthrazitGUILookCreator {
 	}
 	
 	//method
-	private DeepStyle createTextBoxLook() {
+	private DeepStyle createTextBoxStyle() {
 		return
 		new DeepStyle()
 		.setSelectorType("TextBox")
@@ -215,7 +215,7 @@ public final class AnthrazitGUILookCreator {
 	}
 	
 	//method
-	private DeepStyle createTitleLook() {
+	private DeepStyle createTitleStyle() {
 		return
 		new DeepStyle()
 		.addSelectorRole(LabelRole.TITLE)
@@ -228,7 +228,7 @@ public final class AnthrazitGUILookCreator {
 	}
 	
 	//method
-	private DeepStyle createWidgetLook() {
+	private DeepStyle createWidgetStyle() {
 		return
 		new DeepStyle()
 		.setSelectorType(Widget.class)
