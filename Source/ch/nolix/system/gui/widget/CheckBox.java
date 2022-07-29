@@ -15,7 +15,7 @@ import ch.nolix.systemapi.guiapi.widgetguiapi.IWidget;
  * @author Silvan Wyss
  * @date 2016-06-01
  */
-public final class CheckBox extends BorderWidget<CheckBox, CheckBoxLook> {
+public final class CheckBox extends BorderWidget<CheckBox, CheckBoxStyle> {
 	
 	//constant
 	public static final boolean DEFAULT_CHECK_STATE = false;
@@ -82,8 +82,8 @@ public final class CheckBox extends BorderWidget<CheckBox, CheckBoxLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected CheckBoxLook createLook() {
-		return new CheckBoxLook();
+	protected CheckBoxStyle createLook() {
+		return new CheckBoxStyle();
 	}
 	
 	//method
@@ -110,7 +110,7 @@ public final class CheckBox extends BorderWidget<CheckBox, CheckBoxLook> {
 	 */
 	@Override
 	protected int getNaturalContentAreaHeight() {
-		return getRefLook().getTextSize();
+		return getRefStyle().getTextSize();
 	}
 	
 	//method
@@ -119,7 +119,7 @@ public final class CheckBox extends BorderWidget<CheckBox, CheckBoxLook> {
 	 */
 	@Override
 	protected int getNaturalContentAreaWidth() {
-		return getRefLook().getTextSize();
+		return getRefStyle().getTextSize();
 	}
 	
 	//method
@@ -253,12 +253,12 @@ public final class CheckBox extends BorderWidget<CheckBox, CheckBoxLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void paintContentArea(final IPainter painter, final CheckBoxLook checkBoxLook) {
+	protected void paintContentArea(final IPainter painter, final CheckBoxStyle checkBoxStyle) {
 				
-		final var s = checkBoxLook.getTextSize();
-		final var t = checkBoxLook.getLineThickness();
+		final var s = checkBoxStyle.getTextSize();
+		final var t = checkBoxStyle.getLineThickness();
 		
-		painter.setColor(checkBoxLook.getTextColor());
+		painter.setColor(checkBoxStyle.getTextColor());
 		
 		//Paints the left border of the current CheckBox.
 		painter.paintFilledRectangle(0, 0, t, s);

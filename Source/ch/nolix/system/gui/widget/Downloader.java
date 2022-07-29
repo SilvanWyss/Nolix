@@ -13,7 +13,7 @@ import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 
 //class
-public final class Downloader extends TextLineWidget<Downloader, DownloaderLook> {
+public final class Downloader extends TextLineWidget<Downloader, DownloaderStyle> {
 	
 	//constants
 	public static final String DEFAULT_TEXT = "Download";
@@ -30,7 +30,7 @@ public final class Downloader extends TextLineWidget<Downloader, DownloaderLook>
 		
 		reset();
 				
-		getRefLook()
+		getRefStyle()
 		.setTextColorForState(ControlState.BASE, Color.DARK_BLUE)
 		.setTextColorForState(ControlState.HOVER, Color.BLUE);
 	}
@@ -97,8 +97,8 @@ public final class Downloader extends TextLineWidget<Downloader, DownloaderLook>
 	
 	//method
 	@Override
-	protected DownloaderLook createLook() {
-		return new DownloaderLook();
+	protected DownloaderStyle createLook() {
+		return new DownloaderStyle();
 	}
 	
 	//method
@@ -135,7 +135,7 @@ public final class Downloader extends TextLineWidget<Downloader, DownloaderLook>
 	
 	//method
 	@Override
-	protected void paintTextLineWidgetContentArea(final IPainter painter, final DownloaderLook downloaderLook) {
+	protected void paintTextLineWidgetContentArea(final IPainter painter, final DownloaderStyle downloaderStyle) {
 		//Does nothing.
 	}
 	

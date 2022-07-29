@@ -16,7 +16,7 @@ import ch.nolix.systemapi.guiapi.painterapi.IPainter;
  * @author Silvan Wyss
  * @date 2016-01-01
  */
-public final class Label extends TextLineWidget<Label, LabelLook> {
+public final class Label extends TextLineWidget<Label, LabelStyle> {
 	
 	//constant
 	public static final String DEFAULT_TEXT = StringCatalogue.MINUS;
@@ -104,8 +104,8 @@ public final class Label extends TextLineWidget<Label, LabelLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected LabelLook createLook() {
-		return new LabelLook();
+	protected LabelStyle createLook() {
+		return new LabelStyle();
 	}
 	
 	//method
@@ -158,7 +158,7 @@ public final class Label extends TextLineWidget<Label, LabelLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void paintTextLineWidgetContentArea(final IPainter painter, final LabelLook textLineWidgetLook) {
+	protected void paintTextLineWidgetContentArea(final IPainter painter, final LabelStyle textLineWidgetLook) {
 		//Does nothing.
 	}
 	

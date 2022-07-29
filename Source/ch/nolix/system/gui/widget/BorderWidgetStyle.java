@@ -18,7 +18,7 @@ import ch.nolix.systemapi.guiapi.imageapi.ImageApplication;
 import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 
 //class
-public abstract class BorderWidgetLook<BWL extends BorderWidgetLook<BWL>> extends WidgetLook<BWL> {
+public abstract class BorderWidgetStyle<BWL extends BorderWidgetStyle<BWL>> extends WidgetStyle<BWL> {
 	
 	//constants
 	public static final int DEFAULT_BORDER_THICKNESS = 0;

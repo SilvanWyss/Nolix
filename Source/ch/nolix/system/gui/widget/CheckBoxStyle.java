@@ -10,7 +10,7 @@ import ch.nolix.system.element.multistateelement.NonCascadingProperty;
 import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 
 //class
-public final class CheckBoxLook extends BorderWidgetLook<CheckBoxLook> {
+public final class CheckBoxStyle extends BorderWidgetStyle<CheckBoxStyle> {
 	
 	//constant
 	public static final int DEFAULT_LINE_THICKNESS = 1;
@@ -40,7 +40,7 @@ public final class CheckBoxLook extends BorderWidgetLook<CheckBoxLook> {
 	}
 	
 	//method
-	public CheckBoxLook setLineThicknessForState(final ControlState state, final int lineThickness) {
+	public CheckBoxStyle setLineThicknessForState(final ControlState state, final int lineThickness) {
 		
 		GlobalValidator.assertThat(lineThickness).thatIsNamed(LowerCaseCatalogue.LINE_THICKNESS).isNotNegative();
 		

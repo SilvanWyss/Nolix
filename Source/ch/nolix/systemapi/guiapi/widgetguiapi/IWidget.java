@@ -20,11 +20,11 @@ import ch.nolix.systemapi.guiapi.painterapi.IPainter;
  * @author Silvan Wyss
  * @date 2022-05-29
  * @param <W> is the type of a {@link IWidget}.
- * @param <WL> is the type of the {@link IWidgetLook} of a {@link IWidget}.
+ * @param <WL> is the type of the {@link IWidgetStyle} of a {@link IWidget}.
  */
 public interface IWidget<
 	W extends IWidget<W, WL>,
-	WL extends IWidgetLook<WL>
+	WL extends IWidgetStyle<WL>
 >
 extends
 EnablingRequestable,
@@ -77,7 +77,7 @@ TopLeftPositionedRecangular {
 	/**
 	 * @return the look of the current {@link IWidget}.
 	 */
-	WL getRefLook();
+	WL getRefStyle();
 	
 	//method declaration
 	/** 

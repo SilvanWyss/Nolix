@@ -190,7 +190,7 @@ public final class AccordionTab extends MutableElement<AccordionTab> implements 
 	//method
 	void recalculate() {
 		
-		headerHorizontalStack.getRefLook().setFrom(parentAccordion.getRefTabHeaderLook());
+		headerHorizontalStack.getRefStyle().setFrom(parentAccordion.getRefTabHeaderLook());
 		
 		final var naturalContentAreaWidth = getParentAccordion().getNaturalContentAreaWidth();
 		if (naturalContentAreaWidth > 0) {

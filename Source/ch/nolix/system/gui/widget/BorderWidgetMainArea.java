@@ -15,9 +15,9 @@ import ch.nolix.systemapi.guiapi.painterapi.IPainter;
  * @author Silvan Wyss
  * @date 2019-06-26
  * @param <BWL>
- * is the type of the {@link BorderWidgetLook} of the {@link BorderWidget} of a {@link BorderWidgetMainArea}.
+ * is the type of the {@link BorderWidgetStyle} of the {@link BorderWidget} of a {@link BorderWidgetMainArea}.
  */
-public final class BorderWidgetMainArea<BWL extends BorderWidgetLook<BWL>>
+public final class BorderWidgetMainArea<BWL extends BorderWidgetStyle<BWL>>
 implements HoverableTopLeftPositionedRectangular {
 	
 	//attribute
@@ -111,7 +111,7 @@ implements HoverableTopLeftPositionedRectangular {
 	 */
 	public int getNaturalHeight() {
 		
-		final var look = parentBorderWidget.getRefLook();
+		final var look = parentBorderWidget.getRefStyle();
 		
 		return
 		parentBorderWidget.getBorderedArea().getNaturalHeight()
@@ -125,7 +125,7 @@ implements HoverableTopLeftPositionedRectangular {
 	 */
 	public int getNaturalWidth() {
 		
-		final var look = parentBorderWidget.getRefLook();
+		final var look = parentBorderWidget.getRefStyle();
 		
 		return
 		parentBorderWidget.getBorderedArea().getNaturalWidth()

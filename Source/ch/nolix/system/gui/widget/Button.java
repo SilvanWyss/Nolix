@@ -20,7 +20,7 @@ import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
  * @author Silvan Wyss
  * @date 2016-01-01
  */
-public final class Button extends TextLineWidget<Button, ButtonLook> {
+public final class Button extends TextLineWidget<Button, ButtonStyle> {
 	
 	//constant
 	public static final String DEFAULT_TEXT = StringCatalogue.MINUS;
@@ -48,7 +48,7 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 		setMinWidth(100);
 		setContentPosition(ContentPosition.CENTER);
 		
-		getRefLook()
+		getRefStyle()
 		.setBorderThicknessForState(ControlState.BASE, 1)
 		.setBackgroundColorForState(ControlState.BASE, Color.LIGHT_GREY)
 		.setBackgroundColorForState(ControlState.HOVER, Color.DARK_GREY)
@@ -120,8 +120,8 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected ButtonLook createLook() {
-		return new ButtonLook();
+	protected ButtonStyle createLook() {
+		return new ButtonStyle();
 	}
 	
 	//method
@@ -174,7 +174,7 @@ public final class Button extends TextLineWidget<Button, ButtonLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void paintTextLineWidgetContentArea(final IPainter painter, final ButtonLook buttonLook) {
+	protected void paintTextLineWidgetContentArea(final IPainter painter, final ButtonStyle buttonStyle) {
 		//Does nothing.
 	}
 	

@@ -28,7 +28,7 @@ import ch.nolix.systemapi.guiapi.widgetguiapi.IWidget;
  * @date 2016-01-01
  * @param <S> is the type of a {@link Stack}.
  */
-public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, StackLook> {
+public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, StackStyle> {
 	
 	//constant
 	private static final String ELEMENT_MARGIN_HEADER = "ElementMargin";
@@ -194,8 +194,8 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final StackLook createLook() {
-		return new StackLook();
+	protected final StackStyle createLook() {
+		return new StackStyle();
 	}
 	
 	//method
@@ -327,7 +327,7 @@ public abstract class Stack<S extends Stack<S>> extends ContainerWidget<S, Stack
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void paintContentArea(final IPainter painter, final StackLook stackLook) {}
+	protected final void paintContentArea(final IPainter painter, final StackStyle stackStyle) {}
 	
 	//method
 	/**

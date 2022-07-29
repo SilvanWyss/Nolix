@@ -19,7 +19,7 @@ import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 import ch.nolix.systemapi.guiapi.widgetguiapi.IWidget;
 
 //class
-public final class Grid extends ContainerWidget<Grid, GridLook> {
+public final class Grid extends ContainerWidget<Grid, GridStyle> {
 	
 	//constant
 	private static final String CELL_HEADER = PascalCaseCatalogue.CELL;
@@ -45,7 +45,7 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 		
 		setMaxWidth(1000);
 		setMaxHeight(500);
-		getRefLook()
+		getRefStyle()
 		.setGridTypeForState(ControlState.BASE, GridType.INNER_LINES)
 		.setElementMarginForState(ControlState.BASE, 10);
 	}
@@ -67,7 +67,7 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 		
 		var contentHeight = cells.getRows().getSumByInt(r -> r.getMaxInt(GridCell::getHeight));
 
-			switch (getRefLook().getGridType()) {
+			switch (getRefStyle().getGridType()) {
 				case INNER_LINES:
 					contentHeight += (getRowCount() - 1) * getLineThickness();
 					break;
@@ -89,7 +89,7 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 		
 		var contentWidth = cells.getColumns().getSumByInt(c -> c.getMaxInt(GridCell::getWidth));
 		
-		switch (getRefLook().getGridType()) {
+		switch (getRefStyle().getGridType()) {
 			case INNER_LINES:
 				contentWidth += (getColumnCount() - 1) * getLineThickness();
 				break;
@@ -108,7 +108,7 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 	//method
 	public int getElementMargin() {
 		
-		final var currentStructure = getRefLook();
+		final var currentStructure = getRefStyle();
 		
 		return currentStructure.getElementMargin();
 	}
@@ -126,7 +126,7 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 	//method
 	public boolean hasInnerAndOuterLines() {
 		
-		final var currentStructure = getRefLook();
+		final var currentStructure = getRefStyle();
 		
 		return (currentStructure.getGridType() == GridType.INNER_AND_OUTER_LINES);
 	}
@@ -152,8 +152,8 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 	
 	//method
 	@Override
-	protected GridLook createLook() {
-		return new GridLook();
+	protected GridStyle createLook() {
+		return new GridStyle();
 	}
 	
 	//method
@@ -304,11 +304,11 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 	
 	//method
 	@Override
-	protected void paintContentArea(final IPainter painter, final GridLook gridLook) {
+	protected void paintContentArea(final IPainter painter, final GridStyle gridStyle) {
 			
-			painter.setColor(gridLook.getGridColor());
+			painter.setColor(gridStyle.getGridColor());
 			
-			final var outerLinesDefined = gridLook.getGridType() == GridType.INNER_AND_OUTER_LINES;
+			final var outerLinesDefined = gridStyle.getGridType() == GridType.INNER_AND_OUTER_LINES;
 			
 			final var contentAreaWidth = getNaturalContentAreaWidth();
 			final var contentAreaHeight = getNaturalContentAreaHeight();
@@ -336,7 +336,7 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 			//Paints the vertical lines of the current grid.
 				var x = 0;
 				
-				if (gridLook.getGridType() == GridType.INNER_AND_OUTER_LINES) {
+				if (gridStyle.getGridType() == GridType.INNER_AND_OUTER_LINES) {
 					painter.paintFilledRectangle(lineThickness, contentAreaHeight);
 					x += lineThickness;
 				}
@@ -475,6 +475,6 @@ public final class Grid extends ContainerWidget<Grid, GridLook> {
 	
 	//method
 	private int getLineThicknessWhenHasLines() {
-		return getRefLook().getGridThickness();
+		return getRefStyle().getGridThickness();
 	}
 }

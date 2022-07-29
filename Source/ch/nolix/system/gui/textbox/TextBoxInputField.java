@@ -13,7 +13,7 @@ import ch.nolix.core.math.GlobalCalculator;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.element.mutableelement.MutableValue;
 import ch.nolix.system.gui.widget.BorderWidget;
-import ch.nolix.system.gui.widget.TextBoxLook;
+import ch.nolix.system.gui.widget.TextBoxStyle;
 import ch.nolix.system.gui.widget.TextLineWidget;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.mainapi.CursorIcon;
@@ -25,7 +25,7 @@ import ch.nolix.systemapi.guiapi.processproperty.TextMode;
  * @author Silvan Wyss
  * @date 2017-01-01
  */
-final class TextBoxInputField extends TextLineWidget<TextBoxInputField, TextBoxLook> {
+final class TextBoxInputField extends TextLineWidget<TextBoxInputField, TextBoxStyle> {
 	
 	//constants
 	public static final String DEFAULT_TEXT = StringCatalogue.EMPTY_STRING;
@@ -91,7 +91,7 @@ final class TextBoxInputField extends TextLineWidget<TextBoxInputField, TextBoxL
 	 * @return the width of the text cursor of the current {@link TextBoxInputField}.
 	 */
 	public int getTextCursorWidth() {
-		return GlobalCalculator.getMax(1, (int)(0.08 * getRefLook().getTextSize()));
+		return GlobalCalculator.getMax(1, (int)(0.08 * getRefStyle().getTextSize()));
 	}
 	
 	//method
@@ -173,8 +173,8 @@ final class TextBoxInputField extends TextLineWidget<TextBoxInputField, TextBoxL
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected TextBoxLook createLook() {
-		return new TextBoxLook();
+	protected TextBoxStyle createLook() {
+		return new TextBoxStyle();
 	}
 	
 	//method
@@ -245,9 +245,9 @@ final class TextBoxInputField extends TextLineWidget<TextBoxInputField, TextBoxL
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void paintTextLineWidgetContentArea(final IPainter painter, final TextBoxLook textBoxLook) {
+	protected void paintTextLineWidgetContentArea(final IPainter painter, final TextBoxStyle textBoxStyle) {
 		if (isFocused()) {
-			paintTextCursor(painter, textBoxLook);
+			paintTextCursor(painter, textBoxStyle);
 		}
 	}
 	
@@ -401,17 +401,17 @@ final class TextBoxInputField extends TextLineWidget<TextBoxInputField, TextBoxL
 	/**
 	 * Paints the text cursor of the current {@link TextBoxInputField} using the given painter and textBoxLook.
 	 * @param painter
-	 * @param textBoxLook
+	 * @param textBoxStyle
 	 */
-	private void paintTextCursor(IPainter painter, final TextBoxLook textBoxLook) {
+	private void paintTextCursor(IPainter painter, final TextBoxStyle textBoxStyle) {
 		
-		painter.setColor(textBoxLook.getTextColor());
+		painter.setColor(textBoxStyle.getTextColor());
 		
 		painter.paintFilledRectangle(
 			getTextCursorXPositionOnContentArea(),
 			0,
 			getTextCursorWidth(),
-			(int)(1.2 * textBoxLook.getTextSize())
+			(int)(1.2 * textBoxStyle.getTextSize())
 		);
 	}
 	

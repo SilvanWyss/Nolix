@@ -8,12 +8,12 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.element.multistateelement.NonCascadingProperty;
 import ch.nolix.system.gui.color.Color;
-import ch.nolix.system.gui.widget.BorderWidgetLook;
+import ch.nolix.system.gui.widget.BorderWidgetStyle;
 import ch.nolix.systemapi.guiapi.controlproperty.GridType;
 import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 
 //class
-public final class GridLook extends BorderWidgetLook<GridLook> {
+public final class GridStyle extends BorderWidgetStyle<GridStyle> {
 	
 	//constants
 	public static final GridType DEFAULT_GRID_TYPE = GridType.INNER_LINES;
@@ -112,7 +112,7 @@ public final class GridLook extends BorderWidgetLook<GridLook> {
 	}
 	
 	//method
-	public GridLook setGridColorForState(final ControlState state, final Color gridColor) {
+	public GridStyle setGridColorForState(final ControlState state, final Color gridColor) {
 		
 		this.gridColor.setValueForState(state, gridColor);
 		
@@ -120,7 +120,7 @@ public final class GridLook extends BorderWidgetLook<GridLook> {
 	}
 	
 	//method
-	public GridLook setElementMarginForState(final ControlState state, final int elementMargin) {
+	public GridStyle setElementMarginForState(final ControlState state, final int elementMargin) {
 		
 		GlobalValidator.assertThat(elementMargin).thatIsNamed(LowerCaseCatalogue.ELEMENT_MARGIN).isNotNegative();
 		
@@ -130,7 +130,7 @@ public final class GridLook extends BorderWidgetLook<GridLook> {
 	}
 	
 	//method
-	public GridLook setGridThicknessForState(final ControlState state, final int gridThickness) {
+	public GridStyle setGridThicknessForState(final ControlState state, final int gridThickness) {
 		
 		GlobalValidator.assertThat(gridThickness).thatIsNamed("grid thickness").isNotNegative();
 		
@@ -140,7 +140,7 @@ public final class GridLook extends BorderWidgetLook<GridLook> {
 	}
 	
 	//method
-	public GridLook setGridTypeForState(final ControlState state, final GridType gridType) {
+	public GridStyle setGridTypeForState(final ControlState state, final GridType gridType) {
 		
 		this.gridType.setValueForState(state, gridType);
 		

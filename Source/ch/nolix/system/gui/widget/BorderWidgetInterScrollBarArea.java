@@ -7,7 +7,7 @@ import ch.nolix.systemapi.guiapi.mainapi.HoverableTopLeftPositionedRectangular;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 
 //class
-public final class BorderWidgetInterScrollBarArea<BWL extends BorderWidgetLook<BWL>>
+public final class BorderWidgetInterScrollBarArea<BWL extends BorderWidgetStyle<BWL>>
 implements HoverableTopLeftPositionedRectangular {
 	
 	//constants

@@ -13,12 +13,12 @@ import ch.nolix.system.element.multistateelement.NonCascadingProperty;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.systemapi.guiapi.textformatapi.Font;
 import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
-import ch.nolix.systemapi.guiapi.widgetguiapi.IWidgetLook;
+import ch.nolix.systemapi.guiapi.widgetguiapi.IWidgetStyle;
 
 //class
-public abstract class WidgetLook<WL extends WidgetLook<WL>>
+public abstract class WidgetStyle<WL extends WidgetStyle<WL>>
 extends MultiStateElement<WL, ControlState>
-implements IWidgetLook<WL> {
+implements IWidgetStyle<WL> {
 	
 	//constant
 	public static final double DEFAULT_OPACITY = 1.0;
@@ -100,14 +100,14 @@ implements IWidgetLook<WL> {
 	);
 	
 	//constructor
-	protected WidgetLook() {
+	protected WidgetStyle() {
 		super(ControlState.BASE);
 	}
 	
 	//method
 	@Override
 	@SuppressWarnings("unchecked")
-	public final <WL2 extends IWidgetLook<WL2>> void addChild(final WL2 widgetLook) {
+	public final <WL2 extends IWidgetStyle<WL2>> void addChild(final WL2 widgetLook) {
 		internalAddChild((WL)widgetLook);
 	}
 	

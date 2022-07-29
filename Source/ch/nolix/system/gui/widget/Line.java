@@ -20,7 +20,7 @@ import ch.nolix.systemapi.guiapi.widgetguiapi.IWidget;
  * @date 2016-01-01
  * @param <L> is the type of a line.
  */
-public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
+public abstract class Line<L extends Line<L>> extends Widget<L, LineStyle> {
 	
 	//min length to thickness ratio
 	public static final int MIN_LENGTH_TO_THICKNESS_RATIO = 4;
@@ -129,8 +129,8 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final LineLook createLook() {
-		return new LineLook();
+	protected final LineStyle createLook() {
+		return new LineStyle();
 	}
 	
 	//method
@@ -249,11 +249,11 @@ public abstract class Line<L extends Line<L>> extends Widget<L, LineLook> {
 	/**
 	 * Paints this line using the given widget structure and graphics.
 	 * 
-	 * @param lineLook
+	 * @param lineStyle
 	 * @param painter
 	 */
 	@Override
-	protected final void paint(final IPainter painter, final LineLook lineLook) {
+	protected final void paint(final IPainter painter, final LineStyle lineStyle) {
 		painter.setColor(getColor());
 		painter.paintFilledRectangle(
 			getWidth(),

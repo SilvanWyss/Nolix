@@ -20,7 +20,7 @@ import ch.nolix.systemapi.guiapi.widgetguiapi.IWidget;
  * @author Silvan Wyss
  * @date 2016-01-01
  */
-public final class SingleContainer extends ContainerWidget<SingleContainer, SingleContainerLook> {
+public final class SingleContainer extends ContainerWidget<SingleContainer, SingleContainerStyle> {
 	
 	//constant
 	private static final String WIDGET_HEADER = "Widget";
@@ -102,8 +102,8 @@ public final class SingleContainer extends ContainerWidget<SingleContainer, Sing
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected SingleContainerLook createLook() {
-		return new SingleContainerLook();
+	protected SingleContainerStyle createLook() {
+		return new SingleContainerStyle();
 	}
 	
 	//method
@@ -295,7 +295,7 @@ public final class SingleContainer extends ContainerWidget<SingleContainer, Sing
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void paintContentArea(final IPainter painter, final SingleContainerLook singleContainerLook) {
+	protected void paintContentArea(final IPainter painter, final SingleContainerStyle singleContainerStyle) {
 		//Does nothing.
 	}
 	

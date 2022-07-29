@@ -26,7 +26,7 @@ import ch.nolix.systemapi.guiapi.widgetguiapi.IWidget;
  * @author Silvan Wyss
  * @date 2016-01-01
  */
-public final class Area extends Widget<Area, AreaLook> {
+public final class Area extends Widget<Area, AreaStyle> {
 	
 	//constants
 	public static final int DEFAULT_WIDTH = 500;
@@ -177,8 +177,8 @@ public final class Area extends Widget<Area, AreaLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected AreaLook createLook() {
-		return new AreaLook();
+	protected AreaStyle createLook() {
+		return new AreaStyle();
 	}
 	
 	//method
@@ -348,7 +348,7 @@ public final class Area extends Widget<Area, AreaLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void paint(final IPainter painter, final AreaLook areaLook) {
+	protected void paint(final IPainter painter, final AreaStyle areaStyle) {
 		
 		//Handles the case that the current Area has a background color.
 		if (hasBackgroundColor()) {

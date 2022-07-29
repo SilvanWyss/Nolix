@@ -13,7 +13,7 @@ import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
 import ch.nolix.systemapi.guiapi.widgetguiapi.IWidget;
 
 //class
-public final class FloatContainer extends ContainerWidget<FloatContainer, FloatContainerLook> {
+public final class FloatContainer extends ContainerWidget<FloatContainer, FloatContainerStyle> {
 	
 	//constant
 	private static final String CHILD_HEADER = PascalCaseCatalogue.CHILD;
@@ -80,8 +80,8 @@ public final class FloatContainer extends ContainerWidget<FloatContainer, FloatC
 	
 	//method
 	@Override
-	protected FloatContainerLook createLook() {
-		return new FloatContainerLook();
+	protected FloatContainerStyle createLook() {
+		return new FloatContainerStyle();
 	}
 	
 	//method
@@ -199,7 +199,7 @@ public final class FloatContainer extends ContainerWidget<FloatContainer, FloatC
 	
 	//method
 	@Override
-	protected void paintContentArea(final IPainter painter, final FloatContainerLook floatContainerLook) {
+	protected void paintContentArea(final IPainter painter, final FloatContainerStyle floatContainerStyle) {
 		//Does nothing.
 	}
 	
@@ -208,7 +208,7 @@ public final class FloatContainer extends ContainerWidget<FloatContainer, FloatC
 	protected void recalculateBorderWidget() {
 		
 		final var contentAreaWidth = getTargetWidth();
-		final var widgetMargin = getRefLook().getElementMargin();
+		final var widgetMargin = getRefStyle().getElementMargin();
 		
 		var y = 0;
 		var x = 0;

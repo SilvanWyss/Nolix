@@ -46,9 +46,9 @@ import ch.nolix.systemapi.guiapi.widgetguiapi.IWidgetGUI;
  * @author Silvan Wyss
  * @date 2016-01-01
  * @param <W> is the type of a {@link Widget}.
- * @param <WL> is the type of the {@link WidgetLook} of a {@link Widget}.
+ * @param <WL> is the type of the {@link WidgetStyle} of a {@link Widget}.
  */
-public abstract class Widget<W extends Widget<W, WL>, WL extends WidgetLook<WL>>
+public abstract class Widget<W extends Widget<W, WL>, WL extends WidgetStyle<WL>>
 extends StylableElement<W>
 implements IWidget<W, WL> {
 	
@@ -64,7 +64,7 @@ implements IWidget<W, WL> {
 	private static final String HOVERED_HEADER = "Hovered";
 	
 	//static attribute
-	private static final WidgetLookStateCalculator widgetLookStateCalculator = new WidgetLookStateCalculator();
+	private static final WidgetStyleStateCalculator widgetStyleStateCalculator = new WidgetStyleStateCalculator();
 	
 	//attribute	
 	private CursorIcon customCursorIcon = DEFAULT_CURSOR_ICON;
@@ -155,7 +155,7 @@ implements IWidget<W, WL> {
 	private int cursorYPosition;
 	
 	//attribute
-	private final ExtensionElement<WL> look = new ExtensionElement<>(createLook());
+	private final ExtensionElement<WL> style = new ExtensionElement<>(createLook());
 	
 	//optional attribute
 	private WidgetParent parent;
@@ -405,8 +405,8 @@ implements IWidget<W, WL> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final WL getRefLook() {
-		return look.getExtensionElement();
+	public final WL getRefStyle() {
+		return style.getExtensionElement();
 	}
 	
 	//method
@@ -900,7 +900,7 @@ implements IWidget<W, WL> {
 	 */
 	public W onLook(final IElementTaker<WL> lookMutator) {
 		
-		lookMutator.run(getRefLook());
+		lookMutator.run(getRefStyle());
 		
 		return asConcrete();
 	}
@@ -1029,7 +1029,7 @@ implements IWidget<W, WL> {
 	final void resetStyle() {
 		
 		setCustomCursorIcon(DEFAULT_CURSOR_ICON);
-		getRefLook().reset();
+		getRefStyle().reset();
 		
 		resetWidgetConfiguration();
 	}
@@ -1467,7 +1467,7 @@ implements IWidget<W, WL> {
 	
 	//method declaration
 	/**
-	 * @return a new {@link WidgetLook} for the current {@link Widget}.
+	 * @return a new {@link WidgetStyle} for the current {@link Widget}.
 	 */
 	protected abstract WL createLook();
 	
@@ -1750,10 +1750,10 @@ implements IWidget<W, WL> {
 	
 	//method
 	/**
-	 * @return the newly calculated {@link ControlState} of the {@link WidgetLook} of the current {@link Widget}.
+	 * @return the newly calculated {@link ControlState} of the {@link WidgetStyle} of the current {@link Widget}.
 	 */
 	private ControlState calculateLookState() {
-		return widgetLookStateCalculator.calculateLookStateFor(this);
+		return widgetStyleStateCalculator.calculateLookStateFor(this);
 	}
 	
 	//method
@@ -1970,7 +1970,7 @@ implements IWidget<W, WL> {
 	 */
 	private void paintRecursivelyUsingPositionedPainterWhenNotDisabled(final IPainter painter) {
 		
-		final var lLook = getRefLook();
+		final var lLook = getRefStyle();
 		
 		painter.setOpacity(lLook.getOpacity());
 		
@@ -2043,15 +2043,15 @@ implements IWidget<W, WL> {
 		this.parent = parent;
 		
 		if (parent.isWidget()) {
-			parent.getRefWidget().getRefLook().addChild(getRefLook());
+			parent.getRefWidget().getRefStyle().addChild(getRefStyle());
 		}
 	}
 	
 	//method
 	/**
-	 * Updates the {@link ControlState} of the {@link WidgetLook} of the current {@link Widget}.
+	 * Updates the {@link ControlState} of the {@link WidgetStyle} of the current {@link Widget}.
 	 */
 	private void updateLookState() {
-		getRefLook().setState(calculateLookState());
+		getRefStyle().setState(calculateLookState());
 	}
 }

@@ -16,7 +16,7 @@ public final class AligningContainerTutorial {
 		
 		final var label = new Label().setText("X");
 		
-		label.getRefLook().setTextSizeForState(ControlState.BASE, 100);
+		label.getRefStyle().setTextSizeForState(ControlState.BASE, 100);
 		
 		new Frame()
 		.setTitle("AligningContainer tutorial")
@@ -28,9 +28,9 @@ public final class AligningContainerTutorial {
 				.setText("Make smaller")
 				.setLeftMouseButtonPressAction(
 					() ->
-					label.getRefLook().setTextSizeForState(
+					label.getRefStyle().setTextSizeForState(
 						ControlState.BASE,
-						GlobalCalculator.getMax(20, label.getRefLook().getTextSize() - 20)
+						GlobalCalculator.getMax(20, label.getRefStyle().getTextSize() - 20)
 					)
 				)
 			)
@@ -39,9 +39,9 @@ public final class AligningContainerTutorial {
 				.setText("Make bigger")
 				.setLeftMouseButtonPressAction(
 					() ->
-					label.getRefLook().setTextSizeForState(
+					label.getRefStyle().setTextSizeForState(
 						ControlState.BASE,
-						GlobalCalculator.getMin(200, label.getRefLook().getTextSize() + 20)
+						GlobalCalculator.getMin(200, label.getRefStyle().getTextSize() + 20)
 					)
 				)
 			)

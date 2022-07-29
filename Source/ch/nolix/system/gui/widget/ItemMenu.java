@@ -20,7 +20,7 @@ import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
 import ch.nolix.systemapi.guiapi.widgetguiapi.IWidget;
 
 //class
-public abstract class ItemMenu<IM extends ItemMenu<IM>> extends BorderWidget<IM, ItemMenuLook> implements Clearable {
+public abstract class ItemMenu<IM extends ItemMenu<IM>> extends BorderWidget<IM, ItemMenuStyle> implements Clearable {
 	
 	//constants
 	private static final String ITEM_HEADER = PascalCaseCatalogue.ITEM;
@@ -37,11 +37,11 @@ public abstract class ItemMenu<IM extends ItemMenu<IM>> extends BorderWidget<IM,
 	);
 	
 	//attribute
-	private final SubElement<LabelLook> itemLook = new SubElement<>(ITEM_LOOK_HEADER, new LabelLook());
+	private final SubElement<LabelStyle> itemLook = new SubElement<>(ITEM_LOOK_HEADER, new LabelStyle());
 	
 	//attribute
-	private final SubElement<LabelLook> selectedItemLook =
-	new SubElement<>(SELECTED_ITEM_LOOK_HEADER, new LabelLook());
+	private final SubElement<LabelStyle> selectedItemLook =
+	new SubElement<>(SELECTED_ITEM_LOOK_HEADER, new LabelStyle());
 	
 	//optional attribute
 	private IElementTaker<ItemMenuItem> selectAction;
@@ -157,7 +157,7 @@ public abstract class ItemMenu<IM extends ItemMenu<IM>> extends BorderWidget<IM,
 	}
 	
 	//method
-	public final LabelLook getRefItemLook() {
+	public final LabelStyle getRefItemLook() {
 		return itemLook.getSubElement();
 	}
 	
@@ -172,7 +172,7 @@ public abstract class ItemMenu<IM extends ItemMenu<IM>> extends BorderWidget<IM,
 	}
 	
 	//method
-	public final LabelLook getRefSelectedItemLook() {
+	public final LabelStyle getRefSelectedItemLook() {
 		return selectedItemLook.getSubElement();
 	}
 	
@@ -204,7 +204,7 @@ public abstract class ItemMenu<IM extends ItemMenu<IM>> extends BorderWidget<IM,
 	}
 	
 	//method
-	public final IM onItemLook(final IElementTaker<LabelLook> itemLookMutator) {
+	public final IM onItemLook(final IElementTaker<LabelStyle> itemLookMutator) {
 		
 		itemLookMutator.run(getRefItemLook());
 		
@@ -212,7 +212,7 @@ public abstract class ItemMenu<IM extends ItemMenu<IM>> extends BorderWidget<IM,
 	}
 	
 	//method
-	public final IM onSelectedItemLook(final IElementTaker<LabelLook> selectedItemLookMutator) {
+	public final IM onSelectedItemLook(final IElementTaker<LabelStyle> selectedItemLookMutator) {
 		
 		selectedItemLookMutator.run(getRefSelectedItemLook());
 		
@@ -291,8 +291,8 @@ public abstract class ItemMenu<IM extends ItemMenu<IM>> extends BorderWidget<IM,
 	
 	//method
 	@Override
-	protected final ItemMenuLook createLook() {
-		return new ItemMenuLook();
+	protected final ItemMenuStyle createLook() {
+		return new ItemMenuStyle();
 	}
 	
 	//method

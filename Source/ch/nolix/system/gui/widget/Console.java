@@ -28,7 +28,7 @@ import ch.nolix.systemapi.guiapi.widgetguiapi.IWidget;
  * @author Silvan Wyss
  * @date 2017-03-06
  */
-public final class Console extends BorderWidget<Console, ConsoleLook> implements Clearable {
+public final class Console extends BorderWidget<Console, ConsoleStyle> implements Clearable {
 	
 	//constant
 	public static final Color DEFAULT_BACKGROUND_COLOR = Color.LIGHT_GREY;
@@ -86,7 +86,7 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 		setProposalWidth(500);
 		setProposalHeight(200);
 		
-		getRefLook()
+		getRefStyle()
 		.setBackgroundColorForState(ControlState.BASE, Color.WHITE_SMOKE)
 		.setPaddingForState(ControlState.BASE, 10);
 		
@@ -496,8 +496,8 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected ConsoleLook createLook() {
-		return new ConsoleLook();
+	protected ConsoleStyle createLook() {
+		return new ConsoleStyle();
 	}
 	
 	//method
@@ -525,7 +525,7 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	@Override
 	protected int getNaturalContentAreaHeight() {
 		
-		final var look = getRefLook();
+		final var look = getRefStyle();
 		
 		var contentAreaHeight =
 		getLines().getElementCount() * look.getTextSize();
@@ -719,9 +719,9 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void paintContentArea(final IPainter painter, final ConsoleLook consoleLook) {
+	protected void paintContentArea(final IPainter painter, final ConsoleStyle consoleStyle) {
 		
-		final var textSize = consoleLook.getTextSize();
+		final var textSize = consoleStyle.getTextSize();
 		final var font = getFont();
 		
 		//Iterates the lines of the current Console.
@@ -738,7 +738,7 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 			//Paints the text cursor of the current Console.
 			final var textCursorXPosition =
 			font.getSwingTextWidth(LINE_PREFIX + getEditLineBeforeTextCursor()) - 1;
-			painter.setColor(consoleLook.getTextColor());
+			painter.setColor(consoleStyle.getTextColor());
 			painter.paintFilledRectangle(
 				textCursorXPosition,
 				0,
@@ -764,7 +764,7 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	@Override
 	protected void resetBorderWidgetConfiguration() {
 		setCustomCursorIcon(CursorIcon.EDIT);
-		getRefLook().setFontForState(ControlState.BASE, Font.LUCIDA_CONSOLE);
+		getRefStyle().setFontForState(ControlState.BASE, Font.LUCIDA_CONSOLE);
 	}
 	
 	//method
@@ -779,7 +779,7 @@ public final class Console extends BorderWidget<Console, ConsoleLook> implements
 	//method
 	private TextFormat getFont() {
 		
-		final var look = getRefLook();
+		final var look = getRefStyle();
 		
 		return
 		new TextFormat(

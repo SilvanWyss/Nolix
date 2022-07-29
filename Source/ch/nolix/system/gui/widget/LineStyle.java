@@ -2,4 +2,4 @@
 package ch.nolix.system.gui.widget;
 
 //class
-public final class AreaLook extends WidgetLook<AreaLook> {}
+public final class LineStyle extends WidgetStyle<LineStyle> {}

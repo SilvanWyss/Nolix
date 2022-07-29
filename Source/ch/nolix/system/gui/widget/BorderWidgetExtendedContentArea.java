@@ -16,9 +16,9 @@ import ch.nolix.systemapi.guiapi.painterapi.IPainter;
  * @author Silvan Wyss
  * @date 2020-12-19
  * @param <BWL> is the type
- * of the {@link BorderWidgetLook} of the {@link BorderWidget} of a {@link BorderWidgetExtendedContentArea}.
+ * of the {@link BorderWidgetStyle} of the {@link BorderWidget} of a {@link BorderWidgetExtendedContentArea}.
  */
-public final class BorderWidgetExtendedContentArea<BWL extends BorderWidgetLook<BWL>> implements Rectangular {
+public final class BorderWidgetExtendedContentArea<BWL extends BorderWidgetStyle<BWL>> implements Rectangular {
 	
 	//attribute
 	/**
@@ -65,7 +65,7 @@ public final class BorderWidgetExtendedContentArea<BWL extends BorderWidgetLook<
 	@Override
 	public int getHeight() {
 		
-		final var look = parentBorderWidget.getRefLook();
+		final var look = parentBorderWidget.getRefStyle();
 		
 		return
 		parentBorderWidget.getContentArea().getHeight()
@@ -79,7 +79,7 @@ public final class BorderWidgetExtendedContentArea<BWL extends BorderWidgetLook<
 	 */
 	public int getNaturalHeight() {
 		
-		final var look = parentBorderWidget.getRefLook();
+		final var look = parentBorderWidget.getRefStyle();
 		
 		return
 		parentBorderWidget.getContentArea().getNaturalHeight()
@@ -93,7 +93,7 @@ public final class BorderWidgetExtendedContentArea<BWL extends BorderWidgetLook<
 	 */
 	public int getNaturalWidth() {
 		
-		final var look = parentBorderWidget.getRefLook();
+		final var look = parentBorderWidget.getRefStyle();
 		
 		return
 		parentBorderWidget.getContentArea().getNaturalWidth()
@@ -128,7 +128,7 @@ public final class BorderWidgetExtendedContentArea<BWL extends BorderWidgetLook<
 	@Override
 	public int getWidth() {
 		
-		final var look = parentBorderWidget.getRefLook();
+		final var look = parentBorderWidget.getRefStyle();
 		
 		return
 		parentBorderWidget.getContentArea().getWidth()

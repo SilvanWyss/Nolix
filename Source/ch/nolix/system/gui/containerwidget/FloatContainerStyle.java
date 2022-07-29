@@ -5,11 +5,11 @@ package ch.nolix.system.gui.containerwidget;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.element.multistateelement.NonCascadingProperty;
-import ch.nolix.system.gui.widget.BorderWidgetLook;
+import ch.nolix.system.gui.widget.BorderWidgetStyle;
 import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 
 //class
-public final class FloatContainerLook extends BorderWidgetLook<FloatContainerLook> {
+public final class FloatContainerStyle extends BorderWidgetStyle<FloatContainerStyle> {
 	
 	//constant
 	public static final int DEFAULT_ELEMENT_MARGIN = 0;
@@ -39,7 +39,7 @@ public final class FloatContainerLook extends BorderWidgetLook<FloatContainerLoo
 	}
 	
 	//method
-	public FloatContainerLook setElementMarginForState(final ControlState state, final int elementMargin) {
+	public FloatContainerStyle setElementMarginForState(final ControlState state, final int elementMargin) {
 		
 		this.elementMargin.setValueForState(state, elementMargin);
 		

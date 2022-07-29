@@ -14,7 +14,7 @@ import ch.nolix.system.element.mutableelement.MultiValue;
 import ch.nolix.system.element.mutableelement.SubElement;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.widget.Label;
-import ch.nolix.system.gui.widget.LabelLook;
+import ch.nolix.system.gui.widget.LabelStyle;
 import ch.nolix.system.gui.widget.Widget;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
@@ -27,7 +27,7 @@ import ch.nolix.systemapi.guiapi.widgetguiapi.IWidget;
  * @author Silvan Wyss
  * @date 2016-05-01
  */
-public final class TabContainer extends ContainerWidget<TabContainer, TabContainerLook> {
+public final class TabContainer extends ContainerWidget<TabContainer, TabContainerStyle> {
 	
 	//constants
 	private static final String MENU_ITEM_LOOK_HEADER = "MenuItemLook";
@@ -36,7 +36,7 @@ public final class TabContainer extends ContainerWidget<TabContainer, TabContain
 	//attributes
 	private final VerticalStack mainVerticalStack = new VerticalStack();
 	private final HorizontalStack menu = new HorizontalStack();
-	private final SubElement<LabelLook> menuItemLook = new SubElement<>(MENU_ITEM_LOOK_HEADER, new LabelLook());
+	private final SubElement<LabelStyle> menuItemLook = new SubElement<>(MENU_ITEM_LOOK_HEADER, new LabelStyle());
 	private final SingleContainer currentTabContainer = new SingleContainer();
 	
 	//attribute
@@ -158,7 +158,7 @@ public final class TabContainer extends ContainerWidget<TabContainer, TabContain
 	/**
 	 * @return the  look of the menu items of the current {@link TabContainer}.
 	 */
-	public LabelLook getRefMenuItemLook() {
+	public LabelStyle getRefMenuItemLook() {
 		return menuItemLook.getSubElement();
 	}
 	
@@ -208,7 +208,7 @@ public final class TabContainer extends ContainerWidget<TabContainer, TabContain
 	 * @param lookMutator
 	 * @return the current {@link TabContainer}.
 	 */
-	public TabContainer onMenuItemLook(final IElementTaker<LabelLook> lookMutator) {
+	public TabContainer onMenuItemLook(final IElementTaker<LabelStyle> lookMutator) {
 		
 		lookMutator.run(getRefMenuItemLook());
 		
@@ -255,8 +255,8 @@ public final class TabContainer extends ContainerWidget<TabContainer, TabContain
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected TabContainerLook createLook() {
-		return new TabContainerLook();
+	protected TabContainerStyle createLook() {
+		return new TabContainerStyle();
 	}
 	
 	//method
@@ -456,7 +456,7 @@ public final class TabContainer extends ContainerWidget<TabContainer, TabContain
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void paintContentArea(final IPainter painter, final TabContainerLook tabContainerLook) {
+	protected void paintContentArea(final IPainter painter, final TabContainerStyle tabContainerStyle) {
 		//Does nothing.
 	}
 	
@@ -468,7 +468,7 @@ public final class TabContainer extends ContainerWidget<TabContainer, TabContain
 	protected void recalculateBorderWidget() {
 		for (final var t : getRefTabs()) {
 			
-			t.getRefMenuItem().getRefLook().setFrom(getRefMenuItemLook());
+			t.getRefMenuItem().getRefStyle().setFrom(getRefMenuItemLook());
 			
 			if (t.isSelected() && t.containsAny()) {
 				currentTabContainer.setWidget(t.getRefWidget());
@@ -501,7 +501,7 @@ public final class TabContainer extends ContainerWidget<TabContainer, TabContain
 		currentTabContainer.reset();
 		
 		mainVerticalStack.addWidget(menu, currentTabContainer);
-		getRefLook().addChild(getRefMenuItemLook());
+		getRefStyle().addChild(getRefMenuItemLook());
 	}
 	
 	//method

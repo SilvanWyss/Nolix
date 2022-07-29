@@ -15,10 +15,10 @@ import ch.nolix.systemapi.guiapi.painterapi.IPainter;
  * 
  * @author Silvan Wyss
  * @date 2020-02-03
- * @param <BWL> is the type of the {@link BorderWidgetLook}
+ * @param <BWL> is the type of the {@link BorderWidgetStyle}
  * of the {@link BorderWidget} a {@link BorderWidgetHorizontalScrollBar} belongs to.
  */
-public class BorderWidgetHorizontalScrollBar<BWL extends BorderWidgetLook<BWL>>
+public class BorderWidgetHorizontalScrollBar<BWL extends BorderWidgetStyle<BWL>>
 implements HoverableTopLeftPositionedRectangular {
 	
 	//constant
@@ -186,13 +186,13 @@ implements HoverableTopLeftPositionedRectangular {
 	
 	//method
 	private SingleContainer<Color> getOptionalColorWhenHorizontalScrollBarCursorIsMoved() {
-		return parentBorderWidget.getRefLook().getOptionalScrollBarMoveColor();
+		return parentBorderWidget.getRefStyle().getOptionalScrollBarMoveColor();
 	}
 	
 	//method
 	private SingleContainer<Color> getOptionalColorWhenHorizontalScrollBarCursorIsNotMoved() {
 		
-		final var look = parentBorderWidget.getRefLook();
+		final var look = parentBorderWidget.getRefStyle();
 		
 		if (!parentBorderWidget.getHorizontalScrollBarCursor().isUnderCursor()) {
 			return look.getOptionalScrollBarColor();

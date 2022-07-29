@@ -9,7 +9,7 @@ import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.functionapi.mutationuniversalapi.Clearable;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 import ch.nolix.system.gui.widget.BorderWidget;
-import ch.nolix.system.gui.widget.BorderWidgetLook;
+import ch.nolix.system.gui.widget.BorderWidgetStyle;
 import ch.nolix.system.gui.widget.Widget;
 import ch.nolix.systemapi.guiapi.containercontrolproperty.ContainerRole;
 
@@ -20,9 +20,9 @@ import ch.nolix.systemapi.guiapi.containercontrolproperty.ContainerRole;
  * @author Silvan Wyss
  * @date 2016-01-01
  * @param <CW> is the type of a {@link ContainerWidget}.
- * @param <BWS> is the type of the {@link BorderWidgetLook} of a {@link ContainerWidget}.
+ * @param <BWS> is the type of the {@link BorderWidgetStyle} of a {@link ContainerWidget}.
  */
-public abstract class ContainerWidget<CW extends ContainerWidget<CW, BWS>, BWS extends BorderWidgetLook<BWS>>
+public abstract class ContainerWidget<CW extends ContainerWidget<CW, BWS>, BWS extends BorderWidgetStyle<BWS>>
 extends BorderWidget<CW, BWS> implements Clearable {
 	
 	//constant

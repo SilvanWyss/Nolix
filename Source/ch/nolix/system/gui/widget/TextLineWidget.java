@@ -23,9 +23,9 @@ import ch.nolix.systemapi.guiapi.widgetguiapi.IWidget;
  * @author Silvan Wyss
  * @date 2016-01-01
  * @param <TLW> is the type of a {@link TextLineWidget}.
- * @param <TLWL> is the type of the {@link BorderWidgetLook} of a {@link TextLineWidget}.
+ * @param <TLWL> is the type of the {@link BorderWidgetStyle} of a {@link TextLineWidget}.
  */
-public abstract class TextLineWidget<TLW extends TextLineWidget<TLW, TLWL>, TLWL extends BorderWidgetLook<TLWL>>
+public abstract class TextLineWidget<TLW extends TextLineWidget<TLW, TLWL>, TLWL extends BorderWidgetStyle<TLWL>>
 extends BorderWidget<TLW, TLWL> {
 	
 	//constant
@@ -165,7 +165,7 @@ extends BorderWidget<TLW, TLWL> {
 	 */
 	@Override
 	protected final int getNaturalContentAreaHeight() {
-		return new TextFormat(getRefLook().getTextSize()).getTextHeight();
+		return new TextFormat(getRefStyle().getTextSize()).getTextHeight();
 	}
 	
 	//method
@@ -184,7 +184,7 @@ extends BorderWidget<TLW, TLWL> {
 	protected final TextFormat getTextFormat() {
 		
 		//Extracts the of the current TextLineWidget.
-		final var look = getRefLook();
+		final var look = getRefStyle();
 		
 		return
 		new TextFormat(

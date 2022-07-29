@@ -44,7 +44,7 @@ public final class OpenNewTabTutorial {
 			.setLeftMouseButtonPressAction(this::openWebsite);
 			
 			//Configures the look of the Button.
-			button.getRefLook().setTextColorForState(ControlState.BASE, Color.BLUE);
+			button.getRefStyle().setTextColorForState(ControlState.BASE, Color.BLUE);
 			
 			//Adds the Button to the GUI of the current MainSession.
 			getRefGUI().pushLayerWithRootWidget(button);

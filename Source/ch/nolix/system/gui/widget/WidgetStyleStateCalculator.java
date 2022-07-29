@@ -4,7 +4,7 @@ package ch.nolix.system.gui.widget;
 import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 
 //class
-final class WidgetLookStateCalculator {
+final class WidgetStyleStateCalculator {
 	
 	//method
 	public ControlState calculateLookStateFor(final Widget<?, ?> widget) {

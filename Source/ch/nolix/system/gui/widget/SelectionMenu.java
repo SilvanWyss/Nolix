@@ -20,7 +20,7 @@ public final class SelectionMenu extends ItemMenu<SelectionMenu> {
 		
 		reset();
 		
-		getRefLook().setBorderThicknessForState(ControlState.BASE, 1);
+		getRefStyle().setBorderThicknessForState(ControlState.BASE, 1);
 		getRefItemLook().setBackgroundColorForState(ControlState.HOVER, Color.LIGHT_GREY);
 		getRefSelectedItemLook().setBackgroundColorForState(ControlState.BASE, Color.GREY);
 	}
@@ -77,7 +77,7 @@ public final class SelectionMenu extends ItemMenu<SelectionMenu> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void paintContentArea(final IPainter painter, final ItemMenuLook itemMenuLook) {
+	protected void paintContentArea(final IPainter painter, final ItemMenuStyle itemMenuStyle) {
 		//Does nothing.
 	}
 	

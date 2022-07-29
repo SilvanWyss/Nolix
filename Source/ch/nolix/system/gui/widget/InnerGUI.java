@@ -26,7 +26,7 @@ import ch.nolix.systemapi.guiapi.widgetguiapi.IWidget;
 import ch.nolix.systemapi.guiapi.widgetguiapi.IWidgetGUI;
 
 //class
-public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> implements IWidgetGUI<InnerGUI> {
+public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUIStyle> implements IWidgetGUI<InnerGUI> {
 	
 	//constant
 	private static final String GUI_HEADER = PascalCaseCatalogue.GUI;
@@ -264,8 +264,8 @@ public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> impleme
 	
 	//method
 	@Override
-	protected InnerGUILook createLook() {
-		return new InnerGUILook();
+	protected InnerGUIStyle createLook() {
+		return new InnerGUIStyle();
 	}
 	
 	//method
@@ -378,7 +378,7 @@ public final class InnerGUI extends BorderWidget<InnerGUI, InnerGUILook> impleme
 	
 	//method
 	@Override
-	protected void paintContentArea(final IPainter painter, final InnerGUILook innerGUILook) {
+	protected void paintContentArea(final IPainter painter, final InnerGUIStyle innerGUIStyle) {
 		painter.translateVertically(titleLabel.getHeight());		
 		internalGUI.paint(painter);
 	}

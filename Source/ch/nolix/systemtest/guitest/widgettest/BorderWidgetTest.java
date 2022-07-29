@@ -81,8 +81,8 @@ public abstract class BorderWidgetTest<BW extends BorderWidget<BW, ?>> extends W
 		
 		//setup
 		final var testUnit = createTestUnit();
-		testUnit.getRefLook().setTopBorderThicknessForState(ControlState.BASE, topBorderThickness);
-		testUnit.getRefLook().removeBottomBorderThicknesses();
+		testUnit.getRefStyle().setTopBorderThicknessForState(ControlState.BASE, topBorderThickness);
+		testUnit.getRefStyle().removeBottomBorderThicknesses();
 		testUnit.recalculate();
 		
 		//execution
@@ -273,8 +273,8 @@ public abstract class BorderWidgetTest<BW extends BorderWidget<BW, ?>> extends W
 		
 		//setup
 		final var testUnit = createTestUnit();
-		testUnit.getRefLook().setLeftBorderThicknessForState(ControlState.BASE, leftBorderThickenss);
-		testUnit.getRefLook().removeRightBorderThicknesses();
+		testUnit.getRefStyle().setLeftBorderThicknessForState(ControlState.BASE, leftBorderThickenss);
+		testUnit.getRefStyle().removeRightBorderThicknesses();
 		testUnit.recalculate();
 		
 		//execution

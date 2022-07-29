@@ -14,7 +14,7 @@ import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.containerwidget.HorizontalStack;
 import ch.nolix.system.gui.widget.BorderWidget;
 import ch.nolix.system.gui.widget.Button;
-import ch.nolix.system.gui.widget.TextBoxLook;
+import ch.nolix.system.gui.widget.TextBoxStyle;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.mainapi.CursorIcon;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
@@ -24,7 +24,7 @@ import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 import ch.nolix.systemapi.guiapi.widgetguiapi.IWidget;
 
 //class
-public final class TextBox extends BorderWidget<TextBox, TextBoxLook> implements IMutableTextHolder<TextBox> {
+public final class TextBox extends BorderWidget<TextBox, TextBoxStyle> implements IMutableTextHolder<TextBox> {
 	
 	//constants
 	public static final String DEFAULT_TEXT = ch.nolix.system.gui.textbox.TextBoxInputField.DEFAULT_TEXT;
@@ -209,8 +209,8 @@ public final class TextBox extends BorderWidget<TextBox, TextBoxLook> implements
 	
 	//method
 	@Override
-	protected TextBoxLook createLook() {
-		return new TextBoxLook();
+	protected TextBoxStyle createLook() {
+		return new TextBoxStyle();
 	}
 	
 	//method
@@ -322,7 +322,7 @@ public final class TextBox extends BorderWidget<TextBox, TextBoxLook> implements
 	
 	//method
 	@Override
-	protected void paintContentArea(final IPainter painter, final TextBoxLook textBoxLook) {
+	protected void paintContentArea(final IPainter painter, final TextBoxStyle textBoxStyle) {
 		//Does nothing.
 	}
 	

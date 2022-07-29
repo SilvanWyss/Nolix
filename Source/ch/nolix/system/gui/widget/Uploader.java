@@ -13,7 +13,7 @@ import ch.nolix.systemapi.guiapi.structureproperty.ContentPosition;
 import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 
 //class
-public final class Uploader extends TextLineWidget<Uploader, UploaderLook> {
+public final class Uploader extends TextLineWidget<Uploader, UploaderStyle> {
 	
 	//constant
 	public static final Color DEFAULT_BACKGROUND_COLOR = Color.GAINSBORO;
@@ -34,7 +34,7 @@ public final class Uploader extends TextLineWidget<Uploader, UploaderLook> {
 		
 		setContentPosition(ContentPosition.CENTER);
 				
-		getRefLook()
+		getRefStyle()
 		.setBackgroundColorForState(ControlState.BASE, DEFAULT_BACKGROUND_COLOR)
 		.setPaddingForState(ControlState.BASE, DEFAULT_PADDING);
 	}
@@ -68,8 +68,8 @@ public final class Uploader extends TextLineWidget<Uploader, UploaderLook> {
 	
 	//method
 	@Override
-	protected UploaderLook createLook() {
-		return new UploaderLook();
+	protected UploaderStyle createLook() {
+		return new UploaderStyle();
 	}
 	
 	//method
@@ -107,7 +107,7 @@ public final class Uploader extends TextLineWidget<Uploader, UploaderLook> {
 	
 	//method
 	@Override
-	protected void paintTextLineWidgetContentArea(final IPainter painter, final UploaderLook uploaderLook) {
+	protected void paintTextLineWidgetContentArea(final IPainter painter, final UploaderStyle uploaderStyle) {
 		//Does nothing.
 	}
 	

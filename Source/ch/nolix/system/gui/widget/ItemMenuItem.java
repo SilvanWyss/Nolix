@@ -241,7 +241,7 @@ public final class ItemMenuItem extends MutableElement<ItemMenuItem> implements 
 		
 	//method
 	void recalculate() {
-		label.getRefLook().setFrom(getRefItemLook());
+		label.getRefStyle().setFrom(getRefItemLook());
 		label.recalculate();
 	}
 
@@ -278,7 +278,7 @@ public final class ItemMenuItem extends MutableElement<ItemMenuItem> implements 
 	}
 	
 	//method
-	private LabelLook getRefItemLook() {
+	private LabelStyle getRefItemLook() {
 		
 		if (!isSelected()) {
 			return getParentMenu().getRefItemLook();

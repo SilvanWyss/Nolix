@@ -3,15 +3,15 @@ package ch.nolix.system.gui.containerwidget;
 
 //own imports
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.system.gui.widget.BorderWidgetLook;
+import ch.nolix.system.gui.widget.BorderWidgetStyle;
 
 //class
-public final class StackLook extends BorderWidgetLook<StackLook> {
+public final class StackStyle extends BorderWidgetStyle<StackStyle> {
 	
 	//static method
-	public static StackLook fromSpecification(final INode<?> specification) {
+	public static StackStyle fromSpecification(final INode<?> specification) {
 		
-		final var stackLook = new StackLook();
+		final var stackLook = new StackStyle();
 		stackLook.resetFromSpecification(specification);
 		
 		return stackLook;

@@ -37,7 +37,7 @@ public final class AccordionTutorial {
 		
 		//Configures the look of the Accordion.
 		accordion
-		.getRefLook()
+		.getRefStyle()
 		.setBorderThicknessForState(ControlState.BASE, 5)
 		.setBackgroundColorForState(ControlState.BASE, Color.LAVENDER);
 		

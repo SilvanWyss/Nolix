@@ -30,7 +30,7 @@ import ch.nolix.systemapi.guiapi.widgetguiapi.IWidget;
  * @author Silvan Wyss
  * @date 2018-08-13
  */
-public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
+public final class Accordion extends ContainerWidget<Accordion, AccordionStyle> {
 	
 	//constant
 	public static final TabExpansionBehavior DEFAULT_EXPANSION_BEHAVIOR = TabExpansionBehavior.OPEN_ONE_TAB;
@@ -63,7 +63,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	);
 	
 	//attribute
-	private final SubElement<StackLook> tabHeaderLook = new SubElement<>(TAB_HEADER_LOOK_HEADER, new StackLook());
+	private final SubElement<StackStyle> tabHeaderLook = new SubElement<>(TAB_HEADER_LOOK_HEADER, new StackStyle());
 	
 	//constructor
 	/**
@@ -219,7 +219,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	/**
 	 * @return the look of the headers of the tabs of the current {@link Accordion}.
 	 */
-	public StackLook getRefTabHeaderLook() {
+	public StackStyle getRefTabHeaderLook() {
 		return tabHeaderLook.getSubElement();
 	}
 	
@@ -282,7 +282,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	 * @param lookMutator
 	 * @return the current {@link Accordion}.
 	 */
-	public Accordion onTabHeaderLook(final IElementTaker<StackLook> lookMutator) {
+	public Accordion onTabHeaderLook(final IElementTaker<StackStyle> lookMutator) {
 		
 		lookMutator.run(getRefTabHeaderLook());
 		
@@ -318,8 +318,8 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected AccordionLook createLook() {
-		return new AccordionLook();
+	protected AccordionStyle createLook() {
+		return new AccordionStyle();
 	}
 	
 	//method
@@ -497,7 +497,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void paintContentArea(final IPainter painter, final AccordionLook accordionLook) {
+	protected void paintContentArea(final IPainter painter, final AccordionStyle accordionStyle) {
 		//Does nothing.
 	}
 	
@@ -527,7 +527,7 @@ public final class Accordion extends ContainerWidget<Accordion, AccordionLook> {
 	protected void resetContainerWidget() {
 		
 		mainVerticalStack.reset();
-		getRefLook().addChild(getRefTabHeaderLook());		
+		getRefStyle().addChild(getRefTabHeaderLook());		
 		getRefTabHeaderLook()
 		.setTextColorForState(ControlState.BASE, Color.GREY)
 		.setTextColorForState(ControlState.HOVER, Color.BLACK);

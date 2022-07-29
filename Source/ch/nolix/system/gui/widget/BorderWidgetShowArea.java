@@ -15,9 +15,9 @@ import ch.nolix.systemapi.guiapi.painterapi.IPainter;
  * @author Silvan Wyss
  * @date 2019-05-9
  * @param <BWL>
- * is the type of the {@link BorderWidgetLook} of the {@link BorderWidget} of a {@link BorderWidgetShowArea}.
+ * is the type of the {@link BorderWidgetStyle} of the {@link BorderWidget} of a {@link BorderWidgetShowArea}.
  */
-public final class BorderWidgetShowArea<BWL extends BorderWidgetLook<BWL>>
+public final class BorderWidgetShowArea<BWL extends BorderWidgetStyle<BWL>>
 implements HoverableTopLeftPositionedRectangular {
 	
 	//attribute

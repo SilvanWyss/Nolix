@@ -14,7 +14,7 @@ import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 import ch.nolix.systemapi.guiapi.widgetguiapi.IWidget;
 
 //class
-public final class AligningContainer extends ContainerWidget<AligningContainer, AligningContainerLook> {
+public final class AligningContainer extends ContainerWidget<AligningContainer, AligningContainerStyle> {
 	
 	//constants
 	private static final String TOP_LEFT_HEADER = "TopLeft";
@@ -151,7 +151,7 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 		
 		reset();
 		
-		getRefLook().setPaddingForState(ControlState.BASE, 10);
+		getRefStyle().setPaddingForState(ControlState.BASE, 10);
 	}
 		
 	//method
@@ -338,8 +338,8 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 	
 	//method
 	@Override
-	protected AligningContainerLook createLook() {
-		return new AligningContainerLook();
+	protected AligningContainerStyle createLook() {
+		return new AligningContainerStyle();
 	}
 	
 	//method
@@ -468,7 +468,7 @@ public final class AligningContainer extends ContainerWidget<AligningContainer, 
 	
 	//method
 	@Override
-	protected void paintContentArea(final IPainter painter, final AligningContainerLook aligningContainerLook) {
+	protected void paintContentArea(final IPainter painter, final AligningContainerStyle aligningContainerStyle) {
 		//Does nothing.
 	}
 	

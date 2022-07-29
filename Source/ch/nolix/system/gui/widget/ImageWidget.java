@@ -14,7 +14,7 @@ import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
 import ch.nolix.systemapi.guiapi.widgetguiapi.IWidget;
 
 //class
-public final class ImageWidget extends BorderWidget<ImageWidget, ImageWidgetLook> implements Clearable {
+public final class ImageWidget extends BorderWidget<ImageWidget, ImageWidgetStyle> implements Clearable {
 	
 	//constant
 	private static final String IMAGE_HEADER = PascalCaseCatalogue.IMAGE;
@@ -77,8 +77,8 @@ public final class ImageWidget extends BorderWidget<ImageWidget, ImageWidgetLook
 	
 	//method
 	@Override
-	protected ImageWidgetLook createLook() {
-		return new ImageWidgetLook();
+	protected ImageWidgetStyle createLook() {
+		return new ImageWidgetStyle();
 	}
 	
 	//method
@@ -201,7 +201,7 @@ public final class ImageWidget extends BorderWidget<ImageWidget, ImageWidgetLook
 	
 	//method
 	@Override
-	protected void paintContentArea(final IPainter painter, final ImageWidgetLook imageWidgetLook) {
+	protected void paintContentArea(final IPainter painter, final ImageWidgetStyle imageWidgetStyle) {
 		if (containsAny()) {
 			painter.paintImage(getRefImage());
 		}
