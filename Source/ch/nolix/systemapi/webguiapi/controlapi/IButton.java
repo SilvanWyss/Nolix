@@ -23,6 +23,12 @@ public interface IButton<
 	boolean hasRole();
 	
 	//method declaration
+	void removeLeftMouseButtonPressAction();
+	
+	//method declaration
+	void removeLeftMouseButtonReleaseAction();
+	
+	//method declaration
 	void removeRole();
 	
 	//method declaration
