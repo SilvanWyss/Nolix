@@ -31,7 +31,7 @@ public interface IButton<
 	B setLeftMouseButtonRelaseAction(IAction leftMouseButtonReleaseAction);
 	
 	//method declaration
-	B setRole(ButtonRole buttonRole);
+	B setRole(ButtonRole role);
 	
 	//method declaration
 	B setText(String text);
