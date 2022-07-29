@@ -11,28 +11,28 @@ import ch.nolix.system.gui.widgetgui.Layer;
 import ch.nolix.systemapi.guiapi.containercontrolproperty.ContainerRole;
 
 //class
-public final class ServerDashboardLookCreator {
+public final class ServerDashboardStyleCreator {
 	
 	//static attribute
-	public static final ServerDashboardLookCreator INSTANCE = new ServerDashboardLookCreator();
+	public static final ServerDashboardStyleCreator INSTANCE = new ServerDashboardStyleCreator();
 	
 	//constructor
-	private ServerDashboardLookCreator() {}
+	private ServerDashboardStyleCreator() {}
 	
 	//method
-	public Style createServerDashboardLook() {
+	public Style createServerDashboardStyle() {
 		return
 		new Style()
 		.addConfiguration(
-			createLayerLook(),
-			createMainContentFloatContainerLook(),
-			createImageWidgetLook(),
-			createLevel1HeaderLabelLook()
+			createLayerStyle(),
+			createMainContentFloatContainerStyle(),
+			createImageWidgetStyle(),
+			createLevel1HeaderLabelStyle()
 		);
 	}
 	
 	//method
-	private DeepStyle createImageWidgetLook() {
+	private DeepStyle createImageWidgetStyle() {
 		return
 		new DeepStyle()
 		.setSelectorType(ImageWidget.class)
@@ -40,7 +40,7 @@ public final class ServerDashboardLookCreator {
 	}
 	
 	//method
-	private DeepStyle createMainContentFloatContainerLook() {
+	private DeepStyle createMainContentFloatContainerStyle() {
 		return
 		new DeepStyle()
 		.setSelectorType(FloatContainer.class)
@@ -49,7 +49,7 @@ public final class ServerDashboardLookCreator {
 	}
 	
 	//method
-	private DeepStyle createLayerLook() {
+	private DeepStyle createLayerStyle() {
 		return
 		new DeepStyle()
 		.setSelectorType(Layer.class)
@@ -57,7 +57,7 @@ public final class ServerDashboardLookCreator {
 	}
 	
 	//method
-	private DeepStyle createLevel1HeaderLabelLook() {
+	private DeepStyle createLevel1HeaderLabelStyle() {
 		return
 		new DeepStyle()
 		.setSelectorType(Label.class)
