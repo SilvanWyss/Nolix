@@ -11,5 +11,5 @@ public interface ILabel<L extends ILabel<L, LS>, LS extends ILabelStyle<LS>> ext
 	String getText();
 	
 	//method declaration
-	ITextbox setText(String text);
+	L setText(String text);
 }
