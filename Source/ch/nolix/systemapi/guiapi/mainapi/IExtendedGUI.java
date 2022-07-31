@@ -2,7 +2,6 @@
 package ch.nolix.systemapi.guiapi.mainapi;
 
 //own imports
-import ch.nolix.coreapi.attributeapi.mutablemandatoryattributeuniversalapi.Titleble;
 import ch.nolix.coreapi.functionapi.mutationuniversalapi.Refreshable;
 import ch.nolix.coreapi.geometryapi.griduniversalapi.Rectangular;
 import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
@@ -15,7 +14,7 @@ import ch.nolix.systemapi.guiapi.inputapi.IResizableInputTaker;
  * @param <G> is the type of a {@link IExtendedGUI}.
  */
 public interface IExtendedGUI<G extends IExtendedGUI<G>>
-extends GroupCloseable, IGUI<G>, IResizableInputTaker, Rectangular, Refreshable, Titleble<G> {
+extends GroupCloseable, IGUI<G>, IResizableInputTaker, Rectangular, Refreshable {
 	
 	//method declaration
 	/**
