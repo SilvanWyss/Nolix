@@ -8,7 +8,7 @@ import java.awt.event.ComponentListener;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
-import ch.nolix.systemapi.guiapi.mainapi.IGUI;
+import ch.nolix.systemapi.guiapi.mainapi.IExtendedGUI;
 
 //class
 final class GUIVisualizerResizeListener implements ComponentListener {
@@ -17,10 +17,10 @@ final class GUIVisualizerResizeListener implements ComponentListener {
 	private boolean isNew = true;
 	
 	//attribute
-	private IGUI<?> parentGUI;
+	private IExtendedGUI<?> parentGUI;
 	
 	//constructor
-	public GUIVisualizerResizeListener(final IGUI<?> parentGUI) {
+	public GUIVisualizerResizeListener(final IExtendedGUI<?> parentGUI) {
 		
 		GlobalValidator.assertThat(parentGUI).thatIsNamed("parent GUI").isNotNull();
 		

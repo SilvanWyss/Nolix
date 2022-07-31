@@ -8,16 +8,16 @@ import java.awt.event.KeyListener;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
-import ch.nolix.systemapi.guiapi.mainapi.IGUI;
+import ch.nolix.systemapi.guiapi.mainapi.IExtendedGUI;
 
 //class
 final class GUIVisualizerKeyListener implements KeyListener {
 	
 	//attribute
-	private final IGUI<?> parentGUI;
+	private final IExtendedGUI<?> parentGUI;
 	
 	//constructor
-	public GUIVisualizerKeyListener(final IGUI<?> parentFrame) {
+	public GUIVisualizerKeyListener(final IExtendedGUI<?> parentFrame) {
 		
 		GlobalValidator.assertThat(parentFrame).thatIsNamed("parent Frame").isNotNull();
 		

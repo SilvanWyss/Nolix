@@ -34,7 +34,7 @@ import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.mainapi.CursorIcon;
 import ch.nolix.systemapi.guiapi.mainapi.IFrontEndReader;
 import ch.nolix.systemapi.guiapi.mainapi.IFrontEndWriter;
-import ch.nolix.systemapi.guiapi.mainapi.IGUI;
+import ch.nolix.systemapi.guiapi.mainapi.IExtendedGUI;
 
 //class
 /**
@@ -42,7 +42,7 @@ import ch.nolix.systemapi.guiapi.mainapi.IGUI;
  * @date 2017-11-11
  * @param <G> is the type of a {@link GUI3D}.
  */
-public abstract class GUI3D<G extends GUI3D<G>> extends StyleElement<G> implements Clearable, IGUI<G> {
+public abstract class GUI3D<G extends GUI3D<G>> extends StyleElement<G> implements Clearable, IExtendedGUI<G> {
 	
 	//constants
 	public static final String DEFAULT_TITLE = StringCatalogue.DEFAULT_STRING;

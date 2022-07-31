@@ -8,7 +8,7 @@ import java.awt.event.MouseMotionListener;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
-import ch.nolix.systemapi.guiapi.mainapi.IGUI;
+import ch.nolix.systemapi.guiapi.mainapi.IExtendedGUI;
 
 //class
 final class GUIVisualizerMouseMotionListener implements MouseMotionListener {
@@ -17,10 +17,10 @@ final class GUIVisualizerMouseMotionListener implements MouseMotionListener {
 	private boolean isNew = true;
 	
 	//attribute
-	private final IGUI<?> parentGUI;
+	private final IExtendedGUI<?> parentGUI;
 		
 	//constructor
-	public GUIVisualizerMouseMotionListener(final IGUI<?> parentGUI) {
+	public GUIVisualizerMouseMotionListener(final IExtendedGUI<?> parentGUI) {
 		
 		GlobalValidator.assertThat(parentGUI).thatIsNamed("parent GUI").isNotNull();
 		

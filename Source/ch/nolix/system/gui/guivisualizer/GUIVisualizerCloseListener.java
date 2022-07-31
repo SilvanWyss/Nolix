@@ -7,16 +7,16 @@ import java.awt.event.WindowListener;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.systemapi.guiapi.mainapi.IGUI;
+import ch.nolix.systemapi.guiapi.mainapi.IExtendedGUI;
 
 //class
 final class GUIVisualizerCloseListener implements WindowListener {
 	
 	//attribute
-	private final IGUI<?> parentGUI;
+	private final IExtendedGUI<?> parentGUI;
 	
 	//constructor
-	public GUIVisualizerCloseListener(final IGUI<?> parentGUI) {
+	public GUIVisualizerCloseListener(final IExtendedGUI<?> parentGUI) {
 		
 		GlobalValidator.assertThat(parentGUI).thatIsNamed("parent GUI").isNotNull();
 		

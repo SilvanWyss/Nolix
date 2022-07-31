@@ -30,13 +30,13 @@ import ch.nolix.systemapi.guiapi.inputdeviceapi.IKeyBoard;
 import ch.nolix.systemapi.guiapi.inputdeviceapi.IMutableKeyBoard;
 import ch.nolix.systemapi.guiapi.mainapi.IFrontEndReader;
 import ch.nolix.systemapi.guiapi.mainapi.IFrontEndWriter;
-import ch.nolix.systemapi.guiapi.mainapi.IGUI;
+import ch.nolix.systemapi.guiapi.mainapi.IExtendedGUI;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
 
 //class
 /**
- * A {@link GUI} is mainly a {@link IGUI} and a {@link StyleElement}.
+ * A {@link GUI} is mainly a {@link IExtendedGUI} and a {@link StyleElement}.
  * A {@link GUI} contains so-called hard attributes and so-called soft attribues.
  * A hard attribute is an attribute that is not changed implicitly by a user interaction. E.g. title, background color.
  * A soft attribute is an attribute that can be changed implicitly by a user interaction. E.g. cursor position.
@@ -52,7 +52,7 @@ import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
  * @date 2016-01-01
  * @param <G> is the type of a {@link GUI}.
  */
-public abstract class GUI<G extends GUI<G>> extends StyleElement<G> implements IGUI<G>, Recalculable {
+public abstract class GUI<G extends GUI<G>> extends StyleElement<G> implements IExtendedGUI<G>, Recalculable {
 	
 	//constants
 	public static final String DEFAULT_TITLE = PascalCaseCatalogue.GUI;
@@ -499,7 +499,7 @@ public abstract class GUI<G extends GUI<G>> extends StyleElement<G> implements I
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void noteResizeFrom(final IGUI<?> pGUI) {
+	public final void noteResizeFrom(final IExtendedGUI<?> pGUI) {
 		noteResize(pGUI.getViewAreaWidth(), pGUI.getViewAreaHeight());
 	}
 	

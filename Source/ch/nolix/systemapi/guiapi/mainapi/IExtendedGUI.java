@@ -13,89 +13,89 @@ import ch.nolix.systemapi.guiapi.inputapi.IResizableInputTaker;
 /**
  * @author Silvan Wyss
  * @date 2019-08-01
- * @param <G> is the type of a {@link IGUI}.
+ * @param <G> is the type of a {@link IExtendedGUI}.
  */
-public interface IGUI<G extends IGUI<G>>
+public interface IExtendedGUI<G extends IExtendedGUI<G>>
 extends GroupCloseable, IResizableInputTaker, Rectangular, Refreshable, Titleble<G> {
 	
 	//method declaration
 	/**
-	 * @return the {@link IFrontEndReader} of the current {@link IGUI}.
+	 * @return the {@link IFrontEndReader} of the current {@link IExtendedGUI}.
 	 */
 	IFrontEndReader fromFrontEnd();
 	
 	//method declaration
 	/**
-	 * @return the cursor icon on the current {@link IGUI}.
+	 * @return the cursor icon on the current {@link IExtendedGUI}.
 	 */
 	CursorIcon getCursorIcon();
 	
 	//method declaration
 	/**
-	 * @return the x-position of the cursor on the view area of the current {@link IGUI}.
+	 * @return the x-position of the cursor on the view area of the current {@link IExtendedGUI}.
 	 */
 	int getCursorXPositionOnViewArea();
 	
 	//method declaration
 	/**
-	 * @return the y-position of the cursor on the view area of the current {@link IGUI}.
+	 * @return the y-position of the cursor on the view area of the current {@link IExtendedGUI}.
 	 */
 	int getCursorYPositionOnViewArea();
 	
 	//method declaration
 	/**
-	 * @return the icon of the current {@link IGUI}.
+	 * @return the icon of the current {@link IExtendedGUI}.
 	 */
 	IImage getIcon();
 	
 	//method declaration
 	/**
-	 * @return the height of the view area of the current {@link IGUI}.
+	 * @return the height of the view area of the current {@link IExtendedGUI}.
 	 */
 	int getViewAreaHeight();
 	
 	//method declaration
 	/**
-	 * @return the width of the view area of the current {@link IGUI}.
+	 * @return the width of the view area of the current {@link IExtendedGUI}.
 	 */
 	int getViewAreaWidth();
 	
 	//method declaration
 	/**
-	 * A root {@link IGUI} is a {@link IGUI} that not contained in another {@link IGUI}.
+	 * A root {@link IExtendedGUI} is a {@link IExtendedGUI} that not contained in another {@link IExtendedGUI}.
 	 * 
-	 * @return true if the current {@link IGUI} is a root {@link IGUI}.
+	 * @return true if the current {@link IExtendedGUI} is a root {@link IExtendedGUI}.
 	 */
 	boolean isRootGUI();
 	
 	//method declaration
 	/**
 	 * 
-	 * @return true if the current {@link IGUI} is visible.
+	 * @return true if the current {@link IExtendedGUI} is visible.
 	 */
 	boolean isVisible();
 	
 	//method
 	/**
-	 * Lets the current {@link IGUI} note a resize.
-	 * The size of the view area of the current {@link IGUI} will be the size of the view area of the given pGUI.
+	 * Lets the current {@link IExtendedGUI} note a resize.
+	 * The size of the view area of the current {@link IExtendedGUI} will be the size of the view area of the given pGUI.
 	 * 
 	 * @param pGUI
 	 */
-	void noteResizeFrom(IGUI<?> pGUI);
+	void noteResizeFrom(IExtendedGUI<?> pGUI);
 	
 	//method declaration
 	/**
-	 * @return the {@link IFrontEndWriter} of the current {@link IGUI}.
+	 * @return the {@link IFrontEndWriter} of the current {@link IExtendedGUI}.
 	 */
 	IFrontEndWriter onFrontEnd();
 	
 	//method
 	/**
-	 * Sets the icon of the current{@link IGUI}.
+	 * Sets the icon of the current{@link IExtendedGUI}.
 	 * 
 	 * @param icon
-	 * @return the current{@link IGUI}.
+	 * @return the current{@link IExtendedGUI}.
 	 */
 	G setIcon(final IImage icon);
 }
