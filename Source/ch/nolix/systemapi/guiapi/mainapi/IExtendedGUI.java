@@ -6,7 +6,6 @@ import ch.nolix.coreapi.attributeapi.mutablemandatoryattributeuniversalapi.Title
 import ch.nolix.coreapi.functionapi.mutationuniversalapi.Refreshable;
 import ch.nolix.coreapi.geometryapi.griduniversalapi.Rectangular;
 import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
-import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.inputapi.IResizableInputTaker;
 
 //interface
@@ -16,13 +15,7 @@ import ch.nolix.systemapi.guiapi.inputapi.IResizableInputTaker;
  * @param <G> is the type of a {@link IExtendedGUI}.
  */
 public interface IExtendedGUI<G extends IExtendedGUI<G>>
-extends GroupCloseable, IResizableInputTaker, Rectangular, Refreshable, Titleble<G> {
-	
-	//method declaration
-	/**
-	 * @return the {@link IFrontEndReader} of the current {@link IExtendedGUI}.
-	 */
-	IFrontEndReader fromFrontEnd();
+extends GroupCloseable, IGUI<G>, IResizableInputTaker, Rectangular, Refreshable, Titleble<G> {
 	
 	//method declaration
 	/**
@@ -44,12 +37,6 @@ extends GroupCloseable, IResizableInputTaker, Rectangular, Refreshable, Titleble
 	
 	//method declaration
 	/**
-	 * @return the icon of the current {@link IExtendedGUI}.
-	 */
-	IImage getIcon();
-	
-	//method declaration
-	/**
 	 * @return the height of the view area of the current {@link IExtendedGUI}.
 	 */
 	int getViewAreaHeight();
@@ -59,14 +46,6 @@ extends GroupCloseable, IResizableInputTaker, Rectangular, Refreshable, Titleble
 	 * @return the width of the view area of the current {@link IExtendedGUI}.
 	 */
 	int getViewAreaWidth();
-	
-	//method declaration
-	/**
-	 * A root {@link IExtendedGUI} is a {@link IExtendedGUI} that not contained in another {@link IExtendedGUI}.
-	 * 
-	 * @return true if the current {@link IExtendedGUI} is a root {@link IExtendedGUI}.
-	 */
-	boolean isRootGUI();
 	
 	//method declaration
 	/**
@@ -83,19 +62,4 @@ extends GroupCloseable, IResizableInputTaker, Rectangular, Refreshable, Titleble
 	 * @param pGUI
 	 */
 	void noteResizeFrom(IExtendedGUI<?> pGUI);
-	
-	//method declaration
-	/**
-	 * @return the {@link IFrontEndWriter} of the current {@link IExtendedGUI}.
-	 */
-	IFrontEndWriter onFrontEnd();
-	
-	//method
-	/**
-	 * Sets the icon of the current{@link IExtendedGUI}.
-	 * 
-	 * @param icon
-	 * @return the current{@link IExtendedGUI}.
-	 */
-	G setIcon(final IImage icon);
 }
