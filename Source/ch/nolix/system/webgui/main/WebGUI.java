@@ -202,6 +202,12 @@ public final class WebGUI extends StyleElement<WebGUI> implements IWebGUI<WebGUI
 	
 	//method
 	@Override
+	public boolean isRootGUI() {
+		return false;
+	}
+	
+	//method
+	@Override
 	public IFrontEndWriter onFrontEnd() {
 		//TODO: Implement.
 		return null;

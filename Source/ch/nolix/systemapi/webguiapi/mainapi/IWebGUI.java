@@ -2,7 +2,6 @@
 package ch.nolix.systemapi.webguiapi.mainapi;
 
 //own imports
-import ch.nolix.coreapi.attributeapi.mutablemandatoryattributeuniversalapi.Titleble;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.functionapi.mutationuniversalapi.Clearable;
 import ch.nolix.systemapi.elementapi.styleapi.IStyleElement;
@@ -10,10 +9,11 @@ import ch.nolix.systemapi.guiapi.canvasuniversalapi.ICanvas;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.mainapi.IFrontEndReader;
 import ch.nolix.systemapi.guiapi.mainapi.IFrontEndWriter;
+import ch.nolix.systemapi.guiapi.mainapi.IGUI;
 
 //interface
 public interface IWebGUI<WGUI extends IWebGUI<WGUI>>
-extends Clearable, ICanvas<WGUI>, IStyleElement<WGUI>, Titleble<WGUI> {
+extends Clearable, ICanvas<WGUI>, IGUI<WGUI>, IStyleElement<WGUI> {
 	
 	//method declaration
 	IFrontEndReader fromFrontEnd();
@@ -29,7 +29,7 @@ extends Clearable, ICanvas<WGUI>, IStyleElement<WGUI>, Titleble<WGUI> {
 	
 	//method declaration
 	ILayer<?> getRefTopLayer();
-	
+		
 	//method declaration
 	IFrontEndWriter onFrontEnd();
 	
