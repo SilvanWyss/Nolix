@@ -51,12 +51,6 @@ public final class Button extends Control<Button, ButtonStyle> implements IButto
 	
 	//method
 	@Override
-	protected ButtonStyle createStyle() {
-		return new ButtonStyle();
-	}
-	
-	//method
-	@Override
 	public IContainer<? extends IStylableElement<?>> getRefChildStylableElements() {
 		return new ImmutableList<>();
 	}
@@ -236,6 +230,12 @@ public final class Button extends Control<Button, ButtonStyle> implements IButto
 	public IHTMLElement<?, ?> toHTMLElement() {
 		//TODO: Implement.
 		return null;
+	}
+	
+	//method
+	@Override
+	protected ButtonStyle createStyle() {
+		return new ButtonStyle();
 	}
 	
 	//method
