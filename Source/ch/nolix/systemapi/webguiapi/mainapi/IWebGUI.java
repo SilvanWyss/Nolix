@@ -43,5 +43,8 @@ extends Clearable, ICanvas<WGUI>, IGUI<WGUI>, IStyleElement<WGUI> {
 	void removeLayer(ILayer<?> layer);
 	
 	//method declaration
+	WGUI setFrontEndReaderAndFrontEndWriter(IFrontEndReader frontEndReader, IFrontEndWriter frontEndWriter);
+	
+	//method declaration
 	WGUI setIcon(IImage icon);
 }

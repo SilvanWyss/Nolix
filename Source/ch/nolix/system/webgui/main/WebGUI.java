@@ -17,6 +17,8 @@ import ch.nolix.system.gui.canvas.Background;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.image.Image;
 import ch.nolix.system.gui.main.GUIIconCatalogue;
+import ch.nolix.system.gui.main.LocalFrontEndReader;
+import ch.nolix.system.gui.main.LocalFrontEndWriter;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 import ch.nolix.systemapi.guiapi.canvasuniversalapi.IBackground;
 import ch.nolix.systemapi.guiapi.colorapi.IColor;
@@ -93,6 +95,12 @@ public final class WebGUI extends StyleElement<WebGUI> implements IWebGUI<WebGUI
 		ILayer::getSpecification
 	);
 	
+	//attribute
+	private IFrontEndReader frontEndReader = new LocalFrontEndReader();
+	
+	//attribute
+	private IFrontEndWriter frontEndWriter = new LocalFrontEndWriter();
+	
 	//constructor
 	public WebGUI() {
 		setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
@@ -107,8 +115,7 @@ public final class WebGUI extends StyleElement<WebGUI> implements IWebGUI<WebGUI
 	//method
 	@Override
 	public IFrontEndReader fromFrontEnd() {
-		//TODO: Implement.
-		return null;
+		return frontEndReader;
 	}
 	
 	//method
@@ -209,8 +216,7 @@ public final class WebGUI extends StyleElement<WebGUI> implements IWebGUI<WebGUI
 	//method
 	@Override
 	public IFrontEndWriter onFrontEnd() {
-		//TODO: Implement.
-		return null;
+		return frontEndWriter;
 	}
 	
 	//method
@@ -270,6 +276,22 @@ public final class WebGUI extends StyleElement<WebGUI> implements IWebGUI<WebGUI
 	@Override
 	public WebGUI setBackgroundImage(final IImage backgroundImage, final ImageApplication imageApplication) {
 		return setBackground(Background.withImageAndImageApplication(backgroundImage, imageApplication));
+	}
+	
+	//method
+	@Override
+	public WebGUI setFrontEndReaderAndFrontEndWriter(
+		final IFrontEndReader frontEndReader,
+		final IFrontEndWriter frontEndWriter
+	) {
+		
+		GlobalValidator.assertThat(frontEndReader).thatIsNamed(IFrontEndReader.class).isNotNull();
+		GlobalValidator.assertThat(frontEndWriter).thatIsNamed(IFrontEndWriter.class).isNotNull();
+		
+		this.frontEndReader = frontEndReader;
+		this.frontEndWriter = frontEndWriter;
+		
+		return this;
 	}
 	
 	//method
