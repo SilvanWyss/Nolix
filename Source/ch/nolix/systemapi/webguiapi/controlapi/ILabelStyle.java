@@ -1,7 +1,8 @@
 //package declaration
 package ch.nolix.systemapi.webguiapi.controlapi;
 
-import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
+//own imports
+import ch.nolix.systemapi.webguiapi.controlstyleapi.IExtendedControlStyle;
 
 //interface
-public interface ILabelStyle extends IControlStyle<ILabelStyle> {}
+public interface ILabelStyle<LS extends ILabelStyle<LS>> extends IExtendedControlStyle<LS> {}

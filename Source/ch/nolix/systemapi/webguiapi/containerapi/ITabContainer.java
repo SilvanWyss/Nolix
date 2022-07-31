@@ -20,7 +20,7 @@ extends ch.nolix.systemapi.webguiapi.containerapi.IContainer<ITabContainer, ITab
 	boolean containsSelectedTab();
 	
 	//method declaration
-	ILabelStyle getRefHeaderStyle();
+	ILabelStyle<?> getRefHeaderStyle();
 	
 	//method declaration
 	ITabContainerTab getRefSelectedTab();
@@ -35,7 +35,7 @@ extends ch.nolix.systemapi.webguiapi.containerapi.IContainer<ITabContainer, ITab
 	int getTabCount();
 	
 	//method declaration
-	ITabContainer onHeaderStyle(IElementTaker<ILabelStyle> headerStyleEditor);
+	ITabContainer onHeaderStyle(IElementTaker<ILabelStyle<?>> headerStyleEditor);
 	
 	//method declaration
 	void selectFirstTab();
