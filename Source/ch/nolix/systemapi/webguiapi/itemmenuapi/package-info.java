@@ -1,6 +1,7 @@
 //package info
 /**
- * The {@link ch.nolix.systemapi.webguiapi.itemmenuapi} package declares {@link IConrols} that are item menus.
+ * The {@link ch.nolix.systemapi.webguiapi.itemmenuapi} package declares
+ * {@link ch.nolix.systemapi.webguiapi.mainapi.IControl}s that are item menus.
  * 
  * @author Silvan Wyss
  * @date 2022-07-17
