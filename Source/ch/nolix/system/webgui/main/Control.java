@@ -2,6 +2,7 @@
 package ch.nolix.system.webgui.main;
 
 //own imports
+import ch.nolix.core.data.GlobalIdCreator;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
@@ -29,6 +30,9 @@ implements IControl<C, CS> {
 	private static final String CURSOR_ICON_HEADER = PascalCaseCatalogue.CURSOR_ICON;
 	
 	//attribute
+	private final String fixedId = GlobalIdCreator.createIdOf10HexadecimalCharacters();
+	
+	//attribute
 	private final MutableValue<CursorIcon> cursorIcon =
 	new MutableValue<>(
 		CURSOR_ICON_HEADER,
@@ -52,7 +56,7 @@ implements IControl<C, CS> {
 	
 	//method
 	@Override
-	public boolean belongsToLayer() {
+	public final boolean belongsToLayer() {
 		return (parentLayer != null);
 	}
 	
@@ -64,8 +68,8 @@ implements IControl<C, CS> {
 	
 	//method
 	@Override
-	public final CS getRefStyle() {
-		return style.getExtensionElement();
+	public final String getFixedId() {
+		return fixedId;
 	}
 	
 	//method
@@ -81,6 +85,12 @@ implements IControl<C, CS> {
 		assertBelongsToLayer();
 		
 		return parentLayer;
+	}
+	
+	//method
+	@Override
+	public final CS getRefStyle() {
+		return style.getExtensionElement();
 	}
 	
 	//method

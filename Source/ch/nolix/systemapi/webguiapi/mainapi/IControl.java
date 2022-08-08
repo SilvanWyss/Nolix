@@ -25,6 +25,9 @@ extends HTMLElementTransformable, IStylableElement<C>, IInputTaker {
 	CursorIcon getCursorIcon();
 	
 	//method declaration
+	String getFixedId();
+	
+	//method declaration
 	IWebGUI<?> getParentGUI();
 	
 	//method declaration
