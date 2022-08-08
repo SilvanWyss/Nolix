@@ -5,6 +5,7 @@ package ch.nolix.systemapi.webguiapi.containerapi;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.systemapi.guiapi.controlproperty.TabExpansionBehavior;
+import ch.nolix.systemapi.webguiapi.linearcontainerapi.ILinearContainerStyle;
 
 //interface
 public interface IAccordion extends ch.nolix.systemapi.webguiapi.containerapi.IContainer<IAccordion, IAccordionStyle> {

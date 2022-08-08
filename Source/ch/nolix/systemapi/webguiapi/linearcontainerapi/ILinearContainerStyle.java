@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemapi.webguiapi.containerapi;
+package ch.nolix.systemapi.webguiapi.linearcontainerapi;
 
 import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IExtendedControlStyle;

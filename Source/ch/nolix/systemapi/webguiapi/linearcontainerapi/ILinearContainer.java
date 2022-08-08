@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemapi.webguiapi.containerapi;
+package ch.nolix.systemapi.webguiapi.linearcontainerapi;
 
 //own imports
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
