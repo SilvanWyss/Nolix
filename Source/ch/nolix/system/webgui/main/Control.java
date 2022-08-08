@@ -117,13 +117,15 @@ implements IControl<C, CS> {
 	//method
 	@Override
 	protected final void resetStylableElement() {
+		
+		setCursorIcon(DEFAULT_CURSOR_ICON);
+		
 		resetControl();
 	}
 	
 	//method
 	@Override
 	protected final void resetStyle() {
-		setCursorIcon(DEFAULT_CURSOR_ICON);
 		getRefStyle().reset();
 	}
 	
