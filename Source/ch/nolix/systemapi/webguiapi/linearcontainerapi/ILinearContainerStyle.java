@@ -8,11 +8,11 @@ import ch.nolix.systemapi.webguiapi.controlstyleapi.IExtendedControlStyle;
 public interface ILinearContainerStyle<LCL extends ILinearContainerStyle<LCL>> extends IExtendedControlStyle<LCL> {
 	
 	//method declaration
-	int getControlMargin();
+	int getChildControlMargin();
 	
 	//method declaration
-	void removeCustomControlMargins();
+	void removeCustomChildControlMargins();
 	
 	//method declaration
-	LCL setControlMarginForState(ControlState state, int controlMargin);
+	LCL setChildControlMarginForState(ControlState state, int childControlMargin);
 }
