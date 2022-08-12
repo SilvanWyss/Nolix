@@ -125,6 +125,7 @@ extends Control<C, ECS> implements IContainer<C, ECS> {
 	protected final void resetControl() {
 		
 		removeRole();
+		clear();
 		
 		resetContainer();
 	}
