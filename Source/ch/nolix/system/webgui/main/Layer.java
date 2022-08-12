@@ -66,7 +66,7 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	);
 	
 	//attribute
-	private final MutableOptionalValue<Control<?, ?>> rootControl =
+	private final MutableOptionalValue<IControl<?, ?>> rootControl =
 	new MutableOptionalValue<>(
 		ROOT_CONTROL_HEADER,
 		this::setRootControl,
@@ -137,7 +137,7 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	
 	//method
 	@Override
-	public Control<?, ?> getRefRootControl() {
+	public IControl<?, ?> getRefRootControl() {
 		return rootControl.getValue();
 	}
 	
@@ -286,7 +286,8 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	@Override
 	public Layer setRootControl(final IControl<?, ?> rootControl) {
 		
-		this.rootControl.setValue((Control<?, ?>)rootControl);
+		rootControl.technicalSetParentLayer(this);		
+		this.rootControl.setValue(rootControl);
 		
 		return this;
 	}
@@ -334,7 +335,6 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	
 	//method
 	private void clearWhenIsNotEmpty() {
-		getRefRootControl().internalRemoveParentLayer();
 		rootControl.clear();
 	}
 }

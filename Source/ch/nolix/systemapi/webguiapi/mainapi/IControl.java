@@ -38,4 +38,10 @@ extends HTMLElementTransformable, IStylableElement<C>, IInputTaker {
 	
 	//method declaration
 	C setCursorIcon(CursorIcon cursorIcon);
+	
+	//method declaration
+	void technicalSetParentControl(IControl<?, ?> parentControl);
+	
+	//method declaration
+	void technicalSetParentLayer(ILayer<?> parentLayer);
 }

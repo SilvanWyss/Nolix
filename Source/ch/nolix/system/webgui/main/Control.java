@@ -4,7 +4,10 @@ package ch.nolix.system.webgui.main;
 //own imports
 import ch.nolix.core.data.GlobalIdCreator;
 import ch.nolix.core.document.node.Node;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.system.element.base.StylableElement;
 import ch.nolix.system.element.mutableelement.ExtensionElement;
@@ -46,7 +49,7 @@ implements IControl<C, CS> {
 	private final ExtensionElement<CS> style = new ExtensionElement<>(createStyle());
 	
 	//optional attribute
-	private ILayer<?> parentLayer;
+	private ControlParent parent;
 	
 	//method
 	@Override
@@ -57,7 +60,7 @@ implements IControl<C, CS> {
 	//method
 	@Override
 	public final boolean belongsToLayer() {
-		return (parentLayer != null);
+		return (belongsToParent() && parent.belongsToLayer());
 	}
 	
 	//method
@@ -81,10 +84,7 @@ implements IControl<C, CS> {
 	//method
 	@Override
 	public final ILayer<?> getParentLayer() {
-		
-		assertBelongsToLayer();
-		
-		return parentLayer;
+		return getRefParent().getRefRootLayer();
 	}
 	
 	//method
@@ -100,6 +100,21 @@ implements IControl<C, CS> {
 		this.cursorIcon.setValue(cursorIcon);
 		
 		return asConcrete();
+	}
+	
+	//method
+	@Override
+	public final void technicalSetParentControl(final IControl<?, ?> parentControl) {
+		
+		
+		
+		setParent(ControlParent.forControl(parentControl));
+	}
+	
+	//method
+	@Override
+	public  final void technicalSetParentLayer(final ILayer<?> parentLayer) {
+		setParent(ControlParent.forLayer(parentLayer));		
 	}
 	
 	//method
@@ -130,17 +145,38 @@ implements IControl<C, CS> {
 	}
 	
 	//method
-	final void internalRemoveParentLayer() {
-		
-		assertBelongsToLayer();
-		
-		parentLayer = null;
+	private void assertBelongsToParent() {
+		if (!belongsToParent()) {
+			throw ArgumentDoesNotBelongToParentException.forArgument(this);
+		}
 	}
 	
 	//method
-	private void assertBelongsToLayer() {
-		if (!belongsToLayer()) {
-			throw ArgumentDoesNotBelongToParentException.forArgumentAndParentType(this, ILayer.class);
+	private void assertDoesNotBelongToParent() {
+		if (belongsToParent()) {
+			throw ArgumentBelongsToParentException.forArgument(this);
 		}
+	}
+	
+	//method
+	private boolean belongsToParent() {
+		return (parent != null);
+	}
+	
+	//method
+	private ControlParent getRefParent() {
+		
+		assertBelongsToParent();
+		
+		return parent;
+	}
+	
+	//method
+	private void setParent(final ControlParent parent) {
+		
+		GlobalValidator.assertThat(parent).thatIsNamed(LowerCaseCatalogue.PARENT).isNotNull();
+		assertDoesNotBelongToParent();
+		
+		this.parent = parent;
 	}
 }

@@ -1,0 +1,80 @@
+//package declaration
+package ch.nolix.system.webgui.main;
+
+//own imports
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.systemapi.webguiapi.mainapi.IControl;
+import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
+
+//class
+final class ControlParent {
+	
+	//static method
+	public static ControlParent forControl(final IControl<?, ?> control) {
+		return new ControlParent(control);
+	}
+	
+	//static method
+	public static ControlParent forLayer(final ILayer<?> layer) {
+		return new ControlParent(layer);
+	}
+	
+	//static method
+	public ControlParent withLayer(final ILayer<?> layer) {
+		return new ControlParent(layer);
+	}
+	
+	//optional attribute
+	private final ILayer<?> layer;
+	
+	//optional attribute
+	private final IControl<?, ?> control;
+	
+	//constructor
+	private ControlParent(final IControl<?, ?> control) {
+		
+		GlobalValidator.assertThat(control).thatIsNamed(IControl.class).isNotNull();
+		
+		layer = null;
+		this.control = control;
+	}
+	
+	//constructor
+	private ControlParent(final ILayer<?> layer) {
+		
+		GlobalValidator.assertThat(layer).thatIsNamed(ILayer.class).isNotNull();
+		
+		this.layer = layer;
+		control = null;
+	}
+	
+	//method
+	public boolean belongsToLayer() {
+		
+		if (isControl()) {
+			return control.belongsToLayer();
+		}
+		
+		return true;
+	}
+	
+	//method
+	public ILayer<?> getRefRootLayer() {
+		
+		if (isLayer()) {
+			return layer;
+		}
+		
+		return control.getParentLayer();
+	}
+	
+	//method
+	public boolean isControl() {
+		return (control != null);
+	}
+	
+	//method
+	public boolean isLayer() {
+		return (layer != null);
+	}
+}
