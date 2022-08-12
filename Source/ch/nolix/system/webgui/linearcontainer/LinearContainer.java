@@ -56,8 +56,14 @@ implements ILinearContainer<LinearContainer, LinearContainerStyle> {
 	
 	//method
 	@Override
-	public final IContainer<? extends IStylableElement<?>> getRefChildStylableElements() {
+	public final IContainer<IControl<?, ?>> getRefChildControls() {
 		return childControls.getRefValues();
+	}
+	
+	//method
+	@Override
+	public final IContainer<? extends IStylableElement<?>> getRefChildStylableElements() {
+		return getRefChildControls();
 	}
 	
 	//method
