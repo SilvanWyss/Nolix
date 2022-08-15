@@ -16,11 +16,16 @@ public abstract class BackendWebClientSession<AC> extends BaseBackendWebClientSe
 	@Override
 	protected final void fullInitialize() {
 		
-		webGUI
+		getRefGUI()
 		.setTitle(getApplicationName())
 		.setFrontEndReaderAndFrontEndWriter(createFrontendReader(), createFrontendWriter());
 		
 		initialize();
+	}
+	
+	//method
+	protected final IWebGUI<?> getRefGUI() {
+		return webGUI;
 	}
 	
 	//method declaration
@@ -42,6 +47,6 @@ public abstract class BackendWebClientSession<AC> extends BaseBackendWebClientSe
 	//method
 	@Override
 	protected final void updateCounterpart() {
-		//TODO: Implement.
+		getParentClient().internalUpdateCounterpartFromWebGUI(getRefGUI());
 	}
 }
