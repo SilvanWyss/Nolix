@@ -8,6 +8,9 @@ public final class CommandProtocol {
 	public static final String OPEN_NEW_TAB = "OpenNewTab";
 	
 	//constant
+	public static final String RECEIVE_OPTIONAL_FILE = "ReceiveOptionalFile";
+	
+	//constant
 	public static final String REDIRECT = "Redirect";
 	
 	//constant
