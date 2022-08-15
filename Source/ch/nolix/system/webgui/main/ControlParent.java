@@ -59,6 +59,16 @@ final class ControlParent {
 	}
 	
 	//method
+	public Object getRefElement() {
+		
+		if (isControl()) {
+			return control;
+		}
+		
+		return layer;
+	}
+	
+	//method
 	public ILayer<?> getRefRootLayer() {
 		
 		if (isLayer()) {

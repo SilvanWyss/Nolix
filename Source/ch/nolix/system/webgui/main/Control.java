@@ -154,7 +154,7 @@ implements IControl<C, CS> {
 	//method
 	private void assertDoesNotBelongToParent() {
 		if (belongsToParent()) {
-			throw ArgumentBelongsToParentException.forArgument(this);
+			throw ArgumentBelongsToParentException.forArgumentAndParent(this, parent.getRefElement());
 		}
 	}
 	
