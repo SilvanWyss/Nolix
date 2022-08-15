@@ -184,6 +184,23 @@ public final class ChainedNode implements IChainedNode {
 	//static method
 	/**
 	 * @param header
+	 * @param childNode
+	 * @return a new {@link ChainedNode} with the given header and childNode.
+	 * @throws ArgumentIsNullException if the given header is null.
+	 * @throws InvalidArgumentException if the given header is blank.
+	 */
+	public static ChainedNode withHeaderAndChildNode(final String header, final INode<?> childNode) {
+		
+		final var chainedNode = new ChainedNode();
+		chainedNode.setHeader(header);
+		chainedNode.addChildNode(childNode);
+		
+		return chainedNode;
+	}
+	
+	//static method
+	/**
+	 * @param header
 	 * @param attributes
 	 * @return a new {@link ChainedNode} with the given header and attributes.
 	 * @throws ArgumentIsNullException if the given header is null.
