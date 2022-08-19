@@ -41,6 +41,9 @@ public final class Server extends BaseServer {
 	//attribute
 	private ch.nolix.core.net.endpoint3.Server internalServer;
 	
+	//attribute
+	private boolean useWebGUI;
+	
 	//constructor
 	/**
 	 * Creates a new {@link Server} that will listen to net {@link Client}s on the given port.
@@ -54,7 +57,7 @@ public final class Server extends BaseServer {
 		internalServer =
 		new ch.nolix.core.net.endpoint3.Server(
 			port,
-			new ServerHTTPMessage(getIp(), port).toString()
+			new ServerHTTPMessage(getIp(), port, useWebGUI).toString()
 		);
 		
 		//Creates a close dependency between the current Server and its internalServer.
@@ -83,6 +86,15 @@ public final class Server extends BaseServer {
 	 */
 	public int getPort() {
 		return internalServer.getPort();
+	}
+	
+	//TODO: Remove old GUI.
+	//method
+	/**
+	 * Lets the current {@link Server} switch to web GUI.
+	 */
+	public void switchToWebGUI() {
+		useWebGUI = true;
 	}
 	
 	//method

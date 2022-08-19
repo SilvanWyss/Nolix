@@ -9,22 +9,30 @@ import ch.nolix.system.application.main.resource.ResourcePathCatalogue;
 //class
 final class ServerHTTPMessage {
 	
-	//constants
+	//constant
 	private static final String REQUIRE_JS_SCRIPT = RunningJar.getResource(ResourcePathCatalogue.REQUIRE_JS);
+	
+	//constant
 	private static final String NOLIX_SCRIPT = RunningJar.getResource(ResourcePathCatalogue.NOLIX_JS);
 	
-	//attributes
+	//attribute
 	private final String serverIP;
+	
+	//attribute
 	private final int serverPort;
 	
+	//attribute
+	private final boolean useWebGUI;
+	
 	//constructor
-	public ServerHTTPMessage(final String serverIP, final int serverPort) {
+	public ServerHTTPMessage(final String serverIP, final int serverPort, final boolean useWebGUI) {
 		
 		GlobalValidator.assertThat(serverIP).thatIsNamed("server IP").isNotBlank();
 		GlobalValidator.assertThat(serverPort).thatIsNamed("server port").isBetween(0, 65535);
 		
 		this.serverIP = serverIP;
 		this.serverPort = serverPort;
+		this.useWebGUI = useWebGUI;
 	}
 	
 	//method
@@ -74,13 +82,26 @@ final class ServerHTTPMessage {
 	
 	//method
 	private String getMainScript() {
+		
+		if (!useWebGUI) {
+			return
+			"<script>\n"
+			+ "require(['System/Application/GUIApplication/FrontCanvasGUIClient'], function (FrontCanvasGUIClient_) {"
+			+ "var client = FrontCanvasGUIClient_.FrontCanvasGUIClient.toIpAndPortAndApplicationFromURLUsingWindow("
+			+ getServerIpInQuotes() + ", "
+			+ getServerPort() + ", "
+			+ "window);"
+			+ "});\n"
+			+ "</script>\n";
+		}
+		
 		return
 		"<script>\n"
-		+ "require(['System/Application/GUIApplication/FrontCanvasGUIClient'], function (FrontCanvasGUIClient_) {"
-		+ "var client = FrontCanvasGUIClient_.FrontCanvasGUIClient.toIpAndPortAndApplicationFromURLUsingWindow("
+		+ "require(['System/Application/WebApplication/FrontendWebClient'], function (FrontendWebClient_) {"
+		+ "var client = FrontendWebClient_.FrontendWebClient.toIpAndPort("
 		+ getServerIpInQuotes() + ", "
-		+ getServerPort() + ", "
-		+ "window);"
+		+ getServerPort()
+		+ ");"
 		+ "});\n"
 		+ "</script>\n";
 	}
