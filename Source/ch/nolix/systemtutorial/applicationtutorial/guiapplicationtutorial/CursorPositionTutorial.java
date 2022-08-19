@@ -1,4 +1,4 @@
-package ch.nolix.systemtutorial.applicationtutorial.guiclienttutorial;
+package ch.nolix.systemtutorial.applicationtutorial.guiapplicationtutorial;
 
 //own imports
 import ch.nolix.core.environment.localcomputer.ShellProvider;

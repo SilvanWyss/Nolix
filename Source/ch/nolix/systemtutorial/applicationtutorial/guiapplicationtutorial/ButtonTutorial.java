@@ -1,4 +1,4 @@
-package ch.nolix.systemtutorial.applicationtutorial.guiclienttutorial;
+package ch.nolix.systemtutorial.applicationtutorial.guiapplicationtutorial;
 
 //own imports
 import ch.nolix.core.environment.localcomputer.ShellProvider;
@@ -7,9 +7,10 @@ import ch.nolix.system.application.guiapplication.BackendGUIClientSession;
 import ch.nolix.system.application.guiapplication.FrontendGUIClient;
 import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.main.VoidApplicationContext;
-import ch.nolix.system.gui.widget.DropdownMenu;
+import ch.nolix.system.gui.color.Color;
+import ch.nolix.system.gui.widget.Button;
 
-public final class DropdownMenuTutorial {
+public final class ButtonTutorial {
 	
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
@@ -18,9 +19,9 @@ public final class DropdownMenuTutorial {
 		final var server = Server.forDefaultPort();
 		
 		//Adds a default Application to the Server.
-		server.addDefaultApplication("DropdownMenu tutorial", MainSession.class, VoidApplicationContext.INSTANCE);
+		server.addDefaultApplication("Button tutorial", MainSession.class, VoidApplicationContext.INSTANCE);
 		
-		//Creates a FrontCanvasGUIClient that will connect to the Server.
+		//Creates a FrontGUIClient that will connect to the Server.
 		new FrontendGUIClient();
 		
 		//Starts a web browser that will connect to the Server.
@@ -32,29 +33,35 @@ public final class DropdownMenuTutorial {
 	
 	private static final class MainSession extends BackendGUIClientSession<VoidApplicationContext> {
 		
+		private int counter = 1;
+		
 		@Override
 		protected void initialize() {
+						
+			//Creates a Button.
+			final var button =
+			new Button()
+			.setText("Change background color")
+			.setLeftMouseButtonPressAction(this::changeBackgroundColor);
 			
-			//Creates a DropdownMenu.
-			final var dropdownMenu =
-			new DropdownMenu()
-			.addItem(
-				"Gottfried Wilhelm Leibniz",
-				"Immanuel Kant",
-				"Johann Gottlieb Fichte",
-				"Georg Wilehlm Friedrich Hegel",
-				"Arthur Schopenhauer",
-				"Johann Gottfried Herder",
-				"Karl Marx",
-				"Friedrich Nietzsche",
-				"Ludwig Wittgenstein",
-				"Theodor W. Adorno"
-			);
+			//Adds the Button to the GUI of the current MainSession.
+			getRefGUI().pushLayerWithRootWidget(button);
+		}
+		
+		private void changeBackgroundColor() {
 			
-			//Adds the DropdownMenu to the GUI of the current MainSession.
-			getRefGUI().pushLayerWithRootWidget(dropdownMenu);
+			if (counter % 2 == 0) {
+				getRefGUI().setBackgroundColor(Color.WHITE);
+			} else {
+				getRefGUI().setBackgroundColor(Color.BLUE);
+			}
+						
+			counter++;
 		}
 	}
 	
-	private DropdownMenuTutorial() {}
+	/**
+	 * Prevents that an instance of the {@link ButtonTutorial} can be created.
+	 */
+	private ButtonTutorial() {}
 }

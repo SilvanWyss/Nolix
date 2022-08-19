@@ -1,4 +1,4 @@
-package ch.nolix.systemtutorial.applicationtutorial.guiclienttutorial;
+package ch.nolix.systemtutorial.applicationtutorial.guiapplicationtutorial;
 
 //own imports
 import ch.nolix.core.environment.localcomputer.ShellProvider;
@@ -7,32 +7,25 @@ import ch.nolix.system.application.guiapplication.BackendGUIClientSession;
 import ch.nolix.system.application.guiapplication.FrontendGUIClient;
 import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.main.VoidApplicationContext;
-import ch.nolix.system.gui.widget.Label;
-import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
+import ch.nolix.system.gui.color.Color;
+import ch.nolix.system.gui.color.ColorGradient;
 
-public final class HelloWorldGUIOnCustomPortTutorial {
+public final class BackgroundColorGradientTutorial {
 	
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		
-		//Defines port.
-		final var port = 50000;
-		
 		//Creates a Server.
-		final var server = Server.forPort(port);
+		final var server = Server.forDefaultPort();
 		
 		//Adds a default Application to the Server.
-		server.addDefaultApplication(
-			"Hello World GUI on custom port tutorial",
-			MainSession.class,
-			VoidApplicationContext.INSTANCE
-		);
+		server.addDefaultApplication("Background ColorGradient Tutorial", MainSession.class, VoidApplicationContext.INSTANCE);
 		
 		//Creates a FrontGUIClient that will connect to the Server.
-		new FrontendGUIClient(port);
+		new FrontendGUIClient();
 		
 		//Starts a web browser that will connect to the Server.
-		ShellProvider.startFirefoxOpeningLoopBackAddress(port);
+		ShellProvider.startFirefoxOpeningLoopBackAddress();
 		
 		//Closes the Server as soon as it does not have a client connected any more.
 		GlobalSequencer.asSoonAsNoMore(server::hasClientConnected).runInBackground(server::close);
@@ -43,16 +36,10 @@ public final class HelloWorldGUIOnCustomPortTutorial {
 		@Override
 		protected void initialize() {
 			
-			//Creates Label.
-			final var label = new Label().setText("Hello World");
-			
-			//Configures the style of the Label.
-			label.getRefStyle().setTextSizeForState(ControlState.BASE, 50);
-			
-			//Adds the Label to the GUI of the current MainSession.
-			getRefGUI().pushLayerWithRootWidget(label);
+			//Sets a background ColorGradient to the GUI of the current MainSession.
+			getRefGUI().setBackgroundColorGradient(new ColorGradient(Color.SKY_BLUE, Color.WHITE));
 		}
 	}
 	
-	private HelloWorldGUIOnCustomPortTutorial() {}
+	private BackgroundColorGradientTutorial() {}
 }

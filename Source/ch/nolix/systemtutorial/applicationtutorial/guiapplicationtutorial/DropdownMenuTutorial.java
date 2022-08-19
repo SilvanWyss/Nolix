@@ -1,4 +1,4 @@
-package ch.nolix.systemtutorial.applicationtutorial.guiclienttutorial;
+package ch.nolix.systemtutorial.applicationtutorial.guiapplicationtutorial;
 
 //own imports
 import ch.nolix.core.environment.localcomputer.ShellProvider;
@@ -7,10 +7,9 @@ import ch.nolix.system.application.guiapplication.BackendGUIClientSession;
 import ch.nolix.system.application.guiapplication.FrontendGUIClient;
 import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.main.VoidApplicationContext;
-import ch.nolix.system.gui.color.Color;
-import ch.nolix.system.gui.color.ColorGradient;
+import ch.nolix.system.gui.widget.DropdownMenu;
 
-public final class BackgroundColorGradientTutorial {
+public final class DropdownMenuTutorial {
 	
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
@@ -19,9 +18,9 @@ public final class BackgroundColorGradientTutorial {
 		final var server = Server.forDefaultPort();
 		
 		//Adds a default Application to the Server.
-		server.addDefaultApplication("Background ColorGradient Tutorial", MainSession.class, VoidApplicationContext.INSTANCE);
+		server.addDefaultApplication("DropdownMenu tutorial", MainSession.class, VoidApplicationContext.INSTANCE);
 		
-		//Creates a FrontGUIClient that will connect to the Server.
+		//Creates a FrontCanvasGUIClient that will connect to the Server.
 		new FrontendGUIClient();
 		
 		//Starts a web browser that will connect to the Server.
@@ -36,10 +35,26 @@ public final class BackgroundColorGradientTutorial {
 		@Override
 		protected void initialize() {
 			
-			//Sets a background ColorGradient to the GUI of the current MainSession.
-			getRefGUI().setBackgroundColorGradient(new ColorGradient(Color.SKY_BLUE, Color.WHITE));
+			//Creates a DropdownMenu.
+			final var dropdownMenu =
+			new DropdownMenu()
+			.addItem(
+				"Gottfried Wilhelm Leibniz",
+				"Immanuel Kant",
+				"Johann Gottlieb Fichte",
+				"Georg Wilehlm Friedrich Hegel",
+				"Arthur Schopenhauer",
+				"Johann Gottfried Herder",
+				"Karl Marx",
+				"Friedrich Nietzsche",
+				"Ludwig Wittgenstein",
+				"Theodor W. Adorno"
+			);
+			
+			//Adds the DropdownMenu to the GUI of the current MainSession.
+			getRefGUI().pushLayerWithRootWidget(dropdownMenu);
 		}
 	}
 	
-	private BackgroundColorGradientTutorial() {}
+	private DropdownMenuTutorial() {}
 }

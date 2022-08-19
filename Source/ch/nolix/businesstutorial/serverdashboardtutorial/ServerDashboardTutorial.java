@@ -31,19 +31,19 @@ public final class ServerDashboardTutorial {
 		
 		server.addApplication(
 			"Time",
-			ch.nolix.systemtutorial.applicationtutorial.guiclienttutorial.LabelTutorial.MainSession.class,
+			ch.nolix.systemtutorial.applicationtutorial.guiapplicationtutorial.LabelTutorial.MainSession.class,
 			VoidApplicationContext.INSTANCE
 		);
 		
 		server.addApplication(
 			"CursorPosition",
-			ch.nolix.systemtutorial.applicationtutorial.guiclienttutorial.CursorPositionTutorial.MainSession.class,
+			ch.nolix.systemtutorial.applicationtutorial.guiapplicationtutorial.CursorPositionTutorial.MainSession.class,
 			VoidApplicationContext.INSTANCE
 		);
 		
 		server.addApplication(
 			"Uploader",
-			ch.nolix.systemtutorial.applicationtutorial.guiclienttutorial.UploaderTutorial.MainSession.class,
+			ch.nolix.systemtutorial.applicationtutorial.guiapplicationtutorial.UploaderTutorial.MainSession.class,
 			VoidApplicationContext.INSTANCE
 		);
 		

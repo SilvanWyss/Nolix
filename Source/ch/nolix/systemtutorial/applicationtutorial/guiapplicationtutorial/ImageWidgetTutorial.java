@@ -1,4 +1,4 @@
-package ch.nolix.systemtutorial.applicationtutorial.guiclienttutorial;
+package ch.nolix.systemtutorial.applicationtutorial.guiapplicationtutorial;
 
 //own imports
 import ch.nolix.core.environment.localcomputer.ShellProvider;
@@ -7,17 +7,21 @@ import ch.nolix.system.application.guiapplication.BackendGUIClientSession;
 import ch.nolix.system.application.guiapplication.FrontendGUIClient;
 import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.main.VoidApplicationContext;
+import ch.nolix.system.gui.color.Color;
+import ch.nolix.system.gui.image.MutableImage;
+import ch.nolix.system.gui.widget.ImageWidget;
+import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 
-public final class EmptyGUITutorial {
+public final class ImageWidgetTutorial {
 	
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
-				
+		
 		//Creates a Server.
 		final var server = Server.forDefaultPort();
 		
 		//Adds a default Application to the Server.
-		server.addDefaultApplication("Empty GUI tutorial", MainSession.class, VoidApplicationContext.INSTANCE);
+		server.addDefaultApplication("ImageWidget tutorial", MainSession.class, VoidApplicationContext.INSTANCE);
 		
 		//Creates a FrontGUIClient that will connect to the Server.
 		new FrontendGUIClient();
@@ -33,9 +37,26 @@ public final class EmptyGUITutorial {
 		
 		@Override
 		protected void initialize() {
-			//Does nothing.
+			
+			//Loads an Image.
+			final var image =
+			MutableImage.fromResource(
+				"ch/nolix/systemtutorial/guitutorial/widgettutorial/resource/Singer_Building.jpg"
+			);
+			
+			//Creates an ImageWidget with the Image.
+			final var imageWidget = new ImageWidget().setImage(image);
+			
+			//Configures the style of the ImageWidget.
+			imageWidget.getRefStyle()
+			.setBorderThicknessForState(ControlState.BASE, 5)
+			.setBackgroundColorForState(ControlState.BASE, Color.LAVENDER)
+			.setPaddingForState(ControlState.BASE, 5);
+			
+			//Adds the ImageWidget to the GUI of the current MainSession.
+			getRefGUI().pushLayerWithRootWidget(imageWidget);
 		}
 	}
 	
-	private EmptyGUITutorial() {}
+	private ImageWidgetTutorial() {}
 }

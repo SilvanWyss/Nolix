@@ -1,4 +1,4 @@
-package ch.nolix.systemtutorial.applicationtutorial.guiclienttutorial;
+package ch.nolix.systemtutorial.applicationtutorial.guiapplicationtutorial;
 
 //own imports
 import ch.nolix.core.environment.localcomputer.ShellProvider;
@@ -8,10 +8,10 @@ import ch.nolix.system.application.guiapplication.FrontendGUIClient;
 import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.main.VoidApplicationContext;
 import ch.nolix.system.gui.color.Color;
-import ch.nolix.system.gui.textbox.TextBox;
+import ch.nolix.system.gui.widget.Button;
 import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 
-public final class TextBoxTutorial {
+public final class OpenNewTabTutorial {
 	
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
@@ -20,7 +20,7 @@ public final class TextBoxTutorial {
 		final var server = Server.forDefaultPort();
 		
 		//Adds a default Application to the Server.
-		server.addDefaultApplication("TextBox tutorial", MainSession.class, VoidApplicationContext.INSTANCE);
+		server.addDefaultApplication("Open new tab tutorial", MainSession.class, VoidApplicationContext.INSTANCE);
 		
 		//Creates a FrontGUIClient that will connect to the Server.
 		new FrontendGUIClient();
@@ -37,24 +37,24 @@ public final class TextBoxTutorial {
 		@Override
 		protected void initialize() {
 			
-			//Creates a TextBox.
-			final var textBox = new TextBox();
+			//Creates a Button.
+			final var button =
+			new Button()
+			.setText("www.nolix.ch")
+			.setLeftMouseButtonPressAction(this::openWebsite);
 			
-			//Configures the style of the TextBox.
-			textBox
-			.setProposalWidth(200)
-			.onStyle(
-				l ->
-				l
-				.setBorderThicknessForState(ControlState.BASE, 5)
-				.setBackgroundColorForState(ControlState.BASE, Color.LAVENDER)
-				.setPaddingForState(ControlState.BASE, 5)
-			);
+			//Configures the style of the Button.
+			button.getRefStyle().setTextColorForState(ControlState.BASE, Color.BLUE);
 			
-			//Adds the TextBox to the GUI of the current MainSession.
-			getRefGUI().pushLayerWithRootWidget(textBox);
+			//Adds the Button to the GUI of the current MainSession.
+			getRefGUI().pushLayerWithRootWidget(button);
+		}
+		
+		//method
+		private void openWebsite() {
+			getRefGUI().onFrontEnd().openNewTabWithURL("www.nolix.ch");
 		}
 	}
 	
-	private TextBoxTutorial() {}
+	private OpenNewTabTutorial() {}
 }
