@@ -8,7 +8,7 @@ public final class CommandProtocol {
 	public static final String SET_ICON = "SetIcon";
 	
 	//constant
-	public static final String SET_ROOT_HTML_ELEMENT = "SetRootHTMLElemen";
+	public static final String SET_ROOT_HTML_ELEMENT = "SetRootHTMLElement";
 	
 	//constant
 	public static final String SET_TITLE = "SetTitle";
