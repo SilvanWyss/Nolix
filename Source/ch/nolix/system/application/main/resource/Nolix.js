@@ -3984,7 +3984,7 @@ define("System/Application/GUIApplication/FrontCanvasGUIClient", ["require", "ex
             return lURL;
         }
         static toIpAndPortUsingWindow(ip, port, window) {
-            return new FrontCanvasGUIClient(ip, port, SingleContainer_3.SingleContainer.EMPTY_CONTAINER, window);
+            return new FrontCanvasGUIClient(ip, port, SingleContainer_3.SingleContainer.withoutElement(), window);
         }
         static toIpAndPortAndApplicationUsingWindow(ip, port, application, window) {
             return new FrontCanvasGUIClient(ip, port, SingleContainer_3.SingleContainer.withElement(application), window);
@@ -4070,6 +4070,143 @@ define("System/Application/GUIApplication/FrontCanvasGUIClient", ["require", "ex
         }
     }
     exports.FrontCanvasGUIClient = FrontCanvasGUIClient;
+});
+define("System/Application/WebApplicationProtocol/CommandProtocol", ["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    class CommandProtocol {
+    }
+    CommandProtocol.SET_ICON = 'SetIcon';
+    CommandProtocol.SET_ROOT_HTML_ELEMENT = 'SetRootHTMLElement';
+    CommandProtocol.SET_TITLE = 'SetTitle';
+    exports.CommandProtocol = CommandProtocol;
+});
+define("SystemAPI/FrontendWebGUIAPI/IFrontendWebGUI", ["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+});
+define("System/FrontendWebGUI/FrontendWebGUI", ["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    class FrontendWebGUI {
+        static withWindow(window) {
+            return new FrontendWebGUI(window);
+        }
+        constructor(window) {
+            if (window === null) {
+                throw new Error('The given window is null.');
+            }
+            if (window === undefined) {
+                throw new Error('The given window is undefined.');
+            }
+            this.window = window;
+            this.rootElement = this.getRefRootElement();
+        }
+        getIcon() {
+            return this.icon;
+        }
+        getTitle() {
+            return this.title;
+        }
+        setIcon(icon) {
+            if (icon === null) {
+                throw new Error('The given icon is null.');
+            }
+            if (icon === undefined) {
+                throw new Error('The given icon is undefined.');
+            }
+            const iconHTMLElement = this.window.document.getElementById('icon');
+            iconHTMLElement.href = icon.toCanvas().toDataURL('image/png');
+        }
+        setRootHTMLElementFromString(rootHTMLElementAsString) {
+            this.rootElement.innerHTML = rootHTMLElementAsString;
+        }
+        setTitle(title) {
+            if (title === null) {
+                throw new Error('The given title is null.');
+            }
+            if (title === undefined) {
+                throw new Error('The given title is undefined.');
+            }
+            if (title.length == 0) {
+                throw new Error('The given title is empty.');
+            }
+            this.title = title;
+            this.window.document.title = this.title;
+        }
+        getRefRootElement() {
+            var rootElement = this.window.document.getElementById('rootElement');
+            if (rootElement === null) {
+                rootElement = this.window.document.createElement('div');
+                rootElement.id = 'rootElement';
+                this.window.document.body.appendChild(rootElement);
+            }
+            return rootElement;
+        }
+    }
+    exports.FrontendWebGUI = FrontendWebGUI;
+});
+define("System/Application/WebApplication/FrontendWebClientGUIManager", ["require", "exports", "System/Application/WebApplicationProtocol/CommandProtocol", "System/FrontendWebGUI/FrontendWebGUI", "System/GUI/Graphic/Image"], function (require, exports, CommandProtocol_1, FrontendWebGUI_1, Image_2) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    class FrontendWebClientGUIManager {
+        constructor() {
+            this.mFrontendWebGUI = FrontendWebGUI_1.FrontendWebGUI.withWindow(window);
+        }
+        runGUICommand(pGUICommand) {
+            switch (pGUICommand.getHeader()) {
+                case CommandProtocol_1.CommandProtocol.SET_TITLE:
+                    this.mFrontendWebGUI.setTitle(pGUICommand.getOneAttribute().getHeader());
+                    break;
+                case CommandProtocol_1.CommandProtocol.SET_ICON:
+                    const icon = Image_2.Image.fromSpecification(pGUICommand.getOneAttributeAsNode());
+                    this.mFrontendWebGUI.setIcon(icon);
+                    break;
+                case CommandProtocol_1.CommandProtocol.SET_ROOT_HTML_ELEMENT:
+                    this.mFrontendWebGUI.setRootHTMLElementFromString(pGUICommand.getOneAttribute().getHeader());
+                    break;
+                default:
+                    throw new Error('The given \'' + pGUICommand + '\' is not valid.');
+            }
+        }
+    }
+    exports.FrontendWebClientGUIManager = FrontendWebClientGUIManager;
+});
+define("System/Application/WebApplicationProtocol/ObjectProtocol", ["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    class ObjectProtocol {
+    }
+    ObjectProtocol.GUI = 'GUI';
+    exports.ObjectProtocol = ObjectProtocol;
+});
+define("System/Application/WebApplication/FrontendWebClient", ["require", "exports", "System/Application/WebApplication/FrontendWebClientGUIManager", "Core/Net/EndPoint5/NetEndPoint5", "System/Application/WebApplicationProtocol/ObjectProtocol", "System/Application/GUIApplication/ReceiverController", "Core/Container/SingleContainer"], function (require, exports, FrontendWebClientGUIManager_1, NetEndPoint5_2, ObjectProtocol_1, ReceiverController_2, SingleContainer_4) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    class FrontendWebClient {
+        constructor(ip, port, optionalTarget) {
+            this.mGUIManager = new FrontendWebClientGUIManager_1.FrontendWebClientGUIManager();
+            this.endPoint = new NetEndPoint5_2.NetEndPoint5(ip, port, optionalTarget);
+            this.endPoint.setReceiverController(new ReceiverController_2.ReceiverController(c => this.run(c), r => this.getData(r)));
+        }
+        static toIpAndPort(ip, port) {
+            return new FrontendWebClient(ip, port, SingleContainer_4.SingleContainer.withoutElement());
+        }
+        getData(request) {
+            throw new Error('The given request \'' + request + '\' not valid.');
+        }
+        run(command) {
+            console.log('The current FrontendWebClient runs the command: \'' + command + '\'');
+            switch (command.getHeader()) {
+                case ObjectProtocol_1.ObjectProtocol.GUI:
+                    this.mGUIManager.runGUICommand(command.getNextNode());
+                    break;
+                default:
+                    throw new Error('The given command \'' + command + '\' is not valid.');
+            }
+        }
+    }
+    exports.FrontendWebClient = FrontendWebClient;
 });
 define("System/GUI/StructureProperty/DirectionInRectangleMapper", ["require", "exports", "SystemAPI/GUIAPI/StructureProperty/DirectionInRectangle"], function (require, exports, DirectionInRectangle_3) {
     "use strict";
