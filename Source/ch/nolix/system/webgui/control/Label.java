@@ -4,8 +4,6 @@ package ch.nolix.system.webgui.control;
 //own imports
 import ch.nolix.core.commontype.constant.StringCatalogue;
 import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.document.html.HTMLAttribute;
-import ch.nolix.core.document.html.HTMLAttributeNameCatalogue;
 import ch.nolix.core.document.html.HTMLElement;
 import ch.nolix.core.document.html.HTMLElementTypeCatalogue;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -118,14 +116,9 @@ public final class Label extends Control<Label, LabelStyle> implements ILabel<La
 	@Override
 	public IHTMLElement<?, ?> toHTMLElement() {
 		return
-		HTMLElement.withTypeAndAttributes(
+		HTMLElement.withTypeAndInnerText(
 			HTMLElementTypeCatalogue.DIV,
-			ImmutableList.withElements(
-				HTMLAttribute.withNameAndValue(
-					HTMLAttributeNameCatalogue.INNER_TEXT,
-					getText()
-				)
-			)
+			getText()
 		);
 	}
 	
