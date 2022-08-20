@@ -8,7 +8,7 @@ public final class HTMLAttributeNameCatalogue {
 	public static final String INNER_TEXT = "innerText";
 	
 	//constant
-	public static final String Z_INDEX = "z-index";
+	public static final String STYLE = "style";
 	
 	//constructor
 	private HTMLAttributeNameCatalogue() {}

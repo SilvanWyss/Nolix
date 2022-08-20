@@ -22,7 +22,7 @@ public final class LayerHTMLHelper {
 	private LayerHTMLHelper() {}
 	
 	public IContainer<IHTMLAttribute> getHTMLAttributesOfLayer(final ILayer<?> layer) {
-		return ImmutableList.withElements(getZIndexHTMLAttributeOfLayer(layer));
+		return ImmutableList.withElements(getStyleHTMLAttributeOfLayer(layer));
 	}
 	
 	//method
@@ -56,11 +56,11 @@ public final class LayerHTMLHelper {
 	}
 	
 	//method
-	public IHTMLAttribute getZIndexHTMLAttributeOfLayer(final ILayer<?> layer) {
+	public IHTMLAttribute getStyleHTMLAttributeOfLayer(ILayer<?> layer) {
 		return
 		HTMLAttribute.withNameAndValue(
-			HTMLAttributeNameCatalogue.Z_INDEX,
-			String.valueOf(getHTMLZIndexOfLayer(layer))
+			HTMLAttributeNameCatalogue.STYLE,
+			"position: absolute; z-index: " + getHTMLZIndexOfLayer(layer)
 		);
 	}
 }
