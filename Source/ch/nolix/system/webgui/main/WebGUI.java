@@ -103,6 +103,9 @@ public final class WebGUI extends StyleElement<WebGUI> implements IWebGUI<WebGUI
 	
 	//constructor
 	public WebGUI() {
+		
+		reset();
+		
 		setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
 	}
 	
