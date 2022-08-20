@@ -14,6 +14,9 @@ public interface IHTMLElement<CE extends IHTMLElement<CE, A>, A extends IHTMLAtt
 	boolean containsChildElements();
 	
 	//method declaration
+	String getInnerText();
+	
+	//method declaration
 	IContainer<A> getRefAttributes();
 	
 	//method declaration

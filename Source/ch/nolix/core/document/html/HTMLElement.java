@@ -2,6 +2,7 @@
 package ch.nolix.core.document.html;
 
 //own imports
+import ch.nolix.core.commontype.constant.StringCatalogue;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
@@ -32,7 +33,7 @@ public final class HTMLElement implements IHTMLElement<HTMLElement, HTMLAttribut
 		final String type,
 		final IContainer<? extends IHTMLAttribute> attributes
 	) {
-		return new HTMLElement(type, attributes, new ImmutableList<>());
+		return new HTMLElement(type, attributes, StringCatalogue.EMPTY_STRING, new ImmutableList<>());
 	}
 	
 	//static method
@@ -41,7 +42,16 @@ public final class HTMLElement implements IHTMLElement<HTMLElement, HTMLAttribut
 		final IContainer<? extends IHTMLAttribute> attributes,
 		final IContainer<? extends IHTMLElement<?, ?>> childElements
 	) {
-		return new HTMLElement(type, attributes, childElements);
+		return new HTMLElement(type, attributes, StringCatalogue.EMPTY_STRING, childElements);
+	}
+	
+	//static method
+	public static HTMLElement withTypeAndAttributesAndInnerText(
+		final String type,
+		final IContainer<? extends IHTMLAttribute> attributes,
+		final String innerText
+	) {
+		return new HTMLElement(type, attributes, innerText, new ImmutableList<>());
 	}
 	
 	//static method
@@ -49,11 +59,19 @@ public final class HTMLElement implements IHTMLElement<HTMLElement, HTMLAttribut
 		final String type,
 		final IContainer<? extends IHTMLElement<?, ?>> childElements
 	) {
-		return new HTMLElement(type, new ImmutableList<>(), childElements);
+		return new HTMLElement(type, new ImmutableList<>(), StringCatalogue.EMPTY_STRING, childElements);
+	}
+	
+	//static method
+	public static HTMLElement withTypeAndInnerText(final String type, final String innerText) {
+		return new HTMLElement(type, new ImmutableList<>(), innerText, new ImmutableList<>());
 	}
 	
 	//attribute
 	private final String type;
+	
+	//attribute
+	private final String innerText;
 	
 	//multi-attribute
 	private final IContainer<HTMLAttribute> attributes;
@@ -65,14 +83,17 @@ public final class HTMLElement implements IHTMLElement<HTMLElement, HTMLAttribut
 	private HTMLElement(
 		final String type,
 		final IContainer<? extends IHTMLAttribute> attributes,
+		final String innerText,
 		final IContainer<? extends IHTMLElement<?, ?>> childElements
 	) {
 		
 		GlobalValidator.assertThat(type).thatIsNamed(LowerCaseCatalogue.TYPE).isNotBlank();
+		GlobalValidator.assertThat(innerText).thatIsNamed("inner text").isNotNull();
 		
 		this.type = type;
-		this.childElements = childElements.to(HTMLElement::fromHTMLElement);
 		this.attributes = attributes.to(HTMLAttribute::fromHTMLAttribute);
+		this.innerText = innerText;
+		this.childElements = childElements.to(HTMLElement::fromHTMLElement);
 	}
 	
 	//method
@@ -85,6 +106,12 @@ public final class HTMLElement implements IHTMLElement<HTMLElement, HTMLAttribut
 	@Override
 	public boolean containsChildElements() {
 		return getRefChildElements().containsAny();
+	}
+	
+	//method
+	@Override
+	public String getInnerText() {
+		return innerText;
 	}
 	
 	//method
@@ -130,7 +157,25 @@ public final class HTMLElement implements IHTMLElement<HTMLElement, HTMLAttribut
 	private String toStringWhenContainsChildElements() {
 		
 		if (!containsAttributes()) {
-			return "<" + getType() + ">" + getChildElementsAsString() + "</" + getType() +">";
+			
+			if (getInnerText().isEmpty()) {
+				return "<" + getType() + ">" + getChildElementsAsString() + "</" + getType() +">";
+			}
+			
+			return "<" + getType() + ">" + getInnerText() + getChildElementsAsString() + "</" + getType() +">";
+		}
+		
+		if (getInnerText().isEmpty()) {
+			return
+			"<"
+			+ getType()
+			+ " "
+			+ getAttributesAsString()
+			+ ">"
+			+ getChildElementsAsString()
+			+ "</"
+			+ getType()
+			+">";
 		}
 		
 		return
@@ -139,6 +184,7 @@ public final class HTMLElement implements IHTMLElement<HTMLElement, HTMLAttribut
 		+ " "
 		+ getAttributesAsString()
 		+ ">"
+		+ getInnerText()
 		+ getChildElementsAsString()
 		+ "</"
 		+ getType()
@@ -149,9 +195,18 @@ public final class HTMLElement implements IHTMLElement<HTMLElement, HTMLAttribut
 	private String toStringWhenDoesNotContainChildElements() {
 		
 		if (!containsAttributes()) {
-			return ("<" + getType() + " />");
+			
+			if (getInnerText().isEmpty()) {
+				return ("<" + getType() + " />");
+			}
+			
+			return ("<" + getType() + ">" + getInnerText() + "</" + getType() + ">");
 		}
 		
-		return ("<" + getType() + " " + getAttributesAsString() + "/>");
+		if (getInnerText().isEmpty()) {
+			return ("<" + getType() + " " + getAttributesAsString() + "/>");
+		}
+		
+		return ("<" + getType() + " " + getAttributesAsString() + ">" + getInnerText() + "</" + getType() + ">");
 	}
 }
