@@ -5,9 +5,6 @@ package ch.nolix.core.document.html;
 public final class HTMLAttributeNameCatalogue {
 	
 	//constant
-	public static final String INNER_TEXT = "innerText";
-	
-	//constant
 	public static final String STYLE = "style";
 	
 	//constructor
