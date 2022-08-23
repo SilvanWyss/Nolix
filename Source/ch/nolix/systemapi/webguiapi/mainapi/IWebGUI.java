@@ -25,6 +25,9 @@ extends Clearable, ICanvas<WGUI>, IGUI<WGUI>, IStyleElement<WGUI> {
 	IImage getIcon();
 	
 	//method declaration
+	IControl<?, ?> getRefControlByFixedId(String fixedId);
+	
+	//method declaration
 	IContainer<ILayer<?>> getRefLayers();
 	
 	//method declaration

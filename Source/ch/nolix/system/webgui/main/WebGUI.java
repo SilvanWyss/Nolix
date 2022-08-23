@@ -173,7 +173,15 @@ public final class WebGUI extends StyleElement<WebGUI> implements IWebGUI<WebGUI
 	public IContainer<? extends IStylableElement<?>> getRefChildStylableElements() {
 		return getRefLayers();
 	}
-
+	
+	//method
+	@Override
+	public IControl<?, ?> getRefControlByFixedId(final String fixedId) {
+		
+		//TODO: Implement.
+		return null;
+	}
+	
 	//method
 	@Override
 	public IContainer<ILayer<?>> getRefLayers() {
