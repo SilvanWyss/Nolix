@@ -13,6 +13,11 @@ public abstract class BackendWebClientSession<AC> extends BaseBackendWebClientSe
 	private final IWebGUI<?> webGUI = new WebGUI();
 	
 	//method
+	public final IWebGUI<?> getRefGUI() {
+		return webGUI;
+	}
+	
+	//method
 	@Override
 	protected final void fullInitialize() {
 		
@@ -21,11 +26,6 @@ public abstract class BackendWebClientSession<AC> extends BaseBackendWebClientSe
 		.setFrontEndReaderAndFrontEndWriter(createFrontendReader(), createFrontendWriter());
 		
 		initialize();
-	}
-	
-	//method
-	protected final IWebGUI<?> getRefGUI() {
-		return webGUI;
 	}
 	
 	//method declaration
