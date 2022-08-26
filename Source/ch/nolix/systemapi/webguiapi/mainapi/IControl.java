@@ -2,6 +2,7 @@
 package ch.nolix.systemapi.webguiapi.mainapi;
 
 //own imports
+import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.documentapi.htmlapi.HTMLElementTransformable;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 import ch.nolix.systemapi.guiapi.inputapi.IInputTaker;
@@ -26,6 +27,9 @@ extends HTMLElementTransformable, IStylableElement<C>, IInputTaker {
 	
 	//method declaration
 	String getFixedId();
+	
+	//method declaration
+	IContainer<IControl<?, ?>> getRefChildControls();
 	
 	//method declaration
 	IWebGUI<?> getRefParentGUI();

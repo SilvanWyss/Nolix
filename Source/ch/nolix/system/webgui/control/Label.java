@@ -13,9 +13,9 @@ import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.documentapi.htmlapi.IHTMLElement;
 import ch.nolix.system.element.mutableelement.MutableValue;
 import ch.nolix.system.webgui.main.Control;
-import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.webguiapi.controlapi.ILabel;
+import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //class
 public final class Label extends Control<Label, LabelStyle> implements ILabel<Label, LabelStyle> {
@@ -31,7 +31,7 @@ public final class Label extends Control<Label, LabelStyle> implements ILabel<La
 	
 	//method
 	@Override
-	public IContainer<? extends IStylableElement<?>> getRefChildStylableElements() {
+	public IContainer<IControl<?, ?>> getRefChildControls() {
 		return new ImmutableList<>();
 	}
 	

@@ -17,10 +17,10 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 import ch.nolix.system.element.mutableelement.MutableValue;
 import ch.nolix.system.webgui.main.Control;
-import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 import ch.nolix.systemapi.guiapi.controlrole.ButtonRole;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.webguiapi.controlapi.IButton;
+import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //class
 public final class Button extends Control<Button, ButtonStyle> implements IButton<Button, ButtonStyle> {
@@ -54,7 +54,7 @@ public final class Button extends Control<Button, ButtonStyle> implements IButto
 	
 	//method
 	@Override
-	public IContainer<? extends IStylableElement<?>> getRefChildStylableElements() {
+	public IContainer<IControl<?, ?>> getRefChildControls() {
 		return new ImmutableList<>();
 	}
 	

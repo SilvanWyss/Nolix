@@ -19,8 +19,5 @@ extends ch.nolix.systemapi.webguiapi.containerapi.IContainer<LC, LCL> {
 	LC addControls(IContainer<? extends IControl<?, ?>> controls);
 	
 	//method declaration
-	IContainer<IControl<?, ?>> getRefChildControls();
-	
-	//method declaration
 	void removeControl(IControl<?, ?> control);
 }

@@ -6,7 +6,6 @@ import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.system.element.mutableelement.MultiValue;
 import ch.nolix.system.webgui.container.Container;
 import ch.nolix.system.webgui.main.GlobalControlFactory;
-import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 import ch.nolix.systemapi.webguiapi.linearcontainerapi.ILinearContainer;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
@@ -58,12 +57,6 @@ implements ILinearContainer<LinearContainer, LinearContainerStyle> {
 	@Override
 	public final IContainer<IControl<?, ?>> getRefChildControls() {
 		return childControls.getRefValues();
-	}
-	
-	//method
-	@Override
-	public final IContainer<? extends IStylableElement<?>> getRefChildStylableElements() {
-		return getRefChildControls();
 	}
 	
 	//method
