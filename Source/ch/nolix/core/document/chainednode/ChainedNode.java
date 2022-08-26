@@ -6,6 +6,7 @@ import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.commontype.constant.CharacterCatalogue;
 import ch.nolix.core.commontype.constant.StringCatalogue;
 import ch.nolix.core.container.main.LinkedList;
+import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -275,6 +276,35 @@ public final class ChainedNode implements IChainedNode {
 		
 		final var chainedNode = new ChainedNode();
 		chainedNode.setHeader(header);
+		chainedNode.setNextNode(nextNode);
+		
+		return chainedNode;
+	}
+	
+	//static method
+	/**
+	 * @param header
+	 * @param nextNode
+	 * @param childNodes
+	 * @return a new {@link ChainedNode} with the given header and nextNode.
+	 * @throws ArgumentIsNullException if the given header is null.
+	 * @throws InvalidArgumentException if the given header is blank.
+	 * @throws ArgumentIsNullException if the given nextNode is null.
+	 * @throws ArgumentIsNullException if one of the given childNodes is null.
+	 */
+	public static ChainedNode withHeaderAndNextNodeAndChildNodes(
+		final String header,
+		ChainedNode nextNode,
+		final IChainedNode... childNodes
+	) {
+		
+		final var chainedNode = new ChainedNode();
+		
+		chainedNode.setHeader(header);
+		
+		//TODO: Overload addChildNode method.
+		chainedNode.addChildNodes(ReadContainer.forArray(childNodes));
+		
 		chainedNode.setNextNode(nextNode);
 		
 		return chainedNode;
