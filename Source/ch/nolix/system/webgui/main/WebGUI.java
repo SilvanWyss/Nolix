@@ -4,6 +4,7 @@ package ch.nolix.system.webgui.main;
 //own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.document.node.Node;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
@@ -178,8 +179,19 @@ public final class WebGUI extends StyleElement<WebGUI> implements IWebGUI<WebGUI
 	@Override
 	public IControl<?, ?> getRefControlByFixedId(final String fixedId) {
 		
-		//TODO: Implement.
-		return null;
+		for (final var l : getRefLayers()) {
+			for (final var c : l.getRefControls()) {
+				if (c.hasFixedId(fixedId)) {
+					return c;
+				}
+			}
+		}
+		
+		throw
+		InvalidArgumentException.forArgumentAndErrorPredicate(
+			this,
+			"does not contain a control with the given fixed id '" + fixedId + "'"
+		);
 	}
 	
 	//method
