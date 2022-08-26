@@ -103,6 +103,12 @@ implements IControl<C, CS> {
 	
 	//method
 	@Override
+	public final boolean hasFixedId(final String fixedId) {
+		return getFixedId().equals(fixedId);
+	}
+	
+	//method
+	@Override
 	public final C setCursorIcon(final CursorIcon cursorIcon) {
 		
 		this.cursorIcon.setValue(cursorIcon);

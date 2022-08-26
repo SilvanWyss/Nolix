@@ -2,6 +2,7 @@
 package ch.nolix.systemapi.webguiapi.mainapi;
 
 //own imports
+import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.FixedIdentified;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.documentapi.htmlapi.HTMLElementTransformable;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
@@ -14,7 +15,7 @@ public interface IControl<
 	C extends IControl<C, CL>,
 	CL extends IControlStyle<CL>
 >
-extends HTMLElementTransformable, IStylableElement<C>, IInputTaker {
+extends FixedIdentified, HTMLElementTransformable, IStylableElement<C>, IInputTaker {
 	
 	//method declaration
 	boolean belongsToGUI();
@@ -24,9 +25,6 @@ extends HTMLElementTransformable, IStylableElement<C>, IInputTaker {
 	
 	//method declaration
 	CursorIcon getCursorIcon();
-	
-	//method declaration
-	String getFixedId();
 	
 	//method declaration
 	IContainer<IControl<?, ?>> getRefChildControls();
