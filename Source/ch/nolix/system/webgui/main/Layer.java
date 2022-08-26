@@ -2,6 +2,7 @@
 package ch.nolix.system.webgui.main;
 
 //own imports
+import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
@@ -124,6 +125,17 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	@Override
 	public BackgroundType getBackgroundType() {
 		return getBackground().getType();
+	}
+	
+	//method
+	@Override
+	public IContainer<IControl<?, ?>> getRefControls() {
+		
+		if (isEmpty()) {
+			return getRefControlsWhenIsEmpty();
+		}
+		
+		return getRefControlsWhenIsNotEmpty();
 	}
 	
 	//method
@@ -336,5 +348,32 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	//method
 	private void clearWhenIsNotEmpty() {
 		rootControl.clear();
+	}
+	
+	//method
+	private void fillUpChildControlsOfControlIntoListRecursively(
+		final IControl<?, ?> control,
+		final LinkedList<IControl<?, ?>> list
+	) {
+		
+		final var childControls = control.getRefChildControls();
+		
+		list.addAtEnd(childControls);
+		childControls.forEach(cc -> fillUpChildControlsOfControlIntoListRecursively(cc, list));
+	}
+	
+	//method
+	private IContainer<IControl<?, ?>> getRefControlsWhenIsEmpty() {
+		return new ImmutableList<>();
+	}
+	
+	//method
+	private IContainer<IControl<?, ?>> getRefControlsWhenIsNotEmpty() {
+		
+		final var controls = new LinkedList<IControl<?, ?>>();
+		controls.addAtEnd(getRefRootControl());
+		fillUpChildControlsOfControlIntoListRecursively(getRefRootControl(), controls);
+		
+		return controls;
 	}
 }
