@@ -75,7 +75,7 @@ final class ControlParent {
 			return layer;
 		}
 		
-		return control.getParentLayer();
+		return control.getRefParentLayer();
 	}
 	
 	//method

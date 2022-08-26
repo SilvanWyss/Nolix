@@ -28,10 +28,10 @@ extends HTMLElementTransformable, IStylableElement<C>, IInputTaker {
 	String getFixedId();
 	
 	//method declaration
-	IWebGUI<?> getParentGUI();
+	IWebGUI<?> getRefParentGUI();
 	
 	//method declaration
-	ILayer<?> getParentLayer();
+	ILayer<?> getRefParentLayer();
 	
 	//method declaration
 	CL getRefStyle();

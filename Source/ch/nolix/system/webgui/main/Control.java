@@ -54,7 +54,7 @@ implements IControl<C, CS> {
 	//method
 	@Override
 	public final boolean belongsToGUI() {
-		return (belongsToLayer() && getParentLayer().belongsToGUI());
+		return (belongsToLayer() && getRefParentLayer().belongsToGUI());
 	}
 	
 	//method
@@ -77,13 +77,13 @@ implements IControl<C, CS> {
 	
 	//method
 	@Override
-	public final IWebGUI<?> getParentGUI() {
-		return getParentLayer().getRefParentGUI();
+	public final IWebGUI<?> getRefParentGUI() {
+		return getRefParentLayer().getRefParentGUI();
 	}
 	
 	//method
 	@Override
-	public final ILayer<?> getParentLayer() {
+	public final ILayer<?> getRefParentLayer() {
 		return getRefParent().getRefRootLayer();
 	}
 	
