@@ -4085,20 +4085,27 @@ define("SystemAPI/FrontendWebGUIAPI/IFrontendWebGUI", ["require", "exports"], fu
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
 });
-define("System/FrontendWebGUI/FrontendWebGUI", ["require", "exports"], function (require, exports) {
+define("System/FrontendWebGUI/FrontendWebGUI", ["require", "exports", "Core/Document/ChainedNode/ChainedNode"], function (require, exports, ChainedNode_3) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class FrontendWebGUI {
-        static withWindow(window) {
-            return new FrontendWebGUI(window);
+        static withEventTakerAndWindow(eventTaker, window) {
+            return new FrontendWebGUI(eventTaker, window);
         }
-        constructor(window) {
+        constructor(eventTaker, window) {
+            if (eventTaker === null) {
+                throw new Error('The given event taker is null.');
+            }
+            if (eventTaker === undefined) {
+                throw new Error('The given event taker is undefined.');
+            }
             if (window === null) {
                 throw new Error('The given window is null.');
             }
             if (window === undefined) {
                 throw new Error('The given window is undefined.');
             }
+            this.eventTaker = eventTaker;
             this.window = window;
             this.rootElement = this.getRefRootElement();
         }
@@ -4120,6 +4127,7 @@ define("System/FrontendWebGUI/FrontendWebGUI", ["require", "exports"], function 
         }
         setRootHTMLElementFromString(rootHTMLElementAsString) {
             this.rootElement.innerHTML = rootHTMLElementAsString;
+            this.setupActionsOfElement(this.rootElement);
         }
         setTitle(title) {
             if (title === null) {
@@ -4134,6 +4142,12 @@ define("System/FrontendWebGUI/FrontendWebGUI", ["require", "exports"], function 
             this.title = title;
             this.window.document.title = this.title;
         }
+        createCommandFromString(string) {
+            const parts = string.split('_');
+            const controlCommand = parts[0];
+            const controlId = parts[1];
+            return ChainedNode_3.ChainedNode.fromString('GUI.ControlByFixedId(' + controlId + ').' + controlCommand);
+        }
         getRefRootElement() {
             var rootElement = this.window.document.getElementById('rootElement');
             if (rootElement === null) {
@@ -4143,6 +4157,21 @@ define("System/FrontendWebGUI/FrontendWebGUI", ["require", "exports"], function 
             }
             return rootElement;
         }
+        setupActionsOfElement(element) {
+            for (const c of element.children) {
+                if (c instanceof HTMLElement) {
+                    if (c.onclick !== null) {
+                        const onclickAttribute = c.getAttribute('onclick');
+                        const command = this.createCommandFromString(onclickAttribute);
+                        c.onclick = () => this.takeEvent(command);
+                    }
+                }
+                this.setupActionsOfElement(c);
+            }
+        }
+        takeEvent(command) {
+            this.eventTaker(command);
+        }
     }
     exports.FrontendWebGUI = FrontendWebGUI;
 });
@@ -4150,8 +4179,11 @@ define("System/Application/WebApplication/FrontendWebClientGUIManager", ["requir
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class FrontendWebClientGUIManager {
-        constructor() {
-            this.mFrontendWebGUI = FrontendWebGUI_1.FrontendWebGUI.withWindow(window);
+        static withEventTaker(eventTaker) {
+            return new FrontendWebClientGUIManager(eventTaker);
+        }
+        constructor(eventTaker) {
+            this.mFrontendWebGUI = FrontendWebGUI_1.FrontendWebGUI.withEventTakerAndWindow(eventTaker, window);
         }
         runGUICommand(pGUICommand) {
             switch (pGUICommand.getHeader()) {
@@ -4184,19 +4216,18 @@ define("System/Application/WebApplication/FrontendWebClient", ["require", "expor
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class FrontendWebClient {
-        constructor(ip, port, optionalTarget) {
-            this.mGUIManager = new FrontendWebClientGUIManager_1.FrontendWebClientGUIManager();
-            this.endPoint = new NetEndPoint5_2.NetEndPoint5(ip, port, optionalTarget);
-            this.endPoint.setReceiverController(new ReceiverController_2.ReceiverController(c => this.run(c), r => this.getData(r)));
-        }
         static toIpAndPort(ip, port) {
             return new FrontendWebClient(ip, port, SingleContainer_4.SingleContainer.withoutElement());
+        }
+        constructor(ip, port, optionalTarget) {
+            this.mGUIManager = FrontendWebClientGUIManager_1.FrontendWebClientGUIManager.withEventTaker((command) => this.takeEvent(command));
+            this.endPoint = new NetEndPoint5_2.NetEndPoint5(ip, port, optionalTarget);
+            this.endPoint.setReceiverController(new ReceiverController_2.ReceiverController(c => this.run(c), r => this.getData(r)));
         }
         getData(request) {
             throw new Error('The given request \'' + request + '\' not valid.');
         }
         run(command) {
-            console.log('The current FrontendWebClient runs the command: \'' + command + '\'');
             switch (command.getHeader()) {
                 case ObjectProtocol_1.ObjectProtocol.GUI:
                     this.mGUIManager.runGUICommand(command.getNextNode());
@@ -4204,6 +4235,9 @@ define("System/Application/WebApplication/FrontendWebClient", ["require", "expor
                 default:
                     throw new Error('The given command \'' + command + '\' is not valid.');
             }
+        }
+        takeEvent(command) {
+            this.endPoint.run(command);
         }
     }
     exports.FrontendWebClient = FrontendWebClient;
