@@ -167,7 +167,7 @@ public final class Button extends Control<Button, ButtonStyle> implements IButto
 		.thatIsNamed("left mouse button press action")
 		.isNotNull();
 		
-		return setLeftMouseButtonPressAction(b -> noteLeftMouseButtonPress());
+		return setLeftMouseButtonPressAction(b -> leftMouseButtonPressAction.run());
 	}
 	
 	//method
@@ -193,7 +193,7 @@ public final class Button extends Control<Button, ButtonStyle> implements IButto
 		.thatIsNamed("left mouse button release action")
 		.isNotNull();
 		
-		return setLeftMouseButtonRelaseAction(b -> noteLeftMouseButtonRelease());
+		return setLeftMouseButtonRelaseAction(b -> leftMouseButtonReleaseAction.run());
 	}
 	
 	//method
@@ -239,7 +239,7 @@ public final class Button extends Control<Button, ButtonStyle> implements IButto
 					"onclick",
 					
 					//TODO: Create ControlCommandCreator.
-					"GUI.ControlByFixedId(" + getFixedId() + ").NoteLeftMouseButtonPress"
+					"NoteLeftMouseButtonPress_" + getFixedId()
 				)
 			),
 			getText()
