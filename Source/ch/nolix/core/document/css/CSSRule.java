@@ -17,6 +17,14 @@ public final class CSSRule implements ICSSRule<HTMLAttribute> {
 	}
 	
 	//static method
+	public static CSSRule withSelectorAndAttributes(
+		final String selector,
+		final IContainer<? extends IHTMLAttribute> attributes
+	) {
+		return new CSSRule(ImmutableList.withElements(selector), attributes);
+	}
+	
+	//static method
 	public static CSSRule withSelectorsAndAttributes(
 		final IContainer<String> selectors,
 		final IContainer<? extends IHTMLAttribute> attributes
