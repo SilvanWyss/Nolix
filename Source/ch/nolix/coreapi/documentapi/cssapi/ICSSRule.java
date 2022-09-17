@@ -3,13 +3,12 @@ package ch.nolix.coreapi.documentapi.cssapi;
 
 //own imports
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
-import ch.nolix.coreapi.documentapi.htmlapi.IHTMLAttribute;
 
 //interface
-public interface ICSSRule<A extends IHTMLAttribute> {
+public interface ICSSRule<P extends ICSSProperty> {
 	
 	//method declaration
-	IContainer<A> getRefAttributes();
+	IContainer<P> getRefProperties();
 	
 	//method declaration
 	IContainer<String> getSelectors();

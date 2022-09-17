@@ -2,13 +2,12 @@
 package ch.nolix.core.document.css;
 
 //own imports
-import ch.nolix.core.document.html.HTMLAttribute;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.documentapi.cssapi.ICSS;
 import ch.nolix.coreapi.documentapi.cssapi.ICSSRule;
 
 //class
-public final class CSS implements ICSS<CSSRule, HTMLAttribute> {
+public final class CSS implements ICSS<CSSRule, CSSProperty> {
 	
 	//static method
 	public static CSS withRules(final IContainer<ICSSRule<?>> rules) {
