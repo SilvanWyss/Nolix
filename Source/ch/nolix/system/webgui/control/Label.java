@@ -28,13 +28,15 @@ public final class Label extends Control<Label, LabelStyle> implements ILabel<La
 	private static final String TEXT_HEADER = PascalCaseCatalogue.TEXT;
 	
 	//attribute
-	private MutableValue<String> text = MutableValue.forString(TEXT_HEADER, DEFAULT_TEXT, this::setText);
+	private final MutableValue<String> text = MutableValue.forString(TEXT_HEADER, DEFAULT_TEXT, this::setText);
+	
+	//attribute
+	private final LabelCSSRuleCreator mCSSRuleCreator = LabelCSSRuleCreator.forLabel(this);
 	
 	//method
 	@Override
 	public IControlCSSRuleCreator<Label, LabelStyle> getCSSRuleCreator() {
-		//TODO: Implement.
-		return null;
+		return mCSSRuleCreator;
 	}
 	
 	//method
