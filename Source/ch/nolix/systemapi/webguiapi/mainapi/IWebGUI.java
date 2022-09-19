@@ -32,6 +32,9 @@ extends Clearable, ICanvas<WGUI>, IGUI<WGUI>, IStyleElement<WGUI> {
 	IControl<?, ?> getRefControlByFixedId(String fixedId);
 	
 	//method declaration
+	IContainer<IControl<?, ?>> getRefControls();
+	
+	//method declaration
 	IContainer<ILayer<?>> getRefLayers();
 	
 	//method declaration

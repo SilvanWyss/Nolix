@@ -204,6 +204,12 @@ public final class WebGUI extends StyleElement<WebGUI> implements IWebGUI<WebGUI
 	
 	//method
 	@Override
+	public IContainer<IControl<?, ?>> getRefControls() {
+		return getRefLayers().toFromMany(ILayer::getRefControls);
+	}
+	
+	//method
+	@Override
 	public IContainer<ILayer<?>> getRefLayers() {
 		return layers.getRefValues();
 	}
