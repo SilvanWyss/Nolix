@@ -11,6 +11,21 @@ import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 public interface IControlStyle<CS extends IControlStyle<CS>> extends IRespondingMutableElement<CS> {
 	
 	//method declaration
+	boolean getBoldTextFlagOfState(ControlState state);
+
+	//method declaration
+	Font getFontOfState(ControlState state);
+	
+	//method declaration
+	double getOpacityOfState(ControlState state);
+	
+	//method declaration
+	IColor getTextColorOfState(ControlState state);	
+	
+	//method declaration
+	int getTextSizeOfState(ControlState state);
+	
+	//method declaration
 	void removeCustomBoldTextFlags();
 	
 	//method declaration
