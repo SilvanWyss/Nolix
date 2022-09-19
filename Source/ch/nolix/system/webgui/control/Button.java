@@ -21,6 +21,7 @@ import ch.nolix.systemapi.guiapi.controlrole.ButtonRole;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.webguiapi.controlapi.IButton;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
+import ch.nolix.systemapi.webguiapi.mainapi.IControlCSSRuleCreator;
 
 //class
 public final class Button extends Control<Button, ButtonStyle> implements IButton<Button, ButtonStyle> {
@@ -51,6 +52,13 @@ public final class Button extends Control<Button, ButtonStyle> implements IButto
 	
 	//optional attribute
 	private IElementTaker<IButton<?, ?>> leftMouseButtonReleaseAction;
+	
+	//method
+	@Override
+	public IControlCSSRuleCreator<Button, ButtonStyle> getCSSRuleCreator() {
+		//TODO: Implement
+		return null;
+	}
 	
 	//method
 	@Override

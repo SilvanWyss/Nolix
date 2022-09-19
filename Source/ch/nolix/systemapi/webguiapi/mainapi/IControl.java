@@ -24,6 +24,9 @@ extends FixedIdentified, HTMLElementTransformable, IStylableElement<C>, IInputTa
 	boolean belongsToLayer();
 	
 	//method declaration
+	IControlCSSRuleCreator<C, CL> getCSSRuleCreator();
+	
+	//method declaration
 	CursorIcon getCursorIcon();
 	
 	//method declaration

@@ -16,6 +16,7 @@ import ch.nolix.system.webgui.main.Control;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.webguiapi.controlapi.ILabel;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
+import ch.nolix.systemapi.webguiapi.mainapi.IControlCSSRuleCreator;
 
 //class
 public final class Label extends Control<Label, LabelStyle> implements ILabel<Label, LabelStyle> {
@@ -28,6 +29,13 @@ public final class Label extends Control<Label, LabelStyle> implements ILabel<La
 	
 	//attribute
 	private MutableValue<String> text = MutableValue.forString(TEXT_HEADER, DEFAULT_TEXT, this::setText);
+	
+	//method
+	@Override
+	public IControlCSSRuleCreator<Label, LabelStyle> getCSSRuleCreator() {
+		//TODO: Implement.
+		return null;
+	}
 	
 	//method
 	@Override

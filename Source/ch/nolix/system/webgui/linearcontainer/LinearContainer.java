@@ -8,7 +8,9 @@ import ch.nolix.system.webgui.container.Container;
 import ch.nolix.system.webgui.main.GlobalControlFactory;
 import ch.nolix.systemapi.webguiapi.linearcontainerapi.ILinearContainer;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
+import ch.nolix.systemapi.webguiapi.mainapi.IControlCSSRuleCreator;
 
+//TODO: Create custom LinearContainerStyle.
 //class
 public abstract class LinearContainer
 extends Container<LinearContainer, LinearContainerStyle>
@@ -51,6 +53,13 @@ implements ILinearContainer<LinearContainer, LinearContainerStyle> {
 	@Override
 	public final void clear() {
 		childControls.clear();
+	}
+	
+	//method
+	@Override
+	public IControlCSSRuleCreator<LinearContainer, LinearContainerStyle> getCSSRuleCreator() {
+		//TODO: Implement.
+		return null;
 	}
 	
 	//method
