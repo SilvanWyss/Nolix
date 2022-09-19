@@ -9,6 +9,42 @@ import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 public interface IBorderControlStyle<BCS extends IBorderControlStyle<BCS>> {
 	
 	//method declaration
+	IColor getBottomBorderColorOfState(ControlState state);
+	
+	//method declaration
+	int getBottomBorderThicknessOfState(ControlState state);
+	
+	//method declaration
+	int getBottomPaddingOfState(ControlState state);
+	
+	//method declaration
+	IColor getLeftBorderColorOfState(ControlState state);
+	
+	//method declaration
+	int getLeftBorderThicknessOfState(ControlState state);
+	
+	//method declaration
+	int getLeftPaddingOfState(ControlState state);
+	
+	//method declaration
+	IColor getRightBorderColorOfState(ControlState state);
+	
+	//method declaration
+	int getRightBorderThicknessOfState(ControlState state);
+	
+	//method declaration
+	int getRightPaddingOfState(ControlState state);
+	
+	//method declaration
+	IColor getTopBorderColorOfState(ControlState state);
+	
+	//method declaration
+	int getTopBorderThicknessOfState(ControlState state);
+	
+	//method declaration
+	int getTopPaddingOfState(ControlState state);
+	
+	//method declaration
 	void removeCustomBorderColors();
 	
 	//method declaration
