@@ -45,7 +45,10 @@ public final class Button extends Control<Button, ButtonStyle> implements IButto
 	);
 	
 	//attribute
-	private MutableValue<String> text = MutableValue.forString(TEXT_HEADER, DEFAULT_TEXT, this::setText);
+	private final MutableValue<String> text = MutableValue.forString(TEXT_HEADER, DEFAULT_TEXT, this::setText);
+	
+	//attribute
+	private final ButtonCSSRuleCreator mCSSRuleCreator = ButtonCSSRuleCreator.forButton(this);
 	
 	//optional attribute
 	private IElementTaker<IButton<?, ?>> leftMouseButtonPressAction;
@@ -56,8 +59,7 @@ public final class Button extends Control<Button, ButtonStyle> implements IButto
 	//method
 	@Override
 	public IControlCSSRuleCreator<Button, ButtonStyle> getCSSRuleCreator() {
-		//TODO: Implement
-		return null;
+		return mCSSRuleCreator;
 	}
 	
 	//method
