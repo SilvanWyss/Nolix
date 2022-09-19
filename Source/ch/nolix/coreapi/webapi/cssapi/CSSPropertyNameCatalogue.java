@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.web.css;
+package ch.nolix.coreapi.webapi.cssapi;
 
 //class
 public final class CSSPropertyNameCatalogue {
