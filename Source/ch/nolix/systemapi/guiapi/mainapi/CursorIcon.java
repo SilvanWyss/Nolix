@@ -6,6 +6,7 @@ import java.awt.Cursor;
 import java.util.Locale;
 
 //own imports
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 
 //enum
@@ -29,6 +30,31 @@ public enum CursorIcon {
 	 */
 	public static CursorIcon fromSpecification(final INode<?> specification) {
 		return valueOf(specification.getSingleChildNodeHeader().toUpperCase(Locale.ENGLISH));
+	}
+	
+	//method
+	/**
+	 * @return a CSS value representation of the current {@link CursorIcon}.
+	 */
+	public String toCSSValue() {
+		
+		//TODO: Create CSSCursorValueCatalogue.
+		switch (this) {
+			case ARROW:
+				return "default";
+			case CROSS:
+				return "crosshair";
+			case EDIT:
+				return "text";
+			case HAND:
+				return "pointer";
+			case MOVE:
+				return "move";
+			case WAIT:
+				return "wait";
+			default:
+				throw InvalidArgumentException.forArgument(this);
+		}
 	}
 	
 	//method
