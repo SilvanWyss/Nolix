@@ -5,6 +5,9 @@ package ch.nolix.coreapi.webapi.cssapi;
 public final class CSSPropertyNameCatalogue {
 	
 	//constant
+	public static final String BACKGROUND = "background";
+	
+	//constant
 	public static final String BORDER_BOTTOM_COLOR = "border-bottom-color";
 	
 	//constant

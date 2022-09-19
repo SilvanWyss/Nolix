@@ -9,8 +9,11 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.core.web.css.CSSProperty;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
+import ch.nolix.coreapi.webapi.cssapi.CSSPropertyNameCatalogue;
+import ch.nolix.coreapi.webapi.cssapi.ICSSProperty;
 import ch.nolix.system.element.main.Element;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.color.ColorGradient;
@@ -210,11 +213,26 @@ public final class Background extends Element implements IBackground {
 	}
 	
 	//method
+	@Override
+	public ICSSProperty toCSSProperty() {
+		switch (getType()) {
+		case COLOR:
+			return
+			CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.BACKGROUND, "#" + color.toAlphaRedGreenBlueValue());
+		case COLOR_GRADIENT:
+			//TODO: Implement.
+		case IMAGE:
+			//TODO: Implement.
+		default:
+			throw InvalidArgumentException.forArgument(this);
+		}
+	}
+	
+	//method
 	private void assertIsColor() {
 		if (!isColor()) {
 			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeType(this, IColor.class);
 		}
-		
 	}
 	
 	//method

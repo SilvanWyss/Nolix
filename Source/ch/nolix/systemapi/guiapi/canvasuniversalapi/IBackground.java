@@ -2,6 +2,7 @@
 package ch.nolix.systemapi.guiapi.canvasuniversalapi;
 
 //own imports
+import ch.nolix.coreapi.webapi.cssapi.ICSSProperty;
 import ch.nolix.systemapi.elementapi.mainuniversalapi.Specified;
 import ch.nolix.systemapi.guiapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.colorapi.IColorGradient;
@@ -26,4 +27,7 @@ public interface IBackground extends Specified {
 	
 	//method declaration
 	BackgroundType getType();
+	
+	//method declaration
+	ICSSProperty toCSSProperty();
 }
