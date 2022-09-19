@@ -49,17 +49,17 @@ implements IControlCSSRuleCreator<C, CS> {
 	//method declaration
 	protected abstract void fillUpControlCSSPropertiesForStateIntoList(
 		ControlState state,
-		LinkedList<CSSProperty> lCSSProperties
+		LinkedList<CSSProperty> list
 	);
 	
 	//method
 	private void fillUpCSSPropertiesForStateIntoList(
 		final ControlState state,
-		final LinkedList<CSSProperty> lCSSProperties
+		final LinkedList<CSSProperty> list
 	) {
 		
 		if (getRefParentControl().getCursorIcon() != CursorIcon.ARROW) {
-			lCSSProperties.addAtEnd(
+			list.addAtEnd(
 				CSSProperty.withNameAndValue(
 					CSSPropertyNameCatalogue.CURSOR,
 					getRefParentControl().getCursorIcon().toCSSValue()
@@ -69,18 +69,18 @@ implements IControlCSSRuleCreator<C, CS> {
 		
 		final var style = getRefParentControl().getRefStyle();
 		
-		lCSSProperties.addAtEnd(
+		list.addAtEnd(
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.COLOR,
 				"#" + style.getTextColorOfState(state).toAlphaRedGreenBlueValue()
 			),
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.FONT_SIZE,
-				String.valueOf(style.getTextSizeOfState(state))
+				style.getTextSizeOfState(state)
 			)
 		);
 		
-		fillUpControlCSSPropertiesForStateIntoList(state, lCSSProperties);
+		fillUpControlCSSPropertiesForStateIntoList(state, list);
 	}
 	
 	//method
