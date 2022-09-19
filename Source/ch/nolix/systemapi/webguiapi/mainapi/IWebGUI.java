@@ -4,6 +4,7 @@ package ch.nolix.systemapi.webguiapi.mainapi;
 //own imports
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.functionapi.mutationuniversalapi.Clearable;
+import ch.nolix.coreapi.webapi.cssapi.ICSS;
 import ch.nolix.systemapi.elementapi.styleapi.IStyleElement;
 import ch.nolix.systemapi.guiapi.canvasuniversalapi.ICanvas;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
@@ -20,6 +21,9 @@ extends Clearable, ICanvas<WGUI>, IGUI<WGUI>, IStyleElement<WGUI> {
 	
 	//method declaration
 	IWebGUIContent getContent();
+	
+	//method declaration
+	ICSS<?, ?> getCSS();
 	
 	//method declaration
 	IImage getIcon();

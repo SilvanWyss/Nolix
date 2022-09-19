@@ -10,6 +10,7 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
+import ch.nolix.coreapi.webapi.cssapi.ICSS;
 import ch.nolix.system.element.mutableelement.MultiValue;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 import ch.nolix.system.element.mutableelement.MutableValue;
@@ -20,6 +21,7 @@ import ch.nolix.system.gui.image.Image;
 import ch.nolix.system.gui.main.GUIIconCatalogue;
 import ch.nolix.system.gui.main.LocalFrontEndReader;
 import ch.nolix.system.gui.main.LocalFrontEndWriter;
+import ch.nolix.system.webgui.helper.WebGUICSSCreator;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 import ch.nolix.systemapi.guiapi.canvasuniversalapi.IBackground;
 import ch.nolix.systemapi.guiapi.colorapi.IColor;
@@ -161,6 +163,12 @@ public final class WebGUI extends StyleElement<WebGUI> implements IWebGUI<WebGUI
 	@Override
 	public IWebGUIContent getContent() {
 		return WebGUIContent.forParentWebGUI(this);
+	}
+	
+	//method
+	@Override
+	public ICSS<?, ?> getCSS() {
+		return WebGUICSSCreator.INSTANCE.createCSSForWebGUI(this);
 	}
 	
 	//method
