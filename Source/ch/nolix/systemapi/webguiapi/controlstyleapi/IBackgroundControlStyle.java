@@ -13,6 +13,9 @@ import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 public interface IBackgroundControlStyle<BCS extends IBackgroundControlStyle<BCS>> {
 	
 	//method declaration
+	IBackground getBackgroundOfState(ControlState state);
+	
+	//method declaration
 	void removeCustomBackgrounds();
 	
 	//method declaration

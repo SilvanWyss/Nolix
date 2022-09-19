@@ -242,6 +242,12 @@ implements IExtendedControlStyle<ECS> {
 	
 	//method
 	@Override
+	public final IBackground getBackgroundOfState(final ControlState state) {
+		return background.getValueOfState(state);
+	}
+	
+	//method
+	@Override
 	public final void removeCustomBackgrounds() {
 		background.setUndefined();
 	}
