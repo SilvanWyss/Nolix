@@ -20,6 +20,16 @@ public final class CSSProperty implements ICSSProperty {
 	}
 	
 	//static method
+	public static CSSProperty withNameAndValue(final String name, final double value) {
+		return new CSSProperty(name, String.valueOf(value));
+	}
+	
+	//static method
+	public static CSSProperty withNameAndValue(final String name, final int value) {
+		return new CSSProperty(name, String.valueOf(value));
+	}
+	
+	//static method
 	public static CSSProperty withNameAndValue(final String name, final String value) {
 		return new CSSProperty(name, value);
 	}
