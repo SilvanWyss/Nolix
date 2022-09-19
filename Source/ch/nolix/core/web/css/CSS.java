@@ -1,10 +1,10 @@
 //package declaration
-package ch.nolix.core.document.css;
+package ch.nolix.core.web.css;
 
 //own imports
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
-import ch.nolix.coreapi.documentapi.cssapi.ICSS;
-import ch.nolix.coreapi.documentapi.cssapi.ICSSRule;
+import ch.nolix.coreapi.webapi.cssapi.ICSS;
+import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
 
 //class
 public final class CSS implements ICSS<CSSRule, CSSProperty> {

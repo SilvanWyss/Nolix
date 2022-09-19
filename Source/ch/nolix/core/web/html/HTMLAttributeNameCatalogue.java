@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.document.html;
+package ch.nolix.core.web.html;
 
 //class
 public final class HTMLAttributeNameCatalogue {

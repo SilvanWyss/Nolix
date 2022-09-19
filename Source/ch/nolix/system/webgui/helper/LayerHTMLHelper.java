@@ -3,13 +3,13 @@ package ch.nolix.system.webgui.helper;
 
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.document.html.HTMLAttribute;
-import ch.nolix.core.document.html.HTMLAttributeNameCatalogue;
-import ch.nolix.core.document.html.HTMLElement;
-import ch.nolix.core.document.html.HTMLElementTypeCatalogue;
+import ch.nolix.core.web.html.HTMLAttribute;
+import ch.nolix.core.web.html.HTMLAttributeNameCatalogue;
+import ch.nolix.core.web.html.HTMLElement;
+import ch.nolix.core.web.html.HTMLElementTypeCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
-import ch.nolix.coreapi.documentapi.htmlapi.IHTMLAttribute;
-import ch.nolix.coreapi.documentapi.htmlapi.IHTMLElement;
+import ch.nolix.coreapi.webapi.htmlapi.IHTMLAttribute;
+import ch.nolix.coreapi.webapi.htmlapi.IHTMLElement;
 import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
 
 //class

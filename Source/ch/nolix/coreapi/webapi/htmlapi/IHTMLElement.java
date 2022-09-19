@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coreapi.documentapi.htmlapi;
+package ch.nolix.coreapi.webapi.htmlapi;
 
 //own imports
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;

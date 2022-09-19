@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.webguiapi.mainapi;
 
-//own imports
-import ch.nolix.coreapi.documentapi.htmlapi.HTMLElementTransformable;
+import ch.nolix.coreapi.webapi.htmlapi.HTMLElementTransformable;
 
 //interface
 public interface IWebGUIContent extends HTMLElementTransformable {}

@@ -4,7 +4,7 @@ package ch.nolix.systemapi.webguiapi.mainapi;
 //own imports
 import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.FixedIdentified;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
-import ch.nolix.coreapi.documentapi.htmlapi.HTMLElementTransformable;
+import ch.nolix.coreapi.webapi.htmlapi.HTMLElementTransformable;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 import ch.nolix.systemapi.guiapi.inputapi.IInputTaker;
 import ch.nolix.systemapi.guiapi.mainapi.CursorIcon;

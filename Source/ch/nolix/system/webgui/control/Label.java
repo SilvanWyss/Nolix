@@ -4,13 +4,13 @@ package ch.nolix.system.webgui.control;
 //own imports
 import ch.nolix.core.commontype.constant.StringCatalogue;
 import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.document.html.HTMLElement;
-import ch.nolix.core.document.html.HTMLElementTypeCatalogue;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
+import ch.nolix.core.web.html.HTMLElement;
+import ch.nolix.core.web.html.HTMLElementTypeCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
-import ch.nolix.coreapi.documentapi.htmlapi.IHTMLElement;
+import ch.nolix.coreapi.webapi.htmlapi.IHTMLElement;
 import ch.nolix.system.element.mutableelement.MutableValue;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.systemapi.guiapi.inputapi.Key;

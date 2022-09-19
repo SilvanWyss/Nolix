@@ -3,13 +3,13 @@ package ch.nolix.system.webgui.main;
 
 //own imports
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.document.css.CSSProperty;
-import ch.nolix.core.document.css.CSSPropertyNameCatalogue;
-import ch.nolix.core.document.css.CSSRule;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.web.css.CSSProperty;
+import ch.nolix.core.web.css.CSSPropertyNameCatalogue;
+import ch.nolix.core.web.css.CSSRule;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
-import ch.nolix.coreapi.documentapi.cssapi.ICSSRule;
+import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
 import ch.nolix.systemapi.guiapi.mainapi.CursorIcon;
 import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;

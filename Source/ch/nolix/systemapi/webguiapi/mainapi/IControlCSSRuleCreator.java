@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.webguiapi.mainapi;
 
-//own imports
-import ch.nolix.coreapi.documentapi.cssapi.ICSSRule;
+import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
 import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
 

@@ -1,9 +1,9 @@
-package ch.nolix.core.document.html;
+package ch.nolix.core.web.html;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-import ch.nolix.coreapi.documentapi.htmlapi.IHTMLAttribute;
+import ch.nolix.coreapi.webapi.htmlapi.IHTMLAttribute;
 
 //class
 public final class HTMLAttribute implements IHTMLAttribute {

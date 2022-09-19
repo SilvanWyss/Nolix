@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.system.webgui.linearcontainer;
 
-//own imports
-import ch.nolix.core.document.html.HTMLElement;
-import ch.nolix.core.document.html.HTMLElementTypeCatalogue;
-import ch.nolix.coreapi.documentapi.htmlapi.IHTMLElement;
+import ch.nolix.core.web.html.HTMLElement;
+import ch.nolix.core.web.html.HTMLElementTypeCatalogue;
+import ch.nolix.coreapi.webapi.htmlapi.IHTMLElement;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //class

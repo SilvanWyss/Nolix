@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.document.html;
+package ch.nolix.core.web.html;
 
 //own imports
 import ch.nolix.core.commontype.constant.StringCatalogue;
@@ -7,8 +7,8 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
-import ch.nolix.coreapi.documentapi.htmlapi.IHTMLAttribute;
-import ch.nolix.coreapi.documentapi.htmlapi.IHTMLElement;
+import ch.nolix.coreapi.webapi.htmlapi.IHTMLAttribute;
+import ch.nolix.coreapi.webapi.htmlapi.IHTMLElement;
 
 //class
 public final class HTMLElement implements IHTMLElement<HTMLElement, HTMLAttribute> {

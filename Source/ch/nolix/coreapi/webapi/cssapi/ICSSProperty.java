@@ -1,11 +1,11 @@
 //package declaration
-package ch.nolix.coreapi.documentapi.htmlapi;
+package ch.nolix.coreapi.webapi.cssapi;
 
 //own imports
 import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.Named;
 
 //interface
-public interface IHTMLAttribute extends Named {
+public interface ICSSProperty extends Named {
 	
 	//method declaration
 	String getValue();

@@ -1,10 +1,10 @@
 //package declaration
-package ch.nolix.core.document.css;
+package ch.nolix.core.web.css;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-import ch.nolix.coreapi.documentapi.cssapi.ICSSProperty;
+import ch.nolix.coreapi.webapi.cssapi.ICSSProperty;
 
 //class
 public final class CSSProperty implements ICSSProperty {

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coreapi.documentapi.htmlapi;
+package ch.nolix.coreapi.webapi.htmlapi;
 
 //interface
 public interface HTMLElementTransformable {

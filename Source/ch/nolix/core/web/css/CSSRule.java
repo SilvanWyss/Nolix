@@ -1,11 +1,11 @@
 //package declaration
-package ch.nolix.core.document.css;
+package ch.nolix.core.web.css;
 
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
-import ch.nolix.coreapi.documentapi.cssapi.ICSSProperty;
-import ch.nolix.coreapi.documentapi.cssapi.ICSSRule;
+import ch.nolix.coreapi.webapi.cssapi.ICSSProperty;
+import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
 
 //class
 public final class CSSRule implements ICSSRule<CSSProperty> {
