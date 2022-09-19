@@ -10,7 +10,6 @@ import ch.nolix.systemapi.webguiapi.linearcontainerapi.ILinearContainer;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IControlCSSRuleCreator;
 
-//TODO: Create custom LinearContainerStyle.
 //class
 public abstract class LinearContainer
 extends Container<LinearContainer, LinearContainerStyle>
@@ -27,6 +26,10 @@ implements ILinearContainer<LinearContainer, LinearContainerStyle> {
 		GlobalControlFactory::createControlFromSpecification,
 		IControl::getSpecification
 	);
+	
+	//attribute
+	private final LinearContainerCSSRuleCreator mCSSRuleCreator =
+	LinearContainerCSSRuleCreator.forLinearContainer(this);
 	
 	//method
 	@Override
@@ -58,8 +61,7 @@ implements ILinearContainer<LinearContainer, LinearContainerStyle> {
 	//method
 	@Override
 	public IControlCSSRuleCreator<LinearContainer, LinearContainerStyle> getCSSRuleCreator() {
-		//TODO: Implement.
-		return null;
+		return mCSSRuleCreator;
 	}
 	
 	//method
