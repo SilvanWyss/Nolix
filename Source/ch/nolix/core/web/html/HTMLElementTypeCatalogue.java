@@ -5,6 +5,9 @@ package ch.nolix.core.web.html;
 public final class HTMLElementTypeCatalogue {
 	
 	//constant
+	public static final String BODY = "body";
+	
+	//constant
 	public static final String DIV = "div";
 	
 	//constructor
