@@ -18,7 +18,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.IWebGUI;
 public final class BackendWebClient<AC> extends BaseBackendWebClient<BackendWebClient<AC>, AC> {
 	
 	//attribute
-	private final BackendWebClientCounterpartUpdater counterpartUpdates =
+	private final BackendWebClientCounterpartUpdater counterpartUpdater =
 	BackendWebClientCounterpartUpdater.forBackendWebClient(this);
 	
 	//method
@@ -41,7 +41,7 @@ public final class BackendWebClient<AC> extends BaseBackendWebClient<BackendWebC
 	
 	//method
 	void internalUpdateCounterpartFromWebGUI(final IWebGUI<?> webGUI) {
-		counterpartUpdates.updateCounterpartFromWebGUI(webGUI);
+		counterpartUpdater.updateCounterpartFromWebGUI(webGUI);
 	}
 	
 	//method
