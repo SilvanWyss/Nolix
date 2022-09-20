@@ -12,7 +12,7 @@ public final class CSSRule implements ICSSRule<CSSProperty> {
 	
 	//static method
 	public static CSSRule fromCSSRule(final ICSSRule<?> pCSSRule) {
-		return withSelectorsAndAttributes(pCSSRule.getSelectors(), pCSSRule.getRefProperties());
+		return withSelectorsAndProperties(pCSSRule.getSelectors(), pCSSRule.getRefProperties());
 	}
 	
 	//static method
@@ -24,7 +24,7 @@ public final class CSSRule implements ICSSRule<CSSProperty> {
 	}
 	
 	//static method
-	public static CSSRule withSelectorsAndAttributes(
+	public static CSSRule withSelectorsAndProperties(
 		final IContainer<String> selectors,
 		final IContainer<? extends ICSSProperty> properties
 	) {
