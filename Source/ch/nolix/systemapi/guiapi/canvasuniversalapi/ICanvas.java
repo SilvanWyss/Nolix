@@ -12,6 +12,9 @@ import ch.nolix.systemapi.guiapi.structureproperty.BackgroundType;
 public interface ICanvas<C extends ICanvas<C>> {
 	
 	//method declaration
+	IBackground getBackground();
+	
+	//method declaration
 	IColor getBackgroundColor();
 	
 	//method declaration

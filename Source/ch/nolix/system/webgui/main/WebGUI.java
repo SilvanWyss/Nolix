@@ -125,6 +125,7 @@ public final class WebGUI extends StyleElement<WebGUI> implements IWebGUI<WebGUI
 	}
 	
 	//method
+	@Override
 	public IBackground getBackground() {
 		return background.getValue();
 	}

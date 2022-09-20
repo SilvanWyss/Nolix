@@ -93,6 +93,7 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	}
 	
 	//method
+	@Override
 	public IBackground getBackground() {
 		return background.getValue();
 	}
