@@ -2,6 +2,7 @@
 package ch.nolix.core.web.css;
 
 //own imports
+import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.webapi.cssapi.ICSSProperty;
@@ -56,5 +57,11 @@ public final class CSSRule implements ICSSRule<CSSProperty> {
 	@Override
 	public IContainer<String> getSelectors() {
 		return selectors;
+	}
+	
+	//method
+	@Override
+	public String toString() {
+		return (getSelectors().toString(',') + GlobalStringHelper.getInBraces(getRefProperties().toString()));
 	}
 }
