@@ -784,6 +784,12 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method declaration
 	/**
+	 * @return a concatenated {@link String} representation of the current {@link IContainer}.
+	 */
+	String toConcatenatedString();
+	
+	//method declaration
+	/**
 	 * @param separator
 	 * @return a@link String representation the current {@link IContainer} using the given separator.
 	 */

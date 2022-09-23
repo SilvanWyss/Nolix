@@ -1901,6 +1901,19 @@ public abstract class Container<E> implements IContainer<E> {
 	}
 	
 	//method
+	@Override
+	public final String toConcatenatedString() {
+		
+		final var stringBuilder = new StringBuilder();
+		
+		for (final var e : this) {
+			stringBuilder.append(e);
+		}
+		
+		return stringBuilder.toString();
+	}
+	
+	//method
 	/**
 	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
