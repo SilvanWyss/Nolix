@@ -5,6 +5,7 @@ package ch.nolix.system.webgui.controlstyle;
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.web.css.CSSProperty;
 import ch.nolix.coreapi.webapi.cssapi.CSSPropertyNameCatalogue;
+import ch.nolix.coreapi.webapi.cssapi.CSSUnitCatalogue;
 import ch.nolix.system.webgui.main.ControlCSSRuleCreator;
 import ch.nolix.systemapi.guiapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
@@ -35,7 +36,7 @@ extends ControlCSSRuleCreator<EC, ECS> {
 		list.addAtEnd(
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.BORDER_LEFT_WIDTH,
-				style.getLeftBorderThicknessWhenHasState(state)
+				String.valueOf(style.getLeftBorderThicknessWhenHasState(state)) + CSSUnitCatalogue.PX
 			),
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.BORDER_LEFT_COLOR,
@@ -43,11 +44,11 @@ extends ControlCSSRuleCreator<EC, ECS> {
 			),
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.PADDING_LEFT,
-				style.getLeftPaddingWhenHasState(state)
+				String.valueOf(style.getLeftPaddingWhenHasState(state)) + CSSUnitCatalogue.PX
 			),
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.BORDER_RIGHT_WIDTH,
-				style.getRightBorderThicknessWhenHasState(state)
+				String.valueOf(style.getRightBorderThicknessWhenHasState(state)) + CSSUnitCatalogue.PX
 			),
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.BORDER_RIGHT_COLOR,
@@ -55,11 +56,11 @@ extends ControlCSSRuleCreator<EC, ECS> {
 			),
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.PADDING_RIGHT,
-				style.getRightPaddingWhenHasState(state)
+				String.valueOf(style.getRightPaddingWhenHasState(state)) + CSSUnitCatalogue.PX
 			),
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.BORDER_TOP_WIDTH,
-				style.getTopBorderThicknessWhenHasState(state)
+				String.valueOf(style.getTopBorderThicknessWhenHasState(state)) + CSSUnitCatalogue.PX
 			),
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.BORDER_TOP_COLOR,
@@ -67,11 +68,11 @@ extends ControlCSSRuleCreator<EC, ECS> {
 			),
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.PADDING_TOP,
-				style.getTopPaddingWhenHasState(state)
+				String.valueOf(style.getTopPaddingWhenHasState(state)) + CSSUnitCatalogue.PX
 			),
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.BORDER_BOTTOM_WIDTH,
-				style.getBottomBorderThicknessWhenHasState(state)
+				String.valueOf(style.getBottomBorderThicknessWhenHasState(state)) + CSSUnitCatalogue.PX
 			),
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.BORDER_BOTTOM_COLOR,
@@ -79,7 +80,7 @@ extends ControlCSSRuleCreator<EC, ECS> {
 			),
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.PADDING_BOTTOM,
-				style.getBottomPaddingWhenHasState(state)
+				String.valueOf(style.getBottomPaddingWhenHasState(state)) + CSSUnitCatalogue.PX
 			)
 		);
 		
