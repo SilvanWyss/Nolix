@@ -110,32 +110,32 @@ implements IControlStyle<CS> {
 	
 	//method
 	@Override
-	public final boolean getBoldTextFlagOfState(final ControlState state) {
-		return boldTextFlag.getValueOfState(state);
+	public final boolean getBoldTextFlagWhenHasState(final ControlState state) {
+		return boldTextFlag.getValueWhenHasState(state);
 	}
 	
 	//method
 	@Override
-	public final Font getFontOfState(final ControlState state) {
-		return font.getValueOfState(state);
+	public final Font getFontWhenHasState(final ControlState state) {
+		return font.getValueWhenHasState(state);
 	}
 	
 	//method
 	@Override
-	public final double getOpacityOfState(final ControlState state) {
-		return opacity.getValueOfState(state);
+	public final double getOpacityWhenHasState(final ControlState state) {
+		return opacity.getValueWhenHasState(state);
 	}
 	
 	//method
 	@Override
-	public final IColor getTextColorOfState(final ControlState state) {
-		return textColor.getValueOfState(state);
+	public final IColor getTextColorWhenHasState(final ControlState state) {
+		return textColor.getValueWhenHasState(state);
 	}
 	
 	//method
 	@Override
-	public final int getTextSizeOfState(final ControlState state) {
-		return textSize.getValueOfState(state);
+	public final int getTextSizeWhenHasState(final ControlState state) {
+		return textSize.getValueWhenHasState(state);
 	}
 	
 	//method

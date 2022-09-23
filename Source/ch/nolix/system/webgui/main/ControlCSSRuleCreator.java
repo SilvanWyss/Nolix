@@ -72,11 +72,11 @@ implements IControlCSSRuleCreator<C, CS> {
 		list.addAtEnd(
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.COLOR,
-				"#" + style.getTextColorOfState(state).toAlphaRedGreenBlueValue()
+				"#" + style.getTextColorWhenHasState(state).toAlphaRedGreenBlueValue()
 			),
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.FONT_SIZE,
-				style.getTextSizeOfState(state)
+				style.getTextSizeWhenHasState(state)
 			)
 		);
 		

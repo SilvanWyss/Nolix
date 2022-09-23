@@ -11,19 +11,19 @@ import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 public interface IControlStyle<CS extends IControlStyle<CS>> extends IRespondingMutableElement<CS> {
 	
 	//method declaration
-	boolean getBoldTextFlagOfState(ControlState state);
+	boolean getBoldTextFlagWhenHasState(ControlState state);
 	
 	//method declaration
-	Font getFontOfState(ControlState state);
+	Font getFontWhenHasState(ControlState state);
 	
 	//method declaration
-	double getOpacityOfState(ControlState state);
+	double getOpacityWhenHasState(ControlState state);
 	
 	//method declaration
-	IColor getTextColorOfState(ControlState state);	
+	IColor getTextColorWhenHasState(ControlState state);	
 	
 	//method declaration
-	int getTextSizeOfState(ControlState state);
+	int getTextSizeWhenHasState(ControlState state);
 	
 	//method declaration
 	void removeCustomBoldTextFlags();
