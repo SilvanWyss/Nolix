@@ -9,6 +9,7 @@ import ch.nolix.core.web.css.CSSProperty;
 import ch.nolix.core.web.css.CSSRule;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.webapi.cssapi.CSSPropertyNameCatalogue;
+import ch.nolix.coreapi.webapi.cssapi.CSSUnitCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
 import ch.nolix.systemapi.guiapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.mainapi.CursorIcon;
@@ -77,7 +78,7 @@ implements IControlCSSRuleCreator<C, CS> {
 			),
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.FONT_SIZE,
-				style.getTextSizeWhenHasState(state)
+				String.valueOf(style.getTextSizeWhenHasState(state)) + CSSUnitCatalogue.PX
 			)
 		);
 		
