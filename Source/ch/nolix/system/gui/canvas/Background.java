@@ -217,8 +217,12 @@ public final class Background extends Element implements IBackground {
 	public ICSSProperty toCSSProperty() {
 		switch (getType()) {
 		case COLOR:
+			
+			final var colorCode =
+			String.format("#%02x%02x%02x", color.getRedValue(), color.getGreenValue(), color.getBlueValue());
+			
 			return
-			CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.BACKGROUND, "#" + color.toAlphaRedGreenBlueValue());
+			CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.BACKGROUND, colorCode);
 		case COLOR_GRADIENT:
 			//TODO: Implement.
 		case IMAGE:
