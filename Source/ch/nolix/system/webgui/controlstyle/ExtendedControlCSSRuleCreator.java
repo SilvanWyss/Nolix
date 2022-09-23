@@ -6,6 +6,7 @@ import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.web.css.CSSProperty;
 import ch.nolix.coreapi.webapi.cssapi.CSSPropertyNameCatalogue;
 import ch.nolix.system.webgui.main.ControlCSSRuleCreator;
+import ch.nolix.systemapi.guiapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IExtendedControlStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
@@ -38,7 +39,7 @@ extends ControlCSSRuleCreator<EC, ECS> {
 			),
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.BORDER_LEFT_COLOR,
-				"#" + style.getLeftBorderColorWhenHasState(state).toAlphaRedGreenBlueValue()
+				getColorCodeOfColor(style.getLeftBorderColorWhenHasState(state))
 			),
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.PADDING_LEFT,
@@ -50,7 +51,7 @@ extends ControlCSSRuleCreator<EC, ECS> {
 			),
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.BORDER_RIGHT_COLOR,
-				"#" + style.getRightBorderColorWhenHasState(state).toAlphaRedGreenBlueValue()
+				getColorCodeOfColor(style.getRightBorderColorWhenHasState(state))
 			),
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.PADDING_RIGHT,
@@ -62,7 +63,7 @@ extends ControlCSSRuleCreator<EC, ECS> {
 			),
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.BORDER_TOP_COLOR,
-				"#" + style.getTopBorderColorWhenHasState(state).toAlphaRedGreenBlueValue()
+				getColorCodeOfColor(style.getTopBorderColorWhenHasState(state))
 			),
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.PADDING_TOP,
@@ -74,7 +75,7 @@ extends ControlCSSRuleCreator<EC, ECS> {
 			),
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.BORDER_BOTTOM_COLOR,
-				"#" + style.getBottomBorderColorWhenHasState(state).toAlphaRedGreenBlueValue()
+				getColorCodeOfColor(style.getBottomBorderColorWhenHasState(state))
 			),
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.PADDING_BOTTOM,
@@ -90,4 +91,9 @@ extends ControlCSSRuleCreator<EC, ECS> {
 		ControlState state,
 		LinkedList<CSSProperty> list
 	);
+	
+	//method
+	private String getColorCodeOfColor(final IColor color) {
+		return String.format("#%02x%02x%02x", color.getRedValue(), color.getGreenValue(), color.getBlueValue());
+	}
 }
