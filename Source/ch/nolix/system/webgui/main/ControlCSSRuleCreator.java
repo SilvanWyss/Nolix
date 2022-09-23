@@ -77,6 +77,10 @@ implements IControlCSSRuleCreator<C, CS> {
 				getColorCodeOfColor(style.getTextColorWhenHasState(state))
 			),
 			CSSProperty.withNameAndValue(
+				CSSPropertyNameCatalogue.FONT_FAMILY,
+				style.getFontWhenHasState(state).toString().toLowerCase() //TODO: Create toHTMLFont method.
+			),
+			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.FONT_SIZE,
 				String.valueOf(style.getTextSizeWhenHasState(state)) + CSSUnitCatalogue.PX
 			)

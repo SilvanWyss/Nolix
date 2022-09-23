@@ -38,6 +38,9 @@ public final class CSSPropertyNameCatalogue {
 	public static final String CURSOR = "cursor";
 	
 	//constant
+	public static final String FONT_FAMILY = "font-family";
+	
+	//constant
 	public static final String FONT_SIZE = "font-size";
 	
 	//constant
