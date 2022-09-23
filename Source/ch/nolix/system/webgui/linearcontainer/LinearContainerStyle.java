@@ -39,8 +39,8 @@ implements ILinearContainerStyle<LinearContainerStyle> {
 	
 	//method
 	@Override
-	public int getChildControlMargin() {
-		return childControlMargin.getValue();
+	public int getChildControlMarginWhenHasState(final ControlState state) {
+		return childControlMargin.getValueWhenHasState(state);
 	}
 	
 	//method
