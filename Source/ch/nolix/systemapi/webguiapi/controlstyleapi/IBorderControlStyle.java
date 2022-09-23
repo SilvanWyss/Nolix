@@ -9,40 +9,40 @@ import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 public interface IBorderControlStyle<BCS extends IBorderControlStyle<BCS>> {
 	
 	//method declaration
-	IColor getBottomBorderColorOfState(ControlState state);
+	IColor getBottomBorderColorWhenHasState(ControlState state);
 	
 	//method declaration
-	int getBottomBorderThicknessOfState(ControlState state);
+	int getBottomBorderThicknessWhenHasState(ControlState state);
 	
 	//method declaration
-	int getBottomPaddingOfState(ControlState state);
+	int getBottomPaddingWhenHasState(ControlState state);
 	
 	//method declaration
-	IColor getLeftBorderColorOfState(ControlState state);
+	IColor getLeftBorderColorWhenHasState(ControlState state);
 	
 	//method declaration
-	int getLeftBorderThicknessOfState(ControlState state);
+	int getLeftBorderThicknessWhenHasState(ControlState state);
 	
 	//method declaration
-	int getLeftPaddingOfState(ControlState state);
+	int getLeftPaddingWhenHasState(ControlState state);
 	
 	//method declaration
-	IColor getRightBorderColorOfState(ControlState state);
+	IColor getRightBorderColorWhenHasState(ControlState state);
 	
 	//method declaration
-	int getRightBorderThicknessOfState(ControlState state);
+	int getRightBorderThicknessWhenHasState(ControlState state);
 	
 	//method declaration
-	int getRightPaddingOfState(ControlState state);
+	int getRightPaddingWhenHasState(ControlState state);
 	
 	//method declaration
-	IColor getTopBorderColorOfState(ControlState state);
+	IColor getTopBorderColorWhenHasState(ControlState state);
 	
 	//method declaration
-	int getTopBorderThicknessOfState(ControlState state);
+	int getTopBorderThicknessWhenHasState(ControlState state);
 	
 	//method declaration
-	int getTopPaddingOfState(ControlState state);
+	int getTopPaddingWhenHasState(ControlState state);
 	
 	//method declaration
 	void removeCustomBorderColors();

@@ -242,80 +242,80 @@ implements IExtendedControlStyle<ECS> {
 	
 	//method
 	@Override
-	public final IBackground getBackgroundOfState(final ControlState state) {
-		return background.getValueOfState(state);
+	public final IBackground getBackgroundWhenHasState(final ControlState state) {
+		return background.getValueWhenHasState(state);
 	}
 	
 	//method
 	@Override
-	public final IColor getBottomBorderColorOfState(final ControlState state) {
-		return bottomBorderColor.getValueOfState(state);
+	public final IColor getBottomBorderColorWhenHasState(final ControlState state) {
+		return bottomBorderColor.getValueWhenHasState(state);
 	}
 	
 	//method
 	@Override
-	public final int getBottomBorderThicknessOfState(final ControlState state) {
-		return bottomBorderThickness.getValueOfState(state);
+	public final int getBottomBorderThicknessWhenHasState(final ControlState state) {
+		return bottomBorderThickness.getValueWhenHasState(state);
 	}
 	
 	//method
 	@Override
-	public final int getBottomPaddingOfState(final ControlState state) {
-		return bottomPadding.getValueOfState(state);
+	public final int getBottomPaddingWhenHasState(final ControlState state) {
+		return bottomPadding.getValueWhenHasState(state);
 	}
 	
 	//method
 	@Override
-	public final IColor getLeftBorderColorOfState(final ControlState state) {
-		return leftBorderColor.getValueOfState(state);
+	public final IColor getLeftBorderColorWhenHasState(final ControlState state) {
+		return leftBorderColor.getValueWhenHasState(state);
 	}
 	
 	//method
 	@Override
-	public final int getLeftBorderThicknessOfState(final ControlState state) {
-		return leftBorderThickness.getValueOfState(state);
+	public final int getLeftBorderThicknessWhenHasState(final ControlState state) {
+		return leftBorderThickness.getValueWhenHasState(state);
 	}
 	
 	//method
 	@Override
-	public final int getLeftPaddingOfState(final ControlState state) {
-		return leftPadding.getValueOfState(state);
+	public final int getLeftPaddingWhenHasState(final ControlState state) {
+		return leftPadding.getValueWhenHasState(state);
 	}
 	
 	//method
 	@Override
-	public final IColor getRightBorderColorOfState(final ControlState state) {
-		return rightBorderColor.getValueOfState(state);
+	public final IColor getRightBorderColorWhenHasState(final ControlState state) {
+		return rightBorderColor.getValueWhenHasState(state);
 	}
 	
 	//method
 	@Override
-	public final int getRightBorderThicknessOfState(final ControlState state) {
-		return rightBorderThickness.getValueOfState(state);
+	public final int getRightBorderThicknessWhenHasState(final ControlState state) {
+		return rightBorderThickness.getValueWhenHasState(state);
 	}
 	
 	//method
 	@Override
-	public final int getRightPaddingOfState(final ControlState state) {
-		return rightPadding.getValueOfState(state);
+	public final int getRightPaddingWhenHasState(final ControlState state) {
+		return rightPadding.getValueWhenHasState(state);
 	}
 	
 	//method
 	@Override
-	public final IColor getTopBorderColorOfState(final ControlState state) {
-		return topBorderColor.getValueOfState(state);
+	public final IColor getTopBorderColorWhenHasState(final ControlState state) {
+		return topBorderColor.getValueWhenHasState(state);
 	}
 	
 	//method
 	@Override
-	public final int getTopBorderThicknessOfState(final ControlState state) {
-		return topBorderThickness.getValueOfState(state);
+	public final int getTopBorderThicknessWhenHasState(final ControlState state) {
+		return topBorderThickness.getValueWhenHasState(state);
 	}
 	
 	//method
 	@Override
-	public final int getTopPaddingOfState(final ControlState state) {
-		return topPadding.getValueOfState(state);
+	public final int getTopPaddingWhenHasState(final ControlState state) {
+		return topPadding.getValueWhenHasState(state);
 	}
 	
 	//method

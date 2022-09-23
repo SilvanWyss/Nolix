@@ -34,51 +34,51 @@ extends ControlCSSRuleCreator<EC, ECS> {
 		list.addAtEnd(
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.BORDER_LEFT_WIDTH,
-				style.getLeftBorderThicknessOfState(state)
+				style.getLeftBorderThicknessWhenHasState(state)
 			),
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.BORDER_LEFT_COLOR,
-				"#" + style.getLeftBorderColorOfState(state).toAlphaRedGreenBlueValue()
+				"#" + style.getLeftBorderColorWhenHasState(state).toAlphaRedGreenBlueValue()
 			),
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.PADDING_LEFT,
-				style.getLeftPaddingOfState(state)
+				style.getLeftPaddingWhenHasState(state)
 			),
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.BORDER_RIGHT_WIDTH,
-				style.getRightBorderThicknessOfState(state)
+				style.getRightBorderThicknessWhenHasState(state)
 			),
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.BORDER_RIGHT_COLOR,
-				"#" + style.getRightBorderColorOfState(state).toAlphaRedGreenBlueValue()
+				"#" + style.getRightBorderColorWhenHasState(state).toAlphaRedGreenBlueValue()
 			),
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.PADDING_RIGHT,
-				style.getRightPaddingOfState(state)
+				style.getRightPaddingWhenHasState(state)
 			),
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.BORDER_TOP_WIDTH,
-				style.getTopBorderThicknessOfState(state)
+				style.getTopBorderThicknessWhenHasState(state)
 			),
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.BORDER_TOP_COLOR,
-				"#" + style.getTopBorderColorOfState(state).toAlphaRedGreenBlueValue()
+				"#" + style.getTopBorderColorWhenHasState(state).toAlphaRedGreenBlueValue()
 			),
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.PADDING_TOP,
-				style.getTopPaddingOfState(state)
+				style.getTopPaddingWhenHasState(state)
 			),
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.BORDER_BOTTOM_WIDTH,
-				style.getBottomBorderThicknessOfState(state)
+				style.getBottomBorderThicknessWhenHasState(state)
 			),
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.BORDER_BOTTOM_COLOR,
-				"#" + style.getBottomBorderColorOfState(state).toAlphaRedGreenBlueValue()
+				"#" + style.getBottomBorderColorWhenHasState(state).toAlphaRedGreenBlueValue()
 			),
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.PADDING_BOTTOM,
-				style.getBottomPaddingOfState(state)
+				style.getBottomPaddingWhenHasState(state)
 			)
 		);
 		
