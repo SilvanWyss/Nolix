@@ -10,6 +10,7 @@ import ch.nolix.core.web.css.CSSRule;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.webapi.cssapi.CSSPropertyNameCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
+import ch.nolix.systemapi.guiapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.mainapi.CursorIcon;
 import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
@@ -72,7 +73,7 @@ implements IControlCSSRuleCreator<C, CS> {
 		list.addAtEnd(
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.COLOR,
-				"#" + style.getTextColorWhenHasState(state).toAlphaRedGreenBlueValue()
+				getColorCodeOfColor(style.getTextColorWhenHasState(state))
 			),
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.FONT_SIZE,
@@ -81,6 +82,11 @@ implements IControlCSSRuleCreator<C, CS> {
 		);
 		
 		fillUpControlCSSPropertiesForStateIntoList(state, list);
+	}
+	
+	//method
+	private String getColorCodeOfColor(final IColor color) {
+		return String.format("#%02x%02x%02x", color.getRedValue(), color.getGreenValue(), color.getBlueValue());
 	}
 	
 	//method
