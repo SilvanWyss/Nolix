@@ -138,6 +138,11 @@ implements IMultiStateElement<FE, S> {
 	}
 	
 	//method
+	protected final void initialize() {
+		extractPropertiesIfNotExtracted();
+	}
+	
+	//method
 	protected final void internalSwitchToState(final S state) {
 		
 		GlobalValidator.assertThat(state).thatIsNamed(LowerCaseCatalogue.STATE).isNotNull();

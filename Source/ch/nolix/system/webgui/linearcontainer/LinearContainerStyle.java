@@ -32,6 +32,11 @@ implements ILinearContainerStyle<LinearContainerStyle> {
 		DEFAULT_CHILD_CONTROL_MARGIN
 	);
 	
+	//constructor
+	public LinearContainerStyle() {
+		initialize();
+	}
+	
 	//method
 	@Override
 	public int getChildControlMargin() {

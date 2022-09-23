@@ -6,4 +6,10 @@ import ch.nolix.system.webgui.controlstyle.ExtendedControlStyle;
 import ch.nolix.systemapi.webguiapi.controlapi.IButtonStyle;
 
 //class
-public final class ButtonStyle extends ExtendedControlStyle<ButtonStyle> implements IButtonStyle<ButtonStyle> {}
+public final class ButtonStyle extends ExtendedControlStyle<ButtonStyle> implements IButtonStyle<ButtonStyle> {
+	
+	//constructor
+	public ButtonStyle() {
+		initialize();
+	}
+}
