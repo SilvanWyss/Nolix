@@ -7,6 +7,8 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
+import ch.nolix.core.web.html.HTMLAttribute;
+import ch.nolix.core.web.html.HTMLAttributeNameCatalogue;
 import ch.nolix.core.web.html.HTMLElement;
 import ch.nolix.core.web.html.HTMLElementTypeCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
@@ -126,8 +128,14 @@ public final class Label extends Control<Label, LabelStyle> implements ILabel<La
 	@Override
 	public IHTMLElement<?, ?> toHTMLElement() {
 		return
-		HTMLElement.withTypeAndInnerText(
+		HTMLElement.withTypeAndAttributesAndInnerText(
 			HTMLElementTypeCatalogue.DIV,
+			ImmutableList.withElements(
+				HTMLAttribute.withNameAndValue(
+					HTMLAttributeNameCatalogue.ID,
+					getFixedId()
+				)
+			),
 			getText()
 		);
 	}
