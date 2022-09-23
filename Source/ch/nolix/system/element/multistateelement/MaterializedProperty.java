@@ -114,6 +114,11 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
 	}
 	
 	//method
+	public final V getValueWhenHasState(final S state) {
+		return getValueWhenHasState(getStateOf(state));
+	}
+	
+	//method
 	public final boolean hasSetterMethod() {
 		return (setterMethod != null);
 	}
