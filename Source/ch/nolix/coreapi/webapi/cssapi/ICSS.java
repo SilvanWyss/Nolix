@@ -12,4 +12,7 @@ public interface ICSS<
 	
 	//method declaration
 	IContainer<R> getRefRules();
+	
+	//method declaration
+	String toStringWithoutEnclosingBrackets();
 }

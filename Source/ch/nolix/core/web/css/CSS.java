@@ -32,6 +32,12 @@ public final class CSS implements ICSS<CSSRule, CSSProperty> {
 	//method
 	@Override
 	public String toString() {
-		return GlobalStringHelper.getInBraces(getRefRules().toConcatenatedString());
+		return GlobalStringHelper.getInBraces(toStringWithoutEnclosingBrackets());
+	}
+	
+	//method
+	@Override
+	public String toStringWithoutEnclosingBrackets() {
+		return getRefRules().toConcatenatedString();
 	}
 }
