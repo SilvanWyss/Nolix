@@ -12,7 +12,7 @@ public interface IControlStyle<CS extends IControlStyle<CS>> extends IResponding
 	
 	//method declaration
 	boolean getBoldTextFlagOfState(ControlState state);
-
+	
 	//method declaration
 	Font getFontOfState(ControlState state);
 	
