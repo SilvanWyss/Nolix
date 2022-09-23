@@ -4076,6 +4076,7 @@ define("System/Application/WebApplicationProtocol/CommandProtocol", ["require", 
     Object.defineProperty(exports, "__esModule", { value: true });
     class CommandProtocol {
     }
+    CommandProtocol.SET_CSS = "SetCSS";
     CommandProtocol.SET_ICON = 'SetIcon';
     CommandProtocol.SET_ROOT_HTML_ELEMENT = 'SetRootHTMLElement';
     CommandProtocol.SET_TITLE = 'SetTitle';
@@ -4114,6 +4115,10 @@ define("System/FrontendWebGUI/FrontendWebGUI", ["require", "exports", "Core/Docu
         }
         getTitle() {
             return this.title;
+        }
+        setCSS(pCSS) {
+            const style = this.getRefStyleElement();
+            style.innerHTML = pCSS;
         }
         setIcon(icon) {
             if (icon === null) {
@@ -4157,6 +4162,16 @@ define("System/FrontendWebGUI/FrontendWebGUI", ["require", "exports", "Core/Docu
             }
             return rootElement;
         }
+        getRefStyleElement() {
+            const style = document.getElementById('stylex');
+            if (style !== undefined && style !== null) {
+                return style;
+            }
+            var newStyle = document.createElement('style');
+            newStyle.id = 'stylex';
+            document.getElementsByTagName('head')[0].appendChild(newStyle);
+            return newStyle;
+        }
         setupActionsOfElement(element) {
             for (const c of element.children) {
                 if (c instanceof HTMLElement) {
@@ -4196,6 +4211,10 @@ define("System/Application/WebApplication/FrontendWebClientGUIManager", ["requir
                     break;
                 case CommandProtocol_1.CommandProtocol.SET_ROOT_HTML_ELEMENT:
                     this.mFrontendWebGUI.setRootHTMLElementFromString(pGUICommand.getOneAttribute().getHeader());
+                    break;
+                case CommandProtocol_1.CommandProtocol.SET_CSS:
+                    const lCSS = pGUICommand.getOneAttribute().getHeader();
+                    this.mFrontendWebGUI.setCSS(lCSS);
                     break;
                 default:
                     throw new Error('The given \'' + pGUICommand + '\' is not valid.');

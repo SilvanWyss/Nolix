@@ -5,6 +5,9 @@ package ch.nolix.system.application.webapplicationprotocol;
 public final class CommandProtocol {
 	
 	//constant
+	public static final String SET_CSS = "SetCSS";
+	
+	//constant
 	public static final String SET_ICON = "SetIcon";
 	
 	//constant

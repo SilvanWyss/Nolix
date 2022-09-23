@@ -7,6 +7,7 @@ import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.webapi.cssapi.ICSS;
 import ch.nolix.coreapi.webapi.htmlapi.IHTMLElement;
 import ch.nolix.system.application.webapplicationprotocol.CommandProtocol;
 import ch.nolix.system.application.webapplicationprotocol.ObjectProtocol;
@@ -46,7 +47,8 @@ final class BackendWebClientCounterpartUpdater {
 		ImmutableList.withElements(
 			createSetTitleCommandFromWebGUI(webGUI),
 			createSetIconCommandFromWebGUI(webGUI),
-			createSetRootHTMLElementCommandFromWebGUI(webGUI)
+			createSetRootHTMLElementCommandFromWebGUI(webGUI),
+			createSetCSSCommandFromWebGUI(webGUI)
 		);
 	}
 	
@@ -94,6 +96,28 @@ final class BackendWebClientCounterpartUpdater {
 			ChainedNode.withHeaderAndChildNode(
 				CommandProtocol.SET_ROOT_HTML_ELEMENT,
 				ChainedNode.withHeader(pHTMLElement.toString())
+			)
+		);
+	}
+		
+	//method
+	private ChainedNode createSetCSSCommandFromWebGUI(final IWebGUI<?> webGUI) {
+		return createSetCSSCommandFromCSS(webGUI.getCSS());
+	}
+	
+	//method
+	private ChainedNode createSetCSSCommandFromCSS(final ICSS<?, ?> pCSS) {
+		return createSetCSSCommandFromCSS(pCSS.toStringWithoutEnclosingBrackets());
+	}
+	
+	//method
+	private ChainedNode createSetCSSCommandFromCSS(final String pCSS) {
+		return
+		ChainedNode.withHeaderAndNextNode(
+			ObjectProtocol.GUI,
+			ChainedNode.withHeaderAndChildNode(
+				CommandProtocol.SET_CSS,
+				ChainedNode.withHeader(pCSS)
 			)
 		);
 	}
