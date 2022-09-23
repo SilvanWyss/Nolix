@@ -2,6 +2,7 @@
 package ch.nolix.core.web.css;
 
 //own imports
+import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.webapi.cssapi.ICSS;
 import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
@@ -26,5 +27,11 @@ public final class CSS implements ICSS<CSSRule, CSSProperty> {
 	@Override
 	public IContainer<CSSRule> getRefRules() {
 		return rules;
+	}
+	
+	//method
+	@Override
+	public String toString() {
+		return GlobalStringHelper.getInBraces(getRefRules().toConcatenatedString());
 	}
 }
