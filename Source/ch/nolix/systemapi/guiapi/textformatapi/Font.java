@@ -12,14 +12,17 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
  * @date 2017-08-19
  */
 public enum Font {
-	ARIAL,
-	ARIAL_BLACK,
-	COMIC_SANS_MS,
-	IMPACT,
-	LUCIDA_CONSOLE,
-	PAPYRUS,
-	TAHOMA,
-	VERDANA;
+	ARIAL(FontCodeCatalogue.ARIAL),
+	ARIAL_BLACK(FontCodeCatalogue.ARIAL_BLACK),
+	COMIC_SANS_MS(FontCodeCatalogue.COMIC_SANS_MS),
+	IMPACT(FontCodeCatalogue.IMPACT),
+	LUCIDA_CONSOLE(FontCodeCatalogue.LUCIDA_CONSOLE),
+	PAPYRUS(FontCodeCatalogue.PAPYRUS),
+	TAHOMA(FontCodeCatalogue.TAHOMA),
+	VERDANA(FontCodeCatalogue.VERDANA);
+	
+	//attribute
+	private final String code;
 	
 	//static method
 	/**
@@ -31,32 +34,21 @@ public enum Font {
 		return valueOf(specification.getSingleChildNodeHeader());
 	}
 	
+	//constructor
+	/**
+	 * Creates a new {@link Font} with the given code.
+	 * 
+	 * @param code
+	 */
+	Font(final String code) {
+		this.code = code;
+	}
+	
 	//method
 	/**
 	 * @return the code of the current {@link Font}.
 	 */
 	public String getCode() {
-		
-		//Enumerates the current Font.
-		switch (this) {
-			case ARIAL:
-				return FontCodeCatalogue.ARIAL;
-			case ARIAL_BLACK:
-				return FontCodeCatalogue.ARIAL_BLACK;
-			case COMIC_SANS_MS:
-				return FontCodeCatalogue.COMIC_SANS_MS;
-			case IMPACT:
-				return FontCodeCatalogue.IMPACT;
-			case LUCIDA_CONSOLE:
-				return FontCodeCatalogue.LUCIDA_CONSOLE;
-			case PAPYRUS:
-				return FontCodeCatalogue.PAPYRUS;
-			case TAHOMA:
-				return FontCodeCatalogue.TAHOMA;
-			case VERDANA:
-				return FontCodeCatalogue.VERDANA;
-			default:
-				throw new IllegalArgumentException("The current Font is not valid.");
-		}
+		return code;
 	}
 }
