@@ -78,7 +78,7 @@ implements IControlCSSRuleCreator<C, CS> {
 			),
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.FONT_FAMILY,
-				style.getFontWhenHasState(state).getCode()
+				style.getFontWhenHasState(state).getCode().toLowerCase()
 			),
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.FONT_SIZE,
