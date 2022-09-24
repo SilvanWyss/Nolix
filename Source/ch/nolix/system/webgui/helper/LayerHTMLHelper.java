@@ -22,21 +22,6 @@ public final class LayerHTMLHelper {
 	private LayerHTMLHelper() {}
 	
 	//method
-	public IContainer<IHTMLAttribute> getHTMLAttributesOfLayer(final ILayer<?> layer) {
-		return ImmutableList.withElements(getStyleHTMLAttributeOfLayer(layer));
-	}
-	
-	//method
-	public IContainer<IHTMLElement<?, ?>> getHTMLChildElementsOfLayer(final ILayer<?> layer) {
-		
-		if (layer.isEmpty()) {
-			return new ImmutableList<>();
-		}
-		
-		return ImmutableList.withElements(layer.getRefRootControl().toHTMLElement());
-	}
-	
-	//method
 	public IHTMLElement<?, ?> getHTMLElementOfLayer(final ILayer<?> layer) {
 		return
 		HTMLElement.withTypeAndAttributesAndChildElements(
@@ -47,21 +32,33 @@ public final class LayerHTMLHelper {
 	}
 	
 	//method
-	public int getHTMLZIndexOfLayer(final ILayer<?> layer) {
+	private IContainer<IHTMLAttribute> getHTMLAttributesOfLayer(final ILayer<?> layer) {
+		return
+		ImmutableList.withElements(
+			HTMLAttribute.withNameAndValue(
+				HTMLAttributeNameCatalogue.STYLE,
+				"position: absolute; z-index: " + getHTMLZIndexOfLayer(layer)
+			)
+		);
+	}
+	
+	//method
+	private IContainer<IHTMLElement<?, ?>> getHTMLChildElementsOfLayer(final ILayer<?> layer) {
+		
+		if (layer.isEmpty()) {
+			return new ImmutableList<>();
+		}
+		
+		return ImmutableList.withElements(layer.getRefRootControl().toHTMLElement());
+	}
+	
+	//method
+	private int getHTMLZIndexOfLayer(final ILayer<?> layer) {
 		
 		if (!layer.belongsToGUI()) {
 			return 0;
 		}
 		
 		return layer.getRefParentGUI().getRefLayers().getIndexOfFirstOccurrenceOf(layer);
-	}
-	
-	//method
-	public IHTMLAttribute getStyleHTMLAttributeOfLayer(ILayer<?> layer) {
-		return
-		HTMLAttribute.withNameAndValue(
-			HTMLAttributeNameCatalogue.STYLE,
-			"position: absolute; z-index: " + getHTMLZIndexOfLayer(layer)
-		);
 	}
 }
