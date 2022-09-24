@@ -21,6 +21,7 @@ public final class LayerHTMLHelper {
 	//constructor
 	private LayerHTMLHelper() {}
 	
+	//method
 	public IContainer<IHTMLAttribute> getHTMLAttributesOfLayer(final ILayer<?> layer) {
 		return ImmutableList.withElements(getStyleHTMLAttributeOfLayer(layer));
 	}
