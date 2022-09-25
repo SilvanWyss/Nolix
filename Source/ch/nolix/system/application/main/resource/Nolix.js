@@ -704,16 +704,16 @@ define("Core/Document/Node/Node", ["require", "exports", "Core/Container/LinkedL
                                 originString += '.';
                                 break;
                             case 'M':
-                                originString += '.';
+                                originString += ',';
                                 break;
                             case 'X':
-                                originString += '.';
+                                originString += '$';
                                 break;
                             case 'O':
-                                originString += '.';
+                                originString += '(';
                                 break;
                             case 'C':
-                                originString += '.';
+                                originString += ')';
                                 break;
                             default:
                                 throw new Error('The given reproducing string is not valid.');
