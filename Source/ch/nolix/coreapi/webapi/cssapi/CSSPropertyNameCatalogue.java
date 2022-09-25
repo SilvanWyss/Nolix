@@ -47,6 +47,12 @@ public final class CSSPropertyNameCatalogue {
 	public static final String FONT_SIZE = "font-size";
 	
 	//constant
+	public static final String HEIGHT = "height";
+	
+	//constant
+	public static final String MARGIN = "margin";
+	
+	//constant
 	public static final String PADDING_BOTTOM = "padding-bottom";
 	
 	//constant
@@ -57,6 +63,9 @@ public final class CSSPropertyNameCatalogue {
 	
 	//constant
 	public static final String PADDING_TOP = "padding-top";
+	
+	//constant
+	public static final String WIDTH = "width";
 	
 	//constructor
 	private CSSPropertyNameCatalogue() {}
