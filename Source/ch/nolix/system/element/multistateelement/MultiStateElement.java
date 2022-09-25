@@ -18,11 +18,11 @@ import ch.nolix.systemapi.elementapi.multistateelementapi.IMultiStateElement;
 
 //class
 public abstract class MultiStateElement<
-	FE extends MultiStateElement<FE, S>,
+	MSE extends IMultiStateElement<MSE, S>,
 	S extends Enum<S>
 >
 extends Element
-implements IMultiStateElement<FE, S> {
+implements IMultiStateElement<MSE, S> {
 	
 	//static method
 	private static boolean fieldStoresProperty(final Field field) {
@@ -113,8 +113,11 @@ implements IMultiStateElement<FE, S> {
 	}
 	
 	//method
-	public final void setFrom(final FE element) {
-		final var iterator = element.getRefProperties().iterator();
+	public final void setFrom(final MSE element) {
+		
+		@SuppressWarnings("unchecked")
+		final var iterator = ((MultiStateElement<MSE, S>)element).getRefProperties().iterator();
+		
 		for (final var p : getRefProperties()) {
 			p.setFrom(iterator.next());
 		}
@@ -125,8 +128,8 @@ implements IMultiStateElement<FE, S> {
 	 * @return the current {@link MultiStateElement} as concrete {@link MultiStateElement}.
 	 */
 	@SuppressWarnings("unchecked")
-	protected final FE asConcrete() {
-		return (FE)this;
+	protected final MSE asConcrete() {
+		return (MSE)this;
 	}
 	
 	//method
