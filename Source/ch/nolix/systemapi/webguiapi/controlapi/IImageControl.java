@@ -7,11 +7,15 @@ import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //interface
-public interface IImageControl<I extends IImage> extends Clearable, IControl<IImageControl<I>, IImageControlStyle> {
+public interface IImageControl<
+	IC extends IImageControl<IC, IICS, I>,
+	IICS extends IImageControlStyle<IICS>,
+	I extends IImage
+> extends Clearable, IControl<IC, IICS> {
 	
 	//method declaration
 	I getRefImage();
 	
 	//method declaration
-	IImageControl<I> setImage(IImage image);
+	IC setImage(IImage image);
 }
