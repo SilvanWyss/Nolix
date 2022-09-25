@@ -5,8 +5,10 @@ package ch.nolix.system.webgui.helper;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.web.css.CSS;
+import ch.nolix.core.web.css.CSSProperty;
 import ch.nolix.core.web.css.CSSRule;
 import ch.nolix.core.web.html.HTMLElementTypeCatalogue;
+import ch.nolix.coreapi.webapi.cssapi.CSSPropertyNameCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
 import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
@@ -37,7 +39,12 @@ public final class WebGUICSSCreator {
 		lCSSRules.addAtEnd(
 			CSSRule.withSelectorAndProperties(
 				HTMLElementTypeCatalogue.BODY,
-				ImmutableList.withElements(webGUI.getBackground().toCSSProperty())
+				ImmutableList.withElements(
+					CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.MARGIN, "0px"),
+					CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.WIDTH, "100vw"),
+					CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.HEIGHT, "100vh"),
+					webGUI.getBackground().toCSSProperty()
+				)
 			)	
 		);
 		
