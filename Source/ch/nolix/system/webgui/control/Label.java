@@ -7,13 +7,12 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
-import ch.nolix.core.web.html.HTMLAttribute;
-import ch.nolix.core.web.html.HTMLAttributeNameCatalogue;
 import ch.nolix.core.web.html.HTMLElement;
 import ch.nolix.core.web.html.HTMLElementTypeCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.webapi.htmlapi.IHTMLElement;
 import ch.nolix.system.element.mutableelement.MutableValue;
+import ch.nolix.system.webgui.controlhelper.ControlHelper;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.webguiapi.controlapi.ILabel;
@@ -130,12 +129,7 @@ public final class Label extends Control<Label, LabelStyle> implements ILabel<La
 		return
 		HTMLElement.withTypeAndAttributesAndInnerText(
 			HTMLElementTypeCatalogue.DIV,
-			ImmutableList.withElements(
-				HTMLAttribute.withNameAndValue(
-					HTMLAttributeNameCatalogue.ID,
-					getFixedId()
-				)
-			),
+			ImmutableList.withElements(ControlHelper.INSTANCE.createIdHTMLAttributeForControl(this)),
 			getText()
 		);
 	}
