@@ -163,7 +163,7 @@ public final class WebGUI extends StyleElement<WebGUI> implements IWebGUI<WebGUI
 	//method
 	@Override
 	public IWebGUIContent getContent() {
-		return WebGUIContent.forParentWebGUI(this);
+		return WebGUIContent.forWebGUI(this);
 	}
 	
 	//method
