@@ -24,6 +24,7 @@ import ch.nolix.systemapi.guiapi.colorapi.IColorGradient;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.imageapi.ImageApplication;
 import ch.nolix.systemapi.guiapi.structureproperty.BackgroundType;
+import ch.nolix.systemapi.guiapi.structureproperty.DirectionInRectangle;
 
 //class
 public final class Background extends Element implements IBackground {
@@ -218,13 +219,17 @@ public final class Background extends Element implements IBackground {
 		switch (getType()) {
 		case COLOR:
 			
-			final var colorCode =
-			String.format("#%02x%02x%02x", color.getRedValue(), color.getGreenValue(), color.getBlueValue());
+			final var colorCode = getColorCodeOfColor(color);
 			
-			return
-			CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.BACKGROUND, colorCode);
+			return CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.BACKGROUND, colorCode);
 		case COLOR_GRADIENT:
-			//TODO: Implement.
+			
+			final var degreeCode = getDegreeCodeOfColorGradient(colorGradient);
+			final var color1Code = getColorCodeOfColor(colorGradient.getColor1());
+			final var color2Code = getColorCodeOfColor(colorGradient.getColor2());
+			final var linearGradientCode = "linear-gradient(" + degreeCode + "," + color1Code + "," + color2Code + ")";
+			
+			return CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.BACKGROUND_IMAGE, linearGradientCode);
 		case IMAGE:
 			//TODO: Implement.
 		default:
@@ -250,6 +255,37 @@ public final class Background extends Element implements IBackground {
 	private void assertIsImage() {
 		if (!isImage()) {
 			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeType(this, IImage.class);
+		}
+	}
+	
+	//method
+	private String getColorCodeOfColor(final IColor color) {
+		return String.format("#%02x%02x%02x", color.getRedValue(), color.getGreenValue(), color.getBlueValue());
+	}
+	
+	//method
+	private Object getDegreeCodeOfColorGradient(final IColorGradient pColorGradient) {
+		return (getDegreeOfColorGradient(pColorGradient) + "deg");
+	}
+	
+	//method
+	private int getDegreeOfColorGradient(final IColorGradient pColorGradient) {
+		return getDegreeOfDirection(pColorGradient.getDirection());
+	}
+	
+	//method
+	private int getDegreeOfDirection(final DirectionInRectangle direction) {
+		switch (direction) {
+			case VERTICAL:
+				return 180;
+			case HORIZONTAL:
+				return 90;
+			case DIAGONAL_DOWN:
+				return 135;
+			case DIAGONAL_UP:
+				return 45;
+			default:
+				throw InvalidArgumentException.forArgument(direction);
 		}
 	}
 }
