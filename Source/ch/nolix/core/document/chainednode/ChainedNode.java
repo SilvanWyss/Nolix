@@ -6,7 +6,6 @@ import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.commontype.constant.CharacterCatalogue;
 import ch.nolix.core.commontype.constant.StringCatalogue;
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -299,12 +298,8 @@ public final class ChainedNode implements IChainedNode {
 	) {
 		
 		final var chainedNode = new ChainedNode();
-		
 		chainedNode.setHeader(header);
-		
-		//TODO: Overload addChildNode method.
-		chainedNode.addChildNodes(ReadContainer.forArray(childNodes));
-		
+		chainedNode.addChildNode(childNodes);
 		chainedNode.setNextNode(nextNode);
 		
 		return chainedNode;
@@ -733,16 +728,18 @@ public final class ChainedNode implements IChainedNode {
 	
 	//method
 	/**
-	 * Adds the given attribute to the current {@link ChainedNode}.
+	 * Adds the given childNodes to the current {@link ChainedNode}.
 	 * 
-	 * @param attribute
-	 * @throws ArgumentIsNullException if the given attribute is null.
+	 * @param childNodes
+	 * @throws ArgumentIsNullException if one of the given childNodes is null.
 	 */
-	private void addChildNode(final IChainedNode attribute) {
-		if (attribute instanceof ChainedNode) {
-			childNodes.addAtEnd((ChainedNode)attribute);
-		} else {
-			childNodes.addAtEnd(fromChainedNode(attribute));
+	private void addChildNode(final IChainedNode... childNodes) {
+		for (final var cn : childNodes) {
+			if (cn instanceof ChainedNode) {
+				this.childNodes.addAtEnd((ChainedNode)cn);
+			} else {
+				this.childNodes.addAtEnd(fromChainedNode(cn));
+			}
 		}
 	}
 	
