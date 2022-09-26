@@ -32,6 +32,9 @@ implements IImageControl<ImageControl, ImageControlStyle, MutableImage> {
 		MutableImage::getSpecification
 	);
 	
+	//attribute
+	private final ImageControlCSSRuleCreator mCSSRuleCreator = ImageControlCSSRuleCreator.forImageControl(this);
+	
 	//method
 	@Override
 	public void clear() {
@@ -47,9 +50,7 @@ implements IImageControl<ImageControl, ImageControlStyle, MutableImage> {
 	//method
 	@Override
 	public IControlCSSRuleCreator<ImageControl, ImageControlStyle> getCSSRuleCreator() {
-		
-		//TODO: Implement.
-		return null;
+		return mCSSRuleCreator;
 	}
 	
 	//method
