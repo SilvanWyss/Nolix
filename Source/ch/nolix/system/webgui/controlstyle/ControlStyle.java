@@ -20,7 +20,7 @@ import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
 public abstract class ControlStyle<CS extends ControlStyle<CS>>
 extends MultiStateElement<CS, ControlState>
 implements IControlStyle<CS> {
-
+	
 	//constant
 	public static final double DEFAULT_OPACITY = 1.0;
 	
