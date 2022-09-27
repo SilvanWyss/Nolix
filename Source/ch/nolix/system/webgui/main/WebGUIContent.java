@@ -19,7 +19,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.IWebGUIContent;
 final class WebGUIContent implements IWebGUIContent {
 	
 	//constant
-	private final String ROOT_DIV_ID = "root";
+	private static final String ROOT_DIV_ID = "root";
 	
 	//static method
 	public static WebGUIContent forWebGUI(final IWebGUI<?> parentWebGUI) {
