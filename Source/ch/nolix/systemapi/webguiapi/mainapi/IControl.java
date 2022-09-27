@@ -49,4 +49,7 @@ extends FixedIdentified, HTMLElementTransformable, IStylableElement<C>, IInputTa
 	
 	//method declaration
 	void technicalSetParentLayer(ILayer<?> parentLayer);
+	
+	//method declaration
+	void technicalUpdateMediaRegistrationsAtGUI(IWebGUI<?> pGUI);
 }

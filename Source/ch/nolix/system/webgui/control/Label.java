@@ -18,6 +18,7 @@ import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.webguiapi.controlapi.ILabel;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IControlCSSRuleCreator;
+import ch.nolix.systemapi.webguiapi.mainapi.IWebGUI;
 
 //class
 public final class Label extends Control<Label, LabelStyle> implements ILabel<Label, LabelStyle> {
@@ -121,6 +122,12 @@ public final class Label extends Control<Label, LabelStyle> implements ILabel<La
 		this.text.setValue(text);
 		
 		return this;
+	}
+	
+	//method
+	@Override
+	public void technicalUpdateMediaRegistrationsAtGUI(final IWebGUI<?> pGUI) {
+		//Does nothing.
 	}
 	
 	//method

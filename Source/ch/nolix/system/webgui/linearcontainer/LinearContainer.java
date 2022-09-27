@@ -9,6 +9,7 @@ import ch.nolix.system.webgui.main.GlobalControlFactory;
 import ch.nolix.systemapi.webguiapi.linearcontainerapi.ILinearContainer;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IControlCSSRuleCreator;
+import ch.nolix.systemapi.webguiapi.mainapi.IWebGUI;
 
 //class
 public abstract class LinearContainer
@@ -80,6 +81,12 @@ implements ILinearContainer<LinearContainer, LinearContainerStyle> {
 	@Override
 	public final void removeControl(final IControl<?, ?> control) {
 		childControls.remove(control);
+	}
+	
+	//method
+	@Override
+	public final void technicalUpdateMediaRegistrationsAtGUI(final IWebGUI<?> pGUI) {
+		//Does nothing.
 	}
 	
 	//method

@@ -17,6 +17,7 @@ import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.webguiapi.controlapi.IImageControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IControlCSSRuleCreator;
+import ch.nolix.systemapi.webguiapi.mainapi.IWebGUI;
 
 //class
 public final class ImageControl
@@ -139,6 +140,12 @@ implements IImageControl<ImageControl, ImageControlStyle, MutableImage> {
 		}
 		
 		return this;
+	}
+	
+	//method
+	@Override
+	public void technicalUpdateMediaRegistrationsAtGUI(final IWebGUI<?> pGUI) {
+		//TODO: Implement.
 	}
 	
 	//method
