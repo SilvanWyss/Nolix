@@ -18,8 +18,10 @@ import ch.nolix.coreapi.containerapi.pairapi.IPair;
  */
 public final class Pair<E1, E2> implements IPair<E1, E2> {
 	
-	//attributes
+	//attribute
 	private final E1 element1;
+	
+	//attribute
 	private final E2 element2;
 	
 	//constructor
@@ -66,25 +68,25 @@ public final class Pair<E1, E2> implements IPair<E1, E2> {
 	
 	//method
 	/**
-	 * @param object
-	 * @return true if the element 1 of the current {@link Pair} is the given object.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public boolean hasElement1(final Object object) {
 		return (element1 == object);
 	}
 	
 	//method
 	/**
-	 * @param object
-	 * @return true if the element 2 of the current {@link Pair} is the given object.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public boolean hasElement2(final Object object) {
 		return (element2 == object);
 	}
 	
 	//method
 	/**
-	 * @return a {@link String} representation of the current {@link Pair}.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public String toString() {

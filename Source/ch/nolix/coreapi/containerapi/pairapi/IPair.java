@@ -23,4 +23,18 @@ public interface IPair<E1, E2> {
 	 * @return the element2 of the current {@link IPair}.
 	 */
 	E2 getRefElement2();
+	
+	//method declaration
+	/**
+	 * @param object
+	 * @return true if the element1 of the current {@link IPair} is the given object.
+	 */
+	boolean hasElement1(Object object);
+	
+	//method declaration
+	/**
+	 * @param object
+	 * @return true if the element2 of the current {@link IPair} is the given object.
+	 */
+	boolean hasElement2(Object object);
 }
