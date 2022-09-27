@@ -10,6 +10,9 @@ public final class HTMLElementTypeCatalogue {
 	//constant
 	public static final String DIV = "div";
 	
+	//constant
+	public static final String IMG = "img";
+	
 	//constructor
 	private HTMLElementTypeCatalogue() {}
 }
