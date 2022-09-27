@@ -244,7 +244,7 @@ public final class Button extends Control<Button, ButtonStyle> implements IButto
 	public IHTMLElement<?, ?> toHTMLElement() {
 		return
 		HTMLElement.withTypeAndAttributesAndInnerText(
-			HTMLElementTypeCatalogue.DIV,
+			HTMLElementTypeCatalogue.BUTTON,
 			ImmutableList.withElements(
 				ControlHelper.INSTANCE.createIdHTMLAttributeForControl(this),
 				HTMLAttribute.withNameAndValue(
