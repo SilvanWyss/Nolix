@@ -8,4 +8,10 @@ import ch.nolix.systemapi.webguiapi.controlapi.IImageControlStyle;
 //class
 public final class ImageControlStyle
 extends ExtendedControlStyle<ImageControlStyle>
-implements IImageControlStyle<ImageControlStyle> {}
+implements IImageControlStyle<ImageControlStyle> {
+	
+	//constructor
+	public ImageControlStyle() {
+		initialize();
+	}
+}
