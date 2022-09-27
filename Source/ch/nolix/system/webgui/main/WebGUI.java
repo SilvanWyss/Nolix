@@ -22,6 +22,7 @@ import ch.nolix.system.gui.main.GUIIconCatalogue;
 import ch.nolix.system.gui.main.LocalFrontEndReader;
 import ch.nolix.system.gui.main.LocalFrontEndWriter;
 import ch.nolix.system.webgui.helper.WebGUICSSCreator;
+import ch.nolix.system.webgui.mediamanager.MediaRegistrator;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 import ch.nolix.systemapi.guiapi.canvasuniversalapi.IBackground;
 import ch.nolix.systemapi.guiapi.colorapi.IColor;
@@ -35,6 +36,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGUI;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGUIContent;
+import ch.nolix.systemapi.webguiapi.mediamanagerapi.IMediaRegistrator;
 
 //class
 public final class WebGUI extends StyleElement<WebGUI> implements IWebGUI<WebGUI> {
@@ -103,6 +105,9 @@ public final class WebGUI extends StyleElement<WebGUI> implements IWebGUI<WebGUI
 	
 	//attribute
 	private IFrontEndWriter frontEndWriter = new LocalFrontEndWriter();
+	
+	//attribute
+	private final IMediaRegistrator mediaRegistrator = new MediaRegistrator();
 	
 	//constructor
 	public WebGUI() {
@@ -350,6 +355,12 @@ public final class WebGUI extends StyleElement<WebGUI> implements IWebGUI<WebGUI
 		this.title.setValue(title);
 		
 		return this;
+	}
+	
+	//method
+	@Override
+	public IMediaRegistrator technicalGetRefMediaRegistrator() {
+		return mediaRegistrator;
 	}
 	
 	//method

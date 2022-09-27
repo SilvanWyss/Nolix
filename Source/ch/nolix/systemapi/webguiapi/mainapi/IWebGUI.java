@@ -11,6 +11,7 @@ import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.mainapi.IFrontEndReader;
 import ch.nolix.systemapi.guiapi.mainapi.IFrontEndWriter;
 import ch.nolix.systemapi.guiapi.mainapi.IGUI;
+import ch.nolix.systemapi.webguiapi.mediamanagerapi.IMediaRegistrator;
 
 //interface
 public interface IWebGUI<WGUI extends IWebGUI<WGUI>>
@@ -57,4 +58,7 @@ extends Clearable, ICanvas<WGUI>, IGUI<WGUI>, IStyleElement<WGUI> {
 	
 	//method declaration
 	WGUI setIcon(IImage icon);
+	
+	//method declaration
+	IMediaRegistrator technicalGetRefMediaRegistrator();
 }
