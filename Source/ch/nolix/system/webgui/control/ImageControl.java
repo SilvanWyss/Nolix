@@ -145,7 +145,11 @@ implements IImageControl<ImageControl, ImageControlStyle, MutableImage> {
 	//method
 	@Override
 	public void technicalUpdateMediaRegistrationsAtGUI(final IWebGUI<?> pGUI) {
-		//TODO: Implement.
+		if (containsAny()) {
+			pGUI
+			.technicalGetRefMediaRegistrator()
+			.registerBackgroundImageForHTMLElementWithOverwriteMode(getFixedId(), getRefImage());
+		}
 	}
 	
 	//method
