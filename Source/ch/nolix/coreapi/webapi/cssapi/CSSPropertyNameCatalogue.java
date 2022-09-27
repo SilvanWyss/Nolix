@@ -29,6 +29,9 @@ public final class CSSPropertyNameCatalogue {
 	public static final String BORDER_RIGHT_WIDTH = "border-right-width";
 	
 	//constant
+	public static final String BORDER_STYLE = "border-style";
+	
+	//constant
 	public static final String BORDER_TOP_COLOR = "border-top-color";
 	
 	//constant
