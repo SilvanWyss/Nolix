@@ -365,6 +365,12 @@ public final class WebGUI extends StyleElement<WebGUI> implements IWebGUI<WebGUI
 	
 	//method
 	@Override
+	public void updateMediaRegistrations() {
+		getRefControls().forEach(c -> c.technicalUpdateMediaRegistrationsAtGUI(this));
+	}
+	
+	//method
+	@Override
 	protected void resetConfigurationElement() {
 		
 		setTitle(DEFAULT_TITLE);

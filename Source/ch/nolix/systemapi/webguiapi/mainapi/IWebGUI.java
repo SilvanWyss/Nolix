@@ -61,4 +61,7 @@ extends Clearable, ICanvas<WGUI>, IGUI<WGUI>, IStyleElement<WGUI> {
 	
 	//method declaration
 	IMediaRegistrator technicalGetRefMediaRegistrator();
+	
+	//method declaration
+	void updateMediaRegistrations();
 }
