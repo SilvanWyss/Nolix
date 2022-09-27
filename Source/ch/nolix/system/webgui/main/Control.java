@@ -119,9 +119,6 @@ implements IControl<C, CS> {
 	//method
 	@Override
 	public final void technicalSetParentControl(final IControl<?, ?> parentControl) {
-		
-		
-		
 		setParent(ControlParent.forControl(parentControl));
 	}
 	
