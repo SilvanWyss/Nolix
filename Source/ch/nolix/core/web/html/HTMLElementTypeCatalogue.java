@@ -8,6 +8,9 @@ public final class HTMLElementTypeCatalogue {
 	public static final String BODY = "body";
 	
 	//constant
+	public static final String BUTTON = "button";
+	
+	//constant
 	public static final String DIV = "div";
 	
 	//constant
