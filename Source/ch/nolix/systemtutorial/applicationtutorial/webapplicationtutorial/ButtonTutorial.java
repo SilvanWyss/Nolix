@@ -17,7 +17,7 @@ public final class ButtonTutorial {
 		final var server = Server.forDefaultPort(true);
 		
 		//Adds a default Application to the Server.
-		server.addDefaultApplication("Empty GUI tutorial", MainSession.class, VoidApplicationContext.INSTANCE);
+		server.addDefaultApplication("Button tutorial", MainSession.class, VoidApplicationContext.INSTANCE);
 		
 		//Starts a web browser that will connect to the Server.
 		ShellProvider.startFirefoxOpeningLoopBackAddress();
