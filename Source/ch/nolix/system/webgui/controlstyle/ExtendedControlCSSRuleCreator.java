@@ -4,6 +4,7 @@ package ch.nolix.system.webgui.controlstyle;
 //own imports
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.web.css.CSSProperty;
+import ch.nolix.coreapi.webapi.cssapi.CSSBorderStyleValueCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.CSSPropertyNameCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.CSSUnitCatalogue;
 import ch.nolix.system.webgui.main.ControlCSSRuleCreator;
@@ -34,6 +35,10 @@ extends ControlCSSRuleCreator<EC, ECS> {
 		final var style = getRefParentControl().getRefStyle();
 		
 		list.addAtEnd(
+			CSSProperty.withNameAndValue(
+				CSSPropertyNameCatalogue.BORDER_STYLE,
+				CSSBorderStyleValueCatalogue.SOLID
+			),
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.BORDER_LEFT_WIDTH,
 				String.valueOf(style.getLeftBorderThicknessWhenHasState(state)) + CSSUnitCatalogue.PX
