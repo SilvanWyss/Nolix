@@ -16,7 +16,7 @@ public final class BackgroundColorGradientTutorial {
 		final var server = Server.forDefaultPort(true);
 		
 		//Adds a default Application to the Server.
-		server.addDefaultApplication("Background ColorGradient Tutorial", MainSession.class, VoidApplicationContext.INSTANCE);
+		server.addDefaultApplication("Background ColorGradient tutorial", MainSession.class, VoidApplicationContext.INSTANCE);
 		
 		//Starts a web browser that will connect to the Server.
 		ShellProvider.startFirefoxOpeningLoopBackAddress();
