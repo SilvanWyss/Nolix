@@ -4,13 +4,10 @@ package ch.nolix.system.webgui.control;
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
-import ch.nolix.core.web.html.HTMLElement;
-import ch.nolix.core.web.html.HTMLElementTypeCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.webapi.htmlapi.IHTMLElement;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 import ch.nolix.system.gui.image.MutableImage;
-import ch.nolix.system.webgui.controlhelper.ControlHelper;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
@@ -155,11 +152,7 @@ implements IImageControl<ImageControl, ImageControlStyle, MutableImage> {
 	//method
 	@Override
 	public IHTMLElement<?, ?> toHTMLElement() {
-		return
-		HTMLElement.withTypeAndAttributes(
-			HTMLElementTypeCatalogue.IMG,
-			ImmutableList.withElements(ControlHelper.INSTANCE.createIdHTMLAttributeForControl(this))
-		);
+		return ImageControlHTMLCreator.INSTANCE.createHTMLElementFromImageControl(this);
 	}
 	
 	//method
