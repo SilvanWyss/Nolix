@@ -8,6 +8,9 @@ public final class HTMLAttributeNameCatalogue {
 	public static final String ID = "id";
 	
 	//constant
+	public static final String SRC = "src";
+	
+	//constant
 	public static final String STYLE = "style";
 	
 	//constructor
