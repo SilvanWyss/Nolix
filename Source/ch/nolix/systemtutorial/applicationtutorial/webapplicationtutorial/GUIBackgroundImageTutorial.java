@@ -8,7 +8,7 @@ import ch.nolix.system.application.webapplication.BackendWebClientSession;
 import ch.nolix.system.gui.image.Image;
 import ch.nolix.systemapi.guiapi.imageapi.ImageApplication;
 
-public final class BackgroundImageTutorial {
+public final class GUIBackgroundImageTutorial {
 	
 	public static void main(String[] args) {
 		
@@ -40,5 +40,5 @@ public final class BackgroundImageTutorial {
 		}
 	}
 	
-	private BackgroundImageTutorial() {}
+	private GUIBackgroundImageTutorial() {}
 }
