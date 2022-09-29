@@ -11,6 +11,9 @@ public final class CSSPropertyNameCatalogue {
 	public static final String BACKGROUND_IMAGE = "background-image";
 	
 	//constant
+	public static final String BACKGROUND_SIZE = "background-size";
+	
+	//constant
 	public static final String BORDER_BOTTOM_COLOR = "border-bottom-color";
 	
 	//constant

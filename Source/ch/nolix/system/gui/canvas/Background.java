@@ -2,6 +2,7 @@
 package ch.nolix.system.gui.canvas;
 
 //own imports
+import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -215,13 +216,14 @@ public final class Background extends Element implements IBackground {
 	
 	//method
 	@Override
-	public ICSSProperty toCSSProperty() {
+	public IContainer<ICSSProperty> toCSSProperties() {
 		switch (getType()) {
 		case COLOR:
 			
 			final var colorCode = getColorCodeOfColor(color);
 			
-			return CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.BACKGROUND, colorCode);
+			return
+			ImmutableList.withElements(CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.BACKGROUND, colorCode));
 		case COLOR_GRADIENT:
 			
 			final var degreeCode = getDegreeCodeOfColorGradient(colorGradient);
@@ -229,9 +231,22 @@ public final class Background extends Element implements IBackground {
 			final var color2Code = getColorCodeOfColor(colorGradient.getColor2());
 			final var linearGradientCode = "linear-gradient(" + degreeCode + "," + color1Code + "," + color2Code + ")";
 			
-			return CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.BACKGROUND_IMAGE, linearGradientCode);
+			return
+			ImmutableList.withElements(
+				CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.BACKGROUND_IMAGE, linearGradientCode)
+			);
 		case IMAGE:
-			//TODO: Implement.
+			
+			final var backgroundImage = "data:image/jpeg;base64," + image.toJPGString();
+			
+			return
+			ImmutableList.withElements(		
+				CSSProperty.withNameAndValue(
+					CSSPropertyNameCatalogue.BACKGROUND_IMAGE,
+					"url('" + backgroundImage + "')"
+				),
+				CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.BACKGROUND_SIZE, "100% 100%")
+			);
 		default:
 			throw InvalidArgumentException.forArgument(this);
 		}
