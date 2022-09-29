@@ -23,7 +23,6 @@ import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.webguiapi.controlapi.IButton;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IControlCSSRuleCreator;
-import ch.nolix.systemapi.webguiapi.mainapi.IWebGUI;
 
 //class
 public final class Button extends Control<Button, ButtonStyle> implements IButton<Button, ButtonStyle> {
@@ -238,12 +237,6 @@ public final class Button extends Control<Button, ButtonStyle> implements IButto
 		this.text.setValue(text);
 		
 		return this;
-	}
-	
-	//method
-	@Override
-	public void technicalUpdateMediaRegistrationsAtGUI(final IWebGUI<?> pGUI) {
-		//Does nothing.
 	}
 	
 	//method
