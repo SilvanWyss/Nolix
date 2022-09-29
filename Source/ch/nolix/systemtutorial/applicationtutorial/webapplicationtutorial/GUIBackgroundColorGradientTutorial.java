@@ -8,7 +8,7 @@ import ch.nolix.system.application.webapplication.BackendWebClientSession;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.color.ColorGradient;
 
-public final class BackgroundColorGradientTutorial {
+public final class GUIBackgroundColorGradientTutorial {
 	
 	public static void main(String[] args) {
 		
@@ -36,5 +36,5 @@ public final class BackgroundColorGradientTutorial {
 		}
 	}
 	
-	private BackgroundColorGradientTutorial() {}
+	private GUIBackgroundColorGradientTutorial() {}
 }
