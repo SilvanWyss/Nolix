@@ -7,6 +7,7 @@ import ch.nolix.coreapi.webapi.htmlapi.HTMLElementTransformable;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 import ch.nolix.systemapi.guiapi.canvasuniversalapi.ICanvas;
 import ch.nolix.systemapi.guiapi.inputapi.IInputTaker;
+import ch.nolix.systemapi.guiapi.structureproperty.ContentPosition;
 import ch.nolix.systemapi.guiapi.widgetguiapi.LayerRole;
 
 //interface
@@ -23,6 +24,9 @@ IRootControlOwner<L> {
 	boolean belongsToGUI();
 	
 	//method declaration
+	ContentPosition getContentPosition();
+	
+	//method declaration
 	IWebGUI<?> getRefParentGUI();
 	
 	//method declaration
@@ -33,6 +37,9 @@ IRootControlOwner<L> {
 	
 	//method declaration
 	void removeSelfFromGUI();
+	
+	//method declaration
+	L setContentPosition(ContentPosition contentPosition);
 	
 	//method declaration
 	L setRole(LayerRole role);

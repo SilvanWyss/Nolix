@@ -13,6 +13,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.webapi.htmlapi.IHTMLElement;
 import ch.nolix.system.element.base.StylableElement;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
+import ch.nolix.system.element.mutableelement.MutableValue;
 import ch.nolix.system.gui.canvas.Background;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 import ch.nolix.systemapi.guiapi.canvasuniversalapi.IBackground;
@@ -22,6 +23,7 @@ import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.imageapi.ImageApplication;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.structureproperty.BackgroundType;
+import ch.nolix.systemapi.guiapi.structureproperty.ContentPosition;
 import ch.nolix.systemapi.guiapi.widgetguiapi.LayerRole;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
@@ -29,6 +31,9 @@ import ch.nolix.systemapi.webguiapi.mainapi.IWebGUI;
 
 //class
 public final class Layer extends StylableElement<Layer> implements ILayer<Layer> {
+	
+	//constant
+	public static final ContentPosition DEFAULT_CONTENT_POSITION = ContentPosition.TOP;
 	
 	//static method
 	public static Layer fromSpecification(final INode<?> specification) {
@@ -44,6 +49,9 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	
 	//constant
 	private static final String BACKGROUND_HEADER = PascalCaseCatalogue.BACKGROUND;
+	
+	//constant
+	private static final String CONTENT_POSITION_HEADER = "ContentPosition";
 	
 	//constant
 	private static final String ROOT_CONTROL_HEADER = "RootControl";
@@ -67,6 +75,16 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 		this::setBackground,
 		Background::fromSpecification,
 		IBackground::getSpecification
+	);
+	
+	//attribute
+	private final MutableValue<ContentPosition> contentPosition =
+	new MutableValue<>(
+		CONTENT_POSITION_HEADER,
+		DEFAULT_CONTENT_POSITION,
+		this::setContentPosition,
+		ContentPosition::fromSpecification,
+		Node::fromEnum
 	);
 	
 	//attribute
@@ -129,6 +147,12 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	@Override
 	public BackgroundType getBackgroundType() {
 		return getBackground().getType();
+	}
+	
+	//method
+	@Override
+	public ContentPosition getContentPosition() {
+		return contentPosition.getValue();
 	}
 	
 	//method
@@ -316,6 +340,15 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 		
 		rootControl.technicalSetParentLayer(this);		
 		this.rootControl.setValue(rootControl);
+		
+		return this;
+	}
+	
+	//method
+	@Override
+	public Layer setContentPosition(final ContentPosition contentPosition) {
+		
+		this.contentPosition.setValue(contentPosition);
 		
 		return this;
 	}
