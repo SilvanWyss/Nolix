@@ -36,7 +36,7 @@ public final class ImageControlTutorial {
 			//Loads an Image.
 			final var image =
 			MutableImage.fromResource(
-				"ch/nolix/systemtutorial/guitutorial/widgettutorial/resource/Singer_Building.jpg"
+				"ch/nolix/systemtutorial/applicationtutorial/webapplicationtutorial/resource/Singer_Building.jpg"
 			);
 			
 			//Creates an ImageControl with the Image.
