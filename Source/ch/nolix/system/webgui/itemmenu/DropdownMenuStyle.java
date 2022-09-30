@@ -7,4 +7,10 @@ import ch.nolix.systemapi.webguiapi.itemmenuapi.IDropdownMenuStyle;
 //class
 public final class DropdownMenuStyle
 extends ItemMenuStyle<DropdownMenuStyle>
-implements IDropdownMenuStyle<DropdownMenuStyle> {}
+implements IDropdownMenuStyle<DropdownMenuStyle> {
+	
+	//constructor
+	public DropdownMenuStyle() {
+		initialize();
+	}
+}
