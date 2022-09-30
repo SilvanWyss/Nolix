@@ -10,6 +10,7 @@ import ch.nolix.core.web.html.HTMLElementTypeCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.webapi.htmlapi.IHTMLAttribute;
 import ch.nolix.coreapi.webapi.htmlapi.IHTMLElement;
+import ch.nolix.system.webgui.layerhelper.LayerHelper;
 import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
 
 //class
@@ -22,19 +23,20 @@ public final class LayerHTMLCreator {
 	private LayerHTMLCreator() {}
 	
 	//method
-	public IHTMLElement<?, ?> getHTMLElementOfLayer(final ILayer<?> layer) {
+	public IHTMLElement<?, ?> getHTMLElementForLayer(final ILayer<?> layer) {
 		return
 		HTMLElement.withTypeAndAttributesAndChildElements(
 			HTMLElementTypeCatalogue.DIV,
-			getHTMLAttributesOfLayer(layer),
-			getHTMLChildElementsOfLayer(layer)
+			getHTMLAttributesForLayer(layer),
+			getHTMLChildElementsForLayer(layer)
 		);
 	}
 	
 	//method
-	private IContainer<IHTMLAttribute> getHTMLAttributesOfLayer(final ILayer<?> layer) {
+	private IContainer<IHTMLAttribute> getHTMLAttributesForLayer(final ILayer<?> layer) {
 		return
 		ImmutableList.withElements(
+			LayerHelper.INSTANCE.createIdHTMLAttributeForLayer(layer),
 			HTMLAttribute.withNameAndValue(
 				HTMLAttributeNameCatalogue.STYLE,
 				"position: absolute; z-index: " + getHTMLZIndexOfLayer(layer)
@@ -43,7 +45,7 @@ public final class LayerHTMLCreator {
 	}
 	
 	//method
-	private IContainer<IHTMLElement<?, ?>> getHTMLChildElementsOfLayer(final ILayer<?> layer) {
+	private IContainer<IHTMLElement<?, ?>> getHTMLChildElementsForLayer(final ILayer<?> layer) {
 		
 		if (layer.isEmpty()) {
 			return new ImmutableList<>();
