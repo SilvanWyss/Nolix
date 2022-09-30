@@ -17,6 +17,9 @@ public final class HTMLElementTypeCatalogue {
 	public static final String IMG = "img";
 	
 	//constant
+	public static final String OPTION = "option";
+	
+	//constant
 	public static final String SELECT = "select";
 	
 	//constructor
