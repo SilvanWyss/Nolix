@@ -50,6 +50,9 @@ public final class CSSPropertyNameCatalogue {
 	public static final String CURSOR = "cursor";
 	
 	//constant
+	public static final String DISPLAY = "display";
+	
+	//constant
 	public static final String FONT_FAMILY = "font-family";
 	
 	//constant
