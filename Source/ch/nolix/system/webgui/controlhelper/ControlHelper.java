@@ -12,6 +12,9 @@ public final class ControlHelper {
 	//static attribute
 	public static final ControlHelper INSTANCE = new ControlHelper();
 	
+	//constructor
+	private ControlHelper() {}
+	
 	//method
 	public HTMLAttribute createIdHTMLAttributeForControl(final IControl<?, ?> control) {
 		return HTMLAttribute.withNameAndValue(HTMLAttributeNameCatalogue.ID, control.getFixedId());
