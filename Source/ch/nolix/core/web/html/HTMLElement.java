@@ -55,6 +55,17 @@ public final class HTMLElement implements IHTMLElement<HTMLElement, HTMLAttribut
 	}
 	
 	//static method
+	public static HTMLElement withTypeAndChildElement(final String type, final IHTMLElement<?, ?> childElement) {
+		return
+		new HTMLElement(
+			type,
+			new ImmutableList<>(),
+			StringCatalogue.EMPTY_STRING,
+			ImmutableList.withElements(HTMLElement.fromHTMLElement(childElement))
+		);
+	}
+	
+	//static method
 	public static HTMLElement withTypeAndChildElements(
 		final String type,
 		final IContainer<? extends IHTMLElement<?, ?>> childElements
