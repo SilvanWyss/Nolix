@@ -13,6 +13,7 @@ import ch.nolix.coreapi.webapi.cssapi.ICSSProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
 import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
+import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGUI;
 
 //class
@@ -44,30 +45,7 @@ public final class WebGUICSSCreator {
 			)	
 		);
 		
-		fillUpCSSRulesFromControlsOfWebGUIIntoList(webGUI, lCSSRules);
-	}
-	
-	//method
-	private void fillUpCSSRulesFromControlsOfWebGUIIntoList(
-		final IWebGUI<?> webGUI,
-		final LinkedList<ICSSRule<?>> lCSSRules
-	) {
-		for (final var c : webGUI.getRefControls()) {
-			fillUpCSSRulesFromControlIntoList(lCSSRules, c);
-		}
-	}
-	
-	//method
-	private void fillUpCSSRulesFromControlIntoList(
-		final LinkedList<ICSSRule<?>> lCSSRules,
-		final IControl<?, ?> control
-	) {
-		
-		final var lCSSRuleCreator = control.getCSSRuleCreator();
-		
-		lCSSRules.addAtEnd(lCSSRuleCreator.getCSSRuleForState(ControlState.BASE));
-		lCSSRules.addAtEnd(lCSSRuleCreator.getCSSRuleForState(ControlState.HOVER));
-		lCSSRules.addAtEnd(lCSSRuleCreator.getCSSRuleForState(ControlState.FOCUS));
+		fillUpCSSRulesOfLayersOfWebGUIIntoList(webGUI, lCSSRules);
 	}
 	
 	//method
@@ -84,5 +62,35 @@ public final class WebGUICSSCreator {
 		bodyCSSProperties.addAtEnd(webGUI.getBackground().toCSSProperties());
 		
 		return bodyCSSProperties;
+	}
+
+	//method
+	private void fillUpCSSRulesOfLayersOfWebGUIIntoList(
+		final IWebGUI<?> webGUI,
+		final LinkedList<ICSSRule<?>> lCSSRules
+	) {
+		for (final var l : webGUI.getRefLayers()) {
+			fillUpCSSRulesOfLayerIntoList(l, lCSSRules);
+		}
+	}
+	
+	//method
+	private void fillUpCSSRulesOfLayerIntoList(final ILayer<?> layer, final LinkedList<ICSSRule<?>> lCSSRules) {
+		for (final var c : layer.getRefControls()) {
+			fillUpCSSRulesOfControlIntoList(c, lCSSRules);
+		}
+	}
+	
+	//method
+	private void fillUpCSSRulesOfControlIntoList(
+		final IControl<?, ?> control,
+		final LinkedList<ICSSRule<?>> lCSSRules
+	) {
+		
+		final var lCSSRuleCreator = control.getCSSRuleCreator();
+		
+		lCSSRules.addAtEnd(lCSSRuleCreator.getCSSRuleForState(ControlState.BASE));
+		lCSSRules.addAtEnd(lCSSRuleCreator.getCSSRuleForState(ControlState.HOVER));
+		lCSSRules.addAtEnd(lCSSRuleCreator.getCSSRuleForState(ControlState.FOCUS));
 	}
 }
