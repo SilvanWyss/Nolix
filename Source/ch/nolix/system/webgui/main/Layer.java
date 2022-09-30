@@ -13,7 +13,6 @@ import ch.nolix.coreapi.webapi.htmlapi.IHTMLElement;
 import ch.nolix.system.element.base.StylableElement;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 import ch.nolix.system.gui.canvas.Background;
-import ch.nolix.system.webgui.helper.LayerHTMLHelper;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 import ch.nolix.systemapi.guiapi.canvasuniversalapi.IBackground;
 import ch.nolix.systemapi.guiapi.colorapi.IColor;
@@ -317,7 +316,7 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	//method
 	@Override
 	public IHTMLElement<?, ?> toHTMLElement() {
-		return LayerHTMLHelper.INSTANCE.getHTMLElementOfLayer(this);
+		return LayerHTMLCreator.INSTANCE.getHTMLElementOfLayer(this);
 	}
 	
 	//method
