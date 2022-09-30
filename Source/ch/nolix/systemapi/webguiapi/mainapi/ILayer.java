@@ -3,6 +3,7 @@ package ch.nolix.systemapi.webguiapi.mainapi;
 
 //own imports
 import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.FixedIdentified;
+import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
 import ch.nolix.coreapi.webapi.htmlapi.HTMLElementTransformable;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 import ch.nolix.systemapi.guiapi.canvasuniversalapi.ICanvas;
@@ -25,6 +26,9 @@ IRootControlOwner<L> {
 	
 	//method declaration
 	ContentPosition getContentPosition();
+	
+	//method declaration
+	ICSSRule<?> getCSSRule();
 	
 	//method declaration
 	IWebGUI<?> getRefParentGUI();

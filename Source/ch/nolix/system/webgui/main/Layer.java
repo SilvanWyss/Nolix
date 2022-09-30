@@ -10,6 +10,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelong
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
+import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
 import ch.nolix.coreapi.webapi.htmlapi.IHTMLElement;
 import ch.nolix.system.element.base.StylableElement;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
@@ -153,6 +154,12 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	@Override
 	public ContentPosition getContentPosition() {
 		return contentPosition.getValue();
+	}
+	
+	//method
+	@Override
+	public ICSSRule<?> getCSSRule() {
+		return LayerCSSRuleCreator.INSTANCE.getCSSRuleForLayer(this);
 	}
 	
 	//method
