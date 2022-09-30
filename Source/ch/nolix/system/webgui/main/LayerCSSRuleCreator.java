@@ -2,7 +2,7 @@
 package ch.nolix.system.webgui.main;
 
 //own imports
-import ch.nolix.core.container.immutablelist.ImmutableList;
+import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.web.css.CSSProperty;
 import ch.nolix.core.web.css.CSSRule;
@@ -10,6 +10,7 @@ import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.webapi.cssapi.CSSAlignItems;
 import ch.nolix.coreapi.webapi.cssapi.CSSJustifyContent;
 import ch.nolix.coreapi.webapi.cssapi.CSSPropertyNameCatalogue;
+import ch.nolix.coreapi.webapi.cssapi.ICSSProperty;
 import ch.nolix.systemapi.guiapi.structureproperty.ContentPosition;
 import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
 
@@ -33,13 +34,21 @@ public final class LayerCSSRuleCreator {
 	}
 	
 	//method
-	private IContainer<CSSProperty> getCSSPropertiesForLayer(final ILayer<?> layer) {
-		return
-		ImmutableList.withElements(
+	private IContainer<ICSSProperty> getCSSPropertiesForLayer(final ILayer<?> layer) {
+		
+		final var lCSSProperties = new LinkedList<ICSSProperty>();
+		
+		lCSSProperties.addAtEnd(
 			CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.DISPLAY, "flex"),
 			getJustifyContentCSSPropertyForLayer(layer),
 			getAlignItemsCSSPropertyForLayer(layer)
 		);
+		
+		if (layer.hasBackground()) {
+			lCSSProperties.addAtEnd(layer.getBackground().toCSSProperties());
+		}
+		
+		return lCSSProperties;
 	}
 	
 	//method
