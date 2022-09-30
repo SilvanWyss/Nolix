@@ -25,6 +25,11 @@ public final class CSSProperty implements ICSSProperty {
 	}
 	
 	//static method
+	public static CSSProperty withNameAndValue(final String name, final Enum<?> value) {
+		return new CSSProperty(name, value.toString());
+	}
+	
+	//static method
 	public static CSSProperty withNameAndValue(final String name, final int value) {
 		return new CSSProperty(name, String.valueOf(value));
 	}
