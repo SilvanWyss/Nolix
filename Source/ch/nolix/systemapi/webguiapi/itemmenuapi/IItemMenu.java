@@ -23,7 +23,7 @@ extends Clearable, IControl<IM, IMS> {
 	IM addBlankItem();
 	
 	//method declaration
-	IM addItemWithIdAndText(String it, String text);
+	IM addItemWithIdAndText(String id, String text);
 	
 	//method declaration
 	IM addItemWithIdAndTextAndSelectAction(String id, String text, IAction selectAction);
@@ -50,7 +50,7 @@ extends Clearable, IControl<IM, IMS> {
 	boolean containsItemWithText(String text);
 	
 	//method declaration
-	String getIdByItemText(String itemTxt);
+	String getIdByItemText(String itemText);
 	
 	//method declaration
 	String getTextByItemId(String itemId);
