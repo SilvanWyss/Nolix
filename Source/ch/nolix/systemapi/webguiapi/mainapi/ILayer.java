@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.systemapi.webguiapi.mainapi;
 
+//own imports
+import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.FixedIdentified;
 import ch.nolix.coreapi.webapi.htmlapi.HTMLElementTransformable;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 import ch.nolix.systemapi.guiapi.canvasuniversalapi.ICanvas;
@@ -10,6 +12,7 @@ import ch.nolix.systemapi.guiapi.widgetguiapi.LayerRole;
 //interface
 public interface ILayer<L extends ILayer<L>>
 extends
+FixedIdentified,
 HTMLElementTransformable,
 ICanvas<L>,
 IStylableElement<L>,

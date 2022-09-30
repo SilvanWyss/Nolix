@@ -4,6 +4,7 @@ package ch.nolix.system.webgui.main;
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.main.LinkedList;
+import ch.nolix.core.data.GlobalIdCreator;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
@@ -46,6 +47,9 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	
 	//constant
 	private static final String ROOT_CONTROL_HEADER = "RootControl";
+	
+	//attribute
+	private final String fixedId = GlobalIdCreator.createIdOf10HexadecimalCharacters();
 	
 	//attribute
 	private final MutableOptionalValue<LayerRole> role =
@@ -129,6 +133,12 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	
 	//method
 	@Override
+	public String getFixedId() {
+		return fixedId;
+	}
+	
+	//method
+	@Override
 	public IContainer<IControl<?, ?>> getRefControls() {
 		
 		if (isEmpty()) {
@@ -170,6 +180,12 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 		}
 		
 		return childConfigurableElements;
+	}
+	
+	//method
+	@Override
+	public boolean hasFixedId(final String fixedId) {
+		return getFixedId().equals(fixedId);
 	}
 	
 	//method
