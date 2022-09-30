@@ -5,6 +5,9 @@ package ch.nolix.coreapi.webapi.cssapi;
 public final class CSSPropertyNameCatalogue {
 	
 	//constant
+	public static final String ALIGN_ITEMS = "align-items";
+	
+	//constant
 	public static final String BACKGROUND = "background";
 	
 	//constant
@@ -54,6 +57,9 @@ public final class CSSPropertyNameCatalogue {
 	
 	//constant
 	public static final String HEIGHT = "height";
+	
+	//constant
+	public static final String JUSTIFY_CONTENT = "justify-content";
 	
 	//constant
 	public static final String MARGIN = "margin";
