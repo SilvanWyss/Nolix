@@ -36,6 +36,7 @@ public final class LayerCSSRuleCreator {
 	private IContainer<CSSProperty> getCSSPropertiesForLayer(final ILayer<?> layer) {
 		return
 		ImmutableList.withElements(
+			CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.DISPLAY, "flex"),
 			getJustifyContentCSSPropertyForLayer(layer),
 			getAlignItemsCSSPropertyForLayer(layer)
 		);
