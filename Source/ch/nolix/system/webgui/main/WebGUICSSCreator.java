@@ -59,7 +59,9 @@ public final class WebGUICSSCreator {
 			CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.HEIGHT, "100vh")
 		);
 		
-		bodyCSSProperties.addAtEnd(webGUI.getBackground().toCSSProperties());
+		if (webGUI.hasBackground()) {
+			bodyCSSProperties.addAtEnd(webGUI.getBackground().toCSSProperties());
+		}
 		
 		return bodyCSSProperties;
 	}

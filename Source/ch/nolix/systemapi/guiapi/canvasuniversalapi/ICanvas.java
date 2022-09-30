@@ -30,6 +30,9 @@ public interface ICanvas<C extends ICanvas<C>> {
 	BackgroundType getBackgroundType();
 	
 	//method declaration
+	boolean hasBackground();
+	
+	//method declaration
 	void removeBackground();
 	
 	//method declaration

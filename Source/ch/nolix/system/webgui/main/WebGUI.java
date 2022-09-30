@@ -234,6 +234,12 @@ public final class WebGUI extends StyleElement<WebGUI> implements IWebGUI<WebGUI
 	
 	//method
 	@Override
+	public boolean hasBackground() {
+		return background.hasValue();
+	}
+	
+	//method
+	@Override
 	public boolean hasRole(final String role) {
 		return false;
 	}

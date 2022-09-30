@@ -215,6 +215,12 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	
 	//method
 	@Override
+	public boolean hasBackground() {
+		return background.hasValue();
+	}
+	
+	//method
+	@Override
 	public boolean hasFixedId(final String fixedId) {
 		return getFixedId().equals(fixedId);
 	}
