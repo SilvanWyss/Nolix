@@ -216,6 +216,14 @@ public final class ItemMenuItem extends MutableElement<ItemMenuItem> implements 
 	}
 	
 	//method
+	void internalSetParentMenu(final ItemMenu<?, ?> parentMenu) {
+		
+		GlobalValidator.assertThat(parentMenu).thatIsNamed("parent menu").isNotNull();
+		
+		this.parentMenu = parentMenu;
+	}
+	
+	//method
 	private boolean hasSelectAction() {
 		return (selectAction != null);
 	}
