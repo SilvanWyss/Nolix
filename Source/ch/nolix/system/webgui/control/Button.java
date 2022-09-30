@@ -7,16 +7,12 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
-import ch.nolix.core.web.html.HTMLAttribute;
-import ch.nolix.core.web.html.HTMLElement;
-import ch.nolix.core.web.html.HTMLElementTypeCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.coreapi.webapi.htmlapi.IHTMLElement;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 import ch.nolix.system.element.mutableelement.MutableValue;
-import ch.nolix.system.webgui.controlhelper.ControlHelper;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.systemapi.guiapi.controlrole.ButtonRole;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
@@ -242,20 +238,7 @@ public final class Button extends Control<Button, ButtonStyle> implements IButto
 	//method
 	@Override
 	public IHTMLElement<?, ?> toHTMLElement() {
-		return
-		HTMLElement.withTypeAndAttributesAndInnerText(
-			HTMLElementTypeCatalogue.BUTTON,
-			ImmutableList.withElements(
-				ControlHelper.INSTANCE.createIdHTMLAttributeForControl(this),
-				HTMLAttribute.withNameAndValue(
-					"onclick",
-					
-					//TODO: Create ControlCommandCreator.
-					"NoteLeftMouseButtonPress_" + getFixedId()
-				)
-			),
-			getText()
-		);
+		return ButtonHTMLCreator.INSTANCE.createHTMLElementForButton(this);
 	}
 	
 	//method
