@@ -55,6 +55,11 @@ implements IControlCSSRuleCreator<C, CS> {
 	);
 	
 	//method
+	protected final String getColorCodeOfColor(final IColor color) {
+		return String.format("#%02x%02x%02x", color.getRedValue(), color.getGreenValue(), color.getBlueValue());
+	}
+	
+	//method
 	private void fillUpCSSPropertiesForStateIntoList(
 		final ControlState state,
 		final LinkedList<CSSProperty> list
@@ -87,11 +92,6 @@ implements IControlCSSRuleCreator<C, CS> {
 		);
 		
 		fillUpControlCSSPropertiesForStateIntoList(state, list);
-	}
-	
-	//method
-	private String getColorCodeOfColor(final IColor color) {
-		return String.format("#%02x%02x%02x", color.getRedValue(), color.getGreenValue(), color.getBlueValue());
 	}
 	
 	//method

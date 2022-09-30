@@ -8,7 +8,6 @@ import ch.nolix.coreapi.webapi.cssapi.CSSBorderStyleValueCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.CSSPropertyNameCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.CSSUnitCatalogue;
 import ch.nolix.system.webgui.main.ControlCSSRuleCreator;
-import ch.nolix.systemapi.guiapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IExtendedControlStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
@@ -97,9 +96,4 @@ extends ControlCSSRuleCreator<EC, ECS> {
 		ControlState state,
 		LinkedList<CSSProperty> list
 	);
-	
-	//method
-	private String getColorCodeOfColor(final IColor color) {
-		return String.format("#%02x%02x%02x", color.getRedValue(), color.getGreenValue(), color.getBlueValue());
-	}
 }
