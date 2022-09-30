@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.webgui.helper;
+package ch.nolix.system.webgui.main;
 
 //own imports
 import ch.nolix.core.container.main.LinkedList;
