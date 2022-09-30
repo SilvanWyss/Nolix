@@ -12,7 +12,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 public interface IItemMenu<
 	IM extends IItemMenu<IM, IMS, IMI>,
 	IMS extends IItemMenuStyle<IMS>,
-	IMI extends IItemMenuItem
+	IMI extends IItemMenuItem<IMI>
 > 
 extends Clearable, IControl<IM, IMS> {
 	
@@ -29,7 +29,7 @@ extends Clearable, IControl<IM, IMS> {
 	IM addItemWithIdAndTextAndSelectAction(String id, String text, IAction selectAction);
 	
 	//method declaration
-	IM addItemWithIdAndTextAndSelectAction(String id, String text, IElementTaker<IItemMenuItem> selectAction);
+	IM addItemWithIdAndTextAndSelectAction(String id, String text, IElementTaker<IItemMenuItem<?>> selectAction);
 	
 	//method declaration
 	IM addItemWithText(String... texts);
@@ -38,7 +38,7 @@ extends Clearable, IControl<IM, IMS> {
 	IM addItemWithTextAndSelectAction(String text, IAction selectAction);
 	
 	//method declaration
-	IM addItemWithTextAndSelectAction(String text, IElementTaker<IItemMenuItem> selectAction);
+	IM addItemWithTextAndSelectAction(String text, IElementTaker<IItemMenuItem<?>> selectAction);
 	
 	//method declaration
 	boolean containsBlankItem();

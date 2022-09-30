@@ -2,7 +2,7 @@
 package ch.nolix.systemapi.webguiapi.itemmenuapi;
 
 //interface
-public interface IDropdownMenu<IMI extends IItemMenuItem>
+public interface IDropdownMenu<IMI extends IItemMenuItem<IMI>>
 extends IItemMenu<IDropdownMenu<IMI>, IDropdownMenuStyle, IMI> {
 	
 	//method declaration
