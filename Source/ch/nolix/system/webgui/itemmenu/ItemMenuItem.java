@@ -2,6 +2,7 @@
 package ch.nolix.system.webgui.itemmenu;
 
 //own imports
+import ch.nolix.core.data.GlobalIdCreator;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
@@ -87,6 +88,7 @@ public final class ItemMenuItem extends MutableElement<ItemMenuItem> implements 
 	) {
 		
 		final var item = new ItemMenuItem();
+		item.setId(GlobalIdCreator.createIdOf10HexadecimalCharacters());
 		item.setText(text);
 		
 		return item;
