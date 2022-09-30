@@ -8,7 +8,6 @@ import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
-import ch.nolix.coreapi.webapi.htmlapi.IHTMLElement;
 import ch.nolix.system.element.mutableelement.MultiValue;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
@@ -228,14 +227,6 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS, ItemMenuItem> {
 		getRefFirstItem().select();
 		
 		return asConcrete();
-	}
-	
-	//method
-	@Override
-	public final IHTMLElement<?, ?> toHTMLElement() {
-		
-		//TODO: Implement.
-		return null;
 	}
 	
 	//method
