@@ -76,6 +76,9 @@ public final class WebGUICSSCreator {
 	
 	//method
 	private void fillUpCSSRulesOfLayerIntoList(final ILayer<?> layer, final LinkedList<ICSSRule<?>> lCSSRules) {
+		
+		lCSSRules.addAtEnd(layer.getCSSRule());
+		
 		for (final var c : layer.getRefControls()) {
 			fillUpCSSRulesOfControlIntoList(c, lCSSRules);
 		}
