@@ -39,6 +39,9 @@ public final class LayerCSSRuleCreator {
 		final var lCSSProperties = new LinkedList<ICSSProperty>();
 		
 		lCSSProperties.addAtEnd(
+			CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.MARGIN, "0px"),
+			CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.WIDTH, "100vw"),
+			CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.HEIGHT, "100vh"),
 			CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.DISPLAY, "flex"),
 			getJustifyContentCSSPropertyForLayer(layer),
 			getAlignItemsCSSPropertyForLayer(layer)
