@@ -6,7 +6,9 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.data.GlobalIdCreator;
 import ch.nolix.core.document.node.Node;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
@@ -377,6 +379,16 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	
 	//method
 	@Override
+	public void technicalSetParentGUI(final IWebGUI<?> parentGUI) {
+		
+		GlobalValidator.assertThat(parentGUI).thatIsNamed("parent GUI").isNotNull();
+		assertDoesNotBelongToGUI();
+		
+		this.parentGUI = parentGUI;
+	}
+	
+	//method
+	@Override
 	public IHTMLElement<?, ?> toHTMLElement() {
 		return LayerHTMLCreator.INSTANCE.getHTMLElementForLayer(this);
 	}
@@ -404,6 +416,13 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	private void assertBelongsToGUI() {
 		if (!belongsToGUI()) {
 			throw ArgumentDoesNotBelongToParentException.forArgumentAndParentType(this, IWebGUI.class);
+		}
+	}
+	
+	//method
+	private void assertDoesNotBelongToGUI() {
+		if (belongsToGUI()) {
+			throw ArgumentBelongsToParentException.forArgumentAndParent(this, getRefParentGUI());
 		}
 	}
 	

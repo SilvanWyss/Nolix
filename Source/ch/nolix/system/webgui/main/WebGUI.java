@@ -266,6 +266,8 @@ public final class WebGUI extends StyleElement<WebGUI> implements IWebGUI<WebGUI
 	@Override
 	public WebGUI pushLayer(final ILayer<?> layer) {
 		
+		layer.technicalSetParentGUI(this);
+		
 		layers.add(layer);
 		
 		return this;

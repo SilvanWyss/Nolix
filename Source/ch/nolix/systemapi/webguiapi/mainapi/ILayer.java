@@ -47,4 +47,7 @@ IRootControlOwner<L> {
 	
 	//method declaration
 	L setRole(LayerRole role);
+	
+	//method declaration
+	void technicalSetParentGUI(IWebGUI<?> parentGUI);
 }
