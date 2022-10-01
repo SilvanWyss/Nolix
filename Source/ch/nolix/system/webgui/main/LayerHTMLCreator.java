@@ -3,8 +3,6 @@ package ch.nolix.system.webgui.main;
 
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.web.html.HTMLAttribute;
-import ch.nolix.core.web.html.HTMLAttributeNameCatalogue;
 import ch.nolix.core.web.html.HTMLElement;
 import ch.nolix.core.web.html.HTMLElementTypeCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
@@ -34,14 +32,7 @@ public final class LayerHTMLCreator {
 	
 	//method
 	private IContainer<IHTMLAttribute> getHTMLAttributesForLayer(final ILayer<?> layer) {
-		return
-		ImmutableList.withElements(
-			LayerHelper.INSTANCE.createIdHTMLAttributeForLayer(layer),
-			HTMLAttribute.withNameAndValue(
-				HTMLAttributeNameCatalogue.STYLE,
-				"position: absolute;"
-			)
-		);
+		return ImmutableList.withElements(LayerHelper.INSTANCE.createIdHTMLAttributeForLayer(layer));
 	}
 	
 	//method
