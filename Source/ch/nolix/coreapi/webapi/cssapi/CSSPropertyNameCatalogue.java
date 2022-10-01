@@ -82,6 +82,9 @@ public final class CSSPropertyNameCatalogue {
 	//constant
 	public static final String WIDTH = "width";
 	
+	//constant
+	public static final String Z_INDEX = "z-index";
+	
 	//constructor
 	private CSSPropertyNameCatalogue() {}
 }
