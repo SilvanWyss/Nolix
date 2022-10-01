@@ -4109,6 +4109,8 @@ define("System/FrontendWebGUI/FrontendWebGUI", ["require", "exports", "Core/Docu
             this.eventTaker = eventTaker;
             this.window = window;
             this.rootElement = this.getRefRootElement();
+            this.style = document.createElement('style');
+            this.window.document.head.appendChild(this.style);
         }
         getIcon() {
             return this.icon;
@@ -4117,8 +4119,7 @@ define("System/FrontendWebGUI/FrontendWebGUI", ["require", "exports", "Core/Docu
             return this.title;
         }
         setCSS(pCSS) {
-            const style = this.getRefStyleElement();
-            style.innerHTML = pCSS;
+            this.style.innerHTML = pCSS;
         }
         setIcon(icon) {
             if (icon === null) {
@@ -4161,16 +4162,6 @@ define("System/FrontendWebGUI/FrontendWebGUI", ["require", "exports", "Core/Docu
                 this.window.document.body.appendChild(rootElement);
             }
             return rootElement;
-        }
-        getRefStyleElement() {
-            const style = document.getElementById('stylex');
-            if (style !== undefined && style !== null) {
-                return style;
-            }
-            var newStyle = document.createElement('style');
-            newStyle.id = 'stylex';
-            document.getElementsByTagName('head')[0].appendChild(newStyle);
-            return newStyle;
         }
         setupActionsOfElement(element) {
             for (const c of element.children) {
