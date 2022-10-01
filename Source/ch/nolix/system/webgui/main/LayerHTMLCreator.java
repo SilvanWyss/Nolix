@@ -51,7 +51,12 @@ public final class LayerHTMLCreator {
 			return new ImmutableList<>();
 		}
 		
-		return ImmutableList.withElements(layer.getRefRootControl().toHTMLElement());
+		return ImmutableList.withElements(getContentHTMLElementForLayer(layer));
+	}
+	
+	//method
+	private IHTMLElement<?, ?> getContentHTMLElementForLayer(final ILayer<?> layer) {
+		return layer.getRefRootControl().toHTMLElement();
 	}
 	
 	//method
