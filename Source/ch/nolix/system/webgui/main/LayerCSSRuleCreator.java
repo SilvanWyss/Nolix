@@ -39,12 +39,13 @@ public final class LayerCSSRuleCreator {
 		final var lCSSProperties = new LinkedList<ICSSProperty>();
 		
 		lCSSProperties.addAtEnd(
+			getZIndexCSSPropertyForLayer(layer),
 			CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.MARGIN, "0px"),
 			CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.WIDTH, "100vw"),
 			CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.HEIGHT, "100vh"),
-			CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.DISPLAY, "flex"),
-			getJustifyContentCSSPropertyForLayer(layer),
-			getAlignItemsCSSPropertyForLayer(layer)
+			CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.DISPLAY, "flex")
+			//getJustifyContentCSSPropertyForLayer(layer) //CSS problem
+			//getAlignItemsCSSPropertyForLayer(layer) //CSS problem
 		);
 		
 		if (layer.hasBackground()) {
@@ -52,6 +53,21 @@ public final class LayerCSSRuleCreator {
 		}
 		
 		return lCSSProperties;
+	}
+	
+	//method
+	private CSSProperty getZIndexCSSPropertyForLayer(final ILayer<?> layer) {
+		return CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.Z_INDEX, getCSSZIndexForLayer(layer));
+	}
+	
+	//method
+	private int getCSSZIndexForLayer(final ILayer<?> layer) {
+		
+		if (!layer.belongsToGUI()) {
+			return 0;
+		}
+		
+		return layer.getRefParentGUI().getRefLayers().getIndexOfFirstOccurrenceOf(layer);
 	}
 	
 	//method

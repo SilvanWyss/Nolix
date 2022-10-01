@@ -39,7 +39,7 @@ public final class LayerHTMLCreator {
 			LayerHelper.INSTANCE.createIdHTMLAttributeForLayer(layer),
 			HTMLAttribute.withNameAndValue(
 				HTMLAttributeNameCatalogue.STYLE,
-				"position: absolute; z-index: " + getHTMLZIndexOfLayer(layer)
+				"position: absolute;"
 			)
 		);
 	}
@@ -57,15 +57,5 @@ public final class LayerHTMLCreator {
 	//method
 	private IHTMLElement<?, ?> getContentHTMLElementForLayer(final ILayer<?> layer) {
 		return layer.getRefRootControl().toHTMLElement();
-	}
-	
-	//method
-	private int getHTMLZIndexOfLayer(final ILayer<?> layer) {
-		
-		if (!layer.belongsToGUI()) {
-			return 0;
-		}
-		
-		return layer.getRefParentGUI().getRefLayers().getIndexOfFirstOccurrenceOf(layer);
 	}
 }
