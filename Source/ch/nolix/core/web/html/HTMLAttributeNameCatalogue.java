@@ -5,6 +5,9 @@ package ch.nolix.core.web.html;
 public final class HTMLAttributeNameCatalogue {
 	
 	//constant
+	public static final String CLASS = "class";
+	
+	//constant
 	public static final String ID = "id";
 	
 	//constant
