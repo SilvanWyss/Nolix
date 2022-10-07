@@ -35,7 +35,8 @@ implements IControl<C, CS> {
 	private static final String CURSOR_ICON_HEADER = PascalCaseCatalogue.CURSOR_ICON;
 	
 	//attribute
-	private final String fixedId = GlobalIdCreator.createIdOf10HexadecimalCharacters();
+	//An id works correctly for CSS only when it begins with a letter.
+	private final String fixedId = "i" + GlobalIdCreator.createIdOf10HexadecimalCharacters();
 	
 	//attribute
 	private final MutableValue<CursorIcon> cursorIcon =

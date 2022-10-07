@@ -60,7 +60,8 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	private static final String ROOT_CONTROL_HEADER = "RootControl";
 	
 	//attribute
-	private final String fixedId = GlobalIdCreator.createIdOf10HexadecimalCharacters();
+	//An id works correctly for CSS only when it begins with a letter.
+	private final String fixedId = "i" + GlobalIdCreator.createIdOf10HexadecimalCharacters();
 	
 	//attribute
 	private final MutableOptionalValue<LayerRole> role =

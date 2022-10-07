@@ -43,9 +43,9 @@ public final class LayerCSSRuleCreator {
 			CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.MARGIN, "0px"),
 			CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.WIDTH, "100vw"),
 			CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.HEIGHT, "100vh"),
-			CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.DISPLAY, "flex")
-			//getJustifyContentCSSPropertyForLayer(layer) //CSS problem
-			//getAlignItemsCSSPropertyForLayer(layer) //CSS problem
+			CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.DISPLAY, "flex"),
+			getJustifyContentCSSPropertyForLayer(layer),
+			getAlignItemsCSSPropertyForLayer(layer)
 		);
 		
 		if (layer.hasBackground()) {
