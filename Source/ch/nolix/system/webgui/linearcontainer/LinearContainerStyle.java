@@ -53,7 +53,7 @@ implements ILinearContainerStyle<LinearContainerStyle> {
 	@Override
 	public LinearContainerStyle setChildControlMarginForState(final ControlState state, final int childControlMargin) {
 		
-		GlobalValidator.assertThat(childControlMargin).thatIsNamed("child contorl margin").isNotNegative();
+		GlobalValidator.assertThat(childControlMargin).thatIsNamed("child control margin").isNotNegative();
 		
 		this.childControlMargin.setValueForState(state, childControlMargin);
 		
