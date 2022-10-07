@@ -4109,7 +4109,7 @@ define("System/FrontendWebGUI/FrontendWebGUI", ["require", "exports", "Core/Docu
             this.eventTaker = eventTaker;
             this.window = window;
             this.rootElement = this.getRefRootElement();
-            this.style = document.createElement('style');
+            this.style = this.window.document.createElement('style');
             this.window.document.head.appendChild(this.style);
         }
         getIcon() {
