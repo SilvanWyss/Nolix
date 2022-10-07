@@ -186,7 +186,6 @@ public final class ItemMenuItem extends MutableElement<ItemMenuItem> implements 
 	//method
 	@Override
 	public boolean isBlank() {
-		
 		//TODO: Implement.
 		return false;
 	}
