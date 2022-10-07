@@ -13,37 +13,11 @@ implements IDropdownMenu<DropdownMenu, DropdownMenuStyle, ItemMenuItem> {
 	
 	//attribute
 	private final DropdownMenuCSSRuleCreator mCSSRuleCreator = DropdownMenuCSSRuleCreator.forDropdownMenu(this);
-	
-	//method
-	@Override
-	public void collapsMenu() {
-		//TODO: Implement.
-	}
-
-	//method
-	@Override
-	public void expandMenu() {
-		//TODO: Implement.
-	}
-	
+			
 	//method
 	@Override
 	public IControlCSSRuleCreator<DropdownMenu, DropdownMenuStyle> getCSSRuleCreator() {
 		return mCSSRuleCreator;
-	}
-	
-	//method
-	@Override
-	public boolean hasCollapsedMenu() {
-		//TODO: Implement.
-		return false;
-	}
-	
-	//method
-	@Override
-	public boolean hasExpandedMenu() {
-		//TODO: Implement.
-		return false;
 	}
 	
 	//method

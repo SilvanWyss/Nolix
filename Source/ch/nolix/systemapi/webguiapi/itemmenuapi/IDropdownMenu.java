@@ -7,17 +7,4 @@ public interface IDropdownMenu<
 	DMS extends IDropdownMenuStyle<DMS>,
 	IMI extends IItemMenuItem<IMI>
 >
-extends IItemMenu<DM, DMS, IMI> {
-	
-	//method declaration
-	void collapsMenu();
-	
-	//method declaration
-	void expandMenu();
-	
-	//method declaration
-	boolean hasCollapsedMenu();
-	
-	//method declaration
-	boolean hasExpandedMenu();
-}
+extends IItemMenu<DM, DMS, IMI> {}
