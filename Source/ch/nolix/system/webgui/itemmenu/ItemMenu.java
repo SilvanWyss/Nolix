@@ -38,7 +38,6 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS, ItemMenuItem> {
 	//method
 	@Override
 	public final IM addBlankItem() {
-		
 		//TODO: Implement.
 		return asConcrete();
 	}
