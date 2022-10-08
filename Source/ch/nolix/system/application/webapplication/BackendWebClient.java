@@ -8,6 +8,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.system.application.basewebapplication.BaseBackendWebClient;
+import ch.nolix.system.application.webapplicationprotocol.CommandProtocol;
 import ch.nolix.system.application.webapplicationprotocol.ControlCommandProtocol;
 import ch.nolix.system.application.webapplicationprotocol.ObjectProtocol;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
@@ -91,6 +92,20 @@ public final class BackendWebClient<AC> extends BaseBackendWebClient<BackendWebC
 				final var control = gui.getRefControlByFixedId(controlFixedId);
 				
 				runCommandOnControl(control, command);
+				
+				break;
+			case CommandProtocol.SET_USER_INPUTS:
+				
+				final var session2 = (BackendWebClientSession<AC>)getRefCurrentSession();
+				final var gui2 = session2.getRefGUI();
+				final var controls2 = gui2.getRefControls();
+				
+				for (final var p : pGUICommand.getChildNodes()) {
+					final var fixedControlId2 = p.getChildNodeAt1BasedIndex(1).getHeader();
+					final var userInput = p.getChildNodeAt1BasedIndex(2).getHeaderOrEmptyString();
+					final var control2 = controls2.getRefFirst(c -> c.hasFixedId(fixedControlId2));
+					control2.setUserInput(userInput);
+				}
 				
 				break;
 			default:
