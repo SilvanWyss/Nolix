@@ -17,7 +17,7 @@ import ch.nolix.systemapi.elementapi.mainuniversalapi.IMutableElement;
 final class OneTypeElementFactory<E> {
 	
 	//static method
-	private static <ME extends IMutableElement<ME>> ME createElementOf(final Class<ME> elementClass) {
+	private static <ME extends IMutableElement> ME createElementOf(final Class<ME> elementClass) {
 		try {
 			return elementClass.getConstructor().newInstance();
 		} catch (
@@ -38,7 +38,7 @@ final class OneTypeElementFactory<E> {
 	
 	//constructor
 	@SuppressWarnings("unchecked")
-	public <ME extends IMutableElement<ME>> OneTypeElementFactory(final Class<ME> elementClass) {
+	public <ME extends IMutableElement> OneTypeElementFactory(final Class<ME> elementClass) {
 		this(
 			(Class<E>)elementClass,
 			(final INode<?> s) -> {

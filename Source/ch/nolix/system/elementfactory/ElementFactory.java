@@ -37,7 +37,7 @@ public class ElementFactory<E> {
 	}
 	
 	//method
-	protected final <E2 extends E, ME extends IMutableElement<ME>> void registerElementClass_(
+	protected final <E2 extends E, ME extends IMutableElement> void registerElementClass_(
 		final Class<ME> elementClass
 	) {
 		registerOneTypeElementFactory(new OneTypeElementFactory<E2>(elementClass));

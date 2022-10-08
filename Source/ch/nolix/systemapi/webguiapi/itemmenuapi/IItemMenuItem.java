@@ -9,7 +9,7 @@ import ch.nolix.systemapi.guiapi.processapi.Selectable;
 
 //interface
 public interface IItemMenuItem<IMI extends IItemMenuItem<IMI>>
-extends BlanknessRequestable, IdentifiedByString, IMutableElement<IMI>, Selectable {
+extends BlanknessRequestable, IdentifiedByString, IMutableElement, Selectable {
 	
 	//method declaration
 	boolean belongsToMenu();

@@ -20,7 +20,7 @@ import ch.nolix.systemapi.elementapi.mainuniversalapi.IMutableElement;
  * @date 2017-10-29
  * @param <ME> is the type of a {@link MutableElement}.
  */
-public abstract class MutableElement<ME extends MutableElement<ME>> extends Element implements IMutableElement<ME> {
+public abstract class MutableElement<ME extends MutableElement<ME>> extends Element implements IMutableElement {
 	
 	//multi-attribute
 	private LinkedList<Property> properties;

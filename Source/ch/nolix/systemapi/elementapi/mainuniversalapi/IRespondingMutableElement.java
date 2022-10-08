@@ -10,7 +10,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
  * @date 2021-04-01
  * @param <RME> is the type of a {@link IRespondingMutableElement}.
  */
-public interface IRespondingMutableElement<RME extends IRespondingMutableElement<RME>> extends IMutableElement<RME> {
+public interface IRespondingMutableElement<RME extends IRespondingMutableElement<RME>> extends IMutableElement {
 	
 	//method declaration
 	/**

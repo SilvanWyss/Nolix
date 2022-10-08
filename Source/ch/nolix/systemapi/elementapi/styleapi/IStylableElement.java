@@ -14,7 +14,7 @@ import ch.nolix.systemapi.elementapi.mainuniversalapi.IMutableElement;
  * @date 2016-01-01
  * @param <SE> is the type of a {@link IStylableElement}.
  */
-public interface IStylableElement<SE extends IStylableElement<SE>> extends IMutableElement<SE>, TypeRequestable {
+public interface IStylableElement<SE extends IStylableElement<SE>> extends IMutableElement, TypeRequestable {
 	
 	//method declaration
 	/**

@@ -5,7 +5,7 @@ package ch.nolix.system.element.mutableelement;
 import ch.nolix.systemapi.elementapi.mainuniversalapi.IMutableElement;
 
 //class
-public final class ExchangableSubElement<ME extends IMutableElement<ME>> extends BaseSubElement<ME> {
+public final class ExchangableSubElement<ME extends IMutableElement> extends BaseSubElement<ME> {
 	
 	//constructor
 	public ExchangableSubElement(final String attributePrefix, final ME internalSubElement) {

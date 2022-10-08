@@ -10,7 +10,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.elementapi.mainuniversalapi.IMutableElement;
 
 //class
-public abstract class BaseSubElement<ME extends IMutableElement<ME>> extends Property {
+public abstract class BaseSubElement<ME extends IMutableElement> extends Property {
 	
 	//attributes
 	private final String attributePrefix;

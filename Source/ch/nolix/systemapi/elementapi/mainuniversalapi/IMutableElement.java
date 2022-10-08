@@ -14,10 +14,9 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
  * 
  * @author Silvan Wyss
  * @date 2017-01-01
- * @param <ME> is the type of a {@link IMutableElement}.
  */
 @AllowDefaultMethodsAsDesignPattern
-public interface IMutableElement<ME extends IMutableElement<ME>> extends Resettable, Specified {
+public interface IMutableElement extends Resettable, Specified {
 	
 	//method declaration
 	/**
