@@ -1,12 +1,14 @@
 //package declaration
 package ch.nolix.system.webgui.control;
 
-import ch.nolix.core.commontype.constant.StringCatalogue;
 //own imports
+import ch.nolix.core.commontype.constant.StringCatalogue;
 import ch.nolix.core.container.immutablelist.ImmutableList;
+import ch.nolix.core.container.main.SingleContainer;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.containerapi.mainapi.ISingleContainer;
 import ch.nolix.coreapi.webapi.htmlapi.IHTMLElement;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 import ch.nolix.system.gui.image.MutableImage;
@@ -53,6 +55,12 @@ implements IImageControl<ImageControl, ImageControlStyle, MutableImage> {
 	@Override
 	public IControlCSSRuleCreator<ImageControl, ImageControlStyle> getCSSRuleCreator() {
 		return mCSSRuleCreator;
+	}
+	
+	//method
+	@Override
+	public ISingleContainer<String> getOptionalTypeScriptHTMLElementTakerInputGetter() {
+		return new SingleContainer<>();
 	}
 	
 	//method

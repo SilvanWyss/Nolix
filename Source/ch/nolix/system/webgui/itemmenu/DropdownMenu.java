@@ -2,6 +2,8 @@
 package ch.nolix.system.webgui.itemmenu;
 
 //own imports
+import ch.nolix.core.container.main.SingleContainer;
+import ch.nolix.coreapi.containerapi.mainapi.ISingleContainer;
 import ch.nolix.coreapi.webapi.htmlapi.IHTMLElement;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.IDropdownMenu;
 import ch.nolix.systemapi.webguiapi.mainapi.IControlCSSRuleCreator;
@@ -18,6 +20,14 @@ implements IDropdownMenu<DropdownMenu, DropdownMenuStyle, ItemMenuItem> {
 	@Override
 	public IControlCSSRuleCreator<DropdownMenu, DropdownMenuStyle> getCSSRuleCreator() {
 		return mCSSRuleCreator;
+	}
+	
+	//method
+	@Override
+	public ISingleContainer<String> getOptionalTypeScriptHTMLElementTakerInputGetter() {
+		return new SingleContainer<>(
+			"(select) => {if (select.selectedIndex == -1) {return '';} select.options[select.selectedIndex].text;}"
+		);
 	}
 	
 	//method

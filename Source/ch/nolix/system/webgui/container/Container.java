@@ -1,11 +1,13 @@
 //package declaration
 package ch.nolix.system.webgui.container;
 
-import ch.nolix.core.commontype.constant.StringCatalogue;
 //own imports
+import ch.nolix.core.commontype.constant.StringCatalogue;
+import ch.nolix.core.container.main.SingleContainer;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
+import ch.nolix.coreapi.containerapi.mainapi.ISingleContainer;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.systemapi.guiapi.containercontrolproperty.ContainerRole;
@@ -31,6 +33,12 @@ extends Control<C, ECS> implements IContainer<C, ECS> {
 		ContainerRole::fromSpecification,
 		Node::fromEnum
 	);
+	
+	//method
+	@Override
+	public final ISingleContainer<String> getOptionalTypeScriptHTMLElementTakerInputGetter() {
+		return new SingleContainer<>();
+	}
 	
 	//method
 	@Override

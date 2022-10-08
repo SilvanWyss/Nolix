@@ -4,10 +4,12 @@ package ch.nolix.system.webgui.control;
 //own imports
 import ch.nolix.core.commontype.constant.StringCatalogue;
 import ch.nolix.core.container.immutablelist.ImmutableList;
+import ch.nolix.core.container.main.SingleContainer;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.containerapi.mainapi.ISingleContainer;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.coreapi.webapi.htmlapi.IHTMLElement;
@@ -57,6 +59,12 @@ public final class Button extends Control<Button, ButtonStyle> implements IButto
 	@Override
 	public IControlCSSRuleCreator<Button, ButtonStyle> getCSSRuleCreator() {
 		return mCSSRuleCreator;
+	}
+	
+	//method
+	@Override
+	public ISingleContainer<String> getOptionalTypeScriptHTMLElementTakerInputGetter() {
+		return new SingleContainer<>();
 	}
 	
 	//method

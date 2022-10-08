@@ -2,6 +2,7 @@
 package ch.nolix.systemapi.webguiapi.mainapi;
 
 //own imports
+import ch.nolix.coreapi.containerapi.mainapi.ISingleContainer;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.FixedIdentified;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.webapi.htmlapi.HTMLElementTransformable;
@@ -28,6 +29,9 @@ extends FixedIdentified, HTMLElementTransformable, IInputTaker, IStylableElement
 	
 	//method declaration
 	CursorIcon getCursorIcon();
+	
+	//method declaration
+	ISingleContainer<String> getOptionalTypeScriptHTMLElementTakerInputGetter();
 	
 	//method declaration
 	IContainer<IControl<?, ?>> getRefChildControls();

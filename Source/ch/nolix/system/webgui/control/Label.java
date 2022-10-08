@@ -4,12 +4,14 @@ package ch.nolix.system.webgui.control;
 //own imports
 import ch.nolix.core.commontype.constant.StringCatalogue;
 import ch.nolix.core.container.immutablelist.ImmutableList;
+import ch.nolix.core.container.main.SingleContainer;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.core.web.html.HTMLElement;
 import ch.nolix.core.web.html.HTMLElementTypeCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.containerapi.mainapi.ISingleContainer;
 import ch.nolix.coreapi.webapi.htmlapi.IHTMLElement;
 import ch.nolix.system.element.mutableelement.MutableValue;
 import ch.nolix.system.webgui.controlhelper.ControlHelper;
@@ -38,6 +40,12 @@ public final class Label extends Control<Label, LabelStyle> implements ILabel<La
 	@Override
 	public IControlCSSRuleCreator<Label, LabelStyle> getCSSRuleCreator() {
 		return mCSSRuleCreator;
+	}
+	
+	//method
+	@Override
+	public ISingleContainer<String> getOptionalTypeScriptHTMLElementTakerInputGetter() {
+		return new SingleContainer<>();
 	}
 	
 	//method
