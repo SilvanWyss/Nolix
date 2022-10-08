@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.webgui.itemmenu;
 
+import ch.nolix.core.commontype.constant.StringCatalogue;
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -155,6 +156,17 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS, ItemMenuItem> {
 	
 	//method
 	@Override
+	public String getUserInput() {
+		
+		if (isEmpty()) {
+			return StringCatalogue.EMPTY_STRING;
+		}
+		
+		return getRefItems().getRefFirst(IItemMenuItem::isSelected).getText();
+	}
+	
+	//method
+	@Override
 	public final boolean hasRole(final String role) {
 		return false;
 	}
@@ -224,6 +236,19 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS, ItemMenuItem> {
 	public final IM selectFirstItem() {
 		
 		getRefFirstItem().select();
+		
+		return asConcrete();
+	}
+	
+	//method
+	@Override
+	public IM setUserInput(final String userInput) {
+		
+		if (userInput.isEmpty()) {
+			getRefItems().forEach(IItemMenuItem::unselect);
+		} else {
+			getRefItemByItemText(userInput).select();
+		}
 		
 		return asConcrete();
 	}

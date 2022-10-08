@@ -54,6 +54,12 @@ public final class Label extends Control<Label, LabelStyle> implements ILabel<La
 	
 	//method
 	@Override
+	public String getUserInput() {
+		return StringCatalogue.EMPTY_STRING;
+	}
+	
+	//method
+	@Override
 	public boolean hasRole(final String role) {
 		return false;
 	}
@@ -119,6 +125,15 @@ public final class Label extends Control<Label, LabelStyle> implements ILabel<La
 		GlobalValidator.assertThat(text).thatIsNamed(LowerCaseCatalogue.TEXT).isNotBlank();
 		
 		this.text.setValue(text);
+		
+		return this;
+	}
+	
+	//method
+	@Override
+	public Label setUserInput(final String userInput) {
+		
+		GlobalValidator.assertThat(userInput).thatIsNamed("user input").isBlank();
 		
 		return this;
 	}

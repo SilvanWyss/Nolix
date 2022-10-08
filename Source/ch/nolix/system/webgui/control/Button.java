@@ -79,6 +79,12 @@ public final class Button extends Control<Button, ButtonStyle> implements IButto
 	
 	//method
 	@Override
+	public String getUserInput() {
+		return getText();
+	}
+	
+	//method
+	@Override
 	public boolean hasRole(final String role) {
 		return (hasRole() && getRole().toString().equals(role));
 	}
@@ -233,6 +239,12 @@ public final class Button extends Control<Button, ButtonStyle> implements IButto
 		this.text.setValue(text);
 		
 		return this;
+	}
+	
+	//method
+	@Override
+	public Button setUserInput(final String userInput) {
+		return setText(userInput);
 	}
 	
 	//method

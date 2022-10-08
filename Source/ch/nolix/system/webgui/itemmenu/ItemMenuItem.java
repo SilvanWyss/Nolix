@@ -239,10 +239,10 @@ public final class ItemMenuItem extends MutableElement<ItemMenuItem> implements 
 	//method
 	private void selectWhenNotSelected() {
 		
-		selectionFlag.setValue(true);
-		
 		unselectItemsOfOptionalParentMenu();
 		
+		selectionFlag.setValue(true);
+				
 		runOptionalSelectAction();
 	}
 	

@@ -1,8 +1,10 @@
 //package declaration
 package ch.nolix.system.webgui.container;
 
+import ch.nolix.core.commontype.constant.StringCatalogue;
 //own imports
 import ch.nolix.core.document.node.Node;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 import ch.nolix.system.webgui.main.Control;
@@ -34,6 +36,12 @@ extends Control<C, ECS> implements IContainer<C, ECS> {
 	@Override
 	public final ContainerRole getRole() {
 		return role.getValue();
+	}
+	
+	//method
+	@Override
+	public final String getUserInput() {
+		return StringCatalogue.EMPTY_STRING;
 	}
 	
 	//method
@@ -113,6 +121,15 @@ extends Control<C, ECS> implements IContainer<C, ECS> {
 	public final C setRole(final ContainerRole role) {
 		
 		this.role.setValue(role);
+		
+		return asConcrete();
+	}
+	
+	//method
+	@Override
+	public final C setUserInput(final String userInput) {
+		
+		GlobalValidator.assertThat(userInput).thatIsNamed("user input").isBlank();
 		
 		return asConcrete();
 	}

@@ -1,8 +1,10 @@
 //package declaration
 package ch.nolix.system.webgui.control;
 
+import ch.nolix.core.commontype.constant.StringCatalogue;
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.webapi.htmlapi.IHTMLElement;
@@ -63,6 +65,12 @@ implements IImageControl<ImageControl, ImageControlStyle, MutableImage> {
 	@Override
 	public MutableImage getRefImage() {
 		return image.getValue();
+	}
+	
+	//method
+	@Override
+	public String getUserInput() {
+		return StringCatalogue.EMPTY_STRING;
 	}
 	
 	//method
@@ -136,6 +144,15 @@ implements IImageControl<ImageControl, ImageControlStyle, MutableImage> {
 		}
 		
 		return this;
+	}
+	
+	//method
+	@Override
+	public ImageControl setUserInput(final String userInput) {
+		
+		GlobalValidator.assertThat(userInput).thatIsNamed("user input").isBlank();
+		
+		return null;
 	}
 	
 	//method

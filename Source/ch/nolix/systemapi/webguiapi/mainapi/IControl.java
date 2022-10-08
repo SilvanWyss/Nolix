@@ -15,7 +15,7 @@ public interface IControl<
 	C extends IControl<C, CL>,
 	CL extends IControlStyle<CL>
 >
-extends FixedIdentified, HTMLElementTransformable, IInputTaker, IStylableElement<C> {
+extends FixedIdentified, HTMLElementTransformable, IInputTaker, IStylableElement<C>, IUserInputCell<C> {
 	
 	//method declaration
 	boolean belongsToGUI();
