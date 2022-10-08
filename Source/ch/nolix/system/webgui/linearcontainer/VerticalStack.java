@@ -11,11 +11,11 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IControlCSSRuleCreator;
 
 //class
-public final class VerticalStack extends LinearContainer {
+public final class VerticalStack extends LinearContainer<VerticalStack, VerticalStackStyle> {
 	
 	//method
 	@Override
-	public IControlCSSRuleCreator<LinearContainer, LinearContainerStyle> getCSSRuleCreator() {
+	public IControlCSSRuleCreator<VerticalStack, VerticalStackStyle> getCSSRuleCreator() {
 		return VerticalStackCSSRuleCreator.forVerticalStack(this);
 	}
 	
@@ -28,6 +28,12 @@ public final class VerticalStack extends LinearContainer {
 			ImmutableList.withElements(ControlHelper.INSTANCE.createIdHTMLAttributeForControl(this)),
 			getRefChildControls().to(IControl::toHTMLElement)
 		);
+	}
+	
+	//method
+	@Override
+	protected VerticalStackStyle createStyle() {
+		return new VerticalStackStyle();
 	}
 	
 	//method

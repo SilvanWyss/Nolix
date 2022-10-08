@@ -10,9 +10,12 @@ import ch.nolix.systemapi.webguiapi.linearcontainerapi.ILinearContainer;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //class
-public abstract class LinearContainer
-extends Container<LinearContainer, LinearContainerStyle>
-implements ILinearContainer<LinearContainer, LinearContainerStyle> {
+public abstract class LinearContainer<
+	LC extends LinearContainer<LC, LCS>,
+	LCS extends LinearContainerStyle<LCS>
+>
+extends Container<LC, LCS>
+implements ILinearContainer<LC, LCS> {
 	
 	//constant
 	private static final String CHILD_CONTROL_HEADER = "ChildControl";
@@ -28,23 +31,23 @@ implements ILinearContainer<LinearContainer, LinearContainerStyle> {
 	
 	//method
 	@Override
-	public final LinearContainer addControl(final IControl<?, ?>... controls) {
+	public final LC addControl(final IControl<?, ?>... controls) {
 		
 		for (final var c : controls) {
 			c.technicalSetParentControl(this);
 			this.childControls.add(c);
 		}
 		
-		return this;
+		return asConcrete();
 	}
 	
 	//method
 	@Override
-	public final LinearContainer addControls(final IContainer<? extends IControl<?, ?>> controls) {
+	public final LC addControls(final IContainer<? extends IControl<?, ?>> controls) {
 		
 		controls.forEach(this::addControl);
 		
-		return this;
+		return asConcrete();
 	}
 	
 	//method
@@ -69,11 +72,5 @@ implements ILinearContainer<LinearContainer, LinearContainerStyle> {
 	@Override
 	public final void removeControl(final IControl<?, ?> control) {
 		childControls.remove(control);
-	}
-	
-	//method
-	@Override
-	protected final LinearContainerStyle createStyle() {
-		return new LinearContainerStyle();
 	}
 }
