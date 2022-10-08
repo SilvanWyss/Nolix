@@ -8,9 +8,16 @@ import ch.nolix.core.web.html.HTMLElementTypeCatalogue;
 import ch.nolix.coreapi.webapi.htmlapi.IHTMLElement;
 import ch.nolix.system.webgui.controlhelper.ControlHelper;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
+import ch.nolix.systemapi.webguiapi.mainapi.IControlCSSRuleCreator;
 
 //class
 public final class VerticalStack extends LinearContainer {
+	
+	//method
+	@Override
+	public IControlCSSRuleCreator<LinearContainer, LinearContainerStyle> getCSSRuleCreator() {
+		return VerticalStackCSSRuleCreator.forVerticalStack(this);
+	}
 	
 	//method
 	@Override

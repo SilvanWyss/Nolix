@@ -8,17 +8,18 @@ import ch.nolix.system.webgui.controlstyle.ExtendedControlCSSRuleCreator;
 import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 
 //class
-public final class LinearContainerCSSRuleCreator
+//TODO: Adjust.
+public final class VerticalStackCSSRuleCreator
 extends ExtendedControlCSSRuleCreator<LinearContainer, LinearContainerStyle> {
 	
 	//static method
-	public static LinearContainerCSSRuleCreator forLinearContainer(final LinearContainer button) {
-		return new LinearContainerCSSRuleCreator(button);
+	public static VerticalStackCSSRuleCreator forVerticalStack(final VerticalStack button) {
+		return new VerticalStackCSSRuleCreator(button);
 	}
 	
 	//constructor
-	private LinearContainerCSSRuleCreator(final LinearContainer parentLinearContainer) {
-		super(parentLinearContainer);
+	private VerticalStackCSSRuleCreator(final VerticalStack parentVerticalStack) {
+		super(parentVerticalStack);
 	}
 	
 	//method
