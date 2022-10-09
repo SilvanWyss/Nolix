@@ -5,6 +5,7 @@ package ch.nolix.systemapi.webguiapi.mainapi;
 import ch.nolix.coreapi.containerapi.mainapi.ISingleContainer;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.FixedIdentified;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
 import ch.nolix.coreapi.webapi.htmlapi.HTMLElementTransformable;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 import ch.nolix.systemapi.guiapi.inputapi.IInputTaker;
@@ -25,7 +26,7 @@ extends FixedIdentified, HTMLElementTransformable, IInputTaker, IStylableElement
 	boolean belongsToLayer();
 	
 	//method declaration
-	IControlCSSRuleCreator<C, CL> getCSSRuleCreator();
+	IContainer<ICSSRule<?>> getCSSRules();
 	
 	//method declaration
 	CursorIcon getCursorIcon();

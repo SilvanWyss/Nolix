@@ -13,15 +13,6 @@ public final class DropdownMenu
 extends ItemMenu<DropdownMenu, DropdownMenuStyle>
 implements IDropdownMenu<DropdownMenu, DropdownMenuStyle, ItemMenuItem> {
 	
-	//attribute
-	private final DropdownMenuCSSRuleCreator mCSSRuleCreator = DropdownMenuCSSRuleCreator.forDropdownMenu(this);
-			
-	//method
-	@Override
-	public IControlCSSRuleCreator<DropdownMenu, DropdownMenuStyle> getCSSRuleCreator() {
-		return mCSSRuleCreator;
-	}
-	
 	//method
 	@Override
 	public ISingleContainer<String> getOptionalTypeScriptHTMLElementTakerInputGetter() {
@@ -40,5 +31,11 @@ implements IDropdownMenu<DropdownMenu, DropdownMenuStyle, ItemMenuItem> {
 	@Override
 	protected DropdownMenuStyle createStyle() {
 		return new DropdownMenuStyle();
+	}
+	
+	//method
+	@Override
+	protected IControlCSSRuleCreator<DropdownMenu, DropdownMenuStyle> getCSSRuleCreator() {
+		return DropdownMenuCSSRuleCreator.forDropdownMenu(this);
 	}
 }

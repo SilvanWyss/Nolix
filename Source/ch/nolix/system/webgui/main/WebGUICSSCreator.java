@@ -11,8 +11,6 @@ import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.webapi.cssapi.CSSPropertyNameCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.ICSSProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
-import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
-import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGUI;
 
@@ -82,20 +80,7 @@ public final class WebGUICSSCreator {
 		lCSSRules.addAtEnd(layer.getCSSRule());
 		
 		for (final var c : layer.getRefControls()) {
-			fillUpCSSRulesOfControlIntoList(c, lCSSRules);
+			lCSSRules.addAtEnd(c.getCSSRules());
 		}
-	}
-	
-	//method
-	private void fillUpCSSRulesOfControlIntoList(
-		final IControl<?, ?> control,
-		final LinkedList<ICSSRule<?>> lCSSRules
-	) {
-		
-		final var lCSSRuleCreator = control.getCSSRuleCreator();
-		
-		lCSSRules.addAtEnd(lCSSRuleCreator.getCSSRuleForState(ControlState.BASE));
-		lCSSRules.addAtEnd(lCSSRuleCreator.getCSSRuleForState(ControlState.HOVER));
-		lCSSRules.addAtEnd(lCSSRuleCreator.getCSSRuleForState(ControlState.FOCUS));
 	}
 }

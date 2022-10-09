@@ -1,8 +1,9 @@
 //package declaration
 package ch.nolix.systemapi.webguiapi.mainapi;
 
+//own imports
+import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
-import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
 
 //interface
@@ -12,7 +13,7 @@ public interface IControlCSSRuleCreator<
 > {
 	
 	//method declaration
-	ICSSRule<?> getCSSRuleForState(ControlState state);
+	IContainer<ICSSRule<?>> getCSSRules();
 	
 	//method declaration
 	C getRefParentControl();

@@ -15,12 +15,6 @@ public final class VerticalStack extends LinearContainer<VerticalStack, Vertical
 	
 	//method
 	@Override
-	public IControlCSSRuleCreator<VerticalStack, VerticalStackStyle> getCSSRuleCreator() {
-		return VerticalStackCSSRuleCreator.forVerticalStack(this);
-	}
-	
-	//method
-	@Override
 	public IHTMLElement<?, ?> toHTMLElement() {
 		return
 		HTMLElement.withTypeAndAttributesAndChildElements(
@@ -36,6 +30,12 @@ public final class VerticalStack extends LinearContainer<VerticalStack, Vertical
 		return new VerticalStackStyle();
 	}
 	
+	//method
+	@Override
+	protected IControlCSSRuleCreator<VerticalStack, VerticalStackStyle> getCSSRuleCreator() {
+		return VerticalStackCSSRuleCreator.forVerticalStack(this);
+	}
+		
 	//method
 	@Override
 	protected void resetContainer() {

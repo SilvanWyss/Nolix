@@ -15,12 +15,6 @@ public final class HorizontalStack extends LinearContainer<HorizontalStack, Hori
 	
 	//method
 	@Override
-	public IControlCSSRuleCreator<HorizontalStack, HorizontalStackStyle> getCSSRuleCreator() {
-		return HorizontalStackCSSRuleCreator.forHorizontalStack(this);
-	}
-	
-	//method
-	@Override
 	public IHTMLElement<?, ?> toHTMLElement() {
 		return
 		HTMLElement.withTypeAndAttributesAndChildElements(
@@ -34,6 +28,12 @@ public final class HorizontalStack extends LinearContainer<HorizontalStack, Hori
 	@Override
 	protected HorizontalStackStyle createStyle() {
 		return new HorizontalStackStyle();
+	}
+	
+	//method
+	@Override
+	protected IControlCSSRuleCreator<HorizontalStack, HorizontalStackStyle> getCSSRuleCreator() {
+		return HorizontalStackCSSRuleCreator.forHorizontalStack(this);
 	}
 	
 	//method

@@ -33,15 +33,6 @@ public final class Label extends Control<Label, LabelStyle> implements ILabel<La
 	//attribute
 	private final MutableValue<String> text = MutableValue.forString(TEXT_HEADER, DEFAULT_TEXT, this::setText);
 	
-	//attribute
-	private final LabelCSSRuleCreator mCSSRuleCreator = LabelCSSRuleCreator.forLabel(this);
-	
-	//method
-	@Override
-	public IControlCSSRuleCreator<Label, LabelStyle> getCSSRuleCreator() {
-		return mCSSRuleCreator;
-	}
-	
 	//method
 	@Override
 	public ISingleContainer<String> getOptionalTypeScriptHTMLElementTakerInputGetter() {
@@ -161,6 +152,12 @@ public final class Label extends Control<Label, LabelStyle> implements ILabel<La
 	@Override
 	protected LabelStyle createStyle() {
 		return new LabelStyle();
+	}
+	
+	//method
+	@Override
+	protected IControlCSSRuleCreator<Label, LabelStyle> getCSSRuleCreator() {
+		return LabelCSSRuleCreator.forLabel(this);
 	}
 	
 	//method

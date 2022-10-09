@@ -54,12 +54,6 @@ public final class Textbox extends Control<Textbox, TextboxStyle> implements ITe
 	
 	//method
 	@Override
-	public IControlCSSRuleCreator<Textbox, TextboxStyle> getCSSRuleCreator() {
-		return TextboxCSSRuleCreator.forTextbox(this);
-	}
-	
-	//method
-	@Override
 	public ISingleContainer<String> getOptionalTypeScriptHTMLElementTakerInputGetter() {
 		return new SingleContainer<>("(input) => input.value");
 	}
@@ -181,6 +175,12 @@ public final class Textbox extends Control<Textbox, TextboxStyle> implements ITe
 	@Override
 	protected TextboxStyle createStyle() {
 		return new TextboxStyle();
+	}
+	
+	//method
+	@Override
+	protected IControlCSSRuleCreator<Textbox, TextboxStyle> getCSSRuleCreator() {
+		return TextboxCSSRuleCreator.forTextbox(this);
 	}
 	
 	@Override

@@ -38,8 +38,15 @@ implements IControlCSSRuleCreator<C, CS> {
 	
 	//method
 	@Override
-	public final ICSSRule<?> getCSSRuleForState(ControlState state) {
-		return CSSRule.withSelectorAndProperties(getCSSSelectorForState(state), getCSSPropertiesForState(state));
+	public IContainer<ICSSRule<?>> getCSSRules() {
+		
+		final var lCSSRules = new LinkedList<ICSSRule<?>>();
+		
+		lCSSRules.addAtEnd(getCSSRuleForState(ControlState.BASE));
+		lCSSRules.addAtEnd(getCSSRuleForState(ControlState.HOVER));
+		lCSSRules.addAtEnd(getCSSRuleForState(ControlState.FOCUS));
+		
+		return lCSSRules;
 	}
 	
 	//method
@@ -92,6 +99,11 @@ implements IControlCSSRuleCreator<C, CS> {
 		);
 		
 		fillUpControlCSSPropertiesForStateIntoList(state, list);
+	}
+	
+	//method
+	private final ICSSRule<?> getCSSRuleForState(ControlState state) {
+		return CSSRule.withSelectorAndProperties(getCSSSelectorForState(state), getCSSPropertiesForState(state));
 	}
 	
 	//method
