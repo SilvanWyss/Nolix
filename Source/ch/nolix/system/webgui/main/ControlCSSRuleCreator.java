@@ -42,6 +42,7 @@ implements IControlCSSRuleCreator<C, CS> {
 		
 		final var lCSSRules = new LinkedList<ICSSRule<?>>();
 		
+		lCSSRules.addAtEnd(getCSSRuleForBaseState());
 		lCSSRules.addAtEnd(getCSSRuleForState(ControlState.BASE));
 		lCSSRules.addAtEnd(getCSSRuleForState(ControlState.HOVER));
 		lCSSRules.addAtEnd(getCSSRuleForState(ControlState.FOCUS));
@@ -64,6 +65,11 @@ implements IControlCSSRuleCreator<C, CS> {
 	//method
 	protected final String getColorCodeOfColor(final IColor color) {
 		return String.format("#%02x%02x%02x", color.getRedValue(), color.getGreenValue(), color.getBlueValue());
+	}
+	
+	//method
+	private void fillUpCSSPropertiesForBaseStateIntoList(final LinkedList<CSSProperty> list) {
+		//TODO: Implement.
 	}
 	
 	//method
@@ -102,8 +108,23 @@ implements IControlCSSRuleCreator<C, CS> {
 	}
 	
 	//method
-	private final ICSSRule<?> getCSSRuleForState(ControlState state) {
+	private final ICSSRule<?> getCSSRuleForBaseState() {
+		return CSSRule.withSelectorAndProperties(getCSSSelectorForBaseState(), getCSSPropertiesForBaseState());
+	}
+	
+	//method
+	private final ICSSRule<?> getCSSRuleForState(final ControlState state) {
 		return CSSRule.withSelectorAndProperties(getCSSSelectorForState(state), getCSSPropertiesForState(state));
+	}
+	
+	//method
+	private IContainer<CSSProperty> getCSSPropertiesForBaseState() {
+		
+		final var lCSSPropertiesForBaseState = new LinkedList<CSSProperty>();
+		
+		fillUpCSSPropertiesForBaseStateIntoList(lCSSPropertiesForBaseState);
+		
+		return lCSSPropertiesForBaseState;
 	}
 	
 	//method
@@ -114,6 +135,11 @@ implements IControlCSSRuleCreator<C, CS> {
 		fillUpCSSPropertiesForStateIntoList(state, lCSSProperties);
 		
 		return lCSSProperties;
+	}
+	
+	//method
+	private String getCSSSelectorForBaseState() {
+		return "#" + getRefParentControl().getFixedId();
 	}
 	
 	//method
