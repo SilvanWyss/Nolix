@@ -4,6 +4,9 @@ package ch.nolix.system.webgui.linearcontainer;
 //own imports
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.web.css.CSSProperty;
+import ch.nolix.core.web.css.CSSRule;
+import ch.nolix.coreapi.webapi.cssapi.CSSPropertyNameCatalogue;
+import ch.nolix.coreapi.webapi.cssapi.CSSUnitCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
 import ch.nolix.system.webgui.controlstyle.ExtendedControlCSSRuleCreator;
 import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
@@ -25,7 +28,18 @@ extends ExtendedControlCSSRuleCreator<VerticalStack, VerticalStackStyle> {
 	//method
 	@Override
 	protected void fillUpAdditionalCSSRulesIntoList(final LinkedList<? super ICSSRule<?>> list) {
-		//Does nothing.
+		list.addAtEnd(
+			CSSRule.withSelectorAndProperties(
+				getCSSSelectorForBaseState() + " ." + VerticalStackHTMLCreator.CHILD_CONTROL_CSS_CLASS_NAME,
+				LinkedList.withElements(
+					CSSProperty.withNameAndValue(
+						CSSPropertyNameCatalogue.MARGIN,
+						getRefParentControl().getRefStyle().getChildControlMarginWhenHasState(ControlState.BASE) //TODO: Move implementation.
+						+ CSSUnitCatalogue.PX
+					)
+				)
+			)
+		);
 	}
 	
 	//method
