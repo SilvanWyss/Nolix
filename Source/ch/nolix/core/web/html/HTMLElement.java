@@ -4,6 +4,7 @@ package ch.nolix.core.web.html;
 //own imports
 import ch.nolix.core.commontype.constant.StringCatalogue;
 import ch.nolix.core.container.immutablelist.ImmutableList;
+import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
@@ -34,6 +35,19 @@ public final class HTMLElement implements IHTMLElement<HTMLElement, HTMLAttribut
 		final IContainer<? extends IHTMLAttribute> attributes
 	) {
 		return new HTMLElement(type, attributes, StringCatalogue.EMPTY_STRING, new ImmutableList<>());
+	}
+	
+	//static method
+	public static HTMLElement withTypeAndAttributesAndChildElement(
+		final String type,
+		final IContainer<? extends IHTMLAttribute> attributes,
+		final IHTMLElement<?, ?> childElement
+	) {
+		
+		final var childElements = new LinkedList<IHTMLElement<?, ?>>();
+		childElements.addAtEnd(childElement);
+		
+		return new HTMLElement(type, attributes, StringCatalogue.EMPTY_STRING, childElements);
 	}
 	
 	//static method
