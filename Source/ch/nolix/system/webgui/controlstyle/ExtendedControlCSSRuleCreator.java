@@ -26,6 +26,12 @@ extends ControlCSSRuleCreator<EC, ECS> {
 	
 	//method
 	@Override
+	protected void fillUpControlCSSPropertiesForBaseStateIntoList(final LinkedList<CSSProperty> list) {
+		//TODO: Implement.
+	}
+	
+	//method
+	@Override
 	protected final void fillUpControlCSSPropertiesForStateIntoList(
 		final ControlState state,
 		final LinkedList<CSSProperty> list

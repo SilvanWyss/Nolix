@@ -32,7 +32,7 @@ public final class TextboxCSSRuleCreator extends ExtendedControlCSSRuleCreator<T
 	
 	//method
 	@Override
-	protected void fillUpAdditionalCSSRulesIntoList(final LinkedList<? super ICSSRule<?>> list) {
+	protected void fillUpAdditionalCSSRulesForBaseStateIntoList(final LinkedList<? super ICSSRule<?>> list) {
 		//Does nothing.
 	}
 	

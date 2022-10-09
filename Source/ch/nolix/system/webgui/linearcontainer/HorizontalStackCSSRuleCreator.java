@@ -33,7 +33,7 @@ extends ExtendedControlCSSRuleCreator<HorizontalStack, HorizontalStackStyle> {
 	
 	//method
 	@Override
-	protected void fillUpAdditionalCSSRulesIntoList(final LinkedList<? super ICSSRule<?>> list) {
+	protected void fillUpAdditionalCSSRulesForBaseStateIntoList(final LinkedList<? super ICSSRule<?>> list) {
 		//TODO: Implement.
 	}
 	

@@ -42,11 +42,14 @@ implements IControlCSSRuleCreator<C, CS> {
 		
 		final var lCSSRules = new LinkedList<ICSSRule<?>>();
 		
-		lCSSRules.addAtEnd(getCSSRuleForBaseState());
-		lCSSRules.addAtEnd(getCSSRuleForState(ControlState.BASE));
-		lCSSRules.addAtEnd(getCSSRuleForState(ControlState.HOVER));
-		lCSSRules.addAtEnd(getCSSRuleForState(ControlState.FOCUS));
-		fillUpAdditionalCSSRulesIntoList(lCSSRules);
+		lCSSRules.addAtEnd(
+			getCSSRuleForBaseState(),
+			getCSSRuleForState(ControlState.BASE),
+			getCSSRuleForState(ControlState.HOVER),
+			getCSSRuleForState(ControlState.FOCUS)
+		);
+		
+		fillUpAdditionalCSSRulesForBaseStateIntoList(lCSSRules);
 		fillUpAdditionalCSSRulesForStateIntoList(ControlState.BASE, lCSSRules);
 		fillUpAdditionalCSSRulesForStateIntoList(ControlState.HOVER, lCSSRules);
 		fillUpAdditionalCSSRulesForStateIntoList(ControlState.FOCUS, lCSSRules);
@@ -67,8 +70,11 @@ implements IControlCSSRuleCreator<C, CS> {
 	);
 	
 	//method declaration
-	protected abstract void fillUpAdditionalCSSRulesIntoList(LinkedList<? super ICSSRule<?>> list);
-		
+	protected abstract void fillUpAdditionalCSSRulesForBaseStateIntoList(LinkedList<? super ICSSRule<?>> list);
+	
+	//method declaration
+	protected abstract void fillUpControlCSSPropertiesForBaseStateIntoList(LinkedList<CSSProperty> list);
+	
 	//method declaration
 	protected abstract void fillUpControlCSSPropertiesForStateIntoList(
 		ControlState state,
@@ -87,14 +93,6 @@ implements IControlCSSRuleCreator<C, CS> {
 	
 	//method
 	private void fillUpCSSPropertiesForBaseStateIntoList(final LinkedList<CSSProperty> list) {
-		//TODO: Implement.
-	}
-	
-	//method
-	private void fillUpCSSPropertiesForStateIntoList(
-		final ControlState state,
-		final LinkedList<CSSProperty> list
-	) {
 		
 		if (getRefParentControl().getCursorIcon() != CursorIcon.ARROW) {
 			list.addAtEnd(
@@ -105,6 +103,15 @@ implements IControlCSSRuleCreator<C, CS> {
 			);
 		}
 		
+		fillUpControlCSSPropertiesForBaseStateIntoList(list);
+	}
+	
+	//method
+	private void fillUpCSSPropertiesForStateIntoList(
+		final ControlState state,
+		final LinkedList<CSSProperty> list
+	) {
+				
 		final var style = getRefParentControl().getRefStyle();
 		
 		list.addAtEnd(

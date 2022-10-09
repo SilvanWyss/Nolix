@@ -31,7 +31,7 @@ extends ExtendedControlCSSRuleCreator<IM, IMS> {
 	
 	//method
 	@Override
-	protected final void fillUpAdditionalCSSRulesIntoList(final LinkedList<? super ICSSRule<?>> list) {
+	protected final void fillUpAdditionalCSSRulesForBaseStateIntoList(final LinkedList<? super ICSSRule<?>> list) {
 		//Does nothing.
 	}
 }

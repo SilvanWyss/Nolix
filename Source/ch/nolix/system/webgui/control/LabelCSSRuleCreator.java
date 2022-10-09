@@ -32,7 +32,7 @@ public final class LabelCSSRuleCreator extends ExtendedControlCSSRuleCreator<Lab
 	
 	//method
 	@Override
-	protected void fillUpAdditionalCSSRulesIntoList(final LinkedList<? super ICSSRule<?>> list) {
+	protected void fillUpAdditionalCSSRulesForBaseStateIntoList(final LinkedList<? super ICSSRule<?>> list) {
 		//Does nothing.
 	}
 	
