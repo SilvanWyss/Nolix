@@ -3,6 +3,7 @@ package ch.nolix.system.application.webapplication;
 
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
+import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -12,6 +13,7 @@ import ch.nolix.coreapi.webapi.htmlapi.IHTMLElement;
 import ch.nolix.system.application.webapplicationprotocol.CommandProtocol;
 import ch.nolix.system.application.webapplicationprotocol.ObjectProtocol;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
+import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGUI;
 
 //class
@@ -48,7 +50,8 @@ final class BackendWebClientCounterpartUpdater {
 			createSetTitleCommandFromWebGUI(webGUI),
 			createSetIconCommandFromWebGUI(webGUI),
 			createSetRootHTMLElementCommandFromWebGUI(webGUI),
-			createSetCSSCommandFromWebGUI(webGUI)
+			createSetCSSCommandFromWebGUI(webGUI),
+			createSetUserInputFunctionsCommandFromWebGUI(webGUI)
 		);
 	}
 	
@@ -120,5 +123,39 @@ final class BackendWebClientCounterpartUpdater {
 				ChainedNode.withHeader(pCSS)
 			)
 		);
+	}
+	
+	//method
+	private ChainedNode createSetUserInputFunctionsCommandFromWebGUI(final IWebGUI<?> webGUI) {
+		return createSetUserInputFunctionsCommandForControls(webGUI.getRefControls());
+	}
+	
+	//method
+	private ChainedNode createSetUserInputFunctionsCommandForControls(final IContainer<IControl<?, ?>> controls) {
+		
+		final var userInputFunctions = new LinkedList<ChainedNode>();
+		
+		for (final var c : controls) {
+			final var userInputFunction = c.getOptionalTypeScriptHTMLElementTakerInputGetter();
+			if (userInputFunction.containsAny()) {
+				userInputFunctions.addAtEnd(
+					createUserInputFunctionFromControlAndString(c, userInputFunction.getRefElement())
+				);
+			}
+		}
+		
+		return
+		ChainedNode.withHeaderAndNextNode(
+			ObjectProtocol.GUI,
+			ChainedNode.withHeaderAndChildNodes(
+				CommandProtocol.SET_USER_INPUT_FUNCTIONS,
+				userInputFunctions
+			)
+		);
+	}
+	
+	//method
+	private ChainedNode createUserInputFunctionFromControlAndString(final IControl<?, ?> control, final String string) {
+		return ChainedNode.withChildNodesFromNodes(Node.withHeader(control.getFixedId()), Node.withHeader(string));
 	}
 }

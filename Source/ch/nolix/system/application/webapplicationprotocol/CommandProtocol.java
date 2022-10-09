@@ -17,6 +17,9 @@ public final class CommandProtocol {
 	public static final String SET_TITLE = "SetTitle";
 	
 	//constant
+	public static final String SET_USER_INPUT_FUNCTIONS = "SetUserInputFunctions";
+	
+	//constant
 	public static final String SET_USER_INPUTS = "SetUserInputs";
 	
 	//constructor
