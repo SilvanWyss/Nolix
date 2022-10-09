@@ -47,6 +47,9 @@ implements IControlCSSRuleCreator<C, CS> {
 		lCSSRules.addAtEnd(getCSSRuleForState(ControlState.HOVER));
 		lCSSRules.addAtEnd(getCSSRuleForState(ControlState.FOCUS));
 		fillUpAdditionalCSSRulesIntoList(lCSSRules);
+		fillUpAdditionalCSSRulesForStateIntoList(ControlState.BASE, lCSSRules);
+		fillUpAdditionalCSSRulesForStateIntoList(ControlState.HOVER, lCSSRules);
+		fillUpAdditionalCSSRulesForStateIntoList(ControlState.FOCUS, lCSSRules);
 		
 		return lCSSRules;
 	}
@@ -58,8 +61,14 @@ implements IControlCSSRuleCreator<C, CS> {
 	}
 	
 	//method declaration
-	protected abstract void fillUpAdditionalCSSRulesIntoList(LinkedList<? super ICSSRule<?>> list);
+	protected abstract void fillUpAdditionalCSSRulesForStateIntoList(
+		ControlState state,
+		LinkedList<? super ICSSRule<?>> list
+	);
 	
+	//method declaration
+	protected abstract void fillUpAdditionalCSSRulesIntoList(LinkedList<? super ICSSRule<?>> list);
+		
 	//method declaration
 	protected abstract void fillUpControlCSSPropertiesForStateIntoList(
 		ControlState state,

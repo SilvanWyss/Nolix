@@ -24,6 +24,15 @@ extends ExtendedControlCSSRuleCreator<HorizontalStack, HorizontalStackStyle> {
 	
 	//method
 	@Override
+	protected void fillUpAdditionalCSSRulesForStateIntoList(
+		final ControlState state,
+		final LinkedList<? super ICSSRule<?>> list
+	) {
+		//TODO: Implement.
+	}
+	
+	//method
+	@Override
 	protected void fillUpAdditionalCSSRulesIntoList(final LinkedList<? super ICSSRule<?>> list) {
 		//TODO: Implement.
 	}

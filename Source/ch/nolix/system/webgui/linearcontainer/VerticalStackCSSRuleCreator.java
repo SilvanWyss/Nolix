@@ -27,19 +27,28 @@ extends ExtendedControlCSSRuleCreator<VerticalStack, VerticalStackStyle> {
 	
 	//method
 	@Override
-	protected void fillUpAdditionalCSSRulesIntoList(final LinkedList<? super ICSSRule<?>> list) {
+	protected void fillUpAdditionalCSSRulesForStateIntoList(
+		final ControlState state,
+		final LinkedList<? super ICSSRule<?>> list
+	) {
 		list.addAtEnd(
 			CSSRule.withSelectorAndProperties(
 				getCSSSelectorForBaseState() + " ." + VerticalStackHTMLCreator.CHILD_CONTROL_CSS_CLASS_NAME,
 				LinkedList.withElements(
 					CSSProperty.withNameAndValue(
 						CSSPropertyNameCatalogue.MARGIN,
-						getRefParentControl().getRefStyle().getChildControlMarginWhenHasState(ControlState.BASE) //TODO: Move implementation.
+						getRefParentControl().getRefStyle().getChildControlMarginWhenHasState(state)
 						+ CSSUnitCatalogue.PX
 					)
 				)
 			)
 		);
+	}
+	
+	//method
+	@Override
+	protected void fillUpAdditionalCSSRulesIntoList(final LinkedList<? super ICSSRule<?>> list) {
+		//Does nothing.
 	}
 	
 	//method
