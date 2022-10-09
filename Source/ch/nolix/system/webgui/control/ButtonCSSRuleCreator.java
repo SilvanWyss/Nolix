@@ -4,6 +4,7 @@ package ch.nolix.system.webgui.control;
 //own imports
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.web.css.CSSProperty;
+import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
 import ch.nolix.system.webgui.controlstyle.ExtendedControlCSSRuleCreator;
 import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 
@@ -18,6 +19,12 @@ public final class ButtonCSSRuleCreator extends ExtendedControlCSSRuleCreator<Bu
 	//constructor
 	private ButtonCSSRuleCreator(final Button parentButton) {
 		super(parentButton);
+	}
+	
+	//method
+	@Override
+	protected void fillUpAdditionalCSSRulesIntoList(final LinkedList<? super ICSSRule<?>> list) {
+		//Does nothing.
 	}
 	
 	//method

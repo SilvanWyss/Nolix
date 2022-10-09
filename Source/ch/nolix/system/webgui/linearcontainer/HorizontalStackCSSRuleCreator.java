@@ -4,6 +4,7 @@ package ch.nolix.system.webgui.linearcontainer;
 //own imports
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.web.css.CSSProperty;
+import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
 import ch.nolix.system.webgui.controlstyle.ExtendedControlCSSRuleCreator;
 import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 
@@ -19,6 +20,12 @@ extends ExtendedControlCSSRuleCreator<HorizontalStack, HorizontalStackStyle> {
 	//constructor
 	private HorizontalStackCSSRuleCreator(final HorizontalStack parentHorizontalStack) {
 		super(parentHorizontalStack);
+	}
+	
+	//method
+	@Override
+	protected void fillUpAdditionalCSSRulesIntoList(final LinkedList<? super ICSSRule<?>> list) {
+		//TODO: Implement.
 	}
 	
 	//method

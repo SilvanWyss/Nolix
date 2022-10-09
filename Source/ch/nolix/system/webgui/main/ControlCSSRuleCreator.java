@@ -46,6 +46,7 @@ implements IControlCSSRuleCreator<C, CS> {
 		lCSSRules.addAtEnd(getCSSRuleForState(ControlState.BASE));
 		lCSSRules.addAtEnd(getCSSRuleForState(ControlState.HOVER));
 		lCSSRules.addAtEnd(getCSSRuleForState(ControlState.FOCUS));
+		fillUpAdditionalCSSRulesIntoList(lCSSRules);
 		
 		return lCSSRules;
 	}
@@ -57,6 +58,9 @@ implements IControlCSSRuleCreator<C, CS> {
 	}
 	
 	//method declaration
+	protected abstract void fillUpAdditionalCSSRulesIntoList(LinkedList<? super ICSSRule<?>> list);
+	
+	//method declaration
 	protected abstract void fillUpControlCSSPropertiesForStateIntoList(
 		ControlState state,
 		LinkedList<CSSProperty> list
@@ -65,6 +69,11 @@ implements IControlCSSRuleCreator<C, CS> {
 	//method
 	protected final String getColorCodeOfColor(final IColor color) {
 		return String.format("#%02x%02x%02x", color.getRedValue(), color.getGreenValue(), color.getBlueValue());
+	}
+	
+	//method
+	protected String getCSSSelectorForBaseState() {
+		return "#" + getRefParentControl().getFixedId();
 	}
 	
 	//method
@@ -135,11 +144,6 @@ implements IControlCSSRuleCreator<C, CS> {
 		fillUpCSSPropertiesForStateIntoList(state, lCSSProperties);
 		
 		return lCSSProperties;
-	}
-	
-	//method
-	private String getCSSSelectorForBaseState() {
-		return "#" + getRefParentControl().getFixedId();
 	}
 	
 	//method
