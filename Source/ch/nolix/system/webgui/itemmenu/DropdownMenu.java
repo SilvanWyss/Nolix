@@ -15,9 +15,9 @@ implements IDropdownMenu<DropdownMenu, DropdownMenuStyle, ItemMenuItem> {
 	
 	//method
 	@Override
-	public ISingleContainer<String> getOptionalTypeScriptHTMLElementTakerInputGetter() {
+	public ISingleContainer<String> getOptionalJavaScriptUserInputFunction() {
 		return new SingleContainer<>(
-			"(select) => {if (select.selectedIndex == -1) {return '';} select.options[select.selectedIndex].text;}"
+			"function(select) {if (select.selectedIndex == -1) {return '';} select.options[select.selectedIndex].text;}"
 		);
 	}
 	

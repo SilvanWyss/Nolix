@@ -50,7 +50,7 @@ implements IImageControl<ImageControl, ImageControlStyle, MutableImage> {
 	
 	//method
 	@Override
-	public ISingleContainer<String> getOptionalTypeScriptHTMLElementTakerInputGetter() {
+	public ISingleContainer<String> getOptionalJavaScriptUserInputFunction() {
 		return new SingleContainer<>();
 	}
 	

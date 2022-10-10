@@ -54,7 +54,7 @@ public final class Button extends Control<Button, ButtonStyle> implements IButto
 	
 	//method
 	@Override
-	public ISingleContainer<String> getOptionalTypeScriptHTMLElementTakerInputGetter() {
+	public ISingleContainer<String> getOptionalJavaScriptUserInputFunction() {
 		return new SingleContainer<>();
 	}
 	

@@ -32,7 +32,7 @@ extends FixedIdentified, HTMLElementTransformable, IInputTaker, IStylableElement
 	CursorIcon getCursorIcon();
 	
 	//method declaration
-	ISingleContainer<String> getOptionalTypeScriptHTMLElementTakerInputGetter();
+	ISingleContainer<String> getOptionalJavaScriptUserInputFunction();
 	
 	//method declaration
 	IContainer<IControl<?, ?>> getRefChildControls();

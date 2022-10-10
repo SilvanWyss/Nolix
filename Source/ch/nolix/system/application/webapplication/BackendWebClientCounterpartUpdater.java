@@ -136,7 +136,7 @@ final class BackendWebClientCounterpartUpdater {
 		final var userInputFunctions = new LinkedList<ChainedNode>();
 		
 		for (final var c : controls) {
-			final var userInputFunction = c.getOptionalTypeScriptHTMLElementTakerInputGetter();
+			final var userInputFunction = c.getOptionalJavaScriptUserInputFunction();
 			if (userInputFunction.containsAny()) {
 				userInputFunctions.addAtEnd(
 					createUserInputFunctionFromControlAndString(c, userInputFunction.getRefElement())

@@ -35,7 +35,7 @@ public final class Label extends Control<Label, LabelStyle> implements ILabel<La
 	
 	//method
 	@Override
-	public ISingleContainer<String> getOptionalTypeScriptHTMLElementTakerInputGetter() {
+	public ISingleContainer<String> getOptionalJavaScriptUserInputFunction() {
 		return new SingleContainer<>();
 	}
 	

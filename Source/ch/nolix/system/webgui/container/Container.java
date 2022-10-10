@@ -36,7 +36,7 @@ extends Control<C, ECS> implements IContainer<C, ECS> {
 	
 	//method
 	@Override
-	public final ISingleContainer<String> getOptionalTypeScriptHTMLElementTakerInputGetter() {
+	public final ISingleContainer<String> getOptionalJavaScriptUserInputFunction() {
 		return new SingleContainer<>();
 	}
 	
