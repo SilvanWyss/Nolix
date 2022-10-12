@@ -5,6 +5,7 @@ package ch.nolix.core.programcontrol.sequencer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.time.TimeUnitCatalogue;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IBooleanGetter;
 
@@ -54,6 +55,14 @@ public final class AsLongAsMediator {
 		
 		//Handles the case that this as long as mediator has a max run count.
 		return new AfterAllMediator(maxRunCount, condition, timeIntervalInMilliseconds);
+	}
+	
+	//method
+	/**
+	 * @return a new {@link AfterAllMediator} with a time interval of 1 second.
+	 */
+	public AfterAllMediator afterAllSeconds() {
+		return afterAllMilliseconds(TimeUnitCatalogue.MILLISECONDS_PER_SECOND);
 	}
 	
 	//method
