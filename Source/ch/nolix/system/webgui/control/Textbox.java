@@ -55,7 +55,7 @@ public final class Textbox extends Control<Textbox, TextboxStyle> implements ITe
 	//method
 	@Override
 	public ISingleContainer<String> getOptionalJavaScriptUserInputFunction() {
-		return new SingleContainer<>("function(input) {return input.value;}");
+		return new SingleContainer<>("return x.value;");
 	}
 	
 	//method
