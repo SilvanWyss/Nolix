@@ -1012,6 +1012,12 @@ define("Core/Document/ChainedNode/ChainedNode", ["require", "exports", "Core/Con
             chainedNode.setAttributesFromNodes(attributes);
             return chainedNode;
         }
+        static withHeaderAndNextNode(header, nextNode) {
+            const chainedNode = new ChainedNode();
+            chainedNode.setHeader(header);
+            chainedNode.setNextNode(nextNode);
+            return chainedNode;
+        }
         static withHeaderFromNumber(header) {
             const chainedNode = new ChainedNode();
             chainedNode.setHeader(header.toString());
@@ -4080,20 +4086,102 @@ define("System/Application/WebApplicationProtocol/CommandProtocol", ["require", 
     CommandProtocol.SET_ICON = 'SetIcon';
     CommandProtocol.SET_ROOT_HTML_ELEMENT = 'SetRootHTMLElement';
     CommandProtocol.SET_TITLE = 'SetTitle';
+    CommandProtocol.SET_USER_INPUT_FUNCTIONS = 'SetUserInputFunctions';
+    CommandProtocol.SET_USER_INPUTS = 'SetUserInputs';
     exports.CommandProtocol = CommandProtocol;
 });
 define("SystemAPI/FrontendWebGUIAPI/IFrontendWebGUI", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
 });
-define("System/FrontendWebGUI/FrontendWebGUI", ["require", "exports", "Core/Document/ChainedNode/ChainedNode"], function (require, exports, ChainedNode_3) {
+define("System/FrontendWebGUI/UserInput", ["require", "exports", "System/Element/Element", "Core/Container/LinkedList", "Core/Document/Node/Node"], function (require, exports, Element_3, LinkedList_13, Node_9) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    class UserInput extends Element_3.Element {
+        constructor(pHTMLElementId, userInput) {
+            super();
+            if (pHTMLElementId === null) {
+                throw new Error('The given pHTMLElementId is null.');
+            }
+            if (pHTMLElementId === undefined) {
+                throw new Error('The given pHTMLElementId is undefined.');
+            }
+            if (userInput === null) {
+                throw new Error('The given userInput is null.');
+            }
+            if (userInput === undefined) {
+                throw new Error('The given userInput is undefined.');
+            }
+            this.mHTMLElementId = pHTMLElementId;
+            this.userInput = userInput;
+        }
+        static withHTMLElementIdAndUserInput(pHTMLElementId, userInput) {
+            return new UserInput(pHTMLElementId, userInput);
+        }
+        getAttributes() {
+            const attributes = new LinkedList_13.LinkedList();
+            attributes.addAtEnd(Node_9.Node.withHeader(this.getHTMLElementId()));
+            attributes.addAtEnd(Node_9.Node.withHeader(this.getUserInput()));
+            return attributes;
+        }
+        getHTMLElementId() {
+            return this.mHTMLElementId;
+        }
+        getType() {
+            return UserInput.TYPE_HEADER;
+        }
+        getUserInput() {
+            return this.userInput;
+        }
+    }
+    UserInput.TYPE_HEADER = 'UserInput';
+    exports.UserInput = UserInput;
+});
+define("System/FrontendWebGUI/UserInputFunction", ["require", "exports", "System/FrontendWebGUI/UserInput"], function (require, exports, UserInput_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    class UserInputFunction {
+        static fromSpecification(specification) {
+            const lHTMLElementId = specification.getRefAttributeAtIndex(1).getHeader();
+            const userInputFunctionString = specification.getRefAttributeAtIndex(2).getHeader();
+            return this.withHTMLElementIdAndUserInputFunctionFromString(lHTMLElementId, userInputFunctionString);
+        }
+        static withHTMLElementIdAndUserInputFunctionFromString(pHTMLElementId, userInputFunctionString) {
+            return new UserInputFunction(pHTMLElementId, Function('x', userInputFunctionString));
+        }
+        constructor(pHTMLElementId, userInputFunction) {
+            if (pHTMLElementId === null) {
+                throw new Error('The given pHTMLElementId is null.');
+            }
+            if (pHTMLElementId === undefined) {
+                throw new Error('The given pHTMLElementId is undefined.');
+            }
+            if (userInputFunction === null) {
+                throw new Error('The given userInputFunction is null.');
+            }
+            if (userInputFunction === undefined) {
+                throw new Error('The given userInputFunction is undefined.');
+            }
+            this.mHTMLElementId = pHTMLElementId;
+            this.userInputFunction = userInputFunction;
+        }
+        getHTMLElementId() {
+            return this.mHTMLElementId;
+        }
+        getUserInputUsingDocument(document) {
+            const pHTMLElement = document.getElementById(this.getHTMLElementId());
+            const userInput = this.userInputFunction(pHTMLElement);
+            return UserInput_1.UserInput.withHTMLElementIdAndUserInput(this.getHTMLElementId(), userInput);
+        }
+    }
+    exports.UserInputFunction = UserInputFunction;
+});
+define("System/FrontendWebGUI/FrontendWebGUI", ["require", "exports", "Core/Document/ChainedNode/ChainedNode", "Core/Container/LinkedList"], function (require, exports, ChainedNode_3, LinkedList_14) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class FrontendWebGUI {
-        static withEventTakerAndWindow(eventTaker, window) {
-            return new FrontendWebGUI(eventTaker, window);
-        }
         constructor(eventTaker, window) {
+            this.userInputFunctions = new LinkedList_14.LinkedList();
             if (eventTaker === null) {
                 throw new Error('The given event taker is null.');
             }
@@ -4112,11 +4200,17 @@ define("System/FrontendWebGUI/FrontendWebGUI", ["require", "exports", "Core/Docu
             this.style = this.window.document.createElement('style');
             this.window.document.head.appendChild(this.style);
         }
+        static withEventTakerAndWindow(eventTaker, window) {
+            return new FrontendWebGUI(eventTaker, window);
+        }
         getIcon() {
             return this.icon;
         }
         getTitle() {
             return this.title;
+        }
+        getUserInputs() {
+            return this.userInputFunctions.to(f => f.getUserInputUsingDocument(this.window.document));
         }
         setCSS(pCSS) {
             this.style.innerHTML = pCSS;
@@ -4147,6 +4241,15 @@ define("System/FrontendWebGUI/FrontendWebGUI", ["require", "exports", "Core/Docu
             }
             this.title = title;
             this.window.document.title = this.title;
+        }
+        setUserInputFunctions(userInputFunctions) {
+            if (userInputFunctions === null) {
+                throw new Error('The given userInputFunctions is null.');
+            }
+            if (userInputFunctions === undefined) {
+                throw new Error('The given userInputFunctions is undefined.');
+            }
+            this.userInputFunctions = userInputFunctions;
         }
         createCommandFromString(string) {
             const parts = string.split('_');
@@ -4181,7 +4284,7 @@ define("System/FrontendWebGUI/FrontendWebGUI", ["require", "exports", "Core/Docu
     }
     exports.FrontendWebGUI = FrontendWebGUI;
 });
-define("System/Application/WebApplication/FrontendWebClientGUIManager", ["require", "exports", "System/Application/WebApplicationProtocol/CommandProtocol", "System/FrontendWebGUI/FrontendWebGUI", "System/GUI/Graphic/Image"], function (require, exports, CommandProtocol_1, FrontendWebGUI_1, Image_2) {
+define("System/Application/WebApplication/FrontendWebClientGUIManager", ["require", "exports", "System/Application/WebApplicationProtocol/CommandProtocol", "System/FrontendWebGUI/FrontendWebGUI", "System/GUI/Graphic/Image", "System/FrontendWebGUI/UserInputFunction"], function (require, exports, CommandProtocol_1, FrontendWebGUI_1, Image_2, UserInputFunction_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class FrontendWebClientGUIManager {
@@ -4190,6 +4293,9 @@ define("System/Application/WebApplication/FrontendWebClientGUIManager", ["requir
         }
         constructor(eventTaker) {
             this.mFrontendWebGUI = FrontendWebGUI_1.FrontendWebGUI.withEventTakerAndWindow(eventTaker, window);
+        }
+        getUserInputs() {
+            return this.mFrontendWebGUI.getUserInputs();
         }
         runGUICommand(pGUICommand) {
             switch (pGUICommand.getHeader()) {
@@ -4207,6 +4313,10 @@ define("System/Application/WebApplication/FrontendWebClientGUIManager", ["requir
                     const lCSS = pGUICommand.getOneAttribute().getHeader();
                     this.mFrontendWebGUI.setCSS(lCSS);
                     break;
+                case CommandProtocol_1.CommandProtocol.SET_USER_INPUT_FUNCTIONS:
+                    const userInputFunctions = pGUICommand.getAttributes().to(a => UserInputFunction_1.UserInputFunction.fromSpecification(a.toNode()));
+                    this.mFrontendWebGUI.setUserInputFunctions(userInputFunctions);
+                    break;
                 default:
                     throw new Error('The given \'' + pGUICommand + '\' is not valid.');
             }
@@ -4222,7 +4332,7 @@ define("System/Application/WebApplicationProtocol/ObjectProtocol", ["require", "
     ObjectProtocol.GUI = 'GUI';
     exports.ObjectProtocol = ObjectProtocol;
 });
-define("System/Application/WebApplication/FrontendWebClient", ["require", "exports", "System/Application/WebApplication/FrontendWebClientGUIManager", "Core/Net/EndPoint5/NetEndPoint5", "System/Application/WebApplicationProtocol/ObjectProtocol", "System/Application/GUIApplication/ReceiverController", "Core/Container/SingleContainer"], function (require, exports, FrontendWebClientGUIManager_1, NetEndPoint5_2, ObjectProtocol_1, ReceiverController_2, SingleContainer_4) {
+define("System/Application/WebApplication/FrontendWebClient", ["require", "exports", "Core/Document/ChainedNode/ChainedNode", "System/Application/WebApplicationProtocol/CommandProtocol", "System/Application/WebApplication/FrontendWebClientGUIManager", "Core/Container/LinkedList", "Core/Net/EndPoint5/NetEndPoint5", "System/Application/WebApplicationProtocol/ObjectProtocol", "System/Application/GUIApplication/ReceiverController", "Core/Container/SingleContainer"], function (require, exports, ChainedNode_4, CommandProtocol_2, FrontendWebClientGUIManager_1, LinkedList_15, NetEndPoint5_2, ObjectProtocol_1, ReceiverController_2, SingleContainer_4) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class FrontendWebClient {
@@ -4233,6 +4343,10 @@ define("System/Application/WebApplication/FrontendWebClient", ["require", "expor
             this.mGUIManager = FrontendWebClientGUIManager_1.FrontendWebClientGUIManager.withEventTaker((command) => this.takeEvent(command));
             this.endPoint = new NetEndPoint5_2.NetEndPoint5(ip, port, optionalTarget);
             this.endPoint.setReceiverController(new ReceiverController_2.ReceiverController(c => this.run(c), r => this.getData(r)));
+        }
+        createSetUserInputsCommand() {
+            var userInputs = this.mGUIManager.getUserInputs();
+            return ChainedNode_4.ChainedNode.withHeaderAndNextNode(ObjectProtocol_1.ObjectProtocol.GUI, ChainedNode_4.ChainedNode.withHeaderAndAttributesFromNodes(CommandProtocol_2.CommandProtocol.SET_USER_INPUTS, userInputs.to(ui => ui.getSpecification())));
         }
         getData(request) {
             throw new Error('The given request \'' + request + '\' not valid.');
@@ -4247,7 +4361,10 @@ define("System/Application/WebApplication/FrontendWebClient", ["require", "expor
             }
         }
         takeEvent(command) {
-            this.endPoint.run(command);
+            const commands = new LinkedList_15.LinkedList();
+            commands.addAtEnd(command);
+            commands.addAtEnd(this.createSetUserInputsCommand());
+            this.endPoint.runCommands(commands);
         }
     }
     exports.FrontendWebClient = FrontendWebClient;
