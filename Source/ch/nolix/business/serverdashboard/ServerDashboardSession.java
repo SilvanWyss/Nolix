@@ -5,29 +5,32 @@ package ch.nolix.business.serverdashboard;
 import ch.nolix.businessapi.serverdashboardaccessapi.IApplicationSheet;
 import ch.nolix.businessapi.serverdashboardaccessapi.IServerDashboardAccess;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
-import ch.nolix.system.application.guiapplication.BackendGUIClientSession;
-import ch.nolix.system.gui.containerwidget.FloatContainer;
-import ch.nolix.system.gui.widget.Widget;
+import ch.nolix.system.application.webapplication.BackendWebClientSession;
+import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.systemapi.guiapi.containercontrolproperty.ContainerRole;
+import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
+//TODO: Adjust names.
+//TODO: Create FloatContainer.
+//TODO: Create ImageButton or add optional image to Button.
 //class
-final class ServerDashboardSession extends BackendGUIClientSession<IServerDashboardAccess> {
+final class ServerDashboardSession extends BackendWebClientSession<IServerDashboardAccess> {
 	
 	//method
 	@Override
 	protected void initialize() {
 		getRefGUI()
 		.setStyle(ServerDashboardStyleCreator.INSTANCE.createServerDashboardStyle())
-		.pushLayerWithRootWidget(createApplicationSetWidget());
+		.pushLayerWithRootControl(createApplicationSetWidget());
 	}
 	
 	//method
-	private Widget<?, ?> createApplicationSetWidget() {
+	private IControl<?, ?> createApplicationSetWidget() {
 		
-		final var floatContainer = new FloatContainer().setRole(ContainerRole.MAIN_CONTENT_CONTAINER);
+		final var floatContainer = new VerticalStack().setRole(ContainerRole.MAIN_CONTENT_CONTAINER);
 		
 		for (final var as : getGUIApplicationSheets()) {
-			floatContainer.addWidget(
+			floatContainer.addControl(
 				GUIApplicationWidgetFactory.INSTANCE.createGUIApplicationWidget(as)
 			);
 		}

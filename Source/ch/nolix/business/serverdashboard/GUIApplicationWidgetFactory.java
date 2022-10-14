@@ -4,13 +4,14 @@ package ch.nolix.business.serverdashboard;
 //own imports
 import ch.nolix.businessapi.serverdashboardaccessapi.IApplicationSheet;
 import ch.nolix.system.gui.color.Color;
-import ch.nolix.system.gui.containerwidget.VerticalStack;
 import ch.nolix.system.gui.image.MutableImage;
-import ch.nolix.system.gui.widget.ImageWidget;
-import ch.nolix.system.gui.widget.Label;
-import ch.nolix.system.gui.widget.LabelRole;
-import ch.nolix.system.gui.widget.Widget;
+import ch.nolix.system.webgui.control.Button;
+import ch.nolix.system.webgui.control.ImageControl;
+import ch.nolix.system.webgui.control.Text;
+import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
+import ch.nolix.systemapi.webguiapi.controlapi.TextRole;
+import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //class
 final class GUIApplicationWidgetFactory {
@@ -32,39 +33,43 @@ final class GUIApplicationWidgetFactory {
 	private GUIApplicationWidgetFactory() {}
 	
 	//method
-	public Widget<?, ?> createGUIApplicationWidget(final IApplicationSheet pGUIApplicationSheet) {
+	public IControl<?, ?> createGUIApplicationWidget(final IApplicationSheet pGUIApplicationSheet) {
 		
 		final var guiApplicationVerticalStack =
 		new VerticalStack()
-		.addWidget(
+		.addControl(
 			createApplicationNameLabel(pGUIApplicationSheet),
 			createLogoImageWidget(pGUIApplicationSheet)
 		);
 		
 		if (pGUIApplicationSheet.hasApplicationDescription()) {
-			guiApplicationVerticalStack.addWidget(createApplicationDescriptionLabel(pGUIApplicationSheet));
+			guiApplicationVerticalStack.addControl(createApplicationDescriptionLabel(pGUIApplicationSheet));
 		}
 		
 		return guiApplicationVerticalStack;
 	}
 	
 	//method
-	private Widget<?, ?> createApplicationNameLabel(final IApplicationSheet pGUIApplicationSheet) {
-		return new Label().setRole(LabelRole.LEVEL1_HEADER).setText(pGUIApplicationSheet.getApplicationName());
+	private IControl<?, ?> createApplicationNameLabel(final IApplicationSheet pGUIApplicationSheet) {
+		return new Text().setRole(TextRole.LEVEL1_HEADER).setText(pGUIApplicationSheet.getApplicationName());
 	}
 	
 	//method
-	private Widget<?, ?> createLogoImageWidget(final IApplicationSheet pGUIApplicationSheet) {
+	private IControl<?, ?> createLogoImageWidget(final IApplicationSheet pGUIApplicationSheet) {
 		return
-		new ImageWidget()
-		.setLeftMouseButtonPressAction(
-			i ->
-			i
-			.getParentGUI()
-			.onFrontEnd()
-			.redirectTo(pGUIApplicationSheet.getApplicationTarget())
-		)
-		.setImage(getApplicationLogoOrDefaultLogo(pGUIApplicationSheet));
+		new VerticalStack()
+		.addControl(
+			new ImageControl().setImage(getApplicationLogoOrDefaultLogo(pGUIApplicationSheet)),
+			new Button()
+			.setText("Open")
+			.setLeftMouseButtonPressAction(
+				i ->
+				i
+				.getRefParentGUI()
+				.onFrontEnd()
+				.redirectTo(pGUIApplicationSheet.getApplicationTarget())
+			)
+		);
 	}
 	
 	//method
@@ -78,7 +83,7 @@ final class GUIApplicationWidgetFactory {
 	}
 	
 	//method
-	private Widget<?, ?> createApplicationDescriptionLabel(final IApplicationSheet pGUIApplicationSheet) {
-		return new Label().setText(pGUIApplicationSheet.getApplicationDescription());
+	private IControl<?, ?> createApplicationDescriptionLabel(final IApplicationSheet pGUIApplicationSheet) {
+		return new Text().setText(pGUIApplicationSheet.getApplicationDescription());
 	}
 }

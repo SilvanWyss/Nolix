@@ -28,7 +28,7 @@ public final class ImageControlTutorial {
 		GlobalSequencer.asSoonAsNoMore(server::hasClientConnected).runInBackground(server::close);
 	}
 	
-	private static final class MainSession extends BackendWebClientSession<VoidApplicationContext> {
+	public static final class MainSession extends BackendWebClientSession<VoidApplicationContext> {
 		
 		@Override
 		protected void initialize() {

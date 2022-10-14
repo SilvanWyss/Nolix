@@ -4,13 +4,13 @@ package ch.nolix.business.serverdashboard;
 //own imports
 import ch.nolix.business.serverdashboardaccess.ServerDashboardAccess;
 import ch.nolix.businessapi.serverdashboardaccessapi.IServerDashboardAccess;
-import ch.nolix.system.application.guiapplication.BackendGUIClient;
 import ch.nolix.system.application.main.Application;
 import ch.nolix.system.application.main.Server;
+import ch.nolix.system.application.webapplication.BackendWebClient;
 
 //class
 public final class ServerDashboard
-extends Application<BackendGUIClient<IServerDashboardAccess>, IServerDashboardAccess> {
+extends Application<BackendWebClient<IServerDashboardAccess>, IServerDashboardAccess> {
 	
 	//static method
 	public static ServerDashboard forServer(final Server server) {

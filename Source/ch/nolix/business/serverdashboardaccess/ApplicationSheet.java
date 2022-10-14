@@ -9,9 +9,9 @@ import ch.nolix.core.net.target.ApplicationTarget;
 import ch.nolix.core.net.target.ServerTarget;
 import ch.nolix.coreapi.netapi.targetuniversalapi.IApplicationTarget;
 import ch.nolix.coreapi.netapi.targetuniversalapi.IServerTarget;
-import ch.nolix.system.application.guiapplication.BackendGUIClient;
 import ch.nolix.system.application.main.Application;
 import ch.nolix.system.application.main.Server;
+import ch.nolix.system.application.webapplication.BackendWebClient;
 import ch.nolix.systemapi.applicationapi.guiapplicationapi.IGUIApplicationContext;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
 
@@ -20,7 +20,7 @@ public final class ApplicationSheet implements IApplicationSheet {
 	
 	//static method
 	public static ApplicationSheet forGUIApplicationOnServer(
-		final Application<BackendGUIClient<?>, ?> pGUIApplication,
+		final Application<BackendWebClient<?>, ?> pGUIApplication,
 		final Server server
 	) {
 		

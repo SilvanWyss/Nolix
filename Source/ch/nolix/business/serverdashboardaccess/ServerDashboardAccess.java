@@ -7,10 +7,11 @@ import ch.nolix.businessapi.serverdashboardaccessapi.IServerDashboardAccess;
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
-import ch.nolix.system.application.guiapplication.BackendGUIClient;
 import ch.nolix.system.application.main.Application;
 import ch.nolix.system.application.main.Server;
+import ch.nolix.system.application.webapplication.BackendWebClient;
 
+//TODO: Adjust names.
 //class
 public final class ServerDashboardAccess implements IServerDashboardAccess {
 	
@@ -38,24 +39,24 @@ public final class ServerDashboardAccess implements IServerDashboardAccess {
 	
 	//method
 	private boolean applicationIsForBackendGUIClients(final Application<?, ?> application) {
-		return (application.getClientClass() == BackendGUIClient.class);
+		return (application.getClientClass() == BackendWebClient.class);
 	}
 	
 	//method
 	private IApplicationSheet createApplicationSheetForGUIApplication(
-		final Application<BackendGUIClient<?>, ?> pGUIApplication
+		final Application<BackendWebClient<?>, ?> pGUIApplication
 	) {
 		return ApplicationSheet.forGUIApplicationOnServer(pGUIApplication, server);
 	}
 	
 	//method
 	@SuppressWarnings("unchecked")
-	private IContainer<Application<BackendGUIClient<?>, ?>> getRefGUIApplications() {
+	private IContainer<Application<BackendWebClient<?>, ?>> getRefGUIApplications() {
 		
-		final var lGUIApplications = new LinkedList<Application<BackendGUIClient<?>, ?>>();
+		final var lGUIApplications = new LinkedList<Application<BackendWebClient<?>, ?>>();
 		
 		for (final var a : server.getRefApplications().getRefSelected(this::applicationIsForBackendGUIClients)) {
-			lGUIApplications.addAtEnd((Application<BackendGUIClient<?>, ?>)a);
+			lGUIApplications.addAtEnd((Application<BackendWebClient<?>, ?>)a);
 		}
 		
 		return lGUIApplications;
