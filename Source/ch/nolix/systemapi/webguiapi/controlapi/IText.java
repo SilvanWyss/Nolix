@@ -11,7 +11,19 @@ public interface IText<
 > extends IControl<T, TS> {
 	
 	//method declaration
+	TextRole getRole();
+	
+	//method declaration
 	String getText();
+	
+	//method declaration
+	boolean hasRole();
+	
+	//method declaration
+	void removeRole();
+	
+	//method declaration
+	T setRole(TextRole role);
 	
 	//method declaration
 	T setText(String text);
