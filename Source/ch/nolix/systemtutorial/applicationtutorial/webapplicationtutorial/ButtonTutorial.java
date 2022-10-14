@@ -6,7 +6,7 @@ import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.main.VoidApplicationContext;
 import ch.nolix.system.application.webapplication.BackendWebClientSession;
 import ch.nolix.system.webgui.control.Button;
-import ch.nolix.system.webgui.control.Label;
+import ch.nolix.system.webgui.control.Text;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 
 public final class ButtonTutorial {
@@ -31,7 +31,7 @@ public final class ButtonTutorial {
 		
 		private int count;
 		
-		private final Label countLabel = new Label().setText(String.valueOf(count));
+		private final Text countLabel = new Text().setText(String.valueOf(count));
 		
 		@Override
 		protected void initialize() {

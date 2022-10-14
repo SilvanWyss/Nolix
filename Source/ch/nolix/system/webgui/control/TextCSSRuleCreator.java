@@ -9,15 +9,15 @@ import ch.nolix.system.webgui.controlstyle.ExtendedControlCSSRuleCreator;
 import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 
 //class
-public final class LabelCSSRuleCreator extends ExtendedControlCSSRuleCreator<Label, LabelStyle> {
+public final class TextCSSRuleCreator extends ExtendedControlCSSRuleCreator<Text, TextStyle> {
 	
 	//static method
-	public static LabelCSSRuleCreator forLabel(final Label button) {
-		return new LabelCSSRuleCreator(button);
+	public static TextCSSRuleCreator forLabel(final Text button) {
+		return new TextCSSRuleCreator(button);
 	}
 	
 	//constructor
-	private LabelCSSRuleCreator(final Label parentLabel) {
+	private TextCSSRuleCreator(final Text parentLabel) {
 		super(parentLabel);
 	}
 	

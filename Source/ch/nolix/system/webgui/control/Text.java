@@ -17,12 +17,12 @@ import ch.nolix.system.element.mutableelement.MutableValue;
 import ch.nolix.system.webgui.controlhelper.ControlHelper;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
-import ch.nolix.systemapi.webguiapi.controlapi.ILabel;
+import ch.nolix.systemapi.webguiapi.controlapi.IText;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IControlCSSRuleCreator;
 
 //class
-public final class Label extends Control<Label, LabelStyle> implements ILabel<Label, LabelStyle> {
+public final class Text extends Control<Text, TextStyle> implements IText<Text, TextStyle> {
 	
 	//constant
 	public static final String DEFAULT_TEXT = StringCatalogue.MINUS;
@@ -119,7 +119,7 @@ public final class Label extends Control<Label, LabelStyle> implements ILabel<La
 	
 	//method
 	@Override
-	public Label setText(final String text) {
+	public Text setText(final String text) {
 		
 		GlobalValidator.assertThat(text).thatIsNamed(LowerCaseCatalogue.TEXT).isNotBlank();
 		
@@ -130,7 +130,7 @@ public final class Label extends Control<Label, LabelStyle> implements ILabel<La
 	
 	//method
 	@Override
-	public Label setUserInput(final String userInput) {
+	public Text setUserInput(final String userInput) {
 		
 		GlobalValidator.assertThat(userInput).thatIsNamed("user input").isBlank();
 		
@@ -150,14 +150,14 @@ public final class Label extends Control<Label, LabelStyle> implements ILabel<La
 	
 	//method
 	@Override
-	protected LabelStyle createStyle() {
-		return new LabelStyle();
+	protected TextStyle createStyle() {
+		return new TextStyle();
 	}
 	
 	//method
 	@Override
-	protected IControlCSSRuleCreator<Label, LabelStyle> getCSSRuleCreator() {
-		return LabelCSSRuleCreator.forLabel(this);
+	protected IControlCSSRuleCreator<Text, TextStyle> getCSSRuleCreator() {
+		return TextCSSRuleCreator.forLabel(this);
 	}
 	
 	//method

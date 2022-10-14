@@ -5,14 +5,14 @@ package ch.nolix.systemapi.webguiapi.controlapi;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //interface
-public interface ILabel<
-	L extends ILabel<L, LS>,
-	LS extends ILabelStyle<LS>
-> extends IControl<L, LS> {
+public interface IText<
+	T extends IText<T, TS>,
+	TS extends ITextStyle<TS>
+> extends IControl<T, TS> {
 	
 	//method declaration
 	String getText();
 	
 	//method declaration
-	L setText(String text);
+	T setText(String text);
 }
