@@ -46,7 +46,7 @@ public final class Text extends Control<Text, TextStyle> implements IText<Text, 
 	);
 	
 	//attribute
-	private final MutableValue<String> text = MutableValue.forString(TEXT_HEADER, DEFAULT_TEXT, this::setText);
+	private final MutableValue<String> value = MutableValue.forString(TEXT_HEADER, DEFAULT_TEXT, this::setText);
 	
 	//method
 	@Override
@@ -69,7 +69,7 @@ public final class Text extends Control<Text, TextStyle> implements IText<Text, 
 	//method
 	@Override
 	public String getText() {
-		return text.getValue();
+		return value.getValue();
 	}
 	
 	//method
@@ -165,7 +165,7 @@ public final class Text extends Control<Text, TextStyle> implements IText<Text, 
 		
 		GlobalValidator.assertThat(text).thatIsNamed(LowerCaseCatalogue.TEXT).isNotBlank();
 		
-		this.text.setValue(text);
+		this.value.setValue(text);
 		
 		return this;
 	}
