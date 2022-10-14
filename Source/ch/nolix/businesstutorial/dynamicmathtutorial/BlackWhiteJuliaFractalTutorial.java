@@ -35,6 +35,7 @@ public final class BlackWhiteJuliaFractalTutorial {
 	
 	private static final class MainSession extends BackendWebClientSession<VoidApplicationContext> {
 		
+		@Override
 		protected void initialize() {
 			
 			getRefGUI()
