@@ -4082,6 +4082,8 @@ define("System/Application/WebApplicationProtocol/CommandProtocol", ["require", 
     Object.defineProperty(exports, "__esModule", { value: true });
     class CommandProtocol {
     }
+    CommandProtocol.OPEN_NEW_TAB = 'OpenNewTab';
+    CommandProtocol.REDIRECT = "Redirect";
     CommandProtocol.SET_CSS = "SetCSS";
     CommandProtocol.SET_ICON = 'SetIcon';
     CommandProtocol.SET_ROOT_HTML_ELEMENT = 'SetRootHTMLElement';
@@ -4212,6 +4214,20 @@ define("System/FrontendWebGUI/FrontendWebGUI", ["require", "exports", "Core/Docu
         getUserInputs() {
             return this.userInputFunctions.to(f => f.getUserInputUsingDocument(this.window.document));
         }
+        openNewTabWithURL(pURL) {
+            if (!pURL.startsWith('http://')) {
+                pURL = 'http://' + pURL;
+            }
+            console.log('The current CanvasGUI opens a new tab with the URL \'' + pURL + '\'');
+            this.window.open(pURL, '_blank');
+        }
+        redirectTo(pURL) {
+            if (!pURL.startsWith('http://')) {
+                pURL = 'http://' + pURL;
+            }
+            console.log('The current CanvasGUI redirects to \'' + pURL + '\'');
+            this.window.open(pURL, '_self');
+        }
         setCSS(pCSS) {
             this.style.innerHTML = pCSS;
         }
@@ -4297,6 +4313,12 @@ define("System/Application/WebApplication/FrontendWebClientGUIManager", ["requir
         getUserInputs() {
             return this.mFrontendWebGUI.getUserInputs();
         }
+        openNewTabWithURL(pURL) {
+            this.mFrontendWebGUI.openNewTabWithURL(pURL);
+        }
+        redirectTo(pURL) {
+            this.mFrontendWebGUI.redirectTo(pURL);
+        }
         runGUICommand(pGUICommand) {
             switch (pGUICommand.getHeader()) {
                 case CommandProtocol_1.CommandProtocol.SET_TITLE:
@@ -4330,6 +4352,7 @@ define("System/Application/WebApplicationProtocol/ObjectProtocol", ["require", "
     class ObjectProtocol {
     }
     ObjectProtocol.GUI = 'GUI';
+    ObjectProtocol.URL = 'URL';
     exports.ObjectProtocol = ObjectProtocol;
 });
 define("System/Application/WebApplication/TargetApplicationExtractor", ["require", "exports", "Core/CommonType/CommonTypeHelper/GlobalStringHelper", "Core/Container/SingleContainer"], function (require, exports, GlobalStringHelper_2, SingleContainer_4) {
@@ -4385,14 +4408,37 @@ define("System/Application/WebApplication/FrontendWebClient", ["require", "expor
         getData(request) {
             throw new Error('The given request \'' + request + '\' not valid.');
         }
+        openNewTabWithURL(pURL) {
+            this.mGUIManager.openNewTabWithURL(pURL);
+        }
         run(command) {
             switch (command.getHeader()) {
                 case ObjectProtocol_1.ObjectProtocol.GUI:
                     this.mGUIManager.runGUICommand(command.getNextNode());
                     break;
+                case CommandProtocol_2.CommandProtocol.OPEN_NEW_TAB:
+                    this.runOpenNewTabCommand(command);
+                    break;
+                case CommandProtocol_2.CommandProtocol.REDIRECT:
+                    this.runRedirectCommand(command);
+                    break;
                 default:
                     throw new Error('The given command \'' + command + '\' is not valid.');
             }
+        }
+        redirectTo(pURL) {
+            this.mGUIManager.redirectTo(pURL);
+        }
+        runOpenNewTabCommand(openNewTabCommand) {
+            const lURL = openNewTabCommand
+                .getAttributes()
+                .getRefFirstByCondition(a => a.hasGivenHeader(ObjectProtocol_1.ObjectProtocol.URL))
+                .getOneAttribute()
+                .getHeader();
+            this.openNewTabWithURL(lURL);
+        }
+        runRedirectCommand(redirectCommand) {
+            this.redirectTo(redirectCommand.getOneAttribute().getHeader());
         }
         takeEvent(command) {
             const commands = new LinkedList_15.LinkedList();
