@@ -98,7 +98,7 @@ final class ServerHTTPMessage {
 		return
 		"<script>\n"
 		+ "require(['System/Application/WebApplication/FrontendWebClient'], function (FrontendWebClient_) {"
-		+ "var client = FrontendWebClient_.FrontendWebClient.toIpAndPort("
+		+ "var client = FrontendWebClient_.FrontendWebClient.toIpAndPortAndApplicationFromURL("
 		+ getServerIpInQuotes() + ", "
 		+ getServerPort()
 		+ ");"

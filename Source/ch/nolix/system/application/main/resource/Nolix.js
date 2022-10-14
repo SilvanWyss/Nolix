@@ -4288,10 +4288,10 @@ define("System/Application/WebApplication/FrontendWebClientGUIManager", ["requir
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class FrontendWebClientGUIManager {
-        static withEventTaker(eventTaker) {
-            return new FrontendWebClientGUIManager(eventTaker);
+        static withEventTakerAndWindow(eventTaker, window) {
+            return new FrontendWebClientGUIManager(eventTaker, window);
         }
-        constructor(eventTaker) {
+        constructor(eventTaker, window) {
             this.mFrontendWebGUI = FrontendWebGUI_1.FrontendWebGUI.withEventTakerAndWindow(eventTaker, window);
         }
         getUserInputs() {
@@ -4332,15 +4332,49 @@ define("System/Application/WebApplicationProtocol/ObjectProtocol", ["require", "
     ObjectProtocol.GUI = 'GUI';
     exports.ObjectProtocol = ObjectProtocol;
 });
-define("System/Application/WebApplication/FrontendWebClient", ["require", "exports", "Core/Document/ChainedNode/ChainedNode", "System/Application/WebApplicationProtocol/CommandProtocol", "System/Application/WebApplication/FrontendWebClientGUIManager", "Core/Container/LinkedList", "Core/Net/EndPoint5/NetEndPoint5", "System/Application/WebApplicationProtocol/ObjectProtocol", "System/Application/GUIApplication/ReceiverController", "Core/Container/SingleContainer"], function (require, exports, ChainedNode_4, CommandProtocol_2, FrontendWebClientGUIManager_1, LinkedList_15, NetEndPoint5_2, ObjectProtocol_1, ReceiverController_2, SingleContainer_4) {
+define("System/Application/WebApplication/TargetApplicationExtractor", ["require", "exports", "Core/CommonType/CommonTypeHelper/GlobalStringHelper", "Core/Container/SingleContainer"], function (require, exports, GlobalStringHelper_2, SingleContainer_4) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    class TargetApplicationExtractor {
+        getOptionalTargetApplicationFromURL() {
+            const lURL = this.getURLWithoutSlashAtEnd();
+            const lURLParts = lURL.split('//')[1].split('/');
+            switch (lURLParts.length) {
+                case 1:
+                    return SingleContainer_4.SingleContainer.withoutElement();
+                case 2:
+                    const target = GlobalStringHelper_2.GlobalStringHelper.createStringWithReplacedParts(lURLParts[1], '_', ' ');
+                    return SingleContainer_4.SingleContainer.withElement(target);
+                default:
+                    throw new Error('The given URL \'' + lURL + '\' is not valid.');
+            }
+        }
+        getURLWithoutSlashAtEnd() {
+            const lURL = window.location.href;
+            if (lURL.endsWith('/')) {
+                return lURL.substring(0, lURL.length - 1);
+            }
+            return lURL;
+        }
+    }
+    TargetApplicationExtractor.INSTANCE = new TargetApplicationExtractor();
+    exports.TargetApplicationExtractor = TargetApplicationExtractor;
+});
+define("System/Application/WebApplication/FrontendWebClient", ["require", "exports", "Core/Document/ChainedNode/ChainedNode", "System/Application/WebApplicationProtocol/CommandProtocol", "System/Application/WebApplication/FrontendWebClientGUIManager", "Core/Container/LinkedList", "Core/Net/EndPoint5/NetEndPoint5", "System/Application/WebApplicationProtocol/ObjectProtocol", "System/Application/GUIApplication/ReceiverController", "Core/Container/SingleContainer", "System/Application/WebApplication/TargetApplicationExtractor"], function (require, exports, ChainedNode_4, CommandProtocol_2, FrontendWebClientGUIManager_1, LinkedList_15, NetEndPoint5_2, ObjectProtocol_1, ReceiverController_2, SingleContainer_5, TargetApplicationExtractor_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class FrontendWebClient {
         static toIpAndPort(ip, port) {
-            return new FrontendWebClient(ip, port, SingleContainer_4.SingleContainer.withoutElement());
+            return new FrontendWebClient(ip, port, SingleContainer_5.SingleContainer.withoutElement());
+        }
+        static toIpAndPortAndApplication(ip, port, application) {
+            return new FrontendWebClient(ip, port, SingleContainer_5.SingleContainer.withElement(application));
+        }
+        static toIpAndPortAndApplicationFromURL(ip, port) {
+            return new FrontendWebClient(ip, port, TargetApplicationExtractor_1.TargetApplicationExtractor.INSTANCE.getOptionalTargetApplicationFromURL());
         }
         constructor(ip, port, optionalTarget) {
-            this.mGUIManager = FrontendWebClientGUIManager_1.FrontendWebClientGUIManager.withEventTaker((command) => this.takeEvent(command));
+            this.mGUIManager = FrontendWebClientGUIManager_1.FrontendWebClientGUIManager.withEventTakerAndWindow((command) => this.takeEvent(command), window);
             this.endPoint = new NetEndPoint5_2.NetEndPoint5(ip, port, optionalTarget);
             this.endPoint.setReceiverController(new ReceiverController_2.ReceiverController(c => this.run(c), r => this.getData(r)));
         }
