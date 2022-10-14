@@ -1,6 +1,5 @@
 package ch.nolix.businesstutorial.dynamicmathtutorial;
 
-//own imports
 import ch.nolix.business.bigdecimalmath.ComplexNumber;
 import ch.nolix.business.bigdecimalmath.ComplexSequenceDefinedBy1Predecessor;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IIntTaker;
