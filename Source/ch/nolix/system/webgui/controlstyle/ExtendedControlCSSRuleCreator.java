@@ -7,6 +7,7 @@ import ch.nolix.core.web.css.CSSProperty;
 import ch.nolix.coreapi.webapi.cssapi.CSSBorderStyleValueCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.CSSPropertyNameCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.CSSUnitCatalogue;
+import ch.nolix.system.webgui.controlhelper.ControlCSSValueHelper;
 import ch.nolix.system.webgui.main.ControlCSSRuleCreator;
 import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IExtendedControlStyle;
@@ -50,7 +51,7 @@ extends ControlCSSRuleCreator<EC, ECS> {
 			),
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.BORDER_LEFT_COLOR,
-				getColorCodeOfColor(style.getLeftBorderColorWhenHasState(state))
+				ControlCSSValueHelper.INSTANCE.getCSSValueFromColor(style.getLeftBorderColorWhenHasState(state))
 			),
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.PADDING_LEFT,
@@ -62,7 +63,7 @@ extends ControlCSSRuleCreator<EC, ECS> {
 			),
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.BORDER_RIGHT_COLOR,
-				getColorCodeOfColor(style.getRightBorderColorWhenHasState(state))
+				ControlCSSValueHelper.INSTANCE.getCSSValueFromColor(style.getRightBorderColorWhenHasState(state))
 			),
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.PADDING_RIGHT,
@@ -74,7 +75,7 @@ extends ControlCSSRuleCreator<EC, ECS> {
 			),
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.BORDER_TOP_COLOR,
-				getColorCodeOfColor(style.getTopBorderColorWhenHasState(state))
+				ControlCSSValueHelper.INSTANCE.getCSSValueFromColor(style.getTopBorderColorWhenHasState(state))
 			),
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.PADDING_TOP,
@@ -86,7 +87,7 @@ extends ControlCSSRuleCreator<EC, ECS> {
 			),
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.BORDER_BOTTOM_COLOR,
-				getColorCodeOfColor(style.getBottomBorderColorWhenHasState(state))
+				ControlCSSValueHelper.INSTANCE.getCSSValueFromColor(style.getBottomBorderColorWhenHasState(state))
 			),
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.PADDING_BOTTOM,

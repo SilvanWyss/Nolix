@@ -11,7 +11,7 @@ import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.webapi.cssapi.CSSPropertyNameCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.CSSUnitCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
-import ch.nolix.systemapi.guiapi.colorapi.IColor;
+import ch.nolix.system.webgui.controlhelper.ControlCSSValueHelper;
 import ch.nolix.systemapi.guiapi.mainapi.CursorIcon;
 import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
@@ -82,11 +82,6 @@ implements IControlCSSRuleCreator<C, CS> {
 	);
 	
 	//method
-	protected final String getColorCodeOfColor(final IColor color) {
-		return String.format("#%02x%02x%02x", color.getRedValue(), color.getGreenValue(), color.getBlueValue());
-	}
-	
-	//method
 	protected String getCSSSelectorForBaseState() {
 		return "#" + getRefParentControl().getFixedId();
 	}
@@ -94,6 +89,30 @@ implements IControlCSSRuleCreator<C, CS> {
 	//method
 	private void fillUpCSSPropertiesForBaseStateIntoList(final LinkedList<CSSProperty> list) {
 		
+		if (getRefParentControl().hasMaxWidth()) {
+			list.addAtEnd(
+				CSSProperty.withNameAndValue(
+					CSSPropertyNameCatalogue.MAX_WIDTH,
+					ControlCSSValueHelper.INSTANCE.getCSSValueFromRelativeOrAbsoluteInt(
+						getRefParentControl().getMaxWidth(),
+						CSSUnitCatalogue.VW
+					)
+				)
+			);
+		}
+		
+		if (getRefParentControl().hasMaxHeight()) {
+			list.addAtEnd(
+				CSSProperty.withNameAndValue(
+					CSSPropertyNameCatalogue.MAX_HEIGHT,
+					ControlCSSValueHelper.INSTANCE.getCSSValueFromRelativeOrAbsoluteInt(
+						getRefParentControl().getMaxHeight(),
+						CSSUnitCatalogue.VH
+					)
+				)
+			);
+		}
+				
 		if (getRefParentControl().getCursorIcon() != CursorIcon.ARROW) {
 			list.addAtEnd(
 				CSSProperty.withNameAndValue(
@@ -128,7 +147,7 @@ implements IControlCSSRuleCreator<C, CS> {
 			
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.COLOR,
-				getColorCodeOfColor(style.getTextColorWhenHasState(state))
+				ControlCSSValueHelper.INSTANCE.getCSSValueFromColor(style.getTextColorWhenHasState(state))
 			),
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.FONT_FAMILY,
