@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.valueholder;
+package ch.nolix.system.structure;
 
 //own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
@@ -14,22 +14,23 @@ import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.element.main.Element;
+import ch.nolix.systemapi.structureapi.IRelativeOrAbsoluteInt;
 
 //class
 /**
- * A {@link IntOrPercentageHolder} stores either an integer or a percentage.
- * A {@link IntOrPercentageHolder} is not mutable.
+ * A {@link RelativeOrAbsoluteInt} stores either an integer or a percentage.
+ * A {@link RelativeOrAbsoluteInt} is not mutable.
  *  
  * @author Silvan Wyss
- * @date 2018-03-25
+ * @date 2022-10-15
  */
-public final class IntOrPercentageHolder extends Element {
+public final class RelativeOrAbsoluteInt extends Element implements IRelativeOrAbsoluteInt {
 	
 	//attribute
-	private final boolean hasIntValue;
+	private final boolean isAbsolute;
 	
 	//attribute
-	private final int intValue;
+	private final int absoluteValue;
 	
 	//attribute
 	private final double percentage;
@@ -37,10 +38,10 @@ public final class IntOrPercentageHolder extends Element {
 	//static method
 	/**
 	 * @param specification
-	 * @return a new {@link IntOrPercentageHolder} from the given specification.
+	 * @return a new {@link RelativeOrAbsoluteInt} from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static IntOrPercentageHolder fromSpecification(final INode<?> specification) {
+	public static RelativeOrAbsoluteInt fromSpecification(final INode<?> specification) {
 		
 		final var attribute = specification.getSingleChildNodeHeader();
 		
@@ -54,47 +55,47 @@ public final class IntOrPercentageHolder extends Element {
 	//static method
 	/**
 	 * @param intValue
-	 * @return a new {@link IntOrPercentageHolder} with the given intValue.
+	 * @return a new {@link RelativeOrAbsoluteInt} with the given intValue.
 	 */
-	public static IntOrPercentageHolder withIntValue(final int intValue) {
-		return new IntOrPercentageHolder(intValue);
+	public static RelativeOrAbsoluteInt withIntValue(final int intValue) {
+		return new RelativeOrAbsoluteInt(intValue);
 	}
 	
 	//static method
 	/**
 	 * @param percentage
-	 * @return a new {@link IntOrPercentageHolder} with the given percentage.
+	 * @return a new {@link RelativeOrAbsoluteInt} with the given percentage.
 	 * @throws NegativeArgumentException if the given percentage is negative.
 	 */
-	public static IntOrPercentageHolder withPercentage(final double percentage) {
-		return new IntOrPercentageHolder(percentage);
+	public static RelativeOrAbsoluteInt withPercentage(final double percentage) {
+		return new RelativeOrAbsoluteInt(percentage);
 	}
 	
 	//constructor
 	/**
-	 * Creates a new {@link IntOrPercentageHolder} with the given intValue.
+	 * Creates a new {@link RelativeOrAbsoluteInt} with the given intValue.
 	 * 
 	 * @param intValue
 	 */
-	private IntOrPercentageHolder(final int intValue) {
-		hasIntValue = true;
-		this.intValue = intValue;
+	private RelativeOrAbsoluteInt(final int intValue) {
+		isAbsolute = true;
+		this.absoluteValue = intValue;
 		percentage = 0.0;
 	}
 	
 	//constructor
 	/**
-	 * Creates a new {@link IntOrPercentageHolder} with the given percentage.
+	 * Creates a new {@link RelativeOrAbsoluteInt} with the given percentage.
 	 * 
 	 * @param percentage
 	 * @throws NegativeArgumentException if the given percentage is negative.
 	 */
-	private IntOrPercentageHolder(final double percentage) {
+	private RelativeOrAbsoluteInt(final double percentage) {
 		
 		GlobalValidator.assertThat(percentage).thatIsNamed(LowerCaseCatalogue.PERCENTAGE).isNotNegative();
 		
-		hasIntValue = false;
-		intValue = 0;
+		isAbsolute = false;
+		absoluteValue = 0;
 		this.percentage = percentage;
 	}
 	
@@ -117,24 +118,16 @@ public final class IntOrPercentageHolder extends Element {
 	}
 	
 	//method
-	/**
-	 * @return the integer value of the current {@link IntOrPercentageHolder}.
-	 * @throws ArgumentDoesNotHaveAttributeException if
-	 * the current {@link IntOrPercentageHolder} does not have an integer value.
-	 */
+
 	public int getAbsoluteValue() {
 		
 		assertIsAbsolute();
 		
-		return intValue;
+		return absoluteValue;
 	}
 	
 	//method
-	/**
-	 * @return the percentage of this percentage holder.
-	 * @throws ArgumentDoesNotHaveAttributeException
-	 * if the current {@link IntOrPercentageHolder} does not have a percentage.
-	 */
+
 	public double getPercentage() {
 		
 		assertIsRelative();
@@ -144,10 +137,13 @@ public final class IntOrPercentageHolder extends Element {
 	
 	//method
 	//For a better performance, this implementation does not use all comfortable methods.
+	/**
+	 * {@inheritDoc}
+	 */
 	public int getValueRelativeToHundredPercentValue(final int hundredPercentValue) {
 		
-		if (hasIntValue) {
-			return intValue;
+		if (isAbsolute) {
+			return absoluteValue;
 		}
 		
 		return (int)(percentage * hundredPercentValue);
@@ -155,21 +151,21 @@ public final class IntOrPercentageHolder extends Element {
 	
 	//method
 	/**
-	 * @return true if the current {@link IntOrPercentageHolder} has an integer value.
+	 * {@inheritDoc}
 	 */
 	public boolean isAbsolute() {
-		return hasIntValue;
+		return isAbsolute;
 	}
 
 	//method
 	//For a better performance, this implementation does not use all comfortable methods.
 	/**
-	 * @return true if the current {@link IntOrPercentageHolder} has a positive integer value or a positive percentage.
+	 * {@inheritDoc}
 	 */
 	public boolean isPositive() {
 		
-		if (hasIntValue) {
-			return (intValue > 0);
+		if (isAbsolute) {
+			return (absoluteValue > 0);
 		}
 		
 		return (percentage > 0.0);
@@ -177,7 +173,7 @@ public final class IntOrPercentageHolder extends Element {
 
 	//method
 	/**
-	 * @return true if the current {@link IntOrPercentageHolder} has a percentage.
+	 * {@inheritDoc}
 	 */
 	public boolean isRelative() {
 		return !isAbsolute();
@@ -186,7 +182,7 @@ public final class IntOrPercentageHolder extends Element {
 	//method
 	/**
 	 * @throws ArgumentDoesNotHaveAttributeException if
-	 * the current {@link IntOrPercentageHolder} does not have an integer value.
+	 * the current {@link RelativeOrAbsoluteInt} does not have an integer value.
 	 */
 	private void assertIsAbsolute() {
 		if (!isAbsolute()) {
@@ -197,7 +193,7 @@ public final class IntOrPercentageHolder extends Element {
 	//method
 	/**
 	 * @throws ArgumentDoesNotHaveAttributeException if
-	 * the current {@link IntOrPercentageHolder} does not have a percentage.
+	 * the current {@link RelativeOrAbsoluteInt} does not have a percentage.
 	 */
 	private void assertIsRelative() {
 		if (!isRelative()) {

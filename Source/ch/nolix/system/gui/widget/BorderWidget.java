@@ -12,8 +12,8 @@ import ch.nolix.core.math.GlobalCalculator;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 import ch.nolix.system.element.mutableelement.MutableValue;
-import ch.nolix.system.valueholder.IntOrPercentageHolder;
-import ch.nolix.system.valueholder.IntOrPercentageHolderValidator;
+import ch.nolix.system.structure.RelativeOrAbsoluteInt;
+import ch.nolix.system.structure.RelativeOrAbsoluteIntValidator;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.mainapi.CursorIcon;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
@@ -120,51 +120,51 @@ extends Widget<BW, BWL> {
 	);
 	
 	//attribute
-	private final MutableOptionalValue<IntOrPercentageHolder> minWidth =
+	private final MutableOptionalValue<RelativeOrAbsoluteInt> minWidth =
 	MutableOptionalValue.forElement(
 		MIN_WIDTH_HEADER,
 		this::setMinWidth,
-		IntOrPercentageHolder::fromSpecification
+		RelativeOrAbsoluteInt::fromSpecification
 	);
 	
 	//attribute
-	private final MutableOptionalValue<IntOrPercentageHolder> minHeight =
+	private final MutableOptionalValue<RelativeOrAbsoluteInt> minHeight =
 	MutableOptionalValue.forElement(
 		MIN_HEIGHT_HEADER,
 		this::setMinHeight,
-		IntOrPercentageHolder::fromSpecification
+		RelativeOrAbsoluteInt::fromSpecification
 	);
 	
 	//attribute
-	private final MutableOptionalValue<IntOrPercentageHolder> maxWidth =
+	private final MutableOptionalValue<RelativeOrAbsoluteInt> maxWidth =
 	MutableOptionalValue.forElement(
 		MAX_WIDTH_HEADER,
 		this::setMaxWidth,
-		IntOrPercentageHolder::fromSpecification
+		RelativeOrAbsoluteInt::fromSpecification
 	);
 	
 	//attribute
-	private final MutableOptionalValue<IntOrPercentageHolder> maxHeight =
+	private final MutableOptionalValue<RelativeOrAbsoluteInt> maxHeight =
 	MutableOptionalValue.forElement(
 		MAX_HEIGHT_HEADER,
 		this::setMaxHeight,
-		IntOrPercentageHolder::fromSpecification
+		RelativeOrAbsoluteInt::fromSpecification
 	);
 	
 	//attribute
-	private final MutableOptionalValue<IntOrPercentageHolder> proposalWidth =
+	private final MutableOptionalValue<RelativeOrAbsoluteInt> proposalWidth =
 	MutableOptionalValue.forElement(
 		PROPOSAL_WIDTH_HEADER,
 		this::setProposalWidth,
-		IntOrPercentageHolder::fromSpecification
+		RelativeOrAbsoluteInt::fromSpecification
 	);
 	
 	//attribute
-	private final MutableOptionalValue<IntOrPercentageHolder> proposalHeight =
+	private final MutableOptionalValue<RelativeOrAbsoluteInt> proposalHeight =
 	MutableOptionalValue.forElement(
 		PROPOSAL_HEIGHT_HEADER,
 		this::setProposalHeight,
-		IntOrPercentageHolder::fromSpecification
+		RelativeOrAbsoluteInt::fromSpecification
 	);
 	
 	//attribute
@@ -864,7 +864,7 @@ extends Widget<BW, BWL> {
 	 */
 	public final BW setMaxHeight(final int maxHeight) {
 		
-		setMaxHeight(IntOrPercentageHolder.withIntValue(maxHeight));
+		setMaxHeight(RelativeOrAbsoluteInt.withIntValue(maxHeight));
 		
 		return asConcrete();
 	}
@@ -879,7 +879,7 @@ extends Widget<BW, BWL> {
 	 */
 	public final BW setMaxHeightInPercentOfGUIViewAreaHeight(final double maxHeightInPercentOfGUIViewAreaHeight) {
 		
-		setMaxHeight(IntOrPercentageHolder.withPercentage(maxHeightInPercentOfGUIViewAreaHeight));
+		setMaxHeight(RelativeOrAbsoluteInt.withPercentage(maxHeightInPercentOfGUIViewAreaHeight));
 		
 		return asConcrete();
 	}
@@ -894,7 +894,7 @@ extends Widget<BW, BWL> {
 	 */
 	public final BW setMaxWidth(final int maxWidth) {
 		
-		setMaxWidth(IntOrPercentageHolder.withIntValue(maxWidth));
+		setMaxWidth(RelativeOrAbsoluteInt.withIntValue(maxWidth));
 		
 		return asConcrete();
 	}
@@ -909,7 +909,7 @@ extends Widget<BW, BWL> {
 	 */
 	public final BW setMaxWidthInPercentOfGUIViewAreaWidth(final double maxWidthInPercentOfGUIViewAreaWidth) {
 		
-		setMaxWidth(IntOrPercentageHolder.withPercentage(maxWidthInPercentOfGUIViewAreaWidth));
+		setMaxWidth(RelativeOrAbsoluteInt.withPercentage(maxWidthInPercentOfGUIViewAreaWidth));
 		
 		return asConcrete();
 	}
@@ -923,7 +923,7 @@ extends Widget<BW, BWL> {
 	 */
 	public final BW setMinHeight(final int minHeight) {
 		
-		setMinHeight(IntOrPercentageHolder.withIntValue(minHeight));
+		setMinHeight(RelativeOrAbsoluteInt.withIntValue(minHeight));
 		
 		return asConcrete();
 	}
@@ -938,7 +938,7 @@ extends Widget<BW, BWL> {
 	 */
 	public final BW setMinHeightInPercentOfGUIViewAreaHeight(final double minHeightInPercentOfGUIViewAreaHeight) {
 		
-		setMinHeight(IntOrPercentageHolder.withPercentage(minHeightInPercentOfGUIViewAreaHeight));
+		setMinHeight(RelativeOrAbsoluteInt.withPercentage(minHeightInPercentOfGUIViewAreaHeight));
 		
 		return asConcrete();
 	}
@@ -952,7 +952,7 @@ extends Widget<BW, BWL> {
 	 */
 	public final BW setMinWidth(final int minWidth) {
 		
-		setMinWidth(IntOrPercentageHolder.withIntValue(minWidth));
+		setMinWidth(RelativeOrAbsoluteInt.withIntValue(minWidth));
 		
 		return asConcrete();
 	}
@@ -967,7 +967,7 @@ extends Widget<BW, BWL> {
 	 */
 	public final BW setMinWidthInPercentOfGUIViewAreaWidth(final double minWidthInPercentOfGUIViewAreaWidth) {
 		
-		setMinWidth(IntOrPercentageHolder.withPercentage(minWidthInPercentOfGUIViewAreaWidth));
+		setMinWidth(RelativeOrAbsoluteInt.withPercentage(minWidthInPercentOfGUIViewAreaWidth));
 		
 		return asConcrete();
 	}
@@ -982,7 +982,7 @@ extends Widget<BW, BWL> {
 	 */
 	public final BW setProposalHeight(final int proposalHeight) {
 		
-		setProposalHeight(IntOrPercentageHolder.withIntValue(proposalHeight));
+		setProposalHeight(RelativeOrAbsoluteInt.withIntValue(proposalHeight));
 				
 		return asConcrete();
 	}
@@ -999,7 +999,7 @@ extends Widget<BW, BWL> {
 		final double proposalHeightInPercentOfGUIViewAreaHeight
 	) {
 		
-		setProposalHeight(IntOrPercentageHolder.withPercentage(proposalHeightInPercentOfGUIViewAreaHeight));
+		setProposalHeight(RelativeOrAbsoluteInt.withPercentage(proposalHeightInPercentOfGUIViewAreaHeight));
 		
 		return asConcrete();
 	}
@@ -1014,7 +1014,7 @@ extends Widget<BW, BWL> {
 	 */
 	public final BW setProposalWidth(final int proposalWidth) {
 		
-		setProposalWidth(IntOrPercentageHolder.withIntValue(proposalWidth));
+		setProposalWidth(RelativeOrAbsoluteInt.withIntValue(proposalWidth));
 				
 		return asConcrete();
 	}
@@ -1031,7 +1031,7 @@ extends Widget<BW, BWL> {
 		final double proposalWidthInPercentOfGUIViewAreaWidth
 	) {
 		
-		setProposalWidth(IntOrPercentageHolder.withPercentage(proposalWidthInPercentOfGUIViewAreaWidth));
+		setProposalWidth(RelativeOrAbsoluteInt.withPercentage(proposalWidthInPercentOfGUIViewAreaWidth));
 		
 		return asConcrete();
 	}
@@ -1567,48 +1567,48 @@ extends Widget<BW, BWL> {
 	}
 	
 	//method
-	private void setMaxHeight(final IntOrPercentageHolder maxHeight) {
+	private void setMaxHeight(final RelativeOrAbsoluteInt maxHeight) {
 		
-		IntOrPercentageHolderValidator.INSTANCE.assertIsPositive(maxHeight);
+		RelativeOrAbsoluteIntValidator.INSTANCE.assertIsPositive(maxHeight);
 		
 		this.maxHeight.setValue(maxHeight);
 		setShowAreaYPositionOnScrolledArea(0);
 	}
 	
 	//method
-	private void setMaxWidth(final IntOrPercentageHolder maxWidth) {
+	private void setMaxWidth(final RelativeOrAbsoluteInt maxWidth) {
 		
-		IntOrPercentageHolderValidator.INSTANCE.assertIsPositive(maxWidth);
+		RelativeOrAbsoluteIntValidator.INSTANCE.assertIsPositive(maxWidth);
 		
 		this.maxWidth.setValue(maxWidth);
 		setShowAreaXPositionOnScrolledArea(0);
 	}
 	
 	//method
-	private void setMinHeight(final IntOrPercentageHolder minHeight) {
+	private void setMinHeight(final RelativeOrAbsoluteInt minHeight) {
 		this.minHeight.setValue(minHeight);
 		setShowAreaYPositionOnScrolledArea(0);
 	}
 	
 	//method
-	private void setMinWidth(final IntOrPercentageHolder minWidth) {
+	private void setMinWidth(final RelativeOrAbsoluteInt minWidth) {
 		this.minWidth.setValue(minWidth);
 		setShowAreaXPositionOnScrolledArea(0);
 	}
 	
 	//method
-	private void setProposalHeight(final IntOrPercentageHolder proposalHeight) {
+	private void setProposalHeight(final RelativeOrAbsoluteInt proposalHeight) {
 		
-		IntOrPercentageHolderValidator.INSTANCE.assertIsPositive(proposalHeight);
+		RelativeOrAbsoluteIntValidator.INSTANCE.assertIsPositive(proposalHeight);
 		
 		this.proposalHeight.setValue(proposalHeight);
 		setShowAreaYPositionOnScrolledArea(0);
 	}
 	
 	//method
-	private void setProposalWidth(final IntOrPercentageHolder proposalWidth) {
+	private void setProposalWidth(final RelativeOrAbsoluteInt proposalWidth) {
 		
-		IntOrPercentageHolderValidator.INSTANCE.assertIsPositive(proposalWidth);
+		RelativeOrAbsoluteIntValidator.INSTANCE.assertIsPositive(proposalWidth);
 		
 		this.proposalWidth.setValue(proposalWidth);
 		setShowAreaXPositionOnScrolledArea(0);
