@@ -15,7 +15,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 public final class VerticalStackHTMLCreator {
 	
 	//constant
-	public static final String CHILD_CONTROL_CSS_CLASS_NAME = "child";
+	public static final String CHILD_CONTROL_CSS_CLASS_NAME = "verticalStackChild";
 	
 	//static attribute
 	public static final VerticalStackHTMLCreator INSTANCE = new VerticalStackHTMLCreator();

@@ -15,7 +15,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 public final class FloatContainerHTMLCreator {
 	
 	//constant
-	public static final String CHILD_CONTROL_CSS_CLASS_NAME = "child";
+	public static final String CHILD_CONTROL_CSS_CLASS_NAME = "floatContainerChild";
 	
 	//static attribute
 	public static final FloatContainerHTMLCreator INSTANCE = new FloatContainerHTMLCreator();
