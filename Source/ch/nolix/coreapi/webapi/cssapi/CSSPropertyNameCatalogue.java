@@ -71,6 +71,9 @@ public final class CSSPropertyNameCatalogue {
 	public static final String MARGIN = "margin";
 	
 	//constant
+	public static final String OPACITY = "opacity";
+	
+	//constant
 	public static final String PADDING_BOTTOM = "padding-bottom";
 	
 	//constant
