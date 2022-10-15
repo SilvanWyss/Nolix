@@ -4,12 +4,13 @@ package ch.nolix.business.serverdashboard;
 import ch.nolix.system.element.style.Style;
 import ch.nolix.system.element.style.DeepStyle;
 import ch.nolix.system.gui.containerwidget.FloatContainer;
-import ch.nolix.system.gui.widget.ImageWidget;
-import ch.nolix.system.gui.widget.Label;
-import ch.nolix.system.gui.widget.LabelRole;
-import ch.nolix.system.gui.widgetgui.Layer;
+import ch.nolix.system.webgui.control.ImageControl;
+import ch.nolix.system.webgui.control.Text;
+import ch.nolix.system.webgui.main.Layer;
 import ch.nolix.systemapi.guiapi.containercontrolproperty.ContainerRole;
+import ch.nolix.systemapi.webguiapi.controlapi.TextRole;
 
+//TODO: Use IControls only.
 //class
 public final class ServerDashboardStyleCreator {
 	
@@ -26,16 +27,16 @@ public final class ServerDashboardStyleCreator {
 		.addConfiguration(
 			createLayerStyle(),
 			createMainContentFloatContainerStyle(),
-			createImageWidgetStyle(),
-			createLevel1HeaderLabelStyle()
+			createImageControlStyle(),
+			createLevel1HeaderTextStyle()
 		);
 	}
 	
 	//method
-	private DeepStyle createImageWidgetStyle() {
+	private DeepStyle createImageControlStyle() {
 		return
 		new DeepStyle()
-		.setSelectorType(ImageWidget.class)
+		.setSelectorType(ImageControl.class)
 		.addAttachingAttribute("CursorIcon(Hand)", "BaseOpacity(75%)", "HoverOpacity(25%)");
 	}
 	
@@ -57,11 +58,11 @@ public final class ServerDashboardStyleCreator {
 	}
 	
 	//method
-	private DeepStyle createLevel1HeaderLabelStyle() {
+	private DeepStyle createLevel1HeaderTextStyle() {
 		return
 		new DeepStyle()
-		.setSelectorType(Label.class)
-		.addSelectorRole(LabelRole.LEVEL1_HEADER)
+		.setSelectorType(Text.class)
+		.addSelectorRole(TextRole.LEVEL1_HEADER)
 		.addAttachingAttribute("BaseTextSize(20)");
 	}
 }
