@@ -4,6 +4,7 @@ package ch.nolix.system.webgui.control;
 //own imports
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.web.css.CSSProperty;
+import ch.nolix.coreapi.webapi.cssapi.CSSPropertyNameCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
 import ch.nolix.system.webgui.controlstyle.ExtendedControlCSSRuleCreator;
 import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
@@ -42,6 +43,6 @@ public final class ImageControlCSSRuleCreator extends ExtendedControlCSSRuleCrea
 		final ControlState state,
 		final LinkedList<CSSProperty> list
 	) {
-		//Does nothing.
+		list.addAtEnd(CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.DISPLAY, "block"));
 	}
 }
