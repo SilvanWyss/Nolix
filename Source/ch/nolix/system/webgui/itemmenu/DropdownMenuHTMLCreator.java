@@ -2,7 +2,8 @@
 package ch.nolix.system.webgui.itemmenu;
 
 //own imports
-import ch.nolix.core.container.immutablelist.ImmutableList;
+import ch.nolix.core.container.main.LinkedList;
+import ch.nolix.core.web.html.HTMLAttribute;
 import ch.nolix.core.web.html.HTMLElement;
 import ch.nolix.core.web.html.HTMLElementTypeCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
@@ -35,7 +36,23 @@ public final class DropdownMenuHTMLCreator {
 	private IContainer<? extends IHTMLAttribute> createHTMLAttributesForDropdownMenu(
 		final IDropdownMenu<?, ?, ?> dropdownMenu
 	) {
-		return ImmutableList.withElements(ControlHelper.INSTANCE.createIdHTMLAttributeForControl(dropdownMenu));
+		
+		final var lHTMLAttribtues = new LinkedList<IHTMLAttribute>();
+		
+		lHTMLAttribtues.addAtEnd(ControlHelper.INSTANCE.createIdHTMLAttributeForControl(dropdownMenu));
+		
+		if (dropdownMenu.hasSelectAction()) {
+			lHTMLAttribtues.addAtEnd(
+				HTMLAttribute.withNameAndValue(
+					"onchange",
+					
+					//Use noteLeftMouseButtonPress as pseudo event.
+					"NoteLeftMouseButtonPress_" + dropdownMenu.getFixedId()
+				)
+			);
+		}
+		
+		return lHTMLAttribtues;
 	}
 	
 	//method

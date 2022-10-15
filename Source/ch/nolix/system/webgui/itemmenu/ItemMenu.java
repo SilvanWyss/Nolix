@@ -5,6 +5,7 @@ import ch.nolix.core.commontype.constant.StringCatalogue;
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
@@ -35,6 +36,9 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS, ItemMenuItem> {
 		ItemMenuItem::fromSpecification,
 		ItemMenuItem::getSpecification
 	);
+	
+	//optional attribute
+	private IElementTaker<IItemMenuItem<?>> selectAction;
 	
 	//method
 	@Override
@@ -173,6 +177,12 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS, ItemMenuItem> {
 	
 	//method
 	@Override
+	public final boolean hasSelectAction() {
+		return (selectAction != null);
+	}
+	
+	//method
+	@Override
 	public final boolean isEmpty() {
 		return getRefItems().isEmpty();
 	}
@@ -233,9 +243,35 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS, ItemMenuItem> {
 	
 	//method
 	@Override
+	public void removeSelectAction() {
+		selectAction = null;
+	}
+	
+	//method
+	@Override
 	public final IM selectFirstItem() {
 		
 		getRefFirstItem().select();
+		
+		return asConcrete();
+	}
+	
+	//method
+	@Override
+	public final IM setSelectAction(final IAction selectAction) {
+		
+		GlobalValidator.assertThat(selectAction).thatIsNamed("select action").isNotNull();
+		
+		return setSelectAction(i -> selectAction.run());
+	}
+	
+	//method
+	@Override
+	public final IM setSelectAction(final IElementTaker<IItemMenuItem<?>> selectAction) {
+		
+		GlobalValidator.assertThat(selectAction).thatIsNamed("select action").isNotNull();
+		
+		this.selectAction = selectAction;
 		
 		return asConcrete();
 	}
@@ -256,7 +292,17 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS, ItemMenuItem> {
 	//method
 	@Override
 	protected final void resetControl() {
+		
 		clear();
+		
+		removeSelectAction();
+	}
+	
+	//method
+	final void internalRunOptionalSelectActionForItem(final ItemMenuItem item) {
+		if (hasSelectAction()) {
+			selectAction.run(item);
+		}
 	}
 	
 	//method

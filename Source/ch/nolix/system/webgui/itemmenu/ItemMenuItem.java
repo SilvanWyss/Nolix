@@ -14,7 +14,6 @@ import ch.nolix.system.element.mutableelement.MutableElement;
 import ch.nolix.system.element.mutableelement.MutableValue;
 import ch.nolix.system.element.mutableelement.OptionalValue;
 import ch.nolix.system.element.mutableelement.Value;
-import ch.nolix.systemapi.webguiapi.itemmenuapi.IItemMenu;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.IItemMenuItem;
 
 //class
@@ -147,7 +146,7 @@ public final class ItemMenuItem extends MutableElement<ItemMenuItem> implements 
 	);
 		
 	//optional attribute
-	private IItemMenu<?, ?, ?> parentMenu;
+	private ItemMenu<?, ?> parentMenu;
 	
 	//optional attribute
 	private final IElementTaker<IItemMenuItem<?>> selectAction;
@@ -242,6 +241,10 @@ public final class ItemMenuItem extends MutableElement<ItemMenuItem> implements 
 		unselectItemsOfOptionalParentMenu();
 		
 		selectionFlag.setValue(true);
+		
+		if (belongsToMenu() && parentMenu.hasSelectAction()) {
+			parentMenu.internalRunOptionalSelectActionForItem(this);
+		}
 				
 		runOptionalSelectAction();
 	}

@@ -59,5 +59,17 @@ extends Clearable, IControl<IM, IMS> {
 	String getTextByItemId(String itemId);
 	
 	//method declaration
+	boolean hasSelectAction();
+	
+	//method declaration
+	void removeSelectAction();
+	
+	//method declaration
 	IM selectFirstItem();
+	
+	//method declaration
+	IM setSelectAction(IAction selectAction);
+	
+	//method declaration
+	IM setSelectAction(IElementTaker<IItemMenuItem<?>> selectAction);
 }
