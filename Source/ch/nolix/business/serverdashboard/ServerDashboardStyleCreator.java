@@ -1,16 +1,16 @@
 //package declaration
 package ch.nolix.business.serverdashboard;
 
+//own imports
 import ch.nolix.system.element.style.Style;
 import ch.nolix.system.element.style.DeepStyle;
-import ch.nolix.system.gui.containerwidget.FloatContainer;
 import ch.nolix.system.webgui.control.ImageControl;
 import ch.nolix.system.webgui.control.Text;
+import ch.nolix.system.webgui.linearcontainer.FloatContainer;
 import ch.nolix.system.webgui.main.Layer;
 import ch.nolix.systemapi.guiapi.containercontrolproperty.ContainerRole;
 import ch.nolix.systemapi.webguiapi.controlapi.TextRole;
 
-//TODO: Use IControls only.
 //class
 public final class ServerDashboardStyleCreator {
 	
@@ -46,7 +46,7 @@ public final class ServerDashboardStyleCreator {
 		new DeepStyle()
 		.setSelectorType(FloatContainer.class)
 		.addSelectorRole(ContainerRole.MAIN_CONTENT_CONTAINER)
-		.addAttachingAttribute("ProposalWidth(80%)", "BaseTopPadding(50)", "BaseElementMargin(50)");
+		.addAttachingAttribute("MaxWidth(80%)", "BaseTopPadding(10)", "BaseChildControlMargin(10)");
 	}
 	
 	//method
