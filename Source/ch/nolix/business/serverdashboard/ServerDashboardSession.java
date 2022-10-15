@@ -6,12 +6,11 @@ import ch.nolix.businessapi.serverdashboardaccessapi.IApplicationSheet;
 import ch.nolix.businessapi.serverdashboardaccessapi.IServerDashboardAccess;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.system.application.webapplication.BackendWebClientSession;
-import ch.nolix.system.webgui.linearcontainer.VerticalStack;
+import ch.nolix.system.webgui.linearcontainer.FloatContainer;
 import ch.nolix.systemapi.guiapi.containercontrolproperty.ContainerRole;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //TODO: Adjust names.
-//TODO: Create FloatContainer.
 //class
 final class ServerDashboardSession extends BackendWebClientSession<IServerDashboardAccess> {
 	
@@ -26,7 +25,7 @@ final class ServerDashboardSession extends BackendWebClientSession<IServerDashbo
 	//method
 	private IControl<?, ?> createApplicationSetWidget() {
 		
-		final var floatContainer = new VerticalStack().setRole(ContainerRole.MAIN_CONTENT_CONTAINER);
+		final var floatContainer = new FloatContainer().setRole(ContainerRole.MAIN_CONTENT_CONTAINER);
 		
 		for (final var as : getGUIApplicationSheets()) {
 			floatContainer.addControl(
