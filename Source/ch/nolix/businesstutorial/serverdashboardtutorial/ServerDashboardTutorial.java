@@ -36,7 +36,7 @@ public final class ServerDashboardTutorial {
 		ShellProvider.startFirefoxOpeningLoopBackAddress();
 	}
 	
-	private static final class HelloWorldSession extends BackendWebClientSession<GUIApplicationContext> {
+	private static final class HelloWorldSession extends BackendWebClientSession<Object> {
 		
 		@Override
 		protected void initialize() {
