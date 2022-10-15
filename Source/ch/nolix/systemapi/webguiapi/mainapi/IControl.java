@@ -8,6 +8,7 @@ import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
 import ch.nolix.coreapi.webapi.htmlapi.HTMLElementTransformable;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
+import ch.nolix.systemapi.guiapi.canvasuniversalapi.Dimensionable;
 import ch.nolix.systemapi.guiapi.inputapi.IInputTaker;
 import ch.nolix.systemapi.guiapi.mainapi.CursorIcon;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
@@ -17,7 +18,13 @@ public interface IControl<
 	C extends IControl<C, CL>,
 	CL extends IControlStyle<CL>
 >
-extends FixedIdentified, HTMLElementTransformable, IInputTaker, IStylableElement<C>, IUserInputCell<C> {
+extends
+Dimensionable<C>,
+FixedIdentified,
+HTMLElementTransformable,
+IInputTaker,
+IStylableElement<C>,
+IUserInputCell<C> {
 	
 	//method declaration
 	boolean belongsToGUI();

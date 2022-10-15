@@ -13,9 +13,13 @@ import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
 import ch.nolix.system.element.base.StylableElement;
 import ch.nolix.system.element.mutableelement.ExtensionElement;
+import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 import ch.nolix.system.element.mutableelement.MutableValue;
+import ch.nolix.system.structure.RelativeOrAbsoluteInt;
+import ch.nolix.system.structure.RelativeOrAbsoluteIntValidator;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 import ch.nolix.systemapi.guiapi.mainapi.CursorIcon;
+import ch.nolix.systemapi.structureapi.IRelativeOrAbsoluteInt;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IControlCSSRuleCreator;
@@ -34,11 +38,33 @@ implements IControl<C, CS> {
 	public static final CursorIcon DEFAULT_CURSOR_ICON = CursorIcon.ARROW;
 	
 	//constant
+	private static final String MAX_WIDTH_HEADER = "MaxWidth";
+	
+	//constant
+	private static final String MAX_HEIGHT_HEADER = "MaxHeight";
+	
+	//constant
 	private static final String CURSOR_ICON_HEADER = PascalCaseCatalogue.CURSOR_ICON;
 	
 	//attribute
 	//An id works correctly for CSS only when it begins with a letter.
 	private final String fixedId = "i" + GlobalIdCreator.createIdOf10HexadecimalCharacters();
+	
+	//attribute
+	private final MutableOptionalValue<RelativeOrAbsoluteInt> maxWidth =
+	MutableOptionalValue.forElement(
+		MAX_WIDTH_HEADER,
+		this::setMaxWidth,
+		RelativeOrAbsoluteInt::fromSpecification
+	);
+	
+	//attribute
+	private final MutableOptionalValue<RelativeOrAbsoluteInt> maxHeight =
+	MutableOptionalValue.forElement(
+		MAX_HEIGHT_HEADER,
+		this::setMaxHeight,
+		RelativeOrAbsoluteInt::fromSpecification
+	);
 	
 	//attribute
 	private final MutableValue<CursorIcon> cursorIcon =
@@ -88,6 +114,18 @@ implements IControl<C, CS> {
 	
 	//method
 	@Override
+	public final IRelativeOrAbsoluteInt getMaxHeight() {
+		return maxHeight.getValue();
+	}
+	
+	//method
+	@Override
+	public final IRelativeOrAbsoluteInt getMaxWidth() {
+		return maxWidth.getValue();
+	}
+	
+	//method
+	@Override
 	public final IContainer<? extends IStylableElement<?>> getRefChildStylableElements() {
 		return getRefChildControls();
 	}
@@ -117,10 +155,68 @@ implements IControl<C, CS> {
 	}
 	
 	//method
+	public final boolean hasMaxHeight() {
+		return maxHeight.hasValue();
+	}
+	
+	//method
+	public final boolean hasMaxWidth() {
+		return maxWidth.hasValue();
+	}
+	
+	//method
+	@Override
+	public final void removeMaxHeight() {
+		maxHeight.clear();
+	}
+	
+	//method
+	@Override
+	public final void removeMaxWidth() {
+		maxWidth.clear();
+	}
+	
+	//method
 	@Override
 	public final C setCursorIcon(final CursorIcon cursorIcon) {
 		
 		this.cursorIcon.setValue(cursorIcon);
+		
+		return asConcrete();
+	}
+	
+	//method
+	@Override
+	public final C setMaxHeight(final int maxHeight) {
+		
+		setMaxHeight(RelativeOrAbsoluteInt.withIntValue(maxHeight));
+		
+		return asConcrete();
+	}
+	
+	//method
+	@Override
+	public final C setMaxHeightInPercentOfViewAreaHeight(final double maxHeightInPercentOfViewAreaHeight) {
+		
+		setMaxHeight(RelativeOrAbsoluteInt.withPercentage(maxHeightInPercentOfViewAreaHeight));
+		
+		return asConcrete();
+	}
+	
+	//method
+	@Override
+	public final C setMaxWidth(final int maxWidth) {
+		
+		setMaxWidth(RelativeOrAbsoluteInt.withIntValue(maxWidth));
+		
+		return asConcrete();
+	}
+	
+	//method
+	@Override
+	public final C setMaxWidthInPercentOfViewAreaWidth(final double maxWidthInPercentOfViewAreaWidth) {
+		
+		setMaxWidth(RelativeOrAbsoluteInt.withPercentage(maxWidthInPercentOfViewAreaWidth));
 		
 		return asConcrete();
 	}
@@ -192,6 +288,22 @@ implements IControl<C, CS> {
 		assertBelongsToParent();
 		
 		return parent;
+	}
+	
+	//method
+	private void setMaxHeight(final RelativeOrAbsoluteInt maxHeight) {
+		
+		RelativeOrAbsoluteIntValidator.INSTANCE.assertIsPositive(maxHeight);
+		
+		this.maxHeight.setValue(maxHeight);
+	}
+	
+	//method
+	private void setMaxWidth(final RelativeOrAbsoluteInt maxWidth) {
+		
+		RelativeOrAbsoluteIntValidator.INSTANCE.assertIsPositive(maxWidth);
+		
+		this.maxWidth.setValue(maxWidth);
 	}
 	
 	//method
