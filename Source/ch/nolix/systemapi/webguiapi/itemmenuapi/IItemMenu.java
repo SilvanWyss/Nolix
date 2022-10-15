@@ -53,11 +53,11 @@ extends Clearable, IControl<IM, IMS> {
 	String getIdByItemText(String itemText);
 	
 	//method declaration
+	IContainer<IMI> getRefItems();
+	
+	//method declaration
 	String getTextByItemId(String itemId);
 	
 	//method declaration
 	IM selectFirstItem();
-	
-	//method declaration
-	IContainer<IMI> getRefItems();
 }
