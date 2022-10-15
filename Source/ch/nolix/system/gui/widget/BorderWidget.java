@@ -421,11 +421,11 @@ extends Widget<BW, BWL> {
 	 */
 	public final int getMaxHeight() {
 		
-		if (maxHeight.getValue().hasIntValue()) {
-			return maxHeight.getValue().getIntValue();
+		if (maxHeight.getValue().isAbsolute()) {
+			return maxHeight.getValue().getAbsoluteValue();
 		}
 		
-		return maxHeight.getValue().getValueInRelationToHundredPercentValue(getParentGUI().getViewAreaHeight());
+		return maxHeight.getValue().getValueRelativeToHundredPercentValue(getParentGUI().getViewAreaHeight());
 	}
 	
 	//method
@@ -435,11 +435,11 @@ extends Widget<BW, BWL> {
 	 */
 	public final int getMaxWidth() {
 		
-		if (maxWidth.getValue().hasIntValue()) {
-			return maxWidth.getValue().getIntValue();
+		if (maxWidth.getValue().isAbsolute()) {
+			return maxWidth.getValue().getAbsoluteValue();
 		}
 		
-		return maxWidth.getValue().getValueInRelationToHundredPercentValue(getParentGUI().getViewAreaWidth());
+		return maxWidth.getValue().getValueRelativeToHundredPercentValue(getParentGUI().getViewAreaWidth());
 	}
 	
 	//method
@@ -449,11 +449,11 @@ extends Widget<BW, BWL> {
 	 */
 	public final int getMinHeight() {
 		
-		if (minHeight.getValue().hasIntValue()) {
-			return minHeight.getValue().getIntValue();
+		if (minHeight.getValue().isAbsolute()) {
+			return minHeight.getValue().getAbsoluteValue();
 		}
 		
-		return minHeight.getValue().getValueInRelationToHundredPercentValue(getParentGUI().getViewAreaHeight());
+		return minHeight.getValue().getValueRelativeToHundredPercentValue(getParentGUI().getViewAreaHeight());
 	}
 	
 	//method
@@ -463,11 +463,11 @@ extends Widget<BW, BWL> {
 	 */
 	public final int getMinWidth() {
 		
-		if (minWidth.getValue().hasIntValue()) {
-			return minWidth.getValue().getIntValue();
+		if (minWidth.getValue().isAbsolute()) {
+			return minWidth.getValue().getAbsoluteValue();
 		}
 		
-		return minWidth.getValue().getValueInRelationToHundredPercentValue(getParentGUI().getViewAreaWidth());
+		return minWidth.getValue().getValueRelativeToHundredPercentValue(getParentGUI().getViewAreaWidth());
 	}
 	
 	//method
@@ -493,11 +493,11 @@ extends Widget<BW, BWL> {
 	 */
 	public final int getProposalHeight() {
 		
-		if (proposalHeight.getValue().hasIntValue()) {
-			return proposalHeight.getValue().getIntValue();
+		if (proposalHeight.getValue().isAbsolute()) {
+			return proposalHeight.getValue().getAbsoluteValue();
 		}
 		
-		return proposalHeight.getValue().getValueInRelationToHundredPercentValue(getParentGUI().getViewAreaHeight());
+		return proposalHeight.getValue().getValueRelativeToHundredPercentValue(getParentGUI().getViewAreaHeight());
 	}
 	
 	//method
@@ -507,11 +507,11 @@ extends Widget<BW, BWL> {
 	 */
 	public final int getProposalWidth() {
 		
-		if (proposalWidth.getValue().hasIntValue()) {
-			return proposalWidth.getValue().getIntValue();
+		if (proposalWidth.getValue().isAbsolute()) {
+			return proposalWidth.getValue().getAbsoluteValue();
 		}
 		
-		return proposalWidth.getValue().getValueInRelationToHundredPercentValue(getParentGUI().getViewAreaWidth());
+		return proposalWidth.getValue().getValueRelativeToHundredPercentValue(getParentGUI().getViewAreaWidth());
 	}
 	
 	//method
@@ -649,7 +649,7 @@ extends Widget<BW, BWL> {
 	public final boolean hasMaxWidth() {
 		return
 		definesMaxWidth()
-		&& (maxWidth.getValue().hasIntValue() || belongsToGUI());
+		&& (maxWidth.getValue().isAbsolute() || belongsToGUI());
 	}
 	
 	//method
@@ -659,7 +659,7 @@ extends Widget<BW, BWL> {
 	public final boolean hasMinHeight() {
 		return
 		definesMinHeight()
-		&& (minHeight.getValue().hasIntValue() || belongsToGUI());
+		&& (minHeight.getValue().isAbsolute() || belongsToGUI());
 	}
 	
 	//method
@@ -669,7 +669,7 @@ extends Widget<BW, BWL> {
 	public final boolean hasMinWidth() {
 		return
 		definesMinWidth()
-		&& (minWidth.getValue().hasIntValue() || belongsToGUI());
+		&& (minWidth.getValue().isAbsolute() || belongsToGUI());
 	}
 	
 	//method
@@ -679,7 +679,7 @@ extends Widget<BW, BWL> {
 	public final boolean hasProposalHeight() {
 		return
 		definesProposalHeight()
-		&& (proposalHeight.getValue().hasIntValue() || belongsToGUI());
+		&& (proposalHeight.getValue().isAbsolute() || belongsToGUI());
 	}
 	
 	//method
@@ -689,7 +689,7 @@ extends Widget<BW, BWL> {
 	public final boolean hasProposalWidth() {
 		return
 		definesProposalWidth()
-		&& (proposalWidth.getValue().hasIntValue() || belongsToGUI());
+		&& (proposalWidth.getValue().isAbsolute() || belongsToGUI());
 	}
 	
 	//method

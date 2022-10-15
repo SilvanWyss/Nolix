@@ -107,9 +107,9 @@ public final class IntOrPercentageHolder extends Element {
 		
 		final var attributes = new LinkedList<INode<?>>();
 		
-		if (hasIntValue()) {
-			attributes.addAtEnd(Node.withHeaderAndChildNode(PascalCaseCatalogue.VALUE, getIntValue()));
-		} else if (hasPercentage()) {
+		if (isAbsolute()) {
+			attributes.addAtEnd(Node.withHeaderAndChildNode(PascalCaseCatalogue.VALUE, getAbsoluteValue()));
+		} else if (isRelative()) {
 			attributes.addAtEnd(Node.withHeaderAndChildNode(PascalCaseCatalogue.PERCENTAGE, getPercentage()));
 		}
 		
@@ -122,9 +122,9 @@ public final class IntOrPercentageHolder extends Element {
 	 * @throws ArgumentDoesNotHaveAttributeException if
 	 * the current {@link IntOrPercentageHolder} does not have an integer value.
 	 */
-	public int getIntValue() {
+	public int getAbsoluteValue() {
 		
-		assertHasIntValue();
+		assertIsAbsolute();
 		
 		return intValue;
 	}
@@ -137,14 +137,14 @@ public final class IntOrPercentageHolder extends Element {
 	 */
 	public double getPercentage() {
 		
-		assertHasPercentage();
+		assertIsRelative();
 		
 		return percentage;
 	}
 	
 	//method
 	//For a better performance, this implementation does not use all comfortable methods.
-	public int getValueInRelationToHundredPercentValue(final int hundredPercentValue) {
+	public int getValueRelativeToHundredPercentValue(final int hundredPercentValue) {
 		
 		if (hasIntValue) {
 			return intValue;
@@ -155,20 +155,12 @@ public final class IntOrPercentageHolder extends Element {
 	
 	//method
 	/**
-	 * @return true if the current {@link IntOrPercentageHolder} has a percentage.
-	 */
-	public boolean hasPercentage() {
-		return !hasIntValue();
-	}
-	
-	//method
-	/**
 	 * @return true if the current {@link IntOrPercentageHolder} has an integer value.
 	 */
-	public boolean hasIntValue() {
+	public boolean isAbsolute() {
 		return hasIntValue;
 	}
-	
+
 	//method
 	//For a better performance, this implementation does not use all comfortable methods.
 	/**
@@ -182,14 +174,22 @@ public final class IntOrPercentageHolder extends Element {
 		
 		return (percentage > 0.0);
 	}
+
+	//method
+	/**
+	 * @return true if the current {@link IntOrPercentageHolder} has a percentage.
+	 */
+	public boolean isRelative() {
+		return !isAbsolute();
+	}
 	
 	//method
 	/**
 	 * @throws ArgumentDoesNotHaveAttributeException if
 	 * the current {@link IntOrPercentageHolder} does not have an integer value.
 	 */
-	private void assertHasIntValue() {
-		if (!hasIntValue()) {
+	private void assertIsAbsolute() {
+		if (!isAbsolute()) {
 			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "integer value");
 		}
 	}
@@ -199,8 +199,8 @@ public final class IntOrPercentageHolder extends Element {
 	 * @throws ArgumentDoesNotHaveAttributeException if
 	 * the current {@link IntOrPercentageHolder} does not have a percentage.
 	 */
-	private void assertHasPercentage() {
-		if (!hasPercentage()) {
+	private void assertIsRelative() {
+		if (!isRelative()) {
 			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.PERCENTAGE);
 		}
 	}
