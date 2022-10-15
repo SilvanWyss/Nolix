@@ -9,6 +9,8 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.containerapi.mainapi.ISingleContainer;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.coreapi.webapi.htmlapi.IHTMLElement;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 import ch.nolix.system.gui.image.MutableImage;
@@ -35,6 +37,12 @@ implements IImageControl<ImageControl, ImageControlStyle, MutableImage> {
 		MutableImage::fromSpecification,
 		MutableImage::getSpecification
 	);
+	
+	//optional attribute
+	private IElementTaker<IImageControl<?, ?, ?>> leftMouseButtonPressAction;
+	
+	//optional attribute
+	private IElementTaker<IImageControl<?, ?, ?>> leftMouseButtonReleaseAction;
 	
 	//method
 	@Override
@@ -74,6 +82,18 @@ implements IImageControl<ImageControl, ImageControlStyle, MutableImage> {
 	
 	//method
 	@Override
+	public boolean hasLeftMouseButtonPressAction() {
+		return (leftMouseButtonPressAction != null);
+	}
+	
+	//method
+	@Override
+	public boolean hasLeftMouseButtonReleaseAction() {
+		return (leftMouseButtonReleaseAction != null);
+	}
+	
+	//method
+	@Override
 	public boolean hasRole(final String role) {
 		return false;
 	}
@@ -99,13 +119,17 @@ implements IImageControl<ImageControl, ImageControlStyle, MutableImage> {
 	//method
 	@Override
 	public void noteLeftMouseButtonPress() {
-		//Does nothing.
+		if (hasLeftMouseButtonPressAction()) {
+			leftMouseButtonPressAction.run(this);
+		}
 	}
 	
 	//method
 	@Override
 	public void noteLeftMouseButtonRelease() {
-		//Does nothing.
+		if (hasLeftMouseButtonReleaseAction()) {
+			leftMouseButtonReleaseAction.run(this);
+		}
 	}
 	
 	//method
@@ -134,6 +158,18 @@ implements IImageControl<ImageControl, ImageControlStyle, MutableImage> {
 	
 	//method
 	@Override
+	public void removeLeftMouseButtonPressAction() {
+		leftMouseButtonPressAction = null;
+	}
+	
+	//method
+	@Override
+	public void removeLeftMouseButtonReleaseAction() {
+		leftMouseButtonReleaseAction = null;
+	}
+	
+	//method
+	@Override
 	public ImageControl setImage(final IImage image) {
 		
 		if (image instanceof MutableImage) {
@@ -141,6 +177,62 @@ implements IImageControl<ImageControl, ImageControlStyle, MutableImage> {
 		} else {
 			this.image.setValue(MutableImage.fromAnyImage(image));
 		}
+		
+		return this;
+	}
+	
+	//method
+	@Override
+	public ImageControl setLeftMouseButtonPressAction(final IAction leftMouseButtonPressAction) {
+		
+		GlobalValidator
+		.assertThat(leftMouseButtonPressAction)
+		.thatIsNamed("left mouse button press action")
+		.isNotNull();
+		
+		return setLeftMouseButtonPressAction(b -> leftMouseButtonPressAction.run());
+	}
+	
+	//method
+	@Override
+	public ImageControl setLeftMouseButtonPressAction(
+		final IElementTaker<IImageControl<?, ?, ?>> leftMouseButtonPressAction
+	) {
+		
+		GlobalValidator
+		.assertThat(leftMouseButtonPressAction)
+		.thatIsNamed("left mouse button press action")
+		.isNotNull();
+		
+		this.leftMouseButtonPressAction = leftMouseButtonPressAction;
+		
+		return this;
+	}
+	
+	//method
+	@Override
+	public ImageControl setLeftMouseButtonRelaseAction(final IAction leftMouseButtonReleaseAction) {
+		
+		GlobalValidator
+		.assertThat(leftMouseButtonReleaseAction)
+		.thatIsNamed("left mouse button release action")
+		.isNotNull();
+		
+		return setLeftMouseButtonRelaseAction(b -> leftMouseButtonReleaseAction.run());
+	}
+	
+	//method
+	@Override
+	public ImageControl setLeftMouseButtonRelaseAction(
+		final IElementTaker<IImageControl<?, ?, ?>> leftMouseButtonReleaseAction
+	) {
+		
+		GlobalValidator
+		.assertThat(leftMouseButtonReleaseAction)
+		.thatIsNamed("left mouse button release action")
+		.isNotNull();
+		
+		this.leftMouseButtonReleaseAction = leftMouseButtonReleaseAction;
 		
 		return this;
 	}
@@ -175,6 +267,10 @@ implements IImageControl<ImageControl, ImageControlStyle, MutableImage> {
 	//method
 	@Override
 	protected void resetControl() {
+		
 		clear();
+		
+		removeLeftMouseButtonPressAction();
+		removeLeftMouseButtonReleaseAction();
 	}
 }

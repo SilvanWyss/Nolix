@@ -45,6 +45,28 @@ public final class ImageControlHTMLCreator {
 			);
 		}
 		
+		if (imageControl.hasLeftMouseButtonPressAction()) {
+			lHTMLAttributes.addAtEnd(
+				HTMLAttribute.withNameAndValue(
+					"onclick",
+					
+					//TODO: Create ControlCommandCreator.
+					"NoteLeftMouseButtonPress_" + imageControl.getFixedId()
+				)
+			);
+		}
+		
+		if (imageControl.hasLeftMouseButtonReleaseAction()) {
+			lHTMLAttributes.addAtEnd(
+				HTMLAttribute.withNameAndValue(
+					"onclick",
+					
+					//TODO: Create ControlCommandCreator.
+					"NoteLeftMouseButtonRelease_" + imageControl.getFixedId()
+				)
+			);
+		}
+		
 		return lHTMLAttributes;
 	}
 }
