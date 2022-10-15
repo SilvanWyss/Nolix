@@ -27,6 +27,6 @@ public final class ControlCSSValueHelper {
 			return relativeOrAbsoluteInt.getAbsoluteValue() + CSSUnitCatalogue.PX;
 		}
 		
-		return relativeOrAbsoluteInt.getPercentage() + relativeIntCSSUnit;
+		return (100 * relativeOrAbsoluteInt.getPercentage()) + relativeIntCSSUnit;
 	}
 }
