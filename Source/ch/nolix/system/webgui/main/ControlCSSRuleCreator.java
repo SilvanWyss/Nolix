@@ -114,7 +114,18 @@ implements IControlCSSRuleCreator<C, CS> {
 				
 		final var style = getRefParentControl().getRefStyle();
 		
+		final var opacity = style.getOpacityWhenHasState(state);
+		if (opacity < 1.0) {
+			list.addAtEnd(
+				CSSProperty.withNameAndValue(
+					CSSPropertyNameCatalogue.OPACITY,
+					opacity
+				)
+			);
+		}
+		
 		list.addAtEnd(
+			
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.COLOR,
 				getColorCodeOfColor(style.getTextColorWhenHasState(state))
