@@ -12,7 +12,6 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //TODO: Adjust names.
 //TODO: Create FloatContainer.
-//TODO: Create ImageButton or add optional image to Button.
 //class
 final class ServerDashboardSession extends BackendWebClientSession<IServerDashboardAccess> {
 	

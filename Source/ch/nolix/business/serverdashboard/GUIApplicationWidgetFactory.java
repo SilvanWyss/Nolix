@@ -5,7 +5,6 @@ package ch.nolix.business.serverdashboard;
 import ch.nolix.businessapi.serverdashboardaccessapi.IApplicationSheet;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.image.MutableImage;
-import ch.nolix.system.webgui.control.Button;
 import ch.nolix.system.webgui.control.ImageControl;
 import ch.nolix.system.webgui.control.Text;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
@@ -57,18 +56,14 @@ final class GUIApplicationWidgetFactory {
 	//method
 	private IControl<?, ?> createLogoImageWidget(final IApplicationSheet pGUIApplicationSheet) {
 		return
-		new VerticalStack()
-		.addControl(
-			new ImageControl().setImage(getApplicationLogoOrDefaultLogo(pGUIApplicationSheet)),
-			new Button()
-			.setText("Open")
-			.setLeftMouseButtonPressAction(
-				i ->
-				i
-				.getRefParentGUI()
-				.onFrontEnd()
-				.redirectTo(pGUIApplicationSheet.getApplicationTarget())
-			)
+		new ImageControl()
+		.setImage(getApplicationLogoOrDefaultLogo(pGUIApplicationSheet))
+		.setLeftMouseButtonPressAction(
+			i ->
+			i
+			.getRefParentGUI()
+			.onFrontEnd()
+			.redirectTo(pGUIApplicationSheet.getApplicationTarget())
 		);
 	}
 	
