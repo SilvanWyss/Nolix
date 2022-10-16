@@ -5,7 +5,7 @@ package ch.nolix.systemapi.webguiapi.controlstyleapi;
 import ch.nolix.systemapi.elementapi.mainuniversalapi.IRespondingMutableElement;
 import ch.nolix.systemapi.guiapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.textformatapi.Font;
-import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
+import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //interface
 public interface IControlStyle<CS extends IControlStyle<CS>> extends IRespondingMutableElement<CS> {

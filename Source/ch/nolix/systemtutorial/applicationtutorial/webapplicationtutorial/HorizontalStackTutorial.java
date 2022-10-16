@@ -7,7 +7,7 @@ import ch.nolix.system.application.main.VoidApplicationContext;
 import ch.nolix.system.application.webapplication.BackendWebClientSession;
 import ch.nolix.system.webgui.control.Text;
 import ch.nolix.system.webgui.linearcontainer.HorizontalStack;
-import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
+import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 public final class HorizontalStackTutorial {
 	

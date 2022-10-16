@@ -14,8 +14,8 @@ import ch.nolix.systemapi.guiapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.colorapi.IColorGradient;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.imageapi.ImageApplication;
-import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IExtendedControlStyle;
+import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
 public abstract class ExtendedControlStyle<ECS extends ExtendedControlStyle<ECS>>

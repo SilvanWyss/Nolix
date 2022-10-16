@@ -6,7 +6,7 @@ import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.main.VoidApplicationContext;
 import ch.nolix.system.application.webapplication.BackendWebClientSession;
 import ch.nolix.system.webgui.control.Textbox;
-import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
+import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 public final class TextboxTutorial {
 	

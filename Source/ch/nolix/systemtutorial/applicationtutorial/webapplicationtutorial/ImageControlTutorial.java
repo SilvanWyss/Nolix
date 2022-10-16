@@ -8,7 +8,7 @@ import ch.nolix.system.application.webapplication.BackendWebClientSession;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.image.MutableImage;
 import ch.nolix.system.webgui.control.ImageControl;
-import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
+import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 public final class ImageControlTutorial {
 	

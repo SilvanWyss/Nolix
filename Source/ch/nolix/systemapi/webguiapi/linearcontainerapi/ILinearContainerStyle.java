@@ -1,8 +1,9 @@
 //package declaration
 package ch.nolix.systemapi.webguiapi.linearcontainerapi;
 
-import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
+//own imports
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IExtendedControlStyle;
+import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //interface
 public interface ILinearContainerStyle<LCL extends ILinearContainerStyle<LCL>> extends IExtendedControlStyle<LCL> {

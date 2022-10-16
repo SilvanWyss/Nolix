@@ -4,7 +4,7 @@ package ch.nolix.system.webgui.itemmenu;
 //own imports
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.web.css.CSSProperty;
-import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
+import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
 public final class DropdownMenuCSSRuleCreator extends ItemMenuCSSRuleCreator<DropdownMenu, DropdownMenuStyle> {

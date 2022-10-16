@@ -1,10 +1,11 @@
 //package declaration
 package ch.nolix.systemapi.webguiapi.containerapi;
 
+//own imports
 import ch.nolix.systemapi.guiapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.controlproperty.GridType;
-import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IExtendedControlStyle;
+import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //interface
 public interface IGridContainerStyle extends IExtendedControlStyle<IGridContainerStyle> {

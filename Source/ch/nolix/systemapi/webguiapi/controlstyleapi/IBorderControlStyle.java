@@ -3,7 +3,7 @@ package ch.nolix.systemapi.webguiapi.controlstyleapi;
 
 //own imports
 import ch.nolix.systemapi.guiapi.colorapi.IColor;
-import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
+import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //interface
 public interface IBorderControlStyle<BCS extends IBorderControlStyle<BCS>> {

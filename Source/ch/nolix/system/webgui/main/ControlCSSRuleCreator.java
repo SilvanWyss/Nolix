@@ -13,8 +13,8 @@ import ch.nolix.coreapi.webapi.cssapi.CSSUnitCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
 import ch.nolix.system.webgui.controlhelper.ControlCSSValueHelper;
 import ch.nolix.systemapi.guiapi.mainapi.CursorIcon;
-import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
+import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IControlCSSRuleCreator;
 

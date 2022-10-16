@@ -7,7 +7,7 @@ import ch.nolix.core.web.css.CSSProperty;
 import ch.nolix.coreapi.webapi.cssapi.CSSPropertyNameCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
 import ch.nolix.system.webgui.controlstyle.ExtendedControlCSSRuleCreator;
-import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
+import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
 public final class ImageControlCSSRuleCreator extends ExtendedControlCSSRuleCreator<ImageControl, ImageControlStyle> {

@@ -7,8 +7,8 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.element.multistateelement.NonCascadingProperty;
 import ch.nolix.system.webgui.controlstyle.ExtendedControlStyle;
-import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 import ch.nolix.systemapi.webguiapi.linearcontainerapi.ILinearContainerStyle;
+import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
 public abstract class LinearContainerStyle<LCS extends LinearContainerStyle<LCS>>
