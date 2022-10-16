@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.webgui.itemmenu;
 
+import ch.nolix.core.commontype.constant.StringCatalogue;
 //own imports
 import ch.nolix.core.data.GlobalIdCreator;
 import ch.nolix.core.document.node.Node;
@@ -31,6 +32,11 @@ public final class ItemMenuItem extends MutableElement<ItemMenuItem> implements 
 	
 	//constant
 	private static final String SELECTION_FLAG_HEADER = "Selected";
+	
+	//static method
+	public static ItemMenuItem createBlankItem() {
+		return withText(StringCatalogue.EMPTY_STRING);
+	}
 	
 	//static method
 	public static ItemMenuItem fromSpecification(final INode<?> specification) {
@@ -186,8 +192,7 @@ public final class ItemMenuItem extends MutableElement<ItemMenuItem> implements 
 	//method
 	@Override
 	public boolean isBlank() {
-		//TODO: Implement.
-		return false;
+		return getText().isEmpty();
 	}
 	
 	//method

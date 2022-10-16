@@ -43,8 +43,7 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
 	//method
 	@Override
 	public final IM addBlankItem() {
-		//TODO: Implement.
-		return asConcrete();
+		return addItem(ItemMenuItem.createBlankItem());
 	}
 	
 	//method
@@ -113,8 +112,7 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
 	//method
 	@Override
 	public final boolean blankItemIsSelected() {
-		//TODO: Implement.
-		return false;
+		return (containsBlankItem() && getRefBlankItem().isSelected());
 	}
 	
 	//method
