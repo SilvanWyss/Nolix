@@ -3,6 +3,7 @@ package ch.nolix.systemapi.webguiapi.mainapi;
 
 //own imports
 import ch.nolix.coreapi.containerapi.mainapi.ISingleContainer;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.FixedIdentified;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
@@ -31,6 +32,9 @@ IUserInputCell<C> {
 	
 	//method declaration
 	boolean belongsToLayer();
+	
+	//method declaration
+	C editStyle(IElementTaker<CL> styleEditor);
 	
 	//method declaration
 	IContainer<ICSSRule<?>> getCSSRules();

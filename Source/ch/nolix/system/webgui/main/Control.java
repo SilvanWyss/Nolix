@@ -10,6 +10,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
 import ch.nolix.system.element.base.StylableElement;
 import ch.nolix.system.element.mutableelement.ExtensionElement;
@@ -92,6 +93,15 @@ implements IControl<C, CS> {
 	@Override
 	public final boolean belongsToLayer() {
 		return (belongsToParent() && parent.belongsToLayer());
+	}
+	
+	//method
+	@Override
+	public final C editStyle(final IElementTaker<CS> styleEditor) {
+		
+		styleEditor.run(getRefStyle());
+		
+		return asConcrete();
 	}
 	
 	//method
