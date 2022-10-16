@@ -142,7 +142,7 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
 	//method
 	@Override
 	public final String getIdByItemText(final String itemText) {
-		return getRefItemByItemText(itemText).getId();
+		return getRefItemByText(itemText).getId();
 	}
 	
 	//method
@@ -166,7 +166,7 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
 	//method
 	@Override
 	public final String getTextByItemId(final String itemId) {
-		return getRefItemByItemId(itemId).getText();
+		return getRefItemById(itemId).getText();
 	}
 	
 	//method
@@ -274,7 +274,7 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
 	@Override
 	public final IM selectItemById(final String id) {
 		
-		getRefItemByItemId(id).select();
+		getRefItemById(id).select();
 		
 		return asConcrete();
 	}
@@ -306,7 +306,7 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
 		if (userInput.isEmpty()) {
 			getRefItems().forEach(IItemMenuItem::unselect);
 		} else {
-			getRefItemByItemText(userInput).select();
+			getRefItemByText(userInput).select();
 		}
 		
 		return asConcrete();
@@ -366,14 +366,13 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
 		return getRefItems().getRefFirst();
 	}
 	
-	//TODO: Adjust method names.
 	//method
-	private IItemMenuItem<?> getRefItemByItemId(final String itemId) {
+	private IItemMenuItem<?> getRefItemById(final String itemId) {
 		return getRefItems().getRefFirst(i -> i.hasId(itemId));
 	}
 	
 	//method
-	private IItemMenuItem<?> getRefItemByItemText(final String itemText) {
+	private IItemMenuItem<?> getRefItemByText(final String itemText) {
 		return getRefItems().getRefFirst(i -> i.getText().equals(itemText));
 	}
 	
