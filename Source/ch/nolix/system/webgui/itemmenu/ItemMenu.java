@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.system.webgui.itemmenu;
 
-import ch.nolix.core.commontype.constant.StringCatalogue;
 //own imports
+import ch.nolix.core.commontype.constant.StringCatalogue;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -177,12 +177,6 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS, ItemMenuItem> {
 	
 	//method
 	@Override
-	public final boolean hasSelectAction() {
-		return (selectAction != null);
-	}
-	
-	//method
-	@Override
 	public final boolean isEmpty() {
 		return getRefItems().isEmpty();
 	}
@@ -346,5 +340,10 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS, ItemMenuItem> {
 	//method
 	private ItemMenuItem getRefItemByItemText(final String itemText) {
 		return getRefItems().getRefFirst(i -> i.getText().equals(itemText));
+	}
+	
+	//method
+	private boolean hasSelectAction() {
+		return (selectAction != null);
 	}
 }

@@ -242,7 +242,7 @@ public final class ItemMenuItem extends MutableElement<ItemMenuItem> implements 
 		
 		selectionFlag.setValue(true);
 		
-		if (belongsToMenu() && parentMenu.hasSelectAction()) {
+		if (belongsToMenu()) {
 			parentMenu.internalRunOptionalSelectActionForItem(this);
 		}
 				
