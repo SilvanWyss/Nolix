@@ -29,7 +29,7 @@ final class ServerDashboardSession extends BackendWebClientSession<IServerDashbo
 		
 		for (final var as : getGUIApplicationSheets()) {
 			floatContainer.addControl(
-				GUIApplicationWidgetFactory.INSTANCE.createGUIApplicationWidget(as)
+				WebApplicationControlFactory.INSTANCE.createWebApplicationControl(as)
 			);
 		}
 		

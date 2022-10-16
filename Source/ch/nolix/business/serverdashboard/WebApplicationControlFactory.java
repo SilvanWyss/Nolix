@@ -13,7 +13,7 @@ import ch.nolix.systemapi.webguiapi.controlapi.TextRole;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //class
-final class GUIApplicationWidgetFactory {
+final class WebApplicationControlFactory {
 	
 	//constant
 	public static final int LOGO_IMAGE_WIDTH = 200;
@@ -26,19 +26,19 @@ final class GUIApplicationWidgetFactory {
 	MutableImage.withWidthAndHeightAndColor(LOGO_IMAGE_WIDTH, LOGO_IMAGE_HEIGHT, Color.GREY);
 	
 	//static attribute
-	public static final GUIApplicationWidgetFactory INSTANCE = new GUIApplicationWidgetFactory();
+	public static final WebApplicationControlFactory INSTANCE = new WebApplicationControlFactory();
 	
 	//constructor
-	private GUIApplicationWidgetFactory() {}
+	private WebApplicationControlFactory() {}
 	
 	//method
-	public IControl<?, ?> createGUIApplicationWidget(final IApplicationSheet pGUIApplicationSheet) {
+	public IControl<?, ?> createWebApplicationControl(final IApplicationSheet pGUIApplicationSheet) {
 		
 		final var guiApplicationVerticalStack =
 		new VerticalStack()
 		.addControl(
 			createApplicationNameLabel(pGUIApplicationSheet),
-			createLogoImageWidget(pGUIApplicationSheet)
+			createLogoImageControl(pGUIApplicationSheet)
 		);
 		
 		if (pGUIApplicationSheet.hasApplicationDescription()) {
@@ -54,7 +54,7 @@ final class GUIApplicationWidgetFactory {
 	}
 	
 	//method
-	private IControl<?, ?> createLogoImageWidget(final IApplicationSheet pGUIApplicationSheet) {
+	private IControl<?, ?> createLogoImageControl(final IApplicationSheet pGUIApplicationSheet) {
 		return
 		new ImageControl()
 		.setImage(getApplicationLogoOrDefaultLogo(pGUIApplicationSheet))
