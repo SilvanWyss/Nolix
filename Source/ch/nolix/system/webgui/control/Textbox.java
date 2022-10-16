@@ -6,9 +6,12 @@ import ch.nolix.core.commontype.constant.StringCatalogue;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.main.SingleContainer;
 import ch.nolix.core.document.node.Node;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.containerapi.mainapi.ISingleContainer;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.coreapi.webapi.htmlapi.IHTMLElement;
 import ch.nolix.system.element.mutableelement.MutableValue;
 import ch.nolix.system.webgui.main.Control;
@@ -45,6 +48,9 @@ public final class Textbox extends Control<Textbox, TextboxStyle> implements ITe
 		TextMode::fromSpecification,
 		Node::fromEnum
 	);
+	
+	//optional attribute
+	private IElementTaker<String> updateTextAction;
 	
 	//method
 	@Override
@@ -144,9 +150,17 @@ public final class Textbox extends Control<Textbox, TextboxStyle> implements ITe
 	
 	//method
 	@Override
+	public void removeUpdateTextAction() {
+		updateTextAction = null;
+	}
+	
+	//method
+	@Override
 	public Textbox setText(final String text) {
 		
 		this.text.setValue(text);
+		
+		runOptionalUpdateTextActionForText(text);
 		
 		return this;
 	}
@@ -155,6 +169,26 @@ public final class Textbox extends Control<Textbox, TextboxStyle> implements ITe
 	public Textbox setTextMode(final TextMode textMode) {
 		
 		this.textMode.setValue(textMode);
+		
+		return this;
+	}
+	
+	//method
+	@Override
+	public Textbox setUpdateTextAction(final IAction updateTextAction) {
+		
+		GlobalValidator.assertThat(updateTextAction).thatIsNamed("update text action").isNotNull();
+		
+		return setUpdateTextAction(t -> updateTextAction.run());
+	}
+	
+	//method
+	@Override
+	public Textbox setUpdateTextAction(final IElementTaker<String> updateTextAction) {
+		
+		GlobalValidator.assertThat(updateTextAction).thatIsNamed("update text action").isNotNull();
+		
+		this.updateTextAction = updateTextAction;
 		
 		return this;
 	}
@@ -183,8 +217,24 @@ public final class Textbox extends Control<Textbox, TextboxStyle> implements ITe
 		return TextboxCSSRuleCreator.forTextbox(this);
 	}
 	
+	//method
 	@Override
 	protected void resetControl() {
+		
 		emptyText();
+		
+		removeUpdateTextAction();
+	}
+	
+	//method
+	private boolean hasUpdateTextAction() {
+		return (updateTextAction != null);
+	}
+	
+	//method
+	private void runOptionalUpdateTextActionForText(final String text) {
+		if (hasUpdateTextAction()) {
+			updateTextAction.run(text);
+		}
 	}
 }
