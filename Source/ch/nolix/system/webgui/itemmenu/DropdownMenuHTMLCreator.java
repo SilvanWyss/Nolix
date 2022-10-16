@@ -41,17 +41,15 @@ public final class DropdownMenuHTMLCreator {
 		
 		lHTMLAttribtues.addAtEnd(ControlHelper.INSTANCE.createIdHTMLAttributeForControl(dropdownMenu));
 		
-		if (dropdownMenu.hasSelectAction()) {
-			lHTMLAttribtues.addAtEnd(
-				HTMLAttribute.withNameAndValue(
-					"onchange",
-					
-					//Use noteLeftMouseButtonPress as pseudo event.
-					"NoteLeftMouseButtonPress_" + dropdownMenu.getFixedId()
-				)
-			);
-		}
-		
+		lHTMLAttribtues.addAtEnd(
+			HTMLAttribute.withNameAndValue(
+				"onchange",
+				
+				//Uses noteLeftMouseButtonPress as event to trigger update of user inputs.
+				"NoteLeftMouseButtonPress_" + dropdownMenu.getFixedId()
+			)
+		);
+				
 		return lHTMLAttribtues;
 	}
 	
