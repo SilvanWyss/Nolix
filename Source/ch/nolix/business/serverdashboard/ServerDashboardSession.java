@@ -10,7 +10,6 @@ import ch.nolix.system.webgui.linearcontainer.FloatContainer;
 import ch.nolix.systemapi.guiapi.containercontrolproperty.ContainerRole;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
-//TODO: Adjust names.
 //class
 final class ServerDashboardSession extends BackendWebClientSession<IServerDashboardAccess> {
 	
@@ -19,11 +18,11 @@ final class ServerDashboardSession extends BackendWebClientSession<IServerDashbo
 	protected void initialize() {
 		getRefGUI()
 		.setStyle(ServerDashboardStyleCreator.INSTANCE.createServerDashboardStyle())
-		.pushLayerWithRootControl(createApplicationSetWidget());
+		.pushLayerWithRootControl(createApplicationSetControl());
 	}
 	
 	//method
-	private IControl<?, ?> createApplicationSetWidget() {
+	private IControl<?, ?> createApplicationSetControl() {
 		
 		final var floatContainer = new FloatContainer().setRole(ContainerRole.MAIN_CONTENT_CONTAINER);
 		
