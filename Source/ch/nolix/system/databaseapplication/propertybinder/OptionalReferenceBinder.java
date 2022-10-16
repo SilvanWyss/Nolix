@@ -14,7 +14,7 @@ extends PropertyBinder<IOptionalReference<?, IEntity<?>>, IDropdownMenu<?, ?>> {
 	
 	//method
 	@Override
-	protected void addSelectionOptionsToWidgetForProperty(
+	protected void addSelectionOptionsToControlForProperty(
 		final  IDropdownMenu<?, ?> dropdownMenu,
 		final IOptionalReference<?, IEntity<?>> optionalReference
 	) {
@@ -28,13 +28,13 @@ extends PropertyBinder<IOptionalReference<?, IEntity<?>>, IDropdownMenu<?, ?>> {
 	
 	//method
 	@Override
-	protected IDropdownMenu<?, ?> createWidget() {
+	protected IDropdownMenu<?, ?> createControl() {
 		return new DropdownMenu();
 	}
 	
 	//method
 	@Override
-	protected void setNoteUpdateActionToWidget(
+	protected void setNoteUpdateActionToControl(
 		final  IDropdownMenu<?, ?> dropdownMenu,
 		final IAction noteUpdateAction
 	) {
@@ -43,7 +43,7 @@ extends PropertyBinder<IOptionalReference<?, IEntity<?>>, IDropdownMenu<?, ?>> {
 	
 	//method
 	@Override
-	protected void updatePropertyFromWidget(
+	protected void updatePropertyFromControl(
 		final IOptionalReference<?, IEntity<?>> optionalReference,
 		final  IDropdownMenu<?, ?> dropdownMenu
 	) {
@@ -59,7 +59,7 @@ extends PropertyBinder<IOptionalReference<?, IEntity<?>>, IDropdownMenu<?, ?>> {
 	
 	//method
 	@Override
-	protected void updateWidgetFromProperty(
+	protected void updateControlFromProperty(
 		final  IDropdownMenu<?, ?> dropdownMenu,
 		final IOptionalReference<?, IEntity<?>> optionalReference
 	) {

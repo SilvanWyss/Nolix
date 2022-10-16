@@ -13,13 +13,13 @@ public final class ReferenceBinder extends PropertyBinder<IReference<?, IEntity<
 	
 	//method
 	@Override
-	protected IDropdownMenu<?, ?> createWidget() {
+	protected IDropdownMenu<?, ?> createControl() {
 		return new DropdownMenu();
 	}
 	
 	//method
 	@Override
-	protected void addSelectionOptionsToWidgetForProperty(
+	protected void addSelectionOptionsToControlForProperty(
 		final IDropdownMenu<?, ?> dropdownMenu,
 		final IReference<?, IEntity<?>> reference
 	) {
@@ -30,7 +30,7 @@ public final class ReferenceBinder extends PropertyBinder<IReference<?, IEntity<
 	
 	//method
 	@Override
-	protected void setNoteUpdateActionToWidget(
+	protected void setNoteUpdateActionToControl(
 		final IDropdownMenu<?, ?> dropdownMenu,
 		final IAction noteUpdateValueAction
 	) {
@@ -39,7 +39,7 @@ public final class ReferenceBinder extends PropertyBinder<IReference<?, IEntity<
 	
 	//method
 	@Override
-	protected void updatePropertyFromWidget(
+	protected void updatePropertyFromControl(
 		final IReference<?, IEntity<?>> reference,
 		final IDropdownMenu<?, ?> dropdownMenu
 	) {
@@ -51,7 +51,7 @@ public final class ReferenceBinder extends PropertyBinder<IReference<?, IEntity<
 	
 	//method
 	@Override
-	protected void updateWidgetFromProperty(
+	protected void updateControlFromProperty(
 		final IDropdownMenu<?, ?> dropdownMenu,
 		final IReference<?, IEntity<?>> reference
 	) {

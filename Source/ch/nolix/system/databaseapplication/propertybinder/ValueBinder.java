@@ -12,31 +12,31 @@ public final class ValueBinder extends PropertyBinder<IValue<?, ?>, ITextbox<?, 
 	
 	//attribute
 	@Override
-	protected void addSelectionOptionsToWidgetForProperty(final ITextbox<?, ?> widget, final IValue<?, ?> property) {
+	protected void addSelectionOptionsToControlForProperty(final ITextbox<?, ?> widget, final IValue<?, ?> property) {
 		//Does nothing.
 	}
 	
 	//method
 	@Override
-	protected ITextbox<?, ?> createWidget() {
+	protected ITextbox<?, ?> createControl() {
 		return new Textbox();
 	}
 	
 	//method
 	@Override
-	protected void setNoteUpdateActionToWidget(final ITextbox<?, ?> textBox, final IAction noteUpdateAction) {
+	protected void setNoteUpdateActionToControl(final ITextbox<?, ?> textBox, final IAction noteUpdateAction) {
 		textBox.setUpdateTextAction(noteUpdateAction);
 	}
 	
 	//method
 	@Override
-	protected void updatePropertyFromWidget(final IValue<?, ?> value, final ITextbox<?, ?> textBox) {
+	protected void updatePropertyFromControl(final IValue<?, ?> value, final ITextbox<?, ?> textBox) {
 		value.setValueFromStringRepresentation(textBox.getText());
 	}
 	
 	//method
 	@Override
-	protected void updateWidgetFromProperty(final ITextbox<?, ?> textBox, final IValue<?, ?> value) {
+	protected void updateControlFromProperty(final ITextbox<?, ?> textBox, final IValue<?, ?> value) {
 		if (value.containsAny()) {
 			textBox.setText(value.getRefValue().toString());
 		}

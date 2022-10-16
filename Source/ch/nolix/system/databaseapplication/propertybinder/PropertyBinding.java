@@ -4,9 +4,9 @@ package ch.nolix.system.databaseapplication.propertybinder;
 //own imports
 import ch.nolix.core.container.main.SingleContainer;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.system.gui.widget.Label;
-import ch.nolix.system.gui.widget.LabelRole;
+import ch.nolix.system.webgui.control.Text;
 import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
+import ch.nolix.systemapi.webguiapi.controlapi.IText;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //class
@@ -14,22 +14,22 @@ public final class PropertyBinding {
 	
 	//attributes
 	private final IProperty<?> property;
-	private final IControl<?, ?> widget;
-	private final Label errorLabel = new Label().setRole(LabelRole.ERROR_TEXT);
+	private final IControl<?, ?> control;
+	private final IText<?, ?> errorText = new Text();
 	
 	//optional attribute
 	private Throwable currentError;
 	
 	//constructors
-	public PropertyBinding(final IProperty<?> property, final IControl<?, ?> widget) {
+	public PropertyBinding(final IProperty<?> property, final IControl<?, ?> control) {
 		
 		GlobalValidator.assertThat(property).thatIsNamed(IProperty.class).isNotNull();
-		GlobalValidator.assertThat(widget).thatIsNamed(IControl.class).isNotNull();
+		GlobalValidator.assertThat(control).thatIsNamed(IControl.class).isNotNull();
 		
 		this.property = property;
-		this.widget = widget;
+		this.control = control;
 		
-		errorLabel.setCollapsed();
+		//TODO: errorText.setCollapsed();
 	}
 	
 	//method
@@ -43,8 +43,8 @@ public final class PropertyBinding {
 	}
 	
 	//method
-	public Label getRefErrorLabel() {
-		return errorLabel;
+	public IText<?, ?> getRefErrorLabel() {
+		return errorText;
 	}
 	
 	//method
@@ -53,8 +53,8 @@ public final class PropertyBinding {
 	}
 	
 	//method
-	public IControl<?, ?> getRefWidget() {
-		return widget;
+	public IControl<?, ?> getRefControl() {
+		return control;
 	}
 	
 	//method
@@ -65,8 +65,8 @@ public final class PropertyBinding {
 	//method
 	void removeCurrentError() {
 		currentError = null;
-		errorLabel.emptyText();
-		errorLabel.setCollapsed();
+		//TODO: errorText.emptyText();
+		//TODO: errorText.setCollapsed();
 	}
 	
 	//method
@@ -97,8 +97,8 @@ public final class PropertyBinding {
 	
 	//method
 	private void updateErrorLabelFrom(final Throwable error) {
-		errorLabel
-		.setExpanded()
+		errorText
+		//TODO: .setExpanded()
 		.setText(getErrorMessageFrom(error));
 	}
 }

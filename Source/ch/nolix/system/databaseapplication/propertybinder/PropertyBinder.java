@@ -6,62 +6,61 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
-//TODO: Adjust method names.
 //class
 public abstract class PropertyBinder<P extends IProperty<?>, W extends IControl<?, ?>> {
 	
 	//method
-	public final PropertyBinding bindWidgetWithProperty(final W widget, final P property) {
+	public final PropertyBinding bindControlWithProperty(final W control, final P property) {
 		
-		final var propertyBinding = new PropertyBinding(property, widget);
+		final var propertyBinding = new PropertyBinding(property, control);
 		
-		bindWidgetToProperty(widget, property, propertyBinding);
-		updateWidgetFromProperty(widget, property);
+		bindControlToProperty(control, property, propertyBinding);
+		updateControlFromProperty(control, property);
 		
 		return propertyBinding;
 	}
 	
 	//method
-	public final PropertyBinding createWidgetAndBindItWith(final P property) {
-		return bindWidgetWithProperty(createWidget(), property);
+	public final PropertyBinding createControlAndBindItWith(final P property) {
+		return bindControlWithProperty(createControl(), property);
 	}
 	
 	//method declaration
-	protected abstract void addSelectionOptionsToWidgetForProperty(W widget, P property);
+	protected abstract void addSelectionOptionsToControlForProperty(W control, P property);
 	
 	//method declaration
-	protected abstract W createWidget();
+	protected abstract W createControl();
 	
 	//method declaration
-	protected abstract void setNoteUpdateActionToWidget(W widget, IAction noteUpdateAction);
+	protected abstract void setNoteUpdateActionToControl(W control, IAction noteUpdateAction);
 	
 	//method declaration
-	protected abstract void updatePropertyFromWidget(P property, W widget);
+	protected abstract void updatePropertyFromControl(P property, W control);
 	
 	//method declaration
-	protected abstract void updateWidgetFromProperty(W widget, P property);
+	protected abstract void updateControlFromProperty(W control, P property);
 	
 	//method
-	private void bindWidgetToProperty(final W widget, final P property, final PropertyBinding propertyBinding) {
+	private void bindControlToProperty(final W control, final P property, final PropertyBinding propertyBinding) {
 		
-		addSelectionOptionsToWidgetForProperty(widget, property);
+		addSelectionOptionsToControlForProperty(control, property);
 		
-		property.setUpdateAction(() -> updateWidgetFromProperty(widget, property));
+		property.setUpdateAction(() -> updateControlFromProperty(control, property));
 		
-		setNoteUpdateActionToWidget(
-			widget,
-			() -> updatePropertyFromWidgetCatchingErrors(property, widget, propertyBinding)
+		setNoteUpdateActionToControl(
+			control,
+			() -> updatePropertyFromControlCatchingErrors(property, control, propertyBinding)
 		);
 	}
 	
 	//method
-	private void updatePropertyFromWidgetCatchingErrors(
+	private void updatePropertyFromControlCatchingErrors(
 		final P property,
-		final W widget,
+		final W control,
 		final PropertyBinding propertyBinding
 	) {
 		try {
-			updatePropertyFromWidget(property, widget);
+			updatePropertyFromControl(property, control);
 			propertyBinding.removeCurrentError();
 		} catch (final Throwable error) {
 			propertyBinding.setCurrentError(error);

@@ -12,7 +12,7 @@ public class OptionalValueBinder extends PropertyBinder<IOptionalValue<?, ?>, IT
 	
 	//method
 	@Override
-	protected void addSelectionOptionsToWidgetForProperty(
+	protected void addSelectionOptionsToControlForProperty(
 		final ITextbox<?, ?> widget,
 		final IOptionalValue<?, ?> optionalValue
 	) {
@@ -21,19 +21,19 @@ public class OptionalValueBinder extends PropertyBinder<IOptionalValue<?, ?>, IT
 	
 	//method
 	@Override
-	protected ITextbox<?, ?> createWidget() {
+	protected ITextbox<?, ?> createControl() {
 		return new Textbox();
 	}
 	
 	//method
 	@Override
-	protected void setNoteUpdateActionToWidget(final ITextbox<?, ?> textBox, final IAction noteUpdateAction) {
+	protected void setNoteUpdateActionToControl(final ITextbox<?, ?> textBox, final IAction noteUpdateAction) {
 		textBox.setUpdateTextAction(noteUpdateAction);
 	}
 	
 	//method
 	@Override
-	protected void updatePropertyFromWidget(final IOptionalValue<?, ?> optionalValue, final ITextbox<?, ?> textBox) {
+	protected void updatePropertyFromControl(final IOptionalValue<?, ?> optionalValue, final ITextbox<?, ?> textBox) {
 		if (textBox.getText().isEmpty()) {
 			optionalValue.clear();
 		} else {
@@ -43,7 +43,7 @@ public class OptionalValueBinder extends PropertyBinder<IOptionalValue<?, ?>, IT
 	
 	//method
 	@Override
-	protected void updateWidgetFromProperty(final ITextbox<?, ?> textBox, final IOptionalValue<?, ?> optionalValue) {
+	protected void updateControlFromProperty(final ITextbox<?, ?> textBox, final IOptionalValue<?, ?> optionalValue) {
 		if (optionalValue.isEmpty()) {
 			textBox.emptyText();
 		} else {

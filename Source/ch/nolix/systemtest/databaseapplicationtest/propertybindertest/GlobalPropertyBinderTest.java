@@ -14,19 +14,19 @@ public final class GlobalPropertyBinderTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_createWidgetAndBindItWith() {
+	public void testCase_createControlAndBindItWith() {
 		
 		//setup
 		final var value = new Value<String>();
 		value.setValue("");
 		
 		//execution
-		final var result = GlobalPropertyBinder.createWidgetAndBindItWith(value);
+		final var result = GlobalPropertyBinder.createControlAndBindItWith(value);
 		
 		//verification part 1
 		expect(result.getRefProperty()).isSameAs(value);
-		expect(result.getRefWidget()).isOfType(TextBox.class);
-		final var textBox = (ITextbox<?, ?>)result.getRefWidget();
+		expect(result.getRefControl()).isOfType(TextBox.class);
+		final var textBox = (ITextbox<?, ?>)result.getRefControl();
 		expect(value.getRefValue()).isEqualTo("");
 		expect(textBox.getText()).isEqualTo("");
 		
@@ -54,7 +54,7 @@ public final class GlobalPropertyBinderTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_createWidgetAndBindItWith_whenPropertyDoesNotHaveInitialValue() {
+	public void testCase_createControlAndBindItWith_whenPropertyDoesNotHaveInitialValue() {
 		
 		//setup
 		final var value = new Value<String>();
@@ -63,31 +63,31 @@ public final class GlobalPropertyBinderTest extends Test {
 		expect(value.isEmpty());
 		
 		//execution
-		final var result = GlobalPropertyBinder.createWidgetAndBindItWith(value);
+		final var result = GlobalPropertyBinder.createControlAndBindItWith(value);
 		
 		//verification
 		expect(result.getRefProperty()).isSameAs(value);
-		expect(result.getRefWidget()).isOfType(TextBox.class);
-		final var textBox = (ITextbox<?, ?>)result.getRefWidget();
+		expect(result.getRefControl()).isOfType(TextBox.class);
+		final var textBox = (ITextbox<?, ?>)result.getRefControl();
 		expect(value.isEmpty());
 		expect(textBox.getText()).isEqualTo("");
 	}
 	
 	//method
 	@TestCase
-	public void testCase_createWidgetAndBindItWith_whenPropertyHasInitialValue() {
+	public void testCase_createControlAndBindItWith_whenPropertyHasInitialValue() {
 		
 		//setup
 		final var value = new Value<String>();
 		value.setValue("zebra");
 		
 		//execution
-		final var result = GlobalPropertyBinder.createWidgetAndBindItWith(value);
+		final var result = GlobalPropertyBinder.createControlAndBindItWith(value);
 		
 		//verification
 		expect(result.getRefProperty()).isSameAs(value);
-		expect(result.getRefWidget()).isOfType(TextBox.class);
-		final var textBox = (ITextbox<?, ?>)result.getRefWidget();
+		expect(result.getRefControl()).isOfType(TextBox.class);
+		final var textBox = (ITextbox<?, ?>)result.getRefControl();
 		expect(value.getRefValue()).isEqualTo("zebra");
 		expect(textBox.getText()).isEqualTo("zebra");
 	}
