@@ -162,7 +162,6 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
 	//method
 	@Override
 	public final IItemMenuItem<?> getRefSelectedItem() {
-		//TODO: Decide if IItemMenu can have 1 or several items selected.
 		return getRefItems().getRefFirst(IItemMenuItem::isSelected);
 	}
 	
