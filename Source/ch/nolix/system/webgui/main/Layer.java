@@ -36,6 +36,9 @@ import ch.nolix.systemapi.webguiapi.mainapi.LayerRole;
 public final class Layer extends StylableElement<Layer> implements ILayer<Layer> {
 	
 	//constant
+	public static final double DEFAULT_OPACITY = 1.0;
+	
+	//constant
 	public static final ContentPosition DEFAULT_CONTENT_POSITION = ContentPosition.TOP;
 	
 	//static method
@@ -49,6 +52,9 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	
 	//constant
 	private static final String ROLE_HEADER = PascalCaseCatalogue.ROLE;
+	
+	//constant
+	private static final String OPACITY_HEADER = PascalCaseCatalogue.OPACITY;
 	
 	//constant
 	private static final String BACKGROUND_HEADER = PascalCaseCatalogue.BACKGROUND;
@@ -70,6 +76,16 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 		this::setRole,
 		LayerRole::fromSpecification,
 		Node::fromEnum
+	);
+	
+	//attribute
+	private final MutableValue<Double> opacity =
+	new MutableValue<>(
+		OPACITY_HEADER,
+		DEFAULT_OPACITY,
+		this::setOpacity,
+		s -> getOpacityFromString(s.getSingleChildNodeHeader()),
+		Node::withChildNode
 	);
 	
 	//attribute
@@ -169,6 +185,12 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	@Override
 	public String getFixedId() {
 		return fixedId;
+	}
+	
+	//method
+	@Override
+	public double getOpacity() {
+		return opacity.getValue();
 	}
 	
 	//method
@@ -371,6 +393,17 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	
 	//method
 	@Override
+	public Layer setOpacity(final double opacity) {
+		
+		GlobalValidator.assertThat(opacity).thatIsNamed("opacity").isBetween(0.0, 1.0);
+		
+		this.opacity.setValue(opacity);
+		
+		return this;
+	}
+	
+	//method
+	@Override
 	public Layer setRole(final LayerRole role) {
 		
 		this.role.setValue(role);
@@ -442,6 +475,18 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 		
 		list.addAtEnd(childControls);
 		childControls.forEach(cc -> fillUpChildControlsOfControlIntoListRecursively(cc, list));
+	}
+	
+	//method
+	private double getOpacityFromString(final String string) {
+		
+		GlobalValidator.assertThat(string).thatIsNamed(String.class).isNotNull();
+		
+		if (!string.endsWith("%")) {
+			return Double.valueOf(string);
+		}
+		
+		return (Double.valueOf(string.substring(0, string.length() - 1)) / 100);
 	}
 	
 	//method

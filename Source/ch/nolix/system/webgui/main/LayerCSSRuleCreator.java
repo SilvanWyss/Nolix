@@ -38,6 +38,10 @@ public final class LayerCSSRuleCreator {
 		
 		final var lCSSProperties = new LinkedList<ICSSProperty>();
 		
+		if (layer.getOpacity() != 1.0) {
+			lCSSProperties.addAtEnd(CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.OPACITY, layer.getOpacity()));
+		}
+		
 		lCSSProperties.addAtEnd(
 			getZIndexCSSPropertyForLayer(layer),
 			CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.MARGIN, "0px"),

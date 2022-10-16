@@ -30,6 +30,9 @@ IRootControlOwner<L> {
 	ICSSRule<?> getCSSRule();
 	
 	//method declaration
+	double getOpacity();
+	
+	//method declaration
 	IWebGUI<?> getRefParentGUI();
 	
 	//method declaration
@@ -46,6 +49,9 @@ IRootControlOwner<L> {
 	
 	//method declaration
 	L setRole(LayerRole role);
+	
+	//method declaration
+	L setOpacity(double opacity);
 	
 	//method declaration
 	void technicalSetParentGUI(IWebGUI<?> parentGUI);
