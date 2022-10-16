@@ -109,7 +109,14 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS, ItemMenuItem> {
 	) {
 		return addItem(ItemMenuItem.withTextAndSelectAction(text, selectAction));
 	}
-
+	
+	//method
+	@Override
+	public final boolean blankItemIsSelected() {
+		//TODO: Implement.
+		return false;
+	}
+	
 	//method
 	@Override
 	public final void clear() {
@@ -154,13 +161,20 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS, ItemMenuItem> {
 	
 	//method
 	@Override
+	public final ItemMenuItem getRefSelectedItem() {
+		//TODO: Decide if IItemMenu can have 1 or several items selected.
+		return getRefItems().getRefFirst(IItemMenuItem::isSelected);
+	}
+	
+	//method
+	@Override
 	public final String getTextByItemId(final String itemId) {
 		return getRefItemByItemId(itemId).getText();
 	}
 	
 	//method
 	@Override
-	public String getUserInput() {
+	public final String getUserInput() {
 		
 		if (isEmpty()) {
 			return StringCatalogue.EMPTY_STRING;
@@ -243,9 +257,25 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS, ItemMenuItem> {
 	
 	//method
 	@Override
+	public IM selectBlankItem() {
+		//TODO: Implement.
+		return asConcrete();
+	}
+	
+	//method
+	@Override
 	public final IM selectFirstItem() {
 		
 		getRefFirstItem().select();
+		
+		return asConcrete();
+	}
+	
+	//method
+	@Override
+	public IM selectItemById(final String id) {
+		
+		getRefItemByItemId(id).select();
 		
 		return asConcrete();
 	}
@@ -272,7 +302,7 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS, ItemMenuItem> {
 	
 	//method
 	@Override
-	public IM setUserInput(final String userInput) {
+	public final IM setUserInput(final String userInput) {
 		
 		if (userInput.isEmpty()) {
 			getRefItems().forEach(IItemMenuItem::unselect);
@@ -332,6 +362,7 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS, ItemMenuItem> {
 		return getRefItems().getRefFirst();
 	}
 	
+	//TODO: Adjust method names.
 	//method
 	private ItemMenuItem getRefItemByItemId(final String itemId) {
 		return getRefItems().getRefFirst(i -> i.hasId(itemId));

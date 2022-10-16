@@ -41,6 +41,9 @@ extends Clearable, IControl<IM, IMS> {
 	IM addItemWithTextAndSelectAction(String text, IElementTaker<IItemMenuItem<?>> selectAction);
 	
 	//method declaration
+	boolean blankItemIsSelected();
+	
+	//method declaration
 	boolean containsBlankItem();
 	
 	//method declaration
@@ -56,13 +59,22 @@ extends Clearable, IControl<IM, IMS> {
 	IContainer<IMI> getRefItems();
 	
 	//method declaration
+	IMI getRefSelectedItem();
+	
+	//method declaration
 	String getTextByItemId(String itemId);
 	
 	//method declaration
 	void removeSelectAction();
 	
 	//method declaration
+	IM selectBlankItem();
+	
+	//method declaration
 	IM selectFirstItem();
+	
+	//method declaration
+	IM selectItemById(String id);
 	
 	//method declaration
 	IM setSelectAction(IAction selectAction);

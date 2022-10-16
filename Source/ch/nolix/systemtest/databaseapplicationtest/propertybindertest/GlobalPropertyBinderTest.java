@@ -7,6 +7,7 @@ import ch.nolix.core.testing.test.Test;
 import ch.nolix.system.databaseapplication.propertybinder.GlobalPropertyBinder;
 import ch.nolix.system.gui.textbox.TextBox;
 import ch.nolix.system.objectdata.data.Value;
+import ch.nolix.systemapi.webguiapi.controlapi.ITextbox;
 
 //class
 public final class GlobalPropertyBinderTest extends Test {
@@ -25,7 +26,7 @@ public final class GlobalPropertyBinderTest extends Test {
 		//verification part 1
 		expect(result.getRefProperty()).isSameAs(value);
 		expect(result.getRefWidget()).isOfType(TextBox.class);
-		final var textBox = (TextBox)result.getRefWidget();
+		final var textBox = (ITextbox<?, ?>)result.getRefWidget();
 		expect(value.getRefValue()).isEqualTo("");
 		expect(textBox.getText()).isEqualTo("");
 		
@@ -67,7 +68,7 @@ public final class GlobalPropertyBinderTest extends Test {
 		//verification
 		expect(result.getRefProperty()).isSameAs(value);
 		expect(result.getRefWidget()).isOfType(TextBox.class);
-		final var textBox = (TextBox)result.getRefWidget();
+		final var textBox = (ITextbox<?, ?>)result.getRefWidget();
 		expect(value.isEmpty());
 		expect(textBox.getText()).isEqualTo("");
 	}
@@ -86,7 +87,7 @@ public final class GlobalPropertyBinderTest extends Test {
 		//verification
 		expect(result.getRefProperty()).isSameAs(value);
 		expect(result.getRefWidget()).isOfType(TextBox.class);
-		final var textBox = (TextBox)result.getRefWidget();
+		final var textBox = (ITextbox<?, ?>)result.getRefWidget();
 		expect(value.getRefValue()).isEqualTo("zebra");
 		expect(textBox.getText()).isEqualTo("zebra");
 	}
