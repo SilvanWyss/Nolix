@@ -372,6 +372,10 @@ public final class WebGUI extends StyleElement<WebGUI> implements IWebGUI<WebGUI
 	//method
 	@Override
 	protected void resetStyle() {
-		setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
+		
+		//An image will not be reset since an image is not supposed to be applied from a Style.
+		if (hasBackground() && getBackground().getType() != BackgroundType.IMAGE) {
+			setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
+		}
 	}
 }
