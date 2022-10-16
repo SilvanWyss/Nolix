@@ -3,8 +3,7 @@ package ch.nolix.systemapi.webguiapi.itemmenuapi;
 
 //interface
 public interface IDropdownMenu<
-	DM extends IDropdownMenu<DM, DMS, IMI>,
-	DMS extends IDropdownMenuStyle<DMS>,
-	IMI extends IItemMenuItem<IMI>
+	DM extends IDropdownMenu<DM, DMS>,
+	DMS extends IDropdownMenuStyle<DMS>
 >
-extends IItemMenu<DM, DMS, IMI> {}
+extends IItemMenu<DM, DMS> {}

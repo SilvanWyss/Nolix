@@ -10,14 +10,13 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //interface
 public interface IItemMenu<
-	IM extends IItemMenu<IM, IMS, IMI>,
-	IMS extends IItemMenuStyle<IMS>,
-	IMI extends IItemMenuItem<IMI>
+	IM extends IItemMenu<IM, IMS>,
+	IMS extends IItemMenuStyle<IMS>
 > 
 extends Clearable, IControl<IM, IMS> {
 	
 	//method declaration
-	IM addItem(@SuppressWarnings("unchecked")IMI... items);
+	IM addItem(IItemMenuItem<?>... items);
 	
 	//method declaration
 	IM addBlankItem();
@@ -56,10 +55,10 @@ extends Clearable, IControl<IM, IMS> {
 	String getIdByItemText(String itemText);
 	
 	//method declaration
-	IContainer<IMI> getRefItems();
+	IContainer<IItemMenuItem<?>> getRefItems();
 	
 	//method declaration
-	IMI getRefSelectedItem();
+	IItemMenuItem<?> getRefSelectedItem();
 	
 	//method declaration
 	String getTextByItemId(String itemId);
@@ -81,4 +80,7 @@ extends Clearable, IControl<IM, IMS> {
 	
 	//method declaration
 	IM setSelectAction(IElementTaker<IItemMenuItem<?>> selectAction);
+	
+	//method declaration
+	void technicalRunOptionalSelectActionForItem(IItemMenuItem<?> item);
 }

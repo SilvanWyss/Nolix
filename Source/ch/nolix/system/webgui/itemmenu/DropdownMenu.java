@@ -11,7 +11,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControlCSSRuleCreator;
 //class
 public final class DropdownMenu
 extends ItemMenu<DropdownMenu, DropdownMenuStyle>
-implements IDropdownMenu<DropdownMenu, DropdownMenuStyle, ItemMenuItem> {
+implements IDropdownMenu<DropdownMenu, DropdownMenuStyle> {
 	
 	//method
 	@Override

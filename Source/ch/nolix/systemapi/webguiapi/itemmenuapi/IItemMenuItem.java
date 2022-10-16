@@ -16,4 +16,7 @@ extends BlanknessRequestable, IdentifiedByString, IMutableElement, Selectable {
 	
 	//method declaration
 	String getText();
+	
+	//method declaration
+	void technicalSetParentMenu(IItemMenu<?, ?> parentMenu);
 }

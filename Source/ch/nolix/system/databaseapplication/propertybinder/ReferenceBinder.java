@@ -9,18 +9,18 @@ import ch.nolix.systemapi.objectdataapi.dataapi.IReference;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.IDropdownMenu;
 
 //class
-public final class ReferenceBinder extends PropertyBinder<IReference<?, IEntity<?>>, IDropdownMenu<?, ?, ?>> {
+public final class ReferenceBinder extends PropertyBinder<IReference<?, IEntity<?>>, IDropdownMenu<?, ?>> {
 	
 	//method
 	@Override
-	protected IDropdownMenu<?, ?, ?> createWidget() {
+	protected IDropdownMenu<?, ?> createWidget() {
 		return new DropdownMenu();
 	}
 	
 	//method
 	@Override
 	protected void addSelectionOptionsToWidgetForProperty(
-		final IDropdownMenu<?, ?, ?> dropdownMenu,
+		final IDropdownMenu<?, ?> dropdownMenu,
 		final IReference<?, IEntity<?>> reference
 	) {
 		for (final var e : reference.getReferencedTable().getRefAllEntities()) {
@@ -31,7 +31,7 @@ public final class ReferenceBinder extends PropertyBinder<IReference<?, IEntity<
 	//method
 	@Override
 	protected void setNoteUpdateActionToWidget(
-		final IDropdownMenu<?, ?, ?> dropdownMenu,
+		final IDropdownMenu<?, ?> dropdownMenu,
 		final IAction noteUpdateValueAction
 	) {
 		dropdownMenu.setSelectAction(noteUpdateValueAction);
@@ -41,7 +41,7 @@ public final class ReferenceBinder extends PropertyBinder<IReference<?, IEntity<
 	@Override
 	protected void updatePropertyFromWidget(
 		final IReference<?, IEntity<?>> reference,
-		final IDropdownMenu<?, ?, ?> dropdownMenu
+		final IDropdownMenu<?, ?> dropdownMenu
 	) {
 		
 		final var selectedEntityId = dropdownMenu.getRefSelectedItem().getId();
@@ -52,7 +52,7 @@ public final class ReferenceBinder extends PropertyBinder<IReference<?, IEntity<
 	//method
 	@Override
 	protected void updateWidgetFromProperty(
-		final IDropdownMenu<?, ?, ?> dropdownMenu,
+		final IDropdownMenu<?, ?> dropdownMenu,
 		final IReference<?, IEntity<?>> reference
 	) {
 		if (reference.containsAny()) {

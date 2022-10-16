@@ -23,18 +23,18 @@ public abstract class ItemMenu<
 	IM extends ItemMenu<IM, IMS>,
 	IMS extends IItemMenuStyle<IMS>
 >
-extends Control<IM, IMS> implements IItemMenu<IM, IMS, ItemMenuItem> {
+extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
 	
 	//constant
 	private static final String ITEM_HEADER = PascalCaseCatalogue.ITEM;
 	
 	//attribute
-	private final MultiValue<ItemMenuItem> items =
+	private final MultiValue<IItemMenuItem<?>> items =
 	new MultiValue<>(
 		ITEM_HEADER,
 		this::addItem,
 		ItemMenuItem::fromSpecification,
-		ItemMenuItem::getSpecification
+		IItemMenuItem::getSpecification
 	);
 	
 	//optional attribute
@@ -49,13 +49,13 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS, ItemMenuItem> {
 	
 	//method
 	@Override
-	public final IM addItem(final ItemMenuItem... items) {
+	public final IM addItem(final IItemMenuItem<?>... items) {
 		
 		for (final var i : items) {
 			
 			assertCanAddItem(i);
 			
-			i.internalSetParentMenu(this);
+			i.technicalSetParentMenu(this);
 			this.items.add(i);
 		}
 		
@@ -155,13 +155,13 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS, ItemMenuItem> {
 	
 	//method
 	@Override
-	public final IContainer<ItemMenuItem> getRefItems() {
+	public final IContainer<IItemMenuItem<?>> getRefItems() {
 		return items.getRefValues();
 	}
 	
 	//method
 	@Override
-	public final ItemMenuItem getRefSelectedItem() {
+	public final IItemMenuItem<?> getRefSelectedItem() {
 		//TODO: Decide if IItemMenu can have 1 or several items selected.
 		return getRefItems().getRefFirst(IItemMenuItem::isSelected);
 	}
@@ -314,6 +314,13 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS, ItemMenuItem> {
 	}
 	
 	//method
+	public final void technicalRunOptionalSelectActionForItem(final IItemMenuItem<?> item) {
+		if (hasSelectAction()) {
+			selectAction.run(item);
+		}
+	}
+	
+	//method
 	@Override
 	protected final void resetControl() {
 		
@@ -323,14 +330,7 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS, ItemMenuItem> {
 	}
 	
 	//method
-	final void internalRunOptionalSelectActionForItem(final ItemMenuItem item) {
-		if (hasSelectAction()) {
-			selectAction.run(item);
-		}
-	}
-	
-	//method
-	private void assertCanAddItem(final ItemMenuItem item) {
+	private void assertCanAddItem(final IItemMenuItem<?> item) {
 		assertDoesNotContainItemWithId(item.getId());
 		assertDoesNotContainItemWithText(item.getText());
 	}
@@ -358,18 +358,18 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS, ItemMenuItem> {
 	}
 	
 	//method
-	private ItemMenuItem getRefFirstItem() {
+	private IItemMenuItem<?> getRefFirstItem() {
 		return getRefItems().getRefFirst();
 	}
 	
 	//TODO: Adjust method names.
 	//method
-	private ItemMenuItem getRefItemByItemId(final String itemId) {
+	private IItemMenuItem<?> getRefItemByItemId(final String itemId) {
 		return getRefItems().getRefFirst(i -> i.hasId(itemId));
 	}
 	
 	//method
-	private ItemMenuItem getRefItemByItemText(final String itemText) {
+	private IItemMenuItem<?> getRefItemByItemText(final String itemText) {
 		return getRefItems().getRefFirst(i -> i.getText().equals(itemText));
 	}
 	

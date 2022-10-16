@@ -23,7 +23,7 @@ public final class DropdownMenuHTMLCreator {
 	private DropdownMenuHTMLCreator() {}
 	
 	//method
-	public HTMLElement createHTMLElementForDropdownMenu(final IDropdownMenu<?, ?, ?> dropdownMenu) {
+	public HTMLElement createHTMLElementForDropdownMenu(final IDropdownMenu<?, ?> dropdownMenu) {
 		return
 		HTMLElement.withTypeAndAttributesAndChildElements(
 			HTMLElementTypeCatalogue.SELECT,
@@ -34,7 +34,7 @@ public final class DropdownMenuHTMLCreator {
 	
 	//method
 	private IContainer<? extends IHTMLAttribute> createHTMLAttributesForDropdownMenu(
-		final IDropdownMenu<?, ?, ?> dropdownMenu
+		final IDropdownMenu<?, ?> dropdownMenu
 	) {
 		
 		final var lHTMLAttribtues = new LinkedList<IHTMLAttribute>();
@@ -55,7 +55,7 @@ public final class DropdownMenuHTMLCreator {
 	
 	//method
 	private IContainer<IHTMLElement<?, ?>> createHTMLChildElementsForDropdownMenu(
-		final IDropdownMenu<?, ?, ? extends IItemMenuItem<?>> dropdownMenu
+		final IDropdownMenu<?, ?> dropdownMenu
 	) {
 		return createHTMLElementsFromItems(dropdownMenu.getRefItems());
 	}
