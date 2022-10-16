@@ -3,36 +3,41 @@ package ch.nolix.system.databaseapplication.propertybinder;
 
 //own imports
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
-import ch.nolix.system.gui.widget.DropdownMenu;
+import ch.nolix.system.webgui.itemmenu.DropdownMenu;
 import ch.nolix.systemapi.objectdataapi.dataapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalReference;
+import ch.nolix.systemapi.webguiapi.itemmenuapi.IDropdownMenu;
 
 //class
-public final class OptionalReferenceBinder extends PropertyBinder<IOptionalReference<?, IEntity<?>>, DropdownMenu>{
+public final class OptionalReferenceBinder
+extends PropertyBinder<IOptionalReference<?, IEntity<?>>, IDropdownMenu<?, ?, ?>> {
 	
 	//method
 	@Override
 	protected void addSelectionOptionsToWidgetForProperty(
-		final DropdownMenu dropdownMenu,
+		final  IDropdownMenu<?, ?, ?> dropdownMenu,
 		final IOptionalReference<?, IEntity<?>> optionalReference
 	) {
 		
-		dropdownMenu.addEmtyItem();
+		dropdownMenu.addBlankItem();
 		
 		for (final var e : optionalReference.getReferencedTable().getRefAllEntities()) {
-			dropdownMenu.addItem(e.getId(), e.getShortDescription());
+			dropdownMenu.addItemWithIdAndText(e.getId(), e.getShortDescription());
 		}
 	}
 	
 	//method
 	@Override
-	protected DropdownMenu createWidget() {
+	protected IDropdownMenu<?, ?, ?> createWidget() {
 		return new DropdownMenu();
 	}
 	
 	//method
 	@Override
-	protected void setNoteUpdateActionToWidget(final DropdownMenu dropdownMenu, final IAction noteUpdateAction) {
+	protected void setNoteUpdateActionToWidget(
+		final  IDropdownMenu<?, ?, ?> dropdownMenu,
+		final IAction noteUpdateAction
+	) {
 		dropdownMenu.setSelectAction(noteUpdateAction);
 	}
 	
@@ -40,9 +45,9 @@ public final class OptionalReferenceBinder extends PropertyBinder<IOptionalRefer
 	@Override
 	protected void updatePropertyFromWidget(
 		final IOptionalReference<?, IEntity<?>> optionalReference,
-		final DropdownMenu dropdownMenu
+		final  IDropdownMenu<?, ?, ?> dropdownMenu
 	) {
-		if (dropdownMenu.emptyItemIsSelected()) {
+		if (dropdownMenu.blankItemIsSelected()) {
 			optionalReference.clear();
 		} else {
 			
@@ -55,11 +60,11 @@ public final class OptionalReferenceBinder extends PropertyBinder<IOptionalRefer
 	//method
 	@Override
 	protected void updateWidgetFromProperty(
-		final DropdownMenu dropdownMenu,
+		final  IDropdownMenu<?, ?, ?> dropdownMenu,
 		final IOptionalReference<?, IEntity<?>> optionalReference
 	) {
 		if (optionalReference.isEmpty()) {
-			dropdownMenu.selectEmptyItem();
+			dropdownMenu.selectBlankItem();
 		} else {
 			dropdownMenu.selectItemById(optionalReference.getEntityId());
 		}

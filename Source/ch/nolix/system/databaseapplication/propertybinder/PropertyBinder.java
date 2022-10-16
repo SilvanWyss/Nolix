@@ -3,11 +3,12 @@ package ch.nolix.system.databaseapplication.propertybinder;
 
 //own imports
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
-import ch.nolix.system.gui.widget.Widget;
 import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
+import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
+//TODO: Adjust method names.
 //class
-public abstract class PropertyBinder<P extends IProperty<?>, W extends Widget<W, ?>> {
+public abstract class PropertyBinder<P extends IProperty<?>, W extends IControl<?, ?>> {
 	
 	//method
 	public final PropertyBinding bindWidgetWithProperty(final W widget, final P property) {

@@ -3,39 +3,40 @@ package ch.nolix.system.databaseapplication.propertybinder;
 
 //own imports
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
-import ch.nolix.system.gui.textbox.TextBox;
+import ch.nolix.system.webgui.control.Textbox;
 import ch.nolix.systemapi.objectdataapi.dataapi.IValue;
+import ch.nolix.systemapi.webguiapi.controlapi.ITextbox;
 
 //class
-public final class ValueBinder extends PropertyBinder<IValue<?, ?>, TextBox> {
+public final class ValueBinder extends PropertyBinder<IValue<?, ?>, ITextbox<?, ?>> {
 	
 	//attribute
 	@Override
-	protected void addSelectionOptionsToWidgetForProperty(final TextBox widget, final IValue<?, ?> property) {
+	protected void addSelectionOptionsToWidgetForProperty(final ITextbox<?, ?> widget, final IValue<?, ?> property) {
 		//Does nothing.
 	}
 	
 	//method
 	@Override
-	protected TextBox createWidget() {
-		return new TextBox();
+	protected ITextbox<?, ?> createWidget() {
+		return new Textbox();
 	}
 	
 	//method
 	@Override
-	protected void setNoteUpdateActionToWidget(final TextBox textBox, final IAction noteUpdateAction) {
-		textBox.setNoteTextUpdateAction(noteUpdateAction);
+	protected void setNoteUpdateActionToWidget(final ITextbox<?, ?> textBox, final IAction noteUpdateAction) {
+		textBox.setUpdateTextAction(noteUpdateAction);
 	}
 	
 	//method
 	@Override
-	protected void updatePropertyFromWidget(final IValue<?, ?> value, final TextBox textBox) {
+	protected void updatePropertyFromWidget(final IValue<?, ?> value, final ITextbox<?, ?> textBox) {
 		value.setValueFromStringRepresentation(textBox.getText());
 	}
 	
 	//method
 	@Override
-	protected void updateWidgetFromProperty(final TextBox textBox, final IValue<?, ?> value) {
+	protected void updateWidgetFromProperty(final ITextbox<?, ?> textBox, final IValue<?, ?> value) {
 		if (value.containsAny()) {
 			textBox.setText(value.getRefValue().toString());
 		}

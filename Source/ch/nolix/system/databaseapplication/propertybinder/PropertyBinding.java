@@ -6,25 +6,25 @@ import ch.nolix.core.container.main.SingleContainer;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.gui.widget.Label;
 import ch.nolix.system.gui.widget.LabelRole;
-import ch.nolix.system.gui.widget.Widget;
 import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
+import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //class
 public final class PropertyBinding {
 	
 	//attributes
 	private final IProperty<?> property;
-	private final Widget<?, ?> widget;
+	private final IControl<?, ?> widget;
 	private final Label errorLabel = new Label().setRole(LabelRole.ERROR_TEXT);
 	
 	//optional attribute
 	private Throwable currentError;
 	
 	//constructors
-	public PropertyBinding(final IProperty<?> property, final Widget<?, ?> widget) {
+	public PropertyBinding(final IProperty<?> property, final IControl<?, ?> widget) {
 		
 		GlobalValidator.assertThat(property).thatIsNamed(IProperty.class).isNotNull();
-		GlobalValidator.assertThat(widget).thatIsNamed(Widget.class).isNotNull();
+		GlobalValidator.assertThat(widget).thatIsNamed(IControl.class).isNotNull();
 		
 		this.property = property;
 		this.widget = widget;
@@ -53,7 +53,7 @@ public final class PropertyBinding {
 	}
 	
 	//method
-	public Widget<?, ?> getRefWidget() {
+	public IControl<?, ?> getRefWidget() {
 		return widget;
 	}
 	

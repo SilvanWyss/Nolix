@@ -3,16 +3,17 @@ package ch.nolix.system.databaseapplication.propertybinder;
 
 //own imports
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
-import ch.nolix.system.gui.textbox.TextBox;
+import ch.nolix.system.webgui.control.Textbox;
 import ch.nolix.systemapi.objectdataapi.dataapi.IOptionalValue;
+import ch.nolix.systemapi.webguiapi.controlapi.ITextbox;
 
 //class
-public class OptionalValueBinder extends PropertyBinder<IOptionalValue<?, ?>, TextBox> {
+public class OptionalValueBinder extends PropertyBinder<IOptionalValue<?, ?>, ITextbox<?, ?>> {
 	
 	//method
 	@Override
 	protected void addSelectionOptionsToWidgetForProperty(
-		final TextBox widget,
+		final ITextbox<?, ?> widget,
 		final IOptionalValue<?, ?> optionalValue
 	) {
 		//Does nothing.
@@ -20,19 +21,19 @@ public class OptionalValueBinder extends PropertyBinder<IOptionalValue<?, ?>, Te
 	
 	//method
 	@Override
-	protected TextBox createWidget() {
-		return new TextBox();
+	protected ITextbox<?, ?> createWidget() {
+		return new Textbox();
 	}
 	
 	//method
 	@Override
-	protected void setNoteUpdateActionToWidget(final TextBox textBox, final IAction noteUpdateAction) {
-		textBox.setNoteTextUpdateAction(noteUpdateAction);
+	protected void setNoteUpdateActionToWidget(final ITextbox<?, ?> textBox, final IAction noteUpdateAction) {
+		textBox.setUpdateTextAction(noteUpdateAction);
 	}
 	
 	//method
 	@Override
-	protected void updatePropertyFromWidget(final IOptionalValue<?, ?> optionalValue, final TextBox textBox) {
+	protected void updatePropertyFromWidget(final IOptionalValue<?, ?> optionalValue, final ITextbox<?, ?> textBox) {
 		if (textBox.getText().isEmpty()) {
 			optionalValue.clear();
 		} else {
@@ -42,7 +43,7 @@ public class OptionalValueBinder extends PropertyBinder<IOptionalValue<?, ?>, Te
 	
 	//method
 	@Override
-	protected void updateWidgetFromProperty(final TextBox textBox, final IOptionalValue<?, ?> optionalValue) {
+	protected void updateWidgetFromProperty(final ITextbox<?, ?> textBox, final IOptionalValue<?, ?> optionalValue) {
 		if (optionalValue.isEmpty()) {
 			textBox.emptyText();
 		} else {
