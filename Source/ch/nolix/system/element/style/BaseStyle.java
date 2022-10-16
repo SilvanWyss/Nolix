@@ -15,7 +15,6 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.element.mutableelement.MultiValue;
 import ch.nolix.system.element.mutableelement.MutableElement;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
-import ch.nolix.system.gui.widget.Widget;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 import ch.nolix.systemapi.elementapi.styleapi.IStyle;
 
@@ -476,7 +475,7 @@ implements IStyle {
 	
 	//method declaration
 	/**
-	 * Resets the current {@link Widget}.
+	 * Resets the current {@link BaseStyle}.
 	 */
 	protected abstract void resetBaseConfiguration();
 
