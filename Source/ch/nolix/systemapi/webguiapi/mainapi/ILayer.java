@@ -9,7 +9,6 @@ import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 import ch.nolix.systemapi.guiapi.canvasuniversalapi.ICanvas;
 import ch.nolix.systemapi.guiapi.inputapi.IInputTaker;
 import ch.nolix.systemapi.guiapi.structureproperty.ContentPosition;
-import ch.nolix.systemapi.guiapi.widgetguiapi.LayerRole;
 
 //interface
 public interface ILayer<L extends ILayer<L>>

@@ -27,10 +27,10 @@ import ch.nolix.systemapi.guiapi.imageapi.ImageApplication;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.structureproperty.BackgroundType;
 import ch.nolix.systemapi.guiapi.structureproperty.ContentPosition;
-import ch.nolix.systemapi.guiapi.widgetguiapi.LayerRole;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGUI;
+import ch.nolix.systemapi.webguiapi.mainapi.LayerRole;
 
 //class
 public final class Layer extends StylableElement<Layer> implements ILayer<Layer> {
