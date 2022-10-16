@@ -250,14 +250,16 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
 	
 	//method
 	@Override
-	public void removeSelectAction() {
+	public final void removeSelectAction() {
 		selectAction = null;
 	}
 	
 	//method
 	@Override
-	public IM selectBlankItem() {
-		//TODO: Implement.
+	public final IM selectBlankItem() {
+		
+		getRefBlankItem().select();
+				
 		return asConcrete();
 	}
 	
@@ -272,7 +274,7 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
 	
 	//method
 	@Override
-	public IM selectItemById(final String id) {
+	public final IM selectItemById(final String id) {
 		
 		getRefItemByItemId(id).select();
 		
@@ -354,6 +356,11 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
 				"contains already an item with the text '" + text + "'"
 			);
 		}
+	}
+	
+	//method
+	private IItemMenuItem<?> getRefBlankItem() {
+		return getRefItems().getRefFirst(IItemMenuItem::isBlank);
 	}
 	
 	//method
