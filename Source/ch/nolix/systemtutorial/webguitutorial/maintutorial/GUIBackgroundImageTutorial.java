@@ -33,7 +33,7 @@ public final class GUIBackgroundImageTutorial {
 			
 			//Loads an Image.
 			final var image =
-			Image.fromResource("ch/nolix/systemTutorial/applicationtutorial/webapplicationtutorial/resource/Pilatus.jpg");
+			Image.fromResource("ch/nolix/systemTutorial/webguitutorial/resource/Pilatus.jpg");
 			
 			//Sets the Image as background image to the GUI of the current MainSession.
 			getRefGUI().setBackgroundImage(image, ImageApplication.SCALE_TO_FRAME);
