@@ -43,6 +43,7 @@ public final class LayerCSSRuleCreator {
 		}
 		
 		lCSSProperties.addAtEnd(
+			CSSProperty.withNameAndValue("position", "absolute"),
 			getZIndexCSSPropertyForLayer(layer),
 			CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.MARGIN, "0px"),
 			CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.WIDTH, "100vw"),
