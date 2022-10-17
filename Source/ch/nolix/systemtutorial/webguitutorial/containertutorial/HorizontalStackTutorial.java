@@ -1,4 +1,4 @@
-package ch.nolix.systemtutorial.applicationtutorial.webapplicationtutorial;
+package ch.nolix.systemtutorial.webguitutorial.containertutorial;
 
 import ch.nolix.core.environment.localcomputer.ShellProvider;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
@@ -6,10 +6,10 @@ import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.main.VoidApplicationContext;
 import ch.nolix.system.application.webapplication.BackendWebClientSession;
 import ch.nolix.system.webgui.control.Text;
-import ch.nolix.system.webgui.linearcontainer.VerticalStack;
+import ch.nolix.system.webgui.linearcontainer.HorizontalStack;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
-public final class VerticalStackTutorial {
+public final class HorizontalStackTutorial {
 	
 	public static void main(String[] args) {
 		
@@ -17,7 +17,7 @@ public final class VerticalStackTutorial {
 		final var server = Server.forDefaultPort(true);
 		
 		//Adds a default Application to the Server.
-		server.addDefaultApplication("VerticalStack tutorial", MainSession.class, VoidApplicationContext.INSTANCE);
+		server.addDefaultApplication("HorizontalStack tutorial", MainSession.class, VoidApplicationContext.INSTANCE);
 		
 		//Starts a web browser that will connect to the Server.
 		ShellProvider.startFirefoxOpeningLoopBackAddress();
@@ -32,8 +32,8 @@ public final class VerticalStackTutorial {
 		@Override
 		protected void initialize() {
 			
-			//Creates a VerticalStack.
-			final var verticalStack = new VerticalStack();
+			//Creates a HorizontalStack.
+			final var horizontalStack = new HorizontalStack();
 			
 			//Creates 4 Labels.
 			final var label1 = new Text().setText("A");
@@ -41,11 +41,11 @@ public final class VerticalStackTutorial {
 			final var label3 = new Text().setText("C");
 			final var label4 = new Text().setText("D");
 			
-			//Adds the Labels to the VerticalStack.
-			verticalStack.addControl(label1, label2, label3, label4);
+			//Adds the Labels to the HorizontalStack.
+			horizontalStack.addControl(label1, label2, label3, label4);
 			
-			//Configures the style of the VerticalStack.
-			verticalStack.getRefStyle().setChildControlMarginForState(ControlState.BASE, 20);
+			//Configures the style of the HorizontalStack.
+			horizontalStack.getRefStyle().setChildControlMarginForState(ControlState.BASE, 20);
 			
 			//Configures the style of the Labels.
 			label1.getRefStyle().setTextSizeForState(ControlState.BASE, 50);
@@ -53,10 +53,10 @@ public final class VerticalStackTutorial {
 			label3.getRefStyle().setTextSizeForState(ControlState.BASE, 50);
 			label4.getRefStyle().setTextSizeForState(ControlState.BASE, 50);
 			
-			//Adds the VerticalStack to the GUI of the current MainSession.
-			getRefGUI().pushLayerWithRootControl(verticalStack);
+			//Adds the HorizontalStack to the GUI of the current MainSession.
+			getRefGUI().pushLayerWithRootControl(horizontalStack);
 		}
 	}
 	
-	private VerticalStackTutorial() {}
+	private HorizontalStackTutorial() {}
 }
