@@ -9,7 +9,7 @@ import ch.nolix.system.application.webapplication.BackendWebClientSession;
 import ch.nolix.system.gui.main.GUIIconCatalogue;
 import ch.nolix.system.webgui.control.Text;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
-import ch.nolix.systemtutorial.applicationtutorial.webapplicationtutorial.ImageControlTutorial;
+import ch.nolix.systemtutorial.webguitutorial.controltutorial.ImageControlTutorial;
 
 public final class ServerDashboardTutorial {
 	

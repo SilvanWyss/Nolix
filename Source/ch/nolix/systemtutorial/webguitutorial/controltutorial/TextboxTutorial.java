@@ -1,15 +1,14 @@
-package ch.nolix.systemtutorial.applicationtutorial.webapplicationtutorial;
+package ch.nolix.systemtutorial.webguitutorial.controltutorial;
 
 import ch.nolix.core.environment.localcomputer.ShellProvider;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.main.VoidApplicationContext;
 import ch.nolix.system.application.webapplication.BackendWebClientSession;
-import ch.nolix.system.webgui.control.Button;
-import ch.nolix.system.webgui.control.Text;
-import ch.nolix.system.webgui.linearcontainer.VerticalStack;
+import ch.nolix.system.webgui.control.Textbox;
+import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
-public final class ButtonTutorial {
+public final class TextboxTutorial {
 	
 	public static void main(String[] args) {
 		
@@ -17,7 +16,7 @@ public final class ButtonTutorial {
 		final var server = Server.forDefaultPort(true);
 		
 		//Adds a default Application to the Server.
-		server.addDefaultApplication("Button tutorial", MainSession.class, VoidApplicationContext.INSTANCE);
+		server.addDefaultApplication("Textbox tutorial", MainSession.class, VoidApplicationContext.INSTANCE);
 		
 		//Starts a web browser that will connect to the Server.
 		ShellProvider.startFirefoxOpeningLoopBackAddress();
@@ -29,27 +28,21 @@ public final class ButtonTutorial {
 	
 	private static final class MainSession extends BackendWebClientSession<VoidApplicationContext> {
 		
-		private int count;
-		
-		private final Text countLabel = new Text().setText(String.valueOf(count));
-		
 		@Override
 		protected void initialize() {
-			getRefGUI().pushLayerWithRootControl(
-				new VerticalStack()
-				.addControl(
-					countLabel,
-					new Button().setText("Increment").setLeftMouseButtonPressAction(this::incrementCount)
-				)
-			);
-		}
-		
-		private void incrementCount() {
-			count++;
-			countLabel.setText(String.valueOf(count));
-			updateCounterpart();
+			
+			//Creates a Textbox.
+			final var textBox = new Textbox();
+						
+			//Configures the style of the Textbox.
+			textBox
+			.getRefStyle()
+			.setBorderThicknessForState(ControlState.BASE, 1);
+			
+			//Adds the Textbox to the GUI of the current MainSession.
+			getRefGUI().pushLayerWithRootControl(textBox);
 		}
 	}
 	
-	private ButtonTutorial() {}
+	private TextboxTutorial() {}
 }

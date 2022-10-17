@@ -1,4 +1,4 @@
-package ch.nolix.systemtutorial.applicationtutorial.webapplicationtutorial;
+package ch.nolix.systemtutorial.webguitutorial.controltutorial;
 
 import ch.nolix.core.environment.localcomputer.ShellProvider;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
