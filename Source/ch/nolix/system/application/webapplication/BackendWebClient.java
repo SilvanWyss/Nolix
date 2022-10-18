@@ -56,24 +56,31 @@ public final class BackendWebClient<AC> extends BaseBackendWebClient<BackendWebC
 			case ControlCommandProtocol.NOTE_KEY_TYPING:
 				final var key = Key.fromSpecification(command.getSingleChildNodeAsNode());
 				control.noteKeyTyping(key);
+				updateCounterpartIfOpen();
 				break;
 			case ControlCommandProtocol.NOTE_LEFT_MOUSE_BUTTON_PRESS:
 				control.noteLeftMouseButtonPress();
+				updateCounterpartIfOpen();
 				break;
 			case ControlCommandProtocol.NOTE_LEFT_MOUSE_BUTTON_RELEASE:
 				control.noteLeftMouseButtonRelease();
+				updateCounterpartIfOpen();
 				break;
 			case ControlCommandProtocol.NOTE_MOUSE_WHEEL_PRESS:
 				control.noteMouseWheelPress();
+				updateCounterpartIfOpen();
 				break;
 			case ControlCommandProtocol.NOTE_MOUSE_WHEEL_RELEASE:
 				control.noteMouseWheelRelease();
+				updateCounterpartIfOpen();
 				break;
 			case ControlCommandProtocol.NOTE_RIGHT_MOUSE_BUTTON_PRESS:
 				control.noteRightMouseButtonPress();
+				updateCounterpartIfOpen();
 				break;
 			case ControlCommandProtocol.NOTE_RIGHT_MOUSE_BUTTON_RELEASE:
 				control.noteRightMouseButtonRelease();
+				updateCounterpartIfOpen();
 				break;
 			default:
 				throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.COMMAND, command);
@@ -110,6 +117,13 @@ public final class BackendWebClient<AC> extends BaseBackendWebClient<BackendWebC
 				break;
 			default:
 				throw InvalidArgumentException.forArgumentNameAndArgument("GUI command", pGUICommand);
+		}
+	}
+	
+	//method
+	private void updateCounterpartIfOpen() {
+		if (isOpen()) {
+			 ((BackendWebClientSession<AC>)getRefCurrentSession()).updateCounterpart();
 		}
 	}
 }
