@@ -8,7 +8,7 @@ import ch.nolix.systemapi.webguiapi.controlstyleapi.IExtendedControlStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //interface
-public interface IGridContainerStyle extends IExtendedControlStyle<IGridContainerStyle> {
+public interface IGridContainerStyle<GCS extends IGridContainerStyle<GCS>> extends IExtendedControlStyle<GCS> {
 	
 	//method declaration
 	int getChildControlMarginWhenHasState(ControlState state);
@@ -17,13 +17,13 @@ public interface IGridContainerStyle extends IExtendedControlStyle<IGridContaine
 	IColor getGridColorWhenHasState(ControlState state);
 	
 	//method declaration
-	IColor getGridThicknessWhenHasState(ControlState state);
+	int getGridThicknessWhenHasState(ControlState state);
 	
 	//method declaration
 	GridType getGridTypeWhenHasState(ControlState state);
 	
 	//method declaration
-	void removeCustomControlMargins();
+	void removeCustomChildControlMargins();
 	
 	//method declaration
 	void removeCustomGridColors();
@@ -35,14 +35,14 @@ public interface IGridContainerStyle extends IExtendedControlStyle<IGridContaine
 	void removeCustomGridTypes();
 	
 	//method declaration
-	IGridContainerStyle setChildControlMarginForState(ControlState state, int childControlMargin);
+	GCS setChildControlMarginForState(ControlState state, int childControlMargin);
 	
 	//method declaration
-	IGridContainerStyle setGridColorForState(ControlState state, IColor gridColor);
+	GCS setGridColorForState(ControlState state, IColor gridColor);
 	
 	//method declaration
-	IGridContainerStyle setGridThicknessForState(ControlState state, int gridThickness);
+	GCS setGridThicknessForState(ControlState state, int gridThickness);
 	
 	//method declaration
-	IGridContainerStyle setGridTypeForState(ControlState state, GridType gridType);
+	GCS setGridTypeForState(ControlState state, GridType gridType);
 }
