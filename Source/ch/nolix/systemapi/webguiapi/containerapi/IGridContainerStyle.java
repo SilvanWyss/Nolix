@@ -11,6 +11,18 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 public interface IGridContainerStyle extends IExtendedControlStyle<IGridContainerStyle> {
 	
 	//method declaration
+	int getChildControlMarginWhenHasState(ControlState state);
+	
+	//method declaration
+	IColor getGridColorWhenHasState(ControlState state);
+	
+	//method declaration
+	IColor getGridThicknessWhenHasState(ControlState state);
+	
+	//method declaration
+	GridType getGridTypeWhenHasState(ControlState state);
+	
+	//method declaration
 	void removeCustomControlMargins();
 	
 	//method declaration
@@ -23,7 +35,7 @@ public interface IGridContainerStyle extends IExtendedControlStyle<IGridContaine
 	void removeCustomGridTypes();
 	
 	//method declaration
-	IGridContainerStyle setControlMarginForState(ControlState state, int controlMargin);
+	IGridContainerStyle setChildControlMarginForState(ControlState state, int childControlMargin);
 	
 	//method declaration
 	IGridContainerStyle setGridColorForState(ControlState state, IColor gridColor);
