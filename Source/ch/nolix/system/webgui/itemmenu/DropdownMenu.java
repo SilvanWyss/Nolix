@@ -5,8 +5,8 @@ package ch.nolix.system.webgui.itemmenu;
 import ch.nolix.core.container.main.SingleContainer;
 import ch.nolix.coreapi.containerapi.mainapi.ISingleContainer;
 import ch.nolix.coreapi.webapi.htmlapi.IHTMLElement;
+import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.IDropdownMenu;
-import ch.nolix.systemapi.webguiapi.mainapi.IControlCSSRuleCreator;
 
 //class
 public final class DropdownMenu
@@ -35,7 +35,7 @@ implements IDropdownMenu<DropdownMenu, DropdownMenuStyle> {
 	
 	//method
 	@Override
-	protected IControlCSSRuleCreator<DropdownMenu, DropdownMenuStyle> getCSSRuleCreator() {
-		return DropdownMenuCSSRuleCreator.forDropdownMenu(this);
+	protected IControlCSSRuleBuilder<DropdownMenu, DropdownMenuStyle> getCSSRuleCreator() {
+		return DropdownMenuCSSRuleBuilder.forDropdownMenu(this);
 	}
 }

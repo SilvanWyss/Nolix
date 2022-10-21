@@ -5,19 +5,19 @@ package ch.nolix.system.webgui.control;
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.web.css.CSSProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
-import ch.nolix.system.webgui.controlstyle.ExtendedControlCSSRuleCreator;
+import ch.nolix.system.webgui.controlstyle.ExtendedControlCSSRuleBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
-public final class TextboxCSSRuleCreator extends ExtendedControlCSSRuleCreator<Textbox, TextboxStyle> {
+public final class TextboxCSSRuleBuilder extends ExtendedControlCSSRuleBuilder<Textbox, TextboxStyle> {
 	
 	//static method
-	public static TextboxCSSRuleCreator forTextbox(final Textbox textbox) {
-		return new TextboxCSSRuleCreator(textbox);
+	public static TextboxCSSRuleBuilder forTextbox(final Textbox textbox) {
+		return new TextboxCSSRuleBuilder(textbox);
 	}
 	
 	//constructor
-	private TextboxCSSRuleCreator(final Textbox parentTextbox) {
+	private TextboxCSSRuleBuilder(final Textbox parentTextbox) {
 		super(parentTextbox);
 	}
 	

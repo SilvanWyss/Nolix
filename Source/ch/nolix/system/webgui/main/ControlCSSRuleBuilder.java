@@ -13,23 +13,23 @@ import ch.nolix.coreapi.webapi.cssapi.CSSUnitCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
 import ch.nolix.system.webgui.controlhelper.ControlCSSValueHelper;
 import ch.nolix.systemapi.guiapi.mainapi.CursorIcon;
+import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
-import ch.nolix.systemapi.webguiapi.mainapi.IControlCSSRuleCreator;
 
 //class
-public abstract class ControlCSSRuleCreator<
+public abstract class ControlCSSRuleBuilder<
 	C extends IControl<C, CS>,
 	CS extends IControlStyle<CS>
 >
-implements IControlCSSRuleCreator<C, CS> {
+implements IControlCSSRuleBuilder<C, CS> {
 	
 	//attribute
 	private final C parentControl;
 	
 	//constructor
-	protected ControlCSSRuleCreator(final C parentControl) {
+	protected ControlCSSRuleBuilder(final C parentControl) {
 		
 		GlobalValidator.assertThat(parentControl).thatIsNamed("parent control").isNotNull();
 		

@@ -19,8 +19,8 @@ import ch.nolix.system.webgui.main.Control;
 import ch.nolix.systemapi.guiapi.controlrole.ButtonRole;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.webguiapi.controlapi.IButton;
+import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
-import ch.nolix.systemapi.webguiapi.mainapi.IControlCSSRuleCreator;
 
 //class
 public final class Button extends Control<Button, ButtonStyle> implements IButton<Button, ButtonStyle> {
@@ -260,8 +260,8 @@ public final class Button extends Control<Button, ButtonStyle> implements IButto
 	
 	//method
 	@Override
-	protected IControlCSSRuleCreator<Button, ButtonStyle> getCSSRuleCreator() {
-		return ButtonCSSRuleCreator.forButton(this);
+	protected IControlCSSRuleBuilder<Button, ButtonStyle> getCSSRuleCreator() {
+		return ButtonCSSRuleBuilder.forButton(this);
 	}
 	
 	//method

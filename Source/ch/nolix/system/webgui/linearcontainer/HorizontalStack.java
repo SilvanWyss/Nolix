@@ -3,7 +3,7 @@ package ch.nolix.system.webgui.linearcontainer;
 
 //own imports
 import ch.nolix.coreapi.webapi.htmlapi.IHTMLElement;
-import ch.nolix.systemapi.webguiapi.mainapi.IControlCSSRuleCreator;
+import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
 
 //class
 public final class HorizontalStack extends LinearContainer<HorizontalStack, HorizontalStackStyle> {
@@ -22,8 +22,8 @@ public final class HorizontalStack extends LinearContainer<HorizontalStack, Hori
 	
 	//method
 	@Override
-	protected IControlCSSRuleCreator<HorizontalStack, HorizontalStackStyle> getCSSRuleCreator() {
-		return HorizontalStackCSSRuleCreator.forHorizontalStack(this);
+	protected IControlCSSRuleBuilder<HorizontalStack, HorizontalStackStyle> getCSSRuleCreator() {
+		return HorizontalStackCSSRuleBuilder.forHorizontalStack(this);
 	}
 	
 	//method

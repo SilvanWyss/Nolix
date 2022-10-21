@@ -21,8 +21,8 @@ import ch.nolix.system.webgui.main.Control;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.webguiapi.controlapi.IText;
 import ch.nolix.systemapi.webguiapi.controlapi.TextRole;
+import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
-import ch.nolix.systemapi.webguiapi.mainapi.IControlCSSRuleCreator;
 
 //class
 public final class Text extends Control<Text, TextStyle> implements IText<Text, TextStyle> {
@@ -198,8 +198,8 @@ public final class Text extends Control<Text, TextStyle> implements IText<Text, 
 	
 	//method
 	@Override
-	protected IControlCSSRuleCreator<Text, TextStyle> getCSSRuleCreator() {
-		return TextCSSRuleCreator.forLabel(this);
+	protected IControlCSSRuleBuilder<Text, TextStyle> getCSSRuleCreator() {
+		return TextCSSRuleBuilder.forLabel(this);
 	}
 	
 	//method

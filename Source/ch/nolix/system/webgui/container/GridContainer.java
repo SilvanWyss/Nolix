@@ -12,8 +12,8 @@ import ch.nolix.coreapi.webapi.htmlapi.IHTMLElement;
 import ch.nolix.system.element.mutableelement.MultiValueExtractor;
 import ch.nolix.system.webgui.control.Text;
 import ch.nolix.systemapi.webguiapi.containerapi.IGridContainer;
+import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
-import ch.nolix.systemapi.webguiapi.mainapi.IControlCSSRuleCreator;
 
 //class
 public final class GridContainer
@@ -114,7 +114,7 @@ implements IGridContainer<GridContainer, GridContainerStyle> {
 	
 	//method
 	@Override
-	protected IControlCSSRuleCreator<GridContainer, GridContainerStyle> getCSSRuleCreator() {
+	protected IControlCSSRuleBuilder<GridContainer, GridContainerStyle> getCSSRuleCreator() {
 		//TODO: Implement.
 		return null;
 	}

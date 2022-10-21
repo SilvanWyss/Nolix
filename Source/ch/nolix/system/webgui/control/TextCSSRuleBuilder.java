@@ -5,19 +5,19 @@ package ch.nolix.system.webgui.control;
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.web.css.CSSProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
-import ch.nolix.system.webgui.controlstyle.ExtendedControlCSSRuleCreator;
+import ch.nolix.system.webgui.controlstyle.ExtendedControlCSSRuleBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
-public final class TextCSSRuleCreator extends ExtendedControlCSSRuleCreator<Text, TextStyle> {
+public final class TextCSSRuleBuilder extends ExtendedControlCSSRuleBuilder<Text, TextStyle> {
 	
 	//static method
-	public static TextCSSRuleCreator forLabel(final Text button) {
-		return new TextCSSRuleCreator(button);
+	public static TextCSSRuleBuilder forLabel(final Text button) {
+		return new TextCSSRuleBuilder(button);
 	}
 	
 	//constructor
-	private TextCSSRuleCreator(final Text parentLabel) {
+	private TextCSSRuleBuilder(final Text parentLabel) {
 		super(parentLabel);
 	}
 	

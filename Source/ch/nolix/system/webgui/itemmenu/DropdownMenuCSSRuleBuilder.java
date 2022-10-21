@@ -7,15 +7,15 @@ import ch.nolix.core.web.css.CSSProperty;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
-public final class DropdownMenuCSSRuleCreator extends ItemMenuCSSRuleCreator<DropdownMenu, DropdownMenuStyle> {
+public final class DropdownMenuCSSRuleBuilder extends ItemMenuCSSRuleBuilder<DropdownMenu, DropdownMenuStyle> {
 	
 	//static method
-	public static DropdownMenuCSSRuleCreator forDropdownMenu(final DropdownMenu dropdownMenu) {
-		return new DropdownMenuCSSRuleCreator(dropdownMenu);
+	public static DropdownMenuCSSRuleBuilder forDropdownMenu(final DropdownMenu dropdownMenu) {
+		return new DropdownMenuCSSRuleBuilder(dropdownMenu);
 	}
 	
 	//constructor
-	private DropdownMenuCSSRuleCreator(final DropdownMenu parentDropdownMenu) {
+	private DropdownMenuCSSRuleBuilder(final DropdownMenu parentDropdownMenu) {
 		super(parentDropdownMenu);
 	}
 	

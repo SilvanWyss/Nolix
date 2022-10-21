@@ -18,8 +18,8 @@ import ch.nolix.system.webgui.main.Control;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.webguiapi.controlapi.IImageControl;
+import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
-import ch.nolix.systemapi.webguiapi.mainapi.IControlCSSRuleCreator;
 
 //class
 public final class ImageControl
@@ -260,8 +260,8 @@ implements IImageControl<ImageControl, ImageControlStyle, MutableImage> {
 	
 	//method
 	@Override
-	protected IControlCSSRuleCreator<ImageControl, ImageControlStyle> getCSSRuleCreator() {
-		return ImageControlCSSRuleCreator.forImageControl(this);
+	protected IControlCSSRuleBuilder<ImageControl, ImageControlStyle> getCSSRuleCreator() {
+		return ImageControlCSSRuleBuilder.forImageControl(this);
 	}
 	
 	//method

@@ -18,8 +18,8 @@ import ch.nolix.system.webgui.main.Control;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.processproperty.TextMode;
 import ch.nolix.systemapi.webguiapi.controlapi.ITextbox;
+import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
-import ch.nolix.systemapi.webguiapi.mainapi.IControlCSSRuleCreator;
 
 //class
 public final class Textbox extends Control<Textbox, TextboxStyle> implements ITextbox<Textbox, TextboxStyle> {
@@ -213,8 +213,8 @@ public final class Textbox extends Control<Textbox, TextboxStyle> implements ITe
 	
 	//method
 	@Override
-	protected IControlCSSRuleCreator<Textbox, TextboxStyle> getCSSRuleCreator() {
-		return TextboxCSSRuleCreator.forTextbox(this);
+	protected IControlCSSRuleBuilder<Textbox, TextboxStyle> getCSSRuleCreator() {
+		return TextboxCSSRuleBuilder.forTextbox(this);
 	}
 	
 	//method

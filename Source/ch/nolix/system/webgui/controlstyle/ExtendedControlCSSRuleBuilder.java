@@ -8,20 +8,20 @@ import ch.nolix.coreapi.webapi.cssapi.CSSBorderStyleValueCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.CSSPropertyNameCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.CSSUnitCatalogue;
 import ch.nolix.system.webgui.controlhelper.ControlCSSValueHelper;
-import ch.nolix.system.webgui.main.ControlCSSRuleCreator;
+import ch.nolix.system.webgui.main.ControlCSSRuleBuilder;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IExtendedControlStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //class
-public abstract class ExtendedControlCSSRuleCreator<
+public abstract class ExtendedControlCSSRuleBuilder<
 	EC extends IControl<EC, ECS>,
 	ECS extends IExtendedControlStyle<ECS>
 >
-extends ControlCSSRuleCreator<EC, ECS> {
+extends ControlCSSRuleBuilder<EC, ECS> {
 	
 	//constructor
-	protected ExtendedControlCSSRuleCreator(final EC parentExtendedControl) {
+	protected ExtendedControlCSSRuleBuilder(final EC parentExtendedControl) {
 		super(parentExtendedControl);
 	}
 	

@@ -9,21 +9,21 @@ import ch.nolix.coreapi.webapi.cssapi.CSSFloat;
 import ch.nolix.coreapi.webapi.cssapi.CSSPropertyNameCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.CSSUnitCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
-import ch.nolix.system.webgui.controlstyle.ExtendedControlCSSRuleCreator;
+import ch.nolix.system.webgui.controlstyle.ExtendedControlCSSRuleBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
-public final class FloatContainerCSSRuleCreator
-extends ExtendedControlCSSRuleCreator<FloatContainer, FloatContainerStyle> {
+public final class HorizontalStackCSSRuleBuilder
+extends ExtendedControlCSSRuleBuilder<HorizontalStack, HorizontalStackStyle> {
 	
 	//static method
-	public static FloatContainerCSSRuleCreator forFloatContainer(final FloatContainer button) {
-		return new FloatContainerCSSRuleCreator(button);
+	public static HorizontalStackCSSRuleBuilder forHorizontalStack(final HorizontalStack button) {
+		return new HorizontalStackCSSRuleBuilder(button);
 	}
 	
 	//constructor
-	private FloatContainerCSSRuleCreator(final FloatContainer parentFloatContainer) {
-		super(parentFloatContainer);
+	private HorizontalStackCSSRuleBuilder(final HorizontalStack parentHorizontalStack) {
+		super(parentHorizontalStack);
 	}
 	
 	//method
@@ -31,7 +31,7 @@ extends ExtendedControlCSSRuleCreator<FloatContainer, FloatContainerStyle> {
 	protected void fillUpAdditionalCSSRulesForBaseStateIntoList(final LinkedList<? super ICSSRule<?>> list) {
 		list.addAtEnd(
 			CSSRule.withSelectorAndProperties(
-				getCSSSelectorForBaseState() + " ." + FloatContainerHTMLCreator.CHILD_CONTROL_CSS_CLASS_NAME,
+				getCSSSelectorForBaseState() + " ." + VerticalStackHTMLCreator.CHILD_CONTROL_CSS_CLASS_NAME,
 				LinkedList.withElements(
 					CSSProperty.withNameAndValue(
 						CSSPropertyNameCatalogue.FLOAT,
@@ -50,7 +50,7 @@ extends ExtendedControlCSSRuleCreator<FloatContainer, FloatContainerStyle> {
 	) {
 		list.addAtEnd(
 			CSSRule.withSelectorAndProperties(
-				getCSSSelectorForBaseState() + " ." + FloatContainerHTMLCreator.CHILD_CONTROL_CSS_CLASS_NAME,
+				getCSSSelectorForBaseState() + " ." + VerticalStackHTMLCreator.CHILD_CONTROL_CSS_CLASS_NAME,
 				LinkedList.withElements(
 					CSSProperty.withNameAndValue(
 						CSSPropertyNameCatalogue.MARGIN,

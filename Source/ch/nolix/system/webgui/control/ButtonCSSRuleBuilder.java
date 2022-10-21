@@ -4,22 +4,21 @@ package ch.nolix.system.webgui.control;
 //own imports
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.web.css.CSSProperty;
-import ch.nolix.coreapi.webapi.cssapi.CSSPropertyNameCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
-import ch.nolix.system.webgui.controlstyle.ExtendedControlCSSRuleCreator;
+import ch.nolix.system.webgui.controlstyle.ExtendedControlCSSRuleBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
-public final class ImageControlCSSRuleCreator extends ExtendedControlCSSRuleCreator<ImageControl, ImageControlStyle> {
+public final class ButtonCSSRuleBuilder extends ExtendedControlCSSRuleBuilder<Button, ButtonStyle> {
 	
 	//static method
-	public static ImageControlCSSRuleCreator forImageControl(final ImageControl imageControl) {
-		return new ImageControlCSSRuleCreator(imageControl);
+	public static ButtonCSSRuleBuilder forButton(final Button button) {
+		return new ButtonCSSRuleBuilder(button);
 	}
 	
 	//constructor
-	private ImageControlCSSRuleCreator(final ImageControl imageControl) {
-		super(imageControl);
+	private ButtonCSSRuleBuilder(final Button parentButton) {
+		super(parentButton);
 	}
 	
 	//method
@@ -43,6 +42,6 @@ public final class ImageControlCSSRuleCreator extends ExtendedControlCSSRuleCrea
 		final ControlState state,
 		final LinkedList<CSSProperty> list
 	) {
-		list.addAtEnd(CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.DISPLAY, "block"));
+		//Does nothing.
 	}
 }

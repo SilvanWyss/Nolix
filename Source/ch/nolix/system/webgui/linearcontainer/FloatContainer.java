@@ -3,7 +3,7 @@ package ch.nolix.system.webgui.linearcontainer;
 
 //own imports
 import ch.nolix.coreapi.webapi.htmlapi.IHTMLElement;
-import ch.nolix.systemapi.webguiapi.mainapi.IControlCSSRuleCreator;
+import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
 
 //class
 public final class FloatContainer extends LinearContainer<FloatContainer, FloatContainerStyle> {
@@ -22,8 +22,8 @@ public final class FloatContainer extends LinearContainer<FloatContainer, FloatC
 	
 	//method
 	@Override
-	protected IControlCSSRuleCreator<FloatContainer, FloatContainerStyle> getCSSRuleCreator() {
-		return FloatContainerCSSRuleCreator.forFloatContainer(this);
+	protected IControlCSSRuleBuilder<FloatContainer, FloatContainerStyle> getCSSRuleCreator() {
+		return FloatContainerCSSRuleBuilder.forFloatContainer(this);
 	}
 	
 	//method

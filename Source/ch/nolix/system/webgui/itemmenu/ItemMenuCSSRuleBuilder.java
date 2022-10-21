@@ -4,19 +4,19 @@ package ch.nolix.system.webgui.itemmenu;
 //own imports
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
-import ch.nolix.system.webgui.controlstyle.ExtendedControlCSSRuleCreator;
+import ch.nolix.system.webgui.controlstyle.ExtendedControlCSSRuleBuilder;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.IItemMenuStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
-public abstract class ItemMenuCSSRuleCreator<
+public abstract class ItemMenuCSSRuleBuilder<
 	IM extends ItemMenu<IM, IMS>,
 	IMS extends IItemMenuStyle<IMS>
 >
-extends ExtendedControlCSSRuleCreator<IM, IMS> {
+extends ExtendedControlCSSRuleBuilder<IM, IMS> {
 	
 	//constructor
-	protected ItemMenuCSSRuleCreator(final IM parentExtendedControl) {
+	protected ItemMenuCSSRuleBuilder(final IM parentExtendedControl) {
 		super(parentExtendedControl);
 	}
 	
