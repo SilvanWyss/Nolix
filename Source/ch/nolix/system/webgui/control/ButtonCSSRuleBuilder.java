@@ -12,7 +12,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 public final class ButtonCSSRuleBuilder extends ExtendedControlCSSRuleBuilder<Button, ButtonStyle> {
 	
 	//static attribute
-	public static final ButtonCSSRuleBuilder INSTACE = new ButtonCSSRuleBuilder();
+	public static final ButtonCSSRuleBuilder INSTANCE = new ButtonCSSRuleBuilder();
 	
 	//constructor
 	private ButtonCSSRuleBuilder() {}
