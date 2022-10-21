@@ -202,7 +202,7 @@ public final class Textbox extends Control<Textbox, TextboxStyle> implements ITe
 	//method
 	@Override
 	public IHTMLElement<?, ?> toHTMLElement() {
-		return TextboxHTMLCreator.INSTANCE.createHTMLElementForTextbox(this);
+		return TextboxHTMLBuilder.INSTANCE.createHTMLElementForControl(this);
 	}
 	
 	//method

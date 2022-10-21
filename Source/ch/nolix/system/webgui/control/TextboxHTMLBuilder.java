@@ -8,19 +8,19 @@ import ch.nolix.core.web.html.HTMLAttributeNameCatalogue;
 import ch.nolix.core.web.html.HTMLElement;
 import ch.nolix.core.web.html.HTMLElementTypeCatalogue;
 import ch.nolix.system.webgui.controlhelper.ControlHelper;
-import ch.nolix.systemapi.webguiapi.controlapi.ITextbox;
+import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
 
 //class
-public final class TextboxHTMLCreator {
+public final class TextboxHTMLBuilder implements IControlHTMLBuilder<Textbox> {
 	
 	//static attribute
-	public static final TextboxHTMLCreator INSTANCE = new TextboxHTMLCreator();
+	public static final TextboxHTMLBuilder INSTANCE = new TextboxHTMLBuilder();
 	
 	//constructor
-	private TextboxHTMLCreator() {}
+	private TextboxHTMLBuilder() {}
 	
 	//method
-	public HTMLElement createHTMLElementForTextbox(final ITextbox<?, ?> textbox) {
+	public HTMLElement createHTMLElementForControl(final Textbox textbox) {
 		return
 		HTMLElement.withTypeAndAttributes(
 			HTMLElementTypeCatalogue.INPUT,
