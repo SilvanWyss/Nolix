@@ -30,6 +30,11 @@ public final class HTMLElement implements IHTMLElement<HTMLElement, HTMLAttribut
 	}
 	
 	//static method
+	public static HTMLElement withType(final String type) {
+		return new HTMLElement(type, new ImmutableList<>(), StringCatalogue.EMPTY_STRING, new ImmutableList<>());
+	}
+	
+	//static method
 	public static HTMLElement withTypeAndAttributes(
 		final String type,
 		final IContainer<? extends IHTMLAttribute> attributes
