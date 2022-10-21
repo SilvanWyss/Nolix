@@ -25,6 +25,18 @@ public final class HTMLElementTypeCatalogue {
 	//constant
 	public static final String SELECT = "select";
 	
+	//constant
+	public static final String TABLE = "table";
+	
+	//constant
+	public static final String TD = "td";
+
+	//constant
+	public static final String TH = "th";	
+	
+	//constant
+	public static final String TR = "tr";
+	
 	//constructor
 	private HTMLElementTypeCatalogue() {}
 }
