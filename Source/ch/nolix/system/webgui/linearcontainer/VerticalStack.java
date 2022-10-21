@@ -11,7 +11,7 @@ public final class VerticalStack extends LinearContainer<VerticalStack, Vertical
 	//method
 	@Override
 	public IHTMLElement<?, ?> toHTMLElement() {
-		return VerticalStackHTMLCreator.INSTANCE.createHTMLElementForVerticalStack(this);
+		return VerticalStackHTMLBuilder.INSTANCE.createHTMLElementForControl(this);
 	}
 	
 	//method
