@@ -4,8 +4,8 @@ package ch.nolix.system.webgui.itemmenu;
 //own imports
 import ch.nolix.core.container.main.SingleContainer;
 import ch.nolix.coreapi.containerapi.mainapi.ISingleContainer;
-import ch.nolix.coreapi.webapi.htmlapi.IHTMLElement;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
+import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.IDropdownMenu;
 
 //class
@@ -23,14 +23,14 @@ implements IDropdownMenu<DropdownMenu, DropdownMenuStyle> {
 	
 	//method
 	@Override
-	public IHTMLElement<?, ?> toHTMLElement() {
-		return DropdownMenuHTMLBuilder.INSTANCE.createHTMLElementForControl(this);
+	protected DropdownMenuStyle createStyle() {
+		return new DropdownMenuStyle();
 	}
 	
 	//method
 	@Override
-	protected DropdownMenuStyle createStyle() {
-		return new DropdownMenuStyle();
+	protected IControlHTMLBuilder<DropdownMenu> getHTMLBuilder() {
+		return DropdownMenuHTMLBuilder.INSTANCE;
 	}
 	
 	//method

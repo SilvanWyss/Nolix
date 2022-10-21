@@ -12,7 +12,6 @@ import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.containerapi.mainapi.ISingleContainer;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
-import ch.nolix.coreapi.webapi.htmlapi.IHTMLElement;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 import ch.nolix.system.element.mutableelement.MutableValue;
 import ch.nolix.system.webgui.main.Control;
@@ -20,6 +19,7 @@ import ch.nolix.systemapi.guiapi.controlrole.ButtonRole;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.webguiapi.controlapi.IButton;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
+import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //class
@@ -248,12 +248,6 @@ public final class Button extends Control<Button, ButtonStyle> implements IButto
 	
 	//method
 	@Override
-	public IHTMLElement<?, ?> toHTMLElement() {
-		return ButtonHTMLBuilder.INSTANCE.createHTMLElementForControl(this);
-	}
-	
-	//method
-	@Override
 	protected ButtonStyle createStyle() {
 		return new ButtonStyle();
 	}
@@ -262,6 +256,12 @@ public final class Button extends Control<Button, ButtonStyle> implements IButto
 	@Override
 	protected IControlCSSRuleBuilder<Button, ButtonStyle> getCSSRuleCreator() {
 		return ButtonCSSRuleBuilder.INSTACE;
+	}
+	
+	//method
+	@Override
+	protected IControlHTMLBuilder<Button> getHTMLBuilder() {
+		return ButtonHTMLBuilder.INSTANCE;
 	}
 	
 	//method

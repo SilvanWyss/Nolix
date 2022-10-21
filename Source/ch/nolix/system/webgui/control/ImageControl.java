@@ -11,7 +11,6 @@ import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.containerapi.mainapi.ISingleContainer;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
-import ch.nolix.coreapi.webapi.htmlapi.IHTMLElement;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 import ch.nolix.system.gui.image.MutableImage;
 import ch.nolix.system.webgui.main.Control;
@@ -19,6 +18,7 @@ import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.webguiapi.controlapi.IImageControl;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
+import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //class
@@ -248,12 +248,6 @@ implements IImageControl<ImageControl, ImageControlStyle, MutableImage> {
 	
 	//method
 	@Override
-	public IHTMLElement<?, ?> toHTMLElement() {
-		return ImageControlHTMLBuilder.INSTANCE.createHTMLElementForControl(this);
-	}
-	
-	//method
-	@Override
 	protected ImageControlStyle createStyle() {
 		return new ImageControlStyle();
 	}
@@ -262,6 +256,12 @@ implements IImageControl<ImageControl, ImageControlStyle, MutableImage> {
 	@Override
 	protected IControlCSSRuleBuilder<ImageControl, ImageControlStyle> getCSSRuleCreator() {
 		return ImageControlCSSRuleBuilder.INSTANCE;
+	}
+	
+	//method
+	@Override
+	protected IControlHTMLBuilder<ImageControl> getHTMLBuilder() {
+		return ImageControlHTMLBuilder.INSTANCE;
 	}
 	
 	//method

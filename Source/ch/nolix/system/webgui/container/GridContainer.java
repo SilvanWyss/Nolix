@@ -8,11 +8,11 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
-import ch.nolix.coreapi.webapi.htmlapi.IHTMLElement;
 import ch.nolix.system.element.mutableelement.MultiValueExtractor;
 import ch.nolix.system.webgui.control.Text;
 import ch.nolix.systemapi.webguiapi.containerapi.IGridContainer;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
+import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //class
@@ -101,13 +101,6 @@ implements IGridContainer<GridContainer, GridContainerStyle> {
 	
 	//method
 	@Override
-	public IHTMLElement<?, ?> toHTMLElement() {
-		//TODO: Implement.
-		return null;
-	}
-
-	//method
-	@Override
 	protected GridContainerStyle createStyle() {
 		return new GridContainerStyle();
 	}
@@ -115,6 +108,13 @@ implements IGridContainer<GridContainer, GridContainerStyle> {
 	//method
 	@Override
 	protected IControlCSSRuleBuilder<GridContainer, GridContainerStyle> getCSSRuleCreator() {
+		//TODO: Implement.
+		return null;
+	}
+	
+	//method
+	@Override
+	protected IControlHTMLBuilder<GridContainer> getHTMLBuilder() {
 		//TODO: Implement.
 		return null;
 	}

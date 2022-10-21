@@ -12,13 +12,13 @@ import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.containerapi.mainapi.ISingleContainer;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
-import ch.nolix.coreapi.webapi.htmlapi.IHTMLElement;
 import ch.nolix.system.element.mutableelement.MutableValue;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.processproperty.TextMode;
 import ch.nolix.systemapi.webguiapi.controlapi.ITextbox;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
+import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //class
@@ -201,12 +201,6 @@ public final class Textbox extends Control<Textbox, TextboxStyle> implements ITe
 	
 	//method
 	@Override
-	public IHTMLElement<?, ?> toHTMLElement() {
-		return TextboxHTMLBuilder.INSTANCE.createHTMLElementForControl(this);
-	}
-	
-	//method
-	@Override
 	protected TextboxStyle createStyle() {
 		return new TextboxStyle();
 	}
@@ -215,6 +209,12 @@ public final class Textbox extends Control<Textbox, TextboxStyle> implements ITe
 	@Override
 	protected IControlCSSRuleBuilder<Textbox, TextboxStyle> getCSSRuleCreator() {
 		return TextboxCSSRuleBuilder.INSTANCE;
+	}
+	
+	//method
+	@Override
+	protected IControlHTMLBuilder<Textbox> getHTMLBuilder() {
+		return TextboxHTMLBuilder.INSTANCE;
 	}
 	
 	//method

@@ -12,6 +12,7 @@ import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
+import ch.nolix.coreapi.webapi.htmlapi.IHTMLElement;
 import ch.nolix.system.element.base.StylableElement;
 import ch.nolix.system.element.mutableelement.ExtensionElement;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
@@ -22,6 +23,7 @@ import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 import ch.nolix.systemapi.guiapi.mainapi.CursorIcon;
 import ch.nolix.systemapi.structureapi.IRelativeOrAbsoluteInt;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
+import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
@@ -245,6 +247,12 @@ implements IControl<C, CS> {
 	
 	//method
 	@Override
+	public final IHTMLElement<?, ?> toHTMLElement() {
+		return getHTMLBuilder().createHTMLElementForControl(asConcrete());
+	}
+	
+	//method
+	@Override
 	public final String toHTMLString() {
 		return toHTMLElement().toString();
 	}
@@ -254,6 +262,9 @@ implements IControl<C, CS> {
 	
 	//method declaration
 	protected abstract IControlCSSRuleBuilder<C, CS> getCSSRuleCreator();
+	
+	//method declaration
+	protected abstract IControlHTMLBuilder<C> getHTMLBuilder();
 	
 	//method declaration
 	protected abstract void resetControl();

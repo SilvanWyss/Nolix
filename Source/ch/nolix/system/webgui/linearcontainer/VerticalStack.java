@@ -1,18 +1,11 @@
 //package declaration
 package ch.nolix.system.webgui.linearcontainer;
 
-//own imports
-import ch.nolix.coreapi.webapi.htmlapi.IHTMLElement;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
+import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
 
 //class
 public final class VerticalStack extends LinearContainer<VerticalStack, VerticalStackStyle> {
-	
-	//method
-	@Override
-	public IHTMLElement<?, ?> toHTMLElement() {
-		return VerticalStackHTMLBuilder.INSTANCE.createHTMLElementForControl(this);
-	}
 	
 	//method
 	@Override
@@ -24,6 +17,12 @@ public final class VerticalStack extends LinearContainer<VerticalStack, Vertical
 	@Override
 	protected IControlCSSRuleBuilder<VerticalStack, VerticalStackStyle> getCSSRuleCreator() {
 		return VerticalStackCSSRuleBuilder.INSTANCE;
+	}
+	
+	//method
+	@Override
+	protected IControlHTMLBuilder<VerticalStack> getHTMLBuilder() {
+		return VerticalStackHTMLBuilder.INSTANCE;
 	}
 	
 	//method

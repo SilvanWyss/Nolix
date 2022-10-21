@@ -9,19 +9,16 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
-import ch.nolix.core.web.html.HTMLElement;
-import ch.nolix.core.web.html.HTMLElementTypeCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.containerapi.mainapi.ISingleContainer;
-import ch.nolix.coreapi.webapi.htmlapi.IHTMLElement;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 import ch.nolix.system.element.mutableelement.MutableValue;
-import ch.nolix.system.webgui.controlhelper.ControlHelper;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.webguiapi.controlapi.IText;
 import ch.nolix.systemapi.webguiapi.controlapi.TextRole;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
+import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //class
@@ -181,17 +178,6 @@ public final class Text extends Control<Text, TextStyle> implements IText<Text, 
 	
 	//method
 	@Override
-	public IHTMLElement<?, ?> toHTMLElement() {
-		return
-		HTMLElement.withTypeAndAttributesAndInnerText(
-			HTMLElementTypeCatalogue.DIV,
-			ImmutableList.withElements(ControlHelper.INSTANCE.createIdHTMLAttributeForControl(this)),
-			getText()
-		);
-	}
-	
-	//method
-	@Override
 	protected TextStyle createStyle() {
 		return new TextStyle();
 	}
@@ -200,6 +186,12 @@ public final class Text extends Control<Text, TextStyle> implements IText<Text, 
 	@Override
 	protected IControlCSSRuleBuilder<Text, TextStyle> getCSSRuleCreator() {
 		return TextCSSRuleBuilder.INSTANCE;
+	}
+	
+	//method
+	@Override
+	protected IControlHTMLBuilder<Text> getHTMLBuilder() {
+		return TextHTMLBuilder.INSTANCE;
 	}
 	
 	//method
