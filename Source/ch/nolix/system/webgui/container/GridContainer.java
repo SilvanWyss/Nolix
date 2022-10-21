@@ -127,8 +127,7 @@ implements IGridContainer<GridContainer, GridContainerStyle> {
 	//method
 	@Override
 	protected IControlHTMLBuilder<GridContainer> getHTMLBuilder() {
-		//TODO: Implement.
-		return null;
+		return GridContainerHTMLBuilder.INSTANCE;
 	}
 	
 	//method
