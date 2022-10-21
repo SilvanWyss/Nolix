@@ -120,8 +120,7 @@ implements IGridContainer<GridContainer, GridContainerStyle> {
 	//method
 	@Override
 	protected IControlCSSRuleBuilder<GridContainer, GridContainerStyle> getCSSRuleCreator() {
-		//TODO: Implement.
-		return null;
+		return GridContainerCSSRuleBuilder.INSTANCE;
 	}
 	
 	//method
