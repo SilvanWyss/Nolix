@@ -10,20 +10,21 @@ import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.webapi.htmlapi.IHTMLAttribute;
 import ch.nolix.coreapi.webapi.htmlapi.IHTMLElement;
 import ch.nolix.system.webgui.controlhelper.ControlHelper;
+import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.IDropdownMenu;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.IItemMenuItem;
 
 //class
-public final class DropdownMenuHTMLCreator {
+public final class DropdownMenuHTMLBuilder implements IControlHTMLBuilder<DropdownMenu> {
 	
 	//static attribute
-	public static final DropdownMenuHTMLCreator INSTANCE = new DropdownMenuHTMLCreator();
+	public static final DropdownMenuHTMLBuilder INSTANCE = new DropdownMenuHTMLBuilder();
 	
 	//constructor
-	private DropdownMenuHTMLCreator() {}
+	private DropdownMenuHTMLBuilder() {}
 	
 	//method
-	public HTMLElement createHTMLElementForDropdownMenu(final IDropdownMenu<?, ?> dropdownMenu) {
+	public HTMLElement createHTMLElementForControl(final DropdownMenu dropdownMenu) {
 		return
 		HTMLElement.withTypeAndAttributesAndChildElements(
 			HTMLElementTypeCatalogue.SELECT,
@@ -33,9 +34,7 @@ public final class DropdownMenuHTMLCreator {
 	}
 	
 	//method
-	private IContainer<? extends IHTMLAttribute> createHTMLAttributesForDropdownMenu(
-		final IDropdownMenu<?, ?> dropdownMenu
-	) {
+	private IContainer<? extends IHTMLAttribute> createHTMLAttributesForDropdownMenu(final DropdownMenu dropdownMenu) {
 		
 		final var lHTMLAttribtues = new LinkedList<IHTMLAttribute>();
 		

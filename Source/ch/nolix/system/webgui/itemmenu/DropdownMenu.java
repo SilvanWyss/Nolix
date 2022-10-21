@@ -24,7 +24,7 @@ implements IDropdownMenu<DropdownMenu, DropdownMenuStyle> {
 	//method
 	@Override
 	public IHTMLElement<?, ?> toHTMLElement() {
-		return DropdownMenuHTMLCreator.INSTANCE.createHTMLElementForDropdownMenu(this);
+		return DropdownMenuHTMLBuilder.INSTANCE.createHTMLElementForControl(this);
 	}
 	
 	//method
