@@ -57,6 +57,12 @@ implements IGridContainer<GridContainer, GridContainerStyle> {
 	
 	//method
 	@Override
+	public IControl<?, ?> getRefChildControlAtRowAndColumn(final int rowIndex, final int columnIndex) {
+		return cells.getRefAt(rowIndex, columnIndex).getRefControl();
+	}
+	
+	//method
+	@Override
 	public int getRowCount() {
 		return cells.getRowCount();
 	}
