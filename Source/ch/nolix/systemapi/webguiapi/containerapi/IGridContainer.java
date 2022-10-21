@@ -12,6 +12,9 @@ public interface IGridContainer<
 extends IContainer<GC, GCS> {
 	
 	//method declaration
+	boolean containsControlAtRowAndColumn(int rowIndex, int columnIndex);
+	
+	//method declaration
 	int getColumnCount();
 	
 	//method declaration

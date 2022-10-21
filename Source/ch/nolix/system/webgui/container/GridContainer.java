@@ -45,6 +45,12 @@ implements IGridContainer<GridContainer, GridContainerStyle> {
 	
 	//method
 	@Override
+	public boolean containsControlAtRowAndColumn(final int rowIndex, final int columnIndex) {
+		return cells.getRefAt(rowIndex, columnIndex).containsAny();
+	}
+	
+	//method
+	@Override
 	public int getColumnCount() {
 		return cells.getColumnCount();
 	}
