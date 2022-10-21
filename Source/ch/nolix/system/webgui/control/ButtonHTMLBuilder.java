@@ -7,19 +7,19 @@ import ch.nolix.core.web.html.HTMLAttribute;
 import ch.nolix.core.web.html.HTMLElement;
 import ch.nolix.core.web.html.HTMLElementTypeCatalogue;
 import ch.nolix.system.webgui.controlhelper.ControlHelper;
-import ch.nolix.systemapi.webguiapi.controlapi.IButton;
+import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
 
 //class
-public final class ButtonHTMLCreator {
+public final class ButtonHTMLBuilder implements IControlHTMLBuilder<Button> {
 	
 	//static attribute
-	public static final ButtonHTMLCreator INSTANCE = new ButtonHTMLCreator();
+	public static final ButtonHTMLBuilder INSTANCE = new ButtonHTMLBuilder();
 	
 	//constructor
-	private ButtonHTMLCreator() {}
+	private ButtonHTMLBuilder() {}
 	
 	//method
-	public HTMLElement createHTMLElementForButton(final IButton<?, ?> button) {
+	public HTMLElement createHTMLElementForControl(final Button button) {
 		return
 		HTMLElement.withTypeAndAttributesAndInnerText(
 			HTMLElementTypeCatalogue.BUTTON,

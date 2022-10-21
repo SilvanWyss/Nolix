@@ -249,7 +249,7 @@ public final class Button extends Control<Button, ButtonStyle> implements IButto
 	//method
 	@Override
 	public IHTMLElement<?, ?> toHTMLElement() {
-		return ButtonHTMLCreator.INSTANCE.createHTMLElementForButton(this);
+		return ButtonHTMLBuilder.INSTANCE.createHTMLElementForControl(this);
 	}
 	
 	//method
