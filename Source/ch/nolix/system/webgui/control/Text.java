@@ -199,7 +199,7 @@ public final class Text extends Control<Text, TextStyle> implements IText<Text, 
 	//method
 	@Override
 	protected IControlCSSRuleBuilder<Text, TextStyle> getCSSRuleCreator() {
-		return TextCSSRuleBuilder.forLabel(this);
+		return TextCSSRuleBuilder.INSTANCE;
 	}
 	
 	//method

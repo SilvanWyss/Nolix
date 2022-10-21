@@ -11,19 +11,16 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 //class
 public final class ButtonCSSRuleBuilder extends ExtendedControlCSSRuleBuilder<Button, ButtonStyle> {
 	
-	//static method
-	public static ButtonCSSRuleBuilder forButton(final Button button) {
-		return new ButtonCSSRuleBuilder(button);
-	}
+	//static attribute
+	public static final ButtonCSSRuleBuilder INSTACE = new ButtonCSSRuleBuilder();
 	
 	//constructor
-	private ButtonCSSRuleBuilder(final Button parentButton) {
-		super(parentButton);
-	}
+	private ButtonCSSRuleBuilder() {}
 	
 	//method
 	@Override
 	protected void fillUpAdditionalCSSRulesForStateIntoList(
+		final Button button,
 		final ControlState state,
 		final LinkedList<? super ICSSRule<?>> list
 	) {
@@ -32,13 +29,17 @@ public final class ButtonCSSRuleBuilder extends ExtendedControlCSSRuleBuilder<Bu
 	
 	//method
 	@Override
-	protected void fillUpAdditionalCSSRulesForBaseStateIntoList(final LinkedList<? super ICSSRule<?>> list) {
+	protected void fillUpAdditionalCSSRulesForBaseStateIntoList(
+		final Button button,
+		final LinkedList<? super ICSSRule<?>> list
+	) {
 		//Does nothing.
 	}
 	
 	//method
 	@Override
 	protected void fillUpExtendedControlCSSPropertiesForStateIntoList(
+		final Button button,
 		final ControlState state,
 		final LinkedList<CSSProperty> list
 	) {

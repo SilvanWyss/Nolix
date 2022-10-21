@@ -214,7 +214,7 @@ public final class Textbox extends Control<Textbox, TextboxStyle> implements ITe
 	//method
 	@Override
 	protected IControlCSSRuleBuilder<Textbox, TextboxStyle> getCSSRuleCreator() {
-		return TextboxCSSRuleBuilder.forTextbox(this);
+		return TextboxCSSRuleBuilder.INSTANCE;
 	}
 	
 	//method

@@ -20,25 +20,21 @@ public abstract class ExtendedControlCSSRuleBuilder<
 >
 extends ControlCSSRuleBuilder<EC, ECS> {
 	
-	//constructor
-	protected ExtendedControlCSSRuleBuilder(final EC parentExtendedControl) {
-		super(parentExtendedControl);
-	}
-	
 	//method
 	@Override
-	protected void fillUpControlCSSPropertiesForBaseStateIntoList(final LinkedList<CSSProperty> list) {
+	protected void fillUpControlCSSPropertiesForBaseStateIntoList(final EC control, final LinkedList<CSSProperty> list) {
 		//TODO: Implement.
 	}
 	
 	//method
 	@Override
 	protected final void fillUpControlCSSPropertiesForStateIntoList(
+		final EC control,
 		final ControlState state,
 		final LinkedList<CSSProperty> list
 	) {
 		
-		final var style = getRefParentControl().getRefStyle();
+		final var style = control.getRefStyle();
 		
 		list.addAtEnd(
 			CSSProperty.withNameAndValue(
@@ -95,11 +91,12 @@ extends ControlCSSRuleBuilder<EC, ECS> {
 			)
 		);
 		
-		fillUpExtendedControlCSSPropertiesForStateIntoList(state, list);
+		fillUpExtendedControlCSSPropertiesForStateIntoList(control, state, list);
 	}
 	
 	//method declaration
 	protected abstract void fillUpExtendedControlCSSPropertiesForStateIntoList(
+		EC control,
 		ControlState state,
 		LinkedList<CSSProperty> list
 	);

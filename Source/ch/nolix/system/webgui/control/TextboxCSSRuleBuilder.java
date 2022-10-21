@@ -11,19 +11,16 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 //class
 public final class TextboxCSSRuleBuilder extends ExtendedControlCSSRuleBuilder<Textbox, TextboxStyle> {
 	
-	//static method
-	public static TextboxCSSRuleBuilder forTextbox(final Textbox textbox) {
-		return new TextboxCSSRuleBuilder(textbox);
-	}
+	//static attribute
+	public static final TextboxCSSRuleBuilder INSTANCE = new TextboxCSSRuleBuilder();
 	
 	//constructor
-	private TextboxCSSRuleBuilder(final Textbox parentTextbox) {
-		super(parentTextbox);
-	}
-	
+	private TextboxCSSRuleBuilder() {}
+
 	//method
 	@Override
 	protected void fillUpAdditionalCSSRulesForStateIntoList(
+		final Textbox textbox,
 		final ControlState state,
 		final LinkedList<? super ICSSRule<?>> list
 	) {
@@ -32,13 +29,17 @@ public final class TextboxCSSRuleBuilder extends ExtendedControlCSSRuleBuilder<T
 	
 	//method
 	@Override
-	protected void fillUpAdditionalCSSRulesForBaseStateIntoList(final LinkedList<? super ICSSRule<?>> list) {
+	protected void fillUpAdditionalCSSRulesForBaseStateIntoList(
+		final Textbox textbox,	
+		final LinkedList<? super ICSSRule<?>> list
+	) {
 		//Does nothing.
 	}
 	
 	//method
 	@Override
 	protected void fillUpExtendedControlCSSPropertiesForStateIntoList(
+		final Textbox textbox,
 		final ControlState state,
 		final LinkedList<CSSProperty> list
 	) {

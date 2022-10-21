@@ -36,6 +36,6 @@ implements IDropdownMenu<DropdownMenu, DropdownMenuStyle> {
 	//method
 	@Override
 	protected IControlCSSRuleBuilder<DropdownMenu, DropdownMenuStyle> getCSSRuleCreator() {
-		return DropdownMenuCSSRuleBuilder.forDropdownMenu(this);
+		return DropdownMenuCSSRuleBuilder.INSTANCE;
 	}
 }

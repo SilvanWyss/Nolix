@@ -4,7 +4,6 @@ package ch.nolix.system.webgui.main;
 //own imports
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.web.css.CSSProperty;
 import ch.nolix.core.web.css.CSSRule;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
@@ -25,113 +24,99 @@ public abstract class ControlCSSRuleBuilder<
 >
 implements IControlCSSRuleBuilder<C, CS> {
 	
-	//attribute
-	private final C parentControl;
-	
-	//constructor
-	protected ControlCSSRuleBuilder(final C parentControl) {
-		
-		GlobalValidator.assertThat(parentControl).thatIsNamed("parent control").isNotNull();
-		
-		this.parentControl = parentControl;
-	}
-	
 	//method
 	@Override
-	public IContainer<ICSSRule<?>> getCSSRules() {
+	public final IContainer<ICSSRule<?>> createCSSRulesForControl(final C control) {
 		
 		final var lCSSRules = new LinkedList<ICSSRule<?>>();
 		
 		lCSSRules.addAtEnd(
-			getCSSRuleForBaseState(),
-			getCSSRuleForState(ControlState.BASE),
-			getCSSRuleForState(ControlState.HOVER),
-			getCSSRuleForState(ControlState.FOCUS)
+			getCSSRuleForBaseState(control),
+			getCSSRuleForState(control, ControlState.BASE),
+			getCSSRuleForState(control, ControlState.HOVER),
+			getCSSRuleForState(control, ControlState.FOCUS)
 		);
 		
-		fillUpAdditionalCSSRulesForBaseStateIntoList(lCSSRules);
-		fillUpAdditionalCSSRulesForStateIntoList(ControlState.BASE, lCSSRules);
-		fillUpAdditionalCSSRulesForStateIntoList(ControlState.HOVER, lCSSRules);
-		fillUpAdditionalCSSRulesForStateIntoList(ControlState.FOCUS, lCSSRules);
+		fillUpAdditionalCSSRulesForBaseStateIntoList(control, lCSSRules);
+		fillUpAdditionalCSSRulesForStateIntoList(control, ControlState.BASE, lCSSRules);
+		fillUpAdditionalCSSRulesForStateIntoList(control, ControlState.HOVER, lCSSRules);
+		fillUpAdditionalCSSRulesForStateIntoList(control, ControlState.FOCUS, lCSSRules);
 		
 		return lCSSRules;
 	}
 	
-	//method
-	@Override
-	public final C getRefParentControl() {
-		return parentControl;
-	}
-	
 	//method declaration
 	protected abstract void fillUpAdditionalCSSRulesForStateIntoList(
+		C control,
 		ControlState state,
 		LinkedList<? super ICSSRule<?>> list
 	);
 	
 	//method declaration
-	protected abstract void fillUpAdditionalCSSRulesForBaseStateIntoList(LinkedList<? super ICSSRule<?>> list);
+	protected abstract void fillUpAdditionalCSSRulesForBaseStateIntoList(C control, LinkedList<? super ICSSRule<?>> list);
 	
 	//method declaration
-	protected abstract void fillUpControlCSSPropertiesForBaseStateIntoList(LinkedList<CSSProperty> list);
+	protected abstract void fillUpControlCSSPropertiesForBaseStateIntoList(C control, LinkedList<CSSProperty> list);
 	
 	//method declaration
 	protected abstract void fillUpControlCSSPropertiesForStateIntoList(
+		C control,
 		ControlState state,
 		LinkedList<CSSProperty> list
 	);
 	
 	//method
-	protected String getCSSSelectorForBaseState() {
-		return "#" + getRefParentControl().getFixedId();
+	protected String getCSSSelectorForBaseState(final C control) {
+		return "#" + control.getFixedId();
 	}
 	
 	//method
-	private void fillUpCSSPropertiesForBaseStateIntoList(final LinkedList<CSSProperty> list) {
+	private void fillUpCSSPropertiesForBaseStateIntoList(final C control, final LinkedList<CSSProperty> list) {
 		
-		if (getRefParentControl().hasMaxWidth()) {
+		if (control.hasMaxWidth()) {
 			list.addAtEnd(
 				CSSProperty.withNameAndValue(
 					CSSPropertyNameCatalogue.MAX_WIDTH,
 					ControlCSSValueHelper.INSTANCE.getCSSValueFromRelativeOrAbsoluteInt(
-						getRefParentControl().getMaxWidth(),
+						control.getMaxWidth(),
 						CSSUnitCatalogue.VW
 					)
 				)
 			);
 		}
 		
-		if (getRefParentControl().hasMaxHeight()) {
+		if (control.hasMaxHeight()) {
 			list.addAtEnd(
 				CSSProperty.withNameAndValue(
 					CSSPropertyNameCatalogue.MAX_HEIGHT,
 					ControlCSSValueHelper.INSTANCE.getCSSValueFromRelativeOrAbsoluteInt(
-						getRefParentControl().getMaxHeight(),
+						control.getMaxHeight(),
 						CSSUnitCatalogue.VH
 					)
 				)
 			);
 		}
 				
-		if (getRefParentControl().getCursorIcon() != CursorIcon.ARROW) {
+		if (control.getCursorIcon() != CursorIcon.ARROW) {
 			list.addAtEnd(
 				CSSProperty.withNameAndValue(
 					CSSPropertyNameCatalogue.CURSOR,
-					getRefParentControl().getCursorIcon().toCSSValue()
+					control.getCursorIcon().toCSSValue()
 				)
 			);
 		}
 		
-		fillUpControlCSSPropertiesForBaseStateIntoList(list);
+		fillUpControlCSSPropertiesForBaseStateIntoList(control, list);
 	}
 	
 	//method
 	private void fillUpCSSPropertiesForStateIntoList(
+		final C control,
 		final ControlState state,
 		final LinkedList<CSSProperty> list
 	) {
 				
-		final var style = getRefParentControl().getRefStyle();
+		final var style = control.getRefStyle();
 		
 		final var opacity = style.getOpacityWhenHasState(state);
 		if (opacity < 1.0) {
@@ -159,48 +144,51 @@ implements IControlCSSRuleBuilder<C, CS> {
 			)
 		);
 		
-		fillUpControlCSSPropertiesForStateIntoList(state, list);
+		fillUpControlCSSPropertiesForStateIntoList(control, state, list);
 	}
 	
 	//method
-	private final ICSSRule<?> getCSSRuleForBaseState() {
-		return CSSRule.withSelectorAndProperties(getCSSSelectorForBaseState(), getCSSPropertiesForBaseState());
+	private final ICSSRule<?> getCSSRuleForBaseState(final C control) {
+		return CSSRule.withSelectorAndProperties(getCSSSelectorForBaseState(control), getCSSPropertiesForBaseState(control));
 	}
 	
 	//method
-	private final ICSSRule<?> getCSSRuleForState(final ControlState state) {
-		return CSSRule.withSelectorAndProperties(getCSSSelectorForState(state), getCSSPropertiesForState(state));
+	private final ICSSRule<?> getCSSRuleForState(final C control, final ControlState state) {
+		return CSSRule.withSelectorAndProperties(
+			getCSSSelectorForState(control, state),
+			getCSSPropertiesForState(control, state)
+		);
 	}
 	
 	//method
-	private IContainer<CSSProperty> getCSSPropertiesForBaseState() {
+	private IContainer<CSSProperty> getCSSPropertiesForBaseState(final C control) {
 		
 		final var lCSSPropertiesForBaseState = new LinkedList<CSSProperty>();
 		
-		fillUpCSSPropertiesForBaseStateIntoList(lCSSPropertiesForBaseState);
+		fillUpCSSPropertiesForBaseStateIntoList(control, lCSSPropertiesForBaseState);
 		
 		return lCSSPropertiesForBaseState;
 	}
 	
 	//method
-	private IContainer<CSSProperty> getCSSPropertiesForState(final ControlState state) {
+	private IContainer<CSSProperty> getCSSPropertiesForState(final C control, final ControlState state) {
 		
 		final var lCSSProperties = new LinkedList<CSSProperty>();
 		
-		fillUpCSSPropertiesForStateIntoList(state, lCSSProperties);
+		fillUpCSSPropertiesForStateIntoList(control, state, lCSSProperties);
 		
 		return lCSSProperties;
 	}
 	
 	//method
-	private String getCSSSelectorForState(final ControlState state) {
+	private String getCSSSelectorForState(final C control, final ControlState state) {
 		switch (state) {
 			case BASE:
-				return ("#" + getRefParentControl().getFixedId());
+				return ("#" + control.getFixedId());
 			case FOCUS:
-				return ("#" + getRefParentControl().getFixedId() + ":focus");
+				return ("#" + control.getFixedId() + ":focus");
 			case HOVER:
-				return ("#" + getRefParentControl().getFixedId() + ":hover");
+				return ("#" + control.getFixedId() + ":hover");
 			default:
 				throw InvalidArgumentException.forArgument(state);
 		}

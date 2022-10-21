@@ -107,7 +107,7 @@ implements IControl<C, CS> {
 	//method
 	@Override
 	public final IContainer<ICSSRule<?>> getCSSRules() {
-		return getCSSRuleCreator().getCSSRules();
+		return getCSSRuleCreator().createCSSRulesForControl(asConcrete());
 	}
 	
 	//method

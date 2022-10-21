@@ -9,19 +9,16 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 //class
 public final class DropdownMenuCSSRuleBuilder extends ItemMenuCSSRuleBuilder<DropdownMenu, DropdownMenuStyle> {
 	
-	//static method
-	public static DropdownMenuCSSRuleBuilder forDropdownMenu(final DropdownMenu dropdownMenu) {
-		return new DropdownMenuCSSRuleBuilder(dropdownMenu);
-	}
+	//static attribute
+	public static final DropdownMenuCSSRuleBuilder INSTANCE = new DropdownMenuCSSRuleBuilder();
 	
 	//constructor
-	private DropdownMenuCSSRuleBuilder(final DropdownMenu parentDropdownMenu) {
-		super(parentDropdownMenu);
-	}
-	
+	private DropdownMenuCSSRuleBuilder() {}
+
 	//method
 	@Override
 	protected void fillUpExtendedControlCSSPropertiesForStateIntoList(
+		final DropdownMenu dropdownMenu,
 		final ControlState state,
 		final LinkedList<CSSProperty> list
 	) {

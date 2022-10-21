@@ -12,19 +12,16 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 //class
 public final class ImageControlCSSRuleBuilder extends ExtendedControlCSSRuleBuilder<ImageControl, ImageControlStyle> {
 	
-	//static method
-	public static ImageControlCSSRuleBuilder forImageControl(final ImageControl imageControl) {
-		return new ImageControlCSSRuleBuilder(imageControl);
-	}
+	//static attribute
+	public static final ImageControlCSSRuleBuilder INSTANCE = new ImageControlCSSRuleBuilder();
 	
-	//constructor
-	private ImageControlCSSRuleBuilder(final ImageControl imageControl) {
-		super(imageControl);
-	}
+	//consturctor
+	private ImageControlCSSRuleBuilder() {}
 	
 	//method
 	@Override
 	protected void fillUpAdditionalCSSRulesForStateIntoList(
+		final ImageControl imageControl,
 		final ControlState state,
 		final LinkedList<? super ICSSRule<?>> list
 	) {
@@ -33,13 +30,17 @@ public final class ImageControlCSSRuleBuilder extends ExtendedControlCSSRuleBuil
 	
 	//method
 	@Override
-	protected void fillUpAdditionalCSSRulesForBaseStateIntoList(final LinkedList<? super ICSSRule<?>> list) {
+	protected void fillUpAdditionalCSSRulesForBaseStateIntoList(
+		final ImageControl imageControl,
+		final LinkedList<? super ICSSRule<?>> list
+	) {
 		//Does nothing.
 	}
 	
 	//method
 	@Override
 	protected void fillUpExtendedControlCSSPropertiesForStateIntoList(
+		final ImageControl imageControl,
 		final ControlState state,
 		final LinkedList<CSSProperty> list
 	) {

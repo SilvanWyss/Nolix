@@ -15,29 +15,26 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 public final class VerticalStackCSSRuleBuilder
 extends ExtendedControlCSSRuleBuilder<VerticalStack, VerticalStackStyle> {
 	
-	//static method
-	public static VerticalStackCSSRuleBuilder forVerticalStack(final VerticalStack button) {
-		return new VerticalStackCSSRuleBuilder(button);
-	}
+	//static attribute
+	public static final VerticalStackCSSRuleBuilder INSTANCE = new VerticalStackCSSRuleBuilder();
 	
 	//constructor
-	private VerticalStackCSSRuleBuilder(final VerticalStack parentVerticalStack) {
-		super(parentVerticalStack);
-	}
-	
+	private VerticalStackCSSRuleBuilder() {}
+
 	//method
 	@Override
 	protected void fillUpAdditionalCSSRulesForStateIntoList(
+		final VerticalStack verticalStack,
 		final ControlState state,
 		final LinkedList<? super ICSSRule<?>> list
 	) {
 		list.addAtEnd(
 			CSSRule.withSelectorAndProperties(
-				getCSSSelectorForBaseState() + " ." + VerticalStackHTMLCreator.CHILD_CONTROL_CSS_CLASS_NAME,
+				getCSSSelectorForBaseState(verticalStack) + " ." + VerticalStackHTMLCreator.CHILD_CONTROL_CSS_CLASS_NAME,
 				LinkedList.withElements(
 					CSSProperty.withNameAndValue(
 						CSSPropertyNameCatalogue.MARGIN,
-						getRefParentControl().getRefStyle().getChildControlMarginWhenHasState(state)
+						verticalStack.getRefStyle().getChildControlMarginWhenHasState(state)
 						+ CSSUnitCatalogue.PX
 					)
 				)
@@ -47,13 +44,17 @@ extends ExtendedControlCSSRuleBuilder<VerticalStack, VerticalStackStyle> {
 	
 	//method
 	@Override
-	protected void fillUpAdditionalCSSRulesForBaseStateIntoList(final LinkedList<? super ICSSRule<?>> list) {
+	protected void fillUpAdditionalCSSRulesForBaseStateIntoList(
+		final VerticalStack verticalStack,
+		final LinkedList<? super ICSSRule<?>> list
+	) {
 		//Does nothing.
 	}
 	
 	//method
 	@Override
 	protected void fillUpExtendedControlCSSPropertiesForStateIntoList(
+		final VerticalStack verticalStack,
 		final ControlState state,
 		final LinkedList<CSSProperty> list
 	) {

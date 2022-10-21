@@ -261,7 +261,7 @@ implements IImageControl<ImageControl, ImageControlStyle, MutableImage> {
 	//method
 	@Override
 	protected IControlCSSRuleBuilder<ImageControl, ImageControlStyle> getCSSRuleCreator() {
-		return ImageControlCSSRuleBuilder.forImageControl(this);
+		return ImageControlCSSRuleBuilder.INSTANCE;
 	}
 	
 	//method

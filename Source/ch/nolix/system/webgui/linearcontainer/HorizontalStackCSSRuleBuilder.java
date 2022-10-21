@@ -16,22 +16,21 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 public final class HorizontalStackCSSRuleBuilder
 extends ExtendedControlCSSRuleBuilder<HorizontalStack, HorizontalStackStyle> {
 	
-	//static method
-	public static HorizontalStackCSSRuleBuilder forHorizontalStack(final HorizontalStack button) {
-		return new HorizontalStackCSSRuleBuilder(button);
-	}
+	//static attribute
+	public static final HorizontalStackCSSRuleBuilder INSTANCE = new HorizontalStackCSSRuleBuilder();
 	
 	//constructor
-	private HorizontalStackCSSRuleBuilder(final HorizontalStack parentHorizontalStack) {
-		super(parentHorizontalStack);
-	}
-	
+	private HorizontalStackCSSRuleBuilder() {}
+
 	//method
 	@Override
-	protected void fillUpAdditionalCSSRulesForBaseStateIntoList(final LinkedList<? super ICSSRule<?>> list) {
+	protected void fillUpAdditionalCSSRulesForBaseStateIntoList(
+		final HorizontalStack horizontalStack,
+		final LinkedList<? super ICSSRule<?>> list
+	) {
 		list.addAtEnd(
 			CSSRule.withSelectorAndProperties(
-				getCSSSelectorForBaseState() + " ." + VerticalStackHTMLCreator.CHILD_CONTROL_CSS_CLASS_NAME,
+				getCSSSelectorForBaseState(horizontalStack) + " ." + VerticalStackHTMLCreator.CHILD_CONTROL_CSS_CLASS_NAME,
 				LinkedList.withElements(
 					CSSProperty.withNameAndValue(
 						CSSPropertyNameCatalogue.FLOAT,
@@ -45,16 +44,17 @@ extends ExtendedControlCSSRuleBuilder<HorizontalStack, HorizontalStackStyle> {
 	//method
 	@Override
 	protected void fillUpAdditionalCSSRulesForStateIntoList(
+		final HorizontalStack horizontalStack,
 		final ControlState state,
 		final LinkedList<? super ICSSRule<?>> list
 	) {
 		list.addAtEnd(
 			CSSRule.withSelectorAndProperties(
-				getCSSSelectorForBaseState() + " ." + VerticalStackHTMLCreator.CHILD_CONTROL_CSS_CLASS_NAME,
+				getCSSSelectorForBaseState(horizontalStack) + " ." + VerticalStackHTMLCreator.CHILD_CONTROL_CSS_CLASS_NAME,
 				LinkedList.withElements(
 					CSSProperty.withNameAndValue(
 						CSSPropertyNameCatalogue.MARGIN,
-						getRefParentControl().getRefStyle().getChildControlMarginWhenHasState(state)
+						horizontalStack.getRefStyle().getChildControlMarginWhenHasState(state)
 						+ CSSUnitCatalogue.PX
 					)
 				)
@@ -65,6 +65,7 @@ extends ExtendedControlCSSRuleBuilder<HorizontalStack, HorizontalStackStyle> {
 	//method
 	@Override
 	protected void fillUpExtendedControlCSSPropertiesForStateIntoList(
+		final HorizontalStack horizontalStack,
 		final ControlState state,
 		final LinkedList<CSSProperty> list
 	) {

@@ -14,8 +14,5 @@ public interface IControlCSSRuleBuilder<
 > {
 	
 	//method declaration
-	IContainer<ICSSRule<?>> getCSSRules();
-	
-	//method declaration
-	C getRefParentControl();
+	IContainer<ICSSRule<?>> createCSSRulesForControl(C control);
 }

@@ -23,7 +23,7 @@ public final class HorizontalStack extends LinearContainer<HorizontalStack, Hori
 	//method
 	@Override
 	protected IControlCSSRuleBuilder<HorizontalStack, HorizontalStackStyle> getCSSRuleCreator() {
-		return HorizontalStackCSSRuleBuilder.forHorizontalStack(this);
+		return HorizontalStackCSSRuleBuilder.INSTANCE;
 	}
 	
 	//method

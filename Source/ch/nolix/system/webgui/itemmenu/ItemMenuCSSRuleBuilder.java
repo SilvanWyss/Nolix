@@ -15,14 +15,10 @@ public abstract class ItemMenuCSSRuleBuilder<
 >
 extends ExtendedControlCSSRuleBuilder<IM, IMS> {
 	
-	//constructor
-	protected ItemMenuCSSRuleBuilder(final IM parentExtendedControl) {
-		super(parentExtendedControl);
-	}
-	
 	//method
 	@Override
 	protected final void fillUpAdditionalCSSRulesForStateIntoList(
+		final IM itemMenu,
 		final ControlState state,
 		final LinkedList<? super ICSSRule<?>> list
 	) {
@@ -31,7 +27,10 @@ extends ExtendedControlCSSRuleBuilder<IM, IMS> {
 	
 	//method
 	@Override
-	protected final void fillUpAdditionalCSSRulesForBaseStateIntoList(final LinkedList<? super ICSSRule<?>> list) {
+	protected final void fillUpAdditionalCSSRulesForBaseStateIntoList(
+		final IM itemMenu,
+		final LinkedList<? super ICSSRule<?>> list
+	) {
 		//Does nothing.
 	}
 }

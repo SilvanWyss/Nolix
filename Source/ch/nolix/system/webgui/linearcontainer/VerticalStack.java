@@ -23,7 +23,7 @@ public final class VerticalStack extends LinearContainer<VerticalStack, Vertical
 	//method
 	@Override
 	protected IControlCSSRuleBuilder<VerticalStack, VerticalStackStyle> getCSSRuleCreator() {
-		return VerticalStackCSSRuleBuilder.forVerticalStack(this);
+		return VerticalStackCSSRuleBuilder.INSTANCE;
 	}
 	
 	//method

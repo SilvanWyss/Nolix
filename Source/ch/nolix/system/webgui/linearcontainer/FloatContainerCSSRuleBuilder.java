@@ -16,22 +16,21 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 public final class FloatContainerCSSRuleBuilder
 extends ExtendedControlCSSRuleBuilder<FloatContainer, FloatContainerStyle> {
 	
-	//static method
-	public static FloatContainerCSSRuleBuilder forFloatContainer(final FloatContainer button) {
-		return new FloatContainerCSSRuleBuilder(button);
-	}
+	//static attribute
+	public static final FloatContainerCSSRuleBuilder INSTANCE = new FloatContainerCSSRuleBuilder();
 	
 	//constructor
-	private FloatContainerCSSRuleBuilder(final FloatContainer parentFloatContainer) {
-		super(parentFloatContainer);
-	}
-	
+	private FloatContainerCSSRuleBuilder() {}
+
 	//method
 	@Override
-	protected void fillUpAdditionalCSSRulesForBaseStateIntoList(final LinkedList<? super ICSSRule<?>> list) {
+	protected void fillUpAdditionalCSSRulesForBaseStateIntoList(
+		final FloatContainer floatContainer,
+		final LinkedList<? super ICSSRule<?>> list
+	) {
 		list.addAtEnd(
 			CSSRule.withSelectorAndProperties(
-				getCSSSelectorForBaseState() + " ." + FloatContainerHTMLCreator.CHILD_CONTROL_CSS_CLASS_NAME,
+				getCSSSelectorForBaseState(floatContainer) + " ." + FloatContainerHTMLCreator.CHILD_CONTROL_CSS_CLASS_NAME,
 				LinkedList.withElements(
 					CSSProperty.withNameAndValue(
 						CSSPropertyNameCatalogue.FLOAT,
@@ -45,16 +44,17 @@ extends ExtendedControlCSSRuleBuilder<FloatContainer, FloatContainerStyle> {
 	//method
 	@Override
 	protected void fillUpAdditionalCSSRulesForStateIntoList(
+		final FloatContainer floatContainer,
 		final ControlState state,
 		final LinkedList<? super ICSSRule<?>> list
 	) {
 		list.addAtEnd(
 			CSSRule.withSelectorAndProperties(
-				getCSSSelectorForBaseState() + " ." + FloatContainerHTMLCreator.CHILD_CONTROL_CSS_CLASS_NAME,
+				getCSSSelectorForBaseState(floatContainer) + " ." + FloatContainerHTMLCreator.CHILD_CONTROL_CSS_CLASS_NAME,
 				LinkedList.withElements(
 					CSSProperty.withNameAndValue(
 						CSSPropertyNameCatalogue.MARGIN,
-						getRefParentControl().getRefStyle().getChildControlMarginWhenHasState(state)
+						floatContainer.getRefStyle().getChildControlMarginWhenHasState(state)
 						+ CSSUnitCatalogue.PX
 					)
 				)
@@ -65,6 +65,7 @@ extends ExtendedControlCSSRuleBuilder<FloatContainer, FloatContainerStyle> {
 	//method
 	@Override
 	protected void fillUpExtendedControlCSSPropertiesForStateIntoList(
+		final FloatContainer floatContainer,
 		final ControlState state,
 		final LinkedList<CSSProperty> list
 	) {

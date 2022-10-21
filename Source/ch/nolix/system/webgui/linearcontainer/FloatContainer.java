@@ -23,7 +23,7 @@ public final class FloatContainer extends LinearContainer<FloatContainer, FloatC
 	//method
 	@Override
 	protected IControlCSSRuleBuilder<FloatContainer, FloatContainerStyle> getCSSRuleCreator() {
-		return FloatContainerCSSRuleBuilder.forFloatContainer(this);
+		return FloatContainerCSSRuleBuilder.INSTANCE;
 	}
 	
 	//method
