@@ -2,8 +2,8 @@
 package ch.nolix.business.serverdashboard;
 
 //own imports
-import ch.nolix.system.element.style.Style;
 import ch.nolix.system.element.style.DeepStyle;
+import ch.nolix.system.element.style.Style;
 import ch.nolix.system.webgui.control.ImageControl;
 import ch.nolix.system.webgui.control.Text;
 import ch.nolix.system.webgui.linearcontainer.FloatContainer;

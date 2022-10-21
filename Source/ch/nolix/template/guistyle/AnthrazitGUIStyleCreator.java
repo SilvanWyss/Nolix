@@ -1,8 +1,9 @@
 //package declaration
 package ch.nolix.template.guistyle;
 
-import ch.nolix.system.element.style.Style;
+//own imports
 import ch.nolix.system.element.style.DeepStyle;
+import ch.nolix.system.element.style.Style;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.containerwidget.Grid;
 import ch.nolix.system.gui.containerwidget.Stack;

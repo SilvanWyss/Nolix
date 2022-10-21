@@ -1,7 +1,7 @@
 package ch.nolix.systemtutorial.guitutorial.dialogtutorial;
 
-import ch.nolix.system.element.style.Style;
 import ch.nolix.system.element.style.DeepStyle;
+import ch.nolix.system.element.style.Style;
 import ch.nolix.system.gui.containerwidget.VerticalStack;
 import ch.nolix.system.gui.dialog.UploadImageDialogCreator;
 import ch.nolix.system.gui.image.MutableImage;

@@ -1,7 +1,7 @@
 package ch.nolix.systemtutorial.guitutorial.dialogtutorial;
 
-import ch.nolix.system.element.style.Style;
 import ch.nolix.system.element.style.DeepStyle;
+import ch.nolix.system.element.style.Style;
 import ch.nolix.system.gui.dialog.YesNoDialogCreator;
 import ch.nolix.system.gui.widget.Button;
 import ch.nolix.system.gui.widget.LabelRole;
