@@ -9,22 +9,23 @@ import ch.nolix.core.web.html.HTMLElement;
 import ch.nolix.core.web.html.HTMLElementTypeCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.system.webgui.controlhelper.ControlHelper;
+import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //class
-public final class HorizontalStackHTMLCreator {
+public final class HorizontalStackHTMLBuilder implements IControlHTMLBuilder<HorizontalStack> {
 	
 	//constant
 	public static final String CHILD_CONTROL_CSS_CLASS_NAME = "horizontalStackChild";
 	
 	//static attribute
-	public static final HorizontalStackHTMLCreator INSTANCE = new HorizontalStackHTMLCreator();
+	public static final HorizontalStackHTMLBuilder INSTANCE = new HorizontalStackHTMLBuilder();
 	
 	//constructor
-	private HorizontalStackHTMLCreator() {}
+	private HorizontalStackHTMLBuilder() {}
 	
 	//method
-	public HTMLElement createHTMLElementForHorizontalStack(final HorizontalStack horizontalStack) {
+	public HTMLElement createHTMLElementForControl(final HorizontalStack horizontalStack) {
 		return
 		HTMLElement.withTypeAndAttributesAndChildElements(
 			HTMLElementTypeCatalogue.DIV,

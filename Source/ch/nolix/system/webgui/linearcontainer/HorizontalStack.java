@@ -11,7 +11,7 @@ public final class HorizontalStack extends LinearContainer<HorizontalStack, Hori
 	//method
 	@Override
 	public IHTMLElement<?, ?> toHTMLElement() {
-		return HorizontalStackHTMLCreator.INSTANCE.createHTMLElementForHorizontalStack(this);
+		return HorizontalStackHTMLBuilder.INSTANCE.createHTMLElementForControl(this);
 	}
 	
 	//method
