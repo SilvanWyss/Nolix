@@ -9,22 +9,23 @@ import ch.nolix.core.web.html.HTMLElement;
 import ch.nolix.core.web.html.HTMLElementTypeCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.system.webgui.controlhelper.ControlHelper;
+import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //class
-public final class FloatContainerHTMLCreator {
+public final class FloatContainerHTMLBuilder implements IControlHTMLBuilder<FloatContainer> {
 	
 	//constant
 	public static final String CHILD_CONTROL_CSS_CLASS_NAME = "floatContainerChild";
 	
 	//static attribute
-	public static final FloatContainerHTMLCreator INSTANCE = new FloatContainerHTMLCreator();
+	public static final FloatContainerHTMLBuilder INSTANCE = new FloatContainerHTMLBuilder();
 	
 	//constructor
-	private FloatContainerHTMLCreator() {}
+	private FloatContainerHTMLBuilder() {}
 	
 	//method
-	public HTMLElement createHTMLElementForFloatContainer(final FloatContainer floatContainer) {
+	public HTMLElement createHTMLElementForControl(final FloatContainer floatContainer) {
 		return
 		HTMLElement.withTypeAndAttributesAndChildElements(
 			HTMLElementTypeCatalogue.DIV,

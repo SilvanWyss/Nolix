@@ -11,7 +11,7 @@ public final class FloatContainer extends LinearContainer<FloatContainer, FloatC
 	//method
 	@Override
 	public IHTMLElement<?, ?> toHTMLElement() {
-		return FloatContainerHTMLCreator.INSTANCE.createHTMLElementForFloatContainer(this);
+		return FloatContainerHTMLBuilder.INSTANCE.createHTMLElementForControl(this);
 	}
 	
 	//method
