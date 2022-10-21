@@ -9,19 +9,19 @@ import ch.nolix.core.web.html.HTMLElement;
 import ch.nolix.core.web.html.HTMLElementTypeCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.system.webgui.controlhelper.ControlHelper;
-import ch.nolix.systemapi.webguiapi.controlapi.IImageControl;
+import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
 
 //class
-public final class ImageControlHTMLCreator {
+public final class ImageControlHTMLBuilder implements IControlHTMLBuilder<ImageControl> {
 	
 	//static attribute
-	public static final ImageControlHTMLCreator INSTANCE = new ImageControlHTMLCreator();
+	public static final ImageControlHTMLBuilder INSTANCE = new ImageControlHTMLBuilder();
 	
 	//constructor
-	private ImageControlHTMLCreator() {}
+	private ImageControlHTMLBuilder() {}
 	
 	//method
-	public HTMLElement createHTMLElementFromImageControl(final IImageControl<?, ?, ?> imageControl) {
+	public HTMLElement createHTMLElementForControl(final ImageControl imageControl) {
 		return
 		HTMLElement.withTypeAndAttributes(
 			HTMLElementTypeCatalogue.IMG,
@@ -30,7 +30,7 @@ public final class ImageControlHTMLCreator {
 	}
 	
 	//method
-	private IContainer<HTMLAttribute> createHTMLAttributesFromImageControl(final IImageControl<?, ?, ?> imageControl) {
+	private IContainer<HTMLAttribute> createHTMLAttributesFromImageControl(final ImageControl imageControl) {
 		
 		final var lHTMLAttributes = new LinkedList<HTMLAttribute>();
 		

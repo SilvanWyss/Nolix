@@ -249,7 +249,7 @@ implements IImageControl<ImageControl, ImageControlStyle, MutableImage> {
 	//method
 	@Override
 	public IHTMLElement<?, ?> toHTMLElement() {
-		return ImageControlHTMLCreator.INSTANCE.createHTMLElementFromImageControl(this);
+		return ImageControlHTMLBuilder.INSTANCE.createHTMLElementForControl(this);
 	}
 	
 	//method
