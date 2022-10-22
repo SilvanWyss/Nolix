@@ -25,8 +25,17 @@ public final class GridContainerHTMLBuilder implements IControlHTMLBuilder<GridC
 	public IHTMLElement<?, ?> createHTMLElementForControl(final GridContainer control) {
 		return
 		HTMLElement.withTypeAndAttributesAndChildElement(
-			HTMLElementTypeCatalogue.TABLE,
+			HTMLElementTypeCatalogue.DIV,
 			ImmutableList.withElements(ControlHelper.INSTANCE.createIdHTMLAttributeForControl(control)),
+			createHTMLElementForTableOfGridContainer(control)
+		);
+	}
+	
+	//method
+	public HTMLElement createHTMLElementForTableOfGridContainer(final GridContainer control) {
+		return
+		HTMLElement.withTypeAndChildElement(
+			HTMLElementTypeCatalogue.TABLE,
 			createHTMLElementForTableBodyOfGridContainer(control)
 		);
 	}
