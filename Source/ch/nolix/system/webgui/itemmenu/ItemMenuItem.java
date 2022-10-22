@@ -107,6 +107,7 @@ public final class ItemMenuItem extends MutableElement<ItemMenuItem> implements 
 	) {
 		
 		final var item = new ItemMenuItem(i -> selectAction.run());
+		item.setId(GlobalIdCreator.createIdOf10HexadecimalCharacters());
 		item.setText(text);
 		
 		return item;
@@ -119,6 +120,7 @@ public final class ItemMenuItem extends MutableElement<ItemMenuItem> implements 
 	) {
 		
 		final var item = new ItemMenuItem(selectAction);
+		item.setId(GlobalIdCreator.createIdOf10HexadecimalCharacters());
 		item.setText(text);
 		
 		return item;
