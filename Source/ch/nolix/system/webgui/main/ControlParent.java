@@ -2,6 +2,7 @@
 package ch.nolix.system.webgui.main;
 
 //own imports
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
@@ -69,6 +70,14 @@ final class ControlParent {
 	}
 	
 	//method
+	public IControl<?, ?> getRefControl() {
+		
+		assertIsControl();
+		
+		return control;
+	}
+	
+	//method
 	public Object getRefElement() {
 		
 		if (isControl()) {
@@ -96,5 +105,12 @@ final class ControlParent {
 	//method
 	public boolean isLayer() {
 		return (layer != null);
+	}
+	
+	//method
+	private void assertIsControl() {
+		if (!isControl()) {
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is not a Control");
+		}
 	}
 }
