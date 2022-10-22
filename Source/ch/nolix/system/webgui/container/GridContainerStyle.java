@@ -30,10 +30,16 @@ implements IGridContainerStyle<GridContainerStyle> {
 	//constant
 	public static final int DEFAULT_CHILD_CONTROL_MARGIN = 0;
 	
-	//constants
+	//constant
 	private static final String GRID_TYPE_HEADER = "GridType";
+	
+	//constant
 	private static final String GRID_THICKNESS_HEADER = "GridThickness";
+	
+	//constant
 	private static final String GRID_COLOR_HEADER = "GridColor";
+	
+	//constant
 	private static final String CHILD_CONTROL_MARGIN_HEADER = "ChildControlMargin";
 	
 	//attribute
@@ -79,6 +85,11 @@ implements IGridContainerStyle<GridContainerStyle> {
 		this::setChildControlMarginForState,
 		DEFAULT_CHILD_CONTROL_MARGIN
 	);
+	
+	//constructor
+	public GridContainerStyle() {
+		initialize();
+	}
 	
 	//method
 	@Override
