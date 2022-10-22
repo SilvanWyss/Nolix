@@ -7,6 +7,7 @@ import ch.nolix.system.application.main.VoidApplicationContext;
 import ch.nolix.system.application.webapplication.BackendWebClientSession;
 import ch.nolix.system.webgui.container.GridContainer;
 import ch.nolix.system.webgui.control.Text;
+import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 public final class GridContainerTutorial {
 	
@@ -44,6 +45,12 @@ public final class GridContainerTutorial {
 			.insertControlAtRowAndColumn(3, 3, new Text().setText("F"))
 			.insertControlAtRowAndColumn(4, 2, new Text().setText("G"))
 			.insertControlAtRowAndColumn(4, 4, new Text().setText("H"));
+			
+			//Configures the style of the GridContainer.
+			gridContainer
+			.getRefStyle()
+			.setChildControlMarginForState(ControlState.BASE, 20)
+			.setTextSizeForState(ControlState.BASE, 50);
 			
 			//Adds the GridContainer to the GUI of the current MainSession.
 			getRefGUI().pushLayerWithRootControl(gridContainer);
