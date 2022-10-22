@@ -93,6 +93,8 @@ implements IGridContainer<GridContainer, GridContainerStyle> {
 		cell.setControl(control);
 		addCell(cell);
 		
+		cell.getRefControl().technicalSetParentControl(this);
+		
 		return this;
 	}
 	
@@ -137,7 +139,9 @@ implements IGridContainer<GridContainer, GridContainerStyle> {
 	
 	//method
 	private void addCell(final GridContainerCell cell) {
+		
 		expandTo(cell.getRowIndex(), cell.getColumnIndex());
+		
 		cells.setAt(cell.getRowIndex(), cell.getColumnIndex(), cell);
 	}
 	
