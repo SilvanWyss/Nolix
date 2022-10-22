@@ -29,6 +29,9 @@ public final class HTMLElementTypeCatalogue {
 	public static final String TABLE = "table";
 	
 	//constant
+	public static final String TBODY = "tbody";
+	
+	//constant
 	public static final String TD = "td";
 
 	//constant
