@@ -26,7 +26,7 @@ final class Worker extends Thread {
 			
 		while (true) {
 			
-			final var jobWrapperContainer = parentJobPool.getOptionalRefNextFreshJobWrapper();
+			final var jobWrapperContainer = parentJobPool.removeAndGetOptionalRefNextFreshJobWrapper();
 			
 			if (jobWrapperContainer.isEmpty()) {
 				break;
@@ -34,7 +34,6 @@ final class Worker extends Thread {
 			
 			final var jobWrapper = jobWrapperContainer.getRefElement();
 			jobWrapper.run();
-			parentJobPool.removeJobWrapper(jobWrapper);
 		}
 		
 		parentJobPool.removeWorker(this);

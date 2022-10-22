@@ -59,13 +59,17 @@ public final class JobPool {
 	}
 	
 	//method
-	synchronized SingleContainer<JobWrapper> getOptionalRefNextFreshJobWrapper() {
-		return jobWrappers.getOptionalRefFirst(JobWrapper::isFresh);
-	}
-	
-	//method
-	synchronized void removeJobWrapper(final JobWrapper jobWrapper) {
-		jobWrappers.removeFirst(jobWrapper);
+	synchronized SingleContainer<JobWrapper> removeAndGetOptionalRefNextFreshJobWrapper() {
+		
+		final var nextFreshJobWrapperContainer = jobWrappers.getOptionalRefFirst(JobWrapper::isFresh);
+		
+		if (nextFreshJobWrapperContainer.isEmpty()) {
+			return nextFreshJobWrapperContainer;
+		}
+		
+		final var nextFreshJobWrapper = nextFreshJobWrapperContainer.getRefElement();
+		jobWrappers.removeFirst(nextFreshJobWrapper);
+		return nextFreshJobWrapperContainer;
 	}
 	
 	//method
