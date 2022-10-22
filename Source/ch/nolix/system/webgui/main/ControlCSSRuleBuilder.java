@@ -30,7 +30,7 @@ implements IControlCSSRuleBuilder<C, CS> {
 		
 		final var lCSSRules = new LinkedList<ICSSRule<?>>();
 		
-		fillUpCSSRulesForAllStatesOfControlIntoList(control, lCSSRules);
+		fillUpCSSRulesForControlAndAllStatesIntoList(control, lCSSRules);
 		fillUpCSSRulesForStateOfControlIntoList(control, ControlState.BASE, lCSSRules);
 		fillUpCSSRulesForStateOfControlIntoList(control, ControlState.HOVER, lCSSRules);
 		fillUpCSSRulesForStateOfControlIntoList(control, ControlState.FOCUS, lCSSRules);
@@ -39,7 +39,7 @@ implements IControlCSSRuleBuilder<C, CS> {
 	}
 	
 	//method declaration
-	protected abstract void fillUpAdditionalCSSRulesForAllStatesOfControlIntoList(
+	protected abstract void fillUpAdditionalCSSRulesForControlAndAllStatesIntoList(
 		C control,
 		LinkedList<? super ICSSRule<?>> list
 	);
@@ -52,7 +52,7 @@ implements IControlCSSRuleBuilder<C, CS> {
 	);
 	
 	//method declaration
-	protected abstract void fillUpCSSPropertiesForAllStatesOfControlIntoList(
+	protected abstract void fillUpCSSPropertiesForControlAndAllStatesIntoList(
 		C control,
 		LinkedList<CSSProperty> list
 	);
@@ -65,7 +65,7 @@ implements IControlCSSRuleBuilder<C, CS> {
 	);
 	
 	//method
-	protected final String getCSSSelectorForAllStatesOfControl(final C control) {
+	protected final String getCSSSelectorForControlAndAllStates(final C control) {
 		return "#" + control.getFixedId();
 	}
 	
@@ -84,7 +84,7 @@ implements IControlCSSRuleBuilder<C, CS> {
 	}
 	
 	//method
-	private void fillUpAllCSSPropertiesForAllStatesOfControlIntoList(final C control, final LinkedList<CSSProperty> list) {
+	private void fillUpAllCSSPropertiesForControlAndAllStatesIntoList(final C control, final LinkedList<CSSProperty> list) {
 		
 		if (control.hasMaxWidth()) {
 			list.addAtEnd(
@@ -119,7 +119,7 @@ implements IControlCSSRuleBuilder<C, CS> {
 			);
 		}
 		
-		fillUpCSSPropertiesForAllStatesOfControlIntoList(control, list);
+		fillUpCSSPropertiesForControlAndAllStatesIntoList(control, list);
 	}
 
 	//method
@@ -161,9 +161,9 @@ implements IControlCSSRuleBuilder<C, CS> {
 	}
 	
 	//method
-	private void fillUpCSSRulesForAllStatesOfControlIntoList(final C control, final LinkedList<ICSSRule<?>> lCSSRules) {
-		lCSSRules.addAtEnd(getCSSRuleForAllStatesOfControl(control));
-		fillUpAdditionalCSSRulesForAllStatesOfControlIntoList(control, lCSSRules);
+	private void fillUpCSSRulesForControlAndAllStatesIntoList(final C control, final LinkedList<ICSSRule<?>> lCSSRules) {
+		lCSSRules.addAtEnd(getCSSRuleForControlAndAllStates(control));
+		fillUpAdditionalCSSRulesForControlAndAllStatesIntoList(control, lCSSRules);
 	}
 	
 	//method
@@ -177,11 +177,11 @@ implements IControlCSSRuleBuilder<C, CS> {
 	}
 	
 	//method
-	private IContainer<CSSProperty> getCSSPropertiesForAllStatesOfControl(final C control) {
+	private IContainer<CSSProperty> getCSSPropertiesForControlAndAllStates(final C control) {
 		
 		final var lCSSPropertiesForBaseState = new LinkedList<CSSProperty>();
 		
-		fillUpAllCSSPropertiesForAllStatesOfControlIntoList(control, lCSSPropertiesForBaseState);
+		fillUpAllCSSPropertiesForControlAndAllStatesIntoList(control, lCSSPropertiesForBaseState);
 		
 		return lCSSPropertiesForBaseState;
 	}
@@ -197,11 +197,11 @@ implements IControlCSSRuleBuilder<C, CS> {
 	}
 	
 	//method
-	private final ICSSRule<?> getCSSRuleForAllStatesOfControl(final C control) {
+	private final ICSSRule<?> getCSSRuleForControlAndAllStates(final C control) {
 		return
 		CSSRule.withSelectorAndProperties(
-			getCSSSelectorForAllStatesOfControl(control),
-			getCSSPropertiesForAllStatesOfControl(control)
+			getCSSSelectorForControlAndAllStates(control),
+			getCSSPropertiesForControlAndAllStates(control)
 		);
 	}
 	

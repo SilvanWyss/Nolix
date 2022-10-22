@@ -29,7 +29,7 @@ public final class TextboxCSSRuleBuilder extends ExtendedControlCSSRuleBuilder<T
 	
 	//method
 	@Override
-	protected void fillUpAdditionalCSSRulesForAllStatesOfControlIntoList(
+	protected void fillUpAdditionalCSSRulesForControlAndAllStatesIntoList(
 		final Textbox textbox,	
 		final LinkedList<? super ICSSRule<?>> list
 	) {
@@ -38,7 +38,7 @@ public final class TextboxCSSRuleBuilder extends ExtendedControlCSSRuleBuilder<T
 	
 	//method
 	@Override
-	protected void fillUpCSSPropertiesForAllStatesOfControlIntoList(
+	protected void fillUpCSSPropertiesForControlAndAllStatesIntoList(
 		final Textbox control,
 		final LinkedList<CSSProperty> list
 	) {

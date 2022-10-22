@@ -19,7 +19,7 @@ public final class TextCSSRuleBuilder extends ExtendedControlCSSRuleBuilder<Text
 	
 	//method
 	@Override
-	protected void fillUpCSSPropertiesForAllStatesOfControlIntoList(
+	protected void fillUpCSSPropertiesForControlAndAllStatesIntoList(
 		final Text control,
 		final LinkedList<CSSProperty> list
 	) {
@@ -38,7 +38,7 @@ public final class TextCSSRuleBuilder extends ExtendedControlCSSRuleBuilder<Text
 	
 	//method
 	@Override
-	protected void fillUpAdditionalCSSRulesForAllStatesOfControlIntoList(
+	protected void fillUpAdditionalCSSRulesForControlAndAllStatesIntoList(
 		final Text text,
 		final LinkedList<? super ICSSRule<?>> list
 	) {

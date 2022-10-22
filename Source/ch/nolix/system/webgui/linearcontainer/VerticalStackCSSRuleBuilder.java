@@ -30,7 +30,7 @@ extends ExtendedControlCSSRuleBuilder<VerticalStack, VerticalStackStyle> {
 	) {
 		list.addAtEnd(
 			CSSRule.withSelectorAndProperties(
-				getCSSSelectorForAllStatesOfControl(verticalStack) + " ." + VerticalStackHTMLBuilder.CHILD_CONTROL_CSS_CLASS_NAME,
+				getCSSSelectorForControlAndAllStates(verticalStack) + " ." + VerticalStackHTMLBuilder.CHILD_CONTROL_CSS_CLASS_NAME,
 				LinkedList.withElements(
 					CSSProperty.withNameAndValue(
 						CSSPropertyNameCatalogue.MARGIN,
@@ -44,7 +44,7 @@ extends ExtendedControlCSSRuleBuilder<VerticalStack, VerticalStackStyle> {
 	
 	//method
 	@Override
-	protected void fillUpAdditionalCSSRulesForAllStatesOfControlIntoList(
+	protected void fillUpAdditionalCSSRulesForControlAndAllStatesIntoList(
 		final VerticalStack verticalStack,
 		final LinkedList<? super ICSSRule<?>> list
 	) {
@@ -53,7 +53,7 @@ extends ExtendedControlCSSRuleBuilder<VerticalStack, VerticalStackStyle> {
 	
 	//method
 	@Override
-	protected void fillUpCSSPropertiesForAllStatesOfControlIntoList(
+	protected void fillUpCSSPropertiesForControlAndAllStatesIntoList(
 		final VerticalStack control,
 		final LinkedList<CSSProperty> list
 	) {

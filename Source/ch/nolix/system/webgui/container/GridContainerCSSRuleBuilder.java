@@ -20,7 +20,7 @@ extends ExtendedControlCSSRuleBuilder<GridContainer, GridContainerStyle> {
 	
 	//method
 	@Override
-	protected void fillUpCSSPropertiesForAllStatesOfControlIntoList(
+	protected void fillUpCSSPropertiesForControlAndAllStatesIntoList(
 		final GridContainer control,
 		final LinkedList<CSSProperty> list
 	) {
@@ -49,7 +49,7 @@ extends ExtendedControlCSSRuleBuilder<GridContainer, GridContainerStyle> {
 	
 	//method
 	@Override
-	protected void fillUpAdditionalCSSRulesForAllStatesOfControlIntoList(
+	protected void fillUpAdditionalCSSRulesForControlAndAllStatesIntoList(
 		final GridContainer control,
 		final LinkedList<? super ICSSRule<?>> list
 	) {

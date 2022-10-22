@@ -24,13 +24,13 @@ extends ExtendedControlCSSRuleBuilder<HorizontalStack, HorizontalStackStyle> {
 
 	//method
 	@Override
-	protected void fillUpAdditionalCSSRulesForAllStatesOfControlIntoList(
+	protected void fillUpAdditionalCSSRulesForControlAndAllStatesIntoList(
 		final HorizontalStack horizontalStack,
 		final LinkedList<? super ICSSRule<?>> list
 	) {
 		list.addAtEnd(
 			CSSRule.withSelectorAndProperties(
-				getCSSSelectorForAllStatesOfControl(horizontalStack)
+				getCSSSelectorForControlAndAllStates(horizontalStack)
 				+ " ."
 				+ HorizontalStackHTMLBuilder.CHILD_CONTROL_CSS_CLASS_NAME,
 				LinkedList.withElements(
@@ -52,7 +52,7 @@ extends ExtendedControlCSSRuleBuilder<HorizontalStack, HorizontalStackStyle> {
 	) {
 		list.addAtEnd(
 			CSSRule.withSelectorAndProperties(
-				getCSSSelectorForAllStatesOfControl(horizontalStack)
+				getCSSSelectorForControlAndAllStates(horizontalStack)
 				+ " ."
 				+ HorizontalStackHTMLBuilder.CHILD_CONTROL_CSS_CLASS_NAME,
 				LinkedList.withElements(
@@ -68,7 +68,7 @@ extends ExtendedControlCSSRuleBuilder<HorizontalStack, HorizontalStackStyle> {
 	
 	//method
 	@Override
-	protected void fillUpCSSPropertiesForAllStatesOfControlIntoList(
+	protected void fillUpCSSPropertiesForControlAndAllStatesIntoList(
 		final HorizontalStack control,
 		final LinkedList<CSSProperty> list
 	) {

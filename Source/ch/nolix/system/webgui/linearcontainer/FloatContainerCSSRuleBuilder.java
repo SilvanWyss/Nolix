@@ -24,13 +24,13 @@ extends ExtendedControlCSSRuleBuilder<FloatContainer, FloatContainerStyle> {
 
 	//method
 	@Override
-	protected void fillUpAdditionalCSSRulesForAllStatesOfControlIntoList(
+	protected void fillUpAdditionalCSSRulesForControlAndAllStatesIntoList(
 		final FloatContainer floatContainer,
 		final LinkedList<? super ICSSRule<?>> list
 	) {
 		list.addAtEnd(
 			CSSRule.withSelectorAndProperties(
-				getCSSSelectorForAllStatesOfControl(floatContainer) + " ." + FloatContainerHTMLBuilder.CHILD_CONTROL_CSS_CLASS_NAME,
+				getCSSSelectorForControlAndAllStates(floatContainer) + " ." + FloatContainerHTMLBuilder.CHILD_CONTROL_CSS_CLASS_NAME,
 				LinkedList.withElements(
 					CSSProperty.withNameAndValue(
 						CSSPropertyNameCatalogue.FLOAT,
@@ -50,7 +50,7 @@ extends ExtendedControlCSSRuleBuilder<FloatContainer, FloatContainerStyle> {
 	) {
 		list.addAtEnd(
 			CSSRule.withSelectorAndProperties(
-				getCSSSelectorForAllStatesOfControl(floatContainer) + " ." + FloatContainerHTMLBuilder.CHILD_CONTROL_CSS_CLASS_NAME,
+				getCSSSelectorForControlAndAllStates(floatContainer) + " ." + FloatContainerHTMLBuilder.CHILD_CONTROL_CSS_CLASS_NAME,
 				LinkedList.withElements(
 					CSSProperty.withNameAndValue(
 						CSSPropertyNameCatalogue.MARGIN,
@@ -64,7 +64,7 @@ extends ExtendedControlCSSRuleBuilder<FloatContainer, FloatContainerStyle> {
 	
 	//method
 	@Override
-	protected void fillUpCSSPropertiesForAllStatesOfControlIntoList(
+	protected void fillUpCSSPropertiesForControlAndAllStatesIntoList(
 		final FloatContainer control,
 		final LinkedList<CSSProperty> list
 	) {

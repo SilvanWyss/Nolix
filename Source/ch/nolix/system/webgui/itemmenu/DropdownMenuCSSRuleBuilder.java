@@ -17,7 +17,7 @@ public final class DropdownMenuCSSRuleBuilder extends ItemMenuCSSRuleBuilder<Dro
 	
 	//method
 	@Override
-	protected void fillUpCSSPropertiesForAllStatesOfControlIntoList(
+	protected void fillUpCSSPropertiesForControlAndAllStatesIntoList(
 		final DropdownMenu control,
 		final LinkedList<CSSProperty> list
 	) {

@@ -20,7 +20,7 @@ public final class ImageControlCSSRuleBuilder extends ExtendedControlCSSRuleBuil
 	
 	//method
 	@Override
-	protected void fillUpAdditionalCSSRulesForAllStatesOfControlIntoList(
+	protected void fillUpAdditionalCSSRulesForControlAndAllStatesIntoList(
 		final ImageControl imageControl,
 		final LinkedList<? super ICSSRule<?>> list
 	) {
@@ -39,7 +39,7 @@ public final class ImageControlCSSRuleBuilder extends ExtendedControlCSSRuleBuil
 	
 	//method
 	@Override
-	protected void fillUpCSSPropertiesForAllStatesOfControlIntoList(
+	protected void fillUpCSSPropertiesForControlAndAllStatesIntoList(
 		final ImageControl control,
 		final LinkedList<CSSProperty> list
 	) {
