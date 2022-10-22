@@ -77,6 +77,9 @@ extends Clearable, IControl<IM, IMS> {
 	IM selectItemById(String id);
 	
 	//method declaration
+	IM selectItemByText(String text);
+	
+	//method declaration
 	IM setSelectAction(IAction selectAction);
 	
 	//method declaration

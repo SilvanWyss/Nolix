@@ -281,6 +281,15 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
 	
 	//method
 	@Override
+	public final IM selectItemByText(final String text) {
+		
+		getRefItemByText(text);
+		
+		return asConcrete();
+	}
+	
+	//method
+	@Override
 	public final IM setSelectAction(final IAction selectAction) {
 		
 		GlobalValidator.assertThat(selectAction).thatIsNamed("select action").isNotNull();
