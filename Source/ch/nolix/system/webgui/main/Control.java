@@ -334,5 +334,9 @@ implements IControl<C, CS> {
 		assertDoesNotBelongToParent();
 		
 		this.parent = parent;
+		
+		if (parent.isControl()) {
+			parent.getRefControl().getRefStyle().addChild(getRefStyle());
+		}
 	}
 }

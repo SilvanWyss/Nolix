@@ -110,6 +110,13 @@ implements IControlStyle<CS> {
 	
 	//method
 	@Override
+	@SuppressWarnings("unchecked")
+	public final <CS2 extends IControlStyle<CS2>> void addChild(final CS2 controlStyle) {
+		internalAddChild((CS)controlStyle);
+	}
+	
+	//method
+	@Override
 	public final boolean getBoldTextFlagWhenHasState(final ControlState state) {
 		return boldTextFlag.getValueWhenHasState(state);
 	}

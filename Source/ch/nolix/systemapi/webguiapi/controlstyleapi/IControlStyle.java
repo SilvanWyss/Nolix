@@ -11,6 +11,9 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 public interface IControlStyle<CS extends IControlStyle<CS>> extends IRespondingMutableElement<CS> {
 	
 	//method declaration
+	<CS2 extends IControlStyle<CS2>> void addChild(final CS2 controlStyle);
+	
+	//method declaration
 	boolean getBoldTextFlagWhenHasState(ControlState state);
 	
 	//method declaration
