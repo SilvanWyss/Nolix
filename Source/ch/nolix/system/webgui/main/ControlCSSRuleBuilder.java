@@ -52,13 +52,13 @@ implements IControlCSSRuleBuilder<C, CS> {
 	);
 	
 	//method declaration
-	protected abstract void fillUpControlCSSPropertiesForAllStatesOfControlIntoList(
+	protected abstract void fillUpCSSPropertiesForAllStatesOfControlIntoList(
 		C control,
 		LinkedList<CSSProperty> list
 	);
 	
 	//method declaration
-	protected abstract void fillUpControlCSSPropertiesForControlAndStateIntoList(
+	protected abstract void fillUpCSSPropertiesForControlAndStateIntoList(
 		C control,
 		ControlState state,
 		LinkedList<CSSProperty> list
@@ -84,7 +84,7 @@ implements IControlCSSRuleBuilder<C, CS> {
 	}
 	
 	//method
-	private void fillUpCSSPropertiesForAllStatesOfControlIntoList(final C control, final LinkedList<CSSProperty> list) {
+	private void fillUpAllCSSPropertiesForAllStatesOfControlIntoList(final C control, final LinkedList<CSSProperty> list) {
 		
 		if (control.hasMaxWidth()) {
 			list.addAtEnd(
@@ -119,11 +119,11 @@ implements IControlCSSRuleBuilder<C, CS> {
 			);
 		}
 		
-		fillUpControlCSSPropertiesForAllStatesOfControlIntoList(control, list);
+		fillUpCSSPropertiesForAllStatesOfControlIntoList(control, list);
 	}
-	
+
 	//method
-	private void fillUpCSSPropertiesForControlAndStateIntoList(
+	private void fillUpAllCSSPropertiesForControlAndStateIntoList(
 		final C control,
 		final ControlState state,
 		final LinkedList<CSSProperty> list
@@ -157,7 +157,7 @@ implements IControlCSSRuleBuilder<C, CS> {
 			)
 		);
 		
-		fillUpControlCSSPropertiesForControlAndStateIntoList(control, state, list);
+		fillUpCSSPropertiesForControlAndStateIntoList(control, state, list);
 	}
 	
 	//method
@@ -181,7 +181,7 @@ implements IControlCSSRuleBuilder<C, CS> {
 		
 		final var lCSSPropertiesForBaseState = new LinkedList<CSSProperty>();
 		
-		fillUpCSSPropertiesForAllStatesOfControlIntoList(control, lCSSPropertiesForBaseState);
+		fillUpAllCSSPropertiesForAllStatesOfControlIntoList(control, lCSSPropertiesForBaseState);
 		
 		return lCSSPropertiesForBaseState;
 	}
@@ -191,7 +191,7 @@ implements IControlCSSRuleBuilder<C, CS> {
 		
 		final var lCSSProperties = new LinkedList<CSSProperty>();
 		
-		fillUpCSSPropertiesForControlAndStateIntoList(control, state, lCSSProperties);
+		fillUpAllCSSPropertiesForControlAndStateIntoList(control, state, lCSSProperties);
 		
 		return lCSSProperties;
 	}

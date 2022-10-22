@@ -20,7 +20,7 @@ extends ExtendedControlCSSRuleBuilder<VerticalStack, VerticalStackStyle> {
 	
 	//constructor
 	private VerticalStackCSSRuleBuilder() {}
-
+	
 	//method
 	@Override
 	protected void fillUpAdditionalCSSRulesForControlAndStateIntoList(
@@ -53,7 +53,16 @@ extends ExtendedControlCSSRuleBuilder<VerticalStack, VerticalStackStyle> {
 	
 	//method
 	@Override
-	protected void fillUpExtendedControlCSSPropertiesForStateIntoList(
+	protected void fillUpCSSPropertiesForAllStatesOfControlIntoList(
+		final VerticalStack control,
+		final LinkedList<CSSProperty> list
+	) {
+		//Does nothing.
+	}
+	
+	//method
+	@Override
+	protected void fillUpCSSPropertiesForExtendedControlAndStateIntoList(
 		final VerticalStack verticalStack,
 		final ControlState state,
 		final LinkedList<CSSProperty> list

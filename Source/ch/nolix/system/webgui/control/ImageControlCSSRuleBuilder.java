@@ -15,8 +15,17 @@ public final class ImageControlCSSRuleBuilder extends ExtendedControlCSSRuleBuil
 	//static attribute
 	public static final ImageControlCSSRuleBuilder INSTANCE = new ImageControlCSSRuleBuilder();
 	
-	//consturctor
+	//constructor
 	private ImageControlCSSRuleBuilder() {}
+	
+	//method
+	@Override
+	protected void fillUpAdditionalCSSRulesForAllStatesOfControlIntoList(
+		final ImageControl imageControl,
+		final LinkedList<? super ICSSRule<?>> list
+	) {
+		//Does nothing.
+	}
 	
 	//method
 	@Override
@@ -30,16 +39,16 @@ public final class ImageControlCSSRuleBuilder extends ExtendedControlCSSRuleBuil
 	
 	//method
 	@Override
-	protected void fillUpAdditionalCSSRulesForAllStatesOfControlIntoList(
-		final ImageControl imageControl,
-		final LinkedList<? super ICSSRule<?>> list
+	protected void fillUpCSSPropertiesForAllStatesOfControlIntoList(
+		final ImageControl control,
+		final LinkedList<CSSProperty> list
 	) {
 		//Does nothing.
 	}
 	
 	//method
 	@Override
-	protected void fillUpExtendedControlCSSPropertiesForStateIntoList(
+	protected void fillUpCSSPropertiesForExtendedControlAndStateIntoList(
 		final ImageControl imageControl,
 		final ControlState state,
 		final LinkedList<CSSProperty> list

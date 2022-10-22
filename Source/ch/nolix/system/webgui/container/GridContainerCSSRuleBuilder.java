@@ -20,7 +20,16 @@ extends ExtendedControlCSSRuleBuilder<GridContainer, GridContainerStyle> {
 	
 	//method
 	@Override
-	protected void fillUpExtendedControlCSSPropertiesForStateIntoList(
+	protected void fillUpCSSPropertiesForAllStatesOfControlIntoList(
+		final GridContainer control,
+		final LinkedList<CSSProperty> list
+	) {
+		//Does nothing.
+	}
+	
+	//method
+	@Override
+	protected void fillUpCSSPropertiesForExtendedControlAndStateIntoList(
 		final GridContainer control,
 		final ControlState state,
 		final LinkedList<CSSProperty> list

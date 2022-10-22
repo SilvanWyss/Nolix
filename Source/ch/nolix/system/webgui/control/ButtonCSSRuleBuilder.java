@@ -19,6 +19,15 @@ public final class ButtonCSSRuleBuilder extends ExtendedControlCSSRuleBuilder<Bu
 	
 	//method
 	@Override
+	protected void fillUpAdditionalCSSRulesForAllStatesOfControlIntoList(
+		final Button button,
+		final LinkedList<? super ICSSRule<?>> list
+	) {
+		//Does nothing.
+	}
+	
+	//method
+	@Override
 	protected void fillUpAdditionalCSSRulesForControlAndStateIntoList(
 		final Button button,
 		final ControlState state,
@@ -29,16 +38,16 @@ public final class ButtonCSSRuleBuilder extends ExtendedControlCSSRuleBuilder<Bu
 	
 	//method
 	@Override
-	protected void fillUpAdditionalCSSRulesForAllStatesOfControlIntoList(
-		final Button button,
-		final LinkedList<? super ICSSRule<?>> list
+	protected void fillUpCSSPropertiesForAllStatesOfControlIntoList(
+		final Button control,
+		final LinkedList<CSSProperty> list
 	) {
 		//Does nothing.
 	}
 	
 	//method
 	@Override
-	protected void fillUpExtendedControlCSSPropertiesForStateIntoList(
+	protected void fillUpCSSPropertiesForExtendedControlAndStateIntoList(
 		final Button button,
 		final ControlState state,
 		final LinkedList<CSSProperty> list

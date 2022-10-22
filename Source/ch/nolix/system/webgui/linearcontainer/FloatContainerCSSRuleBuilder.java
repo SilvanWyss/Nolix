@@ -64,7 +64,16 @@ extends ExtendedControlCSSRuleBuilder<FloatContainer, FloatContainerStyle> {
 	
 	//method
 	@Override
-	protected void fillUpExtendedControlCSSPropertiesForStateIntoList(
+	protected void fillUpCSSPropertiesForAllStatesOfControlIntoList(
+		final FloatContainer control,
+		final LinkedList<CSSProperty> list
+	) {
+		//Does nothing.
+	}
+	
+	//method
+	@Override
+	protected void fillUpCSSPropertiesForExtendedControlAndStateIntoList(
 		final FloatContainer floatContainer,
 		final ControlState state,
 		final LinkedList<CSSProperty> list

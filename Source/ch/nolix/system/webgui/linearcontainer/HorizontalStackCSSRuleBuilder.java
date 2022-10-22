@@ -68,7 +68,16 @@ extends ExtendedControlCSSRuleBuilder<HorizontalStack, HorizontalStackStyle> {
 	
 	//method
 	@Override
-	protected void fillUpExtendedControlCSSPropertiesForStateIntoList(
+	protected void fillUpCSSPropertiesForAllStatesOfControlIntoList(
+		final HorizontalStack control,
+		final LinkedList<CSSProperty> list
+	) {
+		//Does nothing.
+	}
+	
+	//method
+	@Override
+	protected void fillUpCSSPropertiesForExtendedControlAndStateIntoList(
 		final HorizontalStack horizontalStack,
 		final ControlState state,
 		final LinkedList<CSSProperty> list
