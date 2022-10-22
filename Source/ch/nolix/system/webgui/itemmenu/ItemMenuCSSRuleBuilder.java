@@ -17,7 +17,7 @@ extends ExtendedControlCSSRuleBuilder<IM, IMS> {
 	
 	//method
 	@Override
-	protected final void fillUpAdditionalCSSRulesForStateIntoList(
+	protected final void fillUpAdditionalCSSRulesForControlAndStateIntoList(
 		final IM itemMenu,
 		final ControlState state,
 		final LinkedList<? super ICSSRule<?>> list
@@ -27,7 +27,7 @@ extends ExtendedControlCSSRuleBuilder<IM, IMS> {
 	
 	//method
 	@Override
-	protected final void fillUpAdditionalCSSRulesForBaseStateIntoList(
+	protected final void fillUpAdditionalCSSRulesForAllStatesOfControlIntoList(
 		final IM itemMenu,
 		final LinkedList<? super ICSSRule<?>> list
 	) {

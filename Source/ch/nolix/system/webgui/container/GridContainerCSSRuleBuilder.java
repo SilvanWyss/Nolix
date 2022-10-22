@@ -30,7 +30,7 @@ extends ExtendedControlCSSRuleBuilder<GridContainer, GridContainerStyle> {
 	
 	//method
 	@Override
-	protected void fillUpAdditionalCSSRulesForStateIntoList(
+	protected void fillUpAdditionalCSSRulesForControlAndStateIntoList(
 		final GridContainer control,
 		final ControlState state,
 		final LinkedList<? super ICSSRule<?>> list
@@ -40,7 +40,7 @@ extends ExtendedControlCSSRuleBuilder<GridContainer, GridContainerStyle> {
 	
 	//method
 	@Override
-	protected void fillUpAdditionalCSSRulesForBaseStateIntoList(
+	protected void fillUpAdditionalCSSRulesForAllStatesOfControlIntoList(
 		final GridContainer control,
 		final LinkedList<? super ICSSRule<?>> list
 	) {

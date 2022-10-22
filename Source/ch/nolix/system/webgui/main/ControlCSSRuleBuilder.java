@@ -30,48 +30,61 @@ implements IControlCSSRuleBuilder<C, CS> {
 		
 		final var lCSSRules = new LinkedList<ICSSRule<?>>();
 		
-		lCSSRules.addAtEnd(
-			getCSSRuleForBaseState(control),
-			getCSSRuleForState(control, ControlState.BASE),
-			getCSSRuleForState(control, ControlState.HOVER),
-			getCSSRuleForState(control, ControlState.FOCUS)
-		);
-		
-		fillUpAdditionalCSSRulesForBaseStateIntoList(control, lCSSRules);
-		fillUpAdditionalCSSRulesForStateIntoList(control, ControlState.BASE, lCSSRules);
-		fillUpAdditionalCSSRulesForStateIntoList(control, ControlState.HOVER, lCSSRules);
-		fillUpAdditionalCSSRulesForStateIntoList(control, ControlState.FOCUS, lCSSRules);
+		fillUpCSSRulesForAllStatesOfControlIntoList(control, lCSSRules);
+		fillUpCSSRulesForStateOfControlIntoList(control, ControlState.BASE, lCSSRules);
+		fillUpCSSRulesForStateOfControlIntoList(control, ControlState.HOVER, lCSSRules);
+		fillUpCSSRulesForStateOfControlIntoList(control, ControlState.FOCUS, lCSSRules);
 		
 		return lCSSRules;
 	}
 	
 	//method declaration
-	protected abstract void fillUpAdditionalCSSRulesForStateIntoList(
+	protected abstract void fillUpAdditionalCSSRulesForAllStatesOfControlIntoList(
+		C control,
+		LinkedList<? super ICSSRule<?>> list
+	);
+	
+	//method declaration
+	protected abstract void fillUpAdditionalCSSRulesForControlAndStateIntoList(
 		C control,
 		ControlState state,
 		LinkedList<? super ICSSRule<?>> list
 	);
 	
 	//method declaration
-	protected abstract void fillUpAdditionalCSSRulesForBaseStateIntoList(C control, LinkedList<? super ICSSRule<?>> list);
+	protected abstract void fillUpControlCSSPropertiesForAllStatesOfControlIntoList(
+		C control,
+		LinkedList<CSSProperty> list
+	);
 	
 	//method declaration
-	protected abstract void fillUpControlCSSPropertiesForBaseStateIntoList(C control, LinkedList<CSSProperty> list);
-	
-	//method declaration
-	protected abstract void fillUpControlCSSPropertiesForStateIntoList(
+	protected abstract void fillUpControlCSSPropertiesForControlAndStateIntoList(
 		C control,
 		ControlState state,
 		LinkedList<CSSProperty> list
 	);
 	
 	//method
-	protected String getCSSSelectorForBaseState(final C control) {
+	protected final String getCSSSelectorForAllStatesOfControl(final C control) {
 		return "#" + control.getFixedId();
 	}
 	
 	//method
-	private void fillUpCSSPropertiesForBaseStateIntoList(final C control, final LinkedList<CSSProperty> list) {
+	protected final String getCSSSelectorForControlAndState(final C control, final ControlState state) {
+		switch (state) {
+			case BASE:
+				return ("#" + control.getFixedId());
+			case FOCUS:
+				return ("#" + control.getFixedId() + ":focus");
+			case HOVER:
+				return ("#" + control.getFixedId() + ":hover");
+			default:
+				throw InvalidArgumentException.forArgument(state);
+		}
+	}
+	
+	//method
+	private void fillUpCSSPropertiesForAllStatesOfControlIntoList(final C control, final LinkedList<CSSProperty> list) {
 		
 		if (control.hasMaxWidth()) {
 			list.addAtEnd(
@@ -106,11 +119,11 @@ implements IControlCSSRuleBuilder<C, CS> {
 			);
 		}
 		
-		fillUpControlCSSPropertiesForBaseStateIntoList(control, list);
+		fillUpControlCSSPropertiesForAllStatesOfControlIntoList(control, list);
 	}
 	
 	//method
-	private void fillUpCSSPropertiesForStateIntoList(
+	private void fillUpCSSPropertiesForControlAndStateIntoList(
 		final C control,
 		final ControlState state,
 		final LinkedList<CSSProperty> list
@@ -144,53 +157,59 @@ implements IControlCSSRuleBuilder<C, CS> {
 			)
 		);
 		
-		fillUpControlCSSPropertiesForStateIntoList(control, state, list);
+		fillUpControlCSSPropertiesForControlAndStateIntoList(control, state, list);
 	}
 	
 	//method
-	private final ICSSRule<?> getCSSRuleForBaseState(final C control) {
-		return CSSRule.withSelectorAndProperties(getCSSSelectorForBaseState(control), getCSSPropertiesForBaseState(control));
+	private void fillUpCSSRulesForAllStatesOfControlIntoList(final C control, final LinkedList<ICSSRule<?>> lCSSRules) {
+		lCSSRules.addAtEnd(getCSSRuleForAllStatesOfControl(control));
+		fillUpAdditionalCSSRulesForAllStatesOfControlIntoList(control, lCSSRules);
 	}
 	
 	//method
-	private final ICSSRule<?> getCSSRuleForState(final C control, final ControlState state) {
-		return CSSRule.withSelectorAndProperties(
-			getCSSSelectorForState(control, state),
-			getCSSPropertiesForState(control, state)
-		);
+	private void fillUpCSSRulesForStateOfControlIntoList(
+		final C control,
+		final ControlState state,
+		final LinkedList<ICSSRule<?>> lCSSRules
+	) {
+		lCSSRules.addAtEnd(getCSSRuleForControlAndState(control, state));
+		fillUpAdditionalCSSRulesForControlAndStateIntoList(control, state, lCSSRules);
 	}
 	
 	//method
-	private IContainer<CSSProperty> getCSSPropertiesForBaseState(final C control) {
+	private IContainer<CSSProperty> getCSSPropertiesForAllStatesOfControl(final C control) {
 		
 		final var lCSSPropertiesForBaseState = new LinkedList<CSSProperty>();
 		
-		fillUpCSSPropertiesForBaseStateIntoList(control, lCSSPropertiesForBaseState);
+		fillUpCSSPropertiesForAllStatesOfControlIntoList(control, lCSSPropertiesForBaseState);
 		
 		return lCSSPropertiesForBaseState;
 	}
 	
 	//method
-	private IContainer<CSSProperty> getCSSPropertiesForState(final C control, final ControlState state) {
+	private IContainer<CSSProperty> getCSSPropertiesForControlAndState(final C control, final ControlState state) {
 		
 		final var lCSSProperties = new LinkedList<CSSProperty>();
 		
-		fillUpCSSPropertiesForStateIntoList(control, state, lCSSProperties);
+		fillUpCSSPropertiesForControlAndStateIntoList(control, state, lCSSProperties);
 		
 		return lCSSProperties;
 	}
 	
 	//method
-	private String getCSSSelectorForState(final C control, final ControlState state) {
-		switch (state) {
-			case BASE:
-				return ("#" + control.getFixedId());
-			case FOCUS:
-				return ("#" + control.getFixedId() + ":focus");
-			case HOVER:
-				return ("#" + control.getFixedId() + ":hover");
-			default:
-				throw InvalidArgumentException.forArgument(state);
-		}
+	private final ICSSRule<?> getCSSRuleForAllStatesOfControl(final C control) {
+		return
+		CSSRule.withSelectorAndProperties(
+			getCSSSelectorForAllStatesOfControl(control),
+			getCSSPropertiesForAllStatesOfControl(control)
+		);
+	}
+	
+	//method
+	private final ICSSRule<?> getCSSRuleForControlAndState(final C control, final ControlState state) {
+		return CSSRule.withSelectorAndProperties(
+			getCSSSelectorForControlAndState(control, state),
+			getCSSPropertiesForControlAndState(control, state)
+		);
 	}
 }

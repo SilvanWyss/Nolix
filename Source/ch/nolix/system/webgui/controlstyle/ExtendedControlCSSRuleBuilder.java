@@ -22,13 +22,16 @@ extends ControlCSSRuleBuilder<EC, ECS> {
 	
 	//method
 	@Override
-	protected void fillUpControlCSSPropertiesForBaseStateIntoList(final EC control, final LinkedList<CSSProperty> list) {
+	protected void fillUpControlCSSPropertiesForAllStatesOfControlIntoList(
+		final EC control,
+		final LinkedList<CSSProperty> list
+	) {
 		//TODO: Implement.
 	}
 	
 	//method
 	@Override
-	protected final void fillUpControlCSSPropertiesForStateIntoList(
+	protected final void fillUpControlCSSPropertiesForControlAndStateIntoList(
 		final EC control,
 		final ControlState state,
 		final LinkedList<CSSProperty> list

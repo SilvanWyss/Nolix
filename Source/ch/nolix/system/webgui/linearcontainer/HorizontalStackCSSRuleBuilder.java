@@ -24,13 +24,15 @@ extends ExtendedControlCSSRuleBuilder<HorizontalStack, HorizontalStackStyle> {
 
 	//method
 	@Override
-	protected void fillUpAdditionalCSSRulesForBaseStateIntoList(
+	protected void fillUpAdditionalCSSRulesForAllStatesOfControlIntoList(
 		final HorizontalStack horizontalStack,
 		final LinkedList<? super ICSSRule<?>> list
 	) {
 		list.addAtEnd(
 			CSSRule.withSelectorAndProperties(
-				getCSSSelectorForBaseState(horizontalStack) + " ." + HorizontalStackHTMLBuilder.CHILD_CONTROL_CSS_CLASS_NAME,
+				getCSSSelectorForAllStatesOfControl(horizontalStack)
+				+ " ."
+				+ HorizontalStackHTMLBuilder.CHILD_CONTROL_CSS_CLASS_NAME,
 				LinkedList.withElements(
 					CSSProperty.withNameAndValue(
 						CSSPropertyNameCatalogue.FLOAT,
@@ -43,14 +45,16 @@ extends ExtendedControlCSSRuleBuilder<HorizontalStack, HorizontalStackStyle> {
 	
 	//method
 	@Override
-	protected void fillUpAdditionalCSSRulesForStateIntoList(
+	protected void fillUpAdditionalCSSRulesForControlAndStateIntoList(
 		final HorizontalStack horizontalStack,
 		final ControlState state,
 		final LinkedList<? super ICSSRule<?>> list
 	) {
 		list.addAtEnd(
 			CSSRule.withSelectorAndProperties(
-				getCSSSelectorForBaseState(horizontalStack) + " ." + HorizontalStackHTMLBuilder.CHILD_CONTROL_CSS_CLASS_NAME,
+				getCSSSelectorForAllStatesOfControl(horizontalStack)
+				+ " ."
+				+ HorizontalStackHTMLBuilder.CHILD_CONTROL_CSS_CLASS_NAME,
 				LinkedList.withElements(
 					CSSProperty.withNameAndValue(
 						CSSPropertyNameCatalogue.MARGIN,

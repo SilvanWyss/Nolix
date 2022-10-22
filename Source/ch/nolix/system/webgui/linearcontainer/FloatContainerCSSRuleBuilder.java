@@ -24,13 +24,13 @@ extends ExtendedControlCSSRuleBuilder<FloatContainer, FloatContainerStyle> {
 
 	//method
 	@Override
-	protected void fillUpAdditionalCSSRulesForBaseStateIntoList(
+	protected void fillUpAdditionalCSSRulesForAllStatesOfControlIntoList(
 		final FloatContainer floatContainer,
 		final LinkedList<? super ICSSRule<?>> list
 	) {
 		list.addAtEnd(
 			CSSRule.withSelectorAndProperties(
-				getCSSSelectorForBaseState(floatContainer) + " ." + FloatContainerHTMLBuilder.CHILD_CONTROL_CSS_CLASS_NAME,
+				getCSSSelectorForAllStatesOfControl(floatContainer) + " ." + FloatContainerHTMLBuilder.CHILD_CONTROL_CSS_CLASS_NAME,
 				LinkedList.withElements(
 					CSSProperty.withNameAndValue(
 						CSSPropertyNameCatalogue.FLOAT,
@@ -43,14 +43,14 @@ extends ExtendedControlCSSRuleBuilder<FloatContainer, FloatContainerStyle> {
 	
 	//method
 	@Override
-	protected void fillUpAdditionalCSSRulesForStateIntoList(
+	protected void fillUpAdditionalCSSRulesForControlAndStateIntoList(
 		final FloatContainer floatContainer,
 		final ControlState state,
 		final LinkedList<? super ICSSRule<?>> list
 	) {
 		list.addAtEnd(
 			CSSRule.withSelectorAndProperties(
-				getCSSSelectorForBaseState(floatContainer) + " ." + FloatContainerHTMLBuilder.CHILD_CONTROL_CSS_CLASS_NAME,
+				getCSSSelectorForAllStatesOfControl(floatContainer) + " ." + FloatContainerHTMLBuilder.CHILD_CONTROL_CSS_CLASS_NAME,
 				LinkedList.withElements(
 					CSSProperty.withNameAndValue(
 						CSSPropertyNameCatalogue.MARGIN,
