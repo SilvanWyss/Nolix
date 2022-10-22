@@ -84,7 +84,10 @@ implements IControlCSSRuleBuilder<C, CS> {
 	}
 	
 	//method
-	private void fillUpAllCSSPropertiesForControlAndAllStatesIntoList(final C control, final LinkedList<CSSProperty> list) {
+	private void fillUpAllCSSPropertiesForControlAndAllStatesIntoList(
+		final C control,
+		final LinkedList<CSSProperty> list
+	) {
 		
 		if (control.hasMaxWidth()) {
 			list.addAtEnd(
