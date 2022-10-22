@@ -24,10 +24,19 @@ public final class GridContainerHTMLBuilder implements IControlHTMLBuilder<GridC
 	@Override
 	public IHTMLElement<?, ?> createHTMLElementForControl(final GridContainer control) {
 		return
-		HTMLElement.withTypeAndAttributesAndChildElements(
+		HTMLElement.withTypeAndAttributesAndChildElement(
 			HTMLElementTypeCatalogue.TABLE,
 			ImmutableList.withElements(ControlHelper.INSTANCE.createIdHTMLAttributeForControl(control)),
-			createHTMLElementsForChildControlsOfGridContainer(control)
+			createHTMLElementForTableBodyOfGridContainer(control)
+		);
+	}
+	
+	//method
+	private HTMLElement createHTMLElementForTableBodyOfGridContainer(final GridContainer gridContainer) {
+		return
+		HTMLElement.withTypeAndChildElements(
+			HTMLElementTypeCatalogue.TBODY,
+			createHTMLElementsForChildControlsOfGridContainer(gridContainer)
 		);
 	}
 	
@@ -77,11 +86,11 @@ public final class GridContainerHTMLBuilder implements IControlHTMLBuilder<GridC
 	) {
 		
 		if (!gridContainer.containsControlAtRowAndColumn(rowIndex, columnIndex)) {
-			return HTMLElement.withType(HTMLElementTypeCatalogue.TR);
+			return HTMLElement.withType(HTMLElementTypeCatalogue.TD);
 		}
 		
 		final var childControl = gridContainer.getRefChildControlAtRowAndColumn(rowIndex, columnIndex);
 		final var childControlHTMLElement = childControl.toHTMLElement();
-		return HTMLElement.withTypeAndChildElement(HTMLElementTypeCatalogue.TR, childControlHTMLElement);
+		return HTMLElement.withTypeAndChildElement(HTMLElementTypeCatalogue.TD, childControlHTMLElement);
 	}
 }
