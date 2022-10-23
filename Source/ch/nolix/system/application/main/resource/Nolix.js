@@ -4290,6 +4290,11 @@ define("System/FrontendWebGUI/FrontendWebGUI", ["require", "exports", "Core/Docu
                         const command = this.createCommandFromString(onclickAttribute);
                         c.onclick = () => this.takeEvent(command);
                     }
+                    if (c.onchange !== null) {
+                        const onchangeAttribute = c.getAttribute('onchange');
+                        const command = this.createCommandFromString(onchangeAttribute);
+                        c.onchange = () => this.takeEvent(command);
+                    }
                 }
                 this.setupActionsOfElement(c);
             }
