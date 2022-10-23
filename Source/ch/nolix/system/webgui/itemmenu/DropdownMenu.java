@@ -17,7 +17,7 @@ implements IDropdownMenu<DropdownMenu, DropdownMenuStyle> {
 	@Override
 	public ISingleContainer<String> getOptionalJavaScriptUserInputFunction() {
 		return new SingleContainer<>(
-			"if (x.selectedIndex == -1) {return '';} x.options[x.selectedIndex].text;"
+			"if (x.selectedIndex == -1) {return '';} return x.options[x.selectedIndex].text;"
 		);
 	}
 	
