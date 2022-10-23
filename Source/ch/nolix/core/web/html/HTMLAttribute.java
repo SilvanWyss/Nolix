@@ -19,6 +19,11 @@ public final class HTMLAttribute implements IHTMLAttribute {
 	}
 	
 	//static method
+	public static HTMLAttribute withNameAndValue(final String name, final int value) {
+		return withNameAndValue(name, String.valueOf(value));
+	}
+	
+	//static method
 	public static HTMLAttribute withNameAndValue(final String name, final String value) {
 		return new HTMLAttribute(name, value);
 	}
