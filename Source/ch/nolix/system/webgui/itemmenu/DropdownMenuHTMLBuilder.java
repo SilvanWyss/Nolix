@@ -68,6 +68,23 @@ public final class DropdownMenuHTMLBuilder implements IControlHTMLBuilder<Dropdo
 	
 	//method
 	private IHTMLElement<?, ?> createHTMLElementForItem(final IItemMenuItem<?> item) {
-		return HTMLElement.withTypeAndInnerText(HTMLElementTypeCatalogue.OPTION, item.getText());
+		return
+		HTMLElement.withTypeAndAttributesAndInnerText(
+			HTMLElementTypeCatalogue.OPTION,
+			createHTMLAttributesForItem(item),
+			item.getText()
+		);
+	}
+	
+	//method
+	private IContainer<HTMLAttribute> createHTMLAttributesForItem(final IItemMenuItem<?> item) {
+		
+		final var lHTMLAttributes = new LinkedList<HTMLAttribute>();
+		
+		if (item.isSelected()) {
+			lHTMLAttributes.addAtEnd(HTMLAttribute.withNameAndValue("selected", "selected"));
+		}
+		
+		return lHTMLAttributes;
 	}
 }
