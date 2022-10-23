@@ -4447,8 +4447,8 @@ define("System/Application/WebApplication/FrontendWebClient", ["require", "expor
         }
         takeEvent(command) {
             const commands = new LinkedList_15.LinkedList();
-            commands.addAtEnd(command);
             commands.addAtEnd(this.createSetUserInputsCommand());
+            commands.addAtEnd(command);
             this.endPoint.runCommands(commands);
         }
     }
