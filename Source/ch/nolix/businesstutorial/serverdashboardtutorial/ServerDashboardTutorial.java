@@ -6,7 +6,7 @@ import ch.nolix.system.application.guiapplication.GUIApplicationContext;
 import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.main.VoidApplicationContext;
 import ch.nolix.system.application.webapplication.BackendWebClientSession;
-import ch.nolix.system.gui.main.GUIIconCatalogue;
+import ch.nolix.system.gui.icon.IconCatalogue;
 import ch.nolix.system.webgui.control.Text;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 import ch.nolix.systemtutorial.webguitutorial.controltutorial.ImageControlTutorial;
@@ -23,7 +23,7 @@ public final class ServerDashboardTutorial {
 		server.addApplication(
 			"HelloWorld",
 			HelloWorldSession.class,
-			new GUIApplicationContext().setApplicationLogo(GUIIconCatalogue.NOLIX_ICON)
+			new GUIApplicationContext().setApplicationLogo(IconCatalogue.NOLIX_ICON)
 		);
 		
 		server.addApplication(

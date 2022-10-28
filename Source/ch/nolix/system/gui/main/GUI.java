@@ -21,6 +21,7 @@ import ch.nolix.coreapi.programcontrolapi.processproperty.ChangeState;
 import ch.nolix.system.element.mutableelement.MutableValue;
 import ch.nolix.system.element.style.StyleElement;
 import ch.nolix.system.gui.guivisualizer.GUIVisualizer;
+import ch.nolix.system.gui.icon.IconCatalogue;
 import ch.nolix.system.gui.image.Image;
 import ch.nolix.system.gui.inputdevice.KeyBoard;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
@@ -56,7 +57,7 @@ public abstract class GUI<G extends GUI<G>> extends StyleElement<G> implements I
 	
 	//constants
 	public static final String DEFAULT_TITLE = PascalCaseCatalogue.GUI;
-	public static final Image DEFAULT_ICON = GUIIconCatalogue.NOLIX_ICON;
+	public static final Image DEFAULT_ICON = IconCatalogue.NOLIX_ICON;
 	public static final IntPair DEFAULT_VIEW_AREA_SIZE = new IntPair(100, 100);
 	public static final IntPair DEFAULT_CURSOR_POSITION_ON_VIEW_AREA = new IntPair(-1, -1);
 	

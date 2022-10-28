@@ -25,8 +25,8 @@ import ch.nolix.system.element.mutableelement.MutableOptionalSpecificationValueE
 import ch.nolix.system.element.mutableelement.MutableValue;
 import ch.nolix.system.element.style.StyleElement;
 import ch.nolix.system.gui.color.Color;
+import ch.nolix.system.gui.icon.IconCatalogue;
 import ch.nolix.system.gui.image.Image;
-import ch.nolix.system.gui.main.GUIIconCatalogue;
 import ch.nolix.system.gui.main.LocalFrontEndReader;
 import ch.nolix.system.gui.main.LocalFrontEndWriter;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
@@ -46,7 +46,7 @@ public abstract class GUI3D<G extends GUI3D<G>> extends StyleElement<G> implemen
 	
 	//constants
 	public static final String DEFAULT_TITLE = StringCatalogue.DEFAULT_STRING;
-	public static final Image DEFAULT_ICON = GUIIconCatalogue.NOLIX_ICON;
+	public static final Image DEFAULT_ICON = IconCatalogue.NOLIX_ICON;
 	public static final Color DEFAULT_BACKGROUND_COLOR = Color.WHITE;
 	
 	//constants
