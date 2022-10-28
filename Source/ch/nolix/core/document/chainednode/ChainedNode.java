@@ -312,8 +312,8 @@ public final class ChainedNode implements IChainedNode {
 	 */
 	private static ChainedNode fromChainedNode(final IChainedNode chainedNode) {
 		
-		if (chainedNode instanceof ChainedNode) {
-			return (ChainedNode)chainedNode;
+		if (chainedNode instanceof ChainedNode lChainedNode) {
+			return lChainedNode;
 		}
 		
 		final var newChainedNode = new ChainedNode();
@@ -396,7 +396,7 @@ public final class ChainedNode implements IChainedNode {
 	 */
 	@Override
 	public boolean equals(final Object object) {
-		return (object instanceof ChainedNode && equals((ChainedNode)object));
+		return (object instanceof ChainedNode chainedNode && equals(chainedNode));
 	}
 	
 	//method
@@ -735,8 +735,8 @@ public final class ChainedNode implements IChainedNode {
 	 */
 	private void addChildNode(final IChainedNode... childNodes) {
 		for (final var cn : childNodes) {
-			if (cn instanceof ChainedNode) {
-				this.childNodes.addAtEnd((ChainedNode)cn);
+			if (cn instanceof ChainedNode chainedNode) {
+				this.childNodes.addAtEnd(chainedNode);
 			} else {
 				this.childNodes.addAtEnd(fromChainedNode(cn));
 			}
@@ -1061,8 +1061,8 @@ public final class ChainedNode implements IChainedNode {
 			throw ArgumentIsNullException.forArgumentName(NEXT_NODE_VARIABLE_NAME);
 		}
 		
-		if (nextNode instanceof ChainedNode) {
-			this.nextNode = (ChainedNode)nextNode;
+		if (nextNode instanceof ChainedNode chainedNode) {
+			this.nextNode = chainedNode;
 		} else {
 			this.nextNode = fromChainedNode(nextNode);
 		}

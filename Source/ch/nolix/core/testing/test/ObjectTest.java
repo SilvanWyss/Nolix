@@ -29,11 +29,11 @@ public abstract class ObjectTest<OT> extends Test {
 		expect(result);
 		
 		//cleanup
-		if (testUnit instanceof AutoCloseable) {
-			((AutoCloseable)testUnit).close();
+		if (testUnit instanceof AutoCloseable autoCloseable) {
+			autoCloseable.close();
 		}
-		if (object instanceof AutoCloseable) {
-			((AutoCloseable)object).close();
+		if (object instanceof AutoCloseable autoCloseable) {
+			autoCloseable.close();
 		}
 	}
 	
@@ -51,8 +51,8 @@ public abstract class ObjectTest<OT> extends Test {
 		expectNot(result);
 		
 		//cleanup
-		if (testUnit instanceof AutoCloseable) {
-			((AutoCloseable)testUnit).close();
+		if (testUnit instanceof AutoCloseable autoCloseable) {
+			autoCloseable.close();
 		}
 	}
 	
@@ -70,8 +70,8 @@ public abstract class ObjectTest<OT> extends Test {
 		expect(result);
 		
 		//cleanup
-		if (testUnit instanceof AutoCloseable) {
-			((AutoCloseable)testUnit).close();
+		if (testUnit instanceof AutoCloseable autoCloseable) {
+			autoCloseable.close();
 		}
 	}
 	

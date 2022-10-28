@@ -63,8 +63,8 @@ public final class Node extends BaseNode<Node> {
 	 */
 	public static Node fromNode(final INode<?> node) {
 		
-		if (node instanceof Node) {
-			return (Node)node;
+		if (node instanceof Node lNode) {
+			return lNode;
 		}
 		
 		if (!node.hasHeader()) {

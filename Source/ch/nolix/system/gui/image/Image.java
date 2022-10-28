@@ -22,8 +22,8 @@ public final class Image extends Element implements IImage {
 	//static method
 	public static Image fromAnyImage(final IImage image) {
 		
-		if (image instanceof Image) {
-			return (Image)image;
+		if (image instanceof Image lImage) {
+			return lImage;
 		}
 		
 		return new Image(MutableImage.fromAnyImage(image));

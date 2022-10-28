@@ -11,8 +11,8 @@ public final class HTMLAttribute implements IHTMLAttribute {
 	//static method
 	public static HTMLAttribute fromHTMLAttribute(final IHTMLAttribute pHTMLAttribute) {
 		
-		if (pHTMLAttribute instanceof HTMLAttribute) {
-			return (HTMLAttribute)pHTMLAttribute;
+		if (pHTMLAttribute instanceof HTMLAttribute lHTMLAttribute) {
+			return lHTMLAttribute;
 		}
 		
 		return withNameAndValue(pHTMLAttribute.getName(), pHTMLAttribute.getValue());

@@ -272,7 +272,7 @@ public final class Matrix {
 	 */
 	@Override
 	public boolean equals(final Object object) {
-		return (object instanceof Matrix && equals((Matrix)object));		
+		return (object instanceof Matrix matrix && equals(matrix));		
 	}
 	
 	//method

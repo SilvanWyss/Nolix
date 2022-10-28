@@ -55,7 +55,7 @@ public final class Vector {
 	 */
 	@Override
 	public boolean equals(Object object) {
-		return (object instanceof Vector && equals((Vector)object));
+		return (object instanceof Vector vector && equals(vector));
 	}
 			
 	//method

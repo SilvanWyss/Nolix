@@ -172,8 +172,8 @@ implements IImageControl<ImageControl, ImageControlStyle, MutableImage> {
 	@Override
 	public ImageControl setImage(final IImage image) {
 		
-		if (image instanceof MutableImage) {
-			this.image.setValue((MutableImage)image);
+		if (image instanceof MutableImage mutableImage) {
+			this.image.setValue(mutableImage);
 		} else {
 			this.image.setValue(MutableImage.fromAnyImage(image));
 		}

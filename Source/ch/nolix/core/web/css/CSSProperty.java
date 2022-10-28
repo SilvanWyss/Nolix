@@ -12,8 +12,8 @@ public final class CSSProperty implements ICSSProperty {
 	//static method
 	public static CSSProperty fromCSSProperty(final ICSSProperty pCSSProperty) {
 		
-		if (pCSSProperty instanceof CSSProperty) {
-			return (CSSProperty)pCSSProperty;
+		if (pCSSProperty instanceof CSSProperty lCSSProperty) {
+			return lCSSProperty;
 		}
 		
 		return withNameAndValue(pCSSProperty.getName(), pCSSProperty.getValue());

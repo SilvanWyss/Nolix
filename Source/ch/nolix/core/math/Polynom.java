@@ -71,7 +71,7 @@ public final class Polynom {
 	 */
 	@Override
 	public boolean equals(final Object object) {
-		return (object instanceof Polynom && equals((Polynom)object));
+		return (object instanceof Polynom polynom && equals(polynom));
 	}
 	
 	//method
