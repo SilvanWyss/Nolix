@@ -1,9 +1,6 @@
 //package declaration
 package ch.nolix.system.gui.color;
 
-//Java imports
-import java.awt.GradientPaint;
-
 //own imports
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.document.node.Node;
@@ -134,71 +131,7 @@ public class ColorGradient extends Element implements IColorGradient {
 		this.color1 = color1;
 		this.color2 = color2;
 	}
-	
-	
-	//method
-	/**
-	 * @param xPosition
-	 * @param yPosition
-	 * @param width
-	 * @param height
-	 * @return a new Swing gradient paint of the current {@link ColorGradient}
-	 * for the given position and size.
-	 */
-	public GradientPaint createSwingGradientPaint(
-		final int xPosition,
-		final int yPosition,
-		final int width,
-		final int height
-	) {
-		//Enumerates the direction of the current {@link ColorGradient}.
-		switch (getDirection()) {
-			case HORIZONTAL:
-				return
-				new GradientPaint(
-					xPosition,
-					yPosition,
-					getColor1().toSwingColor(),
-					(float)(xPosition + width),
-					yPosition,
-					getColor2().toSwingColor()
-				);
-			case VERTICAL:
-				return
-				new GradientPaint(
-					xPosition,
-					yPosition,
-					getColor1().toSwingColor(),
-					xPosition,
-					(float)(yPosition + height),
-					getColor2().toSwingColor()
-				);
-			case DIAGONAL_UP:
-				return
-				new GradientPaint(
-					xPosition,
-					yPosition,
-					getColor1().toSwingColor(),
-					(float)(xPosition + width),
-					(float)(yPosition + height),
-					getColor2().toSwingColor()
-				);
-			case DIAGONAL_DOWN:
-				return
-				new GradientPaint(
-					xPosition,
-					yPosition,
-					getColor2().toSwingColor(),
-					(float)(xPosition + width),
-					(float)(yPosition + height),
-					getColor1().toSwingColor()
-				);
-			default:
-				
-				throw InvalidArgumentException.forArgument(this);
-		}
-	}
-	
+		
 	//method
 	/**
 	 * {@inheritDoc}
