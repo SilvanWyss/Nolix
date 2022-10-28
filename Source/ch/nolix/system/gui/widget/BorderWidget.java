@@ -15,10 +15,10 @@ import ch.nolix.system.element.mutableelement.MutableValue;
 import ch.nolix.system.structure.RelativeOrAbsoluteInt;
 import ch.nolix.system.structure.RelativeOrAbsoluteIntValidator;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
-import ch.nolix.systemapi.guiapi.mainapi.CursorIcon;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
 import ch.nolix.systemapi.guiapi.structureproperty.ContentPosition;
+import ch.nolix.systemapi.guiapi.structureproperty.CursorIcon;
 
 //class
 /**

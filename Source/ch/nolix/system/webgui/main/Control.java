@@ -20,7 +20,7 @@ import ch.nolix.system.element.mutableelement.MutableValue;
 import ch.nolix.system.structure.RelativeOrAbsoluteInt;
 import ch.nolix.system.structure.RelativeOrAbsoluteIntValidator;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
-import ch.nolix.systemapi.guiapi.mainapi.CursorIcon;
+import ch.nolix.systemapi.guiapi.structureproperty.CursorIcon;
 import ch.nolix.systemapi.structureapi.IRelativeOrAbsoluteInt;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;

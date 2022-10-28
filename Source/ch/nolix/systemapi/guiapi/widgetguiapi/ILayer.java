@@ -6,9 +6,9 @@ import ch.nolix.coreapi.functionapi.mutationuniversalapi.Clearable;
 import ch.nolix.coreapi.functionapi.mutationuniversalapi.Recalculable;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 import ch.nolix.systemapi.guiapi.inputapi.IResizableInputTaker;
-import ch.nolix.systemapi.guiapi.mainapi.CursorIcon;
 import ch.nolix.systemapi.guiapi.mainapi.IOccupiableCanvasInputActionManager;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
+import ch.nolix.systemapi.guiapi.structureproperty.CursorIcon;
 
 //interface
 /**

@@ -9,7 +9,7 @@ import ch.nolix.system.gui.widget.Button;
 import ch.nolix.system.gui.widget.Label;
 import ch.nolix.system.gui.widgetgui.Frame;
 import ch.nolix.system.gui.widgetgui.Layer;
-import ch.nolix.systemapi.guiapi.mainapi.CursorIcon;
+import ch.nolix.systemapi.guiapi.structureproperty.CursorIcon;
 import ch.nolix.systemapi.guiapi.structureproperty.ExtendedContentPosition;
 import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 

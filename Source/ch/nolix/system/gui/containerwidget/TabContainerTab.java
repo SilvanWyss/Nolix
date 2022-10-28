@@ -17,8 +17,8 @@ import ch.nolix.system.element.mutableelement.MutableValue;
 import ch.nolix.system.gui.widget.Label;
 import ch.nolix.system.gui.widget.Widget;
 import ch.nolix.system.gui.widgetgui.MutableOptionalWidgetProperty;
-import ch.nolix.systemapi.guiapi.mainapi.CursorIcon;
 import ch.nolix.systemapi.guiapi.structureproperty.ContentPosition;
+import ch.nolix.systemapi.guiapi.structureproperty.CursorIcon;
 
 //class
 /**

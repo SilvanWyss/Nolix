@@ -9,7 +9,7 @@ import ch.nolix.system.gui.image.Image;
 import ch.nolix.system.gui.image.MutableImage;
 import ch.nolix.system.gui.main.CanvasFrame;
 import ch.nolix.system.gui.main.GUI;
-import ch.nolix.systemapi.guiapi.mainapi.CursorIcon;
+import ch.nolix.systemapi.guiapi.structureproperty.CursorIcon;
 
 //class
 final class BaseFrontendGUIClientGUIHandler {

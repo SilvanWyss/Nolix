@@ -9,9 +9,9 @@ import ch.nolix.coreapi.functionapi.requestuniversalapi.ExpansionRequestable;
 import ch.nolix.coreapi.geometryapi.griduniversalapi.TopLeftPositionedRecangular;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 import ch.nolix.systemapi.guiapi.inputapi.IPositionedInputTaker;
-import ch.nolix.systemapi.guiapi.mainapi.CursorIcon;
 import ch.nolix.systemapi.guiapi.mainapi.IExtendedInputActionManager;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
+import ch.nolix.systemapi.guiapi.structureproperty.CursorIcon;
 
 //interface
 /**

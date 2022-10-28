@@ -6,6 +6,7 @@ import ch.nolix.coreapi.functionapi.mutationuniversalapi.Refreshable;
 import ch.nolix.coreapi.geometryapi.griduniversalapi.Rectangular;
 import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 import ch.nolix.systemapi.guiapi.inputapi.IResizableInputTaker;
+import ch.nolix.systemapi.guiapi.structureproperty.CursorIcon;
 
 //interface
 /**

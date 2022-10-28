@@ -4,7 +4,7 @@ package ch.nolix.systemtutorial.guitutorial.widgettutorial;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.widget.Button;
 import ch.nolix.system.gui.widgetgui.Frame;
-import ch.nolix.systemapi.guiapi.mainapi.CursorIcon;
+import ch.nolix.systemapi.guiapi.structureproperty.CursorIcon;
 import ch.nolix.systemapi.guiapi.widgetguiapi.ControlState;
 
 /**

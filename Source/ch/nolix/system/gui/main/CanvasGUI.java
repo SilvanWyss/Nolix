@@ -19,9 +19,9 @@ import ch.nolix.system.gui.textformat.TextFormat;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 import ch.nolix.systemapi.guiapi.inputapi.IResizableInputTaker;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
-import ch.nolix.systemapi.guiapi.mainapi.CursorIcon;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
+import ch.nolix.systemapi.guiapi.structureproperty.CursorIcon;
 
 //class
 public abstract class CanvasGUI<CG extends CanvasGUI<CG>> extends GUI<CG> {

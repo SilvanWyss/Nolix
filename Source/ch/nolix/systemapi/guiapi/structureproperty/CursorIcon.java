@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemapi.guiapi.mainapi;
+package ch.nolix.systemapi.guiapi.structureproperty;
 
 //Java imports
 import java.awt.Cursor;

@@ -8,7 +8,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
-import ch.nolix.systemapi.guiapi.mainapi.CursorIcon;
+import ch.nolix.systemapi.guiapi.structureproperty.CursorIcon;
 import ch.nolix.systemapi.guiapi.widgetguiapi.IWidgetGUI;
 
 //class
