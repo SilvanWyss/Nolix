@@ -30,10 +30,10 @@ import ch.nolix.system.gui.image.Image;
 import ch.nolix.system.gui.main.LocalFrontEndReader;
 import ch.nolix.system.gui.main.LocalFrontEndWriter;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
+import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndReader;
+import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndWriter;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.mainapi.IExtendedGUI;
-import ch.nolix.systemapi.guiapi.mainapi.IFrontEndReader;
-import ch.nolix.systemapi.guiapi.mainapi.IFrontEndWriter;
 import ch.nolix.systemapi.guiapi.structureproperty.CursorIcon;
 
 //class

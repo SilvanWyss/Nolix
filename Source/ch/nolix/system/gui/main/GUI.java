@@ -24,14 +24,14 @@ import ch.nolix.system.gui.guivisualizer.GUIVisualizer;
 import ch.nolix.system.gui.icon.IconCatalogue;
 import ch.nolix.system.gui.image.Image;
 import ch.nolix.system.gui.inputdevice.KeyBoard;
+import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndReader;
+import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndWriter;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.inputapi.IResizableInputTaker;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.inputdeviceapi.IKeyBoard;
 import ch.nolix.systemapi.guiapi.inputdeviceapi.IMutableKeyBoard;
 import ch.nolix.systemapi.guiapi.mainapi.IExtendedGUI;
-import ch.nolix.systemapi.guiapi.mainapi.IFrontEndReader;
-import ch.nolix.systemapi.guiapi.mainapi.IFrontEndWriter;
 import ch.nolix.systemapi.guiapi.painterapi.IPainter;
 import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
 

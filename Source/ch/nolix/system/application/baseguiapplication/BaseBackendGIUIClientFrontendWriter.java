@@ -4,7 +4,7 @@ package ch.nolix.system.application.baseguiapplication;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.netapi.targetuniversalapi.IApplicationTarget;
-import ch.nolix.systemapi.guiapi.mainapi.IFrontEndWriter;
+import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndWriter;
 
 //class
 final class BaseBackendGIUIClientFrontendWriter implements IFrontEndWriter {

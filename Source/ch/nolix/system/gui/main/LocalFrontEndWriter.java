@@ -11,7 +11,7 @@ import ch.nolix.core.environment.localcomputer.ShellProvider;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.coreapi.netapi.targetuniversalapi.IApplicationTarget;
 import ch.nolix.coreapi.programcontrolapi.processproperty.WriteMode;
-import ch.nolix.systemapi.guiapi.mainapi.IFrontEndWriter;
+import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndWriter;
 
 //class
 public final class LocalFrontEndWriter implements IFrontEndWriter {

@@ -20,7 +20,7 @@ import ch.nolix.core.environment.filesystem.FileAccessor;
 import ch.nolix.core.environment.filesystem.FileSystemAccessor;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
-import ch.nolix.systemapi.guiapi.mainapi.IFrontEndReader;
+import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndReader;
 
 //class
 public final class LocalFrontEndReader implements IFrontEndReader {

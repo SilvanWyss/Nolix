@@ -7,9 +7,9 @@ import ch.nolix.coreapi.functionapi.mutationuniversalapi.Clearable;
 import ch.nolix.coreapi.webapi.cssapi.ICSS;
 import ch.nolix.systemapi.elementapi.styleapi.IStyleElement;
 import ch.nolix.systemapi.guiapi.canvasuniversalapi.ICanvas;
+import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndReader;
+import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndWriter;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
-import ch.nolix.systemapi.guiapi.mainapi.IFrontEndReader;
-import ch.nolix.systemapi.guiapi.mainapi.IFrontEndWriter;
 import ch.nolix.systemapi.guiapi.mainapi.IGUI;
 
 //interface

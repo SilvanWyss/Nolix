@@ -5,7 +5,7 @@ package ch.nolix.system.application.basewebapplication;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.containerapi.mainapi.ISingleContainer;
-import ch.nolix.systemapi.guiapi.mainapi.IFrontEndReader;
+import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndReader;
 
 //class
 final class BaseBackendWebClientFrontendReader implements IFrontEndReader {

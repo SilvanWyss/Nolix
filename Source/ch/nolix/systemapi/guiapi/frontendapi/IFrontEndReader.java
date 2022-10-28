@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemapi.guiapi.mainapi;
+package ch.nolix.systemapi.guiapi.frontendapi;
 
 //own imports
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
