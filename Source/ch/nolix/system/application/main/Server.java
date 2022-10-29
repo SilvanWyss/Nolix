@@ -29,29 +29,18 @@ public final class Server extends BaseServer {
 	}
 	
 	//static method
-	public static Server forDefaultPort(final boolean useWebGUI) {
-		return forPort(DEFAULT_PORT, useWebGUI);
-	}
-	
-	//static method
 	/**
 	 * @param port
 	 * @return a new {@link Server} that will listen to net {@link Client}s on the given port.
 	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
 	 */
 	public static Server forPort(final int port) {
-		return new Server(port, false);
-	}
-	
-	//static method
-	public static Server forPort(final int port, final boolean useWebGUI) {
-		return new Server(port, useWebGUI);
+		return new Server(port);
 	}
 	
 	//attribute
 	private ch.nolix.core.net.endpoint3.Server internalServer;
 	
-	//TODO: Remove old GUI.
 	//constructor
 	/**
 	 * Creates a new {@link Server} that will listen to net {@link Client}s on the given port.
@@ -59,13 +48,13 @@ public final class Server extends BaseServer {
 	 * @param port
 	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
 	 */
-	private Server(final int port, final boolean useWebGUI) {
+	private Server(final int port) {
 		
 		//Creates the internalServer of the current Server.
 		internalServer =
 		new ch.nolix.core.net.endpoint3.Server(
 			port,
-			new ServerHTTPMessage(getIp(), port, useWebGUI).toString()
+			new ServerHTTPMessage(getIp(), port).toString()
 		);
 		
 		//Creates a close dependency between the current Server and its internalServer.

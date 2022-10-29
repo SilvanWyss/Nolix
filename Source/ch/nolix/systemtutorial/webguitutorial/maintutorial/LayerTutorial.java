@@ -14,7 +14,7 @@ public final class LayerTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Server.
-		final var server = Server.forDefaultPort(true);
+		final var server = Server.forDefaultPort();
 		
 		//Adds a default Application to the Server.
 		server.addDefaultApplication("Layer tutorial", MainSession.class, VoidApplicationContext.INSTANCE);

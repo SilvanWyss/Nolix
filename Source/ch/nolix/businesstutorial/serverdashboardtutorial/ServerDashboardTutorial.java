@@ -16,7 +16,7 @@ public final class ServerDashboardTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Server.
-		final var server = Server.forDefaultPort(true);
+		final var server = Server.forDefaultPort();
 		
 		server.addDefaultApplication(ServerDashboard.forServer(server));
 		

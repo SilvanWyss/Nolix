@@ -17,7 +17,7 @@ public final class YesNoDialogTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Server.
-		final var server = Server.forDefaultPort(true);
+		final var server = Server.forDefaultPort();
 		
 		//Adds a default Application to the Server.
 		server.addDefaultApplication("Yes-no-dialog tutorial", MainSession.class, VoidApplicationContext.INSTANCE);

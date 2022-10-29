@@ -21,18 +21,14 @@ final class ServerHTTPMessage {
 	//attribute
 	private final int serverPort;
 	
-	//attribute
-	private final boolean useWebGUI;
-	
 	//constructor
-	public ServerHTTPMessage(final String serverIP, final int serverPort, final boolean useWebGUI) {
+	public ServerHTTPMessage(final String serverIP, final int serverPort) {
 		
 		GlobalValidator.assertThat(serverIP).thatIsNamed("server IP").isNotBlank();
 		GlobalValidator.assertThat(serverPort).thatIsNamed("server port").isBetween(0, 65535);
 		
 		this.serverIP = serverIP;
 		this.serverPort = serverPort;
-		this.useWebGUI = useWebGUI;
 	}
 	
 	//method
@@ -82,24 +78,12 @@ final class ServerHTTPMessage {
 	
 	//method
 	private String getMainScript() {
-		
-		if (!useWebGUI) {
-			return
-			"<script>\n"
-			+ "require(['System/Application/GUIApplication/FrontCanvasGUIClient'], function (FrontCanvasGUIClient_) {"
-			+ "var client = FrontCanvasGUIClient_.FrontCanvasGUIClient.toIpAndPortAndApplicationFromURLUsingWindow("
-			+ getServerIpInQuotes() + ", "
-			+ getServerPort() + ", "
-			+ "window);"
-			+ "});\n"
-			+ "</script>\n";
-		}
-		
 		return
 		"<script>\n"
 		+ "require(['System/Application/WebApplication/FrontendWebClient'], function (FrontendWebClient_) {"
 		+ "var client = FrontendWebClient_.FrontendWebClient.toIpAndPortAndApplicationFromURL("
-		+ getServerIpInQuotes() + ", "
+		+ getServerIpInQuotes()
+		+ ", "
 		+ getServerPort()
 		+ ");"
 		+ "});\n"
