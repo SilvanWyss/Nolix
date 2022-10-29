@@ -11,7 +11,6 @@ import ch.nolix.system.application.main.Application;
 import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.webapplication.BackendWebClient;
 
-//TODO: Adjust names.
 //class
 public final class ServerDashboardAccess implements IServerDashboardAccess {
 	
