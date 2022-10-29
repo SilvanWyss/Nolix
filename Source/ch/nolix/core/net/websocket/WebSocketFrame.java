@@ -195,9 +195,7 @@ public final class WebSocketFrame {
 	//method
 	public boolean isControlFrame() {
 		switch (getOpcodeMeaning()) {
-			case CONNECTION_CLOSE:
-			case PING:
-			case PONG:
+			case CONNECTION_CLOSE, PING, PONG:
 				return true;
 			default:
 				return false;
@@ -207,8 +205,7 @@ public final class WebSocketFrame {
 	//method
 	public boolean isDataFrame() {
 		switch (getOpcodeMeaning()) {
-			case TEXT_FRAME:
-			case BINARY_FRAME:
+			case TEXT_FRAME, BINARY_FRAME:
 				return true;
 			default:
 				return false;

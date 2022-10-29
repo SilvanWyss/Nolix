@@ -19,8 +19,7 @@ public final class SQLConnectionFactory {
 					pSQLDatabaseTarget.getLoginPassword(),
 					pSQLDatabaseTarget
 				);
-			case MYSQL:
-			case ORACLE:
+			case MYSQL, ORACLE:
 				throw UnsupportedCaseException.forCase(pSQLDatabaseTarget.getSQLDatabaseEngine());
 			default:
 				throw InvalidArgumentException.forArgument(pSQLDatabaseTarget.getSQLDatabaseEngine());

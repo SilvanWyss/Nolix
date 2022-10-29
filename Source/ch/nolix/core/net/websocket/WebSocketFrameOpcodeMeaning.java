@@ -24,11 +24,7 @@ public enum WebSocketFrameOpcodeMeaning {
 				return TEXT_FRAME;
 			case 0x2:
 				return BINARY_FRAME;
-			case 0x3:
-			case 0x4:
-			case 0x5:
-			case 0x6:
-			case 0x7:
+			case 0x3, 0x4, 0x5, 0x6, 0x7:
 				return RESERVED;
 			case 0x8:
 				return CONNECTION_CLOSE;
@@ -36,11 +32,7 @@ public enum WebSocketFrameOpcodeMeaning {
 				return PING;
 			case 0xA:
 				return PONG;
-			case 0xB:
-			case 0xC:
-			case 0xD:
-			case 0xE:
-			case 0xF:
+			case 0xB, 0xC, 0xD, 0xE, 0xF:
 				return RESERVED;
 			default:
 				throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.NUMBER, number);

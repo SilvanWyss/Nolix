@@ -378,16 +378,17 @@ public enum Key {
 		}
 		
 		switch (this) {
-			case COMMA:			
-			case DOLLAR_SYMBOL:
-			case DOT:
-			case EXCLAMATION_MARK:
-			case GRADE_SYMBOL:
-			case GRAVIS:
-			case HYPHEN:
-			case QUESTION_MARK:
-			case RELATIONS:
-			case SPACE:
+			case
+			COMMA,	
+			DOLLAR_SYMBOL,
+			DOT,
+			EXCLAMATION_MARK,
+			GRADE_SYMBOL,
+			GRAVIS,
+			HYPHEN,
+			QUESTION_MARK,
+			RELATIONS,
+			SPACE:
 				return true;
 			default:
 				return false;
@@ -397,32 +398,33 @@ public enum Key {
 	//method
 	public boolean isLetter() {
 		switch(this) {
-			case A:
-			case B:
-			case C:
-			case D:
-			case E:
-			case F:
-			case G:
-			case H:
-			case I:
-			case J:	
-			case K:
-			case L:
-			case M:
-			case N:
-			case O:
-			case P:
-			case Q:
-			case R:
-			case S:
-			case T:
-			case U:
-			case V:
-			case W:
-			case X:
-			case Y:
-			case Z:
+			case
+			A,
+			B,
+			C,
+			D,
+			E,
+			F,
+			G,
+			H,
+			I,
+			J,	
+			K,
+			L,
+			 M,
+			N,
+			O,
+			P,
+			Q,
+			R,
+			S,
+			T,
+			U,
+			V,
+			W,
+			X,
+			Y,
+			Z:
 				return true;
 			default:
 				return false;
@@ -432,26 +434,27 @@ public enum Key {
 	//method
 	public boolean isNumber() {
 		switch(this) {
-			case NUMBER_0:
-			case NUMBER_1:
-			case NUMBER_2:
-			case NUMBER_3:
-			case NUMBER_4:
-			case NUMBER_5:
-			case NUMBER_6:
-			case NUMBER_7:
-			case NUMBER_8:
-			case NUMBER_9:
-			case NUMBERPAD_0:
-			case NUMBERPAD_1:
-			case NUMBERPAD_2:
-			case NUMBERPAD_3:
-			case NUMBERPAD_4:
-			case NUMBERPAD_5:
-			case NUMBERPAD_6:
-			case NUMBERPAD_7:
-			case NUMBERPAD_8:
-			case NUMBERPAD_9:
+			case
+			NUMBER_0,
+			NUMBER_1,
+			NUMBER_2,
+			NUMBER_3,
+			NUMBER_4,
+			NUMBER_5,
+			NUMBER_6,
+			NUMBER_7,
+			NUMBER_8,
+			NUMBER_9,
+			NUMBERPAD_0,
+			NUMBERPAD_1,
+			NUMBERPAD_2,
+			NUMBERPAD_3,
+			NUMBERPAD_4,
+			NUMBERPAD_5,
+			NUMBERPAD_6,
+			NUMBERPAD_7,
+			NUMBERPAD_8,
+			NUMBERPAD_9:
 				return true;
 			default:
 				return false;
@@ -461,16 +464,17 @@ public enum Key {
 	//method
 	public boolean isOnNumberPad() {
 		switch(this) {
-			case NUMBERPAD_0:
-			case NUMBERPAD_1:
-			case NUMBERPAD_2:
-			case NUMBERPAD_3:
-			case NUMBERPAD_4:
-			case NUMBERPAD_5:
-			case NUMBERPAD_6:
-			case NUMBERPAD_7:
-			case NUMBERPAD_8:
-			case NUMBERPAD_9:
+			case
+			NUMBERPAD_0,
+			NUMBERPAD_1,
+			NUMBERPAD_2,
+			NUMBERPAD_3,
+			NUMBERPAD_4,
+			NUMBERPAD_5,
+			NUMBERPAD_6,
+			NUMBERPAD_7,
+			NUMBERPAD_8,
+			NUMBERPAD_9:
 				return true;
 			default:
 				return false;

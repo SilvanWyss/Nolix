@@ -83,17 +83,11 @@ public final class LayerCSSRuleCreator {
 	//method
 	private CSSProperty getJustifyContentCSSPropertyForContentPosition(final ContentPosition contentPosition) {
 		switch (contentPosition) {
-			case TOP_LEFT:
-			case LEFT:
-			case BOTTOM_LEFT:
+			case TOP_LEFT, LEFT, BOTTOM_LEFT:
 				return CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.JUSTIFY_CONTENT, CSSJustifyContent.LEFT);
-			case TOP:
-			case CENTER:
-			case BOTTOM:
+			case TOP, CENTER,BOTTOM:
 				return CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.JUSTIFY_CONTENT, CSSJustifyContent.CENTER);
-			case TOP_RIGHT:
-			case RIGHT:
-			case BOTTOM_RIGHT:
+			case TOP_RIGHT, RIGHT, BOTTOM_RIGHT:
 				return CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.JUSTIFY_CONTENT, CSSJustifyContent.RIGHT);
 			default:
 				throw InvalidArgumentException.forArgument(contentPosition);
@@ -108,17 +102,11 @@ public final class LayerCSSRuleCreator {
 	//method
 	private CSSProperty getAlignItemsCSSPropertyForContentPosition(final ContentPosition contentPosition) {
 		switch (contentPosition) {
-			case BOTTOM:
-			case BOTTOM_LEFT:
-			case BOTTOM_RIGHT:
+			case BOTTOM, BOTTOM_LEFT, BOTTOM_RIGHT:
 				return CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.ALIGN_ITEMS, CSSAlignItems.END);
-			case CENTER:
-			case LEFT:
-			case RIGHT:
+			case CENTER,LEFT, RIGHT:
 				return CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.ALIGN_ITEMS, CSSAlignItems.CENTER);
-			case TOP:
-			case TOP_LEFT:
-			case TOP_RIGHT:
+			case TOP, TOP_LEFT, TOP_RIGHT:
 				return CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.ALIGN_ITEMS, CSSAlignItems.START);
 			default:
 				throw InvalidArgumentException.forArgument(contentPosition); 

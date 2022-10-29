@@ -83,16 +83,17 @@ public final class UnrepresentingArgumentException extends InvalidArgumentExcept
 		
 		//Enumerates the first character of the given noun.
 		switch (noun.charAt(0)) {
-			case 'A':
-			case 'a':
-			case 'E':
-			case 'e':
-			case 'I':
-			case 'i':
-			case 'O':
-			case 'o':
-			case 'U':
-			case 'u':
+			case
+			'A',
+			'a',
+			'E',
+			'e',
+			'I',
+			'i',
+			'O',
+			'o',
+			'U',
+			'u':
 				return PRONOUN_AN;
 			default:
 				return PRONOUN_A;

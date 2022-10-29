@@ -117,12 +117,7 @@ final class InternalDataReader {
 		final String value
 	) {
 		switch (columnInfo.getColumnPropertyType()) {
-			case VALUE:
-			case OPTIONAL_VALUE:
-			case REFERENCE:
-			case OPTIONAL_REFERENCE:
-			case BACK_REFERENCE:
-			case OPTIONAL_BACK_REFERENCE:
+			case VALUE, OPTIONAL_VALUE, REFERENCE, OPTIONAL_REFERENCE, BACK_REFERENCE, OPTIONAL_BACK_REFERENCE:
 				return
 				tableContainsEntityWithGivenValueAtGivenSingleColumn(
 					tableName,

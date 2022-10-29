@@ -8,12 +8,10 @@ public final class StandardConsoleLogHandler extends LogHandler {
 	@Override
 	protected void log(final LogEntry logEntry) {
 		switch (logEntry.getHarmLevel()) {
-			case INFO:
-			case WARNING:
+			case INFO, WARNING:
 				System.out.println(logEntry.toString());
 				break;
-			case ERROR:
-			case FATAL_ERROR:
+			case ERROR, FATAL_ERROR:
 				System.err.println(logEntry.toString());
 				break;
 		}

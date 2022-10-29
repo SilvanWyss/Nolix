@@ -57,9 +57,7 @@ final class CapitalSnakeCaseCreator {
 					stringBuilder.append(character);
 					
 					break;
-				
-				case UNDERSCORE:
-				case OTHER:
+				case UNDERSCORE, OTHER:
 					stringBuilder.append(Character.toUpperCase(character));
 			}
 			

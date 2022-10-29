@@ -40,16 +40,17 @@ public final class GlobalCharacterHelper {
 		
 		//Enumerates the given letter.
 		switch (letter) {
-			case 'A':
-			case 'a':
-			case 'E':
-			case 'e':
-			case 'I':
-			case 'i':
-			case 'O':
-			case 'o':
-			case 'U':
-			case 'u':
+			case
+			'A',
+			'a',
+			'E',
+			'e',
+			'I',
+			'i',
+			'O',
+			'o',
+			'U',
+			'u':
 				return ARTICLE_AN;
 			default:
 				return ARTICLE_A;

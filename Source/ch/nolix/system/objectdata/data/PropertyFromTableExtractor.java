@@ -57,9 +57,7 @@ final class PropertyFromTableExtractor {
 				.getName();
 				
 				return MultiReference.forEntityWithTableName(referencedtableName3);
-			case BACK_REFERENCE:
-			case OPTIONAL_BACK_REFERENCE:
-			case MULTI_BACK_REFERENCE:
+			case BACK_REFERENCE, OPTIONAL_BACK_REFERENCE, MULTI_BACK_REFERENCE:
 			default:
 				throw InvalidArgumentException.forArgument(column);
 			}

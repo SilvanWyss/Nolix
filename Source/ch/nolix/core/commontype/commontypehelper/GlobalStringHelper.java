@@ -187,15 +187,9 @@ public final class GlobalStringHelper {
 		
 		//Enumerates the given string.
 		switch (string) {
-			case "0":
-			case "F":
-			case "False":
-			case "false":
+			case "0", "F", "False", "false":
 				return false;
-			case "1":
-			case "T":
-			case "True":
-			case "true":
+			case "1", "T", "True", "true":
 				return true;
 			default:
 				throw UnrepresentingArgumentException.forArgumentAndType(string, Boolean.class);
