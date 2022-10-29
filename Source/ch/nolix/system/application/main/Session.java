@@ -149,12 +149,6 @@ public abstract class Session<
 	 */
 	protected abstract void fullInitialize();
 	
-	//method declaration
-	/**
-	 * Initializes the current {@link Session} for the first time.
-	 */
-	protected abstract void initializeForFirstTime();
-	
 	//method
 	/**
 	 * @return the {@link Client} class of the current {@link Session}.
@@ -202,9 +196,6 @@ public abstract class Session<
 						
 		//Sets the parent client of the current session.
 		this.parentClient = parentClient;
-		
-		//Initializes the current Session the first time.
-		initializeForFirstTime();
 	}
 	
 	//method

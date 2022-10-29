@@ -31,13 +31,6 @@ public abstract class BackendWebClientSession<AC> extends BaseBackendWebClientSe
 	//method declaration
 	protected abstract void initialize();
 	
-	//TODO: Delete this method.
-	//method
-	@Override
-	protected final void initializeForFirstTime() {
-		//Does nothing.
-	}
-	
 	//method
 	@Override
 	protected final Class<?> internalGetRefClientClass() {
