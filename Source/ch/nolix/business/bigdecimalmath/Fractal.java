@@ -50,7 +50,7 @@ public final class Fractal implements IFractal {
 	private final int bigDecimalScale;
 	
 	//constructor
-	public Fractal(
+	public Fractal( //NOSONAR
 		final IClosedInterval realComponentInterval,
 		final IClosedInterval imaginaryComponentInterval,
 		final int widthInPixel,
