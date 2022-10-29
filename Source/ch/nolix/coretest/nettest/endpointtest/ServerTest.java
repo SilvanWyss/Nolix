@@ -17,16 +17,17 @@ public final class ServerTest extends Test {
 		final var port = 50000;
 		
 		//setup
-		final var server = new Server(port);
+		try (final var server = new Server(port)) {
 		
-		//setup verification
-		expect(server.getPort()).isEqualTo(port);
-		expect(server.isOpen());
-		
-		//execution & verification
-		expectRunning(server::close).doesNotThrowException();
-		
-		//verification
-		expect(server.isClosed());
+			//setup verification
+			expect(server.getPort()).isEqualTo(port);
+			expect(server.isOpen());
+			
+			//execution & verification
+			expectRunning(server::close).doesNotThrowException();
+			
+			//verification
+			expect(server.isClosed());
+		}
 	}
 }
