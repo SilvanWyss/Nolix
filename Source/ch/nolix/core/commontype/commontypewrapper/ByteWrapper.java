@@ -59,7 +59,7 @@ public final class ByteWrapper {
 	 * @param bit7
 	 * @param bit8
 	 */
-	public ByteWrapper(
+	public ByteWrapper( //NOSONAR
 		final int bit1,
 		final int bit2,
 		final int bit3,
