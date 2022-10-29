@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.core.container.matrix;
 
+//Java imports
+import java.util.Arrays;
+
 //own imports
 import ch.nolix.core.commontype.constant.CharacterCatalogue;
 import ch.nolix.core.container.main.Container;
@@ -125,13 +128,8 @@ public final class Matrix<E> extends Container<E> implements Clearable, IMatrix<
 			var i = 0;
 			for (final var e : lElements) {
 				
-				final var row = new Object[columnCount + 1];
-				
-				//Iterates the current row.
+				final var row = Arrays.copyOf(this.elements[i], columnCount + 1);
 				row[columnCount] = e;
-				for (var j = 0; j < columnCount; j++) {
-					row[j] = this.elements[i][j];
-				}
 				
 				this.elements[i] = row;
 				
@@ -212,13 +210,7 @@ public final class Matrix<E> extends Container<E> implements Clearable, IMatrix<
 			.isEqualTo(getColumnCount());
 			
 			final var rowCount = getRowCount();
-			final var columnCount = getColumnCount();
-			final var newElements = new Object[rowCount + 1][columnCount];
-			
-			//Iterates the rows of the current matrix.
-			for (var i = 0; i < rowCount; i++) {
-				newElements[i] = this.elements[i];
-			}
+			final var newElements = Arrays.copyOf(this.elements, rowCount + 1);
 			
 			//Iterates the given elements.
 			var i = 0;
