@@ -9,7 +9,7 @@ package ch.nolix.coretest.containertest;
  * @date 2016-09-01
  */
 public final class Launcher {
-
+	
 	//main method
 	/**
 	 * Creates a new container test pool and runs it.

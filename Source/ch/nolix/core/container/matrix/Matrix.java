@@ -211,6 +211,7 @@ public final class Matrix<E> extends Container<E> implements Clearable, IMatrix<
 			
 			final var rowCount = getRowCount();
 			final var newElements = Arrays.copyOf(this.elements, rowCount + 1);
+			newElements[rowCount] = new Object[getColumnCount()];
 			
 			//Iterates the given elements.
 			var i = 0;
