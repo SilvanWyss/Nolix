@@ -18,6 +18,7 @@ import ch.nolix.system.element.base.StylableElement;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 import ch.nolix.system.element.mutableelement.MutableValue;
 import ch.nolix.system.gui.canvas.Background;
+import ch.nolix.system.gui.color.Color;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 import ch.nolix.systemapi.guiapi.canvasuniversalapi.IBackground;
 import ch.nolix.systemapi.guiapi.colorapi.IColor;
@@ -37,6 +38,9 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	
 	//constant
 	public static final double DEFAULT_OPACITY = 1.0;
+	
+	//constant
+	public static final IColor DEFAULT_BACKGROUND_COLOR = Color.WHITE;
 	
 	//constant
 	public static final ContentPosition DEFAULT_CONTENT_POSITION = ContentPosition.TOP;
@@ -118,6 +122,11 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	
 	//optional attribute
 	private IWebGUI<?> parentGUI;
+	
+	//constructor
+	public Layer() {
+		setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
+	}
 	
 	//method
 	@Override
