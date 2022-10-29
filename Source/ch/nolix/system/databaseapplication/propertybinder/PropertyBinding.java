@@ -15,7 +15,7 @@ public final class PropertyBinding {
 	//attributes
 	private final IProperty<?> property;
 	private final IControl<?, ?> control;
-	private final IText<?, ?> errorText = new Text();
+	private final IText<?, ?> errorText = new Text().setInvisible();
 	
 	//optional attribute
 	private Throwable currentError;
@@ -28,8 +28,6 @@ public final class PropertyBinding {
 		
 		this.property = property;
 		this.control = control;
-		
-		//TODO: errorText.setCollapsed();
 	}
 	
 	//method
@@ -64,9 +62,11 @@ public final class PropertyBinding {
 	
 	//method
 	void removeCurrentError() {
+		
 		currentError = null;
+		
+		errorText.setInvisible();
 		//TODO: errorText.emptyText();
-		//TODO: errorText.setCollapsed();
 	}
 	
 	//method
@@ -98,7 +98,7 @@ public final class PropertyBinding {
 	//method
 	private void updateErrorLabelFrom(final Throwable error) {
 		errorText
-		//TODO: .setExpanded()
+		.setVisible()
 		.setText(getErrorMessageFrom(error));
 	}
 }

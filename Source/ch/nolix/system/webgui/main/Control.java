@@ -21,6 +21,7 @@ import ch.nolix.system.structure.RelativeOrAbsoluteInt;
 import ch.nolix.system.structure.RelativeOrAbsoluteIntValidator;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 import ch.nolix.systemapi.guiapi.structureproperty.CursorIcon;
+import ch.nolix.systemapi.guiapi.structureproperty.Visibility;
 import ch.nolix.systemapi.structureapi.IRelativeOrAbsoluteInt;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
@@ -38,7 +39,13 @@ extends StylableElement<C>
 implements IControl<C, CS> {
 	
 	//constant
+	public static final Visibility DEFAULT_VISIBILITY = Visibility.VISIBLE;
+	
+	//constant
 	public static final CursorIcon DEFAULT_CURSOR_ICON = CursorIcon.ARROW;
+	
+	//constant
+	private static final String VISIBILITY_HEADER = "Visibility";
 	
 	//constant
 	private static final String MAX_WIDTH_HEADER = "MaxWidth";
@@ -52,6 +59,16 @@ implements IControl<C, CS> {
 	//attribute
 	//An id works correctly for CSS only when it begins with a letter.
 	private final String fixedId = "i" + GlobalIdCreator.createIdOf10HexadecimalCharacters();
+	
+	//attribute
+	private final MutableValue<Visibility> visibility =
+	new MutableValue<>(
+		VISIBILITY_HEADER,
+		DEFAULT_VISIBILITY,
+		this::setVisibility,
+		Visibility::fromSpecification,
+		Node::fromEnum
+	);
 	
 	//attribute
 	private final MutableOptionalValue<RelativeOrAbsoluteInt> maxWidth =
@@ -178,6 +195,18 @@ implements IControl<C, CS> {
 	
 	//method
 	@Override
+	public final boolean isInvisible() {
+		return (getVisibility() == Visibility.INVISIBLE);
+	}
+	
+	//method
+	@Override
+	public boolean isVisible() {
+		return (getVisibility() == Visibility.VISIBLE);
+	}
+	
+	//method
+	@Override
 	public final void removeMaxHeight() {
 		maxHeight.clear();
 	}
@@ -193,6 +222,15 @@ implements IControl<C, CS> {
 	public final C setCursorIcon(final CursorIcon cursorIcon) {
 		
 		this.cursorIcon.setValue(cursorIcon);
+		
+		return asConcrete();
+	}
+	
+	//method
+	@Override
+	public final C setInvisible() {
+		
+		setVisibility(Visibility.INVISIBLE);
 		
 		return asConcrete();
 	}
@@ -229,6 +267,15 @@ implements IControl<C, CS> {
 	public final C setMaxWidthInPercentOfViewAreaWidth(final double maxWidthInPercentOfViewAreaWidth) {
 		
 		setMaxWidth(RelativeOrAbsoluteInt.withPercentage(maxWidthInPercentOfViewAreaWidth));
+		
+		return asConcrete();
+	}
+	
+	//method
+	@Override
+	public final C setVisible() {
+		
+		setVisibility(Visibility.VISIBLE);
 		
 		return asConcrete();
 	}
@@ -312,6 +359,11 @@ implements IControl<C, CS> {
 	}
 	
 	//method
+	private Visibility getVisibility() {
+		return visibility.getValue();
+	}
+	
+	//method
 	private void setMaxHeight(final RelativeOrAbsoluteInt maxHeight) {
 		
 		RelativeOrAbsoluteIntValidator.INSTANCE.assertIsPositive(maxHeight);
@@ -338,5 +390,10 @@ implements IControl<C, CS> {
 		if (parent.isControl()) {
 			parent.getRefControl().getRefStyle().addChild(getRefStyle());
 		}
+	}
+	
+	//method
+	private void setVisibility(final Visibility visibility) {
+		this.visibility.setValue(visibility);
 	}
 }

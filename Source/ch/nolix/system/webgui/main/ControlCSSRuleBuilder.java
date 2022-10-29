@@ -89,6 +89,10 @@ implements IControlCSSRuleBuilder<C, CS> {
 		final LinkedList<CSSProperty> list
 	) {
 		
+		if (control.isInvisible()) {
+			list.addAtEnd(CSSProperty.withNameAndValue("display", "none"));
+		}
+		
 		if (control.hasMaxWidth()) {
 			list.addAtEnd(
 				CSSProperty.withNameAndValue(
