@@ -5,4 +5,4 @@ package ch.nolix.system.objectdata.parametrizedpropertytype;
 import ch.nolix.systemapi.objectdataapi.dataapi.IParametrizedPropertyType;
 
 //class
-public abstract class ParametrizedPropertyType<IMPL> implements IParametrizedPropertyType<IMPL> {}
+public abstract class ParametrizedPropertyType<IMPL> implements IParametrizedPropertyType<IMPL> {} //NOSONAR
