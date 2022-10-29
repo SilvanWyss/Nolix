@@ -14,6 +14,8 @@ public final class StandardConsoleLogHandler extends LogHandler {
 			case ERROR, FATAL_ERROR:
 				System.err.println(logEntry.toString());
 				break;
+			default:
+				//Does nothing.
 		}
 	}
 }
