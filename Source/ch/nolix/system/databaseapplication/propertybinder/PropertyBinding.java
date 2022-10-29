@@ -65,8 +65,9 @@ public final class PropertyBinding {
 		
 		currentError = null;
 		
-		errorText.setInvisible();
-		//TODO: errorText.emptyText();
+		errorText
+		.setInvisible()
+		.setText(Text.DEFAULT_TEXT);
 	}
 	
 	//method
