@@ -185,7 +185,7 @@ public final class FileNode extends BaseMutableNode<FileNode> {
 		return
 		ReadContainer.forIterable(
 			internalSpecification.getRefChildNodes().to(
-				a -> new FileNode(getRefRootFileNode(), (IMutableNode<?>)a)
+				a -> new FileNode(getRefRootFileNode(), a)
 			)
 		);
 	}

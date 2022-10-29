@@ -234,7 +234,7 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
 		for (var i = 0; i < stateProperties.length; i++) {
 			switch (materializedProperty.stateProperties[i].getAssignmentType()) {
 				case STORING_VALUE:
-					stateProperties[i].setValue((V)materializedProperty.stateProperties[i].getValue());
+					stateProperties[i].setValue(materializedProperty.stateProperties[i].getValue());
 					break;
 				case DEFINING_EMPTY:
 					stateProperties[i].setEmpty();

@@ -11,7 +11,7 @@ final class DatabaseMutationExecutor {
 	) {
 		
 		database.addTableAttribute(table);
-		((Table)table).setParentDatabase(database);
+		table.setParentDatabase(database);
 		
 		if (database.isLinkedWithRealDatabase()) {
 			database.internalGetRefRawSchemaAdapter().addTable(table);
