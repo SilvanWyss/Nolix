@@ -2,6 +2,7 @@
 package ch.nolix.core.math;
 
 //Java imports
+import java.util.Arrays;
 import java.util.Random;
 
 //own imports
@@ -220,14 +221,13 @@ public final class Matrix {
 		.thatIsNamed("number of rows of the given matrix")
 		.isEqualTo(getRowCount());
 		
-		var newValues = new double[getRowCount()][getColumnCount() + matrix.getColumnCount()];
+		final var newColumnCount = getColumnCount() + matrix.getColumnCount();
+		var newValues = new double[getRowCount()][newColumnCount];
 		
 		for (var i = 0; i < getRowCount(); i++) {
 			
-			for (var j = 0; j < getColumnCount(); j++) {
-				newValues[i][j] = values[i][j];
-			}
-			
+			newValues[i] = Arrays.copyOf(values[i], newColumnCount);
+					
 			for (var j = 0; j < matrix.getColumnCount(); j++) {
 				newValues[i][getColumnCount() + j] = matrix.values[i][j];
 			}
@@ -253,15 +253,8 @@ public final class Matrix {
 		GlobalValidator.assertThat(rowValues).thatIsNamed("row values").hasElementCount(getColumnCount());
 		
 		var oldValues = values;
-		values = new double[oldValues.length + 1][oldValues[0].length];
-		
-		for (var i = 0; i < oldValues.length; i++) {
-			values[i] = oldValues[i];
-		}
-		
-		for (var i = 0; i < getColumnCount(); i++) {
-			values[getRowCount() - 1][i] = rowValues[i];
-		}
+		values = Arrays.copyOf(values, oldValues.length + 1);
+		values[getRowCount() - 1] = Arrays.copyOf(rowValues, getColumnCount());
 		
 		return this;
 	}
@@ -379,9 +372,7 @@ public final class Matrix {
 		final var matrix = new Matrix(getRowCount(), columnCount);
 		
 		for (var i = 0; i < getRowCount(); i++) {
-			for (var j = 0; j < columnCount; j++) {
-				matrix.values[i][j] = values[i][j];
-			}
+			matrix.values[i] = Arrays.copyOf(values[i], columnCount);
 		}
 		
 		return matrix;
