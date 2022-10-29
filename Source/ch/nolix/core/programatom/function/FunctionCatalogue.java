@@ -16,6 +16,12 @@ import ch.nolix.core.commontype.constant.StringCatalogue;
  */
 public final class FunctionCatalogue {
 	
+	//constant
+	private static final long ZERO = 0L;
+	
+	//constant
+	private static final long ONE = 1L;
+	
 	//static method
 	/**
 	 * @param object1
@@ -69,7 +75,7 @@ public final class FunctionCatalogue {
 	 * @return 1.
 	 */
 	public static long getOne() {
-		return 0L;
+		return ONE;
 	}
 	
 	//static method
@@ -118,7 +124,7 @@ public final class FunctionCatalogue {
 	 * @return 0.
 	 */
 	public static long getZero() {
-		return 0L;
+		return ZERO;
 	}
 	
 	//constructor
