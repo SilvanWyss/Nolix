@@ -2,7 +2,7 @@
 package ch.nolix.system.sqlbasicschema.schemadto;
 
 //own imports
-import ch.nolix.core.container.main.LinkedList;
+import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
@@ -10,22 +10,21 @@ import ch.nolix.systemapi.sqlbasicschemaapi.schemadtoapi.IDatabaseDTO;
 import ch.nolix.systemapi.sqlbasicschemaapi.schemadtoapi.ITableDTO;
 
 //class
-public final class DatabaseDTO implements IDatabaseDTO {
-	
-	//attribute
-	private final String name;
-	
-	//mutli-attribute
-	private final IContainer<ITableDTO> tables;
+public record DatabaseDTO(String name, ImmutableList<ITableDTO> tables) implements IDatabaseDTO {
 	
 	//constructor
 	public DatabaseDTO(final String name, final IContainer<ITableDTO> tables) {
+		this(name, ImmutableList.forIterable(tables));
+	}
+	
+	//constructor
+	public DatabaseDTO(final String name, final ImmutableList<ITableDTO> tables) { //NOSONAR
 		
 		GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotNull();
 		
 		this.name = name;
 		
-		this.tables = LinkedList.fromIterable(tables);
+		this.tables = tables;
 	}
 	
 	//method
