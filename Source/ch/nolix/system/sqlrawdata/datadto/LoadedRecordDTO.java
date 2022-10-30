@@ -9,17 +9,11 @@ import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedContentFieldDTO;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedRecordDTO;
 
 //class
-public final class LoadedRecordDTO implements ILoadedRecordDTO {
-	
-	//attributes
-	private final String id;
-	private final String saveStamp;
-	
-	//multi-attribute
-	private final IContainer<ILoadedContentFieldDTO> contentFields;
+public record LoadedRecordDTO(String id, String saveStamp, IContainer<ILoadedContentFieldDTO> contentFields)
+implements ILoadedRecordDTO {
 	
 	//constructor
-	public LoadedRecordDTO(
+	public LoadedRecordDTO( //NOSONAR
 		final String id,
 		final String saveStamp,
 		final IContainer<ILoadedContentFieldDTO> contentFields
