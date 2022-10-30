@@ -7,17 +7,11 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDTO;
 
 //class
-public final class FlatTableDTO implements IFlatTableDTO {
-	
-	//attribute
-	private final String id;
-	
-	//attribute
-	private final String name;
+public record FlatTableDTO(String id, String name) implements IFlatTableDTO {
 	
 	//constructor
 	//For a better performance, this implementation does not use all comfortable methods.
-	public FlatTableDTO(final String id, final String name) {
+	public FlatTableDTO(final String id, final String name) { //NOSONAR
 		
 		if (id == null) {
 			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.ID);
