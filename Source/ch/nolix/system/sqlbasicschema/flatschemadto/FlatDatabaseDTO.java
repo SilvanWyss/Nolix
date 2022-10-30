@@ -7,13 +7,10 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.systemapi.sqlbasicschemaapi.flatschemadtoapi.IFlatDatabaseDTO;
 
 //class
-public final class FlatDatabaseDTO implements IFlatDatabaseDTO {
-	
-	//attribute
-	private final String name;
+public record FlatDatabaseDTO(String name) implements IFlatDatabaseDTO {
 	
 	//constructor
-	public FlatDatabaseDTO(final String name) {
+	public FlatDatabaseDTO(final String name) { //NOSONAR
 		
 		GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotNull();
 		
