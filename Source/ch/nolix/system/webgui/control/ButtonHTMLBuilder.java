@@ -27,8 +27,6 @@ public final class ButtonHTMLBuilder implements IControlHTMLBuilder<Button> {
 				ControlHelper.INSTANCE.createIdHTMLAttributeForControl(button),
 				HTMLAttribute.withNameAndValue(
 					"onclick",
-					
-					//TODO: Create ControlCommandCreator.
 					"NoteLeftMouseButtonPress_" + button.getFixedId()
 				)
 			),

@@ -49,8 +49,6 @@ public final class ImageControlHTMLBuilder implements IControlHTMLBuilder<ImageC
 			lHTMLAttributes.addAtEnd(
 				HTMLAttribute.withNameAndValue(
 					"onclick",
-					
-					//TODO: Create ControlCommandCreator.
 					"NoteLeftMouseButtonPress_" + imageControl.getFixedId()
 				)
 			);
@@ -60,8 +58,6 @@ public final class ImageControlHTMLBuilder implements IControlHTMLBuilder<ImageC
 			lHTMLAttributes.addAtEnd(
 				HTMLAttribute.withNameAndValue(
 					"onclick",
-					
-					//TODO: Create ControlCommandCreator.
 					"NoteLeftMouseButtonRelease_" + imageControl.getFixedId()
 				)
 			);
