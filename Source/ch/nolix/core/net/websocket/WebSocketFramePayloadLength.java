@@ -10,13 +10,10 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
 //class
-public final class WebSocketFramePayloadLength {
-	
-	//attribute
-	private final long value;
+public record WebSocketFramePayloadLength(long value) {
 	
 	//constructor
-	public WebSocketFramePayloadLength(final long value) {
+	public WebSocketFramePayloadLength(final long value) { //NOSONAR
 		
 		GlobalValidator.assertThat(value).thatIsNamed(LowerCaseCatalogue.VALUE).isNotNegative();
 		
