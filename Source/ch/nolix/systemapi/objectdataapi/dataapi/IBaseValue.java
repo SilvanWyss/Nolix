@@ -4,6 +4,6 @@ package ch.nolix.systemapi.objectdataapi.dataapi;
 //interface
 public interface IBaseValue<
 	IMPL,
-	V
+	V //NOSONAR
 >
 extends IProperty<IMPL> {}
