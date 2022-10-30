@@ -4,6 +4,6 @@ package ch.nolix.systemapi.objectschemaapi.schemaapi;
 //interface
 public interface IBaseParametrizedValueType<
 	IMPL,
-	DT
+	DT //NOSONAR
 >
 extends IParametrizedPropertyType<IMPL> {}
