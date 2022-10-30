@@ -8,14 +8,10 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentEx
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
 //class
-public final class OccurancePlace {
-	
-	//attributes
-	private final String className;
-	private final int lineNumber;
+public record OccurancePlace(String className, int lineNumber) {
 	
 	//constructor
-	public OccurancePlace(final String className, final int lineNumber) {
+	public OccurancePlace(final String className, final int lineNumber) { //NOSONAR
 		
 		if (className == null) {
 			throw ArgumentIsNullException.forArgumentName("class name");
