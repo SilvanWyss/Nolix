@@ -4,16 +4,20 @@ package ch.nolix.system.webgui.controlstyle;
 //own imports
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.element.multistateelement.ForwardingProperty;
 import ch.nolix.system.element.multistateelement.NonCascadingProperty;
 import ch.nolix.system.gui.canvas.Background;
 import ch.nolix.system.gui.color.Color;
+import ch.nolix.system.structure.RelativeOrAbsoluteInt;
+import ch.nolix.system.structure.RelativeOrAbsoluteIntValidator;
 import ch.nolix.systemapi.guiapi.canvasuniversalapi.IBackground;
 import ch.nolix.systemapi.guiapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.colorapi.IColorGradient;
 import ch.nolix.systemapi.guiapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.imageapi.ImageApplication;
+import ch.nolix.systemapi.structureapi.IRelativeOrAbsoluteInt;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IExtendedControlStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
@@ -30,6 +34,12 @@ implements IExtendedControlStyle<ECS> {
 	
 	//constant
 	public static final int DEFAULT_PADDING = 0;
+	
+	//constant
+	private static final String WIDTH_HEADER = PascalCaseCatalogue.WIDTH;
+	
+	//constant
+	private static final String HEIGHT_HEADER = PascalCaseCatalogue.HEIGHT;
 		
 	//constant
 	private static final String LEFT_BORDER_THICKNESS_HEADER = "LeftBorderThickness";
@@ -78,6 +88,26 @@ implements IExtendedControlStyle<ECS> {
 	
 	//constant
 	private static final String PADDING_HEADER = "Padding";
+	
+	//attribute
+	private final NonCascadingProperty<ControlState, IRelativeOrAbsoluteInt> width =
+	new NonCascadingProperty<>(
+		WIDTH_HEADER,
+		ControlState.class,
+		RelativeOrAbsoluteInt::fromSpecification,
+		IRelativeOrAbsoluteInt::getSpecification,
+		this::setWidthForState
+	);
+	
+	//attribute
+	private final NonCascadingProperty<ControlState, IRelativeOrAbsoluteInt> height =
+	new NonCascadingProperty<>(
+		HEIGHT_HEADER,
+		ControlState.class,
+		RelativeOrAbsoluteInt::fromSpecification,
+		IRelativeOrAbsoluteInt::getSpecification,
+		this::setHeightForState
+	);
 	
 	//attribute
 	private final NonCascadingProperty<ControlState, Integer> leftBorderThickness =
@@ -242,6 +272,18 @@ implements IExtendedControlStyle<ECS> {
 	
 	//method
 	@Override
+	public final boolean definesHeightForState(final ControlState state) {
+		return height.hasValueForState(state);
+	}
+	
+	//method
+	@Override
+	public final boolean definesWidthForState(final ControlState state) {
+		return width.hasValueForState(state);
+	}
+	
+	//method
+	@Override
 	public final IBackground getBackgroundWhenHasState(final ControlState state) {
 		return background.getValueWhenHasState(state);
 	}
@@ -274,6 +316,12 @@ implements IExtendedControlStyle<ECS> {
 	@Override
 	public final int getLeftBorderThicknessWhenHasState(final ControlState state) {
 		return leftBorderThickness.getValueWhenHasState(state);
+	}
+	
+	//method
+	@Override
+	public final IRelativeOrAbsoluteInt getHeightForState(final ControlState state) {
+		return height.getValueWhenHasState(state);
 	}
 	
 	//method
@@ -320,13 +368,19 @@ implements IExtendedControlStyle<ECS> {
 	
 	//method
 	@Override
+	public final IRelativeOrAbsoluteInt getWidthForState(final ControlState state) {
+		return width.getValueWhenHasState(state);
+	}
+	
+	//method
+	@Override
 	public final void removeCustomBackgrounds() {
 		background.setUndefined();
 	}
 	
 	//method
 	@Override
-	public void removeCustomBorderColors() {
+	public final void removeCustomBorderColors() {
 		borderColor.setUndefined();
 	}
 	
@@ -355,6 +409,12 @@ implements IExtendedControlStyle<ECS> {
 	@Override
 	public final void removeCustomBottomPaddings() {
 		bottomPadding.setUndefined();
+	}
+	
+	//method
+	@Override
+	public final void removeCustomHeights() {
+		height.setUndefined();
 	}
 	
 	//method
@@ -419,7 +479,13 @@ implements IExtendedControlStyle<ECS> {
 	public final void removeCustomTopPaddings() {
 		topPadding.setUndefined();
 	}
-		
+	
+	//method
+	@Override
+	public final void removeCustomWidths() {
+		width.setUndefined();
+	}
+	
 	//method
 	@Override
 	public final ECS setBackgroundColorForState(final ControlState state, final IColor backgroundColor) {
@@ -436,7 +502,7 @@ implements IExtendedControlStyle<ECS> {
 	}
 	
 	@Override
-	public ECS setBackgroundForState(ControlState state, IBackground background) {
+	public final ECS setBackgroundForState(ControlState state, IBackground background) {
 		
 		this.background.setValueForState(state, background);
 		
@@ -501,6 +567,27 @@ implements IExtendedControlStyle<ECS> {
 		GlobalValidator.assertThat(bottomPadding).thatIsNamed("bottom padding").isNotNegative();
 		
 		this.bottomPadding.setValueForState(state, bottomPadding);
+		
+		return asConcrete();
+	}
+	
+	//method
+	@Override
+	public final ECS setHeightForState(final ControlState state, final int height) {
+		
+		setHeightForState(state, RelativeOrAbsoluteInt.withIntValue(height));
+		
+		return asConcrete();
+	}
+	
+	//method
+	@Override
+	public final ECS setHeightInPercentOfViewAreaForState(
+		final ControlState state,
+		final double heightInPercentOfViewAreaHeight
+	) {
+		
+		setHeightForState(state, RelativeOrAbsoluteInt.withPercentage(heightInPercentOfViewAreaHeight));
 		
 		return asConcrete();
 	}
@@ -605,5 +692,42 @@ implements IExtendedControlStyle<ECS> {
 		this.topPadding.setValueForState(state, topPadding);
 		
 		return asConcrete();
+	}
+	
+	//method
+	@Override
+	public final ECS setWidthForState(final ControlState state, final int width) {
+		
+		setWidthForState(state, RelativeOrAbsoluteInt.withIntValue(width));
+		
+		return asConcrete();
+	}
+	
+	//method
+	@Override
+	public ECS setWidthInPercentOfViewAreaWidthForState(
+		final ControlState state,
+		final double widthInPercentOfViewAreaWidth
+	) {
+		
+		setWidthForState(state, RelativeOrAbsoluteInt.withPercentage(widthInPercentOfViewAreaWidth));
+		
+		return asConcrete();
+	}
+	
+	//method
+	private void setHeightForState(final ControlState state, final IRelativeOrAbsoluteInt height) {
+		
+		RelativeOrAbsoluteIntValidator.INSTANCE.assertIsPositive(height);
+		
+		this.height.setValueForState(state, height);
+	}
+	
+	//method
+	private void setWidthForState(final ControlState state, final IRelativeOrAbsoluteInt width) {
+		
+		RelativeOrAbsoluteIntValidator.INSTANCE.assertIsPositive(width);
+		
+		this.width.setValueForState(state, width);
 	}
 }

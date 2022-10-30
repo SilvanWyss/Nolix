@@ -30,6 +30,30 @@ extends ControlCSSRuleBuilder<EC, ECS> {
 		
 		final var style = control.getRefStyle();
 		
+		if (style.definesWidthForState(state)) {
+			list.addAtEnd(
+				CSSProperty.withNameAndValue(
+					CSSPropertyNameCatalogue.WIDTH,
+					ControlCSSValueHelper.INSTANCE.getCSSValueFromRelativeOrAbsoluteInt(
+						style.getWidthForState(state),
+						CSSUnitCatalogue.VW
+					)
+				)
+			);
+		}
+		
+		if (style.definesHeightForState(state)) {
+			list.addAtEnd(
+				CSSProperty.withNameAndValue(
+					CSSPropertyNameCatalogue.HEIGHT,
+					ControlCSSValueHelper.INSTANCE.getCSSValueFromRelativeOrAbsoluteInt(
+						style.getHeightForState(state),
+						CSSUnitCatalogue.VH
+					)
+				)
+			);
+		}
+		
 		list.addAtEnd(
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.BORDER_STYLE,
