@@ -18,18 +18,13 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 public final class ShellProvider {
 	
 	//static method
-	public static void run(final String command) {
+	public static void run(final String[] command) {
 		
-		GlobalValidator
-		.assertThat(command)
-		.thatIsNamed(LowerCaseCatalogue.COMMAND)
-		.isNotNull();
+		GlobalValidator.assertThat(command).thatIsNamed(LowerCaseCatalogue.COMMAND).isNotNull();
 		
-		try {
-			Runtime.getRuntime().exec("cmd.exe /c " + command);
-		} catch (final IOException pIOException) {
-			throw WrapperException.forError(pIOException);
-		}
+		final var runtimeCommand = createRuntimeCommandFromCommand(command);
+		
+		runRuntimeCommand(runtimeCommand);
 	}
 	
 	//static method
@@ -53,7 +48,7 @@ public final class ShellProvider {
 	
 	//static method
 	public static void startFirefox() {
-		run("start firefox");
+		run(new String[]{"start", "firefox"});
 	}
 	
 	//static method
@@ -74,7 +69,7 @@ public final class ShellProvider {
 		.thatIsNamed(LowerCaseCatalogue.PORT)
 		.isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
 		
-		run("start firefox --url " + url + ":" + port);
+		run(new String[] {"start" ,"firefox", "--url", url + ":" + port});
 	}
 	
 	//static method
@@ -85,6 +80,30 @@ public final class ShellProvider {
 	//static method
 	public static void startFirefoxOpeningLoopBackAddress(final int port) {
 		startFirefox(IPv4Catalogue.LOOP_BACK_ADDRESS, port);
+	}
+	
+	//static method
+	private static String[] createRuntimeCommandFromCommand(final String[] command) {
+		
+		final var runtimeCommand = new String[2 + command.length];
+		
+		runtimeCommand[0] = "cmd.exe";
+		runtimeCommand[1] = "/c";
+		
+		for (var i = 0; i < command.length; i++) {
+			runtimeCommand[i + 2] = command[i];
+		}
+		
+		return runtimeCommand;
+	}
+	
+	//static method
+	private static void runRuntimeCommand(final String[] runtimeCommand) {
+		try {
+			Runtime.getRuntime().exec(runtimeCommand);
+		} catch (final IOException pIOException) {
+			throw WrapperException.forError(pIOException);
+		}
 	}
 	
 	//constructor
