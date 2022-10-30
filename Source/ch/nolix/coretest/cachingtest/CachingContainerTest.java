@@ -3,7 +3,6 @@ package ch.nolix.coretest.cachingtest;
 
 //own imports
 import ch.nolix.core.caching.CachingContainer;
-import ch.nolix.core.demo.Cat;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
@@ -16,7 +15,7 @@ public final class CachingContainerTest extends Test {
 	public void testCase_creation() {
 		
 		//execution
-		final var result = new CachingContainer<Cat>();
+		final var result = new CachingContainer<String>();
 		
 		//verification
 		expect(result.isEmpty());
@@ -27,8 +26,8 @@ public final class CachingContainerTest extends Test {
 	public void testCase_getRefById() {
 		
 		//setup
-		final var testUnit = new CachingContainer<Cat>();
-		final var garfield = new Cat("Garfield");
+		final var testUnit = new CachingContainer<String>();
+		final var garfield = "Garfield";
 		final var garfieldId = testUnit.registerAndGetId(garfield);
 		
 		//execution
@@ -43,7 +42,7 @@ public final class CachingContainerTest extends Test {
 	public void testCase_getRefById_whenForTheGivenIdAnElementIsNotRegistered() {
 		
 		//setup
-		final var testUnit = new CachingContainer<Cat>();
+		final var testUnit = new CachingContainer<String>();
 		
 		//execution
 		expectRunning(() -> testUnit.getRefById("G")).throwsException().ofType(InvalidArgumentException.class);
@@ -54,8 +53,8 @@ public final class CachingContainerTest extends Test {
 	public void testCase_registerAndGetId() {
 		
 		//setup
-		final var testUnit = new CachingContainer<Cat>();
-		final var garfield = new Cat("Garfield");
+		final var testUnit = new CachingContainer<String>();
+		final var garfield = "Garfield";
 		
 		//execution
 		final var result = testUnit.registerAndGetId(garfield);
@@ -71,8 +70,8 @@ public final class CachingContainerTest extends Test {
 	public void testCase_registerAndGetId_whenTheGivenElementIsAlreadyRegistered() {
 		
 		//setup
-		final var testUnit = new CachingContainer<Cat>();
-		final var garfield = new Cat("G");
+		final var testUnit = new CachingContainer<String>();
+		final var garfield = "Garfield";
 		testUnit.registerAndGetId(garfield);
 		
 		//execution & verification
@@ -84,9 +83,9 @@ public final class CachingContainerTest extends Test {
 	public void testCase_registerAt() {
 		
 		//setup
-		final var testUnit = new CachingContainer<Cat>();
+		final var testUnit = new CachingContainer<String>();
 		final var garfieldId = "G";
-		final var garfield = new Cat("Garfield");
+		final var garfield = "Garfield";
 		
 		//execution
 		testUnit.registerAtId(garfieldId, garfield);
@@ -102,9 +101,9 @@ public final class CachingContainerTest extends Test {
 	public void testCase_registerAt_whenTheGivenElementIsAlreadyRegistered() {
 		
 		//setup
-		final var testUnit = new CachingContainer<Cat>();
+		final var testUnit = new CachingContainer<String>();
 		final var garfieldId = "G";
-		final var garfield = new Cat("Garfield");
+		final var garfield = "Garfield";
 		testUnit.registerAtId(garfieldId, garfield);
 		
 		//execution & verification
@@ -116,8 +115,8 @@ public final class CachingContainerTest extends Test {
 	public void testCase_registerIfNotRegisterAndGetId() {
 		
 		//setup
-		final var testUnit = new CachingContainer<Cat>();
-		final var garfield = new Cat("Garfield");
+		final var testUnit = new CachingContainer<String>();
+		final var garfield = "Garfield";
 		
 		//execution
 		final var result = testUnit.registerIfNotRegisteredAndGetId(garfield);
@@ -133,9 +132,9 @@ public final class CachingContainerTest extends Test {
 	public void testCase_registerIfNotRegisterAndGetId_whenTheGivenElementIsAlreadyRegistered() {
 		
 		//setup
-		final var testUnit = new CachingContainer<Cat>();
+		final var testUnit = new CachingContainer<String>();
 		final var garfieldId = "G";
-		final var garfield = new Cat("Garfield");
+		final var garfield = "Garfield";
 		testUnit.registerAtId(garfieldId, garfield);
 		
 		//execution
@@ -151,8 +150,8 @@ public final class CachingContainerTest extends Test {
 		
 		//setup
 		final var testUnit = new CachingContainer<>();
-		final var garfield = new Cat("Garfield");
-		final var simba = new Cat("Simba");
+		final var garfield = "Garfield";
+		final var simba = "Simba";
 		testUnit.registerAndGetId(garfield);
 		testUnit.registerAndGetId(simba);
 		
