@@ -9,6 +9,7 @@ import ch.nolix.system.element.style.DeepStyle;
 import ch.nolix.system.element.style.Style;
 import ch.nolix.system.webgui.control.Button;
 import ch.nolix.system.webgui.dialog.YesNoDialogFactory;
+import ch.nolix.system.webgui.main.Layer;
 import ch.nolix.systemapi.guiapi.containercontrolproperty.ContainerRole;
 import ch.nolix.systemapi.guiapi.controlrole.ButtonRole;
 
@@ -60,16 +61,18 @@ public final class YesNoDialogTutorial {
 					new DeepStyle()
 					.setSelectorType(Button.class)
 					.addAttachingAttribute(
-						//TODO: "MinWidth(200)"
+						"MinWidth(200)",
 						"CursorIcon(Hand)",
 						"BaseBackground(Color(SkyBlue))",
 						"HoverBackground(Color(Blue))",
 						"BaseTextSize(30)"
 					),
 					new DeepStyle()
+					.setSelectorType(Layer.class)
+					.addAttachingAttribute("Background(Color(White))"),
+					new DeepStyle()
 					.addSelectorRole(ContainerRole.DIALOG_CONTAINER)
 					.addAttachingAttribute(
-						//TODO: "ProposalHeight(200)"
 						"BaseBackground(Color(Lavender))"
 					)
 					.addConfiguration(
