@@ -56,6 +56,8 @@ abstract class SchemaObject implements IDatabaseObject {
 				throw DeletedArgumentException.forArgument(this);
 			case CLOSED:
 				throw ClosedArgumentException.forArgument(this);
+			default:
+				throw InvalidArgumentException.forArgument(getState());
 		}
 	}
 	
