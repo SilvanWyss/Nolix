@@ -58,7 +58,7 @@ public final class Schema implements ISchema<DataImplementation> {
 	) {
 		
 		for (final var et : entityTypes) {
-			if (entityTypes.getCount(et2 -> et2.getSimpleName().equals(et.getSimpleName())) > 1) {
+			if (entityTypes.getCount(et2 -> et2.getSimpleName().equals(et.getSimpleName())) > 1) { //NOSONAR
 				return false;
 			}
 		}
