@@ -2,26 +2,12 @@
 package ch.nolix.system.sqlrawschema.columntable;
 
 //class
-public final class ParametrizedPropertyTypeRecord {
-	
-	//attributes
-	private final String propertyTypeValue;
-	private final String dataTypeValue;
-	private final String referencedTableIdValue;
-	private final String backReferencedColumnIdValue;
-	
-	//constructor
-	public ParametrizedPropertyTypeRecord(
-		final String propertyTypeValue,
-		final String dataTypeValue,
-		final String referencedTableIdValue,
-		final String backReferencedColumnIdValue	
-	) {
-		this.propertyTypeValue = propertyTypeValue;
-		this.dataTypeValue = dataTypeValue;
-		this.referencedTableIdValue = referencedTableIdValue;
-		this.backReferencedColumnIdValue = backReferencedColumnIdValue;
-	}
+public record ParametrizedPropertyTypeRecord(
+	String propertyTypeValue,
+	String dataTypeValue,
+	String referencedTableIdValue,
+	String backReferencedColumnIdValue
+) {
 	
 	//method
 	public String getBackReferencedColumnIdValue() {
