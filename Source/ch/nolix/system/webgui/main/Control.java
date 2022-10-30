@@ -48,6 +48,12 @@ implements IControl<C, CS> {
 	private static final String VISIBILITY_HEADER = "Visibility";
 	
 	//constant
+	private static final String MIN_WIDTH_HEADER = "MinWidth";
+	
+	//constant
+	private static final String MIN_HEIGHT_HEADER = "MinHeight";
+	
+	//constant
 	private static final String MAX_WIDTH_HEADER = "MaxWidth";
 	
 	//constant
@@ -68,6 +74,22 @@ implements IControl<C, CS> {
 		this::setVisibility,
 		Visibility::fromSpecification,
 		Node::fromEnum
+	);
+	
+	//attribute
+	private final MutableOptionalValue<RelativeOrAbsoluteInt> minWidth =
+	MutableOptionalValue.forElement(
+		MIN_WIDTH_HEADER,
+		this::setMinWidth,
+		RelativeOrAbsoluteInt::fromSpecification
+	);
+	
+	//attribute
+	private final MutableOptionalValue<RelativeOrAbsoluteInt> minHeight =
+	MutableOptionalValue.forElement(
+		MIN_HEIGHT_HEADER,
+		this::setMinHeight,
+		RelativeOrAbsoluteInt::fromSpecification
 	);
 	
 	//attribute
@@ -155,6 +177,18 @@ implements IControl<C, CS> {
 	
 	//method
 	@Override
+	public final IRelativeOrAbsoluteInt getMinHeight() {
+		return minHeight.getValue();
+	}
+	
+	//method
+	@Override
+	public final IRelativeOrAbsoluteInt getMinWidth() {
+		return minWidth.getValue();
+	}
+	
+	//method
+	@Override
 	public final IContainer<? extends IStylableElement<?>> getRefChildStylableElements() {
 		return getRefChildControls();
 	}
@@ -184,13 +218,27 @@ implements IControl<C, CS> {
 	}
 	
 	//method
+	@Override
 	public final boolean hasMaxHeight() {
 		return maxHeight.hasValue();
 	}
 	
 	//method
+	@Override
 	public final boolean hasMaxWidth() {
 		return maxWidth.hasValue();
+	}
+	
+	//method
+	@Override
+	public final boolean hasMinHeight() {
+		return minHeight.hasValue();
+	}
+	
+	//method
+	@Override
+	public final boolean hasMinWidth() {
+		return minWidth.hasValue();
 	}
 	
 	//method
@@ -201,7 +249,7 @@ implements IControl<C, CS> {
 	
 	//method
 	@Override
-	public boolean isVisible() {
+	public final boolean isVisible() {
 		return (getVisibility() == Visibility.VISIBLE);
 	}
 	
@@ -215,6 +263,18 @@ implements IControl<C, CS> {
 	@Override
 	public final void removeMaxWidth() {
 		maxWidth.clear();
+	}
+	
+	//method
+	@Override
+	public final void removeMinHeight() {
+		minHeight.clear();
+	}
+	
+	//method
+	@Override
+	public final void removeMinWidth() {
+		minWidth.clear();
 	}
 	
 	//method
@@ -267,6 +327,42 @@ implements IControl<C, CS> {
 	public final C setMaxWidthInPercentOfViewAreaWidth(final double maxWidthInPercentOfViewAreaWidth) {
 		
 		setMaxWidth(RelativeOrAbsoluteInt.withPercentage(maxWidthInPercentOfViewAreaWidth));
+		
+		return asConcrete();
+	}
+	
+	//method
+	@Override
+	public final C setMinHeight(final int minHeight) {
+		
+		setMinHeight(RelativeOrAbsoluteInt.withIntValue(minHeight));
+		
+		return asConcrete();
+	}
+	
+	//method
+	@Override
+	public final C setMinHeightInPercentOfViewAreaHeight(final double minHeightInPercentOfViewAreaHeight) {
+		
+		setMinHeight(RelativeOrAbsoluteInt.withPercentage(minHeightInPercentOfViewAreaHeight));
+		
+		return asConcrete();
+	}
+	
+	//method
+	@Override
+	public final C setMinWidth(final int minWidth) {
+		
+		setMinWidth(RelativeOrAbsoluteInt.withIntValue(minWidth));
+		
+		return asConcrete();
+	}
+	
+	//method
+	@Override
+	public final C setMinWidthInPercentOfViewAreaWidth(final double minWidthInPercentOfViewAreaWidth) {
+		
+		setMinWidth(RelativeOrAbsoluteInt.withPercentage(minWidthInPercentOfViewAreaWidth));
 		
 		return asConcrete();
 	}
@@ -377,6 +473,22 @@ implements IControl<C, CS> {
 		RelativeOrAbsoluteIntValidator.INSTANCE.assertIsPositive(maxWidth);
 		
 		this.maxWidth.setValue(maxWidth);
+	}
+	
+	//method
+	private void setMinHeight(final RelativeOrAbsoluteInt minHeight) {
+		
+		RelativeOrAbsoluteIntValidator.INSTANCE.assertIsPositive(minHeight);
+		
+		this.minHeight.setValue(minHeight);
+	}
+	
+	//method
+	private void setMinWidth(final RelativeOrAbsoluteInt minWidth) {
+		
+		RelativeOrAbsoluteIntValidator.INSTANCE.assertIsPositive(minWidth);
+		
+		this.minWidth.setValue(minWidth);
 	}
 	
 	//method

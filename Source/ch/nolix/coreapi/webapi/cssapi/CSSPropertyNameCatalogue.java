@@ -77,6 +77,12 @@ public final class CSSPropertyNameCatalogue {
 	public static final String MAX_WIDTH = "max-width";
 	
 	//constant
+	public static final String MIN_HEIGHT = "min-height";
+	
+	//constant
+	public static final String MIN_WIDTH = "min-width";
+	
+	//constant
 	public static final String OPACITY = "opacity";
 	
 	//constant

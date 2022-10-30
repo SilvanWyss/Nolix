@@ -93,6 +93,30 @@ implements IControlCSSRuleBuilder<C, CS> {
 			list.addAtEnd(CSSProperty.withNameAndValue("display", "none"));
 		}
 		
+		if (control.hasMinWidth()) {
+			list.addAtEnd(
+				CSSProperty.withNameAndValue(
+					CSSPropertyNameCatalogue.MIN_WIDTH,
+					ControlCSSValueHelper.INSTANCE.getCSSValueFromRelativeOrAbsoluteInt(
+						control.getMinWidth(),
+						CSSUnitCatalogue.VW
+					)
+				)
+			);
+		}
+		
+		if (control.hasMinHeight()) {
+			list.addAtEnd(
+				CSSProperty.withNameAndValue(
+					CSSPropertyNameCatalogue.MIN_HEIGHT,
+					ControlCSSValueHelper.INSTANCE.getCSSValueFromRelativeOrAbsoluteInt(
+						control.getMinHeight(),
+						CSSUnitCatalogue.VH
+					)
+				)
+			);
+		}
+		
 		if (control.hasMaxWidth()) {
 			list.addAtEnd(
 				CSSProperty.withNameAndValue(
