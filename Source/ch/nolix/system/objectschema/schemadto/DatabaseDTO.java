@@ -2,8 +2,7 @@
 package ch.nolix.system.objectschema.schemadto;
 
 //own imports
-import ch.nolix.core.container.main.LinkedList;
-//own imports
+import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PluralLowerCaseCatalogue;
@@ -12,17 +11,16 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IDatabaseDTO;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDTO;
 
 //class
-public final class DatabaseDTO implements IDatabaseDTO {
+public record DatabaseDTO(String name, ImmutableList<ITableDTO> tables) implements IDatabaseDTO {
 	
-	//attribute
-	private final String name;
-	
-	//multi-attribute
-	private final IContainer<ITableDTO> tables;
+	//constructor
+	public DatabaseDTO(final String name, final IContainer<ITableDTO> tables) {
+		this(name, ImmutableList.forIterable(tables));
+	}
 	
 	//constructor
 	//For a better performance, this implementation does not use all comfortable methods.
-	public DatabaseDTO(final String name, final IContainer<ITableDTO> tables) {
+	public DatabaseDTO(final String name, final ImmutableList<ITableDTO> tables) { //NOSONAR
 		
 		if (name == null) {
 			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.NAME);
@@ -33,7 +31,7 @@ public final class DatabaseDTO implements IDatabaseDTO {
 		}
 		
 		this.name = name;
-		this.tables = LinkedList.fromIterable(tables);
+		this.tables = tables;
 	}
 	
 	//method
