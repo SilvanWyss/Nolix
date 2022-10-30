@@ -5,17 +5,11 @@ package ch.nolix.system.sqlrawschema.tabletable;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 
 //class
-public final class TableTableRecord {
-	
-	//attribute
-	private final String idValue;
-	
-	//attribute
-	private final String nameValue;
+public record TableTableRecord(String idValue, String nameValue) {
 	
 	//constructor
 	//For a better performance, this implementation does not use all comfortable methods.
-	public TableTableRecord(final String idValue, final String nameValue) {
+	public TableTableRecord(final String idValue, final String nameValue) { //NOSONAR
 		
 		if (idValue == null) {
 			throw ArgumentIsNullException.forArgumentName("id value");
