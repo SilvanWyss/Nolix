@@ -244,6 +244,7 @@ implements IMultiStateElement<MSE, S> {
 	//method
 	private Property<S> getPropertyFromField(final Field field) {
 		try {
+			
 			field.setAccessible(true);
 			
 			@SuppressWarnings("unchecked")
