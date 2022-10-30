@@ -60,6 +60,7 @@ final class CapitalSnakeCaseCreator {
 					break;
 				case UNDERSCORE, OTHER:
 					stringBuilder.append(Character.toUpperCase(character));
+					break;
 				default:
 					throw InvalidArgumentException.forArgument(characterType);
 			}
