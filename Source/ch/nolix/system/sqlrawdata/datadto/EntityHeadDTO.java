@@ -7,16 +7,10 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDTO;
 
 //class
-public final class EntityHeadDTO implements IEntityHeadDTO {
-	
-	//attribute
-	private final String id;
-	
-	//attribute
-	private final String saveStamp;
+public record EntityHeadDTO(String id, String saveStamp) implements IEntityHeadDTO {
 	
 	//constructor
-	public EntityHeadDTO(final String id, final String saveStamp) {
+	public EntityHeadDTO(final String id, final String saveStamp) { //NOSONAR
 		
 		if (id == null) {
 			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.ID);
