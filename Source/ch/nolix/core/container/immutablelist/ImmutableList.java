@@ -26,6 +26,11 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerComparableGe
 public final class ImmutableList<E> extends Container<E> {
 	
 	//static method
+	public static <E2> ImmutableList<E2> forArray(final E2[] array) {
+		return new ImmutableList<>(array.clone());
+	}
+	
+	//static method
 	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * @param <E2>
