@@ -2,17 +2,7 @@
 package ch.nolix.core.math;
 
 //class
-public final class ComplexNumber {
-	
-	//attributes
-	private final double realComponent;
-	private final double imaginaryComponent;
-	
-	//constructor
-	public ComplexNumber(final double realComponent, final double imaginaryComponent) {
-		this.realComponent = realComponent;
-		this.imaginaryComponent = imaginaryComponent;
-	}
+public record ComplexNumber(double realComponent, double imaginaryComponent) {
 	
 	//method
 	public boolean equals(final Object object) {
