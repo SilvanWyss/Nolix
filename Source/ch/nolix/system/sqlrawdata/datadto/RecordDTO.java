@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlrawdata.datadto;
 
+import ch.nolix.core.container.immutablelist.ImmutableList;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
@@ -9,16 +10,15 @@ import ch.nolix.systemapi.rawdataapi.datadtoapi.IContentFieldDTO;
 import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordDTO;
 
 //class
-public final class RecordDTO implements IRecordDTO {
-	
-	//attributes
-	private final String id;
-	
-	//multi-attribute
-	private final IContainer<IContentFieldDTO> contentFields;
+public record RecordDTO(String id,  ImmutableList<IContentFieldDTO> contentFields) implements IRecordDTO {
 	
 	//constructor
 	public RecordDTO(final String id, final IContainer<IContentFieldDTO> contentFields) {
+		this(id, ImmutableList.forIterable(contentFields));
+	}
+	
+	//constructor
+	public RecordDTO(final String id, final ImmutableList<IContentFieldDTO> contentFields) { //NOSONAR
 		
 		if (id == null) {
 			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.ID);
