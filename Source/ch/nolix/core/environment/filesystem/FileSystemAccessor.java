@@ -57,7 +57,7 @@ public final class FileSystemAccessor {
 	 */
 	public static void openInFileExplorer(final String path) {
 		try {
-			Runtime.getRuntime().exec("explorer.exe /select," + path);
+			Runtime.getRuntime().exec(new String[]{"explorer.exe", "/select,", path});
 		} catch (final IOException pIOException) {
 			throw WrapperException.forError(pIOException);
 		}
