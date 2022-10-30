@@ -3,6 +3,7 @@ package ch.nolix.system.structure;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.systemapi.structureapi.IRelativeOrAbsoluteInt;
 
 //class
 public final class RelativeOrAbsoluteIntValidator {
@@ -14,7 +15,7 @@ public final class RelativeOrAbsoluteIntValidator {
 	private RelativeOrAbsoluteIntValidator() {}
 	
 	//method
-	public void assertIsPositive(final RelativeOrAbsoluteInt relativeOrAbsoluteInt) {
+	public void assertIsPositive(final IRelativeOrAbsoluteInt relativeOrAbsoluteInt) {
 		if (!relativeOrAbsoluteInt.isPositive()) {
 			throw
 			InvalidArgumentException.forArgumentAndErrorPredicate(
