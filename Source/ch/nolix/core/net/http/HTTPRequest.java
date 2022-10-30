@@ -7,16 +7,13 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 
 //class
-public final class HTTPRequest {
+public record HTTPRequest(String content) {
 	
 	//constants
 	public static final String ACCEPT_HEADER = "Accept";
 	public static final String CONTENT_TYPE_HEADER = "Content-Type";
 	public static final String HOST_HEADER = "Host";
 	public static final String HTTP_HEADER = "HTTP";
-	
-	//attribute
-	private final String content;
 	
 	//static method
 	public static boolean canBe(final IContainer<String> lines) {	
@@ -27,7 +24,7 @@ public final class HTTPRequest {
 	}
 	
 	//constructor
-	public HTTPRequest(final String content) {
+	public HTTPRequest(final String content) { //NOSONAR
 		
 		GlobalValidator.assertThat(content).thatIsNamed(LowerCaseCatalogue.CONTENT).isNotBlank();
 		
