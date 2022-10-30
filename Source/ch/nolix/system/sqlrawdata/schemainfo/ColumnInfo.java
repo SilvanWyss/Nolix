@@ -10,26 +10,18 @@ import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
 
 //class
-public final class ColumnInfo implements IColumnInfo {
-	
-	//attribute
-	private final String columnId;
-	
-	//attribute
-	private final String columnName;
-	
-	//attribute
-	private final PropertyType columnPropertyType;
-	
-	//attribute
-	private final DataType columnDataType;
-	
-	//attribute
-	private final int columnIndexOnEntityNode;
+public record ColumnInfo(
+	String columnId,
+	String columnName,
+	PropertyType columnPropertyType,
+	DataType columnDataType,
+	int columnIndexOnEntityNode
+)
+implements IColumnInfo {
 	
 	//constructor
 	//For a better performance, this implementation does not use all comfortable methods.
-	public ColumnInfo(
+	public ColumnInfo( //NOSONAR
 		final String columnId,
 		final String columnName,
 		final PropertyType columnPropertyType,
