@@ -39,7 +39,7 @@ public final class FunctionCatalogueTest extends Test {
 		final var result = FunctionCatalogue.getOne();
 		
 		//verification
-		expect(result).isEqualTo(0);
+		expect(result).isEqualTo(1);
 	}
 	
 	//method
