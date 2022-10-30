@@ -3,28 +3,30 @@ package ch.nolix.system.sqlrawdata.schemainfo;
 
 //own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
+import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
 import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
 
 //class
-public final class TableInfo implements ITableInfo {
-	
-	//attribute
-	private final String tableId;
-	
-	//attribute
-	private final String tableName;
-	
-	//multi-attribute
-	private final IContainer<IColumnInfo> columnInfos;
+public record TableInfo(String tableId, String tableName, ImmutableList<IColumnInfo> columnInfos)
+implements ITableInfo {
 	
 	//constructor
 	public TableInfo(
 		final String tableId,
 		final String tableName,
 		final IContainer<IColumnInfo> columnInfos
+	) {
+		this(tableId, tableName, ImmutableList.forIterable(columnInfos));
+	}
+	
+	//constructor
+	public TableInfo( //NOSONAR
+		final String tableId,
+		final String tableName,
+		final ImmutableList<IColumnInfo> columnInfos
 	) {
 		
 		if (tableId == null) {
