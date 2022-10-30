@@ -3,7 +3,6 @@ package ch.nolix.coretest.containertest;
 
 //own imports
 import ch.nolix.core.container.main.SingleContainer;
-import ch.nolix.core.demo.Cat;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 
@@ -15,7 +14,7 @@ public final class SingleContainerTest extends Test {
 	public void testCase_creation() {
 		
 		//execution
-		final var result = new SingleContainer<Cat>();
+		final var result = new SingleContainer<String>();
 		
 		//verification
 		expect(result.isEmpty());
@@ -26,7 +25,7 @@ public final class SingleContainerTest extends Test {
 	public void testCase_creation_whenThereIsGiven1Element() {
 		
 		//setup
-		final var garfield = new Cat("Garfield");
+		final var garfield = "Garfield";
 		
 		//execution
 		final var result = new SingleContainer<>(garfield);
