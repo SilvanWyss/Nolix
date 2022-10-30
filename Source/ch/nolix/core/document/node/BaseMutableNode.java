@@ -114,11 +114,16 @@ public abstract class BaseMutableNode<MN extends BaseMutableNode<MN>> extends Ba
 		while (index < substring.length()) {
 			
 			var character = substring.charAt(index);
+			var breakLoop = false;
 			
 			if (character == '(') {
-				break;
+				breakLoop = true;
 			} else if (character == ',' || character == ')') {
 				endIndex = index - 1;
+				breakLoop = true;
+			}
+			
+			if (breakLoop) {
 				break;
 			}
 			
