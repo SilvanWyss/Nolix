@@ -7,7 +7,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.application.main.resource.ResourcePathCatalogue;
 
 //class
-final class ServerHTTPMessage {
+final record ServerHTTPMessage(String serverIP,  int serverPort) {
 	
 	//constant
 	private static final String REQUIRE_JS_SCRIPT = RunningJar.getResource(ResourcePathCatalogue.REQUIRE_JS);
@@ -15,14 +15,8 @@ final class ServerHTTPMessage {
 	//constant
 	private static final String NOLIX_SCRIPT = RunningJar.getResource(ResourcePathCatalogue.NOLIX_JS);
 	
-	//attribute
-	private final String serverIP;
-	
-	//attribute
-	private final int serverPort;
-	
 	//constructor
-	public ServerHTTPMessage(final String serverIP, final int serverPort) {
+	public ServerHTTPMessage(final String serverIP, final int serverPort) { //NOSONAR
 		
 		GlobalValidator.assertThat(serverIP).thatIsNamed("server IP").isNotBlank();
 		GlobalValidator.assertThat(serverPort).thatIsNamed("server port").isBetween(0, 65535);
