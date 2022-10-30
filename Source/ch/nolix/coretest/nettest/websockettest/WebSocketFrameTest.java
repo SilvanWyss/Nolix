@@ -37,9 +37,11 @@ public final class WebSocketFrameTest extends Test {
 				@Override
 				public int read() throws IOException {
 					
-					final var lByte = bytes[counter];
-					counter++;
+					//The mask 0xFF makes a byte unsigned.
+					final var lByte =  0xFF & bytes[counter];
 					
+					counter++;
+								
 					return lByte;
 				}
 			}
