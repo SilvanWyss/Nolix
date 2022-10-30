@@ -4,6 +4,7 @@ package ch.nolix.core.commontype.commontypehelper;
 //own imports
 import ch.nolix.core.commontype.constant.CharacterCatalogue;
 import ch.nolix.core.commontype.constant.StringCatalogue;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 
 //class
 final class CapitalSnakeCaseCreator {
@@ -59,6 +60,8 @@ final class CapitalSnakeCaseCreator {
 					break;
 				case UNDERSCORE, OTHER:
 					stringBuilder.append(Character.toUpperCase(character));
+				default:
+					throw InvalidArgumentException.forArgument(characterType);
 			}
 			
 			previousCharacterType = characterType;
