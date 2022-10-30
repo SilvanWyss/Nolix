@@ -7,14 +7,11 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatDatabaseDTO;
 
 //class
-public final class FlatDatabaseDTO implements IFlatDatabaseDTO {
-	
-	//attribute
-	private final String name;
+public record FlatDatabaseDTO(String name) implements IFlatDatabaseDTO {
 	
 	//constructor
 	//For a better performance, this implementation does not use all comforDatabase methods.
-	public FlatDatabaseDTO(final String name) {
+	public FlatDatabaseDTO(final String name) { //NOSONAR
 		
 		if (name == null) {
 			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.NAME);
