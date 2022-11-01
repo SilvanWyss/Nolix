@@ -6,4 +6,4 @@
  * @author Silvan Wyss
  * @date 2021-03-06
  */
-package ch.nolix.system.gui.main;
+package ch.nolix.system.gui.frontend;

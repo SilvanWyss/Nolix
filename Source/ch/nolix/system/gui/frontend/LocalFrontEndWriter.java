@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.gui.main;
+package ch.nolix.system.gui.frontend;
 
 //Java imports
 import javax.swing.JFileChooser;

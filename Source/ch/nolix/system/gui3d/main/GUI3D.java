@@ -25,10 +25,10 @@ import ch.nolix.system.element.mutableelement.MutableOptionalSpecificationValueE
 import ch.nolix.system.element.mutableelement.MutableValue;
 import ch.nolix.system.element.style.StyleElement;
 import ch.nolix.system.gui.color.Color;
+import ch.nolix.system.gui.frontend.LocalFrontEndReader;
+import ch.nolix.system.gui.frontend.LocalFrontEndWriter;
 import ch.nolix.system.gui.icon.IconCatalogue;
 import ch.nolix.system.gui.image.Image;
-import ch.nolix.system.gui.main.LocalFrontEndReader;
-import ch.nolix.system.gui.main.LocalFrontEndWriter;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndReader;
 import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndWriter;
