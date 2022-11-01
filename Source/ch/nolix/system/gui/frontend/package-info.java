@@ -1,7 +1,6 @@
 //package info
 /**
- * The {@link ch.nolix.system.gui} package defines a base 2D GUI and a base Widget.
- * A widget is a control element of a GUI.
+ * The {@link ch.nolix.system.gui} package declares types for front-end
  * 
  * @author Silvan Wyss
  * @date 2021-03-06
