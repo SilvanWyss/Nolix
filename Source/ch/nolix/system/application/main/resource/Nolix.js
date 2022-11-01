@@ -2483,24 +2483,14 @@ define("System/Application/WebApplication/TargetApplicationExtractor", ["require
     Object.defineProperty(exports, "__esModule", { value: true });
     class TargetApplicationExtractor {
         getOptionalTargetApplicationFromURL() {
-            const lURL = this.getURLWithoutSlashAtEnd();
-            const lURLParts = lURL.split('//')[1].split('/');
-            switch (lURLParts.length) {
-                case 1:
-                    return SingleContainer_1.SingleContainer.withoutElement();
-                case 2:
-                    const target = GlobalStringHelper_1.GlobalStringHelper.createStringWithReplacedParts(lURLParts[1], '_', ' ');
-                    return SingleContainer_1.SingleContainer.withElement(target);
-                default:
-                    throw new Error('The given URL \'' + lURL + '\' is not valid.');
+            const parameterString = window.location.search;
+            const lURLSearchParams = new URLSearchParams(parameterString);
+            const app = lURLSearchParams.get('app');
+            if (app === null) {
+                return SingleContainer_1.SingleContainer.withoutElement();
             }
-        }
-        getURLWithoutSlashAtEnd() {
-            const lURL = window.location.href;
-            if (lURL.endsWith('/')) {
-                return lURL.substring(0, lURL.length - 1);
-            }
-            return lURL;
+            const targetApplication = GlobalStringHelper_1.GlobalStringHelper.createStringWithReplacedParts(app, '_', ' ');
+            return SingleContainer_1.SingleContainer.withElement(targetApplication);
         }
     }
     TargetApplicationExtractor.INSTANCE = new TargetApplicationExtractor();
