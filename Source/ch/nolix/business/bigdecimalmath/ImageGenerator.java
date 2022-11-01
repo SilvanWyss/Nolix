@@ -20,8 +20,8 @@ import ch.nolix.core.programcontrol.jobpool.JobPool;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.programcontrolapi.futureuniversalapi.IFuture;
-import ch.nolix.system.gui.color.Color;
-import ch.nolix.system.gui.image.MutableImage;
+import ch.nolix.system.graphic.color.Color;
+import ch.nolix.system.graphic.image.MutableImage;
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 
 //class

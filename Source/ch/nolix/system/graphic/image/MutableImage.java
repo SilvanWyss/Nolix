@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.gui.image;
+package ch.nolix.system.graphic.image;
 
 //Java imports
 import java.awt.image.BufferedImage;
@@ -28,7 +28,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.element.mutableelement.MutableElement;
 import ch.nolix.system.element.mutableelement.MutableSpecificationValueExtractor;
 import ch.nolix.system.element.mutableelement.Value;
-import ch.nolix.system.gui.color.Color;
+import ch.nolix.system.graphic.color.Color;
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 import ch.nolix.systemapi.graphicapi.imageapi.IMutableImage;

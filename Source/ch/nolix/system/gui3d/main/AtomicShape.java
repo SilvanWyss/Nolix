@@ -11,8 +11,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 import ch.nolix.system.element.mutableelement.MutableValue;
-import ch.nolix.system.gui.color.Color;
-import ch.nolix.system.gui.image.MutableImage;
+import ch.nolix.system.graphic.color.Color;
+import ch.nolix.system.graphic.image.MutableImage;
 
 //class
 /**

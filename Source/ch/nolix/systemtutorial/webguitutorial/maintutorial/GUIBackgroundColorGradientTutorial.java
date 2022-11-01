@@ -5,8 +5,8 @@ import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.main.VoidApplicationContext;
 import ch.nolix.system.application.webapplication.BackendWebClientSession;
-import ch.nolix.system.gui.color.Color;
-import ch.nolix.system.gui.color.ColorGradient;
+import ch.nolix.system.graphic.color.Color;
+import ch.nolix.system.graphic.color.ColorGradient;
 
 public final class GUIBackgroundColorGradientTutorial {
 	

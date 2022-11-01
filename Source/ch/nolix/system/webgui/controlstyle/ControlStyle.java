@@ -10,7 +10,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.element.multistateelement.CascadingProperty;
 import ch.nolix.system.element.multistateelement.MultiStateElement;
 import ch.nolix.system.element.multistateelement.NonCascadingProperty;
-import ch.nolix.system.gui.color.Color;
+import ch.nolix.system.graphic.color.Color;
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.textformatapi.Font;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;

@@ -4,7 +4,7 @@ package ch.nolix.systemtest.guitest.colortest;
 //own imports
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
-import ch.nolix.system.gui.color.Color;
+import ch.nolix.system.graphic.color.Color;
 
 //class
 public final class ColorTest extends Test {

@@ -12,8 +12,8 @@ import ch.nolix.businessapi.bigdecimalmathapi.ISequence;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IIntTakerElementGetter;
-import ch.nolix.system.gui.color.Color;
-import ch.nolix.system.gui.image.MutableImage;
+import ch.nolix.system.graphic.color.Color;
+import ch.nolix.system.graphic.image.MutableImage;
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 
 //class

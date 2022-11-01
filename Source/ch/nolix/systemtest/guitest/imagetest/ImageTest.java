@@ -4,8 +4,8 @@ package ch.nolix.systemtest.guitest.imagetest;
 //own imports
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
-import ch.nolix.system.gui.color.Color;
-import ch.nolix.system.gui.image.MutableImage;
+import ch.nolix.system.graphic.color.Color;
+import ch.nolix.system.graphic.image.MutableImage;
 
 //class
 public final class ImageTest extends Test {

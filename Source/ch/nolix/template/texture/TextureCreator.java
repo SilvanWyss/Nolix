@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.template.texture;
 
-//own imports
-import ch.nolix.system.gui.color.Color;
-import ch.nolix.system.gui.image.MutableImage;
+import ch.nolix.system.graphic.color.Color;
+import ch.nolix.system.graphic.image.MutableImage;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 
 //class

@@ -12,7 +12,7 @@ import ch.nolix.coreapi.containerapi.mainapi.ISingleContainer;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
-import ch.nolix.system.gui.image.MutableImage;
+import ch.nolix.system.graphic.image.MutableImage;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.inputapi.Key;

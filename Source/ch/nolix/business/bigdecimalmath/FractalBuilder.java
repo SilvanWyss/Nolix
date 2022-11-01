@@ -11,7 +11,7 @@ import ch.nolix.businessapi.bigdecimalmathapi.IFractalBuilder;
 import ch.nolix.businessapi.bigdecimalmathapi.ISequence;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IIntTakerElementGetter;
-import ch.nolix.system.gui.color.Color;
+import ch.nolix.system.graphic.color.Color;
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 
 //class

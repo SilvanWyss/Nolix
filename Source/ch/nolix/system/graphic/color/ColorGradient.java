@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.gui.color;
+package ch.nolix.system.graphic.color;
 
 //own imports
 import ch.nolix.core.container.main.LinkedList;

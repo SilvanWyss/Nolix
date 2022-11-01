@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.gui.icon;
 
-//own imports
-import ch.nolix.system.gui.image.Image;
+import ch.nolix.system.graphic.image.Image;
 
 //class
 public final class IconCatalogue {

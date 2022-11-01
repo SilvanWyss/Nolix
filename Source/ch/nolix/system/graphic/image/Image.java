@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.gui.image;
+package ch.nolix.system.graphic.image;
 
 //Java imports
 import java.awt.image.BufferedImage;
