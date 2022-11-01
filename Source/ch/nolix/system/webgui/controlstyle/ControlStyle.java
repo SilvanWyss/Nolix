@@ -11,7 +11,7 @@ import ch.nolix.system.element.multistateelement.CascadingProperty;
 import ch.nolix.system.element.multistateelement.MultiStateElement;
 import ch.nolix.system.element.multistateelement.NonCascadingProperty;
 import ch.nolix.system.gui.color.Color;
-import ch.nolix.systemapi.guiapi.colorapi.IColor;
+import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.textformatapi.Font;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;

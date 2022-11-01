@@ -6,7 +6,7 @@ import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.main.VoidApplicationContext;
 import ch.nolix.system.application.webapplication.BackendWebClientSession;
 import ch.nolix.system.gui.image.Image;
-import ch.nolix.systemapi.guiapi.imageapi.ImageApplication;
+import ch.nolix.systemapi.graphicapi.imageapi.ImageApplication;
 
 public final class GUIBackgroundImageTutorial {
 	

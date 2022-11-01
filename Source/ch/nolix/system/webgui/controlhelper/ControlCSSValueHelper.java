@@ -3,7 +3,7 @@ package ch.nolix.system.webgui.controlhelper;
 
 //own imports
 import ch.nolix.coreapi.webapi.cssapi.CSSUnitCatalogue;
-import ch.nolix.systemapi.guiapi.colorapi.IColor;
+import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 import ch.nolix.systemapi.structureapi.IRelativeOrAbsoluteInt;
 
 //class

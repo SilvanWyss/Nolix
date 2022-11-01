@@ -13,7 +13,7 @@ import ch.nolix.system.application.main.Application;
 import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.webapplication.BackendWebClient;
 import ch.nolix.systemapi.applicationapi.guiapplicationapi.IGUIApplicationContext;
-import ch.nolix.systemapi.guiapi.imageapi.IImage;
+import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 
 //class
 public final class ApplicationSheet implements IApplicationSheet {

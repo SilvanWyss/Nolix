@@ -5,7 +5,7 @@ package ch.nolix.system.application.guiapplication;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.systemapi.applicationapi.guiapplicationapi.IGUIApplicationContext;
-import ch.nolix.systemapi.guiapi.imageapi.IImage;
+import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 
 //class
 public class GUIApplicationContext implements IGUIApplicationContext {

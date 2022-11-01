@@ -14,7 +14,7 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGette
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IIntTakerElementGetter;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.image.MutableImage;
-import ch.nolix.systemapi.guiapi.colorapi.IColor;
+import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 
 //class
 public final class Fractal implements IFractal {

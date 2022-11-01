@@ -5,10 +5,10 @@ package ch.nolix.systemapi.guiapi.canvasuniversalapi;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.webapi.cssapi.ICSSProperty;
 import ch.nolix.systemapi.elementapi.mainuniversalapi.Specified;
-import ch.nolix.systemapi.guiapi.colorapi.IColor;
-import ch.nolix.systemapi.guiapi.colorapi.IColorGradient;
-import ch.nolix.systemapi.guiapi.imageapi.IImage;
-import ch.nolix.systemapi.guiapi.imageapi.ImageApplication;
+import ch.nolix.systemapi.graphicapi.colorapi.IColor;
+import ch.nolix.systemapi.graphicapi.colorapi.IColorGradient;
+import ch.nolix.systemapi.graphicapi.imageapi.IImage;
+import ch.nolix.systemapi.graphicapi.imageapi.ImageApplication;
 import ch.nolix.systemapi.guiapi.structureproperty.BackgroundType;
 
 //interface

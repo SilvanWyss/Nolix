@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.webguiapi.controlstyleapi;
 
-//own imports
-import ch.nolix.systemapi.guiapi.colorapi.IColor;
+import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //interface

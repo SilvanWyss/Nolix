@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemapi.guiapi.imageapi;
+package ch.nolix.systemapi.graphicapi.imageapi;
 
 //Java imports
 import java.awt.image.BufferedImage;
@@ -8,7 +8,7 @@ import java.awt.image.BufferedImage;
 import ch.nolix.coreapi.containerapi.matrixapi.IMatrix;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.elementapi.mainuniversalapi.Specified;
-import ch.nolix.systemapi.guiapi.colorapi.IColor;
+import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 
 //interface
 public interface IImage extends Specified {

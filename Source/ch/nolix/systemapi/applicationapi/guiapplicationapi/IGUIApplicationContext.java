@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.applicationapi.guiapplicationapi;
 
-//own imports
-import ch.nolix.systemapi.guiapi.imageapi.IImage;
+import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 
 //interface
 public interface IGUIApplicationContext {

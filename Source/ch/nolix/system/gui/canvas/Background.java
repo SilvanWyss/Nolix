@@ -19,11 +19,11 @@ import ch.nolix.system.element.main.Element;
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.color.ColorGradient;
 import ch.nolix.system.gui.image.Image;
+import ch.nolix.systemapi.graphicapi.colorapi.IColor;
+import ch.nolix.systemapi.graphicapi.colorapi.IColorGradient;
+import ch.nolix.systemapi.graphicapi.imageapi.IImage;
+import ch.nolix.systemapi.graphicapi.imageapi.ImageApplication;
 import ch.nolix.systemapi.guiapi.canvasuniversalapi.IBackground;
-import ch.nolix.systemapi.guiapi.colorapi.IColor;
-import ch.nolix.systemapi.guiapi.colorapi.IColorGradient;
-import ch.nolix.systemapi.guiapi.imageapi.IImage;
-import ch.nolix.systemapi.guiapi.imageapi.ImageApplication;
 import ch.nolix.systemapi.guiapi.structureproperty.BackgroundType;
 import ch.nolix.systemapi.guiapi.structureproperty.DirectionInRectangle;
 

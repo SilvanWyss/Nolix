@@ -1,11 +1,10 @@
 //package declaration
 package ch.nolix.systemapi.guiapi.canvasuniversalapi;
 
-//own imports
-import ch.nolix.systemapi.guiapi.colorapi.IColor;
-import ch.nolix.systemapi.guiapi.colorapi.IColorGradient;
-import ch.nolix.systemapi.guiapi.imageapi.IImage;
-import ch.nolix.systemapi.guiapi.imageapi.ImageApplication;
+import ch.nolix.systemapi.graphicapi.colorapi.IColor;
+import ch.nolix.systemapi.graphicapi.colorapi.IColorGradient;
+import ch.nolix.systemapi.graphicapi.imageapi.IImage;
+import ch.nolix.systemapi.graphicapi.imageapi.ImageApplication;
 import ch.nolix.systemapi.guiapi.structureproperty.BackgroundType;
 
 //interface

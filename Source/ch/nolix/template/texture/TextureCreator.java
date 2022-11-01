@@ -4,7 +4,7 @@ package ch.nolix.template.texture;
 //own imports
 import ch.nolix.system.gui.color.Color;
 import ch.nolix.system.gui.image.MutableImage;
-import ch.nolix.systemapi.guiapi.imageapi.IImage;
+import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 
 //class
 final class TextureCreator {

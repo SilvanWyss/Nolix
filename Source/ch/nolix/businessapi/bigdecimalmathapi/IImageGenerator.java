@@ -3,7 +3,7 @@ package ch.nolix.businessapi.bigdecimalmathapi;
 
 //own imports
 import ch.nolix.coreapi.programcontrolapi.futureuniversalapi.IFuture;
-import ch.nolix.systemapi.guiapi.imageapi.IMutableImage;
+import ch.nolix.systemapi.graphicapi.imageapi.IMutableImage;
 
 //interface
 public interface IImageGenerator extends IFuture {

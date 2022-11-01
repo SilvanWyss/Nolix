@@ -29,9 +29,9 @@ import ch.nolix.system.element.mutableelement.MutableElement;
 import ch.nolix.system.element.mutableelement.MutableSpecificationValueExtractor;
 import ch.nolix.system.element.mutableelement.Value;
 import ch.nolix.system.gui.color.Color;
-import ch.nolix.systemapi.guiapi.colorapi.IColor;
-import ch.nolix.systemapi.guiapi.imageapi.IImage;
-import ch.nolix.systemapi.guiapi.imageapi.IMutableImage;
+import ch.nolix.systemapi.graphicapi.colorapi.IColor;
+import ch.nolix.systemapi.graphicapi.imageapi.IImage;
+import ch.nolix.systemapi.graphicapi.imageapi.IMutableImage;
 
 //class
 public final class MutableImage extends MutableElement<MutableImage> implements IMutableImage<MutableImage> {

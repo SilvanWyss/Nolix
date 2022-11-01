@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.template.texture;
 
-//own imports
-import ch.nolix.systemapi.guiapi.imageapi.IImage;
+import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 
 //class
 public final class TextureCatalogue {

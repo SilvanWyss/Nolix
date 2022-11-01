@@ -6,7 +6,7 @@ import ch.nolix.core.reflection.GlobalClassHelper;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 import ch.nolix.system.gui.image.Image;
-import ch.nolix.systemapi.guiapi.imageapi.IImage;
+import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 import ch.nolix.template.texture.TextureCatalogue;
 
 //class

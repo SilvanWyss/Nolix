@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.webguiapi.containerapi;
 
-//own imports
-import ch.nolix.systemapi.guiapi.colorapi.IColor;
+import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.controlproperty.GridType;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IExtendedControlStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;

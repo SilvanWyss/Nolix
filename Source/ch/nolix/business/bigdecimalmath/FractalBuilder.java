@@ -12,7 +12,7 @@ import ch.nolix.businessapi.bigdecimalmathapi.ISequence;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IIntTakerElementGetter;
 import ch.nolix.system.gui.color.Color;
-import ch.nolix.systemapi.guiapi.colorapi.IColor;
+import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 
 //class
 public final class FractalBuilder implements IFractalBuilder {

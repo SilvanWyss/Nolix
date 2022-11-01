@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemapi.guiapi.imageapi;
+package ch.nolix.systemapi.graphicapi.imageapi;
 
 //own imports
 import ch.nolix.coreapi.documentapi.nodeapi.INode;

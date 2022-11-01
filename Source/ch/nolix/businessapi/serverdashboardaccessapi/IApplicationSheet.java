@@ -4,7 +4,7 @@ package ch.nolix.businessapi.serverdashboardaccessapi;
 //own imports
 import ch.nolix.coreapi.netapi.targetuniversalapi.IApplicationTarget;
 import ch.nolix.coreapi.netapi.targetuniversalapi.IServerTarget;
-import ch.nolix.systemapi.guiapi.imageapi.IImage;
+import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 
 //interface
 public interface IApplicationSheet {
