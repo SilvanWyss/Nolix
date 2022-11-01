@@ -13,7 +13,7 @@ public class OptionalValueBinder extends PropertyBinder<IOptionalValue<?, ?>, IT
 	//method
 	@Override
 	protected void addSelectionOptionsToControlForProperty(
-		final ITextbox<?, ?> widget,
+		final ITextbox<?, ?> control,
 		final IOptionalValue<?, ?> optionalValue
 	) {
 		//Does nothing.

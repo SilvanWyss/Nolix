@@ -12,7 +12,7 @@ public final class ValueBinder extends PropertyBinder<IValue<?, ?>, ITextbox<?, 
 	
 	//attribute
 	@Override
-	protected void addSelectionOptionsToControlForProperty(final ITextbox<?, ?> widget, final IValue<?, ?> property) {
+	protected void addSelectionOptionsToControlForProperty(final ITextbox<?, ?> control, final IValue<?, ?> property) {
 		//Does nothing.
 	}
 	
