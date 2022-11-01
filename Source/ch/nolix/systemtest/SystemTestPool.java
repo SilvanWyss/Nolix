@@ -5,6 +5,7 @@ package ch.nolix.systemtest;
 import ch.nolix.core.testing.basetest.TestPool;
 import ch.nolix.systemtest.databaseapplicationtest.DatabaseApplicationTestPool;
 import ch.nolix.systemtest.formatelementtest.FormatElementTestPool;
+import ch.nolix.systemtest.graphictest.GraphicTestPool;
 import ch.nolix.systemtest.guitest.GUITestPool;
 import ch.nolix.systemtest.objectdatatest.ObjectDataTestPool;
 import ch.nolix.systemtest.objectschematest.ObjectSchemaTestPool;
@@ -18,6 +19,7 @@ public final class SystemTestPool extends TestPool {
 		super(
 			new DatabaseApplicationTestPool(),
 			new FormatElementTestPool(),
+			new GraphicTestPool(),
 			new GUITestPool(),
 			new ObjectDataTestPool(),
 			new ObjectSchemaTestPool(),

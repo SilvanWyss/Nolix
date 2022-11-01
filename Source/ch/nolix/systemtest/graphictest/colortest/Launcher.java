@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemtest.guitest.colortest;
+package ch.nolix.systemtest.graphictest.colortest;
 
 //class
 /**

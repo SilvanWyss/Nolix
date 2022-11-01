@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemtest.guitest.imagetest;
+package ch.nolix.systemtest.graphictest.imagetest;
 
 //own imports
 import ch.nolix.core.testing.basetest.TestPool;
