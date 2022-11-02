@@ -6,11 +6,11 @@ import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.web.css.CSS;
 import ch.nolix.core.web.css.CSSProperty;
 import ch.nolix.core.web.css.CSSRule;
-import ch.nolix.core.web.html.HTMLElementTypeCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.webapi.cssapi.CSSPropertyNameCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.ICSSProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
+import ch.nolix.coreapi.webapi.htmlapi.HTMLElementTypeCatalogue;
 import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGUI;
 
