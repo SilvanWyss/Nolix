@@ -8,7 +8,7 @@ import ch.nolix.core.web.css.CSSProperty;
 import ch.nolix.core.web.css.CSSRule;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.webapi.cssapi.CSSAlignItemsCatalogue;
-import ch.nolix.coreapi.webapi.cssapi.CSSJustifyContent;
+import ch.nolix.coreapi.webapi.cssapi.CSSJustifyContentCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.CSSPropertyNameCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.ICSSProperty;
 import ch.nolix.systemapi.guiapi.structureproperty.ContentPosition;
@@ -84,11 +84,11 @@ public final class LayerCSSRuleCreator {
 	private CSSProperty getJustifyContentCSSPropertyForContentPosition(final ContentPosition contentPosition) {
 		switch (contentPosition) {
 			case TOP_LEFT, LEFT, BOTTOM_LEFT:
-				return CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.JUSTIFY_CONTENT, CSSJustifyContent.LEFT);
+				return CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.JUSTIFY_CONTENT, CSSJustifyContentCatalogue.LEFT);
 			case TOP, CENTER,BOTTOM:
-				return CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.JUSTIFY_CONTENT, CSSJustifyContent.CENTER);
+				return CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.JUSTIFY_CONTENT, CSSJustifyContentCatalogue.CENTER);
 			case TOP_RIGHT, RIGHT, BOTTOM_RIGHT:
-				return CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.JUSTIFY_CONTENT, CSSJustifyContent.RIGHT);
+				return CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.JUSTIFY_CONTENT, CSSJustifyContentCatalogue.RIGHT);
 			default:
 				throw InvalidArgumentException.forArgument(contentPosition);
 		}
