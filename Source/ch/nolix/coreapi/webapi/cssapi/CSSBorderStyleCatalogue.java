@@ -2,11 +2,11 @@
 package ch.nolix.coreapi.webapi.cssapi;
 
 //class
-public final class CSSBorderStyleValueCatalogue {
+public final class CSSBorderStyleCatalogue {
 	
 	//constant
 	public static final String SOLID = "solid";
 	
 	//constructor
-	private CSSBorderStyleValueCatalogue() {}
+	private CSSBorderStyleCatalogue() {}
 }
