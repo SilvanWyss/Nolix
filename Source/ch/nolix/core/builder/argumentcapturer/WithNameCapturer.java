@@ -3,13 +3,12 @@ package ch.nolix.core.builder.argumentcapturer;
 
 //own imports
 import ch.nolix.core.builder.main.ArgumentCapturer;
-import ch.nolix.core.builder.main.BaseArgumentCapturer;
 
 //class
-public class WithNameCapturer<NAC extends BaseArgumentCapturer<?>> extends ArgumentCapturer<String, NAC> {
+public class WithNameCapturer<N> extends ArgumentCapturer<String, N> {
 	
 	//constructor
-	public WithNameCapturer(final NAC nextArgumentCapturer) {
+	public WithNameCapturer(final N nextArgumentCapturer) {
 		super(nextArgumentCapturer);
 	}
 	
@@ -19,7 +18,7 @@ public class WithNameCapturer<NAC extends BaseArgumentCapturer<?>> extends Argum
 	}
 	
 	//method
-	public final NAC withName(final String name) {
-		return setArgumentAndGetRefNextArgumentCapturer(name);
+	public final N withName(final String name) {
+		return setArgumentAndGetNext(name);
 	}
 }

@@ -3,16 +3,16 @@ package ch.nolix.core.builder.argumentcapturer;
 
 //own imports
 import ch.nolix.core.builder.main.ArgumentCapturer;
-import ch.nolix.core.builder.main.BaseArgumentCapturer;
 
 //class
 public class WithDatabaseCapturer<
 	D,
-	NAC extends BaseArgumentCapturer<?>
-> extends ArgumentCapturer<D, NAC> {
+	N
+>
+extends ArgumentCapturer<D, N> {
 	
 	//constructor
-	public WithDatabaseCapturer(final NAC nextArgumentCapturer) {
+	public WithDatabaseCapturer(final N nextArgumentCapturer) {
 		super(nextArgumentCapturer);
 	}
 	
@@ -22,7 +22,7 @@ public class WithDatabaseCapturer<
 	}
 	
 	//method
-	public final NAC withDatabase(final D database) {
-		return setArgumentAndGetRefNextArgumentCapturer(database);
+	public final N withDatabase(final D database) {
+		return setArgumentAndGetNext(database);
 	}
 }

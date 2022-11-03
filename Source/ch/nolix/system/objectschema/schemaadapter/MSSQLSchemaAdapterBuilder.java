@@ -1,11 +1,11 @@
 //package declaration
 package ch.nolix.system.objectschema.schemaadapter;
 
+import ch.nolix.core.builder.argumentcapturer.AndLoginPasswordCapturer;
 //own imports
 import ch.nolix.core.builder.argumentcapturer.AndPortCapturer;
 import ch.nolix.core.builder.argumentcapturer.ToDatabaseNameCapturer;
 import ch.nolix.core.builder.argumentcapturer.UsingLoginNameCapturer;
-import ch.nolix.core.builder.terminalargumentcapturer.AndLoginPasswordTerminalCapturer;
 import ch.nolix.core.sql.SQLConnectionPool;
 import ch.nolix.core.sql.SQLDatabaseEngine;
 
@@ -15,7 +15,7 @@ extends
 AndPortCapturer<
 	ToDatabaseNameCapturer<
 		UsingLoginNameCapturer<
-			AndLoginPasswordTerminalCapturer<MSSQLSchemaAdapter>
+			AndLoginPasswordCapturer<MSSQLSchemaAdapter>
 		>
 	>
 > {
@@ -27,10 +27,9 @@ AndPortCapturer<
 			defaultPort,
 			new ToDatabaseNameCapturer<>(
 				new UsingLoginNameCapturer<>(
-					new AndLoginPasswordTerminalCapturer<>()
+					new AndLoginPasswordCapturer<>(null)
 				)
 			)
-			
 		);
 		
 		setBuilder(() -> build(ipOrAddressName));
@@ -40,17 +39,17 @@ AndPortCapturer<
 	private MSSQLSchemaAdapter build(final String ipOrAddressName) {
 		return
 		new MSSQLSchemaAdapter(
-			n().getDatabaseName(),
+			next().getDatabaseName(),
 			ch.nolix.system.sqlrawschema.schemaadapter.MSSQLSchemaAdapter
 			.forDatabaseWithGivenNameUsingConnectionFromGivenPool(
-				n().getDatabaseName(),
+				next().getDatabaseName(),
 				SQLConnectionPool
 				.forIpOrAddressName(ipOrAddressName)
 				.andPort(getPort())
-				.andDatabase(n().getDatabaseName())
+				.andDatabase(next().getDatabaseName())
 				.withSQLDatabaseEngine(SQLDatabaseEngine.MSSQL)
-				.usingLoginName(n().n().getLoginName())
-				.andLoginPassword(n().n().n().getLoginPassword())
+				.usingLoginName(next().next().getLoginName())
+				.andLoginPassword(next().next().next().getLoginPassword())
 			)
 		);
 	}

@@ -3,19 +3,18 @@ package ch.nolix.core.builder.argumentcapturer;
 
 //own imports
 import ch.nolix.core.builder.main.ArgumentCapturer;
-import ch.nolix.core.builder.main.BaseArgumentCapturer;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.constant.PortCatalogue;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
 //class
-public class AndPortCapturer<NAC extends BaseArgumentCapturer<?>> extends ArgumentCapturer<Integer, NAC> {
+public class AndPortCapturer<N> extends ArgumentCapturer<Integer, N> {
 	
 	//attribute
 	private final int defaultPort;
 	
 	//constructor
-	public AndPortCapturer(final int defaultPort, final NAC nextArgumentCapturer) {
+	public AndPortCapturer(final int defaultPort, final N nextArgumentCapturer) {
 		
 		super(nextArgumentCapturer);
 		
@@ -28,19 +27,19 @@ public class AndPortCapturer<NAC extends BaseArgumentCapturer<?>> extends Argume
 	}
 	
 	//method
-	public final NAC andDefaultPort() {
+	public final N andDefaultPort() {
 		return andPort(defaultPort);
 	}
 	
 	//method
-	public final NAC andPort(final int port) {
+	public final N andPort(final int port) {
 		
 		GlobalValidator
 		.assertThat(port)
 		.thatIsNamed(LowerCaseCatalogue.PORT)
 		.isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
 		
-		return setArgumentAndGetRefNextArgumentCapturer(port);
+		return setArgumentAndGetNext(port);
 	}
 	
 	//method

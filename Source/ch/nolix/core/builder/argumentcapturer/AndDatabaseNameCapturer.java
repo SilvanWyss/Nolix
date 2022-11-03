@@ -3,24 +3,23 @@ package ch.nolix.core.builder.argumentcapturer;
 
 //own imports
 import ch.nolix.core.builder.main.ArgumentCapturer;
-import ch.nolix.core.builder.main.BaseArgumentCapturer;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
 //class
-public class AndDatabaseNameCapturer<NAC extends BaseArgumentCapturer<?>> extends ArgumentCapturer<String, NAC> {
+public class AndDatabaseNameCapturer<N> extends ArgumentCapturer<String, N> {
 	
 	//method
-	public AndDatabaseNameCapturer(final NAC nextArgumentCapturer) {
+	public AndDatabaseNameCapturer(final N nextArgumentCapturer) {
 		super(nextArgumentCapturer);
 	}
 	
 	//method
-	public final NAC andDatabase(final String databaseName) {
+	public final N andDatabase(final String databaseName) {
 		
 		GlobalValidator.assertThat(databaseName).thatIsNamed(LowerCaseCatalogue.DATABASE_NAME).isNotBlank();
 		
-		return setArgumentAndGetRefNextArgumentCapturer(databaseName);
+		return setArgumentAndGetNext(databaseName);
 	}
 	
 	//method

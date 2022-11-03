@@ -2,42 +2,135 @@
 package ch.nolix.core.builder.main;
 
 //own imports
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementGetter;
 
 //class
 public abstract class ArgumentCapturer<
 	A,
-	NAC extends BaseArgumentCapturer<?>
-> extends BaseArgumentCapturer<A> {
+	N
+> {
 	
 	//attribute
-	private final NAC nextArgumentCapturer;
+	private boolean hasArgument;
+	
+	//optional attribute
+	private A argument;
+	
+	//optional attribute
+	private final N nextArgumentCapturer;
+	
+	//optional attribute
+	private IElementGetter<N> builder;
 	
 	//constructor
-	protected ArgumentCapturer(final NAC nextArgumentCapturer) {
-		
-		GlobalValidator.assertThat(nextArgumentCapturer).thatIsNamed("next argument capturer").isNotNull();
-		
+	protected ArgumentCapturer(final N nextArgumentCapturer) {
 		this.nextArgumentCapturer = nextArgumentCapturer;
 	}
 	
 	//method
-	public final NAC n() {
+	public final N next() {
+		
+		assertHasNextArgumentCapturer();
+		
 		return nextArgumentCapturer;
 	}
 	
 	//method
-	protected final NAC setArgumentAndGetRefNextArgumentCapturer(final A argument) {
+	protected final N setArgumentAndGetNext(final A argument) {
 		
-		internalSetArgument(argument);
+		setArgument(argument);
 		
-		return n();
+		return getNextArgumentCapturerOrResult();
 	}
 	
 	//method
-	@Override
+	@SuppressWarnings("unchecked")
 	protected final void setBuilder(final IElementGetter<?> builder) {
-		nextArgumentCapturer.setBuilder(builder);
+		if (hasNextArgumentCapturer()) {
+			((ArgumentCapturer<?, ?>)nextArgumentCapturer).setBuilder(builder);
+		} else {
+			
+			GlobalValidator.assertThat(builder).thatIsNamed(LowerCaseCatalogue.BUILDER).isNotNull();
+			
+			this.builder = (IElementGetter<N>)builder;
+		}
+	}
+	
+	//method
+	protected final A getRefArgument() {
+		
+		assertHasArgument();
+		
+		return argument;
+	}
+	
+	//method
+	private void assertHasArgument() {
+		if (!hasArgument()) {
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "argument");
+		}
+	}
+	
+	//method
+	private void assertHasBuilder() {
+		if (!hasBuilder()) {
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "builder");
+		}
+	}
+	
+	//method
+	private void assertHasNextArgumentCapturer() {
+		if (!hasNextArgumentCapturer()) {
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "next argument capturer");
+		}
+	}
+	
+	//method
+	private N build() {
+		return getRefBuilder().getOutput();
+	}
+	
+	//method
+	private N getNextArgumentCapturerOrResult() {
+		
+		if (hasNextArgumentCapturer()) {
+			return nextArgumentCapturer;
+		}
+		
+		return build();
+	}
+
+	//method
+	private IElementGetter<N> getRefBuilder() {
+		
+		assertHasBuilder();
+		
+		return builder;
+	}
+	
+	//method
+	private boolean hasArgument() {
+		return hasArgument;
+	}
+	
+	//method
+	private boolean hasBuilder() {
+		return (builder != null);
+	}
+	
+	//method
+	private boolean hasNextArgumentCapturer() {
+		return (nextArgumentCapturer != null);
+	}
+	
+	//method
+	private void setArgument(final A argument) {
+		
+		hasArgument = true;
+		
+		this.argument = argument;
 	}
 }

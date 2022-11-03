@@ -3,16 +3,15 @@ package ch.nolix.core.builder.argumentcapturer;
 
 //own imports
 import ch.nolix.core.builder.main.ArgumentCapturer;
-import ch.nolix.core.builder.main.BaseArgumentCapturer;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.sql.SQLDatabaseEngine;
 
 //class
-public class WithSQLDatabaseEngineCapturer<NAC extends BaseArgumentCapturer<?>>
-extends ArgumentCapturer<SQLDatabaseEngine, NAC> {
+public class WithSQLDatabaseEngineCapturer<N>
+extends ArgumentCapturer<SQLDatabaseEngine, N> {
 	
 	//constructor
-	public WithSQLDatabaseEngineCapturer(final NAC nextArgumentCapturer) {
+	public WithSQLDatabaseEngineCapturer(final N nextArgumentCapturer) {
 		super(nextArgumentCapturer);
 	}
 	
@@ -22,10 +21,10 @@ extends ArgumentCapturer<SQLDatabaseEngine, NAC> {
 	}
 	
 	//method
-	public final NAC withSQLDatabaseEngine(final SQLDatabaseEngine pSQLDatabaseEngine) {
+	public final N withSQLDatabaseEngine(final SQLDatabaseEngine pSQLDatabaseEngine) {
 		
 		GlobalValidator.assertThat(pSQLDatabaseEngine).thatIsNamed(SQLDatabaseEngine.class).isNotNull();
 		
-		return setArgumentAndGetRefNextArgumentCapturer(pSQLDatabaseEngine);
+		return setArgumentAndGetNext(pSQLDatabaseEngine);
 	}
 }

@@ -3,24 +3,23 @@ package ch.nolix.core.builder.argumentcapturer;
 
 //own imports
 import ch.nolix.core.builder.main.ArgumentCapturer;
-import ch.nolix.core.builder.main.BaseArgumentCapturer;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
 //class
-public class AndLoginPasswordCapturer<NAC extends BaseArgumentCapturer<?>> extends ArgumentCapturer<String, NAC> {
+public class AndLoginPasswordCapturer<N> extends ArgumentCapturer<String, N> {
 	
 	//constructor
-	public AndLoginPasswordCapturer(final NAC nextArgumentCapturer) {
+	public AndLoginPasswordCapturer(final N nextArgumentCapturer) {
 		super(nextArgumentCapturer);
 	}
 	
 	//method
-	public final NAC andLoginPassword(final String loginPassword) {
+	public final N andLoginPassword(final String loginPassword) {
 		
 		GlobalValidator.assertThat(loginPassword).thatIsNamed(LowerCaseCatalogue.LOGIN_PASSWORD).isNotBlank();
 		
-		return setArgumentAndGetRefNextArgumentCapturer(loginPassword);
+		return setArgumentAndGetNext(loginPassword);
 	}
 	
 	//method

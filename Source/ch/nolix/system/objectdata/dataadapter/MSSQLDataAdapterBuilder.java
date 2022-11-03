@@ -4,9 +4,9 @@ package ch.nolix.system.objectdata.dataadapter;
 //own imports
 import ch.nolix.core.builder.argumentcapturer.AndLoginPasswordCapturer;
 import ch.nolix.core.builder.argumentcapturer.AndPortCapturer;
+import ch.nolix.core.builder.argumentcapturer.AndSchemaCapturer;
 import ch.nolix.core.builder.argumentcapturer.ToDatabaseNameCapturer;
 import ch.nolix.core.builder.argumentcapturer.UsingLoginNameCapturer;
-import ch.nolix.core.builder.terminalargumentcapturer.AndSchemaTerminalCapturer;
 import ch.nolix.core.net.constant.PortCatalogue;
 import ch.nolix.system.objectdata.data.DataImplementation;
 import ch.nolix.systemapi.objectdataapi.dataapi.ISchema;
@@ -18,7 +18,7 @@ AndPortCapturer<
 	ToDatabaseNameCapturer<
 		UsingLoginNameCapturer<
 			AndLoginPasswordCapturer<
-				AndSchemaTerminalCapturer<
+				AndSchemaCapturer<
 					ISchema<
 						DataImplementation
 					>,
@@ -40,7 +40,7 @@ AndPortCapturer<
 			new ToDatabaseNameCapturer<>(
 				new UsingLoginNameCapturer<>(
 					new AndLoginPasswordCapturer<>(
-						new AndSchemaTerminalCapturer<>()
+						new AndSchemaCapturer<>(null)
 					)
 				)
 			)
@@ -55,10 +55,10 @@ AndPortCapturer<
 		new MSSQLDataAdapter(
 			ipOrAddressName,
 			getPort(),
-			n().getDatabaseName(),
-			n().n().getLoginName(),
-			n().n().n().getLoginPassword(),
-			n().n().n().n().getRefSchema()
+			next().getDatabaseName(),
+			next().next().getLoginName(),
+			next().next().next().getLoginPassword(),
+			next().next().next().next().getRefSchema()
 		);
 	}
 }

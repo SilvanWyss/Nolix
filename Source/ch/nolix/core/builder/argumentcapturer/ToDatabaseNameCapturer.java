@@ -3,15 +3,14 @@ package ch.nolix.core.builder.argumentcapturer;
 
 //own imports
 import ch.nolix.core.builder.main.ArgumentCapturer;
-import ch.nolix.core.builder.main.BaseArgumentCapturer;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
 //class
-public class ToDatabaseNameCapturer<NAC extends BaseArgumentCapturer<?>> extends ArgumentCapturer<String, NAC> {
+public class ToDatabaseNameCapturer<N> extends ArgumentCapturer<String, N> {
 	
 	//constructor
-	public ToDatabaseNameCapturer(final NAC nextArgumentCapturer) {
+	public ToDatabaseNameCapturer(final N nextArgumentCapturer) {
 		super(nextArgumentCapturer);
 	}
 	
@@ -21,10 +20,10 @@ public class ToDatabaseNameCapturer<NAC extends BaseArgumentCapturer<?>> extends
 	}
 	
 	//method
-	public final NAC toDatabase(final String databaseName) {
+	public final N toDatabase(final String databaseName) {
 		
 		GlobalValidator.assertThat(databaseName).thatIsNamed(LowerCaseCatalogue.DATABASE_NAME).isNotBlank();
 		
-		return setArgumentAndGetRefNextArgumentCapturer(databaseName);
+		return setArgumentAndGetNext(databaseName);
 	}
 }

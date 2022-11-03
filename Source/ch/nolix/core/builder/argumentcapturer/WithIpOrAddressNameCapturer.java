@@ -3,15 +3,14 @@ package ch.nolix.core.builder.argumentcapturer;
 
 //own imports
 import ch.nolix.core.builder.main.ArgumentCapturer;
-import ch.nolix.core.builder.main.BaseArgumentCapturer;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.constant.IPv4Catalogue;
 
 //class
-public class WithIpOrAddressNameCapturer<NAC extends BaseArgumentCapturer<?>> extends ArgumentCapturer<String, NAC> {
+public class WithIpOrAddressNameCapturer<N> extends ArgumentCapturer<String, N> {
 	
 	//constructor
-	public WithIpOrAddressNameCapturer(final NAC nextArgumentCapturer) {
+	public WithIpOrAddressNameCapturer(final N nextArgumentCapturer) {
 		super(nextArgumentCapturer);
 	}
 	
@@ -21,15 +20,15 @@ public class WithIpOrAddressNameCapturer<NAC extends BaseArgumentCapturer<?>> ex
 	}
 	
 	//method
-	public final NAC withIpOrAddressName(final String ipOrAddressName) {
+	public final N withIpOrAddressName(final String ipOrAddressName) {
 		
 		GlobalValidator.assertThat(ipOrAddressName).thatIsNamed("ip or address name").isNotBlank();
 		
-		return setArgumentAndGetRefNextArgumentCapturer(ipOrAddressName);
+		return setArgumentAndGetNext(ipOrAddressName);
 	}
 	
 	//method
-	public final NAC withLocalAddress() {
+	public final N withLocalAddress() {
 		return withIpOrAddressName(IPv4Catalogue.LOOP_BACK_ADDRESS);
 	}
 }
