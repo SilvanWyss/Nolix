@@ -5,15 +5,15 @@ package ch.nolix.nolixlicense;
 import ch.nolix.core.license.License;
 
 //class
-public final class Nolix2020Classic extends License {
+public final class Nolix2023Ultimate extends License {
 	
 	//method
-	//key = '45680060'
+	//filteredKey = '48956380'
 	@Override
 	protected boolean acceptsFilteredKey(final String filteredKey) {
 		try {
 			final var keyAsInt = Integer.valueOf(filteredKey);
-			return (-3 * keyAsInt + keyAsInt / 20 - keyAsInt % 250 + 134_756_237 == 0);
+			return (keyAsInt / 20 - keyAsInt % 260 - 9 * keyAsInt + 438_159_801 == 0);
 		} catch (final Exception exception) {
 			return false;
 		}
