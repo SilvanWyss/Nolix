@@ -1,4 +1,4 @@
-package ch.nolix.coretutorial.validatortutorial;
+package ch.nolix.coretutorial.errorcontroltutorial.validatortutorial;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
