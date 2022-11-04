@@ -4,7 +4,6 @@ package ch.nolix.core.net.endpoint3;
 //own imports
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.document.chainednode.ChainedNode;
-import ch.nolix.core.environment.nolixenvironment.NolixEnvironment;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
@@ -23,6 +22,9 @@ import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
  * @date 2016-01-01
  */
 public abstract class EndPoint implements GroupCloseable, IDataProviderController {
+	
+	//constant
+	private static final int CONNECT_TIMEOUT_IN_MILLISECONDS = 500;
 	
 	//attribute
 	private final CloseController closeController = CloseController.forElement(this);
@@ -218,9 +220,7 @@ public abstract class EndPoint implements GroupCloseable, IDataProviderControlle
 			return receiverController;
 		}
 		
-		GlobalSequencer
-		.forMaxMilliseconds(NolixEnvironment.DEFAULT_CONNECT_AND_DISCONNECT_TIMEOUT_IN_MILLISECONDS)
-		.waitUntil(this::hasReceiverController);
+		GlobalSequencer.forMaxMilliseconds(CONNECT_TIMEOUT_IN_MILLISECONDS).waitUntil(this::hasReceiverController);
 		
 		if (!hasReceiverController()) {
 			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.RECEIVER);
