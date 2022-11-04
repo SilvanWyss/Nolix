@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.usercontrol;
+package ch.nolix.core.programcontrol.usercontrol;
 
 //class
 public final class LoginNameMediator {
