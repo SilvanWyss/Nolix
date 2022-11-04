@@ -14,6 +14,7 @@ import ch.nolix.coretest.mathtest.MathTestPool;
 import ch.nolix.coretest.nettest.NetTestPool;
 import ch.nolix.coretest.programatomtest.ProgramAtomTestPool;
 import ch.nolix.coretest.programcontroltest.ProgramControlTestPool;
+import ch.nolix.coretest.programstructuretest.ProgramStructureTestPool;
 import ch.nolix.coretest.providertest.ProviderTestPool;
 
 //class
@@ -40,6 +41,7 @@ public final class CoreTestPool extends TestPool {
 			new NetTestPool(),
 			new ProgramAtomTestPool(),
 			new ProgramControlTestPool(),
+			new ProgramStructureTestPool(),
 			new ProviderTestPool()
 		);
 	}
