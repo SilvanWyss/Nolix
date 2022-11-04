@@ -7,8 +7,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.target.ApplicationTarget;
 import ch.nolix.core.net.target.ServerTarget;
-import ch.nolix.coreapi.netapi.targetuniversalapi.IApplicationTarget;
-import ch.nolix.coreapi.netapi.targetuniversalapi.IServerTarget;
+import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IApplicationTarget;
+import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IServerTarget;
 import ch.nolix.system.application.main.Application;
 import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.webapplication.BackendWebClient;

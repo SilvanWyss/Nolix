@@ -7,7 +7,7 @@ import java.nio.charset.StandardCharsets;
 //own imports
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.document.node.Node;
-import ch.nolix.coreapi.netapi.targetuniversalapi.IApplicationTarget;
+import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IApplicationTarget;
 import ch.nolix.system.application.basewebapplicationprotocol.CommandProtocol;
 import ch.nolix.system.application.basewebapplicationprotocol.ObjectProtocol;
 

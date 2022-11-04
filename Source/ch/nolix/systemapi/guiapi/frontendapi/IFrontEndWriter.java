@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.guiapi.frontendapi;
 
-//own imports
-import ch.nolix.coreapi.netapi.targetuniversalapi.IApplicationTarget;
+import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IApplicationTarget;
 
 //interface
 public interface IFrontEndWriter {
