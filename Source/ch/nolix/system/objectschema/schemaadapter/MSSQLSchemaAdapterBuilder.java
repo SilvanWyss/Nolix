@@ -4,7 +4,7 @@ package ch.nolix.system.objectschema.schemaadapter;
 import ch.nolix.core.builder.andargumentcapturer.AndLoginPasswordCapturer;
 import ch.nolix.core.builder.andargumentcapturer.AndPortCapturer;
 import ch.nolix.core.builder.argumentcapturer.ToDatabaseNameCapturer;
-import ch.nolix.core.builder.argumentcapturer.UsingLoginNameCapturer;
+import ch.nolix.core.builder.usingargumentcapturer.UsingLoginNameCapturer;
 import ch.nolix.core.sql.SQLConnectionPool;
 import ch.nolix.core.sql.SQLDatabaseEngine;
 

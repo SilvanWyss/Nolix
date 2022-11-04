@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.objectdata.dataadapter;
 
-import ch.nolix.core.builder.argumentcapturer.UsingSchemaCapturer;
+import ch.nolix.core.builder.usingargumentcapturer.UsingSchemaCapturer;
 import ch.nolix.core.builder.withargumentcapturer.WithNameCapturer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.objectdata.data.DataImplementation;
