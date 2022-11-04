@@ -11,8 +11,8 @@ import ch.nolix.coreapi.webapi.htmlapi.HTMLElementTransformable;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 import ch.nolix.systemapi.guiapi.canvasuniversalapi.Dimensionable;
 import ch.nolix.systemapi.guiapi.inputapi.IInputTaker;
-import ch.nolix.systemapi.guiapi.structureapi.VisibilitySettable;
 import ch.nolix.systemapi.guiapi.structureproperty.CursorIcon;
+import ch.nolix.systemapi.guiapi.visibilityapi.VisibilitySettable;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
 
 //interface
