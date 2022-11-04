@@ -2,7 +2,6 @@
 package ch.nolix.core.testing.validation;
 
 //own imports
-import ch.nolix.core.environment.nolixenvironment.NolixEnvironment;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
@@ -15,7 +14,10 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
  * @date 2016-09-01
  */
 public final class DoubleDeviationMediator extends Mediator {
-
+	
+	//constant
+	public static final double DEFAULT_MAX_DEVIATION = 0.000000001; //10^-9
+	
 	//attributes
 	private final double value;
 	private final double maxDeviation;
@@ -34,7 +36,7 @@ public final class DoubleDeviationMediator extends Mediator {
 	DoubleDeviationMediator(final IElementTaker<String> expectationErrorTaker, final double value) {
 		
 		//Calls other constructor.
-		this(expectationErrorTaker, value, NolixEnvironment.DEFAULT_MAX_DEVIATION);
+		this(expectationErrorTaker, value, DEFAULT_MAX_DEVIATION);
 	}
 	
 	//constructor
