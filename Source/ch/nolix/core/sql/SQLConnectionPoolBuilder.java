@@ -6,7 +6,7 @@ import ch.nolix.core.builder.argumentcapturer.AndDatabaseNameCapturer;
 import ch.nolix.core.builder.argumentcapturer.AndLoginPasswordCapturer;
 import ch.nolix.core.builder.argumentcapturer.AndPortCapturer;
 import ch.nolix.core.builder.argumentcapturer.UsingLoginNameCapturer;
-import ch.nolix.core.builder.argumentcapturer.WithSQLDatabaseEngineCapturer;
+import ch.nolix.core.builder.withargumentcapturer.WithSQLDatabaseEngineCapturer;
 
 //class
 public final class SQLConnectionPoolBuilder
