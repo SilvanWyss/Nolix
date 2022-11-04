@@ -8,6 +8,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 
 //own imports
+import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.constant.IPv4Catalogue;
@@ -85,16 +86,9 @@ public final class ShellProvider {
 	//static method
 	private static String[] createRuntimeCommandFromCommand(final String[] command) {
 		
-		final var runtimeCommand = new String[2 + command.length];
+		final var preCommand = new String[] {"cmd.exe", "/c"};
 		
-		runtimeCommand[0] = "cmd.exe";
-		runtimeCommand[1] = "/c";
-		
-		for (var i = 0; i < command.length; i++) {
-			runtimeCommand[i + 2] = command[i];
-		}
-		
-		return runtimeCommand;
+		return ReadContainer.forArrays(preCommand, command).toStringArray();
 	}
 	
 	//static method
