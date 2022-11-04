@@ -1,4 +1,4 @@
-package ch.nolix.coretutorial.endpointtutorial;
+package ch.nolix.coretutorial.nettutorial.endpointtutorial;
 
 //own imports
 import ch.nolix.core.environment.localcomputer.ShellProvider;
