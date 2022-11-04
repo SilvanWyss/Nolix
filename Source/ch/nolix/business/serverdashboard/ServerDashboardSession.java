@@ -7,7 +7,7 @@ import ch.nolix.businessapi.serverdashboardaccessapi.IServerDashboardAccess;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.system.application.webapplication.BackendWebClientSession;
 import ch.nolix.system.webgui.linearcontainer.FloatContainer;
-import ch.nolix.systemapi.guiapi.containercontrolproperty.ContainerRole;
+import ch.nolix.systemapi.webguiapi.containerapi.ContainerRole;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //class

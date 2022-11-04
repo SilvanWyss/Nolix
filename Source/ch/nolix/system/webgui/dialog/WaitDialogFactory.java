@@ -7,7 +7,7 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.system.webgui.control.Text;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.system.webgui.main.Layer;
-import ch.nolix.systemapi.guiapi.containercontrolproperty.ContainerRole;
+import ch.nolix.systemapi.webguiapi.containerapi.ContainerRole;
 import ch.nolix.systemapi.webguiapi.mainapi.LayerRole;
 
 //class
