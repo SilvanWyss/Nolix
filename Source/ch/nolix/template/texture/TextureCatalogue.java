@@ -16,6 +16,9 @@ public final class TextureCatalogue {
 	public static final IImage JUTE_TEXTURE = TextureCreator.INSTANCE.createJuteTexture();
 	
 	//constant
+	public static final IImage PARCHMENT_TEXTURE = TextureCreator.INSTANCE.createParchmentTexture();
+	
+	//constant
 	public static final IImage WHITE_MARBLE_TEXTURE = TextureCreator.INSTANCE.createWhiteMarbleTexture();
 	
 	//constructor

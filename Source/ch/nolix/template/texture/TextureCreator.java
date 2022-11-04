@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.template.texture;
 
+//own imports
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.image.MutableImage;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
@@ -25,7 +26,6 @@ final class TextureCreator {
 		
 		for (var x = 1; x <= texture.getWidth(); x++) {
 			for (var y = 1; y <= texture.getHeight(); y++) {
-				
 				if ((y + 1) * (x * y - y % 3) % 7 == (x * y - x % 5 + y % 2) % 11) {
 					texture.setPixel(x, y, color1);
 				} else if ((x * x + y * y) % 11 == (x * y) % 13) {
@@ -85,6 +85,30 @@ final class TextureCreator {
 		}
 		
 		return texture.toImmutableImage();
+	}
+	
+	//method
+	public IImage createParchmentTexture() {
+		
+		final var texture = MutableImage.withWidthAndHeightAndWhiteColor(16, 16);
+		
+		final var color1 = Color.fromValue(0xEFEFCF);
+		final var color2 = Color.fromValue(0xCFAF4F);
+		final var color3 = Color.fromValue(0x4F2F00);
+		
+		for (var x = 1; x <= texture.getWidth(); x++) {
+			for (var y = 1; y <= texture.getHeight(); y++) {
+				if ((x + (x - y) % 3) % 4 != 0 && (y*y) % x < 5) {
+					texture.setPixel(x, y, color1);
+				} else if ((x*x) % y != 0) {
+					texture.setPixel(x, y, color2);
+				} else {
+					texture.setPixel(x, y, color3);
+				}
+			}
+		}
+		
+		return texture;
 	}
 
 	//method

@@ -39,6 +39,7 @@ public final class TextureCatalogueTutorial {
 			final var concreteTexture = TextureCatalogue.CONCRETE_TEXTURE.toScaledImage(10);
 			final var fireWoodTexture = TextureCatalogue.FIR_WOOD_TEXTURE.toScaledImage(10);
 			final var juteTexture = TextureCatalogue.JUTE_TEXTURE.toScaledImage(10);
+			final var parchmentTexture = TextureCatalogue.PARCHMENT_TEXTURE.toScaledImage(10);
 			final var whiteMarbleTexture = TextureCatalogue.WHITE_MARBLE_TEXTURE.toScaledImage(10);
 			
 			//Adds the textures to the GUI of the current MainSession.
@@ -71,6 +72,13 @@ public final class TextureCatalogueTutorial {
 						.setText("Jute"),
 						new ImageControl()
 						.setImage(juteTexture)
+					),
+					new VerticalStack()
+					.addControl(
+						new Text()
+						.setText("Parchment"),
+						new ImageControl()
+						.setImage(parchmentTexture)
 					),
 					new VerticalStack()
 					.addControl(
