@@ -13,7 +13,6 @@ import ch.nolix.core.errorcontrol.exception.WrapperException;
 public final class NolixEnvironment {
 	
 	//constants
-	public static final int DEFAULT_CONNECT_AND_DISCONNECT_TIMEOUT_IN_MILLISECONDS = 500;
 	public static final String LOCAL_NOLIX_FOLDER_NAME = "Nolix";
 	
 	//constants
