@@ -6,7 +6,7 @@ import java.nio.charset.StandardCharsets;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.dataapi.IBinaryObject;
+import ch.nolix.coreapi.programstructureapi.dataapi.IBinaryObject;
 
 //class
 public final class BinaryObject implements IBinaryObject{

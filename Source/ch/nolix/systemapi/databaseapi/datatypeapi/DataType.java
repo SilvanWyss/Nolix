@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.databaseapi.datatypeapi;
 
-//own imports
-import ch.nolix.coreapi.dataapi.IBinaryObject;
+import ch.nolix.coreapi.programstructureapi.dataapi.IBinaryObject;
 
 //enum
 public enum DataType {
