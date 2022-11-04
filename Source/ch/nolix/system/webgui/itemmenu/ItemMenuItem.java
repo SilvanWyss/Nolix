@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.webgui.itemmenu;
 
-import ch.nolix.core.commontype.constant.StringCatalogue;
+import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;

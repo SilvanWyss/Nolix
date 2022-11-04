@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.core.container.matrix;
 
-//own imports
-import ch.nolix.core.commontype.constant.CharacterCatalogue;
+import ch.nolix.core.commontype.commontypeconstant.CharacterCatalogue;
 import ch.nolix.core.container.main.Container;
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;

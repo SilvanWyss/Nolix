@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.core.document.xml;
 
+import ch.nolix.core.commontype.commontypeconstant.CharacterCatalogue;
 //own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
-import ch.nolix.core.commontype.constant.CharacterCatalogue;
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;

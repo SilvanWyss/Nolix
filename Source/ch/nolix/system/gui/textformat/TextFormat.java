@@ -5,9 +5,8 @@ package ch.nolix.system.gui.textformat;
 import java.awt.Canvas;
 import java.awt.Graphics;
 
-//own imports
-import ch.nolix.core.commontype.constant.CharacterCatalogue;
-import ch.nolix.core.commontype.constant.StringCatalogue;
+import ch.nolix.core.commontype.commontypeconstant.CharacterCatalogue;
+import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;

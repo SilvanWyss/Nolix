@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.core.web.html;
 
-//own imports
-import ch.nolix.core.commontype.constant.StringCatalogue;
+import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;

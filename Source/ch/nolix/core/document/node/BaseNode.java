@@ -1,10 +1,10 @@
 //package declaration
 package ch.nolix.core.document.node;
 
+import ch.nolix.core.commontype.commontypeconstant.CharacterCatalogue;
+import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 //own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
-import ch.nolix.core.commontype.constant.CharacterCatalogue;
-import ch.nolix.core.commontype.constant.StringCatalogue;
 import ch.nolix.core.container.pair.IntPair;
 import ch.nolix.core.document.xml.XMLNode;
 import ch.nolix.core.environment.filesystem.FileSystemAccessor;

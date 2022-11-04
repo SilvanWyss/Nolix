@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.objectschema.schema;
 
-//own imports
-import ch.nolix.core.commontype.constant.StringCatalogue;
+import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonEmptyArgumentException;

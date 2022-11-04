@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.core.document.node;
 
-//own imports
-import ch.nolix.core.commontype.constant.CharacterCatalogue;
-import ch.nolix.core.commontype.constant.StringCatalogue;
+import ch.nolix.core.commontype.commontypeconstant.CharacterCatalogue;
+import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.core.environment.filesystem.FileAccessor;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;

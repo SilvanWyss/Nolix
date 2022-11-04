@@ -4,9 +4,9 @@ package ch.nolix.system.gui3d.main;
 //Java imports
 import java.lang.reflect.InvocationTargetException;
 
+import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 //own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
-import ch.nolix.core.commontype.constant.StringCatalogue;
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.container.pair.Pair;
 import ch.nolix.core.container.readcontainer.ReadContainer;

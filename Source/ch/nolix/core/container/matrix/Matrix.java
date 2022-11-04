@@ -4,8 +4,7 @@ package ch.nolix.core.container.matrix;
 //Java imports
 import java.util.Arrays;
 
-//own imports
-import ch.nolix.core.commontype.constant.CharacterCatalogue;
+import ch.nolix.core.commontype.commontypeconstant.CharacterCatalogue;
 import ch.nolix.core.container.main.Container;
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.container.readcontainer.ReadContainer;
