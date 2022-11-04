@@ -9,7 +9,7 @@ import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 
 //class
-public final class StringMediatorTest extends Test {
+public final class GlobalValidatorForStringTest extends Test {
 	
 	//method
 	@TestCase

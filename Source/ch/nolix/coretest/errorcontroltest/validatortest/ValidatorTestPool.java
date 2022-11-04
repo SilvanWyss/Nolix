@@ -9,6 +9,6 @@ public class ValidatorTestPool extends TestPool {
 	
 	//constructor
 	public ValidatorTestPool() {
-		super(GlobalValidatorForObjectTest.class, StringMediatorTest.class);
+		super(GlobalValidatorForObjectTest.class, GlobalValidatorForStringTest.class);
 	}
 }
