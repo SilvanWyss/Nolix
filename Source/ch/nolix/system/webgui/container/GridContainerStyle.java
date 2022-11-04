@@ -9,7 +9,7 @@ import ch.nolix.system.element.multistateelement.NonCascadingProperty;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.webgui.controlstyle.ExtendedControlStyle;
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;
-import ch.nolix.systemapi.guiapi.controlproperty.GridType;
+import ch.nolix.systemapi.guiapi.structureproperty.GridType;
 import ch.nolix.systemapi.webguiapi.containerapi.IGridContainerStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 

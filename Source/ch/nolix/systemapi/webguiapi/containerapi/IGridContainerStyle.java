@@ -2,7 +2,7 @@
 package ch.nolix.systemapi.webguiapi.containerapi;
 
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;
-import ch.nolix.systemapi.guiapi.controlproperty.GridType;
+import ch.nolix.systemapi.guiapi.structureproperty.GridType;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IExtendedControlStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
