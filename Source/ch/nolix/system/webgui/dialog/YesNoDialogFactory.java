@@ -10,7 +10,7 @@ import ch.nolix.system.webgui.linearcontainer.HorizontalStack;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.system.webgui.main.Layer;
 import ch.nolix.systemapi.guiapi.containercontrolproperty.ContainerRole;
-import ch.nolix.systemapi.guiapi.controlrole.ButtonRole;
+import ch.nolix.systemapi.webguiapi.controlapi.ButtonRole;
 import ch.nolix.systemapi.webguiapi.controlapi.IButton;
 import ch.nolix.systemapi.webguiapi.mainapi.LayerRole;
 

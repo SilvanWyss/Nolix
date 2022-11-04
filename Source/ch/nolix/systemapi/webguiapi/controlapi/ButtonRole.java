@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemapi.guiapi.controlrole;
+package ch.nolix.systemapi.webguiapi.controlapi;
 
 //own imports
 import ch.nolix.coreapi.documentapi.nodeapi.INode;

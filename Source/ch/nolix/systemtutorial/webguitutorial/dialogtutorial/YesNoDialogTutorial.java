@@ -11,7 +11,7 @@ import ch.nolix.system.webgui.control.Button;
 import ch.nolix.system.webgui.dialog.YesNoDialogFactory;
 import ch.nolix.system.webgui.main.Layer;
 import ch.nolix.systemapi.guiapi.containercontrolproperty.ContainerRole;
-import ch.nolix.systemapi.guiapi.controlrole.ButtonRole;
+import ch.nolix.systemapi.webguiapi.controlapi.ButtonRole;
 
 public final class YesNoDialogTutorial {
 	
