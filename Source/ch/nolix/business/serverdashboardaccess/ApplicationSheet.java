@@ -12,7 +12,7 @@ import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IServerTarget;
 import ch.nolix.system.application.main.Application;
 import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.webapplication.BackendWebClient;
-import ch.nolix.systemapi.applicationapi.guiapplicationapi.IGUIApplicationContext;
+import ch.nolix.systemapi.applicationapi.webapplicationapi.IWebApplicationContext;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 
 //class
@@ -24,11 +24,11 @@ public final class ApplicationSheet implements IApplicationSheet {
 		final Server server
 	) {
 		
-		if (pGUIApplication.getRefContext() instanceof IGUIApplicationContext) {
+		if (pGUIApplication.getRefContext() instanceof IWebApplicationContext) {
 			return
 			new ApplicationSheet(
 				pGUIApplication.getName(),
-				(IGUIApplicationContext)pGUIApplication.getRefContext(),
+				(IWebApplicationContext)pGUIApplication.getRefContext(),
 				server.asTarget()
 			);
 		}
@@ -51,7 +51,7 @@ public final class ApplicationSheet implements IApplicationSheet {
 	//constructor
 	private ApplicationSheet(
 		final String applicationName,
-		final IGUIApplicationContext pGUIApplicationContext,
+		final IWebApplicationContext pGUIApplicationContext,
 		final IServerTarget serverTarget
 	) {
 		

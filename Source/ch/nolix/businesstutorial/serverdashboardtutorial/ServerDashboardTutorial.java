@@ -2,10 +2,10 @@ package ch.nolix.businesstutorial.serverdashboardtutorial;
 
 import ch.nolix.business.serverdashboard.ServerDashboard;
 import ch.nolix.core.environment.localcomputer.ShellProvider;
-import ch.nolix.system.application.guiapplication.GUIApplicationContext;
 import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.main.VoidApplicationContext;
 import ch.nolix.system.application.webapplication.BackendWebClientSession;
+import ch.nolix.system.application.webapplication.WebApplicationContext;
 import ch.nolix.system.gui.icon.IconCatalogue;
 import ch.nolix.system.webgui.control.Text;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
@@ -23,7 +23,7 @@ public final class ServerDashboardTutorial {
 		server.addApplication(
 			"HelloWorld",
 			HelloWorldSession.class,
-			new GUIApplicationContext().setApplicationLogo(IconCatalogue.NOLIX_ICON)
+			new WebApplicationContext().setApplicationLogo(IconCatalogue.NOLIX_ICON)
 		);
 		
 		server.addApplication(

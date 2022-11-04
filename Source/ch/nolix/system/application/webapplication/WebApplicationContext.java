@@ -1,14 +1,14 @@
 //package declaration
-package ch.nolix.system.application.guiapplication;
+package ch.nolix.system.application.webapplication;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.systemapi.applicationapi.guiapplicationapi.IGUIApplicationContext;
+import ch.nolix.systemapi.applicationapi.webapplicationapi.IWebApplicationContext;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 
 //class
-public class GUIApplicationContext implements IGUIApplicationContext {
+public class WebApplicationContext implements IWebApplicationContext {
 	
 	//optional attribute
 	private IImage applicationLogo;
@@ -47,7 +47,7 @@ public class GUIApplicationContext implements IGUIApplicationContext {
 	}
 	
 	//method
-	public final GUIApplicationContext setApplicationDescription(final String applicationDescription) {
+	public final WebApplicationContext setApplicationDescription(final String applicationDescription) {
 		
 		GlobalValidator.assertThat(applicationDescription).thatIsNamed("application description").isNotBlank();
 		
@@ -57,7 +57,7 @@ public class GUIApplicationContext implements IGUIApplicationContext {
 	}
 	
 	//method
-	public final GUIApplicationContext setApplicationLogo(final IImage applicationLogo) {
+	public final WebApplicationContext setApplicationLogo(final IImage applicationLogo) {
 		
 		GlobalValidator.assertThat(applicationLogo).thatIsNamed("application logo").isNotNull();
 		
