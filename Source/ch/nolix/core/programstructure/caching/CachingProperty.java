@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.caching;
+package ch.nolix.core.programstructure.caching;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;

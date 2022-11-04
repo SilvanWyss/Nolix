@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.caching;
+package ch.nolix.core.programstructure.caching;
 
 //Java imports
 import java.util.Iterator;

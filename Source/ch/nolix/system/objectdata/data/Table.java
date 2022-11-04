@@ -1,12 +1,11 @@
 //package declaration
 package ch.nolix.system.objectdata.data;
 
-//own imports
-import ch.nolix.core.caching.CachingProperty;
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PluralLowerCaseCatalogue;
+import ch.nolix.core.programstructure.caching.CachingProperty;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.system.objectdata.datahelper.EntityHelper;
 import ch.nolix.system.objectdata.datahelper.TableHelper;
