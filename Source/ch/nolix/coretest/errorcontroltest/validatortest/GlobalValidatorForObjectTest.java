@@ -8,7 +8,7 @@ import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 
 //class
-public final class ArgumentMediatorTest extends Test {
+public final class GlobalValidatorForObjectTest extends Test {
 	
 	//method
 	@TestCase
