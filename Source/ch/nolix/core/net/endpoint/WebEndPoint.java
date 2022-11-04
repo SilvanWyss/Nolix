@@ -8,7 +8,6 @@ import java.io.OutputStream;
 import java.net.Socket;
 
 //own imports
-import ch.nolix.core.environment.nolixenvironment.NolixEnvironment;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -20,6 +19,9 @@ import ch.nolix.coreapi.programcontrolapi.processproperty.TargetInfoState;
 
 //class
 final class WebEndPoint extends BaseNetEndPoint {
+	
+	//constant
+	private static final int CONNECT_TIMEOUT_IN_MILLISECONDS = 500;
 	
 	//attributes
 	private final Socket socket;
@@ -131,9 +133,7 @@ final class WebEndPoint extends BaseNetEndPoint {
 	//method
 	private void waitToTargetInfo() {
 		
-		GlobalSequencer
-		.forMaxMilliseconds(NolixEnvironment.DEFAULT_CONNECT_AND_DISCONNECT_TIMEOUT_IN_MILLISECONDS)
-		.waitUntil(this::hasTargetInfo);
+		GlobalSequencer.forMaxMilliseconds(CONNECT_TIMEOUT_IN_MILLISECONDS).waitUntil(this::hasTargetInfo);
 		
 		if (!hasTargetInfo()) {
 			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "reached timeout while waiting to target.");
