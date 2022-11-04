@@ -2,7 +2,6 @@
 package ch.nolix.core.net.endpoint;
 
 //own imports
-import ch.nolix.core.environment.nolixenvironment.NolixEnvironment;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
@@ -24,6 +23,9 @@ import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
  * @date 2017-05-06
  */
 public abstract class EndPoint implements GroupCloseable {
+	
+	//constant
+	private static final int CONNECT_TIMEOUT_IN_MILLISECONDS = 500;
 	
 	//attributes
 	private final boolean requestedConnection;
@@ -189,9 +191,7 @@ public abstract class EndPoint implements GroupCloseable {
 			return receiver;
 		}
 		
-		GlobalSequencer
-		.forMaxMilliseconds(NolixEnvironment.DEFAULT_CONNECT_AND_DISCONNECT_TIMEOUT_IN_MILLISECONDS)
-		.waitUntil(this::hasReceiver);
+		GlobalSequencer.forMaxMilliseconds(CONNECT_TIMEOUT_IN_MILLISECONDS).waitUntil(this::hasReceiver);
 		
 		assertHasReceiver();
 		
