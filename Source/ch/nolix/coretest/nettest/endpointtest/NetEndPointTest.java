@@ -2,7 +2,6 @@
 package ch.nolix.coretest.nettest.endpointtest;
 
 //own imports
-import ch.nolix.core.environment.nolixenvironment.NolixEnvironment;
 import ch.nolix.core.net.endpoint.EndPoint;
 import ch.nolix.core.net.endpoint.IEndPointTaker;
 import ch.nolix.core.net.endpoint.NetEndPoint;
@@ -13,6 +12,9 @@ import ch.nolix.core.testing.test.Test;
 
 //class
 public final class NetEndPointTest extends Test {
+	
+	//constant
+	private static final int CONNECT_TIMEOUT_IN_MILLISECONDS = 500;
 	
 	//static class
 	private static final class TestEndPointTaker implements IEndPointTaker {
@@ -60,9 +62,7 @@ public final class NetEndPointTest extends Test {
 			expectRunning(
 				() -> {
 					try (final var result = new NetEndPoint(port)) {
-						GlobalSequencer.waitForMilliseconds(
-							NolixEnvironment.DEFAULT_CONNECT_AND_DISCONNECT_TIMEOUT_IN_MILLISECONDS
-						);
+						GlobalSequencer.waitForMilliseconds(CONNECT_TIMEOUT_IN_MILLISECONDS);
 					}
 				}
 			)
@@ -87,7 +87,7 @@ public final class NetEndPointTest extends Test {
 				
 				//execution
 				testUnit.send("MESSAGE");
-				GlobalSequencer.waitForMilliseconds(NolixEnvironment.DEFAULT_CONNECT_AND_DISCONNECT_TIMEOUT_IN_MILLISECONDS);
+				GlobalSequencer.waitForMilliseconds(CONNECT_TIMEOUT_IN_MILLISECONDS);
 				
 				//verification
 				expect(endPointTaker.getReceivedMessage()).isEqualTo("MESSAGE");
