@@ -4,7 +4,7 @@ package ch.nolix.system.objectdata.dataadapter;
 import ch.nolix.core.builder.andargumentcapturer.AndLoginPasswordCapturer;
 import ch.nolix.core.builder.andargumentcapturer.AndPortCapturer;
 import ch.nolix.core.builder.andargumentcapturer.AndSchemaCapturer;
-import ch.nolix.core.builder.argumentcapturer.ToDatabaseNameCapturer;
+import ch.nolix.core.builder.toargumentcapturer.ToDatabaseNameCapturer;
 import ch.nolix.core.builder.usingargumentcapturer.UsingLoginNameCapturer;
 import ch.nolix.core.net.constant.PortCatalogue;
 import ch.nolix.system.objectdata.data.DataImplementation;
