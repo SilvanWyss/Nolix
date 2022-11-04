@@ -4,7 +4,7 @@ package ch.nolix.systemapi.webguiapi.containerapi;
 //own imports
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
-import ch.nolix.systemapi.guiapi.controlproperty.TabExpansionBehavior;
+import ch.nolix.systemapi.guiapi.processproperty.TabExpansionBehavior;
 import ch.nolix.systemapi.webguiapi.linearcontainerapi.ILinearContainerStyle;
 
 //interface
