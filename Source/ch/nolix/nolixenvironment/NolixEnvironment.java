@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.environment.nolixenvironment;
+package ch.nolix.nolixenvironment;
 
 //Java imports
 import java.io.IOException;
