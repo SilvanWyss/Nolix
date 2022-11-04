@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.data;
+package ch.nolix.core.programstructure.data;
 
 //Java imports
 import java.util.UUID;

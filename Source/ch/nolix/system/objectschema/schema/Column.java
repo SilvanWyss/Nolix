@@ -4,11 +4,11 @@ package ch.nolix.system.objectschema.schema;
 //own imports
 import ch.nolix.core.commontype.constant.StringCatalogue;
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.data.GlobalIdCreator;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonEmptyArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.core.programstructure.data.GlobalIdCreator;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedPropertyType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedValueType;

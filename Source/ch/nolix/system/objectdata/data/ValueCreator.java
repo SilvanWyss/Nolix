@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.system.objectdata.data;
 
-//own imports
-import ch.nolix.core.data.BinaryObject;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.programstructure.data.BinaryObject;
 import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 
 //class
