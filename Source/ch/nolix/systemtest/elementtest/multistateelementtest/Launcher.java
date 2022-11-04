@@ -1,12 +1,12 @@
 //package declaration
-package ch.nolix.systemtest.formatelementtest;
+package ch.nolix.systemtest.elementtest.multistateelementtest;
 
 //class
 public final class Launcher {
 	
 	//main method
 	public static void main(String[] args) {
-		new FormatElementTestPool().run();
+		new MultiStateElementTestPool().run();
 	}
 	
 	//constructor

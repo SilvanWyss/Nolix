@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemtest.formatelementtest;
+package ch.nolix.systemtest.elementtest.multistateelementtest;
 
 //own imports
 import ch.nolix.core.testing.basetest.TestCase;
@@ -9,7 +9,7 @@ import ch.nolix.system.element.multistateelement.MultiStateElement;
 import ch.nolix.system.graphic.color.Color;
 
 //class
-public final class FormatElementWithCascadingPropertyTest extends Test {
+public final class MultiStateElementWithCascadingPropertyTest extends Test {
 	
 	//static enum
 	private enum CustomState {
