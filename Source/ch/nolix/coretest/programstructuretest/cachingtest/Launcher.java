@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coretest.cachingtest;
+package ch.nolix.coretest.programstructuretest.cachingtest;
 
 //class
 public final class Launcher {
