@@ -11,7 +11,7 @@ public final class WrapperByteTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_getBitAtAsInt() {
+	public void testCase_getBitAtAsInt_1A() {
 		
 		//setup
 		final var testUnit = new ByteWrapper(0, 0, 0, 0, 0, 0, 0, 0);
@@ -39,7 +39,7 @@ public final class WrapperByteTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_getBitAtAsInt_2() {
+	public void testCase_getBitAtAsInt_1B() {
 		
 		//setup
 		final var testUnit = new ByteWrapper(0, 0, 0, 0, 0, 1, 1, 1);
@@ -67,7 +67,7 @@ public final class WrapperByteTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_getBitAtAsInt_3() {
+	public void testCase_getBitAtAsInt_1C() {
 		
 		//setup
 		final var testUnit = new ByteWrapper(1, 1, 1, 0, 0, 0, 0, 0);
@@ -95,7 +95,7 @@ public final class WrapperByteTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_getBitAtAsInt_4() {
+	public void testCase_getBitAtAsInt_1D() {
 		
 		//setup
 		final var testUnit = new ByteWrapper(1, 1, 1, 1, 1, 1, 1, 1);
@@ -123,7 +123,7 @@ public final class WrapperByteTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_toBitString() {
+	public void testCase_toBitString_1A() {
 		
 		//setup
 		final var testUnit = new ByteWrapper(0, 0, 0, 0, 0, 0, 0, 0);
@@ -137,7 +137,7 @@ public final class WrapperByteTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_toBitString_2() {
+	public void testCase_toBitString_1B() {
 		
 		//setup
 		final var testUnit = new ByteWrapper(0, 0, 0, 0, 0, 1, 1, 1);
@@ -151,7 +151,7 @@ public final class WrapperByteTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_toBitString_3() {
+	public void testCase_toBitString_1C() {
 		
 		//setup
 		final var testUnit = new ByteWrapper(1, 1, 1, 0, 0, 0, 0, 0);
@@ -165,7 +165,7 @@ public final class WrapperByteTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_toBitString_4() {
+	public void testCase_toBitString_1D() {
 		
 		//setup
 		final var testUnit = new ByteWrapper(1, 1, 1, 1, 1, 1, 1, 1);
@@ -195,7 +195,7 @@ public final class WrapperByteTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_toInt() {
+	public void testCase_toInt_1A() {
 		
 		//setup
 		final var testUnit = new ByteWrapper(0, 0, 0, 0, 0, 0, 0, 0);
@@ -209,7 +209,7 @@ public final class WrapperByteTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_toInt_2() {
+	public void testCase_toInt_1B() {
 		
 		//setup
 		final var testUnit = new ByteWrapper(0, 0, 0, 0, 0, 1, 1, 1);
@@ -223,7 +223,7 @@ public final class WrapperByteTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_toInt_3() {
+	public void testCase_toInt_1C() {
 		
 		//setup
 		final var testUnit = new ByteWrapper(1, 1, 1, 0, 0, 0, 0, 0);
@@ -237,7 +237,7 @@ public final class WrapperByteTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_toInt_4() {
+	public void testCase_toInt_1D() {
 		
 		//setup
 		final var testUnit = new ByteWrapper(1, 1, 1, 1, 1, 1, 1, 1);
