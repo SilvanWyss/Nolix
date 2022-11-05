@@ -12,13 +12,41 @@ public abstract class BaseNodeTest<BN extends BaseNode<BN>> extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_getRefSingleChildNode_whenTheNodeDoesNotContainChildNodes() {
+	public final void testCase_getRefSingleChildNode_whenNodeDoesNotContainChildNodes() {
 		
 		//setup
 		final var testUnit = createNodeWithHeaderAndChildNodes("a");
 		
 		//execution & verification
 		expectRunning(testUnit::getRefSingleChildNode).throwsException().ofType(InvalidArgumentException.class);
+	}
+	
+	//method
+	@TestCase
+	public final void testCase_getRefSingleChildNode_whenNodeContains1ChildNode() {
+		
+		//setup
+		final var testUnit = createNodeWithHeaderAndChildNodes("a", "b");
+		
+		//execution
+		final var result = testUnit.getRefSingleChildNode();
+		
+		//verification
+		expect(result).hasStringRepresentation("b");
+	}
+	
+	//method
+	@TestCase
+	public final void testCase_toXML() {
+		
+		//setup
+		final var testUnit = createNodeWithHeaderAndChildNodes("a");
+		
+		//execution
+		final var result = testUnit.toXML();
+		
+		//verification
+		expect(result).hasStringRepresentation("<a></a>");
 	}
 	
 	//method declaration
