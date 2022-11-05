@@ -17,7 +17,7 @@ public final class CommonTypeHelperTestPool extends TestPool {
 	 */
 	public CommonTypeHelperTestPool() {
 		super(
-			CharacterHelperTest.class,
+			GlobalCharacterHelperTest.class,
 			GlobalStringHelperTest.class
 		);
 	}
