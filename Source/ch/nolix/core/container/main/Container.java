@@ -242,7 +242,7 @@ public abstract class Container<E> implements IContainer<E> {
 	
 	//method
 	@Override
-	public boolean containsAsManyAs(Iterable<?> container) {
+	public final boolean containsAsManyAs(Iterable<?> container) {
 		return (getElementCount() == IterableHelper.getElementCount(container));
 	}
 	
@@ -1746,6 +1746,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * 
 	 * @return true if the current {@link Container} does not contain an element.
 	 */
+	@Override
 	public boolean isEmpty() {
 		return !iterator().hasNext();
 	}
