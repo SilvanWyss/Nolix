@@ -8,17 +8,16 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.testing.basetest.TestCase;
-import ch.nolix.core.testing.test.ObjectTest;
 
 //class
-public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extends ObjectTest<MN> {
+public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extends BaseNodeTest<MN> {
 	
 	//method
 	@TestCase
 	public void testCase_removeHeader() {
 		
 		//setup
-		final var testUnit = createTestUnit();
+		final var testUnit = createBlankNode();
 		testUnit.setHeader("Lorem");
 		
 		//setup verification
@@ -36,7 +35,7 @@ public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extend
 	public void testCase_reset_1A() {
 		
 		//setup
-		final var testUnit = createTestUnit();
+		final var testUnit = createBlankNode();
 		
 		//execution
 		testUnit.reset();
@@ -52,7 +51,7 @@ public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extend
 	public void testCase_reset_1B() {
 		
 		//setup
-		final var testUnit = createTestUnit();
+		final var testUnit = createBlankNode();
 		
 		//execution
 		testUnit.resetFromString("");
@@ -68,7 +67,7 @@ public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extend
 	public void testCase_reset_2A() {
 		
 		//setup
-		final var testUnit = createTestUnit();
+		final var testUnit = createBlankNode();
 		
 		//execution
 		testUnit.resetFromString("a");
@@ -84,7 +83,7 @@ public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extend
 	public void testCase_reset_2B() {
 		
 		//setup
-		final var testUnit = createTestUnit();
+		final var testUnit = createBlankNode();
 		
 		//execution
 		testUnit.resetFromString("a(b)");
@@ -100,7 +99,7 @@ public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extend
 	public void testCase_reset_2C() {
 		
 		//setup
-		final var testUnit = createTestUnit();
+		final var testUnit = createBlankNode();
 		
 		//execution
 		testUnit.resetFromString("a(b,c,d)");
@@ -116,7 +115,7 @@ public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extend
 	public void testCase_reset_2D() {
 		
 		//setup
-		final var testUnit = createTestUnit();
+		final var testUnit = createBlankNode();
 		
 		//execution
 		testUnit.resetFromString("a(b(c))");
@@ -132,7 +131,7 @@ public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extend
 	public void testCase_reset_3A() {
 		
 		//setup
-		final var testUnit = createTestUnit();
+		final var testUnit = createBlankNode();
 		
 		//execution
 		testUnit.resetFromString("a(b(c),d(e))");
@@ -148,7 +147,7 @@ public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extend
 	public void testCase_reset_3B() {
 		
 		//setup
-		final var testUnit = createTestUnit();
+		final var testUnit = createBlankNode();
 		
 		//execution
 		testUnit.resetFromString("a(b(c,d),e(f,g))");
@@ -164,7 +163,7 @@ public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extend
 	public void testCase_reset_whenTheGivenStringIsNotValid() {
 		
 		//setup
-		final var testUnit = createTestUnit();
+		final var testUnit = createBlankNode();
 		
 		//execution & verification
 		expectRunning(() -> testUnit.resetFromString("a(b).c"))
@@ -177,7 +176,7 @@ public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extend
 	public void testCase_setHeader() {
 		
 		//setup
-		final var testUnit = createTestUnit();
+		final var testUnit = createBlankNode();
 		testUnit.setHeader("Lorem");
 		
 		//setup verification
@@ -195,7 +194,7 @@ public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extend
 	public void testCase_getRefAttributeAt() {
 		
 		//setup
-		final var testUnit = createTestUnit();
+		final var testUnit = createBlankNode();
 		testUnit.addChildNode(Node.withHeader("a"), Node.withHeader("b"), Node.withHeader("c"));
 		
 		//execution
@@ -225,7 +224,7 @@ public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extend
 	public void testCase_getHeader_1A() {
 		
 		//setup
-		final var testUnit = createTestUnit();
+		final var testUnit = createBlankNode();
 		testUnit.setHeader("Lorem(");
 		
 		//execution
@@ -240,7 +239,7 @@ public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extend
 	public void testCase_getHeader_1B() {
 		
 		//setup
-		final var testUnit = createTestUnit();
+		final var testUnit = createBlankNode();
 		testUnit.setHeader("Lorem)");
 		
 		//execution
@@ -255,7 +254,7 @@ public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extend
 	public void testCase_getHeader_1C() {
 		
 		//setup
-		final var testUnit = createTestUnit();
+		final var testUnit = createBlankNode();
 		testUnit.setHeader("Lorem.");
 		
 		//execution
@@ -270,7 +269,7 @@ public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extend
 	public void testCase_getHeader_1D() {
 		
 		//setup
-		final var testUnit = createTestUnit();
+		final var testUnit = createBlankNode();
 		testUnit.setHeader("Lorem,");
 		
 		//execution
@@ -285,7 +284,7 @@ public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extend
 	public void testCase_getRefOneAttribute_1A() {
 		
 		//setup
-		final var testUnit = createTestUnit();
+		final var testUnit = createBlankNode();
 		testUnit.addChildNode(Node.withHeader("a"));
 		
 		//execution
@@ -301,7 +300,7 @@ public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extend
 	public void testCase_getRefOneAttribute_1B() {
 		
 		//setup
-		final var testUnit = createTestUnit();
+		final var testUnit = createBlankNode();
 		
 		//execution
 		expectRunning(testUnit::getRefSingleChildNode).throwsException().ofType(InvalidArgumentException.class);
@@ -312,7 +311,7 @@ public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extend
 	public void testCase_toString_1() {
 		
 		//setup
-		final var testUnit = createTestUnit();
+		final var testUnit = createBlankNode();
 		testUnit.addChildNode(Node.withHeader("a"), Node.withHeader("b"), Node.withHeader("c"));
 		
 		//execution
@@ -327,7 +326,7 @@ public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extend
 	public void testCase_toString_2A() {
 		
 		//setup
-		final var testUnit = createTestUnit();
+		final var testUnit = createBlankNode();
 		testUnit.setHeader("Lorem(");
 		
 		//execution
@@ -342,7 +341,7 @@ public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extend
 	public void testCase_toString_2B() {
 		
 		//setup
-		final var testUnit = createTestUnit();
+		final var testUnit = createBlankNode();
 		testUnit.setHeader("Lorem)");
 		
 		//execution
@@ -357,7 +356,7 @@ public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extend
 	public void testCase_toString_2C() {
 		
 		//setup
-		final var testUnit = createTestUnit();
+		final var testUnit = createBlankNode();
 		testUnit.setHeader("Lorem,");
 		
 		//execution

@@ -9,7 +9,26 @@ public final class MutableNodeTest extends BaseMutableNodeTest<MutableNode> {
 	
 	//method
 	@Override
-	protected MutableNode createTestUnit() {
+	protected MutableNode createBlankNode() {
 		return new MutableNode();
+	}
+	
+	//method
+	@Override
+	protected MutableNode createNodeWithHeaderAndChildNodes(final String header, final String... childNodeHeaders) {
+		
+		final var mutableNode = new MutableNode();
+		
+		mutableNode.setHeader(header);
+		
+		for (final var cnh : childNodeHeaders) {
+			
+			final var childNode = new MutableNode();
+			childNode.setHeader(cnh);
+			
+			mutableNode.addChildNode(childNode);
+		}
+		
+		return mutableNode;
 	}
 }
