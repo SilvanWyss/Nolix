@@ -1834,31 +1834,6 @@ public abstract class Container<E> implements IContainer<E> {
 	/**
 	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
-	 * @param extractor
-	 * @param <E2> is the type of the elements the given extractor returns.
-	 * @return a new array with the elements
-	 * the given extractor extracts from the elements of the current {@link Container}.
-	 */
-	@SuppressWarnings("unchecked")
-	public final <E2> E2[] toArray(final IElementTakerElementGetter<E, E2> extractor) {
-		
-		//Creates array.
-		final var array = (E2[])(new Object[getElementCount()]);
-		
-		//Fills up the array.
-		var i = 0;
-		for (final var e : this) {
-			array[i] = extractor.getOutput(e);
-			i++;
-		}
-		
-		return array;
-	}
-	
-	//method
-	/**
-	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
-	 * 
 	 * @param elementType is the type of the elements of the current {@link IContainer}.
 	 * The elementType is needed to be able to create an array of the required type.
 	 * @return a new array with the elements of the current {@link IContainer}.

@@ -717,15 +717,6 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method declaration
 	/**
-	 * @param extractor
-	 * @param <E2> is the type of the elements the given extractor returns.
-	 * @return a new array with the elements
-	 * the given extractor extracts from the elements of the current {@link IContainer}.
-	 */
-	<E2> E2[] toArray(IElementTakerElementGetter<E, E2> extractor);
-	
-	//method declaration
-	/**
 	 * @param elementType is the type or a base type of the elements of the current {@link IContainer}.
 	 * The elementType is needed to be able to create an array of the required type.
 	 * @return a new array with the elements of the current {@link IContainer}.
