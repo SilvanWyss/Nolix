@@ -22,6 +22,7 @@ import ch.nolix.core.independent.independenthelper.IterableHelper;
 import ch.nolix.core.programatom.function.FunctionCatalogue;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.containerapi.pairapi.IPair;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.I2ElementTakerBooleanGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;
@@ -1301,14 +1302,15 @@ public abstract class Container<E> implements IContainer<E> {
 	//method
 	/**
 	 * The complexity of this implementation is O(n^2) if the current {@link Container} contains n elements.
-	 *
+	 * 
 	 * @param selector
 	 * @return the first 2 elements of the current {@link Container} the given selector selects together.
-	 * @throws InvalidArgumentException if the current {@link Container}
-	 * does not contain a 2 elements the given selector selects together.
+	 * @throws InvalidArgumentException if
+	 * the current {@link Container} does not contain a 2 elements the given selector selects together.
 	 */
-	public final Pair<E, E> getRefFirst(final I2ElementTakerBooleanGetter<E> selector) {
-
+	@Override
+	public final IPair<E, E> getRefFirst(final I2ElementTakerBooleanGetter<E> selector) {
+		
 		//Iterates the current IContainer.
 		for (final var e : this) {
 			

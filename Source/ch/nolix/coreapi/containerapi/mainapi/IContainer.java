@@ -2,6 +2,7 @@
 package ch.nolix.coreapi.containerapi.mainapi;
 
 //own imports
+import ch.nolix.coreapi.containerapi.pairapi.IPair;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.I2ElementTakerBooleanGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;
@@ -528,6 +529,14 @@ public interface IContainer<E> extends Iterable<E> {
 	 * the current {@link IContainer} does not contain an element the given selector selects.
 	 */
 	E getRefFirst(IElementTakerBooleanGetter<? super E> selector);
+	
+	/**
+	 * @param selector
+	 * @return the first 2 elements of the current {@link IContainer} the given selector selects together.
+	 * @throws RuntimeException if
+	 * the current {@link IContainer} does not contain a 2 elements the given selector selects together.
+	 */
+	IPair<E, E> getRefFirst(final I2ElementTakerBooleanGetter<E> selector);
 	
 	//method declaration
 	/**
