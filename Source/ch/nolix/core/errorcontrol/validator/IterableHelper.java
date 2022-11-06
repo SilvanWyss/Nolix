@@ -3,36 +3,35 @@ package ch.nolix.core.errorcontrol.validator;
 
 //class
 /**
- * The iterable helper provides methods to analyse iterable objects.
- * Methods are called on an object, functions are not.
- * The iterable helper is not a common iterable helper because it does not use dependencies.
- * Of this class an instance cannot be created.
+ * The {@link IterableHelper} provides methods to analyse {@link Iterable}s.
+ * The {@link IterableHelper} is not useful for public because it does not use dependencies.
+ * Of the {@link IterableHelper} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @date 2017-09-30
  */
 final class IterableHelper {
 	
-	//method
+	//static method
 	/**
-	 * @param object
-	 * @param <E> is the type of the elements of the given iterable object.
-	 * @return true if the given iterable object contains at least 1 element.
+	 * @param iterableObject
+	 * @param <E> is the type of the elements of the given iterableObject.
+	 * @return true if the given iterableObject contains at least 1 element.
 	 */
-	public static <E> boolean containsAny(final Iterable<E> object) {
-		return !isEmpty(object);
+	public static <E> boolean containsAny(final Iterable<E> iterableObject) {
+		return !isEmpty(iterableObject);
 	}
 	
-	//method
+	//static method
 	/**
-	 * @param object
-	 * @param <E> is the type of the elements of the given iterable object.
-	 * @return true if the given iterable object does not contain an element.
+	 * @param iterableObject
+	 * @param <E> is the type of the elements of the given iterableObject.
+	 * @return true if the given iterableObject does not contain an element.
 	 */
-	public static <E> boolean isEmpty(final Iterable<E> object) {
-		return !object.iterator().hasNext();
+	public static <E> boolean isEmpty(final Iterable<E> iterableObject) {
+		return !iterableObject.iterator().hasNext();
 	}
-
+	
 	//constructor
 	/**
 	 * Prevents that an instance of the {@link IterableHelper} can be created.
