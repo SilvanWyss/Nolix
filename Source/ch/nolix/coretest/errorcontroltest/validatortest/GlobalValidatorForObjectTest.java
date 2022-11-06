@@ -3,6 +3,7 @@ package ch.nolix.coretest.errorcontroltest.validatortest;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
@@ -62,5 +63,24 @@ public final class GlobalValidatorForObjectTest extends Test {
 		.throwsException()
 		.ofType(ArgumentIsNullException.class)
 		.withMessage("The given Object is null.");
+	}
+	
+	//method
+	@TestCase
+	public void testCase_isEqualTo_whenTheGivenArgumentIsEqual() {
+		
+		//execution
+		expectRunning(() -> GlobalValidator.assertThat("garfield").isEqualTo("garfield")).doesNotThrowException();
+	}
+	
+	//method
+	@TestCase
+	public void testCase_isEqualTo_whenTheGivenArgumentIsNotEqual() {
+		
+		//execution
+		expectRunning(() -> GlobalValidator.assertThat("garfield").isEqualTo("Garfield"))
+		.throwsException()
+		.ofType(UnequalArgumentException.class)
+		.withMessage("The given String 'garfield' does not equal the String 'Garfield'.");
 	}
 }
