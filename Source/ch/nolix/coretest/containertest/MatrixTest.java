@@ -4,10 +4,10 @@ package ch.nolix.coretest.containertest;
 //own imports
 import ch.nolix.core.container.matrix.Matrix;
 import ch.nolix.core.testing.basetest.TestCase;
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 
 //class
-public final class MatrixTest extends Test {
+public final class MatrixTest extends ContainerTest {
 	
 	//method
 	@TestCase
@@ -196,5 +196,22 @@ public final class MatrixTest extends Test {
 			expect(rightRotatedMatrix.getRow(1).toString()).isEqualTo("flower,elephant,apple");
 			expect(rightRotatedMatrix.getRow(2).toString()).isEqualTo("tree,lion,banana");
 			expect(rightRotatedMatrix.getRow(3).toString()).isEqualTo("palm,monkey,cerish");
+	}
+	
+	//method
+	@Override
+	protected <E> IContainer<E> createContainerWithElements(@SuppressWarnings("unchecked")E... elements) {
+		
+		final var matrix = new Matrix<E>();
+		
+		matrix.addRow(elements);
+		
+		return matrix;
+	}
+	
+	//method
+	@Override
+	protected <E> IContainer<E> createEmptyContainer() {
+		return new Matrix<>();
 	}
 }
