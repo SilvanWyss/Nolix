@@ -18,5 +18,5 @@ public interface IContextOwner<C> {
 	/**
 	 * @return the context of the current {@link IContextOwner}.
 	 */
-	C getRefContext();
+	C getRefApplicationContext();
 }

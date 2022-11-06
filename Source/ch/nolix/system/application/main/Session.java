@@ -60,7 +60,7 @@ public abstract class Session<
 	 * the context of the parent {@link Application} of the parent {@link Client} of the current {@link Session}.
 	 */
 	public AC getRefApplicationContext() {
-		return getParentApplication().getRefContext();
+		return getParentApplication().getRefApplicationContext();
 	}
 	
 	//method

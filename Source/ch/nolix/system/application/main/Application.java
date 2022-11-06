@@ -24,12 +24,12 @@ import ch.nolix.coreapi.containerapi.mainapi.IContainer;
  * @author Silvan Wyss
  * @date 2016-01-01
  * @param <BC> is the type of the {@link BackendClient}s of a {@link Application}.
- * @param <C> is the type of the context of a {@link Application}.
+ * @param <AC> is the type of the application context of a {@link Application}.
  */
 public class Application<
-	BC extends BackendClient<BC, C>,
-	C
-> implements IContextOwner<C>, Named {
+	BC extends BackendClient<BC, AC>,
+	AC
+> implements IContextOwner<AC>, Named {
 	
 	//attribute
 	private final String name;
@@ -38,43 +38,43 @@ public class Application<
 	private final Class<BC> clientClass;
 	
 	//attribute
-	private final Class<Session<BC, C>> initialSessionClass;
+	private final Class<Session<BC, AC>> initialSessionClass;
 	
 	//attribute
-	private final C context;
+	private final AC applicationContext;
 	
 	//multi-attribute
 	private final LinkedList<BC> clients = new LinkedList<>();
 	
 	//constructor
 	/**
-	 * Creates a new {@link Application} with the given name, clientClass, initialSessionClass and context.
+	 * Creates a new {@link Application} with the given name, clientClass, initialSessionClass and applicationContext.
 	 * 
 	 * @param name
 	 * @param initialSessionClass
-	 * @param context
+	 * @param applicationContext
 	 * @param <S> is the type of the given initalSessionClass.
 	 * @throws ArgumentIsNullException if the given name is null.
 	 * @throws InvalidArgumentException if the given name is blak.
 	 * @throws ArgumentIsNullException if the given clientClass is null.
 	 * @throws ArgumentIsNullException if the given initialSessionClass is null.
-	 * @throws ArgumentIsNullException if the given context is null.
+	 * @throws ArgumentIsNullException if the given applicationContext is null.
 	 */
 	@SuppressWarnings("unchecked")
-	public <S extends Session<BC, C>> Application(
+	public <S extends Session<BC, AC>> Application(
 		final String name,
 		final Class<S> initialSessionClass,
-		final C context
+		final AC applicationContext
 	) {
 		
 		GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
 		GlobalValidator.assertThat(initialSessionClass).thatIsNamed("initial session class").isNotNull();
-		GlobalValidator.assertThat(context).thatIsNamed(LowerCaseCatalogue.CONTEXT).isNotNull();
+		GlobalValidator.assertThat(applicationContext).thatIsNamed("application context").isNotNull();
 		
 		this.name = name;
-		this.initialSessionClass = (Class<Session<BC, C>>)initialSessionClass;
+		this.initialSessionClass = (Class<Session<BC, AC>>)initialSessionClass;
 		clientClass = (Class<BC>)(createInitialSession().internalGetRefClientClass());
-		this.context = context;
+		this.applicationContext = applicationContext;
 	}
 	
 	//method
@@ -96,6 +96,15 @@ public class Application<
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final AC getRefApplicationContext() {
+		return applicationContext;
+	}
+	
+	//method
+	/**
 	 * @return the {@link Client}s of the current {@link Application}.
 	 */
 	public final IContainer<BC> getRefClients() {
@@ -103,15 +112,6 @@ public class Application<
 		removeClosedClients();
 		
 		return clients;
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final C getRefContext() {
-		return context;
 	}
 	
 	//method
@@ -151,9 +151,9 @@ public class Application<
 	 * @return a new initial {@link Session} for a {@link Client} of the current {@link Application}.
 	 */
 	@SuppressWarnings("unchecked")
-	protected final Session<BC, C> createInitialSession() {
+	protected final Session<BC, AC> createInitialSession() {
 		try {
-			return (Session<BC, C>)getInitialSessionConstructor().newInstance();
+			return (Session<BC, AC>)getInitialSessionConstructor().newInstance();
 		} catch (
 			final
 			InstantiationException

@@ -55,7 +55,7 @@ public abstract class BackendClient<
 	 * @return the context of the parent {@link Application} of the current {@link BackendClient}.
 	 */
 	public AC getRefApplicationContext() {
-		return getParentApplication().getRefContext();
+		return getParentApplication().getRefApplicationContext();
 	}
 	
 	//method

@@ -24,11 +24,11 @@ public final class ApplicationSheet implements IApplicationSheet {
 		final Server server
 	) {
 		
-		if (pGUIApplication.getRefContext() instanceof IWebApplicationContext) {
+		if (pGUIApplication.getRefApplicationContext() instanceof IWebApplicationContext) {
 			return
 			new ApplicationSheet(
 				pGUIApplication.getName(),
-				(IWebApplicationContext)pGUIApplication.getRefContext(),
+				(IWebApplicationContext)pGUIApplication.getRefApplicationContext(),
 				server.asTarget()
 			);
 		}
