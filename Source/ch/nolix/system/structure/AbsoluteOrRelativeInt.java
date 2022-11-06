@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.system.structure;
 
+//Java imports
+import java.text.DecimalFormat;
+
 //own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.container.main.LinkedList;
@@ -10,7 +13,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.element.main.Element;
@@ -109,9 +111,9 @@ public final class AbsoluteOrRelativeInt extends Element implements IAbsoluteOrR
 		final var attributes = new LinkedList<INode<?>>();
 		
 		if (isAbsolute()) {
-			attributes.addAtEnd(Node.withHeaderAndChildNode(PascalCaseCatalogue.VALUE, getAbsoluteValue()));
+			attributes.addAtEnd(Node.withHeader(getAbsoluteValue()));
 		} else if (isRelative()) {
-			attributes.addAtEnd(Node.withHeaderAndChildNode(PascalCaseCatalogue.PERCENTAGE, getPercentage()));
+			attributes.addAtEnd(Node.withHeader(new DecimalFormat("0.#").format(100.0 * getPercentage()) + "%"));
 		}
 		
 		return attributes;
