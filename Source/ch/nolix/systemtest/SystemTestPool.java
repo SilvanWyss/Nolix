@@ -10,6 +10,7 @@ import ch.nolix.systemtest.guitest.GUITestPool;
 import ch.nolix.systemtest.objectdatatest.ObjectDataTestPool;
 import ch.nolix.systemtest.objectschematest.ObjectSchemaTestPool;
 import ch.nolix.systemtest.timetest.TimeTestPool;
+import ch.nolix.systemtest.webguitest.WebGUITestPool;
 
 //class
 public final class SystemTestPool extends TestPool {
@@ -23,7 +24,8 @@ public final class SystemTestPool extends TestPool {
 			new GUITestPool(),
 			new ObjectDataTestPool(),
 			new ObjectSchemaTestPool(),
-			new TimeTestPool()
+			new TimeTestPool(),
+			new WebGUITestPool()
 		);
 	}
 }
