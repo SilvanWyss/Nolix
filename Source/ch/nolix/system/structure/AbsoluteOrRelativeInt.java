@@ -14,17 +14,17 @@ import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.element.main.Element;
-import ch.nolix.systemapi.structureapi.IRelativeOrAbsoluteInt;
+import ch.nolix.systemapi.structureapi.IAbsoluteOrRelativeInt;
 
 //class
 /**
- * A {@link RelativeOrAbsoluteInt} stores either an integer or a percentage.
- * A {@link RelativeOrAbsoluteInt} is not mutable.
+ * A {@link AbsoluteOrRelativeInt} stores either an integer or a percentage.
+ * A {@link AbsoluteOrRelativeInt} is not mutable.
  *  
  * @author Silvan Wyss
  * @date 2022-10-15
  */
-public final class RelativeOrAbsoluteInt extends Element implements IRelativeOrAbsoluteInt {
+public final class AbsoluteOrRelativeInt extends Element implements IAbsoluteOrRelativeInt {
 	
 	//attribute
 	private final boolean isAbsolute;
@@ -38,10 +38,10 @@ public final class RelativeOrAbsoluteInt extends Element implements IRelativeOrA
 	//static method
 	/**
 	 * @param specification
-	 * @return a new {@link RelativeOrAbsoluteInt} from the given specification.
+	 * @return a new {@link AbsoluteOrRelativeInt} from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static RelativeOrAbsoluteInt fromSpecification(final INode<?> specification) {
+	public static AbsoluteOrRelativeInt fromSpecification(final INode<?> specification) {
 		
 		final var attribute = specification.getSingleChildNodeHeader();
 		
@@ -55,29 +55,29 @@ public final class RelativeOrAbsoluteInt extends Element implements IRelativeOrA
 	//static method
 	/**
 	 * @param intValue
-	 * @return a new {@link RelativeOrAbsoluteInt} with the given intValue.
+	 * @return a new {@link AbsoluteOrRelativeInt} with the given intValue.
 	 */
-	public static RelativeOrAbsoluteInt withIntValue(final int intValue) {
-		return new RelativeOrAbsoluteInt(intValue);
+	public static AbsoluteOrRelativeInt withIntValue(final int intValue) {
+		return new AbsoluteOrRelativeInt(intValue);
 	}
 	
 	//static method
 	/**
 	 * @param percentage
-	 * @return a new {@link RelativeOrAbsoluteInt} with the given percentage.
+	 * @return a new {@link AbsoluteOrRelativeInt} with the given percentage.
 	 * @throws NegativeArgumentException if the given percentage is negative.
 	 */
-	public static RelativeOrAbsoluteInt withPercentage(final double percentage) {
-		return new RelativeOrAbsoluteInt(percentage);
+	public static AbsoluteOrRelativeInt withPercentage(final double percentage) {
+		return new AbsoluteOrRelativeInt(percentage);
 	}
 	
 	//constructor
 	/**
-	 * Creates a new {@link RelativeOrAbsoluteInt} with the given intValue.
+	 * Creates a new {@link AbsoluteOrRelativeInt} with the given intValue.
 	 * 
 	 * @param intValue
 	 */
-	private RelativeOrAbsoluteInt(final int intValue) {
+	private AbsoluteOrRelativeInt(final int intValue) {
 		isAbsolute = true;
 		this.absoluteValue = intValue;
 		percentage = 0.0;
@@ -85,12 +85,12 @@ public final class RelativeOrAbsoluteInt extends Element implements IRelativeOrA
 	
 	//constructor
 	/**
-	 * Creates a new {@link RelativeOrAbsoluteInt} with the given percentage.
+	 * Creates a new {@link AbsoluteOrRelativeInt} with the given percentage.
 	 * 
 	 * @param percentage
 	 * @throws NegativeArgumentException if the given percentage is negative.
 	 */
-	private RelativeOrAbsoluteInt(final double percentage) {
+	private AbsoluteOrRelativeInt(final double percentage) {
 		
 		GlobalValidator.assertThat(percentage).thatIsNamed(LowerCaseCatalogue.PERCENTAGE).isNotNegative();
 		
@@ -182,7 +182,7 @@ public final class RelativeOrAbsoluteInt extends Element implements IRelativeOrA
 	//method
 	/**
 	 * @throws ArgumentDoesNotHaveAttributeException if
-	 * the current {@link RelativeOrAbsoluteInt} does not have an integer value.
+	 * the current {@link AbsoluteOrRelativeInt} does not have an integer value.
 	 */
 	private void assertIsAbsolute() {
 		if (!isAbsolute()) {
@@ -193,7 +193,7 @@ public final class RelativeOrAbsoluteInt extends Element implements IRelativeOrA
 	//method
 	/**
 	 * @throws ArgumentDoesNotHaveAttributeException if
-	 * the current {@link RelativeOrAbsoluteInt} does not have a percentage.
+	 * the current {@link AbsoluteOrRelativeInt} does not have a percentage.
 	 */
 	private void assertIsRelative() {
 		if (!isRelative()) {

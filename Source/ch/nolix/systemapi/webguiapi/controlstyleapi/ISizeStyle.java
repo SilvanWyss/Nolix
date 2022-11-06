@@ -2,7 +2,7 @@
 package ch.nolix.systemapi.webguiapi.controlstyleapi;
 
 //own imports
-import ch.nolix.systemapi.structureapi.IRelativeOrAbsoluteInt;
+import ch.nolix.systemapi.structureapi.IAbsoluteOrRelativeInt;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //interface
@@ -15,10 +15,10 @@ public interface ISizeStyle<S extends ISizeStyle<S>> {
 	boolean definesWidthForState(ControlState state);
 	
 	//method declaration
-	IRelativeOrAbsoluteInt getHeightForState(ControlState state);
+	IAbsoluteOrRelativeInt getHeightForState(ControlState state);
 	
 	//method declaration
-	IRelativeOrAbsoluteInt getWidthForState(ControlState state);
+	IAbsoluteOrRelativeInt getWidthForState(ControlState state);
 	
 	//method declaration
 	void removeCustomHeights();

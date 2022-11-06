@@ -4,7 +4,7 @@ package ch.nolix.system.webgui.controlhelper;
 //own imports
 import ch.nolix.coreapi.webapi.cssapi.CSSUnitCatalogue;
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;
-import ch.nolix.systemapi.structureapi.IRelativeOrAbsoluteInt;
+import ch.nolix.systemapi.structureapi.IAbsoluteOrRelativeInt;
 
 //class
 public final class ControlCSSValueHelper {
@@ -19,14 +19,14 @@ public final class ControlCSSValueHelper {
 	
 	//method
 	public String getCSSValueFromRelativeOrAbsoluteInt(
-		final IRelativeOrAbsoluteInt relativeOrAbsoluteInt,
+		final IAbsoluteOrRelativeInt absoluteOrRelativeInt,
 		final String relativeIntCSSUnit
 	) {
 		
-		if (relativeOrAbsoluteInt.isAbsolute()) {
-			return relativeOrAbsoluteInt.getAbsoluteValue() + CSSUnitCatalogue.PX;
+		if (absoluteOrRelativeInt.isAbsolute()) {
+			return absoluteOrRelativeInt.getAbsoluteValue() + CSSUnitCatalogue.PX;
 		}
 		
-		return (100 * relativeOrAbsoluteInt.getPercentage()) + relativeIntCSSUnit;
+		return (100 * absoluteOrRelativeInt.getPercentage()) + relativeIntCSSUnit;
 	}
 }

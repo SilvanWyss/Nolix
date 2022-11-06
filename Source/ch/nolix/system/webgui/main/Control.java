@@ -16,12 +16,12 @@ import ch.nolix.system.element.base.StylableElement;
 import ch.nolix.system.element.mutableelement.ExtensionElement;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 import ch.nolix.system.element.mutableelement.MutableValue;
-import ch.nolix.system.structure.RelativeOrAbsoluteInt;
+import ch.nolix.system.structure.AbsoluteOrRelativeInt;
 import ch.nolix.system.structure.RelativeOrAbsoluteIntValidator;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 import ch.nolix.systemapi.guiapi.structureproperty.CursorIcon;
 import ch.nolix.systemapi.guiapi.structureproperty.Visibility;
-import ch.nolix.systemapi.structureapi.IRelativeOrAbsoluteInt;
+import ch.nolix.systemapi.structureapi.IAbsoluteOrRelativeInt;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
@@ -76,35 +76,35 @@ implements IControl<C, CS> {
 	);
 	
 	//attribute
-	private final MutableOptionalValue<RelativeOrAbsoluteInt> minWidth =
+	private final MutableOptionalValue<AbsoluteOrRelativeInt> minWidth =
 	MutableOptionalValue.forElement(
 		MIN_WIDTH_HEADER,
 		this::setMinWidth,
-		RelativeOrAbsoluteInt::fromSpecification
+		AbsoluteOrRelativeInt::fromSpecification
 	);
 	
 	//attribute
-	private final MutableOptionalValue<RelativeOrAbsoluteInt> minHeight =
+	private final MutableOptionalValue<AbsoluteOrRelativeInt> minHeight =
 	MutableOptionalValue.forElement(
 		MIN_HEIGHT_HEADER,
 		this::setMinHeight,
-		RelativeOrAbsoluteInt::fromSpecification
+		AbsoluteOrRelativeInt::fromSpecification
 	);
 	
 	//attribute
-	private final MutableOptionalValue<RelativeOrAbsoluteInt> maxWidth =
+	private final MutableOptionalValue<AbsoluteOrRelativeInt> maxWidth =
 	MutableOptionalValue.forElement(
 		MAX_WIDTH_HEADER,
 		this::setMaxWidth,
-		RelativeOrAbsoluteInt::fromSpecification
+		AbsoluteOrRelativeInt::fromSpecification
 	);
 	
 	//attribute
-	private final MutableOptionalValue<RelativeOrAbsoluteInt> maxHeight =
+	private final MutableOptionalValue<AbsoluteOrRelativeInt> maxHeight =
 	MutableOptionalValue.forElement(
 		MAX_HEIGHT_HEADER,
 		this::setMaxHeight,
-		RelativeOrAbsoluteInt::fromSpecification
+		AbsoluteOrRelativeInt::fromSpecification
 	);
 	
 	//attribute
@@ -164,25 +164,25 @@ implements IControl<C, CS> {
 	
 	//method
 	@Override
-	public final IRelativeOrAbsoluteInt getMaxHeight() {
+	public final IAbsoluteOrRelativeInt getMaxHeight() {
 		return maxHeight.getValue();
 	}
 	
 	//method
 	@Override
-	public final IRelativeOrAbsoluteInt getMaxWidth() {
+	public final IAbsoluteOrRelativeInt getMaxWidth() {
 		return maxWidth.getValue();
 	}
 	
 	//method
 	@Override
-	public final IRelativeOrAbsoluteInt getMinHeight() {
+	public final IAbsoluteOrRelativeInt getMinHeight() {
 		return minHeight.getValue();
 	}
 	
 	//method
 	@Override
-	public final IRelativeOrAbsoluteInt getMinWidth() {
+	public final IAbsoluteOrRelativeInt getMinWidth() {
 		return minWidth.getValue();
 	}
 	
@@ -298,7 +298,7 @@ implements IControl<C, CS> {
 	@Override
 	public final C setMaxHeight(final int maxHeight) {
 		
-		setMaxHeight(RelativeOrAbsoluteInt.withIntValue(maxHeight));
+		setMaxHeight(AbsoluteOrRelativeInt.withIntValue(maxHeight));
 		
 		return asConcrete();
 	}
@@ -307,7 +307,7 @@ implements IControl<C, CS> {
 	@Override
 	public final C setMaxHeightInPercentOfViewAreaHeight(final double maxHeightInPercentOfViewAreaHeight) {
 		
-		setMaxHeight(RelativeOrAbsoluteInt.withPercentage(maxHeightInPercentOfViewAreaHeight));
+		setMaxHeight(AbsoluteOrRelativeInt.withPercentage(maxHeightInPercentOfViewAreaHeight));
 		
 		return asConcrete();
 	}
@@ -316,7 +316,7 @@ implements IControl<C, CS> {
 	@Override
 	public final C setMaxWidth(final int maxWidth) {
 		
-		setMaxWidth(RelativeOrAbsoluteInt.withIntValue(maxWidth));
+		setMaxWidth(AbsoluteOrRelativeInt.withIntValue(maxWidth));
 		
 		return asConcrete();
 	}
@@ -325,7 +325,7 @@ implements IControl<C, CS> {
 	@Override
 	public final C setMaxWidthInPercentOfViewAreaWidth(final double maxWidthInPercentOfViewAreaWidth) {
 		
-		setMaxWidth(RelativeOrAbsoluteInt.withPercentage(maxWidthInPercentOfViewAreaWidth));
+		setMaxWidth(AbsoluteOrRelativeInt.withPercentage(maxWidthInPercentOfViewAreaWidth));
 		
 		return asConcrete();
 	}
@@ -334,7 +334,7 @@ implements IControl<C, CS> {
 	@Override
 	public final C setMinHeight(final int minHeight) {
 		
-		setMinHeight(RelativeOrAbsoluteInt.withIntValue(minHeight));
+		setMinHeight(AbsoluteOrRelativeInt.withIntValue(minHeight));
 		
 		return asConcrete();
 	}
@@ -343,7 +343,7 @@ implements IControl<C, CS> {
 	@Override
 	public final C setMinHeightInPercentOfViewAreaHeight(final double minHeightInPercentOfViewAreaHeight) {
 		
-		setMinHeight(RelativeOrAbsoluteInt.withPercentage(minHeightInPercentOfViewAreaHeight));
+		setMinHeight(AbsoluteOrRelativeInt.withPercentage(minHeightInPercentOfViewAreaHeight));
 		
 		return asConcrete();
 	}
@@ -352,7 +352,7 @@ implements IControl<C, CS> {
 	@Override
 	public final C setMinWidth(final int minWidth) {
 		
-		setMinWidth(RelativeOrAbsoluteInt.withIntValue(minWidth));
+		setMinWidth(AbsoluteOrRelativeInt.withIntValue(minWidth));
 		
 		return asConcrete();
 	}
@@ -361,7 +361,7 @@ implements IControl<C, CS> {
 	@Override
 	public final C setMinWidthInPercentOfViewAreaWidth(final double minWidthInPercentOfViewAreaWidth) {
 		
-		setMinWidth(RelativeOrAbsoluteInt.withPercentage(minWidthInPercentOfViewAreaWidth));
+		setMinWidth(AbsoluteOrRelativeInt.withPercentage(minWidthInPercentOfViewAreaWidth));
 		
 		return asConcrete();
 	}
@@ -459,7 +459,7 @@ implements IControl<C, CS> {
 	}
 	
 	//method
-	private void setMaxHeight(final RelativeOrAbsoluteInt maxHeight) {
+	private void setMaxHeight(final AbsoluteOrRelativeInt maxHeight) {
 		
 		RelativeOrAbsoluteIntValidator.INSTANCE.assertIsPositive(maxHeight);
 		
@@ -467,7 +467,7 @@ implements IControl<C, CS> {
 	}
 	
 	//method
-	private void setMaxWidth(final RelativeOrAbsoluteInt maxWidth) {
+	private void setMaxWidth(final AbsoluteOrRelativeInt maxWidth) {
 		
 		RelativeOrAbsoluteIntValidator.INSTANCE.assertIsPositive(maxWidth);
 		
@@ -475,7 +475,7 @@ implements IControl<C, CS> {
 	}
 	
 	//method
-	private void setMinHeight(final RelativeOrAbsoluteInt minHeight) {
+	private void setMinHeight(final AbsoluteOrRelativeInt minHeight) {
 		
 		RelativeOrAbsoluteIntValidator.INSTANCE.assertIsPositive(minHeight);
 		
@@ -483,7 +483,7 @@ implements IControl<C, CS> {
 	}
 	
 	//method
-	private void setMinWidth(final RelativeOrAbsoluteInt minWidth) {
+	private void setMinWidth(final AbsoluteOrRelativeInt minWidth) {
 		
 		RelativeOrAbsoluteIntValidator.INSTANCE.assertIsPositive(minWidth);
 		

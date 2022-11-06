@@ -2,22 +2,22 @@
 package ch.nolix.systemapi.guiapi.canvasuniversalapi;
 
 //own imports
-import ch.nolix.systemapi.structureapi.IRelativeOrAbsoluteInt;
+import ch.nolix.systemapi.structureapi.IAbsoluteOrRelativeInt;
 
 //interface
 public interface Dimensionable<D extends Dimensionable<D>> {
 	
 	//method declaration
-	IRelativeOrAbsoluteInt getMaxHeight();
+	IAbsoluteOrRelativeInt getMaxHeight();
 	
 	//method declaration
-	IRelativeOrAbsoluteInt getMaxWidth();
+	IAbsoluteOrRelativeInt getMaxWidth();
 	
 	//method declaration
-	IRelativeOrAbsoluteInt getMinHeight();
+	IAbsoluteOrRelativeInt getMinHeight();
 	
 	//method declaration
-	IRelativeOrAbsoluteInt getMinWidth();
+	IAbsoluteOrRelativeInt getMinWidth();
 	
 	//method declaration
 	boolean hasMaxHeight();

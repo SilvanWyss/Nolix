@@ -10,14 +10,14 @@ import ch.nolix.system.element.multistateelement.ForwardingProperty;
 import ch.nolix.system.element.multistateelement.NonCascadingProperty;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.gui.canvas.Background;
-import ch.nolix.system.structure.RelativeOrAbsoluteInt;
+import ch.nolix.system.structure.AbsoluteOrRelativeInt;
 import ch.nolix.system.structure.RelativeOrAbsoluteIntValidator;
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 import ch.nolix.systemapi.graphicapi.colorapi.IColorGradient;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 import ch.nolix.systemapi.graphicapi.imageapi.ImageApplication;
 import ch.nolix.systemapi.guiapi.canvasuniversalapi.IBackground;
-import ch.nolix.systemapi.structureapi.IRelativeOrAbsoluteInt;
+import ch.nolix.systemapi.structureapi.IAbsoluteOrRelativeInt;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IExtendedControlStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
@@ -90,22 +90,22 @@ implements IExtendedControlStyle<ECS> {
 	private static final String PADDING_HEADER = "Padding";
 	
 	//attribute
-	private final NonCascadingProperty<ControlState, IRelativeOrAbsoluteInt> width =
+	private final NonCascadingProperty<ControlState, IAbsoluteOrRelativeInt> width =
 	new NonCascadingProperty<>(
 		WIDTH_HEADER,
 		ControlState.class,
-		RelativeOrAbsoluteInt::fromSpecification,
-		IRelativeOrAbsoluteInt::getSpecification,
+		AbsoluteOrRelativeInt::fromSpecification,
+		IAbsoluteOrRelativeInt::getSpecification,
 		this::setWidthForState
 	);
 	
 	//attribute
-	private final NonCascadingProperty<ControlState, IRelativeOrAbsoluteInt> height =
+	private final NonCascadingProperty<ControlState, IAbsoluteOrRelativeInt> height =
 	new NonCascadingProperty<>(
 		HEIGHT_HEADER,
 		ControlState.class,
-		RelativeOrAbsoluteInt::fromSpecification,
-		IRelativeOrAbsoluteInt::getSpecification,
+		AbsoluteOrRelativeInt::fromSpecification,
+		IAbsoluteOrRelativeInt::getSpecification,
 		this::setHeightForState
 	);
 	
@@ -320,7 +320,7 @@ implements IExtendedControlStyle<ECS> {
 	
 	//method
 	@Override
-	public final IRelativeOrAbsoluteInt getHeightForState(final ControlState state) {
+	public final IAbsoluteOrRelativeInt getHeightForState(final ControlState state) {
 		return height.getValueWhenHasState(state);
 	}
 	
@@ -368,7 +368,7 @@ implements IExtendedControlStyle<ECS> {
 	
 	//method
 	@Override
-	public final IRelativeOrAbsoluteInt getWidthForState(final ControlState state) {
+	public final IAbsoluteOrRelativeInt getWidthForState(final ControlState state) {
 		return width.getValueWhenHasState(state);
 	}
 	
@@ -575,7 +575,7 @@ implements IExtendedControlStyle<ECS> {
 	@Override
 	public final ECS setHeightForState(final ControlState state, final int height) {
 		
-		setHeightForState(state, RelativeOrAbsoluteInt.withIntValue(height));
+		setHeightForState(state, AbsoluteOrRelativeInt.withIntValue(height));
 		
 		return asConcrete();
 	}
@@ -587,7 +587,7 @@ implements IExtendedControlStyle<ECS> {
 		final double heightInPercentOfViewAreaHeight
 	) {
 		
-		setHeightForState(state, RelativeOrAbsoluteInt.withPercentage(heightInPercentOfViewAreaHeight));
+		setHeightForState(state, AbsoluteOrRelativeInt.withPercentage(heightInPercentOfViewAreaHeight));
 		
 		return asConcrete();
 	}
@@ -698,7 +698,7 @@ implements IExtendedControlStyle<ECS> {
 	@Override
 	public final ECS setWidthForState(final ControlState state, final int width) {
 		
-		setWidthForState(state, RelativeOrAbsoluteInt.withIntValue(width));
+		setWidthForState(state, AbsoluteOrRelativeInt.withIntValue(width));
 		
 		return asConcrete();
 	}
@@ -710,13 +710,13 @@ implements IExtendedControlStyle<ECS> {
 		final double widthInPercentOfViewAreaWidth
 	) {
 		
-		setWidthForState(state, RelativeOrAbsoluteInt.withPercentage(widthInPercentOfViewAreaWidth));
+		setWidthForState(state, AbsoluteOrRelativeInt.withPercentage(widthInPercentOfViewAreaWidth));
 		
 		return asConcrete();
 	}
 	
 	//method
-	private void setHeightForState(final ControlState state, final IRelativeOrAbsoluteInt height) {
+	private void setHeightForState(final ControlState state, final IAbsoluteOrRelativeInt height) {
 		
 		RelativeOrAbsoluteIntValidator.INSTANCE.assertIsPositive(height);
 		
@@ -724,7 +724,7 @@ implements IExtendedControlStyle<ECS> {
 	}
 	
 	//method
-	private void setWidthForState(final ControlState state, final IRelativeOrAbsoluteInt width) {
+	private void setWidthForState(final ControlState state, final IAbsoluteOrRelativeInt width) {
 		
 		RelativeOrAbsoluteIntValidator.INSTANCE.assertIsPositive(width);
 		
