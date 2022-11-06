@@ -17,7 +17,7 @@ import ch.nolix.system.element.mutableelement.ExtensionElement;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 import ch.nolix.system.element.mutableelement.MutableValue;
 import ch.nolix.system.structure.AbsoluteOrRelativeInt;
-import ch.nolix.system.structure.RelativeOrAbsoluteIntValidator;
+import ch.nolix.system.structure.AbsoluteOrRelativeIntValidator;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 import ch.nolix.systemapi.guiapi.structureproperty.CursorIcon;
 import ch.nolix.systemapi.guiapi.structureproperty.Visibility;
@@ -461,7 +461,7 @@ implements IControl<C, CS> {
 	//method
 	private void setMaxHeight(final AbsoluteOrRelativeInt maxHeight) {
 		
-		RelativeOrAbsoluteIntValidator.INSTANCE.assertIsPositive(maxHeight);
+		AbsoluteOrRelativeIntValidator.INSTANCE.assertIsPositive(maxHeight);
 		
 		this.maxHeight.setValue(maxHeight);
 	}
@@ -469,7 +469,7 @@ implements IControl<C, CS> {
 	//method
 	private void setMaxWidth(final AbsoluteOrRelativeInt maxWidth) {
 		
-		RelativeOrAbsoluteIntValidator.INSTANCE.assertIsPositive(maxWidth);
+		AbsoluteOrRelativeIntValidator.INSTANCE.assertIsPositive(maxWidth);
 		
 		this.maxWidth.setValue(maxWidth);
 	}
@@ -477,7 +477,7 @@ implements IControl<C, CS> {
 	//method
 	private void setMinHeight(final AbsoluteOrRelativeInt minHeight) {
 		
-		RelativeOrAbsoluteIntValidator.INSTANCE.assertIsPositive(minHeight);
+		AbsoluteOrRelativeIntValidator.INSTANCE.assertIsPositive(minHeight);
 		
 		this.minHeight.setValue(minHeight);
 	}
@@ -485,7 +485,7 @@ implements IControl<C, CS> {
 	//method
 	private void setMinWidth(final AbsoluteOrRelativeInt minWidth) {
 		
-		RelativeOrAbsoluteIntValidator.INSTANCE.assertIsPositive(minWidth);
+		AbsoluteOrRelativeIntValidator.INSTANCE.assertIsPositive(minWidth);
 		
 		this.minWidth.setValue(minWidth);
 	}

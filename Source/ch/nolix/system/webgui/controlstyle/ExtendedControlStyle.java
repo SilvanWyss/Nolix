@@ -11,7 +11,7 @@ import ch.nolix.system.element.multistateelement.NonCascadingProperty;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.gui.canvas.Background;
 import ch.nolix.system.structure.AbsoluteOrRelativeInt;
-import ch.nolix.system.structure.RelativeOrAbsoluteIntValidator;
+import ch.nolix.system.structure.AbsoluteOrRelativeIntValidator;
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 import ch.nolix.systemapi.graphicapi.colorapi.IColorGradient;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
@@ -718,7 +718,7 @@ implements IExtendedControlStyle<ECS> {
 	//method
 	private void setHeightForState(final ControlState state, final IAbsoluteOrRelativeInt height) {
 		
-		RelativeOrAbsoluteIntValidator.INSTANCE.assertIsPositive(height);
+		AbsoluteOrRelativeIntValidator.INSTANCE.assertIsPositive(height);
 		
 		this.height.setValueForState(state, height);
 	}
@@ -726,7 +726,7 @@ implements IExtendedControlStyle<ECS> {
 	//method
 	private void setWidthForState(final ControlState state, final IAbsoluteOrRelativeInt width) {
 		
-		RelativeOrAbsoluteIntValidator.INSTANCE.assertIsPositive(width);
+		AbsoluteOrRelativeIntValidator.INSTANCE.assertIsPositive(width);
 		
 		this.width.setValueForState(state, width);
 	}

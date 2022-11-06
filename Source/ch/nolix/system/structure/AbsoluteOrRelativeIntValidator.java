@@ -6,13 +6,13 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.systemapi.structureapi.IAbsoluteOrRelativeInt;
 
 //class
-public final class RelativeOrAbsoluteIntValidator {
+public final class AbsoluteOrRelativeIntValidator {
 	
 	//constant
-	public static final RelativeOrAbsoluteIntValidator INSTANCE = new RelativeOrAbsoluteIntValidator();
+	public static final AbsoluteOrRelativeIntValidator INSTANCE = new AbsoluteOrRelativeIntValidator();
 	
 	//constructor
-	private RelativeOrAbsoluteIntValidator() {}
+	private AbsoluteOrRelativeIntValidator() {}
 	
 	//method
 	public void assertIsPositive(final IAbsoluteOrRelativeInt absoluteOrRelativeInt) {
