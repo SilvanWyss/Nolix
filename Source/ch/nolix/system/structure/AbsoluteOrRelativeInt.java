@@ -186,7 +186,7 @@ public final class AbsoluteOrRelativeInt extends Element implements IAbsoluteOrR
 	 */
 	private void assertIsAbsolute() {
 		if (!isAbsolute()) {
-			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "integer value");
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "absolute value");
 		}
 	}
 	
