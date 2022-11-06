@@ -34,6 +34,12 @@ public interface IFuture extends FinishRequestable {
 	
 	//method declaration
 	/**
+	 * @return true if the current {@link IFuture} is finished with an error.
+	 */
+	boolean isFinishedWithError();
+	
+	//method declaration
+	/**
 	 * Lets the current {@link IFuture} wait until it is finished.
 	 */
 	void waitUntilIsFinished();

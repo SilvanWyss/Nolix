@@ -25,6 +25,15 @@ public abstract class BaseFuture implements IFuture {
 	 * {@inheritDoc}
 	 */
 	@Override
+	public final boolean isFinishedWithError() {
+		return (isFinished() && caughtError());
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public final void waitUntilIsFinishedSuccessfully() {
 		
 		waitUntilIsFinished();
