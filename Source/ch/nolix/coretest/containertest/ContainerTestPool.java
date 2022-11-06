@@ -18,6 +18,7 @@ public final class ContainerTestPool extends TestPool {
 	public ContainerTestPool() {
 		super(
 			GapMatrixTest.class,
+			ImmutableListTest.class,
 			LinkedListTest.class,
 			MatrixTest.class,
 			ReadContainerTest.class,
