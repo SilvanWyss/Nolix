@@ -68,7 +68,7 @@ public final class UnequalArgumentException extends InvalidArgumentException {
 	private <A> UnequalArgumentException(final A argument, final A value) {
 		
 		//Calls constructor of the base class.
-		super(argument, "does not equal " + value);
+		super(argument, "does not equal the " + value.getClass().getSimpleName() + " '" + value + "'");
 	}
 	
 	//constructor
