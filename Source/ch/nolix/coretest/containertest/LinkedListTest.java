@@ -8,10 +8,10 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.programatom.function.FunctionCatalogue;
 import ch.nolix.core.testing.basetest.TestCase;
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 
 //class
-public final class LinkedListTest extends Test {
+public final class LinkedListTest extends ContainerTest {
 	
 	//method
 	@TestCase
@@ -812,5 +812,17 @@ public final class LinkedListTest extends Test {
 		expect(result.getRefAt1BasedIndex(3)).isEqualTo("xxxx");
 		expect(result.getRefAt1BasedIndex(4)).isEqualTo("xxxxx");
 		expect(result.getRefAt1BasedIndex(5)).isEqualTo("xxxxxx");
+	}
+	
+	//method
+	@Override
+	protected <E> IContainer<E> createContainerWithElements(@SuppressWarnings("unchecked")E... elements) {
+		return LinkedList.fromArray(elements);
+	}
+	
+	//method
+	@Override
+	protected <E> IContainer<E> createEmptyContainer() {
+		return new LinkedList<>();
 	}
 }
