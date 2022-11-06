@@ -4,7 +4,7 @@ package ch.nolix.systemapi.webguiapi.controlstyleapi;
 //own imports
 import ch.nolix.systemapi.elementapi.mainuniversalapi.IRespondingMutableElement;
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;
-import ch.nolix.systemapi.guiapi.textformatapi.Font;
+import ch.nolix.systemapi.guiapi.fontapi.Font;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //interface

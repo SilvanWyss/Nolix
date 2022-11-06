@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemapi.guiapi.textformatapi;
+package ch.nolix.systemapi.guiapi.fontapi;
 
 //class
 /**
