@@ -317,9 +317,12 @@ public final class Matrix<E> extends Container<E> implements Clearable, IMatrix<
 		
 		final var matrix = new Matrix<E>();
 		
-		//Handles the case that the current matrix is not empty.
-		if (containsAny()) {
-			matrix.elements = elements.clone();
+		final var rowCounnt = getRowCount();
+		final var columnCount = getColumnCount();
+		
+		matrix.elements = new Object[rowCounnt][columnCount];
+		for (var i = 0; i < rowCounnt; i++) {
+			matrix.elements[i] = Arrays.copyOf(elements[i], columnCount);
 		}
 		
 		return matrix;
