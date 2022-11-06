@@ -66,6 +66,36 @@ public final class MutableImageTest extends Test {
 	
 	//method
 	@TestCase
+	public void testCase_getCopy_whenOriginIsChangedAfterwards() {
+		
+		//setup
+		final var testUnit =
+		MutableImage
+		.withWidthAndHeightAndWhiteColor(2, 2)
+		.setPixel(1, 1, Color.YELLOW)
+		.setPixel(1, 2, Color.RED)
+		.setPixel(2, 1, Color.GREEN)
+		.setPixel(2, 2, Color.BLUE);
+		
+		//execution
+		final var result = testUnit.getCopy();
+		testUnit
+		.setPixel(1, 1, Color.BLACK)
+		.setPixel(1, 2, Color.BLACK)
+		.setPixel(2, 1, Color.BLACK)
+		.setPixel(2, 2, Color.BLACK);
+		
+		//verification
+		expect(result.getWidth()).isEqualTo(2);
+		expect(result.getHeight()).isEqualTo(2);
+		expect(result.getPixel(1, 1)).isEqualTo(Color.YELLOW);
+		expect(result.getPixel(1, 2)).isEqualTo(Color.RED);
+		expect(result.getPixel(2, 1)).isEqualTo(Color.GREEN);
+		expect(result.getPixel(2, 2)).isEqualTo(Color.BLUE);
+	}
+	
+	//method
+	@TestCase
 	public void testCase_getTopLeftPixel() {
 		
 		//setup
