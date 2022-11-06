@@ -4,10 +4,10 @@ package ch.nolix.coretest.containertest;
 //own imports
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.testing.basetest.TestCase;
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 
 //class
-public final class ReadContainerTest extends Test {
+public final class ReadContainerTest extends ContainerTest {
 	
 	//method
 	@TestCase
@@ -76,5 +76,17 @@ public final class ReadContainerTest extends Test {
 		expect(readContainer.getRefSelected(s -> s.length() == 1).toString()).isEqualTo("A,B,C");
 		expect(readContainer.getRefSelected(s -> s.length() == 2).toString()).isEqualTo("AA,BB,CC");
 		expect(readContainer.getRefSelected(s -> s.length() == 3).toString()).isEqualTo("AAA,BBB,CCC");
+	}
+	
+	//method
+	@Override
+	protected <E> IContainer<E> createContainerWithElements(@SuppressWarnings("unchecked")E... elements) {
+		return ReadContainer.forArray(elements);
+	}
+	
+	//method
+	@Override
+	protected <E> IContainer<E> createEmptyContainer() {
+		return new ReadContainer<>();
 	}
 }
