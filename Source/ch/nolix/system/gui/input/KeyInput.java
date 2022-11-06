@@ -12,7 +12,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.element.main.Element;
 import ch.nolix.systemapi.guiapi.inputapi.IKeyInput;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
-import ch.nolix.systemapi.guiapi.processproperty.KeyInputType;
+import ch.nolix.systemapi.guiapi.inputapi.KeyInputType;
 
 //class
 public final class KeyInput extends Element implements IKeyInput<KeyInput> {
