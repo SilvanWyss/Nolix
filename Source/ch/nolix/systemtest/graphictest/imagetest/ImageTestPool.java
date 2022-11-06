@@ -9,6 +9,6 @@ public final class ImageTestPool extends TestPool {
 	
 	//constructor
 	public ImageTestPool() {
-		super(ImageTest.class);
+		super(MutableImageTest.class);
 	}
 }

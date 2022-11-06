@@ -8,7 +8,7 @@ import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.image.MutableImage;
 
 //class
-public final class ImageTest extends Test {
+public final class MutableImageTest extends Test {
 	
 	//method
 	@TestCase
