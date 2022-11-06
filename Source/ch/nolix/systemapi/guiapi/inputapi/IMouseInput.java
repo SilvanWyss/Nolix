@@ -1,9 +1,6 @@
 //package declaration
 package ch.nolix.systemapi.guiapi.inputapi;
 
-//own imports
-import ch.nolix.systemapi.guiapi.processproperty.MouseInputType;
-
 //interface
 public interface IMouseInput<MI extends IMouseInput<MI>> extends IInput<MI> {
 	

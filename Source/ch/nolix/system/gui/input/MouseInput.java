@@ -12,7 +12,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.discretegeometry.Discrete2DPoint;
 import ch.nolix.system.element.main.Element;
 import ch.nolix.systemapi.guiapi.inputapi.IMouseInput;
-import ch.nolix.systemapi.guiapi.processproperty.MouseInputType;
+import ch.nolix.systemapi.guiapi.inputapi.MouseInputType;
 
 //class
 public final class MouseInput extends Element implements IMouseInput<MouseInput> {

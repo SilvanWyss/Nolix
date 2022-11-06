@@ -1,8 +1,9 @@
 //package declaration
-package ch.nolix.systemapi.guiapi.processproperty;
+package ch.nolix.systemapi.guiapi.inputapi;
 
 //own imports
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
+import ch.nolix.systemapi.guiapi.processproperty.RotationDirection;
 
 //enum
 public enum MouseInputType {
