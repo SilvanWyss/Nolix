@@ -2,27 +2,52 @@
 package ch.nolix.coretest.programcontroltest.sequencertest;
 
 //own imports
+import ch.nolix.core.errorcontrol.exception.GeneralException;
+import ch.nolix.core.programatom.function.FunctionCatalogue;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
-//own imports
-import ch.nolix.core.programcontrol.sequencer.ResultFuture;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 
 //class
 public final class GlobalSequencerTest extends Test {
-
+	
 	//method
 	@TestCase
-	public void testCase_runInBackground() {
-				
+	public void testCase_runInBackground_whenFailingProcessIsGiven() {
+		
 		//execution
-			final ResultFuture<Integer> resultFuture
-			= GlobalSequencer.runInBackground(() -> 2 * 3 * 4 * 5);
-			
-			resultFuture.waitUntilIsFinished();
+		final var result =
+		GlobalSequencer.runInBackground(() -> {throw GeneralException.withErrorMessage("test error");});
+		result.waitUntilIsFinished();
 		
 		//verification
-		expect(resultFuture.isFinishedSuccessfully());
-		expect(resultFuture.getResult()).isEqualTo(120);
+		expect(result.isFinishedWithError());
+		expect(result.getError()).isOfType(GeneralException.class);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_runInBackground_whenPassingProcessIsGiven() {
+		
+		//execution
+		final var result =
+		GlobalSequencer.runInBackground(FunctionCatalogue::doNothing);
+		result.waitUntilIsFinished();
+		
+		//verification
+		expect(result.isFinishedSuccessfully());
+	}
+	
+	//method
+	@TestCase
+	public void testCase_runInBackground_whenFunctionIsGiven() {
+			
+		//execution
+		final var result = GlobalSequencer.runInBackground(() -> 3 + 4);
+		result.waitUntilIsFinished();
+		
+		//verification
+		expect(result.isFinishedSuccessfully());
+		expect(result.getResult()).isEqualTo(7);
 	}
 }
