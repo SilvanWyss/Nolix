@@ -38,7 +38,7 @@ public abstract class BaseNodeTest<BN extends BaseNode<BN>> extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_getRefAttributeAt() {
+	public void testCase_getRefChildNodeAt1BasedIndex() {
 		
 		//setup
 		final var testUnit = createNodeWithHeaderAndChildNodes("a", "b", "c", "d");
@@ -123,7 +123,7 @@ public abstract class BaseNodeTest<BN extends BaseNode<BN>> extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_getRefOneAttribute_1A() {
+	public void testCase_getRefSingleChildNode_1A() {
 		
 		//setup
 		final var testUnit = createNodeWithHeaderAndChildNodes("a", "b");
@@ -138,7 +138,7 @@ public abstract class BaseNodeTest<BN extends BaseNode<BN>> extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_getRefOneAttribute_1B() {
+	public void testCase_getRefSingleChildNode_1B() {
 		
 		//setup
 		final var testUnit = createBlankNode();
