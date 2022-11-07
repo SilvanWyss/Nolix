@@ -27,7 +27,7 @@ public final class TextureCatalogueTest extends Test {
 			expect(texture.getWidth()).isEqualTo(16);
 			expect(texture.getHeight()).isEqualTo(16);
 			
-			for (final var p : texture.getPixles()) {
+			for (final var p : texture.getPixels()) {
 				expect(p.hasFullAlphaValue());
 			}
 		}

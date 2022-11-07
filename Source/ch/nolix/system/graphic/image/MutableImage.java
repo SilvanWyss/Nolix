@@ -44,7 +44,7 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 	
 	//static method
 	public static MutableImage fromAnyImage(final IImage image) {
-		return withPixels(image.getPixles());
+		return withPixels(image.getPixels());
 	}
 	
 	//static method
@@ -235,7 +235,7 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 	
 	//method
 	@Override
-	public Matrix<IColor> getPixles() {
+	public Matrix<IColor> getPixels() {
 		return pixels.getCopy();
 	}
 	

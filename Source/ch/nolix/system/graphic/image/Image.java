@@ -104,8 +104,8 @@ public final class Image extends Element implements IImage {
 	
 	//method
 	@Override
-	public Matrix<IColor> getPixles() {
-		return internalImage.getPixles();
+	public Matrix<IColor> getPixels() {
+		return internalImage.getPixels();
 	}
 	
 	//method

@@ -32,7 +32,7 @@ public interface IImage extends Specified {
 	int getPixelCount();
 	
 	//method declaration
-	IMatrix<IColor> getPixles();
+	IMatrix<IColor> getPixels();
 	
 	//method declaration
 	IMutableImage<?> getSection(int xPosition, int yPosition, int width, int height);
