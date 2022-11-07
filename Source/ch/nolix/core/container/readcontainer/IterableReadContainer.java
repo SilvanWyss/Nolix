@@ -4,11 +4,12 @@ package ch.nolix.core.container.readcontainer;
 //Java imports
 import java.util.Iterator;
 
+//own imports
 import ch.nolix.core.commontype.commontypeconstant.CharacterCatalogue;
 import ch.nolix.core.container.main.Container;
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
@@ -91,9 +92,6 @@ final class IterableReadContainer<E> extends Container<E> {
 	@Override
 	public E getRefAt1BasedIndex(final int p1BasedIndex) {
 		
-		//Asserts that the given index is positive.
-		GlobalValidator.assertThat(p1BasedIndex).thatIsNamed(LowerCaseCatalogue.INDEX).isPositive();
-		
 		//Iterates the current IterableReadContainer.
 		var i = 1;
 		for (final var e : this) {
@@ -106,7 +104,13 @@ final class IterableReadContainer<E> extends Container<E> {
 			i++;
 		}
 		
-		throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "element at " + p1BasedIndex);
+		throw
+		ArgumentIsOutOfRangeException.forArgumentNameAndArgumentAndRangeWithMinAndMax(
+			"1-based index",
+			p1BasedIndex,
+			1,
+			getElementCount()
+		);
 	}
 	
 	//method
