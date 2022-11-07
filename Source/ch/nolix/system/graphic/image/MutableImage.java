@@ -178,7 +178,7 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 	private BufferedImage bufferedImage;
 	
 	//constructor
-	MutableImage(final Matrix<IColor> pixels) {
+	private MutableImage(final Matrix<IColor> pixels) {
 		
 		setWidth(pixels.getColumnCount());
 		setHeight(pixels.getRowCount());
