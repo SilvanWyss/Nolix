@@ -29,7 +29,7 @@ public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extend
 	
 	//method
 	@TestCase
-	public void testCase_reset_1A() {
+	public void testCase_resetFromString_1A() {
 		
 		//setup
 		final var testUnit = createBlankNode();
@@ -45,7 +45,7 @@ public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extend
 	
 	//method
 	@TestCase
-	public void testCase_reset_1B() {
+	public void testCase_resetFromString_1B() {
 		
 		//setup
 		final var testUnit = createBlankNode();
@@ -61,7 +61,7 @@ public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extend
 	
 	//method
 	@TestCase
-	public void testCase_reset_2A() {
+	public void testCase_resetFromString_2A() {
 		
 		//setup
 		final var testUnit = createBlankNode();
@@ -77,7 +77,7 @@ public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extend
 	
 	//method
 	@TestCase
-	public void testCase_reset_2B() {
+	public void testCase_resetFromString_2B() {
 		
 		//setup
 		final var testUnit = createBlankNode();
@@ -93,7 +93,7 @@ public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extend
 	
 	//method
 	@TestCase
-	public void testCase_reset_2C() {
+	public void testCase_resetFromString_2C() {
 		
 		//setup
 		final var testUnit = createBlankNode();
@@ -109,7 +109,7 @@ public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extend
 	
 	//method
 	@TestCase
-	public void testCase_reset_2D() {
+	public void testCase_resetFromString_2D() {
 		
 		//setup
 		final var testUnit = createBlankNode();
@@ -125,7 +125,7 @@ public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extend
 	
 	//method
 	@TestCase
-	public void testCase_reset_3A() {
+	public void testCase_resetFromString_3A() {
 		
 		//setup
 		final var testUnit = createBlankNode();
@@ -141,7 +141,7 @@ public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extend
 	
 	//method
 	@TestCase
-	public void testCase_reset_3B() {
+	public void testCase_resetFromString_3B() {
 		
 		//setup
 		final var testUnit = createBlankNode();
@@ -157,7 +157,7 @@ public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extend
 	
 	//method
 	@TestCase
-	public void testCase_reset_whenTheGivenStringIsNotValid() {
+	public void testCase_resetFromString_whenTheGivenStringIsNotValid() {
 		
 		//setup
 		final var testUnit = createBlankNode();
