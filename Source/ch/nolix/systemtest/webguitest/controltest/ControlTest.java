@@ -4,6 +4,7 @@ package ch.nolix.systemtest.webguitest.controltest;
 //own imports
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
+import ch.nolix.systemapi.guiapi.structureproperty.CursorIcon;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //class
@@ -40,6 +41,31 @@ public abstract class ControlTest<C extends IControl<C, ?>> extends Test {
 			//verification
 			expect(result).isEqualTo(fixedId);
 		}
+	}
+	
+	//method
+	@TestCase
+	public final void testCase_reset() {
+		
+		//setup
+		final var testUnit = createTestUnit();
+		testUnit.setInvisible();
+		testUnit.setMinWidth(1000);
+		testUnit.setMinHeight(500);
+		testUnit.setMaxWidth(1200);
+		testUnit.setMaxHeight(600);
+		testUnit.setCursorIcon(CursorIcon.HAND);
+		
+		//execution
+		testUnit.reset();
+		
+		//verification
+		expect(testUnit.isVisible());
+		expectNot(testUnit.hasMinWidth());
+		expectNot(testUnit.hasMinHeight());
+		expectNot(testUnit.hasMaxWidth());
+		expectNot(testUnit.hasMaxHeight());
+		expect(testUnit.getCursorIcon()).isSameAs(CursorIcon.ARROW);
 	}
 	
 	//method declaration
