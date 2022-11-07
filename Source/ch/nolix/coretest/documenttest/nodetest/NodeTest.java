@@ -4,9 +4,52 @@ package ch.nolix.coretest.documenttest.nodetest;
 //own imports
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.document.node.Node;
+import ch.nolix.core.testing.basetest.TestCase;
 
 //class
 public final class NodeTest extends BaseNodeTest<Node> {
+	
+	//method
+	@TestCase
+	public final void testCase_asWithHeader_1A() {
+		
+		//setup
+		final var testUnit = Node.fromString("a(x,y)");
+		
+		//execution
+		final var result = testUnit.asWithHeader("b");
+		
+		//verification
+		expect(result).hasStringRepresentation("b(x,y)");
+	}
+	
+	//method
+	@TestCase
+	public final void testCase_asWithHeader_1B() {
+		
+		//setup
+		final var testUnit = Node.fromString("(x,y)");
+		
+		//execution
+		final var result = testUnit.asWithHeader("a");
+		
+		//verification
+		expect(result).hasStringRepresentation("a(x,y)");
+	}
+	
+	//method
+	@TestCase
+	public final void testCase_asWithHeader_1C() {
+		
+		//setup
+		final var testUnit = Node.fromString("a");
+		
+		//execution
+		final var result = testUnit.asWithHeader("b");
+		
+		//verification
+		expect(result).hasStringRepresentation("b");
+	}
 	
 	//method
 	@Override
