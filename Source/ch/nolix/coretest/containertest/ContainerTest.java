@@ -494,10 +494,10 @@ public abstract class ContainerTest extends Test {
 		
 		//verification
 		expect(result.length).isEqualTo(4);
-		expect(result[0]).isSameAs(string1);
-		expect(result[1]).isSameAs(string2);
-		expect(result[2]).isSameAs(string3);
-		expect(result[3]).isSameAs(string4);
+		expect(result[0]).is(string1);
+		expect(result[1]).is(string2);
+		expect(result[2]).is(string3);
+		expect(result[3]).is(string4);
 	}
 	
 	//method

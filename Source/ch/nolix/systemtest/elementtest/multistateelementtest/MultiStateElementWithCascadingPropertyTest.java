@@ -59,7 +59,7 @@ public final class MultiStateElementWithCascadingPropertyTest extends Test {
 		final var testUnit = new CustomFormatElement();
 		
 		//verification
-		expect(testUnit.getCurrentState()).isSameAs(CustomState.A);
+		expect(testUnit.getCurrentState()).is(CustomState.A);
 		expect(testUnit.color.getName()).isEqualTo("Color");
 		expectNot(testUnit.color.hasValue());
 	}

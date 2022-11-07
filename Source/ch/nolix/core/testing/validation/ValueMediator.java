@@ -178,7 +178,7 @@ public class ValueMediator<V> extends Mediator {
 	 * 
 	 * @param value
 	 */
-	public final void isSameAs(final Object value) {
+	public final void is(final Object value) {
 		if (getRefValue() != value) {
 			addCurrentTestCaseError("'" + value + "' was expected, but '" + getRefValue() + "' was received.");
 		}
@@ -200,7 +200,7 @@ public class ValueMediator<V> extends Mediator {
 	 * 
 	 * @param value
 	 */
-	public final void isNotSameAs(final Object value) {
+	public final void isNot(final Object value) {
 		if (getRefValue() == value) {
 			addCurrentTestCaseError(
 				"An other value than '" + getRefValue() + "' was expected, but the same value was received."

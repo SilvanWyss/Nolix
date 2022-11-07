@@ -34,7 +34,7 @@ public final class InvalidArgumentExceptionTest extends Test {
 		
 		//verification
 		expect(result.getArgumentName()).isEqualTo("Node");
-		expect(result.getRefArgument()).isSameAs(node);
+		expect(result.getRefArgument()).is(node);
 		expect(result.getErrorPredicate()).isEqualTo("is not valid");
 		expect(result.getMessage()).isEqualTo("The given Node 'Parking(Slot(Id(A)), Slot(Id(B)))' is not valid.");
 	}

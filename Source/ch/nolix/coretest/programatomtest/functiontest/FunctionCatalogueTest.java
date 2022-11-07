@@ -83,7 +83,7 @@ public final class FunctionCatalogueTest extends Test {
 		final var result = FunctionCatalogue.getTypeOf(2500);
 		
 		//verification
-		expect(result).isSameAs(Integer.class);
+		expect(result).is(Integer.class);
 	}
 	
 	//method
@@ -94,7 +94,7 @@ public final class FunctionCatalogueTest extends Test {
 		final var result = FunctionCatalogue.getTypeOf("");
 		
 		//verification
-		expect(result).isSameAs(String.class);
+		expect(result).is(String.class);
 	}
 	
 	//method

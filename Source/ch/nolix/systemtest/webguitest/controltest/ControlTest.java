@@ -65,7 +65,7 @@ public abstract class ControlTest<C extends IControl<C, ?>> extends Test {
 		expectNot(testUnit.hasMinHeight());
 		expectNot(testUnit.hasMaxWidth());
 		expectNot(testUnit.hasMaxHeight());
-		expect(testUnit.getCursorIcon()).isSameAs(CursorIcon.ARROW);
+		expect(testUnit.getCursorIcon()).is(CursorIcon.ARROW);
 	}
 	
 	//method declaration

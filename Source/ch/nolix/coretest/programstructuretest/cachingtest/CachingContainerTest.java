@@ -33,7 +33,7 @@ public final class CachingContainerTest extends Test {
 		final var result = testUnit.getRefById(garfieldId);
 		
 		//verification
-		expect(result).isSameAs(garfield);
+		expect(result).is(garfield);
 	}
 	
 	//method

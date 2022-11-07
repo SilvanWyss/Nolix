@@ -110,7 +110,7 @@ public final class MultiStateElementWithNonCascadingPropertyTest extends Test {
 		final var testUnit = new CustomFormatElement();
 		
 		//verification
-		expect(testUnit.getCurrentState()).isSameAs(CustomState.A);
+		expect(testUnit.getCurrentState()).is(CustomState.A);
 		expect(testUnit.color.getName()).isEqualTo("Color");
 		expectNot(testUnit.color.hasValue());
 	}
@@ -286,7 +286,7 @@ public final class MultiStateElementWithNonCascadingPropertyTest extends Test {
 		testUnit.switchToState(CustomState.A);
 		
 		//verification
-		expect(testUnit.getCurrentState()).isSameAs(CustomState.A);
+		expect(testUnit.getCurrentState()).is(CustomState.A);
 	}
 	
 	//method
@@ -300,7 +300,7 @@ public final class MultiStateElementWithNonCascadingPropertyTest extends Test {
 		testUnit.switchToState(CustomState.B);
 		
 		//verification
-		expect(testUnit.getCurrentState()).isSameAs(CustomState.B);
+		expect(testUnit.getCurrentState()).is(CustomState.B);
 	}
 	
 	//method
@@ -314,7 +314,7 @@ public final class MultiStateElementWithNonCascadingPropertyTest extends Test {
 		testUnit.switchToState(CustomState.C);
 		
 		//verification
-		expect(testUnit.getCurrentState()).isSameAs(CustomState.C);
+		expect(testUnit.getCurrentState()).is(CustomState.C);
 	}
 	
 	//method
@@ -328,6 +328,6 @@ public final class MultiStateElementWithNonCascadingPropertyTest extends Test {
 		testUnit.switchToState(CustomState.D);
 		
 		//verification
-		expect(testUnit.getCurrentState()).isSameAs(CustomState.D);
+		expect(testUnit.getCurrentState()).is(CustomState.D);
 	}
 }
