@@ -24,6 +24,24 @@ public abstract class ControlTest<C extends IControl<C, ?>> extends Test {
 		expect(result).hasLength(11);
 	}
 	
+	//method
+	@TestCase
+	public final void testCase_getFixedId_whenMethodIsCalledSeveralTimes() {
+		
+		//setup
+		final var testUnit = createTestUnit();
+		final var fixedId = testUnit.getFixedId();
+		
+		for (var i = 1; i <= 10_000; i++) {
+			
+			//execution
+			final var result = testUnit.getFixedId();
+			
+			//verification
+			expect(result).isEqualTo(fixedId);
+		}
+	}
+	
 	//method declaration
 	protected abstract C createTestUnit();
 }
