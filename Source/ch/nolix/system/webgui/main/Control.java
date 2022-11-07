@@ -415,6 +415,11 @@ implements IControl<C, CS> {
 	@Override
 	protected final void resetStylableElement() {
 		
+		setVisible();
+		removeMinWidth();
+		removeMinHeight();
+		removeMaxWidth();
+		removeMaxHeight();
 		setCursorIcon(DEFAULT_CURSOR_ICON);
 		
 		resetControl();
