@@ -3,8 +3,8 @@ package ch.nolix.coretest.documenttest.nodetest;
 
 //own imports
 import ch.nolix.core.document.node.BaseNode;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 
@@ -55,13 +55,13 @@ public abstract class BaseNodeTest<BN extends BaseNode<BN>> extends Test {
 		
 		//verification part 2
 		expectRunning(
-			() -> testUnit.getRefChildNodeAt1BasedIndex(-1)).throwsException().ofType(NonPositiveArgumentException.class
+			() -> testUnit.getRefChildNodeAt1BasedIndex(-1)).throwsException().ofType(ArgumentIsOutOfRangeException.class
 		);
 		expectRunning(
-			() -> testUnit.getRefChildNodeAt1BasedIndex(0)).throwsException().ofType(NonPositiveArgumentException.class
+			() -> testUnit.getRefChildNodeAt1BasedIndex(0)).throwsException().ofType(ArgumentIsOutOfRangeException.class
 		);
 		expectRunning(
-			() -> testUnit.getRefChildNodeAt1BasedIndex(4)).throwsException().ofType(InvalidArgumentException.class
+			() -> testUnit.getRefChildNodeAt1BasedIndex(4)).throwsException().ofType(ArgumentIsOutOfRangeException.class
 		);
 	}
 	
