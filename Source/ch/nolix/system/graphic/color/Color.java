@@ -1811,7 +1811,7 @@ public final class Color extends Element implements IColor {
 			redValue,
 			greenValue,
 			blueValue,
-			(int)(256 * floatingPointAlphaValue)
+			(int)(MAX_COLOR_COMPONENT * floatingPointAlphaValue)
 		);
 	}
 	
