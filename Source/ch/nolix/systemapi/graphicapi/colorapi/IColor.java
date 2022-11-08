@@ -8,6 +8,14 @@ import java.awt.Color;
 import ch.nolix.systemapi.elementapi.mainuniversalapi.Specified;
 
 //interface
+/**
+ * A {@link IColor} represents a true color with an alpha value.
+ * A true color consists of a blue, green and red value that are integers in [0, 255].
+ * So, a {@link IColor} consists of a blue, green, red and alpha value that are integers in [0, 255].
+ * 
+ * @author Silvan
+ * @date 2022-05-28
+ */
 public interface IColor extends Specified {
 	
 	//method declaration
@@ -24,7 +32,7 @@ public interface IColor extends Specified {
 	
 	//method declaration
 	/**
-	 * @return the hexadecimal value of the current {@link Color} always with alpha value.
+	 * @return the hexadecimal value of the current {@link IColor} always with alpha value.
 	 */
 	String getHexadecimalValueAlwaysWithAlphaValue();
 	
@@ -48,7 +56,7 @@ public interface IColor extends Specified {
 	
 	//method declaration
 	/**
-	 * @return an integer that represents the current {@link Color} in the schema alpha-red-green-blue.
+	 * @return an integer that represents the current {@link IColor} in the schema alpha-red-green-blue.
 	 */
 	int toAlphaRedGreenBlueValue();
 	
@@ -60,14 +68,14 @@ public interface IColor extends Specified {
 	
 	//method declaration
 	/**
-	 * @param alphaValue
-	 * @return a new {@link IColor} from the current {@link Color} with the given alphaValue.
+	 * @param floatingPointNumberAlphaValue
+	 * @return a new {@link IColor} from the current {@link IColor} with the given floatingPointNumberAlphaValue.
 	 */
-	IColor withAlphaValue(final double alphaValue);
+	IColor withFloatingPointNumberAlphaValue(final double floatingPointNumberAlphaValue);
 	
 	//method declaration
 	/**
-	 * @return a new {@link IColor} from the current {@link Color} with a full alpha value.
+	 * @return a new {@link IColor} from the current {@link IColor} with a full alpha value.
 	 */
 	IColor withFullAlphaValue();
 }

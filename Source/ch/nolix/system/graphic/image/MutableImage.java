@@ -488,7 +488,7 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 		
 		final var lPixels = new Matrix<IColor>();
 		for (final var r : pixels.getRows()) {
-			lPixels.addRow(r.to(p -> p.withAlphaValue(alphaValue)));
+			lPixels.addRow(r.to(p -> p.withFloatingPointNumberAlphaValue(alphaValue)));
 		}
 		
 		return new MutableImage(lPixels);

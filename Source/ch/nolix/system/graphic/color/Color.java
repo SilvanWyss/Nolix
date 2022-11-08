@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.graphic.color;
 
+//own imports
 import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.container.pair.Pair;
@@ -17,9 +18,6 @@ import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 
 //class
 /**
- * A {@link Color} represents a true color with an alpha value.
- * A true color consists of a blue, green and red value that are integers in [0, 255].
- * So a {@link Color} consists of a blue, green, red and alpha value that are integers in [0, 255].
  * A {@link Color} is not mutable.
  * 
  * @author Silvan Wyss
@@ -1329,19 +1327,23 @@ public final class Color extends Element implements IColor {
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public IColor withAlphaValue(final double alphaValue) {
+	public IColor withFloatingPointNumberAlphaValue(final double floatingPointNumberAlphaValue) {
 		
-		GlobalValidator.assertThat(alphaValue).thatIsNamed("alpha value").isBetween(0.0, 1.0);
+		GlobalValidator
+		.assertThat(floatingPointNumberAlphaValue)
+		.thatIsNamed("floating point number alpha value")
+		.isBetween(0.0, 1.0);
 		
 		return withRedValueAndGreenValueAndBlueValueAndAlphaValue(
-			getRedValue(),
-			getGreenValue(),
-			getBlueValue(),
-			(int)(256 * alphaValue)
+			redValue,
+			greenValue,
+			blueValue,
+			(int)(256 * floatingPointNumberAlphaValue)
 		);
 	}
 	
