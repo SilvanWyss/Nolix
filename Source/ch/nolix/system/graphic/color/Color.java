@@ -1642,15 +1642,7 @@ public final class Color extends Element implements IColor {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public int getGreenValue() {
-		return greenValue;
-	}
-	
-	//method
-	/**
-	 * @return the hexadecimal value of the current {@link Color} or its color name.
-	 */
-	public String getHexadecimalValueOrColorName() {
+	public String getColorNameOrHexadecimalString() {
 		
 		final var pair = WEB_COLOR_NAMES.getRefFirstOrNull(wc -> wc.getRefElement2().equals(this));
 		
@@ -1660,6 +1652,15 @@ public final class Color extends Element implements IColor {
 		}
 		
 		return toHexadecimalString();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public int getGreenValue() {
+		return greenValue;
 	}
 	
 	//method

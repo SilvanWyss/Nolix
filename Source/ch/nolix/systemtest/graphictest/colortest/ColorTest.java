@@ -113,7 +113,7 @@ public final class ColorTest extends Test {
 		final var color = Color.fromValue(Color.ALICE_BLUE_INT);
 		
 		//execution
-		final var result = color.getHexadecimalValueOrColorName();
+		final var result = color.getColorNameOrHexadecimalString();
 		
 		//verification
 		expect(result).isEqualTo("AliceBlue");
@@ -127,7 +127,7 @@ public final class ColorTest extends Test {
 		final var color = Color.fromValue(Color.YELLOW_GREEN_INT);
 		
 		//execution
-		final var result = color.getHexadecimalValueOrColorName();
+		final var result = color.getColorNameOrHexadecimalString();
 		
 		//verification
 		expect(result).isEqualTo("YellowGreen");

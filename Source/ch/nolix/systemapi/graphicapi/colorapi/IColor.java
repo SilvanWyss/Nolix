@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.graphicapi.colorapi;
 
+//own imports
 import ch.nolix.systemapi.elementapi.mainuniversalapi.Specified;
 
 //interface
@@ -25,6 +26,12 @@ public interface IColor extends Specified {
 	 * @return the blue value of the current {@link IColor}.
 	 */
 	int getBlueValue();
+	
+	//method declaration
+	/**
+	 * @return the color name or a hexadecimal {@link String} representation of the current {@link IColor}.
+	 */
+	String getColorNameOrHexadecimalString();
 	
 	//method declaration
 	/**
