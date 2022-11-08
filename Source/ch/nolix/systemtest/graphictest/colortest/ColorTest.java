@@ -14,14 +14,14 @@ public final class ColorTest extends Test {
 	public void testCase_equals_whenGivenColorIsEqual() {
 		
 		//setup
-		final var color1 = Color.fromString("0x102030");
-		final var color2 = Color.fromString("0x102030");
+		final var testUnit1 = Color.fromString("0x102030");
+		final var color = Color.fromString("0x102030");
 		
 		//execution
-		final var equals = color1.equals(color2);
+		final var result = testUnit1.equals(color);
 		
 		//verification
-		expect(equals);
+		expect(result);
 	}
 	
 	//method
@@ -29,14 +29,14 @@ public final class ColorTest extends Test {
 	public void testCase_equals_whenGivenColorIsNotEqual() {
 		
 		//setup
-		final var color1 = Color.fromString("0x102030");
-		final var color2 = Color.fromString("0x101010");
+		final var testUnit = Color.fromString("0x102030");
+		final var color = Color.fromString("0x101010");
 		
 		//execution
-		final var equals = color1.equals(color2);
+		final var result = testUnit.equals(color);
 		
 		//verification
-		expectNot(equals);
+		expectNot(result);
 	}
 	
 	//method
@@ -44,11 +44,10 @@ public final class ColorTest extends Test {
 	public void testCase_fromString_1A() {
 		
 		//execution
-		final var color = Color.fromString("0x000000");
+		final var result = Color.fromString("0x000000");
 		
 		//verification
-		expect(color.toLong()).isEqualTo(0);
-		expect(color.hasFullAlphaValue());
+		expect(result.toHexadecimalString()).isEqualTo("0x000000");
 	}
 	
 	//method
@@ -56,11 +55,10 @@ public final class ColorTest extends Test {
 	public void testCase_fromString_1B() {
 		
 		//execution
-		final var color = Color.fromString("0xFFFFFF");
+		final var result = Color.fromString("0xFFFFFF");
 		
 		//verification
-		expect(color.toLong()).isEqualTo(16_777_215);
-		expect(color.hasFullAlphaValue());
+		expect(result.toHexadecimalString()).isEqualTo("0xFFFFFF");
 	}
 
 	//method
@@ -68,13 +66,13 @@ public final class ColorTest extends Test {
 	public void testCase_getAlphaValue() {
 		
 		//setup
-		final var color = Color.fromString("0x102030A0");
+		final var testUnit = Color.fromString("0x102030A0");
 		
 		//execution
-		final var alphaValue = color.getAlphaValue();
+		final var result = testUnit.getAlphaValue();
 		
 		//verification
-		expect(alphaValue).isEqualTo(0xA0);
+		expect(result).isEqualTo(0xA0);
 	}
 	
 	//method
@@ -82,13 +80,13 @@ public final class ColorTest extends Test {
 	public void testCase_getBlueValue() {
 		
 		//setup
-		final var color = Color.fromString("0x102030A0");
+		final var testUnit = Color.fromString("0x102030A0");
 		
 		//execution
-		final var blueValue = color.getBlueValue();
+		final var result = testUnit.getBlueValue();
 		
 		//verification
-		expect(blueValue).isEqualTo(0x30);
+		expect(result).isEqualTo(0x30);
 	}
 	
 	//method
@@ -96,13 +94,13 @@ public final class ColorTest extends Test {
 	public void testCase_getGreenValue() {
 		
 		//setup
-		final var color = Color.fromString("0x102030A0");
+		final var testUnit = Color.fromString("0x102030A0");
 		
 		//execution
-		final var greenValue = color.getGreenValue();
+		final var result = testUnit.getGreenValue();
 		
 		//verification
-		expect(greenValue).isEqualTo(0x20);
+		expect(result).isEqualTo(0x20);
 	}
 	
 	//method
@@ -110,10 +108,10 @@ public final class ColorTest extends Test {
 	public void testCase_getColorNameOrHexadecimalString_1A() {
 		
 		//setup
-		final var color = Color.fromLong(Color.ALICE_BLUE_INT);
+		final var testUnit = Color.ALICE_BLUE;
 		
 		//execution
-		final var result = color.getColorNameOrHexadecimalString();
+		final var result = testUnit.getColorNameOrHexadecimalString();
 		
 		//verification
 		expect(result).isEqualTo("AliceBlue");
@@ -124,10 +122,10 @@ public final class ColorTest extends Test {
 	public void testCase_getColorNameOrHexadecimalString_1B() {
 		
 		//setup
-		final var color = Color.fromLong(Color.YELLOW_GREEN_INT);
+		final var testUnit = Color.YELLOW_GREEN;
 		
 		//execution
-		final var result = color.getColorNameOrHexadecimalString();
+		final var result = testUnit.getColorNameOrHexadecimalString();
 		
 		//verification
 		expect(result).isEqualTo("YellowGreen");
@@ -138,13 +136,13 @@ public final class ColorTest extends Test {
 	public void testCase_getInvertedColor_1A() {
 		
 		//setup
-		final var color = Color.fromLong(0x000000);
+		final var testUnit = Color.fromLong(0x000000);
 		
 		//execution
-		final var invertedColor = color.getInvertedColor();
+		final var result = testUnit.getInvertedColor();
 		
 		//verification
-		expect(invertedColor.toLong()).isEqualTo(0xFFFFFF);
+		expect(result.toHexadecimalString()).isEqualTo("0xFFFFFF");
 	}
 	
 	//method
@@ -152,13 +150,13 @@ public final class ColorTest extends Test {
 	public void testCase_getInvertedColor_1B() {
 		
 		//setup
-		final var color = Color.fromLong(0xFFFFFF);
+		final var testUnit = Color.fromLong(0xFFFFFF);
 		
 		//execution
-		final var invertedColor = color.getInvertedColor();
+		final var result = testUnit.getInvertedColor();
 		
 		//verification
-		expect(invertedColor.toLong()).isEqualTo(0x000000);
+		expect(result.toHexadecimalString()).isEqualTo("0x000000");
 	}
 	
 	//method
@@ -166,13 +164,13 @@ public final class ColorTest extends Test {
 	public void testCase_getRedValue() {
 		
 		//setup
-		final var color = Color.fromString("0x102030A0");
+		final var testUnit = Color.fromString("0x102030A0");
 		
 		//execution
-		final var redValue = color.getRedValue();
+		final var result = testUnit.getRedValue();
 		
 		//verification
-		expect(redValue).isEqualTo(0x10);
+		expect(result).isEqualTo(0x10);
 	}
 	
 	//method
@@ -180,13 +178,13 @@ public final class ColorTest extends Test {
 	public void testCase_getSpecification() {
 		
 		//setup
-		final var color = Color.fromString("0x102030");
+		final var testUnit = Color.fromString("0x102030");
 		
 		//execution
-		final var specification = color.getSpecification();
+		final var result = testUnit.getSpecification();
 		
 		//verification
-		expect(specification.toString()).isEqualTo("Color(0x102030)");
+		expect(result).hasStringRepresentation("Color(0x102030)");
 	}
 	
 	//method
@@ -194,13 +192,13 @@ public final class ColorTest extends Test {
 	public void testCase_getSpecificationAs() {
 		
 		//setup
-		final var color = Color.fromString("0x102030");
+		final var testUnit = Color.fromString("0x102030");
 		
 		//execution
-		final var specification = color.getSpecificationWithHeader("BackgroundColor");
+		final var result = testUnit.getSpecificationWithHeader("BackgroundColor");
 		
 		//verification
-		expect(specification.toString()).isEqualTo("BackgroundColor(0x102030)");
+		expect(result).hasStringRepresentation("BackgroundColor(0x102030)");
 	}
 	
 	//method
@@ -211,10 +209,24 @@ public final class ColorTest extends Test {
 		final var testUnit = Color.fromString("0x10203000");
 		
 		//execution
-		final var result = testUnit.withAlphaValue(100);
+		final var result = testUnit.withAlphaValue(160);
 		
 		//verification
-		expect(result.toHexadecimalString()).isEqualTo("0x10203064");
+		expect(result.toHexadecimalString()).isEqualTo("0x102030A0");
+	}
+	
+	//method
+	@TestCase
+	public void testCase_withAlphaValue_1B() {
+		
+		//setup
+		final var testUnit = Color.fromString("0x10203000");
+		
+		//execution
+		final var result = testUnit.withAlphaValue(0);
+		
+		//verification
+		expect(result.toHexadecimalString()).isEqualTo("0x10203000");
 	}
 	
 	//method
@@ -222,13 +234,13 @@ public final class ColorTest extends Test {
 	public void testCase_withFullAlphaValue_1A() {
 		
 		//setup
-		final var color = Color.fromString("0x102030");
+		final var testUnit = Color.fromString("0x102030");
 		
 		//execution
-		final var colorWithFullAlphaValue = color.withFullAlphaValue();
+		final var result = testUnit.withFullAlphaValue();
 		
 		//verification
-		expect(colorWithFullAlphaValue.getAlphaValue()).isEqualTo(255);
+		expect(result.toHexadecimalString()).isEqualTo("0x102030");
 	}
 	
 	//method
@@ -236,12 +248,12 @@ public final class ColorTest extends Test {
 	public void testCase_withFullAlphaValue_1B() {
 		
 		//setup
-		final var color = Color.fromString("0x102030A0");
+		final var testUnit = Color.fromString("0x102030A0");
 		
 		//execution
-		final var colorWithFullAlphaValue = color.withFullAlphaValue();
+		final var result = testUnit.withFullAlphaValue();
 		
 		//verification
-		expect(colorWithFullAlphaValue.getAlphaValue()).isEqualTo(255);
+		expect(result.toHexadecimalString()).isEqualTo("0x102030");
 	}
 }
