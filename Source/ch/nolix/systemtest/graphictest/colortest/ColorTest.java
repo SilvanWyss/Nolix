@@ -209,10 +209,10 @@ public final class ColorTest extends Test {
 		final var testUnit = Color.fromString("0x10203000");
 		
 		//execution
-		final var result = testUnit.withAlphaValue(160);
+		final var result = testUnit.withAlphaValue(0);
 		
 		//verification
-		expect(result.toHexadecimalString()).isEqualTo("0x102030A0");
+		expect(result.toHexadecimalString()).isEqualTo("0x10203000");
 	}
 	
 	//method
@@ -223,10 +223,52 @@ public final class ColorTest extends Test {
 		final var testUnit = Color.fromString("0x10203000");
 		
 		//execution
-		final var result = testUnit.withAlphaValue(0);
+		final var result = testUnit.withAlphaValue(160);
+		
+		//verification
+		expect(result.toHexadecimalString()).isEqualTo("0x102030A0");
+	}
+	
+	//method
+	@TestCase
+	public void testCase_withFloatingPointAlphaValue_1A() {
+		
+		//setup
+		final var testUnit = Color.fromString("0x102030");
+		
+		//execution
+		final var result = testUnit.withFloatingPointAlphaValue(0.0);
 		
 		//verification
 		expect(result.toHexadecimalString()).isEqualTo("0x10203000");
+	}
+	
+	//method
+	@TestCase
+	public void testCase_withFloatingPointAlphaValue_1B() {
+		
+		//setup
+		final var testUnit = Color.fromString("0x102030");
+		
+		//execution
+		final var result = testUnit.withFloatingPointAlphaValue(0.5);
+		
+		//verification
+		expect(result.toHexadecimalString()).isEqualTo("0x1020307F");
+	}
+	
+	//method
+	@TestCase
+	public void testCase_withFloatingPointAlphaValue_1C() {
+		
+		//setup
+		final var testUnit = Color.fromString("0x102030");
+		
+		//execution
+		final var result = testUnit.withFloatingPointAlphaValue(1.0);
+		
+		//verification
+		expect(result.toHexadecimalString()).isEqualTo("0x102030");
 	}
 	
 	//method
