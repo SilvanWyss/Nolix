@@ -6,6 +6,10 @@ import ch.nolix.systemapi.elementapi.mainuniversalapi.Specified;
 import ch.nolix.systemapi.guiapi.structureproperty.DirectionInRectangle;
 
 //interface
+/**
+ * @author Silvan Wyss
+ * @date 2022-05-28
+ */
 public interface IColorGradient extends Specified {
 	
 	//method declaration
