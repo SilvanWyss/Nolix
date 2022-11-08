@@ -107,7 +107,7 @@ public final class ColorTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_getHexadecimalValueOrColorName_1A() {
+	public void testCase_getColorNameOrHexadecimalString_1A() {
 		
 		//setup
 		final var color = Color.fromLong(Color.ALICE_BLUE_INT);
@@ -121,7 +121,7 @@ public final class ColorTest extends Test {
 
 	//method
 	@TestCase
-	public void testCase_getHexadecimalValueOrColorName_1B() {
+	public void testCase_getColorNameOrHexadecimalString_1B() {
 		
 		//setup
 		final var color = Color.fromLong(Color.YELLOW_GREEN_INT);
@@ -205,7 +205,7 @@ public final class ColorTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_toColorWithFullAlphaValue_1A() {
+	public void testCase_withFullAlphaValue_1A() {
 		
 		//setup
 		final var color = Color.fromString("0x102030");
@@ -219,7 +219,7 @@ public final class ColorTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_toColorWithFullAlphaValue_1B() {
+	public void testCase_withFullAlphaValue_1B() {
 		
 		//setup
 		final var color = Color.fromString("0x102030A0");
