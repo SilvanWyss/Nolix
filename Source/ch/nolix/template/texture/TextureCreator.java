@@ -20,9 +20,9 @@ final class TextureCreator {
 		
 		final var texture = MutableImage.withWidthAndHeightAndWhiteColor(16, 16);
 		
-		final var color1 = Color.fromValue(0x808080);
-		final var color2 = Color.fromValue(0xC0C0C0);
-		final var color3 = Color.fromValue(0xA0A0A0);
+		final var color1 = Color.fromLong(0x808080);
+		final var color2 = Color.fromLong(0xC0C0C0);
+		final var color3 = Color.fromLong(0xA0A0A0);
 		
 		for (var x = 1; x <= texture.getWidth(); x++) {
 			for (var y = 1; y <= texture.getHeight(); y++) {
@@ -44,9 +44,9 @@ final class TextureCreator {
 		
 		final var texture = MutableImage.withWidthAndHeightAndWhiteColor(16, 16);
 		
-		final var mainColor = Color.fromValue(0xE0D0B0);
-		final var darkerStripeColor = Color.fromValue(0xC0B080);
-		final var knotholeColor = Color.fromValue(0x807060);
+		final var mainColor = Color.fromLong(0xE0D0B0);
+		final var darkerStripeColor = Color.fromLong(0xC0B080);
+		final var knotholeColor = Color.fromLong(0x807060);
 		
 		for (var x = 1; x <= texture.getWidth(); x++) {
 			for (var y = 1; y <= texture.getHeight(); y++) {
@@ -68,9 +68,9 @@ final class TextureCreator {
 		
 		final var texture = MutableImage.withWidthAndHeightAndWhiteColor(16, 16);
 		
-		final var color1 = Color.fromValue(0xC0C0A0);
-		final var color2 = Color.fromValue(0x808060);
-		final var color3 = Color.fromValue(0xA0A080);
+		final var color1 = Color.fromLong(0xC0C0A0);
+		final var color2 = Color.fromLong(0x808060);
+		final var color3 = Color.fromLong(0xA0A080);
 		
 		for (var x = 1; x <= texture.getWidth(); x++) {
 			for (var y = 1; y <= texture.getHeight(); y++) {							
@@ -92,9 +92,9 @@ final class TextureCreator {
 		
 		final var texture = MutableImage.withWidthAndHeightAndWhiteColor(16, 16);
 		
-		final var color1 = Color.fromValue(0xEFEFCF);
-		final var color2 = Color.fromValue(0xCFAF4F);
-		final var color3 = Color.fromValue(0x4F2F00);
+		final var color1 = Color.fromLong(0xEFEFCF);
+		final var color2 = Color.fromLong(0xCFAF4F);
+		final var color3 = Color.fromLong(0x4F2F00);
 		
 		for (var x = 1; x <= texture.getWidth(); x++) {
 			for (var y = 1; y <= texture.getHeight(); y++) {
@@ -116,9 +116,9 @@ final class TextureCreator {
 		
 		final var texture = MutableImage.withWidthAndHeightAndWhiteColor(16, 16);
 		
-		final var color1 = Color.fromValue(0x282820);
-		final var color2 = Color.fromValue(0x888880);
-		final var color3 = Color.fromValue(0xF8F8F0);
+		final var color1 = Color.fromLong(0x282820);
+		final var color2 = Color.fromLong(0x888880);
+		final var color3 = Color.fromLong(0xF8F8F0);
 		
 		for (var x = 1; x <= texture.getWidth(); x++) {
 			for (var y = 1; y <= texture.getHeight(); y++) {							

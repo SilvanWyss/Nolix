@@ -110,7 +110,7 @@ public final class ColorTest extends Test {
 	public void testCase_getHexadecimalValueOrColorName_1A() {
 		
 		//setup
-		final var color = Color.fromValue(Color.ALICE_BLUE_INT);
+		final var color = Color.fromLong(Color.ALICE_BLUE_INT);
 		
 		//execution
 		final var result = color.getColorNameOrHexadecimalString();
@@ -124,7 +124,7 @@ public final class ColorTest extends Test {
 	public void testCase_getHexadecimalValueOrColorName_1B() {
 		
 		//setup
-		final var color = Color.fromValue(Color.YELLOW_GREEN_INT);
+		final var color = Color.fromLong(Color.YELLOW_GREEN_INT);
 		
 		//execution
 		final var result = color.getColorNameOrHexadecimalString();
@@ -138,7 +138,7 @@ public final class ColorTest extends Test {
 	public void testCase_getInvertedColor_1A() {
 		
 		//setup
-		final var color = Color.fromValue(0x000000);
+		final var color = Color.fromLong(0x000000);
 		
 		//execution
 		final var invertedColor = color.getInvertedColor();
@@ -152,7 +152,7 @@ public final class ColorTest extends Test {
 	public void testCase_getInvertedColor_1B() {
 		
 		//setup
-		final var color = Color.fromValue(0xFFFFFF);
+		final var color = Color.fromLong(0xFFFFFF);
 		
 		//execution
 		final var invertedColor = color.getInvertedColor();
