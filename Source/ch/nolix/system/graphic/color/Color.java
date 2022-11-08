@@ -1753,15 +1753,6 @@ public final class Color extends Element implements IColor {
 	//method
 	//For a better performance, this implementation does not use all comfortable methods.
 	/**
-	 * @return true if the current {@link Color} has an alpha value.
-	 */
-	public boolean hasAlphaValue() {
-		return (alphaValue > 0);
-	}
-	
-	//method
-	//For a better performance, this implementation does not use all comfortable methods.
-	/**
 	 * {@inheritDoc}
 	 */
 	@Override
