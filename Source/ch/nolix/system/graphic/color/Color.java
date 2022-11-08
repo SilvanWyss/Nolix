@@ -1300,15 +1300,6 @@ public final class Color extends Element implements IColor {
 	//method
 	//For a better performance, this implementation does not use all comfortable methods.
 	/**
-	 * @return a new {@link Color} that is like the current {@link Color} with a full alpha value.
-	 */
-	public Color toColorWithFullAlphaValue() {
-		return new Color(redValue, greenValue, blueValue);
-	}
-	
-	//method
-	//For a better performance, this implementation does not use all comfortable methods.
-	/**
 	 * {@inheritDoc}
 	 */
 	public java.awt.Color toSwingColor() {
@@ -1352,6 +1343,16 @@ public final class Color extends Element implements IColor {
 			getBlueValue(),
 			(int)(256 * alphaValue)
 		);
+	}
+	
+	//method
+	//For a better performance, this implementation does not use all comfortable methods.
+	/**
+	 * @return a new {@link Color} that is like the current {@link Color} with a full alpha value.
+	 */
+	@Override
+	public Color withFullAlphaValue() {
+		return new Color(redValue, greenValue, blueValue);
 	}
 	
 	//method

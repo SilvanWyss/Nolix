@@ -64,4 +64,10 @@ public interface IColor extends Specified {
 	 * @return a new {@link IColor} from the current {@link Color} with the given alphaValue.
 	 */
 	IColor withAlphaValue(final double alphaValue);
+	
+	//method declaration
+	/**
+	 * @return a new {@link IColor} from the current {@link Color} with a full alpha value.
+	 */
+	IColor withFullAlphaValue();
 }

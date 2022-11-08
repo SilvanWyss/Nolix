@@ -211,7 +211,7 @@ public final class ColorTest extends Test {
 		final var color = Color.fromString("0x102030");
 		
 		//execution
-		final var colorWithFullAlphaValue = color.toColorWithFullAlphaValue();
+		final var colorWithFullAlphaValue = color.withFullAlphaValue();
 		
 		//verification
 		expect(colorWithFullAlphaValue.getAlphaValue()).isEqualTo(255);
@@ -225,7 +225,7 @@ public final class ColorTest extends Test {
 		final var color = Color.fromString("0x102030A0");
 		
 		//execution
-		final var colorWithFullAlphaValue = color.toColorWithFullAlphaValue();
+		final var colorWithFullAlphaValue = color.withFullAlphaValue();
 		
 		//verification
 		expect(colorWithFullAlphaValue.getAlphaValue()).isEqualTo(255);
