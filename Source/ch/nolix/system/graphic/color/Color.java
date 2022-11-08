@@ -1876,10 +1876,10 @@ public final class Color extends Element implements IColor {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public IColor withFloatingPointNumberAlphaValue(final double floatingPointNumberAlphaValue) {
+	public IColor withFloatingPointAlphaValue(final double floatingPointAlphaValue) {
 		
 		GlobalValidator
-		.assertThat(floatingPointNumberAlphaValue)
+		.assertThat(floatingPointAlphaValue)
 		.thatIsNamed("floating point number alpha value")
 		.isBetween(0.0, 1.0);
 		
@@ -1887,7 +1887,7 @@ public final class Color extends Element implements IColor {
 			redValue,
 			greenValue,
 			blueValue,
-			(int)(256 * floatingPointNumberAlphaValue)
+			(int)(256 * floatingPointAlphaValue)
 		);
 	}
 	

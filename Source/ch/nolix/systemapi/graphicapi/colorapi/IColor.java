@@ -74,10 +74,10 @@ public interface IColor extends Specified {
 	
 	//method declaration
 	/**
-	 * @param floatingPointNumberAlphaValue
-	 * @return a new {@link IColor} from the current {@link IColor} with the given floatingPointNumberAlphaValue.
+	 * @param floatingPointAlphaValue
+	 * @return a new {@link IColor} from the current {@link IColor} with the given floatingPointAlphaValue.
 	 */
-	IColor withFloatingPointNumberAlphaValue(final double floatingPointNumberAlphaValue);
+	IColor withFloatingPointAlphaValue(final double floatingPointAlphaValue);
 	
 	//method declaration
 	/**
