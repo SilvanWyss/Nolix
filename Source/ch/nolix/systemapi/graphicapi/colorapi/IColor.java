@@ -81,6 +81,12 @@ public interface IColor extends Specified {
 	 */
 	String toHexadecimalStringWithAlphaValue();
 	
+	//method declaration
+	/**
+	 * @return a long representation of the current {@link IColor}.
+	 */
+	long toLong();
+	
 	//method
 	/**
 	 * @param alphaValue

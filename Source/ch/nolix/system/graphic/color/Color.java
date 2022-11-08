@@ -1835,9 +1835,10 @@ public final class Color extends Element implements IColor {
 	
 	//method
 	/**
-	 * @return the integer value of the current {@link Color}.
+	 * {@inheritDoc}
 	 */
-	public long toValue() {
+	@Override
+	public long toLong() {
 		
 		//Handles the case that the current Color does not have a full alpha value.
 		if (!hasFullAlphaValue()) {
