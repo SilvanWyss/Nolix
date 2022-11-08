@@ -65,9 +65,9 @@ public interface IColor extends Specified {
 	
 	//method declaration
 	/**
-	 * @return an integer that represents the current {@link IColor} in the schema alpha-red-green-blue.
+	 * @return an integer representation of the current {@link IColor} with the schema alpha-red-green-blue.
 	 */
-	int toAlphaRedGreenBlueValue();
+	int toAlphaRedGreenBlueInt();
 	
 	//method declaration
 	/**

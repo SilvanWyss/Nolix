@@ -1727,7 +1727,7 @@ public final class Color extends Element implements IColor {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public int toAlphaRedGreenBlueValue() {
+	public int toAlphaRedGreenBlueInt() {
 		return ((getAlphaValue() << 24) | (getRedValue() << 16) | (getGreenValue() << 8) | getBlueValue());
 	}
 	

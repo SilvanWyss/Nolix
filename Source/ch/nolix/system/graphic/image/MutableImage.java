@@ -509,7 +509,7 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 				
 				final var pixel = pixels.getRefAt(y + 1, x + 1);
 				
-				lBufferedImage.setRGB(x, y, pixel.toAlphaRedGreenBlueValue());
+				lBufferedImage.setRGB(x, y, pixel.toAlphaRedGreenBlueInt());
 			}
 		}
 		
@@ -525,7 +525,7 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 				
 				final var pixel = pixels.getRefAt(y + 1, x + 1);
 				
-				lBufferedImage.setRGB(x, y, pixel.toAlphaRedGreenBlueValue());
+				lBufferedImage.setRGB(x, y, pixel.toAlphaRedGreenBlueInt());
 			}
 		}
 		
