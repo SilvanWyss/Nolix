@@ -1772,8 +1772,9 @@ public final class Color extends Element implements IColor {
 	//method
 	//For a better performance, this implementation does not use all comfortable methods.
 	/**
-	 * @return true if the current {@link Color} has a full blue value.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public boolean hasFullBlueValue() {
 		return (blueValue == MAX_COLOR_COMPONENT);
 	}
@@ -1781,8 +1782,9 @@ public final class Color extends Element implements IColor {
 	//method
 	//For a better performance, this implementation does not use all comfortable methods.
 	/**
-	 * @return true if the current {@link Color} has a full green value.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public boolean hasFullGreenValue() {
 		return (greenValue == MAX_COLOR_COMPONENT);
 	}
@@ -1790,8 +1792,9 @@ public final class Color extends Element implements IColor {
 	//method
 	//For a better performance, this implementation does not use all comfortable methods.
 	/**
-	 * @return true if the current {@link Color} has a full red value.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public boolean hasFullRedValue() {
 		return (redValue == MAX_COLOR_COMPONENT);
 	}

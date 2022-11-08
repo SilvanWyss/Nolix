@@ -50,6 +50,24 @@ public interface IColor extends Specified {
 	
 	//method declaration
 	/**
+	 * @return true if the current {@link IColor} has a full blue value.
+	 */
+	boolean hasFullBlueValue();
+	
+	//method declaration
+	/**
+	 * @return true if the current {@link IColor} has a full green value.
+	 */
+	boolean hasFullGreenValue();
+	
+	//method declaration
+	/**
+	 * @return true if the current {@link IColor} has a full red value.
+	 */
+	boolean hasFullRedValue();
+	
+	//method declaration
+	/**
 	 * @return an integer that represents the current {@link IColor} in the schema alpha-red-green-blue.
 	 */
 	int toAlphaRedGreenBlueValue();
