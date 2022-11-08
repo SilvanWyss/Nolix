@@ -1,7 +1,6 @@
 //package declaration
 package ch.nolix.systemapi.graphicapi.colorapi;
 
-//own imports
 import ch.nolix.systemapi.elementapi.mainuniversalapi.Specified;
 
 //interface
@@ -32,6 +31,14 @@ public interface IColor extends Specified {
 	 * @return the green value of the current {@link IColor}.
 	 */
 	int getGreenValue();
+	
+	//method declaration
+	/**
+	 * The inverted {@link IColor} of a {@link IColor} has the same alpha value.
+	 * 
+	 * @return the inverted {@link IColor} of the current {@link IColor}.
+	 */
+	IColor getInvertedColor();
 	
 	//method declaration
 	/**

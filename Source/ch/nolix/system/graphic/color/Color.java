@@ -1660,10 +1660,9 @@ public final class Color extends Element implements IColor {
 	//method
 	//For a better performance, this implementation does not use all comfortable methods.
 	/**
-	 * When a {@link Color} is inverted, the alpha value does not change.
-	 * 
-	 * @return a new {@link Color} that is the inverted color of the current {@link Color}.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public Color getInvertedColor() {
 		return
 		new Color(
