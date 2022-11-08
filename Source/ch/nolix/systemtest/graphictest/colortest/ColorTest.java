@@ -205,6 +205,20 @@ public final class ColorTest extends Test {
 	
 	//method
 	@TestCase
+	public void testCase_withAlphaValue_1A() {
+		
+		//setup
+		final var testUnit = Color.fromString("0x10203000");
+		
+		//execution
+		final var result = testUnit.withAlphaValue(100);
+		
+		//verification
+		expect(result.toHexadecimalString()).isEqualTo("0x10203064");
+	}
+	
+	//method
+	@TestCase
 	public void testCase_withFullAlphaValue_1A() {
 		
 		//setup
