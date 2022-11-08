@@ -90,12 +90,19 @@ public interface IColor extends Specified {
 	 */
 	Color toSwingColor();
 	
+	//method
+	/**
+	 * @param alphaValue
+	 * @return a new {@link IColor} from the current {@link IColor} with the given alphaValue.
+	 */
+	IColor withAlphaValue(int alphaValue);
+	
 	//method declaration
 	/**
 	 * @param floatingPointAlphaValue
 	 * @return a new {@link IColor} from the current {@link IColor} with the given floatingPointAlphaValue.
 	 */
-	IColor withFloatingPointAlphaValue(final double floatingPointAlphaValue);
+	IColor withFloatingPointAlphaValue(double floatingPointAlphaValue);
 	
 	//method declaration
 	/**

@@ -1897,7 +1897,7 @@ public final class Color extends Element implements IColor {
 	//method
 	//For a better performance, this implementation does not use all comfortable methods.
 	/**
-	 * @return a new {@link Color} that is like the current {@link Color} with a full alpha value.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public Color withFullAlphaValue() {
@@ -1905,16 +1905,12 @@ public final class Color extends Element implements IColor {
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
-	 * @param alphaValue
-	 * @return a new {@link Color} from the current {@link Color} with the given alphaValue.
+	 * {@inheritDoc}
 	 */
-	public Color withIntegerAlphaValue(final int alphaValue) {
-		return withRedValueAndGreenValueAndBlueValueAndAlphaValue(
-			getRedValue(),
-			getGreenValue(),
-			getBlueValue(),
-			alphaValue
-		);
+	@Override
+	public Color withAlphaValue(final int alphaValue) {
+		return withRedValueAndGreenValueAndBlueValueAndAlphaValue(redValue, greenValue, blueValue, alphaValue);
 	}
 }
