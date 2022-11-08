@@ -141,8 +141,8 @@ public class ColorGradient extends Element implements IColorGradient {
 		return
 		LinkedList.withElements(
 			Node.withHeader(getDirection().toString()),
-			Node.withHeader(getColor1().getHexadecimalValue()),
-			Node.withHeader(getColor2().getHexadecimalValue())
+			Node.withHeader(getColor1().toHexadecimalString()),
+			Node.withHeader(getColor2().toHexadecimalString())
 		);
 	}
 	

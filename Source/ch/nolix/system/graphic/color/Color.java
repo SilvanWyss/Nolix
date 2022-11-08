@@ -1622,7 +1622,7 @@ public final class Color extends Element implements IColor {
 	 */
 	@Override
 	public IContainer<INode<?>> getAttributes() {
-		return LinkedList.withElements(Node.withHeader(getHexadecimalValue()));
+		return LinkedList.withElements(Node.withHeader(toHexadecimalString()));
 	}
 	
 	//method
@@ -1643,39 +1643,6 @@ public final class Color extends Element implements IColor {
 	
 	//method
 	/**
-	 * @return the hexadecimal value of the current {@link Color}.
-	 */
-	public String getHexadecimalValue() {
-		
-		var string =
-		StringCatalogue.HEXADECIMAL_PREFIX
-		+ String.format("%02X", redValue)
-		+ String.format("%02X", greenValue)
-		+ String.format("%02X", blueValue);
-		
-		//Handles the case that the current color does not have a full alpha value.
-		if (!hasFullAlphaValue()) {
-			string += String.format("%02X", alphaValue);
-		}
-		
-		return string;
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	public String getHexadecimalValueAlwaysWithAlphaValue() {
-		return
-		StringCatalogue.HEXADECIMAL_PREFIX
-		+ String.format("%02X", redValue)
-		+ String.format("%02X", greenValue)
-		+ String.format("%02X", blueValue)
-		+ String.format("%02X", alphaValue);
-	}
-	
-	//method
-	/**
 	 * @return the hexadecimal value of the current {@link Color} or its color name.
 	 */
 	public String getHexadecimalValueOrColorName() {
@@ -1687,7 +1654,7 @@ public final class Color extends Element implements IColor {
 			return pair.getRefElement1();
 		}
 		
-		return getHexadecimalValue();
+		return toHexadecimalString();
 	}
 	
 	//method
@@ -1863,6 +1830,40 @@ public final class Color extends Element implements IColor {
 	@Override
 	public int toAlphaRedGreenBlueValue() {
 		return ((getAlphaValue() << 24) | (getRedValue() << 16) | (getGreenValue() << 8) | getBlueValue());
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String toHexadecimalString() {
+		
+		var string =
+		StringCatalogue.HEXADECIMAL_PREFIX
+		+ String.format("%02X", redValue)
+		+ String.format("%02X", greenValue)
+		+ String.format("%02X", blueValue);
+		
+		//Handles the case that the current color does not have a full alpha value.
+		if (!hasFullAlphaValue()) {
+			string += String.format("%02X", alphaValue);
+		}
+		
+		return string;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	public String toHexadecimalStringWithAlphaValue() {
+		return
+		StringCatalogue.HEXADECIMAL_PREFIX
+		+ String.format("%02X", redValue)
+		+ String.format("%02X", greenValue)
+		+ String.format("%02X", blueValue)
+		+ String.format("%02X", alphaValue);
 	}
 	
 	//method

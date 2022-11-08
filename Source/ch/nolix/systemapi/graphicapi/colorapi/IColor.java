@@ -32,12 +32,6 @@ public interface IColor extends Specified {
 	
 	//method declaration
 	/**
-	 * @return the hexadecimal value of the current {@link IColor} always with alpha value.
-	 */
-	String getHexadecimalValueAlwaysWithAlphaValue();
-	
-	//method declaration
-	/**
 	 * @return the green value of the current {@link IColor}.
 	 */
 	int getGreenValue();
@@ -59,6 +53,18 @@ public interface IColor extends Specified {
 	 * @return an integer that represents the current {@link IColor} in the schema alpha-red-green-blue.
 	 */
 	int toAlphaRedGreenBlueValue();
+	
+	//method declaration
+	/**
+	 * @return a hexadecimal {@link String} representation of the current {@link IColor}.
+	 */
+	String toHexadecimalString();
+	
+	//method declaration
+	/**
+	 * @return a hexadecimal with alpha value {@link String} representation of the current {@link IColor}.
+	 */
+	String toHexadecimalStringWithAlphaValue();
 	
 	//method declaration
 	/**

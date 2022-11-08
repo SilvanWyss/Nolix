@@ -537,7 +537,7 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 		return
 		Node.withHeaderAndChildNodes(
 			PIXEL_ARRAY_HEADER,
-			pixels.to(p -> Node.withHeader(p.getHexadecimalValueAlwaysWithAlphaValue()))
+			pixels.to(p -> Node.withHeader(p.toHexadecimalStringWithAlphaValue()))
 		);
 	}
 	
