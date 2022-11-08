@@ -1298,7 +1298,7 @@ public final class Color extends Element implements IColor {
 	public static final IContainer<Color> WEB_COLORS;
 	
 	//constant
-	public static final IContainer<Pair<String, Color>> WEB_COLOR_NAMES;
+	public static final IContainer<Pair<String, Color>> WEB_COLORS_AND_NAMES;
 	
 	//constant
 	public static final int DEFAULT_ALPHA_VALUE = 255;
@@ -1320,7 +1320,7 @@ public final class Color extends Element implements IColor {
 		
 		WEB_COLORS = new ColorConstantExtractor().getColors();
 		
-		WEB_COLOR_NAMES = new ColorNameConstantExtractor().getColorNames();
+		WEB_COLORS_AND_NAMES = new ColorNameConstantExtractor().getWebColorsAndNames();
 	}
 	
 	//static method
@@ -1372,10 +1372,10 @@ public final class Color extends Element implements IColor {
 	 */
 	public static Color fromString(final String string) {
 		
-		final var pair = WEB_COLOR_NAMES.getRefFirstOrNull(p -> p.getRefElement1().equals(string));
+		final var webColorAndName = WEB_COLORS_AND_NAMES.getRefFirstOrNull(p -> p.getRefElement1().equals(string));
 		
 		//Handles the case that the given string is not a color name.
-		if (pair == null) {
+		if (webColorAndName == null) {
 			
 			if (
 				(string.length() != 8 || string.length() != 10)
@@ -1398,7 +1398,7 @@ public final class Color extends Element implements IColor {
 		}
 		
 		//Handles the case that the given value is a color name.
-		return pair.getRefElement2();
+		return webColorAndName.getRefElement2();
 	}
 	
 	//static method
@@ -1644,11 +1644,11 @@ public final class Color extends Element implements IColor {
 	@Override
 	public String getColorNameOrHexadecimalString() {
 		
-		final var pair = WEB_COLOR_NAMES.getRefFirstOrNull(wc -> wc.getRefElement2().equals(this));
+		final var webColorAndName = WEB_COLORS_AND_NAMES.getRefFirstOrNull(wc -> wc.getRefElement2().equals(this));
 		
 		//Handles the case that the current Color has a color name.
-		if (pair != null) {
-			return pair.getRefElement1();
+		if (webColorAndName != null) {
+			return webColorAndName.getRefElement1();
 		}
 		
 		return toHexadecimalString();

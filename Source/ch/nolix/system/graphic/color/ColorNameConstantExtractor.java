@@ -20,7 +20,7 @@ public final class ColorNameConstantExtractor {
 	private final IContainer<Pair<String, Color>> colorNames = extractAndGetColorNames();
 	
 	//method
-	public IContainer<Pair<String, Color>> getColorNames() {
+	public IContainer<Pair<String, Color>> getWebColorsAndNames() {
 		return colorNames;
 	}
 	
