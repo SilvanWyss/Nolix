@@ -203,6 +203,48 @@ public final class ColorTest extends Test {
 	
 	//method
 	@TestCase
+	public void testCase_toHexadecimalStringWithAlphaValue_1A() {
+		
+		//setup
+		final var testUnit = Color.fromString("0x10203000");
+		
+		//execution
+		final var result = testUnit.toHexadecimalStringWithAlphaValue();
+		
+		//verification
+		expect(result).isEqualTo("0x10203000");
+	}
+	
+	//method
+	@TestCase
+	public void testCase_toHexadecimalStringWithAlphaValue_1B() {
+		
+		//setup
+		final var testUnit = Color.fromString("0x1020307F");
+		
+		//execution
+		final var result = testUnit.toHexadecimalStringWithAlphaValue();
+		
+		//verification
+		expect(result).isEqualTo("0x1020307F");
+	}
+	
+	//method
+	@TestCase
+	public void testCase_toHexadecimalStringWithAlphaValue_1C() {
+		
+		//setup
+		final var testUnit = Color.fromString("0x102030FF");
+		
+		//execution
+		final var result = testUnit.toHexadecimalStringWithAlphaValue();
+		
+		//verification
+		expect(result).isEqualTo("0x102030FF");
+	}
+	
+	//method
+	@TestCase
 	public void testCase_withAlphaValue_1A() {
 		
 		//setup
