@@ -14,11 +14,11 @@ public final class ColorTest extends Test {
 	public void testCase_equals_whenGivenColorIsEqual() {
 		
 		//setup
-		final var testUnit1 = Color.fromString("0x102030");
+		final var testUnit = Color.fromString("0x102030");
 		final var color = Color.fromString("0x102030");
 		
 		//execution
-		final var result = testUnit1.equals(color);
+		final var result = testUnit.equals(color);
 		
 		//verification
 		expect(result);
