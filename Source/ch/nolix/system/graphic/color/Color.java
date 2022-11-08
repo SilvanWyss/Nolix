@@ -1317,7 +1317,9 @@ public final class Color extends Element implements IColor {
 	
 	//static initializer
 	static {
+		
 		WEB_COLORS = new ColorConstantExtractor().getColors();
+		
 		WEB_COLOR_NAMES = new ColorNameConstantExtractor().getColorNames();
 	}
 	
@@ -1610,8 +1612,9 @@ public final class Color extends Element implements IColor {
 	
 	//method
 	/**
-	 * @return the alpha value of the current {@link Color}.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public int getAlphaValue() {
 		return alphaValue;
 	}
@@ -1627,16 +1630,18 @@ public final class Color extends Element implements IColor {
 	
 	//method
 	/**
-	 * @return the blue value of the current {@link Color}.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public int getBlueValue() {
 		return blueValue;
 	}
 	
 	//method
 	/**
-	 * @return the green value of the current {@link Color}.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public int getGreenValue() {
 		return greenValue;
 	}
@@ -1675,8 +1680,9 @@ public final class Color extends Element implements IColor {
 	
 	//method
 	/**
-	 * @return the red value of the current {@link Color}.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public int getRedValue() {
 		return redValue;
 	}
