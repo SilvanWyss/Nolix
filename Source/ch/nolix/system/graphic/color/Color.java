@@ -1843,15 +1843,6 @@ public final class Color extends Element implements IColor {
 	}
 	
 	//method
-	//For a better performance, this implementation does not use all comfortable methods.
-	/**
-	 * {@inheritDoc}
-	 */
-	public java.awt.Color toSwingColor() {
-		return new java.awt.Color(redValue, greenValue, blueValue, alphaValue);
-	}
-	
-	//method
 	/**
 	 * @return the integer value of the current {@link Color}.
 	 */

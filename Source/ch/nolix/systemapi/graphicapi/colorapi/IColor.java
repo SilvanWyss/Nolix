@@ -1,9 +1,6 @@
 //package declaration
 package ch.nolix.systemapi.graphicapi.colorapi;
 
-//Java imports
-import java.awt.Color;
-
 //own imports
 import ch.nolix.systemapi.elementapi.mainuniversalapi.Specified;
 
@@ -83,12 +80,6 @@ public interface IColor extends Specified {
 	 * @return a hexadecimal with alpha value {@link String} representation of the current {@link IColor}.
 	 */
 	String toHexadecimalStringWithAlphaValue();
-	
-	//method declaration
-	/**
-	 * @return a new {@link java.awt.Color} from the current {@link IColor}.
-	 */
-	Color toSwingColor();
 	
 	//method
 	/**
