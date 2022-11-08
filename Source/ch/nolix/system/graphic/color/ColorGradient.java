@@ -15,13 +15,12 @@ import ch.nolix.systemapi.guiapi.structureproperty.DirectionInRectangle;
 
 //class
 /**
- * A {@link ColorGradient} specifies 2 {@link Color}s and a {@link DirectionInRectangle}.
  * A {@link ColorGradient} is not mutable.
  * 
  * @author Silvan Wyss
  * @date 2016-08-01
  */
-public class ColorGradient extends Element implements IColorGradient {
+public final class ColorGradient extends Element implements IColorGradient {
 	
 	//constant
 	public static final ColorGradient VERTICAL_BLACK_WHITE_COLOR_GRADIENT =
@@ -31,9 +30,13 @@ public class ColorGradient extends Element implements IColorGradient {
 	public static final ColorGradient VERTICAL_RED_WHITE_COLOR_GRADIENT =
 	new ColorGradient(DirectionInRectangle.VERTICAL, Color.RED, Color.WHITE);
 	
-	//constants
+	//constant
 	public static final DirectionInRectangle DEFAULT_DIRECTION = DirectionInRectangle.VERTICAL;
+	
+	//constant
 	public static final Color DEFAULT_COLOR1 = Color.BLACK;
+	
+	//constant
 	public static final Color DEFAULT_COLOR2 = Color.WHITE;
 
 	//static method
@@ -59,9 +62,13 @@ public class ColorGradient extends Element implements IColorGradient {
 		);
 	}
 	
-	//attributes
+	//attribute
 	private final DirectionInRectangle direction;
+	
+	//attribute
 	private final Color color1;
+	
+	//attribute
 	private final Color color2;
 	
 	//constructor
@@ -76,15 +83,16 @@ public class ColorGradient extends Element implements IColorGradient {
 	
 	//constructor
 	/**
-	 * Creates a new {@link ColorGradient} with the given color 1 and color 2.
+	 * Creates a new {@link ColorGradient} with the given color1 and color2.
 	 * 
 	 * @param color1
 	 * @param color2
 	 * @throws ArgumentIsNullException if the given direction is null.
-	 * @throws ArgumentIsNullException if the given color 1 is null.
-	 * @throws ArgumentIsNullException if the given color 2 is null.
+	 * @throws ArgumentIsNullException if the given color1 is null.
+	 * @throws ArgumentIsNullException if the given color2 is null.
 	 */
 	public ColorGradient(final Color color1, final Color color2) {
+		
 		//Calls other constructor.
 		this(DEFAULT_DIRECTION, color1, color2);
 	}
@@ -113,25 +121,22 @@ public class ColorGradient extends Element implements IColorGradient {
 	 * @throws ArgumentIsNullException if the given color 1 is null.
 	 * @throws ArgumentIsNullException if the given color 2 is null.
 	 */
-	public ColorGradient(
-		final DirectionInRectangle direction,
-		final Color color1,
-		final Color color2
-	) {
+	public ColorGradient(final DirectionInRectangle direction, final Color color1, final Color color2) {
+		
 		//Asserts that the given direction is not null.
 		GlobalValidator.assertThat(direction).thatIsNamed("direction").isNotNull();
 		
-		//Asserts that the given color 1 is not null.
-		GlobalValidator.assertThat(color1).thatIsNamed("color 1").isNotNull();
+		//Asserts that the given color1 is not null.
+		GlobalValidator.assertThat(color1).thatIsNamed("color1").isNotNull();
 		
-		//Asserts that the given color 2 is not null.
-		GlobalValidator.assertThat(color2).thatIsNamed("color 2").isNotNull();
+		//Asserts that the given color2 is not null.
+		GlobalValidator.assertThat(color2).thatIsNamed("color2").isNotNull();
 		
 		this.direction = direction;
 		this.color1 = color1;
 		this.color2 = color2;
 	}
-		
+	
 	//method
 	/**
 	 * {@inheritDoc}
@@ -148,24 +153,27 @@ public class ColorGradient extends Element implements IColorGradient {
 	
 	//method
 	/**
-	 * @return the color 1 this {@link ColorGradient}.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public Color getColor1() {
 		return color1;
 	}
 	
 	//method
 	/**
-	 * @return the color 2 of the current {@link ColorGradient}.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public Color getColor2() {
 		return color2;
 	}
 	
 	//method
 	/**
-	 * @return the direction of the current {@link ColorGradient}.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public DirectionInRectangle getDirection() {
 		return direction;
 	}
