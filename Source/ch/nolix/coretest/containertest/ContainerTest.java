@@ -14,6 +14,42 @@ public abstract class ContainerTest extends Test {
 	
 	//method
 	@TestCase
+	public final void testCase_contains_whenContainerContainsGivenElement() {
+		
+		//setup
+		final var string1 = "x";
+		final var string2 = "xx";
+		final var string3 = "xxx";
+		final var string4 = "xxxx";
+		final var testUnit = createContainerWithElements(string1, string2, string3, string4);
+		
+		//execution
+		final var result = testUnit.contains(string4);
+		
+		//verification
+		expect(result);
+	}
+	
+	//method
+	@TestCase
+	public final void testCase_contains_whenContainerDoesNotContainGivenElement() {
+		
+		//setup
+		final var string1 = "x";
+		final var string2 = "xx";
+		final var string3 = "xxx";
+		final var string4 = "xxxx";
+		final var testUnit = createContainerWithElements(string1, string2, string3);
+		
+		//execution
+		final var result = testUnit.contains(string4);
+		
+		//verification
+		expectNot(result);
+	}
+	
+	//method
+	@TestCase
 	public final void testCase_contains_withI2ElementTakerBooleanGetter1A() {
 		
 		//setup
@@ -466,6 +502,34 @@ public abstract class ContainerTest extends Test {
 	
 	//method
 	@TestCase
+	public final void testCase_getSumByInt() {
+		
+		//setup
+		final var testUnit = createContainerWithElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
+		
+		//execution
+		final var result = testUnit.getSumByInt(String::length);
+		
+		//verification
+		expect(result).isEqualTo(21);
+	}
+	
+	//method
+	@TestCase
+	public final void testCase_getSumByInt_whenContainerIsEmpty() {
+		
+		//setup
+		final var testUnit = createEmptyContainerOfType(String.class);
+		
+		//execution
+		final var result = testUnit.getSumByInt(String::length);
+		
+		//verification
+		expect(result).isEqualTo(0);
+	}
+	
+	//method
+	@TestCase
 	public final void testCase_getVarianceByDouble() {
 		
 		//setup
@@ -578,6 +642,59 @@ public abstract class ContainerTest extends Test {
 		expect(result[3]).isEqualTo(4);
 		expect(result[4]).isEqualTo(5);
 		expect(result[5]).isEqualTo(6);
+	}
+	
+	//method
+	@TestCase
+	public final void toStrings() {
+		
+		//setup
+		final var testUnit = createContainerWithElements(10, 20, 30, 40, 50, 60);
+		
+		//execution
+		final var result = testUnit.toStrings();
+		
+		//verification
+		expect(result.getElementCount()).isEqualTo(6);
+		expect(result.getRefAt1BasedIndex(1)).isEqualTo("10");
+		expect(result.getRefAt1BasedIndex(2)).isEqualTo("20");
+		expect(result.getRefAt1BasedIndex(3)).isEqualTo("30");
+		expect(result.getRefAt1BasedIndex(4)).isEqualTo("40");
+		expect(result.getRefAt1BasedIndex(5)).isEqualTo("50");
+		expect(result.getRefAt1BasedIndex(6)).isEqualTo("60");
+	}
+	
+	//method
+	@TestCase
+	public final void toStrings_whenContainerIsEmpty() {
+		
+		//setup
+		final var testUnit = createEmptyContainerOfType(Integer.class);
+		
+		//execution
+		final var result = testUnit.toStrings();
+		
+		//verifications
+		expect(result).isEmpty();
+	}
+	
+	//method
+	@TestCase
+	public final void testCase_until() {
+		
+		//setup
+		final var testUnit = createContainerWithElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
+		
+		//execution
+		final var result = testUnit.until(5);
+		
+		//verification
+		expect(result.getElementCount()).isEqualTo(5);
+		expect(result.getRefAt1BasedIndex(1)).isEqualTo("x");
+		expect(result.getRefAt1BasedIndex(2)).isEqualTo("xx");
+		expect(result.getRefAt1BasedIndex(3)).isEqualTo("xxx");
+		expect(result.getRefAt1BasedIndex(4)).isEqualTo("xxxx");
+		expect(result.getRefAt1BasedIndex(5)).isEqualTo("xxxxx");
 	}
 	
 	//method
