@@ -252,7 +252,7 @@ public final class ChainedNode implements IChainedNode {
 	 */
 	public static ChainedNode withHeaderAndChildNodesFromNodes(
 		final String header,
-		final Iterable<INode<?>> attributes
+		final Iterable<? extends INode<?>> attributes
 	) {
 		
 		final var chainedNode = new ChainedNode();
