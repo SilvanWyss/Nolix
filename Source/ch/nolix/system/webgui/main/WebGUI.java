@@ -3,6 +3,7 @@ package ch.nolix.system.webgui.main;
 
 //own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
+import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -31,6 +32,7 @@ import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndReader;
 import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndWriter;
 import ch.nolix.systemapi.guiapi.structureproperty.BackgroundType;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
+import ch.nolix.systemapi.webguiapi.mainapi.IHTMLElementEvent;
 import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGUI;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGUIContent;
@@ -177,6 +179,17 @@ public final class WebGUI extends StyleElement<WebGUI> implements IWebGUI<WebGUI
 		return icon.getValue();
 	}
 	
+	//method
+	@Override
+	public IContainer<IHTMLElementEvent> getHTMLElementEventRegistrations() {
+		
+		final var lHTMLElementEventRegistrations = new LinkedList<IHTMLElementEvent>();
+		
+		registerHTMLElementEventsAt(lHTMLElementEventRegistrations);
+		
+		return lHTMLElementEventRegistrations;
+	}
+
 	//method
 	@Override
 	public IContainer<? extends IStylableElement<?>> getRefChildStylableElements() {
@@ -376,6 +389,13 @@ public final class WebGUI extends StyleElement<WebGUI> implements IWebGUI<WebGUI
 		//An image will not be reset since an image is not supposed to be applied from a Style.
 		if (hasBackground() && getBackground().getType() != BackgroundType.IMAGE) {
 			setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
+		}
+	}
+	
+	//method
+	private void registerHTMLElementEventsAt(final LinkedList<IHTMLElementEvent> lHTMLElementEventRegistrations) {
+		for (final var c : getRefControls()) {
+			c.registerHTMLElementEventsAt(lHTMLElementEventRegistrations);
 		}
 	}
 }
