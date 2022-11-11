@@ -25,6 +25,9 @@ public final class ControlCommandProtocol {
 	//constant
 	public static final String NOTE_RIGHT_MOUSE_BUTTON_RELEASE = "NoteRightMouseButtonRelease";
 	
+	//constant
+	public static final String RUN_HTML_EVENT = "RunHTMLEvent";
+	
 	//constructor
 	private ControlCommandProtocol() {}
 }
