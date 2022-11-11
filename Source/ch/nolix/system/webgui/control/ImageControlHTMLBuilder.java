@@ -45,24 +45,6 @@ public final class ImageControlHTMLBuilder implements IControlHTMLBuilder<ImageC
 			);
 		}
 		
-		if (imageControl.hasLeftMouseButtonPressAction()) {
-			lHTMLAttributes.addAtEnd(
-				HTMLAttribute.withNameAndValue(
-					"onclick",
-					"NoteLeftMouseButtonPress_" + imageControl.getFixedId()
-				)
-			);
-		}
-		
-		if (imageControl.hasLeftMouseButtonReleaseAction()) {
-			lHTMLAttributes.addAtEnd(
-				HTMLAttribute.withNameAndValue(
-					"onclick",
-					"NoteLeftMouseButtonRelease_" + imageControl.getFixedId()
-				)
-			);
-		}
-		
 		return lHTMLAttributes;
 	}
 }

@@ -2035,12 +2035,53 @@ define("System/Application/WebApplicationProtocol/CommandProtocol", ["require", 
     CommandProtocol.OPEN_NEW_TAB = 'OpenNewTab';
     CommandProtocol.REDIRECT = "Redirect";
     CommandProtocol.SET_CSS = "SetCSS";
+    CommandProtocol.SET_EVENT_FUNCTIONS = 'SetEventFunctions';
     CommandProtocol.SET_ICON = 'SetIcon';
     CommandProtocol.SET_ROOT_HTML_ELEMENT = 'SetRootHTMLElement';
     CommandProtocol.SET_TITLE = 'SetTitle';
     CommandProtocol.SET_USER_INPUT_FUNCTIONS = 'SetUserInputFunctions';
     CommandProtocol.SET_USER_INPUTS = 'SetUserInputs';
     exports.CommandProtocol = CommandProtocol;
+});
+define("System/FrontendWebGUI/EventFunction", ["require", "exports", "Core/Document/ChainedNode/ChainedNode"], function (require, exports, ChainedNode_2) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    class EventFunction {
+        static fromSpecification(specification) {
+            const lHTMLElementId = specification.getRefAttributeAtIndex(1).getHeader();
+            const lHTMLEventName = specification.getRefAttributeAtIndex(2).getHeader();
+            return this.withHTMLElementIdAndHtmlEventName(lHTMLElementId, lHTMLEventName);
+        }
+        static withHTMLElementIdAndHtmlEventName(pHTMLElementId, pHTMLEventName) {
+            return new EventFunction(pHTMLElementId, pHTMLEventName);
+        }
+        constructor(pHTMLElementId, pHTMLEventName) {
+            if (pHTMLElementId === null) {
+                throw new Error('The given HTMLElementId is null.');
+            }
+            if (pHTMLElementId === undefined) {
+                throw new Error('The given HTMLElementId is undefined.');
+            }
+            if (pHTMLEventName === null) {
+                throw new Error('The given HTMLEventName is null.');
+            }
+            if (pHTMLEventName === undefined) {
+                throw new Error('The given HTMLEventName is undefined.');
+            }
+            this.mHTMLElementId = pHTMLElementId;
+            this.mHTMLEventName = pHTMLEventName;
+        }
+        getHTMLElementId() {
+            return this.mHTMLElementId;
+        }
+        getHTMLEventName() {
+            return this.mHTMLEventName;
+        }
+        toGUICommand() {
+            return ChainedNode_2.ChainedNode.fromString('GUI.ControlByFixedId(' + this.getHTMLElementId() + ').RunHTMLEvent(' + this.getHTMLEventName() + ')');
+        }
+    }
+    exports.EventFunction = EventFunction;
 });
 define("System/GUI/Graphic/IImage", ["require", "exports"], function (require, exports) {
     "use strict";
@@ -2148,7 +2189,7 @@ define("System/FrontendWebGUI/UserInputFunction", ["require", "exports", "System
     }
     exports.UserInputFunction = UserInputFunction;
 });
-define("System/FrontendWebGUI/FrontendWebGUI", ["require", "exports", "Core/Document/ChainedNode/ChainedNode", "Core/Container/LinkedList"], function (require, exports, ChainedNode_2, LinkedList_9) {
+define("System/FrontendWebGUI/FrontendWebGUI", ["require", "exports", "Core/Container/LinkedList"], function (require, exports, LinkedList_9) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class FrontendWebGUI {
@@ -2201,6 +2242,15 @@ define("System/FrontendWebGUI/FrontendWebGUI", ["require", "exports", "Core/Docu
         setCSS(pCSS) {
             this.style.innerHTML = pCSS;
         }
+        setEventFunctions(eventFunctions) {
+            for (const ef of eventFunctions) {
+                const lHTMLElement = this.window.document.getElementById(ef.getHTMLElementId());
+                if (lHTMLElement !== null) {
+                    const command = ef.toGUICommand();
+                    lHTMLElement[ef.getHTMLEventName()] = () => this.takeEvent(command);
+                }
+            }
+        }
         setIcon(icon) {
             if (icon === null) {
                 throw new Error('The given icon is null.');
@@ -2213,7 +2263,6 @@ define("System/FrontendWebGUI/FrontendWebGUI", ["require", "exports", "Core/Docu
         }
         setRootHTMLElementFromString(rootHTMLElementAsString) {
             this.rootElement.innerHTML = rootHTMLElementAsString;
-            this.setupActionsOfElement(this.rootElement);
         }
         setTitle(title) {
             if (title === null) {
@@ -2237,12 +2286,6 @@ define("System/FrontendWebGUI/FrontendWebGUI", ["require", "exports", "Core/Docu
             }
             this.userInputFunctions = userInputFunctions;
         }
-        createCommandFromString(string) {
-            const parts = string.split('_');
-            const controlCommand = parts[0];
-            const controlId = parts[1];
-            return ChainedNode_2.ChainedNode.fromString('GUI.ControlByFixedId(' + controlId + ').' + controlCommand);
-        }
         getRefRootElement() {
             var rootElement = this.window.document.getElementById('rootElement');
             if (rootElement === null) {
@@ -2251,23 +2294,6 @@ define("System/FrontendWebGUI/FrontendWebGUI", ["require", "exports", "Core/Docu
                 this.window.document.body.appendChild(rootElement);
             }
             return rootElement;
-        }
-        setupActionsOfElement(element) {
-            for (const c of element.children) {
-                if (c instanceof HTMLElement) {
-                    if (c.onclick !== null) {
-                        const onclickAttribute = c.getAttribute('onclick');
-                        const command = this.createCommandFromString(onclickAttribute);
-                        c.onclick = () => this.takeEvent(command);
-                    }
-                    if (c.onchange !== null) {
-                        const onchangeAttribute = c.getAttribute('onchange');
-                        const command = this.createCommandFromString(onchangeAttribute);
-                        c.onchange = () => this.takeEvent(command);
-                    }
-                }
-                this.setupActionsOfElement(c);
-            }
         }
         takeEvent(command) {
             this.eventTaker(command);
@@ -2423,7 +2449,7 @@ define("System/GUI/Graphic/Image", ["require", "exports", "System/GUI/Color/Colo
     Image.PIXEL_ARRAY_HEADER = 'PixelArray';
     exports.Image = Image;
 });
-define("System/Application/WebApplication/FrontendWebClientGUIManager", ["require", "exports", "System/Application/WebApplicationProtocol/CommandProtocol", "System/FrontendWebGUI/FrontendWebGUI", "System/GUI/Graphic/Image", "System/FrontendWebGUI/UserInputFunction"], function (require, exports, CommandProtocol_1, FrontendWebGUI_1, Image_1, UserInputFunction_1) {
+define("System/Application/WebApplication/FrontendWebClientGUIManager", ["require", "exports", "System/Application/WebApplicationProtocol/CommandProtocol", "System/FrontendWebGUI/FrontendWebGUI", "System/GUI/Graphic/Image", "System/FrontendWebGUI/UserInputFunction", "System/FrontendWebGUI/EventFunction"], function (require, exports, CommandProtocol_1, FrontendWebGUI_1, Image_1, UserInputFunction_1, EventFunction_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class FrontendWebClientGUIManager {
@@ -2457,6 +2483,10 @@ define("System/Application/WebApplication/FrontendWebClientGUIManager", ["requir
                 case CommandProtocol_1.CommandProtocol.SET_CSS:
                     const lCSS = pGUICommand.getOneAttribute().getHeader();
                     this.mFrontendWebGUI.setCSS(lCSS);
+                    break;
+                case CommandProtocol_1.CommandProtocol.SET_EVENT_FUNCTIONS:
+                    const eventFunctions = pGUICommand.getAttributes().to(a => EventFunction_1.EventFunction.fromSpecification(a.toNode()));
+                    this.mFrontendWebGUI.setEventFunctions(eventFunctions);
                     break;
                 case CommandProtocol_1.CommandProtocol.SET_USER_INPUT_FUNCTIONS:
                     const userInputFunctions = pGUICommand.getAttributes().to(a => UserInputFunction_1.UserInputFunction.fromSpecification(a.toNode()));

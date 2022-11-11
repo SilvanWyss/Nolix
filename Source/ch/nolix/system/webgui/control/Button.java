@@ -184,8 +184,8 @@ public final class Button extends Control<Button, ButtonStyle> implements IButto
 		
 		GlobalValidator.assertThat(pHTMLEvent).thatIsNamed("HTML event").isEqualTo("onclick");
 		
-		if (hasLeftMouseButtonReleaseAction()) {
-			leftMouseButtonReleaseAction.run(this);
+		if (hasLeftMouseButtonPressAction()) {
+			leftMouseButtonPressAction.run(this);
 		}
 	}
 	

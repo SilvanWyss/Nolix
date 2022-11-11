@@ -14,6 +14,7 @@ import ch.nolix.system.application.webapplicationprotocol.CommandProtocol;
 import ch.nolix.system.application.webapplicationprotocol.ObjectProtocol;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
+import ch.nolix.systemapi.webguiapi.mainapi.IHTMLElementEvent;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGUI;
 
 //class
@@ -51,6 +52,7 @@ final class BackendWebClientCounterpartUpdater {
 			createSetIconCommandFromWebGUI(webGUI),
 			createSetRootHTMLElementCommandFromWebGUI(webGUI),
 			createSetCSSCommandFromWebGUI(webGUI),
+			createSetEventFunctionsCommandFromWebGUI(webGUI),
 			createSetUserInputFunctionsCommandFromWebGUI(webGUI)
 		);
 	}
@@ -121,6 +123,31 @@ final class BackendWebClientCounterpartUpdater {
 			ChainedNode.withHeaderAndChildNode(
 				CommandProtocol.SET_CSS,
 				ChainedNode.withHeader(pCSS)
+			)
+		);
+	}
+	
+	//method
+	private ChainedNode createSetEventFunctionsCommandFromWebGUI(final IWebGUI<?> webGUI) {
+		return createSetEventFunctionsCommandFromHTMLElementEventRegistrations(webGUI.getHTMLElementEventRegistrations());
+	}
+	
+	//method
+	private ChainedNode createSetEventFunctionsCommandFromHTMLElementEventRegistrations(
+		final IContainer<IHTMLElementEvent> pHTMLElementEventRegistrations
+	) {
+		
+		final var eventFunctions =
+		pHTMLElementEventRegistrations.to(
+			e -> Node.withChildNode(Node.withHeader(e.getHTMLElementId()), Node.withHeader(e.getHTMLEvent()))
+		);
+		
+		return
+		ChainedNode.withHeaderAndNextNode(
+			ObjectProtocol.GUI,
+			ChainedNode.withHeaderAndChildNodesFromNodes(
+				CommandProtocol.SET_EVENT_FUNCTIONS,
+				eventFunctions
 			)
 		);
 	}

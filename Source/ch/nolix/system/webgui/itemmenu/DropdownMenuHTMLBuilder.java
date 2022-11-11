@@ -40,15 +40,6 @@ public final class DropdownMenuHTMLBuilder implements IControlHTMLBuilder<Dropdo
 		
 		lHTMLAttribtues.addAtEnd(ControlHelper.INSTANCE.createIdHTMLAttributeForControl(dropdownMenu));
 		
-		lHTMLAttribtues.addAtEnd(
-			HTMLAttribute.withNameAndValue(
-				"onchange",
-				
-				//Uses noteLeftMouseButtonPress as event to trigger update of user inputs.
-				"NoteLeftMouseButtonPress_" + dropdownMenu.getFixedId()
-			)
-		);
-				
 		return lHTMLAttribtues;
 	}
 	

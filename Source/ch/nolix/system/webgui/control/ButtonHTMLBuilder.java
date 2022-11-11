@@ -3,7 +3,6 @@ package ch.nolix.system.webgui.control;
 
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.web.html.HTMLAttribute;
 import ch.nolix.core.web.html.HTMLElement;
 import ch.nolix.coreapi.webapi.htmlapi.HTMLElementTypeCatalogue;
 import ch.nolix.system.webgui.controlhelper.ControlHelper;
@@ -24,11 +23,7 @@ public final class ButtonHTMLBuilder implements IControlHTMLBuilder<Button> {
 		HTMLElement.withTypeAndAttributesAndInnerText(
 			HTMLElementTypeCatalogue.BUTTON,
 			ImmutableList.withElements(
-				ControlHelper.INSTANCE.createIdHTMLAttributeForControl(button),
-				HTMLAttribute.withNameAndValue(
-					"onclick",
-					"NoteLeftMouseButtonPress_" + button.getFixedId()
-				)
+				ControlHelper.INSTANCE.createIdHTMLAttributeForControl(button)
 			),
 			button.getText()
 		);

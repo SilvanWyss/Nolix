@@ -11,7 +11,6 @@ import ch.nolix.system.application.basewebapplication.BaseBackendWebClient;
 import ch.nolix.system.application.webapplicationprotocol.CommandProtocol;
 import ch.nolix.system.application.webapplicationprotocol.ControlCommandProtocol;
 import ch.nolix.system.application.webapplicationprotocol.ObjectProtocol;
-import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGUI;
 
@@ -53,33 +52,8 @@ public final class BackendWebClient<AC> extends BaseBackendWebClient<BackendWebC
 	//method
 	private void runCommandOnControl(final IControl<?, ?> control, final ChainedNode command) {
 		switch (command.getHeader()) {
-			case ControlCommandProtocol.NOTE_KEY_TYPING:
-				final var key = Key.fromSpecification(command.getSingleChildNodeAsNode());
-				control.noteKeyTyping(key);
-				updateCounterpartIfOpen();
-				break;
-			case ControlCommandProtocol.NOTE_LEFT_MOUSE_BUTTON_PRESS:
-				control.noteLeftMouseButtonPress();
-				updateCounterpartIfOpen();
-				break;
-			case ControlCommandProtocol.NOTE_LEFT_MOUSE_BUTTON_RELEASE:
-				control.noteLeftMouseButtonRelease();
-				updateCounterpartIfOpen();
-				break;
-			case ControlCommandProtocol.NOTE_MOUSE_WHEEL_PRESS:
-				control.noteMouseWheelPress();
-				updateCounterpartIfOpen();
-				break;
-			case ControlCommandProtocol.NOTE_MOUSE_WHEEL_RELEASE:
-				control.noteMouseWheelRelease();
-				updateCounterpartIfOpen();
-				break;
-			case ControlCommandProtocol.NOTE_RIGHT_MOUSE_BUTTON_PRESS:
-				control.noteRightMouseButtonPress();
-				updateCounterpartIfOpen();
-				break;
-			case ControlCommandProtocol.NOTE_RIGHT_MOUSE_BUTTON_RELEASE:
-				control.noteRightMouseButtonRelease();
+			case ControlCommandProtocol.RUN_HTML_EVENT:
+				runRunHTMLEventCommandOnControl(control, command);
 				updateCounterpartIfOpen();
 				break;
 			default:
@@ -118,6 +92,14 @@ public final class BackendWebClient<AC> extends BaseBackendWebClient<BackendWebC
 			default:
 				throw InvalidArgumentException.forArgumentNameAndArgument("GUI command", pGUICommand);
 		}
+	}
+	
+	//method
+	private void runRunHTMLEventCommandOnControl(final IControl<?, ?> control, final ChainedNode runHTMLEventCommand) {
+		
+		final var lHTMLEvent = runHTMLEventCommand.getSingleChildNodeHeader();
+		
+		control.runHTMLEvent(lHTMLEvent);
 	}
 	
 	//method
