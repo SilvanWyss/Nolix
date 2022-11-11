@@ -7,18 +7,21 @@ import ch.nolix.core.container.main.SingleContainer;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.containerapi.mainapi.ISingleContainer;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 import ch.nolix.system.graphic.image.MutableImage;
 import ch.nolix.system.webgui.main.Control;
+import ch.nolix.system.webgui.main.HTMLElementEvent;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.webguiapi.controlapi.IImageControl;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
+import ch.nolix.systemapi.webguiapi.mainapi.IHTMLElementEvent;
 
 //class
 public final class ImageControl
@@ -153,6 +156,12 @@ implements IImageControl<ImageControl, ImageControlStyle, MutableImage> {
 	@Override
 	public void noteRightMouseButtonRelease() {
 		//Does nothing.
+	}
+	
+	//method
+	@Override
+	public void registerHTMLElementEventsAt(final IMutableList<IHTMLElementEvent> list) {
+		list.addAtEnd(HTMLElementEvent.withHTMLElementIdAndHTMLEvent(getId(), "onclick"));
 	}
 	
 	//method

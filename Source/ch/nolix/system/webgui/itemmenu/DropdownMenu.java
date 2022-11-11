@@ -3,10 +3,13 @@ package ch.nolix.system.webgui.itemmenu;
 
 //own imports
 import ch.nolix.core.container.main.SingleContainer;
+import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.containerapi.mainapi.ISingleContainer;
+import ch.nolix.system.webgui.main.HTMLElementEvent;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.IDropdownMenu;
+import ch.nolix.systemapi.webguiapi.mainapi.IHTMLElementEvent;
 
 //class
 public final class DropdownMenu
@@ -19,6 +22,12 @@ implements IDropdownMenu<DropdownMenu, DropdownMenuStyle> {
 		return new SingleContainer<>(
 			"if (x.selectedIndex == -1) {return '';} return x.options[x.selectedIndex].text;"
 		);
+	}
+	
+	//method
+	@Override
+	public void registerHTMLElementEventsAt(final IMutableList<IHTMLElementEvent> list) {
+		list.addAtEnd(HTMLElementEvent.withHTMLElementIdAndHTMLEvent(getFixedId(), "onchange"));
 	}
 	
 	//method

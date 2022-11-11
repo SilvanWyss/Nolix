@@ -9,6 +9,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSuppor
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.containerapi.mainapi.ISingleContainer;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
@@ -20,6 +21,7 @@ import ch.nolix.systemapi.webguiapi.controlapi.ITextbox;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
+import ch.nolix.systemapi.webguiapi.mainapi.IHTMLElementEvent;
 
 //class
 public final class Textbox extends Control<Textbox, TextboxStyle> implements ITextbox<Textbox, TextboxStyle> {
@@ -145,6 +147,12 @@ public final class Textbox extends Control<Textbox, TextboxStyle> implements ITe
 	//method
 	@Override
 	public void noteRightMouseButtonRelease() {
+		//Does nothing.
+	}
+	
+	//method
+	@Override
+	public void registerHTMLElementEventsAt(final IMutableList<IHTMLElementEvent> list) {
 		//Does nothing.
 	}
 	

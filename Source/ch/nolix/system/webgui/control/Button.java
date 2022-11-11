@@ -8,18 +8,21 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.containerapi.mainapi.ISingleContainer;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 import ch.nolix.system.element.mutableelement.MutableValue;
 import ch.nolix.system.webgui.main.Control;
+import ch.nolix.system.webgui.main.HTMLElementEvent;
 import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.webguiapi.controlapi.ButtonRole;
 import ch.nolix.systemapi.webguiapi.controlapi.IButton;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
+import ch.nolix.systemapi.webguiapi.mainapi.IHTMLElementEvent;
 
 //class
 public final class Button extends Control<Button, ButtonStyle> implements IButton<Button, ButtonStyle> {
@@ -149,6 +152,12 @@ public final class Button extends Control<Button, ButtonStyle> implements IButto
 	@Override
 	public boolean hasRole() {
 		return role.hasValue();
+	}
+	
+	//method
+	@Override
+	public void registerHTMLElementEventsAt(final IMutableList<IHTMLElementEvent> list) {
+		list.addAtEnd(HTMLElementEvent.withHTMLElementIdAndHTMLEvent(getFixedId(), "onclick"));
 	}
 	
 	//method

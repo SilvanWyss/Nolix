@@ -8,12 +8,14 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.system.element.mutableelement.MultiValueExtractor;
 import ch.nolix.system.webgui.control.Text;
 import ch.nolix.systemapi.webguiapi.containerapi.IGridContainer;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
+import ch.nolix.systemapi.webguiapi.mainapi.IHTMLElementEvent;
 
 //class
 public final class GridContainer
@@ -111,6 +113,12 @@ implements IGridContainer<GridContainer, GridContainerStyle> {
 	@Override
 	public boolean isEmpty() {
 		return cells.isEmpty();
+	}
+	
+	//method
+	@Override
+	public void registerHTMLElementEventsAt(final IMutableList<IHTMLElementEvent> list) {
+		//Does nothing.
 	}
 	
 	//method

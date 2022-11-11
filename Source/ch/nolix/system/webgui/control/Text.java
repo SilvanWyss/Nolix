@@ -10,6 +10,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.containerapi.mainapi.ISingleContainer;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 import ch.nolix.system.element.mutableelement.MutableValue;
@@ -20,6 +21,7 @@ import ch.nolix.systemapi.webguiapi.controlapi.TextRole;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
+import ch.nolix.systemapi.webguiapi.mainapi.IHTMLElementEvent;
 
 //class
 public final class Text extends Control<Text, TextStyle> implements IText<Text, TextStyle> {
@@ -138,6 +140,12 @@ public final class Text extends Control<Text, TextStyle> implements IText<Text, 
 	//method
 	@Override
 	public void noteRightMouseButtonRelease() {
+		//Does nothing.
+	}
+	
+	//method
+	@Override
+	public void registerHTMLElementEventsAt(final IMutableList<IHTMLElementEvent> list) {
 		//Does nothing.
 	}
 	

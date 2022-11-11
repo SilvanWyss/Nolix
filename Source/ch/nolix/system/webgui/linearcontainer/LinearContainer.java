@@ -3,11 +3,13 @@ package ch.nolix.system.webgui.linearcontainer;
 
 //own imports
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.system.element.mutableelement.MultiValue;
 import ch.nolix.system.webgui.container.Container;
 import ch.nolix.system.webgui.main.GlobalControlFactory;
 import ch.nolix.systemapi.webguiapi.linearcontainerapi.ILinearContainer;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
+import ch.nolix.systemapi.webguiapi.mainapi.IHTMLElementEvent;
 
 //class
 public abstract class LinearContainer<
@@ -66,6 +68,12 @@ implements ILinearContainer<LC, LCS> {
 	@Override
 	public final boolean isEmpty() {
 		return childControls.isEmpty();
+	}
+	
+	//method
+	@Override
+	public final void registerHTMLElementEventsAt(final IMutableList<IHTMLElementEvent> list) {
+		//Does nothing.
 	}
 	
 	//method
