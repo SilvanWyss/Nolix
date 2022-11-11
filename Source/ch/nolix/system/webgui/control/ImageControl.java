@@ -169,6 +169,17 @@ implements IImageControl<ImageControl, ImageControlStyle, MutableImage> {
 	
 	//method
 	@Override
+	public void runHTMLEvent(final String pHTMLEvent) {
+		
+		GlobalValidator.assertThat(pHTMLEvent).thatIsNamed("HTML event").isEqualTo("onclick");
+		
+		if (hasLeftMouseButtonReleaseAction()) {
+			leftMouseButtonReleaseAction.run(this);
+		}
+	}
+	
+	//method
+	@Override
 	public ImageControl setImage(final IImage image) {
 		
 		if (image instanceof MutableImage mutableImage) {

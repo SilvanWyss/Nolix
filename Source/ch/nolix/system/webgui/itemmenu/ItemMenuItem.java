@@ -253,7 +253,7 @@ public final class ItemMenuItem extends MutableElement<ItemMenuItem> implements 
 		if (belongsToMenu()) {
 			parentMenu.technicalRunOptionalSelectActionForItem(this);
 		}
-				
+		
 		runOptionalSelectAction();
 	}
 	

@@ -5,6 +5,7 @@ import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.main.SingleContainer;
 import ch.nolix.core.document.node.Node;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
@@ -151,6 +152,12 @@ public final class Textbox extends Control<Textbox, TextboxStyle> implements ITe
 	@Override
 	public void removeUpdateTextAction() {
 		updateTextAction = null;
+	}
+	
+	//method
+	@Override
+	public void runHTMLEvent(final String pHTMLEvent) {
+		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "runHTMLEvent");
 	}
 	
 	//method

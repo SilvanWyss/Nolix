@@ -60,6 +60,9 @@ VisibilitySettable<C> {
 	CL getRefStyle();
 	
 	//method declaration
+	void runHTMLEvent(String pHTMLEvent);
+	
+	//method declaration
 	C setCursorIcon(CursorIcon cursorIcon);
 	
 	//method declaration

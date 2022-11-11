@@ -5,6 +5,7 @@ import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.main.SingleContainer;
 import ch.nolix.core.document.node.Node;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
@@ -144,6 +145,12 @@ public final class Text extends Control<Text, TextStyle> implements IText<Text, 
 	@Override
 	public void removeRole() {
 		role.clear();
+	}
+	
+	//method
+	@Override
+	public void runHTMLEvent(final String pHTMLEvent) {
+		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "runHTMLEvent");
 	}
 	
 	//method

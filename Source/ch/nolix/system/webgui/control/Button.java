@@ -171,6 +171,17 @@ public final class Button extends Control<Button, ButtonStyle> implements IButto
 	
 	//method
 	@Override
+	public void runHTMLEvent(final String pHTMLEvent) {
+		
+		GlobalValidator.assertThat(pHTMLEvent).thatIsNamed("HTML event").isEqualTo("onclick");
+		
+		if (hasLeftMouseButtonReleaseAction()) {
+			leftMouseButtonReleaseAction.run(this);
+		}
+	}
+	
+	//method
+	@Override
 	public Button setLeftMouseButtonPressAction(final IAction leftMouseButtonPressAction) {
 		
 		GlobalValidator

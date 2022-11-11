@@ -4,6 +4,7 @@ package ch.nolix.system.webgui.container;
 import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.core.container.main.SingleContainer;
 import ch.nolix.core.document.node.Node;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.ISingleContainer;
@@ -121,6 +122,12 @@ extends Control<C, ECS> implements IContainer<C, ECS> {
 	@Override
 	public final void removeRole() {
 		role.clear();
+	}
+	
+	//method
+	@Override
+	public final void runHTMLEvent(final String pHTMLEvent) {
+		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "runHTMLEvent");
 	}
 	
 	//method

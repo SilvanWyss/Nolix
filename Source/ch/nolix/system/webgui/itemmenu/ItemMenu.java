@@ -253,6 +253,12 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
 	
 	//method
 	@Override
+	public void runHTMLEvent(final String pHTMLEvent) {
+		GlobalValidator.assertThat(pHTMLEvent).thatIsNamed("HTML event").isEqualTo("onchange");
+	}
+	
+	//method
+	@Override
 	public final IM selectBlankItem() {
 		
 		getRefBlankItem().select();
