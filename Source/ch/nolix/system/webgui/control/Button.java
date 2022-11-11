@@ -1,10 +1,12 @@
 //package declaration
 package ch.nolix.system.webgui.control;
 
+//own imports
 import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.main.SingleContainer;
 import ch.nolix.core.document.node.Node;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
@@ -16,7 +18,6 @@ import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 import ch.nolix.system.element.mutableelement.MutableValue;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.system.webgui.main.HTMLElementEvent;
-import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.webguiapi.controlapi.ButtonRole;
 import ch.nolix.systemapi.webguiapi.controlapi.IButton;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
@@ -89,65 +90,7 @@ public final class Button extends Control<Button, ButtonStyle> implements IButto
 	public boolean hasRole(final String role) {
 		return (hasRole() && getRole().toString().equals(role));
 	}
-	
-	//method
-	@Override
-	public void noteKeyPress(final Key key) {
-		//Does nothing.
-	}
-	
-	//method
-	@Override
-	public void noteKeyRelease(final Key key) {
-		//Does nothing.
-	}
-	
-	//method
-	@Override
-	public void noteKeyTyping(final Key key) {
-		//Does nothing.
-	}
-	
-	//method
-	@Override
-	public void noteLeftMouseButtonPress() {
-		if (hasLeftMouseButtonPressAction()) {
-			leftMouseButtonPressAction.run(this);
-		}
-	}
-	
-	//method
-	@Override
-	public void noteLeftMouseButtonRelease() {
-		if (hasLeftMouseButtonReleaseAction()) {
-			leftMouseButtonReleaseAction.run(this);
-		}
-	}
-	
-	//method
-	@Override
-	public void noteMouseWheelPress() {
-		//Does nothing.
-	}
-	
-	//method
-	@Override
-	public void noteMouseWheelRelease() {
-		//Does nothing.
-	}
-	
-	//method
-	@Override
-	public void noteRightMouseButtonPress() {
-		//Does nothing.
-	}
-	
-	//method
-	@Override
-	public void noteRightMouseButtonRelease() {
-		//Does nothing.
-	}
-	
+		
 	//method
 	@Override
 	public boolean hasRole() {
@@ -157,7 +100,10 @@ public final class Button extends Control<Button, ButtonStyle> implements IButto
 	//method
 	@Override
 	public void registerHTMLElementEventsAt(final IMutableList<IHTMLElementEvent> list) {
-		list.addAtEnd(HTMLElementEvent.withHTMLElementIdAndHTMLEvent(getFixedId(), "onclick"));
+		list.addAtEnd(
+			HTMLElementEvent.withHTMLElementIdAndHTMLEvent(getFixedId(), "onmousedown"),
+			HTMLElementEvent.withHTMLElementIdAndHTMLEvent(getFixedId(), "onmouseup")
+		);
 	}
 	
 	//method
@@ -181,11 +127,23 @@ public final class Button extends Control<Button, ButtonStyle> implements IButto
 	//method
 	@Override
 	public void runHTMLEvent(final String pHTMLEvent) {
-		
-		GlobalValidator.assertThat(pHTMLEvent).thatIsNamed("HTML event").isEqualTo("onclick");
-		
-		if (hasLeftMouseButtonPressAction()) {
-			leftMouseButtonPressAction.run(this);
+		switch (pHTMLEvent) {
+			case "onmousedown":
+				
+				if (hasLeftMouseButtonPressAction()) {
+					leftMouseButtonPressAction.run(this);
+				}
+				
+				break;
+			case "onmouseup":
+				
+				if (hasLeftMouseButtonReleaseAction()) {
+					leftMouseButtonReleaseAction.run(this);
+				}
+				
+				break;
+			default:
+				throw InvalidArgumentException.forArgumentNameAndArgument("HTML event", pHTMLEvent);
 		}
 	}
 	

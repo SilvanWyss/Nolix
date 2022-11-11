@@ -5,7 +5,6 @@ package ch.nolix.systemapi.guiapi.mainapi;
 import ch.nolix.coreapi.functionapi.mutationuniversalapi.Refreshable;
 import ch.nolix.coreapi.geometryapi.griduniversalapi.Rectangular;
 import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
-import ch.nolix.systemapi.guiapi.inputapi.IInputTaker;
 import ch.nolix.systemapi.guiapi.structureproperty.CursorIcon;
 
 //interface
@@ -15,7 +14,7 @@ import ch.nolix.systemapi.guiapi.structureproperty.CursorIcon;
  * @param <G> is the type of a {@link IExtendedGUI}.
  */
 public interface IExtendedGUI<G extends IExtendedGUI<G>>
-extends GroupCloseable, IGUI<G>, IInputTaker, Rectangular, Refreshable {
+extends GroupCloseable, IGUI<G>, Rectangular, Refreshable {
 	
 	//method declaration
 	/**

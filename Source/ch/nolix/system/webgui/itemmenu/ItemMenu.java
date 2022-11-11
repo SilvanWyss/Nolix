@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.webgui.itemmenu;
 
+//own imports
 import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -11,7 +12,6 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.system.element.mutableelement.MultiValue;
 import ch.nolix.system.webgui.main.Control;
-import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.IItemMenu;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.IItemMenuItem;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.IItemMenuStyle;
@@ -189,60 +189,6 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
 	@Override
 	public final boolean isEmpty() {
 		return getRefItems().isEmpty();
-	}
-	
-	//method
-	@Override
-	public final void noteKeyPress(final Key key) {
-		//Does nothing.
-	}
-	
-	//method
-	@Override
-	public final void noteKeyRelease(final Key key) {
-		//Does nothing.
-	}
-	
-	//method
-	@Override
-	public final void noteKeyTyping(final Key key) {
-		//Does nothing.
-	}
-	
-	//method
-	@Override
-	public final void noteLeftMouseButtonPress() {
-		//Does nothing.
-	}
-	
-	//method
-	@Override
-	public final void noteLeftMouseButtonRelease() {
-		//Does nothing.
-	}
-	
-	//method
-	@Override
-	public final void noteMouseWheelPress() {
-		//Does nothing.
-	}
-	
-	//method
-	@Override
-	public final void noteMouseWheelRelease() {
-		//Does nothing.
-	}
-	
-	//method
-	@Override
-	public final void noteRightMouseButtonPress() {
-		//Does nothing.
-	}
-	
-	//method
-	@Override
-	public final void noteRightMouseButtonRelease() {
-		//Does nothing.
 	}
 	
 	//method

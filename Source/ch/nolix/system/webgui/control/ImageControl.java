@@ -16,7 +16,6 @@ import ch.nolix.system.graphic.image.MutableImage;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.system.webgui.main.HTMLElementEvent;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
-import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.webguiapi.controlapi.IImageControl;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
@@ -98,64 +97,6 @@ implements IImageControl<ImageControl, ImageControlStyle, MutableImage> {
 	@Override
 	public boolean hasRole(final String role) {
 		return false;
-	}
-	
-	//method
-	@Override
-	public void noteKeyPress(final Key key) {
-		//Does nothing.
-	}
-	
-	//method
-	@Override
-	public void noteKeyRelease(final Key key) {
-		//Does nothing.
-	}
-	
-	//method
-	@Override
-	public void noteKeyTyping(final Key key) {
-		//Does nothing.
-	}
-	
-	//method
-	@Override
-	public void noteLeftMouseButtonPress() {
-		if (hasLeftMouseButtonPressAction()) {
-			leftMouseButtonPressAction.run(this);
-		}
-	}
-	
-	//method
-	@Override
-	public void noteLeftMouseButtonRelease() {
-		if (hasLeftMouseButtonReleaseAction()) {
-			leftMouseButtonReleaseAction.run(this);
-		}
-	}
-	
-	//method
-	@Override
-	public void noteMouseWheelPress() {
-		//Does nothing.
-	}
-	
-	//method
-	@Override
-	public void noteMouseWheelRelease() {
-		//Does nothing.
-	}
-	
-	//method
-	@Override
-	public void noteRightMouseButtonPress() {
-		//Does nothing.
-	}
-	
-	//method
-	@Override
-	public void noteRightMouseButtonRelease() {
-		//Does nothing.
 	}
 	
 	//method

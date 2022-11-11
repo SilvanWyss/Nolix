@@ -25,7 +25,6 @@ import ch.nolix.systemapi.graphicapi.colorapi.IColorGradient;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 import ch.nolix.systemapi.graphicapi.imageapi.ImageApplication;
 import ch.nolix.systemapi.guiapi.canvasuniversalapi.IBackground;
-import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.guiapi.structureproperty.BackgroundType;
 import ch.nolix.systemapi.guiapi.structureproperty.ContentPosition;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
@@ -275,60 +274,6 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	@Override
 	public boolean isEmpty() {
 		return (rootControl == null);
-	}
-	
-	//method
-	@Override
-	public void noteKeyPress(final Key key) {
-		//Does nothing.
-	}
-	
-	//method
-	@Override
-	public void noteKeyRelease(final Key key) {
-		//Does nothing.
-	}
-	
-	//method
-	@Override
-	public void noteKeyTyping(final Key key) {
-		//Does nothing.
-	}
-	
-	//method
-	@Override
-	public void noteLeftMouseButtonPress() {
-		//Does nothing.
-	}
-	
-	//method
-	@Override
-	public void noteLeftMouseButtonRelease() {
-		//Does nothing.
-	}
-	
-	//method
-	@Override
-	public void noteMouseWheelPress() {
-		//Does nothing.
-	}
-	
-	//method
-	@Override
-	public void noteMouseWheelRelease() {
-		//Does nothing.
-	}
-	
-	//method
-	@Override
-	public void noteRightMouseButtonPress() {
-		//Does nothing.
-	}
-	
-	//method
-	@Override
-	public void noteRightMouseButtonRelease() {
-		//Does nothing.
 	}
 	
 	//method

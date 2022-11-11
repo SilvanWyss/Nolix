@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.webgui.container;
 
+//own imports
 import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.core.container.main.SingleContainer;
 import ch.nolix.core.document.node.Node;
@@ -10,7 +11,6 @@ import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.ISingleContainer;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 import ch.nolix.system.webgui.main.Control;
-import ch.nolix.systemapi.guiapi.inputapi.Key;
 import ch.nolix.systemapi.webguiapi.containerapi.ContainerRole;
 import ch.nolix.systemapi.webguiapi.containerapi.IContainer;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IExtendedControlStyle;
@@ -62,60 +62,6 @@ extends Control<C, ECS> implements IContainer<C, ECS> {
 	@Override
 	public final boolean hasRole(final String role) {
 		return (hasRole() && getRole().toString().equals(role));
-	}
-	
-	//method
-	@Override
-	public final void noteKeyPress(final Key key) {
-		//Does nothing.
-	}
-	
-	//method
-	@Override
-	public final void noteKeyRelease(final Key key) {
-		//Does nothing.
-	}
-	
-	//method
-	@Override
-	public final void noteKeyTyping(final Key key) {
-		//Does nothing.
-	}
-	
-	//method
-	@Override
-	public final void noteLeftMouseButtonPress() {
-		//Does nothing.
-	}
-	
-	//method
-	@Override
-	public final void noteLeftMouseButtonRelease() {
-		//Does nothing.
-	}
-	
-	//method
-	@Override
-	public final void noteMouseWheelPress() {
-		//Does nothing.
-	}
-	
-	//method
-	@Override
-	public final void noteMouseWheelRelease() {
-		//Does nothing.
-	}
-	
-	//method
-	@Override
-	public final void noteRightMouseButtonPress() {
-		//Does nothing.
-	}
-	
-	//method
-	@Override
-	public final void noteRightMouseButtonRelease() {
-		//Does nothing.
 	}
 	
 	//method

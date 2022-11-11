@@ -7,7 +7,6 @@ import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
 import ch.nolix.coreapi.webapi.htmlapi.HTMLElementTransformable;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 import ch.nolix.systemapi.guiapi.canvasuniversalapi.ICanvas;
-import ch.nolix.systemapi.guiapi.inputapi.IInputTaker;
 import ch.nolix.systemapi.guiapi.structureproperty.ContentPosition;
 
 //interface
@@ -17,7 +16,6 @@ FixedIdentified,
 HTMLElementTransformable,
 ICanvas<L>,
 IStylableElement<L>,
-IInputTaker,
 IRootControlOwner<L> {
 	
 	//method declaration
