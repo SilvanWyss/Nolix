@@ -8,4 +8,10 @@ import ch.nolix.systemapi.webguiapi.containerapi.ISingleContainerStyle;
 //class
 public final class SingleContainerStyle
 extends ExtendedControlStyle<SingleContainerStyle>
-implements ISingleContainerStyle<SingleContainerStyle> {}
+implements ISingleContainerStyle<SingleContainerStyle> {
+	
+	//constructor
+	public SingleContainerStyle() {
+		initialize();
+	}
+}
