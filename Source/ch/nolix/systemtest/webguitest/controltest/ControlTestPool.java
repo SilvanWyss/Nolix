@@ -10,7 +10,8 @@ public final class ControlTestPool extends TestPool {
 	//constructor
 	public ControlTestPool() {
 		super(
-			ButtonTest.class
+			ButtonTest.class,
+			TextTest.class
 		);
 	}
 }
