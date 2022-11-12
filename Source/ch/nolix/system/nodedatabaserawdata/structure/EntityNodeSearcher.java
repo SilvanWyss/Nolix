@@ -20,6 +20,6 @@ public final class EntityNodeSearcher {
 	
 	//method
 	public IMutableNode<?> getRefSaveStampNodeFromRecordNode(final IMutableNode<?> recordNode) {
-		return recordNode.getRefChildNodeAt1BasedIndex(FieldIndexCatalogue.ID_INDEX);
+		return recordNode.getRefChildNodeAt1BasedIndex(FieldIndexCatalogue.SAVE_STAMP_INDEX);
 	}
 }
