@@ -4,11 +4,32 @@ package ch.nolix.systemtest.webguitest.controltest;
 //own imports
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
+import ch.nolix.system.graphic.color.Color;
 import ch.nolix.systemapi.guiapi.structureproperty.CursorIcon;
+import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //class
 public abstract class ControlTest<C extends IControl<C, ?>> extends Test {
+	
+	//method
+	@TestCase
+	public final void testCase_editStyle() {
+		
+		//setup
+		final var testUnit = createTestUnit();
+		
+		//setup verification
+		final var defaultBaseTextColor = testUnit.getRefStyle().getTextColorWhenHasState(ControlState.BASE);
+		expect(defaultBaseTextColor).isEqualTo(Color.BLACK);
+		
+		//execution
+		testUnit.editStyle(s -> s.setTextColorForState(ControlState.BASE, Color.DARK_CYAN));
+		
+		//verification
+		final var actualBaseTextColor = testUnit.getRefStyle().getTextColorWhenHasState(ControlState.BASE);
+		expect(actualBaseTextColor).isEqualTo(Color.DARK_CYAN);
+	}
 	
 	//method
 	@TestCase
@@ -45,6 +66,20 @@ public abstract class ControlTest<C extends IControl<C, ?>> extends Test {
 	
 	//method
 	@TestCase
+	public final void testCase_getRefChildControls() {
+		
+		//setup
+		final var testUnit = createTestUnit();
+		
+		//execution
+		final var result = testUnit.getRefChildControls();
+		
+		//verification
+		expect(result).isEmpty();
+	}
+	
+	//method
+	@TestCase
 	public final void testCase_reset() {
 		
 		//setup
@@ -66,6 +101,23 @@ public abstract class ControlTest<C extends IControl<C, ?>> extends Test {
 		expectNot(testUnit.hasMaxWidth());
 		expectNot(testUnit.hasMaxHeight());
 		expect(testUnit.getCursorIcon()).is(CursorIcon.ARROW);
+	}
+	
+	//method declaration
+	@TestCase
+	public final void testCase_setCursorIcon() {
+		
+		//setup
+		final var testUnit = createTestUnit();
+		
+		//setup verification
+		expect(testUnit.getCursorIcon()).is(CursorIcon.ARROW);
+		
+		//execution
+		testUnit.setCursorIcon(CursorIcon.HAND);
+		
+		//verification
+		expect(testUnit.getCursorIcon()).is(CursorIcon.HAND);
 	}
 	
 	//method declaration
