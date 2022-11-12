@@ -20,14 +20,14 @@ public final class ContentFieldDTOMapper {
 		final IColumnInfo columnInfo
 	) {
 		
-		if (!contentFieldNode.containsChildNodes()) {
+		if (contentFieldNode.containsChildNodes()) {
 			return new LoadedContentFieldDTO(columnInfo.getColumnName());
 		}
 		
 		return
 		new LoadedContentFieldDTO(
 			columnInfo.getColumnName(),
-			valueMapper.createValueFromString(contentFieldNode.getRefChildNodes().toString(), columnInfo)
+			valueMapper.createValueFromString(contentFieldNode.getHeader(), columnInfo)
 		);
 	}
 }
