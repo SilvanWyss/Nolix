@@ -4,7 +4,6 @@ package ch.nolix.systemtest.objectdatatest.dataadaptertest;
 //own imports
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.testing.basetest.IgnoreTimeout;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 import ch.nolix.system.objectdata.data.Entity;
