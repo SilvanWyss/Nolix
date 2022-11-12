@@ -4,6 +4,7 @@ package ch.nolix.systemtest.objectdatatest.dataadaptertest;
 //own imports
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.testing.basetest.IgnoreTimeout;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 import ch.nolix.system.objectdata.data.Entity;
@@ -31,6 +32,16 @@ public final class NodeDatabaseDataAdapterTest extends Test {
 		public void setFirstNameAndLastName(final String firstName, final String lastName) {
 			this.firstName.setValue(firstName);
 			this.lastName.setValue(lastName);
+		}
+		
+		//method
+		public String getFirstName() {
+			return firstName.getRefValue();
+		}
+		
+		//method
+		public String getLastName() {
+			return lastName.getRefValue();
 		}
 	}
 	
@@ -71,6 +82,38 @@ public final class NodeDatabaseDataAdapterTest extends Test {
 		
 		//verification
 		expectNot(testUnit.hasChanges());
+	}
+	
+	//method
+	@TestCase
+	public void testCase_onTable_getRefAllEntitiesOnTable() {
+		
+		//setup part 1
+		final var nodeDatabase = new MutableNode();
+		final var schema = Schema.withEntityType(Person.class);
+		final var nodeDatabaseAdapter =
+		NodeDatabaseDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		
+		//setup part 2
+		final var person = new Person();
+		person.setFirstNameAndLastName("Donald", "Duck");
+		nodeDatabaseAdapter.insert(person);
+		nodeDatabaseAdapter.saveChangesAndReset();
+		
+		//setup part 3
+		final var testUnit =
+		NodeDatabaseDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		
+		//execution
+		final var result = testUnit.getRefTableByEntityType(Person.class).getRefAllEntities();
+		
+		//verification
+		expectNot(testUnit.hasChanges());
+		expect(result.getElementCount()).isEqualTo(1);
+		final var loadedPerson = result.getRefAt1BasedIndex(1);
+		expect(loadedPerson.getId()).isEqualTo(person.getId());
+		expect(loadedPerson.getFirstName()).isEqualTo("Donald");
+		expect(loadedPerson.getLastName()).isEqualTo("Duck");
 	}
 	
 	//method
