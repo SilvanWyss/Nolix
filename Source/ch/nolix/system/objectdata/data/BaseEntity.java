@@ -131,10 +131,7 @@ public abstract class BaseEntity implements IEntity<DataImplementation> {
 	//method
 	@Override
 	public final IContainer<? extends IProperty<DataImplementation>> technicalGetRefProperties() {
-		
-		extractPropertiesIfNotExtracted();
-		
-		return properties;
+		return getRefProperties();
 	}
 	
 	//method
@@ -149,7 +146,7 @@ public abstract class BaseEntity implements IEntity<DataImplementation> {
 	
 	//method
 	final Property internalGetRefPropertyByName(final String name) {
-		return properties.getRefFirst(p -> p.hasName(name));
+		return getRefProperties().getRefFirst(p -> p.hasName(name));
 	}
 	
 	//method declaration
@@ -195,7 +192,7 @@ public abstract class BaseEntity implements IEntity<DataImplementation> {
 		
 		this.parentTable = parentTable;
 		
-		properties.forEach(Property::internalSetParentColumnFromParentTable);
+		getRefProperties().forEach(Property::internalSetParentColumnFromParentTable);
 	}
 	
 	//method
@@ -224,6 +221,14 @@ public abstract class BaseEntity implements IEntity<DataImplementation> {
 		properties = internalLoadProperties();
 		
 		properties.forEach(p -> p.internalSetParentEntity(this));
+	}
+	
+	//method
+	private IContainer<Property> getRefProperties() {
+		
+		extractPropertiesIfNotExtracted();
+		
+		return properties;
 	}
 	
 	//method
