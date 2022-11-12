@@ -30,7 +30,7 @@ final class TableDefinitionMapper {
 	private IContainer<IColumnInfo> getContentColumnDefinitionsFromTableNode(IMutableNode<?> tableNode) {
 		
 		final var columnInfos = new LinkedList<IColumnInfo>();
-		var columnIndexOnEntityNode = 2;
+		var columnIndexOnEntityNode = 3;
 		for (final var cn : getRefColumnNodesInOrderFromTableNode(tableNode)) {
 			
 			columnInfos.addAtEnd(

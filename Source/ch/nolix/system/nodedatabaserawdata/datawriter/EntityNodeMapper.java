@@ -40,7 +40,7 @@ final class EntityNodeMapper {
 		for (final var cf : pRecord.getContentFields()) {
 			
 			final var columnInfo =  tableInfo.getColumnInfoByColumnName(cf.getColumnName());
-			final var index = columnInfo.getColumnIndexOnEntityNode();
+			final var index = columnInfo.getColumnIndexOnEntityNode() - 1;
 			
 			final var string = cf.getValueAsStringOrNull();
 			if (string == null) {
