@@ -150,6 +150,11 @@ public final class Vector {
 	}
 	
 	//method
+	public boolean hasSameSizeAs(final Vector vector) {
+		return (getSize() == vector.getSize());
+	}
+	
+	//method
 	/**
 	 * @return an array with the values of the current {@link Vector}
 	 */
