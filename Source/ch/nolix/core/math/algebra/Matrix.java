@@ -14,7 +14,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentEx
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.math.GlobalCalculator;
+import ch.nolix.core.math.main.GlobalCalculator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
 //class

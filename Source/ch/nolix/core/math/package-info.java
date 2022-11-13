@@ -1,6 +1,6 @@
 //package info
 /**
- * The {@link ch.nolix.core.math} package defines a calculator and types that represent mathematical objects.
+ * The {@link ch.nolix.core.math} package defines types for mathematics.
  * 
  * @author Silvan Wyss
  * @date 2019-09-01

@@ -13,7 +13,7 @@ import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.math.GlobalCalculator;
+import ch.nolix.core.math.main.GlobalCalculator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programcontrol.future.BaseFuture;
 import ch.nolix.core.programcontrol.jobpool.JobPool;
