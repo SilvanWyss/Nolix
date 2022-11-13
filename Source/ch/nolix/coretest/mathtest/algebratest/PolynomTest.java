@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coretest.mathtest;
+package ch.nolix.coretest.mathtest.algebratest;
 
 import ch.nolix.core.math.algebra.Polynom;
 import ch.nolix.core.testing.basetest.TestCase;

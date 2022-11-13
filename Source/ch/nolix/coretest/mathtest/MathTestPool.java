@@ -3,6 +3,7 @@ package ch.nolix.coretest.mathtest;
 
 //own imports
 import ch.nolix.core.testing.basetest.TestPool;
+import ch.nolix.coretest.mathtest.algebratest.AlgebraTestPool;
 
 //class
 /**
@@ -17,11 +18,7 @@ public final class MathTestPool extends TestPool {
 	 */
 	public MathTestPool() {
 		super(
-			ARModelTest.class,
-			GlobalCalculatorTest.class,
-			MatrixTest.class,
-			PolynomTest.class,
-			QuadraticFunctionTest.class
+			new AlgebraTestPool()
 		);
 	}
 }
