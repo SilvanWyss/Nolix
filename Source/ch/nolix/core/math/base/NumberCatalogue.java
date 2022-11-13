@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.math;
+package ch.nolix.core.math.base;
 
 //class
 /**
