@@ -158,6 +158,31 @@ public final class Vector {
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
+	/**
+	 * {@inheritDoc}
+	 */
+	public String toString() {
+		
+		final var stringBuilder = new StringBuilder();
+		
+		stringBuilder.append("(");
+		
+		for (var i = 0; i < values.length; i++) {
+			
+			if (i > 0) {
+				stringBuilder.append(",");
+			}
+			
+			stringBuilder.append(values[i]);
+		}
+		
+		stringBuilder.append(")");
+		
+		return stringBuilder.toString();
+	}
+	
+	//method
 	/**
 	 * @param vector
 	 * @return true if the current {@link Vector} equals the given vector.
