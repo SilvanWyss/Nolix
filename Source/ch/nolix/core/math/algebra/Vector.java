@@ -24,7 +24,7 @@ public final class Vector {
 	 * @return a new {@link Vector} with the given values.
 	 */
 	public static Vector fromArray(final double[] values) {
-		return new Vector(Arrays.copyOf(values, values.length));
+		return new Vector(values);
 	}
 	
 	//static method
@@ -33,7 +33,7 @@ public final class Vector {
 	 * @return a new {@link Vector} with the given values.
 	 */
 	public static Vector withValues(final double... values) {
-		return new Vector(Arrays.copyOf(values, values.length));
+		return new Vector(values);
 	}
 	
 	//attribute
@@ -45,8 +45,8 @@ public final class Vector {
 	 * 
 	 * @param values
 	 */
-	Vector(final double[] values) {
-		this.values = values;
+	private Vector(final double[] values) {
+		this.values = Arrays.copyOf(values, values.length);
 	}
 	
 	//method

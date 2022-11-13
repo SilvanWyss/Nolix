@@ -329,7 +329,7 @@ public final class Matrix {
 				columnValues[i] = values[i][j];
 			}
 			
-			columns[j] = new Vector(columnValues);
+			columns[j] = Vector.withValues(columnValues);
 		}
 		
 		return columns;
@@ -519,7 +519,7 @@ public final class Matrix {
 		final var rows = new Vector[getRowCount()];
 		
 		for (var i = 0; i < getRowCount(); i++) {
-			rows[i] = new Vector(values[i]);
+			rows[i] = Vector.withValues(values[i]);
 		}
 		
 		return rows;
@@ -911,7 +911,7 @@ public final class Matrix {
 				
 		//Handles the case that the current Matrix contains 1 row.
 		if (getRowCount() == 1) {
-			return new Vector(values[0]);
+			return Vector.withValues(values[0]);
 		}
 		
 		//Handles the case that the current Matrix contains 1 column.
@@ -923,7 +923,7 @@ public final class Matrix {
 				lValues[i] = this.values[i][0];
 			}
 			
-			return new Vector(lValues);
+			return Vector.withValues(lValues);
 		}
 		
 		//Handles the case that the current Matrix does not either contain 1 row nor 1 column.
