@@ -6,6 +6,7 @@ import java.util.Arrays;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
@@ -118,6 +119,18 @@ public final class Vector {
 	 * @return a new {@link Vector} that is the sum of the current {@link Vector} and the given vector.
 	 */
 	public Vector getSum(final Vector vector) {
+		
+		if (!vector.hasSameSizeAs(this)) {
+			throw
+			InvalidArgumentException.forArgumentAndErrorPredicate(
+				vector,
+				"does not have the same size (which is "
+				+ vector.getSize()
+				+ ") as the current Vector (which has the size "
+				+ getSize()
+				+ ")"
+			);
+		}
 		
 		final var size = getSize();
 		final var sumValues = new double[size];
