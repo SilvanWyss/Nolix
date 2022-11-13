@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coretest.mathtest;
+package ch.nolix.coretest.mathtest.stochastictest;
 
 import ch.nolix.core.math.stochastic.ARModel;
 import ch.nolix.core.testing.basetest.TestCase;
