@@ -1,3 +1,4 @@
+//package declaration
 package ch.nolix.coretest.mathtest.algebratest;
 
 //class

@@ -4,6 +4,7 @@ package ch.nolix.coretest.mathtest;
 //own imports
 import ch.nolix.core.testing.basetest.TestPool;
 import ch.nolix.coretest.mathtest.algebratest.AlgebraTestPool;
+import ch.nolix.coretest.mathtest.maintest.MainTestPool;
 import ch.nolix.coretest.mathtest.stochastictest.StochasticTestPool;
 
 //class
@@ -20,6 +21,7 @@ public final class MathTestPool extends TestPool {
 	public MathTestPool() {
 		super(
 			new AlgebraTestPool(),
+			new MainTestPool(),
 			new StochasticTestPool()
 		);
 	}

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coretest.mathtest;
+package ch.nolix.coretest.mathtest.maintest;
 
 import ch.nolix.core.math.main.GlobalCalculator;
 import ch.nolix.core.testing.basetest.TestCase;
