@@ -11,7 +11,8 @@ public final class AlgebraTestPool extends TestPool {
 	public AlgebraTestPool() {
 		super(
 			MatrixTest.class,
-			PolynomTest.class
+			PolynomTest.class,
+			QuadraticFunctionTest.class
 		);
 	}
 }

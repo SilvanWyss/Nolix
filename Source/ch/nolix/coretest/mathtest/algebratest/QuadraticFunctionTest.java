@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coretest.mathtest;
+package ch.nolix.coretest.mathtest.algebratest;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
