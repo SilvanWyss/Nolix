@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.coretest.errorcontroltest.invalidargumentexceptiontest;
 
+//Java imports
+import java.math.BigDecimal;
+
 //own imports
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -10,6 +13,7 @@ import ch.nolix.core.testing.test.Test;
 //class
 public final class InvalidArgumentExceptionTest extends Test {
 	
+	//method
 	@TestCase
 	public void testCase_forArgument_whenArgumentIsNull() {
 		
@@ -23,6 +27,7 @@ public final class InvalidArgumentExceptionTest extends Test {
 		expect(result.getMessage()).isEqualTo("The given argument is not valid.");
 	}
 	
+	//method
 	@TestCase
 	public void testCase_forArgument_whenArgumentIsANode() {
 		
@@ -37,5 +42,44 @@ public final class InvalidArgumentExceptionTest extends Test {
 		expect(result.getRefArgument()).is(node);
 		expect(result.getErrorPredicate()).isEqualTo("is not valid");
 		expect(result.getMessage()).isEqualTo("The given Node 'Parking(Slot(Id(A)), Slot(Id(B)))' is not valid.");
+	}
+	
+	//method
+	@TestCase
+	public void testCase_forArgumentAndErrorPredicate() {
+		
+		//setup
+		final var amount = BigDecimal.valueOf(10.5);
+		
+		//execution
+		final var result = InvalidArgumentException.forArgumentAndErrorPredicate(amount, "is not a whole number");
+		
+		//verification
+		expect(result.getArgumentName()).isEqualTo("BigDecimal");
+		expect(result.getRefArgument()).is(amount);
+		expect(result.getErrorPredicate()).isEqualTo("is not a whole number");
+		expect(result.getMessage()).isEqualTo("The given BigDecimal '10.5' is not a whole number.");
+	}
+	
+	//method
+	@TestCase
+	public void testCase_forArgumentNameAndArgumentAndErrorPredicate() {
+		
+		//setup
+		final var amount = BigDecimal.valueOf(10.5);
+		
+		//execution
+		final var result =
+		InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+			"amount",
+			amount,
+			"is not a whole number"
+		);
+		
+		//verification
+		expect(result.getArgumentName()).isEqualTo("amount");
+		expect(result.getRefArgument()).is(amount);
+		expect(result.getErrorPredicate()).isEqualTo("is not a whole number");
+		expect(result.getMessage()).isEqualTo("The given amount '10.5' is not a whole number.");
 	}
 }
