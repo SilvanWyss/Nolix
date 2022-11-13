@@ -36,7 +36,7 @@ public final class Vector {
 		return new Vector(values);
 	}
 	
-	//attribute
+	//multi-attribute
 	private final double[] values;
 	
 	//constructor
@@ -55,7 +55,7 @@ public final class Vector {
 	 */
 	@Override
 	public boolean equals(Object object) {
-		return (object instanceof Vector vector && equals(vector));
+		return (object instanceof Vector vector && equalsVector(vector));
 	}
 			
 	//method
@@ -131,16 +131,16 @@ public final class Vector {
 	
 	//method
 	/**
-	 * @param index
+	 * @param p1BasedIndex
 	 * @return the value at the given index
-	 * @throws ArgumentIsOutOfRangeException
-	 * if the given index is not positive or the given index is bigger than the size of the current {@link Vector}.
+	 * @throws ArgumentIsOutOfRangeException if
+	 * the given index is not positive or the given p1BasedIndex is bigger than the size of the current {@link Vector}.
 	 */
-	public double getValueAt(int index) {
+	public double getValueAt1BasedIndex(int p1BasedIndex) {
 		
-		GlobalValidator.assertThat(index).thatIsNamed(LowerCaseCatalogue.INDEX).isBetween(1, getSize());
+		GlobalValidator.assertThat(p1BasedIndex).thatIsNamed(LowerCaseCatalogue.INDEX).isBetween(1, getSize());
 				
-		return values[index - 1];
+		return values[p1BasedIndex - 1];
 	}
 	
 	//method
@@ -162,7 +162,7 @@ public final class Vector {
 	 * @param vector
 	 * @return true if the current {@link Vector} equals the given vector.
 	 */
-	private boolean equals(final Vector vector) {
+	private boolean equalsVector(final Vector vector) {
 		
 		if (vector == null) {
 			return false;
