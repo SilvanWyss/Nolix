@@ -3,6 +3,7 @@ package ch.nolix.core.math;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.math.algebra.Matrix;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
 //class

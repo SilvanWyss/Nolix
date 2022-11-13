@@ -3,8 +3,7 @@ package ch.nolix.coretest.mathtest;
 
 //own imports
 import ch.nolix.core.math.GlobalCalculator;
-//own imports
-import ch.nolix.core.math.Matrix;
+import ch.nolix.core.math.algebra.Matrix;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 

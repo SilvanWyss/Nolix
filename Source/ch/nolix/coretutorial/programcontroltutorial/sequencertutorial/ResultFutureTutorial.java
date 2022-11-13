@@ -1,7 +1,6 @@
 package ch.nolix.coretutorial.programcontroltutorial.sequencertutorial;
 
-//own imports
-import ch.nolix.core.math.Matrix;
+import ch.nolix.core.math.algebra.Matrix;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.core.programcontrol.sequencer.ResultFuture;
 

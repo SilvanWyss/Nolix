@@ -5,7 +5,7 @@ package ch.nolix.system.geometry;
 import ch.nolix.core.commontype.commontypehelper.GlobalDoubleHelper;
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.document.node.Node;
-import ch.nolix.core.math.Vector;
+import ch.nolix.core.math.algebra.Vector;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.element.main.Element;

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.math;
+package ch.nolix.core.math.algebra;
 
 //Java imports
 import java.util.Arrays;
@@ -14,6 +14,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentEx
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.math.GlobalCalculator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
 //class

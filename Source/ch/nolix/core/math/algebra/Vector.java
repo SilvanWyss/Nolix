@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.math;
+package ch.nolix.core.math.algebra;
 
 //Java imports
 import java.util.Arrays;

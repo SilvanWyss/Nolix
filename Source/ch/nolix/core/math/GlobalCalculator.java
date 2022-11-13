@@ -9,6 +9,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentExceptio
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.math.algebra.Matrix;
+import ch.nolix.core.math.algebra.Polynom;
 import ch.nolix.core.math.base.GlobalBaseCalculator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
