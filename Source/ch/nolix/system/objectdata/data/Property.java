@@ -144,7 +144,7 @@ public abstract class Property implements IProperty<DataImplementation> {
 	//method
 	final void internalSetParentColumnFromParentTable() {
 		final var name = getName();
-		parentColumn = getParentEntity().getParentTable().getColumns().getRefFirst(c -> c.hasName(name));
+		parentColumn = getParentEntity().getRefParentTable().getColumns().getRefFirst(c -> c.hasName(name));
 	}
 	
 	//method

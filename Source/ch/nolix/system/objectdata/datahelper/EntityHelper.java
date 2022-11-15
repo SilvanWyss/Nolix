@@ -47,7 +47,7 @@ public class EntityHelper extends DatabaseObjectHelper implements IEntityHelper 
 	@Override
 	public final void assertDoesNotBelongToTable(final IEntity<?> entity) {
 		if (entity.belongsToTable()) {
-			throw ArgumentBelongsToParentException.forArgumentAndParent(entity, entity.getParentTable());
+			throw ArgumentBelongsToParentException.forArgumentAndParent(entity, entity.getRefParentTable());
 		}
 	}
 	
@@ -115,7 +115,7 @@ public class EntityHelper extends DatabaseObjectHelper implements IEntityHelper 
 			return false;
 		}
 		
-		for (final var t : entity.getParentTable().getParentDatabase().getRefTables()) {
+		for (final var t : entity.getRefParentTable().getParentDatabase().getRefTables()) {
 			if (t.technicalGetRefEntitiesInLocalData().containsAny(e -> referencesGivenEntity(e, entity))) {
 				return true;
 			}

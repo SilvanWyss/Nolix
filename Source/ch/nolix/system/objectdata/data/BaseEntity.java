@@ -63,7 +63,7 @@ public abstract class BaseEntity implements IEntity<DataImplementation> {
 	
 	//method
 	@Override
-	public final ITable<DataImplementation, IEntity<DataImplementation>> getParentTable() {
+	public final ITable<DataImplementation, IEntity<DataImplementation>> getRefParentTable() {
 		
 		entityHelper.assertBelongsToTable(this);
 		
@@ -114,7 +114,7 @@ public abstract class BaseEntity implements IEntity<DataImplementation> {
 	public final boolean isLinkedWithRealDatabase() {
 		return
 		belongsToTable()
-		&& getParentTable().isLinkedWithRealDatabase();
+		&& getRefParentTable().isLinkedWithRealDatabase();
 	}
 	
 	//method
@@ -141,7 +141,7 @@ public abstract class BaseEntity implements IEntity<DataImplementation> {
 	
 	//method
 	final IDataAndSchemaAdapter internalGetRefDataAndSchemaAdapter() {
-		return ((Table<?>)getParentTable()).internalGetRefDataAndSchemaAdapter();
+		return ((Table<?>)getRefParentTable()).internalGetRefDataAndSchemaAdapter();
 	}
 	
 	//method
@@ -237,7 +237,7 @@ public abstract class BaseEntity implements IEntity<DataImplementation> {
 		final var lId = getId();
 		
 		return
-		((Table<?>)getParentTable())
+		((Table<?>)getRefParentTable())
 		.internalGetColumnsThatReferencesCurrentTable()
 		.containsAny(c -> c.technicalContainsGivenValueInPersistedData(lId));
 	}
@@ -246,7 +246,7 @@ public abstract class BaseEntity implements IEntity<DataImplementation> {
 	private void updateRecordForDelete() {
 		if (isLinkedWithRealDatabase()) {
 			internalGetRefDataAndSchemaAdapter().deleteRecordFromTable(
-				getParentTable().getName(),
+				getRefParentTable().getName(),
 				entityHelper.createRecordHeadDTOForEntity(this)
 			);
 		}

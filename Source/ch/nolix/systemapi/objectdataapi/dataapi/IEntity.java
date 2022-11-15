@@ -15,10 +15,10 @@ public interface IEntity<IMPL> extends Deletable, IDatabaseObject, IdentifiedByS
 	boolean belongsToTable();
 	
 	//method declaration
-	ITable<IMPL, IEntity<IMPL>> getParentTable();
-    
-	//method declaration
 	String getParentTableName();
+	
+	//method declaration
+	ITable<IMPL, IEntity<IMPL>> getRefParentTable();
 	
 	//method declaration
 	String getSaveStamp();

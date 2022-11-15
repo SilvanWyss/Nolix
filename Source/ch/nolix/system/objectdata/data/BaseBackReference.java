@@ -89,6 +89,6 @@ implements IBaseBackReference<DataImplementation, E> {
 	private Table<E> loadBackReferencedTable() {
 		return
 		(Table<E>)
-		getParentEntity().getParentTable().getParentDatabase().getRefTableByName(getBackReferencedTableName());
+		getParentEntity().getRefParentTable().getParentDatabase().getRefTableByName(getBackReferencedTableName());
 	}
 }
