@@ -116,7 +116,7 @@ implements IReference<DataImplementation, E> {
 	//method
 	@Override
 	void internalSetOrClearDirectlyFromContent(final Object content) {
-		referencedEntityId = (String)content;		
+		referencedEntityId = (String)content;
 	}
 	
 	//method
