@@ -135,6 +135,11 @@ public abstract class BaseEntity implements IEntity<DataImplementation> {
 	}
 	
 	//method
+	protected final void initialize() {
+		extractPropertiesIfNotExtracted();
+	}
+	
+	//method
 	final void internalClose() {
 		state = DatabaseObjectState.CLOSED;
 	}
