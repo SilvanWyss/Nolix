@@ -9,6 +9,12 @@ public final class DatabaseTestPool extends TestPool {
 	
 	//constructor
 	public DatabaseTestPool() {
-		super(EntityTest.class, OptionalValueTest.class, TableTest.class, ValueTest.class);
+		super(
+			EntityTest.class,
+			OptionalValueTest.class,
+			ReferenceTest.class,
+			TableTest.class,
+			ValueTest.class
+		);
 	}
 }
