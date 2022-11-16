@@ -32,16 +32,6 @@ public final class NodeDatabaseAdapterTest extends Test {
 			this.firstName.setValue(firstName);
 			this.lastName.setValue(lastName);
 		}
-		
-		//method
-		public String getFirstName() {
-			return firstName.getRefValue();
-		}
-		
-		//method
-		public String getLastName() {
-			return lastName.getRefValue();
-		}
 	}
 	
 	//method
@@ -81,38 +71,6 @@ public final class NodeDatabaseAdapterTest extends Test {
 		
 		//verification
 		expectNot(testUnit.hasChanges());
-	}
-	
-	//method
-	@TestCase
-	public void testCase_onTable_getRefAllEntitiesOnTable() {
-		
-		//setup part 1
-		final var nodeDatabase = new MutableNode();
-		final var schema = Schema.withEntityType(Person.class);
-		final var nodeDatabaseAdapter =
-		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
-		
-		//setup part 2
-		final var person = new Person();
-		person.setFirstNameAndLastName("Donald", "Duck");
-		nodeDatabaseAdapter.insert(person);
-		nodeDatabaseAdapter.saveChangesAndReset();
-		
-		//setup part 3
-		final var testUnit =
-		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
-		
-		//execution
-		final var result = testUnit.getRefTableByEntityType(Person.class).getRefAllEntities();
-		
-		//verification
-		expectNot(testUnit.hasChanges());
-		expect(result.getElementCount()).isEqualTo(1);
-		final var loadedPerson = result.getRefAt1BasedIndex(1);
-		expect(loadedPerson.getId()).isEqualTo(person.getId());
-		expect(loadedPerson.getFirstName()).isEqualTo("Donald");
-		expect(loadedPerson.getLastName()).isEqualTo("Duck");
 	}
 	
 	//method
