@@ -16,7 +16,7 @@ import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.IColumnInfo;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
 
 //class
-final class InternalDataReader {
+final class InternalDatabaseReader {
 	
 	//static attribute
 	private static final LoadedRecordDTOMapper loadedRecordDTOMapper = new LoadedRecordDTOMapper();
@@ -37,7 +37,7 @@ final class InternalDataReader {
 	private final IMultiReferenceQueryCreator multiReferenceQueryCreator;
 	
 	//constructor
-	public InternalDataReader(
+	public InternalDatabaseReader(
 		final String databaseName,
 		final SQLConnection pSQLConnection,
 		final ISQLSyntaxProvider pSQLSyntaxProvider

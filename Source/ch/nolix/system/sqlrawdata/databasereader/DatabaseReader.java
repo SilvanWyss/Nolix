@@ -9,36 +9,36 @@ import ch.nolix.core.sql.SQLConnectionPool;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.system.sqlrawdata.sqlapi.ISQLSyntaxProvider;
 import ch.nolix.system.time.moment.Time;
-import ch.nolix.systemapi.rawdatabaseapi.databaseadapterapi.IDataReader;
+import ch.nolix.systemapi.rawdatabaseapi.databaseadapterapi.IDatabaseReader;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedRecordDTO;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.IColumnInfo;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
 
 //class
-public final class DataReader implements IDataReader {
+public final class DatabaseReader implements IDatabaseReader {
 	
 	//static method
-	public static DataReader forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndTableInfosAndSQLSyntaxProvider(
+	public static DatabaseReader forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndTableInfosAndSQLSyntaxProvider(
 		final String databaseName,
 		final SQLConnectionPool pSQLConnectionPool,
 		final IContainer<ITableInfo> tableInfos,
 		final ISQLSyntaxProvider pSQLSyntaxProvider
 	) {
 		return
-		new DataReader(databaseName, pSQLConnectionPool.borrowSQLConnection(), tableInfos, pSQLSyntaxProvider);
+		new DatabaseReader(databaseName, pSQLConnectionPool.borrowSQLConnection(), tableInfos, pSQLSyntaxProvider);
 	}
 		
 	//attribute
 	private final CloseController closeController = CloseController.forElement(this);
 	
 	//attribute
-	private final InternalDataReader internalDataReader;
+	private final InternalDatabaseReader internalDatabaseReader;
 	
 	//multi-attribute
 	private final IContainer<ITableInfo> tableInfos;
 	
 	//constructor
-	private DataReader(
+	private DatabaseReader(
 		final String databaseName,
 		final SQLConnection pSQLConnection,
 		final IContainer<ITableInfo> tableInfos,
@@ -47,7 +47,7 @@ public final class DataReader implements IDataReader {
 		
 		GlobalValidator.assertThat(tableInfos).thatIsNamed("table definitions").isNotNull();
 		
-		internalDataReader = new InternalDataReader(databaseName, pSQLConnection, pSQLSyntaxProvider);
+		internalDatabaseReader = new InternalDatabaseReader(databaseName, pSQLConnection, pSQLSyntaxProvider);
 		this.tableInfos = tableInfos;
 		
 		createCloseDependencyTo(pSQLConnection);
@@ -62,7 +62,7 @@ public final class DataReader implements IDataReader {
 	//method
 	@Override
 	public Time getSchemaTimestamp() {
-		return internalDataReader.getSchemaTimestamp();
+		return internalDatabaseReader.getSchemaTimestamp();
 	}
 	
 	//method
@@ -72,7 +72,7 @@ public final class DataReader implements IDataReader {
 		final String entityId,
 		final String multiReferenceColumnName
 	) {
-		return internalDataReader.loadAllMultiReferenceEntriesForRecord(
+		return internalDatabaseReader.loadAllMultiReferenceEntriesForRecord(
 			entityId,
 			getColumnInfoByTableNameAndColumnName(tableName, multiReferenceColumnName)
 		);
@@ -86,7 +86,7 @@ public final class DataReader implements IDataReader {
 		final String multiValueColumnName
 	) {
 		return
-		internalDataReader.loadMultiValueEntriesFromRecord(
+		internalDatabaseReader.loadMultiValueEntriesFromRecord(
 			entityId,
 			getColumnInfoByTableNameAndColumnName(tableName, multiValueColumnName)
 		);
@@ -95,13 +95,13 @@ public final class DataReader implements IDataReader {
 	//method
 	@Override
 	public IContainer<ILoadedRecordDTO> loadAllRecordsFromTable(final String tableName) {
-		return internalDataReader.loadAllRecordsFromTable(getTableInfoByTableName(tableName));
+		return internalDatabaseReader.loadAllRecordsFromTable(getTableInfoByTableName(tableName));
 	}
 
 	//method
 	@Override
 	public ILoadedRecordDTO loadRecordFromTableById(final String tableName, final String id) {
-		return internalDataReader.loadRecordFromTableById(getTableInfoByTableName(tableName), id);
+		return internalDatabaseReader.loadRecordFromTableById(getTableInfoByTableName(tableName), id);
 	}
 	
 	//method
@@ -120,7 +120,7 @@ public final class DataReader implements IDataReader {
 		
 		final var columnInfo = getColumnInfoByTableNameAndColumnName(tableName, columnName);
 		
-		return internalDataReader.tableContainsEntityWithGivenValueAtGivenColumn(tableName, columnInfo, value);
+		return internalDatabaseReader.tableContainsEntityWithGivenValueAtGivenColumn(tableName, columnInfo, value);
 	}
 	
 	//method

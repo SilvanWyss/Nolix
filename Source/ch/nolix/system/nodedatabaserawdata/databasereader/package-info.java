@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.system.nodedatabaserawdata.databasereader} package defines
- * a {@link ch.nolix.systemapi.rawdatabaseapi.databaseadapterapi.IDataReader} for
+ * a {@link ch.nolix.systemapi.rawdatabaseapi.databaseadapterapi.IDatabaseReader} for
  * databases that base on {@link ch.nolix.core.document.node.BaseNode}s.
  * 
  * @author Silvan Wyss

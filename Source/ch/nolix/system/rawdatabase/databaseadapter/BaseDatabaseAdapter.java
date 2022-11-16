@@ -6,7 +6,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.systemapi.rawdatabaseapi.databaseadapterapi.IDatabaseAdapter;
-import ch.nolix.systemapi.rawdatabaseapi.databaseadapterapi.IDataReader;
+import ch.nolix.systemapi.rawdatabaseapi.databaseadapterapi.IDatabaseReader;
 import ch.nolix.systemapi.rawdatabaseapi.databaseadapterapi.IDataWriter;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDTO;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedRecordDTO;
@@ -21,21 +21,21 @@ public abstract class BaseDatabaseAdapter implements IDatabaseAdapter {
 	private final CloseController closeController = CloseController.forElement(this);
 	
 	//attribute
-	private final IDataReader dataReader;
+	private final IDatabaseReader databaseReader;
 	
 	//attribute
 	private final IDataWriter dataWriter;
 	
 	//constructor
-	protected BaseDatabaseAdapter(final IDataReader dataReader, final IDataWriter dataWriter) {
+	protected BaseDatabaseAdapter(final IDatabaseReader databaseReader, final IDataWriter dataWriter) {
 		
-		GlobalValidator.assertThat(dataReader).thatIsNamed(IDataReader.class).isNotNull();
+		GlobalValidator.assertThat(databaseReader).thatIsNamed(IDatabaseReader.class).isNotNull();
 		GlobalValidator.assertThat(dataWriter).thatIsNamed(IDataWriter.class).isNotNull();
 		
-		this.dataReader = dataReader;
+		this.databaseReader = databaseReader;
 		this.dataWriter = dataWriter;
 		
-		getRefCloseController().createCloseDependencyTo(dataReader);
+		getRefCloseController().createCloseDependencyTo(databaseReader);
 		getRefCloseController().createCloseDependencyTo(dataWriter);
 	}
 	
@@ -108,7 +108,7 @@ public abstract class BaseDatabaseAdapter implements IDatabaseAdapter {
 	//method
 	@Override
 	public final ITime getSchemaTimestamp() {
-		return dataReader.getSchemaTimestamp();
+		return databaseReader.getSchemaTimestamp();
 	}
 	
 	//method
@@ -151,7 +151,7 @@ public abstract class BaseDatabaseAdapter implements IDatabaseAdapter {
 		final String entityId,
 		final String multiReferenceColumnName
 	) {
-		return dataReader.loadAllMultiReferenceEntriesForRecord(tableName, entityId, multiReferenceColumnName);
+		return databaseReader.loadAllMultiReferenceEntriesForRecord(tableName, entityId, multiReferenceColumnName);
 	}
 	
 	//method
@@ -161,19 +161,19 @@ public abstract class BaseDatabaseAdapter implements IDatabaseAdapter {
 		final String entityId,
 		final String multiFieldColumnName
 	) {
-		return dataReader.loadAllMultiValueEntriesFromRecord(tableName, entityId, multiFieldColumnName);
+		return databaseReader.loadAllMultiValueEntriesFromRecord(tableName, entityId, multiFieldColumnName);
 	}
 	
 	//method	
 	@Override
 	public final IContainer<ILoadedRecordDTO> loadAllRecordsFromTable(final String tableName) {
-		return dataReader.loadAllRecordsFromTable(tableName);
+		return databaseReader.loadAllRecordsFromTable(tableName);
 	}
 	
 	//method
 	@Override
 	public final ILoadedRecordDTO loadRecordFromTableById(final String tableName, final String id) {
-		return dataReader.loadRecordFromTableById(tableName, id);
+		return databaseReader.loadRecordFromTableById(tableName, id);
 	}
 	
 	//method
@@ -205,7 +205,7 @@ public abstract class BaseDatabaseAdapter implements IDatabaseAdapter {
 		final String columnName,
 		final String value
 	) {
-		return dataReader.tableContainsEntityWithGivenValueAtGivenColumn(tableName, columnName, value);
+		return databaseReader.tableContainsEntityWithGivenValueAtGivenColumn(tableName, columnName, value);
 	}
 	
 	//method

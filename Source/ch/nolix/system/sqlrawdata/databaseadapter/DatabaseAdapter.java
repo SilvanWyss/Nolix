@@ -6,7 +6,7 @@ import ch.nolix.core.sql.SQLConnectionPool;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.system.rawdatabase.databaseadapter.BaseDatabaseAdapter;
 import ch.nolix.system.sqlrawdata.databaseinspector.DatabaseInspector;
-import ch.nolix.system.sqlrawdata.databasereader.DataReader;
+import ch.nolix.system.sqlrawdata.databasereader.DatabaseReader;
 import ch.nolix.system.sqlrawdata.databasewriter.DataWriter;
 import ch.nolix.system.sqlrawdata.sqlapi.ISQLSyntaxProvider;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
@@ -44,7 +44,7 @@ public abstract class DatabaseAdapter extends BaseDatabaseAdapter {
 		final ISQLSyntaxProvider pSQLSyntaxProvider
 	) {
 		super(
-			DataReader.forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndTableInfosAndSQLSyntaxProvider(
+			DatabaseReader.forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndTableInfosAndSQLSyntaxProvider(
 				databaseName,
 				pSQLConnectionPool,
 				tableInfos,

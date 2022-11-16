@@ -4,7 +4,7 @@ package ch.nolix.system.nodedatabaserawdata.databaseadapter;
 //own imports
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
-import ch.nolix.system.nodedatabaserawdata.databasereader.DataReader;
+import ch.nolix.system.nodedatabaserawdata.databasereader.DatabaseReader;
 import ch.nolix.system.nodedatabaserawdata.databasereader.TableDefinitionLoader;
 import ch.nolix.system.nodedatabaserawdata.databasewriter.DataWriter;
 import ch.nolix.system.rawdatabase.databaseadapter.BaseDatabaseAdapter;
@@ -32,7 +32,7 @@ public final class DatabaseAdapter extends BaseDatabaseAdapter {
 		final IContainer<ITableInfo> tableInfos
 	) {
 		super(
-			new DataReader(nodeDatabase, tableInfos),
+			new DatabaseReader(nodeDatabase, tableInfos),
 			new DataWriter(nodeDatabase, tableInfos)
 		);
 	}

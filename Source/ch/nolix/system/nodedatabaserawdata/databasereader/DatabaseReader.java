@@ -7,29 +7,29 @@ import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.time.moment.Time;
-import ch.nolix.systemapi.rawdatabaseapi.databaseadapterapi.IDataReader;
+import ch.nolix.systemapi.rawdatabaseapi.databaseadapterapi.IDatabaseReader;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedRecordDTO;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
 
 //class
-public final class DataReader implements IDataReader {
+public final class DatabaseReader implements IDatabaseReader {
 	
 	//attribute
 	private final CloseController closeController = CloseController.forElement(this);
 	
 	//attribute
-	private final InternalDataReader internalDataReader;
+	private final InternalDatabaseReader internalDatabaseReader;
 	
 	//multi-attribute
 	private final IContainer<ITableInfo> tableInfos;
 	
 	//constructor
-	public DataReader(final IMutableNode<?> databaseNode, final IContainer<ITableInfo> tableInfos) {
+	public DatabaseReader(final IMutableNode<?> databaseNode, final IContainer<ITableInfo> tableInfos) {
 		
 		GlobalValidator.assertThat(tableInfos).thatIsNamed("table definitions").isNotNull();
 		GlobalValidator.assertThat(tableInfos).thatIsNamed("table definitions").isNotNull();
 		
-		internalDataReader = new InternalDataReader(databaseNode);
+		internalDatabaseReader = new InternalDatabaseReader(databaseNode);
 		this.tableInfos = tableInfos;
 	}
 	
@@ -42,7 +42,7 @@ public final class DataReader implements IDataReader {
 	//method
 	@Override
 	public Time getSchemaTimestamp() {
-		return internalDataReader.getSchemaTimestamp();
+		return internalDatabaseReader.getSchemaTimestamp();
 	}
 	
 	//method
@@ -56,7 +56,7 @@ public final class DataReader implements IDataReader {
 		final var tableInfo = getTableInfoByTableName(tableName);
 		
 		return
-		internalDataReader.loadAllMultiReferenceEntriesForRecord(
+		internalDatabaseReader.loadAllMultiReferenceEntriesForRecord(
 			tableInfo,
 			entityId,
 			tableInfo.getColumnInfoByColumnName(multiReferenceColumnName)
@@ -74,7 +74,7 @@ public final class DataReader implements IDataReader {
 		final var tableInfo = getTableInfoByTableName(tableName);
 		
 		return
-		internalDataReader.loadMultiValueEntriesFromRecord(
+		internalDatabaseReader.loadMultiValueEntriesFromRecord(
 			tableInfo,
 			entityId,
 			tableInfo.getColumnInfoByColumnName(multiValueColumnName)
@@ -84,13 +84,13 @@ public final class DataReader implements IDataReader {
 	//method
 	@Override
 	public IContainer<ILoadedRecordDTO> loadAllRecordsFromTable(final String tableName) {
-		return internalDataReader.loadAllRecordsFromTable(getTableInfoByTableName(tableName));
+		return internalDatabaseReader.loadAllRecordsFromTable(getTableInfoByTableName(tableName));
 	}
 	
 	//method
 	@Override
 	public ILoadedRecordDTO loadRecordFromTableById(final String tableName, final String id) {
-		return internalDataReader.loadRecordFromTableById(getTableInfoByTableName(tableName), id);
+		return internalDatabaseReader.loadRecordFromTableById(getTableInfoByTableName(tableName), id);
 	}
 	
 	//method
@@ -110,7 +110,7 @@ public final class DataReader implements IDataReader {
 		final var tableInfo = getTableInfoByTableName(tableName);
 		
 		return
-		internalDataReader.tableContainsEntityWithGivenValueAtGivenColumn(
+		internalDatabaseReader.tableContainsEntityWithGivenValueAtGivenColumn(
 			getTableInfoByTableName(tableName),
 			tableInfo.getColumnInfoByColumnName(columnName),
 			value

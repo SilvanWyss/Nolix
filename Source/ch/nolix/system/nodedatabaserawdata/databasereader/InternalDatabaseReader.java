@@ -15,7 +15,7 @@ import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.IColumnInfo;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
 
 //class
-public final class InternalDataReader {
+public final class InternalDatabaseReader {
 		
 	//static attribute
 	private static final DatabaseNodeSearcher databaseNodeSearcher = new DatabaseNodeSearcher();
@@ -37,7 +37,7 @@ public final class InternalDataReader {
 	private final IMutableNode<?> databaseNode;
 	
 	//constructor
-	public InternalDataReader(final IMutableNode<?> databaseNode) {
+	public InternalDatabaseReader(final IMutableNode<?> databaseNode) {
 		
 		GlobalValidator.assertThat(databaseNode).thatIsNamed("database node").isNotNull();
 		

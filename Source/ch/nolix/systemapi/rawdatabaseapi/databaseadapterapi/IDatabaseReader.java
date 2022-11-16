@@ -8,7 +8,7 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedRecordDTO;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //interface
-public interface IDataReader extends GroupCloseable {
+public interface IDatabaseReader extends GroupCloseable {
 	
 	//method
 	ITime getSchemaTimestamp();
