@@ -15,7 +15,7 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IRecordUpdateDTO;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //class
-public final class InternalDataWriter {
+public final class InternalDatabaseWriter {
 	
 	//attribute
 	private int saveCount;
@@ -36,7 +36,7 @@ public final class InternalDataWriter {
 	private final IMultiReferenceStatementCreator multiReferenceStatementCreator;
 
 	//constructor
-	public InternalDataWriter(
+	public InternalDatabaseWriter(
 		final String databaseName,
 		final SQLConnection pSQLConnection,
 		final ISQLSyntaxProvider pSQLSyntaxProvider

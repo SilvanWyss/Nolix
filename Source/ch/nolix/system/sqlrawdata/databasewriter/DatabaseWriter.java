@@ -8,7 +8,7 @@ import ch.nolix.core.sql.SQLConnection;
 import ch.nolix.core.sql.SQLConnectionPool;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.system.sqlrawdata.sqlapi.ISQLSyntaxProvider;
-import ch.nolix.systemapi.rawdatabaseapi.databaseadapterapi.IDataWriter;
+import ch.nolix.systemapi.rawdatabaseapi.databaseadapterapi.IDatabaseWriter;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDTO;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IRecordDTO;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IRecordUpdateDTO;
@@ -17,29 +17,29 @@ import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //class
-public final class DataWriter implements IDataWriter {
+public final class DatabaseWriter implements IDatabaseWriter {
 	
 	//static attribute
-	public static DataWriter forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndTableInfosAndSQLSyntaxProvider(
+	public static DatabaseWriter forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndTableInfosAndSQLSyntaxProvider(
 		final String databaseName,
 		final SQLConnectionPool pSQLConnectionPool,
 		final IContainer<ITableInfo> tableInfos,
 		final ISQLSyntaxProvider pSQLSyntaxProvider
 	) {
-		return new DataWriter(databaseName, pSQLConnectionPool.borrowSQLConnection(), tableInfos, pSQLSyntaxProvider);
+		return new DatabaseWriter(databaseName, pSQLConnectionPool.borrowSQLConnection(), tableInfos, pSQLSyntaxProvider);
 	}
 	
 	//attribute
 	private final CloseController closeController = CloseController.forElement(this);
 	
 	//attribute
-	private final InternalDataWriter internalDataWriter;
+	private final InternalDatabaseWriter internalDatabaseWriter;
 	
 	//multi-attribute
 	private final IContainer<ITableInfo> tableInfos;
 	
 	//constructor
-	private DataWriter(
+	private DatabaseWriter(
 		final String databaseName,
 		final SQLConnection pSQLConnection,
 		final IContainer<ITableInfo> tableInfos,
@@ -48,7 +48,7 @@ public final class DataWriter implements IDataWriter {
 		
 		GlobalValidator.assertThat(tableInfos).thatIsNamed("table definitions").isNotNull();
 		
-		internalDataWriter = new InternalDataWriter(databaseName, pSQLConnection, pSQLSyntaxProvider);		
+		internalDatabaseWriter = new InternalDatabaseWriter(databaseName, pSQLConnection, pSQLSyntaxProvider);		
 		this.tableInfos = tableInfos;
 		
 		createCloseDependencyTo(pSQLConnection);
@@ -61,7 +61,7 @@ public final class DataWriter implements IDataWriter {
 		final String entityId,
 		final String multiReferenceColumnName
 	) {
-		internalDataWriter.deleteEntriesFromMultiReference(
+		internalDatabaseWriter.deleteEntriesFromMultiReference(
 			entityId,
 			getColumnDefinitionByTableNameAndColumnName(tableName, multiReferenceColumnName).getColumnId()
 		);
@@ -74,7 +74,7 @@ public final class DataWriter implements IDataWriter {
 		final String entityId,
 		final String multiValueColumnName
 	) {
-		internalDataWriter.deleteEntriesFromMultiValue(
+		internalDatabaseWriter.deleteEntriesFromMultiValue(
 			entityId,
 			getColumnDefinitionByTableNameAndColumnName(tableName, multiValueColumnName).getColumnId()
 		);
@@ -88,7 +88,7 @@ public final class DataWriter implements IDataWriter {
 		final String multiRefereceColumnName,
 		final String referencedEntityId
 	) {
-		internalDataWriter.deleteEntryFromMultiReference(
+		internalDatabaseWriter.deleteEntryFromMultiReference(
 			entityId,
 			getColumnDefinitionByTableNameAndColumnName(tableName, multiRefereceColumnName).getColumnId(),
 			referencedEntityId
@@ -103,7 +103,7 @@ public final class DataWriter implements IDataWriter {
 		final String multiValueColumnName,
 		final String entry
 	) {
-		internalDataWriter.deleteEntryFromMultiValue(
+		internalDatabaseWriter.deleteEntryFromMultiValue(
 			entityId,
 			getColumnDefinitionByTableNameAndColumnName(tableName, multiValueColumnName).getColumnId(),
 			entry
@@ -113,13 +113,13 @@ public final class DataWriter implements IDataWriter {
 	//method
 	@Override
 	public void deleteRecordFromTable(final String tableName, final IEntityHeadDTO entity) {
-		internalDataWriter.deleteRecordFromTable(tableName, entity);
+		internalDatabaseWriter.deleteRecordFromTable(tableName, entity);
 	}
 	
 	//method
 	@Override
 	public void expectGivenSchemaTimestamp(final ITime schemaTimestamp) {
-		internalDataWriter.expectGivenSchemaTimestamp(schemaTimestamp);
+		internalDatabaseWriter.expectGivenSchemaTimestamp(schemaTimestamp);
 	}
 	
 	//method
@@ -131,13 +131,13 @@ public final class DataWriter implements IDataWriter {
 	//method
 	@Override
 	public int getSaveCount() {
-		return internalDataWriter.getSaveCount();
+		return internalDatabaseWriter.getSaveCount();
 	}
 	
 	//method
 	@Override
 	public boolean hasChanges() {
-		return internalDataWriter.hasChanges();
+		return internalDatabaseWriter.hasChanges();
 	}
 	
 	//method
@@ -148,7 +148,7 @@ public final class DataWriter implements IDataWriter {
 		final String multiReferenceColumnName,
 		final String referencedEntityId
 	) {
-		internalDataWriter.insertEntryIntoMultiReference(
+		internalDatabaseWriter.insertEntryIntoMultiReference(
 			entityId,
 			getColumnDefinitionByTableNameAndColumnName(tableName, multiReferenceColumnName).getColumnId(),
 			referencedEntityId
@@ -163,7 +163,7 @@ public final class DataWriter implements IDataWriter {
 		final String multiValueColumnName,
 		final String entry
 	) {
-		internalDataWriter.insertEntryIntoMultiValue(
+		internalDatabaseWriter.insertEntryIntoMultiValue(
 			entityId,
 			getColumnDefinitionByTableNameAndColumnName(tableName, multiValueColumnName).getColumnId(),
 			entry
@@ -173,7 +173,7 @@ public final class DataWriter implements IDataWriter {
 	//method
 	@Override
 	public void insertRecordIntoTable(final String tableName, final IRecordDTO pRecord) {
-		internalDataWriter.insertRecordIntoTable(tableName, pRecord);
+		internalDatabaseWriter.insertRecordIntoTable(tableName, pRecord);
 	}
 	
 	//method
@@ -185,25 +185,25 @@ public final class DataWriter implements IDataWriter {
 	//method
 	@Override
 	public void reset() {
-		internalDataWriter.reset();
+		internalDatabaseWriter.reset();
 	}
 	
 	//method
 	@Override
 	public void saveChangesAndReset() {
-		internalDataWriter.saveChangesAndReset();
+		internalDatabaseWriter.saveChangesAndReset();
 	}
 	
 	//method
 	@Override
 	public void setEntityAsUpdated(final String tableName, final IEntityHeadDTO entity) {
-		internalDataWriter.setEntityAsUpdated(tableName, entity);
+		internalDatabaseWriter.setEntityAsUpdated(tableName, entity);
 	}
 	
 	//method
 	@Override
 	public void updateRecordOnTable(final String tableName, final IRecordUpdateDTO recordUpdate) {
-		internalDataWriter.updateRecordOnTable(tableName, recordUpdate);
+		internalDatabaseWriter.updateRecordOnTable(tableName, recordUpdate);
 	}
 	
 	//method

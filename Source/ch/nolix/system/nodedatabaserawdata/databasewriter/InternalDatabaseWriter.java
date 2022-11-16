@@ -15,7 +15,7 @@ import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //class
-final class InternalDataWriter {
+final class InternalDatabaseWriter {
 	
 	//static attribute
 	private static final DatabaseUpdater databaseUpdater = new DatabaseUpdater();
@@ -30,7 +30,7 @@ final class InternalDataWriter {
 	private final LinkedList<IElementTaker<IMutableNode<?>>> changeActions = new LinkedList<>();
 	
 	//constructor
-	public InternalDataWriter(final IMutableNode<?> nodeDatabase) {
+	public InternalDatabaseWriter(final IMutableNode<?> nodeDatabase) {
 		
 		GlobalValidator.assertThat(nodeDatabase).thatIsNamed("node database").isNotNull();
 		

@@ -13,7 +13,7 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
  * @author Silvan Wyss
  * @date 2021-09-19
  */
-public interface IDataWriter extends IMultiTimeChangeSaver {
+public interface IDatabaseWriter extends IMultiTimeChangeSaver {
 	
 	//method declaration
 	/**

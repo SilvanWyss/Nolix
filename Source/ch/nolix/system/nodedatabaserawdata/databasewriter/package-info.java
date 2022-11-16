@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.system.nodedatabaserawdata.databasewriter} package defines
- * a {@link ch.nolix.systemapi.rawdatabaseapi.databaseadapterapi.IDataWriter} for
+ * a {@link ch.nolix.systemapi.rawdatabaseapi.databaseadapterapi.IDatabaseWriter} for
  * databases that base on {@link ch.nolix.core.document.node.BaseNode}s.
  * 
  * @author Silvan Wyss

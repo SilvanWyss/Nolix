@@ -2,4 +2,4 @@
 package ch.nolix.systemapi.rawdatabaseapi.databaseadapterapi;
 
 //interface
-public interface IDatabaseAdapter extends IDatabaseReader, IDataWriter {}
+public interface IDatabaseAdapter extends IDatabaseReader, IDatabaseWriter {}

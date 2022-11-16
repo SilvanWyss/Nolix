@@ -6,7 +6,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
-import ch.nolix.systemapi.rawdatabaseapi.databaseadapterapi.IDataWriter;
+import ch.nolix.systemapi.rawdatabaseapi.databaseadapterapi.IDatabaseWriter;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDTO;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IRecordDTO;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IRecordUpdateDTO;
@@ -14,23 +14,23 @@ import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //class
-public final class DataWriter implements IDataWriter {
+public final class DatabaseWriter implements IDatabaseWriter {
 	
 	//attribute
 	private final CloseController closeController = CloseController.forElement(this);
 	
 	//attribute
-	private final InternalDataWriter internalDataWriter;
+	private final InternalDatabaseWriter internalDatabaseWriter;
 	
 	//multi-attribute
 	private final IContainer<ITableInfo> tableInfos;
 	
 	//constructor
-	public DataWriter(final IMutableNode<?> nodeDatabase, final IContainer<ITableInfo> tableInfos) {
+	public DatabaseWriter(final IMutableNode<?> nodeDatabase, final IContainer<ITableInfo> tableInfos) {
 		
 		GlobalValidator.assertThat(tableInfos).thatIsNamed("table definitions").isNotNull();
 		
-		internalDataWriter = new InternalDataWriter(nodeDatabase);
+		internalDatabaseWriter = new InternalDatabaseWriter(nodeDatabase);
 		this.tableInfos = tableInfos;		
 	}
 	
@@ -44,7 +44,7 @@ public final class DataWriter implements IDataWriter {
 		
 		final var tableInfo = getTableInfoByTableName(tableName);
 		
-		internalDataWriter.deleteEntriesFromMultiReference(
+		internalDatabaseWriter.deleteEntriesFromMultiReference(
 			tableInfo,
 			entityId,
 			tableInfo.getColumnInfoByColumnName(multiReferenceColumnName)
@@ -61,7 +61,7 @@ public final class DataWriter implements IDataWriter {
 		
 		final var tableInfo = getTableInfoByTableName(tableName);
 		
-		internalDataWriter.deleteEntriesFromMultiValue(
+		internalDatabaseWriter.deleteEntriesFromMultiValue(
 			tableInfo,
 			entityId,
 			tableInfo.getColumnInfoByColumnName(multiValueColumnName)
@@ -79,7 +79,7 @@ public final class DataWriter implements IDataWriter {
 		
 		final var tableInfo = getTableInfoByTableName(tableName);
 		
-		internalDataWriter.deleteEntryFromMultiReference(
+		internalDatabaseWriter.deleteEntryFromMultiReference(
 			tableInfo,
 			entityId,
 			tableInfo.getColumnInfoByColumnName(multiRefereceColumnName),
@@ -98,7 +98,7 @@ public final class DataWriter implements IDataWriter {
 		
 		final var tableInfo = getTableInfoByTableName(tableName);
 		
-		internalDataWriter.deleteEntryFromMultiValue(
+		internalDatabaseWriter.deleteEntryFromMultiValue(
 			tableInfo,
 			entityId,
 			tableInfo.getColumnInfoByColumnName(multiValueColumnName),
@@ -109,25 +109,25 @@ public final class DataWriter implements IDataWriter {
 	//method
 	@Override
 	public void deleteRecordFromTable(final String tableName, final IEntityHeadDTO entity) {
-		internalDataWriter.deleteRecordFromTable(tableName, entity);
+		internalDatabaseWriter.deleteRecordFromTable(tableName, entity);
 	}
 	
 	//method
 	@Override
 	public void expectGivenSchemaTimestamp(ITime schemaTimestamp) {
-		internalDataWriter.expectGivenSchemaTimestamp(schemaTimestamp);
+		internalDatabaseWriter.expectGivenSchemaTimestamp(schemaTimestamp);
 	}
 	
 	//method
 	@Override
 	public int getSaveCount() {
-		return internalDataWriter.getSaveCount();
+		return internalDatabaseWriter.getSaveCount();
 	}
 	
 	//method
 	@Override
 	public boolean hasChanges() {
-		return internalDataWriter.hasChanges();
+		return internalDatabaseWriter.hasChanges();
 	}
 	
 	//method
@@ -141,7 +141,7 @@ public final class DataWriter implements IDataWriter {
 		
 		final var tableInfo = getTableInfoByTableName(tableName);
 		
-		internalDataWriter.insertEntryIntoMultiReference(
+		internalDatabaseWriter.insertEntryIntoMultiReference(
 			tableInfo,
 			entityId,
 			tableInfo.getColumnInfoByColumnName(multiReferenceColumnName),
@@ -160,7 +160,7 @@ public final class DataWriter implements IDataWriter {
 		
 		final var tableInfo = getTableInfoByTableName(tableName);
 		
-		internalDataWriter.insertEntryIntoMultiValue(
+		internalDatabaseWriter.insertEntryIntoMultiValue(
 			tableInfo,
 			entityId,
 			tableInfo.getColumnInfoByColumnName(multiValueColumnName),
@@ -171,7 +171,7 @@ public final class DataWriter implements IDataWriter {
 	//method
 	@Override
 	public void insertRecordIntoTable(final String tableName, final IRecordDTO pRecord) {
-		internalDataWriter.insertRecordIntoTable(getTableInfoByTableName(tableName), pRecord);
+		internalDatabaseWriter.insertRecordIntoTable(getTableInfoByTableName(tableName), pRecord);
 	}
 	
 	//method
@@ -189,25 +189,25 @@ public final class DataWriter implements IDataWriter {
 	//method
 	@Override
 	public void reset() {
-		internalDataWriter.reset();
+		internalDatabaseWriter.reset();
 	}
 	
 	//method
 	@Override
 	public void saveChangesAndReset() {
-		internalDataWriter.saveChangesAndReset();
+		internalDatabaseWriter.saveChangesAndReset();
 	}
 	
 	//method
 	@Override
 	public void setEntityAsUpdated(final String tableName, final IEntityHeadDTO entity) {
-		internalDataWriter.setEntityAsUpdated(tableName, entity);
+		internalDatabaseWriter.setEntityAsUpdated(tableName, entity);
 	}
 	
 	//method
 	@Override
 	public void updateRecordOnTable(final String tableName, final IRecordUpdateDTO recordUpdate) {
-		internalDataWriter.updateRecordOnTable(getTableInfoByTableName(tableName), recordUpdate);
+		internalDatabaseWriter.updateRecordOnTable(getTableInfoByTableName(tableName), recordUpdate);
 	}
 	
 	//method
