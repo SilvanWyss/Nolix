@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemtest.objectdatatest.dataadaptertest;
+package ch.nolix.systemtest.objectdatabasetest.databaseadaptertest;
 
 //own imports
 import ch.nolix.core.document.node.MutableNode;

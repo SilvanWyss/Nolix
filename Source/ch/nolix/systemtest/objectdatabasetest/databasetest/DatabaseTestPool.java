@@ -1,14 +1,14 @@
 //package declaration
-package ch.nolix.systemtest.objectdatatest.datatest;
+package ch.nolix.systemtest.objectdatabasetest.databasetest;
 
 //own imports
 import ch.nolix.core.testing.basetest.TestPool;
 
 //class
-public final class DataTestPool extends TestPool {
+public final class DatabaseTestPool extends TestPool {
 	
 	//constructor
-	public DataTestPool() {
+	public DatabaseTestPool() {
 		super(EntityTest.class, OptionalValueTest.class, ValueTest.class);
 	}
 }

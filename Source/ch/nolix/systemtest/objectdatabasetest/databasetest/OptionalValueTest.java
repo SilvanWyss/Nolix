@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemtest.objectdatatest.datatest;
+package ch.nolix.systemtest.objectdatabasetest.databasetest;
 
 //own imports
 import ch.nolix.core.testing.basetest.TestCase;
