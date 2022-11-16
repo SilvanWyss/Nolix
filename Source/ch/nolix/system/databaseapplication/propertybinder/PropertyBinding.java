@@ -5,7 +5,7 @@ package ch.nolix.system.databaseapplication.propertybinder;
 import ch.nolix.core.container.main.SingleContainer;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.webgui.control.Text;
-import ch.nolix.systemapi.objectdataapi.dataapi.IProperty;
+import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
 import ch.nolix.systemapi.webguiapi.controlapi.IText;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 

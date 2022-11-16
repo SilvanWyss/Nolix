@@ -4,7 +4,7 @@ package ch.nolix.systemtest.objectdatatest.datatest;
 //own imports
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
-import ch.nolix.system.objectdata.data.Entity;
+import ch.nolix.system.objectdatabase.database.Entity;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.DatabaseObjectState;
 
 //class

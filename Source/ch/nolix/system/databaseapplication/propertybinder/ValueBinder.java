@@ -4,7 +4,7 @@ package ch.nolix.system.databaseapplication.propertybinder;
 //own imports
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.system.webgui.control.Textbox;
-import ch.nolix.systemapi.objectdataapi.dataapi.IValue;
+import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IValue;
 import ch.nolix.systemapi.webguiapi.controlapi.ITextbox;
 
 //class

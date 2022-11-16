@@ -6,11 +6,11 @@ import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
-import ch.nolix.system.objectdata.data.Entity;
-import ch.nolix.system.objectdata.data.Schema;
-import ch.nolix.system.objectdata.data.Value;
-import ch.nolix.system.objectdata.dataadapter.NodeDatabaseDataAdapter;
-import ch.nolix.system.objectdata.datahelper.EntityHelper;
+import ch.nolix.system.objectdatabase.database.Entity;
+import ch.nolix.system.objectdatabase.database.Schema;
+import ch.nolix.system.objectdatabase.database.Value;
+import ch.nolix.system.objectdatabase.databaseadapter.NodeDatabaseDataAdapter;
+import ch.nolix.system.objectdatabase.databasehelper.EntityHelper;
 
 //class
 public final class NodeDatabaseDataAdapterTest extends Test {

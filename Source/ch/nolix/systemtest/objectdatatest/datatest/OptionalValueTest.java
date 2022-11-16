@@ -4,7 +4,7 @@ package ch.nolix.systemtest.objectdatatest.datatest;
 //own imports
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
-import ch.nolix.system.objectdata.data.OptionalValue;
+import ch.nolix.system.objectdatabase.database.OptionalValue;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.DatabaseObjectState;
 
 //class

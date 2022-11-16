@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.system.databaseapplication.propertybinder} package defines
- * binders that can bind {@link ch.nolix.systemapi.objectdataapi.dataapi.IProperty}s to
+ * binders that can bind {@link ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty}s to
  * {@link ch.nolix.systemapi.webguiapi.mainapi.IControl}s.
  * 
  * @author Silvan Wyss
