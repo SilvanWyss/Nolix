@@ -7,11 +7,11 @@ import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDTO;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordDTO;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordUpdateDTO;
-import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
-import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IRecordDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IRecordUpdateDTO;
+import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.IColumnInfo;
+import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //class

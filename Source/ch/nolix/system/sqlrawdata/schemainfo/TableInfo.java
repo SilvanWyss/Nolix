@@ -6,8 +6,8 @@ import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
-import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
-import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
+import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.IColumnInfo;
+import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
 
 //class
 public record TableInfo(String tableId, String tableName, ImmutableList<IColumnInfo> columnInfos)

@@ -7,7 +7,7 @@ import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IValue;
 import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IValueHelper;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IContentFieldDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDTO;
 
 //class
 public final class Value<V> extends BaseValue<V> implements IValue<DataImplementation, V> {

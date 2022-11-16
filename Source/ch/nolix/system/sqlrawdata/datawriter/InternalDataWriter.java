@@ -9,9 +9,9 @@ import ch.nolix.system.sqlrawdata.sqlapi.IMultiReferenceStatementCreator;
 import ch.nolix.system.sqlrawdata.sqlapi.IMultiValueStatementCreator;
 import ch.nolix.system.sqlrawdata.sqlapi.IRecordStatementCreator;
 import ch.nolix.system.sqlrawdata.sqlapi.ISQLSyntaxProvider;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDTO;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordDTO;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordUpdateDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IRecordDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IRecordUpdateDTO;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //class

@@ -7,7 +7,7 @@ import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IReference;
 import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IReferenceHelper;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IContentFieldDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDTO;
 
 //class
 public final class Reference<E extends IEntity<DataImplementation>> extends BaseReference<E>

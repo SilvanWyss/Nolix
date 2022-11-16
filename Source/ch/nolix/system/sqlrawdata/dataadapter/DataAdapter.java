@@ -4,12 +4,12 @@ package ch.nolix.system.sqlrawdata.dataadapter;
 //own imports
 import ch.nolix.core.sql.SQLConnectionPool;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
-import ch.nolix.system.rawdata.dataadapter.BaseDataAdapter;
+import ch.nolix.system.rawdatabase.databaseadapter.BaseDataAdapter;
 import ch.nolix.system.sqlrawdata.databaseinspector.DatabaseInspector;
 import ch.nolix.system.sqlrawdata.datareader.DataReader;
 import ch.nolix.system.sqlrawdata.datawriter.DataWriter;
 import ch.nolix.system.sqlrawdata.sqlapi.ISQLSyntaxProvider;
-import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
+import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //class

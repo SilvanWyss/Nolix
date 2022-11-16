@@ -8,12 +8,12 @@ import ch.nolix.core.sql.SQLConnection;
 import ch.nolix.core.sql.SQLConnectionPool;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.system.sqlrawdata.sqlapi.ISQLSyntaxProvider;
-import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataWriter;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDTO;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordDTO;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordUpdateDTO;
-import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
-import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
+import ch.nolix.systemapi.rawdatabaseapi.databaseadapterapi.IDataWriter;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IRecordDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IRecordUpdateDTO;
+import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.IColumnInfo;
+import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //class

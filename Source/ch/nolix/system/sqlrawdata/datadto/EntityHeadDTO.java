@@ -4,7 +4,7 @@ package ch.nolix.system.sqlrawdata.datadto;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDTO;
 
 //class
 public record EntityHeadDTO(String id, String saveStamp) implements IEntityHeadDTO {

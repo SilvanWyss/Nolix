@@ -9,7 +9,7 @@ import ch.nolix.system.sqlrawdata.datadto.RecordUpdateDTO;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IOptionalReference;
 import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IOptionalReferenceHelper;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordUpdateDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IRecordUpdateDTO;
 
 //class
 public final class OptionalReferenceHelper extends PropertyHelper implements IOptionalReferenceHelper {

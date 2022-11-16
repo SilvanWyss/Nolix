@@ -11,7 +11,7 @@ import ch.nolix.system.sqlrawdata.datadto.ContentFieldDTO;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiValue;
 import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IMultiValueHelper;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IContentFieldDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDTO;
 
 //class
 public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<DataImplementation, V> {

@@ -10,7 +10,7 @@ import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IOptionalValue;
 import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IOptionalValueHelper;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IContentFieldDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDTO;
 
 //class
 public final class OptionalValue<V> extends BaseValue<V> implements IOptionalValue<DataImplementation, V> {

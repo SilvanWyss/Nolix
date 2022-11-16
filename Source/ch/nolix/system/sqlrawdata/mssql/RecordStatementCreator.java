@@ -6,10 +6,10 @@ import ch.nolix.system.sqlrawdata.sqlapi.IRecordStatementCreator;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabaseProperty;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertySystemTableColumn;
 import ch.nolix.system.sqlrawschema.structure.SystemDataTable;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IContentFieldDTO;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDTO;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordDTO;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordUpdateDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IRecordDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IRecordUpdateDTO;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //class

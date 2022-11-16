@@ -1,16 +1,16 @@
 //package declaration
-package ch.nolix.system.rawdata.dataandschemaadapter;
+package ch.nolix.system.rawdatabase.databaseandschemaadapter;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
-import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataAdapter;
-import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDTO;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedRecordDTO;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordDTO;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordUpdateDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databaseadapterapi.IDataAdapter;
+import ch.nolix.systemapi.rawdatabaseapi.databaseandschemaadapterapi.IDataAndSchemaAdapter;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedRecordDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IRecordDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IRecordUpdateDTO;
 import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDTO;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaReader;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDTO;

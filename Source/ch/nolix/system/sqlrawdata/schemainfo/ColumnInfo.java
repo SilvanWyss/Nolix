@@ -7,7 +7,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentExcep
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
-import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
+import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.IColumnInfo;
 
 //class
 public record ColumnInfo(

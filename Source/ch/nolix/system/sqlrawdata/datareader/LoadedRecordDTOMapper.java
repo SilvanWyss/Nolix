@@ -8,10 +8,10 @@ import java.util.List;
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.system.sqlrawdata.datadto.LoadedRecordDTO;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedContentFieldDTO;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedRecordDTO;
-import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
-import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedContentFieldDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedRecordDTO;
+import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.IColumnInfo;
+import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
 
 //class
 final class LoadedRecordDTOMapper {

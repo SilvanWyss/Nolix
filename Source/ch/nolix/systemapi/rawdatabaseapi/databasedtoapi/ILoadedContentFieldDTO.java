@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemapi.rawdataapi.datadtoapi;
+package ch.nolix.systemapi.rawdatabaseapi.databasedtoapi;
 
 //interface
 public interface ILoadedContentFieldDTO {

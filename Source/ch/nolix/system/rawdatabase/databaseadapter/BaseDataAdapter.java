@@ -1,17 +1,17 @@
 //package declaration
-package ch.nolix.system.rawdata.dataadapter;
+package ch.nolix.system.rawdatabase.databaseadapter;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
-import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataAdapter;
-import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataReader;
-import ch.nolix.systemapi.rawdataapi.dataadapterapi.IDataWriter;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IEntityHeadDTO;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedRecordDTO;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordDTO;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordUpdateDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databaseadapterapi.IDataAdapter;
+import ch.nolix.systemapi.rawdatabaseapi.databaseadapterapi.IDataReader;
+import ch.nolix.systemapi.rawdatabaseapi.databaseadapterapi.IDataWriter;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedRecordDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IRecordDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IRecordUpdateDTO;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //class

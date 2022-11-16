@@ -7,8 +7,8 @@ import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.nodedatabaserawdata.datareader.DataReader;
 import ch.nolix.system.nodedatabaserawdata.datareader.TableDefinitionLoader;
 import ch.nolix.system.nodedatabaserawdata.datawriter.DataWriter;
-import ch.nolix.system.rawdata.dataadapter.BaseDataAdapter;
-import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
+import ch.nolix.system.rawdatabase.databaseadapter.BaseDataAdapter;
+import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
 
 //class
 public final class DataAdapter extends BaseDataAdapter {

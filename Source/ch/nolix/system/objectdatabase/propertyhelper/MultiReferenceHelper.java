@@ -8,7 +8,7 @@ import ch.nolix.system.sqlrawdata.datadto.RecordUpdateDTO;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiReference;
 import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IMultiReferenceHelper;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordUpdateDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IRecordUpdateDTO;
 
 //class
 public final class MultiReferenceHelper extends PropertyHelper implements IMultiReferenceHelper {

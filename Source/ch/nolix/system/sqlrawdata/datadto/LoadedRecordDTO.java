@@ -5,8 +5,8 @@ package ch.nolix.system.sqlrawdata.datadto;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedContentFieldDTO;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedRecordDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedContentFieldDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedRecordDTO;
 
 //class
 public record LoadedRecordDTO(String id, String saveStamp, IContainer<ILoadedContentFieldDTO> contentFields)

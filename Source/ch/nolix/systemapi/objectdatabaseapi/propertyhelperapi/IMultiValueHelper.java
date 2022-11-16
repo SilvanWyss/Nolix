@@ -2,7 +2,7 @@
 package ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi;
 
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiValue;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordUpdateDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IRecordUpdateDTO;
 
 //interface
 public interface IMultiValueHelper extends IPropertyHelper {

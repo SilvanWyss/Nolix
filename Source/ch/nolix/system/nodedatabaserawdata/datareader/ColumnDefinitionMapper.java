@@ -8,7 +8,7 @@ import ch.nolix.system.nodedatabaserawschema.structure.ParametrizedPropertyTypeN
 import ch.nolix.system.sqlrawdata.schemainfo.ColumnInfo;
 import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
-import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
+import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.IColumnInfo;
 
 //class
 public final class ColumnDefinitionMapper {

@@ -7,7 +7,7 @@ import ch.nolix.system.sqlrawdata.datadto.ContentFieldDTO;
 import ch.nolix.system.sqlrawdata.datadto.RecordUpdateDTO;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiValue;
 import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IMultiValueHelper;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordUpdateDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IRecordUpdateDTO;
 
 //class
 public final class MultiValueHelper extends PropertyHelper implements IMultiValueHelper {

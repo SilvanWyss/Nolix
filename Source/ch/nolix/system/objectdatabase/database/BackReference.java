@@ -5,7 +5,7 @@ package ch.nolix.system.objectdatabase.database;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IBackReference;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IContentFieldDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDTO;
 
 //class
 public final class BackReference<E extends IEntity<DataImplementation>> extends BaseBackReference<E>

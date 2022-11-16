@@ -7,9 +7,9 @@ import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.nodedatabaserawdata.structure.EntityNodeSearcher;
 import ch.nolix.system.sqlrawdata.datadto.LoadedRecordDTO;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedContentFieldDTO;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.ILoadedRecordDTO;
-import ch.nolix.systemapi.rawdataapi.schemainfoapi.ITableInfo;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedContentFieldDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedRecordDTO;
+import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
 
 //class
 public final class LoadedRecordDTOMapper {

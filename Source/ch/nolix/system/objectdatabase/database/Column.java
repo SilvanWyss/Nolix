@@ -9,7 +9,7 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IColumn;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IParametrizedPropertyType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
-import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
+import ch.nolix.systemapi.rawdatabaseapi.databaseandschemaadapterapi.IDataAndSchemaAdapter;
 
 //class
 public final class Column extends ImmutableDatabaseObject implements IColumn<DataImplementation> {

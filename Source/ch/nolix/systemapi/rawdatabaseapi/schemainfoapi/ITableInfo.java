@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemapi.rawdataapi.schemainfoapi;
+package ch.nolix.systemapi.rawdatabaseapi.schemainfoapi;
 
 //own imports
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;

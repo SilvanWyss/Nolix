@@ -4,7 +4,7 @@ package ch.nolix.system.sqlrawdata.datareader;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
-import ch.nolix.systemapi.rawdataapi.schemainfoapi.IColumnInfo;
+import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.IColumnInfo;
 
 //class
 public final class ValueMapper {

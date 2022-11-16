@@ -3,7 +3,7 @@ package ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi;
 
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IOptionalReference;
-import ch.nolix.systemapi.rawdataapi.datadtoapi.IRecordUpdateDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IRecordUpdateDTO;
 
 //interface
 public interface IOptionalReferenceHelper {

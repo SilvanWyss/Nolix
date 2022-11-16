@@ -12,7 +12,7 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ISchema;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
 import ch.nolix.systemapi.objectdatabaseapi.databasehelperapi.IDatabaseHelper;
 import ch.nolix.systemapi.objectschemaapi.schemaadapterapi.ISchemaAdapter;
-import ch.nolix.systemapi.rawdataapi.dataandschemaadapterapi.IDataAndSchemaAdapter;
+import ch.nolix.systemapi.rawdatabaseapi.databaseandschemaadapterapi.IDataAndSchemaAdapter;
 
 //class
 public abstract class DataAdapter implements IDataAdapter<DataImplementation> {

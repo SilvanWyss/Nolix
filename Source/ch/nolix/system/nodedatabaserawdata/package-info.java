@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.system.nodedatabaserawdata} package defines
- * the types that are declared in the {@link ch.nolix.systemapi.rawdataapi} package for
+ * the types that are declared in the {@link ch.nolix.systemapi.rawdatabaseapi} package for
  * databases that base on {@link ch.nolix.core.document.node.BaseNode}s.
  * 
  * @author Silvan Wyss
