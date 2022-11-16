@@ -9,6 +9,6 @@ public final class DatabaseAdapterTestPool extends TestPool {
 	
 	//constructor
 	public DatabaseAdapterTestPool() {
-		super(NodeDatabaseDataAdapterTest.class);
+		super(NodeDatabaseAdapterTest.class);
 	}
 }

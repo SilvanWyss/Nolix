@@ -2,7 +2,7 @@
 package ch.nolix.system.objectdatabase.database;
 
 import ch.nolix.system.objectdatabase.propertyhelper.OptionalReferenceHelper;
-import ch.nolix.system.sqlrawdata.datadto.ContentFieldDTO;
+import ch.nolix.system.sqlrawdata.databasedto.ContentFieldDTO;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IOptionalReference;

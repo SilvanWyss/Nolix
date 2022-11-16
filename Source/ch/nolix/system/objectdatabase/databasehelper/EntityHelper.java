@@ -10,8 +10,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ReferencedArgumentExc
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.system.database.databaseobjecthelper.DatabaseObjectHelper;
 import ch.nolix.system.objectdatabase.propertyhelper.PropertyHelper;
-import ch.nolix.system.sqlrawdata.datadto.EntityHeadDTO;
-import ch.nolix.system.sqlrawdata.datadto.RecordDTO;
+import ch.nolix.system.sqlrawdata.databasedto.EntityHeadDTO;
+import ch.nolix.system.sqlrawdata.databasedto.RecordDTO;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.BasePropertyType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
