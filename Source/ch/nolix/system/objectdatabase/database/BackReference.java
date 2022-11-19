@@ -2,14 +2,20 @@
 package ch.nolix.system.objectdatabase.database;
 
 //own imports
+import ch.nolix.system.objectdatabase.propertyhelper.BackReferenceHelper;
+import ch.nolix.system.sqlrawdata.databasedto.ContentFieldDTO;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IBackReference;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
+import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IBackReferenceHelper;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDTO;
 
 //class
 public final class BackReference<E extends IEntity<DataImplementation>> extends BaseBackReference<E>
 implements IBackReference<DataImplementation, E>{
+	
+	//static attribute
+	private static final IBackReferenceHelper backReferenceHelper = new BackReferenceHelper();
 	
 	//static method
 	public static <E2 extends Entity> BackReference<E2> forEntityAndBackReferencedPropertyName(
@@ -27,6 +33,9 @@ implements IBackReference<DataImplementation, E>{
 		return new BackReference<>(tableName, backReferencedPropertyName);
 	}
 	
+	//optional attributes
+	private String backReferencedEntityId;
+	
 	//constructor
 	private BackReference(final String backReferencedTableName, final String backReferencedPropertyName) {
 		super(backReferencedTableName, backReferencedPropertyName);
@@ -41,8 +50,10 @@ implements IBackReference<DataImplementation, E>{
 	//method
 	@Override
 	public String getEntityId() {
-		//TODO: Implement.
-		return null;
+		
+		backReferenceHelper.assertIsNotEmpty(this);
+		
+		return backReferencedEntityId;
 	}
 	
 	//method
@@ -54,8 +65,7 @@ implements IBackReference<DataImplementation, E>{
 	//method
 	@Override
 	public boolean isEmpty() {
-		//TODO: Implement.
-		return false;
+		return (backReferencedEntityId == null);
 	}
 	
 	//method
@@ -82,13 +92,12 @@ implements IBackReference<DataImplementation, E>{
 	//method
 	@Override
 	public IContentFieldDTO technicalToContentField() {
-		//TODO: Implement.
-		return null;
+		return new ContentFieldDTO(getName(), getEntityId());
 	}
 	
 	//method
 	@Override
 	void internalSetOrClearDirectlyFromContent(final Object content) {
-		//TODO: Implement.
+		backReferencedEntityId = (String)content;
 	}
 }
