@@ -1,10 +1,9 @@
 package ch.nolix.coretutorial.errorcontroltutorial.validatortutorial;
 
-//own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 /**
- * This class is a tutorial how the zeta validator validates an integer.
+ * The {@link GlobalValidator} is a tutorial for how the {@link GlobalValidator} validates an integer.
  * 
  * @author Silvan Wyss
  * @date 2016-12-01
@@ -12,21 +11,21 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 public final class IntegerValidationTutorial1 {
 	
 	/**
-	 * Lets the zeta validator suppose once that 5 is positive and once suppose that 5 is negative.
+	 * Lets the {@link GlobalValidator} once assert that 5 is positive and once assert that 5 is negative.
 	 * 
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		
-		//Supposes that 5 is positive, what makes that the zeta validator does not complain.
+		//Lets the GlobalValidator assert that 5 is positive, what will not result in any complain.
 		GlobalValidator.assertThat(5).isPositive();
 		
-		//Supposes that 5 is negative, what makes that the zeta validator throws a NegativeArgumentException.
+		//Lets the GlobalValidator assert that 5 is negative, what will result in a NegativeArgumentException.
 		GlobalValidator.assertThat(5).isNegative();
 	}
 	
 	/**
-	 * Prevents that an instance of the {@link IntegerValidationTutorial} can be created.
+	 * Prevents that an instance of the {@link IntegerValidationTutorial1} can be created.
 	 */
 	private IntegerValidationTutorial1() {}
 }
