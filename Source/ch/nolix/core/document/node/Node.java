@@ -297,6 +297,7 @@ public final class Node extends BaseNode<Node> {
 	
 	//static method
 	/**
+	 * @param header
 	 * @return a valid header from the given header.
 	 * @throws ArgumentIsNullException if the given header is null.
 	 * @throws InvalidArgumentException if the given header is blank.

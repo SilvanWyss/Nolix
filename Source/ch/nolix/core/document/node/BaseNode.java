@@ -483,6 +483,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	
 	//method
 	/**
+	 * @param node
 	 * @return true if the current {@link BaseNode} equals the given node.
 	 */
 	protected final boolean equalsNode(final BaseNode<?> node) {

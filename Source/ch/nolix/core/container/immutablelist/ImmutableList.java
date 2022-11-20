@@ -82,6 +82,8 @@ public final class ImmutableList<E> extends Container<E> {
 	//constructor
 	/**
 	 * Creates a new {@link ImmutableList} with the given elements.
+	 * 
+	 * @param elements
 	 */
 	private ImmutableList(final E[] elements) {
 		this.elements = elements;
