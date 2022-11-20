@@ -5,6 +5,7 @@ package ch.nolix.system.objectdatabase.database;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IBaseReference;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
+import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
 
 //class
@@ -43,6 +44,12 @@ implements IBaseReference<DataImplementation, E> {
 	//method
 	@Override
 	public final boolean referencesBack(final IEntity<?> entity) {
+		return false;
+	}
+	
+	//method
+	@Override
+	public final boolean referencesBackProperty(final IProperty<?> property) {
 		return false;
 	}
 	

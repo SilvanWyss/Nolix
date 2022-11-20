@@ -5,6 +5,7 @@ package ch.nolix.system.objectdatabase.database;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IBaseBackReference;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
+import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
 
 //class
@@ -17,6 +18,7 @@ implements IBaseBackReference<DataImplementation, E> {
 	//attribute
 	private final String backReferencedPropertyName;
 	
+	//TODO: Use back referenced column instead of back referenced  table.
 	//optional attribute
 	private Table<E> backReferencedTable;
 	
@@ -59,6 +61,14 @@ implements IBaseBackReference<DataImplementation, E> {
 	@Override
 	public final boolean references(final IEntity<?> entity) {
 		return false;
+	}
+	
+	//method
+	@Override
+	public final boolean referencesBackProperty(final IProperty<?> property) {
+		return
+		getRefBackReferencedTable() == property.getParentEntity().getRefParentTable()
+		&& getBackReferencedPropertyName().equals(property.getName());
 	}
 	
 	//method
