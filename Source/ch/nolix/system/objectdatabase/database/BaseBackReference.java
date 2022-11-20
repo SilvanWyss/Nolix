@@ -18,7 +18,6 @@ implements IBaseBackReference<DataImplementation, E> {
 	//attribute
 	private final String backReferencedPropertyName;
 	
-	//TODO: Use back referenced column instead of back referenced  table.
 	//optional attribute
 	private Table<E> backReferencedTable;
 	
