@@ -20,12 +20,13 @@ public final class ReferenceTest extends Test {
 	//static class
 	private static final class Person extends Entity {
 		
+		//attribute
+		private final Reference<Pet> pet = Reference.forEntity(Pet.class);
+		
+		//constructor
 		public Person() {
 			initialize();
 		}
-		
-		//attribute
-		private final Reference<Pet> pet = Reference.forEntity(Pet.class);
 		
 		//method
 		public Pet getRefPet() {
