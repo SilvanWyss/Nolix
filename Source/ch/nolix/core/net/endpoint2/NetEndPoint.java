@@ -193,6 +193,7 @@ public class NetEndPoint extends EndPoint {
 	 * @param message
 	 * @return the reply to the given message if the current {@link NetEndPoint} stays connected, null otherwise.
 	 */
+	@Override
 	public String getReplyTo(final String message) {
 		return sendAndWaitToReply(message);
 	}

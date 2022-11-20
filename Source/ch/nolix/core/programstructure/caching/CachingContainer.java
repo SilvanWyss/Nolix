@@ -29,6 +29,7 @@ public final class CachingContainer<E> extends Container<E> implements ICachingC
 	private final LinkedList<Pair<String, E>> elements = new LinkedList<>();
 	
 	//method
+	@Override
 	public boolean containsWithId(final String id) {
 		return elements.containsAny(e -> e.getRefElement1().equals(id));
 	}
@@ -40,6 +41,7 @@ public final class CachingContainer<E> extends Container<E> implements ICachingC
 	}
 	
 	//method
+	@Override
 	public String getIdOf(final E element) {
 		return elements.getRefFirst(e -> e.getRefElement2().equals(element)).getRefElement1();
 	}
@@ -63,6 +65,7 @@ public final class CachingContainer<E> extends Container<E> implements ICachingC
 	}
 	
 	//method
+	@Override
 	public E getRefById(final String id) {
 		return elements.getRefFirst(e -> e.getRefElement1().equals(id)).getRefElement2();
 	}
@@ -80,6 +83,7 @@ public final class CachingContainer<E> extends Container<E> implements ICachingC
 	}
 	
 	//method
+	@Override
 	public String registerAndGetId(final E element) {
 		
 		GlobalValidator.assertThat(element).thatIsNamed(LowerCaseCatalogue.ELEMENT).isNotNull();
@@ -93,6 +97,7 @@ public final class CachingContainer<E> extends Container<E> implements ICachingC
 	}
 
 	//method
+	@Override
 	public void registerAtId(final String id, final E element) {
 		
 		GlobalValidator.assertThat(id).thatIsNamed(LowerCaseCatalogue.ID).isNotBlank();
@@ -105,6 +110,7 @@ public final class CachingContainer<E> extends Container<E> implements ICachingC
 	}
 	
 	//method
+	@Override
 	public String registerIfNotRegisteredAndGetId(final E element) {
 		
 		final var pair = elements.getRefFirstOrNull(e -> e.hasElement2(element));

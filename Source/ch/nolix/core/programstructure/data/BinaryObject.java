@@ -33,16 +33,19 @@ public final class BinaryObject implements IBinaryObject{
 	}
 	
 	//method
+	@Override
 	public byte[] getRefBytes() {
 		return bytes;
 	}
 	
 	//method
+	@Override
 	public int getSize() {
 		return bytes.length;
 	}
 	
 	//method
+	@Override
 	public String toString() {
 		return new String(bytes, StandardCharsets.UTF_8);
 	}

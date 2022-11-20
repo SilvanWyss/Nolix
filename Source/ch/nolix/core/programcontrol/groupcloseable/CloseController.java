@@ -87,6 +87,7 @@ public final class CloseController implements ICloseController {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public void setParentClosePool(final IClosePool parentClosePool) {
 		
 		//Asserts that the given parentClosePool is not null.

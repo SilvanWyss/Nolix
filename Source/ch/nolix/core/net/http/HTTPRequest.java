@@ -37,6 +37,7 @@ public record HTTPRequest(String content) {
 	}
 	
 	//method
+	@Override
 	public String toString() {
 		return HTTP_HEADER + "\n";
 	}

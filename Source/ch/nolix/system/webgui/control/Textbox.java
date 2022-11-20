@@ -125,6 +125,7 @@ public final class Textbox extends Control<Textbox, TextboxStyle> implements ITe
 	}
 	
 	//method
+	@Override
 	public Textbox setTextMode(final TextMode textMode) {
 		
 		this.textMode.setValue(textMode);

@@ -83,6 +83,7 @@ public final class SingleContainer<E> extends Container<E> implements ISingleCon
 	 * @return the element of the current {@link SingleContainer}.
 	 * @throws EmptyArgumentException if the current {@link SingleContainer} is empty.
 	 */
+	@Override
 	public E getRefElement() {
 		
 		//Asserts that the current SingleContainer is not empty.

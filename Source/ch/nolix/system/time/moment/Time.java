@@ -388,6 +388,7 @@ public final class Time extends Element implements ITime {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public long getMilliseconds() {
 		return zonedDateTime.toInstant().toEpochMilli();
 	}

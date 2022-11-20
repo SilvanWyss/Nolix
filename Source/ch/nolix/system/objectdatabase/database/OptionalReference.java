@@ -35,6 +35,7 @@ implements IOptionalReference<DataImplementation, E> {
 	}
 	
 	//method
+	@Override
 	public void clear() {
 		if (containsAny()) {
 			clearWhenContainsAny();

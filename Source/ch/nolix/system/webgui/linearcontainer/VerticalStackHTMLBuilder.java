@@ -25,6 +25,7 @@ public final class VerticalStackHTMLBuilder implements IControlHTMLBuilder<Verti
 	private VerticalStackHTMLBuilder() {}
 	
 	//method
+	@Override
 	public HTMLElement createHTMLElementForControl(final VerticalStack verticalStack) {
 		return
 		HTMLElement.withTypeAndAttributesAndChildElements(

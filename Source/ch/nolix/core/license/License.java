@@ -49,6 +49,7 @@ public abstract class License implements Named {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public final String getName() {
 		return getClass().getName();
 	}

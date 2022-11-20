@@ -26,6 +26,7 @@ public interface IProperty<IMPL> extends EmptinessRequestable, IDatabaseObject, 
 	PropertyType getType();
 	
 	//method declaration
+	@Override
 	boolean isLinkedWithRealDatabase();
 	
 	//method declaration

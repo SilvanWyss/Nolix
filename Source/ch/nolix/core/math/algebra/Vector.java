@@ -180,6 +180,7 @@ public final class Vector {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public String toString() {
 		
 		final var stringBuilder = new StringBuilder();

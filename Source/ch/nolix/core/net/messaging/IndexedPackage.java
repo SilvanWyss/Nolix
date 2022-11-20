@@ -53,6 +53,7 @@ public class IndexedPackage<C> implements Indexed {
 	/**
 	 * @return the index of the current {@link IndexedPackage}.
 	 */
+	@Override
 	public final int getIndex() {
 		return index;
 	}

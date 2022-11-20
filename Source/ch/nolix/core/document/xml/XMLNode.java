@@ -123,6 +123,7 @@ public final class XMLNode implements IXMLNode<XMLNode> {
 	}
 	
 	//method
+	@Override
 	public IContainer<XMLNode> getRefChildNodes() {
 		return childNodes;
 	}

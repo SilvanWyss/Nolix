@@ -21,6 +21,7 @@ public final class ImageControlHTMLBuilder implements IControlHTMLBuilder<ImageC
 	private ImageControlHTMLBuilder() {}
 	
 	//method
+	@Override
 	public HTMLElement createHTMLElementForControl(final ImageControl imageControl) {
 		return
 		HTMLElement.withTypeAndAttributes(

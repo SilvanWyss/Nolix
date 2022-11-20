@@ -80,6 +80,7 @@ public final class Table extends SchemaObject implements ITable<SchemaImplementa
 	}
 	
 	//method
+	@Override
 	public boolean belongsToDatabase() {
 		return (parentDatabase != null);
 	}
@@ -119,6 +120,7 @@ public final class Table extends SchemaObject implements ITable<SchemaImplementa
 	}
 	
 	//method
+	@Override
 	public Database getParentDatabase() {
 		
 		assertBelongsToDatabase();

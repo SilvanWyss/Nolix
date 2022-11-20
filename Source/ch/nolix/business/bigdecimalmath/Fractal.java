@@ -178,6 +178,7 @@ public final class Fractal implements IFractal {
 	}
 	
 	//method
+	@Override
 	public ImageGenerator startImageGeneration() {
 		return new ImageGenerator(this);
 	}

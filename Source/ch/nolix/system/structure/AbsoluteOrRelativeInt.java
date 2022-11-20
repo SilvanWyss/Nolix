@@ -121,6 +121,7 @@ public final class AbsoluteOrRelativeInt extends Element implements IAbsoluteOrR
 	
 	//method
 
+	@Override
 	public int getAbsoluteValue() {
 		
 		assertIsAbsolute();
@@ -130,6 +131,7 @@ public final class AbsoluteOrRelativeInt extends Element implements IAbsoluteOrR
 	
 	//method
 
+	@Override
 	public double getPercentage() {
 		
 		assertIsRelative();
@@ -142,6 +144,7 @@ public final class AbsoluteOrRelativeInt extends Element implements IAbsoluteOrR
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public int getValueRelativeToHundredPercentValue(final int hundredPercentValue) {
 		
 		if (isAbsolute) {
@@ -155,6 +158,7 @@ public final class AbsoluteOrRelativeInt extends Element implements IAbsoluteOrR
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public boolean isAbsolute() {
 		return isAbsolute;
 	}
@@ -164,6 +168,7 @@ public final class AbsoluteOrRelativeInt extends Element implements IAbsoluteOrR
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public boolean isPositive() {
 		
 		if (isAbsolute) {
@@ -177,6 +182,7 @@ public final class AbsoluteOrRelativeInt extends Element implements IAbsoluteOrR
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public boolean isRelative() {
 		return !isAbsolute();
 	}

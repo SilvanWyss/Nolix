@@ -273,6 +273,7 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
 	}
 	
 	//method
+	@Override
 	public final void technicalRunOptionalSelectActionForItem(final IItemMenuItem<?> item) {
 		if (hasSelectAction()) {
 			selectAction.run(item);

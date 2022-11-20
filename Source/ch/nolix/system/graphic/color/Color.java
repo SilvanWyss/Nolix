@@ -1762,6 +1762,7 @@ public final class Color extends Element implements IColor {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public String toHexadecimalStringWithAlphaValue() {
 		return
 		StringCatalogue.HEXADECIMAL_PREFIX

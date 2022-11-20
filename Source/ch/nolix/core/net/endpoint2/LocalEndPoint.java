@@ -207,6 +207,7 @@ public final class LocalEndPoint extends EndPoint {
 	 * @param message
 	 * @return the reply to the given message from this local end point.
 	 */
+	@Override
 	public String getReplyTo(final String message) {
 		return getRefCounterpart().receiveAndGetReply(message);
 	}

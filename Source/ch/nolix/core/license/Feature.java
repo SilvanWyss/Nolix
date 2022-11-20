@@ -24,6 +24,7 @@ public abstract class Feature implements Named {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public final String getName() {
 		return getClass().getName();
 	}

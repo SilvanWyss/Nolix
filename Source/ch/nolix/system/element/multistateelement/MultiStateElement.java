@@ -97,11 +97,13 @@ implements IMultiStateElement<MSE, S> {
 	}
 	
 	//method
+	@Override
 	public final S getBaseState() {
 		return baseState.getEnumValue();
 	}
 	
 	//method
+	@Override
 	public final S getCurrentState() {
 		return currentState.getEnumValue();
 	}

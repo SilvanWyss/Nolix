@@ -83,6 +83,7 @@ public abstract class BaseNetEndPoint extends EndPoint {
 	 * 
 	 * @param message
 	 */
+	@Override
 	public final void send(final String message) {
 		sendRawMessage(NetEndPointProtocol.MESSAGE_PREFIX + message);
 	}

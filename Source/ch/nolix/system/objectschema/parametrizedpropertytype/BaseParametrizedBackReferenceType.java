@@ -50,6 +50,7 @@ implements IBaseParametrizedBackReferenceType<SchemaImplementation> {
 	}
 	
 	//method
+	@Override
 	public IColumn<SchemaImplementation> getBackReferencedColumn() {
 		return backReferencedColumn;
 	}

@@ -40,6 +40,7 @@ public final class ImplProviderTest extends Test {
 		}
 		
 		//method
+		@Override
 		public String getName() {
 			return name;
 		}

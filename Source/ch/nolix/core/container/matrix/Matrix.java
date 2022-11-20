@@ -255,6 +255,7 @@ public final class Matrix<E> extends Container<E> implements Clearable, IMatrix<
 	 * 
 	 * @return the number of columns of the current {@link Matrix}.
 	 */
+	@Override
 	public int getColumnCount() {
 		
 		//Handles the case that the current {@link Matrix} is empty.
@@ -293,6 +294,7 @@ public final class Matrix<E> extends Container<E> implements Clearable, IMatrix<
 	/**
 	 * @return the columns of the current {@link Matrix}.
 	 */
+	@Override
 	public IContainer<MatrixColumn<E>> getColumns() {
 		
 		final var columns = new LinkedList<MatrixColumn<E>>();
@@ -388,6 +390,7 @@ public final class Matrix<E> extends Container<E> implements Clearable, IMatrix<
 	 * @throws BiggerArgumentException
 	 * if the given column index is bigger than the number of columns of the current {@link Matrix}.
 	 */
+	@Override
 	@SuppressWarnings("unchecked")
 	public E getRefAt(final int rowIndex, final int columnIndex) {
 		
@@ -446,6 +449,7 @@ public final class Matrix<E> extends Container<E> implements Clearable, IMatrix<
 	/**
 	 * @return the rows of the current {@link Matrix}.
 	 */
+	@Override
 	public IContainer<MatrixRow<E>> getRows() {
 		
 		final var rows = new LinkedList<MatrixRow<E>>();
@@ -464,6 +468,7 @@ public final class Matrix<E> extends Container<E> implements Clearable, IMatrix<
 	 * 
 	 * @return the number of rows of the current {@link Matrix}.
 	 */
+	@Override
 	public int getRowCount() {
 		
 		//Handles the case that the current {@link Matrix} is empty.
@@ -539,6 +544,7 @@ public final class Matrix<E> extends Container<E> implements Clearable, IMatrix<
 	 * if the given column index is bigger than the number of columns of the current {@link Matrix}.
 	 * @throws ArgumentIsNullException if the given element is null.
 	 */
+	@Override
 	public void setAt(
 		final int rowIndex,
 		final int columnIndex,

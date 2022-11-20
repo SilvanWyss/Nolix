@@ -403,6 +403,7 @@ public final class ChainedNode implements IChainedNode {
 	/**
 	 * @return the number of attributes of the current {@link ChainedNode}.
 	 */
+	@Override
 	public int getChildNodeCount() {
 		return childNodes.getElementCount();
 	}
@@ -415,6 +416,7 @@ public final class ChainedNode implements IChainedNode {
 	 * @throws ArgumentDoesNotHaveAttributeException
 	 * if the current {@link ChainedNode} does not contain an attribute at the given index.
 	 */
+	@Override
 	public ChainedNode getChildNodeAt1BasedIndex(final int index) {
 		return childNodes.getRefAt1BasedIndex(index);
 	}
@@ -423,6 +425,7 @@ public final class ChainedNode implements IChainedNode {
 	/**
 	 * @return the attributes of the current {@link ChainedNode}.
 	 */
+	@Override
 	public IContainer<ChainedNode> getChildNodes() {
 		return childNodes;
 	}
@@ -475,6 +478,7 @@ public final class ChainedNode implements IChainedNode {
 	 * @throws ArgumentDoesNotHaveAttributeException if
 	 * the current {@link ChainedNode} does not contain an attribute with the given header.
 	 */
+	@Override
 	public ChainedNode getFirstChildNodeWithHeader(final String header) {
 		return getChildNodes().getRefFirst(a -> a.hasHeader(header));
 	}
@@ -516,6 +520,7 @@ public final class ChainedNode implements IChainedNode {
 	 * @return the next node of the current {@link ChainedNode}.
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link ChainedNode} does not have a next node.
 	 */
+	@Override
 	public ChainedNode getNextNode() {
 		
 		//Asserts that the current ChanedNode has a next node.
@@ -547,6 +552,7 @@ public final class ChainedNode implements IChainedNode {
 	 * @throws EmptyArgumentException if the current {@link ChainedNode} does not contain an attribute.
 	 * @throws InvalidArgumentException if the current {@link ChainedNode} contains several attributes.
 	 */
+	@Override
 	public ChainedNode getSingleChildNode() {
 		return childNodes.getRefOne();
 	}
@@ -613,6 +619,7 @@ public final class ChainedNode implements IChainedNode {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public int hashCode() {
 		return toString().hashCode();
 	}
@@ -646,6 +653,7 @@ public final class ChainedNode implements IChainedNode {
 	/**
 	 * @return true if the current {@link ChainedNode} has a next node.
 	 */
+	@Override
 	public boolean hasNextNode() {
 		return (nextNode != null);
 	}
@@ -654,6 +662,7 @@ public final class ChainedNode implements IChainedNode {
 	/**
 	 * @return true if the current {@link ChainedNode} does not have a header and does not contains attributes.
 	 */
+	@Override
 	public boolean isBlank() {
 		return
 		!hasHeader()
@@ -665,6 +674,7 @@ public final class ChainedNode implements IChainedNode {
 	 * @return a {@link Double} representation of the current {@link ChainedNode}.
 	 * @throws UnrepresentingArgumentException if the current {@link ChainedNode} does not represent a {@link Double}.
 	 */
+	@Override
 	public double toDouble() {
 		
 		//Asserts that the current ChainedNode can represent a Double.
@@ -680,6 +690,7 @@ public final class ChainedNode implements IChainedNode {
 	 * @return a {@link Integer} representation of the current {@link ChainedNode}.
 	 * @throws UnrepresentingArgumentException if the current {@link ChainedNode} does not represent a {@link Integer}.
 	 */
+	@Override
 	public int toInt() {
 		
 		//Asserts that the current ChainedNode can represent an Integer.
@@ -699,6 +710,7 @@ public final class ChainedNode implements IChainedNode {
 	 * @return a {@link Node} representation of the current {@link ChainedNode}.
 	 * @throws UnrepresentingArgumentException if the current {@link ChainedNode} does not represent a {@link Node}.
 	 */
+	@Override
 	public Node toNode() {
 		
 		//Asserts that the current ChainedNode can represent a Node.

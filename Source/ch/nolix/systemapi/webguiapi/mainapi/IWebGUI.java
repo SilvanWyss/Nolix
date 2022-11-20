@@ -17,6 +17,7 @@ public interface IWebGUI<WGUI extends IWebGUI<WGUI>>
 extends Clearable, ICanvas<WGUI>, IGUI<WGUI>, IStyleElement<WGUI> {
 	
 	//method declaration
+	@Override
 	IFrontEndReader fromFrontEnd();
 	
 	//method declaration
@@ -29,6 +30,7 @@ extends Clearable, ICanvas<WGUI>, IGUI<WGUI>, IStyleElement<WGUI> {
 	IContainer<IHTMLElementEvent> getHTMLElementEventRegistrations();
 	
 	//method declaration
+	@Override
 	IImage getIcon();
 	
 	//method declaration
@@ -44,6 +46,7 @@ extends Clearable, ICanvas<WGUI>, IGUI<WGUI>, IStyleElement<WGUI> {
 	ILayer<?> getRefTopLayer();
 		
 	//method declaration
+	@Override
 	IFrontEndWriter onFrontEnd();
 	
 	//method declaration
@@ -59,5 +62,6 @@ extends Clearable, ICanvas<WGUI>, IGUI<WGUI>, IStyleElement<WGUI> {
 	WGUI setFrontEndReaderAndFrontEndWriter(IFrontEndReader frontEndReader, IFrontEndWriter frontEndWriter);
 	
 	//method declaration
+	@Override
 	WGUI setIcon(IImage icon);
 }

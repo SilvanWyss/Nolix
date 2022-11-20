@@ -95,6 +95,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	/**
 	 * @return true if the current {@link BaseNode} contains attributes.
 	 */
+	@Override
 	public final boolean containsChildNodes() {
 		return getRefChildNodes().containsAny();
 	}
@@ -113,6 +114,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	 * @param header
 	 * @return true if the current {@link BaseNode} contains an attribute with the given header.
 	 */
+	@Override
 	public final boolean containsChildNodeWithHeader(final String header) {
 		return containsChildNodeThat(a -> a.hasHeader(header));
 	}
@@ -121,6 +123,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	/**
 	 * @return true if the current {@link BaseNode} contains exactly 1 attribute.
 	 */
+	@Override
 	public final boolean containsOneChildNode() {
 		return getRefChildNodes().containsOne();
 	}
@@ -156,6 +159,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	/**
 	 * @return the headers of the attributes of the current {@link BaseNode}.
 	 */
+	@Override
 	public final IContainer<String> getChildNodesHeaders() {
 		return getRefChildNodes().to(INode::getHeader);
 	}
@@ -167,6 +171,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	 * @throws NonPositiveArgumentException if the given index is not positive.
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BaseNode} does not contain an attribute at the given index.
 	 */
+	@Override
 	public final BN getRefChildNodeAt1BasedIndex(final int index) {
 		return getRefChildNodes().getRefAt1BasedIndex(index);
 	}
@@ -177,6 +182,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	 * @param header
 	 * @return the attributes of the current {@link BaseNode} that have the given header.
 	 */
+	@Override
 	public final IContainer<BN> getRefChildNodesWithHeader(final String header) {
 		return getRefChildNodesThat(a -> a.hasHeader(header));
 	}
@@ -186,6 +192,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	 * @param selector
 	 * @return the attributes the given selector selects from the current {@link BaseNode}.
 	 */
+	@Override
 	public final IContainer<BN> getRefChildNodesThat(final IElementTakerBooleanGetter<INode<?>> selector) {
 		return getRefChildNodes().getRefSelected(selector);
 	}
@@ -205,6 +212,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	 * @throws EmptyArgumentException if the current {@link Node} is empty.
 	 * @throws InvalidArgumentException if the current {@link Node} contains several attributes.
 	 */
+	@Override
 	public final BN getRefSingleChildNode() {
 		return getRefChildNodes().getRefOne();
 	}
@@ -216,6 +224,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	 * @throws ArgumentDoesNotHaveAttributeException if
 	 * the current {@link BaseNode} does not contain an attribute the given selector selects.
 	 */
+	@Override
 	public final BN getRefFirstChildNodeThat(IElementTakerBooleanGetter<INode<?>> selector) {
 		return getRefChildNodes().getRefFirst(selector);
 	}
@@ -225,6 +234,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	 * @param selector
 	 * @return the first attribute the given selector selects from the current {@link BaseNode} or null.
 	 */
+	@Override
 	public final BN getRefFirstChildNodeThatOrNull(IElementTakerBooleanGetter<INode<?>> selector) {
 		return getRefChildNodes().getRefFirstOrNull(selector);
 	}
@@ -234,6 +244,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	 * @param header
 	 * @return the first attribute of the current {@link BaseNode} with the given header.
 	 */
+	@Override
 	public final BN getRefFirstChildNodeWithHeader(final String header) {
 		return getRefFirstChildNodeThat(a -> a.hasHeader(header));
 	}
@@ -242,6 +253,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public final boolean getSingleChildNodeAsBoolean() {
 		return getRefSingleChildNode().toBoolean();
 	}
@@ -254,6 +266,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	 * @throws InvalidArgumentException
 	 * if the one attribute of the current {@link BaseNode} does not represent a double.
 	 */
+	@Override
 	public final double getSingleChildNodeAsDouble() {
 		return getRefSingleChildNode().toDouble();
 	}
@@ -266,6 +279,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	 * @throws InvalidArgumentException
 	 * if the one attribute of the current {@link BaseNode} does not represent an integer.
 	 */
+	@Override
 	public final int getSingleChildNodeAsInt() {
 		return getRefSingleChildNode().toInt();
 	}
@@ -278,6 +292,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	 * @throws InvalidArgumentException
 	 * if the one attribute of the current {@link BaseNode} does not represent a long.
 	 */
+	@Override
 	public final long getSingleChildNodeAsLong() {
 		return getRefSingleChildNode().toLong();
 	}
@@ -288,6 +303,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	 * @throws EmptyArgumentException if the current {@link BaseNode} does not contain attributes.
 	 * @throws InvalidArgumentException if the current {@link BaseNode} contains several attributes.
 	 */
+	@Override
 	public final String getSingleChildNodeHeader() {
 		return getRefSingleChildNode().getHeader();
 	}
@@ -312,6 +328,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	/**
 	 * @return true if the current {@link BaseNode} does not have a header and does not contain attributes.
 	 */
+	@Override
 	public final boolean isBlank() {
 		return (!hasHeader() && !containsChildNodes());
 	}
@@ -352,6 +369,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	 * @return the boolean the current {@link BaseNode} represents.
 	 * @throws UnrepresentingArgumentException if the current {@link BaseNode} does not represent a boolean.
 	 */
+	@Override
 	public final boolean toBoolean() {
 		return GlobalStringHelper.toBoolean(toString());
 	}
@@ -361,6 +379,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	 * @return the double the current {@link BaseNode} represents.
 	 * @throws InvalidArgumentException if the current {@link BaseNode} does not represent a double.
 	 */
+	@Override
 	public final double toDouble() {
 		return GlobalStringHelper.toDouble(toString());
 	}
@@ -369,6 +388,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public final String toFormattedString() {
 		return toFormattedString(0);
 	}
@@ -378,6 +398,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	 * @return the integer the current {@link BaseNode} represents.
 	 * @throws InvalidArgumentException if the current {@link BaseNode} does not represent a int.
 	 */
+	@Override
 	public final int toInt() {
 		return GlobalStringHelper.toInt(toString());
 	}
@@ -386,6 +407,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public final IntPair toIntPair() {
 		
 		//Asserts that the current BaseNode contains 2 attributes.
@@ -401,6 +423,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	 * @return the long the current {@link BaseNode} represents.
 	 * @throws InvalidArgumentException if the current {@link BaseNode} does not represent a long.
 	 */
+	@Override
 	public final long toLong() {
 		return GlobalStringHelper.toLong(toString());
 	}

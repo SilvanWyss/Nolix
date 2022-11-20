@@ -31,6 +31,7 @@ public final class ForwardingProperty<S extends Enum<S>, V> extends Property<S>{
 	}
 	
 	//method
+	@Override
 	public void setUndefined() {
 		materializedProperties.forEach(MaterializedProperty::setUndefined);
 	}

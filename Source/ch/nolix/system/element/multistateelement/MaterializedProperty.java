@@ -139,6 +139,7 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
 	}
 	
 	//method
+	@Override
 	public void setUndefined() {
 		for (final var sp : stateProperties) {
 			sp.setForwarding();

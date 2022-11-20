@@ -49,6 +49,7 @@ implements IBaseParametrizedReferenceType<SchemaImplementation> {
 	}
 	
 	//method
+	@Override
 	public ITable<SchemaImplementation> getReferencedTable() {
 		return referencedTable;
 	}

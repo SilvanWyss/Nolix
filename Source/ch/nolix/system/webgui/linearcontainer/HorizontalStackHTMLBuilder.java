@@ -25,6 +25,7 @@ public final class HorizontalStackHTMLBuilder implements IControlHTMLBuilder<Hor
 	private HorizontalStackHTMLBuilder() {}
 	
 	//method
+	@Override
 	public HTMLElement createHTMLElementForControl(final HorizontalStack horizontalStack) {
 		return
 		HTMLElement.withTypeAndAttributesAndChildElements(

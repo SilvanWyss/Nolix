@@ -76,6 +76,7 @@ public final class FractalBuilder implements IFractalBuilder {
 	private int bigDecimalScale = DEFAULT_BIG_DECIMAL_SCALE;
 		
 	//method
+	@Override
 	public Fractal build() {
 		return
 		new Fractal(

@@ -168,6 +168,7 @@ public final class GapMatrix<E> extends Container<E> implements Clearable {
 	}
 	
 	//method
+	@Override
 	public Iterator<E> iterator() {
 		return new GapMatrixIterator<>(this);
 	}

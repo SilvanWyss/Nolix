@@ -55,6 +55,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @param element
 	 * @return true if the current {@link Container} contains the given element.
 	 */
+	@Override
 	public final boolean contains(final Object element) {
 		
 		//Iterates the current IContainer.
@@ -78,6 +79,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @param elements
 	 * @return true if the current {@link Container} contains all of the given elements.
 	 */
+	@Override
 	public final boolean containsAll(final Iterable<Object> elements) {
 		
 		//Iterates the given elements.
@@ -101,6 +103,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @param elements
 	 * @return true if the current {@link Container} contains all the given elements.
 	 */
+	@Override
 	public final boolean containsAll(final Object... elements) {
 		
 		//Iterates the given elements.
@@ -121,6 +124,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * 
 	 * @return true if the current {@link Container} contains any element.
 	 */
+	@Override
 	public final boolean containsAny() {
 		return iterator().hasNext();
 	}
@@ -132,6 +136,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @param selector
 	 * @return true if the current {@link Container} contains an element the given selector selects.
 	 */
+	@Override
 	public final boolean containsAny(final IElementTakerBooleanGetter<E> selector) {
 		
 		//Iterates the current IContainer.
@@ -154,6 +159,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @return true if the current {@link Container}
 	 * contains at least 2 elements the given selector selects together.
 	 */
+	@Override
 	public final boolean containsAny(final I2ElementTakerBooleanGetter<E> selector) {
 		
 		//Iterates the current IContainer.
@@ -181,6 +187,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @param elements
 	 * @return true if the current {@link Container} contains any of the given elements.
 	 */
+	@Override
 	public final boolean containsAny(final Object... elements) {
 		
 		//Iterates the given elements.
@@ -203,6 +210,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @return true if the current {@link Container}
 	 * contains an element that equals the given given element.
 	 */
+	@Override
 	public final boolean containsAnyEqualing(final Object element) {
 		return containsAny(e -> e.equals(element));
 	}
@@ -216,6 +224,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @param elements
 	 * @return true if the current {@link Container} contains any of the given elements.
 	 */
+	@Override
 	public final boolean containsAnyFrom(final Iterable<?> elements) {
 		
 		//Iterates the given elements.
@@ -237,6 +246,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @param container
 	 * @return true if the current {@link Container} contains as many elements as the given container.
 	 */
+	@Override
 	public final boolean containsAsManyAs(final IContainer<?> container) {
 		return (getElementCount() == container.getElementCount());
 	}
@@ -254,6 +264,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @param container
 	 * @return true if the current {@link Container} contains less elements than the given container.
 	 */
+	@Override
 	public final boolean containsLessThan(final IContainer<?> container) {
 		return (getElementCount() < container.getElementCount());
 	}
@@ -265,6 +276,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @param container
 	 * @return true if the current {@link Container} contains less elements than the given container.
 	 */
+	@Override
 	public final boolean containsLessThan(final Iterable<?> container) {
 		return (getElementCount() < IterableHelper.getElementCount(container));
 	}
@@ -276,6 +288,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @param container
 	 * @return true if the current {@link Container} contains more elements than the given container.
 	 */
+	@Override
 	public final boolean containsMoreThan(final IContainer<?> container) {
 		return (getElementCount() > container.getElementCount());
 	}
@@ -287,6 +300,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @param container
 	 * @return true if the current {@link Container} contains more elements than the given container.
 	 */
+	@Override
 	public final boolean containsMoreThan(final Iterable<?> container) {
 		return (getElementCount() > IterableHelper.getElementCount(container));
 	}
@@ -298,6 +312,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @param selector
 	 * @return true if the current {@link Container} does not contain an element the given selector selects.
 	 */
+	@Override
 	public final boolean containsNone(final IElementTakerBooleanGetter<E> selector) {
 		return !containsAny(selector::getOutput);
 	}
@@ -311,6 +326,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @param elements
 	 * @return true if the current {@link Container} contains none of the given elements.
 	 */
+	@Override
 	public final boolean containsNone(final Object... elements) {
 		
 		//Iterates the given elements.
@@ -332,6 +348,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @param element
 	 * @return true if the current {@link Container} contains the given element exactly 1 time.
 	 */
+	@Override
 	public final boolean containsOnce(final E element) {
 		
 		var found = false;
@@ -360,6 +377,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * 
 	 * @return true if the current {@link Container} contains exactly 1 element.
 	 */
+	@Override
 	public final boolean containsOne() {
 		
 		final var iterator = iterator();
@@ -382,6 +400,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @return true if the current {@link Container}
 	 * contains exactly 1 element the given selector selects.
 	 */
+	@Override
 	public final boolean containsOne(final IElementTakerBooleanGetter<E> selector) {
 		
 		var found = false;
@@ -412,6 +431,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @return true if the current {@link Container}
 	 * contains exactly 1 element that equals the given element.
 	 */
+	@Override
 	public final boolean containsOneEqualing(final E element) {
 		return containsOne(e -> e.equals(element));
 	}
@@ -425,6 +445,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @param selector
 	 * @return true if the current {@link Container} contains only elements the given selector selects.
 	 */
+	@Override
 	public final boolean containsOnly(final IElementTakerBooleanGetter<E> selector) {
 
 		//Iterates the current IContainer.
@@ -448,6 +469,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * 
 	 * @param action
 	 */
+	@Override
 	public final void forEachWithContinuing(final IElementTaker<E> action) {
 		
 		//Iterates the current IContainer.
@@ -470,6 +492,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @throws SmallerArgumentException
 	 * if the current {@link Container} contains less element than the value of the given start index.
 	 */
+	@Override
 	public final Container<E> from(final int startIndex) {
 		return new SubContainer<>(this, startIndex, getElementCount());
 	}
@@ -489,6 +512,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @throws BiggerArgumentException
 	 * if the given end index is bigger than the number of elements of the current {@link Container}.
 	 */
+	@Override
 	public final Container<E> fromUntil(final int startIndex, final int endIndex) {
 		return new SubContainer<>(this, startIndex, endIndex);
 	}
@@ -502,6 +526,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * the given double norm returns from the elements of the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
+	@Override
 	public final double getAverageByDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
 		
 		//Asserts that the current IContainer is not empty.
@@ -521,6 +546,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * the given int norm returns from the elements of the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
+	@Override
 	public final double getAverageByInt(final IElementTakerIntGetter<E> intNorm) {
 		
 		//Asserts that the current IContainer is not empty.
@@ -540,6 +566,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * the given long norm returns from the elements of the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
+	@Override
 	public final double getAverageByLong(final IElementTakerLongGetter<E> longNorm) {
 		
 		//Asserts that the current IContainer is not empty.
@@ -557,6 +584,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @param selector
 	 * @return the number of elements the given selector selects from the current {@link Container}.
 	 */
+	@Override
 	public final int getCount(final IElementTakerBooleanGetter<E> selector) {
 		
 		var elementCount = 0;
@@ -580,6 +608,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @param element
 	 * @return the number how many times the current {@link Container} contains the given element.
 	 */
+	@Override
 	public final int getCount(final Object element) {
 		
 		var elementCount = 0;
@@ -605,6 +634,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @throws InvalidArgumentException if
 	 * the current {@link Container} does not contain an element the given selector selects.
 	 */
+	@Override
 	public final int getIndexOfFirst(final IElementTakerBooleanGetter<E> selector) {
 		
 		//Iterates the current IContainer.
@@ -636,6 +666,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @throws InvalidArgumentException if
 	 * the current {@link Container} does not contain an element that equals the given element.
 	 */
+	@Override
 	public final int getIndexOfFirstEqualElement(final E element) {
 		
 		//Iterates the current IContainer.
@@ -662,6 +693,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @return the index of the given element in the current {@link Container}.
 	 * @throws InvalidArgumentException if the current {@link Container} does not contain the given element.
 	 */
+	@Override
 	public final int getIndexOfFirstOccurrenceOf(final E element) {
 		
 		//Iterates the current IContainer.
@@ -689,6 +721,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @return the biggest value the given norm returns from the elements of the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
+	@Override
 	@SuppressWarnings("unchecked")
 	public final <E2> E2 getMax(final IElementTakerComparableGetter<E, E2> norm) {
 		return (E2)(norm.getValue(getRefByMax(norm)));
@@ -703,6 +736,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * the given double norm returns from the elements of the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
+	@Override
 	public final double getMaxDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
 		return doubleNorm.getOutput(getRefByMaxDouble(doubleNorm));
 	}
@@ -716,6 +750,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * the given int norm returns from the elements of the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
+	@Override
 	public final int getMaxInt(final IElementTakerIntGetter<E> intNorm) {
 		return intNorm.getOutput(getRefByMaxInt(intNorm));
 	}
@@ -729,6 +764,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @return the biggest value the given intNorm returns from the elements of the current {@link Container}
 	 * if the current {@link Container} contains elements, otherwise the given defaultValue.
 	 */
+	@Override
 	public final int getMaxIntOrDefaultValue(final IElementTakerIntGetter<E> intNorm, final int defaultValue) {
 		
 		//Handles the case that the current IContainer is empty.
@@ -748,6 +784,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @return the biggest value the given intNorm returns from the elements of the current {@link Container}
 	 * if the current {@link Container} contains elements, otherwise 0.
 	 */
+	@Override
 	public final int getMaxIntOrZero(final IElementTakerIntGetter<E> intNorm) {
 		return getMaxIntOrDefaultValue(intNorm, 0);
 	}
@@ -761,6 +798,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * the given long norm returns from the elements of the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
+	@Override
 	public final long getMaxLong(IElementTakerLongGetter<E> longNorm) {
 		return longNorm.getOutput(getRefByMaxLong(longNorm));
 	}
@@ -774,6 +812,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @return the smallest value the given norm returns from the elements of the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
+	@Override
 	@SuppressWarnings("unchecked")
 	public final <E2> E2 getMin(final IElementTakerComparableGetter<E, E2> norm) {
 		return (E2)(norm.getValue(getRefByMin(norm)));
@@ -788,6 +827,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * the given double norm returns from the elements of the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
+	@Override
 	public final double getMinDouble(IElementTakerDoubleGetter<E> doubleNorm) {
 		return doubleNorm.getOutput(getRefByMinDouble(doubleNorm));
 	}
@@ -801,6 +841,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * the given int norm returns from the elements of the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
+	@Override
 	public final int getMinInt(IElementTakerIntGetter<E> intNorm) {
 		return intNorm.getOutput(getRefByMinInt(intNorm));
 	}
@@ -814,6 +855,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * the given long norm returns from the elements of the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
+	@Override
 	public final long getMinLong(IElementTakerLongGetter<E> longNorm) {
 		return longNorm.getOutput(getRefByMinLong(longNorm));
 	}
@@ -877,6 +919,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * the given selector selects from the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
+	@Override
 	public final double getPercentage(final IElementTakerBooleanGetter<E> selector) {
 		return (100.0 * getRatio(selector));
 	}
@@ -890,6 +933,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @return the range of the values the given double norm returns from the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
+	@Override
 	public final double getRangeByDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
 		
 		//For a better performance, this implementation does not use all comfortable methods.
@@ -928,6 +972,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @return the range of the values the given int norm returns from the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
+	@Override
 	public final int getRangeByInt(final IElementTakerIntGetter<E> intNorm) {
 		
 		//For a better performance, this implementation does not use all comfortable methods.
@@ -966,6 +1011,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @return the range of the values the given long norm returns from the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
+	@Override
 	public final long getRangeByLong(final IElementTakerLongGetter<E> longNorm) {
 		
 		//For a better performance, this implementation does not use all comfortable methods.
@@ -1004,6 +1050,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * the given selector selects from the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
+	@Override
 	public final double getRatio(final IElementTakerBooleanGetter<E> selector) {
 		
 		//Asserts that the current IContainer is not empty.
@@ -1021,6 +1068,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @return a randomly selected element of the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
+	@Override
 	public final E getRefAny() {
 		
 		//Asserts that the current IContainer is not empty.
@@ -1041,6 +1089,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * the given norm returns from the elements of the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
+	@Override
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public final <E2> E getRefByMax(final IElementTakerComparableGetter<E, E2> norm) {
 		
@@ -1070,6 +1119,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * the given double norm returns from the elements of the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
+	@Override
 	public final E getRefByMaxDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
 		
 		var element = getRefFirst();
@@ -1098,6 +1148,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * the given int norm returns from the elements of the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
+	@Override
 	public final E getRefByMaxInt(final IElementTakerIntGetter<E> intNorm) {
 		
 		var element = getRefFirst();
@@ -1126,6 +1177,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * the given long norm returns from the elements of the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
+	@Override
 	public final E getRefByMaxLong(final IElementTakerLongGetter<E> longNorm) {
 		
 		var element = getRefFirst();
@@ -1155,6 +1207,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * the given norm returns from the elements of the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
+	@Override
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public final <E2> E getRefByMin(final IElementTakerComparableGetter<E, E2> norm) {
 		
@@ -1184,6 +1237,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * the given double norm returns from the elements of the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
+	@Override
 	public final E getRefByMinDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
 		
 		var element = getRefFirst();
@@ -1212,6 +1266,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * the given int norm returns from the elements of the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
+	@Override
 	public final E getRefByMinInt(final IElementTakerIntGetter<E> intNorm) {
 		
 		var element = getRefFirst();
@@ -1240,6 +1295,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * the given long norm returns from the elements of the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
+	@Override
 	public final E getRefByMinLong(IElementTakerLongGetter<E> longNorm) {
 		
 		var element = getRefFirst();
@@ -1266,6 +1322,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @return the first element of the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
+	@Override
 	public final E getRefFirst() {
 		
 		//Asserts that the current IContainer is not empty.
@@ -1285,6 +1342,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @throws ArgumentDoesNotHaveAttributeException
 	 * if the current {@link Container} does not contain an element the given selector selects.
 	 */
+	@Override
 	public final E getRefFirst(final IElementTakerBooleanGetter<? super E> selector) {
 		
 		//Iterates the current IContainer.
@@ -1334,6 +1392,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * 
 	 * @return the first element of the current {@link Container} or null.
 	 */
+	@Override
 	public final E getRefFirstOrNull() {
 		
 		//Handles the case that this list is empty.
@@ -1352,6 +1411,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @param selector
 	 * @return the first element the given selector selects from the current {@link Container} or null.
 	 */
+	@Override
 	public final E getRefFirstOrNull(final IElementTakerBooleanGetter<? super E> selector) {
 		
 		//Iterates the current IContainer.
@@ -1398,6 +1458,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @return a new {@link LinkedList}
 	 * with the elements from the current {@link Container} that are of the given type.
 	 */
+	@Override
 	@SuppressWarnings("unchecked")
 	public final <E2 extends E> LinkedList<E2> getRefOfType(final Class<E2> type) {
 		return (LinkedList<E2>)getRefSelected(e -> type.isAssignableFrom(e.getClass()));
@@ -1409,6 +1470,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 * @throws InvalidArgumentException if the current {@link Container} contains several elements.
 	 */
+	@Override
 	public final E getRefOne() {
 		
 		//Asserts that the current IContainer contains exactly 1 element.
@@ -1431,6 +1493,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @throws InvalidArgumentException
 	 * if the given selector does not select an element or selects several elements from the current {@link Container}.
 	 */
+	@Override
 	public final E getRefOne(final IElementTakerBooleanGetter<E> selector) {
 		
 		E element = null;
@@ -1469,6 +1532,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @return a new {@link LinkedList} with the elements
 	 * the given selector selects from the current {@link Container}.
 	 */
+	@Override
 	public final Container<E> getRefSelected(final IElementTakerBooleanGetter<? super E> selector) {
 		
 		//Creates list.
@@ -1495,6 +1559,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @param selectors
 	 * @return a new {@link LinkedList} with the elements the given selectors selects from the current {@link Container}.
 	 */
+	@Override
 	@SuppressWarnings("unchecked")
 	public final Container<E> getRefSelected(final IElementTakerBooleanGetter<E>... selectors) {
 		
@@ -1533,6 +1598,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @return a new {@link LinkedList} with the elements
 	 * the given selector selects not (!) from the current {@link Container}.
 	 */
+	@Override
 	public final Container<E> getRefUnselected(final IElementTakerBooleanGetter<E> selector) {
 		return getRefSelected(e -> !selector.getOutput(e));
 	}
@@ -1547,6 +1613,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @return a new {@link LinkedList} with the elements
 	 * the given selectors selects not (!) from the current {@link Container}.
 	 */
+	@Override
 	@SuppressWarnings("unchecked")
 	public final Container<E> getRefUnselected(final IElementTakerBooleanGetter<E>... selectors) {
 		
@@ -1586,6 +1653,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * the given double norm returns from the elements of the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
+	@Override
 	public final double getStandardDeviationByDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
 		return Math.sqrt(getVarianceByDouble(doubleNorm));
 	}
@@ -1599,6 +1667,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * the given int norm returns from the elements of the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
+	@Override
 	public final double getStandardDeviationByInt(final IElementTakerIntGetter<E> intNorm) {
 		return Math.sqrt(getVarianceByInt(intNorm));
 	}
@@ -1612,6 +1681,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * the given long norm returns from the elements of the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
+	@Override
 	public final double getStandardDeviationByInt(final IElementTakerLongGetter<E> longNorm) {
 		return Math.sqrt(getVarianceByLong(longNorm));
 	}
@@ -1624,6 +1694,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @return the sum of the values
 	 * the given double norm returns from the elements of the current {@link Container}.
 	 */
+	@Override
 	public final double getSumByDoubleNorm(final IElementTakerDoubleGetter<E> doubleNorm) {
 		
 		var sum = 0.0;
@@ -1644,6 +1715,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @return the sum of the values
 	 * the given int norm returns from the element of the current {@link Container}.
 	 */
+	@Override
 	public final int getSumByInt(final IElementTakerIntGetter<E> intNorm) {
 		
 		var sum = 0;
@@ -1664,6 +1736,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @return the sum of the values
 	 * the given long norm returns from the elements of the current {@link Container}.
 	 */
+	@Override
 	public final long getSumByLong(final IElementTakerLongGetter<E> longNorm) {
 		
 		var sum = 0;
@@ -1685,6 +1758,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * the given double norm returns from the elements of the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
+	@Override
 	public final double getVarianceByDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
 		
 		var sum = 0.0;
@@ -1707,6 +1781,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * the given int norm returns from the elements of the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
+	@Override
 	public final double getVarianceByInt(final IElementTakerIntGetter<E> intNorm) {
 		
 		var sum = 0.0;
@@ -1729,6 +1804,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * the given long norm returns from the elements of the current {@link Container}.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
+	@Override
 	public final double getVarianceByLong(final IElementTakerLongGetter<E> longNorm) {
 		
 		var sum = 0.0;
@@ -1761,6 +1837,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @param <E2> is the type of the elements of the {@link Comparable} the given norm returns.
 	 * @return true if the current {@link Container} is ordered according to the given norm.
 	 */
+	@Override
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public final <E2> boolean isOrdered(final IElementTakerComparableGetter<E, E2> norm) {
 		
@@ -1806,6 +1883,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @return a new {@link LinkedList} with the elements
 	 * the given extractor extracts from the elements of the current {@link Container}.
 	 */
+	@Override
 	public final <E2> Container<E2> to(final IElementTakerElementGetter<E, E2> extractor) {
 		final var list = new LinkedList<E2>();
 		forEach(e -> list.addAtEnd(extractor.getOutput(e)));
@@ -1818,6 +1896,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * 
 	 * @return a new array with the elements of the current {@link Container}.
 	 */
+	@Override
 	public final Object[] toArray() {
 		
 		//Creates array.
@@ -1866,6 +1945,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @return a new array with the values
 	 * the given byte norm returns from the elements of the current {@link Container}.
 	 */
+	@Override
 	public final byte[] toByteArray(final IElementTakerByteGetter<E> byteNorm) {
 		
 		//Creates array.
@@ -1889,6 +1969,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @return a new array with the values
 	 * the given charNorm returns from the elements of the current {@link Container}.
 	 */
+	@Override
 	public final char[] toCharArray(final IElementTakerCharGetter<E> charNorm) {
 		
 		//Creates array.
@@ -1925,6 +2006,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @return a new array with the values
 	 * the given double norm returns from the elements of the current {@link Container}.
 	 */
+	@Override
 	public final double[] toDoubleArray(final IElementTakerDoubleGetter<E> doubleNorm) {
 		
 		//Creates array.
@@ -1949,6 +2031,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @return a new {@link LinkedList} with the elements of the {@link Container}
 	 * the given extractor extracts from the elements of the current {@link Container}.
 	 */
+	@Override
 	public final <E2> LinkedList<E2> toFromMany(final IElementTakerElementGetter<E, IContainer<E2>> extractor) {
 		final var list = new LinkedList<E2>();
 		forEach(e -> list.addAtEnd(extractor.getOutput(e)));
@@ -1963,6 +2046,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @return a new array with the values
 	 * the given int norm returns from the elements of the current {@link Container}.
 	 */
+	@Override
 	public final int[] toIntArray(final IElementTakerIntGetter<E> intNorm) {
 		
 		//Creates array.
@@ -1996,6 +2080,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @return a new array with the values
 	 * the given long norm returns from the elements of the current {@link Container}.
 	 */
+	@Override
 	public final long[] toLongArray(final IElementTakerLongGetter<E> longNorm) {
 
 		//Creates the array.
@@ -2018,6 +2103,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @param separator
 	 * @return a {@link String} representation the current {@link Container} using the given separator.
 	 */
+	@Override
 	public final String toString(final char separator) {
 		return toString(String.valueOf(separator));
 	}
@@ -2030,6 +2116,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @return a {@link String} representation of the current {@link Container} using the given separator.
 	 * @throws ArgumentIsNullException if the given separator is null.
 	 */
+	@Override
 	public final String toString(final String separator) {
 		
 		//Asserts that the given separator is not null.
@@ -2063,6 +2150,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * 
 	 * @return a new array with the Strings that represent the elements of the current {@link Container}.
 	 */
+	@Override
 	public final String[] toStringArray() {
 		
 		final var stringArray = new String[getElementCount()];
@@ -2084,6 +2172,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @return a new {@link LinkedList}
 	 * with the Strings that represent the elements of the current {@link Container}.
 	 */
+	@Override
 	public final Container<String> toStrings() {
 		return to(E::toString);
 	}
@@ -2097,6 +2186,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * with the elements to the given end index.
 	 * @throws NonPositiveArgumentException if the given end index is not positive.
 	 */
+	@Override
 	public final Container<E> until(final int endIndex) {
 		return new SubContainer<>(this, 1, endIndex);
 	}
@@ -2108,6 +2198,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @return a new sub container of the current {@link Container} without the first element.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
+	@Override
 	public final Container<E> withoutFirst() {
 		
 		if (isEmpty()) {
@@ -2125,6 +2216,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @return a new sub {@link Container} from the current {@link Container} without
 	 * the first occurrence of the given element.
 	 */
+	@Override
 	public final Container<E> withoutFirst(final E element) {
 		
 		final var indexContainer = getOptionalIndexOfFirst(element);
@@ -2145,6 +2237,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @return a new sub container of the current {@link Container} without the first n elements.
 	 * @throws NonPositiveArgumentException if the given n is not positive.
 	 */
+	@Override
 	public final Container<E> withoutFirst(final int n) {
 		
 		final var elementCount = getElementCount();
@@ -2168,6 +2261,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @return a new sub container of the current {@link Container} without the last element.
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
+	@Override
 	public final Container<E> withoutLast() {
 		
 		//Asserts that the current IContainer is not empty.
@@ -2187,6 +2281,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * without the last n elements of the current {@link Container}.
 	 * @throws NonPositiveArgumentException if the given n is not positive.
 	 */
+	@Override
 	public final Container<E> withoutLast(final int n) {
 		
 		final var elementCount = getElementCount();

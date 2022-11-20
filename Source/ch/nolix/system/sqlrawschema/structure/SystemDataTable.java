@@ -34,6 +34,7 @@ public enum SystemDataTable implements FullNamed {
 	}
 	
 	//method
+	@Override
 	public String getNamePrefix() {
 		return NAME_PREFIX;
 	}

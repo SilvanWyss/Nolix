@@ -153,6 +153,7 @@ public final class Background extends Element implements IBackground {
 	}
 	
 	//method
+	@Override
 	public IColor getColor() {
 		
 		assertIsColor();
@@ -161,6 +162,7 @@ public final class Background extends Element implements IBackground {
 	}
 	
 	//method
+	@Override
 	public IColorGradient getColorGradient() {
 		
 		assertIsColorGradient();
@@ -169,6 +171,7 @@ public final class Background extends Element implements IBackground {
 	}
 	
 	//method
+	@Override
 	public IImage getImage() {
 		
 		assertIsImage();
@@ -177,6 +180,7 @@ public final class Background extends Element implements IBackground {
 	}
 	
 	//method
+	@Override
 	public ImageApplication getImageApplication() {
 		
 		assertIsImage();

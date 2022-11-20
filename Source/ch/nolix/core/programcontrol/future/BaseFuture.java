@@ -16,6 +16,7 @@ public abstract class BaseFuture implements IFuture {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public final boolean isFinishedSuccessfully() {
 		return (isFinished() && !caughtError());
 	}

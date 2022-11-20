@@ -204,6 +204,7 @@ public final class QuadraticFunction {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public String toString() {
 		return toPolynom().toString();
 	}
