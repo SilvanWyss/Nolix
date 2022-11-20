@@ -96,6 +96,11 @@ implements IBackReference<DataImplementation, E>{
 	}
 	
 	//method
+	void internalSetDirectlyBackReferencedEntityId(final String backReferencedEntityId) {
+		this.backReferencedEntityId = backReferencedEntityId;
+	}
+	
+	//method
 	@Override
 	void internalSetOrClearDirectlyFromContent(final Object content) {
 		backReferencedEntityId = (String)content;
