@@ -97,7 +97,7 @@ public final class LinkedList<E> extends Container<E> implements Clearable, IMut
 	public void addAtBegin(E element) {
 		
 		//Creates new node.
-		final var node = new LinkedListNode<E>(element);
+		final var node = new LinkedListNode<>(element);
 		
 		if (isEmpty()) {
 			firstNode = node;
@@ -147,7 +147,7 @@ public final class LinkedList<E> extends Container<E> implements Clearable, IMut
 		//Handles the case that the given elements is not empty.
 		if (!IterableHelper.isEmpty(elements)) {
 			
-			final var newFirstNode = new LinkedListNode<E>(elements.iterator().next());
+			final var newFirstNode = new LinkedListNode<>(elements.iterator().next());
 			
 			LinkedListNode<E> node = null;
 			
@@ -156,7 +156,7 @@ public final class LinkedList<E> extends Container<E> implements Clearable, IMut
 				if (node == null) {
 					node = newFirstNode;
 				} else {
-					final var currentNode = new LinkedListNode<E>(e);
+					final var currentNode = new LinkedListNode<>(e);
 					node.setNextNode(currentNode);
 					node = currentNode;
 				}
@@ -249,7 +249,7 @@ public final class LinkedList<E> extends Container<E> implements Clearable, IMut
 	public void addAtEnd(final E element) {
 		
 		//Creates new node.
-		final var node = new LinkedListNode<E>(element);
+		final var node = new LinkedListNode<>(element);
 		
 		if (isEmpty()) {
 			firstNode = node;

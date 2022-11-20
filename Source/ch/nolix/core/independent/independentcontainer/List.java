@@ -52,7 +52,7 @@ public final class List<E> implements Iterable<E> {
 	//method
 	public void addAtEnd(final E element) {
 		
-		final var node = new ListNode<E>(element);
+		final var node = new ListNode<>(element);
 		
 		if (isEmpty()) {
 			beginNode = node;
