@@ -94,7 +94,7 @@ implements IReference<DataImplementation, E> {
 		
 		updateRecordForSetEntity(entity);
 		
-		//TODO: update probable BackReference or OptionalBackReference.
+		updateProbableBackReferenceForSetOrAddedEntity(entity);
 		
 		internalSetParentEntityAsEditedAndRunProbableUpdateAction();
 	}
