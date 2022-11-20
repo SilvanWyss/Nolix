@@ -34,14 +34,9 @@ public final class ShellProvider {
 	}
 	
 	//static method
-	public static void startDefaultWebBrowserOpeningURL(String pURL) {
-		
-		if (!pURL.startsWith("http://")) {
-			pURL = "http://" + pURL;
-		}
-		
+	public static void startDefaultWebBrowserOpeningURL(final String pURL) {
 		try {
-			Desktop.getDesktop().browse(new URI(pURL));
+			Desktop.getDesktop().browse(new URI(getURLWithHTTPPrefix(pURL)));
 		} catch (final IOException | URISyntaxException exception) {
 			throw WrapperException.forError(exception);
 		}
@@ -89,6 +84,16 @@ public final class ShellProvider {
 		final var preCommand = new String[] {"cmd.exe", "/c"};
 		
 		return ReadContainer.forArrays(preCommand, command).toStringArray();
+	}
+	
+	//static method
+	private static String getURLWithHTTPPrefix(final String pURL) {
+		
+		if (!pURL.startsWith("http://")) {
+			return ("http://" + pURL);
+		}
+		
+		return pURL;
 	}
 	
 	//static method
