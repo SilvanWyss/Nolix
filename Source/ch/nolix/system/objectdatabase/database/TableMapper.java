@@ -19,6 +19,20 @@ final class TableMapper {
 	private static final ColumnMapper columnMapper = new ColumnMapper();
 	
 	//method
+	public Table<IEntity<DataImplementation>> createEmptyTableFromTableDTOForDatabase(
+		final ITableDTO tableDTO,
+		final Database database
+	) {
+		return
+		Table.withParentDatabaseAndNameAndIdAndEntityClassAndColumns(
+			database,
+			tableDTO.getName(),
+			tableDTO.getId(),
+			schemaHelper.getEntityTypeByName(database.internalGetSchema(), tableDTO.getName())
+		);
+	}
+	
+	//method
 	public ITable<DataImplementation, IEntity<DataImplementation>>
 	createTableFromTableDTOForDatabaseUsingGivenReferencableTables(
 		final ITableDTO tableDTO,
@@ -26,13 +40,7 @@ final class TableMapper {
 		final IContainer<ITable<DataImplementation, IEntity<DataImplementation>>> referencableTables
 	) {
 		
-		final var table =
-		Table.withParentDatabaseAndNameAndIdAndEntityClassAndColumns(
-			database,
-			tableDTO.getName(),
-			tableDTO.getId(),
-			schemaHelper.getEntityTypeByName(database.internalGetSchema(), tableDTO.getName())
-		);
+		final var table = createEmptyTableFromTableDTOForDatabase(tableDTO, database);
 		
 		final var columns =
 		tableDTO.getColumns()
