@@ -20,7 +20,7 @@ public final class TableMapper implements ITableMapper<SchemaImplementation> {
 	@Override
 	public IContainer<ITable<SchemaImplementation>> createTablesFrom(final ISchema<?> schema) {
 		
-		final var tables = createEmptyTablesFrom(schema);
+		final var tables = createEmptyTablesFromSchema(schema);
 		
 		for (final var t : tables) {
 			final var entityType = schema.getEntityTypesInOrder().getRefFirst(et -> t.hasName(et.getSimpleName()));						
@@ -36,7 +36,8 @@ public final class TableMapper implements ITableMapper<SchemaImplementation> {
 	}
 	
 	//method
-	private IContainer<ITable<SchemaImplementation>> createEmptyTablesFrom(final ISchema<?> schema) {
+	@Override
+	public IContainer<ITable<SchemaImplementation>> createEmptyTablesFromSchema(final ISchema<?> schema) {
 		return schema.getEntityTypesInOrder().to(this::createEmptyTableFrom);
 	}
 	
