@@ -19,7 +19,7 @@ final class TableMapper {
 	private static final ColumnMapper columnMapper = new ColumnMapper();
 	
 	//method
-	public Table<IEntity<DataImplementation>> createEmptyTableFromTableDTOForDatabase(
+	public ITable<DataImplementation, IEntity<DataImplementation>> createEmptyTableFromTableDTOForDatabase(
 		final ITableDTO tableDTO,
 		final Database database
 	) {
@@ -40,7 +40,7 @@ final class TableMapper {
 		final IContainer<ITable<DataImplementation, IEntity<DataImplementation>>> referencableTables
 	) {
 		
-		final var table = createEmptyTableFromTableDTOForDatabase(tableDTO, database);
+		final var table = (Table<IEntity<DataImplementation>>)createEmptyTableFromTableDTOForDatabase(tableDTO, database);
 		
 		final var columns =
 		tableDTO.getColumns()
