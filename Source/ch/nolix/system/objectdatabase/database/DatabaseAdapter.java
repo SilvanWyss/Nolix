@@ -42,7 +42,7 @@ public abstract class DatabaseAdapter implements IDatabaseAdapter<DataImplementa
 		final IElementGetter<IDataAndSchemaAdapter> dataAndSchemaAdapterCreator
 	) {
 		
-		schemaInitializer.initializeDatabaseToGivenSchemaUsingGivenSchemaAdapterIfDatabaseIsEmpty(
+		schemaInitializer.initializeDatabaseFromSchemaUsingSchemaAdapterIfDatabaseIsEmpty(
 			schema,
 			schemaAdapter
 		);
