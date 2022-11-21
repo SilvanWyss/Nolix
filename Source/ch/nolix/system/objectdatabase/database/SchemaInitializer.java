@@ -15,15 +15,30 @@ public final class SchemaInitializer {
 	new ch.nolix.system.objectdatabase.schemamapper.TableMapper();
 	
 	//method
-	public void initializeDatabaseWithGivenSchemaUsingGivenSchemaAdapterIfDatabaseIsEmpty(
+	public void initializeDatabaseToGivenSchemaUsingGivenSchemaAdapterIfDatabaseIsEmpty(
 		final ISchema<DataImplementation> schema,
 		final ISchemaAdapter<SchemaImplementation> schemaAdapter
 	) {
-		if (schemaAdapter.getTableCount() == 0) {
-			for (final var t : tableMapper.createTablesFrom(schema)) {
-				schemaAdapter.addTable(t);
-			}
-			schemaAdapter.saveChangesAndReset();
+		if (databaseIsEmpty(schemaAdapter)) {
+			initializeDatabaseToGivenSchemaUsingGivenSchemaAdapter(schema, schemaAdapter);
 		}
+	}
+
+	//method
+	private boolean databaseIsEmpty(final ISchemaAdapter<SchemaImplementation> schemaAdapter) {
+		return (schemaAdapter.getTableCount() == 0);
+	}
+	
+	//method
+	private void initializeDatabaseToGivenSchemaUsingGivenSchemaAdapter(
+		final ISchema<DataImplementation> schema,
+		final ISchemaAdapter<SchemaImplementation> schemaAdapter
+	) {
+		
+		for (final var t : tableMapper.createTablesFrom(schema)) {
+			schemaAdapter.addTable(t);
+		}
+		
+		schemaAdapter.saveChangesAndReset();
 	}
 }
