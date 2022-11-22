@@ -32,4 +32,10 @@ public abstract class BaseValue<V> extends Property implements IBaseValue<DataIm
 	public final boolean referencesUninsertedEntity() {
 		return false;
 	}
+	
+	//method
+	@Override
+	final void internalUpdateProbableBackReferencesWhenIsNew() {
+		//Does nothing.
+	}
 }

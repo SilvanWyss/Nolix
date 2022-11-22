@@ -167,6 +167,9 @@ public abstract class Property implements IProperty<DataImplementation> {
 		propertyFlyWeight.noteUpdate();
 	}
 	
+	//method declaration
+	abstract void internalUpdateProbableBackReferencesWhenIsNew();
+	
 	//method
 	private void setEffectivePropertyFlyWeightIfPropertyFlyWeightIsVoid() {
 		if (propertyFlyWeight.isVoid()) {

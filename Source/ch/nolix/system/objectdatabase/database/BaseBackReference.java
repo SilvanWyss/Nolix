@@ -77,6 +77,12 @@ implements IBaseBackReference<DataImplementation, E> {
 	}
 	
 	//method
+	@Override
+	final void internalUpdateProbableBackReferencesWhenIsNew() {
+		//Does nothing.
+	}
+	
+	//method
 	private boolean extractedBackReferencedTable() {
 		return (backReferencedTable != null);
 	}

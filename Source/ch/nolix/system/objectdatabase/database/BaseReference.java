@@ -55,25 +55,27 @@ implements IBaseReference<DataImplementation, E> {
 	
 	//method
 	protected final void updateProbableBackReferenceForSetOrAddedEntity(final E entity) {
-		for (final var p : entity.technicalGetRefProperties()) {
-			switch (p.getType()) {
-				case BACK_REFERENCE:
-					
-					final var backReference = (BackReference<?>)p;
-					
-					if (backReference.referencesBackProperty(this)) {
-						backReference.internalSetDirectlyBackReferencedEntityId(entity.getId());
-					}
-					
-					break;
-					
-				case OPTIONAL_BACK_REFERENCE:
-					
-					//TODO: Implement.
-					
-					break;
-				default:
-					//Does nothing.
+		if (isLinkedWithRealDatabase()) {
+			for (final var p : entity.technicalGetRefProperties()) {
+				switch (p.getType()) {
+					case BACK_REFERENCE:
+						
+						final var backReference = (BackReference<?>)p;
+						
+						if (backReference.referencesBackProperty(this)) {
+							backReference.internalSetDirectlyBackReferencedEntityId(entity.getId());
+						}
+						
+						break;
+						
+					case OPTIONAL_BACK_REFERENCE:
+						
+						//TODO: Implement.
+						
+						break;
+					default:
+						//Does nothing.
+				}
 			}
 		}
 	}

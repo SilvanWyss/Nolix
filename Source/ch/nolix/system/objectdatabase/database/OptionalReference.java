@@ -136,6 +136,14 @@ implements IOptionalReference<DataImplementation, E> {
 	}
 	
 	//method
+	@Override
+	void internalUpdateProbableBackReferencesWhenIsNew() {
+		if (containsAny()) {
+			updateProbableBackReferenceForSetOrAddedEntity(getRefEntity());
+		}
+	}
+	
+	//method
 	private void clearWhenContainsAny() {
 		
 		optionalReferenceHelper.assertCanClear(this);

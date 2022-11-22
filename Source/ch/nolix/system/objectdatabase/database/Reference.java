@@ -121,6 +121,14 @@ implements IReference<DataImplementation, E> {
 	}
 	
 	//method
+	@Override
+	void internalUpdateProbableBackReferencesWhenIsNew() {
+		if (containsAny()) {
+			updateProbableBackReferenceForSetOrAddedEntity(getRefEntity());
+		}
+	}
+	
+	//method
 	private void updateRecordForSetEntity(final E entity) {
 		if (isLinkedWithRealDatabase()) {
 			internalGetRefDataAndSchemaAdapter().updateRecordOnTable(

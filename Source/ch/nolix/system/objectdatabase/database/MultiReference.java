@@ -126,6 +126,16 @@ implements IMultiReference<DataImplementation, E> {
 	}
 	
 	//method
+	@Override
+	void internalUpdateProbableBackReferencesWhenIsNew() {
+		if (containsAny()) {
+			for (final var e : getReferencedEntities()) {
+				updateProbableBackReferenceForSetOrAddedEntity(e);
+			}
+		}
+	}
+	
+	//method
 	private void assertCanAddEntity(final E entity) {
 		multiReferenceHelper.assertCanAddGivenEntity(this, entity);
 	}
