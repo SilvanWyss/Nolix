@@ -25,7 +25,7 @@ final class ParametrizedPropertyTypeMapper {
 	public IParametrizedPropertyType<DataImplementation>
 	createParametrizedPropertyTypeFromDTOUsingGivenReferencableTables(
 		final IParametrizedPropertyTypeDTO parametrizedPropertyTypeDTO,
-		final IContainer<ITable<DataImplementation, IEntity<DataImplementation>>> referencableTables
+		final IContainer<? extends ITable<DataImplementation, IEntity<DataImplementation>>> referencableTables
 	) {
 		switch (parametrizedPropertyTypeDTO.getPropertyType()) {
 			case VALUE:

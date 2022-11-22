@@ -19,7 +19,7 @@ final class TableMapper {
 	private static final ColumnMapper columnMapper = new ColumnMapper();
 	
 	//method
-	public ITable<DataImplementation, IEntity<DataImplementation>> createEmptyTableFromTableDTOForDatabase(
+	public Table<IEntity<DataImplementation>> createEmptyTableFromTableDTOForDatabase(
 		final ITableDTO tableDTO,
 		final Database database
 	) {

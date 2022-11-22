@@ -17,7 +17,7 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 public final class Database implements IDatabase<DataImplementation> {
 	
 	//static attribute
-	private static final TableMapper tableMapper = new TableMapper();
+	private static final DatabaseTableLoader databaseTableLoader = new DatabaseTableLoader();
 	
 	//static method
 	public static Database withDataAndSchemaAdapterAndSchema(
@@ -37,7 +37,7 @@ public final class Database implements IDatabase<DataImplementation> {
 	private final ISchema<DataImplementation> schema;
 	
 	//multi-attribute
-	private final LinkedList<ITable<DataImplementation, IEntity<DataImplementation>>> tables;
+	private final LinkedList<? extends ITable<DataImplementation, IEntity<DataImplementation>>> tables;
 	
 	//constructor
 	private Database(final IDataAndSchemaAdapter dataAndSchemaAdapter, final ISchema<DataImplementation> schema) {
@@ -68,7 +68,7 @@ public final class Database implements IDatabase<DataImplementation> {
 	
 	//method
 	@Override
-	public IContainer<ITable<DataImplementation, IEntity<DataImplementation>>> getRefTables() {
+	public IContainer<? extends ITable<DataImplementation, IEntity<DataImplementation>>> getRefTables() {
 		return tables;
 	}
 	
@@ -146,16 +146,7 @@ public final class Database implements IDatabase<DataImplementation> {
 	}
 	
 	//method
-	private LinkedList<ITable<DataImplementation, IEntity<DataImplementation>>> loadTables() {
-		
-		final var rawTables = internalGetRefDataAndSchemaAdapter().loadTables();
-		
-		final var lTables = rawTables.to(rt -> tableMapper.createEmptyTableFromTableDTOForDatabase(rt, this));
-		
-		for (final var rt : rawTables) {
-			//TODO: tableMapper.createTableFromTableDTOForDatabaseUsingGivenReferencableTables(rt, this, lTables);
-		}
-		
-		return LinkedList.fromIterable(lTables);
+	private LinkedList<Table<IEntity<DataImplementation>>> loadTables() {
+		return databaseTableLoader.loadTablesForDatabase(this);
 	}
 }

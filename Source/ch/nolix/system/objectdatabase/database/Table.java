@@ -5,7 +5,6 @@ package ch.nolix.system.objectdatabase.database;
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-import ch.nolix.core.programatom.name.PluralLowerCaseCatalogue;
 import ch.nolix.core.programstructure.caching.CachingProperty;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.system.objectdatabase.databasehelper.EntityHelper;
@@ -62,7 +61,8 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 	private boolean loadedAllEntitiesInLocalData;
 	
 	//multi-attribute
-	private IContainer<IColumn<DataImplementation>> columns;
+	private final LinkedList<IColumn<DataImplementation>> columns =
+	new LinkedList<IColumn<DataImplementation>>();
 	
 	//multi-attribute
 	private final LinkedList<E> entitiesInLocalData = new LinkedList<>();
@@ -186,6 +186,11 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 	}
 	
 	//method
+	void internalAddColumn(final IColumn<DataImplementation> column) {
+		columns.addAtEnd(column);
+	}
+		
+	//method
 	@SuppressWarnings("unchecked")
 	void internalClose() {
 		((IContainer<BaseEntity>)technicalGetRefEntitiesInLocalData()).forEach(BaseEntity::internalClose);
@@ -213,10 +218,8 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 	
 	//method
 	void internalSetColumns(final IContainer<IColumn<DataImplementation>> columns) {
-		
-		GlobalValidator.assertThat(columns).thatIsNamed(PluralLowerCaseCatalogue.COLUMNS).isNotNull();
-		
-		this.columns = columns;
+		this.columns.clear();
+		this.columns.addAtEnd(columns);
 	}
 	
 	//method

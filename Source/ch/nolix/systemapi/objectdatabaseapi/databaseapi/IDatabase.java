@@ -16,7 +16,7 @@ public interface IDatabase<IMPL> extends IDatabaseObject {
 	ITable<IMPL, IEntity<IMPL>> getRefTableByName(String name);
 	
 	//method declaration
-	IContainer<ITable<IMPL, IEntity<IMPL>>> getRefTables();
+	IContainer<? extends ITable<IMPL, IEntity<IMPL>>> getRefTables();
 	
 	//method declaration
 	ITime getSchemaTimestamp();

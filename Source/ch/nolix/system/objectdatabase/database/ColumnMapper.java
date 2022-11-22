@@ -18,7 +18,7 @@ final class ColumnMapper {
 	public IColumn<DataImplementation> createColumnFromDTOForParentTableUsingGivenReferencableTables(
 		final IColumnDTO columnDTO,
 		final Table<IEntity<DataImplementation>> parentTable,
-		final IContainer<ITable<DataImplementation, IEntity<DataImplementation>>> referencableTables
+		final IContainer<? extends ITable<DataImplementation, IEntity<DataImplementation>>> referencableTables
 	) {
 		return
 		Column.withNameAndIdAndParametrizedPropertyTypeAndParentTable(
