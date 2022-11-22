@@ -92,6 +92,11 @@ implements IBackReference<DataImplementation, E>{
 	//method
 	@Override
 	public IContentFieldDTO technicalToContentField() {
+		
+		if (isEmpty()) {
+			return new ContentFieldDTO(getName());
+		}
+		
 		return new ContentFieldDTO(getName(), getEntityId());
 	}
 	

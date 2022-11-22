@@ -209,6 +209,11 @@ public abstract class BaseEntity implements IEntity<DataImplementation> {
 	}
 	
 	//method
+	final void internalUpdateProbableBackReferencesWhenIsNew() {
+		getRefProperties().forEach(Property::internalUpdateProbableBackReferencesWhenIsNew);
+	}
+	
+	//method
 	private boolean extractedProperties() {
 		return (properties != null);
 	}

@@ -253,6 +253,8 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 		
 		entitiesInLocalData.addAtEnd(entity);
 		
+		((BaseEntity)entity).internalUpdateProbableBackReferencesWhenIsNew();
+		
 		internalGetRefDataAndSchemaAdapter().insertRecordIntoTable(getName(), entityHelper.createRecordFor(entity));
 	}
 	
