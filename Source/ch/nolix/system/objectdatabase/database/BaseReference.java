@@ -63,7 +63,7 @@ implements IBaseReference<DataImplementation, E> {
 						final var backReference = (BackReference<?>)p;
 						
 						if (backReference.referencesBackProperty(this)) {
-							backReference.internalSetDirectlyBackReferencedEntityId(entity.getId());
+							backReference.internalSetDirectlyBackReferencedEntityId(getParentEntity().getId());
 						}
 						
 						break;
