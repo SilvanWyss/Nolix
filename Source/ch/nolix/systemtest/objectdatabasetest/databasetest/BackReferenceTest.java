@@ -51,7 +51,7 @@ public final class BackReferenceTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_getRefEntity() {
+	public void testCase_getRefEntity_whenIsNotSaved() {
 		
 		//setup
 		final var nodeDatabase = new MutableNode();
@@ -69,5 +69,30 @@ public final class BackReferenceTest extends Test {
 		
 		//verification
 		expect(result).is(john);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_getRefEntity_whenIsSaved() {
+		
+		//setup
+		final var nodeDatabase = new MutableNode();
+		final var schema = Schema.withEntityType(Person.class, Pet.class);
+		final var nodeDatabaseAdapter =
+		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		final var garfield = new Pet();
+		nodeDatabaseAdapter.insert(garfield);
+		final var john = new Person();
+		john.setPet(garfield);
+		nodeDatabaseAdapter.insert(john);
+		nodeDatabaseAdapter.saveChangesAndReset();
+		
+		//execution
+		final var loadedGarfield =
+		nodeDatabaseAdapter.getRefTableByEntityType(Pet.class).getRefEntityById(garfield.getId());
+		final var result = loadedGarfield.getRefOwner();
+		
+		//verification
+		expect(result.getId()).isEqualTo(john.getId());
 	}
 }
