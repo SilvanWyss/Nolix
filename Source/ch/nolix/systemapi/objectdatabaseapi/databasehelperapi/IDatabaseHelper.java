@@ -12,6 +12,9 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
 public interface IDatabaseHelper extends IDatabaseObjectHelper {
 	
 	//method declaration
+	boolean canSaveChanges(IDatabase<?> database);
+	
+	//method declaration
 	<IMPL> IContainer<IEntity<IMPL>> getRefEntitiesInLocalData(IDatabase<IMPL> database);
 	
 	//method declaration

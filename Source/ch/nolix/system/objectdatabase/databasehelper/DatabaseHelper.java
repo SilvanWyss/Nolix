@@ -18,6 +18,14 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 	
 	//method
 	@Override
+	public boolean canSaveChanges(final IDatabase<?> database) {
+		return
+		database.isOpen()
+		&& database.isLinkedWithRealDatabase();
+	}
+	
+	//method
+	@Override
 	public <IMPL> IContainer<IEntity<IMPL>> getRefEntitiesInLocalData(final IDatabase<IMPL> database) {
 		return database.getRefTables().toFromMany(ITable::technicalGetRefEntitiesInLocalData);
 	}
