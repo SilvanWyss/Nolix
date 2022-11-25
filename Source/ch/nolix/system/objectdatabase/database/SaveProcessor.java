@@ -2,9 +2,9 @@
 package ch.nolix.system.objectdatabase.database;
 
 //own imports
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectdatabase.databasehelper.DatabaseHelper;
 import ch.nolix.system.objectdatabase.databasehelper.EntityHelper;
+import ch.nolix.system.objectdatabase.databasevalidator.DatabaseValidator;
 import ch.nolix.systemapi.objectdatabaseapi.databasehelperapi.IDatabaseHelper;
 import ch.nolix.systemapi.objectdatabaseapi.databasehelperapi.IEntityHelper;
 
@@ -20,7 +20,7 @@ final class SaveProcessor {
 	//method
 	public void peristChanges(final Database database) {
 		
-		assertGivenDatabaseIsReadyForPersistChanges(database);
+		DatabaseValidator.INSTANCE.assertCanSaveChanes(database);
 		
 		setEditedEntitiesAsUpdated(database);
 		
@@ -30,22 +30,8 @@ final class SaveProcessor {
 	}
 	
 	//method
-	private void assertGivenDatabaseIsReadyForPersistChanges(final Database database) {
-		if (!givenDatabaseIsReadyForPersistChanges(database)) {
-			throw InvalidArgumentException.forArgumentAndErrorPredicate(database, "is not ready for persist changes");
-		}
-	}
-	
-	//method
 	private void expectInitialSchemaTimestamp(final Database database) {
 		database.internalGetRefDataAndSchemaAdapter().expectGivenSchemaTimestamp(database.getSchemaTimestamp());
-	}
-	
-	//method
-	private boolean givenDatabaseIsReadyForPersistChanges(final Database database) {
-		return
-		database.isOpen()
-		&& database.isLinkedWithRealDatabase();
 	}
 	
 	//method
