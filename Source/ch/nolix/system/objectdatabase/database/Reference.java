@@ -92,8 +92,6 @@ implements IReference<DataImplementation, E> {
 		
 		updateStateForSetEntity(entity);
 		
-		updateRecordForSetEntity(entity);
-		
 		updateProbableBackReferenceForSetOrAddedEntity(entity);
 		
 		internalSetParentEntityAsEditedAndRunProbableUpdateAction();
@@ -125,16 +123,6 @@ implements IReference<DataImplementation, E> {
 	void internalUpdateProbableBackReferencesWhenIsNew() {
 		if (containsAny()) {
 			updateProbableBackReferenceForSetOrAddedEntity(getRefEntity());
-		}
-	}
-	
-	//method
-	private void updateRecordForSetEntity(final E entity) {
-		if (isLinkedWithRealDatabase()) {
-			internalGetRefDataAndSchemaAdapter().updateRecordOnTable(
-				getParentEntity().getParentTableName(),
-				referenceHelper.createRecordUpdateDTOForSetEntity(this, entity)
-			);
 		}
 	}
 	

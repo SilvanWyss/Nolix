@@ -31,13 +31,34 @@ final class SaveProcessor {
 	
 	//method
 	private void setEditedEntitiesAsUpdated(final Database database) {
+		
 		final var entitiesInLocalData = databaseHelper.getRefEntitiesInLocalData(database);
+		
 		for (final var e : entitiesInLocalData) {
-			if (entityHelper.isEdited(e)) {
-				database.internalGetRefDataAndSchemaAdapter().setEntityAsUpdated(
-					e.getParentTableName(),
-					entityHelper.createRecordHeadDTOForEntity(e)
-				);
+			switch (e.getState()) {
+				case NEW:
+					
+					database.internalGetRefDataAndSchemaAdapter().insertRecordIntoTable(
+						e.getParentTableName(),
+						entityHelper.createRecordFor(e)
+					);
+					
+					break;
+				case EDITED:
+					
+					database.internalGetRefDataAndSchemaAdapter().setEntityAsUpdated(
+						e.getParentTableName(),
+						entityHelper.createRecordHeadDTOForEntity(e)
+					);
+					
+					database.internalGetRefDataAndSchemaAdapter().updateRecordOnTable(
+						e.getParentTableName(),
+						entityHelper.createEntityUpdateDTOForEntity(e)
+					);
+					
+					break;
+				default:
+					//Does nothing.
 			}
 		}
 	}

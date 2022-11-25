@@ -100,8 +100,6 @@ implements IOptionalReference<DataImplementation, E> {
 		
 		updateStateForSetEntity(entity);
 		
-		updateRecordForSetEntity(entity);
-		
 		internalSetParentEntityAsEditedAndRunProbableUpdateAction();
 	}
 	
@@ -161,16 +159,6 @@ implements IOptionalReference<DataImplementation, E> {
 			internalGetRefDataAndSchemaAdapter().updateRecordOnTable(
 				getParentEntity().getParentTableName(),
 				optionalReferenceHelper.createRecordUpdateDTOForClear(this)
-			);
-		}
-	}
-	
-	//method
-	private void updateRecordForSetEntity(final E entity) {
-		if (isLinkedWithRealDatabase()) {
-			internalGetRefDataAndSchemaAdapter().updateRecordOnTable(
-				getParentEntity().getParentTableName(),
-				optionalReferenceHelper.createRecordUpdateDTOForSetEntity(this, entity)
 			);
 		}
 	}

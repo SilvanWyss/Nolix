@@ -7,7 +7,6 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programstructure.caching.CachingProperty;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
-import ch.nolix.system.objectdatabase.databasehelper.EntityHelper;
 import ch.nolix.system.objectdatabase.databasehelper.TableHelper;
 import ch.nolix.system.objectdatabase.databasevalidator.TableValidator;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.DatabaseObjectState;
@@ -15,7 +14,6 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IColumn;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IDatabase;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
-import ch.nolix.systemapi.objectdatabaseapi.databasehelperapi.IEntityHelper;
 import ch.nolix.systemapi.objectdatabaseapi.databasehelperapi.ITableHelper;
 import ch.nolix.systemapi.rawdatabaseapi.databaseandschemaadapterapi.IDataAndSchemaAdapter;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedRecordDTO;
@@ -25,9 +23,6 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 	
 	//static attribute
 	private static final ITableHelper tableHelper = new TableHelper();
-	
-	//static attribute
-	private static final IEntityHelper entityHelper = new EntityHelper();
 	
 	//static attribute
 	private static final EntityMapper entityMapper = new EntityMapper();
@@ -255,8 +250,6 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 		entitiesInLocalData.addAtEnd(entity);
 		
 		((BaseEntity)entity).internalUpdateProbableBackReferencesWhenIsNew();
-		
-		internalGetRefDataAndSchemaAdapter().insertRecordIntoTable(getName(), entityHelper.createRecordFor(entity));
 	}
 	
 	//method

@@ -67,8 +67,6 @@ public final class OptionalValue<V> extends BaseValue<V> implements IOptionalVal
 		
 		updateStateForSetValue(value);
 		
-		updateRecordForSetValue(value);
-		
 		internalSetParentEntityAsEditedAndRunProbableUpdateAction();
 	}
 	
@@ -122,16 +120,6 @@ public final class OptionalValue<V> extends BaseValue<V> implements IOptionalVal
 			internalGetRefDataAndSchemaAdapter().updateRecordOnTable(
 				getParentEntity().getParentTableName(),
 				optionalValueHelper.createRecordUpdateDTOForClear(this)
-			);
-		}
-	}
-	
-	//method
-	private void updateRecordForSetValue(final V value) {
-		if (isLinkedWithRealDatabase()) {
-			internalGetRefDataAndSchemaAdapter().updateRecordOnTable(
-				getParentEntity().getParentTableName(),
-				optionalValueHelper.createRecordUpdateDTOForSetValue(this, value)
 			);
 		}
 	}

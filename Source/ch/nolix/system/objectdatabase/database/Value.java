@@ -53,8 +53,6 @@ public final class Value<V> extends BaseValue<V> implements IValue<DataImplement
 		
 		updateStateForSetValue(value);
 		
-		updateRecordForSetValue(value);
-		
 		internalSetParentEntityAsEditedAndRunProbableUpdateAction();
 	}
 	
@@ -83,16 +81,6 @@ public final class Value<V> extends BaseValue<V> implements IValue<DataImplement
 	@SuppressWarnings("unchecked")
 	void internalSetOrClearDirectlyFromContent(final Object content) {
 		internalValue = (V)content;		
-	}
-	
-	//method
-	private void updateRecordForSetValue(final V value) {
-		if (isLinkedWithRealDatabase()) {
-			internalGetRefDataAndSchemaAdapter().updateRecordOnTable(
-				getParentEntity().getParentTableName(),
-				valueHelper.createRecordUpdateDTOForSetValue(this, value)
-			);
-		}
 	}
 	
 	//method
