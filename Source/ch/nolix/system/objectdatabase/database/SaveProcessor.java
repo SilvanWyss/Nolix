@@ -18,7 +18,7 @@ final class SaveProcessor {
 	private static final IEntityHelper entityHelper = new EntityHelper();
 	
 	//method
-	public void peristChanges(final Database database) {
+	public void saveChanges(final Database database) {
 		
 		DatabaseValidator.INSTANCE.assertCanSaveChanes(database);
 		
@@ -26,17 +26,7 @@ final class SaveProcessor {
 		
 		expectInitialSchemaTimestamp(database);
 		
-		persistChanges(database);
-	}
-	
-	//method
-	private void expectInitialSchemaTimestamp(final Database database) {
-		database.internalGetRefDataAndSchemaAdapter().expectGivenSchemaTimestamp(database.getSchemaTimestamp());
-	}
-	
-	//method
-	private void persistChanges(final Database database) {
-		database.internalGetRefDataAndSchemaAdapter().saveChangesAndReset();
+		actualSaveChanges(database);
 	}
 	
 	//method
@@ -50,5 +40,15 @@ final class SaveProcessor {
 				);
 			}
 		}
+	}
+	
+	//method
+	private void expectInitialSchemaTimestamp(final Database database) {
+		database.internalGetRefDataAndSchemaAdapter().expectGivenSchemaTimestamp(database.getSchemaTimestamp());
+	}
+	
+	//method
+	private void actualSaveChanges(final Database database) {
+		database.internalGetRefDataAndSchemaAdapter().saveChangesAndReset();
 	}
 }

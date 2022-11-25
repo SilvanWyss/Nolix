@@ -113,7 +113,7 @@ public abstract class DatabaseAdapter implements IDatabaseAdapter<DataImplementa
 	//method
 	private void saveChanges() {
 		
-		saveProcessor.peristChanges(database);
+		saveProcessor.saveChanges(database);
 		
 		saveCount++;
 	}
