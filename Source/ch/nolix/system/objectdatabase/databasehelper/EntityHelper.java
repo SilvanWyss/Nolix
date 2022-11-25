@@ -11,6 +11,7 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.system.database.databaseobjecthelper.DatabaseObjectHelper;
 import ch.nolix.system.objectdatabase.propertyhelper.PropertyHelper;
 import ch.nolix.system.sqlrawdata.databasedto.EntityHeadDTO;
+import ch.nolix.system.sqlrawdata.databasedto.EntityUpdateDTO;
 import ch.nolix.system.sqlrawdata.databasedto.RecordDTO;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.BasePropertyType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
@@ -19,6 +20,7 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
 import ch.nolix.systemapi.objectdatabaseapi.databasehelperapi.IEntityHelper;
 import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IPropertyHelper;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IRecordDTO;
 
 //class
@@ -86,6 +88,17 @@ public class EntityHelper extends DatabaseObjectHelper implements IEntityHelper 
 	@Override
 	public boolean containsMandatoryAndEmptyBaseValuesOrBaseReferences(final IEntity<?> entity) {
 		return entity.technicalGetRefProperties().containsAny(this::isMandatoryAndEmptyBaseValueOrBaseReference);
+	}
+	
+	//method
+	@Override
+	public IEntityUpdateDTO createEntityUpdateDTOForEntity(final IEntity<?> entity) {
+		return
+		new EntityUpdateDTO(
+			entity.getId(),
+			entity.getSaveStamp(),
+			entity.technicalGetRefProperties().to(IProperty::technicalToContentField)
+		);
 	}
 	
 	//method

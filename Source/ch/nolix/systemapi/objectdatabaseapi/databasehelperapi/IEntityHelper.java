@@ -5,6 +5,7 @@ package ch.nolix.systemapi.objectdatabaseapi.databasehelperapi;
 import ch.nolix.systemapi.databaseapi.databaseobjecthelperapi.IDatabaseObjectHelper;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IRecordDTO;
 
 //interface
@@ -33,6 +34,9 @@ public interface IEntityHelper extends IDatabaseObjectHelper {
 	
 	//method declaration
 	boolean containsMandatoryAndEmptyBaseValuesOrBaseReferences(IEntity<?> entity);
+	
+	//method declaration
+	IEntityUpdateDTO createEntityUpdateDTOForEntity(IEntity<?> entity);
 	
 	//method declaration
 	IEntityHeadDTO createRecordHeadDTOForEntity(IEntity<?> entity);
