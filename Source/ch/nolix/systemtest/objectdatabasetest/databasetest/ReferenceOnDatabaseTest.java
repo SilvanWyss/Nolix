@@ -12,7 +12,7 @@ import ch.nolix.system.objectdatabase.database.Schema;
 import ch.nolix.system.objectdatabase.databaseadapter.NodeDatabaseAdapter;
 
 //class
-public final class ReferenceTest extends Test {
+public final class ReferenceOnDatabaseTest extends Test {
 	
 	//static class
 	private static final class Pet extends Entity {}
