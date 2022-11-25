@@ -9,7 +9,7 @@ import ch.nolix.systemapi.objectdatabaseapi.databasehelperapi.IDatabaseHelper;
 import ch.nolix.systemapi.objectdatabaseapi.databasehelperapi.IEntityHelper;
 
 //class
-final class PersistenceManager {
+final class SaveProcessor {
 	
 	//static attribute
 	private static final IDatabaseHelper databaseHelper = new DatabaseHelper();

@@ -24,7 +24,7 @@ public abstract class DatabaseAdapter implements IDatabaseAdapter<DataImplementa
 	private static final SchemaInitializer schemaInitializer = new SchemaInitializer();
 		
 	//static attribute
-	private static final PersistenceManager persistenceManager = new PersistenceManager();
+	private static final SaveProcessor saveProcessor = new SaveProcessor();
 	
 	//attribute
 	private final Database database;
@@ -113,7 +113,7 @@ public abstract class DatabaseAdapter implements IDatabaseAdapter<DataImplementa
 	//method
 	private void saveChanges() {
 		
-		persistenceManager.peristChanges(database);
+		saveProcessor.peristChanges(database);
 		
 		saveCount++;
 	}
