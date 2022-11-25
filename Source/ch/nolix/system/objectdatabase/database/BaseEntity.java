@@ -8,6 +8,7 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programstructure.data.GlobalIdCreator;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.system.objectdatabase.databasehelper.EntityHelper;
+import ch.nolix.system.objectdatabase.databasevalidator.EntityValidator;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.DatabaseObjectState;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
@@ -46,7 +47,7 @@ public abstract class BaseEntity implements IEntity<DataImplementation> {
 	@Override
 	public final void delete() {
 		
-		entityHelper.assertCanBeDeleted(this);
+		EntityValidator.INSTANCE.assertCanBeDeleted(this);
 		
 		updateStateForDelete();
 		
@@ -65,7 +66,7 @@ public abstract class BaseEntity implements IEntity<DataImplementation> {
 	@Override
 	public final ITable<DataImplementation, IEntity<DataImplementation>> getRefParentTable() {
 		
-		entityHelper.assertBelongsToTable(this);
+		EntityValidator.INSTANCE.assertBelongsToTable(this);
 		
 		return parentTable;
 	}
@@ -74,7 +75,7 @@ public abstract class BaseEntity implements IEntity<DataImplementation> {
 	@Override
 	public final String getSaveStamp() {
 		
-		entityHelper.assertHasSaveStamp(this);
+		EntityValidator.INSTANCE.assertHasSaveStamp(this);
 		
 		return saveStamp;
 	}

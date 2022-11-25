@@ -12,21 +12,6 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IRecordDTO;
 public interface IEntityHelper extends IDatabaseObjectHelper {
 	
 	//method declaration
-	void assertBelongsToTable(IEntity<?> entity);
-	
-	//method declaration
-	void assertCanBeDeleted(IEntity<?> entity);
-	
-	//method declaration
-	void assertDoesNotBelongToTable(IEntity<?> entity);
-	
-	//method declaration
-	void assertHasSaveStamp(IEntity<?> entity);
-	
-	//method declaration
-	void assertIsNotReferenced(IEntity<?> entity);
-	
-	//method declaration
 	boolean canBeDeleted(IEntity<?> entity);
 	
 	//method declaration
