@@ -3,7 +3,6 @@ package ch.nolix.system.objectdatabase.databasehelper;
 
 //own imports
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.system.database.databaseobjecthelper.DatabaseObjectHelper;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IColumn;
@@ -16,18 +15,6 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
 	
 	//static attribute
 	private static final EntityHelper entityHelper = new EntityHelper();
-	
-	//method
-	@Override
-	public void assertCanInsertGivenEntity(final ITable<?, ?> table, final IEntity<?> entity) {
-		if (!canInsertGivenEntity(table, entity)) {
-			throw
-			InvalidArgumentException.forArgumentAndErrorPredicate(
-				entity,
-				"cannot be inserted into the table " + table.getNameInQuotes()
-			);
-		}
-	}
 	
 	//method
 	@Override

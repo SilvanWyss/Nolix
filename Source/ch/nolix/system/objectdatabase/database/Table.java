@@ -9,6 +9,7 @@ import ch.nolix.core.programstructure.caching.CachingProperty;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.system.objectdatabase.databasehelper.EntityHelper;
 import ch.nolix.system.objectdatabase.databasehelper.TableHelper;
+import ch.nolix.system.objectdatabase.databasevalidator.TableValidator;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.DatabaseObjectState;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IColumn;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IDatabase;
@@ -154,7 +155,7 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 		//TODO: The inserted Entity must know its table before to check all the conditions that are required for insertion.
 		((BaseEntity)entity).internalSetParentTable((ITable<DataImplementation, IEntity<DataImplementation>>)this);
 		
-		tableHelper.assertCanInsertGivenEntity(this, entity);
+		TableValidator.INSTANCE.assertCanInsertGivenEntity(this, entity);
 		
 		insertWhenCanBeInserted(entity);
 		
