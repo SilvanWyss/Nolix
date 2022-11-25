@@ -4,11 +4,11 @@ package ch.nolix.system.objectdatabase.propertyhelper;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.sqlrawdata.databasedto.ContentFieldDTO;
-import ch.nolix.system.sqlrawdata.databasedto.RecordUpdateDTO;
+import ch.nolix.system.sqlrawdata.databasedto.EntityUpdateDTO;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiReference;
 import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IMultiReferenceHelper;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IRecordUpdateDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
 
 //class
 public final class MultiReferenceHelper extends PropertyHelper implements IMultiReferenceHelper {
@@ -49,7 +49,7 @@ public final class MultiReferenceHelper extends PropertyHelper implements IMulti
 	
 	//method
 	@Override
-	public IRecordUpdateDTO createRecordupdateDTOForAddEntity(
+	public IEntityUpdateDTO createEntityUpdateDTOForAddEntity(
 		final IMultiReference<?, ?> multiReference,
 		final IEntity<?> entity
 	) {
@@ -57,7 +57,7 @@ public final class MultiReferenceHelper extends PropertyHelper implements IMulti
 		final var parentEntity = multiReference.getParentEntity();
 		
 		return
-		new RecordUpdateDTO(
+		new EntityUpdateDTO(
 			parentEntity.getId(),
 			parentEntity.getSaveStamp(),
 			new ContentFieldDTO(multiReference.getName())
@@ -66,11 +66,11 @@ public final class MultiReferenceHelper extends PropertyHelper implements IMulti
 	
 	//method
 	@Override
-	public IRecordUpdateDTO createRecordUpdateDTOForClear(final IMultiReference<?, ?> multiReference) {
+	public IEntityUpdateDTO createEntityUpdateDTOForClear(final IMultiReference<?, ?> multiReference) {
 		
 		final var parentEntity = multiReference.getParentEntity();
 		
-		return new RecordUpdateDTO(
+		return new EntityUpdateDTO(
 			parentEntity.getId(),
 			parentEntity.getSaveStamp(),
 			new ContentFieldDTO(multiReference.getName())

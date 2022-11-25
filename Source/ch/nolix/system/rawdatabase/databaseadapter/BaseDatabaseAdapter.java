@@ -11,7 +11,7 @@ import ch.nolix.systemapi.rawdatabaseapi.databaseadapterapi.IDatabaseWriter;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDTO;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedRecordDTO;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IRecordDTO;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IRecordUpdateDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //class
@@ -210,7 +210,7 @@ public abstract class BaseDatabaseAdapter implements IDatabaseAdapter {
 	
 	//method
 	@Override
-	public final void updateRecordOnTable(final String tableName, final IRecordUpdateDTO recordUpdate) {
+	public final void updateRecordOnTable(final String tableName, final IEntityUpdateDTO recordUpdate) {
 		databaseWriter.updateRecordOnTable(tableName, recordUpdate);
 	}
 }

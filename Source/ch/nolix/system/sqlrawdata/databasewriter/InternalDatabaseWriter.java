@@ -11,7 +11,7 @@ import ch.nolix.system.sqlrawdata.sqlapi.IRecordStatementCreator;
 import ch.nolix.system.sqlrawdata.sqlapi.ISQLSyntaxProvider;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDTO;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IRecordDTO;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IRecordUpdateDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //class
@@ -176,7 +176,7 @@ public final class InternalDatabaseWriter {
 	}
 	
 	//method
-	public void updateRecordOnTable(final String tableName, final IRecordUpdateDTO recordUpdate) {
+	public void updateRecordOnTable(final String tableName, final IEntityUpdateDTO recordUpdate) {
 		mSQLCollector.addSQLStatement(
 			recordStatementCreator.createStatementToUpdateRecordOnTable(tableName, recordUpdate)
 		);

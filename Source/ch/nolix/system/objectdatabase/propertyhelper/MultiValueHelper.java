@@ -4,10 +4,10 @@ package ch.nolix.system.objectdatabase.propertyhelper;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.sqlrawdata.databasedto.ContentFieldDTO;
-import ch.nolix.system.sqlrawdata.databasedto.RecordUpdateDTO;
+import ch.nolix.system.sqlrawdata.databasedto.EntityUpdateDTO;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiValue;
 import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IMultiValueHelper;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IRecordUpdateDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
 
 //class
 public final class MultiValueHelper extends PropertyHelper implements IMultiValueHelper {
@@ -47,7 +47,7 @@ public final class MultiValueHelper extends PropertyHelper implements IMultiValu
 	
 	//method
 	@Override
-	public <V> IRecordUpdateDTO createRecordUpdateDTOForAddedValue(
+	public <V> IEntityUpdateDTO createRecordUpdateDTOForAddedValue(
 		final IMultiValue<?, V> multiValue,
 		final V addedValue
 	) {
@@ -55,7 +55,7 @@ public final class MultiValueHelper extends PropertyHelper implements IMultiValu
 		final var parentEntity = multiValue.getParentEntity();
 		
 		return
-		new RecordUpdateDTO(
+		new EntityUpdateDTO(
 			parentEntity.getId(),
 			parentEntity.getSaveStamp(),
 			new ContentFieldDTO(multiValue.getName(), "")
@@ -64,12 +64,12 @@ public final class MultiValueHelper extends PropertyHelper implements IMultiValu
 	
 	//method
 	@Override
-	public IRecordUpdateDTO createRecordUpdateDTOForClear(final IMultiValue<?, ?> multiValue) {
+	public IEntityUpdateDTO createRecordUpdateDTOForClear(final IMultiValue<?, ?> multiValue) {
 		
 		final var parentEntity = multiValue.getParentEntity();
 		
 		return
-		new RecordUpdateDTO(
+		new EntityUpdateDTO(
 			parentEntity.getId(),
 			parentEntity.getSaveStamp(),
 			new ContentFieldDTO(multiValue.getName())

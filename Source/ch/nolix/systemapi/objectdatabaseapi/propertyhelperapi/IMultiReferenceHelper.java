@@ -3,7 +3,7 @@ package ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi;
 
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiReference;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IRecordUpdateDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
 
 //interface
 public interface IMultiReferenceHelper extends IPropertyHelper {
@@ -15,10 +15,10 @@ public interface IMultiReferenceHelper extends IPropertyHelper {
 	void assertCanClear(IMultiReference<?, ?> multiReference);
 	
 	//method declaration
-	IRecordUpdateDTO createRecordupdateDTOForAddEntity(IMultiReference<?, ?> multiReference, IEntity<?> entity);
+	IEntityUpdateDTO createEntityUpdateDTOForAddEntity(IMultiReference<?, ?> multiReference, IEntity<?> entity);
 	
 	//method declaration
-	IRecordUpdateDTO createRecordUpdateDTOForClear(IMultiReference<?, ?> multiReference);
+	IEntityUpdateDTO createEntityUpdateDTOForClear(IMultiReference<?, ?> multiReference);
 	
 	//method declaration
 	boolean canAddGivenEntity(IMultiReference<?, ?> multiReference, IEntity<?> entity);

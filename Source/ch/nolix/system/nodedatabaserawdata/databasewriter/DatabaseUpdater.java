@@ -12,7 +12,7 @@ import ch.nolix.system.nodedatabaserawschema.structure.DatabaseNodeSearcher;
 import ch.nolix.system.nodedatabaserawschema.structure.DatabasePropertiesNodeSearcher;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDTO;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IRecordDTO;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IRecordUpdateDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.IColumnInfo;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
@@ -241,7 +241,7 @@ final class DatabaseUpdater {
 	public void updateRecordOnTable(
 		final IMutableNode<?> database,
 		final ITableInfo tableInfo,
-		final IRecordUpdateDTO recordUdate
+		final IEntityUpdateDTO recordUdate
 	) {
 	
 		final var tableNode =
@@ -256,7 +256,7 @@ final class DatabaseUpdater {
 	private void updateEntityNode(
 		final IMutableNode<?> recordNode,
 		final ITableInfo tableInfo,
-		final IRecordUpdateDTO recordUdate
+		final IEntityUpdateDTO recordUdate
 	) {
 		for (final var ucf : recordUdate.getUpdatedContentFields()) {
 			

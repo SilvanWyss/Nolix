@@ -9,7 +9,7 @@ import ch.nolix.system.sqlrawschema.structure.SystemDataTable;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDTO;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDTO;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IRecordDTO;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IRecordUpdateDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //class
@@ -85,7 +85,7 @@ public final class RecordStatementCreator implements IRecordStatementCreator {
 	
 	//method
 	@Override
-	public String createStatementToUpdateRecordOnTable(final String tableName, final IRecordUpdateDTO recordUpdate) {
+	public String createStatementToUpdateRecordOnTable(final String tableName, final IEntityUpdateDTO recordUpdate) {
 		return
 		"UPDATE "
 		+ tableName

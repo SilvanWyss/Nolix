@@ -2,7 +2,7 @@
 package ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi;
 
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IOptionalValue;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IRecordUpdateDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
 
 //interface
 public interface IOptionalValueHelper extends IPropertyHelper {
@@ -17,8 +17,8 @@ public interface IOptionalValueHelper extends IPropertyHelper {
 	boolean canSetGivenValue(IOptionalValue<?, ?> optionalValue, Object value);
 	
 	//method declaration
-	IRecordUpdateDTO createRecordUpdateDTOForClear(IOptionalValue<?, ?> optionalValue);
+	IEntityUpdateDTO createRecordUpdateDTOForClear(IOptionalValue<?, ?> optionalValue);
 	
 	//method declaration
-	IRecordUpdateDTO createRecordUpdateDTOForSetValue(IOptionalValue<?, ?> optionalValue, Object value);
+	IEntityUpdateDTO createRecordUpdateDTOForSetValue(IOptionalValue<?, ?> optionalValue, Object value);
 }

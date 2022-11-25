@@ -4,11 +4,11 @@ package ch.nolix.system.objectdatabase.propertyhelper;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.sqlrawdata.databasedto.ContentFieldDTO;
-import ch.nolix.system.sqlrawdata.databasedto.RecordUpdateDTO;
+import ch.nolix.system.sqlrawdata.databasedto.EntityUpdateDTO;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IReference;
 import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IReferenceHelper;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IRecordUpdateDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
 
 //class
 public final class ReferenceHelper extends PropertyHelper implements IReferenceHelper {
@@ -33,11 +33,11 @@ public final class ReferenceHelper extends PropertyHelper implements IReferenceH
 	
 	//method
 	@Override
-	public IRecordUpdateDTO createRecordUpdateDTOForSetEntity(IReference<?, ?> reference, IEntity<?> entity) {
+	public IEntityUpdateDTO createRecordUpdateDTOForSetEntity(IReference<?, ?> reference, IEntity<?> entity) {
 		
 		final var parentEntity = reference.getParentEntity();
 		
-		return new RecordUpdateDTO(
+		return new EntityUpdateDTO(
 			parentEntity.getId(),
 			parentEntity.getSaveStamp(),
 			new ContentFieldDTO(reference.getName(), entity.getId())

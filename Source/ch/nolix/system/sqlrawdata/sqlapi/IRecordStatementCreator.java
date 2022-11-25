@@ -3,7 +3,7 @@ package ch.nolix.system.sqlrawdata.sqlapi;
 
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDTO;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IRecordDTO;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IRecordUpdateDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //interface
@@ -22,5 +22,5 @@ public interface IRecordStatementCreator {
 	String createStatementToSetEntityAsUpdated(String tableName, IEntityHeadDTO entity);
 	
 	//method declaration
-	String createStatementToUpdateRecordOnTable(String tableName, IRecordUpdateDTO recordUpdate);
+	String createStatementToUpdateRecordOnTable(String tableName, IEntityUpdateDTO recordUpdate);
 }

@@ -8,10 +8,10 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDTO;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IRecordUpdateDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
 
 //class
-public final class RecordUpdateDTO implements IRecordUpdateDTO {
+public final class EntityUpdateDTO implements IEntityUpdateDTO {
 	
 	//attributes
 	private final String id;
@@ -21,7 +21,7 @@ public final class RecordUpdateDTO implements IRecordUpdateDTO {
 	private final IContainer<IContentFieldDTO> updatedContentFields;
 	
 	//constructor
-	public RecordUpdateDTO(
+	public EntityUpdateDTO(
 		final String id,
 		final String saveStamp,
 		final IContainer<IContentFieldDTO> updatedContentFields
@@ -45,7 +45,7 @@ public final class RecordUpdateDTO implements IRecordUpdateDTO {
 	}
 	
 	//constructor
-	public RecordUpdateDTO(
+	public EntityUpdateDTO(
 		final String id,
 		final String saveStamp,
 		final IContentFieldDTO updatedContentField
@@ -54,7 +54,7 @@ public final class RecordUpdateDTO implements IRecordUpdateDTO {
 	}
 	
 	//constructor
-	public RecordUpdateDTO(
+	public EntityUpdateDTO(
 		final String id,
 		final String saveStamp,
 		final IContentFieldDTO... updatedContentFields

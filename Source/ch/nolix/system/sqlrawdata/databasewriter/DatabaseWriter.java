@@ -11,7 +11,7 @@ import ch.nolix.system.sqlrawdata.sqlapi.ISQLSyntaxProvider;
 import ch.nolix.systemapi.rawdatabaseapi.databaseadapterapi.IDatabaseWriter;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDTO;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IRecordDTO;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IRecordUpdateDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.IColumnInfo;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
@@ -202,7 +202,7 @@ public final class DatabaseWriter implements IDatabaseWriter {
 	
 	//method
 	@Override
-	public void updateRecordOnTable(final String tableName, final IRecordUpdateDTO recordUpdate) {
+	public void updateRecordOnTable(final String tableName, final IEntityUpdateDTO recordUpdate) {
 		internalDatabaseWriter.updateRecordOnTable(tableName, recordUpdate);
 	}
 	

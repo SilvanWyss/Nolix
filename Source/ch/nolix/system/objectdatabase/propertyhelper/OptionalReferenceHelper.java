@@ -5,11 +5,11 @@ package ch.nolix.system.objectdatabase.propertyhelper;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.sqlrawdata.databasedto.ContentFieldDTO;
-import ch.nolix.system.sqlrawdata.databasedto.RecordUpdateDTO;
+import ch.nolix.system.sqlrawdata.databasedto.EntityUpdateDTO;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IOptionalReference;
 import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IOptionalReferenceHelper;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IRecordUpdateDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
 
 //class
 public final class OptionalReferenceHelper extends PropertyHelper implements IOptionalReferenceHelper {
@@ -59,11 +59,11 @@ public final class OptionalReferenceHelper extends PropertyHelper implements IOp
 	
 	//method
 	@Override
-	public IRecordUpdateDTO createRecordUpdateDTOForClear(final IOptionalReference<?, ?> optionalReference) {
+	public IEntityUpdateDTO createRecordUpdateDTOForClear(final IOptionalReference<?, ?> optionalReference) {
 		
 		final var parentEntity = optionalReference.getParentEntity();
 		
-		return new RecordUpdateDTO(
+		return new EntityUpdateDTO(
 			parentEntity.getId(),
 			parentEntity.getSaveStamp(),
 			new ContentFieldDTO(optionalReference.getName())
@@ -72,14 +72,14 @@ public final class OptionalReferenceHelper extends PropertyHelper implements IOp
 	
 	//method
 	@Override
-	public IRecordUpdateDTO createRecordUpdateDTOForSetEntity(
+	public IEntityUpdateDTO createRecordUpdateDTOForSetEntity(
 		final IOptionalReference<?, ?> optionalReference,
 		final IEntity<?> entity
 	) {
 		
 		final var parentEntity = optionalReference.getParentEntity();
 		
-		return new RecordUpdateDTO(
+		return new EntityUpdateDTO(
 			parentEntity.getId(),
 			parentEntity.getSaveStamp(),
 			new ContentFieldDTO(optionalReference.getName(), entity.getId())

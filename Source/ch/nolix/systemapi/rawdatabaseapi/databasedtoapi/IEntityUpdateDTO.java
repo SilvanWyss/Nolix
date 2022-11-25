@@ -5,7 +5,7 @@ package ch.nolix.systemapi.rawdatabaseapi.databasedtoapi;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 
 //interface
-public interface IRecordUpdateDTO {
+public interface IEntityUpdateDTO {
 	
 	//method declaration
 	String getId();

@@ -3,7 +3,7 @@ package ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi;
 
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IOptionalReference;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IRecordUpdateDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
 
 //interface
 public interface IOptionalReferenceHelper {
@@ -24,8 +24,8 @@ public interface IOptionalReferenceHelper {
 	boolean canSetGivenEntity(final IOptionalReference<?, ?> optionalReference, IEntity<?> entity);
 	
 	//method
-	IRecordUpdateDTO createRecordUpdateDTOForClear(IOptionalReference<?, ?> optionalReference);
+	IEntityUpdateDTO createRecordUpdateDTOForClear(IOptionalReference<?, ?> optionalReference);
 	
 	//method declaration
-	IRecordUpdateDTO createRecordUpdateDTOForSetEntity(IOptionalReference<?, ?> optionalReference, IEntity<?> entity);
+	IEntityUpdateDTO createRecordUpdateDTOForSetEntity(IOptionalReference<?, ?> optionalReference, IEntity<?> entity);
 }

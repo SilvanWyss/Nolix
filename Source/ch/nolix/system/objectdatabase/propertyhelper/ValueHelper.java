@@ -4,10 +4,10 @@ package ch.nolix.system.objectdatabase.propertyhelper;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.sqlrawdata.databasedto.ContentFieldDTO;
-import ch.nolix.system.sqlrawdata.databasedto.RecordUpdateDTO;
+import ch.nolix.system.sqlrawdata.databasedto.EntityUpdateDTO;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IValue;
 import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IValueHelper;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IRecordUpdateDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
 
 //class
 public final class ValueHelper extends PropertyHelper implements IValueHelper {
@@ -30,12 +30,12 @@ public final class ValueHelper extends PropertyHelper implements IValueHelper {
 	
 	//method
 	@Override
-	public IRecordUpdateDTO createRecordUpdateDTOForSetValue(final IValue<?, ?> value, final Object setValue) {
+	public IEntityUpdateDTO createRecordUpdateDTOForSetValue(final IValue<?, ?> value, final Object setValue) {
 		
 		final var parentEntity = value.getParentEntity();
 		
 		return
-		new RecordUpdateDTO(
+		new EntityUpdateDTO(
 			parentEntity.getId(),
 			parentEntity.getSaveStamp(),
 			new ContentFieldDTO(value.getName(), setValue.toString())

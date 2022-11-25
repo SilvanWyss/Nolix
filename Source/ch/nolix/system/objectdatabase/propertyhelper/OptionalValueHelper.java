@@ -5,10 +5,10 @@ package ch.nolix.system.objectdatabase.propertyhelper;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.sqlrawdata.databasedto.ContentFieldDTO;
-import ch.nolix.system.sqlrawdata.databasedto.RecordUpdateDTO;
+import ch.nolix.system.sqlrawdata.databasedto.EntityUpdateDTO;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IOptionalValue;
 import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IOptionalValueHelper;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IRecordUpdateDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
 
 //class
 public final class OptionalValueHelper extends PropertyHelper implements IOptionalValueHelper {
@@ -38,12 +38,12 @@ public final class OptionalValueHelper extends PropertyHelper implements IOption
 	
 	//method
 	@Override
-	public IRecordUpdateDTO createRecordUpdateDTOForClear(final IOptionalValue<?, ?> optionalValue) {
+	public IEntityUpdateDTO createRecordUpdateDTOForClear(final IOptionalValue<?, ?> optionalValue) {
 		
 		final var parentEntity = optionalValue.getParentEntity();
 		
 		return
-		new RecordUpdateDTO(
+		new EntityUpdateDTO(
 			parentEntity.getId(),
 			parentEntity.getSaveStamp(),
 			new ContentFieldDTO(optionalValue.getName())
@@ -52,7 +52,7 @@ public final class OptionalValueHelper extends PropertyHelper implements IOption
 	
 	//method
 	@Override
-	public IRecordUpdateDTO createRecordUpdateDTOForSetValue(
+	public IEntityUpdateDTO createRecordUpdateDTOForSetValue(
 		final IOptionalValue<?, ?> optionalValue,
 		final Object value
 	) {
@@ -60,7 +60,7 @@ public final class OptionalValueHelper extends PropertyHelper implements IOption
 		final var parentEntity = optionalValue.getParentEntity();
 		
 		return
-		new RecordUpdateDTO(
+		new EntityUpdateDTO(
 			parentEntity.getId(),
 			parentEntity.getSaveStamp(),
 			new ContentFieldDTO(optionalValue.getName(), value.toString())
