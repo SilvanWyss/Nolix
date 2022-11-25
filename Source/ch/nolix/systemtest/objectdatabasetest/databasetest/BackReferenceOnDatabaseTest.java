@@ -12,7 +12,7 @@ import ch.nolix.system.objectdatabase.database.Schema;
 import ch.nolix.system.objectdatabase.databaseadapter.NodeDatabaseAdapter;
 
 //class
-public final class BackReferenceTest extends Test {
+public final class BackReferenceOnDatabaseTest extends Test {
 		
 	//static class
 	private static final class Person extends Entity {

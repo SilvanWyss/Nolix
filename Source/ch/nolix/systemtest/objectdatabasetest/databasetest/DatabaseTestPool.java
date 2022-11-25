@@ -10,7 +10,7 @@ public final class DatabaseTestPool extends TestPool {
 	//constructor
 	public DatabaseTestPool() {
 		super(
-			BackReferenceTest.class,
+			BackReferenceOnDatabaseTest.class,
 			EntityTest.class,
 			OptionalValueTest.class,
 			ReferenceTest.class,
