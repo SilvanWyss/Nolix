@@ -27,13 +27,13 @@ public abstract class DatabaseAdapter implements IDatabaseAdapter<DataImplementa
 	private static final PersistenceManager persistenceManager = new PersistenceManager();
 	
 	//attribute
-	private final CloseController closeController = CloseController.forElement(this);
-	
-	//attribute
 	private final Database database;
 	
 	//attribute
 	private int saveCount;
+	
+	//attribute
+	private final CloseController closeController = CloseController.forElement(this);
 	
 	//constructor
 	protected DatabaseAdapter(
@@ -104,12 +104,17 @@ public abstract class DatabaseAdapter implements IDatabaseAdapter<DataImplementa
 	@Override
 	public final void saveChangesAndReset() {
 		try {
-			
-			persistenceManager.peristChanges(database);
-			
-			saveCount++;
+			saveChanges();
 		} finally {
 			reset();
 		}
+	}
+	
+	//method
+	private void saveChanges() {
+		
+		persistenceManager.peristChanges(database);
+		
+		saveCount++;
 	}
 }
