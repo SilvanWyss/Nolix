@@ -33,9 +33,45 @@ public final class EntityOnDatabaseTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_whenTriesToSaveAnOutdatedChange() {
+	public void testCase_whenIsTriedToBeSavedButWasDeletedFromTheDatabase() {
 		
-		//setup part 1: Initializes a database.
+		//setup part 1: Initializes database.
+		final var nodeDatabase = new MutableNode();
+		final var schema = Schema.withEntityType(Pet.class);
+		final var nodeDatabaseAdapter =
+		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		final var garfield = new Pet();
+		garfield.setAgeInYears(5);
+		nodeDatabaseAdapter.insert(garfield);
+		nodeDatabaseAdapter.saveChangesAndReset();
+		
+		//setup part 2: Prepares a change.
+		final var nodeDatabaseAdapter2 =
+		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		final var garfield2 =
+		nodeDatabaseAdapter2.getRefTableByEntityType(Pet.class).getRefEntityById(garfield.getId());
+		garfield2.setAgeInYears(6);
+		
+		//setup part 3: Gets deleted.
+		final var nodeDatabaseAdapter3 =
+		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		final var garfield3 =
+		nodeDatabaseAdapter3.getRefTableByEntityType(Pet.class).getRefEntityById(garfield.getId());
+		garfield3.delete();
+		nodeDatabaseAdapter3.saveChangesAndReset();
+		
+		//execution: Tries to save when was deleted on the database.
+		expectRunning(nodeDatabaseAdapter2::saveChangesAndReset)
+		.throwsException()
+		.ofType(ResourceWasChangedInTheMeanwhileException.class)
+		.withMessage("The data was changed in the meanwhile.");
+	}
+	
+	//method
+	@TestCase
+	public void testCase_whenIsTriedToBeSavedButHasAnOutdatedChange() {
+		
+		//setup part 1: Initializes database.
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Pet.class);
 		final var nodeDatabaseAdapter =
