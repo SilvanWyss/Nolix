@@ -1360,26 +1360,28 @@ public final class Color extends Element implements IColor {
 	 * @return a new {@link Color} from the given pLong.
 	 * @throws UnrepresentingArgumentException if the given pLong does not represent a {@link Color}.
 	 */
-	public static Color fromLong(long pLong) {
+	public static Color fromLong(final long pLong) {
 		
 		//Asserts that the given pLong is a true color value.
 		GlobalValidator.assertThat(pLong).isBetween(MIN_COLOR_LONG, MAX_COLOR_LONG);
 		
+		var lLong = pLong;
+		
 		var alphaValue = DEFAULT_ALPHA_VALUE;
 		
 		//Handles the case that the given pLong specifies an alpha value.
-		if (pLong >= 16_777_216) {
-			alphaValue = ((int)(pLong % 256));
-			pLong /= 256;
+		if (lLong >= 16_777_216) {
+			alphaValue = ((int)(lLong % 256));
+			lLong /= 256;
 		}
-				
-		var blueValue = (int)(pLong % 256);
-		pLong /= 256;
 		
-		var greenValue = ((int)(pLong % 256));
-		pLong /= 256;
+		final var blueValue = (int)(lLong % 256);
+		lLong /= 256;
+		
+		final var greenValue = ((int)(lLong % 256));
+		lLong /= 256;
 				
-		var redValue = (int)pLong;
+		final var redValue = (int)lLong;
 		
 		return new Color(redValue, greenValue, blueValue, alphaValue);
 	}
