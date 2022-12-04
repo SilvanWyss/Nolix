@@ -46,7 +46,7 @@ final class EntityMapper {
 	private void addDataFromRecordToEntity(final ILoadedRecordDTO pRecord, final BaseEntity entity) {
 		
 		entity.internalSetId(pRecord.getId());
-		entity.internalSetSaveStamp(pRecord.getId());
+		entity.internalSetSaveStamp(pRecord.getSaveStamp());
 		
 		for (final var cf : pRecord.getContentFields()) {
 			addDataFromContentFieldToEntity(cf, entity);
