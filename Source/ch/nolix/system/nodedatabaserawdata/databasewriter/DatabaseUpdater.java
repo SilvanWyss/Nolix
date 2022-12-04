@@ -227,14 +227,14 @@ final class DatabaseUpdater {
 		}
 		
 		final var saveStampNode = entityNodeSearcher.getRefSaveStampNodeFromRecordNode(entityNode);
-		final var saveStampValueNode = saveStampNode.getRefSingleChildNode();
 		
-		final var saveStamp = saveStampValueNode.getHeader();
+		final var saveStamp = saveStampNode.getHeader();
 		if (!saveStamp.equals(entity.getSaveStamp())) {
 			throw ResourceWasChangedInTheMeanwhileException.forResource("data");
 		}
 		
-		saveStampValueNode.setHeader(String.valueOf(Integer.valueOf(saveStamp) + 1));
+		final var newSaveStamp = String.valueOf(Integer.valueOf(saveStamp) + 1);
+		saveStampNode.setHeader(newSaveStamp);
 	}
 	
 	//method
