@@ -51,8 +51,6 @@ public abstract class BaseEntity implements IEntity<DataImplementation> {
 		
 		updateStateForDelete();
 		
-		internalSetEdited();
-		
 		updateRecordForDelete();
 	}
 	
