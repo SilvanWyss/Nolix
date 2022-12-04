@@ -57,8 +57,7 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 	private boolean loadedAllEntitiesInLocalData;
 	
 	//multi-attribute
-	private final LinkedList<IColumn<DataImplementation>> columns =
-	new LinkedList<IColumn<DataImplementation>>();
+	private final LinkedList<IColumn<DataImplementation>> columns = new LinkedList<>();
 	
 	//multi-attribute
 	private final LinkedList<E> entitiesInLocalData = new LinkedList<>();

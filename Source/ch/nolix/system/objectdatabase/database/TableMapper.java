@@ -40,7 +40,7 @@ final class TableMapper {
 		final IContainer<ITable<DataImplementation, IEntity<DataImplementation>>> referencableTables
 	) {
 		
-		final var table = (Table<IEntity<DataImplementation>>)createEmptyTableFromTableDTOForDatabase(tableDTO, database);
+		final var table = createEmptyTableFromTableDTOForDatabase(tableDTO, database);
 		
 		final var columns =
 		tableDTO.getColumns()
