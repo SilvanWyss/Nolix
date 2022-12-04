@@ -12,6 +12,7 @@ public final class DatabaseTestPool extends TestPool {
 		super(
 			BackReferenceOnDatabaseTest.class,
 			EntityTest.class,
+			EntityOnDatabaseTest.class,
 			OptionalValueTest.class,
 			ReferenceOnDatabaseTest.class,
 			TableTest.class,
