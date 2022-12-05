@@ -24,6 +24,10 @@ public final class ContentFieldDTOMapper {
 			return new LoadedContentFieldDTO(columnInfo.getColumnName());
 		}
 		
+		if (!contentFieldNode.hasHeader()) {
+			return new LoadedContentFieldDTO(columnInfo.getColumnName());
+		}
+		
 		return
 		new LoadedContentFieldDTO(
 			columnInfo.getColumnName(),
