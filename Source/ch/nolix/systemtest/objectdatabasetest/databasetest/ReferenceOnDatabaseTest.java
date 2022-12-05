@@ -3,6 +3,7 @@ package ch.nolix.systemtest.objectdatabasetest.databasetest;
 
 //own imports
 import ch.nolix.core.document.node.MutableNode;
+import ch.nolix.core.errorcontrol.exception.ResourceWasChangedInTheMeanwhileException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
@@ -76,6 +77,43 @@ public final class ReferenceOnDatabaseTest extends Test {
 		
 		//verification
 		expect(result).is(garfield);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_whenIsTriedToBeSavedButReferencesDeletedEntity() {
+		
+		//setup part 1: Initializes
+		final var nodeDatabase = new MutableNode();
+		final var schema = Schema.withEntityType(Pet.class, Person.class);
+		final var nodeDatabaseAdapter =
+		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		final var garfield = new Pet();
+		nodeDatabaseAdapter.insert(garfield);
+		nodeDatabaseAdapter.saveChangesAndReset();
+		
+		//setup part 2
+		final var nodeDatabaseAdapterB =
+		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		final var loadedGarfieldB =
+		nodeDatabaseAdapterB.getRefTableByEntityType(Pet.class).getRefEntityById(garfield.getId());
+		final var johnB = new Person();
+		johnB.setPet(loadedGarfieldB);
+		nodeDatabaseAdapterB.insert(johnB);
+		
+		//setup part 3
+		final var nodeDatabaseAdapterC =
+		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		final var loadedGarfieldC =
+		nodeDatabaseAdapterC.getRefTableByEntityType(Pet.class).getRefEntityById(garfield.getId());
+		loadedGarfieldC.delete();
+		nodeDatabaseAdapterC.saveChangesAndReset();
+				
+		//execution & verification
+		expectRunning(nodeDatabaseAdapterB::saveChangesAndReset)
+		.throwsException()
+		.ofType(ResourceWasChangedInTheMeanwhileException.class)
+		.withMessage("The data was changed in the meanwhile.");
 	}
 	
 	//method
