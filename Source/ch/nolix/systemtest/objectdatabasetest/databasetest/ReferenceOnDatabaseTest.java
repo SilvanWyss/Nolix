@@ -83,7 +83,7 @@ public final class ReferenceOnDatabaseTest extends Test {
 	@TestCase
 	public void testCase_whenIsTriedToBeSavedButReferencesDeletedEntity() {
 		
-		//setup part 1: Initializes
+		//setup part 1: Initializes database.
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Pet.class, Person.class);
 		final var nodeDatabaseAdapter =
@@ -92,7 +92,7 @@ public final class ReferenceOnDatabaseTest extends Test {
 		nodeDatabaseAdapter.insert(garfield);
 		nodeDatabaseAdapter.saveChangesAndReset();
 		
-		//setup part 2
+		//setup part 2: Prepares a change.
 		final var nodeDatabaseAdapterB =
 		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
 		final var loadedGarfieldB =
@@ -101,7 +101,7 @@ public final class ReferenceOnDatabaseTest extends Test {
 		johnB.setPet(loadedGarfieldB);
 		nodeDatabaseAdapterB.insert(johnB);
 		
-		//setup part 3
+		//setup part 3: Deletes the referenced Entity.
 		final var nodeDatabaseAdapterC =
 		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
 		final var loadedGarfieldC =
@@ -109,7 +109,7 @@ public final class ReferenceOnDatabaseTest extends Test {
 		loadedGarfieldC.delete();
 		nodeDatabaseAdapterC.saveChangesAndReset();
 				
-		//execution & verification
+		//execution & verification: Tries to save when the referenced Entity was deleted.
 		expectRunning(nodeDatabaseAdapterB::saveChangesAndReset)
 		.throwsException()
 		.ofType(ResourceWasChangedInTheMeanwhileException.class)

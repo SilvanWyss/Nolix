@@ -52,7 +52,7 @@ public final class EntityOnDatabaseTest extends Test {
 		nodeDatabaseAdapter2.getRefTableByEntityType(Pet.class).getRefEntityById(garfield.getId());
 		garfield2.setAgeInYears(6);
 		
-		//setup part 3: Gets deleted.
+		//setup part 3: Deletes the Entity.
 		final var nodeDatabaseAdapter3 =
 		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
 		final var garfield3 =
@@ -60,7 +60,7 @@ public final class EntityOnDatabaseTest extends Test {
 		garfield3.delete();
 		nodeDatabaseAdapter3.saveChangesAndReset();
 		
-		//execution: Tries to save when was deleted on the database.
+		//execution & verification: Tries to save when the Entity was deleted.
 		expectRunning(nodeDatabaseAdapter2::saveChangesAndReset)
 		.throwsException()
 		.ofType(ResourceWasChangedInTheMeanwhileException.class)
