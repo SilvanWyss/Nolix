@@ -3,16 +3,15 @@ package ch.nolix.systemtest.objectdatabasetest.databasetest;
 
 //own imports
 import ch.nolix.core.document.node.MutableNode;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 import ch.nolix.system.objectdatabase.database.Entity;
-import ch.nolix.system.objectdatabase.database.Reference;
+import ch.nolix.system.objectdatabase.database.OptionalReference;
 import ch.nolix.system.objectdatabase.database.Schema;
 import ch.nolix.system.objectdatabase.databaseadapter.NodeDatabaseAdapter;
 
 //class
-public final class ReferenceOnDatabaseTest extends Test {
+public final class OptionalReferenceOnDatabaseTest extends Test {
 	
 	//static class
 	private static final class Pet extends Entity {}
@@ -21,7 +20,7 @@ public final class ReferenceOnDatabaseTest extends Test {
 	private static final class Person extends Entity {
 		
 		//attribute
-		private final Reference<Pet> pet = Reference.forEntity(Pet.class);
+		private final OptionalReference<Pet> pet = OptionalReference.forEntity(Pet.class);
 		
 		//constructor
 		public Person() {
@@ -34,6 +33,11 @@ public final class ReferenceOnDatabaseTest extends Test {
 		}
 		
 		//method
+		public boolean possesesPet() {
+			return pet.containsAny();
+		}
+		
+		//method
 		public void setPet(final Pet pet) {
 			this.pet.setEntity(pet);
 		}
@@ -41,7 +45,7 @@ public final class ReferenceOnDatabaseTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_whenIsEmpty() {
+	public void testCase_whenIsEmptyAndSaved() {
 		
 		//setup
 		final var nodeDatabase = new MutableNode();
@@ -50,15 +54,18 @@ public final class ReferenceOnDatabaseTest extends Test {
 		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
 		final var john = new Person();
 		
-		//execution & verification
-		expectRunning(() -> nodeDatabaseAdapter.insert(john))
-		.throwsException()
-		.ofType(InvalidArgumentException.class);
+		//execution
+		nodeDatabaseAdapter.insert(john);
+		
+		//verification
+		final var loadedJohn =
+		nodeDatabaseAdapter.getRefTableByEntityType(Person.class).getRefEntityById(john.getId());
+		expectNot(loadedJohn.possesesPet());
 	}
 	
 	//method
 	@TestCase
-	public void testCase_getRefEntity_whenIsNotSaved() {
+	public void testCase_getRefEntity_whenContainsAnyAndIsNotSaved() {
 		
 		//setup
 		final var nodeDatabase = new MutableNode();
@@ -80,7 +87,7 @@ public final class ReferenceOnDatabaseTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_getRefEntity_whenIsSaved() {
+	public void testCase_getRefEntity_whenContainsAnyAndIsSaved() {
 		
 		//setup part 1
 		final var nodeDatabase = new MutableNode();
