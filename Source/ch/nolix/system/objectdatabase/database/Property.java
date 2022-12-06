@@ -4,6 +4,7 @@ package ch.nolix.system.objectdatabase.database;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.reflection.GlobalReflectionHelper;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.system.objectdatabase.propertyflyweight.PropertyFlyWeight;
@@ -25,6 +26,9 @@ public abstract class Property implements IProperty<DataImplementation> {
 	
 	//attribute
 	private IPropertyFlyWeight propertyFlyWeight = VoidPropertyFlyWeight.INSTANCE;
+	
+	//attribute
+	private boolean edited;
 	
 	//optional attribute
 	private IEntity<DataImplementation> parentEntity;
@@ -79,7 +83,7 @@ public abstract class Property implements IProperty<DataImplementation> {
 			return DatabaseObjectState.NEW;
 		}
 		
-		return getParentEntity().getState();
+		return getStateWhenBelongsToEntity();
 	}
 	
 	//method
@@ -130,6 +134,18 @@ public abstract class Property implements IProperty<DataImplementation> {
 		return ((BaseEntity)parentEntity).internalGetRefDataAndSchemaAdapter();
 	}
 	
+	//method
+	final void internalSetAsEditedAndRunProbableUpdateAction() {
+		
+		if (belongsToEntity()) {
+			((BaseEntity)getParentEntity()).internalSetEdited();
+		}
+		
+		edited = true;
+		
+		propertyFlyWeight.noteUpdate();
+	}
+	
 	//method declaration
 	abstract void internalSetOrClearDirectlyFromContent(Object content);
 	
@@ -157,18 +173,35 @@ public abstract class Property implements IProperty<DataImplementation> {
 		setParentColumnFromParentTableIfParentEntityBelongsToTable(parentEntity);
 	}
 	
-	//method
-	final void internalSetParentEntityAsEditedAndRunProbableUpdateAction() {
-		
-		if (belongsToEntity()) {
-			((BaseEntity)getParentEntity()).internalSetEdited();
-		}
-		
-		propertyFlyWeight.noteUpdate();
-	}
-	
 	//method declaration
 	abstract void internalUpdateProbableBackReferencesWhenIsNew();
+	
+	//method
+	private DatabaseObjectState getStateWhenBelongsToEntity() {
+		switch (getParentEntity().getState()) {
+			case NEW:
+				return DatabaseObjectState.NEW;
+			case LOADED:
+				return DatabaseObjectState.LOADED;	
+			case EDITED:
+				
+				if (!edited) {
+					return DatabaseObjectState.LOADED;	 
+				}
+				
+				return DatabaseObjectState.EDITED;
+			case DELETED:
+				return DatabaseObjectState.DELETED;
+			case CLOSED:
+				return DatabaseObjectState.CLOSED;
+			default:
+				throw
+				InvalidArgumentException.forArgumentNameAndArgument(
+					LowerCaseCatalogue.STATE,
+					getParentEntity().getState()
+				);
+		}
+	}
 	
 	//method
 	private void setEffectivePropertyFlyWeightIfPropertyFlyWeightIsVoid() {

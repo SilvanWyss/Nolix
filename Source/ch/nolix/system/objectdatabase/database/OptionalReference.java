@@ -100,7 +100,7 @@ implements IOptionalReference<DataImplementation, E> {
 		
 		updateStateForSetEntity(entity);
 		
-		internalSetParentEntityAsEditedAndRunProbableUpdateAction();
+		internalSetAsEditedAndRunProbableUpdateAction();
 	}
 	
 	//method
@@ -150,7 +150,7 @@ implements IOptionalReference<DataImplementation, E> {
 		
 		updateRecordForClear();
 		
-		internalSetParentEntityAsEditedAndRunProbableUpdateAction();
+		internalSetAsEditedAndRunProbableUpdateAction();
 	}
 	
 	//method

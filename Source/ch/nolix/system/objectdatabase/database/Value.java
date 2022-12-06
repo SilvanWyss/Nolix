@@ -53,7 +53,7 @@ public final class Value<V> extends BaseValue<V> implements IValue<DataImplement
 		
 		updateStateForSetValue(value);
 		
-		internalSetParentEntityAsEditedAndRunProbableUpdateAction();
+		internalSetAsEditedAndRunProbableUpdateAction();
 	}
 	
 	//method

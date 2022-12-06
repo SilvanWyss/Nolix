@@ -52,7 +52,7 @@ implements IMultiReference<DataImplementation, E> {
 		
 		updateRecordForAddEntity(entity);
 		
-		internalSetParentEntityAsEditedAndRunProbableUpdateAction();
+		internalSetAsEditedAndRunProbableUpdateAction();
 	}
 	
 	//method
@@ -154,7 +154,7 @@ implements IMultiReference<DataImplementation, E> {
 		
 		updateRecordForClear();
 		
-		internalSetParentEntityAsEditedAndRunProbableUpdateAction();
+		internalSetAsEditedAndRunProbableUpdateAction();
 	}
 	
 	//method
