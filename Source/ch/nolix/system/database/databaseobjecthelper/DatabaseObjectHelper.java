@@ -71,25 +71,31 @@ public class DatabaseObjectHelper implements IDatabaseObjectHelper {
 	
 	//method
 	@Override
-	public boolean isDeleted(final IDatabaseObject databaseObject) {
+	public final boolean isDeleted(final IDatabaseObject databaseObject) {
 		return (databaseObject.getState() == DatabaseObjectState.DELETED);
 	}
 	
 	//method
 	@Override
-	public boolean isEdited(final IDatabaseObject databaseObject) {
+	public final boolean isEdited(final IDatabaseObject databaseObject) {
 		return (databaseObject.getState() == DatabaseObjectState.EDITED);
 	}
 	
 	//method
 	@Override
-	public boolean isLoaded(final IDatabaseObject databaseObject) {
+	public final boolean isLoaded(final IDatabaseObject databaseObject) {
 		return (databaseObject.getState() == DatabaseObjectState.LOADED);
 	}
 	
 	//method
 	@Override
-	public boolean isNew(final IDatabaseObject databaseObject) {
+	public final boolean isNew(final IDatabaseObject databaseObject) {
 		return (databaseObject.getState() == DatabaseObjectState.NEW);
+	}
+	
+	//method
+	@Override
+	public final boolean isNewOrEdited(final IDatabaseObject databaseObject) {
+		return (isNew(databaseObject) || isEdited(databaseObject));
 	}
 }
