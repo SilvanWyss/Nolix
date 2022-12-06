@@ -3,7 +3,6 @@ package ch.nolix.systemtest.objectdatabasetest.databasetest;
 
 //own imports
 import ch.nolix.core.document.node.MutableNode;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 import ch.nolix.system.objectdatabase.database.Entity;
@@ -38,7 +37,7 @@ public final class ValueOnDatabaseTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_whenIsEmpty() {
+	public void testCase_isSaved_whenIsEmpty() {
 		
 		//setup
 		final var nodeDatabase = new MutableNode();
@@ -46,16 +45,15 @@ public final class ValueOnDatabaseTest extends Test {
 		final var nodeDatabaseAdapter =
 		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
 		final var garfield = new Pet();
+		nodeDatabaseAdapter.insert(garfield);
 		
 		//execution & verification
-		expectRunning(() -> nodeDatabaseAdapter.insert(garfield))
-		.throwsException()
-		.ofType(InvalidArgumentException.class);
+		expectRunning(nodeDatabaseAdapter::saveChangesAndReset).throwsException();
 	}
 	
 	//method
 	@TestCase
-	public void testCase_getRefValue_whenIsNotSaved() {
+	public void testCase_getRefValue_whenContainsAnyAndIsNotSaved() {
 		
 		//setup
 		final var nodeDatabase = new MutableNode();
@@ -75,7 +73,7 @@ public final class ValueOnDatabaseTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_getRefValue_whenIsSaved() {
+	public void testCase_getRefValue_whenContainsAnyAndIsSaved() {
 		
 		//setup part 1
 		final var nodeDatabase = new MutableNode();
