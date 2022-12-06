@@ -95,4 +95,28 @@ public final class BackReferenceOnDatabaseTest extends Test {
 		//verification
 		expect(result.getId()).isEqualTo(john.getId());
 	}
+	
+	//method
+	@TestCase
+	public void testCase_isSaved_whenReferencesBackDeletedEntity() {
+		
+		//setup part 1
+		final var nodeDatabase = new MutableNode();
+		final var schema = Schema.withEntityType(Person.class, Pet.class);
+		final var nodeDatabaseAdapter =
+		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		final var garfield = new Pet();
+		nodeDatabaseAdapter.insert(garfield);
+		final var john = new Person();
+		john.setPet(garfield);
+		nodeDatabaseAdapter.insert(john);
+		nodeDatabaseAdapter.saveChangesAndReset();
+		
+		//setup part 2
+		final var loadedJohn = nodeDatabaseAdapter.getRefTableByEntityType(Person.class).getRefEntityById(john.getId());
+		loadedJohn.delete();
+		
+		//execution & verification
+		expectRunning(nodeDatabaseAdapter::saveChangesAndReset).throwsException();
+	}
 }
