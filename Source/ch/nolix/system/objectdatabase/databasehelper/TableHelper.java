@@ -18,6 +18,17 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
 	
 	//method
 	@Override
+	public boolean allNewAndEditedMandatoryPropertiesAreSet(final ITable<?, ?> table) {
+		return
+		table
+		.technicalGetRefEntitiesInLocalData()		
+		.containsOnly(
+			e -> entityHelper.allNewAndEditedMandatoryPropertiesAreSet(e) //NOSONAR: A method reference will rise a BootstrapMethodError.
+		);
+	}
+	
+	//method
+	@Override
 	public boolean canInsertEntity(final ITable<?, ?> table) {
 		return table.isOpen();
 	}

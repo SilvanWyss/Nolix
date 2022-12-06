@@ -12,6 +12,9 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
 public interface ITableHelper extends IDatabaseObjectHelper {
 	
 	//method declaration
+	boolean allNewAndEditedMandatoryPropertiesAreSet(ITable<?, ?> table);
+	
+	//method declaration
 	boolean canInsertEntity(ITable<?, ?> table);
 	
 	//method declaration

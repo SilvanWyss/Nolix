@@ -85,13 +85,13 @@ public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHel
 	
 	//method
 	@Override
-	public boolean isForMultiContent(final IProperty<?> property) {
+	public final boolean isForMultiContent(final IProperty<?> property) {
 		return (property.getType().getCardinality().getBaseCardinality() == BaseCardinality.MULTI);
 	}
 	
 	//method
 	@Override
-	public boolean isForSingleContent(final IProperty<?> property) {
+	public final boolean isForSingleContent(final IProperty<?> property) {
 		return (property.getType().getCardinality().getBaseCardinality() == BaseCardinality.SINGLE);
 	}
 	
@@ -101,6 +101,15 @@ public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHel
 		return
 		property.isMandatory()
 		&& property.isEmpty();
+	}
+	
+	//method
+	@Override
+	public final boolean isSetForCaseIsNewOrEditedAndMandatory(final IProperty<?> property) {
+		return
+		!property.isMandatory()
+		|| !isNewOrEdited(property)
+		|| property.containsAny();
 	}
 	
 	//method

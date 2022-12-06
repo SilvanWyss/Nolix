@@ -12,6 +12,9 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IRecordDTO;
 public interface IEntityHelper extends IDatabaseObjectHelper {
 	
 	//method declaration
+	boolean allNewAndEditedMandatoryPropertiesAreSet(IEntity<?> entity);
+	
+	//method declaration
 	boolean canBeDeleted(IEntity<?> entity);
 	
 	//method declaration

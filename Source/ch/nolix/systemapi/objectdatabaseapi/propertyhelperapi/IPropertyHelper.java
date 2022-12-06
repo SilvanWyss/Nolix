@@ -37,4 +37,7 @@ public interface IPropertyHelper extends IDatabaseObjectHelper {
 	
 	//method declaration
 	boolean isMandatoryAndEmptyBoth(IProperty<?> property);
+		
+	//method declaration
+	boolean isSetForCaseIsNewOrEditedAndMandatory(IProperty<?> property);
 }

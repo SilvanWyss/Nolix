@@ -18,10 +18,17 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 	
 	//method
 	@Override
+	public boolean allNewAndEditedMandatoryPropertiesAreSet(final IDatabase<?> database) {
+		return database.getRefTables().containsOnly(tableHelper::allNewAndEditedMandatoryPropertiesAreSet);
+	}
+	
+	//method
+	@Override
 	public boolean canSaveChanges(final IDatabase<?> database) {
 		return
 		database.isOpen()
-		&& database.isLinkedWithRealDatabase();
+		&& database.isLinkedWithRealDatabase()
+		&& allNewAndEditedMandatoryPropertiesAreSet(database);
 	}
 	
 	//method

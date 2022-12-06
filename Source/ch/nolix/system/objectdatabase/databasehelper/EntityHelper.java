@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.objectdatabase.databasehelper;
 
+//own imports
 import ch.nolix.system.database.databaseobjecthelper.DatabaseObjectHelper;
 import ch.nolix.system.objectdatabase.propertyhelper.PropertyHelper;
 import ch.nolix.system.sqlrawdata.databasedto.EntityHeadDTO;
@@ -20,6 +21,17 @@ public class EntityHelper extends DatabaseObjectHelper implements IEntityHelper 
 	
 	//static attribute
 	private static final IPropertyHelper propertyHelper = new PropertyHelper();
+	
+	//method
+	@Override
+	public boolean allNewAndEditedMandatoryPropertiesAreSet(final IEntity<?> entity) {
+		return
+		
+		//For a better performance, the Entity is checked before the properties of the Entity will be checked.
+		isNewOrEdited(entity)
+		
+		&& entity.technicalGetRefProperties().containsOnly(propertyHelper::isSetForCaseIsNewOrEditedAndMandatory);
+	}
 	
 	//method
 	@Override
