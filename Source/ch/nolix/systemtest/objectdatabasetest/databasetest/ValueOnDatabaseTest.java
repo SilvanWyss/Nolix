@@ -9,6 +9,7 @@ import ch.nolix.system.objectdatabase.database.Entity;
 import ch.nolix.system.objectdatabase.database.Schema;
 import ch.nolix.system.objectdatabase.database.Value;
 import ch.nolix.system.objectdatabase.databaseadapter.NodeDatabaseAdapter;
+import ch.nolix.systemapi.databaseapi.databaseobjectapi.DatabaseObjectState;
 
 //class
 public final class ValueOnDatabaseTest extends Test {
@@ -17,21 +18,11 @@ public final class ValueOnDatabaseTest extends Test {
 	private static final class Pet extends Entity {
 		
 		//attribute
-		private final Value<String> name = new Value<>();
+		public final Value<String> name = new Value<>();
 		
 		//constructor
 		public Pet() {
 			initialize();
-		}
-		
-		//method
-		public String getName() {
-			return name.getRefValue();
-		}
-		
-		//method
-		public void setName(final String name) {
-			this.name.setValue(name);
 		}
 	}
 	
@@ -61,11 +52,11 @@ public final class ValueOnDatabaseTest extends Test {
 		final var nodeDatabaseAdapter =
 		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
 		final var garfield = new Pet();
-		garfield.setName("Garfield");
+		garfield.name.setValue("Garfield");
 		nodeDatabaseAdapter.insert(garfield);
-				
+		
 		//execution
-		final var result = garfield.getName();
+		final var result = garfield.name.getRefValue();
 		
 		//verification
 		expect(result).isEqualTo("Garfield");
@@ -81,7 +72,7 @@ public final class ValueOnDatabaseTest extends Test {
 		final var nodeDatabaseAdapter =
 		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
 		final var garfield = new Pet();
-		garfield.setName("Garfield");
+		garfield.name.setValue("Garfield");
 		nodeDatabaseAdapter.insert(garfield);
 		nodeDatabaseAdapter.saveChangesAndReset();
 		
@@ -90,9 +81,96 @@ public final class ValueOnDatabaseTest extends Test {
 		nodeDatabaseAdapter.getRefTableByEntityType(Pet.class).getRefEntityById(garfield.getId());
 		
 		//execution
-		final var result = loadedGarfield.getName();
+		final var result = loadedGarfield.name.getRefValue();
 		
 		//verification
 		expect(result).isEqualTo("Garfield");
+	}
+	
+	//method
+	@TestCase
+	public void testCase_getState_whenIsNewAndNotEdited() {
+		
+		//setup
+		final var garfield = new Pet();
+		
+		//setup verification
+		expect(garfield.getState()).is(DatabaseObjectState.NEW);
+		
+		//execution
+		final var result = garfield.name.getState();
+		
+		//verification
+		expect(result).is(DatabaseObjectState.NEW);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_getState_whenIsNewAndEdited() {
+		
+		//setup
+		final var garfield = new Pet();
+		garfield.name.setValue("Garfield");
+		
+		//setup verification
+		expect(garfield.getState()).is(DatabaseObjectState.NEW);
+		
+		//execution
+		final var result = garfield.name.getState();
+		
+		//verification
+		expect(result).is(DatabaseObjectState.NEW);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_getState_whenIsClosed() {
+		
+		//setup
+		final var nodeDatabase = new MutableNode();
+		final var schema = Schema.withEntityType(Pet.class);
+		final var nodeDatabaseAdapter =
+		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		final var garfield = new Pet();
+		garfield.name.setValue("Garfield");
+		nodeDatabaseAdapter.insert(garfield);
+		nodeDatabaseAdapter.saveChangesAndReset();
+		
+		//setup verification
+		expect(garfield.getState()).is(DatabaseObjectState.CLOSED);
+		
+		//execution
+		final var result = garfield.name.getState();
+		
+		//verification
+		expect(result).is(DatabaseObjectState.CLOSED);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_getState_whenIsLoaded() {
+		
+		//setup part 1
+		final var nodeDatabase = new MutableNode();
+		final var schema = Schema.withEntityType(Pet.class);
+		final var nodeDatabaseAdapter =
+		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		final var garfield = new Pet();
+		garfield.name.setValue("Garfield");
+		nodeDatabaseAdapter.insert(garfield);
+		nodeDatabaseAdapter.saveChangesAndReset();
+		
+		//setup part 2
+		final var loaedGarfield =
+		nodeDatabaseAdapter.getRefTableByEntityType(Pet.class).getRefEntityById(garfield.getId());
+		
+		//setup verification
+		expect(loaedGarfield.getState()).is(DatabaseObjectState.LOADED);
+		
+		//execution
+		final var result = loaedGarfield.name.getState();
+		
+		//verification
+		expect(result).is(DatabaseObjectState.LOADED);
 	}
 }
