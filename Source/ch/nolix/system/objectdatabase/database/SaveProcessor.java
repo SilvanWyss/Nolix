@@ -20,7 +20,7 @@ final class SaveProcessor {
 	//method
 	public void saveChanges(final Database database) {
 		
-		DatabaseValidator.INSTANCE.assertCanSaveChanes(database);
+		DatabaseValidator.INSTANCE.assertCanSaveChanges(database);
 		
 		setEditedEntitiesAsUpdated(database);
 		
