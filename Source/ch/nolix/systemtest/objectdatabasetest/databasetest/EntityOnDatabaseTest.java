@@ -18,88 +18,101 @@ public final class EntityOnDatabaseTest extends Test {
 	private static final class Pet extends Entity {
 		
 		//attribute
-		private final Value<Integer> ageInYears = new Value<>();
+		public final Value<Integer> ageInYears = new Value<>();
 		
 		//constructor
 		public Pet() {
 			initialize();
 		}
-		
-		//method
-		public void setAgeInYears(final int ageInYears) {
-			this.ageInYears.setValue(ageInYears);
-		}
 	}
 	
 	//method
 	@TestCase
-	public void testCase_whenIsTriedToBeSavedButWasDeletedFromTheDatabase() {
+	public void testCase_isSaved_whenIsChangedInTheMeanwhile() {
 		
 		//setup part 1: Initializes database.
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Pet.class);
-		final var nodeDatabaseAdapter =
+		final var nodeDatabaseAdapterA =
 		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
-		final var garfield = new Pet();
-		garfield.setAgeInYears(5);
-		nodeDatabaseAdapter.insert(garfield);
-		nodeDatabaseAdapter.saveChangesAndReset();
+		final var garfieldA = new Pet();
+		garfieldA.ageInYears.setValue(5);
+		nodeDatabaseAdapterA.insert(garfieldA);
+		nodeDatabaseAdapterA.saveChangesAndReset();
 		
 		//setup part 2: Prepares a change.
-		final var nodeDatabaseAdapter2 =
+		final var nodeDatabaseAdapterB =
 		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
-		final var garfield2 =
-		nodeDatabaseAdapter2.getRefTableByEntityType(Pet.class).getRefEntityById(garfield.getId());
-		garfield2.setAgeInYears(6);
-		
-		//setup part 3: Deletes the Entity.
-		final var nodeDatabaseAdapter3 =
-		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
-		final var garfield3 =
-		nodeDatabaseAdapter3.getRefTableByEntityType(Pet.class).getRefEntityById(garfield.getId());
-		garfield3.delete();
-		nodeDatabaseAdapter3.saveChangesAndReset();
-		
-		//execution & verification: Tries to save when the Entity was deleted.
-		expectRunning(nodeDatabaseAdapter2::saveChangesAndReset)
-		.throwsException()
-		.ofType(ResourceWasChangedInTheMeanwhileException.class)
-		.withMessage("The data was changed in the meanwhile.");
-	}
-	
-	//method
-	@TestCase
-	public void testCase_whenIsTriedToBeSavedButHasAnOutdatedChange() {
-		
-		//setup part 1: Initializes database.
-		final var nodeDatabase = new MutableNode();
-		final var schema = Schema.withEntityType(Pet.class);
-		final var nodeDatabaseAdapter =
-		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
-		final var garfield = new Pet();
-		garfield.setAgeInYears(5);
-		nodeDatabaseAdapter.insert(garfield);
-		nodeDatabaseAdapter.saveChangesAndReset();
-		
-		//setup part 2: Prepares a change.
-		final var nodeDatabaseAdapter2 =
-		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
-		final var garfield2 =
-		nodeDatabaseAdapter2.getRefTableByEntityType(Pet.class).getRefEntityById(garfield.getId());
-		garfield2.setAgeInYears(6);
+		final var garfieldB =
+		nodeDatabaseAdapterB.getRefTableByEntityType(Pet.class).getRefEntityById(garfieldA.getId());
+		garfieldB.ageInYears.setValue(6);
 		
 		//setup part 3: Makes a change.
-		final var nodeDatabaseAdapter3 =
+		final var nodeDatabaseAdapterC =
 		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
-		final var garfield3 =
-		nodeDatabaseAdapter3.getRefTableByEntityType(Pet.class).getRefEntityById(garfield.getId());
-		garfield3.setAgeInYears(6);
-		nodeDatabaseAdapter3.saveChangesAndReset();
+		final var garfieldC =
+		nodeDatabaseAdapterC.getRefTableByEntityType(Pet.class).getRefEntityById(garfieldA.getId());
+		garfieldC.ageInYears.setValue(6);
+		nodeDatabaseAdapterC.saveChangesAndReset();
 		
-		//execution: Tries to save the outdated change.
-		expectRunning(nodeDatabaseAdapter2::saveChangesAndReset)
+		//execution: Tries to save changes.
+		expectRunning(nodeDatabaseAdapterB::saveChangesAndReset)
 		.throwsException()
 		.ofType(ResourceWasChangedInTheMeanwhileException.class)
 		.withMessage("The data was changed in the meanwhile.");
+	}
+	
+	//method
+	@TestCase
+	public void testCase_isSaved_whenIsDeletedInTheMeanwhile() {
+		
+		//setup part 1: Initializes database.
+		final var nodeDatabase = new MutableNode();
+		final var schema = Schema.withEntityType(Pet.class);
+		final var nodeDatabaseAdapterA =
+		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		final var garfieldA = new Pet();
+		garfieldA.ageInYears.setValue(5);
+		nodeDatabaseAdapterA.insert(garfieldA);
+		nodeDatabaseAdapterA.saveChangesAndReset();
+		
+		//setup part 2: Prepares a change.
+		final var nodeDatabaseAdapterB =
+		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		final var garfieldB =
+		nodeDatabaseAdapterB.getRefTableByEntityType(Pet.class).getRefEntityById(garfieldA.getId());
+		garfieldB.ageInYears.setValue(6);
+		
+		//setup part 3: Deletes the Entity.
+		final var nodeDatabaseAdapterC =
+		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		final var garfieldC =
+		nodeDatabaseAdapterC.getRefTableByEntityType(Pet.class).getRefEntityById(garfieldA.getId());
+		garfieldC.delete();
+		nodeDatabaseAdapterC.saveChangesAndReset();
+		
+		//execution & verification: Tries to save changes.
+		expectRunning(nodeDatabaseAdapterB::saveChangesAndReset)
+		.throwsException()
+		.ofType(ResourceWasChangedInTheMeanwhileException.class)
+		.withMessage("The data was changed in the meanwhile.");
+	}
+
+	//method
+	@TestCase
+	public void testCase_delete_whenIsClosed() {
+		
+		//setup
+		final var nodeDatabase = new MutableNode();
+		final var schema = Schema.withEntityType(Pet.class);
+		final var nodeDatabaseAdapter =
+		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		final var garfield = new Pet();
+		garfield.ageInYears.setValue(5);
+		nodeDatabaseAdapter.insert(garfield);
+		nodeDatabaseAdapter.saveChangesAndReset();
+		
+		//execution & verification
+		expectRunning(garfield::delete).throwsException();
 	}
 }
