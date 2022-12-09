@@ -148,6 +148,11 @@ implements IOptionalReference<DataImplementation, E> {
 	}
 	
 	//method
+	private void assertCanClear() {
+		optionalReferenceHelper.assertCanClear(this);
+	}
+	
+	//method
 	private void assertCanSetEntity(final E entity) {
 		optionalReferenceHelper.assertCanSetGivenEntity(this, entity);
 	}
@@ -155,17 +160,17 @@ implements IOptionalReference<DataImplementation, E> {
 	//method
 	private void clearWhenContainsAny() {
 		
-		optionalReferenceHelper.assertCanClear(this);
+		assertCanClear();
 		
 		updateStateForClear();
 		
-		updateRecordForClear();
+		updateRealDatabaseForClear();
 		
 		internalSetAsEditedAndRunProbableUpdateAction();
 	}
 	
 	//method
-	private void updateRecordForClear() {
+	private void updateRealDatabaseForClear() {
 		if (isLinkedWithRealDatabase()) {
 			internalGetRefDataAndSchemaAdapter().updateRecordOnTable(
 				getParentEntity().getParentTableName(),
