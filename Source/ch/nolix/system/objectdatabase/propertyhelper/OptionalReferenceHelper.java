@@ -8,6 +8,7 @@ import ch.nolix.system.sqlrawdata.databasedto.ContentFieldDTO;
 import ch.nolix.system.sqlrawdata.databasedto.EntityUpdateDTO;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IOptionalReference;
+import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
 import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IOptionalReferenceHelper;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
 
@@ -84,6 +85,23 @@ public final class OptionalReferenceHelper extends PropertyHelper implements IOp
 			parentEntity.getSaveStamp(),
 			new ContentFieldDTO(optionalReference.getName(), entity.getId())
 		);
+	}
+	
+	//method
+	@Override
+	public <IMPL> IProperty<IMPL> getRefBackReferencingPropertyOrNull(
+		final IOptionalReference<IMPL, ?> optionalReference
+	) {
+		
+		if (optionalReference.isEmpty()) {
+			return null;
+		}
+		
+		return
+		optionalReference
+		.getRefEntity()
+		.technicalGetRefProperties()
+		.getRefFirstOrNull(p -> p.referencesBackProperty(optionalReference));
 	}
 	
 	//method
