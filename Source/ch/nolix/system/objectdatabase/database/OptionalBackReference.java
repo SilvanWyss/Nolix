@@ -43,12 +43,6 @@ implements IOptionalBackReference<DataImplementation, E>{
 	
 	//method
 	@Override
-	public void clear() {
-		backReferencedEntityId = null;
-	}
-	
-	//method
-	@Override
 	public String getEntityId() {
 		
 		optionalBackReferenceHelper.assertIsNotEmpty(this);
