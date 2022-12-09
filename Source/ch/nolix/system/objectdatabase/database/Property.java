@@ -130,12 +130,7 @@ public abstract class Property implements IProperty<DataImplementation> {
 	}
 	
 	//method
-	final IDataAndSchemaAdapter internalGetRefDataAndSchemaAdapter() {
-		return ((BaseEntity)parentEntity).internalGetRefDataAndSchemaAdapter();
-	}
-	
-	//method
-	final void internalSetAsEditedAndRunProbableUpdateAction() {
+	protected final void setAsEditedAndRunProbableUpdateAction() {
 		
 		if (belongsToEntity()) {
 			((BaseEntity)getParentEntity()).internalSetEdited();
@@ -144,6 +139,11 @@ public abstract class Property implements IProperty<DataImplementation> {
 		edited = true;
 		
 		propertyFlyWeight.noteUpdate();
+	}
+	
+	//method
+	final IDataAndSchemaAdapter internalGetRefDataAndSchemaAdapter() {
+		return ((BaseEntity)parentEntity).internalGetRefDataAndSchemaAdapter();
 	}
 	
 	//method declaration

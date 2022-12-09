@@ -29,7 +29,7 @@ public final class OptionalValue<V> extends BaseValue<V> implements IOptionalVal
 		
 		updateRecordForClear();
 		
-		internalSetAsEditedAndRunProbableUpdateAction();
+		setAsEditedAndRunProbableUpdateAction();
 	}
 	
 	//method
@@ -67,7 +67,7 @@ public final class OptionalValue<V> extends BaseValue<V> implements IOptionalVal
 		
 		updateStateForSetValue(value);
 		
-		internalSetAsEditedAndRunProbableUpdateAction();
+		setAsEditedAndRunProbableUpdateAction();
 	}
 	
 	//method
