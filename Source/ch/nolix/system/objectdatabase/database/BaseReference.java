@@ -70,7 +70,11 @@ implements IBaseReference<DataImplementation, E> {
 						
 					case OPTIONAL_BACK_REFERENCE:
 						
-						//TODO: Implement.
+						final var optionalBackReference = (OptionalBackReference<?>)p;
+						
+						if (optionalBackReference.referencesBackProperty(this)) {
+							optionalBackReference.internalSetDirectlyBackReferencedEntityId(getParentEntity().getId());
+						}
 						
 						break;
 					default:
