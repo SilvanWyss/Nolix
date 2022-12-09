@@ -101,6 +101,12 @@ implements IBackReference<DataImplementation, E>{
 	}
 	
 	//method
+	void internalClear() {
+		backReferencedEntityId = null;
+		setAsEditedAndRunProbableUpdateAction();
+	}
+	
+	//method
 	void internalSetDirectlyBackReferencedEntityId(final String backReferencedEntityId) {
 		this.backReferencedEntityId = backReferencedEntityId;
 	}

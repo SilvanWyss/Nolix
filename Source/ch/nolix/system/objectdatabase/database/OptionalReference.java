@@ -1,11 +1,13 @@
 //package declaration
 package ch.nolix.system.objectdatabase.database;
 
+//own imports
 import ch.nolix.system.objectdatabase.propertyhelper.OptionalReferenceHelper;
 import ch.nolix.system.sqlrawdata.databasedto.ContentFieldDTO;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IOptionalReference;
+import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
 import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IOptionalReferenceHelper;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDTO;
 
@@ -162,11 +164,49 @@ implements IOptionalReference<DataImplementation, E> {
 		
 		assertCanClear();
 		
+		updateProbableBackReferencingPropertyForClear();
+		
 		updateStateForClear();
 		
 		updateRealDatabaseForClear();
 		
 		setAsEditedAndRunProbableUpdateAction();
+	}
+	
+	//method
+	private void updateBackReferencingPropertyForClear(final IProperty<DataImplementation> backReferencingProperty) {
+		switch (backReferencingProperty.getType()) {
+			case BACK_REFERENCE:
+				final var backReference = (BackReference<?>)backReferencingProperty;
+				backReference.internalClear();
+				break;
+			case OPTIONAL_BACK_REFERENCE:
+				final var optionalBackReference = (OptionalBackReference<?>)backReferencingProperty;
+				optionalBackReference.internalClear();
+				break;
+			case MULTI_BACK_REFERENCE:
+				//TODO: Implement.
+				break;
+			default:
+				//Does nothing.
+		}
+	}
+	
+	//method
+	private void updateProbableBackReferencingPropertyForClear() {
+		if (containsAny()) {
+			updateProbableBackReferencingPropertyForClearWhenIsNotEmpty();
+		}
+	}
+	
+	//method
+	private void updateProbableBackReferencingPropertyForClearWhenIsNotEmpty() {
+		
+		final var backReferencingProperty = optionalReferenceHelper.getRefBackReferencingPropertyOrNull(this);
+		
+		if (backReferencingProperty != null) {
+			updateBackReferencingPropertyForClear(backReferencingProperty);
+		}
 	}
 	
 	//method
