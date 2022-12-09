@@ -88,7 +88,7 @@ implements IReference<DataImplementation, E> {
 	@Override
 	public void setEntity(final E entity) {
 		
-		referenceHelper.assertCanSetGivenEntity(this, entity);
+		assertCanSetEntity(entity);
 		
 		updateStateForSetEntity(entity);
 		
@@ -130,6 +130,11 @@ implements IReference<DataImplementation, E> {
 		if (containsAny()) {
 			updateProbableBackReferenceForSetOrAddedEntity(getRefEntity());
 		}
+	}
+	
+	//method
+	private void assertCanSetEntity(final E entity) {
+		referenceHelper.assertCanSetGivenEntity(this, entity);
 	}
 	
 	//method
