@@ -6,6 +6,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.system.sqlrawdata.databasedto.ContentFieldDTO;
 import ch.nolix.system.sqlrawdata.databasedto.EntityUpdateDTO;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
+import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IReference;
 import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IReferenceHelper;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
@@ -33,7 +34,10 @@ public final class ReferenceHelper extends PropertyHelper implements IReferenceH
 	
 	//method
 	@Override
-	public IEntityUpdateDTO createRecordUpdateDTOForSetEntity(IReference<?, ?> reference, IEntity<?> entity) {
+	public IEntityUpdateDTO createRecordUpdateDTOForSetEntity(
+		final IReference<?, ?> reference,
+		final IEntity<?> entity
+	) {
 		
 		final var parentEntity = reference.getParentEntity();
 		
@@ -42,6 +46,20 @@ public final class ReferenceHelper extends PropertyHelper implements IReferenceH
 			parentEntity.getSaveStamp(),
 			new ContentFieldDTO(reference.getName(), entity.getId())
 		);
+	}
+	
+	//method
+	public <IMPL> IProperty<IMPL> getRefBackReferencingPropertyOrNull(final IReference<IMPL, ?> reference) {
+		
+		if (reference.isEmpty()) {
+			return null;
+		}
+		
+		return
+		reference
+		.getRefEntity()
+		.technicalGetRefProperties()
+		.getRefFirstOrNull(p -> p.referencesBackProperty(reference));
 	}
 	
 	//method
