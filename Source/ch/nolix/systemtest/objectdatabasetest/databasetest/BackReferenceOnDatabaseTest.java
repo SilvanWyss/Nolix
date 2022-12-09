@@ -166,6 +166,11 @@ public final class BackReferenceOnDatabaseTest extends Test {
 		nodeDatabaseAdapter.getRefTableByEntityType(Person.class).getRefEntityById(john.getId());
 		loadedJohn.pet.setEntity(bello);
 		
+		//setup verification
+		final var loadedGarfield =
+		nodeDatabaseAdapter.getRefTableByEntityType(Pet.class).getRefEntityById(garfield.getId());
+		expect(loadedGarfield.owner.isEmpty());
+		
 		//execution & verification
 		expectRunning(nodeDatabaseAdapter::saveChangesAndReset).throwsException();
 	}
