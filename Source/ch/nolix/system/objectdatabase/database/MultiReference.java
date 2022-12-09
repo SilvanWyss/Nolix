@@ -110,7 +110,7 @@ implements IMultiReference<DataImplementation, E> {
 	//method
 	@Override
 	public boolean referencesUninsertedEntity() {
-		return getReferencedEntities().containsOnly(IEntity::belongsToTable);
+		return getReferencedEntities().containsAny(e -> !e.belongsToTable());
 	}
 	
 	//method
