@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.objectdatabase.database;
 
-import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
+//own imports
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
@@ -116,7 +116,7 @@ implements IMultiReference<DataImplementation, E> {
 	//method
 	@Override
 	public IContentFieldDTO technicalToContentField() {
-		return new ContentFieldDTO(getName(), StringCatalogue.EMPTY_STRING);
+		return new ContentFieldDTO(getName());
 	}
 	
 	//method
