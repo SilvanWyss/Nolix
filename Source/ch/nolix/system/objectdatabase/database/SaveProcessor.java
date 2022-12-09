@@ -43,6 +43,9 @@ final class SaveProcessor {
 						entityHelper.createRecordFor(e)
 					);
 					
+					//TODO: Beautify this step.
+					((BaseEntity)e).internalUpdateMultiPropertiesWhenIsNew();
+					
 					break;
 				case EDITED:
 					

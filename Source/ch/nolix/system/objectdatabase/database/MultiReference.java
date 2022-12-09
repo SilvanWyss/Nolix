@@ -136,6 +136,19 @@ implements IMultiReference<DataImplementation, E> {
 	}
 	
 	//method
+	@Override
+	void internalUpdateWhenIsNewMultiProperty() {
+		for (final var reid : referencedEntityIds) {
+			internalGetRefDataAndSchemaAdapter().insertEntryIntoMultiReference(
+				getParentEntity().getParentTableName(),
+				getParentEntity().getId(),
+				getName(),
+				reid
+			);
+		}
+	}
+	
+	//method
 	private void assertCanAddEntity(final E entity) {
 		multiReferenceHelper.assertCanAddGivenEntity(this, entity);
 	}

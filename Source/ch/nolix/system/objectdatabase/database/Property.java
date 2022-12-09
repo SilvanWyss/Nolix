@@ -174,6 +174,9 @@ public abstract class Property implements IProperty<DataImplementation> {
 	}
 	
 	//method declaration
+	abstract void internalUpdateWhenIsNewMultiProperty();
+	
+	//method declaration
 	abstract void internalUpdateProbableBackReferencesWhenIsNew();
 	
 	//method

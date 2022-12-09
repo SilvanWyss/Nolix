@@ -110,4 +110,10 @@ implements IBackReference<DataImplementation, E>{
 	void internalSetOrClearDirectlyFromContent(final Object content) {
 		backReferencedEntityId = (String)content;
 	}
+	
+	//method
+	@Override
+	void internalUpdateWhenIsNewMultiProperty() {
+		//Does nothing.
+	}
 }

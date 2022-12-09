@@ -52,7 +52,6 @@ public final class MultiReferenceOnDatabaseTest extends Test {
 		nodeDatabaseAdapter.getRefTableByEntityType(Person.class).getRefEntityById(john.getId());
 		
 		//verification
-		System.out.print(nodeDatabase.toFormattedString());
 		expect(loadedJohn.pets.isEmpty());
 	}
 	

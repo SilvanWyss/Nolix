@@ -135,6 +135,12 @@ implements IOptionalReference<DataImplementation, E> {
 	
 	//method
 	@Override
+	void internalUpdateWhenIsNewMultiProperty() {
+		//Does nothing.
+	}
+	
+	//method
+	@Override
 	void internalUpdateProbableBackReferencesWhenIsNew() {
 		if (containsAny()) {
 			updateProbableBackReferenceForSetOrAddedEntity(getRefEntity());

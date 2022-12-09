@@ -208,6 +208,11 @@ public abstract class BaseEntity implements IEntity<DataImplementation> {
 	}
 	
 	//method
+	final void internalUpdateMultiPropertiesWhenIsNew() {
+		getRefProperties().forEach(Property::internalUpdateWhenIsNewMultiProperty);
+	}
+	
+	//method
 	final void internalUpdateProbableBackReferencesWhenIsNew() {
 		getRefProperties().forEach(Property::internalUpdateProbableBackReferencesWhenIsNew);
 	}
