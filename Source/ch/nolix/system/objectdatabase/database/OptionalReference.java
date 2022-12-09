@@ -96,7 +96,7 @@ implements IOptionalReference<DataImplementation, E> {
 	@Override
 	public void setEntity(final E entity) {
 		
-		optionalReferenceHelper.assertCanSetGivenEntity(this, entity);
+		assertCanSetEntity(entity);
 		
 		updateStateForSetEntity(entity);
 		
@@ -145,6 +145,11 @@ implements IOptionalReference<DataImplementation, E> {
 		if (containsAny()) {
 			updateProbableBackReferenceForSetOrAddedEntity(getRefEntity());
 		}
+	}
+	
+	//method
+	private void assertCanSetEntity(final E entity) {
+		optionalReferenceHelper.assertCanSetGivenEntity(this, entity);
 	}
 	
 	//method
