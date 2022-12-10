@@ -168,12 +168,54 @@ public final class OptionalBackReferenceOnDatabaseTest extends Test {
 		nodeDatabaseAdapter.getRefTableByEntityType(Person.class).getRefEntityById(john.getId());
 		loadedJohn.pet.setEntity(bello);
 		
-		//setup verification
+		//setup part 2 verification
 		final var loadedGarfield =
 		nodeDatabaseAdapter.getRefTableByEntityType(Pet.class).getRefEntityById(garfield.getId());
 		expect(loadedGarfield.owner.isEmpty());
 		
 		//execution & verification
 		expectRunning(nodeDatabaseAdapter::saveChangesAndReset).doesNotThrowException();
+	}
+	
+	//method
+	@TestCase
+	public void testCase_isChanged_whenIsLoaded() {
+		
+		//setup part 1
+		final var nodeDatabase = new MutableNode();
+		final var schema = Schema.withEntityType(Person.class, Pet.class);
+		final var nodeDatabaseAdapter =
+		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		final var garfield = new Pet();
+		nodeDatabaseAdapter.insert(garfield);
+		final var odie = new Pet();
+		nodeDatabaseAdapter.insert(odie);
+		final var john = new Person();
+		john.pet.setEntity(garfield);
+		nodeDatabaseAdapter.insert(john);
+		
+		//setup part 1 verification
+		expect(john.pet.getRefEntity()).is(garfield);
+		expect(garfield.owner.getRefEntity()).is(john);
+		expect(odie.owner.isEmpty());
+		
+		//setup part 2
+		nodeDatabaseAdapter.saveChangesAndReset();
+		
+		//setup part 3
+		final var loadedJohn =
+		nodeDatabaseAdapter.getRefTableByEntityType(Person.class).getRefEntityById(john.getId());
+		final var loadedOdie =
+		nodeDatabaseAdapter.getRefTableByEntityType(Pet.class).getRefEntityById(odie.getId());
+		
+		//execution
+		loadedJohn.pet.setEntity(loadedOdie);
+		
+		//verification
+		final var loadedGarfield =
+		nodeDatabaseAdapter.getRefTableByEntityType(Pet.class).getRefEntityById(garfield.getId());
+		expect(loadedJohn.pet.getRefEntity()).is(loadedOdie);
+		expect(loadedGarfield.owner.isEmpty());
+		expect(loadedOdie.owner.getRefEntity()).is(loadedJohn);
 	}
 }
