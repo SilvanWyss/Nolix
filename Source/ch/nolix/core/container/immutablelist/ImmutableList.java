@@ -63,6 +63,12 @@ public final class ImmutableList<E> extends Container<E> {
 	
 	//static method
 	@SuppressWarnings("unchecked")
+	public static <E2> ImmutableList<E2> withElement(final E2 element) {
+		return new ImmutableList<>((E2[])new Object[] {element});
+	}
+	
+	//static method
+	@SuppressWarnings("unchecked")
 	public static <E2> ImmutableList<E2> withElements(final E2... elements) {
 		return new ImmutableList<>(elements.clone());
 	}
