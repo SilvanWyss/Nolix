@@ -2,9 +2,11 @@
 package ch.nolix.system.objectdatabase.database;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.system.objectdatabase.propertyhelper.ReferenceHelper;
 import ch.nolix.system.sqlrawdata.databasedto.ContentFieldDTO;
+import ch.nolix.systemapi.databaseapi.propertytypeapi.BasePropertyType;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
@@ -113,7 +115,7 @@ implements IReference<DataImplementation, E> {
 		
 		clear();
 		
-		updateProbableBackReferencingPropertyForClearOnEntity(entity);
+		updatePropbableBackReferencingPropertyOfEntityForClear(entity);
 		
 		updateStateForSetEntity(entity);
 		
@@ -203,14 +205,43 @@ implements IReference<DataImplementation, E> {
 		}
 	}
 	
+	//TODO: Refactor this method.
 	//method
-	private void updateProbableBackReferencingPropertyForClearOnEntity(final E entity) {
-		
-		final var backReferencingProperty =
-		entity.technicalGetRefProperties().getRefFirstOrNull(p -> p.referencesBackProperty(this));
-		
-		if (backReferencingProperty != null) {
-			updateBackReferencingPropertyForClear(backReferencingProperty);
+	private void updatePropbableBackReferencingPropertyOfEntityForClear(final E entity) {
+		for (final var p : entity.technicalGetRefProperties()) {
+			if (p.getType().getBaseType() == BasePropertyType.BASE_BACK_REFERENCE) {
+				
+				final var baseBackReference = (BaseBackReference<?>)p;
+				
+				if (
+					baseBackReference.getBackReferencedTableName().equals(getRefParentEntity().getParentTableName())
+					&& baseBackReference.getBackReferencedPropertyName().equals(getName())
+				) {
+					
+					for (final var rp : baseBackReference.getRefReferencingProperties()) {
+						final var reference = (Reference<?>)rp;
+						reference.clear();
+					}
+					
+					switch (baseBackReference.getType()) {
+						case BACK_REFERENCE:
+							final var backReference = (BackReference<?>)baseBackReference;
+							backReference.internalClear();
+							break;
+						case OPTIONAL_BACK_REFERENCE:
+							final var optionalBackReference = (OptionalBackReference<?>)baseBackReference;
+							optionalBackReference.internalClear();
+							break;
+						case MULTI_BACK_REFERENCE:
+							//TODO: Implement.
+							break;
+						default:
+							throw InvalidArgumentException.forArgument(baseBackReference.getType());
+					}
+					
+					break;
+				}
+			}
 		}
 	}
 	
