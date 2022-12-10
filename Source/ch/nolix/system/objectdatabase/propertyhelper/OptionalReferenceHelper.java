@@ -92,11 +92,6 @@ public final class OptionalReferenceHelper extends PropertyHelper implements IOp
 	public <IMPL> IProperty<IMPL> getRefBackReferencingPropertyOrNull(
 		final IOptionalReference<IMPL, ?> optionalReference
 	) {
-		
-		if (optionalReference.isEmpty()) {
-			return null;
-		}
-		
 		return
 		optionalReference
 		.getRefEntity()
