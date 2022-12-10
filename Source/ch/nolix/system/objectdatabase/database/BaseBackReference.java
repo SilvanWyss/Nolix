@@ -72,6 +72,18 @@ implements IBaseBackReference<DataImplementation, E> {
 	
 	//method
 	@Override
+	public final boolean referencesBackProperty(final IProperty<?> property) {
+		return
+		property != null
+		&& belongsToEntity()
+		&& property.belongsToEntity()
+		&& getBackReferencedTableName().equals(property.getParentEntity().getParentTableName())
+		&& getBackReferencedPropertyName().equals(property.getName())
+		&& getParentEntity().getId().equals(property.getParentEntity().getId());
+	}
+	
+	//method
+	@Override
 	public final boolean referencesUninsertedEntity() {
 		return false;
 	}

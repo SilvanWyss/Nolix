@@ -54,6 +54,12 @@ implements IBaseReference<DataImplementation, E> {
 	}
 	
 	//method
+	@Override
+	public boolean referencesBackProperty(final IProperty<?> property) {
+		return false;
+	}
+	
+	//method
 	protected final void updateProbableBackReferenceForSetOrAddedEntity(final E entity) {
 		if (isLinkedWithRealDatabase()) {
 			for (final var p : entity.technicalGetRefProperties()) {
