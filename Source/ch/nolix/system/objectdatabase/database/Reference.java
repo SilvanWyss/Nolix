@@ -113,13 +113,13 @@ implements IReference<DataImplementation, E> {
 		
 		assertCanSetEntity(entity);
 		
-		clear();
-		
 		updatePropbableBackReferencingPropertyOfEntityForClear(entity);
+		
+		clear();
 		
 		updateStateForSetEntity(entity);
 		
-		updateProbableBackReferenceForSetOrAddedEntity(entity);
+		updateProbableBackReferencingPropertyForSetOrAddedEntity(entity);
 		
 		setAsEditedAndRunProbableUpdateAction();
 	}
@@ -170,10 +170,12 @@ implements IReference<DataImplementation, E> {
 			case BACK_REFERENCE:
 				final var backReference = (BackReference<?>)backReferencingProperty;
 				backReference.internalClear();
+				backReference.setAsEditedAndRunProbableUpdateAction();
 				break;
 			case OPTIONAL_BACK_REFERENCE:
 				final var optionalBackReference = (OptionalBackReference<?>)backReferencingProperty;
 				optionalBackReference.internalClear();
+				optionalBackReference.setAsEditedAndRunProbableUpdateAction();
 				break;
 			case MULTI_BACK_REFERENCE:
 				//TODO: Implement.
@@ -205,6 +207,42 @@ implements IReference<DataImplementation, E> {
 		}
 	}
 	
+	//method
+	private void updateProbableBackReferencingPropertyForSetOrAddedEntity(final E entity) {
+		for (final var p : entity.technicalGetRefProperties()) {
+			if (p.getType().getBaseType() == BasePropertyType.BASE_BACK_REFERENCE) {
+				
+				final var baseBackReference = (BaseBackReference<?>)p;
+				
+				if (
+					baseBackReference.getBackReferencedTableName().equals(getRefParentEntity().getParentTableName())
+					&& baseBackReference.getBackReferencedPropertyName().equals(getName())
+				) {
+					
+					switch (baseBackReference.getType()) {
+						case BACK_REFERENCE:
+							final var backReference = (BackReference<?>)baseBackReference;
+							backReference.internalSetDirectlyBackReferencedEntityId(getRefParentEntity().getId());
+							backReference.setAsEditedAndRunProbableUpdateAction();
+							break;
+						case OPTIONAL_BACK_REFERENCE:
+							final var optionalBackReference = (OptionalBackReference<?>)baseBackReference;
+							optionalBackReference.internalSetDirectlyBackReferencedEntityId(getRefParentEntity().getId());
+							optionalBackReference.setAsEditedAndRunProbableUpdateAction();
+							break;
+						case MULTI_BACK_REFERENCE:
+							//TODO: Implement.
+							break;
+						default:
+							throw InvalidArgumentException.forArgument(baseBackReference.getType());
+					}
+					
+					break;
+				}
+			}
+		}
+	}
+	
 	//TODO: Refactor this method.
 	//method
 	private void updatePropbableBackReferencingPropertyOfEntityForClear(final E entity) {
@@ -227,10 +265,12 @@ implements IReference<DataImplementation, E> {
 						case BACK_REFERENCE:
 							final var backReference = (BackReference<?>)baseBackReference;
 							backReference.internalClear();
+							backReference.setAsEditedAndRunProbableUpdateAction();
 							break;
 						case OPTIONAL_BACK_REFERENCE:
 							final var optionalBackReference = (OptionalBackReference<?>)baseBackReference;
 							optionalBackReference.internalClear();
+							optionalBackReference.setAsEditedAndRunProbableUpdateAction();
 							break;
 						case MULTI_BACK_REFERENCE:
 							//TODO: Implement.
