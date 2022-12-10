@@ -37,6 +37,14 @@ implements IBaseBackReference<DataImplementation, E> {
 	
 	//method
 	@Override
+	public final boolean canReferencesBackProperty(final IProperty<?> property) {
+		return
+		getRefBackReferencedTable() == property.getParentEntity().getRefParentTable()
+		&& getBackReferencedPropertyName().equals(property.getName());
+	}
+	
+	//method
+	@Override
 	public final String getBackReferencedPropertyName() {
 		return backReferencedPropertyName;
 	}
@@ -60,14 +68,6 @@ implements IBaseBackReference<DataImplementation, E> {
 	@Override
 	public final boolean references(final IEntity<?> entity) {
 		return false;
-	}
-	
-	//method
-	@Override
-	public final boolean referencesBackProperty(final IProperty<?> property) {
-		return
-		getRefBackReferencedTable() == property.getParentEntity().getRefParentTable()
-		&& getBackReferencedPropertyName().equals(property.getName());
 	}
 	
 	//method

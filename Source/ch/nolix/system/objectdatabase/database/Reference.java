@@ -172,7 +172,7 @@ implements IReference<DataImplementation, E> {
 	private void updateProbableBackReferencingPropertyForClearOnEntity(final E entity) {
 		
 		final var backReferencingProperty =
-		entity.technicalGetRefProperties().getRefFirstOrNull(p -> p.referencesBackProperty(this));
+		entity.technicalGetRefProperties().getRefFirstOrNull(p -> p.canReferencesBackProperty(this));
 		
 		if (backReferencingProperty != null) {
 			updateBackReferencingPropertyForClear(backReferencingProperty);
