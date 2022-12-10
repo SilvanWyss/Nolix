@@ -79,7 +79,7 @@ implements IBaseBackReference<DataImplementation, E> {
 		&& property.belongsToEntity()
 		&& getBackReferencedTableName().equals(property.getRefParentEntity().getParentTableName())
 		&& getBackReferencedPropertyName().equals(property.getName())
-		&& getRefParentEntity().getId().equals(property.getRefParentEntity().getId());
+		&& referencesBackEntityWithId(property.getRefParentEntity().getId());
 	}
 	
 	//method
@@ -87,6 +87,9 @@ implements IBaseBackReference<DataImplementation, E> {
 	public final boolean referencesUninsertedEntity() {
 		return false;
 	}
+	
+	//method declaration
+	protected abstract boolean referencesBackEntityWithId(String id);
 	
 	//method
 	@Override

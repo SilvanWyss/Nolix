@@ -118,6 +118,12 @@ implements IOptionalBackReference<DataImplementation, E>{
 	}
 	
 	//method
+	@Override
+	protected boolean referencesBackEntityWithId(final String id) {
+		return (containsAny() && getEntityId().equals(id));
+	}
+	
+	//method
 	void internalClear() {
 		backReferencedEntityId = null;
 		setAsEditedAndRunProbableUpdateAction();
