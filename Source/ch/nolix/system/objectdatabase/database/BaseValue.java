@@ -17,7 +17,7 @@ public abstract class BaseValue<V> extends Property implements IBaseValue<DataIm
 	
 	//method
 	@Override
-	public final boolean references(final IEntity<?> entity) {
+	public final boolean referencesEntity(final IEntity<?> entity) {
 		return false;
 	}
 	

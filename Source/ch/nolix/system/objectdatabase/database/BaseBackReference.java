@@ -66,7 +66,7 @@ implements IBaseBackReference<DataImplementation, E> {
 	
 	//method
 	@Override
-	public final boolean references(final IEntity<?> entity) {
+	public final boolean referencesEntity(final IEntity<?> entity) {
 		return false;
 	}
 	

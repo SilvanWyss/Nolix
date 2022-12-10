@@ -98,7 +98,7 @@ implements IMultiReference<DataImplementation, E> {
 	
 	//method
 	@Override
-	public boolean references(final IEntity<?> entity) {
+	public boolean referencesEntity(final IEntity<?> entity) {
 		
 		if (entity == null) {
 			return false;

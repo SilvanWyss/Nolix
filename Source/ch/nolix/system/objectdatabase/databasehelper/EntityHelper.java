@@ -104,7 +104,7 @@ public class EntityHelper extends DatabaseObjectHelper implements IEntityHelper 
 	//method
 	@Override
 	public final <IMPL> boolean referencesGivenEntity(final IEntity<IMPL> sourceEntity, final IEntity<IMPL> entity) {
-		return sourceEntity.technicalGetRefProperties().containsAny(p -> p.references(entity));
+		return sourceEntity.technicalGetRefProperties().containsAny(p -> p.referencesEntity(entity));
 	}
 	
 	//method
