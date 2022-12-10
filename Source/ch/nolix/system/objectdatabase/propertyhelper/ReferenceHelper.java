@@ -54,7 +54,7 @@ public final class ReferenceHelper extends PropertyHelper implements IReferenceH
 		reference
 		.getRefEntity()
 		.technicalGetRefProperties()
-		.getRefFirstOrNull(p -> p.canReferencesBackProperty(reference));
+		.getRefFirstOrNull(p -> p.referencesBackProperty(reference));
 	}
 	
 	//method

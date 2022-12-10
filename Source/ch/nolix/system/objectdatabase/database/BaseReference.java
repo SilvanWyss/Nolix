@@ -28,12 +28,6 @@ implements IBaseReference<DataImplementation, E> {
 	
 	//method
 	@Override
-	public final boolean canReferencesBackProperty(final IProperty<?> property) {
-		return false;
-	}
-	
-	//method
-	@Override
 	public final ITable<DataImplementation, E> getReferencedTable() {
 		
 		extractReferencedTableIfNotExtracted();
@@ -68,7 +62,7 @@ implements IBaseReference<DataImplementation, E> {
 						
 						final var backReference = (BackReference<?>)p;
 						
-						if (backReference.canReferencesBackProperty(this)) {
+						if (backReference.referencesBackProperty(this)) {
 							backReference.internalSetDirectlyBackReferencedEntityId(getRefParentEntity().getId());
 						}
 						
@@ -78,7 +72,7 @@ implements IBaseReference<DataImplementation, E> {
 						
 						final var optionalBackReference = (OptionalBackReference<?>)p;
 						
-						if (optionalBackReference.canReferencesBackProperty(this)) {
+						if (optionalBackReference.referencesBackProperty(this)) {
 							optionalBackReference.internalSetDirectlyBackReferencedEntityId(getRefParentEntity().getId());
 						}
 						
