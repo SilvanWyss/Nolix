@@ -91,7 +91,7 @@ implements IReference<DataImplementation, E> {
 		
 		assertCanSetEntity(entity);
 		
-		updateProbableBackReferencingPropertyForClear();
+		clear();
 		
 		updateProbableBackReferencingPropertyForClearOnEntity(entity);
 		
@@ -162,6 +162,21 @@ implements IReference<DataImplementation, E> {
 	}
 	
 	//method
+	private void clear() {
+		if (containsAny()) {
+			clearWhenContainsAny();
+		}
+	}
+	
+	//method
+	private void clearWhenContainsAny() {
+		
+		updateProbableBackReferencingPropertyForClear();
+		
+		updateStateForClear();
+	}
+	
+	//method
 	private void updateProbableBackReferencingPropertyForClear() {
 		if (containsAny()) {
 			updateProbableBackReferencingPropertyForClearWhenIsNotEmpty();
@@ -187,6 +202,11 @@ implements IReference<DataImplementation, E> {
 		if (backReferencingProperty != null) {
 			updateBackReferencingPropertyForClear(backReferencingProperty);
 		}
+	}
+	
+	//method
+	private void updateStateForClear() {
+		referencedEntityId = null;
 	}
 	
 	//method
