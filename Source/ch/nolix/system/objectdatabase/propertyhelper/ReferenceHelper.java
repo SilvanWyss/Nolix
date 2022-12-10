@@ -50,11 +50,6 @@ public final class ReferenceHelper extends PropertyHelper implements IReferenceH
 	
 	//method
 	public <IMPL> IProperty<IMPL> getRefBackReferencingPropertyOrNull(final IReference<IMPL, ?> reference) {
-		
-		if (reference.isEmpty()) {
-			return null;
-		}
-		
 		return
 		reference
 		.getRefEntity()
