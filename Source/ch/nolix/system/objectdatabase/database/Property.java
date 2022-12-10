@@ -47,7 +47,7 @@ public abstract class Property implements IProperty<DataImplementation> {
 	public final String getName() {
 		
 		if (knowsParentColumn()) {
-			return getParentColumn().getName();
+			return getRefParentColumn().getName();
 		}
 		
 		if (belongsToEntity()) {
@@ -59,7 +59,7 @@ public abstract class Property implements IProperty<DataImplementation> {
 	
 	//method
 	@Override
-	public IColumn<DataImplementation> getParentColumn() {
+	public IColumn<DataImplementation> getRefParentColumn() {
 		
 		propertyHelper.assertKnowsParentColumn(this);
 		
