@@ -49,7 +49,7 @@ implements IBaseReference<DataImplementation, E> {
 	
 	//method
 	@Override
-	public final boolean referencesBack(final IEntity<?> entity) {
+	public final boolean referencesBackEntity(final IEntity<?> entity) {
 		return false;
 	}
 	

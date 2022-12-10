@@ -32,11 +32,11 @@ public interface IProperty<IMPL> extends EmptinessRequestable, IDatabaseObject, 
 	boolean knowsParentColumn();
 	
 	//method declaration
-	boolean referencesEntity(IEntity<?> entity);
+	boolean referencesBackEntity(IEntity<?> entity);
 	
 	//method declaration
-	boolean referencesBack(IEntity<?> entity);
-	
+	boolean referencesEntity(IEntity<?> entity);
+		
 	//method declaration
 	boolean referencesBackProperty(IProperty<?> property);
 	

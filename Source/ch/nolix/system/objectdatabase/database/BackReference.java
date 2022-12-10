@@ -76,7 +76,7 @@ implements IBackReference<DataImplementation, E>{
 	
 	//method
 	@Override
-	public boolean referencesBack(final IEntity<?> entity) {
+	public boolean referencesBackEntity(final IEntity<?> entity) {
 		return
 		containsAny()
 		&& entity != null
