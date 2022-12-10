@@ -198,8 +198,8 @@ implements IReference<DataImplementation, E> {
 	
 	//method
 	private void updateProbableBackReferencingPropertyForClear() {
-		if (containsAny()) {
-			updateProbableBackReferencingPropertyForClearWhenIsNotEmpty();
+		for (final var brp : getRefBackReferencingProperties()) {
+			updateBackReferencingPropertyForClear(brp);
 		}
 	}
 	
@@ -208,16 +208,6 @@ implements IReference<DataImplementation, E> {
 		
 		final var backReferencingProperty =
 		entity.technicalGetRefProperties().getRefFirstOrNull(p -> p.referencesBackProperty(this));
-		
-		if (backReferencingProperty != null) {
-			updateBackReferencingPropertyForClear(backReferencingProperty);
-		}
-	}
-	
-	//method
-	private void updateProbableBackReferencingPropertyForClearWhenIsNotEmpty() {
-		
-		final var backReferencingProperty = referenceHelper.getRefBackReferencingPropertyOrNull(this);
 		
 		if (backReferencingProperty != null) {
 			updateBackReferencingPropertyForClear(backReferencingProperty);
