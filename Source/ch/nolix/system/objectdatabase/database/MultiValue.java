@@ -90,8 +90,8 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<Dat
 	void internalUpdateWhenIsNewMultiProperty() {
 		for (final var v : values) {
 			internalGetRefDataAndSchemaAdapter().insertEntryIntoMultiValue(
-				getParentEntity().getParentTableName(),
-				getParentEntity().getId(),
+				getRefParentEntity().getParentTableName(),
+				getRefParentEntity().getId(),
 				getName(),
 				v.toString()
 			);
@@ -139,8 +139,8 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<Dat
 		
 		if (isLinkedWithRealDatabase()) {
 			internalGetRefDataAndSchemaAdapter().loadAllMultiValueEntriesFromRecord(
-				getParentEntity().getParentTableName(),
-				getParentEntity().getId(),
+				getRefParentEntity().getParentTableName(),
+				getRefParentEntity().getId(),
 				getName()
 			);
 		}
@@ -150,8 +150,8 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<Dat
 	private void updateRecordForAddValue(final V value) {
 		if (isLinkedWithRealDatabase()) {
 			internalGetRefDataAndSchemaAdapter().insertEntryIntoMultiValue(
-				getParentEntity().getParentTableName(),
-				getParentEntity().getId(),
+				getRefParentEntity().getParentTableName(),
+				getRefParentEntity().getId(),
 				getName(),
 				value.toString()
 			);
@@ -162,8 +162,8 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<Dat
 	private void updateRecordForClear() {
 		if (isLinkedWithRealDatabase()) {
 			internalGetRefDataAndSchemaAdapter().deleteEntriesFromMultiValue(
-				getParentEntity().getParentTableName(),
-				getParentEntity().getId(),
+				getRefParentEntity().getParentTableName(),
+				getRefParentEntity().getId(),
 				getName()
 			);
 		}

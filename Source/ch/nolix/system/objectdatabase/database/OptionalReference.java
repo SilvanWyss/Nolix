@@ -213,7 +213,7 @@ implements IOptionalReference<DataImplementation, E> {
 	private void updateRealDatabaseForClear() {
 		if (isLinkedWithRealDatabase()) {
 			internalGetRefDataAndSchemaAdapter().updateRecordOnTable(
-				getParentEntity().getParentTableName(),
+				getRefParentEntity().getParentTableName(),
 				optionalReferenceHelper.createRecordUpdateDTOForClear(this)
 			);
 		}

@@ -140,8 +140,8 @@ implements IMultiReference<DataImplementation, E> {
 	void internalUpdateWhenIsNewMultiProperty() {
 		for (final var reid : referencedEntityIds) {
 			internalGetRefDataAndSchemaAdapter().insertEntryIntoMultiReference(
-				getParentEntity().getParentTableName(),
-				getParentEntity().getId(),
+				getRefParentEntity().getParentTableName(),
+				getRefParentEntity().getId(),
 				getName(),
 				reid
 			);
@@ -194,8 +194,8 @@ implements IMultiReference<DataImplementation, E> {
 	private IContainer<String> loadReferencedEntityIds() {
 		return
 		internalGetRefDataAndSchemaAdapter().loadAllMultiReferenceEntriesForRecord(
-			getParentEntity().getParentTableName(),
-			getParentEntity().getId(),
+			getRefParentEntity().getParentTableName(),
+			getRefParentEntity().getId(),
 			getName()
 		);
 	}
@@ -211,8 +211,8 @@ implements IMultiReference<DataImplementation, E> {
 	private void updateRecordForAddEntity(final E entity) {
 		if (isLinkedWithRealDatabase()) {
 			internalGetRefDataAndSchemaAdapter().insertEntryIntoMultiReference(
-				getParentEntity().getParentTableName(),
-				getParentEntity().getId(),
+				getRefParentEntity().getParentTableName(),
+				getRefParentEntity().getId(),
 				getName(),
 				entity.getId()
 			);
@@ -223,8 +223,8 @@ implements IMultiReference<DataImplementation, E> {
 	private void updateRecordForClear() {
 		if (isLinkedWithRealDatabase()) {
 			internalGetRefDataAndSchemaAdapter().deleteEntriesFromMultiReference(
-				getParentEntity().getParentTableName(),
-				getParentEntity().getId(),
+				getRefParentEntity().getParentTableName(),
+				getRefParentEntity().getId(),
 				getName()
 			);
 		}

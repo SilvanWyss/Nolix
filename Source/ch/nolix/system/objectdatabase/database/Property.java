@@ -51,7 +51,7 @@ public abstract class Property implements IProperty<DataImplementation> {
 		}
 		
 		if (belongsToEntity()) {
-			return GlobalReflectionHelper.getFieldName(getParentEntity(), this);
+			return GlobalReflectionHelper.getFieldName(getRefParentEntity(), this);
 		}
 		
 		throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "cannot evaluate own name");
@@ -68,7 +68,7 @@ public abstract class Property implements IProperty<DataImplementation> {
 	
 	//method
 	@Override
-	public final IEntity<DataImplementation> getParentEntity() {
+	public final IEntity<DataImplementation> getRefParentEntity() {
 		
 		propertyHelper.assertBelongsToEntity(this);
 		
@@ -94,7 +94,7 @@ public abstract class Property implements IProperty<DataImplementation> {
 			return false;
 		}
 		
-		return getParentEntity().isClosed();
+		return getRefParentEntity().isClosed();
 	}
 	
 	//method
@@ -105,13 +105,13 @@ public abstract class Property implements IProperty<DataImplementation> {
 			return false;
 		}
 		
-		return getParentEntity().isDeleted();
+		return getRefParentEntity().isDeleted();
 	}
 	
 	//method
 	@Override
 	public final boolean isLinkedWithRealDatabase() {
-		return (belongsToEntity() && getParentEntity().isLinkedWithRealDatabase());
+		return (belongsToEntity() && getRefParentEntity().isLinkedWithRealDatabase());
 	}
 	
 	//method
@@ -133,7 +133,7 @@ public abstract class Property implements IProperty<DataImplementation> {
 	protected final void setAsEditedAndRunProbableUpdateAction() {
 		
 		if (belongsToEntity()) {
-			((BaseEntity)getParentEntity()).internalSetEdited();
+			((BaseEntity)getRefParentEntity()).internalSetEdited();
 		}
 		
 		edited = true;
@@ -160,7 +160,7 @@ public abstract class Property implements IProperty<DataImplementation> {
 	//method
 	final void internalSetParentColumnFromParentTable() {
 		final var name = getName();
-		parentColumn = getParentEntity().getRefParentTable().getColumns().getRefFirst(c -> c.hasName(name));
+		parentColumn = getRefParentEntity().getRefParentTable().getColumns().getRefFirst(c -> c.hasName(name));
 	}
 	
 	//method
@@ -181,7 +181,7 @@ public abstract class Property implements IProperty<DataImplementation> {
 	
 	//method
 	private DatabaseObjectState getStateWhenBelongsToEntity() {
-		switch (getParentEntity().getState()) {
+		switch (getRefParentEntity().getState()) {
 			case NEW:
 				return DatabaseObjectState.NEW;
 			case LOADED:
@@ -201,7 +201,7 @@ public abstract class Property implements IProperty<DataImplementation> {
 				throw
 				InvalidArgumentException.forArgumentNameAndArgument(
 					LowerCaseCatalogue.STATE,
-					getParentEntity().getState()
+					getRefParentEntity().getState()
 				);
 		}
 	}

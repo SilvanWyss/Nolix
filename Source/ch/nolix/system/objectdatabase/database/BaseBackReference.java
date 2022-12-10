@@ -39,7 +39,7 @@ implements IBaseBackReference<DataImplementation, E> {
 	@Override
 	public final boolean canReferencesBackProperty(final IProperty<?> property) {
 		return
-		getBackReferencedTableName().equals(property.getParentEntity().getRefParentTable().getName())
+		getBackReferencedTableName().equals(property.getRefParentEntity().getRefParentTable().getName())
 		&& getBackReferencedPropertyName().equals(property.getName());
 	}
 	
@@ -77,9 +77,9 @@ implements IBaseBackReference<DataImplementation, E> {
 		property != null
 		&& belongsToEntity()
 		&& property.belongsToEntity()
-		&& getBackReferencedTableName().equals(property.getParentEntity().getParentTableName())
+		&& getBackReferencedTableName().equals(property.getRefParentEntity().getParentTableName())
 		&& getBackReferencedPropertyName().equals(property.getName())
-		&& getParentEntity().getId().equals(property.getParentEntity().getId());
+		&& getRefParentEntity().getId().equals(property.getRefParentEntity().getId());
 	}
 	
 	//method
@@ -116,6 +116,6 @@ implements IBaseBackReference<DataImplementation, E> {
 	private Table<E> loadBackReferencedTable() {
 		return
 		(Table<E>)
-		getParentEntity().getRefParentTable().getParentDatabase().getRefTableByName(getBackReferencedTableName());
+		getRefParentEntity().getRefParentTable().getParentDatabase().getRefTableByName(getBackReferencedTableName());
 	}
 }

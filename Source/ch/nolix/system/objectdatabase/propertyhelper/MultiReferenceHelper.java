@@ -44,7 +44,7 @@ public final class MultiReferenceHelper extends PropertyHelper implements IMulti
 		return
 		multiReference != null
 		&& multiReference.belongsToEntity()
-		&& multiReference.getParentEntity().isOpen();
+		&& multiReference.getRefParentEntity().isOpen();
 	}
 	
 	//method
@@ -54,7 +54,7 @@ public final class MultiReferenceHelper extends PropertyHelper implements IMulti
 		final IEntity<?> entity
 	) {
 		
-		final var parentEntity = multiReference.getParentEntity();
+		final var parentEntity = multiReference.getRefParentEntity();
 		
 		return
 		new EntityUpdateDTO(
@@ -68,7 +68,7 @@ public final class MultiReferenceHelper extends PropertyHelper implements IMulti
 	@Override
 	public IEntityUpdateDTO createEntityUpdateDTOForClear(final IMultiReference<?, ?> multiReference) {
 		
-		final var parentEntity = multiReference.getParentEntity();
+		final var parentEntity = multiReference.getRefParentEntity();
 		
 		return new EntityUpdateDTO(
 			parentEntity.getId(),
@@ -82,6 +82,6 @@ public final class MultiReferenceHelper extends PropertyHelper implements IMulti
 		return
 		multiReference != null
 		&& multiReference.belongsToEntity()
-		&& multiReference.getParentEntity().isOpen();
+		&& multiReference.getRefParentEntity().isOpen();
 	}
 }

@@ -69,7 +69,7 @@ implements IBaseReference<DataImplementation, E> {
 						final var backReference = (BackReference<?>)p;
 						
 						if (backReference.canReferencesBackProperty(this)) {
-							backReference.internalSetDirectlyBackReferencedEntityId(getParentEntity().getId());
+							backReference.internalSetDirectlyBackReferencedEntityId(getRefParentEntity().getId());
 						}
 						
 						break;
@@ -79,7 +79,7 @@ implements IBaseReference<DataImplementation, E> {
 						final var optionalBackReference = (OptionalBackReference<?>)p;
 						
 						if (optionalBackReference.canReferencesBackProperty(this)) {
-							optionalBackReference.internalSetDirectlyBackReferencedEntityId(getParentEntity().getId());
+							optionalBackReference.internalSetDirectlyBackReferencedEntityId(getRefParentEntity().getId());
 						}
 						
 						break;
@@ -111,6 +111,6 @@ implements IBaseReference<DataImplementation, E> {
 	@SuppressWarnings("unchecked")
 	private Table<E> loadReferencedTable() {
 		return
-		(Table<E>)getParentEntity().getRefParentTable().getParentDatabase().getRefTableByName(getReferencedTableName());
+		(Table<E>)getRefParentEntity().getRefParentTable().getParentDatabase().getRefTableByName(getReferencedTableName());
 	}
 }

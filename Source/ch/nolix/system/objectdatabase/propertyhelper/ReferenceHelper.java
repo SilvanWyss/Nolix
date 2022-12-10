@@ -39,7 +39,7 @@ public final class ReferenceHelper extends PropertyHelper implements IReferenceH
 		final IEntity<?> entity
 	) {
 		
-		final var parentEntity = reference.getParentEntity();
+		final var parentEntity = reference.getRefParentEntity();
 		
 		return new EntityUpdateDTO(
 			parentEntity.getId(),
@@ -62,6 +62,6 @@ public final class ReferenceHelper extends PropertyHelper implements IReferenceH
 		return
 		reference != null
 		&& reference.belongsToEntity()
-		&& reference.getParentEntity().isOpen();
+		&& reference.getRefParentEntity().isOpen();
 	}
 }

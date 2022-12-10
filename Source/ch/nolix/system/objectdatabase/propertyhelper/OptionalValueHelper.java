@@ -40,7 +40,7 @@ public final class OptionalValueHelper extends PropertyHelper implements IOption
 	@Override
 	public IEntityUpdateDTO createRecordUpdateDTOForClear(final IOptionalValue<?, ?> optionalValue) {
 		
-		final var parentEntity = optionalValue.getParentEntity();
+		final var parentEntity = optionalValue.getRefParentEntity();
 		
 		return
 		new EntityUpdateDTO(
@@ -57,7 +57,7 @@ public final class OptionalValueHelper extends PropertyHelper implements IOption
 		final Object value
 	) {
 		
-		final var parentEntity = optionalValue.getParentEntity();
+		final var parentEntity = optionalValue.getRefParentEntity();
 		
 		return
 		new EntityUpdateDTO(

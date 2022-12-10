@@ -34,7 +34,7 @@ public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHel
 	@Override
 	public final void assertDoesNotBelongToEntity(final IProperty<?> property) {
 		if (property.belongsToEntity()) {
-			throw ArgumentBelongsToParentException.forArgumentAndParent(property, property.getParentEntity());
+			throw ArgumentBelongsToParentException.forArgumentAndParent(property, property.getRefParentEntity());
 		}
 	}
 	
@@ -67,7 +67,7 @@ public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHel
 	public final boolean belongsToLoadedEntity(final IProperty<?> property) {
 		return
 		property.belongsToEntity()
-		&& isLoaded(property.getParentEntity());
+		&& isLoaded(property.getRefParentEntity());
 	}
 	
 	//method
@@ -154,7 +154,7 @@ public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHel
 	
 	//method
 	private Class<?> getDataTypeWhenIsBaseValueAndBelongsToEntity(final IProperty<?> property) {
-		final var propertyParentEntity = property.getParentEntity();
+		final var propertyParentEntity = property.getRefParentEntity();
 		
 		final var propertyField = GlobalReflectionHelper.getRefField(propertyParentEntity, property);
 		

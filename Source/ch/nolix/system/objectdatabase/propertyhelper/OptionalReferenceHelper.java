@@ -45,7 +45,7 @@ public final class OptionalReferenceHelper extends PropertyHelper implements IOp
 		return
 		optionalReference != null
 		&& optionalReference.belongsToEntity()
-		&& optionalReference.getParentEntity().isOpen();
+		&& optionalReference.getRefParentEntity().isOpen();
 	}
 	
 	//method
@@ -62,7 +62,7 @@ public final class OptionalReferenceHelper extends PropertyHelper implements IOp
 	@Override
 	public IEntityUpdateDTO createRecordUpdateDTOForClear(final IOptionalReference<?, ?> optionalReference) {
 		
-		final var parentEntity = optionalReference.getParentEntity();
+		final var parentEntity = optionalReference.getRefParentEntity();
 		
 		return new EntityUpdateDTO(
 			parentEntity.getId(),
@@ -78,7 +78,7 @@ public final class OptionalReferenceHelper extends PropertyHelper implements IOp
 		final IEntity<?> entity
 	) {
 		
-		final var parentEntity = optionalReference.getParentEntity();
+		final var parentEntity = optionalReference.getRefParentEntity();
 		
 		return new EntityUpdateDTO(
 			parentEntity.getId(),
@@ -104,6 +104,6 @@ public final class OptionalReferenceHelper extends PropertyHelper implements IOp
 		return
 		optionalReference != null
 		&& optionalReference.belongsToEntity()
-		&& optionalReference.getParentEntity().isOpen();
+		&& optionalReference.getRefParentEntity().isOpen();
 	}
 }

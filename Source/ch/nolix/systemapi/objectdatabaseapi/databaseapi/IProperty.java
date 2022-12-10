@@ -20,7 +20,7 @@ public interface IProperty<IMPL> extends EmptinessRequestable, IDatabaseObject, 
 	IColumn<IMPL> getRefParentColumn();
 	
 	//method declaration
-	IEntity<IMPL> getParentEntity();
+	IEntity<IMPL> getRefParentEntity();
 	
 	//method declaration
 	PropertyType getType();

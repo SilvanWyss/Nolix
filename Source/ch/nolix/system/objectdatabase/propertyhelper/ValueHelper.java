@@ -32,7 +32,7 @@ public final class ValueHelper extends PropertyHelper implements IValueHelper {
 	@Override
 	public IEntityUpdateDTO createRecordUpdateDTOForSetValue(final IValue<?, ?> value, final Object setValue) {
 		
-		final var parentEntity = value.getParentEntity();
+		final var parentEntity = value.getRefParentEntity();
 		
 		return
 		new EntityUpdateDTO(
