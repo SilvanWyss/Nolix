@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.system.objectdatabase.database;
 
+import ch.nolix.core.container.immutablelist.ImmutableList;
+import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.system.objectdatabase.propertyhelper.ReferenceHelper;
 import ch.nolix.system.sqlrawdata.databasedto.ContentFieldDTO;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
@@ -42,6 +44,24 @@ implements IReference<DataImplementation, E> {
 		referenceHelper.assertIsNotEmpty(this);
 		
 		return referencedEntityId;
+	}
+	
+	//method
+	@Override
+	public IContainer<IProperty<DataImplementation>> getRefBackReferencingProperties() {
+		
+		if (isEmpty()) {
+			return new ImmutableList<>();
+		}
+		
+		final var backReferencingProperty =
+		getRefEntity().technicalGetRefProperties().getRefFirstOrNull(p -> p.referencesBackProperty(this));
+		
+		if (backReferencingProperty != null) {
+			return ImmutableList.withElement(backReferencingProperty);
+		}
+		
+		return new ImmutableList<>();
 	}
 	
 	//method

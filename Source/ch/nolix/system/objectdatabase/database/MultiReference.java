@@ -11,6 +11,7 @@ import ch.nolix.system.sqlrawdata.databasedto.ContentFieldDTO;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiReference;
+import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
 import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IMultiReferenceHelper;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDTO;
 
@@ -61,6 +62,25 @@ implements IMultiReference<DataImplementation, E> {
 		if (containsAny()) {
 			clearWhenContainsAny();
 		}
+	}
+	
+	//method
+	@Override
+	public IContainer<IProperty<DataImplementation>> getRefBackReferencingProperties() {
+		
+		final var backReferencingProperties = new LinkedList<IProperty<DataImplementation>>();
+		
+		for (final var re : getReferencedEntities()) {
+			
+			final var backReferencingProperty =
+			re.technicalGetRefProperties().getRefFirstOrNull(p -> p.referencesBackProperty(this));
+			
+			if (backReferencingProperty != null) {
+				backReferencingProperties.addAtEnd(backReferencingProperty);
+			}
+		}
+		
+		return backReferencingProperties;
 	}
 	
 	//method

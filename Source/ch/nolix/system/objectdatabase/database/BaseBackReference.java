@@ -1,8 +1,10 @@
 //package declaration
 package ch.nolix.system.objectdatabase.database;
 
+import ch.nolix.core.container.immutablelist.ImmutableList;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IBaseBackReference;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
@@ -54,6 +56,12 @@ implements IBaseBackReference<DataImplementation, E> {
 		extractBackReferencedTableIfNotExtracted();
 		
 		return backReferencedTable;
+	}
+	
+	//method
+	@Override
+	public final IContainer<IProperty<DataImplementation>> getRefBackReferencingProperties() {
+		return new ImmutableList<>();
 	}
 	
 	//method
