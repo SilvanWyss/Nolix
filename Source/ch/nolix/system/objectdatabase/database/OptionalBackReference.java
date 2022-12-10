@@ -2,11 +2,14 @@
 package ch.nolix.system.objectdatabase.database;
 
 //own imports
+import ch.nolix.core.container.immutablelist.ImmutableList;
+import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.system.objectdatabase.propertyhelper.OptionalBackReferenceHelper;
 import ch.nolix.system.sqlrawdata.databasedto.ContentFieldDTO;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IOptionalBackReference;
+import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
 import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IOptionalBackReferenceHelper;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDTO;
 
@@ -54,6 +57,20 @@ implements IOptionalBackReference<DataImplementation, E>{
 	@Override
 	public E getRefEntity() {
 		return getRefBackReferencedTable().getRefEntityById(getEntityId());
+	}
+	
+	//method
+	@Override
+	public IContainer<IProperty<DataImplementation>> getRefReferencingProperties() {
+		
+		if (isEmpty()) {
+			return new ImmutableList<>();
+		}
+		
+		return
+		ImmutableList.withElement(
+			getRefEntity().technicalGetRefProperties().getRefFirst(p -> p.hasName(getBackReferencedPropertyName()))
+		);
 	}
 	
 	//method

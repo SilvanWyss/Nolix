@@ -3,6 +3,7 @@ package ch.nolix.systemapi.objectdatabaseapi.databaseapi;
 
 //own imports
 import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.Named;
+import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.functionapi.requestuniversalapi.EmptinessRequestable;
 import ch.nolix.coreapi.functionapi.requestuniversalapi.MandatoryRequestable;
@@ -21,6 +22,9 @@ public interface IProperty<IMPL> extends EmptinessRequestable, IDatabaseObject, 
 	
 	//method declaration
 	IEntity<IMPL> getRefParentEntity();
+	
+	//method declaration
+	IContainer<IProperty<IMPL>> getRefReferencingProperties();
 	
 	//method declaration
 	PropertyType getType();

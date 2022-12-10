@@ -2,7 +2,9 @@
 package ch.nolix.system.objectdatabase.database;
 
 //own imports
+import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IBaseReference;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
@@ -39,6 +41,12 @@ implements IBaseReference<DataImplementation, E> {
 	@Override
 	public final String getReferencedTableName() {
 		return referencedTableName;
+	}
+	
+	//method
+	@Override
+	public final IContainer<IProperty<DataImplementation>> getRefReferencingProperties() {
+		return new ImmutableList<>();
 	}
 	
 	//method
