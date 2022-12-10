@@ -5,6 +5,7 @@ import ch.nolix.system.objectdatabase.propertyhelper.ReferenceHelper;
 import ch.nolix.system.sqlrawdata.databasedto.ContentFieldDTO;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
+import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IReference;
 import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IReferenceHelper;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDTO;
@@ -90,6 +91,10 @@ implements IReference<DataImplementation, E> {
 		
 		assertCanSetEntity(entity);
 		
+		updateProbableBackReferencingPropertyForClear();
+		
+		updateProbableBackReferencingPropertyForClearOnEntity(entity);
+		
 		updateStateForSetEntity(entity);
 		
 		updateProbableBackReferenceForSetOrAddedEntity(entity);
@@ -135,6 +140,53 @@ implements IReference<DataImplementation, E> {
 	//method
 	private void assertCanSetEntity(final E entity) {
 		referenceHelper.assertCanSetGivenEntity(this, entity);
+	}
+	
+	//method
+	private void updateBackReferencingPropertyForClear(final IProperty<DataImplementation> backReferencingProperty) {
+		switch (backReferencingProperty.getType()) {
+			case BACK_REFERENCE:
+				final var backReference = (BackReference<?>)backReferencingProperty;
+				backReference.internalClear();
+				break;
+			case OPTIONAL_BACK_REFERENCE:
+				final var optionalBackReference = (OptionalBackReference<?>)backReferencingProperty;
+				optionalBackReference.internalClear();
+				break;
+			case MULTI_BACK_REFERENCE:
+				//TODO: Implement.
+				break;
+			default:
+				//Does nothing.
+		}
+	}
+	
+	//method
+	private void updateProbableBackReferencingPropertyForClear() {
+		if (containsAny()) {
+			updateProbableBackReferencingPropertyForClearWhenIsNotEmpty();
+		}
+	}
+	
+	//method
+	private void updateProbableBackReferencingPropertyForClearOnEntity(final E entity) {
+		
+		final var backReferencingProperty =
+		entity.technicalGetRefProperties().getRefFirstOrNull(p -> p.referencesBackProperty(this));
+		
+		if (backReferencingProperty != null) {
+			updateBackReferencingPropertyForClear(backReferencingProperty);
+		}
+	}
+	
+	//method
+	private void updateProbableBackReferencingPropertyForClearWhenIsNotEmpty() {
+		
+		final var backReferencingProperty = referenceHelper.getRefBackReferencingPropertyOrNull(this);
+		
+		if (backReferencingProperty != null) {
+			updateBackReferencingPropertyForClear(backReferencingProperty);
+		}
 	}
 	
 	//method
