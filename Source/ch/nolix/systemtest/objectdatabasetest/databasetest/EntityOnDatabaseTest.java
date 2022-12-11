@@ -28,6 +28,26 @@ public final class EntityOnDatabaseTest extends Test {
 	
 	//method
 	@TestCase
+	public void testCase_isSaved() {
+		
+		//setup
+		final var nodeDatabase = new MutableNode();
+		final var schema = Schema.withEntityType(Pet.class);
+		final var nodeDatabaseAdapter =
+		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		final var garfield = new Pet();
+		garfield.ageInYears.setValue(5);
+		nodeDatabaseAdapter.insert(garfield);
+		
+		//execution
+		nodeDatabaseAdapter.saveChangesAndReset();
+		
+		//verification
+		expect(garfield.isClosed());
+	}
+	
+	//method
+	@TestCase
 	public void testCase_isSaved_whenIsChangedInTheMeanwhile() {
 		
 		//setup part 1: Initializes database.
@@ -97,7 +117,44 @@ public final class EntityOnDatabaseTest extends Test {
 		.ofType(ResourceWasChangedInTheMeanwhileException.class)
 		.withMessage("The data was changed in the meanwhile.");
 	}
-
+	
+	//method
+	@TestCase
+	public void testCase_delete_whenIsLoaded() {
+		
+		//setup part 1
+		final var nodeDatabase = new MutableNode();
+		final var schema = Schema.withEntityType(Pet.class);
+		final var nodeDatabaseAdapter =
+		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		final var garfield = new Pet();
+		garfield.ageInYears.setValue(5);
+		nodeDatabaseAdapter.insert(garfield);
+		nodeDatabaseAdapter.saveChangesAndReset();
+		
+		//setup part 2
+		final var loadedGarfield =
+		nodeDatabaseAdapter.getRefTableByEntityType(Pet.class).getRefEntityById(garfield.getId());
+		
+		//execution part 1
+		loadedGarfield.delete();
+		
+		//verification part 1
+		expect(loadedGarfield.isDeleted());
+		
+		//execution part 2
+		nodeDatabaseAdapter.saveChangesAndReset();
+		
+		//verification part 2
+		expect(loadedGarfield.isClosed());
+		expect(
+			nodeDatabaseAdapter
+			.getRefTableByEntityType(Pet.class)
+			.getRefAllEntities()
+			.containsNone(e -> e.hasId(garfield.getId()))
+		);
+	}
+	
 	//method
 	@TestCase
 	public void testCase_delete_whenIsClosed() {
