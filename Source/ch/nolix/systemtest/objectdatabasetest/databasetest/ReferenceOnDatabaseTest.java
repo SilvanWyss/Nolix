@@ -4,7 +4,6 @@ package ch.nolix.systemtest.objectdatabasetest.databasetest;
 //own imports
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.errorcontrol.exception.ResourceWasChangedInTheMeanwhileException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 import ch.nolix.system.objectdatabase.database.Entity;
@@ -42,7 +41,7 @@ public final class ReferenceOnDatabaseTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_whenIsEmpty() {
+	public void testCase_isSaved_whenIsEmpty() {
 		
 		//setup
 		final var nodeDatabase = new MutableNode();
@@ -50,11 +49,10 @@ public final class ReferenceOnDatabaseTest extends Test {
 		final var nodeDatabaseAdapter =
 		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
 		final var john = new Person();
+		nodeDatabaseAdapter.insert(john);
 		
 		//execution & verification
-		expectRunning(() -> nodeDatabaseAdapter.insert(john))
-		.throwsException()
-		.ofType(InvalidArgumentException.class);
+		expectRunning(nodeDatabaseAdapter::saveChangesAndReset).throwsException();
 	}
 	
 	//method
