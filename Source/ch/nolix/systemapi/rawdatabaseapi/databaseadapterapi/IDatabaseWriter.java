@@ -78,6 +78,16 @@ public interface IDatabaseWriter extends IMultiTimeChangeSaver {
 	
 	//method declaration
 	/**
+	 * Will cause an error if the concerned table does not contain an entity with the given entityId.
+	 * This method can be used to prevent from referencing an entity that was deleted in the meanwhile.
+	 * 
+	 * @param tableName
+	 * @param id
+	 */
+	void expectTableContainsEntity(String tableName, String entityId);
+	
+	//method declaration
+	/**
 	 * Will cause an error if the database does not have the given schema timestamp.
 	 * 
 	 * @param schemaTimestamp

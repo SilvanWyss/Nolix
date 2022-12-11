@@ -107,6 +107,12 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
 	
 	//method
 	@Override
+	public final void expectTableContainsEntity(final String tableName, final String entityId) {
+		databaseAdapter.expectTableContainsEntity(tableName, entityId);
+	}
+	
+	//method
+	@Override
 	public final CloseController getRefCloseController() {
 		return closeController;
 	}

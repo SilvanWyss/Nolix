@@ -113,6 +113,13 @@ public final class InternalDatabaseWriter {
 	}
 	
 	//method
+	public void expectTableContainsEntity(final String tableName, final String entityId) {
+		mSQLCollector.addSQLStatement(
+			recordStatementCreator.createStatementToExpectTableContainsEntity(tableName, entityId)
+		);
+	}
+	
+	//method
 	public int getSaveCount() {
 		return saveCount;
 	}

@@ -54,6 +54,22 @@ public final class RecordStatementCreator implements IRecordStatementCreator {
 	
 	//method
 	@Override
+	public String createStatementToExpectTableContainsEntity(final String tableName, final String entityId) {
+		return
+		"SELECT Id FROM "
+		+ tableName
+		+ " WHERE Id = '"
+		+ entityId
+		+ "' "
+		+ "IF @@RowCount = 0 BEGIN THROW error(100000, 'The database does not contain a "
+		+ tableName
+		+ " with the id "
+		+ entityId
+		+ ".', 0) END;";
+	}
+	
+	//method
+	@Override
 	public String createStatementToInsertRecordIntoTable(final String tableName, final IRecordDTO pRecord) {
 		return
 		"INSERT INTO "

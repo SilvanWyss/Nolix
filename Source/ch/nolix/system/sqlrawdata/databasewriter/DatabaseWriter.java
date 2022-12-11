@@ -124,6 +124,12 @@ public final class DatabaseWriter implements IDatabaseWriter {
 	
 	//method
 	@Override
+	public void expectTableContainsEntity(final String tableName, final String entityId) {
+		internalDatabaseWriter.expectTableContainsEntity(tableName, entityId);
+	}
+	
+	//method
+	@Override
 	public CloseController getRefCloseController() {
 		return closeController;
 	}

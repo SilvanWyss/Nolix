@@ -101,6 +101,11 @@ final class InternalDatabaseWriter {
 	}
 	
 	//method
+	public void expectTableContainsEntity(final String tableName, final String entityId) {
+		addChangeAction(d -> databaseUpdater.expectTableContainsEntity(d, tableName, entityId));
+	}
+	
+	//method
 	public int getSaveCount() {
 		return saveCount;
 	}

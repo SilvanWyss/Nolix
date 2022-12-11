@@ -95,6 +95,12 @@ public abstract class BaseDatabaseAdapter implements IDatabaseAdapter {
 	
 	//method
 	@Override
+	public final void expectTableContainsEntity(final String tableName, final String entityId) {
+		databaseWriter.expectTableContainsEntity(tableName, entityId);
+	}
+	
+	//method
+	@Override
 	public final CloseController getRefCloseController() {
 		return closeController;
 	}

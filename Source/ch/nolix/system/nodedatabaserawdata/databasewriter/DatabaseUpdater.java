@@ -5,9 +5,12 @@ package ch.nolix.system.nodedatabaserawdata.databasewriter;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.exception.ResourceWasChangedInTheMeanwhileException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.nodedatabaserawdata.structure.EntityNodeSearcher;
 import ch.nolix.system.nodedatabaserawdata.structure.TableNodeSearcher;
+import ch.nolix.system.nodedatabaserawdata.tabledefinition.FieldIndexCatalogue;
 import ch.nolix.system.nodedatabaserawschema.structure.DatabaseNodeSearcher;
 import ch.nolix.system.nodedatabaserawschema.structure.DatabasePropertiesNodeSearcher;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDTO;
@@ -148,6 +151,31 @@ final class DatabaseUpdater {
 		
 		if (!actualSchemaTimestamp.equals(schemaTimestamp)) {
 			throw ResourceWasChangedInTheMeanwhileException.forResource("schema");
+		}
+	}
+	
+	//method
+	public void expectTableContainsEntity(
+		final IMutableNode<?> databaseNode,
+		final String tableName,
+		final String entityId
+	) {
+		
+		final var tableNode = databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableName);
+		
+		final var containsEntity = tableNodeSearcher.tableNodeContainsRecordNodeWhoseFieldAtGivenIndexContainsGivenValue(
+			tableNode,
+			FieldIndexCatalogue.ID_INDEX,
+			entityId
+		);
+		
+		if (!containsEntity) {
+			throw
+			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+				LowerCaseCatalogue.DATABASE,
+				databaseNode,
+				"does not contain a " + tableName + " with the id " + entityId
+			);
 		}
 	}
 	
