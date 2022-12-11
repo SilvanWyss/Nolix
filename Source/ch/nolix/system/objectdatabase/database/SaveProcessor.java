@@ -5,8 +5,11 @@ package ch.nolix.system.objectdatabase.database;
 import ch.nolix.system.objectdatabase.databasehelper.DatabaseHelper;
 import ch.nolix.system.objectdatabase.databasehelper.EntityHelper;
 import ch.nolix.system.objectdatabase.databasevalidator.DatabaseValidator;
+import ch.nolix.system.objectdatabase.propertyhelper.PropertyHelper;
+import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IReference;
 import ch.nolix.systemapi.objectdatabaseapi.databasehelperapi.IDatabaseHelper;
 import ch.nolix.systemapi.objectdatabaseapi.databasehelperapi.IEntityHelper;
+import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IPropertyHelper;
 
 //class
 final class SaveProcessor {
@@ -17,6 +20,9 @@ final class SaveProcessor {
 	//static attribute
 	private static final IEntityHelper entityHelper = new EntityHelper();
 	
+	//static attribute
+	private static final IPropertyHelper propertyHelper = new PropertyHelper();
+	
 	//method
 	public void saveChanges(final Database database) {
 		
@@ -25,6 +31,8 @@ final class SaveProcessor {
 		setEditedEntitiesAsUpdated(database);
 		
 		expectInitialSchemaTimestamp(database);
+		
+		assertNewlyReferencedEntitiesExists(database);
 		
 		actualSaveChanges(database);
 	}
@@ -69,6 +77,51 @@ final class SaveProcessor {
 	//method
 	private void expectInitialSchemaTimestamp(final Database database) {
 		database.internalGetRefDataAndSchemaAdapter().expectGivenSchemaTimestamp(database.getSchemaTimestamp());
+	}
+	
+	//TODO: Refactor this method.
+	//method
+	private void assertNewlyReferencedEntitiesExists(final Database database) {
+		
+		final var entitiesInLocalData = databaseHelper.getRefEntitiesInLocalData(database);
+		
+		for (final var e : entitiesInLocalData) {
+			if (entityHelper.isNewOrEdited(e)) {
+				for (final var p : e.technicalGetRefProperties()) {
+					if (propertyHelper.isNewOrEdited(p)) {
+						switch (p.getType()) {
+							case REFERENCE:
+								
+								final var reference = (IReference<?, ?>)p;
+															
+								database.internalGetRefDataAndSchemaAdapter().expectTableContainsEntity(
+									reference.getReferencedTableName(),
+									reference.getEntityId()
+								);
+															
+								break;
+							case OPTIONAL_REFERENCE:
+								
+								final var optionalReference = (OptionalReference<?>)p;
+								
+								if (optionalReference.containsAny()) {
+									database.internalGetRefDataAndSchemaAdapter().expectTableContainsEntity(
+										optionalReference.getReferencedTableName(),
+										optionalReference.getEntityId()
+									);
+								}
+								
+								break;
+							case MULTI_REFERENCE:
+								//TODO: Implement.
+								break;
+							default:
+								//Does nothing.
+						}
+					}
+				}
+			}
+		}
 	}
 	
 	//method
