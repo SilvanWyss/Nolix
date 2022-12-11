@@ -25,12 +25,13 @@ public class EntityHelper extends DatabaseObjectHelper implements IEntityHelper 
 	//method
 	@Override
 	public boolean allNewAndEditedMandatoryPropertiesAreSet(final IEntity<?> entity) {
-		return
 		
-		//For a better performance, the Entity is checked before the properties of the Entity will be checked.
-		isNewOrEdited(entity)
+		if (isNewOrEdited(entity)) {
+			return
+			entity.technicalGetRefProperties().containsOnly(propertyHelper::isSetForCaseIsNewOrEditedAndMandatory);
+		}
 		
-		&& entity.technicalGetRefProperties().containsOnly(propertyHelper::isSetForCaseIsNewOrEditedAndMandatory);
+		return true;
 	}
 	
 	//method
