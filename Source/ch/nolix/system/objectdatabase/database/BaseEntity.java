@@ -50,8 +50,6 @@ public abstract class BaseEntity implements IEntity<DataImplementation> {
 		EntityValidator.INSTANCE.assertCanBeDeleted(this);
 		
 		updateStateForDelete();
-		
-		updateRecordForDelete();
 	}
 	
 	//method
@@ -254,16 +252,6 @@ public abstract class BaseEntity implements IEntity<DataImplementation> {
 		((Table<?>)getRefParentTable())
 		.internalGetColumnsThatReferencesCurrentTable()
 		.containsAny(c -> c.technicalContainsGivenValueInPersistedData(lId));
-	}
-	
-	//method
-	private void updateRecordForDelete() {
-		if (isLinkedWithRealDatabase()) {
-			internalGetRefDataAndSchemaAdapter().deleteRecordFromTable(
-				getRefParentTable().getName(),
-				entityHelper.createRecordHeadDTOForEntity(this)
-			);
-		}
 	}
 	
 	//method

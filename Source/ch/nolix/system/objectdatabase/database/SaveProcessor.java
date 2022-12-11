@@ -28,6 +28,8 @@ final class SaveProcessor {
 		
 		DatabaseValidator.INSTANCE.assertCanSaveChanges(database);
 		
+		processDeletedEntities(database);
+		
 		setEditedEntitiesAsUpdated(database);
 		
 		expectInitialSchemaTimestamp(database);
@@ -35,6 +37,21 @@ final class SaveProcessor {
 		assertNewlyReferencedEntitiesExists(database);
 		
 		actualSaveChanges(database);
+	}
+	
+	//method
+	private void processDeletedEntities(final Database database) {
+		
+		final var entitiesInLocalData = databaseHelper.getRefEntitiesInLocalData(database);
+		
+		for (final var e : entitiesInLocalData) {
+			if (entityHelper.isDeleted(e)) {
+				database.internalGetRefDataAndSchemaAdapter().deleteRecordFromTable(
+					e.getRefParentTable().getName(),
+					entityHelper.createRecordHeadDTOForEntity(e)
+				);
+			}
+		}
 	}
 	
 	//method
