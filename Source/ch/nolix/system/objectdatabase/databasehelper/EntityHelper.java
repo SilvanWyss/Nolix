@@ -44,8 +44,7 @@ public class EntityHelper extends DatabaseObjectHelper implements IEntityHelper 
 	public final boolean canBeInsertedIntoTable(final IEntity<?> entity) {
 		return
 		isNew(entity)
-		&& !referencesUninsertedEntity(entity)
-		&& !containsMandatoryAndEmptyBaseValuesOrBaseReferences(entity);
+		&& entity.belongsToTable();
 	}
 	
 	//method
