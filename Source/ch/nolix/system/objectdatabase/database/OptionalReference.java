@@ -1,11 +1,13 @@
 //package declaration
 package ch.nolix.system.objectdatabase.database;
 
-import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 //own imports
+import ch.nolix.core.container.immutablelist.ImmutableList;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.system.objectdatabase.propertyhelper.OptionalReferenceHelper;
 import ch.nolix.system.sqlrawdata.databasedto.ContentFieldDTO;
+import ch.nolix.systemapi.databaseapi.propertytypeapi.BasePropertyType;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IOptionalReference;
@@ -120,7 +122,13 @@ implements IOptionalReference<DataImplementation, E> {
 		
 		assertCanSetEntity(entity);
 		
+		updatePropbableBackReferencingPropertyOfEntityForClear(entity);
+		
+		clear();
+		
 		updateStateForSetEntity(entity);
+		
+		updateProbableBackReferencingPropertyForSetOrAddedEntity(entity);
 		
 		setAsEditedAndRunProbableUpdateAction();
 	}
@@ -226,6 +234,66 @@ implements IOptionalReference<DataImplementation, E> {
 		
 		if (backReferencingProperty != null) {
 			updateBackReferencingPropertyForClear(backReferencingProperty);
+		}
+	}
+	
+	//method
+	private void updateProbableBackReferencingPropertyForSetOrAddedEntity(final E entity) {
+		for (final var p : entity.technicalGetRefProperties()) {
+			if (p.getType().getBaseType() == BasePropertyType.BASE_BACK_REFERENCE) {
+				
+				final var baseBackReference = (BaseBackReference<?>)p;
+				
+				if (
+					baseBackReference.getBackReferencedTableName().equals(getRefParentEntity().getParentTableName())
+					&& baseBackReference.getBackReferencedPropertyName().equals(getName())
+				) {
+					
+					switch (baseBackReference.getType()) {
+						case BACK_REFERENCE:
+							final var backReference = (BackReference<?>)baseBackReference;
+							backReference.internalSetDirectlyBackReferencedEntityId(getRefParentEntity().getId());
+							backReference.setAsEditedAndRunProbableUpdateAction();
+							break;
+						case OPTIONAL_BACK_REFERENCE:
+							final var optionalBackReference = (OptionalBackReference<?>)baseBackReference;
+							optionalBackReference.internalSetDirectlyBackReferencedEntityId(getRefParentEntity().getId());
+							optionalBackReference.setAsEditedAndRunProbableUpdateAction();
+							break;
+						case MULTI_BACK_REFERENCE:
+							//TODO: Implement.
+							break;
+						default:
+							throw InvalidArgumentException.forArgument(baseBackReference.getType());
+					}
+					
+					break;
+				}
+			}
+		}
+	}
+	
+	//TODO: Refactor this method.
+	//method
+	private void updatePropbableBackReferencingPropertyOfEntityForClear(final E entity) {
+		for (final var p : entity.technicalGetRefProperties()) {
+			if (p.getType().getBaseType() == BasePropertyType.BASE_BACK_REFERENCE) {
+				
+				final var baseBackReference = (BaseBackReference<?>)p;
+				
+				if (
+					baseBackReference.getBackReferencedTableName().equals(getRefParentEntity().getParentTableName())
+					&& baseBackReference.getBackReferencedPropertyName().equals(getName())
+				) {
+					
+					for (final var rp : baseBackReference.getRefReferencingProperties()) {
+						final var optionalReference = (OptionalReference<?>)rp;
+						optionalReference.clear();
+					}
+					
+					break;
+				}
+			}
 		}
 	}
 	
