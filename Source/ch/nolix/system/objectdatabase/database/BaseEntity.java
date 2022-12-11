@@ -3,6 +3,7 @@ package ch.nolix.system.objectdatabase.database;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.DeletedArgumentException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programstructure.data.GlobalIdCreator;
@@ -48,6 +49,12 @@ public abstract class BaseEntity implements IEntity<DataImplementation> {
 	public final void delete() {
 		
 		EntityValidator.INSTANCE.assertCanBeDeleted(this);
+		
+		/*
+		 * An Entity must not be referenced on deletion. This is validated.
+		 * But an Entity must update all back referencing properties to itself on deletion.
+		 */
+		updateBackReferencingPropertiesForDeletion();
 		
 		updateStateForDelete();
 	}
@@ -252,6 +259,35 @@ public abstract class BaseEntity implements IEntity<DataImplementation> {
 		((Table<?>)getRefParentTable())
 		.internalGetColumnsThatReferencesCurrentTable()
 		.containsAny(c -> c.technicalContainsGivenValueInPersistedData(lId));
+	}
+	
+	//TODO: Refactor this method.
+	//method
+	private void updateBackReferencingPropertiesForDeletion() {
+		for (final var p : properties) {
+			for (final var brp : p.getRefBackReferencingProperties()) {
+				
+				final var baseBackReference = (BaseBackReference<?>)brp;
+				
+				switch (brp.getType()) {
+					case BACK_REFERENCE:
+						final var backReference = (BackReference<?>)baseBackReference;
+						backReference.internalClear();
+						backReference.setAsEditedAndRunProbableUpdateAction();
+						break;
+					case OPTIONAL_BACK_REFERENCE:
+						final var optionalBackReference = (OptionalBackReference<?>)baseBackReference;
+						optionalBackReference.internalClear();
+						optionalBackReference.setAsEditedAndRunProbableUpdateAction();
+						break;
+					case MULTI_BACK_REFERENCE:
+						//TODO: Implement.
+						break;
+					default:
+						throw InvalidArgumentException.forArgument(baseBackReference.getType());
+				}
+			}
+		}
 	}
 	
 	//method
