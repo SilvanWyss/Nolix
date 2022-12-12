@@ -138,11 +138,15 @@ public final class OptionalBackReferenceOnDatabaseTest extends Test {
 		nodeDatabaseAdapter.saveChangesAndReset();
 		
 		//setup part 2
-		final var loadedJohn = nodeDatabaseAdapter.getRefTableByEntityType(Person.class).getRefEntityById(john.getId());
+		final var loadedJohn =
+		nodeDatabaseAdapter.getRefTableByEntityType(Person.class).getRefEntityById(john.getId());
 		loadedJohn.delete();
 		
-		//execution & verification
-		expectRunning(nodeDatabaseAdapter::saveChangesAndReset).throwsException();
+		//verification
+		final var loadedGarfield =
+		nodeDatabaseAdapter.getRefTableByEntityType(Pet.class).getRefEntityById(garfield.getId());
+		expect(loadedGarfield.owner.isEmpty());
+		expectRunning(nodeDatabaseAdapter::saveChangesAndReset).doesNotThrowException();
 	}
 	
 	//method
