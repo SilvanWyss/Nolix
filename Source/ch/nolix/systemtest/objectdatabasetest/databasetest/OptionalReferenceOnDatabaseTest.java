@@ -3,7 +3,6 @@ package ch.nolix.systemtest.objectdatabasetest.databasetest;
 
 //own imports
 import ch.nolix.core.document.node.MutableNode;
-import ch.nolix.core.errorcontrol.exception.ResourceWasChangedInTheMeanwhileException;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 import ch.nolix.system.objectdatabase.database.Entity;
@@ -21,32 +20,17 @@ public final class OptionalReferenceOnDatabaseTest extends Test {
 	private static final class Person extends Entity {
 		
 		//attribute
-		private final OptionalReference<Pet> pet = OptionalReference.forEntity(Pet.class);
+		public final OptionalReference<Pet> pet = OptionalReference.forEntity(Pet.class);
 		
 		//constructor
 		public Person() {
 			initialize();
 		}
-		
-		//method
-		public Pet getRefPet() {
-			return pet.getRefEntity();
-		}
-		
-		//method
-		public boolean possesesPet() {
-			return pet.containsAny();
-		}
-		
-		//method
-		public void setPet(final Pet pet) {
-			this.pet.setEntity(pet);
-		}
 	}
 	
 	//method
 	@TestCase
-	public void testCase_whenIsEmptyAndSaved() {
+	public void testCase_isSaved_whenIsNewAndEmpty() {
 		
 		//setup
 		final var nodeDatabase = new MutableNode();
@@ -54,19 +38,20 @@ public final class OptionalReferenceOnDatabaseTest extends Test {
 		final var nodeDatabaseAdapter =
 		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
 		final var john = new Person();
+		nodeDatabaseAdapter.insert(john);
 		
 		//execution
-		nodeDatabaseAdapter.insert(john);
+		nodeDatabaseAdapter.saveChangesAndReset();
 		
 		//verification
 		final var loadedJohn =
 		nodeDatabaseAdapter.getRefTableByEntityType(Person.class).getRefEntityById(john.getId());
-		expectNot(loadedJohn.possesesPet());
+		expect(loadedJohn.pet.isEmpty());
 	}
 	
 	//method
 	@TestCase
-	public void testCase_getRefEntity_whenContainsAnyAndIsNotSaved() {
+	public void testCase_getRefEntity_whenIsNewAndNotEmpty() {
 		
 		//setup
 		final var nodeDatabase = new MutableNode();
@@ -76,11 +61,11 @@ public final class OptionalReferenceOnDatabaseTest extends Test {
 		final var garfield = new Pet();
 		nodeDatabaseAdapter.insert(garfield);
 		final var john = new Person();
-		john.setPet(garfield);
+		john.pet.setEntity(garfield);
 		nodeDatabaseAdapter.insert(john);
 		
 		//execution
-		final var result = john.getRefPet();
+		final var result = john.pet.getRefEntity();
 		
 		//verification
 		expect(result).is(garfield);
@@ -88,7 +73,34 @@ public final class OptionalReferenceOnDatabaseTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_whenIsTriedToBeSavedButReferencesDeletedEntity() {
+	public void testCase_getRefEntity_whenIsLoadedAndNotEmpty() {
+		
+		//setup part 1
+		final var nodeDatabase = new MutableNode();
+		final var schema = Schema.withEntityType(Pet.class, Person.class);
+		final var nodeDatabaseAdapter =
+		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		final var garfield = new Pet();
+		nodeDatabaseAdapter.insert(garfield);
+		final var john = new Person();
+		john.pet.setEntity(garfield);
+		nodeDatabaseAdapter.insert(john);
+		nodeDatabaseAdapter.saveChangesAndReset();
+		
+		//setup part 2
+		final var loadedJohn =
+		nodeDatabaseAdapter.getRefTableByEntityType(Person.class).getRefEntityById(john.getId());
+		
+		//execution
+		final var result = loadedJohn.pet.getRefEntity();
+		
+		//verification
+		expect(result.getId()).isEqualTo(garfield.getId());
+	}
+	
+	//method
+	@TestCase
+	public void testCase_isSaved_whenReferencedEntityIsDeleted() {
 		
 		//setup part 1: Initializes database.
 		final var nodeDatabase = new MutableNode();
@@ -105,7 +117,7 @@ public final class OptionalReferenceOnDatabaseTest extends Test {
 		final var loadedGarfieldB =
 		nodeDatabaseAdapterB.getRefTableByEntityType(Pet.class).getRefEntityById(garfield.getId());
 		final var johnB = new Person();
-		johnB.setPet(loadedGarfieldB);
+		johnB.pet.setEntity(loadedGarfieldB);
 		nodeDatabaseAdapterB.insert(johnB);
 		
 		//setup part 3: Deletes the referenced Entity.
@@ -117,36 +129,6 @@ public final class OptionalReferenceOnDatabaseTest extends Test {
 		nodeDatabaseAdapterC.saveChangesAndReset();
 				
 		//execution & verification: Tries to save when the referenced Entity was deleted.
-		expectRunning(nodeDatabaseAdapterB::saveChangesAndReset)
-		.throwsException()
-		.ofType(ResourceWasChangedInTheMeanwhileException.class)
-		.withMessage("The data was changed in the meanwhile.");
-	}
-	
-	//method
-	@TestCase
-	public void testCase_getRefEntity_whenContainsAnyAndIsSaved() {
-		
-		//setup part 1
-		final var nodeDatabase = new MutableNode();
-		final var schema = Schema.withEntityType(Pet.class, Person.class);
-		final var nodeDatabaseAdapter =
-		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
-		final var garfield = new Pet();
-		nodeDatabaseAdapter.insert(garfield);
-		final var john = new Person();
-		john.setPet(garfield);
-		nodeDatabaseAdapter.insert(john);
-		nodeDatabaseAdapter.saveChangesAndReset();
-		
-		//setup part 2
-		final var loadedJohn =
-		nodeDatabaseAdapter.getRefTableByEntityType(Person.class).getRefEntityById(john.getId());
-		
-		//execution
-		final var result = loadedJohn.getRefPet();
-		
-		//verification
-		expect(result.getId()).isEqualTo(garfield.getId());
+		expectRunning(nodeDatabaseAdapterB::saveChangesAndReset).throwsException();
 	}
 }
