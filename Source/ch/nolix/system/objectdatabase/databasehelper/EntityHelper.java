@@ -92,7 +92,7 @@ public class EntityHelper extends DatabaseObjectHelper implements IEntityHelper 
 			return false;
 		}
 		
-		for (final var t : entity.getRefParentTable().getParentDatabase().getRefTables()) {
+		for (final var t : entity.getRefParentTable().getRefParentDatabase().getRefTables()) {
 			if (t.technicalGetRefEntitiesInLocalData().containsAny(e -> referencesGivenEntity(e, entity))) {
 				return true;
 			}

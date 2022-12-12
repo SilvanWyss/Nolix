@@ -20,7 +20,7 @@ public interface ITable<
 	Class<E> getEntityClass();
 	
 	//method declaration
-	IDatabase<IMPL> getParentDatabase();
+	IDatabase<IMPL> getRefParentDatabase();
 	
 	//method declaration
 	IContainer<E> getRefAllEntities();

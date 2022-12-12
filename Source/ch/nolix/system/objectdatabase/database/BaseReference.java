@@ -113,6 +113,6 @@ implements IBaseReference<DataImplementation, E> {
 	@SuppressWarnings("unchecked")
 	private Table<E> loadReferencedTable() {
 		return
-		(Table<E>)getRefParentEntity().getRefParentTable().getParentDatabase().getRefTableByName(getReferencedTableName());
+		(Table<E>)getRefParentEntity().getRefParentTable().getRefParentDatabase().getRefTableByName(getReferencedTableName());
 	}
 }

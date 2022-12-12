@@ -107,7 +107,7 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 	
 	//method
 	@Override
-	public IDatabase<DataImplementation> getParentDatabase() {
+	public IDatabase<DataImplementation> getRefParentDatabase() {
 		return parentDatabase;
 	}
 	
