@@ -67,6 +67,54 @@ public final class GlobalCalculator {
 	
 	//static method
 	/**
+	 * The absolute value of a value x is -x if x is negative, and is x in the else case.
+	 * 
+	 * @param value
+	 * @return the absolute value of the given value.
+	 */
+	public static double getAbsoluteValue(final double value) {
+		
+		if (value < 0.0) {
+			return -value;
+		}
+		
+		return value;
+	}
+	
+	//static method
+	/**
+	 * The absolute value of a value x is -x if x is negative, and is x in the else case.
+	 * 
+	 * @param value
+	 * @return the absolute value of the given value.
+	 */
+	public static int getAbsoluteValue(final int value) {
+		
+		if (value < 0) {
+			return -value;
+		}
+		
+		return value;
+	}
+	
+	//static method
+	/**
+	 * The absolute value of a value x is -x if x is negative, and is x in the else case.
+	 * 
+	 * @param value
+	 * @return the absolute value of the given value.
+	 */
+	public static long getAbsoluteValue(final long value) {
+		
+		if (value < 0) {
+			return -value;
+		}
+		
+		return value;
+	}
+	
+	//static method
+	/**
 	 * @param values
 	 * @return the average of the given values.
 	 * @throws EmptyArgumentException if the given values is empty.
