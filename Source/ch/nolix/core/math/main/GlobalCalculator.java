@@ -51,7 +51,7 @@ public final class GlobalCalculator {
 	public static boolean equalsApproximatively(final double value1, final double value2) {
 		return GlobalBaseCalculator.equalsApproximatively(value1, value2);
 	}
-
+	
 	//static method
 	/**
 	 * @param value1
