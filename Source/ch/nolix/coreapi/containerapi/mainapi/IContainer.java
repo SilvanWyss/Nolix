@@ -650,7 +650,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return the sum of the values
 	 * the given double norm returns from the elements of the current {@link IContainer}.
 	 */
-	double getSumByDoubleNorm(IElementTakerDoubleGetter<E> doubleNorm);
+	double getSumByDouble(IElementTakerDoubleGetter<E> doubleNorm);
 	
 	//method declaration
 	/**

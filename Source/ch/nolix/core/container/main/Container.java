@@ -534,7 +534,7 @@ public abstract class Container<E> implements IContainer<E> {
 			throw EmptyArgumentException.forArgument(this);
 		}
 		
-		return (getSumByDoubleNorm(doubleNorm) / getElementCount());
+		return (getSumByDouble(doubleNorm) / getElementCount());
 	}
 	
 	//method
@@ -1695,7 +1695,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * the given double norm returns from the elements of the current {@link Container}.
 	 */
 	@Override
-	public final double getSumByDoubleNorm(final IElementTakerDoubleGetter<E> doubleNorm) {
+	public final double getSumByDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
 		
 		var sum = 0.0;
 		
