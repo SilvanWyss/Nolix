@@ -103,7 +103,7 @@ public final class TestRun {
 		//setup phase
 		setStarted();
 		final var startTimeInMilliseconds = System.currentTimeMillis();
-		linePrinter.printInfoLine("   Started " + parentTest.getName());
+		linePrinter.printInfoLine("   STARTED: " + parentTest.getSimpleName());
 		
 		//main phase
 		for (final var tc : getRefTestCasesOrderedAlphabetically()) {
@@ -137,13 +137,13 @@ public final class TestRun {
 	private void printSummary() {
 		
 		linePrinter.printInfoLine(
-			"   Summary "
-			+ parentTest.getName()
-			+ ": "
+			"   FINISHED: "
 			+ getPassedTestCaseCount()
 			+ " of "
 			+ getTestCaseCount()
-			+ " test cases passed "
+			+ " test cases passed of "
+			+ parentTest.getSimpleName()
+			+ " "
 			+ getRuntimeAndUnitAsStringInBrackets()
 		);
 		

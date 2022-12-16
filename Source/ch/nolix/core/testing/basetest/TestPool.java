@@ -121,6 +121,14 @@ public abstract class TestPool implements Runnable {
 	
 	//method
 	/**
+	 * @return the simple name of the current {@link TestPool}.
+	 */
+	public final String getSimpleName() {
+		return getClass().getSimpleName();
+	}
+	
+	//method
+	/**
 	 * Runs the {@link BaseTest}s of the current {@link TestPool} recursively.
 	 */
 	@Override

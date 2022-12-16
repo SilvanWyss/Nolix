@@ -101,7 +101,7 @@ public final class TestPoolRun {
 	private void printSummary() {
 		
 		linePrinter.printInfoLine(
-			"   Summary " + parentTestPool.getName() + " " + getRuntimeAndUnitAsStringInBrackets()
+			"   FINISHED: " + parentTestPool.getSimpleName() + " " + getRuntimeAndUnitAsStringInBrackets()
 		);
 		
 		linePrinter.printEmptyLine();
@@ -135,7 +135,7 @@ public final class TestPoolRun {
 		supposeHasNotStarted();
 		
 		started = true;
-		linePrinter.printInfoLine("   Started " + parentTestPool.getName());
+		linePrinter.printInfoLine("   STARTED: " + parentTestPool.getSimpleName());
 		linePrinter.printEmptyLine();
 	}
 	

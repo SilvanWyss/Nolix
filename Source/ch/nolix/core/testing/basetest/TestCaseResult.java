@@ -133,7 +133,7 @@ public final class TestCaseResult {
 		var i = 1;
 		for (final var es : expectationErrors) {
 			
-			outputLines.addAtEnd("      " + i + ") " + es.toString());
+			outputLines.addAtEnd("           " + i + ") " + es.toString());
 			
 			i++;
 		}
