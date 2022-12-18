@@ -27,8 +27,6 @@ public final class OptionalValue<V> extends BaseValue<V> implements IOptionalVal
 		
 		internalValue = null;
 		
-		updateRecordForClear();
-		
 		setAsEditedAndRunProbableUpdateAction();
 	}
 	
@@ -118,15 +116,5 @@ public final class OptionalValue<V> extends BaseValue<V> implements IOptionalVal
 		GlobalValidator.assertThat(value).thatIsNamed(LowerCaseCatalogue.VALUE).isNotNull();
 		
 		internalValue = value;
-	}
-	
-	//method
-	private void updateRecordForClear() {
-		if (isLinkedWithRealDatabase()) {
-			internalGetRefDataAndSchemaAdapter().updateRecordOnTable(
-				getRefParentEntity().getParentTableName(),
-				optionalValueHelper.createRecordUpdateDTOForClear(this)
-			);
-		}
 	}
 }

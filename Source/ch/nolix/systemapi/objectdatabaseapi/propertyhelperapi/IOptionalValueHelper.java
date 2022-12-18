@@ -17,8 +17,5 @@ public interface IOptionalValueHelper extends IPropertyHelper {
 	boolean canSetGivenValue(IOptionalValue<?, ?> optionalValue, Object value);
 	
 	//method declaration
-	IEntityUpdateDTO createRecordUpdateDTOForClear(IOptionalValue<?, ?> optionalValue);
-	
-	//method declaration
 	IEntityUpdateDTO createRecordUpdateDTOForSetValue(IOptionalValue<?, ?> optionalValue, Object value);
 }
