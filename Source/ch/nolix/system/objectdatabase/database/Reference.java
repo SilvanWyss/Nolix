@@ -178,7 +178,10 @@ implements IReference<DataImplementation, E> {
 				optionalBackReference.setAsEditedAndRunProbableUpdateAction();
 				break;
 			case MULTI_BACK_REFERENCE:
-				//TODO: Implement.
+				/*
+				 * Does nothing.
+				 * MultiBackReferences do not need to be updated, because MultiBackReferences do not have redundancies.
+				 */
 				break;
 			default:
 				//Does nothing.
@@ -231,7 +234,10 @@ implements IReference<DataImplementation, E> {
 							optionalBackReference.setAsEditedAndRunProbableUpdateAction();
 							break;
 						case MULTI_BACK_REFERENCE:
-							//TODO: Implement.
+							/*
+							 * Does nothing.
+							 * MultiBackReferences do not need to be updated, because MultiBackReferences do not have redundancies.
+							 */
 							break;
 						default:
 							throw InvalidArgumentException.forArgument(baseBackReference.getType());
@@ -273,7 +279,10 @@ implements IReference<DataImplementation, E> {
 							optionalBackReference.setAsEditedAndRunProbableUpdateAction();
 							break;
 						case MULTI_BACK_REFERENCE:
-							//TODO: Implement.
+							/*
+							 * Does nothing.
+							 * MultiBackReferences do not need to be updated, because MultiBackReferences do not have redundancies.
+							 */
 							break;
 						default:
 							throw InvalidArgumentException.forArgument(baseBackReference.getType());
