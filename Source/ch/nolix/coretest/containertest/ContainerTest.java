@@ -151,7 +151,7 @@ public abstract class ContainerTest extends Test {
 	public final void testCase_containsOne_1A() {
 		
 		//setup
-		final var testUnit = createEmptyContainerOfType(String.class);
+		final var testUnit = createEmptyContainerForType(String.class);
 		
 		//execution
 		final var result = testUnit.containsOne();
@@ -250,7 +250,7 @@ public abstract class ContainerTest extends Test {
 		expect(result.getRefAt1BasedIndex(2)).isEqualTo("xxxxx");
 		expect(result.getRefAt1BasedIndex(3)).isEqualTo("xxxxxx");
 	}
-		
+	
 	//method
 	@TestCase
 	public final void testCase_getCount_withIElementTakterBooleanGetter_1A() {
@@ -365,7 +365,7 @@ public abstract class ContainerTest extends Test {
 	public final void testCase_getElementCount_whenLinkedListIsEmpty() {
 		
 		//setup
-		final var testUnit = createEmptyContainerOfType(String.class);
+		final var testUnit = createEmptyContainerForType(String.class);
 		
 		//execution & verification
 		expect(testUnit.getElementCount()).isEqualTo(0);
@@ -390,7 +390,7 @@ public abstract class ContainerTest extends Test {
 	public final void testCase_getMax_whenContainerIsEmpty() {
 		
 		//setup
-		final var testUnit = createEmptyContainerOfType(Integer.class);
+		final var testUnit = createEmptyContainerForType(Integer.class);
 		
 		//execution
 		expectRunning(() -> testUnit.getMax(FunctionCatalogue::getSelf))
@@ -445,7 +445,7 @@ public abstract class ContainerTest extends Test {
 	public final void testCase_getRefFirst_whenLinkedListIsEmpty() {
 		
 		//setup
-		final var testUnit = createEmptyContainerOfType(String.class);
+		final var testUnit = createEmptyContainerForType(String.class);
 		
 		//execution & verification
 		expectRunning(testUnit::getRefFirst)
@@ -519,7 +519,7 @@ public abstract class ContainerTest extends Test {
 	public final void testCase_getSumByInt_whenContainerIsEmpty() {
 		
 		//setup
-		final var testUnit = createEmptyContainerOfType(String.class);
+		final var testUnit = createEmptyContainerForType(String.class);
 		
 		//execution
 		final var result = testUnit.getSumByInt(String::length);
@@ -669,7 +669,7 @@ public abstract class ContainerTest extends Test {
 	public final void toStrings_whenContainerIsEmpty() {
 		
 		//setup
-		final var testUnit = createEmptyContainerOfType(Integer.class);
+		final var testUnit = createEmptyContainerForType(Integer.class);
 		
 		//execution
 		final var result = testUnit.toStrings();
@@ -747,5 +747,5 @@ public abstract class ContainerTest extends Test {
 	protected abstract <E> IContainer<E> createContainerWithElements(@SuppressWarnings("unchecked")E... elements);
 	
 	//method declaration
-	protected abstract <E> IContainer<E> createEmptyContainerOfType(Class<E> type);
+	protected abstract <E> IContainer<E> createEmptyContainerForType(Class<E> type);
 }

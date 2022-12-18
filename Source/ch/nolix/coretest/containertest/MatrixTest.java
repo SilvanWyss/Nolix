@@ -211,7 +211,7 @@ public final class MatrixTest extends ContainerTest {
 	
 	//method
 	@Override
-	protected <E> IContainer<E> createEmptyContainerOfType(final Class<E> type) {
+	protected <E> IContainer<E> createEmptyContainerForType(final Class<E> type) {
 		return new Matrix<>();
 	}
 }
