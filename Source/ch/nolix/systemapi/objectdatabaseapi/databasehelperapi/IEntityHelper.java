@@ -2,8 +2,10 @@
 package ch.nolix.systemapi.objectdatabaseapi.databasehelperapi;
 
 //own imports
+import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.systemapi.databaseapi.databaseobjecthelperapi.IDatabaseObjectHelper;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
+import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDTO;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IRecordDTO;
@@ -31,6 +33,9 @@ public interface IEntityHelper extends IDatabaseObjectHelper {
 	
 	//method declaration
 	IRecordDTO createRecordFor(IEntity<?> entity);
+	
+	//method declaration
+	<IMPL> IContainer<IProperty<IMPL>> getRefBackReferencingProperties(IEntity<IMPL> entity);
 	
 	//method declaration
 	boolean isReferenced(IEntity<?> entity);

@@ -2,6 +2,7 @@
 package ch.nolix.system.objectdatabase.databasehelper;
 
 //own imports
+import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.system.database.databaseobjecthelper.DatabaseObjectHelper;
 import ch.nolix.system.objectdatabase.propertyhelper.PropertyHelper;
 import ch.nolix.system.sqlrawdata.databasedto.EntityHeadDTO;
@@ -76,6 +77,12 @@ public class EntityHelper extends DatabaseObjectHelper implements IEntityHelper 
 	public final IRecordDTO createRecordFor(final IEntity<?> entity) {
 		return
 		new RecordDTO(entity.getId(), entity.technicalGetRefProperties().to(IProperty::technicalToContentField));
+	}
+	
+	//method
+	@Override
+	public final <IMPL> IContainer<IProperty<IMPL>> getRefBackReferencingProperties(final IEntity<IMPL> entity) {
+		return entity.technicalGetRefProperties().toFromMany(IProperty::getRefBackReferencingProperties);
 	}
 	
 	//method
