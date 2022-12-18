@@ -38,6 +38,9 @@ public interface IEntityHelper extends IDatabaseObjectHelper {
 	<IMPL> IContainer<IProperty<IMPL>> getRefBackReferencingProperties(IEntity<IMPL> entity);
 	
 	//method declaration
+	<IMPL> IContainer<? extends IProperty<IMPL>> getRefEditedProperties(IEntity<IMPL> entity);
+	
+	//method declaration
 	boolean isReferenced(IEntity<?> entity);
 	
 	//method declaration
