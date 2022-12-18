@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.objectdatabase.database;
 
+//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.DeletedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -11,6 +12,7 @@ import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.system.objectdatabase.databasehelper.EntityHelper;
 import ch.nolix.system.objectdatabase.databasevalidator.EntityValidator;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.DatabaseObjectState;
+import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IBaseBackReference;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
@@ -261,33 +263,50 @@ public abstract class BaseEntity implements IEntity<DataImplementation> {
 		.containsAny(c -> c.technicalContainsGivenValueInPersistedData(lId));
 	}
 	
-	//TODO: Refactor this method.
+	//method
+	private void updateBackReferenceForDeletion(final BackReference<?> backReference) {
+		backReference.internalClear();
+		backReference.setAsEditedAndRunProbableUpdateAction();
+	}
+	
 	//method
 	private void updateBackReferencingPropertiesForDeletion() {
-		for (final var p : properties) {
-			for (final var brp : p.getRefBackReferencingProperties()) {
-				
-				final var baseBackReference = (BaseBackReference<?>)brp;
-				
-				switch (brp.getType()) {
-					case BACK_REFERENCE:
-						final var backReference = (BackReference<?>)baseBackReference;
-						backReference.internalClear();
-						backReference.setAsEditedAndRunProbableUpdateAction();
-						break;
-					case OPTIONAL_BACK_REFERENCE:
-						final var optionalBackReference = (OptionalBackReference<?>)baseBackReference;
-						optionalBackReference.internalClear();
-						optionalBackReference.setAsEditedAndRunProbableUpdateAction();
-						break;
-					case MULTI_BACK_REFERENCE:
-						//TODO: Implement.
-						break;
-					default:
-						throw InvalidArgumentException.forArgument(baseBackReference.getType());
-				}
-			}
+		entityHelper.getRefBackReferencingProperties(this).forEach(this::updateBackReferencingPropertyForDeletion);
+	}
+	
+	//method
+	private void updateBackReferencingPropertyForDeletion(
+		final IProperty<DataImplementation> backReferencingProperty
+	) {
+		updateBackReferencingPropertyForDeletion((IBaseBackReference<DataImplementation, ?>)backReferencingProperty);
+	}
+	
+	//method
+	private void updateBackReferencingPropertyForDeletion(
+		final IBaseBackReference<DataImplementation, ?> baseBackReference
+	) {
+		switch (baseBackReference.getType()) {
+			case BACK_REFERENCE:
+				updateBackReferenceForDeletion((BackReference<?>)baseBackReference);
+				break;
+			case OPTIONAL_BACK_REFERENCE:
+				updateOptionalBackReferenceForDeletion((OptionalBackReference<?>)baseBackReference);
+				break;
+			case MULTI_BACK_REFERENCE:
+				/*
+				 * Does nothing.
+				 * MultiBackReferences do not need to be updated, because MultiBackReferences do not have redundancies.
+				 */
+				break;
+			default:
+				throw InvalidArgumentException.forArgument(baseBackReference.getType());
 		}
+	}
+	
+	//method
+	private void updateOptionalBackReferenceForDeletion(final OptionalBackReference<?> optionalBackReference) {
+		optionalBackReference.internalClear();
+		optionalBackReference.setAsEditedAndRunProbableUpdateAction();
 	}
 	
 	//method
