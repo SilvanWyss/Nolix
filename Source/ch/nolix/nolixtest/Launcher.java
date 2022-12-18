@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.nolixtest;
 
+//own imports
+import ch.nolix.core.errorcontrol.logger.GlobalLogger;
+
 //class
 /**
  * Of the {@link Launcher} an instance cannot be created.
@@ -17,6 +20,9 @@ public final class Launcher {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		
+		GlobalLogger.disable();
+		
 		new NolixTestPool().run();
 	}
 	
