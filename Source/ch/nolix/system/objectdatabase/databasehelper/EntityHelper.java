@@ -18,7 +18,7 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IRecordDTO;
 
 //class
-public class EntityHelper extends DatabaseObjectHelper implements IEntityHelper {
+public final class EntityHelper extends DatabaseObjectHelper implements IEntityHelper {
 	
 	//static attribute
 	private static final IPropertyHelper propertyHelper = new PropertyHelper();
@@ -37,13 +37,13 @@ public class EntityHelper extends DatabaseObjectHelper implements IEntityHelper 
 	
 	//method
 	@Override
-	public final boolean canBeDeleted(final IEntity<?> entity) {
+	public boolean canBeDeleted(final IEntity<?> entity) {
 		return (isLoaded(entity) && !isReferenced(entity));
 	}
 	
 	//method
 	@Override
-	public final boolean canBeInsertedIntoTable(final IEntity<?> entity) {
+	public boolean canBeInsertedIntoTable(final IEntity<?> entity) {
 		return
 		isNew(entity)
 		&& entity.belongsToTable();
@@ -68,32 +68,32 @@ public class EntityHelper extends DatabaseObjectHelper implements IEntityHelper 
 	
 	//method
 	@Override
-	public final IEntityHeadDTO createRecordHeadDTOForEntity(IEntity<?> entity) {
+	public IEntityHeadDTO createRecordHeadDTOForEntity(IEntity<?> entity) {
 		return new EntityHeadDTO(entity.getId(), entity.getSaveStamp());
 	}
 	
 	//method
 	@Override
-	public final IRecordDTO createRecordFor(final IEntity<?> entity) {
+	public IRecordDTO createRecordFor(final IEntity<?> entity) {
 		return
 		new RecordDTO(entity.getId(), entity.technicalGetRefProperties().to(IProperty::technicalToContentField));
 	}
 	
 	//method
 	@Override
-	public final <IMPL> IContainer<IProperty<IMPL>> getRefBackReferencingProperties(final IEntity<IMPL> entity) {
+	public <IMPL> IContainer<IProperty<IMPL>> getRefBackReferencingProperties(final IEntity<IMPL> entity) {
 		return entity.technicalGetRefProperties().toFromMany(IProperty::getRefBackReferencingProperties);
 	}
 	
 	//method
 	@Override
-	public final boolean isReferenced(final IEntity<?> entity) {
+	public boolean isReferenced(final IEntity<?> entity) {
 		return (isReferencedInLocalData(entity) || entity.isReferencedInPersistedData());
 	}
 	
 	//method
 	@Override
-	public final <IMPL> boolean isReferencedInLocalData(final IEntity<IMPL> entity) {
+	public <IMPL> boolean isReferencedInLocalData(final IEntity<IMPL> entity) {
 		
 		if (!entity.belongsToTable()) {
 			return false;
@@ -110,13 +110,13 @@ public class EntityHelper extends DatabaseObjectHelper implements IEntityHelper 
 	
 	//method
 	@Override
-	public final <IMPL> boolean referencesGivenEntity(final IEntity<IMPL> sourceEntity, final IEntity<IMPL> entity) {
+	public <IMPL> boolean referencesGivenEntity(final IEntity<IMPL> sourceEntity, final IEntity<IMPL> entity) {
 		return sourceEntity.technicalGetRefProperties().containsAny(p -> p.referencesEntity(entity));
 	}
 	
 	//method
 	@Override
-	public final boolean referencesUninsertedEntity(final IEntity<?> entity) {
+	public boolean referencesUninsertedEntity(final IEntity<?> entity) {
 		return entity.technicalGetRefProperties().containsAny(IProperty::referencesUninsertedEntity);
 	}
 	
