@@ -253,6 +253,34 @@ public abstract class ContainerTest extends Test {
 	
 	//method
 	@TestCase
+	public final void testCase_getAverageByDoube_whenIsEmpty() {
+		
+		//setup
+		final var testUnit = createEmptyContainerForType(Double.class);
+		
+		//execution & verification
+		expectRunning(() -> testUnit.getAverageByDouble(FunctionCatalogue::getSelf))
+		.throwsException()
+		.ofType(EmptyArgumentException.class)
+		.withMessage("The given " + testUnit.getClass().getSimpleName() + " is empty.");
+	}
+	
+	//method
+	@TestCase
+	public final void testCase_getAverageByDoube_whenIsNotEmpty() {
+		
+		//setup
+		final var testUnit = createContainerWithElements(5.0, 10.0, 15.0, 20.0, 25.0, 30.0);
+		
+		//execution
+		final var result = testUnit.getAverageByDouble(FunctionCatalogue::getSelf);
+		
+		//verification
+		expect(result).isEqualTo(17.5);
+	}
+	
+	//method
+	@TestCase
 	public final void testCase_getCount_withIElementTakterBooleanGetter_1A() {
 		
 		//setup
