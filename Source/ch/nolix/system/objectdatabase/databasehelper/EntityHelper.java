@@ -62,7 +62,7 @@ public final class EntityHelper extends DatabaseObjectHelper implements IEntityH
 		new EntityUpdateDTO(
 			entity.getId(),
 			entity.getSaveStamp(),
-			entity.technicalGetRefProperties().to(IProperty::technicalToContentField)
+			getRefEditedProperties(entity).to(IProperty::technicalToContentField)
 		);
 	}
 	
