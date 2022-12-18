@@ -146,8 +146,11 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 	@Override
 	public ITable<DataImplementation, E> insert(final E entity) {
 		
-		//TODO: The inserted Entity must know its table before to check all the conditions that are required for insertion.
-		((BaseEntity)entity).internalSetParentTable((ITable<DataImplementation, IEntity<DataImplementation>>)this);
+		@SuppressWarnings("unchecked")
+		final var table = (ITable<DataImplementation, IEntity<DataImplementation>>)this;
+		
+		//The inserted Entity must know its Table to be inserted.
+		((BaseEntity)entity).internalSetParentTable(table);
 		
 		TableValidator.INSTANCE.assertCanInsertGivenEntity(this, entity);
 		
@@ -241,10 +244,7 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 	}
 	
 	//method
-	@SuppressWarnings("unchecked")
 	private void insertWhenCanBeInserted(final E entity) {
-		
-		((BaseEntity)entity).internalSetParentTable((ITable<DataImplementation, IEntity<DataImplementation>>)this);
 		
 		entitiesInLocalData.addAtEnd(entity);
 		
