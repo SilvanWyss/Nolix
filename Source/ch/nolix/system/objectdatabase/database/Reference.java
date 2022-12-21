@@ -4,6 +4,7 @@ package ch.nolix.system.objectdatabase.database;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.system.objectdatabase.databasehelper.EntityHelper;
 import ch.nolix.system.objectdatabase.propertyhelper.ReferenceHelper;
 import ch.nolix.system.sqlrawdata.databasedto.ContentFieldDTO;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.BasePropertyType;
@@ -11,12 +12,16 @@ import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IReference;
+import ch.nolix.systemapi.objectdatabaseapi.databasehelperapi.IEntityHelper;
 import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IReferenceHelper;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDTO;
 
 //class
 public final class Reference<E extends IEntity<DataImplementation>> extends BaseReference<E>
 implements IReference<DataImplementation, E> {
+	
+	//static attribute
+	private static final IEntityHelper entityHelper = new EntityHelper();
 	
 	//static attribute
 	private static final IReferenceHelper referenceHelper = new ReferenceHelper();
@@ -201,8 +206,15 @@ implements IReference<DataImplementation, E> {
 		updateProbableBackReferencingPropertyForClear();
 		
 		updateStateForClear();
+		
+		setAsEditedAndRunProbableUpdateAction();
 	}
 	
+	//method
+	private IProperty<DataImplementation> getPendantReferencingPropertyToEntityOrNull(final E entity) {
+		return entityHelper.getRefReferencingProperties(entity).getRefFirstOrNull(rp -> rp.hasName(getName()));
+	}
+
 	//method
 	private void updateProbableBackReferencingPropertyForClear() {
 		for (final var brp : getRefBackReferencingProperties()) {
@@ -249,48 +261,14 @@ implements IReference<DataImplementation, E> {
 		}
 	}
 	
-	//TODO: Refactor this method.
 	//method
 	private void updatePropbableBackReferencingPropertyOfEntityForClear(final E entity) {
-		for (final var p : entity.technicalGetRefProperties()) {
-			if (p.getType().getBaseType() == BasePropertyType.BASE_BACK_REFERENCE) {
-				
-				final var baseBackReference = (BaseBackReference<?>)p;
-				
-				if (
-					baseBackReference.getBackReferencedTableName().equals(getRefParentEntity().getParentTableName())
-					&& baseBackReference.getBackReferencedPropertyName().equals(getName())
-				) {
-					
-					for (final var rp : baseBackReference.getRefReferencingProperties()) {
-						final var reference = (Reference<?>)rp;
-						reference.clear();
-					}
-					
-					switch (baseBackReference.getType()) {
-						case BACK_REFERENCE:
-							final var backReference = (BackReference<?>)baseBackReference;
-							backReference.internalClear();
-							backReference.setAsEditedAndRunProbableUpdateAction();
-							break;
-						case OPTIONAL_BACK_REFERENCE:
-							final var optionalBackReference = (OptionalBackReference<?>)baseBackReference;
-							optionalBackReference.internalClear();
-							optionalBackReference.setAsEditedAndRunProbableUpdateAction();
-							break;
-						case MULTI_BACK_REFERENCE:
-							/*
-							 * Does nothing.
-							 * MultiBackReferences do not need to be updated, because MultiBackReferences do not have redundancies.
-							 */
-							break;
-						default:
-							throw InvalidArgumentException.forArgument(baseBackReference.getType());
-					}
-					
-					break;
-				}
-			}
+		
+		final var pendantReferencingProperty = getPendantReferencingPropertyToEntityOrNull(entity);
+		
+		if (pendantReferencingProperty != null) {
+			final var reference = (Reference<?>)pendantReferencingProperty;
+			reference.clear();
 		}
 	}
 	
