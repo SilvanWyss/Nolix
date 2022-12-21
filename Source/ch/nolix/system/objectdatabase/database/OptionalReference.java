@@ -196,8 +196,6 @@ implements IOptionalReference<DataImplementation, E> {
 		
 		updateStateForClear();
 		
-		updateRealDatabaseForClear();
-		
 		setAsEditedAndRunProbableUpdateAction();
 	}
 	
@@ -300,16 +298,6 @@ implements IOptionalReference<DataImplementation, E> {
 					break;
 				}
 			}
-		}
-	}
-	
-	//method
-	private void updateRealDatabaseForClear() {
-		if (isLinkedWithRealDatabase()) {
-			internalGetRefDataAndSchemaAdapter().updateRecordOnTable(
-				getRefParentEntity().getParentTableName(),
-				optionalReferenceHelper.createRecordUpdateDTOForClear(this)
-			);
 		}
 	}
 	
