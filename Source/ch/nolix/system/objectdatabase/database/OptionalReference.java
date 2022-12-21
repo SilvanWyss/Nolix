@@ -5,6 +5,7 @@ package ch.nolix.system.objectdatabase.database;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.system.objectdatabase.databasehelper.EntityHelper;
 import ch.nolix.system.objectdatabase.propertyhelper.OptionalReferenceHelper;
 import ch.nolix.system.sqlrawdata.databasedto.ContentFieldDTO;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.BasePropertyType;
@@ -12,12 +13,16 @@ import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IOptionalReference;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
+import ch.nolix.systemapi.objectdatabaseapi.databasehelperapi.IEntityHelper;
 import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IOptionalReferenceHelper;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDTO;
 
 //class
 public final class OptionalReference<E extends IEntity<DataImplementation>> extends BaseReference<E>
 implements IOptionalReference<DataImplementation, E> {
+	
+	//static attribute
+	private static final IEntityHelper entityHelper = new EntityHelper();
 	
 	//static attribute
 	private static final IOptionalReferenceHelper optionalReferenceHelper = new OptionalReferenceHelper();
@@ -200,6 +205,11 @@ implements IOptionalReference<DataImplementation, E> {
 	}
 	
 	//method
+	private IProperty<DataImplementation> getPendantReferencingPropertyToEntityOrNull(final E entity) {
+		return entityHelper.getRefReferencingProperties(entity).getRefFirstOrNull(rp -> rp.hasName(getName()));
+	}
+	
+	//method
 	private void updateBackReferencingPropertyForClear(final IProperty<DataImplementation> backReferencingProperty) {
 		switch (backReferencingProperty.getType()) {
 			case BACK_REFERENCE:
@@ -277,27 +287,14 @@ implements IOptionalReference<DataImplementation, E> {
 		}
 	}
 	
-	//TODO: Refactor this method.
 	//method
 	private void updatePropbableBackReferencingPropertyOfEntityForClear(final E entity) {
-		for (final var p : entity.technicalGetRefProperties()) {
-			if (p.getType().getBaseType() == BasePropertyType.BASE_BACK_REFERENCE) {
-				
-				final var baseBackReference = (BaseBackReference<?>)p;
-				
-				if (
-					baseBackReference.getBackReferencedTableName().equals(getRefParentEntity().getParentTableName())
-					&& baseBackReference.getBackReferencedPropertyName().equals(getName())
-				) {
-					
-					for (final var rp : baseBackReference.getRefReferencingProperties()) {
-						final var optionalReference = (OptionalReference<?>)rp;
-						optionalReference.clear();
-					}
-					
-					break;
-				}
-			}
+		
+		final var pendantReferencingProperty = getPendantReferencingPropertyToEntityOrNull(entity);
+		
+		if (pendantReferencingProperty != null) {
+			final var reference = (OptionalReference<?>)pendantReferencingProperty;
+			reference.clear();
 		}
 	}
 	
