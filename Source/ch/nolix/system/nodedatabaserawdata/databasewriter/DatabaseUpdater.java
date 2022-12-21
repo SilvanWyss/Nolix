@@ -266,18 +266,31 @@ final class DatabaseUpdater {
 	}
 	
 	//method
-	public void updateRecordOnTable(
+	public void updateEntityOnTable(
 		final IMutableNode<?> database,
 		final ITableInfo tableInfo,
-		final IEntityUpdateDTO recordUdate
+		final IEntityUpdateDTO entityUpdate
 	) {
-	
+		
 		final var tableNode =
 		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(database, tableInfo.getTableName());
 		
-		final var recordNode = tableNodeSearcher.getRefRecordNodeFromTableNode(tableNode, recordUdate.getId());
+		final var entityNode = tableNodeSearcher.getRefEntityNodeFromTableNodeOrNull(tableNode, entityUpdate.getId());
+		if (entityNode == null) {
+			throw ResourceWasChangedInTheMeanwhileException.forResource("data");
+		}
 		
-		updateEntityNode(recordNode, tableInfo, recordUdate);
+		final var saveStampNode = entityNodeSearcher.getRefSaveStampNodeFromRecordNode(entityNode);
+		
+		final var saveStamp = saveStampNode.getHeader();
+		if (!saveStamp.equals(entityUpdate.getSaveStamp())) {
+			throw ResourceWasChangedInTheMeanwhileException.forResource("data");
+		}
+		
+		final var newSaveStamp = String.valueOf(Integer.valueOf(saveStamp) + 1);
+		saveStampNode.setHeader(newSaveStamp);
+		
+		updateEntityNode(entityNode, tableInfo, entityUpdate);
 	}
 	
 	//method

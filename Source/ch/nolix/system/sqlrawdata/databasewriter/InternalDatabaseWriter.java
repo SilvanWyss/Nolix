@@ -183,9 +183,9 @@ public final class InternalDatabaseWriter {
 	}
 	
 	//method
-	public void updateRecordOnTable(final String tableName, final IEntityUpdateDTO recordUpdate) {
+	public void updateEntityOnTable(final String tableName, final IEntityUpdateDTO recordUpdate) {
 		mSQLCollector.addSQLStatement(
-			recordStatementCreator.createStatementToUpdateRecordOnTable(tableName, recordUpdate)
+			recordStatementCreator.createStatementToUpdateEntityOnTable(tableName, recordUpdate)
 		);
 	}
 }

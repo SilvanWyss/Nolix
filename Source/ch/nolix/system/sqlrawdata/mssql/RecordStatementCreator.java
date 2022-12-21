@@ -101,16 +101,27 @@ public final class RecordStatementCreator implements IRecordStatementCreator {
 	
 	//method
 	@Override
-	public String createStatementToUpdateRecordOnTable(final String tableName, final IEntityUpdateDTO recordUpdate) {
+	public String createStatementToUpdateEntityOnTable(final String tableName, final IEntityUpdateDTO recordUpdate) {
+		
+		final var contentFieldSets =
+		recordUpdate.getUpdatedContentFields().to(cf -> cf.getColumnName() + " = " + getValueOrNullInSQLOf(cf));
+		
+		final var contentFieldSetsPrecessor = contentFieldSets.isEmpty() ? " " : ", ";
+		
 		return
 		"UPDATE "
 		+ tableName
-		+ " SET "
-		+ recordUpdate.getUpdatedContentFields().to(cf -> cf.getColumnName() + " = " + getValueOrNullInSQLOf(cf))
+		+ " SET SaveStamp = '"
+		+ (recordUpdate.getSaveStamp() + 1)
+		+ "'"
+		+ contentFieldSetsPrecessor
+		+ contentFieldSets
 		+ " WHERE Id = '"
 		+ recordUpdate.getId()
 		+ "' AND SaveStamp = '"
-		+  recordUpdate.getSaveStamp();
+		+  recordUpdate.getSaveStamp()
+		+ ";"
+		+ "IF @@RowCount = 0 BEGIN THROW error(100000, 'The data was changed in the meanwhile.', 0) END;";
 	}
 	
 	//method

@@ -216,7 +216,7 @@ public abstract class BaseDatabaseAdapter implements IDatabaseAdapter {
 	
 	//method
 	@Override
-	public final void updateRecordOnTable(final String tableName, final IEntityUpdateDTO recordUpdate) {
-		databaseWriter.updateRecordOnTable(tableName, recordUpdate);
+	public final void updateEntityOnTable(final String tableName, final IEntityUpdateDTO recordUpdate) {
+		databaseWriter.updateEntityOnTable(tableName, recordUpdate);
 	}
 }

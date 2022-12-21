@@ -71,12 +71,7 @@ final class SaveProcessor {
 					break;
 				case EDITED:
 					
-					database.internalGetRefDataAndSchemaAdapter().setEntityAsUpdated(
-						e.getParentTableName(),
-						entityHelper.createRecordHeadDTOForEntity(e)
-					);
-					
-					database.internalGetRefDataAndSchemaAdapter().updateRecordOnTable(
+					database.internalGetRefDataAndSchemaAdapter().updateEntityOnTable(
 						e.getParentTableName(),
 						entityHelper.createEntityUpdateDTOForEntity(e)
 					);
