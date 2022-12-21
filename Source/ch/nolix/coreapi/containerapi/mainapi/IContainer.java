@@ -342,6 +342,15 @@ public interface IContainer<E> extends Iterable<E> {
 	
 	//method declaration
 	/**
+	 * @param doubleNorm
+	 * @return the median of
+	 * the values the given doubleNorm returns from the elements of the current {@link IContainer}.
+	 * @throws RuntimeException if the current {@link IContainer} is empty.
+	 */
+	double getMedianByDouble(IElementTakerDoubleGetter<E> doubleNorm);
+	
+	//method declaration
+	/**
 	 * @param norm
 	 * @param <E2> is the type of the elements of the {@link Comparable} the given norm returns.
 	 * @return the smallest value the given norm returns from the elements of the current {@link IContainer}.

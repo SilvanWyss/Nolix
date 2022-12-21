@@ -804,6 +804,24 @@ public abstract class Container<E> implements IContainer<E> {
 	}
 	
 	//method
+	@Override
+	public final double getMedianByDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
+		
+		final var values = to(doubleNorm::getOutput);
+		
+		values.toOrderedList(FunctionCatalogue::getSelf);
+		
+		final var valueCount = values.getElementCount();
+		
+		if (valueCount % 2 == 0) {
+			final var firstIndex = valueCount / 2;
+			return 0.5 * (values.getRefAt1BasedIndex(firstIndex) + values.getRefAt1BasedIndex(firstIndex + 1));
+		}
+		
+		return values.getRefAt1BasedIndex(valueCount / 2);
+	}
+	
+	//method
 	/**
 	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
