@@ -93,6 +93,12 @@ public final class EntityHelper extends DatabaseObjectHelper implements IEntityH
 	
 	//method
 	@Override
+	public <IMPL> IContainer<? extends IProperty<IMPL>> getRefReferencingProperties(final IEntity<IMPL> entity) {
+		return entity.technicalGetRefProperties().toFromMany(IProperty::getRefReferencingProperties);
+	}
+	
+	//method
+	@Override
 	public boolean isReferenced(final IEntity<?> entity) {
 		return (isReferencedInLocalData(entity) || entity.isReferencedInPersistedData());
 	}
