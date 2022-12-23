@@ -3,11 +3,13 @@ package ch.nolix.system.objectdatabase.database;
 
 //own imports
 import ch.nolix.core.container.main.LinkedList;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.system.objectdatabase.propertyhelper.MultiReferenceHelper;
 import ch.nolix.system.sqlrawdata.databasedto.ContentFieldDTO;
+import ch.nolix.systemapi.databaseapi.propertytypeapi.BasePropertyType;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiReference;
@@ -52,6 +54,8 @@ implements IMultiReference<DataImplementation, E> {
 		updateStateForAddEntity(entity);
 		
 		updateRecordForAddEntity(entity);
+		
+		updateProbableBackReferencingPropertyForSetOrAddedEntity(entity);
 		
 		setAsEditedAndRunProbableUpdateAction();
 	}
@@ -225,6 +229,45 @@ implements IMultiReference<DataImplementation, E> {
 		return
 		!extractedReferencedEntityIds()
 		&& multiReferenceHelper.belongsToLoadedEntity(this);
+	}
+	
+	//method
+	private void updateProbableBackReferencingPropertyForSetOrAddedEntity(final E entity) {
+		for (final var p : entity.technicalGetRefProperties()) {
+			if (p.getType().getBaseType() == BasePropertyType.BASE_BACK_REFERENCE) {
+				
+				final var baseBackReference = (BaseBackReference<?>)p;
+				
+				if (
+					baseBackReference.getBackReferencedTableName().equals(getRefParentEntity().getParentTableName())
+					&& baseBackReference.getBackReferencedPropertyName().equals(getName())
+				) {
+					
+					switch (baseBackReference.getType()) {
+						case BACK_REFERENCE:
+							final var backReference = (BackReference<?>)baseBackReference;
+							backReference.internalSetDirectlyBackReferencedEntityId(getRefParentEntity().getId());
+							backReference.setAsEditedAndRunProbableUpdateAction();
+							break;
+						case OPTIONAL_BACK_REFERENCE:
+							final var optionalBackReference = (OptionalBackReference<?>)baseBackReference;
+							optionalBackReference.internalSetDirectlyBackReferencedEntityId(getRefParentEntity().getId());
+							optionalBackReference.setAsEditedAndRunProbableUpdateAction();
+							break;
+						case MULTI_BACK_REFERENCE:
+							/*
+							 * Does nothing.
+							 * MultiBackReferences do not need to be updated, because MultiBackReferences do not have redundancies.
+							 */
+							break;
+						default:
+							throw InvalidArgumentException.forArgument(baseBackReference.getType());
+					}
+					
+					break;
+				}
+			}
+		}
 	}
 	
 	//method
