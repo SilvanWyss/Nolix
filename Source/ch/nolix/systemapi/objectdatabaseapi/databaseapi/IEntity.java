@@ -18,6 +18,9 @@ public interface IEntity<IMPL> extends Deletable, IDatabaseObject, IdentifiedByS
 	String getParentTableName();
 	
 	//method declaration
+	IDatabase<IMPL> getRefParentDatabase();
+	
+	//method declaration
 	ITable<IMPL, IEntity<IMPL>> getRefParentTable();
 	
 	//method declaration

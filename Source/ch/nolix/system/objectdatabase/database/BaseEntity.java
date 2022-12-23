@@ -13,6 +13,7 @@ import ch.nolix.system.objectdatabase.databasehelper.EntityHelper;
 import ch.nolix.system.objectdatabase.databasevalidator.EntityValidator;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.DatabaseObjectState;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IBaseBackReference;
+import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IDatabase;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
@@ -65,6 +66,12 @@ public abstract class BaseEntity implements IEntity<DataImplementation> {
 	@Override
 	public final String getId() {
 		return id;
+	}
+	
+	//method
+	@Override
+	public final IDatabase<DataImplementation> getRefParentDatabase() {
+		return getRefParentTable().getRefParentDatabase();
 	}
 	
 	//method
