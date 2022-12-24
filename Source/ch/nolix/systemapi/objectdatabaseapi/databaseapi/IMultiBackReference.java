@@ -5,4 +5,5 @@ package ch.nolix.systemapi.objectdatabaseapi.databaseapi;
 public interface IMultiBackReference<
 	IMPL,
 	E extends IEntity<IMPL>
-> extends IBaseBackReference<IMPL, E> {}
+>
+extends IBaseBackReference<IMPL, E> {}
