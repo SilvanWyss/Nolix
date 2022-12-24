@@ -13,7 +13,7 @@ public interface IColumn<IMPL> extends IDatabaseObject, IdentifiedByString, Name
 	IParametrizedPropertyType<IMPL> getParametrizedPropertyType();
 	
 	//method declaration
-	ITable<IMPL, IEntity<IMPL>> getParentTable();
+	ITable<IMPL, IEntity<IMPL>> getRefParentTable();
 	
 	//method
 	boolean technicalContainsGivenValueInPersistedData(String value);
