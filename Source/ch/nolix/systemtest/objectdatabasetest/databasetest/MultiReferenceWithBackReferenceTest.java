@@ -76,8 +76,8 @@ public final class MultiReferenceWithBackReferenceTest extends Test {
 		expect(loadedJohn.pets.getReferencedEntities().contains(loadedGarfield));
 		expect(loadedJohn.pets.getReferencedEntities().contains(loadedSimba));
 		expect(loadedJohn.pets.getReferencedEntities().contains(loadedOdie));
-		expect(loadedGarfield.owner.getRefEntity()).is(loadedJohn);
-		expect(loadedSimba.owner.getRefEntity()).is(loadedJohn);
-		expect(loadedOdie.owner.getRefEntity()).is(loadedJohn);
+		expect(loadedGarfield.owner.getBackReferencedEntity()).is(loadedJohn);
+		expect(loadedSimba.owner.getBackReferencedEntity()).is(loadedJohn);
+		expect(loadedOdie.owner.getBackReferencedEntity()).is(loadedJohn);
 	}
 }

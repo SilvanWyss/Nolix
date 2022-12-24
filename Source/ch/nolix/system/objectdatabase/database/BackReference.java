@@ -54,7 +54,7 @@ implements IBackReference<DataImplementation, E>{
 		
 		return
 		ImmutableList.withElement(
-			getRefEntity().technicalGetRefProperties().getRefFirst(p -> p.hasName(getBackReferencedPropertyName()))
+			getBackReferencedEntity().technicalGetRefProperties().getRefFirst(p -> p.hasName(getBackReferencedPropertyName()))
 		);
 	}
 	
@@ -66,17 +66,17 @@ implements IBackReference<DataImplementation, E>{
 	
 	//method
 	@Override
-	public String getEntityId() {
-		
-		backReferenceHelper.assertIsNotEmpty(this);
-		
-		return backReferencedEntityId;
+	public E getBackReferencedEntity() {
+		return getRefBackReferencedTable().getRefEntityById(getBackReferencedEntityId());
 	}
 	
 	//method
 	@Override
-	public E getRefEntity() {
-		return getRefBackReferencedTable().getRefEntityById(getEntityId());
+	public String getBackReferencedEntityId() {
+		
+		backReferenceHelper.assertIsNotEmpty(this);
+		
+		return backReferencedEntityId;
 	}
 	
 	//method
@@ -97,7 +97,7 @@ implements IBackReference<DataImplementation, E>{
 		return
 		containsAny()
 		&& entity != null
-		&& getEntityId().equals(entity.getId());
+		&& getBackReferencedEntityId().equals(entity.getId());
 	}
 	
 	//method
@@ -114,13 +114,13 @@ implements IBackReference<DataImplementation, E>{
 			return new ContentFieldDTO(getName());
 		}
 		
-		return new ContentFieldDTO(getName(), getEntityId());
+		return new ContentFieldDTO(getName(), getBackReferencedEntityId());
 	}
 	
 	//method
 	@Override
 	protected boolean referencesBackEntityWithId(final String id) {
-		return (containsAny() && getEntityId().equals(id));
+		return (containsAny() && getBackReferencedEntityId().equals(id));
 	}
 	
 	//method

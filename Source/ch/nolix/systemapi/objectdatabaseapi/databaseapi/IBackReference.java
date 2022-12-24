@@ -5,13 +5,14 @@ package ch.nolix.systemapi.objectdatabaseapi.databaseapi;
 public interface IBackReference<
 	IMPL,
 	E extends IEntity<IMPL>
-> extends IBaseBackReference<IMPL, E> {
+> 
+extends IBaseBackReference<IMPL, E> {
 	
 	//method declaration
-	String getEntityId();
+	E getBackReferencedEntity();
 	
 	//method declaration
-	E getRefEntity();
+	String getBackReferencedEntityId();
 	
 	//method declaration
 	boolean referencesBackEntity();

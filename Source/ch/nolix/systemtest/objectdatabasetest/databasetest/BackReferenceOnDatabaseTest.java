@@ -52,7 +52,7 @@ public final class BackReferenceOnDatabaseTest extends Test {
 		nodeDatabaseAdapter.insert(garfield);
 		
 		//execution & verification
-		expectRunning(garfield.owner::getRefEntity).throwsException();
+		expectRunning(garfield.owner::getBackReferencedEntity).throwsException();
 	}
 	
 	//method
@@ -71,7 +71,7 @@ public final class BackReferenceOnDatabaseTest extends Test {
 		nodeDatabaseAdapter.insert(john);
 		
 		//execution
-		final var result = garfield.owner.getRefEntity();
+		final var result = garfield.owner.getBackReferencedEntity();
 		
 		//verification
 		expect(result).is(john);
@@ -96,7 +96,7 @@ public final class BackReferenceOnDatabaseTest extends Test {
 		//execution
 		final var loadedGarfield =
 		nodeDatabaseAdapter.getRefTableByEntityType(Pet.class).getRefEntityById(garfield.getId());
-		final var result = loadedGarfield.owner.getRefEntity();
+		final var result = loadedGarfield.owner.getBackReferencedEntity();
 		
 		//verification
 		expect(result.getId()).isEqualTo(john.getId());
