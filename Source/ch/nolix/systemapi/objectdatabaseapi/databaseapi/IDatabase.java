@@ -25,5 +25,5 @@ public interface IDatabase<IMPL> extends IDatabaseObject {
 	ITime getSchemaTimestamp();
 	
 	//method declaration
-	<E extends IEntity<IMPL>> IDatabase<IMPL> insert(E entity);
+	<E extends IEntity<IMPL>> IDatabase<IMPL> insertEntity(E entity);
 }

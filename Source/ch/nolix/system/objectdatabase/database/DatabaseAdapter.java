@@ -83,7 +83,7 @@ public abstract class DatabaseAdapter implements IDatabaseAdapter<DataImplementa
 	@Override
 	public final <E extends IEntity<DataImplementation>> IDatabaseAdapter<DataImplementation> insert(final E entity) {
 		
-		database.insert(entity);
+		database.insertEntity(entity);
 		
 		return this;
 	}
