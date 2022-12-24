@@ -74,7 +74,7 @@ public final class OptionalBackReferenceOnDatabaseTest extends Test {
 		nodeDatabaseAdapter.insert(john);
 		
 		//execution
-		final var result = garfield.owner.getRefEntity();
+		final var result = garfield.owner.getBackReferencedEntity();
 		
 		//verification
 		expect(result).is(john);
@@ -99,7 +99,7 @@ public final class OptionalBackReferenceOnDatabaseTest extends Test {
 		//execution
 		final var loadedGarfield =
 		nodeDatabaseAdapter.getRefTableByEntityType(Pet.class).getRefEntityById(garfield.getId());
-		final var result = loadedGarfield.owner.getRefEntity();
+		final var result = loadedGarfield.owner.getBackReferencedEntity();
 		
 		//verification
 		expect(result.getId()).isEqualTo(john.getId());
@@ -200,7 +200,7 @@ public final class OptionalBackReferenceOnDatabaseTest extends Test {
 		
 		//setup part 1 verification
 		expect(john.pet.getRefEntity()).is(garfield);
-		expect(garfield.owner.getRefEntity()).is(john);
+		expect(garfield.owner.getBackReferencedEntity()).is(john);
 		expect(odie.owner.isEmpty());
 		
 		//setup part 2
@@ -220,6 +220,6 @@ public final class OptionalBackReferenceOnDatabaseTest extends Test {
 		nodeDatabaseAdapter.getRefTableByEntityType(Pet.class).getRefEntityById(garfield.getId());
 		expect(loadedJohn.pet.getRefEntity()).is(loadedOdie);
 		expect(loadedGarfield.owner.isEmpty());
-		expect(loadedOdie.owner.getRefEntity()).is(loadedJohn);
+		expect(loadedOdie.owner.getBackReferencedEntity()).is(loadedJohn);
 	}
 }

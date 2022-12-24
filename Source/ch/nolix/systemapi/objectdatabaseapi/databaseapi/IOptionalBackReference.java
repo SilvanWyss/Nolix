@@ -9,11 +9,8 @@ public interface IOptionalBackReference<
 extends IBaseBackReference<IMPL, E> {
 	
 	//method declaration
-	String getEntityId();
+	E getBackReferencedEntity();
 	
 	//method declaration
-	E getRefEntity();
-	
-	//method declaration
-	boolean referencesBackEntity();
+	String getBackReferencedEntityId();
 }
