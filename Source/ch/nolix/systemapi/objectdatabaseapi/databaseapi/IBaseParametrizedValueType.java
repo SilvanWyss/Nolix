@@ -5,7 +5,8 @@ package ch.nolix.systemapi.objectdatabaseapi.databaseapi;
 public interface IBaseParametrizedValueType<
 	IMPL,
 	V
-> extends IParametrizedPropertyType<IMPL> {
+>
+extends IParametrizedPropertyType<IMPL> {
 	
 	//method declaration
 	Class<V> getValueType();
