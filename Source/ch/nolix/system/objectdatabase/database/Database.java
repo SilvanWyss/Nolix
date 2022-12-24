@@ -53,6 +53,12 @@ public final class Database implements IDatabase<DataImplementation> {
 	
 	//method
 	@Override
+	public <E extends IEntity<DataImplementation>> IContainer<E> getRefEntitiesByType(final Class<E> type) {
+		return getRefTableByEntityClass(type).getRefEntities();
+	}
+	
+	//method
+	@Override
 	@SuppressWarnings("unchecked")
 	public <E extends IEntity<DataImplementation>> ITable<DataImplementation, E> getRefTableByEntityClass(
 		final Class<E> entityClass

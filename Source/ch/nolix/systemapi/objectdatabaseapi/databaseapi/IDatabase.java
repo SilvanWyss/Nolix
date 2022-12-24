@@ -9,6 +9,9 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 //interface
 public interface IDatabase<IMPL> extends IDatabaseObject {
 	
+	//method declarations
+	<E extends IEntity<IMPL>> IContainer<E> getRefEntitiesByType(Class<E> type); 
+	
 	//method declaration
 	<E extends IEntity<IMPL>> ITable<IMPL, E> getRefTableByEntityClass(final Class<E> entityClass);
 	
