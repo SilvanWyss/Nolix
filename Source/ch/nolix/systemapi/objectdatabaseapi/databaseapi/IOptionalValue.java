@@ -5,7 +5,11 @@ package ch.nolix.systemapi.objectdatabaseapi.databaseapi;
 import ch.nolix.coreapi.functionapi.mutationuniversalapi.Clearable;
 
 //interface
-public interface IOptionalValue<IMPL, V> extends Clearable, IBaseValue<IMPL, V> {
+public interface IOptionalValue<
+	IMPL,
+	V
+>
+extends Clearable, IBaseValue<IMPL, V> {
 	
 	//method declaration
 	V getRefValue();
@@ -14,5 +18,5 @@ public interface IOptionalValue<IMPL, V> extends Clearable, IBaseValue<IMPL, V> 
 	void setValue(V value);
 	
 	//method declaration
-	void setValueFromStringRepresentation(String string);
+	void setValueFromString(String string);
 }

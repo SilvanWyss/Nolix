@@ -37,7 +37,7 @@ public class OptionalValueBinder extends PropertyBinder<IOptionalValue<?, ?>, IT
 		if (textBox.getText().isEmpty()) {
 			optionalValue.clear();
 		} else {
-			optionalValue.setValueFromStringRepresentation(textBox.getText());
+			optionalValue.setValueFromString(textBox.getText());
 		}
 	}
 	

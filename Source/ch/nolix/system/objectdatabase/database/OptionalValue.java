@@ -70,7 +70,7 @@ public final class OptionalValue<V> extends BaseValue<V> implements IOptionalVal
 	
 	//method
 	@Override
-	public void setValueFromStringRepresentation(final String string) {
+	public void setValueFromString(final String string) {
 		
 		@SuppressWarnings("unchecked")
 		final var value =
