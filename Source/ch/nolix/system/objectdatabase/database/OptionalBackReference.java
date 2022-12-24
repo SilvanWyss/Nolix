@@ -56,7 +56,7 @@ implements IOptionalBackReference<DataImplementation, E>{
 	//method
 	@Override
 	public E getRefEntity() {
-		return getRefBackReferencedTable().getRefEntityById(getEntityId());
+		return getBackReferencedTable().getRefEntityById(getEntityId());
 	}
 	
 	//method

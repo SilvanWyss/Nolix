@@ -67,7 +67,7 @@ implements IBackReference<DataImplementation, E>{
 	//method
 	@Override
 	public E getBackReferencedEntity() {
-		return getRefBackReferencedTable().getRefEntityById(getBackReferencedEntityId());
+		return getBackReferencedTable().getRefEntityById(getBackReferencedEntityId());
 	}
 	
 	//method

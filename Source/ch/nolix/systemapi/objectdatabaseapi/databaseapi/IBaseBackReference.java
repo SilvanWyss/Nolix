@@ -5,14 +5,15 @@ package ch.nolix.systemapi.objectdatabaseapi.databaseapi;
 public interface IBaseBackReference<
 	IMPL,
 	E extends IEntity<IMPL>
-> extends IProperty<IMPL> {
+>
+extends IProperty<IMPL> {
 	
 	//method declaration
 	String getBackReferencedPropertyName();
 	
 	//method declaration
-	String getBackReferencedTableName();
+	ITable<IMPL, E> getBackReferencedTable();
 	
 	//method declaration
-	ITable<IMPL, E> getRefBackReferencedTable();
+	String getBackReferencedTableName();
 }

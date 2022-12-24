@@ -45,17 +45,17 @@ implements IBaseBackReference<DataImplementation, E> {
 	
 	//method
 	@Override
-	public final String getBackReferencedTableName() {
-		return backReferencedTableName;
-	}
-
-	//method
-	@Override
-	public final ITable<DataImplementation, E> getRefBackReferencedTable() {
+	public final ITable<DataImplementation, E> getBackReferencedTable() {
 		
 		extractBackReferencedTableIfNotExtracted();
 		
 		return backReferencedTable;
+	}
+	
+	//method
+	@Override
+	public final String getBackReferencedTableName() {
+		return backReferencedTableName;
 	}
 	
 	//method
