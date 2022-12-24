@@ -55,15 +55,6 @@ implements IOptionalReference<DataImplementation, E> {
 	
 	//method
 	@Override
-	public String getEntityId() {
-		
-		optionalReferenceHelper.assertIsNotEmpty(this);
-		
-		return referencedEntityId;
-	}
-	
-	//method
-	@Override
 	public IContainer<IProperty<DataImplementation>> getRefBackReferencingProperties() {
 		
 		if (isEmpty()) {
@@ -71,7 +62,7 @@ implements IOptionalReference<DataImplementation, E> {
 		}
 		
 		final var backReferencingProperty =
-		getRefEntity().technicalGetRefProperties().getRefFirstOrNull(p -> p.referencesBackProperty(this));
+		getReferencedEntity().technicalGetRefProperties().getRefFirstOrNull(p -> p.referencesBackProperty(this));
 		
 		if (backReferencingProperty != null) {
 			return ImmutableList.withElement(backReferencingProperty);
@@ -82,8 +73,17 @@ implements IOptionalReference<DataImplementation, E> {
 	
 	//method
 	@Override
-	public E getRefEntity() {
-		return getReferencedTable().getRefEntityById(getEntityId());
+	public E getReferencedEntity() {
+		return getReferencedTable().getRefEntityById(getReferencedEntityId());
+	}
+	
+	//method
+	@Override
+	public String getReferencedEntityId() {
+		
+		optionalReferenceHelper.assertIsNotEmpty(this);
+		
+		return referencedEntityId;
 	}
 	
 	//method
@@ -110,7 +110,7 @@ implements IOptionalReference<DataImplementation, E> {
 		return
 		containsAny()
 		&& entity != null
-		&& getEntityId().equals(entity.getId());
+		&& getReferencedEntityId().equals(entity.getId());
 	}
 	
 	//method
@@ -118,7 +118,7 @@ implements IOptionalReference<DataImplementation, E> {
 	public boolean referencesUninsertedEntity() {
 		return
 		containsAny()
-		&& !getRefEntity().belongsToTable();
+		&& !getReferencedEntity().belongsToTable();
 	}
 	
 	//method
@@ -140,7 +140,7 @@ implements IOptionalReference<DataImplementation, E> {
 	
 	//method
 	@Override
-	public void setEntityWithId(final String id) {
+	public void setEntityById(final String id) {
 		
 		final var entity = getReferencedTable().getRefEntityById(id);
 		
@@ -155,7 +155,7 @@ implements IOptionalReference<DataImplementation, E> {
 			return new ContentFieldDTO(getName());
 		}
 		
-		return new ContentFieldDTO(getName(), getEntityId());
+		return new ContentFieldDTO(getName(), getReferencedEntityId());
 	}
 	
 	//method
@@ -178,7 +178,7 @@ implements IOptionalReference<DataImplementation, E> {
 	@Override
 	void internalUpdateProbableBackReferencesWhenIsNew() {
 		if (containsAny()) {
-			updateProbableBackReferenceForSetOrAddedEntity(getRefEntity());
+			updateProbableBackReferenceForSetOrAddedEntity(getReferencedEntity());
 		}
 	}
 	

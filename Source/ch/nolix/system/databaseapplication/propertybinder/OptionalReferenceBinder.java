@@ -53,7 +53,7 @@ extends PropertyBinder<IOptionalReference<?, IEntity<?>>, IDropdownMenu<?, ?>> {
 			
 			final var selectedEntityId = dropdownMenu.getRefSelectedItem().getId();
 			
-			optionalReference.setEntityWithId(selectedEntityId);
+			optionalReference.setEntityById(selectedEntityId);
 		}
 	}
 	
@@ -66,7 +66,7 @@ extends PropertyBinder<IOptionalReference<?, IEntity<?>>, IDropdownMenu<?, ?>> {
 		if (optionalReference.isEmpty()) {
 			dropdownMenu.selectBlankItem();
 		} else {
-			dropdownMenu.selectItemById(optionalReference.getEntityId());
+			dropdownMenu.selectItemById(optionalReference.getReferencedEntityId());
 		}
 	}
 }

@@ -94,7 +94,7 @@ public final class OptionalReferenceHelper extends PropertyHelper implements IOp
 	) {
 		return
 		optionalReference
-		.getRefEntity()
+		.getReferencedEntity()
 		.technicalGetRefProperties()
 		.getRefFirstOrNull(p -> p.referencesBackProperty(optionalReference));
 	}

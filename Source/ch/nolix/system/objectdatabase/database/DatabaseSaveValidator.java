@@ -87,7 +87,7 @@ public final class DatabaseSaveValidator {
 				if (optionalReference.containsAny()) {
 					database.internalGetRefDataAndSchemaAdapter().expectTableContainsEntity(
 						optionalReference.getReferencedTableName(),
-						optionalReference.getEntityId()
+						optionalReference.getReferencedEntityId()
 					);
 				}
 				
