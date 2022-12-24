@@ -29,7 +29,7 @@ public interface ITable<
 	E getRefEntityById(String id);
 	
 	//method declaration
-	ITable<IMPL, E> insert(E entity);
+	ITable<IMPL, E> insertEntity(E entity);
 	
 	//method declaration
 	IContainer<E> technicalGetRefEntitiesInLocalData();

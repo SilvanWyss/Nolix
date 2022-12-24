@@ -144,7 +144,7 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 	
 	//method
 	@Override
-	public ITable<DataImplementation, E> insert(final E entity) {
+	public ITable<DataImplementation, E> insertEntity(final E entity) {
 		
 		@SuppressWarnings("unchecked")
 		final var table = (ITable<DataImplementation, IEntity<DataImplementation>>)this;

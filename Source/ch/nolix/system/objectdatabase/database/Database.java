@@ -104,7 +104,7 @@ public final class Database implements IDatabase<DataImplementation> {
 	@SuppressWarnings("unchecked")
 	public <E extends IEntity<DataImplementation>> IDatabase<DataImplementation> insertEntity(final E entity) {
 		
-		getRefTableByEntityType(entity.getClass()).insert(entity);
+		getRefTableByEntityType(entity.getClass()).insertEntity(entity);
 		
 		return this;
 	}
