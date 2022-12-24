@@ -150,7 +150,7 @@ public final class EntityOnDatabaseTest extends Test {
 		expect(
 			nodeDatabaseAdapter
 			.getRefTableByEntityType(Pet.class)
-			.getRefAllEntities()
+			.getRefEntities()
 			.containsNone(e -> e.hasId(garfield.getId()))
 		);
 	}

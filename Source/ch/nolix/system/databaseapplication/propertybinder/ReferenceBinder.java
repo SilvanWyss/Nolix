@@ -23,7 +23,7 @@ public final class ReferenceBinder extends PropertyBinder<IReference<?, IEntity<
 		final IDropdownMenu<?, ?> dropdownMenu,
 		final IReference<?, IEntity<?>> reference
 	) {
-		for (final var e : reference.getReferencedTable().getRefAllEntities()) {
+		for (final var e : reference.getReferencedTable().getRefEntities()) {
 			dropdownMenu.addItemWithIdAndText(e.getId(), e.getShortDescription());
 		}
 	}

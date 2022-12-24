@@ -21,7 +21,7 @@ extends PropertyBinder<IOptionalReference<?, IEntity<?>>, IDropdownMenu<?, ?>> {
 		
 		dropdownMenu.addBlankItem();
 		
-		for (final var e : optionalReference.getReferencedTable().getRefAllEntities()) {
+		for (final var e : optionalReference.getReferencedTable().getRefEntities()) {
 			dropdownMenu.addItemWithIdAndText(e.getId(), e.getShortDescription());
 		}
 	}

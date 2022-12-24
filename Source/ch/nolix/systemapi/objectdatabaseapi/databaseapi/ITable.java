@@ -20,10 +20,10 @@ public interface ITable<
 	Class<E> getEntityClass();
 	
 	//method declaration
-	IDatabase<IMPL> getRefParentDatabase();
+	IContainer<E> getRefEntities();
 	
 	//method declaration
-	IContainer<E> getRefAllEntities();
+	IDatabase<IMPL> getRefParentDatabase();
 	
 	//method declaration
 	E getRefEntityById(String id);

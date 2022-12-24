@@ -107,17 +107,17 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 	
 	//method
 	@Override
-	public IDatabase<DataImplementation> getRefParentDatabase() {
-		return parentDatabase;
-	}
-	
-	//method
-	@Override
-	public IContainer<E> getRefAllEntities() {
+	public IContainer<E> getRefEntities() {
 		
 		loadAllEntitiesInLocalDataIfNotLoaded();
 		
 		return entitiesInLocalData;
+	}
+	
+	//method
+	@Override
+	public IDatabase<DataImplementation> getRefParentDatabase() {
+		return parentDatabase;
 	}
 	
 	//method

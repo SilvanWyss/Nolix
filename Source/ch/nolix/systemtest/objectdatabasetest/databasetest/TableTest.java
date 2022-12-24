@@ -51,7 +51,7 @@ public final class TableTest extends Test {
 		final var testUnit = nodeDatabaseAdapter.getRefTableByEntityType(Person.class);
 		
 		//execution
-		final var result = testUnit.getRefAllEntities();
+		final var result = testUnit.getRefEntities();
 		
 		//verification
 		expectNot(nodeDatabaseAdapter.hasChanges());
@@ -78,7 +78,7 @@ public final class TableTest extends Test {
 		final var testUnit = nodeDatabaseAdapter2.getRefTableByEntityType(Person.class);
 		
 		//execution
-		final var result = testUnit.getRefAllEntities();
+		final var result = testUnit.getRefEntities();
 		
 		//verification
 		expect(result.getElementCount()).isEqualTo(1);
