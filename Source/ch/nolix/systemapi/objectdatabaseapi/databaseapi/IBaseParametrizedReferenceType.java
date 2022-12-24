@@ -5,7 +5,8 @@ package ch.nolix.systemapi.objectdatabaseapi.databaseapi;
 public interface IBaseParametrizedReferenceType<
 	IMPL,
 	E extends IEntity<IMPL>
-> extends IParametrizedPropertyType<IMPL> {
+>
+extends IParametrizedPropertyType<IMPL> {
 	
 	//method declaration
 	ITable<IMPL, E> getRefencedTable();
