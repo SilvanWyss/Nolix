@@ -13,7 +13,7 @@ public interface IDatabase<IMPL> extends IDatabaseObject {
 	<E extends IEntity<IMPL>> IContainer<E> getRefEntitiesByType(Class<E> type); 
 	
 	//method declaration
-	<E extends IEntity<IMPL>> ITable<IMPL, E> getRefTableByEntityClass(final Class<E> entityClass);
+	<E extends IEntity<IMPL>> ITable<IMPL, E> getRefTableByEntityType(Class<E> entityClass);
 	
 	//method declaration
 	ITable<IMPL, IEntity<IMPL>> getRefTableByName(String name);

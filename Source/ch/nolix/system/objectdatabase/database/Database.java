@@ -54,13 +54,13 @@ public final class Database implements IDatabase<DataImplementation> {
 	//method
 	@Override
 	public <E extends IEntity<DataImplementation>> IContainer<E> getRefEntitiesByType(final Class<E> type) {
-		return getRefTableByEntityClass(type).getRefEntities();
+		return getRefTableByEntityType(type).getRefEntities();
 	}
 	
 	//method
 	@Override
 	@SuppressWarnings("unchecked")
-	public <E extends IEntity<DataImplementation>> ITable<DataImplementation, E> getRefTableByEntityClass(
+	public <E extends IEntity<DataImplementation>> ITable<DataImplementation, E> getRefTableByEntityType(
 		final Class<E> entityClass
 	) {
 		return (ITable<DataImplementation, E>)getRefTableByName(entityClass.getSimpleName());		
@@ -104,7 +104,7 @@ public final class Database implements IDatabase<DataImplementation> {
 	@SuppressWarnings("unchecked")
 	public <E extends IEntity<DataImplementation>> IDatabase<DataImplementation> insert(final E entity) {
 		
-		getRefTableByEntityClass(entity.getClass()).insert(entity);
+		getRefTableByEntityType(entity.getClass()).insert(entity);
 		
 		return this;
 	}

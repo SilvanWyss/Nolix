@@ -44,7 +44,7 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 		final IDatabase<IMPL> database,
 		final E entity
 	) {
-		return database.getRefTableByEntityClass(entity.getClass());
+		return database.getRefTableByEntityType(entity.getClass());
 	}
 	
 	//method

@@ -64,7 +64,7 @@ public abstract class DatabaseAdapter implements IDatabaseAdapter<DataImplementa
 	public final <E extends IEntity<DataImplementation>> ITable<DataImplementation, E> getRefTableByEntityType(
 		final Class<E> entityType
 	) {
-		return database.getRefTableByEntityClass(entityType);
+		return database.getRefTableByEntityType(entityType);
 	}
 	
 	//method
