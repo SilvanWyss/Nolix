@@ -52,7 +52,7 @@ public final class ReferenceHelper extends PropertyHelper implements IReferenceH
 	public <IMPL> IProperty<IMPL> getRefBackReferencingPropertyOrNull(final IReference<IMPL, ?> reference) {
 		return
 		reference
-		.getRefEntity()
+		.getReferencedEntity()
 		.technicalGetRefProperties()
 		.getRefFirstOrNull(p -> p.referencesBackProperty(reference));
 	}

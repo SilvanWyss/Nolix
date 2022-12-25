@@ -76,7 +76,7 @@ public final class DatabaseSaveValidator {
 											
 				database.internalGetRefDataAndSchemaAdapter().expectTableContainsEntity(
 					reference.getReferencedTableName(),
-					reference.getEntityId()
+					reference.getReferencedEntityId()
 				);
 											
 				break;

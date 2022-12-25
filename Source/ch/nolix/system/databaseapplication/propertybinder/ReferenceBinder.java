@@ -46,7 +46,7 @@ public final class ReferenceBinder extends PropertyBinder<IReference<?, IEntity<
 		
 		final var selectedEntityId = dropdownMenu.getRefSelectedItem().getId();
 		
-		reference.setEntityWithId(selectedEntityId);
+		reference.setEntityById(selectedEntityId);
 	}
 	
 	//method
@@ -56,7 +56,7 @@ public final class ReferenceBinder extends PropertyBinder<IReference<?, IEntity<
 		final IReference<?, IEntity<?>> reference
 	) {
 		if (reference.containsAny()) {
-			dropdownMenu.selectItemById(reference.getEntityId());
+			dropdownMenu.selectItemById(reference.getReferencedEntityId());
 		}
 	}
 }

@@ -5,17 +5,18 @@ package ch.nolix.systemapi.objectdatabaseapi.databaseapi;
 public interface IReference<
 	IMPL,
 	E extends IEntity<IMPL>
-> extends IBaseReference<IMPL, E> {
+>
+extends IBaseReference<IMPL, E> {
 	
 	//method declaration
-	String getEntityId();
+	E getReferencedEntity();
 	
 	//method declaration
-	E getRefEntity();
+	String getReferencedEntityId();
 	
 	//method declaration
 	void setEntity(final E entity);
 	
 	//method declaration
-	void setEntityWithId(final String id);
+	void setEntityById(final String id);
 }
