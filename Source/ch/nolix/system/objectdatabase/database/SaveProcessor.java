@@ -1,12 +1,19 @@
 //package declaration
 package ch.nolix.system.objectdatabase.database;
 
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 //own imports
 import ch.nolix.system.objectdatabase.databasehelper.DatabaseHelper;
 import ch.nolix.system.objectdatabase.databasehelper.EntityHelper;
 import ch.nolix.system.objectdatabase.databasevalidator.DatabaseValidator;
+import ch.nolix.system.objectdatabase.propertyhelper.PropertyHelper;
+import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
+import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
+import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiReference;
+import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiReferenceEntry;
 import ch.nolix.systemapi.objectdatabaseapi.databasehelperapi.IDatabaseHelper;
 import ch.nolix.systemapi.objectdatabaseapi.databasehelperapi.IEntityHelper;
+import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IPropertyHelper;
 
 //class
 final class SaveProcessor {
@@ -18,6 +25,9 @@ final class SaveProcessor {
 	private static final IEntityHelper entityHelper = new EntityHelper();
 	
 	//static attribute
+	private static final IPropertyHelper propertyHelper = new PropertyHelper();
+	
+	//static attribute
 	private static final DatabaseSaveValidator databaseSaveValidator = new DatabaseSaveValidator();
 	
 	//method
@@ -27,7 +37,7 @@ final class SaveProcessor {
 		
 		processDeletedEntities(database);
 		
-		setEditedEntitiesAsUpdated(database);
+		processChangedEntitiesOfDatabase(database);
 		
 		expectInitialSchemaTimestamp(database);
 		
@@ -52,7 +62,7 @@ final class SaveProcessor {
 	}
 	
 	//method
-	private void setEditedEntitiesAsUpdated(final Database database) {
+	private void processChangedEntitiesOfDatabase(final Database database) {
 		
 		final var entitiesInLocalData = databaseHelper.getRefEntitiesInLocalData(database);
 		
@@ -76,6 +86,8 @@ final class SaveProcessor {
 						entityHelper.createEntityUpdateDTOForEntity(e)
 					);
 					
+					saveMultiReferenceChangesOfEntity(e, database);
+					
 					break;
 				default:
 					//Does nothing.
@@ -96,5 +108,66 @@ final class SaveProcessor {
 	//method
 	private void actualSaveChanges(final Database database) {
 		database.internalGetRefDataAndSchemaAdapter().saveChangesAndReset();
+	}
+	
+	//method
+	private void saveMultiReferenceChangesOfEntity(
+		final IEntity<DataImplementation> entity,
+		final Database database
+	) {
+		for (final var p : entity.technicalGetRefProperties()) {
+			if (propertyHelper.isEdited(p) && p.getType() == PropertyType.MULTI_REFERENCE) {
+				saveChangesOfMultiReference((IMultiReference<?, ?>)p, database);
+			}
+		}
+	}
+	
+	//method
+	private void saveChangesOfMultiReference(final IMultiReference<?, ?> multiReference, final Database database) {
+		for (final var e : multiReference.getRefLocalEntries()) {
+			saveChangeOfMultiReferenceEntry(e, database);
+		}
+	}
+	
+	//method
+	private void saveChangeOfMultiReferenceEntry(
+		final IMultiReferenceEntry<?, ?> multiReferenceEntry,
+		final Database database
+	) {
+		
+		final var multiReferenceEntryState = multiReferenceEntry.getState();
+		
+		switch (multiReferenceEntryState) {
+			case NEW:
+				
+				final var entity = multiReferenceEntry.getRefParentMultiReference().getRefParentEntity();
+				
+				database.internalGetRefDataAndSchemaAdapter().insertEntryIntoMultiReference(
+					entity.getParentTableName(),
+					entity.getId(),
+					multiReferenceEntry.getRefParentMultiReference().getName(),
+					multiReferenceEntry.getReferencedEntityId()
+				);
+				
+				break;
+			case DELETED:
+				
+				final var entity2 = multiReferenceEntry.getRefParentMultiReference().getRefParentEntity();
+				
+				database.internalGetRefDataAndSchemaAdapter().deleteEntryFromMultiReference(
+					entity2.getParentTableName(),
+					entity2.getId(),
+					multiReferenceEntry.getRefParentMultiReference().getName(),
+					multiReferenceEntry.getReferencedEntityId()
+				);
+				
+				break;
+			default:
+				throw
+				InvalidArgumentException.forArgumentNameAndArgument(
+					"state of multi reference",
+					multiReferenceEntryState
+				);
+		}
 	}
 }

@@ -54,8 +54,6 @@ implements IMultiReference<DataImplementation, E> {
 		
 		updateStateForAddEntity(entity);
 		
-		updateRecordForAddEntity(entity);
-		
 		updateProbableBackReferencingPropertyForSetOrAddedEntity(entity);
 		
 		setAsEditedAndRunProbableUpdateAction();
@@ -277,19 +275,7 @@ implements IMultiReference<DataImplementation, E> {
 			}
 		}
 	}
-	
-	//method
-	private void updateRecordForAddEntity(final E entity) {
-		if (isLinkedWithRealDatabase()) {
-			internalGetRefDataAndSchemaAdapter().insertEntryIntoMultiReference(
-				getRefParentEntity().getParentTableName(),
-				getRefParentEntity().getId(),
-				getName(),
-				entity.getId()
-			);
-		}
-	}
-	
+		
 	//method
 	private void updateRecordForClear() {
 		if (isLinkedWithRealDatabase()) {
