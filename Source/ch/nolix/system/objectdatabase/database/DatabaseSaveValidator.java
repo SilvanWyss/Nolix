@@ -4,12 +4,14 @@ package ch.nolix.system.objectdatabase.database;
 //own imports
 import ch.nolix.system.objectdatabase.databasehelper.DatabaseHelper;
 import ch.nolix.system.objectdatabase.databasehelper.EntityHelper;
+import ch.nolix.system.objectdatabase.propertyhelper.MultiReferenceEntryHelper;
 import ch.nolix.system.objectdatabase.propertyhelper.PropertyHelper;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IReference;
 import ch.nolix.systemapi.objectdatabaseapi.databasehelperapi.IDatabaseHelper;
 import ch.nolix.systemapi.objectdatabaseapi.databasehelperapi.IEntityHelper;
+import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IMultiReferenceEntryHelper;
 import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IPropertyHelper;
 
 //class
@@ -23,6 +25,9 @@ public final class DatabaseSaveValidator {
 	
 	//static attribute
 	private static final IPropertyHelper propertyHelper = new PropertyHelper();
+	
+	//static attribute
+	private static final IMultiReferenceEntryHelper multiReferenceEntryHelper = new MultiReferenceEntryHelper();
 	
 	//method
 	public void addExpectionsThatNewlyReferencedEntitiesExistToDatabase(final Database database) {
@@ -93,7 +98,19 @@ public final class DatabaseSaveValidator {
 				
 				break;
 			case MULTI_REFERENCE:
-				//TODO: Implement.
+				
+				final var multiReference = (MultiReference<?>)property;
+				final var referencedTableName = multiReference.getReferencedTableName();
+				
+				for (final var le : multiReference.getRefLocalEntries()) {
+					if (multiReferenceEntryHelper.isNewOrEdited(le)) {
+						database.internalGetRefDataAndSchemaAdapter().expectTableContainsEntity(
+							referencedTableName,
+							le.getReferencedEntityId()
+						);
+					}
+				}
+				
 				break;
 			default:
 				//Does nothing.
