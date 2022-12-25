@@ -40,7 +40,7 @@ public interface IProperty<IMPL> extends EmptinessRequestable, IDatabaseObject, 
 	
 	//method declaration
 	boolean referencesBackEntity(IEntity<?> entity);
-			
+	
 	//method declaration
 	boolean referencesBackProperty(IProperty<?> property);
 	
