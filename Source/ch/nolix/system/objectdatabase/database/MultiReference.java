@@ -13,6 +13,7 @@ import ch.nolix.systemapi.databaseapi.propertytypeapi.BasePropertyType;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiReference;
+import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiReferenceEntry;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
 import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IMultiReferenceHelper;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDTO;
@@ -38,7 +39,7 @@ implements IMultiReference<DataImplementation, E> {
 	private boolean extractedReferencedEntityIds;
 	
 	//multi-attribute
-	private final LinkedList<String> referencedEntityIds = new LinkedList<>();
+	private final LinkedList<IMultiReferenceEntry<DataImplementation, E>> localEntries = new LinkedList<>();
 	
 	//constructor
 	private MultiReference(final String referencedTableName) {
@@ -99,7 +100,13 @@ implements IMultiReference<DataImplementation, E> {
 		
 		extractReferencedEntityIdsIfNeeded();
 		
-		return referencedEntityIds;
+		return localEntries.to(IMultiReferenceEntry::getReferencedEntityId);
+	}
+	
+	//method
+	@Override
+	public IContainer<? extends IMultiReferenceEntry<DataImplementation, E>> getRefLocalEntries() {
+		return localEntries;
 	}
 	
 	//method
@@ -162,12 +169,12 @@ implements IMultiReference<DataImplementation, E> {
 	//method
 	@Override
 	void internalUpdateWhenIsNewMultiProperty() {
-		for (final var reid : referencedEntityIds) {
+		for (final var le : localEntries) {
 			internalGetRefDataAndSchemaAdapter().insertEntryIntoMultiReference(
 				getRefParentEntity().getParentTableName(),
 				getRefParentEntity().getId(),
 				getName(),
-				reid
+				le.getReferencedEntityId()
 			);
 		}
 	}
@@ -211,17 +218,18 @@ implements IMultiReference<DataImplementation, E> {
 		
 		extractedReferencedEntityIds = true;
 		
-		referencedEntityIds.addAtEnd(loadReferencedEntityIds());
+		localEntries.addAtEnd(loadReferencedEntityIds());
 	}
 	
 	//method
-	private IContainer<String> loadReferencedEntityIds() {
+	private IContainer<IMultiReferenceEntry<DataImplementation, E>> loadReferencedEntityIds() {
 		return
 		internalGetRefDataAndSchemaAdapter().loadAllMultiReferenceEntriesForRecord(
 			getRefParentEntity().getParentTableName(),
 			getRefParentEntity().getId(),
 			getName()
-		);
+		)
+		.to(rei -> MultiReferenceEntry.loadedEntryForMultiReferenceAndReferencedEntityId(this, rei));
 	}
 	
 	//method
@@ -295,11 +303,11 @@ implements IMultiReference<DataImplementation, E> {
 	
 	//method
 	private void updateStateForAddEntity(final E entity) {
-		referencedEntityIds.addAtEnd(entity.getId());
+		localEntries.addAtEnd(MultiReferenceEntry.newEntryForMultiReferenceAndReferencedEntityId(this, entity.getId()));
 	}
 	
 	//method
 	private void updateStateForClear() {
-		referencedEntityIds.clear();
+		//TODO: Implement.
 	}
 }

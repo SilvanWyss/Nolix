@@ -20,4 +20,7 @@ extends Clearable, IBaseReference<IMPL, E> {
 	
 	//method declaration
 	IContainer<String> getReferencedEntityIds();
+	
+	//method declaration
+	IContainer<? extends IMultiReferenceEntry<IMPL, E>> getRefLocalEntries();
 }
