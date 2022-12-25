@@ -11,6 +11,6 @@ public final class SchemaHelper implements ISchemaHelper {
 	//method
 	@Override
 	public <IMPL> Class<? extends IEntity<IMPL>> getEntityTypeByName(final ISchema<IMPL> schema, final String name) {
-		return schema.getEntityTypesInOrder().getRefFirst(et -> et.getSimpleName().equals(name));
+		return schema.getEntityTypes().getRefFirst(et -> et.getSimpleName().equals(name));
 	}
 }

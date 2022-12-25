@@ -36,12 +36,12 @@ public final class Schema implements ISchema<DataImplementation> {
 	//method
 	@Override
 	public Class<? extends IEntity<DataImplementation>> getEntityTypeByName(final String name) {
-		return getEntityTypesInOrder().getRefFirst(et -> et.getSimpleName().equals(name));
+		return getEntityTypes().getRefFirst(et -> et.getSimpleName().equals(name));
 	}
 	
 	//method	
 	@Override
-	public IContainer<Class<? extends IEntity<DataImplementation>>> getEntityTypesInOrder() {
+	public IContainer<Class<? extends IEntity<DataImplementation>>> getEntityTypes() {
 		return entityTypesInOrder;
 	}
 	

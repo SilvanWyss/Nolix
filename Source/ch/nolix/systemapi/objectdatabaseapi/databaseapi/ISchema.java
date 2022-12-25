@@ -11,5 +11,5 @@ public interface ISchema<IMPL> {
 	Class<? extends IEntity<IMPL>> getEntityTypeByName(String name);
 	
 	//method declaration
-	IContainer<Class<? extends IEntity<IMPL>>> getEntityTypesInOrder();
+	IContainer<Class<? extends IEntity<IMPL>>> getEntityTypes();
 }
