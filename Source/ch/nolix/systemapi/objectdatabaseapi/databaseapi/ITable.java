@@ -11,22 +11,23 @@ import ch.nolix.systemapi.databaseapi.databaseobjectapi.IDatabaseObject;
 public interface ITable<
 	IMPL,
 	E extends IEntity<IMPL>
-> extends IDatabaseObject, IdentifiedByString, Named {
+>
+extends IDatabaseObject, IdentifiedByString, Named {
 	
 	//method declaration
-	IContainer<IColumn<IMPL>> getColumns();
+	Class<E> getEntityType();
 	
 	//method declaration
-	Class<E> getEntityClass();
+	IContainer<IColumn<IMPL>> getRefColumns();
 	
 	//method declaration
 	IContainer<E> getRefEntities();
 	
 	//method declaration
-	IDatabase<IMPL> getRefParentDatabase();
+	E getRefEntityById(String id);
 	
 	//method declaration
-	E getRefEntityById(String id);
+	IDatabase<IMPL> getRefParentDatabase();
 	
 	//method declaration
 	ITable<IMPL, E> insertEntity(E entity);

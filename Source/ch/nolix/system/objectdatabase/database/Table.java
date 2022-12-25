@@ -83,14 +83,14 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 	
 	//method
 	@Override
-	public IContainer<IColumn<DataImplementation>> getColumns() {
-		return columns;
+	public Class<E> getEntityType() {
+		return entityClass;
 	}
 	
 	//method
 	@Override
-	public Class<E> getEntityClass() {
-		return entityClass;
+	public IContainer<IColumn<DataImplementation>> getRefColumns() {
+		return columns;
 	}
 	
 	//method
@@ -116,12 +116,6 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 	
 	//method
 	@Override
-	public IDatabase<DataImplementation> getRefParentDatabase() {
-		return parentDatabase;
-	}
-	
-	//method
-	@Override
 	public E getRefEntityById(final String id) {
 		
 		final var entity = technicalGetRefEntitiesInLocalData().getRefFirstOrNull(e -> e.hasId(id));
@@ -134,6 +128,12 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 		}
 		
 		return entity;
+	}
+	
+	//method
+	@Override
+	public IDatabase<DataImplementation> getRefParentDatabase() {
+		return parentDatabase;
 	}
 	
 	//method

@@ -15,7 +15,7 @@ final class PropertyFromTableExtractor {
 	public IContainer<Property> createPropertiesFromTable(
 		final ITable<DataImplementation, IEntity<DataImplementation>> table
 	) {
-		return table.getColumns().to(this::createPropertyFromColumn);
+		return table.getRefColumns().to(this::createPropertyFromColumn);
 	}
 	
 	//method

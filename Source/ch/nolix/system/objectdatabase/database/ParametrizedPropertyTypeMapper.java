@@ -77,7 +77,7 @@ final class ParametrizedPropertyTypeMapper {
 				
 				final var backReferencedColumn =
 				referencableTables
-				.toFromMany(ITable::getColumns)
+				.toFromMany(ITable::getRefColumns)
 				.getRefFirst(c -> c.hasId(baseParametrizedBackRefenceTypeDTO.getBackReferencedColumnId()));
 				
 				return new ParametrizedBackReferenceType<>(backReferencedColumn);
@@ -88,7 +88,7 @@ final class ParametrizedPropertyTypeMapper {
 				
 				final var backReferencedColumn2 =
 				referencableTables
-				.toFromMany(ITable::getColumns)
+				.toFromMany(ITable::getRefColumns)
 				.getRefFirst(c -> c.hasId(baseParametrizedBackRefenceTypeDTO2.getBackReferencedColumnId()));
 				
 				return new ParametrizedBackReferenceType<>(backReferencedColumn2);
@@ -99,7 +99,7 @@ final class ParametrizedPropertyTypeMapper {
 				
 				final var backReferencedColumn3 =
 				referencableTables
-				.toFromMany(ITable::getColumns)
+				.toFromMany(ITable::getRefColumns)
 				.getRefFirst(c -> c.hasId(baseParametrizedBackRefenceTypeDTO3.getBackReferencedColumnId()));
 				
 				return new ParametrizedBackReferenceType<>(backReferencedColumn3);

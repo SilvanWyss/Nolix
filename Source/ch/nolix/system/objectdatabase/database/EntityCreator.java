@@ -11,7 +11,7 @@ public final class EntityCreator {
 	
 	//method
 	public <E extends IEntity<DataImplementation>> E createEmptyEntityFor(final ITable<DataImplementation, E> table) {
-		return createEmptyEntityOf(table.getEntityClass());
+		return createEmptyEntityOf(table.getEntityType());
 	}
 	
 	//method
