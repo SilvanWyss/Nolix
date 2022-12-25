@@ -94,12 +94,6 @@ public final class Value<V> extends BaseValue<V> implements IValue<DataImplement
 	}
 	
 	//method
-	@Override
-	void internalUpdateWhenIsNewMultiProperty() {
-		//Does nothing.
-	}
-	
-	//method
 	private void updateStateForSetValue(final V value) {
 		internalValue = value;
 	}

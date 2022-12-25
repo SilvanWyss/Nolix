@@ -86,19 +86,6 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<Dat
 	}
 	
 	//method
-	@Override
-	void internalUpdateWhenIsNewMultiProperty() {
-		for (final var v : values) {
-			internalGetRefDataAndSchemaAdapter().insertEntryIntoMultiValue(
-				getRefParentEntity().getParentTableName(),
-				getRefParentEntity().getId(),
-				getName(),
-				v.toString()
-			);
-		}
-	}
-	
-	//method
 	private void assertCanAddGivenValue(final V value) {
 		multiValueHelper.assertCanAddGivenValue(this, value);
 	}

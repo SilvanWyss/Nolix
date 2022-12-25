@@ -105,12 +105,6 @@ public final class OptionalValue<V> extends BaseValue<V> implements IOptionalVal
 	}
 	
 	//method
-	@Override
-	void internalUpdateWhenIsNewMultiProperty() {
-		//Does nothing.
-	}
-	
-	//method
 	private void updateStateForSetValue(final V value) {
 		
 		GlobalValidator.assertThat(value).thatIsNamed(LowerCaseCatalogue.VALUE).isNotNull();

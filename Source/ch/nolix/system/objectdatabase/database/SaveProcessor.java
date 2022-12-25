@@ -58,8 +58,7 @@ final class SaveProcessor {
 						entityHelper.createRecordFor(e)
 					);
 					
-					//TODO: Beautify this step.
-					((BaseEntity)e).internalUpdateMultiPropertiesWhenIsNew();
+					saveMultiReferenceChangesOfEntity(e, database);
 					
 					break;
 				case EDITED:
@@ -107,7 +106,7 @@ final class SaveProcessor {
 		final Database database
 	) {
 		for (final var p : entity.technicalGetRefProperties()) {
-			if (propertyHelper.isEdited(p) && p.getType() == PropertyType.MULTI_REFERENCE) {
+			if (propertyHelper.isNewOrEdited(p) && p.getType() == PropertyType.MULTI_REFERENCE) {
 				saveChangesOfMultiReference((IMultiReference<?, ?>)p, database);
 			}
 		}
