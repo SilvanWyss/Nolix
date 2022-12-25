@@ -2,7 +2,11 @@
 package ch.nolix.systemapi.objectdatabaseapi.databaseapi;
 
 //interface
-public interface IValue<IMPL, V> extends IBaseValue<IMPL, V> {
+public interface IValue<
+	IMPL,
+	V
+>
+extends IBaseValue<IMPL, V> {
 	
 	//method declaration
 	V getRefValue();
@@ -11,5 +15,5 @@ public interface IValue<IMPL, V> extends IBaseValue<IMPL, V> {
 	void setValue(V value);
 	
 	//method declaration
-	void setValueFromStringRepresentation(String string);
+	void setValueFromString(String string);
 }

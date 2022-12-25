@@ -68,7 +68,7 @@ public final class Value<V> extends BaseValue<V> implements IValue<DataImplement
 	
 	//method
 	@Override
-	public void setValueFromStringRepresentation(final String string) {
+	public void setValueFromString(final String string) {
 		
 		@SuppressWarnings("unchecked")
 		final var value =

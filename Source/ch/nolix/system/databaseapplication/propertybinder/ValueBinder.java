@@ -31,7 +31,7 @@ public final class ValueBinder extends PropertyBinder<IValue<?, ?>, ITextbox<?, 
 	//method
 	@Override
 	protected void updatePropertyFromControl(final IValue<?, ?> value, final ITextbox<?, ?> textBox) {
-		value.setValueFromStringRepresentation(textBox.getText());
+		value.setValueFromString(textBox.getText());
 	}
 	
 	//method
