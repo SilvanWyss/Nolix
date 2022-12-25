@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.system.objectdatabase.database;
 
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 //own imports
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectdatabase.databasehelper.DatabaseHelper;
 import ch.nolix.system.objectdatabase.databasehelper.EntityHelper;
 import ch.nolix.system.objectdatabase.databasevalidator.DatabaseValidator;
@@ -35,30 +35,13 @@ final class SaveProcessor {
 		
 		DatabaseValidator.INSTANCE.assertCanSaveChanges(database);
 		
-		processDeletedEntities(database);
-		
 		processChangedEntitiesOfDatabase(database);
+				
+		assertNewlyReferencedEntitiesExists(database);
 		
 		expectInitialSchemaTimestamp(database);
 		
-		assertNewlyReferencedEntitiesExists(database);
-		
 		actualSaveChanges(database);
-	}
-	
-	//method
-	private void processDeletedEntities(final Database database) {
-		
-		final var entitiesInLocalData = databaseHelper.getRefEntitiesInLocalData(database);
-		
-		for (final var e : entitiesInLocalData) {
-			if (entityHelper.isDeleted(e)) {
-				database.internalGetRefDataAndSchemaAdapter().deleteRecordFromTable(
-					e.getRefParentTable().getName(),
-					entityHelper.createRecordHeadDTOForEntity(e)
-				);
-			}
-		}
 	}
 	
 	//method
@@ -87,6 +70,14 @@ final class SaveProcessor {
 					);
 					
 					saveMultiReferenceChangesOfEntity(e, database);
+					
+					break;
+				case DELETED:
+					
+					database.internalGetRefDataAndSchemaAdapter().deleteRecordFromTable(
+						e.getRefParentTable().getName(),
+						entityHelper.createRecordHeadDTOForEntity(e)
+					);
 					
 					break;
 				default:
