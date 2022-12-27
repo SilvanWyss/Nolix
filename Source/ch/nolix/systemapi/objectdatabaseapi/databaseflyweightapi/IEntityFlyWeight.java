@@ -3,9 +3,10 @@ package ch.nolix.systemapi.objectdatabaseapi.databaseflyweightapi;
 
 //own imports
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
+import ch.nolix.coreapi.functionapi.requestuniversalapi.VoidnessRequestable;
 
 //interface
-public interface IEntityFlyWeight {
+public interface IEntityFlyWeight extends VoidnessRequestable {
 	
 	//method declaration
 	void noteInsert();
