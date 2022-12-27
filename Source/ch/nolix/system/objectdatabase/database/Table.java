@@ -248,7 +248,9 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 		
 		entitiesInLocalData.addAtEnd(entity);
 		
-		((BaseEntity)entity).internalUpdateProbableBackReferencesWhenIsNew();
+		final var baseEntity = (BaseEntity)entity;
+		baseEntity.internalUpdateProbableBackReferencesWhenIsNew();
+		baseEntity.internalNoteInsert();
 	}
 	
 	//method

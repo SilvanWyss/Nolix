@@ -9,14 +9,18 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programstructure.data.GlobalIdCreator;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.system.objectdatabase.databasehelper.EntityHelper;
 import ch.nolix.system.objectdatabase.databasevalidator.EntityValidator;
+import ch.nolix.system.objectdatabase.entityflyweight.EntityFlyWeight;
+import ch.nolix.system.objectdatabase.entityflyweight.VoidEntityFlyWeight;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.DatabaseObjectState;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IBaseBackReference;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IDatabase;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
+import ch.nolix.systemapi.objectdatabaseapi.databaseflyweightapi.IEntityFlyWeight;
 import ch.nolix.systemapi.objectdatabaseapi.databasehelperapi.IEntityHelper;
 import ch.nolix.systemapi.rawdatabaseapi.databaseandschemaadapterapi.IDataAndSchemaAdapter;
 
@@ -31,6 +35,9 @@ public abstract class BaseEntity implements IEntity<DataImplementation> {
 	
 	//attribute
 	private DatabaseObjectState state = DatabaseObjectState.NEW;
+	
+	//attribute
+	private IEntityFlyWeight entityFlyweight = VoidEntityFlyWeight.INSTANCE;
 	
 	//optional attribute
 	private ITable<DataImplementation, IEntity<DataImplementation>> parentTable;
@@ -153,6 +160,14 @@ public abstract class BaseEntity implements IEntity<DataImplementation> {
 	}
 	
 	//method
+	protected final void setInsertAction(final IAction insertAction) {
+		
+		setEffectiveEntityFlyWeightIfEntityFlyWeightIsVoid();
+		
+		entityFlyweight.setInsertAction(insertAction);
+	}
+	
+	//method
 	final void internalClose() {
 		state = DatabaseObjectState.CLOSED;
 	}
@@ -169,6 +184,11 @@ public abstract class BaseEntity implements IEntity<DataImplementation> {
 	
 	//method declaration
 	abstract IContainer<Property> internalLoadProperties();
+	
+	//method
+	final void internalNoteInsert() {
+		entityFlyweight.noteInsert();
+	}
 	
 	//method
 	final void internalSetEdited() {
@@ -263,6 +283,18 @@ public abstract class BaseEntity implements IEntity<DataImplementation> {
 		((Table<?>)getRefParentTable())
 		.internalGetColumnsThatReferencesCurrentTable()
 		.containsAny(c -> c.technicalContainsGivenValueInPersistedData(lId));
+	}
+	
+	//method
+	private void setEffectiveEntityFlyWeightIfEntityFlyWeightIsVoid() {
+		if (entityFlyweight.isVoid()) {
+			setEffectiveEntityFlyWeightWhenEntityFlyWeightIsVoid();
+		}
+	}
+	
+	//method
+	private void setEffectiveEntityFlyWeightWhenEntityFlyWeightIsVoid() {
+		entityFlyweight = new EntityFlyWeight();
 	}
 	
 	//method
