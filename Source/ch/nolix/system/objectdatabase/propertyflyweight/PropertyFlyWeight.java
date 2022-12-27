@@ -26,6 +26,7 @@ public final class PropertyFlyWeight implements IPropertyFlyWeight {
 		}
 	}
 	
+	//method
 	@Override
 	public void setUpdateAction(final IAction updateAction) {
 		
