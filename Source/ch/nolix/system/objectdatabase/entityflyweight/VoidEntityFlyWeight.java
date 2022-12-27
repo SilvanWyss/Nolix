@@ -1,0 +1,34 @@
+//package declaration
+package ch.nolix.system.objectdatabase.entityflyweight;
+
+//own imports
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
+import ch.nolix.systemapi.objectdatabaseapi.databaseflyweightapi.IEntityFlyWeight;
+
+//class
+public final class VoidEntityFlyWeight implements IEntityFlyWeight {
+	
+	//constant
+	public static final VoidEntityFlyWeight INSTANCE = new VoidEntityFlyWeight();
+	
+	//constructor
+	private VoidEntityFlyWeight() {}
+	
+	//method
+	@Override
+	public boolean isVoid() {
+		return true;
+	}
+	
+	//method
+	@Override
+	public void noteInsert() {
+		//Does nothing.
+	}
+	
+	@Override
+	public void setInsertAction(final IAction insertAction) {
+		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "setInsertAction");
+	}
+}
