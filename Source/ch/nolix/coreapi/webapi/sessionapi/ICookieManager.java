@@ -8,7 +8,7 @@ public interface ICookieManager {
 	void deleteCookieByName(String name);
 	
 	//method declaration
-	String getCookieValueByCookieName(String name);
+	String getCookieValueByCookieNameOrNull(String name);
 	
 	//method declaration
 	void setOrAddCookieWithNameAndValue(String name, String value);
