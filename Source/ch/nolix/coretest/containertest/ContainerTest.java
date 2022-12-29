@@ -428,6 +428,57 @@ public abstract class ContainerTest extends Test {
 	}
 	
 	@TestCase
+	public final void testCase_getMedianByDouble_whenIsEmpty() {
+		
+		//setup
+		final var testUnit = createEmptyContainerForType(Double.class);
+		
+		//execution & verification
+		expectRunning(() -> testUnit.getMedianByDouble(FunctionCatalogue::getSelf))
+		.throwsException()
+		.ofType(EmptyArgumentException.class);
+	}
+	
+	@TestCase
+	public final void testCase_getMedianByDouble_whenContainsAny_1A() {
+		
+		//setup
+		final var testUnit = createContainerWithElements(1.0, 2.0, 3.0, 4.0, 5.0);
+		
+		//execution
+		final var result = testUnit.getMedianByDouble(FunctionCatalogue::getSelf);
+		
+		//verification
+		expect(result).isEqualTo(3.0);
+	}
+	
+	@TestCase
+	public final void testCase_getMedianByDouble_whenContainsAny_1B() {
+		
+		//setup
+		final var testUnit = createContainerWithElements(1.0, 2.0, 3.0, 4.0, 5.0, 6.0);
+		
+		//execution
+		final var result = testUnit.getMedianByDouble(FunctionCatalogue::getSelf);
+		
+		//verification
+		expect(result).isEqualTo(3.5);
+	}
+	
+	@TestCase
+	public final void testCase_getMedianByDouble_whenContainsAny_2() {
+		
+		//setup
+		final var testUnit = createContainerWithElements(1.0, 1.0, 1.0, 1.0, 1.0, 1.0);
+		
+		//execution
+		final var result = testUnit.getMedianByDouble(FunctionCatalogue::getSelf);
+		
+		//verification
+		expect(result).isEqualTo(1.0);
+	}
+	
+	@TestCase
 	public final void testCase_getRefByMaxInt() {
 		
 		//setup
