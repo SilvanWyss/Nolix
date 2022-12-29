@@ -6,6 +6,7 @@ import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.errorcontrol.exception.ResourceWasChangedInTheMeanwhileException;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.system.objectdatabase.database.Entity;
 import ch.nolix.system.objectdatabase.database.Schema;
 import ch.nolix.system.objectdatabase.database.Value;
@@ -24,6 +25,33 @@ public final class EntityOnDatabaseTest extends Test {
 		public Pet() {
 			initialize();
 		}
+		
+		public void setInsertAction_(final IAction insertAction) {
+			setInsertAction(insertAction);
+		}
+	}
+	
+	//method
+	@TestCase
+	public void testCase_isInserted_whenHasInsertAction() {
+		
+		//setup
+		final var nodeDatabase = new MutableNode();
+		final var schema = Schema.withEntityType(Pet.class);
+		final var nodeDatabaseAdapter =
+		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		final var testUnit = new Pet();
+		testUnit.ageInYears.setValue(0);
+		testUnit.setInsertAction_(() -> testUnit.ageInYears.setValue(1));
+		
+		//setup verification
+		expect(testUnit.ageInYears.getRefValue()).isEqualTo(0);
+		
+		//execution
+		nodeDatabaseAdapter.insert(testUnit);
+		
+		//verification
+		expect(testUnit.ageInYears.getRefValue()).isEqualTo(1);
 	}
 	
 	//method

@@ -10,7 +10,7 @@ import ch.nolix.systemapi.databaseapi.databaseobjectapi.DatabaseObjectState;
 //class
 public final class EntityTest extends Test {
 	
-	//static attribute
+	//static class
 	private static final class Thing extends Entity {}
 	
 	//method
