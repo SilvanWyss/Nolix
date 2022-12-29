@@ -19,6 +19,9 @@ public final class CommandProtocol {
 	//constant
 	public static final String SEND_OPTIONAL_FILE = "SendOptionalFile";
 	
+	//constant
+	public static final String SET_OR_ADD_COOKIE_WITH_NAME_AND_VALUE = "SetOrAddCookieWithNameAndValue";
+	
 	//constructor
 	private CommandProtocol() {}
 }
