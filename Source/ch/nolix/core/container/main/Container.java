@@ -820,7 +820,7 @@ public abstract class Container<E> implements IContainer<E> {
 			return 0.5 * (values.getRefAt1BasedIndex(firstIndex) + values.getRefAt1BasedIndex(firstIndex + 1));
 		}
 		
-		return values.getRefAt1BasedIndex(valueCount / 2);
+		return values.getRefAt1BasedIndex((valueCount / 2) + 1);
 	}
 	
 	//method
