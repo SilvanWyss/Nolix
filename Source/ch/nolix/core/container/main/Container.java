@@ -807,6 +807,8 @@ public abstract class Container<E> implements IContainer<E> {
 	@Override
 	public final double getMedianByDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
 		
+		assertIsNotEmpty();
+		
 		final var values = to(doubleNorm::getOutput);
 		
 		values.toOrderedList(FunctionCatalogue::getSelf);
@@ -2314,5 +2316,12 @@ public abstract class Container<E> implements IContainer<E> {
 		
 		//Handles the case that the current IContainer contains n elements.
 		return new ReadContainer<>();
+	}
+	
+	//method
+	private void assertIsNotEmpty() {
+		if (isEmpty()) {
+			throw EmptyArgumentException.forArgument(this);
+		}
 	}
 }
