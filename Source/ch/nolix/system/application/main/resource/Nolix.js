@@ -1998,34 +1998,28 @@ define("Core/Testing/Test/TestPool", ["require", "exports", "Core/Container/Link
     }
     exports.TestPool = TestPool;
 });
-define("System/Application/GUIApplication/ReceiverController", ["require", "exports"], function (require, exports) {
+define("Core/Web/CookieManager", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    class ReceiverController {
-        constructor(runMethod, getDataMethod) {
-            if (runMethod === null) {
-                throw new Error('The given run method is null.');
+    class CookieManager {
+        CookieManager() { }
+        getCookieValueByCookieNameOrEmptyString(cookieName) {
+            const cookieString = window.document.cookie;
+            const cookies = cookieString.split(';');
+            for (const c of cookies) {
+                if (c.split('=')[0] === cookieName) {
+                    return c.split('=')[1];
+                }
             }
-            if (runMethod === undefined) {
-                throw new Error('The given run method is undefined.');
-            }
-            if (getDataMethod === null) {
-                throw new Error('The given getData method is null.');
-            }
-            if (getDataMethod === undefined) {
-                throw new Error('The given getData method is undefined.');
-            }
-            this.runMethod = runMethod;
-            this.getDataMethod = getDataMethod;
+            return '';
         }
-        getData(request) {
-            return this.getDataMethod(request);
-        }
-        run(command) {
-            this.runMethod(command);
+        setOrAddCookieWithNameAndValue(name, value) {
+            window.document.cookie = name + '=' + value + '; max-age=' + CookieManager.COOKIE_MAX_AGE_IN_SECONDS;
         }
     }
-    exports.ReceiverController = ReceiverController;
+    CookieManager.COOKIE_MAX_AGE_IN_SECONDS = 31536000;
+    CookieManager.INSTANCE = new CookieManager();
+    exports.CookieManager = CookieManager;
 });
 define("System/Application/WebApplicationProtocol/CommandProtocol", ["require", "exports"], function (require, exports) {
     "use strict";
@@ -2037,6 +2031,7 @@ define("System/Application/WebApplicationProtocol/CommandProtocol", ["require", 
     CommandProtocol.SET_CSS = "SetCSS";
     CommandProtocol.SET_EVENT_FUNCTIONS = 'SetEventFunctions';
     CommandProtocol.SET_ICON = 'SetIcon';
+    CommandProtocol.SET_OR_ADD_COOKIE_WITH_NAME_AND_VALUE = 'SetOrAddCookieWithNameAndValue';
     CommandProtocol.SET_ROOT_HTML_ELEMENT = 'SetRootHTMLElement';
     CommandProtocol.SET_TITLE = 'SetTitle';
     CommandProtocol.SET_USER_INPUT_FUNCTIONS = 'SetUserInputFunctions';
@@ -2508,6 +2503,43 @@ define("System/Application/WebApplicationProtocol/ObjectProtocol", ["require", "
     ObjectProtocol.URL = 'URL';
     exports.ObjectProtocol = ObjectProtocol;
 });
+define("System/Application/WebApplication/ReceiverController", ["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    class ReceiverController {
+        constructor(runMethod, getDataMethod) {
+            if (runMethod === null) {
+                throw new Error('The given run method is null.');
+            }
+            if (runMethod === undefined) {
+                throw new Error('The given run method is undefined.');
+            }
+            if (getDataMethod === null) {
+                throw new Error('The given getData method is null.');
+            }
+            if (getDataMethod === undefined) {
+                throw new Error('The given getData method is undefined.');
+            }
+            this.runMethod = runMethod;
+            this.getDataMethod = getDataMethod;
+        }
+        getData(request) {
+            return this.getDataMethod(request);
+        }
+        run(command) {
+            this.runMethod(command);
+        }
+    }
+    exports.ReceiverController = ReceiverController;
+});
+define("System/Application/WebApplicationProtocol/RequestProtocol", ["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    class RequestProtocol {
+    }
+    RequestProtocol.GET_COOKIE_VALUE_BY_COOKIE_NAME = "GetCookieValueByCookieName";
+    exports.RequestProtocol = RequestProtocol;
+});
 define("System/Application/WebApplication/TargetApplicationExtractor", ["require", "exports", "Core/CommonType/CommonTypeHelper/GlobalStringHelper", "Core/Container/SingleContainer"], function (require, exports, GlobalStringHelper_1, SingleContainer_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
@@ -2526,7 +2558,7 @@ define("System/Application/WebApplication/TargetApplicationExtractor", ["require
     TargetApplicationExtractor.INSTANCE = new TargetApplicationExtractor();
     exports.TargetApplicationExtractor = TargetApplicationExtractor;
 });
-define("System/Application/WebApplication/FrontendWebClient", ["require", "exports", "Core/Document/ChainedNode/ChainedNode", "System/Application/WebApplicationProtocol/CommandProtocol", "System/Application/WebApplication/FrontendWebClientGUIManager", "Core/Container/LinkedList", "Core/Net/EndPoint5/NetEndPoint5", "System/Application/WebApplicationProtocol/ObjectProtocol", "System/Application/GUIApplication/ReceiverController", "Core/Container/SingleContainer", "System/Application/WebApplication/TargetApplicationExtractor"], function (require, exports, ChainedNode_3, CommandProtocol_2, FrontendWebClientGUIManager_1, LinkedList_10, NetEndPoint5_1, ObjectProtocol_1, ReceiverController_1, SingleContainer_2, TargetApplicationExtractor_1) {
+define("System/Application/WebApplication/FrontendWebClient", ["require", "exports", "Core/Document/ChainedNode/ChainedNode", "System/Application/WebApplicationProtocol/CommandProtocol", "Core/Web/CookieManager", "System/Application/WebApplication/FrontendWebClientGUIManager", "Core/Container/LinkedList", "Core/Net/EndPoint5/NetEndPoint5", "Core/Document/Node/Node", "System/Application/WebApplicationProtocol/ObjectProtocol", "System/Application/WebApplication/ReceiverController", "System/Application/WebApplicationProtocol/RequestProtocol", "Core/Container/SingleContainer", "System/Application/WebApplication/TargetApplicationExtractor"], function (require, exports, ChainedNode_3, CommandProtocol_2, CookieManager_1, FrontendWebClientGUIManager_1, LinkedList_10, NetEndPoint5_1, Node_6, ObjectProtocol_1, ReceiverController_1, RequestProtocol_1, SingleContainer_2, TargetApplicationExtractor_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class FrontendWebClient {
@@ -2549,7 +2581,16 @@ define("System/Application/WebApplication/FrontendWebClient", ["require", "expor
             return ChainedNode_3.ChainedNode.withHeaderAndNextNode(ObjectProtocol_1.ObjectProtocol.GUI, ChainedNode_3.ChainedNode.withHeaderAndAttributesFromNodes(CommandProtocol_2.CommandProtocol.SET_USER_INPUTS, userInputs.to(ui => ui.getSpecification())));
         }
         getData(request) {
-            throw new Error('The given request \'' + request + '\' not valid.');
+            switch (request.getHeader()) {
+                case RequestProtocol_1.RequestProtocol.GET_COOKIE_VALUE_BY_COOKIE_NAME:
+                    const cookieValue = CookieManager_1.CookieManager.INSTANCE.getCookieValueByCookieNameOrEmptyString(request.getOneAttribute().getHeader());
+                    if (cookieValue.length === 0) {
+                        return new Node_6.Node();
+                    }
+                    return Node_6.Node.withHeader(cookieValue);
+                default:
+                    throw new Error('The given request \'' + request + '\' not valid.');
+            }
         }
         openNewTabWithURL(pURL) {
             this.mGUIManager.openNewTabWithURL(pURL);
@@ -2564,6 +2605,9 @@ define("System/Application/WebApplication/FrontendWebClient", ["require", "expor
                     break;
                 case CommandProtocol_2.CommandProtocol.REDIRECT:
                     this.runRedirectCommand(command);
+                    break;
+                case CommandProtocol_2.CommandProtocol.SET_OR_ADD_COOKIE_WITH_NAME_AND_VALUE:
+                    this.runSetOrAddCookieWithNameAndValueCommand(command);
                     break;
                 default:
                     throw new Error('The given command \'' + command + '\' is not valid.');
@@ -2582,6 +2626,11 @@ define("System/Application/WebApplication/FrontendWebClient", ["require", "expor
         }
         runRedirectCommand(redirectCommand) {
             this.redirectTo(redirectCommand.getOneAttribute().getHeader());
+        }
+        runSetOrAddCookieWithNameAndValueCommand(setOrAddCookieWithNameAndValueCommand) {
+            const name = setOrAddCookieWithNameAndValueCommand.getAttributeAt(1).getHeader();
+            const value = setOrAddCookieWithNameAndValueCommand.getAttributeAt(2).getHeader();
+            CookieManager_1.CookieManager.INSTANCE.setOrAddCookieWithNameAndValue(name, value);
         }
         takeEvent(command) {
             const commands = new LinkedList_10.LinkedList();

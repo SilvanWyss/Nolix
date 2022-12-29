@@ -5,6 +5,7 @@ package ch.nolix.system.application.basewebapplication;
 import java.nio.charset.StandardCharsets;
 
 //own imports
+import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IApplicationTarget;
@@ -47,6 +48,18 @@ final class BaseBackendWebClientCommandCreator {
 		ChainedNode.withHeaderAndChildNodesFromNodes(
 			CommandProtocol.SAVE_FILE,
 			Node.withHeader(new String(bytes, StandardCharsets.UTF_8))
+		);
+	}
+	
+	//method
+	public ChainedNode createSetOrAddCookieCommandForCookieWithNameAndValue(final String name, final String value) {
+		return
+		ChainedNode.withHeaderAndChildNodes(
+			CommandProtocol.SET_OR_ADD_COOKIE_WITH_NAME_AND_VALUE,
+			ImmutableList.withElements(
+				ChainedNode.withHeader(name),
+				ChainedNode.withHeader(value)
+			)
 		);
 	}
 }
