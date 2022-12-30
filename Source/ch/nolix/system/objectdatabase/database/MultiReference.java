@@ -8,6 +8,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.system.objectdatabase.propertyhelper.MultiReferenceHelper;
+import ch.nolix.system.objectdatabase.propertyvalidator.MultiReferenceValidator;
 import ch.nolix.system.sqlrawdata.databasedto.ContentFieldDTO;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.BasePropertyType;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
@@ -16,6 +17,7 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiReference;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiReferenceEntry;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
 import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IMultiReferenceHelper;
+import ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi.IMultiReferenceValidator;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDTO;
 
 //class
@@ -24,6 +26,9 @@ implements IMultiReference<DataImplementation, E> {
 	
 	//static attribute
 	private static final IMultiReferenceHelper multiReferenceHelper = new MultiReferenceHelper();
+	
+	//static attribute
+	private static final IMultiReferenceValidator multiReferenceValidator = new MultiReferenceValidator();
 	
 	//static method
 	public static <E2 extends Entity> MultiReference<E2> forEntity(final Class<E2> type) {
@@ -39,7 +44,7 @@ implements IMultiReference<DataImplementation, E> {
 	private boolean extractedReferencedEntityIds;
 	
 	//multi-attribute
-	private final LinkedList<IMultiReferenceEntry<DataImplementation, E>> localEntries = new LinkedList<>();
+	private final LinkedList<MultiReferenceEntry<E>> localEntries = new LinkedList<>();
 	
 	//constructor
 	private MultiReference(final String referencedTableName) {
@@ -144,6 +149,17 @@ implements IMultiReference<DataImplementation, E> {
 	
 	//method
 	@Override
+	public void removeEntity(final E entity) {
+
+		multiReferenceValidator.assertCanRemoveEntity(this, entity);
+		
+		extractReferencedEntityIdsIfNeeded();
+		
+		localEntries.getRefFirst(le -> le.getReferencedEntityId().equals(entity.getId())).internalSetDeleted();
+	}
+	
+	//method
+	@Override
 	public IContentFieldDTO technicalToContentField() {
 		return new ContentFieldDTO(getName());
 	}
@@ -207,7 +223,7 @@ implements IMultiReference<DataImplementation, E> {
 	}
 	
 	//method
-	private IContainer<IMultiReferenceEntry<DataImplementation, E>> loadReferencedEntityIds() {
+	private IContainer<MultiReferenceEntry<E>> loadReferencedEntityIds() {
 		return
 		internalGetRefDataAndSchemaAdapter().loadAllMultiReferenceEntriesForRecord(
 			getRefParentEntity().getParentTableName(),

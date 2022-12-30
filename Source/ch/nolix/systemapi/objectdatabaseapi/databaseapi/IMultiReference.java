@@ -23,4 +23,7 @@ extends Clearable, IBaseReference<IMPL, E> {
 	
 	//method declaration
 	IContainer<? extends IMultiReferenceEntry<IMPL, E>> getRefLocalEntries();
+	
+	//method declaration
+	void removeEntity(E entity);
 }
