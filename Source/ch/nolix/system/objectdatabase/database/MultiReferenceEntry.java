@@ -18,7 +18,8 @@ implements IMultiReferenceEntry<DataImplementation, E> {
 	private static final DatabaseObjectHelper databaseObjectHelper = new DatabaseObjectHelper();
 	
 	//static method
-	public static <E2 extends IEntity<DataImplementation>> MultiReferenceEntry<E2> loadedEntryForMultiReferenceAndReferencedEntityId(
+	public static <E2 extends IEntity<DataImplementation>> MultiReferenceEntry<E2>
+	loadedEntryForMultiReferenceAndReferencedEntityId(
 		final IMultiReference<DataImplementation, E2> multiReference,
 		final String referencedEntityId
 	) {
@@ -26,7 +27,8 @@ implements IMultiReferenceEntry<DataImplementation, E> {
 	}
 	
 	//static method
-	public static <E2 extends IEntity<DataImplementation>> MultiReferenceEntry<E2> newEntryForMultiReferenceAndReferencedEntityId(
+	public static <E2 extends IEntity<DataImplementation>> MultiReferenceEntry<E2>
+	newEntryForMultiReferenceAndReferencedEntityId(
 		final IMultiReference<DataImplementation, E2> multiReference,
 		final String referencedEntityId
 	) {
