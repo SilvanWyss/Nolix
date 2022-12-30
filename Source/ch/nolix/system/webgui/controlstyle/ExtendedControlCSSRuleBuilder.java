@@ -28,31 +28,28 @@ extends ControlCSSRuleBuilder<EC, ECS> {
 		final LinkedList<CSSProperty> list
 	) {
 		
-		final var style = control.getRefStyle();
+		fillUpOptionalCSSPropertiesForControlAndStateIntoList(control, state, list);
 		
-		if (style.definesWidthForState(state)) {
-			list.addAtEnd(
-				CSSProperty.withNameAndValue(
-					CSSPropertyNameCatalogue.WIDTH,
-					ControlCSSValueHelper.INSTANCE.getCSSValueFromRelativeOrAbsoluteInt(
-						style.getWidthForState(state),
-						CSSUnitCatalogue.VW
-					)
-				)
-			);
-		}
+		fillUpMandatoryCSSPropertiesForControlAndStateIntoList(control, state, list);
 		
-		if (style.definesHeightForState(state)) {
-			list.addAtEnd(
-				CSSProperty.withNameAndValue(
-					CSSPropertyNameCatalogue.HEIGHT,
-					ControlCSSValueHelper.INSTANCE.getCSSValueFromRelativeOrAbsoluteInt(
-						style.getHeightForState(state),
-						CSSUnitCatalogue.VH
-					)
-				)
-			);
-		}
+		fillUpCSSPropertiesForExtendedControlAndStateIntoList(control, state, list);
+	}
+	
+	//method declaration
+	protected abstract void fillUpCSSPropertiesForExtendedControlAndStateIntoList(
+		EC control,
+		ControlState state,
+		LinkedList<CSSProperty> list
+	);
+	
+	//method
+	private void fillUpMandatoryCSSPropertiesForControlAndStateIntoList(
+		final EC control,
+		final ControlState state,
+		final LinkedList<CSSProperty> list
+	) {
+		
+		var style = control.getRefStyle();
 		
 		list.addAtEnd(
 			CSSProperty.withNameAndValue(
@@ -108,14 +105,39 @@ extends ControlCSSRuleBuilder<EC, ECS> {
 				String.valueOf(style.getBottomPaddingWhenHasState(state)) + CSSUnitCatalogue.PX
 			)
 		);
-		
-		fillUpCSSPropertiesForExtendedControlAndStateIntoList(control, state, list);
 	}
 	
-	//method declaration
-	protected abstract void fillUpCSSPropertiesForExtendedControlAndStateIntoList(
-		EC control,
-		ControlState state,
-		LinkedList<CSSProperty> list
-	);
+	//method
+	private void fillUpOptionalCSSPropertiesForControlAndStateIntoList(
+		final EC control,
+		final ControlState state,
+		final LinkedList<CSSProperty> list
+	) {
+		
+		var style = control.getRefStyle();
+		
+		if (style.definesWidthForState(state)) {
+			list.addAtEnd(
+				CSSProperty.withNameAndValue(
+					CSSPropertyNameCatalogue.WIDTH,
+					ControlCSSValueHelper.INSTANCE.getCSSValueFromRelativeOrAbsoluteInt(
+						style.getWidthForState(state),
+						CSSUnitCatalogue.VW
+					)
+				)
+			);
+		}
+		
+		if (style.definesHeightForState(state)) {
+			list.addAtEnd(
+				CSSProperty.withNameAndValue(
+					CSSPropertyNameCatalogue.HEIGHT,
+					ControlCSSValueHelper.INSTANCE.getCSSValueFromRelativeOrAbsoluteInt(
+						style.getHeightForState(state),
+						CSSUnitCatalogue.VH
+					)
+				)
+			);
+		}
+	}
 }
