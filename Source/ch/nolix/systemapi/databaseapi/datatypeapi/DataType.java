@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.databaseapi.datatypeapi;
 
+//own imports
 import ch.nolix.coreapi.programstructureapi.dataapi.IBinaryObject;
 
 //enum
@@ -17,26 +18,18 @@ public enum DataType {
 	
 	//static method
 	public static DataType forType(final Class<?> type) {
+		return
 		switch (type.getSimpleName()) {
-			case "Byte":
-				return INTEGER_1BYTE;
-			case "Short":
-				return INTEGER_2BYTE;
-			case "Integer":
-				return INTEGER_4BYTE;
-			case "Long":
-				return INTEGER_8BYTE;
-			case "Float":
-				return FLOATING_POINT_NUMBER_4BYTE;
-			case "Double":
-				return FLOATING_POINT_NUMBER_8BYTE;
-			case "Boolean":
-				return BOOLEAN;
-			case "String":
-				return STRING;
-			default:
-				throw new IllegalArgumentException("The given type does not represent a DataType.");
-		}
+			case "Byte" -> INTEGER_1BYTE;
+			case "Short" -> INTEGER_2BYTE;
+			case "Integer" -> INTEGER_4BYTE;
+			case "Long" -> INTEGER_8BYTE;
+			case "Float" -> FLOATING_POINT_NUMBER_4BYTE;
+			case "Double" -> FLOATING_POINT_NUMBER_8BYTE;
+			case "Boolean" -> BOOLEAN;
+			case "String" -> STRING;
+			default -> throw new IllegalArgumentException("The given type does not represent a DataType.");
+		};
 	}
 	
 	//attribute
