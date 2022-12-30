@@ -47,25 +47,20 @@ public final class Background extends Element implements IBackground {
 		
 		final var childNode = specification.getRefFirstChildNode();
 		
+		return
 		switch (childNode.getHeader()) {
-			case COLOR_HEADER:
-				return withColor(Color.fromSpecification(childNode));
-			case COLOR_GRADIENT_HEADER:
-				return withColorGradient(ColorGradient.fromSpecification(childNode));
-			case IMAGE_HEADER:				
-				return
+			case COLOR_HEADER ->
+				withColor(Color.fromSpecification(childNode));
+			case COLOR_GRADIENT_HEADER ->
+				withColorGradient(ColorGradient.fromSpecification(childNode));
+			case IMAGE_HEADER ->
 				withImageAndImageApplication(
 					Image.fromSpecification(specification.getRefChildNodeAt1BasedIndex(1)),
 					ImageApplication.fromSpecification(specification.getRefChildNodeAt1BasedIndex(2))
 				);
-			default:
-				throw
-				UnrepresentingArgumentException.forArgumentNameAndArgumentAndType(
-					LowerCaseCatalogue.SPECIFICATION,
-					specification,
-					Background.class
-				);
-		}
+			default ->
+				throw createExceptionForSpecificationDoesNotSpecifyBackground(specification);
+		};
 	}
 	
 	//static method
@@ -89,6 +84,18 @@ public final class Background extends Element implements IBackground {
 		final ImageApplication imageApplication
 	) {
 		return new Background(image, imageApplication);
+	}
+	
+	//method
+	private static UnrepresentingArgumentException createExceptionForSpecificationDoesNotSpecifyBackground(
+		final INode<?> specification
+	) {
+		return
+		UnrepresentingArgumentException.forArgumentNameAndArgumentAndType(
+			LowerCaseCatalogue.SPECIFICATION,
+			specification,
+			Background.class
+		);
 	}
 	
 	//attribute
@@ -140,16 +147,17 @@ public final class Background extends Element implements IBackground {
 	//method
 	@Override
 	public IContainer<INode<?>> getAttributes() {
+		return
 		switch (getType()) {
-			case COLOR:
-				return LinkedList.withElements(getColor().getSpecification());
-			case COLOR_GRADIENT:
-				return LinkedList.withElements(getColorGradient().getSpecification());
-			case IMAGE:
-				return LinkedList.withElements(getImage().getSpecification(), Node.fromEnum(getImageApplication()));
-			default:
+			case COLOR ->
+				LinkedList.withElements(getColor().getSpecification());
+			case COLOR_GRADIENT ->
+				LinkedList.withElements(getColorGradient().getSpecification());
+			case IMAGE ->
+				LinkedList.withElements(getImage().getSpecification(), Node.fromEnum(getImageApplication()));
+			default ->
 				throw InvalidArgumentException.forArgument(this);
-		}
+		};
 	}
 	
 	//method
@@ -222,37 +230,37 @@ public final class Background extends Element implements IBackground {
 	@Override
 	public IContainer<ICSSProperty> toCSSProperties() {
 		switch (getType()) {
-		case COLOR:
-			
-			final var colorCode = getColorCodeOfColor(color);
-			
-			return
-			ImmutableList.withElements(CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.BACKGROUND, colorCode));
-		case COLOR_GRADIENT:
-			
-			final var degreeCode = getDegreeCodeOfColorGradient(colorGradient);
-			final var color1Code = getColorCodeOfColor(colorGradient.getColor1());
-			final var color2Code = getColorCodeOfColor(colorGradient.getColor2());
-			final var linearGradientCode = "linear-gradient(" + degreeCode + "," + color1Code + "," + color2Code + ")";
-			
-			return
-			ImmutableList.withElements(
-				CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.BACKGROUND_IMAGE, linearGradientCode)
-			);
-		case IMAGE:
-			
-			final var backgroundImage = "data:image/jpeg;base64," + image.toJPGString();
-			
-			return
-			ImmutableList.withElements(		
-				CSSProperty.withNameAndValue(
-					CSSPropertyNameCatalogue.BACKGROUND_IMAGE,
-					"url('" + backgroundImage + "')"
-				),
-				CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.BACKGROUND_SIZE, "100% 100%")
-			);
-		default:
-			throw InvalidArgumentException.forArgument(this);
+			case COLOR:
+				
+				final var colorCode = getColorCodeOfColor(color);
+				
+				return
+				ImmutableList.withElements(CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.BACKGROUND, colorCode));
+			case COLOR_GRADIENT:
+				
+				final var degreeCode = getDegreeCodeOfColorGradient(colorGradient);
+				final var color1Code = getColorCodeOfColor(colorGradient.getColor1());
+				final var color2Code = getColorCodeOfColor(colorGradient.getColor2());
+				final var linearGradientCode = "linear-gradient(" + degreeCode + "," + color1Code + "," + color2Code + ")";
+				
+				return
+				ImmutableList.withElements(
+					CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.BACKGROUND_IMAGE, linearGradientCode)
+				);
+			case IMAGE:
+				
+				final var backgroundImage = "data:image/jpeg;base64," + image.toJPGString();
+				
+				return
+				ImmutableList.withElements(		
+					CSSProperty.withNameAndValue(
+						CSSPropertyNameCatalogue.BACKGROUND_IMAGE,
+						"url('" + backgroundImage + "')"
+					),
+					CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.BACKGROUND_SIZE, "100% 100%")
+				);
+			default:
+				throw InvalidArgumentException.forArgument(this);
 		}
 	}
 	
@@ -294,17 +302,18 @@ public final class Background extends Element implements IBackground {
 	
 	//method
 	private int getDegreeOfDirection(final DirectionInRectangle direction) {
+		return
 		switch (direction) {
-			case VERTICAL:
-				return 180;
-			case HORIZONTAL:
-				return 90;
-			case DIAGONAL_DOWN:
-				return 135;
-			case DIAGONAL_UP:
-				return 45;
-			default:
+			case VERTICAL ->
+				180;
+			case HORIZONTAL ->
+				90;
+			case DIAGONAL_DOWN ->
+				135;
+			case DIAGONAL_UP ->
+				45;
+			default ->
 				throw InvalidArgumentException.forArgument(direction);
-		}
+		};
 	}
 }
