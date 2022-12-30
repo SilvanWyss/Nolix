@@ -106,7 +106,10 @@ public final class RecordStatementCreator implements IRecordStatementCreator {
 		final var contentFieldSets =
 		recordUpdate.getUpdatedContentFields().to(cf -> cf.getColumnName() + " = " + getValueOrNullInSQLOf(cf));
 		
-		final var contentFieldSetsPrecessor = contentFieldSets.isEmpty() ? " " : ", ";
+		var contentFieldSetsPrecessor = " ";
+		if (contentFieldSets.containsAny()) {
+			contentFieldSetsPrecessor = ", ";
+		}
 		
 		return
 		"UPDATE "
