@@ -27,7 +27,11 @@ implements ICookieManager {
 	//method
 	@Override
 	public final void deleteCookieByName(final String name) {
-		//TODO: Implement.
+		
+		final var deleteCookieCommand =
+		BaseBackendWebClientCommandCreator.INSTANCE.createDeleteCookieByNameCommand(name);
+		
+		runOnCounterpart(deleteCookieCommand);
 	}
 	
 	//method

@@ -2003,6 +2003,9 @@ define("Core/Web/CookieManager", ["require", "exports"], function (require, expo
     Object.defineProperty(exports, "__esModule", { value: true });
     class CookieManager {
         CookieManager() { }
+        deleteCookieByName(name) {
+            document.cookie = 'name=' + name + '; max-age=0';
+        }
         getCookieValueByCookieNameOrEmptyString(cookieName) {
             const cookieString = window.document.cookie;
             const cookies = cookieString.split(';');
@@ -2026,6 +2029,7 @@ define("System/Application/WebApplicationProtocol/CommandProtocol", ["require", 
     Object.defineProperty(exports, "__esModule", { value: true });
     class CommandProtocol {
     }
+    CommandProtocol.DELETE_COOKIE_BY_NAME = "DeleteCookieByName";
     CommandProtocol.OPEN_NEW_TAB = 'OpenNewTab';
     CommandProtocol.REDIRECT = "Redirect";
     CommandProtocol.SET_CSS = "SetCSS";
@@ -2609,12 +2613,19 @@ define("System/Application/WebApplication/FrontendWebClient", ["require", "expor
                 case CommandProtocol_2.CommandProtocol.SET_OR_ADD_COOKIE_WITH_NAME_AND_VALUE:
                     this.runSetOrAddCookieWithNameAndValueCommand(command);
                     break;
+                case CommandProtocol_2.CommandProtocol.DELETE_COOKIE_BY_NAME:
+                    this.runDeleteCookieByNameCommand(command);
+                    break;
                 default:
                     throw new Error('The given command \'' + command + '\' is not valid.');
             }
         }
         redirectTo(pURL) {
             this.mGUIManager.redirectTo(pURL);
+        }
+        runDeleteCookieByNameCommand(deleteCookieByNameCommand) {
+            const name = deleteCookieByNameCommand.getOneAttribute().getHeader();
+            CookieManager_1.CookieManager.INSTANCE.deleteCookieByName(name);
         }
         runOpenNewTabCommand(openNewTabCommand) {
             const lURL = openNewTabCommand

@@ -22,6 +22,15 @@ final class BaseBackendWebClientCommandCreator {
 	private BaseBackendWebClientCommandCreator() {}
 	
 	//method
+	public ChainedNode createDeleteCookieByNameCommand(final String cookieName) {
+		return
+		ChainedNode.withHeaderAndChildNode(
+			CommandProtocol.DELETE_COOKIE_BY_NAME,
+			ChainedNode.withHeader(cookieName)
+		);
+	}
+	
+	//method
 	public ChainedNode createOpenNewTabCommand(final String pURL) {
 		return
 		ChainedNode.withHeaderAndChildNode(
