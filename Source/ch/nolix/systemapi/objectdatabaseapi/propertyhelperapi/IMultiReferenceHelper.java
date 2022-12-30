@@ -15,6 +15,9 @@ public interface IMultiReferenceHelper extends IPropertyHelper {
 	void assertCanClear(IMultiReference<?, ?> multiReference);
 	
 	//method declaration
+	<IMPL, E extends IEntity<IMPL>> boolean canRemoveEntity(IMultiReference<IMPL, E> multiReference, E entity);
+	
+	//method declaration
 	IEntityUpdateDTO createEntityUpdateDTOForAddEntity(IMultiReference<?, ?> multiReference, IEntity<?> entity);
 	
 	//method declaration

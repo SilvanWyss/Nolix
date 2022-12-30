@@ -49,6 +49,17 @@ public final class MultiReferenceHelper extends PropertyHelper implements IMulti
 	
 	//method
 	@Override
+	public <IMPL, E extends IEntity<IMPL>> boolean canRemoveEntity(
+		final IMultiReference<IMPL, E> multiReference,
+		final E entity
+	) {
+		return
+		canRemoveEntity(multiReference)
+		&& entity.isOpen();
+	}
+	
+	//method
+	@Override
 	public IEntityUpdateDTO createEntityUpdateDTOForAddEntity(
 		final IMultiReference<?, ?> multiReference,
 		final IEntity<?> entity
@@ -83,5 +94,12 @@ public final class MultiReferenceHelper extends PropertyHelper implements IMulti
 		multiReference != null
 		&& multiReference.belongsToEntity()
 		&& multiReference.getRefParentEntity().isOpen();
+	}
+	
+	//method
+	private boolean canRemoveEntity(IMultiReference<?, ?> multiReference) {
+		return
+		multiReference != null
+		&& multiReference.isOpen();
 	}
 }
