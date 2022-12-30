@@ -1,12 +1,15 @@
 //package declaration
 package ch.nolix.system.objectdatabase.database;
 
+//own imports
 import ch.nolix.system.objectdatabase.propertyhelper.ValueHelper;
+import ch.nolix.system.objectdatabase.propertyvalidator.ValueValidator;
 import ch.nolix.system.sqlrawdata.databasedto.ContentFieldDTO;
 import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IValue;
 import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IValueHelper;
+import ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi.IValueValidator;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDTO;
 
 //class
@@ -14,6 +17,9 @@ public final class Value<V> extends BaseValue<V> implements IValue<DataImplement
 	
 	//static attribute
 	private static final IValueHelper valueHelper = new ValueHelper();
+	
+	//static attribute
+	private static final IValueValidator valueValidator = new ValueValidator();
 	
 	//static method
 	public static <V2> Value<V2> withInitialValue(final V2 initialValue) {
@@ -59,7 +65,7 @@ public final class Value<V> extends BaseValue<V> implements IValue<DataImplement
 	@Override
 	public void setValue(final V value) {
 		
-		valueHelper.assertCanSetGivenValue(this, value);
+		valueValidator.assertCanSetGivenValue(this, value);
 		
 		updateStateForSetValue(value);
 		
