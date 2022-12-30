@@ -11,7 +11,7 @@ import ch.nolix.system.sqlrawdata.sqlapi.IMultiValueQueryCreator;
 import ch.nolix.system.sqlrawdata.sqlapi.IRecordQueryCreator;
 import ch.nolix.system.sqlrawdata.sqlapi.ISQLSyntaxProvider;
 import ch.nolix.system.time.moment.Time;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedRecordDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedEntityDTO;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.IColumnInfo;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
 
@@ -94,7 +94,7 @@ final class InternalDatabaseReader {
 	}
 	
 	//method
-	public IContainer<ILoadedRecordDTO> loadAllRecordsFromTable(final ITableInfo tableInfo) {
+	public IContainer<ILoadedEntityDTO> loadAllRecordsFromTable(final ITableInfo tableInfo) {
 		return
 		mSQLConnection
 		.getRecords(recordQueryCreator.createQueryToLoadAllRecordsFromTable(tableInfo))
@@ -102,7 +102,7 @@ final class InternalDatabaseReader {
 	}
 	
 	//method
-	public ILoadedRecordDTO loadRecordFromTableById(final ITableInfo tableInfo, final String id) {
+	public ILoadedEntityDTO loadRecordFromTableById(final ITableInfo tableInfo, final String id) {
 		return
 		loadedRecordDTOMapper.createLoadedRecordDTOFromSQLRecord(
 			mSQLConnection.getOneRecord(recordQueryCreator.createQueryToLoadRecordFromTableById(id, tableInfo)),

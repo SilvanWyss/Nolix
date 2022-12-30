@@ -9,7 +9,7 @@ import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.system.sqlrawdata.databasedto.LoadedRecordDTO;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedContentFieldDTO;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedRecordDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedEntityDTO;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.IColumnInfo;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
 
@@ -20,7 +20,7 @@ final class LoadedRecordDTOMapper {
 	private static final ContentFieldMapper contentFieldMapper = new ContentFieldMapper();
 	
 	//method
-	public ILoadedRecordDTO createLoadedRecordDTOFromSQLRecord(
+	public ILoadedEntityDTO createLoadedRecordDTOFromSQLRecord(
 		final List<String> pSQLRecordValues,
 		final ITableInfo tableInfo
 	) {

@@ -5,7 +5,7 @@ package ch.nolix.systemapi.rawdatabaseapi.databasedtoapi;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 
 //interface
-public interface ILoadedRecordDTO {
+public interface ILoadedEntityDTO {
 	
 	//method declaration
 	IContainer<ILoadedContentFieldDTO> getContentFields();

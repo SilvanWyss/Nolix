@@ -9,7 +9,7 @@ import ch.nolix.systemapi.rawdatabaseapi.databaseadapterapi.IDatabaseAdapter;
 import ch.nolix.systemapi.rawdatabaseapi.databaseadapterapi.IDatabaseReader;
 import ch.nolix.systemapi.rawdatabaseapi.databaseadapterapi.IDatabaseWriter;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDTO;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedRecordDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedEntityDTO;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IRecordDTO;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
@@ -172,13 +172,13 @@ public abstract class BaseDatabaseAdapter implements IDatabaseAdapter {
 	
 	//method	
 	@Override
-	public final IContainer<ILoadedRecordDTO> loadAllRecordsFromTable(final String tableName) {
+	public final IContainer<ILoadedEntityDTO> loadAllRecordsFromTable(final String tableName) {
 		return databaseReader.loadAllRecordsFromTable(tableName);
 	}
 	
 	//method
 	@Override
-	public final ILoadedRecordDTO loadRecordFromTableById(final String tableName, final String id) {
+	public final ILoadedEntityDTO loadRecordFromTableById(final String tableName, final String id) {
 		return databaseReader.loadRecordFromTableById(tableName, id);
 	}
 	

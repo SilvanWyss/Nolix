@@ -10,7 +10,7 @@ import ch.nolix.system.nodedatabaserawschema.structure.DatabaseNodeSearcher;
 import ch.nolix.system.nodedatabaserawschema.structure.DatabasePropertiesNodeSearcher;
 import ch.nolix.system.sqlrawdata.databasereader.ValueMapper;
 import ch.nolix.system.time.moment.Time;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedRecordDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedEntityDTO;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.IColumnInfo;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
 
@@ -54,7 +54,7 @@ public final class InternalDatabaseReader {
 	}
 	
 	//method
-	public IContainer<ILoadedRecordDTO> loadAllRecordsFromTable(final ITableInfo tableInfo) {
+	public IContainer<ILoadedEntityDTO> loadAllRecordsFromTable(final ITableInfo tableInfo) {
 		
 		final var tableNode =
 		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
@@ -107,7 +107,7 @@ public final class InternalDatabaseReader {
 	}
 	
 	//method
-	public ILoadedRecordDTO loadRecordFromTableById(final ITableInfo tableInfo, final String id) {
+	public ILoadedEntityDTO loadRecordFromTableById(final ITableInfo tableInfo, final String id) {
 		
 		final var tableNode =
 		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());

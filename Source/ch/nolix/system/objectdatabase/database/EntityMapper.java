@@ -4,7 +4,7 @@ package ch.nolix.system.objectdatabase.database;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedContentFieldDTO;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedRecordDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedEntityDTO;
 
 //class
 final class EntityMapper {
@@ -15,7 +15,7 @@ final class EntityMapper {
 	//method
 	@SuppressWarnings("unchecked")
 	public <E extends IEntity<DataImplementation>> E createEntityFromRecordForGivenTable(
-		final ILoadedRecordDTO pRecord,
+		final ILoadedEntityDTO pRecord,
 		final ITable<DataImplementation, E> table
 	) {
 		
@@ -43,7 +43,7 @@ final class EntityMapper {
 	}
 	
 	//method
-	private void addDataFromRecordToEntity(final ILoadedRecordDTO pRecord, final BaseEntity entity) {
+	private void addDataFromRecordToEntity(final ILoadedEntityDTO pRecord, final BaseEntity entity) {
 		
 		entity.internalSetId(pRecord.getId());
 		entity.internalSetSaveStamp(pRecord.getSaveStamp());

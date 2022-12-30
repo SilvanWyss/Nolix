@@ -10,7 +10,7 @@ import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.system.sqlrawdata.sqlapi.ISQLSyntaxProvider;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.rawdatabaseapi.databaseadapterapi.IDatabaseReader;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedRecordDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedEntityDTO;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.IColumnInfo;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
 
@@ -94,13 +94,13 @@ public final class DatabaseReader implements IDatabaseReader {
 	
 	//method
 	@Override
-	public IContainer<ILoadedRecordDTO> loadAllRecordsFromTable(final String tableName) {
+	public IContainer<ILoadedEntityDTO> loadAllRecordsFromTable(final String tableName) {
 		return internalDatabaseReader.loadAllRecordsFromTable(getTableInfoByTableName(tableName));
 	}
 
 	//method
 	@Override
-	public ILoadedRecordDTO loadRecordFromTableById(final String tableName, final String id) {
+	public ILoadedEntityDTO loadRecordFromTableById(final String tableName, final String id) {
 		return internalDatabaseReader.loadRecordFromTableById(getTableInfoByTableName(tableName), id);
 	}
 	

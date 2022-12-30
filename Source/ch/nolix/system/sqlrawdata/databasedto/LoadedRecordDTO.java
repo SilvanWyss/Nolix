@@ -6,11 +6,11 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedContentFieldDTO;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedRecordDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedEntityDTO;
 
 //class
 public record LoadedRecordDTO(String id, String saveStamp, IContainer<ILoadedContentFieldDTO> contentFields)
-implements ILoadedRecordDTO {
+implements ILoadedEntityDTO {
 	
 	//constructor
 	public LoadedRecordDTO( //NOSONAR

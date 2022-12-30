@@ -8,7 +8,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.nodedatabaserawdata.structure.EntityNodeSearcher;
 import ch.nolix.system.sqlrawdata.databasedto.LoadedRecordDTO;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedContentFieldDTO;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedRecordDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedEntityDTO;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
 
 //class
@@ -19,7 +19,7 @@ public final class LoadedRecordDTOMapper {
 	private static final EntityNodeSearcher entityNodeSearcher = new EntityNodeSearcher();
 	
 	//method
-	public ILoadedRecordDTO createLoadedRecordDTOFromRecordNode(
+	public ILoadedEntityDTO createLoadedRecordDTOFromRecordNode(
 		final IMutableNode<?> recordNode,
 		final ITableInfo tableInfo
 	) {

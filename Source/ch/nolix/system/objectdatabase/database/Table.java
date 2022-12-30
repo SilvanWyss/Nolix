@@ -16,7 +16,7 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
 import ch.nolix.systemapi.objectdatabaseapi.databasehelperapi.ITableHelper;
 import ch.nolix.systemapi.rawdatabaseapi.databaseandschemaadapterapi.IDataAndSchemaAdapter;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedRecordDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedEntityDTO;
 
 //class
 public final class Table<E extends IEntity<DataImplementation>> implements ITable<DataImplementation, E> {
@@ -227,7 +227,7 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 	
 	//method
 	@SuppressWarnings("unchecked")
-	private E createEntityFrom(ILoadedRecordDTO pRecord) {
+	private E createEntityFrom(ILoadedEntityDTO pRecord) {
 		return (E)entityMapper.createEntityFromRecordForGivenTable(pRecord, (Table<BaseEntity>)this);
 	}
 	
@@ -237,7 +237,7 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 	}
 	
 	//method
-	private void insertEntityFromGivenRecordInLocalDataIfNotInserted(ILoadedRecordDTO pRecord) {
+	private void insertEntityFromGivenRecordInLocalDataIfNotInserted(ILoadedEntityDTO pRecord) {
 		if (!tableHelper.containsEntityWithGivenIdInLocalData(this, pRecord.getId())) {
 			entitiesInLocalData.addAtEnd(createEntityFrom(pRecord));
 		}
@@ -281,7 +281,7 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 	}
 	
 	//method
-	private ILoadedRecordDTO loadRecordOfEntityById(final String id) {
+	private ILoadedEntityDTO loadRecordOfEntityById(final String id) {
 		return internalGetRefDataAndSchemaAdapter().loadRecordFromTableById(getName(), id);
 	}
 }

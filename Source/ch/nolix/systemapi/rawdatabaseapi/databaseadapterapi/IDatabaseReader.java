@@ -4,7 +4,7 @@ package ch.nolix.systemapi.rawdatabaseapi.databaseadapterapi;
 //own imports
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedRecordDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedEntityDTO;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //interface
@@ -14,7 +14,7 @@ public interface IDatabaseReader extends GroupCloseable {
 	ITime getSchemaTimestamp();
 	
 	//method declaration
-	IContainer<ILoadedRecordDTO> loadAllRecordsFromTable(String tableName);
+	IContainer<ILoadedEntityDTO> loadAllRecordsFromTable(String tableName);
 	
 	//method declaration
 	IContainer<String> loadAllMultiReferenceEntriesForRecord(
@@ -31,7 +31,7 @@ public interface IDatabaseReader extends GroupCloseable {
 	);
 	
 	//method declaration
-	ILoadedRecordDTO loadRecordFromTableById(String tableName, String id);
+	ILoadedEntityDTO loadRecordFromTableById(String tableName, String id);
 	
 	//method declaration
 	boolean tableContainsEntityWithGivenValueAtGivenColumn(String tableName, String columnName, String value);
