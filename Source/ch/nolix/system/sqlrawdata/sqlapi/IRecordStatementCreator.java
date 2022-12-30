@@ -2,7 +2,7 @@
 package ch.nolix.system.sqlrawdata.sqlapi;
 
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDTO;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IRecordDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.INewEntityDTO;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
@@ -19,7 +19,7 @@ public interface IRecordStatementCreator {
 	String createStatementToExpectTableContainsEntity(String tableName, String entityId);
 	
 	//method declaration
-	String createStatementToInsertRecordIntoTable(String tableName, IRecordDTO pRecord);
+	String createStatementToInsertRecordIntoTable(String tableName, INewEntityDTO pRecord);
 	
 	//method declaration
 	String createStatementToSetEntityAsUpdated(String tableName, IEntityHeadDTO entity);

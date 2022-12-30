@@ -8,7 +8,7 @@ import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertySystem
 import ch.nolix.system.sqlrawschema.structure.SystemDataTable;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDTO;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDTO;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IRecordDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.INewEntityDTO;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
@@ -70,7 +70,7 @@ public final class RecordStatementCreator implements IRecordStatementCreator {
 	
 	//method
 	@Override
-	public String createStatementToInsertRecordIntoTable(final String tableName, final IRecordDTO pRecord) {
+	public String createStatementToInsertRecordIntoTable(final String tableName, final INewEntityDTO pRecord) {
 		return
 		"INSERT INTO "
 		+ tableName

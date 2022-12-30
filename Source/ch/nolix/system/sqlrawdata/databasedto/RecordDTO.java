@@ -7,10 +7,10 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDTO;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IRecordDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.INewEntityDTO;
 
 //class
-public record RecordDTO(String id,  ImmutableList<IContentFieldDTO> contentFields) implements IRecordDTO {
+public record RecordDTO(String id,  ImmutableList<IContentFieldDTO> contentFields) implements INewEntityDTO {
 	
 	//constructor
 	public RecordDTO(final String id, final IContainer<IContentFieldDTO> contentFields) {

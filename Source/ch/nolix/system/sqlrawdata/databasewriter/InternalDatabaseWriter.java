@@ -10,7 +10,7 @@ import ch.nolix.system.sqlrawdata.sqlapi.IMultiValueStatementCreator;
 import ch.nolix.system.sqlrawdata.sqlapi.IRecordStatementCreator;
 import ch.nolix.system.sqlrawdata.sqlapi.ISQLSyntaxProvider;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDTO;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IRecordDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.INewEntityDTO;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
@@ -156,7 +156,7 @@ public final class InternalDatabaseWriter {
 	}
 	
 	//method
-	public void insertRecordIntoTable(final String tableName, final IRecordDTO pRecord) {
+	public void insertRecordIntoTable(final String tableName, final INewEntityDTO pRecord) {
 		mSQLCollector.addSQLStatement(
 			recordStatementCreator.createStatementToInsertRecordIntoTable(tableName, pRecord)
 		);

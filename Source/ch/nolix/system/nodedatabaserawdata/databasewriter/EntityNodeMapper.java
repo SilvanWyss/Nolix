@@ -6,7 +6,7 @@ import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.system.nodedatabaserawdata.structure.SubNodeHeaderCatalogue;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IRecordDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.INewEntityDTO;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
 
 //class
@@ -15,7 +15,7 @@ final class EntityNodeMapper {
 	//method
 	public Node createNodeFromRecordWithSaveStamp(
 		final ITableInfo tableInfo,
-		final IRecordDTO pRecord,
+		final INewEntityDTO pRecord,
 		final long saveStamp
 	) {
 		return
@@ -27,7 +27,7 @@ final class EntityNodeMapper {
 	
 	//method
 	private IContainer<Node> createAttributesFromRecordWithSaveStamp(
-		final IRecordDTO pRecord,
+		final INewEntityDTO pRecord,
 		final long saveStamp,
 		final ITableInfo tableInfo
 	) {
@@ -54,7 +54,7 @@ final class EntityNodeMapper {
 	}
 	
 	//method
-	private Node createIdAttributeFrom(final IRecordDTO pRecord) {
+	private Node createIdAttributeFrom(final INewEntityDTO pRecord) {
 		return Node.withHeader(pRecord.getId());
 	}
 	

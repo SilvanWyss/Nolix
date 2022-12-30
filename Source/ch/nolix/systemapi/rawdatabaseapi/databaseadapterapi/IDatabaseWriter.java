@@ -4,7 +4,7 @@ package ch.nolix.systemapi.rawdatabaseapi.databaseadapterapi;
 //own imports
 import ch.nolix.coreapi.functionapi.mutationuniversalapi.IMultiTimeChangeSaver;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDTO;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IRecordDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.INewEntityDTO;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
@@ -128,7 +128,7 @@ public interface IDatabaseWriter extends IMultiTimeChangeSaver {
 	 * @param tableName
 	 * @param pRecord
 	 */
-	void insertRecordIntoTable(String tableName, IRecordDTO pRecord);
+	void insertRecordIntoTable(String tableName, INewEntityDTO pRecord);
 	
 	//method declaration
 	/**

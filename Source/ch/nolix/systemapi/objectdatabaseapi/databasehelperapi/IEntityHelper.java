@@ -8,7 +8,7 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDTO;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IRecordDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.INewEntityDTO;
 
 //interface
 public interface IEntityHelper extends IDatabaseObjectHelper {
@@ -32,7 +32,7 @@ public interface IEntityHelper extends IDatabaseObjectHelper {
 	IEntityHeadDTO createRecordHeadDTOForEntity(IEntity<?> entity);
 	
 	//method declaration
-	IRecordDTO createRecordFor(IEntity<?> entity);
+	INewEntityDTO createRecordFor(IEntity<?> entity);
 	
 	//method declaration
 	<IMPL> IContainer<IProperty<IMPL>> getRefBackReferencingProperties(IEntity<IMPL> entity);
