@@ -57,7 +57,7 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
 		areNotNull();
 		
 		//Iterates the arguments of this multi double mediator.
-		int i = 1;
+		var i = 1;
 		for (final double a : getRefArguments()) {
 			
 			//Asserts that the current argument is bigger than the given value.
@@ -88,7 +88,7 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
 		areNotNull();
 	
 		//Iterates the arguments of this multi double mediator.
-		int i = 1;
+		var i = 1;
 		for (final double a : getRefArguments()) {
 			
 			//Asserts that the current arguemnt is negative.
@@ -114,7 +114,7 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
 		areNotNull();
 		
 		//Iterates the arguments of this multi double mediator.
-		int i = 1;
+		var i = 1;
 		for (final double a : getRefArguments()) {
 			
 			//Asserts that the current argument is positive.
@@ -140,7 +140,7 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
 		areNotNull();
 		
 		//Iterates the arguments of this multi double mediator.
-		int i = 1;
+		var i = 1;
 		for (final double a : getRefArguments()) {
 			
 			//Asserts that the current argument is smaller than the given value.

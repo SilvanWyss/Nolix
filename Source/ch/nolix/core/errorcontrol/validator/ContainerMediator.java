@@ -104,7 +104,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 		}
 		
 		//Iterates the elements of the argument of this container mediator.
-		boolean found = false;
+		var found = false;
 		for (final E e : getRefArgument()) {
 			
 			//Handles the case that the current element fulfills the given condition.
@@ -143,7 +143,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 		//Asserts that the argument of this container mediator is not null.
 		isNotNull();
 		
-		int actualElementCount = 0;
+		var actualElementCount = 0;
 		
 		//Iterates the argument of this container mediator.
 		Iterator<E> iterator = getRefArgument().iterator();

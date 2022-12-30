@@ -22,7 +22,7 @@ final class LogWorker extends Thread {
 	@Override
 	public void run() {
 		
-		boolean idle = false;
+		var idle = false;
 		long startTimeOfLastIdleInMilliseconds = -1;
 		
 		while (active) {
@@ -62,7 +62,7 @@ final class LogWorker extends Thread {
 	
 	//method
 	private synchronized LogEntry getAndRemoveNextLogEntry() {
-		final LogEntry logEntry = logEntries.getRefFirst();
+		final var logEntry = logEntries.getRefFirst();
 		logEntries.removeFirst();
 		return logEntry;
 	}

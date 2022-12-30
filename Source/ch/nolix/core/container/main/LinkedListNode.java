@@ -144,7 +144,7 @@ final class LinkedListNode<E> {
 			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "next node");
 		}
 				
-		final E lElement = nextNode.getElement();
+		final var lElement = nextNode.getElement();
 		nextNode.setElement(getElement());
 		setElement(lElement);
 	}

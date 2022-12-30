@@ -112,7 +112,7 @@ public final class MultiLongMediator extends Mediator {
 		} else {
 			
 			//Iterates the values of this multi long mediator.
-			int i = 1;
+			var i = 1;
 			for (final long v: values) {
 				
 				//Asserts that the current value is between the given min and max.
@@ -144,7 +144,7 @@ public final class MultiLongMediator extends Mediator {
 		} else {
 			
 			//Iterates the values of this multi long mediator.
-			int i = 1;
+			var i = 1;
 			for (final long v: values) {
 				
 				//Asserts that the current value is bigger than the given value.
@@ -182,7 +182,7 @@ public final class MultiLongMediator extends Mediator {
 		} else {
 			
 			//Iterates the values of this multi long mediator.
-			int i = 1;
+			var i = 1;
 			for (final long v: values) {
 				
 				//Asserts that the current value is dividable by the given value.
@@ -214,7 +214,7 @@ public final class MultiLongMediator extends Mediator {
 		} else {
 			
 			//Iterates the values of this multi long mediator.
-			int i = 1;
+			var i = 1;
 			for (final long v: values) {
 				
 				//Asserts that the current value equals the given value.
@@ -244,7 +244,7 @@ public final class MultiLongMediator extends Mediator {
 		} else {
 			
 			//Iterates the values of this multi long mediator.
-			int i = 1;
+			var i = 1;
 			for (final long v: values) {
 				
 				//Asserts that the current value is even.
@@ -272,7 +272,7 @@ public final class MultiLongMediator extends Mediator {
 		} else {
 			
 			//Iterates the values of this multi long mediator.
-			int i = 1;
+			var i = 1;
 			for (final long v: values) {
 				
 				//Asserts that the current value is negative.
@@ -300,7 +300,7 @@ public final class MultiLongMediator extends Mediator {
 		} else {
 			
 			//Iterates the values of this multi long mediator.
-			int i = 1;
+			var i = 1;
 			for (final long v: values) {
 				
 				//Asserts that the current value is odd.
@@ -328,7 +328,7 @@ public final class MultiLongMediator extends Mediator {
 		} else {
 			
 			//Iterates the values of this multi long mediator.
-			int i = 1;
+			var i = 1;
 			for (final long v: values) {
 				
 				//Asserts that the current value is positive.
@@ -358,7 +358,7 @@ public final class MultiLongMediator extends Mediator {
 		} else {
 			
 			//Iterates the values of this multi long mediator.
-			int i = 1;
+			var i = 1;
 			for (final long v: values) {
 				
 				//Asserts that the current value is smaller than the given value.
@@ -390,7 +390,7 @@ public final class MultiLongMediator extends Mediator {
 		} else {
 			
 			//Iterates the values of this multi long mediator.
-			int i = 1;
+			var i = 1;
 			for (final long v: values) {
 				
 				//Asserts that the current value does not equal the given value.

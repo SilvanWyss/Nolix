@@ -32,7 +32,7 @@ public final class ListIterator<E> implements Iterator<E> {
 			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "next element");
 		}
 		
-		final E element = nextNode.getRefElement();
+		final var element = nextNode.getRefElement();
 		
 		nextNode = nextNode.getRefNextNodeOrNull();
 		

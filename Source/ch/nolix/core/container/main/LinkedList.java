@@ -676,7 +676,7 @@ public final class LinkedList<E> extends Container<E> implements Clearable, IMut
 	 * @throws EmptyArgumentException if the current {@link LinkedList} is empty.
 	 */
 	public E removeAndGetRefFirst() {
-		final E element = getRefFirst();
+		final var element = getRefFirst();
 		removeFirst();
 		return element;
 	}
@@ -691,7 +691,7 @@ public final class LinkedList<E> extends Container<E> implements Clearable, IMut
 	 * @throws InvalidArgumentException if the current {@link LinkedList} does not contain an element the given selector selects.
 	 */
 	public E removeAndGetRefFirst(final IElementTakerBooleanGetter<E> selector) {
-		E element = getRefFirst(selector);
+		final var element = getRefFirst(selector);
 		removeFirst(selector);
 		return element;
 	}
@@ -705,7 +705,7 @@ public final class LinkedList<E> extends Container<E> implements Clearable, IMut
 	 * @throws EmptyArgumentException if the current {@link LinkedList} is empty.
 	 */
 	public E removeAndGetRefLast() {
-		E element = getRefLast();
+		final var element = getRefLast();
 		removeLast();
 		return element;
 	}

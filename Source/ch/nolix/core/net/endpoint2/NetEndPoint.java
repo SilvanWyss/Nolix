@@ -306,7 +306,7 @@ public class NetEndPoint extends EndPoint {
 		//Sends message and receives reply.
 		final var index = getNextSentPackageIndex();
 		send(new Package(index, MessageRole.RESPONSE_EXPECTING_MESSAGE, message));
-		final Package response = waitToAndGetAndRemoveReceivedPackage(index);
+		final var response = waitToAndGetAndRemoveReceivedPackage(index);
 		
 		if (response == null) {
 			return null;

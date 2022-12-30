@@ -81,7 +81,7 @@ public final class AsLongAsMediator {
 			
 		//Handles the case that this as long as mediator has a max run count.
 		} else {
-			for (int i = 1; i <= maxRunCount; i++) {
+			for (var i = 1; i <= maxRunCount; i++) {
 				
 				if (!condition.getOutput()) {
 					break;

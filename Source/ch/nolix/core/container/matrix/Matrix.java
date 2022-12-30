@@ -690,7 +690,7 @@ public final class Matrix<E> extends Container<E> implements Clearable, IMatrix<
 			}
 			
 			//Iterates the columns of the current row.
-			for (int j = 0; j < getColumnCount(); j++) {
+			for (var j = 0; j < getColumnCount(); j++) {
 				
 				if (j > 0) {
 					stringBuilder.append(CharacterCatalogue.COMMA);

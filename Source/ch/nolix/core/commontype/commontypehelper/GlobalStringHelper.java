@@ -47,7 +47,7 @@ public final class GlobalStringHelper {
 			);
 		}
 		
-		final StringBuilder stringBuilder = new StringBuilder(string);
+		final var stringBuilder = new StringBuilder(string);
 		
 		GlobalSequencer
 		.forCount(length - string.length())
@@ -79,7 +79,7 @@ public final class GlobalStringHelper {
 		
 		final var stringBuilder = new StringBuilder();
 		
-		for (int i = 1; i <= tabulatorCount; i++) {
+		for (var i = 1; i <= tabulatorCount; i++) {
 			stringBuilder.append(CharacterCatalogue.TABULATOR);
 		}
 		
@@ -364,9 +364,9 @@ public final class GlobalStringHelper {
 	 */
 	private static long toLongFromNonNegativeHexaDecimal(final String string) {
 		
-		int number = 0;
+		var number = 0;
 		
-		for (int i = 0; i < string.length(); i++) {
+		for (var i = 0; i < string.length(); i++) {
 			
 			number *= 16;
 			

@@ -460,11 +460,11 @@ public final class Matrix {
 		.thatIsNamed("number of rows of the given matrix")
 		.isEqualTo(getColumnCount());
 		
-		final Matrix product = new Matrix(getRowCount(), matrix.getColumnCount());
+		final var product = new Matrix(getRowCount(), matrix.getColumnCount());
 		
 		for (var i = 0; i < product.getRowCount(); i++) {
 			for (var j = 0; j < product.getColumnCount(); j++) {
-				for (int k = 0; k < getColumnCount(); k++) {
+				for (var k = 0; k < getColumnCount(); k++) {
 					product.values[i][j] += values[i][k] * matrix.values[k][j];
 				}
 			}
@@ -889,7 +889,7 @@ public final class Matrix {
 		//Handles the case that the current Matrix consists of 1 column.
 		if (getColumnCount() == 1) {
 			
-			final double[] lValues = new double[getRowCount()];
+			final var lValues = new double[getRowCount()];
 			
 			for (var i = 0; i < getRowCount(); i++) {
 				lValues[i] = this.values[i][0];
@@ -971,7 +971,7 @@ public final class Matrix {
 				
 				final var factor2 = values[i][j];
 				
-				for (int k = 0; k < getColumnCount(); k++) {
+				for (var k = 0; k < getColumnCount(); k++) {
 					values[i][k] -= factor2 * values[j][k];
 				}
 			}

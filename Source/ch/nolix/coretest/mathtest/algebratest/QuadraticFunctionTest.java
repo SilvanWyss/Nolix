@@ -25,7 +25,7 @@ public final class QuadraticFunctionTest extends Test {
 	public void testCase_hasMin() {
 		
 		//setup
-		final QuadraticFunction quadraticFunction =
+		final var quadraticFunction =
 		new QuadraticFunction(1.0, 0.0, 0.0);
 		
 		//execution & verification
@@ -37,7 +37,7 @@ public final class QuadraticFunctionTest extends Test {
 	public void testCase_hasMin_2() {
 		
 		//setup
-		final QuadraticFunction quadraticFunction =
+		final var quadraticFunction =
 		new QuadraticFunction(-1.0, 0.0, 0.0);
 		
 		//execution & verification

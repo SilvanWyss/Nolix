@@ -65,7 +65,7 @@ public final class MultiDoubleMediator extends Mediator {
 		} else {
 		
 			//Iterates the values of the current MultiDoubleMediator.
-			int i = 1;
+			var i = 1;
 			for (final double v : values) {
 				
 				//Asserts that the current value is positive.
@@ -95,7 +95,7 @@ public final class MultiDoubleMediator extends Mediator {
 		} else {
 		
 			//Iterates the values of the current MultiDoubleMediator.
-			int i = 1;
+			var i = 1;
 			for (final double v : values) {
 				
 				//Asserts that the current value is negative.
@@ -125,7 +125,7 @@ public final class MultiDoubleMediator extends Mediator {
 		} else {
 		
 			//Iterates the values of the current MultiDoubleMediator.
-			int i = 1;
+			var i = 1;
 			for (final double v : values) {
 				
 				//Asserts that the current value is positive.
@@ -158,7 +158,7 @@ public final class MultiDoubleMediator extends Mediator {
 		} else {
 		
 			//Iterates the values of the current MultiDoubleMediator.
-			int i = 1;
+			var i = 1;
 			for (final double v : values) {
 				
 				//Asserts that the current value is positive.

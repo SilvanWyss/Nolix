@@ -59,7 +59,7 @@ public class MultiArgumentMediator<A> {
 	public final void areNotNull() {
 		
 		//Iterates the arguments of this multi argument mediator.
-		int index = 1;
+		var index = 1;
 		for (final A a : getRefArguments()) {
 			
 			//Asserts that the current argument is not null.
@@ -81,7 +81,7 @@ public class MultiArgumentMediator<A> {
 	public final void fulfill(final IElementTakerBooleanGetter<A> condition) {
 		
 		//Iterates the arguments of this multi argument mediator.
-		int index = 1;
+		var index = 1;
 		for (final A a : getRefArguments()) {
 			
 			//Asserts that the current argument fulfills the given condition.

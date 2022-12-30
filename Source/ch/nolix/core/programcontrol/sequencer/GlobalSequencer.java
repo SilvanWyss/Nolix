@@ -159,7 +159,7 @@ public final class GlobalSequencer {
 		//Asserts that the given condition is not null.
 		GlobalValidator.assertThat(condition).thatIsNamed(LowerCaseCatalogue.CONDITION).isNotNull();
 				
-		int i = 1;
+		var i = 1;
 		while (condition.getOutput()) {
 			
 			if (i < 100) {

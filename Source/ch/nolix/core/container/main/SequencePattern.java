@@ -106,14 +106,14 @@ public final class SequencePattern<E> {
 		
 		//Iterates the given list.
 		final LinkedListIterator<E> iterator = list.iterator();
-		for (int i = 1; i <= maxSequenceCount; i++) {
+		for (var i = 1; i <= maxSequenceCount; i++) {
 		
 			//Asserts that the current sequence fulfills the element conditions of the current SequencePattern.
-			boolean sequenceFulfillsElementConditions = true;
+			var sequenceFulfillsElementConditions = true;
 			final LinkedListIterator<E> iterator2 = iterator.getCopy();
 			for (final IElementTakerBooleanGetter<E> c : elementConditions) {
 				
-				final E element = iterator2.next();
+				final var element = iterator2.next();
 				
 				if (!c.getOutput(element)) {
 					sequenceFulfillsElementConditions = false;

@@ -182,7 +182,7 @@ public final class CentralArrayHelper {
 			throw new IllegalArgumentException("The given values is null.");
 		}
 		
-		final StringBuilder stringBuilder = new StringBuilder();
+		final var stringBuilder = new StringBuilder();
 		
 		//Iterates the given values.
 		for (var i = 0; i < values.length; i++) {
@@ -236,7 +236,7 @@ public final class CentralArrayHelper {
 			throw new IllegalArgumentException("The given values is null.");
 		}
 		
-		final StringBuilder stringBuilder = new StringBuilder();
+		final var stringBuilder = new StringBuilder();
 		
 		//Iterates the given values.
 		for (var i = 0; i < values.length; i++) {

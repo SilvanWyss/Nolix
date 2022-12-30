@@ -47,7 +47,7 @@ final class SubContainerIterator<E> implements Iterator<E> {
 		currentIndex = startIndex;
 		
 		iterator = container.iterator();
-		for (int i = 1; i < startIndex; i++) {
+		for (var i = 1; i < startIndex; i++) {
 			iterator.next();
 		}
 	}

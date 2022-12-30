@@ -94,7 +94,7 @@ public final class TimeTest extends Test {
 					dayCount = 30;
 				}
 				
-				for (int d = 1; d <= dayCount; d++) {
+				for (var d = 1; d <= dayCount; d++) {
 					
 					//execution
 					final var result = Time.withYearAndMonthOfYearAndDayOfMonth(y, m, d);

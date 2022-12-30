@@ -79,7 +79,7 @@ public final class MultiStringMediator extends MultiArgumentMediator<String> {
 		areNotNull();
 		
 		//Iterates the arguments of this string container mediator.
-		int index = 1;
+		var index = 1;
 		for (final String a : getRefArguments()) {
 						
 			//Asserts that the current argument is not empty.

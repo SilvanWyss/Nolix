@@ -45,7 +45,7 @@ public final class MultiLongMediator extends MultiArgumentMediator<Long> {
 		areNotNull();
 		
 		//Iterates through the arguments of this long container mediator.
-		int index = 1;
+		var index = 1;
 		for (long a: getRefArguments()) {
 			
 			//Asserts that the current argument is positive.

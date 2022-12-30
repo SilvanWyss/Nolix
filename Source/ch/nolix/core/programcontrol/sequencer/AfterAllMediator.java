@@ -203,14 +203,14 @@ public final class AfterAllMediator {
 		
 		//Handles the case that the current AfterAllMediator does not have a condition.
 		if (!hasCondition()) {
-			for (int i = 1; i <= maxRunCount; i++) {
+			for (var i = 1; i <= maxRunCount; i++) {
 				job.run();
 				Waiter.waitForMilliseconds(timeIntervalInMilliseconds);
 			}
 			
 		//Handles the case that the current AfterAllMediator has a condition.
 		} else {
-			for (int i = 1; i <= maxRunCount; i++) {
+			for (var i = 1; i <= maxRunCount; i++) {
 				
 				if (!condition.getOutput()) {
 					break;

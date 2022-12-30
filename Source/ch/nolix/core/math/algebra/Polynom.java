@@ -310,7 +310,7 @@ public final class Polynom {
 		var value = coefficients[0];
 		
 		var base = 1.0;
-		for (int i = 1; i < coefficients.length; i++) {
+		for (var i = 1; i < coefficients.length; i++) {
 			base *= x;
 			value += coefficients[i] * base;
 		}

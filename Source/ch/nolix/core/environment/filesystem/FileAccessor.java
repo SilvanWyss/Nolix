@@ -80,7 +80,7 @@ public final class FileAccessor extends FileSystemItemAccessor {
 	 * @throws RuntimeException if an error occurs.
 	 */
 	public void overwriteFile(final String content) {
-		try (final PrintWriter printWriter = new PrintWriter(getInternalAccessor())) {
+		try (final var printWriter = new PrintWriter(getInternalAccessor())) {
 			printWriter.print(content.replace("\n", "\r\n"));
 			printWriter.flush();
 		} catch (final IOException exception) {
@@ -127,7 +127,7 @@ public final class FileAccessor extends FileSystemItemAccessor {
 		
 		final var lines = new LinkedList<String>();
 		
-		try (final BufferedReader bufferedReader = new BufferedReader(new FileReader(getInternalAccessor()))) {
+		try (final var bufferedReader = new BufferedReader(new FileReader(getInternalAccessor()))) {
 			String line;
 			while ((line = bufferedReader.readLine()) != null) {
 				lines.addAtEnd(line);

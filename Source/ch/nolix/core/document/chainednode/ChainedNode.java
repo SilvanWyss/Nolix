@@ -820,7 +820,7 @@ public final class ChainedNode implements IChainedNode {
 			
 			stringBuilder.append("(");
 			
-			boolean atBegin = true;
+			var atBegin = true;
 			for (final var a : childNodes) {
 				
 				if (atBegin) {

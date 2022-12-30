@@ -132,12 +132,12 @@ public final class QuadraticFunction {
 		
 		//Handles the case that the current quadratic function has 1 solution.
 		if (discriminant == 0) {
-			final double[] solutions = new double[1];
+			final var solutions = new double[1];
 			solutions[0] = -b / (2 * a);
 		}
 		
 		//Handles the case that the current quadratic function has 2 solutions.
-		final double[] solutions = new double[2];
+		final var solutions = new double[2];
 		double discriminantRoot = Math.sqrt(discriminant);
 		solutions[0] = (-b - discriminantRoot) / (2 * a);
 		solutions[1] = (-b + discriminantRoot) / (2 * a);

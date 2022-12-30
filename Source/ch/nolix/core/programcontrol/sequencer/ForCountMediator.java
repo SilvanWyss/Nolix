@@ -42,7 +42,7 @@ public final class ForCountMediator {
 	 * @param job
 	 */
 	public void run(final IAction job) {
-		for (int i = 1; i <= maxRunCount; i++) {
+		for (var i = 1; i <= maxRunCount; i++) {
 			job.run();
 		}
 	}

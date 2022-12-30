@@ -14,7 +14,7 @@ public final class ARModelTest extends Test {
 		
 		//execution
 		final double[] inputValues = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-		final ARModel lARModel = new ARModel(1, inputValues);
+		final var lARModel = new ARModel(1, inputValues);
 		
 		//verification
 		expect(lARModel.getForecast(1)).withMaxDeviation(0.01).isEqualTo(11.0);
@@ -29,7 +29,7 @@ public final class ARModelTest extends Test {
 		
 		//execution
 		final double[] inputValues = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-		final ARModel lARModel = new ARModel(2, inputValues);
+		final var lARModel = new ARModel(2, inputValues);
 		
 		//verification
 		expect(lARModel.getForecast(1)).withMaxDeviation(0.01).isEqualTo(11.0);
@@ -44,7 +44,7 @@ public final class ARModelTest extends Test {
 		
 		//execution
 		final double[] inputValues = {1, 2, 1, 2, 1, 2, 1, 2, 1, 2};
-		final ARModel lARModel = new ARModel(2, inputValues);
+		final var lARModel = new ARModel(2, inputValues);
 
 		//verification
 		expect(lARModel.getForecast(1)).withMaxDeviation(0.01).isEqualTo(1.0);
@@ -59,7 +59,7 @@ public final class ARModelTest extends Test {
 		
 		//execution
 		final double[] inputValues = {1, 2, 1, 2, 1, 2, 1, 2, 1, 2};
-		final ARModel lARModel = new ARModel(3, inputValues);
+		final var lARModel = new ARModel(3, inputValues);
 	
 		//verification
 		expect(lARModel.getForecast(1)).withMaxDeviation(0.01).isEqualTo(1.0);
@@ -74,7 +74,7 @@ public final class ARModelTest extends Test {
 		
 		//execution
 		final double[] inputValues = {1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3};
-		final ARModel lARModel = new ARModel(3, inputValues);
+		final var lARModel = new ARModel(3, inputValues);
 		
 		//verification
 		expect(lARModel.getForecast(1)).withMaxDeviation(0.01).isEqualTo(1.0);
@@ -91,7 +91,7 @@ public final class ARModelTest extends Test {
 		
 		//exection
 		final double[] inputValues = {1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3};
-		final ARModel lARModel = new ARModel(4, inputValues);
+		final var lARModel = new ARModel(4, inputValues);
 		
 		//verification
 		expect(lARModel.getForecast(1)).withMaxDeviation(0.01).isEqualTo(1.0);
