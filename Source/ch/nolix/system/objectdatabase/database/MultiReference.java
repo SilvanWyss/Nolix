@@ -262,7 +262,7 @@ implements IMultiReference<DataImplementation, E> {
 			}
 		}
 	}
-		
+	
 	//method
 	private void updateRecordForClear() {
 		if (isLinkedWithRealDatabase()) {
