@@ -263,7 +263,7 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 	//method
 	private void loadAllEntitiesInLocalDataWhenNotLoadedAll() {
 		
-		for (final var r : internalGetRefDataAndSchemaAdapter().loadAllRecordsFromTable(getName())) {
+		for (final var r : internalGetRefDataAndSchemaAdapter().loadEntitiesOfTable(getName())) {
 			insertEntityFromGivenRecordInLocalDataIfNotInserted(r);
 		}
 		
@@ -282,6 +282,6 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 	
 	//method
 	private ILoadedEntityDTO loadRecordOfEntityById(final String id) {
-		return internalGetRefDataAndSchemaAdapter().loadRecordFromTableById(getName(), id);
+		return internalGetRefDataAndSchemaAdapter().loadEntityOfTableById(getName(), id);
 	}
 }

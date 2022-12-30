@@ -14,24 +14,24 @@ public interface IDatabaseReader extends GroupCloseable {
 	ITime getSchemaTimestamp();
 	
 	//method declaration
-	IContainer<ILoadedEntityDTO> loadAllRecordsFromTable(String tableName);
+	IContainer<ILoadedEntityDTO> loadEntitiesOfTable(String tableName);
 	
 	//method declaration
-	IContainer<String> loadAllMultiReferenceEntriesForRecord(
+	IContainer<String> loadEntriesOfMultiReference(
 		String tableName,
 		String entityId,
 		String multiReferenceColumnName
 	);
 	
 	//method declaration
-	IContainer<Object> loadAllMultiValueEntriesFromRecord(
+	IContainer<Object> loadEntriesOfMultiValue(
 		String tableName,
 		String entityId,
 		String multiValueColumnName
 	);
 	
 	//method declaration
-	ILoadedEntityDTO loadRecordFromTableById(String tableName, String id);
+	ILoadedEntityDTO loadEntityOfTableById(String tableName, String id);
 	
 	//method declaration
 	boolean tableContainsEntityWithGivenValueAtGivenColumn(String tableName, String columnName, String value);
