@@ -186,18 +186,9 @@ implements IMultiReference<DataImplementation, E> {
 	}
 	
 	//method
-	private void assertCanClear() {
-		multiReferenceHelper.assertCanClear(this);
-	}
-	
-	//method
 	private void clearWhenContainsAny() {
 		
-		assertCanClear();
-		
-		updateStateForClear();
-		
-		updateRecordForClear();
+		getReferencedEntities().forEach(this::removeEntity);
 		
 		setAsEditedAndRunProbableUpdateAction();
 	}
@@ -280,23 +271,7 @@ implements IMultiReference<DataImplementation, E> {
 	}
 	
 	//method
-	private void updateRecordForClear() {
-		if (isLinkedWithRealDatabase()) {
-			internalGetRefDataAndSchemaAdapter().deleteEntriesFromMultiReference(
-				getRefParentEntity().getParentTableName(),
-				getRefParentEntity().getId(),
-				getName()
-			);
-		}
-	}
-	
-	//method
 	private void updateStateForAddEntity(final E entity) {
 		localEntries.addAtEnd(MultiReferenceEntry.newEntryForMultiReferenceAndReferencedEntityId(this, entity.getId()));
-	}
-	
-	//method
-	private void updateStateForClear() {
-		//TODO: Implement.
 	}
 }
