@@ -29,9 +29,9 @@ public interface IEntity<IMPL> extends Deletable, IDatabaseObject, IdentifiedByS
 	//method declaration
 	boolean hasSaveStamp();
 	
-    //method declaration
-    boolean isReferencedInPersistedData();
-    
+	//method declaration
+	boolean isReferencedInPersistedData();
+	
 	//method declaration
 	IContainer<? extends IProperty<IMPL>> technicalGetRefProperties();
 }
