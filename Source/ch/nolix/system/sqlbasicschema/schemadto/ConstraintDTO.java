@@ -18,7 +18,7 @@ public record ConstraintDTO(ConstraintType type, ImmutableList<String> parameter
 	}
 	
 	//constructor
-	public ConstraintDTO(final ConstraintType type, ImmutableList<String> parameters) { //NOSONAR
+	public ConstraintDTO(final ConstraintType type, ImmutableList<String> parameters) { //NOSONAR: This implementations checks the given arguments.
 		
 		GlobalValidator.assertThat(type).thatIsNamed(ConstraintType.class).isNotNull();
 		

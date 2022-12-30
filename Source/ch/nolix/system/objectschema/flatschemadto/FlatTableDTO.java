@@ -11,7 +11,7 @@ public record FlatTableDTO(String id, String name) implements IFlatTableDTO {
 	
 	//constructor
 	//For a better performance, this implementation does not use all comfortable methods.
-	public FlatTableDTO(final String id, final String name) { //NOSONAR
+	public FlatTableDTO(final String id, final String name) { //NOSONAR: This implementations checks the given arguments.
 		
 		if (id == null) {
 			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.ID);

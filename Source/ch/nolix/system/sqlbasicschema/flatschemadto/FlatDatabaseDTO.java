@@ -10,7 +10,7 @@ import ch.nolix.systemapi.sqlbasicschemaapi.flatschemadtoapi.IFlatDatabaseDTO;
 public record FlatDatabaseDTO(String name) implements IFlatDatabaseDTO {
 	
 	//constructor
-	public FlatDatabaseDTO(final String name) { //NOSONAR
+	public FlatDatabaseDTO(final String name) { //NOSONAR: This implementations checks the given arguments.
 		
 		GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotNull();
 		

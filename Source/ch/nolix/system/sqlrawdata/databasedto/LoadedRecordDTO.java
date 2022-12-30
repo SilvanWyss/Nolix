@@ -13,7 +13,7 @@ public record LoadedRecordDTO(String id, String saveStamp, IContainer<ILoadedCon
 implements ILoadedEntityDTO {
 	
 	//constructor
-	public LoadedRecordDTO( //NOSONAR
+	public LoadedRecordDTO( //NOSONAR: This implementations checks the given arguments.
 		final String id,
 		final String saveStamp,
 		final IContainer<ILoadedContentFieldDTO> contentFields

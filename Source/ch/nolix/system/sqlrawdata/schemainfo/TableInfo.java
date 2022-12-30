@@ -23,7 +23,7 @@ implements ITableInfo {
 	}
 	
 	//constructor
-	public TableInfo( //NOSONAR
+	public TableInfo( //NOSONAR: This implementations checks the given arguments.
 		final String tableId,
 		final String tableName,
 		final ImmutableList<IColumnInfo> columnInfos

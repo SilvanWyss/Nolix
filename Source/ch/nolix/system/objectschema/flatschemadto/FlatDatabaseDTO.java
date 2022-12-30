@@ -11,7 +11,7 @@ public record FlatDatabaseDTO(String name) implements IFlatDatabaseDTO {
 	
 	//constructor
 	//For a better performance, this implementation does not use all comforDatabase methods.
-	public FlatDatabaseDTO(final String name) { //NOSONAR
+	public FlatDatabaseDTO(final String name) { //NOSONAR: This implementations checks the given arguments.
 		
 		if (name == null) {
 			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.NAME);

@@ -18,7 +18,7 @@ public record DatabaseDTO(String name, ImmutableList<ITableDTO> tables) implemen
 	}
 	
 	//constructor
-	public DatabaseDTO(final String name, final ImmutableList<ITableDTO> tables) { //NOSONAR
+	public DatabaseDTO(final String name, final ImmutableList<ITableDTO> tables) { //NOSONAR: This implementations checks the given arguments.
 		
 		GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotNull();
 		

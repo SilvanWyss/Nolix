@@ -10,7 +10,7 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDTO;
 public record EntityHeadDTO(String id, String saveStamp) implements IEntityHeadDTO {
 	
 	//constructor
-	public EntityHeadDTO(final String id, final String saveStamp) { //NOSONAR
+	public EntityHeadDTO(final String id, final String saveStamp) { //NOSONAR: This implementations checks the given arguments.
 		
 		if (id == null) {
 			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.ID);

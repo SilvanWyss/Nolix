@@ -20,7 +20,7 @@ public record DatabaseDTO(String name, ImmutableList<ITableDTO> tables) implemen
 	
 	//constructor
 	//For a better performance, this implementation does not use all comfortable methods.
-	public DatabaseDTO(final String name, final ImmutableList<ITableDTO> tables) { //NOSONAR
+	public DatabaseDTO(final String name, final ImmutableList<ITableDTO> tables) { //NOSONAR: This implementations checks the given arguments.
 		
 		if (name == null) {
 			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.NAME);
