@@ -11,7 +11,7 @@ public final class NodeTest extends BaseNodeTest<Node> {
 	
 	//method
 	@TestCase
-	public final void testCase_asWithHeader_1A() {
+	public void testCase_asWithHeader_1A() {
 		
 		//setup
 		final var testUnit = Node.fromString("a(x,y)");
@@ -25,7 +25,7 @@ public final class NodeTest extends BaseNodeTest<Node> {
 	
 	//method
 	@TestCase
-	public final void testCase_asWithHeader_1B() {
+	public void testCase_asWithHeader_1B() {
 		
 		//setup
 		final var testUnit = Node.fromString("(x,y)");
@@ -39,7 +39,7 @@ public final class NodeTest extends BaseNodeTest<Node> {
 	
 	//method
 	@TestCase
-	public final void testCase_asWithHeader_1C() {
+	public void testCase_asWithHeader_1C() {
 		
 		//setup
 		final var testUnit = Node.fromString("a");

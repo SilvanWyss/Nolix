@@ -5,7 +5,7 @@ package ch.nolix.core.document.chainednode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 
 //class
-final record HeaderLengthAndTaskAfterHeaderParameter(int headerLength, TaskAfterHeader taskAfterHeader) {
+record HeaderLengthAndTaskAfterHeaderParameter(int headerLength, TaskAfterHeader taskAfterHeader) {
 	
 	//constructor
 	public HeaderLengthAndTaskAfterHeaderParameter( //NOSONAR

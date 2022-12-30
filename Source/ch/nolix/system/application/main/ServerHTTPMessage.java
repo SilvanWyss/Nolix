@@ -7,7 +7,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.application.main.resource.ResourcePathCatalogue;
 
 //class
-final record ServerHTTPMessage(String serverIP,  int serverPort) {
+record ServerHTTPMessage(String serverIP,  int serverPort) {
 	
 	//constant
 	private static final String REQUIRE_JS_SCRIPT = RunningJar.getResource(ResourcePathCatalogue.REQUIRE_JS);
