@@ -27,6 +27,12 @@ public final class GlobalEnglishNounHelper {
 			default:
 		}
 		
+		return getPluralOfNounWhenIsStandardCase(noun);
+	}
+	
+	//static method
+	private static String getPluralOfNounWhenIsStandardCase(final String noun) {
+		
 		if (noun.endsWith("man")) {
 			return (noun.substring(0, noun.length() - 3) + "men");
 		}
@@ -49,7 +55,7 @@ public final class GlobalEnglishNounHelper {
 		) {
 			return (noun + "s");
 		}
-				
+		
 		if (noun.endsWith("y")) {
 			return (noun.substring(0, noun.length() - 1) + "ies");
 		}
