@@ -123,7 +123,7 @@ public interface IDatabaseWriter extends IMultiTimeChangeSaver {
 	
 	//method declaration
 	/**
-	 * Inserts the given pRecord into the table with the given tableName.
+	 * Inserts the given newEntity into the table with the given tableName.
 	 * 
 	 * @param tableName
 	 * @param newEntity
