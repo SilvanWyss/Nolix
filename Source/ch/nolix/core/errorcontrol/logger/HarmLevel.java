@@ -10,19 +10,17 @@ public enum HarmLevel {
 	
 	//method
 	public final boolean isHigherThan(final HarmLevel harmLevel) {
-		
+		return
 		switch (this) {
-			case INFO:
-				return false;
-			case WARNING:
-				return (harmLevel == INFO);
-			case ERROR:
-				return (harmLevel == INFO || harmLevel == WARNING);
-			case FATAL_ERROR:
-				return (harmLevel == INFO || harmLevel == WARNING || harmLevel == ERROR);
-		}
-		
-		return false;
+			case INFO ->
+				false;
+			case WARNING ->
+				(harmLevel == INFO);
+			case ERROR ->
+				(harmLevel == INFO || harmLevel == WARNING);
+			case FATAL_ERROR ->
+				(harmLevel == INFO || harmLevel == WARNING || harmLevel == ERROR);
+		};
 	}
 	
 	//method
