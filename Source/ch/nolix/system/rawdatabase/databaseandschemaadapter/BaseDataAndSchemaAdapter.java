@@ -171,22 +171,22 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
 	
 	//method
 	@Override
-	public final IContainer<String> loadEntriesOfMultiReference(
+	public final IContainer<String> loadMultiReferenceEntries(
 		final String tableName,
 		final String entityId,
 		final String multiReferenceColumnName
 	) {
-		return databaseAdapter.loadEntriesOfMultiReference(tableName, entityId, multiReferenceColumnName);
+		return databaseAdapter.loadMultiReferenceEntries(tableName, entityId, multiReferenceColumnName);
 	}
 	
 	//method
 	@Override
-	public final IContainer<Object> loadEntriesOfMultiValue(
+	public final IContainer<Object> loadMultiValueEntries(
 		final String tableName,
 		final String entityId,
 		final String multiFieldColumnName
 	) {
-		return databaseAdapter.loadEntriesOfMultiValue(tableName, entityId, multiFieldColumnName);
+		return databaseAdapter.loadMultiValueEntries(tableName, entityId, multiFieldColumnName);
 	}
 	
 	//method	
@@ -227,8 +227,8 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
 	
 	//method
 	@Override
-	public final ILoadedEntityDTO loadEntityOfTableById(final String tableName, final String id) {
-		return databaseAdapter.loadEntityOfTableById(tableName, id);
+	public final ILoadedEntityDTO loadEntity(final String tableName, final String id) {
+		return databaseAdapter.loadEntity(tableName, id);
 	}
 	
 	//method

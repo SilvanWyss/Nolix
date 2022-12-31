@@ -152,22 +152,22 @@ public abstract class BaseDatabaseAdapter implements IDatabaseAdapter {
 	}
 	
 	@Override
-	public final IContainer<String> loadEntriesOfMultiReference(
+	public final IContainer<String> loadMultiReferenceEntries(
 		final String tableName,
 		final String entityId,
 		final String multiReferenceColumnName
 	) {
-		return databaseReader.loadEntriesOfMultiReference(tableName, entityId, multiReferenceColumnName);
+		return databaseReader.loadMultiReferenceEntries(tableName, entityId, multiReferenceColumnName);
 	}
 	
 	//method
 	@Override
-	public final IContainer<Object> loadEntriesOfMultiValue(
+	public final IContainer<Object> loadMultiValueEntries(
 		final String tableName,
 		final String entityId,
 		final String multiFieldColumnName
 	) {
-		return databaseReader.loadEntriesOfMultiValue(tableName, entityId, multiFieldColumnName);
+		return databaseReader.loadMultiValueEntries(tableName, entityId, multiFieldColumnName);
 	}
 	
 	//method	
@@ -178,8 +178,8 @@ public abstract class BaseDatabaseAdapter implements IDatabaseAdapter {
 	
 	//method
 	@Override
-	public final ILoadedEntityDTO loadEntityOfTableById(final String tableName, final String id) {
-		return databaseReader.loadEntityOfTableById(tableName, id);
+	public final ILoadedEntityDTO loadEntity(final String tableName, final String id) {
+		return databaseReader.loadEntity(tableName, id);
 	}
 	
 	//method

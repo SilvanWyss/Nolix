@@ -17,21 +17,21 @@ public interface IDatabaseReader extends GroupCloseable {
 	IContainer<ILoadedEntityDTO> loadEntitiesOfTable(String tableName);
 	
 	//method declaration
-	IContainer<String> loadEntriesOfMultiReference(
+	IContainer<String> loadMultiReferenceEntries(
 		String tableName,
 		String entityId,
 		String multiReferenceColumnName
 	);
 	
 	//method declaration
-	IContainer<Object> loadEntriesOfMultiValue(
+	IContainer<Object> loadMultiValueEntries(
 		String tableName,
 		String entityId,
 		String multiValueColumnName
 	);
 	
 	//method declaration
-	ILoadedEntityDTO loadEntityOfTableById(String tableName, String id);
+	ILoadedEntityDTO loadEntity(String tableName, String id);
 	
 	//method declaration
 	boolean tableContainsEntityWithGivenValueAtGivenColumn(String tableName, String columnName, String value);

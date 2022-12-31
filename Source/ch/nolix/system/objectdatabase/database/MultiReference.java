@@ -216,7 +216,7 @@ implements IMultiReference<DataImplementation, E> {
 	//method
 	private IContainer<MultiReferenceEntry<E>> loadReferencedEntityIds() {
 		return
-		internalGetRefDataAndSchemaAdapter().loadEntriesOfMultiReference(
+		internalGetRefDataAndSchemaAdapter().loadMultiReferenceEntries(
 			getRefParentEntity().getParentTableName(),
 			getRefParentEntity().getId(),
 			getName()

@@ -47,7 +47,7 @@ public final class DatabaseReader implements IDatabaseReader {
 	
 	//method
 	@Override
-	public IContainer<String> loadEntriesOfMultiReference(
+	public IContainer<String> loadMultiReferenceEntries(
 		final String tableName,
 		final String entityId,
 		final String multiReferenceColumnName
@@ -65,7 +65,7 @@ public final class DatabaseReader implements IDatabaseReader {
 	
 	//method
 	@Override
-	public IContainer<Object> loadEntriesOfMultiValue(
+	public IContainer<Object> loadMultiValueEntries(
 		final String tableName,
 		final String entityId,
 		final String multiValueColumnName
@@ -89,7 +89,7 @@ public final class DatabaseReader implements IDatabaseReader {
 	
 	//method
 	@Override
-	public ILoadedEntityDTO loadEntityOfTableById(final String tableName, final String id) {
+	public ILoadedEntityDTO loadEntity(final String tableName, final String id) {
 		return internalDatabaseReader.loadRecordFromTableById(getTableInfoByTableName(tableName), id);
 	}
 	

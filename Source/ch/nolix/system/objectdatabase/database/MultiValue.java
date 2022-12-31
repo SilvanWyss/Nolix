@@ -125,7 +125,7 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<Dat
 		loadedValues = true;
 		
 		if (isLinkedWithRealDatabase()) {
-			internalGetRefDataAndSchemaAdapter().loadEntriesOfMultiValue(
+			internalGetRefDataAndSchemaAdapter().loadMultiValueEntries(
 				getRefParentEntity().getParentTableName(),
 				getRefParentEntity().getId(),
 				getName()
