@@ -228,7 +228,7 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 	//method
 	@SuppressWarnings("unchecked")
 	private E createEntityFrom(ILoadedEntityDTO pRecord) {
-		return (E)entityMapper.createEntityFromRecordForGivenTable(pRecord, (Table<BaseEntity>)this);
+		return (E)entityMapper.createLoadedEntityFromDTO(pRecord, (Table<BaseEntity>)this);
 	}
 	
 	//method

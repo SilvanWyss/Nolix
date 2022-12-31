@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.objectdatabase.database;
 
+//own imports
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedContentFieldDTO;
@@ -14,19 +15,19 @@ final class EntityMapper {
 	
 	//method
 	@SuppressWarnings("unchecked")
-	public <E extends IEntity<DataImplementation>> E createEntityFromRecordForGivenTable(
-		final ILoadedEntityDTO pRecord,
+	public <E extends IEntity<DataImplementation>> E createLoadedEntityFromDTO(
+		final ILoadedEntityDTO loadedEntityDTO,
 		final ITable<DataImplementation, E> table
 	) {
 		
-		final var entity = entityCreator.createEmptyEntityFor(table);
+		final var loadedEntity = entityCreator.createEmptyEntityFor(table);
 		
-		final var concreteEntity = (BaseEntity)entity;
+		final var concreteEntity = (BaseEntity)loadedEntity;
 		concreteEntity.internalSetParentTable((ITable<DataImplementation, IEntity<DataImplementation>>)table);
 		concreteEntity.internalSetLoaded();
-		addDataFromRecordToEntity(pRecord, concreteEntity);
+		addDataFromRecordToEntity(loadedEntityDTO, concreteEntity);
 		
-		return entity;
+		return loadedEntity;
 	}
 	
 	//method
