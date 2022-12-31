@@ -71,11 +71,17 @@ public final class GapMatrix<E> extends Container<E> implements Clearable {
 	//method
 	public boolean containsAt(final int rowIndex, final int columnIndex) {
 		return
+		containsCellWithRowIndexAndColumnIndex(rowIndex, columnIndex)
+		&& rows[rowIndex - 1][columnIndex - 1] != null;
+	}
+	
+	//method
+	public boolean containsCellWithRowIndexAndColumnIndex(final int rowIndex, final int columnIndex) {
+		return
 		rowIndex > 0
 		&& rowIndex <= getRowCount()
 		&& columnIndex > 0
-		&& columnIndex <= getColumnCount()
-		&& rows[rowIndex - 1][columnIndex - 1] != null;
+		&& columnIndex <= getColumnCount();
 	}
 	
 	//method
