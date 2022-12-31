@@ -33,9 +33,6 @@ public interface IProperty<IMPL> extends EmptinessRequestable, IDatabaseObject, 
 	PropertyType getType();
 	
 	//method declaration
-	boolean isLinkedWithRealDatabase();
-	
-	//method declaration
 	boolean knowsParentColumn();
 	
 	//method declaration
