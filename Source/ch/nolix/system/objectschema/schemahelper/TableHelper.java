@@ -66,6 +66,15 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
 	
 	//method
 	@Override
+	public boolean canBeAddedToDatabase(final ITable<?> table) {
+		return
+		table != null
+		&& table.isOpen()
+		&& !table.belongsToDatabase();
+	}
+	
+	//method
+	@Override
 	public boolean containsGivenColumn(final ITable<?> table, final IColumn<?> column) {
 		return table.getRefColumns().contains(column);
 	}

@@ -26,6 +26,9 @@ public interface ITableHelper extends IDatabaseObjectHelper {
 	void assertIsNotReferenced(ITable<?> table);
 	
 	//method declaration
+	boolean canBeAddedToDatabase(ITable<?> table);
+	
+	//method declaration
 	boolean containsGivenColumn(ITable<?> table, IColumn<?> column);
 	
 	//method declaration
