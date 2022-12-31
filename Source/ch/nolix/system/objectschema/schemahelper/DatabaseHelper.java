@@ -126,8 +126,7 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 	public boolean canAddGivenTable(final IDatabase<?> database, final ITable<?> table) {
 		return
 		canAddTable(database)
-		&& table != null
-		&& table.isOpen()
+		&& tableHelper.canBeAddedToDatabase(table)
 		&& !containsTableWithGivenName(database, table.getName())
 		&& canAddGivenTableBecauseOfColumns(database, table);
 	}
