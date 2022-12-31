@@ -29,10 +29,10 @@ public interface IEntityHelper extends IDatabaseObjectHelper {
 	IEntityUpdateDTO createEntityUpdateDTOForEntity(IEntity<?> entity);
 	
 	//method declaration
-	IEntityHeadDTO createRecordHeadDTOForEntity(IEntity<?> entity);
+	IEntityHeadDTO createEntityHeadDTOForEntity(IEntity<?> entity);
 	
 	//method declaration
-	INewEntityDTO createRecordFor(IEntity<?> entity);
+	INewEntityDTO createNewEntityDTOForEntity(IEntity<?> entity);
 	
 	//method declaration
 	<IMPL> IContainer<IProperty<IMPL>> getRefBackReferencingProperties(IEntity<IMPL> entity);

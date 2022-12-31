@@ -55,7 +55,7 @@ final class SaveProcessor {
 					
 					database.internalGetRefDataAndSchemaAdapter().insertRecordIntoTable(
 						e.getParentTableName(),
-						entityHelper.createRecordFor(e)
+						entityHelper.createNewEntityDTOForEntity(e)
 					);
 					
 					saveMultiReferenceChangesOfEntity(e, database);
@@ -75,7 +75,7 @@ final class SaveProcessor {
 					
 					database.internalGetRefDataAndSchemaAdapter().deleteRecordFromTable(
 						e.getRefParentTable().getName(),
-						entityHelper.createRecordHeadDTOForEntity(e)
+						entityHelper.createEntityHeadDTOForEntity(e)
 					);
 					
 					break;
