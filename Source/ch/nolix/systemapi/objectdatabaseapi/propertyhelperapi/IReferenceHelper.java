@@ -11,9 +11,6 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
 public interface IReferenceHelper extends IPropertyHelper {
 	
 	//method declaration
-	void assertCanSetGivenEntity(IReference<?, ?> reference, IEntity<?> entity);
-	
-	//method declaration
 	boolean canSetGivenEntity(final IReference<?, ?> reference, IEntity<?> entity);
 	
 	//method declaration

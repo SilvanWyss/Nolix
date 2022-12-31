@@ -6,6 +6,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.system.objectdatabase.databasehelper.EntityHelper;
 import ch.nolix.system.objectdatabase.propertyhelper.ReferenceHelper;
+import ch.nolix.system.objectdatabase.propertyhelper.ReferenceValidator;
 import ch.nolix.system.sqlrawdata.databasedto.ContentFieldDTO;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.BasePropertyType;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
@@ -14,11 +15,15 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IReference;
 import ch.nolix.systemapi.objectdatabaseapi.databasehelperapi.IEntityHelper;
 import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IReferenceHelper;
+import ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi.IReferenceValidator;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDTO;
 
 //class
 public final class Reference<E extends IEntity<DataImplementation>> extends BaseReference<E>
 implements IReference<DataImplementation, E> {
+	
+	//constant
+	private static final IReferenceValidator REFERENCE_VALIDATOR = new ReferenceValidator();
 	
 	//static attribute
 	private static final IEntityHelper entityHelper = new EntityHelper();
@@ -160,7 +165,7 @@ implements IReference<DataImplementation, E> {
 	
 	//method
 	private void assertCanSetEntity(final E entity) {
-		referenceHelper.assertCanSetGivenEntity(this, entity);
+		REFERENCE_VALIDATOR.assertCanSetGivenEntity(this, entity);
 	}
 	
 	//method
