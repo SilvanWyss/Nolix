@@ -289,7 +289,7 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
 	
 	//method
 	@Override
-	public final void updateEntity(final String tableName, final IEntityUpdateDTO recordUpdate) {
-		databaseAdapter.updateEntity(tableName, recordUpdate);
+	public final void updateEntity(final String tableName, final IEntityUpdateDTO entityUpdate) {
+		databaseAdapter.updateEntity(tableName, entityUpdate);
 	}
 }

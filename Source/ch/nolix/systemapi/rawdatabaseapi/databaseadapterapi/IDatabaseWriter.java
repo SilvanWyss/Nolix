@@ -145,7 +145,7 @@ public interface IDatabaseWriter extends IMultiTimeChangeSaver {
 	 * There is not asserted that the concerned entity was not changed in the meanwhile.
 	 * 
 	 * @param tableName
-	 * @param recordUpdate
+	 * @param entityUpdate
 	 */
-	void updateEntity(String tableName, IEntityUpdateDTO recordUpdate);
+	void updateEntity(String tableName, IEntityUpdateDTO entityUpdate);
 }

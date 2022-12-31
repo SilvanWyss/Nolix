@@ -101,10 +101,10 @@ public final class RecordStatementCreator implements IRecordStatementCreator {
 	
 	//method
 	@Override
-	public String createStatementToUpdateEntityOnTable(final String tableName, final IEntityUpdateDTO recordUpdate) {
+	public String createStatementToUpdateEntityOnTable(final String tableName, final IEntityUpdateDTO entityUpdate) {
 		
 		final var contentFieldSets =
-		recordUpdate.getUpdatedContentFields().to(cf -> cf.getColumnName() + " = " + getValueOrNullInSQLOf(cf));
+		entityUpdate.getUpdatedContentFields().to(cf -> cf.getColumnName() + " = " + getValueOrNullInSQLOf(cf));
 		
 		var contentFieldSetsPrecessor = " ";
 		if (contentFieldSets.containsAny()) {
@@ -115,14 +115,14 @@ public final class RecordStatementCreator implements IRecordStatementCreator {
 		"UPDATE "
 		+ tableName
 		+ " SET SaveStamp = '"
-		+ (recordUpdate.getSaveStamp() + 1)
+		+ (entityUpdate.getSaveStamp() + 1)
 		+ "'"
 		+ contentFieldSetsPrecessor
 		+ contentFieldSets
 		+ " WHERE Id = '"
-		+ recordUpdate.getId()
+		+ entityUpdate.getId()
 		+ "' AND SaveStamp = '"
-		+  recordUpdate.getSaveStamp()
+		+  entityUpdate.getSaveStamp()
 		+ ";"
 		+ "IF @@RowCount = 0 BEGIN THROW error(100000, 'The data was changed in the meanwhile.', 0) END;";
 	}

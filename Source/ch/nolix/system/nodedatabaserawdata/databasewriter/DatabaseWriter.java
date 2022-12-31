@@ -212,8 +212,8 @@ public final class DatabaseWriter implements IDatabaseWriter {
 	
 	//method
 	@Override
-	public void updateEntity(final String tableName, final IEntityUpdateDTO recordUpdate) {
-		internalDatabaseWriter.updateEntityOnTable(getTableInfoByTableName(tableName), recordUpdate);
+	public void updateEntity(final String tableName, final IEntityUpdateDTO entityUpdate) {
+		internalDatabaseWriter.updateEntityOnTable(getTableInfoByTableName(tableName), entityUpdate);
 	}
 	
 	//method
